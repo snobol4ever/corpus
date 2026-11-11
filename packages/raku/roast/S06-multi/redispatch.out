@@ -1,0 +1,15 @@
+1..14
+ok 1 - can call nextsame inside a multi sub
+ok 2 - called in the right order
+ok 3 - can call callsame inside a multi sub
+ok 4 - called in the right order
+ok 5 - can call nextwith inside a multi sub
+ok 6 - called in the right order
+ok 7 - can call callwith inside a multi sub
+ok 8 - called in the right order
+ok 9 - It's ok to call nextsame in the last/only candidate
+ok 10 - nextsame in main block dies due to lack of dispatcher
+ok 11 - samewith $a stringified in sub
+ok 12 - samewith $b stringified for B
+ok 13 - samewith $b stringified for B.new
+ok 14 - samewith works from inside a nested closure

@@ -1,0 +1,1212 @@
+1..1110
+ok 1 - int array is Positional
+not ok 2 - int array is Positional[int] # TODO apparently it is not a typed Positional
+# Failed test 'int array is Positional[int]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 3 - int array .of is int
+ok 4 - int array is Positional
+not ok 5 - int array is Positional[int] # TODO apparently it is not a typed Positional
+# Failed test 'int array is Positional[int]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 6 - int array .of is int
+ok 7 - .new from int array is Positional
+not ok 8 - .new from int array Positional[int] # TODO apparently it is not a typed Positional
+# Failed test '.new from int array Positional[int]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 9 - .new from int array .of is int
+ok 10 - New int array has 5 elems
+ok 11 - New int array has end of -1
+ok 12 - New int array Int-ifies to 5
+ok 13 - New int array numifies to 5
+ok 14 - Empty int array is not lazy
+ok 15 - Accessing non-existing on int array dies
+ok 16 - Elems do not grow just from an access on int array
+ok 17 - Can store integer in an int array with Int index
+ok 18 - Can get value from int array with Int index
+ok 19 - can store integer in an $t array with int index
+ok 20 - Can get value from int array with int index
+ok 21 - Can slice-assign to an int array
+ok 22 - Can get slice-assigned value from int array (1)
+ok 23 - Can get slice-assigned value from int array (2)
+ok 24 - :exists works on int array with int index
+ok 25 - :exists works on int array with Int index
+ok 26 - :exists works on int array when out of range
+ok 27 - :!exists works on int array with int index
+ok 28 - :!exists works on int array with Int index
+ok 29 - :!exists works on int array when out of range
+ok 30 - :delete dies on int array with int index
+ok 31 - :delete dies on int array with Int index
+ok 32 - :!delete works on int array with int index
+ok 33 - :!delete works on int array with Int index
+ok 34 - Can call int array constructor with a single value
+ok 35 - Correct number of elems set in constructor of int array
+ok 36 - Correct element value set by constructor of int array
+ok 37 - Can call int array constructor with values
+ok 38 - Correct number of elems set in constructor of int array
+ok 39 - Correct elem value set by constructor of int array (1)
+ok 40 - Correct elem value set by constructor of int array (2)
+ok 41 - Correct elem value set by constructor of int array (3)
+ok 42 - Correct elem value set by constructor of int array (4)
+ok 43 - Can also get last 2 elements on int array
+ok 44 - int array .flat returns a Seq
+ok 45 - int array .eager returns identity
+ok 46 - Mutating for loop on int array works (1)
+ok 47 - Mutating for loop on int array works (2)
+ok 48 - Mutating for loop on int array works (3)
+ok 49 - Mutating for loop on int array works (4)
+ok 50 - Can map over int array
+ok 51 - Mutating map on int array works (1)
+ok 52 - Mutating map on int array works (2)
+ok 53 - Mutating map on int array works (3)
+ok 54 - Mutating map on int array works (4)
+ok 55 - grep a int array
+ok 56 - int array.grep(Int)
+ok 57 - int array.grep(Int, :k)
+ok 58 - int array.grep(Int, :kv)
+ok 59 - int array.grep(Int, :p)
+ok 60 - int array.grep(Int, :v)
+ok 61 - int array.grep(Int)
+ok 62 - int array.grep(Int, :k)
+ok 63 - int array.grep(Int, :kv)
+ok 64 - int array.grep(Int, :p)
+ok 65 - int array.grep(Int, :v)
+ok 66 - Can use reduce meta-op on a int array
+ok 67 - .values from a int array
+ok 68 - .pairup from a int array
+ok 69 - .keys from a int array
+ok 70 - .pairs from a int array
+ok 71 - .antipairs from a int array
+ok 72 - .kv from a int array
+ok 73 - .pick from a int array
+ok 74 - .roll from a int array
+ok 75 - int array.unique
+ok 76 - int array.repeated
+ok 77 - int array.squish
+ok 78 - Trying to pop a shaped int array dies
+ok 79 - Trying to shift a shaped int array dies
+ok 80 - Trying to push a shaped int array dies
+ok 81 - Trying to unshift a shaped int array dies
+ok 82 - Cannot bind to a int array
+ok 83 - Cannot delete from a int array
+ok 84 - Cannot append to a int array
+ok 85 - Cannot prepend to a int array
+ok 86 - Cannot splice to a int array
+ok 87 - .Str space-separates on int array
+ok 88 - .gist space-separates on int array
+ok 89 - .raku includes type and int values on int array
+ok 90 - # SKIP STORE not working correctly yet)
+ok 91 - does slice handle containerized range
+ok 92 - does join a int array
+ok 93 - Can clear int array by assigning empty list
+ok 94 - does emptying a int array reset
+ok 95 - does re-initializing a int array work
+ok 96 - List-assigning int array to untyped works (1)
+ok 97 - List-assigning int array to untyped works (2)
+ok 98 - List-assigning int array to untyped works (3)
+ok 99 - List-assign int array surrounded by literals (1)
+ok 100 - List-assign int array surrounded by literals (2)
+ok 101 - List-assign int array surrounded by literals (3)
+ok 102 - List-assign int array surrounded by literals (4)
+ok 103 - List-assign int array surrounded by literals (5)
+ok 104 - List-assign untyped array of Int to int array (1)
+ok 105 - List-assign untyped array of Int to int array (2)
+ok 106 - List-assign untyped array of Int to int array (3)
+# Subtest: List-assigning incompatible untyped array to int array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 107 - List-assigning incompatible untyped array to int array dies
+ok 108 - Smartmatching same int arrays works
+ok 109 - Can we sort int array
+ok 110 - Can we sort 2-element sorted int array
+ok 111 - Can we sort 1-element sorted int array
+ok 112 - int8 array is Positional
+not ok 113 - int8 array is Positional[int8] # TODO apparently it is not a typed Positional
+# Failed test 'int8 array is Positional[int8]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 114 - int8 array .of is int8
+ok 115 - int8 array is Positional
+not ok 116 - int8 array is Positional[int8] # TODO apparently it is not a typed Positional
+# Failed test 'int8 array is Positional[int8]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 117 - int8 array .of is int8
+ok 118 - .new from int8 array is Positional
+not ok 119 - .new from int8 array Positional[int8] # TODO apparently it is not a typed Positional
+# Failed test '.new from int8 array Positional[int8]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 120 - .new from int8 array .of is int8
+ok 121 - New int8 array has 5 elems
+ok 122 - New int8 array has end of -1
+ok 123 - New int8 array Int-ifies to 5
+ok 124 - New int8 array numifies to 5
+ok 125 - Empty int8 array is not lazy
+ok 126 - Accessing non-existing on int8 array dies
+ok 127 - Elems do not grow just from an access on int8 array
+ok 128 - Can store integer in an int8 array with Int index
+ok 129 - Can get value from int8 array with Int index
+ok 130 - can store integer in an $t array with int index
+ok 131 - Can get value from int8 array with int index
+ok 132 - Can slice-assign to an int8 array
+ok 133 - Can get slice-assigned value from int8 array (1)
+ok 134 - Can get slice-assigned value from int8 array (2)
+ok 135 - :exists works on int8 array with int index
+ok 136 - :exists works on int8 array with Int index
+ok 137 - :exists works on int8 array when out of range
+ok 138 - :!exists works on int8 array with int index
+ok 139 - :!exists works on int8 array with Int index
+ok 140 - :!exists works on int8 array when out of range
+ok 141 - :delete dies on int8 array with int index
+ok 142 - :delete dies on int8 array with Int index
+ok 143 - :!delete works on int8 array with int index
+ok 144 - :!delete works on int8 array with Int index
+ok 145 - Can call int8 array constructor with a single value
+ok 146 - Correct number of elems set in constructor of int8 array
+ok 147 - Correct element value set by constructor of int8 array
+ok 148 - Can call int8 array constructor with values
+ok 149 - Correct number of elems set in constructor of int8 array
+ok 150 - Correct elem value set by constructor of int8 array (1)
+ok 151 - Correct elem value set by constructor of int8 array (2)
+ok 152 - Correct elem value set by constructor of int8 array (3)
+ok 153 - Correct elem value set by constructor of int8 array (4)
+ok 154 - Can also get last 2 elements on int8 array
+ok 155 - int8 array .flat returns a Seq
+ok 156 - int8 array .eager returns identity
+ok 157 - Mutating for loop on int8 array works (1)
+ok 158 - Mutating for loop on int8 array works (2)
+ok 159 - Mutating for loop on int8 array works (3)
+ok 160 - Mutating for loop on int8 array works (4)
+ok 161 - Can map over int8 array
+ok 162 - Mutating map on int8 array works (1)
+ok 163 - Mutating map on int8 array works (2)
+ok 164 - Mutating map on int8 array works (3)
+ok 165 - Mutating map on int8 array works (4)
+ok 166 - grep a int8 array
+ok 167 - int8 array.grep(Int)
+ok 168 - int8 array.grep(Int, :k)
+ok 169 - int8 array.grep(Int, :kv)
+ok 170 - int8 array.grep(Int, :p)
+ok 171 - int8 array.grep(Int, :v)
+ok 172 - int8 array.grep(Int)
+ok 173 - int8 array.grep(Int, :k)
+ok 174 - int8 array.grep(Int, :kv)
+ok 175 - int8 array.grep(Int, :p)
+ok 176 - int8 array.grep(Int, :v)
+ok 177 - Can use reduce meta-op on a int8 array
+ok 178 - .values from a int8 array
+ok 179 - .pairup from a int8 array
+ok 180 - .keys from a int8 array
+ok 181 - .pairs from a int8 array
+ok 182 - .antipairs from a int8 array
+ok 183 - .kv from a int8 array
+ok 184 - .pick from a int8 array
+ok 185 - .roll from a int8 array
+ok 186 - int8 array.unique
+ok 187 - int8 array.repeated
+ok 188 - int8 array.squish
+ok 189 - Trying to pop a shaped int8 array dies
+ok 190 - Trying to shift a shaped int8 array dies
+ok 191 - Trying to push a shaped int8 array dies
+ok 192 - Trying to unshift a shaped int8 array dies
+ok 193 - Cannot bind to a int8 array
+ok 194 - Cannot delete from a int8 array
+ok 195 - Cannot append to a int8 array
+ok 196 - Cannot prepend to a int8 array
+ok 197 - Cannot splice to a int8 array
+ok 198 - .Str space-separates on int8 array
+ok 199 - .gist space-separates on int8 array
+ok 200 - .raku includes type and int values on int8 array
+ok 201 - # SKIP STORE not working correctly yet)
+ok 202 - does slice handle containerized range
+ok 203 - does join a int8 array
+ok 204 - Can clear int8 array by assigning empty list
+ok 205 - does emptying a int8 array reset
+ok 206 - does re-initializing a int8 array work
+ok 207 - List-assigning int8 array to untyped works (1)
+ok 208 - List-assigning int8 array to untyped works (2)
+ok 209 - List-assigning int8 array to untyped works (3)
+ok 210 - List-assign int8 array surrounded by literals (1)
+ok 211 - List-assign int8 array surrounded by literals (2)
+ok 212 - List-assign int8 array surrounded by literals (3)
+ok 213 - List-assign int8 array surrounded by literals (4)
+ok 214 - List-assign int8 array surrounded by literals (5)
+ok 215 - List-assign untyped array of Int to int8 array (1)
+ok 216 - List-assign untyped array of Int to int8 array (2)
+ok 217 - List-assign untyped array of Int to int8 array (3)
+# Subtest: List-assigning incompatible untyped array to int8 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 218 - List-assigning incompatible untyped array to int8 array dies
+ok 219 - Smartmatching same int8 arrays works
+ok 220 - Can we sort int8 array
+ok 221 - Can we sort 2-element sorted int8 array
+ok 222 - Can we sort 1-element sorted int8 array
+ok 223 - int16 array is Positional
+not ok 224 - int16 array is Positional[int16] # TODO apparently it is not a typed Positional
+# Failed test 'int16 array is Positional[int16]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 225 - int16 array .of is int16
+ok 226 - int16 array is Positional
+not ok 227 - int16 array is Positional[int16] # TODO apparently it is not a typed Positional
+# Failed test 'int16 array is Positional[int16]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 228 - int16 array .of is int16
+ok 229 - .new from int16 array is Positional
+not ok 230 - .new from int16 array Positional[int16] # TODO apparently it is not a typed Positional
+# Failed test '.new from int16 array Positional[int16]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 231 - .new from int16 array .of is int16
+ok 232 - New int16 array has 5 elems
+ok 233 - New int16 array has end of -1
+ok 234 - New int16 array Int-ifies to 5
+ok 235 - New int16 array numifies to 5
+ok 236 - Empty int16 array is not lazy
+ok 237 - Accessing non-existing on int16 array dies
+ok 238 - Elems do not grow just from an access on int16 array
+ok 239 - Can store integer in an int16 array with Int index
+ok 240 - Can get value from int16 array with Int index
+ok 241 - can store integer in an $t array with int index
+ok 242 - Can get value from int16 array with int index
+ok 243 - Can slice-assign to an int16 array
+ok 244 - Can get slice-assigned value from int16 array (1)
+ok 245 - Can get slice-assigned value from int16 array (2)
+ok 246 - :exists works on int16 array with int index
+ok 247 - :exists works on int16 array with Int index
+ok 248 - :exists works on int16 array when out of range
+ok 249 - :!exists works on int16 array with int index
+ok 250 - :!exists works on int16 array with Int index
+ok 251 - :!exists works on int16 array when out of range
+ok 252 - :delete dies on int16 array with int index
+ok 253 - :delete dies on int16 array with Int index
+ok 254 - :!delete works on int16 array with int index
+ok 255 - :!delete works on int16 array with Int index
+ok 256 - Can call int16 array constructor with a single value
+ok 257 - Correct number of elems set in constructor of int16 array
+ok 258 - Correct element value set by constructor of int16 array
+ok 259 - Can call int16 array constructor with values
+ok 260 - Correct number of elems set in constructor of int16 array
+ok 261 - Correct elem value set by constructor of int16 array (1)
+ok 262 - Correct elem value set by constructor of int16 array (2)
+ok 263 - Correct elem value set by constructor of int16 array (3)
+ok 264 - Correct elem value set by constructor of int16 array (4)
+ok 265 - Can also get last 2 elements on int16 array
+ok 266 - int16 array .flat returns a Seq
+ok 267 - int16 array .eager returns identity
+ok 268 - Mutating for loop on int16 array works (1)
+ok 269 - Mutating for loop on int16 array works (2)
+ok 270 - Mutating for loop on int16 array works (3)
+ok 271 - Mutating for loop on int16 array works (4)
+ok 272 - Can map over int16 array
+ok 273 - Mutating map on int16 array works (1)
+ok 274 - Mutating map on int16 array works (2)
+ok 275 - Mutating map on int16 array works (3)
+ok 276 - Mutating map on int16 array works (4)
+ok 277 - grep a int16 array
+ok 278 - int16 array.grep(Int)
+ok 279 - int16 array.grep(Int, :k)
+ok 280 - int16 array.grep(Int, :kv)
+ok 281 - int16 array.grep(Int, :p)
+ok 282 - int16 array.grep(Int, :v)
+ok 283 - int16 array.grep(Int)
+ok 284 - int16 array.grep(Int, :k)
+ok 285 - int16 array.grep(Int, :kv)
+ok 286 - int16 array.grep(Int, :p)
+ok 287 - int16 array.grep(Int, :v)
+ok 288 - Can use reduce meta-op on a int16 array
+ok 289 - .values from a int16 array
+ok 290 - .pairup from a int16 array
+ok 291 - .keys from a int16 array
+ok 292 - .pairs from a int16 array
+ok 293 - .antipairs from a int16 array
+ok 294 - .kv from a int16 array
+ok 295 - .pick from a int16 array
+ok 296 - .roll from a int16 array
+ok 297 - int16 array.unique
+ok 298 - int16 array.repeated
+ok 299 - int16 array.squish
+ok 300 - Trying to pop a shaped int16 array dies
+ok 301 - Trying to shift a shaped int16 array dies
+ok 302 - Trying to push a shaped int16 array dies
+ok 303 - Trying to unshift a shaped int16 array dies
+ok 304 - Cannot bind to a int16 array
+ok 305 - Cannot delete from a int16 array
+ok 306 - Cannot append to a int16 array
+ok 307 - Cannot prepend to a int16 array
+ok 308 - Cannot splice to a int16 array
+ok 309 - .Str space-separates on int16 array
+ok 310 - .gist space-separates on int16 array
+ok 311 - .raku includes type and int values on int16 array
+ok 312 - # SKIP STORE not working correctly yet)
+ok 313 - does slice handle containerized range
+ok 314 - does join a int16 array
+ok 315 - Can clear int16 array by assigning empty list
+ok 316 - does emptying a int16 array reset
+ok 317 - does re-initializing a int16 array work
+ok 318 - List-assigning int16 array to untyped works (1)
+ok 319 - List-assigning int16 array to untyped works (2)
+ok 320 - List-assigning int16 array to untyped works (3)
+ok 321 - List-assign int16 array surrounded by literals (1)
+ok 322 - List-assign int16 array surrounded by literals (2)
+ok 323 - List-assign int16 array surrounded by literals (3)
+ok 324 - List-assign int16 array surrounded by literals (4)
+ok 325 - List-assign int16 array surrounded by literals (5)
+ok 326 - List-assign untyped array of Int to int16 array (1)
+ok 327 - List-assign untyped array of Int to int16 array (2)
+ok 328 - List-assign untyped array of Int to int16 array (3)
+# Subtest: List-assigning incompatible untyped array to int16 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 329 - List-assigning incompatible untyped array to int16 array dies
+ok 330 - Smartmatching same int16 arrays works
+ok 331 - Can we sort int16 array
+ok 332 - Can we sort 2-element sorted int16 array
+ok 333 - Can we sort 1-element sorted int16 array
+ok 334 - int32 array is Positional
+not ok 335 - int32 array is Positional[int32] # TODO apparently it is not a typed Positional
+# Failed test 'int32 array is Positional[int32]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 336 - int32 array .of is int32
+ok 337 - int32 array is Positional
+not ok 338 - int32 array is Positional[int32] # TODO apparently it is not a typed Positional
+# Failed test 'int32 array is Positional[int32]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 339 - int32 array .of is int32
+ok 340 - .new from int32 array is Positional
+not ok 341 - .new from int32 array Positional[int32] # TODO apparently it is not a typed Positional
+# Failed test '.new from int32 array Positional[int32]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 342 - .new from int32 array .of is int32
+ok 343 - New int32 array has 5 elems
+ok 344 - New int32 array has end of -1
+ok 345 - New int32 array Int-ifies to 5
+ok 346 - New int32 array numifies to 5
+ok 347 - Empty int32 array is not lazy
+ok 348 - Accessing non-existing on int32 array dies
+ok 349 - Elems do not grow just from an access on int32 array
+ok 350 - Can store integer in an int32 array with Int index
+ok 351 - Can get value from int32 array with Int index
+ok 352 - can store integer in an $t array with int index
+ok 353 - Can get value from int32 array with int index
+ok 354 - Can slice-assign to an int32 array
+ok 355 - Can get slice-assigned value from int32 array (1)
+ok 356 - Can get slice-assigned value from int32 array (2)
+ok 357 - :exists works on int32 array with int index
+ok 358 - :exists works on int32 array with Int index
+ok 359 - :exists works on int32 array when out of range
+ok 360 - :!exists works on int32 array with int index
+ok 361 - :!exists works on int32 array with Int index
+ok 362 - :!exists works on int32 array when out of range
+ok 363 - :delete dies on int32 array with int index
+ok 364 - :delete dies on int32 array with Int index
+ok 365 - :!delete works on int32 array with int index
+ok 366 - :!delete works on int32 array with Int index
+ok 367 - Can call int32 array constructor with a single value
+ok 368 - Correct number of elems set in constructor of int32 array
+ok 369 - Correct element value set by constructor of int32 array
+ok 370 - Can call int32 array constructor with values
+ok 371 - Correct number of elems set in constructor of int32 array
+ok 372 - Correct elem value set by constructor of int32 array (1)
+ok 373 - Correct elem value set by constructor of int32 array (2)
+ok 374 - Correct elem value set by constructor of int32 array (3)
+ok 375 - Correct elem value set by constructor of int32 array (4)
+ok 376 - Can also get last 2 elements on int32 array
+ok 377 - int32 array .flat returns a Seq
+ok 378 - int32 array .eager returns identity
+ok 379 - Mutating for loop on int32 array works (1)
+ok 380 - Mutating for loop on int32 array works (2)
+ok 381 - Mutating for loop on int32 array works (3)
+ok 382 - Mutating for loop on int32 array works (4)
+ok 383 - Can map over int32 array
+ok 384 - Mutating map on int32 array works (1)
+ok 385 - Mutating map on int32 array works (2)
+ok 386 - Mutating map on int32 array works (3)
+ok 387 - Mutating map on int32 array works (4)
+ok 388 - grep a int32 array
+ok 389 - int32 array.grep(Int)
+ok 390 - int32 array.grep(Int, :k)
+ok 391 - int32 array.grep(Int, :kv)
+ok 392 - int32 array.grep(Int, :p)
+ok 393 - int32 array.grep(Int, :v)
+ok 394 - int32 array.grep(Int)
+ok 395 - int32 array.grep(Int, :k)
+ok 396 - int32 array.grep(Int, :kv)
+ok 397 - int32 array.grep(Int, :p)
+ok 398 - int32 array.grep(Int, :v)
+ok 399 - Can use reduce meta-op on a int32 array
+ok 400 - .values from a int32 array
+ok 401 - .pairup from a int32 array
+ok 402 - .keys from a int32 array
+ok 403 - .pairs from a int32 array
+ok 404 - .antipairs from a int32 array
+ok 405 - .kv from a int32 array
+ok 406 - .pick from a int32 array
+ok 407 - .roll from a int32 array
+ok 408 - int32 array.unique
+ok 409 - int32 array.repeated
+ok 410 - int32 array.squish
+ok 411 - Trying to pop a shaped int32 array dies
+ok 412 - Trying to shift a shaped int32 array dies
+ok 413 - Trying to push a shaped int32 array dies
+ok 414 - Trying to unshift a shaped int32 array dies
+ok 415 - Cannot bind to a int32 array
+ok 416 - Cannot delete from a int32 array
+ok 417 - Cannot append to a int32 array
+ok 418 - Cannot prepend to a int32 array
+ok 419 - Cannot splice to a int32 array
+ok 420 - .Str space-separates on int32 array
+ok 421 - .gist space-separates on int32 array
+ok 422 - .raku includes type and int values on int32 array
+ok 423 - # SKIP STORE not working correctly yet)
+ok 424 - does slice handle containerized range
+ok 425 - does join a int32 array
+ok 426 - Can clear int32 array by assigning empty list
+ok 427 - does emptying a int32 array reset
+ok 428 - does re-initializing a int32 array work
+ok 429 - List-assigning int32 array to untyped works (1)
+ok 430 - List-assigning int32 array to untyped works (2)
+ok 431 - List-assigning int32 array to untyped works (3)
+ok 432 - List-assign int32 array surrounded by literals (1)
+ok 433 - List-assign int32 array surrounded by literals (2)
+ok 434 - List-assign int32 array surrounded by literals (3)
+ok 435 - List-assign int32 array surrounded by literals (4)
+ok 436 - List-assign int32 array surrounded by literals (5)
+ok 437 - List-assign untyped array of Int to int32 array (1)
+ok 438 - List-assign untyped array of Int to int32 array (2)
+ok 439 - List-assign untyped array of Int to int32 array (3)
+# Subtest: List-assigning incompatible untyped array to int32 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 440 - List-assigning incompatible untyped array to int32 array dies
+ok 441 - Smartmatching same int32 arrays works
+ok 442 - Can we sort int32 array
+ok 443 - Can we sort 2-element sorted int32 array
+ok 444 - Can we sort 1-element sorted int32 array
+ok 445 - int64 array is Positional
+not ok 446 - int64 array is Positional[int64] # TODO apparently it is not a typed Positional
+# Failed test 'int64 array is Positional[int64]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 447 - int64 array .of is int64
+ok 448 - int64 array is Positional
+not ok 449 - int64 array is Positional[int64] # TODO apparently it is not a typed Positional
+# Failed test 'int64 array is Positional[int64]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 450 - int64 array .of is int64
+ok 451 - .new from int64 array is Positional
+not ok 452 - .new from int64 array Positional[int64] # TODO apparently it is not a typed Positional
+# Failed test '.new from int64 array Positional[int64]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 453 - .new from int64 array .of is int64
+ok 454 - New int64 array has 5 elems
+ok 455 - New int64 array has end of -1
+ok 456 - New int64 array Int-ifies to 5
+ok 457 - New int64 array numifies to 5
+ok 458 - Empty int64 array is not lazy
+ok 459 - Accessing non-existing on int64 array dies
+ok 460 - Elems do not grow just from an access on int64 array
+ok 461 - Can store integer in an int64 array with Int index
+ok 462 - Can get value from int64 array with Int index
+ok 463 - can store integer in an $t array with int index
+ok 464 - Can get value from int64 array with int index
+ok 465 - Can slice-assign to an int64 array
+ok 466 - Can get slice-assigned value from int64 array (1)
+ok 467 - Can get slice-assigned value from int64 array (2)
+ok 468 - :exists works on int64 array with int index
+ok 469 - :exists works on int64 array with Int index
+ok 470 - :exists works on int64 array when out of range
+ok 471 - :!exists works on int64 array with int index
+ok 472 - :!exists works on int64 array with Int index
+ok 473 - :!exists works on int64 array when out of range
+ok 474 - :delete dies on int64 array with int index
+ok 475 - :delete dies on int64 array with Int index
+ok 476 - :!delete works on int64 array with int index
+ok 477 - :!delete works on int64 array with Int index
+ok 478 - Can call int64 array constructor with a single value
+ok 479 - Correct number of elems set in constructor of int64 array
+ok 480 - Correct element value set by constructor of int64 array
+ok 481 - Can call int64 array constructor with values
+ok 482 - Correct number of elems set in constructor of int64 array
+ok 483 - Correct elem value set by constructor of int64 array (1)
+ok 484 - Correct elem value set by constructor of int64 array (2)
+ok 485 - Correct elem value set by constructor of int64 array (3)
+ok 486 - Correct elem value set by constructor of int64 array (4)
+ok 487 - Can also get last 2 elements on int64 array
+ok 488 - int64 array .flat returns a Seq
+ok 489 - int64 array .eager returns identity
+ok 490 - Mutating for loop on int64 array works (1)
+ok 491 - Mutating for loop on int64 array works (2)
+ok 492 - Mutating for loop on int64 array works (3)
+ok 493 - Mutating for loop on int64 array works (4)
+ok 494 - Can map over int64 array
+ok 495 - Mutating map on int64 array works (1)
+ok 496 - Mutating map on int64 array works (2)
+ok 497 - Mutating map on int64 array works (3)
+ok 498 - Mutating map on int64 array works (4)
+ok 499 - grep a int64 array
+ok 500 - int64 array.grep(Int)
+ok 501 - int64 array.grep(Int, :k)
+ok 502 - int64 array.grep(Int, :kv)
+ok 503 - int64 array.grep(Int, :p)
+ok 504 - int64 array.grep(Int, :v)
+ok 505 - int64 array.grep(Int)
+ok 506 - int64 array.grep(Int, :k)
+ok 507 - int64 array.grep(Int, :kv)
+ok 508 - int64 array.grep(Int, :p)
+ok 509 - int64 array.grep(Int, :v)
+ok 510 - Can use reduce meta-op on a int64 array
+ok 511 - .values from a int64 array
+ok 512 - .pairup from a int64 array
+ok 513 - .keys from a int64 array
+ok 514 - .pairs from a int64 array
+ok 515 - .antipairs from a int64 array
+ok 516 - .kv from a int64 array
+ok 517 - .pick from a int64 array
+ok 518 - .roll from a int64 array
+ok 519 - int64 array.unique
+ok 520 - int64 array.repeated
+ok 521 - int64 array.squish
+ok 522 - Trying to pop a shaped int64 array dies
+ok 523 - Trying to shift a shaped int64 array dies
+ok 524 - Trying to push a shaped int64 array dies
+ok 525 - Trying to unshift a shaped int64 array dies
+ok 526 - Cannot bind to a int64 array
+ok 527 - Cannot delete from a int64 array
+ok 528 - Cannot append to a int64 array
+ok 529 - Cannot prepend to a int64 array
+ok 530 - Cannot splice to a int64 array
+ok 531 - .Str space-separates on int64 array
+ok 532 - .gist space-separates on int64 array
+ok 533 - .raku includes type and int values on int64 array
+ok 534 - # SKIP STORE not working correctly yet)
+ok 535 - does slice handle containerized range
+ok 536 - does join a int64 array
+ok 537 - Can clear int64 array by assigning empty list
+ok 538 - does emptying a int64 array reset
+ok 539 - does re-initializing a int64 array work
+ok 540 - List-assigning int64 array to untyped works (1)
+ok 541 - List-assigning int64 array to untyped works (2)
+ok 542 - List-assigning int64 array to untyped works (3)
+ok 543 - List-assign int64 array surrounded by literals (1)
+ok 544 - List-assign int64 array surrounded by literals (2)
+ok 545 - List-assign int64 array surrounded by literals (3)
+ok 546 - List-assign int64 array surrounded by literals (4)
+ok 547 - List-assign int64 array surrounded by literals (5)
+ok 548 - List-assign untyped array of Int to int64 array (1)
+ok 549 - List-assign untyped array of Int to int64 array (2)
+ok 550 - List-assign untyped array of Int to int64 array (3)
+# Subtest: List-assigning incompatible untyped array to int64 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 551 - List-assigning incompatible untyped array to int64 array dies
+ok 552 - Smartmatching same int64 arrays works
+ok 553 - Can we sort int64 array
+ok 554 - Can we sort 2-element sorted int64 array
+ok 555 - Can we sort 1-element sorted int64 array
+ok 556 - uint array is Positional
+not ok 557 - uint array is Positional[uint] # TODO apparently it is not a typed Positional
+# Failed test 'uint array is Positional[uint]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 558 - uint array .of is uint
+ok 559 - uint array is Positional
+not ok 560 - uint array is Positional[uint] # TODO apparently it is not a typed Positional
+# Failed test 'uint array is Positional[uint]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 561 - uint array .of is uint
+ok 562 - .new from uint array is Positional
+not ok 563 - .new from uint array Positional[uint] # TODO apparently it is not a typed Positional
+# Failed test '.new from uint array Positional[uint]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 564 - .new from uint array .of is uint
+ok 565 - New uint array has 5 elems
+ok 566 - New uint array has end of -1
+ok 567 - New uint array Int-ifies to 5
+ok 568 - New uint array numifies to 5
+ok 569 - Empty uint array is not lazy
+ok 570 - Accessing non-existing on uint array dies
+ok 571 - Elems do not grow just from an access on uint array
+ok 572 - Can store integer in an uint array with Int index
+ok 573 - Can get value from uint array with Int index
+ok 574 - can store integer in an $t array with int index
+ok 575 - Can get value from uint array with int index
+ok 576 - Can slice-assign to an uint array
+ok 577 - Can get slice-assigned value from uint array (1)
+ok 578 - Can get slice-assigned value from uint array (2)
+ok 579 - :exists works on uint array with int index
+ok 580 - :exists works on uint array with Int index
+ok 581 - :exists works on uint array when out of range
+ok 582 - :!exists works on uint array with int index
+ok 583 - :!exists works on uint array with Int index
+ok 584 - :!exists works on uint array when out of range
+ok 585 - :delete dies on uint array with int index
+ok 586 - :delete dies on uint array with Int index
+ok 587 - :!delete works on uint array with int index
+ok 588 - :!delete works on uint array with Int index
+ok 589 - Can call uint array constructor with a single value
+ok 590 - Correct number of elems set in constructor of uint array
+ok 591 - Correct element value set by constructor of uint array
+ok 592 - Can call uint array constructor with values
+ok 593 - Correct number of elems set in constructor of uint array
+ok 594 - Correct elem value set by constructor of uint array (1)
+ok 595 - Correct elem value set by constructor of uint array (2)
+ok 596 - Correct elem value set by constructor of uint array (3)
+ok 597 - Correct elem value set by constructor of uint array (4)
+ok 598 - Can also get last 2 elements on uint array
+ok 599 - uint array .flat returns a Seq
+ok 600 - uint array .eager returns identity
+ok 601 - Mutating for loop on uint array works (1)
+ok 602 - Mutating for loop on uint array works (2)
+ok 603 - Mutating for loop on uint array works (3)
+ok 604 - Mutating for loop on uint array works (4)
+ok 605 - Can map over uint array
+ok 606 - Mutating map on uint array works (1)
+ok 607 - Mutating map on uint array works (2)
+ok 608 - Mutating map on uint array works (3)
+ok 609 - Mutating map on uint array works (4)
+ok 610 - grep a uint array
+ok 611 - uint array.grep(Int)
+ok 612 - uint array.grep(Int, :k)
+ok 613 - uint array.grep(Int, :kv)
+ok 614 - uint array.grep(Int, :p)
+ok 615 - uint array.grep(Int, :v)
+ok 616 - uint array.grep(Int)
+ok 617 - uint array.grep(Int, :k)
+ok 618 - uint array.grep(Int, :kv)
+ok 619 - uint array.grep(Int, :p)
+ok 620 - uint array.grep(Int, :v)
+ok 621 - Can use reduce meta-op on a uint array
+ok 622 - .values from a uint array
+ok 623 - .pairup from a uint array
+ok 624 - .keys from a uint array
+ok 625 - .pairs from a uint array
+ok 626 - .antipairs from a uint array
+ok 627 - .kv from a uint array
+ok 628 - .pick from a uint array
+ok 629 - .roll from a uint array
+ok 630 - uint array.unique
+ok 631 - uint array.repeated
+ok 632 - uint array.squish
+ok 633 - Trying to pop a shaped uint array dies
+ok 634 - Trying to shift a shaped uint array dies
+ok 635 - Trying to push a shaped uint array dies
+ok 636 - Trying to unshift a shaped uint array dies
+ok 637 - Cannot bind to a uint array
+ok 638 - Cannot delete from a uint array
+ok 639 - Cannot append to a uint array
+ok 640 - Cannot prepend to a uint array
+ok 641 - Cannot splice to a uint array
+ok 642 - .Str space-separates on uint array
+ok 643 - .gist space-separates on uint array
+ok 644 - .raku includes type and int values on uint array
+ok 645 - # SKIP STORE not working correctly yet)
+ok 646 - does slice handle containerized range
+ok 647 - does join a uint array
+ok 648 - Can clear uint array by assigning empty list
+ok 649 - does emptying a uint array reset
+ok 650 - does re-initializing a uint array work
+ok 651 - List-assigning uint array to untyped works (1)
+ok 652 - List-assigning uint array to untyped works (2)
+ok 653 - List-assigning uint array to untyped works (3)
+ok 654 - List-assign uint array surrounded by literals (1)
+ok 655 - List-assign uint array surrounded by literals (2)
+ok 656 - List-assign uint array surrounded by literals (3)
+ok 657 - List-assign uint array surrounded by literals (4)
+ok 658 - List-assign uint array surrounded by literals (5)
+ok 659 - List-assign untyped array of Int to uint array (1)
+ok 660 - List-assign untyped array of Int to uint array (2)
+ok 661 - List-assign untyped array of Int to uint array (3)
+# Subtest: List-assigning incompatible untyped array to uint array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 662 - List-assigning incompatible untyped array to uint array dies
+ok 663 - Smartmatching same uint arrays works
+ok 664 - Can we sort uint array
+ok 665 - Can we sort 2-element sorted uint array
+ok 666 - Can we sort 1-element sorted uint array
+ok 667 - uint8 array is Positional
+not ok 668 - uint8 array is Positional[uint8] # TODO apparently it is not a typed Positional
+# Failed test 'uint8 array is Positional[uint8]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 669 - uint8 array .of is uint8
+ok 670 - uint8 array is Positional
+not ok 671 - uint8 array is Positional[uint8] # TODO apparently it is not a typed Positional
+# Failed test 'uint8 array is Positional[uint8]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 672 - uint8 array .of is uint8
+ok 673 - .new from uint8 array is Positional
+not ok 674 - .new from uint8 array Positional[uint8] # TODO apparently it is not a typed Positional
+# Failed test '.new from uint8 array Positional[uint8]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 675 - .new from uint8 array .of is uint8
+ok 676 - New uint8 array has 5 elems
+ok 677 - New uint8 array has end of -1
+ok 678 - New uint8 array Int-ifies to 5
+ok 679 - New uint8 array numifies to 5
+ok 680 - Empty uint8 array is not lazy
+ok 681 - Accessing non-existing on uint8 array dies
+ok 682 - Elems do not grow just from an access on uint8 array
+ok 683 - Can store integer in an uint8 array with Int index
+ok 684 - Can get value from uint8 array with Int index
+ok 685 - can store integer in an $t array with int index
+ok 686 - Can get value from uint8 array with int index
+ok 687 - Can slice-assign to an uint8 array
+ok 688 - Can get slice-assigned value from uint8 array (1)
+ok 689 - Can get slice-assigned value from uint8 array (2)
+ok 690 - :exists works on uint8 array with int index
+ok 691 - :exists works on uint8 array with Int index
+ok 692 - :exists works on uint8 array when out of range
+ok 693 - :!exists works on uint8 array with int index
+ok 694 - :!exists works on uint8 array with Int index
+ok 695 - :!exists works on uint8 array when out of range
+ok 696 - :delete dies on uint8 array with int index
+ok 697 - :delete dies on uint8 array with Int index
+ok 698 - :!delete works on uint8 array with int index
+ok 699 - :!delete works on uint8 array with Int index
+ok 700 - Can call uint8 array constructor with a single value
+ok 701 - Correct number of elems set in constructor of uint8 array
+ok 702 - Correct element value set by constructor of uint8 array
+ok 703 - Can call uint8 array constructor with values
+ok 704 - Correct number of elems set in constructor of uint8 array
+ok 705 - Correct elem value set by constructor of uint8 array (1)
+ok 706 - Correct elem value set by constructor of uint8 array (2)
+ok 707 - Correct elem value set by constructor of uint8 array (3)
+ok 708 - Correct elem value set by constructor of uint8 array (4)
+ok 709 - Can also get last 2 elements on uint8 array
+ok 710 - uint8 array .flat returns a Seq
+ok 711 - uint8 array .eager returns identity
+ok 712 - Mutating for loop on uint8 array works (1)
+ok 713 - Mutating for loop on uint8 array works (2)
+ok 714 - Mutating for loop on uint8 array works (3)
+ok 715 - Mutating for loop on uint8 array works (4)
+ok 716 - Can map over uint8 array
+ok 717 - Mutating map on uint8 array works (1)
+ok 718 - Mutating map on uint8 array works (2)
+ok 719 - Mutating map on uint8 array works (3)
+ok 720 - Mutating map on uint8 array works (4)
+ok 721 - grep a uint8 array
+ok 722 - uint8 array.grep(Int)
+ok 723 - uint8 array.grep(Int, :k)
+ok 724 - uint8 array.grep(Int, :kv)
+ok 725 - uint8 array.grep(Int, :p)
+ok 726 - uint8 array.grep(Int, :v)
+ok 727 - uint8 array.grep(Int)
+ok 728 - uint8 array.grep(Int, :k)
+ok 729 - uint8 array.grep(Int, :kv)
+ok 730 - uint8 array.grep(Int, :p)
+ok 731 - uint8 array.grep(Int, :v)
+ok 732 - Can use reduce meta-op on a uint8 array
+ok 733 - .values from a uint8 array
+ok 734 - .pairup from a uint8 array
+ok 735 - .keys from a uint8 array
+ok 736 - .pairs from a uint8 array
+ok 737 - .antipairs from a uint8 array
+ok 738 - .kv from a uint8 array
+ok 739 - .pick from a uint8 array
+ok 740 - .roll from a uint8 array
+ok 741 - uint8 array.unique
+ok 742 - uint8 array.repeated
+ok 743 - uint8 array.squish
+ok 744 - Trying to pop a shaped uint8 array dies
+ok 745 - Trying to shift a shaped uint8 array dies
+ok 746 - Trying to push a shaped uint8 array dies
+ok 747 - Trying to unshift a shaped uint8 array dies
+ok 748 - Cannot bind to a uint8 array
+ok 749 - Cannot delete from a uint8 array
+ok 750 - Cannot append to a uint8 array
+ok 751 - Cannot prepend to a uint8 array
+ok 752 - Cannot splice to a uint8 array
+ok 753 - .Str space-separates on uint8 array
+ok 754 - .gist space-separates on uint8 array
+ok 755 - .raku includes type and int values on uint8 array
+ok 756 - # SKIP STORE not working correctly yet)
+ok 757 - does slice handle containerized range
+ok 758 - does join a uint8 array
+ok 759 - Can clear uint8 array by assigning empty list
+ok 760 - does emptying a uint8 array reset
+ok 761 - does re-initializing a uint8 array work
+ok 762 - List-assigning uint8 array to untyped works (1)
+ok 763 - List-assigning uint8 array to untyped works (2)
+ok 764 - List-assigning uint8 array to untyped works (3)
+ok 765 - List-assign uint8 array surrounded by literals (1)
+ok 766 - List-assign uint8 array surrounded by literals (2)
+ok 767 - List-assign uint8 array surrounded by literals (3)
+ok 768 - List-assign uint8 array surrounded by literals (4)
+ok 769 - List-assign uint8 array surrounded by literals (5)
+ok 770 - List-assign untyped array of Int to uint8 array (1)
+ok 771 - List-assign untyped array of Int to uint8 array (2)
+ok 772 - List-assign untyped array of Int to uint8 array (3)
+# Subtest: List-assigning incompatible untyped array to uint8 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 773 - List-assigning incompatible untyped array to uint8 array dies
+ok 774 - Smartmatching same uint8 arrays works
+ok 775 - Can we sort uint8 array
+ok 776 - Can we sort 2-element sorted uint8 array
+ok 777 - Can we sort 1-element sorted uint8 array
+ok 778 - uint16 array is Positional
+not ok 779 - uint16 array is Positional[uint16] # TODO apparently it is not a typed Positional
+# Failed test 'uint16 array is Positional[uint16]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 780 - uint16 array .of is uint16
+ok 781 - uint16 array is Positional
+not ok 782 - uint16 array is Positional[uint16] # TODO apparently it is not a typed Positional
+# Failed test 'uint16 array is Positional[uint16]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 783 - uint16 array .of is uint16
+ok 784 - .new from uint16 array is Positional
+not ok 785 - .new from uint16 array Positional[uint16] # TODO apparently it is not a typed Positional
+# Failed test '.new from uint16 array Positional[uint16]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 786 - .new from uint16 array .of is uint16
+ok 787 - New uint16 array has 5 elems
+ok 788 - New uint16 array has end of -1
+ok 789 - New uint16 array Int-ifies to 5
+ok 790 - New uint16 array numifies to 5
+ok 791 - Empty uint16 array is not lazy
+ok 792 - Accessing non-existing on uint16 array dies
+ok 793 - Elems do not grow just from an access on uint16 array
+ok 794 - Can store integer in an uint16 array with Int index
+ok 795 - Can get value from uint16 array with Int index
+ok 796 - can store integer in an $t array with int index
+ok 797 - Can get value from uint16 array with int index
+ok 798 - Can slice-assign to an uint16 array
+ok 799 - Can get slice-assigned value from uint16 array (1)
+ok 800 - Can get slice-assigned value from uint16 array (2)
+ok 801 - :exists works on uint16 array with int index
+ok 802 - :exists works on uint16 array with Int index
+ok 803 - :exists works on uint16 array when out of range
+ok 804 - :!exists works on uint16 array with int index
+ok 805 - :!exists works on uint16 array with Int index
+ok 806 - :!exists works on uint16 array when out of range
+ok 807 - :delete dies on uint16 array with int index
+ok 808 - :delete dies on uint16 array with Int index
+ok 809 - :!delete works on uint16 array with int index
+ok 810 - :!delete works on uint16 array with Int index
+ok 811 - Can call uint16 array constructor with a single value
+ok 812 - Correct number of elems set in constructor of uint16 array
+ok 813 - Correct element value set by constructor of uint16 array
+ok 814 - Can call uint16 array constructor with values
+ok 815 - Correct number of elems set in constructor of uint16 array
+ok 816 - Correct elem value set by constructor of uint16 array (1)
+ok 817 - Correct elem value set by constructor of uint16 array (2)
+ok 818 - Correct elem value set by constructor of uint16 array (3)
+ok 819 - Correct elem value set by constructor of uint16 array (4)
+ok 820 - Can also get last 2 elements on uint16 array
+ok 821 - uint16 array .flat returns a Seq
+ok 822 - uint16 array .eager returns identity
+ok 823 - Mutating for loop on uint16 array works (1)
+ok 824 - Mutating for loop on uint16 array works (2)
+ok 825 - Mutating for loop on uint16 array works (3)
+ok 826 - Mutating for loop on uint16 array works (4)
+ok 827 - Can map over uint16 array
+ok 828 - Mutating map on uint16 array works (1)
+ok 829 - Mutating map on uint16 array works (2)
+ok 830 - Mutating map on uint16 array works (3)
+ok 831 - Mutating map on uint16 array works (4)
+ok 832 - grep a uint16 array
+ok 833 - uint16 array.grep(Int)
+ok 834 - uint16 array.grep(Int, :k)
+ok 835 - uint16 array.grep(Int, :kv)
+ok 836 - uint16 array.grep(Int, :p)
+ok 837 - uint16 array.grep(Int, :v)
+ok 838 - uint16 array.grep(Int)
+ok 839 - uint16 array.grep(Int, :k)
+ok 840 - uint16 array.grep(Int, :kv)
+ok 841 - uint16 array.grep(Int, :p)
+ok 842 - uint16 array.grep(Int, :v)
+ok 843 - Can use reduce meta-op on a uint16 array
+ok 844 - .values from a uint16 array
+ok 845 - .pairup from a uint16 array
+ok 846 - .keys from a uint16 array
+ok 847 - .pairs from a uint16 array
+ok 848 - .antipairs from a uint16 array
+ok 849 - .kv from a uint16 array
+ok 850 - .pick from a uint16 array
+ok 851 - .roll from a uint16 array
+ok 852 - uint16 array.unique
+ok 853 - uint16 array.repeated
+ok 854 - uint16 array.squish
+ok 855 - Trying to pop a shaped uint16 array dies
+ok 856 - Trying to shift a shaped uint16 array dies
+ok 857 - Trying to push a shaped uint16 array dies
+ok 858 - Trying to unshift a shaped uint16 array dies
+ok 859 - Cannot bind to a uint16 array
+ok 860 - Cannot delete from a uint16 array
+ok 861 - Cannot append to a uint16 array
+ok 862 - Cannot prepend to a uint16 array
+ok 863 - Cannot splice to a uint16 array
+ok 864 - .Str space-separates on uint16 array
+ok 865 - .gist space-separates on uint16 array
+ok 866 - .raku includes type and int values on uint16 array
+ok 867 - # SKIP STORE not working correctly yet)
+ok 868 - does slice handle containerized range
+ok 869 - does join a uint16 array
+ok 870 - Can clear uint16 array by assigning empty list
+ok 871 - does emptying a uint16 array reset
+ok 872 - does re-initializing a uint16 array work
+ok 873 - List-assigning uint16 array to untyped works (1)
+ok 874 - List-assigning uint16 array to untyped works (2)
+ok 875 - List-assigning uint16 array to untyped works (3)
+ok 876 - List-assign uint16 array surrounded by literals (1)
+ok 877 - List-assign uint16 array surrounded by literals (2)
+ok 878 - List-assign uint16 array surrounded by literals (3)
+ok 879 - List-assign uint16 array surrounded by literals (4)
+ok 880 - List-assign uint16 array surrounded by literals (5)
+ok 881 - List-assign untyped array of Int to uint16 array (1)
+ok 882 - List-assign untyped array of Int to uint16 array (2)
+ok 883 - List-assign untyped array of Int to uint16 array (3)
+# Subtest: List-assigning incompatible untyped array to uint16 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 884 - List-assigning incompatible untyped array to uint16 array dies
+ok 885 - Smartmatching same uint16 arrays works
+ok 886 - Can we sort uint16 array
+ok 887 - Can we sort 2-element sorted uint16 array
+ok 888 - Can we sort 1-element sorted uint16 array
+ok 889 - uint32 array is Positional
+not ok 890 - uint32 array is Positional[uint32] # TODO apparently it is not a typed Positional
+# Failed test 'uint32 array is Positional[uint32]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 891 - uint32 array .of is uint32
+ok 892 - uint32 array is Positional
+not ok 893 - uint32 array is Positional[uint32] # TODO apparently it is not a typed Positional
+# Failed test 'uint32 array is Positional[uint32]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 894 - uint32 array .of is uint32
+ok 895 - .new from uint32 array is Positional
+not ok 896 - .new from uint32 array Positional[uint32] # TODO apparently it is not a typed Positional
+# Failed test '.new from uint32 array Positional[uint32]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 897 - .new from uint32 array .of is uint32
+ok 898 - New uint32 array has 5 elems
+ok 899 - New uint32 array has end of -1
+ok 900 - New uint32 array Int-ifies to 5
+ok 901 - New uint32 array numifies to 5
+ok 902 - Empty uint32 array is not lazy
+ok 903 - Accessing non-existing on uint32 array dies
+ok 904 - Elems do not grow just from an access on uint32 array
+ok 905 - Can store integer in an uint32 array with Int index
+ok 906 - Can get value from uint32 array with Int index
+ok 907 - can store integer in an $t array with int index
+ok 908 - Can get value from uint32 array with int index
+ok 909 - Can slice-assign to an uint32 array
+ok 910 - Can get slice-assigned value from uint32 array (1)
+ok 911 - Can get slice-assigned value from uint32 array (2)
+ok 912 - :exists works on uint32 array with int index
+ok 913 - :exists works on uint32 array with Int index
+ok 914 - :exists works on uint32 array when out of range
+ok 915 - :!exists works on uint32 array with int index
+ok 916 - :!exists works on uint32 array with Int index
+ok 917 - :!exists works on uint32 array when out of range
+ok 918 - :delete dies on uint32 array with int index
+ok 919 - :delete dies on uint32 array with Int index
+ok 920 - :!delete works on uint32 array with int index
+ok 921 - :!delete works on uint32 array with Int index
+ok 922 - Can call uint32 array constructor with a single value
+ok 923 - Correct number of elems set in constructor of uint32 array
+ok 924 - Correct element value set by constructor of uint32 array
+ok 925 - Can call uint32 array constructor with values
+ok 926 - Correct number of elems set in constructor of uint32 array
+ok 927 - Correct elem value set by constructor of uint32 array (1)
+ok 928 - Correct elem value set by constructor of uint32 array (2)
+ok 929 - Correct elem value set by constructor of uint32 array (3)
+ok 930 - Correct elem value set by constructor of uint32 array (4)
+ok 931 - Can also get last 2 elements on uint32 array
+ok 932 - uint32 array .flat returns a Seq
+ok 933 - uint32 array .eager returns identity
+ok 934 - Mutating for loop on uint32 array works (1)
+ok 935 - Mutating for loop on uint32 array works (2)
+ok 936 - Mutating for loop on uint32 array works (3)
+ok 937 - Mutating for loop on uint32 array works (4)
+ok 938 - Can map over uint32 array
+ok 939 - Mutating map on uint32 array works (1)
+ok 940 - Mutating map on uint32 array works (2)
+ok 941 - Mutating map on uint32 array works (3)
+ok 942 - Mutating map on uint32 array works (4)
+ok 943 - grep a uint32 array
+ok 944 - uint32 array.grep(Int)
+ok 945 - uint32 array.grep(Int, :k)
+ok 946 - uint32 array.grep(Int, :kv)
+ok 947 - uint32 array.grep(Int, :p)
+ok 948 - uint32 array.grep(Int, :v)
+ok 949 - uint32 array.grep(Int)
+ok 950 - uint32 array.grep(Int, :k)
+ok 951 - uint32 array.grep(Int, :kv)
+ok 952 - uint32 array.grep(Int, :p)
+ok 953 - uint32 array.grep(Int, :v)
+ok 954 - Can use reduce meta-op on a uint32 array
+ok 955 - .values from a uint32 array
+ok 956 - .pairup from a uint32 array
+ok 957 - .keys from a uint32 array
+ok 958 - .pairs from a uint32 array
+ok 959 - .antipairs from a uint32 array
+ok 960 - .kv from a uint32 array
+ok 961 - .pick from a uint32 array
+ok 962 - .roll from a uint32 array
+ok 963 - uint32 array.unique
+ok 964 - uint32 array.repeated
+ok 965 - uint32 array.squish
+ok 966 - Trying to pop a shaped uint32 array dies
+ok 967 - Trying to shift a shaped uint32 array dies
+ok 968 - Trying to push a shaped uint32 array dies
+ok 969 - Trying to unshift a shaped uint32 array dies
+ok 970 - Cannot bind to a uint32 array
+ok 971 - Cannot delete from a uint32 array
+ok 972 - Cannot append to a uint32 array
+ok 973 - Cannot prepend to a uint32 array
+ok 974 - Cannot splice to a uint32 array
+ok 975 - .Str space-separates on uint32 array
+ok 976 - .gist space-separates on uint32 array
+ok 977 - .raku includes type and int values on uint32 array
+ok 978 - # SKIP STORE not working correctly yet)
+ok 979 - does slice handle containerized range
+ok 980 - does join a uint32 array
+ok 981 - Can clear uint32 array by assigning empty list
+ok 982 - does emptying a uint32 array reset
+ok 983 - does re-initializing a uint32 array work
+ok 984 - List-assigning uint32 array to untyped works (1)
+ok 985 - List-assigning uint32 array to untyped works (2)
+ok 986 - List-assigning uint32 array to untyped works (3)
+ok 987 - List-assign uint32 array surrounded by literals (1)
+ok 988 - List-assign uint32 array surrounded by literals (2)
+ok 989 - List-assign uint32 array surrounded by literals (3)
+ok 990 - List-assign uint32 array surrounded by literals (4)
+ok 991 - List-assign uint32 array surrounded by literals (5)
+ok 992 - List-assign untyped array of Int to uint32 array (1)
+ok 993 - List-assign untyped array of Int to uint32 array (2)
+ok 994 - List-assign untyped array of Int to uint32 array (3)
+# Subtest: List-assigning incompatible untyped array to uint32 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 995 - List-assigning incompatible untyped array to uint32 array dies
+ok 996 - Smartmatching same uint32 arrays works
+ok 997 - Can we sort uint32 array
+ok 998 - Can we sort 2-element sorted uint32 array
+ok 999 - Can we sort 1-element sorted uint32 array
+ok 1000 - uint64 array is Positional
+not ok 1001 - uint64 array is Positional[uint64] # TODO apparently it is not a typed Positional
+# Failed test 'uint64 array is Positional[uint64]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 19
+ok 1002 - uint64 array .of is uint64
+ok 1003 - uint64 array is Positional
+not ok 1004 - uint64 array is Positional[uint64] # TODO apparently it is not a typed Positional
+# Failed test 'uint64 array is Positional[uint64]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 25
+ok 1005 - uint64 array .of is uint64
+ok 1006 - .new from uint64 array is Positional
+not ok 1007 - .new from uint64 array Positional[uint64] # TODO apparently it is not a typed Positional
+# Failed test '.new from uint64 array Positional[uint64]'
+# at S09-typed-arrays/native-shape1-int.rakudo line 29
+ok 1008 - .new from uint64 array .of is uint64
+ok 1009 - New uint64 array has 5 elems
+ok 1010 - New uint64 array has end of -1
+ok 1011 - New uint64 array Int-ifies to 5
+ok 1012 - New uint64 array numifies to 5
+ok 1013 - Empty uint64 array is not lazy
+ok 1014 - Accessing non-existing on uint64 array dies
+ok 1015 - Elems do not grow just from an access on uint64 array
+ok 1016 - Can store integer in an uint64 array with Int index
+ok 1017 - Can get value from uint64 array with Int index
+ok 1018 - can store integer in an $t array with int index
+ok 1019 - Can get value from uint64 array with int index
+ok 1020 - Can slice-assign to an uint64 array
+ok 1021 - Can get slice-assigned value from uint64 array (1)
+ok 1022 - Can get slice-assigned value from uint64 array (2)
+ok 1023 - :exists works on uint64 array with int index
+ok 1024 - :exists works on uint64 array with Int index
+ok 1025 - :exists works on uint64 array when out of range
+ok 1026 - :!exists works on uint64 array with int index
+ok 1027 - :!exists works on uint64 array with Int index
+ok 1028 - :!exists works on uint64 array when out of range
+ok 1029 - :delete dies on uint64 array with int index
+ok 1030 - :delete dies on uint64 array with Int index
+ok 1031 - :!delete works on uint64 array with int index
+ok 1032 - :!delete works on uint64 array with Int index
+ok 1033 - Can call uint64 array constructor with a single value
+ok 1034 - Correct number of elems set in constructor of uint64 array
+ok 1035 - Correct element value set by constructor of uint64 array
+ok 1036 - Can call uint64 array constructor with values
+ok 1037 - Correct number of elems set in constructor of uint64 array
+ok 1038 - Correct elem value set by constructor of uint64 array (1)
+ok 1039 - Correct elem value set by constructor of uint64 array (2)
+ok 1040 - Correct elem value set by constructor of uint64 array (3)
+ok 1041 - Correct elem value set by constructor of uint64 array (4)
+ok 1042 - Can also get last 2 elements on uint64 array
+ok 1043 - uint64 array .flat returns a Seq
+ok 1044 - uint64 array .eager returns identity
+ok 1045 - Mutating for loop on uint64 array works (1)
+ok 1046 - Mutating for loop on uint64 array works (2)
+ok 1047 - Mutating for loop on uint64 array works (3)
+ok 1048 - Mutating for loop on uint64 array works (4)
+ok 1049 - Can map over uint64 array
+ok 1050 - Mutating map on uint64 array works (1)
+ok 1051 - Mutating map on uint64 array works (2)
+ok 1052 - Mutating map on uint64 array works (3)
+ok 1053 - Mutating map on uint64 array works (4)
+ok 1054 - grep a uint64 array
+ok 1055 - uint64 array.grep(Int)
+ok 1056 - uint64 array.grep(Int, :k)
+ok 1057 - uint64 array.grep(Int, :kv)
+ok 1058 - uint64 array.grep(Int, :p)
+ok 1059 - uint64 array.grep(Int, :v)
+ok 1060 - uint64 array.grep(Int)
+ok 1061 - uint64 array.grep(Int, :k)
+ok 1062 - uint64 array.grep(Int, :kv)
+ok 1063 - uint64 array.grep(Int, :p)
+ok 1064 - uint64 array.grep(Int, :v)
+ok 1065 - Can use reduce meta-op on a uint64 array
+ok 1066 - .values from a uint64 array
+ok 1067 - .pairup from a uint64 array
+ok 1068 - .keys from a uint64 array
+ok 1069 - .pairs from a uint64 array
+ok 1070 - .antipairs from a uint64 array
+ok 1071 - .kv from a uint64 array
+ok 1072 - .pick from a uint64 array
+ok 1073 - .roll from a uint64 array
+ok 1074 - uint64 array.unique
+ok 1075 - uint64 array.repeated
+ok 1076 - uint64 array.squish
+ok 1077 - Trying to pop a shaped uint64 array dies
+ok 1078 - Trying to shift a shaped uint64 array dies
+ok 1079 - Trying to push a shaped uint64 array dies
+ok 1080 - Trying to unshift a shaped uint64 array dies
+ok 1081 - Cannot bind to a uint64 array
+ok 1082 - Cannot delete from a uint64 array
+ok 1083 - Cannot append to a uint64 array
+ok 1084 - Cannot prepend to a uint64 array
+ok 1085 - Cannot splice to a uint64 array
+ok 1086 - .Str space-separates on uint64 array
+ok 1087 - .gist space-separates on uint64 array
+ok 1088 - .raku includes type and int values on uint64 array
+ok 1089 - # SKIP STORE not working correctly yet)
+ok 1090 - does slice handle containerized range
+ok 1091 - does join a uint64 array
+ok 1092 - Can clear uint64 array by assigning empty list
+ok 1093 - does emptying a uint64 array reset
+ok 1094 - does re-initializing a uint64 array work
+ok 1095 - List-assigning uint64 array to untyped works (1)
+ok 1096 - List-assigning uint64 array to untyped works (2)
+ok 1097 - List-assigning uint64 array to untyped works (3)
+ok 1098 - List-assign uint64 array surrounded by literals (1)
+ok 1099 - List-assign uint64 array surrounded by literals (2)
+ok 1100 - List-assign uint64 array surrounded by literals (3)
+ok 1101 - List-assign uint64 array surrounded by literals (4)
+ok 1102 - List-assign uint64 array surrounded by literals (5)
+ok 1103 - List-assign untyped array of Int to uint64 array (1)
+ok 1104 - List-assign untyped array of Int to uint64 array (2)
+ok 1105 - List-assign untyped array of Int to uint64 array (3)
+# Subtest: List-assigning incompatible untyped array to uint64 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1106 - List-assigning incompatible untyped array to uint64 array dies
+ok 1107 - Smartmatching same uint64 arrays works
+ok 1108 - Can we sort uint64 array
+ok 1109 - Can we sort 2-element sorted uint64 array
+ok 1110 - Can we sort 1-element sorted uint64 array
+# FUDGED!

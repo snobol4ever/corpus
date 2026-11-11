@@ -1,0 +1,38 @@
+1..9
+ok 1 - loads_ok is working
+ok 2 - precomp_loads_ok is working
+# Subtest
+    1..2
+    ok 1 - loads_is is working (Compiled)
+    ok 2 - loads_is is working (Compared)
+ok 3 - 
+# Subtest
+    1..2
+    ok 1 - precomp_loads_is is working (Compiled)
+    ok 2 - precomp_loads_is is working (Compared)
+ok 4 - 
+# Subtest
+    1..2
+    ok 1 - precompiled Array of native arrays (RT  \#124162) (Compiled)
+    ok 2 - precompiled Array of native arrays (RT  \#124162) (Compared)
+ok 5 - 
+# Subtest
+    ok 1 - precompiled role with handles trait on attribute
+    ok 2 - use precompiled role with handles trait on attribute
+    1..2
+ok 6 - 
+# Subtest
+    1..2
+    ok 1 - precompiled EVAL in BEGIN (Compiled)
+    ok 2 - precompiled EVAL in BEGIN (Compared)
+ok 7 - 
+# Subtest
+    ok 1 - a class in Pod namespace
+    ok 2 - use a class in Pod namespace
+    1..2
+ok 8 - 
+# Subtest
+    ok 1 - a class in IO namespace (precompiled)
+    ok 2 - use a class in IO namespace (precompiled)
+    1..2
+ok 9 - 

@@ -1,0 +1,97 @@
+1..91
+ok 1 - Mu is not defined
+ok 2 - uninitialized lexicals are undefined
+ok 3 - uninitialized package vars are undefined
+ok 4 - initialized var is defined
+ok 5 - increment of undefined variable does not warn
+ok 6 - undefine($a) does
+ok 7 - string
+ok 8 - assigning another undefined lexical
+ok 9 - assigning another undefined global
+ok 10 - pop from array
+ok 11 - pop from empty array
+ok 12 - shift from array
+ok 13 - shift from empty array
+ok 14 - hash subscript
+ok 15 - non-existent hash subscript
+ok 16 - undefine hash subscript
+ok 17 - delete hash subscript
+ok 18 - aggregate array defined
+ok 19 - aggregate hash defined
+not ok 20 - undefine array # TODO definedness of array
+# Failed test 'undefine array'
+# at S32-scalar/undef.rakudo line 88
+not ok 21 - undefine hash # TODO definedness of hash
+# Failed test 'undefine hash'
+# at S32-scalar/undef.rakudo line 92
+ok 22 - define array again
+ok 23 - define hash again
+ok 24 - # SKIP access to &your_sub
+ok 25 - # SKIP access to &your_sub
+ok 26 - # SKIP access to &your_sub
+ok 27 - # SKIP access to &your_sub
+ok 28 - # SKIP access to &your_sub
+ok 29 - # SKIP access to &your_sub
+ok 30 - Undef on LHS of list assignment
+ok 31 - Undef on LHS of list assignment
+ok 32 - Undef on LHS of list assignment
+ok 33 - Undef on LHS of function assignment
+ok 34 - Undef on LHS of function assignment
+ok 35 - The object is-a 'Array'
+ok 36 - array reference
+ok 37 - undefine array referent
+ok 38 - dangling array reference
+ok 39 - The object is-a '"Hash"'
+ok 40 - hash reference
+ok 41 - undefine hash referent:
+ok 42 - dangling hash reference
+ok 43 - my Array
+ok 44 - my Array subscript - Mu
+ok 45 - push
+ok 46 - comes to shove
+ok 47 - my Hash
+ok 48 - my Hash subscript - Mu
+ok 49 - my Hash subscript - Mu, no autovivification happened
+ok 50 - delete
+ok 51 -  - once only
+ok 52 - Unelaborated mutt
+ok 53 -  - now real
+ok 54 - # SKIP Cannot use bind operator with this left-hand side
+ok 55 - # SKIP Cannot use bind operator with this left-hand side
+ok 56 - # SKIP Cannot use bind operator with this left-hand side
+ok 57 - # SKIP Cannot use bind operator with this left-hand side
+ok 58 - # SKIP Cannot use bind operator with this left-hand side
+ok 59 - # SKIP Cannot use bind operator with this left-hand side
+ok 60 - # SKIP Cannot use bind operator with this left-hand side
+ok 61 - # SKIP Cannot use bind operator with this left-hand side
+ok 62 - # SKIP Cannot use bind operator with this left-hand side
+ok 63 - # SKIP Cannot use bind operator with this left-hand side
+ok 64 - all submatches undefined after failed match
+ok 65 - defined param
+ok 66 - unspecified optional param
+ok 67 - unspecified optional param
+ok 68 - Any + 1
+ok 69 - 1 + Any
+ok 70 - Any * 2
+ok 71 - 2 * Any
+ok 72 - Any xx 2
+ok 73 - Any * Any
+ok 74 - can use EVAL("") in further expressions
+ok 75 - sub returns a bool
+ok 76 - attempt to undefine returned Bool type dies
+ok 77 - sub still returns a bool
+ok 78 - sub returns array
+ok 79 - attempt to undefine returned array lives
+ok 80 - sub still returns array
+ok 81 - attempt to undefine sub dies
+ok 82 - attempt to undefine sub fails
+ok 83 - can still call sub after attempt to undefine it
+ok 84 - can undefine $a twice without any troubles
+ok 85 - undefine is rw
+ok 86 - Can undefine temp $var
+ok 87 - Can temp undefine $var
+ok 88 - Can temp undefine $var + assignment
+ok 89 - temp restores value before undefine
+ok 90 - temp restores value after undefine
+ok 91 - temp restore default value after undefine
+# FUDGED!

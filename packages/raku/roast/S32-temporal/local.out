@@ -1,0 +1,63 @@
+1..25
+ok 1 - $*TZ is defined
+ok 2 - DateTime.now uses $*TZ
+ok 3 - DateTime.local uses $*TZ
+ok 4 - UTC -> local -> UTC (2003-08-01T02:22:00Z)
+ok 5 - UTC -> local -> UTC (1984-02-29T05:55:22Z)
+ok 6 - UTC -> local -> UTC (1998-12-31T23:59:60Z)
+not ok 7 - DateTime.in-timezone($*TZ) (from UTC, outside of DST) # TODO 
+# Failed test 'DateTime.in-timezone($*TZ) (from UTC, outside of DST)'
+# at S32-temporal/local.rakudo line 42
+# expected: '2007-01-01T21:22:00-05:00'
+#      got: '2007-01-01T22:22:00-04:00'
+not ok 8 - DateTime.local (from UTC, outside of DST) # TODO 
+# Failed test 'DateTime.local (from UTC, outside of DST)'
+# at S32-temporal/local.rakudo line 47
+# expected: '2007-01-01T21:22:00-05:00'
+#      got: '2007-01-01T22:22:00-04:00'
+ok 9 - DateTime.local (from UTC, during DST)
+not ok 10 - DateTime.local (from UTC, just before DST begins) # TODO 
+# Failed test 'DateTime.local (from UTC, just before DST begins)'
+# at S32-temporal/local.rakudo line 53
+# expected: '1984-04-29T01:55:00-05:00'
+#      got: '1984-04-29T02:55:00-04:00'
+ok 11 - DateTime.local (from UTC, just after DST begins)
+ok 12 - DateTime.local (from UTC, just before DST ends)
+ok 13 - DateTime.local (from UTC, just before DST ends, .raku)
+not ok 14 - DateTime.local (from UTC, just after DST ends) # TODO 
+# Failed test 'DateTime.local (from UTC, just after DST ends)'
+# at S32-temporal/local.rakudo line 62
+# expected: '2008-11-02T01:55:00-05:00'
+#      got: '2008-11-02T02:55:00-04:00'
+not ok 15 - DateTime.local (from UTC, just after DST ends, .raku) # TODO 
+# Failed test 'DateTime.local (from UTC, just after DST ends, .raku)'
+# at S32-temporal/local.rakudo line 65
+# expected: '2008-11-02T01:55:00-05:00'
+#      got: '2008-11-02T02:55:00-04:00'
+ok 16 - DateTime.local (from +0303, just before DST ends)
+not ok 17 - DateTime.local (from -1612, just after DST ends) # TODO 
+# Failed test 'DateTime.local (from -1612, just after DST ends)'
+# at S32-temporal/local.rakudo line 71
+# expected: '2008-11-02T01:55:00-05:00'
+#      got: '2008-11-02T02:55:00-04:00'
+not ok 18 - DateTime.utc (from local, outside of DST) # TODO 
+# Failed test 'DateTime.utc (from local, outside of DST)'
+# at S32-temporal/local.rakudo line 78
+# expected: '1995-01-02T02:22:00Z'
+#      got: '1995-01-02T01:22:00Z'
+ok 19 - DateTime.utc (from local, during DST)
+not ok 20 - DateTime.utc (from local, just before DST starts) # TODO 
+# Failed test 'DateTime.utc (from local, just before DST starts)'
+# at S32-temporal/local.rakudo line 84
+# expected: '2007-03-11T06:55:00Z'
+#      got: '2007-03-11T05:55:00Z'
+ok 21 - DateTime.in-timezone (local to -1612, just after DST starts)
+ok 22 - DateTime.utc (from local, ambiguous)
+ok 23 - DateTime.utc (from local, with leap second)
+ok 24 - Local time zone rejects bogus leap second
+not ok 25 - DateTime.local (from UTC, with leap second) # TODO 
+# Failed test 'DateTime.local (from UTC, with leap second)'
+# at S32-temporal/local.rakudo line 98
+# expected: '1998-12-31T18:59:60-05:00'
+#      got: '1998-12-31T19:59:60-04:00'
+# FUDGED!

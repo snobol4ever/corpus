@@ -1,0 +1,20 @@
+1..7
+ok 1 - variable gets auto-declared when strict is turned off
+ok 2 - variable gets auto-declared in packages
+ok 3 - lax declared variable is package scoped
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - '$foo = 10;' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .suggestions matches Foo
+ok 4 - did we throws-like X::Undeclared?
+ok 5 - # SKIP lax mode does not propagate into EVAL yet
+ok 6 - "6;" no longer means "no strict;" and "(6;)" no longer results in a compile time error
+# Subtest: `no strict` does not cause autovivification container issues
+    1..4
+    ok 1 - `temp` on Hash key
+    ok 2 - `let`  on Hash key
+    ok 3 - postcircumfix {} on Hash key
+    ok 4 - non-existent keys are `Any`
+ok 7 - `no strict` does not cause autovivification container issues
+# FUDGED!

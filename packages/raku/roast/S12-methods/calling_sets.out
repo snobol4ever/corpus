@@ -1,0 +1,43 @@
+1..38
+ok 1 - .? calls first matching method
+ok 2 - .* calls up inheritance hierarchy
+ok 3 - .+ calls up inheritance hierarchy
+ok 4 - .? on undefined method gives Nil
+ok 5 - .+ on undefined method is an error
+ok 6 - .* on undefined method gives Nil
+ok 7 - .? with dynamic method name
+ok 8 - .* with dynamic method name
+ok 9 - .+ with dynamic method name
+ok 10 - ? at start of dynamic name does not imply .?
+ok 11 - + at start of dynamic name does not imply .+
+ok 12 - * at start of dynamic name does not imply .*
+ok 13 - dispatch to one sanity test
+ok 14 - dispatch to one inherited sanity test
+ok 15 - dispatch to one with no matching multi (sanity test)
+ok 16 - .? gets same result as . if there is a multi (match)
+ok 17 - .? gets same result as . if there is a multi (inherited)
+ok 18 - .? gets same result as . if there is a multi (no match)
+ok 19 - .* calls multis up inheritance hierarchy
+ok 20 - .* behaves as single dispatch at each step
+ok 21 - .* dies if there is no matching multi in a base class
+ok 22 - .* calls multis up inheritance hierarchy
+ok 23 - .* behaves as single dispatch at each step
+ok 24 - .* dies if there is no matching multi in subclass
+ok 25 - .* dies if there is no matching multi in a base class
+ok 26 - .+ calls multis up inheritance hierarchy
+ok 27 - .+ behaves as single dispatch at each step
+ok 28 - .+ dies if there is no matching multi in subclass
+ok 29 - .+ dies if there is no matching multi in a base class
+ok 30 - single dispatch method from role found with .?
+ok 31 - single dispatch method from role found with .+
+ok 32 - single dispatch method from role found with .*
+ok 33 - multi dispatch method from role found with .?
+ok 34 - multi dispatch method from role found with .+
+ok 35 - multi dispatch method from role found with .*
+ok 36 - .? when initial multi does not match will find next one up
+ok 37 - .?nonexisent() returns Nil
+# Subtest: .WHAT is a macro and cannoted be .*ed
+    1..2
+    ok 1 - '1.*WHAT' died
+    ok 2 - right exception type (Exception)
+ok 38 - .WHAT is a macro and cannoted be .*ed

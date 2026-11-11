@@ -1,0 +1,23 @@
+1..18
+ok 1 - $?PACKAGE should be the package name
+ok 2 - the thing returned by $?CLASS in our class smartmatches against our class
+ok 3 - the class returned by $?CLASS in our class was really our class (1)
+ok 4 - the class returned by $?CLASS in our class way really our class (2)
+ok 5 - self in classes works
+ok 6 - $?PACKAGE should be the role package name - it is not generic like $?CLASS
+ok 7 - the thing returned by $?CLASS in our role smartmatches against our class
+ok 8 - the class returned by $?CLASS in our role way really our class (1)
+ok 9 - the class returned by $?CLASS in our role way really our class (2)
+ok 10 - self in roles works
+ok 11 - the returned by $?ROLE smartmatches against our role
+ok 12 - ::?CLASS in classes works
+ok 13 - ::?CLASS in roles works
+ok 14 - ::?ROLE in roles works
+ok 15 - self is an alias for $self (1)
+ok 16 - self is an alias for $self (2)
+# Subtest: there is no self outside of a method
+    1..2
+    ok 1 - 'self' died
+    ok 2 - right exception type (X::Syntax::Self::WithoutObject)
+ok 17 - there is no self outside of a method
+ok 18 - self is not overridden inside an EVAL

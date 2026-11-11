@@ -1,0 +1,68 @@
+1..67
+ok 1 - We should find that 0 is not prime
+ok 2 - .. and neither is 1
+ok 3 - .. 2 is prime
+ok 4 - .. 3 is prime
+ok 5 - .. 4 is not
+ok 6 - .. 5 is prime
+ok 7 - .. 6 is even, thus not prime
+ok 8 - .. 15 is product of two primes, but not prime
+ok 9 - .. 2531 is a larger prime
+ok 10 - .. 2533 is not
+ok 11 - We should be able to find the gcd of 36 and 63
+ok 12 - .. and viceversa
+ok 13 - .. and that gcd(0,$x) is $x
+ok 14 - .. even when $x is 0
+ok 15 - We should be able to tell that 35 and 64 are coprime
+ok 16 - .. and viceversa
+ok 17 - .. but 13 and 39 are not
+ok 18 - totient of 1 is 1
+ok 19 - totient of 2 is 1
+ok 20 - totient of 3 is 2
+ok 21 - totient of 4 is 2
+ok 22 - totient of 5 is 4
+ok 23 - totient of 6 is 2
+ok 24 - totient of 7 is 6
+ok 25 - totient of 8 is 4
+ok 26 - totient of 9 is 6
+ok 27 - totient of 10 is 4
+ok 28 - totient of 11 is 10
+ok 29 - totient of 12 is 4
+ok 30 - totient of 13 is 12
+ok 31 - totient of 14 is 6
+ok 32 - totient of 15 is 8
+ok 33 - totient of 16 is 8
+ok 34 - totient of 17 is 16
+ok 35 - totient of 18 is 6
+ok 36 - totient of 19 is 18
+ok 37 - totient of 20 is 8
+ok 38 - prime factors of 315 are 3,3,5,7
+ok 39 - We ignore 1
+ok 40 - We get prime numbers prime
+ok 41 - .. and multiplicity right
+ok 42 - .. and products of primes
+ok 43 - .. and ignore multiplicity 0
+ok 44 - totient of 1 is 1
+ok 45 - totient of 2 is 1
+ok 46 - totient of 3 is 2
+ok 47 - totient of 4 is 2
+ok 48 - totient of 5 is 4
+ok 49 - totient of 6 is 2
+ok 50 - totient of 7 is 6
+ok 51 - totient of 8 is 4
+ok 52 - totient of 9 is 6
+ok 53 - totient of 10 is 4
+ok 54 - totient of 11 is 10
+ok 55 - totient of 12 is 4
+ok 56 - totient of 13 is 12
+ok 57 - totient of 14 is 6
+ok 58 - totient of 15 is 8
+ok 59 - totient of 16 is 8
+ok 60 - totient of 17 is 16
+ok 61 - totient of 18 is 6
+ok 62 - totient of 19 is 18
+ok 63 - totient of 20 is 8
+ok 64 - # SKIP No Benchmark module yet
+ok 65 - a few.
+ok 66 - a few more.
+ok 67 - Goldbach works.

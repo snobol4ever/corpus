@@ -1,0 +1,47 @@
+1..46
+ok 1 - eq true
+ok 2 - eq false
+ok 3 - ne true
+ok 4 - ne false
+ok 5 - eq on strings with null chars
+ok 6 - !eq on strings with null chars but different lengths
+ok 7 - eq doesn't have null-padding semantics
+ok 8 - eq doesn't have space-padding semantics
+ok 9 - ne doesn't have null-padding semantics
+ok 10 - ne doesn't have space-padding semantics
+ok 11 - Any eq ''
+ok 12 - Any ne 'f'
+ok 13 - Array Any eq ''
+ok 14 - Array Any ne 'f'
+ok 15 - == true
+ok 16 - == false
+ok 17 - != true
+ok 18 - != false
+ok 19 - &infix:<==> with one argument is correct
+ok 20 - &infix:<==> with no arguments is correct
+ok 21 - &infix:<!=> with one argument is correct
+ok 22 - &infix:<!=> with no arguments is correct
+ok 23 - &infix:<!==> with one argument is correct
+ok 24 - &infix:<!==> with no arguments is correct
+ok 25 - infix:<==> with one argument is correct
+ok 26 - infix:<==> with no arguments is correct
+ok 27 - infix:<!=> with one argument is correct
+ok 28 - infix:<!=> with no arguments is correct
+ok 29 - infix:<!==> with one argument is correct
+ok 30 - infix:<!==> with no arguments is correct
+ok 31 - &[==] with one argument is correct
+ok 32 - &[==] with no arguments is correct
+ok 33 - &[!=] with one argument is correct
+ok 34 - &[!=] with no arguments is correct
+ok 35 - &[!==] with one argument is correct
+ok 36 - &[!==] with no arguments is correct
+ok 37 - !== true
+ok 38 - !== false
+ok 39 - !eq true undef
+ok 40 - !eq true empty string
+ok 41 - !eq false undef and empty string
+ok 42 - !eq false undef twice
+ok 43 - !eq false empty string twice
+ok 44 - !eq false non-empty string twice
+ok 45 - Any == 0
+ok 46 - Array Any == 0

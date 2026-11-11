@@ -1,0 +1,72 @@
+1..55
+ok 1 - Simple set
+ok 2 - Simple set capture
+ok 3 - Simple neg set failure
+ok 4 - Simple neg set match
+ok 5 - Simple neg set capture
+ok 6 - zerowidth negated character class can match at end of string
+ok 7 - Difference set failure
+ok 8 - Difference set match
+ok 9 - Difference set capture
+ok 10 - Difference set match 1
+ok 11 - Difference set match 2
+ok 12 - Difference set match 3
+ok 13 - Difference set match 4
+ok 14 - Difference set match 5
+ok 15 - Difference set match 6
+ok 16 - Difference set match 7
+ok 17 - Named difference set failure
+ok 18 - Named difference set match
+ok 19 - Named difference set capture
+ok 20 - Multi-difference set failure
+ok 21 - Multi-difference set match
+ok 22 - Multi-difference set capture
+ok 23 - quoted close LSB match
+ok 24 - quoted close LSB capture
+ok 25 - quoted open LSB match
+ok 26 - quoted open LSB capture
+ok 27 - quoted open LCB match
+ok 28 - quoted open LCB capture
+ok 29 - quoted close LCB match
+ok 30 - quoted close LCB capture
+ok 31 - comment embedded in charset can be parsed
+ok 32 - comment embedded in charset works
+ok 33 - large \x char spec
+# Subtest: reverse range in charset is lethal
+    1..2
+    ok 1 - ''RT  \#71702' ~~ /<[d..b]>? RT/' died
+    ok 2 - right exception type (Exception)
+ok 34 - reverse range in charset is lethal
+# Subtest: missing + or - is fatal 1
+    1..2
+    ok 1 - ''x' ~~ /<[abc] [def]>? RT/' died
+    ok 2 - right exception type (Exception)
+ok 35 - missing + or - is fatal 1
+# Subtest: missing + or - is fatal 2
+    1..2
+    ok 1 - ''x' ~~ /<:Kata :Hira]>? RT/' died
+    ok 2 - right exception type (Exception)
+ok 36 - missing + or - is fatal 2
+# Subtest: missing + or - is fatal 3
+    1..2
+    ok 1 - ''x' ~~ /<+alpha digit]>? RT/' died
+    ok 2 - right exception type (Exception)
+ok 37 - missing + or - is fatal 3
+ok 38 - weird char class matches at least its end point
+ok 39 - STD error message for - as character range
+ok 40 - Quantifiers in capture groups work
+ok 41 - backslashed chars in char classes
+ok 42 - ... does not match outside its range
+ok 43 - Can match empty string against char class
+ok 44 - char excluded from class
+ok 45 - ... but others are fine
+ok 46 - look-ahead with windows newline does not advance cursor position
+ok 47 - kebab-case allowed in character classes
+ok 48 - accidental kebabs disallowed
+ok 49 - Cannot use NFG synthetic as range endpoint
+ok 50 - :i with cclass with multiple ranges works
+ok 51 - :ignorecase in combination with charclass ranges works with LTM
+ok 52 - :ignoremark in combination with charclass ranges works with LTM
+ok 53 - :ignoremark :ignorecase in combination with charclass ranges works with LTM
+ok 54 - \0 works inside character classes and matches null
+ok 55 - :g, :ignoremark, and cclass interaction ok

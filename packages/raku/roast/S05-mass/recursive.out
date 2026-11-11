@@ -1,0 +1,21 @@
+1..20
+ok 1 - "" ~~ /<r>/ matched
+ok 2 - with ""
+ok 3 - from 0
+ok 4 - to 0
+ok 5 - "x" ~~ /<r>/ matched
+ok 6 - with ""
+ok 7 - from 0
+ok 8 - to 0
+ok 9 - "x" ~~ /<r>$/ matched
+ok 10 - with "x"
+ok 11 - from 0
+ok 12 - to 1
+ok 13 - "xx" ~~ /<r>$/ matched
+ok 14 - with "xx"
+ok 15 - from 0
+ok 16 - to 2
+ok 17 - "x" ~~ /<r2>$/ matched
+ok 18 - with "x"
+ok 19 - from 0
+ok 20 - to 1

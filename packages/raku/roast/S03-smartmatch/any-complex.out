@@ -1,0 +1,13 @@
+1..12
+ok 1 - Complex  ~~ Complex (+)
+ok 2 - Complex  ~~ Complex (-)
+ok 3 - Complex  ~~ Complex (-)
+ok 4 - Complex !~~ Complex (-)
+ok 5 - Complex !~~ Complex (+)
+ok 6 - Complex !~~ Complex (+)
+ok 7 - Num  ~~ Complex (+)
+ok 8 - Num  ~~ Complex (-)
+ok 9 - Num  ~~ Complex (-)
+ok 10 - Num !~~ Complex (-)
+ok 11 - Num !~~ Complex (+)
+ok 12 - Num !~~ Complex (+)

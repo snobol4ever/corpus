@@ -1,0 +1,11 @@
+1..3
+not ok 1 - negating stagestats doesn't print them # TODO 
+# Failed test 'negating stagestats doesn't print them'
+# at S19-command-line-options/04-negation.rakudo line 15
+not ok 2 - negation of multiple short options fails # TODO 
+# Failed test 'negation of multiple short options fails'
+# at S19-command-line-options/04-negation.rakudo line 23
+not ok 3 - negation of short option that needs a value fails # TODO 
+# Failed test 'negation of short option that needs a value fails'
+# at S19-command-line-options/04-negation.rakudo line 30
+# FUDGED!

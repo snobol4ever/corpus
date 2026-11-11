@@ -1,0 +1,4 @@
+1..3
+ok 1 - # SKIP no Perl support
+ok 2 - # SKIP no Perl support
+ok 3 - # SKIP no Perl support

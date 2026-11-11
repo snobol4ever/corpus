@@ -1,0 +1,45 @@
+1..32
+ok 1 - ... multi-method dispatched on no args
+ok 2 - ... multi-method dispatched on Str
+ok 3 - ... multi-method dispatched on Int
+ok 4 - ... multi-method dispatched on Numeric
+# Subtest: Call with wrong number of args results in no matching candidate exception
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 5 - Call with wrong number of args results in no matching candidate exception
+ok 6 - 
+ok 7 - redefinition of non-multi method (RT  \#67024)
+ok 8 - error message mentions multi-ness
+ok 9 - multi method called once on empty signature
+ok 10 - multi method called once on Str signature
+ok 11 - multi method called once on Numeric signature
+ok 12 - dispatch to one role
+ok 13 - dispatch to other role
+ok 14 - dispatch to the class with the roles
+ok 15 - .^methods returns one element for a multi
+ok 16 - multi method from ^methods is a Routine
+ok 17 - got three candidates for multi method
+ok 18 - candidate 0 is a method
+ok 19 - candidate 1 is a method
+ok 20 - candidate 2 is a method
+ok 21 - call to tied method dies
+ok 22 - broken class fixed by subclass (1)
+ok 23 - broken class fixed by subclass (2)
+ok 24 - error message for failed dispatch contains method name
+ok 25 - error message for failed dispatch contains invocant type
+ok 26 - foo() method works when $.foo attribute is present
+ok 27 - $.foo attribute has no accessor when foo() method is present
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class RT57788 { method m() { }; method m() { } }' died
+    ok 2 - right exception type (Exception)
+ok 28 - did we throws-like Exception?
+ok 29 - multis with different names but same signatures are not ambiguous
+ok 30 - multi submethod can be called on exact instance
+# Subtest: multi submethod is not inherited
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 31 - multi submethod is not inherited
+ok 32 - Declaring both proto and multi for a submethod doesn't die

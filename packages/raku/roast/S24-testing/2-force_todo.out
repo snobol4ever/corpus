@@ -1,0 +1,41 @@
+1..12
+not ok 1 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 2 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 3 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 4 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 5 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 6 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 7 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 8 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 9 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 10 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 11 - non-compiling test # TODO Module Test doesn't implement force_todo yet
+# Failed test 'non-compiling test'
+# at S24-testing/2-force_todo.rakudo line 21
+not ok 12 - force_todo is implemented # TODO Canary test for &Test::force_todo
+# Failed test 'force_todo is implemented'
+# at S24-testing/2-force_todo.rakudo line 25
+# Error: Undeclared routine:
+#     force_todo used at line 1
+# 
+# FUDGED!

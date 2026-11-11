@@ -1,0 +1,76 @@
+1..43
+ok 1 - It exists
+ok 2 - It exists
+ok 3 - It doesn't
+ok 4 - .IO.copy normal file
+ok 5 - It exists
+ok 6 - It has a size
+ok 7 - The size is equal to source file
+ok 8 - .IO.copy missing file
+ok 9 - It doesn't
+ok 10 - .IO.copy empty file
+ok 11 - It exists
+ok 12 - It has no size
+ok 13 - The size is equal to source file
+ok 14 - .IO.copy empty file (dest exists)
+ok 15 - It exists
+ok 16 - It has no size
+# Subtest: .IO.copy normal file with :createonly
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Copy)
+ok 17 - .IO.copy normal file with :createonly
+ok 18 - It exists
+ok 19 - It has no size
+ok 20 - file has been removed
+ok 21 - file has been removed
+ok 22 - copy() normal file
+ok 23 - It exists
+ok 24 - It has a size
+ok 25 - The size is equal to source file
+ok 26 - copy() missing file
+ok 27 - It doesn't
+ok 28 - copy() empty file
+ok 29 - It exists
+ok 30 - It has no size
+ok 31 - The size is equal to source file
+ok 32 - copy() empty file (dest exists)
+ok 33 - It exists
+ok 34 - It has no size
+# Subtest: .copy() normal file with :createonly
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Copy)
+ok 35 - .copy() normal file with :createonly
+ok 36 - It exists
+ok 37 - It has no size
+ok 38 - file has been removed
+ok 39 - file has been removed
+ok 40 - file has been removed
+ok 41 - file has been removed
+# Subtest: copying when target and source are same file
+    1..2
+    # Subtest: copying fails
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Copy)
+        ok 2 - Failure threw when sunk
+    ok 1 - copying fails
+    ok 2 - file contents are untouched
+ok 42 - copying when target and source are same file
+# Subtest: attempt to copy a directory to a file
+    1..2
+    # Subtest: cannot copy a directory to a file
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Copy)
+        ok 2 - Failure threw when sunk
+    ok 1 - cannot copy a directory to a file
+    ok 2 - file contents are untouched
+ok 43 - attempt to copy a directory to a file

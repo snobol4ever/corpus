@@ -1,0 +1,47 @@
+1..42
+ok 1 - standard vs baggy word-count
+ok 2 - standard vs baggy word-count
+ok 3 - hash assign (lives)
+# Subtest: baggy assign (dies)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 4 - baggy assign (dies)
+ok 5 - weighted roll
+ok 6 - .pick(*)
+ok 7 - weighted roll
+ok 8 - pick from large bag
+ok 9 - set difference (-)
+ok 10 - set difference (-)
+ok 11 - set ∈ result type
+ok 12 - set (elem) result type
+ok 13 - set ∉ result type
+ok 14 - set ∋ result type
+ok 15 - set (cont) result type
+ok 16 - set ∌ result type
+ok 17 - infix:<(|)> return type
+ok 18 - infix:<(|)> return type
+ok 19 - infix:<(&)> return type
+ok 20 - infix:<(&)> return type
+ok 21 - infix:<(-)> return type
+ok 22 - infix:<(^)> return type
+ok 23 - infix:«(<=)» return type
+ok 24 - infix:«(<=)» return type
+ok 25 - infix:<⊈> return type
+ok 26 - infix:«(<)» return type
+ok 27 - infix:«(<)» return type
+ok 28 - infix:<⊄> return type
+ok 29 - infix:<⊇> return type
+ok 30 - infix:«(>=)» return type
+ok 31 - infix:<⊉> return type
+ok 32 - infix:<⊃> return type
+ok 33 - infix:«(>)» return type
+ok 34 - infix:<⊅> return type
+ok 35 - infix:<(.)> return type
+ok 36 - infix:<(.)> return type
+ok 37 - infix:<(+)> return type
+ok 38 - infix:<(+)> return type
+ok 39 - $a (|) $b
+ok 40 - $a (&) $b
+ok 41 - $a (+) $b
+ok 42 - $a (.) $b

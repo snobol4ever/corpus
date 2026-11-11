@@ -1,0 +1,5 @@
+1..4
+ok 1 - Test encoding from Unicode to windows-1252
+ok 2 - Test decoding from windows-1252 to Unicode
+ok 3 - Test encoding from Unicode to windows-1251
+ok 4 - Test decoding from windows-1251 to Unicode

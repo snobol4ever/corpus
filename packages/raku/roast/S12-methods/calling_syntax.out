@@ -1,0 +1,21 @@
+1..12
+ok 1 - called a method without parens
+ok 2 - called a method without parens
+ok 3 - called a method with parens
+ok 4 - called a method with parens
+ok 5 - called a method with a parameter
+# Subtest: indirect method call using quotes, no parens
+    1..2
+    ok 1 - '$x.'foo'' died
+    ok 2 - right exception type (Exception)
+ok 6 - indirect method call using quotes, no parens
+ok 7 - indirect method call using quotes, with parens
+ok 8 - indirect method call using quotes, with parameter
+# Subtest: indirect method call, no parens
+    1..2
+    ok 1 - '$x."$name"' died
+    ok 2 - right exception type (Exception)
+ok 9 - indirect method call, no parens
+ok 10 - indirect method call, with parens
+ok 11 - indirect method call, with parameter
+ok 12 - `$.` syntax shorthand works with meta-methods

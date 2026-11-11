@@ -1,0 +1,32 @@
+1..1
+# Subtest: Nominalizable generic
+    1..6
+    ok 1 - instantiated
+    ok 2 - instantiating over different type
+    ok 3 - generic class instantiates
+    ok 4 - generic class instantiates over different type
+    # Subtest: Typecheck for CInt
+        1..5
+        ok 1 - positional attribute can be initialized with correct value types
+        ok 2 - initialization is successfull
+        ok 3 - can assign with correct value types
+        ok 4 - assignment is successfull
+        # Subtest: wrong value types result in exception
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 5 - wrong value types result in exception
+    ok 5 - Typecheck for CInt
+    # Subtest: Typecheck for CStr
+        1..5
+        ok 1 - positional attribute can be initialized with correct value types
+        ok 2 - initialization is successfull
+        ok 3 - can assign with correct value types
+        ok 4 - assignment is successfull
+        # Subtest: wrong value types result in exception
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 5 - wrong value types result in exception
+    ok 6 - Typecheck for CStr
+ok 1 - Nominalizable generic

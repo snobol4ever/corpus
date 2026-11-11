@@ -1,0 +1,8 @@
+1..7
+ok 1 - %hash ~~ Pair (Str, +)
+ok 2 - %hash ~~ Pair (Str, -)
+ok 3 - %hash ~~ Pair (Num, +)
+ok 4 - %hash ~~ Colonpair
+ok 5 - %hash ~~ Pair (!*.defined, Mu)
+ok 6 - %hash ~~ Pair (!*.defined, Nil)
+ok 7 - %hash ~~ Pair (key and val not paired)

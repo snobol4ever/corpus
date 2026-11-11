@@ -1,0 +1,5 @@
+1..4
+ok 1 - base grammar
+ok 2 - derived grammar
+ok 3 - derived grammar is extended
+ok 4 - base grammar is not extended

@@ -1,0 +1,21 @@
+1..12
+ok 1 - multi dispatch on array packed with one element
+ok 2 - multi dispatch on array packed with two elements
+ok 3 - multi dispatch on array packed with three elements
+ok 4 - multi dispatch on array packed with four elements
+ok 5 - multi dispatch on slurpy packed with four elements
+ok 6 - multi dispatch on array packed with one required element + no optional
+ok 7 - multi dispatch on array packed with one required element + one optional
+ok 8 - multi dispatch on slurpy packed with two required element + one optional
+ok 9 - Multi-dispatch descends into sub signatures (1)
+ok 10 - Multi-dispatch descends into sub signatures (2)
+# Subtest: One-level unpack callsame and nextcallee
+    ok 1 - callsame works with unpack-based disaptch
+    ok 2 - nextcallee works with unpack-based disaptch
+    1..2
+ok 11 - One-level unpack callsame and nextcallee
+# Subtest: Multi-level nextcallee
+    ok 1 - # SKIP fixed in new-disp
+    1..1
+ok 12 - Multi-level nextcallee
+# FUDGED!

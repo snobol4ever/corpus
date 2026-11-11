@@ -1,0 +1,50 @@
+1..49
+ok 1 - got the right absolute value for 0
+ok 2 - got the right absolute value for $x=0
+ok 3 - type of abs($x) agrees with type of $x
+ok 4 - type of $x.abs agrees with type of $x
+ok 5 - got the right absolute value for 0
+ok 6 - got the right absolute value for $x=0
+ok 7 - type of abs($x) agrees with type of $x
+ok 8 - type of $x.abs agrees with type of $x
+ok 9 - got the right absolute value for 0
+ok 10 - got the right absolute value for $x=0
+ok 11 - type of abs($x) agrees with type of $x
+ok 12 - type of $x.abs agrees with type of $x
+ok 13 - got the right absolute value for 1
+ok 14 - got the right absolute value for $x=1
+ok 15 - type of abs($x) agrees with type of $x
+ok 16 - type of $x.abs agrees with type of $x
+ok 17 - got the right absolute value for 50
+ok 18 - got the right absolute value for $x=50
+ok 19 - type of abs($x) agrees with type of $x
+ok 20 - type of $x.abs agrees with type of $x
+ok 21 - got the right absolute value for 60
+ok 22 - got the right absolute value for $x=60
+ok 23 - type of abs($x) agrees with type of $x
+ok 24 - type of $x.abs agrees with type of $x
+ok 25 - got the right absolute value for 99.99
+ok 26 - got the right absolute value for $x=99.99
+ok 27 - type of abs($x) agrees with type of $x
+ok 28 - type of $x.abs agrees with type of $x
+ok 29 - got the right absolute value for -1
+ok 30 - got the right absolute value for $_=-1
+ok 31 - type of abs($_) agrees with type of $_
+ok 32 - type of $_.abs agrees with type of $_
+ok 33 - got the right absolute value for -50
+ok 34 - got the right absolute value for $_=-50
+ok 35 - type of abs($_) agrees with type of $_
+ok 36 - type of $_.abs agrees with type of $_
+ok 37 - got the right absolute value for -60
+ok 38 - got the right absolute value for $_=-60
+ok 39 - type of abs($_) agrees with type of $_
+ok 40 - type of $_.abs agrees with type of $_
+ok 41 - got the right absolute value for -99.99
+ok 42 - got the right absolute value for $_=-99.99
+ok 43 - type of abs($_) agrees with type of $_
+ok 44 - type of $_.abs agrees with type of $_
+ok 45 - absolute value of NaN is NaN
+ok 46 - absolute value of Inf is Inf
+ok 47 - absolute value of -Inf is Inf
+ok 48 - absolute value of "-10" is 10
+ok 49 - abs(x).WHAT parses as x.abs.WHAT

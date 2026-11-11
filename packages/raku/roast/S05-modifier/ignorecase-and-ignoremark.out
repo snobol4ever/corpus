@@ -1,0 +1,25 @@
+1..24
+ok 1 - No :ignoremark: a doesnt match ä
+ok 2 - A matches ä
+ok 3 - ä matches a
+ok 4 - a matches à
+ok 5 - a matches á
+ok 6 - a matches â
+ok 7 - a matches å
+ok 8 - d does not match ƌ, TOPBAR is not a mark
+ok 9 - Both pattern and string may contain accents
+ok 10 - Pattern may contain accents
+ok 11 - spelling out :ignoremark:ignorecase also works
+ok 12 - a+ b
+ok 13 - character class
+ok 14 - negated character class
+ok 15 - range in character class
+ok 16 - interpolation longer than topic doesn't blow up
+ok 17 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 18 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 19 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 20 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 21 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 22 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 23 - RT128875 :i:m combined matches whole string when a single character match is found
+ok 24 - RT128875 :i:m combined matches whole string when a single character match is found

@@ -1,0 +1,20 @@
+1..19
+ok 1 - empty scalar is Any
+ok 2 - it is an Array type
+ok 3 - An Array does Positional
+ok 4 - it is an Hash type
+ok 5 - A Hash does Associative
+ok 6 - it is a Array type
+ok 7 - it is a Hash type
+ok 8 - it is a Sub type
+ok 9 - it is a Hash type (bare block)
+ok 10 - it is a Parametric type (bare block with placeholder parameters)
+ok 11 - it is a Block type (pointy block)
+ok 12 - it is an Int type
+ok 13 - it is an Real type
+ok 14 - it is an Num type
+ok 15 - infix:</> of integers produces a Rat
+ok 16 - it is a Str type
+ok 17 - it is a Bool type
+ok 18 - it is a Pair type
+ok 19 - it is a Regex type

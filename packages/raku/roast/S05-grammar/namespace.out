@@ -1,0 +1,6 @@
+1..5
+ok 1 - regex defined in separate namespace from grammar
+ok 2 - regex defined in separate namespace from grammar
+ok 3 - Match against regex
+ok 4 - regex in a namespace callable
+ok 5 - regex can call regex in nested namespace

@@ -1,0 +1,62 @@
+1..4
+# Subtest: SeekFromBeginning
+    1..5
+    ok 1 - seek 0
+    ok 2 - seek 3
+    ok 3 - two successive seeks
+    ok 4 - seeking past end
+    # Subtest: seeking past beginning throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 5 - seeking past beginning throws
+ok 1 - SeekFromBeginning
+# Subtest: SeekFromCurrent
+    1..8
+    ok 1 - seek 10
+    ok 2 - read 5, then seek 5
+    ok 3 - negative seek 20
+    ok 4 - two successive seeks (pos, pos)
+    ok 5 - two successive seeks (neg, pos)
+    ok 6 - two successive seeks (neg, neg)
+    ok 7 - seeking past end
+    # Subtest: seeking past beginning throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 8 - seeking past beginning throws
+ok 2 - SeekFromCurrent
+# Subtest: SeekFromEnd
+    1..5
+    ok 1 - seek -5
+    ok 2 - seek -30
+    ok 3 - two successive seeks
+    ok 4 - seeking past end
+    # Subtest: seeking past beginning throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 5 - seeking past beginning throws
+ok 3 - SeekFromEnd
+# Subtest: .seek on non-binary handle
+    1..3
+    # Subtest: SeekFromCurrent
+        1..4
+        ok 1 - 1
+        ok 2 - 2
+        ok 3 - 3
+        ok 4 - 4
+    ok 1 - SeekFromCurrent
+    # Subtest: SeekFromBeginning
+        1..3
+        ok 1 - 1
+        ok 2 - 2
+        ok 3 - 3
+    ok 2 - SeekFromBeginning
+    # Subtest: SeekFromEnd
+        1..3
+        ok 1 - 1
+        ok 2 - 2
+        ok 3 - 3
+    ok 3 - SeekFromEnd
+ok 4 - .seek on non-binary handle

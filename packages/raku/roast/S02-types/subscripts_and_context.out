@@ -1,0 +1,15 @@
+1..14
+ok 1 - context inside of array subscripts for slices
+ok 2 - context inside of hash subscripts for slices
+ok 3 - context inside of array subscripts in normal rvalue context
+ok 4 - context inside of hash subscripts in normal rvalue context
+ok 5 - context inside of array subscripts in lvalue context
+ok 6 - context inside of hash subscripts in lvalue context
+ok 7 - context inside of array subscripts when used with &postfix:<++>
+ok 8 - context inside of hash subscripts when used with &postfix:<++>
+ok 9 - @a[0][1]
+ok 10 - @a[*-1][0]
+ok 11 - @a[0][*-1]
+ok 12 - @a[-1][1]
+ok 13 - @a[*-1][-1]
+ok 14 - @a[-1][*-1]

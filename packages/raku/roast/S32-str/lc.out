@@ -1,0 +1,20 @@
+1..19
+ok 1 - lowercasing string which is already lowercase
+ok 2 - simple lc test
+ok 3 - empty string
+ok 4 - some finnish non-ascii chars
+ok 5 - lc of German Umlauts
+ok 6 - accented chars
+ok 7 - lowercasing char-range
+ok 8 - lc uses $_ as default
+ok 9 - $x.lc works
+ok 10 - Invocant unchanged
+ok 11 - "Hello World".lc works
+ok 12 - .lc on Hungarian vowels
+ok 13 - lower-casing of greek Sigma respects word-final special case (EOS)
+ok 14 - lower-casing of greek Sigma respects word-final special case (.)
+ok 15 - lower-casing of greek Sigma respects word-final special case (ws)
+ok 16 - final sigma does not apply if string is only an uppercase sigma
+ok 17 - final sigma does not apply if only letter in word (ws)
+ok 18 - final sigma does not apply if only letter in word (.)
+ok 19 - Uppercasing works even with prepend codepoints

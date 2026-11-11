@@ -1,0 +1,7 @@
+1..6
+ok 1 - MMD with one Int
+ok 2 - MMD with one Str
+ok 3 - MMD with Int and Str
+ok 4 - MMD with Int and Str
+ok 5 - Str, Str
+ok 6 - 

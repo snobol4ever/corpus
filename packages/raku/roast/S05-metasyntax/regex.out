@@ -1,0 +1,342 @@
+1..55
+# Subtest: qr// is gone
+    1..2
+    ok 1 - 'qr/foo/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 1 - qr// is gone
+ok 2 - The object is-a 'Regex'
+ok 3 - The object is-a 'Regex'
+# Subtest: rx () requires whitespace if the delims are parens
+    1..2
+    ok 1 - 'rx(o)' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 4 - rx () requires whitespace if the delims are parens
+ok 5 - The object is-a 'Regex'
+# Subtest: colons are not allowed as rx delimiters
+    1..2
+    ok 1 - 'rx :foo:' died
+    ok 2 - right exception type (Exception)
+ok 6 - colons are not allowed as rx delimiters
+ok 7 - Can store regexes in typed variables
+ok 8 - $var = /foo/ returns a Regex object
+ok 9 - basic implicit topic match test
+ok 10 - matching should set match
+ok 11 - m{} always matches instead of making a Regex object
+ok 12 - m{} always matches instead of making a Regex object
+ok 13 - does    ?/foo/      work
+ok 14 - did it set $/ (1)
+ok 15 - does  so /goo/      work
+ok 16 - did it set $/ (2)
+ok 17 - does    !/hoo/      work
+ok 18 - did it set $/ (3)
+ok 19 - does not /ioo/      work
+ok 20 - did it set $/ (4)
+ok 21 - does     /joo/.Bool work
+ok 22 - did it set $/ (5)
+ok 23 - token foo {...} is valid
+ok 24 - regex foo {...} is valid
+ok 25 - named regex outside of a grammar works
+ok 26 - named token outside of a grammar works
+ok 27 - named rule outside of a grammar works
+ok 28 - match against undefined does not match
+# Subtest: commented capture end = parse error
+    1..2
+    ok 1 - ''x' ~~ m/foo ( \#) bar /' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 29 - commented capture end = parse error
+# Subtest: bare ";" in rx is not allowed
+    1..2
+    ok 1 - 'rx/;/' died
+    ok 2 - right exception type (X::Syntax::Regex::UnrecognizedMetachar)
+ok 30 - bare ";" in rx is not allowed
+# Subtest: bare ";" in match is not allowed
+    1..2
+    ok 1 - '';' ~~ /;/' died
+    ok 2 - right exception type (X::Syntax::Regex::UnrecognizedMetachar)
+ok 31 - bare ";" in match is not allowed
+ok 32 - escaped ";" in rx// works
+ok 33 - escaped ";" in m// works
+ok 34 - use of missing named rule dies
+ok 35 - error message mentions the missing rule
+ok 36 - /<[..b]>/ lives
+ok 37 - can have a lexical regex in a sub in a class
+ok 38 - can have a lexical regex in a submethod in a class
+ok 39 - can have a lexical regex in a method in a class
+# Subtest: "Regex.new.raku dies but does not segfault
+    1..2
+    ok 1 - 'Regex.new.raku' died
+    ok 2 - right exception type (Exception)
+ok 40 - "Regex.new.raku dies but does not segfault
+ok 41 - /a:/ is a valid pattern and matches a
+ok 42 - /a: / is a valid pattern and matches a
+# Subtest: bare \b is no longer supported
+    1..2
+    ok 1 - '/\b/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 43 - bare \b is no longer supported
+# Subtest: bare \B is no longer supported
+    1..2
+    ok 1 - '/\B/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 44 - bare \B is no longer supported
+ok 45 - \b still works when quoted
+ok 46 - \b still works in character class
+ok 47 - \B still works in character class
+# Subtest: `**` quantifier
+    1..6
+    # Subtest: greedy
+        1..28
+        ok 1 - 1..3 matches 3 chars (greedy)
+        ok 2 - 1..^3 matches 2 chars (greedy)
+        ok 3 - 1^..^3 matches 2 chars (greedy)
+        ok 4 - -Inf^..^3 matches 2 chars (greedy)
+        ok 5 - -Inf^..^-Inf matches 0 chars (greedy)
+        ok 6 - -4^..^-3 matches 0 chars (greedy)
+        ok 7 - -Inf^..3 matches 3 chars (greedy)
+        ok 8 - 1^..^Inf matches 5 chars (greedy)
+        ok 9 - 1^..Inf matches 5 chars (greedy)
+        ok 10 - -Inf^..^Inf matches 5 chars (greedy)
+        ok 11 - 1..1 matches 1 chars (greedy)
+        ok 12 - 1.7..2.2 matches 2 chars (greedy)
+        ok 13 - 1.7e0..2e0 matches 2 chars (greedy)
+        ok 14 - 1.7e0^..^3e0 matches 2 chars (greedy)
+        ok 15 - 5..^Inf matches 5 chars (greedy)
+        ok 16 - -10..-5 matches 0 chars (greedy)
+        ok 17 - 3 matches 3 chars (greedy)
+        ok 18 - -5 matches 0 chars (greedy)
+        ok 19 - -Inf matches 0 chars (greedy)
+        ok 20 - 10..20 does not match (greedy)
+        ok 21 - 10..^20 does not match (greedy)
+        ok 22 - 10^..20 does not match (greedy)
+        ok 23 - 10^..^20 does not match (greedy)
+        ok 24 - 10..Inf does not match (greedy)
+        ok 25 - 10..^Inf does not match (greedy)
+        ok 26 - 10^..Inf does not match (greedy)
+        ok 27 - 10^..^Inf does not match (greedy)
+        ok 28 - 10 does not match (greedy)
+    ok 1 - greedy
+    # Subtest: frugal
+        1..28
+        ok 1 - 1..3 matches 1 chars (frugal)
+        ok 2 - 1..^3 matches 1 chars (frugal)
+        ok 3 - 1^..^3 matches 2 chars (frugal)
+        ok 4 - -Inf^..^3 matches 0 chars (frugal)
+        ok 5 - -Inf^..^-Inf matches 0 chars (frugal)
+        ok 6 - -4^..^-3 matches 0 chars (frugal)
+        ok 7 - -Inf^..3 matches 0 chars (frugal)
+        ok 8 - 1^..^Inf matches 2 chars (frugal)
+        ok 9 - 1^..Inf matches 2 chars (frugal)
+        ok 10 - -Inf^..^Inf matches 0 chars (frugal)
+        ok 11 - 1..1 matches 1 chars (frugal)
+        ok 12 - 1.7..2.2 matches 1 chars (frugal)
+        ok 13 - 1.7e0..2e0 matches 1 chars (frugal)
+        ok 14 - 1.7e0^..^3e0 matches 2 chars (frugal)
+        ok 15 - 5..^Inf matches 5 chars (frugal)
+        ok 16 - -10..-5 matches 0 chars (frugal)
+        ok 17 - 3 matches 3 chars (frugal)
+        ok 18 - -5 matches 0 chars (frugal)
+        ok 19 - -Inf matches 0 chars (frugal)
+        ok 20 - 10..20 does not match (frugal)
+        ok 21 - 10..^20 does not match (frugal)
+        ok 22 - 10^..20 does not match (frugal)
+        ok 23 - 10^..^20 does not match (frugal)
+        ok 24 - 10..Inf does not match (frugal)
+        ok 25 - 10..^Inf does not match (frugal)
+        ok 26 - 10^..Inf does not match (frugal)
+        ok 27 - 10^..^Inf does not match (frugal)
+        ok 28 - 10 does not match (frugal)
+    ok 2 - frugal
+    # Subtest: greedy
+        1..14
+        # Subtest: "x".."y" throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 1 - "x".."y" throws (greedy)
+        # Subtest: 42..NaN throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 2 - 42..NaN throws (greedy)
+        # Subtest: NaN..42 throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 3 - NaN..42 throws (greedy)
+        # Subtest: <0/0>..<0/0> throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 4 - <0/0>..<0/0> throws (greedy)
+        # Subtest: 5..4 throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 5 - 5..4 throws (greedy)
+        # Subtest: 4^..^5 throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 6 - 4^..^5 throws (greedy)
+        # Subtest: 4^..4 throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 7 - 4^..4 throws (greedy)
+        # Subtest: 5..^5 throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 8 - 5..^5 throws (greedy)
+        # Subtest: Inf..<1/0> throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .inf matches WhateverCode.new
+        ok 9 - Inf..<1/0> throws (greedy)
+        # Subtest: Inf throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .inf matches WhateverCode.new
+        ok 10 - Inf throws (greedy)
+        # Subtest: <1/0> throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .inf matches WhateverCode.new
+        ok 11 - <1/0> throws (greedy)
+        # Subtest: <0/0> throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric matches WhateverCode.new
+        ok 12 - <0/0> throws (greedy)
+        # Subtest: "meow" throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric matches WhateverCode.new
+        ok 13 - "meow" throws (greedy)
+        # Subtest: NaN throws (greedy)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric matches WhateverCode.new
+        ok 14 - NaN throws (greedy)
+    ok 3 - greedy
+    # Subtest: frugal
+        1..14
+        # Subtest: "x".."y" throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 1 - "x".."y" throws (frugal)
+        # Subtest: 42..NaN throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 2 - 42..NaN throws (frugal)
+        # Subtest: NaN..42 throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 3 - NaN..42 throws (frugal)
+        # Subtest: <0/0>..<0/0> throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric-range matches WhateverCode.new
+        ok 4 - <0/0>..<0/0> throws (frugal)
+        # Subtest: 5..4 throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 5 - 5..4 throws (frugal)
+        # Subtest: 4^..^5 throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 6 - 4^..^5 throws (frugal)
+        # Subtest: 4^..4 throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 7 - 4^..4 throws (frugal)
+        # Subtest: 5..^5 throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .empty-range matches WhateverCode.new
+        ok 8 - 5..^5 throws (frugal)
+        # Subtest: Inf..<1/0> throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .inf matches WhateverCode.new
+        ok 9 - Inf..<1/0> throws (frugal)
+        # Subtest: Inf throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .inf matches WhateverCode.new
+        ok 10 - Inf throws (frugal)
+        # Subtest: <1/0> throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .inf matches WhateverCode.new
+        ok 11 - <1/0> throws (frugal)
+        # Subtest: <0/0> throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric matches WhateverCode.new
+        ok 12 - <0/0> throws (frugal)
+        # Subtest: "meow" throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric matches WhateverCode.new
+        ok 13 - "meow" throws (frugal)
+        # Subtest: NaN throws (frugal)
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+            ok 3 - .non-numeric matches WhateverCode.new
+        ok 14 - NaN throws (frugal)
+    ok 4 - frugal
+    # Subtest: block-less empty range throws (frugal)
+        1..3
+        ok 1 - '"xxxxx" ~~ /x **? 2..1/' died
+        ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+        ok 3 - .empty-range matches WhateverCode.new
+    ok 5 - block-less empty range throws (frugal)
+    # Subtest: block-less empty range throws (greedy)
+        1..3
+        ok 1 - '"xxxxx" ~~ /x **  2..1/' died
+        ok 2 - right exception type (X::Syntax::Regex::QuantifierValue)
+        ok 3 - .empty-range matches WhateverCode.new
+    ok 6 - block-less empty range throws (greedy)
+ok 48 - `**` quantifier
+ok 49 - wrong value for `**` quantifier does not leave behind unhandled Failures
+ok 50 - frugal match with alternation
+ok 51 - /a/ in sink context in in uppermost scope does not explode
+ok 52 - Unescaped & works as conjunction
+ok 53 - Backslashed  \# is parsed correctly in a regex
+ok 54 - non-capturing backref works
+ok 55 - capturing backref works

@@ -1,0 +1,8 @@
+1..7
+ok 1 - The object is-a 'Bar'
+ok 2 - The object is-a 'Foo'
+ok 3 - ... sanity test, this works as we expect
+ok 4 - ... this should work
+ok 5 - ... this should be "Baz"
+ok 6 - ... this should work
+ok 7 - ... this should be "Baz"

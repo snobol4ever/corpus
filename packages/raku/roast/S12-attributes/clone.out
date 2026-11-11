@@ -1,0 +1,49 @@
+1..44
+ok 1 - The object is-a 'Foo'
+ok 2 - ... got the right attr value
+ok 3 - The object is-a 'Foo'
+ok 4 - ... cloned object retained attr value
+ok 5 - ... cloned object isn't identity equal to the original object
+ok 6 - ... cloned object isn't identity equal to the original object
+ok 7 - ... cloning with supplying a new attribute value
+ok 8 - ... getting attr from cloned value
+ok 9 - ... cloned object has proper attr value
+ok 10 - sanity before clone
+ok 11 - clone did not change value in original object
+ok 12 - however, in the clone it was changed
+ok 13 - Match object can be cloned
+ok 14 - cloned Match object retained named capture value
+ok 15 - original object has its original array
+ok 16 - cloned object has the newly-provided array (1)
+ok 17 - cloned object has the newly-provided array (2)
+ok 18 - cloned object has the newly-provided array (3)
+ok 19 - original object has its original hash
+ok 20 - cloned object has the newly-provided hash (1)
+ok 21 - cloned object has the newly-provided hash (2)
+ok 22 - cloned object has the newly-provided hash (3)
+ok 23 - original array attr sanity test
+ok 24 - cloned array attr sanity test
+ok 25 - array on original is updated
+ok 26 - array on copy is updated
+ok 27 - original hash attr sanity test
+ok 28 - cloned hash attr sanity test
+ok 29 - hash on original is updated
+ok 30 - hash on copy is updated
+ok 31 - cloned object sanity
+ok 32 - original object is untouched
+ok 33 - cloned object sanity
+ok 34 - original object is untouched
+ok 35 - cloned object has identical value
+ok 36 - original object sanity test
+ok 37 - cloned object has new value
+ok 38 - original object has new value
+ok 39 - cloning a type object does not explode
+ok 40 - calling .clone on array does not die
+ok 41 - .clone on array @a works as expected
+ok 42 - Hash.clone detangles the hashes
+# Subtest: Array/Hash cloning does not lose the descriptor
+    1..2
+    ok 1 - Hash
+    ok 2 - Array
+ok 43 - Array/Hash cloning does not lose the descriptor
+ok 44 - cloning native attribtes works

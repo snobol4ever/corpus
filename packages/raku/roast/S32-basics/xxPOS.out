@@ -1,0 +1,66 @@
+1..64
+ok 1 - Array.elems (original)
+ok 2 - Array.AT-POS
+ok 3 - Array.AT-POS =
+ok 4 - Array.AT-POS (changed)
+ok 5 - Array.EXISTS-POS (existing)
+ok 6 - !Array.EXISTS-POS (non-existing)
+ok 7 - Array.ASSIGN-POS (existing)
+ok 8 - Array.AT-POS (existing ASSIGN-POS)
+ok 9 - Array.ASSIGN-POS (non-existing)
+ok 10 - Array.AT-POS (non-existing ASSIGN-POS)
+ok 11 - Array.elens (one added)
+ok 12 - Array.BIND-POS (existing)
+ok 13 - Array.AT-POS (existing BIND-POS)
+ok 14 - Array.AT-POS (changed existing BIND-POS)
+ok 15 - Array.BIND-POS (non-existing)
+ok 16 - Array.AT-POS (non-existing BIND-POS)
+ok 17 - Array.AT-POS (changed non-existing BIND-POS)
+ok 18 - Array.DELETE-POS (existing)
+ok 19 - !Array.EXISTS-POS (existing DELETE-POS)
+ok 20 - Array.DELETE-POS (non-existing)
+ok 21 - !Array.EXISTS-POS (non-existing DELETE-POS)
+ok 22 - Array[Int].elems (original)
+ok 23 - Array[Int].AT-POS
+ok 24 - Array[Int].AT-POS =
+ok 25 - Array[Int].AT-POS (changed)
+ok 26 - Array[Int].EXISTS-POS (existing)
+ok 27 - !Array[Int].EXISTS-POS (non-existing)
+ok 28 - Array[Int].ASSIGN-POS (existing)
+ok 29 - Array[Int].AT-POS (existing ASSIGN-POS)
+ok 30 - Array[Int].ASSIGN-POS (non-existing)
+ok 31 - Array[Int].AT-POS (non-existing ASSIGN-POS)
+ok 32 - Array[Int].elens (one added)
+ok 33 - Array[Int].BIND-POS (existing)
+ok 34 - Array[Int].AT-POS (existing BIND-POS)
+ok 35 - Array[Int].AT-POS (changed existing BIND-POS)
+ok 36 - Array[Int].BIND-POS (non-existing)
+ok 37 - Array[Int].AT-POS (non-existing BIND-POS)
+ok 38 - Array[Int].AT-POS (changed non-existing BIND-POS)
+ok 39 - Array[Int].DELETE-POS (existing)
+ok 40 - !Array[Int].EXISTS-POS (existing DELETE-POS)
+ok 41 - Array[Int].DELETE-POS (non-existing)
+ok 42 - !Array[Int].EXISTS-POS (non-existing DELETE-POS)
+ok 43 - $a.EXISTS-POS (undefined)
+ok 44 - $a.AT-POS (undefined)
+ok 45 - $a.AT-POS = (undefined)
+ok 46 - $a.AT-POS (defined)
+ok 47 - $a.EXISTS-POS (defined)
+ok 48 - $a.DELETE-POS (defined)
+ok 49 - $a.EXISTS-POS (after delete)
+ok 50 - $a.ASSIGN-POS (undefined)
+ok 51 - $a.AT-POS (defined)
+ok 52 - $a.DELETE-POS (defined)
+ok 53 - $a.EXISTS-POS (after delete)
+ok 54 - # SKIP No such method 'BIND-POS' for invocant of type 'Any'
+ok 55 - # SKIP No such method 'BIND-POS' for invocant of type 'Any'
+ok 56 - # SKIP No such method 'BIND-POS' for invocant of type 'Any'
+ok 57 - # SKIP No such method 'BIND-POS' for invocant of type 'Any'
+ok 58 - # SKIP No such method 'BIND-POS' for invocant of type 'Any'
+ok 59 - $a.DELETE-POS (undefined)
+ok 60 - $a.EXISTS-POS (after delete)
+ok 61 - 2 dimensional EXISTS-POS with Failure
+ok 62 - 3 dimensional EXISTS-POS with Failure
+ok 63 - 4 dimensional EXISTS-POS with Failure
+ok 64 - Could we change the "element" without creating ASSIGN-POS?
+# FUDGED!

@@ -1,0 +1,14 @@
+1..13
+ok 1 - Uninitialized array
+ok 2 - Populated array
+ok 3 - Bare arrayitem
+ok 4 - arrayitem in a variable
+ok 5 - Uninitialized hash
+ok 6 - Populated hash
+ok 7 - Bare hash item
+ok 8 - Named hashitem
+ok 9 - method on a bare pair
+ok 10 - method on a named pair
+ok 11 - can extend class List
+ok 12 - did the first mixin survive
+ok 13 - did the second mixin survive

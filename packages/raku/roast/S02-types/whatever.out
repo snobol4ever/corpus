@@ -1,0 +1,214 @@
+1..131
+ok 1 - can assign * to a variable and isa works
+ok 2 - can type variables with Whatever
+ok 3 - *.WHAT does not autocurry
+ok 4 - (*-1).WHAT lives
+ok 5 - *-1 is some form of Code
+ok 6 - *-1 is a WhateverCode object
+ok 7 - and we can execute that Code
+ok 8 - *.abs is of type Code
+ok 9 - ... WhateverCode, more specifically
+ok 10 - 1..* is a Range, not a Code
+ok 11 - 1..*-1 is a WhateverCode
+ok 12 - (1..*-1)(10) is a Range
+ok 13 - *.meth created closure works
+ok 14 - Enums and Whatever star interact OK
+ok 15 - "*.uc eq $str" produces a Callable object
+ok 16 - and it works (+)
+ok 17 - and it works (-)
+ok 18 - @a[1..*] skips first element, stops at last
+ok 19 - array is unmodified after reference to [1..*]
+ok 20 - *-1..* lives and clips to range of List
+ok 21 - $_ % * works
+ok 22 - +* is of type Code
+ok 23 - -> $key {+$key} generates closure to numify
+ok 24 - +* generates closure to numify
+ok 25 - +* generates closure to numify
+ok 26 - +* in hash slice
+ok 27 - * * * generated a closure
+ok 28 - ... that takes two arguments
+ok 29 - * * * + * generated a closure
+ok 30 - ... that works
+ok 31 - ... that respects precedence
+ok 32 - that can work with three different arguments
+ok 33 - * + * * * generated a closure
+ok 34 - ... that works
+ok 35 - ... that respects precedence
+ok 36 - that can work with three different arguments
+ok 37 - xx * works
+ok 38 - *.defined works in grep
+ok 39 - *.defined generates a closure
+ok 40 - *.defined works (true)
+ok 41 - *.defined works (false)
+not ok 42 - can dummy-asign to * # TODO * as dummy
+# Failed test 'can dummy-asign to *'
+# at S02-types/whatever.rakudo line 133
+# Error: Cannot modify an immutable Whatever (*)
+ok 43 - Can skip lvalues and replace them by Whatever
+ok 44 - can use a declaration in Whatever-curried expression
+ok 45 - and it did not get promoted into its own scope
+ok 46 - * works on LHS of user-defined operator (type)
+ok 47 - * works on RHS of user-defined operator (type)
+ok 48 - * works on both sides of user-defined operator (type)
+ok 49 - * works on LHS of user-defined operator (result)
+ok 50 - * works on RHS of user-defined operator (result)
+ok 51 - * works on both sides of user-defined operator (result)
+ok 52 - also with three *
+ok 53 - also if the last is not a *, but a normal value
+ok 54 - '* + 2' curries
+ok 55 - '* min 2' curries
+ok 56 - '* max 2' curries
+ok 57 - '* max *' curries
+ok 58 - in *.foo(oh_noes()), oh_noes() not called when making closure
+ok 59 - and we get a Callable as expected
+ok 60 - does get called when invoked
+ok 61 - does get called when invoked
+ok 62 - we get a Callable from chained methods with *
+ok 63 - we call both methods
+ok 64 - prefix:<!> Whatever-curries correctly
+ok 65 - Whatever-curried method calls have a signature
+ok 66 - Whatever-curried operators have a signature
+# Subtest: {*.{}}() dies
+    1..2
+    ok 1 - '{*.{}}()' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 67 - {*.{}}() dies
+ok 68 - Whatever-currying !< (1)
+ok 69 - Whatever-currying !< (2)
+ok 70 - Whatever-currying !< (3)
+ok 71 - Whatever-currying !< (4)
+ok 72 - Whatever-currying with R- (1)
+ok 73 - Whatever-currying with R- (2)
+ok 74 - Whatever-currying with R- (3)
+ok 75 - &infix:<+>(*, 42) doesn't make a closure
+ok 76 - &infix:<+>(*, 42) doesn't make a closure
+ok 77 - Whatever-currying single * with X+ (1)
+ok 78 - Whatever-currying single * with X+ (2)
+ok 79 - Whatever-currying single * with X+ (3)
+ok 80 - Whatever-currying multi * with X+ (1)
+ok 81 - Whatever-currying multi * with X+ (2)
+ok 82 - Whatever-currying multi * with X+ (3)
+ok 83 - Whatever-currying with X+ lists (1)
+ok 84 - Whatever-currying with X+ lists (2)
+ok 85 - Whatever-currying single * with Z+ (1)
+ok 86 - Whatever-currying single * with Z+ (2)
+ok 87 - Whatever-currying single * with Z+ (3)
+ok 88 - Whatever-currying multi * with Z+ (1)
+ok 89 - Whatever-currying multi * with Z+ (2)
+ok 90 - Whatever-currying multi * with Z+ (3)
+ok 91 - Whatever-currying with Z+ lists (1)
+ok 92 - Whatever-currying with Z+ lists (2)
+ok 93 - assignment of whatever still works
+ok 94 - assignment to variable with whatever in it
+ok 95 - *.&sub curries
+ok 96 - *[0] curries
+ok 97 - ... it works
+ok 98 - Chained comparison (1)
+ok 99 - Chained comparison (2)
+ok 100 - Chained comparison (3)
+ok 101 - *.[1] is some kind of code
+ok 102 - *.<a> is some kind of code
+ok 103 - *.{1} is some kind of code
+ok 104 - Whatever type object does not autoprime
+ok 105 - WhateverCode type object does not autoprime
+ok 106 - *++ is some kind of code
+ok 107 - ++* is some kind of code
+ok 108 - Can call *++ WhateverCode
+ok 109 - WhateverCode parameters are rw
+# Subtest: did we throws-like X::Method::NotFound?
+    1..3
+    ok 1 - '*(42)' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .typename matches Whatever
+ok 110 - did we throws-like X::Method::NotFound?
+ok 111 - Code.ACCEPTS preserves container
+ok 112 - Whatever-currying !~~ (1)
+ok 113 - Whatever-currying !~~ (2)
+not ok 114 - *+* does not warn from inside EVAL # TODO useless use corner case
+# Failed test '*+* does not warn from inside EVAL'
+# at S02-types/whatever.rakudo line 353
+ok 115 - no warning when WhateverCode passed as arg and invoked
+ok 116 - combinations(2..*)
+not ok 117 - outer parameter in rx in WhateverCode in closure # TODO closure/scoping of outer parameter with rx
+# Failed test 'outer parameter in rx in WhateverCode in closure'
+# at S02-types/whatever.rakudo line 366
+# expected: $[(), ("foo",), ("fie",), ()]
+#      got: $[(), ("foo",), ("fie",), ()]
+ok 118 - topic refreshed in immediate invocation of WhateverCode
+ok 119 - no issues with //= and WhateverCode
+# Subtest: WhateverCode curry correctly propagates `use fatal` pragma
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 120 - WhateverCode curry correctly propagates `use fatal` pragma
+ok 121 - Mu:U smartmatches as True with Whatever
+# Subtest: compile time WhateverCode evaluation
+    1..5
+    ok 1 - `where` clause + is default trait on attribute
+    ok 2 - `where` clause + is default on variable
+    ok 3 - non-block BEGIN with WhateverCode execution
+    ok 4 - non-block BEGIN with WhateverCode in subscript
+    ok 5 - subset + default on variable
+ok 122 - compile time WhateverCode evaluation
+# Subtest: compile time Junction in `where` thunk evaluation
+    1..3
+    ok 1 - `where` clause + is default trait on attribute
+    ok 2 - `where` clause + is default on variable
+    ok 3 - subset + default on variable
+ok 123 - compile time Junction in `where` thunk evaluation
+# Subtest: regex whatever curry
+    1..11
+    ok 1 - /<$_>/ curry
+    ok 2 - in-regex block
+    ok 3 - /<$_>/ curry
+    ok 4 - in-regex block
+    ok 5 - in block inside in-regex block
+    ok 6 - /<$_>/ curry
+    ok 7 - in <?{...}> block
+    ok 8 - in <!{...}> block
+    ok 9 - in-regex block
+    ok 10 - in block inside in-regex block
+    ok 11 - /<$_>/ curry
+ok 124 - regex whatever curry
+# Subtest: chained ops with whatever curry in them
+    1..6
+    ok 1 - op curry inside (1)
+    ok 2 - op curry inside (2)
+    ok 3 - op curry inside (3)
+    ok 4 - method curry inside (2)
+    ok 5 - method curry inside (1)
+    ok 6 - method curry inside (3)
+ok 125 - chained ops with whatever curry in them
+# Subtest: various wild cases
+    1..10
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - 4
+    ok 5 - 5
+    ok 6 - 6
+    ok 7 - 7
+    ok 8 - 8
+    ok 9 - 9
+    ok 10 - 9
+ok 126 - various wild cases
+ok 127 - postfix curry with another curry inside
+ok 128 - curry + regex + method call does not crash
+# Subtest: can curry chains with .& calls on them
+    1..6
+    ok 1 - .&{}
+    ok 2 - method, .&{}
+    ok 3 - method, .&{}, method
+    ok 4 - method, .&, method, .& with whatever curry in it
+    ok 5 - method, .&(1arg), method, .& with whatever curry in it, .&sub
+    ok 6 - method, .&(2args), method, .& with whatever curry, .&sub
+ok 129 - can curry chains with .& calls on them
+# Subtest: can .assuming with WhateverCode
+    1..4
+    ok 1 - 1-param, 1 assumed
+    ok 2 - 2-param, 1 assumed
+    ok 3 - 2-param, 2 assumed
+    ok 4 - 5-params with nested calls, 2 assumed
+ok 130 - can .assuming with WhateverCode
+ok 131 - no scoping issues when using topic variables
+# FUDGED!

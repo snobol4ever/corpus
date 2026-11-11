@@ -1,0 +1,18 @@
+1..12
+ok 1 - Read three lines with while !$hanlde.eof
+ok 2 - Could open test file
+ok 3 - Three lines read
+ok 4 - Retrieved first line
+ok 5 - Retrieved last line
+ok 6 - Could open test file (again)
+ok 7 - Three lines read
+ok 8 - Retrieved first line
+ok 9 - Retrieved last line
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6318944763576) ... }
+ok 10 - did we throws-like Exception?
+ok 11 - Reading a line form a one-byte file works
+ok 12 - .get returns last empty line

@@ -1,0 +1,2 @@
+1..1
+ok 1 - IO::Special:U.Str does not crash

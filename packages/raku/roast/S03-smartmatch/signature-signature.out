@@ -1,0 +1,40 @@
+1..38
+ok 1 - :(Int $) ~~ :(Int $)
+ok 2 - :(Int $) ~~ :(Int $, Str $)
+ok 3 - :(Int $) ~~ :(Int $, Str $?)
+ok 4 - :(Str $) ~~ :(Any $)
+ok 5 - :(Int $, Rat $, &) ~~ :(*@_)
+ok 6 - :(:a($x), :b($y)) ~~ :(:a(:b(:c($x))))
+ok 7 - :(:a($x)) ~~ :(:a(:b(:c($x))))
+ok 8 - :(Int $x ($y, Str $z)) ~~ :(Any $x ($l, Int $r))
+ok 9 - :(:x($t) (Int $f, Any $k)) ~~ :(:x($r) (Str $g, Any $i))
+ok 10 - :(:x($t) (Str $f, Str $k)) ~~ :(:x($r) (Str $g, Any $i))
+ok 11 - :(Int @, Str $, Rat $, Str $) ~~ :(Int @x, Any $b, Rat $n?, *@_)
+ok 12 - :(Str $a, Str $b?) ~~ :(Str $a, Str $b)
+ok 13 - :(Any $, :$foo) ~~ :(Any $x, :$foo!)
+ok 14 - :(Int $, Any :$x!, Str :$y) ~~ :(Int $, *%_)
+ok 15 - :(@ (Complex $, Str $, Int $)) ~~ :(@ (Any $, Str $, Numeric $))
+ok 16 - :(Complex $, *%rest) ~~ :(Complex $z, :$x, :$y, :$q)
+ok 17 - :(*%_) ~~ :(:$x, Int :$y, Cool :$z, *%_)
+ok 18 - :(:$x, *%_) ~~ :(:$x, *%_)
+ok 19 - :($, *@_) ~~ :($, Any $, Numeric $)
+ok 20 - :($ ($, $)) ~~ :($)
+ok 21 - :(Int $ ($, $)) ~~ :($)
+ok 22 - :($ ($, $)) ~~ :(Int $ ($, $))
+ok 23 - :($ ($, $)) ~~ :(*@)
+ok 24 - :($ ($, $)) ~~ :(|)
+ok 25 - :(:$ ($, $)) ~~ :(:$)
+ok 26 - :(Int :$ ($, $)) ~~ :(:$)
+ok 27 - :(:$ ($, $)) ~~ :(Int :$ ($, $))
+ok 28 - :(:$ ($, $)) ~~ :(*%)
+ok 29 - :(:$ ($, $)) ~~ :(|)
+ok 30 - :(:$a ($, $)) ~~ :(:$b ($, $))
+ok 31 - # SKIP Parametric types
+ok 32 - Code params with signatures
+ok 33 - Code params with different signature parameters doesn't match
+ok 34 - Code params with different signature return types doesn't match
+ok 35 - Can smartmatch against empty signature (False)
+ok 36 - Can smartmatch an empty signature (False)
+ok 37 - Can smartmatch against empty signature (True)
+ok 38 - Optional parameters do not get dropped in a smartmatch
+# FUDGED!

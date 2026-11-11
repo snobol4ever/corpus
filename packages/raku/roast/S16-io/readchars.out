@@ -1,0 +1,5 @@
+1..4
+ok 1 - readchars(2) works even for utf-8 input
+ok 2 - readchars on a directory fails
+ok 3 - readchars works near the end of the file (1)
+ok 4 - readchars works near the end of the file (2)

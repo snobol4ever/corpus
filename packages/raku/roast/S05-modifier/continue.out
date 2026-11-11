@@ -1,0 +1,15 @@
+1..14
+ok 1 - match first 'a'
+ok 2 - match second 'a'
+ok 3 - match third 'a'
+ok 4 - no more 'a's to match
+ok 5 - match first 'a'
+ok 6 - match second 'a'
+ok 7 - match third 'a'
+ok 8 - match first 'a'
+ok 9 - match third 'a'
+ok 10 - match second 'a'
+ok 11 - match first 'a'
+ok 12 - match second 'a'
+ok 13 - match third 'a'
+ok 14 - is $/ set correctly in a for loop

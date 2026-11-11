@@ -1,0 +1,5 @@
+1..4
+ok 1 - until $i >= 5 {} works
+ok 2 - until 5 <= $i {} works
+ok 3 - until ($i >= 5) {} works
+ok 4 - until (5 <= $i) {} works

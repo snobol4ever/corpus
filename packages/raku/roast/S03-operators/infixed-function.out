@@ -1,0 +1,6 @@
+1..5
+ok 1 - 3 [&atan2] 4 == atan2(3, 4)
+ok 2 - 3 R[&atan2] 4 == atan2(4, 3)
+ok 3 - ... and you can do it twice
+ok 4 - [&sprintf] works
+ok 5 - X[&sprint] works

@@ -1,0 +1,128 @@
+1..57
+ok 1 - Empty string with 0 as thrid arg
+ok 2 - Empty string with 0 as thrid arg
+ok 3 - first char
+ok 4 - last char
+ok 5 - counted from the end
+ok 6 - arbitrary middle
+ok 7 - length omitted
+ok 8 - length goes past end
+ok 9 - substr outside of string
+ok 10 - ... on the negative side
+ok 11 - from beginning, with negative length
+ok 12 - in middle, with negative length
+ok 13 - negative length - gives empty string
+ok 14 - start from the end and negative length
+ok 15 - original string still not changed
+ok 16 - substr
+ok 17 - .substr
+ok 18 - substr on literal string
+ok 19 - .substr on literal string
+ok 20 - .substr.uc on literal string
+ok 21 - .substr.wordcase on literal string
+ok 22 - .substr on unicode string
+ok 23 - .substr on Hebrew text
+ok 24 - Sanity check string
+ok 25 - Taking first char of Deseret string
+ok 26 - Taking second char of Deseret string
+ok 27 - substr (substr(Int, Int)).
+ok 28 - .substr (substr(Int, Int)).
+ok 29 - substr on literal string (substr(Int, Int)).
+ok 30 - .substr on literal string (substr(Int, Int)).
+ok 31 - .substr.uc on literal string (substr(Int, Int)).
+ok 32 - .substr.wordcase on literal string (substr(Int, Int)).
+ok 33 - .substr on unicode string (substr(Int, Int)).
+ok 34 - .substr on Hebrew text (substr(Int, Int)).
+ok 35 - substr (substr(Int, Int)).
+ok 36 - .substr (substr(Int, Int)).
+ok 37 - substr on literal string (substr(Int, Int)).
+ok 38 - .substr on literal string (substr(Int, Int)).
+ok 39 - .substr.uc on literal string (substr(Int, Int)).
+ok 40 - .substr.wordcase on literal string (substr(Int, Int)).
+ok 41 - .substr on unicode string (substr(Int, Int)).
+ok 42 - .substr on Hebrew text (substr(Int, Int)).
+ok 43 - substr (substr(Range))
+ok 44 - substr (substr(Range))
+ok 45 - substr (substr(^Range))
+ok 46 - substr (substr(^Range))
+ok 47 - substr (substr(Range^))
+ok 48 - substr (substr(Range^))
+ok 49 - substr (substr(^Range^))
+ok 50 - substr (substr(^Range^))
+ok 51 - substr (substr(Range Inf))
+ok 52 - substr (substr(Range Inf))
+ok 53 - substr to Inf
+ok 54 - substr with Int and WhateverCode arg
+ok 55 - substr on a string built with infix:<x> works
+# Subtest: .substr fails when start is beyond end of string
+    1..4
+    # Subtest: (from) method
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - Failure threw when sunk
+    ok 1 - (from) method
+    # Subtest: (from) sub
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - Failure threw when sunk
+    ok 2 - (from) sub
+    # Subtest: (from, chars) method
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - Failure threw when sunk
+    ok 3 - (from, chars) method
+    # Subtest: (from, chars) sub
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - Failure threw when sunk
+    ok 4 - (from, chars) sub
+ok 56 - .substr fails when start is beyond end of string
+# Subtest: substr coerces from/to to Ints
+    1..2
+    # Subtest: Str
+        1..12
+        ok 1 - Range(Rat, Rat)
+        ok 2 - Rat
+        ok 3 - Rat, Rat
+        ok 4 - Callable, Rat
+        ok 5 - Callable
+        ok 6 - Callable
+        ok 7 - Range(Rat, Rat)
+        ok 8 - Rat
+        ok 9 - Rat, Rat
+        ok 10 - Callable, Rat
+        ok 11 - Callable
+        ok 12 - Callable
+    ok 1 - Str
+    # Subtest: Cool
+        1..12
+        ok 1 - Range(Rat, Rat)
+        ok 2 - Rat
+        ok 3 - Rat, Rat
+        ok 4 - Callable, Rat
+        ok 5 - Callable
+        ok 6 - Callable
+        ok 7 - Range(Rat, Rat)
+        ok 8 - Rat
+        ok 9 - Rat, Rat
+        ok 10 - Callable, Rat
+        ok 11 - Callable
+        ok 12 - Callable
+    ok 2 - Cool
+ok 57 - substr coerces from/to to Ints

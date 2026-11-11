@@ -1,0 +1,20 @@
+1..14
+ok 1 - andthen basics
+ok 2 - andthen chained
+ok 3 - definedness, not truthness
+ok 4 - first undefined value (1)
+ok 5 - first undefined value (2)
+ok 6 - sanity
+ok 7 - andthen thunks
+ok 8 - andthen passes on arguments
+ok 9 - andthen with two S///
+# Subtest: Empty in args to andthen/with does not disappear
+    1..3
+    ok 1 - postfix `with`
+    ok 2 - sub call
+    ok 3 - op
+ok 10 - Empty in args to andthen/with does not disappear
+ok 11 - 1-arg Hash is broken down into Pairs, like +@foo slurpy does it
+ok 12 - 1-arg Iterable gets flattened (like +@foo slurpy)
+ok 13 - andthen does not call .defined on last arg (1)
+ok 14 - andthen does not call .defined on last arg (2)

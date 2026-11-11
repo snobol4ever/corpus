@@ -1,0 +1,9 @@
+1..5
+ok 1 - normal regexes backtrack into subrules
+ok 2 -  ... but not with :ratchet
+not ok 3 - if the failing atom is outside the :!ratchet group: no backtracking # TODO Dubios test. Does it have to be this way?
+# Failed test 'if the failing atom is outside the :!ratchet group: no backtracking'
+# at S05-modifier/ratchet.rakudo line 19
+ok 4 - if the failing atom is inside the :!ratchet group: backtracking
+ok 5 - Same if not grouped
+# FUDGED!

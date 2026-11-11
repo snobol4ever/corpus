@@ -1,0 +1,13 @@
+1..7
+ok 1 - 'is default' trait makes otherwise ambiguous method dispatch live
+ok 2 - 'is default' trait tie-breaks on method dispatch
+ok 3 - 'is default' trait makes otherwise ambiguous method dispatch live
+ok 4 - 'is default' trait on subs
+ok 5 - basic sanity with arity based dispatch and slurpies
+ok 6 - "is default" trait wins against empty slurpy param
+# Subtest: error message for default() type mismatch indicates correct expected type
+    1..3
+    ok 1 - 'my $a of Int is default("foo")' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .expected matches (Int)
+ok 7 - error message for default() type mismatch indicates correct expected type

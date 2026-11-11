@@ -1,0 +1,11 @@
+1..6
+ok 1 - fac(0) works
+ok 2 - fac(1) works
+ok 3 - fac(2) works
+ok 4 - fac(3) works
+ok 5 - fac(4) works
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 6 - did we throws-like X::TypeCheck::Argument?

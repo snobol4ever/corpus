@@ -1,0 +1,194 @@
+1..193
+ok 1 - <ident>
+ok 2 - Captured <ident>
+ok 3 - <.ident>
+ok 4 - Uncaptured <.ident>
+ok 5 - not <.ident>
+ok 6 - <.ws>
+ok 7 - Uncaptured <.ws>
+ok 8 - not <.ws>
+ok 9 - \h
+ok 10 - captured \h
+ok 11 - not \h
+ok 12 - \v
+ok 13 - captured \v
+ok 14 - not \v
+ok 15 - Match alpha as subrule
+ok 16 - Don't match negated alpha as subrule
+ok 17 - Don't match inverted alpha as subrule
+ok 18 - Don't match unrelated alpha as subrule
+ok 19 - Match unrelated negated alpha as subrule
+ok 20 - Match unrelated inverted alpha as subrule
+ok 21 - Match alpha as charset
+ok 22 - Match compound alpha as charset
+ok 23 - Don't match inverted alpha as charset
+ok 24 - Don't match compound inverted alpha as charset
+ok 25 - Don't match unrelated alpha as charset
+ok 26 - Match inverted alpha as charset
+ok 27 - Match unanchored alpha as charset
+ok 28 - Match space as subrule
+ok 29 - Don't match negated space as subrule
+ok 30 - Don't match inverted space as subrule
+ok 31 - Don't match unrelated space as subrule
+ok 32 - Match unrelated negated space as subrule
+ok 33 - Match unrelated inverted space as subrule
+ok 34 - Match space as charset
+ok 35 - Match compound space as charset
+ok 36 - Don't match externally inverted space as charset
+ok 37 - Don't match compound inverted space as charset
+ok 38 - Don't match internally inverted space as charset
+ok 39 - Don't match unrelated space as charset
+ok 40 - Match inverted space as charset
+ok 41 - Match unanchored space as charset
+ok 42 - Match digit as subrule
+ok 43 - Don't match negated digit as subrule
+ok 44 - Don't match inverted digit as subrule
+ok 45 - Don't match unrelated digit as subrule
+ok 46 - Match unrelated negated digit as subrule
+ok 47 - Match unrelated inverted digit as subrule
+ok 48 - Match digit as charset
+ok 49 - Match compound digit as charset
+ok 50 - Don't match externally inverted digit as charset
+ok 51 - Don't match compound inverted digit as charset
+ok 52 - Don't match internally inverted digit as charset
+ok 53 - Don't match unrelated digit as charset
+ok 54 - Match inverted digit as charset
+ok 55 - Match unanchored digit as charset
+ok 56 - Match alnum as subrule
+ok 57 - Don't match negated alnum as subrule
+ok 58 - Don't match inverted alnum as subrule
+ok 59 - Don't match unrelated alnum as subrule
+ok 60 - Match unrelated negated alnum as subrule
+ok 61 - Match unrelated inverted alnum as subrule
+ok 62 - Match alnum as charset
+ok 63 - Match compound alnum as charset
+ok 64 - Don't match externally inverted alnum as charset
+ok 65 - Don't match compound inverted alnum as charset
+ok 66 - Don't match internally inverted alnum as charset
+ok 67 - Don't match unrelated alnum as charset
+ok 68 - Match inverted alnum as charset
+ok 69 - Match unanchored alnum as charset
+ok 70 - Match blank as subrule
+ok 71 - Don't match negated blank as subrule
+ok 72 - Don't match inverted blank as subrule
+ok 73 - Don't match unrelated blank as subrule
+ok 74 - Match unrelated negated blank as subrule
+ok 75 - Match unrelated inverted blank as subrule
+ok 76 - Match blank as charset
+ok 77 - Match compound blank as charset
+ok 78 - Don't match externally inverted blank as charset
+ok 79 - Don't match compound inverted blank as charset
+ok 80 - Don't match internally inverted blank as charset
+ok 81 - Don't match unrelated blank as charset
+ok 82 - Match inverted blank as charset
+ok 83 - Match unanchored blank as charset
+ok 84 - Match cntrl as subrule
+ok 85 - Don't match negated cntrl as subrule
+ok 86 - Don't match inverted cntrl as subrule
+ok 87 - Don't match unrelated cntrl as subrule
+ok 88 - Match unrelated negated cntrl as subrule
+ok 89 - Match unrelated inverted cntrl as subrule
+ok 90 - Match cntrl as charset
+ok 91 - Match compound cntrl as charset
+ok 92 - Don't match externally inverted cntrl as charset
+ok 93 - Don't match compound inverted cntrl as charset
+ok 94 - Don't match internally inverted cntrl as charset
+ok 95 - Don't match unrelated cntrl as charset
+ok 96 - Match inverted cntrl as charset
+ok 97 - Match unanchored cntrl as charset
+ok 98 - Match graph as subrule
+ok 99 - Don't match negated graph as subrule
+ok 100 - Don't match inverted graph as subrule
+ok 101 - Don't match unrelated graph as subrule
+ok 102 - Match unrelated negated graph as subrule
+ok 103 - Match unrelated inverted graph as subrule
+ok 104 - Match graph as charset
+ok 105 - Match compound graph as charset
+ok 106 - Don't match externally inverted graph as charset
+ok 107 - Don't match compound inverted graph as charset
+ok 108 - Don't match internally inverted graph as charset
+ok 109 - Don't match unrelated graph as charset
+ok 110 - Match inverted graph as charset
+ok 111 - Match unanchored graph as charset
+ok 112 - Match lower as subrule
+ok 113 - Don't match negated lower as subrule
+ok 114 - Don't match inverted lower as subrule
+ok 115 - Don't match unrelated lower as subrule
+ok 116 - Match unrelated negated lower as subrule
+ok 117 - Match unrelated inverted lower as subrule
+ok 118 - Match lower as charset
+ok 119 - Match compound lower as charset
+ok 120 - Don't match externally inverted lower as charset
+ok 121 - Don't match compound inverted lower as charset
+ok 122 - Don't match internally inverted lower as charset
+ok 123 - Don't match unrelated lower as charset
+ok 124 - Match inverted lower as charset
+ok 125 - Match unanchored lower as charset
+ok 126 - Match print as subrule
+ok 127 - Don't match negated print as subrule
+ok 128 - Don't match inverted print as subrule
+ok 129 - Don't match unrelated print as subrule
+ok 130 - Match unrelated negated print as subrule
+ok 131 - Match unrelated inverted print as subrule
+ok 132 - Match print as charset
+ok 133 - Match compound print as charset
+ok 134 - Don't match externally inverted print as charset
+ok 135 - Don't match compound inverted print as charset
+ok 136 - Don't match internally inverted print as charset
+ok 137 - Don't match unrelated print as charset
+ok 138 - Match inverted print as charset
+ok 139 - Match unanchored print as charset
+ok 140 - Match punct as subrule
+ok 141 - Don't match negated punct as subrule
+ok 142 - Don't match inverted punct as subrule
+ok 143 - Don't match unrelated punct as subrule
+ok 144 - Match unrelated negated punct as subrule
+ok 145 - Match unrelated inverted punct as subrule
+ok 146 - Match punct as charset
+ok 147 - Match compound punct as charset
+ok 148 - Don't match externally inverted punct as charset
+ok 149 - Don't match compound inverted punct as charset
+ok 150 - Don't match internally inverted punct as charset
+ok 151 - Don't match unrelated punct as charset
+ok 152 - Match inverted punct as charset
+ok 153 - Match unanchored punct as charset
+ok 154 - Match upper as subrule
+ok 155 - Don't match negated upper as subrule
+ok 156 - Don't match inverted upper as subrule
+ok 157 - Don't match unrelated upper as subrule
+ok 158 - Match unrelated negated upper as subrule
+ok 159 - Match unrelated inverted upper as subrule
+ok 160 - Match upper as charset
+ok 161 - Match compound upper as charset
+ok 162 - Don't match externally inverted upper as charset
+ok 163 - Don't match compound inverted upper as charset
+ok 164 - Don't match internally inverted upper as charset
+ok 165 - Don't match unrelated upper as charset
+ok 166 - Match inverted upper as charset
+ok 167 - Match unanchored upper as charset
+ok 168 - Match xdigit as subrule
+ok 169 - Don't match negated xdigit as subrule
+ok 170 - Don't match inverted xdigit as subrule
+ok 171 - Don't match unrelated xdigit as subrule
+ok 172 - Match unrelated negated xdigit as subrule
+ok 173 - Match unrelated inverted xdigit as subrule
+ok 174 - Match xdigit as charset
+ok 175 - Match compound xdigit as charset
+ok 176 - Don't match externally inverted xdigit as charset
+ok 177 - Don't match compound inverted xdigit as charset
+ok 178 - Don't match internally inverted xdigit as charset
+ok 179 - Don't match unrelated xdigit as charset
+ok 180 - Match inverted xdigit as charset
+ok 181 - Match unanchored xdigit as charset
+ok 182 - <!> fails
+ok 183 - <!> fails (empty string)
+ok 184 - <[]> fails like <!>
+ok 185 - <[]> fails like <!> (empty string)
+ok 186 - basic <at>
+ok 187 - ^<at(1)> fails
+ok 188 - <at(1)> searches until it matches
+ok 189 - <?same> succeeds between two of the same character
+ok 190 - <!same> succeeds between two different characters
+ok 191 - <?same> searches until it matches
+ok 192 - <-[]> (negative char class) fails like <!>
+ok 193 - <-[]> (negative char class) fails like <!> (empty str)

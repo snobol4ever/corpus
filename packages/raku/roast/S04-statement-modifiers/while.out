@@ -1,0 +1,7 @@
+1..6
+ok 1 - post simple while modifier
+ok 2 - post simple while modifier
+ok 3 - post while
+ok 4 - post while
+ok 5 - post while
+ok 6 - while is a terminator even after comma

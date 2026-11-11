@@ -1,0 +1,1181 @@
+1..606
+ok 1 - Array basic sanity
+ok 2 - Array[Str] basic sanity
+ok 3 - @n single elem existing: value
+ok 4 - @n single elem existing: :k
+ok 5 - @n single elem existing: :k($ok)
+ok 6 - @n single elem existing: :!k
+ok 7 - @n single elem existing: :k($no)
+ok 8 - @n single elem existing: :v
+ok 9 - @n single elem existing: :v($ok)
+ok 10 - @n single elem existing: :!v
+ok 11 - @n single elem existing: :v($no)
+ok 12 - @n single elem existing: :kv
+ok 13 - @n single elem existing: :kv($ok)
+ok 14 - @n single elem existing: :!kv
+ok 15 - @n single elem existing: :kv($no)
+ok 16 - @n single elem existing: :p
+ok 17 - @n single elem existing: :p($ok)
+ok 18 - @n single elem existing: :!p
+ok 19 - @n single elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .source matches @n
+    ok 5 - .what matches element access
+ok 20 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1]:zorp' died
+    ok 2 - right exception type (Exception)
+ok 21 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches element access
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301303106536) ... }
+    ok 5 - .source matches @n
+    ok 6 - .nogo matches (kv p)
+ok 22 - did we throws-like X::Adverb?
+ok 23 - @n array single elem existing: value
+ok 24 - @n array single elem existing: :k
+ok 25 - @n array single elem existing: :k($ok)
+ok 26 - @n array single elem existing: :!k
+ok 27 - @n array single elem existing: :k($no)
+ok 28 - @n array single elem existing: :v
+ok 29 - @n array single elem existing: :v($ok)
+ok 30 - @n array single elem existing: :!v
+ok 31 - @n array single elem existing: :v($no)
+ok 32 - @n array single elem existing: :kv
+ok 33 - @n array single elem existing: :kv($ok)
+ok 34 - @n array single elem existing: :!kv
+ok 35 - @n array single elem existing: :kv($no)
+ok 36 - @n array single elem existing: :p
+ok 37 - @n array single elem existing: :p($ok)
+ok 38 - @n array single elem existing: :!p
+ok 39 - @n array single elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@b]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .what matches slice
+    ok 5 - .nogo matches (k v)
+ok 40 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@b]:zippo' died
+    ok 2 - right exception type (Exception)
+ok 41 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@b]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .source matches @n
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301303109128) ... }
+    ok 6 - .what matches slice
+ok 42 - did we throws-like X::Adverb?
+ok 43 - @n single elem missing: value
+ok 44 - @n single elem missing: :k
+ok 45 - @n single elem missing: :k($ok)
+ok 46 - @n single elem missing: :!k
+ok 47 - @n single elem missing: :k($no)
+ok 48 - @n single elem missing: :v
+ok 49 - @n single elem missing: :v($ok)
+ok 50 - @n single elem missing: :!v
+ok 51 - @n single elem missing: :v($no)
+ok 52 - @n single elem missing: :kv($ok)
+ok 53 - @n single elem missing: :kv
+ok 54 - @n single elem missing: :!kv
+ok 55 - @n single elem missing: :kv($no)
+ok 56 - @n single elem missing: :p($ok)
+ok 57 - @n single elem missing: :p
+ok 58 - @n single elem missing: :!p
+ok 59 - @n single elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[11]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .what matches element access
+    ok 5 - .source matches @n
+ok 60 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[11]:kabam' died
+    ok 2 - right exception type (Exception)
+ok 61 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[11]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317539824) ... }
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .what matches element access
+ok 62 - did we throws-like X::Adverb?
+ok 63 - @n array single elem missing: value
+ok 64 - @n array single elem missing: :k
+ok 65 - @n array single elem missing: :k($ok)
+ok 66 - @n array single elem missing: :!k
+ok 67 - @n array single elem missing: :k($no)
+ok 68 - @n array single elem missing: :v
+ok 69 - @n array single elem missing: :v($ok)
+ok 70 - @n array single elem missing: :!v
+ok 71 - @n array single elem missing: :v($no)
+ok 72 - @n array single elem missing: :kv($ok)
+ok 73 - @n array single elem missing: :kv
+ok 74 - @n array single elem missing: :!kv
+ok 75 - @n array single elem missing: :kv($no)
+ok 76 - @n array single elem missing: :p($ok)
+ok 77 - @n array single elem missing: :p
+ok 78 - @n array single elem missing: :!p
+ok 79 - @n array single elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@B]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .source matches @n
+    ok 5 - .nogo matches (k v)
+ok 80 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@B]:zlonk' died
+    ok 2 - right exception type (Exception)
+ok 81 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@B]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317601048) ... }
+    ok 5 - .source matches @n
+    ok 6 - .what matches slice
+ok 82 - did we throws-like X::Adverb?
+ok 83 - @n multiple elem existing: value
+ok 84 - @n multiple elem existing: :k
+ok 85 - @n multiple elem existing: :k($ok)
+ok 86 - @n multiple elem existing: :!k
+ok 87 - @n multiple elem existing: :k($no)
+ok 88 - @n multiple elem existing: :v
+ok 89 - @n multiple elem existing: :v($ok)
+ok 90 - @n multiple elem existing: :!v
+ok 91 - @n multiple elem existing: :v($no)
+ok 92 - @n multiple elem existing: :kv
+ok 93 - @n multiple elem existing: :kv($ok)
+ok 94 - @n multiple elem existing: :!kv
+ok 95 - @n multiple elem existing: :kv($no)
+ok 96 - @n multiple elem existing: :p
+ok 97 - @n multiple elem existing: :p($ok)
+ok 98 - @n multiple elem existing: :!p
+ok 99 - @n multiple elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1,2]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .what matches slice
+    ok 5 - .source matches @n
+ok 100 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1,2]:dirgo' died
+    ok 2 - right exception type (Exception)
+ok 101 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1,2]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317601984) ... }
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .what matches slice
+    ok 6 - .source matches @n
+ok 102 - did we throws-like X::Adverb?
+ok 103 - @n arr multi elem existing: value
+ok 104 - @n arr multi elem existing: :k
+ok 105 - @n arr multi elem existing: :k($ok)
+ok 106 - @n arr multi elem existing: :!k
+ok 107 - @n arr multi elem existing: :k($no)
+ok 108 - @n arr multi elem existing: :v
+ok 109 - @n arr multi elem existing: :v($ok)
+ok 110 - @n arr multi elem existing: :!v
+ok 111 - @n arr multi elem existing: :v($no)
+ok 112 - @n arr multi elem existing: :kv
+ok 113 - @n arr multi elem existing: :kv($ok)
+ok 114 - @n arr multi elem existing: :!kv
+ok 115 - @n arr multi elem existing: :kv($no)
+ok 116 - @n arr multi elem existing: :p
+ok 117 - @n arr multi elem existing: :p($ok)
+ok 118 - @n arr multi elem existing: :!p
+ok 119 - @n arr multi elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@bc]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .nogo matches (k v)
+    ok 5 - .what matches slice
+ok 120 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@bc]:fnarg' died
+    ok 2 - right exception type (Exception)
+ok 121 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@bc]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .source matches @n
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317602920) ... }
+ok 122 - did we throws-like X::Adverb?
+ok 123 - @n arr multi elem existing: value
+ok 124 - @n arr multi elem existing: :k
+ok 125 - @n arr multi elem existing: :k($ok)
+ok 126 - @n arr multi elem existing: :!k
+ok 127 - @n arr multi elem existing: :k($no)
+ok 128 - @n arr multi elem existing: :v
+ok 129 - @n arr multi elem existing: :v($ok)
+ok 130 - @n arr multi elem existing: :!v
+ok 131 - @n arr multi elem existing: :v($no)
+ok 132 - @n arr multi elem existing: :kv
+ok 133 - @n arr multi elem existing: :kv($ok)
+ok 134 - @n arr multi elem existing: :!kv
+ok 135 - @n arr multi elem existing: :kv($no)
+ok 136 - @n arr multi elem existing: :p
+ok 137 - @n arr multi elem existing: :p($ok)
+ok 138 - @n arr multi elem existing: :!p
+ok 139 - @n arr multi elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1..2]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .what matches slice
+    ok 5 - .source matches @n
+ok 140 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1..2]:fnarg' died
+    ok 2 - right exception type (Exception)
+ok 141 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1..2]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317584600) ... }
+    ok 6 - .source matches @n
+ok 142 - did we throws-like X::Adverb?
+ok 143 - @n multiple elem missing: value
+ok 144 - @n multiple elem missing: :k
+ok 145 - @n multiple elem missing: :k($ok)
+ok 146 - @n multiple elem missing: :!k
+ok 147 - @n multiple elem missing: :k($no)
+ok 148 - @n multiple elem missing: :v
+ok 149 - @n multiple elem missing: :v($ok)
+ok 150 - @n multiple elem missing: :!v
+ok 151 - @n multiple elem missing: :v($no)
+ok 152 - @n multiple elem missing: :kv($ok)
+ok 153 - @n multiple elem missing: :kv
+ok 154 - @n multiple elem missing: :!kv
+ok 155 - @n multiple elem missing: :kv($no)
+ok 156 - @n multiple elem missing: :p($ok)
+ok 157 - @n multiple elem missing: :p
+ok 158 - @n multiple elem missing: :!p
+ok 159 - @n multiple elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[11,12]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @n
+ok 160 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[11,12]:zniknop' died
+    ok 2 - right exception type (Exception)
+ok 161 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[11,12]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317653488) ... }
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .what matches slice
+ok 162 - did we throws-like X::Adverb?
+ok 163 - @n arr multi elem missing: value
+ok 164 - @n arr multi elem missing: :k
+ok 165 - @n arr multi elem missing: :k($ok)
+ok 166 - @n arr multi elem missing: :!k
+ok 167 - @n arr multi elem missing: :k($no)
+ok 168 - @n arr multi elem missing: :v
+ok 169 - @n arr multi elem missing: :v($ok)
+ok 170 - @n arr multi elem missing: :!v
+ok 171 - @n arr multi elem missing: :v($no)
+ok 172 - @n arr multi elem missing: :kv($ok)
+ok 173 - @n arr multi elem missing: :kv
+ok 174 - @n arr multi elem missing: :!kv
+ok 175 - @n arr multi elem missing: :kv($no)
+ok 176 - @n arr multi elem missing: :p($ok)
+ok 177 - @n arr multi elem missing: :p
+ok 178 - @n arr multi elem missing: :!p
+ok 179 - @n arr multi elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@BC]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @n
+ok 180 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@BC]:lotne' died
+    ok 2 - right exception type (Exception)
+ok 181 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@BC]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .what matches slice
+    ok 6 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301295392376) ... }
+ok 182 - did we throws-like X::Adverb?
+ok 183 - @n ran multi elem miss: value
+ok 184 - @n ran multi elem miss: :k
+ok 185 - @n ran multi elem miss: :k($ok)
+ok 186 - @n ran multi elem miss: :!k
+ok 187 - @n ran multi elem miss: :k($no)
+ok 188 - @n ran multi elem miss: :v
+ok 189 - @n ran multi elem miss: :v($ok)
+ok 190 - @n ran multi elem miss: :!v
+ok 191 - @n ran multi elem miss: :v($no)
+ok 192 - @n ran multi elem miss: :kv($ok)
+ok 193 - @n ran multi elem miss: :kv
+ok 194 - @n ran multi elem miss: :!kv
+ok 195 - @n ran multi elem miss: :kv($no)
+ok 196 - @n ran multi elem miss: :p($ok)
+ok 197 - @n ran multi elem miss: :p
+ok 198 - @n ran multi elem miss: :!p
+ok 199 - @n ran multi elem miss: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[11..12]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @n
+ok 200 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[11..12]:bolton' died
+    ok 2 - right exception type (Exception)
+ok 201 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[11..12]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .what matches slice
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301295511408) ... }
+    ok 6 - .source matches @n
+ok 202 - did we throws-like X::Adverb?
+ok 203 - @n multiple elem mixed: value
+ok 204 - @n multiple elem mixed: :k
+ok 205 - @n multiple elem mixed: :k($ok)
+ok 206 - @n multiple elem mixed: :!k
+ok 207 - @n multiple elem mixed: :k($no)
+ok 208 - @n multiple elem mixed: :v
+ok 209 - @n multiple elem mixed: :v($ok)
+ok 210 - @n multiple elem mixed: :!v
+ok 211 - @n multiple elem mixed: :v($no)
+ok 212 - @n multiple elem mixed: :kv($ok)
+ok 213 - @n multiple elem mixed: :kv
+ok 214 - @n multiple elem mixed: :!kv
+ok 215 - @n multiple elem mixed: :kv($no)
+ok 216 - @n multiple elem mixed: :p($ok)
+ok 217 - @n multiple elem mixed: :p
+ok 218 - @n multiple elem mixed: :!p
+ok 219 - @n multiple elem mixed: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1,12]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .nogo matches (k v)
+    ok 5 - .what matches slice
+ok 220 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1,12]:notlob' died
+    ok 2 - right exception type (Exception)
+ok 221 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1,12]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .what matches slice
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301302768776) ... }
+    ok 6 - .source matches @n
+ok 222 - did we throws-like X::Adverb?
+ok 223 - @n arr multi elem mixed: value
+ok 224 - @n arr multi elem mixed: :k
+ok 225 - @n arr multi elem mixed: :k($ok)
+ok 226 - @n arr multi elem mixed: :!k
+ok 227 - @n arr multi elem mixed: :k($no)
+ok 228 - @n arr multi elem mixed: :v
+ok 229 - @n arr multi elem mixed: :v($ok)
+ok 230 - @n arr multi elem mixed: :!v
+ok 231 - @n arr multi elem mixed: :v($no)
+ok 232 - @n arr multi elem mixed: :kv($ok)
+ok 233 - @n arr multi elem mixed: :kv
+ok 234 - @n arr multi elem mixed: :!kv
+ok 235 - @n arr multi elem mixed: :kv($no)
+ok 236 - @n arr multi elem mixed: :p($ok)
+ok 237 - @n arr multi elem mixed: :p
+ok 238 - @n arr multi elem mixed: :!p
+ok 239 - @n arr multi elem mixed: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@bC]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @n
+ok 240 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@bC]:cheese' died
+    ok 2 - right exception type (Exception)
+ok 241 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@bC]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .source matches @n
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301302776984) ... }
+    ok 6 - .nogo matches (kv p)
+ok 242 - did we throws-like X::Adverb?
+ok 243 - @n callable: value
+ok 244 - @n callable: :k
+ok 245 - @n callable: :k($ok)
+ok 246 - @n callable: :!k
+ok 247 - @n callable: :k($no)
+ok 248 - @n callable: :v
+ok 249 - @n callable: :v($ok)
+ok 250 - @n callable: :!v
+ok 251 - @n callable: :v($no)
+ok 252 - @n callable: :kv($ok)
+ok 253 - @n callable: :kv
+ok 254 - @n callable: :!kv
+ok 255 - @n callable: :kv($no)
+ok 256 - @n callable: :p($ok)
+ok 257 - @n callable: :p
+ok 258 - @n callable: :!p
+ok 259 - @n callable: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[*-1]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .what matches element access
+    ok 5 - .source matches @n
+ok 260 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[*-1]:callable' died
+    ok 2 - right exception type (Exception)
+ok 261 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[*-1]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .source matches @n
+    ok 5 - .what matches element access
+    ok 6 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317545008) ... }
+ok 262 - did we throws-like X::Adverb?
+ok 263 - @n whatever: value
+ok 264 - @n whatever: :k
+ok 265 - @n whatever: :k($ok)
+ok 266 - @n whatever: :!k
+ok 267 - @n whatever: :k($no)
+ok 268 - @n whatever: :v
+ok 269 - @n whatever: :v($ok)
+ok 270 - @n whatever: :!v
+ok 271 - @n whatever: :v($no)
+ok 272 - @n whatever: :kv($ok)
+ok 273 - @n whatever: :kv
+ok 274 - @n whatever: :!kv
+ok 275 - @n whatever: :kv($no)
+ok 276 - @n whatever: :p($ok)
+ok 277 - @n whatever: :p
+ok 278 - @n whatever: :!p
+ok 279 - @n whatever: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[*]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .nogo matches (k v)
+    ok 5 - .what matches whatever slice
+ok 280 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[*]:sourceever' died
+    ok 2 - right exception type (Exception)
+ok 281 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[*]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317545944) ... }
+    ok 4 - .source matches @n
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .what matches whatever slice
+ok 282 - did we throws-like X::Adverb?
+ok 283 - @n zen: value
+ok 284 - @n zen: :k
+ok 285 - @n zen: :k($ok)
+ok 286 - @n zen: :!k
+ok 287 - @n zen: :k($no)
+ok 288 - @n zen: :v
+ok 289 - @n zen: :v($ok)
+ok 290 - @n zen: :!v
+ok 291 - @n zen: :v($no)
+ok 292 - @n zen: :kv($ok)
+ok 293 - @n zen: :kv
+ok 294 - @n zen: :!kv
+ok 295 - @n zen: :kv($no)
+ok 296 - @n zen: :p($ok)
+ok 297 - @n zen: :p
+ok 298 - @n zen: :!p
+ok 299 - @n zen: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..4
+    ok 1 - '@a[]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .nogo matches (k v)
+ok 300 - did we throws-like X::Adverb?
+# Subtest: True
+    1..5
+    ok 1 - '@a[]:foo' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches zen slice
+    ok 4 - .source matches @n
+    ok 5 - .unexpected matches foo
+ok 301 - True
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @n
+    ok 4 - .what matches zen slice
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317570560) ... }
+    ok 6 - .nogo matches (kv p)
+ok 302 - did we throws-like X::Adverb?
+ok 303 - @s single elem existing: value
+ok 304 - @s single elem existing: :k
+ok 305 - @s single elem existing: :k($ok)
+ok 306 - @s single elem existing: :!k
+ok 307 - @s single elem existing: :k($no)
+ok 308 - @s single elem existing: :v
+ok 309 - @s single elem existing: :v($ok)
+ok 310 - @s single elem existing: :!v
+ok 311 - @s single elem existing: :v($no)
+ok 312 - @s single elem existing: :kv
+ok 313 - @s single elem existing: :kv($ok)
+ok 314 - @s single elem existing: :!kv
+ok 315 - @s single elem existing: :kv($no)
+ok 316 - @s single elem existing: :p
+ok 317 - @s single elem existing: :p($ok)
+ok 318 - @s single elem existing: :!p
+ok 319 - @s single elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .source matches @s
+    ok 5 - .what matches element access
+ok 320 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1]:zorp' died
+    ok 2 - right exception type (Exception)
+ok 321 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @s
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317571640) ... }
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .what matches element access
+ok 322 - did we throws-like X::Adverb?
+ok 323 - @s array single elem existing: value
+ok 324 - @s array single elem existing: :k
+ok 325 - @s array single elem existing: :k($ok)
+ok 326 - @s array single elem existing: :!k
+ok 327 - @s array single elem existing: :k($no)
+ok 328 - @s array single elem existing: :v
+ok 329 - @s array single elem existing: :v($ok)
+ok 330 - @s array single elem existing: :!v
+ok 331 - @s array single elem existing: :v($no)
+ok 332 - @s array single elem existing: :kv
+ok 333 - @s array single elem existing: :kv($ok)
+ok 334 - @s array single elem existing: :!kv
+ok 335 - @s array single elem existing: :kv($no)
+ok 336 - @s array single elem existing: :p
+ok 337 - @s array single elem existing: :p($ok)
+ok 338 - @s array single elem existing: :!p
+ok 339 - @s array single elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@b]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .source matches @s
+    ok 5 - .nogo matches (k v)
+ok 340 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@b]:zippo' died
+    ok 2 - right exception type (Exception)
+ok 341 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@b]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @s
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317643232) ... }
+    ok 6 - .what matches slice
+ok 342 - did we throws-like X::Adverb?
+ok 343 - @s single elem missing: value
+ok 344 - @s single elem missing: :k
+ok 345 - @s single elem missing: :k($ok)
+ok 346 - @s single elem missing: :!k
+ok 347 - @s single elem missing: :k($no)
+ok 348 - @s single elem missing: :v
+ok 349 - @s single elem missing: :v($ok)
+ok 350 - @s single elem missing: :!v
+ok 351 - @s single elem missing: :v($no)
+ok 352 - @s single elem missing: :kv($ok)
+ok 353 - @s single elem missing: :kv
+ok 354 - @s single elem missing: :!kv
+ok 355 - @s single elem missing: :kv($no)
+ok 356 - @s single elem missing: :p($ok)
+ok 357 - @s single elem missing: :p
+ok 358 - @s single elem missing: :!p
+ok 359 - @s single elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[11]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches element access
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @s
+ok 360 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[11]:kabam' died
+    ok 2 - right exception type (Exception)
+ok 361 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[11]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .source matches @s
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317644384) ... }
+    ok 6 - .what matches element access
+ok 362 - did we throws-like X::Adverb?
+ok 363 - @s array single elem missing: value
+ok 364 - @s array single elem missing: :k
+ok 365 - @s array single elem missing: :k($ok)
+ok 366 - @s array single elem missing: :!k
+ok 367 - @s array single elem missing: :k($no)
+ok 368 - @s array single elem missing: :v
+ok 369 - @s array single elem missing: :v($ok)
+ok 370 - @s array single elem missing: :!v
+ok 371 - @s array single elem missing: :v($no)
+ok 372 - @s array single elem missing: :kv($ok)
+ok 373 - @s array single elem missing: :kv
+ok 374 - @s array single elem missing: :!kv
+ok 375 - @s array single elem missing: :kv($no)
+ok 376 - @s array single elem missing: :p($ok)
+ok 377 - @s array single elem missing: :p
+ok 378 - @s array single elem missing: :!p
+ok 379 - @s array single elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@B]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .source matches @s
+    ok 5 - .what matches slice
+ok 380 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@B]:zlonk' died
+    ok 2 - right exception type (Exception)
+ok 381 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@B]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317676848) ... }
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .what matches slice
+    ok 6 - .source matches @s
+ok 382 - did we throws-like X::Adverb?
+ok 383 - @s multiple elem existing: value
+ok 384 - @s multiple elem existing: :k
+ok 385 - @s multiple elem existing: :k($ok)
+ok 386 - @s multiple elem existing: :!k
+ok 387 - @s multiple elem existing: :k($no)
+ok 388 - @s multiple elem existing: :v
+ok 389 - @s multiple elem existing: :v($ok)
+ok 390 - @s multiple elem existing: :!v
+ok 391 - @s multiple elem existing: :v($no)
+ok 392 - @s multiple elem existing: :kv
+ok 393 - @s multiple elem existing: :kv($ok)
+ok 394 - @s multiple elem existing: :!kv
+ok 395 - @s multiple elem existing: :kv($no)
+ok 396 - @s multiple elem existing: :p
+ok 397 - @s multiple elem existing: :p($ok)
+ok 398 - @s multiple elem existing: :!p
+ok 399 - @s multiple elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1,2]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @s
+ok 400 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1,2]:dirgo' died
+    ok 2 - right exception type (Exception)
+ok 401 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1,2]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317677784) ... }
+    ok 4 - .source matches @s
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .what matches slice
+ok 402 - did we throws-like X::Adverb?
+ok 403 - @s arr multi elem existing: value
+ok 404 - @s arr multi elem existing: :k
+ok 405 - @s arr multi elem existing: :k($ok)
+ok 406 - @s arr multi elem existing: :!k
+ok 407 - @s arr multi elem existing: :k($no)
+ok 408 - @s arr multi elem existing: :v
+ok 409 - @s arr multi elem existing: :v($ok)
+ok 410 - @s arr multi elem existing: :!v
+ok 411 - @s arr multi elem existing: :v($no)
+ok 412 - @s arr multi elem existing: :kv
+ok 413 - @s arr multi elem existing: :kv($ok)
+ok 414 - @s arr multi elem existing: :!kv
+ok 415 - @s arr multi elem existing: :kv($no)
+ok 416 - @s arr multi elem existing: :p
+ok 417 - @s arr multi elem existing: :p($ok)
+ok 418 - @s arr multi elem existing: :!p
+ok 419 - @s arr multi elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@bc]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (k v)
+    ok 5 - .source matches @s
+ok 420 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@bc]:fnarg' died
+    ok 2 - right exception type (Exception)
+ok 421 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@bc]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .source matches @s
+    ok 6 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317678720) ... }
+ok 422 - did we throws-like X::Adverb?
+ok 423 - @s arr multi elem existing: value
+ok 424 - @s arr multi elem existing: :k
+ok 425 - @s arr multi elem existing: :k($ok)
+ok 426 - @s arr multi elem existing: :!k
+ok 427 - @s arr multi elem existing: :k($no)
+ok 428 - @s arr multi elem existing: :v
+ok 429 - @s arr multi elem existing: :v($ok)
+ok 430 - @s arr multi elem existing: :!v
+ok 431 - @s arr multi elem existing: :v($no)
+ok 432 - @s arr multi elem existing: :kv
+ok 433 - @s arr multi elem existing: :kv($ok)
+ok 434 - @s arr multi elem existing: :!kv
+ok 435 - @s arr multi elem existing: :kv($no)
+ok 436 - @s arr multi elem existing: :p
+ok 437 - @s arr multi elem existing: :p($ok)
+ok 438 - @s arr multi elem existing: :!p
+ok 439 - @s arr multi elem existing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1..2]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .source matches @s
+    ok 5 - .nogo matches (k v)
+ok 440 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1..2]:fnarg' died
+    ok 2 - right exception type (Exception)
+ok 441 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1..2]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317698840) ... }
+    ok 5 - .source matches @s
+    ok 6 - .what matches slice
+ok 442 - did we throws-like X::Adverb?
+ok 443 - @s multiple elem missing: value
+ok 444 - @s multiple elem missing: :k
+ok 445 - @s multiple elem missing: :k($ok)
+ok 446 - @s multiple elem missing: :!k
+ok 447 - @s multiple elem missing: :k($no)
+ok 448 - @s multiple elem missing: :v
+ok 449 - @s multiple elem missing: :v($ok)
+ok 450 - @s multiple elem missing: :!v
+ok 451 - @s multiple elem missing: :v($no)
+ok 452 - @s multiple elem missing: :kv($ok)
+ok 453 - @s multiple elem missing: :kv
+ok 454 - @s multiple elem missing: :!kv
+ok 455 - @s multiple elem missing: :kv($no)
+ok 456 - @s multiple elem missing: :p($ok)
+ok 457 - @s multiple elem missing: :p
+ok 458 - @s multiple elem missing: :!p
+ok 459 - @s multiple elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[11,12]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .source matches @s
+    ok 5 - .what matches slice
+ok 460 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[11,12]:zniknop' died
+    ok 2 - right exception type (Exception)
+ok 461 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[11,12]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317726376) ... }
+    ok 4 - .what matches slice
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .source matches @s
+ok 462 - did we throws-like X::Adverb?
+ok 463 - @s arr multi elem missing: value
+ok 464 - @s arr multi elem missing: :k
+ok 465 - @s arr multi elem missing: :k($ok)
+ok 466 - @s arr multi elem missing: :!k
+ok 467 - @s arr multi elem missing: :k($no)
+ok 468 - @s arr multi elem missing: :v
+ok 469 - @s arr multi elem missing: :v($ok)
+ok 470 - @s arr multi elem missing: :!v
+ok 471 - @s arr multi elem missing: :v($no)
+ok 472 - @s arr multi elem missing: :kv($ok)
+ok 473 - @s arr multi elem missing: :kv
+ok 474 - @s arr multi elem missing: :!kv
+ok 475 - @s arr multi elem missing: :kv($no)
+ok 476 - @s arr multi elem missing: :p($ok)
+ok 477 - @s arr multi elem missing: :p
+ok 478 - @s arr multi elem missing: :!p
+ok 479 - @s arr multi elem missing: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@BC]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .source matches @s
+    ok 5 - .what matches slice
+ok 480 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@BC]:lotne' died
+    ok 2 - right exception type (Exception)
+ok 481 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@BC]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317744480) ... }
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .source matches @s
+    ok 6 - .what matches slice
+ok 482 - did we throws-like X::Adverb?
+ok 483 - @s ran multi elem miss: value
+ok 484 - @s ran multi elem miss: :k
+ok 485 - @s ran multi elem miss: :k($ok)
+ok 486 - @s ran multi elem miss: :!k
+ok 487 - @s ran multi elem miss: :k($no)
+ok 488 - @s ran multi elem miss: :v
+ok 489 - @s ran multi elem miss: :v($ok)
+ok 490 - @s ran multi elem miss: :!v
+ok 491 - @s ran multi elem miss: :v($no)
+ok 492 - @s ran multi elem miss: :kv($ok)
+ok 493 - @s ran multi elem miss: :kv
+ok 494 - @s ran multi elem miss: :!kv
+ok 495 - @s ran multi elem miss: :kv($no)
+ok 496 - @s ran multi elem miss: :p($ok)
+ok 497 - @s ran multi elem miss: :p
+ok 498 - @s ran multi elem miss: :!p
+ok 499 - @s ran multi elem miss: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[11..12]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .source matches @s
+    ok 5 - .what matches slice
+ok 500 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[11..12]:bolton' died
+    ok 2 - right exception type (Exception)
+ok 501 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[11..12]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .what matches slice
+    ok 5 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317745416) ... }
+    ok 6 - .source matches @s
+ok 502 - did we throws-like X::Adverb?
+ok 503 - @s multiple elem mixed: value
+ok 504 - @s multiple elem mixed: :k
+ok 505 - @s multiple elem mixed: :k($ok)
+ok 506 - @s multiple elem mixed: :!k
+ok 507 - @s multiple elem mixed: :k($no)
+ok 508 - @s multiple elem mixed: :v
+ok 509 - @s multiple elem mixed: :v($ok)
+ok 510 - @s multiple elem mixed: :!v
+ok 511 - @s multiple elem mixed: :v($no)
+ok 512 - @s multiple elem mixed: :kv($ok)
+ok 513 - @s multiple elem mixed: :kv
+ok 514 - @s multiple elem mixed: :!kv
+ok 515 - @s multiple elem mixed: :kv($no)
+ok 516 - @s multiple elem mixed: :p($ok)
+ok 517 - @s multiple elem mixed: :p
+ok 518 - @s multiple elem mixed: :!p
+ok 519 - @s multiple elem mixed: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[1,12]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .what matches slice
+    ok 5 - .source matches @s
+ok 520 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[1,12]:notlob' died
+    ok 2 - right exception type (Exception)
+ok 521 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[1,12]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317764528) ... }
+    ok 4 - .what matches slice
+    ok 5 - .source matches @s
+    ok 6 - .nogo matches (kv p)
+ok 522 - did we throws-like X::Adverb?
+ok 523 - @s arr multi elem mixed: value
+ok 524 - @s arr multi elem mixed: :k
+ok 525 - @s arr multi elem mixed: :k($ok)
+ok 526 - @s arr multi elem mixed: :!k
+ok 527 - @s arr multi elem mixed: :k($no)
+ok 528 - @s arr multi elem mixed: :v
+ok 529 - @s arr multi elem mixed: :v($ok)
+ok 530 - @s arr multi elem mixed: :!v
+ok 531 - @s arr multi elem mixed: :v($no)
+ok 532 - @s arr multi elem mixed: :kv($ok)
+ok 533 - @s arr multi elem mixed: :kv
+ok 534 - @s arr multi elem mixed: :!kv
+ok 535 - @s arr multi elem mixed: :kv($no)
+ok 536 - @s arr multi elem mixed: :p($ok)
+ok 537 - @s arr multi elem mixed: :p
+ok 538 - @s arr multi elem mixed: :!p
+ok 539 - @s arr multi elem mixed: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[@bC]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (k v)
+    ok 4 - .what matches slice
+    ok 5 - .source matches @s
+ok 540 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[@bC]:cheese' died
+    ok 2 - right exception type (Exception)
+ok 541 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[@bC]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches slice
+    ok 4 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317765464) ... }
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .source matches @s
+ok 542 - did we throws-like X::Adverb?
+ok 543 - @s callable: value
+ok 544 - @s callable: :k
+ok 545 - @s callable: :k($ok)
+ok 546 - @s callable: :!k
+ok 547 - @s callable: :k($no)
+ok 548 - @s callable: :v
+ok 549 - @s callable: :v($ok)
+ok 550 - @s callable: :!v
+ok 551 - @s callable: :v($no)
+ok 552 - @s callable: :kv($ok)
+ok 553 - @s callable: :kv
+ok 554 - @s callable: :!kv
+ok 555 - @s callable: :kv($no)
+ok 556 - @s callable: :p($ok)
+ok 557 - @s callable: :p
+ok 558 - @s callable: :!p
+ok 559 - @s callable: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[*-1]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @s
+    ok 4 - .nogo matches (k v)
+    ok 5 - .what matches element access
+ok 560 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[*-1]:callable' died
+    ok 2 - right exception type (Exception)
+ok 561 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[*-1]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317811320) ... }
+    ok 4 - .nogo matches (kv p)
+    ok 5 - .what matches element access
+    ok 6 - .source matches @s
+ok 562 - did we throws-like X::Adverb?
+ok 563 - @s whatever: value
+ok 564 - @s whatever: :k
+ok 565 - @s whatever: :k($ok)
+ok 566 - @s whatever: :!k
+ok 567 - @s whatever: :k($no)
+ok 568 - @s whatever: :v
+ok 569 - @s whatever: :v($ok)
+ok 570 - @s whatever: :!v
+ok 571 - @s whatever: :v($no)
+ok 572 - @s whatever: :kv($ok)
+ok 573 - @s whatever: :kv
+ok 574 - @s whatever: :!kv
+ok 575 - @s whatever: :kv($no)
+ok 576 - @s whatever: :p($ok)
+ok 577 - @s whatever: :p
+ok 578 - @s whatever: :!p
+ok 579 - @s whatever: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..5
+    ok 1 - '@a[*]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @s
+    ok 4 - .what matches whatever slice
+    ok 5 - .nogo matches (k v)
+ok 580 - did we throws-like X::Adverb?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - '@a[*]:sourceever' died
+    ok 2 - right exception type (Exception)
+ok 581 - did we throws-like Exception?
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[*]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .nogo matches (kv p)
+    ok 4 - .what matches whatever slice
+    ok 5 - .source matches @s
+    ok 6 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317812256) ... }
+ok 582 - did we throws-like X::Adverb?
+ok 583 - @s zen: value
+ok 584 - @s zen: :k
+ok 585 - @s zen: :k($ok)
+ok 586 - @s zen: :!k
+ok 587 - @s zen: :k($no)
+ok 588 - @s zen: :v
+ok 589 - @s zen: :v($ok)
+ok 590 - @s zen: :!v
+ok 591 - @s zen: :v($no)
+ok 592 - @s zen: :kv($ok)
+ok 593 - @s zen: :kv
+ok 594 - @s zen: :!kv
+ok 595 - @s zen: :kv($no)
+ok 596 - @s zen: :p($ok)
+ok 597 - @s zen: :p
+ok 598 - @s zen: :!p
+ok 599 - @s zen: :p($no)
+# Subtest: did we throws-like X::Adverb?
+    1..4
+    ok 1 - '@a[]:k:v' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .source matches @s
+    ok 4 - .nogo matches (k v)
+ok 600 - did we throws-like X::Adverb?
+# Subtest: True
+    1..5
+    ok 1 - '@a[]:foo' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .unexpected matches foo
+    ok 4 - .what matches zen slice
+    ok 5 - .source matches @s
+ok 601 - True
+# Subtest: did we throws-like X::Adverb?
+    1..6
+    ok 1 - '@a[]:kv:p:zip:zop' died
+    ok 2 - right exception type (X::Adverb)
+    ok 3 - .what matches zen slice
+    ok 4 - .source matches @s
+    ok 5 - .nogo matches (kv p)
+    ok 6 - .unexpected matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6301317813192) ... }
+ok 602 - did we throws-like X::Adverb?
+ok 603 - container respected in array assign
+ok 604 - container respected in array access
+ok 605 - container respected in array :exists
+ok 606 - container respected in array :delete

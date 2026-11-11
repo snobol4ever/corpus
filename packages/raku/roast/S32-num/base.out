@@ -1,0 +1,149 @@
+1..63
+ok 1 - 0.base(something)
+ok 2 - 0.base(2)
+ok 3 - 42.base(10)
+ok 4 - 42.base(16)
+ok 5 - 42.base(2)
+ok 6 - 35.base(36)
+ok 7 - 36.base(36)
+ok 8 - (-12).base(16)
+ok 9 - Integer digits are 0s
+ok 10 - Integer with 0 digits fraction leaves off radix point
+# Subtest: X::OutOfRange negative digits arg fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 11 - X::OutOfRange negative digits arg fails
+# Subtest: X::OutOfRange negative base fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 12 - X::OutOfRange negative base fails
+ok 13 - 0.base(something)
+ok 14 - 0.base(2)
+ok 15 - 42.base(10)
+ok 16 - 42.base(16)
+ok 17 - 42.base(2)
+ok 18 - 35.base(36)
+ok 19 - 36.base(36)
+ok 20 - (-12).base(16)
+ok 21 - Integer digits are 0s
+ok 22 - Integer with 0 digits fraction leaves off radix point
+# Subtest: X::OutOfRange negative digits arg fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 23 - X::OutOfRange negative digits arg fails
+# Subtest: X::OutOfRange negative base fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 24 - X::OutOfRange negative base fails
+ok 25 - (1/10000000000).base(3) (RT  \#112900)
+ok 26 - (3.25).base(16)
+ok 27 - (10.5).base(2)
+ok 28 - (-3.5).base(16)
+ok 29 - repeating fraction can go 40 digits
+ok 30 - repeating fraction can round at 40 digits
+ok 31 - repeating base 3 fraction can round at 40 digits
+ok 32 - Rat with 0 digits fraction leaves off radix point
+ok 33 - explicit digits are produced even if 0
+ok 34 - explicit digits are produced even if some are 0
+ok 35 - (3/2).base(10, 1)
+ok 36 - (49/999).base(10, 1) rounds down integer
+ok 37 - (98/99).base(10, 1) rounds up integer
+ok 38 - (100/99).base(10, 1) rounds down integer
+ok 39 - (98/99).base(10, 0) rounds up integer (RT  \#126022)
+ok 40 - (100/99).base(10, 0) rounds down integer
+ok 41 - (.01).base(10, 0) rounds down integer
+ok 42 - decimal base with Whatever digits
+ok 43 - longer number with Whatever digits
+ok 44 - hex base with Whatever
+# Subtest: negative digits arg fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 45 - negative digits arg fails
+ok 46 - 1/65536 repeats with 256 char cycle
+ok 47 - 1/7 repeats with 6 char cycle
+ok 48 - 3.1416 repeats in base 36
+ok 49 - rounding works on fractional part
+ok 50 - rounding works on integer part
+ok 51 - rounding works on 16.999e0.base(16,3)
+ok 52 - rounding works on 16.999e0.base(16,9)
+ok 53 - pi rounds to 4 place
+ok 54 - Num with 0 digits fraction leaves off radix point
+ok 55 - explicit digits are produced even if 0
+ok 56 - explicit digits are produced even if some are 0
+# Subtest: negative digits arg fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 57 - negative digits arg fails
+# Subtest: all Reals can accept Whatever for second .base argument
+    1..6
+    ok 1 - Int
+    ok 2 - Num
+    ok 3 - Rat
+    ok 4 - FatRat
+    ok 5 - Duration
+    ok 6 - Instant
+ok 58 - all Reals can accept Whatever for second .base argument
+# Subtest: negative $digits arg throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 59 - negative $digits arg throws
+# Subtest: huge digits arg does not throw weird error
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4390007470352) ... }
+ok 60 - huge digits arg does not throw weird error
+# Subtest: Throws like X::OutOfRange for base 1
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 61 - Throws like X::OutOfRange for base 1
+# Subtest: Inf.base throws useful error
+    1..2
+    ok 1 - 'Inf.base: 16' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 62 - Inf.base throws useful error
+# Subtest: NaN.base throws useful error
+    1..2
+    ok 1 - 'NaN.base: 16' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 63 - NaN.base throws useful error

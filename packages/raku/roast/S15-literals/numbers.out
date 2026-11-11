@@ -1,0 +1,110 @@
+1..49
+ok 1 - Can use non-ASCII numbers
+ok 2 - Can use non-ASCII numbers
+ok 3 - Non-ASCII numbers can be used in expressions
+ok 4 - Non-ASCII numbers can be mixed with ASCII numbers
+ok 5 - ASCII-only expression can be succesfully compared to non-ASCII number
+ok 6 - Can mix scripts in one number
+ok 7 - Can mix scripts in one number
+ok 8 - Numerals in category 'Nl' allowed as numeric literal
+ok 9 - Numerals in category 'Nl' allowed as numeric literal
+# Subtest: Numerals in category 'Nl' die when attempt is made to use as digit
+    1..2
+    ok 1 - 'say 𒐀𒐀' died
+    ok 2 - right exception type (X::Comp)
+ok 10 - Numerals in category 'Nl' die when attempt is made to use as digit
+ok 11 - Numerals in category 'No' allowed as numeric literal
+ok 12 - Numerals in category 'No' allowed as numeric literal
+# Subtest: Numerals in category 'No' die when attempt is made to use as digit
+    1..2
+    ok 1 - 'say ⓿⓿' died
+    ok 2 - right exception type (X::Comp)
+ok 13 - Numerals in category 'No' die when attempt is made to use as digit
+ok 14 - vulgar fraction literal produces a Rat
+ok 15 - Roman numeral literal produces a Int
+ok 16 - Tibetan number literal produces a negative
+ok 17 - ASCII binary literals work
+ok 18 - Non-ASCII binary literals work
+ok 19 - Binary literals with a mixture of scripts work
+# Subtest: Numerals in category 'No' can't be used in binary literals
+    1..2
+    ok 1 - 'say 0b¹0' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 20 - Numerals in category 'No' can't be used in binary literals
+# Subtest: Numerals in category 'Nl' can't be used in binary literals
+    1..2
+    ok 1 - 'say 0b1〇' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 21 - Numerals in category 'Nl' can't be used in binary literals
+ok 22 - ASCII octal literals work
+ok 23 - Non-ASCII octal literals work
+ok 24 - Octal literals with a mixture of scripts work
+# Subtest: Numerals in category 'No' can't be used in octal literals
+    1..2
+    ok 1 - 'say 0o7₅₅' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 25 - Numerals in category 'No' can't be used in octal literals
+# Subtest: Numerals in category 'Nl' can't be used in octal literals
+    1..2
+    ok 1 - 'say 0oⅦ55' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 26 - Numerals in category 'Nl' can't be used in octal literals
+ok 27 - prefix 0 on invalid octal warns
+ok 28 - prefix 0 on valid octal warns
+ok 29 - ASCII hexadecimal literals work
+ok 30 - Non-ASCII hexadecimal literals work
+ok 31 - Hexadecimal literals with a mixture of scripts work
+# Subtest: Numerals in category 'No' can't be used in hexadecimal literals
+    1..2
+    ok 1 - 'say 0x④2' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 32 - Numerals in category 'No' can't be used in hexadecimal literals
+# Subtest: Numerals in category 'Nl' can't be used in hexadecimal literals
+    1..2
+    ok 1 - 'say 0x4〢' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 33 - Numerals in category 'Nl' can't be used in hexadecimal literals
+ok 34 - Uppercase ASCII letters work in hexadecimal literals
+ok 35 - Lowercase ASCII letters work in hexadecimal literals
+ok 36 - Uppercase fullwidth letters work in hexadecimal literals
+ok 37 - Lowercase fullwidth letters work in hexadecimal literals
+ok 38 - Valid Hex_Digit characters from different scripts can be mixed in hexadecimal literals
+# Subtest: Can't use characters without true Hex_Digit properties in hexadecimal literals
+    1..2
+    ok 1 - 'say 0xΓαfe' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 39 - Can't use characters without true Hex_Digit properties in hexadecimal literals
+# Subtest: Numerals in category 'No' can't be used in hexadecimal literals
+    1..2
+    ok 1 - 'say 0xCAF⒕' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 40 - Numerals in category 'No' can't be used in hexadecimal literals
+# Subtest: Numerals in category 'Nl' can't be used in hexadecimal literals
+    1..2
+    ok 1 - 'say 0xC𐏓FE' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 41 - Numerals in category 'Nl' can't be used in hexadecimal literals
+ok 42 - ASCII letters work in general radix numbers
+ok 43 - Fullwidth letters work in general radix numbers
+ok 44 - Mixture of ASCII and fullwidth letters work in general radix numbers
+# Subtest: Scripts without Hex_Digit characters not allowed in general radix numbers
+    1..2
+    ok 1 - 'say :36<αω>' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 45 - Scripts without Hex_Digit characters not allowed in general radix numbers
+ok 46 - Nd numerals can be used in general radix numbers
+# Subtest: Nl numerals are not allowed in general radix numbers
+    1..2
+    ok 1 - 'say :36<utfⅧ>' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 47 - Nl numerals are not allowed in general radix numbers
+# Subtest: No numerals are not allowed in general radix numbers
+    1..2
+    ok 1 - 'say :36<utf㉜>' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 48 - No numerals are not allowed in general radix numbers
+# Subtest: converting string with "No" characters to numeric is not supported
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 49 - converting string with "No" characters to numeric is not supported

@@ -1,0 +1,6 @@
+1..5
+ok 1 - post until
+ok 2 - post until
+ok 3 - post until
+ok 4 - post until
+ok 5 - until is a terminator even after comma

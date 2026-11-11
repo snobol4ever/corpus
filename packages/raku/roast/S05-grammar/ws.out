@@ -1,0 +1,14 @@
+1..12
+ok 1 - basic sanity with custom <ws> rules
+ok 2 - correct text captured
+ok 3 - implicit <.ws> is overridden
+ok 4 - implicit <.ws> did not capture
+ok 5 - explicit <.ws> is overridden
+ok 6 - explicit <.ws> did not capture
+ok 7 - explicit  <ws> is overridden
+ok 8 - explicit  <ws> did capture
+ok 9 - match <ws>  against empty string
+ok 10 - match <ws>? against empty string
+ok 11 - # SKIP infinite loop: RT  \#64094 (noauto)
+ok 12 - # SKIP infinite loop: RT  \#64094 (noauto)
+# FUDGED!

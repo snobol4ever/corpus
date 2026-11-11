@@ -1,0 +1,55 @@
+1..17
+ok 1 - captured built-in type
+ok 2 - captured built-in type
+ok 3 - captured user defined type
+ok 4 - used captured type later in the sig
+ok 5 - used captured type later in the sig
+ok 6 - can use captured type in declaration
+ok 7 - can use captured type in declaration
+ok 8 - No error on type capture
+ok 9 - Type capture works on variable in nested scope
+ok 10 - Type variable matches in signature to "for" loop
+ok 11 - coerce to Int via type capture
+ok 12 - coerce to Rat via type capture
+ok 13 - default is instantiated from a type object
+ok 14 - default is instantiated from a concrete object type
+ok 15 - it's ok to assign Nil to a variable of a captured type
+ok 16 - reset to default sets varible to captured type
+# Subtest: Return typecheck
+    1..15
+    ok 1 - basic return type check works
+    ok 2 - basic return type check works with definite
+    ok 3 - basic return type check works with undefinite
+    ok 4 - type capture can be a coercion
+    ok 5 - coercive type capture actually coerces
+    # Subtest: basic type mismatch throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 6 - basic type mismatch throws
+    # Subtest: a definite type capture throws on undefined
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 7 - a definite type capture throws on undefined
+    # Subtest: an undefinite type capture throws with a concrete return value
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 8 - an undefinite type capture throws with a concrete return value
+    ok 9 - type check against a subset
+    # Subtest: type mismatch against a subset
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 10 - type mismatch against a subset
+    ok 11 - coercion over a type capture
+    ok 12 - coercion over a type capture does its job
+    ok 13 - coercion into a subset works
+    ok 14 - coercion into a subset does its job
+    # Subtest: coercion into a subset throws when constraint is not fulfilled
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 15 - coercion into a subset throws when constraint is not fulfilled
+ok 17 - Return typecheck

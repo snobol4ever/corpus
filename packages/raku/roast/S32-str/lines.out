@@ -1,0 +1,28 @@
+1..27
+ok 1 - LF .lines without trailing
+ok 2 - LF .lines with trailing
+ok 3 - LF .lines with Inf
+ok 4 - LF .lines with *
+ok 5 - LF .lines with limit
+ok 6 - CR .lines without trailing
+ok 7 - CR .lines with trailing
+ok 8 - CR .lines with Inf
+ok 9 - CR .lines with *
+ok 10 - CR .lines with limit
+ok 11 - CRLF .lines without trailing
+ok 12 - CRLF .lines with trailing
+ok 13 - CRLF .lines with Inf
+ok 14 - CRLF .lines with *
+ok 15 - CRLF .lines with limit
+ok 16 - mixed .lines without trailing
+ok 17 - mixed .lines with trailing
+ok 18 - mixed .lines with Inf
+ok 19 - mixed .lines with *
+ok 20 - mixed .lines with limit
+ok 21 - &lines
+ok 22 - &lines(2)
+ok 23 - lines returns things in lines
+ok 24 - lines iterates correctly with for block taking two arguments at a time
+ok 25 - we stop when data ends, even if limit has not been reached yet
+ok 26 - does explicit chomp chomp
+ok 27 - does explicit !chomp not chomp

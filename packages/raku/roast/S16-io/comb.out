@@ -1,0 +1,211 @@
+1..30
+# Subtest: testing 'zero' with \("\n")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 1 - testing 'zero' with \("\n")
+# Subtest: testing 'zero' with \(/\n/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 2 - testing 'zero' with \(/\n/)
+# Subtest: testing ':zer' with \("::")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 3 - testing ':zer' with \("::")
+# Subtest: testing ':zer' with \(/\:\:/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 4 - testing ':zer' with \(/\:\:/)
+# Subtest: testing 'aaa' with \("aa")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 5 - testing 'aaa' with \("aa")
+# Subtest: testing 'aaaa' with \("aa")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 6 - testing 'aaaa' with \("aa")
+# Subtest: testing 'aaa' with \(/aa/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 7 - testing 'aaa' with \(/aa/)
+# Subtest: testing 'aaaa' with \(/aa/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 8 - testing 'aaaa' with \(/aa/)
+# Subtest: testing 'none' with \("o")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 9 - testing 'none' with \("o")
+# Subtest: testing 'none' with \(/o/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 10 - testing 'none' with \(/o/)
+# Subtest: testing '' with \("x")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 11 - testing '' with \("x")
+# Subtest: testing '' with \(/x/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 12 - testing '' with \(/x/)
+# Subtest: testing 'xxxx' with \("x")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 13 - testing 'xxxx' with \("x")
+# Subtest: testing 'xxxx' with \(/x/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 14 - testing 'xxxx' with \(/x/)
+# Subtest: testing 'yyyy' with \("x")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 15 - testing 'yyyy' with \("x")
+# Subtest: testing 'yyyy' with \(/x/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 16 - testing 'yyyy' with \(/x/)
+# Subtest: testing 'zzzz' with \("x")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 17 - testing 'zzzz' with \("x")
+# Subtest: testing 'zzzz' with \(/x/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 18 - testing 'zzzz' with \(/x/)
+# Subtest: testing 'ZZZZ' with \("x")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 19 - testing 'ZZZZ' with \("x")
+# Subtest: testing 'ZZZZ' with \(/x/)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 20 - testing 'ZZZZ' with \(/x/)
+# Subtest: testing 'abcd' with \("")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 21 - testing 'abcd' with \("")
+# Subtest: testing 'abcd' with \(/./)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 22 - testing 'abcd' with \(/./)
+# Subtest: testing 'abcd' with \(/.c./)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 23 - testing 'abcd' with \(/.c./)
+# Subtest: testing '' with \("")
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 24 - testing '' with \("")
+# Subtest: testing 'abcd' with \(1)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 25 - testing 'abcd' with \(1)
+# Subtest: testing 'abcd' with \(5)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 26 - testing 'abcd' with \(5)
+# Subtest: testing 'abcd' with \(10)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 27 - testing 'abcd' with \(10)
+# Subtest: testing 'abcd' with \(100000)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 28 - testing 'abcd' with \(100000)
+# Subtest: testing 'defg' with \(100000)
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/comb.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 29 - testing 'defg' with \(100000)
+# Subtest: .comb(Regex) returns Seq
+    1..4
+    ok 1 - IO::Handle
+    ok 2 - IO::Handle, with limit
+    ok 3 - IO::Path
+    ok 4 - IO::Path with limit
+ok 30 - .comb(Regex) returns Seq

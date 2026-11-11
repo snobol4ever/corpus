@@ -1,0 +1,9 @@
+1..8
+ok 1 - ~~ non-syntactic True
+ok 2 - ~~ non-syntactic True
+ok 3 - ~~ non-syntactic True
+ok 4 - ~~ non-syntactic True
+ok 5 - boolean truth
+ok 6 - boolean truth
+ok 7 - boolean truth
+ok 8 - boolean truth

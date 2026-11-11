@@ -1,0 +1,40 @@
+1..30
+ok 1 - The object is-a 'Code'
+ok 2 - The object is-a 'Routine'
+ok 3 - The object is-a 'Sub'
+ok 4 - basic invocation of an anonymous sub
+ok 5 - invocation of a parameterless anonymous sub with a parameter dies
+ok 6 - The object is-a 'Code'
+ok 7 - The object is-a 'Block'
+ok 8 - basic invocation of a pointy block
+ok 9 - invocation of a parameterless pointy block with a parameter dies
+ok 10 - The object is-a 'Code'
+ok 11 - The object is-a 'Block'
+ok 12 - basic invocation of a pointy block with a param
+ok 13 - invocation of a parameterized block expecting a param without a param dies
+not ok 14 - $_ got right value for code ref # TODO RT #63974
+# Failed test '$_ got right value for code ref'
+# at S06-signature/sub-ref.rakudo line 58
+# expected: '2'
+#      got: (Any)
+not ok 15 - @_ got right value in code ref # TODO RT #63974
+# Failed test '@_ got right value in code ref'
+# at S06-signature/sub-ref.rakudo line 59
+# expected: '3 4 5'
+#      got: '2 3 4 5'
+ok 16 - The object is-a 'Code'
+ok 17 - The object is-a 'Routine'
+ok 18 - The object is-a 'Sub'
+ok 19 - basic invocation of a Perl-like anonymous sub (1)
+ok 20 - basic invocation of a Perl-like anonymous sub (2)
+ok 21 - The object is-a 'Code'
+ok 22 - The object is-a 'Routine'
+ok 23 - The object is-a 'Sub'
+ok 24 - calling an anonymous sub with a positional param
+ok 25 - calling an anonymous sub expecting a param without a param dies
+ok 26 - calling an anonymous sub expecting one param with two params dies
+ok 27 - closures: inc1 == 0
+ok 28 - closures: inc1 == 1
+ok 29 - closures: inc2 == 0
+ok 30 - closures: inc2 == 1
+# FUDGED!

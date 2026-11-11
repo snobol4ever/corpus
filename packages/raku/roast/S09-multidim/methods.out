@@ -1,0 +1,173 @@
+1..82
+ok 1 - shape is set on array
+ok 2 - elems is size of first dimensions
+ok 3 - eager is identity on a shaped array
+ok 4 - sink lives on a shaped array
+ok 5 - shaped array knows it is not lazy
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches push
+ok 6 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches append
+ok 7 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches pop
+ok 8 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches unshift
+ok 9 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches prepend
+ok 10 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches shift
+ok 11 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches splice
+ok 12 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches reverse
+ok 13 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches rotate
+ok 14 - did we throws-like X::IllegalOnFixedDimensionArray?
+ok 15 - .keys on 2-dim gives list of lists of indices
+ok 16 - .values on 2x2 array gives 4 leaf values
+ok 17 - .kv on a 2x2 array gives list with indice pairs and values interwoven
+ok 18 - .pairs on a 2x2 array gives list of pairs mapping indice lists to values
+ok 19 - .antipairs on a 2x2 array gives list of pairs mapping values to indice lists
+ok 20 - .keys on 1-dim gives list of indices
+ok 21 - .iterator gives iterator walking leaves (1)
+ok 22 - .iterator gives iterator walking leaves (2)
+ok 23 - .iterator gives iterator walking leaves (3)
+ok 24 - .iterator gives iterator walking leaves (4)
+ok 25 - .iterator gives iterator walking leaves (5)
+ok 26 - .flat gives the leaves
+ok 27 - .combinations is over leaves
+ok 28 - .permutations is over leaves
+ok 29 - .pick is over leaves (1)
+ok 30 - .pick is over leaves (2)
+ok 31 - .roll is over leaves
+ok 32 - .rotor is over leaves
+ok 33 - .join is over leaves
+ok 34 - .map is over leaves
+ok 35 - .sort is over leaves
+ok 36 - .Slip is over leaves
+ok 37 - .gist represents structure
+ok 38 - .raku retains structure
+ok 39 - can reverse a 1-dim fixed size array
+ok 40 - can rotate a 1-dim fixed size array
+ok 41 - shape is set on array (native)
+ok 42 - elems is size of first dimensions (native)
+ok 43 - eager is identity on a shaped array (native)
+ok 44 - sink lives on a shaped array (native)
+ok 45 - shaped array knows it is not lazy (native)
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches push
+ok 46 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches append
+ok 47 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches pop
+ok 48 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches unshift
+ok 49 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches prepend
+ok 50 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches shift
+ok 51 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches splice
+ok 52 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches reverse
+ok 53 - did we throws-like X::IllegalOnFixedDimensionArray?
+# Subtest: did we throws-like X::IllegalOnFixedDimensionArray?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::IllegalOnFixedDimensionArray)
+    ok 3 - .operation matches rotate
+ok 54 - did we throws-like X::IllegalOnFixedDimensionArray?
+ok 55 - .keys on 2-dim gives list of lists of indices (native)
+ok 56 - .values on 2x2 array gives 4 leaf values (native)
+ok 57 - .kv on a 2x2 array gives list with indice pairs and values interwoven (native)
+ok 58 - .pairs on a 2x2 array gives list of pairs mapping indice lists to values (native)
+ok 59 - .antipairs on a 2x2 array gives list of pairs mapping values to indice lists (native)
+ok 60 - .keys on 1-dim gives list of indices (native)
+ok 61 - .iterator gives iterator walking leaves (native) (1)
+ok 62 - .iterator gives iterator walking leaves (native) (2)
+ok 63 - .iterator gives iterator walking leaves (native) (3)
+ok 64 - .iterator gives iterator walking leaves (native) (4)
+ok 65 - .iterator gives iterator walking leaves (native) (5)
+ok 66 - .flat gives the leaves (native)
+ok 67 - .combinations is over leaves (native)
+ok 68 - .permutations is over leaves (native)
+ok 69 - .pick is over leaves (native) (1)
+ok 70 - .pick is over leaves (native) (2)
+ok 71 - .roll is over leaves (native)
+ok 72 - .rotor is over leaves (native)
+ok 73 - .join is over leaves (native)
+ok 74 - .map is over leaves (native)
+ok 75 - .sort is over leaves (native)
+ok 76 - .Slip is over leaves (native)
+ok 77 - .gist represents structure (native)
+ok 78 - .raku retains structure (native)
+ok 79 - can we assign after a .rotate?
+ok 80 - can we assign after a .reverse?
+ok 81 - Shape is retained when a shaped array is cloned
+ok 82 - Clone of shaped array has independent containers

@@ -1,0 +1,54 @@
+1..36
+ok 1 - basic symbolic scalar dereferentiation works
+ok 2 - can use $::(...) as lvalue
+ok 3 - and the assignment worked
+ok 4 - ... and it is item assignment
+ok 5 - basic symbolic array dereferentiation works
+ok 6 - can assign to symbolic deref
+ok 7 - ... and it is list assignment when the sigil is @
+ok 8 - basic symbolic hash dereferentiation works
+ok 9 - basic symbolic code dereferentiation works
+ok 10 - can look up a type object with ::()
+ok 11 - can look up lexical from same block
+ok 12 - can look up lexical from outer block
+ok 13 - Can use ::() as lvalue
+ok 14 - and the assignment worked
+ok 15 - can look up lexical sub
+ok 16 - Can look up numerical constants
+ok 17 - can look up name with :: (1)
+ok 18 - can look up name with :: (1)
+ok 19 - not so basic symbolic dereferentiation works
+ok 20 - symbolic derefertiation with multiple packages in one variable works
+# Subtest: $::($foo)bar is illegal
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 21 - $::($foo)bar is illegal
+ok 22 - symbolic dereferentation works with ::CALLER, too
+ok 23 - symbolic dereferentiation of Unicode vars works
+ok 24 - # SKIP NYI
+ok 25 - # SKIP NYI
+not ok 26 - symbolic dereferentiation of globals works (3) # TODO no such symbol
+# Failed test 'symbolic dereferentiation of globals works (3)'
+# at S02-names/symbolic-deref.rakudo line 121
+ok 27 - symbolic dereferentiation of CORE subs works (1)
+ok 28 - symbolic dereferentiation of CORE subs works (2)
+ok 29 - symbolic dereferentiation of CORE subs works (3)
+ok 30 - symbolic dereferentiation of type vars works (1)
+ok 31 - symbolic dereferentiation of (own) type vars works (2)
+ok 32 - symbolic dereferentiation works with special chars (1)
+not ok 33 - symbolic dereferentiation works with special chars (3) # TODO NYI
+# Failed test 'symbolic dereferentiation works with special chars (3)'
+# at S02-names/symbolic-deref.rakudo line 152
+ok 34 - symbolic dereferentiation works with package vars
+# Subtest: Cannot look up empty name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 35 - Cannot look up empty name
+# Subtest: name with trailing :: not same as sans
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared)
+ok 36 - name with trailing :: not same as sans
+# FUDGED!

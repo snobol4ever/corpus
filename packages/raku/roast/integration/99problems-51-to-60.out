@@ -1,0 +1,38 @@
+1..37
+ok 1 - We tell that an empty tree is a tree
+ok 2 - .. and a one-level tree is a tree
+ok 3 - .. and n-level trees
+ok 4 - .. and fail with empty lists
+ok 5 - .. or other malformed trees
+ok 6 - built a balanced binary tree with 1 item
+ok 7 - built a balanced binary tree with 2 items
+ok 8 - built a balanced binary tree with 3 items
+ok 9 - built the right number of balanced trees with 4 items
+ok 10 - left()  works
+ok 11 - right() works
+ok 12 - mirror works with empty trees
+ok 13 - mirror spots differences
+ok 14 - mirror can recurse
+ok 15 - mirror spots differences recurring
+ok 16 - symmetric works with 1-level trees
+ok 17 - symmetric find asymettric trees
+ok 18 - symmetric works with n-level trees
+ok 19 - Can construct a binary search tree
+ok 20 - # SKIP Test(s) not yet written: (**) Generate-and-test paradigm
+ok 21 - Found 15 height balanced trees of height 3
+ok 22 - tree 1 is really balanced
+ok 23 - tree 2 is really balanced
+ok 24 - tree 3 is really balanced
+ok 25 - tree 4 is really balanced
+ok 26 - tree 5 is really balanced
+ok 27 - tree 6 is really balanced
+ok 28 - tree 7 is really balanced
+ok 29 - tree 8 is really balanced
+ok 30 - tree 9 is really balanced
+ok 31 - tree 10 is really balanced
+ok 32 - tree 11 is really balanced
+ok 33 - tree 12 is really balanced
+ok 34 - tree 13 is really balanced
+ok 35 - tree 14 is really balanced
+ok 36 - tree 15 is really balanced
+ok 37 - # SKIP Test(s) not yet written: (**) Construct height-balanced binary trees with a given number of nodes

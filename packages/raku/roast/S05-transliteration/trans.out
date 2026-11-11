@@ -1,0 +1,82 @@
+1..70
+ok 1 - Each side can be individual characters
+ok 2 - The two sides of the any pair can be strings interpreted as tr/// would multichar
+ok 3 - The two sides of the any pair can be strings interpreted as tr/// would range
+ok 4 - If the first character is a dash it isn't part of a range
+ok 5 - If the last character is a dash it isn't part of a range
+ok 6 - The two sides can consists of both chars and ranges
+ok 7 - The two sides can consist of multiple ranges
+ok 8 - The two sides of each pair may also be array references
+ok 9 - Using string range on one side and array reference on the other
+ok 10 - Using array reference on one side and string range on the other
+ok 11 - The array version can map one characters to one-or-more characters
+ok 12 - The array version can map one-or-more characters to one-or-more characters
+ok 13 - The array version can map one characters to one-or-more characters, using leftmost longest match
+ok 14 - Ranges can be grouped
+ok 15 - Multiple ranges interpreted in string
+ok 16 - Spaces in interpreted ranges are not skipped (all spaces are important)
+ok 17 - Spaces in interpreted ranges are not skipped (all spaces are important)
+ok 18 - 
+ok 19 - 
+ok 20 - 
+ok 21 - 
+ok 22 - 
+ok 23 - ambiguous ranges combined
+ok 24 - leading ranges interpreted as string
+ok 25 - trailing ranges interpreted as string
+ok 26 - leading, trailing ranges interpreted as string
+ok 27 - can replace with empty string
+ok 28 - :s flag (squash)
+ok 29 - :d flag (delete)
+ok 30 - no flags
+ok 31 - ... with :c
+ok 32 - ... with :s
+ok 33 - ... with :s and :c
+ok 34 - ... with :d and :c
+ok 35 - no flags
+ok 36 - squashing depends on replacement repeat, not searchlist repeat
+ok 37 - squashing depends on replacement repeat, not searchlist repeat
+ok 38 - array, many-to-many transliteration, complement
+ok 39 - fence-post issue (make sure to replace end bits as well)
+ok 40 - ... and now complement and squash
+ok 41 - basic regex works
+ok 42 - regexes pairs work
+ok 43 - basic closure
+ok 44 - closure pairs work
+ok 45 - closure and regex
+ok 46 - pairs of regexes and closures
+ok 47 - # SKIP feed operator NYI
+ok 48 - tr/// on $_ with explicit character lists
+ok 49 - tr||| on $_ with character range
+ok 50 - tr[][] on lexical var via ~~
+ok 51 - tr/// on $_ with explicit character lists
+# Subtest: y/// does not exist any longer
+    1..2
+    ok 1 - '$_ = "axbycz"; y/abc/def/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 52 - y/// does not exist any longer
+ok 53 - trans on subst output lives
+ok 54 - longest constant token preferred, regardless of declaration order
+ok 55 - longest regex token preferred, regardless of declaration order
+ok 56 - in case of a tie between regex lengths, prefer the first one
+ok 57 - longest token still holds, even between constant strings and regexes
+ok 58 - trans with anchored regex
+ok 59 - trans with look-around regex
+ok 60 - trans works with Cool signature
+ok 61 - .trans with a pair of lists using postfix hypermetaoperator works
+ok 62 - same with explicit for
+ok 63 - StrDistance stringifies to $!after
+# Subtest: Adverbs on Cool.trans work the same as on Str.trans
+    1..4
+    ok 1 - :complement
+    ok 2 - :delete
+    ok 3 - :squash
+    ok 4 - :complement, :squash
+ok 64 - Adverbs on Cool.trans work the same as on Str.trans
+ok 65 - .trans with complement regex pair does not produce spurious warnings
+ok 66 - Cool values allowed in .trans
+ok 67 - handles lookbehind assertions correctly
+ok 68 - handles :c and no matching needles correctly
+ok 69 - handles :c and no matching needles and squased correctly
+ok 70 - multi-needle without any replacements
+# FUDGED!

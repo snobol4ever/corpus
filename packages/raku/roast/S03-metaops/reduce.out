@@ -1,0 +1,601 @@
+1..580
+ok 1 - [+] works
+ok 2 - [*] works
+ok 3 - [-] works
+ok 4 - [/] works
+ok 5 - [div] works
+ok 6 - [**] works
+ok 7 - [%] works
+ok 8 - [mod] works
+ok 9 - [\+] works
+ok 10 - [\-] works
+ok 11 - [~] works
+ok 12 - [\~] works
+ok 13 - [<] works (1)
+ok 14 - [<] works (2)
+ok 15 - [>] works (1)
+ok 16 - [>] works (2)
+ok 17 - [==] works (1)
+ok 18 - [==] works (2)
+ok 19 - [!=] works (1)
+ok 20 - [!=] works (2)
+ok 21 - [eq] basic sanity (positive)
+ok 22 - [eq] basic sanity (negative)
+ok 23 - [ne] basic sanity (positive)
+ok 24 - [ne] basic sanity (negative)
+ok 25 - [lt] basic sanity (positive)
+ok 26 - [lt] basic sanity (negative)
+ok 27 - [=:=] basic sanity 1
+ok 28 - [=:=] basic sanity 2
+ok 29 - [!=:=] basic sanity (positive)
+ok 30 - [!=:=] basic sanity (negative)
+ok 31 - [=:=] after binding
+ok 32 - [===] with literals
+ok 33 - [===] with vars (positive)
+ok 34 - [===] with vars (negative)
+ok 35 - [!===] basic sanity (positive)
+ok 36 - [!===] basic sanity (negative)
+ok 37 - [\<] works (1)
+ok 38 - [\<] works (2)
+ok 39 - [\>] works (1)
+ok 40 - [\>] works (2)
+ok 41 - [\==] works (1)
+ok 42 - [\==] works (2)
+ok 43 - [\!=] works (1)
+ok 44 - [\!=] works (2)
+ok 45 - [\**] (right assoc) works (1)
+ok 46 - [\**] (right assoc) works (2)
+ok 47 - two nested [\+]
+ok 48 - [+] does not flatten []-arrays
+ok 49 - [//] works
+ok 50 - [orelse] works
+ok 51 - [||] works
+ok 52 - [or] works
+ok 53 - [\||] works
+ok 54 - [&&] works with 1 false
+ok 55 - [&&] works
+ok 56 - [and] works with 1 false
+ok 57 - [and] works
+ok 58 - [=>] works (1)
+ok 59 - [=>] works (2)
+ok 60 - [=>] works (3)
+ok 61 - [=>] works on Seq
+ok 62 - [,] produces a uncontainerized List
+ok 63 - Sanity Check
+ok 64 - Parse [>>+<<]
+ok 65 - reduce operator works with one element
+ok 66 - reduce metaop of hyper works with zero elements
+ok 67 - [...] reduce metaop works on user defined ops
+ok 68 - [*]() returns 1
+ok 69 - [+]() returns 0
+ok 70 - [*] 41 returns 41
+ok 71 - [*] 42 returns 42
+ok 72 - [*] 42 returns (42)
+ok 73 - [~] 'towel' returns 'towel'
+ok 74 - [~] 'washcloth' returns 'washcloth'
+ok 75 - [~] 'towel' returns 'towel'
+ok 76 - [~] 'towel' returns something Iterable
+ok 77 - [<] 42 returns true
+ok 78 - [<] 42 returns '1'
+ok 79 - [<] 42 returns something Iterable
+ok 80 - triangle reduce is lazy
+ok 81 - triangle reduce knows if it's lazy
+ok 82 - triangle reduce knows if it's lazy
+ok 83 - [max]() returns -Inf
+ok 84 - [min]() returns -Inf
+ok 85 - [max] Any, Any, 2 returns 2
+ok 86 - [min] Any, Any, 2 returns 2
+ok 87 - [^^] works (one of two true)
+ok 88 - [^^] works (one of two true)
+ok 89 - [^^] works (two true)
+ok 90 - [^^] works (two false)
+ok 91 - [^^] works (three false)
+ok 92 - [^^] works (three true)
+ok 93 - [^^] mix 1
+ok 94 - [^^] mix 2
+ok 95 - [^^] mix 3
+ok 96 - [^^] mix 4
+ok 97 - [^^] mix 5
+ok 98 - [^^] mix 6
+ok 99 - reduce empty list ok
+ok 100 - |0| reduce [^^] false variable test  \#1
+ok 101 - |0| reduce [^^] false variable test  \#2
+ok 102 - |0| reduce [^^] false variable test  \#3
+ok 103 - |0| reduce [^^] false variable test  \#4
+ok 104 - |0| reduce [^^] false variable test  \#5
+ok 105 - |0| reduce [^^] false variable test  \#6
+ok 106 - |0| reduce [^^] false variable test  \#7
+ok 107 - |0| reduce [^^] false variable test  \#8
+ok 108 - |0| reduce [^^] false variable test  \#9
+ok 109 - |0| reduce [^^] false variable test  \#10
+ok 110 - |0| infix ^^ false variable test  \#1
+ok 111 - |0| infix ^^ false variable test  \#2
+ok 112 - |0| infix ^^ false variable test  \#3
+ok 113 - |0| infix ^^ false variable test  \#4
+ok 114 - |0| infix ^^ false variable test  \#5
+ok 115 - |0| infix ^^ false variable test  \#6
+ok 116 - |0| infix ^^ false variable test  \#7
+ok 117 - |0| infix ^^ false variable test  \#8
+ok 118 - |0| infix ^^ false variable test  \#9
+ok 119 - |""| reduce [^^] false variable test  \#1
+ok 120 - |""| reduce [^^] false variable test  \#2
+ok 121 - |""| reduce [^^] false variable test  \#3
+ok 122 - |""| reduce [^^] false variable test  \#4
+ok 123 - |""| reduce [^^] false variable test  \#5
+ok 124 - |""| reduce [^^] false variable test  \#6
+ok 125 - |""| reduce [^^] false variable test  \#7
+ok 126 - |""| reduce [^^] false variable test  \#8
+ok 127 - |""| reduce [^^] false variable test  \#9
+ok 128 - |""| reduce [^^] false variable test  \#10
+ok 129 - |""| infix ^^ false variable test  \#1
+ok 130 - |""| infix ^^ false variable test  \#2
+ok 131 - |""| infix ^^ false variable test  \#3
+ok 132 - |""| infix ^^ false variable test  \#4
+ok 133 - |""| infix ^^ false variable test  \#5
+ok 134 - |""| infix ^^ false variable test  \#6
+ok 135 - |""| infix ^^ false variable test  \#7
+ok 136 - |""| infix ^^ false variable test  \#8
+ok 137 - |""| infix ^^ false variable test  \#9
+ok 138 - |Bool::False| reduce [^^] false variable test  \#1
+ok 139 - |Bool::False| reduce [^^] false variable test  \#2
+ok 140 - |Bool::False| reduce [^^] false variable test  \#3
+ok 141 - |Bool::False| reduce [^^] false variable test  \#4
+ok 142 - |Bool::False| reduce [^^] false variable test  \#5
+ok 143 - |Bool::False| reduce [^^] false variable test  \#6
+ok 144 - |Bool::False| reduce [^^] false variable test  \#7
+ok 145 - |Bool::False| reduce [^^] false variable test  \#8
+ok 146 - |Bool::False| reduce [^^] false variable test  \#9
+ok 147 - |Bool::False| reduce [^^] false variable test  \#10
+ok 148 - |Bool::False| infix ^^ false variable test  \#1
+ok 149 - |Bool::False| infix ^^ false variable test  \#2
+ok 150 - |Bool::False| infix ^^ false variable test  \#3
+ok 151 - |Bool::False| infix ^^ false variable test  \#4
+ok 152 - |Bool::False| infix ^^ false variable test  \#5
+ok 153 - |Bool::False| infix ^^ false variable test  \#6
+ok 154 - |Bool::False| infix ^^ false variable test  \#7
+ok 155 - |Bool::False| infix ^^ false variable test  \#8
+ok 156 - |Bool::False| infix ^^ false variable test  \#9
+ok 157 - |Any| reduce [^^] false variable test  \#1
+ok 158 - |Any| reduce [^^] false variable test  \#2
+ok 159 - |Any| reduce [^^] false variable test  \#3
+ok 160 - |Any| reduce [^^] false variable test  \#4
+ok 161 - |Any| reduce [^^] false variable test  \#5
+ok 162 - |Any| reduce [^^] false variable test  \#6
+ok 163 - |Any| reduce [^^] false variable test  \#7
+ok 164 - |Any| reduce [^^] false variable test  \#8
+ok 165 - |Any| reduce [^^] false variable test  \#9
+ok 166 - |Any| reduce [^^] false variable test  \#10
+ok 167 - |Any| infix ^^ false variable test  \#1
+ok 168 - |Any| infix ^^ false variable test  \#2
+ok 169 - |Any| infix ^^ false variable test  \#3
+ok 170 - |Any| infix ^^ false variable test  \#4
+ok 171 - |Any| infix ^^ false variable test  \#5
+ok 172 - |Any| infix ^^ false variable test  \#6
+ok 173 - |Any| infix ^^ false variable test  \#7
+ok 174 - |Any| infix ^^ false variable test  \#8
+ok 175 - |Any| infix ^^ false variable test  \#9
+ok 176 - |Mu| reduce [^^] false variable test  \#1
+ok 177 - |Mu| reduce [^^] false variable test  \#2
+ok 178 - |Mu| reduce [^^] false variable test  \#3
+ok 179 - |Mu| reduce [^^] false variable test  \#4
+ok 180 - |Mu| reduce [^^] false variable test  \#5
+ok 181 - |Mu| reduce [^^] false variable test  \#6
+ok 182 - |Mu| reduce [^^] false variable test  \#7
+ok 183 - |Mu| reduce [^^] false variable test  \#8
+ok 184 - |Mu| reduce [^^] false variable test  \#9
+ok 185 - |Mu| reduce [^^] false variable test  \#10
+ok 186 - |Mu| infix ^^ false variable test  \#1
+ok 187 - |Mu| infix ^^ false variable test  \#2
+ok 188 - |Mu| infix ^^ false variable test  \#3
+ok 189 - |Mu| infix ^^ false variable test  \#4
+ok 190 - |Mu| infix ^^ false variable test  \#5
+ok 191 - |Mu| infix ^^ false variable test  \#6
+ok 192 - |Mu| infix ^^ false variable test  \#7
+ok 193 - |Mu| infix ^^ false variable test  \#8
+ok 194 - |Mu| infix ^^ false variable test  \#9
+ok 195 - |Nil| reduce [^^] false variable test  \#1
+ok 196 - |Nil| reduce [^^] false variable test  \#2
+ok 197 - |Nil| reduce [^^] false variable test  \#3
+ok 198 - |Nil| reduce [^^] false variable test  \#4
+ok 199 - |Nil| reduce [^^] false variable test  \#5
+ok 200 - |Nil| reduce [^^] false variable test  \#6
+ok 201 - |Nil| reduce [^^] false variable test  \#7
+ok 202 - |Nil| reduce [^^] false variable test  \#8
+ok 203 - |Nil| reduce [^^] false variable test  \#9
+ok 204 - |Nil| reduce [^^] false variable test  \#10
+ok 205 - |Nil| infix ^^ false variable test  \#1
+ok 206 - |Nil| infix ^^ false variable test  \#2
+ok 207 - |Nil| infix ^^ false variable test  \#3
+ok 208 - |Nil| infix ^^ false variable test  \#4
+ok 209 - |Nil| infix ^^ false variable test  \#5
+ok 210 - |Nil| infix ^^ false variable test  \#6
+ok 211 - |Nil| infix ^^ false variable test  \#7
+ok 212 - |Nil| infix ^^ false variable test  \#8
+ok 213 - |Nil| infix ^^ false variable test  \#9
+ok 214 - |1| reduce [^^] true numbery variable test  \#1
+ok 215 - |1| reduce [^^] true numbery variable test  \#2
+ok 216 - |1| reduce [^^] true numbery variable test  \#3
+ok 217 - |1| reduce [^^] true numbery variable test  \#4
+ok 218 - |1| reduce [^^] true numbery variable test  \#5
+ok 219 - |1| reduce [^^] true numbery variable test  \#6
+ok 220 - |1| reduce [^^] true numbery variable test  \#7
+ok 221 - |1| reduce [^^] true numbery variable test  \#8
+ok 222 - |1| reduce [^^] true numbery variable test  \#9
+ok 223 - |1| infix ^^ true numbery variable test  \#1
+ok 224 - |1| infix ^^ true numbery variable test  \#2
+ok 225 - |1| infix ^^ true numbery variable test  \#3
+ok 226 - |1| infix ^^ true numbery variable test  \#4
+ok 227 - |1| infix ^^ true numbery variable test  \#5
+ok 228 - |1| infix ^^ true numbery variable test  \#6
+ok 229 - |1| infix ^^ true numbery variable test  \#7
+ok 230 - |1| infix ^^ true numbery variable test  \#8
+ok 231 - |-147| reduce [^^] true numbery variable test  \#1
+ok 232 - |-147| reduce [^^] true numbery variable test  \#2
+ok 233 - |-147| reduce [^^] true numbery variable test  \#3
+ok 234 - |-147| reduce [^^] true numbery variable test  \#4
+ok 235 - |-147| reduce [^^] true numbery variable test  \#5
+ok 236 - |-147| reduce [^^] true numbery variable test  \#6
+ok 237 - |-147| reduce [^^] true numbery variable test  \#7
+ok 238 - |-147| reduce [^^] true numbery variable test  \#8
+ok 239 - |-147| reduce [^^] true numbery variable test  \#9
+ok 240 - |-147| infix ^^ true numbery variable test  \#1
+ok 241 - |-147| infix ^^ true numbery variable test  \#2
+ok 242 - |-147| infix ^^ true numbery variable test  \#3
+ok 243 - |-147| infix ^^ true numbery variable test  \#4
+ok 244 - |-147| infix ^^ true numbery variable test  \#5
+ok 245 - |-147| infix ^^ true numbery variable test  \#6
+ok 246 - |-147| infix ^^ true numbery variable test  \#7
+ok 247 - |-147| infix ^^ true numbery variable test  \#8
+ok 248 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#1
+ok 249 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#2
+ok 250 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#3
+ok 251 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#4
+ok 252 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#5
+ok 253 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#6
+ok 254 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#7
+ok 255 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#8
+ok 256 - |3.141592653589793e0| reduce [^^] true numbery variable test  \#9
+ok 257 - |3.141592653589793e0| infix ^^ true numbery variable test  \#1
+ok 258 - |3.141592653589793e0| infix ^^ true numbery variable test  \#2
+ok 259 - |3.141592653589793e0| infix ^^ true numbery variable test  \#3
+ok 260 - |3.141592653589793e0| infix ^^ true numbery variable test  \#4
+ok 261 - |3.141592653589793e0| infix ^^ true numbery variable test  \#5
+ok 262 - |3.141592653589793e0| infix ^^ true numbery variable test  \#6
+ok 263 - |3.141592653589793e0| infix ^^ true numbery variable test  \#7
+ok 264 - |3.141592653589793e0| infix ^^ true numbery variable test  \#8
+ok 265 - |Bool::True| reduce [^^] true numbery variable test  \#1
+ok 266 - |Bool::True| reduce [^^] true numbery variable test  \#2
+ok 267 - |Bool::True| reduce [^^] true numbery variable test  \#3
+ok 268 - |Bool::True| reduce [^^] true numbery variable test  \#4
+ok 269 - |Bool::True| reduce [^^] true numbery variable test  \#5
+ok 270 - |Bool::True| reduce [^^] true numbery variable test  \#6
+ok 271 - |Bool::True| reduce [^^] true numbery variable test  \#7
+ok 272 - |Bool::True| reduce [^^] true numbery variable test  \#8
+ok 273 - |Bool::True| reduce [^^] true numbery variable test  \#9
+ok 274 - |Bool::True| infix ^^ true numbery variable test  \#1
+ok 275 - |Bool::True| infix ^^ true numbery variable test  \#2
+ok 276 - |Bool::True| infix ^^ true numbery variable test  \#3
+ok 277 - |Bool::True| infix ^^ true numbery variable test  \#4
+ok 278 - |Bool::True| infix ^^ true numbery variable test  \#5
+ok 279 - |Bool::True| infix ^^ true numbery variable test  \#6
+ok 280 - |Bool::True| infix ^^ true numbery variable test  \#7
+ok 281 - |Bool::True| infix ^^ true numbery variable test  \#8
+ok 282 - |"no"| reduce [^^] true string variable test  \#1
+ok 283 - |"no"| reduce [^^] true string variable test  \#2
+ok 284 - |"no"| reduce [^^] true string variable test  \#3
+ok 285 - |"no"| reduce [^^] true string variable test  \#4
+ok 286 - |"no"| reduce [^^] true string variable test  \#5
+ok 287 - |"no"| reduce [^^] true string variable test  \#6
+ok 288 - |"no"| reduce [^^] true string variable test  \#7
+ok 289 - |"no"| reduce [^^] true string variable test  \#8
+ok 290 - |"no"| reduce [^^] true string variable test  \#9
+ok 291 - |"no"| reduce [^^] true string variable test  \#10
+ok 292 - |"no"| infix ^^ true string variable test  \#1
+ok 293 - |"no"| infix ^^ true string variable test  \#2
+ok 294 - |"no"| infix ^^ true string variable test  \#3
+ok 295 - |"no"| infix ^^ true string variable test  \#4
+ok 296 - |"no"| infix ^^ true string variable test  \#5
+ok 297 - |"no"| infix ^^ true string variable test  \#6
+ok 298 - |"no"| infix ^^ true string variable test  \#7
+ok 299 - |"no"| infix ^^ true string variable test  \#8
+ok 300 - |"no"| infix ^^ true string variable test  \#9
+ok 301 - |"Bob"| reduce [^^] true string variable test  \#1
+ok 302 - |"Bob"| reduce [^^] true string variable test  \#2
+ok 303 - |"Bob"| reduce [^^] true string variable test  \#3
+ok 304 - |"Bob"| reduce [^^] true string variable test  \#4
+ok 305 - |"Bob"| reduce [^^] true string variable test  \#5
+ok 306 - |"Bob"| reduce [^^] true string variable test  \#6
+ok 307 - |"Bob"| reduce [^^] true string variable test  \#7
+ok 308 - |"Bob"| reduce [^^] true string variable test  \#8
+ok 309 - |"Bob"| reduce [^^] true string variable test  \#9
+ok 310 - |"Bob"| reduce [^^] true string variable test  \#10
+ok 311 - |"Bob"| infix ^^ true string variable test  \#1
+ok 312 - |"Bob"| infix ^^ true string variable test  \#2
+ok 313 - |"Bob"| infix ^^ true string variable test  \#3
+ok 314 - |"Bob"| infix ^^ true string variable test  \#4
+ok 315 - |"Bob"| infix ^^ true string variable test  \#5
+ok 316 - |"Bob"| infix ^^ true string variable test  \#6
+ok 317 - |"Bob"| infix ^^ true string variable test  \#7
+ok 318 - |"Bob"| infix ^^ true string variable test  \#8
+ok 319 - |"Bob"| infix ^^ true string variable test  \#9
+ok 320 - |"10"| reduce [^^] true string variable test  \#1
+ok 321 - |"10"| reduce [^^] true string variable test  \#2
+ok 322 - |"10"| reduce [^^] true string variable test  \#3
+ok 323 - |"10"| reduce [^^] true string variable test  \#4
+ok 324 - |"10"| reduce [^^] true string variable test  \#5
+ok 325 - |"10"| reduce [^^] true string variable test  \#6
+ok 326 - |"10"| reduce [^^] true string variable test  \#7
+ok 327 - |"10"| reduce [^^] true string variable test  \#8
+ok 328 - |"10"| reduce [^^] true string variable test  \#9
+ok 329 - |"10"| reduce [^^] true string variable test  \#10
+ok 330 - |"10"| infix ^^ true string variable test  \#1
+ok 331 - |"10"| infix ^^ true string variable test  \#2
+ok 332 - |"10"| infix ^^ true string variable test  \#3
+ok 333 - |"10"| infix ^^ true string variable test  \#4
+ok 334 - |"10"| infix ^^ true string variable test  \#5
+ok 335 - |"10"| infix ^^ true string variable test  \#6
+ok 336 - |"10"| infix ^^ true string variable test  \#7
+ok 337 - |"10"| infix ^^ true string variable test  \#8
+ok 338 - |"10"| infix ^^ true string variable test  \#9
+ok 339 - |"False"| reduce [^^] true string variable test  \#1
+ok 340 - |"False"| reduce [^^] true string variable test  \#2
+ok 341 - |"False"| reduce [^^] true string variable test  \#3
+ok 342 - |"False"| reduce [^^] true string variable test  \#4
+ok 343 - |"False"| reduce [^^] true string variable test  \#5
+ok 344 - |"False"| reduce [^^] true string variable test  \#6
+ok 345 - |"False"| reduce [^^] true string variable test  \#7
+ok 346 - |"False"| reduce [^^] true string variable test  \#8
+ok 347 - |"False"| reduce [^^] true string variable test  \#9
+ok 348 - |"False"| reduce [^^] true string variable test  \#10
+ok 349 - |"False"| infix ^^ true string variable test  \#1
+ok 350 - |"False"| infix ^^ true string variable test  \#2
+ok 351 - |"False"| infix ^^ true string variable test  \#3
+ok 352 - |"False"| infix ^^ true string variable test  \#4
+ok 353 - |"False"| infix ^^ true string variable test  \#5
+ok 354 - |"False"| infix ^^ true string variable test  \#6
+ok 355 - |"False"| infix ^^ true string variable test  \#7
+ok 356 - |"False"| infix ^^ true string variable test  \#8
+ok 357 - |"False"| infix ^^ true string variable test  \#9
+ok 358 - [\^^]
+ok 359 - [\xor]
+ok 360 - [\orelse]
+ok 361 - [\orelse]
+ok 362 - [~] works in first class
+ok 363 - [~] works in second class
+ok 364 - [~] works outside class
+ok 365 - a listop with immediate () is a function call (RT  \#82210)
+ok 366 - [+] is a normal listop
+ok 367 - argumentless [+] parses
+ok 368 - RT  \#99942
+ok 369 - reduce with X
+# Subtest: non-associative operator "[leg]" can not be used as reduction operator
+    1..2
+    ok 1 - '[leg] <a b c>' died
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 370 - non-associative operator "[leg]" can not be used as reduction operator
+ok 371 - does  [:a] parse ok and give the right value
+ok 372 - does [:a,] parse ok and give the right value
+ok 373 - does [:!a] parse ok and give the right value
+ok 374 - . infix is not attempted in reduce
+ok 375 - Reduce ** can autogen
+ok 376 - Reduce R** can autogen
+ok 377 - Reduce ** can autogen without &
+ok 378 - [=] works
+ok 379 - [&&] produces correct result without thunk
+ok 380 - and doesn't have a side effect
+ok 381 - [&&] produces correct result with thunk
+ok 382 - and does have a side effect
+ok 383 - [&&] on long list produces correct result without thunk
+ok 384 - and doesn't have a side effect
+ok 385 - [&&] on long list produces correct result with thunk
+ok 386 - and does have a side effect
+ok 387 - [||] produces correct result without thunk
+ok 388 - and doesn't have a side effect
+ok 389 - [||] produces correct result with thunk
+ok 390 - and does have a side effect
+ok 391 - [||] on long list produces correct result without thunk
+ok 392 - and doesn't have a side effect
+ok 393 - [||] on long list produces correct result with thunk
+ok 394 - and does have a side effect
+ok 395 - [and] produces correct result without thunk
+ok 396 - and doesn't have a side effect
+ok 397 - [and] produces correct result with thunk
+ok 398 - and does have a side effect
+ok 399 - [and] on long list produces correct result without thunk
+ok 400 - and doesn't have a side effect
+ok 401 - [and] on long list produces correct result with thunk
+ok 402 - and does have a side effect
+ok 403 - [or] produces correct result without thunk
+ok 404 - and doesn't have a side effect
+ok 405 - [or] produces correct result with thunk
+ok 406 - and does have a side effect
+ok 407 - [or] on long list produces correct result without thunk
+ok 408 - and doesn't have a side effect
+ok 409 - [or] on long list produces correct result with thunk
+ok 410 - and does have a side effect
+ok 411 - [xor] produces correct result without thunk
+ok 412 - and doesn't have a side effect
+ok 413 - [xor] produces correct result with thunk
+ok 414 - and does have a side effect
+ok 415 - [xor] produces correct result with thunk
+ok 416 - and does have a side effect
+ok 417 - [xor] produces correct result with thunk
+ok 418 - and does have a side effect
+ok 419 - [^^] produces correct result without thunk
+ok 420 - and doesn't have a side effect
+ok 421 - [^^] produces correct result with thunk
+ok 422 - and does have a side effect
+ok 423 - [^^] produces correct result with thunk
+ok 424 - and does have a side effect
+ok 425 - [^^] produces correct result with thunk
+ok 426 - and does have a side effect
+ok 427 - [andthen] produces correct result without thunk
+ok 428 - and doesn't have a side effect
+ok 429 - [andthen] produces correct result with thunk
+ok 430 - and does have a side effect
+ok 431 - [andthen] on long list produces correct result without thunk
+ok 432 - and doesn't have a side effect
+ok 433 - [andthen] on long list produces correct result with thunk
+ok 434 - and does have a side effect
+ok 435 - [orelse] produces correct result without thunk
+ok 436 - and doesn't have a side effect
+ok 437 - [orelse] produces correct result with thunk
+ok 438 - and does have a side effect
+ok 439 - [orelse] on long list produces correct result without thunk
+ok 440 - and doesn't have a side effect
+ok 441 - [orelse] on long list produces correct result with thunk
+ok 442 - and does have a side effect
+ok 443 - [Z&&] produces correct distributed result without thunk
+ok 444 - and doesn't have a side effect
+ok 445 - [Z&&] produces correct distributed result with thunk
+ok 446 - and does have a side effect
+ok 447 - [Z||] produces correct distributed result without thunk
+ok 448 - and doesn't have a side effect
+ok 449 - [Z||] produces correct distributed result with thunk
+ok 450 - and does have a side effect
+ok 451 - [Zand] produces correct distributed result without thunk
+ok 452 - and doesn't have a side effect
+ok 453 - [Zand] produces correct distributed result with thunk
+ok 454 - and does have a side effect
+ok 455 - [Zor] produces correct distributed result without thunk
+ok 456 - and doesn't have a side effect
+ok 457 - [Zor] produces correct distributed result with thunk
+ok 458 - and does have a side effect
+ok 459 - [\&&] produces correct result without thunk
+ok 460 - and doesn't have a side effect
+ok 461 - [\&&] produces correct result with thunk
+ok 462 - and does have a side effect
+ok 463 - [\&&] on long list produces correct result without thunk
+ok 464 - and doesn't have a side effect
+ok 465 - [\&&] on long list produces correct result with thunk
+ok 466 - and does have a side effect
+ok 467 - [\||] produces correct result without thunk
+ok 468 - and doesn't have a side effect
+ok 469 - [\||] produces correct result with thunk
+ok 470 - and does have a side effect
+ok 471 - [\||] on long list produces correct result without thunk
+ok 472 - and doesn't have a side effect
+ok 473 - [\||] on long list produces correct result with thunk
+ok 474 - and does have a side effect
+ok 475 - [\and] produces correct result without thunk
+ok 476 - and doesn't have a side effect
+ok 477 - [\and] produces correct result with thunk
+ok 478 - and does have a side effect
+ok 479 - [\and] on long list produces correct result without thunk
+ok 480 - and doesn't have a side effect
+ok 481 - [\and] on long list produces correct result with thunk
+ok 482 - and does have a side effect
+ok 483 - [\or] produces correct result without thunk
+ok 484 - and doesn't have a side effect
+ok 485 - [\or] produces correct result with thunk
+ok 486 - and does have a side effect
+ok 487 - [\or] on long list produces correct result without thunk
+ok 488 - and doesn't have a side effect
+ok 489 - [\or] on long list produces correct result with thunk
+ok 490 - and does have a side effect
+ok 491 - [\xor] produces correct result without thunk
+ok 492 - and doesn't have a side effect
+ok 493 - [\xor] produces correct result with thunk
+ok 494 - and does have a side effect
+ok 495 - [\xor] produces correct result with thunk
+ok 496 - and does have a side effect
+ok 497 - [\xor] produces correct result with thunk
+ok 498 - and does have a side effect
+ok 499 - [\^^] produces correct result without thunk
+ok 500 - and doesn't have a side effect
+ok 501 - [\^^] produces correct result with thunk
+ok 502 - and does have a side effect
+ok 503 - [\^^] produces correct result with thunk
+ok 504 - and does have a side effect
+ok 505 - [\^^] produces correct result with thunk
+ok 506 - and does have a side effect
+ok 507 - [\andthen] produces correct result without thunk
+ok 508 - and doesn't have a side effect
+ok 509 - [\andthen] produces correct result with thunk
+ok 510 - and does have a side effect
+ok 511 - [\andthen] on long list produces correct result without thunk
+ok 512 - and doesn't have a side effect
+ok 513 - [\andthen] on long list produces correct result with thunk
+ok 514 - and does have a side effect
+ok 515 - [\orelse] produces correct result without thunk
+ok 516 - and doesn't have a side effect
+ok 517 - [\orelse] produces correct result with thunk
+ok 518 - and does have a side effect
+ok 519 - [\orelse] on long list produces correct result without thunk
+ok 520 - and doesn't have a side effect
+ok 521 - [\orelse] on long list produces correct result with thunk
+ok 522 - and does have a side effect
+ok 523 - slipped args work with reduce
+ok 524 - slipped args work with reduce
+ok 525 - parses [-7] right
+ok 526 - parses [+7] right
+ok 527 - parses [^7] right
+ok 528 - parses [?7] right
+ok 529 - parses [~7] right
+ok 530 - parses [-x] right
+ok 531 - parses [+x] right
+ok 532 - parses [^x] right
+ok 533 - parses [?x] right
+ok 534 - parses [~x] right
+ok 535 - parses [-$x] right
+ok 536 - parses [+$x] right
+ok 537 - parses [^$x] right
+ok 538 - parses [?$x] right
+ok 539 - parses [~$x] right
+ok 540 - parses [[-@x]] right
+ok 541 - parses [[+@x]] right
+ok 542 - parses [[^@x]] right
+ok 543 - parses [[?@x]] right
+ok 544 - parses [[~@x]] right
+ok 545 - parses [[-7]] right
+ok 546 - parses [[+7]] right
+ok 547 - parses [[^7]] right
+ok 548 - parses [[?7]] right
+ok 549 - parses [[~7]] right
+ok 550 - parses [[-x]] right
+ok 551 - parses [[+x]] right
+ok 552 - parses [[^x]] right
+ok 553 - parses [[?x]] right
+ok 554 - parses [[~x]] right
+ok 555 - parses [[-$x]] right
+ok 556 - parses [[+$x]] right
+ok 557 - parses [[^$x]] right
+ok 558 - parses [[?$x]] right
+ok 559 - parses [[~$x]] right
+ok 560 - parses [[-@x]] right
+ok 561 - parses [[+@x]] right
+ok 562 - parses [[^@x]] right
+ok 563 - parses [[?@x]] right
+ok 564 - parses [[~@x]] right
+# Subtest: [+] with single non-numeric argument errors
+    1..2
+    ok 1 - '[+] 'hello'' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 565 - [+] with single non-numeric argument errors
+# Subtest: [-] with single non-numeric argument errors
+    1..2
+    ok 1 - '[-] 'hello'' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 566 - [-] with single non-numeric argument errors
+# Subtest: [*] with single non-numeric argument errors
+    1..2
+    ok 1 - '[*] 'hello'' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 567 - [*] with single non-numeric argument errors
+# Subtest: [/] with single non-numeric argument errors
+    1..2
+    ok 1 - '[/] 'hello'' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 568 - [/] with single non-numeric argument errors
+ok 569 - one-argument [*] numifies
+ok 570 - functional form of reduce works with the plus operator
+ok 571 - Triangle reduce X~ 1 lists
+ok 572 - Triangle reduce X~ 2 lists
+ok 573 - Triangle reduce X~ 3 lists
+ok 574 - Triangle reduce Z~ 1 lists
+ok 575 - Triangle reduce Z~ 2 lists
+ok 576 - Triangle reduce Z~ 3 lists
+ok 577 - Triangle reduce minmax
+ok 578 - Triangle reduce minmax
+ok 579 - Triangle reduce minmax
+ok 580 - Reduce meta-operator respects chain associativity

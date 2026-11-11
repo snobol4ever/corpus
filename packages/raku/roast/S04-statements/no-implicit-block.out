@@ -1,0 +1,13 @@
+1..12
+ok 1 - $x assigned in if's condition
+ok 2 - $y assigned in if's body
+ok 3 - $x assigned in unless's condition
+ok 4 - $y assigned in unless's body
+ok 5 - $x assigned in given's condition
+ok 6 - $y assigned in given's body
+ok 7 - $x assigned in while's condition
+ok 8 - $y assigned in while's body
+ok 9 - @a assigned in for's condition
+ok 10 - $y assigned in for's body
+ok 11 - $x assigned in loop's condition
+ok 12 - $y assigned in loop's body

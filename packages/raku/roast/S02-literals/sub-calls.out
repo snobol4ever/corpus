@@ -1,0 +1,29 @@
+1..20
+ok 1 - call with no args, no parens
+ok 2 - call with no args, has parens
+ok 3 - call with no args, has dot and parens
+ok 4 - call with no args, has long dot and parens
+ok 5 - call with one arg, no parens
+ok 6 - call with one arg, has parens
+ok 7 - call with one arg, has dot and parens
+ok 8 - call with one arg, has long dot and parens
+# Subtest: call with one arg, has no space and no parens
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 9 - call with one arg, has no space and no parens
+ok 10 - call with two args, no parens
+ok 11 - call with two args, has parens
+# Subtest: call with adverb after no space
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 12 - call with adverb after no space
+ok 13 - call with adverb after space
+ok 14 - call with adverb in parens
+ok 15 - call with adverb in dotted-parens
+ok 16 - call with adverb in long-dotted parens
+ok 17 - parens after space aren't call-parens
+ok 18 - parsed as method call on $_
+ok 19 - `first.second` means `(first()).second()`
+ok 20 - listop method

@@ -1,0 +1,19 @@
+1..14
+ok 1 - methods can be called on classes with namespaces with ::
+ok 2 - could instantiate outer class
+ok 3 - called correct method on class A
+ok 4 - could access attribute in class A
+ok 5 - method access correct attribute in class A
+ok 6 - could instantiate nested class
+ok 7 - called correct method on class A::B
+ok 8 - could access attribute in class A::B
+ok 9 - method access correct attribute in class A::B
+# Subtest: class A::B not available outside of class as B
+    1..2
+    ok 1 - ' B.new ' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 10 - class A::B not available outside of class as B
+ok 11 - C::D is a grammar
+ok 12 - could call rule in nested grammar
+ok 13 - rule in nested grammar behaves correctly
+ok 14 - assigning stub that is later defined as a class

@@ -1,0 +1,145 @@
+1..103
+ok 1 - ? context forcer works (1)
+ok 2 - ? context forcer works (2)
+ok 3 - ? context forcer works (3)
+ok 4 - ? context forcer works (4)
+ok 5 - ? context forcer works (5)
+ok 6 - ? context forcer works (6)
+ok 7 - ? context forcer works (7)
+ok 8 - ? context forcer works (8)
+ok 9 - ? context forcer works (9)
+ok 10 - ? context forcer works (10)
+ok 11 - ? context forcer works (11)
+ok 12 - ? context forcer works (12)
+ok 13 - ? context forcer works (13)
+ok 14 - ? context forcer works (14)
+ok 15 - ? context forcer works (15)
+ok 16 - ? context forcer: empty container is false
+ok 17 - ? context forcer: non-empty container is true
+ok 18 - ? context forcer: empty hash is false
+ok 19 - ? context forcer: non-empty hash is true
+ok 20 - + context forcer works (1)
+ok 21 - + context forcer works (2)
+ok 22 - + context forcer works (3)
+ok 23 - + context forcer works (4)
+ok 24 - + context forcer works (5)
+ok 25 - + context forcer works (13)
+ok 26 - + context forcer works (14)
+ok 27 - - context forcer works (1)
+ok 28 - - context forcer works (2)
+ok 29 - - context forcer works (3)
+ok 30 - - context forcer works (4)
+ok 31 - - context forcer works (5)
+ok 32 - - context forcer works (13)
+ok 33 - - context forcer works (14)
+ok 34 - ~ context forcer works (1)
+ok 35 - ~ context forcer works (2)
+ok 36 - ~ context forcer works (3)
+ok 37 - ~ context forcer works (4)
+ok 38 - ~ context forcer works (5)
+ok 39 - ~ context forcer works (6)
+ok 40 - ~ context forcer works (7)
+ok 41 - ~ context forcer works (8)
+ok 42 - ~ context forcer works (9)
+ok 43 - ~ context forcer works (10)
+ok 44 - Int.Str returns a Str
+# Subtest: numeric context
+    1..15
+    # Subtest: + coersion fails with trailing chars
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 1 - + coersion fails with trailing chars
+    # Subtest: + coersion fails with leading chars
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 2 - + coersion fails with leading chars
+    # Subtest: - coersion throws with trailing chars
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - - coersion throws with trailing chars
+    # Subtest: - coersion throws with leading chars
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Numeric)
+    ok 4 - - coersion throws with leading chars
+    ok 5 - leading whitespace is ignored
+    ok 6 - trailing whitespace is ignored
+    ok 7 - leading + trailing whitespace is ignored
+    ok 8 - + coersion coerces Int
+    ok 9 - - coersion coerces Int
+    ok 10 - + coersion coerces Rat
+    ok 11 - - coersion coerces Rat
+    ok 12 - + coersion coerces Num
+    ok 13 - - coersion coerces Num
+    ok 14 - + coersion coerces Complex
+    ok 15 - - coersion coerces Complex
+ok 45 - numeric context
+ok 46 - it is forced into a Str
+ok 47 - forced into string context
+ok 48 - it is forced into a Str
+ok 49 - forced into string context
+ok 50 - it is forced into a Str
+ok 51 - forced into string context
+ok 52 - it is forced into a Bool
+ok 53 - it is forced into boolean context
+ok 54 - it is forced into a Bool
+ok 55 - it is forced into boolean context
+ok 56 - it is forced into a Bool
+ok 57 - it is forced into boolean context
+ok 58 - it is forced into a Bool
+ok 59 - it is forced into boolean context
+ok 60 - ?(@$arrayitem) syntax works
+ok 61 - ?(@($arrayitem)) syntax works
+ok 62 - it is forced into a Bool
+ok 63 - it is forced into boolean context
+ok 64 - it is forced into a Bool
+ok 65 - it is forced into boolean context
+ok 66 - it is forced into a Bool
+ok 67 - it is forced into boolean context
+ok 68 - it is forced into a Bool
+ok 69 - it is forced into boolean context
+ok 70 - !(@$arrayitem) syntax works
+ok 71 - !(@($arrayitem)) syntax works
+ok 72 - @$x works
+ok 73 - @$x works inside a larger expression
+ok 74 - total[0] is 0
+ok 75 - total[1] is 100
+ok 76 - total[6] is 601
+ok 77 - total[8] is 888
+ok 78 - %() returns a Hash
+ok 79 - %() is an empty Hash
+ok 80 - hash constructor worked (1)
+ok 81 - hash constructor worked (1)
+ok 82 - hash constructor produced the right keys
+ok 83 - 0 is in ^10
+ok 84 - 9 is in ^10
+ok 85 - 9.99 is in ^10
+ok 86 - 10 is not in ^10
+ok 87 - ^10 has 10 elems
+ok 88 - The object is-a 'Range'
+ok 89 - 0 is in ^10
+ok 90 - 9 is in ^10
+ok 91 - 9.99 is in ^10
+ok 92 - 10 is not in ^10
+ok 93 - ^10 has 10 elems
+ok 94 - The object is-a 'Range'
+ok 95 - list listop on Seq is no-op
+ok 96 - list listop doesn't double wrap
+ok 97 - list listop doesn't cache
+ok 98 - list listop on non-Seq is List
+ok 99 - list listop doesn't double wrap
+ok 100 - list listop doesn't cache
+ok 101 - cache listop produces List
+ok 102 - cache listop doesn't double wrap
+ok 103 - cache listop does cache

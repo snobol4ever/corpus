@@ -1,0 +1,129 @@
+1..71
+ok 1 - 1 produces a Int
+ok 2 - 1 does Numeric
+ok 3 - 1 does Real
+ok 4 - 1.Num produces a Num
+ok 5 - 1.Num does Numeric
+ok 6 - 1.Num does Real
+ok 7 - <1/2> Rat literal
+ok 8 - <1/2> produces a Rat
+ok 9 - <1/2> does Numeric
+ok 10 - <1/2> does Real
+ok 11 - same with hexadecimal numbers
+not ok 12 - negative allowed only on numerator # TODO Unsure of what's acceptable for val()
+# Failed test 'negative allowed only on numerator'
+# at S02-literals/numeric.rakudo line 22
+not ok 13 - negative allowed only on numerator # TODO Unsure of what's acceptable for val()
+# Failed test 'negative allowed only on numerator'
+# at S02-literals/numeric.rakudo line 23
+ok 14 - negative Rat literal
+ok 15 - negative Rat literal
+ok 16 - Rat works with hexadecimal numbers
+ok 17 - Rat works with binary numbers
+not ok 18 - Rat works with colon radix numbers # TODO Adverbial numbers in Rat literals not supported
+# Failed test 'Rat works with colon radix numbers'
+# at S02-literals/numeric.rakudo line 32
+# expected: '0.142857'
+#      got: ':13<01>/:13<07>'
+not ok 19 - Rat works with colon radix numbers # TODO Adverbial numbers in Rat literals not supported
+# Failed test 'Rat works with colon radix numbers'
+# at S02-literals/numeric.rakudo line 33
+# expected: '0.231579'
+#      got: ':12<1a>/:12<7b>'
+ok 20 - <1+1i> is a Complex literal
+ok 21 - <+2+2i> is a Complex literal
+ok 22 - <-3+3i> is a Complex literal
+ok 23 - <+4-4i> is a Complex literal
+ok 24 - <-5-5i> is a Complex literal
+ok 25 - 1+1i does Numeric
+ok 26 - 1+1i doesn't do Real
+ok 27 - 1*1i is a Str
+ok 28 - <3+2i> produces correct value
+ok 29 - <+3+2i> produces correct value
+ok 30 - <-3+2i> produces correct value
+ok 31 - <+3-2i> produces correct value
+ok 32 - <-3-2i> produces correct value
+ok 33 - <3.1+2.9i> produces correct value
+ok 34 - +<3.2+2.8i> produces correct value
+ok 35 - -<3.3+2.7i> produces correct value
+ok 36 - +<3.4-2.6i> produces correct value
+ok 37 - -<3.5-2.5i> produces correct value
+ok 38 - <3.1e10+2.9e10i> produces correct value
+ok 39 - <+3.1e+11+2.9e+11i> produces correct value
+ok 40 - <-3.1e+12-2.9e+12i> produces correct value
+ok 41 - <-3.1e-23-2.9e-23i> produces correct real value
+ok 42 - <-3.1e-23-2.9e-23i> produces correct imaginary value
+ok 43 - <3.1e-99+2.9e-99i> produces correct real value
+ok 44 - <3.1e-99+2.9e-99i> produces correct imaginary value
+ok 45 - <NaN+Inf\i> produces correct value
+ok 46 - <NaN-Inf\i> produces correct value
+ok 47 - 0--Inf\i is a Str
+ok 48 - 0++Inf\i is a Str
+ok 49 - 0+-Inf\i is a Str
+ok 50 - 0-+Inf\i is a Str
+ok 51 - --Inf-1i is a Str
+ok 52 - ++Inf-1i is a Str
+ok 53 - +-Inf-1i is a Str
+ok 54 - -+Inf-1i is a Str
+ok 55 - very long Num literals
+ok 56 - parsing 0.000... with 19 decimal places lives
+ok 57 - parsing 0.000... with 20 decimal places lives
+ok 58 - parsing 0.000... with 63 decimal places lives
+ok 59 - parsing 0.000... with 66 decimal places lives
+ok 60 - parsing 0.000... with 1024 decimal places lives
+ok 61 - 0e999999999999 equals zero
+ok 62 - We can handle Unicode digits
+ok 63 - We can handle Unicode non-digit numerics
+ok 64 - We can handle vulgar fractions
+ok 65 - We can multiply cuneiform :-)
+ok 66 - We can write 1 in funny ways too
+ok 67 - yeah, we do that too...
+# Subtest: #2094 prefix as post fix works on number literals
+    1..6
+    ok 1 - use negation as postfix
+    ok 2 - use ~ as postfix
+    ok 3 - use « » to wrap the prefix
+    ok 4 - use << >> to wrap the prefix
+    ok 5 - use [" "] to wrap the prefix
+    ok 6 - use <<' '>> to wrap the prefix
+ok 68 -  \#2094 prefix as post fix works on number literals
+# Subtest: check simple non-ascii numerification
+    ok 1 - is '123'.Numeric ok?
+    ok 2 - is '123'.Int ok?
+    ok 3 - is '١٢٣'.Numeric ok?
+    ok 4 - is '١٢٣'.Int ok?
+    ok 5 - is '۱۲۳'.Numeric ok?
+    ok 6 - is '۱۲۳'.Int ok?
+    ok 7 - is '߁߂߃'.Numeric ok?
+    ok 8 - is '߁߂߃'.Int ok?
+    ok 9 - is '१२३'.Numeric ok?
+    ok 10 - is '१२३'.Int ok?
+    ok 11 - is '১২৩'.Numeric ok?
+    ok 12 - is '১২৩'.Int ok?
+    ok 13 - is '੧੨੩'.Numeric ok?
+    ok 14 - is '੧੨੩'.Int ok?
+    ok 15 - is '૧૨૩'.Numeric ok?
+    ok 16 - is '૧૨૩'.Int ok?
+    ok 17 - is '୧୨୩'.Numeric ok?
+    ok 18 - is '୧୨୩'.Int ok?
+    ok 19 - is '௧௨௩'.Numeric ok?
+    ok 20 - is '௧௨௩'.Int ok?
+    ok 21 - is '౧౨౩'.Numeric ok?
+    ok 22 - is '౧౨౩'.Int ok?
+    ok 23 - is '೧೨೩'.Numeric ok?
+    ok 24 - is '೧೨೩'.Int ok?
+    ok 25 - is '൧൨൩'.Numeric ok?
+    ok 26 - is '൧൨൩'.Int ok?
+    ok 27 - is '෧෨෩'.Numeric ok?
+    ok 28 - is '෧෨෩'.Int ok?
+    ok 29 - is '๑๒๓'.Numeric ok?
+    ok 30 - is '๑๒๓'.Int ok?
+    ok 31 - is '໑໒໓'.Numeric ok?
+    ok 32 - is '໑໒໓'.Int ok?
+    ok 33 - is '༡༢༣'.Numeric ok?
+    ok 34 - is '༡༢༣'.Int ok?
+    1..34
+ok 69 - check simple non-ascii numerification
+ok 70 - Int superscript
+ok 71 - Int subscript
+# FUDGED!

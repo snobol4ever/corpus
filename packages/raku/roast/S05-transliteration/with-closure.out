@@ -1,0 +1,19 @@
+1..18
+ok 1 - Can use a closure on the RHS
+ok 2 - Closure executed three times
+ok 3 - Can use a closure on the RHS with :c
+ok 4 - Closure executed three times with :c
+ok 5 - Can use two closures in trans
+ok 6 - Source string unchanged
+ok 7 - can use closures in pairs of arrays
+ok 8 - Source string unchanged
+ok 9 - can use closures in pairs of arrays
+ok 10 - Source string unchanged
+ok 11 - Closure not invoked (only longest match used)
+ok 12 - Closure invoked twice (once per replacement)
+ok 13 - regex and closure mix
+ok 14 - regex and closure mix (with $/ as topic)
+ok 15 - regex and closure mix (with $/ as topic and capture)
+ok 16 - Original string not modified
+ok 17 - capturing regex + closure with .ord on $_
+ok 18 - original string unchanged

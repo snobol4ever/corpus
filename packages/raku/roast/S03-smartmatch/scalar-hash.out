@@ -1,0 +1,4 @@
+1..3
+ok 1 - Cool ~~ Hash (+, True)
+ok 2 - Cool ~~ Hash (+, False)
+ok 3 - Cool ~~ Hash (-)

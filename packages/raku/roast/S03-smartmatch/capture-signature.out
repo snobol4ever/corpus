@@ -1,0 +1,17 @@
+1..8
+ok 1 - signature smart-match against hash works (1)
+ok 2 - signature smart-match against hash works (1)
+ok 3 - signature smart-match against array works (1)
+ok 4 - signature smart-match against array works (2)
+ok 5 - can smart-match against a signature with a default value
+ok 6 - can match integer capture against signature with native integer coercing to Str
+# Subtest: non-Capture/non-Signature types on LHS
+    1..6
+    ok 1 - Int
+    ok 2 - Set
+    ok 3 - List
+    ok 4 - Hash
+    ok 5 - Rat (1)
+    ok 6 - Rat (2)
+ok 7 - non-Capture/non-Signature types on LHS
+ok 8 - Signature against capture operator | if it contains slurpy hash

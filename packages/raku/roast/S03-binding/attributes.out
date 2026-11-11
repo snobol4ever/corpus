@@ -1,0 +1,18 @@
+1..16
+ok 1 - attribute binding lives
+ok 2 - binding $!x instance attribute (1)
+ok 3 - binding $!x instance attribute (2)
+ok 4 - binding $x instance attribute (1)
+ok 5 - binding $x instance attribute (2)
+ok 6 - binding $x instance attribute (3)
+ok 7 - # SKIP class attributes
+ok 8 - # SKIP class attributes
+ok 9 - # SKIP class attributes
+ok 10 - binding private class attribute (1)
+ok 11 - binding private class attribute (2)
+ok 12 - binding private class attribute (3)
+ok 13 - is the scalar attribute mixed in?
+ok 14 - is the array attribute mixed in?
+ok 15 - is the hash attribute mixed in?
+ok 16 - is the code attribute mixed in?
+# FUDGED!

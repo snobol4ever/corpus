@@ -1,0 +1,73 @@
+1..52
+ok 1 - arity-based selection of role with no parameters
+ok 2 - arity-based selection of role with 1 parameter
+ok 3 - arity-based selection of role with 2 parameters
+ok 4 - 
+ok 5 - Foo[] invoked as Foo
+ok 6 - Foo[] invoked as Foo[]
+ok 7 - Foo[1] (for sanity)
+ok 8 - type-based selection of role
+ok 9 - type-based selection of role (narrowness test)
+ok 10 - type-based selection of role (narrowness test)
+ok 11 - type-based selection of role (type variable)
+ok 12 - use of type params in methods works...
+ok 13 - ...even over many invocations.
+ok 14 - params in nested scopes in methods
+ok 15 - params in nested scopes in methods
+ok 16 - use of type params in attr initialization works
+ok 17 - use of type params in attr initialization works
+ok 18 - use of type params in attr initialization works after 2nd invocation
+ok 19 - use of type params in attr initialization works after 2nd invocation
+ok 20 - type variable in scope and accepts right value
+ok 21 - type variable in scope and accepts right value
+ok 22 - type constraint with parameterized type enforced
+ok 23 - type constraint with parameterized type enforced
+ok 24 - multi dispatch on parameterized role works with where-blocks (1)
+ok 25 - multi dispatch on parameterized role works with where-blocks (2)
+ok 26 - same with class methods (1)
+ok 27 - same with class methods (2)
+# Subtest: Can't compose without matching role multi
+    1..2
+    ok 1 - 'class MD_not_Int does MD_block["foo"] { }' died
+    ok 2 - right exception type (X::Role::Parametric::NoSuchCandidate)
+ok 28 - Can't compose without matching role multi
+ok 29 - MD with generics at class composition time (1)
+ok 30 - MD with generics at class composition time (2)
+ok 31 - MD with generics at class composition time (class method) (1)
+ok 32 - MD with generics at class composition time (class method) (2)
+# Subtest: MD with generics at class composition times fails (wrong arity)
+    1..2
+    ok 1 - 'class WrongFu does MD_generics[3] { }' died
+    ok 2 - right exception type (X::Role::Parametric::NoSuchCandidate)
+ok 33 - MD with generics at class composition times fails (wrong arity)
+ok 34 - question mark for optional parameter is parsed correctly
+# Subtest: cannot put question mark on a type constraint
+    1..2
+    ok 1 - 'role A[::T?] {}; class B does A[] {}' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 35 - cannot put question mark on a type constraint
+ok 36 - generic role with defaulted and typed attr
+ok 37 - PR1 type match against consumed PR00[Int] role
+ok 38 - PR1 type match against consumed PR01[Str] role
+ok 39 - PR1 type match against consumed PR02 role
+ok 40 - Curryied role matches a consumed role explicitly
+ok 41 - Curryied role only matches its own consumed roles
+ok 42 - class does indirectly consumed role
+ok 43 - method of indirectly consumed role is available
+ok 44 - role does indirectly consumed role
+ok 45 - consuming role doesn't accidentally match to a not consumed role
+ok 46 - indirectly consumed role doesn't match against consumer
+ok 47 - class typechecks against indirectly inherited parent
+ok 48 - method from indirect parent is available
+ok 49 - role typechecks against indirect parent
+ok 50 - role doesn't accidentally match against non-parent
+ok 51 - indirect parent doesn't accidentally typecheck against the role
+# Subtest: use of ::?CLASS results in the right exception
+    1..2
+    ok 1 - 'my role R {
+    #     multi method multi(::?CLASS:D: --> ::?CLASS) {...}
+    # }
+    # my class Foo does R { }
+    # ' died
+    ok 2 - right exception type (X::Role::Unimplemented::Multi)
+ok 52 - use of ::?CLASS results in the right exception

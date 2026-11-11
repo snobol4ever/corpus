@@ -1,0 +1,57 @@
+1..16
+# Subtest: e should not be defined to accept arguments
+    1..2
+    ok 1 - 'e("wtz")' died
+    ok 2 - right exception type (X::Undeclared)
+ok 1 - e should not be defined to accept arguments
+# Subtest: pi should not be defined to accept arguments either :) 
+    1..2
+    ok 1 - 'pi("wtz")' died
+    ok 2 - right exception type (X::Undeclared)
+ok 2 - pi should not be defined to accept arguments either :) 
+ok 3 - this should die, no arguments defined
+ok 4 - where clause combined with --> works
+ok 5 - where clause combined with --> works
+ok 6 - where clause followed by (non-parenthesized) expression with "&&" in it does parse
+ok 7 - can name sub 'not-foo'
+ok 8 - can name sub 'so-what'
+ok 9 - can name sub 'm-bar'
+# Subtest: no Segfault when creating a Sub object with .new and trying to say it
+    1..2
+    ok 1 - 'my $rt125376 = Sub.new; say $rt125376' died
+    ok 2 - right exception type (Exception)
+ok 10 - no Segfault when creating a Sub object with .new and trying to say it
+# Subtest: no Segfault when creating a Sub object with .bless and trying to say it
+    1..2
+    ok 1 - 'my $rt125376 = Sub.bless; say $rt125376' died
+    ok 2 - right exception type (Exception)
+ok 11 - no Segfault when creating a Sub object with .bless and trying to say it
+# Subtest: no Segfault when trying to invoke the Sub type object
+    1..2
+    ok 1 - 'Sub(0)' died
+    ok 2 - right exception type (Exception)
+ok 12 - no Segfault when trying to invoke the Sub type object
+# Subtest: where clause with only one *, but two expressions
+    1..3
+    ok 1 - 'sub foo($a where {* < 5 or $a > 9}) { say $a }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2348380720736) ... }
+ok 13 - where clause with only one *, but two expressions
+# Subtest: where clause with two *s and two expressions (with an or)
+    1..3
+    ok 1 - 'sub foo($a where {* < 5 or * > 9}) { say $a }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2348380720808) ... }
+ok 14 - where clause with two *s and two expressions (with an or)
+# Subtest: where clause with two *s and two expressions (with an and)
+    1..3
+    ok 1 - 'sub foo($a where {* < 5 and * > 9}) { say $a }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2348380720880) ... }
+ok 15 - where clause with two *s and two expressions (with an and)
+# Subtest: where clause with three *s and three expressions
+    1..3
+    ok 1 - 'sub foo($a where {* < 5 and * > 9 and *.char == 2}) { say $a }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2348380720952) ... }
+ok 16 - where clause with three *s and three expressions

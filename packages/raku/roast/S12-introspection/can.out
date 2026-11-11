@@ -1,0 +1,30 @@
+1..29
+ok 1 - method can on built-in Str works
+ok 2 - methd can on built-in Str gives correct result if method found
+ok 3 - .can returns  something Positional
+ok 4 - methd can on built-in Str gives correct result if method not found
+ok 5 - calling ^can also works
+ok 6 - and also through the HOW
+ok 7 - can call on the proto-object too
+ok 8 - can call on the proto-object too
+ok 9 - method can on custom class works
+ok 10 - method can on custom class gives correct result if method found (on instance)
+ok 11 - method can on custom class gives correct result if method not found (on instance)
+ok 12 - method can on custom class gives correct result if method found (on proto)
+ok 13 - method can on custom class gives correct result if method not found (on proto)
+ok 14 - the result for can contains an invokable, giving us the sub (on instance)
+ok 15 - the result for can contains an invokable, giving us the sub (on proto)
+ok 16 - had right number of methods found (on instance)
+ok 17 - got right method called (on instance)
+ok 18 - had right number of methods found (on proto)
+ok 19 - got right method called (on proto)
+ok 20 - subclass had right number of methods found (on instance)
+ok 21 - subclass got right methods called (on instance)
+ok 22 - subclass had right number of methods found (on proto)
+ok 23 - subclass got right methods called (on proto)
+ok 24 - 
+ok 25 - can call method reference outside the class
+ok 26 - submethods found by .^can
+ok 27 - submethods found by .can
+ok 28 - submethods from base classes not bogusly found by .^can
+ok 29 - submethods from base classes not bogusly found by .can

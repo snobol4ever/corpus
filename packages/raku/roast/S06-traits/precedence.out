@@ -1,0 +1,21 @@
+1..15
+not ok 1 - 'is tighter' on prefix works # TODO changing precedence of already declared op
+# Failed test ''is tighter' on prefix works'
+# at S06-traits/precedence.rakudo line 18
+# expected: '9'
+#      got: '3'
+ok 2 - 'is looser' on prefix works
+ok 3 - 'is tighter' on postfix works
+ok 4 - 'is looser(&infix:<+>' works 1
+ok 5 - 'is looser(&infix:<+>' works 2
+ok 6 - 'is looser<+>' infix works 1
+ok 7 - 'is looser<+>' infix works 2
+ok 8 - 'is tighter<*>' infix works 1
+ok 9 - 'is tighter<*>' infix works 2
+ok 10 - 'is equiv(&infix:<*>)' works
+ok 11 - 'is equiv<*>' works
+ok 12 - Postifix declared looser than prefix
+ok 13 - Postfix declared tighter than prefix
+ok 14 - Should be parsed as '-(1!)'
+ok 15 - Whitespace not allowed before user-defined postfix
+# FUDGED!

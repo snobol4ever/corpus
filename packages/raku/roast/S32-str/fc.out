@@ -1,0 +1,13 @@
+1..12
+ok 1 - .fc on simple string in ASCII range works
+ok 2 - .fc on string with non-growing case fold
+ok 3 - .fc on ß expands to ss
+ok 4 - .fc on ŉ expands to ʼn
+ok 5 - ligature ﬀ expands to ff on foldcase
+ok 6 - ligature ﬃ expands to ffi on foldcase
+ok 7 - ǰ foldcases to identity under NFG (1 combiner)
+ok 8 - ΐ foldcases to identity under NFG (2 combiners)
+ok 9 - ᾈ foldcases to ἀι
+ok 10 - ᾈ -> ἀι = 1 extra char
+ok 11 - ῷ foldcases to ῶι
+ok 12 - ῷ -> ῶι = 1 extra char

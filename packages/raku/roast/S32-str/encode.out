@@ -1,0 +1,108 @@
+1..41
+ok 1 - $str.encode returns a blob8
+ok 2 - encoding to ASCII
+ok 3 - right length of Buf
+ok 4 - encoding to UTF-8
+ok 5 - right length of Buf
+ok 6 - right length of Buf with \n
+ok 7 - Non-translation of \n outside Windows
+ok 8 - indexing a utf8 gives correct value (1)
+ok 9 - indexing a utf8 gives correct value (1)
+ok 10 - cp1252 encodes most C1 substitutes
+ok 11 - cp1252 encode tolerates unassigned C1 characters
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '"aouÄÖÜ".encode("latin1").decode("utf8")' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx:s:i/line 1 col\w* 4/
+ok 12 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '"ssß".encode("latin1").decode("utf8")' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx:s:i/term/
+ok 13 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '"aoaou".encode("latin1").decode("utf16")' died
+    ok 2 - right exception type (Exception)
+    not ok 3 - .message matches rx:s:i/line 1 col\w* 2|term/ # TODO RT#107204 should say line and column or mention term(ination)
+    # Failed test '.message matches rx:s:i/line 1 col\w* 2|term/'
+    # at SETTING::src/core.c/Rakudo/Iterator.rakumod line 5865
+    # Expected: rx:s:i/line 1 col\w* 2|term/
+    # Got:      Malformed UTF-16; odd number of bytes (5)
+not ok 14 - did we throws-like Exception? # TODO RT#107204 should say line and column or mention term(ination)
+# Failed test 'did we throws-like Exception?'
+# at S32-str/encode.rakudo line 38
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '"aouÄÖÜ".encode("latin1").decode("utf16")' died
+    ok 2 - right exception type (Exception)
+    not ok 3 - .message matches rx:s:i/line 1 col\w* 2/ # TODO RT#107204 should say line and column
+    # Failed test '.message matches rx:s:i/line 1 col\w* 2/'
+    # at SETTING::src/core.c/Rakudo/Iterator.rakumod line 5865
+    # Expected: rx:s:i/line 1 col\w* 2/
+    # Got:      Malformed UTF-16; unexpected low surrogate
+not ok 15 - did we throws-like Exception? # TODO RT#107204 should say line and column
+# Failed test 'did we throws-like Exception?'
+# at S32-str/encode.rakudo line 41
+ok 16 - can index one element in a Buf
+ok 17 - can slice-index a Buf
+ok 18 - # SKIP We do not handle NDF yet RT  \#124687
+ok 19 - encoding ä utf8 gives correct numbers
+ok 20 - .decode returns a Str
+ok 21 - decoding a Buf with UTF-8
+ok 22 - decoding a Buf with Latin-1
+ok 23 - cp1252 decodes most C1 substitutes
+ok 24 - cp1252 decode tolerates unassigned C1 characters
+ok 25 - Buf does Stringy
+ok 26 - Buf does Positional
+ok 27 - Buf.list gives a list of codepoints
+ok 28 - encode a string to UTF-16 surrogate pair
+ok 29 - creating utf16 Buf from a surrogate pair
+ok 30 - indexing a utf16 gives correct value
+ok 31 - indexing a utf16 gives correct value
+ok 32 - decoding utf16 Buf to original value
+ok 33 - Can encode noncharacters to UTF-8
+ok 34 - Noncharacters round-trip with UTF-8
+# Subtest: Non-ascii character
+    1..4
+    # Subtest: No replacement dies
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches rx:s:i/Error encoding $encoding string/
+    ok 1 - No replacement dies
+    ok 2 - Default replacement
+    ok 3 - Zero-character replacement
+    ok 4 - Multi-character replacement
+ok 35 - Non-ascii character
+# Subtest: Non-latin-1 character
+    1..4
+    # Subtest: No replacement dies
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches rx:s:i/Error encoding $encoding string/
+    ok 1 - No replacement dies
+    ok 2 - Default replacement
+    ok 3 - Zero-character replacement
+    ok 4 - Multi-character replacement
+ok 36 - Non-latin-1 character
+# Subtest: Non-windows-1252 character
+    1..4
+    # Subtest: No replacement dies
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches rx:s:i/Error encoding $encoding string/
+    ok 1 - No replacement dies
+    ok 2 - Default replacement
+    ok 3 - Zero-character replacement
+    ok 4 - Multi-character replacement
+ok 37 - Non-windows-1252 character
+ok 38 - utf-16 BOM handled ok
+ok 39 - Can decode utf-8 buffer as if it were utf8-c8
+ok 40 - Can decode utf-8 buffer as if it were utf16le
+ok 41 - Can decode utf-8 buffer as if it were utf16be
+# FUDGED!

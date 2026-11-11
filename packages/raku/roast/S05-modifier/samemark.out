@@ -1,0 +1,9 @@
+1..8
+ok 1 - :mm implies :m
+ok 2 - :mm transported mark information from source to destination
+ok 3 - :mm works with quantified atoms
+ok 4 - :mm transported mark information to longer substitution string
+ok 5 - :mm works with quantified atoms
+ok 6 - :mm transported mark information to longer substitution string
+ok 7 - combined :mm and :s match
+ok 8 - :mm :s carry marks on a word-by-word base

@@ -1,0 +1,5 @@
+1..4
+ok 1 - Can use pointy block even with code types shadowed
+ok 2 - Can declare sub even with code types shadowed
+ok 3 - Can declare method even with code types shadowed
+ok 4 - Can use regex even with code types shadowed

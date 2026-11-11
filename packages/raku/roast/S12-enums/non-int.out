@@ -1,0 +1,19 @@
+1..6
+ok 1 - stringy enum first value
+ok 2 - stringy enum first value
+# Subtest: mixed type enums are forbidden
+    1..2
+    ok 1 - 'my enum B (a => 1, b => "bar")' died
+    ok 2 - right exception type (Exception)
+ok 3 - mixed type enums are forbidden
+not ok 4 - ... unless that type covers both enum value types # TODO NYI
+# Failed test '... unless that type covers both enum value types'
+# at S12-enums/non-int.rakudo line 14
+# Error: Incompatible MROs in P6opaque rebless for types Int and C
+# Subtest: violating an explicit type constraint dies
+    1..2
+    ok 1 - 'my Str enum D (a => 1)' died
+    ok 2 - right exception type (Exception)
+ok 5 - violating an explicit type constraint dies
+ok 6 - Str enum correctly uses string-increment
+# FUDGED!

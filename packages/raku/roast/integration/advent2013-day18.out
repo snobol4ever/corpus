@@ -1,0 +1,11 @@
+1..10
+ok 1 - card game parse
+ok 2 - card game parse
+ok 3 - card game + actions parse
+ok 4 - card game + actions parse
+ok 5 - card game + actions parse
+ok 6 - duplicates detected in actions
+ok 7 - card game parse
+ok 8 - duplicate detection - parse failure
+ok 9 - duplicate detection - parse failure
+ok 10 - duplicates detected in grammar

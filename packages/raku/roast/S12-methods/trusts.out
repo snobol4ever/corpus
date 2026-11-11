@@ -1,0 +1,13 @@
+1..4
+# Subtest: can not access private method without a trust
+    1..2
+    ok 1 - 'Truster.new()!Truster::get-x-priv' died
+    ok 2 - right exception type (X::Method::Private::Permission)
+ok 1 - can not access private method without a trust
+ok 2 - can access private method with trust
+ok 3 - can access private method with trust + subclass
+# Subtest: trust relation does not extend to child classes of the trustee
+    1..2
+    ok 1 - 'class ChildTrustee is Trustee { method x($t) { $t!Truster::get-x-priv()} }' died
+    ok 2 - right exception type (X::Method::Private::Permission)
+ok 4 - trust relation does not extend to child classes of the trustee

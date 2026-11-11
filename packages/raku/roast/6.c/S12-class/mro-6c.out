@@ -1,0 +1,17 @@
+1..5
+ok 1 - got the right MRO for 6 classes
+ok 2 - .^mro
+# Subtest: Cannot do multi inheritance that causes inconsistent MRO
+    1..2
+    ok 1 - 'class confused is vh is hv { }' died
+    ok 2 - right exception type (Exception)
+ok 3 - Cannot do multi inheritance that causes inconsistent MRO
+ok 4 - a class can inherit both from its parent and then from its grand parent
+# Subtest: Hidden classes
+    1..5
+    ok 1 - 'is hidden' on a class excludes it from mro_unhidden return
+    ok 2 - 'hides' on a class excludes it from mro_unhidden return
+    ok 3 - 'hides' on consumed role is preserved
+    ok 4 - 'is hidden' is preserved on puned roles
+    ok 5 - 'hides' on a role hides its pun
+ok 5 - Hidden classes

@@ -1,0 +1,10 @@
+1..9
+ok 1 - P41 (**) A list of Goldbach compositions.
+ok 2 - P46 (**) Truth tables for logical expressions.
+ok 3 - P47 (**) Truth tables for logical expressions (2).
+ok 4 - P48 (**) Truth tables for logical expressions (3).
+ok 5 - 
+ok 6 - 
+ok 7 - 
+ok 8 - 
+ok 9 - P50 (**) Huffman tree builds correctly

@@ -1,0 +1,39 @@
+1..21
+not ok 1 - trait blocks work properly in for loop # TODO NEXT/LEAVE ordering
+# Failed test 'trait blocks work properly in for loop'
+# at S04-phasers/in-loop.rakudo line 38
+# expected: '(1 F)(1 E)(1 a)(1 N)(1 Lv)(2 E)(2 a)(2 b)(2 N)(2 Lv)(3 E)(3 a)(3 N)(3 Lv)(4 E)(4 Lv)(4 Lst)'
+#      got: '(1 F)(1 E)(1 a)(1 N)(1 Lv)(2 E)(2 a)(2 b)(2 Lv)(2 N)(3 E)(3 a)(3 N)(3 Lv)(4 E)(4 Lv)(4 Lst)'
+not ok 2 - trait blocks work properly in for loop # TODO NEXT/LEAVE ordering
+# Failed test 'trait blocks work properly in for loop'
+# at S04-phasers/in-loop.rakudo line 70
+# expected: '(1 F1)(1 F2)(1 E1)(1 E2)(1 a)(1 N2)(1 N1)(1 Lv2)(1 Lv1)(2 E1)(2 E2)(2 a)(2 b)(2 N2)(2 N1)(2 Lv2)(2 Lv1)(3 E1)(3 E2)(3 a)(3 N2)(3 N1)(3 Lv2)(3 Lv1)(4 E1)(4 E2)(4 Lv2)(4 Lv1)(4 Lst2)(4 Lst1)'
+#      got: '(1 F1)(1 F2)(1 E1)(1 E2)(1 a)(1 N2)(1 N1)(1 Lv2)(1 Lv1)(2 E1)(2 E2)(2 a)(2 b)(2 Lv2)(2 Lv1)(2 N2)(2 N1)(3 E1)(3 E2)(3 a)(3 N2)(3 N1)(3 Lv2)(3 Lv1)(4 E1)(4 E2)(4 Lv2)(4 Lv1)(4 Lst1)(4 Lst2)'
+ok 3 - LAST does not fire for empty loop
+ok 4 - "last" statement called by LEAVE breaks out of while loop
+ok 5 - LEAVE in while loop works as expected
+ok 6 - no UnwindException with "last" and "ENTER" in for loop
+ok 7 - LAST phaser without block does not put Mu in the iteration variable
+ok 8 - LAST phaser with    block does not put Mu in the iteration variable
+ok 9 - FIRST in loop works fine with recursion
+ok 10 - NEXT in loop works fine with recursion
+ok 11 - LAST in loop works fine with recursion
+ok 12 - NEXT can see outer $_
+ok 13 - LAST can see outer $_
+ok 14 - POST should not see outer $_
+not ok 15 - KEEP should not see outer $_ # TODO KEEP should not see outer 
+# Failed test 'KEEP should not see outer $_'
+# at S04-phasers/in-loop.rakudo line 176
+# expected: '42 42 42 42 42 42 42 42 42 42'
+#      got: '0 1 2 3 4 5 6 7 8 9'
+ok 16 - LAST can see outer $_
+ok 17 - LEAVE can see outer $_
+ok 18 - PRE can see outer $_
+ok 19 - UNDO can see outer $_
+# Subtest: FIRST+LAST loops as last statement in subs work and do not crash
+    1..2
+    ok 1 - unwanted loop
+    ok 2 - wanted loop
+ok 20 - FIRST+LAST loops as last statement in subs work and do not crash
+ok 21 - FIRST statement in loop does not warn
+# FUDGED!

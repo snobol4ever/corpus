@@ -1,0 +1,13 @@
+1..12
+ok 1 - tracker is 0 because next before increment
+ok 2 - ... nothing before or after 3 (next unless <cond>)
+ok 3 - ... nothing after 3 (<cond> && next)
+ok 4 - ... nothing after 3 (<cond> and next)
+ok 5 - tracker is 0 because next before increment
+ok 6 - inner loop skips once inner is run twice (next inside nested loops)
+ok 7 - tracker is 0 because next before increment in nested loop
+ok 8 - next works on inner loop of 2
+ok 9 - next works on inner loop of 3
+ok 10 - statements after next are not executed
+ok 11 - $i++ executed only twice, because next 
+ok 12 - $i++ was not executed when next was called before it in loop {}

@@ -1,0 +1,26 @@
+1..8
+# Subtest: Basic interaction of nextwith/nextsame with multi and method dispatch
+    ok 1 - Int is dispatched
+    ok 2 - Str is dispatched
+    1..2
+ok 1 - Basic interaction of nextwith/nextsame with multi and method dispatch
+# Subtest: Args to callwith in wrapper are used by enclosing multi and method dispatch
+    ok 1 - First call
+    ok 2 - Second call
+    1..2
+ok 2 - Args to callwith in wrapper are used by enclosing multi and method dispatch
+# Subtest: Args to callwith in multi are used by enclosing method dispatch
+    ok 1 - First call
+    ok 2 - Second call
+    1..2
+ok 3 - Args to callwith in multi are used by enclosing method dispatch
+ok 4 - # SKIP Various cases of wrap not yet supported
+ok 5 - # SKIP Various cases of wrap not yet supported
+# Subtest: Regression: broken chain
+    1..2
+    ok 1 - control: multi dispatches as expected
+    ok 2 - multi-dispatch is not broken
+ok 6 - Regression: broken chain
+ok 7 - # SKIP Various cases of wrap not yet supported
+ok 8 - native int dispatched ok
+# FUDGED!

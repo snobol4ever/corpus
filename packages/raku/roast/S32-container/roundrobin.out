@@ -1,0 +1,8 @@
+1..7
+ok 1 - roundrobin null identity
+ok 2 - roundrobin scalar identity
+ok 3 - roundrobin list identity
+ok 4 - basic roundrobin
+ok 5 - roundrobin respects itemization of arguments (1)
+ok 6 - roundrobin respects itemization of arguments (2)
+ok 7 - is a 1-element list handled correctly with roundrobin

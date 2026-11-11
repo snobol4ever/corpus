@@ -1,0 +1,17 @@
+1..16
+ok 1 - post if
+ok 2 - post if
+ok 3 - sanity check
+ok 4 - if expr on true cond
+ok 5 - sanity check
+ok 6 - if expr on false cond
+ok 7 - ?? || sanity check
+ok 8 - condition in statement level respects context
+ok 9 - (3 if 1) worked in scalar context
+ok 10 - my $y = (3 if 0) leaves $y false
+ok 11 - "$something if 0" is Empty
+ok 12 - Statement-modifier if runs bare block
+ok 13 - Statement-modifier if runs block with placeholder
+ok 14 - if is a terminator even after comma
+ok 15 - Correct handling of $_ in block to left of statement modifer if
+ok 16 - List-op call to sub in a package in `if` statement modifier works

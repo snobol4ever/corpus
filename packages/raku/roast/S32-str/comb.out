@@ -1,0 +1,249 @@
+1..88
+ok 1 - comb on empty string
+ok 2 - default matcher on single character
+ok 3 - default matcher and limit
+ok 4 - comb on string with \t
+ok 5 - comb on string with \n
+ok 6 - comb on string with non-ASCII letter
+ok 7 - comb on string with grapheme precomposed
+ok 8 - comb on string with grapheme non-precomposed
+ok 9 - no limit returns all matches
+ok 10 - negative limit returns no matches
+ok 11 - limit of 0 returns no matches
+ok 12 - limit of 1 returns 1 match
+ok 13 - limit of 3 returns 3 matches
+ok 14 - limit of 1 billion returns all matches quickly
+ok 15 - match for any a* words
+ok 16 - match for any *a* words
+ok 17 - match for any a* words
+ok 18 - match for any *a* words
+ok 19 - matcher and limit
+ok 20 - Str.comb(/./)
+ok 21 - .comb() returns something Iterable
+ok 22 - comb a list
+ok 23 - basic comb-without-matches sanity
+ok 24 - first item is a Str
+ok 25 - second item is a Str
+ok 26 - basic comb-with-matches sanity
+ok 27 - first item is a Match
+ok 28 - second item is a Match
+ok 29 - .from of the first item is correct
+ok 30 - .to of the first item is correct
+ok 31 - .from of the second item is correct
+ok 32 - .to of the second item is correct
+ok 33 - code passed to .comb is not called
+ok 34 - .comb({...}) dies
+ok 35 - .comb({...}) dies for the expected reason
+ok 36 - Subroutine form default limit
+ok 37 - Subroutine form with supplied limit
+ok 38 - Subroutine form with no limit returns all matches
+ok 39 - Subroutine form with limit
+ok 40 - comb(Str,Str)
+ok 41 - Str.comb(Str)
+ok 42 - Str.comb(Str) with no match
+ok 43 - Str.comb - partial match
+ok 44 - Str.comb - partial match with a limit
+ok 45 - Str.comb - Str partial matches are non-overlapping
+ok 46 - Str.comb - Regex partial matches are non-overlapping
+ok 47 - Cool.comb
+ok 48 - Cool.comb with a limit
+# Subtest: comb with "foobarbaz", size 10
+    1..2
+    ok 1 - comb(10,foobarbaz)
+    ok 2 - foobarbaz.comb(10)
+ok 49 - comb with "foobarbaz", size 10
+# Subtest: comb with "foobarbaz", size 9
+    1..2
+    ok 1 - comb(9,foobarbaz)
+    ok 2 - foobarbaz.comb(9)
+ok 50 - comb with "foobarbaz", size 9
+# Subtest: comb with "foobarbaz", size 8
+    1..2
+    ok 1 - comb(8,foobarbaz)
+    ok 2 - foobarbaz.comb(8)
+ok 51 - comb with "foobarbaz", size 8
+# Subtest: comb with "foobarbaz", size 3
+    1..2
+    ok 1 - comb(3,foobarbaz)
+    ok 2 - foobarbaz.comb(3)
+ok 52 - comb with "foobarbaz", size 3
+# Subtest: comb with "foobarbaz", size 2
+    1..2
+    ok 1 - comb(2,foobarbaz)
+    ok 2 - foobarbaz.comb(2)
+ok 53 - comb with "foobarbaz", size 2
+# Subtest: comb with "foobarbaz", size 1
+    1..2
+    ok 1 - comb(1,foobarbaz)
+    ok 2 - foobarbaz.comb(1)
+ok 54 - comb with "foobarbaz", size 1
+# Subtest: comb with "foobarbaz", size 0
+    1..2
+    ok 1 - comb(0,foobarbaz)
+    ok 2 - foobarbaz.comb(0)
+ok 55 - comb with "foobarbaz", size 0
+# Subtest: comb with "foobarbaz", size -1
+    1..2
+    ok 1 - comb(-1,foobarbaz)
+    ok 2 - foobarbaz.comb(-1)
+ok 56 - comb with "foobarbaz", size -1
+# Subtest: comb with "abcde", regex /./
+    1..2
+    ok 1 - comb(/./,abcde,:match)
+    ok 2 - abcde.comb(/./,:match)
+ok 57 - comb with "abcde", regex /./
+# Subtest: comb with "foobarbaz", size 10, limit *
+    1..2
+    ok 1 - comb(10,foobarbaz)
+    ok 2 - foobarbaz.comb(10)
+ok 58 - comb with "foobarbaz", size 10, limit *
+# Subtest: comb with "foobarbaz", size 9, limit *
+    1..2
+    ok 1 - comb(9,foobarbaz)
+    ok 2 - foobarbaz.comb(9)
+ok 59 - comb with "foobarbaz", size 9, limit *
+# Subtest: comb with "foobarbaz", size 8, limit *
+    1..2
+    ok 1 - comb(8,foobarbaz)
+    ok 2 - foobarbaz.comb(8)
+ok 60 - comb with "foobarbaz", size 8, limit *
+# Subtest: comb with "foobarbaz", size 3, limit *
+    1..2
+    ok 1 - comb(3,foobarbaz)
+    ok 2 - foobarbaz.comb(3)
+ok 61 - comb with "foobarbaz", size 3, limit *
+# Subtest: comb with "foobarbaz", size 2, limit *
+    1..2
+    ok 1 - comb(2,foobarbaz)
+    ok 2 - foobarbaz.comb(2)
+ok 62 - comb with "foobarbaz", size 2, limit *
+# Subtest: comb with "foobarbaz", size 1, limit *
+    1..2
+    ok 1 - comb(1,foobarbaz)
+    ok 2 - foobarbaz.comb(1)
+ok 63 - comb with "foobarbaz", size 1, limit *
+# Subtest: comb with "foobarbaz", size 0, limit *
+    1..2
+    ok 1 - comb(0,foobarbaz)
+    ok 2 - foobarbaz.comb(0)
+ok 64 - comb with "foobarbaz", size 0, limit *
+# Subtest: comb with "foobarbaz", size -1, limit *
+    1..2
+    ok 1 - comb(-1,foobarbaz)
+    ok 2 - foobarbaz.comb(-1)
+ok 65 - comb with "foobarbaz", size -1, limit *
+# Subtest: comb with "foobarbaz", size 10, limit Inf
+    1..2
+    ok 1 - comb(10,foobarbaz)
+    ok 2 - foobarbaz.comb(10)
+ok 66 - comb with "foobarbaz", size 10, limit Inf
+# Subtest: comb with "foobarbaz", size 9, limit Inf
+    1..2
+    ok 1 - comb(9,foobarbaz)
+    ok 2 - foobarbaz.comb(9)
+ok 67 - comb with "foobarbaz", size 9, limit Inf
+# Subtest: comb with "foobarbaz", size 8, limit Inf
+    1..2
+    ok 1 - comb(8,foobarbaz)
+    ok 2 - foobarbaz.comb(8)
+ok 68 - comb with "foobarbaz", size 8, limit Inf
+# Subtest: comb with "foobarbaz", size 3, limit Inf
+    1..2
+    ok 1 - comb(3,foobarbaz)
+    ok 2 - foobarbaz.comb(3)
+ok 69 - comb with "foobarbaz", size 3, limit Inf
+# Subtest: comb with "foobarbaz", size 2, limit Inf
+    1..2
+    ok 1 - comb(2,foobarbaz)
+    ok 2 - foobarbaz.comb(2)
+ok 70 - comb with "foobarbaz", size 2, limit Inf
+# Subtest: comb with "foobarbaz", size 1, limit Inf
+    1..2
+    ok 1 - comb(1,foobarbaz)
+    ok 2 - foobarbaz.comb(1)
+ok 71 - comb with "foobarbaz", size 1, limit Inf
+# Subtest: comb with "foobarbaz", size 0, limit Inf
+    1..2
+    ok 1 - comb(0,foobarbaz)
+    ok 2 - foobarbaz.comb(0)
+ok 72 - comb with "foobarbaz", size 0, limit Inf
+# Subtest: comb with "foobarbaz", size -1, limit Inf
+    1..2
+    ok 1 - comb(-1,foobarbaz)
+    ok 2 - foobarbaz.comb(-1)
+ok 73 - comb with "foobarbaz", size -1, limit Inf
+# Subtest: comb with "foobarbaz", size 10, limit 20
+    1..2
+    ok 1 - comb(10,foobarbaz)
+    ok 2 - foobarbaz.comb(10)
+ok 74 - comb with "foobarbaz", size 10, limit 20
+# Subtest: comb with "foobarbaz", size 9, limit 20
+    1..2
+    ok 1 - comb(9,foobarbaz)
+    ok 2 - foobarbaz.comb(9)
+ok 75 - comb with "foobarbaz", size 9, limit 20
+# Subtest: comb with "foobarbaz", size 8, limit 20
+    1..2
+    ok 1 - comb(8,foobarbaz)
+    ok 2 - foobarbaz.comb(8)
+ok 76 - comb with "foobarbaz", size 8, limit 20
+# Subtest: comb with "foobarbaz", size 3, limit 20
+    1..2
+    ok 1 - comb(3,foobarbaz)
+    ok 2 - foobarbaz.comb(3)
+ok 77 - comb with "foobarbaz", size 3, limit 20
+# Subtest: comb with "foobarbaz", size 2, limit 20
+    1..2
+    ok 1 - comb(2,foobarbaz)
+    ok 2 - foobarbaz.comb(2)
+ok 78 - comb with "foobarbaz", size 2, limit 20
+# Subtest: comb with "foobarbaz", size 1, limit 20
+    1..2
+    ok 1 - comb(1,foobarbaz)
+    ok 2 - foobarbaz.comb(1)
+ok 79 - comb with "foobarbaz", size 1, limit 20
+# Subtest: comb with "foobarbaz", size 0, limit 20
+    1..2
+    ok 1 - comb(0,foobarbaz)
+    ok 2 - foobarbaz.comb(0)
+ok 80 - comb with "foobarbaz", size 0, limit 20
+# Subtest: comb with "foobarbaz", size -1, limit 20
+    1..2
+    ok 1 - comb(-1,foobarbaz)
+    ok 2 - foobarbaz.comb(-1)
+ok 81 - comb with "foobarbaz", size -1, limit 20
+ok 82 - .comb(/:m <[o]>/) construct does not crash
+ok 83 - Cool.comb(Int)
+# Subtest: edge-case combers
+    1..16
+    ok 1 - "abc" with \("")
+    ok 2 - "abc" with \("", Inf)
+    ok 3 - "abc" with \("", 4)
+    ok 4 - "abc" with \("", 2)
+    ok 5 - "" with \("")
+    ok 6 - "" with \("", Inf)
+    ok 7 - "" with \("", 4)
+    ok 8 - "" with \("", 2)
+    ok 9 - "abc" with \(0)
+    ok 10 - "abc" with \(0, Inf)
+    ok 11 - "abc" with \(0, 4)
+    ok 12 - "abc" with \(0, 2)
+    ok 13 - "" with \(0)
+    ok 14 - "" with \(0, Inf)
+    ok 15 - "" with \(0, 4)
+    ok 16 - "" with \(0, 2)
+ok 84 - edge-case combers
+ok 85 - $/ inside comb
+# Subtest: comb(Regex) returns Seq
+    1..8
+    ok 1 - method (Str)
+    ok 2 - sub (Str)
+    ok 3 - method (Cool)
+    ok 4 - sub (Cool)
+    ok 5 - method (Str) with limit
+    ok 6 - sub (Str) with limit
+    ok 7 - method (Cool) with limit
+    ok 8 - sub (Cool) with limit
+ok 86 - comb(Regex) returns Seq
+ok 87 - comb(1,999)
+ok 88 - comb(1,-1)

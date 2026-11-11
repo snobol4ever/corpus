@@ -1,0 +1,10 @@
+1..9
+ok 1 - post without True
+ok 2 - post without Nil
+ok 3 - post without type object
+ok 4 - without expr on true cond
+ok 5 - sanity check
+ok 6 - without expr on false cond
+ok 7 - Statement-modifier without runs bare block
+ok 8 - Statement-modifier without runs block with placeholder
+ok 9 - without is a terminator even after comma

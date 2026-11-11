@@ -1,0 +1,82 @@
+1..5
+# Subtest: Basic Coercive Return
+    1..9
+    ok 1 - return coerces an Int
+    ok 2 - return coerces a Rat
+    ok 3 - return coerces a Num
+    ok 4 - as string is bypassed as-is
+    ok 5 - Nil is returned as-is
+    ok 6 - a Failure is returned as-is
+    # Subtest: can't return a type object
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 7 - can't return a type object
+    # Subtest: can't return a non-Numeric
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 8 - can't return a non-Numeric
+    # Subtest: incorrect coercion throws too
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 9 - incorrect coercion throws too
+ok 1 - Basic Coercive Return
+# Subtest: COERCE-based coercion for returns
+    1..5
+    ok 1 - COERCE works with a concrete value
+    ok 2 - COERCE works with a type object
+    ok 3 - Nil is returned as-is
+    ok 4 - a Failure is returned as-is
+    # Subtest: coercion into a typeobject fails for a definite target
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 5 - coercion into a typeobject fails for a definite target
+ok 2 - COERCE-based coercion for returns
+# Subtest: Coercive subset
+    1..5
+    ok 1 - basic coercion works
+    ok 2 - Nil is returned as-is
+    ok 3 - a Failure is returned as-is
+    # Subtest: can't return a coercion of value not passing subset constraint
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 4 - can't return a coercion of value not passing subset constraint
+    # Subtest: can't return a coercion of a typeobject for a definite subset
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 5 - can't return a coercion of a typeobject for a definite subset
+ok 3 - Coercive subset
+# Subtest: Coerce into a subset
+    1..5
+    ok 1 - basic coercion works
+    ok 2 - Nil is returned as-is
+    ok 3 - a Failure is returned as-is
+    # Subtest: can't return a coercion of value not passing subset constraint
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 4 - can't return a coercion of value not passing subset constraint
+    # Subtest: can't return a value not passing subset constraint
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 5 - can't return a value not passing subset constraint
+ok 4 - Coerce into a subset
+# Subtest: Errors
+    1..2
+    # Subtest: class coercer doesn't give us a definite
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 1 - class coercer doesn't give us a definite
+    # Subtest: class coercer doesn't provide a coercion method
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 2 - class coercer doesn't provide a coercion method
+ok 5 - Errors

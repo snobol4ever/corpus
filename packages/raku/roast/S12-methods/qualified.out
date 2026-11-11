@@ -1,0 +1,61 @@
+1..7
+# Subtest: simple
+    1..5
+    ok 1 - Qualified method calls should use the original self
+    ok 2 - Qualified method calls should use the original self
+    ok 3 - qualified method call with starting colons
+    # Subtest: InvalidQualifier thrown with starting colons
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Method::InvalidQualifier)
+    ok 4 - InvalidQualifier thrown with starting colons
+    # Subtest: empty name in qualified method call
+        1..2
+        ok 1 - '.::' died
+        ok 2 - right exception type (X::Syntax::Malformed)
+    ok 5 - empty name in qualified method call
+ok 1 - simple
+# Subtest: inheritance
+    1..6
+    ok 1 - Qualification in a parent's method was failing
+    ok 2 - Qualification in a parent via a child's method
+    ok 3 - Indirect qualification to a role of parent class
+    ok 4 - Indirect qualification to a role on a role of parent class
+    ok 5 - Indirect qualification to a role's parent on a intermediate parent
+    ok 6 - Indirect qualification on the object
+ok 2 - inheritance
+# Subtest: puned role
+    1..2
+    ok 1 - callsame works for a punned role
+    ok 2 - callsame works for a punned role via a child class
+ok 3 - puned role
+# Subtest: run-time does
+    1..1
+    ok 1 - Dynamic application of roles
+ok 4 - run-time does
+# Subtest: simple parameterized role
+    1..1
+    ok 1 - parameterized type is resolved by its base name
+ok 5 - simple parameterized role
+# Subtest: parameterizations and inheritance
+    1..4
+    ok 1 - relaxed qualified calls to parameterized roles
+    ok 2 - dispatch from role code on a class parent
+    ok 3 - dispatching in a class private to a role
+    ok 4 - dispatching to parent's role
+ok 6 - parameterizations and inheritance
+# Subtest: relaxed dispatch ambiguities
+    1..2
+    # Subtest: ambiguous relaxed role resolution in class throws
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::AdHoc)
+        ok 3 - .message matches Ambiguous concretization lookup for R1
+    ok 1 - ambiguous relaxed role resolution in class throws
+    # Subtest: ambiguous relaxed role resolution in role throws
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::AdHoc)
+        ok 3 - .message matches Ambiguous concretization lookup for R1
+    ok 2 - ambiguous relaxed role resolution in role throws
+ok 7 - relaxed dispatch ambiguities

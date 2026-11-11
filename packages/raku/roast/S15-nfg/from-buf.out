@@ -1,0 +1,7 @@
+1..6
+ok 1 - Decoding a UTF-8 Buf gets us NFG (one grapheme)
+ok 2 - Decoding a UTF-8 Buf gets us NFG (a few graphemes)
+ok 3 - Decoding a UTF-16 Buf gets us NFG (one grapheme)
+ok 4 - Decoding a UTF-16 Buf gets us NFG (a few graphemes)
+ok 5 - UTF-8 encoding with synthetic followed by non-synthetic works OK
+ok 6 - UTF-16 encoding with synthetic followed by non-synthetic works OK

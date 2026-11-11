@@ -1,0 +1,16 @@
+1..11
+ok 1 - The object is-a 'Hash'
+ok 2 - It's not a positional
+ok 3 - So [0] returns itself
+ok 4 - The object is-a 'Array'
+# Subtest: Accessing array as hash fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 5 - Accessing array as hash fails
+ok 6 - Can assign an arrayitem to a scalar
+ok 7 - Can assign a number to scalar with an array ref
+ok 8 - Can assign an hashitem to a scalar
+ok 9 - Can assign a number to scalar with an hashitem
+ok 10 - can assign hashitem to scalar that held an array ref
+ok 11 - can assign arrayitem to scalar that held an hashitem

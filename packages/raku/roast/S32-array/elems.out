@@ -1,0 +1,17 @@
+1..12
+ok 1 - .elems works on uninitialized arrays
+ok 2 - .elems works on empty arrays
+ok 3 - .elems works on initialized arrays
+ok 4 - .elems works on arbitrary scalars
+ok 5 - .elems works on empty arrayitems
+ok 6 - .elems works on initialized arrayitems (1)
+ok 7 - .elems works on initialized arrayitems (2)
+# Subtest: elems(1,2,3,4) should not work
+    1..2
+    ok 1 - 'elems(1,2,3,4)' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 8 - elems(1,2,3,4) should not work
+ok 9 - elems (1,2,3,4) should work
+ok 10 - elems [1,2,3,4] should work
+ok 11 - elems ([1,2,3,4],) should return 1
+ok 12 - Attempting to view last element of Int Array with Inf in it dies

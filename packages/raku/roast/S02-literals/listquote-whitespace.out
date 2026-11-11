@@ -1,0 +1,13 @@
+1..12
+ok 1 - '\x09\x09' is properly parsed as list whitespace
+ok 2 - '\x0d\x0d' is properly parsed as list whitespace
+ok 3 - '\x0a\x0a' is properly parsed as list whitespace
+ok 4 - '\x20\x20' is properly parsed as list whitespace
+ok 5 - '\x2c' does not split in a whitespace quoted list
+ok 6 - '\x2f' does not split in a whitespace quoted list
+ok 7 - '\x5c' does not split in a whitespace quoted list
+ok 8 - '\x3b' does not split in a whitespace quoted list
+ok 9 - '\xa0' does not split in a whitespace quoted list
+ok 10 - various combinations of whitespace are stripped
+ok 11 - < > (only whitespace) is empty List
+ok 12 - .. and it's really empty

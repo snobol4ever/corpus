@@ -1,0 +1,17 @@
+1..12
+ok 1 - redo caused reapplication of block
+ok 2 - statements after redo are not executed
+ok 3 - $j++ encountered twice
+ok 4 - $i++ encountered once
+ok 5 - $j++ encountered four times
+ok 6 - $i++ encountered three times
+ok 7 - $j unaltered by the fiasco
+ok 8 - $i incremented and decremented correct number of times
+ok 9 - testRedoWithFor
+ok 10 - test redo with while
+# Subtest: redo without loop construct dies
+    1..2
+    ok 1 - '{redo}' died
+    ok 2 - right exception type (X::ControlFlow)
+ok 11 - redo without loop construct dies
+ok 12 - redoing outer for loop

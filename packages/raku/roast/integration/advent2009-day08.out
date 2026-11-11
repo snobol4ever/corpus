@@ -1,0 +1,9 @@
+1..8
+ok 1 - Type constraint - odd number
+ok 2 - Type constraint - even number
+ok 3 - Comb for <alpha> and join on |
+ok 4 - Comb for <alpha>+ and join on |
+ok 5 - Comb ASCII hex chars with hyperop to convert to ASCII equivalent
+ok 6 - Comb ASCII hex chars using map to convert to ASCII equivalent
+ok 7 - Caesar Cipher using .comb and .map
+ok 8 - Caesar Cipher using parameter defaults

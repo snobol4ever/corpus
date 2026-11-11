@@ -1,0 +1,8 @@
+1..6
+ok 1 - say(an integer)
+ok 2 - say() calls .gist method of a single argument
+ok 3 - say() joins multiple args with whitespace
+ok 4 - .say as a method on Str (for example)
+ok 5 - say Class name is ok
+
+ok 6 - did say() call .gist even when given a Str

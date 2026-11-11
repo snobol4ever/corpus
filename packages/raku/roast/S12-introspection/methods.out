@@ -1,0 +1,59 @@
+1..57
+ok 1 - class C has no local methods (proto)
+ok 2 - class C has no local methods (instance)
+ok 3 - class B has one local methods (proto)
+ok 4 - method name can be found
+ok 5 - method signature contains $param
+ok 6 - method returns a Num (from .returns)
+ok 7 - method returns a Num (from .of)
+ok 8 - method is not a dispatcher
+ok 9 - class B has one local methods (instance)
+ok 10 - method name can be found
+ok 11 - method signature contains $param
+ok 12 - method returns a Num (from .returns)
+ok 13 - method returns a Num (from .of)
+ok 14 - method is not a dispatcher
+ok 15 - class A has two local methods (one only + one multi with two variants)
+ok 16 - method foo is not a dispatcher
+ok 17 - method bar is a dispatcher
+ok 18 - class A has one only method
+ok 19 - class A has one dispatcher method
+ok 20 - got all methods in hierarchy but NOT those from Any/Mu
+ok 21 - first two methods from class D itself
+ok 22 - method from B has correct name
+ok 23 - method from B has correct return type
+ok 24 - two methods from class A itself
+ok 25 - # SKIP nom regression
+ok 26 - # SKIP nom regression
+ok 27 - # SKIP nom regression
+ok 28 - # SKIP nom regression
+ok 29 - # SKIP nom regression
+ok 30 - # SKIP nom regression
+ok 31 - # SKIP nom regression
+ok 32 - # SKIP nom regression
+ok 33 - can get methods for List (proto)
+ok 34 - can get methods for List (instance)
+ok 35 - can get methods for Str (proto)
+ok 36 - can get methods for Str (instance)
+ok 37 - List has more methods than Any
+ok 38 - Any has more methods than Mu
+ok 39 - can get names of methods in and out of our own classes
+ok 40 - can get .raku of output of .^methods
+ok 41 - methods call found public method in subclass
+ok 42 - methods call found public method in superclass (so no privates)
+ok 43 - methods call did not find private method in superclass
+ok 44 - # SKIP nom regression
+ok 45 - # SKIP nom regression
+ok 46 - methods call without :private omits private methods (with :local)
+ok 47 - methods call found public method in subclass (with :local)
+ok 48 - # SKIP nom regression
+ok 49 - # SKIP nom regression
+ok 50 - Can .gist methods of a subroutine
+ok 51 - Can .raku methods of a subroutine
+ok 52 - Can .gist methods of a method
+ok 53 - Can .raku methods of a method
+ok 54 - Can .gist methods of a block
+ok 55 - Can .raku methods of a block
+ok 56 - Can >>.gist methods of a Signature
+ok 57 - order of ^methods consistent
+# FUDGED!

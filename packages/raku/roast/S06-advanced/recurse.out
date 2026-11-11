@@ -1,0 +1,14 @@
+1..13
+ok 1 - gcd 1
+ok 2 - gcd 2
+ok 3 - simple factorial
+ok 4 - nested factorial
+ok 5 - recursion via &?ROUTINE
+ok 6 - recursive count up: named param, no modified value
+ok 7 - recursive count down: named param, no modified value
+ok 8 - recursive count up: unnamed param, no modified value
+ok 9 - recursive count down: unnamed param, no modified value
+ok 10 - recursive count up: named param, modified value
+ok 11 - recursive count down: named param, modified value
+ok 12 - recursive count up: unnamed param, modified value
+ok 13 - recursive count down: unnamed param, modified value

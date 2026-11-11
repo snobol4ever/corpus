@@ -1,0 +1,214 @@
+1..213
+ok 1 - Match <:ASCIIHexDigit>
+ok 2 - Don't match negated <ASCIIHexDigit>
+ok 3 - Don't match inverted <ASCIIHexDigit>
+ok 4 - Don't match unrelated <ASCIIHexDigit>
+ok 5 - Match unrelated negated <ASCIIHexDigit>
+ok 6 - Match unrelated inverted <ASCIIHexDigit>
+ok 7 - Match unanchored <ASCIIHexDigit>
+ok 8 - Match <:Dash>
+ok 9 - Don't match negated <Dash>
+ok 10 - Don't match inverted <Dash>
+ok 11 - Don't match unrelated <Dash>
+ok 12 - Match unrelated negated <Dash>
+ok 13 - Match unrelated inverted <Dash>
+ok 14 - Match unanchored <Dash>
+ok 15 - Match <:Diacritic>
+ok 16 - Don't match negated <Diacritic>
+ok 17 - Don't match inverted <Diacritic>
+ok 18 - Don't match unrelated <Diacritic>
+ok 19 - Match unrelated negated <Diacritic>
+ok 20 - Match unrelated inverted <Diacritic>
+ok 21 - Match unanchored <Diacritic>
+ok 22 - Match <:Extender>
+ok 23 - Don't match negated <Extender>
+ok 24 - Don't match inverted <Extender>
+ok 25 - Don't match unrelated <Extender>
+ok 26 - Match unrelated negated <Extender>
+ok 27 - Match unrelated inverted <Extender>
+ok 28 - Match unanchored <Extender>
+ok 29 - Match <:GraphemeLink>
+ok 30 - Don't match negated <GraphemeLink>
+ok 31 - Don't match inverted <GraphemeLink>
+ok 32 - Don't match unrelated <GraphemeLink>
+ok 33 - Match unrelated negated <GraphemeLink>
+ok 34 - Match unrelated inverted <GraphemeLink>
+ok 35 - Match <:HexDigit>
+ok 36 - Don't match negated <HexDigit>
+ok 37 - Don't match inverted <HexDigit>
+ok 38 - Don't match unrelated <HexDigit>
+ok 39 - Match unrelated negated <HexDigit>
+ok 40 - Match unrelated inverted <HexDigit>
+ok 41 - Match unanchored <HexDigit>
+ok 42 - Match <:Hyphen>
+ok 43 - Don't match negated <Hyphen>
+ok 44 - Don't match inverted <Hyphen>
+ok 45 - Don't match unrelated <Hyphen>
+ok 46 - Match unrelated negated <Hyphen>
+ok 47 - Match unrelated inverted <Hyphen>
+ok 48 - Match unanchored <Hyphen>
+ok 49 - Match <:Ideographic>
+ok 50 - Don't match negated <Ideographic>
+ok 51 - Don't match inverted <Ideographic>
+ok 52 - Don't match unrelated <Ideographic>
+ok 53 - Match unrelated negated <Ideographic>
+ok 54 - Match unrelated inverted <Ideographic>
+ok 55 - Match unanchored <Ideographic>
+ok 56 - Match <:IDSBinaryOperator>
+ok 57 - Don't match negated <IDSBinaryOperator>
+ok 58 - Don't match inverted <IDSBinaryOperator>
+ok 59 - Don't match unrelated <IDSBinaryOperator>
+ok 60 - Match unrelated negated <IDSBinaryOperator>
+ok 61 - Match unrelated inverted <IDSBinaryOperator>
+ok 62 - Match unanchored <IDSBinaryOperator>
+ok 63 - Match <:IDSTrinaryOperator>
+ok 64 - Don't match negated <IDSTrinaryOperator>
+ok 65 - Don't match inverted <IDSTrinaryOperator>
+ok 66 - Don't match unrelated <IDSTrinaryOperator>
+ok 67 - Match unrelated negated <IDSTrinaryOperator>
+ok 68 - Match unrelated inverted <IDSTrinaryOperator>
+ok 69 - Match unanchored <IDSTrinaryOperator>
+ok 70 - Match <:JoinControl>
+ok 71 - Don't match negated <JoinControl>
+ok 72 - Don't match inverted <JoinControl>
+ok 73 - Don't match unrelated <JoinControl>
+ok 74 - Match unrelated negated <JoinControl>
+ok 75 - Match unrelated inverted <JoinControl>
+ok 76 - Match unanchored <JoinControl>
+ok 77 - Match <:LogicalOrderException>
+ok 78 - Don't match negated <LogicalOrderException>
+ok 79 - Don't match inverted <LogicalOrderException>
+ok 80 - Don't match unrelated <LogicalOrderException>
+ok 81 - Match unrelated negated <LogicalOrderException>
+ok 82 - Match unrelated inverted <LogicalOrderException>
+ok 83 - Don't match related <LogicalOrderException>
+ok 84 - Match related negated <LogicalOrderException>
+ok 85 - Match related inverted <LogicalOrderException>
+ok 86 - Match unanchored <LogicalOrderException>
+ok 87 - Don't match unrelated <NoncharacterCodePoint>
+ok 88 - Match unrelated negated <NoncharacterCodePoint>
+ok 89 - Match unrelated inverted <NoncharacterCodePoint>
+ok 90 - Don't match related <NoncharacterCodePoint>
+ok 91 - Match related negated <NoncharacterCodePoint>
+ok 92 - Match related inverted <NoncharacterCodePoint>
+ok 93 - Match <:QuotationMark>
+ok 94 - Don't match negated <QuotationMark>
+ok 95 - Don't match inverted <QuotationMark>
+ok 96 - Don't match unrelated <QuotationMark>
+ok 97 - Match unrelated negated <QuotationMark>
+ok 98 - Match unrelated inverted <QuotationMark>
+ok 99 - Match unanchored <QuotationMark>
+ok 100 - Match <:Radical>
+ok 101 - Don't match negated <Radical>
+ok 102 - Don't match inverted <Radical>
+ok 103 - Don't match unrelated <Radical>
+ok 104 - Match unrelated negated <Radical>
+ok 105 - Match unrelated inverted <Radical>
+ok 106 - Match unanchored <Radical>
+ok 107 - Match <:SoftDotted>
+ok 108 - Don't match negated <SoftDotted>
+ok 109 - Don't match inverted <SoftDotted>
+ok 110 - Don't match unrelated <SoftDotted>
+ok 111 - Match unrelated negated <SoftDotted>
+ok 112 - Match unrelated inverted <SoftDotted>
+ok 113 - Don't match related <SoftDotted>
+ok 114 - Match related negated <SoftDotted>
+ok 115 - Match related inverted <SoftDotted>
+ok 116 - Match unanchored <SoftDotted>
+ok 117 - Match <:TerminalPunctuation>
+ok 118 - Don't match negated <TerminalPunctuation>
+ok 119 - Don't match inverted <TerminalPunctuation>
+ok 120 - Don't match unrelated <TerminalPunctuation>
+ok 121 - Match unrelated negated <TerminalPunctuation>
+ok 122 - Match unrelated inverted <TerminalPunctuation>
+ok 123 - Match unanchored <TerminalPunctuation>
+ok 124 - Match <:UnifiedIdeograph>
+ok 125 - Don't match negated <UnifiedIdeograph>
+ok 126 - Don't match inverted <UnifiedIdeograph>
+ok 127 - Don't match unrelated <UnifiedIdeograph>
+ok 128 - Match unrelated negated <UnifiedIdeograph>
+ok 129 - Match unrelated inverted <UnifiedIdeograph>
+ok 130 - Match unanchored <UnifiedIdeograph>
+ok 131 - Match <:WhiteSpace>
+ok 132 - Don't match negated <WhiteSpace>
+ok 133 - Don't match inverted <WhiteSpace>
+ok 134 - Don't match unrelated <WhiteSpace>
+ok 135 - Match unrelated negated <WhiteSpace>
+ok 136 - Match unrelated inverted <WhiteSpace>
+ok 137 - Match unanchored <WhiteSpace>
+ok 138 - Match (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 139 - Don't match negated (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 140 - Don't match inverted (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 141 - Don't match unrelated (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 142 - Match unrelated negated (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 143 - Match unrelated inverted (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 144 - Match unanchored (Lu + Ll + Lt + Lm + Lo + OtherAlphabetic)
+ok 145 - Match (Ll + OtherLowercase)
+ok 146 - Don't match negated (Ll + OtherLowercase)
+ok 147 - Don't match inverted (Ll + OtherLowercase)
+ok 148 - Don't match unrelated (Ll + OtherLowercase)
+ok 149 - Match unrelated negated (Ll + OtherLowercase)
+ok 150 - Match unrelated inverted (Ll + OtherLowercase)
+ok 151 - Don't match related (Ll + OtherLowercase)
+ok 152 - Match related negated (Ll + OtherLowercase)
+ok 153 - Match related inverted (Ll + OtherLowercase)
+ok 154 - Match unanchored (Ll + OtherLowercase)
+ok 155 - Match (Lu + OtherUppercase)
+ok 156 - Don't match negated (Lu + OtherUppercase)
+ok 157 - Don't match inverted (Lu + OtherUppercase)
+ok 158 - Don't match unrelated (Lu + OtherUppercase)
+ok 159 - Match unrelated negated (Lu + OtherUppercase)
+ok 160 - Match unrelated inverted (Lu + OtherUppercase)
+ok 161 - Match unanchored (Lu + OtherUppercase)
+ok 162 - Match (Sm + OtherMath)
+ok 163 - Don't match negated (Sm + OtherMath)
+ok 164 - Don't match inverted (Sm + OtherMath)
+ok 165 - Don't match unrelated (Sm + OtherMath)
+ok 166 - Match unrelated negated (Sm + OtherMath)
+ok 167 - Match unrelated inverted (Sm + OtherMath)
+ok 168 - Don't match related (Sm + OtherMath)
+ok 169 - Match related negated (Sm + OtherMath)
+ok 170 - Match related inverted (Sm + OtherMath)
+ok 171 - Match unanchored (Sm + OtherMath)
+ok 172 - Match (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 173 - Don't match negated (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 174 - Don't match inverted (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 175 - Don't match unrelated (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 176 - Match unrelated negated (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 177 - Match unrelated inverted (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 178 - Match unanchored (Lu + Ll + Lt + Lm + Lo + Nl)
+ok 179 - Match (ID_Start + Mn + Mc + Nd + Pc)
+ok 180 - Don't match negated (ID_Start + Mn + Mc + Nd + Pc)
+ok 181 - Don't match inverted (ID_Start + Mn + Mc + Nd + Pc)
+ok 182 - Don't match unrelated (ID_Start + Mn + Mc + Nd + Pc)
+ok 183 - Match unrelated negated (ID_Start + Mn + Mc + Nd + Pc)
+ok 184 - Match unrelated inverted (ID_Start + Mn + Mc + Nd + Pc)
+ok 185 - Match unanchored (ID_Start + Mn + Mc + Nd + Pc)
+ok 186 - Match (Any character)
+ok 187 - Don't match negated (Any character)
+ok 188 - Don't match inverted (Any character)
+ok 189 - Match unanchored (Any character)
+ok 190 - Match (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 191 - Don't match negated (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 192 - Don't match inverted (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 193 - Don't match unrelated (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 194 - Match unrelated negated (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 195 - Match unrelated inverted (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 196 - Match unanchored (Any non-Cn character (i.e. synonym for \P{Cn}))
+ok 197 - Match (Synonym for \p{Cn})
+ok 198 - Don't match negated (Synonym for \p{Cn})
+ok 199 - Don't match inverted (Synonym for \p{Cn})
+ok 200 - Don't match unrelated (Synonym for \p{Cn})
+ok 201 - Match unrelated negated (Synonym for \p{Cn})
+ok 202 - Match unrelated inverted (Synonym for \p{Cn})
+ok 203 - Match unanchored (Synonym for \p{Cn})
+ok 204 - Match (Codepoint not explicitly assigned to a script)
+ok 205 - Don't match negated (Codepoint not explicitly assigned to a script)
+ok 206 - Don't match inverted (Codepoint not explicitly assigned to a script)
+ok 207 - Don't match unrelated (Codepoint not explicitly assigned to a script)
+ok 208 - Match unrelated negated (Codepoint not explicitly assigned to a script)
+ok 209 - Match unrelated inverted (Codepoint not explicitly assigned to a script)
+ok 210 - Don't match related (Codepoint not explicitly assigned to a script)
+ok 211 - Match related negated (Codepoint not explicitly assigned to a script)
+ok 212 - Match related inverted (Codepoint not explicitly assigned to a script)
+ok 213 - Match unanchored (Codepoint not explicitly assigned to a script)

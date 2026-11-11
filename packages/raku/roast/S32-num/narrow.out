@@ -1,0 +1,18 @@
+1..17
+ok 1 - narrow on complex with imaginary part != 0
+ok 2 - narrow on complex without imaginary part (Num)
+ok 3 - narrow on complex without imaginary part (Int)
+ok 4 - narrow on complex without real part (Num)
+ok 5 - narrow on complex without real part (Int)
+ok 6 - narrow on complex 0
+ok 7 - narrow on complex 0
+ok 8 - narrow on non-integer Num is a no-op
+ok 9 - narrow on integer Num
+ok 10 - narrow on integer Num (type)
+ok 11 - narrow on Rat with denominator != 1
+ok 12 - narrow on Rat with denominator 1 (value)
+ok 13 - narrow on Rat with denominator 1 (type)
+ok 14 - .narrow on Complex approximates to Int
+ok 15 - .narrow on approximate Complex produces correct integer
+ok 16 - .narrow on Num approximates to Int
+ok 17 - .narrow on approximate Num produces correct integer

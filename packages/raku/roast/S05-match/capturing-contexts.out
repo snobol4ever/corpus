@@ -1,0 +1,99 @@
+1..64
+ok 1 - Match object returned
+ok 2 - Match object assigned to $/
+ok 3 - Same match objects
+ok 4 - Failed match returns Nil
+ok 5 - positional capture accessible
+ok 6 - array context - correct number of positional captures
+ok 7 - array context - correct number of positional captures
+ok 8 - the .list methods returns a list object
+ok 9 - named capture accessible
+ok 10 - hash context - correct number of named captures
+ok 11 - hash context - named capture accessible
+ok 12 - the .hash method returns a hash object
+ok 13 - get rule result
+ok 14 - match copy should be same as match
+ok 15 - match list stringifies like a normal list
+ok 16 - ... and it is Positional
+ok 17 - match list stringifies like a normal list AFTER "isa"
+ok 18 - match element [0][0] from /(.)+/
+ok 19 - match element [0][1] from /(.)+/
+ok 20 - match element [0][0] from /(.)+/ coerced
+ok 21 - match element [0][1] from /(.)+/ coerced
+ok 22 - Match coerced to Hash says match exists
+ok 23 - undefined capture does not match
+not ok 24 - match with undefined capture emits a warning # TODO referring to non-existing capture
+# Failed test 'match with undefined capture emits a warning'
+# at S05-match/capturing-contexts.rakudo line 95
+ok 25 - Match object in $/ after match in void context
+ok 26 - Matched as intended in void context
+ok 27 - rindex() works on $/.orig
+ok 28 - rindex() works on $/.orig
+ok 29 - can bind $/
+ok 30 - $0 works like $/[0], even for non-Match objects
+ok 31 - $1 is not defined
+ok 32 - $0 accessible when $/ is undefined
+ok 33 - $0 is Any when $/ is undefined
+ok 34 - $0 is undefined
+ok 35 - regex sanity
+ok 36 - $/.list does not flatten quantified subcaptures
+ok 37 - regex sanity
+ok 38 - $/.list does not flattens subcaptures
+ok 39 - alphabetic characters can follow digits in $0 variable in interpolation
+ok 40 - alphabetic characters follows $0 interpolated value
+ok 41 - match multiple lines with '.'
+ok 42 - Match has a .lines method
+ok 43 - Correct number of lines
+ok 44 - Match is Cool
+ok 45 - quantifier ? matching 0 values returns Nil
+ok 46 - quantifier * matching 0 values returns empty list
+ok 47 - (non-)capturing subrules advance cursor position (1)
+ok 48 - (non-)capturing subrules advance cursor position (2)
+ok 49 - (non-)capturing subrules advance cursor position (3)
+ok 50 - (non-)capturing subrules advance cursor position (4)
+ok 51 - result of match assigned to variable matched against works
+ok 52 - Reassigning to matched-against string and then accessing submatches works
+ok 53 - Correct number of captures when backtracking (1)
+ok 54 - Correct number of captures when backtracking (2)
+ok 55 - LTM alternation does not capture the wrong stuff when backtracking (1)
+ok 56 - LTM alternation does not capture the wrong stuff when backtracking (2)
+# Subtest: postfix operators do not interfere with interpolation of $/[0]
+    1..3
+    not ok 1 - postfix -- # TODO parse error with --
+    # Failed test 'postfix --'
+    # at S05-match/capturing-contexts.rakudo line 228
+    # expected: '5--'
+    #      got: '5x3[0]--'
+    not ok 2 - postfix ++ # TODO parse error with --
+    # Failed test 'postfix ++'
+    # at S05-match/capturing-contexts.rakudo line 229
+    # expected: '5++'
+    #      got: '5x3[0]++'
+    not ok 3 - custom postfix `foo` # TODO parse error with --
+    # Failed test 'custom postfix `foo`'
+    # at S05-match/capturing-contexts.rakudo line 232
+    # expected: '5foo'
+    #      got: '5x3[0]foo'
+ok 57 - postfix operators do not interfere with interpolation of $/[0]
+ok 58 - non-ascii tokens in a grammar work
+ok 59 - non-ascii token in a subcapture work
+ok 60 - Unicode digit match variables work
+ok 61 - .Bool on failed Match returns False
+ok 62 - .Bool on succesful Match returns True
+ok 63 - .Bool on Match:U is False
+# Subtest: capture markers work correctly
+    1..12
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - 4
+    ok 5 - 5
+    ok 6 - 6
+    ok 7 - <foo> (grammar 1)
+    ok 8 - <bar> (grammar 1)
+    ok 9 - <ber> (grammar 1)
+    ok 10 - <foo> (grammar 2)
+    ok 11 - <bar> (grammar 2)
+    ok 12 - <ber> (grammar 2)
+ok 64 - capture markers work correctly
+# FUDGED!

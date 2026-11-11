@@ -1,0 +1,26 @@
+1..25
+ok 1 - produce listop works on a range (+)
+ok 2 - produce method works on a range (+)
+ok 3 - produce method is identical to triangle reduce (+)
+ok 4 - produce listop works on a range (*)
+ok 5 - produce method works on a range (*)
+ok 6 - produce method is identical to triangle reduce (*)
+ok 7 - produce method is identical to triangle reduce (**)
+ok 8 - produce listop works on random integers (+)
+ok 9 - produce listop works on random integers (*)
+ok 10 - produce listop works on random integers (/)
+ok 11 - produce listop works on random integers (~)
+ok 12 - n-ary produce() works
+ok 13 - n-ary produce() works as triangle op
+ok 14 - right assoc n-ary produce() works
+ok 15 - right assoc n-ary produce() works as triangle operator
+ok 16 - method form of produce works on numbers
+ok 17 - method form of produce works on strings
+ok 18 - method form of produce should work on arrays
+ok 19 - produce(&foo) (foo ~~ .{}) works three levels deep
+ok 20 - All the types were hashes
+ok 21 - Produce of one element list produces correct result
+ok 22 - Use proper arity calculation
+ok 23 - .produce: &infix:<+> works
+ok 24 - .produce: &infix:<*> works
+ok 25 - produce and multi subs

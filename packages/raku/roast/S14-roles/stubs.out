@@ -1,0 +1,35 @@
+1..30
+ok 1 - need to implement stubbed methods at role-into-class composition time
+ok 2 - but roles are fine
+ok 3 - directly implementing the stubbed method is fine
+ok 4 - composing the stubbed method is fine
+ok 5 - composing stub and 2 implementations dies again
+ok 6 - composing stub and 2 implementations allows custom implementation
+ok 7 - No ambiguous dispatch on stubbed multi in interface
+ok 8 - Interface contract enforced on stubbed multi
+ok 9 - Class can define multi method to implement non-multi method stubbed in role
+ok 10 - composing stub implemented with attribute handles
+ok 11 - stubbed method can come from parent class too
+ok 12 - stubbed method can come from accessor
+ok 13 - stubbed method can come from accessor in parent class
+# Subtest: did we throws-like X::Role::Parametric::NoSuchCandidate?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Role::Parametric::NoSuchCandidate)
+ok 14 - did we throws-like X::Role::Parametric::NoSuchCandidate?
+ok 15 - RT  \#125606: Stub resolution works for private methods too
+ok 16 - private method call in role dispatches on type of target class
+ok 17 - .gist on role with requirement does not pun it and die
+ok 18 - .raku on role with requirement does not pun it and die
+ok 19 - .DUMP on role with requirement does not pun it and die
+ok 20 - .item on role with requirement does not pun it and die
+ok 21 - .Str on role with requirement does not pun it and die
+ok 22 - .Bool on role with requirement does not pun it and die
+ok 23 - .defined on role with requirement does not pun it and die
+ok 24 - .so on role with requirement does not pun it and die
+ok 25 - .not on role with requirement does not pun it and die
+ok 26 - .WHICH on role with requirement does not pun it and die
+ok 27 - .WHERE on role with requirement does not pun it and die
+ok 28 - .Stringy on role with requirement does not pun it and die
+ok 29 - .Numeric on role with requirement does not pun it and die
+ok 30 - .Real on role with requirement does not pun it and die

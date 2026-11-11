@@ -1,0 +1,39 @@
+1..12
+# Subtest: did we throws-like X::EXPORTHOW::InvalidDirective?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::EXPORTHOW::InvalidDirective)
+    ok 3 - .directive matches BBQ
+ok 1 - did we throws-like X::EXPORTHOW::InvalidDirective?
+ok 2 - Can supersede meta-type for class
+ok 3 - # SKIP RT  \#126759
+ok 4 - EXPORTHOW::SUPERSEDE is lexical
+# Subtest: did we throws-like X::EXPORTHOW::NothingToSupersede?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::EXPORTHOW::NothingToSupersede)
+    ok 3 - .declarator matches nobody-will-add-this-declarator
+ok 5 - did we throws-like X::EXPORTHOW::NothingToSupersede?
+# Subtest: did we throws-like X::EXPORTHOW::Conflict?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::EXPORTHOW::Conflict)
+    ok 3 - .declarator matches class
+    ok 4 - .directive matches SUPERSEDE
+ok 6 - did we throws-like X::EXPORTHOW::Conflict?
+ok 7 - Type declared with new controller declarator got Controller role added
+ok 8 - # SKIP RT  \#126759
+ok 9 - Imported declarators do not leak out of lexical scope
+# Subtest: did we throws-like X::EXPORTHOW::Conflict?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::EXPORTHOW::Conflict)
+    ok 3 - .declarator matches class
+    ok 4 - .directive matches DECLARE
+ok 10 - did we throws-like X::EXPORTHOW::Conflict?
+ok 11 - multiple DECLAREs work
+# Subtest: export of SUPERSEDE::class
+    1..1
+    ok 1 - import works
+ok 12 - export of SUPERSEDE::class
+# FUDGED!

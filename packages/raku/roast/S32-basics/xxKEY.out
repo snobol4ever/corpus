@@ -1,0 +1,199 @@
+1..129
+ok 1 - Hash.AT-KEY
+ok 2 - Hash.AT-KEY =
+ok 3 - Hash.AT-KEY (changed)
+ok 4 - Hash.EXISTS-KEY (existing)
+ok 5 - !Hash.EXISTS-KEY (non-existing)
+ok 6 - Hash.ASSIGN-KEY (existing)
+ok 7 - Hash.AT-KEY (existing ASSIGN-KEY)
+ok 8 - Hash.ASSIGN-KEY (non-existing)
+ok 9 - Hash.AT-KEY (non-existing ASSIGN-KEY)
+ok 10 - Hash.BIND-KEY (existing)
+ok 11 - Hash.AT-KEY (existing BIND-KEY)
+ok 12 - Hash.AT-KEY (changed existing BIND-KEY)
+ok 13 - Hash.BIND-KEY (non-existing)
+ok 14 - Hash.AT-KEY (non-existing BIND-KEY)
+ok 15 - Hash.AT-KEY (changed non-existing BIND-KEY)
+ok 16 - Hash.DELETE-KEY (existing)
+ok 17 - !Hash.EXISTS-KEY (existing DELETE-KEY)
+ok 18 - Hash.DELETE-KEY (non-existing)
+ok 19 - !Hash.EXISTS-KEY (non-existing DELETE-KEY)
+ok 20 - Hash[Int].AT-KEY
+ok 21 - Hash[Int].AT-KEY =
+ok 22 - Hash[Int].AT-KEY (changed)
+ok 23 - Hash[Int].EXISTS-KEY (existing)
+ok 24 - !Hash[Int].EXISTS-KEY (non-existing)
+ok 25 - Hash[Int].ASSIGN-KEY (existing)
+ok 26 - Hash[Int].AT-KEY (existing ASSIGN-KEY)
+ok 27 - Hash[Int].ASSIGN-KEY (non-existing)
+ok 28 - Hash[Int].AT-KEY (non-existing ASSIGN-KEY)
+ok 29 - Hash[Int].BIND-KEY (existing)
+ok 30 - Hash[Int].AT-KEY (existing BIND-KEY)
+ok 31 - Hash[Int].AT-KEY (changed existing BIND-KEY)
+ok 32 - Hash[Int].BIND-KEY (non-existing)
+ok 33 - Hash[Int].AT-KEY (non-existing BIND-KEY)
+ok 34 - Hash[Int].AT-KEY (changed non-existing BIND-KEY)
+ok 35 - Hash[Int].DELETE-KEY (existing)
+ok 36 - !Hash[Int].EXISTS-KEY (existing DELETE-KEY)
+ok 37 - Hash[Int].DELETE-KEY (non-existing)
+ok 38 - !Hash[Int].EXISTS-KEY (non-existing DELETE-KEY)
+ok 39 - Hash[Int,Any].AT-KEY
+ok 40 - Hash[Int,Any].AT-KEY =
+ok 41 - Hash[Int,Any].AT-KEY (changed)
+ok 42 - Hash[Int,Any].EXISTS-KEY (existing)
+ok 43 - !Hash[Int,Any].EXISTS-KEY (non-existing)
+ok 44 - Hash[Int,Any].ASSIGN-KEY (existing)
+ok 45 - Hash[Int,Any].AT-KEY (existing ASSIGN-KEY)
+ok 46 - Hash[Int,Any].ASSIGN-KEY (non-existing)
+ok 47 - Hash[Int,Any].AT-KEY (non-existing ASSIGN-KEY)
+ok 48 - Hash[Int,Any].BIND-KEY (existing)
+ok 49 - Hash[Int,Any].AT-KEY (existing BIND-KEY)
+ok 50 - Hash[Int,Any].AT-KEY (changed existing BIND-KEY)
+ok 51 - Hash[Int,Any].BIND-KEY (non-existing)
+ok 52 - Hash[Int,Any].AT-KEY (non-existing BIND-KEY)
+ok 53 - Hash[Int,Any].AT-KEY (changed non-existing BIND-KEY)
+ok 54 - Hash[Int,Any].DELETE-KEY (existing)
+ok 55 - !Hash[Int,Any].EXISTS-KEY (existing DELETE-KEY)
+ok 56 - Hash[Int,Any].DELETE-KEY (non-existing)
+ok 57 - !Hash[Int,Any].EXISTS-KEY (non-existing DELETE-KEY)
+ok 58 - $a.EXISTS-KEY (undefined)
+ok 59 - $a.AT-KEY (undefined)
+ok 60 - $a.AT-KEY = (undefined)
+ok 61 - $a.AT-KEY (defined)
+ok 62 - $a.EXISTS-KEY (defined)
+ok 63 - $a.DELETE-KEY (defined)
+ok 64 - $a.EXISTS-KEY (after delete)
+ok 65 - $a.ASSIGN-KEY (undefined)
+ok 66 - $a.AT-KEY (defined)
+ok 67 - $a.DELETE-KEY (defined)
+ok 68 - $a.EXISTS-KEY (after delete)
+ok 69 - $a.BIND-KEY (undefined)
+ok 70 - $a.AT-KEY (defined)
+not ok 71 - $a.AT-KEY (defined) # TODO binding to a key in an undefine doesn't work?
+# Failed test '$a.AT-KEY (defined)'
+# at S32-basics/xxKEY.rakudo line 68
+# expected: '65'
+#      got: '42'
+not ok 72 - $a.DELETE-KEY (defined) # TODO binding to a key in an undefine doesn't work?
+# Failed test '$a.DELETE-KEY (defined)'
+# at S32-basics/xxKEY.rakudo line 69
+# expected: '65'
+#      got: '42'
+ok 73 - $a.EXISTS-KEY (after delete)
+ok 74 - $a.DELETE-KEY (undefined)
+ok 75 - $a.EXISTS-KEY (after delete)
+ok 76 - $s.EXISTS-KEY
+ok 77 - !$s.EXISTS-KEY
+ok 78 - $s.AT-KEY
+# Subtest: $s.BIND-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches Set
+ok 79 - $s.BIND-KEY
+ok 80 - $s.AT-KEY (after bind)
+# Subtest: $s.DELETE-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .typename matches Set
+ok 81 - $s.DELETE-KEY
+ok 82 - $s.AT-KEY (after delete)
+# Subtest: $s.ASSIGN-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .typename matches Set
+ok 83 - $s.ASSIGN-KEY
+ok 84 - $s.AT-KEY (after assignment)
+ok 85 - $sh.EXISTS-KEY
+ok 86 - !$sh.EXISTS-KEY
+ok 87 - $sh.AT-KEY
+# Subtest: $sh.BIND-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches SetHash
+ok 88 - $sh.BIND-KEY
+ok 89 - $sh.AT-KEY (after bind)
+ok 90 - $sh.DELETE-KEY
+ok 91 - $sh.EXISTS-KEY (after delete)
+ok 92 - $sh.ASSIGN-KEY
+ok 93 - $sh.AT-KEY (after assignment)
+ok 94 - $b.EXISTS-KEY
+ok 95 - !$b.EXISTS-KEY
+ok 96 - $b.AT-KEY
+# Subtest: $b.BIND-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches Bag
+ok 97 - $b.BIND-KEY
+ok 98 - $b.AT-KEY (after bind)
+# Subtest: $b.DELETE-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .typename matches Bag
+ok 99 - $b.DELETE-KEY
+ok 100 - $b.AT-KEY (after delete)
+# Subtest: $b.ASSIGN-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .typename matches Bag
+ok 101 - $b.ASSIGN-KEY
+ok 102 - $b.AT-KEY (after assignment)
+ok 103 - $bh.EXISTS-KEY
+ok 104 - !$bh.EXISTS-KEY
+ok 105 - $bh.AT-KEY
+# Subtest: $bh.BIND-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches BagHash
+ok 106 - $bh.BIND-KEY
+ok 107 - $bh.AT-KEY (after bind)
+ok 108 - $bh.DELETE-KEY
+ok 109 - $bh.EXISTS-KEY (after delete)
+ok 110 - $bh.ASSIGN-KEY
+ok 111 - $bh.EXISTS-KEY (after assignment)
+ok 112 - $m.EXISTS-KEY
+ok 113 - !$m.EXISTS-KEY
+ok 114 - $m.AT-KEY
+# Subtest: $m.BIND-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches Mix
+ok 115 - $m.BIND-KEY
+ok 116 - $m.AT-KEY (after bind)
+# Subtest: $m.DELETE-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .typename matches Mix
+ok 117 - $m.DELETE-KEY
+ok 118 - $m.AT-KEY (after delete)
+# Subtest: $m.ASSIGN-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .typename matches Mix
+ok 119 - $m.ASSIGN-KEY
+ok 120 - $m.AT-KEY (after assignment)
+ok 121 - $mh.EXISTS-KEY
+ok 122 - !$mh.EXISTS-KEY
+ok 123 - $mh.AT-KEY
+# Subtest: $mh.BIND-KEY
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches MixHash
+ok 124 - $mh.BIND-KEY
+ok 125 - $mh.AT-KEY (after bind)
+ok 126 - $mh.DELETE-KEY
+ok 127 - $mh.EXISTS-KEY (after delete)
+ok 128 - $mh.ASSIGN-KEY
+ok 129 - $mh.EXISTS-KEY (after assignment)
+# FUDGED!

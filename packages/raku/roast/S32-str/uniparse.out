@@ -1,0 +1,137 @@
+1..40
+ok 1 - empty string  (sub+{is-deprecated} form)
+ok 2 - one char  (sub+{is-deprecated} form)
+ok 3 - one char with whitespace around it  (sub+{is-deprecated} form)
+ok 4 - two chars  (sub+{is-deprecated} form)
+ok 5 - two chars with whitespace around  (sub+{is-deprecated} form)
+ok 6 - trailing comma
+ok 7 - prefixed comma
+# Subtest: unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 8 - unknown name
+# Subtest: unknown name + known name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 9 - unknown name + known name
+# Subtest: known name + unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 10 - known name + unknown name
+ok 11 - empty string  (method+{is-deprecated} form)
+ok 12 - one char  (method+{is-deprecated} form)
+ok 13 - one char with whitespace around it  (method+{is-deprecated} form)
+ok 14 - two chars  (method+{is-deprecated} form)
+ok 15 - two chars with whitespace around  (method+{is-deprecated} form)
+ok 16 - trailing comma
+ok 17 - prefixed comma
+# Subtest: unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 18 - unknown name
+# Subtest: unknown name + known name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 19 - unknown name + known name
+# Subtest: known name + unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 20 - known name + unknown name
+ok 21 - empty string  (sub form)
+ok 22 - one char  (sub form)
+ok 23 - one char with whitespace around it  (sub form)
+ok 24 - two chars  (sub form)
+ok 25 - two chars with whitespace around  (sub form)
+ok 26 - trailing comma
+ok 27 - prefixed comma
+# Subtest: unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 28 - unknown name
+# Subtest: unknown name + known name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 29 - unknown name + known name
+# Subtest: known name + unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 30 - known name + unknown name
+ok 31 - empty string  (method+{is-pure} form)
+ok 32 - one char  (method+{is-pure} form)
+ok 33 - one char with whitespace around it  (method+{is-pure} form)
+ok 34 - two chars  (method+{is-pure} form)
+ok 35 - two chars with whitespace around  (method+{is-pure} form)
+ok 36 - trailing comma
+ok 37 - prefixed comma
+# Subtest: unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 38 - unknown name
+# Subtest: unknown name + known name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 39 - unknown name + known name
+# Subtest: known name + unknown name
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::InvalidCharName)
+    ok 2 - Failure threw when sunk
+ok 40 - known name + unknown name

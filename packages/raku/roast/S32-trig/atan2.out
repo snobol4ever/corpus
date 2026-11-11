@@ -1,0 +1,116 @@
+ok 1 - Num.atan2() - -6.283185
+ok 2 - Num.atan2(1.Num) - -6.283185
+ok 3 - Num.atan2() - -3.9269908
+ok 4 - Num.atan2(1.Num) - -3.9269908
+ok 5 - Num.atan2() - -0.5235988
+ok 6 - Num.atan2(1.Num) - -0.5235988
+ok 7 - Num.atan2() - 0
+ok 8 - Num.atan2(1.Num) - 0
+ok 9 - Num.atan2() - 0.5235988
+ok 10 - Num.atan2(1.Num) - 0.5235988
+ok 11 - Num.atan2() - 0.7853982
+ok 12 - Num.atan2(1.Num) - 0.7853982
+ok 13 - Num.atan2() - 2.3561945
+ok 14 - Num.atan2(1.Num) - 2.3561945
+ok 15 - Num.atan2() - 3.141593
+ok 16 - Num.atan2(1.Num) - 3.141593
+ok 17 - Num.atan2() - 3.9269908
+ok 18 - Num.atan2(1.Num) - 3.9269908
+ok 19 - Num.atan2() - 5.4977871
+ok 20 - Num.atan2(1.Num) - 5.4977871
+ok 21 - Num.atan2() - 6.283185
+ok 22 - Num.atan2(1.Num) - 6.283185
+ok 23 - Num.atan2() - 6.8067841
+ok 24 - Num.atan2(1.Num) - 6.8067841
+ok 25 - Num.atan2() - 10.2101761
+ok 26 - Num.atan2(1.Num) - 10.2101761
+ok 27 - Num.atan2() - 12.566371
+ok 28 - Num.atan2(1.Num) - 12.566371
+ok 29 - atan2(4, 4) is pi / 4
+ok 30 - atan2(-4, 4) is -pi / 4
+ok 31 - atan2(4, -4) is 3pi / 4
+ok 32 - atan2(-4, -4) is -3pi / 4
+ok 33 - atan2(Num)
+ok 34 - Num.atan2(Num)
+ok 35 - atan2(Num, Num)
+ok 36 - Num.atan2(Rat)
+ok 37 - atan2(Num, Rat)
+ok 38 - Num.atan2(Int)
+ok 39 - atan2(Num, Int)
+ok 40 - Num.atan2(Str)
+ok 41 - atan2(Num, Str)
+ok 42 - Num.atan2(DifferentReal)
+ok 43 - atan2(Num, DifferentReal)
+ok 44 - Num.atan2(FatRat)
+ok 45 - atan2(Num, FatRat)
+ok 46 - Rat.atan2
+ok 47 - atan2(Rat)
+ok 48 - Rat.atan2(Num)
+ok 49 - atan2(Rat, Num)
+ok 50 - Rat.atan2(Rat)
+ok 51 - atan2(Rat, Rat)
+ok 52 - Rat.atan2(Int)
+ok 53 - atan2(Rat, Int)
+ok 54 - Rat.atan2(Str)
+ok 55 - atan2(Rat, Str)
+ok 56 - Rat.atan2(DifferentReal)
+ok 57 - atan2(Rat, DifferentReal)
+ok 58 - Rat.atan2(FatRat)
+ok 59 - atan2(Rat, FatRat)
+ok 60 - Int.atan2
+ok 61 - atan2(Int)
+ok 62 - Int.atan2(Num)
+ok 63 - atan2(Int, Num)
+ok 64 - Int.atan2(Rat)
+ok 65 - atan2(Int, Rat)
+ok 66 - Int.atan2(Int)
+ok 67 - atan2(Int, Int)
+ok 68 - Int.atan2(Str)
+ok 69 - atan2(Int, Str)
+ok 70 - Int.atan2(DifferentReal)
+ok 71 - atan2(Int, DifferentReal)
+ok 72 - Int.atan2(FatRat)
+ok 73 - atan2(Int, FatRat)
+ok 74 - Str.atan2
+ok 75 - atan2(Str)
+ok 76 - Str.atan2(Num)
+ok 77 - atan2(Str, Num)
+ok 78 - Str.atan2(Rat)
+ok 79 - atan2(Str, Rat)
+ok 80 - Str.atan2(Int)
+ok 81 - atan2(Str, Int)
+ok 82 - Str.atan2(Str)
+ok 83 - atan2(Str, Str)
+ok 84 - Str.atan2(DifferentReal)
+ok 85 - atan2(Str, DifferentReal)
+ok 86 - Str.atan2(FatRat)
+ok 87 - atan2(Str, FatRat)
+ok 88 - DifferentReal.atan2
+ok 89 - atan2(DifferentReal)
+ok 90 - DifferentReal.atan2(Num)
+ok 91 - atan2(DifferentReal, Num)
+ok 92 - DifferentReal.atan2(Rat)
+ok 93 - atan2(DifferentReal, Rat)
+ok 94 - DifferentReal.atan2(Int)
+ok 95 - atan2(DifferentReal, Int)
+ok 96 - DifferentReal.atan2(Str)
+ok 97 - atan2(DifferentReal, Str)
+ok 98 - DifferentReal.atan2(DifferentReal)
+ok 99 - atan2(DifferentReal, DifferentReal)
+ok 100 - DifferentReal.atan2(FatRat)
+ok 101 - atan2(DifferentReal, FatRat)
+ok 102 - FatRat.atan2
+ok 103 - atan2(FatRat)
+ok 104 - FatRat.atan2(Num)
+ok 105 - atan2(FatRat, Num)
+ok 106 - FatRat.atan2(Rat)
+ok 107 - atan2(FatRat, Rat)
+ok 108 - FatRat.atan2(Int)
+ok 109 - atan2(FatRat, Int)
+ok 110 - FatRat.atan2(Str)
+ok 111 - atan2(FatRat, Str)
+ok 112 - FatRat.atan2(DifferentReal)
+ok 113 - atan2(FatRat, DifferentReal)
+ok 114 - FatRat.atan2(FatRat)
+ok 115 - atan2(FatRat, FatRat)
+1..115

@@ -1,0 +1,229 @@
+1..109
+# Subtest: my() variable not yet visible prior to declaration
+    1..2
+    ok 1 - '$foo; my $foo = 42' died
+    ok 2 - right exception type (X::Undeclared)
+ok 1 - my() variable not yet visible prior to declaration
+ok 2 - my() variable is visible now (2)
+# Subtest: my() variable not yet visible (1)
+    1..2
+    ok 1 - '$ret = $foo ~ my $foo;' died
+    ok 2 - right exception type (X::Undeclared)
+ok 3 - my() variable not yet visible (1)
+ok 4 - my() variable not yet visible (2)
+ok 5 - my() variable is visible (1)
+ok 6 - my() variable is visible (2)
+ok 7 - my variable with & sigil works (1)
+ok 8 - my variable with & sigil works (2)
+ok 9 - calling a lexically defined my()-code var worked
+# Subtest: my &foo is lexically scoped
+    1..2
+    ok 1 - 'foo(42)' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 10 - my &foo is lexically scoped
+ok 11 - do{my $a = 3; $a} works
+ok 12 - do{1; my $a = 3; $a} works
+ok 13 - "my $x = my $y = 0" parses
+ok 14 - value should still be set for arg, even if there's a later my
+ok 15 - $a is available in this scope
+ok 16 - $a is available in this scope
+ok 17 - $b is available in this scope
+# Subtest: $b is not available in this scope
+    1..2
+    ok 1 - '$b' died
+    ok 2 - right exception type (X::Undeclared)
+ok 18 - $b is not available in this scope
+ok 19 - $c is still the same outer value
+ok 20 - $c is available, and the outer value has been changed
+ok 21 - $d is still the outer $d
+ok 22 - $d is now the lexical (inner) $d
+ok 23 - $d has not changed
+ok 24 - $d is available, and the outer value has not changed
+# Subtest: $e is not available in this scope
+    1..2
+    ok 1 - '$e' died
+    ok 2 - right exception type (X::Undeclared)
+ok 25 - $e is not available in this scope
+ok 26 - $func2() just returns the $e lexical which is held by the closure
+ok 27 - $func() increments the $e lexical which is held by the closure
+ok 28 - ... and one more time just to be sure
+ok 29 - can parse squinting my value
+ok 30 - can capture squinting my value
+ok 31 - can set squinting my variable
+ok 32 - precedence of my wrt = and ,
+ok 33 - Can use @a
+ok 34 - Can use @b
+ok 35 - push actually worked on @a
+ok 36 - push actually worked on @b
+ok 37 - my in while cond seen from body
+ok 38 - my in while cond seen after
+ok 39 - my in if cond seen from then
+ok 40 - my in if cond seen from else
+ok 41 - my in if cond seen after
+ok 42 - 1st my in loop cond seen from body
+ok 43 - 2nd my in loop cond seen from body
+ok 44 - 1st my in loop cond seen after
+ok 45 - 2nd my in loop cond seen after
+ok 46 - two lexicals declared in scope is noop
+# Subtest: did we throws-like X::Syntax::Variable::Initializer?
+    1..3
+    ok 1 - 'my %h is default(%h<foo>)' died
+    ok 2 - right exception type (X::Syntax::Variable::Initializer)
+    ok 3 - .name matches %h
+ok 47 - did we throws-like X::Syntax::Variable::Initializer?
+# Subtest: did we throws-like X::Syntax::Variable::Initializer?
+    1..3
+    ok 1 - 'my $z = $z' died
+    ok 2 - right exception type (X::Syntax::Variable::Initializer)
+    ok 3 - .name matches $z
+ok 48 - did we throws-like X::Syntax::Variable::Initializer?
+ok 49 - initializing a variable using a try block containing same name works
+# Subtest: did we throws-like X::Syntax::Variable::Initializer?
+    1..3
+    ok 1 - 'my @foo := 1..3, (@foo Z+ 100)' died
+    ok 2 - right exception type (X::Syntax::Variable::Initializer)
+    ok 3 - .name matches @foo
+ok 50 - did we throws-like X::Syntax::Variable::Initializer?
+ok 51 - EVAL() knows the pad where it is launched from
+ok 52 - ... but initialization of variables might still happen afterwards
+ok 53 - &x does not need to be pre-declared
+# Subtest: &x() dies when empty
+    1..2
+    ok 1 - '&x()' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 54 - &x() dies when empty
+ok 55 - my $x if 0
+ok 56 - 
+ok 57 - SETTING::<$x>
+ok 58 - 
+ok 59 - unreached declaration in effect at block start
+# Subtest: type error
+    1..2
+    ok 1 - 'my Int $x = "abc";' died
+    ok 2 - right exception type (X::TypeCheck)
+ok 60 - type error # TODO only pass with rakuast
+ok 61 - also a type error
+ok 62 - native in declarator sig
+ok 63 - natives in declarator sig
+ok 64 - Native types in declarator sig 1/2 constrains
+ok 65 - Native types in declarator sig 2/2 constrains
+ok 66 - Native types in declarator sig allow correct assignments
+# Subtest: Type in declarator sig 1/1 constrains
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 67 - Type in declarator sig 1/1 constrains
+# Subtest: Types in declarator sig 1/2 constrain
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 68 - Types in declarator sig 1/2 constrain
+# Subtest: Types in declarator sig 2/2 constrain
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 69 - Types in declarator sig 2/2 constrain
+ok 70 - Types in declarator sig allow correct assignments
+ok 71 - native outside declarator sig 1
+ok 72 - native outside declarator sig 2
+# Subtest: Type outside declarator sig 1/1 constrains
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 73 - Type outside declarator sig 1/1 constrains
+# Subtest: Type outside declarator sig 1/2 constrains
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 74 - Type outside declarator sig 1/2 constrains
+# Subtest: Type outside declarator sig 2/2 constrains
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 75 - Type outside declarator sig 2/2 constrains
+ok 76 - Native type outside declarator sig 1/2 constrains
+ok 77 - Native type outside declarator sig 2/2 constrains
+# Subtest: another Type in declarator sig
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+ok 78 - another Type in declarator sig
+ok 79 - Can access variable returned from a named closure that is declared below the calling position
+ok 80 - can call our-sub that accesses a lexical before the block was run
+ok 81 - can call our-sub that accesses a lexical after the block was run
+ok 82 - my (%h?) lives
+ok 83 - global scoped variables are visible inside class definitions
+ok 84 - typing a my-declared variable as ::a works.
+ok 85 - declaration of anonymous Scalar
+ok 86 - declaration of anonymous Array
+ok 87 - declaration of anonymous Hash
+ok 88 - can declare a variable inside a sub call
+ok 89 - dies on undeclared routines
+ok 90 - ... and it does so before run time
+ok 91 - inner/outer
+ok 92 - anonymous @ doesn't overshare
+ok 93 - anonymous % doesn't overshare
+ok 94 - anonymous sub doesn't overshare
+ok 95 - can declare sigilless within parenthesis
+ok 96 - cannot assign to sigilless variable after declaration (one)
+ok 97 - declarator with multiple variables can contain sigilless
+ok 98 - cannot assign to sigilless variable after declaration (many)
+# Subtest: did we throws-like X::Syntax::Term::MissingInitializer?
+    1..2
+    ok 1 - 'my (\a)' died
+    ok 2 - right exception type (X::Syntax::Term::MissingInitializer)
+ok 99 - did we throws-like X::Syntax::Term::MissingInitializer?
+# Subtest: did we throws-like X::Syntax::Term::MissingInitializer?
+    1..2
+    ok 1 - 'my (\a, \b)' died
+    ok 2 - right exception type (X::Syntax::Term::MissingInitializer)
+ok 100 - did we throws-like X::Syntax::Term::MissingInitializer?
+ok 101 - can signature-bind to my (\a, \b) and get correct values (1)
+ok 102 - can signature-bind to my (\a, \b) and get correct values (2)
+ok 103 - can call postcircumfix () on subs inside my
+ok 104 - no NullPointerException (and no segfault either)
+# Subtest: report Malformed my correctly
+    1..2
+    # Subtest: did we throws-like X::Syntax::Malformed?
+        1..2
+        ok 1 - 'my Any :D $a' died
+        ok 2 - right exception type (X::Syntax::Malformed)
+    ok 1 - did we throws-like X::Syntax::Malformed?
+    # Subtest: did we throws-like X::Syntax::Malformed?
+        1..2
+        ok 1 - 'my Any ^:D $a' died
+        ok 2 - right exception type (X::Syntax::Malformed)
+    ok 2 - did we throws-like X::Syntax::Malformed?
+ok 105 - report Malformed my correctly
+# Subtest: dies on conflicting type constraints
+    1..2
+    # Subtest: Type + of Type
+        1..2
+        ok 1 - 'my Int $a of Str' died
+        ok 2 - right exception type (X::Syntax::Variable::ConflictingTypes)
+    ok 1 - Type + of Type
+    # Subtest: Type + of Type + is default
+        1..2
+        ok 1 - 'my Int $a of Str is default("z") of Rat' died
+        ok 2 - right exception type (X::Comp::Group)
+    ok 2 - Type + of Type + is default
+ok 106 - dies on conflicting type constraints
+# Subtest: can assign to sigil-less variables
+    1..3
+    ok 1 - simple
+    ok 2 - complex
+    ok 3 - # SKIP not implemented
+ok 107 - can assign to sigil-less variables
+# Subtest: can bind to sigil-less variables
+    1..3
+    ok 1 - simple
+    ok 2 - complex
+    ok 3 - # SKIP not implemented
+ok 108 - can bind to sigil-less variables
+# Subtest: can compile-time bind to sigil-less variables
+    1..3
+    ok 1 - # SKIP ::= NYI
+    ok 2 - # SKIP ::= NYI
+    ok 3 - # SKIP ::= NYI
+ok 109 - can compile-time bind to sigil-less variables
+# FUDGED!

@@ -1,0 +1,6 @@
+1..5
+ok 1 - Hash.antipairs returns a Seq
+ok 2 - simple Hash.antipairs works
+ok 3 - original remains unchanged
+ok 4 - Hash.antipairs does not flatten list values
+ok 5 - original remains unchanged

@@ -1,0 +1,493 @@
+1..259
+ok 1 - Type
+ok 2 - Type
+ok 3 - canonical representation
+ok 4 - .raku ..
+ok 5 - .raku ^..
+ok 6 - .raku ..^
+ok 7 - .raku ^..^
+ok 8 - got the right array
+ok 9 - The object is-a 'Range'
+ok 10 - canonical representation
+ok 11 - got the right array
+ok 12 - stationary num .raku ..
+ok 13 - got the right array
+ok 14 - stationary str .raku ..
+ok 15 - got the right stationary string
+ok 16 - (1..4).reverse still turns into a list of four items
+ok 17 - (1..4).reverse.raku returns something useful
+ok 18 - accepts self
+ok 19 - accepts same
+ok 20 - accepts self
+ok 21 - accepts same
+ok 22 - equals to self
+ok 23 - equals
+ok 24 - int in range
+ok 25 - int in range
+ok 26 - int not in range
+ok 27 - str in range
+ok 28 - str in range
+ok 29 - str not in range
+ok 30 - str in range
+ok 31 - str in range
+ok 32 - numification
+ok 33 - numification
+ok 34 - numification
+ok 35 - numification
+ok 36 - numification
+ok 37 - numification
+ok 38 - numification
+ok 39 - numification
+ok 40 - numification
+ok 41 - numification
+ok 42 - numification
+ok 43 - numification
+ok 44 - type numification
+# Subtest: range is immutable (push)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .typename matches Range
+    ok 4 - .method matches push
+ok 45 - range is immutable (push)
+# Subtest: range is immutable (pop)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches pop
+    ok 4 - .typename matches Range
+ok 46 - range is immutable (pop)
+# Subtest: range is immutable (shift)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches shift
+    ok 4 - .typename matches Range
+ok 47 - range is immutable (shift)
+# Subtest: range is immutable (unshift)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches unshift
+    ok 4 - .typename matches Range
+ok 48 - range is immutable (unshift)
+# Subtest: range is immutable (append)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .typename matches Range
+    ok 4 - .method matches append
+ok 49 - range is immutable (append)
+# Subtest: range is immutable (prepend)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .typename matches Range
+    ok 4 - .method matches prepend
+ok 50 - range is immutable (prepend)
+# Subtest: range.min ro
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 51 - range.min ro
+# Subtest: range.max ro
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 52 - range.max ro
+# Subtest: range.excludes-min ro
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 53 - range.excludes-min ro
+# Subtest: range.excludes-max ro
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 54 - range.excludes-max ro
+ok 55 - range has not changed
+ok 56 - range.min
+ok 57 - range.max
+ok 58 - range.bounds
+ok 59 - range.min
+ok 60 - range.max
+ok 61 - range.bounds
+ok 62 - positive integer matches -Inf..Inf
+ok 63 - positive non-int matches -Inf..Inf
+ok 64 - negative integer matches -Inf..Inf
+ok 65 - negative non-int matches -Inf..Inf
+ok 66 - bottom end of *..* is -Inf (1)
+ok 67 - top end of *..* is Inf (1)
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - 
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches .elems
+ok 68 - did we throws-like X::Cannot::Lazy?
+ok 69 - positive integer matches *..*
+ok 70 - positive non-int matches *..*
+ok 71 - negative integer matches *..*
+ok 72 - negative non-int matches *..*
+ok 73 - range constructed from parameter OK
+ok 74 - Iter range from param doesnt modify param
+ok 75 - postcircumfix:<[ ]> on range works
+ok 76 - postcircumfix:<[ ]> on range works
+ok 77 - pick(*, 1..100) returns the correct number of elements
+ok 78 - pick(*, 1..100) returns the correct elements
+ok 79 - pick(*, 1..100) returns Ints
+ok 80 - pick(*, 1..100) returns the correct number of elements
+ok 81 - pick(*, 1..100) returns the correct elements
+ok 82 - pick(*, 1..100) returns Ints
+ok 83 - picking a single element from an range of Ints produces an Int
+ok 84 - picking a single element from an range of Ints produces one of them
+ok 85 - picking 1 from an range of Ints produces a Seq
+ok 86 - picking 1 from an range of Ints produces one of them
+ok 87 - picking 2 from an range of Ints produces an Int...
+ok 88 - ... and an Int
+ok 89 - picking 2 from an range of Ints produces two of them
+ok 90 - picking 2 from an range of Ints produces two distinct results
+ok 91 - .pick works Str arguments
+ok 92 - pick works Str arguments
+ok 93 - pick(*, 'b' .. 'y') returns the correct number of elements
+ok 94 - pick(*, 'b' .. 'y') returns the correct elements
+ok 95 - pick(*, 'b' .. 'y') returns Strs
+ok 96 - pick(*, 'b' .. 'y') returns the correct number of elements
+ok 97 - pick(*, 'b' .. 'y') returns the correct elements
+ok 98 - pick(*, 'b' .. 'y') returns Strs
+ok 99 - picking a single element from an range of Strs produces an Str
+ok 100 - picking a single element from an range of Strs produces one of them
+ok 101 - picking 1 from an range of Strs produces a Seq
+ok 102 - picking 1 from an range of Strs produces one of them
+ok 103 - picking 2 from an range of Strs produces an Str...
+ok 104 - ... and an Str
+ok 105 - picking 2 from an range of Strs produces two of them
+ok 106 - picking 2 from an range of Strs produces two distinct results
+ok 107 - .pick works Str arguments
+ok 108 - pick works Str arguments
+ok 109 - roll(100, 1..100) returns the correct number of elements
+ok 110 - roll(100, 1..100) returns elements from 1..100
+ok 111 - roll(100, 1..100) returns Ints
+ok 112 - roll(100, 1..100) returns the correct number of elements
+ok 113 - roll(100, 1..100) returns elements from 1..100
+ok 114 - roll(100, 1..100) returns Ints
+ok 115 - rolling a single element from an range of Ints produces an Int
+ok 116 - rolling a single element from an range of Ints produces one of them
+ok 117 - rolling 1 from an range of Ints produces a Seq
+ok 118 - rolling 1 from an range of Ints produces one of them
+ok 119 - rolling 2 from an range of Ints produces an Int...
+ok 120 - ... and an Int
+ok 121 - rolling 2 from an range of Ints produces two of them
+ok 122 - .roll works Str arguments
+ok 123 - roll works Str arguments
+ok 124 - roll(100, 'b' .. 'y') returns the correct number of elements
+ok 125 - roll(100, 'b' .. 'y') returns elements from b..y
+ok 126 - roll(100, 'b' .. 'y') returns Strs
+ok 127 - roll(100, 'b' .. 'y') returns the correct number of elements
+ok 128 - roll(100, 'b' .. 'y') returns elements from b..y
+ok 129 - roll(100, 'b' .. 'y') returns Strs
+ok 130 - rolling a single element from an range of Strs produces an Str
+ok 131 - rolling a single element from an range of Strs produces one of them
+ok 132 - rolling 1 from an range of Strs produces a Seq
+ok 133 - rolling 1 from an range of Strs produces one of them
+ok 134 - rolling 2 from an range of Strs produces an Str...
+ok 135 - ... and an Str
+ok 136 - rolling 2 from an range of Strs produces two of them
+ok 137 - .roll works Str arguments
+ok 138 - roll works Str arguments
+ok 139 - Range.pick(N) lives for vast range
+ok 140 - Range.roll(N) lives for vast range
+ok 141 - Range.roll(*) lives for vast range
+ok 142 - (Range.roll xx *) lives for vast range
+ok 143 - ranges itemize or flatten lazily
+ok 144 - A..a range completes
+ok 145 - low ascii range completes
+ok 146 - can shift a left .. range up
+ok 147 - can shift a right .. range up
+ok 148 - can scale a left .. range up
+ok 149 - can scale a right .. range up
+ok 150 - can shift a .. range down
+ok 151 - can scale a .. range down
+ok 152 - can shift a left ..^ range up
+ok 153 - can shift a right ..^ range up
+ok 154 - can scale a left ..^ range up
+ok 155 - can scale a right ..^ range up
+ok 156 - can shift a ..^ range down
+ok 157 - can scale a ..^ range down
+ok 158 - can shift a left ^.. range up
+ok 159 - can shift a right ^.. range up
+ok 160 - can scale a left ^.. range up
+ok 161 - can scale a right ^.. range up
+ok 162 - can shift a ^.. range down
+ok 163 - can scale a ^.. range down
+ok 164 - can shift a left ^..^ range up
+ok 165 - can shift a right ^..^ range up
+ok 166 - can scale a left ^..^ range up
+ok 167 - can scale a right ^..^ range up
+ok 168 - can shift a ^..^ range down
+ok 169 - can scale a ^..^ range down
+# Subtest: Testing min, max, int-bounds on ^10
+    1..5
+    ok 1 - is ^10 an integer range
+    ok 2 - is ^10.min 0
+    ok 3 - is ^10.max 10
+    ok 4 - is ^10.int-bounds[0] 0
+    ok 5 - is ^10.int-bounds[1] 9
+ok 170 - Testing min, max, int-bounds on ^10
+# Subtest: Testing min, max, int-bounds on -1..10
+    1..5
+    ok 1 - is -1..10 an integer range
+    ok 2 - is -1..10.min -1
+    ok 3 - is -1..10.max 10
+    ok 4 - is -1..10.int-bounds[0] -1
+    ok 5 - is -1..10.int-bounds[1] 10
+ok 171 - Testing min, max, int-bounds on -1..10
+# Subtest: Testing min, max, int-bounds on -1^..10
+    1..5
+    ok 1 - is -1^..10 an integer range
+    ok 2 - is -1^..10.min -1
+    ok 3 - is -1^..10.max 10
+    ok 4 - is -1^..10.int-bounds[0] 0
+    ok 5 - is -1^..10.int-bounds[1] 10
+ok 172 - Testing min, max, int-bounds on -1^..10
+# Subtest: Testing min, max, int-bounds on -1..^10
+    1..5
+    ok 1 - is -1..^10 an integer range
+    ok 2 - is -1..^10.min -1
+    ok 3 - is -1..^10.max 10
+    ok 4 - is -1..^10.int-bounds[0] -1
+    ok 5 - is -1..^10.int-bounds[1] 9
+ok 173 - Testing min, max, int-bounds on -1..^10
+# Subtest: Testing min, max, int-bounds on -1^..^10
+    1..5
+    ok 1 - is -1^..^10 an integer range
+    ok 2 - is -1^..^10.min -1
+    ok 3 - is -1^..^10.max 10
+    ok 4 - is -1^..^10.int-bounds[0] 0
+    ok 5 - is -1^..^10.int-bounds[1] 9
+ok 174 - Testing min, max, int-bounds on -1^..^10
+ok 175 - simple rand
+ok 176 - no borders excluded
+ok 177 - lower border excluded
+# Subtest: cannot rand on string range
+    1..2
+    ok 1 - 
+    ok 2 - right exception type (Exception)
+ok 178 - cannot rand on string range
+ok 179 - simple Range.minmax on Ints
+ok 180 - simple Range.minmax on Rats
+ok 181 - simple Range.minmax on Reals
+ok 182 - simple Range.minmax on Strs
+ok 183 - simple Range.minmax on Nums
+ok 184 - Range.minmax on Ints with exclusion
+ok 185 - cannot have exclusions for minmax otherwise
+ok 186 - Int.range is -Inf^..^Inf
+ok 187 - Rat range constructed with Range ops does not explode
+# Subtest: .rand does not generate value equal to excluded endpoints
+    1..3
+    ok 1 - ..^ range
+    ok 2 - ^.. range
+    ok 3 - ^..^ range
+ok 188 - .rand does not generate value equal to excluded endpoints
+# Subtest: out of range AT-POS
+    1..7
+    # Subtest: effective negative index throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 1 - effective negative index throws
+    ok 2 - index larger than range returns Nil (Int range)
+    ok 3 - index larger than range returns Nil (Rat range)
+    ok 4 - index larger than range returns Nil (Num range)
+    ok 5 - index larger than range returns Nil (Int range, native int index)
+    ok 6 - index larger than range returns Nil (Rat range, native int index)
+    ok 7 - index larger than range returns Nil (Num range, native int index)
+ok 189 - out of range AT-POS
+# Subtest: Complex smartmatch against Range
+    1..10
+    ok 1 - <0+1i> ~~ 1..10
+    ok 2 - <0+1i> ~~ -2000000000000000105009520510408840497408937162216318309831708231023604915977816391572742750160895728087408887665767756353885046470720861151289584369573413965696774401853151607475660467589576180118737906469941599890162238077935281760149305485560284989158517577640113685676231338944392773730918801080320..2000000000000000105009520510408840497408937162216318309831708231023604915977816391572742750160895728087408887665767756353885046470720861151289584369573413965696774401853151607475660467589576180118737906469941599890162238077935281760149305485560284989158517577640113685676231338944392773730918801080320
+    ok 3 - <0+1i> ~~ -2000000000000000105009520510408840497408937162216318309831708231023604915977816391572742750160895728087408887665767756353885046470720861151289584369573413965696774401853151607475660467589576180118737906469941599890162238077935281760149305485560284989158517577640113685676231338944392773730918801080320..2000000000000000105009520510408840497408937162216318309831708231023604915977816391572742750160895728087408887665767756353885046470720861151289584369573413965696774401853151607475660467589576180118737906469941599890162238077935281760149305485560284989158517577640113685676231338944392773730918801080320
+    ok 4 - <0+0i> ~~ 1..10
+    ok 5 - <0+1i> ~~ "a"..Inf
+    ok 6 - <0+1i> ~~ "a".."z"
+    ok 7 - <0+0i> ~~ -1..10
+    ok 8 - <42+0i> ~~ 10..50
+    ok 9 - <42+1e-16i> ~~ 40..50
+    ok 10 - <42+0i> ~~ 10e0..50e0
+ok 190 - Complex smartmatch against Range
+# Subtest: no .int-bounds for Infs and NaN as Range endpoints
+    1..16
+    # Subtest: NaN..NaN throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 1 - NaN..NaN throws
+    # Subtest: NaN..1 throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 2 - NaN..1 throws
+    # Subtest: 1..NaN throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 3 - 1..NaN throws
+    # Subtest: NaN..Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 4 - NaN..Inf throws
+    # Subtest: NaN..-Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 5 - NaN..-Inf throws
+    # Subtest: -Inf..-Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 6 - -Inf..-Inf throws
+    # Subtest: -Inf..1 throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 7 - -Inf..1 throws
+    # Subtest: 1..-Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 8 - 1..-Inf throws
+    # Subtest: -Inf..NaN throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 9 - -Inf..NaN throws
+    # Subtest: -Inf..Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 10 - -Inf..Inf throws
+    # Subtest: Inf..Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 11 - Inf..Inf throws
+    # Subtest: Inf..1 throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 12 - Inf..1 throws
+    # Subtest: 1..Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 13 - 1..Inf throws
+    # Subtest: Inf..NaN throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 14 - Inf..NaN throws
+    # Subtest: Inf..Inf throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 15 - Inf..Inf throws
+    ok 16 - we can get int-bounds from non-int range with `0` end-point
+ok 191 - no .int-bounds for Infs and NaN as Range endpoints
+# Subtest: no floating point drifts in degenerate Ranges
+    1..3
+    ok 1 - NaN..NaN range keeps producing NaN ad infinitum
+    ok 2 - -Inf..Inf range keeps producing -Inf ad infinitum
+    ok 3 - Inf..0 Range has zero elems
+ok 192 - no floating point drifts in degenerate Ranges
+ok 193 - did we get strings
+ok 194 - 1..1.Bool is True
+ok 195 - 1^..2.Bool is True
+ok 196 - 1..^2.Bool is True
+ok 197 - 1^..^3.Bool is True
+ok 198 - "a".."a".Bool is True
+ok 199 - 1..Inf.Bool is True
+not ok 200 - 1..0.Bool is False # TODO fixed in 6.e
+# Failed test '1..0.Bool is False'
+# at /tmp/s4e/cao/fudge/m/S02-types/range.t line 469
+# expected: Bool::False
+#      got: Bool::True
+not ok 201 - 1^..1.Bool is False # TODO fixed in 6.e
+# Failed test '1^..1.Bool is False'
+# at /tmp/s4e/cao/fudge/m/S02-types/range.t line 469
+# expected: Bool::False
+#      got: Bool::True
+not ok 202 - 1..^1.Bool is False # TODO fixed in 6.e
+# Failed test '1..^1.Bool is False'
+# at /tmp/s4e/cao/fudge/m/S02-types/range.t line 469
+# expected: Bool::False
+#      got: Bool::True
+not ok 203 - 1^..^2.Bool is False # TODO fixed in 6.e
+# Failed test '1^..^2.Bool is False'
+# at /tmp/s4e/cao/fudge/m/S02-types/range.t line 469
+# expected: Bool::False
+#      got: Bool::True
+not ok 204 - "b".."a".Bool is False # TODO fixed in 6.e
+# Failed test '"b".."a".Bool is False'
+# at /tmp/s4e/cao/fudge/m/S02-types/range.t line 469
+# expected: Bool::False
+#      got: Bool::True
+not ok 205 - 1..-Inf.Bool is False # TODO fixed in 6.e
+# Failed test '1..-Inf.Bool is False'
+# at /tmp/s4e/cao/fudge/m/S02-types/range.t line 469
+# expected: Bool::False
+#      got: Bool::True
+ok 206 - Inf .. Inf produces Nils
+ok 207 - Inf .. NaN produces Nils
+ok 208 - +((5..2).reverse)
+ok 209 - +(5..-∞)
+ok 210 - +(-∞..-∞)
+ok 211 - +(∞..∞)
+ok 212 - 2..6 min :k
+ok 213 - 2..6 min :!k
+ok 214 - 2..6 min :kv
+ok 215 - 2..6 min :!kv
+ok 216 - 2..6 min :p
+ok 217 - 2..6 min :!p
+ok 218 - 2..6 max :k
+ok 219 - 2..6 max :!k
+ok 220 - 2..6 max :kv
+ok 221 - 2..6 max :!kv
+ok 222 - 2..6 max :p
+ok 223 - 2..6 max :!p
+ok 224 - min 2..6 :k
+ok 225 - min 2..6 :!k
+ok 226 - min 2..6 :kv
+ok 227 - min 2..6 :!kv
+ok 228 - min 2..6 :p
+ok 229 - min 2..6 :!p
+ok 230 - max 2..6 :k
+ok 231 - max 2..6 :!k
+ok 232 - max 2..6 :kv
+ok 233 - max 2..6 :!kv
+ok 234 - max 2..6 :p
+ok 235 - max 2..6 :!p
+ok 236 - 2..Inf min :k
+ok 237 - 2..Inf min :!k
+ok 238 - 2..Inf min :kv
+ok 239 - 2..Inf min :!kv
+ok 240 - 2..Inf min :p
+ok 241 - 2..Inf min :!p
+ok 242 - 2..Inf max :k
+ok 243 - 2..Inf max :!k
+ok 244 - 2..Inf max :kv
+ok 245 - 2..Inf max :!kv
+ok 246 - 2..Inf max :p
+ok 247 - 2..Inf max :!p
+ok 248 - 2..Inf min :k
+ok 249 - 2..Inf min :!k
+ok 250 - 2..Inf min :kv
+ok 251 - 2..Inf min :!kv
+ok 252 - 2..Inf min :p
+ok 253 - 2..Inf min :!p
+ok 254 - 2..Inf max :k
+ok 255 - 2..Inf max :!k
+ok 256 - 2..Inf max :kv
+ok 257 - 2..Inf max :!kv
+ok 258 - 2..Inf max :p
+ok 259 - 2..Inf max :!p

@@ -1,0 +1,128 @@
+ok 1 - Cool.ends-with with wrong args does not hang
+ok 2 - "foobar".ends-with("bar", :!i) is True
+ok 3 - "foobar".ends-with("bar", :!ignorecase) is True
+ok 4 - "foobar".ends-with("bar", :!m) is True
+ok 5 - "foobar".ends-with("bar", :!ignoremark) is True
+ok 6 - "foobar".ends-with("bar", :!i, :!m) is True
+ok 7 - "foobar".ends-with("bar", :!ignorecase, :!ignoremark) is True
+ok 8 - "foobar".ends-with("bar", :i) is True
+ok 9 - "foobar".ends-with("bar", :ignorecase) is True
+ok 10 - "foobar".ends-with("bar", :m) is True
+ok 11 - "foobar".ends-with("bar", :ignoremark) is True
+ok 12 - "foobar".ends-with("bar", :i, :m) is True
+ok 13 - "foobar".ends-with("bar", :ignorecase, :ignoremark) is True
+ok 14 - "foobar".ends-with("foobar", :!i) is True
+ok 15 - "foobar".ends-with("foobar", :!ignorecase) is True
+ok 16 - "foobar".ends-with("foobar", :!m) is True
+ok 17 - "foobar".ends-with("foobar", :!ignoremark) is True
+ok 18 - "foobar".ends-with("foobar", :!i, :!m) is True
+ok 19 - "foobar".ends-with("foobar", :!ignorecase, :!ignoremark) is True
+ok 20 - "foobar".ends-with("foobar", :i) is True
+ok 21 - "foobar".ends-with("foobar", :ignorecase) is True
+ok 22 - "foobar".ends-with("foobar", :m) is True
+ok 23 - "foobar".ends-with("foobar", :ignoremark) is True
+ok 24 - "foobar".ends-with("foobar", :i, :m) is True
+ok 25 - "foobar".ends-with("foobar", :ignorecase, :ignoremark) is True
+ok 26 - "foobar".ends-with("goo", :!i) is False
+ok 27 - "foobar".ends-with("goo", :!ignorecase) is False
+ok 28 - "foobar".ends-with("goo", :!m) is False
+ok 29 - "foobar".ends-with("goo", :!ignoremark) is False
+ok 30 - "foobar".ends-with("goo", :!i, :!m) is False
+ok 31 - "foobar".ends-with("goo", :!ignorecase, :!ignoremark) is False
+ok 32 - "foobar".ends-with("goo", :i) is False
+ok 33 - "foobar".ends-with("goo", :ignorecase) is False
+ok 34 - "foobar".ends-with("goo", :m) is False
+ok 35 - "foobar".ends-with("goo", :ignoremark) is False
+ok 36 - "foobar".ends-with("goo", :i, :m) is False
+ok 37 - "foobar".ends-with("goo", :ignorecase, :ignoremark) is False
+ok 38 - "foobar".ends-with("foobarx", :!i) is False
+ok 39 - "foobar".ends-with("foobarx", :!ignorecase) is False
+ok 40 - "foobar".ends-with("foobarx", :!m) is False
+ok 41 - "foobar".ends-with("foobarx", :!ignoremark) is False
+ok 42 - "foobar".ends-with("foobarx", :!i, :!m) is False
+ok 43 - "foobar".ends-with("foobarx", :!ignorecase, :!ignoremark) is False
+ok 44 - "foobar".ends-with("foobarx", :i) is False
+ok 45 - "foobar".ends-with("foobarx", :ignorecase) is False
+ok 46 - "foobar".ends-with("foobarx", :m) is False
+ok 47 - "foobar".ends-with("foobarx", :ignoremark) is False
+ok 48 - "foobar".ends-with("foobarx", :i, :m) is False
+ok 49 - "foobar".ends-with("foobarx", :ignorecase, :ignoremark) is False
+ok 50 - ｢foobar｣.ends-with("bar", :!i) is True
+ok 51 - ｢foobar｣.ends-with("bar", :!ignorecase) is True
+ok 52 - ｢foobar｣.ends-with("bar", :!m) is True
+ok 53 - ｢foobar｣.ends-with("bar", :!ignoremark) is True
+ok 54 - ｢foobar｣.ends-with("bar", :!i, :!m) is True
+ok 55 - ｢foobar｣.ends-with("bar", :!ignorecase, :!ignoremark) is True
+ok 56 - ｢foobar｣.ends-with("bar", :i) is True
+ok 57 - ｢foobar｣.ends-with("bar", :ignorecase) is True
+ok 58 - ｢foobar｣.ends-with("bar", :m) is True
+ok 59 - ｢foobar｣.ends-with("bar", :ignoremark) is True
+ok 60 - ｢foobar｣.ends-with("bar", :i, :m) is True
+ok 61 - ｢foobar｣.ends-with("bar", :ignorecase, :ignoremark) is True
+ok 62 - ｢foobar｣.ends-with("foobar", :!i) is True
+ok 63 - ｢foobar｣.ends-with("foobar", :!ignorecase) is True
+ok 64 - ｢foobar｣.ends-with("foobar", :!m) is True
+ok 65 - ｢foobar｣.ends-with("foobar", :!ignoremark) is True
+ok 66 - ｢foobar｣.ends-with("foobar", :!i, :!m) is True
+ok 67 - ｢foobar｣.ends-with("foobar", :!ignorecase, :!ignoremark) is True
+ok 68 - ｢foobar｣.ends-with("foobar", :i) is True
+ok 69 - ｢foobar｣.ends-with("foobar", :ignorecase) is True
+ok 70 - ｢foobar｣.ends-with("foobar", :m) is True
+ok 71 - ｢foobar｣.ends-with("foobar", :ignoremark) is True
+ok 72 - ｢foobar｣.ends-with("foobar", :i, :m) is True
+ok 73 - ｢foobar｣.ends-with("foobar", :ignorecase, :ignoremark) is True
+ok 74 - ｢foobar｣.ends-with("goo", :!i) is False
+ok 75 - ｢foobar｣.ends-with("goo", :!ignorecase) is False
+ok 76 - ｢foobar｣.ends-with("goo", :!m) is False
+ok 77 - ｢foobar｣.ends-with("goo", :!ignoremark) is False
+ok 78 - ｢foobar｣.ends-with("goo", :!i, :!m) is False
+ok 79 - ｢foobar｣.ends-with("goo", :!ignorecase, :!ignoremark) is False
+ok 80 - ｢foobar｣.ends-with("goo", :i) is False
+ok 81 - ｢foobar｣.ends-with("goo", :ignorecase) is False
+ok 82 - ｢foobar｣.ends-with("goo", :m) is False
+ok 83 - ｢foobar｣.ends-with("goo", :ignoremark) is False
+ok 84 - ｢foobar｣.ends-with("goo", :i, :m) is False
+ok 85 - ｢foobar｣.ends-with("goo", :ignorecase, :ignoremark) is False
+ok 86 - ｢foobar｣.ends-with("foobarx", :!i) is False
+ok 87 - ｢foobar｣.ends-with("foobarx", :!ignorecase) is False
+ok 88 - ｢foobar｣.ends-with("foobarx", :!m) is False
+ok 89 - ｢foobar｣.ends-with("foobarx", :!ignoremark) is False
+ok 90 - ｢foobar｣.ends-with("foobarx", :!i, :!m) is False
+ok 91 - ｢foobar｣.ends-with("foobarx", :!ignorecase, :!ignoremark) is False
+ok 92 - ｢foobar｣.ends-with("foobarx", :i) is False
+ok 93 - ｢foobar｣.ends-with("foobarx", :ignorecase) is False
+ok 94 - ｢foobar｣.ends-with("foobarx", :m) is False
+ok 95 - ｢foobar｣.ends-with("foobarx", :ignoremark) is False
+ok 96 - ｢foobar｣.ends-with("foobarx", :i, :m) is False
+ok 97 - ｢foobar｣.ends-with("foobarx", :ignorecase, :ignoremark) is False
+ok 98 - "foöbÀr".ends-with("bar") is False
+ok 99 - "foöbÀr".ends-with("bar", :i) is False
+ok 100 - "foöbÀr".ends-with("bar", :ignorecase) is False
+ok 101 - "foöbÀr".ends-with("BAR") is False
+ok 102 - "foöbÀr".ends-with("BÀR", :i) is True
+ok 103 - "foöbÀr".ends-with("BÀR", :ignorecase) is True
+ok 104 - "foöbÀr".ends-with("bAr", :m) is True
+ok 105 - "foöbÀr".ends-with("bAr", :ignoremark) is True
+ok 106 - "foöbÀr".ends-with("foobar") is False
+ok 107 - "foöbÀr".ends-with("foobar", :i) is False
+ok 108 - "foöbÀr".ends-with("foobar", :ignorecase) is False
+ok 109 - "foöbÀr".ends-with("foobar", :m) is False
+ok 110 - "foöbÀr".ends-with("foobar", :ignoremark) is False
+ok 111 - "foöbÀr".ends-with("foobar", :i, :m) is True
+ok 112 - "foöbÀr".ends-with("foobar", :ignorecase, :ignoremark) is True
+ok 113 - ｢foöbÀr｣.ends-with("bar") is False
+ok 114 - ｢foöbÀr｣.ends-with("bar", :i) is False
+ok 115 - ｢foöbÀr｣.ends-with("bar", :ignorecase) is False
+ok 116 - ｢foöbÀr｣.ends-with("BAR") is False
+ok 117 - ｢foöbÀr｣.ends-with("BÀR", :i) is True
+ok 118 - ｢foöbÀr｣.ends-with("BÀR", :ignorecase) is True
+ok 119 - ｢foöbÀr｣.ends-with("bAr", :m) is True
+ok 120 - ｢foöbÀr｣.ends-with("bAr", :ignoremark) is True
+ok 121 - ｢foöbÀr｣.ends-with("foobar") is False
+ok 122 - ｢foöbÀr｣.ends-with("foobar", :i) is False
+ok 123 - ｢foöbÀr｣.ends-with("foobar", :ignorecase) is False
+ok 124 - ｢foöbÀr｣.ends-with("foobar", :m) is False
+ok 125 - ｢foöbÀr｣.ends-with("foobar", :ignoremark) is False
+ok 126 - ｢foöbÀr｣.ends-with("foobar", :i, :m) is True
+ok 127 - ｢foöbÀr｣.ends-with("foobar", :ignorecase, :ignoremark) is True
+1..127

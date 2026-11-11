@@ -1,0 +1,2 @@
+1..1
+ok 1 - No SEGV or other crash in recursive init routine on a native array

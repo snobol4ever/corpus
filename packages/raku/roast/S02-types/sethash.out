@@ -1,0 +1,339 @@
+1..284
+ok 1 - SetHash.new produces a SetHash
+ok 2 - ...with the right elements
+ok 3 - Default value is false
+ok 4 - Single-key subscript (existing element)
+ok 5 - Single-key subscript has correct type (existing element)
+ok 6 - Single-key subscript (nonexistent element)
+ok 7 - Single-key subscript has correct type (nonexistent element)
+ok 8 - exists with existing element
+ok 9 - exists with nonexistent element
+ok 10 - Bool returns True if there is something in the SetHash
+ok 11 - Bool returns False if there is nothing in the SetHash
+ok 12 - .hash doesn't die
+ok 13 - ...and it returned a Hash
+ok 14 - ...with the right elements
+ok 15 - ...and values
+ok 16 - Can't assign to .keys
+ok 17 - Can't assign to .values
+ok 18 - Multiple-element access
+ok 19 - Multiple-element access (with nonexistent elements)
+ok 20 - .elems gives number of keys
+ok 21 - +$set gives number of keys
+ok 22 - can set an item to True
+ok 23 - ...and it adds it to the SetHash
+ok 24 - can set the same item to True
+ok 25 - ...and it does nothing
+ok 26 - can set an item to False
+ok 27 - and it removes it
+ok 28 - can set an item which does not exist to False
+ok 29 - ... and it is not added to the set
+ok 30 - can set an item to False
+ok 31 - ... and an item is gone
+ok 32 - ... and the right one is gone
+ok 33 - can ++ an item
+ok 34 - ++ on an item reinstates it
+ok 35 - can ++ an item
+ok 36 - ++ on an existing item does nothing
+ok 37 - can -- an item
+ok 38 - -- on an item removes it
+ok 39 - can -- an item
+ok 40 - ... but only if they were there to start with
+ok 41 - SetHash.kv returns list of keys and values (1)
+ok 42 - SetHash.kv returns list of keys and values (2)
+ok 43 - Identical sets smartmatch with each other
+ok 44 - Subset does not smartmatch
+ok 45 - Superset does not smartmatch
+ok 46 - Smartmatch is not element of
+ok 47 - Type-checking smartmatch works
+ok 48 - SetHash matches Set, too
+ok 49 - Bag smartmatches with equivalent SetHash:
+ok 50 - ... even if the Bag has greater quantities
+ok 51 - Subset does not smartmatch
+ok 52 - Superset does not smartmatch
+ok 53 - Type-checking smartmatch works
+ok 54 - Str.SetHash makes a SetHash
+ok 55 - 'a'.SetHash is set a
+ok 56 - Pair.SetHash makes a SetHash
+ok 57 - (a => 1).SetHash is set a
+ok 58 - (a => 0).SetHash is the empty set
+ok 59 - <a b c>.SetHash makes a SetHash
+ok 60 - <a b c a>.SetHash makes the set a b c
+ok 61 - [a b c a].SetHash makes the set a b c
+ok 62 - [a => 3, b => 0, 'c', 'a'].SetHash makes the set a c
+ok 63 - a	2 b	4 c	0.SetHash makes a SetHash
+ok 64 - a	2 b	4 c	0.SetHash makes the set a b
+ok 65 - :exists with existing element
+ok 66 - :exists with nonexistent element
+ok 67 - :delete returns current value on set
+ok 68 - ...and actually deletes
+ok 69 - Inititalization worked
+ok 70 - can set an item to False
+ok 71 - ... and an item is gone
+ok 72 - ... and the right one is gone
+ok 73 - ++ on an item reinstates it
+ok 74 - ++ on an existing item does nothing
+ok 75 - -- removes items
+ok 76 - ... but only if they were there from the beginning
+ok 77 - SetHash.new given a List produces a SetHash
+ok 78 - SetHash.new discards duplicates
+ok 79 - SetHash.new given an array of pairs produces a SetHash
+ok 80 - ... with three element
+ok 81 - ... which are all Pairs
+ok 82 - SetHash.new given a Hash produces a SetHash
+ok 83 - ... with three elements
+ok 84 - ... which are all Pairs
+ok 85 - SetHash.new given a itemized Hash produces a SetHash
+ok 86 - ... with three elements
+ok 87 - ... which are all Pairs
+ok 88 - SetHash.new given a Set produces a SetHash
+ok 89 - ... with one element
+ok 90 - SetHash.new given a SetHash produces a SetHash
+ok 91 - ... with one element
+ok 92 - SetHash.new given a BagHash produces a SetHash
+ok 93 - ... with one element
+ok 94 - SetHash given a Bag produces a SetHash
+ok 95 - ... with one element
+ok 96 - .list returns 3 things
+ok 97 - ... all of which are Pair
+ok 98 - .raku lives
+ok 99 - ... and produces a string
+ok 100 - .raku.eval lives
+ok 101 - ... and produces a SetHash
+ok 102 - ... and it has the correct values
+ok 103 - .Str lives
+ok 104 - ... and produces a string
+ok 105 - ... which only contains bar baz and foo separated by spaces
+ok 106 - .gist lives
+ok 107 - ... and produces a string
+ok 108 - ... which mentions foo
+ok 109 - ... which mentions bar
+ok 110 - ... which mentions baz
+ok 111 - A SetHash bound to a %var is a SetHash
+ok 112 - ...with the right elements
+ok 113 - Single-key subscript (existing element)
+ok 114 - Single-key subscript (nonexistent element)
+ok 115 - Can assign to an element (SetHash are immutable)
+ok 116 - We got one of the three choices
+ok 117 - .roll(2) returns the right number of items
+ok 118 - .roll(2) returned "a"s, "b"s, and "c"s
+ok 119 - .roll(100) returns 100 items
+ok 120 - .roll(100) returned "a"s, "b"s, and "c"s
+ok 121 - .roll should not change the SetHash
+ok 122 - .roll should not change the SetHash
+ok 123 - ().SetHash.roll -> Nil
+ok 124 - ().SetHash.roll(1) -> ().Seq
+ok 125 - ().SetHash.roll(*-1) -> ().Seq
+ok 126 - ().SetHash.roll(*) -> ().Seq
+ok 127 - ().SetHash.roll(Inf) -> ().Seq
+ok 128 - ().SetHash.roll(-1) -> ().Seq
+ok 129 - ().SetHash.roll(-Inf) -> ().Seq
+ok 130 - ().SetHash.roll(NaN) should die
+ok 131 - SetHash.pick(*) gets all elements
+ok 132 - SetHash.pick(*) returns elements in a random order
+ok 133 - .pick should not change the SetHash
+ok 134 - .pick should not change the SetHash
+ok 135 - We got one of the three choices
+ok 136 - .pick(2) returns the right number of items
+ok 137 - .pick(2) returned "a"s, "b"s, and "c"s
+ok 138 - .pick(2) returned at most one "a"
+ok 139 - .pick(2) returned at most one "b"
+ok 140 - .pick(2) returned at most one "c"
+ok 141 - .pick should not change the SetHash
+ok 142 - .pick should not change the SetHash
+ok 143 - ().SetHash.pick -> Nil
+ok 144 - ().SetHash.pick(1) -> ().Seq
+ok 145 - ().SetHash.pick(*-1) -> ().Seq
+ok 146 - ().SetHash.pick(*) -> ().Seq
+ok 147 - ().SetHash.pick(Inf) -> ().Seq
+ok 148 - ().SetHash.pick(-1) -> ().Seq
+ok 149 - ().SetHash.pick(-Inf) -> ().Seq
+ok 150 - ().SetHash.pick(NaN) should die
+ok 151 - SetHash.grab(*) gets all elements
+ok 152 - SetHash.grab(*) returns elements in a random order
+ok 153 - .grab *should* change the SetHash
+ok 154 - .grab *should* change the SetHash
+ok 155 - We got one of the three choices
+ok 156 - .grab *should* change the SetHash
+ok 157 - .grab *should* change the SetHash
+ok 158 - .grab(2) returns the right number of items
+ok 159 - .grab(2) returned "a"s, "b"s, and "c"s
+ok 160 - .grab(2) returned at most one "a"
+ok 161 - .grab(2) returned at most one "b"
+ok 162 - .grab(2) returned at most one "c"
+ok 163 - .grab *should* change the SetHash
+ok 164 - .grab *should* change the SetHash
+ok 165 - are they all Pairs
+ok 166 - and they all have a True value
+ok 167 - SetHash.grabpairs(*) gets all elements
+ok 168 - SetHash.grabpairs(*) returns elements in a random order
+ok 169 - .grabpairs *should* change the SetHash
+ok 170 - .grabpairs *should* change the SetHash
+ok 171 - and is it a Pair
+ok 172 - We got one of the three choices
+ok 173 - .grabpairs *should* change the SetHash
+ok 174 - .grabpairs *should* change the SetHash
+ok 175 - are they all Pairs
+ok 176 - .grabpairs(2) returns the right number of items
+ok 177 - .grabpairs(2) returned "a"s, "b"s, and "c"s
+ok 178 - .grabpairs(2) returned at most one "a"
+ok 179 - .grabpairs(2) returned at most one "b"
+ok 180 - .grabpairs(2) returned at most one "c"
+ok 181 - .grabpairs *should* change the SetHash
+ok 182 - .grabpairs *should* change the SetHash
+ok 183 - Inititalization worked
+ok 184 - can set an item to False
+ok 185 - ... and an item is gone
+ok 186 - ... and the right one is gone
+ok 187 - ++ on an item reinstates it
+ok 188 - ++ on an existing item does nothing
+ok 189 - -- removes items
+ok 190 - ... but only if they were there from the beginning
+ok 191 - Assigning a List to a SetHash
+ok 192 - ... works as expected
+ok 193 - Method .SetHash works on Int-1
+ok 194 - Method .SetHash works on Int-2
+ok 195 - Method .SetHash works on Str-1
+ok 196 - Method .SetHash works on Str-2
+ok 197 - Method .SetHash works on Array-1
+ok 198 - Method .SetHash works on Array-2
+ok 199 - Method .SetHash works on Hash-1
+ok 200 - Method .SetHash works on Hash-2
+ok 201 - Method .SetHash works on List-1
+ok 202 - Method .SetHash works on List-2
+ok 203 - .total gives sum of values (non-empty)
+ok 204 - +$set gives sum of values (non-empty)
+ok 205 - .minpairs works (non-empty)
+ok 206 - .maxpairs works (non-empty)
+ok 207 - .fmt(%s) works (non-empty)
+ok 208 - .fmt(%s,sep) works (non-empty)
+ok 209 - .fmt(%s%s) works (non-empty)
+ok 210 - .fmt(%s%s,sep) works (non-empty)
+ok 211 - .total gives sum of values (empty)
+ok 212 - +$set gives sum of values (empty)
+ok 213 - .minpairs works (empty)
+ok 214 - .maxpairs works (empty)
+ok 215 - .fmt(%s) works (empty)
+ok 216 - .fmt(%s,sep) works (empty)
+ok 217 - .fmt(%s%s) works (empty)
+ok 218 - .fmt(%s%s,sep) works (empty)
+ok 219 - can we parameterize for strings?
+ok 220 - does .keyof return the correct type
+# Subtest: does attempt to add item of wrong type croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 221 - does attempt to add item of wrong type croak
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 222 - do wrong values make initialization croak
+ok 223 - can assign to subclassed SetHash
+ok 224 - smartmatch a Seq
+ok 225 - make sure SetHash.Hash returns objects
+# Subtest: .hash does not cause keys to be stringified
+    1..2
+    ok 1 - SetHash.new
+    ok 2 - .SetHash
+ok 226 - .hash does not cause keys to be stringified
+ok 227 - .antipairs produces correct result
+ok 228 - .SetHash returns self
+# Subtest: SetHash autovivification of non-existent keys
+    1..10
+    ok 1 - correct return of postfix ++
+    ok 2 - correct result of postfix ++
+    ok 3 - correct return of postfix --
+    ok 4 - correct result of postfix --
+    ok 5 - correct return of prefix ++
+    ok 6 - correct result of prefix ++
+    ok 7 - correct return of prefix --
+    ok 8 - correct result of prefix --
+    ok 9 - correct return of assignment
+    ok 10 - correct result of assignment
+ok 229 - SetHash autovivification of non-existent keys
+# Subtest: cloned SetHash gets its own elements storage
+    1..4
+    ok 1 - modifying first set works, even after we created its clone
+    ok 2 - modifying first set does not affect cloned set
+    ok 3 - modifying second is possible
+    ok 4 - modifying second does not affect the first
+ok 230 - cloned SetHash gets its own elements storage
+ok 231 - SetHash retains object, not container
+ok 232 - BagHash retains object, not container
+ok 233 - MixHash retains object, not container
+ok 234 - Can use $_ from .values to remove items from SetHash (1)
+ok 235 - Can use $_ from .values to remove items from SetHash (2)
+ok 236 - Can use $_ from .values to restore items in SetHash
+ok 237 - Can use value from .kv to remove items from SetHash (1)
+ok 238 - Can use value from .kv to remove items from SetHash (2)
+ok 239 - Can use value from .kv to restore items in SetHash
+ok 240 - Can use $_ from .pairs to remove items from SetHash (1)
+ok 241 - Can use $_ from .pairs to remove items from SetHash (2)
+ok 242 - Can use $_ from .pairs to restore items in SetHash
+ok 243 - assigning negatives to .value does not remove the items from SetHash
+ok 244 - coercion of Map to SetHash 1
+ok 245 - coercion of Map to SetHash 2
+ok 246 - coercion of object Hash to SetHash 1
+ok 247 - coercion of object Hash to SetHash 2
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches SetHash
+ok 248 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches SetHash
+ok 249 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches SetHash
+ok 250 - did we throws-like X::Cannot::Lazy?
+# Subtest: elements with weight zero are removed
+    1..3
+    ok 1 - weight decrement
+    ok 2 - Pair value decrement
+    ok 3 - weight set to zero
+ok 251 - elements with weight zero are removed
+# Subtest: elements with negative weights are allowed in SetHashes
+    1..2
+    ok 1 - negative weight => True => element present
+    ok 2 - negative Pair value => True => element present
+ok 252 - elements with negative weights are allowed in SetHashes
+ok 253 - did we get right number of elements
+ok 254 - do we get a truthy value for a
+ok 255 - do we get a falsy value for e
+ok 256 - is the %h really a SetHash
+ok 257 - did we get right number of elements after re-init
+ok 258 - did we get a truthy value by removing e
+ok 259 - did we get right number of elements after :delete
+ok 260 - can delete from SetHash by assignment
+ok 261 - did we get right number of elements assignment
+ok 262 - can we smartmatch empty
+ok 263 - coerce SetHash -> Set
+ok 264 - coerce SetHash -> Bag
+ok 265 - coerce SetHash -> BagHash
+ok 266 - coerce SetHash -> Mix
+ok 267 - coerce SetHash -> MixHash
+ok 268 - parameterized SetHash
+ok 269 - did it parameterize ok
+ok 270 - adding element of wrong type fails
+ok 271 - must have Ints on creation
+ok 272 - does .item work on SetHashes
+ok 273 - does SetHash type object return proper type
+ok 274 - does SetHash object return proper type
+ok 275 - Emptying a SetHash works
+ok 276 - Can we initialize a SetHash with a single value
+ok 277 - did on-the-fly value return original
+ok 278 - did on-the-fly value change original
+ok 279 - got a SetHash with a List
+ok 280 - got a SetHash with an Array
+ok 281 - SetHash Capture
+ok 282 - self referencing SetHash doesn't loop on 'Str'
+ok 283 - self referencing SetHash doesn't loop on 'gist'
+ok 284 - self referencing SetHash doesn't loop on 'raku'

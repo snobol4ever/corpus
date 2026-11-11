@@ -1,0 +1,29 @@
+1..28
+ok 1 - uninitialized untyped variable should have name
+ok 2 - initialized untyped variable should have name
+ok 3 - uninitialized typed variable should have name
+ok 4 - initialized typed variable should have name
+ok 5 - uninitialized untyped array should have name
+ok 6 - initialized untyped array should have name
+ok 7 - uninitialized typed array should have name
+ok 8 - initialized typed array should have name
+ok 9 - uninitialized untyped hash should have name
+ok 10 - initialized untyped hash should have name
+ok 11 - uninitialized typed hash should have name
+ok 12 - initialized typed hash should have name
+ok 13 - uninitialized untyped sub should have name
+ok 14 - initialized untyped sub should have name
+ok 15 - uninitialized typed sub should have name
+ok 16 - == op name uses <>
+ok 17 - => op name uses «»
+ok 18 - >= op name uses «»
+ok 19 - <= op name uses «»
+ok 20 - <=> op name uses «»
+ok 21 - custom ~~> op name uses «»
+ok 22 - custom ~~>» op name uses <> and backslash
+ok 23 - custom $> op name uses <> and backslash
+ok 24 - custom $< op name uses <> and backslash
+ok 25 - VAR.name ok
+ok 26 - VAR.?name ok
+ok 27 - VAR.+name ok
+ok 28 - VAR.*name ok

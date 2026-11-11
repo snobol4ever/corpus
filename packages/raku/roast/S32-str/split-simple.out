@@ -1,0 +1,116 @@
+1..30
+# Subtest: Str.split(/regex/)
+    1..2
+    ok 1 - split created the correct number of elements for: Str.split(/regex/)
+    ok 2 - values matched for: Str.split(/regex/)
+ok 1 - Str.split(/regex/)
+# Subtest: split(/regex/, Str)
+    1..2
+    ok 1 - split created the correct number of elements for: split(/regex/, Str)
+    ok 2 - values matched for: split(/regex/, Str)
+ok 2 - split(/regex/, Str)
+# Subtest: Str.split(Any) (with Str semantics
+    1..2
+    ok 1 - split created the correct number of elements for: Str.split(Any) (with Str semantics
+    ok 2 - values matched for: Str.split(Any) (with Str semantics
+ok 3 - Str.split(Any) (with Str semantics
+# Subtest: Str.split(/regex/) (with * limit)
+    1..2
+    ok 1 - split created the correct number of elements for: Str.split(/regex/) (with * limit)
+    ok 2 - values matched for: Str.split(/regex/) (with * limit)
+ok 4 - Str.split(/regex/) (with * limit)
+# Subtest: split(/regex/, Str) (with * limit)
+    1..2
+    ok 1 - split created the correct number of elements for: split(/regex/, Str) (with * limit)
+    ok 2 - values matched for: split(/regex/, Str) (with * limit)
+ok 5 - split(/regex/, Str) (with * limit)
+# Subtest: Str.split(Any) (with Str semantics (with * limit)
+    1..2
+    ok 1 - split created the correct number of elements for: Str.split(Any) (with Str semantics (with * limit)
+    ok 2 - values matched for: Str.split(Any) (with Str semantics (with * limit)
+ok 6 - Str.split(Any) (with Str semantics (with * limit)
+# Subtest: Int.split(Int)
+    1..2
+    ok 1 - split created the correct number of elements for: Int.split(Int)
+    ok 2 - values matched for: Int.split(Int)
+ok 7 - Int.split(Int)
+# Subtest: split(Int, Int)
+    1..2
+    ok 1 - split created the correct number of elements for: split(Int, Int)
+    ok 2 - values matched for: split(Int, Int)
+ok 8 - split(Int, Int)
+# Subtest: Non-matching regex returns whole string
+    1..2
+    ok 1 - split created the correct number of elements for: Non-matching regex returns whole string
+    ok 2 - values matched for: Non-matching regex returns whole string
+ok 9 - Non-matching regex returns whole string
+# Subtest: Non-matching string returns whole string
+    1..2
+    ok 1 - split created the correct number of elements for: Non-matching string returns whole string
+    ok 2 - values matched for: Non-matching string returns whole string
+ok 10 - Non-matching string returns whole string
+# Subtest: trailing matches leave an empty string
+    1..2
+    ok 1 - split created the correct number of elements for: trailing matches leave an empty string
+    ok 2 - values matched for: trailing matches leave an empty string
+ok 11 - trailing matches leave an empty string
+# Subtest: Negative limit returns empty List
+    1..2
+    ok 1 - split created the correct number of elements for: Negative limit returns empty List
+    ok 2 - values matched for: Negative limit returns empty List
+ok 12 - Negative limit returns empty List
+# Subtest: Zero limit returns empty List
+    1..2
+    ok 1 - split created the correct number of elements for: Zero limit returns empty List
+    ok 2 - values matched for: Zero limit returns empty List
+ok 13 - Zero limit returns empty List
+# Subtest: Limit of 1 returns a 1 element List (with identical string)
+    1..2
+    ok 1 - split created the correct number of elements for: Limit of 1 returns a 1 element List (with identical string)
+    ok 2 - values matched for: Limit of 1 returns a 1 element List (with identical string)
+ok 14 - Limit of 1 returns a 1 element List (with identical string)
+# Subtest: Split on an Integer with limit parameter works
+    1..2
+    ok 1 - split created the correct number of elements for: Split on an Integer with limit parameter works
+    ok 2 - values matched for: Split on an Integer with limit parameter works
+ok 15 - Split on an Integer with limit parameter works
+# Subtest: Limit of 3 returns 3 element List including empty Strings
+    1..2
+    ok 1 - split created the correct number of elements for: Limit of 3 returns 3 element List including empty Strings
+    ok 2 - values matched for: Limit of 3 returns 3 element List including empty Strings
+ok 16 - Limit of 3 returns 3 element List including empty Strings
+# Subtest: Limit larger than number of split values doesn't return extranuous elements
+    1..2
+    ok 1 - split created the correct number of elements for: Limit larger than number of split values doesn't return extranuous elements
+    ok 2 - values matched for: Limit larger than number of split values doesn't return extranuous elements
+ok 17 - Limit larger than number of split values doesn't return extranuous elements
+# Subtest: split into characters respects limit (1)
+    1..2
+    ok 1 - split created the correct number of elements for: split into characters respects limit (1)
+    ok 2 - values matched for: split into characters respects limit (1)
+ok 18 - split into characters respects limit (1)
+# Subtest: split into characters respects limit (2)
+    1..2
+    ok 1 - split created the correct number of elements for: split into characters respects limit (2)
+    ok 2 - values matched for: split into characters respects limit (2)
+ok 19 - split into characters respects limit (2)
+# Subtest: split with zero-width assertions
+    1..2
+    ok 1 - split created the correct number of elements for: split with zero-width assertions
+    ok 2 - values matched for: split with zero-width assertions
+ok 20 - split with zero-width assertions
+ok 21 - ''.split('') returns empty list
+ok 22 - ''.split('') returns empty list
+ok 23 - split returns captured delimiter
+ok 24 - split captured single space
+ok 25 - split captured multiple spaces
+ok 26 - split() with :v and trailing delimiter (count)
+ok 27 - split(:v) and trailing delimiter (values)
+ok 28 - .split('') does something
+ok 29 - .split('') does the same thing as .split(/''/) (RT  \#112868)
+# Subtest: split with NaN limit throws (RT #128034)
+    1..3
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+ok 30 - split with NaN limit throws (RT  \#128034)

@@ -1,0 +1,18 @@
+1..17
+ok 1 - wordcase('') works
+ok 2 - wordcase('...') works
+ok 3 - '...'.wordcase works
+ok 4 - wordcase works properly with apostrophes
+ok 5 - wordcase works properly with apostrophes and dashes
+ok 6 - wordcase empty string
+ok 7 - wordcase string works
+ok 8 - original string not touched
+ok 9 - wordcase string works
+ok 10 - original string not touched
+ok 11 - works on ordinary string
+ok 12 - wordcase() uses \$_ as default
+ok 13 - wordcase() works on non-ASCII chars
+ok 14 - wordcase on string with grapheme precomposed
+ok 15 - wordcase on string with grapheme without precomposed
+ok 16 - .wordcase on Int
+ok 17 - ('Nothing much' but A).wordcase eq 'Nothing much'.wordcase

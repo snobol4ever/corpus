@@ -1,0 +1,8 @@
+1..7
+ok 1 - BEGIN {} runs only once
+ok 2 - BEGIN {...} ran at compile time
+ok 3 - CHECK {...} ran at compile time
+ok 4 - INIT {...} ran at runtime, but ASAP
+ok 5 - ENTER {...} at runtime, but before the mainline body
+ok 6 - $var gets initialized at END time
+ok 7 - $eof_var gets assigned at END time

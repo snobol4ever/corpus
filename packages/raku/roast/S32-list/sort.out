@@ -1,0 +1,98 @@
+1..74
+ok 1 - array of numbers was sorted
+ok 2 - array of numbers was sorted (w/out parens)
+ok 3 - array of mixed numbers including Inf
+ok 4 - array of numbers was sorted (using invocant form)
+ok 5 - ... with explicit spaceship
+ok 6 - ... with explicit spaceship (using invocant form)
+ok 7 - ... reverse sort with explicit spaceship
+ok 8 - ... reverse sort with explicit spaceship (using invocant form)
+ok 9 - array of strings was sorted
+ok 10 - array of strings was sorted (w/out parens)
+ok 11 - array of strings was sorted (using invocant form)
+ok 12 - ... with explicit cmp
+ok 13 - ... with explicit cmp (using invocant form)
+ok 14 - ... sort keys by string value
+ok 15 - ... sort keys by string value (using invocant form)
+ok 16 - ... sort keys by numeric value
+ok 17 - ... sort keys by numeric value (using invocant form)
+ok 18 - can sort with automated Schwartzian Transform
+ok 19 - %hash.sort returns a List of Pairs
+ok 20 - sort with unary sub
+ok 21 - sort with arity 0 closure is stable
+ok 22 - sort with arity 1 closure is stable
+ok 23 - sort with arity 2 closure is stable
+ok 24 - method form of sort should work on numbers
+ok 25 - method form of sort should work on strings
+ok 26 - method form of sort should work on lists
+ok 27 - sort by class name
+# Subtest: sort does not accept 0-arity sub
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 28 - sort does not accept 0-arity sub
+# Subtest: sort does not accept &rand
+    1..2
+    ok 1 - '(1..10).sort(&rand)' died
+    ok 2 - right exception type (Exception)
+ok 29 - sort does not accept &rand
+ok 30 - sorting by stringified class instance (name and memory address)
+ok 31 - .sort stored in a sub returns a List
+ok 32 - &sort stored in a sub returns a List
+ok 33 - detached .sort returns a List
+ok 34 - auto-primed *.sort returns a Seq
+ok 35 - .sort on reified empty array does not crash
+# Subtest: degenerate cases
+    1..13
+    ok 1 - empty, no args
+    ok 2 - empty, 1-arity
+    ok 3 - empty, 2-arity
+    ok 4 - 1 item, no args
+    ok 5 - 1 item, 1-arity
+    ok 6 - 1 item, 2-arity
+    ok 7 - 2-item, no args (1)
+    ok 8 - 2-item, no args (2)
+    ok 9 - 2-item, 1-arity (1)
+    ok 10 - 2-item, 1-arity (2)
+    ok 11 - 2-item, 2-arity (2)
+    ok 12 - 2-item, 2-arity (1)
+    ok 13 - 2-item, 2-arity (3)
+ok 36 - degenerate cases
+ok 37 - no crashes when using &lc in .sort
+ok 38 - is sorting a 2 elem list with a mapper stable?
+ok 39 - do IntStrs sort correctly
+ok 40 - do NumStrs sort correctly
+ok 41 - do RatStrs sort correctly
+ok 42 - do ComplexStrs sort correctly
+ok 43 - do mixed allomorphs sort correctly
+ok 44 - does NaN sort correctly
+ok 45 - sub empty haystack
+ok 46 - method empty haystack
+ok 47 - sub-Schwartz empty haystack
+ok 48 - method-Schwartz empty haystack
+ok 49 - sub-comparator empty haystack
+ok 50 - method-comparator empty haystack
+ok 51 - sub one elem haystack
+ok 52 - method one elem haystack
+ok 53 - sub-Schwartz one elem haystack
+ok 54 - method-Schwartz one elem haystack
+ok 55 - sub-comparator one elem haystack
+ok 56 - method-comparator one elem haystack
+ok 57 - sub two elem haystack sorted
+ok 58 - method two elem haystack sorted
+ok 59 - sub-Schwartz two elem haystack sorted
+ok 60 - method-Schwartz two elem haystack sorted
+ok 61 - sub-comparator two elem haystack sorted
+ok 62 - method-comparator two elem haystack sorted
+ok 63 - sub two elem haystack unsorted
+ok 64 - method two elem haystack unsorted
+ok 65 - sub-Schwartz two elem haystack unsorted
+ok 66 - method-Schwartz two elem haystack unsorted
+ok 67 - sub-comparator two elem haystack unsorted
+ok 68 - method-comparator two elem haystack unsorted
+ok 69 - sub N elem haystack
+ok 70 - method N elem haystack
+ok 71 - sub N elem haystack with Schwartz
+ok 72 - method N elem haystack with Schwartz
+ok 73 - sub N elem haystack with comparator
+ok 74 - method N elem haystack with comparator

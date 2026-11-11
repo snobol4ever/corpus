@@ -1,0 +1,384 @@
+1..255
+ok 1 - &bag produces a Bag
+ok 2 - ...with the right elements
+ok 3 - Defaults to 0
+ok 4 - Single-key subscript (existing element)
+ok 5 - Single-key subscript yields an Int
+ok 6 - Single-key subscript (nonexistent element)
+ok 7 - Single-key subscript yields an Int (nonexistent element)
+ok 8 - exists with existing element
+ok 9 - exists with nonexistent element
+ok 10 - Values returns the correct number of values
+ok 11 - Values returns the correct sum
+ok 12 - Bool returns True if there is something in the Bag
+ok 13 - Bool returns False if there is nothing in the Bag
+ok 14 - .hash doesn't die
+ok 15 - ...and it returned a Hash
+ok 16 - ...with the right elements
+# Subtest: Can't assign to an element (Bags are immutable)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 17 - Can't assign to an element (Bags are immutable)
+# Subtest: Can't increment an element (Bags are immutable)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 18 - Can't increment an element (Bags are immutable)
+# Subtest: Can't assign to .keys
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 19 - Can't assign to .keys
+# Subtest: Can't assign to .values
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 20 - Can't assign to .values
+# Subtest: Can't :delete from Bag
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 21 - Can't :delete from Bag
+ok 22 - Multiple-element access
+ok 23 - Multiple-element access (with nonexistent elements)
+ok 24 - Identical bags smartmatch with each other
+ok 25 - Identical bags smartmatch with each other
+ok 26 - Subset does not smartmatch
+ok 27 - Subset (only quantity different) does not smartmatch
+ok 28 - Superset does not smartmatch
+ok 29 - Superset (only quantity different) does not smartmatch
+ok 30 - Smartmatch is not element of
+ok 31 - Type-checking smartmatch works
+ok 32 - Set smartmatches with equivalent bag
+ok 33 - ... but not if the Bag has greater quantities
+ok 34 - Type-checking smartmatch works
+ok 35 - Str.Bag makes a Bag
+ok 36 - 'a'.Bag is bag a
+ok 37 - Pair.Bag makes a Bag
+ok 38 - (a => 100000).Bag is bag a:100000
+ok 39 - (a => 0).Bag is the empty bag
+ok 40 - <a b c>.Bag makes a Bag
+ok 41 - <a b c a>.Bag makes the bag a:2 b:1 c:1
+ok 42 - [a b c a].Bag makes the bag a:2 b:1 c:1
+ok 43 - [a => 3, b => 0, 'c', 'a'].Bag makes the bag a:4 c:1
+ok 44 - a	2 b	4 c	0.Bag makes a Bag
+ok 45 - a	2 b	4 c	0.Bag makes the bag a:2 b:4
+ok 46 - :exists with existing element
+ok 47 - :exists with nonexistent element
+# Subtest: :delete does not work on bag
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 48 - :delete does not work on bag
+ok 49 - Int keys are left as Ints
+ok 50 - Bool keys are left as Bools
+ok 51 - And Str keys are permitted in the same set
+ok 52 - All keys have the right values
+ok 53 - single arg rule rules
+ok 54 - flattening rules
+ok 55 - A hash to which a Bag has been bound becomes a Bag
+ok 56 - ...with the right elements
+ok 57 - &Bag.new given an array of strings produces a Bag
+ok 58 - ...with the right elements
+ok 59 - &Bag.new given an array of pairs produces a Bag
+ok 60 - ... with four elements under the single arg rule
+ok 61 - &Bag.new given an itemized array of pairs produces a Bag
+ok 62 - ... with one element
+ok 63 - &Bag.new given a Hash produces a Bag
+ok 64 - ... with four elements
+ok 65 - ... which are all Pairs
+ok 66 - &Bag.new given a Hash produces a Bag
+ok 67 - ... with one element
+ok 68 - &Bag.new given an itemized Hash produces a Bag
+ok 69 - ... with one element
+ok 70 - &Bag.new given a Set produces a Bag
+ok 71 - ... with one element
+ok 72 - &Bag.new given a SetHash produces a Bag
+ok 73 - ... with one element
+ok 74 - &Bag.new given a BagHash produces a Bag
+ok 75 - ... with one element
+ok 76 - &bag given a Set produces a Bag
+ok 77 - ... with one element
+ok 78 - A Bag bound to a %var is a Bag
+ok 79 - ...with the right elements
+ok 80 - Single-key subscript (existing element)
+ok 81 - Single-key subscript (nonexistent element)
+# Subtest: Can't assign to an element (Bags are immutable)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 82 - Can't assign to an element (Bags are immutable)
+# Subtest: Can't assign to a %var implemented by Bag
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 83 - Can't assign to a %var implemented by Bag
+# Subtest: Can't :delete from a Bag
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 84 - Can't :delete from a Bag
+ok 85 - .list returns 3 things
+ok 86 - ... all of which are Pairs
+ok 87 - .pairs returns 3 things
+ok 88 - ... all of which are Pairs
+ok 89 - ... the keys of which are Strs
+ok 90 - ... and the values of which are Ints
+ok 91 - .raku lives
+ok 92 - ... and produces a string
+ok 93 - ... of reasonable length
+ok 94 - .raku.EVAL lives
+ok 95 - ... and produces a Bag
+ok 96 - ... and it has the correct values
+ok 97 - .Str lives
+ok 98 - ... and produces a string
+ok 99 - ... which only contains bar baz and foo with the proper counts and separated by spaces
+ok 100 - .gist lives
+ok 101 - ... and produces a string
+ok 102 - ... of reasonable length
+ok 103 - ... which mentions foo
+ok 104 - ... which mentions bar
+ok 105 - ... which mentions baz
+ok 106 - A Bag bound to a %var is a Bag
+ok 107 - ...with the right elements
+ok 108 - Single-key subscript (existing element)
+ok 109 - Single-key subscript (nonexistent element)
+ok 110 - We got one of the two choices
+ok 111 - .roll(2) returns the right number of items
+ok 112 - .roll(2) returned "a"s and "b"s
+ok 113 - .roll(100) returns 100 items
+ok 114 - .roll(100) (1)
+ok 115 - .roll(100) (2)
+ok 116 - .roll(100) (1)
+ok 117 - .roll(100) (2)
+ok 118 - .roll should not change Bag
+ok 119 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 120 - .roll(100) returns 100 items
+ok 121 - .roll(100) (1)
+ok 122 - .roll(100) (2)
+ok 123 - .roll should not change Bag
+ok 124 - We got one of the two choices
+ok 125 - .pick(2) returns the right number of items
+ok 126 - .pick(2) returned at most one "a"
+ok 127 - .pick(2) and the rest are "b"
+ok 128 - .pick(*) returns the right number of items
+ok 129 - .pick(*) (1)
+ok 130 - .pick(*) (2)
+ok 131 - .pick should not change Bag
+ok 132 - .pick(<negative number>) does not return any items
+ok 133 - .pick() gives valid result with argument
+ok 134 - .pick int-ifies arg
+ok 135 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 136 - .pick(100) returns 100 items
+ok 137 - .pick(100) (1)
+ok 138 - .pick(100) (2)
+ok 139 - .pick should not change Bag
+ok 140 - Did we get a Pair
+ok 141 - We got one of the two choices
+ok 142 - .pickpairs(2) returns the right number of items
+ok 143 - .pickpairs(2) returned one "a"
+ok 144 - .pickpairs(2) returned one "b"
+ok 145 - .pickpairs(*) returns the right number of items
+ok 146 - .pickpairs(*) (1)
+ok 147 - .pickpairs(*) (2)
+ok 148 - .pickpairs should not change Bag
+ok 149 - .pickpairs(<negative number>) does not return any items
+# Subtest: cannot call .grab on a Bag
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+ok 150 - cannot call .grab on a Bag
+# Subtest: cannot call .grabpairs on a Bag
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+ok 151 - cannot call .grabpairs on a Bag
+ok 152 - Two elements
+ok 153 - One of the bag's elements is indeed a Bag!
+ok 154 - With the proper elements
+ok 155 - One of the bag's elements is indeed a List!
+ok 156 - with the proper elements
+ok 157 - Two elements
+ok 158 - One of the bag's elements is indeed a bag!
+ok 159 - With the proper elements
+ok 160 - One of the bag's elements is indeed a List!
+ok 161 - with the proper elements
+ok 162 - Method .Bag works on Int-1
+ok 163 - Method .Bag works on Int-2
+ok 164 - Method .Bag works on Str-1
+ok 165 - Method .Bag works on Str-2
+ok 166 - Method .Bag works on Array-1
+ok 167 - Method .Bag works on Array-2
+ok 168 - Method .Bag works on Hash-1
+ok 169 - Method .Bag works on Hash-2
+ok 170 - Method .Bag works on List-1
+ok 171 - Method .Bag works on List-2
+ok 172 - .total gives sum of values (non-empty 10)
+ok 173 - +$bag gives sum of values (non-empty 10)
+ok 174 - .minpairs works (non-empty 10)
+ok 175 - .maxpairs works (non-empty 10)
+ok 176 - .fmt(%s) works (non-empty 10)
+ok 177 - .fmt(%s,sep) works (non-empty 10)
+ok 178 - .fmt(%s%s) works (non-empty 10)
+ok 179 - .fmt(%s%s,sep) works (non-empty 10)
+ok 180 - .total gives sum of values (non-empty 8)
+ok 181 - +$bag gives sum of values (non-empty 8)
+ok 182 - .minpairs works (non-empty 8)
+ok 183 - .maxpairs works (non-empty 8)
+ok 184 - .total gives sum of values (non-empty 4)
+ok 185 - +$bag gives sum of values (non-empty 4)
+ok 186 - .minpairs works (non-empty 4)
+ok 187 - .maxpairs works (non-empty 4)
+ok 188 - .total gives sum of values (empty)
+ok 189 - +$bag gives sum of values (empty)
+ok 190 - .minpairs works (empty)
+ok 191 - .maxpairs works (empty)
+ok 192 - .fmt(%s) works (empty)
+ok 193 - .fmt(%s,sep) works (empty)
+ok 194 - .fmt(%s%s) works (empty)
+ok 195 - .fmt(%s%s,sep) works (empty)
+ok 196 - can we parameterize for strings?
+ok 197 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 198 - do wrong values make initialization croak
+ok 199 - Faulty .WHICH creation
+ok 200 - can use cross operator X with bag keys
+ok 201 - MyBag.new produces a MyBag
+ok 202 - ...with the right elements
+# Subtest: Make sure we cannot assign on a key
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 203 - Make sure we cannot assign on a key
+# Subtest: Make sure we cannot assign on a .values alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 204 - Make sure we cannot assign on a .values alias
+# Subtest: Make sure we cannot assign on a .pairs alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 205 - Make sure we cannot assign on a .pairs alias
+# Subtest: Make sure we cannot assign on a .kv alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 206 - Make sure we cannot assign on a .kv alias
+ok 207 - did we see all values
+ok 208 - did we see all keys
+ok 209 - did we see all the pairs
+ok 210 - did we see all the kv
+ok 211 - did we see all the antipairs
+ok 212 - did we see all the kxxv
+# Subtest: .hash does not cause keys to be stringified
+    1..3
+    ok 1 - Bag.new
+    ok 2 - .Bag
+    ok 3 - bag()
+ok 213 - .hash does not cause keys to be stringified
+# Subtest: autovivification of of Bag:U complains about immutability
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 214 - autovivification of of Bag:U complains about immutability
+ok 215 - value can be larger than a native int
+ok 216 - ().Bag returns the empty bag
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Bag
+ok 217 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Bag
+ok 218 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Bag
+ok 219 - did we throws-like X::Cannot::Lazy?
+# Subtest: (:a("a")).Bag throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 220 - (:a("a")).Bag throws
+# Subtest: Bag.new-from-pairs( (:a("a")) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 221 - Bag.new-from-pairs( (:a("a")) ) throws
+# Subtest: (:a(Inf)).Bag throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 222 - (:a(Inf)).Bag throws
+# Subtest: Bag.new-from-pairs( (:a(Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 223 - Bag.new-from-pairs( (:a(Inf)) ) throws
+# Subtest: (:a(-Inf)).Bag throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 224 - (:a(-Inf)).Bag throws
+# Subtest: Bag.new-from-pairs( (:a(-Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 225 - Bag.new-from-pairs( (:a(-Inf)) ) throws
+# Subtest: (:a(NaN)).Bag throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 226 - (:a(NaN)).Bag throws
+# Subtest: Bag.new-from-pairs( (:a(NaN)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 227 - Bag.new-from-pairs( (:a(NaN)) ) throws
+# Subtest: (:a(<0+3i>)).Bag throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 228 - (:a(<0+3i>)).Bag throws
+# Subtest: Bag.new-from-pairs( (:a(<0+3i>)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 229 - Bag.new-from-pairs( (:a(<0+3i>)) ) throws
+ok 230 - did we get right number of elements
+ok 231 - do we get 1 for a
+ok 232 - do we get 0 for e
+ok 233 - is the %h really a Bag
+ok 234 - cannot re-initialize Bag
+ok 235 - cannot :delete from Bag
+ok 236 - cannot delete from Bag by assignment
+ok 237 - can we smartmatch empty
+ok 238 - coerce Bag -> Set
+ok 239 - coerce Bag -> SetHash
+ok 240 - coerce Bag -> BagHash
+ok 241 - coerce Bag -> Mix
+ok 242 - coerce Bag -> MixHash
+ok 243 - parameterized Bag
+ok 244 - did it parameterize ok
+ok 245 - must have Ints on creation
+ok 246 - does .item work on Sets
+ok 247 - does Bag type object return proper type
+ok 248 - does Bag object return proper type
+ok 249 - Can we initialize a Bag with a single value
+ok 250 - did on-the-fly value return original
+ok 251 - did on-the-fly value leave original unchanged
+ok 252 - union of two Foo instances should be a Foo instance
+ok 253 - got a Bag with a List
+ok 254 - got a Bag with an Array
+ok 255 - Bag Capture

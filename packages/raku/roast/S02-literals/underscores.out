@@ -1,0 +1,68 @@
+1..19
+ok 1 - Single embedded underscore works
+# Subtest: Multiple embedded underscores fail
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp::Group)
+ok 2 - Multiple embedded underscores fail
+# Subtest: Leading underscore fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 3 - Leading underscore fails
+# Subtest: Trailing underscore fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 4 - Trailing underscore fails
+# Subtest: Underscore before . fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 5 - Underscore before . fails
+# Subtest: Underscore after . fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 6 - Underscore after . fails
+# Subtest: Underscore before e fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 7 - Underscore before e fails
+# Subtest: Underscore after e fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 8 - Underscore after e fails
+# Subtest: Underscore before E fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 9 - Underscore before E fails
+# Subtest: Underscore after E fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 10 - Underscore after E fails
+ok 11 - Underscores work with floating point after decimal
+ok 12 - Underscores work with floating point before decimal
+ok 13 - Underscores work with hex
+ok 14 - Underscores work with binary
+ok 15 - Underscores work in the argument for e
+ok 16 - 2.1_23 parses as number
+# Subtest: 2._foo parses as method call
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 17 - 2._foo parses as method call
+# Subtest: 2._123 parses as method call
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 18 - 2._123 parses as method call
+# Subtest: 2._23  parses as method call
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 19 - 2._23  parses as method call

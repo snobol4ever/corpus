@@ -1,0 +1,215 @@
+1..110
+ok 1 - "Raku"      in base-30 (sub form)
+ok 2 - "Raku.lang" in base-32 (sub form)
+ok 3 - 1111 in base-2 (sub form)
+ok 4 - 1111 in base-3 (sub form)
+ok 5 - 1111 in base-4 (sub form)
+ok 6 - 1111 in base-5 (sub form)
+ok 7 - 1111 in base-6 (sub form)
+ok 8 - 1111 in base-7 (sub form)
+ok 9 - 1111 in base-8 (sub form)
+ok 10 - 1111 in base-9 (sub form)
+ok 11 - 1111 in base-10 (sub form)
+ok 12 - 1111 in base-11 (sub form)
+ok 13 - 1111 in base-12 (sub form)
+ok 14 - 1111 in base-13 (sub form)
+ok 15 - 1111 in base-14 (sub form)
+ok 16 - 1111 in base-15 (sub form)
+ok 17 - 1111 in base-16 (sub form)
+ok 18 - 1111 in base-17 (sub form)
+ok 19 - 1111 in base-18 (sub form)
+ok 20 - 1111 in base-19 (sub form)
+ok 21 - 1111 in base-20 (sub form)
+ok 22 - 1111 in base-21 (sub form)
+ok 23 - 1111 in base-22 (sub form)
+ok 24 - 1111 in base-23 (sub form)
+ok 25 - 1111 in base-24 (sub form)
+ok 26 - 1111 in base-25 (sub form)
+ok 27 - 1111 in base-26 (sub form)
+ok 28 - 1111 in base-27 (sub form)
+ok 29 - 1111 in base-28 (sub form)
+ok 30 - 1111 in base-29 (sub form)
+ok 31 - 1111 in base-30 (sub form)
+ok 32 - 1111 in base-31 (sub form)
+ok 33 - 1111 in base-32 (sub form)
+ok 34 - 1111 in base-33 (sub form)
+ok 35 - 1111 in base-34 (sub form)
+ok 36 - 1111 in base-35 (sub form)
+ok 37 - 1111 in base-36 (sub form)
+ok 38 - full character set (sub form)
+ok 39 - can parse - sign (sub form)
+ok 40 - can parse − sign (fancy Unicode minus) (sub form)
+ok 41 - can parse + sign
+ok 42 - fractional without whole part
+ok 43 - fractional without whole part with +
+ok 44 - fractional without whole part with -
+ok 45 - fractional without whole part with U+2212
+ok 46 - can parse fancy Unicode numerals as Int (sub form)
+ok 47 - can parse fancy Unicode numerals as float (sub form)
+# Subtest: too large radix throws (sub form)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Number::RadixOutOfRange)
+    ok 3 - .radix matches 42
+ok 48 - too large radix throws (sub form)
+# Subtest: too small radix throws (sub form)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Number::RadixOutOfRange)
+    ok 3 - .radix matches 1
+ok 49 - too small radix throws (sub form)
+# Subtest: invalid char at first position, base 20 (sub form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .source matches  \# \# \#
+    ok 4 - .pos matches 0
+    ok 5 - .reason matches /'base-20'/
+ok 50 - invalid char at first position, base 20 (sub form)
+# Subtest: invalid char in middle position, base 8 (sub form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .pos matches 4
+    ok 4 - .source matches -1238321
+    ok 5 - .reason matches /'base-8'/
+ok 51 - invalid char in middle position, base 8 (sub form)
+# Subtest: invalid char at last position, base 4 (sub form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .reason matches /'base-4'/
+    ok 4 - .pos matches 2
+    ok 5 - .source matches 124
+ok 52 - invalid char at last position, base 4 (sub form)
+# Subtest: invalid char in last position, negative, base 8 (sub form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .pos matches 4
+    ok 4 - .reason matches /'base-8'/
+    ok 5 - .source matches −1.5x
+ok 53 - invalid char in last position, negative, base 8 (sub form)
+# Subtest: invalid char in last position, negative, base 8 (sub form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .source matches −1.5x
+    ok 4 - .reason matches /'base-8'/
+    ok 5 - .pos matches 4
+ok 54 - invalid char in last position, negative, base 8 (sub form)
+# Subtest: invalid char in first position of fractional part, base 9 (sub form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .source matches 1.x
+    ok 4 - .reason matches /'base-9'/
+    ok 5 - .pos matches 2
+ok 55 - invalid char in first position of fractional part, base 9 (sub form)
+ok 56 - "Raku"      in base-30 (method form)
+ok 57 - "Raku.lang" in base-32 (method form)
+ok 58 - 1111 in base-2 (method form)
+ok 59 - 1111 in base-3 (method form)
+ok 60 - 1111 in base-4 (method form)
+ok 61 - 1111 in base-5 (method form)
+ok 62 - 1111 in base-6 (method form)
+ok 63 - 1111 in base-7 (method form)
+ok 64 - 1111 in base-8 (method form)
+ok 65 - 1111 in base-9 (method form)
+ok 66 - 1111 in base-10 (method form)
+ok 67 - 1111 in base-11 (method form)
+ok 68 - 1111 in base-12 (method form)
+ok 69 - 1111 in base-13 (method form)
+ok 70 - 1111 in base-14 (method form)
+ok 71 - 1111 in base-15 (method form)
+ok 72 - 1111 in base-16 (method form)
+ok 73 - 1111 in base-17 (method form)
+ok 74 - 1111 in base-18 (method form)
+ok 75 - 1111 in base-19 (method form)
+ok 76 - 1111 in base-20 (method form)
+ok 77 - 1111 in base-21 (method form)
+ok 78 - 1111 in base-22 (method form)
+ok 79 - 1111 in base-23 (method form)
+ok 80 - 1111 in base-24 (method form)
+ok 81 - 1111 in base-25 (method form)
+ok 82 - 1111 in base-26 (method form)
+ok 83 - 1111 in base-27 (method form)
+ok 84 - 1111 in base-28 (method form)
+ok 85 - 1111 in base-29 (method form)
+ok 86 - 1111 in base-30 (method form)
+ok 87 - 1111 in base-31 (method form)
+ok 88 - 1111 in base-32 (method form)
+ok 89 - 1111 in base-33 (method form)
+ok 90 - 1111 in base-34 (method form)
+ok 91 - 1111 in base-35 (method form)
+ok 92 - 1111 in base-36 (method form)
+ok 93 - full character set (method form)
+ok 94 - can parse - sign (method form)
+ok 95 - can parse − sign (fancy Unicode minus) (method form)
+ok 96 - can parse + sign
+ok 97 - fractional without whole part
+ok 98 - fractional without whole part with +
+ok 99 - fractional without whole part with -
+ok 100 - fractional without whole part with U+2212
+ok 101 - can parse fancy Unicode numerals as Int (method form)
+ok 102 - can parse fancy Unicode numerals as float (method form)
+# Subtest: too large radix throws (method form)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Number::RadixOutOfRange)
+    ok 3 - .radix matches 42
+ok 103 - too large radix throws (method form)
+# Subtest: too small radix throws (method form)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Number::RadixOutOfRange)
+    ok 3 - .radix matches 1
+ok 104 - too small radix throws (method form)
+# Subtest: invalid char at first position, base 20 (method form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .pos matches 0
+    ok 4 - .reason matches /'base-20'/
+    ok 5 - .source matches  \# \# \#
+ok 105 - invalid char at first position, base 20 (method form)
+# Subtest: invalid char in middle position, base 8 (method form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .reason matches /'base-8'/
+    ok 4 - .pos matches 4
+    ok 5 - .source matches -1238321
+ok 106 - invalid char in middle position, base 8 (method form)
+# Subtest: invalid char at last position, base 4 (method form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .pos matches 2
+    ok 4 - .source matches 124
+    ok 5 - .reason matches /'base-4'/
+ok 107 - invalid char at last position, base 4 (method form)
+# Subtest: invalid char in last position, negative, base 8 (method form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .pos matches 4
+    ok 4 - .source matches −1.5x
+    ok 5 - .reason matches /'base-8'/
+ok 108 - invalid char in last position, negative, base 8 (method form)
+# Subtest: invalid char in last position, negative, base 8 (method form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .source matches −1.5x
+    ok 4 - .pos matches 4
+    ok 5 - .reason matches /'base-8'/
+ok 109 - invalid char in last position, negative, base 8 (method form)
+# Subtest: invalid char in first position of fractional part, base 9 (method form)
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .reason matches /'base-9'/
+    ok 4 - .source matches 1.x
+    ok 5 - .pos matches 2
+ok 110 - invalid char in first position of fractional part, base 9 (method form)

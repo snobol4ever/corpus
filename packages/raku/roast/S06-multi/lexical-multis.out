@@ -1,0 +1,26 @@
+1..15
+ok 1 - can call lexically scoped multi
+# Subtest: lexical multi not callable outside of lexical scope
+    1..2
+    ok 1 - ' foo() ' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 2 - lexical multi not callable outside of lexical scope
+ok 3 - outer lexical multi callable
+ok 4 - new inner lexical multi callable
+ok 5 - in outer scope, can call the multi that is in scope
+ok 6 - multi variant from inner scope not callable in outer
+ok 7 - no multi variants callable outside of lexical scope
+ok 8 - no multi variants callable outside of lexical scope
+not ok 9 - inner multi conflicts with outer one # TODO lexical scope as tie breaker
+# Failed test 'inner multi conflicts with outer one'
+# at S06-multi/lexical-multis.rakudo line 41
+# Ambiguous call to 'baz(...)'; these signatures all match:
+#   () from S06-multi/lexical-multis.rakudo line 37
+#   () from S06-multi/lexical-multis.rakudo line 39
+ok 10 - in outer scope, no inner multi, so no conflict
+ok 11 - got multi from package
+ok 12 - lexical multi also callable
+ok 13 - multi from package still callable outside the inner scope...
+ok 14 - ...but lexical multi no longer callable
+ok 15 - die in numification of proto
+# FUDGED!

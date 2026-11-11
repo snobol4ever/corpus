@@ -1,0 +1,123 @@
+1..109
+ok 1 - A bare return is Nil
+ok 2 - An implicit bare return is Nil
+ok 3 - A bare return returns Nil --> Any in array/list context
+ok 4 - An implicit bare return Nil --> Any in array/list context
+ok 5 - An empty return is false
+ok 6 - An empty return is 0
+ok 7 - An empty return interpolates nothing in array/list context
+ok 8 - A slip return is false
+ok 9 - A slip return is 0
+ok 10 - A slip return interpolates nothing in array/list context
+ok 11 - A bare return is a false value
+ok 12 - An implicit bare return is a false value
+ok 13 - A returned empty list is an empty list in array/list context
+ok 14 - An implicit returned empty list is an empty list in array/list context
+ok 15 - A bare return is undefined in scalar context
+ok 16 - got the right return value
+ok 17 - got the right return value
+ok 18 - got the right return value
+ok 19 - got the right return value
+ok 20 - The object is-a 'Array'
+ok 21 - got the right number of return value
+ok 22 - got the right return value
+ok 23 - got the right return value
+ok 24 - got the right return value
+ok 25 - The object is-a 'Array'
+ok 26 - got the right number of return value
+ok 27 - got the right return value
+ok 28 - got the right return value
+ok 29 - got the right return value
+ok 30 - The object is-a 'Array'
+ok 31 - got the right number of return value
+ok 32 - got the right return value
+ok 33 - got the right return value
+ok 34 - got the right return value
+ok 35 - The object is-a 'Array'
+ok 36 - got the right number of return value
+ok 37 - got the right return value
+ok 38 - got the right return value
+ok 39 - got the right return value
+ok 40 - The object is-a 'Array'
+ok 41 - got the right number of return value
+ok 42 - got the right return value
+ok 43 - got the right return value
+ok 44 - got the right return value
+ok 45 - The object is-a 'Array'
+ok 46 - got the right number of return value
+ok 47 - got the right return value
+ok 48 - got the right return value
+ok 49 - got the right return value
+ok 50 - The object is-a 'Array'
+ok 51 - got the right number of return value
+ok 52 - got the right return value
+ok 53 - got the right return value
+ok 54 - got the right return value
+ok 55 - The object is-a 'Array'
+ok 56 - got the right number of return value
+ok 57 - got the right return value
+ok 58 - got the right return value
+ok 59 - got the right return value
+ok 60 - 
+ok 61 - got the right number of return value
+ok 62 - got the right return value
+ok 63 - got the right return value
+ok 64 - got the right return value
+ok 65 - can call method on return value (hashitem)
+ok 66 - got right result
+ok 67 - can hash de-ref return value (hashitem)
+ok 68 - 
+ok 69 - got the right number of return value
+ok 70 - got the right return value
+ok 71 - got the right return value
+ok 72 - got the right return value
+ok 73 - can call method on return value (hashitem)
+ok 74 - got right result
+ok 75 - can hash de-ref return value (hashitem)
+ok 76 - bare blocks are invisible to return
+ok 77 - nested bare blocks are invisible to return
+ok 78 - pointy blocks are invisible to return
+ok 79 - subcalls in user-defined control flow are invisible to return
+ok 80 - return correctly from official method only
+ok 81 - return correctly from official submethod only
+ok 82 - return correctly from official sub only
+ok 83 - return with named arguments
+ok 84 -  ... correct key
+ok 85 -  ... correct value
+not ok 86 - sub with empty catch block returns value before block # TODO RT #61732
+# Failed test 'sub with empty catch block returns value before block'
+# at S06-advanced/return.rakudo line 353
+# expected: '1'
+#      got: (Nil)
+ok 87 - get right value from sub with double ;
+ok 88 - can call sub that returns two things (no parens)
+ok 89 - can use value returned from empty routine
+ok 90 - 
+ok 91 - 
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'my class A { has Str method foo(--> Int) { "hi" } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 92 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::TypeCheck::Return?
+    1..2
+    ok 1 - 'my class A { has Int method foo() { return "hi" } }; A.foo' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 93 - did we throws-like X::TypeCheck::Return?
+ok 94 - Can return 42 through Int typecheck
+ok 95 - Can return Int through Int typecheck
+ok 96 - Can return Nil through Int typecheck
+ok 97 - Can return Failure through Int typecheck
+ok 98 - Can't return 42.0 through Int typecheck
+ok 99 - Can't return Cool through Int typecheck
+ok 100 - Can return 42 through a subset typecheck
+ok 101 - Can return Nil through subset typecheck
+ok 102 - Can return Failure through subset typecheck
+ok 103 - Can't return through Int typecheck if 'where' constraint is broken
+ok 104 - Can't return typeobject through definite subset typecheck
+ok 105 - Can't return 13.0 through subset typecheck
+ok 106 - Can't return Cool through Int typecheck
+ok 107 - Sub doing 42.return works
+ok 108 - # SKIP default run outside sub
+ok 109 - Containerized Nil passes Callable:D constraint
+# FUDGED!

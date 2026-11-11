@@ -1,0 +1,27 @@
+1..16
+ok 1 - get() should read from $*ARGFILES, which reads from files in @*ARGS
+ok 2 - get($*ARGFILES) reads from $*IN if no files are in @*ARGS
+ok 3 - calling get() several times should work
+ok 4 - $*ARGFILES should not use $*IN if files are in @*ARGS
+ok 5 - lines() should read from $*ARGFILES, which reads from files in @*ARGS
+ok 6 - lines() using $*ARGFILES, works for more than one file
+ok 7 - lines($*ARGFILES) reads from $*IN if no files are in @*ARGS
+ok 8 - lines($*ARGFILES) reads from $*IN if - is in @*ARGS
+ok 9 - $*ARGFILES should not use $*IN if files are in @*ARGS
+ok 10 - Calling lines() twice should not read from $*IN
+ok 11 - Changing @*ARGS before calling things on $*ARGFILES should open the new file
+ok 12 - Can change $*IN.nl-in and it has effect
+ok 13 - .lines with limit works across files
+# Subtest: .lines accepts all Numerics as limit
+    1..8
+    ok 1 - Int limit
+    ok 2 - Rat limit
+    ok 3 - Num limit
+    ok 4 - Complex limit
+    ok 5 - IntStr limit
+    ok 6 - RatStr limit
+    ok 7 - NumStr limit
+    ok 8 - ComplexStr limit
+ok 14 - .lines accepts all Numerics as limit
+ok 15 - .lines stops when data ends, even if limit has not been reached yet
+ok 16 - no crash when ^D with get(ARGFILES)

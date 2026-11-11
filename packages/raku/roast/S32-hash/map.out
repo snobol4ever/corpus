@@ -1,0 +1,43 @@
+1..24
+ok 1 - .Map on defined Hash produces correct Map
+ok 2 - .Map on undefined Hash produces Map type object
+# Subtest: <object|type>.map(Hash) should die
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 3 - <object|type>.map(Hash) should die
+ok 4 - Map.Map returns self
+ok 5 - Map:U.Hash gives Hash type object
+ok 6 - .Hash on empty Map gives empty Hash
+ok 7 - Map:D.Hash gives right hash
+ok 8 - Map.Int gives number of pairs
+ok 9 - Map{} with non-Str value in lookup stringifies it
+ok 10 - Map.clone is identity
+# Subtest: Map.gist shows only the first sorted 100 els
+    1..4
+    ok 1 - 100 els
+    ok 2 - 101 els
+    ok 3 - 102 els
+    ok 4 - 1000 els
+ok 11 - Map.gist shows only the first sorted 100 els
+# Subtest: Cannot bind at key of immutable Map
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+ok 12 - Cannot bind at key of immutable Map
+# Subtest: Cannot bind at key of immutable Map, Scalar value
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+ok 13 - Cannot bind at key of immutable Map, Scalar value
+ok 14 - cannot initialize a Map for the second time
+ok 15 - did we get the pairs handled ok
+ok 16 - Map does not introduce bogus Scalar containers
+ok 17 - did we change the hash inside the map
+ok 18 - did the .WHICH stay unchanged
+ok 19 - a hash value is containerized
+ok 20 - Map coercion deconts hash value
+ok 21 - array attribute initializer from Hash coerced to Map
+ok 22 - cannot assign to existing key
+ok 23 - cannot assign to non-existing key
+ok 24 - can we create a Map with just named arguments

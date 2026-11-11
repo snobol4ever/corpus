@@ -1,0 +1,42 @@
+1..33
+ok 1 - we have 4 elements in our array
+ok 2 - shift(@shift) works
+ok 3 - we have 3 elements in our array
+ok 4 - shift @shift works
+ok 5 - we have 2 elements in our array
+ok 6 - @shift.shift() works
+ok 7 - we have 1 element in our array
+ok 8 - @shift.shift works
+ok 9 - we have 1 element in our array
+ok 10 - we have no elements in our array
+ok 11 - after the array is exhausted it gives undefined
+ok 12 - we have 4 elements in our array
+ok 13 - inline shift(@shift) works
+ok 14 - we have 3 elements in our array
+ok 15 - inline shift @shift works
+ok 16 - we have 2 elements in our array
+ok 17 - inline @shift.shift() works
+ok 18 - we have 1 elements in our array
+ok 19 - inline @shift.shift works
+ok 20 - we have no elements in our array
+ok 21 - again, the array is exhausted and we get undefined
+ok 22 - again, Failure from shifting empty array
+ok 23 - this will return 1
+ok 24 - this will return undefined
+ok 25 - shift of empty array is Failure
+ok 26 - shift on an empty array returns undefined
+ok 27 - shift on empty array is Failure
+# Subtest: shift() requires arguments
+    1..2
+    ok 1 - 'shift()' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 28 - shift() requires arguments
+# Subtest: .shift should not work on scalars
+    1..2
+    ok 1 - '42.shift' died
+    ok 2 - right exception type (X::Method::NotFound)
+ok 29 - .shift should not work on scalars
+ok 30 - shift() should not allow extra arguments
+ok 31 - shift() should not allow extra arguments
+ok 32 - shifting sparse array results in Nil, not failure
+ok 33 - and it actually shifted the array

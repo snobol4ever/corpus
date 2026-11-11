@@ -1,0 +1,19 @@
+1..18
+ok 1 - Placeholder vars work
+ok 2 - Placeholder vars work
+ok 3 - Placeholder vars work
+ok 4 - Placeholder vars work
+ok 5 - Placeholder vars work
+ok 6 - Placeholder vars work
+ok 7 - Placeholder vars work
+ok 8 - Placeholder vars work
+ok 9 - Placeholder vars work
+ok 10 - Placeholder vars work
+ok 11 - Placeholder vars work
+ok 12 - Placeholder vars work
+ok 13 - @ sigil placeholder takes array
+ok 14 - @ sigil placeholder rejects Int
+ok 15 - % sigil placeholder takes hash
+ok 16 - % sigil placeholder rejects Int
+ok 17 - & sigil placeholder takes block
+ok 18 - & sigil placeholder rejects Int

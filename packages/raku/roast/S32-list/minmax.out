@@ -1,0 +1,170 @@
+1..169
+ok 1 - basic method form of min works
+ok 2 - min(list)
+ok 3 - method form of min with identity comparison block works
+ok 4 - adverbial block form of min with identity comparison block works
+ok 5 - subroutine form of min with identity comparison block works
+ok 6 - method form of min taking a comparison block works
+ok 7 - subroutine form of min taking a comparison block works
+ok 8 - method form of min taking a comparison block works
+ok 9 - subroutine form of min taking a comparison block works
+ok 10 - basic method form of max works
+ok 11 - basic subroutine form of max works
+ok 12 - method form of max with identity comparison block works
+ok 13 - sub form of max
+ok 14 - subroutine form of max with identity comparison block works
+ok 15 - method form of max taking a comparison block works
+ok 16 - subroutine form of max taking a comparison block works
+ok 17 - method form of max taking a modifier block works
+ok 18 - subroutine form of max taking a modifier block works
+ok 19 - basic method form of minmax works
+ok 20 - minmax(list)
+ok 21 - method form of minmax with identity comparison block works
+ok 22 - subroutine form of minmax with identity comparison block works
+ok 23 - method form of minmax taking a comparison block works
+ok 24 - subroutine form of minmax taking a comparison block works
+ok 25 - method form of minmax taking a comparison block works
+ok 26 - subroutine form of minmax taking a comparison block works
+ok 27 - method form of minmax on Ranges taking a comparison block works
+ok 28 - method form of minmax taking an arity-1 comparison block works
+ok 29 - .min should work on scalars
+ok 30 - .max should work on scalars
+ok 31 - .min should work on one-elem arrays
+ok 32 - .max should work on one-elem arrays
+ok 33 - method form of max with literals works
+ok 34 - method form of min with literals works
+ok 35 - subroutine form of max with literals works
+ok 36 - subroutine form of min with literals works
+ok 37 - max of strings read from a file works
+ok 38 - min of strings read from a file works
+ok 39 - max of strings read from a file works
+ok 40 - min of strings read from a file works
+ok 41 - Inf is greater than 1
+ok 42 - -Inf is less than -1
+ok 43 - -Inf is less than Inf
+ok 44 - Inf is greater than -Inf
+ok 45 - multi-arg [min] does not flatten
+ok 46 - multi-arg [max] does not flatten
+ok 47 - reduce min int
+ok 48 - reduce max int
+ok 49 - reduce min numeric
+ok 50 - reduce max numeric
+ok 51 - Default .min works on array of strings
+ok 52 - .min works with explicit comparator
+ok 53 - [min] works on array of strings
+ok 54 - Default .max works on array of strings
+ok 55 - .max works with explicit comparator
+ok 56 - [max] works on array of strings
+ok 57 - can use non-numbers with .min and unary closures
+ok 58 - min combine .min of non-empty sublists of Ints
+ok 59 - min combine .min of empty and non-empty sublist of Ints
+ok 60 - min combine .min of non-empty and empty sublist of Ints
+ok 61 - [min] combine .min of non-empty sublist of Ints
+ok 62 - [min] combine .min of empty, non-empty, empty sublist of Ints
+ok 63 - .min combine .min of non-empty sublist of Ints
+ok 64 - .min combine .min of empty, non-empty, empty sublist of Ints
+ok 65 - max combine .max of non-empty sublists of Ints
+ok 66 - max combine .max of empty and non-empty sublist of Ints
+ok 67 - max combine .max of non-empty and empty sublist of Ints
+ok 68 - [max] combine .max of non-empty sublist of Ints
+ok 69 - [max] combine .max of empty, non-empty, empty sublist of Ints
+ok 70 - .max combine .max of non-empty sublist of Ints
+ok 71 - .max combine .max of empty, non-empty, empty sublist of Ints
+ok 72 - infix:<minmax> combine .minmax of non-empty sublists of Ints
+ok 73 - infix:<minmax> combine .minmax of empty and non-empty sublist of Ints
+ok 74 - infix:<minmax> combine .minmax of non-empty and empty sublist of Ints
+ok 75 - [minmax] combine .minmax of non-empty sublist of Ints
+ok 76 - [minmax] combine .minmax of empty, non-empty, empty sublist of Ints
+ok 77 - .minmax combine .minmax of non-empty sublist of Ints
+ok 78 - .minmax combine .minmax of empty, non-empty, empty sublist of Ints
+ok 79 - min combine .min of non-empty sublists of Strs
+ok 80 - min combine .min of empty and non-empty sublist of Strs
+ok 81 - min combine .min of non-empty and empty sublist of Strs
+ok 82 - [min] combine .min of non-empty sublist of Strs
+ok 83 - [min] combine .min of empty, non-empty, empty sublist of Strs
+ok 84 - .min combine .min of non-empty sublist of Strs
+ok 85 - .min combine .min of empty, non-empty, empty sublist of Strs
+ok 86 - max combine .max of non-empty sublists of Strs
+ok 87 - max combine .max of empty and non-empty sublist of Strs
+ok 88 - max combine .max of non-empty and empty sublist of Strs
+ok 89 - [max] combine .max of non-empty sublist of Strs
+ok 90 - [max] combine .max of empty, non-empty, empty sublist of Strs
+ok 91 - .max combine .max of non-empty sublist of Strs
+ok 92 - .max combine .max of empty, non-empty, empty sublist of Strs
+ok 93 - infix:<minmax> combine .minmax of non-empty sublists of Strs
+ok 94 - infix:<minmax> combine .minmax of empty and non-empty sublist of Strs
+ok 95 - infix:<minmax> combine .minmax of non-empty and empty sublist of Strs
+ok 96 - [minmax] combine .minmax of non-empty sublist of Strs
+ok 97 - [minmax] combine .minmax of empty, non-empty, empty sublist of Strs
+ok 98 - .minmax combine .minmax of non-empty sublist of Strs
+ok 99 - .minmax combine .minmax of empty, non-empty, empty sublist of Strs
+ok 100 - [max] of <>-style list finds the numerically largest number
+ok 101 - .max on <>-style list finds the numerically largest number
+ok 102 - 0 .min :k
+ok 103 - 0 min() :k
+ok 104 - 0 .max :k
+ok 105 - 0 min() :k
+ok 106 - 0 .min :v
+ok 107 - 0 min() :v
+ok 108 - 0 .max :v
+ok 109 - 0 min() :v
+ok 110 - 0 .min :kv
+ok 111 - 0 min() :kv
+ok 112 - 0 .max :kv
+ok 113 - 0 min() :kv
+ok 114 - 0 .min :p
+ok 115 - 0 min() :p
+ok 116 - 0 .max :p
+ok 117 - 0 min() :p
+ok 118 - unchanged after 0
+ok 119 - 1 .min :k
+ok 120 - 1 min() :k
+ok 121 - 1 .max :k
+ok 122 - 1 max() :k
+ok 123 - 1 .min :v
+ok 124 - 1 min() :v
+ok 125 - 1 .max :v
+ok 126 - 1 max() :v
+ok 127 - 1 .min :kv
+ok 128 - 1 min() :kv
+ok 129 - 1 .max :kv
+ok 130 - 1 max() :kv
+ok 131 - 1 .min :p
+ok 132 - 1 min() :p
+ok 133 - 1 .max :p
+ok 134 - 1 max() :p
+ok 135 - unchanged after 1
+ok 136 - N .min :k
+ok 137 - N min() :k
+ok 138 - N .min :v
+ok 139 - N min() :v
+ok 140 - N .min :kv
+ok 141 - N min() :kv
+ok 142 - N .min :p
+ok 143 - N min() :p
+ok 144 - N .max :k
+ok 145 - N max() :k
+ok 146 - N .max :v
+ok 147 - N max() :v
+ok 148 - N .max :kv
+ok 149 - N max() :kv
+ok 150 - N .max :p
+ok 151 - N max() :p
+ok 152 - unchanged after N
+ok 153 - Ns .min :k
+ok 154 - Ns min() :k
+ok 155 - Ns .max :k
+ok 156 - Ns max() :k
+ok 157 - Ns .min :v
+ok 158 - Ns min() :v
+ok 159 - Ns .max :v
+ok 160 - Ns max() :v
+ok 161 - Ns .min :kv
+ok 162 - Ns min() :kv
+ok 163 - Ns .max :kv
+ok 164 - Ns max() :kv
+ok 165 - Ns .min :p
+ok 166 - Ns min() :p
+ok 167 - Ns .max :p
+ok 168 - Ns max() :p
+ok 169 - unchanged after N same

@@ -1,0 +1,8 @@
+1..7
+ok 1 - Typename:: is a Stash
+ok 2 - can access a subroutine in the stash
+ok 3 - A::  returns the same as A.WHO
+ok 4 - can autovivify an our-variable in a class package through its long name from class method
+ok 5 - but a lexical of the same name is independent
+ok 6 - can declare and access variable in a class package through its long name from outside class
+ok 7 - can declare and access variable through its long name without declaring package

@@ -1,0 +1,66 @@
+1..13
+# Subtest: tr///, read-only $_complains
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 1 - tr///, read-only $_complains
+# Subtest: tr///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 2 - tr///
+# Subtest: tr:d///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 3 - tr:d///
+# Subtest: tr:delete///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 4 - tr:delete///
+# Subtest: tr:c///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 5 - tr:c///
+# Subtest: tr:complement///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 6 - tr:complement///
+# Subtest: tr:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 7 - tr:s///
+# Subtest: tr:squash///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 8 - tr:squash///
+# Subtest: tr:d:c///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 9 - tr:d:c///
+# Subtest: tr:d:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 10 - tr:d:s///
+# Subtest: tr:c:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 11 - tr:c:s///
+# Subtest: tr:d:c:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 12 - tr:d:c:s///
+# Subtest: tr/// with literal \
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has updated value
+ok 13 - tr/// with literal \

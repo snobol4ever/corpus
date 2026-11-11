@@ -1,0 +1,474 @@
+1..248
+ok 1 - &set produces a Set
+ok 2 - ...with the right elements
+ok 3 - Default value is false
+ok 4 - Single-key subscript (existing element)
+ok 5 - Single-key subscript has correct type (existing element)
+ok 6 - Single-key subscript (nonexistent element)
+ok 7 - Single-key subscript has correct type (nonexistent element)
+ok 8 - exists with existing element
+ok 9 - exists with nonexistent element
+ok 10 - Bool returns True if there is something in the Set
+ok 11 - Bool returns False if there is nothing in the Set
+ok 12 - .hash doesn't die
+ok 13 - ...and it returned a Hash
+ok 14 - ...with the right elements
+ok 15 - ...and values
+ok 16 - Can't assign to an element (Sets are immutable)
+ok 17 - Can't assign to .keys
+ok 18 - Can't assign to .values
+ok 19 - Can't :delete from Set
+ok 20 - Multiple-element access
+ok 21 - Multiple-element access (with nonexistent elements)
+ok 22 - .elems gives number of keys
+ok 23 - +$set gives number of keys
+ok 24 - Identical sets smartmatch with each other
+ok 25 - Subset does not smartmatch
+ok 26 - Superset does not smartmatch
+ok 27 - Smartmatch is not element of
+ok 28 - Type-checking smartmatch works
+ok 29 - Bag smartmatches with equivalent set
+ok 30 - ... even if the Bag has greater quantities
+ok 31 - Subset does not smartmatch
+ok 32 - Superset does not smartmatch
+ok 33 - Type-checking smartmatch works
+ok 34 - Str.Set makes a Set
+ok 35 - 'a'.Set is set a
+ok 36 - Pair.Set makes a Set
+ok 37 - (a => 1).Set is set a
+ok 38 - (a => 0).Set is the empty set
+ok 39 - <a b c>.Set makes a Set
+ok 40 - <a b c a>.Set makes the set a b c
+ok 41 - [a b c a].Set makes the set a b c
+ok 42 - [a => 3, b => 0, 'c', 'a'].Set makes the set a c
+ok 43 - {a => 2, b => 4, c => 0}.Set makes a Set
+ok 44 - {a => 2, b => 4, c => 0}.Set makes the set a b
+ok 45 - .Set on List of Pairs treats Pair.value as weight
+ok 46 - .Set on Hash of Pairs treats Pair.value as weight
+ok 47 - :exists with existing element
+ok 48 - :exists with nonexistent element
+ok 49 - :delete does not work on set
+ok 50 - Int keys are left as Ints
+ok 51 - Bool keys are left as Bools
+ok 52 - And Str keys are permitted in the same set
+ok 53 - Keys are counted correctly even when a key is False
+ok 54 - A hash to which a Set has been bound becomes a set
+ok 55 - ...with the right keys
+ok 56 - ...and values all True
+ok 57 - &set discards duplicates
+ok 58 - &Set.new given an array of pairs produces a Set
+ok 59 - ... with three elements under the single arg rule
+ok 60 - &Set.new given an itemized array of pairs produces a Set
+ok 61 - ... with one element
+ok 62 - &Set.new given a Hash produces a Set
+ok 63 - ... with three elements
+ok 64 - ... all of which are Pairs
+ok 65 - &Set.new given a Hash produces a Set
+ok 66 - ... with three elements under the single arg rule
+ok 67 - &Set.new given an itemized Hash produces a Set
+ok 68 - ... with one element
+ok 69 - &Set.new given a Set produces a Set
+ok 70 - ... with one element
+ok 71 - &Set.new given a SetHash produces a Set
+ok 72 - ... with one element
+ok 73 - &Set.new given a SetHash produces a Set
+ok 74 - ... with one element
+ok 75 - &set given a Bag produces a Set
+ok 76 - ... with one element
+ok 77 - .list returns 3 things
+ok 78 - ... all of which are Pairs
+ok 79 - .pairs returns 3 things
+ok 80 - ... all of which are Pairs
+ok 81 - ... the keys of which are Strs
+ok 82 - ... and the values of which are Bool
+ok 83 - .raku lives
+ok 84 - ... and produces a string
+ok 85 - .raku.EVAL lives
+ok 86 - ... and produces a Set
+ok 87 - ... and it has the correct values
+ok 88 - .Str lives
+ok 89 - ... and produces a string
+ok 90 - ... which only contains bar baz and foo separated by spaces
+ok 91 - .gist lives
+ok 92 - ... and produces a string
+ok 93 - ... which mentions foo
+ok 94 - ... which mentions bar
+ok 95 - ... which mentions baz
+ok 96 - A Set bound to a %var is a Set
+ok 97 - ...with the right elements
+ok 98 - Single-key subscript (existing element)
+ok 99 - Single-key subscript (nonexistent element)
+ok 100 - Can't assign to an element (Sets are immutable)
+ok 101 - Can't assign to a %var implemented by Set
+ok 102 - Can't :delete a key from a Set
+ok 103 - # SKIP Hypers not yet Set compatible
+ok 104 - # SKIP Hypers not yet Set compatible
+ok 105 - # SKIP Hypers not yet Set compatible
+ok 106 - # SKIP Hypers not yet Set compatible
+ok 107 - # SKIP Hypers not yet Set compatible
+ok 108 - # SKIP Hypers not yet Set compatible
+ok 109 - # SKIP Hypers not yet Set compatible
+ok 110 - # SKIP Hypers not yet Set compatible
+ok 111 - # SKIP Hypers not yet Set compatible
+ok 112 - We got one of the three choices
+ok 113 - .roll(2) returns the right number of items
+ok 114 - .roll(2) returned "a"s, "b"s, and "c"s
+ok 115 - .roll(100) returns 100 items
+ok 116 - .roll(100) returned "a"s, "b"s, and "c"s
+ok 117 - .roll should not change Set
+ok 118 - empty set.roll -> Nil
+ok 119 - empty set.roll(1) -> ().Seq
+ok 120 - empty set.roll(*-1) -> ().Seq
+ok 121 - empty set.roll(*) -> ().Seq
+ok 122 - empty set.roll(Inf) -> ().Seq
+ok 123 - empty set.roll(-1) -> ().Seq
+ok 124 - empty set.roll(-Inf) -> ().Seq
+ok 125 - empty set.roll(NaN) should die
+ok 126 - Set.pick(*) gets all elements
+ok 127 - Set.pick(*) returns elements in a random order
+ok 128 - .pick should not change Set
+ok 129 - We got one of the three choices
+ok 130 - .pick(2) returns the right number of items
+ok 131 - .pick(2) returned "a"s, "b"s, and "c"s
+ok 132 - .pick(2) returned at most one "a"
+ok 133 - .pick(2) returned at most one "b"
+ok 134 - .pick(2) returned at most one "c"
+ok 135 - .pick should not change Set
+ok 136 - empty set.pick -> Nil
+ok 137 - empty set.pick(1) -> ().Seq
+ok 138 - empty set.pick(*-1) -> ().Seq
+ok 139 - empty set.pick(*) -> ().Seq
+ok 140 - empty set.pick(Inf) -> ().Seq
+ok 141 - empty set.pick(-1) -> ().Seq
+ok 142 - empty set.pick(-Inf) -> ().Seq
+ok 143 - empty set.pick(NaN) should die
+ok 144 - cannot call .grab on a Set
+ok 145 - cannot call .grab(1) on a Set
+ok 146 - cannot call .grab(*-1) on a Set
+ok 147 - cannot call .grab(*) on a Set
+ok 148 - cannot call .grab(Inf) on a Set
+ok 149 - cannot call .grab(-1) on a Set
+ok 150 - cannot call .grab(-Inf) on a Set
+ok 151 - cannot call .grab(NaN) on a Set
+ok 152 - cannot call .grabpairs on a Set
+ok 153 - Two elements
+ok 154 - One of the set's elements is indeed a Set!
+ok 155 - With the proper elements
+ok 156 - One of the set's elements is indeed a List!
+ok 157 - With the proper elements
+ok 158 - Two elements
+ok 159 - One of the set's elements is indeed a set!
+ok 160 - With the proper elements
+ok 161 - One of the set's elements is indeed a List!
+ok 162 - With the proper elements
+ok 163 - Method .Set works on Int-1
+ok 164 - Method .Set works on Int-2
+ok 165 - Method .Set works on Str-1
+ok 166 - Method .Set works on Str-2
+ok 167 - Method .Set works on Array-1
+ok 168 - Method .Set works on Array-2
+ok 169 - Method .Set works on Hash-1
+ok 170 - Method .Set works on Hash-2
+ok 171 - Method .Set works on List-1
+ok 172 - Method .Set works on List-2
+ok 173 - .total gives sum of values (non-empty)
+ok 174 - +$set gives sum of values (non-empty)
+ok 175 - .minpairs works (non-empty)
+ok 176 - .maxpairs works (non-empty)
+ok 177 - .fmt(%s) works (non-empty)
+ok 178 - .fmt(%s,sep) works (non-empty)
+ok 179 - .fmt(%s%s) works (non-empty)
+ok 180 - .fmt(%s%s,sep) works (non-empty)
+ok 181 - .total gives sum of values (empty)
+ok 182 - +$set gives sum of values (empty)
+ok 183 - .minpairs works (empty)
+ok 184 - .maxpairs works (empty)
+ok 185 - .fmt(%s) works (empty)
+ok 186 - .fmt(%s,sep) works (empty)
+ok 187 - .fmt(%s%s) works (empty)
+ok 188 - .fmt(%s%s,sep) works (empty)
+ok 189 - Cannot change key of Set.pairs
+ok 190 - Cannot change value of Set.pairs
+ok 191 - can metaop set assign like: (|)=
+ok 192 - Faulty .WHICH creation
+ok 193 - arrays not flattened out by Set.new (1)
+ok 194 - arrays not flattened out by Set.new (2)
+ok 195 - arrays not flattened out by Set.new (3)
+ok 196 - Can subclass Set
+# Subtest: trying to assign throws X::Assignment::RO
+    1..2
+    ok 1 - 'my $rt125611 = RT125611.new.foo: "a"' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 197 - trying to assign throws X::Assignment::RO
+ok 198 - Set.kv returns list of keys and values (1)
+ok 199 - Set.kv returns list of keys and values (2)
+ok 200 - smartmatch a Seq
+ok 201 - make sure set.Hash returns objects
+# Subtest: .hash does not cause keys to be stringified
+    1..3
+    ok 1 - Set.new
+    ok 2 - .Set
+    ok 3 - set()
+ok 202 - .hash does not cause keys to be stringified
+# Subtest: autovivification of of Set:U complains about immutability
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 203 - autovivification of of Set:U complains about immutability
+ok 204 - .Mix on set gives correct Mix
+ok 205 - .MixHash on set gives correct MixHash
+ok 206 - ().Set returns the empty set
+ok 207 - coercion of Map to Set 1
+ok 208 - coercion of Map to Set 2
+ok 209 - coercion of object Hash to Set 1
+ok 210 - coercion of object Hash to Set 2
+ok 211 - can we parameterize for strings?
+ok 212 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 213 - do wrong values make initialization croak
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Set
+ok 214 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Set
+ok 215 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Set
+ok 216 - did we throws-like X::Cannot::Lazy?
+# Subtest: set listop called without arguments and parentheses dies (1)
+    1..3
+    ok 1 - 'set;' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /set/
+ok 217 - set listop called without arguments and parentheses dies (1)
+# Subtest: set listop called without arguments dies (2)
+    1..3
+    ok 1 - 'set<a b c>;' died
+    ok 2 - right exception type (X::Syntax::Confused)
+    ok 3 - .message matches /subscript/
+ok 218 - set listop called without arguments dies (2)
+# Subtest: set ops do not hang with Setty/Baggy/Mixy type objects
+    1..180
+    ok 1 - Set ∈
+    ok 2 - Set (elem)
+    ok 3 - Set ∉
+    ok 4 - Set ∋
+    ok 5 - Set (cont)
+    ok 6 - Set ∌
+    ok 7 - Set ⊆
+    ok 8 - Set (<=)
+    ok 9 - Set ⊈
+    ok 10 - Set ⊂
+    ok 11 - Set (<)
+    ok 12 - Set ⊄
+    ok 13 - Set ⊇
+    ok 14 - Set (>=)
+    ok 15 - Set ⊉
+    ok 16 - Set ⊃
+    ok 17 - Set (>)
+    ok 18 - Set ⊅
+    ok 19 - Set ∪
+    ok 20 - Set (|)
+    ok 21 - Set ∩
+    ok 22 - Set (&)
+    ok 23 - Set ∖ 
+    ok 24 - Set (-)
+    ok 25 - Set ⊖
+    ok 26 - Set (^)
+    ok 27 - Set ⊍
+    ok 28 - Set (.)
+    ok 29 - Set ⊎
+    ok 30 - Set (+)
+    ok 31 - SetHash ∈
+    ok 32 - SetHash (elem)
+    ok 33 - SetHash ∉
+    ok 34 - SetHash ∋
+    ok 35 - SetHash (cont)
+    ok 36 - SetHash ∌
+    ok 37 - SetHash ⊆
+    ok 38 - SetHash (<=)
+    ok 39 - SetHash ⊈
+    ok 40 - SetHash ⊂
+    ok 41 - SetHash (<)
+    ok 42 - SetHash ⊄
+    ok 43 - SetHash ⊇
+    ok 44 - SetHash (>=)
+    ok 45 - SetHash ⊉
+    ok 46 - SetHash ⊃
+    ok 47 - SetHash (>)
+    ok 48 - SetHash ⊅
+    ok 49 - SetHash ∪
+    ok 50 - SetHash (|)
+    ok 51 - SetHash ∩
+    ok 52 - SetHash (&)
+    ok 53 - SetHash ∖ 
+    ok 54 - SetHash (-)
+    ok 55 - SetHash ⊖
+    ok 56 - SetHash (^)
+    ok 57 - SetHash ⊍
+    ok 58 - SetHash (.)
+    ok 59 - SetHash ⊎
+    ok 60 - SetHash (+)
+    ok 61 - Bag ∈
+    ok 62 - Bag (elem)
+    ok 63 - Bag ∉
+    ok 64 - Bag ∋
+    ok 65 - Bag (cont)
+    ok 66 - Bag ∌
+    ok 67 - Bag ⊆
+    ok 68 - Bag (<=)
+    ok 69 - Bag ⊈
+    ok 70 - Bag ⊂
+    ok 71 - Bag (<)
+    ok 72 - Bag ⊄
+    ok 73 - Bag ⊇
+    ok 74 - Bag (>=)
+    ok 75 - Bag ⊉
+    ok 76 - Bag ⊃
+    ok 77 - Bag (>)
+    ok 78 - Bag ⊅
+    ok 79 - Bag ∪
+    ok 80 - Bag (|)
+    ok 81 - Bag ∩
+    ok 82 - Bag (&)
+    ok 83 - Bag ∖ 
+    ok 84 - Bag (-)
+    ok 85 - Bag ⊖
+    ok 86 - Bag (^)
+    ok 87 - Bag ⊍
+    ok 88 - Bag (.)
+    ok 89 - Bag ⊎
+    ok 90 - Bag (+)
+    ok 91 - BagHash ∈
+    ok 92 - BagHash (elem)
+    ok 93 - BagHash ∉
+    ok 94 - BagHash ∋
+    ok 95 - BagHash (cont)
+    ok 96 - BagHash ∌
+    ok 97 - BagHash ⊆
+    ok 98 - BagHash (<=)
+    ok 99 - BagHash ⊈
+    ok 100 - BagHash ⊂
+    ok 101 - BagHash (<)
+    ok 102 - BagHash ⊄
+    ok 103 - BagHash ⊇
+    ok 104 - BagHash (>=)
+    ok 105 - BagHash ⊉
+    ok 106 - BagHash ⊃
+    ok 107 - BagHash (>)
+    ok 108 - BagHash ⊅
+    ok 109 - BagHash ∪
+    ok 110 - BagHash (|)
+    ok 111 - BagHash ∩
+    ok 112 - BagHash (&)
+    ok 113 - BagHash ∖ 
+    ok 114 - BagHash (-)
+    ok 115 - BagHash ⊖
+    ok 116 - BagHash (^)
+    ok 117 - BagHash ⊍
+    ok 118 - BagHash (.)
+    ok 119 - BagHash ⊎
+    ok 120 - BagHash (+)
+    ok 121 - Mix ∈
+    ok 122 - Mix (elem)
+    ok 123 - Mix ∉
+    ok 124 - Mix ∋
+    ok 125 - Mix (cont)
+    ok 126 - Mix ∌
+    ok 127 - Mix ⊆
+    ok 128 - Mix (<=)
+    ok 129 - Mix ⊈
+    ok 130 - Mix ⊂
+    ok 131 - Mix (<)
+    ok 132 - Mix ⊄
+    ok 133 - Mix ⊇
+    ok 134 - Mix (>=)
+    ok 135 - Mix ⊉
+    ok 136 - Mix ⊃
+    ok 137 - Mix (>)
+    ok 138 - Mix ⊅
+    ok 139 - Mix ∪
+    ok 140 - Mix (|)
+    ok 141 - Mix ∩
+    ok 142 - Mix (&)
+    ok 143 - Mix ∖ 
+    ok 144 - Mix (-)
+    ok 145 - Mix ⊖
+    ok 146 - Mix (^)
+    ok 147 - Mix ⊍
+    ok 148 - Mix (.)
+    ok 149 - Mix ⊎
+    ok 150 - Mix (+)
+    ok 151 - MixHash ∈
+    ok 152 - MixHash (elem)
+    ok 153 - MixHash ∉
+    ok 154 - MixHash ∋
+    ok 155 - MixHash (cont)
+    ok 156 - MixHash ∌
+    ok 157 - MixHash ⊆
+    ok 158 - MixHash (<=)
+    ok 159 - MixHash ⊈
+    ok 160 - MixHash ⊂
+    ok 161 - MixHash (<)
+    ok 162 - MixHash ⊄
+    ok 163 - MixHash ⊇
+    ok 164 - MixHash (>=)
+    ok 165 - MixHash ⊉
+    ok 166 - MixHash ⊃
+    ok 167 - MixHash (>)
+    ok 168 - MixHash ⊅
+    ok 169 - MixHash ∪
+    ok 170 - MixHash (|)
+    ok 171 - MixHash ∩
+    ok 172 - MixHash (&)
+    ok 173 - MixHash ∖ 
+    ok 174 - MixHash (-)
+    ok 175 - MixHash ⊖
+    ok 176 - MixHash (^)
+    ok 177 - MixHash ⊍
+    ok 178 - MixHash (.)
+    ok 179 - MixHash ⊎
+    ok 180 - MixHash (+)
+ok 219 - set ops do not hang with Setty/Baggy/Mixy type objects
+ok 220 - did we get right number of elements
+ok 221 - do we get a truthy value for a
+ok 222 - do we get a falsy value for e
+ok 223 - is the %h really a Set
+ok 224 - cannot re-initialize Set
+ok 225 - cannot :delete from Set
+ok 226 - cannot delete from Set by assignment
+ok 227 - Nums that are close to each other remain distinct when put in sets
+ok 228 - have typechecking on a Hashifeid Set iterator
+ok 229 - can we smartmatch empty
+ok 230 - coerce Set -> SetHash
+ok 231 - coerce Set -> Bag
+ok 232 - coerce Set -> BagHash
+ok 233 - coerce Set -> Mix
+ok 234 - coerce Set -> MixHash
+ok 235 - parameterized Set
+ok 236 - did it parameterize ok
+ok 237 - must have Ints
+ok 238 - multi method Setty(Set:U:) returns a Set type object
+ok 239 - the two Set:D.STORE candidates create equivalent objects
+ok 240 - does .item work on Sets
+ok 241 - does Set type object return proper type
+ok 242 - does Set object return proper type
+ok 243 - Can we initialize a Set with a single value
+ok 244 - did on-the-fly value return original
+ok 245 - did on-the-fly value leave original unchanged
+ok 246 - did we get a Set with a List
+ok 247 - did we get a Set with an Array
+ok 248 - Set Capture
+# FUDGED!

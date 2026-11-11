@@ -1,0 +1,72 @@
+1..58
+ok 1 - Can create IO::Path::Cygwin
+ok 2 - volume "/foo/bar" -> ""
+ok 3 - dirname "/foo/bar" -> "/foo"
+ok 4 - basename "/foo/bar" -> "bar"
+ok 5 - volume "C:foo\\bar\" -> "C:"
+ok 6 - dirname "C:foo\\bar\" -> "foo"
+ok 7 - basename "C:foo\\bar\" -> "bar"
+ok 8 - .path returns Str of path
+ok 9 - .raku loopback
+ok 10 - volume "//server/share/" -> ""/server/share"
+ok 11 - dirname "\\server\share\" -> "\"
+ok 12 - basename "\\server\share\" -> "\"
+ok 13 - "\\server\share" restringifies to itself
+ok 14 - volume "//server/share/a" -> ""//server/share"
+ok 15 - dirname "//server/share/a" -> "/"
+ok 16 - basename "//server/share/a" -> "a"
+ok 17 - "//server/share/a" restringifies to itself
+ok 18 - current directory
+ok 19 - parent directory
+# Subtest: no path not allowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 20 - no path not allowed
+# Subtest: empty not allowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 21 - empty not allowed
+ok 22 - cleanup '/usr/////local/./bin/.\./perl/' -> '/usr/local/bin/perl'
+ok 23 - relative path is-relative
+ok 24 - relative path ! is-absolute
+ok 25 - absolute path ! is-relative
+ok 26 - absolute path is-absolute
+ok 27 - UNC path is-absolute
+ok 28 - UNC path with forward slash is-absolute
+ok 29 - path beginning with backslash is absolute
+ok 30 - "A:\" is absolute
+ok 31 - "A:b" is relative
+ok 32 - absolute path from $*CWD
+ok 33 - absolute path specified
+ok 34 - relative path specified
+ok 35 - relative inverts absolute
+ok 36 - absolute inverts relative
+not ok 37 - absolute inverts relative with resolve # TODO resolve NYI, needs nqp::readlink
+# Failed test 'absolute inverts relative with resolve'
+# at S32-io/io-path-cygwin.rakudo line 65
+# expected: '\foo\bar'
+#      got: '/zip/loc/../../foo/bar'
+ok 38 - parent of 'foo/bar' is 'foo'
+ok 39 - parent of 'foo' is '.'
+ok 40 - parent of '.' is '..'
+ok 41 - parent of '..' is '../..'
+ok 42 - parent at top level is '/'
+ok 43 - parent of root is '/'
+ok 44 - parent of root ('\') is '/'
+ok 45 - parent of '../foo' is '..'
+ok 46 - parent of 'foo/..' is 'foo'
+ok 47 - parent of '/foo/bar' is '/foo'
+ok 48 - parent of '/foo' is '/'
+ok 49 - parent of '/foo/..' is '/foo'
+ok 50 - parent of '/foo/../bar' is '/foo/..'
+ok 51 - append to root
+ok 52 - append to cwd
+ok 53 - succ basic
+ok 54 - succ x 2
+ok 55 - pred basic
+ok 56 - succ only effects basename
+ok 57 - pred only effects basename
+ok 58 - .absolute on paths starting with `-` does not produce empty string
+# FUDGED!

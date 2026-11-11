@@ -1,0 +1,33 @@
+1..32
+ok 1 - echo server and client
+ok 2 - discard server and client
+ok 3 - received first 7 characters
+ok 4 - received next 3 characters
+ok 5 - remaining 26 were buffered
+ok 6 - received ꀁ
+ok 7 - ... which is 1 character
+ok 8 - received another character
+ok 9 - combined the bytes form ꀂ
+ok 10 - get() with default separator
+ok 11 - default separator
+ok 12 - \r\n separator
+ok 13 - \r was not left behind on the string
+ok 14 - . as a separator
+ok 15 - ! separator not at end of string
+ok 16 - Multiple separators not at end of string
+ok 17 - ! separator at end of string
+ok 18 - first get after creation came after first set of nl-in
+ok 19 - another get for good measure.
+ok 20 - received first character
+ok 21 - received last character
+ok 22 - total amount
+ok 23 - successful read binary data
+ok 24 - successful received binary data
+ok 25 - test moar cache by reading per byte
+ok 26 - received first 7 characters
+ok 27 - received next 3 characters
+ok 28 - remaining 26 were buffered
+ok 29 - can read correct lines from client without any hangs
+ok 30 - can connect as client when :$listen is set to False
+ok 31 - Surviving without SEGV due to incorrect socket connect/close handling
+ok 32 - IO::Socket::INET.new Int:D families not corresponding to any ProtocolFamily:D do not typecheck

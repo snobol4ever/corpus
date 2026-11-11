@@ -1,0 +1,850 @@
+1..182
+# Subtest: did we throws-like X::Undeclared?
+    1..4
+    ok 1 - 'sub foo(--> NoSuchType) { }; foo' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .symbol matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417552320) ... }
+    ok 4 - .what matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417552464) ... }
+ok 1 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Inheritance::SelfInherit?
+    1..3
+    ok 1 - 'my class Foobar is Foobar { }' died
+    ok 2 - right exception type (X::Inheritance::SelfInherit)
+    ok 3 - .name matches Foobar
+ok 2 - did we throws-like X::Inheritance::SelfInherit?
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..3
+    ok 1 - 'class GrammarUserClass { method bar { PostDeclaredGrammar.parse('OH HAI'); } }; grammar PostDeclaredGrammar { rule TOP { .* } }; GrammarUserClass.bar;' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+    ok 3 - .post_types matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417559016) ... }
+ok 3 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Syntax::Malformed::Elsif?
+    1..2
+    ok 1 - 'if 10 > 5 { say "maths works!" } else if 10 == 5 { say "identity is weird" } else { say "math is weird" }' died
+    ok 2 - right exception type (X::Syntax::Malformed::Elsif)
+ok 4 - did we throws-like X::Syntax::Malformed::Elsif?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..4
+    ok 1 - '1/2.''()' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .method matches 
+    ok 4 - .typename matches Int
+ok 5 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Package::Stubbed?
+    1..2
+    ok 1 - 'role Bottle[::T] { method Str { "a bottle of {T}" } }; class Wine { ... }; say Bottle[Wine].new;' died
+    ok 2 - right exception type (X::Package::Stubbed)
+ok 6 - did we throws-like X::Package::Stubbed?
+# Subtest: did we throws-like X::Caller::NotDynamic?
+    1..3
+    ok 1 - 'sub f() {CALLER::<$x>}; my $x; f' died
+    ok 2 - right exception type (X::Caller::NotDynamic)
+    ok 3 - .symbol matches $x
+ok 7 - did we throws-like X::Caller::NotDynamic?
+ok 8 - Doesn't explode
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..2
+    ok 1 - ' sub foo(Str) { }; foo 42; ' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 9 - did we throws-like X::TypeCheck::Argument?
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..3
+    ok 1 - ' proto sub foo(Str) {*}; foo 42; ' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+    ok 3 - .protoguilt matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417638056) ... }
+ok 10 - did we throws-like X::TypeCheck::Argument?
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..4
+    ok 1 - ' sub foo($x) { }; foo; ' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+    ok 3 - .objname matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417638128) ... }
+    ok 4 - .signature matches rx/ '($x)' /
+ok 11 - did we throws-like X::TypeCheck::Argument?
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..4
+    ok 1 - ' sub foo(Str) { }; foo 42; ' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+    ok 3 - .arguments matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417640216) ... }
+    ok 4 - .signature matches rx/ '(Str)' /
+ok 12 - did we throws-like X::TypeCheck::Argument?
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..4
+    ok 1 - ' sub foo(Int $x, Str $y) { }; foo "not", 42; ' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+    ok 3 - .arguments matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417640288) ... }
+    ok 4 - .signature matches rx/ '(Int $x, Str $y)' /
+ok 13 - did we throws-like X::TypeCheck::Argument?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..4
+    ok 1 - 'my class A { method b { Q<b> } }; my $a = A.new; my $b = &A::b.assuming($a); $b();' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .method matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417640864) ... }
+    ok 4 - .private matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417640936) ... }
+ok 14 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Comp::Group?
+    1..4
+    ok 1 - 'for 1,2,3, { say 3 }' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .sorrows matches sub { }
+    ok 4 - .panic matches sub { }
+ok 15 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Comp::Group?
+    1..4
+    ok 1 - 'CATCH { when X::Y {} }' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .panic matches sub { }
+    ok 4 - .sorrows matches sub { }
+ok 16 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Syntax::Confused?
+    1..5
+    ok 1 - 'say 1 if 2 if 3 { say 3 }' died
+    ok 2 - right exception type (X::Syntax::Confused)
+    ok 3 - .reason matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417641296) ... }
+    ok 4 - .pre matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417641368) ... }
+    ok 5 - .post matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417641440) ... }
+ok 17 - did we throws-like X::Syntax::Confused?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..5
+    ok 1 - 'if True if { };' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    not ok 3 - .pre matches if True  # TODO Wrong eject position
+    # Failed test '.pre matches if True '
+    # at SETTING::src/core.c/Rakudo/Iterator.rakumod line 5865
+    # Expected: if True 
+    # Got:      if True if 
+    ok 4 - .what matches block
+    not ok 5 - .post matches if { }; # TODO Wrong eject position
+    # Failed test '.post matches if { };'
+    # at SETTING::src/core.c/Rakudo/Iterator.rakumod line 5865
+    # Expected: if { };
+    # Got:      { };
+not ok 18 - did we throws-like X::Syntax::Missing? # TODO Wrong eject position
+# Failed test 'did we throws-like X::Syntax::Missing?'
+# at S32-exceptions/misc.rakudo line 92
+# Subtest: did we throws-like X::Syntax::Regex::Unspace?
+    1..4
+    ok 1 - '/\ X/' died
+    ok 2 - right exception type (X::Syntax::Regex::Unspace)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417582088) ... }
+    ok 4 - .char matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417582160) ... }
+ok 19 - did we throws-like X::Syntax::Regex::Unspace?
+# Subtest: did we throws-like X::Comp::Group?
+    1..4
+    ok 1 - '/m ** 1..-1/' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .sorrows matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417582232) ... }
+    ok 4 - .panic matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841417582304) ... }
+ok 20 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Comp::FailGoal?
+    1..4
+    ok 1 - 'multi sub postcircumfix:«⟨  ⟩»($foo, $a) { $a.say }; my $a; $a⟨5;' died
+    ok 2 - right exception type (X::Comp::FailGoal)
+    ok 3 - .goal matches '⟩'
+    ok 4 - .dba matches postcircumfix:sym<⟨ ⟩>
+ok 21 - did we throws-like X::Comp::FailGoal?
+# Subtest: did we throws-like X::Comp::FailGoal?
+    1..4
+    ok 1 - 'multi sub circumfix:«⟨  ⟩»($foo, $a) { $a.say }; ⟨5;' died
+    ok 2 - right exception type (X::Comp::FailGoal)
+    ok 3 - .goal matches '⟩'
+    ok 4 - .dba matches circumfix:sym<⟨ ⟩>
+ok 22 - did we throws-like X::Comp::FailGoal?
+# Subtest: did we throws-like X::Comp::FailGoal?
+    1..4
+    ok 1 - '„foo' died
+    ok 2 - right exception type (X::Comp::FailGoal)
+    ok 3 - .dba matches low curly double quotes
+    ok 4 - .goal matches <[”“]>
+ok 23 - did we throws-like X::Comp::FailGoal?
+# Subtest: did we throws-like X::Comp::FailGoal?
+    1..4
+    ok 1 - '[1,2' died
+    ok 2 - right exception type (X::Comp::FailGoal)
+    ok 3 - .dba matches array composer
+    ok 4 - .goal matches ']'
+ok 24 - did we throws-like X::Comp::FailGoal?
+# Subtest: did we throws-like X::Syntax::Regex::SpacesInBareRange?
+    1..4
+    ok 1 - '/m ** 1 ..2/' died
+    ok 2 - right exception type (X::Syntax::Regex::SpacesInBareRange)
+    ok 3 - .pre matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841366313736) ... }
+    ok 4 - .post matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841398137208) ... }
+ok 25 - did we throws-like X::Syntax::Regex::SpacesInBareRange?
+# Subtest: did we throws-like X::Comp::Group?
+    1..5
+    ok 1 - 'sub infix:<> (){}' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .message matches /'Null operator is not allowed'/
+    ok 4 - .worries matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841398345176) ... }
+    ok 5 - .panic matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841398345536) ... }
+ok 26 - did we throws-like X::Comp::Group?
+# Subtest: unknown operator should complain better
+    1..2
+    ok 1 - '&[doesntexist]' died
+    ok 2 - right exception type (X::Comp)
+ok 27 - unknown operator should complain better
+# Subtest: did we throws-like X::Dynamic::NotFound?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Dynamic::NotFound)
+ok 28 - did we throws-like X::Dynamic::NotFound?
+# Subtest: did we throws-like X::Comp::Group?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp::Group)
+ok 29 - did we throws-like X::Comp::Group?
+ok 30 - should be a compile time error
+# Subtest: did we throws-like X::CompUnit::UnsatisfiedDependency?
+    1..2
+    ok 1 - 'use ThisDoesNotExistAtAll' died
+    ok 2 - right exception type (X::CompUnit::UnsatisfiedDependency)
+ok 31 - did we throws-like X::CompUnit::UnsatisfiedDependency?
+# Subtest: did we throws-like X::Syntax::Term::MissingInitializer?
+    1..3
+    ok 1 - 'my \foo' died
+    ok 2 - right exception type (X::Syntax::Term::MissingInitializer)
+    ok 3 - .message matches Term definition requires an initializer
+ok 32 - did we throws-like X::Syntax::Term::MissingInitializer?
+# Subtest: adequate error message when undeclared type is used in "when" clause
+    1..3
+    ok 1 - 'given 42 { when SomeUndeclaredType { 1 }; default { 0 } }' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .message matches /SomeUndeclaredType/
+ok 33 - adequate error message when undeclared type is used in "when" clause
+# Subtest: no NullPMC access error but exception X::Multi::NoMatch
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 34 - no NullPMC access error but exception X::Multi::NoMatch
+# Subtest: adequate error message when declaring "my Int a;"
+    1..3
+    ok 1 - 'my Int a;' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841401127648) ... }
+ok 35 - adequate error message when declaring "my Int a;"
+# Subtest: adequate error message when declaring "my Int a"
+    1..3
+    ok 1 - 'my Int a' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841401127720) ... }
+ok 36 - adequate error message when declaring "my Int a"
+# Subtest: adequate error message when calling bare "ord"
+    1..2
+    ok 1 - 'ord.Cool' died
+    ok 2 - right exception type (X::Obsolete)
+ok 37 - adequate error message when calling bare "ord"
+ok 38 - unnamed var in sink context warns
+ok 39 - no warning about Useless use of "+" in sink context
+ok 40 - no warning about "Useless use" with say ($_ with "foo")
+ok 41 - no warning about "Useless use" with "onearg form of reduce"
+# Subtest: fail sensibly for empty lookup
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NoSuchSymbol)
+ok 42 - fail sensibly for empty lookup
+# Subtest: did we throws-like X::Undeclared?
+    1..4
+    ok 1 - 'class RT117859 { trusts Bar }' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .symbol matches Bar
+    ok 4 - .what matches Type
+ok 43 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Comp::Group?
+    1..3
+    ok 1 - '5.' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .sorrows matches sub { }
+ok 44 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..2
+    ok 1 - 'BEGIN { ohnoes() }; sub ohnoes() { }' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 45 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Comp::BeginTime?
+    1..3
+    ok 1 - 'BEGIN { die "oh noes!" }' died
+    ok 2 - right exception type (X::Comp::BeginTime)
+    ok 3 - .exception matches sub { }
+ok 46 - did we throws-like X::Comp::BeginTime?
+# Subtest: did we throws-like X::Comp::BeginTime?
+    1..3
+    ok 1 - '    class Polar {
+    #          proto method new(|) { * }
+    #          multi method new(Real \mag, Real \theta) { }
+    #     }
+    #     constant j = Polar.new( 0e0 );
+    # ' died
+    ok 2 - right exception type (X::Comp::BeginTime)
+    ok 3 - .exception matches (NoMatch)
+ok 47 - did we throws-like X::Comp::BeginTime?
+# Subtest: did we throws-like X::Syntax::Variable::BadType?
+    1..2
+    ok 1 - 'my package A {}; my A $a;' died
+    ok 2 - right exception type (X::Syntax::Variable::BadType)
+ok 48 - did we throws-like X::Syntax::Variable::BadType?
+# Subtest: did we throws-like X::Parameter::BadType?
+    1..2
+    ok 1 - 'my package A {}; sub foo(A $a) { }' died
+    ok 2 - right exception type (X::Parameter::BadType)
+ok 49 - did we throws-like X::Parameter::BadType?
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..2
+    ok 1 - 'use DoesNotMatter Undeclared;' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 50 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..2
+    ok 1 - 'no DoesNotMatter Undeclared;' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 51 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Syntax::Variable::ConflictingTypes?
+    1..4
+    ok 1 - 'my Int (Str $x);' died
+    ok 2 - right exception type (X::Syntax::Variable::ConflictingTypes)
+    ok 3 - .outer matches (Int)
+    ok 4 - .inner matches (Str)
+ok 52 - did we throws-like X::Syntax::Variable::ConflictingTypes?
+# Subtest: X::Undeclared precedes the name and doesn't expect anything else
+    1..4
+    ok 1 - '$k' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .post matches $k
+    ok 4 - .highexpect matches &not
+ok 53 - X::Undeclared precedes the name and doesn't expect anything else
+# Subtest: did we throws-like X::Syntax::Extension::SpecialForm?
+    1..4
+    ok 1 - 'multi sub prefix:<|> (\a) { a.flat }' died
+    ok 2 - right exception type (X::Syntax::Extension::SpecialForm)
+    ok 3 - .opname matches |
+    ok 4 - .category matches prefix
+ok 54 - did we throws-like X::Syntax::Extension::SpecialForm?
+# Subtest: did we throws-like X::Syntax::Extension::SpecialForm?
+    1..4
+    ok 1 - 'multi sub infix:<=>(\a, \b) { }' died
+    ok 2 - right exception type (X::Syntax::Extension::SpecialForm)
+    ok 3 - .category matches infix
+    ok 4 - .opname matches =
+ok 55 - did we throws-like X::Syntax::Extension::SpecialForm?
+# Subtest: did we throws-like X::Syntax::Extension::SpecialForm?
+    1..4
+    ok 1 - 'multi sub infix:<:=>(\a, \b) { }' died
+    ok 2 - right exception type (X::Syntax::Extension::SpecialForm)
+    ok 3 - .opname matches :=
+    ok 4 - .category matches infix
+ok 56 - did we throws-like X::Syntax::Extension::SpecialForm?
+# Subtest: did we throws-like X::Syntax::Extension::SpecialForm?
+    1..4
+    ok 1 - 'multi sub infix:<::=>(\a, \b) { }' died
+    ok 2 - right exception type (X::Syntax::Extension::SpecialForm)
+    ok 3 - .category matches infix
+    ok 4 - .opname matches ::=
+ok 57 - did we throws-like X::Syntax::Extension::SpecialForm?
+# Subtest: did we throws-like X::Syntax::Extension::SpecialForm?
+    1..4
+    ok 1 - 'multi sub infix:<~~>(\a, \b) { }' died
+    ok 2 - right exception type (X::Syntax::Extension::SpecialForm)
+    ok 3 - .opname matches ~~
+    ok 4 - .category matches infix
+ok 58 - did we throws-like X::Syntax::Extension::SpecialForm?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'enum Error ( Metadata => -20); class Metadata { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 59 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..2
+    ok 1 - 'sub foo() is export(WTF) { }' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 60 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Comp::BeginTime?
+    1..2
+    ok 1 - 'sub x(array[Int]) { }' died
+    ok 2 - right exception type (X::Comp::BeginTime)
+ok 61 - did we throws-like X::Comp::BeginTime?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..2
+    ok 1 - 'enum X <A>; sub foo(A $a) { True' died
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 62 - did we throws-like X::Syntax::Missing?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - '{ our sub foo { say "OMG" } }; { our sub foo { say "WTF" } };' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 63 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'my class C { my method foo { say "OMG" }; my method foo { say "WTF" } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 64 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'my class C { our method foo { say "OMG" }; our method foo { say "WTF" } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 65 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'my grammar G { my token foo { OMG }; my token foo { WTF } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 66 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'my grammar G { our token foo { OMG }; our token foo { WTF } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 67 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Str::Numeric?
+    1..3
+    ok 1 - 'use fatal; +("\b" x 10)' died
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .source-indicator matches /'\b'/
+ok 68 - did we throws-like X::Str::Numeric?
+# Subtest: did we throws-like X::TooLateForREPR?
+    1..2
+    ok 1 - 'my class A { ... }; my class A is repr("Uninstantiable") { }' died
+    ok 2 - right exception type (X::TooLateForREPR)
+ok 69 - did we throws-like X::TooLateForREPR?
+# Subtest: did we throws-like X::ControlFlow::Return?
+    1..2
+    ok 1 - 'gather { return  1}' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+ok 70 - did we throws-like X::ControlFlow::Return?
+# Subtest: did we throws-like X::ControlFlow::Return?
+    1..2
+    ok 1 - 'for ^5 { NEXT { return } }' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+ok 71 - did we throws-like X::ControlFlow::Return?
+# Subtest: did we throws-like X::ControlFlow::Return?
+    1..2
+    ok 1 - 'for ^5 { return; }' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+ok 72 - did we throws-like X::ControlFlow::Return?
+# Subtest: did we throws-like X::ControlFlow::Return?
+    1..2
+    ok 1 - 'return;' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+ok 73 - did we throws-like X::ControlFlow::Return?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'loop (my $i = 0; $i <= 5; $i++;) { say $i }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /^'loop spec'/
+ok 74 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'loop () { say $i }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /^'loop spec' .* 'semicolon'/
+ok 75 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'loop (my $i = 0, $i <= 5, $i++) { say $i }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /^'loop spec' .* 'got 1'/
+ok 76 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'loop (my $i = 0; $i <= 5, $i++) { say $i }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /^'loop spec' .* 'got 2'/
+ok 77 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'loop (my $i = 0; $i <= 5; $i++; $i++) { say $i }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /^'loop spec' .* 'got more'/
+ok 78 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::NotParametric?
+    1..2
+    ok 1 - 'my package P { }; P[Int]' died
+    ok 2 - right exception type (X::NotParametric)
+ok 79 - did we throws-like X::NotParametric?
+# Subtest: did we throws-like X::NotParametric?
+    1..2
+    ok 1 - 'my module M { }; M[Int]' died
+    ok 2 - right exception type (X::NotParametric)
+ok 80 - did we throws-like X::NotParametric?
+# Subtest: did we throws-like X::NotParametric?
+    1..2
+    ok 1 - 'my class C { }; C[Int]' died
+    ok 2 - right exception type (X::NotParametric)
+ok 81 - did we throws-like X::NotParametric?
+# Subtest: did we throws-like X::NotParametric?
+    1..2
+    ok 1 - 'my package P { }; sub foo(P of Int) { }' died
+    ok 2 - right exception type (X::NotParametric)
+ok 82 - did we throws-like X::NotParametric?
+# Subtest: did we throws-like X::NotParametric?
+    1..2
+    ok 1 - 'my module M { }; sub foo(M of Int) { }' died
+    ok 2 - right exception type (X::NotParametric)
+ok 83 - did we throws-like X::NotParametric?
+# Subtest: did we throws-like X::NotParametric?
+    1..2
+    ok 1 - 'my class C { }; sub foo(C of Int)' died
+    ok 2 - right exception type (X::NotParametric)
+ok 84 - did we throws-like X::NotParametric?
+ok 85 - Can gist an exception with no message method
+ok 86 - Gist of exception with no message method mentions the type
+ok 87 - Gist of unthrown exception with no message method mentions the type
+ok 88 - Exception.new.Str produces some default text
+ok 89 - X::AdHoc.new.gist mentions the word 'explain'
+# Subtest: did we throws-like X::Parameter::InvalidConcreteness?
+    1..5
+    ok 1 - 'X::NYI.fail' died
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .routine matches fail
+    ok 4 - .param-is-invocant matches True
+    ok 5 - .should-be-concrete matches True
+ok 90 - did we throws-like X::Parameter::InvalidConcreteness?
+# Subtest: did we throws-like X::Parameter::InvalidConcreteness?
+    1..5
+    ok 1 - 'X::NYI.die' died
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .param-is-invocant matches True
+    ok 4 - .should-be-concrete matches True
+    ok 5 - .routine matches die
+ok 91 - did we throws-like X::Parameter::InvalidConcreteness?
+# Subtest: did we throws-like X::Parameter::InvalidConcreteness?
+    1..5
+    ok 1 - 'X::NYI.throw' died
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .routine matches throw
+    ok 4 - .param-is-invocant matches True
+    ok 5 - .should-be-concrete matches True
+ok 92 - did we throws-like X::Parameter::InvalidConcreteness?
+# Subtest: did we throws-like X::Parameter::InvalidConcreteness?
+    1..5
+    ok 1 - 'X::NYI.rethrow' died
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .param-is-invocant matches True
+    ok 4 - .routine matches rethrow
+    ok 5 - .should-be-concrete matches True
+ok 93 - did we throws-like X::Parameter::InvalidConcreteness?
+# Subtest: did we throws-like X::Parameter::InvalidConcreteness?
+    1..5
+    ok 1 - 'X::NYI.resume' died
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .should-be-concrete matches True
+    ok 4 - .param-is-invocant matches True
+    ok 5 - .routine matches resume
+ok 94 - did we throws-like X::Parameter::InvalidConcreteness?
+# Subtest: did we throws-like X::InvalidType?
+    1..3
+    ok 1 - 'sub foo() returns Bar { }' died
+    ok 2 - right exception type (X::InvalidType)
+    ok 3 - .typename matches Bar
+ok 95 - did we throws-like X::InvalidType?
+# Subtest: did we throws-like X::InvalidType?
+    1..3
+    ok 1 - 'my class C hides Baz { }' died
+    ok 2 - right exception type (X::InvalidType)
+    ok 3 - .typename matches Baz
+ok 96 - did we throws-like X::InvalidType?
+# Subtest: did we throws-like X::InvalidType?
+    1..3
+    ok 1 - 'my class C does InNoWayExist { }' died
+    ok 2 - right exception type (X::InvalidType)
+    ok 3 - .typename matches InNoWayExist
+ok 97 - did we throws-like X::InvalidType?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo() returns !!!wtf??? { }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches trait
+ok 98 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Cannot::Map?
+    1..2
+    ok 1 - '(1, 2, 3).map(True)' died
+    ok 2 - right exception type (X::Cannot::Map)
+ok 99 - did we throws-like X::Cannot::Map?
+# Subtest: did we throws-like X::Cannot::Map?
+    1..2
+    ok 1 - '(1, 2, 3).map: 1,2,3' died
+    ok 2 - right exception type (X::Cannot::Map)
+ok 100 - did we throws-like X::Cannot::Map?
+# Subtest: did we throws-like X::Cannot::Map?
+    1..2
+    ok 1 - '(1, 2, 3).map: (1,2,3)' died
+    ok 2 - right exception type (X::Cannot::Map)
+ok 101 - did we throws-like X::Cannot::Map?
+# Subtest: did we throws-like X::Cannot::Map?
+    1..2
+    ok 1 - '(1, 2, 3).map: * xx 2' died
+    ok 2 - right exception type (X::Cannot::Map)
+ok 102 - did we throws-like X::Cannot::Map?
+# Subtest: did we throws-like X::Cannot::Map?
+    1..2
+    ok 1 - '(1, 2, 3).map: { a => 42 }' died
+    ok 2 - right exception type (X::Cannot::Map)
+ok 103 - did we throws-like X::Cannot::Map?
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$notahash<foo>' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .payload matches rx/^^<-[\{\}]>+$$/
+ok 104 - did we throws-like Exception?
+# Subtest: did we throws-like X::Syntax::Adverb?
+    1..2
+    ok 1 - 'my $x :a' died
+    ok 2 - right exception type (X::Syntax::Adverb)
+ok 105 - did we throws-like X::Syntax::Adverb?
+# Subtest: did the faulty adverb throw the correct error
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Adverb)
+    ok 3 - .what matches :(&)
+ok 106 - did the faulty adverb throw the correct error
+# Subtest: did we throws-like X::Parameter::InvalidType?
+    1..2
+    ok 1 - 'sub foo ($bar :D) { 1; }' died
+    ok 2 - right exception type (X::Parameter::InvalidType)
+ok 107 - did we throws-like X::Parameter::InvalidType?
+# Subtest: did we throws-like X::TypeCheck::Assignment?
+    1..3
+    ok 1 - 'my Nil $a = 3' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+    ok 3 - .expected matches Nil
+ok 108 - did we throws-like X::TypeCheck::Assignment?
+# Subtest: did we throws-like X::TypeCheck::Binding?
+    1..3
+    ok 1 - 'sub aa (Nil $a) { }; my $b = 3; aa($b)' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+    ok 3 - .expected matches Nil
+ok 109 - did we throws-like X::TypeCheck::Binding?
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..3
+    ok 1 - 'my Int $a is default(Nil)' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .got matches Nil
+ok 110 - did we throws-like X::Parameter::Default::TypeCheck?
+ok 111 - sink distributes to statement list with 2 messages
+ok 112 - sink distributes to comma list with 2 messages
+ok 113 - sink distributes to comma list with 2 messages with bare block before Nil
+ok 114 - sink distributes to comma list with 2 messages with bare block alone
+ok 115 - sink distributes to comma list when first is item assignment
+ok 116 - sink distributes to comma list when first is item initializer
+ok 117 - sink warns on string
+ok 118 - sink warns on num
+ok 119 - sink warns on variable
+ok 120 - sink warns on operator
+ok 121 - sink warns on colonpair
+ok 122 - sink warns on fatarrow
+ok 123 - sink warns on pair composer
+ok 124 - sink warns on complex
+ok 125 - sink warns on fractional rat
+ok 126 - sink warns on decimal rat
+ok 127 - sink warns components of qw
+ok 128 - sink warns on while mod and suggests Nil
+ok 129 - sink warns on until mod and suggests Nil
+ok 130 - sink warns on for mod and suggests Nil
+ok 131 - sink warns on given mod and suggests Nil
+ok 132 - sink warns on floater and suggests Nil
+ok 133 - sink warns on type object outside Any and suggests Nil
+ok 134 - sink warns on type object Any and suggests Nil
+ok 135 - sink warns on type object inside Any and suggests Nil
+ok 136 - sink warns on variable and suggests Nil
+ok 137 - sink warns on () and suggests Nil
+ok 138 - sink warns inside of gather
+ok 139 - sink warns about special Nums
+ok 140 - sink warning maintains used format of integers
+ok 141 - sink warning maintains used format of big integers
+ok 142 - sink warning maintains used format of nums
+ok 143 - failure assignment at end of if block doesn't blow up
+ok 144 - failure binding at end of if block doesn't blow up
+ok 145 - failure binding at end of block doesn't blow up with or without modifier if
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..2
+    ok 1 - 'enum Animal (Cat, Dog)' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 146 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..2
+    ok 1 - 'constant foo = bar' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 147 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Bind?
+    1..2
+    ok 1 - '(1,2)[0] := 3' died
+    ok 2 - right exception type (X::Bind)
+ok 148 - did we throws-like X::Bind?
+# Subtest: can't bind into an undefined list
+    1..2
+    ok 1 - '(List)[0]  := 1' died
+    not ok 2 - right exception type (X::Bind) # TODO wrong exception
+    # Failed test 'right exception type (X::Bind)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::Bind
+    # Got:      X::Parameter::InvalidConcreteness
+    # Exception message: Invocant of method 'BIND-POS' must be an object instance of type
+    # 'List', not a type object of type 'List'. Did you forget a '.new'?
+not ok 149 - can't bind into an undefined list # TODO wrong exception
+# Failed test 'can't bind into an undefined list'
+# at S32-exceptions/misc.rakudo line 447
+# Subtest: can't bind into an undefined Int
+    1..2
+    ok 1 - '(Int)[0]   := 1' died
+    not ok 2 - right exception type (X::Bind) # TODO wrong exception
+    # Failed test 'right exception type (X::Bind)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::Bind
+    # Got:      X::Multi::NoMatch
+    # Exception message: Cannot resolve caller BIND-POS(Int:U: Int:D, Int:D); none of these signatures matches:
+    #     (Any:D $:: **@indices is raw, *%_)
+not ok 150 - can't bind into an undefined Int # TODO wrong exception
+# Failed test 'can't bind into an undefined Int'
+# at S32-exceptions/misc.rakudo line 448
+# Subtest: can't bind into a defined Int
+    1..2
+    ok 1 - '10[0]      := 1' died
+    ok 2 - right exception type (X::Bind)
+ok 151 - can't bind into a defined Int
+# Subtest: can't bind into a defined Str
+    1..2
+    ok 1 - '"Hi"[0]    := 1' died
+    ok 2 - right exception type (X::Bind)
+ok 152 - can't bind into a defined Str
+# Subtest: did we throws-like X::Undeclared::Symbols?
+    1..3
+    ok 1 - 'my Array[Numerix] $x;' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+    ok 3 - .gist matches /Numerix/
+ok 153 - did we throws-like X::Undeclared::Symbols?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..3
+    ok 1 - 'for 1, 2 { my $p = {};' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    ok 3 - .what matches block
+ok 154 - did we throws-like X::Syntax::Missing?
+# Subtest: did we throws-like X::TypeCheck::Binding?
+    1..4
+    ok 1 - 'sub foo(@array ($first, @rest)) { say @rest }; foo <1 2 3>;' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+    ok 3 - .expected matches (Positional)
+    ok 4 - .got matches (IntStr)
+ok 155 - did we throws-like X::TypeCheck::Binding?
+ok 156 - .flat on Backtrace returns .list
+ok 157 - we correctly have 2 elements in .list
+ok 158 - .list contains correct items
+ok 159 - .concise output includes only non-hidden, non-setting routines
+ok 160 - .summary output includes only non-hidden items that are either routines or non-setting items
+ok 161 - expecting 4 frames in the backtrace
+ok 162 - .map arg (item  \#0) is a Backtrace::Frame
+ok 163 - .map arg (item  \#1) is a Backtrace::Frame
+ok 164 - .map arg (item  \#2) is a Backtrace::Frame
+ok 165 - .map arg (item  \#3) is a Backtrace::Frame
+ok 166 - .map operates correctly
+ok 167 - No warning when producing error for "my $!a"
+# Subtest: X::Method::NotFound does not die with "X::Method::NotFound exception produced no message"
+    1..3
+    ok 1 - ' my \foo = Callable but role :: { } ' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5841551984984) ... }
+ok 168 - X::Method::NotFound does not die with "X::Method::NotFound exception produced no message"
+# Subtest: enum values are suggested for misspellings
+    1..4
+    ok 1 - 'enum E <RT123926Foo Bar>; sub x(RT123926Floo) {}' died
+    ok 2 - right exception type (X::Parameter::InvalidType)
+    ok 3 - .typename matches RT123926Floo
+    ok 4 - .suggestions matches [RT123926Foo]
+ok 169 - enum values are suggested for misspellings
+ok 170 - lexical worries pragma disables compiler warnings
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo (--> Bool Int $x, Int $y) { True }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 171 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo (--> Bool Int $x; Int $y) { True }' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 172 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo (--> Bool Int $x, Int $y)' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 173 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo (--> Bool Int $x; Int $y)' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 174 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo (--> Bool, Int $x, Int $y)' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 175 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo (--> Bool; Int $x; Int $y)' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 176 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo ($x, --> Bool, Int $y)' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 177 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'sub foo ($x; --> Bool; Int $y)' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .what matches /return/
+ok 178 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Comp::FailGoal?
+    1..4
+    ok 1 - 'my $x = " \#={";
+    # say 42;' died
+    ok 2 - right exception type (X::Comp::FailGoal)
+    ok 3 - .line matches 2
+    ok 4 - .message matches /«'line 1'»/
+ok 179 - did we throws-like X::Comp::FailGoal?
+# Subtest: did we throws-like X::Comp::FailGoal?
+    1..4
+    ok 1 - 'say ‘hello';
+    # say 42;
+    # say 50;' died
+    ok 2 - right exception type (X::Comp::FailGoal)
+    ok 3 - .message matches /«'line 1'»/
+    ok 4 - .line matches 3
+ok 180 - did we throws-like X::Comp::FailGoal?
+# Subtest: did we throws-like X::Comp::Group?
+    1..4
+    ok 1 - 'say 'first both';\
+    # <<<<<<< HEAD
+    # say 'your';
+    # =======
+    # say 'their';
+    # >>>>>>> branch
+    # 
+    # say 'middle both';
+    # 
+    # <<<<<<< HEAD
+    # say 'your';
+    # =======
+    # say 'their';
+    # >>>>>>> branch
+    # 
+    # q:to/QUOTED/;
+    # <<<<<<< HEAD
+    # this is not
+    # =======
+    # a vcs conflict
+    # >>>>>>> branch
+    # QUOTED
+    # ' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .panic matches sub { }
+    ok 4 - .sorrows matches sub { }
+ok 181 - did we throws-like X::Comp::Group?
+# Subtest: cannot initialize with itself
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Variable::Initializer)
+    ok 3 - .name matches $a
+ok 182 - cannot initialize with itself
+# FUDGED!

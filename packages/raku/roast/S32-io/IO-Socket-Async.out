@@ -1,0 +1,41 @@
+1..40
+ok 1 - Async listen on bogus hostname
+ok 2 - Async connect to unavailable server breaks promise
+ok 3 - Async connect to available server keeps promise
+ok 4 - Echo server
+ok 5 - Coped with grapheme split across packets
+ok 6 - Coped with UTF-8 bytes split across packets
+ok 7 - Bad UTF-8 causes quit on Supply (but program survives)
+ok 8 - Discard server
+ok 9 - bytes-supply
+ok 10 - Server socket configured with latin-1 handles it
+ok 11 - Can set encoding on incoming Supply separately
+ok 12 - Latin-1 client socket correctly encodes
+ok 13 - *-host accessors are right
+ok 14 - client's peer-port is right
+ok 15 - server's socket-port is right
+ok 16 - client's socket-port seems right
+ok 17 - server's peer-port seems right
+ok 18 - *-host accessors are right
+ok 19 - client's peer-port is right
+ok 20 - server's socket-port is right
+ok 21 - client's socket-port seems right
+ok 22 - server's peer-port seems right
+ok 23 - Address already in use results in a quit
+ok 24 - Multiple close of an IO::Socket::Async silently coped with
+ok 25 - Write of a socket after close dies in catachable way when awaited
+ok 26 - Read Supply on a closed socket is immediately done
+ok 27 - socket port isn't zero (first)
+ok 28 - socket port isn't zero (second)
+ok 29 - socket ports of first and second connection aren't the same
+ok 30 - can connect to first port on localhost
+ok 31 - can connect to second port on given host and port
+ok 32 - send message to first connection
+ok 33 - send message to second connection
+ok 34 - close first connection
+ok 35 - close second connection
+ok 36 - both receivers finished without exception
+ok 37 - first server socket got the right message
+ok 38 - second server socket got the right message
+ok 39 - listen tap is defined
+ok 40 - listen tap is a Tap

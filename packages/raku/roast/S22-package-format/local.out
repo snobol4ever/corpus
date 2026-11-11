@@ -1,0 +1,26 @@
+1..19
+ok 1 - Could we create '/tmp/s4e/cao/fudge/cwd/t/spec/S22-package-format/local-file-src'
+ok 2 - Could we create '/tmp/s4e/cao/fudge/cwd/t/spec/S22-package-format/local-file-src/NanooNanoo.rakumod'
+ok 3 - Could we create /tmp/s4e/cao/fudge/cwd/t/spec/S22-package-format/local-file-cmp
+ok 4 - install Ctrl-C handler for cleanup in END
+ok 5 - The object is-a 'CompUnit::Repository::FileSystem'
+ok 6 - The object is-a 'IO::Path'
+ok 7 - is . looking at the right directory
+ok 8 - is the short-id right
+ok 9 - Cannot install on CUR::FileSystem
+ok 10 - The object is-a 'CompUnit::Repository::FileSystem'
+ok 11 - are they the same
+ok 12 - The object is-a 'CompUnit::Repository::FileSystem'
+ok 13 - are they different
+ok 14 - The object is-a 'IO::Path'
+ok 15 - is '/tmp/s4e/cao/fudge/cwd/t/spec/S22-package-format/local-file-src' looking at the right dir
+# Subtest: is there one candidate and is it sane
+    ok 1 - The object is-a 'CompUnit'
+    ok 2 - is the language ok
+    ok 3 - is the name 'NanooNanoo'
+    ok 4 - is the module pre-compiled
+    1..4
+ok 16 - is there one candidate and is it sane
+ok 17 - The object is-a 'CompUnit'
+ok 18 - did we get the same CompUnit object
+ok 19 - was a non-existing candidate not found

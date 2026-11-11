@@ -1,0 +1,10 @@
+1..5
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - 'my $var; (key => $var) = "value"' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 1 - did we throws-like X::Assignment::RO?
+ok 2 - can bind to single pair
+ok 3 - variables are bound together (?)
+ok 4 - bound to the first pair
+ok 5 - bound to the second pair

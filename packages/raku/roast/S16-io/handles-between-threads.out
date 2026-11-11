@@ -1,0 +1,9 @@
+1..8
+ok 1 - Can write to file in another thread (1)
+ok 2 - Can write to file in another thread (2)
+ok 3 - Can close file on another thread
+ok 4 - Can read handle in main thread opened in another thread
+ok 5 - Can read handle on thread pool
+ok 6 - Can close handle on main thread after opening on another thread
+ok 7 - reading from $*IN from another thread works (file)
+ok 8 - reading from $*IN from another thread works (pipe)

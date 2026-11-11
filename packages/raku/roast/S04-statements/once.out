@@ -1,0 +1,29 @@
+1..24
+ok 1 - 
+ok 2 - once {...} has not run yet
+ok 3 - once {} has executed
+ok 4 - once  only runs once for each clone
+ok 5 - once {} runs when we first try to use a block
+ok 6 - once block set $str to 3     (first time)
+ok 7 - once wasn't invoked again (1-1) (first time)
+ok 8 - once wasn't invoked again (1-2) (first time)
+ok 9 - once block set $str to 3     (second time)
+ok 10 - once wasn't invoked again (1-1) (second time)
+ok 11 - once wasn't invoked again (1-2) (second time)
+ok 12 - once block ran exactly once (first time)
+ok 13 - once block modified the correct variable (first time)
+ok 14 - once block ran exactly once (second time)
+ok 15 - once block modified the correct variable (second time)
+ok 16 - once {} has not run yet
+ok 17 - once {} block set our variable (2)
+ok 18 - the returned value of once {} still there
+ok 19 - our once {} block was invoked exactly once
+ok 20 - once {} returned undefined
+ok 21 - our once { ...; Mu } block was invoked exactly once
+ok 22 - once block in statement modifier for will be run
+ok 23 - once block in statement modifier evaluates to correct result
+# Subtest: `once` does not containerize its values
+    1..2
+    ok 1 - 'my \z := once 42; z = 100' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 24 - `once` does not containerize its values

@@ -1,0 +1,25 @@
+1..24
+ok 1 - basic reduce works (1)
+ok 2 - n-ary reduce() works
+ok 3 - n-ary reduce() works
+ok 4 - right assoc n-ary reduce() works
+ok 5 - right assoc n-ary reduce() works
+ok 6 - method form of reduce works on numbers
+ok 7 - method form of reduce works on strings
+ok 8 - method form of reduce should work on arrays
+ok 9 - reduce(&foo) (foo ~~ .{}) works three levels deep
+ok 10 - All the types were hashes
+ok 11 - Reduce of one element list produces correct result
+ok 12 - reduce with one item returns that item
+ok 13 - Use proper arity calculation
+ok 14 - .reduce: &infix:<+> works
+ok 15 - .reduce: &infix:<*> works
+ok 16 - reduce and multi subs
+ok 17 - no warnings when setting associativity on the reduce &with
+ok 18 - Reduce method respects chain associativity
+ok 19 - .reduce with infix:<&&> returns True
+ok 20 - .reduce with infix:<&&> returns False
+ok 21 - .reduce with infix:<&&> and callable returns False
+ok 22 - .reduce with infix:<&&> and callable returns True
+ok 23 - reduce returns raw containers when specified
+ok 24 - reduce handled && correctly

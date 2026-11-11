@@ -1,0 +1,124 @@
+1..64
+ok 1 - eqv on values (1)
+ok 2 - eqv on values (2)
+ok 3 - eqv on values (3)
+ok 4 - eqv on value types (1-1)
+ok 5 - eqv on value types (1-2)
+ok 6 - eqv on value types (1-3)
+ok 7 - eqv on value types (2-1)
+ok 8 - eqv on value types (2-2)
+ok 9 - eqv on value types (2-3)
+ok 10 - eqv on array references (1)
+ok 11 - eqv on array references (2)
+not ok 12 - eqv on array references (3) # TODO huh?
+# Failed test 'eqv on array references (3)'
+# at S03-operators/eqv.rakudo line 42
+ok 13 - \@array of two bound arrays are eqv
+ok 14 - eqv on scalar references (1-1)
+ok 15 - eqv on scalar references (1-2)
+ok 16 - eqv on scalar references (1-3)
+not ok 17 - eqv on scalar references (1-4) # TODO huh?
+# Failed test 'eqv on scalar references (1-4)'
+# at S03-operators/eqv.rakudo line 55
+ok 18 - eqv on sub references (1-1)
+ok 19 - eqv on sub references (1-2)
+ok 20 - eqv on sub references (1-3)
+ok 21 - eqv on sub references (1-4)
+ok 22 - eqv on sub references (2-1)
+ok 23 - eqv on sub references (2-2)
+ok 24 - eqv on sub references (2-3)
+ok 25 - eqv on scalar references (2-1)
+ok 26 - eqv on scalar references (2-2)
+ok 27 - eqv on scalar references (2-3)
+ok 28 - eqv on anonymous array references (1)
+ok 29 - eqv on anonymous array references (2)
+ok 30 - eqv on anonymous array references (3)
+ok 31 - eqv on anonymous hash references (-)
+ok 32 - eqv on anonymous hash references (+)
+ok 33 - order really does not matter
+ok 34 - hashes: different number of pairs
+ok 35 - eqv on anonymous scalar references (1)
+not ok 36 - eqv on anonymous scalar references (2) # TODO huh?
+# Failed test 'eqv on anonymous scalar references (2)'
+# at S03-operators/eqv.rakudo line 103
+ok 37 - # SKIP huh?
+ok 38 - chained eqv (1)
+ok 39 - chained eqv (2)
+ok 40 - subparam binding doesn't affect eqv (1)
+ok 41 - subparam binding doesn't affect eqv (2)
+ok 42 - subparam binding doesn't affect eqv (3)
+ok 43 - subparam binding doesn't affect eqv (4)
+ok 44 - eqv returns Bool::True when true
+ok 45 - eqv returns Bool::False when false
+ok 46 - Any eqv Any
+ok 47 - eqv autothreads correctly
+ok 48 - list starting with () - 1
+ok 49 - list starting with () - 1
+ok 50 - list starting with () - 1
+ok 51 - list starting with () - 1
+ok 52 - ((), ())
+ok 53 - Values should be eqv only if they are the same type
+ok 54 - Str vs. Int
+# Subtest: Setty eqv Setty
+    1..8
+    ok 1 - identical Sets eqv each other
+    ok 2 - identical SetHashes eqv each other
+    ok 3 - Set does not eqv SetHash
+    ok 4 - IntStr does not eqv Int
+    ok 5 - IntStr does not eqv Str
+    ok 6 - Int    does not eqv IntStr
+    ok 7 - Str    does not eqv IntStr
+    ok 8 - IntStr does     eqv IntStr
+ok 55 - Setty eqv Setty
+# Subtest: Seq eqv List
+    1..6
+    ok 1 - Seq() not eqv List()
+    ok 2 - Seq(1 2) not eqv List(1 2)
+    ok 3 - Seq() not eqv List(1 2)
+    ok 4 - Seq(1 2) not eqv List()
+    ok 5 - Seq(...) not eqv List(...)
+    ok 6 - List(...) not eqv Seq(...)
+ok 56 - Seq eqv List
+# Subtest: Seq eqv Seq
+    1..7
+    ok 1 - eqv between identical Seqs does not die
+    ok 2 - eqv between identical Seqs returns True
+    ok 3 - eqv between identical lazy Seqs does not die
+    ok 4 - eqv between identical lazy Seqs returns True
+    ok 5 - eqv between shorter and longer Seq
+    ok 6 - eqv between longer and shorter Seq
+    ok 7 - eqv between Seqs with different end values
+ok 57 - Seq eqv Seq
+ok 58 - HyperSeq eqv HyperSeq
+# Subtest: Throws/lives in lazy cases
+    1..8
+    # Subtest: both lazy, same types (Seqs)
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches eqv
+    ok 1 - both lazy, same types (Seqs)
+    # Subtest: both lazy, same types (Lists)
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches eqv
+    ok 2 - both lazy, same types (Lists)
+    # Subtest: both lazy, same types (Arrays)
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches eqv
+    ok 3 - both lazy, same types (Arrays)
+    ok 4 - both lazy, different types
+    ok 5 - different types, only one lazy
+    ok 6 - Seqs, only one lazy
+    ok 7 - Lists, only one lazy
+    ok 8 - Arrays, only one lazy
+ok 59 - Throws/lives in lazy cases
+ok 60 - undefined Mu Mu equivalence
+ok 61 - undefined Mu Any equivalence
+ok 62 - undefined Any Mu equivalence
+ok 63 - 42 undefined Mu equivalence
+ok 64 - undefined Mu 42 equivalence
+# FUDGED!

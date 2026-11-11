@@ -1,0 +1,9 @@
+1..8
+ok 1 - $?PACKAGE for "module Foo {}"
+ok 2 - $?MODULE for "module Foo {}"
+ok 3 - ::?PACKAGE for "module Foo {}"
+ok 4 - ::?MODULE for "module Foo {}"
+ok 5 - $?PACKAGE for "module Foo::Bar {}"
+ok 6 - $?MODULE for "module Foo::Bar {}"
+ok 7 - ::?PACKAGE for "module Foo::Bar {}"
+ok 8 - ::?MODULE for "module Foo::Bar {}"

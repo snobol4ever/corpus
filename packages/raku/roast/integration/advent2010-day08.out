@@ -1,0 +1,9 @@
+1..8
+ok 1 - string reversal
+ok 2 - list reversal
+ok 3 - hash inversion
+ok 4 - hash inversion, non-distructive
+ok 5 - hash element push
+ok 6 - hash element push
+ok 7 - hash element push
+ok 8 - flip coercement (list)

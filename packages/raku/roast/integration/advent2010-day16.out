@@ -1,0 +1,14 @@
+1..13
+ok 1 - time
+ok 2 - now
+ok 3 - DateTime from now
+ok 4 - DateTime from time
+ok 5 - default timezone (utc, zero offset)
+ok 6 - date display
+ok 7 - date from string
+ok 8 - DateTime defaults
+ok 9 - date offset
+ok 10 - date offset
+ok 11 - date negative offset
+ok 12 - date negative offset
+ok 13 - date increment

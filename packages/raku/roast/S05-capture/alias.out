@@ -1,0 +1,44 @@
+1..32
+ok 1 - Hypothetical variable capture
+ok 2 - Hypothetical variable captured
+ok 3 - # SKIP Package variable capture RT  \#125122
+ok 4 - # SKIP Package variable capture RT  \#125122
+ok 5 - Reverse capture
+ok 6 - $0 captured
+ok 7 - $1 captured
+ok 8 - Compound hypothetical capture
+ok 9 - Implicit hypothetical variable captured
+ok 10 - Explicit hypothetical variable captured
+not ok 11 - Mixed capture # TODO Package variable capture RT #125122
+# Failed test 'Mixed capture'
+# at S05-capture/alias.rakudo line 44
+not ok 12 - Implicit hypothetical variable captured # TODO Package variable capture RT #125122
+# Failed test 'Implicit hypothetical variable captured'
+# at S05-capture/alias.rakudo line 45
+# expected: 'bc'
+#      got: ''
+not ok 13 - Explicit package variable captured # TODO Package variable capture RT #125122
+# Failed test 'Explicit package variable captured'
+# at S05-capture/alias.rakudo line 46
+# expected: 'bc'
+#      got: ''
+ok 14 - Standard captures
+ok 15 - Captured <?alpha>
+ok 16 - Captured <?ident>
+ok 17 - Repeated standard captures
+ok 18 - Captured $first
+ok 19 - Captured $family
+ok 20 - Captured <ident>
+ok 21 - Pair match
+ok 22 - Key match
+ok 23 - Value match
+ok 24 - Pair match
+ok 25 - Reverse key match
+ok 26 - Reverse value match
+ok 27 - Capture starting at non-zero
+ok 28 - Capture starting at non-zero, explicit
+ok 29 - Capture starting at non-zero, incremented once
+ok 30 - Capture starting at non-zero, incremented twice
+ok 31 - Correct match of $<cat>=@(...) construct
+ok 32 - Correct capture of $<cat>=@(...) construct
+# FUDGED!

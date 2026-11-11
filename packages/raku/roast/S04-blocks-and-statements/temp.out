@@ -1,0 +1,74 @@
+1..46
+ok 1 - temp() changed the variable (1)
+ok 2 - temp() restored the variable (1)
+ok 3 - changed the temp array
+ok 4 - temp() restored the array
+ok 5 - changed the temp hash
+ok 6 - temp() restored the hash
+ok 7 - temp() changed the variable (2-1)
+ok 8 - temp() changed the variable (2-2)
+ok 9 - temp() restored the variable (2)
+ok 10 - temp() shouldn't change the variable containers
+ok 11 - temp() changed the package variable (3-1)
+ok 12 - temp() restored the package variable (3-2)
+ok 13 - temp() changed the variable in a try block
+ok 14 - temp() restored the variable, the block was exited using an exception
+ok 15 - temp() changed our array element
+ok 16 - temp() restored our array element
+ok 17 - temp() changed our hash element
+ok 18 - temp() restored our array element
+not ok 19 - temp() removed previously non-existent key # TODO RT #126447
+# Failed test 'temp() removed previously non-existent key'
+# at S04-blocks-and-statements/temp.rakudo line 92
+not ok 20 - temp() restored hash has correct .elems # TODO RT #126447
+# Failed test 'temp() restored hash has correct .elems'
+# at S04-blocks-and-statements/temp.rakudo line 93
+# expected: '3'
+#      got: '4'
+ok 21 - temp() changed our nested arrayitem/hashitem element
+ok 22 - temp() restored our nested arrayitem/hashitem element
+ok 23 - TEMP block (1)
+ok 24 - TEMP block (2)
+ok 25 - TEMP block (3)
+ok 26 - TEMP block (4)
+not ok 27 - TEMP block (5) # TODO TEMP phasers NYI
+# Failed test 'TEMP block (5)'
+# at S04-blocks-and-statements/temp.rakudo line 136
+not ok 28 - TEMP block (6) # TODO TEMP phasers NYI
+# Failed test 'TEMP block (6)'
+# at S04-blocks-and-statements/temp.rakudo line 137
+not ok 29 - TEMP block (7) # TODO TEMP phasers NYI
+# Failed test 'TEMP block (7)'
+# at S04-blocks-and-statements/temp.rakudo line 138
+not ok 30 - TEMP block (8) # TODO TEMP phasers NYI
+# Failed test 'TEMP block (8)'
+# at S04-blocks-and-statements/temp.rakudo line 139
+ok 31 - TEMP block (9)
+ok 32 - TEMP block (10)
+ok 33 - TEMP block (11)
+ok 34 - instantiating a WierdTemp worked
+ok 35 - .TEMP method wasn't yet executed
+not ok 36 - .TEMP method was executed on temporization # TODO TEMP phasers NYI
+# Failed test '.TEMP method was executed on temporization'
+# at S04-blocks-and-statements/temp.rakudo line 177
+# expected: '1'
+#      got: '0'
+not ok 37 - .TEMP method was executed on restoration # TODO TEMP phasers NYI
+# Failed test '.TEMP method was executed on restoration'
+# at S04-blocks-and-statements/temp.rakudo line 180
+# expected: '2'
+#      got: '0'
+ok 38 - recursive nested temps are restored properly
+ok 39 - multiple temps in the same scope are restored properly
+ok 40 - sanity
+ok 41 - non-recursive function properly resets value
+ok 42 - recursive function properly resets value
+# Subtest: Useful error conveyed when trying to temp a non-existing dynamic
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Dynamic::NotFound)
+ok 43 - Useful error conveyed when trying to temp a non-existing dynamic
+ok 44 - temp works with parametarized Hashes
+ok 45 - `temp` keeps around Nils in Arrays when they exist
+ok 46 - `temp` keeps Nils around in Hashes when they exist
+# FUDGED!

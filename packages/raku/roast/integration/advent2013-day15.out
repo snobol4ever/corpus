@@ -1,0 +1,31 @@
+1..30
+ok 1 - Int WHAT
+ok 2 - binary
+ok 3 - binary
+ok 4 - hex
+ok 5 - hex
+ok 6 - octal
+ok 7 - radix
+ok 8 - radix
+ok 9 - radix
+ok 10 - 
+ok 11 - 
+ok 12 - Rat WHAT
+ok 13 - rational series
+ok 14 - 
+ok 15 - (\o/)
+ok 16 - 
+ok 17 - missed the 1
+ok 18 - (oops)
+ok 19 - (awww!)
+ok 20 - The object is-a 'Int'
+ok 21 - The object is-a 'Rat'
+ok 22 - The object is-a 'Num'
+ok 23 - complex number
+ok 24 - complex equation
+ok 25 - googol
+ok 26 - 
+ok 27 - 
+ok 28 - 
+ok 29 - Inf > $googol
+ok 30 - max

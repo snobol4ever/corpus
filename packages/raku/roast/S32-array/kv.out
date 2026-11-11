@@ -1,0 +1,19 @@
+1..18
+ok 1 - first element is 0
+ok 2 - second element is 1
+ok 3 - first element is 0
+ok 4 - second element is 'a'
+ok 5 - @array.kv returns the correct number of elems
+ok 6 - @array.kv has no inner list
+ok 7 - kv(@array) returns the correct number of elems
+ok 8 - kv(@array) has no inner list
+ok 9 - (42).kv works
+ok 10 - Pair.kv (count)
+ok 11 - Pair.kv (first key)
+ok 12 - Pair.kv (colonpair)
+ok 13 - Pair.kv (first key) (colonpair)
+ok 14 - kv(Pair) (count)
+ok 15 - kv(Pair) (first key)
+ok 16 - kv(Pair) (colonpair)
+ok 17 - kv(Pair) (first key (colonpair))
+ok 18 - .kv works within class List

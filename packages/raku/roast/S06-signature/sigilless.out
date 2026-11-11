@@ -1,0 +1,11 @@
+1..10
+ok 1 - basic passing of an argument to backslashed identifier
+ok 2 - passing of flattening arguments 
+ok 3 - passing of non-flatteing arguments
+ok 4 - backslash does not make read-only
+ok 5 - swapping worked
+ok 6 - no additional writable containers involved
+ok 7 - |args sanity (1)
+ok 8 - |args sanity (2)
+ok 9 - combined sanity
+ok 10 - named arguments

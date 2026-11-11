@@ -1,0 +1,6 @@
+1..5
+ok 1 - Hash.invert returns a Seq
+ok 2 - simple Hash.invert works
+ok 3 - original remains unchanged
+ok 4 - Hash.invert flattens list values
+ok 5 - original remains unchanged

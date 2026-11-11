@@ -1,0 +1,10 @@
+1..9
+ok 1 - caught "=~" braino
+ok 2 - error for "=~" usage mentions "~~"
+ok 3 - caught "!~" braino
+ok 4 - error for "!~" usage mentions "!~~"
+ok 5 - =~ allowed in double quotes
+ok 6 - !~ allowed in double quotes
+ok 7 - << allowed in double quotes
+ok 8 - >> allowed in double quotes
+ok 9 - .  allowed in double quotes

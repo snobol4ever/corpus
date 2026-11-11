@@ -1,0 +1,24 @@
+1..22
+ok 1 - callframe() returns a CallFrame
+ok 2 - callframe().line
+ok 3 - .file
+ok 4 - # SKIP Unable to resolve method inline in type CallFrame
+ok 5 - can access outer lexicals via .my
+ok 6 - can access outer lexicals via .my
+ok 7 - cannot mutate without is dynamic
+ok 8 - callframe(0).code returns this Sub
+ok 9 - callframe(1).code returns the calling Sub
+ok 10 - 
+ok 11 - 
+ok 12 - $x successfully modified
+ok 13 - $y not modified
+ok 14 - CallFrame.raku works
+ok 15 - CallFrame.gist works
+ok 16 - .raku on callframe in a sub does not crash
+ok 17 - No crash when using callframe(1).file many times in a loop
+ok 18 - No crash when using callframe.gist in a hot loop
+ok 19 - .annotations does not crash
+ok 20 - Exploring call frames until no code object does not crash
+ok 21 - did we get the right callframe each time?
+ok 22 - did we get the right callframe each time?
+# FUDGED!

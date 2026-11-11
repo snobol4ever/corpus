@@ -1,0 +1,106 @@
+1..48
+ok 1 - a user-defined GENERATE-USAGE sub is called if MAIN dispatch fails
+ok 2 - a user-defined GENERATE-USAGE sub is not called if MAIN dispatch succeeds
+ok 3 - if the MAIN dispatch results in an error, that error should be printed, not GENERATE-USAGE
+ok 4 - auto-generated GENERATE-USAGE message goes to $*ERR and contains parameter name
+ok 5 - auto-generated GENERATE-USAGE should handle sigilles parameters
+ok 6 - --help option sends auto-generated GENERATE-USAGE message to $*OUT
+ok 7 - boolean option +
+ok 8 - boolean option -
+ok 9 - option with value
+ok 10 - named alias (inner name)
+ok 11 - named alias (outer name)
+ok 12 - Non Bool option last with no value
+ok 13 - Bool option followed by positional value
+# Subtest: Valid arg with zero length value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 14 - Valid arg with zero length value
+# Subtest: Valid arg with single space value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 15 - Valid arg with single space value
+# Subtest: Valid arg with two space value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 16 - Valid arg with two space value
+# Subtest: Valid arg with newline value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 17 - Valid arg with newline value
+# Subtest: Valid arg with tab value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 18 - Valid arg with tab value
+# Subtest: Valid arg with tab then space value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 19 - Valid arg with tab then space value
+# Subtest: Extra arg with zero length value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 20 - Extra arg with zero length value
+# Subtest: Extra arg with single space value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 21 - Extra arg with single space value
+# Subtest: Extra arg with two space value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 22 - Extra arg with two space value
+# Subtest: Extra arg with newline value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 23 - Extra arg with newline value
+# Subtest: Extra arg with tab value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 24 - Extra arg with tab value
+# Subtest: Extra arg with newline value
+    ok 1 - 
+    ok 2 - 
+    1..2
+ok 25 - Extra arg with newline value
+ok 26 - short option with optional argument rejects spacey value
+ok 27 - short option with required argument accepts spacey value
+ok 28 - long option with optional argument rejects spacey value
+ok 29 - long option with required argument accepts spacey value
+ok 30 - named alias (inner name) with optional argument rejects spacey value
+ok 31 - named alias (inner name) with required argument accepts spacey value
+ok 32 - named alias (outer name) with optional argument rejects spacey value
+ok 33 - named alias (outer name) with required argument accepts spacey value
+ok 34 - named alias (short option) with optional argument rejects spacey value
+ok 35 - named alias (short option) with required argument accepts spacey value
+ok 36 - 
+ok 37 - best multi matches (not just first one)
+ok 38 - superfluous options trigger usage message
+ok 39 - Stopping option processing
+ok 40 - Boolean argument with --
+ok 41 - single occurence for named array param
+ok 42 - multiple occurence for named array param
+ok 43 - correctly select Scalar candidate from Scalar and Array candidates.
+not ok 44 - correct select Array candidate from Scalar and Array candidates. # TODO NYI
+# Failed test 'correct select Array candidate from Scalar and Array candidates.'
+# at S06-other/main-usage.rakudo line 204
+ok 45 - passing an integer matches MAIN(Str)
+ok 46 - failed constraint check doesn't leak internal exception out to the user
+ok 47 - use of anon slurpy hash does not cause a crash
+# Subtest: $*USAGE tests
+    1..4
+    ok 1 - default $*USAGE is available inside `sub GENERATE-USAGE`
+    ok 2 - default $*USAGE is available inside `sub MAIN`
+    ok 3 - trying to assign to $*USAGE inside sub MAIN throws
+    ok 4 - trying to assign to $*USAGE inside sub MAIN throws
+ok 48 - $*USAGE tests
+# FUDGED!

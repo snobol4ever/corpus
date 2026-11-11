@@ -1,0 +1,54 @@
+1..27
+ok 1 - basic sanity: .parse works
+ok 2 - parse with :action (and no make) lives
+ok 3 - Successfully parsed input string
+ok 4 - Match.actions
+ok 5 - first action has been called
+ok 6 - second action has been called
+ok 7 - ... and in the right order
+ok 8 - grammar matches
+ok 9 - $/.ast is an Array
+ok 10 - make 3 + $/ worked
+ok 11 - make $/ x 3 worked
+ok 12 - can parse with action stubs that make() regexes
+ok 13 - got the right .ast
+ok 14 - Can call Str.subst in an action method without any trouble
+ok 15 - Can make() a Hash
+ok 16 - Trivial grammar parsed
+ok 17 - make(List) (1)
+ok 18 - make(List) (2)
+ok 19 - can use Match.make
+ok 20 - scope tests parse
+ok 21 - $/ availiable
+ok 22 - token name
+ok 23 - token name (assertion)
+ok 24 - $0 availiable
+ok 25 - a:sym«<foo>» can be used as token and action method
+ok 26 - b:sym<<bar>> can be used as token and action method
+# Subtest: using <sym> in places without :sym throws useful message
+    1..4
+    # Subtest: regex
+        1..3
+        ok 1 - '/<sym>/' died
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches /"<sym>"/
+    ok 1 - regex
+    # Subtest: `regex` (grammar method)
+        1..3
+        ok 1 - '/grammar { regex TOP { <sym> } }.parse(42)/' died
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches /"<sym>"/
+    ok 2 - `regex` (grammar method)
+    # Subtest: token
+        1..3
+        ok 1 - '/grammar { token TOP { <sym> } }.parse(42)/' died
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches /"<sym>"/
+    ok 3 - token
+    # Subtest: token
+        1..3
+        ok 1 - '/grammar {  rule TOP { <sym> } }.parse(42)/' died
+        ok 2 - right exception type (Exception)
+        ok 3 - .message matches /"<sym>"/
+    ok 4 - token
+ok 27 - using <sym> in places without :sym throws useful message

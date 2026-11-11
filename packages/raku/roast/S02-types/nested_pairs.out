@@ -1,0 +1,15 @@
+1..14
+ok 1 - The object is-a 'Pair'
+ok 2 - the key is 1
+ok 3 - $list.value is-a Pair
+ok 4 - the list.value.key is 2
+ok 5 - $list.value.value is-a Pair
+ok 6 - the list.value.value.key is 3
+ok 7 - the list.value.value.value is 4
+ok 8 - pair operator nests right-associatively
+ok 9 - right-associative nested pairs .raku correctly
+ok 10 - the key is a nested pair
+ok 11 - the key of the key is a nested pair
+ok 12 - the value is a number
+ok 13 - the value of the key is a number
+ok 14 - key-nested pairs .raku correctly

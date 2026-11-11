@@ -1,0 +1,10 @@
+1..9
+ok 1 - The object is-a 'Pod::Block::Comment'
+ok 2 - 
+ok 3 - 
+ok 4 - The object is-a 'Pod::Block::Comment'
+ok 5 - one-line comment: number of elements
+ok 6 - one-line comment: contents
+ok 7 - The object is-a 'Pod::Block'
+ok 8 - 
+ok 9 - 

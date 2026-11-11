@@ -1,0 +1,13 @@
+1..12
+ok 1 - post given
+ok 2 - post given
+ok 3 - post given
+ok 4 - post given in a loop
+ok 5 - outer $_ did not get updated in lhs of given
+ok 6 - postfix given worked
+ok 7 - given modifies the $_ that is visible to the {} interpolator
+ok 8 - Correct $_ in try block in statement-modifying given
+ok 9 - given modifier with $_-using block runs block with correct arg
+ok 10 - given modifier with placeholder block runs block with correct arg
+ok 11 - given thunk does not mess up statement modifier closures
+ok 12 - given is a terminator even after comma

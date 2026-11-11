@@ -1,0 +1,55 @@
+1..50
+ok 1 - Can call method of class with mixed in role
+ok 2 - Call first method from role
+ok 3 - Call second method from role
+ok 4 - Can call method of class with two roles mixed in
+ok 5 - Can call mixed in method (two roles) 1
+ok 6 - Can call mixed in method (two roles) 2
+ok 7 - Can call mixed in method (two roles) 3
+ok 8 - Can call mixed in method (two roles) 4
+ok 9 - class matches first role
+ok 10 - class matches second role
+ok 11 - first role does not match class
+ok 12 - second role does not match class
+ok 13 - role matches first role it does
+ok 14 - role matches second role it does
+ok 15 - role not matched by first role it does
+ok 16 - role not matched by second role it does
+ok 17 - Can override method in a role with method in a class
+ok 18 - diamond role composition
+ok 19 - same with punning and inheritance
+ok 20 - access lexical declared in role from method called via class that does the role
+ok 21 - role composition worked
+ok 22 - role composition transported inheritance
+ok 23 - method of the same name from two different roles collide in a class composition
+ok 24 - colliding role mentioned in error (1)
+ok 25 - colliding role mentioned in error (2)
+ok 26 - can use a sub from the setting in a method composed from a role
+ok 27 - literal handles from role is composed (1)
+# Subtest: literal handles from role is composed (2)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 28 - literal handles from role is composed (2)
+ok 29 - wildcard handles from role is composed (1)
+ok 30 - wildcard handles from role is composed (2)
+ok 31 - attributes conflict in role composition
+ok 32 - stubbed multi in role implemented in class can be called (1)
+ok 33 - stubbed multi in role implemented in class can be called (2)
+ok 34 - must implement stubbed multi methods in roles (1)
+ok 35 - must implement stubbed multi methods in roles (2)
+ok 36 - another role can provided required multi implementation (1)
+ok 37 - another role can provided required multi implementation (2)
+ok 38 - class can override multi method from role
+ok 39 - other multi candidates from role survive
+ok 40 - multis with same sig are composition conflicts (1)
+ok 41 - multis with same sig are composition conflicts (2)
+ok 42 - class can resolve conflicts from multis by implementing method (1)
+ok 43 - class can resolve conflicts from multis by implementing method (2)
+ok 44 - stubbed method from role brought in by role must be satisfied (1)
+ok 45 - stubbed method from role brought in by role must be satisfied (2)
+ok 46 - class can satisfy stub from role brought in by role (1)
+ok 47 - class can satisfy stub from role brought in by role (2)
+ok 48 - another role can provided indirectly required multi implementation (1)
+ok 49 - another role can provided indirectly required multi implementation (2)
+ok 50 - public attribute acceptable as method

@@ -1,0 +1,36 @@
+1..7
+ok 1 - can not be called as a class method
+ok 2 - did we write the filename
+# Subtest: we can get chars from a supply
+    1..5
+    ok 1 - Supply appears to be doing Supply
+    ok 2 - Supply appears to NOT be live
+    ok 3 - we can get chars from a supply got a tap
+    ok 4 - we can get chars from a supply was really done
+    ok 5 - we can get chars from a supply
+ok 3 - we can get chars from a supply
+# Subtest: we can get bytes from a supply
+    1..5
+    ok 1 - Supply appears to be doing Supply
+    ok 2 - Supply appears to NOT be live
+    ok 3 - we can get bytes from a supply got a tap
+    ok 4 - we can get bytes from a supply was really done
+    ok 5 - we can get bytes from a supply
+ok 4 - we can get bytes from a supply
+ok 5 - did we write the filename
+# Subtest: we can get chars from a supply
+    1..5
+    ok 1 - Supply appears to be doing Supply
+    ok 2 - Supply appears to NOT be live
+    ok 3 - we can get chars from a supply got a tap
+    ok 4 - we can get chars from a supply was really done
+    ok 5 - we can get chars from a supply
+ok 6 - we can get chars from a supply
+# Subtest: we can get bytes from a supply
+    1..5
+    ok 1 - Supply appears to be doing Supply
+    ok 2 - Supply appears to NOT be live
+    ok 3 - we can get bytes from a supply got a tap
+    ok 4 - we can get bytes from a supply was really done
+    ok 5 - we can get bytes from a supply
+ok 7 - we can get bytes from a supply

@@ -1,0 +1,13 @@
+1..7
+ok 1 - scalar sub truth (unary)
+ok 2 - scalar sub truth (unary, negated smart-match)
+ok 3 - scalar sub truth (unary)
+ok 4 - scalar sub truth (unary, negated smart-match)
+ok 5 - scalar sub truth
+ok 6 - negated scalar sub false
+# Subtest: no glitches with Routines not doing Callable role
+    1..3
+    ok 1 - min
+    ok 2 - max
+    ok 3 - minmax
+ok 7 - no glitches with Routines not doing Callable role

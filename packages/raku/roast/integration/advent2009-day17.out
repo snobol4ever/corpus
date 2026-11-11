@@ -1,0 +1,63 @@
+1..62
+ok 1 - Line 0 matched using map()
+ok 2 - Line 1 matched using map()
+ok 3 - Line 2 matched using map()
+ok 4 - Line 3 matched using map()
+ok 5 - Line 4 matched using map()
+ok 6 - Line 5 matched using map()
+ok 7 - Line 6 matched using map()
+ok 8 - Line 7 matched using map()
+ok 9 - Line 8 matched using map()
+ok 10 - Line 9 matched using map()
+ok 11 - Line 10 matched using map()
+ok 12 - Line 11 matched using map()
+ok 13 - Line 12 matched using map()
+ok 14 - Line 13 matched using map()
+ok 15 - Line 14 matched using map()
+ok 16 - Line 15 matched using map()
+ok 17 - Line 16 matched using map()
+ok 18 - Line 17 matched using map()
+ok 19 - Line 18 matched using map()
+ok 20 - Line 19 matched using map()
+ok 21 - Line 20 matched using map()
+ok 22 - Line 21 matched using map()
+ok 23 - Line 22 matched using map()
+ok 24 - Line 23 matched using map()
+ok 25 - Line 24 matched using map()
+ok 26 - Line 25 matched using map()
+ok 27 - Line 26 matched using map()
+ok 28 - Line 27 matched using map()
+ok 29 - Line 28 matched using map()
+ok 30 - Line 29 matched using map()
+ok 31 - Line 30 matched using map()
+ok 32 - Line 0 matched using >>☃ hyperoperator
+ok 33 - Line 1 matched using >>☃ hyperoperator
+ok 34 - Line 2 matched using >>☃ hyperoperator
+ok 35 - Line 3 matched using >>☃ hyperoperator
+ok 36 - Line 4 matched using >>☃ hyperoperator
+ok 37 - Line 5 matched using >>☃ hyperoperator
+ok 38 - Line 6 matched using >>☃ hyperoperator
+ok 39 - Line 7 matched using >>☃ hyperoperator
+ok 40 - Line 8 matched using >>☃ hyperoperator
+ok 41 - Line 9 matched using >>☃ hyperoperator
+ok 42 - Line 10 matched using >>☃ hyperoperator
+ok 43 - Line 11 matched using >>☃ hyperoperator
+ok 44 - Line 12 matched using >>☃ hyperoperator
+ok 45 - Line 13 matched using >>☃ hyperoperator
+ok 46 - Line 14 matched using >>☃ hyperoperator
+ok 47 - Line 15 matched using >>☃ hyperoperator
+ok 48 - Line 16 matched using >>☃ hyperoperator
+ok 49 - Line 17 matched using >>☃ hyperoperator
+ok 50 - Line 18 matched using >>☃ hyperoperator
+ok 51 - Line 19 matched using >>☃ hyperoperator
+ok 52 - Line 20 matched using >>☃ hyperoperator
+ok 53 - Line 21 matched using >>☃ hyperoperator
+ok 54 - Line 22 matched using >>☃ hyperoperator
+ok 55 - Line 23 matched using >>☃ hyperoperator
+ok 56 - Line 24 matched using >>☃ hyperoperator
+ok 57 - Line 25 matched using >>☃ hyperoperator
+ok 58 - Line 26 matched using >>☃ hyperoperator
+ok 59 - Line 27 matched using >>☃ hyperoperator
+ok 60 - Line 28 matched using >>☃ hyperoperator
+ok 61 - Line 29 matched using >>☃ hyperoperator
+ok 62 - Line 30 matched using >>☃ hyperoperator

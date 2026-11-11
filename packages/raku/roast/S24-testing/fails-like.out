@@ -1,0 +1,207 @@
+1..2
+# Subtest: Callable arg
+    1..13
+    # Subtest: did we fails-like Exception?
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 2 - Failure threw when sunk
+    ok 1 - did we fails-like Exception?
+    # Subtest: plain fail
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 2 - Failure threw when sunk
+    ok 2 - plain fail
+    # Subtest: typed fail
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..4
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Reserved)
+            ok 3 - .instead matches foo
+            ok 4 - .pos matches bar
+        ok 2 - Failure threw when sunk
+    ok 3 - typed fail
+    # Subtest: whatever bool matcher
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Reserved)
+            ok 3 - .instead matches WhateverCode.new
+        ok 2 - Failure threw when sunk
+    ok 4 - whatever bool matcher
+    # Subtest: bool matcher throws
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Match::Bool)
+        ok 3 - .message matches WhateverCode.new
+    ok 5 - bool matcher throws
+    # Subtest: plain fail (thrown)
+        1..2
+        not ok 1 - expected code to fail but it threw X::AdHoc instead # TODO should fail
+        # Failed test 'expected code to fail but it threw X::AdHoc instead'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 29
+        ok 2 - # SKIP expected code to fail but it threw X::AdHoc instead
+    not ok 6 - plain fail (thrown) # TODO should fail
+    # Failed test 'plain fail (thrown)'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 29
+    ok 7 - should fail
+    # Subtest: plain fail (handled)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            not ok 1 - code dies # TODO should fail
+            # Failed test 'code dies'
+            # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 32
+            ok 2 - # SKIP Code did not die, can not check exception
+        not ok 2 - Failure threw when sunk # TODO should fail
+        # Failed test 'Failure threw when sunk'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 32
+    not ok 8 - plain fail (handled) # TODO should fail
+    # Failed test 'plain fail (handled)'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 32
+    ok 9 - should fail
+    # Subtest: typed fail (thrown)
+        1..2
+        not ok 1 - expected code to fail but it threw X::Syntax::Reserved instead # TODO should fail
+        # Failed test 'expected code to fail but it threw X::Syntax::Reserved instead'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 36
+        ok 2 - # SKIP expected code to fail but it threw X::Syntax::Reserved instead
+    not ok 10 - typed fail (thrown) # TODO should fail
+    # Failed test 'typed fail (thrown)'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 36
+    ok 11 - should fail
+    # Subtest: did we fails-like Str?
+        1..2
+        not ok 1 - code returned a Failure # TODO should fail
+        # Failed test 'code returned a Failure'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 41
+        # Actual type: Int
+        # Subtest: Failure threw when sunk
+            1..2
+            not ok 1 - code dies # TODO should fail
+            # Failed test 'code dies'
+            # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 41
+            ok 2 - # SKIP Code did not die, can not check exception
+        not ok 2 - Failure threw when sunk # TODO should fail
+        # Failed test 'Failure threw when sunk'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 41
+    not ok 12 - did we fails-like Str? # TODO should fail
+    # Failed test 'did we fails-like Str?'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 41
+    ok 13 - should fail
+ok 1 - Callable arg
+# Subtest: Str arg
+    1..13
+    # Subtest: did we fails-like Exception?
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 2 - Failure threw when sunk
+    ok 1 - did we fails-like Exception?
+    # Subtest: plain fail
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 2 - Failure threw when sunk
+    ok 2 - plain fail
+    # Subtest: typed fail
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..4
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Reserved)
+            ok 3 - .instead matches foo
+            ok 4 - .pos matches bar
+        ok 2 - Failure threw when sunk
+    ok 3 - typed fail
+    # Subtest: whatever bool matcher
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..3
+            ok 1 - code dies
+            ok 2 - right exception type (X::Syntax::Reserved)
+            ok 3 - .instead matches WhateverCode.new
+        ok 2 - Failure threw when sunk
+    ok 4 - whatever bool matcher
+    # Subtest: bool matcher throws
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Match::Bool)
+        ok 3 - .message matches WhateverCode.new
+    ok 5 - bool matcher throws
+    # Subtest: plain fail (thrown)
+        1..2
+        not ok 1 - expected code to fail but it threw X::AdHoc instead # TODO should fail
+        # Failed test 'expected code to fail but it threw X::AdHoc instead'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 62
+        ok 2 - # SKIP expected code to fail but it threw X::AdHoc instead
+    not ok 6 - plain fail (thrown) # TODO should fail
+    # Failed test 'plain fail (thrown)'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 62
+    ok 7 - should fail
+    # Subtest: plain fail (handled)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            not ok 1 - code dies # TODO should fail
+            # Failed test 'code dies'
+            # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 65
+            ok 2 - # SKIP Code did not die, can not check exception
+        not ok 2 - Failure threw when sunk # TODO should fail
+        # Failed test 'Failure threw when sunk'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 65
+    not ok 8 - plain fail (handled) # TODO should fail
+    # Failed test 'plain fail (handled)'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 65
+    ok 9 - should fail
+    # Subtest: typed fail (thrown)
+        1..2
+        not ok 1 - expected code to fail but it threw X::Syntax::Reserved instead # TODO should fail
+        # Failed test 'expected code to fail but it threw X::Syntax::Reserved instead'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 69
+        ok 2 - # SKIP expected code to fail but it threw X::Syntax::Reserved instead
+    not ok 10 - typed fail (thrown) # TODO should fail
+    # Failed test 'typed fail (thrown)'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 69
+    ok 11 - should fail
+    # Subtest: did we fails-like Str?
+        1..2
+        not ok 1 - code returned a Failure # TODO should fail
+        # Failed test 'code returned a Failure'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 74
+        # Actual type: Int
+        # Subtest: Failure threw when sunk
+            1..2
+            not ok 1 - code dies # TODO should fail
+            # Failed test 'code dies'
+            # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 74
+            ok 2 - # SKIP Code did not die, can not check exception
+        not ok 2 - Failure threw when sunk # TODO should fail
+        # Failed test 'Failure threw when sunk'
+        # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 74
+    not ok 12 - did we fails-like Str? # TODO should fail
+    # Failed test 'did we fails-like Str?'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/fails-like.t line 74
+    ok 13 - should fail
+ok 2 - Str arg

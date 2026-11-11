@@ -1,0 +1,58 @@
+1..36
+ok 1 - method from a role can be mixed in
+ok 2 - .? form of call works on a mixed-in role
+ok 3 - .+ form of call works on a mixed-in role
+ok 4 - .* form of call works on a mixed-in role
+ok 5 - initialization sanity check
+ok 6 - method from role was mixed in
+ok 7 - mixing in did not destroy old value
+ok 8 - mixing in with attributes did not destroy existing ones
+ok 9 - mixed in new attributes
+ok 10 - multi-role mixin preserved existing values
+ok 11 - attribute from multi-role mixing OK
+ok 12 - method from other role was OK too
+ok 13 - mixining in two roles one after the other
+ok 14 - mixining in two roles one after the other
+ok 15 - mixin with "does" lists method during introspection
+# Subtest: RT #77184
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Variable::Twigil)
+    ok 3 - .twigil matches !
+    ok 4 - .scope matches my
+ok 16 - RT  \#77184
+ok 17 - RT  \#100782 1/2
+ok 18 - RT  \#100782 2/2
+ok 19 - no crash with mixin in loop when it is not the last statement in loop
+ok 20 - can mix a role into a type object
+ok 21 - but with array literal on RHS works
+ok 22 - but with array literal provides a .Array method
+ok 23 - but with (1, 2).list on RHS works
+ok 24 - but with (1, 2).list provides a .List method
+ok 25 - but with (1, "2") on RHS works
+ok 26 - but with (1, "x") provides a .Int method returning 1
+ok 27 - but with (1, "x") provides a .Str method returning "x"
+# Subtest: True but (1, 1) gets Int conflict to resolve due to generating two Int methods
+    1..3
+    ok 1 - 'True but (1, 1)' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .gist matches -> $g {  \#`(Block|2476966878960) ... }
+ok 28 - True but (1, 1) gets Int conflict to resolve due to generating two Int methods
+ok 29 - multi-dispatch mixin sanity
+ok 30 - multi-dispatch mixin sanity
+# Subtest: can mixin Block with True
+    1..3
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+ok 31 - can mixin Block with True
+# Subtest: can mixin Code with True
+    1..3
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+ok 32 - can mixin Code with True
+ok 33 - mixin role TWEAK submethod was invoked
+ok 34 - mixin role attribute has been initialed
+ok 35 - can typecheck mixins of routines against Callable
+ok 36 - can mix in roles that use the "is built" trait at runtime

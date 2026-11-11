@@ -1,0 +1,29 @@
+1..28
+ok 1 - returns a Pod6 Block
+ok 2 - returns a named Block
+ok 3 - name is ok
+ok 4 - no contents, all right
+ok 5 - The object is-a 'Pod::Block::Para'
+ok 6 - the contents are all right
+ok 7 - additional whitespace removed  from the contents
+ok 8 - The object is-a 'Pod::Block'
+ok 9 - paragraph block contents ok, 1/2
+ok 10 - The object is-a 'Pod::Block'
+ok 11 - paragraph block contents ok, 1/2
+ok 12 - The object is-a 'Pod::Block::Para'
+ok 13 - contents outside blocks is all right
+ok 14 - mixed blocks, 1
+ok 15 - mixed blocks, 2
+ok 16 - mixed blocks, 3
+ok 17 - mixed blocks, 4
+ok 18 - The object is-a 'Pod::Block'
+ok 19 - 5 sub-nodes in foo
+ok 20 - 
+ok 21 - ...in the marmelade forest
+ok 22 - ...between the make-believe trees
+ok 23 - 
+ok 24 - ...in a cottage cheese cottage
+ok 25 - ...lives Albi! Albi!
+ok 26 - 
+ok 27 - ...Albi, the Racist Dragon
+ok 28 - nested paras do not crash/warn

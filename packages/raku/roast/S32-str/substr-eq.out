@@ -1,0 +1,150 @@
+ok 1 - Cool.substr-eq with wrong args does not hang
+# Subtest: substr-eq with negative position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 2 - substr-eq with negative position fails
+# Subtest: substr-eq with very large positive position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 3 - substr-eq with very large positive position fails
+ok 4 - "foobara".substr-eq("bar", 3, :!i) is True
+ok 5 - "foobara".substr-eq("bar", 3, :!ignorecase) is True
+ok 6 - "foobara".substr-eq("bar", 3, :!m) is True
+ok 7 - "foobara".substr-eq("bar", 3, :!ignoremark) is True
+ok 8 - "foobara".substr-eq("bar", 3, :!i, :!m) is True
+ok 9 - "foobara".substr-eq("bar", 3, :!ignorecase, :!ignoremark) is True
+ok 10 - "foobara".substr-eq("bar", 3, :i) is True
+ok 11 - "foobara".substr-eq("bar", 3, :ignorecase) is True
+ok 12 - "foobara".substr-eq("bar", 3, :m) is True
+ok 13 - "foobara".substr-eq("bar", 3, :ignoremark) is True
+ok 14 - "foobara".substr-eq("bar", 3, :i, :m) is True
+ok 15 - "foobara".substr-eq("bar", 3, :ignorecase, :ignoremark) is True
+ok 16 - "foobara".substr-eq("foobar", :!i) is True
+ok 17 - "foobara".substr-eq("foobar", :!ignorecase) is True
+ok 18 - "foobara".substr-eq("foobar", :!m) is True
+ok 19 - "foobara".substr-eq("foobar", :!ignoremark) is True
+ok 20 - "foobara".substr-eq("foobar", :!i, :!m) is True
+ok 21 - "foobara".substr-eq("foobar", :!ignorecase, :!ignoremark) is True
+ok 22 - "foobara".substr-eq("foobar", :i) is True
+ok 23 - "foobara".substr-eq("foobar", :ignorecase) is True
+ok 24 - "foobara".substr-eq("foobar", :m) is True
+ok 25 - "foobara".substr-eq("foobar", :ignoremark) is True
+ok 26 - "foobara".substr-eq("foobar", :i, :m) is True
+ok 27 - "foobara".substr-eq("foobar", :ignorecase, :ignoremark) is True
+ok 28 - "foobara".substr-eq("goo", 2, :!i) is False
+ok 29 - "foobara".substr-eq("goo", 2, :!ignorecase) is False
+ok 30 - "foobara".substr-eq("goo", 2, :!m) is False
+ok 31 - "foobara".substr-eq("goo", 2, :!ignoremark) is False
+ok 32 - "foobara".substr-eq("goo", 2, :!i, :!m) is False
+ok 33 - "foobara".substr-eq("goo", 2, :!ignorecase, :!ignoremark) is False
+ok 34 - "foobara".substr-eq("goo", 2, :i) is False
+ok 35 - "foobara".substr-eq("goo", 2, :ignorecase) is False
+ok 36 - "foobara".substr-eq("goo", 2, :m) is False
+ok 37 - "foobara".substr-eq("goo", 2, :ignoremark) is False
+ok 38 - "foobara".substr-eq("goo", 2, :i, :m) is False
+ok 39 - "foobara".substr-eq("goo", 2, :ignorecase, :ignoremark) is False
+ok 40 - "foobara".substr-eq("foobarx", :!i) is False
+ok 41 - "foobara".substr-eq("foobarx", :!ignorecase) is False
+ok 42 - "foobara".substr-eq("foobarx", :!m) is False
+ok 43 - "foobara".substr-eq("foobarx", :!ignoremark) is False
+ok 44 - "foobara".substr-eq("foobarx", :!i, :!m) is False
+ok 45 - "foobara".substr-eq("foobarx", :!ignorecase, :!ignoremark) is False
+ok 46 - "foobara".substr-eq("foobarx", :i) is False
+ok 47 - "foobara".substr-eq("foobarx", :ignorecase) is False
+ok 48 - "foobara".substr-eq("foobarx", :m) is False
+ok 49 - "foobara".substr-eq("foobarx", :ignoremark) is False
+ok 50 - "foobara".substr-eq("foobarx", :i, :m) is False
+ok 51 - "foobara".substr-eq("foobarx", :ignorecase, :ignoremark) is False
+ok 52 - ｢foobara｣.substr-eq("bar", 3, :!i) is True
+ok 53 - ｢foobara｣.substr-eq("bar", 3, :!ignorecase) is True
+ok 54 - ｢foobara｣.substr-eq("bar", 3, :!m) is True
+ok 55 - ｢foobara｣.substr-eq("bar", 3, :!ignoremark) is True
+ok 56 - ｢foobara｣.substr-eq("bar", 3, :!i, :!m) is True
+ok 57 - ｢foobara｣.substr-eq("bar", 3, :!ignorecase, :!ignoremark) is True
+ok 58 - ｢foobara｣.substr-eq("bar", 3, :i) is True
+ok 59 - ｢foobara｣.substr-eq("bar", 3, :ignorecase) is True
+ok 60 - ｢foobara｣.substr-eq("bar", 3, :m) is True
+ok 61 - ｢foobara｣.substr-eq("bar", 3, :ignoremark) is True
+ok 62 - ｢foobara｣.substr-eq("bar", 3, :i, :m) is True
+ok 63 - ｢foobara｣.substr-eq("bar", 3, :ignorecase, :ignoremark) is True
+ok 64 - ｢foobara｣.substr-eq("foobar", :!i) is True
+ok 65 - ｢foobara｣.substr-eq("foobar", :!ignorecase) is True
+ok 66 - ｢foobara｣.substr-eq("foobar", :!m) is True
+ok 67 - ｢foobara｣.substr-eq("foobar", :!ignoremark) is True
+ok 68 - ｢foobara｣.substr-eq("foobar", :!i, :!m) is True
+ok 69 - ｢foobara｣.substr-eq("foobar", :!ignorecase, :!ignoremark) is True
+ok 70 - ｢foobara｣.substr-eq("foobar", :i) is True
+ok 71 - ｢foobara｣.substr-eq("foobar", :ignorecase) is True
+ok 72 - ｢foobara｣.substr-eq("foobar", :m) is True
+ok 73 - ｢foobara｣.substr-eq("foobar", :ignoremark) is True
+ok 74 - ｢foobara｣.substr-eq("foobar", :i, :m) is True
+ok 75 - ｢foobara｣.substr-eq("foobar", :ignorecase, :ignoremark) is True
+ok 76 - ｢foobara｣.substr-eq("goo", 2, :!i) is False
+ok 77 - ｢foobara｣.substr-eq("goo", 2, :!ignorecase) is False
+ok 78 - ｢foobara｣.substr-eq("goo", 2, :!m) is False
+ok 79 - ｢foobara｣.substr-eq("goo", 2, :!ignoremark) is False
+ok 80 - ｢foobara｣.substr-eq("goo", 2, :!i, :!m) is False
+ok 81 - ｢foobara｣.substr-eq("goo", 2, :!ignorecase, :!ignoremark) is False
+ok 82 - ｢foobara｣.substr-eq("goo", 2, :i) is False
+ok 83 - ｢foobara｣.substr-eq("goo", 2, :ignorecase) is False
+ok 84 - ｢foobara｣.substr-eq("goo", 2, :m) is False
+ok 85 - ｢foobara｣.substr-eq("goo", 2, :ignoremark) is False
+ok 86 - ｢foobara｣.substr-eq("goo", 2, :i, :m) is False
+ok 87 - ｢foobara｣.substr-eq("goo", 2, :ignorecase, :ignoremark) is False
+ok 88 - ｢foobara｣.substr-eq("foobarx", :!i) is False
+ok 89 - ｢foobara｣.substr-eq("foobarx", :!ignorecase) is False
+ok 90 - ｢foobara｣.substr-eq("foobarx", :!m) is False
+ok 91 - ｢foobara｣.substr-eq("foobarx", :!ignoremark) is False
+ok 92 - ｢foobara｣.substr-eq("foobarx", :!i, :!m) is False
+ok 93 - ｢foobara｣.substr-eq("foobarx", :!ignorecase, :!ignoremark) is False
+ok 94 - ｢foobara｣.substr-eq("foobarx", :i) is False
+ok 95 - ｢foobara｣.substr-eq("foobarx", :ignorecase) is False
+ok 96 - ｢foobara｣.substr-eq("foobarx", :m) is False
+ok 97 - ｢foobara｣.substr-eq("foobarx", :ignoremark) is False
+ok 98 - ｢foobara｣.substr-eq("foobarx", :i, :m) is False
+ok 99 - ｢foobara｣.substr-eq("foobarx", :ignorecase, :ignoremark) is False
+ok 100 - "foöbÀra".substr-eq("bar", 3) is False
+ok 101 - "foöbÀra".substr-eq("bar", 3, :i) is False
+ok 102 - "foöbÀra".substr-eq("bar", "3", :ignorecase) is False
+ok 103 - "foöbÀra".substr-eq("BAR", "3") is False
+ok 104 - "foöbÀra".substr-eq("BÀR", 3, :i) is True
+ok 105 - "foöbÀra".substr-eq("BÀR", WhateverCode.new, :i) is True
+ok 106 - "foöbÀra".substr-eq("BÀR", 3, :ignorecase) is True
+ok 107 - "foöbÀra".substr-eq("bAr", "3", :m) is True
+ok 108 - "foöbÀra".substr-eq("bAr", "3", :ignoremark) is True
+ok 109 - "foöbÀra".substr-eq("bAr", WhateverCode.new, :ignoremark) is True
+ok 110 - "foöbÀra".substr-eq("foobar") is False
+ok 111 - "foöbÀra".substr-eq("foobar", :i) is False
+ok 112 - "foöbÀra".substr-eq("foobar", 0, :ignorecase) is False
+ok 113 - "foöbÀra".substr-eq("foobar", "0", :m) is False
+ok 114 - "foöbÀra".substr-eq("foobar", :ignoremark) is False
+ok 115 - "foöbÀra".substr-eq("foobar", "0", :i, :m) is True
+ok 116 - "foöbÀra".substr-eq("foobar", :ignorecase, :ignoremark) is True
+ok 117 - ｢foöbÀra｣.substr-eq("bar", 3) is False
+ok 118 - ｢foöbÀra｣.substr-eq("bar", 3, :i) is False
+ok 119 - ｢foöbÀra｣.substr-eq("bar", "3", :ignorecase) is False
+ok 120 - ｢foöbÀra｣.substr-eq("BAR", "3") is False
+ok 121 - ｢foöbÀra｣.substr-eq("BÀR", 3, :i) is True
+ok 122 - ｢foöbÀra｣.substr-eq("BÀR", WhateverCode.new, :i) is True
+ok 123 - ｢foöbÀra｣.substr-eq("BÀR", 3, :ignorecase) is True
+ok 124 - ｢foöbÀra｣.substr-eq("bAr", "3", :m) is True
+ok 125 - ｢foöbÀra｣.substr-eq("bAr", "3", :ignoremark) is True
+ok 126 - ｢foöbÀra｣.substr-eq("bAr", WhateverCode.new, :ignoremark) is True
+ok 127 - ｢foöbÀra｣.substr-eq("foobar") is False
+ok 128 - ｢foöbÀra｣.substr-eq("foobar", :i) is False
+ok 129 - ｢foöbÀra｣.substr-eq("foobar", 0, :ignorecase) is False
+ok 130 - ｢foöbÀra｣.substr-eq("foobar", "0", :m) is False
+ok 131 - ｢foöbÀra｣.substr-eq("foobar", :ignoremark) is False
+ok 132 - ｢foöbÀra｣.substr-eq("foobar", "0", :i, :m) is True
+ok 133 - ｢foöbÀra｣.substr-eq("foobar", :ignorecase, :ignoremark) is True
+1..133

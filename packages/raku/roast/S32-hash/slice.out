@@ -1,0 +1,32 @@
+1..31
+ok 1 - basic slice
+ok 2 - basic slice, explicit list
+ok 3 - basic slice, <> syntax
+ok 4 - basic slice, duplicate keys
+ok 5 - basic slice, duplicate keys, <> syntax
+ok 6 - slice from array, part 1
+ok 7 - slice from array, part 2
+ok 8 - slice from array slice, part 1
+ok 9 - slice from array slice, part 2
+ok 10 - assigning a slice using keys from List
+ok 11 - assigning a slice using keys from Array
+ok 12 - assigning a slice using keys from GatherIterator
+ok 13 - assigning a slice too many items yields a correct return value
+ok 14 - slice on hashitem literal
+ok 15 - binding hash slices works (1-1)
+ok 16 - binding hash slices works (1-2)
+ok 17 - binding hash slices works (2-1)
+ok 18 - binding hash slices works (2-2)
+ok 19 - binding hash slices works (3-1)
+ok 20 - binding hash slices works (3-2)
+ok 21 - binding hash slices works (3-3)
+ok 22 - binding hash slices works (3-4)
+ok 23 - binding hash slices works (3-5)
+ok 24 - binding hash slices works (3-6)
+ok 25 - binding hash slices works (3-7)
+ok 26 - binding hash slices works (3-8)
+ok 27 - values from hash keys, part 1
+ok 28 - values from hash keys, part 2
+ok 29 - calculated slice: hyperop
+ok 30 - Combination of Whatever slice and hyper op indexing works (1)
+ok 31 - Combination of Whatever slice and hyper op indexing works (2)

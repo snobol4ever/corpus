@@ -1,0 +1,11 @@
+1..2
+# Subtest: Testing `role A does A`
+    1..2
+    ok 1 - 'role RA does RA { }; 1' died
+    ok 2 - right exception type (X::InvalidType)
+ok 1 - Testing `role A does A`
+# Subtest: Testing `class A is A`
+    1..2
+    ok 1 - 'class CA is CA { }; 1' died
+    ok 2 - right exception type (X::Inheritance::SelfInherit)
+ok 2 - Testing `class A is A`

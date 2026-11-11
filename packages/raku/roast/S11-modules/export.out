@@ -1,0 +1,70 @@
+1..59
+ok 1 - exp_no_parens() is defined
+ok 2 - EXPORT::ALL::exp_no_parens() is defined
+ok 3 - exp_no_parens -- values agree
+ok 4 - exp_no_parens -- containers agree
+ok 5 - exp_empty_parens -- values agree
+ok 6 - exp_empty_parens -- containers agree
+ok 7 - exp_ALL -- values agree
+ok 8 - exp_ALL -- containers agree
+ok 9 - exp_DEFAULT -- values agree
+ok 10 - exp_DEFAULT -- containers agree
+ok 11 - exp_DEFAULT -- values agree
+ok 12 - exp_DEFAULT -- containers agree
+ok 13 - exp_ALL_DEFAULT -- values agree
+ok 14 - exp_ALL_DEFAULT -- containers agree
+ok 15 - exp_ALL_DEFAULT -- values agree
+ok 16 - exp_ALL_DEFAULT -- containers agree
+ok 17 - exp_MANDATORY -- values agree
+ok 18 - exp_MANDATORY -- containers agree
+ok 19 - exp_MANDATORY -- values agree
+ok 20 - exp_MANDATORY -- containers agree
+ok 21 - exp_MANDATORY -- EXPORT::DEFAULT::exp_MANDATORY does not exist
+ok 22 - exp_my_tag -- values agree
+ok 23 - exp_my_tag -- containers agree
+ok 24 - exp_my_tag -- values agree
+ok 25 - exp_my_tag -- containers agree
+ok 26 - exp_my_tag -- EXPORT::DEFAULT::exp_my_tag does not exist
+ok 27 - # SKIP export issue
+ok 28 - # SKIP export issue
+ok 29 - # SKIP export issue
+ok 30 - Foo_exp_parens() is defined
+not ok 31 - Foo_exp_parens() -- values agree # TODO export issue
+# Failed test 'Foo_exp_parens() -- values agree'
+# at S11-modules/export.rakudo line 121
+not ok 32 - Foo_exp_parens() -- containers agree # TODO export issue
+# Failed test 'Foo_exp_parens() -- containers agree'
+# at S11-modules/export.rakudo line 123
+ok 33 - $a.bar gets default value
+ok 34 - $a.bar() gets passed value
+ok 35 - # SKIP export issue
+ok 36 - # SKIP export issue
+ok 37 - EXPORT::ALL is identical to EXPORT::<ALL>
+ok 38 - EXPORT::ALL:: is a Stash that keeps exported symbols
+ok 39 - multi imports don't conflict
+# Subtest: adequate error message when multi sub exported out of a module fails to bind to an argument that happens to be a block
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+    ok 3 - .message matches /'none of these signatures match'/
+ok 40 - adequate error message when multi sub exported out of a module fails to bind to an argument that happens to be a block
+ok 41 - Using EXPORT-d type as attribute type works
+ok 42 - Str:D istype across module seam
+ok 43 - Str   istype across module seam
+ok 44 - Str:U istype across module seam
+ok 45 - Array[Str] istype across module seam
+ok 46 - Hash[Str] istype across module seam
+ok 47 - Hash[Hash[Str]] istype across module seam
+ok 48 - Array[Str:D] istype across module seam
+ok 49 - Hash[Str:D] istype across module seam
+ok 50 - Hash[Hash[Str:D]] istype across module seam
+ok 51 - Array[Str:U] istype across module seam (Str)
+ok 52 - Hash[Str:U] istype across module seam (Str)
+ok 53 - Hash[Hash[Str:U]] istype across module seam (Str)
+ok 54 - Array[Str:U] istype across module seam
+ok 55 - Hash[Str:U] istype across module seam
+ok 56 - Hash[Hash[Str:U]] istype across module seam
+ok 57 - role group is exported
+ok 58 - signatured exported role applied
+ok 59 - unsignatured exported role applied
+# FUDGED!

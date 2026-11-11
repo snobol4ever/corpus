@@ -1,0 +1,103 @@
+1..90
+ok 1 - one event logged
+ok 2 - it's foo
+ok 3 - cannot upwrap a never-wrapped sub.
+ok 4 - two events logged
+ok 5 - wrapper before
+ok 6 - wrapper after
+ok 7 - logged the correct events
+ok 8 - four events
+ok 9 - additional wrapping takes effect
+ok 10 - ... on top of initial wrapping
+ok 11 - old wrapped sub was not destroyed
+ok 12 - the original wrapper is still in effect
+ok 13 - one events for unwrapped (should be back to original now)
+ok 14 - got execpted value
+ok 15 - out of order unwrapping gave right number of results
+ok 16 - got execpted value from remaining wrapper
+ok 17 - got execpted value from original sub
+ok 18 - can't re-unwrap an already unwrapped sub
+ok 19 - Basic sub.
+ok 20 - Basic wrapping works 
+ok 21 - Recieved handle for unwrapping.
+ok 22 - Function produces expected output after wrapping
+ok 23 - unwrap the function
+ok 24 - Function is no longer wrapped.
+ok 25 - Sanity test.
+ok 26 - Sanity test.
+not ok 27 - Check that functions have a 'callwith' that works.  # TODO callwith
+# Failed test 'Check that functions have a 'callwith' that works. '
+# at S06-advanced/wrap.rakudo line 116
+# No such method 'callwith' for invocant of type 'Sub+{SoftRoutine}'
+ok 28 - wrapping 1
+ok 29 - Checking 1 level wrapping
+ok 30 - wrapping 2
+ok 31 - Checking 2 level wrapping
+ok 32 - wrapping 3
+ok 33 - Checking 3 level wrapping
+ok 34 - wrapping 4
+ok 35 - Checking 4 level wrapping
+ok 36 - wrapping 5
+ok 37 - Checking 5 level wrapping
+ok 38 - wrapping 6
+ok 39 - Checking 6 level wrapping
+ok 40 - wrapping 7
+ok 41 - Checking 7 level wrapping
+ok 42 - wrapping 8
+ok 43 - Checking 8 level wrapping
+ok 44 - wrapping 9
+ok 45 - Checking 9 level wrapping
+ok 46 - wrapping 10
+ok 47 - Checking 10 level wrapping
+ok 48 - Sanity.
+ok 49 - First wrapping lived
+ok 50 - Middle wrapper sanity.
+ok 51 - Second wraping lived
+ok 52 - three wrappers sanity.
+ok 53 - unwrap the middle wrapper.
+ok 54 - First wrapper and final function only, middle removed.
+ok 55 - Sanity
+ok 56 - Check that function is wrapped.
+not ok 57 - Wrap is now out of scope, should be back to normal. # TODO temp and wrap
+# Failed test 'Wrap is now out of scope, should be back to normal.'
+# at S06-advanced/wrap.rakudo line 160
+# expected: 'xxx'
+#      got: 'yyy'
+not ok 58 - Wrap is now out of scope, should be back to normal. # TODO temp and wrap
+# Failed test 'Wrap is now out of scope, should be back to normal.'
+# at S06-advanced/wrap.rakudo line 163
+# expected: 'xxx'
+#      got: 'yyy'
+ok 59 - {nextsame}() dies properly
+ok 60 - right exception type (X::NoDispatcher)
+ok 61 - wrapper test variable is undefined
+ok 62 - wrapped greet() works
+ok 63 - wrapper sees lexical from time of wrap (greet)
+ok 64 - wrapper test variable is undefined
+ok 65 - wrapped meet() works
+ok 66 - wrapper sees lexical from time of wrap (meet)
+ok 67 - wrap worked (sanity)
+ok 68 - could unwrap by calling .restore on the handle
+ok 69 - multiple wrappings in a loop
+ok 70 - can wrap a multi
+ok 71 - Did foo, capture return
+ok 72 - default works with wrapped accessor, capture return
+ok 73 - BUILD binding works with wrapped accessor, capture return
+ok 74 - assignment works with wrapped accessor, capture return
+ok 75 - Did foo, return callsame
+ok 76 - default works with wrapped accessor, return callsame
+ok 77 - BUILD binding works with wrapped accessor, return callsame
+ok 78 - assignment works with wrapped accessor, return callsame
+ok 79 - Did foo, callsame
+ok 80 - default works with wrapped accessor, callsame
+ok 81 - BUILD binding works with wrapped accessor, callsame
+ok 82 - assignment works with wrapped accessor, callsame
+ok 83 - Did foo, nextsame
+ok 84 - default works with wrapped accessor, nextsame
+ok 85 - BUILD binding works with wrapped accessor, nextsame
+ok 86 - assignment works with wrapped accessor, nextsame
+ok 87 - methods are in order
+ok 88 - multi methods with no wraps are in order
+ok 89 - multi methods with a wrapped one are in order
+ok 90 - methods are in order with the first method wrapped
+# FUDGED!

@@ -1,0 +1,11 @@
+1..10
+ok 1 - simple promise
+ok 2 - quotes example
+ok 3 - .then chaining
+ok 4 - .then chaining
+ok 5 - kept promise
+ok 6 - broken promise
+ok 7 - combined config (font/size)
+ok 8 - combined config (font/style)
+ok 9 - combined config (font/color)
+ok 10 - combined config (line/style)

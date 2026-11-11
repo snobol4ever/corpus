@@ -1,0 +1,23 @@
+1..22
+ok 1 - Repeatable overlapping match (1)
+ok 2 - Correct number of matches (1)
+ok 3 - Got right submatches
+ok 4 - Got right position of submatches
+ok 5 - Got captures
+ok 6 - Repeatable overlapping match (2)
+ok 7 - Correct number of matches (2)
+ok 8 - Got right submatches
+ok 9 - Got right position of submatches
+ok 10 - Got captures
+ok 11 - Failed overlapping match
+ok 12 - Two matches found
+ok 13 - First is abrAcadAbbra
+ok 14 - Second is adAbbra
+ok 15 - Two matches found
+ok 16 - First is abrAcadAbbra
+ok 17 - Second is adAbbra
+ok 18 - Four matches found
+ok 19 - First is aababcabcd
+ok 20 - Second is ababcabcd
+ok 21 - Third is abcabcd
+ok 22 - Last is abcd

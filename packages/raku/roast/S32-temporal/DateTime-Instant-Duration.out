@@ -1,0 +1,119 @@
+1..68
+ok 1 - DateTime.Instant returns an Instant
+ok 2 - Equal DateTimes yield equal Instants
+ok 3 - The difference of equal Instants is 0
+ok 4 - DateTime.Instant counts leap seconds
+ok 5 - Instant subtraction (seconds)
+ok 6 - Instant subtraction (non-integral seconds)
+ok 7 - Instant subtraction (needing high precision)
+ok 8 - Instant subtraction (minutes)
+ok 9 - Instant subtraction (HMS)
+ok 10 - Instant subtraction (days)
+ok 11 - Instant subtraction (a month)
+ok 12 - Instant subtraction (Jan and Feb, leap year)
+ok 13 - Instant subtraction (Jan and Feb, common year)
+ok 14 - Instant subtraction (YMD)
+ok 15 - Instant subtraction (YMDHMS)
+ok 16 - Instant subtraction (ugly case)
+ok 17 - Instant subtraction (time zones)
+ok 18 - Instant subtraction (June 30 leap second)
+ok 19 - Instant subtraction (December 31 leap second)
+ok 20 - Instant subtraction (leap second and time zones)
+ok 21 - Instant subtraction (thirty-year span)
+ok 22 - Round-tripping DateTime.Instant (2004-03-05T12:43:22Z)
+ok 23 - Round-tripping DateTime.Instant (2005-12-31T23:59:59Z)
+ok 24 - Round-tripping DateTime.Instant (2005-12-31T23:59:60Z)
+ok 25 - Round-tripping DateTime.Instant (2006-01-01T00:00:00Z)
+ok 26 - Round-tripping DateTime.Instant (2005-12-31T23:59:59.5Z)
+ok 27 - Round-tripping DateTime.Instant (2005-12-31T23:59:60.5Z)
+ok 28 - Round-tripping DateTime.Instant (2006-01-01T00:00:00.5Z)
+ok 29 - Round-tripping DateTime.Instant (2005-12-31T23:59:59.2Z)
+ok 30 - Round-tripping DateTime.Instant (2005-12-31T23:59:60.2Z)
+ok 31 - Round-tripping DateTime.Instant (2006-01-01T00:00:00.2Z)
+ok 32 - DateTime.new(now)
+ok 33 - DateTime.new(Instant) with time zone and formatter
+ok 34 - Instant.raku evals to Instant
+ok 35 - Round-tripping Instant.[from|to]-posix (1)
+ok 36 - Round-tripping Instant.DateTime (1)
+ok 37 - Round-tripping Instant.[from|to]-posix (10)
+ok 38 - Round-tripping Instant.DateTime (10)
+ok 39 - Round-tripping Instant.[from|to]-posix (100)
+ok 40 - Round-tripping Instant.DateTime (100)
+ok 41 - Round-tripping Instant.[from|to]-posix (1000)
+ok 42 - Round-tripping Instant.DateTime (1000)
+ok 43 - Round-tripping Instant.[from|to]-posix (10000)
+ok 44 - Round-tripping Instant.DateTime (10000)
+ok 45 - Round-tripping Instant.[from|to]-posix (100000)
+ok 46 - Round-tripping Instant.DateTime (100000)
+ok 47 - Round-tripping Instant.[from|to]-posix (1000000)
+ok 48 - Round-tripping Instant.DateTime (1000000)
+ok 49 - Round-tripping Instant.[from|to]-posix (10000000)
+ok 50 - Round-tripping Instant.DateTime (10000000)
+ok 51 - Round-tripping Instant.[from|to]-posix (100000000)
+ok 52 - Round-tripping Instant.DateTime (100000000)
+ok 53 - Round-tripping Instant.[from|to]-posix (1000000000)
+ok 54 - Round-tripping Instant.DateTime (1000000000)
+ok 55 - Round-tripping Instant.[from|to]-posix (1449755609)
+ok 56 - Round-tripping Instant.DateTime (1449755609)
+ok 57 - Duration.narrow (Int)
+ok 58 - Duration.narrow (Rat)
+ok 59 - Duration.raku roundtrips
+# Subtest: infix:<->(Duration, Real)
+    1..9
+    ok 1 - -1
+    ok 2 - 1
+    ok 3 - 100
+    ok 4 - -1e0
+    ok 5 - 1e0
+    ok 6 - 1e2
+    ok 7 - -1.5
+    ok 8 - 1.5
+    ok 9 - 100.5
+ok 60 - infix:<->(Duration, Real)
+ok 61 - Instant.Date
+# Subtest: Instant:U.Date throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 62 - Instant:U.Date throws
+# Subtest: Duration.new with wrong-typed arg throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 63 - Duration.new with wrong-typed arg throws
+ok 64 - Duration.new(Inf) works
+ok 65 - Duration.new(NaN) works
+# Subtest: infix:<%>(Duration, Real)
+    1..25
+    ok 1 - Duration.new(32)  %  0.5
+    ok 2 - Duration.new(32)  % -0.5
+    ok 3 - Duration.new(-32) %  0.5
+    ok 4 - Duration.new(-32) % -0.5
+    ok 5 - Duration.new(55)  %  1
+    ok 6 - Duration.new(55)  % -1
+    ok 7 - Duration.new(-55) %  1
+    ok 8 - Duration.new(-55) % -1
+    ok 9 - Duration.new(81)  %  1.5
+    ok 10 - Duration.new(81)  % -1.5
+    ok 11 - Duration.new(-81) %  1.5
+    ok 12 - Duration.new(-81) % -1.5
+    ok 13 - Duration.new(43)  %  2
+    ok 14 - Duration.new(43)  % -2
+    ok 15 - Duration.new(-43) %  2
+    ok 16 - Duration.new(-43) % -2
+    ok 17 - Duration.new(22)  %  3
+    ok 18 - Duration.new(22)  % -3
+    ok 19 - Duration.new(-22) %  3
+    ok 20 - Duration.new(-22) % -3
+    ok 21 - Duration.new(69)  %  73786976294838206464
+    ok 22 - Duration.new(69)  % -73786976294838206464
+    ok 23 - Duration.new(-69) %  73786976294838206464
+    ok 24 - Duration.new(-69) % -73786976294838206464
+    # Subtest: Duration % 0 dies
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 25 - Duration % 0 dies
+ok 66 - infix:<%>(Duration, Real)
+ok 67 - Duration defaults to 0.0
+ok 68 - rand on Duration does not crash

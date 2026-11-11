@@ -1,0 +1,112 @@
+1..78
+ok 1 - ~
+ok 2 - ?? !!
+ok 3 - == (false)
+ok 4 - == (true)
+ok 5 - == (false)
+ok 6 - != (true)
+ok 7 - == (const on rhs)
+ok 8 - != (const on rhs)
+ok 9 - == (const on lhs)
+ok 10 - != (const on lhs)
+ok 11 - == (sum on rhs)
+ok 12 - == (sum on rhs)
+ok 13 - == (sum on lhs)
+ok 14 - == (sum on lhs)
+ok 15 - == (sum on lhs)
+ok 16 - concatenation with ~ operator
+ok 17 - || returns first true value
+ok 18 - || returns last false value of list?
+ok 19 - (my @s)[0] //= something works
+ok 20 - (state @t)[0] //= something works
+ok 21 - boolean or (?|) returns True or False
+ok 22 - boolean or (?|) returns True or False
+ok 23 - all elements in junction are incremented
+ok 24 - any elements will match via junction
+ok 25 - any test against scalar
+ok 26 - any test array against any array
+ok 27 - any test array against all array
+ok 28 - all test array against any array
+ok 29 - all test array against all array
+ok 30 - test the all infix operator
+ok 31 - hyper-add
+ok 32 - joining of single items
+# Subtest: Guillemet form of subscript does not parse as infix hyperop
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|3966450572896) ... }
+ok 33 - Guillemet form of subscript does not parse as infix hyperop
+ok 34 - operator can start with a bang (!) and have Unicode character in it
+# Subtest: %^^ fails to parse (RT #73198)
+    1..3
+    ok 1 - '1%^^1' died
+    ok 2 - right exception type (X::Syntax::DuplicatedPrefix)
+    ok 3 - .prefixes matches ^^
+ok 35 - %^^ fails to parse (RT  \#73198)
+# Subtest: ~~!~~ fails to parse (RT #76436)
+    1..3
+    ok 1 - '555 ~~!~~ 666' died
+    ok 2 - right exception type (X::Syntax::DuplicatedPrefix)
+    ok 3 - .prefixes matches ~~
+ok 36 - ~~!~~ fails to parse (RT  \#76436)
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 37 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    not ok 1 - code dies # TODO 
+    # Failed test 'code dies'
+    # at S03-operators/misc.rakudo line 132
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 38 - did we throws-like Exception? # TODO 
+# Failed test 'did we throws-like Exception?'
+# at S03-operators/misc.rakudo line 132
+ok 39 - unary MINUS SIGN
+ok 40 - infix MINUS SIGN
+ok 41 - infix MINUS SIGN is not considered a hyphen
+ok 42 - prefix MINUS SIGN works with infix
+ok 43 - we have infix MULTIPLICATION SIGN
+ok 44 - we have infix DIVISION SIGN
+ok 45 - we have infix LESS-THAN OR EQUAL TO
+ok 46 - we have infix GREATER-THAN OR EQUAL TO
+ok 47 - we have infix NOT EQUAL TO
+ok 48 - we have infix LESS-THAN OR EQUAL TO (not always True)
+ok 49 - we have infix GREATER-THAN OR EQUAL TO (not always True)
+ok 50 - we have infix NOT EQUAL TO (not always True)
+ok 51 - unicode op chaining
+ok 52 - unicode op chaining
+ok 53 - unicode op chaining
+ok 54 - unicode ops chain with ASCII ones
+ok 55 - unicode ops chain with ASCII ones (not always True)
+ok 56 - Date ≥ Date (true)
+ok 57 - Date ≥ Date (false)
+ok 58 - Date ≤ Date (true)
+ok 59 - Date ≤ Date (false)
+ok 60 - Date ≠ Date (true)
+ok 61 - Date ≠ Date (false)
+ok 62 - DateTime ≥ DateTime (true)
+ok 63 - DateTime ≥ DateTime (false)
+ok 64 - DateTime ≤ DateTime (true)
+ok 65 - DateTime ≤ DateTime (false)
+ok 66 - DateTime ≠ DateTime (true)
+ok 67 - DateTime ≠ DateTime (false)
+ok 68 - Version ≥ Version (true)
+ok 69 - Version ≥ Version (false)
+ok 70 - Version ≤ Version (true)
+ok 71 - Version ≤ Version (false)
+ok 72 - Version ≠ Version (true)
+ok 73 - Version ≠ Version (false)
+ok 74 - Junctions with ≠ works like for negated ops
+# Subtest: does works with non-roles
+    1..3
+    ok 1 - original value
+    ok 2 - `does` with Str overrode Str method
+    ok 3 - `does` a custom class adds method from .^name
+ok 75 - does works with non-roles
+ok 76 - does a junction survive ~ Junction
+ok 77 - does a junction survive Junction ~
+ok 78 - does a junction survive Junction ~ Junction
+# FUDGED!

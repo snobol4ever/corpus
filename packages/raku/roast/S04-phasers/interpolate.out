@@ -1,0 +1,6 @@
+1..5
+ok 1 - END {...} not yet executed
+ok 2 - INIT {...} fired at the beginning of runtime
+ok 3 - CHECK {...} fired at compile-time, ALAP
+ok 4 - BEGIN {...} fired at compile-time, ASAP
+ok 5 - interpolated END {...} executed

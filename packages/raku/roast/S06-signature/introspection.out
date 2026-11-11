@@ -1,0 +1,500 @@
+1..154
+ok 1 - .params does Positional
+ok 2 - And all items are Parameters
+ok 3 - we have three of them
+ok 4 - can get the names with sigils
+ok 5 - Could get first type
+ok 6 - Could get second type
+ok 7 - they are all read-only
+ok 8 - ... none rw
+ok 9 - ... none copy
+ok 10 - ... none raw
+ok 11 - ... none slurpy
+ok 12 - ... some optional
+ok 13 - ... none invocant
+ok 14 - ... one named
+ok 15 - (second sig) none are all read-only
+ok 16 - ... one rw
+ok 17 - ... one raw
+ok 18 - ... one copy
+ok 19 - ... none slurpy
+ok 20 - ... some optional
+ok 21 - ... none invocant
+ok 22 - ... all named
+ok 23 - named_names work
+ok 24 - .name works for renamed params
+ok 25 - .named for slurpies
+ok 26 - .slurpy
+ok 27 - .name for slurpies
+ok 28 - multi named_names
+ok 29 - ... and .name still works
+not ok 30 - ... and .raku abbreviates separated name/named_name # TODO needs/find RT: Logic to make :a($a) into :$a makes :a(:b($a) into ::b(:$a)
+# Failed test '... and .raku abbreviates separated name/named_name'
+# at S06-signature/introspection.rakudo line 64
+# expected: ':(:b($a))'
+#      got: ':(:b(:$a))'
+ok 31 - .default returns closure
+ok 32 - first closure works
+ok 33 - # SKIP expected Any but got Mu instead
+ok 34 - .constraints (+)
+ok 35 - .constraints (-)
+ok 36 - .constraints on unconstraint param should still smartmatch truely
+ok 37 - smartmach against non-closure constraint (+)
+ok 38 - smartmach against non-closure constraint (-)
+ok 39 - :(3) contains the 3
+ok 40 - :(3) has a parameter of type Int
+ok 41 - .type_captures
+ok 42 - can access a type_capture'd type
+ok 43 - .raku on a nested signature contains variables of the subsignature (1)
+ok 44 - .raku on a nested signature contains variables of the subsignature (2)
+ok 45 - prefix | makes .capture true
+ok 46 - prefix | appears in .raku output
+ok 47 - prefix \ makes .raw true
+ok 48 - prefix \ appears in .raku output
+ok 49 - .raku of a signature with anonymous named parameter
+ok 50 - .name of |c is "c"
+ok 51 - .positional on Capture param is False
+ok 52 - .capture on Capture param is True
+ok 53 - .named on Capture param is True
+# Subtest: .raku of ($a, :$b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 54 - .raku of ($a, :$b) is idempotent
+# Subtest: .raku of (@a, :@b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 55 - .raku of (@a, :@b) is idempotent
+# Subtest: .raku of (%a, :%b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 56 - .raku of (%a, :%b) is idempotent
+# Subtest: .raku of (:a(:b($c))) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 57 - .raku of (:a(:b($c))) is idempotent
+# Subtest: .raku of (|a) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 58 - .raku of (|a) is idempotent
+# Subtest: .raku of (&a, :&b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 59 - .raku of (&a, :&b) is idempotent
+# Subtest: .raku of (\a) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 60 - .raku of (\a) is idempotent
+# Subtest: .raku of (\a, $b, &c, %d, |e) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 61 - .raku of (\a, $b, &c, %d, |e) is idempotent
+# Subtest: .raku of ($a = 2, :$b = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 62 - .raku of ($a = 2, :$b = 2) is idempotent
+# Subtest: .raku of (@a = Code.new, :@b = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 63 - .raku of (@a = Code.new, :@b = Code.new) is idempotent
+# Subtest: .raku of (%a = Code.new, :%b = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 64 - .raku of (%a = Code.new, :%b = Code.new) is idempotent
+# Subtest: .raku of (&a = Code.new, :&b = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 65 - .raku of (&a = Code.new, :&b = Code.new) is idempotent
+# Subtest: .raku of ($a is raw = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 66 - .raku of ($a is raw = 2) is idempotent
+# Subtest: .raku of (@a is raw = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 67 - .raku of (@a is raw = Code.new) is idempotent
+# Subtest: .raku of (%a is raw = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 68 - .raku of (%a is raw = Code.new) is idempotent
+# Subtest: .raku of (&a is raw = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 69 - .raku of (&a is raw = Code.new) is idempotent
+# Subtest: .raku of (\a = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 70 - .raku of (\a = 2) is idempotent
+# Subtest: .raku of (Int $a, Int :$b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 71 - .raku of (Int $a, Int :$b) is idempotent
+# Subtest: .raku of (Int @a, Int :@b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 72 - .raku of (Int @a, Int :@b) is idempotent
+# Subtest: .raku of (Int %a, Int :%b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 73 - .raku of (Int %a, Int :%b) is idempotent
+# Subtest: .raku of (Int :a(:b($c))) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 74 - .raku of (Int :a(:b($c))) is idempotent
+# Subtest: .raku of (|a ($a)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 75 - .raku of (|a ($a)) is idempotent
+# Subtest: .raku of (Sub &a, Sub :&b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 76 - .raku of (Sub &a, Sub :&b) is idempotent
+# Subtest: .raku of (Int \a) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 77 - .raku of (Int \a) is idempotent
+# Subtest: .raku of (Int \a, Int $b, Sub &c, Int :$d, |e) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 78 - .raku of (Int \a, Int $b, Sub &c, Int :$d, |e) is idempotent
+# Subtest: .raku of (Int $a = 2, Int :$b = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 79 - .raku of (Int $a = 2, Int :$b = 2) is idempotent
+# Subtest: .raku of (Int @a = Code.new, Int :@b = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 80 - .raku of (Int @a = Code.new, Int :@b = Code.new) is idempotent
+# Subtest: .raku of (Int %a = Code.new, Int :%b = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 81 - .raku of (Int %a = Code.new, Int :%b = Code.new) is idempotent
+# Subtest: .raku of (Sub &a = Code.new, Sub :&b = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 82 - .raku of (Sub &a = Code.new, Sub :&b = Code.new) is idempotent
+# Subtest: .raku of (@a ($a) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 83 - .raku of (@a ($a) = Code.new) is idempotent
+# Subtest: .raku of (%a (:a($b)) = Code.new, %b (:c(:d($e))) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 84 - .raku of (%a (:a($b)) = Code.new, %b (:c(:d($e))) = Code.new) is idempotent
+# Subtest: .raku of ($, :a($)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 85 - .raku of ($, :a($)) is idempotent
+# Subtest: .raku of (@, :a(@)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 86 - .raku of (@, :a(@)) is idempotent
+# Subtest: .raku of (%, :a(%)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 87 - .raku of (%, :a(%)) is idempotent
+# Subtest: .raku of (:a(:b($))) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 88 - .raku of (:a(:b($))) is idempotent
+# Subtest: .raku of (|) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 89 - .raku of (|) is idempotent
+# Subtest: .raku of (&, :a(&)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 90 - .raku of (&, :a(&)) is idempotent
+# Subtest: .raku of ($ is raw) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 91 - .raku of ($ is raw) is idempotent
+# Subtest: .raku of ($ is raw, $, &, %, |) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 92 - .raku of ($ is raw, $, &, %, |) is idempotent
+# Subtest: .raku of ($ = 2, :a($) = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 93 - .raku of ($ = 2, :a($) = 2) is idempotent
+# Subtest: .raku of (@ = Code.new, :a(@) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 94 - .raku of (@ = Code.new, :a(@) = Code.new) is idempotent
+# Subtest: .raku of (% = Code.new, :a(%) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 95 - .raku of (% = Code.new, :a(%) = Code.new) is idempotent
+# Subtest: .raku of (& = Code.new, :a(&) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 96 - .raku of (& = Code.new, :a(&) = Code.new) is idempotent
+# Subtest: .raku of ($ is raw = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 97 - .raku of ($ is raw = 2) is idempotent
+# Subtest: .raku of (@ is raw = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 98 - .raku of (@ is raw = Code.new) is idempotent
+# Subtest: .raku of (% is raw = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 99 - .raku of (% is raw = Code.new) is idempotent
+# Subtest: .raku of (& is raw = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 100 - .raku of (& is raw = Code.new) is idempotent
+# Subtest: .raku of (Int, Int :a($)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 101 - .raku of (Int, Int :a($)) is idempotent
+# Subtest: .raku of (Int @, Int :a(@)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 102 - .raku of (Int @, Int :a(@)) is idempotent
+# Subtest: .raku of (Int %, Int :a(%)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 103 - .raku of (Int %, Int :a(%)) is idempotent
+# Subtest: .raku of (Int :a(:b($))) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 104 - .raku of (Int :a(:b($))) is idempotent
+# Subtest: .raku of (|a ($)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 105 - .raku of (|a ($)) is idempotent
+# Subtest: .raku of (Sub &, Sub :a(&)) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 106 - .raku of (Sub &, Sub :a(&)) is idempotent
+# Subtest: .raku of (Int $ is raw) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 107 - .raku of (Int $ is raw) is idempotent
+# Subtest: .raku of (Int $ is raw, Int, Sub &, Int %, |) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 108 - .raku of (Int $ is raw, Int, Sub &, Int %, |) is idempotent
+# Subtest: .raku of (Int $ = 2, Int :a($) = 2) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 109 - .raku of (Int $ = 2, Int :a($) = 2) is idempotent
+# Subtest: .raku of (Int @ = Code.new, Int :a(@) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 110 - .raku of (Int @ = Code.new, Int :a(@) = Code.new) is idempotent
+# Subtest: .raku of (Int % = Code.new, Int :a(%) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 111 - .raku of (Int % = Code.new, Int :a(%) = Code.new) is idempotent
+# Subtest: .raku of (Sub & = Code.new, Sub :a(&) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 112 - .raku of (Sub & = Code.new, Sub :a(&) = Code.new) is idempotent
+# Subtest: .raku of (@ ($a) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 113 - .raku of (@ ($a) = Code.new) is idempotent
+# Subtest: .raku of (% (:a($)) = Code.new, % (:c(:d($))) = Code.new) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 114 - .raku of (% (:a($)) = Code.new, % (:c(:d($))) = Code.new) is idempotent
+# Subtest: .raku of ($ is raw, & is raw, % is raw, |) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 115 - .raku of ($ is raw, & is raw, % is raw, |) is idempotent
+# Subtest: .raku of (::T  $a, T $b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 116 - .raku of (::T  $a, T $b) is idempotent
+# Subtest: .raku of (::T T $a, T $b) is idempotent
+    1..3
+    ok 1 - Result is same as original
+    ok 2 - Same .raku output
+    ok 3 - ...and no failures.
+ok 117 - .raku of (::T T $a, T $b) is idempotent
+# Subtest: .raku of -> $a { #`(Block|2446158446680) ... } is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 118 - .raku of -> $a {  \#`(Block|2446158446680) ... } is idempotent
+# Subtest: .raku of ->  { #`(Block|2446158494912) ... } is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 119 - .raku of ->  {  \#`(Block|2446158494912) ... } is idempotent
+# Subtest: .raku of -> $ ($a) { #`(Block|2446158495416) ... } is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 120 - .raku of -> $ ($a) {  \#`(Block|2446158495416) ... } is idempotent
+# Subtest: .raku of -> $ { #`(Block|2446166103176) ... } is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 121 - .raku of -> $ {  \#`(Block|2446166103176) ... } is idempotent
+# Subtest: .raku of -> $a ($b) { #`(Block|2446166105912) ... } is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 122 - .raku of -> $a ($b) {  \#`(Block|2446166105912) ... } is idempotent
+ok 123 - .raku of a sigature that has ::?CLASS
+ok 124 - .raku on unnamed | parameters doesn't err
+ok 125 - .raku on unnamed \ parameters doesn't err
+ok 126 - ";;" in signature stringifies correctly using .gist
+ok 127 - ";;" in signature stringifies correctly using .raku
+ok 128 - Callable in signature stringifies correctly using .raku
+ok 129 - Callable in signature stringifies correctly using .gist
+ok 130 - perl on :(Callable)
+ok 131 - .raku on :(Array of Callable)
+ok 132 - .raku on :(Hash of Callable)
+ok 133 - .gist does not strip typeless anon sigils
+ok 134 - does a dynamic Parameter have a * twigil
+ok 135 - does a private attribute Parameter have a ! twigil
+ok 136 - does a public attribute Parameter have a . twigil
+ok 137 - parameters do not give any prefix by default
+ok 138 - slurpy positional parameters give a * prefix
+ok 139 - slurpy LoL parameters give a ** prefix
+ok 140 - slurpy named parameters give a * prefix
+ok 141 - slurpy onearg parameters give a + prefix
+ok 142 - positional parameters do not give any suffix by default
+ok 143 - named parameters do not give any suffix by default
+ok 144 - optional positional parameters give a ? suffix
+ok 145 - required named parameters give a ! suffix
+ok 146 - default values for positional parameters do not give a ? suffix
+ok 147 - default values for named parameters do not give a ! suffix
+ok 148 - an unnamed raw parameter should have the '$' sigil
+ok 149 - private attribute parameters have the correct name
+ok 150 - public attribute parameters have the correct name
+ok 151 - OUTER defaults have the correct .raku
+ok 152 - use of destructures differentiates signatures
+ok 153 - empty destructures are ok
+ok 154 - same destructures are ok
+# FUDGED!

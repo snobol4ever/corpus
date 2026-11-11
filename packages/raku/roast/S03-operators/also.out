@@ -1,0 +1,20 @@
+1..8
+ok 1 - basic infix:<S&>
+ok 2 - basic infix:<S&> (multiple S&'s)
+not ok 3 - S& has and-semantics (first term 0) # TODO S metaop NYI
+# Failed test 'S& has and-semantics (first term 0)'
+# at S03-operators/also.rakudo line 10
+not ok 4 - also has and-semantics (second term 0) # TODO S metaop NYI
+# Failed test 'also has and-semantics (second term 0)'
+# at S03-operators/also.rakudo line 13
+ok 5 - S& with two blocks
+not ok 6 - blocks called in the right order # TODO S metaop NYI
+# Failed test 'blocks called in the right order'
+# at S03-operators/also.rakudo line 20
+# expected: 'bc'
+#      got: ''
+not ok 7 - and semantics # TODO S metaop NYI
+# Failed test 'and semantics'
+# at S03-operators/also.rakudo line 26
+ok 8 - short-circuit
+# FUDGED!

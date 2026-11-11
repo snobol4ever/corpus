@@ -1,0 +1,132 @@
+1..131
+ok 1 - basic sanity
+ok 2 - Test for delete single key
+ok 3 - b hould be deleted now
+ok 4 - b should be deleted now by count
+ok 5 - Test non-deletion with ! single key
+ok 6 - c should not have been deleted
+ok 7 - Test non-deletion with (0) single key
+ok 8 - c should not have been deleted
+ok 9 - Test non-deletion with (False) single key
+ok 10 - c should not have been deleted
+ok 11 - Test non-deletion with ($dont) single key
+ok 12 - c should not have been deleted
+ok 13 - Test deletion with (1) single key
+ok 14 - c should be deleted now
+ok 15 - c should be deleted now by count
+ok 16 - return a single pair out
+ok 17 - d should not have been deleted
+ok 18 - slice a single pair out
+ok 19 - d should be deleted now
+ok 20 - slice unexisting single pair out
+ok 21 - slice unexisting single pair out
+ok 22 - return a single key/value out
+ok 23 - e should not have been deleted
+ok 24 - slice a single key/value out
+ok 25 - e should be deleted now
+ok 26 - slice unexisting single key/value
+ok 27 - slice unexisting single key/value
+ok 28 - return a single key out
+ok 29 - f should not have been deleted
+ok 30 - slice a single key out
+ok 31 - f should be deleted now
+ok 32 - slice unexisting single key
+ok 33 - slice unexisting single key
+ok 34 - return a single value out
+ok 35 - g should not have been deleted
+ok 36 - slice a single value out
+ok 37 - g should be deleted now
+ok 38 - slice unexisting single key
+ok 39 - slice unexisting single key
+ok 40 - d:exists single existing key
+ok 41 - b should be deleted now
+ok 42 - b:exists one non-existing key
+ok 43 - b:!exists one non-existing key
+ok 44 - d:exists:kv 1 ekey
+ok 45 - d should be deleted now
+ok 46 - 1 nekey d:exists:!kv
+ok 47 - 1 nekey d:!exists:!kv
+ok 48 - 1 nekey d:exists:kv
+ok 49 - 1 nekey d:!exists:kv
+ok 50 - d:exists:p 1 ekey
+ok 51 - e should be deleted now
+ok 52 - 1 nekey exists:!p
+ok 53 - 1 nekey !exists:!p
+ok 54 - 1 nekey exists:p
+ok 55 - 1 nekey !exists:p
+ok 56 - Test for delete multiple keys
+ok 57 - c d e should be deleted now
+ok 58 - c d e should be deleted now by count
+ok 59 - non-deletion with ! mult
+ok 60 - f g should not have been deleted
+ok 61 - non-deletion with (0) mult
+ok 62 - f g should not have been deleted
+ok 63 - non-deletion with (False) mult
+ok 64 - f g should not have been deleted
+ok 65 - non-deletion with ($dont) multi
+ok 66 - f g should not have been deleted
+ok 67 - deletion with (1) multi
+ok 68 - f g should be deleted now
+ok 69 - f g should be deleted now by count
+ok 70 - return pairs
+ok 71 - h i should not have been deleted
+ok 72 - slice pairs out
+ok 73 - h i should be deleted now by count
+ok 74 - !d:exists ekeys
+ok 75 - d:exists ekeys
+ok 76 - b should be deleted now
+ok 77 - c should be deleted now
+ok 78 - d:exists nekeys
+ok 79 - d:!exists nekeys
+ok 80 - d:exists nekeys
+ok 81 - d:!exists nekeys
+ok 82 - !d:!exists:kv ekeys
+ok 83 - d:!exists:kv ekeys
+ok 84 - e should be deleted now
+ok 85 - f should be deleted now
+ok 86 - d:exists:!kv nekeys
+ok 87 - d:!exists:!kv nekeys
+ok 88 - d:exists:kv nekey/ekey
+ok 89 - d:!exists:kv ekey/nekey
+ok 90 - !d:!exists:p ekeys
+ok 91 - d:!exists:p ekeys
+ok 92 - m should be deleted now
+ok 93 - n should be deleted now
+ok 94 - d:exists:!p nekeys
+ok 95 - d:!exists:!p nekeys
+ok 96 - d:exists:p nekey/ekey
+ok 97 - d:!exists:p ekey/nekey
+ok 98 - Test deletion with whatever
+ok 99 - * should be deleted now
+ok 100 - Test non-deletion with ! *
+ok 101 - Test non-deletion with (0) *
+ok 102 - Test non-deletion with (False) *
+ok 103 - Test non-deletion with ($dont) *
+ok 104 - * should not be deleted now
+ok 105 - Test deletion with (1) *
+ok 106 - * should be deleted now by count
+ok 107 - return all pairs
+ok 108 - * should not be deleted
+ok 109 - slice out all pairs
+ok 110 - * should be deleted now
+ok 111 - !d:exists whatever
+ok 112 - * should not be deleted
+ok 113 - d:!exists whatever
+ok 114 - * should be deleted now
+ok 115 - :!d:exists:kv whatever
+ok 116 - * should not be deleted
+ok 117 - d:!exists:kv whatever
+ok 118 - * should be deleted now
+ok 119 - :!d:exists:!kv whatever
+ok 120 - * should not be deleted
+ok 121 - d:!exists:!kv whatever
+ok 122 - * should be deleted now
+ok 123 - :!d:exists:p whatever
+ok 124 - * should not be deleted
+ok 125 - d:!exists:p whatever
+ok 126 - * should be deleted now
+ok 127 - :!d:exists:!p whatever
+ok 128 - * should not be deleted
+ok 129 - d:!exists:!p whatever
+ok 130 - * should be deleted now
+ok 131 - can use :delete'd value to re-create key

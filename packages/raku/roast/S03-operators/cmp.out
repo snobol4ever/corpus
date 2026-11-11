@@ -1,0 +1,160 @@
+1..64
+ok 1 - cmp on int (1)
+ok 2 - cmp on int (2)
+ok 3 - cmp on int (3)
+ok 4 - cmp on characters (1)
+ok 5 - cmp on characters (2)
+ok 6 - cmp on characters (3)
+ok 7 - cmp on Int variables (1)
+ok 8 - cmp on Int variables (2)
+ok 9 - cmp on Int variables (3)
+ok 10 - cmp on Str variables (1)
+ok 11 - cmp on Str variables (2)
+ok 12 - cmp on Str variables (3)
+ok 13 - cmp on Pair (1)
+ok 14 - cmp on Pair (2)
+ok 15 - cmp on Pair (3)
+ok 16 - cmp on Pair (4)
+ok 17 - cmp on Pair (5)
+ok 18 - cmp on Pair from local variable
+ok 19 - cmp on Pair/Inf
+ok 20 - cmp on Pair/-Inf
+ok 21 - cmp on Inf/Pair
+ok 22 - cmp on -Inf/Pair
+ok 23 - cmp Same on identical lists
+ok 24 - cmp Less on shorter list
+ok 25 - cmp More on longer list
+ok 26 - cmp Less on lists differing at pos 0
+ok 27 - cmp More on lists differing at pos 0
+ok 28 - cmp Less on lists differing at pos 1
+ok 29 - cmp More on lists differing at pos 1
+ok 30 - cmp Less on lists differing at pos 1 ignoring lengths
+ok 31 - cmp More on lists differing at pos 1 ignoring lengths
+ok 32 - NaN cmp NaN
+ok 33 - NaN cmp 0
+ok 34 - 0 cmp NaN
+ok 35 - NaN cmp Inf
+ok 36 - Inf cmp NaN
+ok 37 - (5..10) cmp (5..10)
+ok 38 - (5..10) cmp (5^..10)
+ok 39 - (5..10) cmp (5..^10)
+ok 40 - (5^..10) cmp (5..10)
+ok 41 - (5..^10) cmp (5..10)
+ok 42 - (5..^11) cmp (5..10)
+ok 43 - 5 cmp (5..10)
+ok 44 - 6 cmp (5..10)
+ok 45 - 5.1 cmp (5..10)
+ok 46 - (5..10) cmp (5..10.1)
+ok 47 - (5..10) cmp (5..9.9)
+ok 48 - (5..10) cmp (5,6,7,8,9,10),
+ok 49 - (5^..10) cmp (6,7,8,9,10),
+ok 50 - (5..^10) cmp (5,6,7,8,9),
+ok 51 - (5^..^10) cmp (6,7,8,9),
+ok 52 - (5^..10) cmp (5,6,7,8,9,10),
+ok 53 - (5..^10) cmp (5,6,7,8,9,10),
+ok 54 - empty list on the left
+ok 55 - empty list on the right
+ok 56 - empty lists on both sides
+# Subtest: <0/0> (behaves like NaN)
+    1..10
+    ok 1 - <0/0> cmp NaN
+    ok 2 - <0/0> cmp 42
+    ok 3 - <0/0> cmp -42
+    ok 4 - <0/0> cmp Inf
+    ok 5 - <0/0> cmp -Inf
+    ok 6 -  NaN cmp <0/0>
+    ok 7 -   42 cmp <0/0>
+    ok 8 -  -42 cmp <0/0>
+    ok 9 -  Inf cmp <0/0>
+    ok 10 - -Inf cmp <0/0>
+ok 57 - <0/0> (behaves like NaN)
+# Subtest: <-1/0> (behaves like -Inf)
+    1..10
+    ok 1 - <-1/0> cmp NaN
+    ok 2 - <-1/0> cmp 42
+    ok 3 - <-1/0> cmp -42
+    ok 4 - <-1/0> cmp Inf
+    ok 5 - <-1/0> cmp -Inf
+    ok 6 -  NaN cmp <-1/0>
+    ok 7 -   42 cmp <-1/0>
+    ok 8 -  -42 cmp <-1/0>
+    ok 9 -  Inf cmp <-1/0>
+    ok 10 - -Inf cmp <-1/0>
+ok 58 - <-1/0> (behaves like -Inf)
+# Subtest: <1/0> Rat (behaves like Inf)
+    1..10
+    ok 1 - <1/0> cmp NaN
+    ok 2 - <1/0> cmp 42
+    ok 3 - <1/0> cmp -42
+    ok 4 - <1/0> cmp Inf
+    ok 5 - <1/0> cmp -Inf
+    ok 6 -  NaN cmp <1/0>
+    ok 7 -   42 cmp <1/0>
+    ok 8 -  -42 cmp <1/0>
+    ok 9 -  Inf cmp <1/0>
+    ok 10 - -Inf cmp <1/0>
+ok 59 - <1/0> Rat (behaves like Inf)
+# Subtest: FatRat.new(0, 0) (behaves like NaN)
+    1..10
+    ok 1 - FatRat.new(0, 0) cmp NaN
+    ok 2 - FatRat.new(0, 0) cmp 42
+    ok 3 - FatRat.new(0, 0) cmp -42
+    ok 4 - FatRat.new(0, 0) cmp Inf
+    ok 5 - FatRat.new(0, 0) cmp -Inf
+    ok 6 -  NaN cmp FatRat.new(0, 0)
+    ok 7 -   42 cmp FatRat.new(0, 0)
+    ok 8 -  -42 cmp FatRat.new(0, 0)
+    ok 9 -  Inf cmp FatRat.new(0, 0)
+    ok 10 - -Inf cmp FatRat.new(0, 0)
+ok 60 - FatRat.new(0, 0) (behaves like NaN)
+# Subtest: FatRat.new(-1, 0) (behaves like -Inf)
+    1..10
+    ok 1 - FatRat.new(-1, 0) cmp NaN
+    ok 2 - FatRat.new(-1, 0) cmp 42
+    ok 3 - FatRat.new(-1, 0) cmp -42
+    ok 4 - FatRat.new(-1, 0) cmp Inf
+    ok 5 - FatRat.new(-1, 0) cmp -Inf
+    ok 6 -  NaN cmp FatRat.new(-1, 0)
+    ok 7 -   42 cmp FatRat.new(-1, 0)
+    ok 8 -  -42 cmp FatRat.new(-1, 0)
+    ok 9 -  Inf cmp FatRat.new(-1, 0)
+    ok 10 - -Inf cmp FatRat.new(-1, 0)
+ok 61 - FatRat.new(-1, 0) (behaves like -Inf)
+# Subtest: FatRat.new(1, 0) Rat (behaves like Inf)
+    1..10
+    ok 1 - FatRat.new(1, 0) cmp NaN
+    ok 2 - FatRat.new(1, 0) cmp 42
+    ok 3 - FatRat.new(1, 0) cmp -42
+    ok 4 - FatRat.new(1, 0) cmp Inf
+    ok 5 - FatRat.new(1, 0) cmp -Inf
+    ok 6 -  NaN cmp FatRat.new(1, 0)
+    ok 7 -   42 cmp FatRat.new(1, 0)
+    ok 8 -  -42 cmp FatRat.new(1, 0)
+    ok 9 -  Inf cmp FatRat.new(1, 0)
+    ok 10 - -Inf cmp FatRat.new(1, 0)
+ok 62 - FatRat.new(1, 0) Rat (behaves like Inf)
+# Subtest: no precision loss in infix:<cmp> with Rational and Ints
+    1..8
+    ok 1 - Rat cmp Int
+    ok 2 - Int cmp Rat
+    ok 3 - Rat cmp Rat
+    ok 4 - FatRat cmp Int
+    ok 5 - Int    cmp FatRat
+    ok 6 - FatRat cmp FatRat
+    ok 7 - FatRat cmp Rat
+    ok 8 - Rat    cmp FatRat
+ok 63 - no precision loss in infix:<cmp> with Rational and Ints
+# Subtest: lazy array comparisons
+    1..11
+    ok 1 - shorter array
+    ok 2 - longer array
+    ok 3 - identical; same length
+    ok 4 - Less; differ at pos 0
+    ok 5 - More; differ at pos 0
+    ok 6 - Less; differ at pos 1
+    ok 7 - More; differ at pos 1
+    ok 8 - Less; differ at pos 1; ignore lengths
+    ok 9 - More; differ at pos 1; ignore lengths
+    ok 10 - Less; differ at pos 1; ignore later elems
+    ok 11 - More; differ at pos 1; ignore later elems
+ok 64 - lazy array comparisons

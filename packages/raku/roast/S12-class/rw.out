@@ -1,0 +1,21 @@
+1..3
+# Subtest: Basic sanity
+    1..1
+    ok 1 - the default is readonly
+ok 1 - Basic sanity
+# Subtest: 'is rw' on a class
+    1..4
+    ok 1 - 'is rw' on the class declaration applies to all attributes (1)
+    ok 2 - 'is rw' on the class declaration applies to all attributes (2)
+    ok 3 - 'is readonly' on a specific attribute can overrule the is rw on the class (1)
+    ok 4 - 'is readonly' on a specific attribute can overrule the is rw on the class (2)
+ok 2 - 'is rw' on a class
+# Subtest: With 'also is rw'
+    1..6
+    ok 1 - 'also is rw' is being respected as class default
+    ok 2 - attribute value has been changed
+    ok 3 - post-'also is rw' attribute is writable
+    ok 4 - post-'also is rw' attribute value changed
+    ok 5 - 'is readonly' is not altered
+    ok 6 - readonly attribute value unchanged
+ok 3 - With 'also is rw'

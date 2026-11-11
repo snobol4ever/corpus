@@ -1,0 +1,561 @@
+1..28
+# Subtest: tests for hash
+    1..17
+    ok 1 - hash: pull-one until exhausted
+    ok 2 - hash: push-exactly until exhausted
+    ok 3 - hash: push-at-least until exhausted
+    ok 4 - hash: does push-all return IterationEnd
+    ok 5 - hash: push-all
+    ok 6 - hash: does push-until-lazy return IterationEnd
+    ok 7 - hash: push-until-lazy
+    ok 8 - hash: does sink-all return IterationEnd
+    ok 9 - hash: skip-one until exhausted
+    ok 10 - hash: skip-at-least except last
+    ok 11 - hash: skip-at-least check last value
+    ok 12 - hash: did skip-at-least after pull-one exhaust?
+    ok 13 - hash: skip-at-least-pull-one last
+    ok 14 - hash: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash: doesn't support count-only
+    ok 16 - hash: doesn't support bool-only
+    ok 17 - hash: count/bool-only didn't pull
+ok 1 - tests for hash
+# Subtest: tests for hash.kv
+    1..17
+    ok 1 - hash.kv: pull-one until exhausted
+    ok 2 - hash.kv: push-exactly until exhausted
+    ok 3 - hash.kv: push-at-least until exhausted
+    ok 4 - hash.kv: does push-all return IterationEnd
+    ok 5 - hash.kv: push-all
+    ok 6 - hash.kv: does push-until-lazy return IterationEnd
+    ok 7 - hash.kv: push-until-lazy
+    ok 8 - hash.kv: does sink-all return IterationEnd
+    ok 9 - hash.kv: skip-one until exhausted
+    ok 10 - hash.kv: skip-at-least except last
+    ok 11 - hash.kv: skip-at-least check last value
+    ok 12 - hash.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - hash.kv: skip-at-least-pull-one last
+    ok 14 - hash.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash.kv: doesn't support count-only
+    ok 16 - hash.kv: doesn't support bool-only
+    ok 17 - hash.kv: count/bool-only didn't pull
+ok 2 - tests for hash.kv
+# Subtest: tests for hash.keys
+    1..17
+    ok 1 - hash.keys: pull-one until exhausted
+    ok 2 - hash.keys: push-exactly until exhausted
+    ok 3 - hash.keys: push-at-least until exhausted
+    ok 4 - hash.keys: does push-all return IterationEnd
+    ok 5 - hash.keys: push-all
+    ok 6 - hash.keys: does push-until-lazy return IterationEnd
+    ok 7 - hash.keys: push-until-lazy
+    ok 8 - hash.keys: does sink-all return IterationEnd
+    ok 9 - hash.keys: skip-one until exhausted
+    ok 10 - hash.keys: skip-at-least except last
+    ok 11 - hash.keys: skip-at-least check last value
+    ok 12 - hash.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - hash.keys: skip-at-least-pull-one last
+    ok 14 - hash.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash.keys: doesn't support count-only
+    ok 16 - hash.keys: doesn't support bool-only
+    ok 17 - hash.keys: count/bool-only didn't pull
+ok 3 - tests for hash.keys
+# Subtest: tests for hash.values
+    1..17
+    ok 1 - hash.values: pull-one until exhausted
+    ok 2 - hash.values: push-exactly until exhausted
+    ok 3 - hash.values: push-at-least until exhausted
+    ok 4 - hash.values: does push-all return IterationEnd
+    ok 5 - hash.values: push-all
+    ok 6 - hash.values: does push-until-lazy return IterationEnd
+    ok 7 - hash.values: push-until-lazy
+    ok 8 - hash.values: does sink-all return IterationEnd
+    ok 9 - hash.values: skip-one until exhausted
+    ok 10 - hash.values: skip-at-least except last
+    ok 11 - hash.values: skip-at-least check last value
+    ok 12 - hash.values: did skip-at-least after pull-one exhaust?
+    ok 13 - hash.values: skip-at-least-pull-one last
+    ok 14 - hash.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash.values: doesn't support count-only
+    ok 16 - hash.values: doesn't support bool-only
+    ok 17 - hash.values: count/bool-only didn't pull
+ok 4 - tests for hash.values
+# Subtest: tests for hash.pairs
+    1..17
+    ok 1 - hash.pairs: pull-one until exhausted
+    ok 2 - hash.pairs: push-exactly until exhausted
+    ok 3 - hash.pairs: push-at-least until exhausted
+    ok 4 - hash.pairs: does push-all return IterationEnd
+    ok 5 - hash.pairs: push-all
+    ok 6 - hash.pairs: does push-until-lazy return IterationEnd
+    ok 7 - hash.pairs: push-until-lazy
+    ok 8 - hash.pairs: does sink-all return IterationEnd
+    ok 9 - hash.pairs: skip-one until exhausted
+    ok 10 - hash.pairs: skip-at-least except last
+    ok 11 - hash.pairs: skip-at-least check last value
+    ok 12 - hash.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - hash.pairs: skip-at-least-pull-one last
+    ok 14 - hash.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash.pairs: doesn't support count-only
+    ok 16 - hash.pairs: doesn't support bool-only
+    ok 17 - hash.pairs: count/bool-only didn't pull
+ok 5 - tests for hash.pairs
+# Subtest: tests for hash.antipairs
+    1..17
+    ok 1 - hash.antipairs: pull-one until exhausted
+    ok 2 - hash.antipairs: push-exactly until exhausted
+    ok 3 - hash.antipairs: push-at-least until exhausted
+    ok 4 - hash.antipairs: does push-all return IterationEnd
+    ok 5 - hash.antipairs: push-all
+    ok 6 - hash.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - hash.antipairs: push-until-lazy
+    ok 8 - hash.antipairs: does sink-all return IterationEnd
+    ok 9 - hash.antipairs: skip-one until exhausted
+    ok 10 - hash.antipairs: skip-at-least except last
+    ok 11 - hash.antipairs: skip-at-least check last value
+    ok 12 - hash.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - hash.antipairs: skip-at-least-pull-one last
+    ok 14 - hash.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash.antipairs: doesn't support count-only
+    ok 16 - hash.antipairs: doesn't support bool-only
+    ok 17 - hash.antipairs: count/bool-only didn't pull
+ok 6 - tests for hash.antipairs
+# Subtest: tests for hash.invert
+    1..17
+    ok 1 - hash.invert: pull-one until exhausted
+    ok 2 - hash.invert: push-exactly until exhausted
+    ok 3 - hash.invert: push-at-least until exhausted
+    ok 4 - hash.invert: does push-all return IterationEnd
+    ok 5 - hash.invert: push-all
+    ok 6 - hash.invert: does push-until-lazy return IterationEnd
+    ok 7 - hash.invert: push-until-lazy
+    ok 8 - hash.invert: does sink-all return IterationEnd
+    ok 9 - hash.invert: skip-one until exhausted
+    ok 10 - hash.invert: skip-at-least except last
+    ok 11 - hash.invert: skip-at-least check last value
+    ok 12 - hash.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - hash.invert: skip-at-least-pull-one last
+    ok 14 - hash.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash.invert: doesn't support count-only
+    ok 16 - hash.invert: doesn't support bool-only
+    ok 17 - hash.invert: count/bool-only didn't pull
+ok 7 - tests for hash.invert
+# Subtest: tests for hash{Any}
+    1..17
+    ok 1 - hash{Any}: pull-one until exhausted
+    ok 2 - hash{Any}: push-exactly until exhausted
+    ok 3 - hash{Any}: push-at-least until exhausted
+    ok 4 - hash{Any}: does push-all return IterationEnd
+    ok 5 - hash{Any}: push-all
+    ok 6 - hash{Any}: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}: push-until-lazy
+    ok 8 - hash{Any}: does sink-all return IterationEnd
+    ok 9 - hash{Any}: skip-one until exhausted
+    ok 10 - hash{Any}: skip-at-least except last
+    ok 11 - hash{Any}: skip-at-least check last value
+    ok 12 - hash{Any}: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}: skip-at-least-pull-one last
+    ok 14 - hash{Any}: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}: doesn't support count-only
+    ok 16 - hash{Any}: doesn't support bool-only
+    ok 17 - hash{Any}: count/bool-only didn't pull
+ok 8 - tests for hash{Any}
+# Subtest: tests for hash{Any}.kv
+    1..17
+    ok 1 - hash{Any}.kv: pull-one until exhausted
+    ok 2 - hash{Any}.kv: push-exactly until exhausted
+    ok 3 - hash{Any}.kv: push-at-least until exhausted
+    ok 4 - hash{Any}.kv: does push-all return IterationEnd
+    ok 5 - hash{Any}.kv: push-all
+    ok 6 - hash{Any}.kv: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}.kv: push-until-lazy
+    ok 8 - hash{Any}.kv: does sink-all return IterationEnd
+    ok 9 - hash{Any}.kv: skip-one until exhausted
+    ok 10 - hash{Any}.kv: skip-at-least except last
+    ok 11 - hash{Any}.kv: skip-at-least check last value
+    ok 12 - hash{Any}.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}.kv: skip-at-least-pull-one last
+    ok 14 - hash{Any}.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}.kv: doesn't support count-only
+    ok 16 - hash{Any}.kv: doesn't support bool-only
+    ok 17 - hash{Any}.kv: count/bool-only didn't pull
+ok 9 - tests for hash{Any}.kv
+# Subtest: tests for hash{Any}.keys
+    1..17
+    ok 1 - hash{Any}.keys: pull-one until exhausted
+    ok 2 - hash{Any}.keys: push-exactly until exhausted
+    ok 3 - hash{Any}.keys: push-at-least until exhausted
+    ok 4 - hash{Any}.keys: does push-all return IterationEnd
+    ok 5 - hash{Any}.keys: push-all
+    ok 6 - hash{Any}.keys: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}.keys: push-until-lazy
+    ok 8 - hash{Any}.keys: does sink-all return IterationEnd
+    ok 9 - hash{Any}.keys: skip-one until exhausted
+    ok 10 - hash{Any}.keys: skip-at-least except last
+    ok 11 - hash{Any}.keys: skip-at-least check last value
+    ok 12 - hash{Any}.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}.keys: skip-at-least-pull-one last
+    ok 14 - hash{Any}.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}.keys: doesn't support count-only
+    ok 16 - hash{Any}.keys: doesn't support bool-only
+    ok 17 - hash{Any}.keys: count/bool-only didn't pull
+ok 10 - tests for hash{Any}.keys
+# Subtest: tests for hash{Any}.values
+    1..17
+    ok 1 - hash{Any}.values: pull-one until exhausted
+    ok 2 - hash{Any}.values: push-exactly until exhausted
+    ok 3 - hash{Any}.values: push-at-least until exhausted
+    ok 4 - hash{Any}.values: does push-all return IterationEnd
+    ok 5 - hash{Any}.values: push-all
+    ok 6 - hash{Any}.values: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}.values: push-until-lazy
+    ok 8 - hash{Any}.values: does sink-all return IterationEnd
+    ok 9 - hash{Any}.values: skip-one until exhausted
+    ok 10 - hash{Any}.values: skip-at-least except last
+    ok 11 - hash{Any}.values: skip-at-least check last value
+    ok 12 - hash{Any}.values: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}.values: skip-at-least-pull-one last
+    ok 14 - hash{Any}.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}.values: doesn't support count-only
+    ok 16 - hash{Any}.values: doesn't support bool-only
+    ok 17 - hash{Any}.values: count/bool-only didn't pull
+ok 11 - tests for hash{Any}.values
+# Subtest: tests for hash{Any}.pairs
+    1..17
+    ok 1 - hash{Any}.pairs: pull-one until exhausted
+    ok 2 - hash{Any}.pairs: push-exactly until exhausted
+    ok 3 - hash{Any}.pairs: push-at-least until exhausted
+    ok 4 - hash{Any}.pairs: does push-all return IterationEnd
+    ok 5 - hash{Any}.pairs: push-all
+    ok 6 - hash{Any}.pairs: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}.pairs: push-until-lazy
+    ok 8 - hash{Any}.pairs: does sink-all return IterationEnd
+    ok 9 - hash{Any}.pairs: skip-one until exhausted
+    ok 10 - hash{Any}.pairs: skip-at-least except last
+    ok 11 - hash{Any}.pairs: skip-at-least check last value
+    ok 12 - hash{Any}.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}.pairs: skip-at-least-pull-one last
+    ok 14 - hash{Any}.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}.pairs: doesn't support count-only
+    ok 16 - hash{Any}.pairs: doesn't support bool-only
+    ok 17 - hash{Any}.pairs: count/bool-only didn't pull
+ok 12 - tests for hash{Any}.pairs
+# Subtest: tests for hash{Any}.antipairs
+    1..17
+    ok 1 - hash{Any}.antipairs: pull-one until exhausted
+    ok 2 - hash{Any}.antipairs: push-exactly until exhausted
+    ok 3 - hash{Any}.antipairs: push-at-least until exhausted
+    ok 4 - hash{Any}.antipairs: does push-all return IterationEnd
+    ok 5 - hash{Any}.antipairs: push-all
+    ok 6 - hash{Any}.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}.antipairs: push-until-lazy
+    ok 8 - hash{Any}.antipairs: does sink-all return IterationEnd
+    ok 9 - hash{Any}.antipairs: skip-one until exhausted
+    ok 10 - hash{Any}.antipairs: skip-at-least except last
+    ok 11 - hash{Any}.antipairs: skip-at-least check last value
+    ok 12 - hash{Any}.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}.antipairs: skip-at-least-pull-one last
+    ok 14 - hash{Any}.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}.antipairs: doesn't support count-only
+    ok 16 - hash{Any}.antipairs: doesn't support bool-only
+    ok 17 - hash{Any}.antipairs: count/bool-only didn't pull
+ok 13 - tests for hash{Any}.antipairs
+# Subtest: tests for hash{Any}.invert
+    1..17
+    ok 1 - hash{Any}.invert: pull-one until exhausted
+    ok 2 - hash{Any}.invert: push-exactly until exhausted
+    ok 3 - hash{Any}.invert: push-at-least until exhausted
+    ok 4 - hash{Any}.invert: does push-all return IterationEnd
+    ok 5 - hash{Any}.invert: push-all
+    ok 6 - hash{Any}.invert: does push-until-lazy return IterationEnd
+    ok 7 - hash{Any}.invert: push-until-lazy
+    ok 8 - hash{Any}.invert: does sink-all return IterationEnd
+    ok 9 - hash{Any}.invert: skip-one until exhausted
+    ok 10 - hash{Any}.invert: skip-at-least except last
+    ok 11 - hash{Any}.invert: skip-at-least check last value
+    ok 12 - hash{Any}.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - hash{Any}.invert: skip-at-least-pull-one last
+    ok 14 - hash{Any}.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - hash{Any}.invert: doesn't support count-only
+    ok 16 - hash{Any}.invert: doesn't support bool-only
+    ok 17 - hash{Any}.invert: count/bool-only didn't pull
+ok 14 - tests for hash{Any}.invert
+# Subtest: tests for Int Hash
+    1..17
+    ok 1 - Int Hash: pull-one until exhausted
+    ok 2 - Int Hash: push-exactly until exhausted
+    ok 3 - Int Hash: push-at-least until exhausted
+    ok 4 - Int Hash: does push-all return IterationEnd
+    ok 5 - Int Hash: push-all
+    ok 6 - Int Hash: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash: push-until-lazy
+    ok 8 - Int Hash: does sink-all return IterationEnd
+    ok 9 - Int Hash: skip-one until exhausted
+    ok 10 - Int Hash: skip-at-least except last
+    ok 11 - Int Hash: skip-at-least check last value
+    ok 12 - Int Hash: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash: skip-at-least-pull-one last
+    ok 14 - Int Hash: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash: doesn't support count-only
+    ok 16 - Int Hash: doesn't support bool-only
+    ok 17 - Int Hash: count/bool-only didn't pull
+ok 15 - tests for Int Hash
+# Subtest: tests for Int Hash.kv
+    1..17
+    ok 1 - Int Hash.kv: pull-one until exhausted
+    ok 2 - Int Hash.kv: push-exactly until exhausted
+    ok 3 - Int Hash.kv: push-at-least until exhausted
+    ok 4 - Int Hash.kv: does push-all return IterationEnd
+    ok 5 - Int Hash.kv: push-all
+    ok 6 - Int Hash.kv: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash.kv: push-until-lazy
+    ok 8 - Int Hash.kv: does sink-all return IterationEnd
+    ok 9 - Int Hash.kv: skip-one until exhausted
+    ok 10 - Int Hash.kv: skip-at-least except last
+    ok 11 - Int Hash.kv: skip-at-least check last value
+    ok 12 - Int Hash.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash.kv: skip-at-least-pull-one last
+    ok 14 - Int Hash.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash.kv: doesn't support count-only
+    ok 16 - Int Hash.kv: doesn't support bool-only
+    ok 17 - Int Hash.kv: count/bool-only didn't pull
+ok 16 - tests for Int Hash.kv
+# Subtest: tests for Int Hash.keys
+    1..17
+    ok 1 - Int Hash.keys: pull-one until exhausted
+    ok 2 - Int Hash.keys: push-exactly until exhausted
+    ok 3 - Int Hash.keys: push-at-least until exhausted
+    ok 4 - Int Hash.keys: does push-all return IterationEnd
+    ok 5 - Int Hash.keys: push-all
+    ok 6 - Int Hash.keys: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash.keys: push-until-lazy
+    ok 8 - Int Hash.keys: does sink-all return IterationEnd
+    ok 9 - Int Hash.keys: skip-one until exhausted
+    ok 10 - Int Hash.keys: skip-at-least except last
+    ok 11 - Int Hash.keys: skip-at-least check last value
+    ok 12 - Int Hash.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash.keys: skip-at-least-pull-one last
+    ok 14 - Int Hash.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash.keys: doesn't support count-only
+    ok 16 - Int Hash.keys: doesn't support bool-only
+    ok 17 - Int Hash.keys: count/bool-only didn't pull
+ok 17 - tests for Int Hash.keys
+# Subtest: tests for Int Hash.values
+    1..17
+    ok 1 - Int Hash.values: pull-one until exhausted
+    ok 2 - Int Hash.values: push-exactly until exhausted
+    ok 3 - Int Hash.values: push-at-least until exhausted
+    ok 4 - Int Hash.values: does push-all return IterationEnd
+    ok 5 - Int Hash.values: push-all
+    ok 6 - Int Hash.values: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash.values: push-until-lazy
+    ok 8 - Int Hash.values: does sink-all return IterationEnd
+    ok 9 - Int Hash.values: skip-one until exhausted
+    ok 10 - Int Hash.values: skip-at-least except last
+    ok 11 - Int Hash.values: skip-at-least check last value
+    ok 12 - Int Hash.values: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash.values: skip-at-least-pull-one last
+    ok 14 - Int Hash.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash.values: doesn't support count-only
+    ok 16 - Int Hash.values: doesn't support bool-only
+    ok 17 - Int Hash.values: count/bool-only didn't pull
+ok 18 - tests for Int Hash.values
+# Subtest: tests for Int Hash.pairs
+    1..17
+    ok 1 - Int Hash.pairs: pull-one until exhausted
+    ok 2 - Int Hash.pairs: push-exactly until exhausted
+    ok 3 - Int Hash.pairs: push-at-least until exhausted
+    ok 4 - Int Hash.pairs: does push-all return IterationEnd
+    ok 5 - Int Hash.pairs: push-all
+    ok 6 - Int Hash.pairs: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash.pairs: push-until-lazy
+    ok 8 - Int Hash.pairs: does sink-all return IterationEnd
+    ok 9 - Int Hash.pairs: skip-one until exhausted
+    ok 10 - Int Hash.pairs: skip-at-least except last
+    ok 11 - Int Hash.pairs: skip-at-least check last value
+    ok 12 - Int Hash.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash.pairs: skip-at-least-pull-one last
+    ok 14 - Int Hash.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash.pairs: doesn't support count-only
+    ok 16 - Int Hash.pairs: doesn't support bool-only
+    ok 17 - Int Hash.pairs: count/bool-only didn't pull
+ok 19 - tests for Int Hash.pairs
+# Subtest: tests for Int Hash.antipairs
+    1..17
+    ok 1 - Int Hash.antipairs: pull-one until exhausted
+    ok 2 - Int Hash.antipairs: push-exactly until exhausted
+    ok 3 - Int Hash.antipairs: push-at-least until exhausted
+    ok 4 - Int Hash.antipairs: does push-all return IterationEnd
+    ok 5 - Int Hash.antipairs: push-all
+    ok 6 - Int Hash.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash.antipairs: push-until-lazy
+    ok 8 - Int Hash.antipairs: does sink-all return IterationEnd
+    ok 9 - Int Hash.antipairs: skip-one until exhausted
+    ok 10 - Int Hash.antipairs: skip-at-least except last
+    ok 11 - Int Hash.antipairs: skip-at-least check last value
+    ok 12 - Int Hash.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash.antipairs: skip-at-least-pull-one last
+    ok 14 - Int Hash.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash.antipairs: doesn't support count-only
+    ok 16 - Int Hash.antipairs: doesn't support bool-only
+    ok 17 - Int Hash.antipairs: count/bool-only didn't pull
+ok 20 - tests for Int Hash.antipairs
+# Subtest: tests for Int Hash.invert
+    1..17
+    ok 1 - Int Hash.invert: pull-one until exhausted
+    ok 2 - Int Hash.invert: push-exactly until exhausted
+    ok 3 - Int Hash.invert: push-at-least until exhausted
+    ok 4 - Int Hash.invert: does push-all return IterationEnd
+    ok 5 - Int Hash.invert: push-all
+    ok 6 - Int Hash.invert: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash.invert: push-until-lazy
+    ok 8 - Int Hash.invert: does sink-all return IterationEnd
+    ok 9 - Int Hash.invert: skip-one until exhausted
+    ok 10 - Int Hash.invert: skip-at-least except last
+    ok 11 - Int Hash.invert: skip-at-least check last value
+    ok 12 - Int Hash.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash.invert: skip-at-least-pull-one last
+    ok 14 - Int Hash.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash.invert: doesn't support count-only
+    ok 16 - Int Hash.invert: doesn't support bool-only
+    ok 17 - Int Hash.invert: count/bool-only didn't pull
+ok 21 - tests for Int Hash.invert
+# Subtest: tests for Int Hash{Any}
+    1..17
+    ok 1 - Int Hash{Any}: pull-one until exhausted
+    ok 2 - Int Hash{Any}: push-exactly until exhausted
+    ok 3 - Int Hash{Any}: push-at-least until exhausted
+    ok 4 - Int Hash{Any}: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}: push-all
+    ok 6 - Int Hash{Any}: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}: push-until-lazy
+    ok 8 - Int Hash{Any}: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}: skip-one until exhausted
+    ok 10 - Int Hash{Any}: skip-at-least except last
+    ok 11 - Int Hash{Any}: skip-at-least check last value
+    ok 12 - Int Hash{Any}: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}: doesn't support count-only
+    ok 16 - Int Hash{Any}: doesn't support bool-only
+    ok 17 - Int Hash{Any}: count/bool-only didn't pull
+ok 22 - tests for Int Hash{Any}
+# Subtest: tests for Int Hash{Any}.kv
+    1..17
+    ok 1 - Int Hash{Any}.kv: pull-one until exhausted
+    ok 2 - Int Hash{Any}.kv: push-exactly until exhausted
+    ok 3 - Int Hash{Any}.kv: push-at-least until exhausted
+    ok 4 - Int Hash{Any}.kv: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}.kv: push-all
+    ok 6 - Int Hash{Any}.kv: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}.kv: push-until-lazy
+    ok 8 - Int Hash{Any}.kv: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}.kv: skip-one until exhausted
+    ok 10 - Int Hash{Any}.kv: skip-at-least except last
+    ok 11 - Int Hash{Any}.kv: skip-at-least check last value
+    ok 12 - Int Hash{Any}.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}.kv: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}.kv: doesn't support count-only
+    ok 16 - Int Hash{Any}.kv: doesn't support bool-only
+    ok 17 - Int Hash{Any}.kv: count/bool-only didn't pull
+ok 23 - tests for Int Hash{Any}.kv
+# Subtest: tests for Int Hash{Any}.keys
+    1..17
+    ok 1 - Int Hash{Any}.keys: pull-one until exhausted
+    ok 2 - Int Hash{Any}.keys: push-exactly until exhausted
+    ok 3 - Int Hash{Any}.keys: push-at-least until exhausted
+    ok 4 - Int Hash{Any}.keys: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}.keys: push-all
+    ok 6 - Int Hash{Any}.keys: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}.keys: push-until-lazy
+    ok 8 - Int Hash{Any}.keys: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}.keys: skip-one until exhausted
+    ok 10 - Int Hash{Any}.keys: skip-at-least except last
+    ok 11 - Int Hash{Any}.keys: skip-at-least check last value
+    ok 12 - Int Hash{Any}.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}.keys: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}.keys: doesn't support count-only
+    ok 16 - Int Hash{Any}.keys: doesn't support bool-only
+    ok 17 - Int Hash{Any}.keys: count/bool-only didn't pull
+ok 24 - tests for Int Hash{Any}.keys
+# Subtest: tests for Int Hash{Any}.values
+    1..17
+    ok 1 - Int Hash{Any}.values: pull-one until exhausted
+    ok 2 - Int Hash{Any}.values: push-exactly until exhausted
+    ok 3 - Int Hash{Any}.values: push-at-least until exhausted
+    ok 4 - Int Hash{Any}.values: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}.values: push-all
+    ok 6 - Int Hash{Any}.values: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}.values: push-until-lazy
+    ok 8 - Int Hash{Any}.values: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}.values: skip-one until exhausted
+    ok 10 - Int Hash{Any}.values: skip-at-least except last
+    ok 11 - Int Hash{Any}.values: skip-at-least check last value
+    ok 12 - Int Hash{Any}.values: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}.values: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}.values: doesn't support count-only
+    ok 16 - Int Hash{Any}.values: doesn't support bool-only
+    ok 17 - Int Hash{Any}.values: count/bool-only didn't pull
+ok 25 - tests for Int Hash{Any}.values
+# Subtest: tests for Int Hash{Any}.pairs
+    1..17
+    ok 1 - Int Hash{Any}.pairs: pull-one until exhausted
+    ok 2 - Int Hash{Any}.pairs: push-exactly until exhausted
+    ok 3 - Int Hash{Any}.pairs: push-at-least until exhausted
+    ok 4 - Int Hash{Any}.pairs: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}.pairs: push-all
+    ok 6 - Int Hash{Any}.pairs: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}.pairs: push-until-lazy
+    ok 8 - Int Hash{Any}.pairs: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}.pairs: skip-one until exhausted
+    ok 10 - Int Hash{Any}.pairs: skip-at-least except last
+    ok 11 - Int Hash{Any}.pairs: skip-at-least check last value
+    ok 12 - Int Hash{Any}.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}.pairs: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}.pairs: doesn't support count-only
+    ok 16 - Int Hash{Any}.pairs: doesn't support bool-only
+    ok 17 - Int Hash{Any}.pairs: count/bool-only didn't pull
+ok 26 - tests for Int Hash{Any}.pairs
+# Subtest: tests for Int Hash{Any}.antipairs
+    1..17
+    ok 1 - Int Hash{Any}.antipairs: pull-one until exhausted
+    ok 2 - Int Hash{Any}.antipairs: push-exactly until exhausted
+    ok 3 - Int Hash{Any}.antipairs: push-at-least until exhausted
+    ok 4 - Int Hash{Any}.antipairs: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}.antipairs: push-all
+    ok 6 - Int Hash{Any}.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}.antipairs: push-until-lazy
+    ok 8 - Int Hash{Any}.antipairs: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}.antipairs: skip-one until exhausted
+    ok 10 - Int Hash{Any}.antipairs: skip-at-least except last
+    ok 11 - Int Hash{Any}.antipairs: skip-at-least check last value
+    ok 12 - Int Hash{Any}.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}.antipairs: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}.antipairs: doesn't support count-only
+    ok 16 - Int Hash{Any}.antipairs: doesn't support bool-only
+    ok 17 - Int Hash{Any}.antipairs: count/bool-only didn't pull
+ok 27 - tests for Int Hash{Any}.antipairs
+# Subtest: tests for Int Hash{Any}.invert
+    1..17
+    ok 1 - Int Hash{Any}.invert: pull-one until exhausted
+    ok 2 - Int Hash{Any}.invert: push-exactly until exhausted
+    ok 3 - Int Hash{Any}.invert: push-at-least until exhausted
+    ok 4 - Int Hash{Any}.invert: does push-all return IterationEnd
+    ok 5 - Int Hash{Any}.invert: push-all
+    ok 6 - Int Hash{Any}.invert: does push-until-lazy return IterationEnd
+    ok 7 - Int Hash{Any}.invert: push-until-lazy
+    ok 8 - Int Hash{Any}.invert: does sink-all return IterationEnd
+    ok 9 - Int Hash{Any}.invert: skip-one until exhausted
+    ok 10 - Int Hash{Any}.invert: skip-at-least except last
+    ok 11 - Int Hash{Any}.invert: skip-at-least check last value
+    ok 12 - Int Hash{Any}.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - Int Hash{Any}.invert: skip-at-least-pull-one last
+    ok 14 - Int Hash{Any}.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Int Hash{Any}.invert: doesn't support count-only
+    ok 16 - Int Hash{Any}.invert: doesn't support bool-only
+    ok 17 - Int Hash{Any}.invert: count/bool-only didn't pull
+ok 28 - tests for Int Hash{Any}.invert

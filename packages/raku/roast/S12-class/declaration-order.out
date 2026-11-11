@@ -1,0 +1,7 @@
+1..2
+ok 1 - base before derived: lives
+# Subtest: derived before base: dies
+    1..2
+    ok 1 - ' class D is C {}; class C {}; ' died
+    ok 2 - right exception type (X::Inheritance::UnknownParent)
+ok 2 - derived before base: dies

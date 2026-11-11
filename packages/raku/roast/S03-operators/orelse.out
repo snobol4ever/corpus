@@ -1,0 +1,17 @@
+1..16
+ok 1 - orelse basics
+ok 2 - orelse chained
+ok 3 - orelse chained
+ok 4 - definedness, not truthness
+ok 5 - first defined value (1)
+ok 6 - first defined value (2)
+ok 7 - sanity
+ok 8 - orelse thunks
+ok 9 - orelse sets $! after an exception
+ok 10 - orelse passes lhs to one argument after an exception
+ok 11 - orelse can be chained after andthen
+ok 12 - chain: andthen + orelse + orelse
+ok 13 - 1-arg Hash is broken down into Pairs, like +@foo slurpy does it
+ok 14 - 1-arg Iterable gets flattened (like +@foo slurpy)
+ok 15 - orelse does not call .defined on last arg (1)
+ok 16 - orelse does not call .defined on last arg (1)

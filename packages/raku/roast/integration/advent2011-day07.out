@@ -1,0 +1,4 @@
+1..3
+ok 1 - parsed
+ok 2 - num calls recorded
+ok 3 - time recorded

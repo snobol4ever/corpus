@@ -1,0 +1,11 @@
+1..10
+ok 1 - postfix (k)
+ok 2 - percentage closure
+ok 3 - percentage closure
+ok 4 - modulo unbusted
+ok 5 - ~~ / ACCEPTS
+ok 6 - ~~ / ACCEPTS
+ok 7 - range object
+ok 8 - range object
+ok 9 - resistance is futile
+ok 10 - read-only term

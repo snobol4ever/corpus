@@ -1,0 +1,42 @@
+1..40
+ok 1 - flip-flop operator implemented
+ok 2 - fff operator implemented
+ok 3 - /B/ ff /D/, lhs != rhs
+ok 4 - /B/ ^ff /D/, lhs != rhs
+ok 5 - /B/ ff^ /D/, lhs != rhs
+ok 6 - /B/ ^ff^ /D/, lhs != rhs
+ok 7 - /B/ fff /D/, lhs != rhs
+ok 8 - /B/ ^fff /D/, lhs != rhs
+ok 9 - /B/ fff^ /D/, lhs != rhs
+ok 10 - /B/ ^fff^ /D/, lhs != rhs
+ok 11 - /B/ ff /B/, lhs == rhs
+ok 12 - /B/ ^ff /B/, lhs == rhs
+ok 13 - /B/ ff^ /B/, lhs == rhs
+ok 14 - /B/ ^ff^ /B/, lhs == rhs
+ok 15 - /B/ fff /B/, lhs == rhs
+ok 16 - /B/ ^fff /B/, lhs == rhs
+ok 17 - /B/ fff^ /B/, lhs == rhs
+ok 18 - /B/ ^fff^ /B/, lhs == rhs
+ok 19 - /B/ ff *
+ok 20 - /B/ ff /D/, seq  \#s, lhs != rhs
+ok 21 - /B/ ^ff /D/, seq  \#s, lhs != rhs
+ok 22 - /B/ ff^ /D/, seq  \#s, lhs != rhs
+ok 23 - /B/ ^ff^ /D/, seq  \#s, lhs != rhs
+ok 24 - /B/ fff /D/, seq  \#s, lhs != rhs
+ok 25 - /B/ ^fff /D/, seq  \#s, lhs != rhs
+ok 26 - /B/ fff^ /D/, seq  \#s, lhs != rhs
+ok 27 - /B/ ^fff^ /D/, seq  \#s, lhs != rhs
+ok 28 - /B/ ff /B/, seq  \#s, lhs == rhs
+ok 29 - /B/ ^ff /B/, seq  \#s, lhs == rhs
+ok 30 - /B/ ff^ /B/, seq  \#s, lhs == rhs
+ok 31 - /B/ ^ff^ /B/, seq  \#s, lhs == rhs
+ok 32 - /B/ fff /B/, seq  \#s, lhs == rhs
+ok 33 - /B/ ^fff /B/, seq  \#s, lhs == rhs
+ok 34 - /B/ fff^ /B/, seq  \#s, lhs == rhs
+ok 35 - /B/ ^fff^ /B/, seq  \#s, lhs == rhs
+ok 36 - calls from different locations use the same ff
+ok 37 - different clones of the sub get different ff
+ok 38 - # SKIP dubious scoping?
+ok 39 - # SKIP dubious scoping?
+ok 40 - # SKIP NYM flip-flop with "True but $seqnum"
+# FUDGED!

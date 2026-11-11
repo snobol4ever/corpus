@@ -1,0 +1,1062 @@
+1..613
+ok 1 - does (+)() return bag()
+# Subtest: (+) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 2 - (+) with a Failure:D on the RHS throws
+# Subtest: (+) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 3 - (+) with a Failure:D on the LHS throws
+ok 4 - Sequence of empty Set is the empty Set
+# Subtest: Cannot Set.new (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 5 - Cannot Set.new (+) lazy list
+# Subtest: Cannot Set.new(<a b c>) (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 6 - Cannot Set.new(<a b c>) (+) lazy list
+ok 7 - Sequence of empty SetHash is the empty SetHash
+# Subtest: Cannot SetHash.new (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 8 - Cannot SetHash.new (+) lazy list
+# Subtest: Cannot SetHash.new(<a b c>) (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 9 - Cannot SetHash.new(<a b c>) (+) lazy list
+ok 10 - Sequence of empty Bag is the empty Bag
+# Subtest: Cannot Bag.new (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 11 - Cannot Bag.new (+) lazy list
+# Subtest: Cannot Bag.new(<a b c>) (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 12 - Cannot Bag.new(<a b c>) (+) lazy list
+ok 13 - Sequence of empty BagHash is the empty BagHash
+# Subtest: Cannot BagHash.new (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 14 - Cannot BagHash.new (+) lazy list
+# Subtest: Cannot BagHash.new(<a b c>) (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 15 - Cannot BagHash.new(<a b c>) (+) lazy list
+ok 16 - Sequence of empty Mix is the empty Mix
+# Subtest: Cannot Mix.new (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 17 - Cannot Mix.new (+) lazy list
+# Subtest: Cannot Mix.new(<a b c>) (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 18 - Cannot Mix.new(<a b c>) (+) lazy list
+ok 19 - Sequence of empty MixHash is the empty MixHash
+# Subtest: Cannot MixHash.new (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 20 - Cannot MixHash.new (+) lazy list
+# Subtest: Cannot MixHash.new(<a b c>) (+) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 21 - Cannot MixHash.new(<a b c>) (+) lazy list
+ok 22 - infix:<(+)>(Set(a b c))
+ok 23 - infix:<(+)>(SetHash(a b c))
+ok 24 - infix:<(+)>(Bag(a b c))
+ok 25 - infix:<(+)>(BagHash(a b c))
+ok 26 - infix:<(+)>(Mix(a b c))
+ok 27 - infix:<(+)>(MixHash(a b c))
+ok 28 - infix:<(+)>((a b c))
+ok 29 - infix:<(+)>({a => 42, b => 0})
+ok 30 - infix:<(+)>({a => 42, b => 0})
+ok 31 - infix:<(+)>(42)
+ok 32 - (Set) (+) (Set)
+ok 33 - (Set) (+) Set()
+ok 34 - Set() (+) (Set)
+ok 35 - Set() (+) Set()
+ok 36 - Set() (+) SetHash()
+ok 37 - SetHash() (+) Set()
+ok 38 - SetHash() (+) SetHash()
+ok 39 - Set() (+) SetHash()
+ok 40 - SetHash() (+) Set()
+ok 41 - SetHash() (+) SetHash()
+ok 42 - Set(a b) (+) Set()
+ok 43 - SetHash(a b) (+) Set()
+ok 44 - Set(a b) (+) Set(a b)
+ok 45 - SetHash(a b) (+) SetHash(a b)
+ok 46 - Set(a b) (+) Set(c d)
+ok 47 - Set(a b c) (+) Set(b c d)
+ok 48 - SetHash(a b) (+) SetHash(c d)
+ok 49 - SetHash(a b c) (+) SetHash(b c d)
+ok 50 - (Bag) (+) (Bag)
+ok 51 - (Bag) (+) Bag()
+ok 52 - Bag() (+) (Bag)
+ok 53 - Bag() (+) Bag()
+ok 54 - Bag() (+) BagHash()
+ok 55 - BagHash() (+) Bag()
+ok 56 - BagHash() (+) BagHash()
+ok 57 - Bag() (+) BagHash()
+ok 58 - BagHash() (+) Bag()
+ok 59 - BagHash() (+) BagHash()
+ok 60 - Bag(a b(2)) (+) Bag()
+ok 61 - BagHash(a b(2)) (+) Bag()
+ok 62 - Bag(a b(2)) (+) Bag(a b)
+ok 63 - BagHash(a b(2)) (+) BagHash(a b)
+ok 64 - Bag(a b(2)) (+) Bag(c d)
+ok 65 - Bag(a b(2) c) (+) Bag(b c d)
+ok 66 - BagHash(a b(2)) (+) BagHash(c d)
+ok 67 - BagHash(a b(2) c) (+) BagHash(b c d)
+ok 68 - (Mix) (+) (Mix)
+ok 69 - (Mix) (+) Mix()
+ok 70 - Mix() (+) (Mix)
+ok 71 - Mix() (+) Mix()
+ok 72 - Mix() (+) MixHash()
+ok 73 - MixHash() (+) Mix()
+ok 74 - MixHash() (+) MixHash()
+ok 75 - Mix() (+) MixHash()
+ok 76 - MixHash() (+) Mix()
+ok 77 - MixHash() (+) MixHash()
+ok 78 - Mix() (+) Mix(a b)
+ok 79 - MixHash() (+) MixHash(a b)
+ok 80 - Mix(a(3.141592653589793) b(6.283185307179586)) (+) Mix()
+ok 81 - MixHash(a(3.141592653589793) b(6.283185307179586)) (+) Mix()
+ok 82 - Mix(a(3.141592653589793) b(6.283185307179586)) (+) Mix(a b)
+ok 83 - MixHash(a(3.141592653589793) b(6.283185307179586)) (+) MixHash(a b)
+ok 84 - Mix(a(3.141592653589793) b(6.283185307179586)) (+) Mix(c d)
+ok 85 - MixHash(a(3.141592653589793) b(6.283185307179586)) (+) MixHash(c d)
+ok 86 - Mix(a(3.141592653589793) b(6.283185307179586)) (+) Mix(b c)
+ok 87 - MixHash(a(3.141592653589793) b(6.283185307179586)) (+) MixHash(b c)
+ok 88 - Set(a b) (+) Bag(a b(2))
+ok 89 - Set(a b) (+) BagHash(a b(2))
+ok 90 - SetHash(a b) (+) Bag(a b(2))
+ok 91 - SetHash(a b) (+) BagHash(a b(2))
+ok 92 - Set(a b) (+) Mix(a b(2))
+ok 93 - Set(a b) (+) MixHash(a b(2))
+ok 94 - SetHash(a b) (+) Mix(a b(2))
+ok 95 - SetHash(a b) (+) MixHash(a b(2))
+ok 96 - Set(a b) (+) Mix(b(-1))
+ok 97 - Set(a b) (+) MixHash(b(-1))
+ok 98 - SetHash(a b) (+) Mix(b(-1))
+ok 99 - SetHash(a b) (+) MixHash(b(-1))
+ok 100 - Bag(a b) (+) Mix(a b(2))
+ok 101 - Bag(a b) (+) MixHash(a b(2))
+ok 102 - BagHash(a b) (+) Mix(a b(2))
+ok 103 - BagHash(a b) (+) MixHash(a b(2))
+ok 104 - Bag(a b) (+) Mix(b(-1))
+ok 105 - Bag(a b) (+) MixHash(b(-1))
+ok 106 - BagHash(a b) (+) Mix(b(-1))
+ok 107 - BagHash(a b) (+) MixHash(b(-1))
+ok 108 - Set(a b c) (+) {a => 42, b => 0}
+ok 109 - SetHash(a b c) (+) {a => 42, b => 0}
+ok 110 - Bag(a b(2) c) (+) {a => 42, b => 0}
+ok 111 - BagHash(a b(2) c) (+) {a => 42, b => 0}
+ok 112 - Mix(a b(2) c) (+) {a => 42, b => 0}
+ok 113 - MixHash(a b(2) c) (+) {a => 42, b => 0}
+ok 114 - Set(a b c) (+) (a b c d)
+ok 115 - SetHash(a b c) (+) (a b c d)
+ok 116 - Bag(a b(2) c) (+) (a b c d)
+ok 117 - BagHash(a b(2) c) (+) (a b c d)
+ok 118 - Mix(a b(2) c) (+) (a b c d)
+ok 119 - MixHash(a b(2) c) (+) (a b c d)
+ok 120 - (a b c) (+) (c d e)
+ok 121 - (a => 42 b => 0 c => True) (+) (c => 4 d => 42 e)
+ok 122 - (a => 2 a => 40 b => 0 c => True) (+) (c => 4 d => 42 e)
+ok 123 - (b => True c => True d => 42 e) (+) (a => 42 b => 0 c => True)
+ok 124 - (a => 42 b => 0) (+) (a => True d => 42 e)
+ok 125 - {a => 42, b => 0} (+) {a => True, c => True, d => 42}
+ok 126 - {a => 42, b => 0} (+) {a => True, c => True, d => 42}
+ok 127 - {a => 42, b => 0} (+) (c d e)
+ok 128 - {a => 42, b => 0} (+) (a d e)
+ok 129 - 42 (+) 42
+ok 130 - 42 (+) 666
+ok 131 - [(+)] Set(a b c) Set(c d e) Set(d e f)
+ok 132 - [(+)] Set(a b c) Set(d e f) Set(c d e)
+ok 133 - [(+)] Set(c d e) Set(a b c) Set(d e f)
+ok 134 - [(+)] Set(c d e) Set(d e f) Set(a b c)
+ok 135 - [(+)] Set(d e f) Set(a b c) Set(c d e)
+ok 136 - [(+)] Set(d e f) Set(c d e) Set(a b c)
+ok 137 - [(+)] Bag(a b c) Bag(c d e) Bag(d e f)
+ok 138 - [(+)] Bag(a b c) Bag(d e f) Bag(c d e)
+ok 139 - [(+)] Bag(c d e) Bag(a b c) Bag(d e f)
+ok 140 - [(+)] Bag(c d e) Bag(d e f) Bag(a b c)
+ok 141 - [(+)] Bag(d e f) Bag(a b c) Bag(c d e)
+ok 142 - [(+)] Bag(d e f) Bag(c d e) Bag(a b c)
+ok 143 - [(+)] Mix(a b c) Mix(c d e) Mix(d e f)
+ok 144 - [(+)] Mix(a b c) Mix(d e f) Mix(c d e)
+ok 145 - [(+)] Mix(c d e) Mix(a b c) Mix(d e f)
+ok 146 - [(+)] Mix(c d e) Mix(d e f) Mix(a b c)
+ok 147 - [(+)] Mix(d e f) Mix(a b c) Mix(c d e)
+ok 148 - [(+)] Mix(d e f) Mix(c d e) Mix(a b c)
+ok 149 - [(+)] Set(a b c) Set(c d e) Bag(d e f)
+ok 150 - [(+)] Set(a b c) Bag(d e f) Set(c d e)
+ok 151 - [(+)] Set(c d e) Set(a b c) Bag(d e f)
+ok 152 - [(+)] Set(c d e) Bag(d e f) Set(a b c)
+ok 153 - [(+)] Bag(d e f) Set(a b c) Set(c d e)
+ok 154 - [(+)] Bag(d e f) Set(c d e) Set(a b c)
+ok 155 - [(+)] Set(a b c) Set(c d e) Mix(d e f)
+ok 156 - [(+)] Set(a b c) Mix(d e f) Set(c d e)
+ok 157 - [(+)] Set(c d e) Set(a b c) Mix(d e f)
+ok 158 - [(+)] Set(c d e) Mix(d e f) Set(a b c)
+ok 159 - [(+)] Mix(d e f) Set(a b c) Set(c d e)
+ok 160 - [(+)] Mix(d e f) Set(c d e) Set(a b c)
+ok 161 - [(+)] Set(a b c) Bag(c d e) Mix(d e f)
+ok 162 - [(+)] Set(a b c) Mix(d e f) Bag(c d e)
+ok 163 - [(+)] Bag(c d e) Set(a b c) Mix(d e f)
+ok 164 - [(+)] Bag(c d e) Mix(d e f) Set(a b c)
+ok 165 - [(+)] Mix(d e f) Set(a b c) Bag(c d e)
+ok 166 - [(+)] Mix(d e f) Bag(c d e) Set(a b c)
+ok 167 - [(+)] a b c c d e d e f
+ok 168 - [(+)] a b c d e f c d e
+ok 169 - [(+)] c d e a b c d e f
+ok 170 - [(+)] c d e d e f a b c
+ok 171 - [(+)] d e f a b c c d e
+ok 172 - [(+)] d e f c d e a b c
+ok 173 - [(+)] a b c c d e Set(d e f)
+ok 174 - [(+)] a b c Set(d e f) c d e
+ok 175 - [(+)] c d e a b c Set(d e f)
+ok 176 - [(+)] c d e Set(d e f) a b c
+ok 177 - [(+)] Set(d e f) a b c c d e
+ok 178 - [(+)] Set(d e f) c d e a b c
+ok 179 - [(+)] a b c c d e Bag(d e f)
+ok 180 - [(+)] a b c Bag(d e f) c d e
+ok 181 - [(+)] c d e a b c Bag(d e f)
+ok 182 - [(+)] c d e Bag(d e f) a b c
+ok 183 - [(+)] Bag(d e f) a b c c d e
+ok 184 - [(+)] Bag(d e f) c d e a b c
+ok 185 - [(+)] a b c c d e Mix(d e f)
+ok 186 - [(+)] a b c Mix(d e f) c d e
+ok 187 - [(+)] c d e a b c Mix(d e f)
+ok 188 - [(+)] c d e Mix(d e f) a b c
+ok 189 - [(+)] Mix(d e f) a b c c d e
+ok 190 - [(+)] Mix(d e f) c d e a b c
+ok 191 - [(+)] a b c Bag(c d e) Mix(d e f)
+ok 192 - [(+)] a b c Mix(d e f) Bag(c d e)
+ok 193 - [(+)] Bag(c d e) a b c Mix(d e f)
+ok 194 - [(+)] Bag(c d e) Mix(d e f) a b c
+ok 195 - [(+)] Mix(d e f) a b c Bag(c d e)
+ok 196 - [(+)] Mix(d e f) Bag(c d e) a b c
+ok 197 - [(+)] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True c	True
+# d	True
+# e	True
+ok 198 - [(+)] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True b	True
+# c	True
+# d	True
+ok 199 - [(+)] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True
+ok 200 - [(+)] b	True
+# c	True
+# d	True c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True
+ok 201 - [(+)] c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 202 - [(+)] c	True
+# d	True
+# e	True b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 203 - [(+)] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True Set(c d e)
+ok 204 - [(+)] a	True
+# b	True
+# c	True Set(c d e) b	True
+# c	True
+# d	True
+ok 205 - [(+)] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True Set(c d e)
+ok 206 - [(+)] b	True
+# c	True
+# d	True Set(c d e) a	True
+# b	True
+# c	True
+ok 207 - [(+)] Set(c d e) a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 208 - [(+)] Set(c d e) b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 209 - [(+)] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True Bag(c d e)
+ok 210 - [(+)] a	True
+# b	True
+# c	True Bag(c d e) b	True
+# c	True
+# d	True
+ok 211 - [(+)] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True Bag(c d e)
+ok 212 - [(+)] b	True
+# c	True
+# d	True Bag(c d e) a	True
+# b	True
+# c	True
+ok 213 - [(+)] Bag(c d e) a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 214 - [(+)] Bag(c d e) b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 215 - [(+)] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True Mix(c d e)
+ok 216 - [(+)] a	True
+# b	True
+# c	True Mix(c d e) b	True
+# c	True
+# d	True
+ok 217 - [(+)] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True Mix(c d e)
+ok 218 - [(+)] b	True
+# c	True
+# d	True Mix(c d e) a	True
+# b	True
+# c	True
+ok 219 - [(+)] Mix(c d e) a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 220 - [(+)] Mix(c d e) b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 221 - [(+)] a	True
+# b	True
+# c	True b c d c	True
+# d	True
+# e	True
+ok 222 - [(+)] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True b c d
+ok 223 - [(+)] b c d a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True
+ok 224 - [(+)] b c d c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True
+ok 225 - [(+)] c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True b c d
+ok 226 - [(+)] c	True
+# d	True
+# e	True b c d a	True
+# b	True
+# c	True
+ok 227 - [(+)] a	True
+# b	True
+# c	True b c d Set(c d e)
+ok 228 - [(+)] a	True
+# b	True
+# c	True Set(c d e) b c d
+ok 229 - [(+)] b c d a	True
+# b	True
+# c	True Set(c d e)
+ok 230 - [(+)] b c d Set(c d e) a	True
+# b	True
+# c	True
+ok 231 - [(+)] Set(c d e) a	True
+# b	True
+# c	True b c d
+ok 232 - [(+)] Set(c d e) b c d a	True
+# b	True
+# c	True
+ok 233 - [(+)] a	True
+# b	True
+# c	True b c d Bag(c d e)
+ok 234 - [(+)] a	True
+# b	True
+# c	True Bag(c d e) b c d
+ok 235 - [(+)] b c d a	True
+# b	True
+# c	True Bag(c d e)
+ok 236 - [(+)] b c d Bag(c d e) a	True
+# b	True
+# c	True
+ok 237 - [(+)] Bag(c d e) a	True
+# b	True
+# c	True b c d
+ok 238 - [(+)] Bag(c d e) b c d a	True
+# b	True
+# c	True
+ok 239 - [(+)] a	True
+# b	True
+# c	True b c d Mix(c d e)
+ok 240 - [(+)] a	True
+# b	True
+# c	True Mix(c d e) b c d
+ok 241 - [(+)] b c d a	True
+# b	True
+# c	True Mix(c d e)
+ok 242 - [(+)] b c d Mix(c d e) a	True
+# b	True
+# c	True
+ok 243 - [(+)] Mix(c d e) a	True
+# b	True
+# c	True b c d
+ok 244 - [(+)] Mix(c d e) b c d a	True
+# b	True
+# c	True
+ok 245 - [(+)] Bag(a(2)) Bag(a(7)) Bag(a(3))
+ok 246 - [(+)] Bag(a(2)) Bag(a(3)) Bag(a(7))
+ok 247 - [(+)] Bag(a(7)) Bag(a(2)) Bag(a(3))
+ok 248 - [(+)] Bag(a(7)) Bag(a(3)) Bag(a(2))
+ok 249 - [(+)] Bag(a(3)) Bag(a(2)) Bag(a(7))
+ok 250 - [(+)] Bag(a(3)) Bag(a(7)) Bag(a(2))
+ok 251 - [(+)] Bag(a(20)) Bag() Bag(a(22))
+ok 252 - [(+)] Bag(a(20)) Bag(a(22)) Bag()
+ok 253 - [(+)] Bag() Bag(a(20)) Bag(a(22))
+ok 254 - [(+)] Bag() Bag(a(22)) Bag(a(20))
+ok 255 - [(+)] Bag(a(22)) Bag(a(20)) Bag()
+ok 256 - [(+)] Bag(a(22)) Bag() Bag(a(20))
+ok 257 - [(+)] Mix(a(-21)) Mix(a) Mix(a(2))
+ok 258 - [(+)] Mix(a(-21)) Mix(a(2)) Mix(a)
+ok 259 - [(+)] Mix(a) Mix(a(-21)) Mix(a(2))
+ok 260 - [(+)] Mix(a) Mix(a(2)) Mix(a(-21))
+ok 261 - [(+)] Mix(a(2)) Mix(a(-21)) Mix(a)
+ok 262 - [(+)] Mix(a(2)) Mix(a) Mix(a(-21))
+ok 263 - [(+)] Mix(a(-42)) Set() Mix(a(42))
+ok 264 - [(+)] Mix(a(-42)) Mix(a(42)) Set()
+ok 265 - [(+)] Set() Mix(a(-42)) Mix(a(42))
+ok 266 - [(+)] Set() Mix(a(42)) Mix(a(-42))
+ok 267 - [(+)] Mix(a(42)) Mix(a(-42)) Set()
+ok 268 - [(+)] Mix(a(42)) Set() Mix(a(-42))
+ok 269 - [(+)] Mix(a(-42)) Bag() Mix(a(42))
+ok 270 - [(+)] Mix(a(-42)) Mix(a(42)) Bag()
+ok 271 - [(+)] Bag() Mix(a(-42)) Mix(a(42))
+ok 272 - [(+)] Bag() Mix(a(42)) Mix(a(-42))
+ok 273 - [(+)] Mix(a(42)) Mix(a(-42)) Bag()
+ok 274 - [(+)] Mix(a(42)) Bag() Mix(a(-42))
+ok 275 - [(+)] Mix(a(-42)) Mix() Mix(a(42))
+ok 276 - [(+)] Mix(a(-42)) Mix(a(42)) Mix()
+ok 277 - [(+)] Mix() Mix(a(-42)) Mix(a(42))
+ok 278 - [(+)] Mix() Mix(a(42)) Mix(a(-42))
+ok 279 - [(+)] Mix(a(42)) Mix(a(-42)) Mix()
+ok 280 - [(+)] Mix(a(42)) Mix() Mix(a(-42))
+ok 281 - [(+)] Mix(a(-42)) Set(b) Bag(a(42))
+ok 282 - [(+)] Mix(a(-42)) Bag(a(42)) Set(b)
+ok 283 - [(+)] Set(b) Mix(a(-42)) Bag(a(42))
+ok 284 - [(+)] Set(b) Bag(a(42)) Mix(a(-42))
+ok 285 - [(+)] Bag(a(42)) Mix(a(-42)) Set(b)
+ok 286 - [(+)] Bag(a(42)) Set(b) Mix(a(-42))
+ok 287 - [(+)] Mix(a(-42)) Bag(b) Bag(a(42))
+ok 288 - [(+)] Mix(a(-42)) Bag(a(42)) Bag(b)
+ok 289 - [(+)] Bag(b) Mix(a(-42)) Bag(a(42))
+ok 290 - [(+)] Bag(b) Bag(a(42)) Mix(a(-42))
+ok 291 - [(+)] Bag(a(42)) Mix(a(-42)) Bag(b)
+ok 292 - [(+)] Bag(a(42)) Bag(b) Mix(a(-42))
+ok 293 - [(+)] Mix(a(-42)) Mix(b) Bag(a(42))
+ok 294 - [(+)] Mix(a(-42)) Bag(a(42)) Mix(b)
+ok 295 - [(+)] Mix(b) Mix(a(-42)) Bag(a(42))
+ok 296 - [(+)] Mix(b) Bag(a(42)) Mix(a(-42))
+ok 297 - [(+)] Bag(a(42)) Mix(a(-42)) Mix(b)
+ok 298 - [(+)] Bag(a(42)) Mix(b) Mix(a(-42))
+ok 299 - [(+)] a b c
+ok 300 - [(+)] a c b
+ok 301 - [(+)] b a c
+ok 302 - [(+)] b c a
+ok 303 - [(+)] c a b
+ok 304 - [(+)] c b a
+ok 305 - does ⊎() return bag()
+# Subtest: ⊎ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 306 - ⊎ with a Failure:D on the RHS throws
+# Subtest: ⊎ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 307 - ⊎ with a Failure:D on the LHS throws
+ok 308 - Sequence of empty Set is the empty Set
+# Subtest: Cannot Set.new ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 309 - Cannot Set.new ⊎ lazy list
+# Subtest: Cannot Set.new(<a b c>) ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 310 - Cannot Set.new(<a b c>) ⊎ lazy list
+ok 311 - Sequence of empty SetHash is the empty SetHash
+# Subtest: Cannot SetHash.new ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 312 - Cannot SetHash.new ⊎ lazy list
+# Subtest: Cannot SetHash.new(<a b c>) ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 313 - Cannot SetHash.new(<a b c>) ⊎ lazy list
+ok 314 - Sequence of empty Bag is the empty Bag
+# Subtest: Cannot Bag.new ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 315 - Cannot Bag.new ⊎ lazy list
+# Subtest: Cannot Bag.new(<a b c>) ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 316 - Cannot Bag.new(<a b c>) ⊎ lazy list
+ok 317 - Sequence of empty BagHash is the empty BagHash
+# Subtest: Cannot BagHash.new ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 318 - Cannot BagHash.new ⊎ lazy list
+# Subtest: Cannot BagHash.new(<a b c>) ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 319 - Cannot BagHash.new(<a b c>) ⊎ lazy list
+ok 320 - Sequence of empty Mix is the empty Mix
+# Subtest: Cannot Mix.new ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 321 - Cannot Mix.new ⊎ lazy list
+# Subtest: Cannot Mix.new(<a b c>) ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 322 - Cannot Mix.new(<a b c>) ⊎ lazy list
+ok 323 - Sequence of empty MixHash is the empty MixHash
+# Subtest: Cannot MixHash.new ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 324 - Cannot MixHash.new ⊎ lazy list
+# Subtest: Cannot MixHash.new(<a b c>) ⊎ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 325 - Cannot MixHash.new(<a b c>) ⊎ lazy list
+ok 326 - infix:<⊎>(Set(a b c))
+ok 327 - infix:<⊎>(SetHash(a b c))
+ok 328 - infix:<⊎>(Bag(a b c))
+ok 329 - infix:<⊎>(BagHash(a b c))
+ok 330 - infix:<⊎>(Mix(a b c))
+ok 331 - infix:<⊎>(MixHash(a b c))
+ok 332 - infix:<⊎>((a b c))
+ok 333 - infix:<⊎>({a => 42, b => 0})
+ok 334 - infix:<⊎>({a => 42, b => 0})
+ok 335 - infix:<⊎>(42)
+ok 336 - (Set) ⊎ (Set)
+ok 337 - (Set) ⊎ Set()
+ok 338 - Set() ⊎ (Set)
+ok 339 - Set() ⊎ Set()
+ok 340 - Set() ⊎ SetHash()
+ok 341 - SetHash() ⊎ Set()
+ok 342 - SetHash() ⊎ SetHash()
+ok 343 - Set() ⊎ SetHash()
+ok 344 - SetHash() ⊎ Set()
+ok 345 - SetHash() ⊎ SetHash()
+ok 346 - Set(a b) ⊎ Set()
+ok 347 - SetHash(a b) ⊎ Set()
+ok 348 - Set(a b) ⊎ Set(a b)
+ok 349 - SetHash(a b) ⊎ SetHash(a b)
+ok 350 - Set(a b) ⊎ Set(c d)
+ok 351 - Set(a b c) ⊎ Set(b c d)
+ok 352 - SetHash(a b) ⊎ SetHash(c d)
+ok 353 - SetHash(a b c) ⊎ SetHash(b c d)
+ok 354 - (Bag) ⊎ (Bag)
+ok 355 - (Bag) ⊎ Bag()
+ok 356 - Bag() ⊎ (Bag)
+ok 357 - Bag() ⊎ Bag()
+ok 358 - Bag() ⊎ BagHash()
+ok 359 - BagHash() ⊎ Bag()
+ok 360 - BagHash() ⊎ BagHash()
+ok 361 - Bag() ⊎ BagHash()
+ok 362 - BagHash() ⊎ Bag()
+ok 363 - BagHash() ⊎ BagHash()
+ok 364 - Bag(a b(2)) ⊎ Bag()
+ok 365 - BagHash(a b(2)) ⊎ Bag()
+ok 366 - Bag(a b(2)) ⊎ Bag(a b)
+ok 367 - BagHash(a b(2)) ⊎ BagHash(a b)
+ok 368 - Bag(a b(2)) ⊎ Bag(c d)
+ok 369 - Bag(a b(2) c) ⊎ Bag(b c d)
+ok 370 - BagHash(a b(2)) ⊎ BagHash(c d)
+ok 371 - BagHash(a b(2) c) ⊎ BagHash(b c d)
+ok 372 - (Mix) ⊎ (Mix)
+ok 373 - (Mix) ⊎ Mix()
+ok 374 - Mix() ⊎ (Mix)
+ok 375 - Mix() ⊎ Mix()
+ok 376 - Mix() ⊎ MixHash()
+ok 377 - MixHash() ⊎ Mix()
+ok 378 - MixHash() ⊎ MixHash()
+ok 379 - Mix() ⊎ MixHash()
+ok 380 - MixHash() ⊎ Mix()
+ok 381 - MixHash() ⊎ MixHash()
+ok 382 - Mix() ⊎ Mix(a b)
+ok 383 - MixHash() ⊎ MixHash(a b)
+ok 384 - Mix(a(3.141592653589793) b(6.283185307179586)) ⊎ Mix()
+ok 385 - MixHash(a(3.141592653589793) b(6.283185307179586)) ⊎ Mix()
+ok 386 - Mix(a(3.141592653589793) b(6.283185307179586)) ⊎ Mix(a b)
+ok 387 - MixHash(a(3.141592653589793) b(6.283185307179586)) ⊎ MixHash(a b)
+ok 388 - Mix(a(3.141592653589793) b(6.283185307179586)) ⊎ Mix(c d)
+ok 389 - MixHash(a(3.141592653589793) b(6.283185307179586)) ⊎ MixHash(c d)
+ok 390 - Mix(a(3.141592653589793) b(6.283185307179586)) ⊎ Mix(b c)
+ok 391 - MixHash(a(3.141592653589793) b(6.283185307179586)) ⊎ MixHash(b c)
+ok 392 - Set(a b) ⊎ Bag(a b(2))
+ok 393 - Set(a b) ⊎ BagHash(a b(2))
+ok 394 - SetHash(a b) ⊎ Bag(a b(2))
+ok 395 - SetHash(a b) ⊎ BagHash(a b(2))
+ok 396 - Set(a b) ⊎ Mix(a b(2))
+ok 397 - Set(a b) ⊎ MixHash(a b(2))
+ok 398 - SetHash(a b) ⊎ Mix(a b(2))
+ok 399 - SetHash(a b) ⊎ MixHash(a b(2))
+ok 400 - Set(a b) ⊎ Mix(b(-1))
+ok 401 - Set(a b) ⊎ MixHash(b(-1))
+ok 402 - SetHash(a b) ⊎ Mix(b(-1))
+ok 403 - SetHash(a b) ⊎ MixHash(b(-1))
+ok 404 - Bag(a b) ⊎ Mix(a b(2))
+ok 405 - Bag(a b) ⊎ MixHash(a b(2))
+ok 406 - BagHash(a b) ⊎ Mix(a b(2))
+ok 407 - BagHash(a b) ⊎ MixHash(a b(2))
+ok 408 - Bag(a b) ⊎ Mix(b(-1))
+ok 409 - Bag(a b) ⊎ MixHash(b(-1))
+ok 410 - BagHash(a b) ⊎ Mix(b(-1))
+ok 411 - BagHash(a b) ⊎ MixHash(b(-1))
+ok 412 - Set(a b c) ⊎ {a => 42, b => 0}
+ok 413 - SetHash(a b c) ⊎ {a => 42, b => 0}
+ok 414 - Bag(a b(2) c) ⊎ {a => 42, b => 0}
+ok 415 - BagHash(a b(2) c) ⊎ {a => 42, b => 0}
+ok 416 - Mix(a b(2) c) ⊎ {a => 42, b => 0}
+ok 417 - MixHash(a b(2) c) ⊎ {a => 42, b => 0}
+ok 418 - Set(a b c) ⊎ (a b c d)
+ok 419 - SetHash(a b c) ⊎ (a b c d)
+ok 420 - Bag(a b(2) c) ⊎ (a b c d)
+ok 421 - BagHash(a b(2) c) ⊎ (a b c d)
+ok 422 - Mix(a b(2) c) ⊎ (a b c d)
+ok 423 - MixHash(a b(2) c) ⊎ (a b c d)
+ok 424 - (a b c) ⊎ (c d e)
+ok 425 - (a => 42 b => 0 c => True) ⊎ (c => 4 d => 42 e)
+ok 426 - (a => 2 a => 40 b => 0 c => True) ⊎ (c => 4 d => 42 e)
+ok 427 - (b => True c => True d => 42 e) ⊎ (a => 42 b => 0 c => True)
+ok 428 - (a => 42 b => 0) ⊎ (a => True d => 42 e)
+ok 429 - {a => 42, b => 0} ⊎ {a => True, c => True, d => 42}
+ok 430 - {a => 42, b => 0} ⊎ {a => True, c => True, d => 42}
+ok 431 - {a => 42, b => 0} ⊎ (c d e)
+ok 432 - {a => 42, b => 0} ⊎ (a d e)
+ok 433 - 42 ⊎ 42
+ok 434 - 42 ⊎ 666
+ok 435 - [⊎] Set(a b c) Set(c d e) Set(d e f)
+ok 436 - [⊎] Set(a b c) Set(d e f) Set(c d e)
+ok 437 - [⊎] Set(c d e) Set(a b c) Set(d e f)
+ok 438 - [⊎] Set(c d e) Set(d e f) Set(a b c)
+ok 439 - [⊎] Set(d e f) Set(a b c) Set(c d e)
+ok 440 - [⊎] Set(d e f) Set(c d e) Set(a b c)
+ok 441 - [⊎] Bag(a b c) Bag(c d e) Bag(d e f)
+ok 442 - [⊎] Bag(a b c) Bag(d e f) Bag(c d e)
+ok 443 - [⊎] Bag(c d e) Bag(a b c) Bag(d e f)
+ok 444 - [⊎] Bag(c d e) Bag(d e f) Bag(a b c)
+ok 445 - [⊎] Bag(d e f) Bag(a b c) Bag(c d e)
+ok 446 - [⊎] Bag(d e f) Bag(c d e) Bag(a b c)
+ok 447 - [⊎] Mix(a b c) Mix(c d e) Mix(d e f)
+ok 448 - [⊎] Mix(a b c) Mix(d e f) Mix(c d e)
+ok 449 - [⊎] Mix(c d e) Mix(a b c) Mix(d e f)
+ok 450 - [⊎] Mix(c d e) Mix(d e f) Mix(a b c)
+ok 451 - [⊎] Mix(d e f) Mix(a b c) Mix(c d e)
+ok 452 - [⊎] Mix(d e f) Mix(c d e) Mix(a b c)
+ok 453 - [⊎] Set(a b c) Set(c d e) Bag(d e f)
+ok 454 - [⊎] Set(a b c) Bag(d e f) Set(c d e)
+ok 455 - [⊎] Set(c d e) Set(a b c) Bag(d e f)
+ok 456 - [⊎] Set(c d e) Bag(d e f) Set(a b c)
+ok 457 - [⊎] Bag(d e f) Set(a b c) Set(c d e)
+ok 458 - [⊎] Bag(d e f) Set(c d e) Set(a b c)
+ok 459 - [⊎] Set(a b c) Set(c d e) Mix(d e f)
+ok 460 - [⊎] Set(a b c) Mix(d e f) Set(c d e)
+ok 461 - [⊎] Set(c d e) Set(a b c) Mix(d e f)
+ok 462 - [⊎] Set(c d e) Mix(d e f) Set(a b c)
+ok 463 - [⊎] Mix(d e f) Set(a b c) Set(c d e)
+ok 464 - [⊎] Mix(d e f) Set(c d e) Set(a b c)
+ok 465 - [⊎] Set(a b c) Bag(c d e) Mix(d e f)
+ok 466 - [⊎] Set(a b c) Mix(d e f) Bag(c d e)
+ok 467 - [⊎] Bag(c d e) Set(a b c) Mix(d e f)
+ok 468 - [⊎] Bag(c d e) Mix(d e f) Set(a b c)
+ok 469 - [⊎] Mix(d e f) Set(a b c) Bag(c d e)
+ok 470 - [⊎] Mix(d e f) Bag(c d e) Set(a b c)
+ok 471 - [⊎] a b c c d e d e f
+ok 472 - [⊎] a b c d e f c d e
+ok 473 - [⊎] c d e a b c d e f
+ok 474 - [⊎] c d e d e f a b c
+ok 475 - [⊎] d e f a b c c d e
+ok 476 - [⊎] d e f c d e a b c
+ok 477 - [⊎] a b c c d e Set(d e f)
+ok 478 - [⊎] a b c Set(d e f) c d e
+ok 479 - [⊎] c d e a b c Set(d e f)
+ok 480 - [⊎] c d e Set(d e f) a b c
+ok 481 - [⊎] Set(d e f) a b c c d e
+ok 482 - [⊎] Set(d e f) c d e a b c
+ok 483 - [⊎] a b c c d e Bag(d e f)
+ok 484 - [⊎] a b c Bag(d e f) c d e
+ok 485 - [⊎] c d e a b c Bag(d e f)
+ok 486 - [⊎] c d e Bag(d e f) a b c
+ok 487 - [⊎] Bag(d e f) a b c c d e
+ok 488 - [⊎] Bag(d e f) c d e a b c
+ok 489 - [⊎] a b c c d e Mix(d e f)
+ok 490 - [⊎] a b c Mix(d e f) c d e
+ok 491 - [⊎] c d e a b c Mix(d e f)
+ok 492 - [⊎] c d e Mix(d e f) a b c
+ok 493 - [⊎] Mix(d e f) a b c c d e
+ok 494 - [⊎] Mix(d e f) c d e a b c
+ok 495 - [⊎] a b c Bag(c d e) Mix(d e f)
+ok 496 - [⊎] a b c Mix(d e f) Bag(c d e)
+ok 497 - [⊎] Bag(c d e) a b c Mix(d e f)
+ok 498 - [⊎] Bag(c d e) Mix(d e f) a b c
+ok 499 - [⊎] Mix(d e f) a b c Bag(c d e)
+ok 500 - [⊎] Mix(d e f) Bag(c d e) a b c
+ok 501 - [⊎] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True c	True
+# d	True
+# e	True
+ok 502 - [⊎] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True b	True
+# c	True
+# d	True
+ok 503 - [⊎] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True
+ok 504 - [⊎] b	True
+# c	True
+# d	True c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True
+ok 505 - [⊎] c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 506 - [⊎] c	True
+# d	True
+# e	True b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 507 - [⊎] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True Set(c d e)
+ok 508 - [⊎] a	True
+# b	True
+# c	True Set(c d e) b	True
+# c	True
+# d	True
+ok 509 - [⊎] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True Set(c d e)
+ok 510 - [⊎] b	True
+# c	True
+# d	True Set(c d e) a	True
+# b	True
+# c	True
+ok 511 - [⊎] Set(c d e) a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 512 - [⊎] Set(c d e) b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 513 - [⊎] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True Bag(c d e)
+ok 514 - [⊎] a	True
+# b	True
+# c	True Bag(c d e) b	True
+# c	True
+# d	True
+ok 515 - [⊎] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True Bag(c d e)
+ok 516 - [⊎] b	True
+# c	True
+# d	True Bag(c d e) a	True
+# b	True
+# c	True
+ok 517 - [⊎] Bag(c d e) a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 518 - [⊎] Bag(c d e) b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 519 - [⊎] a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True Mix(c d e)
+ok 520 - [⊎] a	True
+# b	True
+# c	True Mix(c d e) b	True
+# c	True
+# d	True
+ok 521 - [⊎] b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True Mix(c d e)
+ok 522 - [⊎] b	True
+# c	True
+# d	True Mix(c d e) a	True
+# b	True
+# c	True
+ok 523 - [⊎] Mix(c d e) a	True
+# b	True
+# c	True b	True
+# c	True
+# d	True
+ok 524 - [⊎] Mix(c d e) b	True
+# c	True
+# d	True a	True
+# b	True
+# c	True
+ok 525 - [⊎] a	True
+# b	True
+# c	True b c d c	True
+# d	True
+# e	True
+ok 526 - [⊎] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True b c d
+ok 527 - [⊎] b c d a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True
+ok 528 - [⊎] b c d c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True
+ok 529 - [⊎] c	True
+# d	True
+# e	True a	True
+# b	True
+# c	True b c d
+ok 530 - [⊎] c	True
+# d	True
+# e	True b c d a	True
+# b	True
+# c	True
+ok 531 - [⊎] a	True
+# b	True
+# c	True b c d Set(c d e)
+ok 532 - [⊎] a	True
+# b	True
+# c	True Set(c d e) b c d
+ok 533 - [⊎] b c d a	True
+# b	True
+# c	True Set(c d e)
+ok 534 - [⊎] b c d Set(c d e) a	True
+# b	True
+# c	True
+ok 535 - [⊎] Set(c d e) a	True
+# b	True
+# c	True b c d
+ok 536 - [⊎] Set(c d e) b c d a	True
+# b	True
+# c	True
+ok 537 - [⊎] a	True
+# b	True
+# c	True b c d Bag(c d e)
+ok 538 - [⊎] a	True
+# b	True
+# c	True Bag(c d e) b c d
+ok 539 - [⊎] b c d a	True
+# b	True
+# c	True Bag(c d e)
+ok 540 - [⊎] b c d Bag(c d e) a	True
+# b	True
+# c	True
+ok 541 - [⊎] Bag(c d e) a	True
+# b	True
+# c	True b c d
+ok 542 - [⊎] Bag(c d e) b c d a	True
+# b	True
+# c	True
+ok 543 - [⊎] a	True
+# b	True
+# c	True b c d Mix(c d e)
+ok 544 - [⊎] a	True
+# b	True
+# c	True Mix(c d e) b c d
+ok 545 - [⊎] b c d a	True
+# b	True
+# c	True Mix(c d e)
+ok 546 - [⊎] b c d Mix(c d e) a	True
+# b	True
+# c	True
+ok 547 - [⊎] Mix(c d e) a	True
+# b	True
+# c	True b c d
+ok 548 - [⊎] Mix(c d e) b c d a	True
+# b	True
+# c	True
+ok 549 - [⊎] Bag(a(2)) Bag(a(7)) Bag(a(3))
+ok 550 - [⊎] Bag(a(2)) Bag(a(3)) Bag(a(7))
+ok 551 - [⊎] Bag(a(7)) Bag(a(2)) Bag(a(3))
+ok 552 - [⊎] Bag(a(7)) Bag(a(3)) Bag(a(2))
+ok 553 - [⊎] Bag(a(3)) Bag(a(2)) Bag(a(7))
+ok 554 - [⊎] Bag(a(3)) Bag(a(7)) Bag(a(2))
+ok 555 - [⊎] Bag(a(20)) Bag() Bag(a(22))
+ok 556 - [⊎] Bag(a(20)) Bag(a(22)) Bag()
+ok 557 - [⊎] Bag() Bag(a(20)) Bag(a(22))
+ok 558 - [⊎] Bag() Bag(a(22)) Bag(a(20))
+ok 559 - [⊎] Bag(a(22)) Bag(a(20)) Bag()
+ok 560 - [⊎] Bag(a(22)) Bag() Bag(a(20))
+ok 561 - [⊎] Mix(a(-21)) Mix(a) Mix(a(2))
+ok 562 - [⊎] Mix(a(-21)) Mix(a(2)) Mix(a)
+ok 563 - [⊎] Mix(a) Mix(a(-21)) Mix(a(2))
+ok 564 - [⊎] Mix(a) Mix(a(2)) Mix(a(-21))
+ok 565 - [⊎] Mix(a(2)) Mix(a(-21)) Mix(a)
+ok 566 - [⊎] Mix(a(2)) Mix(a) Mix(a(-21))
+ok 567 - [⊎] Mix(a(-42)) Set() Mix(a(42))
+ok 568 - [⊎] Mix(a(-42)) Mix(a(42)) Set()
+ok 569 - [⊎] Set() Mix(a(-42)) Mix(a(42))
+ok 570 - [⊎] Set() Mix(a(42)) Mix(a(-42))
+ok 571 - [⊎] Mix(a(42)) Mix(a(-42)) Set()
+ok 572 - [⊎] Mix(a(42)) Set() Mix(a(-42))
+ok 573 - [⊎] Mix(a(-42)) Bag() Mix(a(42))
+ok 574 - [⊎] Mix(a(-42)) Mix(a(42)) Bag()
+ok 575 - [⊎] Bag() Mix(a(-42)) Mix(a(42))
+ok 576 - [⊎] Bag() Mix(a(42)) Mix(a(-42))
+ok 577 - [⊎] Mix(a(42)) Mix(a(-42)) Bag()
+ok 578 - [⊎] Mix(a(42)) Bag() Mix(a(-42))
+ok 579 - [⊎] Mix(a(-42)) Mix() Mix(a(42))
+ok 580 - [⊎] Mix(a(-42)) Mix(a(42)) Mix()
+ok 581 - [⊎] Mix() Mix(a(-42)) Mix(a(42))
+ok 582 - [⊎] Mix() Mix(a(42)) Mix(a(-42))
+ok 583 - [⊎] Mix(a(42)) Mix(a(-42)) Mix()
+ok 584 - [⊎] Mix(a(42)) Mix() Mix(a(-42))
+ok 585 - [⊎] Mix(a(-42)) Set(b) Bag(a(42))
+ok 586 - [⊎] Mix(a(-42)) Bag(a(42)) Set(b)
+ok 587 - [⊎] Set(b) Mix(a(-42)) Bag(a(42))
+ok 588 - [⊎] Set(b) Bag(a(42)) Mix(a(-42))
+ok 589 - [⊎] Bag(a(42)) Mix(a(-42)) Set(b)
+ok 590 - [⊎] Bag(a(42)) Set(b) Mix(a(-42))
+ok 591 - [⊎] Mix(a(-42)) Bag(b) Bag(a(42))
+ok 592 - [⊎] Mix(a(-42)) Bag(a(42)) Bag(b)
+ok 593 - [⊎] Bag(b) Mix(a(-42)) Bag(a(42))
+ok 594 - [⊎] Bag(b) Bag(a(42)) Mix(a(-42))
+ok 595 - [⊎] Bag(a(42)) Mix(a(-42)) Bag(b)
+ok 596 - [⊎] Bag(a(42)) Bag(b) Mix(a(-42))
+ok 597 - [⊎] Mix(a(-42)) Mix(b) Bag(a(42))
+ok 598 - [⊎] Mix(a(-42)) Bag(a(42)) Mix(b)
+ok 599 - [⊎] Mix(b) Mix(a(-42)) Bag(a(42))
+ok 600 - [⊎] Mix(b) Bag(a(42)) Mix(a(-42))
+ok 601 - [⊎] Bag(a(42)) Mix(a(-42)) Mix(b)
+ok 602 - [⊎] Bag(a(42)) Mix(b) Mix(a(-42))
+ok 603 - [⊎] a b c
+ok 604 - [⊎] a c b
+ok 605 - [⊎] b a c
+ok 606 - [⊎] b c a
+ok 607 - [⊎] c a b
+ok 608 - [⊎] c b a
+ok 609 - did Z handle (+) correctly (1)
+ok 610 - did Z handle ⊎ correctly (1)
+ok 611 - did Z handle (+) correctly (2)
+ok 612 - did Z handle ⊎ correctly (2)
+ok 613 - no explosion

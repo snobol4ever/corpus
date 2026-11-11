@@ -1,0 +1,79 @@
+1..38
+ok 1 - we have 4 elements in the array
+ok 2 - pop(@pop) works
+ok 3 - we have 3 elements in the array
+ok 4 - pop @pop works
+ok 5 - we have 2 elements in the array
+ok 6 - @pop.pop() works
+ok 7 - we have 1 element in the array
+ok 8 - @pop.pop works
+ok 9 - we have 1 element in the array
+ok 10 - @pop.pop works
+ok 11 - we have no more element in the array
+ok 12 - after the array is exhausted pop() returns undefined
+ok 13 - after the array is exhausted pop() returns Failure
+ok 14 - we have 4 elements in the array
+ok 15 - inline pop(@pop) works
+ok 16 - we have 3 elements in the array
+ok 17 - inline pop @pop works
+ok 18 - we have 2 elements in the array
+ok 19 - inline @pop.pop() works
+ok 20 - we have 1 element in the array
+ok 21 - inline @pop.pop works
+ok 22 - we have no more element in the array
+ok 23 - after the array is exhausted pop() returns undefined
+ok 24 - after the array is exhausted pop() returns Failure
+ok 25 - this will return 3
+ok 26 - this will return undefined
+ok 27 - [].pop is a Failure
+ok 28 - pop on an un-initialized array returns undefined
+ok 29 - pop off uninitialized array is a Failure
+# Subtest: pop() requires arguments
+    1..2
+    ok 1 - 'pop' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 30 - pop() requires arguments
+# Subtest: .pop should not work on scalars
+    1..2
+    ok 1 - '42.pop' died
+    ok 2 - right exception type (X::Method::NotFound)
+ok 31 - .pop should not work on scalars
+# Subtest: pop() should not allow extra arguments
+    1..2
+    ok 1 - 'pop(@pop,10)' died
+    ok 2 - right exception type (Exception)
+ok 32 - pop() should not allow extra arguments
+# Subtest: .pop() should not allow extra arguments
+    1..2
+    ok 1 - '@pop.pop(10)' died
+    ok 2 - right exception type (Exception)
+ok 33 - .pop() should not allow extra arguments
+# Subtest: Cannot assign to a readonly variable or a value
+    1..2
+    ok 1 - '@pop.pop = 3' died
+    ok 2 - right exception type (Exception)
+ok 34 - Cannot assign to a readonly variable or a value
+# Subtest: Cannot assign to a readonly variable or a value
+    1..2
+    ok 1 - 'pop(@pop) = 3' died
+    ok 2 - right exception type (Exception)
+ok 35 - Cannot assign to a readonly variable or a value
+# Subtest: cannot pop from a lazy list
+    1..2
+    ok 1 - 'pop @push' died
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 36 - cannot pop from a lazy list
+not ok 37 - reading first key in sink context does not influence later code # TODO RT #111720
+# Failed test 'reading first key in sink context does not influence later code'
+# at S32-array/pop.rakudo line 101
+# expected: '1-2'
+#      got: '1-2-3'
+# Subtest: no ghost elements after pop/shift
+    1..5
+    ok 1 - .pop
+    ok 2 - &pop
+    ok 3 - .shift
+    ok 4 - &shift
+    ok 5 - :delete
+ok 38 - no ghost elements after pop/shift
+# FUDGED!

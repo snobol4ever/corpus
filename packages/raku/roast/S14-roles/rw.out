@@ -1,0 +1,65 @@
+1..6
+# Subtest: Default is readonly
+    1..4
+    ok 1 - pun of a role preserves default readonly
+    ok 2 - pun of a role doing role preserves default readonly
+    ok 3 - class consuming a role repsects default readonly
+    ok 4 - class consuming a role doing a role repsects default readonly
+ok 1 - Default is readonly
+# Subtest: Puning
+    1..1
+    # Subtest: rw/ro
+        1..4
+        ok 1 - 'is rw' on a role is being repsected
+        ok 2 - attribute value has really changed
+        ok 3 - 'is readonly' overrides 'is rw' on role
+        ok 4 - read only attribute didn't change
+    ok 1 - rw/ro
+ok 2 - Puning
+# Subtest: Pun of a role doing role
+    1..1
+    # Subtest: rw/ro
+        1..4
+        ok 1 - 'is rw' on a role is being repsected
+        ok 2 - attribute value has really changed
+        ok 3 - 'is readonly' overrides 'is rw' on role
+        ok 4 - read only attribute didn't change
+    ok 1 - rw/ro
+ok 3 - Pun of a role doing role
+# Subtest: Class consuming role
+    1..1
+    # Subtest: rw/ro
+        1..4
+        ok 1 - 'is rw' on a role is being repsected
+        ok 2 - attribute value has really changed
+        ok 3 - 'is readonly' overrides 'is rw' on role
+        ok 4 - read only attribute didn't change
+    ok 1 - rw/ro
+ok 4 - Class consuming role
+# Subtest: Class consuming role doing a role
+    1..1
+    # Subtest: rw/ro
+        1..4
+        ok 1 - 'is rw' on a role is being repsected
+        ok 2 - attribute value has really changed
+        ok 3 - 'is readonly' overrides 'is rw' on role
+        ok 4 - read only attribute didn't change
+    ok 1 - rw/ro
+ok 5 - Class consuming role doing a role
+# Subtest: use 'also is rw'
+    # Subtest: role puning
+        1..4
+        ok 1 - 'is rw' on a role is being repsected
+        ok 2 - attribute value has really changed
+        ok 3 - 'is readonly' overrides 'is rw' on role
+        ok 4 - read only attribute didn't change
+    ok 1 - role puning
+    # Subtest: role doing role puning
+        1..4
+        ok 1 - 'is rw' on a role is being repsected
+        ok 2 - attribute value has really changed
+        ok 3 - 'is readonly' overrides 'is rw' on role
+        ok 4 - read only attribute didn't change
+    ok 2 - role doing role puning
+    1..2
+ok 6 - use 'also is rw'

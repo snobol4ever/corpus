@@ -1,0 +1,16 @@
+1..15
+ok 1 - We should be able to splice into an array
+ok 2 - We should be able to create ranges
+ok 3 - pick() should return the correct number of items
+ok 4 - ... and they should be in the letters
+ok 5 - pick() should return the correct number of items
+ok 6 - ... and they should be in the letters
+ok 7 - ... and pick() should return unique elements
+ok 8 - lotto() should return the correct number of numbers
+ok 9 - ... and they should be in the correct range
+ok 10 - ... and they should all be unique numbers
+ok 11 - .pick(*) should return a permutation of a list
+ok 12 - combinations work.
+ok 13 - group works
+ok 14 - We should be able to sort a list of lists according to length of sublists
+ok 15 - ..or according to frequency of length of sublists

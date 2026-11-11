@@ -1,0 +1,34 @@
+1..33
+ok 1 - subroutine form of WHAT
+ok 2 - method form of WHAT
+ok 3 - an Int isa Numeric
+ok 4 - an Int isa Mu
+ok 5 - a sub's type is Sub
+ok 6 - a sub isa Routine
+ok 7 - a sub isa Code
+ok 8 - ."WHAT" calls the method instead of the macro
+ok 9 - .WHAT still works as intended
+ok 10 - .$meth calls the method instead of the macro
+ok 11 - type object as a term lives
+ok 12 - numification of type object lives
+ok 13 - .WHAT on a Match works
+ok 14 - numification of .WHAT of a Match works
+ok 15 - .WHAT of built-in infix op is Multi (RT  \#66928)
+ok 16 - WHAT method on ints
+ok 17 - WHAT function on ints (1)
+ok 18 - WHAT function on ints (2)
+ok 19 - WHAT function on bool and int
+ok 20 - WHAT method on bool and int
+ok 21 - WHAT method on ints via func
+ok 22 - WHAT func on ints via func
+ok 23 - decimal using "e" is a Num
+ok 24 - decimal without "e" is Rat
+ok 25 - decimal == the equivalent rational
+ok 26 - 1.WHAT sanity
+ok 27 - .WHAT is readonly
+ok 28 - assignment to Int.WHAT does nothing
+ok 29 - Can access "our" method with &class::method
+ok 30 - ... and got a Method back
+ok 31 - "has" methods are hidden
+ok 32 - non-existent method access lives (and returns undef)
+ok 33 - RT  \#112364

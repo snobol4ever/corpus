@@ -1,0 +1,5 @@
+1..4
+ok 1 - Does a character codepoint (\x..) evaluate to the same thing as its literal?
+ok 2 - Does a character codepoint (\x..) evaluate to the same thing as its literal?
+ok 3 - Does a character codepoint (\x..) evaluate to the same thing as its literal?
+ok 4 - Does a character codepoint (\x..) evaluate to the same thing as its literal?

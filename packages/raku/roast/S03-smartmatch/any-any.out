@@ -1,0 +1,9 @@
+1..8
+ok 1 - Any ~~  Any (+)
+ok 2 - Any !~~ Any (-)
+ok 3 - Any ~~  Any (-)
+ok 4 - Any !~~ Any (+)
+ok 5 - ~~ sets $_ to the LHS
+ok 6 - original $_ restored
+ok 7 - !~~ sets $_ to the LHS
+ok 8 - original $_ restored

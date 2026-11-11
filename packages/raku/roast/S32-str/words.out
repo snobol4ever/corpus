@@ -1,0 +1,46 @@
+1..17
+ok 1 - words on empty string
+ok 2 - words on single character
+ok 3 - default matcher and limit
+ok 4 - default matcher and limit (leading/trailing ws)
+ok 5 - words on string with double spaces
+ok 6 - words on string with \t
+ok 7 - words on string with \n
+ok 8 - words on string with (U+00A0 NO-BREAK SPACE)
+ok 9 - words on string with non-ASCII letter
+ok 10 - words on string with grapheme precomposed
+ok 11 - words on string with grapheme without precomposed
+ok 12 - Str.words
+ok 13 - interpolated variable .raku's like a literal
+ok 14 - words($str)
+ok 15 - words($str, Inf)
+ok 16 - words($str, *)
+# Subtest: $limit does not pad result with Nils
+    1..26
+    ok 1 - empty string,  0  limit (Str.words)
+    ok 2 - empty string,  1  limit (Str.words)
+    ok 3 - 1 word (Str),  0  limit (Str.words)
+    ok 4 - 1 word (Str),  10 limit (Str.words)
+    ok 5 - 2 words (Str), 4 limit (Str.words)
+    ok 6 - 2 words (Str), 1 limit (Str.words)
+    ok 7 - empty string,  0  limit (Cool.words)
+    ok 8 - empty string,  1  limit (Cool.words)
+    ok 9 - 1 word (Str),  0  limit (Cool.words)
+    ok 10 - 1 word (Str),  10 limit (Cool.words)
+    ok 11 - 2 words (Str), 4 limit (Cool.words)
+    ok 12 - 2 words (Str), 1 limit (Cool.words)
+    ok 13 - 1 word (Cool), 0  limit (Cool.words)
+    ok 14 - 1 word (Cool), 10 limit (Cool.words)
+    ok 15 - 2 words (Cool), 4 limit (Cool.words)
+    ok 16 - 2 words (Cool), 1 limit (Cool.words)
+    ok 17 - empty string,  0  limit (&words)
+    ok 18 - empty string,  1  limit (&words)
+    ok 19 - 1 word (Str),  0  limit (&words)
+    ok 20 - 1 word (Str),  10 limit (&words)
+    ok 21 - 2 words (Str), 4 limit (&words)
+    ok 22 - 2 words (Str), 1 limit (&words)
+    ok 23 - 1 word (Cool), 0  limit (&words)
+    ok 24 - 1 word (Cool), 10 limit (&words)
+    ok 25 - 2 words (Cool), 4 limit (&words)
+    ok 26 - 2 words (Cool), 1 limit (&words)
+ok 17 - $limit does not pad result with Nils

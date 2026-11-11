@@ -1,0 +1,14 @@
+1..8
+ok 1 - fibonacci
+ok 2 - largest prime factor
+not ok 3 - Pascal's triangle # TODO failing during 2015.09 release...
+# Failed test 'Pascal's triangle'
+# at integration/advent2012-day04.rakudo line 21
+# expected: 4075
+#      got: 0
+ok 4 - Pythagorean triplet products (gathered)
+ok 5 - Pythagorean triplet products (dataflow)
+ok 6 - consecutive prime factors
+ok 7 - distinct term count
+ok 8 - distinct term count - optimized
+# FUDGED!

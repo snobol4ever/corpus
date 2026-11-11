@@ -1,0 +1,5 @@
+1..4
+ok 1 - trans
+ok 2 - rot13
+ok 3 - kabbala
+ok 4 - html escaping

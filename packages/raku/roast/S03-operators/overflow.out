@@ -1,0 +1,99 @@
+1..98
+ok 1 - var incremented after post-autoincrement
+ok 2 - during post-autoincrement return value is not yet incremented
+ok 3 - var incremented  after pre-autoincrement
+ok 4 - during pre-autoincrement return value is incremented
+ok 5 - simple assignment: $a = $a+1
+ok 6 - var decremented after post-autodecrement
+ok 7 - during post-autodecrement return value is not yet decremented
+ok 8 - var decremented  after pre-autodecrement
+ok 9 - during pre-autodecrement return value is decremented
+ok 10 - simple assignment: $a = $a-1
+ok 11 - post-decrement negative value
+ok 12 - pre-decrement negative value
+ok 13 - assign $a = -$a; $a = $a-1
+ok 14 - compare -- to -1 op with same origin var
+ok 15 - make sure origin var remains unchanged
+ok 16 - same thing with predecremenet
+ok 17 - test oder of predecrement in -(++$a)
+ok 18 - 0x80000000 div 1 == 0x80000000
+ok 19 - 0x80000000 div -1 == -0x80000000
+ok 20 - -0x80000000 div 1 == -0x80000000
+ok 21 - -0x80000000 div -1 == 0x80000000
+ok 22 - 
+ok 23 - Bignums are not working yet
+ok 24 - Bignums are not working yet
+ok 25 - $bignum1 div $bignum2
+ok 26 - 
+ok 27 - 
+ok 28 - 
+ok 29 - 
+ok 30 - 
+ok 31 - 
+ok 32 - 
+ok 33 - 
+ok 34 - 
+ok 35 - 
+ok 36 - 
+ok 37 - 
+ok 38 - 
+ok 39 - 
+ok 40 - 
+ok 41 - 
+ok 42 - 
+ok 43 - 2147483648 - 0 == 2147483648
+ok 44 - -2147483648 - 0 == -2147483648
+ok 45 - 2000000000 - 4000000000 == -2000000000
+ok 46 - 7**(-1) works
+ok 47 - 
+ok 48 - (1127 % 1000) * 167772160 == 21307064320
+ok 49 - -1 - -2147483648 == 2147483647
+ok 50 - 2 - -2147483648 == 2147483650
+ok 51 - 4294967294 - 3 == 4294967291
+ok 52 - -2147483648 - -1 == -2147483647
+ok 53 - 2147483647 - -1 == 2147483648
+ok 54 - 2147483647 - -2147483648 == 4294967295
+ok 55 - 4294967294 - -3 == 4294967297
+ok 56 - -2147483648 - +1 == -2147483649
+ok 57 - 2147483648 - 2147483650 == -2
+ok 58 - 
+ok 59 - 
+ok 60 - 
+ok 61 - 
+ok 62 - 
+ok 63 - 
+ok 64 - 
+ok 65 - 
+ok 66 - 
+ok 67 - 
+ok 68 - 
+ok 69 - 
+ok 70 - 
+ok 71 - 
+ok 72 - 
+ok 73 - 
+ok 74 - 
+ok 75 - 
+ok 76 - 
+ok 77 - 
+ok 78 - 
+ok 79 - 
+ok 80 - 
+ok 81 - 
+ok 82 - 
+ok 83 - 
+ok 84 - 
+ok 85 - 
+ok 86 - 
+ok 87 - 
+ok 88 - 
+ok 89 - 
+ok 90 - got the correct int value from hex FFACD5FE
+ok 91 - got the correct int value from hex AAA4872D
+ok 92 - got the correct int value from hex DEAD_BEEF
+ok 93 - got the correct int value from oct 3777777777
+ok 94 - radix 16 notation works
+ok 95 - fractional base 16 works
+ok 96 - binary number to power of 10
+ok 97 - Power of ten in <> works
+ok 98 - can construct Rat (or similar) with big denominator

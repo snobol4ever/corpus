@@ -1,0 +1,18 @@
+1..12
+ok 1 - can match and execute a closure
+ok 2 - could access and update outer lexicals
+ok 3 - # SKIP assignment to match variables (dubious)
+ok 4 - # SKIP assignment to match variables (dubious)
+ok 5 - Outer match
+ok 6 - Outer caught
+ok 7 - # SKIP assignment to match variables (dubious)
+ok 8 - # SKIP assignment to match variables (dubious)
+ok 9 - # SKIP assignment to match variables (dubious)
+ok 10 - Zero match
+not ok 11 - Zero matched # TODO make() inside closure
+# Failed test 'Zero matched'
+# at S05-metachars/closure.rakudo line 46
+# expected: 'BC'
+#      got: 'abc'
+ok 12 - One matched
+# FUDGED!

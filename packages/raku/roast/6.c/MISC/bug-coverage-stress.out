@@ -1,0 +1,24 @@
+1..14
+# Subtest: no deadlock while acquiring mutex
+    1..2
+    ok 1 - program did not hang
+    ok 2 - STDOUT
+ok 1 - no deadlock while acquiring mutex
+ok 2 - Supply.merge on signals does not crash
+ok 3 - Supply.merge on signals does not crash
+ok 4 - Supply.merge on signals handles signal
+ok 5 - dir() does not produce wrong results under concurrent load
+ok 6 - no issues when piping one Proc's STDOUT to another's STDIN
+ok 7 - supply inside sock does not hang
+ok 8 - no serialization crashes with roles and traits
+ok 9 - no crashes with giant enums in packages
+ok 10 - no segfault in a `for` loop + some ops
+ok 11 - no crashes with Whatever curries in topics of for/given statement modifiers
+not ok 12 - collected right amount of characters (with &foo) # TODO https://github.com/rakudo/rakudo/issues/1535
+# Failed test 'collected right amount of characters (with &foo)'
+# at 6.c/MISC/bug-coverage-stress.rakudo line 209
+# expected: '4000'
+#      got: '0'
+ok 13 - collected right amount of characters (with { foo })
+ok 14 - no SEGV in curries + with
+# FUDGED!

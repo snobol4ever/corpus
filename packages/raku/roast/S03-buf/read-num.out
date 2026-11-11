@@ -1,0 +1,201 @@
+1..200
+ok 1 - is blob8-1234 0 num32 not 0
+ok 2 - is blob8-1234 0 num32 NativeEndian not 0
+ok 3 - is blob8-1234 0 num32 LittleEndian not 0
+ok 4 - is blob8-1234 0 num32 BigEndian not 0
+ok 5 - is blob8-1234 1 num32 not 0
+ok 6 - is blob8-1234 1 num32 NativeEndian not 0
+ok 7 - is blob8-1234 1 num32 LittleEndian not 0
+ok 8 - is blob8-1234 1 num32 BigEndian not 0
+ok 9 - is blob8-1234 2 num32 not 0
+ok 10 - is blob8-1234 2 num32 NativeEndian not 0
+ok 11 - is blob8-1234 2 num32 LittleEndian not 0
+ok 12 - is blob8-1234 2 num32 BigEndian not 0
+ok 13 - is blob8-1234 3 num32 not 0
+ok 14 - is blob8-1234 3 num32 NativeEndian not 0
+ok 15 - is blob8-1234 3 num32 LittleEndian not 0
+ok 16 - is blob8-1234 3 num32 BigEndian not 0
+ok 17 - is blob8-1234 4 num32 not 0
+ok 18 - is blob8-1234 4 num32 NativeEndian not 0
+ok 19 - is blob8-1234 4 num32 LittleEndian not 0
+ok 20 - is blob8-1234 4 num32 BigEndian not 0
+ok 21 - is blob8-1234 5 num32 not 0
+ok 22 - is blob8-1234 5 num32 NativeEndian not 0
+ok 23 - is blob8-1234 5 num32 LittleEndian not 0
+ok 24 - is blob8-1234 5 num32 BigEndian not 0
+ok 25 - does Blob[uint8] num32 0 die
+ok 26 - does blob8-1234 num32 -1 die
+ok 27 - does blob8-1234 num32 6 die
+ok 28 - does blob8-1234 num32 -1 NativeEndian die
+ok 29 - does blob8-1234 num32 -1 NativeEndian die
+ok 30 - does blob8-1234 num32 -1 LittleEndian die
+ok 31 - does blob8-1234 num32 -1 LittleEndian die
+ok 32 - does blob8-1234 num32 -1 BigEndian die
+ok 33 - does blob8-1234 num32 -1 BigEndian die
+ok 34 - is blob8-1234 0 num64 not 0
+ok 35 - is blob8-1234 0 num64 NativeEndian not 0
+ok 36 - is blob8-1234 0 num64 LittleEndian not 0
+ok 37 - is blob8-1234 0 num64 BigEndian not 0
+ok 38 - is blob8-1234 1 num64 not 0
+ok 39 - is blob8-1234 1 num64 NativeEndian not 0
+ok 40 - is blob8-1234 1 num64 LittleEndian not 0
+ok 41 - is blob8-1234 1 num64 BigEndian not 0
+ok 42 - does Blob[uint8] num64 0 die
+ok 43 - does blob8-1234 num64 -1 die
+ok 44 - does blob8-1234 num64 2 die
+ok 45 - does blob8-1234 num64 -1 NativeEndian die
+ok 46 - does blob8-1234 num64 2 NativeEndian die
+ok 47 - does blob8-1234 num64 -1 LittleEndian die
+ok 48 - does blob8-1234 num64 2 LittleEndian die
+ok 49 - does blob8-1234 num64 -1 BigEndian die
+ok 50 - does blob8-1234 num64 2 BigEndian die
+ok 51 - is Blob[uint8]-random 0 num32 not 0
+ok 52 - is Blob[uint8]-random 0 num32 NativeEndian not 0
+ok 53 - is Blob[uint8]-random 0 num32 LittleEndian not 0
+ok 54 - is Blob[uint8]-random 0 num32 BigEndian not 0
+ok 55 - is Blob[uint8]-random 1 num32 not 0
+ok 56 - is Blob[uint8]-random 1 num32 NativeEndian not 0
+ok 57 - is Blob[uint8]-random 1 num32 LittleEndian not 0
+ok 58 - is Blob[uint8]-random 1 num32 BigEndian not 0
+ok 59 - is Blob[uint8]-random 2 num32 not 0
+ok 60 - is Blob[uint8]-random 2 num32 NativeEndian not 0
+ok 61 - is Blob[uint8]-random 2 num32 LittleEndian not 0
+ok 62 - is Blob[uint8]-random 2 num32 BigEndian not 0
+ok 63 - is Blob[uint8]-random 3 num32 not 0
+ok 64 - is Blob[uint8]-random 3 num32 NativeEndian not 0
+ok 65 - is Blob[uint8]-random 3 num32 LittleEndian not 0
+ok 66 - is Blob[uint8]-random 3 num32 BigEndian not 0
+ok 67 - is Blob[uint8]-random 4 num32 not 0
+ok 68 - is Blob[uint8]-random 4 num32 NativeEndian not 0
+ok 69 - is Blob[uint8]-random 4 num32 LittleEndian not 0
+ok 70 - is Blob[uint8]-random 4 num32 BigEndian not 0
+ok 71 - is Blob[uint8]-random 5 num32 not 0
+ok 72 - is Blob[uint8]-random 5 num32 NativeEndian not 0
+ok 73 - is Blob[uint8]-random 5 num32 LittleEndian not 0
+ok 74 - is Blob[uint8]-random 5 num32 BigEndian not 0
+ok 75 - does Blob[uint8] num32 0 die
+ok 76 - does Blob[uint8]-random num32 -1 die
+ok 77 - does Blob[uint8]-random num32 6 die
+ok 78 - does Blob[uint8]-random num32 -1 NativeEndian die
+ok 79 - does Blob[uint8]-random num32 -1 NativeEndian die
+ok 80 - does Blob[uint8]-random num32 -1 LittleEndian die
+ok 81 - does Blob[uint8]-random num32 -1 LittleEndian die
+ok 82 - does Blob[uint8]-random num32 -1 BigEndian die
+ok 83 - does Blob[uint8]-random num32 -1 BigEndian die
+ok 84 - is Blob[uint8]-random 0 num64 not 0
+ok 85 - is Blob[uint8]-random 0 num64 NativeEndian not 0
+ok 86 - is Blob[uint8]-random 0 num64 LittleEndian not 0
+ok 87 - is Blob[uint8]-random 0 num64 BigEndian not 0
+ok 88 - is Blob[uint8]-random 1 num64 not 0
+ok 89 - is Blob[uint8]-random 1 num64 NativeEndian not 0
+ok 90 - is Blob[uint8]-random 1 num64 LittleEndian not 0
+ok 91 - is Blob[uint8]-random 1 num64 BigEndian not 0
+ok 92 - does Blob[uint8] num64 0 die
+ok 93 - does Blob[uint8]-random num64 -1 die
+ok 94 - does Blob[uint8]-random num64 2 die
+ok 95 - does Blob[uint8]-random num64 -1 NativeEndian die
+ok 96 - does Blob[uint8]-random num64 2 NativeEndian die
+ok 97 - does Blob[uint8]-random num64 -1 LittleEndian die
+ok 98 - does Blob[uint8]-random num64 2 LittleEndian die
+ok 99 - does Blob[uint8]-random num64 -1 BigEndian die
+ok 100 - does Blob[uint8]-random num64 2 BigEndian die
+ok 101 - is buf8-1234 0 num32 not 0
+ok 102 - is buf8-1234 0 num32 NativeEndian not 0
+ok 103 - is buf8-1234 0 num32 LittleEndian not 0
+ok 104 - is buf8-1234 0 num32 BigEndian not 0
+ok 105 - is buf8-1234 1 num32 not 0
+ok 106 - is buf8-1234 1 num32 NativeEndian not 0
+ok 107 - is buf8-1234 1 num32 LittleEndian not 0
+ok 108 - is buf8-1234 1 num32 BigEndian not 0
+ok 109 - is buf8-1234 2 num32 not 0
+ok 110 - is buf8-1234 2 num32 NativeEndian not 0
+ok 111 - is buf8-1234 2 num32 LittleEndian not 0
+ok 112 - is buf8-1234 2 num32 BigEndian not 0
+ok 113 - is buf8-1234 3 num32 not 0
+ok 114 - is buf8-1234 3 num32 NativeEndian not 0
+ok 115 - is buf8-1234 3 num32 LittleEndian not 0
+ok 116 - is buf8-1234 3 num32 BigEndian not 0
+ok 117 - is buf8-1234 4 num32 not 0
+ok 118 - is buf8-1234 4 num32 NativeEndian not 0
+ok 119 - is buf8-1234 4 num32 LittleEndian not 0
+ok 120 - is buf8-1234 4 num32 BigEndian not 0
+ok 121 - is buf8-1234 5 num32 not 0
+ok 122 - is buf8-1234 5 num32 NativeEndian not 0
+ok 123 - is buf8-1234 5 num32 LittleEndian not 0
+ok 124 - is buf8-1234 5 num32 BigEndian not 0
+ok 125 - does Buf[uint8] num32 0 die
+ok 126 - does buf8-1234 num32 -1 die
+ok 127 - does buf8-1234 num32 6 die
+ok 128 - does buf8-1234 num32 -1 NativeEndian die
+ok 129 - does buf8-1234 num32 -1 NativeEndian die
+ok 130 - does buf8-1234 num32 -1 LittleEndian die
+ok 131 - does buf8-1234 num32 -1 LittleEndian die
+ok 132 - does buf8-1234 num32 -1 BigEndian die
+ok 133 - does buf8-1234 num32 -1 BigEndian die
+ok 134 - is buf8-1234 0 num64 not 0
+ok 135 - is buf8-1234 0 num64 NativeEndian not 0
+ok 136 - is buf8-1234 0 num64 LittleEndian not 0
+ok 137 - is buf8-1234 0 num64 BigEndian not 0
+ok 138 - is buf8-1234 1 num64 not 0
+ok 139 - is buf8-1234 1 num64 NativeEndian not 0
+ok 140 - is buf8-1234 1 num64 LittleEndian not 0
+ok 141 - is buf8-1234 1 num64 BigEndian not 0
+ok 142 - does Buf[uint8] num64 0 die
+ok 143 - does buf8-1234 num64 -1 die
+ok 144 - does buf8-1234 num64 2 die
+ok 145 - does buf8-1234 num64 -1 NativeEndian die
+ok 146 - does buf8-1234 num64 2 NativeEndian die
+ok 147 - does buf8-1234 num64 -1 LittleEndian die
+ok 148 - does buf8-1234 num64 2 LittleEndian die
+ok 149 - does buf8-1234 num64 -1 BigEndian die
+ok 150 - does buf8-1234 num64 2 BigEndian die
+ok 151 - is Buf[uint8]-random 0 num32 not 0
+ok 152 - is Buf[uint8]-random 0 num32 NativeEndian not 0
+ok 153 - is Buf[uint8]-random 0 num32 LittleEndian not 0
+ok 154 - is Buf[uint8]-random 0 num32 BigEndian not 0
+ok 155 - is Buf[uint8]-random 1 num32 not 0
+ok 156 - is Buf[uint8]-random 1 num32 NativeEndian not 0
+ok 157 - is Buf[uint8]-random 1 num32 LittleEndian not 0
+ok 158 - is Buf[uint8]-random 1 num32 BigEndian not 0
+ok 159 - is Buf[uint8]-random 2 num32 not 0
+ok 160 - is Buf[uint8]-random 2 num32 NativeEndian not 0
+ok 161 - is Buf[uint8]-random 2 num32 LittleEndian not 0
+ok 162 - is Buf[uint8]-random 2 num32 BigEndian not 0
+ok 163 - is Buf[uint8]-random 3 num32 not 0
+ok 164 - is Buf[uint8]-random 3 num32 NativeEndian not 0
+ok 165 - is Buf[uint8]-random 3 num32 LittleEndian not 0
+ok 166 - is Buf[uint8]-random 3 num32 BigEndian not 0
+ok 167 - is Buf[uint8]-random 4 num32 not 0
+ok 168 - is Buf[uint8]-random 4 num32 NativeEndian not 0
+ok 169 - is Buf[uint8]-random 4 num32 LittleEndian not 0
+ok 170 - is Buf[uint8]-random 4 num32 BigEndian not 0
+ok 171 - is Buf[uint8]-random 5 num32 not 0
+ok 172 - is Buf[uint8]-random 5 num32 NativeEndian not 0
+ok 173 - is Buf[uint8]-random 5 num32 LittleEndian not 0
+ok 174 - is Buf[uint8]-random 5 num32 BigEndian not 0
+ok 175 - does Buf[uint8] num32 0 die
+ok 176 - does Buf[uint8]-random num32 -1 die
+ok 177 - does Buf[uint8]-random num32 6 die
+ok 178 - does Buf[uint8]-random num32 -1 NativeEndian die
+ok 179 - does Buf[uint8]-random num32 -1 NativeEndian die
+ok 180 - does Buf[uint8]-random num32 -1 LittleEndian die
+ok 181 - does Buf[uint8]-random num32 -1 LittleEndian die
+ok 182 - does Buf[uint8]-random num32 -1 BigEndian die
+ok 183 - does Buf[uint8]-random num32 -1 BigEndian die
+ok 184 - is Buf[uint8]-random 0 num64 not 0
+ok 185 - is Buf[uint8]-random 0 num64 NativeEndian not 0
+ok 186 - is Buf[uint8]-random 0 num64 LittleEndian not 0
+ok 187 - is Buf[uint8]-random 0 num64 BigEndian not 0
+ok 188 - is Buf[uint8]-random 1 num64 not 0
+ok 189 - is Buf[uint8]-random 1 num64 NativeEndian not 0
+ok 190 - is Buf[uint8]-random 1 num64 LittleEndian not 0
+ok 191 - is Buf[uint8]-random 1 num64 BigEndian not 0
+ok 192 - does Buf[uint8] num64 0 die
+ok 193 - does Buf[uint8]-random num64 -1 die
+ok 194 - does Buf[uint8]-random num64 2 die
+ok 195 - does Buf[uint8]-random num64 -1 NativeEndian die
+ok 196 - does Buf[uint8]-random num64 2 NativeEndian die
+ok 197 - does Buf[uint8]-random num64 -1 LittleEndian die
+ok 198 - does Buf[uint8]-random num64 2 LittleEndian die
+ok 199 - does Buf[uint8]-random num64 -1 BigEndian die
+ok 200 - does Buf[uint8]-random num64 2 BigEndian die

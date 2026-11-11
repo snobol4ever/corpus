@@ -1,0 +1,98 @@
+1..31
+ok 1 - method form
+ok 2 - subroutine form
+ok 3 - meta-assign form (return)
+ok 4 - meta-assign form (result)
+ok 5 - slurpy subroutine form of squish
+ok 6 - .squish with Int
+ok 7 - .squish with one-elem list
+ok 8 - squish has === semantics
+ok 9 - squish propagates is-lazy
+ok 10 - can access elements from infinite squish
+# Subtest: with :as
+    1..4
+    ok 1 -     method form
+    ok 2 - subroutine form
+    ok 3 - meta-assign form (return)
+    ok 4 - meta-assign form (result)
+ok 11 - with :as
+# Subtest: method form of squish does not stringify
+    1..4
+    ok 1 - no args
+    ok 2 - with :as
+    ok 3 - with :with
+    ok 4 - with :as and :with
+ok 12 - method form of squish does not stringify
+# Subtest: method form of squish returns at least the first element
+    1..4
+    ok 1 - with :as and :with
+    ok 2 - with :with only
+    ok 3 - with :with, first element stringifies to ''
+    ok 4 - with :with and :as, first element stringifies to ''
+ok 13 - method form of squish returns at least the first element
+# Subtest: with :with
+    1..4
+    ok 1 - method form
+    ok 2 - subroutine form
+    ok 3 - meta-assign form (return)
+    ok 4 - meta-assign form (result)
+ok 14 - with :with
+# Subtest: with :with and :as
+    1..4
+    ok 1 - method form
+    ok 2 - sub form
+    ok 3 - meta-assign form (return)
+    ok 4 - meta-assign form (result)
+ok 15 - with :with and :as
+ok 16 - order of :with operands, and first one of each run (:as)
+ok 17 - :as callbacks called once per element
+ok 18 - :with callbacks called minimum-ish number of times (:as)
+ok 19 - order of :with operands, and first one of each run
+ok 20 - :with callbacks called minimum-ish number of times.
+# Subtest: squish with single element list with :as and :with
+    1..3
+    ok 1 - result
+    ok 2 - at most one :as callback call
+    ok 3 - no :with callback calls
+ok 21 - squish with single element list with :as and :with
+ok 22 - single element list with :with
+ok 23 - no callback calls with single element list
+# Subtest: :as + :with, iterator use
+    1..5
+    # Subtest: first .pull-one
+        1..3
+        ok 1 - value
+        ok 2 - at most 1 :as callback call
+        ok 3 - no :with callback calls
+    ok 1 - first .pull-one
+    # Subtest: second .pull-one
+        1..3
+        ok 1 - value
+        ok 2 - 4 total :as callback calls so far
+        ok 3 - 3 total :with callback calls so far
+    ok 2 - second .pull-one
+    ok 3 - .push-all values
+    ok 4 - :as callbacks called once per element (fragged)
+    ok 5 - :with callbacks called minimumish number of times (:as, fragged)
+ok 24 - :as + :with, iterator use
+# Subtest: :with + iterator use
+    1..6
+    ok 1 - first .pull-one value
+    ok 2 - no :with called on first pull
+    ok 3 - second .pull-one value
+    ok 4 - second .pull-one called three :with
+    ok 5 - .push-all after a couple pull-ones
+    ok 6 - :with callbacks called minimum-ish number of times (:as, fragged)
+ok 25 - :with + iterator use
+# Subtest: squish with [eqv] and objects
+    1..4
+    ok 1 - method form
+    ok 2 - sub form
+    ok 3 - meta-assign form (return)
+    ok 4 - meta-assign form (result)
+ok 26 - squish with [eqv] and objects
+ok 27 - .= squish in sink context works on $foo
+ok 28 - .= squish in sink context works on @foo
+ok 29 - .squish doesn't flatten
+ok 30 - do we squish at all?
+ok 31 - do we squish at all with :as?

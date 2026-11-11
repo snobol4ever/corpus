@@ -1,0 +1,37 @@
+1..24
+ok 1 - first() returns an Int
+ok 2 - returned value by first() is correct
+ok 3 - first() returns an Int
+ok 4 - returned value by first() is correct
+ok 5 - method form of first returns an Int
+ok 6 - method form of first returns the expected item
+ok 7 - first returns Nil on unsuccessful match
+ok 8 - first() search for odd elements successful
+ok 9 - Matching closure in first() is only executed once
+ok 10 - method form of first with range returns the expected item
+ok 11 - method form of first with range returns the expected item
+ok 12 - first by type Str works
+ok 13 - first by type Int works
+ok 14 - first by type Rat works
+ok 15 - first by regex /o/
+ok 16 - first by regex /ob/
+ok 17 - first by regex /l.*o/
+ok 18 - .first also takes a junction as matcher
+ok 19 - .first also takes a junction as matcher (sub form)
+# Subtest: did we throws-like X::Match::Bool?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Match::Bool)
+ok 20 - did we throws-like X::Match::Bool?
+# Subtest: did we throws-like X::Match::Bool?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Match::Bool)
+ok 21 - did we throws-like X::Match::Bool?
+ok 22 - can we match on Bool as type
+ok 23 - can we match on Bool as type
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 24 - did we throws-like Exception?

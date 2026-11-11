@@ -1,0 +1,85 @@
+1..44
+ok 1 - if ($x eq $x) {} works
+ok 2 - if ($x ne $x) {} works
+ok 3 - if (1) {} works
+ok 4 - if (0) {} works
+ok 5 - if (Mu) {} works
+ok 6 - die should stop execution immediately.
+ok 7 - if with no parens
+ok 8 - if (1) {} elsif (1) {}
+ok 9 - if (1) {} elsif (0) {}
+ok 10 - if (0) {} elsif (1) {}
+ok 11 - if (0) {} elsif (0) {}
+ok 12 - 
+ok 13 - 
+ok 14 - 
+ok 15 - 
+ok 16 - if with parens, and closure as cond
+ok 17 - if with no parens, and call a function without parenthesis
+ok 18 - 'my' variable within 'if' conditional
+# Subtest: "if" requires a block
+    1..2
+    ok 1 - 'if 1; 2' died
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 19 - "if" requires a block
+ok 20 - if test() -> $a { } binding
+ok 21 - elsif test() -> $b { } binding
+ok 22 - else -> $c { } binding previous elsif
+ok 23 - else -> $c { } binding previous if
+ok 24 - if test() -> *@a { } binding
+ok 25 - elsif test() -> *@b { } binding
+ok 26 - else -> *@c { } binding previous elsif
+ok 27 - else -> *@c { } binding previous if
+ok 28 - condition is checked in correct order
+ok 29 - condition is checked in correct order
+ok 30 - condition is checked in correct order
+ok 31 - all conditions are checked
+ok 32 - if evaluates to executed block
+ok 33 - if+else else evaluates to executed block
+ok 34 - if+else if evaluates to executed block
+ok 35 - if+elsif+else else evaluates to executed block
+ok 36 - if+elsif+else elsif evaluates to executed block
+ok 37 - if+elsif+else if evaluates to executed block
+ok 38 - if+elsif elsif evaluates to executed block
+ok 39 - if+elsif if evaluates to executed block
+ok 40 - if+elsif evaluates to () when no block chosen
+ok 41 - if evaluates to () when no block chosen
+# Subtest: keyword needs at least one whitespace after it
+    1..2
+    ok 1 - 'if($x > 1) {}' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 42 - keyword needs at least one whitespace after it
+ok 43 - "if" does not break lexical aliasing of $_
+# Subtest: slurpy parameters on block
+    1..2
+    # Subtest: if
+        1..12
+        ok 1 - @_
+        ok 2 - *@
+        ok 3 - *@, with named arg before it
+        ok 4 - *@, with named slurpy before it
+        ok 5 - **@ (1)
+        ok 6 - **@ (2)
+        ok 7 - **@ (3)
+        ok 8 - +@ (1)
+        ok 9 - +@ (2)
+        ok 10 - +@ (3)
+        ok 11 - +@ (4)
+        ok 12 - +@ (5)
+    ok 1 - if
+    # Subtest: elsif
+        1..12
+        ok 1 - @_
+        ok 2 - *@
+        ok 3 - *@, with named arg before it
+        ok 4 - *@, with named slurpy before it
+        ok 5 - **@ (1)
+        ok 6 - **@ (2)
+        ok 7 - **@ (3)
+        ok 8 - +@ (1)
+        ok 9 - +@ (2)
+        ok 10 - +@ (3)
+        ok 11 - +@ (4)
+        ok 12 - +@ (5)
+    ok 2 - elsif
+ok 44 - slurpy parameters on block

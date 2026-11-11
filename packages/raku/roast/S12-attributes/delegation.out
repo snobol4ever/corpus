@@ -1,0 +1,79 @@
+1..62
+ok 1 - class definition worked
+ok 2 - basic sanity (1)
+ok 3 - basic sanity (2)
+ok 4 - basic instantiation worked (1)
+ok 5 - calling a method on no object didn't succeed (1)
+ok 6 - setting a handler object (1)
+ok 7 - object wasn't isa()ed (1)
+ok 8 - method was successfully handled by backend object (1)
+ok 9 - basic instantiation worked (2)
+ok 10 - calling a method on no object didn't succeed (2)
+ok 11 - setting a handler object (2)
+ok 12 - object wasn't isa()ed (2)
+ok 13 - method was successfully handled by backend object (2)
+ok 14 - Delegation works with parameters
+ok 15 - class definition using multiple method names worked
+ok 16 - basic instantiation worked (5)
+ok 17 - calling a method on no object didn't succeed (5-1)
+ok 18 - calling a method on no object didn't succeed (5-2)
+ok 19 - setting a handler object (5)
+ok 20 - object wasn't isa()ed (5)
+ok 21 - method was successfully handled by backend object (5-1)
+ok 22 - method was successfully handled by backend object (5-2)
+ok 23 - calling method with original name fails
+ok 24 - calling method with original name fails
+ok 25 - calling method with mapped name works
+ok 26 - calling method with mapped name works
+ok 27 - calling method with mapped name works
+ok 28 - class definition using a Class handle worked
+ok 29 - basic instantiation worked (4)
+ok 30 - calling a method on no object didn't succeed (4)
+ok 31 - setting a handler object (4)
+ok 32 - object wasn't isa()ed (4-1)
+ok 33 - object wasn't isa()ed (4-2)
+ok 34 - method was successfully handled by backend object (4)
+ok 35 - having a handles role doesn't make the class do the role
+ok 36 - calling a method on no object didn't succeed
+ok 37 - method in role was successfully handled by backend object
+ok 38 - but method in backend class but not role not handled
+ok 39 - class definition using a smartmatch handle worked
+ok 40 - basic instantiation worked (3)
+ok 41 - calling a method on no object didn't succeed (3)
+ok 42 - setting a handler object (3)
+ok 43 - object wasn't isa()ed (3)
+ok 44 - method was successfully handled by backend object (3)
+ok 45 - method was successfully handled by backend object (3)
+ok 46 - can assign to lvalue delegated attribute
+ok 47 - ... but only to lvaues attributes
+ok 48 - assignment worked
+ok 49 - can also query that through the backend
+ok 50 - died assignment had no effect
+ok 51 - delegation of .Str and .push to array attribute
+ok 52 - delegation of .pop
+ok 53 - delegation of .unshift
+ok 54 - delegation of .shift (1)
+ok 55 - delegation of .shift (2)
+ok 56 - delegation of .elems
+ok 57 - delegation of .Str and .push to hash
+ok 58 - got all methods via "handles $typeObject" (1)
+ok 59 - got all methods via "handles $typeObject" (2)
+ok 60 - got all methods via "handles $typeObject" (next role)
+ok 61 - ... but non existing methods still die
+# Subtest: handles(*)
+    # Subtest: for class itself
+        ok 1 - class definition using a smartmatch on * worked
+        ok 2 - didn't try to delegate method in the class even with handles *...
+        ok 3 - ...even when it exists in the target class
+        ok 4 - ...but otherwise it delegates, and first * wins
+        1..4
+    ok 1 - for class itself
+    # Subtest: for a child class
+        ok 1 - class definition using a smartmatch on * worked
+        ok 2 - didn't try to delegate method in the class even with handles *...
+        ok 3 - ...even when it exists in the target class
+        ok 4 - ...but otherwise it delegates, and first * wins
+        1..4
+    ok 2 - for a child class
+    1..2
+ok 62 - handles(*)

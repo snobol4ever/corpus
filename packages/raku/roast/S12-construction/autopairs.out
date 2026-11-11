@@ -1,0 +1,5 @@
+1..4
+ok 1 - class instantiation with autopair, no spaces
+ok 2 - class instantiation with autopair, spaces
+ok 3 - role instantiation with autopair, no spaces
+ok 4 - role instantiation with autopair, spaces

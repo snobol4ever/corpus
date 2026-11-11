@@ -1,0 +1,9 @@
+1..8
+ok 1 - duckmap doesn't hang
+ok 2 - duckmap works
+ok 3 - duckmap leaves Any alone
+ok 4 - duckmap works with roles
+ok 5 - duckmap doesn't consume iterables for defined ops
+ok 6 - duckmap preserves structure types
+ok 7 - duckmap preserves structure types
+ok 8 - did next work

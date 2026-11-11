@@ -1,0 +1,18 @@
+1..17
+ok 1 - Reduce metaop becomes an infix list op
+ok 2 - Sum all elements in a list
+ok 3 - Multiply all elements in a list
+ok 4 - All elements of list are numerically sorted
+ok 5 - Not all elements of list are numerically sorted
+ok 6 - Find the smallest element of two lists
+ok 7 - Hyper operator - pairwise addition
+ok 8 - Hyper operator - increment all elements in a list
+ok 9 - Hyper operator - finding minimum elements
+ok 10 - Hyper operator - multiply each element by 3.5
+ok 11 - Hyper operator - multiple each element by $a and add $b
+ok 12 - Hyper operator - invert all elements
+ok 13 - Hyper operator - concat @a and @b
+ok 14 - Hyper operator - sum of squares
+ok 15 - In-place += operator is a meta form of + with = suffix
+ok 16 - In-place //= operator is a meta form of // with = suffix
+ok 17 - In-place min= operator is a meta form of min with = suffix

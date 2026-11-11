@@ -1,0 +1,4 @@
+1..3
+ok 1 - Can call multi that uses "callsame"
+ok 2 - multi with "callsame" worked
+ok 3 - callsame without dispatcher in scope dies

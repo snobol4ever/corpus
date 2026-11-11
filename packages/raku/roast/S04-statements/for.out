@@ -1,0 +1,159 @@
+1..111
+# Subtest: foreach is gone
+    1..2
+    ok 1 - 'foreach 1..10 { $times_run++ }; 1' died
+    ok 2 - right exception type (X::Obsolete)
+ok 1 - foreach is gone
+# Subtest: foreach is gone, even with parens
+    1..2
+    ok 1 - 'foreach (1..10) { $times_run++}; 1' died
+    ok 2 - right exception type (X::Obsolete)
+ok 2 - foreach is gone, even with parens
+ok 3 - foreach doesn't work
+ok 4 - for 0..5 {} works
+ok 5 - for 0 .. 5 -> {} works
+ok 6 - for zip(@a; @b) -> $x, $y works
+ok 7 - for 0 .. 5 { .some_sub } works
+ok 8 - for () {} works
+ok 9 - for () -> {} works
+ok 10 - Implicit default topic is seen by lc()
+ok 11 - After the loop the implicit topic gets restored
+ok 12 - Implicit default topic is seen by lc()
+ok 13 - After the loop the implicit topic gets restored
+ok 14 - for 0 .. 5 -> $topic {} works
+ok 15 - for () -> $topic {} works
+ok 16 - for @array {} works
+ok 17 - for @array -> {} works
+ok 18 - for (@array) {} works
+ok 19 - for (@array) -> {} works
+ok 20 - for (@a) { ... $_ ... } iterates all elems
+ok 21 - for (@a)->$_ { ... $_ ... } iterates all elems
+ok 22 - for (@a) { ... $_ ... $_ ... } iterates all elems, not just odd
+# Subtest: -> $var is ro by default
+    1..2
+    ok 1 - 'for @a -> $elem {$elem = 5}' died
+    ok 2 - right exception type (Exception)
+ok 23 - -> $var is ro by default
+ok 24 - <-> $var is rw
+ok 25 - <-> $var, $var2 works
+ok 26 - <-> $_ is rw
+ok 27 - for @array { $_++ }
+ok 28 - mutating $_ in for works
+ok 29 - for @array -> $val is rw { $val++ }
+ok 30 - for @array.values -> $val is rw { $val++ }
+ok 31 - for @array.kv -> $key, $val is rw { $val++ }
+ok 32 - for %hash.values -> $val is rw { $val++ }
+ok 33 - for %hash.kv -> $key, $val is rw { $val++ }
+ok 34 - .key //= ++$i for @array1;
+ok 35 - .key = 1 for @array1;
+ok 36 - $_.key = 1 for @array1;
+ok 37 - for ($a,$b,$c) { $_++ }
+ok 38 - for ($a,$b,$c) -> $x is rw { $x++ }
+ok 39 - List context
+ok 40 - List context
+ok 41 - List context
+ok 42 - Can mix recursion and for
+ok 43 - can mix recursion and for (RT  \#103332)
+ok 44 - grep works in for
+ok 45 - sort works in for
+ok 46 - grep and sort work in for
+# Subtest: keyword needs at least one whitespace after it
+    1..2
+    ok 1 - 'for(0..5) { }' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 47 - keyword needs at least one whitespace after it
+ok 48 - for loop with two variables
+# Subtest: Should throw exception, no value for parameter $y
+    1..2
+    ok 1 - 'for 1..5 ->  $x, $y { $str ~= "$x$y" }' died
+    ok 2 - right exception type (Exception)
+ok 49 - Should throw exception, no value for parameter $y
+ok 50 - loop ran before throwing exception
+ok 51 - 
+ok 52 - default values in for-loops
+ok 53 - Z -ed for loop
+ok 54 - Z-ed for loop with 5 arrays
+# Subtest: Please use ..* for indefinite range
+    1..2
+    ok 1 - 'for 1.. { };' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 55 - Please use ..* for indefinite range
+# Subtest: 1... does not exist
+    1..2
+    ok 1 - 'for 1... { };' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 56 - 1... does not exist
+ok 57 - for loop ends in time using last
+ok 58 - infinte for loop ends in time using last
+ok 59 - infinte for loop ends in time using last
+ok 60 - list comprehension
+ok 61 - for loop value is list of iter values
+ok 62 - for loop with label-less next flattens out nexted iterations
+ok 63 - for loop iteration with label-less 'next' gives Empty
+ok 64 - for loop with label-less last flattens out last iteration
+not ok 65 - for loop iteration with label-less 'last' gives () # TODO Rakudo still uses Nil here RT #124569
+# Failed test 'for loop iteration with label-less 'last' gives ()'
+# at S04-statements/for.rakudo line 483
+# expected: '()'
+#      got: 'Nil'
+ok 66 - mentions C-style
+ok 67 - mentions for
+ok 68 - mentions loop
+ok 69 - for (1..3)->$n   fails to parse
+ok 70 - can stringify "for ^1 {}" without death
+ok 71 - result of "for ^1 {}" is Nil
+# Subtest: Unsupported use of C-style "for (;;)" loop; in Perl 6 please use "loop (;;)"
+    1..2
+    ok 1 - 'for (my $i; $i <=3; $i++) { $i; }' died
+    ok 2 - right exception type (X::Obsolete)
+ok 72 - Unsupported use of C-style "for (;;)" loop; in Perl 6 please use "loop (;;)"
+ok 73 - Sensible error message
+ok 74 - for on Range with huge max value is lazy and enters block
+ok 75 - Iteration variables do not need to add up if one is optional
+ok 76 - RT  \#78232
+ok 77 - Lazy lists interact properly with multi-element for loops
+ok 78 - for-loop as last statement returns Nil
+ok 79 - Can use statement-modifying "for" in list comprehension
+ok 80 - assigning list comprehension to sigilless works (1)
+ok 81 - assigning list comprehension to sigilless works (2)
+ok 82 - iterating over an expanding list
+ok 83 - array expanded in for loop is expanded
+ok 84 - $_ is read-only here
+ok 85 - ... and $_ is *always* read-only here
+ok 86 - for in called method runs (was a sink context bug)
+ok 87 - 
+ok 88 - Anon sub inside for works.
+ok 89 - for-loop as last statement returns Nil
+ok 90 - is rw on slurpy parameters works (1)
+ok 91 - is rw on slurpy parameters works (2)
+ok 92 - is rw on slurpy parameters works (3)
+# Subtest: did we throws-like X::Multi::NoMatch?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 93 - did we throws-like X::Multi::NoMatch?
+ok 94 - $0 works in substitution in for loop (1)
+ok 95 - $0 works in substition in for loop (2)
+ok 96 - .WHICH value did not change in for loop
+ok 97 - substitution with backreferences in for loop
+ok 98 - substitution with backreferences outside of loop
+ok 99 - substitution with backreferences inside of loop
+ok 100 - for loops do not decontainerize
+ok 101 - topic of for loop has correct value in ("{$_}") construct
+ok 102 - for loop properly sinks final statement method call
+# Subtest: next with label works inside list comprehended for loops
+    1..4
+    ok 1 - just a for with Range
+    ok 2 - 1 at a time, no phasers, non slippy
+    ok 3 - two at a time, no phasers, non slippy
+    ok 4 - 
+ok 103 - next with label works inside list comprehended for loops
+ok 104 - for statement sinks its content
+ok 105 - Lazy for loop does not execution until asked for values
+ok 106 - Lazy for loop produces correct values on demand
+ok 107 - Lazy for loop does no more work than required
+ok 108 - holes are mutable (for @a)
+ok 109 - holes were changed correctly (for @a)
+ok 110 - holes are mutable (for @a[*])
+ok 111 - holes were changed correctly (for @a[*])
+# FUDGED!

@@ -1,0 +1,659 @@
+1..119
+ok 1 - val() exists
+ok 2 - val("42") returns an IntStr
+ok 3 - val("42") can be an Int
+ok 4 - val("42") can be a Str
+ok 5 - val("42") is equal to integer 42
+ok 6 - val("42") is equal to string "42"
+ok 7 - val("    -42") returns an IntStr
+ok 8 - val("    -42") can be an Int
+ok 9 - val("    -42") can be a Str
+ok 10 - val("    -42") is equal to integer -42
+ok 11 - val("    -42") is equal to string "    -42"
+ok 12 - val("1/5") returns a RatStr
+ok 13 - val("1/5") can be a Rat
+ok 14 - val("1/5") can be a Str
+ok 15 - val("1/5") is equal to rational 0.2
+ok 16 - val("1/5") is equal to string "1/5"
+ok 17 - val(" -0.7\t") returns a RatStr
+ok 18 - val(" -0.7\t") can be a Rat
+ok 19 - val(" -0.7\t") can be a Str
+ok 20 - val(" -0.7\t") is equal to rational -0.7
+ok 21 - val(" -0.7\t") is equal to string " -0.7\t"
+ok 22 - val("6.02e23") returns a NumStr
+ok 23 - val("6.02e23") can be a Num
+ok 24 - val("6.02e23") can be a Str
+ok 25 - val("6.02e23") is equal to floating-point 6.02e23
+ok 26 - val("6.02e23") is equal to string "6.02e23"
+ok 27 - val("+1.200e-10  ") returns a NumStr
+ok 28 - val("+1.200e-10  ") can be a Num
+ok 29 - val("+1.200e-10  ") can be a Str
+ok 30 - val("+1.200e-10  ") is equal to floating-point 1.2e-10
+ok 31 - val("+1.200e-10  ") is equal to string "+1.200e-10  "
+ok 32 - val("1+2i") returns a ComplexStr
+ok 33 - val("1+2i") can be a Complex
+ok 34 - val("1+2i") can be a Str
+ok 35 - val("1+2i") is equal to complex number 1+2i
+ok 36 - val("1+2i") is equal to string "1+2i"
+ok 37 - val(" +1.0-Inf\\i ") returns a ComplexStr
+ok 38 - val(" +1.0-Inf\\i ") can be a Complex
+ok 39 - val(" +1.0-Inf\\i ") can be a Str
+ok 40 - val(" +1.0-Inf\\i ") is equal to complex number 1-Inf\i
+ok 41 - val(" +1.0-Inf\\i ") is equal to string " +1.0-Inf\\i "
+ok 42 - '1' from qw[] is a Str
+ok 43 - '1' from qw[] is not a IntStr
+ok 44 - '2/3' from qw[] is a Str
+ok 45 - '2/3' from qw[] is not a RatStr
+ok 46 - '4.5' from qw[] is a Str
+ok 47 - '4.5' from qw[] is not a RatStr
+ok 48 - '6e7' from qw[] is a Str
+ok 49 - '6e7' from qw[] is not a NumStr
+ok 50 - '8+9i' from qw[] is a Str
+ok 51 - '8+9i' from qw[] is not a ComplexStr
+ok 52 - '1' from qqww[] is a Str
+ok 53 - '1' from qqww[] is not a IntStr
+ok 54 - '2/3' from qqww[] is a Str
+ok 55 - '2/3' from qqww[] is not a RatStr
+ok 56 - '4.5' from qqww[] is a Str
+ok 57 - '4.5' from qqww[] is not a RatStr
+ok 58 - '6e7' from qqww[] is a Str
+ok 59 - '6e7' from qqww[] is not a NumStr
+ok 60 - '8+9i' from qqww[] is a Str
+ok 61 - '8+9i' from qqww[] is not a ComplexStr
+ok 62 - '1' from qw:v[] is a Str
+ok 63 - '1' from qw:v[] is a Int
+ok 64 - '1' from qw:v[] is a IntStr
+ok 65 - '2/3' from qw:v[] is a Str
+ok 66 - '2/3' from qw:v[] is a Rat
+ok 67 - '2/3' from qw:v[] is a RatStr
+ok 68 - '4.5' from qw:v[] is a Str
+ok 69 - '4.5' from qw:v[] is a Rat
+ok 70 - '4.5' from qw:v[] is a RatStr
+ok 71 - '6e7' from qw:v[] is a Str
+ok 72 - '6e7' from qw:v[] is a Num
+ok 73 - '6e7' from qw:v[] is a NumStr
+ok 74 - '8+9i' from qw:v[] is a Str
+ok 75 - '8+9i' from qw:v[] is a Complex
+ok 76 - '8+9i' from qw:v[] is a ComplexStr
+ok 77 - '1' from qw:v[] is a Str
+ok 78 - '1' from qw:v[] is a Int
+ok 79 - '1' from qw:v[] is a IntStr
+ok 80 - '2/3' from qw:v[] is a Str
+ok 81 - '2/3' from qw:v[] is a Rat
+ok 82 - '2/3' from qw:v[] is a RatStr
+ok 83 - '4.5' from qw:v[] is a Str
+ok 84 - '4.5' from qw:v[] is a Rat
+ok 85 - '4.5' from qw:v[] is a RatStr
+ok 86 - '6e7' from qw:v[] is a Str
+ok 87 - '6e7' from qw:v[] is a Num
+ok 88 - '6e7' from qw:v[] is a NumStr
+ok 89 - '8+9i' from qw:v[] is a Str
+ok 90 - '8+9i' from qw:v[] is a Complex
+ok 91 - '8+9i' from qw:v[] is a ComplexStr
+ok 92 - <...> is equivalent to qw:v[...]
+ok 93 - «...» is equivalent to qqww:v[...]
+ok 94 - val("42") can be passed to native int parameter
+ok 95 - val("4e2") cannot be passed to native int parameter
+ok 96 - val("4e2") can be passed to native num parameter
+ok 97 - val("42") cannot be passed to native num parameter
+ok 98 - val("42") can be passed to native str parameter
+ok 99 - val("4e2") can be passed to native str parameter
+ok 100 - int/string "42" is an IntStr when passed via ENV
+ok 101 - int/string "0" is falsish when passed via ENV
+ok 102 - prefix:<~> coerces allomorphs to Str
+# Subtest: U+2212 parses correctly in compound literals
+    1..4
+    ok 1 - <5−1i> is a literal Complex
+    ok 2 - <−5−1i> is a literal Complex
+    ok 3 - <−5+1i> is a literal Complex
+    ok 4 - <−1/2> is a literal Rat
+ok 103 - U+2212 parses correctly in compound literals
+# Subtest: eqv with allomorphs
+    1..16
+    ok 1 - IntStr.new(1, "1") eqv IntStr.new(1, "1")
+    ok 2 - IntStr.new(1, "1") eqv RatStr.new(1.0, "1.0")
+    ok 3 - IntStr.new(1, "1") eqv NumStr.new(1e0, "1e0")
+    ok 4 - IntStr.new(1, "1") eqv ComplexStr.new(<1+0i>, "1+0i")
+    ok 5 - RatStr.new(1.0, "1.0") eqv IntStr.new(1, "1")
+    ok 6 - RatStr.new(1.0, "1.0") eqv RatStr.new(1.0, "1.0")
+    ok 7 - RatStr.new(1.0, "1.0") eqv NumStr.new(1e0, "1e0")
+    ok 8 - RatStr.new(1.0, "1.0") eqv ComplexStr.new(<1+0i>, "1+0i")
+    ok 9 - NumStr.new(1e0, "1e0") eqv IntStr.new(1, "1")
+    ok 10 - NumStr.new(1e0, "1e0") eqv RatStr.new(1.0, "1.0")
+    ok 11 - NumStr.new(1e0, "1e0") eqv NumStr.new(1e0, "1e0")
+    ok 12 - NumStr.new(1e0, "1e0") eqv ComplexStr.new(<1+0i>, "1+0i")
+    ok 13 - ComplexStr.new(<1+0i>, "1+0i") eqv IntStr.new(1, "1")
+    ok 14 - ComplexStr.new(<1+0i>, "1+0i") eqv RatStr.new(1.0, "1.0")
+    ok 15 - ComplexStr.new(<1+0i>, "1+0i") eqv NumStr.new(1e0, "1e0")
+    ok 16 - ComplexStr.new(<1+0i>, "1+0i") eqv ComplexStr.new(<1+0i>, "1+0i")
+ok 104 - eqv with allomorphs
+# Subtest: cmp with allomorphs
+    1..37
+    ok 1 - IntStr.new(1, "1") cmp IntStr.new(1, "1")
+    ok 2 - RatStr.new(1.0, "1.0") cmp RatStr.new(1.0, "1.0")
+    ok 3 - NumStr.new(1e0, "1e0") cmp NumStr.new(1e0, "1e0")
+    ok 4 - ComplexStr.new(<1+0i>, "1+0i") cmp ComplexStr.new(<1+0i>, "1+0i")
+    ok 5 - ComplexStr.new(<1+1i>, "1+1i") cmp ComplexStr.new(<1+1i>, "1+1i")
+    ok 6 - IntStr.new(1, "1") cmp IntStr.new(2, "2")
+    ok 7 - IntStr.new(1, "1") cmp RatStr.new(2.0, "2.0")
+    ok 8 - IntStr.new(1, "1") cmp NumStr.new(2e0, "2e0")
+    ok 9 - IntStr.new(1, "1") cmp <2+0i>
+    ok 10 - RatStr.new(1.0, "1.0") cmp IntStr.new(2, "2")
+    ok 11 - RatStr.new(1.0, "1.0") cmp RatStr.new(2.0, "2.0")
+    ok 12 - RatStr.new(1.0, "1.0") cmp NumStr.new(2e0, "2e0")
+    ok 13 - RatStr.new(1.0, "1.0") cmp <2+0i>
+    ok 14 - NumStr.new(1e0, "1e0") cmp IntStr.new(2, "2")
+    ok 15 - NumStr.new(1e0, "1e0") cmp RatStr.new(2.0, "2.0")
+    ok 16 - NumStr.new(1e0, "1e0") cmp NumStr.new(2e0, "2e0")
+    ok 17 - NumStr.new(1e0, "1e0") cmp <2+0i>
+    ok 18 - <1+0i> cmp IntStr.new(2, "2")
+    ok 19 - <1+0i> cmp RatStr.new(2.0, "2.0")
+    ok 20 - <1+0i> cmp NumStr.new(2e0, "2e0")
+    ok 21 - <1+0i> cmp <2+0i>
+    ok 22 - IntStr.new(2, "2") cmp IntStr.new(1, "1")
+    ok 23 - RatStr.new(2.0, "2.0") cmp IntStr.new(1, "1")
+    ok 24 - NumStr.new(2e0, "2e0") cmp IntStr.new(1, "1")
+    ok 25 - <2+0i> cmp IntStr.new(1, "1")
+    ok 26 - IntStr.new(2, "2") cmp RatStr.new(1.0, "1.0")
+    ok 27 - RatStr.new(2.0, "2.0") cmp RatStr.new(1.0, "1.0")
+    ok 28 - NumStr.new(2e0, "2e0") cmp RatStr.new(1.0, "1.0")
+    ok 29 - <2+0i> cmp RatStr.new(1.0, "1.0")
+    ok 30 - IntStr.new(2, "2") cmp NumStr.new(1e0, "1e0")
+    ok 31 - RatStr.new(2.0, "2.0") cmp NumStr.new(1e0, "1e0")
+    ok 32 - NumStr.new(2e0, "2e0") cmp NumStr.new(1e0, "1e0")
+    ok 33 - <2+0i> cmp NumStr.new(1e0, "1e0")
+    ok 34 - IntStr.new(2, "2") cmp <1+0i>
+    ok 35 - RatStr.new(2.0, "2.0") cmp <1+0i>
+    ok 36 - NumStr.new(2e0, "2e0") cmp <1+0i>
+    ok 37 - <2+0i> cmp <1+0i>
+ok 105 - cmp with allomorphs
+# Subtest: test eqv for weird allomorphs
+    1..8
+    ok 1 - Int (same Str part)
+    ok 2 - Rat (same Str part)
+    ok 3 - Num (same Str part)
+    ok 4 - Complex (same Str part)
+    ok 5 - Int (same Numeric part)
+    ok 6 - Rat (same Numeric part)
+    ok 7 - Num (same Numeric part)
+    ok 8 - Complex (same Numeric part)
+ok 106 - test eqv for weird allomorphs
+# Subtest: .ACCEPTS
+    1..229
+    ok 1 - IntStr.new(0, "0").ACCEPTS("0")
+    ok 2 - IntStr.new(0, "0").ACCEPTS(0)
+    ok 3 - IntStr.new(0, "0").ACCEPTS(0.0)
+    ok 4 - IntStr.new(0, "0").ACCEPTS(0e0)
+    ok 5 - IntStr.new(0, "0").ACCEPTS(<0+0i>)
+    ok 6 - IntStr.new(0, "000").ACCEPTS("000")
+    ok 7 - IntStr.new(0, "000").ACCEPTS(0)
+    ok 8 - IntStr.new(0, "000").ACCEPTS(0.0)
+    ok 9 - IntStr.new(0, "000").ACCEPTS(0e0)
+    ok 10 - IntStr.new(0, "000").ACCEPTS(<0+0i>)
+    ok 11 - IntStr.new(3, "3").ACCEPTS("3")
+    ok 12 - IntStr.new(3, "3").ACCEPTS(3)
+    ok 13 - IntStr.new(3, "3").ACCEPTS(3.0)
+    ok 14 - IntStr.new(3, "3").ACCEPTS(3e0)
+    ok 15 - IntStr.new(3, "3").ACCEPTS(<3+0i>)
+    ok 16 - IntStr.new(3, "3").ACCEPTS(IntFoo.new)
+    ok 17 - RatStr.new(0.0, "0.0").ACCEPTS("0.0")
+    ok 18 - RatStr.new(0.0, "0.0").ACCEPTS(0)
+    ok 19 - RatStr.new(0.0, "0.0").ACCEPTS(0.0)
+    ok 20 - RatStr.new(0.0, "0.0").ACCEPTS(0e0)
+    ok 21 - RatStr.new(0.0, "0.0").ACCEPTS(<0+0i>)
+    ok 22 - RatStr.new(0.0, "000.0").ACCEPTS("000.0")
+    ok 23 - RatStr.new(0.0, "000.0").ACCEPTS(0)
+    ok 24 - RatStr.new(0.0, "000.0").ACCEPTS(0.0)
+    ok 25 - RatStr.new(0.0, "000.0").ACCEPTS(0e0)
+    ok 26 - RatStr.new(0.0, "000.0").ACCEPTS(<0+0i>)
+    ok 27 - RatStr.new(3.0, "3.0").ACCEPTS("3.0")
+    ok 28 - RatStr.new(3.0, "3.0").ACCEPTS(3)
+    ok 29 - RatStr.new(3.0, "3.0").ACCEPTS(3.0)
+    ok 30 - RatStr.new(3.0, "3.0").ACCEPTS(3e0)
+    ok 31 - RatStr.new(3.0, "3.0").ACCEPTS(<3+0i>)
+    ok 32 - RatStr.new(3.0, "3.0").ACCEPTS(RatFoo.new)
+    ok 33 - NumStr.new(0e0, "0e0").ACCEPTS("0e0")
+    ok 34 - NumStr.new(0e0, "0e0").ACCEPTS(0)
+    ok 35 - NumStr.new(0e0, "0e0").ACCEPTS(0.0)
+    ok 36 - NumStr.new(0e0, "0e0").ACCEPTS(0e0)
+    ok 37 - NumStr.new(0e0, "0e0").ACCEPTS(<0+0i>)
+    ok 38 - NumStr.new(0e0, "000e0").ACCEPTS("000e0")
+    ok 39 - NumStr.new(0e0, "000e0").ACCEPTS(0)
+    ok 40 - NumStr.new(0e0, "000e0").ACCEPTS(0.0)
+    ok 41 - NumStr.new(0e0, "000e0").ACCEPTS(0e0)
+    ok 42 - NumStr.new(0e0, "000e0").ACCEPTS(<0+0i>)
+    ok 43 - NumStr.new(3e0, "3e0").ACCEPTS("3e0")
+    ok 44 - NumStr.new(3e0, "3e0").ACCEPTS(3)
+    ok 45 - NumStr.new(3e0, "3e0").ACCEPTS(3.0)
+    ok 46 - NumStr.new(3e0, "3e0").ACCEPTS(3e0)
+    ok 47 - NumStr.new(3e0, "3e0").ACCEPTS(<3+0i>)
+    ok 48 - NumStr.new(3e0, "3e0").ACCEPTS(NumFoo.new)
+    ok 49 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("0+0i")
+    ok 50 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(0)
+    ok 51 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(0.0)
+    ok 52 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(0e0)
+    ok 53 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(<0+0i>)
+    ok 54 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS("0.0+0i")
+    ok 55 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(0)
+    ok 56 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(0.0)
+    ok 57 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(0e0)
+    ok 58 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(<0+0i>)
+    ok 59 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS("3+5i")
+    ok 60 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(<3+5i>)
+    ok 61 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(<3+5i>)
+    ok 62 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(<3+5i>)
+    ok 63 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(ComFoo.new)
+    ok 64 - IntStr.new(0, "0").ACCEPTS(IntStr.new(0, "0"))
+    ok 65 - IntStr.new(0, "000").ACCEPTS(IntStr.new(0, "0"))
+    ok 66 - RatStr.new(0.0, "0.0").ACCEPTS(IntStr.new(0, "0"))
+    ok 67 - RatStr.new(0.0, "000.0").ACCEPTS(IntStr.new(0, "0"))
+    ok 68 - NumStr.new(0e0, "0e0").ACCEPTS(IntStr.new(0, "0"))
+    ok 69 - NumStr.new(0e0, "000e0").ACCEPTS(IntStr.new(0, "0"))
+    ok 70 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(IntStr.new(0, "0"))
+    ok 71 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(IntStr.new(0, "0"))
+    ok 72 - IntStr.new(0, "meow").ACCEPTS(IntStr.new(0, "0"))
+    ok 73 - RatStr.new(0.0, "meow").ACCEPTS(IntStr.new(0, "0"))
+    ok 74 - NumStr.new(0e0, "meow").ACCEPTS(IntStr.new(0, "0"))
+    ok 75 - ComplexStr.new(<0+0i>, "meow").ACCEPTS(IntStr.new(0, "0"))
+    ok 76 - IntStr.new(0, "0").ACCEPTS(IntStr.new(0, "000"))
+    ok 77 - IntStr.new(0, "000").ACCEPTS(IntStr.new(0, "000"))
+    ok 78 - RatStr.new(0.0, "0.0").ACCEPTS(IntStr.new(0, "000"))
+    ok 79 - RatStr.new(0.0, "000.0").ACCEPTS(IntStr.new(0, "000"))
+    ok 80 - NumStr.new(0e0, "0e0").ACCEPTS(IntStr.new(0, "000"))
+    ok 81 - NumStr.new(0e0, "000e0").ACCEPTS(IntStr.new(0, "000"))
+    ok 82 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(IntStr.new(0, "000"))
+    ok 83 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(IntStr.new(0, "000"))
+    ok 84 - IntStr.new(0, "meow").ACCEPTS(IntStr.new(0, "000"))
+    ok 85 - RatStr.new(0.0, "meow").ACCEPTS(IntStr.new(0, "000"))
+    ok 86 - NumStr.new(0e0, "meow").ACCEPTS(IntStr.new(0, "000"))
+    ok 87 - ComplexStr.new(<0+0i>, "meow").ACCEPTS(IntStr.new(0, "000"))
+    ok 88 - IntStr.new(0, "0").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 89 - IntStr.new(0, "000").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 90 - RatStr.new(0.0, "0.0").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 91 - RatStr.new(0.0, "000.0").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 92 - NumStr.new(0e0, "0e0").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 93 - NumStr.new(0e0, "000e0").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 94 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 95 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 96 - IntStr.new(0, "meow").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 97 - RatStr.new(0.0, "meow").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 98 - NumStr.new(0e0, "meow").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 99 - ComplexStr.new(<0+0i>, "meow").ACCEPTS(RatStr.new(0.0, "0.0"))
+    ok 100 - IntStr.new(0, "0").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 101 - IntStr.new(0, "000").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 102 - RatStr.new(0.0, "0.0").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 103 - RatStr.new(0.0, "000.0").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 104 - NumStr.new(0e0, "0e0").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 105 - NumStr.new(0e0, "000e0").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 106 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 107 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 108 - IntStr.new(0, "meow").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 109 - RatStr.new(0.0, "meow").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 110 - NumStr.new(0e0, "meow").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 111 - ComplexStr.new(<0+0i>, "meow").ACCEPTS(NumStr.new(0e0, "0e0"))
+    ok 112 - IntStr.new(0, "0").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 113 - IntStr.new(0, "000").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 114 - RatStr.new(0.0, "0.0").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 115 - RatStr.new(0.0, "000.0").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 116 - NumStr.new(0e0, "0e0").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 117 - NumStr.new(0e0, "000e0").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 118 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 119 - ComplexStr.new(<0+0i>, "0.0+0i").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 120 - IntStr.new(0, "meow").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 121 - RatStr.new(0.0, "meow").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 122 - NumStr.new(0e0, "meow").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 123 - ComplexStr.new(<0+0i>, "meow").ACCEPTS(ComplexStr.new(<0+0i>, "0+0i"))
+    ok 124 - IntStr.new(3, "3").ACCEPTS(IntStr.new(3, "3"))
+    ok 125 - IntStr.new(3, "003").ACCEPTS(IntStr.new(3, "3"))
+    ok 126 - RatStr.new(3.0, "3.0").ACCEPTS(IntStr.new(3, "3"))
+    ok 127 - RatStr.new(3.0, "003.0").ACCEPTS(IntStr.new(3, "3"))
+    ok 128 - NumStr.new(3e0, "3e0").ACCEPTS(IntStr.new(3, "3"))
+    ok 129 - NumStr.new(3e0, "003e0").ACCEPTS(IntStr.new(3, "3"))
+    ok 130 - ComplexStr.new(<3+0i>, "3+0i").ACCEPTS(IntStr.new(3, "3"))
+    ok 131 - ComplexStr.new(<3+0i>, "3.0+0i").ACCEPTS(IntStr.new(3, "3"))
+    ok 132 - IntStr.new(3, "meow").ACCEPTS(IntStr.new(3, "3"))
+    ok 133 - RatStr.new(3.0, "meow").ACCEPTS(IntStr.new(3, "3"))
+    ok 134 - NumStr.new(3e0, "meow").ACCEPTS(IntStr.new(3, "3"))
+    ok 135 - ComplexStr.new(<3+0i>, "meow").ACCEPTS(IntStr.new(3, "3"))
+    ok 136 - IntStr.new(3, "3").ACCEPTS(IntStr.new(3, "003"))
+    ok 137 - IntStr.new(3, "003").ACCEPTS(IntStr.new(3, "003"))
+    ok 138 - RatStr.new(3.0, "3.0").ACCEPTS(IntStr.new(3, "003"))
+    ok 139 - RatStr.new(3.0, "003.0").ACCEPTS(IntStr.new(3, "003"))
+    ok 140 - NumStr.new(3e0, "3e0").ACCEPTS(IntStr.new(3, "003"))
+    ok 141 - NumStr.new(3e0, "003e0").ACCEPTS(IntStr.new(3, "003"))
+    ok 142 - ComplexStr.new(<3+0i>, "3+0i").ACCEPTS(IntStr.new(3, "003"))
+    ok 143 - ComplexStr.new(<3+0i>, "3.0+0i").ACCEPTS(IntStr.new(3, "003"))
+    ok 144 - IntStr.new(3, "meow").ACCEPTS(IntStr.new(3, "003"))
+    ok 145 - RatStr.new(3.0, "meow").ACCEPTS(IntStr.new(3, "003"))
+    ok 146 - NumStr.new(3e0, "meow").ACCEPTS(IntStr.new(3, "003"))
+    ok 147 - ComplexStr.new(<3+0i>, "meow").ACCEPTS(IntStr.new(3, "003"))
+    ok 148 - IntStr.new(3, "3").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 149 - IntStr.new(3, "003").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 150 - RatStr.new(3.0, "3.0").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 151 - RatStr.new(3.0, "003.0").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 152 - NumStr.new(3e0, "3e0").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 153 - NumStr.new(3e0, "003e0").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 154 - ComplexStr.new(<3+0i>, "3+0i").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 155 - ComplexStr.new(<3+0i>, "3.0+0i").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 156 - IntStr.new(3, "meow").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 157 - RatStr.new(3.0, "meow").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 158 - NumStr.new(3e0, "meow").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 159 - ComplexStr.new(<3+0i>, "meow").ACCEPTS(RatStr.new(3.0, "3.0"))
+    ok 160 - IntStr.new(3, "3").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 161 - IntStr.new(3, "003").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 162 - RatStr.new(3.0, "3.0").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 163 - RatStr.new(3.0, "003.0").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 164 - NumStr.new(3e0, "3e0").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 165 - NumStr.new(3e0, "003e0").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 166 - ComplexStr.new(<3+0i>, "3+0i").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 167 - ComplexStr.new(<3+0i>, "3.0+0i").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 168 - IntStr.new(3, "meow").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 169 - RatStr.new(3.0, "meow").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 170 - NumStr.new(3e0, "meow").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 171 - ComplexStr.new(<3+0i>, "meow").ACCEPTS(NumStr.new(3e0, "3e0"))
+    ok 172 - IntStr.new(3, "3").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 173 - IntStr.new(3, "003").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 174 - RatStr.new(3.0, "3.0").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 175 - RatStr.new(3.0, "003.0").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 176 - NumStr.new(3e0, "3e0").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 177 - NumStr.new(3e0, "003e0").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 178 - ComplexStr.new(<3+0i>, "3+0i").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 179 - ComplexStr.new(<3+0i>, "3.0+0i").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 180 - IntStr.new(3, "meow").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 181 - RatStr.new(3.0, "meow").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 182 - NumStr.new(3e0, "meow").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 183 - ComplexStr.new(<3+0i>, "meow").ACCEPTS(ComplexStr.new(<3+0i>, "3+0i"))
+    ok 184 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(ComplexStr.new(<3+5i>, "3.0+5i"))
+    ok 185 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(ComplexStr.new(<3+5i>, "3e0+5i"))
+    ok 186 - IntStr.new(0, "0").ACCEPTS("")
+    ok 187 - IntStr.new(0, "0").ACCEPTS("00")
+    ok 188 - IntStr.new(0, "0").ACCEPTS("0.0")
+    ok 189 - IntStr.new(0, "0").ACCEPTS("0e0")
+    ok 190 - IntStr.new(0, "0").ACCEPTS("0+0i")
+    ok 191 - IntStr.new(0, "0").ACCEPTS("meows")
+    ok 192 - IntStr.new(3, "3").ACCEPTS("03")
+    ok 193 - IntStr.new(3, "3").ACCEPTS("3.0")
+    ok 194 - IntStr.new(3, "3").ACCEPTS("3e0")
+    ok 195 - IntStr.new(3, "3").ACCEPTS("3+0i")
+    ok 196 - IntStr.new(3, "3").ACCEPTS(IntFoo.new)
+    ok 197 - RatStr.new(0.0, "0.0").ACCEPTS("")
+    ok 198 - RatStr.new(0.0, "0.0").ACCEPTS("0")
+    ok 199 - RatStr.new(0.0, "0.0").ACCEPTS("00.0")
+    ok 200 - RatStr.new(0.0, "0.0").ACCEPTS("0e0")
+    ok 201 - RatStr.new(0.0, "0.0").ACCEPTS("0+0i")
+    ok 202 - RatStr.new(0.0, "0.0").ACCEPTS("meows")
+    ok 203 - RatStr.new(3.0, "3.0").ACCEPTS("3")
+    ok 204 - RatStr.new(3.0, "3.0").ACCEPTS("03.0")
+    ok 205 - RatStr.new(3.0, "3.0").ACCEPTS("3e0")
+    ok 206 - RatStr.new(3.0, "3.0").ACCEPTS("3+0i")
+    ok 207 - RatStr.new(3.0, "3.0").ACCEPTS(RatFoo.new)
+    ok 208 - NumStr.new(0e0, "0e0").ACCEPTS("")
+    ok 209 - NumStr.new(0e0, "0e0").ACCEPTS("0")
+    ok 210 - NumStr.new(0e0, "0e0").ACCEPTS("0.0")
+    ok 211 - NumStr.new(0e0, "0e0").ACCEPTS("00e0")
+    ok 212 - NumStr.new(0e0, "0e0").ACCEPTS("0+0i")
+    ok 213 - NumStr.new(0e0, "0e0").ACCEPTS("meows")
+    ok 214 - NumStr.new(3e0, "3e0").ACCEPTS("3")
+    ok 215 - NumStr.new(3e0, "3e0").ACCEPTS("3.0")
+    ok 216 - NumStr.new(3e0, "3e0").ACCEPTS("03e0")
+    ok 217 - NumStr.new(3e0, "3e0").ACCEPTS("3+0i")
+    ok 218 - NumStr.new(3e0, "3e0").ACCEPTS(RatFoo.new)
+    ok 219 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("")
+    ok 220 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("0")
+    ok 221 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("0.0")
+    ok 222 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("0e0")
+    ok 223 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("00+0i")
+    ok 224 - ComplexStr.new(<0+0i>, "0+0i").ACCEPTS("meows")
+    ok 225 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS("3")
+    ok 226 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS("3.0")
+    ok 227 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS("3e0")
+    ok 228 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS("03+5i")
+    ok 229 - ComplexStr.new(<3+5i>, "3+5i").ACCEPTS(ComFoo.new)
+ok 107 - .ACCEPTS
+ok 108 - val List candidate returns List by default (1)
+ok 109 - val List candidate returns List by default (2)
+ok 110 - val List candidate preserves slip-ness if passed Slip
+# Subtest: .succ on allomorphs
+    1..20
+    ok 1 - .succ
+    ok 2 - postincrement, return value
+    ok 3 - postincrement, result
+    ok 4 - preincrement, return value
+    ok 5 - preincrement, result
+    ok 6 - .succ
+    ok 7 - postincrement, return value
+    ok 8 - postincrement, result
+    ok 9 - preincrement, return value
+    ok 10 - preincrement, result
+    ok 11 - .succ
+    ok 12 - postincrement, return value
+    ok 13 - postincrement, result
+    ok 14 - preincrement, return value
+    ok 15 - preincrement, result
+    ok 16 - .succ
+    ok 17 - postincrement, return value
+    ok 18 - postincrement, result
+    ok 19 - preincrement, return value
+    ok 20 - preincrement, result
+ok 111 - .succ on allomorphs
+# Subtest: .pred on allomorphs
+    1..20
+    ok 1 - .pred
+    ok 2 - postdecrement, return value
+    ok 3 - postdecrement, result
+    ok 4 - predecrement, return value
+    ok 5 - predecrement, result
+    ok 6 - .pred
+    ok 7 - postdecrement, return value
+    ok 8 - postdecrement, result
+    ok 9 - predecrement, return value
+    ok 10 - predecrement, result
+    ok 11 - .pred
+    ok 12 - postdecrement, return value
+    ok 13 - postdecrement, result
+    ok 14 - predecrement, return value
+    ok 15 - predecrement, result
+    ok 16 - .pred
+    ok 17 - postdecrement, return value
+    ok 18 - postdecrement, result
+    ok 19 - predecrement, return value
+    ok 20 - predecrement, result
+ok 112 - .pred on allomorphs
+# Subtest: .Numeric on :U allomorphs and Numeric type objects
+    1..25
+    # Subtest: CustomNumeric
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 1 - CustomNumeric
+    # Subtest: Int
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 2 - Int
+    # Subtest: Num
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 3 - Num
+    # Subtest: Rat
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 4 - Rat
+    # Subtest: FatRat
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 5 - FatRat
+    # Subtest: Complex
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 6 - Complex
+    # Subtest: IntStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 7 - IntStr
+    # Subtest: NumStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 8 - NumStr
+    # Subtest: RatStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 9 - RatStr
+    # Subtest: ComplexStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 10 - ComplexStr
+    ok 11 - Numeric:U.Numeric calls self.new
+    ok 12 - Int.Numeric gives a Int value
+    ok 13 - Int.Numeric gives a zero
+    ok 14 - Num.Numeric gives a Num value
+    ok 15 - Num.Numeric gives a zero
+    ok 16 - Rat.Numeric gives a Rat value
+    ok 17 - Rat.Numeric gives a zero
+    ok 18 - FatRat.Numeric gives a FatRat value
+    ok 19 - FatRat.Numeric gives a zero
+    ok 20 - Complex.Numeric gives a Complex value
+    ok 21 - Complex.Numeric gives a zero
+    ok 22 - IntStr    .Numeric gives a 0
+    ok 23 - RatStr    .Numeric gives a 0.0
+    ok 24 - NumStr    .Numeric gives a 0e0
+    ok 25 - ComplexStr.Numeric gives a <0+0i>
+ok 113 - .Numeric on :U allomorphs and Numeric type objects
+# Subtest: .Real on :U allomorphs and Numeric type objects
+    1..19
+    # Subtest: Int
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 1 - Int
+    # Subtest: Num
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 2 - Num
+    # Subtest: Rat
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 3 - Rat
+    # Subtest: FatRat
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 4 - FatRat
+    # Subtest: Complex
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 5 - Complex
+    # Subtest: CustomReal
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 6 - CustomReal
+    # Subtest: IntStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 7 - IntStr
+    # Subtest: NumStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 8 - NumStr
+    # Subtest: RatStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 9 - RatStr
+    # Subtest: ComplexStr
+        1..2
+        ok 1 - code threw a warning
+        ok 2 - warning message passes test
+    ok 10 - ComplexStr
+    ok 11 - Real:U.Real calls self.new
+    ok 12 - Int       .Real gives a 0
+    ok 13 - Rat       .Real gives a 0.0
+    ok 14 - Num       .Real gives a 0e0
+    ok 15 - IntStr    .Real gives a 0
+    ok 16 - RatStr    .Real gives a 0.0
+    ok 17 - NumStr    .Real gives a 0e0
+    ok 18 - Complex   .Real gives a 0e0
+    ok 19 - ComplexStr.Real gives a 0e0
+ok 114 - .Real on :U allomorphs and Numeric type objects
+# Subtest: .Real on :D allomorphs
+    1..5
+    ok 1 - IntStr
+    ok 2 - NumStr
+    ok 3 - RatStr
+    ok 4 - ComplexStr
+    # Subtest: ComplexStr (with large imaginary part)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::Real)
+        ok 2 - Failure threw when sunk
+    ok 5 - ComplexStr (with large imaginary part)
+ok 115 - .Real on :D allomorphs
+# Subtest: .Bool on allomorphs
+    1..30
+    ok 1 - IntStr.new(1, "1")
+    ok 2 - IntStr.new(-1, "-1")
+    ok 3 - NumStr.new(1e0, "1e0")
+    ok 4 - NumStr.new(-1e0, "-1e0")
+    ok 5 - RatStr.new(1.0, "1.0")
+    ok 6 - RatStr.new(-1.0, "-1.0")
+    ok 7 - <1/0>
+    ok 8 - <-1/0>
+    ok 9 - ComplexStr.new(<1+0i>, "1+0i")
+    ok 10 - ComplexStr.new(<1+1i>, "1+1i")
+    ok 11 - ComplexStr.new(<1-1i>, "1-1i")
+    ok 12 - ComplexStr.new(<-1+0i>, "-1+0i")
+    ok 13 - ComplexStr.new(<-1+1i>, "-1+1i")
+    ok 14 - ComplexStr.new(<-1-1i>, "-1-1i")
+    ok 15 - ComplexStr.new(<0+1i>, "0+1i")
+    ok 16 - ComplexStr.new(<0-1i>, "0-1i")
+    ok 17 - IntStr.new(1, "")
+    ok 18 - NumStr.new(1e0, "")
+    ok 19 - RatStr.new(1.0, "")
+    ok 20 - ComplexStr.new(<1+1i>, "")
+    ok 21 - IntStr.new(0, "0")
+    ok 22 - NumStr.new(0e0, "0e0")
+    ok 23 - NumStr.new(-0e0, "-0e0")
+    ok 24 - RatStr.new(0.0, "0.0")
+    ok 25 - <0/0>
+    ok 26 - <0+0i>
+    ok 27 - <0+0i>
+    ok 28 - <-0+0i>
+    ok 29 - <-0-0i>
+    ok 30 - <0-0i>
+ok 116 - .Bool on allomorphs
+# Subtest: .comb on allomorphs uses Str variant
+    1..4
+    ok 1 - IntStr
+    ok 2 - NumStr
+    ok 3 - RatStr
+    ok 4 - ComplexStr
+ok 117 - .comb on allomorphs uses Str variant
+ok 118 - No leaking of guts types when coercing allomorph to Str
+# Subtest: .substr-rw allomorphs
+    1..8
+    ok 1 - .substr-rw on IntStr allomorph returns Str
+    ok 2 - IntStr allomorph .substr-rw lvalue assignment modified original string
+    ok 3 - .substr-rw on RatStr allomorph returns Str
+    ok 4 - RatStr allomorph .substr-rw lvalue assignment modified original string
+    ok 5 - .substr-rw on NumStr allomorph returns Str
+    ok 6 - NumStr allomorph .substr-rw lvalue assignment modified original string
+    ok 7 - .substr-rw on Complex allomorph returns Str
+    ok 8 - Complex allomorph .substr-rw lvalue assignment modified original string
+ok 119 - .substr-rw allomorphs

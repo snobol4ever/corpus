@@ -1,0 +1,7 @@
+1..6
+ok 1 - sub snip with a single Callable and a slurpy list
+ok 2 - sub snip with a single Callable and an array
+ok 3 - snip method with a single Callable and an array
+ok 4 - sub snip with two Callables with a slurpy list
+ok 5 - sub snip with two Callables and an array
+ok 6 - snip with a type object

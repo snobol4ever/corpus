@@ -1,0 +1,8 @@
+1..7
+ok 1 - Can refer to &infix:<+>
+ok 2 - Can refer to  infix:<+>
+ok 3 - Can refer to &infix:<->
+ok 4 - Can refer to  infix:<->
+ok 5 - Can refer to &infix:<cmp>
+ok 6 - String value of &infix:<+> contains "infix"
+ok 7 - String value of &infix:<+> contains "+"

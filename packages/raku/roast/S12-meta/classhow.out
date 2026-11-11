@@ -1,0 +1,8 @@
+1..7
+ok 1 - Storing a meta-object in an attribute then composing/gisting works out
+ok 2 - Has the wrong block stolen the dispatcher - 1
+ok 3 - Has the wrong block stolen the dispatcher - 2
+ok 4 - Has the wrong block stolen the dispatcher - 3
+ok 5 - Smartmatch returns True for a scalar with a run-time created class and an instance of the class
+ok 6 - Runtime created classes can be used as attributes
+ok 7 - Can construct type with attribute whose type was from an rw accessor

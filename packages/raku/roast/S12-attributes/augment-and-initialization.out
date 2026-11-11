@@ -1,0 +1,22 @@
+1..8
+ok 1 - Try to initialize public attribute
+ok 2 - Try to initialize private attribute
+not ok 3 - non-compiling test # TODO Unimplemented yet
+# Failed test 'non-compiling test'
+# at S12-attributes/augment-and-initialization.rakudo line 36
+ok 4 - Try to access the initialized private attribute.
+not ok 5 - Testing value for initialized private attribue. # TODO Augmentation attributes support is not implemented
+# Failed test 'Testing value for initialized private attribue.'
+# at S12-attributes/augment-and-initialization.rakudo line 40
+# expected: '2'
+#      got: (Nil)
+not ok 6 - non-compiling test # TODO Unimplemented yet
+# Failed test 'non-compiling test'
+# at S12-attributes/augment-and-initialization.rakudo line 49
+ok 7 - Try to access the private attribute which is initialized by constructor.
+not ok 8 - Testing value for private attribue which is initialized by constructor. # TODO Augmentation attributes support is not implemented
+# Failed test 'Testing value for private attribue which is initialized by constructor.'
+# at S12-attributes/augment-and-initialization.rakudo line 53
+# expected: '4'
+#      got: (Nil)
+# FUDGED!

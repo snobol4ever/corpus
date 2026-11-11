@@ -1,0 +1,281 @@
+1..14
+# Subtest: tests for Bag
+    1..17
+    ok 1 - Bag: pull-one until exhausted
+    ok 2 - Bag: push-exactly until exhausted
+    ok 3 - Bag: push-at-least until exhausted
+    ok 4 - Bag: does push-all return IterationEnd
+    ok 5 - Bag: push-all
+    ok 6 - Bag: does push-until-lazy return IterationEnd
+    ok 7 - Bag: push-until-lazy
+    ok 8 - Bag: does sink-all return IterationEnd
+    ok 9 - Bag: skip-one until exhausted
+    ok 10 - Bag: skip-at-least except last
+    ok 11 - Bag: skip-at-least check last value
+    ok 12 - Bag: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag: skip-at-least-pull-one last
+    ok 14 - Bag: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag: doesn't support count-only
+    ok 16 - Bag: doesn't support bool-only
+    ok 17 - Bag: count/bool-only didn't pull
+ok 1 - tests for Bag
+# Subtest: tests for Bag.kv
+    1..17
+    ok 1 - Bag.kv: pull-one until exhausted
+    ok 2 - Bag.kv: push-exactly until exhausted
+    ok 3 - Bag.kv: push-at-least until exhausted
+    ok 4 - Bag.kv: does push-all return IterationEnd
+    ok 5 - Bag.kv: push-all
+    ok 6 - Bag.kv: does push-until-lazy return IterationEnd
+    ok 7 - Bag.kv: push-until-lazy
+    ok 8 - Bag.kv: does sink-all return IterationEnd
+    ok 9 - Bag.kv: skip-one until exhausted
+    ok 10 - Bag.kv: skip-at-least except last
+    ok 11 - Bag.kv: skip-at-least check last value
+    ok 12 - Bag.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag.kv: skip-at-least-pull-one last
+    ok 14 - Bag.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag.kv: doesn't support count-only
+    ok 16 - Bag.kv: doesn't support bool-only
+    ok 17 - Bag.kv: count/bool-only didn't pull
+ok 2 - tests for Bag.kv
+# Subtest: tests for Bag.keys
+    1..17
+    ok 1 - Bag.keys: pull-one until exhausted
+    ok 2 - Bag.keys: push-exactly until exhausted
+    ok 3 - Bag.keys: push-at-least until exhausted
+    ok 4 - Bag.keys: does push-all return IterationEnd
+    ok 5 - Bag.keys: push-all
+    ok 6 - Bag.keys: does push-until-lazy return IterationEnd
+    ok 7 - Bag.keys: push-until-lazy
+    ok 8 - Bag.keys: does sink-all return IterationEnd
+    ok 9 - Bag.keys: skip-one until exhausted
+    ok 10 - Bag.keys: skip-at-least except last
+    ok 11 - Bag.keys: skip-at-least check last value
+    ok 12 - Bag.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag.keys: skip-at-least-pull-one last
+    ok 14 - Bag.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag.keys: doesn't support count-only
+    ok 16 - Bag.keys: doesn't support bool-only
+    ok 17 - Bag.keys: count/bool-only didn't pull
+ok 3 - tests for Bag.keys
+# Subtest: tests for Bag.values
+    1..17
+    ok 1 - Bag.values: pull-one until exhausted
+    ok 2 - Bag.values: push-exactly until exhausted
+    ok 3 - Bag.values: push-at-least until exhausted
+    ok 4 - Bag.values: does push-all return IterationEnd
+    ok 5 - Bag.values: push-all
+    ok 6 - Bag.values: does push-until-lazy return IterationEnd
+    ok 7 - Bag.values: push-until-lazy
+    ok 8 - Bag.values: does sink-all return IterationEnd
+    ok 9 - Bag.values: skip-one until exhausted
+    ok 10 - Bag.values: skip-at-least except last
+    ok 11 - Bag.values: skip-at-least check last value
+    ok 12 - Bag.values: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag.values: skip-at-least-pull-one last
+    ok 14 - Bag.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag.values: doesn't support count-only
+    ok 16 - Bag.values: doesn't support bool-only
+    ok 17 - Bag.values: count/bool-only didn't pull
+ok 4 - tests for Bag.values
+# Subtest: tests for Bag.pairs
+    1..17
+    ok 1 - Bag.pairs: pull-one until exhausted
+    ok 2 - Bag.pairs: push-exactly until exhausted
+    ok 3 - Bag.pairs: push-at-least until exhausted
+    ok 4 - Bag.pairs: does push-all return IterationEnd
+    ok 5 - Bag.pairs: push-all
+    ok 6 - Bag.pairs: does push-until-lazy return IterationEnd
+    ok 7 - Bag.pairs: push-until-lazy
+    ok 8 - Bag.pairs: does sink-all return IterationEnd
+    ok 9 - Bag.pairs: skip-one until exhausted
+    ok 10 - Bag.pairs: skip-at-least except last
+    ok 11 - Bag.pairs: skip-at-least check last value
+    ok 12 - Bag.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag.pairs: skip-at-least-pull-one last
+    ok 14 - Bag.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag.pairs: doesn't support count-only
+    ok 16 - Bag.pairs: doesn't support bool-only
+    ok 17 - Bag.pairs: count/bool-only didn't pull
+ok 5 - tests for Bag.pairs
+# Subtest: tests for Bag.antipairs
+    1..17
+    ok 1 - Bag.antipairs: pull-one until exhausted
+    ok 2 - Bag.antipairs: push-exactly until exhausted
+    ok 3 - Bag.antipairs: push-at-least until exhausted
+    ok 4 - Bag.antipairs: does push-all return IterationEnd
+    ok 5 - Bag.antipairs: push-all
+    ok 6 - Bag.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - Bag.antipairs: push-until-lazy
+    ok 8 - Bag.antipairs: does sink-all return IterationEnd
+    ok 9 - Bag.antipairs: skip-one until exhausted
+    ok 10 - Bag.antipairs: skip-at-least except last
+    ok 11 - Bag.antipairs: skip-at-least check last value
+    ok 12 - Bag.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag.antipairs: skip-at-least-pull-one last
+    ok 14 - Bag.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag.antipairs: doesn't support count-only
+    ok 16 - Bag.antipairs: doesn't support bool-only
+    ok 17 - Bag.antipairs: count/bool-only didn't pull
+ok 6 - tests for Bag.antipairs
+# Subtest: tests for Bag.invert
+    1..17
+    ok 1 - Bag.invert: pull-one until exhausted
+    ok 2 - Bag.invert: push-exactly until exhausted
+    ok 3 - Bag.invert: push-at-least until exhausted
+    ok 4 - Bag.invert: does push-all return IterationEnd
+    ok 5 - Bag.invert: push-all
+    ok 6 - Bag.invert: does push-until-lazy return IterationEnd
+    ok 7 - Bag.invert: push-until-lazy
+    ok 8 - Bag.invert: does sink-all return IterationEnd
+    ok 9 - Bag.invert: skip-one until exhausted
+    ok 10 - Bag.invert: skip-at-least except last
+    ok 11 - Bag.invert: skip-at-least check last value
+    ok 12 - Bag.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - Bag.invert: skip-at-least-pull-one last
+    ok 14 - Bag.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Bag.invert: doesn't support count-only
+    ok 16 - Bag.invert: doesn't support bool-only
+    ok 17 - Bag.invert: count/bool-only didn't pull
+ok 7 - tests for Bag.invert
+# Subtest: tests for BagHash
+    1..17
+    ok 1 - BagHash: pull-one until exhausted
+    ok 2 - BagHash: push-exactly until exhausted
+    ok 3 - BagHash: push-at-least until exhausted
+    ok 4 - BagHash: does push-all return IterationEnd
+    ok 5 - BagHash: push-all
+    ok 6 - BagHash: does push-until-lazy return IterationEnd
+    ok 7 - BagHash: push-until-lazy
+    ok 8 - BagHash: does sink-all return IterationEnd
+    ok 9 - BagHash: skip-one until exhausted
+    ok 10 - BagHash: skip-at-least except last
+    ok 11 - BagHash: skip-at-least check last value
+    ok 12 - BagHash: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash: skip-at-least-pull-one last
+    ok 14 - BagHash: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash: doesn't support count-only
+    ok 16 - BagHash: doesn't support bool-only
+    ok 17 - BagHash: count/bool-only didn't pull
+ok 8 - tests for BagHash
+# Subtest: tests for BagHash.kv
+    1..17
+    ok 1 - BagHash.kv: pull-one until exhausted
+    ok 2 - BagHash.kv: push-exactly until exhausted
+    ok 3 - BagHash.kv: push-at-least until exhausted
+    ok 4 - BagHash.kv: does push-all return IterationEnd
+    ok 5 - BagHash.kv: push-all
+    ok 6 - BagHash.kv: does push-until-lazy return IterationEnd
+    ok 7 - BagHash.kv: push-until-lazy
+    ok 8 - BagHash.kv: does sink-all return IterationEnd
+    ok 9 - BagHash.kv: skip-one until exhausted
+    ok 10 - BagHash.kv: skip-at-least except last
+    ok 11 - BagHash.kv: skip-at-least check last value
+    ok 12 - BagHash.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash.kv: skip-at-least-pull-one last
+    ok 14 - BagHash.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash.kv: doesn't support count-only
+    ok 16 - BagHash.kv: doesn't support bool-only
+    ok 17 - BagHash.kv: count/bool-only didn't pull
+ok 9 - tests for BagHash.kv
+# Subtest: tests for BagHash.keys
+    1..17
+    ok 1 - BagHash.keys: pull-one until exhausted
+    ok 2 - BagHash.keys: push-exactly until exhausted
+    ok 3 - BagHash.keys: push-at-least until exhausted
+    ok 4 - BagHash.keys: does push-all return IterationEnd
+    ok 5 - BagHash.keys: push-all
+    ok 6 - BagHash.keys: does push-until-lazy return IterationEnd
+    ok 7 - BagHash.keys: push-until-lazy
+    ok 8 - BagHash.keys: does sink-all return IterationEnd
+    ok 9 - BagHash.keys: skip-one until exhausted
+    ok 10 - BagHash.keys: skip-at-least except last
+    ok 11 - BagHash.keys: skip-at-least check last value
+    ok 12 - BagHash.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash.keys: skip-at-least-pull-one last
+    ok 14 - BagHash.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash.keys: doesn't support count-only
+    ok 16 - BagHash.keys: doesn't support bool-only
+    ok 17 - BagHash.keys: count/bool-only didn't pull
+ok 10 - tests for BagHash.keys
+# Subtest: tests for BagHash.values
+    1..17
+    ok 1 - BagHash.values: pull-one until exhausted
+    ok 2 - BagHash.values: push-exactly until exhausted
+    ok 3 - BagHash.values: push-at-least until exhausted
+    ok 4 - BagHash.values: does push-all return IterationEnd
+    ok 5 - BagHash.values: push-all
+    ok 6 - BagHash.values: does push-until-lazy return IterationEnd
+    ok 7 - BagHash.values: push-until-lazy
+    ok 8 - BagHash.values: does sink-all return IterationEnd
+    ok 9 - BagHash.values: skip-one until exhausted
+    ok 10 - BagHash.values: skip-at-least except last
+    ok 11 - BagHash.values: skip-at-least check last value
+    ok 12 - BagHash.values: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash.values: skip-at-least-pull-one last
+    ok 14 - BagHash.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash.values: doesn't support count-only
+    ok 16 - BagHash.values: doesn't support bool-only
+    ok 17 - BagHash.values: count/bool-only didn't pull
+ok 11 - tests for BagHash.values
+# Subtest: tests for BagHash.pairs
+    1..17
+    ok 1 - BagHash.pairs: pull-one until exhausted
+    ok 2 - BagHash.pairs: push-exactly until exhausted
+    ok 3 - BagHash.pairs: push-at-least until exhausted
+    ok 4 - BagHash.pairs: does push-all return IterationEnd
+    ok 5 - BagHash.pairs: push-all
+    ok 6 - BagHash.pairs: does push-until-lazy return IterationEnd
+    ok 7 - BagHash.pairs: push-until-lazy
+    ok 8 - BagHash.pairs: does sink-all return IterationEnd
+    ok 9 - BagHash.pairs: skip-one until exhausted
+    ok 10 - BagHash.pairs: skip-at-least except last
+    ok 11 - BagHash.pairs: skip-at-least check last value
+    ok 12 - BagHash.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash.pairs: skip-at-least-pull-one last
+    ok 14 - BagHash.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash.pairs: doesn't support count-only
+    ok 16 - BagHash.pairs: doesn't support bool-only
+    ok 17 - BagHash.pairs: count/bool-only didn't pull
+ok 12 - tests for BagHash.pairs
+# Subtest: tests for BagHash.antipairs
+    1..17
+    ok 1 - BagHash.antipairs: pull-one until exhausted
+    ok 2 - BagHash.antipairs: push-exactly until exhausted
+    ok 3 - BagHash.antipairs: push-at-least until exhausted
+    ok 4 - BagHash.antipairs: does push-all return IterationEnd
+    ok 5 - BagHash.antipairs: push-all
+    ok 6 - BagHash.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - BagHash.antipairs: push-until-lazy
+    ok 8 - BagHash.antipairs: does sink-all return IterationEnd
+    ok 9 - BagHash.antipairs: skip-one until exhausted
+    ok 10 - BagHash.antipairs: skip-at-least except last
+    ok 11 - BagHash.antipairs: skip-at-least check last value
+    ok 12 - BagHash.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash.antipairs: skip-at-least-pull-one last
+    ok 14 - BagHash.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash.antipairs: doesn't support count-only
+    ok 16 - BagHash.antipairs: doesn't support bool-only
+    ok 17 - BagHash.antipairs: count/bool-only didn't pull
+ok 13 - tests for BagHash.antipairs
+# Subtest: tests for BagHash.invert
+    1..17
+    ok 1 - BagHash.invert: pull-one until exhausted
+    ok 2 - BagHash.invert: push-exactly until exhausted
+    ok 3 - BagHash.invert: push-at-least until exhausted
+    ok 4 - BagHash.invert: does push-all return IterationEnd
+    ok 5 - BagHash.invert: push-all
+    ok 6 - BagHash.invert: does push-until-lazy return IterationEnd
+    ok 7 - BagHash.invert: push-until-lazy
+    ok 8 - BagHash.invert: does sink-all return IterationEnd
+    ok 9 - BagHash.invert: skip-one until exhausted
+    ok 10 - BagHash.invert: skip-at-least except last
+    ok 11 - BagHash.invert: skip-at-least check last value
+    ok 12 - BagHash.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - BagHash.invert: skip-at-least-pull-one last
+    ok 14 - BagHash.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - BagHash.invert: doesn't support count-only
+    ok 16 - BagHash.invert: doesn't support bool-only
+    ok 17 - BagHash.invert: count/bool-only didn't pull
+ok 14 - tests for BagHash.invert

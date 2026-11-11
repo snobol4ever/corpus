@@ -1,0 +1,42 @@
+1..18
+ok 1 - is TypeName on @ sigil has effect (my)
+ok 2 - is TypeName on % sigil has effect (my)
+ok 3 - is TypeName on @ sigil has effect (state)
+ok 4 - is TypeName on % sigil has effect (state)
+ok 5 - is TypeName on @ sigil has effect (has)
+ok 6 - is TypeName on % sigil has effect (has)
+ok 7 - Get fresh BagHash in my variable per iteration (0)
+ok 8 - Get fresh BagHash in my variable per iteration (1)
+ok 9 - # SKIP state variables with `is BagHash`
+ok 10 - # SKIP state variables with `is BagHash`
+ok 11 - Get fresh BagHash in new object per iteration (0)
+ok 12 - Get fresh BagHash in new object per iteration (1)
+ok 13 - can we have parameterized type
+# Subtest: did we throw on multiple "is" types
+    1..4
+    ok 1 - 'my @a is Int is Str' died
+    ok 2 - right exception type (X::Syntax::Variable::ConflictingTypes)
+    ok 3 - .inner matches (Str)
+    ok 4 - .outer matches (Int)
+ok 14 - did we throw on multiple "is" types
+# Subtest: Positional with generic
+    1..2
+    ok 1 - positional attribute is of the right type
+    ok 2 - the attribute is initialized with a concrete array
+ok 15 - Positional with generic
+# Subtest: Associative with generic
+    1..2
+    ok 1 - associative attribute is of the right type
+    ok 2 - the attribute is initialized with a concrete hash
+ok 16 - Associative with generic
+# Subtest: Parameterized Array
+    ok 1 - positional attribute is of the right type
+    ok 2 - the attribute is initialized with a concrete array
+    1..2
+ok 17 - Parameterized Array
+# Subtest: Parameterized Hash
+    ok 1 - associative attribute is of the right type
+    ok 2 - the attribute is initialized with a concrete hash
+    1..2
+ok 18 - Parameterized Hash
+# FUDGED!

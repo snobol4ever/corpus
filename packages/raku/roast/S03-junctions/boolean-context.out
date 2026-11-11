@@ -1,0 +1,75 @@
+1..74
+ok 1 - any(1..2) in boolean context
+ok 2 - any(0,0) in boolean context
+ok 3 - one(1..2) in boolean context
+ok 4 - 1|2 in boolean context
+ok 5 - 1^2 in boolean context
+ok 6 - undef|0 in boolean context
+ok 7 - undef|undef in boolean context
+ok 8 - undef in boolean context
+ok 9 - defined undef in boolean context
+ok 10 - all(undef, undef) in boolean context
+ok 11 - all(1,1) in boolean context
+ok 12 - all(1,undef) in boolean context
+ok 13 - 1|undef in boolean context
+ok 14 - undef|1 in boolean context
+ok 15 - 1&undef in boolean context
+ok 16 - undef&1 in boolean context
+ok 17 - 1^undef in boolean context
+ok 18 - undef^1 in boolean context
+ok 19 - -1|undef in boolean context
+ok 20 - undef|-1 in boolean context
+ok 21 - -1&undef in boolean context
+ok 22 - undef&-1 in boolean context
+ok 23 - -1^undef in boolean context
+ok 24 - undef^-1 in boolean context
+ok 25 - 1|undef in boolean context
+ok 26 - 1&undef in boolean context
+ok 27 - 1^undef in boolean context
+ok 28 - 0|undef in boolean context
+ok 29 - undef|0 in boolean context
+ok 30 - 0&undef in boolean context
+ok 31 - undef&0 in boolean context
+ok 32 - 0^undef in boolean context
+ok 33 - undef^0 in boolean context
+ok 34 - 0|undef in boolean context
+ok 35 - 0&undef in boolean context
+ok 36 - 0^undef in boolean context
+ok 37 - boolean context collapses Junctions
+ok 38 - ...so that they're not Junctions anymore
+ok 39 - boolean context collapses Junctions
+ok 40 - ...so that they're not Junctions anymore
+ok 41 - boolean context collapses Junctions
+ok 42 - ...so that they're not Junctions anymore
+ok 43 - boolean context collapses Junctions
+ok 44 - ...so that they're not Junctions anymore
+ok 45 - 3x very simple invocation of | and & in if
+ok 46 - 
+ok 47 - 
+ok 48 - 4x local sub shadows | and &
+ok 49 - 
+ok 50 - 
+ok 51 - 
+ok 52 - 6x side effect executed only once
+ok 53 - 
+ok 54 - 
+ok 55 - 
+ok 56 - 
+ok 57 - 
+ok 58 - 
+ok 59 - 
+ok 60 - junctions on both sides of a comparison
+ok 61 - 2x given + when
+ok 62 - junction and while
+ok 63 - using <=
+ok 64 - using <
+ok 65 - using !=
+ok 66 - &, <= and |
+ok 67 - 4x triple-chaining works
+ok 68 - 
+ok 69 - 
+ok 70 - 
+ok 71 - ne in if context
+ok 72 - ne in if context
+ok 73 - custom operator
+ok 74 - operator with Mu argument doesn't get autothreaded.

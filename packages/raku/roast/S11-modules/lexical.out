@@ -1,0 +1,4 @@
+1..3
+ok 1 - could import foo()
+ok 2 - sub is only imported into the inner lexical scope
+ok 3 - Package is only imported into the inner lexical scope

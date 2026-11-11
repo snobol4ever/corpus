@@ -1,0 +1,6 @@
+1..5
+ok 1 - $=pod
+ok 2 - class .WHY
+ok 3 - method .WHY
+ok 4 - --doc
+ok 5 - --doc + DOC INIT {}

@@ -1,0 +1,17 @@
+1..12
+ok 1 - ... class|instance methods work for class
+ok 2 - ... basic class method access worked
+ok 3 - ... class|instance methods work for instance
+ok 4 - ... basic instance method access worked
+ok 5 - multi method for class not instance
+ok 6 - multi method for instance not class
+ok 7 - instance only method named invocant
+# Subtest: correctly refused class invocant for instance only method
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+ok 8 - correctly refused class invocant for instance only method
+ok 9 - my method is lexically installed
+ok 10 - my method not installed in methods table
+ok 11 - our method is installed in package
+ok 12 - our method not installed in methods table

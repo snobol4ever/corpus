@@ -1,0 +1,201 @@
+1..66
+ok 1 - Simple scalar match 1
+ok 2 - Simple scalar match 2
+ok 3 - Simple scalar match 3
+ok 4 - Nested scalar match 1
+ok 5 - Nested scalar match 2
+ok 6 - Nested scalar match 3
+ok 7 - Rulish scalar match 1
+ok 8 - Rulish scalar match 2
+ok 9 - Rulish scalar match 3
+ok 10 - Rulish scalar match 4
+ok 11 - Rulish scalar match 5
+ok 12 - Rulish scalar match 6
+ok 13 - Rulish scalar match 7
+ok 14 - match with string as rx works
+# Subtest: particular garbage-in recognized as being garbage (see RT)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 15 - particular garbage-in recognized as being garbage (see RT)
+# Subtest: dynamic lookups are restricted regex syntax
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 16 - dynamic lookups are restricted regex syntax
+# Subtest: dynamic longname lookups are restricted regex syntax
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 17 - dynamic longname lookups are restricted regex syntax
+# Subtest: dynamic longname lookups are restricted regex syntax (::)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 18 - dynamic longname lookups are restricted regex syntax (::)
+# Subtest: dynamic longname lookups are restricted regex syntax (2)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 19 - dynamic longname lookups are restricted regex syntax (2)
+# Subtest: dynamic regex aliases fail somehow
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 20 - dynamic regex aliases fail somehow
+# Subtest: dynamic regex longname aliases fail specifically
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Alias::LongName)
+ok 21 - dynamic regex longname aliases fail specifically
+ok 22 - returns true
+ok 23 - returns a valid Match
+ok 24 - returns correct Match
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 25 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 26 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 27 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 28 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 29 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 30 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 31 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 32 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 33 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 34 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 35 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 36 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 37 - should handle this too
+# Subtest: should handle this too
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::SecurityPolicy)
+ok 38 - should handle this too
+# Subtest: longname aliases fail specifically (unrestricted ::)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Alias::LongName)
+ok 39 - longname aliases fail specifically (unrestricted ::)
+# Subtest: dynamic longname aliases fail specifically (unrestricted ::)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Alias::LongName)
+ok 40 - dynamic longname aliases fail specifically (unrestricted ::)
+# Subtest: longname aliases fail specifically (unrestricted)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Alias::LongName)
+ok 41 - longname aliases fail specifically (unrestricted)
+# Subtest: dynamic longname aliases fail specifically (unrestricted)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Alias::LongName)
+ok 42 - dynamic longname aliases fail specifically (unrestricted)
+ok 43 - Simple array match (a)
+ok 44 - Simple array match (b)
+ok 45 - Simple array match (c)
+ok 46 - Simple array match (d)
+ok 47 - Simple array match (!)
+ok 48 - Nested array match (a)
+ok 49 - Nested array match (e)
+ok 50 - Match from correct position
+ok 51 - Multiple array matching
+ok 52 - Multiple array non-matching
+ok 53 - Multiple array non-compiling
+ok 54 - Multiple array compiling
+ok 55 - Multiple array non-compiling
+ok 56 - Multiple array compiling
+# Subtest: cannot interpolate hashes into regexes
+    1..2
+    ok 1 - '/%var/' died
+    ok 2 - right exception type (X::Syntax::Reserved)
+ok 57 - cannot interpolate hashes into regexes
+# Subtest: cannot interpolate hashes into regexes
+    1..2
+    ok 1 - 'm/%var/' died
+    ok 2 - right exception type (X::Syntax::Reserved)
+ok 58 - cannot interpolate hashes into regexes
+# Subtest: cannot interpolate hashes into regexes, runtime
+    1..2
+    ok 1 - 'my $x = { a => 1 }; "a" ~~ m/$x/' died
+    ok 2 - right exception type (X::Syntax::Reserved)
+ok 59 - cannot interpolate hashes into regexes, runtime
+# Subtest: cannot interpolate hashes into regexes, runtime (binding)
+    1..2
+    ok 1 - 'my $x := { a => 1 }; "a" ~~ m/$x/' died
+    ok 2 - right exception type (X::Syntax::Reserved)
+ok 60 - cannot interpolate hashes into regexes, runtime (binding)
+ok 61 - undefined variable does not match
+not ok 62 - interpolating undefined into a regex warns # TODO warn on undef
+# Failed test 'interpolating undefined into a regex warns'
+# at S05-interpolation/regex-in-variable.rakudo line 137
+# Subtest: Cannot interpolate attribute in a regex
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Attribute::Regex)
+    ok 3 - .symbol matches $!a
+ok 63 - Cannot interpolate attribute in a regex
+# Subtest: Cannot interpolate attribute in a regex in angle construct
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Attribute::Regex)
+    ok 3 - .symbol matches $!b
+ok 64 - Cannot interpolate attribute in a regex in angle construct
+# Subtest: Cannot interpolate attribute in a closure in a regex
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Attribute::Regex)
+    ok 3 - .symbol matches $!c
+ok 65 - Cannot interpolate attribute in a closure in a regex
+ok 66 - did any junction work out ok
+# FUDGED!

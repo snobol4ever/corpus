@@ -1,0 +1,27 @@
+1..26
+ok 1 - when works in a circumfix:<{ }> (1)
+ok 2 - when works in a circumfix:<{ }> (2)
+ok 3 - default works in a circumfix:<{ }>
+ok 4 - when works in a pointy block declaring $_ (1)
+ok 5 - when works in a pointy block declaring $_ (2)
+ok 6 - default works in a pointy block declaring $_
+ok 7 - when works in a pointy block using its implicit $_
+ok 8 - when works in a sub declaring $_ (1)
+ok 9 - when works in a sub declaring $_ (2)
+ok 10 - default works in a sub declaring $_
+ok 11 - when works in sub using its implicit $_
+ok 12 - when works in a method declaring $_ (1)
+ok 13 - when works in a method declaring $_ (2)
+ok 14 - default works in a method declaring $_
+ok 15 - when works in a method using its implicit $_
+ok 16 - nested when in a sub works (1)
+ok 17 - nested when in a sub works (2)
+ok 18 - nested when in a sub works (3)
+ok 19 - when does not force itemization
+ok 20 - when does not strip itemization
+ok 21 - when does not strip Scalar containers
+ok 22 - default does not force itemization
+ok 23 - default does not strip itemization
+ok 24 - default does not strip Scalar containers
+ok 25 - `when` in a loop lives
+ok 26 - Successful when does not terminate a loop prematurely

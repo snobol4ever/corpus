@@ -1,0 +1,113 @@
+1..55
+ok 1 - List.skip works
+ok 2 - Array.skip works
+ok 3 - Scalar.skip works
+ok 4 - Range.skip works
+ok 5 - Range.skip works on lazy list
+ok 6 - List.skip(5) works
+ok 7 - skip(5,$List) works
+ok 8 - skip(5,List) works
+ok 9 - Array.skip(5) works
+ok 10 - skip(5,Array) works
+ok 11 - Scalar.skip(5) works
+ok 12 - skip(5,Scalar) works
+ok 13 - Range.skip(5) works
+ok 14 - skip(5,$Range) works
+ok 15 - skip(5,Range) works
+ok 16 - Range.skip(5) works on lazy list
+ok 17 - skip(5,$Range) works on lazy list
+ok 18 - skip(5,$Range) works on lazy list
+ok 19 - List.skip(0) works
+ok 20 - skip(0,$List) works
+ok 21 - skip(0,List) works
+ok 22 - Array.skip(0) works
+ok 23 - skip(0,Array) works
+ok 24 - Scalar.skip(0) works
+ok 25 - skip(0,Scalar) works
+ok 26 - Range.skip(0) works
+ok 27 - skip(0,$Range) works
+ok 28 - skip(0,Range) works
+ok 29 - List.skip(-1) works
+ok 30 - skip(-1,$List) works
+ok 31 - skip(-1,List) works
+ok 32 - Array.skip(-1) works
+ok 33 - skip(-1,Array) works
+ok 34 - Scalar.skip(-1) works
+ok 35 - skip(-1,Scalar) works
+ok 36 - Range.skip(-1) works
+ok 37 - skip(-1,$Range) works
+ok 38 - skip(-1,Range) works
+ok 39 - List.skip works if too short
+ok 40 - skip(N,$List) works if too short
+ok 41 - skip(N,List) works if too short
+ok 42 - Array.skip(N) works if too short
+ok 43 - skip(N,Array) works if too short
+ok 44 - Range.skip works if too short
+ok 45 - List.skip(N) works if empty
+ok 46 - skip(N,$List) works if empty
+ok 47 - skip(N,List) works if empty
+ok 48 - Array.skip(N) works if empty
+ok 49 - skip(N,Array) works if empty
+ok 50 - Range.skip(N) works if empty
+ok 51 - skip(N,$Range) works if empty
+ok 52 - skip(N,Range) works if empty
+# Subtest: .skip-all and .push-all on slipping slippy iterators
+    1..4
+    # Subtest: IterateOneWithoutPhasers
+        1..2
+        ok 1 - sink-all sinks all the values
+        ok 2 - push-all pushes all the values
+    ok 1 - IterateOneWithoutPhasers
+    # Subtest: IterateOneWithPhasers
+        1..2
+        ok 1 - sink-all sinks all the values
+        ok 2 - push-all pushes all the values
+    ok 2 - IterateOneWithPhasers
+    # Subtest: IterateTwoWithoutPhasers
+        1..2
+        ok 1 - sink-all sinks all the values
+        ok 2 - push-all pushes all the values
+    ok 3 - IterateTwoWithoutPhasers
+    # Subtest: IterateMoreWithPhasers
+        1..2
+        ok 1 - sink-all sinks all the values
+        ok 2 - push-all pushes all the values
+    ok 4 - IterateMoreWithPhasers
+ok 53 - .skip-all and .push-all on slipping slippy iterators
+# Subtest: Seq.skip does not leave original Seq consumable
+    1..4
+    # Subtest: uncached, .skip()
+        1..2
+        # Subtest: original got consumed
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 1 - original got consumed
+        ok 2 - skipped has right content
+    ok 1 - uncached, .skip()
+    # Subtest: uncached, .skip(n)
+        1..2
+        # Subtest: original got consumed
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 1 - original got consumed
+        ok 2 - skipped has right content
+    ok 2 - uncached, .skip(n)
+    # Subtest: cached, .skip()
+        1..2
+        ok 1 - original gives all values
+        ok 2 - skipped has right content
+    ok 3 - cached, .skip()
+    # Subtest: cached, .skip(n)
+        1..2
+        ok 1 - original gives all values
+        ok 2 - skipped has right content
+    ok 4 - cached, .skip(n)
+ok 54 - Seq.skip does not leave original Seq consumable
+# Subtest: Any:U.skip works with Callable
+    1..3
+    ok 1 - *-1
+    ok 2 - *-1
+    ok 3 - *-99999
+ok 55 - Any:U.skip works with Callable

@@ -1,0 +1,110 @@
+1..4
+# Subtest: general
+    1..3
+    # Subtest: Range
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+        ok 7 - multi-callable
+        ok 8 - multi-callable (:off)
+        1..8
+    ok 1 - Range
+    # Subtest: List
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+        ok 7 - multi-callable
+        ok 8 - multi-callable (:off)
+        1..8
+    ok 2 - List
+    # Subtest: Array
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+        ok 7 - multi-callable
+        ok 8 - multi-callable (:off)
+        1..8
+    ok 3 - Array
+ok 1 - general
+# Subtest: chaining
+    1..3
+    ok 1 - on, off
+    ok 2 - skip, on, grep, off
+    ok 3 - 50-toggle chain
+ok 2 - chaining
+# Subtest: empty sources
+    1..6
+    # Subtest: ()
+        1..6
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+    ok 1 - ()
+    # Subtest: []
+        1..6
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+    ok 2 - []
+    # Subtest: Map.new
+        1..6
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+    ok 3 - Map.new
+    # Subtest: {}
+        1..6
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+    ok 4 - {}
+    # Subtest: set()
+        1..6
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+    ok 5 - set()
+    # Subtest: mix()
+        1..6
+        ok 1 - no args
+        ok 2 - no args (:off)
+        ok 3 - 1 callable (toggles on first value)
+        ok 4 - 1 callable (toggles on later value)
+        ok 5 - 1 callable (:off, toggles on first value)
+        ok 6 - 1 callable (:off, toggles on later value)
+    ok 6 - mix()
+ok 3 - empty sources
+# Subtest: Non-Iterable objects
+    ok 1 - no args
+    ok 2 - no args (:off)
+    ok 3 - truthy callable
+    ok 4 - truthy callable (:off)
+    ok 5 - falsy callable
+    ok 6 - multiple callables
+    ok 7 - multiple callables (:off)
+    1..7
+ok 4 - Non-Iterable objects

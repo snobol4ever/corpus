@@ -1,0 +1,24 @@
+1..23
+ok 1 - my $x; $x++ works
+ok 2 - my Int $x; $x++ works
+ok 3 - my $x; $x += 1 works
+ok 4 - my Int $x; $x += 1 works
+ok 5 - my $x; $x -= 1 works
+ok 6 - my Int $x; $x -= 1 works
+ok 7 - my $s; $s ~= "ab" works
+ok 8 - my Str $s; $s ~= "ab" works
+ok 9 - my $x; $x *= 2 works
+ok 10 - my $x; $x **= 2 works
+ok 11 - my Int $x; $x *= 2 works
+ok 12 - my Int $x; $x **= 2 works
+ok 13 - my $x; $x = $x + 1i; works
+ok 14 - my $x; $x += 1i; works
+ok 15 - my $i **= $i
+ok 16 - my $x; $x *= 1i works
+ok 17 - *= autovivifies with correct neutral element (with Num proto)
+ok 18 - *= autovivifies with correct neutral element (without type constraint)
+ok 19 - *= autovivifies with correct neutral element (with Int proto on hash items)
+ok 20 - *= autovivifies with correct neutral element (without proto on hash items)
+ok 21 - Sanity: empty array, @empty, has 0 elements
+ok 22 - empty array, @empty, has 0 elements
+ok 23 - Array elements are not auto-vivified by smartmatch

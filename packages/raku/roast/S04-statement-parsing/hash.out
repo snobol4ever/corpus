@@ -1,0 +1,9 @@
+1..8
+ok 1 - hash() returns a Hash
+ok 2 - hash() with keys/values (key)
+ok 3 - hash() with keys/values (values)
+ok 4 - hash() with pair (key)
+ok 5 - hash() with pair (values)
+ok 6 - hash() with autoquoted pair (key)
+ok 7 - hash() with autoquoted pair (values)
+ok 8 - q => doesn't trigger quoting construct

@@ -1,0 +1,8 @@
+1..7
+ok 1 - no-arg form of note
+ok 2 - basic form of note
+ok 3 - note multiple parameters
+ok 4 - note array
+ok 5 - note an array reference
+ok 6 - method form of note
+ok 7 - try { } block does not prevent note() from outputting something

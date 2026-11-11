@@ -1,0 +1,30 @@
+1..17
+ok 1 - Parameter handling in subroutines (@_)
+ok 2 - P6 auto unpacking/verification
+ok 3 - Default values for parameters works
+ok 4 - Default values using previously supplied arguments
+ok 5 - optional parameters
+# Subtest: wrong number of parameters, no exception object
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 6 - wrong number of parameters, no exception object
+ok 7 - When you force naming, they are not all required.
+ok 8 - Parameters with a * in front can take as many items as you wish
+ok 9 - Capturing arbitrary named arguments
+ok 10 - Same as above test, only passed as hash
+# Subtest: Can't modify parameters within by default, no exception object.
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 11 - Can't modify parameters within by default, no exception object.
+ok 12 - Set a parameter to "is rw", and then you can modify
+ok 13 - "is copy" leaves original alone"
+# Subtest: Autoflattening doesnt exist, no exception object
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 14 - Autoflattening doesnt exist, no exception object
+ok 15 - Put a | in front of the variable, and you're ok!
+ok 16 - Test one liner at end of post (part1)
+ok 17 - Test one liner at end of post (part2)

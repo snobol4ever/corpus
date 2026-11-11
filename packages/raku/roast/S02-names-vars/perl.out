@@ -1,0 +1,118 @@
+1..114
+ok 1 - ("42").raku returned something whose EVAL()ed stringification is unchanged
+ok 2 - ("42").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 3 - ("4.2").raku returned something whose EVAL()ed stringification is unchanged
+ok 4 - ("4.2").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 5 - ("4.2").raku returned something whose EVAL()ed stringification is unchanged
+ok 6 - ("4.2").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 7 - ("1.4142135623730951").raku returned something whose EVAL()ed stringification is unchanged
+ok 8 - ("1.4142135623730951").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 9 - ("300000").raku returned something whose EVAL()ed stringification is unchanged
+ok 10 - ("300000").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 11 - ("Inf").raku returned something whose EVAL()ed stringification is unchanged
+ok 12 - ("Inf").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 13 - ("-Inf").raku returned something whose EVAL()ed stringification is unchanged
+ok 14 - ("-Inf").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 15 - ("NaN").raku returned something whose EVAL()ed stringification is unchanged
+ok 16 - ("NaN").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 17 - ("a string").raku returned something whose EVAL()ed stringification is unchanged
+ok 18 - ("a string").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 19 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 20 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 21 - ("\0").raku returned something whose EVAL()ed stringification is unchanged
+ok 22 - ("\0").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 23 - ("\t").raku returned something whose EVAL()ed stringification is unchanged
+ok 24 - ("\t").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 25 - ("␤").raku returned something whose EVAL()ed stringification is unchanged
+ok 26 - ("␤").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 27 - ("␤").raku returned something whose EVAL()ed stringification is unchanged
+ok 28 - ("␤").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 29 - ("\x[7]").raku returned something whose EVAL()ed stringification is unchanged
+ok 30 - ("\x[7]").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 31 - ("\{").raku returned something whose EVAL()ed stringification is unchanged
+ok 32 - ("\{").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 33 - ("}").raku returned something whose EVAL()ed stringification is unchanged
+ok 34 - ("}").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 35 - ("\$a \@string \%with \&sigils()").raku returned something whose EVAL()ed stringification is unchanged
+ok 36 - ("\$a \@string \%with \&sigils()").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 37 - ("שלום").raku returned something whose EVAL()ed stringification is unchanged
+ok 38 - ("שלום").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 39 - ("True").raku returned something whose EVAL()ed stringification is unchanged
+ok 40 - ("True").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 41 - ("False").raku returned something whose EVAL()ed stringification is unchanged
+ok 42 - ("False").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 43 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 44 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 45 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 46 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 47 - ("42").raku returned something whose EVAL()ed stringification is unchanged
+ok 48 - ("42").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 49 - ("Inf").raku returned something whose EVAL()ed stringification is unchanged
+ok 50 - ("Inf").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 51 - ("-Inf").raku returned something whose EVAL()ed stringification is unchanged
+ok 52 - ("-Inf").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 53 - ("NaN").raku returned something whose EVAL()ed stringification is unchanged
+ok 54 - ("NaN").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 55 - ("string").raku returned something whose EVAL()ed stringification is unchanged
+ok 56 - ("string").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 57 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 58 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 59 - ("True").raku returned something whose EVAL()ed stringification is unchanged
+ok 60 - ("True").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 61 - ("False").raku returned something whose EVAL()ed stringification is unchanged
+ok 62 - ("False").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 63 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 64 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 65 - ("a\t1").raku returned something whose EVAL()ed stringification is unchanged
+ok 66 - ("a\t1").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 67 - ("b\t2").raku returned something whose EVAL()ed stringification is unchanged
+ok 68 - ("b\t2").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 69 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 70 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 71 - ("a\t42").raku returned something whose EVAL()ed stringification is unchanged
+ok 72 - ("a\t42").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 73 - ("a\t1␤b\t2\nc\t3").raku returned something whose EVAL()ed stringification is unchanged
+ok 74 - ("a\t1␤b\t2\nc\t3").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 75 - ("a\t1 2 3").raku returned something whose EVAL()ed stringification is unchanged
+ok 76 - ("a\t1 2 3").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 77 - ("a\t1 2 3␤b\t4 5 6").raku returned something whose EVAL()ed stringification is unchanged
+ok 78 - ("a\t1 2 3␤b\t4 5 6").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 79 - ("a\t1 b\t2␤c\t3").raku returned something whose EVAL()ed stringification is unchanged
+ok 80 - ("a\t1 b\t2␤c\t3").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 81 - ("a b c").raku returned something whose EVAL()ed stringification is unchanged
+ok 82 - ("a b c").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 83 - basic recursive hashitem
+ok 84 - .raku worked correctly on a recursive hashitem
+ok 85 - mixed arrayitem/hashitem recursive structure
+ok 86 - .raku worked correctly on a mixed arrayitem/hashitem recursive structure
+(my \Bug_4073016914280 = Bug.new(myself => [Bug_4073016914280]))
+ok 87 - survived saying a self-referencing object
+(my \Location_4073016914440 = Location.new(items => Array[Item].new(Item.new(loc => Location_4073016914440))))
+ok 88 - survived saying two mutually referencing objects
+ok 89 - .raku on a .keys list
+ok 90 - changing object changes .raku output
+ok 91 - attribute value appears in .raku output
+ok 92 - .raku on user-defined type roundtrips okay
+ok 93 - .raku on float with many digits roundtrips okay
+ok 94 - can assign list with new hash element to itself
+ok 95 - can take .raku from hash element
+ok 96 - hoa does not refer to hash element
+ok 97 - can .raku on .HOW
+ok 98 - # SKIP RT  \#67790
+ok 99 - 1.0 is Rat
+ok 100 - 1.0 raku'd and EVAL'd is Rat
+ok 101 - .raku in .grep works - type
+ok 102 - .raku in .grep works - number of elems
+ok 103 - .raku in .grep works - element equality
+ok 104 - .raku in .grep works - type
+ok 105 - .raku in .grep works - number of elems
+ok 106 - .raku in .grep works - element equality
+ok 107 - 
+ok 108 - 100.chr.raku - lives
+ok 109 - .raku on latin character
+ok 110 - 780.chr.raku - lives
+ok 111 - .raku on composing character
+ok 112 - .raku on string with combining char on a non-printable - lives
+ok 113 - .raku on string with combining char on a non-printable - roundtrips
+ok 114 - non-combining start does not need escaping
+# FUDGED!

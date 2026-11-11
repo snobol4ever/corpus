@@ -1,0 +1,99 @@
+1..39
+ok 1 - can ye handle that?
+ok 2 - how about this?
+ok 3 - ooh! 3 numbers! More difficult
+ok 4 - again! 3 numbers!
+# Subtest: No! No left-associativeness!
+    1..2
+    ok 1 - '1 min 2 max 3' died
+    ok 2 - right exception type (X::Syntax::NonAssociative)
+ok 5 - No! No left-associativeness!
+# Subtest: This is also not OK
+    1..2
+    ok 1 - '1 max 2 min 3' died
+    ok 2 - right exception type (X::Syntax::NonAssociative)
+ok 6 - This is also not OK
+ok 7 - min works for strings, too
+ok 8 - max works for strings, too
+ok 9 - 
+ok 10 - 
+ok 11 - 
+ok 12 - 
+ok 13 - minmax does not flatten ranges
+ok 14 - minmax works on two arrays
+ok 15 - minmax works on two lists
+ok 16 - minmax works when both are on left list
+ok 17 - minmax works when both are on right list
+ok 18 - minmax works when both are on left array
+ok 19 - minmax works when both are on right array
+ok 20 - minmax works for strings, too
+ok 21 - minmax works on two disjoint ranges
+ok 22 - minmax works on two overlapping ranges
+ok 23 - minmax works when both are on left list
+ok 24 - minmax works when both are on right list
+ok 25 - # SKIP Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
+ok 26 - # SKIP Annoying test that we haven't done the obvious yet unspecced, fails because we have indeed done the obvious
+ok 27 - 2 min Any
+ok 28 - Any min 2
+ok 29 - 2 max Any
+ok 30 - Any max 2
+# Subtest: min with two Failures throws
+    1..2
+    ok 1 - 'no fatal; my $ = do { min +'a', +'a' }; Nil' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 31 - min with two Failures throws
+# Subtest: max with two Failures throws
+    1..2
+    ok 1 - 'no fatal; my $ = do { max +'a', +'a' }; Nil' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 32 - max with two Failures throws
+# Subtest: min with one Failure throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Numeric)
+    ok 2 - Failure threw when sunk
+ok 33 - min with one Failure throws
+# Subtest: max with one Failure throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Numeric)
+    ok 2 - Failure threw when sunk
+ok 34 - max with one Failure throws
+# Subtest: .min on Failure throws
+    1..2
+    ok 1 - 'Failure.new.min' died
+    ok 2 - right exception type (Exception)
+ok 35 - .min on Failure throws
+# Subtest: .max on Failure throws
+    1..2
+    ok 1 - 'Failure.new.max' died
+    ok 2 - right exception type (Exception)
+ok 36 - .max on Failure throws
+# Subtest: .min with :&by on Failure throws
+    1..2
+    ok 1 - 'Failure.new.min: &infix:<cmp>' died
+    ok 2 - right exception type (Exception)
+ok 37 - .min with :&by on Failure throws
+# Subtest: .max with :&by on Failure throws
+    1..2
+    ok 1 - 'Failure.new.max: &infix:<cmp>' died
+    ok 2 - right exception type (Exception)
+ok 38 - .max with :&by on Failure throws
+# Subtest: min/max operations on Hashes
+    1..8
+    ok 1 - .max()
+    ok 2 - .min()
+    ok 3 - .max(*.value)
+    ok 4 - .min(*.value)
+    ok 5 - &max()
+    ok 6 - &min()
+    ok 7 - &max(:by(*.value))
+    ok 8 - &min(:by(*.value))
+ok 39 - min/max operations on Hashes
+# FUDGED!

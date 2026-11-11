@@ -1,0 +1,42 @@
+1..10
+not ok 1 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 24
+not ok 2 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 24
+not ok 3 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 24
+not ok 4 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 24
+not ok 5 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 24
+not ok 6 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 36
+not ok 7 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 36
+not ok 8 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 48
+not ok 9 - non-compiling test # TODO lazy in not there yet
+# Failed test 'non-compiling test'
+# at S04-statements/lazy.rakudo line 48
+# Subtest: assigning to a lazily computed value does not work
+    1..2
+    ok 1 - '(lazy { 43 }) = 23 ' died
+    not ok 2 - right exception type (X::Assignment::RO) # TODO lazy in not there yet
+    # Failed test 'right exception type (X::Assignment::RO)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::Assignment::RO
+    # Got:      X::Method::NotFound
+    # Exception message: No such method 'lazy' for invocant of type 'Int'. Did you mean any of
+    # these: 'any', 'say'?
+not ok 10 - assigning to a lazily computed value does not work # TODO lazy in not there yet
+# Failed test 'assigning to a lazily computed value does not work'
+# at S04-statements/lazy.rakudo line 52
+# FUDGED!

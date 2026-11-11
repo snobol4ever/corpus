@@ -1,0 +1,16 @@
+1..4
+ok 1 - Variables default to not being dynamically scoped
+# Subtest: Pragma dynamic-scope without args
+    ok 1 - Works on normal variable declarations
+    ok 2 - Works on variables declared in list form (1)
+    ok 3 - Works on variables declared in list form (2)
+    1..3
+ok 2 - Pragma dynamic-scope without args
+ok 3 - The dynamic-scope pragma works lexically
+# Subtest: Pragma dynamic-scope with args
+    ok 1 - Works on normal variable declarations with matching name
+    ok 2 - Does not make variables without matching name dynamic
+    ok 3 - Works on variables declared in list form (1)
+    ok 4 - Works on variables declared in list form (2)
+    1..4
+ok 4 - Pragma dynamic-scope with args

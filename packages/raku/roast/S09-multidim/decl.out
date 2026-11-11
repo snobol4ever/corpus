@@ -1,0 +1,40 @@
+1..39
+ok 1 - Shape of untyped array is (*,)
+ok 2 - Shape of typed object array is (*,)
+ok 3 - Shape of native array is (*,)
+ok 4 - Declared one-dim shape returned by .shape
+ok 5 - Dimension size returned by .elems
+ok 6 - Can assign to sized array in bounds (1)
+ok 7 - Can assign to sized array in bounds (2)
+ok 8 - Cannot assign to sized array out of bounds
+ok 9 - Declared two-dim shape returned by .shape
+ok 10 - First dimension size returned by .elems
+ok 11 - Can assign to multi-dim array in bounds (1)
+ok 12 - Can assign to multi-dim array in bounds (2)
+ok 13 - Cannot assign to multi-dim array out of bounds (1)
+ok 14 - Cannot assign to multi-dim array out of bounds (2)
+ok 15 - Cannot assign to multi-dim array out of bounds (3)
+ok 16 - Declared one-dim shape returned by .shape (late-bound)
+ok 17 - Dimension size returned by .elems (late-bound)
+ok 18 - Can assign to sized array in bounds (late-bound) (1)
+ok 19 - Can assign to sized array in bounds (late-bound) (2)
+ok 20 - Cannot assign to sized array out of bounds (late-bound)
+ok 21 - A two-dim shape returned by .shape (attribute)
+ok 22 - First dimension size returned by .elems (attribute)
+ok 23 - Can assign to multi-dim array in bounds (attribute) (1)
+ok 24 - Can assign to multi-dim array in bounds (attribute) (2)
+ok 25 - Cannot assign to multi-dim array out of bounds (attribute) (1)
+ok 26 - Cannot assign to multi-dim array out of bounds (attribute) (2)
+ok 27 - Cannot assign to multi-dim array out of bounds (attribute) (3)
+ok 28 - Fixed size native int array returns correct shape
+ok 29 - Fixed size native int array returns correct elems
+ok 30 - Can assign to sized native int array in bounds (1)
+ok 31 - Can assign to sized native int array in bounds (2)
+ok 32 - Cannot assign to sized native int array out of bounds
+ok 33 - Multi-dim native int array returns correct shape
+ok 34 - Multi-dim native int array returns correct elems
+ok 35 - Can assign to multi-dim native int array in bounds (1)
+ok 36 - Can assign to multi-dim native int array in bounds (2)
+ok 37 - Cannot assign to multi-dim native int array out of bounds (1)
+ok 38 - Cannot assign to multi-dim native int array out of bounds (2)
+ok 39 - Cannot assign to multi-dim native int array out of bounds (3)

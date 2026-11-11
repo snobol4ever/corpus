@@ -1,0 +1,291 @@
+1..181
+ok 1 - (..) works on numbers (1)
+ok 2 - (..) works on numbers (2)
+ok 3 - (..) works on auto-rev numbers (3)
+ok 4 - (..) works on carried numbers (3)
+ok 5 - (..) works on chars (1)
+ok 6 - (..) works on chars (2)
+ok 7 - (..) works on chars (3)
+ok 8 - (..) works on char range ending in z
+ok 9 - (..) works on char range ending in Z
+ok 10 - (..) works on carried chars (3)
+ok 11 - (..) works on uppercase letter .. lowercase letter (1)
+ok 12 - (..) works on auto-rev uppercase letter .. lowercase letter (2)
+ok 13 - (..) works on letter .. non-letter (1)
+ok 14 - (..) works on auto-rev letter .. non-letter (2)
+ok 15 - all-whitespace range works
+ok 16 - (..) has correct precedence (1)
+ok 17 - (..) has correct precedence (2)
+ok 18 - (..) has correct precedence (3)
+ok 19 - (..) has correct precedence (4)
+ok 20 - bottom-exclusive range (^..) works (1)
+ok 21 - bottom-exclusive range (^..) works (2)
+ok 22 - bottom-exclusive auto-rev range (^..) works (3)
+ok 23 - top-exclusive range (..^) works (1)
+ok 24 - top-exclusive range (..^) works (2)
+ok 25 - top-exclusive auto-rev range (..^) works (3)
+ok 26 - double-exclusive range (^..^) works (1)
+ok 27 - double-exclusive auto-rev range (^..^) works (2)
+ok 28 - double-exclusive range (^..^) can produce null range (1)
+ok 29 - double-exclusive range (x ^..^ x) where x is an int
+ok 30 - bottom-exclusive string range (^..) works
+ok 31 - bottom-exclusive string auto-rev range (^..) works
+ok 32 - top-exclusive string range (..^) works
+ok 33 - top-exclusive string auto-rev range (..^) works
+ok 34 - double-exclusive string range (^..^) works
+ok 35 - double-exclusive string auto-rev range (^..^) works
+ok 36 - double-exclusive string range (^..^) can produce null range
+ok 37 - double-exclusive string auto-rev range (^..^) can produce null range
+ok 38 - double-exclusive range (x ^..^ x) where x is a char
+ok 39 - "a".."z"
+ok 40 - bottom-exclusive non-alphanumeric string range (^..) works
+ok 41 - top-exclusive non-alphanumeric string range (..^) works
+ok 42 - double-exclusive non-alphanumeric string range (^..^) works
+ok 43 - double-exclusive non-alphanumeric string range (^..^) can produce null range
+ok 44 - lazy evaluation of the range operator
+ok 45 - unary ^num produces the range 0..^num
+ok 46 - unary ^ on the boundary ^1 works
+ok 47 - unary ^0 produces null range
+ok 48 - unary ^-1 produces null range
+ok 49 - unary ^0.1 produces the range 0..^x where 0 < x < 1
+ok 50 - unary ^"num" produces the range 0..^num
+ok 51 - unary ^@a produces 0..^+@a
+ok 52 - 1..*
+ok 53 - "a"..*
+ok 54 - Ranges and infix:<Z>
+ok 55 - Ranges and infix:<Z>
+ok 56 - Ranges and infix:<Z>
+ok 57 - Ranges and infix:<Z>
+ok 58 - range with float .min
+ok 59 - range with float .min
+ok 60 - bottom exclusive range of float
+ok 61 - bottom exclusive range of float
+ok 62 - range with float .max
+ok 63 - range with float .max
+ok 64 - top exclusive range of float
+ok 65 - top exclusive range of float
+ok 66 - range with float .min/.max
+ok 67 - range with float .min/.max
+ok 68 - range with float .min/.max
+ok 69 - range with float .min/.max
+ok 70 - both exclusive float range
+ok 71 - both exclusive float range
+ok 72 - both exclusive float range
+ok 73 - both exclusive float range
+ok 74 - double-exclusive range (x ^..^ x) where x is a float
+ok 75 - lower inclusive limit is in scalar context
+ok 76 - lower exclusive limit is in scalar context
+ok 77 - lower exclusive limit is in scalar context
+ok 78 - upper inclusive limit is in scalar context
+ok 79 - upper inclusive limit is in scalar context
+ok 80 - upper exclusive limit is in scalar context
+ok 81 - upper exclusive limit is in scalar context
+ok 82 - both limits is in scalar context
+ok 83 - lower exclusive limit scalar context
+ok 84 - upper exclusive limit scalar context
+ok 85 - both exclusive limit scalar context
+ok 86 - .map works on ranges
+ok 87 - .grep works on ranges
+ok 88 - .first works on ranges
+ok 89 - .reduce works on ranges
+ok 90 - can make range from numeric string vars
+ok 91 - range starts at start
+ok 92 - range start is a string
+ok 93 - range ends at end
+ok 94 - range end is a string
+ok 95 - can stringify range
+ok 96 - range is correct
+ok 97 - can make range from match vars
+ok 98 - range starts at one
+ok 99 - range ends at three
+ok 100 - can stringify range
+ok 101 - range is correct
+ok 102 - regex sanity
+ok 103 - $0..$1 constructs a Range
+ok 104 - range from $0..$1
+ok 105 - can make range from match vars with numeric context forced
+ok 106 - range starts at one
+ok 107 - range ends at three
+ok 108 - can stringify range
+ok 109 - range is correct
+ok 110 - can make range from match vars with string context forced
+ok 111 - range starts at one
+ok 112 - range start is a string
+ok 113 - range ends at three
+ok 114 - range end is a string
+ok 115 - can stringify range
+ok 116 - range is correct
+ok 117 - 0 .. ^10 is illegal
+ok 118 - 2 .. @list is legal
+ok 119 - (1..$_) lives
+ok 120 - (..) works on Int .. Any
+ok 121 - 1 .. '10' has ten elements in it
+ok 122 - and they are all numbers
+ok 123 - 1 .. @array has ten elements in it
+ok 124 - and they are all numbers
+ok 125 - range doesn't leak Parrot types
+ok 126 - can iterate over big Int range
+ok 127 - Range of nums produces a Num
+# Subtest: .. is not associative
+    1..2
+    ok 1 - '1..2..3' died
+    ok 2 - right exception type (X::Syntax::NonAssociative)
+ok 128 - .. is not associative
+ok 129 - range optimizer is protected from cases with no block
+# Subtest: .. warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 130 - .. warns on common flattening mistake
+# Subtest: .. warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 131 - .. warns on common stringification mistake
+ok 132 - .. doesn't warn on parenthesized flattening (range)
+ok 133 - .. doesn't warn on parenthesized flattening (endpoint)
+ok 134 - .. doesn't warn on parenthesized stringification (range)
+ok 135 - .. doesn't warn on parenthesized stringification (endpoint)
+# Subtest: ^.. warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4^.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 136 - ^.. warns on common flattening mistake
+# Subtest: ^.. warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4^.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 137 - ^.. warns on common stringification mistake
+ok 138 - ^.. doesn't warn on parenthesized flattening (range)
+ok 139 - ^.. doesn't warn on parenthesized flattening (endpoint)
+ok 140 - ^.. doesn't warn on parenthesized stringification (range)
+ok 141 - ^.. doesn't warn on parenthesized stringification (endpoint)
+# Subtest: ..^ warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 142 - ..^ warns on common flattening mistake
+# Subtest: ..^ warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 143 - ..^ warns on common stringification mistake
+ok 144 - ..^ doesn't warn on parenthesized flattening (range)
+ok 145 - ..^ doesn't warn on parenthesized flattening (endpoint)
+ok 146 - ..^ doesn't warn on parenthesized stringification (range)
+ok 147 - ..^ doesn't warn on parenthesized stringification (endpoint)
+# Subtest: ^..^ warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4^..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 148 - ^..^ warns on common flattening mistake
+# Subtest: ^..^ warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4^..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 149 - ^..^ warns on common stringification mistake
+ok 150 - ^..^ doesn't warn on parenthesized flattening (range)
+ok 151 - ^..^ doesn't warn on parenthesized flattening (endpoint)
+ok 152 - ^..^ doesn't warn on parenthesized stringification (range)
+ok 153 - ^..^ doesn't warn on parenthesized stringification (endpoint)
+# Subtest:  R.. warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 154 -  R.. warns on common flattening mistake
+# Subtest:  R.. warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 155 -  R.. warns on common stringification mistake
+ok 156 -  R.. doesn't warn on parenthesized flattening (range)
+ok 157 -  R.. doesn't warn on parenthesized flattening (endpoint)
+ok 158 -  R.. doesn't warn on parenthesized stringification (range)
+ok 159 -  R.. doesn't warn on parenthesized stringification (endpoint)
+# Subtest:  R^.. warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R^.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 160 -  R^.. warns on common flattening mistake
+# Subtest:  R^.. warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R^.. 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 161 -  R^.. warns on common stringification mistake
+ok 162 -  R^.. doesn't warn on parenthesized flattening (range)
+ok 163 -  R^.. doesn't warn on parenthesized flattening (endpoint)
+ok 164 -  R^.. doesn't warn on parenthesized stringification (range)
+ok 165 -  R^.. doesn't warn on parenthesized stringification (endpoint)
+# Subtest:  R..^ warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 166 -  R..^ warns on common flattening mistake
+# Subtest:  R..^ warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 167 -  R..^ warns on common stringification mistake
+ok 168 -  R..^ doesn't warn on parenthesized flattening (range)
+ok 169 -  R..^ doesn't warn on parenthesized flattening (endpoint)
+ok 170 -  R..^ doesn't warn on parenthesized stringification (range)
+ok 171 -  R..^ doesn't warn on parenthesized stringification (endpoint)
+# Subtest:  R^..^ warns on common flattening mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R^..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 172 -  R^..^ warns on common flattening mistake
+# Subtest:  R^..^ warns on common stringification mistake
+    1..2
+    ok 1 - '{ use fatal; |4 R^..^ 5 }' died
+    ok 2 - right exception type (X::Worry::Precedence::Range)
+ok 173 -  R^..^ warns on common stringification mistake
+ok 174 -  R^..^ doesn't warn on parenthesized flattening (range)
+ok 175 -  R^..^ doesn't warn on parenthesized flattening (endpoint)
+ok 176 -  R^..^ doesn't warn on parenthesized stringification (range)
+ok 177 -  R^..^ doesn't warn on parenthesized stringification (endpoint)
+# Subtest: Range operators work with subclasses of Range
+    1..10
+    ok 1 - Range + Real
+    ok 2 - Real + Range
+    ok 3 - Range - Real
+    ok 4 - Range * Real
+    ok 5 - Real Range
+    ok 6 - Range / Real
+    ok 7 - Range U+2212 minus Real
+    ok 8 - Range U+00D7 Real
+    ok 9 - Real U+00D7 Range
+    ok 10 - Range U+00F7 Real
+ok 178 - Range operators work with subclasses of Range
+# Subtest: Ranges can have an offset applied
+    1..11
+    ok 1 - adding an integer literal offset to a ^ range
+    ok 2 - subracting an integer literal offset from a ^ range
+    ok 3 - adding an integer negative literal offset to a ^ range
+    ok 4 - adding an integer literal offset to a .. range
+    ok 5 - adding an integer offset in a constant variable to a .. range
+    ok 6 - adding an ineger offset in a native int variable to a .. range
+    ok 7 - adding an offset in a bigint variable to a .. range
+    ok 8 - adding a Num literal offset to a .. range
+    ok 9 - multiplying an integer literal offset by a .. range
+    ok 10 - multiplying a ^ range by an integer literal offset
+    ok 11 - dividing a ^ range by an integer literal offset
+ok 179 - Ranges can have an offset applied
+# Subtest: Smartmatch Coercions
+    1..14
+    ok 1 - stringified number in a context of numeric range, inside the range
+    ok 2 - stringified number in a context of numeric range, less than the min
+    ok 3 - stringified number in a context of numeric range, more than the max
+    ok 4 - a string in non-numeric against numeric range doesn't throw
+    ok 5 - previous smartmatch resulted in False
+    ok 6 - number in a context of stringy range, inside the range
+    ok 7 - same number, stringified, in a context of stringy range, inside the range
+    ok 8 - number in a context of stringy range, before the min
+    ok 9 - same number, stringified, in a context of stringy range, before the min
+    ok 10 - number in a context of stringy range, after the max
+    ok 11 - same number, stringified, in a context of stringy range, after the max
+    ok 12 - number in a context of whatever-string range, inside the range
+    ok 13 - number in a context of whatever-number range, outside the range
+    ok 14 - number in a context of whatever-string range, outside the range
+ok 180 - Smartmatch Coercions
+ok 181 - Junction ~~ Range ok

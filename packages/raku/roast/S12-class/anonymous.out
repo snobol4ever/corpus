@@ -1,0 +1,28 @@
+1..18
+ok 1 - instantiated the class
+ok 2 - isa check works
+not ok 3 - .WHAT.gist stringifies to () # TODO Anonymous class stringification (?)
+# Failed test '.WHAT.gist stringifies to ()'
+# at S12-class/anonymous.rakudo line 13
+# expected: '()'
+#      got: '(<anon|1>)'
+ok 4 - can call methods on anonymous classes
+ok 5 - can call methods on anonymous classes
+ok 6 - anonymous classes can have attributes
+ok 7 - anonymous class creation
+ok 8 - instantiation of anonymous class
+ok 9 - calling a method on an instance of an anonymous class (1)
+ok 10 - calling a method on an instance of an anonymous class (2)
+ok 11 - anonymous class isa TestParent
+ok 12 - inherited method from TestParent
+ok 13 - can get anonymous class instance once
+ok 14 - can get anonymous class instance twice
+ok 15 - anonymous class stringified works
+ok 16 - anonymous class numified works
+# Subtest: anon class is actually anon
+    1..2
+    ok 1 - 'anon class C { }; C.WHAT; ' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 17 - anon class is actually anon
+ok 18 - anonymous classes are distinct
+# FUDGED!

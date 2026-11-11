@@ -1,0 +1,80 @@
+1..57
+ok 1 - List.tail works
+ok 2 - Array.tail(N) works
+ok 3 - tail(N,Array) works
+ok 4 - Scalar.tail works
+ok 5 - Range.tail works
+# Subtest: Range.tail on lazy list does not work
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches tail
+ok 6 - Range.tail on lazy list does not work
+ok 7 - List.tail(5) works
+ok 8 - tail(5,$List) works
+ok 9 - tail(5,List) works
+ok 10 - Array.tail(5) works
+ok 11 - tail(5,Array) works
+ok 12 - Scalar.tail(5) works
+ok 13 - tail(5,Scalar) works
+ok 14 - Range.tail(5) works
+ok 15 - tail(5,$Range) works
+ok 16 - tail(5,Range) works
+# Subtest: Range.tail(5) on lazy list does not work
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches tail
+ok 17 - Range.tail(5) on lazy list does not work
+ok 18 - List.tail(0) works
+ok 19 - tail(0,List) works
+ok 20 - Array.tail(0) works
+ok 21 - tail(0,Array) works
+ok 22 - Scalar.tail(0) works
+ok 23 - tail(0,Scalar) works
+ok 24 - Range.tail(0) works
+ok 25 - tail(0,Range) works
+ok 26 - List.tail(-1) works
+ok 27 - tail(-1,List) works
+ok 28 - Array.tail(-1) works
+ok 29 - tail(-1,Array) works
+ok 30 - Scalar.tail(-1) works
+ok 31 - tail(-1,Scalar) works
+ok 32 - Range.tail(-1) works
+ok 33 - tail(-1,Range) works
+ok 34 - List.tail(N) works if too short
+ok 35 - tail(N,$List) works if too short
+ok 36 - tail(N,List) works if too short
+ok 37 - Array.tail(N) works if too short
+ok 38 - tail(N,Array) works if too short
+ok 39 - Range.tail(N) works if too short
+ok 40 - tail(N,$Range) works if too short
+ok 41 - tail(N,Range) works if too short
+ok 42 - List.tail works if empty
+ok 43 - List.tail(N) works if empty
+ok 44 - tail(N,$List) works if empty
+ok 45 - tail(N,List) works if empty
+ok 46 - Array.tail works if empty
+ok 47 - Array.tail(N) works if empty
+ok 48 - tail(N,Array) works if empty
+ok 49 - Range.tail works if empty
+ok 50 - Range.tail(N) works if empty
+ok 51 - tail(N,$Range) works if empty
+ok 52 - tail(N,Range) works if empty
+# Subtest: tail makes use .count-only when it is implemented
+    1..4
+    ok 1 - correct tail value
+    ok 2 - we called .pull-one just once
+    ok 3 - correct tail value (when Seq got no values)
+    ok 4 - we did not pull (or pulled just one
+ok 53 - tail makes use .count-only when it is implemented
+ok 54 - can use ints over 64-bit in .tail
+ok 55 - can .tail a .tail
+# Subtest: degenerate .tail works
+    1..4
+    ok 1 - List (1)
+    ok 2 - List (2)
+    ok 3 - Int  (1)
+    ok 4 - Int  (2)
+ok 56 - degenerate .tail works
+ok 57 - .tail(Callable) does not violate Iterator protocol

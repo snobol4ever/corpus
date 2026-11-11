@@ -1,0 +1,40 @@
+1..39
+ok 1 - dot method invocation
+ok 2 - ... indirect method invocation works
+ok 3 - ... got the right value for indirect method invocation
+ok 4 - ... no parentheses after method
+ok 5 - ... parentheses after method
+ok 6 - ... <unspace> + parentheses after method
+ok 7 - ... we got the value correctly
+ok 8 - method declared with no brackets
+ok 9 - ... we got the value correctly
+ok 10 - method calling method
+ok 11 - ... we got the value correctly
+ok 12 - method calling method with no brackets
+ok 13 - ... we got the value correctly
+ok 14 - can't call current object methods on lexical data structures
+ok 15 - can call a method "list"
+ok 16 - basic sanity 1
+ok 17 - basic sanity 2
+ok 18 - additional named args are ignored
+ok 19 - ... same, but test value
+ok 20 - basic sanity 1 (class method)
+ok 21 - basic sanity 2 (class method)
+ok 22 - additional named args are ignored (class method)
+ok 23 - ... same, but test value (class method)
+ok 24 - call to private method in presence of attribute
+ok 25 - a typed $: as invocant is OK
+ok 26 - can call a sub of the same name as the current method
+ok 27 - can use %_ in a method
+ok 28 -  ... and got right result
+ok 29 - can use implicit %_ in a method
+ok 30 - ... and got he right result
+ok 31 - can use %_ in a method (implicit)
+ok 32 -  ... and got right result (implicit)
+ok 33 - can use explicit @_ in method signature
+ok 34 - Can dispatch y(*)
+ok 35 - Invocant type is checked
+ok 36 - nested methods work
+ok 37 - a named method definition inside a class returns a Method
+ok 38 - ... and that method knows its name
+ok 39 - self does not enforce an item context

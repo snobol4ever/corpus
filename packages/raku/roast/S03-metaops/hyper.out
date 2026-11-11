@@ -1,0 +1,602 @@
+1..420
+ok 1 - ascii hyper >> <<
+ok 2 - unicode hyper >> <<
+ok 3 - ascii hyper >> >>
+ok 4 - unicode hyper >> >>
+ok 5 - ascii hyper << >>
+ok 6 - unicode hyper << >>
+ok 7 - ascii hyper << <<
+ok 8 - unicode hyper << <<
+ok 9 - ascii hyper >>[ ]<<
+ok 10 - unicode hyper >>[ ]<<
+ok 11 - ascii hyper >>[ ]>>
+ok 12 - unicode hyper >>[ ]>>
+ok 13 - ascii hyper <<[ ]>>
+ok 14 - unicode hyper <<[ ]>>
+ok 15 - ascii hyper <<[ ]<<
+ok 16 - unicode hyper <<[ ]<<
+ok 17 - precedence - »+« vs »*«
+ok 18 - hyper auto increment an array
+ok 19 - hyper auto increment an array ASCII notation
+ok 20 - hyper op on assignment/pipeline
+ok 21 - hyper op on assignment/pipeline ASCII notation
+ok 22 - auto dimension upgrade on rhs ASCII notation
+ok 23 - auto dimension upgrade on lhs ASCII notation
+ok 24 - both dwim short side lengthening on ASCII notation
+# Subtest: both non-dwim dies correctly on ASCII notation
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+    ok 3 - .left-elems matches 3
+    ok 4 - .right-elems matches 5
+ok 25 - both non-dwim dies correctly on ASCII notation
+ok 26 - list-level element truncate on rhs ASCII notation
+ok 27 - list-level element truncate on lhs ASCII notation
+ok 28 - list-level element extension on rhs ASCII notation
+ok 29 - list-level element extension on lhs ASCII notation
+ok 30 - list-level element extension on rhs ASCII notation
+ok 31 - list-level element extension on lhs ASCII notation
+ok 32 - list-level element extension on rhs ASCII notation
+ok 33 - list-level element extension on lhs ASCII notation
+ok 34 - scalar element extension on rhs ASCII notation
+ok 35 - scalar element extension on lhs ASCII notation
+ok 36 - list-level element truncate on rhs unicode notation
+ok 37 - list-level element truncate on lhs unicode notation
+ok 38 - list-level element extension on rhs unicode notation
+ok 39 - list-level element extension on lhs unicode notation
+ok 40 - list-level element extension on rhs unicode notation
+ok 41 - list-level element extension on lhs unicode notation
+ok 42 - list-level element extension on rhs unicode notation
+ok 43 - list-level element extension on lhs unicode notation
+ok 44 - scalar element extension on rhs unicode notation
+ok 45 - scalar element extension on lhs unicode notation
+ok 46 - lazy list-level extension on lhs ascii notation
+# Subtest: lazy list on left side with both dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches left
+ok 47 - lazy list on left side with both dwim dies correctly
+# Subtest: lazy list on left side with right dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches left
+ok 48 - lazy list on left side with right dwim dies correctly
+# Subtest: lazy list on left side with both non-dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches left
+ok 49 - lazy list on left side with both non-dwim dies correctly
+ok 50 - lazy list-level extension on rhs ascii notation
+# Subtest: lazy list on right side with both dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches right
+ok 51 - lazy list on right side with both dwim dies correctly
+# Subtest: lazy list on right side with left dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches right
+ok 52 - lazy list on right side with left dwim dies correctly
+# Subtest: lazy list on right side with both non-dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches right
+ok 53 - lazy list on right side with both non-dwim dies correctly
+# Subtest: lazy list on both sides with both non-dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches both
+ok 54 - lazy list on both sides with both non-dwim dies correctly
+# Subtest: lazy list on both sides with both dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches both
+ok 55 - lazy list on both sides with both dwim dies correctly
+# Subtest: lazy list on both sides with left dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches both
+ok 56 - lazy list on both sides with left dwim dies correctly
+# Subtest: lazy list on both sides with right dwim dies correctly
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::Infinite)
+    ok 3 - .side matches both
+ok 57 - lazy list on both sides with right dwim dies correctly
+ok 58 - method call on integer list elements
+ok 59 - method call on integer list elements (ASCII)
+ok 60 - operator call on integer list elements
+ok 61 - operator call on integer list elements (Same thing, dot form)
+ok 62 - postfix operator (dotted form) on integer list elements after unary postfix hyper operator
+ok 63 - postfix operator (dotted form) on integer list elements after unary postfix hyper operator (ASCII)
+ok 64 - postfix operator (dotted form) on integer list elements after unary postfix hyper operator (unspace form)
+ok 65 - non-wordy postfix operator
+ok 66 - non-wordy postfix operator, ASCII
+ok 67 - non-wordy postfix operator, dotted form
+ok 68 - non-wordy postfix operator, ASCII, dotted form
+ok 69 - wordy postfix operator
+ok 70 - wordy postfix operator, ASCII
+# Subtest: wordy postfix operator: dotted form not allowed
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .message matches No such method 'foo' for invocant of type 'Int'
+ok 71 - wordy postfix operator: dotted form not allowed
+# Subtest: wordy postfix operator, ASCII: dotted form not allowed
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .message matches No such method 'foo' for invocant of type 'Int'
+ok 72 - wordy postfix operator, ASCII: dotted form not allowed
+ok 73 - manually defined method i is not confused with postfix:<i>
+ok 74 - manually defined method i is not confused with postfix:<i>
+ok 75 - postfix:<i> still works
+ok 76 - postfix:<i> still works (2)
+# Subtest: dotted form of postfix:<i> fails
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .message matches WhateverCode.new
+ok 77 - dotted form of postfix:<i> fails
+ok 78 - postfix:<i> works on list elements
+ok 79 - postfix:<i> works on list elements (ASCII form)
+ok 80 - calling .() on list elements works
+ok 81 - calling .() on list elements works, ASCII
+ok 82 - method call on list elements
+ok 83 - method call on list elements (Same thing, dot form)
+ok 84 - method call on list elements (ASCII)
+ok 85 - method call on list elements (ASCII, Same thing, dot form)
+ok 86 - method call on list elements (quoted method name)
+ok 87 - method call on list elements (ASCII, quoted method name)
+ok 88 - plain method call works OK
+ok 89 - hyper-method-call on list of user-defined objects
+ok 90 - distribution for unary prefix
+ok 91 - distribution for unary prefix, deep comparison
+ok 92 - distribution for unary postfix autoincr
+ok 93 - distribution for unary postfix autoincr, deep comparison
+ok 94 - nodal postcircumfixes do not distribute
+ok 95 - nodal methods do not distribute (elems)
+ok 96 - nodal methods do not distribute (reverse)
+ok 97 - .all is nodal
+ok 98 - .antipairs is nodal
+ok 99 - .any is nodal
+ok 100 - .Array is nodal
+ok 101 - .BagHash is nodal
+ok 102 - .Bag is nodal
+ok 103 - .categorize is nodal
+ok 104 - .classify is nodal
+ok 105 - .combinations is nodal
+ok 106 - .deepmap is nodal
+ok 107 - .duckmap is nodal
+ok 108 - .eager is nodal
+ok 109 - .elems is nodal
+ok 110 - .end is nodal
+ok 111 - .first is nodal
+ok 112 - .flat is nodal
+ok 113 - .flatmap is nodal
+ok 114 - .grep is nodal
+ok 115 - .hash is nodal
+ok 116 - .Hash is nodal
+ok 117 - .join is nodal
+ok 118 - .keys is nodal
+ok 119 - .kv is nodal
+ok 120 - .list is nodal
+ok 121 - .List is nodal
+ok 122 - .map is nodal
+ok 123 - .max is nodal
+ok 124 - .min is nodal
+ok 125 - .minmax is nodal
+ok 126 - .MixHash is nodal
+ok 127 - .Mix is nodal
+ok 128 - .nodemap is nodal
+ok 129 - .none is nodal
+ok 130 - .one is nodal
+ok 131 - .pairs is nodal
+ok 132 - .pairup is nodal
+ok 133 - .permutations is nodal
+ok 134 - .pick is nodal
+ok 135 - .postcircumfix:<[ ]> is nodal
+ok 136 - .postcircumfix:<[; ]> is nodal
+ok 137 - .produce is nodal
+ok 138 - .reduce is nodal
+ok 139 - .repeated is nodal
+ok 140 - .reverse is nodal
+ok 141 - .roll is nodal
+ok 142 - .rotate is nodal
+ok 143 - .rotor is nodal
+ok 144 - .Seq is nodal
+ok 145 - .SetHash is nodal
+ok 146 - .Set is nodal
+ok 147 - .Slip is nodal
+ok 148 - .sort is nodal
+ok 149 - .squish is nodal
+ok 150 - .Supply is nodal
+ok 151 - .tree is nodal
+ok 152 - .unique is nodal
+ok 153 - .values is nodal
+ok 154 - .push is nodal
+ok 155 - .pop is nodal
+ok 156 - .append is nodal
+ok 157 - .unshift is nodal
+ok 158 - .shift is nodal
+ok 159 - .prepend is nodal
+not ok 160 - .splice is nodal # TODO doesn't seem to see the nodal
+# Failed test '.splice is nodal'
+# at S03-metaops/hyper.rakudo line 425
+# expected: ''
+#      got: '([2] [4])'
+ok 161 - distribution for binary infix, same shape, ASCII
+ok 162 - distribution for binary infix, same shape, ASCII, deep comparison
+ok 163 - distribution for binary infix, dimension upgrade, ASCII
+ok 164 - distribution for binary infix, dimension upgrade, ASCII, deep comparison
+ok 165 - distribution for binary infix, S03 cross-upgrade, ASCII
+ok 166 - distribution for binary infix, S03 cross-upgrade, ASCII, deep comparison
+ok 167 - distribution for binary infix, same shape
+ok 168 - distribution for binary infix, same shape, deep comparison
+ok 169 - distribution for binary infix, dimension upgrade
+ok 170 - distribution for binary infix, dimension upgrade, deep comparison
+ok 171 - distribution for binary infix, S03 cross-upgrade
+ok 172 - distribution for binary infix, S03 cross-upgrade, deep comparison
+ok 173 - hyper op works on variables, too.
+ok 174 - hyper op and correctly promotes scalars
+ok 175 - hyper-dereference an array
+ok 176 - hyper-dereference an array slice
+ok 177 - »|« hyperjunction evals
+ok 178 - >>|<< hyperjunction evals, ASCII
+ok 179 - »&« hyperjunction evals
+ok 180 - >>&<< hyperjunction evals, ASCII
+ok 181 - hash - >>+<< result has right number of keys (same keys)
+ok 182 - hash - correct result from >>+<< (same keys)
+ok 183 - hash - correct result from >>+<< (same keys)
+ok 184 - hash - correct result from >>+<< (same keys)
+ok 185 - hash - »+« result has right number of keys (union test)
+ok 186 - hash - correct result from »+« (union test)
+ok 187 - hash - correct result from »+« (union test)
+ok 188 - hash - correct result from »+« (union test)
+ok 189 - hash - >>+<< result has right number of keys (union test)
+ok 190 - hash - correct result from >>+<< (union test)
+ok 191 - hash - correct result from >>+<< (union test)
+ok 192 - hash - correct result from >>+<< (union test)
+ok 193 - hash - <<+>> result has right number of keys (same keys)
+ok 194 - hash - correct result from <<+>> (same keys)
+ok 195 - hash - correct result from <<+>> (same keys)
+ok 196 - hash - correct result from <<+>> (same keys)
+ok 197 - hash - <<+>> result has right number of keys (intersection test)
+ok 198 - hash - correct result from <<+>> (intersection test)
+ok 199 - hash - correct result from <<+>> (intersection test)
+ok 200 - hash - <<+>> result has right number of keys (intersection test)
+ok 201 - hash - correct result from <<+>> (intersection test)
+ok 202 - hash - correct result from <<+>> (intersection test)
+ok 203 - hash - >>+>> result has right number of keys
+ok 204 - hash - correct result from >>+>>
+ok 205 - hash - correct result from >>+>>
+ok 206 - hash - correct result from >>+>>
+ok 207 - hash - >>+>> result has right number of keys
+ok 208 - hash - correct result from >>+>>
+ok 209 - hash - correct result from >>+>>
+ok 210 - hash - <<+<< result has right number of keys
+ok 211 - hash - correct result from <<+<<
+ok 212 - hash - correct result from <<+<<
+ok 213 - hash - correct result from <<+<<
+ok 214 - hash - <<+<< result has right number of keys
+ok 215 - hash - correct result from <<+<<
+ok 216 - hash - correct result from <<+<<
+ok 217 - hash - -<< result has right number of keys
+ok 218 - hash - correct result from -<<
+ok 219 - hash - correct result from -<<
+ok 220 - hash - correct result from -<<
+ok 221 - hash - --<< result has right number of keys
+ok 222 - hash - correct result from --<<
+ok 223 - hash - correct result from --<<
+ok 224 - hash - correct result from --<<
+ok 225 - hash - --<< result has right number of keys
+ok 226 - hash - correct result from --<<
+ok 227 - hash - correct result from --<<
+ok 228 - hash - correct result from --<<
+ok 229 - hash - >>++ result has right number of keys
+ok 230 - hash - correct result from >>++
+ok 231 - hash - correct result from >>++
+ok 232 - hash - correct result from >>++
+ok 233 - hash - >>++ result has right number of keys
+ok 234 - hash - correct result from >>++
+ok 235 - hash - correct result from >>++
+ok 236 - hash - correct result from >>++
+ok 237 - hash - >>! result has right number of keys
+ok 238 - hash - correct result from >>!
+ok 239 - hash - correct result from >>!
+ok 240 - hash - correct result from >>!
+ok 241 - hash - >>*>> result has right number of keys
+ok 242 - hash - correct result from >>*>>
+ok 243 - hash - correct result from >>*>>
+ok 244 - hash - correct result from >>*>>
+ok 245 - hash - <<**<< result has right number of keys
+ok 246 - hash - correct result from <<**<<
+ok 247 - hash - correct result from <<**<<
+ok 248 - hash - correct result from <<**<<
+ok 249 - hash - <<*>> result has right number of keys
+ok 250 - hash - correct result from <<*>>
+ok 251 - hash - correct result from <<*>>
+ok 252 - hash - correct result from <<*>>
+ok 253 - hash - <<**>> result has right number of keys
+ok 254 - hash - correct result from <<**>>
+ok 255 - hash - correct result from <<**>>
+ok 256 - hash - correct result from <<**>>
+ok 257 - hash - >>.abs result has right number of keys
+ok 258 - hash - correct result from >>.abs
+ok 259 - hash - correct result from >>.abs
+ok 260 - hash - correct result from >>.abs
+ok 261 - hash in array - result array is the correct length
+ok 262 - hash in array - correct result from <<~>>
+ok 263 - hash in array - correct result from <<~>>
+ok 264 - hash in array - correct result from <<~>>
+ok 265 - hash in array - correct result from <<~>>
+ok 266 - hash in array - result array is the correct length
+ok 267 - hash in array - correct result from >>~<<
+ok 268 - hash in array - correct result from >>~<<
+ok 269 - hash in array - correct result from >>~<<
+ok 270 - hash in array - correct result from >>~<<
+ok 271 - hash in array - result array is the correct length
+ok 272 - hash in array - correct result from >>~>>
+ok 273 - hash in array - correct result from >>~>>
+ok 274 - hash in array - correct result from >>~>>
+ok 275 - hash in array - correct result from >>~>>
+ok 276 - hash in array - result array is the correct length
+ok 277 - hash in array - correct result from <<R~<<
+ok 278 - hash in array - correct result from <<R~<<
+ok 279 - hash in array - correct result from <<R~<<
+ok 280 - hash in array - correct result from <<R~<<
+ok 281 - hash in array - result array is the correct length
+ok 282 - hash in array - correct result from <<~>>
+ok 283 - hash in array - correct result from <<~>>
+ok 284 - hash in array - correct result from <<~>>
+ok 285 - hash in array - correct result from <<~>>
+ok 286 - hash in array - correct result from <<~>>
+ok 287 - hash in array - correct result from <<~>>
+ok 288 - hash in array - correct result from <<~>>
+ok 289 - hash in array - correct result from <<~>>
+ok 290 - hash in array - result array is the correct length
+ok 291 - hash in array - correct result from «~»
+ok 292 - hash in array - correct result from «~»
+ok 293 - hash in array - correct result from «~»
+ok 294 - hash in array - correct result from «~»
+ok 295 - hash in array - result array is the correct length
+ok 296 - hash in array - correct result from »~«
+ok 297 - hash in array - correct result from »~«
+ok 298 - hash in array - correct result from »~«
+ok 299 - hash in array - correct result from »~«
+ok 300 - hash in array - result array is the correct length
+ok 301 - hash in array - correct result from »~»
+ok 302 - hash in array - correct result from »~»
+ok 303 - hash in array - correct result from »~»
+ok 304 - hash in array - correct result from »~»
+ok 305 - hash in array - result array is the correct length
+ok 306 - hash in array - correct result from «R~«
+ok 307 - hash in array - correct result from «R~«
+ok 308 - hash in array - correct result from «R~«
+ok 309 - hash in array - correct result from «R~«
+ok 310 - hash in array - result array is the correct length
+ok 311 - hash in array - correct result from «~»
+ok 312 - hash in array - correct result from «~»
+ok 313 - hash in array - correct result from «~»
+ok 314 - hash in array - correct result from «~»
+ok 315 - hash in array - correct result from «~»
+ok 316 - hash in array - correct result from «~»
+ok 317 - hash in array - correct result from «~»
+ok 318 - hash in array - correct result from «~»
+ok 319 - hash in array - result array is the correct length
+ok 320 - hash in array - correct result from -<<
+ok 321 - hash in array - correct result from -<<
+ok 322 - hash in array - correct result from -<<
+ok 323 - hash in array - correct result from -<<
+ok 324 - hash in array - result array is the correct length
+ok 325 - hash in array - correct result from ++<<
+ok 326 - hash in array - correct result from ++<<
+ok 327 - hash in array - correct result from ++<<
+ok 328 - hash in array - correct result from ++<<
+ok 329 - hash in array - result array is the correct length
+ok 330 - hash in array - correct result from ++<<
+ok 331 - hash in array - correct result from ++<<
+ok 332 - hash in array - correct result from ++<<
+ok 333 - hash in array - correct result from ++<<
+ok 334 - hash in array - result array is the correct length
+ok 335 - hash in array - correct result from ++<<
+ok 336 - hash in array - correct result from ++<<
+ok 337 - hash in array - correct result from ++<<
+ok 338 - hash in array - correct result from ++<<
+ok 339 - # SKIP EVAL(Buf) RT  \#122256
+ok 340 - dwimmy hyper doesn't return an itemized list
+ok 341 - dwimmy hyper extends lists ending with * by copying the last element
+ok 342 - dwimmy hyper extends lists ending with * by copying the last element
+ok 343 - dwimmy hyper extends lists ending with * by copying the last element
+ok 344 - dwimmy hyper extends lists ending with * by copying the last element
+ok 345 - dwimmy hyper omits * when both arguments of same length have one
+ok 346 - dwimmy hyper takes longer length given two arguments ending with *
+ok 347 - can use hypers with local scoped user-defined operators
+ok 348 - ranges and hyper ops mix
+ok 349 - <<-<<
+ok 350 - >>->>
+ok 351 - >>-<<
+ok 352 - <<->>
+ok 353 - »+=« returns the right value
+ok 354 - »+=« changes its lvalue
+ok 355 - »*=» returns the right value
+ok 356 - »*=» changes its lvalue
+ok 357 - »~=» with list of scalars on the left returns the right value
+ok 358 - »~=» changes each scalar
+ok 359 - >>[+]<< works
+ok 360 - .>> works with .()
+ok 361 - .>>.() means the same as >>.()
+ok 362 - can call Callable objects in a list in parallel using >>.()
+# Subtest: hypering assignment dies correctly
+    1..2
+    not ok 1 - 'my @a >>[=]>> (1,2,3)' died # TODO can_meta check for meta operators NYI
+    # Failed test ''my @a >>[=]>> (1,2,3)' died'
+    # at S03-metaops/hyper.rakudo line 926
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 363 - hypering assignment dies correctly # TODO can_meta check for meta operators NYI
+# Failed test 'hypering assignment dies correctly'
+# at S03-metaops/hyper.rakudo line 926
+ok 364 - hyper against an undefined Iterable doesn't hang
+ok 365 - hyper against an undefined Associative doesn't hang
+ok 366 - no-dwim hyper between empty lists doesn't hang
+ok 367 - left-dwim hyper between empty lists doesn't hang
+ok 368 - right-dwim hyper between empty lists doesn't hang
+ok 369 - both-dwim hyper between empty lists doesn't hang
+ok 370 - left-dwim hyper against empty RHS doesn't hang
+ok 371 - right-dwim hyper against empty RHS doesn't hang
+ok 372 - both-dwim hyper against empty RHS doesn't hang
+# Subtest: non-dwim hyper against empty RHS dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+    ok 3 - .right-elems matches 0
+    ok 4 - .left-elems matches 1
+ok 373 - non-dwim hyper against empty RHS dies
+ok 374 - left-dwim hyper against empty LHS doesn't hang
+ok 375 - right-dwim hyper against empty LHS doesn't hang
+ok 376 - both-dwim hyper against empty LHS doesn't hang
+# Subtest: non-dwim hyper against empty RHS dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+    ok 3 - .right-elems matches 1
+    ok 4 - .left-elems matches 0
+ok 377 - non-dwim hyper against empty RHS dies
+ok 378 - left-dwim hyper against empty RHS doesn't hang
+ok 379 - right-dwim hyper against empty RHS doesn't hang
+ok 380 - both-dwim hyper against empty RHS doesn't hang
+# Subtest: non-dwim hyper against empty RHS dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+    ok 3 - .right-elems matches 0
+    ok 4 - .left-elems matches 5
+ok 381 - non-dwim hyper against empty RHS dies
+ok 382 - left-dwim hyper against empty LHS doesn't hang
+ok 383 - right-dwim hyper against empty LHS doesn't hang
+ok 384 - both-dwim hyper against empty LHS doesn't hang
+# Subtest: non-dwim hyper against empty RHS dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+    ok 3 - .left-elems matches 0
+    ok 4 - .right-elems matches 5
+ok 385 - non-dwim hyper against empty RHS dies
+# Subtest: «.» can't be hypered
+    1..2
+    ok 1 - '3 «.» foo' died
+    ok 2 - right exception type (Exception)
+ok 386 - «.» can't be hypered
+ok 387 - hyper op works with range on non-magical side (1)
+ok 388 - hyper op works with range on non-magical side (2)
+ok 389 - hyper op works with (finite) range on non-magical side (3)
+ok 390 - Hyper prefix can autogen with &
+ok 391 - Hyper prefix can autogen without &
+ok 392 - Hyper >><< can autogen with &
+ok 393 - Hyper >>>> can autogen with &
+ok 394 - Hyper <<<< can autogen with &
+ok 395 - Hyper <<>> can autogen with &
+ok 396 - Hyper >><< can autogen without &
+ok 397 - Hyper >>>> can autogen without &
+ok 398 - Hyper <<<< can autogen without &
+ok 399 - Hyper <<>> can autogen without &
+ok 400 - Hyper >><< can autogen with &[]
+ok 401 - Hyper >>>> can autogen with &[]
+ok 402 - Hyper <<<< can autogen with &[]
+ok 403 - Hyper <<>> can autogen with &[]
+ok 404 - Hyper postfix can autogen with &
+ok 405 - Hyper postfix can autogen without &
+ok 406 - union hyperoperator on a hash shouldn't warn about missing keys
+# Subtest: method call variants respect nodality
+    1..20
+    ok 1 - ».
+    ok 2 - ».""()
+    ok 3 - ».&
+    ok 4 - ».$
+    ok 5 - ».::
+    ok 6 - ».?
+    ok 7 - ».?""()
+    ok 8 - ».?&
+    ok 9 - ».?$
+    ok 10 - ».?::
+    ok 11 - ».+
+    ok 12 - ».+""()
+    ok 13 - ».+&
+    ok 14 - ».+$
+    ok 15 - ».+::
+    ok 16 - ».*
+    ok 17 - ».*""()
+    ok 18 - ».*&
+    ok 19 - ».*$
+    ok 20 - ».*::
+ok 407 - method call variants respect nodality
+# Subtest: hyper method calls string/var method names
+    1..8
+    # Subtest: ».""() evaluates given value only once
+        1..2
+        ok 1 - right result
+        ok 2 - producing method name ran only once
+    ok 1 - ».""() evaluates given value only once
+    # Subtest: ».?""() evaluates given value only once
+        1..2
+        ok 1 - right result
+        ok 2 - producing method name ran only once
+    ok 2 - ».?""() evaluates given value only once
+    # Subtest: ».+""() evaluates given value only once
+        1..2
+        ok 1 - right result
+        ok 2 - producing method name ran only once
+    ok 3 - ».+""() evaluates given value only once
+    # Subtest: ».*""() evaluates given value only once
+        1..2
+        ok 1 - right result
+        ok 2 - producing method name ran only once
+    ok 4 - ».*""() evaluates given value only once
+    # Subtest: ».& sub calls
+        1..2
+        ok 1 - right result
+        ok 2 - sub ran expected number of times
+    ok 5 - ».& sub calls
+    # Subtest: ».?& sub calls
+        1..2
+        ok 1 - right result
+        ok 2 - sub ran expected number of times
+    ok 6 - ».?& sub calls
+    # Subtest: ».+& sub calls
+        1..2
+        ok 1 - right result
+        ok 2 - sub ran expected number of times
+    ok 7 - ».+& sub calls
+    # Subtest: ».*& sub calls
+        1..2
+        ok 1 - right result
+        ok 2 - sub ran expected number of times
+    ok 8 - ».*& sub calls
+ok 408 - hyper method calls string/var method names
+ok 409 - No crash when RHS to be expanded is an itemized list
+ok 410 - An array built with a hyperoperator is mutable
+ok 411 - Hyper on slip values is correct
+ok 412 - Values created with a hyperoperator can be wrapped in a slip
+ok 413 - does hypering a Map give a Map without issues
+ok 414 - is != treated as an infix, instead of a meta-ed assignment
+ok 415 - hypered infix:<~> on list of pairs gives back a list
+ok 416 - hypered infix:<~> on list of pairs leaves keys unchanged
+ok 417 - hypered infix:<~> on list of pairs appends to stringified value
+# Subtest: did we throws-like X::Seq::Consumed?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Seq::Consumed)
+    ok 3 - .kind matches (HyperSeq)
+ok 418 - did we throws-like X::Seq::Consumed?
+ok 419 - do we get the same data structure if constraint allows
+ok 420 - do we get a List if constraint does not allow
+# FUDGED!

@@ -1,0 +1,9 @@
+1..8
+ok 1 - can create TCP UNIX socket servers
+ok 2 - can create TCP UNIX socket clients
+ok 3 - can accept connections to TCP UNIX socket servers
+ok 4 - can write data to TCP UNIX sockets
+ok 5 - can receive data from TCP UNIX sockets...
+ok 6 - ...which matches the original data sent
+ok 7 - can close TCP UNIX socket clients
+ok 8 - can close TCP UNIX socket servers

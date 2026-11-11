@@ -1,0 +1,4 @@
+1..3
+ok 1 - can handle exception without `message` method
+ok 2 - can handle X::Undeclared::Symbols exception
+ok 3 - using wrong module gives us a JSON error instead of crashing

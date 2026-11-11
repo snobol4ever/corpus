@@ -1,0 +1,4 @@
+1..3
+ok 1 - -p -e 1 works like cat
+ok 2 - -p works in combination with s:g///
+ok 3 - -p -e using $0 in {} in "" in rhs in assign to s[] form subst

@@ -1,0 +1,93 @@
+1..35
+ok 1 - Can pass optional param
+ok 2 - Can leave out optional param
+ok 3 - Can pass all two optional params
+ok 4 - Can pass one of two optional params
+ok 5 - Can leave out all two optional params
+ok 6 - Can pass all two optional params
+ok 7 - Can pass one of two optional params
+ok 8 - Can leave out all two optional params
+ok 9 - can pass optional typed param
+ok 10 - can leave out optional typed param
+# Subtest: optional params before required ones are forbidden
+    1..2
+    ok 1 - 'sub wrong1 ($a?, $b) {...}' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+ok 11 - optional params before required ones are forbidden
+# Subtest: ...even if they're only optional by virtue of a default
+    1..2
+    ok 1 - 'sub wrong2 ($a = 1, $b) {...}' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+ok 12 - ...even if they're only optional by virtue of a default
+# Subtest: ...and the default is 0
+    1..2
+    ok 1 - 'sub wrong3 ($a = 0, $b) {...}' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+ok 13 - ...and the default is 0
+ok 14 - die on too many parameters (was once bug RT  \#53814)
+# Subtest: two commas in a row doesn't parse
+    1..2
+    ok 1 - 'sub rt54804( $v, $w?, $x?, $y? ) {
+    #         (defined( $v ) ?? $v !! 'undef')
+    #         ~ '|' ~
+    #         (defined( $w ) ?? $w !! 'undef')
+    #         ~ '|' ~
+    #         (defined( $x ) ?? $x !! 'undef')
+    #         ~ '|' ~
+    #         (defined( $y ) ?? $y !! 'undef')
+    #     }
+    #     rt54804( 1, , 3, )' died
+    ok 2 - right exception type (X::Syntax::InfixInTermPosition)
+ok 15 - two commas in a row doesn't parse
+# Subtest: Can't put required parameter after optional parameters
+    1..2
+    ok 1 - 'sub rt66822($opt?, $req) { "$opt, $req" }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+ok 16 - Can't put required parameter after optional parameters
+ok 17 - optional array not passed is empty
+ok 18 - optional array not passed is empty (copy)
+ok 19 - optional hash not passed is empty
+ok 20 - optional hash not passed is empty (copy)
+ok 21 - can assign to an optional typed array not passed
+ok 22 - can assign to an optional typed array that is passed
+ok 23 - can assign to an optional typed hash not passed
+ok 24 - can assign to an optional typed hash that is passed
+# Subtest: Cannot put required parameter after optional parameters
+    1..2
+    ok 1 - 'sub opt($a = 1, $b) { }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+ok 25 - Cannot put required parameter after optional parameters
+ok 26 - optional param with type constraints gets the right value
+ok 27 - default values are type-checked
+ok 28 - can assign to optional parameter
+ok 29 - an optional-but-not-filled hash is just an empty Hash
+ok 30 - question mark for optional parameter is parsed correctly
+# Subtest: making an "is rw" parameter optional dies with adequate error message
+    1..4
+    ok 1 - 'sub foo($x? is rw) {}' died
+    ok 2 - right exception type (X::Trait::Invalid)
+    ok 3 - .subtype matches rw
+    ok 4 - .type matches is
+ok 31 - making an "is rw" parameter optional dies with adequate error message
+# Subtest: making an "is rw" parameter optional dies with adequate error message
+    1..4
+    ok 1 - 'sub foo($x is rw = 42) {}' died
+    ok 2 - right exception type (X::Trait::Invalid)
+    ok 3 - .type matches is
+    ok 4 - .subtype matches rw
+ok 32 - making an "is rw" parameter optional dies with adequate error message
+# Subtest: Catch impossible default types at compile time
+    1..2
+    ok 1 - 'sub foo(Int $x = "omg") { }' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+ok 33 - Catch impossible default types at compile time
+# Subtest: Catch impossible default types at compile time (code object)
+    1..2
+    ok 1 - 'sub foo(Bool $b = sub { False }) {}' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+ok 34 - Catch impossible default types at compile time (code object)
+# Subtest: Catch impossible default types at compile time (multi)
+    1..2
+    ok 1 - 'my class BSON::Javascript { }; multi c1 (BSON::Javascript :$js2 = "") { }' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+ok 35 - Catch impossible default types at compile time (multi)

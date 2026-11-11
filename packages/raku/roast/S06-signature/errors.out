@@ -1,0 +1,50 @@
+1..25
+ok 1 - slurpy args are not bounded (2)
+# Subtest: parser rejects magicals as args (1)
+    1..2
+    ok 1 - 'sub quuux ($?VERSION) { ... }' died
+    ok 2 - right exception type (X::Parameter::Twigil)
+ok 2 - parser rejects magicals as args (1)
+ok 3 - but $! is OK
+ok 4 - argument passed to sub with empty signature
+ok 5 - Passing two arguments to a function expecting one hash is an error
+ok 6 - ... error message mentions signature
+ok 7 - ... error message mentions "call"
+ok 8 - ... error message mentions call profile
+# Subtest: named parameter of undeclared attribute dies
+    1..2
+    ok 1 - 'my class A { submethod BUILD(:$!notthere = 10) { } }; A.new' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 9 - named parameter of undeclared attribute dies
+ok 10 - too few args reports call profile
+ok 11 - too few args reports declared signature
+ok 12 - too few args mentions signature
+ok 13 - ... error message mentions "call"
+ok 14 - simple Str vs Int reports call profile
+ok 15 - simple Str vs Int reports signature
+ok 16 - simple Str vs Int mentions signature
+ok 17 - ... error message mentions "call"
+ok 18 - fails multi sigs reports call profile
+ok 19 - mentions signature
+ok 20 - Error mentions Int
+ok 21 - ... error message mentions "call"
+# Subtest: did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+    1..2
+    ok 1 - 'sub foo($a:) { }' died
+    ok 2 - right exception type (X::Syntax::Signature::InvocantNotAllowed)
+ok 22 - did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+# Subtest: did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+    1..2
+    ok 1 - 'sub foo($a: $b) { }' died
+    ok 2 - right exception type (X::Syntax::Signature::InvocantNotAllowed)
+ok 23 - did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+# Subtest: did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+    1..2
+    ok 1 - '-> $a: { }' died
+    ok 2 - right exception type (X::Syntax::Signature::InvocantNotAllowed)
+ok 24 - did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+# Subtest: did we throws-like X::Syntax::Signature::InvocantNotAllowed?
+    1..2
+    ok 1 - '-> $a: $b { }' died
+    ok 2 - right exception type (X::Syntax::Signature::InvocantNotAllowed)
+ok 25 - did we throws-like X::Syntax::Signature::InvocantNotAllowed?

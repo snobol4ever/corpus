@@ -1,0 +1,31 @@
+1..21
+ok 1 - $! has an exception
+ok 2 - # SKIP $!.pending
+ok 3 - # SKIP $!.pending
+ok 4 - $! has been cleared
+ok 5 - @fails is full of fail
+ok 6 - fails do not enter $!
+not ok 7 - $!.pending has three unhandled exceptions # TODO $!.pending
+# Failed test '$!.pending has three unhandled exceptions'
+# at S04-exceptions/pending.rakudo line 35
+# expected: '4'
+#      got: '1'
+ok 8 - fail 0 is not handled
+ok 9 - fail 0 is not true
+ok 10 - fail 0 is now handled
+ok 11 - fail 1 is not handled
+ok 12 - fail 1 is not defined
+ok 13 - fail 1 is now handled
+ok 14 - fail 2 is not handled
+ok 15 - assign to .handled
+ok 16 - fail 2 is now handled
+ok 17 - $!.pending has one unhandled exception
+ok 18 - $! has been cleared
+not ok 19 - unhandled Failures in $! at block exit are thrown # TODO $object.handled
+# Failed test 'unhandled Failures in $! at block exit are thrown'
+# at S04-exceptions/pending.rakudo line 73
+# expected: '2'
+#      got: '0'
+ok 20 - $! has been cleared
+ok 21 - # SKIP $object.handled
+# FUDGED!

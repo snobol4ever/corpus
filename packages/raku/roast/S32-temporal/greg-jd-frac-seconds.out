@@ -1,0 +1,91 @@
+1..90
+ok 1 - === data point 1: cmp JD to DateTime hour
+ok 2 - cmp JD to DateTime minute
+ok 3 - cmp JD to DateTime second (hundredths)
+ok 4 - cmp JD to DateTime year
+ok 5 - cmp JD to DateTime month
+ok 6 - cmp JD to DateTime day
+ok 7 - cmp JD from DateTime.posix + frac-sec
+ok 8 - cmp JD from DateTime.daycount + day-fraction
+ok 9 - cmp JD from DateTime.julian-date
+ok 10 - cmp JD from DateTime.modified-julian-date
+ok 11 - === data point 2: cmp JD to DateTime hour
+ok 12 - cmp JD to DateTime minute
+ok 13 - cmp JD to DateTime second (hundredths)
+ok 14 - cmp JD to DateTime year
+ok 15 - cmp JD to DateTime month
+ok 16 - cmp JD to DateTime day
+ok 17 - cmp JD from DateTime.posix + frac-sec
+ok 18 - cmp JD from DateTime.daycount + day-fraction
+ok 19 - cmp JD from DateTime.julian-date
+ok 20 - cmp JD from DateTime.modified-julian-date
+ok 21 - === data point 3: cmp JD to DateTime hour
+ok 22 - cmp JD to DateTime minute
+ok 23 - cmp JD to DateTime second (hundredths)
+ok 24 - cmp JD to DateTime year
+ok 25 - cmp JD to DateTime month
+ok 26 - cmp JD to DateTime day
+ok 27 - cmp JD from DateTime.posix + frac-sec
+ok 28 - cmp JD from DateTime.daycount + day-fraction
+ok 29 - cmp JD from DateTime.julian-date
+ok 30 - cmp JD from DateTime.modified-julian-date
+ok 31 - === data point 4: cmp JD to DateTime hour
+ok 32 - cmp JD to DateTime minute
+ok 33 - cmp JD to DateTime second (hundredths)
+ok 34 - cmp JD to DateTime year
+ok 35 - cmp JD to DateTime month
+ok 36 - cmp JD to DateTime day
+ok 37 - cmp JD from DateTime.posix + frac-sec
+ok 38 - cmp JD from DateTime.daycount + day-fraction
+ok 39 - cmp JD from DateTime.julian-date
+ok 40 - cmp JD from DateTime.modified-julian-date
+ok 41 - === data point 5: cmp JD to DateTime hour
+ok 42 - cmp JD to DateTime minute
+ok 43 - cmp JD to DateTime second (hundredths)
+ok 44 - cmp JD to DateTime year
+ok 45 - cmp JD to DateTime month
+ok 46 - cmp JD to DateTime day
+ok 47 - cmp JD from DateTime.posix + frac-sec
+ok 48 - cmp JD from DateTime.daycount + day-fraction
+ok 49 - cmp JD from DateTime.julian-date
+ok 50 - cmp JD from DateTime.modified-julian-date
+ok 51 - === data point 6: cmp JD to DateTime hour
+ok 52 - cmp JD to DateTime minute
+ok 53 - cmp JD to DateTime second (hundredths)
+ok 54 - cmp JD to DateTime year
+ok 55 - cmp JD to DateTime month
+ok 56 - cmp JD to DateTime day
+ok 57 - cmp JD from DateTime.posix + frac-sec
+ok 58 - cmp JD from DateTime.daycount + day-fraction
+ok 59 - cmp JD from DateTime.julian-date
+ok 60 - cmp JD from DateTime.modified-julian-date
+ok 61 - === data point 7: cmp JD to DateTime hour
+ok 62 - cmp JD to DateTime minute
+ok 63 - cmp JD to DateTime second (hundredths)
+ok 64 - cmp JD to DateTime year
+ok 65 - cmp JD to DateTime month
+ok 66 - cmp JD to DateTime day
+ok 67 - cmp JD from DateTime.posix + frac-sec
+ok 68 - cmp JD from DateTime.daycount + day-fraction
+ok 69 - cmp JD from DateTime.julian-date
+ok 70 - cmp JD from DateTime.modified-julian-date
+ok 71 - === data point 8: cmp JD to DateTime hour
+ok 72 - cmp JD to DateTime minute
+ok 73 - cmp JD to DateTime second (hundredths)
+ok 74 - cmp JD to DateTime year
+ok 75 - cmp JD to DateTime month
+ok 76 - cmp JD to DateTime day
+ok 77 - cmp JD from DateTime.posix + frac-sec
+ok 78 - cmp JD from DateTime.daycount + day-fraction
+ok 79 - cmp JD from DateTime.julian-date
+ok 80 - cmp JD from DateTime.modified-julian-date
+ok 81 - === data point 9: cmp JD to DateTime hour
+ok 82 - cmp JD to DateTime minute
+ok 83 - cmp JD to DateTime second (hundredths)
+ok 84 - cmp JD to DateTime year
+ok 85 - cmp JD to DateTime month
+ok 86 - cmp JD to DateTime day
+ok 87 - cmp JD from DateTime.posix + frac-sec
+ok 88 - cmp JD from DateTime.daycount + day-fraction
+ok 89 - cmp JD from DateTime.julian-date
+ok 90 - cmp JD from DateTime.modified-julian-date

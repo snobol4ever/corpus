@@ -1,0 +1,234 @@
+1..19
+ok 1 - native types and where clauses do not cause spurious circularities # TODO Only happen to pass because the optimizer inlines the most trivial cases
+# Subtest: :D DefiniteHow target (core types)
+    1..8
+    ok 1 - type
+    ok 2 - :D smiley
+    ok 3 - implied Any
+    ok 4 - # SKIP :D/:U coerces NYI
+    ok 5 - type
+    ok 6 - :D smiley
+    ok 7 - implied Any
+    ok 8 - # SKIP :D/:U coerces NYI
+ok 2 - :D DefiniteHow target (core types)
+# Subtest: :U DefiniteHow target (core types)
+    1..3
+    ok 1 - type
+    ok 2 - :U smiley
+    ok 3 - implied Any
+ok 3 - :U DefiniteHow target (core types)
+# Subtest: DefiniteHow target, errors
+    1..4
+    # Subtest: type, bad source
+        1..2
+        ok 1 - '-> Date:D(DateTime)   {}(DateTime)' died
+        ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 1 - type, bad source # TODO no proper concreteness check in coerces
+    # Subtest: :D, bad source
+        1..2
+        ok 1 - '-> Date:D(DateTime:D) {}(DateTime)' died
+        not ok 2 - right exception type (X::Parameter::InvalidConcreteness) # TODO no proper concreteness check in coerces
+        # Failed test 'right exception type (X::Parameter::InvalidConcreteness)'
+        # at SETTING::src/core.c/Exception.rakumod line 65
+        # Expected: X::Parameter::InvalidConcreteness
+        # Got:      X::TypeCheck::Binding::Parameter
+        # Exception message: Type check failed in binding to parameter '<anon>'; expected Date:D(DateTime:D) but got DateTime (DateTime)
+    not ok 2 - :D, bad source # TODO no proper concreteness check in coerces
+    # Failed test ':D, bad source'
+    # at 6.c/APPENDICES/A04-experimental/01-misc.rakudo line 59
+    # Subtest: :U, bad target
+        1..2
+        ok 1 - '-> Date:D(DateTime:U) {}(DateTime)' died
+        ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - :U, bad target # TODO no proper concreteness check in coerces
+    # Subtest: implied, bad target
+        1..2
+        ok 1 - '-> Date:D() {}(DateTime)' died
+        ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 4 - implied, bad target # TODO no proper concreteness check in coerces
+ok 4 - DefiniteHow target, errors
+# Subtest: DefiniteHow target, errors, source is already target
+    1..4
+    # Subtest: type
+        1..2
+        ok 1 - '-> Date:D(DateTime)   {}(Date)' died
+        not ok 2 - right exception type (X::Parameter::InvalidConcreteness) # TODO no proper concreteness check in coerces
+        # Failed test 'right exception type (X::Parameter::InvalidConcreteness)'
+        # at SETTING::src/core.c/Exception.rakumod line 65
+        # Expected: X::Parameter::InvalidConcreteness
+        # Got:      X::TypeCheck::Binding::Parameter
+        # Exception message: Type check failed in binding to parameter '<anon>'; expected Date:D(DateTime) but got Date (Date)
+    not ok 1 - type # TODO no proper concreteness check in coerces
+    # Failed test 'type'
+    # at 6.c/APPENDICES/A04-experimental/01-misc.rakudo line 73
+    # Subtest: :D
+        1..2
+        ok 1 - '-> Date:D(DateTime:D) {}(Date)' died
+        not ok 2 - right exception type (X::Parameter::InvalidConcreteness) # TODO no proper concreteness check in coerces
+        # Failed test 'right exception type (X::Parameter::InvalidConcreteness)'
+        # at SETTING::src/core.c/Exception.rakumod line 65
+        # Expected: X::Parameter::InvalidConcreteness
+        # Got:      X::TypeCheck::Binding::Parameter
+        # Exception message: Type check failed in binding to parameter '<anon>'; expected Date:D(DateTime:D) but got Date (Date)
+    not ok 2 - :D # TODO no proper concreteness check in coerces
+    # Failed test ':D'
+    # at 6.c/APPENDICES/A04-experimental/01-misc.rakudo line 74
+    # Subtest: :U
+        1..2
+        ok 1 - '-> Date:D(DateTime:U) {}(Date)' died
+        not ok 2 - right exception type (X::Parameter::InvalidConcreteness) # TODO no proper concreteness check in coerces
+        # Failed test 'right exception type (X::Parameter::InvalidConcreteness)'
+        # at SETTING::src/core.c/Exception.rakumod line 65
+        # Expected: X::Parameter::InvalidConcreteness
+        # Got:      X::TypeCheck::Binding::Parameter
+        # Exception message: Type check failed in binding to parameter '<anon>'; expected Date:D(DateTime:U) but got Date (Date)
+    not ok 3 - :U # TODO no proper concreteness check in coerces
+    # Failed test ':U'
+    # at 6.c/APPENDICES/A04-experimental/01-misc.rakudo line 75
+    # Subtest: implied
+        1..2
+        ok 1 - '-> Date:D() {}(Date)' died
+        ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 4 - implied # TODO no proper concreteness check in coerces
+ok 5 - DefiniteHow target, errors, source is already target
+# Subtest: :D DefiniteHow target (arbitrary types; from source)
+    1..6
+    ok 1 - from type
+    ok 2 - from :D smiley
+    ok 3 - # SKIP :D/:U coerces NYI
+    ok 4 - from Any
+    ok 5 - from Any:D
+    ok 6 - from implied Any
+ok 6 - :D DefiniteHow target (arbitrary types; from source)
+# Subtest: :D DefiniteHow target (arbitrary types; from source subclass)
+    1..6
+    ok 1 - from type
+    ok 2 - from :D smiley
+    ok 3 - # SKIP :D/:U coerces NYI
+    ok 4 - from Any
+    ok 5 - from Any:D
+    ok 6 - from implied Any
+ok 7 - :D DefiniteHow target (arbitrary types; from source subclass)
+# Subtest: :D DefiniteHow target (arbitrary types; already target)
+    1..6
+    ok 1 - from type
+    ok 2 - from :D smiley
+    ok 3 - # SKIP :D/:U coerces NYI
+    ok 4 - from Any
+    ok 5 - from Any:D
+    ok 6 - from implied Any
+ok 8 - :D DefiniteHow target (arbitrary types; already target)
+# Subtest: :U DefiniteHow target (arbitrary types; from source)
+    1..6
+    ok 1 - from type
+    ok 2 - # SKIP :D/:U coerces NYI
+    ok 3 - from :U smiley
+    ok 4 - from Any
+    ok 5 - from Any:U
+    ok 6 - from implied Any
+ok 9 - :U DefiniteHow target (arbitrary types; from source)
+# Subtest: :U DefiniteHow target (arbitrary types; from source subclass)
+    1..6
+    ok 1 - from type
+    ok 2 - # SKIP :D/:U coerces NYI
+    ok 3 - from :U smiley
+    ok 4 - from Any
+    ok 5 - from Any:U
+    ok 6 - from implied Any
+ok 10 - :U DefiniteHow target (arbitrary types; from source subclass)
+# Subtest: :U DefiniteHow target (arbitrary types; already target)
+    1..6
+    ok 1 - from type
+    ok 2 - # SKIP :D/:U coerces NYI
+    ok 3 - from :U smiley
+    ok 4 - from Any
+    ok 5 - # SKIP :D/:U coerces NYI
+    ok 6 - from implied Any
+ok 11 - :U DefiniteHow target (arbitrary types; already target)
+# Subtest: mistyped typenames in coercers give good error
+    1..2
+    ok 1 - 
+    ok 2 - 
+ok 12 - mistyped typenames in coercers give good error
+ok 13 - .IO on Date
+ok 14 - .IO on DateTime
+# Subtest: .IO on Date:U throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 15 - .IO on Date:U throws
+# Subtest: .IO on DateTime:U throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 16 - .IO on DateTime:U throws
+# Subtest: type coercions work in returns
+    1..8
+    # Subtest: sub (Int --> Str())
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 1 - sub (Int --> Str())
+    # Subtest: sub (Num $x --> Int(Str))
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 2 - sub (Num $x --> Int(Str))
+    # Subtest: sub (Int) returns Str()
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 3 - sub (Int) returns Str()
+    # Subtest: sub (Num) returns Int(Str)
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 4 - sub (Num) returns Int(Str)
+    # Subtest: block Int --> Str()
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 5 - block Int --> Str()
+    # Subtest: block --> Str()
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 6 - block --> Str()
+    # Subtest: method (Int --> Str())
+        1..3
+        ok 1 - returns correct type
+        ok 2 - returns correct value
+        ok 3 - .returns() gives correct value
+    ok 7 - method (Int --> Str())
+    # Subtest: returning incorrect type throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Return)
+    ok 8 - returning incorrect type throws
+ok 17 - type coercions work in returns
+ok 18 - Array:U.flat is identity in a list
+# Subtest: tests that use unspecced $?BITS to make decisions
+    1..15
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - # SKIP Clarification needed
+    ok 5 - # SKIP Clarification needed
+    ok 6 - # SKIP Clarification needed
+    ok 7 - # SKIP Clarification needed
+    ok 8 - # SKIP Clarification needed
+    ok 9 - # SKIP Clarification needed
+    ok 10 - # SKIP Clarification needed
+    ok 11 - # SKIP Clarification needed
+    ok 12 - # SKIP Clarification needed
+    ok 13 - # SKIP Clarification needed
+    ok 14 - # SKIP Clarification needed
+    ok 15 - large `int` values do not overflow prematurely
+ok 19 - tests that use unspecced $?BITS to make decisions
+# FUDGED!

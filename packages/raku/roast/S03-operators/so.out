@@ -1,0 +1,16 @@
+1..15
+ok 1 - so 1 is true
+ok 2 - so -1 is true
+ok 3 - not so 0 is true
+ok 4 - so sub{} is true
+ok 5 - so "x" is true
+ok 6 - so $true_var is true
+ok 7 - so $false_var is not true
+ok 8 - so(so 42) is true
+ok 9 - so(so 0) is false
+ok 10 - 'Bool::True' is true
+ok 11 - Bool.so returns false
+ok 12 - 'True' is true
+ok 13 - so($b) is (so $b)
+ok 14 - so + declaration
+ok 15 - assignment after so worked

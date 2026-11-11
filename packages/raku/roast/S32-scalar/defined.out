@@ -1,0 +1,56 @@
+1..55
+ok 1 - Mu is not defined
+ok 2 - Int is not defined
+ok 3 - Num is not defined
+ok 4 - Str is not defined
+ok 5 - numeric literal 1 is defined
+ok 6 - empty string is defined
+ok 7 - "a" is defined
+ok 8 - numeric literal 0 is defined
+ok 9 - empty List is defined
+ok 10 - empty Array is defined
+ok 11 - empty Hash is defined
+ok 12 - unassigned variable $foo is undefined
+ok 13 - variable $foo is now defined (as numeric literal 1)
+ok 14 - variable $foo is now defined (as a empty string)
+ok 15 - variable $foo is now undefined again
+ok 16 - variable $foo is now defined (as string "a")
+ok 17 - variable $foo is now undefined again
+ok 18 - variable $foo is now defined (as string "b")
+ok 19 - variable $foo is now defined (as numeric literal 0)
+ok 20 - unassigned variable @bax is defined
+ok 21 - unassigned variable @bax is defined
+ok 22 - variable @bax is defined after assigning Nil
+ok 23 - unassigned variable $foo is undefined
+ok 24 - variable $foo is now defined (as numeric literal 1)
+ok 25 - variable $foo is now defined (as a empty string)
+ok 26 - variable $foo is now undefined again
+ok 27 - variable $foo is now defined (as string "a")
+ok 28 - variable $foo is now undefined again
+ok 29 - variable $foo is now defined (as string "b")
+ok 30 - variable $foo is now defined (as numeric literal 0)
+ok 31 - undefine $foo works
+ok 32 - defined(Mu) returns a Bool
+ok 33 - Mu.defined returns a Bool
+ok 34 - defined(Int) returns a Bool
+ok 35 - Int.defined returns a Bool
+ok 36 - defined(1) returns a Bool
+ok 37 - 1.defined returns a Bool
+ok 38 - defined("a") returns a Bool
+ok 39 - "a".defined returns a Bool
+ok 40 - defined(()) returns a Bool
+ok 41 - ().defined returns a Bool
+ok 42 - defined({}) returns a Bool
+ok 43 - {}.defined returns a Bool
+ok 44 - defined($bar) with $bar unset returns a Bool
+ok 45 - $bar.defined with $bar unset returns a Bool
+ok 46 - defined($bar) with $bar eq "" returns a Bool
+ok 47 - $bar.defined with $bar eq "" returns a Bool
+ok 48 - defined($bar) with $bar == 7 returns a Bool
+ok 49 - $bar.defined with $bar == 7 returns a Bool
+ok 50 - defined($bar) with $bar set to Mu returns a Bool
+ok 51 - $bar.defined with $bar set to Mu returns a Bool
+ok 52 - defined on a hash with parens (1)
+ok 53 - defined on a hash with parens (2)
+ok 54 - defined is a listop, not a prefix op
+ok 55 - &defined is available

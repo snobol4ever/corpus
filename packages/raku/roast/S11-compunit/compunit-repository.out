@@ -1,0 +1,38 @@
+1..9
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository {  }' died
+    ok 2 - right exception type (Exception)
+ok 1 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository { method id() {} }' died
+    ok 2 - right exception type (Exception)
+ok 2 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository { method need() {} }' died
+    ok 2 - right exception type (Exception)
+ok 3 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository { method loaded() {} }' died
+    ok 2 - right exception type (Exception)
+ok 4 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository { method id() {};method need() {} }' died
+    ok 2 - right exception type (Exception)
+ok 5 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository { method id() {};method loaded() {} }' died
+    ok 2 - right exception type (Exception)
+ok 6 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'class :: does CompUnit::Repository { method need() {};method loaded() {} }' died
+    ok 2 - right exception type (Exception)
+ok 7 - did we throws-like Exception?
+ok 8 - 
+ok 9 - 

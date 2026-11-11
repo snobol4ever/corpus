@@ -1,0 +1,730 @@
+1..518
+ok 1 - num array type is Positional
+ok 2 - num array type is Positional[num]
+ok 3 - num array type .of is num
+ok 4 - num array is Positional
+ok 5 - num array is Positional[num]
+ok 6 - num array .of is num
+ok 7 - num array is Positional
+ok 8 - num array is Positional[num]
+ok 9 - num array .of is num
+ok 10 - .new from num array is Positional
+ok 11 - .new from num array Positional[num]
+ok 12 - .new from num array .of is num
+ok 13 - New num array has no elems
+ok 14 - New num array has end of -1
+ok 15 - New num array Int-ifies to 0
+ok 16 - New num array numifies to 0
+ok 17 - New num array is falsey
+ok 18 - Empty num array is not lazy
+ok 19 - Accessing non-existing on num array gives 0
+ok 20 - Elems do not grow just from an access on num array
+ok 21 - Can store num in an num array
+ok 22 - Can get value from num array
+ok 23 - The elems grew as expected on num array
+ok 24 - num array becomes truthy when it has an element
+ok 25 - Can get slice-assigned value from num array (1)
+ok 26 - Can get slice-assigned value from num array (2)
+ok 27 - The elems grew as expected on num array
+ok 28 - The end value matches grown elems on num array
+ok 29 - Int-ifies to grown number of elems on num array
+ok 30 - Numifies to grown number of elems on num array
+ok 31 - num array with values is not lazy
+ok 32 - are special IEEE values supported on num array
+ok 33 - Can assign non-contiguously to num array
+ok 34 - Elems non-contiguous assign 0 on num array
+ok 35 - Non-contiguous assignment works on num array
+ok 36 - Can also get last element on num array
+ok 37 - Can clear num array by assigning empty list
+ok 38 - Cleared num array has no elems
+ok 39 - Cleared num array has end of -1
+ok 40 - Cleared num array Int-ifies to 0
+ok 41 - Cleared num array numifies to 0
+ok 42 - Cleared num array is falsey
+ok 43 - Got correct elems from range assign on num array
+ok 44 - Correct elem from range assign on num array (1)
+ok 45 - Correct elem from range assign on num array (2)
+ok 46 - :exists works on num array (1)
+ok 47 - :exists works on num array (2)
+ok 48 - :exists works on num array (3)
+ok 49 - Correct number of elems set in constructor of num array
+ok 50 - Correct elem set by constructor of num array
+ok 51 - Correct number of elems set in constructor of num array
+ok 52 - Correct elem set by constructor of num array (1)
+ok 53 - Correct elem set by constructor of num array (2)
+ok 54 - Correct elem set by constructor of num array (3)
+ok 55 - Correct elem set by constructor of num array (4)
+ok 56 - num array .flat returns a Seq
+ok 57 - num array .eager returns identity
+ok 58 - # SKIP borkedness with num and iteration
+ok 59 - Mutating for loop on num array works (1)
+ok 60 - Mutating for loop on num array works (2)
+ok 61 - Mutating for loop on num array works (3)
+ok 62 - Mutating for loop on num array works (4)
+ok 63 - Mutating map on num array works (1)
+ok 64 - Mutating map on num array works (2)
+ok 65 - Mutating map on num array works (3)
+ok 66 - Mutating map on num array works (4)
+ok 67 - Can grep a num array
+ok 68 - num array.grep(Num)
+ok 69 - num array.grep(Num, :k)
+ok 70 - num array.grep(Num, :kv)
+ok 71 - num array.grep(Num, :p)
+ok 72 - num array.grep(Num, :v)
+ok 73 - num array.grep(Num)
+ok 74 - num array.grep(Num, :k)
+ok 75 - num array.grep(Num, :kv)
+ok 76 - num array.grep(Num, :p)
+ok 77 - num array.grep(Num, :v)
+ok 78 - Can use reduce meta-op on a num array
+ok 79 - # SKIP cannot approx test Parcels
+ok 80 - # SKIP cannot approx test Parcels
+ok 81 - # SKIP nativeint.list loops on itself
+ok 82 - # SKIP nativeint.list loops on itself
+ok 83 - # SKIP nativeint.list loops on itself
+ok 84 - # SKIP nativeint.list loops on itself
+ok 85 - # SKIP nativeint.list loops on itself
+ok 86 - # SKIP nativeint.list loops on itself
+ok 87 - num array.unique
+ok 88 - num array.repeated
+ok 89 - num array.squish
+# Subtest: Trying to pop an empty num array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[num]
+    ok 4 - .action matches pop
+ok 90 - Trying to pop an empty num array dies
+# Subtest: Trying to shift an empty num array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[num]
+ok 91 - Trying to shift an empty num array dies
+# Subtest: Cannot push non-int/Int to num array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a native num array
+ok 92 - Cannot push non-int/Int to num array
+# Subtest: Cannot push non-int/Int to num array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a native num array
+ok 93 - Cannot push non-int/Int to num array
+# Subtest: Trying to initialize a num array with a right infinite list
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches array[num]
+    ok 4 - .action matches initialize
+ok 94 - Trying to initialize a num array with a right infinite list
+# Subtest: Trying to initialize a num array with a left infinite list
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches initialize
+    ok 4 - .what matches array[num]
+ok 95 - Trying to initialize a num array with a left infinite list
+ok 96 - push to num array works (1)
+ok 97 - push to num array works (2)
+# Subtest: Cannot push non-num/Num to num array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 98 - Cannot push non-num/Num to num array
+ok 99 - push multiple to num array works (1)
+ok 100 - push multiple to num array works (2)
+ok 101 - push multiple to num array works (3)
+# Subtest: Cannot push non-num/Num to num array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 102 - Cannot push non-num/Num to num array (multiple push)
+ok 103 - append to num array works (1)
+ok 104 - append to num array works (2)
+# Subtest: Cannot append non-num/Num to num array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 105 - Cannot append non-num/Num to num array
+ok 106 - append multiple to num array works (1)
+ok 107 - append multiple to num array works (2)
+ok 108 - append multiple to num array works (3)
+# Subtest: Cannot push non-num/Num to num array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 109 - Cannot push non-num/Num to num array (multiple push)
+ok 110 - pop from num array works (1)
+ok 111 - pop from num array works (2)
+ok 112 - unshift to num array works (1)
+ok 113 - unshift to num array works (2)
+ok 114 - unshift to num array works (3)
+# Subtest: Cannot unshift non-num/Num to num array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 115 - Cannot unshift non-num/Num to num array
+ok 116 - unshift multiple to num array works (1)
+ok 117 - unshift multiple to num array works (2)
+ok 118 - unshift multiple to num array works (3)
+ok 119 - unshift multiple to num array works (4)
+ok 120 - unshift multiple to num array works (5)
+# Subtest: Cannot unshift non-num/Num to num array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 121 - Cannot unshift non-num/Num to num array (multiple unshift)
+ok 122 - prepend to num array works (1)
+ok 123 - prepend to num array works (2)
+ok 124 - prepend to num array works (3)
+# Subtest: Cannot prepend non-num/Num to num array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 125 - Cannot prepend non-num/Num to num array
+ok 126 - prepend multiple to num array works (1)
+ok 127 - prepend multiple to num array works (2)
+ok 128 - prepend multiple to num array works (3)
+ok 129 - prepend multiple to num array works (4)
+ok 130 - prepend multiple to num array works (5)
+# Subtest: Cannot prepend non-num/Num to num array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 131 - Cannot prepend non-num/Num to num array (multiple unshift)
+ok 132 - shift from num array works (1)
+ok 133 - shift from num array works (2)
+ok 134 - Number of elems after splice num array
+ok 135 - Splice on num array did the right thing (1)
+ok 136 - Splice on num array did the right thing (2)
+ok 137 - Splice on num array did the right thing (3)
+ok 138 - Splice on num array did the right thing (4)
+ok 139 - Splice on num array did the right thing (5)
+ok 140 - Number of returned spliced values from num array
+ok 141 - Correct value in splice from num array (1)
+ok 142 - Correct value in splice from num array (2)
+ok 143 - .Str space-separates on num array
+ok 144 - .gist space-separates on num array
+ok 145 - .raku includes type and num values on num array
+ok 146 - does slice return same type
+ok 147 - does slice handle containerized range
+ok 148 - Flattening num array in call works
+ok 149 - does join a num array
+ok 150 - does emptying a num array really empty
+ok 151 - does join handle holes in a num array
+ok 152 - List-assign num array to untyped works (1)
+ok 153 - List-assign num array to untyped works (2)
+ok 154 - List-assign num array to untyped works (3)
+ok 155 - List-assign num array surrounded by lits (1)
+ok 156 - List-assign num array surrounded by lits (2)
+ok 157 - List-assign num array surrounded by lits (3)
+ok 158 - List-assign num array surrounded by lits (4)
+ok 159 - List-assign num array surrounded by lits (5)
+ok 160 - List-assign array of Num to num array (1)
+ok 161 - List-assign array of Num to num array (2)
+ok 162 - List-assign array of Num to num array (3)
+# Subtest: List-assigning incompatible untyped array to num array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 163 - List-assigning incompatible untyped array to num array dies
+ok 164 - Smartmatching same num arrays works
+ok 165 - Smartmatching different num arrays works
+ok 166 - Can we sort num array
+ok 167 - Can we sort 2-element sorted num array
+ok 168 - Can we sort 2-element unsorted num array
+ok 169 - Can we sort 1-element num array
+ok 170 - Can we sort 0-element num array
+ok 171 - num32 array type is Positional
+ok 172 - num32 array type is Positional[num32]
+ok 173 - num32 array type .of is num32
+ok 174 - num32 array is Positional
+ok 175 - num32 array is Positional[num32]
+ok 176 - num32 array .of is num32
+ok 177 - num32 array is Positional
+ok 178 - num32 array is Positional[num32]
+ok 179 - num32 array .of is num32
+ok 180 - .new from num32 array is Positional
+ok 181 - .new from num32 array Positional[num32]
+ok 182 - .new from num32 array .of is num32
+ok 183 - New num32 array has no elems
+ok 184 - New num32 array has end of -1
+ok 185 - New num32 array Int-ifies to 0
+ok 186 - New num32 array numifies to 0
+ok 187 - New num32 array is falsey
+ok 188 - Empty num32 array is not lazy
+ok 189 - Accessing non-existing on num32 array gives 0
+ok 190 - Elems do not grow just from an access on num32 array
+ok 191 - Can store num in an num32 array
+ok 192 - Can get value from num32 array
+ok 193 - The elems grew as expected on num32 array
+ok 194 - num32 array becomes truthy when it has an element
+ok 195 - Can get slice-assigned value from num32 array (1)
+ok 196 - Can get slice-assigned value from num32 array (2)
+ok 197 - The elems grew as expected on num32 array
+ok 198 - The end value matches grown elems on num32 array
+ok 199 - Int-ifies to grown number of elems on num32 array
+ok 200 - Numifies to grown number of elems on num32 array
+ok 201 - num32 array with values is not lazy
+ok 202 - are special IEEE values supported on num32 array
+ok 203 - Can assign non-contiguously to num32 array
+ok 204 - Elems non-contiguous assign 0 on num32 array
+ok 205 - Non-contiguous assignment works on num32 array
+ok 206 - Can also get last element on num32 array
+ok 207 - Can clear num32 array by assigning empty list
+ok 208 - Cleared num32 array has no elems
+ok 209 - Cleared num32 array has end of -1
+ok 210 - Cleared num32 array Int-ifies to 0
+ok 211 - Cleared num32 array numifies to 0
+ok 212 - Cleared num32 array is falsey
+ok 213 - Got correct elems from range assign on num32 array
+ok 214 - Correct elem from range assign on num32 array (1)
+ok 215 - Correct elem from range assign on num32 array (2)
+ok 216 - :exists works on num32 array (1)
+ok 217 - :exists works on num32 array (2)
+ok 218 - :exists works on num32 array (3)
+ok 219 - Correct number of elems set in constructor of num32 array
+ok 220 - Correct elem set by constructor of num32 array
+ok 221 - Correct number of elems set in constructor of num32 array
+ok 222 - Correct elem set by constructor of num32 array (1)
+ok 223 - Correct elem set by constructor of num32 array (2)
+ok 224 - Correct elem set by constructor of num32 array (3)
+ok 225 - Correct elem set by constructor of num32 array (4)
+ok 226 - num32 array .flat returns a Seq
+ok 227 - num32 array .eager returns identity
+ok 228 - # SKIP borkedness with num and iteration
+ok 229 - Mutating for loop on num32 array works (1)
+ok 230 - Mutating for loop on num32 array works (2)
+ok 231 - Mutating for loop on num32 array works (3)
+ok 232 - Mutating for loop on num32 array works (4)
+ok 233 - Mutating map on num32 array works (1)
+ok 234 - Mutating map on num32 array works (2)
+ok 235 - Mutating map on num32 array works (3)
+ok 236 - Mutating map on num32 array works (4)
+ok 237 - Can grep a num32 array
+ok 238 - skipping .grep/.first test for num32 as they will fail
+ok 239 - skipping .grep/.first test for num32 as they will fail
+ok 240 - skipping .grep/.first test for num32 as they will fail
+ok 241 - skipping .grep/.first test for num32 as they will fail
+ok 242 - skipping .grep/.first test for num32 as they will fail
+ok 243 - skipping .grep/.first test for num32 as they will fail
+ok 244 - skipping .grep/.first test for num32 as they will fail
+ok 245 - skipping .grep/.first test for num32 as they will fail
+ok 246 - skipping .grep/.first test for num32 as they will fail
+ok 247 - skipping .grep/.first test for num32 as they will fail
+ok 248 - Can use reduce meta-op on a num32 array
+ok 249 - # SKIP cannot approx test Parcels
+ok 250 - # SKIP cannot approx test Parcels
+ok 251 - # SKIP nativeint.list loops on itself
+ok 252 - # SKIP nativeint.list loops on itself
+ok 253 - # SKIP nativeint.list loops on itself
+ok 254 - # SKIP nativeint.list loops on itself
+ok 255 - # SKIP nativeint.list loops on itself
+ok 256 - # SKIP nativeint.list loops on itself
+ok 257 - num32 array.unique
+ok 258 - num32 array.repeated
+ok 259 - num32 array.squish
+# Subtest: Trying to pop an empty num32 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[num32]
+    ok 4 - .action matches pop
+ok 260 - Trying to pop an empty num32 array dies
+# Subtest: Trying to shift an empty num32 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[num32]
+ok 261 - Trying to shift an empty num32 array dies
+# Subtest: Cannot push non-int/Int to num32 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a native num array
+ok 262 - Cannot push non-int/Int to num32 array
+# Subtest: Cannot push non-int/Int to num32 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a native num array
+ok 263 - Cannot push non-int/Int to num32 array
+# Subtest: Trying to initialize a num32 array with a right infinite list
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches initialize
+    ok 4 - .what matches array[num32]
+ok 264 - Trying to initialize a num32 array with a right infinite list
+# Subtest: Trying to initialize a num32 array with a left infinite list
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches initialize
+    ok 4 - .what matches array[num32]
+ok 265 - Trying to initialize a num32 array with a left infinite list
+ok 266 - push to num32 array works (1)
+ok 267 - push to num32 array works (2)
+# Subtest: Cannot push non-num/Num to num32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 268 - Cannot push non-num/Num to num32 array
+ok 269 - push multiple to num32 array works (1)
+ok 270 - push multiple to num32 array works (2)
+ok 271 - push multiple to num32 array works (3)
+# Subtest: Cannot push non-num/Num to num32 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 272 - Cannot push non-num/Num to num32 array (multiple push)
+ok 273 - append to num32 array works (1)
+ok 274 - append to num32 array works (2)
+# Subtest: Cannot append non-num/Num to num32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 275 - Cannot append non-num/Num to num32 array
+ok 276 - append multiple to num32 array works (1)
+ok 277 - append multiple to num32 array works (2)
+ok 278 - append multiple to num32 array works (3)
+# Subtest: Cannot push non-num/Num to num32 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 279 - Cannot push non-num/Num to num32 array (multiple push)
+ok 280 - pop from num32 array works (1)
+ok 281 - pop from num32 array works (2)
+ok 282 - unshift to num32 array works (1)
+ok 283 - unshift to num32 array works (2)
+ok 284 - unshift to num32 array works (3)
+# Subtest: Cannot unshift non-num/Num to num32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 285 - Cannot unshift non-num/Num to num32 array
+ok 286 - unshift multiple to num32 array works (1)
+ok 287 - unshift multiple to num32 array works (2)
+ok 288 - unshift multiple to num32 array works (3)
+ok 289 - unshift multiple to num32 array works (4)
+ok 290 - unshift multiple to num32 array works (5)
+# Subtest: Cannot unshift non-num/Num to num32 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 291 - Cannot unshift non-num/Num to num32 array (multiple unshift)
+ok 292 - prepend to num32 array works (1)
+ok 293 - prepend to num32 array works (2)
+ok 294 - prepend to num32 array works (3)
+# Subtest: Cannot prepend non-num/Num to num32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 295 - Cannot prepend non-num/Num to num32 array
+ok 296 - prepend multiple to num32 array works (1)
+ok 297 - prepend multiple to num32 array works (2)
+ok 298 - prepend multiple to num32 array works (3)
+ok 299 - prepend multiple to num32 array works (4)
+ok 300 - prepend multiple to num32 array works (5)
+# Subtest: Cannot prepend non-num/Num to num32 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 301 - Cannot prepend non-num/Num to num32 array (multiple unshift)
+ok 302 - shift from num32 array works (1)
+ok 303 - shift from num32 array works (2)
+ok 304 - Number of elems after splice num32 array
+ok 305 - Splice on num32 array did the right thing (1)
+ok 306 - Splice on num32 array did the right thing (2)
+ok 307 - Splice on num32 array did the right thing (3)
+ok 308 - Splice on num32 array did the right thing (4)
+ok 309 - Splice on num32 array did the right thing (5)
+ok 310 - Number of returned spliced values from num32 array
+ok 311 - Correct value in splice from num32 array (1)
+ok 312 - Correct value in splice from num32 array (2)
+ok 313 - .Str space-separates on num32 array
+ok 314 - .gist space-separates on num32 array
+ok 315 - .raku includes type and num values on num32 array
+ok 316 - does slice return same type
+ok 317 - does slice handle containerized range
+ok 318 - Flattening num32 array in call works
+ok 319 - does join a num32 array
+ok 320 - does emptying a num32 array really empty
+ok 321 - does join handle holes in a num32 array
+ok 322 - List-assign num32 array to untyped works (1)
+ok 323 - List-assign num32 array to untyped works (2)
+ok 324 - List-assign num32 array to untyped works (3)
+ok 325 - List-assign num32 array surrounded by lits (1)
+ok 326 - List-assign num32 array surrounded by lits (2)
+ok 327 - List-assign num32 array surrounded by lits (3)
+ok 328 - List-assign num32 array surrounded by lits (4)
+ok 329 - List-assign num32 array surrounded by lits (5)
+ok 330 - List-assign array of Num to num32 array (1)
+ok 331 - List-assign array of Num to num32 array (2)
+ok 332 - List-assign array of Num to num32 array (3)
+# Subtest: List-assigning incompatible untyped array to num32 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 333 - List-assigning incompatible untyped array to num32 array dies
+ok 334 - Smartmatching same num32 arrays works
+ok 335 - Smartmatching different num32 arrays works
+ok 336 - Can we sort num32 array
+ok 337 - Can we sort 2-element sorted num32 array
+ok 338 - Can we sort 2-element unsorted num32 array
+ok 339 - Can we sort 1-element num32 array
+ok 340 - Can we sort 0-element num32 array
+ok 341 - num64 array type is Positional
+ok 342 - num64 array type is Positional[num64]
+ok 343 - num64 array type .of is num64
+ok 344 - num64 array is Positional
+ok 345 - num64 array is Positional[num64]
+ok 346 - num64 array .of is num64
+ok 347 - num64 array is Positional
+ok 348 - num64 array is Positional[num64]
+ok 349 - num64 array .of is num64
+ok 350 - .new from num64 array is Positional
+ok 351 - .new from num64 array Positional[num64]
+ok 352 - .new from num64 array .of is num64
+ok 353 - New num64 array has no elems
+ok 354 - New num64 array has end of -1
+ok 355 - New num64 array Int-ifies to 0
+ok 356 - New num64 array numifies to 0
+ok 357 - New num64 array is falsey
+ok 358 - Empty num64 array is not lazy
+ok 359 - Accessing non-existing on num64 array gives 0
+ok 360 - Elems do not grow just from an access on num64 array
+ok 361 - Can store num in an num64 array
+ok 362 - Can get value from num64 array
+ok 363 - The elems grew as expected on num64 array
+ok 364 - num64 array becomes truthy when it has an element
+ok 365 - Can get slice-assigned value from num64 array (1)
+ok 366 - Can get slice-assigned value from num64 array (2)
+ok 367 - The elems grew as expected on num64 array
+ok 368 - The end value matches grown elems on num64 array
+ok 369 - Int-ifies to grown number of elems on num64 array
+ok 370 - Numifies to grown number of elems on num64 array
+ok 371 - num64 array with values is not lazy
+ok 372 - are special IEEE values supported on num64 array
+ok 373 - Can assign non-contiguously to num64 array
+ok 374 - Elems non-contiguous assign 0 on num64 array
+ok 375 - Non-contiguous assignment works on num64 array
+ok 376 - Can also get last element on num64 array
+ok 377 - Can clear num64 array by assigning empty list
+ok 378 - Cleared num64 array has no elems
+ok 379 - Cleared num64 array has end of -1
+ok 380 - Cleared num64 array Int-ifies to 0
+ok 381 - Cleared num64 array numifies to 0
+ok 382 - Cleared num64 array is falsey
+ok 383 - Got correct elems from range assign on num64 array
+ok 384 - Correct elem from range assign on num64 array (1)
+ok 385 - Correct elem from range assign on num64 array (2)
+ok 386 - :exists works on num64 array (1)
+ok 387 - :exists works on num64 array (2)
+ok 388 - :exists works on num64 array (3)
+ok 389 - Correct number of elems set in constructor of num64 array
+ok 390 - Correct elem set by constructor of num64 array
+ok 391 - Correct number of elems set in constructor of num64 array
+ok 392 - Correct elem set by constructor of num64 array (1)
+ok 393 - Correct elem set by constructor of num64 array (2)
+ok 394 - Correct elem set by constructor of num64 array (3)
+ok 395 - Correct elem set by constructor of num64 array (4)
+ok 396 - num64 array .flat returns a Seq
+ok 397 - num64 array .eager returns identity
+ok 398 - # SKIP borkedness with num and iteration
+ok 399 - Mutating for loop on num64 array works (1)
+ok 400 - Mutating for loop on num64 array works (2)
+ok 401 - Mutating for loop on num64 array works (3)
+ok 402 - Mutating for loop on num64 array works (4)
+ok 403 - Mutating map on num64 array works (1)
+ok 404 - Mutating map on num64 array works (2)
+ok 405 - Mutating map on num64 array works (3)
+ok 406 - Mutating map on num64 array works (4)
+ok 407 - Can grep a num64 array
+ok 408 - num64 array.grep(Num)
+ok 409 - num64 array.grep(Num, :k)
+ok 410 - num64 array.grep(Num, :kv)
+ok 411 - num64 array.grep(Num, :p)
+ok 412 - num64 array.grep(Num, :v)
+ok 413 - num64 array.grep(Num)
+ok 414 - num64 array.grep(Num, :k)
+ok 415 - num64 array.grep(Num, :kv)
+ok 416 - num64 array.grep(Num, :p)
+ok 417 - num64 array.grep(Num, :v)
+ok 418 - Can use reduce meta-op on a num64 array
+ok 419 - # SKIP cannot approx test Parcels
+ok 420 - # SKIP cannot approx test Parcels
+ok 421 - # SKIP nativeint.list loops on itself
+ok 422 - # SKIP nativeint.list loops on itself
+ok 423 - # SKIP nativeint.list loops on itself
+ok 424 - # SKIP nativeint.list loops on itself
+ok 425 - # SKIP nativeint.list loops on itself
+ok 426 - # SKIP nativeint.list loops on itself
+ok 427 - num64 array.unique
+ok 428 - num64 array.repeated
+ok 429 - num64 array.squish
+# Subtest: Trying to pop an empty num64 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[num64]
+    ok 4 - .action matches pop
+ok 430 - Trying to pop an empty num64 array dies
+# Subtest: Trying to shift an empty num64 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[num64]
+ok 431 - Trying to shift an empty num64 array dies
+# Subtest: Cannot push non-int/Int to num64 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a native num array
+ok 432 - Cannot push non-int/Int to num64 array
+# Subtest: Cannot push non-int/Int to num64 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a native num array
+ok 433 - Cannot push non-int/Int to num64 array
+# Subtest: Trying to initialize a num64 array with a right infinite list
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches initialize
+    ok 4 - .what matches array[num64]
+ok 434 - Trying to initialize a num64 array with a right infinite list
+# Subtest: Trying to initialize a num64 array with a left infinite list
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches array[num64]
+    ok 4 - .action matches initialize
+ok 435 - Trying to initialize a num64 array with a left infinite list
+ok 436 - push to num64 array works (1)
+ok 437 - push to num64 array works (2)
+# Subtest: Cannot push non-num/Num to num64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 438 - Cannot push non-num/Num to num64 array
+ok 439 - push multiple to num64 array works (1)
+ok 440 - push multiple to num64 array works (2)
+ok 441 - push multiple to num64 array works (3)
+# Subtest: Cannot push non-num/Num to num64 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 442 - Cannot push non-num/Num to num64 array (multiple push)
+ok 443 - append to num64 array works (1)
+ok 444 - append to num64 array works (2)
+# Subtest: Cannot append non-num/Num to num64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 445 - Cannot append non-num/Num to num64 array
+ok 446 - append multiple to num64 array works (1)
+ok 447 - append multiple to num64 array works (2)
+ok 448 - append multiple to num64 array works (3)
+# Subtest: Cannot push non-num/Num to num64 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 449 - Cannot push non-num/Num to num64 array (multiple push)
+ok 450 - pop from num64 array works (1)
+ok 451 - pop from num64 array works (2)
+ok 452 - unshift to num64 array works (1)
+ok 453 - unshift to num64 array works (2)
+ok 454 - unshift to num64 array works (3)
+# Subtest: Cannot unshift non-num/Num to num64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 455 - Cannot unshift non-num/Num to num64 array
+ok 456 - unshift multiple to num64 array works (1)
+ok 457 - unshift multiple to num64 array works (2)
+ok 458 - unshift multiple to num64 array works (3)
+ok 459 - unshift multiple to num64 array works (4)
+ok 460 - unshift multiple to num64 array works (5)
+# Subtest: Cannot unshift non-num/Num to num64 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 461 - Cannot unshift non-num/Num to num64 array (multiple unshift)
+ok 462 - prepend to num64 array works (1)
+ok 463 - prepend to num64 array works (2)
+ok 464 - prepend to num64 array works (3)
+# Subtest: Cannot prepend non-num/Num to num64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 465 - Cannot prepend non-num/Num to num64 array
+ok 466 - prepend multiple to num64 array works (1)
+ok 467 - prepend multiple to num64 array works (2)
+ok 468 - prepend multiple to num64 array works (3)
+ok 469 - prepend multiple to num64 array works (4)
+ok 470 - prepend multiple to num64 array works (5)
+# Subtest: Cannot prepend non-num/Num to num64 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 471 - Cannot prepend non-num/Num to num64 array (multiple unshift)
+ok 472 - shift from num64 array works (1)
+ok 473 - shift from num64 array works (2)
+ok 474 - Number of elems after splice num64 array
+ok 475 - Splice on num64 array did the right thing (1)
+ok 476 - Splice on num64 array did the right thing (2)
+ok 477 - Splice on num64 array did the right thing (3)
+ok 478 - Splice on num64 array did the right thing (4)
+ok 479 - Splice on num64 array did the right thing (5)
+ok 480 - Number of returned spliced values from num64 array
+ok 481 - Correct value in splice from num64 array (1)
+ok 482 - Correct value in splice from num64 array (2)
+ok 483 - .Str space-separates on num64 array
+ok 484 - .gist space-separates on num64 array
+ok 485 - .raku includes type and num values on num64 array
+ok 486 - does slice return same type
+ok 487 - does slice handle containerized range
+ok 488 - Flattening num64 array in call works
+ok 489 - does join a num64 array
+ok 490 - does emptying a num64 array really empty
+ok 491 - does join handle holes in a num64 array
+ok 492 - List-assign num64 array to untyped works (1)
+ok 493 - List-assign num64 array to untyped works (2)
+ok 494 - List-assign num64 array to untyped works (3)
+ok 495 - List-assign num64 array surrounded by lits (1)
+ok 496 - List-assign num64 array surrounded by lits (2)
+ok 497 - List-assign num64 array surrounded by lits (3)
+ok 498 - List-assign num64 array surrounded by lits (4)
+ok 499 - List-assign num64 array surrounded by lits (5)
+ok 500 - List-assign array of Num to num64 array (1)
+ok 501 - List-assign array of Num to num64 array (2)
+ok 502 - List-assign array of Num to num64 array (3)
+# Subtest: List-assigning incompatible untyped array to num64 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 503 - List-assigning incompatible untyped array to num64 array dies
+ok 504 - Smartmatching same num64 arrays works
+ok 505 - Smartmatching different num64 arrays works
+ok 506 - Can we sort num64 array
+ok 507 - Can we sort 2-element sorted num64 array
+ok 508 - Can we sort 2-element unsorted num64 array
+ok 509 - Can we sort 1-element num64 array
+ok 510 - Can we sort 0-element num64 array
+ok 511 - did we survive the hole
+ok 512 - can we assign with '.first'
+ok 513 - did the assign with '.first' work
+ok 514 - can we assign with '.head'
+ok 515 - did the assign with '.head' work
+ok 516 - can we assign with '.tail'
+ok 517 - did the assign with '.tail' work
+ok 518 - is the final array correct
+# FUDGED!

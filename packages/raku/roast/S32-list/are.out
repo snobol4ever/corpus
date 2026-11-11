@@ -1,0 +1,16 @@
+1..15
+ok 1 - Empty list
+ok 2 - list of Ints
+ok 3 - list of Ints and Rat
+ok 4 - list of Ints and Num
+ok 5 - list of Ints and Str
+ok 6 - list of Ints and IntStr
+ok 7 - list of Ints and RatStr
+ok 8 - list of Ints and NumStr
+ok 9 - list of Str and IntStr
+ok 10 - list of Ints and Date
+ok 11 - list of Ints and Mu
+ok 12 - list of Ints and List
+ok 13 - list of Cool type objects
+ok 14 - list of str and custom class
+ok 15 - bare roles also supported

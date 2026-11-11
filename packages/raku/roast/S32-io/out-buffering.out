@@ -1,0 +1,136 @@
+1..4
+# Subtest: .open: \(:w)
+    1..10
+    # Subtest: out-buffer for 1 x over
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 1 - out-buffer for 1 x over
+    # Subtest: out-buffer for 1 x over + 1 x under
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 2 - out-buffer for 1 x over + 1 x under
+    # Subtest: out-buffer for 1 x over + 1 x under + .flush
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 3 - out-buffer for 1 x over + 1 x under + .flush
+    # Subtest: out-buffer for 1 x over + 1 x under + .close
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 4 - out-buffer for 1 x over + 1 x under + .close
+    # Subtest: out-buffer for [1 x over + 1 x under + .flush]x2
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 5 - out-buffer for [1 x over + 1 x under + .flush]x2
+    # Subtest: out-buffer for [1 x over + 1 x under + *] X [.flush, .close]
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 6 - out-buffer for [1 x over + 1 x under + *] X [.flush, .close]
+    # Subtest: out-buffer for 1 x under + buffer resize too small to hold original print
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 7 - out-buffer for 1 x under + buffer resize too small to hold original print
+    # Subtest: out-buffer for 1 x under + large buffer
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 8 - out-buffer for 1 x under + large buffer
+    # Subtest: out-buffer for 1 x under + large buffer + over
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 9 - out-buffer for 1 x under + large buffer + over
+    # Subtest: out-buffer for 1 x under + large buffer + over + close
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 10 - out-buffer for 1 x under + large buffer + over + close
+ok 1 - .open: \(:w)
+# Subtest: .open: \(:rw)
+    1..10
+    # Subtest: out-buffer for 1 x over
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 1 - out-buffer for 1 x over
+    # Subtest: out-buffer for 1 x over + 1 x under
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 2 - out-buffer for 1 x over + 1 x under
+    # Subtest: out-buffer for 1 x over + 1 x under + .flush
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 3 - out-buffer for 1 x over + 1 x under + .flush
+    # Subtest: out-buffer for 1 x over + 1 x under + .close
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 4 - out-buffer for 1 x over + 1 x under + .close
+    # Subtest: out-buffer for [1 x over + 1 x under + .flush]x2
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 5 - out-buffer for [1 x over + 1 x under + .flush]x2
+    # Subtest: out-buffer for [1 x over + 1 x under + *] X [.flush, .close]
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 6 - out-buffer for [1 x over + 1 x under + *] X [.flush, .close]
+    # Subtest: out-buffer for 1 x under + buffer resize too small to hold original print
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 7 - out-buffer for 1 x under + buffer resize too small to hold original print
+    # Subtest: out-buffer for 1 x under + large buffer
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 8 - out-buffer for 1 x under + large buffer
+    # Subtest: out-buffer for 1 x under + large buffer + over
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 9 - out-buffer for 1 x under + large buffer + over
+    # Subtest: out-buffer for 1 x under + large buffer + over + close
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 10 - out-buffer for 1 x under + large buffer + over + close
+ok 2 - .open: \(:rw)
+# Subtest: .open: \(:a)
+    1..10
+    # Subtest: out-buffer for 1 x over
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 1 - out-buffer for 1 x over
+    # Subtest: out-buffer for 1 x over + 1 x under
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 2 - out-buffer for 1 x over + 1 x under
+    # Subtest: out-buffer for 1 x over + 1 x under + .flush
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 3 - out-buffer for 1 x over + 1 x under + .flush
+    # Subtest: out-buffer for 1 x over + 1 x under + .close
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 4 - out-buffer for 1 x over + 1 x under + .close
+    # Subtest: out-buffer for [1 x over + 1 x under + .flush]x2
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 5 - out-buffer for [1 x over + 1 x under + .flush]x2
+    # Subtest: out-buffer for [1 x over + 1 x under + *] X [.flush, .close]
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 6 - out-buffer for [1 x over + 1 x under + *] X [.flush, .close]
+    # Subtest: out-buffer for 1 x under + buffer resize too small to hold original print
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 7 - out-buffer for 1 x under + buffer resize too small to hold original print
+    # Subtest: out-buffer for 1 x under + large buffer
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 8 - out-buffer for 1 x under + large buffer
+    # Subtest: out-buffer for 1 x under + large buffer + over
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 9 - out-buffer for 1 x under + large buffer + over
+    # Subtest: out-buffer for 1 x under + large buffer + over + close
+        1..1
+        ok 1 - file contains expected number of bytes
+    ok 10 - out-buffer for 1 x under + large buffer + over + close
+ok 3 - .open: \(:a)
+# Subtest: prompt does not hang
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - exit code
+ok 4 - prompt does not hang

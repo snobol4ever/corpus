@@ -1,0 +1,16 @@
+1..15
+ok 1 - let() changed the variable (1)
+ok 2 - let() should not restore the variable, as our block exited successfully (1)
+ok 3 - let() changed the variable (1)
+ok 4 - let() should restore the variable, as our block failed
+ok 5 - let() changed the variable (2-1)
+ok 6 - let() changed the variable (2-2)
+ok 7 - let() should not restore the variable, as our block exited successfully (2)
+ok 8 - let() changed the variable in a try block
+ok 9 - let() restored the variable, the block was exited using an exception
+ok 10 - let() changed our array element
+ok 11 - let() restored our array element
+ok 12 - fail() resets let variables
+ok 13 - let works with parametarized Hashes
+ok 14 - `let` keeps around Nils in Arrays when they exist
+ok 15 - `let` keeps Nils around in Hashes when they exist

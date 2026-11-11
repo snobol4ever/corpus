@@ -1,0 +1,63 @@
+1..9
+ok 1 - Can stub a class, and later on declare it
+ok 2 - Can stub a role, and later on declare it
+ok 3 - Can stub a module, and later on declare it
+not ok 4 - Can stub a package, and later on implement it as a class # TODO nom regression
+# Failed test 'Can stub a package, and later on implement it as a class'
+# at S12-class/stubs.rakudo line 17
+# Error: The following packages were stubbed but not defined:
+#     Test::StubD
+# Subtest: stubbing a class but not providing a definition dies
+    1..2
+    ok 1 - 'my class StubbedButNotDeclared { ... }' died
+    ok 2 - right exception type (X::Package::Stubbed)
+ok 5 - stubbing a class but not providing a definition dies
+# Subtest: did we throws-like X::Package::Stubbed?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Package::Stubbed)
+    ok 3 - .message matches The following packages were stubbed but not defined:
+    #     A
+ok 6 - did we throws-like X::Package::Stubbed?
+# Subtest: did we throws-like X::Inheritance::NotComposed?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Inheritance::NotComposed)
+    ok 3 - .parent-name matches A
+    ok 4 - .child-name matches B
+ok 7 - did we throws-like X::Inheritance::NotComposed?
+# Subtest: all forms of yadas work to stub classes
+    1..2
+    # Subtest: lives when stubbed, then defined
+        1..4
+        ok 1 - …
+        ok 2 - ...
+        ok 3 - !!!
+        ok 4 - ???
+    ok 1 - lives when stubbed, then defined
+    # Subtest: throws when stubbed, and never defined
+        1..4
+        # Subtest: …
+            1..2
+            ok 1 - 'my class Foo { …   }' died
+            ok 2 - right exception type (X::Package::Stubbed)
+        ok 1 - …
+        # Subtest: ...
+            1..2
+            ok 1 - 'my class Foo { ... }' died
+            ok 2 - right exception type (X::Package::Stubbed)
+        ok 2 - ...
+        # Subtest: !!!
+            1..2
+            ok 1 - 'my class Foo { !!! }' died
+            ok 2 - right exception type (X::Package::Stubbed)
+        ok 3 - !!!
+        # Subtest: ???
+            1..2
+            ok 1 - 'my class Foo { ??? }' died
+            ok 2 - right exception type (X::Package::Stubbed)
+        ok 4 - ???
+    ok 2 - throws when stubbed, and never defined
+ok 8 - all forms of yadas work to stub classes
+ok 9 - Can stub a class in a core namespace
+# FUDGED!

@@ -1,0 +1,38 @@
+1..9
+ok 1 - ords(empty string)
+ok 2 - <empty string>.ords
+ok 3 - ords(normal string)
+ok 4 - <normal string>.ords
+ok 5 - ords() on integers
+ok 6 - .ords on integers
+ok 7 - ords does not lose NFG synthetics (function)
+ok 8 - ords does not lose NFG synthetics (method)
+# Subtest: optimization coverage
+    1..4
+    ok 1 - .push-all (has chars)
+    ok 2 - .push-all (no chars)
+    # Subtest: has chars
+        1..15
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (before pull 3)
+        ok 11 - bool   (before pull 3)
+        ok 12 - pulled (pull 3)
+        ok 13 - count  (after last pull)
+        ok 14 - bool   (after last pull)
+        ok 15 - one more pull gives IterationEnd
+    ok 3 - has chars
+    # Subtest: no  chars
+        1..3
+        ok 1 - count  (after last pull)
+        ok 2 - bool   (after last pull)
+        ok 3 - one more pull gives IterationEnd
+    ok 4 - no  chars
+ok 9 - optimization coverage

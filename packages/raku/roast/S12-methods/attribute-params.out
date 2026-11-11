@@ -1,0 +1,37 @@
+1..21
+ok 1 - attribute starts undefined
+ok 2 - attributive paramed method returns the right thing
+ok 3 - ... and it set the attribute
+ok 4 - array attribute starts empty
+ok 5 - array attributive paramed method returns the right thing
+ok 6 - array param set correctly
+ok 7 - hash attribute starts empty
+ok 8 - hash attributive paramed method returns the right thing
+ok 9 - hash param set correctly
+ok 10 - slurpy array attributive paramed method returns the right thing
+ok 11 - slurpy array param set correctly
+ok 12 - slurpy hash attributive paramed method returns the right thing
+ok 13 - slurpy hash param set correctly
+# Subtest: did we throws-like X::Syntax::VirtualCall?
+    1..3
+    ok 1 - 'my class C { has $.x; submethod BUILD(:$.x) {} }' died
+    ok 2 - right exception type (X::Syntax::VirtualCall)
+    ok 3 - .call matches $.x
+ok 14 - did we throws-like X::Syntax::VirtualCall?
+# Subtest: did we throws-like X::Syntax::NoSelf?
+    1..3
+    ok 1 - 'sub optimal($.x) { }' died
+    ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 3 - .variable matches $.x
+ok 15 - did we throws-like X::Syntax::NoSelf?
+# Subtest: did we throws-like X::Syntax::NoSelf?
+    1..3
+    ok 1 - 'sub optimal($!x) { }' died
+    ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 3 - .variable matches $!x
+ok 16 - did we throws-like X::Syntax::NoSelf?
+ok 17 - Can use attributive binding on a native attribute (int, positional)
+ok 18 - Can use attributive binding on a native attribute (num, positional)
+ok 19 - Can use attributive binding on a native attribute (int, named)
+ok 20 - Can use attributive binding on a native attribute (num, named)
+ok 21 - any Signature binds attributively to the next self in the outer chain

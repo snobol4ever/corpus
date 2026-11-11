@@ -1,0 +1,5 @@
+1..4
+ok 1 - smart-match happens after method calls on $_ 1
+ok 2 - smart-match happens after method calls on $_ 2
+ok 3 - method call with args 1
+ok 4 - method call with args 2

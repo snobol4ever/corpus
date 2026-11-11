@@ -1,0 +1,83 @@
+1..61
+ok 1 - Match
+ok 2 - Matched
+ok 3 - Captured
+ok 4 - $/[0]
+ok 5 - $0
+ok 6 - $/[1]
+ok 7 - $1
+ok 8 - no $/[2]
+ok 9 - no $2
+ok 10 - no $/<dotdot>
+ok 11 - Match
+ok 12 - Matched
+ok 13 - Captured
+ok 14 - $/[0]
+ok 15 - $0
+ok 16 - $/[1]
+ok 17 - $1
+ok 18 - $/[2]
+ok 19 - $2
+ok 20 - $/<dotdot>
+ok 21 - $/<dotdot>[0]
+ok 22 - $/<dotdot>[1]
+ok 23 - $/<dotdot>[2]
+ok 24 - Nested captured
+ok 25 - Nested $0
+ok 26 - Nested $1
+ok 27 - Nested $2
+ok 28 - Nested $3
+ok 29 - Backreference
+ok 30 - Captured
+ok 31 - Captured
+ok 32 - Correct semantics of contiguous captures in backref
+ok 33 - Backtracking and backref interaction resulted in correct capture
+not ok 34 - Named backref # TODO dubious test RT #125004
+# Failed test 'Named backref'
+# at S05-capture/dot.rakudo line 70
+not ok 35 - Named capture # TODO dubious test RT #125004
+# Failed test 'Named capture'
+# at S05-capture/dot.rakudo line 71
+# expected: 'o'
+#      got: ''
+not ok 36 - Backref capture # TODO dubious test RT #125004
+# Failed test 'Backref capture'
+# at S05-capture/dot.rakudo line 72
+# expected: 'o'
+#      got: ''
+not ok 37 - Positional backref # TODO dubious test RT #125005
+# Failed test 'Positional backref'
+# at S05-capture/dot.rakudo line 76
+not ok 38 - Named capture # TODO dubious test RT #125005
+# Failed test 'Named capture'
+# at S05-capture/dot.rakudo line 77
+# expected: 'o'
+#      got: ''
+not ok 39 - Backref capture # TODO dubious test RT #125005
+# Failed test 'Backref capture'
+# at S05-capture/dot.rakudo line 78
+# expected: 'o'
+#      got: ''
+ok 40 - Failed positional backref
+ok 41 - Failed named backref
+ok 42 - Non-translation of non-interpolated "\$0"
+ok 43 - Non-translation of non-interpolated '$0'
+ok 44 - Non-translation of non-interpolated q{$0}
+ok 45 - Non-translation of non-interpolated q[$0]
+ok 46 - Non-translation of non-interpolated q<$0>
+ok 47 - Non-translation of non-interpolated q/$0/
+ok 48 - Non-translation of non-interpolated q!$0!
+ok 49 - Non-translation of non-interpolated q|$0|
+ok 50 - English name
+ok 51 - Match is john
+ok 52 - Match isn't jean
+ok 53 - French name
+ok 54 - Match is jean
+ok 55 - Russian name
+ok 56 - Match is ivan
+ok 57 - English metaname
+ok 58 - Metaname match is john
+ok 59 - Metaname match isn't jean
+ok 60 - Metaname is john
+ok 61 - Can refer to very high numbered capture variable without exploding
+# FUDGED!

@@ -1,0 +1,11 @@
+1..7
+ok 1 - instantiated a class
+ok 2 - initializing attributes in new
+ok 3 - death to instantiating nonexistent class
+ok 4 - error for "NoSuchClass.new()" mentions NoSuchClass
+ok 5 - death to instantiating nonexistent::class
+not ok 6 - error for "NoSuch::Subclass.new()" mentions NoSuch::Subclass # TODO error reporting
+# Failed test 'error for "NoSuch::Subclass.new()" mentions NoSuch::Subclass'
+# at S12-class/instantiate.rakudo line 32
+ok 7 - instantiating from class name string creates a Str object
+# FUDGED!

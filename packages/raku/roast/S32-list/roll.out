@@ -1,0 +1,61 @@
+1..52
+ok 1 - roll works on arrays
+ok 2 - .roll on the empty list is Nil
+ok 3 - method roll with $num < +@values
+ok 4 - method roll with $num > +@values
+ok 5 - sub roll with $num < +@values, implicit no-replace
+ok 6 - sub roll with $num > +@values
+ok 7 - roll(*) generates at least ten elements
+ok 8 - roll(*) knows itself to be lazy
+ok 9 - roll(4) returned the items of the array in a random order
+ok 10 - .roll(*) returns at least ten elements
+ok 11 - [[1,2],[3,4]].roll does not flatten
+ok 12 - .roll() returns something can be used as single scalar
+ok 13 - roll(100, @a) returns the correct number of elements
+ok 14 - roll(100, @a) returns Ints (if @a is Ints)
+ok 15 - roll(100, @a) returns numbers in the correct range
+ok 16 - rolling a single element from an array of Ints produces an Int
+ok 17 - rolling a single element from an array of Ints produces one of them
+ok 18 - rolling 1 from an array of Ints produces something iterable
+ok 19 - rolling 1 from an array of Ints produces one of them
+ok 20 - rolling 2 from an array of Ints produces an Int...
+ok 21 - ... and an Int
+ok 22 - rolling 2 from an array of Ints produces two of them
+ok 23 - .roll works Str arguments
+ok 24 - roll works Str arguments
+ok 25 - Bool.roll works
+ok 26 - RandomEnum.roll works
+ok 27 - no argument roll works
+ok 28 - the first 100 elems are in range
+ok 29 - right number of elements from Range.roll
+ok 30 - all the elems are in range
+ok 31 - right number of elements from Range.roll (min exclusive)
+ok 32 - all the elems are in range
+ok 33 - right number of elements from Range.roll (max exclusive)
+ok 34 - all the elems are in range
+ok 35 - right number of elements from Range.roll (both exclusive)
+ok 36 - all the elems are in range
+ok 37 - right number of elements from Range.roll, huge range
+ok 38 - all the elems are in range
+ok 39 - 1-elem Range roll
+ok 40 - Str-Range roll
+ok 41 - different results due to random random-number seed
+ok 42 - simple roll on Enum type works
+ok 43 - one roll on Enum type works
+ok 44 - too many roll on Enum type works
+ok 45 - zero roll on Enum type works
+ok 46 - simple roll on Enum is sane
+ok 47 - one roll on Enum is sane
+ok 48 - too many roll on Enum is sane
+ok 49 - zero roll on Enum is sane
+ok 50 - roll on Range uses .succ
+# Subtest: rand on ranges is implemented
+    1..2
+    ok 1 - all generated numbers are in range
+    ok 2 - generated elements vary
+ok 51 - rand on ranges is implemented
+# Subtest: .pick on object Hashes
+    1..2
+    ok 1 - single-Pair Hash
+    ok 2 - many Pairs
+ok 52 - .pick on object Hashes

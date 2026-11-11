@@ -1,0 +1,52 @@
+1..11
+ok 1 - A::B.WHAT stringifies to short name B
+ok 2 - Composing namespaced role to non-namespaced class
+ok 3 - Composing namespaced role to namespaced class
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { class C { } }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches class
+ok 4 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { subset Pint of Int; }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches subset
+ok 5 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { enum Tea <green black fruit> }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches enum
+ok 6 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { constant Answer = 42; }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches constant
+ok 7 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { role R2 { } }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches role
+ok 8 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { our sub foo() { } }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches sub
+ok 9 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { our method foo() { } }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches method
+ok 10 - did we throws-like X::Declaration::OurScopeInRole?
+# Subtest: did we throws-like X::Declaration::OurScopeInRole?
+    1..3
+    ok 1 - 'my role R { our $bar }' died
+    ok 2 - right exception type (X::Declaration::OurScopeInRole)
+    ok 3 - .declaration matches variable
+ok 11 - did we throws-like X::Declaration::OurScopeInRole?

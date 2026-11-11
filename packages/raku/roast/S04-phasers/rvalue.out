@@ -1,0 +1,17 @@
+1..16
+ok 1 - BEGIN block as expression
+ok 2 - can access built-in functions in BEGIN blocks
+ok 3 - can access built-in methods in BEGIN blocks
+ok 4 - BEGIN statement prefix as expression
+ok 5 - can access built-in functions in BEGIN statement prefix
+ok 6 - can access built-in methods in BEGIN statement prefix
+ok 7 - INIT {} runs only once
+ok 8 - INIT {} as rval is its ret val
+ok 9 - INIT {} runs only once
+ok 10 - CHECK {} runs only once
+ok 11 - CHECK {} as rval is its ret val
+ok 12 - CHECK {} runs only once
+ok 13 - BEGIN {} runs only once
+ok 14 - BEGIN {} as rval is its ret val
+ok 15 - BEGIN {} runs only once
+ok 16 - END  can't be used as a rvalue

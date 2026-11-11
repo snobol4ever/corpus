@@ -1,0 +1,4 @@
+1..3
+ok 1 - wrong count, all pass
+ok 2 - correct count, all pass
+ok 3 - correct count, one fails

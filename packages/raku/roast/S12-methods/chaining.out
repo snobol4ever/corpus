@@ -1,0 +1,26 @@
+1..17
+ok 1 - The object is-a 'Foo'
+ok 2 - ... got the right num value
+ok 3 - The object is-a 'Foo'
+ok 4 - ... $_foo1 and $foo are the same instances
+ok 5 - ... got the right num value
+ok 6 - The object is-a 'Foo'
+ok 7 - ... $_foo1, $_foo2 and $foo are the same instances
+ok 8 - ... got the right num value
+ok 9 - ... method chaining works
+ok 10 - The object is-a 'Foo'
+ok 11 - ... $_foo3, $_foo1, $_foo2 and $foo are the same instances
+ok 12 - ... got the right num value
+ok 13 - chained an auto-generated accessor
+# Subtest: Perl -> is dead (class constructor)
+    1..2
+    ok 1 - 'Foo->new' died
+    ok 2 - right exception type (X::Obsolete)
+ok 14 - Perl -> is dead (class constructor)
+# Subtest: Perl -> is dead (method call)
+    1..2
+    ok 1 - '$foo->num' died
+    ok 2 - right exception type (X::Obsolete)
+ok 15 - Perl -> is dead (method call)
+ok 16 - chaining through temp variable
+ok 17 - chaining through Any return

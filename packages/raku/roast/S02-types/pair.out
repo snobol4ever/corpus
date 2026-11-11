@@ -1,0 +1,259 @@
+1..182
+ok 1 - The object is-a 'Pair'
+ok 2 - got the right key($pair:)
+ok 3 - got the right value($pair:)
+ok 4 - got the right $pair.key()
+ok 5 - got the right $pair.value()
+ok 6 - got the right $pair.key
+ok 7 - got the right $pair.value
+ok 8 - got the right number of elements in the list
+ok 9 - got the right key
+ok 10 - got the right value
+ok 11 - got the right number of elements in the list
+ok 12 - got the right key
+ok 13 - got the right value
+ok 14 - got the right number of elements in the list
+ok 15 - got the right key
+ok 16 - got the right value
+ok 17 - got the right number of elements in the list
+ok 18 - got the right key
+ok 19 - got the right value
+ok 20 - The object is-a 'Pair'
+ok 21 - got the right key($pair:)
+ok 22 - got the right value($pair:)
+ok 23 - got the right $pair.key()
+ok 24 - got the right $pair.value()
+ok 25 - got the right $pair.key
+ok 26 - got the right $pair.value
+ok 27 - got the right number of elements in the list
+ok 28 - got the right key
+ok 29 - got the right value
+ok 30 - got the right number of elements in the list
+ok 31 - got the right key
+ok 32 - got the right value
+ok 33 - got the right number of elements in the list
+ok 34 - got the right key
+ok 35 - got the right value
+ok 36 - got the right number of elements in the list
+ok 37 - got the right key
+ok 38 - got the right value
+ok 39 - The object is-a 'Pair'
+ok 40 - got the right key($pair:)
+ok 41 - got the right value($pair:)
+ok 42 - got the right $pair.key()
+ok 43 - got the right $pair.value()
+ok 44 - got the right $pair.key
+ok 45 - got the right $pair.value
+ok 46 - got the right number of elements in the list
+ok 47 - got the right key
+ok 48 - got the right value
+ok 49 - got the right number of elements in the list
+ok 50 - got the right key
+ok 51 - got the right value
+ok 52 - got the right number of elements in the list
+ok 53 - got the right key
+ok 54 - got the right value
+ok 55 - got the right number of elements in the list
+ok 56 - got the right key
+ok 57 - got the right value
+ok 58 - The object is-a 'Pair'
+ok 59 - got the right key($pair:)
+ok 60 - got the right value($pair:)
+ok 61 - got the right $pair.key()
+ok 62 - got the right $pair.value()
+ok 63 - got the right $pair.key
+ok 64 - got the right $pair.value
+ok 65 - got the right number of elements in the list
+ok 66 - got the right key
+ok 67 - got the right value
+ok 68 - got the right number of elements in the list
+ok 69 - got the right key
+ok 70 - got the right value
+ok 71 - got the right number of elements in the list
+ok 72 - got the right key
+ok 73 - got the right value
+ok 74 - got the right number of elements in the list
+ok 75 - got the right key
+ok 76 - got the right value
+ok 77 - The object is-a 'Pair'
+ok 78 - got the right value
+ok 79 - The object is-a 'Pair'
+ok 80 - The object is-a 'Pair'
+ok 81 - got right nested pair key
+ok 82 - got right nested pair key
+ok 83 - got right nested pair key (method chaining)
+ok 84 - got right nested pair key (method chaining)
+ok 85 - The object is-a 'Pair'
+ok 86 - got the right value
+ok 87 - The object is-a 'Pair'
+ok 88 - got right nested key
+ok 89 - got right nested value
+ok 90 - lhs quotes
+not ok 91 - hash stringification # TODO should it really have \n on the end?
+# Failed test 'hash stringification'
+# at S02-types/pair.rakudo line 88
+# expected: "when\tnow\n"
+#      got: "when\tnow"
+ok 92 - %() makes creates a real Hash
+ok 93 - got the right key :foo.key
+ok 94 - :foo.value isa Bool
+ok 95 - :foo is True
+ok 96 - :foo.value is True
+ok 97 - got the right key :!foo.key
+ok 98 - :!foo.value isa Bool
+ok 99 - :!foo.value is False
+ok 100 - The object is-a 'Pair'
+ok 101 - The object is-a 'Pair'
+ok 102 - The object is-a 'Pair'
+ok 103 - in sub test1 got the right $pair.key
+ok 104 - in sub test1 got the right $pair.value
+ok 105 - The object is-a 'Pair'
+ok 106 - The object is-a 'Pair'
+ok 107 - The object is-a 'Pair'
+ok 108 - in for loop got the right $pair.key
+ok 109 - in for loop got the right $pair.value
+ok 110 - The object is-a 'Pair'
+ok 111 - in sub test2 got the right $pair.key
+ok 112 - in sub test2 got the right $pair.value
+ok 113 - The object is-a 'Pair'
+ok 114 - sub test3: $pair[0] is $pair
+ok 115 - sub test3: $pair[1] is failure
+ok 116 - => has correct precedence
+ok 117 - Zaphod is 2
+ok 118 - Ford is 42
+ok 119 - Zaphod is still 2
+ok 120 - Ford is still 42
+ok 121 - pairs stringify correctly (1)
+ok 122 - pairs stringify correctly (2)
+ok 123 - pairs with arrayitems as values stringify correctly (1)
+ok 124 - pairs with arrayitems as values stringify correctly (2)
+ok 125 - => should not stringify the key (1)
+ok 126 - => should not stringify the key (2)
+ok 127 - => should not stringify the key (3)
+ok 128 - => should not stringify the key (4)
+ok 129 - => should not stringify the key (5)
+ok 130 - => should not stringify the key (6)
+ok 131 - the keys of pairs should not get auto-stringified when passed to a sub (1)
+ok 132 - the keys of pairs should not get auto-stringified when passed to a sub (2)
+ok 133 - the keys of pairs should not get auto-stringified when passed to a sub (3)
+# Subtest: setting .key dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 134 - setting .key dies
+ok 135 - attempt to set .key doesn't change the key
+ok 136 - attempt to set .key does not change the original var either
+ok 137 - setting .value does not die
+ok 138 - setting .value actually changes the value
+ok 139 - setting .value does change the original var as it was itemized
+ok 140 - :$foo syntax works
+ok 141 - :@foo syntax works
+ok 142 - :%foo syntax works
+ok 143 - :&foo syntax works
+ok 144 - can parse ":a()"
+ok 145 - can execute ":a()"
+ok 146 - can parse ":a[]"
+ok 147 - can execute ":a[]"
+ok 148 - can parse "(a => ())"
+ok 149 - can execute "(a => ())"
+ok 150 - can parse "(a => [])"
+ok 151 - can execute "(a => [])"
+ok 152 - Pair.antipair.key
+ok 153 - Pair.antipair.key type
+ok 154 - Pair.antipair.value
+ok 155 - Pair.invert splits positional values
+ok 156 - Pair.invert splits positional values and preserves order
+ok 157 - Pair.invert.key type
+ok 158 - Pair.invert splits positional values and dups keys
+ok 159 - list of array pairs can be inverted
+ok 160 - list of hash pairs can be inverted
+ok 161 - chained colonpairs in parens build a list of pairs
+ok 162 - chained colonpairs in curlies construct hashes with more than one element
+ok 163 - both key and value can convey a raw Nil
+ok 164 - both key and value can convey a Mu type
+ok 165 - both key and value can convey an Any type
+ok 166 - both key and value can convey a Junction type
+ok 167 - both key and value can convey a Junction object
+ok 168 - The object is-a 'Int'
+ok 169 - can assign integer value and return that
+ok 170 - the expected Int value was set
+# Subtest: cannot assign a Str to an Int
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 171 - cannot assign a Str to an Int
+ok 172 - pair binding
+# Subtest: List.invert maps via a required Pair binding
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Int)
+    ok 4 - .expected matches (Pair)
+ok 173 - List.invert maps via a required Pair binding
+ok 174 - accessing non-existent key on a Pair returns Nil
+ok 175 - .Pair on Pair:D is identity
+ok 176 - .Pair on Pair:U is identity
+# Subtest: Pair.ACCEPTS
+    1..23
+    ok 1 - ("a"=>3,"z"=>1).Bag (True)
+    ok 2 - ("a"=>3,"z"=>1).BagHash (True)
+    ok 3 - ("z"=>2,"a"=>3).Mix (True)
+    ok 4 - ("a"=>3,"z"=>2).MixHash (True)
+    ok 5 - ${:a(3), :z(5)} (True)
+    ok 6 - $(Map.new((:a(3),:z(5)))) (True)
+    ok 7 - :a(3) (True)
+    ok 8 - ("a"=>1,"z"=>1).Bag (False)
+    ok 9 - ("a"=>1,"z"=>1).BagHash (False)
+    ok 10 - Set.new("z","a") (False)
+    ok 11 - SetHash.new("z","a") (False)
+    ok 12 - ("a"=>1,"z"=>1).Mix (False)
+    ok 13 - ("z"=>1,"a"=>1).MixHash (False)
+    ok 14 - ${:a(Bool::True), :z(Bool::True)} (False)
+    ok 15 - $(Map.new((:a,:z))) (False)
+    ok 16 - :a (False)
+    ok 17 - :z (False)
+    ok 18 - Set (True)
+    ok 19 - SetHash (True)
+    ok 20 - custom class (True, 1)
+    ok 21 - custom class (True, 2)
+    ok 22 - custom class (True, 3)
+    ok 23 - custom class (False)
+ok 177 - Pair.ACCEPTS
+# Subtest: Pair.invert
+    1..7
+    ok 1 - :a(42)
+    ok 2 - 42 => 70
+    ok 3 - :foo(:bar(:meow(42)))
+    ok 4 - ("a", "b", "c") => ("d", "e", "f")
+    ok 5 - {:a("b"), :c("d")} => {:e("f"), :g("h")}
+    # Subtest: (Any) => (Mu)
+        1..4
+        ok 1 - return's type
+        ok 2 - return's number of elements
+        ok 3 - .key
+        ok 4 - .value
+    ok 6 - (Any) => (Mu)
+    # Subtest: (Mu) => (Any)
+        1..4
+        ok 1 - return's type
+        ok 2 - return's number of elements
+        ok 3 - .key
+        ok 4 - .value
+    ok 7 - (Mu) => (Any)
+ok 178 - Pair.invert
+# Subtest: Pair.raku with type objects
+    1..5
+    ok 1 - roundtrip of Bool:U .value does not eqv :!foo
+    ok 2 - (Str) => Str
+    ok 3 - (Rat) => Num
+    ok 4 - (Bool) => Bool
+    ok 5 - (Numeric) => Numeric
+ok 179 - Pair.raku with type objects
+# Subtest: Clone of Pair does not share .WHICH
+    1..2
+    ok 1 - clone, same value
+    ok 2 - clone, different value
+ok 180 - Clone of Pair does not share .WHICH
+ok 181 - fake-infix adverbs (named args) on a construct inside args to another routine
+ok 182 - did we not do parens?
+# FUDGED!

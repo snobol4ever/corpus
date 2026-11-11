@@ -1,0 +1,225 @@
+1..59
+ok 1 - accessing an array as [0;0] works (1)
+ok 2 - accessing an array as [0;0] works (2)
+ok 3 - accessing an array as [0;0] works (3)
+ok 4 - accessing an array as [0;0] works (4)
+# Subtest: setting a multi-d array beyond boundaries fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 5 - setting a multi-d array beyond boundaries fails
+ok 6 - .elems works on multidimensional array
+ok 7 - # SKIP ragged multi-dim sized arrays NYI
+ok 8 - # SKIP ragged multi-dim sized arrays NYI
+ok 9 - # SKIP ragged multi-dim sized arrays NYI
+ok 10 - # SKIP ragged multi-dim sized arrays NYI
+ok 11 - the multi1 has 3 elements
+ok 12 - got the right value at multi1 index 0
+ok 13 - multi1[1] has 3 elements
+ok 14 - +$multi1[1] works
+ok 15 - The object is-a 'List'
+ok 16 - got the right value at multi1 index 1,0
+ok 17 - got the right value at multi1 index 1,1
+ok 18 - got the right value at multi1 index 1,2
+ok 19 - got the right value at multi1 index 1,0
+ok 20 - got the right value at multi1 index 1,1
+ok 21 - got the right value at multi1 index 1,2
+ok 22 - got the right value at multi1 index 2
+ok 23 - the multi2 has 2 elements
+ok 24 - multi2[0] has 3 elements
+ok 25 - +$multi2[0] works
+ok 26 - The object is-a 'List'
+ok 27 - got the right value at multi2 index 0,0
+ok 28 - got the right value at multi2 index 0,1
+ok 29 - got the right value at multi2 index 0,2
+ok 30 - got the right value at multi2 index 0,0
+ok 31 - got the right value at multi2 index 0,1
+ok 32 - got the right value at multi2 index 0,2
+ok 33 - multi2[1] has 3 elements
+ok 34 - +$multi2[1] works
+ok 35 - The object is-a 'List'
+ok 36 - got the right value at multi2 index 1,0
+ok 37 - got the right value at multi2 index 1,1
+ok 38 - got the right value at multi2 index 1,2
+ok 39 - got the right value at multi2 index 1,0
+ok 40 - got the right value at multi2 index 1,1
+ok 41 - got the right value at multi2 index 1,2
+ok 42 - got the right values at multi2 index {0,1},0
+ok 43 - got the right values at multi2 index {0,1},1
+ok 44 - got the right values at multi2 index {0,1},2
+ok 45 - got the right values at multi2 index *,0
+ok 46 - got the right values at multi2 index *,1
+ok 47 - got the right values at multi2 index *,2
+ok 48 - [1 ; 0,1,2 ; 2]
+ok 49 - [1 ; * ; 2]
+ok 50 - [0,1 ; 2 ; 2]
+ok 51 - [1 ; 0,2 ; 1]
+ok 52 - [1 ; 2 ; 1,2]
+ok 53 - [0,1 ; 0,2 ; 1,2]
+ok 54 - can assign to multi-dim slice
+ok 55 - overall assignment worked
+ok 56 - assigned the right thing to [0;0;1]
+ok 57 - assigned the right thing to [0;1;1]
+ok 58 - assigned the right thing to [0;2;1]
+# Subtest: Insertion and reading of shaped array elements
+    1..158
+    ok 1 - got the right value from array with dim 1 at 0
+    ok 2 - .elems for a shaped array (dim 1) returns the first dimension
+    ok 3 - got the right value from array with dim 2 at 0 0
+    ok 4 - got the right value from array with dim 2 at 1 0
+    ok 5 - .elems for a shaped array (dim 2) returns the first dimension
+    ok 6 - got the right value from array with dim 3 at 0 0 0
+    ok 7 - got the right value from array with dim 3 at 0 1 0
+    ok 8 - got the right value from array with dim 3 at 1 0 0
+    ok 9 - got the right value from array with dim 3 at 1 1 0
+    ok 10 - got the right value from array with dim 3 at 2 0 0
+    ok 11 - got the right value from array with dim 3 at 2 1 0
+    ok 12 - .elems for a shaped array (dim 3) returns the first dimension
+    ok 13 - got the right value from array with dim 4 at 0 0 0 0
+    ok 14 - got the right value from array with dim 4 at 0 0 1 0
+    ok 15 - got the right value from array with dim 4 at 0 1 0 0
+    ok 16 - got the right value from array with dim 4 at 0 1 1 0
+    ok 17 - got the right value from array with dim 4 at 0 2 0 0
+    ok 18 - got the right value from array with dim 4 at 0 2 1 0
+    ok 19 - got the right value from array with dim 4 at 1 0 0 0
+    ok 20 - got the right value from array with dim 4 at 1 0 1 0
+    ok 21 - got the right value from array with dim 4 at 1 1 0 0
+    ok 22 - got the right value from array with dim 4 at 1 1 1 0
+    ok 23 - got the right value from array with dim 4 at 1 2 0 0
+    ok 24 - got the right value from array with dim 4 at 1 2 1 0
+    ok 25 - got the right value from array with dim 4 at 2 0 0 0
+    ok 26 - got the right value from array with dim 4 at 2 0 1 0
+    ok 27 - got the right value from array with dim 4 at 2 1 0 0
+    ok 28 - got the right value from array with dim 4 at 2 1 1 0
+    ok 29 - got the right value from array with dim 4 at 2 2 0 0
+    ok 30 - got the right value from array with dim 4 at 2 2 1 0
+    ok 31 - got the right value from array with dim 4 at 3 0 0 0
+    ok 32 - got the right value from array with dim 4 at 3 0 1 0
+    ok 33 - got the right value from array with dim 4 at 3 1 0 0
+    ok 34 - got the right value from array with dim 4 at 3 1 1 0
+    ok 35 - got the right value from array with dim 4 at 3 2 0 0
+    ok 36 - got the right value from array with dim 4 at 3 2 1 0
+    ok 37 - .elems for a shaped array (dim 4) returns the first dimension
+    ok 38 - got the right value from array with dim 5 at 0 0 0 0 0
+    ok 39 - got the right value from array with dim 5 at 0 0 0 1 0
+    ok 40 - got the right value from array with dim 5 at 0 0 1 0 0
+    ok 41 - got the right value from array with dim 5 at 0 0 1 1 0
+    ok 42 - got the right value from array with dim 5 at 0 0 2 0 0
+    ok 43 - got the right value from array with dim 5 at 0 0 2 1 0
+    ok 44 - got the right value from array with dim 5 at 0 1 0 0 0
+    ok 45 - got the right value from array with dim 5 at 0 1 0 1 0
+    ok 46 - got the right value from array with dim 5 at 0 1 1 0 0
+    ok 47 - got the right value from array with dim 5 at 0 1 1 1 0
+    ok 48 - got the right value from array with dim 5 at 0 1 2 0 0
+    ok 49 - got the right value from array with dim 5 at 0 1 2 1 0
+    ok 50 - got the right value from array with dim 5 at 0 2 0 0 0
+    ok 51 - got the right value from array with dim 5 at 0 2 0 1 0
+    ok 52 - got the right value from array with dim 5 at 0 2 1 0 0
+    ok 53 - got the right value from array with dim 5 at 0 2 1 1 0
+    ok 54 - got the right value from array with dim 5 at 0 2 2 0 0
+    ok 55 - got the right value from array with dim 5 at 0 2 2 1 0
+    ok 56 - got the right value from array with dim 5 at 0 3 0 0 0
+    ok 57 - got the right value from array with dim 5 at 0 3 0 1 0
+    ok 58 - got the right value from array with dim 5 at 0 3 1 0 0
+    ok 59 - got the right value from array with dim 5 at 0 3 1 1 0
+    ok 60 - got the right value from array with dim 5 at 0 3 2 0 0
+    ok 61 - got the right value from array with dim 5 at 0 3 2 1 0
+    ok 62 - got the right value from array with dim 5 at 1 0 0 0 0
+    ok 63 - got the right value from array with dim 5 at 1 0 0 1 0
+    ok 64 - got the right value from array with dim 5 at 1 0 1 0 0
+    ok 65 - got the right value from array with dim 5 at 1 0 1 1 0
+    ok 66 - got the right value from array with dim 5 at 1 0 2 0 0
+    ok 67 - got the right value from array with dim 5 at 1 0 2 1 0
+    ok 68 - got the right value from array with dim 5 at 1 1 0 0 0
+    ok 69 - got the right value from array with dim 5 at 1 1 0 1 0
+    ok 70 - got the right value from array with dim 5 at 1 1 1 0 0
+    ok 71 - got the right value from array with dim 5 at 1 1 1 1 0
+    ok 72 - got the right value from array with dim 5 at 1 1 2 0 0
+    ok 73 - got the right value from array with dim 5 at 1 1 2 1 0
+    ok 74 - got the right value from array with dim 5 at 1 2 0 0 0
+    ok 75 - got the right value from array with dim 5 at 1 2 0 1 0
+    ok 76 - got the right value from array with dim 5 at 1 2 1 0 0
+    ok 77 - got the right value from array with dim 5 at 1 2 1 1 0
+    ok 78 - got the right value from array with dim 5 at 1 2 2 0 0
+    ok 79 - got the right value from array with dim 5 at 1 2 2 1 0
+    ok 80 - got the right value from array with dim 5 at 1 3 0 0 0
+    ok 81 - got the right value from array with dim 5 at 1 3 0 1 0
+    ok 82 - got the right value from array with dim 5 at 1 3 1 0 0
+    ok 83 - got the right value from array with dim 5 at 1 3 1 1 0
+    ok 84 - got the right value from array with dim 5 at 1 3 2 0 0
+    ok 85 - got the right value from array with dim 5 at 1 3 2 1 0
+    ok 86 - got the right value from array with dim 5 at 2 0 0 0 0
+    ok 87 - got the right value from array with dim 5 at 2 0 0 1 0
+    ok 88 - got the right value from array with dim 5 at 2 0 1 0 0
+    ok 89 - got the right value from array with dim 5 at 2 0 1 1 0
+    ok 90 - got the right value from array with dim 5 at 2 0 2 0 0
+    ok 91 - got the right value from array with dim 5 at 2 0 2 1 0
+    ok 92 - got the right value from array with dim 5 at 2 1 0 0 0
+    ok 93 - got the right value from array with dim 5 at 2 1 0 1 0
+    ok 94 - got the right value from array with dim 5 at 2 1 1 0 0
+    ok 95 - got the right value from array with dim 5 at 2 1 1 1 0
+    ok 96 - got the right value from array with dim 5 at 2 1 2 0 0
+    ok 97 - got the right value from array with dim 5 at 2 1 2 1 0
+    ok 98 - got the right value from array with dim 5 at 2 2 0 0 0
+    ok 99 - got the right value from array with dim 5 at 2 2 0 1 0
+    ok 100 - got the right value from array with dim 5 at 2 2 1 0 0
+    ok 101 - got the right value from array with dim 5 at 2 2 1 1 0
+    ok 102 - got the right value from array with dim 5 at 2 2 2 0 0
+    ok 103 - got the right value from array with dim 5 at 2 2 2 1 0
+    ok 104 - got the right value from array with dim 5 at 2 3 0 0 0
+    ok 105 - got the right value from array with dim 5 at 2 3 0 1 0
+    ok 106 - got the right value from array with dim 5 at 2 3 1 0 0
+    ok 107 - got the right value from array with dim 5 at 2 3 1 1 0
+    ok 108 - got the right value from array with dim 5 at 2 3 2 0 0
+    ok 109 - got the right value from array with dim 5 at 2 3 2 1 0
+    ok 110 - got the right value from array with dim 5 at 3 0 0 0 0
+    ok 111 - got the right value from array with dim 5 at 3 0 0 1 0
+    ok 112 - got the right value from array with dim 5 at 3 0 1 0 0
+    ok 113 - got the right value from array with dim 5 at 3 0 1 1 0
+    ok 114 - got the right value from array with dim 5 at 3 0 2 0 0
+    ok 115 - got the right value from array with dim 5 at 3 0 2 1 0
+    ok 116 - got the right value from array with dim 5 at 3 1 0 0 0
+    ok 117 - got the right value from array with dim 5 at 3 1 0 1 0
+    ok 118 - got the right value from array with dim 5 at 3 1 1 0 0
+    ok 119 - got the right value from array with dim 5 at 3 1 1 1 0
+    ok 120 - got the right value from array with dim 5 at 3 1 2 0 0
+    ok 121 - got the right value from array with dim 5 at 3 1 2 1 0
+    ok 122 - got the right value from array with dim 5 at 3 2 0 0 0
+    ok 123 - got the right value from array with dim 5 at 3 2 0 1 0
+    ok 124 - got the right value from array with dim 5 at 3 2 1 0 0
+    ok 125 - got the right value from array with dim 5 at 3 2 1 1 0
+    ok 126 - got the right value from array with dim 5 at 3 2 2 0 0
+    ok 127 - got the right value from array with dim 5 at 3 2 2 1 0
+    ok 128 - got the right value from array with dim 5 at 3 3 0 0 0
+    ok 129 - got the right value from array with dim 5 at 3 3 0 1 0
+    ok 130 - got the right value from array with dim 5 at 3 3 1 0 0
+    ok 131 - got the right value from array with dim 5 at 3 3 1 1 0
+    ok 132 - got the right value from array with dim 5 at 3 3 2 0 0
+    ok 133 - got the right value from array with dim 5 at 3 3 2 1 0
+    ok 134 - got the right value from array with dim 5 at 4 0 0 0 0
+    ok 135 - got the right value from array with dim 5 at 4 0 0 1 0
+    ok 136 - got the right value from array with dim 5 at 4 0 1 0 0
+    ok 137 - got the right value from array with dim 5 at 4 0 1 1 0
+    ok 138 - got the right value from array with dim 5 at 4 0 2 0 0
+    ok 139 - got the right value from array with dim 5 at 4 0 2 1 0
+    ok 140 - got the right value from array with dim 5 at 4 1 0 0 0
+    ok 141 - got the right value from array with dim 5 at 4 1 0 1 0
+    ok 142 - got the right value from array with dim 5 at 4 1 1 0 0
+    ok 143 - got the right value from array with dim 5 at 4 1 1 1 0
+    ok 144 - got the right value from array with dim 5 at 4 1 2 0 0
+    ok 145 - got the right value from array with dim 5 at 4 1 2 1 0
+    ok 146 - got the right value from array with dim 5 at 4 2 0 0 0
+    ok 147 - got the right value from array with dim 5 at 4 2 0 1 0
+    ok 148 - got the right value from array with dim 5 at 4 2 1 0 0
+    ok 149 - got the right value from array with dim 5 at 4 2 1 1 0
+    ok 150 - got the right value from array with dim 5 at 4 2 2 0 0
+    ok 151 - got the right value from array with dim 5 at 4 2 2 1 0
+    ok 152 - got the right value from array with dim 5 at 4 3 0 0 0
+    ok 153 - got the right value from array with dim 5 at 4 3 0 1 0
+    ok 154 - got the right value from array with dim 5 at 4 3 1 0 0
+    ok 155 - got the right value from array with dim 5 at 4 3 1 1 0
+    ok 156 - got the right value from array with dim 5 at 4 3 2 0 0
+    ok 157 - got the right value from array with dim 5 at 4 3 2 1 0
+    ok 158 - .elems for a shaped array (dim 5) returns the first dimension
+ok 59 - Insertion and reading of shaped array elements
+# FUDGED!

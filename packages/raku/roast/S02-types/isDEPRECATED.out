@@ -1,0 +1,43 @@
+1..14
+ok 1 - was "a" really called
+ok 2 - right deprecation for a()
+ok 3 - was "awith" really called
+ok 4 - right deprecation for awith()
+not ok 5 - right deprecation for A.new # TODO NYI
+# Failed test 'right deprecation for A.new'
+# at S02-types/isDEPRECATED.rakudo line 49
+# expected: 'Saw 1 occurrence of deprecated code.
+# ================================================================================
+# Method new (from A) seen at:
+#   S02-types/isDEPRECATED.rakudo, line 47
+# Please use something else instead.
+# --------------------------------------------------------------------------------'
+#      got: (Nil)
+not ok 6 - right deprecation for Awith.new # TODO NYI
+# Failed test 'right deprecation for Awith.new'
+# at S02-types/isDEPRECATED.rakudo line 61
+# expected: 'Saw 1 occurrence of deprecated code.
+# ================================================================================
+# Method new (from Awith) seen at:
+#   S02-types/isDEPRECATED.rakudo, lines 58,59
+# Please use 'Fnorkle.new' instead.
+# --------------------------------------------------------------------------------'
+#      got: (Nil)
+ok 7 - was "C.new.foo" really called
+ok 8 - right deprecation for C.new.foo
+ok 9 - was "Cwith.new.foo" really called
+ok 10 - right deprecation Cwith.new.foo
+ok 11 - right deprecation for D.new.foo
+not ok 12 - right deprecation Dwith.new.foo # TODO NYI
+# Failed test 'right deprecation Dwith.new.foo'
+# at S02-types/isDEPRECATED.rakudo line 120
+# expected: 'Saw 1 occurrence of deprecated code.
+# ================================================================================
+# Method foo (from Dwith) seen at:
+#   S02-types/isDEPRECATED.rakudo, lines 117,118
+# Please use 'bar' instead.
+# --------------------------------------------------------------------------------'
+#      got: (Nil)
+ok 13 - right deprecation for rt120908()
+ok 14 - right deprecation for gh5055()
+# FUDGED!

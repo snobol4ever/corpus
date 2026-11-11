@@ -1,0 +1,13 @@
+1..11
+ok 1 - IO.modified should be greater than pre-creation timestamp
+ok 2 - IO.changed should be greater than pre-creation timestamp
+ok 3 - IO.accessed should be greater than pre-creation timestamp
+ok 4 - IO.modified should be updated when file content changes
+ok 5 - IO.changed should be updated when file content changes
+ok 6 - # SKIP TODO figure out a better way for noatime systems
+ok 7 - IO.modified should NOT be updated when file mode is altered
+ok 8 - IO.changed should be updated when file mode is altered
+ok 9 - IO.changed and IO.modified should differ after file mode change
+ok 10 - Test file temp-16-filehandles-filestat-2784323-1.temp was successfully removed
+ok 11 - Test file temp-16-filehandles-filestat-2784323-2.temp was successfully removed
+# FUDGED!

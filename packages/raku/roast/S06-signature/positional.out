@@ -1,0 +1,38 @@
+1..13
+ok 1 - ($x, $, $) works as a signature
+ok 2 - ($, $x, $) works as a signature
+ok 3 - ($, $, $x) works as a signature
+ok 4 - @_ belongs to the inner-most block
+ok 5 - recusion and parameter binding work out fine
+ok 6 - $_ works as parameter name
+ok 7 - $/ works as parameter name
+# Subtest: two sub params with the same scalar name
+    1..2
+    ok 1 - 'sub foo( $a, $a ) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 8 - two sub params with the same scalar name
+# Subtest: two sub params with the same array name
+    1..2
+    ok 1 - 'sub foo( @a, @a ) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 9 - two sub params with the same array name
+# Subtest: two sub params with the same hash name
+    1..2
+    ok 1 - 'sub foo( %a, %a ) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 10 - two sub params with the same hash name
+# Subtest: two sub params with the same callable name
+    1..2
+    ok 1 - 'sub foo( &a, &a ) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 11 - two sub params with the same callable name
+# Subtest: two sub params with the same sigilles name
+    1..2
+    ok 1 - 'sub foo( \a, \a ) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 12 - two sub params with the same sigilles name
+# Subtest: two sub params with the same type capture name
+    1..2
+    ok 1 - 'sub foo( ::T, ::T) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 13 - two sub params with the same type capture name

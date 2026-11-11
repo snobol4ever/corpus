@@ -1,0 +1,137 @@
+1..112
+ok 1 - %hash1 does Hash
+ok 2 - lvalue hash assignment works (w/ double quoted keys)
+ok 3 - lvalue hash re-assignment works (w/ single quoted keys)
+ok 4 - lvalue hash assignment works (w/ unquoted style <key>)
+ok 5 - %hash2 does Hash
+ok 6 - comma separated key/value hash creation works
+ok 7 - unquoted <key> fetching works
+ok 8 - %hash3 does Hash
+ok 9 - comma separated key/value hash creation works with more than one pair
+ok 10 - comma separated key/value hash creation works with more than one pair
+ok 11 - %hash4 does Hash
+ok 12 - (key => value) separated key/value has creation works
+ok 13 - Non flattening Hashes do not become Pairs when passed to map
+ok 14 - Non flattening Hashes do not become Pairs when passed to map
+ok 15 - Flattening Hashes become Pairs when passed to map
+ok 16 - %hash5 does Hash
+ok 17 - got the right amount of values from the %hash{} slice
+ok 18 - %hash{} slice successful
+ok 19 - %hash{} slice successful
+ok 20 - got the right amount of values from the %hash<> slice
+ok 21 - %hash<> slice was successful
+ok 22 - %hash<> slice was successful
+ok 23 - empty slice got all hash pairs
+ok 24 - empty slice got all hash pairs
+ok 25 - empty slice got all hash pairs
+ok 26 - empty slice got all hash pairs
+ok 27 - value was changed successfully with slice assignment
+ok 28 - value was changed successfully with slice assignment
+ok 29 - value was changed successfully with slice assignment
+ok 30 - value was changed successfully with slice assignment
+ok 31 - value assigned successfully with arrayitem in list context
+ok 32 - value assigned successfully with arrayitem in list context
+ok 33 - %hash6 does Hash
+ok 34 - got the right number of keys
+ok 35 - got the right key
+ok 36 - got the right key
+ok 37 - got the right key
+ok 38 - got the right number of keys
+ok 39 - got the right key
+ok 40 - got the right key
+ok 41 - got the right key
+ok 42 - %hash7 does Hash
+ok 43 - got the right number of values
+ok 44 - got the right values
+ok 45 - got the right values
+ok 46 - got the right values
+ok 47 - got the right number of values
+ok 48 - got the right values
+ok 49 - got the right values
+ok 50 - got the right values
+ok 51 - %hash8 does Hash
+ok 52 - colonpair :one
+ok 53 - colonpair :key<value>
+ok 54 - colonpair :three(3)
+ok 55 - %hash9 does Hash
+ok 56 - %hash.kv gave us our key
+ok 57 - %hash.kv gave us our val
+ok 58 - hash can stringify
+ok 59 - assignment of pointy qw to hash
+ok 60 - %sane is a Hash
+ok 61 - %hash is a Hash
+ok 62 - hash creation with duplicate keys works correctly
+ok 63 - %hash.elems works
+ok 64 - for %hash works
+# Subtest: doesn't really make sense, but shouldn't segfault, either ()
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 65 - doesn't really make sense, but shouldn't segfault, either ()
+ok 66 - Hash.new($pair) lives
+ok 67 - non-existent hash element assigned to itself is not defined, not segfault
+ok 68 - postcircumfix:<{ }> method does not break ordinary hash access
+ok 69 - merely reading a non-existing hash keys does not create it
+ok 70 - reading multi-level non-existing hash keys does not create it
+ok 71 - multi-level auto-vivify number of elements
+ok 72 - multi-level auto-vivify
+ok 73 - "statement" autoquoted hash key does not collide with "state"
+ok 74 - can index a variable that defaults to Any
+ok 75 - ... and the result is not defined
+# Subtest: no .{ } in Mu
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch X::TypeCheck::Binding::Parameter)
+ok 76 - no .{ } in Mu
+ok 77 - {*} whatever slice
+ok 78 - {} zen slice
+(Hash)
+ok 79 - {} zen slice decontainerizes
+ok 80 - can use $/ as hash key
+ok 81 - can use $0 as hash key
+ok 82 - binding hash value works
+ok 83 - binding on auto-vivified hash value works
+ok 84 - did the assignment vivify
+ok 85 - can have a bareword key starting with 'has-' in a hash
+ok 86 - can have a bareword 'grammar' as a hash key
+ok 87 - can normally modify items created from Hash.new
+ok 88 - array-indexing a hash with a negative index is Failure
+ok 89 - test for positional (.[]) indexing on a Hash
+ok 90 - item(%hash) is equivalent to ${%hash}
+# Subtest: adequate Failure error message when hash-indexing a non-hash using .<> (1)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Type Array does not support associative indexing.
+ok 91 - adequate Failure error message when hash-indexing a non-hash using .<> (1)
+# Subtest: adequate Failure error message when hash-indexing a non-hash using .<> (2)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Type Int does not support associative indexing.
+ok 92 - adequate Failure error message when hash-indexing a non-hash using .<> (2)
+# Subtest: adequate Failure error message when hash-indexing a non-hash using .{}
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Type Int does not support associative indexing.
+ok 93 - adequate Failure error message when hash-indexing a non-hash using .{}
+ok 94 - can use bare 'not' as hash key
+ok 95 - Hash.list  returns a List
+ok 96 - Hash.cache returns a List
+ok 97 - Map.list   returns a List
+ok 98 - Map.cache  returns a List
+ok 99 - does Hash type object return proper type
+ok 100 - does Hash object return proper type
+ok 101 - is {:$x $x} ok
+ok 102 - is {:x($x) :y($x)} ok
+ok 103 - is {:x($x) :y($x)} ok
+ok 104 - is {:$x :y($x)} ok
+ok 105 - self referencing hash doesn't loop on 'Str'
+ok 106 - self referencing hash doesn't loop on 'gist'
+ok 107 - self referencing hash doesn't loop on 'raku'
+ok 108 - did the first mixin survive
+ok 109 - did the second mixin survive
+ok 110 - is original unchanged
+ok 111 - is clone updated
+ok 112 - can we create a Hash with just named arguments

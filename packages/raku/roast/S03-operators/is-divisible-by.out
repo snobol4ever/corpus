@@ -1,0 +1,42 @@
+1..16
+ok 1 - 6 %% 3
+ok 2 - 6 %% 3 isa Bool
+ok 3 - 6 %% 4
+ok 4 - 6 %% 4 isa Bool
+ok 5 - %% works with explicit closure
+ok 6 - %% works with whatever *
+ok 7 - 6 !%% 3
+ok 8 - 6 !%% 3 isa Bool
+ok 9 - 6 !%% 4
+ok 10 - 6 !%% 4 isa Bool
+ok 11 - %% works with explicit closure
+ok 12 - %% works with whatever *
+# Subtest: infix<!%> is not iffy enough
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 13 - infix<!%> is not iffy enough
+# Subtest: cannot divide by zero using infix:<%%>
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 3 - .numerator matches 9
+    ok 4 - .using matches infix:<%%>
+ok 14 - cannot divide by zero using infix:<%%>
+# Subtest: cannot divide by zero using infix:<%%>
+    1..4
+    not ok 1 - code dies # TODO not sure why this doesn't fire
+    # Failed test 'code dies'
+    # at S03-operators/is-divisible-by.rakudo line 39
+    ok 2 - # SKIP Code did not die, can not check exception
+    ok 3 - # SKIP Code did not die, can not check exception
+    ok 4 - # SKIP Code did not die, can not check exception
+not ok 15 - cannot divide by zero using infix:<%%> # TODO not sure why this doesn't fire
+# Failed test 'cannot divide by zero using infix:<%%>'
+# at S03-operators/is-divisible-by.rakudo line 39
+# Subtest: no crashes with bigint args
+    1..2
+    ok 1 - %% op
+    ok 2 - % op
+ok 16 - no crashes with bigint args
+# FUDGED!

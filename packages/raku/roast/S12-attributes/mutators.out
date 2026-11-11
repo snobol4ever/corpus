@@ -1,0 +1,16 @@
+1..14
+ok 1 - normal attribute
+ok 2 - can't change a non-rw attribute
+ok 3 - attribute didn't change value
+ok 4 - mutators not called yet
+ok 5 - mutator called during object construction
+ok 6 - accessor by sub was called 
+ok 7 - mutator by sub was called
+ok 8 - attribute with overridden mutator by sub
+ok 9 - accessor and mutator by sub were called
+ok 10 - # SKIP RT  \#126198
+ok 11 - # SKIP RT  \#126198
+ok 12 - # SKIP RT  \#126198
+ok 13 - # SKIP RT  \#126198
+ok 14 - # SKIP RT  \#126198
+# FUDGED!

@@ -1,0 +1,6 @@
+1..5
+ok 1 - combining \x[0042,0323] is two codes
+ok 2 - CRLF is 2 codes
+ok 3 - .chars defaults to NFG
+ok 4 - .chars defaults to NFG (2)
+ok 5 - .chars defaults to NFG (3)

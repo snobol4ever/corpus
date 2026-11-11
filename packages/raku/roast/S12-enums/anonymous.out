@@ -1,0 +1,11 @@
+1..10
+ok 1 - anonymous enum created correct sized hash
+ok 2 - anonymous enum created correctly
+ok 3 - anonymous enum created correctly
+ok 4 - anonymous enum created correctly
+ok 5 - anonymous enum returns an Map
+ok 6 - single-value anonymous enum created correct sized hash
+ok 7 - single-value anonymous enum created correctly
+ok 8 - anon enum <un> is identical to enum :: <un>
+ok 9 - my %e = enum :: works
+ok 10 - my %e = enum :: works

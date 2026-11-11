@@ -1,0 +1,1686 @@
+1..1657
+ok 1 - checking Nil.WHICH
+ok 2 - Nil returns an ObjAt
+ok 3 - Nil.raku returns 'Nil'
+ok 4 - Nil.gist returns 'Nil'
+ok 5 - checking AST.WHICH
+ok 6 - AST returns an ObjAt
+ok 7 - AST.raku returns self
+ok 8 - AST.gist returns self
+ok 9 - checking Any.WHICH
+ok 10 - Any returns an ObjAt
+ok 11 - Any.raku returns self
+ok 12 - Any.gist returns self
+ok 13 - checking array.WHICH
+ok 14 - array returns an ObjAt
+ok 15 - array.raku returns self
+ok 16 - array.gist returns self
+ok 17 - checking Allomorph.WHICH
+ok 18 - Allomorph returns an ObjAt
+ok 19 - Allomorph.raku returns self
+ok 20 - Allomorph.gist returns self
+ok 21 - checking Array.WHICH
+ok 22 - Array returns an ObjAt
+ok 23 - Array.raku returns self
+ok 24 - Array.gist returns self
+ok 25 - checking Attribute.WHICH
+ok 26 - Attribute returns an ObjAt
+ok 27 - Attribute.raku returns self
+ok 28 - Attribute.gist returns self
+ok 29 - checking Backtrace.WHICH
+ok 30 - Backtrace returns an ObjAt
+ok 31 - Backtrace.raku returns self
+ok 32 - Backtrace.gist returns self
+ok 33 - checking Backtrace::Frame.WHICH
+ok 34 - Backtrace::Frame returns an ObjAt
+ok 35 - Backtrace::Frame.raku returns self
+ok 36 - Backtrace::Frame.gist returns self
+ok 37 - checking Bag.WHICH
+ok 38 - Bag returns an ObjAt
+ok 39 - Bag.raku returns self
+ok 40 - Bag.gist returns self
+ok 41 - checking BagHash.WHICH
+ok 42 - BagHash returns an ObjAt
+ok 43 - BagHash.raku returns self
+ok 44 - BagHash.gist returns self
+ok 45 - checking Blob.WHICH
+ok 46 - Blob returns an ObjAt
+ok 47 - Blob.raku returns self
+ok 48 - Blob.gist returns self
+ok 49 - checking Block.WHICH
+ok 50 - Block returns an ObjAt
+ok 51 - Block.raku returns self
+ok 52 - Block.gist returns self
+ok 53 - checking Bool.WHICH
+ok 54 - Bool returns an ObjAt
+ok 55 - Bool.raku returns self
+ok 56 - Bool.gist returns self
+ok 57 - checking Buf.WHICH
+ok 58 - Buf returns an ObjAt
+ok 59 - Buf.raku returns self
+ok 60 - Buf.gist returns self
+ok 61 - checking CallFrame.WHICH
+ok 62 - CallFrame returns an ObjAt
+ok 63 - CallFrame.raku returns self
+ok 64 - CallFrame.gist returns self
+ok 65 - checking Capture.WHICH
+ok 66 - Capture returns an ObjAt
+ok 67 - Capture.raku returns self
+ok 68 - Capture.gist returns self
+ok 69 - checking Code.WHICH
+ok 70 - Code returns an ObjAt
+ok 71 - Code.raku returns self
+ok 72 - Code.gist returns self
+ok 73 - checking CompUnit.WHICH
+ok 74 - CompUnit returns an ObjAt
+ok 75 - CompUnit.raku returns self
+ok 76 - CompUnit.gist returns self
+ok 77 - checking CompUnit::RepositoryRegistry.WHICH
+ok 78 - CompUnit::RepositoryRegistry returns an ObjAt
+ok 79 - CompUnit::RepositoryRegistry.raku returns self
+ok 80 - CompUnit::RepositoryRegistry.gist returns self
+ok 81 - checking CompUnit::Repository::FileSystem.WHICH
+ok 82 - CompUnit::Repository::FileSystem returns an ObjAt
+ok 83 - CompUnit::Repository::FileSystem.raku returns self
+ok 84 - CompUnit::Repository::FileSystem.gist returns self
+ok 85 - checking CompUnit::Repository::Installation.WHICH
+ok 86 - CompUnit::Repository::Installation returns an ObjAt
+ok 87 - CompUnit::Repository::Installation.raku returns self
+ok 88 - CompUnit::Repository::Installation.gist returns self
+ok 89 - checking CompUnit::Repository::NQP.WHICH
+ok 90 - CompUnit::Repository::NQP returns an ObjAt
+ok 91 - CompUnit::Repository::NQP.raku returns self
+ok 92 - CompUnit::Repository::NQP.gist returns self
+ok 93 - checking CompUnit::Repository::Perl5.WHICH
+ok 94 - CompUnit::Repository::Perl5 returns an ObjAt
+ok 95 - CompUnit::Repository::Perl5.raku returns self
+ok 96 - CompUnit::Repository::Perl5.gist returns self
+ok 97 - checking Compiler.WHICH
+ok 98 - Compiler returns an ObjAt
+ok 99 - Compiler.raku returns self
+ok 100 - Compiler.gist returns self
+ok 101 - checking Complex.WHICH
+ok 102 - Complex returns an ObjAt
+ok 103 - Complex.raku returns self
+ok 104 - Complex.gist returns self
+ok 105 - checking ComplexStr.WHICH
+ok 106 - ComplexStr returns an ObjAt
+ok 107 - ComplexStr.raku returns self
+ok 108 - ComplexStr.gist returns self
+ok 109 - checking Cool.WHICH
+ok 110 - Cool returns an ObjAt
+ok 111 - Cool.raku returns self
+ok 112 - Cool.gist returns self
+ok 113 - checking Date.WHICH
+ok 114 - Date returns an ObjAt
+ok 115 - Date.raku returns self
+ok 116 - Date.gist returns self
+ok 117 - checking DateTime.WHICH
+ok 118 - DateTime returns an ObjAt
+ok 119 - DateTime.raku returns self
+ok 120 - DateTime.gist returns self
+ok 121 - checking Deprecation.WHICH
+ok 122 - Deprecation returns an ObjAt
+ok 123 - Deprecation.raku returns self
+ok 124 - Deprecation.gist returns self
+ok 125 - checking Distribution.WHICH
+ok 126 - Distribution returns an ObjAt
+ok 127 - Distribution.raku returns self
+ok 128 - Distribution.gist returns self
+ok 129 - checking Distro.WHICH
+ok 130 - Distro returns an ObjAt
+ok 131 - Distro.raku returns self
+ok 132 - Distro.gist returns self
+ok 133 - checking Duration.WHICH
+ok 134 - Duration returns an ObjAt
+ok 135 - Duration.raku returns self
+ok 136 - Duration.gist returns self
+ok 137 - checking Exception.WHICH
+ok 138 - Exception returns an ObjAt
+ok 139 - Exception.raku returns self
+ok 140 - Exception.gist returns self
+ok 141 - checking Failure.WHICH
+ok 142 - Failure returns an ObjAt
+ok 143 - Failure.raku returns self
+ok 144 - Failure.gist returns self
+ok 145 - checking FatRat.WHICH
+ok 146 - FatRat returns an ObjAt
+ok 147 - FatRat.raku returns self
+ok 148 - FatRat.gist returns self
+ok 149 - checking Grammar.WHICH
+ok 150 - Grammar returns an ObjAt
+ok 151 - Grammar.raku returns self
+ok 152 - Grammar.gist returns self
+ok 153 - checking Hash.WHICH
+ok 154 - Hash returns an ObjAt
+ok 155 - Hash.raku returns self
+ok 156 - Hash.gist returns self
+ok 157 - checking Hashray.WHICH
+ok 158 - Hashray returns an ObjAt
+ok 159 - Hashray.raku returns self
+ok 160 - Hashray.gist returns self
+ok 161 - checking HyperConfiguration.WHICH
+ok 162 - HyperConfiguration returns an ObjAt
+ok 163 - HyperConfiguration.raku returns self
+ok 164 - HyperConfiguration.gist returns self
+ok 165 - checking HyperSeq.WHICH
+ok 166 - HyperSeq returns an ObjAt
+ok 167 - HyperSeq.raku returns self
+ok 168 - HyperSeq.gist returns self
+ok 169 - checking HyperWhatever.WHICH
+ok 170 - HyperWhatever returns an ObjAt
+ok 171 - HyperWhatever.raku returns self
+ok 172 - HyperWhatever.gist returns self
+ok 173 - checking IO::ArgFiles.WHICH
+ok 174 - IO::ArgFiles returns an ObjAt
+ok 175 - IO::ArgFiles.raku returns self
+ok 176 - IO::ArgFiles.gist returns self
+ok 177 - checking IO::CatHandle.WHICH
+ok 178 - IO::CatHandle returns an ObjAt
+ok 179 - IO::CatHandle.raku returns self
+ok 180 - IO::CatHandle.gist returns self
+ok 181 - checking IO::Handle.WHICH
+ok 182 - IO::Handle returns an ObjAt
+ok 183 - IO::Handle.raku returns self
+ok 184 - IO::Handle.gist returns self
+ok 185 - checking IO::Notification.WHICH
+ok 186 - IO::Notification returns an ObjAt
+ok 187 - IO::Notification.raku returns self
+ok 188 - IO::Notification.gist returns self
+ok 189 - checking IO::Path.WHICH
+ok 190 - IO::Path returns an ObjAt
+ok 191 - IO::Path.raku returns self
+ok 192 - IO::Path.gist returns self
+ok 193 - checking IO::Path::Cygwin.WHICH
+ok 194 - IO::Path::Cygwin returns an ObjAt
+ok 195 - IO::Path::Cygwin.raku returns self
+ok 196 - IO::Path::Cygwin.gist returns self
+ok 197 - checking IO::Path::QNX.WHICH
+ok 198 - IO::Path::QNX returns an ObjAt
+ok 199 - IO::Path::QNX.raku returns self
+ok 200 - IO::Path::QNX.gist returns self
+ok 201 - checking IO::Path::Unix.WHICH
+ok 202 - IO::Path::Unix returns an ObjAt
+ok 203 - IO::Path::Unix.raku returns self
+ok 204 - IO::Path::Unix.gist returns self
+ok 205 - checking IO::Path::Win32.WHICH
+ok 206 - IO::Path::Win32 returns an ObjAt
+ok 207 - IO::Path::Win32.raku returns self
+ok 208 - IO::Path::Win32.gist returns self
+ok 209 - checking IO::Pipe.WHICH
+ok 210 - IO::Pipe returns an ObjAt
+ok 211 - IO::Pipe.raku returns self
+ok 212 - IO::Pipe.gist returns self
+ok 213 - checking IO::Socket::INET.WHICH
+ok 214 - IO::Socket::INET returns an ObjAt
+ok 215 - IO::Socket::INET.raku returns self
+ok 216 - IO::Socket::INET.gist returns self
+ok 217 - checking IO::Spec.WHICH
+ok 218 - IO::Spec returns an ObjAt
+ok 219 - IO::Spec.raku returns self
+ok 220 - IO::Spec.gist returns self
+ok 221 - checking IO::Spec::Cygwin.WHICH
+ok 222 - IO::Spec::Cygwin returns an ObjAt
+ok 223 - IO::Spec::Cygwin.raku returns self
+ok 224 - IO::Spec::Cygwin.gist returns self
+ok 225 - checking IO::Spec::QNX.WHICH
+ok 226 - IO::Spec::QNX returns an ObjAt
+ok 227 - IO::Spec::QNX.raku returns self
+ok 228 - IO::Spec::QNX.gist returns self
+ok 229 - checking IO::Spec::Unix.WHICH
+ok 230 - IO::Spec::Unix returns an ObjAt
+ok 231 - IO::Spec::Unix.raku returns self
+ok 232 - IO::Spec::Unix.gist returns self
+ok 233 - checking IO::Spec::Win32.WHICH
+ok 234 - IO::Spec::Win32 returns an ObjAt
+ok 235 - IO::Spec::Win32.raku returns self
+ok 236 - IO::Spec::Win32.gist returns self
+ok 237 - checking IO::Special.WHICH
+ok 238 - IO::Special returns an ObjAt
+ok 239 - IO::Special.raku returns self
+ok 240 - IO::Special.gist returns self
+ok 241 - checking Instant.WHICH
+ok 242 - Instant returns an ObjAt
+ok 243 - Instant.raku returns self
+ok 244 - Instant.gist returns self
+ok 245 - checking Int.WHICH
+ok 246 - Int returns an ObjAt
+ok 247 - Int.raku returns self
+ok 248 - Int.gist returns self
+ok 249 - checking IntAttrRef.WHICH
+ok 250 - IntAttrRef returns an ObjAt
+ok 251 - IntAttrRef.raku returns self
+ok 252 - IntAttrRef.gist returns self
+ok 253 - checking IntLexRef.WHICH
+ok 254 - IntLexRef returns an ObjAt
+ok 255 - IntLexRef.raku returns self
+ok 256 - IntLexRef.gist returns self
+ok 257 - checking IntPosRef.WHICH
+ok 258 - IntPosRef returns an ObjAt
+ok 259 - IntPosRef.raku returns self
+ok 260 - IntPosRef.gist returns self
+ok 261 - checking IntStr.WHICH
+ok 262 - IntStr returns an ObjAt
+ok 263 - IntStr.raku returns self
+ok 264 - IntStr.gist returns self
+ok 265 - checking IterationBuffer.WHICH
+ok 266 - IterationBuffer returns an ObjAt
+ok 267 - IterationBuffer.raku returns self
+ok 268 - IterationBuffer.gist returns self
+ok 269 - checking Junction.WHICH
+ok 270 - Junction returns an ObjAt
+ok 271 - Junction.raku returns self
+ok 272 - Junction.gist returns self
+ok 273 - checking Kernel.WHICH
+ok 274 - Kernel returns an ObjAt
+ok 275 - Kernel.raku returns self
+ok 276 - Kernel.gist returns self
+ok 277 - checking Label.WHICH
+ok 278 - Label returns an ObjAt
+ok 279 - Label.raku returns self
+ok 280 - Label.gist returns self
+ok 281 - checking List.WHICH
+ok 282 - List returns an ObjAt
+ok 283 - List.raku returns self
+ok 284 - List.gist returns self
+ok 285 - checking Lock.WHICH
+ok 286 - Lock returns an ObjAt
+ok 287 - Lock.raku returns self
+ok 288 - Lock.gist returns self
+ok 289 - checking Macro.WHICH
+ok 290 - Macro returns an ObjAt
+ok 291 - Macro.raku returns self
+ok 292 - Macro.gist returns self
+ok 293 - checking Map.WHICH
+ok 294 - Map returns an ObjAt
+ok 295 - Map.raku returns self
+ok 296 - Map.gist returns self
+ok 297 - checking Match.WHICH
+ok 298 - Match returns an ObjAt
+ok 299 - Match.raku returns self
+ok 300 - Match.gist returns self
+ok 301 - checking Metamodel::Primitives.WHICH
+ok 302 - Metamodel::Primitives returns an ObjAt
+ok 303 - Metamodel::Primitives.raku returns self
+ok 304 - Metamodel::Primitives.gist returns self
+ok 305 - checking Method.WHICH
+ok 306 - Method returns an ObjAt
+ok 307 - Method.raku returns self
+ok 308 - Method.gist returns self
+ok 309 - checking Mix.WHICH
+ok 310 - Mix returns an ObjAt
+ok 311 - Mix.raku returns self
+ok 312 - Mix.gist returns self
+ok 313 - checking MixHash.WHICH
+ok 314 - MixHash returns an ObjAt
+ok 315 - MixHash.raku returns self
+ok 316 - MixHash.gist returns self
+ok 317 - checking Mu.WHICH
+ok 318 - Mu returns an ObjAt
+ok 319 - Mu.raku returns self
+ok 320 - Mu.gist returns self
+ok 321 - checking Num.WHICH
+ok 322 - Num returns an ObjAt
+ok 323 - Num.raku returns self
+ok 324 - Num.gist returns self
+ok 325 - checking NumAttrRef.WHICH
+ok 326 - NumAttrRef returns an ObjAt
+ok 327 - NumAttrRef.raku returns self
+ok 328 - NumAttrRef.gist returns self
+ok 329 - checking NumLexRef.WHICH
+ok 330 - NumLexRef returns an ObjAt
+ok 331 - NumLexRef.raku returns self
+ok 332 - NumLexRef.gist returns self
+ok 333 - checking NumPosRef.WHICH
+ok 334 - NumPosRef returns an ObjAt
+ok 335 - NumPosRef.raku returns self
+ok 336 - NumPosRef.gist returns self
+ok 337 - checking NumStr.WHICH
+ok 338 - NumStr returns an ObjAt
+ok 339 - NumStr.raku returns self
+ok 340 - NumStr.gist returns self
+ok 341 - checking ObjAt.WHICH
+ok 342 - ObjAt returns an ObjAt
+ok 343 - ObjAt.raku returns self
+ok 344 - ObjAt.gist returns self
+ok 345 - checking Operator.WHICH
+ok 346 - Operator returns an ObjAt
+ok 347 - Operator.raku returns self
+ok 348 - Operator.gist returns self
+ok 349 - checking OperatorProperties.WHICH
+ok 350 - OperatorProperties returns an ObjAt
+ok 351 - OperatorProperties.raku returns self
+ok 352 - OperatorProperties.gist returns self
+ok 353 - checking Pair.WHICH
+ok 354 - Pair returns an ObjAt
+ok 355 - Pair.raku returns self
+ok 356 - Pair.gist returns self
+ok 357 - checking ParallelSequence.WHICH
+ok 358 - ParallelSequence returns an ObjAt
+ok 359 - ParallelSequence.raku returns self
+ok 360 - ParallelSequence.gist returns self
+ok 361 - checking Parameter.WHICH
+ok 362 - Parameter returns an ObjAt
+ok 363 - Parameter.raku returns self
+ok 364 - Parameter.gist returns self
+ok 365 - checking Perl.WHICH
+ok 366 - Perl returns an ObjAt
+ok 367 - Perl.raku returns self
+ok 368 - Perl.gist returns self
+ok 369 - checking Pod::Block.WHICH
+ok 370 - Pod::Block returns an ObjAt
+ok 371 - Pod::Block.raku returns self
+ok 372 - Pod::Block.gist returns self
+ok 373 - checking Pod::Block::Code.WHICH
+ok 374 - Pod::Block::Code returns an ObjAt
+ok 375 - Pod::Block::Code.raku returns self
+ok 376 - Pod::Block::Code.gist returns self
+ok 377 - checking Pod::Block::Comment.WHICH
+ok 378 - Pod::Block::Comment returns an ObjAt
+ok 379 - Pod::Block::Comment.raku returns self
+ok 380 - Pod::Block::Comment.gist returns self
+ok 381 - checking Pod::Block::Declarator.WHICH
+ok 382 - Pod::Block::Declarator returns an ObjAt
+ok 383 - Pod::Block::Declarator.raku returns self
+ok 384 - Pod::Block::Declarator.gist returns self
+ok 385 - checking Pod::Block::Named.WHICH
+ok 386 - Pod::Block::Named returns an ObjAt
+ok 387 - Pod::Block::Named.raku returns self
+ok 388 - Pod::Block::Named.gist returns self
+ok 389 - checking Pod::Block::Para.WHICH
+ok 390 - Pod::Block::Para returns an ObjAt
+ok 391 - Pod::Block::Para.raku returns self
+ok 392 - Pod::Block::Para.gist returns self
+ok 393 - checking Pod::Block::Table.WHICH
+ok 394 - Pod::Block::Table returns an ObjAt
+ok 395 - Pod::Block::Table.raku returns self
+ok 396 - Pod::Block::Table.gist returns self
+ok 397 - checking Pod::Config.WHICH
+ok 398 - Pod::Config returns an ObjAt
+ok 399 - Pod::Config.raku returns self
+ok 400 - Pod::Config.gist returns self
+ok 401 - checking Pod::Defn.WHICH
+ok 402 - Pod::Defn returns an ObjAt
+ok 403 - Pod::Defn.raku returns self
+ok 404 - Pod::Defn.gist returns self
+ok 405 - checking Pod::FormattingCode.WHICH
+ok 406 - Pod::FormattingCode returns an ObjAt
+ok 407 - Pod::FormattingCode.raku returns self
+ok 408 - Pod::FormattingCode.gist returns self
+ok 409 - checking Pod::Heading.WHICH
+ok 410 - Pod::Heading returns an ObjAt
+ok 411 - Pod::Heading.raku returns self
+ok 412 - Pod::Heading.gist returns self
+ok 413 - checking Pod::Item.WHICH
+ok 414 - Pod::Item returns an ObjAt
+ok 415 - Pod::Item.raku returns self
+ok 416 - Pod::Item.gist returns self
+ok 417 - checking Pod::Raw.WHICH
+ok 418 - Pod::Raw returns an ObjAt
+ok 419 - Pod::Raw.raku returns self
+ok 420 - Pod::Raw.gist returns self
+ok 421 - checking PseudoStash.WHICH
+ok 422 - PseudoStash returns an ObjAt
+ok 423 - PseudoStash.raku returns self
+ok 424 - PseudoStash.gist returns self
+ok 425 - checking Raku.WHICH
+ok 426 - Raku returns an ObjAt
+ok 427 - Raku.raku returns self
+ok 428 - Raku.gist returns self
+ok 429 - checking Range.WHICH
+ok 430 - Range returns an ObjAt
+ok 431 - Range.raku returns self
+ok 432 - Range.gist returns self
+ok 433 - checking Rat.WHICH
+ok 434 - Rat returns an ObjAt
+ok 435 - Rat.raku returns self
+ok 436 - Rat.gist returns self
+ok 437 - checking RatStr.WHICH
+ok 438 - RatStr returns an ObjAt
+ok 439 - RatStr.raku returns self
+ok 440 - RatStr.gist returns self
+ok 441 - checking Regex.WHICH
+ok 442 - Regex returns an ObjAt
+ok 443 - Regex.raku returns self
+ok 444 - Regex.gist returns self
+ok 445 - checking Routine.WHICH
+ok 446 - Routine returns an ObjAt
+ok 447 - Routine.raku returns self
+ok 448 - Routine.gist returns self
+ok 449 - checking Scalar.WHICH
+ok 450 - Scalar returns an ObjAt
+ok 451 - Scalar.raku returns self
+ok 452 - Scalar.gist returns self
+ok 453 - checking ScalarVAR.WHICH
+ok 454 - ScalarVAR returns an ObjAt
+ok 455 - ScalarVAR.raku returns self
+ok 456 - ScalarVAR.gist returns self
+ok 457 - checking Seq.WHICH
+ok 458 - Seq returns an ObjAt
+ok 459 - Seq.raku returns self
+ok 460 - Seq.gist returns self
+ok 461 - checking Set.WHICH
+ok 462 - Set returns an ObjAt
+ok 463 - Set.raku returns self
+ok 464 - Set.gist returns self
+ok 465 - checking SetHash.WHICH
+ok 466 - SetHash returns an ObjAt
+ok 467 - SetHash.raku returns self
+ok 468 - SetHash.gist returns self
+ok 469 - checking Signature.WHICH
+ok 470 - Signature returns an ObjAt
+ok 471 - Signature.raku returns self
+ok 472 - Signature.gist returns self
+ok 473 - checking SignedBlob.WHICH
+ok 474 - SignedBlob returns an ObjAt
+ok 475 - SignedBlob.raku returns self
+ok 476 - SignedBlob.gist returns self
+ok 477 - checking Slang.WHICH
+ok 478 - Slang returns an ObjAt
+ok 479 - Slang.raku returns self
+ok 480 - Slang.gist returns self
+ok 481 - checking Slip.WHICH
+ok 482 - Slip returns an ObjAt
+ok 483 - Slip.raku returns self
+ok 484 - Slip.gist returns self
+ok 485 - checking Stash.WHICH
+ok 486 - Stash returns an ObjAt
+ok 487 - Stash.raku returns self
+ok 488 - Stash.gist returns self
+ok 489 - checking Str.WHICH
+ok 490 - Str returns an ObjAt
+ok 491 - Str.raku returns self
+ok 492 - Str.gist returns self
+ok 493 - checking StrAttrRef.WHICH
+ok 494 - StrAttrRef returns an ObjAt
+ok 495 - StrAttrRef.raku returns self
+ok 496 - StrAttrRef.gist returns self
+ok 497 - checking StrDistance.WHICH
+ok 498 - StrDistance returns an ObjAt
+ok 499 - StrDistance.raku returns self
+ok 500 - StrDistance.gist returns self
+ok 501 - checking StrLexRef.WHICH
+ok 502 - StrLexRef returns an ObjAt
+ok 503 - StrLexRef.raku returns self
+ok 504 - StrLexRef.gist returns self
+ok 505 - checking StrPosRef.WHICH
+ok 506 - StrPosRef returns an ObjAt
+ok 507 - StrPosRef.raku returns self
+ok 508 - StrPosRef.gist returns self
+ok 509 - checking Sub.WHICH
+ok 510 - Sub returns an ObjAt
+ok 511 - Sub.raku returns self
+ok 512 - Sub.gist returns self
+ok 513 - checking Submethod.WHICH
+ok 514 - Submethod returns an ObjAt
+ok 515 - Submethod.raku returns self
+ok 516 - Submethod.gist returns self
+ok 517 - checking UInt.WHICH
+ok 518 - UInt returns an ObjAt
+ok 519 - UInt.raku returns self
+ok 520 - UInt.gist returns self
+ok 521 - checking UIntAttrRef.WHICH
+ok 522 - UIntAttrRef returns an ObjAt
+ok 523 - UIntAttrRef.raku returns self
+ok 524 - UIntAttrRef.gist returns self
+ok 525 - checking UIntLexRef.WHICH
+ok 526 - UIntLexRef returns an ObjAt
+ok 527 - UIntLexRef.raku returns self
+ok 528 - UIntLexRef.gist returns self
+ok 529 - checking UIntPosRef.WHICH
+ok 530 - UIntPosRef returns an ObjAt
+ok 531 - UIntPosRef.raku returns self
+ok 532 - UIntPosRef.gist returns self
+ok 533 - checking Unicode.WHICH
+ok 534 - Unicode returns an ObjAt
+ok 535 - Unicode.raku returns self
+ok 536 - Unicode.gist returns self
+ok 537 - checking UnsignedBlob.WHICH
+ok 538 - UnsignedBlob returns an ObjAt
+ok 539 - UnsignedBlob.raku returns self
+ok 540 - UnsignedBlob.gist returns self
+ok 541 - checking VM.WHICH
+ok 542 - VM returns an ObjAt
+ok 543 - VM.raku returns self
+ok 544 - VM.gist returns self
+ok 545 - checking Variable.WHICH
+ok 546 - Variable returns an ObjAt
+ok 547 - Variable.raku returns self
+ok 548 - Variable.gist returns self
+ok 549 - checking Version.WHICH
+ok 550 - Version returns an ObjAt
+ok 551 - Version.raku returns self
+ok 552 - Version.gist returns self
+ok 553 - checking Whatever.WHICH
+ok 554 - Whatever returns an ObjAt
+ok 555 - Whatever.raku returns self
+ok 556 - Whatever.gist returns self
+ok 557 - checking WhateverCode.WHICH
+ok 558 - WhateverCode returns an ObjAt
+ok 559 - WhateverCode.raku returns self
+ok 560 - WhateverCode.gist returns self
+ok 561 - checking byte.WHICH
+ok 562 - byte returns an ObjAt
+ok 563 - byte.raku returns self
+ok 564 - byte.gist returns self
+ok 565 - checking int.WHICH
+ok 566 - int returns an ObjAt
+ok 567 - int.raku returns self
+ok 568 - int.gist returns self
+ok 569 - checking int16.WHICH
+ok 570 - int16 returns an ObjAt
+ok 571 - int16.raku returns self
+ok 572 - int16.gist returns self
+ok 573 - checking int32.WHICH
+ok 574 - int32 returns an ObjAt
+ok 575 - int32.raku returns self
+ok 576 - int32.gist returns self
+ok 577 - checking int64.WHICH
+ok 578 - int64 returns an ObjAt
+ok 579 - int64.raku returns self
+ok 580 - int64.gist returns self
+ok 581 - checking int8.WHICH
+ok 582 - int8 returns an ObjAt
+ok 583 - int8.raku returns self
+ok 584 - int8.gist returns self
+ok 585 - checking num.WHICH
+ok 586 - num returns an ObjAt
+ok 587 - num.raku returns self
+ok 588 - num.gist returns self
+ok 589 - checking num32.WHICH
+ok 590 - num32 returns an ObjAt
+ok 591 - num32.raku returns self
+ok 592 - num32.gist returns self
+ok 593 - checking num64.WHICH
+ok 594 - num64 returns an ObjAt
+ok 595 - num64.raku returns self
+ok 596 - num64.gist returns self
+ok 597 - checking str.WHICH
+ok 598 - str returns an ObjAt
+ok 599 - str.raku returns self
+ok 600 - str.gist returns self
+ok 601 - checking uint.WHICH
+ok 602 - uint returns an ObjAt
+ok 603 - uint.raku returns self
+ok 604 - uint.gist returns self
+ok 605 - checking uint16.WHICH
+ok 606 - uint16 returns an ObjAt
+ok 607 - uint16.raku returns self
+ok 608 - uint16.gist returns self
+ok 609 - checking uint32.WHICH
+ok 610 - uint32 returns an ObjAt
+ok 611 - uint32.raku returns self
+ok 612 - uint32.gist returns self
+ok 613 - checking uint64.WHICH
+ok 614 - uint64 returns an ObjAt
+ok 615 - uint64.raku returns self
+ok 616 - uint64.gist returns self
+ok 617 - checking uint8.WHICH
+ok 618 - uint8 returns an ObjAt
+ok 619 - uint8.raku returns self
+ok 620 - uint8.gist returns self
+ok 621 - checking utf16.WHICH
+ok 622 - utf16 returns an ObjAt
+ok 623 - utf16.raku returns self
+ok 624 - utf16.gist returns self
+ok 625 - checking utf32.WHICH
+ok 626 - utf32 returns an ObjAt
+ok 627 - utf32.raku returns self
+ok 628 - utf32.gist returns self
+ok 629 - checking utf8.WHICH
+ok 630 - utf8 returns an ObjAt
+ok 631 - utf8.raku returns self
+ok 632 - utf8.gist returns self
+ok 633 - checking X::AdHoc.WHICH
+ok 634 - X::AdHoc returns an ObjAt
+ok 635 - X::AdHoc.raku returns self
+ok 636 - X::AdHoc.gist returns self
+ok 637 - checking X::Adverb.WHICH
+ok 638 - X::Adverb returns an ObjAt
+ok 639 - X::Adverb.raku returns self
+ok 640 - X::Adverb.gist returns self
+ok 641 - checking X::Anon::Augment.WHICH
+ok 642 - X::Anon::Augment returns an ObjAt
+ok 643 - X::Anon::Augment.raku returns self
+ok 644 - X::Anon::Augment.gist returns self
+ok 645 - checking X::Anon::Multi.WHICH
+ok 646 - X::Anon::Multi returns an ObjAt
+ok 647 - X::Anon::Multi.raku returns self
+ok 648 - X::Anon::Multi.gist returns self
+ok 649 - checking X::Assignment::RO.WHICH
+ok 650 - X::Assignment::RO returns an ObjAt
+ok 651 - X::Assignment::RO.raku returns self
+ok 652 - X::Assignment::RO.gist returns self
+ok 653 - checking X::Assignment::RO::Comp.WHICH
+ok 654 - X::Assignment::RO::Comp returns an ObjAt
+ok 655 - X::Assignment::RO::Comp.raku returns self
+ok 656 - X::Assignment::RO::Comp.gist returns self
+ok 657 - checking X::Attribute::NoPackage.WHICH
+ok 658 - X::Attribute::NoPackage returns an ObjAt
+ok 659 - X::Attribute::NoPackage.raku returns self
+ok 660 - X::Attribute::NoPackage.gist returns self
+ok 661 - checking X::Attribute::Package.WHICH
+ok 662 - X::Attribute::Package returns an ObjAt
+ok 663 - X::Attribute::Package.raku returns self
+ok 664 - X::Attribute::Package.gist returns self
+ok 665 - checking X::Attribute::Regex.WHICH
+ok 666 - X::Attribute::Regex returns an ObjAt
+ok 667 - X::Attribute::Regex.raku returns self
+ok 668 - X::Attribute::Regex.gist returns self
+ok 669 - checking X::Attribute::Required.WHICH
+ok 670 - X::Attribute::Required returns an ObjAt
+ok 671 - X::Attribute::Required.raku returns self
+ok 672 - X::Attribute::Required.gist returns self
+ok 673 - checking X::Attribute::Undeclared.WHICH
+ok 674 - X::Attribute::Undeclared returns an ObjAt
+ok 675 - X::Attribute::Undeclared.raku returns self
+ok 676 - X::Attribute::Undeclared.gist returns self
+ok 677 - checking X::Augment::NoSuchType.WHICH
+ok 678 - X::Augment::NoSuchType returns an ObjAt
+ok 679 - X::Augment::NoSuchType.raku returns self
+ok 680 - X::Augment::NoSuchType.gist returns self
+ok 681 - checking X::Backslash::NonVariableDollar.WHICH
+ok 682 - X::Backslash::NonVariableDollar returns an ObjAt
+ok 683 - X::Backslash::NonVariableDollar.raku returns self
+ok 684 - X::Backslash::NonVariableDollar.gist returns self
+ok 685 - checking X::Backslash::UnrecognizedSequence.WHICH
+ok 686 - X::Backslash::UnrecognizedSequence returns an ObjAt
+ok 687 - X::Backslash::UnrecognizedSequence.raku returns self
+ok 688 - X::Backslash::UnrecognizedSequence.gist returns self
+ok 689 - checking X::Bind.WHICH
+ok 690 - X::Bind returns an ObjAt
+ok 691 - X::Bind.raku returns self
+ok 692 - X::Bind.gist returns self
+ok 693 - checking X::Bind::NativeType.WHICH
+ok 694 - X::Bind::NativeType returns an ObjAt
+ok 695 - X::Bind::NativeType.raku returns self
+ok 696 - X::Bind::NativeType.gist returns self
+ok 697 - checking X::Bind::Slice.WHICH
+ok 698 - X::Bind::Slice returns an ObjAt
+ok 699 - X::Bind::Slice.raku returns self
+ok 700 - X::Bind::Slice.gist returns self
+ok 701 - checking X::Bind::ZenSlice.WHICH
+ok 702 - X::Bind::ZenSlice returns an ObjAt
+ok 703 - X::Bind::ZenSlice.raku returns self
+ok 704 - X::Bind::ZenSlice.gist returns self
+ok 705 - checking X::Buf::AsStr.WHICH
+ok 706 - X::Buf::AsStr returns an ObjAt
+ok 707 - X::Buf::AsStr.raku returns self
+ok 708 - X::Buf::AsStr.gist returns self
+ok 709 - checking X::Buf::Pack.WHICH
+ok 710 - X::Buf::Pack returns an ObjAt
+ok 711 - X::Buf::Pack.raku returns self
+ok 712 - X::Buf::Pack.gist returns self
+ok 713 - checking X::Buf::Pack::NonASCII.WHICH
+ok 714 - X::Buf::Pack::NonASCII returns an ObjAt
+ok 715 - X::Buf::Pack::NonASCII.raku returns self
+ok 716 - X::Buf::Pack::NonASCII.gist returns self
+ok 717 - checking X::Caller::NotDynamic.WHICH
+ok 718 - X::Caller::NotDynamic returns an ObjAt
+ok 719 - X::Caller::NotDynamic.raku returns self
+ok 720 - X::Caller::NotDynamic.gist returns self
+ok 721 - checking X::Cannot::Empty.WHICH
+ok 722 - X::Cannot::Empty returns an ObjAt
+ok 723 - X::Cannot::Empty.raku returns self
+ok 724 - X::Cannot::Empty.gist returns self
+ok 725 - checking X::Cannot::Lazy.WHICH
+ok 726 - X::Cannot::Lazy returns an ObjAt
+ok 727 - X::Cannot::Lazy.raku returns self
+ok 728 - X::Cannot::Lazy.gist returns self
+ok 729 - checking X::Cannot::New.WHICH
+ok 730 - X::Cannot::New returns an ObjAt
+ok 731 - X::Cannot::New.raku returns self
+ok 732 - X::Cannot::New.gist returns self
+ok 733 - checking X::Comp::AdHoc.WHICH
+ok 734 - X::Comp::AdHoc returns an ObjAt
+ok 735 - X::Comp::AdHoc.raku returns self
+ok 736 - X::Comp::AdHoc.gist returns self
+ok 737 - checking X::Comp::BeginTime.WHICH
+ok 738 - X::Comp::BeginTime returns an ObjAt
+ok 739 - X::Comp::BeginTime.raku returns self
+ok 740 - X::Comp::BeginTime.gist returns self
+ok 741 - checking X::Comp::Group.WHICH
+ok 742 - X::Comp::Group returns an ObjAt
+ok 743 - X::Comp::Group.raku returns self
+ok 744 - X::Comp::Group.gist returns self
+ok 745 - checking X::Comp::NYI.WHICH
+ok 746 - X::Comp::NYI returns an ObjAt
+ok 747 - X::Comp::NYI.raku returns self
+ok 748 - X::Comp::NYI.gist returns self
+ok 749 - checking X::Comp::Trait::NotOnNative.WHICH
+ok 750 - X::Comp::Trait::NotOnNative returns an ObjAt
+ok 751 - X::Comp::Trait::NotOnNative.raku returns self
+ok 752 - X::Comp::Trait::NotOnNative.gist returns self
+ok 753 - checking X::Comp::Trait::Scope.WHICH
+ok 754 - X::Comp::Trait::Scope returns an ObjAt
+ok 755 - X::Comp::Trait::Scope.raku returns self
+ok 756 - X::Comp::Trait::Scope.gist returns self
+ok 757 - checking X::Comp::Trait::Unknown.WHICH
+ok 758 - X::Comp::Trait::Unknown returns an ObjAt
+ok 759 - X::Comp::Trait::Unknown.raku returns self
+ok 760 - X::Comp::Trait::Unknown.gist returns self
+ok 761 - checking X::Composition::NotComposable.WHICH
+ok 762 - X::Composition::NotComposable returns an ObjAt
+ok 763 - X::Composition::NotComposable.raku returns self
+ok 764 - X::Composition::NotComposable.gist returns self
+ok 765 - checking X::Constructor::Positional.WHICH
+ok 766 - X::Constructor::Positional returns an ObjAt
+ok 767 - X::Constructor::Positional.raku returns self
+ok 768 - X::Constructor::Positional.gist returns self
+ok 769 - checking X::ControlFlow.WHICH
+ok 770 - X::ControlFlow returns an ObjAt
+ok 771 - X::ControlFlow.raku returns self
+ok 772 - X::ControlFlow.gist returns self
+ok 773 - checking X::ControlFlow::Return.WHICH
+ok 774 - X::ControlFlow::Return returns an ObjAt
+ok 775 - X::ControlFlow::Return.raku returns self
+ok 776 - X::ControlFlow::Return.gist returns self
+ok 777 - checking X::DateTime::InvalidDeltaUnit.WHICH
+ok 778 - X::DateTime::InvalidDeltaUnit returns an ObjAt
+ok 779 - X::DateTime::InvalidDeltaUnit.raku returns self
+ok 780 - X::DateTime::InvalidDeltaUnit.gist returns self
+ok 781 - checking X::DateTime::TimezoneClash.WHICH
+ok 782 - X::DateTime::TimezoneClash returns an ObjAt
+ok 783 - X::DateTime::TimezoneClash.raku returns self
+ok 784 - X::DateTime::TimezoneClash.gist returns self
+ok 785 - checking X::Declaration::OurScopeInRole.WHICH
+ok 786 - X::Declaration::OurScopeInRole returns an ObjAt
+ok 787 - X::Declaration::OurScopeInRole.raku returns self
+ok 788 - X::Declaration::OurScopeInRole.gist returns self
+ok 789 - checking X::Declaration::Scope.WHICH
+ok 790 - X::Declaration::Scope returns an ObjAt
+ok 791 - X::Declaration::Scope.raku returns self
+ok 792 - X::Declaration::Scope.gist returns self
+ok 793 - checking X::Declaration::Scope::Multi.WHICH
+ok 794 - X::Declaration::Scope::Multi returns an ObjAt
+ok 795 - X::Declaration::Scope::Multi.raku returns self
+ok 796 - X::Declaration::Scope::Multi.gist returns self
+ok 797 - checking X::Does::TypeObject.WHICH
+ok 798 - X::Does::TypeObject returns an ObjAt
+ok 799 - X::Does::TypeObject.raku returns self
+ok 800 - X::Does::TypeObject.gist returns self
+ok 801 - checking X::Dynamic::NotFound.WHICH
+ok 802 - X::Dynamic::NotFound returns an ObjAt
+ok 803 - X::Dynamic::NotFound.raku returns self
+ok 804 - X::Dynamic::NotFound.gist returns self
+ok 805 - checking X::Dynamic::Package.WHICH
+ok 806 - X::Dynamic::Package returns an ObjAt
+ok 807 - X::Dynamic::Package.raku returns self
+ok 808 - X::Dynamic::Package.gist returns self
+ok 809 - checking X::Dynamic::Postdeclaration.WHICH
+ok 810 - X::Dynamic::Postdeclaration returns an ObjAt
+ok 811 - X::Dynamic::Postdeclaration.raku returns self
+ok 812 - X::Dynamic::Postdeclaration.gist returns self
+ok 813 - checking X::Eval::NoSuchLang.WHICH
+ok 814 - X::Eval::NoSuchLang returns an ObjAt
+ok 815 - X::Eval::NoSuchLang.raku returns self
+ok 816 - X::Eval::NoSuchLang.gist returns self
+ok 817 - checking X::Export::NameClash.WHICH
+ok 818 - X::Export::NameClash returns an ObjAt
+ok 819 - X::Export::NameClash.raku returns self
+ok 820 - X::Export::NameClash.gist returns self
+ok 821 - checking X::EXPORTHOW::Conflict.WHICH
+ok 822 - X::EXPORTHOW::Conflict returns an ObjAt
+ok 823 - X::EXPORTHOW::Conflict.raku returns self
+ok 824 - X::EXPORTHOW::Conflict.gist returns self
+ok 825 - checking X::EXPORTHOW::InvalidDirective.WHICH
+ok 826 - X::EXPORTHOW::InvalidDirective returns an ObjAt
+ok 827 - X::EXPORTHOW::InvalidDirective.raku returns self
+ok 828 - X::EXPORTHOW::InvalidDirective.gist returns self
+ok 829 - checking X::EXPORTHOW::NothingToSupersede.WHICH
+ok 830 - X::EXPORTHOW::NothingToSupersede returns an ObjAt
+ok 831 - X::EXPORTHOW::NothingToSupersede.raku returns self
+ok 832 - X::EXPORTHOW::NothingToSupersede.gist returns self
+ok 833 - checking X::Hash::Store::OddNumber.WHICH
+ok 834 - X::Hash::Store::OddNumber returns an ObjAt
+ok 835 - X::Hash::Store::OddNumber.raku returns self
+ok 836 - X::Hash::Store::OddNumber.gist returns self
+ok 837 - checking X::HyperOp::Infinite.WHICH
+ok 838 - X::HyperOp::Infinite returns an ObjAt
+ok 839 - X::HyperOp::Infinite.raku returns self
+ok 840 - X::HyperOp::Infinite.gist returns self
+ok 841 - checking X::HyperOp::NonDWIM.WHICH
+ok 842 - X::HyperOp::NonDWIM returns an ObjAt
+ok 843 - X::HyperOp::NonDWIM.raku returns self
+ok 844 - X::HyperOp::NonDWIM.gist returns self
+ok 845 - checking X::HyperWhatever::Multiple.WHICH
+ok 846 - X::HyperWhatever::Multiple returns an ObjAt
+ok 847 - X::HyperWhatever::Multiple.raku returns self
+ok 848 - X::HyperWhatever::Multiple.gist returns self
+ok 849 - checking X::IllegalOnFixedDimensionArray.WHICH
+ok 850 - X::IllegalOnFixedDimensionArray returns an ObjAt
+ok 851 - X::IllegalOnFixedDimensionArray.raku returns self
+ok 852 - X::IllegalOnFixedDimensionArray.gist returns self
+ok 853 - checking X::IO::Chdir.WHICH
+ok 854 - X::IO::Chdir returns an ObjAt
+ok 855 - X::IO::Chdir.raku returns self
+ok 856 - X::IO::Chdir.gist returns self
+ok 857 - checking X::IO::Chmod.WHICH
+ok 858 - X::IO::Chmod returns an ObjAt
+ok 859 - X::IO::Chmod.raku returns self
+ok 860 - X::IO::Chmod.gist returns self
+ok 861 - checking X::IO::Copy.WHICH
+ok 862 - X::IO::Copy returns an ObjAt
+ok 863 - X::IO::Copy.raku returns self
+ok 864 - X::IO::Copy.gist returns self
+ok 865 - checking X::IO::Cwd.WHICH
+ok 866 - X::IO::Cwd returns an ObjAt
+ok 867 - X::IO::Cwd.raku returns self
+ok 868 - X::IO::Cwd.gist returns self
+ok 869 - checking X::IO::Dir.WHICH
+ok 870 - X::IO::Dir returns an ObjAt
+ok 871 - X::IO::Dir.raku returns self
+ok 872 - X::IO::Dir.gist returns self
+ok 873 - checking X::IO::Directory.WHICH
+ok 874 - X::IO::Directory returns an ObjAt
+ok 875 - X::IO::Directory.raku returns self
+ok 876 - X::IO::Directory.gist returns self
+ok 877 - checking X::IO::DoesNotExist.WHICH
+ok 878 - X::IO::DoesNotExist returns an ObjAt
+ok 879 - X::IO::DoesNotExist.raku returns self
+ok 880 - X::IO::DoesNotExist.gist returns self
+ok 881 - checking X::IO::Link.WHICH
+ok 882 - X::IO::Link returns an ObjAt
+ok 883 - X::IO::Link.raku returns self
+ok 884 - X::IO::Link.gist returns self
+ok 885 - checking X::IO::Mkdir.WHICH
+ok 886 - X::IO::Mkdir returns an ObjAt
+ok 887 - X::IO::Mkdir.raku returns self
+ok 888 - X::IO::Mkdir.gist returns self
+ok 889 - checking X::IO::NotAFile.WHICH
+ok 890 - X::IO::NotAFile returns an ObjAt
+ok 891 - X::IO::NotAFile.raku returns self
+ok 892 - X::IO::NotAFile.gist returns self
+ok 893 - checking X::IO::Rename.WHICH
+ok 894 - X::IO::Rename returns an ObjAt
+ok 895 - X::IO::Rename.raku returns self
+ok 896 - X::IO::Rename.gist returns self
+ok 897 - checking X::IO::Rmdir.WHICH
+ok 898 - X::IO::Rmdir returns an ObjAt
+ok 899 - X::IO::Rmdir.raku returns self
+ok 900 - X::IO::Rmdir.gist returns self
+ok 901 - checking X::IO::Symlink.WHICH
+ok 902 - X::IO::Symlink returns an ObjAt
+ok 903 - X::IO::Symlink.raku returns self
+ok 904 - X::IO::Symlink.gist returns self
+ok 905 - checking X::IO::Unlink.WHICH
+ok 906 - X::IO::Unlink returns an ObjAt
+ok 907 - X::IO::Unlink.raku returns self
+ok 908 - X::IO::Unlink.gist returns self
+ok 909 - checking X::Immutable.WHICH
+ok 910 - X::Immutable returns an ObjAt
+ok 911 - X::Immutable.raku returns self
+ok 912 - X::Immutable.gist returns self
+ok 913 - checking X::Import::MissingSymbols.WHICH
+ok 914 - X::Import::MissingSymbols returns an ObjAt
+ok 915 - X::Import::MissingSymbols.raku returns self
+ok 916 - X::Import::MissingSymbols.gist returns self
+ok 917 - checking X::Import::NoSuchTag.WHICH
+ok 918 - X::Import::NoSuchTag returns an ObjAt
+ok 919 - X::Import::NoSuchTag.raku returns self
+ok 920 - X::Import::NoSuchTag.gist returns self
+ok 921 - checking X::Import::OnlystarProto.WHICH
+ok 922 - X::Import::OnlystarProto returns an ObjAt
+ok 923 - X::Import::OnlystarProto.raku returns self
+ok 924 - X::Import::OnlystarProto.gist returns self
+ok 925 - checking X::Import::Positional.WHICH
+ok 926 - X::Import::Positional returns an ObjAt
+ok 927 - X::Import::Positional.raku returns self
+ok 928 - X::Import::Positional.gist returns self
+ok 929 - checking X::Import::Redeclaration.WHICH
+ok 930 - X::Import::Redeclaration returns an ObjAt
+ok 931 - X::Import::Redeclaration.raku returns self
+ok 932 - X::Import::Redeclaration.gist returns self
+ok 933 - checking X::Inheritance::NotComposed.WHICH
+ok 934 - X::Inheritance::NotComposed returns an ObjAt
+ok 935 - X::Inheritance::NotComposed.raku returns self
+ok 936 - X::Inheritance::NotComposed.gist returns self
+ok 937 - checking X::Inheritance::SelfInherit.WHICH
+ok 938 - X::Inheritance::SelfInherit returns an ObjAt
+ok 939 - X::Inheritance::SelfInherit.raku returns self
+ok 940 - X::Inheritance::SelfInherit.gist returns self
+ok 941 - checking X::Inheritance::UnknownParent.WHICH
+ok 942 - X::Inheritance::UnknownParent returns an ObjAt
+ok 943 - X::Inheritance::UnknownParent.raku returns self
+ok 944 - X::Inheritance::UnknownParent.gist returns self
+ok 945 - checking X::Inheritance::Unsupported.WHICH
+ok 946 - X::Inheritance::Unsupported returns an ObjAt
+ok 947 - X::Inheritance::Unsupported.raku returns self
+ok 948 - X::Inheritance::Unsupported.gist returns self
+ok 949 - checking X::InvalidType.WHICH
+ok 950 - X::InvalidType returns an ObjAt
+ok 951 - X::InvalidType.raku returns self
+ok 952 - X::InvalidType.gist returns self
+ok 953 - checking X::InvalidTypeSmiley.WHICH
+ok 954 - X::InvalidTypeSmiley returns an ObjAt
+ok 955 - X::InvalidTypeSmiley.raku returns self
+ok 956 - X::InvalidTypeSmiley.gist returns self
+ok 957 - checking X::Item.WHICH
+ok 958 - X::Item returns an ObjAt
+ok 959 - X::Item.raku returns self
+ok 960 - X::Item.gist returns self
+ok 961 - checking X::Localizer::NoContainer.WHICH
+ok 962 - X::Localizer::NoContainer returns an ObjAt
+ok 963 - X::Localizer::NoContainer.raku returns self
+ok 964 - X::Localizer::NoContainer.gist returns self
+ok 965 - checking X::Match::Bool.WHICH
+ok 966 - X::Match::Bool returns an ObjAt
+ok 967 - X::Match::Bool.raku returns self
+ok 968 - X::Match::Bool.gist returns self
+ok 969 - checking X::Method::InvalidQualifier.WHICH
+ok 970 - X::Method::InvalidQualifier returns an ObjAt
+ok 971 - X::Method::InvalidQualifier.raku returns self
+ok 972 - X::Method::InvalidQualifier.gist returns self
+ok 973 - checking X::Method::NotFound.WHICH
+ok 974 - X::Method::NotFound returns an ObjAt
+ok 975 - X::Method::NotFound.raku returns self
+ok 976 - X::Method::NotFound.gist returns self
+ok 977 - checking X::Method::Private::Permission.WHICH
+ok 978 - X::Method::Private::Permission returns an ObjAt
+ok 979 - X::Method::Private::Permission.raku returns self
+ok 980 - X::Method::Private::Permission.gist returns self
+ok 981 - checking X::Method::Private::Unqualified.WHICH
+ok 982 - X::Method::Private::Unqualified returns an ObjAt
+ok 983 - X::Method::Private::Unqualified.raku returns self
+ok 984 - X::Method::Private::Unqualified.gist returns self
+ok 985 - checking X::Mixin::NotComposable.WHICH
+ok 986 - X::Mixin::NotComposable returns an ObjAt
+ok 987 - X::Mixin::NotComposable.raku returns self
+ok 988 - X::Mixin::NotComposable.gist returns self
+ok 989 - checking X::Multi::Ambiguous.WHICH
+ok 990 - X::Multi::Ambiguous returns an ObjAt
+ok 991 - X::Multi::Ambiguous.raku returns self
+ok 992 - X::Multi::Ambiguous.gist returns self
+ok 993 - checking X::Multi::NoMatch.WHICH
+ok 994 - X::Multi::NoMatch returns an ObjAt
+ok 995 - X::Multi::NoMatch.raku returns self
+ok 996 - X::Multi::NoMatch.gist returns self
+ok 997 - checking X::NQP::NotFound.WHICH
+ok 998 - X::NQP::NotFound returns an ObjAt
+ok 999 - X::NQP::NotFound.raku returns self
+ok 1000 - X::NQP::NotFound.gist returns self
+ok 1001 - checking X::NYI.WHICH
+ok 1002 - X::NYI returns an ObjAt
+ok 1003 - X::NYI.raku returns self
+ok 1004 - X::NYI.gist returns self
+ok 1005 - checking X::NYI::Available.WHICH
+ok 1006 - X::NYI::Available returns an ObjAt
+ok 1007 - X::NYI::Available.raku returns self
+ok 1008 - X::NYI::Available.gist returns self
+ok 1009 - checking X::NYI::BigInt.WHICH
+ok 1010 - X::NYI::BigInt returns an ObjAt
+ok 1011 - X::NYI::BigInt.raku returns self
+ok 1012 - X::NYI::BigInt.gist returns self
+ok 1013 - checking X::NoDispatcher.WHICH
+ok 1014 - X::NoDispatcher returns an ObjAt
+ok 1015 - X::NoDispatcher.raku returns self
+ok 1016 - X::NoDispatcher.gist returns self
+ok 1017 - checking X::NoSuchSymbol.WHICH
+ok 1018 - X::NoSuchSymbol returns an ObjAt
+ok 1019 - X::NoSuchSymbol.raku returns self
+ok 1020 - X::NoSuchSymbol.gist returns self
+ok 1021 - checking X::NotEnoughDimensions.WHICH
+ok 1022 - X::NotEnoughDimensions returns an ObjAt
+ok 1023 - X::NotEnoughDimensions.raku returns self
+ok 1024 - X::NotEnoughDimensions.gist returns self
+ok 1025 - checking X::NotParametric.WHICH
+ok 1026 - X::NotParametric returns an ObjAt
+ok 1027 - X::NotParametric.raku returns self
+ok 1028 - X::NotParametric.gist returns self
+ok 1029 - checking X::Numeric::DivideByZero.WHICH
+ok 1030 - X::Numeric::DivideByZero returns an ObjAt
+ok 1031 - X::Numeric::DivideByZero.raku returns self
+ok 1032 - X::Numeric::DivideByZero.gist returns self
+ok 1033 - checking X::Numeric::Real.WHICH
+ok 1034 - X::Numeric::Real returns an ObjAt
+ok 1035 - X::Numeric::Real.raku returns self
+ok 1036 - X::Numeric::Real.gist returns self
+ok 1037 - checking X::Obsolete.WHICH
+ok 1038 - X::Obsolete returns an ObjAt
+ok 1039 - X::Obsolete.raku returns self
+ok 1040 - X::Obsolete.gist returns self
+ok 1041 - checking X::OutOfRange.WHICH
+ok 1042 - X::OutOfRange returns an ObjAt
+ok 1043 - X::OutOfRange.raku returns self
+ok 1044 - X::OutOfRange.gist returns self
+ok 1045 - checking X::Package::Stubbed.WHICH
+ok 1046 - X::Package::Stubbed returns an ObjAt
+ok 1047 - X::Package::Stubbed.raku returns self
+ok 1048 - X::Package::Stubbed.gist returns self
+ok 1049 - checking X::Package::UseLib.WHICH
+ok 1050 - X::Package::UseLib returns an ObjAt
+ok 1051 - X::Package::UseLib.raku returns self
+ok 1052 - X::Package::UseLib.gist returns self
+ok 1053 - checking X::Pairup::OddNumber.WHICH
+ok 1054 - X::Pairup::OddNumber returns an ObjAt
+ok 1055 - X::Pairup::OddNumber.raku returns self
+ok 1056 - X::Pairup::OddNumber.gist returns self
+ok 1057 - checking X::Parameter::AfterDefault.WHICH
+ok 1058 - X::Parameter::AfterDefault returns an ObjAt
+ok 1059 - X::Parameter::AfterDefault.raku returns self
+ok 1060 - X::Parameter::AfterDefault.gist returns self
+ok 1061 - checking X::Parameter::BadType.WHICH
+ok 1062 - X::Parameter::BadType returns an ObjAt
+ok 1063 - X::Parameter::BadType.raku returns self
+ok 1064 - X::Parameter::BadType.gist returns self
+ok 1065 - checking X::Parameter::Default.WHICH
+ok 1066 - X::Parameter::Default returns an ObjAt
+ok 1067 - X::Parameter::Default.raku returns self
+ok 1068 - X::Parameter::Default.gist returns self
+ok 1069 - checking X::Parameter::Default::TypeCheck.WHICH
+ok 1070 - X::Parameter::Default::TypeCheck returns an ObjAt
+ok 1071 - X::Parameter::Default::TypeCheck.raku returns self
+ok 1072 - X::Parameter::Default::TypeCheck.gist returns self
+ok 1073 - checking X::Parameter::InvalidType.WHICH
+ok 1074 - X::Parameter::InvalidType returns an ObjAt
+ok 1075 - X::Parameter::InvalidType.raku returns self
+ok 1076 - X::Parameter::InvalidType.gist returns self
+ok 1077 - checking X::Parameter::MultipleTypeConstraints.WHICH
+ok 1078 - X::Parameter::MultipleTypeConstraints returns an ObjAt
+ok 1079 - X::Parameter::MultipleTypeConstraints.raku returns self
+ok 1080 - X::Parameter::MultipleTypeConstraints.gist returns self
+ok 1081 - checking X::Parameter::Placeholder.WHICH
+ok 1082 - X::Parameter::Placeholder returns an ObjAt
+ok 1083 - X::Parameter::Placeholder.raku returns self
+ok 1084 - X::Parameter::Placeholder.gist returns self
+ok 1085 - checking X::Parameter::RW.WHICH
+ok 1086 - X::Parameter::RW returns an ObjAt
+ok 1087 - X::Parameter::RW.raku returns self
+ok 1088 - X::Parameter::RW.gist returns self
+ok 1089 - checking X::Parameter::Twigil.WHICH
+ok 1090 - X::Parameter::Twigil returns an ObjAt
+ok 1091 - X::Parameter::Twigil.raku returns self
+ok 1092 - X::Parameter::Twigil.gist returns self
+ok 1093 - checking X::Parameter::WrongOrder.WHICH
+ok 1094 - X::Parameter::WrongOrder returns an ObjAt
+ok 1095 - X::Parameter::WrongOrder.raku returns self
+ok 1096 - X::Parameter::WrongOrder.gist returns self
+ok 1097 - checking X::Phaser::Multiple.WHICH
+ok 1098 - X::Phaser::Multiple returns an ObjAt
+ok 1099 - X::Phaser::Multiple.raku returns self
+ok 1100 - X::Phaser::Multiple.gist returns self
+ok 1101 - checking X::Phaser::PrePost.WHICH
+ok 1102 - X::Phaser::PrePost returns an ObjAt
+ok 1103 - X::Phaser::PrePost.raku returns self
+ok 1104 - X::Phaser::PrePost.gist returns self
+ok 1105 - checking X::PhaserExceptions.WHICH
+ok 1106 - X::PhaserExceptions returns an ObjAt
+ok 1107 - X::PhaserExceptions.raku returns self
+ok 1108 - X::PhaserExceptions.gist returns self
+ok 1109 - checking X::Placeholder::Attribute.WHICH
+ok 1110 - X::Placeholder::Attribute returns an ObjAt
+ok 1111 - X::Placeholder::Attribute.raku returns self
+ok 1112 - X::Placeholder::Attribute.gist returns self
+ok 1113 - checking X::Placeholder::Block.WHICH
+ok 1114 - X::Placeholder::Block returns an ObjAt
+ok 1115 - X::Placeholder::Block.raku returns self
+ok 1116 - X::Placeholder::Block.gist returns self
+ok 1117 - checking X::Placeholder::Mainline.WHICH
+ok 1118 - X::Placeholder::Mainline returns an ObjAt
+ok 1119 - X::Placeholder::Mainline.raku returns self
+ok 1120 - X::Placeholder::Mainline.gist returns self
+ok 1121 - checking X::Placeholder::NonPlaceholder.WHICH
+ok 1122 - X::Placeholder::NonPlaceholder returns an ObjAt
+ok 1123 - X::Placeholder::NonPlaceholder.raku returns self
+ok 1124 - X::Placeholder::NonPlaceholder.gist returns self
+ok 1125 - checking X::PoisonedAlias.WHICH
+ok 1126 - X::PoisonedAlias returns an ObjAt
+ok 1127 - X::PoisonedAlias.raku returns self
+ok 1128 - X::PoisonedAlias.gist returns self
+ok 1129 - checking X::Pragma::CannotPrecomp.WHICH
+ok 1130 - X::Pragma::CannotPrecomp returns an ObjAt
+ok 1131 - X::Pragma::CannotPrecomp.raku returns self
+ok 1132 - X::Pragma::CannotPrecomp.gist returns self
+ok 1133 - checking X::Pragma::CannotWhat.WHICH
+ok 1134 - X::Pragma::CannotWhat returns an ObjAt
+ok 1135 - X::Pragma::CannotWhat.raku returns self
+ok 1136 - X::Pragma::CannotWhat.gist returns self
+ok 1137 - checking X::Pragma::MustOneOf.WHICH
+ok 1138 - X::Pragma::MustOneOf returns an ObjAt
+ok 1139 - X::Pragma::MustOneOf.raku returns self
+ok 1140 - X::Pragma::MustOneOf.gist returns self
+ok 1141 - checking X::Pragma::NoArgs.WHICH
+ok 1142 - X::Pragma::NoArgs returns an ObjAt
+ok 1143 - X::Pragma::NoArgs.raku returns self
+ok 1144 - X::Pragma::NoArgs.gist returns self
+ok 1145 - checking X::Pragma::OnlyOne.WHICH
+ok 1146 - X::Pragma::OnlyOne returns an ObjAt
+ok 1147 - X::Pragma::OnlyOne.raku returns self
+ok 1148 - X::Pragma::OnlyOne.gist returns self
+ok 1149 - checking X::Pragma::UnknownArg.WHICH
+ok 1150 - X::Pragma::UnknownArg returns an ObjAt
+ok 1151 - X::Pragma::UnknownArg.raku returns self
+ok 1152 - X::Pragma::UnknownArg.gist returns self
+ok 1153 - checking X::PseudoPackage::InDeclaration.WHICH
+ok 1154 - X::PseudoPackage::InDeclaration returns an ObjAt
+ok 1155 - X::PseudoPackage::InDeclaration.raku returns self
+ok 1156 - X::PseudoPackage::InDeclaration.gist returns self
+ok 1157 - checking X::Range::InvalidArg.WHICH
+ok 1158 - X::Range::InvalidArg returns an ObjAt
+ok 1159 - X::Range::InvalidArg.raku returns self
+ok 1160 - X::Range::InvalidArg.gist returns self
+ok 1161 - checking X::Redeclaration.WHICH
+ok 1162 - X::Redeclaration returns an ObjAt
+ok 1163 - X::Redeclaration.raku returns self
+ok 1164 - X::Redeclaration.gist returns self
+ok 1165 - checking X::Redeclaration::Outer.WHICH
+ok 1166 - X::Redeclaration::Outer returns an ObjAt
+ok 1167 - X::Redeclaration::Outer.raku returns self
+ok 1168 - X::Redeclaration::Outer.gist returns self
+ok 1169 - checking X::Role::Initialization.WHICH
+ok 1170 - X::Role::Initialization returns an ObjAt
+ok 1171 - X::Role::Initialization.raku returns self
+ok 1172 - X::Role::Initialization.gist returns self
+ok 1173 - checking X::Role::Parametric::NoSuchCandidate.WHICH
+ok 1174 - X::Role::Parametric::NoSuchCandidate returns an ObjAt
+ok 1175 - X::Role::Parametric::NoSuchCandidate.raku returns self
+ok 1176 - X::Role::Parametric::NoSuchCandidate.gist returns self
+ok 1177 - checking X::Routine::Unwrap.WHICH
+ok 1178 - X::Routine::Unwrap returns an ObjAt
+ok 1179 - X::Routine::Unwrap.raku returns self
+ok 1180 - X::Routine::Unwrap.gist returns self
+ok 1181 - checking X::Seq::Consumed.WHICH
+ok 1182 - X::Seq::Consumed returns an ObjAt
+ok 1183 - X::Seq::Consumed.raku returns self
+ok 1184 - X::Seq::Consumed.gist returns self
+ok 1185 - checking X::Seq::NotIndexable.WHICH
+ok 1186 - X::Seq::NotIndexable returns an ObjAt
+ok 1187 - X::Seq::NotIndexable.raku returns self
+ok 1188 - X::Seq::NotIndexable.gist returns self
+ok 1189 - checking X::Sequence::Deduction.WHICH
+ok 1190 - X::Sequence::Deduction returns an ObjAt
+ok 1191 - X::Sequence::Deduction.raku returns self
+ok 1192 - X::Sequence::Deduction.gist returns self
+ok 1193 - checking X::Set::Coerce.WHICH
+ok 1194 - X::Set::Coerce returns an ObjAt
+ok 1195 - X::Set::Coerce.raku returns self
+ok 1196 - X::Set::Coerce.gist returns self
+ok 1197 - checking X::Signature::NameClash.WHICH
+ok 1198 - X::Signature::NameClash returns an ObjAt
+ok 1199 - X::Signature::NameClash.raku returns self
+ok 1200 - X::Signature::NameClash.gist returns self
+ok 1201 - checking X::Signature::Placeholder.WHICH
+ok 1202 - X::Signature::Placeholder returns an ObjAt
+ok 1203 - X::Signature::Placeholder.raku returns self
+ok 1204 - X::Signature::Placeholder.gist returns self
+ok 1205 - checking X::Str::Match::x.WHICH
+ok 1206 - X::Str::Match::x returns an ObjAt
+ok 1207 - X::Str::Match::x.raku returns self
+ok 1208 - X::Str::Match::x.gist returns self
+ok 1209 - checking X::Str::Numeric.WHICH
+ok 1210 - X::Str::Numeric returns an ObjAt
+ok 1211 - X::Str::Numeric.raku returns self
+ok 1212 - X::Str::Numeric.gist returns self
+ok 1213 - checking X::Str::Trans::IllegalKey.WHICH
+ok 1214 - X::Str::Trans::IllegalKey returns an ObjAt
+ok 1215 - X::Str::Trans::IllegalKey.raku returns self
+ok 1216 - X::Str::Trans::IllegalKey.gist returns self
+ok 1217 - checking X::Str::Trans::InvalidArg.WHICH
+ok 1218 - X::Str::Trans::InvalidArg returns an ObjAt
+ok 1219 - X::Str::Trans::InvalidArg.raku returns self
+ok 1220 - X::Str::Trans::InvalidArg.gist returns self
+ok 1221 - checking X::StubCode.WHICH
+ok 1222 - X::StubCode returns an ObjAt
+ok 1223 - X::StubCode.raku returns self
+ok 1224 - X::StubCode.gist returns self
+ok 1225 - checking X::Subscript::Negative.WHICH
+ok 1226 - X::Subscript::Negative returns an ObjAt
+ok 1227 - X::Subscript::Negative.raku returns self
+ok 1228 - X::Subscript::Negative.gist returns self
+ok 1229 - checking X::Syntax::AddCategorical::TooFewParts.WHICH
+ok 1230 - X::Syntax::AddCategorical::TooFewParts returns an ObjAt
+ok 1231 - X::Syntax::AddCategorical::TooFewParts.raku returns self
+ok 1232 - X::Syntax::AddCategorical::TooFewParts.gist returns self
+ok 1233 - checking X::Syntax::AddCategorical::TooManyParts.WHICH
+ok 1234 - X::Syntax::AddCategorical::TooManyParts returns an ObjAt
+ok 1235 - X::Syntax::AddCategorical::TooManyParts.raku returns self
+ok 1236 - X::Syntax::AddCategorical::TooManyParts.gist returns self
+ok 1237 - checking X::Syntax::Adverb.WHICH
+ok 1238 - X::Syntax::Adverb returns an ObjAt
+ok 1239 - X::Syntax::Adverb.raku returns self
+ok 1240 - X::Syntax::Adverb.gist returns self
+ok 1241 - checking X::Syntax::Argument::MOPMacro.WHICH
+ok 1242 - X::Syntax::Argument::MOPMacro returns an ObjAt
+ok 1243 - X::Syntax::Argument::MOPMacro.raku returns self
+ok 1244 - X::Syntax::Argument::MOPMacro.gist returns self
+ok 1245 - checking X::Syntax::Augment::Illegal.WHICH
+ok 1246 - X::Syntax::Augment::Illegal returns an ObjAt
+ok 1247 - X::Syntax::Augment::Illegal.raku returns self
+ok 1248 - X::Syntax::Augment::Illegal.gist returns self
+ok 1249 - checking X::Syntax::Augment::WithoutMonkeyTyping.WHICH
+ok 1250 - X::Syntax::Augment::WithoutMonkeyTyping returns an ObjAt
+ok 1251 - X::Syntax::Augment::WithoutMonkeyTyping.raku returns self
+ok 1252 - X::Syntax::Augment::WithoutMonkeyTyping.gist returns self
+ok 1253 - checking X::Syntax::BlockGobbled.WHICH
+ok 1254 - X::Syntax::BlockGobbled returns an ObjAt
+ok 1255 - X::Syntax::BlockGobbled.raku returns self
+ok 1256 - X::Syntax::BlockGobbled.gist returns self
+ok 1257 - checking X::Syntax::CannotMeta.WHICH
+ok 1258 - X::Syntax::CannotMeta returns an ObjAt
+ok 1259 - X::Syntax::CannotMeta.raku returns self
+ok 1260 - X::Syntax::CannotMeta.gist returns self
+ok 1261 - checking X::Syntax::Comment::Embedded.WHICH
+ok 1262 - X::Syntax::Comment::Embedded returns an ObjAt
+ok 1263 - X::Syntax::Comment::Embedded.raku returns self
+ok 1264 - X::Syntax::Comment::Embedded.gist returns self
+ok 1265 - checking X::Syntax::ConditionalOperator::PrecedenceTooLoose.WHICH
+ok 1266 - X::Syntax::ConditionalOperator::PrecedenceTooLoose returns an ObjAt
+ok 1267 - X::Syntax::ConditionalOperator::PrecedenceTooLoose.raku returns self
+ok 1268 - X::Syntax::ConditionalOperator::PrecedenceTooLoose.gist returns self
+ok 1269 - checking X::Syntax::ConditionalOperator::SecondPartGobbled.WHICH
+ok 1270 - X::Syntax::ConditionalOperator::SecondPartGobbled returns an ObjAt
+ok 1271 - X::Syntax::ConditionalOperator::SecondPartGobbled.raku returns self
+ok 1272 - X::Syntax::ConditionalOperator::SecondPartGobbled.gist returns self
+ok 1273 - checking X::Syntax::ConditionalOperator::SecondPartInvalid.WHICH
+ok 1274 - X::Syntax::ConditionalOperator::SecondPartInvalid returns an ObjAt
+ok 1275 - X::Syntax::ConditionalOperator::SecondPartInvalid.raku returns self
+ok 1276 - X::Syntax::ConditionalOperator::SecondPartInvalid.gist returns self
+ok 1277 - checking X::Syntax::Confused.WHICH
+ok 1278 - X::Syntax::Confused returns an ObjAt
+ok 1279 - X::Syntax::Confused.raku returns self
+ok 1280 - X::Syntax::Confused.gist returns self
+ok 1281 - checking X::Syntax::DuplicatedPrefix.WHICH
+ok 1282 - X::Syntax::DuplicatedPrefix returns an ObjAt
+ok 1283 - X::Syntax::DuplicatedPrefix.raku returns self
+ok 1284 - X::Syntax::DuplicatedPrefix.gist returns self
+ok 1285 - checking X::Syntax::Extension::Category.WHICH
+ok 1286 - X::Syntax::Extension::Category returns an ObjAt
+ok 1287 - X::Syntax::Extension::Category.raku returns self
+ok 1288 - X::Syntax::Extension::Category.gist returns self
+ok 1289 - checking X::Syntax::Extension::Null.WHICH
+ok 1290 - X::Syntax::Extension::Null returns an ObjAt
+ok 1291 - X::Syntax::Extension::Null.raku returns self
+ok 1292 - X::Syntax::Extension::Null.gist returns self
+ok 1293 - checking X::Syntax::Extension::SpecialForm.WHICH
+ok 1294 - X::Syntax::Extension::SpecialForm returns an ObjAt
+ok 1295 - X::Syntax::Extension::SpecialForm.raku returns self
+ok 1296 - X::Syntax::Extension::SpecialForm.gist returns self
+ok 1297 - checking X::Syntax::Extension::TooComplex.WHICH
+ok 1298 - X::Syntax::Extension::TooComplex returns an ObjAt
+ok 1299 - X::Syntax::Extension::TooComplex.raku returns self
+ok 1300 - X::Syntax::Extension::TooComplex.gist returns self
+ok 1301 - checking X::Syntax::InfixInTermPosition.WHICH
+ok 1302 - X::Syntax::InfixInTermPosition returns an ObjAt
+ok 1303 - X::Syntax::InfixInTermPosition.raku returns self
+ok 1304 - X::Syntax::InfixInTermPosition.gist returns self
+ok 1305 - checking X::Syntax::KeywordAsFunction.WHICH
+ok 1306 - X::Syntax::KeywordAsFunction returns an ObjAt
+ok 1307 - X::Syntax::KeywordAsFunction.raku returns self
+ok 1308 - X::Syntax::KeywordAsFunction.gist returns self
+ok 1309 - checking X::Syntax::Malformed.WHICH
+ok 1310 - X::Syntax::Malformed returns an ObjAt
+ok 1311 - X::Syntax::Malformed.raku returns self
+ok 1312 - X::Syntax::Malformed.gist returns self
+ok 1313 - checking X::Syntax::Malformed::Elsif.WHICH
+ok 1314 - X::Syntax::Malformed::Elsif returns an ObjAt
+ok 1315 - X::Syntax::Malformed::Elsif.raku returns self
+ok 1316 - X::Syntax::Malformed::Elsif.gist returns self
+ok 1317 - checking X::Syntax::Missing.WHICH
+ok 1318 - X::Syntax::Missing returns an ObjAt
+ok 1319 - X::Syntax::Missing.raku returns self
+ok 1320 - X::Syntax::Missing.gist returns self
+ok 1321 - checking X::Syntax::Name::Null.WHICH
+ok 1322 - X::Syntax::Name::Null returns an ObjAt
+ok 1323 - X::Syntax::Name::Null.raku returns self
+ok 1324 - X::Syntax::Name::Null.gist returns self
+ok 1325 - checking X::Syntax::NegatedPair.WHICH
+ok 1326 - X::Syntax::NegatedPair returns an ObjAt
+ok 1327 - X::Syntax::NegatedPair.raku returns self
+ok 1328 - X::Syntax::NegatedPair.gist returns self
+ok 1329 - checking X::Syntax::NoSelf.WHICH
+ok 1330 - X::Syntax::NoSelf returns an ObjAt
+ok 1331 - X::Syntax::NoSelf.raku returns self
+ok 1332 - X::Syntax::NoSelf.gist returns self
+ok 1333 - checking X::Syntax::NonAssociative.WHICH
+ok 1334 - X::Syntax::NonAssociative returns an ObjAt
+ok 1335 - X::Syntax::NonAssociative.raku returns self
+ok 1336 - X::Syntax::NonAssociative.gist returns self
+ok 1337 - checking X::Syntax::Number::IllegalDecimal.WHICH
+ok 1338 - X::Syntax::Number::IllegalDecimal returns an ObjAt
+ok 1339 - X::Syntax::Number::IllegalDecimal.raku returns self
+ok 1340 - X::Syntax::Number::IllegalDecimal.gist returns self
+ok 1341 - checking X::Syntax::Number::RadixOutOfRange.WHICH
+ok 1342 - X::Syntax::Number::RadixOutOfRange returns an ObjAt
+ok 1343 - X::Syntax::Number::RadixOutOfRange.raku returns self
+ok 1344 - X::Syntax::Number::RadixOutOfRange.gist returns self
+ok 1345 - checking X::Syntax::P5.WHICH
+ok 1346 - X::Syntax::P5 returns an ObjAt
+ok 1347 - X::Syntax::P5.raku returns self
+ok 1348 - X::Syntax::P5.gist returns self
+ok 1349 - checking X::Syntax::Perl5Var.WHICH
+ok 1350 - X::Syntax::Perl5Var returns an ObjAt
+ok 1351 - X::Syntax::Perl5Var.raku returns self
+ok 1352 - X::Syntax::Perl5Var.gist returns self
+ok 1353 - checking X::Syntax::Pod::BeginWithoutEnd.WHICH
+ok 1354 - X::Syntax::Pod::BeginWithoutEnd returns an ObjAt
+ok 1355 - X::Syntax::Pod::BeginWithoutEnd.raku returns self
+ok 1356 - X::Syntax::Pod::BeginWithoutEnd.gist returns self
+ok 1357 - checking X::Syntax::Pod::BeginWithoutIdentifier.WHICH
+ok 1358 - X::Syntax::Pod::BeginWithoutIdentifier returns an ObjAt
+ok 1359 - X::Syntax::Pod::BeginWithoutIdentifier.raku returns self
+ok 1360 - X::Syntax::Pod::BeginWithoutIdentifier.gist returns self
+ok 1361 - checking X::Syntax::Regex::Adverb.WHICH
+ok 1362 - X::Syntax::Regex::Adverb returns an ObjAt
+ok 1363 - X::Syntax::Regex::Adverb.raku returns self
+ok 1364 - X::Syntax::Regex::Adverb.gist returns self
+ok 1365 - checking X::Syntax::Regex::MalformedRange.WHICH
+ok 1366 - X::Syntax::Regex::MalformedRange returns an ObjAt
+ok 1367 - X::Syntax::Regex::MalformedRange.raku returns self
+ok 1368 - X::Syntax::Regex::MalformedRange.gist returns self
+ok 1369 - checking X::Syntax::Regex::NullRegex.WHICH
+ok 1370 - X::Syntax::Regex::NullRegex returns an ObjAt
+ok 1371 - X::Syntax::Regex::NullRegex.raku returns self
+ok 1372 - X::Syntax::Regex::NullRegex.gist returns self
+ok 1373 - checking X::Syntax::Regex::SolitaryBacktrackControl.WHICH
+ok 1374 - X::Syntax::Regex::SolitaryBacktrackControl returns an ObjAt
+ok 1375 - X::Syntax::Regex::SolitaryBacktrackControl.raku returns self
+ok 1376 - X::Syntax::Regex::SolitaryBacktrackControl.gist returns self
+ok 1377 - checking X::Syntax::Regex::SolitaryQuantifier.WHICH
+ok 1378 - X::Syntax::Regex::SolitaryQuantifier returns an ObjAt
+ok 1379 - X::Syntax::Regex::SolitaryQuantifier.raku returns self
+ok 1380 - X::Syntax::Regex::SolitaryQuantifier.gist returns self
+ok 1381 - checking X::Syntax::Regex::SpacesInBareRange.WHICH
+ok 1382 - X::Syntax::Regex::SpacesInBareRange returns an ObjAt
+ok 1383 - X::Syntax::Regex::SpacesInBareRange.raku returns self
+ok 1384 - X::Syntax::Regex::SpacesInBareRange.gist returns self
+ok 1385 - checking X::Syntax::Regex::UnrecognizedMetachar.WHICH
+ok 1386 - X::Syntax::Regex::UnrecognizedMetachar returns an ObjAt
+ok 1387 - X::Syntax::Regex::UnrecognizedMetachar.raku returns self
+ok 1388 - X::Syntax::Regex::UnrecognizedMetachar.gist returns self
+ok 1389 - checking X::Syntax::Regex::UnrecognizedModifier.WHICH
+ok 1390 - X::Syntax::Regex::UnrecognizedModifier returns an ObjAt
+ok 1391 - X::Syntax::Regex::UnrecognizedModifier.raku returns self
+ok 1392 - X::Syntax::Regex::UnrecognizedModifier.gist returns self
+ok 1393 - checking X::Syntax::Regex::Unspace.WHICH
+ok 1394 - X::Syntax::Regex::Unspace returns an ObjAt
+ok 1395 - X::Syntax::Regex::Unspace.raku returns self
+ok 1396 - X::Syntax::Regex::Unspace.gist returns self
+ok 1397 - checking X::Syntax::Regex::Unterminated.WHICH
+ok 1398 - X::Syntax::Regex::Unterminated returns an ObjAt
+ok 1399 - X::Syntax::Regex::Unterminated.raku returns self
+ok 1400 - X::Syntax::Regex::Unterminated.gist returns self
+ok 1401 - checking X::Syntax::Reserved.WHICH
+ok 1402 - X::Syntax::Reserved returns an ObjAt
+ok 1403 - X::Syntax::Reserved.raku returns self
+ok 1404 - X::Syntax::Reserved.gist returns self
+ok 1405 - checking X::Syntax::Self::WithoutObject.WHICH
+ok 1406 - X::Syntax::Self::WithoutObject returns an ObjAt
+ok 1407 - X::Syntax::Self::WithoutObject.raku returns self
+ok 1408 - X::Syntax::Self::WithoutObject.gist returns self
+ok 1409 - checking X::Syntax::Signature::InvocantMarker.WHICH
+ok 1410 - X::Syntax::Signature::InvocantMarker returns an ObjAt
+ok 1411 - X::Syntax::Signature::InvocantMarker.raku returns self
+ok 1412 - X::Syntax::Signature::InvocantMarker.gist returns self
+ok 1413 - checking X::Syntax::Term::MissingInitializer.WHICH
+ok 1414 - X::Syntax::Term::MissingInitializer returns an ObjAt
+ok 1415 - X::Syntax::Term::MissingInitializer.raku returns self
+ok 1416 - X::Syntax::Term::MissingInitializer.gist returns self
+ok 1417 - checking X::Syntax::UnlessElse.WHICH
+ok 1418 - X::Syntax::UnlessElse returns an ObjAt
+ok 1419 - X::Syntax::UnlessElse.raku returns self
+ok 1420 - X::Syntax::UnlessElse.gist returns self
+ok 1421 - checking X::Syntax::Variable::BadType.WHICH
+ok 1422 - X::Syntax::Variable::BadType returns an ObjAt
+ok 1423 - X::Syntax::Variable::BadType.raku returns self
+ok 1424 - X::Syntax::Variable::BadType.gist returns self
+ok 1425 - checking X::Syntax::Variable::ConflictingTypes.WHICH
+ok 1426 - X::Syntax::Variable::ConflictingTypes returns an ObjAt
+ok 1427 - X::Syntax::Variable::ConflictingTypes.raku returns self
+ok 1428 - X::Syntax::Variable::ConflictingTypes.gist returns self
+ok 1429 - checking X::Syntax::Variable::IndirectDeclaration.WHICH
+ok 1430 - X::Syntax::Variable::IndirectDeclaration returns an ObjAt
+ok 1431 - X::Syntax::Variable::IndirectDeclaration.raku returns self
+ok 1432 - X::Syntax::Variable::IndirectDeclaration.gist returns self
+ok 1433 - checking X::Syntax::Variable::Initializer.WHICH
+ok 1434 - X::Syntax::Variable::Initializer returns an ObjAt
+ok 1435 - X::Syntax::Variable::Initializer.raku returns self
+ok 1436 - X::Syntax::Variable::Initializer.gist returns self
+ok 1437 - checking X::Syntax::Variable::Match.WHICH
+ok 1438 - X::Syntax::Variable::Match returns an ObjAt
+ok 1439 - X::Syntax::Variable::Match.raku returns self
+ok 1440 - X::Syntax::Variable::Match.gist returns self
+ok 1441 - checking X::Syntax::Variable::MissingInitializer.WHICH
+ok 1442 - X::Syntax::Variable::MissingInitializer returns an ObjAt
+ok 1443 - X::Syntax::Variable::MissingInitializer.raku returns self
+ok 1444 - X::Syntax::Variable::MissingInitializer.gist returns self
+ok 1445 - checking X::Syntax::Variable::Numeric.WHICH
+ok 1446 - X::Syntax::Variable::Numeric returns an ObjAt
+ok 1447 - X::Syntax::Variable::Numeric.raku returns self
+ok 1448 - X::Syntax::Variable::Numeric.gist returns self
+ok 1449 - checking X::Syntax::Variable::Twigil.WHICH
+ok 1450 - X::Syntax::Variable::Twigil returns an ObjAt
+ok 1451 - X::Syntax::Variable::Twigil.raku returns self
+ok 1452 - X::Syntax::Variable::Twigil.gist returns self
+ok 1453 - checking X::Syntax::VirtualCall.WHICH
+ok 1454 - X::Syntax::VirtualCall returns an ObjAt
+ok 1455 - X::Syntax::VirtualCall.raku returns self
+ok 1456 - X::Syntax::VirtualCall.gist returns self
+ok 1457 - checking X::Temporal::InvalidFormat.WHICH
+ok 1458 - X::Temporal::InvalidFormat returns an ObjAt
+ok 1459 - X::Temporal::InvalidFormat.raku returns self
+ok 1460 - X::Temporal::InvalidFormat.gist returns self
+ok 1461 - checking X::TooLateForREPR.WHICH
+ok 1462 - X::TooLateForREPR returns an ObjAt
+ok 1463 - X::TooLateForREPR.raku returns self
+ok 1464 - X::TooLateForREPR.gist returns self
+ok 1465 - checking X::Trait::NotOnNative.WHICH
+ok 1466 - X::Trait::NotOnNative returns an ObjAt
+ok 1467 - X::Trait::NotOnNative.raku returns self
+ok 1468 - X::Trait::NotOnNative.gist returns self
+ok 1469 - checking X::Trait::Scope.WHICH
+ok 1470 - X::Trait::Scope returns an ObjAt
+ok 1471 - X::Trait::Scope.raku returns self
+ok 1472 - X::Trait::Scope.gist returns self
+ok 1473 - checking X::Trait::Unknown.WHICH
+ok 1474 - X::Trait::Unknown returns an ObjAt
+ok 1475 - X::Trait::Unknown.raku returns self
+ok 1476 - X::Trait::Unknown.gist returns self
+ok 1477 - checking X::TypeCheck.WHICH
+ok 1478 - X::TypeCheck returns an ObjAt
+ok 1479 - X::TypeCheck.raku returns self
+ok 1480 - X::TypeCheck.gist returns self
+ok 1481 - checking X::TypeCheck::Argument.WHICH
+ok 1482 - X::TypeCheck::Argument returns an ObjAt
+ok 1483 - X::TypeCheck::Argument.raku returns self
+ok 1484 - X::TypeCheck::Argument.gist returns self
+ok 1485 - checking X::TypeCheck::Assignment.WHICH
+ok 1486 - X::TypeCheck::Assignment returns an ObjAt
+ok 1487 - X::TypeCheck::Assignment.raku returns self
+ok 1488 - X::TypeCheck::Assignment.gist returns self
+ok 1489 - checking X::TypeCheck::Binding.WHICH
+ok 1490 - X::TypeCheck::Binding returns an ObjAt
+ok 1491 - X::TypeCheck::Binding.raku returns self
+ok 1492 - X::TypeCheck::Binding.gist returns self
+ok 1493 - checking X::TypeCheck::Return.WHICH
+ok 1494 - X::TypeCheck::Return returns an ObjAt
+ok 1495 - X::TypeCheck::Return.raku returns self
+ok 1496 - X::TypeCheck::Return.gist returns self
+ok 1497 - checking X::TypeCheck::Splice.WHICH
+ok 1498 - X::TypeCheck::Splice returns an ObjAt
+ok 1499 - X::TypeCheck::Splice.raku returns self
+ok 1500 - X::TypeCheck::Splice.gist returns self
+ok 1501 - checking X::Undeclared.WHICH
+ok 1502 - X::Undeclared returns an ObjAt
+ok 1503 - X::Undeclared.raku returns self
+ok 1504 - X::Undeclared.gist returns self
+ok 1505 - checking X::Undeclared::Symbols.WHICH
+ok 1506 - X::Undeclared::Symbols returns an ObjAt
+ok 1507 - X::Undeclared::Symbols.raku returns self
+ok 1508 - X::Undeclared::Symbols.gist returns self
+ok 1509 - checking X::UnitScope::Invalid.WHICH
+ok 1510 - X::UnitScope::Invalid returns an ObjAt
+ok 1511 - X::UnitScope::Invalid.raku returns self
+ok 1512 - X::UnitScope::Invalid.gist returns self
+ok 1513 - checking X::UnitScope::TooLate.WHICH
+ok 1514 - X::UnitScope::TooLate returns an ObjAt
+ok 1515 - X::UnitScope::TooLate.raku returns self
+ok 1516 - X::UnitScope::TooLate.gist returns self
+ok 1517 - checking X::Value::Dynamic.WHICH
+ok 1518 - X::Value::Dynamic returns an ObjAt
+ok 1519 - X::Value::Dynamic.raku returns self
+ok 1520 - X::Value::Dynamic.gist returns self
+ok 1521 - checking X::Worry.WHICH
+ok 1522 - X::Worry returns an ObjAt
+ok 1523 - X::Worry.raku returns self
+ok 1524 - X::Worry.gist returns self
+ok 1525 - checking X::Worry::P5.WHICH
+ok 1526 - X::Worry::P5 returns an ObjAt
+ok 1527 - X::Worry::P5.raku returns self
+ok 1528 - X::Worry::P5.gist returns self
+ok 1529 - checking X::Worry::P5::BackReference.WHICH
+ok 1530 - X::Worry::P5::BackReference returns an ObjAt
+ok 1531 - X::Worry::P5::BackReference.raku returns self
+ok 1532 - X::Worry::P5::BackReference.gist returns self
+ok 1533 - checking X::Worry::P5::LeadingZero.WHICH
+ok 1534 - X::Worry::P5::LeadingZero returns an ObjAt
+ok 1535 - X::Worry::P5::LeadingZero.raku returns self
+ok 1536 - X::Worry::P5::LeadingZero.gist returns self
+ok 1537 - checking X::Worry::P5::Reference.WHICH
+ok 1538 - X::Worry::P5::Reference returns an ObjAt
+ok 1539 - X::Worry::P5::Reference.raku returns self
+ok 1540 - X::Worry::P5::Reference.gist returns self
+ok 1541 - checking Cancellation.WHICH
+ok 1542 - Cancellation returns an ObjAt
+ok 1543 - Cancellation.raku returns self
+ok 1544 - Cancellation.gist returns self
+ok 1545 - checking Channel.WHICH
+ok 1546 - Channel returns an ObjAt
+ok 1547 - Channel.raku returns self
+ok 1548 - Channel.gist returns self
+ok 1549 - checking CurrentThreadScheduler.WHICH
+ok 1550 - CurrentThreadScheduler returns an ObjAt
+ok 1551 - CurrentThreadScheduler.raku returns self
+ok 1552 - CurrentThreadScheduler.gist returns self
+ok 1553 - checking IO::Socket::Async.WHICH
+ok 1554 - IO::Socket::Async returns an ObjAt
+ok 1555 - IO::Socket::Async.raku returns self
+ok 1556 - IO::Socket::Async.gist returns self
+ok 1557 - checking Promise.WHICH
+ok 1558 - Promise returns an ObjAt
+ok 1559 - Promise.raku returns self
+ok 1560 - Promise.gist returns self
+ok 1561 - checking Semaphore.WHICH
+ok 1562 - Semaphore returns an ObjAt
+ok 1563 - Semaphore.raku returns self
+ok 1564 - Semaphore.gist returns self
+ok 1565 - checking Supplier.WHICH
+ok 1566 - Supplier returns an ObjAt
+ok 1567 - Supplier.raku returns self
+ok 1568 - Supplier.gist returns self
+ok 1569 - checking Tap.WHICH
+ok 1570 - Tap returns an ObjAt
+ok 1571 - Tap.raku returns self
+ok 1572 - Tap.gist returns self
+ok 1573 - checking Thread.WHICH
+ok 1574 - Thread returns an ObjAt
+ok 1575 - Thread.raku returns self
+ok 1576 - Thread.gist returns self
+ok 1577 - checking ThreadPoolScheduler.WHICH
+ok 1578 - ThreadPoolScheduler returns an ObjAt
+ok 1579 - ThreadPoolScheduler.raku returns self
+ok 1580 - ThreadPoolScheduler.gist returns self
+ok 1581 - checking X::Channel::ReceiveOnClosed.WHICH
+ok 1582 - X::Channel::ReceiveOnClosed returns an ObjAt
+ok 1583 - X::Channel::ReceiveOnClosed.raku returns self
+ok 1584 - X::Channel::ReceiveOnClosed.gist returns self
+ok 1585 - checking X::Channel::SendOnClosed.WHICH
+ok 1586 - X::Channel::SendOnClosed returns an ObjAt
+ok 1587 - X::Channel::SendOnClosed.raku returns self
+ok 1588 - X::Channel::SendOnClosed.gist returns self
+ok 1589 - checking X::Lock::ConditionVariable::New.WHICH
+ok 1590 - X::Lock::ConditionVariable::New returns an ObjAt
+ok 1591 - X::Lock::ConditionVariable::New.raku returns self
+ok 1592 - X::Lock::ConditionVariable::New.gist returns self
+ok 1593 - checking X::Promise::CauseOnlyValidOnBroken.WHICH
+ok 1594 - X::Promise::CauseOnlyValidOnBroken returns an ObjAt
+ok 1595 - X::Promise::CauseOnlyValidOnBroken.raku returns self
+ok 1596 - X::Promise::CauseOnlyValidOnBroken.gist returns self
+ok 1597 - checking X::Promise::Combinator.WHICH
+ok 1598 - X::Promise::Combinator returns an ObjAt
+ok 1599 - X::Promise::Combinator.raku returns self
+ok 1600 - X::Promise::Combinator.gist returns self
+ok 1601 - checking X::Promise::Vowed.WHICH
+ok 1602 - X::Promise::Vowed returns an ObjAt
+ok 1603 - X::Promise::Vowed.raku returns self
+ok 1604 - X::Promise::Vowed.gist returns self
+ok 1605 - checking X::Supply::Migrate::Needs.WHICH
+ok 1606 - X::Supply::Migrate::Needs returns an ObjAt
+ok 1607 - X::Supply::Migrate::Needs.raku returns self
+ok 1608 - X::Supply::Migrate::Needs.gist returns self
+ok 1609 - checking Blob's instance's .WHICH
+ok 1610 - Blob's instance's .WHICH returns an ObjAt
+ok 1611 - checking NFC.WHICH
+ok 1612 - NFC returns an ObjAt
+ok 1613 - NFC.raku returns self
+ok 1614 - NFC.gist returns self
+ok 1615 - checking NFD.WHICH
+ok 1616 - NFD returns an ObjAt
+ok 1617 - NFD.raku returns self
+ok 1618 - NFD.gist returns self
+ok 1619 - checking NFKC.WHICH
+ok 1620 - NFKC returns an ObjAt
+ok 1621 - NFKC.raku returns self
+ok 1622 - NFKC.gist returns self
+ok 1623 - checking NFKD.WHICH
+ok 1624 - NFKD returns an ObjAt
+ok 1625 - NFKD.raku returns self
+ok 1626 - NFKD.gist returns self
+ok 1627 - checking Uni.WHICH
+ok 1628 - Uni returns an ObjAt
+ok 1629 - Uni.raku returns self
+ok 1630 - Uni.gist returns self
+ok 1631 - checking Proc::Async.WHICH
+ok 1632 - Proc::Async returns an ObjAt
+ok 1633 - Proc::Async.raku returns self
+ok 1634 - Proc::Async.gist returns self
+ok 1635 - checking X::Proc::Async::AlreadyStarted.WHICH
+ok 1636 - X::Proc::Async::AlreadyStarted returns an ObjAt
+ok 1637 - X::Proc::Async::AlreadyStarted.raku returns self
+ok 1638 - X::Proc::Async::AlreadyStarted.gist returns self
+ok 1639 - checking X::Proc::Async::CharsOrBytes.WHICH
+ok 1640 - X::Proc::Async::CharsOrBytes returns an ObjAt
+ok 1641 - X::Proc::Async::CharsOrBytes.raku returns self
+ok 1642 - X::Proc::Async::CharsOrBytes.gist returns self
+ok 1643 - checking X::Proc::Async::MustBeStarted.WHICH
+ok 1644 - X::Proc::Async::MustBeStarted returns an ObjAt
+ok 1645 - X::Proc::Async::MustBeStarted.raku returns self
+ok 1646 - X::Proc::Async::MustBeStarted.gist returns self
+ok 1647 - checking X::Proc::Async::OpenForWriting.WHICH
+ok 1648 - X::Proc::Async::OpenForWriting returns an ObjAt
+ok 1649 - X::Proc::Async::OpenForWriting.raku returns self
+ok 1650 - X::Proc::Async::OpenForWriting.gist returns self
+ok 1651 - checking X::Proc::Async::TapBeforeSpawn.WHICH
+ok 1652 - X::Proc::Async::TapBeforeSpawn returns an ObjAt
+ok 1653 - X::Proc::Async::TapBeforeSpawn.raku returns self
+ok 1654 - X::Proc::Async::TapBeforeSpawn.gist returns self
+# Subtest: ObjAt.raku gives distinct results for different objects
+    1..18
+    ok 1 - can .raku.EVAL roundtrip .WHICH for "rt"
+    ok 2 - can .raku.EVAL roundtrip .WHICH for 128944
+    ok 3 - can .raku.EVAL roundtrip .WHICH for IntStr.new(128944, "128944")
+    ok 4 - can .raku.EVAL roundtrip .WHICH for rx/^/
+    ok 5 - can .raku.EVAL roundtrip .WHICH for NaN
+    ok 6 - can .raku.EVAL roundtrip .WHICH for Inf
+    ok 7 - can .raku.EVAL roundtrip .WHICH for <6.283185307179586+1i>
+    ok 8 - can .raku.EVAL roundtrip .WHICH for 0.5
+    ok 9 - can .raku.EVAL roundtrip .WHICH for <anon|1>
+    ok 10 - can .raku.EVAL roundtrip .WHICH for any("a", 42)
+    ok 11 - can .raku.EVAL roundtrip .WHICH for sub {  \#`(Sub|2893989705232) ... }
+    ok 12 - can .raku.EVAL roundtrip .WHICH for ->  {  \#`(Block|2893982344704) ... }
+    ok 13 - can .raku.EVAL roundtrip .WHICH for method <anon> (Mu $:: *%_) {  \#`(Method|2893989705368) ... }
+    ok 14 - can .raku.EVAL roundtrip .WHICH for *
+    ok 15 - can .raku.EVAL roundtrip .WHICH for WhateverCode.new
+    ok 16 - can .raku.EVAL roundtrip .WHICH for Promise.new(scheduler => ThreadPoolScheduler.new(uncaught_handler => Callable), status => PromiseStatus::Kept)
+    ok 17 - can .raku.EVAL roundtrip .WHICH for Supply.new
+    ok 18 - number of unique .WHICH.rakus matches number of objects we tested
+ok 1655 - ObjAt.raku gives distinct results for different objects
+ok 1656 - cloned Bag does not lose WHICH
+# Subtest: Mixins to Code:U objects do not cause crash on .WHICH
+    1..6
+    ok 1 - Method
+    ok 2 - Submethod
+    ok 3 - Sub
+    ok 4 - Block
+    ok 5 - Code
+    ok 6 - Whatever
+ok 1657 - Mixins to Code:U objects do not cause crash on .WHICH

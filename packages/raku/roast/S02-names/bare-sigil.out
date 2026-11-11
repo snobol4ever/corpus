@@ -1,0 +1,12 @@
+1..11
+ok 1 - basic bare sigil $
+ok 2 - basic bare sigil @
+ok 3 - basic bare sigil %
+ok 4 - initialized bare sigil scalar $
+ok 5 - initialized bare sigil array @
+ok 6 - initialized bare sigil hash %
+ok 7 - anonymous 'state' bare sigil scalar retains state
+ok 8 - anonymous 'state' bare sigil scalar is initialized once
+ok 9 - anonymous 'state' bare sigil array retains state
+ok 10 - anonymous 'state' bare sigil array can grow
+ok 11 - no misleading warning about P5 special var '$)'

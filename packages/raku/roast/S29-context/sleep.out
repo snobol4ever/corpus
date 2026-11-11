@@ -1,0 +1,24 @@
+1..23
+ok 1 - sleep() always returns Nil
+ok 2 - we actually slept at some seconds
+ok 3 - ... but not too long
+ok 4 - silently ignores negative times
+ok 5 - sleep() always returns Nil
+ok 6 - did we get a Duration back (1)
+ok 7 - does Duration returned make sense
+ok 8 - did we get a Duration back (2)
+ok 9 - no time left to wait
+ok 10 - did we get a Duration back (3)
+ok 11 - no time left to wait either
+ok 12 - did we get a Duration back (4)
+ok 13 - no time left to wait either
+ok 14 - did we get a Bool back
+ok 15 - did we actually wait
+ok 16 - does elapsed time make sense
+ok 17 - did we get a Bool back (DateTime)
+ok 18 - did we actually wait (DateTime)
+ok 19 - does elapsed time make sense (DateTime)
+ok 20 - should not actually sleep again
+ok 21 - sleep(Inf) compiles
+ok 22 - sleep(*) compiles
+ok 23 - huge values to sleep() work

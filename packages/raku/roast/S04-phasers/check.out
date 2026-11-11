@@ -1,0 +1,6 @@
+1..5
+ok 1 - check blocks run after begin blocks
+ok 2 - check blocks run in reverse order
+ok 3 - our CHECK {...} block returned the correct var (1)
+ok 4 - our CHECK {...} block returned the correct var (2)
+ok 5 - our rvalue CHECK {...} block was executed exactly once

@@ -1,0 +1,16 @@
+1..15
+ok 1 - @a.Bool returns False for empty @a
+ok 2 - ?@a returns False for empty @a
+ok 3 - @a in bool context returns False for empty @a
+ok 4 - @a.Bool returns True for @a with one element
+ok 5 - ?@a returns True for @a with one element
+ok 6 - @a in bool context returns True for @a with one element
+ok 7 - @a.Bool returns True for @a with two elements
+ok 8 - ?@a returns True for @a with two elements
+ok 9 - @a in bool context returns True for @a with two elements
+ok 10 - @a.Bool returns False for empty range in @a
+ok 11 - ?@a returns False for empty range in @a
+ok 12 - @a in bool context returns False for empty range in @a
+ok 13 - @a.Bool returns True for non-empty range in @a
+ok 14 - ?@a returns True for non-empty range in @a
+ok 15 - @a in bool context returns True for non-empty range in @a

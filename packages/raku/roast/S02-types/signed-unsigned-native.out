@@ -1,0 +1,133 @@
+1..132
+ok 1 - equality on 8bit signed int
+ok 2 - equality on 16bit signed int
+ok 3 - equality on 32bit signed int
+ok 4 - equality on 64bit signed int
+ok 5 - equality on signed int
+ok 6 - unequality on 8bit signed int
+ok 7 - unequality on 16bit signed int
+ok 8 - unequality on 32bit signed int
+ok 9 - unequality on 64bit signed int
+ok 10 - unequality on signed int
+ok 11 - less than on 8bit signed int
+ok 12 - less than on 16bit signed int
+ok 13 - less than on 32bit signed int
+ok 14 - less than on 64bit signed int
+ok 15 - less than on signed int
+ok 16 - less than or equal on 8bit signed int
+ok 17 - less than or equal on 16bit signed int
+ok 18 - less than or equal on 32bit signed int
+ok 19 - less than or equal on 64bit signed int
+ok 20 - less than or equal on signed int
+ok 21 - greater than on 8bit signed int
+ok 22 - greater than on 16bit signed int
+ok 23 - greater than on 32bit signed int
+ok 24 - greater than on 64bit signed int
+ok 25 - greater than on signed int
+ok 26 - greater than or equal on 8bit signed int
+ok 27 - greater than or equal on 16bit signed int
+ok 28 - greater than or equal on 32bit signed int
+ok 29 - greater than or equal on 64bit signed int
+ok 30 - greater than or equal on signed int
+ok 31 - is unsigned 8 ok
+ok 32 - is unsigned 16 ok
+ok 33 - is unsigned 32 ok
+ok 34 - is unsigned 64 ok
+ok 35 - is unsigned ok
+ok 36 - equality on 8bit unsigned int
+ok 37 - equality on 16bit unsigned int
+ok 38 - equality on 32bit unsigned int
+ok 39 - equality on 64bit unsigned int
+ok 40 - equality on unsigned int
+ok 41 - unequality on 8bit unsigned int
+ok 42 - unequality on 16bit unsigned int
+ok 43 - unequality on 32bit unsigned int
+ok 44 - unequality on 64bit unsigned int
+ok 45 - unequality on unsigned int
+ok 46 - less than on 8bit unsigned int
+ok 47 - less than on 16bit unsigned int
+ok 48 - less than on 32bit unsigned int
+ok 49 - less than on 64bit unsigned int
+ok 50 - less than on unsigned int
+ok 51 - less than or equal on 8bit unsigned int
+ok 52 - less than or equal on 16bit unsigned int
+ok 53 - less than or equal on 32bit unsigned int
+ok 54 - less than or equal on 64bit unsigned int
+ok 55 - less than or equal on unsigned int
+ok 56 - greater than on 8bit unsigned int
+ok 57 - greater than on 16bit unsigned int
+ok 58 - greater than on 32bit unsigned int
+ok 59 - greater than on 64bit unsigned int
+ok 60 - greater than on unsigned int
+ok 61 - greater than or equal on 8bit unsigned int
+ok 62 - greater than or equal on 16bit unsigned int
+ok 63 - greater than or equal on 32bit unsigned int
+ok 64 - greater than or equal on 64bit unsigned int
+ok 65 - greater than or equal on unsigned int
+ok 66 - equality on 8bit uint / int
+ok 67 - equality on 16bit uint / int
+ok 68 - equality on 32bit uint / int
+ok 69 - equality on 64bit uint / int
+ok 70 - equality on uint / int
+ok 71 - equality on 8bit int / uint
+ok 72 - equality on 16bit int / uint
+ok 73 - equality on 32bit int / uint
+ok 74 - equality on 64bit int / uint
+ok 75 - equality on int / uint
+ok 76 - unequality on 8bit uint / int
+ok 77 - unequality on 16bit uint / int
+ok 78 - unequality on 32bit uint / int
+ok 79 - unequality on 64bit uint / int
+ok 80 - unequality on uint / int
+ok 81 - unequality on 8bit int / uint
+ok 82 - unequality on 16bit int / uint
+ok 83 - unequality on 32bit int / uint
+ok 84 - unequality on 64bit int / uint
+ok 85 - unequality on int / uint
+ok 86 - less than on 8bit uint / int
+ok 87 - less than on 16bit uint / int
+ok 88 - less than on 32bit uint / int
+ok 89 - less than on 64bit uint / int
+ok 90 - less than on uint / int
+ok 91 - less than on 8bit int / uint
+ok 92 - less than on 16bit int / uint
+ok 93 - less than on 32bit int / uint
+ok 94 - less than on 64bit int / uint
+ok 95 - less than on int / uint
+ok 96 - less than or equal on 8bit uint / int
+ok 97 - less than or equal on 16bit uint / int
+ok 98 - less than or equal on 32bit uint / int
+ok 99 - less than or equal on 64bit uint / int
+ok 100 - less than or equal on uint / int
+ok 101 - less than or equal on 8bit int / uint
+ok 102 - less than or equal on 16bit int / uint
+ok 103 - less than or equal on 32bit int / uint
+ok 104 - less than or equal on 64bit int / uint
+ok 105 - less than or equal on int / uint
+ok 106 - greater than on 8bit uint / int
+ok 107 - greater than on 16bit uint / int
+ok 108 - greater than on 32bit uint / int
+ok 109 - greater than on 64bit uint / int
+ok 110 - greater than on uint / int
+ok 111 - greater than on 8bit int / uint
+ok 112 - greater than on 16bit int / uint
+ok 113 - greater than on 32bit int / uint
+ok 114 - greater than on 64bit int / uint
+ok 115 - greater than on int / uint
+ok 116 - greater than or equal on 8bit uint / int
+ok 117 - greater than or equal on 16bit uint / int
+ok 118 - greater than or equal on 32bit uint / int
+ok 119 - greater than or equal on 64bit uint / int
+ok 120 - greater than or equal on uint / int
+ok 121 - greater than or equal on 8bit int / uint
+ok 122 - greater than or equal on 16bit int / uint
+ok 123 - greater than or equal on 32bit int / uint
+ok 124 - greater than or equal on 64bit int / uint
+ok 125 - greater than or equal on int / uint
+ok 126 - byte scaled ok
+ok 127 - uint8 scaled ok
+ok 128 - uint16 scaled ok
+ok 129 - uint32 scaled ok
+ok 130 - uint64 scaled ok
+ok 131 - uint scaled ok
+ok 132 - Saw 0 failures in uint test

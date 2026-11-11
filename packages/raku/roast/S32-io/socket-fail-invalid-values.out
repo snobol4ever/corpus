@@ -1,0 +1,5 @@
+1..4
+ok 1 - Fails when port is too low
+ok 2 - Fails when port is too high
+ok 3 - Fails when family is too low
+ok 4 - Fails when family is too high

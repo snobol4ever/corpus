@@ -1,0 +1,19 @@
+1..18
+ok 1 - We can use match
+ok 2 - .. it does not do side effect
+ok 3 - .. it returns a Match object
+ok 4 - .. works as ~~ matching 'hello' with /a/
+ok 5 - .. works as ~~ matching 'hello' with /b/
+ok 6 - .. works as ~~ matching 'hello' with /c/
+ok 7 - .. works as ~~ matching 'hello' with /d/
+ok 8 - .. works as ~~ matching 'hello' with /e/
+ok 9 - .. works as ~~ matching 'hello' with /f/
+ok 10 - is a Match object
+ok 11 - match object stringifies OK
+ok 12 - match object indexes as a hash
+ok 13 - match object indexes as an array
+ok 14 - can ~~ m:i/T/
+ok 15 - can ~~ /. <( [:i T]/
+ok 16 - can .match: /:i T/
+ok 17 - can S:i/T/Z/
+ok 18 - can .subst: /:i T/, "Z"

@@ -1,0 +1,16 @@
+1..15
+ok 1 - The lcm of 10 and 5 is 10
+ok 2 - The lcm of 10 and 5 is an Int
+ok 3 - The lcm of -432 and 63 is 3024
+ok 4 - The lcm of 4342 and 65536 is 142278656
+ok 5 - The lcm of 4342 and 65536 is an Int
+ok 6 - [lcm] Range works
+ok 7 - lcm converts Rats to Ints correctly
+ok 8 - and the result is an Int
+ok 9 - lcm converts Nums to Ints correctly
+ok 10 - and the result is an Int
+ok 11 - lcm handles big Int and small Int
+ok 12 - lcm handles big Int and small Int
+ok 13 - lcm handles small Int and big Int
+ok 14 - lcm handles small Int and big Int
+ok 15 - lcm handles big Int and big Int

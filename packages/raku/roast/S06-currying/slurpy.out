@@ -1,0 +1,34 @@
+1..32
+ok 1 - Priming :(*@b) with \() gave :(*@b)
+ok 2 - Priming :(*@b) with \(1) gave :(*@b)
+ok 3 - Priming :(*@b) with \(1, *) gave :(*@b)
+ok 4 - Priming :(*@b) with \(*, 2) gave :(*@b)
+ok 5 - Priming :(*@b) with \(1, *, 2) gave :(*@b)
+ok 6 - Priming :($a, *@b) with \(1, 2, Nil, 3) gave :(*@b)
+ok 7 - Priming :(*@b) with \(1, Nil) gave :(*@b)
+ok 8 - Priming :(*@b) with \(Nil, 2) gave :(*@b)
+ok 9 - Priming :(*@b) with \(1, Nil, 2) gave :(*@b)
+ok 10 - Priming :($a, *@b) with \(1) gave :(*@b)
+ok 11 - Priming :($a, *@b) with \(1, 2) gave :(*@b)
+ok 12 - Priming :($a, *@b) with \(1, 2, *, 3) gave :(*@b)
+ok 13 - Priming :(:$a, *%B, :$b, *%C, :$c) with \(:a) gave :(:$a = Bool::True, *%B, :$b, *%C, :$c) # TODO awaiting resurrecting of RakuAST assuming
+ok 14 - Priming :(:$a!, *%B, :$b!, *%C, :$c!) with \(:a) gave :(:$a = Bool::True, *%B, :$b!, *%C, :$c!) # TODO awaiting resurrecting of RakuAST assuming
+ok 15 - &anonslurp.assuming(().Seq)((1, 2, "c", Bool::True, Bool::True).Seq) returned expected value ["a1 b2"]
+ok 16 - &anonslurp.assuming((1,).Seq)((2, "c", Bool::True, Bool::True).Seq) returned expected value ["a1 b2"]
+ok 17 - &anonslurp.assuming((1, 2).Seq)(("c", Bool::True, Bool::True).Seq) returned expected value ["a1 b2"]
+ok 18 - &anonslurp.assuming((1, 2, Bool::True).Seq)(("c", Bool::True).Seq) returned expected value ["a1 b2"]
+ok 19 - &anonslurp.assuming((1, 2, "c", Bool::True).Seq)((Bool::True,).Seq) returned expected value ["a1 b2"]
+ok 20 - &anonslurp.assuming((1, 2, "c", Bool::True, Bool::True).Seq)(().Seq) returned expected value ["a1 b2"]
+ok 21 - &capcap.assuming(("a",).Seq)(("b",).Seq) returned expected value ["aa bb ca db"]
+ok 22 - &capcap.assuming((*, "b").Seq)(("a",).Seq) returned expected value ["aa bb ca db"]
+ok 23 - &capcapn.assuming(("a",).Seq)(("b",).Seq) returned expected value ["aa bb ca db ee ff"]
+ok 24 - &capcapn.assuming((*, "b").Seq)(("a",).Seq) returned expected value ["aa bb ca db ee ff"]
+ok 25 - &capcapn.assuming(("a", *).Seq)(("b",).Seq) returned expected value ["aa bb ca db ee ff"]
+ok 26 - &capcapn.assuming(("a", "E").Seq)(("b",).Seq) returned expected value ["aa bb ca db eE fE"]
+ok 27 - &capcapn.assuming((*, "b", "E").Seq)(("a",).Seq) returned expected value ["aa bb ca db eE fE"]
+ok 28 - &capcapn.assuming(("a", "E").Seq)(("b",).Seq) returned expected value ["aa bb ca db eE fE"]
+ok 29 - &capcapn.assuming(("a", "E").Seq)(("b",).Seq) returned expected value ["aa bb ca db eE fE"]
+ok 30 - &capcapn.assuming(("a", *, "E").Seq)(("b",).Seq) returned expected value ["aa bb ca db eE fE"]
+ok 31 - &capcapn.assuming(("a", *, "E").Seq)(("b",).Seq) returned expected value ["aa bb ca db eE fE"]
+ok 32 - &capcapn.assuming(("a", *, "E").Seq)(("b",).Seq) returned expected value ["aa bb ca db eE fE"]
+# FUDGED!

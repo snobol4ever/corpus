@@ -1,0 +1,40 @@
+1..39
+ok 1 - our variable was not yet chomped
+ok 2 - our variable is chomped correctly
+ok 3 - our variable is chomped again with no effect
+ok 4 - our variable is chomped correctly
+ok 5 - our variable is chomped again correctly
+ok 6 - our variable is chomped again with no effect
+ok 7 - our variable is chomped correctly
+ok 8 - our variable is chomped again with no effect
+ok 9 - our variable is chomped with no effect
+ok 10 - .chomp has no effect on the original string
+ok 11 - .chomp returns correctly chomped value
+ok 12 - .chomp returns correctly chomped value again
+ok 13 - our variable was not yet chomped
+ok 14 - our variable is chomped correctly
+ok 15 - our variable is chomped again with no effect
+ok 16 - our variable is chomped correctly
+ok 17 - our variable is chomped again correctly
+ok 18 - our variable is chomped again with no effect
+ok 19 - our variable is chomped correctly
+ok 20 - our variable is chomped again with no effect
+ok 21 - our variable is chomped with no effect
+ok 22 - .chomp has no effect on the original string
+ok 23 - .chomp returns correctly chomped value
+ok 24 - .chomp returns correctly chomped value again
+ok 25 - our variable was not yet chomped
+ok 26 - our variable is chomped correctly
+ok 27 - our variable is chomped again with no effect
+ok 28 - our variable is chomped correctly
+ok 29 - our variable is chomped again correctly
+ok 30 - our variable is chomped again with no effect
+ok 31 - our variable is chomped correctly
+ok 32 - our variable is chomped again with no effect
+ok 33 - our variable is chomped with no effect
+ok 34 - .chomp has no effect on the original string
+ok 35 - .chomp returns correctly chomped value
+ok 36 - .chomp returns correctly chomped value again
+ok 37 - .chomp works on string with just a newline
+ok 38 - .chomp works on string with just a carriage return
+ok 39 - .chomp doesn't affect empty string

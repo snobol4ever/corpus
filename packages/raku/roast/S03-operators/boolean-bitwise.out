@@ -1,0 +1,46 @@
+1..45
+ok 1 - ?| works with Bools
+ok 2 - ?| works with Bools
+ok 3 - ?| works with Bools
+ok 4 - ?| works with Bools
+ok 5 - ?| works
+ok 6 - ?| works
+ok 7 - ?| works
+ok 8 - ?| works
+ok 9 - ?| works
+ok 10 - ?| works with one argument
+ok 11 - ?| works with no arguments
+ok 12 - ?| yields a Bool
+ok 13 - ?| with one argument yields a Bool
+ok 14 - ?| with no arguments yields a Bool
+ok 15 - ?& works with Bools
+ok 16 - ?& works with Bools
+ok 17 - ?& works with Bools
+ok 18 - ?& works with Bools
+ok 19 - ?& works
+ok 20 - ?& works
+ok 21 - ?& works
+ok 22 - ?& works
+ok 23 - ?& works
+ok 24 - ?& works
+ok 25 - ?& works with one argument
+ok 26 - ?& works with no arguments
+ok 27 - ?& yields a Bool
+ok 28 - ?& with one argument yields a Bool
+ok 29 - ?& with no arguments yields a Bool
+ok 30 - ?^ works with Bools
+ok 31 - ?^ works with Bools
+ok 32 - ?^ works with Bools
+ok 33 - ?^ works with Bools
+ok 34 - ?^ works
+ok 35 - ?^ works
+ok 36 - ?^ works
+ok 37 - ?^ works
+ok 38 - ?^ works
+ok 39 - ?^ works with one argument
+ok 40 - ?^ works with no arguments
+ok 41 - ?^ yields a Bool
+ok 42 - ?^ with one argument yields a Bool
+ok 43 - ?^ with no arguments yields a Bool
+ok 44 - prefix ?^ (+)
+ok 45 - prefix ?^ (-)

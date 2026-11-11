@@ -1,0 +1,16 @@
+1..10
+ok 1 - can define a sub in eval
+# Subtest: call to eval-born sub outside eval dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 2 - call to eval-born sub outside eval dies
+ok 3 - call to eval-born our sub via OUR works
+ok 4 - c is 2 from enum
+ok 5 - can define my sub c in eval after c defined in enum
+ok 6 - c is still 2 from enum
+ok 7 - # SKIP OUR::subname() does not work
+ok 8 - can compile a class that modifies our variable
+ok 9 - can instantiate class that modifies our variable
+ok 10 - class can modify our variable
+# FUDGED!

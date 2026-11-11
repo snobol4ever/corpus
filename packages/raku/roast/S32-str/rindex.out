@@ -1,0 +1,82 @@
+1..57
+ok 1 - The object is-a 'Int'
+ok 2 - The object is-a 'Nil'
+ok 3 - One char, at beginning
+ok 4 - One char, in the middle
+ok 5 - One char, in the end
+ok 6 - One char, no match
+ok 7 - One char, first match, pos @ end
+ok 8 - - 1. match again, pos @ match
+ok 9 - - 2. match
+ok 10 - - 3. match
+ok 11 - - no more matches
+ok 12 - Substr, at beginning
+ok 13 - Substr, in the middle
+ok 14 - Substr, at the end
+ok 15 - Substr, no match
+ok 16 - Substr eq Str
+ok 17 - Substr is empty
+ok 18 - Both strings are empty
+ok 19 - Only main-string is empty
+ok 20 - Substr is empty, pos within str
+ok 21 - Substr is empty, pos at end of str
+ok 22 - rindex where pos > length of str return undefined
+ok 23 - Start-of-substr matches several times
+ok 24 - Accented chars
+ok 25 - Umlaut
+ok 26 - over unicode characters
+ok 27 - .rindex on string
+ok 28 - .rindex('') on string gives string length graphemes
+ok 29 - First needle contained in the second
+ok 30 - Second needle contained in the first
+ok 31 - Needles with partial overlap (large index first)
+ok 32 - Needles with partial overlap (small index first)
+ok 33 - Second needle contained in the first and occurring twice in str
+ok 34 - Needles with partial and with complete overlap
+ok 35 - Many overlapping needles
+ok 36 - rindex on scalar variable
+ok 37 - .rindex on scalar variable
+ok 38 - rindex on uc
+ok 39 - .uc.rindex 
+ok 40 - .lc.tc.rindex
+ok 41 - rindex on integers
+ok 42 - rindex with non-latin-1 strings
+ok 43 - rindex with negative start position fails (1)
+# Subtest: rindex with negative start position fails (2)
+    1..2
+    ok 1 - 'rindex("xxyxx", "y", -1)' died
+    ok 2 - right exception type (X::OutOfRange)
+ok 44 - rindex with negative start position fails (2)
+ok 45 - sub does -1e+34 fails
+ok 46 - method does -1e+34 fails
+ok 47 - sub does -1e+35 fails
+ok 48 - method does -1e+35 fails
+# Subtest: sub does 1e+34 fails
+    1..3
+    ok 1 - 
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches 1e+34
+ok 49 - sub does 1e+34 fails
+# Subtest: method does 1e+34 fails
+    1..3
+    ok 1 - 
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches 1e+34
+ok 50 - method does 1e+34 fails
+# Subtest: sub does 1e+35 fails
+    1..3
+    ok 1 - 
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches 1e+35
+ok 51 - sub does 1e+35 fails
+# Subtest: method does 1e+35 fails
+    1..3
+    ok 1 - 
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches 1e+35
+ok 52 - method does 1e+35 fails
+ok 53 - Cool.rindex with wrong args does not hang
+ok 54 - does a list of needles work ok with method
+ok 55 - does a list of needles work ok with sub
+ok 56 - does a list of needles work ok with method
+ok 57 - does a list of needles work ok with sub

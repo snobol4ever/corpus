@@ -1,0 +1,7 @@
+1..6
+ok 1 - Array ~~ Hash (exists and True)
+ok 2 - Array ~~ Hash (exists but Mu)
+ok 3 - Array ~~ Hash (both exist)
+ok 4 - Array ~~ Hash (one exists)
+ok 5 - Array ~~ Hash (empty list)
+ok 6 - Array ~~ Hash (not exists)

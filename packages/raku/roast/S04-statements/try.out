@@ -1,0 +1,41 @@
+1..40
+ok 1 - error var was set
+ok 2 - try returns Nil when exception was caught
+ok 3 - ... even when there was a CATCH block
+ok 4 - @array = try {...} worked (1)
+ok 5 - @array = try {...} worked (2)
+ok 6 - @array = try {...} worked (3)
+ok 7 - @array = try {...} worked (4)
+ok 8 - %hash = try {...} worked (1)
+ok 9 - %hash = try {...} worked (2)
+ok 10 - %hash = try {...} worked (5)
+ok 11 - %hash = try {...} worked (6)
+ok 12 - %hash = try {...} worked (7)
+ok 13 - %hash = try {...} worked (8)
+ok 14 - %hash = try {...} worked (9)
+ok 15 - return() inside try{}-blocks works (1)
+ok 16 - return() inside try{}-blocks works (2)
+ok 17 - return() inside a try{}-block should cause following exceptions to really die
+ok 18 - try gets a block, nothing more
+ok 19 - CATCH does not catch exceptions thrown within it
+ok 20 - CATCH allows to resume to right after the exception
+ok 21 - block including if structure and printing $/ ok
+ok 22 - die($non-exception) creates an X::AdHoc
+ok 23 - $!.payload is the argument to &die
+ok 24 - $!.Str uses the payload
+ok 25 - die($,$) creates an X::AdHoc
+ok 26 - $!.payload[0] is the first argument to &die
+ok 27 - $!.payload[1] is the second argument to &die
+ok 28 - $!.Str culls whitespace
+ok 29 - die(Exception,$) creates an X::AdHoc
+ok 30 - $!.payload[0] is the Exception
+ok 31 - When $! not set, die() has default message "Died"
+ok 32 - When $! is set, die() is die($!).
+ok 33 - Can throw subtypes of Exception and get them back
+ok 34 - ... and got the right object back
+ok 35 - try block in statement-modifying contextualizer
+ok 36 - Failure does not escape try (statement form)
+ok 37 - Failure does not escape try (block form)
+ok 38 - Failure does not escape try (block form with CATCH)
+ok 39 - ... failure does not escape try (statement form)
+ok 40 - ... failure does not escape try (block form)

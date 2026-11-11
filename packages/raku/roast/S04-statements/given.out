@@ -1,0 +1,153 @@
+1..54
+ok 1 - given when true ...
+ok 2 - given when false
+ok 3 - 5 is not two
+ok 4 - 5 is five
+ok 5 - short fell-through to next true when using 'proceed'
+ok 6 - but didn't do so normally
+ok 7 - foo was found in nested when
+ok 8 - regex in when-clause set match object
+ok 9 - interleaved 1
+ok 10 - interleaved 2 is the last one
+ok 11 - inteleraved 3 not executed
+ok 12 - never ever execute something after a default {}
+ok 13 - first iteration
+ok 14 - second iteration
+ok 15 - third iteration
+ok 16 - should not fall into default in this case
+ok 17 - proceed aborts when block
+ok 18 - proceed does not prevent default
+ok 19 - succeed aborts when
+ok 20 - succeed prevents default
+ok 21 - first iteration
+ok 22 - second iteration
+ok 23 - proceed worked
+ok 24 - succeed didn't abort loop
+ok 25 - default didn't fall through
+ok 26 - given returns the correct value (1)
+ok 27 - given returns the correct value (2)
+ok 28 - given returns the correct value (1)
+ok 29 - given returns the correct value (2)
+ok 30 - when any
+ok 31 - when all
+ok 32 - when one
+# Subtest: given/when with junctions as topics and indirect condition
+    1..4
+    # Subtest: typechecking
+        1..9
+        ok 1 - matching all() with a type object
+        ok 2 - non-matching all() with a type object
+        ok 3 - matching any() with a type object
+        ok 4 - non-matching any() with a type object
+        ok 5 - matching one() with a type object
+        ok 6 - non-matching one() with a type object: all match
+        ok 7 - no-matching one() with a type object: none matches
+        ok 8 - matching none() with a type object
+        ok 9 - non-matching one() with a type object
+    ok 1 - typechecking
+    # Subtest: exact value
+        ok 1 - any, when at least one value matches
+        ok 2 - any, when no value matches
+        ok 3 - all, when all values match
+        ok 4 - all, when at least one value doesn't match
+        ok 5 - one, when exactly one matches
+        ok 6 - one, when none matches
+        ok 7 - one, when two or more matches
+        ok 8 - none, when none matches
+        ok 9 - none, when at least one matches
+        1..9
+    ok 2 - exact value
+    # Subtest: range
+        1..9
+        ok 1 - any, when at least one value matches
+        ok 2 - any, when no value matches
+        ok 3 - all, when all values match
+        ok 4 - all, when at least one value doesn't match
+        ok 5 - one, when exactly one matches
+        ok 6 - one, when none matches
+        ok 7 - one, when two or more matches
+        ok 8 - none, when none matches
+        ok 9 - none, when at least one matches
+    ok 3 - range
+    # Subtest: regex
+        1..9
+        ok 1 - any, when at least one value matches
+        ok 2 - any, when no value matches
+        ok 3 - all, when all values matche
+        ok 4 - all, when at least one value doesn't match
+        ok 5 - one, when exactly one matches
+        ok 6 - one, when none matches
+        ok 7 - one, when two or more matches
+        ok 8 - none, when none matches
+        ok 9 - none, when at least one matches
+    ok 4 - regex
+ok 33 - given/when with junctions as topics and indirect condition
+# Subtest: given/when with explicit conditions
+    1..3
+    # Subtest: Int
+        1..9
+        ok 1 - matching all(1, 2)
+        ok 2 - non-matching all(1, "a")
+        ok 3 - matching any(1, "a")
+        ok 4 - non-matching any("a", "b")
+        ok 5 - matching one(1, "a")
+        ok 6 - non-matching one(1, 2)
+        ok 7 - non-matching one("a", "b")
+        ok 8 - matching none("a", "b")
+        ok 9 - non-matching none(1, "a")
+    ok 1 - Int
+    # Subtest: Str
+        1..9
+        ok 1 - matching all("a", "b")
+        ok 2 - non-matching all(1, "a")
+        ok 3 - matching any(1, "a")
+        ok 4 - non-matching any(1, 2)
+        ok 5 - matching one(1, "a")
+        ok 6 - non-matching one("a", "b")
+        ok 7 - non-matching one(1, 2)
+        ok 8 - matching none(1, 2)
+        ok 9 - non-matching none(1, "a")
+    ok 2 - Str
+    # Subtest: Int & Str
+        1..19
+        ok 1 - matching IntStr.new(1, "1")
+        ok 2 - non-matching "1"
+        ok 3 - non-matching 1
+        ok 4 - matching all(IntStr.new(1, "1"), IntStr.new(2, "2"))
+        ok 5 - non-matching all(IntStr.new(1, "1"), "1")
+        ok 6 - non-matching all(IntStr.new(1, "1"), 1)
+        ok 7 - matching any(IntStr.new(1, "1"), IntStr.new(2, "2"))
+        ok 8 - matching any(IntStr.new(1, "1"), "1")
+        ok 9 - matching any(IntStr.new(1, "1"), 1)
+        ok 10 - non-matching any("1", 1)
+        ok 11 - matching one(IntStr.new(1, "1"), 1)
+        ok 12 - matching one(IntStr.new(1, "1"), "1")
+        ok 13 - non-matching one(IntStr.new(1, "1"), IntStr.new(2, "2"))
+        ok 14 - non-matching one(1, 2)
+        ok 15 - non-matching one("1", "2")
+        ok 16 - matching none("1", "2")
+        ok 17 - matching none(1, 2)
+        ok 18 - non-matching none(IntStr.new(1, "1"), 1)
+        ok 19 - non-matching none(IntStr.new(1, "1"), "1")
+    ok 3 - Int & Str
+ok 34 - given/when with explicit conditions
+ok 35 - $_. method calls
+ok 36 - . method calls
+ok 37 - $_. attribute access
+ok 38 - . attribute access
+ok 39 - when Type {}
+ok 40 - when .isa(Type) {}
+ok 41 - when Type {}
+ok 42 - given { when .so { } }
+ok 43 - given and hash deref using .{}
+ok 44 - given and hash deref using .<>
+ok 45 - given tests 0-arg closures for truth
+ok 46 - given tests 1-arg closures for truth
+ok 47 - fail on arities > 1
+ok 48 - given tests 0-arg subs for truth
+ok 49 - given tests 1-arg subs for truth
+ok 50 - statement-modifying when
+ok 51 - can define a sub inside a given
+ok 52 - can define a sub inside a statement-modifying given
+ok 53 - matches in when correctly set $0
+ok 54 - lexical topic in a nested closure

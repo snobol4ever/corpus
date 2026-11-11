@@ -1,0 +1,128 @@
+1..54
+ok 1 - First item of an enum is 0
+ok 2 - Last item has the right value
+ok 3 - Values exported into namespace too.
+ok 4 - Values exported into namespace too.
+ok 5 - Can construct ranges from Pair values
+ok 6 - Can do arithmetics with Pair values
+not ok 7 - Can test with .does() for enum type # TODO rakudo#1296 butting issue on Str and Enum
+# Failed test 'Can test with .does() for enum type'
+# at S12-enums/basic.rakudo line 31
+not ok 8 - Can smartmatch for enum type # TODO rakudo#1296 butting issue on Str and Enum
+# Failed test 'Can smartmatch for enum type'
+# at S12-enums/basic.rakudo line 32
+not ok 9 - Can Smartmatch for enum value # TODO rakudo#1296 butting issue on Str and Enum
+# Failed test 'Can Smartmatch for enum value'
+# at S12-enums/basic.rakudo line 33
+not ok 10 - given/when with enum values # TODO rakudo#1296 butting issue on Str and Enum
+# Failed test 'given/when with enum values'
+# at S12-enums/basic.rakudo line 39
+# expected: '1'
+#      got: '0'
+not ok 11 - given/when with enum values # TODO rakudo#1296 butting issue on Str and Enum
+# Failed test 'given/when with enum values'
+# at S12-enums/basic.rakudo line 45
+# expected: '2'
+#      got: '0'
+ok 12 - .raku on long form of Pair key
+ok 13 - .raku on short form of Pair value
+ok 14 - .key on long form of Pair value
+ok 15 - .key on short form of Pair value
+ok 16 - .WHAT.gist on enum value stringifies to the enum name
+ok 17 - enum with parens works and non-0 starting point works
+ok 18 - .raku works on enum with parens
+ok 19 - .key works on enum with parens
+ok 20 - Pair of one element works.
+ok 21 - empty enum can be constructed
+ok 22 - empty enum with () can be constructed
+ok 23 - can assign enum value to typed variable with long name
+ok 24 - can assign enum value to typed variable with short name
+ok 25 - enum as a type enforces checks
+ok 26 - short name of the enum without parenthesis is an enum
+ok 27 - short name with parenthesis is a sub
+ok 28 - Color.pick assigns to Color var
+ok 29 - Color.pick.isa
+ok 30 - .pick on enums
+ok 31 - .pick(2) on enums
+ok 32 - enum element of enum with double colons is in namespace
+ok 33 - enum keys (1)
+ok 34 - enum keys (2)
+ok 35 - RT  \#75370 enum name
+# Subtest: did we throws-like X::PoisonedAlias?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::PoisonedAlias)
+    ok 3 - .package-type matches enum
+    ok 4 - .package-name matches S2
+    ok 5 - .alias matches b
+ok 36 - did we throws-like X::PoisonedAlias?
+ok 37 - still can access redeclared enum values via package
+ok 38 - .enums returns a Map
+# Subtest: dynamically created lists can be used to define an enum
+    1..2
+    ok 1 - enum element has correct value
+    ok 2 - .enums are all correct
+ok 39 - dynamically created lists can be used to define an enum
+# Subtest: Enumeration:D.kv
+    1..3
+    ok 1 - first element
+    ok 2 - second element
+    ok 3 - element with duped value
+ok 40 - Enumeration:D.kv
+# Subtest: Enumeration:D.pair
+    1..3
+    ok 1 - first element
+    ok 2 - second element
+    ok 3 - element with duped value
+ok 41 - Enumeration:D.pair
+# Subtest: Enumeration:D.Int
+    1..3
+    ok 1 - first element
+    ok 2 - second element
+    ok 3 - element with duped value
+ok 42 - Enumeration:D.Int
+# Subtest: .pred/.succ
+    1..10
+    ok 1 - .pred on first element, returns first element
+    ok 2 - .pred on second element, returns first element
+    ok 3 - .pred on 3rd element, returns 2nd element, even if values are same
+    ok 4 - .pred on last element, returns previous, even if values are same
+    ok 5 - .succ on first element, returns second element
+    ok 6 - .succ second element, returns third one, even if values are same
+    ok 7 - .succ 4th element, returns 5th element, even if values are same
+    ok 8 - .succ last element, returns last element
+    ok 9 - .pred on enum with 1 value works
+    ok 10 - .succ on enum with 1 value works
+ok 43 - .pred/.succ
+# Subtest: === on different enums with same values
+    1..6
+    ok 1 - different enums; different values => different
+    ok 2 - different enums; same values => different
+    ok 3 - type object vs. instance => different
+    ok 4 - same enums => same (1)
+    ok 5 - same enums => same (2)
+    ok 6 - type object vs. type object => same
+ok 44 - === on different enums with same values
+ok 45 - Bool.enums returns a Map, not a Hash
+ok 46 - build enum using Z=> operator properly
+ok 47 - can build enum using Z=> operator
+# Subtest: can build enum with built-ins' names
+    1..3
+    ok 1 - Block
+    ok 2 - Code
+    ok 3 - Code
+ok 48 - can build enum with built-ins' names
+ok 49 - enums can be created via Seq of Pairs
+# Subtest: can provide enum values via Pairs
+    1..5
+    ok 1 - (1)
+    ok 2 - (2)
+    ok 3 - (3)
+    ok 4 - (4)
+    ok 5 - (5)
+ok 50 - can provide enum values via Pairs
+ok 51 - can create enum with a Hash
+ok 52 - "NumericStringyEnumeration" uses key as .Str value
+ok 53 - Pair elements in the list given to enum declaration work
+ok 54 - Coercing an enum from a coercion of an enum from an int works
+# FUDGED!

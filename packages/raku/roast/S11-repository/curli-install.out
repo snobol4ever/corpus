@@ -1,0 +1,25 @@
+1..19
+ok 1 - repository does C::R::Installable
+ok 2 - repository does C::R::Locally
+ok 3 - repository has an identifier
+ok 4 - short-id exposes type of repository
+ok 5 - no compilation units were loaded so far
+# Subtest: cannot reinstall the very same distribution
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /'already installed'/
+ok 6 - cannot reinstall the very same distribution
+ok 7 - repository does C::R::Installable
+ok 8 - repository does C::R::Locally
+ok 9 - repository has an identifier
+ok 10 - short-id exposes type of repository
+ok 11 - no compilation units were loaded so far
+ok 12 - symbol Foo is unknown
+ok 13 - $*REPO.need returns a CompUnit
+ok 14 - $*REPO.need returned correct CompUnit
+ok 15 - Correct API version chosen
+ok 16 - symbol Foo is unknown after loading it
+ok 17 - symbol Foo is known after merging global symbols
+ok 18 - one CompUnit got loaded
+ok 19 - the loaded CompUnit is the one returned by $*REPO.need

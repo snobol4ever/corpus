@@ -1,0 +1,19 @@
+1..18
+ok 1 - Native int var returned from untyped is rw can be assigned to
+ok 2 - Native num var returned from untyped is rw can be assigned to
+ok 3 - Native str var returned from untyped is rw can be assigned to
+ok 4 - Native int var returned from typed is rw can be assigned to
+ok 5 - Native num var returned from typed is rw can be assigned to
+ok 6 - Native str var returned from typed is rw can be assigned to
+ok 7 - Non-rw untyped returning native int not an l-value
+ok 8 - Really did not modify int
+ok 9 - Non-rw untyped returning native num not an l-value
+ok 10 - Really did not modify num
+ok 11 - Non-rw untyped returning native str not an l-value
+ok 12 - Really did not modify str
+ok 13 - Non-rw typed returning native int not an l-value
+ok 14 - Really did not modify int
+ok 15 - Non-rw typed returning native num not an l-value
+ok 16 - Really did not modify num
+ok 17 - Non-rw typed returning native str not an l-value
+ok 18 - Really did not modify str

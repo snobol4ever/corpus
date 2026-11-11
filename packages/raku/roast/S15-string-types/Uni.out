@@ -1,0 +1,18 @@
+1..17
+ok 1 - .codes works on a Uni
+ok 2 - .elems works on a Uni
+ok 3 - numifying a Uni gives number of elems
+ok 4 - Int-ifying a Uni gives number of elems
+ok 5 - .list works on a Uni
+ok 6 - array indexing works on a Uni (1)
+ok 7 - array indexing works on a Uni (2)
+ok 8 - array indexing works on a Uni (3)
+ok 9 - exists works on Uni (1)
+ok 10 - exists works on Uni (2)
+ok 11 - exists works on Uni (3)
+ok 12 - .raku works on Uni
+ok 13 - .gist works on Uni
+ok 14 - A non-empty Uni boolifies to true
+ok 15 - An empty Uni boolifies to false
+ok 16 - Uni cmp-ed ok
+ok 17 - Uni ~~-ed ok

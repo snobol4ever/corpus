@@ -1,0 +1,5 @@
+1..4
+ok 1 - integer attribute is set in outer role
+ok 2 - string attribute is set in outer role
+ok 3 - integer attribute is set in inner role
+ok 4 - string attribute is set in inner role

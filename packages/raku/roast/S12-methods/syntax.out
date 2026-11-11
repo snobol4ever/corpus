@@ -1,0 +1,21 @@
+1..15
+ok 1 - plain call with no args
+ok 2 - method call with parens and no args
+# Subtest: .doit () illegal
+    1..2
+    ok 1 - '.doit ()' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 3 - .doit () illegal
+ok 4 - method call with unspace
+ok 5 - list op with colon
+ok 6 - list op with colon, slurpy
+ok 7 - # SKIP switch-from-paren-to-listop form
+ok 8 - # SKIP switch-from-paren-to-listop form
+ok 9 - # SKIP switch-from-paren-to-listop form
+ok 10 - sanity check, should give same result as the next two tests
+ok 11 - block as arg in methodcall is the invocant of a following methodcall
+ok 12 - block as arg in methodcall is the invocant of a following methodcall
+ok 13 - `$.a(<arguments>)` works
+ok 14 - `$.a: <arguments>` works
+ok 15 - Writing to a symbol table does not alter methods
+# FUDGED!

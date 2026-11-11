@@ -1,0 +1,24 @@
+1..11
+ok 1 - sub {...}() works
+ok 2 - sub{...}() works
+ok 3 - can invoke sub with "()" directly after declaration
+ok 4 - can pass argument within "()" directly after sub declaration
+# Subtest: block parsing works with newline
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 5 - block parsing works with newline
+# Subtest: block parsing works with semicolon
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 6 - block parsing works with semicolon
+# Subtest: did not call foo
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::UnitScope::Invalid)
+ok 7 - did not call foo
+ok 8 - fa called in old sub/hash syntax is ok
+ok 9 - fb called in old sub/hash syntax is ok
+ok 10 - fa called in sub/hash syntax is ok
+ok 11 - fb called in sub/hash syntax is ok

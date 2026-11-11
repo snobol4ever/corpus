@@ -1,0 +1,25 @@
+1..18
+ok 1 - Foo::foo is defined (explicitly :DEFAULT)
+ok 2 - Foo::foo is the sub we expect
+ok 3 - Foo::bar is defined (explicitly :DEFAULT and :others)
+ok 4 - Foo::bar is the sub we expect
+ok 5 - Foo::baz is defined (:MANDATORY)
+ok 6 - Foo::baz is the sub we expect
+ok 7 - Foo::bop is defined (implicitly :DEFAULT)
+ok 8 - Foo::bop is the sub we expect
+ok 9 - Foo::waz multi is defined (implicitly :DEFAULT)
+ok 10 - Foo::waz is the sub we expect
+ok 11 - Foo::waz imported does not wipe out our other waz multis
+ok 12 - qux() not imported
+ok 13 - gaz() not imported
+ok 14 - Foo::foo is undefined in outer scope
+ok 15 - can instantiate class that's loaded from inside another class
+ok 16 - 
+# Subtest: die while trying to import a non-existent export tag
+    1..4
+    ok 1 - 'use Foo :NoSucTag;' died
+    ok 2 - right exception type (X::Import::NoSuchTag)
+    ok 3 - .tag matches NoSucTag
+    ok 4 - .source-package matches Foo
+ok 17 - die while trying to import a non-existent export tag
+ok 18 - `use` of module with `no precompilation` inside EVAL

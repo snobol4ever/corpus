@@ -1,0 +1,61 @@
+1..60
+ok 1 - List.head works
+ok 2 - Array.head works
+ok 3 - Scalar.head works
+ok 4 - Range.head works
+ok 5 - Range.head works on lazy list
+ok 6 - List.head(5) works
+ok 7 - head(5,$List) works
+ok 8 - head(5,List) works
+ok 9 - Array.head(5) works
+ok 10 - head(5,Array) works
+ok 11 - Scalar.head(5) works
+ok 12 - head(5,Scalar) works
+ok 13 - Range.head(5) works
+ok 14 - head(5,$Range) works
+ok 15 - head(5,Range) works
+ok 16 - Range.head(5) works on lazy list
+ok 17 - head(5,$Range) works on lazy list
+ok 18 - head(5,Range) works on lazy list
+ok 19 - List.head(0) works
+ok 20 - head(0,$List) works
+ok 21 - head(0,List) works
+ok 22 - Array.head(0) works
+ok 23 - head(0,Array) works
+ok 24 - Scalar.head(0) works
+ok 25 - head(0,Scalar) works
+ok 26 - Range.head(0) works
+ok 27 - head(0,$Range) works
+ok 28 - head(0,Range) works
+ok 29 - List.head(-1) works
+ok 30 - head(-1,$List) works
+ok 31 - head(-1,List) works
+ok 32 - Array.head(-1) works
+ok 33 - head(-1,Array) works
+ok 34 - Scalar.head(-1) works
+ok 35 - head(-1,Scalar) works
+ok 36 - Range.head(-1) works
+ok 37 - head(-1,$Range) works
+ok 38 - head(-1,Range) works
+ok 39 - List.head(N) works if too short
+ok 40 - head(N,$List) works if too short
+ok 41 - head(N,$List) works if too short
+ok 42 - Array.head(N) works if too short
+ok 43 - head(N,Array) works if too short
+ok 44 - Range.head(N) works if too short
+ok 45 - head(N,$Range) works if too short
+ok 46 - head(N,Range) works if too short
+ok 47 - List.head works if empty
+ok 48 - List.head(N) works if empty
+ok 49 - head(N,$List) works if empty
+ok 50 - head(N,List) works if empty
+ok 51 - Array.head works if empty
+ok 52 - Array.head(N) works if empty
+ok 53 - head(N,Array) works if empty
+ok 54 - Range.head works if empty
+ok 55 - Range.head(N) works if empty
+ok 56 - head(N,$Range) works if empty
+ok 57 - head(N,Range) works if empty
+ok 58 - .head works correctly with large negative Ints
+ok 59 - head with Rat index coerces it to Int and retrieves correct result
+ok 60 - Rat is coerced to Int when used as index

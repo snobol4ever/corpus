@@ -1,0 +1,55 @@
+1..50
+ok 1 - double quoted string interpolation works
+ok 2 - double quoted list interpolation works
+ok 3 - array without empty square brackets does not interpolate
+ok 4 - hash interpolation works
+ok 5 - hash interpolation does not work if not followed by {}
+ok 6 - closure interpolation
+ok 7 - double quoted closure interpolation works
+ok 8 - make sure function interpolation doesn't eat all trailing whitespace
+ok 9 - number inside and outside closure works
+ok 10 - local version of number in closure works
+ok 11 - original number still available after local version in closure: works
+ok 12 - Variable should interpolate and still be available in the outer scope.
+ok 13 - Variable should interpolate and still be available in the outer scope.
+ok 14 - "&func. ()" should not interpolate
+ok 15 - "$world." should not interpolate
+ok 16 - "$world!" should not interpolate
+ok 17 - "&func_w_args(...)" should interpolate
+ok 18 - method calls with parens should interpolate
+ok 19 - method calls without parens should not interpolate
+ok 20 - cascade of argumentless methods, last ending in paren
+ok 21 - method calls with parens and args should interpolate
+ok 22 - single quoted string interpolation does not work (which is correct)
+ok 23 - single quoted closure interpolation does not work (which is correct)
+ok 24 - single quoted string interpolation does not work (which is correct)
+ok 25 - ! is not a part of var names
+ok 26 - quoted interpolation gets string context
+ok 27 - curly brace delimiters interfere with closure interpolation
+ok 28 - raw quotation works
+ok 29 - single quotation works
+ok 30 - double quotation works
+ok 31 - only interpolate array
+ok 32 - only interpolate backslash
+ok 33 - interpolate quoting constructs in ''
+ok 34 - \c[] respects whitespace around it
+ok 35 - \x[] allows multiple chars (1)
+ok 36 - \x[] allows multiple chars (2)
+ok 37 - \x[] allows multiple chars with white space
+ok 38 - \c[] allows multiple chars (1)
+ok 39 - \c[] allows multiple chars (2)
+ok 40 - \c[] allows multiple chars with white space
+ok 41 - \x[] should not eat following ]s
+ok 42 - \c[] should not eat following ]s
+ok 43 - interpolation of indirect method calls (different quotes)
+ok 44 - interpolation of indirect method calls (same quotes)
+# Subtest: ... but whitespace is not allowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 45 - ... but whitespace is not allowed
+ok 46 - variables interpolated into blocks and recursion interact nicely
+ok 47 - $(...) list comprehension
+ok 48 - {(...)} list comprehension
+ok 49 - RT  \#76608 simple assignment
+ok 50 - RT  \#76608 variable interpolation inside string

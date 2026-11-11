@@ -1,0 +1,5 @@
+1..4
+ok 1 - A single named placeholder works
+ok 2 - Named dispatch isn't broken for placeholders
+ok 3 - Named dispatch isn't broken for placeholders
+ok 4 - named placeholder $:F ok

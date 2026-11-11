@@ -1,0 +1,18 @@
+1..10
+ok 1 - Array length, nested []
+ok 2 - Array object length, nested []
+ok 3 - Array length, nested [], outer []s
+ok 4 - Array object length, nested [], outer []s
+ok 5 - Array length, nested ()
+ok 6 - Array object length, nested ()
+ok 7 - Array length, nested (), outer []s
+ok 8 - Array object length, nested (), outer []s
+ok 9 - Out of range index returns Failure object
+# Subtest: Failure object contains X::OutOfRange exception
+    1..5
+    ok 1 - '@b[3].sink' died
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches -2
+    ok 4 - .what matches Index
+    ok 5 - .range matches 0..^Inf
+ok 10 - Failure object contains X::OutOfRange exception

@@ -1,0 +1,11 @@
+1..10
+ok 1 - all leafs visited in {**}:kv
+ok 2 - all leaf keys visited in {**}:k
+ok 3 - all leafs visited in {**}:v
+ok 4 - seen deep leaf in {**}:tree
+ok 5 - seen subtree in {**}:tree
+ok 6 - seen deep key in {**}:deepk
+ok 7 - seen shallow key in {**}:deepk
+ok 8 - seen leaf in {**}:deepkv
+ok 9 - seen deep leaf in {**}:deepkv
+ok 10 - roundtrips with {**}:deepkv and {||@keys}

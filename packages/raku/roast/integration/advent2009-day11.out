@@ -1,0 +1,7 @@
+1..6
+ok 1 - correct name
+ok 2 - Can bark
+ok 3 - a Puppy can bark, too
+ok 4 - dog walker has a name
+ok 5 - dog name can be accessed by delegation
+ok 6 - can introspect Dog

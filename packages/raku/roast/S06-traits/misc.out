@@ -1,0 +1,60 @@
+1..23
+# Subtest: can't modify parameter, constant by default
+    1..2
+    ok 1 - '
+    #     my $tmp = 1;
+    #     sub mods_param ($x) { $x++; }
+    #     mods_param($tmp)
+    #     ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 1 - can't modify parameter, constant by default
+# Subtest: can't modify parameter, constant by default
+    1..2
+    ok 1 - '
+    #     my $tmp = 1;
+    #     sub mods_param ($x) { $x = 1; }
+    #     mods_param($tmp)
+    #     ' died
+    ok 2 - right exception type (Exception)
+ok 2 - can't modify parameter, constant by default
+# Subtest: can't modify constant parameter, constant by default
+    1..2
+    ok 1 - 'sub mods_param_constant ($x is readonly) { $x++; };
+    #              mods_param_constant($foo);' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 3 - can't modify constant parameter, constant by default
+ok 4 - can't modify constant even if we claim it's rw
+# Subtest: is rw dies in signature binding if passed a literal Int
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::RW)
+ok 5 - is rw dies in signature binding if passed a literal Int
+# Subtest: is rw dies in signature binding if passed an itemized array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::RW)
+ok 6 - is rw dies in signature binding if passed an itemized array
+ok 7 - pass by "is rw" doesn't die
+ok 8 - pass by reference works
+ok 9 - trait "is rw" used to narrow multi-dispatch
+ok 10 - trait "is rw" used to narrow multi-dispatch (converse)
+ok 11 - is copy
+ok 12 - pass by value works
+ok 13 - can modify a copy
+ok 14 - is raw with non-lvalue
+ok 15 - is raw with non-lvalue
+ok 16 - is raw works
+ok 17 - <-> does not override explicit traints (sanity)
+not ok 18 - <-> does not override explicit traints # TODO is readonly does not override
+# Failed test '<-> does not override explicit traints'
+# at S06-traits/misc.rakudo line 92
+not ok 19 - <-> does not override explicit traints (sanity) # TODO is readonly does not override
+# Failed test '<-> does not override explicit traints (sanity)'
+# at S06-traits/misc.rakudo line 93
+# expected: '2'
+#      got: '3'
+ok 20 - Can't use an unknown trait
+ok 21 - error message mentions trait
+ok 22 - error message mentions the name of the trait
+ok 23 - duplicate traits warn
+# FUDGED!

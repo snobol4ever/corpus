@@ -1,0 +1,17 @@
+1..16
+ok 1 - lvalue method as rvalue with explicit return
+ok 2 - lvalue method as rvalue with implicit return
+ok 3 - can assign to the lvalue method (explicit return)
+ok 4 - ... and the assignment worked
+ok 5 - ...also to the attribute
+ok 6 - can assign to the lvalue method (implicit return)
+ok 7 - ... and the assignment worked
+ok 8 - ...also to the attribute
+ok 9 - can use lvalue method in temp() statement (explicit return)
+ok 10 - ... and the value was reset
+ok 11 - ... also on the attribute
+ok 12 - but the temp assignment had worked
+ok 13 - can use lvalue method in temp() statement (implicit return)
+ok 14 - ... and the value was reset
+ok 15 - ... also on the attribute
+ok 16 - but the temp assignment had worked

@@ -1,0 +1,34 @@
+1..26
+ok 1 - unitialized $var does Mu
+ok 2 - value contained in a $var does Mu
+ok 3 - unitialized @var does Positional
+ok 4 - value contained in a @var does Positional
+ok 5 - generic val in a @var is converted to Positional
+ok 6 - List does Positional
+ok 7 - Array does Positional
+ok 8 - Range does Positional
+ok 9 - Buf does Positional
+not ok 10 - Capture does Positional # TODO Capture does Positional
+# Failed test 'Capture does Positional'
+# at S02-types/sigils-and-types.rakudo line 30
+# Type: Capture doesn't do role Positional
+ok 11 - uninitialized %var does Associative
+ok 12 - value in %var does Associative
+ok 13 - Pair does Associative
+ok 14 - Set does Associative
+ok 15 - Bag does Associative
+ok 16 - QuantHash does Associative
+not ok 17 - Capture does Associative # TODO Capture does Associative
+# Failed test 'Capture does Associative'
+# at S02-types/sigils-and-types.rakudo line 42
+# Type: Capture doesn't do role Associative
+ok 18 - a Sub does Callable
+ok 19 - a Method does Callable
+ok 20 - a multi does Callable
+ok 21 - a proto does Callable
+ok 22 - a token does Callable
+ok 23 - a rule does Callable
+ok 24 - cannot just assign &b to &a
+ok 25 - and the correct function is still in place
+ok 26 - can use &$x() for invoking
+# FUDGED!

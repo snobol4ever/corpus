@@ -1,0 +1,13 @@
+1..12
+ok 1 - new method called
+ok 2 - new object
+ok 3 - automatic list flattening
+ok 4 - item non-flattening
+ok 5 - item non-flattening
+ok 6 - item non-flattening
+ok 7 - for @a { }
+ok 8 - for $scalar { }
+ok 9 - for thing, $scalar { }
+ok 10 - for @$scalar { }
+ok 11 - item context
+ok 12 - reference taking

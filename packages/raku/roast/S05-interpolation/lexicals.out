@@ -1,0 +1,15 @@
+1..14
+ok 1 - <&abc> does lexical lookup
+ok 2 - matched the right part of the string
+ok 3 - ... and does not capture (2)
+ok 4 - ... and does not capture (3)
+ok 5 - <abc=&abc> captures lexical regex
+ok 6 - correctly matched string
+ok 7 - correctly captured to $<abc>
+ok 8 - <other=&abc> captures lexical regex
+ok 9 - correctly matched string
+ok 10 - correctly captured to $<other>
+ok 11 - <&foo(...)> parses and passes args correctly (1)
+ok 12 - <&foo(...)> parses and passes args correctly (2)
+ok 13 - <&foo: ...> parses and passes args correctly (1)
+ok 14 - <&foo: ...> parses and passes args correctly (2)

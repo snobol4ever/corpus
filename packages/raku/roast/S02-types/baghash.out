@@ -1,0 +1,467 @@
+1..344
+We do get here, right?
+ok 1 - we got a BagHash
+ok 2 - ...with the right elements
+ok 3 - Defaults to 0
+ok 4 - Single-key subscript (existing element)
+ok 5 - Single-key subscript yields an Int
+ok 6 - Single-key subscript (nonexistent element)
+ok 7 - Single-key subscript yields an Int (nonexistent element)
+ok 8 - exists with existing element
+ok 9 - exists with nonexistent element
+ok 10 - Values returns the correct number of values
+ok 11 - Values returns the correct sum
+ok 12 - Bool returns True if there is something in the BagHash
+ok 13 - Bool returns False if there is nothing in the BagHash
+ok 14 - .hash doesn't die
+ok 15 - ...and it returned a Hash
+ok 16 - ...with the right elements
+# Subtest: Can't assign to .keys
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 17 - Can't assign to .keys
+# Subtest: Can't assign to .values
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 18 - Can't assign to .values
+ok 19 - Multiple-element access
+ok 20 - Multiple-element access (with nonexistent elements)
+ok 21 - .total gives sum of values
+ok 22 - .elems gives number of elements
+ok 23 - +$bag gives sum of values
+ok 24 - Can assign to an existing element
+ok 25 - ... and assignment takes effect
+ok 26 - Can assign to a new element
+ok 27 - ... and assignment takes effect
+ok 28 - Can assign zero to a nonexistent element
+ok 29 - ... and that didn't create the element
+ok 30 - Can assign zero to a existing element
+ok 31 - ... and it goes away
+ok 32 - Can ++ an existing element
+ok 33 - ... and the increment happens
+ok 34 - Can ++ a new element
+ok 35 - ... and the element is created
+ok 36 - Can -- an existing element
+ok 37 - ... and the decrement happens
+ok 38 - Can -- an element with value 1
+ok 39 - ... and it goes away
+ok 40 - Can -- an element that doesn't exist
+ok 41 - ... but it doesn't create it
+ok 42 - Identical bags smartmatch with each other
+ok 43 - Identical bags smartmatch with each other
+ok 44 - Subset does not smartmatch
+ok 45 - Subset (only quantity different) does not smartmatch
+ok 46 - Superset does not smartmatch
+ok 47 - Superset (only quantity different) does not smartmatch
+ok 48 - Smartmatch is not element of
+ok 49 - Type-checking smartmatch works
+ok 50 - Set smartmatches with equivalent BagHash.new:
+ok 51 - ... but not if the Bag has greater quantities
+ok 52 - Type-checking smartmatch works
+ok 53 - Str.BagHash makes a BagHash
+ok 54 - 'a'.BagHash is bag a
+ok 55 - Pair.BagHash makes a BagHash
+ok 56 - (a => 100000).BagHash is bag a:100000
+ok 57 - (a => 0).BagHash is the empty bag
+ok 58 - <a b c>.BagHash makes a BagHash
+ok 59 - <a b c a>.BagHash makes the bag a:2 b:1 c:1
+ok 60 - [a b c a].BagHash makes the bag a:2 b:1 c:1
+ok 61 - [a => 3, b => 0, 'c', 'a'].BagHash makes the bag a:4 c:1
+ok 62 - a	2 b	4 c	0.BagHash makes a BagHash
+ok 63 - a	2 b	4 c	0.BagHash makes the bag a:2 b:4
+ok 64 - :exists with existing element
+ok 65 - :exists with nonexistent element
+ok 66 - :delete works on BagHash
+ok 67 - ...and actually deletes
+ok 68 - Int keys are left as Ints
+ok 69 - Bool keys are left as Bools
+ok 70 - And Str keys are permitted in the same set
+ok 71 - All keys have the right values
+ok 72 - BagHash.kv returns list of keys and values
+ok 73 - &BagHash.new given an array of strings produces a BagHash
+ok 74 - ...with the right elements
+ok 75 - &BagHash.new given something and an array of pairs produces a BagHash
+ok 76 - ... with two elements
+ok 77 - &BagHash.new given a Hash produces a BagHash
+ok 78 - ... with four elements
+ok 79 - ... which are all Pairs
+ok 80 - &BagHash.new given a Hash and something produces a BagHash
+ok 81 - ... with one element
+ok 82 - &BagHash.new given a Set produces a BagHash
+ok 83 - ... with one element
+ok 84 - &BagHash.new given a SetHash produces a BagHash
+ok 85 - ... with one element
+ok 86 - &BagHash.new given a Bag produces a BagHash
+ok 87 - ... with one element
+ok 88 - .list returns 3 things
+ok 89 - ... all of which are Pairs
+ok 90 - .pairs returns 3 things
+ok 91 - ... all of which are Pairs
+ok 92 - ... the keys of which are Strs
+ok 93 - ... and the values of which are Ints
+ok 94 - .raku lives
+ok 95 - ... and produces a string
+ok 96 - ... of reasonable length
+ok 97 - .raku.EVAL lives
+ok 98 - ... and produces a BagHash
+ok 99 - ... and it has the correct values
+ok 100 - .Str lives
+ok 101 - ... and produces a string
+ok 102 - ... which only contains bar baz and foo with the proper counts and separated by spaces
+ok 103 - .gist lives
+ok 104 - ... and produces a string
+ok 105 - ... of reasonable length
+ok 106 - ... which mentions foo
+ok 107 - ... which mentions bar
+ok 108 - ... which mentions baz
+ok 109 - A BagHash bound to a %var is a BagHash
+ok 110 - ...with the right elements
+ok 111 - Single-key subscript (existing element)
+ok 112 - Single-key subscript (nonexistent element)
+ok 113 - Assign to an element
+ok 114 - ... and gets the correct value
+ok 115 - We got one of the two choices
+ok 116 - .roll(2) returns the right number of items
+ok 117 - .roll(2) returned "a"s and "b"s
+ok 118 - .roll(100) returns 100 items
+ok 119 - .roll(100) (1)
+ok 120 - .roll(100) (2)
+ok 121 - .roll(100) (1)
+ok 122 - .roll(100) (2)
+ok 123 - .roll should not change BagHash
+ok 124 - .roll should not change BagHash
+ok 125 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 126 - .roll(100) returns 100 items
+ok 127 - .roll(100) (1)
+ok 128 - .roll(100) (2)
+ok 129 - .roll should not change BagHash
+ok 130 - .roll should not change BagHash
+ok 131 - We got one of the two choices
+ok 132 - .pick(2) returns the right number of items
+ok 133 - .pick(2) returned at most one "a"
+ok 134 - .pick(2) and the rest are "b"
+ok 135 - .pick(*) returns the right number of items
+ok 136 - .pick(*) (1)
+ok 137 - .pick(*) (2)
+ok 138 - .pick should not change BagHash
+ok 139 - .pick should not change BagHash
+ok 140 - .pick(Callable) returns the right number of items
+ok 141 - .pick should not change BagHash
+ok 142 - .pick should not change BagHash
+ok 143 - .pick(<negative number>) does not return any items
+ok 144 - .pick int-ifies arg
+ok 145 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 146 - .pick(100) returns 100 items
+ok 147 - .pick(100) (1)
+ok 148 - .pick(100) (2)
+ok 149 - .pick should not change BagHash
+ok 150 - .pick should not change BagHash
+:a(:b(2))
+ok 151 - Did we get a Pair
+ok 152 - We got one of the two choices
+ok 153 - .pickpairs(2) returns the right number of items
+ok 154 - .pickpairs(2) returned one "a"
+ok 155 - .pickpairs(2) returned one "b"
+ok 156 - .pickpairs(*) returns the right number of items
+ok 157 - .pickpairs(*) (1)
+ok 158 - .pickpairs(*) (2)
+ok 159 - .pickpairs should not change Bag
+ok 160 - .pickpairs(<negative number>) does not return any items
+ok 161 - .pickpairs(Callable) returns the right number of items
+ok 162 - are they all Pairs
+ok 163 - and they all have an expected value
+ok 164 - .pickpairs should not change BagHash
+ok 165 - .pickpairs should not change BagHash
+ok 166 - We got one of the two choices
+ok 167 - .grab(2) returns the right number of items
+ok 168 - .grab(2) returned at most one "a"
+ok 169 - .grab(2) and the rest are "b"
+ok 170 - .grab *should* change BagHash
+ok 171 - .grab *should* change BagHash
+ok 172 - .grab(*) returns the right number of items
+ok 173 - .grab(*) (1)
+ok 174 - .grab(*) (2)
+ok 175 - .grab *should* change BagHash
+ok 176 - .grab *should* change BagHash
+ok 177 - .grab(Callable) returns the right number of items
+ok 178 - .grab *should* change BagHash
+ok 179 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 180 - .grab(100) returns 100 items
+ok 181 - .grab(100) (1)
+ok 182 - .grab(100) (2)
+ok 183 - .grab *should* change BagHash
+ok 184 - .grab *should* change BagHash
+ok 185 - did we get a Pair
+ok 186 - We got one of the two choices
+ok 187 - .grabpairs(2) returns the right number of items
+ok 188 - are they all Pairs
+ok 189 - We got one of the two choices
+ok 190 - .grabpairs *should* change BagHash
+ok 191 - .grabpairs *should* change BagHash
+ok 192 - .grabpairs(*) returns the right number of items
+ok 193 - are they all Pairs
+ok 194 - and they all have an expected value
+ok 195 - SetHash.grabpairs(*) gets all elements
+ok 196 - SetHash.grabpairs(*) returns elements in a random order
+ok 197 - .grabpairs *should* change BagHash
+ok 198 - .grabpairs *should* change BagHash
+ok 199 - .grabpairs(Callable) returns the right number of items
+ok 200 - are they all Pairs
+ok 201 - and they all have an expected value
+ok 202 - .grabpairs *should* change BagHash
+ok 203 - .grabpairs *should* change BagHash
+ok 204 - can we parameterize for strings?
+ok 205 - does .keyof return the correct type
+# Subtest: does attempt to add item of wrong type croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 206 - does attempt to add item of wrong type croak
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 207 - do wrong values make initialization croak
+ok 208 - "b", initialized to zero, does not exist
+ok 209 - Inititalization worked
+ok 210 - .elems works
+ok 211 - %h<nonexisting> is an Int
+ok 212 - %h<nonexisting> is 0
+ok 213 - can set an item to 0
+ok 214 - "c", set to zero, does not exist
+ok 215 - one item left
+ok 216 - ... and the right one is gone
+ok 217 - can add (++) an item that was removed
+ok 218 - ++ on an item reinstates it
+ok 219 - can "add" (++) an existing item
+ok 220 - ++ on an existing item increments the counter
+ok 221 - ++ on an existing item does not add a key
+ok 222 - can remove an item with decrement (--)
+ok 223 - decrement (--) removes items
+ok 224 - item is gone according to exists too
+ok 225 - removed item is zero
+ok 226 - remove a missing item lives
+ok 227 - removing missing item does not change contents
+ok 228 - item removed again is still zero
+ok 229 - is the hash really a BagHash
+not ok 230 - Assigning a Bag to a BagHash # TODO in flux
+# Failed test 'Assigning a Bag to a BagHash'
+# at S02-types/baghash.rakudo line 516
+# Type check failed for an element of %h; expected BagHash but got Int
+not ok 231 - ... works as expected # TODO in flux
+# Failed test '... works as expected'
+# at S02-types/baghash.rakudo line 517
+# expected: 'a:1 b:2 c:2 d:1'
+#      got: ''
+ok 232 - Method .BagHash works on Int-1
+ok 233 - Method .BagHash works on Int-2
+ok 234 - Method .BagHash works on Str-1
+ok 235 - Method .BagHash works on Str-2
+ok 236 - Method .BagHash works on Array-1
+ok 237 - Method .BagHash works on Array-2
+ok 238 - Method .BagHash works on Hash-1
+ok 239 - Method .BagHash works on Hash-2
+ok 240 - Method .BagHash works on List-1
+ok 241 - Method .BagHash works on List-2
+ok 242 - .total gives sum of values (non-empty) 10
+ok 243 - +$bag gives sum of values (non-empty) 10
+ok 244 - .minpairs works (non-empty) 10
+ok 245 - .maxpairs works (non-empty) 10
+ok 246 - .fmt(%s) works (non-empty 10)
+ok 247 - .fmt(%s,sep) works (non-empty 10)
+ok 248 - .fmt(%s%s) works (non-empty 10)
+ok 249 - .fmt(%s%s,sep) works (non-empty 10)
+ok 250 - .total gives sum of values (non-empty) 8
+ok 251 - +$bag gives sum of values (non-empty) 8
+ok 252 - .minpairs works (non-empty) 8
+ok 253 - .maxpairs works (non-empty) 8
+ok 254 - .total gives sum of values (non-empty) 4
+ok 255 - +$bag gives sum of values (non-empty) 4
+ok 256 - .minpairs works (non-empty) 4
+ok 257 - .maxpairs works (non-empty) 4
+ok 258 - .total gives sum of values (empty)
+ok 259 - +$bag gives sum of values (empty)
+ok 260 - .minpairs works (empty)
+ok 261 - .maxpairs works (empty)
+ok 262 - .fmt(%s) works (empty)
+ok 263 - .fmt(%s,sep) works (empty)
+ok 264 - .fmt(%s%s) works (empty)
+ok 265 - .fmt(%s%s,sep) works (empty)
+ok 266 - first key of BagHash is a Pair ("a" => "b")
+ok 267 - again first key of BagHash is a Pair ("a" => "b")
+ok 268 - named argument is happily eaten by .new method
+ok 269 - did we set an Int value
+# Subtest: Make sure we cannot assign Str on a key
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 270 - Make sure we cannot assign Str on a key
+ok 271 - did we set an Int value from a .values alias
+# Subtest: Make sure we cannot assign Str on a .values alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 272 - Make sure we cannot assign Str on a .values alias
+ok 273 - did we set an Int value from a .pairs alias
+# Subtest: Make sure we cannot assign Str on a .pairs alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 274 - Make sure we cannot assign Str on a .pairs alias
+ok 275 - did we set an Int value from a .kv alias
+# Subtest: Make sure we cannot assign Str on a .kv alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 276 - Make sure we cannot assign Str on a .kv alias
+ok 277 - did we see all values
+ok 278 - did we see all keys
+ok 279 - did we see all the pairs
+ok 280 - did we see all the kv
+ok 281 - did we see all the antipairs
+ok 282 - did we see all the kxxv
+# Subtest: .hash does not cause keys to be stringified
+    1..2
+    ok 1 - BagHash.new
+    ok 2 - .BagHash
+ok 283 - .hash does not cause keys to be stringified
+ok 284 - .BagHash returns equivalent BagHash
+ok 285 - .Mix returns a Mix
+ok 286 - .Mix values are correct
+# Subtest: BagHash autovivification of non-existent keys
+    1..10
+    ok 1 - correct return of postfix ++
+    ok 2 - correct result of postfix ++
+    ok 3 - correct return of postfix --
+    ok 4 - correct result of postfix --
+    ok 5 - correct return of prefix ++
+    ok 6 - correct result of prefix ++
+    ok 7 - correct return of prefix --
+    ok 8 - correct result of prefix --
+    ok 9 - correct return of assignment
+    ok 10 - correct result of assignment
+ok 287 - BagHash autovivification of non-existent keys
+ok 288 - Can use $_ from .values to remove occurrences from BagHash
+ok 289 - Can use $_ from .values to set number occurrences in BagHash
+ok 290 - Can use $_ from .values to remove items from BagHash
+ok 291 - Can use value from .kv to remove occurrences from BagHash
+ok 292 - Can use value from .kv to set number occurrences in BagHash
+ok 293 - Can use $_ from .kv to remove items from BagHash
+ok 294 - Can use value from .pairs to remove occurrences from BagHash
+ok 295 - Can use value from .pairs to set number occurrences in BagHash
+ok 296 - Can use $_ from .pairs to remove items from BagHash
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches BagHash
+ok 297 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches BagHash
+ok 298 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches BagHash
+ok 299 - did we throws-like X::Cannot::Lazy?
+# Subtest: (:a("a")).BagHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 300 - (:a("a")).BagHash throws
+# Subtest: BagHash.new-from-pairs( (:a("a")) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 301 - BagHash.new-from-pairs( (:a("a")) ) throws
+# Subtest: (:a(Inf)).BagHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 302 - (:a(Inf)).BagHash throws
+# Subtest: BagHash.new-from-pairs( (:a(Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 303 - BagHash.new-from-pairs( (:a(Inf)) ) throws
+# Subtest: (:a(-Inf)).BagHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 304 - (:a(-Inf)).BagHash throws
+# Subtest: BagHash.new-from-pairs( (:a(-Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 305 - BagHash.new-from-pairs( (:a(-Inf)) ) throws
+# Subtest: (:a(NaN)).BagHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 306 - (:a(NaN)).BagHash throws
+# Subtest: BagHash.new-from-pairs( (:a(NaN)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 307 - BagHash.new-from-pairs( (:a(NaN)) ) throws
+# Subtest: (:a(<0+3i>)).BagHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 308 - (:a(<0+3i>)).BagHash throws
+# Subtest: BagHash.new-from-pairs( (:a(<0+3i>)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 309 - BagHash.new-from-pairs( (:a(<0+3i>)) ) throws
+# Subtest: elements with weight zero are removed
+    1..3
+    ok 1 - weight decrement
+    ok 2 - Pair value decrement
+    ok 3 - weight set to zero
+ok 310 - elements with weight zero are removed
+# Subtest: elements with negative weights are removed
+    1..2
+    ok 1 - weight < 0 removes element
+    ok 2 - Pair value < 0 removes element
+ok 311 - elements with negative weights are removed
+ok 312 - can .grab() a BagHash key with weight larger than 64 bits
+ok 313 - did we get right number of elements
+ok 314 - do we get 1 for a
+ok 315 - do we get 0 value for e
+ok 316 - is the %h really a BagHash
+ok 317 - did we get right number of elements after re-init
+ok 318 - did we get 5 by removing e
+ok 319 - did we get right number of elements after :delete
+ok 320 - can delete from BagHash by assignment
+ok 321 - did we get right number of elements assignment
+ok 322 - can successfully set >64-bit value
+ok 323 - can we smartmatch empty
+ok 324 - coerce BagHash -> Set
+ok 325 - coerce BagHash -> SetHash
+ok 326 - coerce BagHash -> Bag
+ok 327 - coerce BagHash -> Mix
+ok 328 - coerce BagHash -> MixHash
+ok 329 - parameterized BagHash
+ok 330 - did it parameterize ok
+ok 331 - adding element of wrong type fails
+ok 332 - must have Ints on creation
+ok 333 - does .item work on BagHashes
+ok 334 - does BagHash type object return proper type
+ok 335 - does BagHash object return proper type
+ok 336 - Can we initialize a BagHash with a single value
+ok 337 - did on-the-fly value return original
+ok 338 - did on-the-fly value change original
+ok 339 - got a BagHash with a List
+ok 340 - got a BagHash with an Array
+ok 341 - BagHash Capture
+ok 342 - self referencing BagHash doesn't loop on 'Str'
+ok 343 - self referencing BagHash doesn't loop on 'gist'
+ok 344 - self referencing BagHash doesn't loop on 'raku'
+# FUDGED!

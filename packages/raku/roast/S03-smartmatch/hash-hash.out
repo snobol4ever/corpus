@@ -1,0 +1,21 @@
+1..20
+ok 1 - Hash ~~ Hash ($_ eqv X) 1
+ok 2 - Hash ~~ Hash ($_ eqv X) 2
+ok 3 - Hash ~~ Hash ($_ eqv X) 3
+ok 4 - Hash ~~ Hash ($_ eqv X) 4
+ok 5 - Hash ~~ Hash ($_ eqv X) 5
+ok 6 - Hash !~~ Hash ($_ eqv X) 1
+ok 7 - Hash !~~ Hash ($_ eqv X) 2
+ok 8 - Hash !~~ Hash ($_ eqv X) 3
+ok 9 - Hash !~~ Hash ($_ eqv X) 4
+ok 10 - Hash !~~ Hash ($_ eqv X) 4
+ok 11 - Hash ~~ Hash, eval_elsewhere 1
+ok 12 - Hash ~~ Hash, eval_elsewhere 2
+ok 13 - Hash ~~ Hash, eval_elsewhere 3
+ok 14 - Hash ~~ Hash, eval_elsewhere 4
+ok 15 - Hash ~~ Hash, eval_elsewhere 5
+ok 16 - Hash !~~ Hash, eval_elsewhere 1
+ok 17 - Hash !~~ Hash, eval_elsewhere 2
+ok 18 - Hash !~~ Hash, eval_elsewhere 3
+ok 19 - Hash !~~ Hash, eval_elsewhere 4
+ok 20 - Hash !~~ Hash, eval_elsewhere 5

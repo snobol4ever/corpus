@@ -1,0 +1,173 @@
+1..166
+ok 1 - Priming :() with \() gave :()
+ok 2 - Priming :($a) with \(1) gave :()
+ok 3 - Priming :($a, $b) with \(1) gave :($b)
+ok 4 - Priming :($a?) with \(1) gave :()
+ok 5 - Priming :($a, $b?) with \(1) gave :($b?)
+ok 6 - Priming :($a?, $b?) with \(1) gave :($b?)
+ok 7 - Priming :($a = 2) with \(1) gave :()
+ok 8 - Priming :($a = 4, $b = 2) with \(1) gave :($b = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 9 - Priming :($a where { ... }, $b where { ... }) with \(1) gave :($b where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 10 - Priming :($a where { ... } = 4, $b where { ... } = 2) with \(1) gave :($b where { ... } = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 11 - Priming :($a is raw) with \(1) gave :()
+ok 12 - Priming :($a is raw = 4, $b is raw = 4) with \(1) gave :($b is raw = 4) # TODO awaiting resurrecting of RakuAST assuming
+ok 13 - Priming :($a is raw where { ... }, $b is raw where { ... }) with \(1) gave :($b is raw where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 14 - Priming :($a is raw where { ... } = 4, $b is raw where { ... } = 2) with \(1) gave :($b is raw where { ... } = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 15 - Priming :($a is copy) with \(1) gave :()
+ok 16 - Priming :($a is copy = 4, $b is copy = 4) with \(1) gave :($b is copy = 4) # TODO awaiting resurrecting of RakuAST assuming
+ok 17 - Priming :($a is copy where { ... }, $b is copy where { ... }) with \(1) gave :($b is copy where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 18 - Priming :($a is copy where { ... } = 4, $b is copy where { ... } = 2) with \(1) gave :($b is copy where { ... } = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 19 - Priming :($a is rw) with \(1) gave :()
+ok 20 - Priming :($a is rw where { ... }, $b is rw where { ... }) with \(1) gave :($b is rw where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 21 - Priming :($a, $b) with \(Nil) gave :($b)
+ok 22 - Priming :($a, $b) with \(*, 2) gave :($a)
+ok 23 - Priming :($a, $b, $c) with \(1, *, 3) gave :($b)
+ok 24 - Priming :($a) with \(*) gave :($a)
+ok 25 - Priming :($) with \(1) gave :()
+ok 26 - Priming :($, $b) with \(1) gave :($b)
+ok 27 - Priming :($?) with \(1) gave :()
+ok 28 - Priming :($, $b?) with \(1) gave :($b?)
+ok 29 - Priming :($?, $b?) with \(1) gave :($b?)
+ok 30 - Priming :($ = 2) with \(1) gave :()
+ok 31 - Priming :($ = 4, $b = 2) with \(1) gave :($b = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 32 - Priming :($ where { ... }, $a where { ... }) with \(1) gave :($a where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 33 - Priming :($ where { ... } = 4, $a where { ... } = 2) with \(1) gave :($a where { ... } = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 34 - Priming :($ is raw) with \(1) gave :()
+ok 35 - Priming :($ is raw = 4, $a is raw = 4) with \(1) gave :($a is raw = 4) # TODO awaiting resurrecting of RakuAST assuming
+ok 36 - Priming :($ is raw where { ... }, $a is raw where { ... }) with \(1) gave :($a is raw where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 37 - Priming :($ is raw where { ... } = 4, $a is raw where { ... } = 2) with \(1) gave :($a is raw where { ... } = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 38 - Priming :($ is copy) with \(1) gave :()
+ok 39 - Priming :($ is copy = 4, $a is copy = 4) with \(1) gave :($a is copy = 4) # TODO awaiting resurrecting of RakuAST assuming
+ok 40 - Priming :($ is copy where { ... }, $a is copy where { ... }) with \(1) gave :($a is copy where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 41 - Priming :($ is copy where { ... } = 4, $a is copy where { ... } = 2) with \(1) gave :($a is copy where { ... } = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 42 - Priming :($ is rw) with \(1) gave :()
+ok 43 - Priming :($ is rw where { ... }, $a is rw where { ... }) with \(1) gave :($a is rw where { ... }) # TODO awaiting resurrecting of RakuAST assuming
+ok 44 - Priming :($, $b) with \(Nil) gave :($b)
+ok 45 - Priming :($a, $b) with \(*, 2) gave :($a)
+ok 46 - Priming :($, $b, $c) with \(1, *, 3) gave :($b)
+ok 47 - Priming :($a) with \(*) gave :($a)
+ok 48 - Priming :($, $b) with \(1) gave :($b)
+ok 49 - Priming :($, $b?) with \(1) gave :($b?)
+ok 50 - Priming :($?, $b?) with \(1) gave :($b?)
+ok 51 - Priming :($ = 2) with \(1) gave :()
+ok 52 - Priming :($ = 4, $b = 2) with \(1) gave :($b = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 53 - Priming :($, $b) with \(Nil) gave :($b)
+ok 54 - Priming :($a, $) with \(*, 2) gave :($a)
+ok 55 - Priming :($, $b, $) with \(1, *, 3) gave :($b)
+ok 56 - Priming :($, 2) with \(1) gave :(2) # TODO awaiting resurrecting of RakuAST assuming
+ok 57 - Priming :(Int $a, Int $b) with \(1) gave :(Int $b)
+ok 58 - Priming :(Int $, Int $b) with \(1) gave :(Int $b)
+ok 59 - Priming :(Int $a, Int $b) with \(1) gave :(Int $b)
+ok 60 - Priming :(Int $a, Str $b) with \(1) gave :(Str $b)
+ok 61 - Priming :(Int $, Str $b) with \(1) gave :(Str $b)
+ok 62 - Priming :(Int $a, Str $b) with \(1) gave :(Str $b)
+ok 63 - Priming :(Int $a, Str $b) with \(*, "a") gave :(Int $a)
+ok 64 - Priming :(Int $a, Str $b) with \(*, "a") gave :(Int $a)
+ok 65 - Priming :(Int $a, Str $) with \(*, "a") gave :(Int $a)
+ok 66 - Priming :(Str(Int) $a, Str(Int) $b) with \(1) gave :(Str(Int) $b)
+ok 67 - Priming :(Str(Int) $, Str(Int) $b) with \(1) gave :(Str(Int) $b)
+ok 68 - Priming :(int8 $a, int8 $b) with \(1) gave :(int8 $b)
+ok 69 - Priming :(int8 $, int8 $b) with \(1) gave :(int8 $b)
+ok 70 - Priming :(X::AdHoc $a, X::AdHoc $b) with \(X::AdHoc.new(payload => "foo")) gave :(X::AdHoc $b)
+ok 71 - Priming :(X::AdHoc $, X::AdHoc $b) with \(X::AdHoc.new(payload => "foo")) gave :(X::AdHoc $b)
+ok 72 - Priming :(Array[Str] $a, Array[Int] $b) with \(Array[Str].new("a", "b")) gave :(Array[Int] $b)
+ok 73 - Priming :(Array[Str] $, Array[Int] $b) with \(Array[Str].new("a", "b")) gave :(Array[Int] $b)
+ok 74 - Priming :(Array[Str] $a, Array[Int] $b) with \(*, Array[Int].new(1, 2)) gave :(Array[Str] $a)
+ok 75 - Priming :(Array[Str] $a, Array[Int] $) with \(*, Array[Int].new(1, 2)) gave :(Array[Str] $a)
+ok 76 - Priming :(Array[X::AdHoc] $a, Array[X::AdHoc] $b) with \(Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo"))) gave :(Array[X::AdHoc] $b)
+ok 77 - Priming :(Array[X::AdHoc] $, Array[X::AdHoc] $b) with \(Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo"))) gave :(Array[X::AdHoc] $b)
+ok 78 - Priming :(Array[Array[Int]] $a, Array[Array[Int]] $b) with \(Array[Array[Int]].new(Array[Int].new(1, 2), Array[Int].new(1, 2))) gave :(Array[Array[Int]] $b)
+ok 79 - Priming :(Array[Array[Int]] $, Array[Array[Int]] $b) with \(Array[Array[Int]].new(Array[Int].new(1, 2), Array[Int].new(1, 2))) gave :(Array[Array[Int]] $b)
+ok 80 - Priming :(Array[Array[X::AdHoc]] $a, Array[Array[X::AdHoc]] $b) with \(Array[Array[X::AdHoc]].new(Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")), Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")))) gave :(Array[Array[X::AdHoc]] $b)
+ok 81 - Priming :(Array[Array[X::AdHoc]] $, Array[Array[X::AdHoc]] $b) with \(Array[Array[X::AdHoc]].new(Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")), Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")))) gave :(Array[Array[X::AdHoc]] $b)
+ok 82 - Priming :(@a) with \($[1]) gave :()
+ok 83 - Priming :(@a, @b) with \($[1]) gave :(@b)
+ok 84 - Priming :(@a?) with \($[1]) gave :()
+ok 85 - Priming :(@a, @b?) with \($[1]) gave :(@b?)
+ok 86 - Priming :(@a?, @b?) with \($[1]) gave :(@b?)
+ok 87 - Priming :(@a = 2) with \($[1]) gave :()
+ok 88 - Priming :(@a = 4, @b = 2) with \($[1]) gave :(@b = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 89 - Priming :(@a, @b) with \(*, $[2]) gave :(@a)
+ok 90 - Priming :(@a, @b, $c) with \($[1], *, $[3]) gave :(@b)
+ok 91 - Priming :(@a) with \(*) gave :(@a)
+ok 92 - Priming :(@) with \($[1]) gave :()
+ok 93 - Priming :(@, @b) with \($[1]) gave :(@b)
+ok 94 - Priming :(@?) with \($[1]) gave :()
+ok 95 - Priming :(@, @b?) with \($[1]) gave :(@b?)
+ok 96 - Priming :(@?, @b?) with \($[1]) gave :(@b?)
+ok 97 - Priming :(@ = 2) with \($[1]) gave :()
+ok 98 - Priming :(@ = 4, @b = 2) with \($[1]) gave :(@b = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 99 - Priming :(@a, @b) with \(*, $[2]) gave :(@a)
+ok 100 - Priming :(@, @b, @c) with \($[1], *, $[3]) gave :(@b)
+ok 101 - Priming :(@a) with \(*) gave :(@a)
+ok 102 - Priming :(@a, @b) with \($[1]) gave :(@b)
+ok 103 - Priming :(@, @b) with \($[1]) gave :(@b)
+ok 104 - Priming :(@?, @b?) with \($[1]) gave :(@b?)
+ok 105 - Priming :(@ = 2) with \($[1]) gave :()
+ok 106 - Priming :(@ = 4, @b = 2) with \($[1]) gave :(@b = 2) # TODO awaiting resurrecting of RakuAST assuming
+ok 107 - Priming :(@a, @) with \(*, $[2]) gave :(@a)
+ok 108 - Priming :(@, @b, @) with \($[1], *, $[3]) gave :(@b)
+ok 109 - Priming :(Int @a, Int @b) with \(Array[Int].new(1, 2)) gave :(Int @b)
+ok 110 - Priming :(Int @, Int @b) with \(Array[Int].new(1, 2)) gave :(Int @b)
+ok 111 - Priming :(Int @a, Str @b) with \(Array[Int].new(1, 2)) gave :(Str @b)
+ok 112 - Priming :(Int @, Str @b) with \(Array[Int].new(1, 2)) gave :(Str @b)
+ok 113 - Priming :(Int @a, Str @b) with \(*, Array[Str].new("a", "b")) gave :(Int @a)
+ok 114 - Priming :(Int @a, Str @) with \(*, Array[Str].new("a", "b")) gave :(Int @a)
+ok 115 - Priming :(Str(Int) @a, Str(Int) @b) with \(Array[Int].new(1, 2)) gave :(Str(Int) @b)
+ok 116 - Priming :(Str(Int) @, Str(Int) @b) with \(Array[Int].new(1, 2)) gave :(Str(Int) @b)
+ok 117 - Priming :(int8 @a, int8 @b) with \(array[int8].new(1, 2)) gave :(int8 @b)
+ok 118 - Priming :(int8 @, int8 @b) with \(array[int8].new(1, 2)) gave :(int8 @b)
+ok 119 - Priming :(Array[X::AdHoc] @a, Array[X::AdHoc] @b) with \(Array[Array[X::AdHoc]].new(Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")), Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")))) gave :(Array[X::AdHoc] @b)
+ok 120 - Priming :(Array[X::AdHoc] @, Array[X::AdHoc] @b) with \(Array[Array[X::AdHoc]].new(Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")), Array[X::AdHoc].new(X::AdHoc.new(payload => "foo"), X::AdHoc.new(payload => "foo")))) gave :(Array[X::AdHoc] @b)
+ok 121 - Priming :(Array[Str] @a, Array[Int] @b) with \(*, Array[Array[Int]].new(Array[Int].new(1, 2), Array[Int].new(1, 2))) gave :(Array[Str] @a)
+ok 122 - Priming :(Array[Str] @a, Array[Int] @) with \(*, Array[Array[Int]].new(Array[Int].new(1, 2), Array[Int].new(1, 2))) gave :(Array[Str] @a)
+ok 123 - Priming :(%a) with \({:a(1), :b(2)}) gave :()
+ok 124 - Priming :(%a, %b) with \({:a(1), :b(2)}) gave :(%b)
+ok 125 - Priming :(%a?) with \({:a(1), :b(2)}) gave :()
+ok 126 - Priming :(%a, %b?) with \({:a(1), :b(2)}) gave :(%b?)
+ok 127 - Priming :(%a?, %b?) with \({:a(1), :b(2)}) gave :(%b?)
+ok 128 - Priming :(%a = Code.new) with \({:a(1), :b(2)}) gave :()
+ok 129 - Priming :(%a = Code.new, %b = Code.new) with \({:a(1), :b(2)}) gave :(%b = Code.new) # TODO awaiting resurrecting of RakuAST assuming
+ok 130 - Priming :(%a, %b) with \(*, {:b(2)}) gave :(%a)
+ok 131 - Priming :(%a, %b, $c) with \({:a(1), :b(2)}, *, {:c(3)}) gave :(%b)
+ok 132 - Priming :(%a) with \(*) gave :(%a)
+ok 133 - Priming :(%) with \({:a(1), :b(2)}) gave :()
+ok 134 - Priming :(%, %b) with \({:a(1), :b(2)}) gave :(%b)
+ok 135 - Priming :(%?) with \({:a(1), :b(2)}) gave :()
+ok 136 - Priming :(%, %b?) with \({:a(1), :b(2)}) gave :(%b?)
+ok 137 - Priming :(%?, %b?) with \({:a(1), :b(2)}) gave :(%b?)
+ok 138 - Priming :(% = Code.new) with \({:a(1), :b(2)}) gave :()
+ok 139 - Priming :(% = Code.new, %b = Code.new) with \({:a(1), :b(2)}) gave :(%b = Code.new) # TODO awaiting resurrecting of RakuAST assuming
+ok 140 - Priming :(%, %b, %c) with \({:a(1), :b(2)}, *, {:c(3)}) gave :(%b)
+ok 141 - Priming :(% = Code.new) with \({:a(1), :b(2)}) gave :()
+ok 142 - Priming :(%, %b, %) with \({:a(1), :b(2)}, *, {:c(3)}) gave :(%b)
+ok 143 - Priming :(Int %a, Int %b) with \($(my Int % = :a(1), :b(2))) gave :(Int %b)
+ok 144 - Priming :(Int %, Int %b) with \($(my Int % = :a(1), :b(2))) gave :(Int %b)
+ok 145 - Priming :(Int %a, Str %b) with \($(my Int % = :a(1), :b(2))) gave :(Str %b)
+ok 146 - Priming :(Int %, Str %b) with \($(my Int % = :a(1), :b(2))) gave :(Str %b)
+ok 147 - Priming :(Int %a, Str %b) with \(*, $(my Str % = :a("A"), :b("B"))) gave :(Int %a)
+ok 148 - Priming :(Int %a, Str %) with \(*, $(my Str % = :a("A"), :b("B"))) gave :(Int %a)
+ok 149 - Priming :(Str(Int) %a, Str(Int) %b) with \($(my Int % = :a(1), :b(2))) gave :(Str(Int) %b)
+ok 150 - Priming :(Str(Int) %, Str(Int) %b) with \($(my Int % = :a(1), :b(2))) gave :(Str(Int) %b)
+ok 151 - Priming :(Hash[X::AdHoc] %a, Hash[X::AdHoc] %b) with \($(my Hash[X::AdHoc] % = :a($(my X::AdHoc % = :a(X::AdHoc.new(payload => "foo")), :b(X::AdHoc.new(payload => "foo")))), :b($(my X::AdHoc % = :a(X::AdHoc.new(payload => "foo")), :b(X::AdHoc.new(payload => "foo")))))) gave :(Hash[X::AdHoc] %b)
+ok 152 - Priming :(Hash[X::AdHoc] %, Hash[X::AdHoc] %b) with \($(my Hash[X::AdHoc] % = :a($(my X::AdHoc % = :a(X::AdHoc.new(payload => "foo")), :b(X::AdHoc.new(payload => "foo")))), :b($(my X::AdHoc % = :a(X::AdHoc.new(payload => "foo")), :b(X::AdHoc.new(payload => "foo")))))) gave :(Hash[X::AdHoc] %b)
+ok 153 - Priming :(Array[Str] %a, Array[Int] %b) with \(*, $(my Array[Int] % = :a(Array[Int].new(1, 2)), :b(Array[Int].new(1, 2)))) gave :(Array[Str] %a)
+ok 154 - Priming :(Str $a) with \(1) mixed in a Failure 
+ok 155 - Priming :(Int(Str) $a) with \(1.1) mixed in a Failure 
+ok 156 - Priming :($a) with \(1, 2) mixed in a Failure 
+ok 157 - &abc123.assuming(("a", "b", "c").Seq)((1, 2, 3).Seq) returned expected value ["a", "b", "c", 1, 2, 3]
+ok 158 - &testsubproto.assuming((42,).Seq)((43,).Seq) returned expected value ["Int + 43"]
+ok 159 - &testsubproto.assuming(("a Str",).Seq)((44,).Seq) returned expected value ["Str + 44"]
+ok 160 - &atan2.assuming((1,).Seq)((2,).Seq) returned expected value [0.4636476090008061e0]
+ok 161 - &atan2.assuming((*, 2).Seq)((1,).Seq) returned expected value [0.4636476090008061e0]
+ok 162 - &substr.assuming(("hello world",).Seq)((0, 2).Seq) returned expected value ["he"]
+ok 163 - &.assuming(("a", "b").Seq)(("c", "d", "e").Seq) returned expected value ["[\"a\", \"b\", \"c\", \"d\", \"e\"]"]
+ok 164 - &.assuming(("a", "b").Seq)(("c", "d", "e").Seq) returned expected value ["[\"a\", \"b\", \"c\", \"d\", \"e\"]"]
+ok 165 - &.assuming(("a", "b").Seq)(("c", "d", "e").Seq) returned expected value ["[\"a\", \"b\", \"c\", \"d\", \"e\"]"]
+# Subtest: Sub with slurpy compiles and yields correct results with .assuming
+    1..3
+    ok 1 - Slurpy (*@)
+    ok 2 - Slurpy_lol (**@)
+    ok 3 - Slurpy_onearg (+@)
+ok 166 - Sub with slurpy compiles and yields correct results with .assuming
+# FUDGED!

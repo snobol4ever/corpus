@@ -1,0 +1,12 @@
+1..11
+ok 1 - \c[LEFT CORNER BRACKET]
+ok 2 - \c[RIGHT WHITE CORNER BRACKET]
+ok 3 - \c[FULLWIDTH RIGHT PARENTHESIS]
+ok 4 - \c[LEFT DOUBLE ANGLE BRACKET]
+ok 5 - \c[LINE FEED] works
+ok 6 - \c[LF] works
+ok 7 - two letters in \c[]
+ok 8 - letter and combining char in \c[]
+ok 9 - RT  \#64918 (some strings throw "Malformed UTF-8 string" errors
+ok 10 - \c[BELL] returns 🔔, BELL symbol not the control character
+ok 11 - \c[woman gesturing OK] works. Emoji ZWJ sequences

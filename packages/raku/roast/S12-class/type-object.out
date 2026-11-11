@@ -1,0 +1,7 @@
+1..6
+ok 1 - Any.Str is empty string
+ok 2 - Any.Str is empty string
+ok 3 - Any.gist has those parens
+ok 4 - Any.raku does not have parens
+ok 5 - .^name
+ok 6 - can instantiate return value of class declaration

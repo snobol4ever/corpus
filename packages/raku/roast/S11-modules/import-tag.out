@@ -1,0 +1,13 @@
+1..12
+ok 1 - foo() not imported - not tagged :others
+ok 2 - Foo::bar is defined (explicitly :DEFAULT and :others)
+ok 3 - Foo::bar is the sub we expect
+ok 4 - Foo::baz is defined (:MANDATORY)
+ok 5 - Foo::baz is the sub we expect
+ok 6 - bop() not imported
+ok 7 - Foo::qux is defined (explicitly :others)
+ok 8 - Foo::qux is the sub we expect
+ok 9 - waz() not imported
+ok 10 - Foo::gaz multi is defined (implicitly :others)
+ok 11 - Foo::gaz is the sub we expect
+ok 12 - Foo::gaz($x) is the sub we expect

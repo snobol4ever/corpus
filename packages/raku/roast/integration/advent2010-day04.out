@@ -1,0 +1,12 @@
+1..11
+ok 1 - First ten even numbers are correct
+ok 2 - First ten odd numbers are correct
+ok 3 - First ten powers of two are correct
+ok 4 - First ten Fibonacci numbers are correct
+ok 5 - 1, 1.1 ... 2 is correct
+ok 6 - 1, 1.1 ... 2.01 is correct
+ok 7 - Fibonacci bounded (...) is correct
+ok 8 - Fibonacci bounded (...^) is correct
+ok 9 - Fibonacci bounded (...^) is correct
+ok 10 - Fibonacci bounded after the fact is correct
+ok 11 - And @Fibonacci is still unbounded

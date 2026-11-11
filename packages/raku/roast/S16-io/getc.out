@@ -1,0 +1,4 @@
+1..3
+ok 1 - getc() works even for utf-8 input
+ok 2 - getc on a directory fails
+ok 3 - Correct behavior near end of file

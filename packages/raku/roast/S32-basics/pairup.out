@@ -1,0 +1,11 @@
+1..6
+ok 1 - pairup on a :U invocant returns an empty Seq
+ok 2 - pairup on a :D invocant
+ok 3 - pairup returns correct list size
+ok 4 - hash constructed from pairup has correct keys
+ok 5 - hash constructed from pairup has correct values
+# Subtest: pairup on odd numbered list size throws
+    1..2
+    ok 1 - 'my @ = @nums.pairup' died
+    ok 2 - right exception type (X::Pairup::OddNumber)
+ok 6 - pairup on odd numbered list size throws

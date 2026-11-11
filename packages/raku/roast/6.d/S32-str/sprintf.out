@@ -1,0 +1,294 @@
+1..174
+ok 1 - sprintf() works with zero args
+ok 2 - sprintf() escapes % correctly
+ok 3 - sprintf() works with one arg
+ok 4 - sprintf() works with two args
+ok 5 - sprintf() works with three args
+ok 6 - sprintf() works with four args
+ok 7 - EVAL of sprintf() with %b
+ok 8 - 0-padded sprintf() with %b
+ok 9 - " "-padded sprintf() with %b
+ok 10 - longer string, no padding
+ok 11 - padding specified, not needed
+ok 12 - 0 padding, longer string
+ok 13 - two args %b
+ok 14 - %c test
+ok 15 - %s test
+ok 16 - %s right-justified
+ok 17 - %s left-justified
+ok 18 - simple %d
+ok 19 - negative %d
+ok 20 - 0-padded %d
+ok 21 - 0-padded negative %d
+ok 22 - negative %i
+ok 23 - 0-padded negative %i
+ok 24 - space-padded %d
+ok 25 - space-padded negative %d
+ok 26 - space-padded negative %i
+ok 27 - left-justified negative %i
+ok 28 - simple %u
+ok 29 - decimal %u
+ok 30 - 0-padded %u
+ok 31 - 0-padded decimal %u
+ok 32 - simple %o
+ok 33 - decimal %o
+ok 34 - 0-padded %o
+ok 35 - 0-padded decimal %o
+ok 36 - simple %x
+ok 37 - simple %x
+ok 38 - decimal %x
+ok 39 - 0-padded %x
+ok 40 - 0-padded decimal %x
+ok 41 - simple %X
+ok 42 - 0-padded decimal %X
+ok 43 - %d works for big ints
+ok 44 - %d works for negative big ints
+ok 45 - %b works for big ints
+ok 46 - %b works for negative big ints
+ok 47 - %o works for big ints
+ok 48 - %o works for negative big ints
+ok 49 - %x works for big ints
+ok 50 - %x works for negative big ints
+ok 51 - %X works for big ints
+ok 52 - %X works for negative big ints
+ok 53 - %d works for big Rats
+ok 54 - %d works for negative big Rats
+ok 55 - %d works for big FatRats
+ok 56 - %d works for negative big FatRats
+ok 57 - %b works for big Rats
+ok 58 - %b works for negative big Rats
+ok 59 - %o works for big Rats
+ok 60 - %o works for negative big Rats
+ok 61 - %x works for big Rats
+ok 62 - %x works for negative big Rats
+ok 63 - %X works for big Rats
+ok 64 - %X works for negative big Rats
+ok 65 - 5.2 %f
+ok 66 - 5.2 %F
+ok 67 - 5.2 %g
+ok 68 - 5.2 %G
+ok 69 - 5.2 %e
+ok 70 - 5.2 %E
+ok 71 - 5.2 %g
+ok 72 - 5.2 %G
+ok 73 - 5.2 %g
+ok 74 - 5.2 %G
+ok 75 - 20.2 %f
+ok 76 - 20.2 %F
+ok 77 - 20.2 %g
+ok 78 - 20.2 %G
+ok 79 - 20.2 %e
+ok 80 - 20.2 %E
+ok 81 - 20.2 %g
+ok 82 - 20.2 %G
+ok 83 - 20.2 %g
+ok 84 - 20.2 %G
+ok 85 - negative 20.2 %f
+ok 86 - negative 20.2 %F
+ok 87 - negative 20.2 %g
+ok 88 - negative 20.2 %G
+ok 89 - negative 20.2 %e
+ok 90 - negative 20.2 %E
+ok 91 - negative 20.2 %g
+ok 92 - negative 20.2 %G
+ok 93 - negative 20.2 %g
+ok 94 - negative 20.2 %G
+ok 95 - 020.2 %f
+ok 96 - 020.2 %F
+ok 97 - 020.2 %g
+ok 98 - 020.2 %G
+ok 99 - 020.2 %e
+ok 100 - 020.2 %E
+ok 101 - 020.2 %g
+ok 102 - 020.2 %G
+ok 103 - 020.2 %g
+ok 104 - 020.2 %G
+ok 105 - negative 020.2 %f
+ok 106 - negative 020.2 %F
+ok 107 - negative 020.2 %g
+ok 108 - negative 020.2 %G
+ok 109 - negative 020.2 %e
+ok 110 - negative 020.2 %E
+ok 111 - negative 020.2 %g
+ok 112 - negative 020.2 %G
+ok 113 - negative 020.2 %g
+ok 114 - negative 020.2 %G
+ok 115 - "%.5"
+ok 116 - negative "%.5"
+ok 117 - negative "%+.5"
+ok 118 - "%+.5"
+ok 119 - " %.5"
+ok 120 - negative "%.5"
+ok 121 - %e defaults to .6
+ok 122 - %E defaults to .6
+ok 123 - %f defaults to .6
+ok 124 - %g defaults to .6
+ok 125 - %G defaults to .6
+ok 126 - %n dies (Perl compatibility)
+ok 127 - %p dies (Perl compatibility)
+ok 128 - sprintf %s handles NaN
+ok 129 - sprintf %s handles NaN
+ok 130 - sprintf %s handles Inf
+ok 131 - sprintf %s handles Inf
+ok 132 - positional argument specifier $
+ok 133 - multi-byte characters are counted correctly for %Ns strings
+ok 134 - RT  \#118601
+ok 135 - RT  \#118253
+ok 136 - RT  \#117547
+ok 137 - RT  \#116280
+ok 138 - RT  \#116280
+ok 139 - RT  \#116280
+ok 140 - Inf properly handled %e
+ok 141 - Inf properly handled %E
+ok 142 - Inf properly handled %f
+ok 143 - Inf properly handled %g
+ok 144 - Inf properly handled %G
+ok 145 - -Inf properly handled %e
+ok 146 - -Inf properly handled %E
+ok 147 - -Inf properly handled %f
+ok 148 - -Inf properly handled %g
+ok 149 - -Inf properly handled %G
+# Subtest: Invalid formats do not spill internal details
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Sprintf::Directives::Count)
+    ok 3 - .args-have matches 1
+    ok 4 - .args-used matches 0
+ok 150 - Invalid formats do not spill internal details
+# Subtest: Warn of possible '$' in format
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Sprintf::Directives::Count)
+    ok 3 - .args-have matches 1
+    ok 4 - .args-used matches 2
+ok 151 - Warn of possible '$' in format
+# Subtest: Warn of possible '$' in format
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Sprintf::Directives::Count)
+    ok 3 - .args-used matches 2
+    ok 4 - .args-have matches 1
+ok 152 - Warn of possible '$' in format
+ok 153 - %.0f of 1.969 should be 2
+ok 154 - %.1f of 1.969 should be 2.0
+ok 155 - %.2f of 1.969 should be 1.97
+ok 156 - %.3f of 1.969 should be 1.969
+ok 157 - %.50f of 1.115 is correct
+# Subtest: sprintf complains about types that can't be displayed as the directive specifies
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Sprintf::Directives::BadType)
+    ok 3 - .type matches Junction
+ok 158 - sprintf complains about types that can't be displayed as the directive specifies
+# Subtest: sprintf complains about unsupported directives
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Sprintf::Directives::Unsupported)
+ok 159 - sprintf complains about unsupported directives
+ok 160 - sprintf($format) does not issue spurious warnings
+ok 161 - %.3d
+ok 162 - %2.4d
+ok 163 - %5.3d
+ok 164 - %.0d (non-zero number)
+ok 165 - %.0d (number is zero)
+ok 166 - %.*d
+ok 167 - %2.*d
+ok 168 - %5.*d
+ok 169 - %.*d (non-zero number)
+ok 170 - %.*d (number is zero)
+ok 171 - %064b format works with negatives
+# Subtest: sprintf with Numeric/Str type objects
+    1..90
+    ok 1 - %c   with Num
+    ok 2 - %02c with Num
+    ok 3 - %u   with Num
+    ok 4 - %02u with Num
+    ok 5 - %x   with Num
+    ok 6 - %02x with Num
+    ok 7 - %d   with Num
+    ok 8 - %02d with Num
+    ok 9 - %b   with Num
+    ok 10 - %02b with Num
+    ok 11 - %o   with Num
+    ok 12 - %02o with Num
+    ok 13 - %f   with Num
+    ok 14 - %.2f with Num
+    ok 15 - %e   with Num
+    ok 16 - %.2e with Num
+    ok 17 - %g   with Num
+    ok 18 - %.2g with Num
+    ok 19 - %c   with Int
+    ok 20 - %02c with Int
+    ok 21 - %u   with Int
+    ok 22 - %02u with Int
+    ok 23 - %x   with Int
+    ok 24 - %02x with Int
+    ok 25 - %d   with Int
+    ok 26 - %02d with Int
+    ok 27 - %b   with Int
+    ok 28 - %02b with Int
+    ok 29 - %o   with Int
+    ok 30 - %02o with Int
+    ok 31 - %f   with Int
+    ok 32 - %.2f with Int
+    ok 33 - %e   with Int
+    ok 34 - %.2e with Int
+    ok 35 - %g   with Int
+    ok 36 - %.2g with Int
+    ok 37 - %c   with Rat
+    ok 38 - %02c with Rat
+    ok 39 - %u   with Rat
+    ok 40 - %02u with Rat
+    ok 41 - %x   with Rat
+    ok 42 - %02x with Rat
+    ok 43 - %d   with Rat
+    ok 44 - %02d with Rat
+    ok 45 - %b   with Rat
+    ok 46 - %02b with Rat
+    ok 47 - %o   with Rat
+    ok 48 - %02o with Rat
+    ok 49 - %f   with Rat
+    ok 50 - %.2f with Rat
+    ok 51 - %e   with Rat
+    ok 52 - %.2e with Rat
+    ok 53 - %g   with Rat
+    ok 54 - %.2g with Rat
+    ok 55 - %c   with Complex
+    ok 56 - %02c with Complex
+    ok 57 - %u   with Complex
+    ok 58 - %02u with Complex
+    ok 59 - %x   with Complex
+    ok 60 - %02x with Complex
+    ok 61 - %d   with Complex
+    ok 62 - %02d with Complex
+    ok 63 - %b   with Complex
+    ok 64 - %02b with Complex
+    ok 65 - %o   with Complex
+    ok 66 - %02o with Complex
+    ok 67 - %f   with Complex
+    ok 68 - %.2f with Complex
+    ok 69 - %e   with Complex
+    ok 70 - %.2e with Complex
+    ok 71 - %g   with Complex
+    ok 72 - %.2g with Complex
+    ok 73 - %c   with Str
+    ok 74 - %02c with Str
+    ok 75 - %u   with Str
+    ok 76 - %02u with Str
+    ok 77 - %x   with Str
+    ok 78 - %02x with Str
+    ok 79 - %d   with Str
+    ok 80 - %02d with Str
+    ok 81 - %b   with Str
+    ok 82 - %02b with Str
+    ok 83 - %o   with Str
+    ok 84 - %02o with Str
+    ok 85 - %f   with Str
+    ok 86 - %.2f with Str
+    ok 87 - %e   with Str
+    ok 88 - %.2e with Str
+    ok 89 - %g   with Str
+    ok 90 - %.2g with Str
+ok 172 - sprintf with Numeric/Str type objects
+ok 173 - sprintf maintains sane precision when stringifying nums
+ok 174 - 

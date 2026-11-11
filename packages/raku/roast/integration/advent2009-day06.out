@@ -1,0 +1,20 @@
+1..15
+ok 1 - Dwimmy hyperoperator on arrays of the same length
+ok 2 - Non-dwimmy hyperoperator on arrays of the same length
+ok 3 - Dwimmy hyperoperator on arrays of different size
+# Subtest: Non-dwimmy hyperoperator on arrays of different size fails
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+ok 4 - Non-dwimmy hyperoperator on arrays of different size fails
+ok 5 - Single scalars extend to the right
+ok 6 - Single scalars extend to the left
+ok 7 - Hyperoperator with prefix operator
+ok 8 - Hyperoperator with postfix operator
+ok 9 - Hyperoperator used to call .sin on each list element
+ok 10 - Hyperoperator used to call .sin on each list element
+ok 11 - Hyperoperator used to call .sin on each list element
+ok 12 - Hyperoperator used to call .sin on each list element
+ok 13 - Hyperoperator used to call .sin on each list element
+ok 14 - Hyperoperator used to call .Str on each list element
+ok 15 - In-place operators work

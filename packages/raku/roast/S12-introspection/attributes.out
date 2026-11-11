@@ -1,0 +1,51 @@
+1..45
+ok 1 - attribute introspection gave correct number of elements
+ok 2 - first attribute had correct name
+ok 3 - first attribute had correct type
+ok 4 - first attribute has an accessor
+ok 5 - first attribute has no build value
+ok 6 - first attribute is rw
+ok 7 - first attribute is not readonly
+ok 8 - second attribute had correct name
+ok 9 - second attribute had correct type
+ok 10 - second attribute has no accessor
+ok 11 - second attribute has build block
+ok 12 - second attribute build block gives expected value
+ok 13 - third attribute had correct name
+ok 14 - third attribute had correct type
+ok 15 - third attribute has an accessor
+ok 16 - third attribute has build value
+ok 17 - third attribute build block gives expected value
+ok 18 - third attribute is not rw
+ok 19 - third attribute is readonly
+ok 20 - attribute introspection with :local gave just attribute in base class
+ok 21 - get correct attribute with introspection
+ok 22 - # SKIP :tree NYI for .^attributes
+ok 23 - # SKIP :tree NYI for .^attributes
+ok 24 - # SKIP :tree NYI for .^attributes
+ok 25 - # SKIP :tree NYI for .^attributes
+ok 26 - # SKIP :tree NYI for .^attributes
+ok 27 - The object is-a 'Attribute'
+ok 28 - .get_value works
+ok 29 - can set_value
+ok 30 - set_value worked
+ok 31 - .gist of an Attribute includes type
+ok 32 - .gist of an Attribute includes name
+ok 33 - introspection of name of typed array attribute works
+ok 34 - introspection of type of typed array attribute works (using gist)
+ok 35 - .gist of a BOOTSTRAPATTR is the type and name
+ok 36 - .Str of a BOOTSTRAPATTR is the name
+ok 37 - .raku of a BOOTSTRAPATTR is the class name ~ ".new"
+ok 38 - shape of stantiated attribute
+not ok 39 - attribute container shape # TODO attribute container shape
+# Failed test 'attribute container shape'
+# at S12-introspection/attributes.rakudo line 109
+# expected: $(2,)
+#      got: $(*,)
+ok 40 - did we get a default value
+ok 41 - did we actually call FETCH
+ok 42 - did we actially *not* call STORE
+ok 43 - can we store a value and do we get 666
+ok 44 - did the value actually get stored
+ok 45 - did we actually call STORE now
+# FUDGED!

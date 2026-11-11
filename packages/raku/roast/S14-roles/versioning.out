@@ -1,0 +1,36 @@
+1..4
+# Subtest: Basic role language revision
+    1..9
+    ok 1 - role language revision is expected 'c'
+    ok 2 - pun language revision is expected 'c'
+    ok 3 - parameterized pun language revision is expected 'c'
+    ok 4 - role language revision is expected 'd'
+    ok 5 - pun language revision is expected 'd'
+    ok 6 - parameterized pun language revision is expected 'd'
+    ok 7 - role language revision is expected 'e'
+    ok 8 - pun language revision is expected 'e'
+    ok 9 - parameterized pun language revision is expected 'e'
+ok 1 - Basic role language revision
+# Subtest: Multi-module and multi-version
+    1..4
+    ok 1 - role candidates are coming from different language revisions
+    ok 2 - pun of role defined in 6.c remains 6.c
+    ok 3 - pun of role defined in 6.d remains 6.d
+    ok 4 - pun of role defined in 6.e remains 6.e
+ok 2 - Multi-module and multi-version
+# Subtest: Enum
+    1..3
+    ok 1 - enum for v6.c
+    ok 2 - enum for v6.e
+    ok 3 - enum for v6.d
+ok 3 - Enum
+# Subtest: Submethods
+    1..7
+    ok 1 - 6.c class consuming 6.e role doesn't receive role's submethods
+    ok 2 - 6.c class consuming both 6.c and 6.e roles only gets submethods from 6.c role
+    ok 3 - 6.e class consuming 6.e role doesn't receive role's submethods
+    ok 4 - 6.e class consuming both 6.c and 6.e roles gets submethods from neither
+    ok 5 - 6.c class with no own constructors: 6.c and 6.e roles constructors are ran
+    ok 6 - 6.c class with own constructors blocks 6.c role constructors, but not 6.e
+    ok 7 - 6.e class with own constructors doesn't block neither 6.e, nor 6.c constructors
+ok 4 - Submethods

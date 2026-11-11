@@ -1,0 +1,41 @@
+1..36
+ok 1 - now returns an Instant
+ok 2 - Int + Instant ~~ Instant
+ok 3 - Instant - Rat ~~ Instant
+ok 4 - now and just now are close
+ok 5 - time does not move backwards
+ok 6 - now is a term, not a function
+# Subtest: Instant.new is illegal
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::New)
+ok 7 - Instant.new is illegal
+ok 8 - later Instants are greater
+ok 9 - Instant + Instant is illegal
+ok 10 - Instant - Instant ~~ Duration
+ok 11 - Durations are Real
+ok 12 - Instant + Duration ~~ Instant
+ok 13 - Duration + Instant ~~ Instant
+ok 14 - Instant - Duration ~~ Instant
+ok 15 - Instant A + (Instant B - Instant A) == Instant B
+ok 16 - Instant round trips properly .(-9223372036854775808, False)
+ok 17 - Instant round trips properly .(-9223372036854775808, True)
+ok 18 - Instant round trips properly .(-400.2, False)
+ok 19 - Instant round trips properly .(-400.2, True)
+ok 20 - Instant round trips properly .(-4.714286, False)
+ok 21 - Instant round trips properly .(-4.714286, True)
+ok 22 - Instant round trips properly .(-1, False)
+ok 23 - Instant round trips properly .(-1, True)
+ok 24 - Instant round trips properly .(0, False)
+ok 25 - Instant round trips properly .(0, True)
+ok 26 - Instant round trips properly .(1, False)
+ok 27 - Instant round trips properly .(1, True)
+ok 28 - Instant round trips properly .(4.714286, False)
+ok 29 - Instant round trips properly .(4.714286, True)
+ok 30 - Instant round trips properly .(400.2, False)
+ok 31 - Instant round trips properly .(400.2, True)
+ok 32 - Instant round trips properly .(4294967296, False)
+ok 33 - Instant round trips properly .(4294967296, True)
+ok 34 - Instant.Instant
+ok 35 - Instant.Instant (undefined)
+ok 36 - Instant.Instant (defined)

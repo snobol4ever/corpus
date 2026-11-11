@@ -1,0 +1,64 @@
+1..39
+ok 1 - overloaded () call works
+ok 2 - overloaded .() call works
+ok 3 - overloaded .($) call works
+ok 4 - overloaded .($,$) call works
+ok 5 - overloaded () call works (CALL-ME)
+ok 6 - overloaded .() call works (CALL-ME)
+ok 7 - overloaded .($) call works (CALL-ME)
+ok 8 - overloaded .($,$) call works (CALL-ME)
+ok 9 - overloaded () call works (multi CALL-ME)
+ok 10 - overloaded .() call works (multi CALL-ME)
+ok 11 - overloaded .($) call works (multi CALL-ME)
+ok 12 - overloaded .($,$) call works (multi CALL-ME)
+ok 13 - overloaded () call works (only CALL-ME)
+ok 14 - overloaded .() call works (only CALL-ME)
+ok 15 - overloaded ($) call works (only CALL-ME)
+ok 16 - overloaded .($) call works (only CALL-ME)
+ok 17 - overloaded ($,$) call works (only CALL-ME)
+ok 18 - overloaded .($,$) call works (only CALL-ME)
+ok 19 - example code works
+ok 20 - .() -> (:U) works, dotted form
+ok 21 - (:a) -> (:U) works
+ok 22 - .(:a) -> (:U) works, dotted form
+ok 23 - ($: $) -> (:U, $) case
+ok 24 - .($: $) -> (:U, $) case, dotted form
+# Subtest: ($:, :$) -> (:U, $) arity check
+    1..2
+    ok 1 - 'class XYX { method CALL-ME(XYX:U: $x) { } }; XYX(:a);' died
+    ok 2 - right exception type (Exception)
+ok 25 - ($:, :$) -> (:U, $) arity check
+# Subtest: .($:) -> (:U, $) arity check
+    1..2
+    ok 1 - 'class XYY { method CALL-ME(XYY:U: $x) { } }; XYY.();' died
+    ok 2 - right exception type (Exception)
+ok 26 - .($:) -> (:U, $) arity check
+# Subtest: .($:, :$) -> (:U, $) arity check
+    1..2
+    ok 1 - 'class YYY { method CALL-ME(YYY:U: $x) { } }; YYY.(:a);' died
+    ok 2 - right exception type (Exception)
+ok 27 - .($:, :$) -> (:U, $) arity check
+# Subtest: ($: $, $, $) -> (:U, $) arity check
+    1..2
+    ok 1 - 'class XYZ { method CALL-ME(XYZ:U: $x) { } }; XYZ(3,4,5);' died
+    ok 2 - right exception type (Exception)
+ok 28 - ($: $, $, $) -> (:U, $) arity check
+# Subtest: .($: $, $, $) -> (:U, $) arity check
+    1..2
+    ok 1 - 'class XZZ { method CALL-ME(XZZ:U: $x) { } }; XZZ.(3,4,5);' died
+    ok 2 - right exception type (Exception)
+ok 29 - .($: $, $, $) -> (:U, $) arity check
+ok 30 - A() is a type coercion literal
+ok 31 - A(Any) is a type coercion literal
+ok 32 - example works
+ok 33 - role pretends to be a sub
+ok 34 - argument passing to role's CALL-ME
+# Subtest: coercion attempt for a non-invocable role throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Coerce::Impossible)
+ok 35 - coercion attempt for a non-invocable role throws
+ok 36 - coerced into a pun
+ok 37 - coercion initialized with value
+ok 38 - role consuming other role pretends to be a sub
+ok 39 - argument passing to a role consuming another role

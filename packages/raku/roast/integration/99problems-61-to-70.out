@@ -1,0 +1,16 @@
+1..15
+ok 1 - count_leaves works
+ok 2 - leaves() works
+ok 3 - internals() collects internal nodes
+ok 4 - atlevel() works at level 1
+ok 5 - atlevel() works at level 2
+ok 6 - atlevel() works at level 3
+ok 7 - # SKIP Test(s) not yet written: (**) Construct a complete binary tree
+ok 8 - tree alignment works
+ok 9 - tree alignment works
+ok 10 - # SKIP Test(s) not yet written: (***) Layout a binary tree (3)
+ok 11 - string representation of binary tree
+ok 12 - # SKIP Test(s) not yet written: (**) A string representation of binary trees
+ok 13 - # SKIP Test(s) not yet written: (**) Preorder and inorder sequences of binary trees
+ok 14 - # SKIP Test(s) not yet written: (**) Dotstring representation of binary trees
+ok 15 - # SKIP Test(s) not yet written: (**) Tree construction from a node string

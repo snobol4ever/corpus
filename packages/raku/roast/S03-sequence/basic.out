@@ -1,0 +1,154 @@
+1..143
+ok 1 - 1 ... 1
+ok 2 - 'a' ... 'a'
+ok 3 - simple sequence with one item on the LHS
+ok 4 - simple decreasing sequence with one item on the LHS
+ok 5 - simple additive sequence with two items on the LHS
+ok 6 - simple decreasing additive sequence with two items on the LHS
+ok 7 - simple additive sequence with three items on the LHS
+ok 8 - simple multiplicative sequence with three items on the LHS
+ok 9 - decreasing multiplicative sequence with three items on the LHS
+ok 10 - simple sequence with one item and block closure on the LHS
+ok 11 - simple sequence with one item and * closure on the LHS
+ok 12 - simple sequence with one item and closure on the LHS
+ok 13 - simple sequence with three items and block closure on the LHS
+ok 14 - tricky sequence with one item and closure on the LHS
+ok 15 - simple alternating sequence with one item and closure on the LHS
+ok 16 - simple alternating sequence with one item and closure on the LHS
+ok 17 - sequence with one scalar containing Code on the LHS
+ok 18 - simple sequence with two further terms on the RHS
+ok 19 - simple sequence with two extra terms on the RHS
+ok 20 - simple sequence with two weird items on the RHS
+ok 21 - simple sequence with one item on the LHS
+ok 22 - simple decreasing sequence with one item on the LHS
+ok 23 - simple additive sequence with two items on the LHS
+ok 24 - simple decreasing additive sequence with two items on the LHS
+ok 25 - simple additive sequence with three items on the LHS
+ok 26 - simple multiplicative sequence with three items on the LHS
+ok 27 - decreasing multiplicative sequence with three items on the LHS
+ok 28 - simple sequence with one item and block closure on the LHS
+ok 29 - simple sequence with one item and * closure on the LHS
+ok 30 - simple sequence with one item and closure on the LHS
+ok 31 - simple sequence with three items and block closure on the LHS
+ok 32 - tricky sequence with one item and closure on the LHS
+ok 33 - simple alternating sequence with one item and closure on the LHS
+ok 34 - simple sequence with two further terms on the RHS
+ok 35 - simple sequence with two extra terms on the RHS
+ok 36 - simple sequence with two weird items on the RHS
+ok 37 - simple sequence with one item on the LHS
+ok 38 - simple additive sequence with two items on the LHS
+ok 39 - simple decreasing additive sequence with two items on the LHS
+ok 40 - simple additive sequence with three items on the LHS
+ok 41 - simple decreasing additive sequence with three items on the LHS
+ok 42 - simple multiplicative sequence with three items on the LHS
+ok 43 - decreasing multiplicative sequence with three items on the LHS
+ok 44 - simple sequence with one item and block closure on the LHS
+ok 45 - simple sequence with one item and * closure on the LHS
+ok 46 - simple sequence with one item and closure on the LHS
+ok 47 - simple sequence with three items and block closure on the LHS
+ok 48 - tricky sequence with one item and closure on the LHS
+ok 49 - simple alternating sequence with one item and closure on the LHS
+ok 50 - simple sequence with two further terms on the RHS
+ok 51 - simple sequence with two extra terms on the RHS
+ok 52 - simple sequence with two weird items on the RHS
+ok 53 - constant sequence started with letter and identity closure
+ok 54 - constant sequence started with two letters
+ok 55 - constant sequence started with three letters
+ok 56 - constant sequence started with two numbers
+ok 57 - constant sequence started with three numbers
+ok 58 - sequence started with three identical numbers, but then goes arithmetic
+ok 59 - sequence started with three identical numbers, but then goes geometric
+ok 60 - geometric sequence started in one direction and continues in the other
+ok 61 - alternating False and True
+ok 62 - alternating False and True is always Bool
+ok 63 - Using &[+] works
+ok 64 - alternating False and True
+ok 65 - alternating False and True is always Bool
+ok 66 - geometric sequence that never reaches its limit
+ok 67 - alternating geometric sequence that never reaches its limit
+ok 68 - "harmonic" sequence that never reaches its limit
+ok 69 - No more: limit value is on the wrong side
+ok 70 - exclusive sequence
+ok 71 - exclusive decreasing sequence
+ok 72 - exclusive sequence that couldn't hit its limit anyway
+ok 73 - exclusive geometric sequence
+ok 74 - exclusive decreasing geometric sequence that couldn't hit its limit anyway
+ok 75 - exclusive alternating geometric sequence
+ok 76 - exclusive alternating geometric sequence (not an exact match)
+ok 77 - exclusive sequence with closure
+ok 78 - empty exclusive sequence
+ok 79 - empty exclusive constant sequence
+ok 80 - empty exclusive arithmetic sequence
+ok 81 - exclusive sequence empty but for extra items
+ok 82 - singleton exclusive sequence
+ok 83 - 4...^5 should parse as 4 ...^ 5 and not 4 ... ^5
+ok 84 - -5 ... ^5 produces just one zero
+# Subtest: RT #75698 - empty list on right side of sequence operator does not cause infinite loop (but throws exception)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches /list/
+    ok 4 - .action matches /endpoint/
+ok 85 - RT  \#75698 - empty list on right side of sequence operator does not cause infinite loop (but throws exception)
+ok 86 - element from list generated using infinite sequence is accessible by index
+ok 87 - geometric sequence started in one direction and continues in the other with exclusion
+ok 88 - Can take .raku of sequence
+ok 89 - EVAL($sequence.raku) reproduces result list
+ok 90 - Zipping two sequence in parallel
+ok 91 - sequence that does not hit the limit
+ok 92 - sequence that aborts during LHS
+ok 93 - sequence that does not hit the limit
+ok 94 - sequence that aborts during LHS
+ok 95 - geometric sequence with smaller RHS and sign change
+ok 96 - geometric sequence with smaller RHS and sign change
+ok 97 - geometric sequence with smaller RHS and sign change
+ok 98 - geometric sequence with sign-change and non-matching end point
+ok 99 - sequence that aborts during LHS, before actual calculations kick in
+ok 100 - sequence that aborts during LHS, before actual calculations kick in
+ok 101 - 1, 2, 3 ... 100 generates a sequence with one hundred elements...
+ok 102 - ... all of which are Ints
+ok 103 - 1.Rat, 2.Rat, 3.Rat ... 100 generates a sequence with one hundred elements...
+ok 104 - ... all of which are Rats
+ok 105 - 1.Num, 2.Num, 3.Num ... 100 generates a sequence with one hundred elements...
+ok 106 - ... all of which are Nums
+ok 107 - 1, 2, 4 ... 64 generates a sequence with seven elements...
+ok 108 - ... all of which are Ints
+ok 109 - 1.Rat, 2.Rat, 4.Rat ... 64 generates a sequence with seven elements...
+ok 110 - ... all of which are Rats
+ok 111 - 1.Num, 2.Num, 4.Num ... 64 generates a sequence with seven elements...
+ok 112 - ... all of which are Nums
+ok 113 - 1, +* works for sequence
+ok 114 - can index sequence with sequence
+ok 115 - sequence with code on the rhs
+ok 116 - sequence with code on the rhs
+ok 117 - exclusive sequence with code on the rhs
+ok 118 - exclusive sequence with code on the rhs
+ok 119 - sequence that lasts in the last item of lhs
+ok 120 - sequence may be terminated by calling last from the generator function
+ok 121 - 1..* ... 5
+ok 122 - @fib ... 8
+ok 123 - stop on a matching type (1)
+ok 124 - stop on a matching type (2)
+# Subtest: comma before sequence operator is caught
+    1..2
+    ok 1 - '1, 2, 3, ... 5' died
+    ok 2 - right exception type (Exception)
+ok 125 - comma before sequence operator is caught
+ok 126 - RT  \#73268
+ok 127 - use &[+] on infix:<...> series
+ok 128 - WhateverCode with arity > 3 gets enough arguments
+ok 129 - RT  \#75674
+ok 130 - RT  \#75674
+ok 131 - RT  \#75674
+ok 132 - Unicode ellipsis works
+ok 133 - Unicode ellipsis works excluding final value
+ok 134 - containers returned from seq iterator are respected (1)
+ok 135 - containers returned from seq iterator are respected (2)
+ok 136 - Final * is lazy numeric
+ok 137 - Final Inf is lazy
+ok 138 - Final * is lazy alpha
+ok 139 - Final * is lazy functional
+ok 140 - Final Int is not lazy numeric
+ok 141 - Final junction is not lazy
+ok 142 - Final 'z' is not lazy
+ok 143 - Final condition is not lazy

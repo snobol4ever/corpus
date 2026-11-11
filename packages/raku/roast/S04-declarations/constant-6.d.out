@@ -1,0 +1,446 @@
+1..25
+# Subtest: implied | implied | sigilless
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - implied scope declarator behaves like `our`
+ok 1 - implied | implied | sigilless
+# Subtest: my | implied | sigilless
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `my` makes constants lexical
+ok 2 - my | implied | sigilless
+# Subtest: our | implied | sigilless
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `our` gives right scope
+ok 3 - our | implied | sigilless
+# Subtest: my | typed | sigilless
+    1..9
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `my` makes constants lexical
+    ok 6 - type with `::` in name
+    # Subtest: type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my IO::Path constant mts5 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 7 - type with `::` in name (failure mode)
+    ok 8 - parametarized type with `::` in name
+    # Subtest: parametarized type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; my Foo2::Bar2[Ber2::Meow2] constant mts7 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 9 - parametarized type with `::` in name (failure mode)
+ok 4 - my | typed | sigilless
+# Subtest: our | typed | sigilless
+    1..9
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `our` gives right scope
+    ok 6 - type with `::` in name
+    # Subtest: type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'our IO::Path constant ots5 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 7 - type with `::` in name (failure mode)
+    ok 8 - parametarized type with `::` in name
+    # Subtest: parametarized type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; our Foo2::Bar2[Ber2::Meow2] constant ots7 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 9 - parametarized type with `::` in name (failure mode)
+ok 5 - our | typed | sigilless
+# Subtest: implied | implied | backslashed sigilless
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - implied scope declarator behaves like `our`
+ok 6 - implied | implied | backslashed sigilless
+# Subtest: my | implied | backslashed sigilless
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `my` makes constants lexical
+ok 7 - my | implied | backslashed sigilless
+# Subtest: our | implied | backslashed sigilless
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `our` gives right scope
+ok 8 - our | implied | backslashed sigilless
+# Subtest: my | typed | backslashed sigilless
+    1..9
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `my` makes constants lexical
+    ok 6 - type with `::` in name
+    # Subtest: type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my IO::Path constant mtbs5 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 7 - type with `::` in name (failure mode)
+    ok 8 - parametarized type with `::` in name
+    # Subtest: parametarized type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; my Foo2::Bar2[Ber2::Meow2] constant mtbs7 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 9 - parametarized type with `::` in name (failure mode)
+ok 9 - my | typed | backslashed sigilless
+# Subtest: our | typed | backslashed sigilless
+    1..9
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `our` gives right scope
+    ok 6 - type with `::` in name
+    # Subtest: type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my IO::Path constant otbs5 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 7 - type with `::` in name (failure mode)
+    ok 8 - parametarized type with `::` in name
+    # Subtest: parametarized type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; our Foo2::Bar2[Ber2::Meow2] constant otbs7 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 9 - parametarized type with `::` in name (failure mode)
+ok 10 - our | typed | backslashed sigilless
+# Subtest: implied | implied | $-sigilled
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - implied scope declarator behaves like `our`
+ok 11 - implied | implied | $-sigilled
+# Subtest: my | implied | $-sigilled
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `my` makes constants lexical
+ok 12 - my | implied | $-sigilled
+# Subtest: our | implied | $-sigilled
+    1..5
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `our` gives right scope
+ok 13 - our | implied | $-sigilled
+# Subtest: my | typed | $-sigilled
+    1..9
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `my` makes constants lexical
+    ok 6 - type with `::` in name
+    # Subtest: type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my IO::Path constant $mtss5 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 7 - type with `::` in name (failure mode)
+    ok 8 - parametarized type with `::` in name
+    # Subtest: parametarized type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; my Foo2::Bar2[Ber2::Meow2] constant $mtss7 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 9 - parametarized type with `::` in name (failure mode)
+ok 14 - my | typed | $-sigilled
+# Subtest: our | typed | $-sigilled
+    1..9
+    ok 1 - def, simple value
+    ok 2 - def, List
+    ok 3 - does not containerize
+    ok 4 - def, statement
+    ok 5 - `our` gives right scope
+    ok 6 - type with `::` in name
+    # Subtest: type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my IO::Path constant $otss5 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 7 - type with `::` in name (failure mode)
+    ok 8 - parametarized type with `::` in name
+    # Subtest: parametarized type with `::` in name (failure mode)
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; our Foo2::Bar2[Ber2::Meow2] constant $otss7 = 42' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 9 - parametarized type with `::` in name (failure mode)
+ok 15 - our | typed | $-sigilled
+# Subtest: implied | implied | @-sigilled
+    1..13
+    ok 1 - def, simple value
+    ok 2 - def, List (no parens)
+    ok 3 - def, List (with parens)
+    ok 4 - does not scalarize
+    ok 5 - Array remains an Array
+    ok 6 - Seq gets coerced
+    ok 7 - def, statement (type)
+    ok 8 - def, statement (value)
+    ok 9 - implied scope declarator behaves like `our`
+    ok 10 - coercion calls .cache method
+    ok 11 - right result after coersion
+    # Subtest: typecheck fails if .cache does not return Positional
+        1..2
+        ok 1 - '
+        #         my class Foo { method cache { 42 } }
+        #         constant @iias8 = Foo.new;
+        #     ' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 12 - typecheck fails if .cache does not return Positional
+    ok 13 - no coercion of custom Positionals
+ok 16 - implied | implied | @-sigilled
+# Subtest: my | implied | @-sigilled
+    1..13
+    ok 1 - def, simple value
+    ok 2 - def, List (no parens)
+    ok 3 - def, List (with parens)
+    ok 4 - does not scalarize
+    ok 5 - Array remains an Array
+    ok 6 - Seq gets coerced
+    ok 7 - def, statement (type)
+    ok 8 - def, statement (value)
+    ok 9 - `my` makes constants lexical
+    ok 10 - coercion calls .cache method
+    ok 11 - right result after coersion
+    # Subtest: typecheck fails if .cache does not return Positional
+        1..2
+        ok 1 - '
+        #         my class Foo { method cache { 42 } }
+        #         my constant @mias8 = Foo.new;
+        #     ' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 12 - typecheck fails if .cache does not return Positional
+    ok 13 - no coercion of custom Positionals
+ok 17 - my | implied | @-sigilled
+# Subtest: our | implied | @-sigilled
+    1..13
+    ok 1 - def, simple value
+    ok 2 - def, List (no parens)
+    ok 3 - def, List (with parens)
+    ok 4 - does not scalarize
+    ok 5 - Array remains an Array
+    ok 6 - Seq gets coerced
+    ok 7 - def, statement (type)
+    ok 8 - def, statement (value)
+    ok 9 - `our` gives right scope
+    ok 10 - coercion calls .cache method
+    ok 11 - right result after coersion
+    # Subtest: typecheck fails if .cache does not return Positional
+        1..2
+        ok 1 - '
+        #         my class Foo { method cache { 42 } }
+        #         our constant @oias8 = Foo.new;
+        #     ' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 12 - typecheck fails if .cache does not return Positional
+    ok 13 - no coercion of custom Positionals
+ok 18 - our | implied | @-sigilled
+# Subtest: my | typed | @-sigilled
+    1..4
+    # Subtest: simple value
+        1..2
+        ok 1 - 'my Int constant @mtas1 = 42;' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 1 - simple value
+    # Subtest: list
+        1..2
+        ok 1 - 'my List constant @mtas2 = 1, 2, 3;' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 2 - list
+    # Subtest: type with `::` in name
+        1..2
+        ok 1 - 'my IO::Path constant @mtas5 = 42' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 3 - type with `::` in name
+    # Subtest: parametarized type with `::` in name
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; my Foo2::Bar2[Ber2::Meow2] constant @mtas7 = 42' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 4 - parametarized type with `::` in name
+ok 19 - my | typed | @-sigilled
+# Subtest: our | typed | @-sigilled
+    1..4
+    # Subtest: simple value
+        1..2
+        ok 1 - 'our Int constant @otas1 = 42;' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 1 - simple value
+    # Subtest: list
+        1..2
+        ok 1 - 'our List constant @otas2 = 1, 2, 3;' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 2 - list
+    # Subtest: type with `::` in name
+        1..2
+        ok 1 - 'our IO::Path constant @otas5 = 42' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 3 - type with `::` in name
+    # Subtest: parametarized type with `::` in name
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; our Foo2::Bar2[Ber2::Meow2] constant @otas7 = 42' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 4 - parametarized type with `::` in name
+ok 20 - our | typed | @-sigilled
+# Subtest: implied | implied | %-sigilled
+    1..16
+    # Subtest: def, simple value
+        1..2
+        ok 1 - '
+        #         use v6.d;
+        #         constant %iihs0 = 42
+        #     ' died
+        ok 2 - right exception type (X::Hash::Store::OddNumber)
+    ok 1 - def, simple value
+    ok 2 - def, List of values
+    ok 3 - def, List of Pairs (no parens)
+    ok 4 - def, List of Pairs (with parens)
+    ok 5 - def, Map
+    ok 6 - does not scalarize
+    ok 7 - Hash remains same
+    ok 8 - Object Hash remains same
+    ok 9 - Pair remains same
+    ok 10 - Bag remains same
+    ok 11 - def, statement
+    ok 12 - implied scope declarator behaves like `our`
+    ok 13 - coercion calls .Map method
+    ok 14 - right result after coersion
+    # Subtest: typecheck fails if .Map does not return Associative
+        1..2
+        ok 1 - '
+        #         use v6.d;
+        #         my class Foo { method Map { 42 } }
+        #         constant %iihs11 = Foo.new;
+        #     ' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 15 - typecheck fails if .Map does not return Associative
+    ok 16 - no coercion of custom Associative
+ok 21 - implied | implied | %-sigilled
+# Subtest: my | implied | %-sigilled
+    1..16
+    # Subtest: def, simple value
+        1..2
+        ok 1 - '
+        #         use v6.d;
+        #         my constant %mihs0 = 42
+        #     ' died
+        ok 2 - right exception type (X::Hash::Store::OddNumber)
+    ok 1 - def, simple value
+    ok 2 - def, List of values
+    ok 3 - def, List of Pairs (no parens)
+    ok 4 - def, List of Pairs (with parens)
+    ok 5 - def, Map
+    ok 6 - does not scalarize
+    ok 7 - Hash remains same
+    ok 8 - Object Hash remains same
+    ok 9 - Pair remains same
+    ok 10 - Bag remains same
+    ok 11 - def, statement
+    ok 12 - `my` makes constants lexical
+    ok 13 - coercion calls .Map method
+    ok 14 - right result after coersion
+    # Subtest: typecheck fails if .Map does not return Associative
+        1..2
+        ok 1 - '
+        #         use v6.d;
+        #         my class Foo { method Map { 42 } }
+        #         my constant %mihs11 = Foo.new;
+        #     ' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 15 - typecheck fails if .Map does not return Associative
+    ok 16 - no coercion of custom Associative
+ok 22 - my | implied | %-sigilled
+# Subtest: our | implied | %-sigilled
+    1..16
+    # Subtest: def, simple value
+        1..2
+        ok 1 - '
+        #         use v6.d;
+        #         our constant %oihs0 = 42
+        #     ' died
+        ok 2 - right exception type (X::Hash::Store::OddNumber)
+    ok 1 - def, simple value
+    ok 2 - def, List of values
+    ok 3 - def, List of Pairs (no parens)
+    ok 4 - def, List of Pairs (with parens)
+    ok 5 - def, Map
+    ok 6 - does not scalarize
+    ok 7 - Hash remains same
+    ok 8 - Object Hash remains same
+    ok 9 - Pair remains same
+    ok 10 - Bag remains same
+    ok 11 - def, statement
+    ok 12 - implied scope declarator behaves like `our`
+    ok 13 - coercion calls .Map method
+    ok 14 - right result after coersion
+    # Subtest: typecheck fails if .Map does not return Associative
+        1..2
+        ok 1 - '
+        #         use v6.d;
+        #         my class Foo { method Map { 42 } }
+        #         our constant %oihs11 = Foo.new;
+        #     ' died
+        ok 2 - right exception type (X::TypeCheck)
+    ok 15 - typecheck fails if .Map does not return Associative
+    ok 16 - no coercion of custom Associative
+ok 23 - our | implied | %-sigilled
+# Subtest: my | typed | %-sigilled
+    1..3
+    # Subtest: simple value
+        1..2
+        ok 1 - 'my Int constant %mths1 = :foo;' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 1 - simple value
+    # Subtest: type with `::` in name
+        1..2
+        ok 1 - 'my IO::Path constant %mths2 = :a(42)' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 2 - type with `::` in name
+    # Subtest: parametarized type with `::` in name
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; my Foo2::Bar2[Ber2::Meow2] constant %mths3 = :a(42)' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 3 - parametarized type with `::` in name
+ok 24 - my | typed | %-sigilled
+# Subtest: our | typed | %-sigilled
+    1..3
+    # Subtest: statement
+        1..2
+        ok 1 - 'our Int constant %oths1 = :foo;' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 1 - statement
+    # Subtest: type with `::` in name
+        1..2
+        ok 1 - 'our IO::Path constant %oths2 = :a(42)' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 2 - type with `::` in name
+    # Subtest: parametarized type with `::` in name
+        1..2
+        ok 1 - 'my role Foo2::Bar2[::T] {}; my class Ber2::Meow2 {}; our Foo2::Bar2[Ber2::Meow2] constant %oths3 = :a(42)' died
+        ok 2 - right exception type (X::ParametricConstant)
+    ok 3 - parametarized type with `::` in name
+ok 25 - our | typed | %-sigilled

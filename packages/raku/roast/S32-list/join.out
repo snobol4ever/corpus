@@ -1,0 +1,39 @@
+1..38
+ok 1 - empty join is empty string (sub)
+ok 2 - empty join is empty string (method)
+ok 3 - [].join("|") works
+ok 4 - @list.join("|") works
+ok 5 - join("|", @list) works
+ok 6 - join("|", 1, 2, 3) works
+ok 7 - join("|", $[]) should not join anything
+ok 8 - join("|", ["a", "b", "c"]) works
+ok 9 - join() separator defaults to "".
+ok 10 - [].join($sep) works
+ok 11 - @list.join($sep) works
+ok 12 - join($sep, @list) works
+ok 13 - join($sep, "a", "b", "c") works
+ok 14 - join($sep, ["a", "b", "c"]) works
+ok 15 - join $sep, @list works
+ok 16 - join ":", @list works
+ok 17 - join $sep, "a", "b", "c" works
+ok 18 - join(":", "a", "b", "c") works
+ok 19 - join $sep, $["a", "b", "c"] should not join anything
+ok 20 - join ":", $["a", "b", "c"] should not join anything
+ok 21 - join $sep, ["a", "b", "c"] works
+ok 22 - join ":", ["a", "b", "c"] works
+ok 23 - [].join("") works
+ok 24 - @list.join("") works
+ok 25 - join("", @list) works
+ok 26 - join("", 1, 2, 3) works
+ok 27 - join("", $["a", "b", "c"]) should not join anything
+ok 28 - join("", ["a", "b", "c"]) works
+ok 29 - join(":", @odd_list1) works
+ok 30 - join(":", @odd_list2) works
+ok 31 - ().join("") should dwim
+ok 32 - ().join("|") should dwim
+ok 33 - ().join($sep) should dwim
+ok 34 - &join works with one-element lists (1)
+ok 35 - &join works with one-element lists (2)
+ok 36 - &join works with one-element lists (3)
+ok 37 - "foo".join(":") should be the same as join(":", "foo")
+ok 38 - ("foo").join(":") should be the same as join(":", "foo")

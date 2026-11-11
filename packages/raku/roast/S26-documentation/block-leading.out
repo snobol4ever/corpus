@@ -1,0 +1,460 @@
+1..63
+# Subtest: Simple
+    1..7
+    ok 1 - simple case - contents
+    ok 2 - simple case - WHEREFORE
+    ok 3 - simple case - leading
+    ok 4 - simple case - no trailing
+    ok 5 - simple case - stringifies correctly
+    ok 6 - $=pod simple case - WHEREFORE
+    ok 7 - $=pod simple case
+ok 1 - Simple
+# Subtest: Outer
+    1..7
+    ok 1 - giraffe - contents
+    ok 2 - giraffe - WHEREFORE
+    ok 3 - giraffe - leading
+    ok 4 - giraffe - no trailing
+    ok 5 - giraffe - stringifies correctly
+    ok 6 - $=pod giraffe - WHEREFORE
+    ok 7 - $=pod giraffe
+ok 2 - Outer
+# Subtest: Outer::Inner
+    1..7
+    ok 1 - zebra - contents
+    ok 2 - zebra - WHEREFORE
+    ok 3 - zebra - leading
+    ok 4 - zebra - no trailing
+    ok 5 - zebra - stringifies correctly
+    ok 6 - $=pod zebra - WHEREFORE
+    ok 7 - $=pod zebra
+ok 3 - Outer::Inner
+# Subtest: foo
+    1..7
+    ok 1 - a module - contents
+    ok 2 - a module - WHEREFORE
+    ok 3 - a module - leading
+    ok 4 - a module - no trailing
+    ok 5 - a module - stringifies correctly
+    ok 6 - $=pod a module - WHEREFORE
+    ok 7 - $=pod a module
+ok 4 - foo
+# Subtest: foo::bar
+    1..7
+    ok 1 - a package - contents
+    ok 2 - a package - WHEREFORE
+    ok 3 - a package - leading
+    ok 4 - a package - no trailing
+    ok 5 - a package - stringifies correctly
+    ok 6 - $=pod a package - WHEREFORE
+    ok 7 - $=pod a package
+ok 5 - foo::bar
+# Subtest: foo::bar::baz
+    1..7
+    ok 1 - and a class - contents
+    ok 2 - and a class - WHEREFORE
+    ok 3 - and a class - leading
+    ok 4 - and a class - no trailing
+    ok 5 - and a class - stringifies correctly
+    ok 6 - $=pod and a class - WHEREFORE
+    ok 7 - $=pod and a class
+ok 6 - foo::bar::baz
+# Subtest: Sub
+    1..7
+    ok 1 - yellow - contents
+    ok 2 - yellow - WHEREFORE
+    ok 3 - yellow - leading
+    ok 4 - yellow - no trailing
+    ok 5 - yellow - stringifies correctly
+    ok 6 - $=pod yellow - WHEREFORE
+    ok 7 - $=pod yellow
+ok 7 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - pink - contents
+    ok 2 - pink - WHEREFORE
+    ok 3 - pink - leading
+    ok 4 - pink - no trailing
+    ok 5 - pink - stringifies correctly
+    ok 6 - $=pod pink - WHEREFORE
+    ok 7 - $=pod pink
+ok 8 - Sub
+# Subtest: Sheep
+    1..7
+    ok 1 - a sheep - contents
+    ok 2 - a sheep - WHEREFORE
+    ok 3 - a sheep - leading
+    ok 4 - a sheep - no trailing
+    ok 5 - a sheep - stringifies correctly
+    ok 6 - $=pod a sheep - WHEREFORE
+    ok 7 - $=pod a sheep
+ok 9 - Sheep
+# Subtest: Attribute
+    1..7
+    ok 1 - usually white - contents
+    ok 2 - usually white - WHEREFORE
+    ok 3 - usually white - leading
+    ok 4 - usually white - no trailing
+    ok 5 - usually white - stringifies correctly
+    ok 6 - $=pod usually white - WHEREFORE
+    ok 7 - $=pod usually white
+ok 10 - Attribute
+# Subtest: Method
+    1..7
+    ok 1 - not too scary - contents
+    ok 2 - not too scary - WHEREFORE
+    ok 3 - not too scary - leading
+    ok 4 - not too scary - no trailing
+    ok 5 - not too scary - stringifies correctly
+    ok 6 - $=pod not too scary - WHEREFORE
+    ok 7 - $=pod not too scary
+ok 11 - Method
+ok 12 - 
+# Subtest: Sub
+    1..7
+    ok 1 - our works too - contents
+    ok 2 - our works too - WHEREFORE
+    ok 3 - our works too - leading
+    ok 4 - our works too - no trailing
+    ok 5 - our works too - stringifies correctly
+    ok 6 - $=pod our works too - WHEREFORE
+    ok 7 - $=pod our works too
+ok 13 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - one - contents
+    ok 2 - one - WHEREFORE
+    ok 3 - one - leading
+    ok 4 - one - no trailing
+    ok 5 - one - stringifies correctly
+    ok 6 - $=pod one - WHEREFORE
+    ok 7 - $=pod one
+ok 14 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - two - contents
+    ok 2 - two - WHEREFORE
+    ok 3 - two - leading
+    ok 4 - two - no trailing
+    ok 5 - two - stringifies correctly
+    ok 6 - $=pod two - WHEREFORE
+    ok 7 - $=pod two
+ok 15 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - that will break - contents
+    ok 2 - that will break - WHEREFORE
+    ok 3 - that will break - leading
+    ok 4 - that will break - no trailing
+    ok 5 - that will break - stringifies correctly
+    ok 6 - $=pod that will break - WHEREFORE
+    ok 7 - $=pod that will break
+ok 16 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - that will break - contents
+    ok 2 - that will break - WHEREFORE
+    ok 3 - that will break - leading
+    ok 4 - that will break - no trailing
+    ok 5 - that will break - stringifies correctly
+    ok 6 - $=pod that will break - WHEREFORE
+    ok 7 - $=pod that will break
+ok 17 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - trailing space here - contents
+    ok 2 - trailing space here - WHEREFORE
+    ok 3 - trailing space here - leading
+    ok 4 - trailing space here - no trailing
+    ok 5 - trailing space here - stringifies correctly
+    ok 6 - $=pod trailing space here - WHEREFORE
+    ok 7 - $=pod trailing space here
+ok 18 - Sub
+# Subtest: Parameter
+    1..7
+    ok 1 - documented - contents
+    ok 2 - documented - WHEREFORE
+    ok 3 - documented - leading
+    ok 4 - documented - no trailing
+    ok 5 - documented - stringifies correctly
+    ok 6 - $=pod documented - WHEREFORE
+    ok 7 - $=pod documented
+ok 19 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - documented - contents
+    ok 2 - documented - WHEREFORE
+    ok 3 - documented - leading
+    ok 4 - documented - no trailing
+    ok 5 - documented - stringifies correctly
+    ok 6 - $=pod documented - WHEREFORE
+    ok 7 - $=pod documented
+ok 20 - Parameter
+ok 21 - Second param should not be documented
+# Subtest: Parameter
+    1..7
+    ok 1 - documented - contents
+    ok 2 - documented - WHEREFORE
+    ok 3 - documented - leading
+    ok 4 - documented - no trailing
+    ok 5 - documented - stringifies correctly
+    ok 6 - $=pod documented - WHEREFORE
+    ok 7 - $=pod documented
+ok 22 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - I too, am documented - contents
+    ok 2 - I too, am documented - WHEREFORE
+    ok 3 - I too, am documented - leading
+    ok 4 - I too, am documented - no trailing
+    ok 5 - I too, am documented - stringifies correctly
+    ok 6 - $=pod I too, am documented - WHEREFORE
+    ok 7 - $=pod I too, am documented
+ok 23 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - leading - contents
+    ok 2 - leading - WHEREFORE
+    ok 3 - leading - leading
+    ok 4 - leading - no trailing
+    ok 5 - leading - stringifies correctly
+    ok 6 - $=pod leading - WHEREFORE
+    ok 7 - $=pod leading
+ok 24 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - invocant comment - contents
+    ok 2 - invocant comment - WHEREFORE
+    ok 3 - invocant comment - leading
+    ok 4 - invocant comment - no trailing
+    ok 5 - invocant comment - stringifies correctly
+    ok 6 - $=pod invocant comment - WHEREFORE
+    ok 7 - $=pod invocant comment
+ok 25 - Parameter
+# Subtest: Boxer
+    1..7
+    ok 1 - Are you talking to me? - contents
+    ok 2 - Are you talking to me? - WHEREFORE
+    ok 3 - Are you talking to me? - leading
+    ok 4 - Are you talking to me? - no trailing
+    ok 5 - Are you talking to me? - stringifies correctly
+    ok 6 - $=pod Are you talking to me? - WHEREFORE
+    ok 7 - $=pod Are you talking to me?
+ok 26 - Boxer
+# Subtest: Method
+    1..7
+    ok 1 - Robert De Niro - contents
+    ok 2 - Robert De Niro - WHEREFORE
+    ok 3 - Robert De Niro - leading
+    ok 4 - Robert De Niro - no trailing
+    ok 5 - Robert De Niro - stringifies correctly
+    ok 6 - $=pod Robert De Niro - WHEREFORE
+    ok 7 - $=pod Robert De Niro
+ok 27 - Method
+# Subtest: Submethod
+    1..7
+    ok 1 - Bob - contents
+    ok 2 - Bob - WHEREFORE
+    ok 3 - Bob - leading
+    ok 4 - Bob - no trailing
+    ok 5 - Bob - stringifies correctly
+    ok 6 - $=pod Bob - WHEREFORE
+    ok 7 - $=pod Bob
+ok 28 - Submethod
+# Subtest: Method
+    1..7
+    ok 1 - Takes a single argument - contents
+    ok 2 - Takes a single argument - WHEREFORE
+    ok 3 - Takes a single argument - leading
+    ok 4 - Takes a single argument - no trailing
+    ok 5 - Takes a single argument - stringifies correctly
+    ok 6 - $=pod Takes a single argument - WHEREFORE
+    ok 7 - $=pod Takes a single argument
+ok 29 - Method
+# Subtest: Method
+    1..7
+    ok 1 - Single Int argument - contents
+    ok 2 - Single Int argument - WHEREFORE
+    ok 3 - Single Int argument - leading
+    ok 4 - Single Int argument - no trailing
+    ok 5 - Single Int argument - stringifies correctly
+    ok 6 - $=pod Single Int argument - WHEREFORE
+    ok 7 - $=pod Single Int argument
+ok 30 - Method
+# Subtest: Method
+    1..7
+    ok 1 - Single Str argument - contents
+    ok 2 - Single Str argument - WHEREFORE
+    ok 3 - Single Str argument - leading
+    ok 4 - Single Str argument - no trailing
+    ok 5 - Single Str argument - stringifies correctly
+    ok 6 - $=pod Single Str argument - WHEREFORE
+    ok 7 - $=pod Single Str argument
+ok 31 - Method
+# Subtest: G
+    1..7
+    ok 1 - grammar - contents
+    ok 2 - grammar - WHEREFORE
+    ok 3 - grammar - leading
+    ok 4 - grammar - no trailing
+    ok 5 - grammar - stringifies correctly
+    ok 6 - $=pod grammar - WHEREFORE
+    ok 7 - $=pod grammar
+ok 32 - G
+# Subtest: Regex
+    1..7
+    ok 1 - rule - contents
+    ok 2 - rule - WHEREFORE
+    ok 3 - rule - leading
+    ok 4 - rule - no trailing
+    ok 5 - rule - stringifies correctly
+    ok 6 - $=pod rule - WHEREFORE
+    ok 7 - $=pod rule
+ok 33 - Regex
+# Subtest: Regex
+    1..7
+    ok 1 - token - contents
+    ok 2 - token - WHEREFORE
+    ok 3 - token - leading
+    ok 4 - token - no trailing
+    ok 5 - token - stringifies correctly
+    ok 6 - $=pod token - WHEREFORE
+    ok 7 - $=pod token
+ok 34 - Regex
+# Subtest: Regex
+    1..7
+    ok 1 - regex - contents
+    ok 2 - regex - WHEREFORE
+    ok 3 - regex - leading
+    ok 4 - regex - no trailing
+    ok 5 - regex - stringifies correctly
+    ok 6 - $=pod regex - WHEREFORE
+    ok 7 - $=pod regex
+ok 35 - Regex
+# Subtest: Sub
+    1..7
+    ok 1 - solo - contents
+    ok 2 - solo - WHEREFORE
+    ok 3 - solo - leading
+    ok 4 - solo - no trailing
+    ok 5 - solo - stringifies correctly
+    ok 6 - $=pod solo - WHEREFORE
+    ok 7 - $=pod solo
+ok 36 - Sub
+ok 37 - 
+# Subtest: Sub
+    1..7
+    ok 1 - no proto - contents
+    ok 2 - no proto - WHEREFORE
+    ok 3 - no proto - leading
+    ok 4 - no proto - no trailing
+    ok 5 - no proto - stringifies correctly
+    ok 6 - $=pod no proto - WHEREFORE
+    ok 7 - $=pod no proto
+ok 38 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - variant A - contents
+    ok 2 - variant A - WHEREFORE
+    ok 3 - variant A - leading
+    ok 4 - variant A - no trailing
+    ok 5 - variant A - stringifies correctly
+    ok 6 - $=pod variant A - WHEREFORE
+    ok 7 - $=pod variant A
+ok 39 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - variant B - contents
+    ok 2 - variant B - WHEREFORE
+    ok 3 - variant B - leading
+    ok 4 - variant B - no trailing
+    ok 5 - variant B - stringifies correctly
+    ok 6 - $=pod variant B - WHEREFORE
+    ok 7 - $=pod variant B
+ok 40 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - proto - contents
+    ok 2 - proto - WHEREFORE
+    ok 3 - proto - leading
+    ok 4 - proto - no trailing
+    ok 5 - proto - stringifies correctly
+    ok 6 - $=pod proto - WHEREFORE
+    ok 7 - $=pod proto
+ok 41 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - alpha - contents
+    ok 2 - alpha - WHEREFORE
+    ok 3 - alpha - leading
+    ok 4 - alpha - no trailing
+    ok 5 - alpha - stringifies correctly
+    ok 6 - $=pod alpha - WHEREFORE
+    ok 7 - $=pod alpha
+ok 42 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - beta - contents
+    ok 2 - beta - WHEREFORE
+    ok 3 - beta - leading
+    ok 4 - beta - no trailing
+    ok 5 - beta - stringifies correctly
+    ok 6 - $=pod beta - WHEREFORE
+    ok 7 - $=pod beta
+ok 43 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - Roy - contents
+    ok 2 - Roy - WHEREFORE
+    ok 3 - Roy - leading
+    ok 4 - Roy - no trailing
+    ok 5 - Roy - stringifies correctly
+    ok 6 - $=pod Roy - WHEREFORE
+    ok 7 - $=pod Roy
+ok 44 - Sub
+# Subtest: Sub+{Callable[Str]}
+    1..7
+    ok 1 - Anonymous - contents
+    ok 2 - Anonymous - WHEREFORE
+    ok 3 - Anonymous - leading
+    ok 4 - Anonymous - no trailing
+    ok 5 - Anonymous - stringifies correctly
+    ok 6 - $=pod Anonymous - WHEREFORE
+    ok 7 - $=pod Anonymous
+ok 45 - Sub+{Callable[Str]}
+# Subtest: Colors
+    1..7
+    ok 1 - Enumeration - contents
+    ok 2 - Enumeration - WHEREFORE
+    ok 3 - Enumeration - leading
+    ok 4 - Enumeration - no trailing
+    ok 5 - Enumeration - stringifies correctly
+    ok 6 - $=pod Enumeration - WHEREFORE
+    ok 7 - $=pod Enumeration
+ok 46 - Colors
+# Subtest: EvenNum
+    1..7
+    ok 1 - Even - contents
+    ok 2 - Even - WHEREFORE
+    ok 3 - Even - leading
+    ok 4 - Even - no trailing
+    ok 5 - Even - stringifies correctly
+    ok 6 - $=pod Even - WHEREFORE
+    ok 7 - $=pod Even
+ok 47 - EvenNum
+ok 48 - # SKIP declaration comments are NYI on constants
+ok 49 - # SKIP declaration comments are NYI on constants
+ok 50 - # SKIP declaration comments are NYI on constants
+ok 51 - # SKIP declaration comments are NYI on constants
+ok 52 - # SKIP declaration comments are NYI on constants
+ok 53 - # SKIP declaration comments are NYI on constants
+ok 54 - # SKIP declaration comments are NYI on constants
+ok 55 - # SKIP declaration comments are NYI on variables
+ok 56 - # SKIP declaration comments are NYI on variables
+ok 57 - # SKIP declaration comments are NYI on variables
+ok 58 - # SKIP declaration comments are NYI on variables
+ok 59 - # SKIP declaration comments are NYI on variables
+ok 60 - # SKIP declaration comments are NYI on variables
+ok 61 - # SKIP declaration comments are NYI on variables
+ok 62 - 
+ok 63 - Can put multi-line Pod on a role with a required method

@@ -1,0 +1,29 @@
+1..5
+ok 1 - Regular file EOF was reached
+ok 2 - /proc file EOF was reached
+# Subtest: .eof on TTY STDIN works right
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - exit code
+ok 3 - .eof on TTY STDIN works right
+# Subtest: .eof works right even when we seek past end and back
+    1..6
+    ok 1 - freshly opened
+    ok 2 - seek'ed past end
+    ok 3 - seek'ed back into the actual contents
+    ok 4 - slurped contents
+    ok 5 - seek'ed back
+    ok 6 - seek'ed past end again
+ok 4 - .eof works right even when we seek past end and back
+# Subtest: .eof on empty files
+    1..3
+    ok 1 - eof is False before any reads
+    ok 2 - eof is True after a read
+    # Subtest: reading from '/proc/76838/status'
+        1..3
+        ok 1 - eof is False before any reads
+        ok 2 - .get reads something
+        ok 3 - eof is True after slurpage
+    ok 3 - reading from '/proc/76838/status'
+ok 5 - .eof on empty files

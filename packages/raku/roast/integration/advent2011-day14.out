@@ -1,0 +1,9 @@
+1..8
+ok 1 - single inheritance (lives)
+ok 2 - multiple inheritance (dies)
+ok 3 - Called double with 3
+ok 4 - double returned with 6
+ok 5 - aop
+ok 6 - Called square with 3
+ok 7 - square returned with 9
+ok 8 - aop

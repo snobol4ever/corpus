@@ -1,0 +1,50 @@
+1..42
+ok 1 - The object is-a 'Sub'
+ok 2 - sub { } works
+ok 3 - The object is-a 'Sub'
+ok 4 - sub ($arg) {} works
+ok 5 - The object is-a 'Block'
+ok 6 - {} <anon block> works
+not ok 7 - too many parameters # TODO Parrot support for zero-arg subs?
+# Failed test 'too many parameters'
+# at S02-types/anon_block.rakudo line 35
+ok 8 - # SKIP tests don't work if previous test fails
+ok 9 - # SKIP tests don't work if previous test fails
+ok 10 - The object is-a 'Block'
+ok 11 - -> {} <"pointy" block> works
+ok 12 - The object is-a 'Block'
+ok 13 - -> $arg {} <"pointy" block w/args> works
+ok 14 - The object is-a 'Block'
+ok 15 - -> $arg1, $arg2 {} <"pointy" block w/multiple args> works
+ok 16 - The object is-a 'Block'
+ok 17 - The object is-a 'Block'
+ok 18 - -> $a { -> $b { $a+$b }} nested <"pointy" block> works
+ok 19 - lone block actually executes it's content
+ok 20 - lone block w/out a semicolon actually executes it's content
+ok 21 - block enclosed by parentheses should not auto-execute (2)
+ok 22 - two blocks ({} {}) no semicolon after either,.. first block does not execute
+ok 23 - ... but second block does (parsed as hash subscript)
+ok 24 - ... two blocks ({}; {}) semicolon after the first only,.. first block does execute
+ok 25 - ... and second block does too
+ok 26 - ... two stand-alone blocks ({\n...\n}\n{\n...\n}),.. first block does execute
+ok 27 - ... and second block does too
+ok 28 - ... two blocks ({}; {};) semicolon after both,.. first block does execute
+ok 29 - ... and second block does too
+ok 30 - bare blocks immediately runs even as the last statement
+ok 31 - ditto for anonymous subs
+ok 32 - ditto, even if nested
+# Subtest: implicit params become errors
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 33 - implicit params become errors
+ok 34 - as are pointies
+ok 35 - check that sub is callable via &
+ok 36 - call via { &^pos() }( &s ) works for sub
+ok 37 - call via -> &point { &point() }.( &s ) works for sub
+ok 38 - call via (sub (&x) { &x() }).( &s ) works for sub
+ok 39 - check that mutli is callable via &
+ok 40 - call via { &^pos() }( &s ) works for multi
+ok 41 - call via -> &point { &point() }.( &s ) works for multi
+ok 42 - call via (sub (&x) { &x() }).( &s ) works for multi
+# FUDGED!

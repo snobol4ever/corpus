@@ -1,0 +1,237 @@
+1..7
+# Subtest: two-arg version + optional description
+    1..10
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - test desc zero
+    ok 5 - test desc one
+    ok 6 - test desc two
+    not ok 7 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 13
+    #     expected approximately: 6
+    #                        got: 5
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: 0.166667
+    ok 8 - should fail; expected is not within precision
+    not ok 9 - test desc three # TODO should fail; expected is not within precision
+    # Failed test 'test desc three'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 13
+    #     expected approximately: 6
+    #                        got: 5
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: 0.166667
+    ok 10 - should fail; expected is not within precision
+ok 1 - two-arg version + optional description
+# Subtest: tree-arg version + optional description
+    1..10
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - test desc zero
+    ok 5 - test desc one
+    ok 6 - test desc two
+    not ok 7 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 26
+    #     expected approximately: 5.000001
+    #                        got: 5
+    # maximum absolute tolerance: 1e-10
+    # actual absolute difference: 1.000000000139778e-06
+    ok 8 - should fail; expected is not within precision
+    not ok 9 - test desc three # TODO should fail; expected is not within precision
+    # Failed test 'test desc three'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 26
+    #     expected approximately: 4.999999
+    #                        got: 5
+    # maximum absolute tolerance: 1e-10
+    # actual absolute difference: 1.000000000139778e-06
+    ok 10 - should fail; expected is not within precision
+ok 2 - tree-arg version + optional description
+# Subtest: rel-tol version + optional description
+    1..14
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+    ok 5 - 
+    ok 6 - test desc zero
+    ok 7 - test desc one
+    ok 8 - test desc two
+    ok 9 - test desc three
+    ok 10 - test desc four
+    not ok 11 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 39
+    #     expected approximately: 1000000
+    #                        got: 1000
+    # maximum relative tolerance: .9
+    # actual relative difference: 0.999
+    ok 12 - should fail; expected is not within precision
+    not ok 13 - test desc five # TODO should fail; expected is not within precision
+    # Failed test 'test desc five'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 39
+    #     expected approximately: 1000000
+    #                        got: 1000
+    # maximum relative tolerance: .9
+    # actual relative difference: 0.999
+    ok 14 - should fail; expected is not within precision
+ok 3 - rel-tol version + optional description
+# Subtest: abs-tol version + optional description
+    1..14
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+    ok 5 - 
+    ok 6 - test desc one
+    ok 7 - test desc one
+    ok 8 - test desc two
+    ok 9 - test desc three
+    ok 10 - test desc four
+    not ok 11 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 56
+    #     expected approximately: 1000000
+    #                        got: 1000
+    # maximum absolute tolerance: 10
+    # actual absolute difference: 999000
+    ok 12 - should fail; expected is not within precision
+    not ok 13 - test desc five # TODO should fail; expected is not within precision
+    # Failed test 'test desc five'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 56
+    #     expected approximately: 1.5
+    #                        got: 1
+    # maximum absolute tolerance: .4
+    # actual absolute difference: 0.5
+    ok 14 - should fail; expected is not within precision
+ok 4 - abs-tol version + optional description
+# Subtest: abs-tol + rel-tol version + optional description
+    1..22
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+    ok 5 - 
+    ok 6 - test desc one
+    ok 7 - test desc one
+    ok 8 - test desc two
+    ok 9 - test desc three
+    ok 10 - test desc four
+    not ok 11 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 73
+    #     expected approximately: 10
+    #                        got: 1
+    # maximum absolute tolerance: 5
+    # actual absolute difference: 9
+    ok 12 - should fail; expected is not within precision
+    not ok 13 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 73
+    #     expected approximately: 10
+    #                        got: 1
+    # maximum relative tolerance: .5
+    # actual relative difference: 0.9
+    ok 14 - should fail; expected is not within precision
+    not ok 15 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 73
+    #     expected approximately: 10
+    #                        got: 1
+    # maximum absolute tolerance: 5
+    # actual absolute difference: 9
+    # maximum relative tolerance: .5
+    # actual relative difference: 0.9
+    ok 16 - should fail; expected is not within precision
+    not ok 17 - test desc five # TODO should fail; expected is not within precision
+    # Failed test 'test desc five'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 73
+    #     expected approximately: 10
+    #                        got: 1
+    # maximum absolute tolerance: 5
+    # actual absolute difference: 9
+    ok 18 - should fail; expected is not within precision
+    not ok 19 - test desc six # TODO should fail; expected is not within precision
+    # Failed test 'test desc six'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 73
+    #     expected approximately: 10
+    #                        got: 1
+    # maximum relative tolerance: .5
+    # actual relative difference: 0.9
+    ok 20 - should fail; expected is not within precision
+    not ok 21 - test desc seven # TODO should fail; expected is not within precision
+    # Failed test 'test desc seven'
+    # at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 73
+    #     expected approximately: 10
+    #                        got: 1
+    # maximum absolute tolerance: 5
+    # actual absolute difference: 9
+    # maximum relative tolerance: .5
+    # actual relative difference: 0.9
+    ok 22 - should fail; expected is not within precision
+ok 5 - abs-tol + rel-tol version + optional description
+# Subtest: abs tol is correctly calculated
+    1..12
+    ok 1 - 
+    not ok 2 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 100
+    #     expected approximately: 2.0000000001
+    #                        got: 1
+    # maximum absolute tolerance: 1
+    # actual absolute difference: 1.0000000001
+    ok 3 - should fail; expected is not within precision
+    ok 4 - 
+    not ok 5 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 100
+    #     expected approximately: 1
+    #                        got: 2.0000000001
+    # maximum absolute tolerance: 1
+    # actual absolute difference: 1.0000000001
+    ok 6 - should fail; expected is not within precision
+    ok 7 - 
+    not ok 8 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 100
+    #     expected approximately: -2.0000000001
+    #                        got: -1
+    # maximum absolute tolerance: 1
+    # actual absolute difference: 1.0000000001
+    ok 9 - should fail; expected is not within precision
+    ok 10 - 
+    not ok 11 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 100
+    #     expected approximately: -1
+    #                        got: -2.0000000001
+    # maximum absolute tolerance: 1
+    # actual absolute difference: 1.0000000001
+    ok 12 - should fail; expected is not within precision
+ok 6 - abs tol is correctly calculated
+# Subtest: rel tol is correctly calculated
+    1..12
+    ok 1 - 
+    not ok 2 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 114
+    #     expected approximately: 10.0000000001
+    #                        got: 1
+    # maximum relative tolerance: .9
+    # actual relative difference: 0.900000000001
+    ok 3 - should fail; expected is not within precision
+    ok 4 - 
+    not ok 5 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 114
+    #     expected approximately: 1
+    #                        got: 10.0000000001
+    # maximum relative tolerance: .9
+    # actual relative difference: 0.900000000001
+    ok 6 - should fail; expected is not within precision
+    ok 7 - 
+    not ok 8 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 114
+    #     expected approximately: -10.0000000001
+    #                        got: -1
+    # maximum relative tolerance: .9
+    # actual relative difference: 0.900000000001
+    ok 9 - should fail; expected is not within precision
+    ok 10 - 
+    not ok 11 -  # TODO should fail; expected is not within precision
+    # Failed test at /tmp/s4e/cao/fudge/m/S24-testing/10-is-approx.t line 114
+    #     expected approximately: -1
+    #                        got: -10.0000000001
+    # maximum relative tolerance: .9
+    # actual relative difference: 0.900000000001
+    ok 12 - should fail; expected is not within precision
+ok 7 - rel tol is correctly calculated

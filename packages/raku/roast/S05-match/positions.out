@@ -1,0 +1,18 @@
+1..13
+ok 1 - Match from start
+ok 2 - Match.from is 0
+ok 3 - Match.to is 7
+ok 4 - Match.chars
+ok 5 - Match from 3
+ok 6 - Match.from is 3
+ok 7 - Subrule match from 3
+ok 8 - Full match pos is 0
+ok 9 - Subrule match pos is 3
+ok 10 - Failed match returns Nil
+ok 11 - List.from
+ok 12 - List.to
+# Subtest: $/ is constructed in all blocks inside regexes
+    1..2
+    ok 1 - regex matched
+    ok 2 - blocks returned correct $/.to values
+ok 13 - $/ is constructed in all blocks inside regexes

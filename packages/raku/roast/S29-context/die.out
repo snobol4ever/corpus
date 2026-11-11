@@ -1,0 +1,18 @@
+1..17
+ok 1 - die in try cuts off execution
+ok 2 - got $! correctly
+ok 3 - 
+ok 4 - die() in recursively called sub
+ok 5 - die in map
+ok 6 - die in grep
+ok 7 - die in sort
+ok 8 - die in reduce
+ok 9 - die in for
+ok 10 - die in if
+ok 11 - die in return
+ok 12 - die with argument sets $!
+ok 13 - die with no argument uses $!
+ok 14 - die with no output
+ok 15 - say something and die
+ok 16 - basic sanity
+ok 17 - die() in combination with Test.rakumod exists non-zero-ish

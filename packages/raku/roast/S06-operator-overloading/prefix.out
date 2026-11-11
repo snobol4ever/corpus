@@ -1,0 +1,15 @@
+1..10
+ok 1 - prefix operator overloading for new operator
+ok 2 - prefix operator overloading for new operator (unicode, latin-1 range)
+ok 3 - prefix operator overloading for new operator (nasty)
+ok 4 - prefix operator overloading for new operator (unicode, U+2214 DOT PLUS)
+ok 5 - prefix operator overloading for new operator Z
+ok 6 - prefix operator overloading for new operator (unicode, U+2213 MINUS-OR-PLUS SIGN)
+ok 7 - prefix operator overloading for new operator (unicode, \x[2213] MINUS-OR-PLUS SIGN)
+ok 8 - prefix operator overloading for new operator (unicode, \c[MINUS-OR-PLUS SIGN])
+ok 9 - prefix operator overloading for existing operator
+# Subtest: coverage for crashes in certain operator setups
+    1..2
+    ok 1 - # SKIP RT \#132711
+    ok 2 - # SKIP RT \#132711
+ok 10 - coverage for crashes in certain operator setups

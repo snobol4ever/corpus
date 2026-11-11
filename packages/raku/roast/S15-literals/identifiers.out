@@ -1,0 +1,16 @@
+1..7
+ok 1 - Handles ASCII identifier
+ok 2 - Handles non-ASCII identifier
+# Subtest: Doesn't allow non-ASCII digits at start of identifier
+    1..2
+    ok 1 - 'my $১০kinds' died
+    ok 2 - right exception type (X::Syntax::Variable::Numeric)
+ok 3 - Doesn't allow non-ASCII digits at start of identifier
+# Subtest: Combining marks not allowed as first character of identifier
+    1..2
+    ok 1 - 'my $̈a;' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 4 - Combining marks not allowed as first character of identifier
+ok 5 - Identifiers are normalized
+ok 6 - Identifiers are not put through compatability decomposition
+ok 7 - Identifiers are not put through compatability decomposition

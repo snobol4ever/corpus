@@ -1,0 +1,47 @@
+1..36
+ok 1 - 
+ok 2 - 
+ok 3 - 
+ok 4 - 
+ok 5 - multiple ENTER/LEAVE worked
+ok 6 - ENTER/LEAVE repeats on loop blocks
+ok 7 - basic sanity check (1)
+ok 8 - LEAVE executed at the 1st explicit return
+ok 9 - basic sanity check (2)
+ok 10 - LEAVE executed at the 2nd explicit return
+ok 11 - # SKIP leave NYI RT  \#124960
+ok 12 - die calls LEAVE blocks
+ok 13 - $! set in LEAVE if exception thrown
+not ok 14 - $! not set in LEAVE if exception not thrown # TODO is this spec? why would LEAVE not see outer $!? fossil?
+# Failed test '$! not set in LEAVE if exception not thrown'
+# at S04-phasers/enter-leave.rakudo line 125
+# expected: 'ayeno'
+#      got: 'ayeyes'
+ok 15 - die in ENTER caught by try
+ok 16 - die in LEAVE caught by try
+ok 17 - die in ENTER calls LEAVE
+ok 18 - die aborts ENTER queue
+ok 19 - die doesn't abort LEAVE queue
+ok 20 - single exception from LEAVE is rethrown after running LEAVEs
+ok 21 - LEAVE fires in a multi sub
+ok 22 - next triggers LEAVE
+ok 23 - can run for loop in phaser in for loop
+ok 24 - LEAVE fires after die in sub
+ok 25 - "last" triggers LEAVE phaser in loop
+ok 26 - "next" triggers LEAVE phaser in "for" loop
+ok 27 - ENTER works as an r-value (mainline)
+ok 28 - ENTER works as an r-value (sub)
+ok 29 - return in nested block with LEAVE works
+# Subtest: did we throws-like X::PhaserExceptions?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::PhaserExceptions)
+    ok 3 - .exceptions matches sub { }
+ok 30 - did we throws-like X::PhaserExceptions?
+ok 31 - using ENTER inside LEAVE does not crash
+ok 32 - decont in ENTER works without locals
+ok 33 - Did ENTER only run once
+ok 34 - Did the ENTER only fire once
+ok 35 - did foo return the correct value
+ok 36 - did the LEAVE phaser fire
+# FUDGED!

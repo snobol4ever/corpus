@@ -1,0 +1,93 @@
+1..80
+ok 1 - The object is-a 'Array'
+ok 2 - The object is-a 'Pair'
+ok 3 - the array has one value in it
+ok 4 - The object is-a 'Pair'
+ok 5 - got the right pair value
+ok 6 - the array has two values in it
+ok 7 - The object is-a 'Pair'
+ok 8 - got the right pair value
+ok 9 - The object is-a 'Array'
+ok 10 - The object is-a 'Hash'
+ok 11 - our hash has two keys
+ok 12 - the array has one value in it
+ok 13 - The object is-a 'Hash'
+ok 14 - got the right value for key
+ok 15 - got the right value1 for key1
+ok 16 - The object is-a 'Array'
+ok 17 - got 4 elements in the Array of Arrays
+ok 18 - got the right first element
+ok 19 - The object is-a 'Array'
+ok 20 - got the right second/first element
+ok 21 - got the right second/second element
+ok 22 - The object is-a 'Array'
+ok 23 - got the right third/first element
+ok 24 - got the right third/second element
+ok 25 - got the right fourth element
+ok 26 - The object is-a 'Array'
+ok 27 - got three elements in the Array
+ok 28 - The object is-a 'Sub'
+ok 29 - The object is-a 'Block'
+ok 30 - The object is-a 'Block'
+ok 31 - the first element (when executed) is 1
+ok 32 - the second element (when executed) is 2
+ok 33 - the third element (when executed) is 3
+ok 34 - The object is-a 'Hash'
+ok 35 - The object is-a 'Array'
+ok 36 - it should have 3 values in it
+ok 37 - got the right value
+ok 38 - got the right value
+ok 39 - got the right value
+ok 40 - it should have 3 values in it
+ok 41 - got the right value (when I pull the array out)
+ok 42 - got the right value (when I pull the array out)
+ok 43 - got the right value (when I pull the array out)
+ok 44 - it should now have 4 values in it
+ok 45 - got the right value (which we just pushed onto the list)
+ok 46 - The object is-a 'Hash'
+ok 47 - The object is-a 'Array'
+ok 48 - The object is-a 'Array'
+ok 49 - it should have 3 values in it
+ok 50 - got the right value
+ok 51 - got the right value
+ok 52 - got the right value
+ok 53 - it should have 3 values in it
+ok 54 - got the right value (when I pull the array out)
+ok 55 - got the right value (when I pull the array out)
+ok 56 - got the right value (when I pull the array out)
+ok 57 - it should now have 4 values in it
+ok 58 - got the right value (which we just pushed onto the array)
+ok 59 - itemized hash should not get decomposed
+ok 60 - itemized hash should not get decomposed
+ok 61 - itemized hash should not get decomposed
+ok 62 - array nested in hashitem in one declaration
+ok 63 - The object is-a 'Array'
+ok 64 - The object is-a 'Array'
+ok 65 - The object is-a 'Array'
+ok 66 - The object is-a 'Array'
+ok 67 - The object is-a 'Array'
+ok 68 - 5 level deep arrays only structure
+ok 69 - The object is-a 'Array'
+ok 70 - The object is-a 'Hash'
+ok 71 - The object is-a 'Array'
+ok 72 - The object is-a 'Hash'
+ok 73 - one key at level 4
+ok 74 - The object is-a 'Array'
+ok 75 - The object is-a 'Hash'
+ok 76 - 6 level deep mixed structure
+ok 77 - The object is-a 'Hash'
+not ok 78 - The object is-a 'Hash' # TODO isa hash
+# Failed test 'The object is-a 'Hash''
+# at S02-types/mixed_multi_dimensional.rakudo line 196
+# Actual type: Any
+not ok 79 - two keys at level 4 # TODO unknown
+# Failed test 'two keys at level 4'
+# at S02-types/mixed_multi_dimensional.rakudo line 198
+# expected: '2'
+#      got: '1'
+not ok 80 - more keys at level 4 # TODO unknown
+# Failed test 'more keys at level 4'
+# at S02-types/mixed_multi_dimensional.rakudo line 199
+# expected: '5'
+#      got: (Any)
+# FUDGED!

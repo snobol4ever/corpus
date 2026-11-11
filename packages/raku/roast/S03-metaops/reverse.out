@@ -1,0 +1,103 @@
+1..72
+ok 1 - 4 Rcmp 5
+ok 2 - 4 Rcmp 5 is the same type as 5 cmp 4
+ok 3 - 4.3 Rcmp 5
+ok 4 - 4.3 Rcmp 5 is the same type as 5 cmp 4.3
+ok 5 - 4.3 Rcmp 5.Num
+ok 6 - 4.3 Rcmp 5.Num is the same type as 5.Num cmp 4.3
+ok 7 - 4.3i Rcmp 5.Num
+ok 8 - 4.3i Rcmp 5.Num is the same type as 5.Num cmp 4.3i
+ok 9 - 4 R+ 5
+ok 10 - 4 R+ 5 is the same type as 5 + 4
+ok 11 - 4 R- 5
+ok 12 - 4 R- 5 is the same type as 5 - 4
+ok 13 - 4 R* 5
+ok 14 - 4 R* 5 is the same type as 5 * 4
+ok 15 - 4 R/ 5
+ok 16 - 4 R/ 5 is the same type as 5 / 4
+ok 17 - 4 Rdiv 5
+ok 18 - 4 Rdiv 5 is the same type as 5 div 4
+ok 19 - 4 R% 5
+ok 20 - 4 R% 5 is the same type as 5 % 4
+ok 21 - 4 R** 5
+ok 22 - 4 R** 5 is the same type as 5 ** 4
+ok 23 - 4 R< 5
+ok 24 - 4 R< 5 is the same type as 5 < 4
+ok 25 - 4 R> 5
+ok 26 - 4 R> 5 is the same type as 5 > 4
+ok 27 - 4 R== 5
+ok 28 - 4 R== 5 is the same type as 5 == 4
+ok 29 - 4 Rcmp 5
+ok 30 - 4 Rcmp 5 is the same type as 5 cmp 4
+ok 31 - R/ gets precedence of /
+ok 32 - Rop gets the precedence of op
+ok 33 - Rop gets list_infix precedence correctly
+# Subtest: Cannot assign to return value of R~
+    1..2
+    ok 1 - '("a" R~ "b") = 1' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 34 - Cannot assign to return value of R~
+ok 35 - R= works
+# Subtest: adequate error message on trying to metaop-reverse binding (:=)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot reverse the args of := because list assignment operators are too fiddly
+ok 36 - adequate error message on trying to metaop-reverse binding (:=)
+ok 37 - [R/]= works correctly (1)
+ok 38 - [R/]= works correctly (2)
+ok 39 - [Rop]= works correctly.
+ok 40 - Rxx thunks the RHS
+ok 41 - RRxx thunks the LHS again
+ok 42 - RRRxx thunks the RHS again
+ok 43 - Rxx thunks left side properly
+ok 44 - Rxx thunk runs when needed
+ok 45 - Rxx thunk runs repeatedly when needed
+ok 46 - Rand thunks left side properly
+ok 47 - Rand thunks runs when needed
+ok 48 - R&& thunks left side properly
+ok 49 - R&& thunk runs when needed
+ok 50 - Ror thunks left side properly
+ok 51 - Ror thunk runs when needed
+ok 52 - R|| thunks left side properly
+ok 53 - R|| thunk runs when needed
+ok 54 - Randthen thunks left side properly
+ok 55 - Randthen thunks runs when needed
+ok 56 - Randthen topicalizes when needed
+ok 57 - Rorelse thunks left side properly
+ok 58 - Rorelse thunk runs when needed
+ok 59 - Rorelse topicalizes when needed
+# Subtest: R. is too fiddly
+    1..2
+    ok 1 - '3 R. foo' died
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 60 - R. is too fiddly
+# Subtest: R. can't do P5 concat
+    1..2
+    ok 1 - '3 R. "foo"' died
+    ok 2 - right exception type (X::Obsolete)
+ok 61 - R. can't do P5 concat
+ok 62 - Meta reverse R/ can autogen
+ok 63 - Meta reverse RR/ can autogen
+ok 64 - Meta reverse R/ can autogen without &
+ok 65 - Meta reverse R/ can autogen with &[]
+ok 66 - Meta reverse Rop can autogen with user-defined op
+ok 67 - Meta reverse Rop autogen with user-overridden op stays local to block
+ok 68 - List associative operators and R interact OK
+# Subtest: [R~]=
+    1..4
+    ok 1 - assign to :U, return value
+    ok 2 - assign to :U, result
+    ok 3 - assign to :D, return value
+    ok 4 - assign to :D, result
+ok 69 - [R~]=
+ok 70 - call doesn't throw
+ok 71 - named is good
+# Subtest: did we throws-like X::Syntax::CannotMeta?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+    ok 3 - .operator matches =
+    ok 4 - .reason matches too fiddly
+    ok 5 - .meta matches reverse the args of
+ok 72 - did we throws-like X::Syntax::CannotMeta?

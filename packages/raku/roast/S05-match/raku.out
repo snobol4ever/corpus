@@ -1,0 +1,21 @@
+1..13
+ok 1 - Regex matches (1)
+ok 2 - $/.raku lives (with named captures
+ok 3 - ... and it reproduces the right thing (1)
+ok 4 -  right result (2)
+ok 5 - Regex matches (2)
+ok 6 - lives on quantified named captures
+ok 7 - # SKIP <foo::bar>
+ok 8 - # SKIP <foo::bar>
+ok 9 - # SKIP <foo::bar>
+ok 10 - # SKIP <foo::bar>
+r
+
+ok 11 - can call .say on Match
+r
+
+ok 12 - can call .put on Match
+r
+
+ok 13 - can call .note on Match
+# FUDGED!

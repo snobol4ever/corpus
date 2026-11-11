@@ -1,0 +1,9 @@
+1..8
+ok 1 - hash() makes a hash
+ok 2 - hash() doesn't auto-hash foo
+ok 3 - hash() builds a sensible hash
+ok 4 - hash() builds a sensible hash
+ok 5 - hash() builds a sensible hash
+ok 6 - hash() on list of pairs lives (RT  \#76826)
+ok 7 - hash() won't create invalid hash
+ok 8 - hash() is false

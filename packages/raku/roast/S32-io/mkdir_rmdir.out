@@ -1,0 +1,31 @@
+1..6
+ok 1 - /tmp/raku_roast_mkdir_rmdir_t_line12_0_189976078273848771794087018 exists
+ok 2 - /tmp/raku_roast_mkdir_rmdir_t_line12_0_189976078273848771794087018 is a directory
+# Subtest: did we fails-like X::IO::Mkdir?
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::Mkdir)
+    ok 2 - Failure threw when sunk
+ok 3 - did we fails-like X::IO::Mkdir?
+# Subtest: did we fails-like X::IO::Rmdir?
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::Rmdir)
+    ok 2 - Failure threw when sunk
+ok 4 - did we fails-like X::IO::Rmdir?
+# Subtest: did we fails-like X::IO::Rmdir?
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::Rmdir)
+    ok 2 - Failure threw when sunk
+ok 5 - did we fails-like X::IO::Rmdir?
+ok 6 - "/".IO.mkdir does not segfault

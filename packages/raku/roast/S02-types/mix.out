@@ -1,0 +1,377 @@
+1..244
+ok 1 - &mix produces a Mix
+ok 2 - ...with the right elements
+ok 3 - Defaults to 0
+ok 4 - Single-key subscript (existing element)
+ok 5 - Single-key subscript yields an Int
+ok 6 - Single-key subscript (nonexistent element)
+ok 7 - Single-key subscript yields an Int (nonexistent element)
+ok 8 - exists with existing element
+ok 9 - exists with nonexistent element
+ok 10 - Values returns the correct number of values
+ok 11 - Values returns the correct sum
+ok 12 - Bool returns True if there is something in the Mix
+ok 13 - Bool returns False if there is nothing in the Mix
+ok 14 - .hash doesn't die
+ok 15 - ...and it returned a Hash
+ok 16 - ...with the right elements
+# Subtest: Can't assign to an element (Mixs are immutable)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 17 - Can't assign to an element (Mixs are immutable)
+# Subtest: Can't increment an element (Mixs are immutable)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 18 - Can't increment an element (Mixs are immutable)
+# Subtest: Can't assign to .keys
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 19 - Can't assign to .keys
+# Subtest: Can't assign to .values
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 20 - Can't assign to .values
+# Subtest: Can't :delete from Mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 21 - Can't :delete from Mix
+ok 22 - Multiple-element access
+ok 23 - Multiple-element access (with nonexistent elements)
+ok 24 - .total gives sum of values
+ok 25 - +$mix gives sum of values
+ok 26 - Identical mixs smartmatch with each other
+ok 27 - Identical mixs smartmatch with each other
+ok 28 - Subset does not smartmatch
+ok 29 - Subset (only quantity different) does not smartmatch
+ok 30 - Superset does not smartmatch
+ok 31 - Superset (only quantity different) does not smartmatch
+ok 32 - Smartmatch is not element of
+ok 33 - Type-checking smartmatch works
+ok 34 - Set smartmatches with equivalent mix
+ok 35 - ... but not if the Mix has greater quantities
+ok 36 - Type-checking smartmatch works
+ok 37 - Str.Mix makes a Mix
+ok 38 - 'a'.Mix is mix a
+ok 39 - Pair.Mix makes a Mix
+ok 40 - (a => 100000).Mix is mix a:100000
+ok 41 - (a => 0).Mix is the empty mix
+ok 42 - <a b c>.Mix makes a Mix
+ok 43 - <a b c a>.Mix makes the mix a:2 b:1 c:1
+ok 44 - [a b c a].Mix makes the mix a:2 b:1 c:1
+ok 45 - [a => 3, b => 0, 'c', 'a'].Mix makes the mix a:4 c:1
+ok 46 - a	2 b	4 c	0.Mix makes a Mix
+ok 47 - a	2 b	4 c	0.Mix makes the mix a:2 b:4
+ok 48 - :exists with existing element
+ok 49 - :exists with nonexistent element
+# Subtest: :delete does not work on mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 50 - :delete does not work on mix
+ok 51 - Int keys are left as Ints
+ok 52 - Bool keys are left as Bools
+ok 53 - And Str keys are permitted in the same set
+ok 54 - All keys have the right values
+ok 55 - flattens under single arg rule
+ok 56 - also flattens
+ok 57 - A hash to which a Mix has been bound becomes a Mix
+ok 58 - ...with the right elements
+ok 59 - &Mix.new given an array of strings produces a Mix
+ok 60 - ...with the right elements
+ok 61 - &Mix.new given an array of pairs produces a Mix
+ok 62 - ... with four elements under the single arg rule
+ok 63 - &Mix.new given an itemized array of pairs produces a Mix
+ok 64 - ... with one element
+ok 65 - &Mix.new given a Hash produces a Mix
+ok 66 - ... with four elements
+ok 67 - ... which are all Pairs
+ok 68 - &Mix.new given a Hash produces a Mix
+ok 69 - ... with four elements under the single arg rule
+ok 70 - &Mix.new given an itemized Hash produces a Mix
+ok 71 - ... with one element
+ok 72 - &Mix.new given a Set produces a Mix
+ok 73 - ... with one element
+ok 74 - &Mix.new given a SetHash produces a Mix
+ok 75 - ... with one element
+ok 76 - &Mix.new given a MixHash produces a Mix
+ok 77 - ... with one element
+ok 78 - &mix given a Set produces a Mix
+ok 79 - ... with one element
+ok 80 - A Mix bound to a %var is a Mix
+ok 81 - ...with the right elements
+ok 82 - Single-key subscript (existing element)
+ok 83 - Single-key subscript (nonexistent element)
+# Subtest: Can't assign to an element (Mixs are immutable)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 84 - Can't assign to an element (Mixs are immutable)
+# Subtest: Can't assign to a %var implemented by Mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 85 - Can't assign to a %var implemented by Mix
+# Subtest: Can't :delete from a Mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 86 - Can't :delete from a Mix
+ok 87 - is the total calculated correctly
+ok 88 - .list returns 3 things
+ok 89 - ... all of which are Pairs
+ok 90 - .pairs returns 3 things
+ok 91 - ... all of which are Pairs
+ok 92 - ... the keys of which are Strs
+ok 93 - ... and the values of which are Reals
+ok 94 - is the total calculated correctly
+ok 95 - .raku lives
+ok 96 - ... and produces a string
+ok 97 - ... of reasonable length
+ok 98 - .raku.EVAL lives
+ok 99 - ... and produces a Mix
+ok 100 - ... and it has the correct values
+ok 101 - is the total calculated correctly
+ok 102 - .Str lives
+ok 103 - ... and produces a string
+ok 104 - ... which only contains bar baz and foo with the proper counts and separated by spaces
+ok 105 - .gist lives
+ok 106 - ... and produces a string
+ok 107 - ... of reasonable length
+ok 108 - ... which mentions foo
+ok 109 - ... which mentions bar
+ok 110 - ... which mentions baz
+ok 111 - A Mix bound to a %var is a Mix
+ok 112 - ...with the right elements
+ok 113 - Single-key subscript (existing element)
+ok 114 - Single-key subscript (nonexistent element)
+ok 115 - We got one of the two choices
+ok 116 - .roll with no arguments returns a key of the Mix
+ok 117 - .roll(0) gives you an Iterable
+ok 118 - .roll(1) gives you an Iterable
+ok 119 - .roll(2) gives you an Iterable
+ok 120 - .roll(0) returns 0 results
+ok 121 - .roll(1) returns 1 result
+ok 122 - .roll(2) returns the right number of items
+ok 123 - .roll(2) returned "a"s and "b"s
+ok 124 - .roll(100000) returns 100000 items
+ok 125 - .roll(100000) (1)
+ok 126 - .roll(100000) (2)
+ok 127 - .roll(*)[^100000] (1)
+ok 128 - .roll(*)[^100000] (2)
+ok 129 - .roll should not change Mix
+ok 130 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 131 - .roll(100000) returns 100000 items
+ok 132 - .roll(100000) (1)
+ok 133 - .roll(100000) (2)
+ok 134 - .roll should not change Mix
+# Subtest: .pick does not work on Mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 135 - .pick does not work on Mix
+# Subtest: cannot call .grab on a Mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+ok 136 - cannot call .grab on a Mix
+# Subtest: cannot call .grabpairs on a Mix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+ok 137 - cannot call .grabpairs on a Mix
+ok 138 - Two elements
+ok 139 - One of the mix's elements is indeed a Mix!
+ok 140 - With the proper elements
+ok 141 - One of the mix's elements is indeed a List!
+ok 142 - With the proper elements
+ok 143 - Two elements
+ok 144 - One of the mix's elements is indeed a mix!
+ok 145 - With the proper elements
+ok 146 - One of the mix's elements is indeed a List!
+ok 147 - With the proper elements
+ok 148 - Method .Mix works on Int-1
+ok 149 - Method .Mix works on Int-2
+ok 150 - Method .Mix works on Str-1
+ok 151 - Method .Mix works on Str-2
+ok 152 - Method .Mix works on Array-1
+ok 153 - Method .Mix works on Array-2
+ok 154 - Method .Mix works on Hash-1
+ok 155 - Method .Mix works on Hash-2
+ok 156 - Method .Mix works on List-1
+ok 157 - Method .Mix works on List-2
+ok 158 - .total gives sum of values (non-empty) 11
+ok 159 - +$set gives sum of values (non-empty) 11
+ok 160 - .minpairs works (non-empty) 11
+ok 161 - .maxpairs works (non-empty) 11
+ok 162 - .fmt(%s) works (non-empty 11)
+ok 163 - .fmt(%s,sep) works (non-empty 11)
+ok 164 - .fmt(%s%s) works (non-empty 11)
+ok 165 - .fmt(%s%s,sep) works (non-empty 11)
+ok 166 - .total gives sum of values (non-empty) 8.8
+ok 167 - +$set gives sum of values (non-empty) 8.8
+ok 168 - .minpairs works (non-empty) 8.8
+ok 169 - .maxpairs works (non-empty) 8.8
+ok 170 - .total gives sum of values (non-empty) 4.4
+ok 171 - +$set gives sum of values (non-empty) 4.4
+ok 172 - .minpairs works (non-empty) 4.4
+ok 173 - .maxpairs works (non-empty) 4.4
+ok 174 - .total gives sum of values (empty)
+ok 175 - +$mix gives sum of values (empty)
+ok 176 - .minpairs works (empty)
+ok 177 - .maxpairs works (empty)
+ok 178 - .fmt(%s) works (empty)
+ok 179 - .fmt(%s,sep) works (empty)
+ok 180 - .fmt(%s%s) works (empty)
+ok 181 - .fmt(%s%s,sep) works (empty)
+ok 182 - can we parameterize for strings?
+ok 183 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 184 - do wrong values make initialization croak
+ok 185 - Faulty .WHICH creation
+# Subtest: Make sure we cannot assign on a key
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 186 - Make sure we cannot assign on a key
+# Subtest: Make sure we cannot assign on a .values alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 187 - Make sure we cannot assign on a .values alias
+# Subtest: Make sure we cannot assign on a .pairs alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 188 - Make sure we cannot assign on a .pairs alias
+# Subtest: Make sure we cannot assign on a .kv alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 189 - Make sure we cannot assign on a .kv alias
+ok 190 - did we see all values
+ok 191 - did we see all keys
+ok 192 - did we see all the pairs
+ok 193 - did we see all the kv
+ok 194 - did we see all the antipairs
+# Subtest: .hash does not cause keys to be stringified
+    1..3
+    ok 1 - Mix.new
+    ok 2 - .Mix
+    ok 3 - mix()
+ok 195 - .hash does not cause keys to be stringified
+ok 196 - .Bag coercer
+ok 197 - .BagHash coercer
+ok 198 - negative Mix weights removed from Bag coercion without warnings
+# Subtest: autovivification of of Mix:U complains about immutability
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 199 - autovivification of of Mix:U complains about immutability
+ok 200 - negative weights remain with  ∪  operator
+ok 201 - negative weights remain with (|) operator
+ok 202 - ().Mix returns the empty mix
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Mix
+ok 203 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Mix
+ok 204 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches Mix
+ok 205 - did we throws-like X::Cannot::Lazy?
+# Subtest: (:a("a")).Mix throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 206 - (:a("a")).Mix throws
+# Subtest: Mix.new-from-pairs( (:a("a")) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 207 - Mix.new-from-pairs( (:a("a")) ) throws
+# Subtest: (:a(Inf)).Mix throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 208 - (:a(Inf)).Mix throws
+# Subtest: Mix.new-from-pairs( (:a(Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 209 - Mix.new-from-pairs( (:a(Inf)) ) throws
+# Subtest: (:a(-Inf)).Mix throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 210 - (:a(-Inf)).Mix throws
+# Subtest: Mix.new-from-pairs( (:a(-Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 211 - Mix.new-from-pairs( (:a(-Inf)) ) throws
+# Subtest: (:a(NaN)).Mix throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 212 - (:a(NaN)).Mix throws
+# Subtest: Mix.new-from-pairs( (:a(NaN)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 213 - Mix.new-from-pairs( (:a(NaN)) ) throws
+# Subtest: (:a(<0+3i>)).Mix throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::Real)
+ok 214 - (:a(<0+3i>)).Mix throws
+# Subtest: Mix.new-from-pairs( (:a(<0+3i>)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::Real)
+ok 215 - Mix.new-from-pairs( (:a(<0+3i>)) ) throws
+ok 216 - final value 0 disappears in Mix for empty mix
+ok 217 - final value 0 disappears in Mix
+ok 218 - Mix.roll with fractional weights
+ok 219 - MixHash.roll with fractional weights
+ok 220 - did we get right number of elements
+ok 221 - do we get 1 for a
+ok 222 - do we get 0 for e
+ok 223 - is the %h really a Mix
+ok 224 - cannot re-initialize Mix
+ok 225 - cannot :delete from Mix
+ok 226 - cannot delete from Mix by assignment
+ok 227 - can we smartmatch empty
+ok 228 - coerce Mix -> Set
+ok 229 - coerce Mix -> SetHash
+ok 230 - coerce Mix -> Bag
+ok 231 - coerce Mix -> BagHash
+ok 232 - coerce Mix -> MixHash
+ok 233 - parameterized Mix
+ok 234 - did it parameterize ok
+ok 235 - must have Ints on creation
+ok 236 - does .item work on Mixes
+ok 237 - does Mix type object return proper type
+ok 238 - does Mix object return proper type
+ok 239 - Can we initialize a Mix with a single value
+ok 240 - did on-the-fly value return original
+ok 241 - did on-the-fly value leave original unchanged
+ok 242 - got a Mix with a List
+ok 243 - got a Mix with an Array
+ok 244 - Mix Capture

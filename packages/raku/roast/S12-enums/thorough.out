@@ -1,0 +1,75 @@
+1..61
+ok 1 - enum itself stringififes
+ok 2 - enum.WHAT returned a value
+ok 3 - enum.raku returned a value
+ok 4 - # SKIP NYI
+ok 5 - # SKIP NYI
+ok 6 - # SKIP NYI
+ok 7 - # SKIP NYI
+ok 8 - # SKIP NYI
+ok 9 - # SKIP NYI
+ok 10 - # SKIP NYI
+ok 11 - # SKIP NYI
+ok 12 - # SKIP NYI
+ok 13 - # SKIP NYI
+ok 14 - # SKIP NYI
+ok 15 - # SKIP NYI
+ok 16 - # SKIP NYI
+ok 17 - # SKIP NYI
+ok 18 - # SKIP does day::Tue
+ok 19 - # SKIP does day::Tue
+ok 20 - # SKIP does day::Tue
+ok 21 - # SKIP does day::Tue
+ok 22 - # SKIP does day::Tue
+ok 23 - # SKIP does day::Tue
+ok 24 - # SKIP does day::Tue
+ok 25 - # SKIP does day::Tue
+ok 26 - # SKIP does day::Tue
+ok 27 - # SKIP does day::Tue
+ok 28 - # SKIP does day::Tue
+ok 29 - # SKIP does day::Tue
+ok 30 - # SKIP does day::Tue
+ok 31 - # SKIP does day::Tue
+ok 32 - # SKIP does &day::("Tue")
+ok 33 - # SKIP does &day::("Tue")
+ok 34 - # SKIP does &day::("Tue")
+ok 35 - # SKIP does &day::("Tue")
+ok 36 - # SKIP does &day::("Tue")
+ok 37 - # SKIP does &day::("Tue")
+ok 38 - # SKIP does &day::("Tue")
+ok 39 - # SKIP does &day::("Tue")
+ok 40 - # SKIP does &day::("Tue")
+ok 41 - # SKIP does &day::("Tue")
+ok 42 - # SKIP does &day::("Tue")
+ok 43 - # SKIP does &day::("Tue")
+ok 44 - # SKIP does &day::("Tue")
+ok 45 - # SKIP does &day::("Tue")
+ok 46 - # SKIP does &day::("Tue")
+ok 47 - method on short name pick up the one from the enum
+ok 48 - method on long name pick up the one from the enum
+ok 49 - True.raku
+ok 50 - Bool::True.raku
+ok 51 - simple assignment from enum
+ok 52 - assignment from enum works
+# Subtest: accessing non-value of enum dies proper-like
+    1..2
+    ok 1 - 'RT66886::c' died
+    ok 2 - right exception type (Exception)
+ok 53 - accessing non-value of enum dies proper-like
+ok 54 - can index enum by number
+ok 55 - enum and math and index
+ok 56 - marking enum export does not die
+# Subtest: Cannot mixin an enum into a class
+    1..2
+    not ok 1 - 'enum rt_101900 < a b >; class A { }; note A but rt_101900::a' died # TODO RT #101900
+    # Failed test ''enum rt_101900 < a b >; class A { }; note A but rt_101900::a' died'
+    # at S12-enums/thorough.rakudo line 110
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 57 - Cannot mixin an enum into a class # TODO RT #101900
+# Failed test 'Cannot mixin an enum into a class'
+# at S12-enums/thorough.rakudo line 110
+ok 58 - .can(...) on an enum
+ok 59 - .^can(...) on an enum
+ok 60 - Can mix a private method into an enum value
+ok 61 - correct enum value in attribute in role
+# FUDGED!

@@ -1,0 +1,21 @@
+1..2
+# Subtest: Basics
+    1..4
+    ok 1 - coercion successful
+    # Subtest: uncoercible parameter results in X::Coerce::Impossible exception
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 2 - uncoercible parameter results in X::Coerce::Impossible exception
+    ok 3 - Coerced into the helper class
+    ok 4 - coercion done correctly
+ok 1 - Basics
+# Subtest: Double Parameterization
+    1..2
+    ok 1 - coercion successful
+    # Subtest: uncoercible parameter results in X::Coerce::Impossible exception
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 2 - uncoercible parameter results in X::Coerce::Impossible exception
+ok 2 - Double Parameterization

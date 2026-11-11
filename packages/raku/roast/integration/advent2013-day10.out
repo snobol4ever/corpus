@@ -1,0 +1,53 @@
+1..44
+ok 1 - adverb on
+ok 2 - adverb on
+ok 3 - adverb off
+ok 4 - adverb off
+ok 5 - greeting
+ok 6 - person
+ok 7 - greeting
+ok 8 - person
+ok 9 - greeting
+ok 10 - person
+ok 11 - abbrev
+ok 12 - abbrev
+ok 13 - Match nth(4)
+ok 14 - Matched value for nth(4)
+ok 15 - Match nth(4)
+ok 16 - Matched value for nth(4)
+ok 17 - positional arg
+ok 18 - adverb 1
+ok 19 - adverb 2
+ok 20 - positional arg
+ok 21 - adverb 1
+ok 22 - adverb 2
+ok 23 - positional arg
+ok 24 - adverb 1
+ok 25 - adverb 2
+ok 26 - :round applied to /
+ok 27 - :adverb applied to &
+ok 28 - applies to !
+ok 29 - applies to .bar()
+ok 30 - applies to []
+ok 31 - 1 + 2 - 3: applies to '-'
+ok 32 - 1 ** 2 ** 3: applies to leftmost ***
+ok 33 - closure interpolation
+ok 34 - variabled non-interpolation
+ok 35 - closure interpolation
+ok 36 - variabled non-interpolation
+ok 37 - Round parens ok
+# Subtest: Square parens not ok
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp::Group)
+ok 38 - Square parens not ok
+# Subtest: missing required adverb - dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 39 - missing required adverb - dies
+ok 40 - positional param
+ok 41 - adverb default value
+ok 42 - adverb missing value
+ok 43 - adverb passed value
+ok 44 - adverb catch all

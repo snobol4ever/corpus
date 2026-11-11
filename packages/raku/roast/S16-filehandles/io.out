@@ -1,0 +1,129 @@
+1..114
+ok 1 - The object is-a 'IO::Handle'
+ok 2 - file closed okay
+ok 3 - The object is-a 'IO::Handle'
+ok 4 - get($in) worked (and autochomps)
+ok 5 - get($in) worked (and autochomps)
+ok 6 - get($in) worked
+ok 7 - file closed okay (1)
+ok 8 - The object is-a 'IO::Handle'
+ok 9 - $in.get() worked
+ok 10 - $in.get() worked
+ok 11 - $in.get() worked
+ok 12 - file closed okay (2)
+ok 13 - The object is-a 'IO::Handle'
+ok 14 - $in.get worked(1)
+ok 15 - $in.get worked(2)
+ok 16 - $in.get worked(3)
+ok 17 - file closed okay (3)
+ok 18 - The object is-a 'IO::Handle'
+ok 19 - file closed okay (append)
+ok 20 - The object is-a 'IO::Handle'
+ok 21 - we got four lines from the file
+ok 22 - lines($in) worked in list context
+ok 23 - lines($in) worked in list context
+ok 24 - lines($in) worked in list context
+ok 25 - lines($in) worked in list context
+ok 26 - file closed okay (4)
+ok 27 - The object is-a 'IO::Handle'
+ok 28 - we got two lines from the file
+ok 29 - lines($in) worked in list context
+ok 30 - lines($in) worked in list context
+ok 31 - lines($in) worked in list context
+ok 32 - file closed okay (5)
+ok 33 - The object is-a 'IO::Handle'
+ok 34 - we got four lines from the file
+ok 35 - $in.lines() worked in list context
+ok 36 - $in.lines() worked in list context
+ok 37 - $in.lines() worked in list context
+ok 38 - $in.lines() worked in list context
+ok 39 - file closed okay (6)
+ok 40 - The object is-a 'IO::Handle'
+ok 41 - we got four lines from the file
+ok 42 - $in.lines worked in list context
+ok 43 - $in.lines worked in list context
+ok 44 - $in.lines worked in list context
+ok 45 - $in.lines worked in list context
+ok 46 - file closed okay (7)
+ok 47 - The object is-a 'IO::Handle'
+ok 48 - file closed okay (8)
+ok 49 - we got four lines from the file (lazily)
+ok 50 - lines($in,3) worked in list context
+ok 51 - lines($in,3) worked in list context
+ok 52 - lines($in,3) worked in list context
+ok 53 - get($in) worked after lines($in,$n)
+ok 54 - we got all lines from the file with Whatever
+ok 55 - we got all lines from the file with Inf
+ok 56 - we got all lines sub from the file with Whatever
+ok 57 - we got all lines sub from the file with Inf
+ok 58 - file has been removed
+ok 59 - The object is-a 'IO::Handle'
+ok 60 - file closed okay (out8)
+ok 61 - The object is-a 'IO::Handle'
+ok 62 - get($in) worked
+ok 63 - file closed okay (in8)
+ok 64 - The object is-a 'IO::Handle'
+ok 65 - file closed okay (9)
+ok 66 - The object is-a 'IO::Handle'
+ok 67 - The object is-a 'IO::Handle'
+ok 68 - close worked out
+ok 69 - The object is-a 'IO::Handle'
+ok 70 - .get in list context reads only one line
+ok 71 - .get.Int gets int
+ok 72 - .get.Int gets the right int
+ok 73 - close worked in
+ok 74 - file has been removed
+ok 75 - ... and the tempfile is gone, really
+ok 76 - The object is-a 'IO::Handle'
+ok 77 - file closed OK
+ok 78 - The object is-a 'IO::Handle'
+ok 79 - three bytes were read
+ok 80 - the bytes decode into the right Str
+ok 81 - Set iso-8859-1 out encoding
+ok 82 - iso-8859-1 chars to fh
+ok 83 - iso-8859-1 unmapped chars to fh
+ok 84 - Set iso-8859-1 in encoding
+ok 85 - iso-8859-1 chars from fh
+ok 86 - correct iso-8859-1 chars from fh
+ok 87 - iso-8859-1 unmapped char from fh
+ok 88 - correct iso-8859-1 unmapped char from fh
+ok 89 - Set windows-1252 out encoding
+ok 90 - windows-1252 chars to fh
+ok 91 - windows-1252 unmapped chars to fh
+ok 92 - reset output fh encoding
+ok 93 - iso-8859-1 chars to fh
+ok 94 - iso-8859-1 unmapped char to fh
+ok 95 - file with encoding wrote correct content
+ok 96 - Set windows-1252 in encoding
+ok 97 - windows-1252 chars from fh
+ok 98 - correct windows-1252 chars from fh
+ok 99 - windows-1252 unmapped chars from fh
+ok 100 - correct windows-1252 unmapped chars from fh
+ok 101 - reset input fh encoding
+ok 102 - iso-8859-1 chars from fh
+ok 103 - correct iso-8859-1 chars from fh
+ok 104 - iso-8859-1 unmapped char from fh
+ok 105 - correct iso-8859-1 unmapped char from fh
+ok 106 - checking if a file handle is a TTY - negative case
+ok 107 - can read lines
+ok 108 - got the right line
+ok 109 - close was successful
+ok 110 - can use .lines on a file without trailing newline
+ok 111 - .read on a directory fails
+ok 112 - .get on a directory fails
+# Subtest: .printf()
+    1..4
+    ok 1 - $*OUT
+    ok 2 - $*ERR
+    # Subtest: wrong directive
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Sprintf::Directives::Unsupported)
+    ok 3 - wrong directive
+    # Subtest: args do not match format
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Sprintf::Directives::Count)
+    ok 4 - args do not match format
+ok 113 - .printf()
+ok 114 - IO::Handle.read has some reasonable size default value

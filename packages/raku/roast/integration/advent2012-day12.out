@@ -1,0 +1,6 @@
+1..5
+ok 1 - try error
+ok 2 - error interpolated
+ok 3 - CATCH error access
+ok 4 - adhoc error
+ok 5 - adhoc error

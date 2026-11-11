@@ -1,0 +1,32 @@
+1..28
+ok 1 - currying one named param
+ok 2 - can curry on an already curried sub
+ok 3 - ... and the old one still works
+ok 4 - Priming :(:$a) with \(:a) gave :(:$a = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 5 - Priming :(:$a, :$b) with \(:b) gave :(:$a, :$b = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 6 - Priming :(:$a, :$b) with \(:a) gave :(:$a = Bool::True, :$b) # TODO awaiting resurrecting of RakuAST assuming
+ok 7 - Priming :(:$a) with \(:a) gave :(:$a = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 8 - Priming :(:$a, :$b) with \(:b) gave :(:$a, :$b = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 9 - Priming :(:$a, :$b) with \(:a) gave :(:$a = Bool::True, :$b) # TODO awaiting resurrecting of RakuAST assuming
+ok 10 - Priming :(:$a!) with \(:a) gave :(:$a = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 11 - Priming :(:$a!, :$b!) with \(:b) gave :(:$a!, :$b = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 12 - Priming :(:$a!, :$b!) with \(:a) gave :(:$a = Bool::True, :$b!) # TODO awaiting resurrecting of RakuAST assuming
+ok 13 - Priming :(:$a = 2) with \(:a) gave :(:$a = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 14 - Priming :(:$a = 2, :$b = 4) with \(:b) gave :(:$a = 2, :$b = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 15 - Priming :(:$a = 2, :$b = 4) with \(:a) gave :(:$a = Bool::True, :$b = 4) # TODO awaiting resurrecting of RakuAST assuming
+ok 16 - Priming :($a, $b, :$c) with \(1) gave :($b, :$c)
+ok 17 - Priming :(:b($a)!) with \(:b) gave :(:b($a) = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 18 - Priming :(:b(:c($a))!) with \(:c) gave :(:b(:c($a)) = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 19 - Priming :(:b(:c($a))!) with \(:b) gave :(:b(:c($a)) = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 20 - Priming :(:$a! where { ... }) with \(:a) gave :(:$a where { ... } = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 21 - Priming :(:$a! is raw where { ... }) with \(:a) gave :(:$a is raw where { ... } = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 22 - Priming :(:$a! is copy where { ... }) with \(:a) gave :(:$a is copy where { ... } = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 23 - Priming :(:$a! is raw where { ... }) with \(:a) gave :(:$a is raw where { ... } = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 24 - Priming :(:$a is copy where { ... } = 4) with \(:a) gave :(:$a is copy where { ... } = Bool::True) # TODO awaiting resurrecting of RakuAST assuming
+ok 25 - Priming :(Int :$a! where { ... }) with \(:a(1)) gave :(Int :$a where { ... } = 1) # TODO awaiting resurrecting of RakuAST assuming
+ok 26 - Priming :() with \(:a) mixed in a Failure 
+ok 27 - Priming :(:b(:c($a))!) with \(:d) mixed in a Failure 
+not ok 28 - Priming :(Str :$a!) with \(:a) mixed in a Failure  # TODO unclear semantics of test logic
+# Failed test 'Priming :(Str :$a!) with \(:a) mixed in a Failure '
+# at S06-currying/named.rakudo line 57
+# FUDGED!

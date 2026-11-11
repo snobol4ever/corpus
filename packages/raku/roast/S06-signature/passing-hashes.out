@@ -1,0 +1,4 @@
+1..3
+ok 1 - %h is a Hash
+ok 2 - %sane is a Hash
+ok 3 - %baloney is a Hash

@@ -1,0 +1,10 @@
+1..9
+ok 1 - Can assign string to scalar 1
+ok 2 - Can assign string to scalar 2
+ok 3 - Can assign scalar to scalar
+ok 4 - Assignment didn't create a binding
+ok 5 - Could assign first element
+ok 6 - Could assign second element
+ok 7 - Could retrieve first element to a scalar
+ok 8 - Assignment to scalar didn't create a binding
+ok 9 - Assignment to scalar didn't create a binding

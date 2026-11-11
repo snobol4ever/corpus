@@ -1,0 +1,46 @@
+1..29
+ok 1 - sanity check 1
+ok 2 - sanity check 2
+ok 3 - sanity check 2
+ok 4 - .IO.rename normal file
+ok 5 - source file no longer exists
+ok 6 - dest file exists
+ok 7 - dest file has same size as source file
+# Subtest: .IO.rename non-existent file
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Rename)
+ok 8 - .IO.rename non-existent file
+ok 9 - dest file doesn't exist
+# Subtest: .IO.rename createonly fail
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Rename)
+ok 10 - .IO.rename createonly fail
+ok 11 - dest file doesn't exist
+ok 12 - .IO.rename createonly
+ok 13 - dest file does exist
+ok 14 - clean-up 1a
+ok 15 - clean-up 1b
+ok 16 - rename() normal file
+ok 17 - source file no longer exists
+ok 18 - dest file exists
+ok 19 - dest file has same size as source file
+# Subtest: did we throws-like X::IO::Rename?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Rename)
+ok 20 - did we throws-like X::IO::Rename?
+ok 21 - It doesn't
+# Subtest: rename createonly fail
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Rename)
+ok 22 - rename createonly fail
+ok 23 - dest file doesn't exist
+ok 24 - rename createonly
+ok 25 - dest file does exist
+ok 26 - clean-up 2a
+ok 27 - clean-up 2b
+ok 28 - clean-up 3
+ok 29 - clean-up 4

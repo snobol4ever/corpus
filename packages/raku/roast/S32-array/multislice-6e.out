@@ -1,0 +1,2461 @@
+1..812
+ok 1 - @array[0;0;0] gives 42 (fast-path)
+ok 2 - could we assign 999 and did we get 999 back (fast-path)
+ok 3 - did we assign value at the right place (fast-path)
+ok 4 - @array[0;0;0] gives 42
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 5 - check assignability with 999
+# Subtest: @array[0;0;0]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 6 - @array[0;0;0]:exists gives True
+# Subtest: @array[0;0;0]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 7 - @array[0;0;0]:!exists gives False
+# Subtest: @array[0;0;0]:exists:kv gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 8 - @array[0;0;0]:exists:kv gives ((0, 0, 0),True)
+# Subtest: @array[0;0;0]:exists:p gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 9 - @array[0;0;0]:exists:p gives Pair.new((0, 0, 0),True)
+# Subtest: @array[0;0;0]:k: gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 10 - @array[0;0;0]:k: gives (0, 0, 0)
+# Subtest: @array[0;0;0]:kv gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 11 - @array[0;0;0]:kv gives ((0, 0, 0),42)
+# Subtest: @array[0;0;0]:p gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 12 - @array[0;0;0]:p gives Pair.new((0, 0, 0),42)
+# Subtest: @array[0;0;0]:v gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 13 - @array[0;0;0]:v gives 42
+ok 14 - @array[0;0;0]:delete gives 42
+ok 15 - is array as expected after deletion of index?
+# Subtest: @array[0;0;0]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 16 - @array[0;0;0]:exists:delete gives True
+ok 17 - is array as expected after deletion of index?
+ok 18 - @array[0;0;0]:!exists:delete dies ok
+# Subtest: @array[0;0;0]:exists:kv:delete gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 19 - @array[0;0;0]:exists:kv:delete gives ((0, 0, 0),True)
+ok 20 - is array as expected after deletion of index?
+# Subtest: @array[0;0;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 21 - @array[0;0;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+ok 22 - is array as expected after deletion of index?
+# Subtest: @array[0;0;0]:k::delete gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 23 - @array[0;0;0]:k::delete gives (0, 0, 0)
+ok 24 - is array as expected after deletion of index?
+# Subtest: @array[0;0;0]:kv:delete gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 25 - @array[0;0;0]:kv:delete gives ((0, 0, 0),42)
+ok 26 - is array as expected after deletion of index?
+# Subtest: @array[0;0;0]:p:delete gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 27 - @array[0;0;0]:p:delete gives Pair.new((0, 0, 0),42)
+ok 28 - is array as expected after deletion of index?
+# Subtest: @array[0;0;0]:v:delete gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 29 - @array[0;0;0]:v:delete gives 42
+ok 30 - is array as expected after deletion of index?
+ok 31 - @array["0";0e0;0.0] gives 42 (fast-path)
+ok 32 - could we assign 999 and did we get 999 back (fast-path)
+ok 33 - did we assign value at the right place (fast-path)
+ok 34 - @array["0";0e0;0.0] gives 42
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 35 - check assignability with 999
+# Subtest: @array["0";0e0;0.0]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 36 - @array["0";0e0;0.0]:exists gives True
+# Subtest: @array["0";0e0;0.0]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 37 - @array["0";0e0;0.0]:!exists gives False
+# Subtest: @array["0";0e0;0.0]:exists:kv gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 38 - @array["0";0e0;0.0]:exists:kv gives ((0, 0, 0),True)
+# Subtest: @array["0";0e0;0.0]:exists:p gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 39 - @array["0";0e0;0.0]:exists:p gives Pair.new((0, 0, 0),True)
+# Subtest: @array["0";0e0;0.0]:k: gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 40 - @array["0";0e0;0.0]:k: gives (0, 0, 0)
+# Subtest: @array["0";0e0;0.0]:kv gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 41 - @array["0";0e0;0.0]:kv gives ((0, 0, 0),42)
+# Subtest: @array["0";0e0;0.0]:p gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 42 - @array["0";0e0;0.0]:p gives Pair.new((0, 0, 0),42)
+# Subtest: @array["0";0e0;0.0]:v gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 43 - @array["0";0e0;0.0]:v gives 42
+ok 44 - @array["0";0e0;0.0]:delete gives 42
+ok 45 - is array as expected after deletion of index?
+# Subtest: @array["0";0e0;0.0]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 46 - @array["0";0e0;0.0]:exists:delete gives True
+ok 47 - is array as expected after deletion of index?
+ok 48 - @array["0";0e0;0.0]:!exists:delete dies ok
+# Subtest: @array["0";0e0;0.0]:exists:kv:delete gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 49 - @array["0";0e0;0.0]:exists:kv:delete gives ((0, 0, 0),True)
+ok 50 - is array as expected after deletion of index?
+# Subtest: @array["0";0e0;0.0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 51 - @array["0";0e0;0.0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+ok 52 - is array as expected after deletion of index?
+# Subtest: @array["0";0e0;0.0]:k::delete gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 53 - @array["0";0e0;0.0]:k::delete gives (0, 0, 0)
+ok 54 - is array as expected after deletion of index?
+# Subtest: @array["0";0e0;0.0]:kv:delete gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 55 - @array["0";0e0;0.0]:kv:delete gives ((0, 0, 0),42)
+ok 56 - is array as expected after deletion of index?
+# Subtest: @array["0";0e0;0.0]:p:delete gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 57 - @array["0";0e0;0.0]:p:delete gives Pair.new((0, 0, 0),42)
+ok 58 - is array as expected after deletion of index?
+# Subtest: @array["0";0e0;0.0]:v:delete gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 59 - @array["0";0e0;0.0]:v:delete gives 42
+ok 60 - is array as expected after deletion of index?
+ok 61 - @array[*-1;0;0] gives 42 (fast-path)
+ok 62 - could we assign 999 and did we get 999 back (fast-path)
+ok 63 - did we assign value at the right place (fast-path)
+ok 64 - @array[*-1;0;0] gives 42
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 65 - check assignability with 999
+# Subtest: @array[*-1;0;0]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 66 - @array[*-1;0;0]:exists gives True
+# Subtest: @array[*-1;0;0]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 67 - @array[*-1;0;0]:!exists gives False
+# Subtest: @array[*-1;0;0]:exists:kv gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 68 - @array[*-1;0;0]:exists:kv gives ((0, 0, 0),True)
+# Subtest: @array[*-1;0;0]:exists:p gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 69 - @array[*-1;0;0]:exists:p gives Pair.new((0, 0, 0),True)
+# Subtest: @array[*-1;0;0]:k: gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 70 - @array[*-1;0;0]:k: gives (0, 0, 0)
+# Subtest: @array[*-1;0;0]:kv gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 71 - @array[*-1;0;0]:kv gives ((0, 0, 0),42)
+# Subtest: @array[*-1;0;0]:p gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 72 - @array[*-1;0;0]:p gives Pair.new((0, 0, 0),42)
+# Subtest: @array[*-1;0;0]:v gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 73 - @array[*-1;0;0]:v gives 42
+ok 74 - @array[*-1;0;0]:delete gives 42
+ok 75 - is array as expected after deletion of index?
+# Subtest: @array[*-1;0;0]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 76 - @array[*-1;0;0]:exists:delete gives True
+ok 77 - is array as expected after deletion of index?
+ok 78 - @array[*-1;0;0]:!exists:delete dies ok
+# Subtest: @array[*-1;0;0]:exists:kv:delete gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 79 - @array[*-1;0;0]:exists:kv:delete gives ((0, 0, 0),True)
+ok 80 - is array as expected after deletion of index?
+# Subtest: @array[*-1;0;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 81 - @array[*-1;0;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+ok 82 - is array as expected after deletion of index?
+# Subtest: @array[*-1;0;0]:k::delete gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 83 - @array[*-1;0;0]:k::delete gives (0, 0, 0)
+ok 84 - is array as expected after deletion of index?
+# Subtest: @array[*-1;0;0]:kv:delete gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 85 - @array[*-1;0;0]:kv:delete gives ((0, 0, 0),42)
+ok 86 - is array as expected after deletion of index?
+# Subtest: @array[*-1;0;0]:p:delete gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 87 - @array[*-1;0;0]:p:delete gives Pair.new((0, 0, 0),42)
+ok 88 - is array as expected after deletion of index?
+# Subtest: @array[*-1;0;0]:v:delete gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 89 - @array[*-1;0;0]:v:delete gives 42
+ok 90 - is array as expected after deletion of index?
+ok 91 - @array[0;*-1;0] gives 42 (fast-path)
+ok 92 - could we assign 999 and did we get 999 back (fast-path)
+ok 93 - did we assign value at the right place (fast-path)
+ok 94 - @array[0;*-1;0] gives 42
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 95 - check assignability with 999
+# Subtest: @array[0;*-1;0]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 96 - @array[0;*-1;0]:exists gives True
+# Subtest: @array[0;*-1;0]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 97 - @array[0;*-1;0]:!exists gives False
+# Subtest: @array[0;*-1;0]:exists:kv gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 98 - @array[0;*-1;0]:exists:kv gives ((0, 0, 0),True)
+# Subtest: @array[0;*-1;0]:exists:p gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 99 - @array[0;*-1;0]:exists:p gives Pair.new((0, 0, 0),True)
+# Subtest: @array[0;*-1;0]:k: gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 100 - @array[0;*-1;0]:k: gives (0, 0, 0)
+# Subtest: @array[0;*-1;0]:kv gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 101 - @array[0;*-1;0]:kv gives ((0, 0, 0),42)
+# Subtest: @array[0;*-1;0]:p gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 102 - @array[0;*-1;0]:p gives Pair.new((0, 0, 0),42)
+# Subtest: @array[0;*-1;0]:v gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 103 - @array[0;*-1;0]:v gives 42
+ok 104 - @array[0;*-1;0]:delete gives 42
+ok 105 - is array as expected after deletion of index?
+# Subtest: @array[0;*-1;0]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 106 - @array[0;*-1;0]:exists:delete gives True
+ok 107 - is array as expected after deletion of index?
+ok 108 - @array[0;*-1;0]:!exists:delete dies ok
+# Subtest: @array[0;*-1;0]:exists:kv:delete gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 109 - @array[0;*-1;0]:exists:kv:delete gives ((0, 0, 0),True)
+ok 110 - is array as expected after deletion of index?
+# Subtest: @array[0;*-1;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 111 - @array[0;*-1;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+ok 112 - is array as expected after deletion of index?
+# Subtest: @array[0;*-1;0]:k::delete gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 113 - @array[0;*-1;0]:k::delete gives (0, 0, 0)
+ok 114 - is array as expected after deletion of index?
+# Subtest: @array[0;*-1;0]:kv:delete gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 115 - @array[0;*-1;0]:kv:delete gives ((0, 0, 0),42)
+ok 116 - is array as expected after deletion of index?
+# Subtest: @array[0;*-1;0]:p:delete gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 117 - @array[0;*-1;0]:p:delete gives Pair.new((0, 0, 0),42)
+ok 118 - is array as expected after deletion of index?
+# Subtest: @array[0;*-1;0]:v:delete gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 119 - @array[0;*-1;0]:v:delete gives 42
+ok 120 - is array as expected after deletion of index?
+ok 121 - @array[*-1;*-1;0] gives 42 (fast-path)
+ok 122 - could we assign 999 and did we get 999 back (fast-path)
+ok 123 - did we assign value at the right place (fast-path)
+ok 124 - @array[*-1;*-1;0] gives 42
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 125 - check assignability with 999
+# Subtest: @array[*-1;*-1;0]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 126 - @array[*-1;*-1;0]:exists gives True
+# Subtest: @array[*-1;*-1;0]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 127 - @array[*-1;*-1;0]:!exists gives False
+# Subtest: @array[*-1;*-1;0]:exists:kv gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 128 - @array[*-1;*-1;0]:exists:kv gives ((0, 0, 0),True)
+# Subtest: @array[*-1;*-1;0]:exists:p gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 129 - @array[*-1;*-1;0]:exists:p gives Pair.new((0, 0, 0),True)
+# Subtest: @array[*-1;*-1;0]:k: gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 130 - @array[*-1;*-1;0]:k: gives (0, 0, 0)
+# Subtest: @array[*-1;*-1;0]:kv gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 131 - @array[*-1;*-1;0]:kv gives ((0, 0, 0),42)
+# Subtest: @array[*-1;*-1;0]:p gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 132 - @array[*-1;*-1;0]:p gives Pair.new((0, 0, 0),42)
+# Subtest: @array[*-1;*-1;0]:v gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 133 - @array[*-1;*-1;0]:v gives 42
+ok 134 - @array[*-1;*-1;0]:delete gives 42
+ok 135 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;0]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 136 - @array[*-1;*-1;0]:exists:delete gives True
+ok 137 - is array as expected after deletion of index?
+ok 138 - @array[*-1;*-1;0]:!exists:delete dies ok
+# Subtest: @array[*-1;*-1;0]:exists:kv:delete gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 139 - @array[*-1;*-1;0]:exists:kv:delete gives ((0, 0, 0),True)
+ok 140 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 141 - @array[*-1;*-1;0]:exists:p:delete gives Pair.new((0, 0, 0),True)
+ok 142 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;0]:k::delete gives (0, 0, 0)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 143 - @array[*-1;*-1;0]:k::delete gives (0, 0, 0)
+ok 144 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;0]:kv:delete gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 145 - @array[*-1;*-1;0]:kv:delete gives ((0, 0, 0),42)
+ok 146 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;0]:p:delete gives Pair.new((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 147 - @array[*-1;*-1;0]:p:delete gives Pair.new((0, 0, 0),42)
+ok 148 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;0]:v:delete gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 149 - @array[*-1;*-1;0]:v:delete gives 42
+ok 150 - is array as expected after deletion of index?
+ok 151 - @array[0;0;1] gives 666 (fast-path)
+ok 152 - could we assign 999 and did we get 999 back (fast-path)
+ok 153 - did we assign value at the right place (fast-path)
+ok 154 - @array[0;0;1] gives 666
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 155 - check assignability with 999
+# Subtest: @array[0;0;1]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 156 - @array[0;0;1]:exists gives True
+# Subtest: @array[0;0;1]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 157 - @array[0;0;1]:!exists gives False
+# Subtest: @array[0;0;1]:exists:kv gives ((0, 0, 1),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 158 - @array[0;0;1]:exists:kv gives ((0, 0, 1),True)
+# Subtest: @array[0;0;1]:exists:p gives Pair.new((0, 0, 1),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 159 - @array[0;0;1]:exists:p gives Pair.new((0, 0, 1),True)
+# Subtest: @array[0;0;1]:k: gives (0, 0, 1)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 160 - @array[0;0;1]:k: gives (0, 0, 1)
+# Subtest: @array[0;0;1]:kv gives ((0, 0, 1),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 161 - @array[0;0;1]:kv gives ((0, 0, 1),666)
+# Subtest: @array[0;0;1]:p gives Pair.new((0, 0, 1),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 162 - @array[0;0;1]:p gives Pair.new((0, 0, 1),666)
+# Subtest: @array[0;0;1]:v gives 666
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 163 - @array[0;0;1]:v gives 666
+ok 164 - @array[0;0;1]:delete gives 666
+ok 165 - is array as expected after deletion of index?
+# Subtest: @array[0;0;1]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 166 - @array[0;0;1]:exists:delete gives True
+ok 167 - is array as expected after deletion of index?
+ok 168 - @array[0;0;1]:!exists:delete dies ok
+# Subtest: @array[0;0;1]:exists:kv:delete gives ((0, 0, 1),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 169 - @array[0;0;1]:exists:kv:delete gives ((0, 0, 1),True)
+ok 170 - is array as expected after deletion of index?
+# Subtest: @array[0;0;1]:exists:p:delete gives Pair.new((0, 0, 1),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 171 - @array[0;0;1]:exists:p:delete gives Pair.new((0, 0, 1),True)
+ok 172 - is array as expected after deletion of index?
+# Subtest: @array[0;0;1]:k::delete gives (0, 0, 1)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 173 - @array[0;0;1]:k::delete gives (0, 0, 1)
+ok 174 - is array as expected after deletion of index?
+# Subtest: @array[0;0;1]:kv:delete gives ((0, 0, 1),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 175 - @array[0;0;1]:kv:delete gives ((0, 0, 1),666)
+ok 176 - is array as expected after deletion of index?
+# Subtest: @array[0;0;1]:p:delete gives Pair.new((0, 0, 1),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 177 - @array[0;0;1]:p:delete gives Pair.new((0, 0, 1),666)
+ok 178 - is array as expected after deletion of index?
+# Subtest: @array[0;0;1]:v:delete gives 666
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 179 - @array[0;0;1]:v:delete gives 666
+ok 180 - is array as expected after deletion of index?
+ok 181 - @array[0;0;2] gives 314 (fast-path)
+ok 182 - could we assign 999 and did we get 999 back (fast-path)
+ok 183 - did we assign value at the right place (fast-path)
+ok 184 - @array[0;0;2] gives $[314]
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 185 - check assignability with 999
+# Subtest: @array[0;0;2]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 186 - @array[0;0;2]:exists gives True
+# Subtest: @array[0;0;2]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 187 - @array[0;0;2]:!exists gives False
+# Subtest: @array[0;0;2]:exists:kv gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 188 - @array[0;0;2]:exists:kv gives ((0, 0, 2),True)
+# Subtest: @array[0;0;2]:exists:p gives Pair.new((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 189 - @array[0;0;2]:exists:p gives Pair.new((0, 0, 2),True)
+# Subtest: @array[0;0;2]:k: gives (0, 0, 2)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 190 - @array[0;0;2]:k: gives (0, 0, 2)
+# Subtest: @array[0;0;2]:kv gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 191 - @array[0;0;2]:kv gives ((0, 0, 2),$[314])
+# Subtest: @array[0;0;2]:p gives Pair.new((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 192 - @array[0;0;2]:p gives Pair.new((0, 0, 2),$[314])
+# Subtest: @array[0;0;2]:v gives $[314]
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 193 - @array[0;0;2]:v gives $[314]
+ok 194 - @array[0;0;2]:delete gives $[314]
+ok 195 - is array as expected after deletion of index?
+# Subtest: @array[0;0;2]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 196 - @array[0;0;2]:exists:delete gives True
+ok 197 - is array as expected after deletion of index?
+ok 198 - @array[0;0;2]:!exists:delete dies ok
+# Subtest: @array[0;0;2]:exists:kv:delete gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 199 - @array[0;0;2]:exists:kv:delete gives ((0, 0, 2),True)
+ok 200 - is array as expected after deletion of index?
+# Subtest: @array[0;0;2]:exists:p:delete gives Pair.new((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 201 - @array[0;0;2]:exists:p:delete gives Pair.new((0, 0, 2),True)
+ok 202 - is array as expected after deletion of index?
+# Subtest: @array[0;0;2]:k::delete gives (0, 0, 2)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 203 - @array[0;0;2]:k::delete gives (0, 0, 2)
+ok 204 - is array as expected after deletion of index?
+# Subtest: @array[0;0;2]:kv:delete gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 205 - @array[0;0;2]:kv:delete gives ((0, 0, 2),$[314])
+ok 206 - is array as expected after deletion of index?
+# Subtest: @array[0;0;2]:p:delete gives Pair.new((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 207 - @array[0;0;2]:p:delete gives Pair.new((0, 0, 2),$[314])
+ok 208 - is array as expected after deletion of index?
+# Subtest: @array[0;0;2]:v:delete gives $[314]
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 209 - @array[0;0;2]:v:delete gives $[314]
+ok 210 - is array as expected after deletion of index?
+ok 211 - @array[*-1;*-1;*-1] gives 314 (fast-path)
+ok 212 - could we assign 999 and did we get 999 back (fast-path)
+ok 213 - did we assign value at the right place (fast-path)
+ok 214 - @array[*-1;*-1;*-1] gives $[314]
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 215 - check assignability with 999
+# Subtest: @array[*-1;*-1;*-1]:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 216 - @array[*-1;*-1;*-1]:exists gives True
+# Subtest: @array[*-1;*-1;*-1]:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 217 - @array[*-1;*-1;*-1]:!exists gives False
+# Subtest: @array[*-1;*-1;*-1]:exists:kv gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 218 - @array[*-1;*-1;*-1]:exists:kv gives ((0, 0, 2),True)
+# Subtest: @array[*-1;*-1;*-1]:exists:p gives Pair.new((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 219 - @array[*-1;*-1;*-1]:exists:p gives Pair.new((0, 0, 2),True)
+# Subtest: @array[*-1;*-1;*-1]:k: gives (0, 0, 2)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 220 - @array[*-1;*-1;*-1]:k: gives (0, 0, 2)
+# Subtest: @array[*-1;*-1;*-1]:kv gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 221 - @array[*-1;*-1;*-1]:kv gives ((0, 0, 2),$[314])
+# Subtest: @array[*-1;*-1;*-1]:p gives Pair.new((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 222 - @array[*-1;*-1;*-1]:p gives Pair.new((0, 0, 2),$[314])
+# Subtest: @array[*-1;*-1;*-1]:v gives $[314]
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 223 - @array[*-1;*-1;*-1]:v gives $[314]
+ok 224 - @array[*-1;*-1;*-1]:delete gives $[314]
+ok 225 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;*-1]:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 226 - @array[*-1;*-1;*-1]:exists:delete gives True
+ok 227 - is array as expected after deletion of index?
+ok 228 - @array[*-1;*-1;*-1]:!exists:delete dies ok
+# Subtest: @array[*-1;*-1;*-1]:exists:kv:delete gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 229 - @array[*-1;*-1;*-1]:exists:kv:delete gives ((0, 0, 2),True)
+ok 230 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;*-1]:exists:p:delete gives Pair.new((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 231 - @array[*-1;*-1;*-1]:exists:p:delete gives Pair.new((0, 0, 2),True)
+ok 232 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;*-1]:k::delete gives (0, 0, 2)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 233 - @array[*-1;*-1;*-1]:k::delete gives (0, 0, 2)
+ok 234 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;*-1]:kv:delete gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 235 - @array[*-1;*-1;*-1]:kv:delete gives ((0, 0, 2),$[314])
+ok 236 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;*-1]:p:delete gives Pair.new((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 237 - @array[*-1;*-1;*-1]:p:delete gives Pair.new((0, 0, 2),$[314])
+ok 238 - is array as expected after deletion of index?
+# Subtest: @array[*-1;*-1;*-1]:v:delete gives $[314]
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 239 - @array[*-1;*-1;*-1]:v:delete gives $[314]
+ok 240 - is array as expected after deletion of index?
+ok 241 - @array[0;0;3] gives Any (fast-path)
+ok 242 - could we assign 999 and did we get 999 back (fast-path)
+ok 243 - did we assign value at the right place (fast-path)
+ok 244 - @array[0;0;3] gives Nil
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 245 - check assignability with 999
+# Subtest: @array[0;0;3]:exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 246 - @array[0;0;3]:exists gives False
+# Subtest: @array[0;0;3]:!exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 247 - @array[0;0;3]:!exists gives True
+# Subtest: @array[0;0;3]:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 248 - @array[0;0;3]:exists:kv gives ()
+# Subtest: @array[0;0;3]:exists:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 249 - @array[0;0;3]:exists:p gives Nil
+# Subtest: @array[0;0;3]:k: gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 250 - @array[0;0;3]:k: gives Nil
+# Subtest: @array[0;0;3]:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 251 - @array[0;0;3]:kv gives ()
+# Subtest: @array[0;0;3]:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 252 - @array[0;0;3]:p gives Nil
+# Subtest: @array[0;0;3]:v gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 253 - @array[0;0;3]:v gives Nil
+ok 254 - @array[0;0;3]:delete gives Nil
+ok 255 - is array as expected after deletion of index?
+# Subtest: @array[0;0;3]:exists:delete gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 256 - @array[0;0;3]:exists:delete gives False
+ok 257 - is array as expected after deletion of index?
+ok 258 - @array[0;0;3]:!exists:delete dies ok
+# Subtest: @array[0;0;3]:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 259 - @array[0;0;3]:exists:kv:delete gives ()
+ok 260 - is array as expected after deletion of index?
+# Subtest: @array[0;0;3]:exists:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 261 - @array[0;0;3]:exists:p:delete gives Nil
+ok 262 - is array as expected after deletion of index?
+# Subtest: @array[0;0;3]:k::delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 263 - @array[0;0;3]:k::delete gives Nil
+ok 264 - is array as expected after deletion of index?
+# Subtest: @array[0;0;3]:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 265 - @array[0;0;3]:kv:delete gives ()
+ok 266 - is array as expected after deletion of index?
+# Subtest: @array[0;0;3]:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 267 - @array[0;0;3]:p:delete gives Nil
+ok 268 - is array as expected after deletion of index?
+# Subtest: @array[0;0;3]:v:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 269 - @array[0;0;3]:v:delete gives Nil
+ok 270 - is array as expected after deletion of index?
+ok 271 - @array[0;1;0] gives Any (fast-path)
+ok 272 - could we assign 999 and did we get 999 back (fast-path)
+ok 273 - did we assign value at the right place (fast-path)
+ok 274 - @array[0;1;0] gives Nil
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 275 - check assignability with 999
+# Subtest: @array[0;1;0]:exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 276 - @array[0;1;0]:exists gives False
+# Subtest: @array[0;1;0]:!exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 277 - @array[0;1;0]:!exists gives True
+# Subtest: @array[0;1;0]:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 278 - @array[0;1;0]:exists:kv gives ()
+# Subtest: @array[0;1;0]:exists:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 279 - @array[0;1;0]:exists:p gives Nil
+# Subtest: @array[0;1;0]:k: gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 280 - @array[0;1;0]:k: gives Nil
+# Subtest: @array[0;1;0]:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 281 - @array[0;1;0]:kv gives ()
+# Subtest: @array[0;1;0]:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 282 - @array[0;1;0]:p gives Nil
+# Subtest: @array[0;1;0]:v gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 283 - @array[0;1;0]:v gives Nil
+ok 284 - @array[0;1;0]:delete gives Nil
+ok 285 - is array as expected after deletion of index?
+# Subtest: @array[0;1;0]:exists:delete gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 286 - @array[0;1;0]:exists:delete gives False
+ok 287 - is array as expected after deletion of index?
+ok 288 - @array[0;1;0]:!exists:delete dies ok
+# Subtest: @array[0;1;0]:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 289 - @array[0;1;0]:exists:kv:delete gives ()
+ok 290 - is array as expected after deletion of index?
+# Subtest: @array[0;1;0]:exists:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 291 - @array[0;1;0]:exists:p:delete gives Nil
+ok 292 - is array as expected after deletion of index?
+# Subtest: @array[0;1;0]:k::delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 293 - @array[0;1;0]:k::delete gives Nil
+ok 294 - is array as expected after deletion of index?
+# Subtest: @array[0;1;0]:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 295 - @array[0;1;0]:kv:delete gives ()
+ok 296 - is array as expected after deletion of index?
+# Subtest: @array[0;1;0]:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 297 - @array[0;1;0]:p:delete gives Nil
+ok 298 - is array as expected after deletion of index?
+# Subtest: @array[0;1;0]:v:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 299 - @array[0;1;0]:v:delete gives Nil
+ok 300 - is array as expected after deletion of index?
+ok 301 - @array[1;0;0] gives Any (fast-path)
+ok 302 - could we assign 999 and did we get 999 back (fast-path)
+ok 303 - did we assign value at the right place (fast-path)
+ok 304 - @array[1;0;0] gives Nil
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 305 - check assignability with 999
+# Subtest: @array[1;0;0]:exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 306 - @array[1;0;0]:exists gives False
+# Subtest: @array[1;0;0]:!exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 307 - @array[1;0;0]:!exists gives True
+# Subtest: @array[1;0;0]:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 308 - @array[1;0;0]:exists:kv gives ()
+# Subtest: @array[1;0;0]:exists:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 309 - @array[1;0;0]:exists:p gives Nil
+# Subtest: @array[1;0;0]:k: gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 310 - @array[1;0;0]:k: gives Nil
+# Subtest: @array[1;0;0]:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 311 - @array[1;0;0]:kv gives ()
+# Subtest: @array[1;0;0]:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 312 - @array[1;0;0]:p gives Nil
+# Subtest: @array[1;0;0]:v gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 313 - @array[1;0;0]:v gives Nil
+ok 314 - @array[1;0;0]:delete gives Nil
+ok 315 - is array as expected after deletion of index?
+# Subtest: @array[1;0;0]:exists:delete gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 316 - @array[1;0;0]:exists:delete gives False
+ok 317 - is array as expected after deletion of index?
+ok 318 - @array[1;0;0]:!exists:delete dies ok
+# Subtest: @array[1;0;0]:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 319 - @array[1;0;0]:exists:kv:delete gives ()
+ok 320 - is array as expected after deletion of index?
+# Subtest: @array[1;0;0]:exists:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 321 - @array[1;0;0]:exists:p:delete gives Nil
+ok 322 - is array as expected after deletion of index?
+# Subtest: @array[1;0;0]:k::delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 323 - @array[1;0;0]:k::delete gives Nil
+ok 324 - is array as expected after deletion of index?
+# Subtest: @array[1;0;0]:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 325 - @array[1;0;0]:kv:delete gives ()
+ok 326 - is array as expected after deletion of index?
+# Subtest: @array[1;0;0]:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 327 - @array[1;0;0]:p:delete gives Nil
+ok 328 - is array as expected after deletion of index?
+# Subtest: @array[1;0;0]:v:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 329 - @array[1;0;0]:v:delete gives Nil
+ok 330 - is array as expected after deletion of index?
+ok 331 - @array[*;0;0] gives (42,) (fast-path)
+ok 332 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 333 - did we assign value at the right place (fast-path)
+ok 334 - @array[*;0;0] gives (42,)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 335 - check assignability with (999,)
+# Subtest: @array[*;0;0]:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 336 - @array[*;0;0]:exists gives (True,)
+# Subtest: @array[*;0;0]:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 337 - @array[*;0;0]:!exists gives (False,)
+# Subtest: @array[*;0;0]:exists:kv gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 338 - @array[*;0;0]:exists:kv gives ((0, 0, 0),True)
+# Subtest: @array[*;0;0]:exists:p gives (Pair.new((0, 0, 0),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 339 - @array[*;0;0]:exists:p gives (Pair.new((0, 0, 0),True),)
+# Subtest: @array[*;0;0]:k gives ((0, 0, 0),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 340 - @array[*;0;0]:k gives ((0, 0, 0),)
+# Subtest: @array[*;0;0]:kv gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 341 - @array[*;0;0]:kv gives ((0, 0, 0),42)
+# Subtest: @array[*;0;0]:p gives (Pair.new((0, 0, 0),42),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 342 - @array[*;0;0]:p gives (Pair.new((0, 0, 0),42),)
+# Subtest: @array[*;0;0]:v gives (42,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 343 - @array[*;0;0]:v gives (42,)
+ok 344 - @array[*;0;0]:delete gives (42,))
+ok 345 - is array as expected after deletion of index?
+# Subtest: @array[*;0;0]:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 346 - @array[*;0;0]:exists:delete gives (True,)
+ok 347 - is array as expected after deletion of index?
+ok 348 - @array[*;0;0]:!exists:delete dies ok
+# Subtest: @array[*;0;0]:exists:kv:delete gives ((0, 0, 0),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 349 - @array[*;0;0]:exists:kv:delete gives ((0, 0, 0),True)
+ok 350 - is array as expected after deletion of index?
+# Subtest: @array[*;0;0]:exists:p:delete gives (Pair.new((0, 0, 0),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 351 - @array[*;0;0]:exists:p:delete gives (Pair.new((0, 0, 0),True),)
+ok 352 - is array as expected after deletion of index?
+# Subtest: @array[*;0;0]:k:delete gives ((0, 0, 0),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 353 - @array[*;0;0]:k:delete gives ((0, 0, 0),)
+ok 354 - is array as expected after deletion of index?
+# Subtest: @array[*;0;0]:kv:delete gives ((0, 0, 0),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 355 - @array[*;0;0]:kv:delete gives ((0, 0, 0),42)
+ok 356 - is array as expected after deletion of index?
+# Subtest: @array[*;0;0]:p:delete gives (Pair.new((0, 0, 0),42),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 357 - @array[*;0;0]:p:delete gives (Pair.new((0, 0, 0),42),)
+ok 358 - is array as expected after deletion of index?
+# Subtest: @array[*;0;0]:v:delete gives (42,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 359 - @array[*;0;0]:v:delete gives (42,)
+ok 360 - is array as expected after deletion of index?
+ok 361 - @array[0;*;1] gives (666,) (fast-path)
+ok 362 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 363 - did we assign value at the right place (fast-path)
+ok 364 - @array[0;*;1] gives (666,)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 365 - check assignability with (999,)
+# Subtest: @array[0;*;1]:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 366 - @array[0;*;1]:exists gives (True,)
+# Subtest: @array[0;*;1]:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 367 - @array[0;*;1]:!exists gives (False,)
+# Subtest: @array[0;*;1]:exists:kv gives ((0, 0, 1),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 368 - @array[0;*;1]:exists:kv gives ((0, 0, 1),True)
+# Subtest: @array[0;*;1]:exists:p gives (Pair.new((0, 0, 1),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 369 - @array[0;*;1]:exists:p gives (Pair.new((0, 0, 1),True),)
+# Subtest: @array[0;*;1]:k gives ((0, 0, 1),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 370 - @array[0;*;1]:k gives ((0, 0, 1),)
+# Subtest: @array[0;*;1]:kv gives ((0, 0, 1),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 371 - @array[0;*;1]:kv gives ((0, 0, 1),666)
+# Subtest: @array[0;*;1]:p gives (Pair.new((0, 0, 1),666),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 372 - @array[0;*;1]:p gives (Pair.new((0, 0, 1),666),)
+# Subtest: @array[0;*;1]:v gives (666,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 373 - @array[0;*;1]:v gives (666,)
+ok 374 - @array[0;*;1]:delete gives (666,))
+ok 375 - is array as expected after deletion of index?
+# Subtest: @array[0;*;1]:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 376 - @array[0;*;1]:exists:delete gives (True,)
+ok 377 - is array as expected after deletion of index?
+ok 378 - @array[0;*;1]:!exists:delete dies ok
+# Subtest: @array[0;*;1]:exists:kv:delete gives ((0, 0, 1),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 379 - @array[0;*;1]:exists:kv:delete gives ((0, 0, 1),True)
+ok 380 - is array as expected after deletion of index?
+# Subtest: @array[0;*;1]:exists:p:delete gives (Pair.new((0, 0, 1),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 381 - @array[0;*;1]:exists:p:delete gives (Pair.new((0, 0, 1),True),)
+ok 382 - is array as expected after deletion of index?
+# Subtest: @array[0;*;1]:k:delete gives ((0, 0, 1),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 383 - @array[0;*;1]:k:delete gives ((0, 0, 1),)
+ok 384 - is array as expected after deletion of index?
+# Subtest: @array[0;*;1]:kv:delete gives ((0, 0, 1),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 385 - @array[0;*;1]:kv:delete gives ((0, 0, 1),666)
+ok 386 - is array as expected after deletion of index?
+# Subtest: @array[0;*;1]:p:delete gives (Pair.new((0, 0, 1),666),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 387 - @array[0;*;1]:p:delete gives (Pair.new((0, 0, 1),666),)
+ok 388 - is array as expected after deletion of index?
+# Subtest: @array[0;*;1]:v:delete gives (666,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 389 - @array[0;*;1]:v:delete gives (666,)
+ok 390 - is array as expected after deletion of index?
+ok 391 - @array[*;*;2] gives ($[314],) (fast-path)
+ok 392 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 393 - did we assign value at the right place (fast-path)
+ok 394 - @array[*;*;2] gives ($[314],)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 395 - check assignability with (999,)
+# Subtest: @array[*;*;2]:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 396 - @array[*;*;2]:exists gives (True,)
+# Subtest: @array[*;*;2]:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 397 - @array[*;*;2]:!exists gives (False,)
+# Subtest: @array[*;*;2]:exists:kv gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 398 - @array[*;*;2]:exists:kv gives ((0, 0, 2),True)
+# Subtest: @array[*;*;2]:exists:p gives (Pair.new((0, 0, 2),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 399 - @array[*;*;2]:exists:p gives (Pair.new((0, 0, 2),True),)
+# Subtest: @array[*;*;2]:k gives ((0, 0, 2),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 400 - @array[*;*;2]:k gives ((0, 0, 2),)
+# Subtest: @array[*;*;2]:kv gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 401 - @array[*;*;2]:kv gives ((0, 0, 2),$[314])
+# Subtest: @array[*;*;2]:p gives (Pair.new((0, 0, 2),$[314]),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 402 - @array[*;*;2]:p gives (Pair.new((0, 0, 2),$[314]),)
+# Subtest: @array[*;*;2]:v gives ($[314],)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 403 - @array[*;*;2]:v gives ($[314],)
+ok 404 - @array[*;*;2]:delete gives ((314,),))
+ok 405 - is array as expected after deletion of index?
+# Subtest: @array[*;*;2]:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 406 - @array[*;*;2]:exists:delete gives (True,)
+ok 407 - is array as expected after deletion of index?
+ok 408 - @array[*;*;2]:!exists:delete dies ok
+# Subtest: @array[*;*;2]:exists:kv:delete gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 409 - @array[*;*;2]:exists:kv:delete gives ((0, 0, 2),True)
+ok 410 - is array as expected after deletion of index?
+# Subtest: @array[*;*;2]:exists:p:delete gives (Pair.new((0, 0, 2),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 411 - @array[*;*;2]:exists:p:delete gives (Pair.new((0, 0, 2),True),)
+ok 412 - is array as expected after deletion of index?
+# Subtest: @array[*;*;2]:k:delete gives ((0, 0, 2),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 413 - @array[*;*;2]:k:delete gives ((0, 0, 2),)
+ok 414 - is array as expected after deletion of index?
+# Subtest: @array[*;*;2]:kv:delete gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 415 - @array[*;*;2]:kv:delete gives ((0, 0, 2),$[314])
+ok 416 - is array as expected after deletion of index?
+# Subtest: @array[*;*;2]:p:delete gives (Pair.new((0, 0, 2),$[314]),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 417 - @array[*;*;2]:p:delete gives (Pair.new((0, 0, 2),$[314]),)
+ok 418 - is array as expected after deletion of index?
+# Subtest: @array[*;*;2]:v:delete gives ($[314],)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 419 - @array[*;*;2]:v:delete gives ($[314],)
+ok 420 - is array as expected after deletion of index?
+ok 421 - @array[*;*;"2"] gives ($[314],) (fast-path)
+ok 422 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 423 - did we assign value at the right place (fast-path)
+ok 424 - @array[*;*;"2"] gives ($[314],)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 425 - check assignability with (999,)
+# Subtest: @array[*;*;"2"]:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 426 - @array[*;*;"2"]:exists gives (True,)
+# Subtest: @array[*;*;"2"]:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 427 - @array[*;*;"2"]:!exists gives (False,)
+# Subtest: @array[*;*;"2"]:exists:kv gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 428 - @array[*;*;"2"]:exists:kv gives ((0, 0, 2),True)
+# Subtest: @array[*;*;"2"]:exists:p gives (Pair.new((0, 0, 2),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 429 - @array[*;*;"2"]:exists:p gives (Pair.new((0, 0, 2),True),)
+# Subtest: @array[*;*;"2"]:k gives ((0, 0, 2),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 430 - @array[*;*;"2"]:k gives ((0, 0, 2),)
+# Subtest: @array[*;*;"2"]:kv gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 431 - @array[*;*;"2"]:kv gives ((0, 0, 2),$[314])
+# Subtest: @array[*;*;"2"]:p gives (Pair.new((0, 0, 2),$[314]),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 432 - @array[*;*;"2"]:p gives (Pair.new((0, 0, 2),$[314]),)
+# Subtest: @array[*;*;"2"]:v gives ($[314],)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 433 - @array[*;*;"2"]:v gives ($[314],)
+ok 434 - @array[*;*;"2"]:delete gives ((314,),))
+ok 435 - is array as expected after deletion of index?
+# Subtest: @array[*;*;"2"]:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 436 - @array[*;*;"2"]:exists:delete gives (True,)
+ok 437 - is array as expected after deletion of index?
+ok 438 - @array[*;*;"2"]:!exists:delete dies ok
+# Subtest: @array[*;*;"2"]:exists:kv:delete gives ((0, 0, 2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 439 - @array[*;*;"2"]:exists:kv:delete gives ((0, 0, 2),True)
+ok 440 - is array as expected after deletion of index?
+# Subtest: @array[*;*;"2"]:exists:p:delete gives (Pair.new((0, 0, 2),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 441 - @array[*;*;"2"]:exists:p:delete gives (Pair.new((0, 0, 2),True),)
+ok 442 - is array as expected after deletion of index?
+# Subtest: @array[*;*;"2"]:k:delete gives ((0, 0, 2),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 443 - @array[*;*;"2"]:k:delete gives ((0, 0, 2),)
+ok 444 - is array as expected after deletion of index?
+# Subtest: @array[*;*;"2"]:kv:delete gives ((0, 0, 2),$[314])
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 445 - @array[*;*;"2"]:kv:delete gives ((0, 0, 2),$[314])
+ok 446 - is array as expected after deletion of index?
+# Subtest: @array[*;*;"2"]:p:delete gives (Pair.new((0, 0, 2),$[314]),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 447 - @array[*;*;"2"]:p:delete gives (Pair.new((0, 0, 2),$[314]),)
+ok 448 - is array as expected after deletion of index?
+# Subtest: @array[*;*;"2"]:v:delete gives ($[314],)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 449 - @array[*;*;"2"]:v:delete gives ($[314],)
+ok 450 - is array as expected after deletion of index?
+ok 451 - @array[*;0;3] gives Any (fast-path)
+ok 452 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 453 - did we assign value at the right place (fast-path)
+ok 454 - @array[*;0;3] gives (Any,)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 455 - check assignability with (999,)
+# Subtest: @array[*;0;3]:exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 456 - @array[*;0;3]:exists gives (False,)
+# Subtest: @array[*;0;3]:!exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 457 - @array[*;0;3]:!exists gives (True,)
+# Subtest: @array[*;0;3]:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 458 - @array[*;0;3]:exists:kv gives ()
+# Subtest: @array[*;0;3]:exists:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 459 - @array[*;0;3]:exists:p gives ()
+# Subtest: @array[*;0;3]:k gives ()
+    ok 1 - was the value ok
+    1..1
+ok 460 - @array[*;0;3]:k gives ()
+# Subtest: @array[*;0;3]:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 461 - @array[*;0;3]:kv gives ()
+# Subtest: @array[*;0;3]:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 462 - @array[*;0;3]:p gives ()
+# Subtest: @array[*;0;3]:v gives ()
+    ok 1 - was the value ok
+    1..1
+ok 463 - @array[*;0;3]:v gives ()
+ok 464 - @array[*;0;3]:delete gives (Nil,)
+ok 465 - is array as expected after deletion of index?
+# Subtest: @array[*;0;3]:exists:delete gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 466 - @array[*;0;3]:exists:delete gives (False,)
+ok 467 - is array as expected after deletion of index?
+ok 468 - @array[*;0;3]:!exists:delete dies ok
+# Subtest: @array[*;0;3]:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 469 - @array[*;0;3]:exists:kv:delete gives ()
+ok 470 - is array as expected after deletion of index?
+# Subtest: @array[*;0;3]:exists:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 471 - @array[*;0;3]:exists:p:delete gives ()
+ok 472 - is array as expected after deletion of index?
+# Subtest: @array[*;0;3]:k:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 473 - @array[*;0;3]:k:delete gives ()
+ok 474 - is array as expected after deletion of index?
+# Subtest: @array[*;0;3]:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 475 - @array[*;0;3]:kv:delete gives ()
+ok 476 - is array as expected after deletion of index?
+# Subtest: @array[*;0;3]:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 477 - @array[*;0;3]:p:delete gives ()
+ok 478 - is array as expected after deletion of index?
+# Subtest: @array[*;0;3]:v:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 479 - @array[*;0;3]:v:delete gives ()
+ok 480 - is array as expected after deletion of index?
+ok 481 - @array[0;*;3] gives Any (fast-path)
+ok 482 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 483 - did we assign value at the right place (fast-path)
+ok 484 - @array[0;*;3] gives (Any,)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 485 - check assignability with (999,)
+# Subtest: @array[0;*;3]:exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 486 - @array[0;*;3]:exists gives (False,)
+# Subtest: @array[0;*;3]:!exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 487 - @array[0;*;3]:!exists gives (True,)
+# Subtest: @array[0;*;3]:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 488 - @array[0;*;3]:exists:kv gives ()
+# Subtest: @array[0;*;3]:exists:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 489 - @array[0;*;3]:exists:p gives ()
+# Subtest: @array[0;*;3]:k gives ()
+    ok 1 - was the value ok
+    1..1
+ok 490 - @array[0;*;3]:k gives ()
+# Subtest: @array[0;*;3]:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 491 - @array[0;*;3]:kv gives ()
+# Subtest: @array[0;*;3]:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 492 - @array[0;*;3]:p gives ()
+# Subtest: @array[0;*;3]:v gives ()
+    ok 1 - was the value ok
+    1..1
+ok 493 - @array[0;*;3]:v gives ()
+ok 494 - @array[0;*;3]:delete gives (Nil,)
+ok 495 - is array as expected after deletion of index?
+# Subtest: @array[0;*;3]:exists:delete gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 496 - @array[0;*;3]:exists:delete gives (False,)
+ok 497 - is array as expected after deletion of index?
+ok 498 - @array[0;*;3]:!exists:delete dies ok
+# Subtest: @array[0;*;3]:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 499 - @array[0;*;3]:exists:kv:delete gives ()
+ok 500 - is array as expected after deletion of index?
+# Subtest: @array[0;*;3]:exists:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 501 - @array[0;*;3]:exists:p:delete gives ()
+ok 502 - is array as expected after deletion of index?
+# Subtest: @array[0;*;3]:k:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 503 - @array[0;*;3]:k:delete gives ()
+ok 504 - is array as expected after deletion of index?
+# Subtest: @array[0;*;3]:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 505 - @array[0;*;3]:kv:delete gives ()
+ok 506 - is array as expected after deletion of index?
+# Subtest: @array[0;*;3]:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 507 - @array[0;*;3]:p:delete gives ()
+ok 508 - is array as expected after deletion of index?
+# Subtest: @array[0;*;3]:v:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 509 - @array[0;*;3]:v:delete gives ()
+ok 510 - is array as expected after deletion of index?
+ok 511 - @array[*;*;3] gives Any (fast-path)
+ok 512 - could we assign (999,) and did we get (999,) back (fast-path)
+ok 513 - did we assign value at the right place (fast-path)
+ok 514 - @array[*;*;3] gives (Any,)
+# Subtest: check assignability with (999,)
+    ok 1 - could we assign (999,) and did we get (999,) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 515 - check assignability with (999,)
+# Subtest: @array[*;*;3]:exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 516 - @array[*;*;3]:exists gives (False,)
+# Subtest: @array[*;*;3]:!exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 517 - @array[*;*;3]:!exists gives (True,)
+# Subtest: @array[*;*;3]:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 518 - @array[*;*;3]:exists:kv gives ()
+# Subtest: @array[*;*;3]:exists:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 519 - @array[*;*;3]:exists:p gives ()
+# Subtest: @array[*;*;3]:k gives ()
+    ok 1 - was the value ok
+    1..1
+ok 520 - @array[*;*;3]:k gives ()
+# Subtest: @array[*;*;3]:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 521 - @array[*;*;3]:kv gives ()
+# Subtest: @array[*;*;3]:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 522 - @array[*;*;3]:p gives ()
+# Subtest: @array[*;*;3]:v gives ()
+    ok 1 - was the value ok
+    1..1
+ok 523 - @array[*;*;3]:v gives ()
+ok 524 - @array[*;*;3]:delete gives (Nil,)
+ok 525 - is array as expected after deletion of index?
+# Subtest: @array[*;*;3]:exists:delete gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 526 - @array[*;*;3]:exists:delete gives (False,)
+ok 527 - is array as expected after deletion of index?
+ok 528 - @array[*;*;3]:!exists:delete dies ok
+# Subtest: @array[*;*;3]:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 529 - @array[*;*;3]:exists:kv:delete gives ()
+ok 530 - is array as expected after deletion of index?
+# Subtest: @array[*;*;3]:exists:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 531 - @array[*;*;3]:exists:p:delete gives ()
+ok 532 - is array as expected after deletion of index?
+# Subtest: @array[*;*;3]:k:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 533 - @array[*;*;3]:k:delete gives ()
+ok 534 - is array as expected after deletion of index?
+# Subtest: @array[*;*;3]:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 535 - @array[*;*;3]:kv:delete gives ()
+ok 536 - is array as expected after deletion of index?
+# Subtest: @array[*;*;3]:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 537 - @array[*;*;3]:p:delete gives ()
+ok 538 - is array as expected after deletion of index?
+# Subtest: @array[*;*;3]:v:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 539 - @array[*;*;3]:v:delete gives ()
+ok 540 - is array as expected after deletion of index?
+ok 541 - @array[0;0;(0, 1, 2)] gives (42,666,[314]) (fast-path)
+ok 542 - could we assign (777,888,999) and get it back (fast-path)
+ok 543 - did we assign value at the right place (fast-path)
+ok 544 - @array[0;0;(0, 1, 2)] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 545 - check assignability with (777, 888, 999)
+# Subtest: @array[0;0;(0, 1, 2)]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 546 - @array[0;0;(0, 1, 2)]:exists gives (True,True,True)
+# Subtest: @array[0;0;(0, 1, 2)]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 547 - @array[0;0;(0, 1, 2)]:!exists gives (False,False,False)
+# Subtest: @array[0;0;(0, 1, 2)]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 548 - @array[0;0;(0, 1, 2)]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[0;0;(0, 1, 2)]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 549 - @array[0;0;(0, 1, 2)]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[0;0;(0, 1, 2)]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 550 - @array[0;0;(0, 1, 2)]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[0;0;(0, 1, 2)]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 551 - @array[0;0;(0, 1, 2)]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[0;0;(0, 1, 2)]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 552 - @array[0;0;(0, 1, 2)]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[0;0;(0, 1, 2)]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 553 - @array[0;0;(0, 1, 2)]:v gives 42, 666, (314,)
+# Subtest: @array[0;0;(0, 1, 2)]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 554 - @array[0;0;(0, 1, 2)]:delete gives (42,666,(314,))
+ok 555 - is array as expected after deletion of index?
+# Subtest: @array[0;0;(0, 1, 2)]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 556 - @array[0;0;(0, 1, 2)]:exists:delete gives (True,True,True)
+ok 557 - is array as expected after deletion of index?
+ok 558 - @array[0;0;(0, 1, 2)]:!exists:delete dies ok
+# Subtest: @array[0;0;(0, 1, 2)]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 559 - @array[0;0;(0, 1, 2)]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 560 - is array as expected after deletion of index?
+# Subtest: @array[0;0;(0, 1, 2)]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 561 - @array[0;0;(0, 1, 2)]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 562 - is array as expected after deletion of index?
+# Subtest: @array[0;0;(0, 1, 2)]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 563 - @array[0;0;(0, 1, 2)]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 564 - is array as expected after deletion of index?
+# Subtest: @array[0;0;(0, 1, 2)]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 565 - @array[0;0;(0, 1, 2)]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 566 - is array as expected after deletion of index?
+# Subtest: @array[0;0;(0, 1, 2)]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 567 - @array[0;0;(0, 1, 2)]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 568 - is array as expected after deletion of index?
+# Subtest: @array[0;0;(0, 1, 2)]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 569 - @array[0;0;(0, 1, 2)]:v:delete gives 42, 666, (314,)
+ok 570 - is array as expected after deletion of index?
+ok 571 - @array[*;0;^3] gives (42,666,[314]) (fast-path)
+ok 572 - could we assign (777,888,999) and get it back (fast-path)
+ok 573 - did we assign value at the right place (fast-path)
+ok 574 - @array[*;0;^3] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 575 - check assignability with (777, 888, 999)
+# Subtest: @array[*;0;^3]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 576 - @array[*;0;^3]:exists gives (True,True,True)
+# Subtest: @array[*;0;^3]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 577 - @array[*;0;^3]:!exists gives (False,False,False)
+# Subtest: @array[*;0;^3]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 578 - @array[*;0;^3]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[*;0;^3]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 579 - @array[*;0;^3]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[*;0;^3]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 580 - @array[*;0;^3]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[*;0;^3]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 581 - @array[*;0;^3]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[*;0;^3]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 582 - @array[*;0;^3]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[*;0;^3]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 583 - @array[*;0;^3]:v gives 42, 666, (314,)
+# Subtest: @array[*;0;^3]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 584 - @array[*;0;^3]:delete gives (42,666,(314,))
+ok 585 - is array as expected after deletion of index?
+# Subtest: @array[*;0;^3]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 586 - @array[*;0;^3]:exists:delete gives (True,True,True)
+ok 587 - is array as expected after deletion of index?
+ok 588 - @array[*;0;^3]:!exists:delete dies ok
+# Subtest: @array[*;0;^3]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 589 - @array[*;0;^3]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 590 - is array as expected after deletion of index?
+# Subtest: @array[*;0;^3]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 591 - @array[*;0;^3]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 592 - is array as expected after deletion of index?
+# Subtest: @array[*;0;^3]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 593 - @array[*;0;^3]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 594 - is array as expected after deletion of index?
+# Subtest: @array[*;0;^3]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 595 - @array[*;0;^3]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 596 - is array as expected after deletion of index?
+# Subtest: @array[*;0;^3]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 597 - @array[*;0;^3]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 598 - is array as expected after deletion of index?
+# Subtest: @array[*;0;^3]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 599 - @array[*;0;^3]:v:delete gives 42, 666, (314,)
+ok 600 - is array as expected after deletion of index?
+ok 601 - @array[0;*;(0, 1, 2).Seq] gives (42,666,[314]) (fast-path)
+ok 602 - could we assign (777,888,999) and get it back (fast-path)
+ok 603 - did we assign value at the right place (fast-path)
+ok 604 - @array[0;*;(0, 1, 2).Seq] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 605 - check assignability with (777, 888, 999)
+# Subtest: @array[0;*;(0, 1, 2).Seq]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 606 - @array[0;*;(0, 1, 2).Seq]:exists gives (True,True,True)
+# Subtest: @array[0;*;(0, 1, 2).Seq]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 607 - @array[0;*;(0, 1, 2).Seq]:!exists gives (False,False,False)
+# Subtest: @array[0;*;(0, 1, 2).Seq]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 608 - @array[0;*;(0, 1, 2).Seq]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[0;*;(0, 1, 2).Seq]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 609 - @array[0;*;(0, 1, 2).Seq]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[0;*;(0, 1, 2).Seq]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 610 - @array[0;*;(0, 1, 2).Seq]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[0;*;(0, 1, 2).Seq]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 611 - @array[0;*;(0, 1, 2).Seq]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[0;*;(0, 1, 2).Seq]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 612 - @array[0;*;(0, 1, 2).Seq]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[0;*;(0, 1, 2).Seq]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 613 - @array[0;*;(0, 1, 2).Seq]:v gives 42, 666, (314,)
+# Subtest: @array[0;*;(0, 1, 2).Seq]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 614 - @array[0;*;(0, 1, 2).Seq]:delete gives (42,666,(314,))
+ok 615 - is array as expected after deletion of index?
+# Subtest: @array[0;*;(0, 1, 2).Seq]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 616 - @array[0;*;(0, 1, 2).Seq]:exists:delete gives (True,True,True)
+ok 617 - is array as expected after deletion of index?
+ok 618 - @array[0;*;(0, 1, 2).Seq]:!exists:delete dies ok
+# Subtest: @array[0;*;(0, 1, 2).Seq]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 619 - @array[0;*;(0, 1, 2).Seq]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 620 - is array as expected after deletion of index?
+# Subtest: @array[0;*;(0, 1, 2).Seq]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 621 - @array[0;*;(0, 1, 2).Seq]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 622 - is array as expected after deletion of index?
+# Subtest: @array[0;*;(0, 1, 2).Seq]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 623 - @array[0;*;(0, 1, 2).Seq]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 624 - is array as expected after deletion of index?
+# Subtest: @array[0;*;(0, 1, 2).Seq]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 625 - @array[0;*;(0, 1, 2).Seq]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 626 - is array as expected after deletion of index?
+# Subtest: @array[0;*;(0, 1, 2).Seq]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 627 - @array[0;*;(0, 1, 2).Seq]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 628 - is array as expected after deletion of index?
+# Subtest: @array[0;*;(0, 1, 2).Seq]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 629 - @array[0;*;(0, 1, 2).Seq]:v:delete gives 42, 666, (314,)
+ok 630 - is array as expected after deletion of index?
+ok 631 - @array[*;*;(0, 1, 2)] gives (42,666,[314]) (fast-path)
+ok 632 - could we assign (777,888,999) and get it back (fast-path)
+ok 633 - did we assign value at the right place (fast-path)
+ok 634 - @array[*;*;(0, 1, 2)] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 635 - check assignability with (777, 888, 999)
+# Subtest: @array[*;*;(0, 1, 2)]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 636 - @array[*;*;(0, 1, 2)]:exists gives (True,True,True)
+# Subtest: @array[*;*;(0, 1, 2)]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 637 - @array[*;*;(0, 1, 2)]:!exists gives (False,False,False)
+# Subtest: @array[*;*;(0, 1, 2)]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 638 - @array[*;*;(0, 1, 2)]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[*;*;(0, 1, 2)]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 639 - @array[*;*;(0, 1, 2)]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[*;*;(0, 1, 2)]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 640 - @array[*;*;(0, 1, 2)]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[*;*;(0, 1, 2)]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 641 - @array[*;*;(0, 1, 2)]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[*;*;(0, 1, 2)]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 642 - @array[*;*;(0, 1, 2)]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[*;*;(0, 1, 2)]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 643 - @array[*;*;(0, 1, 2)]:v gives 42, 666, (314,)
+# Subtest: @array[*;*;(0, 1, 2)]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 644 - @array[*;*;(0, 1, 2)]:delete gives (42,666,(314,))
+ok 645 - is array as expected after deletion of index?
+# Subtest: @array[*;*;(0, 1, 2)]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 646 - @array[*;*;(0, 1, 2)]:exists:delete gives (True,True,True)
+ok 647 - is array as expected after deletion of index?
+ok 648 - @array[*;*;(0, 1, 2)]:!exists:delete dies ok
+# Subtest: @array[*;*;(0, 1, 2)]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 649 - @array[*;*;(0, 1, 2)]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 650 - is array as expected after deletion of index?
+# Subtest: @array[*;*;(0, 1, 2)]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 651 - @array[*;*;(0, 1, 2)]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 652 - is array as expected after deletion of index?
+# Subtest: @array[*;*;(0, 1, 2)]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 653 - @array[*;*;(0, 1, 2)]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 654 - is array as expected after deletion of index?
+# Subtest: @array[*;*;(0, 1, 2)]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 655 - @array[*;*;(0, 1, 2)]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 656 - is array as expected after deletion of index?
+# Subtest: @array[*;*;(0, 1, 2)]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 657 - @array[*;*;(0, 1, 2)]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 658 - is array as expected after deletion of index?
+# Subtest: @array[*;*;(0, 1, 2)]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 659 - @array[*;*;(0, 1, 2)]:v:delete gives 42, 666, (314,)
+ok 660 - is array as expected after deletion of index?
+ok 661 - @array[0;0;*] gives (42,666,[314]) (fast-path)
+ok 662 - could we assign (777,888,999) and get it back (fast-path)
+ok 663 - did we assign value at the right place (fast-path)
+ok 664 - @array[0;0;*] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 665 - check assignability with (777, 888, 999)
+# Subtest: @array[0;0;*]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 666 - @array[0;0;*]:exists gives (True,True,True)
+# Subtest: @array[0;0;*]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 667 - @array[0;0;*]:!exists gives (False,False,False)
+# Subtest: @array[0;0;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 668 - @array[0;0;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[0;0;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 669 - @array[0;0;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[0;0;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 670 - @array[0;0;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[0;0;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 671 - @array[0;0;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[0;0;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 672 - @array[0;0;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[0;0;*]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 673 - @array[0;0;*]:v gives 42, 666, (314,)
+# Subtest: @array[0;0;*]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 674 - @array[0;0;*]:delete gives (42,666,(314,))
+ok 675 - is array as expected after deletion of index?
+# Subtest: @array[0;0;*]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 676 - @array[0;0;*]:exists:delete gives (True,True,True)
+ok 677 - is array as expected after deletion of index?
+ok 678 - @array[0;0;*]:!exists:delete dies ok
+# Subtest: @array[0;0;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 679 - @array[0;0;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 680 - is array as expected after deletion of index?
+# Subtest: @array[0;0;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 681 - @array[0;0;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 682 - is array as expected after deletion of index?
+# Subtest: @array[0;0;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 683 - @array[0;0;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 684 - is array as expected after deletion of index?
+# Subtest: @array[0;0;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 685 - @array[0;0;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 686 - is array as expected after deletion of index?
+# Subtest: @array[0;0;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 687 - @array[0;0;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 688 - is array as expected after deletion of index?
+# Subtest: @array[0;0;*]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 689 - @array[0;0;*]:v:delete gives 42, 666, (314,)
+ok 690 - is array as expected after deletion of index?
+ok 691 - @array[*;0;*] gives (42,666,[314]) (fast-path)
+ok 692 - could we assign (777,888,999) and get it back (fast-path)
+ok 693 - did we assign value at the right place (fast-path)
+ok 694 - @array[*;0;*] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 695 - check assignability with (777, 888, 999)
+# Subtest: @array[*;0;*]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 696 - @array[*;0;*]:exists gives (True,True,True)
+# Subtest: @array[*;0;*]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 697 - @array[*;0;*]:!exists gives (False,False,False)
+# Subtest: @array[*;0;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 698 - @array[*;0;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[*;0;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 699 - @array[*;0;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[*;0;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 700 - @array[*;0;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[*;0;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 701 - @array[*;0;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[*;0;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 702 - @array[*;0;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[*;0;*]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 703 - @array[*;0;*]:v gives 42, 666, (314,)
+# Subtest: @array[*;0;*]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 704 - @array[*;0;*]:delete gives (42,666,(314,))
+ok 705 - is array as expected after deletion of index?
+# Subtest: @array[*;0;*]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 706 - @array[*;0;*]:exists:delete gives (True,True,True)
+ok 707 - is array as expected after deletion of index?
+ok 708 - @array[*;0;*]:!exists:delete dies ok
+# Subtest: @array[*;0;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 709 - @array[*;0;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 710 - is array as expected after deletion of index?
+# Subtest: @array[*;0;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 711 - @array[*;0;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 712 - is array as expected after deletion of index?
+# Subtest: @array[*;0;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 713 - @array[*;0;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 714 - is array as expected after deletion of index?
+# Subtest: @array[*;0;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 715 - @array[*;0;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 716 - is array as expected after deletion of index?
+# Subtest: @array[*;0;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 717 - @array[*;0;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 718 - is array as expected after deletion of index?
+# Subtest: @array[*;0;*]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 719 - @array[*;0;*]:v:delete gives 42, 666, (314,)
+ok 720 - is array as expected after deletion of index?
+ok 721 - @array[0;*;*] gives (42,666,[314]) (fast-path)
+ok 722 - could we assign (777,888,999) and get it back (fast-path)
+ok 723 - did we assign value at the right place (fast-path)
+ok 724 - @array[0;*;*] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 725 - check assignability with (777, 888, 999)
+# Subtest: @array[0;*;*]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 726 - @array[0;*;*]:exists gives (True,True,True)
+# Subtest: @array[0;*;*]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 727 - @array[0;*;*]:!exists gives (False,False,False)
+# Subtest: @array[0;*;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 728 - @array[0;*;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[0;*;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 729 - @array[0;*;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[0;*;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 730 - @array[0;*;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[0;*;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 731 - @array[0;*;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[0;*;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 732 - @array[0;*;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[0;*;*]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 733 - @array[0;*;*]:v gives 42, 666, (314,)
+# Subtest: @array[0;*;*]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 734 - @array[0;*;*]:delete gives (42,666,(314,))
+ok 735 - is array as expected after deletion of index?
+# Subtest: @array[0;*;*]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 736 - @array[0;*;*]:exists:delete gives (True,True,True)
+ok 737 - is array as expected after deletion of index?
+ok 738 - @array[0;*;*]:!exists:delete dies ok
+# Subtest: @array[0;*;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 739 - @array[0;*;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 740 - is array as expected after deletion of index?
+# Subtest: @array[0;*;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 741 - @array[0;*;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 742 - is array as expected after deletion of index?
+# Subtest: @array[0;*;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 743 - @array[0;*;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 744 - is array as expected after deletion of index?
+# Subtest: @array[0;*;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 745 - @array[0;*;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 746 - is array as expected after deletion of index?
+# Subtest: @array[0;*;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 747 - @array[0;*;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 748 - is array as expected after deletion of index?
+# Subtest: @array[0;*;*]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 749 - @array[0;*;*]:v:delete gives 42, 666, (314,)
+ok 750 - is array as expected after deletion of index?
+ok 751 - @array[*;*;*] gives (42,666,[314]) (fast-path)
+ok 752 - could we assign (777,888,999) and get it back (fast-path)
+ok 753 - did we assign value at the right place (fast-path)
+ok 754 - @array[*;*;*] gives (42,666,[314])
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 755 - check assignability with (777, 888, 999)
+# Subtest: @array[*;*;*]:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 756 - @array[*;*;*]:exists gives (True,True,True)
+# Subtest: @array[*;*;*]:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 757 - @array[*;*;*]:!exists gives (False,False,False)
+# Subtest: @array[*;*;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 758 - @array[*;*;*]:exists:kv gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+# Subtest: @array[*;*;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 759 - @array[*;*;*]:exists:p gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+# Subtest: @array[*;*;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 760 - @array[*;*;*]:k gives ((0,0,0),(0,0,1),(0,0,2))
+# Subtest: @array[*;*;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 761 - @array[*;*;*]:kv gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+# Subtest: @array[*;*;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 762 - @array[*;*;*]:p gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+# Subtest: @array[*;*;*]:v gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 763 - @array[*;*;*]:v gives 42, 666, (314,)
+# Subtest: @array[*;*;*]:delete gives (42,666,(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 764 - @array[*;*;*]:delete gives (42,666,(314,))
+ok 765 - is array as expected after deletion of index?
+# Subtest: @array[*;*;*]:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 766 - @array[*;*;*]:exists:delete gives (True,True,True)
+ok 767 - is array as expected after deletion of index?
+ok 768 - @array[*;*;*]:!exists:delete dies ok
+# Subtest: @array[*;*;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 769 - @array[*;*;*]:exists:kv:delete gives ((0,0,0),True,(0,0,1),True,(0,0,2),True)
+ok 770 - is array as expected after deletion of index?
+# Subtest: @array[*;*;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 771 - @array[*;*;*]:exists:p:delete gives ((0,0,0) => True,(0,0,1) => True,(0,0,2) => True)
+ok 772 - is array as expected after deletion of index?
+# Subtest: @array[*;*;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 773 - @array[*;*;*]:k:delete gives ((0,0,0),(0,0,1),(0,0,2))
+ok 774 - is array as expected after deletion of index?
+# Subtest: @array[*;*;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 775 - @array[*;*;*]:kv:delete gives ((0,0,0),42,(0,0,1),666,(0,0,2),(314,))
+ok 776 - is array as expected after deletion of index?
+# Subtest: @array[*;*;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 777 - @array[*;*;*]:p:delete gives ((0,0,0) => 42,(0,0,1) => 666,(0,0,2) => (314,))
+ok 778 - is array as expected after deletion of index?
+# Subtest: @array[*;*;*]:v:delete gives 42, 666, (314,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 779 - @array[*;*;*]:v:delete gives 42, 666, (314,)
+ok 780 - is array as expected after deletion of index?
+ok 781 - did assignment to non-existing arrays return the assigned values
+ok 782 - did initialization work
+ok 783 - did assignment return the assigned values
+ok 784 - did the array get changed correctly
+ok 785 - did deletion return the expected values
+ok 786 - did the array get changed correctly
+ok 787 - did assignment to non-existing indices return the assigned values
+ok 788 - did the array get changed correctly
+ok 789 - || did assignment to non-existing arrayes return the assigned values
+ok 790 - || did initialization work
+ok 791 - || did assignment return the assigned values
+ok 792 - || did the array get changed correctly
+ok 793 - || did deletion return the expected values
+ok 794 - || did the array get changed correctly
+ok 795 - || did assignment to non-existing indices return the assigned values
+ok 796 - || did the array get changed correctly
+ok 797 - || could we specify a single index
+ok 798 - [*; 0,1]
+ok 799 - [*; {0,1}]
+ok 800 - [*; {0,1}]:exists
+ok 801 - [*; {0,1}]:k
+ok 802 - [*; {0,1}]:kv
+ok 803 - [*; {0,1}]:p
+ok 804 - [*; {0,1}]:exists:p
+ok 805 - [*; {1,2}]:delete
+ok 806 - remainder after [*; {1,2}]:delete
+ok 807 - [*; {1,2}]:delete:k
+ok 808 - remainder after [*; {1,2}]:delete:k
+ok 809 - [*; {1,2}]:delete:kv
+ok 810 - remainder after [*; {1,2}]:delete:kv
+ok 811 - [*; {1,2}]:delete:p
+ok 812 - remainder after [*; {1,2}]:delete:p

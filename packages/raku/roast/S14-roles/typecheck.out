@@ -1,0 +1,12 @@
+1..11
+ok 1 - class typecheck against short role name
+ok 2 - class typecheck against full role name
+ok 3 - class smartmatches against short role name
+ok 4 - class smartmatches against full role name
+ok 5 - Role group matches a parent class of its non-parameterized member
+ok 6 - Role group matches a parent of parent of its non-parameterized member
+ok 7 - Role group matches a role of parent of its non-parameterized member
+ok 8 - Role group doesn't match a parent class of a parameterized member
+ok 9 - Curryied role matches its parent class
+ok 10 - Curried role matches a parent of its parent class
+ok 11 - Curried role matches a role of its parent class

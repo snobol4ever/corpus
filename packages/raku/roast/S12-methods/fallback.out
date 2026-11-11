@@ -1,0 +1,15 @@
+1..14
+ok 1 - FALLBACK does not break normal dispatch
+ok 2 - FALLBACK fires on missing method, passing name and args
+ok 3 - FALLBACK inherited
+ok 4 - delegation beats FALLBACK
+ok 5 - FALLBACK catches what delegation does not
+ok 6 - Can multi-dispatch on method name (more specific match)
+ok 7 - Can multi-dispatch on method name (fallback)
+ok 8 - Can multi-dispatch on regular arguments (1)
+ok 9 - Can multi-dispatch on regular arguments (2)
+ok 10 - Can multi-dispatch on regular arguments (also on an instance)
+ok 11 - Error when none of the candidates match
+ok 12 - FALLBACK is effective with a CALL-ME
+ok 13 - CALL-ME beats FALLBACK
+ok 14 - A CALL-ME mixed into a proto in a trait_mod is called

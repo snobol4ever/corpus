@@ -1,0 +1,41 @@
+1..24
+ok 1 - 
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 2 - did we throws-like X::TypeCheck::Argument?
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 3 - did we throws-like X::TypeCheck::Argument?
+ok 4 - optional
+ok 5 - optional
+ok 6 - default
+ok 7 - default
+ok 8 - multi
+ok 9 - multi
+ok 10 - type check
+# Subtest: did we throws-like X::TypeCheck::Argument?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 11 - did we throws-like X::TypeCheck::Argument?
+ok 12 - where clause
+ok 13 - where clause
+ok 14 - literal arguments
+ok 15 - named
+ok 16 - named
+ok 17 - named
+ok 18 - named (mapped)
+ok 19 - sprintf example
+ok 20 - pointy block syntax
+ok 21 - method invocant
+# Subtest: readonly trait, does not have a type object yet
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 22 - readonly trait, does not have a type object yet
+ok 23 - rw trait
+ok 24 - copy trait

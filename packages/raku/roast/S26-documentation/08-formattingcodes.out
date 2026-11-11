@@ -1,0 +1,59 @@
+1..49
+ok 1 - The object is-a 'Pod::FormattingCode'
+ok 2 - 
+ok 3 - a single FC becomes a single FC
+ok 4 - 
+ok 5 - The object is-a 'Pod::FormattingCode'
+ok 6 - 
+ok 7 - 
+ok 8 - 
+ok 9 - The object is-a 'Pod::FormattingCode'
+ok 10 - 
+ok 11 - 
+ok 12 - The object is-a 'Pod::FormattingCode'
+ok 13 - 
+ok 14 - 
+ok 15 - The object is-a 'Pod::FormattingCode'
+ok 16 - 
+ok 17 - 
+ok 18 - 
+ok 19 - The object is-a 'Pod::FormattingCode'
+ok 20 - 
+ok 21 - 
+ok 22 - 
+ok 23 - The object is-a 'Pod::FormattingCode'
+ok 24 - 
+ok 25 - 
+ok 26 - 
+ok 27 - The object is-a 'Pod::FormattingCode'
+ok 28 - 
+ok 29 - 
+ok 30 - 
+ok 31 - The object is-a 'Pod::Block'
+ok 32 - 
+ok 33 - 
+ok 34 - The object is-a 'Pod::FormattingCode'
+ok 35 - 
+ok 36 - 
+ok 37 - 
+ok 38 - The object is-a 'Pod::Block::Code'
+ok 39 - 
+ok 40 - 
+not ok 41 - Can parse nested angles in formatting codes with < > # TODO C<> is supposed to be verbatim including leading space
+# Failed test 'Can parse nested angles in formatting codes with < >'
+# at S26-documentation/08-formattingcodes.rakudo line 84
+# expected: " infix:<+> "
+#      got: "infix:<+> "
+not ok 42 - Can parse nested angles in formatting codes with << >> # TODO C<> is supposed to be verbatim including leading space
+# Failed test 'Can parse nested angles in formatting codes with << >>'
+# at S26-documentation/08-formattingcodes.rakudo line 86
+# expected: " infix:<+> "
+#      got: "infix:<+> "
+ok 43 - FC inside balanced <>
+ok 44 - Plain decimal Int literal codepoint escape
+ok 45 - Hex literal codepoint escape
+ok 46 - Unicode character name escape
+ok 47 - Lowercase HTML5 entity escape
+ok 48 - Mixed-case HTML5 entity escape
+ok 49 - HTML5 entity escape containing a digit
+# FUDGED!

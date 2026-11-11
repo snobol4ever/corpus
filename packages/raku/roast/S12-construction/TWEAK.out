@@ -1,0 +1,5 @@
+1..4
+ok 1 - Child.TWEAK effect on attributes
+ok 2 - Parent.TWEAK effect on attributes
+ok 3 - Order of initilization
+ok 4 - did the private attribute get assigned

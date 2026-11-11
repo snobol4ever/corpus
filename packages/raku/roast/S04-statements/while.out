@@ -1,0 +1,36 @@
+1..31
+ok 1 - while $i < 5 {} works
+ok 2 - while 5 > $i {} works
+ok 3 - while ($i < 5) {} works
+ok 4 - while (5 > $i) {} works
+ok 5 - while 0 {...} works
+ok 6 - while $var {...} works
+ok 7 - while ... -> $x {...} worked (1)
+ok 8 - while ... -> $x {...} worked (2)
+# Subtest: keyword needs at least one whitespace after it
+    1..2
+    ok 1 - 'my $i = 1; while($i < 5) { $i++; }' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 9 - keyword needs at least one whitespace after it
+ok 10 - Can declare $_ in a loop body
+ok 11 - can return values from a while
+ok 12 - UNDO doesn't run in successful loop block
+ok 13 - can return undefined values from a while
+ok 14 - UNDO does run in unsuccessful loop block
+ok 15 - can return values from an until
+ok 16 - UNDO doesn't run in successful loop block
+ok 17 - can return undefined values from an until
+ok 18 - UNDO does run in unsuccessful loop block
+ok 19 - UNDO doesn't run in successful loop block, even in sink context
+ok 20 - UNDO does run in unsuccessful loop block, even in sink context
+ok 21 - can return values from a loop
+ok 22 - UNDO doesn't run in successful loop block
+ok 23 - can return values from a loop
+ok 24 - UNDO doesn't run in successful loop block
+ok 25 - can use while modifier for values
+ok 26 - can use while modifier for values
+ok 27 - can use while as list comprehension
+ok 28 - can use while as list comprehension
+ok 29 - can return values from loop at end of sub
+ok 30 - can return ints from loop at end of immediate block
+ok 31 - can return Ints from loop at end of immediate block

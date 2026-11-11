@@ -1,0 +1,16 @@
+1..15
+ok 1 - array unpacking
+ok 2 - fixed length array unpacking
+ok 3 - fixed length array unpacking too short
+ok 4 - fixed length array unpacking too long
+ok 5 - unpack optional scalars; required scalar missing
+ok 6 - unpack optional scalars; one required
+ok 7 - unpack optional scalars; one required + one optional
+ok 8 - unpack optional scalars; one required + two optional
+ok 9 - unpack optional scalars; one required + too many optional
+ok 10 - unpack named array
+ok 11 - unpack named array with named pieces
+ok 12 - array unpacking and only-subs
+ok 13 - array unpacking and only-multi
+ok 14 - [...] doesn't lose containerization
+ok 15 - [...] doesn't lose containerization

@@ -1,0 +1,6 @@
+1..5
+ok 1 - Correct value of .chars for string with many combiners
+ok 2 - Can .NFC string with many combiners
+ok 3 - Can .NFD string with many combiners
+ok 4 - Can .NFKC string with many combiners
+ok 5 - Can .NFKD string with many combiners

@@ -1,0 +1,161 @@
+1..133
+ok 1 - canonpath: '//a//b//' -> '/a/b'
+ok 2 - canonpath: '0' -> '0'
+ok 3 - canonpath: '/../../' -> '/'
+ok 4 - canonpath: '' -> ''
+ok 5 - canonpath: '/.' -> '/'
+ok 6 - canonpath: 'a/../../b/c' -> 'a/../../b/c'
+ok 7 - canonpath: '/../..' -> '/'
+ok 8 - canonpath: '/a/.' -> '/a'
+ok 9 - canonpath: '/..' -> '/'
+ok 10 - canonpath: '/a/./' -> '/a'
+ok 11 - canonpath: 'a\\b' -> 'a\\b'
+ok 12 - canonpath: '///../../..//./././a//b/.././c/././' -> '/a/b/../c'
+ok 13 - canonpath: 'a/b/c' -> 'a/b/c'
+ok 14 - canonpath: '/./' -> '/'
+ok 15 - canonpath(:parent): 'foo/../bar/../baz' -> 'baz'
+ok 16 - canonpath(:parent): '/foo/..' -> '/'
+ok 17 - canonpath(:parent): '//../..usr/bin/../foo/.///ef' -> '/..usr/foo/ef'
+ok 18 - canonpath(:parent): '/foo/../..' -> '/'
+ok 19 - canonpath(:parent): 'foo/../../bar' -> '../bar'
+ok 20 - canonpath(:parent): 'foo/bar/..' -> 'foo'
+ok 21 - canonpath(:parent): '///../../..//./././a//b/.././c/././' -> '/a/c'
+ok 22 - canonpath(:parent): 'foo/bar/baz/../..' -> 'foo'
+ok 23 - canonpath(:parent): '' -> ''
+ok 24 - canonpath(:parent): 'foo/..' -> '.'
+ok 25 - canonpath(:parent): '../../..' -> '../../..'
+ok 26 - canonpath(:parent): '/../../..' -> '/'
+ok 27 - canonpath(:parent): '0' -> '0'
+# warning expected here:
+ok 28 - canonpath(:parent): Any -> ''
+ok 29 - catdir: no arg -> ''
+ok 30 - catdir: '' -> '/'
+ok 31 - catdir: '/' -> '/'
+ok 32 - catdir: ('','d1','d2','d3','') -> '/d1/d2/d3'
+ok 33 - catdir: ('d1','d2','d3','') -> 'd1/d2/d3'
+ok 34 - catdir: ('','d1','d2','d3') -> '/d1/d2/d3'
+ok 35 - catdir: ('d1','d2','d3') -> 'd1/d2/d3'
+ok 36 - catdir: ('/','d2/d3') -> '/d2/d3'
+ok 37 - catfile: ('a','b','c') -> 'a/b/c'
+ok 38 - catfile: ('a','b','./c') -> 'a/b/c'
+ok 39 - catfile: ('./a','b','c') -> 'a/b/c'
+ok 40 - catfile: 'c' -> 'c'
+ok 41 - catfile: './c' -> 'c'
+ok 42 - curdir is "."
+ok 43 - devnull is /dev/null
+ok 44 - rootdir is "/"
+ok 45 - updir is ".."
+ok 46 - curupdir: '.'
+ok 47 - curupdir: '..'
+ok 48 - curupdir: '.git'
+ok 49 - curupdir: 'file'
+ok 50 - is-absolute: ok "/abcd/ef"
+ok 51 - is-absolute: ok "/"
+ok 52 - is-absolute: nok "abcd"
+ok 53 - is-absolute: nok ".."
+ok 54 - path
+ok 55 - no path
+ok 56 - splitpath: 'd1/d2/d3/' -> ' d1/d2/d3/ '
+ok 57 - splitpath: '/././d1/' -> ' /././d1/ '
+ok 58 - splitpath: '/d1/d2/d3/' -> ' /d1/d2/d3/ '
+ok 59 - splitpath: 'file' -> '  file'
+ok 60 - splitpath: '/d1/d2/d3/.file' -> ' /d1/d2/d3/ .file'
+ok 61 - splitpath: '/d1/d2/d3/..' -> ' /d1/d2/d3/.. '
+ok 62 - splitpath: '/d1/d2/d3/.' -> ' /d1/d2/d3/. '
+ok 63 - splitpath: 'd1/d2/d3/file' -> ' d1/d2/d3/ file'
+ok 64 - splitpath: '/../../d1/' -> ' /../../d1/ '
+ok 65 - split: '/' -> ' / /'
+ok 66 - split: '/d1/d2/d3/..' -> ' /d1/d2/d3 ..'
+ok 67 - split: '/d1/d2/d3/' -> ' /d1/d2 d3'
+ok 68 - split: 'd1/d2/d3/file' -> ' d1/d2/d3 file'
+ok 69 - split: '/././d1/' -> ' /./. d1'
+ok 70 - split: 'file' -> ' . file'
+ok 71 - split: '/dir/' -> ' / dir'
+ok 72 - split: 'dir/' -> ' . dir'
+ok 73 - split: '/../../d1/' -> ' /../.. d1'
+ok 74 - split: '/d1/d2/d3/.' -> ' /d1/d2/d3 .'
+ok 75 - split: '/d1/d2/d3/.file' -> ' /d1/d2/d3 .file'
+ok 76 - split: '.' -> ' . .'
+ok 77 - split: 'd1/d2/d3/' -> ' d1/d2 d3'
+ok 78 - join: ' . .' -> '.'
+ok 79 - join: ' / /' -> '/'
+ok 80 - join: ' . file' -> 'file'
+ok 81 - join: '  file' -> 'file'
+ok 82 - join: ' dir .' -> 'dir/.'
+ok 83 - join: ' /d1/d2/d3/ ' -> '/d1/d2/d3/'
+ok 84 - join: ' d1/d2/d3/ ' -> 'd1/d2/d3/'
+ok 85 - join: ' /d1/d2/d3/. ' -> '/d1/d2/d3/.'
+ok 86 - join: ' /d1/d2/d3/.. ' -> '/d1/d2/d3/..'
+ok 87 - join: ' /d1/d2/d3/ .file' -> '/d1/d2/d3/.file'
+ok 88 - join: ' d1/d2/d3/ file' -> 'd1/d2/d3/file'
+ok 89 - join: ' /../../d1/ ' -> '/../../d1/'
+ok 90 - join: ' /././d1/ ' -> '/././d1/'
+ok 91 - join: 'd1 d2/d3/ ' -> 'd2/d3/'
+ok 92 - join: 'd1 d2 d3/' -> 'd2/d3/'
+ok 93 - splitdir: '' -> ''
+ok 94 - splitdir: '/d1/d2/d3/' -> ' d1 d2 d3 '
+ok 95 - splitdir: '/d1/d2/d3' -> ' d1 d2 d3'
+ok 96 - splitdir: 'd1/d2/d3/' -> 'd1 d2 d3 '
+ok 97 - splitdir: 'd1/d2/d3' -> 'd1 d2 d3'
+ok 98 - catpath: ('','','file') -> 'file'
+ok 99 - catpath: ('','/d1/d2/d3/','') -> '/d1/d2/d3/'
+ok 100 - catpath: ('','d1/d2/d3/','') -> 'd1/d2/d3/'
+ok 101 - catpath: ('','/d1/d2/d3/.','') -> '/d1/d2/d3/.'
+ok 102 - catpath: ('','/d1/d2/d3/..','') -> '/d1/d2/d3/..'
+ok 103 - catpath: ('','/d1/d2/d3/','.file') -> '/d1/d2/d3/.file'
+ok 104 - catpath: ('','d1/d2/d3/','file') -> 'd1/d2/d3/file'
+ok 105 - catpath: ('','/../../d1/','') -> '/../../d1/'
+ok 106 - catpath: ('','/././d1/','') -> '/././d1/'
+ok 107 - catpath: ('d1','d2/d3/','') -> 'd2/d3/'
+ok 108 - catpath: ('d1','d2','d3/') -> 'd2/d3/'
+ok 109 - abs2rel: ('/t1/t2/t3','/t1/t2/t3') -> '.'
+ok 110 - abs2rel: ('/t1/t2/t4','/t1/t2/t3') -> '../t4'
+ok 111 - abs2rel: ('/t1/t2','/t1/t2/t3') -> '..'
+ok 112 - abs2rel: ('/t1/t2/t3/t4','/t1/t2/t3') -> 't4'
+ok 113 - abs2rel: ('/t4/t5/t6','/t1/t2/t3') -> '../../../t4/t5/t6'
+ok 114 - abs2rel: ('/','/t1/t2/t3') -> '../../..'
+ok 115 - abs2rel: ('///','/t1/t2/t3') -> '../../..'
+ok 116 - abs2rel: ('/.','/t1/t2/t3') -> '../../..'
+ok 117 - abs2rel: ('/./','/t1/t2/t3') -> '../../..'
+ok 118 - abs2rel: ('/t1/t2/t3', '/') -> 't1/t2/t3'
+ok 119 - abs2rel: ('/t1/t2/t3', '/t1') -> 't2/t3'
+ok 120 - abs2rel: ('t1/t2/t3', 't1') -> 't2/t3'
+ok 121 - abs2rel: ('t1/t2/t3', 't4') -> '../t1/t2/t3'
+ok 122 - rel2abs: ('t4','/t1/t2/t3') -> '/t1/t2/t3/t4'
+ok 123 - rel2abs: ('t4/t5','/t1/t2/t3') -> '/t1/t2/t3/t4/t5'
+ok 124 - rel2abs: ('.','/t1/t2/t3') -> '/t1/t2/t3'
+ok 125 - rel2abs: ('..','/t1/t2/t3') -> '/t1/t2/t3/..'
+ok 126 - rel2abs: ('../t4','/t1/t2/t3') -> '/t1/t2/t3/../t4'
+ok 127 - rel2abs: ('/t1','/t1/t2/t3') -> '/t1'
+ok 128 - unix: loads correct module
+ok 129 - rel2abs: $*CWD test
+ok 130 - tmpdir: /tmp is a writable directory
+# Subtest: .basename
+    1..12
+    ok 1 - 
+    ok 2 - .
+    ok 3 - /
+    ok 4 - foo/
+    ok 5 - /.
+    ok 6 - foo/.
+    ok 7 - foo/..
+    ok 8 - foo/...
+    ok 9 - y/\z
+    ok 10 - bar/♥foo
+    ok 11 - ♥foo
+    ok 12 - ♥foo/..
+ok 131 - .basename
+# Subtest: .extension
+    1..10
+    ok 1 - 
+    ok 2 - .
+    ok 3 - /.
+    ok 4 - foo.bar/ber
+    ok 5 - .tar
+    ok 6 - foo.tar
+    ok 7 - foo.tar.gz
+    ok 8 - .tar.gz
+    ok 9 - I ♥ Raku
+    ok 10 - I ♥ Raku.♥
+ok 132 - .extension
+ok 133 - combiners on "/" do not interfere with absolute path detection

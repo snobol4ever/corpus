@@ -1,0 +1,4 @@
+1..3
+ok 1 - Failure pick up exception from nothing serious by default
+ok 2 - fail pick up exception from nothing serious by default
+ok 3 - fail picks up the right exception

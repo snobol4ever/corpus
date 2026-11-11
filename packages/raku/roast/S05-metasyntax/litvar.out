@@ -1,0 +1,39 @@
+1..33
+ok 1 - Simple scalar interpolation
+ok 2 - Nested scalar interpolation
+ok 3 - Rulish scalar interpolation
+ok 4 - Array ref stringifies before matching
+ok 5 - Array ref stringifies before matching
+ok 6 - Array deref ignores 0
+ok 7 - Array deref ignores dot 0
+ok 8 - Array ignores 0
+ok 9 - Simple array interpolation (a)
+ok 10 - Simple array interpolation (b)
+ok 11 - Simple array interpolation (c)
+ok 12 - Simple array interpolation (d)
+ok 13 - Nested array interpolation (a)
+ok 14 - Multiple array matching
+ok 15 - Multiple array non-matching
+ok 16 - Array using implicit junctive semantics
+ok 17 - Array using explicit junctive semantics
+ok 18 - Array using explicit sequential semantics
+ok 19 - $( $_ ) will match
+ok 20 - ... $( $_ ) matched entire string
+ok 21 - Contextualizer with functions calls
+ok 22 - @( <a b c o> )+
+ok 23 - can case-insensitive match against interpolated var
+ok 24 - can case-insensitive match against var in assertion
+# Subtest: undeclared var in assertion in interpolated string throws
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .symbol matches $i
+ok 25 - undeclared var in assertion in interpolated string throws
+ok 26 - assertions only reinterpret one level deep
+ok 27 - assertion in reinterpreted assertion is disallowed
+ok 28 - string with metachars in assertion matches
+ok 29 - string with metachars in assertion matches (:i)
+ok 30 - string with metachars in assertion matches (:m)
+ok 31 - string with metachars in assertion matches (:i:m)
+ok 32 - string with metachars matches literally (:i:m)
+ok 33 - Interpolating Str type object on typed variable fails to match

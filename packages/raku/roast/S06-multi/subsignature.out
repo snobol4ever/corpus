@@ -1,0 +1,143 @@
+1..95
+ok 1 - multi works with constant
+ok 2 - read-only multi was called
+ok 3 - multi works with variable
+not ok 4 - variable was modified # TODO Calls wrong candidate
+# Failed test 'variable was modified'
+# at S06-multi/subsignature.rakudo line 22
+# expected: '100'
+#      got: '99'
+not ok 5 - read-write multi was called # TODO Calls wrong candidate
+# Failed test 'read-write multi was called'
+# at S06-multi/subsignature.rakudo line 24
+# expected: '1'
+#      got: '0'
+ok 6 - got multi from package
+ok 7 - lexical multi also callable
+ok 8 - multi from package still callable outside the inner scope...
+ok 9 - ...but lexical multi no longer callable
+ok 10 - named me
+ok 11 - named you
+ok 12 - named me, named him
+ok 13 - named him, named me
+ok 14 - named me named him named her
+ok 15 - named him named me named her
+ok 16 - named her named me named him
+ok 17 - named her named him named me
+ok 18 - pos, named you
+ok 19 - pos, named her
+ok 20 - pos, pos
+ok 21 - pos, pos, named
+ok 22 - named me
+ok 23 - named you
+ok 24 - named me, named him
+ok 25 - named him, named me
+ok 26 - named me named him named her
+ok 27 - named him named me named her
+ok 28 - named her named me named him
+ok 29 - named her named him named me
+ok 30 - pos, named you
+ok 31 - pos, named her
+ok 32 - pos, pos
+ok 33 - pos, pos, named
+ok 34 - slurpy and named interact well (1)
+ok 35 - slurpy and named interact well (2)
+ok 36 - slurpy and named interact well (1)
+ok 37 - slurpy and named interact well (2)
+ok 38 - presence of mandatory named multi does not corrupt calling a nullary
+ok 39 - presence of mandatory named multi does not corrupt calling a nullary
+ok 40 - dispatch on class worked
+ok 41 - dispatch on class worked
+ok 42 - dispatch with no possible candidates fell back to proto
+not ok 43 - [+] overloaded by proto definition # TODO operator protos
+# Failed test '[+] overloaded by proto definition'
+# at S06-multi/subsignature.rakudo line 155
+# expected: '12'
+#      got: '2 2 3'
+ok 44 - proto definition of prefix:<moose> works
+ok 45 - multi definition of prefix:<elk> works
+# Subtest: attempt to define two proto subs with the same name dies
+    1..2
+    ok 1 - 'proto rt68242(|c($a)){};proto rt68242(|c($c,$d)){};' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 46 - attempt to define two proto subs with the same name dies
+# Subtest: Can't define sub and multi sub without proto
+    1..2
+    ok 1 - 'EVAL $rt65322' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 47 - Can't define sub and multi sub without proto
+ok 48 - our proto can be accessed from the ouside
+ok 49 - can use {*} in an expression in a proto (1)
+ok 50 - can use {*} in an expression in a proto (2)
+ok 51 - caching proto (1)
+ok 52 - caching proto (2)
+ok 53 - caching proto (3)
+ok 54 - cached value did not cause extra call
+ok 55 - sanity
+ok 56 - It's ok not to dispatch to the multis
+# Subtest: proto signature is checked, not just that of the candidates
+    1..2
+    ok 1 - '
+    #         proto f(|c(Int $x)) {*}; multi f(|c($)) { 'default' }; f 'foo'
+    #     ' died
+    ok 2 - right exception type (Exception)
+ok 57 - proto signature is checked, not just that of the candidates
+ok 58 - can call nextsame inside a multi sub
+not ok 59 - called in the right order # TODO Multimethod sort does not descend into subsignatures
+# Failed test 'called in the right order'
+# at S06-multi/subsignature.rakudo line 240
+# expected: 'IntAny'
+#      got: 'Any'
+ok 60 - can call callsame inside a multi sub
+not ok 61 - called in the right order # TODO Multimethod sort does not descend into subsignatures
+# Failed test 'called in the right order'
+# at S06-multi/subsignature.rakudo line 251
+# expected: 'IntAnyInt'
+#      got: 'Any'
+ok 62 - can call nextwith inside a multi sub
+not ok 63 - called in the right order # TODO Multimethod sort does not descend into subsignatures
+# Failed test 'called in the right order'
+# at S06-multi/subsignature.rakudo line 262
+# expected: 'IntAny4'
+#      got: 'Any3'
+ok 64 - can call callwith inside a multi sub
+not ok 65 - called in the right order # TODO Multimethod sort does not descend into subsignatures
+# Failed test 'called in the right order'
+# at S06-multi/subsignature.rakudo line 273
+# expected: 'IntAny4Int'
+#      got: 'Any3'
+ok 66 - It's ok to call nextsame in the last/only candidate
+ok 67 - samewith $a stringified in sub
+ok 68 - samewith $b stringified for C
+ok 69 - samewith $b stringified for C.new
+ok 70 - samewith works from inside a nested closure
+ok 71 - multi sub with empty signature
+ok 72 - multi sub with parameter list
+ok 73 - multi with empty signature
+ok 74 - multi with parameter list
+ok 75 - dispatch tied as expected
+ok 76 - not tied as only first type in the dispatch
+ok 77 - use multi method to override builtin lives
+ok 78 - use multi method to override builtin
+ok 79 - interaction between named and slurpy (1)
+ok 80 - interaction between named and slurpy (2)
+ok 81 - interaction between named and slurpy (3)
+ok 82 - interaction between named and slurpy (4)
+ok 83 - can find multi method with key
+ok 84 - can find multi method with slurpy
+ok 85 - non-slurpy wins over slurpy
+ok 86 - slurpy called when non-slurpy can not bind
+ok 87 - optional parameter does not break type-based candidate sorting
+not ok 88 - optional parameter does not break type-based candidate sorting # TODO Multimethod sort does not descend into subsignatures
+# Failed test 'optional parameter does not break type-based candidate sorting'
+# at S06-multi/subsignature.rakudo line 378
+# expected: '2'
+#      got: '1'
+ok 89 - multi can be passed as callable
+ok 90 - multi sub declaration returns just the current candidate
+ok 91 - and that candidate works
+ok 92 - ... and does not contain the full multiness
+ok 93 - captures in multi sigs work
+ok 94 - ordered multi subs
+ok 95 - first defined wins the tie
+# FUDGED!

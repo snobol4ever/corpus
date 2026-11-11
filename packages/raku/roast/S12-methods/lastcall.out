@@ -1,0 +1,8 @@
+1..7
+ok 1 - no lastcall, so we defer up the inheritance tree
+ok 2 - sanity test for clearing
+ok 3 - lastcall means nextsame causes Nil return of method
+ok 4 - lastcall meant nextsame failed, no deferal happened
+ok 5 - lastcall trims candidate list, so no call up inheritance tree
+ok 6 - sanity test for clearing
+ok 7 - lastcall trimming does not affect stuff earlier in chain

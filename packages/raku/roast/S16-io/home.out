@@ -1,0 +1,9 @@
+1..8
+ok 1 - $*HOME contains IO::Path object
+ok 2 - $*HOME.raku works
+ok 3 - $*HOME.gist works
+ok 4 - $*HOME is Nil even when HOMEDRIVE+HOMEPATH are set on non-Windows dists
+ok 5 - $*HOME is HOME when HOME env is set
+ok 6 - $*HOME is Nil when env is unset
+ok 7 - was able to `temp` $*HOME
+ok 8 - `temp`ed $*HOME got restored to previous value

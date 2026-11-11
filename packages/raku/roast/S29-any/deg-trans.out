@@ -1,0 +1,22 @@
+1..17
+# Subtest: .Map [odd  num of els]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Hash::Store::OddNumber)
+ok 1 - .Map [odd  num of els]
+ok 2 - .Map [even num of els]
+ok 3 - Any:U.kv returns empty list
+ok 4 - Any:U.pairs returns empty list
+ok 5 - Any:U.antipairs returns empty list
+ok 6 - .unshift on Any:U
+ok 7 - .prepend on Any:U
+ok 8 - .append  on Any:U
+ok 9 - .push    on Any:U
+ok 10 - .prepend on Any:U [Positional]
+ok 11 - .append  on Any:U [Positional]
+ok 12 - .unshift on Any:U [Positional]
+ok 13 - .push    on Any:U [Positional]
+ok 14 - sum() without args gives 0
+ok 15 - sum() with several args gives .sum
+ok 16 - item(Mu) is identity
+ok 17 - default .nl-out is a "\n"

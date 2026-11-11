@@ -1,0 +1,26 @@
+1..21
+ok 1 - emp name
+ok 2 - emp skill
+ok 3 - emp name
+ok 4 - emp skill
+ok 5 - rpm hash option
+ok 6 - duration hash option
+ok 7 - rpm named arg
+ok 8 - duration named
+ok 9 - rpm named arg
+ok 10 - duration named
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 11 - did we throws-like Exception?
+ok 12 - 
+ok 13 - moonlanding year
+ok 14 - moonlanding month
+ok 15 - moonlanding day
+ok 16 - moonlanding hour
+ok 17 - moonlanding minute
+ok 18 - blackberries
+ok 19 - blackberries
+ok 20 - blackberries
+ok 21 - Pair.^add_fallback

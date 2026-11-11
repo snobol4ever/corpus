@@ -1,0 +1,49 @@
+1..29
+ok 1 - leading document within an anoymous sub
+ok 2 - trailing document within an anoymous sub
+not ok 3 - leading attaches to first # TODO needs RakuAST
+# Failed test 'leading attaches to first'
+# at /tmp/s4e/cao/fudge/m/S26-documentation/wacky.t line 21
+# expected: 'hi'
+#      got: 'hi
+# there'
+not ok 4 - trailing attaches to last # TODO needs RakuAST
+# Failed test 'trailing attaches to last'
+# at /tmp/s4e/cao/fudge/m/S26-documentation/wacky.t line 22
+# expected: 'there'
+#      got: (Nil+{Mu::Suggestion[Sub]})
+ok 5 - trailing same line + inner line
+ok 6 - complete sub attaches ok on next line
+ok 7 - declaration start on its own line
+ok 8 - comments shouldn't interfere with each other
+ok 9 - comments shouldn't interfere with each other
+ok 10 - two attrs on a line, first ignored
+ok 11 - two attrs on a line, last binds
+not ok 12 - interleaved trailing # TODO needs RakuAST
+# Failed test 'interleaved trailing'
+# at /tmp/s4e/cao/fudge/m/S26-documentation/wacky.t line 67
+# expected: 'first trailing second trailing'
+#      got: (Nil+{Mu::Suggestion[Attribute]})
+not ok 13 - does not bind to sub # TODO needs RakuAST
+# Failed test 'does not bind to sub'
+# at /tmp/s4e/cao/fudge/m/S26-documentation/wacky.t line 76
+ok 14 - does not bind to first parameter
+not ok 15 - last on line binds # TODO needs RakuAST
+# Failed test 'last on line binds'
+# at /tmp/s4e/cao/fudge/m/S26-documentation/wacky.t line 79
+# expected: 'trailing comment for param2'
+#      got: (Nil)
+ok 16 - does not bind to anything
+ok 17 - 
+ok 18 - 
+ok 19 - 
+ok 20 - 
+ok 21 - space separation ok for leading, not for trailing
+ok 22 - =for pod
+ok 23 - =pod
+ok 24 - =for comment
+ok 25 - =comment
+ok 26 - =for table
+ok 27 - =table
+ok 28 - =for code
+ok 29 - =code

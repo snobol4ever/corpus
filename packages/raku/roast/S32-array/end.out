@@ -1,0 +1,17 @@
+1..12
+ok 1 - .end works on uninitialized arrays
+ok 2 - .end works on empty arrays
+ok 3 - .end works on initialized arrays
+ok 4 - .end works on arbitrary scalars (1)
+ok 5 - .end works on arbitrary scalars (2)
+ok 6 - .end works on empty arrayitems
+ok 7 - .end works on initialized arrayitems (1)
+ok 8 - .end works on initialized arrayitems (2)
+# Subtest: end(1,2,3,4) should not work
+    1..2
+    ok 1 - 'end(1,2,3,4)' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 9 - end(1,2,3,4) should not work
+ok 10 - end (1,2,3,4) should work
+ok 11 - end [1,2,3,4] should work
+ok 12 - end ([1,2,3,4],) should return 0

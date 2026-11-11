@@ -1,0 +1,22 @@
+1..13
+ok 1 - can indirectly call lexical sub
+# Subtest: lexical sub not visible outside current scope
+    1..2
+    ok 1 - 'g' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 2 - lexical sub not visible outside current scope
+ok 3 - calls subs passed as &foo parameter
+ok 4 - lexical subs get precedence over package subs
+ok 5 - 
+ok 6 - 
+ok 7 - Could call ok from within a lexical sub
+ok 8 - inner lexical hides outer sub of same name
+ok 9 - ... but only where it is visisble
+ok 10 - subs without scoping modifiers are not entered in the namespace
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'sub a { }; sub a { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 11 - did we throws-like X::Redeclaration?
+ok 12 - no lexical weirdness from blocks inside re-entrant subs (1)
+ok 13 - no lexical weirdness from blocks inside re-entrant subs (2)

@@ -1,0 +1,12 @@
+1..7
+# Subtest: Method 'find-power-accessories' collides and a resolution must be provided by the class
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1 - Method 'find-power-accessories' collides and a resolution must be provided by the class
+ok 2 - If we resolve the conflict we can create laptops
+ok 3 - the $mug is a Cup of EggNog
+ok 4 - the $glass is a Glass of MulledWine
+ok 5 - the $valuable is a Tray of Glass of MulledWine
+ok 6 - parametic role;
+ok 7 - parametic role;

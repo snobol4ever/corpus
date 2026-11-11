@@ -1,0 +1,8 @@
+1..7
+ok 1 - FIRST only ran once
+ok 2 - FIRST {} ran before the loop body
+ok 3 - multiple FIRST {} ran in order
+ok 4 - FIRST {} ran before ENTER {}
+ok 5 - FIRST in while loop runs
+ok 6 - last in FIRST in while loop works
+ok 7 - last in FIRST in for loop works

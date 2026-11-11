@@ -1,0 +1,233 @@
+1..162
+ok 1 - 1 == 1
+ok 2 - 3 == 3
+ok 3 - -3 == -3
+ok 4 - -1 == -1
+ok 5 - 1 == 1
+ok 6 - 3 == 3
+ok 7 - -3 == -3
+ok 8 - -1 == -1
+ok 9 - 0 == 0
+ok 10 - 0.5 == 0.5
+ok 11 - modulo with negative divisor (1)
+ok 12 - modulo with negative divisor (2)
+ok 13 - 
+ok 14 - 
+ok 15 - 
+ok 16 - 
+ok 17 - 2 == 2
+ok 18 - 2 == 2
+ok 19 - 90 == 90
+ok 20 - -16 == -16
+ok 21 - -61 == -61
+ok 22 - 3 == 3
+ok 23 - 0 == 0
+ok 24 - 0 == 0
+ok 25 - 3 == 3
+ok 26 - -13 == -13
+ok 27 - 2 == 2
+ok 28 - -12 == -12
+ok 29 - 10 == 10
+ok 30 - -161 == -161
+ok 31 - -151 == -151
+ok 32 - 7 == 7
+ok 33 - 0 == 0
+ok 34 - 0 == 0
+ok 35 - 2147483647 == 2147483647
+ok 36 - 2147483647 == 2147483647
+ok 37 - 1 == 1
+ok 38 - -1 == -1
+ok 39 - 4294967290 == 4294967290
+ok 40 - -4294967290 == -4294967290
+ok 41 - 4294967297 == 4294967297
+ok 42 - -4294967297 == -4294967297
+ok 43 - -1 == -1
+ok 44 - 1 == 1
+ok 45 - 4294967290 == 4294967290
+ok 46 - -4294967290 == -4294967290
+ok 47 - -4294967297 == -4294967297
+ok 48 - 4294967297 == 4294967297
+ok 49 - 3 == 3
+ok 50 - -6 == -6
+ok 51 - -9 == -9
+ok 52 - 12 == 12
+ok 53 - 2147395599 == 2147395599
+ok 54 - -2147395599 == -2147395599
+ok 55 - -2147395599 == -2147395599
+ok 56 - 2147395599 == 2147395599
+ok 57 - 2 == 2
+ok 58 - 2 == 2
+ok 59 - 1.2 ==  1.2
+ok 60 - -1.2 ==  -1.2
+ok 61 - 2 == 2
+ok 62 - -4 == -4
+ok 63 - -7 == -7
+ok 64 - 14 == 14
+ok 65 - 9 div 4 == 2
+ok 66 - -9 div 4 == -3
+ok 67 - 9 div -4 == -3
+ok 68 - -9 div -4 == 2
+ok 69 - 13 mod 4
+ok 70 - -13 mod 4
+ok 71 - 13 mod -4
+ok 72 - -13 mod -4
+ok 73 - 4850761783423467784 mod 256
+ok 74 - 2804985923338703271682399481743033703427656749129565173066 mod 256
+ok 75 - 1.25 == 1.25
+ok 76 - -1.75 == -1.75
+ok 77 - -2.25 == -2.25
+ok 78 - 2.75 == 2.75
+ok 79 - 
+ok 80 - 
+ok 81 - 
+ok 82 - 
+ok 83 - 
+ok 84 - 
+ok 85 - ** is right associative
+ok 86 - infix:<**> is right associative
+ok 87 - i^2 == -1
+ok 88 - sqrt(-i)**4 ==-1
+ok 89 - (-1+0i)**0.5 == i 
+ok 90 - 
+ok 91 - 
+ok 92 - 
+ok 93 - 
+ok 94 - 
+ok 95 - 
+ok 96 - 
+ok 97 - 
+ok 98 - 
+ok 99 - 
+ok 100 - 
+ok 101 - 
+ok 102 - 
+ok 103 - 
+ok 104 - 
+ok 105 - 
+ok 106 - 
+ok 107 - 
+ok 108 - 
+ok 109 - 
+ok 110 - 100**Inf
+ok 111 - Inf**Inf
+ok 112 - 0.9**Inf converges towards 0
+ok 113 - 1.1**Inf diverges towards Inf
+ok 114 - 1**Inf returns 1
+ok 115 - 
+ok 116 - 
+ok 117 - 
+ok 118 - 
+ok 119 - 
+ok 120 - 
+ok 121 - 
+ok 122 - 
+ok 123 - 
+ok 124 - 
+ok 125 - 
+ok 126 - 
+ok 127 - 
+ok 128 - 
+ok 129 - 
+ok 130 - 
+ok 131 - NaN**NaN
+ok 132 - NaN**Inf
+ok 133 - Inf**NaN
+# Subtest: Modulo zero with infix:<mod> dies and is catchable
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 3 - .numerator matches 3
+ok 134 - Modulo zero with infix:<mod> dies and is catchable
+# Subtest: Modulo zero with infix:<mod> dies and is catchable with VInt variables
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 3 - .numerator matches 3
+ok 135 - Modulo zero with infix:<mod> dies and is catchable with VInt variables
+# Subtest: Modulo zero with infix:<mod> dies and is catchable with VRef variables
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 136 - Modulo zero with infix:<mod> dies and is catchable with VRef variables
+# Subtest: Modulo zero with infix:<%> dies and is catchable
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 137 - Modulo zero with infix:<%> dies and is catchable
+# Subtest: Modulo zero with infix:<%> dies and is catchable with VInt variables
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 138 - Modulo zero with infix:<%> dies and is catchable with VInt variables
+# Subtest: Modulo zero with infix:<%> dies and is catchable with VRef variables
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 139 - Modulo zero with infix:<%> dies and is catchable with VRef variables
+# Subtest: Division by zero with infix:<div> dies and is catchable
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 3 - .numerator matches 3
+ok 140 - Division by zero with infix:<div> dies and is catchable
+# Subtest: Division by zero with infix:<div> dies and is catchable with VInt variables
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 3 - .numerator matches 3
+ok 141 - Division by zero with infix:<div> dies and is catchable with VInt variables
+# Subtest: Division by zero with infix:<div> dies and is catchable with VRef variables
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 3 - .numerator matches 3
+ok 142 - Division by zero with infix:<div> dies and is catchable with VRef variables
+# Subtest: Division by zero with infix:</> dies and is catchable (1)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 143 - Division by zero with infix:</> dies and is catchable (1)
+# Subtest: Division by zero with infix:</> dies and is catchable (2)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 144 - Division by zero with infix:</> dies and is catchable (2)
+# Subtest: Division by zero with infix:</> dies and is catchable with VInt/VRat variables
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 145 - Division by zero with infix:</> dies and is catchable with VInt/VRat variables
+# Subtest: Division by zero with infix:</> dies and is catchable with VRef variables
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 146 - Division by zero with infix:</> dies and is catchable with VRef variables
+# Subtest: .gist on '1/0' blows up with X::Numeric::DivideByZero
+    1..2
+    ok 1 - '$rt123077.gist' died
+    ok 2 - right exception type (X::Numeric::DivideByZero)
+ok 147 - .gist on '1/0' blows up with X::Numeric::DivideByZero
+ok 148 - Can calculate 25! without loss of precision
+ok 149 - Can calculate 2**65 without loss of precision
+ok 150 - no more Rat literals, infix:</> has normal left assoc
+# Subtest: infix<!+> is not iffy enough
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 151 - infix<!+> is not iffy enough
+ok 152 - -Int warns (and yields 0) but does not give an error
+ok 153 - infix:<-> produces a proper Int, even if some of the types involved have mixins
+ok 154 - infix:</> returns Rat when it can
+ok 155 - infix:<%> returns Rat when it can
+ok 156 - infix:<%> returns Rat when it can
+ok 157 - infix:<%> returns Rat when it can
+# Subtest: -0x7FFFFFFF - 1 math weirdness
+    1..3
+    ok 1 - == -2147483648
+    ok 2 - == -18446744071562067968
+    ok 3 - .base(16)
+ok 158 - -0x7FFFFFFF - 1 math weirdness
+ok 159 - handling 0 denominators on Rat with <
+ok 160 - handling 0 denominators on Rat with <=
+ok 161 - handling 0 denominators on Rat with >
+ok 162 - handling 0 denominators on Rat with >=

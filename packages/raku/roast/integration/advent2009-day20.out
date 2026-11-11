@@ -1,0 +1,22 @@
+1..21
+ok 1 - Introspecting subroutine name
+ok 2 - Introspecting subroutine for a sub assigned to a scalar
+ok 3 - Introspecting and stringification of subroutine signature
+ok 4 - Name matches $i
+ok 5 - Type matches Int
+ok 6 - Name matches @stuff
+ok 7 - Type matches Positional
+ok 8 - Name matches $blah
+ok 9 - Type matches Any
+ok 10 - Introspecting number of arguments
+ok 11 - Introspecting arity, i.e. number of required arguments
+ok 12 - mapping two at a time
+ok 13 - mapping three at a time
+ok 14 - List of people objects is the same length of names
+ok 15 - Can use two placeholders, or just one and get an equivalent free Schwartzian Transform
+ok 16 - Can eliminate the auto-declared placeholder, and sorting is still equivalent
+ok 17 - Sort explicitly numerically
+ok 18 - proper numeric sorting
+ok 19 - Using a Whatever to sort numerically (be default)
+ok 20 - Explicit numeric comparison is equivalent to numeric comparison with a Whatever
+ok 21 - Explicit string comparison is equivalent to a string comparison with a Whatever

@@ -1,0 +1,41 @@
+1..4
+# Subtest: Single role
+    1..2
+    # Subtest: no submethod on class
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Method::NotFound)
+        ok 3 - .message matches /:s No such method "'foo'" for invocant of type "'C1'"/
+    ok 1 - no submethod on class
+    ok 2 - class-qualified call finds the method in role
+ok 1 - Single role
+# Subtest: Multi-role
+    1..7
+    ok 1 - multi-role consumption, submethod on first role lives
+    ok 2 - multi-role consumption, submethod on second role lives
+    ok 3 - multi-role consumption, submethod on indirect role lives
+    ok 4 - submethod from first role works
+    ok 5 - submethod from second role works
+    ok 6 - submethod from indirect role works
+    # Subtest: no submethod on class
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Method::NotFound)
+        ok 3 - .message matches /:s No such method "'foo'" for invocant of type "'C2'"/
+    ok 7 - no submethod on class
+ok 2 - Multi-role
+# Subtest: With class submethod
+    1..5
+    ok 1 - multi-role consumption, submethod on first role lives
+    ok 2 - multi-role consumption, submethod on second role lives
+    ok 3 - submethod from first role works
+    ok 4 - submethod from second role works
+    ok 5 - submethod on class works
+ok 3 - With class submethod
+# Subtest: Constructors in mixins
+    1..4
+    ok 1 - roles' BUILD submethods were not yet called (1)
+    ok 2 - roles' BUILD submethods were not yet called (2)
+    ok 3 - roles' BUILD submethods were called now (1)
+    ok 4 - roles' BUILD submethods were called now (2)
+ok 4 - Constructors in mixins

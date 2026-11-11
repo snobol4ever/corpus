@@ -1,0 +1,469 @@
+1..20
+ok 1 - proper inclusion +
+ok 2 - proper inclusion -
+ok 3 - inclusive vs inclusive right end
+ok 4 - exclusive vs inclusive right end
+ok 5 - inclusive vs exclusive right end
+ok 6 - exclusive vs exclusive right end
+ok 7 - inclusive vs inclusive left end
+ok 8 - exclusive vs inclusive left end
+ok 9 - inclusive vs exclusive left end
+ok 10 - exclusive vs exclusive left end
+ok 11 - inclusive vs inclusive both ends
+ok 12 - exclusive vs inclusive both ends
+ok 13 - inclusive vs exclusive both ends
+ok 14 - exclusive vs exclusive both ends
+ok 15 - 1..Inf ~~ 1/0
+ok 16 - 2..4   ~~ 3
+ok 17 - 5..6   ~~ 5
+# Subtest: smartmatch against numeric range
+    1..354
+    ok 1 -   3..4   ~~ -1/0..1/0
+    ok 2 - 0/0..0/0 ~~ -1/0..1/0
+    ok 3 - 2..3 ~~ 2..3
+    ok 4 - "2".."3" ~~ 2..3
+    ok 5 - 2.0..3.0 ~~ 2..3
+    ok 6 - 2..3 ~~ 2..3
+    ok 7 - 2.5..2.8 ~~ 2..3
+    ok 8 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2..3
+    ok 9 - 2..FatRat.new(3, 1) ~~ 2..3
+    ok 10 - 2e0..FatRat.new(3, 1) ~~ 2..3
+    ok 11 - 2.5..FatRat.new(3, 1) ~~ 2..3
+    ok 12 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2..3
+    ok 13 - 1..3 ~~ 2..3
+    ok 14 - "2".."4" ~~ 2..3
+    ok 15 - -2..5.0 ~~ 2..3
+    ok 16 - -10..10 ~~ 2..3
+    ok 17 - 2.5..6.5 ~~ 2..3
+    ok 18 - 1^..3 ~~ 2..3
+    ok 19 - "2"..^"4" ~~ 2..3
+    ok 20 - "1"^..^3 ~~ 2..3
+    ok 21 - <0/0>..<0/0> ~~ 2..3
+    ok 22 - FatRat.new(3, 1)..10 ~~ 2..3
+    ok 23 - -2e0..FatRat.new(2, 1) ~~ 2..3
+    ok 24 - "a".."z" ~~ 2..3
+    ok 25 - 2..3 ~~ 2..3e0
+    ok 26 - "2".."3" ~~ 2..3e0
+    ok 27 - 2.0..3.0 ~~ 2..3e0
+    ok 28 - 2..3 ~~ 2..3e0
+    ok 29 - 2.5..2.8 ~~ 2..3e0
+    ok 30 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2..3e0
+    ok 31 - 2..FatRat.new(3, 1) ~~ 2..3e0
+    ok 32 - 2e0..FatRat.new(3, 1) ~~ 2..3e0
+    ok 33 - 2.5..FatRat.new(3, 1) ~~ 2..3e0
+    ok 34 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2..3e0
+    ok 35 - 1..3 ~~ 2..3e0
+    ok 36 - "2".."4" ~~ 2..3e0
+    ok 37 - -2..5.0 ~~ 2..3e0
+    ok 38 - -10..10 ~~ 2..3e0
+    ok 39 - 2.5..6.5 ~~ 2..3e0
+    ok 40 - 1^..3 ~~ 2..3e0
+    ok 41 - "2"..^"4" ~~ 2..3e0
+    ok 42 - "1"^..^3 ~~ 2..3e0
+    ok 43 - <0/0>..<0/0> ~~ 2..3e0
+    ok 44 - FatRat.new(3, 1)..10 ~~ 2..3e0
+    ok 45 - -2e0..FatRat.new(2, 1) ~~ 2..3e0
+    ok 46 - "a".."z" ~~ 2..3e0
+    ok 47 - 2..3 ~~ 2..3.0
+    ok 48 - "2".."3" ~~ 2..3.0
+    ok 49 - 2.0..3.0 ~~ 2..3.0
+    ok 50 - 2..3 ~~ 2..3.0
+    ok 51 - 2.5..2.8 ~~ 2..3.0
+    ok 52 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2..3.0
+    ok 53 - 2..FatRat.new(3, 1) ~~ 2..3.0
+    ok 54 - 2e0..FatRat.new(3, 1) ~~ 2..3.0
+    ok 55 - 2.5..FatRat.new(3, 1) ~~ 2..3.0
+    ok 56 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2..3.0
+    ok 57 - 1..3 ~~ 2..3.0
+    ok 58 - "2".."4" ~~ 2..3.0
+    ok 59 - -2..5.0 ~~ 2..3.0
+    ok 60 - -10..10 ~~ 2..3.0
+    ok 61 - 2.5..6.5 ~~ 2..3.0
+    ok 62 - 1^..3 ~~ 2..3.0
+    ok 63 - "2"..^"4" ~~ 2..3.0
+    ok 64 - "1"^..^3 ~~ 2..3.0
+    ok 65 - <0/0>..<0/0> ~~ 2..3.0
+    ok 66 - FatRat.new(3, 1)..10 ~~ 2..3.0
+    ok 67 - -2e0..FatRat.new(2, 1) ~~ 2..3.0
+    ok 68 - "a".."z" ~~ 2..3.0
+    ok 69 - 2..3 ~~ 2..FatRat.new(3, 1)
+    ok 70 - "2".."3" ~~ 2..FatRat.new(3, 1)
+    ok 71 - 2.0..3.0 ~~ 2..FatRat.new(3, 1)
+    ok 72 - 2..3 ~~ 2..FatRat.new(3, 1)
+    ok 73 - 2.5..2.8 ~~ 2..FatRat.new(3, 1)
+    ok 74 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2..FatRat.new(3, 1)
+    ok 75 - 2..FatRat.new(3, 1) ~~ 2..FatRat.new(3, 1)
+    ok 76 - 2e0..FatRat.new(3, 1) ~~ 2..FatRat.new(3, 1)
+    ok 77 - 2.5..FatRat.new(3, 1) ~~ 2..FatRat.new(3, 1)
+    ok 78 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2..FatRat.new(3, 1)
+    ok 79 - 1..3 ~~ 2..FatRat.new(3, 1)
+    ok 80 - "2".."4" ~~ 2..FatRat.new(3, 1)
+    ok 81 - -2..5.0 ~~ 2..FatRat.new(3, 1)
+    ok 82 - -10..10 ~~ 2..FatRat.new(3, 1)
+    ok 83 - 2.5..6.5 ~~ 2..FatRat.new(3, 1)
+    ok 84 - 1^..3 ~~ 2..FatRat.new(3, 1)
+    ok 85 - "2"..^"4" ~~ 2..FatRat.new(3, 1)
+    ok 86 - "1"^..^3 ~~ 2..FatRat.new(3, 1)
+    ok 87 - <0/0>..<0/0> ~~ 2..FatRat.new(3, 1)
+    ok 88 - FatRat.new(3, 1)..10 ~~ 2..FatRat.new(3, 1)
+    ok 89 - -2e0..FatRat.new(2, 1) ~~ 2..FatRat.new(3, 1)
+    ok 90 - "a".."z" ~~ 2..FatRat.new(3, 1)
+    ok 91 - 2..3 ~~ 2e0..3
+    ok 92 - "2".."3" ~~ 2e0..3
+    ok 93 - 2.0..3.0 ~~ 2e0..3
+    ok 94 - 2..3 ~~ 2e0..3
+    ok 95 - 2.5..2.8 ~~ 2e0..3
+    ok 96 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2e0..3
+    ok 97 - 2..FatRat.new(3, 1) ~~ 2e0..3
+    ok 98 - 2e0..FatRat.new(3, 1) ~~ 2e0..3
+    ok 99 - 2.5..FatRat.new(3, 1) ~~ 2e0..3
+    ok 100 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2e0..3
+    ok 101 - 1..3 ~~ 2e0..3
+    ok 102 - "2".."4" ~~ 2e0..3
+    ok 103 - -2..5.0 ~~ 2e0..3
+    ok 104 - -10..10 ~~ 2e0..3
+    ok 105 - 2.5..6.5 ~~ 2e0..3
+    ok 106 - 1^..3 ~~ 2e0..3
+    ok 107 - "2"..^"4" ~~ 2e0..3
+    ok 108 - "1"^..^3 ~~ 2e0..3
+    ok 109 - <0/0>..<0/0> ~~ 2e0..3
+    ok 110 - FatRat.new(3, 1)..10 ~~ 2e0..3
+    ok 111 - -2e0..FatRat.new(2, 1) ~~ 2e0..3
+    ok 112 - "a".."z" ~~ 2e0..3
+    ok 113 - 2..3 ~~ 2e0..3e0
+    ok 114 - "2".."3" ~~ 2e0..3e0
+    ok 115 - 2.0..3.0 ~~ 2e0..3e0
+    ok 116 - 2..3 ~~ 2e0..3e0
+    ok 117 - 2.5..2.8 ~~ 2e0..3e0
+    ok 118 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2e0..3e0
+    ok 119 - 2..FatRat.new(3, 1) ~~ 2e0..3e0
+    ok 120 - 2e0..FatRat.new(3, 1) ~~ 2e0..3e0
+    ok 121 - 2.5..FatRat.new(3, 1) ~~ 2e0..3e0
+    ok 122 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2e0..3e0
+    ok 123 - 1..3 ~~ 2e0..3e0
+    ok 124 - "2".."4" ~~ 2e0..3e0
+    ok 125 - -2..5.0 ~~ 2e0..3e0
+    ok 126 - -10..10 ~~ 2e0..3e0
+    ok 127 - 2.5..6.5 ~~ 2e0..3e0
+    ok 128 - 1^..3 ~~ 2e0..3e0
+    ok 129 - "2"..^"4" ~~ 2e0..3e0
+    ok 130 - "1"^..^3 ~~ 2e0..3e0
+    ok 131 - <0/0>..<0/0> ~~ 2e0..3e0
+    ok 132 - FatRat.new(3, 1)..10 ~~ 2e0..3e0
+    ok 133 - -2e0..FatRat.new(2, 1) ~~ 2e0..3e0
+    ok 134 - "a".."z" ~~ 2e0..3e0
+    ok 135 - 2..3 ~~ 2e0..3.0
+    ok 136 - "2".."3" ~~ 2e0..3.0
+    ok 137 - 2.0..3.0 ~~ 2e0..3.0
+    ok 138 - 2..3 ~~ 2e0..3.0
+    ok 139 - 2.5..2.8 ~~ 2e0..3.0
+    ok 140 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2e0..3.0
+    ok 141 - 2..FatRat.new(3, 1) ~~ 2e0..3.0
+    ok 142 - 2e0..FatRat.new(3, 1) ~~ 2e0..3.0
+    ok 143 - 2.5..FatRat.new(3, 1) ~~ 2e0..3.0
+    ok 144 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2e0..3.0
+    ok 145 - 1..3 ~~ 2e0..3.0
+    ok 146 - "2".."4" ~~ 2e0..3.0
+    ok 147 - -2..5.0 ~~ 2e0..3.0
+    ok 148 - -10..10 ~~ 2e0..3.0
+    ok 149 - 2.5..6.5 ~~ 2e0..3.0
+    ok 150 - 1^..3 ~~ 2e0..3.0
+    ok 151 - "2"..^"4" ~~ 2e0..3.0
+    ok 152 - "1"^..^3 ~~ 2e0..3.0
+    ok 153 - <0/0>..<0/0> ~~ 2e0..3.0
+    ok 154 - FatRat.new(3, 1)..10 ~~ 2e0..3.0
+    ok 155 - -2e0..FatRat.new(2, 1) ~~ 2e0..3.0
+    ok 156 - "a".."z" ~~ 2e0..3.0
+    ok 157 - 2..3 ~~ 2e0..FatRat.new(3, 1)
+    ok 158 - "2".."3" ~~ 2e0..FatRat.new(3, 1)
+    ok 159 - 2.0..3.0 ~~ 2e0..FatRat.new(3, 1)
+    ok 160 - 2..3 ~~ 2e0..FatRat.new(3, 1)
+    ok 161 - 2.5..2.8 ~~ 2e0..FatRat.new(3, 1)
+    ok 162 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2e0..FatRat.new(3, 1)
+    ok 163 - 2..FatRat.new(3, 1) ~~ 2e0..FatRat.new(3, 1)
+    ok 164 - 2e0..FatRat.new(3, 1) ~~ 2e0..FatRat.new(3, 1)
+    ok 165 - 2.5..FatRat.new(3, 1) ~~ 2e0..FatRat.new(3, 1)
+    ok 166 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2e0..FatRat.new(3, 1)
+    ok 167 - 1..3 ~~ 2e0..FatRat.new(3, 1)
+    ok 168 - "2".."4" ~~ 2e0..FatRat.new(3, 1)
+    ok 169 - -2..5.0 ~~ 2e0..FatRat.new(3, 1)
+    ok 170 - -10..10 ~~ 2e0..FatRat.new(3, 1)
+    ok 171 - 2.5..6.5 ~~ 2e0..FatRat.new(3, 1)
+    ok 172 - 1^..3 ~~ 2e0..FatRat.new(3, 1)
+    ok 173 - "2"..^"4" ~~ 2e0..FatRat.new(3, 1)
+    ok 174 - "1"^..^3 ~~ 2e0..FatRat.new(3, 1)
+    ok 175 - <0/0>..<0/0> ~~ 2e0..FatRat.new(3, 1)
+    ok 176 - FatRat.new(3, 1)..10 ~~ 2e0..FatRat.new(3, 1)
+    ok 177 - -2e0..FatRat.new(2, 1) ~~ 2e0..FatRat.new(3, 1)
+    ok 178 - "a".."z" ~~ 2e0..FatRat.new(3, 1)
+    ok 179 - 2..3 ~~ 2.0..3
+    ok 180 - "2".."3" ~~ 2.0..3
+    ok 181 - 2.0..3.0 ~~ 2.0..3
+    ok 182 - 2..3 ~~ 2.0..3
+    ok 183 - 2.5..2.8 ~~ 2.0..3
+    ok 184 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2.0..3
+    ok 185 - 2..FatRat.new(3, 1) ~~ 2.0..3
+    ok 186 - 2e0..FatRat.new(3, 1) ~~ 2.0..3
+    ok 187 - 2.5..FatRat.new(3, 1) ~~ 2.0..3
+    ok 188 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2.0..3
+    ok 189 - 1..3 ~~ 2.0..3
+    ok 190 - "2".."4" ~~ 2.0..3
+    ok 191 - -2..5.0 ~~ 2.0..3
+    ok 192 - -10..10 ~~ 2.0..3
+    ok 193 - 2.5..6.5 ~~ 2.0..3
+    ok 194 - 1^..3 ~~ 2.0..3
+    ok 195 - "2"..^"4" ~~ 2.0..3
+    ok 196 - "1"^..^3 ~~ 2.0..3
+    ok 197 - <0/0>..<0/0> ~~ 2.0..3
+    ok 198 - FatRat.new(3, 1)..10 ~~ 2.0..3
+    ok 199 - -2e0..FatRat.new(2, 1) ~~ 2.0..3
+    ok 200 - "a".."z" ~~ 2.0..3
+    ok 201 - 2..3 ~~ 2.0..3e0
+    ok 202 - "2".."3" ~~ 2.0..3e0
+    ok 203 - 2.0..3.0 ~~ 2.0..3e0
+    ok 204 - 2..3 ~~ 2.0..3e0
+    ok 205 - 2.5..2.8 ~~ 2.0..3e0
+    ok 206 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2.0..3e0
+    ok 207 - 2..FatRat.new(3, 1) ~~ 2.0..3e0
+    ok 208 - 2e0..FatRat.new(3, 1) ~~ 2.0..3e0
+    ok 209 - 2.5..FatRat.new(3, 1) ~~ 2.0..3e0
+    ok 210 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2.0..3e0
+    ok 211 - 1..3 ~~ 2.0..3e0
+    ok 212 - "2".."4" ~~ 2.0..3e0
+    ok 213 - -2..5.0 ~~ 2.0..3e0
+    ok 214 - -10..10 ~~ 2.0..3e0
+    ok 215 - 2.5..6.5 ~~ 2.0..3e0
+    ok 216 - 1^..3 ~~ 2.0..3e0
+    ok 217 - "2"..^"4" ~~ 2.0..3e0
+    ok 218 - "1"^..^3 ~~ 2.0..3e0
+    ok 219 - <0/0>..<0/0> ~~ 2.0..3e0
+    ok 220 - FatRat.new(3, 1)..10 ~~ 2.0..3e0
+    ok 221 - -2e0..FatRat.new(2, 1) ~~ 2.0..3e0
+    ok 222 - "a".."z" ~~ 2.0..3e0
+    ok 223 - 2..3 ~~ 2.0..3.0
+    ok 224 - "2".."3" ~~ 2.0..3.0
+    ok 225 - 2.0..3.0 ~~ 2.0..3.0
+    ok 226 - 2..3 ~~ 2.0..3.0
+    ok 227 - 2.5..2.8 ~~ 2.0..3.0
+    ok 228 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2.0..3.0
+    ok 229 - 2..FatRat.new(3, 1) ~~ 2.0..3.0
+    ok 230 - 2e0..FatRat.new(3, 1) ~~ 2.0..3.0
+    ok 231 - 2.5..FatRat.new(3, 1) ~~ 2.0..3.0
+    ok 232 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2.0..3.0
+    ok 233 - 1..3 ~~ 2.0..3.0
+    ok 234 - "2".."4" ~~ 2.0..3.0
+    ok 235 - -2..5.0 ~~ 2.0..3.0
+    ok 236 - -10..10 ~~ 2.0..3.0
+    ok 237 - 2.5..6.5 ~~ 2.0..3.0
+    ok 238 - 1^..3 ~~ 2.0..3.0
+    ok 239 - "2"..^"4" ~~ 2.0..3.0
+    ok 240 - "1"^..^3 ~~ 2.0..3.0
+    ok 241 - <0/0>..<0/0> ~~ 2.0..3.0
+    ok 242 - FatRat.new(3, 1)..10 ~~ 2.0..3.0
+    ok 243 - -2e0..FatRat.new(2, 1) ~~ 2.0..3.0
+    ok 244 - "a".."z" ~~ 2.0..3.0
+    ok 245 - 2..3 ~~ 2.0..FatRat.new(3, 1)
+    ok 246 - "2".."3" ~~ 2.0..FatRat.new(3, 1)
+    ok 247 - 2.0..3.0 ~~ 2.0..FatRat.new(3, 1)
+    ok 248 - 2..3 ~~ 2.0..FatRat.new(3, 1)
+    ok 249 - 2.5..2.8 ~~ 2.0..FatRat.new(3, 1)
+    ok 250 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ 2.0..FatRat.new(3, 1)
+    ok 251 - 2..FatRat.new(3, 1) ~~ 2.0..FatRat.new(3, 1)
+    ok 252 - 2e0..FatRat.new(3, 1) ~~ 2.0..FatRat.new(3, 1)
+    ok 253 - 2.5..FatRat.new(3, 1) ~~ 2.0..FatRat.new(3, 1)
+    ok 254 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ 2.0..FatRat.new(3, 1)
+    ok 255 - 1..3 ~~ 2.0..FatRat.new(3, 1)
+    ok 256 - "2".."4" ~~ 2.0..FatRat.new(3, 1)
+    ok 257 - -2..5.0 ~~ 2.0..FatRat.new(3, 1)
+    ok 258 - -10..10 ~~ 2.0..FatRat.new(3, 1)
+    ok 259 - 2.5..6.5 ~~ 2.0..FatRat.new(3, 1)
+    ok 260 - 1^..3 ~~ 2.0..FatRat.new(3, 1)
+    ok 261 - "2"..^"4" ~~ 2.0..FatRat.new(3, 1)
+    ok 262 - "1"^..^3 ~~ 2.0..FatRat.new(3, 1)
+    ok 263 - <0/0>..<0/0> ~~ 2.0..FatRat.new(3, 1)
+    ok 264 - FatRat.new(3, 1)..10 ~~ 2.0..FatRat.new(3, 1)
+    ok 265 - -2e0..FatRat.new(2, 1) ~~ 2.0..FatRat.new(3, 1)
+    ok 266 - "a".."z" ~~ 2.0..FatRat.new(3, 1)
+    ok 267 - 2..3 ~~ FatRat.new(2, 1)..3
+    ok 268 - "2".."3" ~~ FatRat.new(2, 1)..3
+    ok 269 - 2.0..3.0 ~~ FatRat.new(2, 1)..3
+    ok 270 - 2..3 ~~ FatRat.new(2, 1)..3
+    ok 271 - 2.5..2.8 ~~ FatRat.new(2, 1)..3
+    ok 272 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..3
+    ok 273 - 2..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..3
+    ok 274 - 2e0..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..3
+    ok 275 - 2.5..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..3
+    ok 276 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..3
+    ok 277 - 1..3 ~~ FatRat.new(2, 1)..3
+    ok 278 - "2".."4" ~~ FatRat.new(2, 1)..3
+    ok 279 - -2..5.0 ~~ FatRat.new(2, 1)..3
+    ok 280 - -10..10 ~~ FatRat.new(2, 1)..3
+    ok 281 - 2.5..6.5 ~~ FatRat.new(2, 1)..3
+    ok 282 - 1^..3 ~~ FatRat.new(2, 1)..3
+    ok 283 - "2"..^"4" ~~ FatRat.new(2, 1)..3
+    ok 284 - "1"^..^3 ~~ FatRat.new(2, 1)..3
+    ok 285 - <0/0>..<0/0> ~~ FatRat.new(2, 1)..3
+    ok 286 - FatRat.new(3, 1)..10 ~~ FatRat.new(2, 1)..3
+    ok 287 - -2e0..FatRat.new(2, 1) ~~ FatRat.new(2, 1)..3
+    ok 288 - "a".."z" ~~ FatRat.new(2, 1)..3
+    ok 289 - 2..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 290 - "2".."3" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 291 - 2.0..3.0 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 292 - 2..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 293 - 2.5..2.8 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 294 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 295 - 2..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 296 - 2e0..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 297 - 2.5..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 298 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 299 - 1..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 300 - "2".."4" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 301 - -2..5.0 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 302 - -10..10 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 303 - 2.5..6.5 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 304 - 1^..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 305 - "2"..^"4" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 306 - "1"^..^3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 307 - <0/0>..<0/0> ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 308 - FatRat.new(3, 1)..10 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 309 - -2e0..FatRat.new(2, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 310 - "a".."z" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 311 - 2..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 312 - "2".."3" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 313 - 2.0..3.0 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 314 - 2..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 315 - 2.5..2.8 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 316 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 317 - 2..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 318 - 2e0..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 319 - 2.5..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 320 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 321 - 1..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 322 - "2".."4" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 323 - -2..5.0 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 324 - -10..10 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 325 - 2.5..6.5 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 326 - 1^..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 327 - "2"..^"4" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 328 - "1"^..^3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 329 - <0/0>..<0/0> ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 330 - FatRat.new(3, 1)..10 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 331 - -2e0..FatRat.new(2, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 332 - "a".."z" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 333 - 2..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 334 - "2".."3" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 335 - 2.0..3.0 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 336 - 2..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 337 - 2.5..2.8 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 338 - FatRat.new(2, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 339 - 2..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 340 - 2e0..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 341 - 2.5..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 342 - FatRat.new(3, 1)..FatRat.new(3, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 343 - 1..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 344 - "2".."4" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 345 - -2..5.0 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 346 - -10..10 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 347 - 2.5..6.5 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 348 - 1^..3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 349 - "2"..^"4" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 350 - "1"^..^3 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 351 - <0/0>..<0/0> ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 352 - FatRat.new(3, 1)..10 ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 353 - -2e0..FatRat.new(2, 1) ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+    ok 354 - "a".."z" ~~ FatRat.new(2, 1)..FatRat.new(3, 1)
+ok 18 - smartmatch against numeric range
+# Subtest: smartmatch of string ranges
+    1..8
+    ok 1 - "b".."c" ~~ "a".."z"
+    ok 2 - "aa".."bb" ~~ "a".."z"
+    ok 3 - "♥".."♦" ~~ "♥".."♦"
+    ok 4 - "♥0".."♦3" ~~ "♥0".."♦3"
+    ok 5 - "a".."z" ~~ "b".."c"
+    ok 6 - "aa".."bb" ~~ "b".."z"
+    ok 7 - "♤".."♦" ~~ "♥".."♦"
+    ok 8 - "♤0".."♦3" ~~ "♥0".."♦3"
+ok 19 - smartmatch of string ranges
+# Subtest: smartmatch numeric range against string range [numeric strings]
+    1..80
+    ok 1 - 0..10 ~~ "0"..3
+    ok 2 - 0..FatRat.new(10, 1) ~~ "0"..3
+    ok 3 - 0..10e0 ~~ "0"..3
+    ok 4 - 0..10.0 ~~ "0"..3
+    ok 5 - 0..10.0 ~~ "0"..3
+    ok 6 - 0e0..10 ~~ "0"..3
+    ok 7 - FatRat.new(0, 1)..FatRat.new(10, 1) ~~ "0"..3
+    ok 8 - 0.0..10e0 ~~ "0"..3
+    ok 9 - 0e0..10.0 ~~ "0"..3
+    ok 10 - 0e0..10.0 ~~ "0"..3
+    ok 11 - 0..30 ~~ "0"..3
+    ok 12 - 0..FatRat.new(30, 1) ~~ "0"..3
+    ok 13 - 0..30e0 ~~ "0"..3
+    ok 14 - 0..30.0 ~~ "0"..3
+    ok 15 - 0..30.0 ~~ "0"..3
+    ok 16 - 0e0..30 ~~ "0"..3
+    ok 17 - FatRat.new(0, 1)..FatRat.new(30, 1) ~~ "0"..3
+    ok 18 - 0.0..30e0 ~~ "0"..3
+    ok 19 - 0e0..30.0 ~~ "0"..3
+    ok 20 - 0e0..30.0 ~~ "0"..3
+    ok 21 - 0..10 ~~ "0"..3.0
+    ok 22 - 0..FatRat.new(10, 1) ~~ "0"..3.0
+    ok 23 - 0..10e0 ~~ "0"..3.0
+    ok 24 - 0..10.0 ~~ "0"..3.0
+    ok 25 - 0..10.0 ~~ "0"..3.0
+    ok 26 - 0e0..10 ~~ "0"..3.0
+    ok 27 - FatRat.new(0, 1)..FatRat.new(10, 1) ~~ "0"..3.0
+    ok 28 - 0.0..10e0 ~~ "0"..3.0
+    ok 29 - 0e0..10.0 ~~ "0"..3.0
+    ok 30 - 0e0..10.0 ~~ "0"..3.0
+    ok 31 - 0..30 ~~ "0"..3.0
+    ok 32 - 0..FatRat.new(30, 1) ~~ "0"..3.0
+    ok 33 - 0..30e0 ~~ "0"..3.0
+    ok 34 - 0..30.0 ~~ "0"..3.0
+    ok 35 - 0..30.0 ~~ "0"..3.0
+    ok 36 - 0e0..30 ~~ "0"..3.0
+    ok 37 - FatRat.new(0, 1)..FatRat.new(30, 1) ~~ "0"..3.0
+    ok 38 - 0.0..30e0 ~~ "0"..3.0
+    ok 39 - 0e0..30.0 ~~ "0"..3.0
+    ok 40 - 0e0..30.0 ~~ "0"..3.0
+    ok 41 - 0..10 ~~ "0"..3e0
+    ok 42 - 0..FatRat.new(10, 1) ~~ "0"..3e0
+    ok 43 - 0..10e0 ~~ "0"..3e0
+    ok 44 - 0..10.0 ~~ "0"..3e0
+    ok 45 - 0..10.0 ~~ "0"..3e0
+    ok 46 - 0e0..10 ~~ "0"..3e0
+    ok 47 - FatRat.new(0, 1)..FatRat.new(10, 1) ~~ "0"..3e0
+    ok 48 - 0.0..10e0 ~~ "0"..3e0
+    ok 49 - 0e0..10.0 ~~ "0"..3e0
+    ok 50 - 0e0..10.0 ~~ "0"..3e0
+    ok 51 - 0..30 ~~ "0"..3e0
+    ok 52 - 0..FatRat.new(30, 1) ~~ "0"..3e0
+    ok 53 - 0..30e0 ~~ "0"..3e0
+    ok 54 - 0..30.0 ~~ "0"..3e0
+    ok 55 - 0..30.0 ~~ "0"..3e0
+    ok 56 - 0e0..30 ~~ "0"..3e0
+    ok 57 - FatRat.new(0, 1)..FatRat.new(30, 1) ~~ "0"..3e0
+    ok 58 - 0.0..30e0 ~~ "0"..3e0
+    ok 59 - 0e0..30.0 ~~ "0"..3e0
+    ok 60 - 0e0..30.0 ~~ "0"..3e0
+    ok 61 - 0..10 ~~ "0"..FatRat.new(3, 1)
+    ok 62 - 0..FatRat.new(10, 1) ~~ "0"..FatRat.new(3, 1)
+    ok 63 - 0..10e0 ~~ "0"..FatRat.new(3, 1)
+    ok 64 - 0..10.0 ~~ "0"..FatRat.new(3, 1)
+    ok 65 - 0..10.0 ~~ "0"..FatRat.new(3, 1)
+    ok 66 - 0e0..10 ~~ "0"..FatRat.new(3, 1)
+    ok 67 - FatRat.new(0, 1)..FatRat.new(10, 1) ~~ "0"..FatRat.new(3, 1)
+    ok 68 - 0.0..10e0 ~~ "0"..FatRat.new(3, 1)
+    ok 69 - 0e0..10.0 ~~ "0"..FatRat.new(3, 1)
+    ok 70 - 0e0..10.0 ~~ "0"..FatRat.new(3, 1)
+    ok 71 - 0..30 ~~ "0"..FatRat.new(3, 1)
+    ok 72 - 0..FatRat.new(30, 1) ~~ "0"..FatRat.new(3, 1)
+    ok 73 - 0..30e0 ~~ "0"..FatRat.new(3, 1)
+    ok 74 - 0..30.0 ~~ "0"..FatRat.new(3, 1)
+    ok 75 - 0..30.0 ~~ "0"..FatRat.new(3, 1)
+    ok 76 - 0e0..30 ~~ "0"..FatRat.new(3, 1)
+    ok 77 - FatRat.new(0, 1)..FatRat.new(30, 1) ~~ "0"..FatRat.new(3, 1)
+    ok 78 - 0.0..30e0 ~~ "0"..FatRat.new(3, 1)
+    ok 79 - 0e0..30.0 ~~ "0"..FatRat.new(3, 1)
+    ok 80 - 0e0..30.0 ~~ "0"..FatRat.new(3, 1)
+ok 20 - smartmatch numeric range against string range [numeric strings]

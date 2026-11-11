@@ -1,0 +1,81 @@
+1..47
+ok 1 - match successful
+ok 2 - got right type
+ok 3 - .Bool
+ok 4 - .defined
+ok 5 - .Str
+ok 6 - .from
+ok 7 - .to
+ok 8 - .prematch
+ok 9 - .postmatch
+ok 10 - .list (empty)
+ok 11 - .hash (empty)
+ok 12 - .keys (empty)
+ok 13 - .values (empty)
+ok 14 - .pairs (empty)
+ok 15 - .kv (empty)
+ok 16 - .Int with small value
+ok 17 - .Int with big value
+ok 18 - sanity 1
+ok 19 - sanity 2
+ok 20 - .prematch for zero-width matches
+ok 21 - .postmatch for zero-width matches
+ok 22 - .prematch produces a Str
+ok 23 - .postmatch produces a Str
+ok 24 - no match
+ok 25 - failed match is False
+ok 26 - false match stringifies to empty string
+ok 27 - === of different match objects
+ok 28 - === of different but similar match objects
+ok 29 - === of one and the same match object
+ok 30 - eqv of different match objects
+ok 31 - eqv of different but similar match objects
+ok 32 - :$<foo> returns a pair
+ok 33 - its key is "foo"
+ok 34 - the pairs value is a defined match object
+ok 35 - current match state
+ok 36 - got right type
+ok 37 - .pos
+ok 38 - $/.keys returns both positional and associative captures
+# Subtest: can smartmatch against regexes stored in variables
+    1..2
+    ok 1 - return value is a Match object
+    ok 2 - return value contains right result
+ok 39 - can smartmatch against regexes stored in variables
+ok 40 - sanity
+ok 41 - non-Str orig
+ok 42 - .prematch on non-Str
+ok 43 - .postmatch on non-Str
+ok 44 - sanity
+not ok 45 - .orig retains the type (NFD) # TODO $/.orig on NFD matches
+# Failed test '.orig retains the type (NFD)'
+# at S05-capture/match-object.rakudo line 99
+# Actual type: Str
+ok 46 - NFD: $/ is set in Regex.ACCEPTS
+# Subtest: $/ is set when matching in a loop
+    1..11
+    ok 1 - &infix:<~~>
+    ok 2 - Str.match
+    ok 3 - Cool.match
+    ok 4 - Str.subst
+    ok 5 - Cool.subst
+    ok 6 - does Foo.parse return the correct Match object
+    not ok 7 - Foo.parse does not set $/ # TODO Grammar.parse does not $/ in 6.e
+    # Failed test 'Foo.parse does not set $/'
+    # at S05-capture/match-object.rakudo line 127
+    # expected: 42
+    #      got: Match.new(:orig("a"), :from(0), :pos(1))
+    ok 8 - does Foo.subparse return the correct Match object
+    not ok 9 - Foo.subparse does not set $/ # TODO Grammar.subparse does not $/ in 6.e
+    # Failed test 'Foo.subparse does not set $/'
+    # at S05-capture/match-object.rakudo line 133
+    # expected: 666
+    #      got: Match.new(:orig("b"), :from(0), :pos(1))
+    ok 10 - does Foo.parsefile return the correct Match object
+    not ok 11 - Foo.parsefile does not set $/ # TODO Grammar.parsefile does not $/ in 6.e
+    # Failed test 'Foo.parsefile does not set $/'
+    # at S05-capture/match-object.rakudo line 142
+    # expected: 137
+    #      got: Match.new(:orig("c"), :from(0), :pos(1))
+ok 47 - $/ is set when matching in a loop
+# FUDGED!

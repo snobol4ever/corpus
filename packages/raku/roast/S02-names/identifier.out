@@ -1,0 +1,39 @@
+1..22
+ok 1 - don't() is a valid sub name (1)
+ok 2 - don't() is a valid sub name (2)
+ok 3 - $a'b'c is a valid variable name
+# Subtest: foo- (trailing hyphen) is not an identifier
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 4 - foo- (trailing hyphen) is not an identifier
+# Subtest: foo' (trailing apostrophe) is not an identifier
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 5 - foo' (trailing apostrophe) is not an identifier
+# Subtest: foob'4 is not a valid identifier (not alphabetic after apostrophe)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 6 - foob'4 is not a valid identifier (not alphabetic after apostrophe)
+# Subtest: foob-4 is not a valid identifier (not alphabetic after hyphen)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 7 - foob-4 is not a valid identifier (not alphabetic after hyphen)
+ok 8 - foo4'b is a valid identifier
+ok 9 - can call foo-bar()
+ok 10 - can call do-check()
+ok 11 - if'a is a valid sub name
+ok 12 - can call sub-check
+ok 13 - can call method-check
+ok 14 - can call last-check
+ok 15 - can call next-check
+ok 16 - can call redo-check
+ok 17 - sub named "sub" works
+ok 18 - call to sub named "my" works
+ok 19 - sub named "loop" works
+ok 20 - can call subroutines whos name begin with an alphabetic infix (or)
+ok 21 - can call subroutines whos name begin with an alphabetic infix (and)
+ok 22 - can call subroutine which starts with infix x

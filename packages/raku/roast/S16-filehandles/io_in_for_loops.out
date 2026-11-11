@@ -1,0 +1,33 @@
+1..32
+ok 1 - ... got the right line (array controlled loop)
+ok 2 - ... got the right line (array controlled loop)
+ok 3 - ... got the right line (array controlled loop)
+ok 4 - ... got the right line (array controlled loop)
+ok 5 - ... got the right line (array controlled loop)
+ok 6 - ... got the right line (array controlled loop)
+ok 7 - ... got the right line (($fh.lines) controlled loop)
+ok 8 - ... got the right line (($fh.lines) controlled loop)
+ok 9 - ... got the right line (($fh.lines) controlled loop)
+ok 10 - ... got the right line (($fh.lines) controlled loop)
+ok 11 - ... got the right line (($fh.lines) controlled loop)
+ok 12 - ... got the right line (($fh.lines) controlled loop)
+ok 13 - ... got the right line ($fh.lines controlled loop)
+ok 14 - ... got the right line ($fh.lines controlled loop)
+ok 15 - ... got the right line ($fh.lines controlled loop)
+ok 16 - ... got the right line ($fh.lines controlled loop)
+ok 17 - ... got the right line ($fh.lines controlled loop)
+ok 18 - ... got the right line ($fh.lines controlled loop)
+ok 19 - ... got the right line (array controlled loop)
+ok 20 - ... got the right line2 (array controlled loop)
+ok 21 - ... got the right line (array controlled loop)
+ok 22 - ... got the right line2 (array controlled loop)
+ok 23 - ... got the right line (array controlled loop)
+ok 24 - ... got the right line2 (array controlled loop)
+ok 25 - ... got the right line ((=$fh) controlled loop)
+ok 26 - ... got the right line2 ((=$fh) controlled loop)
+ok 27 - ... got the right line (=$fh controlled loop)
+ok 28 - ... got the right line2 (=$fh controlled loop)
+ok 29 - $fh.lines.kv works
+ok 30 - $fh.lines loop sets .tell
+ok 31 - last in loop leaves .tell at the same place
+ok 32 - file has been removed

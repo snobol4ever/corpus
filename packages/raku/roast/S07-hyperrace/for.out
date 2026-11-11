@@ -1,0 +1,7 @@
+1..6
+ok 1 - Plain for loop sequentially iterates a RaceSeq
+ok 2 - Plain for loop sequentially iterates a HyperSeq
+ok 3 - Plain postfix for loop sequentially iterates a RaceSeq
+ok 4 - Plain postfix for loop sequentially iterates a HyperSeq
+ok 5 - A race for loop runs the body over threads
+ok 6 - A hyper for loop runs the body over threads

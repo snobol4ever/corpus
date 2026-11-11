@@ -1,0 +1,152 @@
+1..55
+ok 1 - can we serialize a simple hash
+ok 2 - can we roundtrip simple hash
+ok 3 - make sure any value can be stored
+ok 4 - make sure keys are Str(Any)
+ok 5 - can we serialize a hash with constrained values
+ok 6 - can we roundtrip hash constrained values
+ok 7 - make sure roundtripped values are Int
+ok 8 - make sure roundtripped keys are Str(Any)
+ok 9 - can we serialize a hash with constrained keys & values
+ok 10 - can we roundtrip hash constrained keys & values
+ok 11 - make sure roundtripped values are Int
+ok 12 - make sure roundtripped keys are Str
+ok 13 - can roundtrip .raku.EVAL for parametarized hash with no keys in it
+ok 14 - can .raku.EVAL roundtrip a circular hash
+ok 15 - Can create large hash with "=>", RT  \#120656
+# Subtest: ${}.raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 16 - ${}.raku is idempotent
+ok 17 - Hash in Scalar and deconted Hash perlify differently (Str(Any),Mu)
+# Subtest: {}.raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 18 - {}.raku is idempotent
+# Subtest: ${:k("v")}.raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 19 - ${:k("v")}.raku is idempotent
+ok 20 - Hash in Scalar and deconted Hash perlify differently (Str(Any),Mu)
+# Subtest: {:k("v")}.raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 21 - {:k("v")}.raku is idempotent
+# Subtest: $(my Any %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 22 - $(my Any %).raku is idempotent
+ok 23 - Hash in Scalar and deconted Hash perlify differently (Str(Any),Any)
+# Subtest: (my Any %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 24 - (my Any %).raku is idempotent
+# Subtest: $(my Any %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 25 - $(my Any %).raku is idempotent
+ok 26 - Hash in Scalar and deconted Hash perlify differently (Str(Any),Any)
+# Subtest: (my Any %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 27 - (my Any %).raku is idempotent
+# Subtest: $(my Int %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 28 - $(my Int %).raku is idempotent
+ok 29 - Hash in Scalar and deconted Hash perlify differently (Str(Any),Int)
+# Subtest: (my Int %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 30 - (my Int %).raku is idempotent
+# Subtest: $(my Any %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 31 - $(my Any %).raku is idempotent
+ok 32 - Hash in Scalar and deconted Hash perlify differently (Str(Any),Any)
+# Subtest: (my Any %).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 33 - (my Any %).raku is idempotent
+# Subtest: $(my Any %{Any}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 34 - $(my Any %{Any}).raku is idempotent
+ok 35 - Hash in Scalar and deconted Hash perlify differently (Any,Any)
+# Subtest: (my Any %{Any}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 36 - (my Any %{Any}).raku is idempotent
+# Subtest: $(my Any %{Any}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 37 - $(my Any %{Any}).raku is idempotent
+ok 38 - Hash in Scalar and deconted Hash perlify differently (Any,Any)
+# Subtest: (my Any %{Any}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 39 - (my Any %{Any}).raku is idempotent
+# Subtest: $(my Int %{Int}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 40 - $(my Int %{Int}).raku is idempotent
+ok 41 - Hash in Scalar and deconted Hash perlify differently (Int,Int)
+# Subtest: (my Int %{Int}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 42 - (my Int %{Int}).raku is idempotent
+# Subtest: $(my Int %{Int} = 1 => 2).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 43 - $(my Int %{Int} = 1 => 2).raku is idempotent
+ok 44 - Hash in Scalar and deconted Hash perlify differently (Int,Int)
+# Subtest: (my Int %{Int} = 1 => 2).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 45 - (my Int %{Int} = 1 => 2).raku is idempotent
+# Subtest: $(my Mu %{Mu}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 46 - $(my Mu %{Mu}).raku is idempotent
+ok 47 - Hash in Scalar and deconted Hash perlify differently (Mu,Mu)
+# Subtest: (my Mu %{Mu}).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 48 - (my Mu %{Mu}).raku is idempotent
+# Subtest: $(my Mu %{Mu} = :k("v")).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 49 - $(my Mu %{Mu} = :k("v")).raku is idempotent
+ok 50 - Hash in Scalar and deconted Hash perlify differently (Mu,Mu)
+# Subtest: (my Mu %{Mu} = :k("v")).raku is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 51 - (my Mu %{Mu} = :k("v")).raku is idempotent
+ok 52 - Map.raku preserves Map's scalar containeration
+ok 53 - typecheck on initialization
+ok 54 - typecheck on assignment
+ok 55 - typecheck on binding

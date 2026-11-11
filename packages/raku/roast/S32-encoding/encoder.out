@@ -1,0 +1,5 @@
+1..4
+ok 1 - Can use ASCII encoder to encode
+ok 2 - Dies it try to encode disallowed char
+ok 3 - ASCII encoder configured to use default ASCII replacement works
+ok 4 - ASCII encoder configured to use custom replacement works

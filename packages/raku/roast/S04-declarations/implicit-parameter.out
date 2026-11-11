@@ -1,0 +1,29 @@
+1..20
+ok 1 - Block with explicit $_ has one formal parameter
+ok 2 - Block with implicit $_ has one formal parameter
+ok 3 - $_ in bare block defaults to outer
+ok 4 - but it is only a default
+ok 5 - no implicit $_ usage checking
+ok 6 - $_ gets assigned but is not used
+ok 7 - {$_} is arity 0, of course
+ok 8 - Blocks that uses $_ implicitly have arity 0
+ok 9 - {$_} is count 1
+ok 10 - Blocks that uses $_ implicitly have count 1
+ok 11 - -> {} is arity 0
+ok 12 - Even when we use $_>
+ok 13 - $_ is lexical here
+ok 14 - Even with parameters
+ok 15 - But not when the parameter is $_
+# Subtest: Placeholders not allowed in ->
+    1..2
+    ok 1 - 'sub () { -> { $^a }.() }' died
+    ok 2 - right exception type (X::Signature::Placeholder)
+ok 16 - Placeholders not allowed in ->
+ok 17 - ->{} is arity 0, again
+# Subtest: Placeholders not allowed in sub()
+    1..2
+    ok 1 - 'sub () { $^foo }.(42)' died
+    ok 2 - right exception type (X::Signature::Placeholder)
+ok 18 - Placeholders not allowed in sub()
+ok 19 - outer $_ is seen within nested blocks
+ok 20 - hash like block with implicit parameter

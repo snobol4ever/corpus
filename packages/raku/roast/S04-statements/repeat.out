@@ -1,0 +1,27 @@
+1..21
+ok 1 - repeat {} while
+ok 2 - ensure repeat {} while runs at least once
+ok 3 - redo works in repeat
+ok 4 - repeat {} until
+ok 5 - ensure repeat {} until runs at least once
+ok 6 - redo works in repeat {} until
+ok 7 - repeat with "} while"
+ok 8 - repeat with "}\n while"
+ok 9 - repeat {} while
+ok 10 - ensure repeat {} while runs at least once
+ok 11 - redo works in repeat
+ok 12 - repeat until {}
+ok 13 - repeat until with binding starts undefined
+ok 14 - repeat until -> {}
+ok 15 - ensure repeat until {} runs at least once
+ok 16 - redo works in repeat until {}
+ok 17 - placeholders and "repeat while" mix
+ok 18 - can share variable between loop body and condition
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..3
+    ok 1 - 'repeat { "but I myself" }' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    ok 3 - .what matches "while" or "until"
+ok 19 - did we throws-like X::Syntax::Missing?
+ok 20 - repeat inside sub inside a loop executes even when condition is false
+ok 21 - repeat calls itself once always at each recursion level

@@ -1,0 +1,7 @@
+1..2
+ok 1 - my $*PID is different from a child $*PID
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - '$*PID = 42' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 2 - did we throws-like X::Assignment::RO?

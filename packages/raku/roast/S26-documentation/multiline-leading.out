@@ -1,0 +1,5 @@
+1..4
+ok 1 - multiline-leading App.WHY
+ok 2 - multiline-leading method.WHY
+ok 3 - method.signature WHY param one
+ok 4 - method.signature WHY param two

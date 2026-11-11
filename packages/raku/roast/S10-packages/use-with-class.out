@@ -1,0 +1,11 @@
+1..10
+ok 1 - can instantiate object of "imported" class
+ok 2 - can access attribute
+ok 3 - can access method
+ok 4 - can set through setter
+ok 5 - can set trough assignment
+ok 6 - setting actually worked
+ok 7 - can extend "imported" class
+ok 8 - can load class from inside a method
+ok 9 - declaring a class after use-ing a module (RT  \#73910)
+ok 10 - packages with private `is rw` attrs compile successfully

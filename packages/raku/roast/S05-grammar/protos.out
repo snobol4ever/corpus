@@ -1,0 +1,5 @@
+1..4
+ok 1 - parse succeeded
+ok 2 - Submatch 1 correct
+ok 3 - Submatch 2 correct
+ok 4 - Submatch 3 correct

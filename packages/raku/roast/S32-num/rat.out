@@ -1,0 +1,1298 @@
+1..869
+ok 1 - Rat.new makes a Rat
+ok 2 - / makes a Rat
+ok 3 - cast of Int makes a Rat
+ok 4 - cast of Num makes a Rat
+ok 5 - Rat.new is Rat
+ok 6 - EVAL Rat.new.raku is Rat
+ok 7 - EVAL Rat.new(1, 3).raku is Rat
+ok 8 - EVAL Rat.new(1, 3).raku is 1/3
+ok 9 - EVAL (1/3).raku is Rat
+ok 10 - EVAL (1/3).raku is 1/3
+ok 11 - (1/10).raku is 0.1
+ok 12 - (1/5).raku is .2
+ok 13 - (1/2).raku is .5
+ok 14 - (1/128).raku.EVAL round trips with sufficient accuracy
+ok 15 - (1/128).raku.EVAL round trips with sufficient accuracy
+ok 16 - 807412079564/555 round trips without a compile_time_value error
+ok 17 - Rats stringify properly
+ok 18 - Rats stringify properly
+ok 19 - Rats stringify properly
+ok 20 - Rats stringify properly
+ok 21 - Negative signs move to numerator
+ok 22 - Double negatives cancel out
+ok 23 - Reduce to simplest form in constructor
+ok 24 - Reduce to simplest form in constructor
+ok 25 - Reduce to simplest form in constructor
+ok 26 - Reduce huge number to simplest form in constructor
+ok 27 - Huge over zero is normalized
+ok 28 - Negative seven over zero is normalized
+ok 29 - Zero over zero stays zero over zero
+ok 30 - 1/4 + 1/4 = 1/2
+ok 31 - 1/4 + 1/4 is a Rat
+ok 32 - 1/4 + 2/7 = 15/28
+ok 33 - 1/4 + 1 = 5/4
+ok 34 - 1/4 + 1 is a Rat
+ok 35 - 1 + 1/4 = 5/4
+ok 36 - 1 + 1/4 is a Rat
+ok 37 - 1/4 - 1/4 = 0/1
+ok 38 - 1/4 - 3/4 = -1/2
+ok 39 - 1/4 - 3/4 = -1/2 is simplified internally
+ok 40 - 1/4 - 3/4 is a Rat
+ok 41 - 1/4 - 1 = -3/4
+ok 42 - 1/4 - 1 is a Rat
+ok 43 - 1 - 1/4 = 3/4
+ok 44 - 1 - 1/4 is a Rat
+ok 45 - 2/3 * 5/4 = 5/6
+ok 46 - 2/3 * 5/4 = 5/6 is simplified internally
+ok 47 - 2/3 * 5/4 is a Rat
+ok 48 - 2/3 * 2 = 4/3
+ok 49 - 2/3 * 2 is a Rat
+ok 50 - 2/3 * 3 = 2 is simplified internally
+ok 51 - 2 * 2/3 = 4/3
+ok 52 - 2 * 2/3 is a Rat
+ok 53 - 3 * 2/3 = 2 is simplified internally
+ok 54 - 2/3 / 5/4 = 8/15
+ok 55 - 2/3 / 5/4 is a Rat
+ok 56 - 2/3 / 2 = 1/3
+ok 57 - 2/3 / 2 = 1/3 is simplified internally
+ok 58 - 2/3 / 2 is a Rat
+ok 59 - 2 / 1/3 = 6
+ok 60 - 2 / 1/3 is a Rat
+ok 61 - 2 / 2/3 = 3 is simplified internally
+ok 62 - prefix:<++> on Rats
+ok 63 - postfix:<++> on Rats (1)
+ok 64 - postfix:<++> on Rats (2)
+ok 65 - prefix:<++> on negative Rat
+ok 66 - prefix:<--> on Rats
+ok 67 - postfix:<--> on Rats (1)
+ok 68 - postfix:<--> on Rats (2)
+ok 69 - prefix:<--> on negative Rat
+ok 70 - Rat + Int works (0.5, -7)
+ok 71 - Int + Rat works (0.5, -7)
+ok 72 - Rat - Int works (0.5, -7)
+ok 73 - Int - Rat works (0.5, -7)
+ok 74 - Rat * Int works (0.5, -7)
+ok 75 - Int * Rat works (0.5, -7)
+ok 76 - Rat / Int works (0.5, -7)
+ok 77 - Int / Rat works (0.5, -7)
+ok 78 - Rat + Int works (0.5, -1)
+ok 79 - Int + Rat works (0.5, -1)
+ok 80 - Rat - Int works (0.5, -1)
+ok 81 - Int - Rat works (0.5, -1)
+ok 82 - Rat * Int works (0.5, -1)
+ok 83 - Int * Rat works (0.5, -1)
+ok 84 - Rat / Int works (0.5, -1)
+ok 85 - Int / Rat works (0.5, -1)
+ok 86 - Rat + Int works (0.5, 0)
+ok 87 - Int + Rat works (0.5, 0)
+ok 88 - Rat - Int works (0.5, 0)
+ok 89 - Int - Rat works (0.5, 0)
+ok 90 - Rat * Int works (0.5, 0)
+ok 91 - Int * Rat works (0.5, 0)
+ok 92 - Int / Rat works (0.5, 0)
+ok 93 - Rat + Int works (0.5, 1)
+ok 94 - Int + Rat works (0.5, 1)
+ok 95 - Rat - Int works (0.5, 1)
+ok 96 - Int - Rat works (0.5, 1)
+ok 97 - Rat * Int works (0.5, 1)
+ok 98 - Int * Rat works (0.5, 1)
+ok 99 - Rat / Int works (0.5, 1)
+ok 100 - Int / Rat works (0.5, 1)
+ok 101 - Rat + Int works (0.5, 2)
+ok 102 - Int + Rat works (0.5, 2)
+ok 103 - Rat - Int works (0.5, 2)
+ok 104 - Int - Rat works (0.5, 2)
+ok 105 - Rat * Int works (0.5, 2)
+ok 106 - Int * Rat works (0.5, 2)
+ok 107 - Rat / Int works (0.5, 2)
+ok 108 - Int / Rat works (0.5, 2)
+ok 109 - Rat + Int works (0.5, 5)
+ok 110 - Int + Rat works (0.5, 5)
+ok 111 - Rat - Int works (0.5, 5)
+ok 112 - Int - Rat works (0.5, 5)
+ok 113 - Rat * Int works (0.5, 5)
+ok 114 - Int * Rat works (0.5, 5)
+ok 115 - Rat / Int works (0.5, 5)
+ok 116 - Int / Rat works (0.5, 5)
+ok 117 - Rat + Int works (0.5, 7)
+ok 118 - Int + Rat works (0.5, 7)
+ok 119 - Rat - Int works (0.5, 7)
+ok 120 - Int - Rat works (0.5, 7)
+ok 121 - Rat * Int works (0.5, 7)
+ok 122 - Int * Rat works (0.5, 7)
+ok 123 - Rat / Int works (0.5, 7)
+ok 124 - Int / Rat works (0.5, 7)
+ok 125 - Rat + Int works (0.5, 42)
+ok 126 - Int + Rat works (0.5, 42)
+ok 127 - Rat - Int works (0.5, 42)
+ok 128 - Int - Rat works (0.5, 42)
+ok 129 - Rat * Int works (0.5, 42)
+ok 130 - Int * Rat works (0.5, 42)
+ok 131 - Rat / Int works (0.5, 42)
+ok 132 - Int / Rat works (0.5, 42)
+ok 133 - Rat + Rat works (0.5, 0.5)
+ok 134 - Rat + Rat works (0.5, 0.5)
+ok 135 - Rat - Rat works (0.5, 0.5)
+ok 136 - Rat - Rat works (0.5, 0.5)
+ok 137 - Rat * Rat works (0.5, 0.5)
+ok 138 - Rat * Rat works (0.5, 0.5)
+ok 139 - Rat / Rat works (0.5, 0.5)
+ok 140 - Rat / Rat works (0.5, 0.5)
+ok 141 - Rat + Rat works (0.5, 0.666667)
+ok 142 - Rat + Rat works (0.5, 0.666667)
+ok 143 - Rat - Rat works (0.5, 0.666667)
+ok 144 - Rat - Rat works (0.5, 0.666667)
+ok 145 - Rat * Rat works (0.5, 0.666667)
+ok 146 - Rat * Rat works (0.5, 0.666667)
+ok 147 - Rat / Rat works (0.5, 0.666667)
+ok 148 - Rat / Rat works (0.5, 0.666667)
+ok 149 - Rat + Rat works (0.5, -0.25)
+ok 150 - Rat + Rat works (0.5, -0.25)
+ok 151 - Rat - Rat works (0.5, -0.25)
+ok 152 - Rat - Rat works (0.5, -0.25)
+ok 153 - Rat * Rat works (0.5, -0.25)
+ok 154 - Rat * Rat works (0.5, -0.25)
+ok 155 - Rat / Rat works (0.5, -0.25)
+ok 156 - Rat / Rat works (0.5, -0.25)
+ok 157 - Rat + Rat works (0.5, 0.8)
+ok 158 - Rat + Rat works (0.5, 0.8)
+ok 159 - Rat - Rat works (0.5, 0.8)
+ok 160 - Rat - Rat works (0.5, 0.8)
+ok 161 - Rat * Rat works (0.5, 0.8)
+ok 162 - Rat * Rat works (0.5, 0.8)
+ok 163 - Rat / Rat works (0.5, 0.8)
+ok 164 - Rat / Rat works (0.5, 0.8)
+ok 165 - Rat + Rat works (0.5, 0.285714)
+ok 166 - Rat + Rat works (0.5, 0.285714)
+ok 167 - Rat - Rat works (0.5, 0.285714)
+ok 168 - Rat - Rat works (0.5, 0.285714)
+ok 169 - Rat * Rat works (0.5, 0.285714)
+ok 170 - Rat * Rat works (0.5, 0.285714)
+ok 171 - Rat / Rat works (0.5, 0.285714)
+ok 172 - Rat / Rat works (0.5, 0.285714)
+ok 173 - Rat + Rat works (0.5, 8.125)
+ok 174 - Rat + Rat works (0.5, 8.125)
+ok 175 - Rat - Rat works (0.5, 8.125)
+ok 176 - Rat - Rat works (0.5, 8.125)
+ok 177 - Rat * Rat works (0.5, 8.125)
+ok 178 - Rat * Rat works (0.5, 8.125)
+ok 179 - Rat / Rat works (0.5, 8.125)
+ok 180 - Rat / Rat works (0.5, 8.125)
+ok 181 - prefix<-> generates a Rat on 0.5
+ok 182 - prefix<-> generates the correct number for 0.5
+ok 183 - Rat + Int works (0.666667, -7)
+ok 184 - Int + Rat works (0.666667, -7)
+ok 185 - Rat - Int works (0.666667, -7)
+ok 186 - Int - Rat works (0.666667, -7)
+ok 187 - Rat * Int works (0.666667, -7)
+ok 188 - Int * Rat works (0.666667, -7)
+ok 189 - Rat / Int works (0.666667, -7)
+ok 190 - Int / Rat works (0.666667, -7)
+ok 191 - Rat + Int works (0.666667, -1)
+ok 192 - Int + Rat works (0.666667, -1)
+ok 193 - Rat - Int works (0.666667, -1)
+ok 194 - Int - Rat works (0.666667, -1)
+ok 195 - Rat * Int works (0.666667, -1)
+ok 196 - Int * Rat works (0.666667, -1)
+ok 197 - Rat / Int works (0.666667, -1)
+ok 198 - Int / Rat works (0.666667, -1)
+ok 199 - Rat + Int works (0.666667, 0)
+ok 200 - Int + Rat works (0.666667, 0)
+ok 201 - Rat - Int works (0.666667, 0)
+ok 202 - Int - Rat works (0.666667, 0)
+ok 203 - Rat * Int works (0.666667, 0)
+ok 204 - Int * Rat works (0.666667, 0)
+ok 205 - Int / Rat works (0.666667, 0)
+ok 206 - Rat + Int works (0.666667, 1)
+ok 207 - Int + Rat works (0.666667, 1)
+ok 208 - Rat - Int works (0.666667, 1)
+ok 209 - Int - Rat works (0.666667, 1)
+ok 210 - Rat * Int works (0.666667, 1)
+ok 211 - Int * Rat works (0.666667, 1)
+ok 212 - Rat / Int works (0.666667, 1)
+ok 213 - Int / Rat works (0.666667, 1)
+ok 214 - Rat + Int works (0.666667, 2)
+ok 215 - Int + Rat works (0.666667, 2)
+ok 216 - Rat - Int works (0.666667, 2)
+ok 217 - Int - Rat works (0.666667, 2)
+ok 218 - Rat * Int works (0.666667, 2)
+ok 219 - Int * Rat works (0.666667, 2)
+ok 220 - Rat / Int works (0.666667, 2)
+ok 221 - Int / Rat works (0.666667, 2)
+ok 222 - Rat + Int works (0.666667, 5)
+ok 223 - Int + Rat works (0.666667, 5)
+ok 224 - Rat - Int works (0.666667, 5)
+ok 225 - Int - Rat works (0.666667, 5)
+ok 226 - Rat * Int works (0.666667, 5)
+ok 227 - Int * Rat works (0.666667, 5)
+ok 228 - Rat / Int works (0.666667, 5)
+ok 229 - Int / Rat works (0.666667, 5)
+ok 230 - Rat + Int works (0.666667, 7)
+ok 231 - Int + Rat works (0.666667, 7)
+ok 232 - Rat - Int works (0.666667, 7)
+ok 233 - Int - Rat works (0.666667, 7)
+ok 234 - Rat * Int works (0.666667, 7)
+ok 235 - Int * Rat works (0.666667, 7)
+ok 236 - Rat / Int works (0.666667, 7)
+ok 237 - Int / Rat works (0.666667, 7)
+ok 238 - Rat + Int works (0.666667, 42)
+ok 239 - Int + Rat works (0.666667, 42)
+ok 240 - Rat - Int works (0.666667, 42)
+ok 241 - Int - Rat works (0.666667, 42)
+ok 242 - Rat * Int works (0.666667, 42)
+ok 243 - Int * Rat works (0.666667, 42)
+ok 244 - Rat / Int works (0.666667, 42)
+ok 245 - Int / Rat works (0.666667, 42)
+ok 246 - Rat + Rat works (0.666667, 0.5)
+ok 247 - Rat + Rat works (0.666667, 0.5)
+ok 248 - Rat - Rat works (0.666667, 0.5)
+ok 249 - Rat - Rat works (0.666667, 0.5)
+ok 250 - Rat * Rat works (0.666667, 0.5)
+ok 251 - Rat * Rat works (0.666667, 0.5)
+ok 252 - Rat / Rat works (0.666667, 0.5)
+ok 253 - Rat / Rat works (0.666667, 0.5)
+ok 254 - Rat + Rat works (0.666667, 0.666667)
+ok 255 - Rat + Rat works (0.666667, 0.666667)
+ok 256 - Rat - Rat works (0.666667, 0.666667)
+ok 257 - Rat - Rat works (0.666667, 0.666667)
+ok 258 - Rat * Rat works (0.666667, 0.666667)
+ok 259 - Rat * Rat works (0.666667, 0.666667)
+ok 260 - Rat / Rat works (0.666667, 0.666667)
+ok 261 - Rat / Rat works (0.666667, 0.666667)
+ok 262 - Rat + Rat works (0.666667, -0.25)
+ok 263 - Rat + Rat works (0.666667, -0.25)
+ok 264 - Rat - Rat works (0.666667, -0.25)
+ok 265 - Rat - Rat works (0.666667, -0.25)
+ok 266 - Rat * Rat works (0.666667, -0.25)
+ok 267 - Rat * Rat works (0.666667, -0.25)
+ok 268 - Rat / Rat works (0.666667, -0.25)
+ok 269 - Rat / Rat works (0.666667, -0.25)
+ok 270 - Rat + Rat works (0.666667, 0.8)
+ok 271 - Rat + Rat works (0.666667, 0.8)
+ok 272 - Rat - Rat works (0.666667, 0.8)
+ok 273 - Rat - Rat works (0.666667, 0.8)
+ok 274 - Rat * Rat works (0.666667, 0.8)
+ok 275 - Rat * Rat works (0.666667, 0.8)
+ok 276 - Rat / Rat works (0.666667, 0.8)
+ok 277 - Rat / Rat works (0.666667, 0.8)
+ok 278 - Rat + Rat works (0.666667, 0.285714)
+ok 279 - Rat + Rat works (0.666667, 0.285714)
+ok 280 - Rat - Rat works (0.666667, 0.285714)
+ok 281 - Rat - Rat works (0.666667, 0.285714)
+ok 282 - Rat * Rat works (0.666667, 0.285714)
+ok 283 - Rat * Rat works (0.666667, 0.285714)
+ok 284 - Rat / Rat works (0.666667, 0.285714)
+ok 285 - Rat / Rat works (0.666667, 0.285714)
+ok 286 - Rat + Rat works (0.666667, 8.125)
+ok 287 - Rat + Rat works (0.666667, 8.125)
+ok 288 - Rat - Rat works (0.666667, 8.125)
+ok 289 - Rat - Rat works (0.666667, 8.125)
+ok 290 - Rat * Rat works (0.666667, 8.125)
+ok 291 - Rat * Rat works (0.666667, 8.125)
+ok 292 - Rat / Rat works (0.666667, 8.125)
+ok 293 - Rat / Rat works (0.666667, 8.125)
+ok 294 - prefix<-> generates a Rat on 0.666667
+ok 295 - prefix<-> generates the correct number for 0.666667
+ok 296 - Rat + Int works (-0.25, -7)
+ok 297 - Int + Rat works (-0.25, -7)
+ok 298 - Rat - Int works (-0.25, -7)
+ok 299 - Int - Rat works (-0.25, -7)
+ok 300 - Rat * Int works (-0.25, -7)
+ok 301 - Int * Rat works (-0.25, -7)
+ok 302 - Rat / Int works (-0.25, -7)
+ok 303 - Int / Rat works (-0.25, -7)
+ok 304 - Rat + Int works (-0.25, -1)
+ok 305 - Int + Rat works (-0.25, -1)
+ok 306 - Rat - Int works (-0.25, -1)
+ok 307 - Int - Rat works (-0.25, -1)
+ok 308 - Rat * Int works (-0.25, -1)
+ok 309 - Int * Rat works (-0.25, -1)
+ok 310 - Rat / Int works (-0.25, -1)
+ok 311 - Int / Rat works (-0.25, -1)
+ok 312 - Rat + Int works (-0.25, 0)
+ok 313 - Int + Rat works (-0.25, 0)
+ok 314 - Rat - Int works (-0.25, 0)
+ok 315 - Int - Rat works (-0.25, 0)
+ok 316 - Rat * Int works (-0.25, 0)
+ok 317 - Int * Rat works (-0.25, 0)
+ok 318 - Int / Rat works (-0.25, 0)
+ok 319 - Rat + Int works (-0.25, 1)
+ok 320 - Int + Rat works (-0.25, 1)
+ok 321 - Rat - Int works (-0.25, 1)
+ok 322 - Int - Rat works (-0.25, 1)
+ok 323 - Rat * Int works (-0.25, 1)
+ok 324 - Int * Rat works (-0.25, 1)
+ok 325 - Rat / Int works (-0.25, 1)
+ok 326 - Int / Rat works (-0.25, 1)
+ok 327 - Rat + Int works (-0.25, 2)
+ok 328 - Int + Rat works (-0.25, 2)
+ok 329 - Rat - Int works (-0.25, 2)
+ok 330 - Int - Rat works (-0.25, 2)
+ok 331 - Rat * Int works (-0.25, 2)
+ok 332 - Int * Rat works (-0.25, 2)
+ok 333 - Rat / Int works (-0.25, 2)
+ok 334 - Int / Rat works (-0.25, 2)
+ok 335 - Rat + Int works (-0.25, 5)
+ok 336 - Int + Rat works (-0.25, 5)
+ok 337 - Rat - Int works (-0.25, 5)
+ok 338 - Int - Rat works (-0.25, 5)
+ok 339 - Rat * Int works (-0.25, 5)
+ok 340 - Int * Rat works (-0.25, 5)
+ok 341 - Rat / Int works (-0.25, 5)
+ok 342 - Int / Rat works (-0.25, 5)
+ok 343 - Rat + Int works (-0.25, 7)
+ok 344 - Int + Rat works (-0.25, 7)
+ok 345 - Rat - Int works (-0.25, 7)
+ok 346 - Int - Rat works (-0.25, 7)
+ok 347 - Rat * Int works (-0.25, 7)
+ok 348 - Int * Rat works (-0.25, 7)
+ok 349 - Rat / Int works (-0.25, 7)
+ok 350 - Int / Rat works (-0.25, 7)
+ok 351 - Rat + Int works (-0.25, 42)
+ok 352 - Int + Rat works (-0.25, 42)
+ok 353 - Rat - Int works (-0.25, 42)
+ok 354 - Int - Rat works (-0.25, 42)
+ok 355 - Rat * Int works (-0.25, 42)
+ok 356 - Int * Rat works (-0.25, 42)
+ok 357 - Rat / Int works (-0.25, 42)
+ok 358 - Int / Rat works (-0.25, 42)
+ok 359 - Rat + Rat works (-0.25, 0.5)
+ok 360 - Rat + Rat works (-0.25, 0.5)
+ok 361 - Rat - Rat works (-0.25, 0.5)
+ok 362 - Rat - Rat works (-0.25, 0.5)
+ok 363 - Rat * Rat works (-0.25, 0.5)
+ok 364 - Rat * Rat works (-0.25, 0.5)
+ok 365 - Rat / Rat works (-0.25, 0.5)
+ok 366 - Rat / Rat works (-0.25, 0.5)
+ok 367 - Rat + Rat works (-0.25, 0.666667)
+ok 368 - Rat + Rat works (-0.25, 0.666667)
+ok 369 - Rat - Rat works (-0.25, 0.666667)
+ok 370 - Rat - Rat works (-0.25, 0.666667)
+ok 371 - Rat * Rat works (-0.25, 0.666667)
+ok 372 - Rat * Rat works (-0.25, 0.666667)
+ok 373 - Rat / Rat works (-0.25, 0.666667)
+ok 374 - Rat / Rat works (-0.25, 0.666667)
+ok 375 - Rat + Rat works (-0.25, -0.25)
+ok 376 - Rat + Rat works (-0.25, -0.25)
+ok 377 - Rat - Rat works (-0.25, -0.25)
+ok 378 - Rat - Rat works (-0.25, -0.25)
+ok 379 - Rat * Rat works (-0.25, -0.25)
+ok 380 - Rat * Rat works (-0.25, -0.25)
+ok 381 - Rat / Rat works (-0.25, -0.25)
+ok 382 - Rat / Rat works (-0.25, -0.25)
+ok 383 - Rat + Rat works (-0.25, 0.8)
+ok 384 - Rat + Rat works (-0.25, 0.8)
+ok 385 - Rat - Rat works (-0.25, 0.8)
+ok 386 - Rat - Rat works (-0.25, 0.8)
+ok 387 - Rat * Rat works (-0.25, 0.8)
+ok 388 - Rat * Rat works (-0.25, 0.8)
+ok 389 - Rat / Rat works (-0.25, 0.8)
+ok 390 - Rat / Rat works (-0.25, 0.8)
+ok 391 - Rat + Rat works (-0.25, 0.285714)
+ok 392 - Rat + Rat works (-0.25, 0.285714)
+ok 393 - Rat - Rat works (-0.25, 0.285714)
+ok 394 - Rat - Rat works (-0.25, 0.285714)
+ok 395 - Rat * Rat works (-0.25, 0.285714)
+ok 396 - Rat * Rat works (-0.25, 0.285714)
+ok 397 - Rat / Rat works (-0.25, 0.285714)
+ok 398 - Rat / Rat works (-0.25, 0.285714)
+ok 399 - Rat + Rat works (-0.25, 8.125)
+ok 400 - Rat + Rat works (-0.25, 8.125)
+ok 401 - Rat - Rat works (-0.25, 8.125)
+ok 402 - Rat - Rat works (-0.25, 8.125)
+ok 403 - Rat * Rat works (-0.25, 8.125)
+ok 404 - Rat * Rat works (-0.25, 8.125)
+ok 405 - Rat / Rat works (-0.25, 8.125)
+ok 406 - Rat / Rat works (-0.25, 8.125)
+ok 407 - prefix<-> generates a Rat on -0.25
+ok 408 - prefix<-> generates the correct number for -0.25
+ok 409 - Rat + Int works (0.8, -7)
+ok 410 - Int + Rat works (0.8, -7)
+ok 411 - Rat - Int works (0.8, -7)
+ok 412 - Int - Rat works (0.8, -7)
+ok 413 - Rat * Int works (0.8, -7)
+ok 414 - Int * Rat works (0.8, -7)
+ok 415 - Rat / Int works (0.8, -7)
+ok 416 - Int / Rat works (0.8, -7)
+ok 417 - Rat + Int works (0.8, -1)
+ok 418 - Int + Rat works (0.8, -1)
+ok 419 - Rat - Int works (0.8, -1)
+ok 420 - Int - Rat works (0.8, -1)
+ok 421 - Rat * Int works (0.8, -1)
+ok 422 - Int * Rat works (0.8, -1)
+ok 423 - Rat / Int works (0.8, -1)
+ok 424 - Int / Rat works (0.8, -1)
+ok 425 - Rat + Int works (0.8, 0)
+ok 426 - Int + Rat works (0.8, 0)
+ok 427 - Rat - Int works (0.8, 0)
+ok 428 - Int - Rat works (0.8, 0)
+ok 429 - Rat * Int works (0.8, 0)
+ok 430 - Int * Rat works (0.8, 0)
+ok 431 - Int / Rat works (0.8, 0)
+ok 432 - Rat + Int works (0.8, 1)
+ok 433 - Int + Rat works (0.8, 1)
+ok 434 - Rat - Int works (0.8, 1)
+ok 435 - Int - Rat works (0.8, 1)
+ok 436 - Rat * Int works (0.8, 1)
+ok 437 - Int * Rat works (0.8, 1)
+ok 438 - Rat / Int works (0.8, 1)
+ok 439 - Int / Rat works (0.8, 1)
+ok 440 - Rat + Int works (0.8, 2)
+ok 441 - Int + Rat works (0.8, 2)
+ok 442 - Rat - Int works (0.8, 2)
+ok 443 - Int - Rat works (0.8, 2)
+ok 444 - Rat * Int works (0.8, 2)
+ok 445 - Int * Rat works (0.8, 2)
+ok 446 - Rat / Int works (0.8, 2)
+ok 447 - Int / Rat works (0.8, 2)
+ok 448 - Rat + Int works (0.8, 5)
+ok 449 - Int + Rat works (0.8, 5)
+ok 450 - Rat - Int works (0.8, 5)
+ok 451 - Int - Rat works (0.8, 5)
+ok 452 - Rat * Int works (0.8, 5)
+ok 453 - Int * Rat works (0.8, 5)
+ok 454 - Rat / Int works (0.8, 5)
+ok 455 - Int / Rat works (0.8, 5)
+ok 456 - Rat + Int works (0.8, 7)
+ok 457 - Int + Rat works (0.8, 7)
+ok 458 - Rat - Int works (0.8, 7)
+ok 459 - Int - Rat works (0.8, 7)
+ok 460 - Rat * Int works (0.8, 7)
+ok 461 - Int * Rat works (0.8, 7)
+ok 462 - Rat / Int works (0.8, 7)
+ok 463 - Int / Rat works (0.8, 7)
+ok 464 - Rat + Int works (0.8, 42)
+ok 465 - Int + Rat works (0.8, 42)
+ok 466 - Rat - Int works (0.8, 42)
+ok 467 - Int - Rat works (0.8, 42)
+ok 468 - Rat * Int works (0.8, 42)
+ok 469 - Int * Rat works (0.8, 42)
+ok 470 - Rat / Int works (0.8, 42)
+ok 471 - Int / Rat works (0.8, 42)
+ok 472 - Rat + Rat works (0.8, 0.5)
+ok 473 - Rat + Rat works (0.8, 0.5)
+ok 474 - Rat - Rat works (0.8, 0.5)
+ok 475 - Rat - Rat works (0.8, 0.5)
+ok 476 - Rat * Rat works (0.8, 0.5)
+ok 477 - Rat * Rat works (0.8, 0.5)
+ok 478 - Rat / Rat works (0.8, 0.5)
+ok 479 - Rat / Rat works (0.8, 0.5)
+ok 480 - Rat + Rat works (0.8, 0.666667)
+ok 481 - Rat + Rat works (0.8, 0.666667)
+ok 482 - Rat - Rat works (0.8, 0.666667)
+ok 483 - Rat - Rat works (0.8, 0.666667)
+ok 484 - Rat * Rat works (0.8, 0.666667)
+ok 485 - Rat * Rat works (0.8, 0.666667)
+ok 486 - Rat / Rat works (0.8, 0.666667)
+ok 487 - Rat / Rat works (0.8, 0.666667)
+ok 488 - Rat + Rat works (0.8, -0.25)
+ok 489 - Rat + Rat works (0.8, -0.25)
+ok 490 - Rat - Rat works (0.8, -0.25)
+ok 491 - Rat - Rat works (0.8, -0.25)
+ok 492 - Rat * Rat works (0.8, -0.25)
+ok 493 - Rat * Rat works (0.8, -0.25)
+ok 494 - Rat / Rat works (0.8, -0.25)
+ok 495 - Rat / Rat works (0.8, -0.25)
+ok 496 - Rat + Rat works (0.8, 0.8)
+ok 497 - Rat + Rat works (0.8, 0.8)
+ok 498 - Rat - Rat works (0.8, 0.8)
+ok 499 - Rat - Rat works (0.8, 0.8)
+ok 500 - Rat * Rat works (0.8, 0.8)
+ok 501 - Rat * Rat works (0.8, 0.8)
+ok 502 - Rat / Rat works (0.8, 0.8)
+ok 503 - Rat / Rat works (0.8, 0.8)
+ok 504 - Rat + Rat works (0.8, 0.285714)
+ok 505 - Rat + Rat works (0.8, 0.285714)
+ok 506 - Rat - Rat works (0.8, 0.285714)
+ok 507 - Rat - Rat works (0.8, 0.285714)
+ok 508 - Rat * Rat works (0.8, 0.285714)
+ok 509 - Rat * Rat works (0.8, 0.285714)
+ok 510 - Rat / Rat works (0.8, 0.285714)
+ok 511 - Rat / Rat works (0.8, 0.285714)
+ok 512 - Rat + Rat works (0.8, 8.125)
+ok 513 - Rat + Rat works (0.8, 8.125)
+ok 514 - Rat - Rat works (0.8, 8.125)
+ok 515 - Rat - Rat works (0.8, 8.125)
+ok 516 - Rat * Rat works (0.8, 8.125)
+ok 517 - Rat * Rat works (0.8, 8.125)
+ok 518 - Rat / Rat works (0.8, 8.125)
+ok 519 - Rat / Rat works (0.8, 8.125)
+ok 520 - prefix<-> generates a Rat on 0.8
+ok 521 - prefix<-> generates the correct number for 0.8
+ok 522 - Rat + Int works (0.285714, -7)
+ok 523 - Int + Rat works (0.285714, -7)
+ok 524 - Rat - Int works (0.285714, -7)
+ok 525 - Int - Rat works (0.285714, -7)
+ok 526 - Rat * Int works (0.285714, -7)
+ok 527 - Int * Rat works (0.285714, -7)
+ok 528 - Rat / Int works (0.285714, -7)
+ok 529 - Int / Rat works (0.285714, -7)
+ok 530 - Rat + Int works (0.285714, -1)
+ok 531 - Int + Rat works (0.285714, -1)
+ok 532 - Rat - Int works (0.285714, -1)
+ok 533 - Int - Rat works (0.285714, -1)
+ok 534 - Rat * Int works (0.285714, -1)
+ok 535 - Int * Rat works (0.285714, -1)
+ok 536 - Rat / Int works (0.285714, -1)
+ok 537 - Int / Rat works (0.285714, -1)
+ok 538 - Rat + Int works (0.285714, 0)
+ok 539 - Int + Rat works (0.285714, 0)
+ok 540 - Rat - Int works (0.285714, 0)
+ok 541 - Int - Rat works (0.285714, 0)
+ok 542 - Rat * Int works (0.285714, 0)
+ok 543 - Int * Rat works (0.285714, 0)
+ok 544 - Int / Rat works (0.285714, 0)
+ok 545 - Rat + Int works (0.285714, 1)
+ok 546 - Int + Rat works (0.285714, 1)
+ok 547 - Rat - Int works (0.285714, 1)
+ok 548 - Int - Rat works (0.285714, 1)
+ok 549 - Rat * Int works (0.285714, 1)
+ok 550 - Int * Rat works (0.285714, 1)
+ok 551 - Rat / Int works (0.285714, 1)
+ok 552 - Int / Rat works (0.285714, 1)
+ok 553 - Rat + Int works (0.285714, 2)
+ok 554 - Int + Rat works (0.285714, 2)
+ok 555 - Rat - Int works (0.285714, 2)
+ok 556 - Int - Rat works (0.285714, 2)
+ok 557 - Rat * Int works (0.285714, 2)
+ok 558 - Int * Rat works (0.285714, 2)
+ok 559 - Rat / Int works (0.285714, 2)
+ok 560 - Int / Rat works (0.285714, 2)
+ok 561 - Rat + Int works (0.285714, 5)
+ok 562 - Int + Rat works (0.285714, 5)
+ok 563 - Rat - Int works (0.285714, 5)
+ok 564 - Int - Rat works (0.285714, 5)
+ok 565 - Rat * Int works (0.285714, 5)
+ok 566 - Int * Rat works (0.285714, 5)
+ok 567 - Rat / Int works (0.285714, 5)
+ok 568 - Int / Rat works (0.285714, 5)
+ok 569 - Rat + Int works (0.285714, 7)
+ok 570 - Int + Rat works (0.285714, 7)
+ok 571 - Rat - Int works (0.285714, 7)
+ok 572 - Int - Rat works (0.285714, 7)
+ok 573 - Rat * Int works (0.285714, 7)
+ok 574 - Int * Rat works (0.285714, 7)
+ok 575 - Rat / Int works (0.285714, 7)
+ok 576 - Int / Rat works (0.285714, 7)
+ok 577 - Rat + Int works (0.285714, 42)
+ok 578 - Int + Rat works (0.285714, 42)
+ok 579 - Rat - Int works (0.285714, 42)
+ok 580 - Int - Rat works (0.285714, 42)
+ok 581 - Rat * Int works (0.285714, 42)
+ok 582 - Int * Rat works (0.285714, 42)
+ok 583 - Rat / Int works (0.285714, 42)
+ok 584 - Int / Rat works (0.285714, 42)
+ok 585 - Rat + Rat works (0.285714, 0.5)
+ok 586 - Rat + Rat works (0.285714, 0.5)
+ok 587 - Rat - Rat works (0.285714, 0.5)
+ok 588 - Rat - Rat works (0.285714, 0.5)
+ok 589 - Rat * Rat works (0.285714, 0.5)
+ok 590 - Rat * Rat works (0.285714, 0.5)
+ok 591 - Rat / Rat works (0.285714, 0.5)
+ok 592 - Rat / Rat works (0.285714, 0.5)
+ok 593 - Rat + Rat works (0.285714, 0.666667)
+ok 594 - Rat + Rat works (0.285714, 0.666667)
+ok 595 - Rat - Rat works (0.285714, 0.666667)
+ok 596 - Rat - Rat works (0.285714, 0.666667)
+ok 597 - Rat * Rat works (0.285714, 0.666667)
+ok 598 - Rat * Rat works (0.285714, 0.666667)
+ok 599 - Rat / Rat works (0.285714, 0.666667)
+ok 600 - Rat / Rat works (0.285714, 0.666667)
+ok 601 - Rat + Rat works (0.285714, -0.25)
+ok 602 - Rat + Rat works (0.285714, -0.25)
+ok 603 - Rat - Rat works (0.285714, -0.25)
+ok 604 - Rat - Rat works (0.285714, -0.25)
+ok 605 - Rat * Rat works (0.285714, -0.25)
+ok 606 - Rat * Rat works (0.285714, -0.25)
+ok 607 - Rat / Rat works (0.285714, -0.25)
+ok 608 - Rat / Rat works (0.285714, -0.25)
+ok 609 - Rat + Rat works (0.285714, 0.8)
+ok 610 - Rat + Rat works (0.285714, 0.8)
+ok 611 - Rat - Rat works (0.285714, 0.8)
+ok 612 - Rat - Rat works (0.285714, 0.8)
+ok 613 - Rat * Rat works (0.285714, 0.8)
+ok 614 - Rat * Rat works (0.285714, 0.8)
+ok 615 - Rat / Rat works (0.285714, 0.8)
+ok 616 - Rat / Rat works (0.285714, 0.8)
+ok 617 - Rat + Rat works (0.285714, 0.285714)
+ok 618 - Rat + Rat works (0.285714, 0.285714)
+ok 619 - Rat - Rat works (0.285714, 0.285714)
+ok 620 - Rat - Rat works (0.285714, 0.285714)
+ok 621 - Rat * Rat works (0.285714, 0.285714)
+ok 622 - Rat * Rat works (0.285714, 0.285714)
+ok 623 - Rat / Rat works (0.285714, 0.285714)
+ok 624 - Rat / Rat works (0.285714, 0.285714)
+ok 625 - Rat + Rat works (0.285714, 8.125)
+ok 626 - Rat + Rat works (0.285714, 8.125)
+ok 627 - Rat - Rat works (0.285714, 8.125)
+ok 628 - Rat - Rat works (0.285714, 8.125)
+ok 629 - Rat * Rat works (0.285714, 8.125)
+ok 630 - Rat * Rat works (0.285714, 8.125)
+ok 631 - Rat / Rat works (0.285714, 8.125)
+ok 632 - Rat / Rat works (0.285714, 8.125)
+ok 633 - prefix<-> generates a Rat on 0.285714
+ok 634 - prefix<-> generates the correct number for 0.285714
+ok 635 - Rat + Int works (8.125, -7)
+ok 636 - Int + Rat works (8.125, -7)
+ok 637 - Rat - Int works (8.125, -7)
+ok 638 - Int - Rat works (8.125, -7)
+ok 639 - Rat * Int works (8.125, -7)
+ok 640 - Int * Rat works (8.125, -7)
+ok 641 - Rat / Int works (8.125, -7)
+ok 642 - Int / Rat works (8.125, -7)
+ok 643 - Rat + Int works (8.125, -1)
+ok 644 - Int + Rat works (8.125, -1)
+ok 645 - Rat - Int works (8.125, -1)
+ok 646 - Int - Rat works (8.125, -1)
+ok 647 - Rat * Int works (8.125, -1)
+ok 648 - Int * Rat works (8.125, -1)
+ok 649 - Rat / Int works (8.125, -1)
+ok 650 - Int / Rat works (8.125, -1)
+ok 651 - Rat + Int works (8.125, 0)
+ok 652 - Int + Rat works (8.125, 0)
+ok 653 - Rat - Int works (8.125, 0)
+ok 654 - Int - Rat works (8.125, 0)
+ok 655 - Rat * Int works (8.125, 0)
+ok 656 - Int * Rat works (8.125, 0)
+ok 657 - Int / Rat works (8.125, 0)
+ok 658 - Rat + Int works (8.125, 1)
+ok 659 - Int + Rat works (8.125, 1)
+ok 660 - Rat - Int works (8.125, 1)
+ok 661 - Int - Rat works (8.125, 1)
+ok 662 - Rat * Int works (8.125, 1)
+ok 663 - Int * Rat works (8.125, 1)
+ok 664 - Rat / Int works (8.125, 1)
+ok 665 - Int / Rat works (8.125, 1)
+ok 666 - Rat + Int works (8.125, 2)
+ok 667 - Int + Rat works (8.125, 2)
+ok 668 - Rat - Int works (8.125, 2)
+ok 669 - Int - Rat works (8.125, 2)
+ok 670 - Rat * Int works (8.125, 2)
+ok 671 - Int * Rat works (8.125, 2)
+ok 672 - Rat / Int works (8.125, 2)
+ok 673 - Int / Rat works (8.125, 2)
+ok 674 - Rat + Int works (8.125, 5)
+ok 675 - Int + Rat works (8.125, 5)
+ok 676 - Rat - Int works (8.125, 5)
+ok 677 - Int - Rat works (8.125, 5)
+ok 678 - Rat * Int works (8.125, 5)
+ok 679 - Int * Rat works (8.125, 5)
+ok 680 - Rat / Int works (8.125, 5)
+ok 681 - Int / Rat works (8.125, 5)
+ok 682 - Rat + Int works (8.125, 7)
+ok 683 - Int + Rat works (8.125, 7)
+ok 684 - Rat - Int works (8.125, 7)
+ok 685 - Int - Rat works (8.125, 7)
+ok 686 - Rat * Int works (8.125, 7)
+ok 687 - Int * Rat works (8.125, 7)
+ok 688 - Rat / Int works (8.125, 7)
+ok 689 - Int / Rat works (8.125, 7)
+ok 690 - Rat + Int works (8.125, 42)
+ok 691 - Int + Rat works (8.125, 42)
+ok 692 - Rat - Int works (8.125, 42)
+ok 693 - Int - Rat works (8.125, 42)
+ok 694 - Rat * Int works (8.125, 42)
+ok 695 - Int * Rat works (8.125, 42)
+ok 696 - Rat / Int works (8.125, 42)
+ok 697 - Int / Rat works (8.125, 42)
+ok 698 - Rat + Rat works (8.125, 0.5)
+ok 699 - Rat + Rat works (8.125, 0.5)
+ok 700 - Rat - Rat works (8.125, 0.5)
+ok 701 - Rat - Rat works (8.125, 0.5)
+ok 702 - Rat * Rat works (8.125, 0.5)
+ok 703 - Rat * Rat works (8.125, 0.5)
+ok 704 - Rat / Rat works (8.125, 0.5)
+ok 705 - Rat / Rat works (8.125, 0.5)
+ok 706 - Rat + Rat works (8.125, 0.666667)
+ok 707 - Rat + Rat works (8.125, 0.666667)
+ok 708 - Rat - Rat works (8.125, 0.666667)
+ok 709 - Rat - Rat works (8.125, 0.666667)
+ok 710 - Rat * Rat works (8.125, 0.666667)
+ok 711 - Rat * Rat works (8.125, 0.666667)
+ok 712 - Rat / Rat works (8.125, 0.666667)
+ok 713 - Rat / Rat works (8.125, 0.666667)
+ok 714 - Rat + Rat works (8.125, -0.25)
+ok 715 - Rat + Rat works (8.125, -0.25)
+ok 716 - Rat - Rat works (8.125, -0.25)
+ok 717 - Rat - Rat works (8.125, -0.25)
+ok 718 - Rat * Rat works (8.125, -0.25)
+ok 719 - Rat * Rat works (8.125, -0.25)
+ok 720 - Rat / Rat works (8.125, -0.25)
+ok 721 - Rat / Rat works (8.125, -0.25)
+ok 722 - Rat + Rat works (8.125, 0.8)
+ok 723 - Rat + Rat works (8.125, 0.8)
+ok 724 - Rat - Rat works (8.125, 0.8)
+ok 725 - Rat - Rat works (8.125, 0.8)
+ok 726 - Rat * Rat works (8.125, 0.8)
+ok 727 - Rat * Rat works (8.125, 0.8)
+ok 728 - Rat / Rat works (8.125, 0.8)
+ok 729 - Rat / Rat works (8.125, 0.8)
+ok 730 - Rat + Rat works (8.125, 0.285714)
+ok 731 - Rat + Rat works (8.125, 0.285714)
+ok 732 - Rat - Rat works (8.125, 0.285714)
+ok 733 - Rat - Rat works (8.125, 0.285714)
+ok 734 - Rat * Rat works (8.125, 0.285714)
+ok 735 - Rat * Rat works (8.125, 0.285714)
+ok 736 - Rat / Rat works (8.125, 0.285714)
+ok 737 - Rat / Rat works (8.125, 0.285714)
+ok 738 - Rat + Rat works (8.125, 8.125)
+ok 739 - Rat + Rat works (8.125, 8.125)
+ok 740 - Rat - Rat works (8.125, 8.125)
+ok 741 - Rat - Rat works (8.125, 8.125)
+ok 742 - Rat * Rat works (8.125, 8.125)
+ok 743 - Rat * Rat works (8.125, 8.125)
+ok 744 - Rat / Rat works (8.125, 8.125)
+ok 745 - Rat / Rat works (8.125, 8.125)
+ok 746 - prefix<-> generates a Rat on 8.125
+ok 747 - prefix<-> generates the correct number for 8.125
+ok 748 - sin(Rat) works
+# Subtest: ±Inf/NaN ⇿ Rat
+    1..38
+    ok 1 - NaN.Rat.Num roundtrips
+    ok 2 - Inf.Rat.Num roundtrips
+    ok 3 - (-Inf.Rat.Num roundtrips
+    ok 4 - NaN.Rat is a NaN
+    ok 5 - Inf.Rat ==  Inf
+    ok 6 - (-Inf).Rat == -Inf
+    # Subtest: Num ⇾ (zero-denominator Rationals) normalizes numerator
+        1..6
+        ok 1 - NaN.Rat
+        ok 2 - Inf.Rat
+        ok 3 - (-Inf).Rat
+        ok 4 - NaN.Rat
+        ok 5 - Inf.Rat
+        ok 6 - (-Inf).Rat
+    ok 7 - Num ⇾ (zero-denominator Rationals) normalizes numerator
+    # Subtest: NaN.Rat.Str throws division-by-zero
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 8 - NaN.Rat.Str throws division-by-zero
+    # Subtest: Inf.Rat.Str throws division-by-zero
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 9 - Inf.Rat.Str throws division-by-zero
+    # Subtest: (-Inf).Rat.Str throws division-by-zero
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 10 - (-Inf).Rat.Str throws division-by-zero
+    ok 11 - NaN.Rat.raku.EVAL roundtrips
+    ok 12 - Inf.Rat.raku.EVAL roundtrips
+    ok 13 - (-Inf).Rat.raku.EVAL roundtrips
+    ok 14 - NaN.Rat does not explode when used in Rational math
+    ok 15 - Inf.Rat does not explode when used in Rational math
+    ok 16 - (-Inf).Rat does not explode when used in Rational math
+    ok 17 - NaN.Rat smartmatches with Rat
+    ok 18 - Inf.Rat smartmatches with Rat
+    ok 19 - (-Inf).Rat smartmatches with Rat
+    ok 20 - NaN.FatRat.Num roundtrips
+    ok 21 - Inf.FatRat.Num roundtrips
+    ok 22 - (-Inf.FatRat.Num roundtrips
+    ok 23 - NaN.FatRat is a NaN
+    ok 24 - Inf.FatRat ==  Inf
+    ok 25 - (-Inf).FatRat == -Inf
+    # Subtest: Num ⇾ (zero-denominator Rationals) normalizes numerator
+        1..6
+        ok 1 - NaN.FatRat
+        ok 2 - Inf.FatRat
+        ok 3 - (-Inf).FatRat
+        ok 4 - NaN.FatRat
+        ok 5 - Inf.FatRat
+        ok 6 - (-Inf).FatRat
+    ok 26 - Num ⇾ (zero-denominator Rationals) normalizes numerator
+    # Subtest: NaN.FatRat.Str throws division-by-zero
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 27 - NaN.FatRat.Str throws division-by-zero
+    # Subtest: Inf.FatRat.Str throws division-by-zero
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 28 - Inf.FatRat.Str throws division-by-zero
+    # Subtest: (-Inf).FatRat.Str throws division-by-zero
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 29 - (-Inf).FatRat.Str throws division-by-zero
+    ok 30 - NaN.FatRat.raku.EVAL roundtrips
+    ok 31 - Inf.FatRat.raku.EVAL roundtrips
+    ok 32 - (-Inf).FatRat.raku.EVAL roundtrips
+    ok 33 - NaN.FatRat does not explode when used in Rational math
+    ok 34 - Inf.FatRat does not explode when used in Rational math
+    ok 35 - (-Inf).FatRat does not explode when used in Rational math
+    ok 36 - NaN.FatRat smartmatches with FatRat
+    ok 37 - Inf.FatRat smartmatches with FatRat
+    ok 38 - (-Inf).FatRat smartmatches with FatRat
+ok 749 - ±Inf/NaN ⇿ Rat
+# Subtest: Inf.Int / 1 throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 750 - Inf.Int / 1 throws
+ok 751 - 1/2 + 3.5 = 4.0
+ok 752 - 3.5 + 1/2 = 4.0
+ok 753 - 1/2 - 3.5 = -3.0
+ok 754 - 3.5 - 1/2 = 3.0
+ok 755 - 1/3 * 6.6 = 2.2
+ok 756 - 6.6 * 1/3 = 2.2
+ok 757 - 1/3 / 2.0 = 1/6
+ok 758 - 2.0 / 1/3 = 6.0
+ok 759 - 1/2 + 3.5 + 1i = 4.0 + 1i
+ok 760 - (3.5 + 1i) + 1/2 = 4.0 + 1i
+ok 761 - 1/2 - (3.5 + 1i) = -3.0 - 1i
+ok 762 - (3.5 + 1i) - 1/2 = 3.0 + 1i
+ok 763 - 1/3 * (6.6 + 1i) = 2.2 + (1/3)i
+ok 764 - (6.6 + 1i) * 1/3 = 2.2 + (1/3)i
+ok 765 - 1/3 / 2.0i = 1/(6i)
+ok 766 - 2.0i / 1/3 = 6.0i
+ok 767 - Num to Rat with default epsilon
+ok 768 - Num to Rat with epsilon 1e-4
+ok 769 - Num to Rat with epsilon of Rat
+ok 770 - Rat.Int
+ok 771 - Indexing an array with a Rat (RT  \#69738)
+ok 772 - 424/61731 + 832/61731 works
+ok 773 - 424/61731 - 832/61731 works
+ok 774 - 424/61731 + 833/123462 works
+ok 775 - 424/61731 - 833/123462 works
+ok 776 - 424/61731 + 832/61731 is a Rat
+ok 777 - 424/61731 - 832/61731 is a Rat
+ok 778 - 424/61731 + 833/123462 is a Rat
+ok 779 - 424/61731 - 833/123462 is a Rat
+ok 780 - 61731 + 832/61731 works
+ok 781 - 832/61731 + 61731 works
+ok 782 - 61731 - 832/61731 works
+ok 783 - 832/61731 - 61731 works
+ok 784 - 424/61731 + 832/61733 works
+ok 785 - 424/61731 - 832/61733 works
+ok 786 - 424/61731 * 832/61731 works
+ok 787 - 424/61731 / 61731/832 works
+ok 788 - 61731 * 61731/832 works
+ok 789 - 61731/832 * 61731 works
+ok 790 - 832/61731 / 61731 works
+ok 791 - 61731 / 832/61731 works
+ok 792 - 424/61731 * 61731/61733 works
+ok 793 - 424/61731 * 61731/61733 is a Rat
+ok 794 - 424/61731 / 61733/61731 works
+ok 795 - 424/61731 / 61733/61731 is a Rat
+ok 796 - Rat.Rat works
+ok 797 - ... and actually returns a Rat
+ok 798 - Rats are value types, so 1/2 === 1/2
+ok 799 - === with false outcome
+ok 800 - (3/0).Num = +Inf
+ok 801 - (-42/0).Num = -Inf
+ok 802 - Rat.new() is 0
+ok 803 - can do += on variable initialized by type object
+ok 804 - infix:<eqv> works with rats
+ok 805 - WHAT works on Rat created from 11 digit decimal fraction
+ok 806 - Any() + 0.1 is a Rat
+ok 807 - Rat raised to a positive Int power is a Rat
+ok 808 - Rat raised to a positive Int power gets correct answer
+ok 809 - Rat raised to a negative Int power is a Rat
+ok 810 - Rat raised to a negative Int power gets correct answer
+ok 811 - Int raised to a negative Int power is a Rat
+ok 812 - Int raised to a negative Int power gets correct answer
+ok 813 - can sum up 1/$_**2 in a loop
+ok 814 - and we had an overflow to Num
+ok 815 - multiplication overflows to Num
+ok 816 - ... right result
+ok 817 - exponentation overflows to Num
+ok 818 - ... right result
+ok 819 - ... right result
+ok 820 - addition overflows to Num
+ok 821 - ... right result
+ok 822 - subtraction overflows to Num
+ok 823 - ... right result
+ok 824 - division overflows to Num
+ok 825 - ... right result
+ok 826 - .norm exists and doesn't hurt matters
+ok 827 - 241025348275725.3352 is a Rat
+ok 828 - Rat.Rat yields correct Rat
+ok 829 - stringification of bigish Rats
+ok 830 - The object is-a 'Rat'
+ok 831 - The object is-a 'Rat'
+ok 832 - The object is-a 'Num'
+ok 833 - no bogus errors
+# Subtest: 0.9999999999999999999999 to string conversions
+    1..4
+    ok 1 - no weirdness in .Str
+    ok 2 - .raku gives accurate result
+    ok 3 - .raku.EVAL roundtrips
+    ok 4 - 0.99999... not rounded to larger than 1
+ok 834 - 0.9999999999999999999999 to string conversions
+ok 835 - Rat.Range is from -inf to inf, including end points
+# Subtest: == with 0-denominator Rats
+    1..18
+    ok 1 -  0/0 == 42/1
+    ok 2 -  4/0 == 42/1
+    ok 3 - -4/0 == 42/1
+    ok 4 - 42/1 ==  0/0
+    ok 5 - 42/1 ==  4/1
+    ok 6 - 42/1 == -4/1
+    ok 7 -  0/0 ==  0/0
+    ok 8 -  0/0 ==  2/0
+    ok 9 -  0/0 == -2/0
+    ok 10 -  2/0 ==  0/0
+    ok 11 - -2/0 ==  0/0
+    ok 12 -   2/0 ==  0/0
+    ok 13 -  2/0 ==  5/0
+    ok 14 -  2/0 == -2/0
+    ok 15 -  5/0 ==  2/0
+    ok 16 - -2/0 ==  2/0
+    ok 17 - -2/0 == -2/0
+    ok 18 - -2/0 == -5/0
+ok 836 - == with 0-denominator Rats
+# Subtest: Rational.isNaN
+    1..6
+    ok 1 -  0/0
+    ok 2 -  2/0
+    ok 3 - -2/0
+    ok 4 -  0/2
+    ok 5 -  4/5
+    ok 6 - -5/5
+ok 837 - Rational.isNaN
+# Subtest: === with 0-denominator Rats
+    1..11
+    ok 1 -  0/0 ===  0/0
+    ok 2 -  0/0 === -2/0
+    ok 3 -  0/0 ===  2/0
+    ok 4 - -2/0 === -2/0
+    ok 5 - -2/0 === -4/0
+    ok 6 - -2/0 === -2/0
+    ok 7 - -2/0 === 0/0
+    ok 8 -  2/0 === -2/0
+    ok 9 -  2/0 ===  4/0
+    ok 10 -  2/0 === 2/0
+    ok 11 -  2/0 === 0/0
+ok 838 - === with 0-denominator Rats
+ok 839 - Real   cmp RatStr does not crash
+ok 840 - RatStr cmp Real   does not crash
+# Subtest: subclass of class that does Rational can be instantiated
+    1..2
+    ok 1 - right type
+    ok 2 - right numerator/denominator
+ok 841 - subclass of class that does Rational can be instantiated
+ok 842 - .ceiling with Rat sums
+# Subtest: .norm returns reduced Rat
+    1..2
+    ok 1 - denominator got reduced
+    ok 2 - numerator got reduced
+ok 843 - .norm returns reduced Rat
+# Subtest: .Rat/.FatRat coercers
+    1..48
+    ok 1 - Int.Rat
+    ok 2 - Int.FatRat
+    ok 3 - IntStr.Rat
+    ok 4 - IntStr.FatRat
+    ok 5 - Num.Rat
+    ok 6 - Num.FatRat
+    ok 7 - NumStr.Rat
+    ok 8 - NumStr.FatRat
+    ok 9 - Rat.Rat
+    ok 10 - Rat.FatRat
+    ok 11 - RatStr.Rat
+    ok 12 - RatStr.FatRat
+    ok 13 - Complex.Rat
+    ok 14 - Complex.FatRat
+    ok 15 - ComplexStr.Rat
+    ok 16 - ComplexStr.FatRat
+    ok 17 - FatRat.Rat
+    ok 18 - FatRat.FatRat
+    ok 19 - Str.Rat
+    ok 20 - Str.FatRat
+    ok 21 - Str.Rat
+    ok 22 - Str.FatRat
+    ok 23 - Str.Rat
+    ok 24 - Str.FatRat
+    ok 25 - Str.Rat
+    ok 26 - Str.FatRat
+    ok 27 - Array.Rat
+    ok 28 - Array.FatRat
+    ok 29 - Seq.Rat
+    ok 30 - Seq.FatRat
+    ok 31 - Range.Rat
+    ok 32 - Range.FatRat
+    ok 33 - Map.Rat
+    ok 34 - Map.FatRat
+    ok 35 - Duration.Rat
+    ok 36 - Duration.FatRat
+    ok 37 - Instant.Rat
+    ok 38 - Instant.FatRat
+    ok 39 - IO::Path.Rat
+    ok 40 - IO::Path.FatRat
+    ok 41 - Match.Rat
+    ok 42 - Match.FatRat
+    ok 43 - StrDistance.Rat
+    ok 44 - StrDistance.FatRat
+    ok 45 - Nil.Rat   .^isa
+    ok 46 - Nil.FatRat.^isa
+    ok 47 - Nil.FatRat is zero
+    ok 48 - Nil.Rat    is zero
+ok 844 - .Rat/.FatRat coercers
+# Subtest: Rational.Int on zero-denominator rats
+    1..9
+    # Subtest: -1/0 (.Int method)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 1 - -1/0 (.Int method)
+    # Subtest: 0/0 (.Int method)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 2 - 0/0 (.Int method)
+    # Subtest: 1/0 (.Int method)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 3 - 1/0 (.Int method)
+    # Subtest: -1/0 (Int() coercer)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 4 - -1/0 (Int() coercer)
+    # Subtest: 0/0 (Int() coercer)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 5 - 0/0 (Int() coercer)
+    # Subtest: 1/0 (Int() coercer)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 6 - 1/0 (Int() coercer)
+    # Subtest: -1/0 (signature coercer)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 7 - -1/0 (signature coercer)
+    # Subtest: 0/0 (signature coercer)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 8 - 0/0 (signature coercer)
+    # Subtest: 1/0 (signature coercer)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 2 - Failure threw when sunk
+    ok 9 - 1/0 (signature coercer)
+ok 845 - Rational.Int on zero-denominator rats
+ok 846 - literal with denominator > 64bit does not aquire f.p. noise
+# Subtest: .^roles on Rationals does not hang
+    1..2
+    ok 1 - Rat:D
+    ok 2 - FatRat:U
+ok 847 - .^roles on Rationals does not hang
+ok 848 - numerators over 32 bits work
+# Subtest: eqv with zero-denominator Rationals
+    1..2
+    # Subtest: ±Inf Rationals `eqv` each other, even when numerators differ 
+        1..20
+        ok 1 -  NaN Rat,     Inf Rat
+        ok 2 -  NaN Rat,    -Inf Rat
+        ok 3 -  NaN Rat,     NaN FatRat
+        ok 4 -  Inf Rat,     Inf Rat
+        ok 5 -  Inf Rat,    -Inf Rat
+        ok 6 -  Inf Rat,     NaN Rat
+        ok 7 -  Inf Rat,     Inf FatRat
+        ok 8 - -Inf Rat,     Inf Rat
+        ok 9 - -Inf Rat,    -Inf Rat
+        ok 10 - -Inf Rat,     NaN Rat
+        ok 11 - -Inf Rat,    -Inf FatRat
+        ok 12 -  Inf Rat,     Inf FatRat
+        ok 13 -  Inf Rat,    -Inf FatRat
+        ok 14 -  Inf Rat,     NaN FatRat
+        ok 15 -  Inf FatRat,  Inf FatRat
+        ok 16 -  Inf FatRat,  Inf Rat
+        ok 17 - -Inf FatRat, -Inf FatRat
+        ok 18 - -Inf FatRat,  Inf Rat
+        ok 19 - -Inf FatRat,  Inf FatRat
+        ok 20 -  Inf FatRat, -Inf FatRat
+    ok 1 - ±Inf Rationals `eqv` each other, even when numerators differ 
+    # Subtest: NaN-y Rationals `eqv` each other, as long as types match
+        1..16
+        ok 1 - Rat literal, Rat literal
+        ok 2 - Rat literal, Rat /-op
+        ok 3 - Rat new,     Rat.new
+        ok 4 - Rat new,     FatRat.new
+        ok 5 - Rat /-op,    Rat literal
+        ok 6 - Rat /-op,    Rat /-op
+        ok 7 - Rat /-op,    Rat.new
+        ok 8 - Rat /-op,    FatRat.new
+        ok 9 - Rat.new,     Rat literal
+        ok 10 - Rat.new,     Rat /-op
+        ok 11 - Rat.new,     Rat.new
+        ok 12 - Rat.new,     FatRat.new
+        ok 13 - FatRat.new,  Rat literal
+        ok 14 - FatRat.new,  Rat /-op
+        ok 15 - FatRat.new,  Rat.new
+        ok 16 - FatRat.new,  FatRat.new
+    ok 2 - NaN-y Rationals `eqv` each other, as long as types match
+ok 849 - eqv with zero-denominator Rationals
+# Subtest: Rational.Bool
+    1..64
+    ok 1 - 1.0
+    ok 2 - FatRat.new(1, 1)
+    ok 3 - Rational.new(1, 1)
+    ok 4 - RatStr.new(1.0, "-42 -42")
+    ok 5 - 42.0
+    ok 6 - FatRat.new(42, 1)
+    ok 7 - Rational.new(42, 1)
+    ok 8 - RatStr.new(42.0, "-42 -1")
+    ok 9 - <-1/0>
+    ok 10 - FatRat.new(-1, 0)
+    ok 11 - <-1/0>
+    ok 12 - RatStr.new(<-1/0>, "-42 0")
+    ok 13 - -42.0
+    ok 14 - FatRat.new(-42, 1)
+    ok 15 - Rational.new(-42, 1)
+    ok 16 - RatStr.new(-42.0, "-42 1")
+    ok 17 - -1.0
+    ok 18 - FatRat.new(-1, 1)
+    ok 19 - Rational.new(-1, 1)
+    ok 20 - RatStr.new(-1.0, "-42 42")
+    ok 21 - -1.0
+    ok 22 - FatRat.new(-1, 1)
+    ok 23 - Rational.new(-1, 1)
+    ok 24 - RatStr.new(-1.0, "42 -42")
+    ok 25 - -42.0
+    ok 26 - FatRat.new(-42, 1)
+    ok 27 - Rational.new(-42, 1)
+    ok 28 - RatStr.new(-42.0, "42 -1")
+    ok 29 - <1/0>
+    ok 30 - FatRat.new(1, 0)
+    ok 31 - <1/0>
+    ok 32 - RatStr.new(<1/0>, "42 0")
+    ok 33 - 42.0
+    ok 34 - FatRat.new(42, 1)
+    ok 35 - Rational.new(42, 1)
+    ok 36 - RatStr.new(42.0, "42 1")
+    ok 37 - 1.0
+    ok 38 - FatRat.new(1, 1)
+    ok 39 - Rational.new(1, 1)
+    ok 40 - RatStr.new(1.0, "42 42")
+    ok 41 - 0.0
+    ok 42 - FatRat.new(0, 1)
+    ok 43 - Rational.new(0, 1)
+    ok 44 - RatStr.new(0.0, "0 -42")
+    ok 45 - 0.0
+    ok 46 - FatRat.new(0, 1)
+    ok 47 - Rational.new(0, 1)
+    ok 48 - RatStr.new(0.0, "0 -1")
+    ok 49 - <0/0>
+    ok 50 - FatRat.new(0, 0)
+    ok 51 - <0/0>
+    ok 52 - RatStr.new(<0/0>, "0 0")
+    ok 53 - 0.0
+    ok 54 - FatRat.new(0, 1)
+    ok 55 - Rational.new(0, 1)
+    ok 56 - RatStr.new(0.0, "0 1")
+    ok 57 - 0.0
+    ok 58 - FatRat.new(0, 1)
+    ok 59 - Rational.new(0, 1)
+    ok 60 - RatStr.new(0.0, "0 42")
+    ok 61 - Rat
+    ok 62 - RatStr
+    ok 63 - FatRat
+    ok 64 - MyCustomRational
+ok 850 - Rational.Bool
+# Subtest: Rational.WHICH
+    1..4
+    ok 1 - WHICH is identical for practically identical Rats
+    ok 2 - WHICH is identical for practically identical FatRats
+    ok 3 - .unique filters out practically identical Rats
+    ok 4 - .unique filters out practically identical FatRats
+ok 851 - Rational.WHICH
+# Subtest: Rational keeps nu/de in proper types
+    1..4
+    ok 1 - numerator
+    ok 2 - denominator
+    ok 3 - numerator (zero-denom rational)
+    ok 4 - denominator (zero-denom rational)
+ok 852 - Rational keeps nu/de in proper types
+# Subtest: Rational.floor   fails for zero-denominator-rationals
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 2 - Failure threw when sunk
+ok 853 - Rational.floor   fails for zero-denominator-rationals
+# Subtest: Rational.ceiling fails for zero-denominator-rationals
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 2 - Failure threw when sunk
+ok 854 - Rational.ceiling fails for zero-denominator-rationals
+# Subtest: Rational.round fails for zero-denominator-rationals
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+    ok 2 - Failure threw when sunk
+ok 855 - Rational.round fails for zero-denominator-rationals
+# Subtest: no funny business in stringification of huge Rationals
+    1..4
+    ok 1 -    Rat.new(10⁴⁰⁰, 9⁹⁹⁹).Str
+    ok 2 -    Rat.new(10⁴⁰⁰, 9⁹⁹⁹).gist
+    ok 3 - FatRat.new(10⁴⁰⁰, 9⁹⁹⁹).Str
+    ok 4 - FatRat.new(10⁴⁰⁰, 9⁹⁹⁹).gist
+ok 856 - no funny business in stringification of huge Rationals
+ok 857 - Inf == 1/3 should be false
+ok 858 - 1/3 == Inf should be false
+ok 859 - 0/0 == 0/0 should be false
+ok 860 - Can we perform + Int on a RatStr
+ok 861 - Can we perform - Int on a RatStr
+ok 862 - Can we perform * Int on a RatStr
+ok 863 - Can we perform / Int on a RatStr
+ok 864 - Can we perform Int + on a RatStr
+ok 865 - Can we perform Int - on a RatStr
+ok 866 - Can we perform Int * on a RatStr
+ok 867 - Can we perform Int / on a RatStr
+ok 868 - No trailing zeros when calling Rat.gist
+ok 869 - No trailing zeros when calling Rat.Str

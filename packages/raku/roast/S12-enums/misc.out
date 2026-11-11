@@ -1,0 +1,39 @@
+1..28
+ok 1 - enum element in class has the right value
+ok 2 - enum element in module has the right value
+ok 3 - enum element in package has the right value
+ok 4 - enum element in grammar has the right value
+ok 5 - die attempting to access enum item as method
+ok 6 - keys on enum stash works
+ok 7 - enum key wins in case of conflict
+ok 8 - enum key wins in case of conflict (numeric)
+ok 9 - but () is still a function call
+ok 10 - non-conflicting enum key
+ok 11 - non-conflicting enum key (numeric)
+ok 12 - can call .^methods on an enum
+ok 13 - is un the right value
+ok 14 - is un the right string
+ok 15 - Enum members are exported with enumeration itself
+ok 16 - can declare enums using constant lists
+ok 17 - and they get the right values
+ok 18 - enum member does not ACCEPTS the enum type object
+ok 19 - .pairs on an Enum with Array values
+ok 20 - .kv on an Enum with Array values
+ok 21 - .keys on an Enum with Array values
+ok 22 - .values on an Enum with Array values
+ok 23 - .antipairs on an Enum with Array values
+ok 24 - .invert on an Enum with Array values
+# Subtest: invoking .new on an enum throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Constructor::BadType)
+ok 25 - invoking .new on an enum throws
+# Subtest: did we throws-like X::Enum::NoValue?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Enum::NoValue)
+    ok 3 - .value matches Less
+    ok 4 - .type matches (Direction)
+ok 26 - did we throws-like X::Enum::NoValue?
+ok 27 - should not match
+ok 28 - enum raku method should be round-trippable

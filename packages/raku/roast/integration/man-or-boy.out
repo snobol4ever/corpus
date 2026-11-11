@@ -1,0 +1,11 @@
+1..10
+ok 1 - man-or-boy test for start value 0
+ok 2 - man-or-boy test for start value 1
+ok 3 - man-or-boy test for start value 2
+ok 4 - man-or-boy test for start value 3
+ok 5 - man-or-boy test for start value 4
+ok 6 - man-or-boy test for start value 5
+ok 7 - man-or-boy test for start value 6
+ok 8 - man-or-boy test for start value 7
+ok 9 - man-or-boy test for start value 8
+ok 10 - man-or-boy test for start value 9

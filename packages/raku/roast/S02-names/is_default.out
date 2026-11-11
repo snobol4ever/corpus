@@ -1,0 +1,532 @@
+1..146
+ok 1 - uninitialized untyped variable should have its default
+ok 2 - is the default set correctly for $a
+ok 3 - should be able to update untyped variable
+ok 4 - update of untyped variable to 43 was successful
+ok 5 - should be able to assign Nil to untyped variable
+ok 6 - untyped variable returned to its default with Nil
+ok 7 - should be able to update untyped variable
+ok 8 - update of untyped variable to 314 was successful
+ok 9 - untyped variable should be initialized
+ok 10 - is the default set correctly for $b
+ok 11 - is the default set correctly for $c
+ok 12 - should be able to increment untyped variable
+ok 13 - untyped variable should be incremented
+ok 14 - should be able to assign Nil to untyped variable
+ok 15 - is the default value correctly reset for $c
+ok 16 - untyped variable should be initialized
+ok 17 - is the default set correctly for $d
+ok 18 - uninitialized untyped attribute should have its default
+ok 19 - is the default set correctly for $!a
+ok 20 - should be able to update untyped attribute
+ok 21 - update of untyped attribute to 43 was successful
+ok 22 - should be able to assign Nil to untyped attribute
+ok 23 - untyped attribute returned to its default with Nil
+ok 24 - should be able to update untyped attribute
+ok 25 - update of untyped attribute to 314 was successful
+ok 26 - untyped attribute should be initialized
+ok 27 - is the default set correctly for $!b
+ok 28 - is the default set correctly for $!c
+ok 29 - should be able to increment untyped attribute
+ok 30 - untyped attribute should be incremented
+ok 31 - should be able to assign Nil to untyped attribute
+ok 32 - is the default value correctly reset for $!c
+ok 33 - untyped attribute should be initialized
+ok 34 - is the default set correctly for $!d
+ok 35 - is default() works on a group of variables too (1)
+ok 36 - is default() works on a group of variables too (2)
+ok 37 - is default on attributes: basic sanity
+ok 38 - is default on attributes applies to all in a list
+ok 39 - uninitialized typed variable should have its default
+ok 40 - is the default set correctly for Int $a
+ok 41 - should be able to update typed variable
+ok 42 - update of typed variable to 43 was successful
+ok 43 - should be able to assign Nil to typed variable
+ok 44 - typed variable returned to its default with Nil
+ok 45 - should be able to update typed variable
+ok 46 - update of typed variable to 314 was successful
+ok 47 - typed variable should be initialized
+ok 48 - is the default set correctly for Int $b
+ok 49 - uninitialized typed attribute should have its default
+ok 50 - is the default set correctly for Int $!a
+ok 51 - should be able to update typed attribute
+ok 52 - update of typed attribute to 43 was successful
+ok 53 - should be able to assign Nil to typed attribute
+ok 54 - typed attribute returned to its default with Nil
+ok 55 - should be able to update typed attribute
+ok 56 - update of typed attribute to 314 was successful
+ok 57 - typed attribute should be initialized
+ok 58 - is the default set correctly for Int $!b
+ok 59 - uninitialized untyped array element should have its default
+ok 60 - is the default set correctly for @a
+ok 61 - should be able to update untyped array element
+ok 62 - update of untyped array element to 43 was successful
+ok 63 - assign Nil to untyped array element
+ok 64 - untyped array element returned to its default with Nil
+ok 65 - should be able to update untyped array element
+ok 66 - update of untyped array element to 314 was successful
+ok 67 - untyped array element should be initialized
+ok 68 - is the default set correctly for @b
+ok 69 - is the default set correctly for @c
+ok 70 - should be able to increment untyped variable
+ok 71 - untyped variable should be incremented
+ok 72 - able to assign Nil to untyped variable
+ok 73 - is the default value correctly reset for @c[0]
+ok 74 - untyped variable should be initialized
+ok 75 - is the default set correctly for @d
+ok 76 - uninitialized untyped attrib element should have its default
+ok 77 - is the default set correctly for @!a
+ok 78 - should be able to update untyped attrib element
+ok 79 - update of untyped attrib element to 43 was successful
+ok 80 - assign Nil to untyped attrib element
+ok 81 - untyped attrib element returned to its default with Nil
+ok 82 - should be able to update untyped attrib element
+ok 83 - update of untyped attrib element to 314 was successful
+ok 84 - untyped attrib element should be initialized
+ok 85 - is the default set correctly for @!b
+ok 86 - is the default set correctly for @!c
+ok 87 - should be able to increment untyped variable
+ok 88 - untyped variable should be incremented
+ok 89 - able to assign Nil to untyped variable
+ok 90 - is the default value correctly reset for @!c[0]
+ok 91 - untyped variable should be initialized
+ok 92 - is the default set correctly for @!d
+ok 93 - uninitialized typed array element should have its default
+ok 94 - is the default set correctly for Int @a
+ok 95 - should be able to update typed array element
+ok 96 - update of typed array element to 43 was successful
+ok 97 - assign Nil to typed array element
+ok 98 - typed array element returned to its default with Nil
+ok 99 - should be able to update typed array element
+ok 100 - update of typed array element to 314 was successful
+ok 101 - typed array element should be initialized
+ok 102 - is the default set correctly for Int @b
+ok 103 - uninitialized typed attrib element should have its default
+ok 104 - is the default set correctly for Int @!a
+ok 105 - should be able to update typed attrib element
+ok 106 - update of typed attrib element to 43 was successful
+ok 107 - assign Nil to typed attrib element
+ok 108 - typed attrib element returned to its default with Nil
+ok 109 - should be able to update typed attrib element
+ok 110 - update of typed attrib element to 314 was successful
+ok 111 - typed attrib element should be initialized
+ok 112 - is the default set correctly for Int @!b
+# Subtest: Hashes
+    1..4
+    # Subtest: Untyped
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized hash element should have its default
+            ok 2 - is the default set correctly for %a
+            ok 3 - should be able to update hash element
+            ok 4 - update of hash element to 43 was successful
+            ok 5 - assign Nil to hash element
+            ok 6 - hash element returned to its default with Nil
+            ok 7 - should be able to update hash element
+            ok 8 - update of hash element to 314 was successful
+            ok 9 - delete of existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - hash element should be initialized
+            ok 13 - is the default set correctly for %b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %c
+            ok 2 - should be able to increment hash element
+            ok 3 - element should be incremented
+            ok 4 - able to assign Nil to hash element
+            ok 5 - is the default value correctly reset for %c<o>
+            ok 6 - delete of never initialized element returns Nil from hash default
+            ok 7 - hash element should be initialized
+            ok 8 - is the default set correctly for %d
+        ok 2 - Nil default
+    ok 1 - Untyped
+    # Subtest: Typed Key
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized hash element should have its default
+            ok 2 - is the default set correctly for %a
+            ok 3 - should be able to update hash element
+            ok 4 - update of hash element to 43 was successful
+            ok 5 - assign Nil to hash element
+            ok 6 - hash element returned to its default with Nil
+            ok 7 - should be able to update hash element
+            ok 8 - update of hash element to 314 was successful
+            ok 9 - delete of existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - hash element should be initialized
+            ok 13 - is the default set correctly for %b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %c
+            ok 2 - should be able to increment hash element
+            ok 3 - element should be incremented
+            ok 4 - able to assign Nil to hash element
+            ok 5 - is the default value correctly reset for %c<o>
+            ok 6 - delete of never initialized element returns Nil from hash default
+            ok 7 - hash element should be initialized
+            ok 8 - is the default set correctly for %d
+        ok 2 - Nil default
+    ok 2 - Typed Key
+    # Subtest: Typed Value
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized hash element should have its default
+            ok 2 - is the default set correctly for %a
+            ok 3 - should be able to update hash element
+            ok 4 - update of hash element to 43 was successful
+            ok 5 - assign Nil to hash element
+            ok 6 - hash element returned to its default with Nil
+            ok 7 - should be able to update hash element
+            ok 8 - update of hash element to 314 was successful
+            ok 9 - delete of existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - hash element should be initialized
+            ok 13 - is the default set correctly for %b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %c
+            ok 2 - should be able to increment hash element
+            ok 3 - element should be incremented
+            ok 4 - able to assign Nil to hash element
+            ok 5 - is the default value correctly reset for %c<o>
+            ok 6 - delete of never initialized element returns Nil from hash default
+            ok 7 - hash element should be initialized
+            ok 8 - is the default set correctly for %d
+        ok 2 - Nil default
+    ok 3 - Typed Value
+    # Subtest: Typed Value And Key
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized hash element should have its default
+            ok 2 - is the default set correctly for %a
+            ok 3 - should be able to update hash element
+            ok 4 - update of hash element to 43 was successful
+            ok 5 - assign Nil to hash element
+            ok 6 - hash element returned to its default with Nil
+            ok 7 - should be able to update hash element
+            ok 8 - update of hash element to 314 was successful
+            ok 9 - delete of existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - hash element should be initialized
+            ok 13 - is the default set correctly for %b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %c
+            ok 2 - should be able to increment hash element
+            ok 3 - element should be incremented
+            ok 4 - able to assign Nil to hash element
+            ok 5 - is the default value correctly reset for %c<o>
+            ok 6 - delete of never initialized element returns Nil from hash default
+            ok 7 - hash element should be initialized
+            ok 8 - is the default set correctly for %d
+        ok 2 - Nil default
+    ok 4 - Typed Value And Key
+ok 113 - Hashes
+# Subtest: Hash Attributes
+    1..4
+    # Subtest: Untyped Hash
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized attrib hash element should have its default
+            ok 2 - is the default set correctly for %!a
+            ok 3 - should be able to update attrib hash element
+            ok 4 - update of attrib hash element to 43 was successful
+            ok 5 - assign Nil to attrib hash element
+            ok 6 - attrib hash element returned to its default with Nil
+            ok 7 - should be able to update attrib hash element
+            ok 8 - update of attrib hash element to 314 was successful
+            ok 9 - delete of an existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - attrib hash element should be initialized
+            ok 13 - is the default set correctly for %!b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %!c
+            ok 2 - should be able to increment attrib hash element
+            ok 3 - attrib hash element should be incremented
+            ok 4 - able to assign Nil to attrib hash element
+            ok 5 - is the default value correctly reset for %!c<o>
+            ok 6 - delete of never initialized hash element returns Nil from hash default
+            ok 7 - attrib hash element should be initialized
+            ok 8 - is the default set correctly for %!d
+        ok 2 - Nil default
+    ok 1 - Untyped Hash
+    # Subtest: Typed Value Hash
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized attrib hash element should have its default
+            ok 2 - is the default set correctly for %!a
+            ok 3 - should be able to update attrib hash element
+            ok 4 - update of attrib hash element to 43 was successful
+            ok 5 - assign Nil to attrib hash element
+            ok 6 - attrib hash element returned to its default with Nil
+            ok 7 - should be able to update attrib hash element
+            ok 8 - update of attrib hash element to 314 was successful
+            ok 9 - delete of an existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - attrib hash element should be initialized
+            ok 13 - is the default set correctly for %!b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %!c
+            ok 2 - should be able to increment attrib hash element
+            ok 3 - attrib hash element should be incremented
+            ok 4 - able to assign Nil to attrib hash element
+            ok 5 - is the default value correctly reset for %!c<o>
+            ok 6 - delete of never initialized hash element returns Nil from hash default
+            ok 7 - attrib hash element should be initialized
+            ok 8 - is the default set correctly for %!d
+        ok 2 - Nil default
+    ok 2 - Typed Value Hash
+    # Subtest: Typed Key Hash
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized attrib hash element should have its default
+            ok 2 - is the default set correctly for %!a
+            ok 3 - should be able to update attrib hash element
+            ok 4 - update of attrib hash element to 43 was successful
+            ok 5 - assign Nil to attrib hash element
+            ok 6 - attrib hash element returned to its default with Nil
+            ok 7 - should be able to update attrib hash element
+            ok 8 - update of attrib hash element to 314 was successful
+            ok 9 - delete of an existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - attrib hash element should be initialized
+            ok 13 - is the default set correctly for %!b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %!c
+            ok 2 - should be able to increment attrib hash element
+            ok 3 - attrib hash element should be incremented
+            ok 4 - able to assign Nil to attrib hash element
+            ok 5 - is the default value correctly reset for %!c<o>
+            ok 6 - delete of never initialized hash element returns Nil from hash default
+            ok 7 - attrib hash element should be initialized
+            ok 8 - is the default set correctly for %!d
+        ok 2 - Nil default
+    ok 3 - Typed Key Hash
+    # Subtest: Typed Key and Value Hash
+        1..2
+        # Subtest: concrete default
+            1..13
+            ok 1 - uninitialized attrib hash element should have its default
+            ok 2 - is the default set correctly for %!a
+            ok 3 - should be able to update attrib hash element
+            ok 4 - update of attrib hash element to 43 was successful
+            ok 5 - assign Nil to attrib hash element
+            ok 6 - attrib hash element returned to its default with Nil
+            ok 7 - should be able to update attrib hash element
+            ok 8 - update of attrib hash element to 314 was successful
+            ok 9 - delete of an existing element returns its value
+            ok 10 - delete of deleted element returns hash default
+            ok 11 - delete of never initialized element returns hash default
+            ok 12 - attrib hash element should be initialized
+            ok 13 - is the default set correctly for %!b
+        ok 1 - concrete default
+        # Subtest: Nil default
+            1..8
+            ok 1 - is the default set correctly for %!c
+            ok 2 - should be able to increment attrib hash element
+            ok 3 - attrib hash element should be incremented
+            ok 4 - able to assign Nil to attrib hash element
+            ok 5 - is the default value correctly reset for %!c<o>
+            ok 6 - delete of never initialized hash element returns Nil from hash default
+            ok 7 - attrib hash element should be initialized
+            ok 8 - is the default set correctly for %!d
+        ok 2 - Nil default
+    ok 4 - Typed Key and Value Hash
+ok 114 - Hash Attributes
+ok 115 - uninitialized typed hash element should have its default
+ok 116 - is the default set correctly for Int %a
+ok 117 - should be able to update typed hash element
+ok 118 - update of hash array element to 43 was successful
+ok 119 - assign Nil to hash array element
+ok 120 - typed hash element returned to its default with Nil
+ok 121 - should be able to update typed hash element
+ok 122 - update of typed hash element to 314 was successful
+ok 123 - typed hash element should be initialized
+ok 124 - is the default set correctly for Int %b
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..4
+    ok 1 - 'my Int $a is default("foo")' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .expected matches (Int)
+    ok 4 - .got matches foo
+ok 125 - did we throws-like X::Parameter::Default::TypeCheck?
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..4
+    ok 1 - 'my Int $a is default(Nil)' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .expected matches (Int)
+    ok 4 - .got matches Nil
+ok 126 - did we throws-like X::Parameter::Default::TypeCheck?
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..4
+    ok 1 - 'my Int @a is default("foo")' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .expected matches (Array[Int])
+    ok 4 - .got matches foo
+ok 127 - did we throws-like X::Parameter::Default::TypeCheck?
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..4
+    ok 1 - 'my Int @a is default(Nil)' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .got matches Nil
+    ok 4 - .expected matches (Array[Int])
+ok 128 - did we throws-like X::Parameter::Default::TypeCheck?
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..4
+    ok 1 - 'my Int %a is default("foo")' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .got matches foo
+    ok 4 - .expected matches (Hash[Int])
+ok 129 - did we throws-like X::Parameter::Default::TypeCheck?
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..4
+    ok 1 - 'my Int %a is default(Nil)' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .expected matches (Hash[Int])
+    ok 4 - .got matches Nil
+ok 130 - did we throws-like X::Parameter::Default::TypeCheck?
+# Subtest: did we throws-like X::TypeCheck::Attribute::Default?
+    1..4
+    ok 1 - 'class IntFoo { has Int $!a is default("foo") }' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .got matches foo
+    ok 4 - .expected matches (Int)
+ok 131 - did we throws-like X::TypeCheck::Attribute::Default?
+# Subtest: did we throws-like X::TypeCheck::Attribute::Default?
+    1..4
+    ok 1 - 'class IntNil { has Int $!a is default(Nil) }' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .got matches Nil
+    ok 4 - .expected matches (Int)
+ok 132 - did we throws-like X::TypeCheck::Attribute::Default?
+# Subtest: did we throws-like X::Comp::Trait::NotOnNative?
+    1..4
+    ok 1 - 'my int $a is default(42)' died
+    ok 2 - right exception type (X::Comp::Trait::NotOnNative)
+    ok 3 - .subtype matches default
+    ok 4 - .type matches is
+ok 133 - did we throws-like X::Comp::Trait::NotOnNative?
+# Subtest: did we throws-like X::Comp::Trait::NotOnNative?
+    1..4
+    ok 1 - 'my int @a is default(42)' died
+    ok 2 - right exception type (X::Comp::Trait::NotOnNative)
+    ok 3 - .type matches is
+    ok 4 - .subtype matches default
+ok 134 - did we throws-like X::Comp::Trait::NotOnNative?
+# Subtest: did we throws-like X::Comp::Trait::NotOnNative?
+    1..4
+    ok 1 - 'my int %a is default(42)' died
+    not ok 2 - right exception type (X::Comp::Trait::NotOnNative) # TODO fails first on native int hashes being NYI
+    # Failed test 'right exception type (X::Comp::Trait::NotOnNative)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::Comp::Trait::NotOnNative
+    # Got:      X::Comp::NYI
+    # Exception message: native value types for hashes not yet implemented. Sorry.
+    ok 3 - # SKIP wrong exception type
+    ok 4 - # SKIP wrong exception type
+not ok 135 - did we throws-like X::Comp::Trait::NotOnNative? # TODO fails first on native int hashes being NYI
+# Failed test 'did we throws-like X::Comp::Trait::NotOnNative?'
+# at S02-names/is_default.rakudo line 436
+ok 136 - Default value that is subtype of constraint works fine
+ok 137 - Default value that is subtype of attribute constraint works fine
+ok 138 - Mu as a default value on an unconstrained Scalar works
+# Subtest: can use `Mu` as default for attributes
+    1..3
+    ok 1 - defaults to default value on instantiation
+    ok 2 - constructor sets the value
+    ok 3 - assigning Nil restores Mu default
+ok 139 - can use `Mu` as default for attributes
+ok 140 - Failure.new as a default value on an unconstrained Scalar works
+ok 141 - Failure.new as a default value on an unconstrained Scalar attribute works
+# Subtest: is default() respects type constraint
+    1..2
+    # Subtest: variable
+        1..3
+        # Subtest: is default() + of
+            1..2
+            ok 1 - 'my $a is default("foo") of Int' died
+            ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+        ok 1 - is default() + of
+        # Subtest: of is default()
+            1..2
+            ok 1 - 'my $a of Int is default("foo")' died
+            ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+        ok 2 - of is default()
+        # Subtest: Type $ is default()
+            1..2
+            ok 1 - 'my Int $a is default("foo")' died
+            ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+        ok 3 - Type $ is default()
+    ok 1 - variable
+    # Subtest: attribute
+        1..3
+        # Subtest: is default() + of
+            1..2
+            ok 1 - 'class { has $.a is default("foo") of Int }' died
+            ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+        ok 1 - is default() + of
+        # Subtest: of is default()
+            1..2
+            ok 1 - 'class { has $.a of Int is default("foo") }' died
+            ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+        ok 2 - of is default()
+        # Subtest: Type $ is default()
+            1..2
+            ok 1 - 'class { has Int $.a is default("foo") }' died
+            ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+        ok 3 - Type $ is default()
+    ok 2 - attribute
+ok 142 - is default() respects type constraint
+# Subtest: default `is default()` gets adjusted to type constraint
+    1..2
+    # Subtest: variable
+        1..3
+        ok 1 - uninitialized read
+        ok 2 - set a value
+        ok 3 - setting to Nil restores correct default
+    ok 1 - variable
+    # Subtest: attribute
+        1..4
+        ok 1 - uninitialized read (rw attr)
+        ok 2 - uninitialized read (ro attr)
+        ok 3 - set a value
+        ok 4 - setting to Nil restores correct default
+    ok 2 - attribute
+ok 143 - default `is default()` gets adjusted to type constraint
+ok 144 - uninitialized typed:D attribute should have its default
+# Subtest: did we throws-like X::TypeCheck::Attribute::Default?
+    1..2
+    ok 1 - 'class NilDefaultTyped { has Int:D $.a is rw is default(Nil) }' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+ok 145 - did we throws-like X::TypeCheck::Attribute::Default?
+# Subtest: Generics
+    ok 1 - scalar gets its default instantiated
+    ok 2 - hash gets its default instantiated
+    ok 3 - array gets its default instantiated
+    1..3
+ok 146 - Generics
+# FUDGED!

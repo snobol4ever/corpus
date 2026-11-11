@@ -1,0 +1,8 @@
+1..6
+ok 1 - SETTING:: works
+ok 2 - ::("SETTING") works
+ok 3 - # SKIP NYI
+ok 4 - # SKIP NYI
+ok 5 - # SKIP NYI
+ok 6 - # SKIP NYI
+# FUDGED!

@@ -1,0 +1,5 @@
+1..4
+ok 1 - EVALFILE() works
+ok 2 - EVALFILE() works with IO::Path
+ok 3 - the filename is there in the stacktrace from EVALFILE
+ok 4 - EVALFILE() evaluated code can see lexicals

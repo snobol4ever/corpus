@@ -1,0 +1,111 @@
+1..110
+ok 1 - :p on an array returned a Pair
+ok 2 - :p on an array returned the correct pair
+ok 3 - can assign to (@array[0]:p).value
+ok 4 - :p on an array returns lvalues (like normal subscripts do as well)
+ok 5 - :p on an array returned a two-elem array
+ok 6 - :p on an array returned a two-elem array consisting of the correct pairs
+ok 7 - :p on an array weeded out non-existing entries (1)
+ok 8 - :p on an array weeded out non-existing entries (2)
+ok 9 - :kv on an array returned a two-elem array
+ok 10 - :kv on an array returned the correct two-elem array
+ok 11 - can assign to :kv subscripts
+ok 12 - :kv on an array returns lvalues (like normal subscripts do as well)
+ok 13 - :kv on an array returned a four-elem array
+ok 14 - :kv on an array returned the correct four-elem array
+ok 15 - :kv on an array weeded out non-existing entries (1)
+ok 16 - :kv on an array weeded out non-existing entries (2)
+ok 17 - :k on an array returned an integer index
+ok 18 - :k on an array returned the correct index
+ok 19 - :k on an array returned a two-elem array
+ok 20 - :k on an array returned the correct two-elem array
+ok 21 - :k on an array weeded out non-existing entries (1)
+ok 22 - :k on an array weeded out non-existing entries (2)
+ok 23 - :v on an array returned the right type of value
+ok 24 - :v on an array returned the correct value
+ok 25 - cannot assign to @array[0]:v
+ok 26 - :v on an array returns rvalues (unlike normal subscripts)
+ok 27 - :v on an array returned a tow-elem array
+ok 28 - :v on an array returned the correct two-elem array
+ok 29 - :v on an array weeded out non-existing entries (1)
+ok 30 - :v on an array weeded out non-existing entries (2)
+ok 31 - :p on a hash returned a Pair
+ok 32 - :p on a hash returned the correct pair
+ok 33 - can assign to %hash<0>:p.value
+ok 34 - :p on a hash returns lvalues (like normal subscripts do as well)
+ok 35 - :p on a hash returned a two-elem array
+ok 36 - :p on a hash returned a two-elem array consisting of the correct pairs
+ok 37 - :p on a hash weeded out non-existing entries (1)
+ok 38 - :p on a hash weeded out non-existing entries (2)
+ok 39 - :kv on a hash returned a two-elem array
+ok 40 - :kv on a hash returned the correct two-elem array
+ok 41 - can assign to %hash<0>:kv.[1]
+ok 42 - :kv on a hash returns lvalues (like normal subscripts do as well)
+ok 43 - :kv on a hash returned a four-elem array
+ok 44 - :kv on a hash returned the correct four-elem array
+ok 45 - :kv on a hash weeded out non-existing entries (1)
+ok 46 - :kv on a hash weeded out non-existing entries (2)
+ok 47 - :k on a hash returned the correct key type
+ok 48 - :k on a hash returned the correct key name
+ok 49 - :k on a hash returned a tow-elem array
+ok 50 - :k on a hash returned the correct two-elem array
+ok 51 - :k on a hash weeded out non-existing entries (1)
+ok 52 - :k on a hash weeded out non-existing entries (2)
+ok 53 - :v on a hash returns the correct type of value
+ok 54 - :v on a hash returned the correct value
+ok 55 - can assign to %hash<0>:v
+ok 56 - :v on a hash returns rvalues (unlike normal subscripts)
+ok 57 - :v on a hash returned a two-elem array
+ok 58 - :v on a hash returned the correct two-elem array
+ok 59 - :v on a hash weeded out non-existing entries (1)
+ok 60 - :v on a hash weeded out non-existing entries (2)
+ok 61 - non-existing entries should be weeded out (1:kv)
+ok 62 - non-existing entries should be weeded out (2:kv)
+ok 63 - non-existing entries should not be weeded out (1:!kv)
+ok 64 - non-existing entries should not be weeded out (2:!kv)
+ok 65 - non-existing entries should be weeded out (1:p)
+ok 66 - non-existing entries should be weeded out (2:p)
+ok 67 - non-existing entries should not be weeded out (1:!p)
+ok 68 - non-existing entries should not be weeded out (2:!p)
+ok 69 - non-existing entries should be weeded out (1:k)
+ok 70 - non-existing entries should be weeded out (2:k)
+ok 71 - non-existing entries should not be weeded out (1:!k)
+ok 72 - non-existing entries should not be weeded out (2:!k)
+ok 73 - non-existing entries should be weeded out (1:v)
+ok 74 - non-existing entries should be weeded out (2:v)
+ok 75 - non-existing entries should not be weeded out (1:!v)
+ok 76 - non-existing entries should not be weeded out (2:!v)
+ok 77 - undefined but existing entries should not be weeded out (1:kv)
+ok 78 - undefined but existing entries should not be weeded out (2:kv)
+ok 79 - undefined but existing entries should not be weeded out (1:!kv)
+ok 80 - undefined but existing entries should not be weeded out (2:!kv)
+ok 81 - undefined but existing entries should not be weeded out (1:p)
+ok 82 - undefined but existing entries should not be weeded out (2:p)
+ok 83 - undefined but existing entries should not be weeded out (1:!p)
+ok 84 - undefined but existing entries should not be weeded out (2:!p)
+ok 85 - undefined but existing entries should not be weeded out (1:k)
+ok 86 - undefined but existing entries should not be weeded out (2:k)
+ok 87 - undefined but existing entries should not be weeded out (1:!k)
+ok 88 - undefined but existing entries should not be weeded out (2:!k)
+ok 89 - undefined but existing entries should not be weeded out (1:v)
+ok 90 - undefined but existing entries should not be weeded out (2:v)
+ok 91 - undefined but existing entries should not be weeded out (1:!v)
+ok 92 - undefined but existing entries should not be weeded out (2:!v)
+ok 93 - non-existing entries should be weeded out (3:kv)
+ok 94 - non-existing entries should be weeded out (4:kv)
+ok 95 - non-existing entries should be weeded out (3:!kv)
+ok 96 - non-existing entries should be weeded out (4:!kv)
+ok 97 - non-existing entries should be weeded out (3:p)
+ok 98 - non-existing entries should be weeded out (4:p)
+ok 99 - non-existing entries should not be weeded out (3:!p)
+ok 100 - non-existing entries should not be weeded out (4:!p)
+ok 101 - non-existing entries should be weeded out (3:k)
+ok 102 - non-existing entries should be weeded out (4:k)
+ok 103 - non-existing entries should not be weeded out (3:!k)
+ok 104 - non-existing entries should not be weeded out (4:!k)
+ok 105 - non-existing entries should be weeded out (3:v)
+ok 106 - non-existing entries should be weeded out (4:v)
+ok 107 - non-existing entries should not be weeded out (3:!v)
+ok 108 - non-existing entries should not be weeded out (4:!v)
+ok 109 - RT  \#120739 :kv on an whatever slice of an empty array used in for loop
+ok 110 - RT  \#120739 :kv on an whatever slice of an empty hash used in for loop

@@ -1,0 +1,50 @@
+1..34
+ok 1 - got the log of 5
+ok 2 - got the log of 0.1
+ok 3 - log(8, 2) is 3
+ok 4 - log(42, 23)
+ok 5 - log(42, 23) with strings
+ok 6 - got the log2 of 5
+ok 7 - got the log2 of 0.1
+ok 8 - got the log10 of 5
+ok 9 - got the log10 of 0.1
+ok 10 - log(0) = -Inf
+ok 11 - log(Inf) = Inf
+not ok 12 - log(-Inf) = complex # TODO better behaviour in 6.e+
+# Failed test 'log(-Inf) = complex'
+# at S32-num/log.rakudo line 58
+# expected: 'Inf+3.141592653589793i'
+#      got: 'NaN'
+ok 13 - log(NaN) = NaN
+ok 14 - log2(Inf) = Inf
+ok 15 - log2(NaN) = NaN
+ok 16 - log10(0) = -Inf
+ok 17 - log10(Inf) = Inf
+not ok 18 - log10(-Inf) = complex # TODO better behaviour in 6.e+
+# Failed test 'log10(-Inf) = complex'
+# at S32-num/log.rakudo line 67
+# expected: 'Inf+1.3643763538418412i'
+#      got: 'NaN'
+ok 19 - log10(NaN) = NaN
+ok 20 - got the log of -1
+ok 21 - got the log10 of -1
+ok 22 - got the log of -e
+ok 23 - log2(10)=?
+ok 24 - got the log10 of -10
+ok 25 - log10(10)=1
+ok 26 - got log of exp(i pi/4)
+ok 27 - got the log of i (complex unit)
+ok 28 - got the log10 of i
+ok 29 - got log10 of exp(i pi/4)
+ok 30 - got the log of -i (complex unit)
+ok 31 - got the log10 of -i (complex unit)
+ok 32 -  (i).log10 = - i  * pi/(2 log(10))
+ok 33 - log10 of a complex returns a complex, not a list
+not ok 34 - Can take the log of very large Ints # TODO HugeInt.log
+# Failed test 'Can take the log of very large Ints'
+# at S32-num/log.rakudo line 114
+#     expected approximately: 1000
+#                        got: Inf
+# maximum relative tolerance: 1e-06
+# actual relative difference: NaN
+# FUDGED!

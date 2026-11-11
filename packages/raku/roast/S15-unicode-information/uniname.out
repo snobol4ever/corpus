@@ -1,0 +1,182 @@
+1..46
+ok 1 - uniname an empty string yields Nil
+ok 2 - uninames an empty string yields an empty list
+ok 3 - ''.uniname yields Nil
+ok 4 - ''.uninames yields an empty list
+# Subtest: cannot call uniname with a Str
+    1..2
+    ok 1 - 'uniname Str' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 5 - cannot call uniname with a Str
+# Subtest: cannot call uniname with a Str
+    1..2
+    ok 1 - 'Str.uniname' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 6 - cannot call uniname with a Str
+# Subtest: cannot call uniname with a Int
+    1..2
+    ok 1 - 'uniname Int' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 7 - cannot call uniname with a Int
+# Subtest: cannot call uniname with a Int
+    1..2
+    ok 1 - 'Int.uniname' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 8 - cannot call uniname with a Int
+ok 9 - method uniname returns a name
+ok 10 - method uniname works in string form
+ok 11 - uniname returns a name
+ok 12 - uniname works in string form
+ok 13 - string version of uniname converts to NFG strings to NFC
+ok 14 - uniname() returns current Unicode name for graphic character.
+ok 15 - uniname() returns codepoint label for control character without a current name.
+ok 16 - uniname() on character with current & Unicode 1 name returns current name.
+ok 17 - uniname() returns current Unicode name for formatting character.
+ok 18 - uniname() returns codepoint label for control character without any name.
+ok 19 - # SKIP :one NYI
+ok 20 - # SKIP :one NYI
+ok 21 - # SKIP :one NYI
+ok 22 - # SKIP :one NYI
+ok 23 - # SKIP :one NYI
+ok 24 - # SKIP :either NYI
+ok 25 - # SKIP :either NYI
+ok 26 - # SKIP :either NYI
+ok 27 - # SKIP :either NYI
+ok 28 - # SKIP :either NYI
+ok 29 - # SKIP :either and :one NYI
+ok 30 - # SKIP :either and :one NYI
+ok 31 - # SKIP :either and :one NYI
+ok 32 - # SKIP :either and :one NYI
+ok 33 - # SKIP :either and :one NYI
+ok 34 - uniname with negative returns <illegal> (1)
+ok 35 - uniname with negative returns <illegal> (2)
+# Subtest: uniname too high throws exception (1)
+    1..3
+    not ok 1 - code dies # TODO unassigned codepoints throw in 6.e
+    # Failed test 'code dies'
+    # at S15-unicode-information/uniname.rakudo line 98
+    ok 2 - # SKIP Code did not die, can not check exception
+    ok 3 - # SKIP Code did not die, can not check exception
+not ok 36 - uniname too high throws exception (1) # TODO unassigned codepoints throw in 6.e
+# Failed test 'uniname too high throws exception (1)'
+# at S15-unicode-information/uniname.rakudo line 98
+# Subtest: uniname too high thros exception (2)
+    1..3
+    not ok 1 - code dies # TODO unassigned codepoints throw in 6.e
+    # Failed test 'code dies'
+    # at S15-unicode-information/uniname.rakudo line 101
+    ok 2 - # SKIP Code did not die, can not check exception
+    ok 3 - # SKIP Code did not die, can not check exception
+not ok 37 - uniname too high thros exception (2) # TODO unassigned codepoints throw in 6.e
+# Failed test 'uniname too high thros exception (2)'
+# at S15-unicode-information/uniname.rakudo line 101
+ok 38 - uninames correctly works on every character
+ok 39 - uninames correctly works on every character
+ok 40 - Can resolve Unicode 9 character name
+ok 41 - Supports composed Hangul Syllable names
+ok 42 - U+4FFE is 'CJK UNIFIED IDEOGRAPH-4FFE>
+# Subtest: Noncharacters
+    1..98
+    ok 1 - nonchar
+    ok 2 - nonchar
+    ok 3 - nonchar
+    ok 4 - nonchar
+    ok 5 - nonchar
+    ok 6 - nonchar
+    ok 7 - nonchar
+    ok 8 - nonchar
+    ok 9 - nonchar
+    ok 10 - nonchar
+    ok 11 - nonchar
+    ok 12 - nonchar
+    ok 13 - nonchar
+    ok 14 - nonchar
+    ok 15 - nonchar
+    ok 16 - nonchar
+    ok 17 - nonchar
+    ok 18 - nonchar
+    ok 19 - nonchar
+    ok 20 - nonchar
+    ok 21 - nonchar
+    ok 22 - nonchar
+    ok 23 - nonchar
+    ok 24 - nonchar
+    ok 25 - nonchar
+    ok 26 - nonchar
+    ok 27 - nonchar
+    ok 28 - nonchar
+    ok 29 - nonchar
+    ok 30 - nonchar
+    ok 31 - nonchar
+    ok 32 - nonchar
+    ok 33 - codepoint below U+FDD0 is not a noncharacter
+    ok 34 - codepoint after U+FDEF is not a noncharacter
+    ok 35 - U+1FFFD is not a noncharacter
+    ok 36 - U+1FFFE is a noncharacter
+    ok 37 - U+1FFFF is a noncharacter
+    ok 38 - U+20000 is not a noncharacter
+    ok 39 - U+2FFFD is not a noncharacter
+    ok 40 - U+2FFFE is a noncharacter
+    ok 41 - U+2FFFF is a noncharacter
+    ok 42 - U+30000 is not a noncharacter
+    ok 43 - U+3FFFD is not a noncharacter
+    ok 44 - U+3FFFE is a noncharacter
+    ok 45 - U+3FFFF is a noncharacter
+    ok 46 - U+40000 is not a noncharacter
+    ok 47 - U+4FFFD is not a noncharacter
+    ok 48 - U+4FFFE is a noncharacter
+    ok 49 - U+4FFFF is a noncharacter
+    ok 50 - U+50000 is not a noncharacter
+    ok 51 - U+5FFFD is not a noncharacter
+    ok 52 - U+5FFFE is a noncharacter
+    ok 53 - U+5FFFF is a noncharacter
+    ok 54 - U+60000 is not a noncharacter
+    ok 55 - U+6FFFD is not a noncharacter
+    ok 56 - U+6FFFE is a noncharacter
+    ok 57 - U+6FFFF is a noncharacter
+    ok 58 - U+70000 is not a noncharacter
+    ok 59 - U+7FFFD is not a noncharacter
+    ok 60 - U+7FFFE is a noncharacter
+    ok 61 - U+7FFFF is a noncharacter
+    ok 62 - U+80000 is not a noncharacter
+    ok 63 - U+8FFFD is not a noncharacter
+    ok 64 - U+8FFFE is a noncharacter
+    ok 65 - U+8FFFF is a noncharacter
+    ok 66 - U+90000 is not a noncharacter
+    ok 67 - U+9FFFD is not a noncharacter
+    ok 68 - U+9FFFE is a noncharacter
+    ok 69 - U+9FFFF is a noncharacter
+    ok 70 - U+A0000 is not a noncharacter
+    ok 71 - U+AFFFD is not a noncharacter
+    ok 72 - U+AFFFE is a noncharacter
+    ok 73 - U+AFFFF is a noncharacter
+    ok 74 - U+B0000 is not a noncharacter
+    ok 75 - U+BFFFD is not a noncharacter
+    ok 76 - U+BFFFE is a noncharacter
+    ok 77 - U+BFFFF is a noncharacter
+    ok 78 - U+C0000 is not a noncharacter
+    ok 79 - U+CFFFD is not a noncharacter
+    ok 80 - U+CFFFE is a noncharacter
+    ok 81 - U+CFFFF is a noncharacter
+    ok 82 - U+D0000 is not a noncharacter
+    ok 83 - U+DFFFD is not a noncharacter
+    ok 84 - U+DFFFE is a noncharacter
+    ok 85 - U+DFFFF is a noncharacter
+    ok 86 - U+E0000 is not a noncharacter
+    ok 87 - U+EFFFD is not a noncharacter
+    ok 88 - U+EFFFE is a noncharacter
+    ok 89 - U+EFFFF is a noncharacter
+    ok 90 - U+F0000 is not a noncharacter
+    ok 91 - U+FFFFD is not a noncharacter
+    ok 92 - U+FFFFE is a noncharacter
+    ok 93 - U+FFFFF is a noncharacter
+    ok 94 - U+100000 is not a noncharacter
+    ok 95 - U+10FFFD is not a noncharacter
+    ok 96 - U+10FFFE is a noncharacter
+    ok 97 - U+10FFFF is a noncharacter
+    ok 98 - U+110000 is not a noncharacter
+ok 43 - Noncharacters
+ok 44 - 0x10FFFF is <noncharacter-10FFFF>
+ok 45 - Unassigned codepoints below 0x10FFFF return <reserved-XXXX>
+ok 46 - Codepoints lower than 0x0 return <illegal>
+# FUDGED!

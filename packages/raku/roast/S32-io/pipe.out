@@ -1,0 +1,64 @@
+1..16
+# Subtest: Child succeeds but does not print anything
+    ok 1 - shell/run(:out).out is a Proc
+    ok 2 - shell/run(:out).out is an IO::Pipe
+    ok 3 - .close on pipe returns pipe's Proc
+    ok 4 - shell/run(:out) returns something trueish on success
+    ok 5 - Proc::Status.exitcode is zero for a successful run
+    ok 6 - got correct output
+    1..6
+ok 1 - Child succeeds but does not print anything
+# Subtest: Child succeeds and prints something
+    ok 1 - shell/run(:out).out is a Proc
+    ok 2 - shell/run(:out).out is an IO::Pipe
+    ok 3 - .close on pipe returns pipe's Proc
+    ok 4 - shell/run(:out) returns something trueish on success
+    ok 5 - Proc::Status.exitcode is zero for a successful run
+    ok 6 - got correct output
+    1..6
+ok 2 - Child succeeds and prints something
+# Subtest: Child fails and prints nothing
+    ok 1 - shell/run(:out).out is a Proc
+    ok 2 - shell/run(:out).out is an IO::Pipe
+    ok 3 - .close on pipe returns pipe's Proc
+    ok 4 - shell/run(:out) returns something falsish on failure
+    ok 5 - Proc::Status.exitcode is 1
+    ok 6 - got correct output
+    1..6
+ok 3 - Child fails and prints nothing
+# Subtest: Child fails and prints nothing
+    ok 1 - shell/run(:out).out is a Proc
+    ok 2 - shell/run(:out).out is an IO::Pipe
+    ok 3 - .close on pipe returns pipe's Proc
+    ok 4 - shell/run(:out) returns something falsish on failure
+    ok 5 - Proc::Status.exitcode is 42
+    ok 6 - got correct output
+    1..6
+ok 4 - Child fails and prints nothing
+# Subtest: Child fails and prints something
+    ok 1 - shell/run(:out).out is a Proc
+    ok 2 - shell/run(:out).out is an IO::Pipe
+    ok 3 - .close on pipe returns pipe's Proc
+    ok 4 - shell/run(:out) returns something falsish on failure
+    ok 5 - Proc::Status.exitcode is 1
+    ok 6 - got correct output
+    1..6
+ok 5 - Child fails and prints something
+ok 6 - Can talk to subprocess bidirectional
+ok 7 - Can capture stdout and stderr, and chain stdin
+ok 8 - Can capture stdout and stderr, and chain stdin
+ok 9 - There is no empty line due to no EOF for pipes
+ok 10 - .IO   returns an IO::Path type object
+ok 11 - .path returns an IO::Path type object
+ok 12 - .proc returns pipe's Proc object
+ok 13 - .Str is empty string
+# Subtest: bin pipes in Proc do not crash on open
+    1..5
+    ok 1 - no crashes
+    ok 2 - STDOUT line count is right
+    ok 3 - STDOUT is right
+    ok 4 - STDOUT line count is right
+    ok 5 - STDERR is right
+ok 14 - bin pipes in Proc do not crash on open
+ok 15 - large blob can be piped
+ok 16 - merge with :out(Handle:D)

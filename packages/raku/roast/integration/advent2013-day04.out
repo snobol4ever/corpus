@@ -1,0 +1,14 @@
+1..7
+ok 1 - basic heredoc with :to
+# Subtest: Runaway multiline is an error, no exception object yet
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 2 - Runaway multiline is an error, no exception object yet
+ok 3 - indention of heredocs
+# (1)
+ok 4 - Indention stripped to end delimiter indention
+ok 5 - no interpolation by
+# default
+ok 6 - :c enables closure compilation
+ok 7 - heredocs with qq interpolate

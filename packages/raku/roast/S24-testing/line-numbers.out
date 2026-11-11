@@ -1,0 +1,16 @@
+1..15
+ok 1 - failing test with cmp-ok reports correct line number 9
+ok 2 - failing test with dies-ok reports correct line number 9
+ok 3 - failing test with eval-dies-ok reports correct line number 9
+ok 4 - failing test with eval-lives-ok reports correct line number 9
+ok 5 - failing test with isa-ok reports correct line number 9
+ok 6 - failing test with is-approx reports correct line number 9
+ok 7 - failing test with is-deeply reports correct line number 9
+ok 8 - failing test with isnt reports correct line number 9
+ok 9 - failing test with is reports correct line number 9
+ok 10 - failing test with lives-ok reports correct line number 9
+ok 11 - failing test with nok reports correct line number 9
+ok 12 - failing test with ok reports correct line number 9
+ok 13 - failing test with throws-like reports correct line number 9
+ok 14 - failing test with foo-ok reports correct line number 11
+ok 15 - failing test with bar-ok reports correct line number 12

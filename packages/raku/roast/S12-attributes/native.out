@@ -1,0 +1,61 @@
+1..49
+ok 1 - Can read ro int attr default value
+ok 2 - Can read ro num attr default value
+ok 3 - Can read ro str attr default value
+ok 4 - Cannot write to native int ro attr
+ok 5 - Cannot write to native num ro attr
+ok 6 - Cannot write to native str ro attr
+ok 7 - Can read rw int attr default value
+ok 8 - Can read rw num attr default value
+ok 9 - Can read rw str attr default value
+ok 10 - Can write to native int rw attr
+ok 11 - Can write to native num rw attr
+ok 12 - Can write to native str rw attr
+ok 13 - Can read back rw int attr changed value
+ok 14 - Can read back rw num attr changed value
+ok 15 - Can read back rw str attr changed value
+ok 16 - Attributes really updated
+ok 17 - Cannot update int rw attr with non-int (1)
+ok 18 - Cannot update int rw attr with non-int (2)
+ok 19 - Cannot update num rw attr with non-num (1)
+ok 20 - Cannot update num rw attr with non-num (2)
+ok 21 - Cannot update str rw attr with non-str (1)
+ok 22 - Cannot update str rw attr with non-str (2)
+ok 23 - Can read ro int attr value from constructor
+ok 24 - Can read ro num attr value from constructor
+ok 25 - Can read ro str attr value from constructor
+ok 26 - Can read rw int attr value from constructor
+ok 27 - Can read rw num attr value from constructor
+ok 28 - Can read rw str attr value from constructor
+ok 29 - Can write to native int rw attr set by constructor
+ok 30 - Can write to native num rw attr set by constructor
+ok 31 - Can write to native str rw attr set by constructor
+ok 32 - Can read back rw int attr changed value
+ok 33 - Can read back rw num attr changed value
+ok 34 - Can read back rw str attr changed value
+ok 35 - Attributes really updated
+ok 36 - Non-twigil native attr defaults work
+ok 37 - Can set non-twigil native int attr
+ok 38 - The update took effect
+ok 39 - Can set non-twigil native num attr
+ok 40 - The update took effect
+ok 41 - Can set non-twigil native str attr
+ok 42 - The update took effect
+# Subtest: did we throws-like X::Syntax::NoSelf?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::NoSelf)
+ok 43 - did we throws-like X::Syntax::NoSelf?
+ok 44 - uint64 native attribute accessor works
+ok 45 - uint64 native attribute use in method works
+ok 46 - large unsigned ints
+ok 47 - unsigned int sanity
+ok 48 - large unsigned ints
+# Subtest: ops on native attributes
+    1..5
+    ok 1 - run 1
+    ok 2 - run 2
+    ok 3 - run 3
+    ok 4 - run 4
+    ok 5 - run 5
+ok 49 - ops on native attributes

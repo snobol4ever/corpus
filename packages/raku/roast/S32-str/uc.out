@@ -1,0 +1,21 @@
+1..20
+ok 1 - simple
+ok 2 - empty string
+ok 3 - some finnish non-ascii chars
+ok 4 - uc of German Umlauts
+ok 5 - accented chars
+ok 6 - uc/lc test
+ok 7 - uc uses the default $_
+ok 8 - $x.uc works
+ok 9 - "Hello World".uc works
+ok 10 - uc() of non-ascii chars may result in two chars
+ok 11 - .uc on Hungarian vowels
+ok 12 - .uc on Int
+ok 13 - .tc on Int
+ok 14 - .lc on Int
+ok 15 - ('Nothing much' but A).uc eq 'Nothing much'.uc
+ok 16 - ('Nothing much' but A).lc eq 'Nothing much'.lc
+ok 17 - ('Nothing much' but A).tc eq 'Nothing much'.tc
+ok 18 - Correct uppercasing of char with no precomposed upper
+ok 19 - Char with no precomposed upper gets NFG'd so upper is one grapheme
+ok 20 - Uppercasing works even with prepend codepoints

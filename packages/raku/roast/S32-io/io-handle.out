@@ -1,0 +1,143 @@
+1..30
+ok 1 - buffer is flushed when IO handle is closed
+ok 2 - Changing input-line-separator works for .lines
+ok 3 - .path turns Str :path to IO::Path
+ok 4 - .path has right value (Str :path)
+ok 5 - .IO turns Str :path to IO::Path
+ok 6 - .IO has right value (Str :path)
+ok 7 - .Str returns Str :path as Str
+ok 8 - .path keeps IO::Path :path as IO::Path
+ok 9 - .path has right value (IO::Path :path)
+ok 10 - .IO keeps IO::Path :path as IO::Path
+ok 11 - .IO has right value (IO::Path :path)
+ok 12 - .Str returns IO::Path :path as Str
+ok 13 - can non-explosively .slurp(:close) a pipe with failed Proc
+ok 14 - can call .close an already-closed handle
+ok 15 - .DESTROY closes handles
+ok 16 - `for IO::Handle` {...} iterates over 1 handle
+# Subtest: iterator-producing read methods not affected by internal chunking
+    1..10
+    ok 1 - .lines on IO::Path
+    ok 2 - .words on IO::Path
+    ok 3 - .comb(Regex) on IO::Path
+    ok 4 - .comb(Int) on IO::Path
+    ok 5 - .split on IO::Path
+    ok 6 - .lines on IO::Handle
+    ok 7 - .words on IO::Handle
+    ok 8 - .comb(Regex) on IO::Handle
+    ok 9 - .comb(Int) on IO::Handle
+    ok 10 - .split on IO::Handle
+ok 17 - iterator-producing read methods not affected by internal chunking
+# Subtest: .flush
+    1..2
+    ok 1 - content was flushed
+    # Subtest: fails with correct exception
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Flush)
+        ok 2 - Failure threw when sunk
+    ok 2 - fails with correct exception
+ok 18 - .flush
+# Subtest: .t returns True for TTY
+    1..1
+    ok 1 - # SKIP could not figure out how to get a TTY handle
+ok 19 - .t returns True for TTY
+# Subtest: .nl-in attribute
+    1..4
+    ok 1 - return value (Str)
+    ok 2 - attribute got set (Str)
+    ok 3 - return value (Array)
+    ok 4 - attribute got set (Array)
+ok 20 - .nl-in attribute
+# Subtest: .encoding attribute
+    1..4
+    ok 1 - return value
+    ok 2 - attribute got set
+    ok 3 - return value (bin)
+    ok 4 - attribute got set (bin)
+ok 21 - .encoding attribute
+# Subtest: .say method
+    1..25
+    ok 1 - \()
+    ok 2 - \("foo")
+    ok 3 - \(("a", "b", "c"))
+    ok 4 - \(1, 2, 3)
+    ok 5 - \((Mu, Foo, <anon|1>, 1, 2, [3, 5, ("foos",).Seq], {:meow("bar")}, :bar(42)))
+    ok 6 - \() :nl-out("")
+    ok 7 - \("foo") :nl-out("")
+    ok 8 - \(("a", "b", "c")) :nl-out("")
+    ok 9 - \(1, 2, 3) :nl-out("")
+    ok 10 - \((Mu, Foo, <anon|1>, 1, 2, [3, 5, ("foos",).Seq], {:meow("bar")}, :bar(42))) :nl-out("")
+    ok 11 - \() :nl-out("foos")
+    ok 12 - \("foo") :nl-out("foos")
+    ok 13 - \(("a", "b", "c")) :nl-out("foos")
+    ok 14 - \(1, 2, 3) :nl-out("foos")
+    ok 15 - \((Mu, Foo, <anon|1>, 1, 2, [3, 5, ("foos",).Seq], {:meow("bar")}, :bar(42))) :nl-out("foos")
+    ok 16 - \() :nl-out("♥")
+    ok 17 - \("foo") :nl-out("♥")
+    ok 18 - \(("a", "b", "c")) :nl-out("♥")
+    ok 19 - \(1, 2, 3) :nl-out("♥")
+    ok 20 - \((Mu, Foo, <anon|1>, 1, 2, [3, 5, ("foos",).Seq], {:meow("bar")}, :bar(42))) :nl-out("♥")
+    ok 21 - \() :nl-out("\n")
+    ok 22 - \("foo") :nl-out("\n")
+    ok 23 - \(("a", "b", "c")) :nl-out("\n")
+    ok 24 - \(1, 2, 3) :nl-out("\n")
+    ok 25 - \((Mu, Foo, <anon|1>, 1, 2, [3, 5, ("foos",).Seq], {:meow("bar")}, :bar(42))) :nl-out("\n")
+ok 22 - .say method
+# Subtest: .print-nl method
+    1..4
+    ok 1 - defaults
+    ok 2 - :nl-out set to ♥
+    ok 3 - :nl-out set to a string
+    ok 4 - :nl-out set via .open, then via attribute assignment
+ok 23 - .print-nl method
+ok 24 - ASCII decode/encode dies with a catchable exception
+ok 25 - closing after a decode error should work
+ok 26 - No spurious malformed UTF-8 error
+# Subtest: opened filehandles get closed on exit automatically
+    1..2
+    ok 1 - written into a file without closing
+    ok 2 - file has all the content we wrote into it
+ok 27 - opened filehandles get closed on exit automatically
+ok 28 - .nl-in in subclasses has same as base class
+# Subtest: .WRITE method
+    1..1
+    ok 1 - all writing methods work
+ok 29 - .WRITE method
+# Subtest: .EOF/.WRITE methods
+    1..31
+    ok 1 - eof before .slurp
+    ok 2 - .slurp
+    ok 3 - eof after .slurp
+    ok 4 - .lines
+    ok 5 - eof after .lines
+    ok 6 - .lines with custom nl-in
+    ok 7 - eof after .lines with custom nl-in
+    ok 8 - .words
+    ok 9 - eof after .words
+    ok 10 - .split
+    ok 11 - eof after .split
+    ok 12 - .comb
+    ok 13 - eof after .comb
+    ok 14 - first .get
+    ok 15 - eof after first .get
+    ok 16 - second .get
+    ok 17 - eof after second .get
+    ok 18 - third .get
+    ok 19 - eof after third .get
+    ok 20 - data from five .getc calls
+    ok 21 - eof after five .getc calls
+    ok 22 - "slurp" of rest of data with .getc calls
+    ok 23 - .eof after "slurp" of rest of data with .getc calls
+    ok 24 - data from .readchars call
+    ok 25 - eof after .readchars call
+    ok 26 - "slurp" of rest of data with .readchars call
+    ok 27 - .eof after "slurp" of rest of data with .readchars call
+    ok 28 - data from .read call
+    ok 29 - eof after .readchars call
+    ok 30 - "slurp" of rest of data with .read call
+    ok 31 - .eof after "slurp" of rest of data with .read call
+ok 30 - .EOF/.WRITE methods

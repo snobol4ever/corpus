@@ -1,0 +1,1441 @@
+1..72
+# Subtest: tests for int range
+    1..17
+    ok 1 - int range: pull-one until exhausted
+    ok 2 - int range: push-exactly until exhausted
+    ok 3 - int range: push-at-least until exhausted
+    ok 4 - int range: does push-all return IterationEnd
+    ok 5 - int range: push-all
+    ok 6 - int range: does push-until-lazy return IterationEnd
+    ok 7 - int range: push-until-lazy
+    ok 8 - int range: does sink-all return IterationEnd
+    ok 9 - int range: skip-one until exhausted
+    ok 10 - int range: skip-at-least except last
+    ok 11 - int range: skip-at-least check last value
+    ok 12 - int range: did skip-at-least after pull-one exhaust?
+    ok 13 - int range: skip-at-least-pull-one last
+    ok 14 - int range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int range: count-only
+    ok 16 - int range: bool-only
+    ok 17 - int range: count/bool-only didn't pull
+ok 1 - tests for int range
+# Subtest: tests for int range.kv
+    1..17
+    ok 1 - int range.kv: pull-one until exhausted
+    ok 2 - int range.kv: push-exactly until exhausted
+    ok 3 - int range.kv: push-at-least until exhausted
+    ok 4 - int range.kv: does push-all return IterationEnd
+    ok 5 - int range.kv: push-all
+    ok 6 - int range.kv: does push-until-lazy return IterationEnd
+    ok 7 - int range.kv: push-until-lazy
+    ok 8 - int range.kv: does sink-all return IterationEnd
+    ok 9 - int range.kv: skip-one until exhausted
+    ok 10 - int range.kv: skip-at-least except last
+    ok 11 - int range.kv: skip-at-least check last value
+    ok 12 - int range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - int range.kv: skip-at-least-pull-one last
+    ok 14 - int range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int range.kv: doesn't support count-only
+    ok 16 - int range.kv: doesn't support bool-only
+    ok 17 - int range.kv: count/bool-only didn't pull
+ok 2 - tests for int range.kv
+# Subtest: tests for int range.keys
+    1..17
+    ok 1 - int range.keys: pull-one until exhausted
+    ok 2 - int range.keys: push-exactly until exhausted
+    ok 3 - int range.keys: push-at-least until exhausted
+    ok 4 - int range.keys: does push-all return IterationEnd
+    ok 5 - int range.keys: push-all
+    ok 6 - int range.keys: does push-until-lazy return IterationEnd
+    ok 7 - int range.keys: push-until-lazy
+    ok 8 - int range.keys: does sink-all return IterationEnd
+    ok 9 - int range.keys: skip-one until exhausted
+    ok 10 - int range.keys: skip-at-least except last
+    ok 11 - int range.keys: skip-at-least check last value
+    ok 12 - int range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - int range.keys: skip-at-least-pull-one last
+    ok 14 - int range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int range.keys: count-only
+    ok 16 - int range.keys: bool-only
+    ok 17 - int range.keys: count/bool-only didn't pull
+ok 3 - tests for int range.keys
+# Subtest: tests for int range.values
+    1..17
+    ok 1 - int range.values: pull-one until exhausted
+    ok 2 - int range.values: push-exactly until exhausted
+    ok 3 - int range.values: push-at-least until exhausted
+    ok 4 - int range.values: does push-all return IterationEnd
+    ok 5 - int range.values: push-all
+    ok 6 - int range.values: does push-until-lazy return IterationEnd
+    ok 7 - int range.values: push-until-lazy
+    ok 8 - int range.values: does sink-all return IterationEnd
+    ok 9 - int range.values: skip-one until exhausted
+    ok 10 - int range.values: skip-at-least except last
+    ok 11 - int range.values: skip-at-least check last value
+    ok 12 - int range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - int range.values: skip-at-least-pull-one last
+    ok 14 - int range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int range.values: doesn't support count-only
+    ok 16 - int range.values: doesn't support bool-only
+    ok 17 - int range.values: count/bool-only didn't pull
+ok 4 - tests for int range.values
+# Subtest: tests for int range.pairs
+    1..17
+    ok 1 - int range.pairs: pull-one until exhausted
+    ok 2 - int range.pairs: push-exactly until exhausted
+    ok 3 - int range.pairs: push-at-least until exhausted
+    ok 4 - int range.pairs: does push-all return IterationEnd
+    ok 5 - int range.pairs: push-all
+    ok 6 - int range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - int range.pairs: push-until-lazy
+    ok 8 - int range.pairs: does sink-all return IterationEnd
+    ok 9 - int range.pairs: skip-one until exhausted
+    ok 10 - int range.pairs: skip-at-least except last
+    ok 11 - int range.pairs: skip-at-least check last value
+    ok 12 - int range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - int range.pairs: skip-at-least-pull-one last
+    ok 14 - int range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int range.pairs: doesn't support count-only
+    ok 16 - int range.pairs: doesn't support bool-only
+    ok 17 - int range.pairs: count/bool-only didn't pull
+ok 5 - tests for int range.pairs
+# Subtest: tests for int range.antipairs
+    1..17
+    ok 1 - int range.antipairs: pull-one until exhausted
+    ok 2 - int range.antipairs: push-exactly until exhausted
+    ok 3 - int range.antipairs: push-at-least until exhausted
+    ok 4 - int range.antipairs: does push-all return IterationEnd
+    ok 5 - int range.antipairs: push-all
+    ok 6 - int range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - int range.antipairs: push-until-lazy
+    ok 8 - int range.antipairs: does sink-all return IterationEnd
+    ok 9 - int range.antipairs: skip-one until exhausted
+    ok 10 - int range.antipairs: skip-at-least except last
+    ok 11 - int range.antipairs: skip-at-least check last value
+    ok 12 - int range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - int range.antipairs: skip-at-least-pull-one last
+    ok 14 - int range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int range.antipairs: doesn't support count-only
+    ok 16 - int range.antipairs: doesn't support bool-only
+    ok 17 - int range.antipairs: count/bool-only didn't pull
+ok 6 - tests for int range.antipairs
+# Subtest: tests for ^int range
+    1..17
+    ok 1 - ^int range: pull-one until exhausted
+    ok 2 - ^int range: push-exactly until exhausted
+    ok 3 - ^int range: push-at-least until exhausted
+    ok 4 - ^int range: does push-all return IterationEnd
+    ok 5 - ^int range: push-all
+    ok 6 - ^int range: does push-until-lazy return IterationEnd
+    ok 7 - ^int range: push-until-lazy
+    ok 8 - ^int range: does sink-all return IterationEnd
+    ok 9 - ^int range: skip-one until exhausted
+    ok 10 - ^int range: skip-at-least except last
+    ok 11 - ^int range: skip-at-least check last value
+    ok 12 - ^int range: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int range: skip-at-least-pull-one last
+    ok 14 - ^int range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int range: count-only
+    ok 16 - ^int range: bool-only
+    ok 17 - ^int range: count/bool-only didn't pull
+ok 7 - tests for ^int range
+# Subtest: tests for ^int range.kv
+    1..17
+    ok 1 - ^int range.kv: pull-one until exhausted
+    ok 2 - ^int range.kv: push-exactly until exhausted
+    ok 3 - ^int range.kv: push-at-least until exhausted
+    ok 4 - ^int range.kv: does push-all return IterationEnd
+    ok 5 - ^int range.kv: push-all
+    ok 6 - ^int range.kv: does push-until-lazy return IterationEnd
+    ok 7 - ^int range.kv: push-until-lazy
+    ok 8 - ^int range.kv: does sink-all return IterationEnd
+    ok 9 - ^int range.kv: skip-one until exhausted
+    ok 10 - ^int range.kv: skip-at-least except last
+    ok 11 - ^int range.kv: skip-at-least check last value
+    ok 12 - ^int range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int range.kv: skip-at-least-pull-one last
+    ok 14 - ^int range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int range.kv: doesn't support count-only
+    ok 16 - ^int range.kv: doesn't support bool-only
+    ok 17 - ^int range.kv: count/bool-only didn't pull
+ok 8 - tests for ^int range.kv
+# Subtest: tests for ^int range.keys
+    1..17
+    ok 1 - ^int range.keys: pull-one until exhausted
+    ok 2 - ^int range.keys: push-exactly until exhausted
+    ok 3 - ^int range.keys: push-at-least until exhausted
+    ok 4 - ^int range.keys: does push-all return IterationEnd
+    ok 5 - ^int range.keys: push-all
+    ok 6 - ^int range.keys: does push-until-lazy return IterationEnd
+    ok 7 - ^int range.keys: push-until-lazy
+    ok 8 - ^int range.keys: does sink-all return IterationEnd
+    ok 9 - ^int range.keys: skip-one until exhausted
+    ok 10 - ^int range.keys: skip-at-least except last
+    ok 11 - ^int range.keys: skip-at-least check last value
+    ok 12 - ^int range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int range.keys: skip-at-least-pull-one last
+    ok 14 - ^int range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int range.keys: count-only
+    ok 16 - ^int range.keys: bool-only
+    ok 17 - ^int range.keys: count/bool-only didn't pull
+ok 9 - tests for ^int range.keys
+# Subtest: tests for ^int range.values
+    1..17
+    ok 1 - ^int range.values: pull-one until exhausted
+    ok 2 - ^int range.values: push-exactly until exhausted
+    ok 3 - ^int range.values: push-at-least until exhausted
+    ok 4 - ^int range.values: does push-all return IterationEnd
+    ok 5 - ^int range.values: push-all
+    ok 6 - ^int range.values: does push-until-lazy return IterationEnd
+    ok 7 - ^int range.values: push-until-lazy
+    ok 8 - ^int range.values: does sink-all return IterationEnd
+    ok 9 - ^int range.values: skip-one until exhausted
+    ok 10 - ^int range.values: skip-at-least except last
+    ok 11 - ^int range.values: skip-at-least check last value
+    ok 12 - ^int range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int range.values: skip-at-least-pull-one last
+    ok 14 - ^int range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int range.values: doesn't support count-only
+    ok 16 - ^int range.values: doesn't support bool-only
+    ok 17 - ^int range.values: count/bool-only didn't pull
+ok 10 - tests for ^int range.values
+# Subtest: tests for ^int range.pairs
+    1..17
+    ok 1 - ^int range.pairs: pull-one until exhausted
+    ok 2 - ^int range.pairs: push-exactly until exhausted
+    ok 3 - ^int range.pairs: push-at-least until exhausted
+    ok 4 - ^int range.pairs: does push-all return IterationEnd
+    ok 5 - ^int range.pairs: push-all
+    ok 6 - ^int range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - ^int range.pairs: push-until-lazy
+    ok 8 - ^int range.pairs: does sink-all return IterationEnd
+    ok 9 - ^int range.pairs: skip-one until exhausted
+    ok 10 - ^int range.pairs: skip-at-least except last
+    ok 11 - ^int range.pairs: skip-at-least check last value
+    ok 12 - ^int range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int range.pairs: skip-at-least-pull-one last
+    ok 14 - ^int range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int range.pairs: doesn't support count-only
+    ok 16 - ^int range.pairs: doesn't support bool-only
+    ok 17 - ^int range.pairs: count/bool-only didn't pull
+ok 11 - tests for ^int range.pairs
+# Subtest: tests for ^int range.antipairs
+    1..17
+    ok 1 - ^int range.antipairs: pull-one until exhausted
+    ok 2 - ^int range.antipairs: push-exactly until exhausted
+    ok 3 - ^int range.antipairs: push-at-least until exhausted
+    ok 4 - ^int range.antipairs: does push-all return IterationEnd
+    ok 5 - ^int range.antipairs: push-all
+    ok 6 - ^int range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - ^int range.antipairs: push-until-lazy
+    ok 8 - ^int range.antipairs: does sink-all return IterationEnd
+    ok 9 - ^int range.antipairs: skip-one until exhausted
+    ok 10 - ^int range.antipairs: skip-at-least except last
+    ok 11 - ^int range.antipairs: skip-at-least check last value
+    ok 12 - ^int range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int range.antipairs: skip-at-least-pull-one last
+    ok 14 - ^int range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int range.antipairs: doesn't support count-only
+    ok 16 - ^int range.antipairs: doesn't support bool-only
+    ok 17 - ^int range.antipairs: count/bool-only didn't pull
+ok 12 - tests for ^int range.antipairs
+# Subtest: tests for int^ range
+    1..17
+    ok 1 - int^ range: pull-one until exhausted
+    ok 2 - int^ range: push-exactly until exhausted
+    ok 3 - int^ range: push-at-least until exhausted
+    ok 4 - int^ range: does push-all return IterationEnd
+    ok 5 - int^ range: push-all
+    ok 6 - int^ range: does push-until-lazy return IterationEnd
+    ok 7 - int^ range: push-until-lazy
+    ok 8 - int^ range: does sink-all return IterationEnd
+    ok 9 - int^ range: skip-one until exhausted
+    ok 10 - int^ range: skip-at-least except last
+    ok 11 - int^ range: skip-at-least check last value
+    ok 12 - int^ range: did skip-at-least after pull-one exhaust?
+    ok 13 - int^ range: skip-at-least-pull-one last
+    ok 14 - int^ range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int^ range: count-only
+    ok 16 - int^ range: bool-only
+    ok 17 - int^ range: count/bool-only didn't pull
+ok 13 - tests for int^ range
+# Subtest: tests for int^ range.kv
+    1..17
+    ok 1 - int^ range.kv: pull-one until exhausted
+    ok 2 - int^ range.kv: push-exactly until exhausted
+    ok 3 - int^ range.kv: push-at-least until exhausted
+    ok 4 - int^ range.kv: does push-all return IterationEnd
+    ok 5 - int^ range.kv: push-all
+    ok 6 - int^ range.kv: does push-until-lazy return IterationEnd
+    ok 7 - int^ range.kv: push-until-lazy
+    ok 8 - int^ range.kv: does sink-all return IterationEnd
+    ok 9 - int^ range.kv: skip-one until exhausted
+    ok 10 - int^ range.kv: skip-at-least except last
+    ok 11 - int^ range.kv: skip-at-least check last value
+    ok 12 - int^ range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - int^ range.kv: skip-at-least-pull-one last
+    ok 14 - int^ range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int^ range.kv: doesn't support count-only
+    ok 16 - int^ range.kv: doesn't support bool-only
+    ok 17 - int^ range.kv: count/bool-only didn't pull
+ok 14 - tests for int^ range.kv
+# Subtest: tests for int^ range.keys
+    1..17
+    ok 1 - int^ range.keys: pull-one until exhausted
+    ok 2 - int^ range.keys: push-exactly until exhausted
+    ok 3 - int^ range.keys: push-at-least until exhausted
+    ok 4 - int^ range.keys: does push-all return IterationEnd
+    ok 5 - int^ range.keys: push-all
+    ok 6 - int^ range.keys: does push-until-lazy return IterationEnd
+    ok 7 - int^ range.keys: push-until-lazy
+    ok 8 - int^ range.keys: does sink-all return IterationEnd
+    ok 9 - int^ range.keys: skip-one until exhausted
+    ok 10 - int^ range.keys: skip-at-least except last
+    ok 11 - int^ range.keys: skip-at-least check last value
+    ok 12 - int^ range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - int^ range.keys: skip-at-least-pull-one last
+    ok 14 - int^ range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int^ range.keys: count-only
+    ok 16 - int^ range.keys: bool-only
+    ok 17 - int^ range.keys: count/bool-only didn't pull
+ok 15 - tests for int^ range.keys
+# Subtest: tests for int^ range.values
+    1..17
+    ok 1 - int^ range.values: pull-one until exhausted
+    ok 2 - int^ range.values: push-exactly until exhausted
+    ok 3 - int^ range.values: push-at-least until exhausted
+    ok 4 - int^ range.values: does push-all return IterationEnd
+    ok 5 - int^ range.values: push-all
+    ok 6 - int^ range.values: does push-until-lazy return IterationEnd
+    ok 7 - int^ range.values: push-until-lazy
+    ok 8 - int^ range.values: does sink-all return IterationEnd
+    ok 9 - int^ range.values: skip-one until exhausted
+    ok 10 - int^ range.values: skip-at-least except last
+    ok 11 - int^ range.values: skip-at-least check last value
+    ok 12 - int^ range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - int^ range.values: skip-at-least-pull-one last
+    ok 14 - int^ range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int^ range.values: doesn't support count-only
+    ok 16 - int^ range.values: doesn't support bool-only
+    ok 17 - int^ range.values: count/bool-only didn't pull
+ok 16 - tests for int^ range.values
+# Subtest: tests for int^ range.pairs
+    1..17
+    ok 1 - int^ range.pairs: pull-one until exhausted
+    ok 2 - int^ range.pairs: push-exactly until exhausted
+    ok 3 - int^ range.pairs: push-at-least until exhausted
+    ok 4 - int^ range.pairs: does push-all return IterationEnd
+    ok 5 - int^ range.pairs: push-all
+    ok 6 - int^ range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - int^ range.pairs: push-until-lazy
+    ok 8 - int^ range.pairs: does sink-all return IterationEnd
+    ok 9 - int^ range.pairs: skip-one until exhausted
+    ok 10 - int^ range.pairs: skip-at-least except last
+    ok 11 - int^ range.pairs: skip-at-least check last value
+    ok 12 - int^ range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - int^ range.pairs: skip-at-least-pull-one last
+    ok 14 - int^ range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int^ range.pairs: doesn't support count-only
+    ok 16 - int^ range.pairs: doesn't support bool-only
+    ok 17 - int^ range.pairs: count/bool-only didn't pull
+ok 17 - tests for int^ range.pairs
+# Subtest: tests for int^ range.antipairs
+    1..17
+    ok 1 - int^ range.antipairs: pull-one until exhausted
+    ok 2 - int^ range.antipairs: push-exactly until exhausted
+    ok 3 - int^ range.antipairs: push-at-least until exhausted
+    ok 4 - int^ range.antipairs: does push-all return IterationEnd
+    ok 5 - int^ range.antipairs: push-all
+    ok 6 - int^ range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - int^ range.antipairs: push-until-lazy
+    ok 8 - int^ range.antipairs: does sink-all return IterationEnd
+    ok 9 - int^ range.antipairs: skip-one until exhausted
+    ok 10 - int^ range.antipairs: skip-at-least except last
+    ok 11 - int^ range.antipairs: skip-at-least check last value
+    ok 12 - int^ range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - int^ range.antipairs: skip-at-least-pull-one last
+    ok 14 - int^ range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - int^ range.antipairs: doesn't support count-only
+    ok 16 - int^ range.antipairs: doesn't support bool-only
+    ok 17 - int^ range.antipairs: count/bool-only didn't pull
+ok 18 - tests for int^ range.antipairs
+# Subtest: tests for ^int^ range
+    1..17
+    ok 1 - ^int^ range: pull-one until exhausted
+    ok 2 - ^int^ range: push-exactly until exhausted
+    ok 3 - ^int^ range: push-at-least until exhausted
+    ok 4 - ^int^ range: does push-all return IterationEnd
+    ok 5 - ^int^ range: push-all
+    ok 6 - ^int^ range: does push-until-lazy return IterationEnd
+    ok 7 - ^int^ range: push-until-lazy
+    ok 8 - ^int^ range: does sink-all return IterationEnd
+    ok 9 - ^int^ range: skip-one until exhausted
+    ok 10 - ^int^ range: skip-at-least except last
+    ok 11 - ^int^ range: skip-at-least check last value
+    ok 12 - ^int^ range: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int^ range: skip-at-least-pull-one last
+    ok 14 - ^int^ range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int^ range: count-only
+    ok 16 - ^int^ range: bool-only
+    ok 17 - ^int^ range: count/bool-only didn't pull
+ok 19 - tests for ^int^ range
+# Subtest: tests for ^int^ range.kv
+    1..17
+    ok 1 - ^int^ range.kv: pull-one until exhausted
+    ok 2 - ^int^ range.kv: push-exactly until exhausted
+    ok 3 - ^int^ range.kv: push-at-least until exhausted
+    ok 4 - ^int^ range.kv: does push-all return IterationEnd
+    ok 5 - ^int^ range.kv: push-all
+    ok 6 - ^int^ range.kv: does push-until-lazy return IterationEnd
+    ok 7 - ^int^ range.kv: push-until-lazy
+    ok 8 - ^int^ range.kv: does sink-all return IterationEnd
+    ok 9 - ^int^ range.kv: skip-one until exhausted
+    ok 10 - ^int^ range.kv: skip-at-least except last
+    ok 11 - ^int^ range.kv: skip-at-least check last value
+    ok 12 - ^int^ range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int^ range.kv: skip-at-least-pull-one last
+    ok 14 - ^int^ range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int^ range.kv: doesn't support count-only
+    ok 16 - ^int^ range.kv: doesn't support bool-only
+    ok 17 - ^int^ range.kv: count/bool-only didn't pull
+ok 20 - tests for ^int^ range.kv
+# Subtest: tests for ^int^ range.keys
+    1..17
+    ok 1 - ^int^ range.keys: pull-one until exhausted
+    ok 2 - ^int^ range.keys: push-exactly until exhausted
+    ok 3 - ^int^ range.keys: push-at-least until exhausted
+    ok 4 - ^int^ range.keys: does push-all return IterationEnd
+    ok 5 - ^int^ range.keys: push-all
+    ok 6 - ^int^ range.keys: does push-until-lazy return IterationEnd
+    ok 7 - ^int^ range.keys: push-until-lazy
+    ok 8 - ^int^ range.keys: does sink-all return IterationEnd
+    ok 9 - ^int^ range.keys: skip-one until exhausted
+    ok 10 - ^int^ range.keys: skip-at-least except last
+    ok 11 - ^int^ range.keys: skip-at-least check last value
+    ok 12 - ^int^ range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int^ range.keys: skip-at-least-pull-one last
+    ok 14 - ^int^ range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int^ range.keys: count-only
+    ok 16 - ^int^ range.keys: bool-only
+    ok 17 - ^int^ range.keys: count/bool-only didn't pull
+ok 21 - tests for ^int^ range.keys
+# Subtest: tests for ^int^ range.values
+    1..17
+    ok 1 - ^int^ range.values: pull-one until exhausted
+    ok 2 - ^int^ range.values: push-exactly until exhausted
+    ok 3 - ^int^ range.values: push-at-least until exhausted
+    ok 4 - ^int^ range.values: does push-all return IterationEnd
+    ok 5 - ^int^ range.values: push-all
+    ok 6 - ^int^ range.values: does push-until-lazy return IterationEnd
+    ok 7 - ^int^ range.values: push-until-lazy
+    ok 8 - ^int^ range.values: does sink-all return IterationEnd
+    ok 9 - ^int^ range.values: skip-one until exhausted
+    ok 10 - ^int^ range.values: skip-at-least except last
+    ok 11 - ^int^ range.values: skip-at-least check last value
+    ok 12 - ^int^ range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int^ range.values: skip-at-least-pull-one last
+    ok 14 - ^int^ range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int^ range.values: doesn't support count-only
+    ok 16 - ^int^ range.values: doesn't support bool-only
+    ok 17 - ^int^ range.values: count/bool-only didn't pull
+ok 22 - tests for ^int^ range.values
+# Subtest: tests for ^int^ range.pairs
+    1..17
+    ok 1 - ^int^ range.pairs: pull-one until exhausted
+    ok 2 - ^int^ range.pairs: push-exactly until exhausted
+    ok 3 - ^int^ range.pairs: push-at-least until exhausted
+    ok 4 - ^int^ range.pairs: does push-all return IterationEnd
+    ok 5 - ^int^ range.pairs: push-all
+    ok 6 - ^int^ range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - ^int^ range.pairs: push-until-lazy
+    ok 8 - ^int^ range.pairs: does sink-all return IterationEnd
+    ok 9 - ^int^ range.pairs: skip-one until exhausted
+    ok 10 - ^int^ range.pairs: skip-at-least except last
+    ok 11 - ^int^ range.pairs: skip-at-least check last value
+    ok 12 - ^int^ range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int^ range.pairs: skip-at-least-pull-one last
+    ok 14 - ^int^ range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int^ range.pairs: doesn't support count-only
+    ok 16 - ^int^ range.pairs: doesn't support bool-only
+    ok 17 - ^int^ range.pairs: count/bool-only didn't pull
+ok 23 - tests for ^int^ range.pairs
+# Subtest: tests for ^int^ range.antipairs
+    1..17
+    ok 1 - ^int^ range.antipairs: pull-one until exhausted
+    ok 2 - ^int^ range.antipairs: push-exactly until exhausted
+    ok 3 - ^int^ range.antipairs: push-at-least until exhausted
+    ok 4 - ^int^ range.antipairs: does push-all return IterationEnd
+    ok 5 - ^int^ range.antipairs: push-all
+    ok 6 - ^int^ range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - ^int^ range.antipairs: push-until-lazy
+    ok 8 - ^int^ range.antipairs: does sink-all return IterationEnd
+    ok 9 - ^int^ range.antipairs: skip-one until exhausted
+    ok 10 - ^int^ range.antipairs: skip-at-least except last
+    ok 11 - ^int^ range.antipairs: skip-at-least check last value
+    ok 12 - ^int^ range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^int^ range.antipairs: skip-at-least-pull-one last
+    ok 14 - ^int^ range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^int^ range.antipairs: doesn't support count-only
+    ok 16 - ^int^ range.antipairs: doesn't support bool-only
+    ok 17 - ^int^ range.antipairs: count/bool-only didn't pull
+ok 24 - tests for ^int^ range.antipairs
+# Subtest: tests for string range
+    1..17
+    ok 1 - string range: pull-one until exhausted
+    ok 2 - string range: push-exactly until exhausted
+    ok 3 - string range: push-at-least until exhausted
+    ok 4 - string range: does push-all return IterationEnd
+    ok 5 - string range: push-all
+    ok 6 - string range: does push-until-lazy return IterationEnd
+    ok 7 - string range: push-until-lazy
+    ok 8 - string range: does sink-all return IterationEnd
+    ok 9 - string range: skip-one until exhausted
+    ok 10 - string range: skip-at-least except last
+    ok 11 - string range: skip-at-least check last value
+    ok 12 - string range: did skip-at-least after pull-one exhaust?
+    ok 13 - string range: skip-at-least-pull-one last
+    ok 14 - string range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string range: count-only
+    ok 16 - string range: bool-only
+    ok 17 - string range: count/bool-only didn't pull
+ok 25 - tests for string range
+# Subtest: tests for string range.kv
+    1..17
+    ok 1 - string range.kv: pull-one until exhausted
+    ok 2 - string range.kv: push-exactly until exhausted
+    ok 3 - string range.kv: push-at-least until exhausted
+    ok 4 - string range.kv: does push-all return IterationEnd
+    ok 5 - string range.kv: push-all
+    ok 6 - string range.kv: does push-until-lazy return IterationEnd
+    ok 7 - string range.kv: push-until-lazy
+    ok 8 - string range.kv: does sink-all return IterationEnd
+    ok 9 - string range.kv: skip-one until exhausted
+    ok 10 - string range.kv: skip-at-least except last
+    ok 11 - string range.kv: skip-at-least check last value
+    ok 12 - string range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - string range.kv: skip-at-least-pull-one last
+    ok 14 - string range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string range.kv: doesn't support count-only
+    ok 16 - string range.kv: doesn't support bool-only
+    ok 17 - string range.kv: count/bool-only didn't pull
+ok 26 - tests for string range.kv
+# Subtest: tests for string range.keys
+    1..17
+    ok 1 - string range.keys: pull-one until exhausted
+    ok 2 - string range.keys: push-exactly until exhausted
+    ok 3 - string range.keys: push-at-least until exhausted
+    ok 4 - string range.keys: does push-all return IterationEnd
+    ok 5 - string range.keys: push-all
+    ok 6 - string range.keys: does push-until-lazy return IterationEnd
+    ok 7 - string range.keys: push-until-lazy
+    ok 8 - string range.keys: does sink-all return IterationEnd
+    ok 9 - string range.keys: skip-one until exhausted
+    ok 10 - string range.keys: skip-at-least except last
+    ok 11 - string range.keys: skip-at-least check last value
+    ok 12 - string range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - string range.keys: skip-at-least-pull-one last
+    ok 14 - string range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string range.keys: count-only
+    ok 16 - string range.keys: bool-only
+    ok 17 - string range.keys: count/bool-only didn't pull
+ok 27 - tests for string range.keys
+# Subtest: tests for string range.values
+    1..17
+    ok 1 - string range.values: pull-one until exhausted
+    ok 2 - string range.values: push-exactly until exhausted
+    ok 3 - string range.values: push-at-least until exhausted
+    ok 4 - string range.values: does push-all return IterationEnd
+    ok 5 - string range.values: push-all
+    ok 6 - string range.values: does push-until-lazy return IterationEnd
+    ok 7 - string range.values: push-until-lazy
+    ok 8 - string range.values: does sink-all return IterationEnd
+    ok 9 - string range.values: skip-one until exhausted
+    ok 10 - string range.values: skip-at-least except last
+    ok 11 - string range.values: skip-at-least check last value
+    ok 12 - string range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - string range.values: skip-at-least-pull-one last
+    ok 14 - string range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string range.values: doesn't support count-only
+    ok 16 - string range.values: doesn't support bool-only
+    ok 17 - string range.values: count/bool-only didn't pull
+ok 28 - tests for string range.values
+# Subtest: tests for string range.pairs
+    1..17
+    ok 1 - string range.pairs: pull-one until exhausted
+    ok 2 - string range.pairs: push-exactly until exhausted
+    ok 3 - string range.pairs: push-at-least until exhausted
+    ok 4 - string range.pairs: does push-all return IterationEnd
+    ok 5 - string range.pairs: push-all
+    ok 6 - string range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - string range.pairs: push-until-lazy
+    ok 8 - string range.pairs: does sink-all return IterationEnd
+    ok 9 - string range.pairs: skip-one until exhausted
+    ok 10 - string range.pairs: skip-at-least except last
+    ok 11 - string range.pairs: skip-at-least check last value
+    ok 12 - string range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - string range.pairs: skip-at-least-pull-one last
+    ok 14 - string range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string range.pairs: doesn't support count-only
+    ok 16 - string range.pairs: doesn't support bool-only
+    ok 17 - string range.pairs: count/bool-only didn't pull
+ok 29 - tests for string range.pairs
+# Subtest: tests for string range.antipairs
+    1..17
+    ok 1 - string range.antipairs: pull-one until exhausted
+    ok 2 - string range.antipairs: push-exactly until exhausted
+    ok 3 - string range.antipairs: push-at-least until exhausted
+    ok 4 - string range.antipairs: does push-all return IterationEnd
+    ok 5 - string range.antipairs: push-all
+    ok 6 - string range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - string range.antipairs: push-until-lazy
+    ok 8 - string range.antipairs: does sink-all return IterationEnd
+    ok 9 - string range.antipairs: skip-one until exhausted
+    ok 10 - string range.antipairs: skip-at-least except last
+    ok 11 - string range.antipairs: skip-at-least check last value
+    ok 12 - string range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - string range.antipairs: skip-at-least-pull-one last
+    ok 14 - string range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string range.antipairs: doesn't support count-only
+    ok 16 - string range.antipairs: doesn't support bool-only
+    ok 17 - string range.antipairs: count/bool-only didn't pull
+ok 30 - tests for string range.antipairs
+# Subtest: tests for ^string range
+    1..17
+    ok 1 - ^string range: pull-one until exhausted
+    ok 2 - ^string range: push-exactly until exhausted
+    ok 3 - ^string range: push-at-least until exhausted
+    ok 4 - ^string range: does push-all return IterationEnd
+    ok 5 - ^string range: push-all
+    ok 6 - ^string range: does push-until-lazy return IterationEnd
+    ok 7 - ^string range: push-until-lazy
+    ok 8 - ^string range: does sink-all return IterationEnd
+    ok 9 - ^string range: skip-one until exhausted
+    ok 10 - ^string range: skip-at-least except last
+    ok 11 - ^string range: skip-at-least check last value
+    ok 12 - ^string range: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string range: skip-at-least-pull-one last
+    ok 14 - ^string range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string range: count-only
+    ok 16 - ^string range: bool-only
+    ok 17 - ^string range: count/bool-only didn't pull
+ok 31 - tests for ^string range
+# Subtest: tests for ^string range.kv
+    1..17
+    ok 1 - ^string range.kv: pull-one until exhausted
+    ok 2 - ^string range.kv: push-exactly until exhausted
+    ok 3 - ^string range.kv: push-at-least until exhausted
+    ok 4 - ^string range.kv: does push-all return IterationEnd
+    ok 5 - ^string range.kv: push-all
+    ok 6 - ^string range.kv: does push-until-lazy return IterationEnd
+    ok 7 - ^string range.kv: push-until-lazy
+    ok 8 - ^string range.kv: does sink-all return IterationEnd
+    ok 9 - ^string range.kv: skip-one until exhausted
+    ok 10 - ^string range.kv: skip-at-least except last
+    ok 11 - ^string range.kv: skip-at-least check last value
+    ok 12 - ^string range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string range.kv: skip-at-least-pull-one last
+    ok 14 - ^string range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string range.kv: doesn't support count-only
+    ok 16 - ^string range.kv: doesn't support bool-only
+    ok 17 - ^string range.kv: count/bool-only didn't pull
+ok 32 - tests for ^string range.kv
+# Subtest: tests for ^string range.keys
+    1..17
+    ok 1 - ^string range.keys: pull-one until exhausted
+    ok 2 - ^string range.keys: push-exactly until exhausted
+    ok 3 - ^string range.keys: push-at-least until exhausted
+    ok 4 - ^string range.keys: does push-all return IterationEnd
+    ok 5 - ^string range.keys: push-all
+    ok 6 - ^string range.keys: does push-until-lazy return IterationEnd
+    ok 7 - ^string range.keys: push-until-lazy
+    ok 8 - ^string range.keys: does sink-all return IterationEnd
+    ok 9 - ^string range.keys: skip-one until exhausted
+    ok 10 - ^string range.keys: skip-at-least except last
+    ok 11 - ^string range.keys: skip-at-least check last value
+    ok 12 - ^string range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string range.keys: skip-at-least-pull-one last
+    ok 14 - ^string range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string range.keys: count-only
+    ok 16 - ^string range.keys: bool-only
+    ok 17 - ^string range.keys: count/bool-only didn't pull
+ok 33 - tests for ^string range.keys
+# Subtest: tests for ^string range.values
+    1..17
+    ok 1 - ^string range.values: pull-one until exhausted
+    ok 2 - ^string range.values: push-exactly until exhausted
+    ok 3 - ^string range.values: push-at-least until exhausted
+    ok 4 - ^string range.values: does push-all return IterationEnd
+    ok 5 - ^string range.values: push-all
+    ok 6 - ^string range.values: does push-until-lazy return IterationEnd
+    ok 7 - ^string range.values: push-until-lazy
+    ok 8 - ^string range.values: does sink-all return IterationEnd
+    ok 9 - ^string range.values: skip-one until exhausted
+    ok 10 - ^string range.values: skip-at-least except last
+    ok 11 - ^string range.values: skip-at-least check last value
+    ok 12 - ^string range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string range.values: skip-at-least-pull-one last
+    ok 14 - ^string range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string range.values: doesn't support count-only
+    ok 16 - ^string range.values: doesn't support bool-only
+    ok 17 - ^string range.values: count/bool-only didn't pull
+ok 34 - tests for ^string range.values
+# Subtest: tests for ^string range.pairs
+    1..17
+    ok 1 - ^string range.pairs: pull-one until exhausted
+    ok 2 - ^string range.pairs: push-exactly until exhausted
+    ok 3 - ^string range.pairs: push-at-least until exhausted
+    ok 4 - ^string range.pairs: does push-all return IterationEnd
+    ok 5 - ^string range.pairs: push-all
+    ok 6 - ^string range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - ^string range.pairs: push-until-lazy
+    ok 8 - ^string range.pairs: does sink-all return IterationEnd
+    ok 9 - ^string range.pairs: skip-one until exhausted
+    ok 10 - ^string range.pairs: skip-at-least except last
+    ok 11 - ^string range.pairs: skip-at-least check last value
+    ok 12 - ^string range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string range.pairs: skip-at-least-pull-one last
+    ok 14 - ^string range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string range.pairs: doesn't support count-only
+    ok 16 - ^string range.pairs: doesn't support bool-only
+    ok 17 - ^string range.pairs: count/bool-only didn't pull
+ok 35 - tests for ^string range.pairs
+# Subtest: tests for ^string range.antipairs
+    1..17
+    ok 1 - ^string range.antipairs: pull-one until exhausted
+    ok 2 - ^string range.antipairs: push-exactly until exhausted
+    ok 3 - ^string range.antipairs: push-at-least until exhausted
+    ok 4 - ^string range.antipairs: does push-all return IterationEnd
+    ok 5 - ^string range.antipairs: push-all
+    ok 6 - ^string range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - ^string range.antipairs: push-until-lazy
+    ok 8 - ^string range.antipairs: does sink-all return IterationEnd
+    ok 9 - ^string range.antipairs: skip-one until exhausted
+    ok 10 - ^string range.antipairs: skip-at-least except last
+    ok 11 - ^string range.antipairs: skip-at-least check last value
+    ok 12 - ^string range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string range.antipairs: skip-at-least-pull-one last
+    ok 14 - ^string range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string range.antipairs: doesn't support count-only
+    ok 16 - ^string range.antipairs: doesn't support bool-only
+    ok 17 - ^string range.antipairs: count/bool-only didn't pull
+ok 36 - tests for ^string range.antipairs
+# Subtest: tests for string^ range
+    1..17
+    ok 1 - string^ range: pull-one until exhausted
+    ok 2 - string^ range: push-exactly until exhausted
+    ok 3 - string^ range: push-at-least until exhausted
+    ok 4 - string^ range: does push-all return IterationEnd
+    ok 5 - string^ range: push-all
+    ok 6 - string^ range: does push-until-lazy return IterationEnd
+    ok 7 - string^ range: push-until-lazy
+    ok 8 - string^ range: does sink-all return IterationEnd
+    ok 9 - string^ range: skip-one until exhausted
+    ok 10 - string^ range: skip-at-least except last
+    ok 11 - string^ range: skip-at-least check last value
+    ok 12 - string^ range: did skip-at-least after pull-one exhaust?
+    ok 13 - string^ range: skip-at-least-pull-one last
+    ok 14 - string^ range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string^ range: count-only
+    ok 16 - string^ range: bool-only
+    ok 17 - string^ range: count/bool-only didn't pull
+ok 37 - tests for string^ range
+# Subtest: tests for string^ range.kv
+    1..17
+    ok 1 - string^ range.kv: pull-one until exhausted
+    ok 2 - string^ range.kv: push-exactly until exhausted
+    ok 3 - string^ range.kv: push-at-least until exhausted
+    ok 4 - string^ range.kv: does push-all return IterationEnd
+    ok 5 - string^ range.kv: push-all
+    ok 6 - string^ range.kv: does push-until-lazy return IterationEnd
+    ok 7 - string^ range.kv: push-until-lazy
+    ok 8 - string^ range.kv: does sink-all return IterationEnd
+    ok 9 - string^ range.kv: skip-one until exhausted
+    ok 10 - string^ range.kv: skip-at-least except last
+    ok 11 - string^ range.kv: skip-at-least check last value
+    ok 12 - string^ range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - string^ range.kv: skip-at-least-pull-one last
+    ok 14 - string^ range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string^ range.kv: doesn't support count-only
+    ok 16 - string^ range.kv: doesn't support bool-only
+    ok 17 - string^ range.kv: count/bool-only didn't pull
+ok 38 - tests for string^ range.kv
+# Subtest: tests for string^ range.keys
+    1..17
+    ok 1 - string^ range.keys: pull-one until exhausted
+    ok 2 - string^ range.keys: push-exactly until exhausted
+    ok 3 - string^ range.keys: push-at-least until exhausted
+    ok 4 - string^ range.keys: does push-all return IterationEnd
+    ok 5 - string^ range.keys: push-all
+    ok 6 - string^ range.keys: does push-until-lazy return IterationEnd
+    ok 7 - string^ range.keys: push-until-lazy
+    ok 8 - string^ range.keys: does sink-all return IterationEnd
+    ok 9 - string^ range.keys: skip-one until exhausted
+    ok 10 - string^ range.keys: skip-at-least except last
+    ok 11 - string^ range.keys: skip-at-least check last value
+    ok 12 - string^ range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - string^ range.keys: skip-at-least-pull-one last
+    ok 14 - string^ range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string^ range.keys: count-only
+    ok 16 - string^ range.keys: bool-only
+    ok 17 - string^ range.keys: count/bool-only didn't pull
+ok 39 - tests for string^ range.keys
+# Subtest: tests for string^ range.values
+    1..17
+    ok 1 - string^ range.values: pull-one until exhausted
+    ok 2 - string^ range.values: push-exactly until exhausted
+    ok 3 - string^ range.values: push-at-least until exhausted
+    ok 4 - string^ range.values: does push-all return IterationEnd
+    ok 5 - string^ range.values: push-all
+    ok 6 - string^ range.values: does push-until-lazy return IterationEnd
+    ok 7 - string^ range.values: push-until-lazy
+    ok 8 - string^ range.values: does sink-all return IterationEnd
+    ok 9 - string^ range.values: skip-one until exhausted
+    ok 10 - string^ range.values: skip-at-least except last
+    ok 11 - string^ range.values: skip-at-least check last value
+    ok 12 - string^ range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - string^ range.values: skip-at-least-pull-one last
+    ok 14 - string^ range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string^ range.values: doesn't support count-only
+    ok 16 - string^ range.values: doesn't support bool-only
+    ok 17 - string^ range.values: count/bool-only didn't pull
+ok 40 - tests for string^ range.values
+# Subtest: tests for string^ range.pairs
+    1..17
+    ok 1 - string^ range.pairs: pull-one until exhausted
+    ok 2 - string^ range.pairs: push-exactly until exhausted
+    ok 3 - string^ range.pairs: push-at-least until exhausted
+    ok 4 - string^ range.pairs: does push-all return IterationEnd
+    ok 5 - string^ range.pairs: push-all
+    ok 6 - string^ range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - string^ range.pairs: push-until-lazy
+    ok 8 - string^ range.pairs: does sink-all return IterationEnd
+    ok 9 - string^ range.pairs: skip-one until exhausted
+    ok 10 - string^ range.pairs: skip-at-least except last
+    ok 11 - string^ range.pairs: skip-at-least check last value
+    ok 12 - string^ range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - string^ range.pairs: skip-at-least-pull-one last
+    ok 14 - string^ range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string^ range.pairs: doesn't support count-only
+    ok 16 - string^ range.pairs: doesn't support bool-only
+    ok 17 - string^ range.pairs: count/bool-only didn't pull
+ok 41 - tests for string^ range.pairs
+# Subtest: tests for string^ range.antipairs
+    1..17
+    ok 1 - string^ range.antipairs: pull-one until exhausted
+    ok 2 - string^ range.antipairs: push-exactly until exhausted
+    ok 3 - string^ range.antipairs: push-at-least until exhausted
+    ok 4 - string^ range.antipairs: does push-all return IterationEnd
+    ok 5 - string^ range.antipairs: push-all
+    ok 6 - string^ range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - string^ range.antipairs: push-until-lazy
+    ok 8 - string^ range.antipairs: does sink-all return IterationEnd
+    ok 9 - string^ range.antipairs: skip-one until exhausted
+    ok 10 - string^ range.antipairs: skip-at-least except last
+    ok 11 - string^ range.antipairs: skip-at-least check last value
+    ok 12 - string^ range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - string^ range.antipairs: skip-at-least-pull-one last
+    ok 14 - string^ range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - string^ range.antipairs: doesn't support count-only
+    ok 16 - string^ range.antipairs: doesn't support bool-only
+    ok 17 - string^ range.antipairs: count/bool-only didn't pull
+ok 42 - tests for string^ range.antipairs
+# Subtest: tests for ^string^ range
+    1..17
+    ok 1 - ^string^ range: pull-one until exhausted
+    ok 2 - ^string^ range: push-exactly until exhausted
+    ok 3 - ^string^ range: push-at-least until exhausted
+    ok 4 - ^string^ range: does push-all return IterationEnd
+    ok 5 - ^string^ range: push-all
+    ok 6 - ^string^ range: does push-until-lazy return IterationEnd
+    ok 7 - ^string^ range: push-until-lazy
+    ok 8 - ^string^ range: does sink-all return IterationEnd
+    ok 9 - ^string^ range: skip-one until exhausted
+    ok 10 - ^string^ range: skip-at-least except last
+    ok 11 - ^string^ range: skip-at-least check last value
+    ok 12 - ^string^ range: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string^ range: skip-at-least-pull-one last
+    ok 14 - ^string^ range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string^ range: count-only
+    ok 16 - ^string^ range: bool-only
+    ok 17 - ^string^ range: count/bool-only didn't pull
+ok 43 - tests for ^string^ range
+# Subtest: tests for ^string^ range.kv
+    1..17
+    ok 1 - ^string^ range.kv: pull-one until exhausted
+    ok 2 - ^string^ range.kv: push-exactly until exhausted
+    ok 3 - ^string^ range.kv: push-at-least until exhausted
+    ok 4 - ^string^ range.kv: does push-all return IterationEnd
+    ok 5 - ^string^ range.kv: push-all
+    ok 6 - ^string^ range.kv: does push-until-lazy return IterationEnd
+    ok 7 - ^string^ range.kv: push-until-lazy
+    ok 8 - ^string^ range.kv: does sink-all return IterationEnd
+    ok 9 - ^string^ range.kv: skip-one until exhausted
+    ok 10 - ^string^ range.kv: skip-at-least except last
+    ok 11 - ^string^ range.kv: skip-at-least check last value
+    ok 12 - ^string^ range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string^ range.kv: skip-at-least-pull-one last
+    ok 14 - ^string^ range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string^ range.kv: doesn't support count-only
+    ok 16 - ^string^ range.kv: doesn't support bool-only
+    ok 17 - ^string^ range.kv: count/bool-only didn't pull
+ok 44 - tests for ^string^ range.kv
+# Subtest: tests for ^string^ range.keys
+    1..17
+    ok 1 - ^string^ range.keys: pull-one until exhausted
+    ok 2 - ^string^ range.keys: push-exactly until exhausted
+    ok 3 - ^string^ range.keys: push-at-least until exhausted
+    ok 4 - ^string^ range.keys: does push-all return IterationEnd
+    ok 5 - ^string^ range.keys: push-all
+    ok 6 - ^string^ range.keys: does push-until-lazy return IterationEnd
+    ok 7 - ^string^ range.keys: push-until-lazy
+    ok 8 - ^string^ range.keys: does sink-all return IterationEnd
+    ok 9 - ^string^ range.keys: skip-one until exhausted
+    ok 10 - ^string^ range.keys: skip-at-least except last
+    ok 11 - ^string^ range.keys: skip-at-least check last value
+    ok 12 - ^string^ range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string^ range.keys: skip-at-least-pull-one last
+    ok 14 - ^string^ range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string^ range.keys: count-only
+    ok 16 - ^string^ range.keys: bool-only
+    ok 17 - ^string^ range.keys: count/bool-only didn't pull
+ok 45 - tests for ^string^ range.keys
+# Subtest: tests for ^string^ range.values
+    1..17
+    ok 1 - ^string^ range.values: pull-one until exhausted
+    ok 2 - ^string^ range.values: push-exactly until exhausted
+    ok 3 - ^string^ range.values: push-at-least until exhausted
+    ok 4 - ^string^ range.values: does push-all return IterationEnd
+    ok 5 - ^string^ range.values: push-all
+    ok 6 - ^string^ range.values: does push-until-lazy return IterationEnd
+    ok 7 - ^string^ range.values: push-until-lazy
+    ok 8 - ^string^ range.values: does sink-all return IterationEnd
+    ok 9 - ^string^ range.values: skip-one until exhausted
+    ok 10 - ^string^ range.values: skip-at-least except last
+    ok 11 - ^string^ range.values: skip-at-least check last value
+    ok 12 - ^string^ range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string^ range.values: skip-at-least-pull-one last
+    ok 14 - ^string^ range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string^ range.values: doesn't support count-only
+    ok 16 - ^string^ range.values: doesn't support bool-only
+    ok 17 - ^string^ range.values: count/bool-only didn't pull
+ok 46 - tests for ^string^ range.values
+# Subtest: tests for ^string^ range.pairs
+    1..17
+    ok 1 - ^string^ range.pairs: pull-one until exhausted
+    ok 2 - ^string^ range.pairs: push-exactly until exhausted
+    ok 3 - ^string^ range.pairs: push-at-least until exhausted
+    ok 4 - ^string^ range.pairs: does push-all return IterationEnd
+    ok 5 - ^string^ range.pairs: push-all
+    ok 6 - ^string^ range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - ^string^ range.pairs: push-until-lazy
+    ok 8 - ^string^ range.pairs: does sink-all return IterationEnd
+    ok 9 - ^string^ range.pairs: skip-one until exhausted
+    ok 10 - ^string^ range.pairs: skip-at-least except last
+    ok 11 - ^string^ range.pairs: skip-at-least check last value
+    ok 12 - ^string^ range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string^ range.pairs: skip-at-least-pull-one last
+    ok 14 - ^string^ range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string^ range.pairs: doesn't support count-only
+    ok 16 - ^string^ range.pairs: doesn't support bool-only
+    ok 17 - ^string^ range.pairs: count/bool-only didn't pull
+ok 47 - tests for ^string^ range.pairs
+# Subtest: tests for ^string^ range.antipairs
+    1..17
+    ok 1 - ^string^ range.antipairs: pull-one until exhausted
+    ok 2 - ^string^ range.antipairs: push-exactly until exhausted
+    ok 3 - ^string^ range.antipairs: push-at-least until exhausted
+    ok 4 - ^string^ range.antipairs: does push-all return IterationEnd
+    ok 5 - ^string^ range.antipairs: push-all
+    ok 6 - ^string^ range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - ^string^ range.antipairs: push-until-lazy
+    ok 8 - ^string^ range.antipairs: does sink-all return IterationEnd
+    ok 9 - ^string^ range.antipairs: skip-one until exhausted
+    ok 10 - ^string^ range.antipairs: skip-at-least except last
+    ok 11 - ^string^ range.antipairs: skip-at-least check last value
+    ok 12 - ^string^ range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^string^ range.antipairs: skip-at-least-pull-one last
+    ok 14 - ^string^ range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^string^ range.antipairs: doesn't support count-only
+    ok 16 - ^string^ range.antipairs: doesn't support bool-only
+    ok 17 - ^string^ range.antipairs: count/bool-only didn't pull
+ok 48 - tests for ^string^ range.antipairs
+# Subtest: tests for rat range
+    1..17
+    ok 1 - rat range: pull-one until exhausted
+    ok 2 - rat range: push-exactly until exhausted
+    ok 3 - rat range: push-at-least until exhausted
+    ok 4 - rat range: does push-all return IterationEnd
+    ok 5 - rat range: push-all
+    ok 6 - rat range: does push-until-lazy return IterationEnd
+    ok 7 - rat range: push-until-lazy
+    ok 8 - rat range: does sink-all return IterationEnd
+    ok 9 - rat range: skip-one until exhausted
+    ok 10 - rat range: skip-at-least except last
+    ok 11 - rat range: skip-at-least check last value
+    ok 12 - rat range: did skip-at-least after pull-one exhaust?
+    ok 13 - rat range: skip-at-least-pull-one last
+    ok 14 - rat range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat range: doesn't support count-only
+    ok 16 - rat range: doesn't support bool-only
+    ok 17 - rat range: count/bool-only didn't pull
+ok 49 - tests for rat range
+# Subtest: tests for rat range.kv
+    1..17
+    ok 1 - rat range.kv: pull-one until exhausted
+    ok 2 - rat range.kv: push-exactly until exhausted
+    ok 3 - rat range.kv: push-at-least until exhausted
+    ok 4 - rat range.kv: does push-all return IterationEnd
+    ok 5 - rat range.kv: push-all
+    ok 6 - rat range.kv: does push-until-lazy return IterationEnd
+    ok 7 - rat range.kv: push-until-lazy
+    ok 8 - rat range.kv: does sink-all return IterationEnd
+    ok 9 - rat range.kv: skip-one until exhausted
+    ok 10 - rat range.kv: skip-at-least except last
+    ok 11 - rat range.kv: skip-at-least check last value
+    ok 12 - rat range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - rat range.kv: skip-at-least-pull-one last
+    ok 14 - rat range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat range.kv: doesn't support count-only
+    ok 16 - rat range.kv: doesn't support bool-only
+    ok 17 - rat range.kv: count/bool-only didn't pull
+ok 50 - tests for rat range.kv
+# Subtest: tests for rat range.keys
+    1..17
+    ok 1 - rat range.keys: pull-one until exhausted
+    ok 2 - rat range.keys: push-exactly until exhausted
+    ok 3 - rat range.keys: push-at-least until exhausted
+    ok 4 - rat range.keys: does push-all return IterationEnd
+    ok 5 - rat range.keys: push-all
+    ok 6 - rat range.keys: does push-until-lazy return IterationEnd
+    ok 7 - rat range.keys: push-until-lazy
+    ok 8 - rat range.keys: does sink-all return IterationEnd
+    ok 9 - rat range.keys: skip-one until exhausted
+    ok 10 - rat range.keys: skip-at-least except last
+    ok 11 - rat range.keys: skip-at-least check last value
+    ok 12 - rat range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - rat range.keys: skip-at-least-pull-one last
+    ok 14 - rat range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat range.keys: count-only
+    ok 16 - rat range.keys: bool-only
+    ok 17 - rat range.keys: count/bool-only didn't pull
+ok 51 - tests for rat range.keys
+# Subtest: tests for rat range.values
+    1..17
+    ok 1 - rat range.values: pull-one until exhausted
+    ok 2 - rat range.values: push-exactly until exhausted
+    ok 3 - rat range.values: push-at-least until exhausted
+    ok 4 - rat range.values: does push-all return IterationEnd
+    ok 5 - rat range.values: push-all
+    ok 6 - rat range.values: does push-until-lazy return IterationEnd
+    ok 7 - rat range.values: push-until-lazy
+    ok 8 - rat range.values: does sink-all return IterationEnd
+    ok 9 - rat range.values: skip-one until exhausted
+    ok 10 - rat range.values: skip-at-least except last
+    ok 11 - rat range.values: skip-at-least check last value
+    ok 12 - rat range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - rat range.values: skip-at-least-pull-one last
+    ok 14 - rat range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat range.values: doesn't support count-only
+    ok 16 - rat range.values: doesn't support bool-only
+    ok 17 - rat range.values: count/bool-only didn't pull
+ok 52 - tests for rat range.values
+# Subtest: tests for rat range.pairs
+    1..17
+    ok 1 - rat range.pairs: pull-one until exhausted
+    ok 2 - rat range.pairs: push-exactly until exhausted
+    ok 3 - rat range.pairs: push-at-least until exhausted
+    ok 4 - rat range.pairs: does push-all return IterationEnd
+    ok 5 - rat range.pairs: push-all
+    ok 6 - rat range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - rat range.pairs: push-until-lazy
+    ok 8 - rat range.pairs: does sink-all return IterationEnd
+    ok 9 - rat range.pairs: skip-one until exhausted
+    ok 10 - rat range.pairs: skip-at-least except last
+    ok 11 - rat range.pairs: skip-at-least check last value
+    ok 12 - rat range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - rat range.pairs: skip-at-least-pull-one last
+    ok 14 - rat range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat range.pairs: doesn't support count-only
+    ok 16 - rat range.pairs: doesn't support bool-only
+    ok 17 - rat range.pairs: count/bool-only didn't pull
+ok 53 - tests for rat range.pairs
+# Subtest: tests for rat range.antipairs
+    1..17
+    ok 1 - rat range.antipairs: pull-one until exhausted
+    ok 2 - rat range.antipairs: push-exactly until exhausted
+    ok 3 - rat range.antipairs: push-at-least until exhausted
+    ok 4 - rat range.antipairs: does push-all return IterationEnd
+    ok 5 - rat range.antipairs: push-all
+    ok 6 - rat range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - rat range.antipairs: push-until-lazy
+    ok 8 - rat range.antipairs: does sink-all return IterationEnd
+    ok 9 - rat range.antipairs: skip-one until exhausted
+    ok 10 - rat range.antipairs: skip-at-least except last
+    ok 11 - rat range.antipairs: skip-at-least check last value
+    ok 12 - rat range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - rat range.antipairs: skip-at-least-pull-one last
+    ok 14 - rat range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat range.antipairs: doesn't support count-only
+    ok 16 - rat range.antipairs: doesn't support bool-only
+    ok 17 - rat range.antipairs: count/bool-only didn't pull
+ok 54 - tests for rat range.antipairs
+# Subtest: tests for ^rat range
+    1..17
+    ok 1 - ^rat range: pull-one until exhausted
+    ok 2 - ^rat range: push-exactly until exhausted
+    ok 3 - ^rat range: push-at-least until exhausted
+    ok 4 - ^rat range: does push-all return IterationEnd
+    ok 5 - ^rat range: push-all
+    ok 6 - ^rat range: does push-until-lazy return IterationEnd
+    ok 7 - ^rat range: push-until-lazy
+    ok 8 - ^rat range: does sink-all return IterationEnd
+    ok 9 - ^rat range: skip-one until exhausted
+    ok 10 - ^rat range: skip-at-least except last
+    ok 11 - ^rat range: skip-at-least check last value
+    ok 12 - ^rat range: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat range: skip-at-least-pull-one last
+    ok 14 - ^rat range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat range: doesn't support count-only
+    ok 16 - ^rat range: doesn't support bool-only
+    ok 17 - ^rat range: count/bool-only didn't pull
+ok 55 - tests for ^rat range
+# Subtest: tests for ^rat range.kv
+    1..17
+    ok 1 - ^rat range.kv: pull-one until exhausted
+    ok 2 - ^rat range.kv: push-exactly until exhausted
+    ok 3 - ^rat range.kv: push-at-least until exhausted
+    ok 4 - ^rat range.kv: does push-all return IterationEnd
+    ok 5 - ^rat range.kv: push-all
+    ok 6 - ^rat range.kv: does push-until-lazy return IterationEnd
+    ok 7 - ^rat range.kv: push-until-lazy
+    ok 8 - ^rat range.kv: does sink-all return IterationEnd
+    ok 9 - ^rat range.kv: skip-one until exhausted
+    ok 10 - ^rat range.kv: skip-at-least except last
+    ok 11 - ^rat range.kv: skip-at-least check last value
+    ok 12 - ^rat range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat range.kv: skip-at-least-pull-one last
+    ok 14 - ^rat range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat range.kv: doesn't support count-only
+    ok 16 - ^rat range.kv: doesn't support bool-only
+    ok 17 - ^rat range.kv: count/bool-only didn't pull
+ok 56 - tests for ^rat range.kv
+# Subtest: tests for ^rat range.keys
+    1..17
+    ok 1 - ^rat range.keys: pull-one until exhausted
+    ok 2 - ^rat range.keys: push-exactly until exhausted
+    ok 3 - ^rat range.keys: push-at-least until exhausted
+    ok 4 - ^rat range.keys: does push-all return IterationEnd
+    ok 5 - ^rat range.keys: push-all
+    ok 6 - ^rat range.keys: does push-until-lazy return IterationEnd
+    ok 7 - ^rat range.keys: push-until-lazy
+    ok 8 - ^rat range.keys: does sink-all return IterationEnd
+    ok 9 - ^rat range.keys: skip-one until exhausted
+    ok 10 - ^rat range.keys: skip-at-least except last
+    ok 11 - ^rat range.keys: skip-at-least check last value
+    ok 12 - ^rat range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat range.keys: skip-at-least-pull-one last
+    ok 14 - ^rat range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat range.keys: count-only
+    ok 16 - ^rat range.keys: bool-only
+    ok 17 - ^rat range.keys: count/bool-only didn't pull
+ok 57 - tests for ^rat range.keys
+# Subtest: tests for ^rat range.values
+    1..17
+    ok 1 - ^rat range.values: pull-one until exhausted
+    ok 2 - ^rat range.values: push-exactly until exhausted
+    ok 3 - ^rat range.values: push-at-least until exhausted
+    ok 4 - ^rat range.values: does push-all return IterationEnd
+    ok 5 - ^rat range.values: push-all
+    ok 6 - ^rat range.values: does push-until-lazy return IterationEnd
+    ok 7 - ^rat range.values: push-until-lazy
+    ok 8 - ^rat range.values: does sink-all return IterationEnd
+    ok 9 - ^rat range.values: skip-one until exhausted
+    ok 10 - ^rat range.values: skip-at-least except last
+    ok 11 - ^rat range.values: skip-at-least check last value
+    ok 12 - ^rat range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat range.values: skip-at-least-pull-one last
+    ok 14 - ^rat range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat range.values: doesn't support count-only
+    ok 16 - ^rat range.values: doesn't support bool-only
+    ok 17 - ^rat range.values: count/bool-only didn't pull
+ok 58 - tests for ^rat range.values
+# Subtest: tests for ^rat range.pairs
+    1..17
+    ok 1 - ^rat range.pairs: pull-one until exhausted
+    ok 2 - ^rat range.pairs: push-exactly until exhausted
+    ok 3 - ^rat range.pairs: push-at-least until exhausted
+    ok 4 - ^rat range.pairs: does push-all return IterationEnd
+    ok 5 - ^rat range.pairs: push-all
+    ok 6 - ^rat range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - ^rat range.pairs: push-until-lazy
+    ok 8 - ^rat range.pairs: does sink-all return IterationEnd
+    ok 9 - ^rat range.pairs: skip-one until exhausted
+    ok 10 - ^rat range.pairs: skip-at-least except last
+    ok 11 - ^rat range.pairs: skip-at-least check last value
+    ok 12 - ^rat range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat range.pairs: skip-at-least-pull-one last
+    ok 14 - ^rat range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat range.pairs: doesn't support count-only
+    ok 16 - ^rat range.pairs: doesn't support bool-only
+    ok 17 - ^rat range.pairs: count/bool-only didn't pull
+ok 59 - tests for ^rat range.pairs
+# Subtest: tests for ^rat range.antipairs
+    1..17
+    ok 1 - ^rat range.antipairs: pull-one until exhausted
+    ok 2 - ^rat range.antipairs: push-exactly until exhausted
+    ok 3 - ^rat range.antipairs: push-at-least until exhausted
+    ok 4 - ^rat range.antipairs: does push-all return IterationEnd
+    ok 5 - ^rat range.antipairs: push-all
+    ok 6 - ^rat range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - ^rat range.antipairs: push-until-lazy
+    ok 8 - ^rat range.antipairs: does sink-all return IterationEnd
+    ok 9 - ^rat range.antipairs: skip-one until exhausted
+    ok 10 - ^rat range.antipairs: skip-at-least except last
+    ok 11 - ^rat range.antipairs: skip-at-least check last value
+    ok 12 - ^rat range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat range.antipairs: skip-at-least-pull-one last
+    ok 14 - ^rat range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat range.antipairs: doesn't support count-only
+    ok 16 - ^rat range.antipairs: doesn't support bool-only
+    ok 17 - ^rat range.antipairs: count/bool-only didn't pull
+ok 60 - tests for ^rat range.antipairs
+# Subtest: tests for rat^ range
+    1..17
+    ok 1 - rat^ range: pull-one until exhausted
+    ok 2 - rat^ range: push-exactly until exhausted
+    ok 3 - rat^ range: push-at-least until exhausted
+    ok 4 - rat^ range: does push-all return IterationEnd
+    ok 5 - rat^ range: push-all
+    ok 6 - rat^ range: does push-until-lazy return IterationEnd
+    ok 7 - rat^ range: push-until-lazy
+    ok 8 - rat^ range: does sink-all return IterationEnd
+    ok 9 - rat^ range: skip-one until exhausted
+    ok 10 - rat^ range: skip-at-least except last
+    ok 11 - rat^ range: skip-at-least check last value
+    ok 12 - rat^ range: did skip-at-least after pull-one exhaust?
+    ok 13 - rat^ range: skip-at-least-pull-one last
+    ok 14 - rat^ range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat^ range: doesn't support count-only
+    ok 16 - rat^ range: doesn't support bool-only
+    ok 17 - rat^ range: count/bool-only didn't pull
+ok 61 - tests for rat^ range
+# Subtest: tests for rat^ range.kv
+    1..17
+    ok 1 - rat^ range.kv: pull-one until exhausted
+    ok 2 - rat^ range.kv: push-exactly until exhausted
+    ok 3 - rat^ range.kv: push-at-least until exhausted
+    ok 4 - rat^ range.kv: does push-all return IterationEnd
+    ok 5 - rat^ range.kv: push-all
+    ok 6 - rat^ range.kv: does push-until-lazy return IterationEnd
+    ok 7 - rat^ range.kv: push-until-lazy
+    ok 8 - rat^ range.kv: does sink-all return IterationEnd
+    ok 9 - rat^ range.kv: skip-one until exhausted
+    ok 10 - rat^ range.kv: skip-at-least except last
+    ok 11 - rat^ range.kv: skip-at-least check last value
+    ok 12 - rat^ range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - rat^ range.kv: skip-at-least-pull-one last
+    ok 14 - rat^ range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat^ range.kv: doesn't support count-only
+    ok 16 - rat^ range.kv: doesn't support bool-only
+    ok 17 - rat^ range.kv: count/bool-only didn't pull
+ok 62 - tests for rat^ range.kv
+# Subtest: tests for rat^ range.keys
+    1..17
+    ok 1 - rat^ range.keys: pull-one until exhausted
+    ok 2 - rat^ range.keys: push-exactly until exhausted
+    ok 3 - rat^ range.keys: push-at-least until exhausted
+    ok 4 - rat^ range.keys: does push-all return IterationEnd
+    ok 5 - rat^ range.keys: push-all
+    ok 6 - rat^ range.keys: does push-until-lazy return IterationEnd
+    ok 7 - rat^ range.keys: push-until-lazy
+    ok 8 - rat^ range.keys: does sink-all return IterationEnd
+    ok 9 - rat^ range.keys: skip-one until exhausted
+    ok 10 - rat^ range.keys: skip-at-least except last
+    ok 11 - rat^ range.keys: skip-at-least check last value
+    ok 12 - rat^ range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - rat^ range.keys: skip-at-least-pull-one last
+    ok 14 - rat^ range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat^ range.keys: count-only
+    ok 16 - rat^ range.keys: bool-only
+    ok 17 - rat^ range.keys: count/bool-only didn't pull
+ok 63 - tests for rat^ range.keys
+# Subtest: tests for rat^ range.values
+    1..17
+    ok 1 - rat^ range.values: pull-one until exhausted
+    ok 2 - rat^ range.values: push-exactly until exhausted
+    ok 3 - rat^ range.values: push-at-least until exhausted
+    ok 4 - rat^ range.values: does push-all return IterationEnd
+    ok 5 - rat^ range.values: push-all
+    ok 6 - rat^ range.values: does push-until-lazy return IterationEnd
+    ok 7 - rat^ range.values: push-until-lazy
+    ok 8 - rat^ range.values: does sink-all return IterationEnd
+    ok 9 - rat^ range.values: skip-one until exhausted
+    ok 10 - rat^ range.values: skip-at-least except last
+    ok 11 - rat^ range.values: skip-at-least check last value
+    ok 12 - rat^ range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - rat^ range.values: skip-at-least-pull-one last
+    ok 14 - rat^ range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat^ range.values: doesn't support count-only
+    ok 16 - rat^ range.values: doesn't support bool-only
+    ok 17 - rat^ range.values: count/bool-only didn't pull
+ok 64 - tests for rat^ range.values
+# Subtest: tests for rat^ range.pairs
+    1..17
+    ok 1 - rat^ range.pairs: pull-one until exhausted
+    ok 2 - rat^ range.pairs: push-exactly until exhausted
+    ok 3 - rat^ range.pairs: push-at-least until exhausted
+    ok 4 - rat^ range.pairs: does push-all return IterationEnd
+    ok 5 - rat^ range.pairs: push-all
+    ok 6 - rat^ range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - rat^ range.pairs: push-until-lazy
+    ok 8 - rat^ range.pairs: does sink-all return IterationEnd
+    ok 9 - rat^ range.pairs: skip-one until exhausted
+    ok 10 - rat^ range.pairs: skip-at-least except last
+    ok 11 - rat^ range.pairs: skip-at-least check last value
+    ok 12 - rat^ range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - rat^ range.pairs: skip-at-least-pull-one last
+    ok 14 - rat^ range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat^ range.pairs: doesn't support count-only
+    ok 16 - rat^ range.pairs: doesn't support bool-only
+    ok 17 - rat^ range.pairs: count/bool-only didn't pull
+ok 65 - tests for rat^ range.pairs
+# Subtest: tests for rat^ range.antipairs
+    1..17
+    ok 1 - rat^ range.antipairs: pull-one until exhausted
+    ok 2 - rat^ range.antipairs: push-exactly until exhausted
+    ok 3 - rat^ range.antipairs: push-at-least until exhausted
+    ok 4 - rat^ range.antipairs: does push-all return IterationEnd
+    ok 5 - rat^ range.antipairs: push-all
+    ok 6 - rat^ range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - rat^ range.antipairs: push-until-lazy
+    ok 8 - rat^ range.antipairs: does sink-all return IterationEnd
+    ok 9 - rat^ range.antipairs: skip-one until exhausted
+    ok 10 - rat^ range.antipairs: skip-at-least except last
+    ok 11 - rat^ range.antipairs: skip-at-least check last value
+    ok 12 - rat^ range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - rat^ range.antipairs: skip-at-least-pull-one last
+    ok 14 - rat^ range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - rat^ range.antipairs: doesn't support count-only
+    ok 16 - rat^ range.antipairs: doesn't support bool-only
+    ok 17 - rat^ range.antipairs: count/bool-only didn't pull
+ok 66 - tests for rat^ range.antipairs
+# Subtest: tests for ^rat^ range
+    1..17
+    ok 1 - ^rat^ range: pull-one until exhausted
+    ok 2 - ^rat^ range: push-exactly until exhausted
+    ok 3 - ^rat^ range: push-at-least until exhausted
+    ok 4 - ^rat^ range: does push-all return IterationEnd
+    ok 5 - ^rat^ range: push-all
+    ok 6 - ^rat^ range: does push-until-lazy return IterationEnd
+    ok 7 - ^rat^ range: push-until-lazy
+    ok 8 - ^rat^ range: does sink-all return IterationEnd
+    ok 9 - ^rat^ range: skip-one until exhausted
+    ok 10 - ^rat^ range: skip-at-least except last
+    ok 11 - ^rat^ range: skip-at-least check last value
+    ok 12 - ^rat^ range: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat^ range: skip-at-least-pull-one last
+    ok 14 - ^rat^ range: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat^ range: doesn't support count-only
+    ok 16 - ^rat^ range: doesn't support bool-only
+    ok 17 - ^rat^ range: count/bool-only didn't pull
+ok 67 - tests for ^rat^ range
+# Subtest: tests for ^rat^ range.kv
+    1..17
+    ok 1 - ^rat^ range.kv: pull-one until exhausted
+    ok 2 - ^rat^ range.kv: push-exactly until exhausted
+    ok 3 - ^rat^ range.kv: push-at-least until exhausted
+    ok 4 - ^rat^ range.kv: does push-all return IterationEnd
+    ok 5 - ^rat^ range.kv: push-all
+    ok 6 - ^rat^ range.kv: does push-until-lazy return IterationEnd
+    ok 7 - ^rat^ range.kv: push-until-lazy
+    ok 8 - ^rat^ range.kv: does sink-all return IterationEnd
+    ok 9 - ^rat^ range.kv: skip-one until exhausted
+    ok 10 - ^rat^ range.kv: skip-at-least except last
+    ok 11 - ^rat^ range.kv: skip-at-least check last value
+    ok 12 - ^rat^ range.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat^ range.kv: skip-at-least-pull-one last
+    ok 14 - ^rat^ range.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat^ range.kv: doesn't support count-only
+    ok 16 - ^rat^ range.kv: doesn't support bool-only
+    ok 17 - ^rat^ range.kv: count/bool-only didn't pull
+ok 68 - tests for ^rat^ range.kv
+# Subtest: tests for ^rat^ range.keys
+    1..17
+    ok 1 - ^rat^ range.keys: pull-one until exhausted
+    ok 2 - ^rat^ range.keys: push-exactly until exhausted
+    ok 3 - ^rat^ range.keys: push-at-least until exhausted
+    ok 4 - ^rat^ range.keys: does push-all return IterationEnd
+    ok 5 - ^rat^ range.keys: push-all
+    ok 6 - ^rat^ range.keys: does push-until-lazy return IterationEnd
+    ok 7 - ^rat^ range.keys: push-until-lazy
+    ok 8 - ^rat^ range.keys: does sink-all return IterationEnd
+    ok 9 - ^rat^ range.keys: skip-one until exhausted
+    ok 10 - ^rat^ range.keys: skip-at-least except last
+    ok 11 - ^rat^ range.keys: skip-at-least check last value
+    ok 12 - ^rat^ range.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat^ range.keys: skip-at-least-pull-one last
+    ok 14 - ^rat^ range.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat^ range.keys: count-only
+    ok 16 - ^rat^ range.keys: bool-only
+    ok 17 - ^rat^ range.keys: count/bool-only didn't pull
+ok 69 - tests for ^rat^ range.keys
+# Subtest: tests for ^rat^ range.values
+    1..17
+    ok 1 - ^rat^ range.values: pull-one until exhausted
+    ok 2 - ^rat^ range.values: push-exactly until exhausted
+    ok 3 - ^rat^ range.values: push-at-least until exhausted
+    ok 4 - ^rat^ range.values: does push-all return IterationEnd
+    ok 5 - ^rat^ range.values: push-all
+    ok 6 - ^rat^ range.values: does push-until-lazy return IterationEnd
+    ok 7 - ^rat^ range.values: push-until-lazy
+    ok 8 - ^rat^ range.values: does sink-all return IterationEnd
+    ok 9 - ^rat^ range.values: skip-one until exhausted
+    ok 10 - ^rat^ range.values: skip-at-least except last
+    ok 11 - ^rat^ range.values: skip-at-least check last value
+    ok 12 - ^rat^ range.values: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat^ range.values: skip-at-least-pull-one last
+    ok 14 - ^rat^ range.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat^ range.values: doesn't support count-only
+    ok 16 - ^rat^ range.values: doesn't support bool-only
+    ok 17 - ^rat^ range.values: count/bool-only didn't pull
+ok 70 - tests for ^rat^ range.values
+# Subtest: tests for ^rat^ range.pairs
+    1..17
+    ok 1 - ^rat^ range.pairs: pull-one until exhausted
+    ok 2 - ^rat^ range.pairs: push-exactly until exhausted
+    ok 3 - ^rat^ range.pairs: push-at-least until exhausted
+    ok 4 - ^rat^ range.pairs: does push-all return IterationEnd
+    ok 5 - ^rat^ range.pairs: push-all
+    ok 6 - ^rat^ range.pairs: does push-until-lazy return IterationEnd
+    ok 7 - ^rat^ range.pairs: push-until-lazy
+    ok 8 - ^rat^ range.pairs: does sink-all return IterationEnd
+    ok 9 - ^rat^ range.pairs: skip-one until exhausted
+    ok 10 - ^rat^ range.pairs: skip-at-least except last
+    ok 11 - ^rat^ range.pairs: skip-at-least check last value
+    ok 12 - ^rat^ range.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat^ range.pairs: skip-at-least-pull-one last
+    ok 14 - ^rat^ range.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat^ range.pairs: doesn't support count-only
+    ok 16 - ^rat^ range.pairs: doesn't support bool-only
+    ok 17 - ^rat^ range.pairs: count/bool-only didn't pull
+ok 71 - tests for ^rat^ range.pairs
+# Subtest: tests for ^rat^ range.antipairs
+    1..17
+    ok 1 - ^rat^ range.antipairs: pull-one until exhausted
+    ok 2 - ^rat^ range.antipairs: push-exactly until exhausted
+    ok 3 - ^rat^ range.antipairs: push-at-least until exhausted
+    ok 4 - ^rat^ range.antipairs: does push-all return IterationEnd
+    ok 5 - ^rat^ range.antipairs: push-all
+    ok 6 - ^rat^ range.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - ^rat^ range.antipairs: push-until-lazy
+    ok 8 - ^rat^ range.antipairs: does sink-all return IterationEnd
+    ok 9 - ^rat^ range.antipairs: skip-one until exhausted
+    ok 10 - ^rat^ range.antipairs: skip-at-least except last
+    ok 11 - ^rat^ range.antipairs: skip-at-least check last value
+    ok 12 - ^rat^ range.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - ^rat^ range.antipairs: skip-at-least-pull-one last
+    ok 14 - ^rat^ range.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - ^rat^ range.antipairs: doesn't support count-only
+    ok 16 - ^rat^ range.antipairs: doesn't support bool-only
+    ok 17 - ^rat^ range.antipairs: count/bool-only didn't pull
+ok 72 - tests for ^rat^ range.antipairs

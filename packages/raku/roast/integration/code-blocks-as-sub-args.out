@@ -1,0 +1,13 @@
+1..4
+# Subtest: pointy block is not a sub
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 1 - pointy block is not a sub
+ok 2 - anonymous sub as argument not executed
+# Subtest: pointy block is not a sub (with optional last arg)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 3 - pointy block is not a sub (with optional last arg)
+ok 4 - anonymous sub as argument not executed (with optional last arg)

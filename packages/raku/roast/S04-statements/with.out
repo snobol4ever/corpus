@@ -1,0 +1,114 @@
+1..81
+ok 1 - $_: with on 0, orwith on 1
+ok 2 - $_: with on 1, orwith on 0
+ok 3 - $_: with on , orwith on 3
+ok 4 - $_: with on Int, orwith on 0
+ok 5 - $_: with on Int, orwith on Str
+ok 6 - $_: with on Int, orwith on Nil
+ok 7 - $_: with on Nil, orwith on Int
+ok 8 - $_: with on Int, orwith on Failure
+ok 9 - $pos: with on 0, orwith on 1
+ok 10 - $pos: with on 1, orwith on 0
+ok 11 - $pos: with on , orwith on 3
+ok 12 - $pos: with on Int, orwith on 0
+ok 13 - $pos: with on Int, orwith on Str
+ok 14 - $pos: with on Int, orwith on Nil
+ok 15 - $pos: with on Nil, orwith on Int
+ok 16 - $pos: with on Int, orwith on Failure
+ok 17 - $_: with on 1
+ok 18 - $_: with on 0
+ok 19 - $_: with on 
+ok 20 - $_: with on Str
+ok 21 - $_: with on Nil
+ok 22 - $_: with on Int
+ok 23 - $_: with on Failure
+ok 24 - $pos: with on 1
+ok 25 - $pos: with on 0
+ok 26 - $pos: with on 
+ok 27 - $pos: with on Str
+ok 28 - $pos: with on Nil
+ok 29 - $pos: with on Int
+ok 30 - $pos: with on Failure
+ok 31 - $_: with on 1
+ok 32 - $_: with on 0
+ok 33 - $_: with on 
+ok 34 - $_: with on Str
+ok 35 - $_: with on Nil
+ok 36 - $_: with on Int
+ok 37 - $_: with on Failure
+ok 38 - $pos: with on 1
+ok 39 - $pos: with on 0
+ok 40 - $pos: with on 
+ok 41 - $pos: with on Str
+ok 42 - $pos: with on Nil
+ok 43 - $pos: with on Int
+ok 44 - $pos: with on Failure
+ok 45 - $_: without on 1
+ok 46 - $_: without on 0
+ok 47 - $_: without on 
+ok 48 - $_: without on Str
+ok 49 - $_: without on Nil
+ok 50 - $_: without on Int
+ok 51 - $_: without on Failure
+ok 52 - $pos: without on 1
+ok 53 - $pos: without on 0
+ok 54 - $pos: without on 
+ok 55 - $pos: without on Str
+ok 56 - $pos: without on Nil
+ok 57 - $pos: without on Int
+ok 58 - $pos: without on Failure
+# Subtest: else is not valid on without
+    1..2
+    ok 1 - 'without 1 {...} else {...}' died
+    ok 2 - right exception type (X::Comp)
+ok 59 - else is not valid on without
+# Subtest: orwith is not valid on without
+    1..2
+    ok 1 - 'without 1 {...} orwith 2 {...}' died
+    ok 2 - right exception type (X::Comp)
+ok 60 - orwith is not valid on without
+# Subtest: elsif is not valid on without
+    1..2
+    ok 1 - 'without 1 {...} elsif 2 {...}' died
+    ok 2 - right exception type (X::Comp)
+ok 61 - elsif is not valid on without
+ok 62 - $_: with on 0, elsif on 1
+ok 63 - $_: with on 1, elsif on 0
+ok 64 - $_: with on , elsif on 3
+ok 65 - $_: with on Int, elsif on 0
+ok 66 - $_: with on Int, elsif on 1
+ok 67 - $_: with on Int, elsif on Str
+ok 68 - $_: with on Int, elsif on Nil
+ok 69 - $_: with on Nil, elsif on Int
+ok 70 - $_: with on Int, elsif on Failure
+ok 71 - $_: if on 0, orwith on 1
+ok 72 - $_: if on 1, orwith on 0
+ok 73 - $_: if on , orwith on 3
+ok 74 - $_: if on 0, orwith on 
+ok 75 - $_: if on 0, orwith on 0
+ok 76 - $_: if on 0, orwith on 1
+ok 77 - $_: if on 0, orwith on Str
+ok 78 - $_: if on 0, orwith on Nil
+ok 79 - $_: if on 0, orwith on Int
+ok 80 - $_: if on 0, orwith on Failure
+# Subtest: `else` and kin with `without` errors out
+    1..3
+    # Subtest: using `else`
+        1..3
+        ok 1 - 'without 1 {} else     {}' died
+        ok 2 - right exception type (X::Syntax::WithoutElse)
+        ok 3 - .keyword matches else
+    ok 1 - using `else`
+    # Subtest: using `elsif`
+        1..3
+        ok 1 - 'without 1 {} elsif 1  {}' died
+        ok 2 - right exception type (X::Syntax::WithoutElse)
+        ok 3 - .keyword matches elsif
+    ok 2 - using `elsif`
+    # Subtest: using `orwith`
+        1..3
+        ok 1 - 'without 1 {} orwith 1 {}' died
+        ok 2 - right exception type (X::Syntax::WithoutElse)
+        ok 3 - .keyword matches orwith
+    ok 3 - using `orwith`
+ok 81 - `else` and kin with `without` errors out

@@ -1,0 +1,9 @@
+1..8
+ok 1 - Leftover positional args get passed to @_ if present
+ok 2 - one item filled into @_
+ok 3 - Leftover named args get passed to %_ if present
+ok 4 - Positional and named placeholder slurpies play well together
+ok 5 - Positional and named placeholder slurpies play well together
+ok 6 - Positional and named placeholder slurpies play well together
+ok 7 - Positional and named placeholder slurpies play well together
+ok 8 - use @_ in sub

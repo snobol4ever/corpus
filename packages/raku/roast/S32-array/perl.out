@@ -1,0 +1,10 @@
+1..9
+ok 1 - can we serialize a simple array
+ok 2 - can we roundtrip simple array
+ok 3 - make sure any value can be stored
+ok 4 - can we serialize a array with constrained values
+ok 5 - can we roundtrip array constrained values
+ok 6 - make sure roundtripped values are Int
+ok 7 - can .raku.EVAL roundtrip a circular array
+ok 8 - can .raku.EVAL roundtrip a circular array within a circular hash
+ok 9 - doesn't die on a lazy iterator

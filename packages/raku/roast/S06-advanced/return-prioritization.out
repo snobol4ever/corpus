@@ -1,0 +1,12 @@
+ok 1 - LEAVE doesn't impair explicit return value
+ok 2 - LEAVE phaser runs
+ok 3 - LEAVE doesn't impair explicit return value (nested return)
+ok 4 - LEAVE phaser runs (nested return)
+ok 5 - LEAVE can overwrite return value with a return
+ok 6 - LEAVE with return in other lexical scope can't interrupt return
+ok 7 - LEAVE won't hijack outer returns unwind.
+ok 8 - LEAVE can overwrite implicit return value with a return
+ok 9 - Return in LEAVE in different lexical scope returns
+ok 10 - Return is uninterrupted by returns in LEAVE blocks in other scopes
+ok 11 - Return in LEAVE blocks can run as usual
+1..11

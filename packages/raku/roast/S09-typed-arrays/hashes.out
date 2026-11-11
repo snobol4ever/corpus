@@ -1,0 +1,75 @@
+1..47
+ok 1 - my Int %h declares a Hash of Int
+ok 2 - my Int %h declares a Hash with Str(Any) keys
+ok 3 - can assign Ints to an Hash of Int
+ok 4 - can assign Int to hash slot
+ok 5 - can assign to slice of typed hash
+ok 6 - ... and we have the right number of items
+ok 7 - can assign one typed hash to another
+ok 8 - can call methods on typed hashes
+ok 9 - ... and the hashes are the same afterwards
+ok 10 - can initialize typed hash
+ok 11 - Can't assign Str hash to Int hash
+ok 12 - Make sure we did not create an empty container
+ok 13 - Can't assign literal Str hash to Int hash
+ok 14 - Make sure we did not create an empty container
+ok 15 - Can't assign to hash item
+ok 16 - Make sure we did not create an empty container
+ok 17 - prevent mismatched hash slice
+ok 18 - Make sure we did not create an empty container
+ok 19 - Type constraint prevents autovivification
+ok 20 - Make sure autovivication did not happen
+ok 21 - can initialize typed hash (of Int)
+ok 22 - initialization of typed hash type checked (of Int)
+ok 23 - Can assign to typed hash element (of Str)
+ok 24 - Can't assign wrongly typed value to typed hash element (of Int)
+not ok 25 - check the value constraint # TODO Fixed in RakuAST
+# Failed test 'check the value constraint'
+# at S09-typed-arrays/hashes.rakudo line 52
+# expected: (Mu)
+#      got: (Any)
+ok 26 - check the key constraint
+ok 27 - cannot use strings as keys
+ok 28 - cannot use string slices as keys
+ok 29 - can use Ints as keys
+ok 30 - a did the assignment work
+ok 31 - can use Int slices as keys
+ok 32 - b did the assignment work
+ok 33 - b did the assignment work
+ok 34 - b did the assignment work
+ok 35 - :exists adverb works with key constraint hashes
+ok 36 - :delete adverb works with key constraint hashes
+ok 37 - :delete adverb works with key constraint hashes
+ok 38 - Binding typed hash "preserves" type
+ok 39 - Assigning from a typed hash copies values, but not type
+ok 40 - Binding clone of a typed hash "preserves" type
+ok 41 - Assigning from clone of a typed hash copies values, but not type
+ok 42 - .antipairs on typed Hash
+ok 43 - .invert on typed Hash
+# Subtest: self-referential top-level hash assignment
+    1..4
+    # Subtest: = self, other
+        1..2
+        ok 1 - result of assignment
+        ok 2 - value in original hash
+    ok 1 - = self, other
+    # Subtest: = self, self
+        1..2
+        ok 1 - result of assignment
+        ok 2 - value in original hash
+    ok 2 - = self, self
+    # Subtest: = self, other - clashing keys
+        1..2
+        ok 1 - result of assignment
+        ok 2 - value in original hash
+    ok 3 - = self, other - clashing keys
+    # Subtest: = other, self - clashing keys
+        1..2
+        ok 1 - result of assignment
+        ok 2 - value in original hash
+    ok 4 - = other, self - clashing keys
+ok 44 - self-referential top-level hash assignment
+ok 45 - typecheck on initialization
+ok 46 - typecheck on assignment
+ok 47 - typecheck on binding
+# FUDGED!

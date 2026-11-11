@@ -1,0 +1,11 @@
+1..10
+ok 1 - Can define \term:<ℵ₀> as a constant
+ok 2 - constant \term:<ℵ₀> really is scoped to package
+ok 3 - Constant available from package
+ok 4 - Can define \term:<ℵ₀> as lexical variable
+ok 5 - \term:<ℵ₀> works in EVAL
+ok 6 - my \term:<ℵ₀> really is lexical
+ok 7 - Can define &term:<•> as sub
+ok 8 - &term:<•> evaluated each time
+ok 9 - Can define &term:<•> as lexical variable
+ok 10 - &term:<•> evaluated each time

@@ -1,0 +1,10 @@
+1..9
+ok 1 - matched
+ok 2 - $/.ast
+ok 3 - unmade Match returns Nil from .made
+ok 4 - unmade Match returns Nil from .ast
+ok 5 - can get made type objects from .made (1)
+ok 6 - can get made type objects from .ast  (1)
+ok 7 - can get made type objects from .made (2)
+ok 8 - can get made type objects from .ast  (2)
+ok 9 - check that we did not regress

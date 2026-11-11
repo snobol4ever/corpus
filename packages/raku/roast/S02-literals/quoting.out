@@ -1,0 +1,268 @@
+1..212
+ok 1 - string using q{}
+ok 2 - Can nest curlies in q{ .. }
+ok 3 - Unnested single curlies in q{{...}}
+ok 4 - Unnested single curlies in q{{...}}
+ok 5 - Can nest double curlies in q{{...}}
+ok 6 - q{..} do not interpolate \n
+ok 7 - q{..} do not interpolate \n
+ok 8 - q{..} do not interpolate scalars
+ok 9 - q{..} do not interpolate scalars
+ok 10 - Q{..} do not interpolate \n
+ok 11 - Q{..} do not interpolate \n
+ok 12 - Q{..} do not interpolate scalars
+ok 13 - Q{..} do not interpolate scalars
+ok 14 - Q {..} quoting
+ok 15 - Q{..} do not interpolate backslashes
+ok 16 - q// is singular
+ok 17 - single quotes are non interpolating
+ok 18 - '' is singular
+ok 19 - and did not interpolate either
+ok 20 - q (()) is singular
+ok 21 - and nests parens appropriately
+ok 22 - q () is singular
+ok 23 - and nests parens appropriately
+ok 24 - q() is always sub call
+ok 25 - Q:q// is singular
+ok 26 - and again, non interpolating
+ok 27 - q[] is singular
+ok 28 - and nests brackets appropriately
+ok 29 - q[[]] is singular
+ok 30 - and nests brackets appropriately
+ok 31 - qq// is singular
+ok 32 - variables were interpolated
+ok 33 - "" is singular
+ok 34 - "" interpolates
+ok 35 - Q:qq// is singular
+ok 36 - blah blah interp
+ok 37 - q[...\qq[...]...] is singular
+ok 38 - and interpolates correctly
+ok 39 - '...\qq[...]...' is singular
+ok 40 - and interpolates correctly
+ok 41 - q[...\q:s{...}...] is singular
+ok 42 - and interpolates correctly
+ok 43 - q{...\q/.../...} is singular
+ok 44 - and interpolates correctly
+ok 45 - OK
+ok 46 - qw// is plural
+ok 47 - and non interpolating
+ok 48 - ...
+ok 49 - <> behaves the same way
+ok 50 - for interpolation too
+ok 51 - ...
+ok 52 - <> behaves the same way, with leading (and trailing) whitespace
+ok 53 - for interpolation too
+ok 54 - ...
+ok 55 - q:w// is like <>
+ok 56 - ...
+ok 57 - ...
+ok 58 - q :w // is the same as q:w//
+ok 59 - ...
+ok 60 - ...
+ok 61 - qq:w// correct number of elements
+ok 62 - qq:words correct number of elements
+ok 63 - explicit quote word interpolates
+ok 64 - long form output is the same as the short
+ok 65 - qq:ww// correct number of elements
+ok 66 - french double angle
+ok 67 - ASCII double angle
+ok 68 - long form
+ok 69 - explicit quote word interpolates
+ok 70 - output is the same as french
+ok 71 - , ASCII quotes
+ok 72 - , and long form
+ok 73 - «» handles embedded comments
+ok 74 - «» handles embedded comments containing french quotes
+ok 75 - <<>> handles embedded comments containing ASCII quotes
+ok 76 - «» handles line-end comments
+ok 77 - interpolate variable with spaces (French)
+ok 78 - interpolate variable with spaces (ASCII)
+ok 79 - «a b» interpolation works correctly
+ok 80 - 4 elements in unquoted «» list
+ok 81 - $gorch was exploded
+ok 82 - $bar was interpolated
+ok 83 - 3 elements in sub quoted «» list
+ok 84 - second element is both parts of $gorch, interpolated
+ok 85 - single quoted $bar was not interpolated
+ok 86 - 14 elements in mixed quoted/unquoted «» list, non-flattened
+ok 87 - unquoted words are split correctly in the presence of quotes
+ok 88 - first interpolation is $foo
+ok 89 - unquoted between quotes is split correctly
+ok 90 - Unquoted variable's first word interpolated correctly
+ok 91 - Unquoted variable's second word interpolated correctly
+ok 92 - unquoted between quotes is split correctly
+ok 93 - single quoted $bar was not interpolated
+ok 94 - trailing unquoted words are split correctly in the presence of quotes
+ok 95 - Q// is singular
+ok 96 - special chars are meaningless
+ok 97 - pair inside <<>>-quotes - simple
+ok 98 - pair inside <<>>-quotes - with some junk
+ok 99 - pair inside <<>>-quotes - junk preserved
+ok 100 - :pair in <<>>-quotes with no explicit value
+ok 101 - :pair<anglequoted>
+ok 102 - \c97 is "a"
+ok 103 - \c102 is "f", works next to other letters
+ok 104 - "\cXXX" and chr XXX are equivalent
+ok 105 - \c[12]3 is the same as chr(12) concatenated with "3"
+ok 106 - respects spaces when interpolating a space character
+ok 107 - allows multiple chars
+ok 108 - hex interpolation - \x41 is "A"
+ok 109 - octal interpolation - \o101 is also "A"
+ok 110 - Unicode code point "@" converts correctly to "\0"
+ok 111 - Unicode "A" is  \#1!
+ok 112 - Unicode "Z" is chr 26 (or \c26)
+ok 113 - q<<hi>> is "hi"
+ok 114 - nested <<ASCII>> quotes (RT  \#66888)
+ok 115 - Testing for q:to operator.
+ok 116 - Testing for q:to operator. (utf8)
+ok 117 - Testing for Q operator.
+ok 118 - Testing for Q operator. (utf8)
+ok 119 - Testing for q:b operator.
+ok 120 - Testing q:b'\n'
+ok 121 - qb
+ok 122 - Qb
+ok 123 - Q:b
+ok 124 - Qs:b
+ok 125 - Testing for q:x operator.
+ok 126 - Testing for q:x operator. (utf8)
+ok 127 - Testing qq:x operator
+ok 128 - testing q:x assigned to array
+ok 129 - testing qq:x assigned to array
+ok 130 - Testing for q:h operator.
+ok 131 - Testing for q:f operator.
+ok 132 - Testing for q:f operator. (utf8)
+ok 133 - Testing for q:c operator.
+ok 134 - Testing for q:a operator.
+ok 135 - Testing for q:s operator.
+ok 136 - Testing for q:s operator. (utf8)
+ok 137 - multiple modifiers interpolate only what is expected
+ok 138 - qw
+ok 139 - qqww
+ok 140 - qq
+ok 141 - Qs
+ok 142 - Qa
+ok 143 - Qh
+ok 144 - Qf
+ok 145 - Qb
+ok 146 - Qc
+ok 147 - Qw
+ok 148 - Q:w
+ok 149 - Qww
+ok 150 - backslashes at end of single quoted string
+ok 151 - backslash and single quote
+ok 152 - rx/.../
+ok 153 - rx{...}
+ok 154 - rx:i{...}
+ok 155 - rx:i{...}
+ok 156 - rx:i{...}
+ok 157 - rx:i{...}
+# Subtest: rx:unknown dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Adverb)
+ok 158 - rx:unknown dies
+# Subtest: g does not make sense on rx//
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::Adverb)
+ok 159 - g does not make sense on rx//
+ok 160 - qx
+ok 161 - qqx
+ok 162 - Qx treats backslash literally, qx treats \ as one backslash
+ok 163 - qx doesn't return a Parrot string
+ok 164 - qx passes environmental variables
+ok 165 - quoting and >> (RT  \#75320, 1)
+ok 166 - quoting and >> (RT  \#75320, 2)
+ok 167 - can handle [ after whitespace after var interpolation
+# Subtest: unclosed quote after array variable is an error
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 168 - unclosed quote after array variable is an error
+ok 169 - declaration in interpolation
+ok 170 - ASCII quotes edge case
+ok 171 - /.../ literals match in void context
+ok 172 - rx/.../ literals match in void context
+ok 173 - >> in interpolation is not shift operator
+ok 174 - \cI is a TAB
+ok 175 - \c? is a DEL
+ok 176 - \c@ is a NUL
+# Subtest: Unmatched openers and closers fails to parse
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 177 - Unmatched openers and closers fails to parse
+ok 178 - Escaped closer produces the opener unescaped
+ok 179 - Escaped opener produces the opener unescaped
+ok 180 - << a b >> does not accidentally flatten into arg list
+ok 181 - :c applied after :heredoc has effect
+ok 182 - :w applied after :heredoc has effect
+ok 183 - \n in a heredoc does not factor into dedenting
+ok 184 - \r\n in a heredoc does not factor dedenting
+ok 185 - \t in heredoc does not turn into spaces
+ok 186 - word-split qouting constructs return List (0)
+ok 187 - word-split qouting constructs return List (1)
+ok 188 - word-split qouting constructs return List (2)
+ok 189 - fancy quotes in qww work just like regular quotes
+ok 190 - qx passes STDERR through
+ok 191 - qx// with a non-existent command does not die
+ok 192 - Single interpolated Scalar does not return as Slip (qqww)
+ok 193 - Single interpolated Scalar correct result (qqww:v)
+ok 194 - Single interpolated Scalar does not return as Slip (<< >>)
+ok 195 - Single interpolated Scalar correct result (<< >>)
+ok 196 - Single interpolated Array does not return as Slip (qqww)
+ok 197 - Single interpolated Array correct result (qqww)
+ok 198 - Single interpolated Array does not return as Slip (<< >>)
+ok 199 - Single interpolated Array correct result (<< >>)
+ok 200 - Single interpolated block does not return as Slip (qqww)
+ok 201 - Single interpolated block correct result (qqww:v)
+ok 202 - Single interpolated block does not return as Slip (<< >>)
+ok 203 - Single interpolated block correct result (<< >>)
+ok 204 - Single interpolated value in dbl quotes, preserves String
+ok 205 - Literal directly precedes interpolated Scalar, no nested List produced
+ok 206 - Literal directly precedes interpolated Array, no nested List produced
+ok 207 - Literal directly follows interpolated Array, no nested List produced
+ok 208 - Literal directly precedes interpolated block, no nested List produced
+ok 209 - Literal directly follows interpolated block, no nested List produced
+ok 210 - Literals directly bookend multiple interpolated, no nested Lists
+# Subtest: :b
+    1..9
+    ok 1 - escaping a $
+    ok 2 - escaping a @
+    ok 3 - escaping a %
+    ok 4 - escaping a &
+    ok 5 - escaping a {...}
+    ok 6 - escaping a delimiter (unpaired)
+    ok 7 - escaping a delimiter (paired)
+    ok 8 - escaping a \W
+    # Subtest: escaping an unknown \w char throws
+        1..2
+        ok 1 - 'Q:b[\Y]' died
+        ok 2 - right exception type (X::Backslash::UnrecognizedSequence)
+    ok 9 - escaping an unknown \w char throws
+ok 211 - :b
+# Subtest: :b and variable combinations
+    1..22
+    ok 1 - scalar (use)
+    ok 2 - scalar (escape)
+    ok 3 - scalar (double-slash)
+    ok 4 - positional, (non-iterpolated)
+    ok 5 - positional, (backslashed, non-iterpolated)
+    ok 6 - positional, (iterpolated)
+    ok 7 - positional, (backslashed, iterpolated)
+    ok 8 - positional, (double-slash, iterpolated)
+    ok 9 - assoc., (non-iterpolated)
+    ok 10 - assoc., (backslashed, non-iterp.)
+    ok 11 - assoc., (iterpolated)
+    ok 12 - assoc., (backslashed, iterpolated)
+    ok 13 - assoc., (double-slash, iterpolated)
+    ok 14 - callable, (non-iterpolated)
+    ok 15 - callable, (backslashed, non-iterp.)
+    ok 16 - callable, (iterpolated)
+    ok 17 - callable, (backslashed, iterpolated)
+    ok 18 - callable, (double-slash, iterpolated)
+    ok 19 - block, (iterpolated)
+    ok 20 - block, (backslashed, iterpolated)
+    ok 21 - block, (double-slash, iterpolated)
+    ok 22 - all together
+ok 212 - :b and variable combinations

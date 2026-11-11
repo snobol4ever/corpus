@@ -1,0 +1,10 @@
+1..9
+ok 1 - CONTROL catches exceptions
+ok 2 - Stringifying Any warns
+ok 3 - warn() without arguments
+ok 4 - warn() with arguments; line number
+ok 5 - try does not suppress warnings
+ok 6 - quietly suppresses warnings
+ok 7 - no crashes or hangs with Junctions in warn()
+ok 8 - did the smartmatch work out
+ok 9 - should not have warned

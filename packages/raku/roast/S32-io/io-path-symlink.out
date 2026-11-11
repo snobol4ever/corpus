@@ -1,0 +1,43 @@
+1..22
+ok 1 - can create dangling symlinks
+ok 2 - can create dangling relative symlinks
+ok 3 - created dangling link filetests for .l
+ok 4 - created dangling link filetests for .l
+ok 5 - can create symlinks
+ok 6 - can create relative symlinks
+ok 7 - created link filetests for .e and .l
+ok 8 - slurping from a link gives right data
+ok 9 - created link filetests for .e and .l
+ok 10 - slurping from a link gives right data
+# Subtest: fail when link already exists
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..4
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::Symlink)
+        ok 3 - .name matches "/tmp/raku_roast_io_path_symlink_t_line16_0_176830788105539431794086959".IO
+        ok 4 - .target matches "/tmp/raku_roast_io_path_symlink_t_line16_0_52965630326023771794086959".IO
+    ok 2 - Failure threw when sunk
+ok 11 - fail when link already exists
+ok 12 - can create dangling symlinks
+ok 13 - can create dangling relative symlinks
+ok 14 - created dangling link filetests for .l
+ok 15 - created dangling link filetests for .l
+ok 16 - can create symlinks
+ok 17 - can create relative symlinks
+ok 18 - created link filetests for .e and .l
+ok 19 - slurping from a link gives right data
+ok 20 - created link filetests for .e and .l
+ok 21 - slurping from a link gives right data
+# Subtest: fail when link already exists
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..4
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::Symlink)
+        ok 3 - .target matches "/tmp/raku_roast_io_path_symlink_t_line16_0_310363689447486271794086959".IO
+        ok 4 - .name matches "/tmp/raku_roast_io_path_symlink_t_line16_0_7869012964870781794086959".IO
+    ok 2 - Failure threw when sunk
+ok 22 - fail when link already exists

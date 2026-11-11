@@ -1,0 +1,42 @@
+1..26
+ok 1 - basic sanity (1)
+ok 2 - basic sanity (2)
+ok 3 - getting var through Proxy (1)
+ok 4 - lvalue_test1() was called (1)
+ok 5 - setting var through Proxy
+ok 6 - lvalue_test1() was called (2)
+ok 7 - var was correctly set (1)
+ok 8 - getting var through Proxy (2)
+ok 9 - lvalue_test1() was called (3)
+ok 10 - basic sanity (3)
+ok 11 - basic sanity (4)
+ok 12 - getting var through Proxy (4)
+ok 13 - lvalue_test2() was called (4)
+ok 14 - setting var through Proxy returns new value of the var
+ok 15 - lvalue_test2() was called (5)
+ok 16 - var was correctly set (2)
+ok 17 - getting var through Proxy (5)
+ok 18 - lvalue_test2() was called (5)
+ok 19 - basic sanity (6)
+ok 20 - basic sanity (7)
+ok 21 - getting var through Proxy (8)
+ok 22 - lvalue_test3() was called (8)
+ok 23 - Proxy returned from non is-rw is prefetched rvalue
+ok 24 - lvalue_test3() was called (9)
+# Subtest: .raku on Proxied object does not crash
+    1..4
+    ok 1 - Int fetch value
+    ok 2 - Nil fetch value
+    ok 3 - IterationEnd fetch value
+    ok 4 - 42 (i.e. .DEFINITE) fetch value
+ok 25 - .raku on Proxied object does not crash
+# Subtest: creating and using a subclass of Proxy
+    1..7
+    ok 1 - did the value arrive
+    ok 2 - still no history
+    ok 3 - did the change arrive
+    ok 4 - check we see the previous value
+    ok 5 - did the increment arrive
+    ok 6 - check we see the previous values
+    ok 7 - did the reset work
+ok 26 - creating and using a subclass of Proxy

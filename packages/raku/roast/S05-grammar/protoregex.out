@@ -1,0 +1,40 @@
+1..30
+ok 1 - can parse with proto regexes (1)
+ok 2 - and matched the full string
+ok 3 - got the right name of the capture
+ok 4 - can parse with second alternative
+ok 5 - can parse third second alternative
+ok 6 - does not match sym of third alternative
+ok 7 - does not match completely unrelated string
+ok 8 - does not match empty string
+ok 9 - can parse symbol inside double-angles
+ok 10 - can parse with action methods
+ok 11 - action method got called, make() worked
+ok 12 - LTM picks longest literal
+ok 13 - LTM picks longest with char classes
+ok 14 - ...and it not just luck with ordering
+ok 15 - LTM works with things like \d
+ok 16 - ...and negated ones like \W
+ok 17 - LTM and ? quantifier
+ok 18 - LTM, ? and + quantifiers
+ok 19 - LTM and * quantifier
+ok 20 - :my declarations do not terminate LTM
+ok 21 - Positional captures do not terminate LTM
+ok 22 - Named captures do not terminate LTM
+ok 23 - <?{...}> does not terminate LTM
+ok 24 - <!{...}> does not terminate LTM
+ok 25 - However, code blocks do terminate LTM
+ok 26 - num parse
+ok 27 - id parse
+ok 28 - term parse
+not ok 29 - <ident> override # TODO RT #120146
+# Failed test '<ident> override'
+# at S05-grammar/protoregex.rakudo line 144
+# expected: '-my_id'
+#      got: ''
+not ok 30 - <ident> alias # TODO RT #120146
+# Failed test '<ident> alias'
+# at S05-grammar/protoregex.rakudo line 145
+# expected: '-my_id'
+#      got: ''
+# FUDGED!

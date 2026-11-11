@@ -1,0 +1,4 @@
+1..3
+ok 1 - @a is array with 1 element
+ok 2 - first element of @a eq 1
+ok 3 - overloaded infix ; hasn't been called

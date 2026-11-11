@@ -1,0 +1,183 @@
+1..37
+ok 1 - 45724385972894572891 is not prime
+ok 2 - 45724385972894572891 is still not prime
+ok 3 - 45724385972894572891 is still not prime
+ok 4 - 45724385972894572891 is still not prime
+# Subtest: all primes < 100
+    1..2
+    ok 1 - method form
+    ok 2 - sub form
+ok 5 - all primes < 100
+ok 6 - 45724385972894572891 is still not prime
+ok 7 - 45724385972894572891 is still not prime
+ok 8 - 45724385972894572891 is still not prime
+ok 9 - 45724385972894572891 is still not prime
+ok 10 - 2801 is a prime (method)
+ok 11 - 2801 is a prime (sub)
+ok 12 - 104743 is a prime (method)
+ok 13 - 104743 is a prime (sub)
+ok 14 - 105517 is a prime (method)
+ok 15 - 105517 is a prime (sub)
+ok 16 - 1300129 is a prime (method)
+ok 17 - 1300129 is a prime (sub)
+ok 18 - 15485867 is a prime (method)
+ok 19 - 15485867 is a prime (sub)
+ok 20 - 179424691 is a prime (method)
+ok 21 - 179424691 is a prime (sub)
+ok 22 - 32416187773 is a prime (method)
+ok 23 - 32416187773 is a prime (sub)
+ok 24 - 0 is not a prime (method)
+ok 25 - 0 is not a prime (sub)
+ok 26 - 32416187771 is not a prime (method)
+ok 27 - 32416187771 is not a prime (sub)
+ok 28 - 32416187772 is not a prime (method)
+ok 29 - 32416187772 is not a prime (sub)
+ok 30 - 32416187775 is not a prime (method)
+ok 31 - 32416187775 is not a prime (sub)
+ok 32 - 170141183460469231731687303715884105727 is prime
+ok 33 - 170141183460469231731687303715884105725 is not prime
+ok 34 - M13 is prime
+# Subtest: coersion from different types
+    1..82
+    ok 1 - "2.0" Str is prime (sub form)
+    ok 2 - "2.0" Str is prime (method form)
+    ok 3 - 3 Int is prime (sub form)
+    ok 4 - 3 Int is prime (method form)
+    ok 5 - IntStr.new(5, "5") IntStr is prime (sub form)
+    ok 6 - IntStr.new(5, "5") IntStr is prime (method form)
+    ok 7 - 2.0 Rat is prime (sub form)
+    ok 8 - 2.0 Rat is prime (method form)
+    ok 9 - RatStr.new(3.0, "3.0") RatStr is prime (sub form)
+    ok 10 - RatStr.new(3.0, "3.0") RatStr is prime (method form)
+    ok 11 - 5e0 Num is prime (sub form)
+    ok 12 - 5e0 Num is prime (method form)
+    ok 13 - NumStr.new(2e0, "2e0") NumStr is prime (sub form)
+    ok 14 - NumStr.new(2e0, "2e0") NumStr is prime (method form)
+    ok 15 - <3+0i> Complex is prime (sub form)
+    ok 16 - <3+0i> Complex is prime (method form)
+    ok 17 - ComplexStr.new(<5+0i>, "5+0i") ComplexStr is prime (sub form)
+    ok 18 - ComplexStr.new(<5+0i>, "5+0i") ComplexStr is prime (method form)
+    ok 19 - FatRat.new(2, 1) FatRat is prime (sub form)
+    ok 20 - FatRat.new(2, 1) FatRat is prime (method form)
+    ok 21 - FatRat.new(3, 1) FatRat is prime (sub form)
+    ok 22 - FatRat.new(3, 1) FatRat is prime (method form)
+    ok 23 - "4.0" Str is NOT prime (sub form)
+    ok 24 - "4.0" Str is NOT prime (method form)
+    ok 25 - 6 Int is NOT prime (sub form)
+    ok 26 - 6 Int is NOT prime (method form)
+    ok 27 - IntStr.new(8, "8") IntStr is NOT prime (sub form)
+    ok 28 - IntStr.new(8, "8") IntStr is NOT prime (method form)
+    ok 29 - 4.0 Rat is NOT prime (sub form)
+    ok 30 - 4.0 Rat is NOT prime (method form)
+    ok 31 - RatStr.new(6.0, "6.0") RatStr is NOT prime (sub form)
+    ok 32 - RatStr.new(6.0, "6.0") RatStr is NOT prime (method form)
+    ok 33 - 8e0 Num is NOT prime (sub form)
+    ok 34 - 8e0 Num is NOT prime (method form)
+    ok 35 - NumStr.new(4e0, "4e0") NumStr is NOT prime (sub form)
+    ok 36 - NumStr.new(4e0, "4e0") NumStr is NOT prime (method form)
+    ok 37 - <6+0i> Complex is NOT prime (sub form)
+    ok 38 - <6+0i> Complex is NOT prime (method form)
+    ok 39 - ComplexStr.new(<8+0i>, "8+0i") ComplexStr is NOT prime (sub form)
+    ok 40 - ComplexStr.new(<8+0i>, "8+0i") ComplexStr is NOT prime (method form)
+    ok 41 - "2.1" Str is NOT prime (sub form)
+    ok 42 - "2.1" Str is NOT prime (method form)
+    ok 43 - 2.3 Rat is NOT prime (sub form)
+    ok 44 - 2.3 Rat is NOT prime (method form)
+    ok 45 - RatStr.new(3.4, "3.4") RatStr is NOT prime (sub form)
+    ok 46 - RatStr.new(3.4, "3.4") RatStr is NOT prime (method form)
+    ok 47 - 5.1e0 Num is NOT prime (sub form)
+    ok 48 - 5.1e0 Num is NOT prime (method form)
+    ok 49 - NumStr.new(2.7e0, "2.7e0") NumStr is NOT prime (sub form)
+    ok 50 - NumStr.new(2.7e0, "2.7e0") NumStr is NOT prime (method form)
+    ok 51 - <3.8+0i> Complex is NOT prime (sub form)
+    ok 52 - <3.8+0i> Complex is NOT prime (method form)
+    ok 53 - ComplexStr.new(<5.3+0i>, "5.3+0i") ComplexStr is NOT prime (sub form)
+    ok 54 - ComplexStr.new(<5.3+0i>, "5.3+0i") ComplexStr is NOT prime (method form)
+    ok 55 - <3.8+0i> Complex is NOT prime (sub form)
+    ok 56 - <3.8+0i> Complex is NOT prime (method form)
+    ok 57 - ComplexStr.new(<5.3+0i>, "5.3e0+0i") ComplexStr is NOT prime (sub form)
+    ok 58 - ComplexStr.new(<5.3+0i>, "5.3e0+0i") ComplexStr is NOT prime (method form)
+    ok 59 - "-4.0" Str is NOT prime (sub form)
+    ok 60 - "-4.0" Str is NOT prime (method form)
+    ok 61 - "−4.0" Str is NOT prime (sub form)
+    ok 62 - "−4.0" Str is NOT prime (method form)
+    ok 63 - -6 Int is NOT prime (sub form)
+    ok 64 - -6 Int is NOT prime (method form)
+    ok 65 - IntStr.new(-8, "-8") IntStr is NOT prime (sub form)
+    ok 66 - IntStr.new(-8, "-8") IntStr is NOT prime (method form)
+    ok 67 - -4.0 Rat is NOT prime (sub form)
+    ok 68 - -4.0 Rat is NOT prime (method form)
+    ok 69 - RatStr.new(-6.0, "-6.0") RatStr is NOT prime (sub form)
+    ok 70 - RatStr.new(-6.0, "-6.0") RatStr is NOT prime (method form)
+    ok 71 - -8e0 Num is NOT prime (sub form)
+    ok 72 - -8e0 Num is NOT prime (method form)
+    ok 73 - NumStr.new(-4e0, "-4e0") NumStr is NOT prime (sub form)
+    ok 74 - NumStr.new(-4e0, "-4e0") NumStr is NOT prime (method form)
+    ok 75 - <-6+0i> Complex is NOT prime (sub form)
+    ok 76 - <-6+0i> Complex is NOT prime (method form)
+    ok 77 - ComplexStr.new(<-8+0i>, "-8+0i") ComplexStr is NOT prime (sub form)
+    ok 78 - ComplexStr.new(<-8+0i>, "-8+0i") ComplexStr is NOT prime (method form)
+    ok 79 - FatRat.new(4, 1) FatRat is NOT prime (sub form)
+    ok 80 - FatRat.new(4, 1) FatRat is NOT prime (method form)
+    ok 81 - FatRat.new(6, 1) FatRat is NOT prime (sub form)
+    ok 82 - FatRat.new(6, 1) FatRat is NOT prime (method form)
+ok 35 - coersion from different types
+# Subtest: Complex.is-prime with Complex that cannot be Real throw
+    1..10
+    # Subtest: ComplexStr.new(<3-3i>, "3-3i") (method form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 1 - ComplexStr.new(<3-3i>, "3-3i") (method form)
+    # Subtest: ComplexStr.new(<3-3i>, "3-3i") (sub form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 2 - ComplexStr.new(<3-3i>, "3-3i") (sub form)
+    # Subtest: <2+5i> (method form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 3 - <2+5i> (method form)
+    # Subtest: <2+5i> (sub form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 4 - <2+5i> (sub form)
+    # Subtest: ComplexStr.new(<-3-3i>, "-3-3i") (method form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 5 - ComplexStr.new(<-3-3i>, "-3-3i") (method form)
+    # Subtest: ComplexStr.new(<-3-3i>, "-3-3i") (sub form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 6 - ComplexStr.new(<-3-3i>, "-3-3i") (sub form)
+    # Subtest: <-2+5i> (method form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 7 - <-2+5i> (method form)
+    # Subtest: <-2+5i> (sub form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 8 - <-2+5i> (sub form)
+    # Subtest: <0+31337i> (method form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 9 - <0+31337i> (method form)
+    # Subtest: <0+31337i> (sub form)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Real)
+    ok 10 - <0+31337i> (sub form)
+ok 36 - Complex.is-prime with Complex that cannot be Real throw
+# Subtest: negative numbers are *not* prime
+    1..3
+    ok 1 - negative number whose value when interpreted as unsigned is not prime is not prime
+    ok 2 - negative number whose value when interpreted as unsigned is not prime is not prime
+    ok 3 - negative number whose value when interpreted as unsigned is prime is not prime
+ok 37 - negative numbers are *not* prime

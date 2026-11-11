@@ -1,0 +1,28 @@
+1..7
+# Subtest: Can't redeclare a class
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Redeclaration)
+ok 1 - Can't redeclare a class
+ok 2 - can redeclare stub classes
+# Subtest: Can't inherit from a non-existing class
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Inheritance::UnknownParent)
+ok 3 - Can't inherit from a non-existing class
+# Subtest: Can't do a non-existing role
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::InvalidType)
+ok 4 - Can't do a non-existing role
+# Subtest: Unknown types in type constraints are an error
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp::Group)
+ok 5 - Unknown types in type constraints are an error
+ok 6 - can call a class "Task" - RT  \#61128
+# Subtest: Post declaration necessary
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 7 - Post declaration necessary

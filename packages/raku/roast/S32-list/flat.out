@@ -1,0 +1,53 @@
+1..45
+ok 1 - $(Seq.new()) (method form)
+ok 2 - $(Seq.new()) (method form)
+ok 3 - $(1, 2, 3) (method form)
+ok 4 - $(1, (2, (3,))) (method form)
+ok 5 - 1..3 (method form)
+ok 6 - $(1, 2..3) (method form)
+ok 7 - $(1, 2, 3) (method form)
+ok 8 - $(1, $(2, $(3,))) (method form)
+ok 9 - $["a", "b", "c"] (method form)
+ok 10 - $["a", ["b", ["c"]]] (method form)
+ok 11 - $(<anon|1>.new,) (method form)
+ok 12 - $(Complex, $(Any, $(Int,))) (method form)
+ok 13 - $(Seq.new()) (sub form)
+ok 14 - $(Seq.new()) (sub form)
+ok 15 - $(1, 2, 3) (sub form)
+ok 16 - $(1, (2, (3,))) (sub form)
+ok 17 - 1..3 (sub form)
+ok 18 - $(1, 2..3) (sub form)
+ok 19 - $(1, 2, 3) (sub form)
+ok 20 - $(1, $(2, $(3,))) (sub form)
+ok 21 - $["a", "b", "c"] (sub form)
+ok 22 - $["a", ["b", ["c"]]] (sub form)
+ok 23 - $(<anon|1>.new,) (sub form)
+ok 24 - $(Complex, $(Any, $(Int,))) (sub form)
+ok 25 - can flatten stuff with lazy stuff inside of it (method form)
+ok 26 - can flatten stuff with lazy stuff inside of it (sub form)
+ok 27 - flat propagates .is-lazy (method form)
+ok 28 - flat propagates .is-lazy (subform)
+ok 29 - calling .flat on an array is a no-op
+ok 30 - calling .flat(1) on an array is a no-op
+ok 31 - calling .flat(2) on an array is a no-op
+ok 32 - calling .flat(3) on an array is a no-op
+ok 33 - calling .flat(4) on an array is a no-op
+ok 34 - array.flat(:hammer)
+ok 35 - array.flat(1, :hammer)
+ok 36 - array.flat(2, :hammer)
+ok 37 - array.flat(3, :hammer)
+ok 38 - array.flat(4, :hammer)
+ok 39 - calling .flat on list flattens deeply
+ok 40 - hammering a list
+ok 41 - list.flat(1, :hammer)
+ok 42 - list.flat(2, :hammer)
+ok 43 - list.flat(3, :hammer)
+ok 44 - list.flat(4, :hammer)
+# Subtest: test hanging of list with Iterable type object
+    ok 1 - (Iterable,) did not hang
+    ok 2 - (List,) did not hang
+    ok 3 - (Array,) did not hang
+    ok 4 - (array,) did not hang
+    ok 5 - (Seq,) did not hang
+    1..5
+ok 45 - test hanging of list with Iterable type object

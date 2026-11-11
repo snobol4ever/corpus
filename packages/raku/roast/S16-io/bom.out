@@ -1,0 +1,11 @@
+1..10
+ok 1 - .chars reflects stripping of UTF-8 BOM (BOM + 4 chars)
+ok 2 - got correct string with UTF-8 BOM stripped
+ok 3 - when we decode only BOM, get empty string
+ok 4 - BOM stripped when reading from file
+ok 5 - Got correct BOM-stripped string reading form file
+ok 6 - lines sanity with BOM stripping
+ok 7 - BOM stripped first line has correct chars
+ok 8 - BOM stripped first line is correct
+ok 9 - BOM-only file slurps to empty string
+ok 10 - BOM-only file reports 0 lines like empty file

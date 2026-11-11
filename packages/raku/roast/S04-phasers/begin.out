@@ -1,0 +1,15 @@
+1..13
+ok 1 - Can use BEGIN <block> as an expression
+ok 2 - Can use BEGIN <expr> as an expression
+ok 3 - can set outer lexical from a BEGIN block
+ok 4 - can set outer package var from a BEGIN block
+ok 5 - can call subs from an outer scope in BEGIN
+ok 6 - can call subs from the setting in BEGIN
+ok 7 - use a class at BEGIN time
+ok 8 - Can execute an anonymous sub return from BEGIN
+ok 9 - BEGIN block was executed before a parse error happened later in the file
+ok 10 - Can use try at BEGIN time
+ok 11 - no Null PMC access when looping over SomeEnum.enums in blockless BEGIN
+ok 12 - # SKIP RT \#123776
+ok 13 - Assigment in BEGIN to list declared outside BEGIN lives
+# FUDGED!

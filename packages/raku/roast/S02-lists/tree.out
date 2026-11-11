@@ -1,0 +1,24 @@
+1..14
+ok 1 - basic sanity (1)
+ok 2 - basic sanity (2)
+ok 3 - .tree on a type object
+ok 4 - .tree(1)
+ok 5 - .tree(1) really only goes one level deep
+ok 6 - .tree(2) goes two levels deep
+ok 7 - WhateverCode form, depth 1
+ok 8 - WhateverCode form, depth 2
+ok 9 - .tree with multiple Whatever-closures
+ok 10 - (list of lists).tree
+# Subtest: idempotent .tree variants
+    1..7
+    ok 1 - .tree(0) on Iterable
+    ok 2 - .tree    on non-Iterable
+    ok 3 - .tree(1) on non-Iterable
+    ok 4 - .tree(0) on non-Iterable
+    ok 5 - .tree(*) on non-Iterable
+    ok 6 - .tree([&first]) on non-Iterable
+    ok 7 - .tree([&first, *@rest]) on non-Iterable
+ok 11 - idempotent .tree variants
+ok 12 - .tree(*) returns self.tree
+ok 13 - .tree([&first]) calls first(self)
+ok 14 - .tree([&first]) returns result of first(self)

@@ -1,0 +1,47 @@
+1..46
+ok 1 - lvalue assignment modified original string
+ok 2 - $r referent is eq to the substr-rwing
+ok 3 - assignment to reference modifies original
+ok 4 - $r is consistent
+ok 5 - other ref to other lvalue
+ok 6 - lvalue ref size varies but still works
+ok 7 - other lvalue wiggled around
+ok 8 - lvalue assignment modified original string
+ok 9 - lvalue assignment modified original string
+ok 10 - bound $r is eq to the substr-rwing
+ok 11 - assignment to bound var modifies original
+ok 12 - bound $r is consistent
+ok 13 - other bound var to other lvalue
+ok 14 - lvalue ref size varies but still works
+ok 15 - other lvalue wiggled around
+ok 16 - lvalue assignment modified original string (substr-rw(Int, Int)).
+ok 17 - $r is a reference (substr-rw(Int, Int)).
+ok 18 - $r referent is eq to the substr-rwing (substr-rw(Int, Int)).
+ok 19 - assignment to reference modifies original (substr-rw(Int, Int)).
+ok 20 - $r is consistent (substr-rw(Int, Int)).
+ok 21 - other ref to other lvalue (substr-rw(Int, Int)).
+ok 22 - lvalue ref size varies but still works (substr-rw(Int, Int)).
+ok 23 - other lvalue wiggled around (substr-rw(Int, Int)).
+ok 24 - lvalue assignment modified original string (substr-rw(Int, Int)).
+ok 25 - lvalue assignment modified original string (substr-rw(Int, Int)).
+ok 26 - bound $r is eq to the substr-rwing (substr-rw(Int, Int)).
+ok 27 - assignment to bound var modifies original (substr-rw(Int, Int)).
+ok 28 - bound $r is consistent (substr-rw(Int, Int)).
+ok 29 - other bound var to other lvalue (substr-rw(Int, Int)).
+ok 30 - lvalue ref size varies but still works (substr-rw(Int, Int)).
+ok 31 - other lvalue wiggled around (substr-rw(Int, Int)).
+ok 32 - method form of substr-rw works
+ok 33 - substr-rw with a Range should work
+ok 34 - Str.substr-rw with a Range should work
+ok 35 - Str.substr-rw with a Range should work
+ok 36 - Str.substr-rw with a Range should work
+ok 37 - Str.substr-rw with a Range should work
+ok 38 - substr-rw handles end positions that are out of range
+ok 39 - assigning a non-string coerces
+ok 40 - .substr-rw on a string constructed with `x` operator
+ok 41 - Non-int width ok
+ok 42 - Whatever as width ok
+ok 43 - Inf as width ok
+ok 44 - Callable as width ok
+ok 45 - can we append using substr-rw
+ok 46 - can we replace with Callable as first arg

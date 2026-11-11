@@ -1,0 +1,102 @@
+1..86
+ok 1 - Basic slurpy params 1
+ok 2 - Basic slurpy params 2
+ok 3 - Basic slurpy params 3
+ok 4 - Basic slurpy params 4
+ok 5 - Positional and slurp params
+ok 6 - Positional and slurp params
+ok 7 - at least one arg required
+ok 8 - can grab first item of a slurpy array
+ok 9 - can grab first item of a slurpy array (is rw)
+ok 10 - can grab first item of a slurpy array (is copy)
+ok 11 - Shift from an array function argument works
+ok 12 - implicit slurpy param flattens
+ok 13 - implicit slurpy param flattens
+ok 14 - implicit slurpy param flattens
+ok 15 - implicit slurpy param flattens
+ok 16 - Testing: `sub foo($n, *%h) { }; foo 1, n => 20, y => 300`
+ok 17 - Testing: `sub foo($n, *%h) { }; foo 1, x => 20, y => 300, 4000`
+ok 18 - Testing: `sub foo(:$n, *%h, *@a){ }; foo 1, x => 20, y => 300, 4000`
+ok 19 - Testing value for named argument
+ok 20 - Testing value for slurpy *%h
+ok 21 - Testing the value for slurpy *@a
+ok 22 - Testing: `sub foo(:$n, *%h, *@a){ }; foo 1, n => 20, y => 300, 4000`
+ok 23 - Testing the named argument
+ok 24 - Testing value for slurpy *%h
+ok 25 - Testing the value for slurpy *@a
+ok 26 - Testing: `my sub foo(+:$n, *%h, *@a){ }; foo 1, n => 20, y => 300, 4000 }`
+ok 27 - 
+ok 28 - Testing: `my sub foo(:$n is required, *%h, *@a){ }; foo 1, n => 20, y => 300, 4000`
+ok 29 - Testing: `my sub foo(:$n is required, *%h, *@a){ }; foo 1, x => 20, y => 300, 4000`
+ok 30 - Testing the first slurpy scalar...
+ok 31 - Testing the second slurpy scalar...
+ok 32 - Testing the rest slurpy *@r
+ok 33 - slurpy array copy same as not copied
+ok 34 - Mu slurpy param doesnt autothread
+ok 35 - Mu slurpy param doesnt autothread
+ok 36 - comma separates top-level args
+ok 37 - top-level arg is list
+ok 38 - top-level arg is array
+ok 39 - top-level arg is range
+ok 40 - top-level arg is seq
+ok 41 - top-level arg contains list
+ok 42 - top-level arg contains array
+ok 43 - top-level arg contains range
+ok 44 - comma separates top-level args
+ok 45 - top-level arg is list
+ok 46 - top-level arg is array
+ok 47 - top-level arg is range
+ok 48 - top-level arg is seq
+ok 49 - top-level arg contains list
+ok 50 - top-level arg contains array
+ok 51 - top-level arg contains range
+ok 52 - top-level arg is lazy
+ok 53 - comma separates final top-level args
+ok 54 - final top-level arg is list
+ok 55 - final top-level arg is array
+ok 56 - final top-level arg is range
+ok 57 - final top-level arg is seq
+ok 58 - final top-level arg contains list
+ok 59 - final top-level arg contains array
+ok 60 - final top-level arg contains range
+ok 61 - comma separates final top-level args
+ok 62 - final top-level arg is list
+ok 63 - final top-level arg is array
+ok 64 - final top-level arg is range
+ok 65 - final top-level arg is seq
+ok 66 - final top-level arg contains list
+ok 67 - final top-level arg contains array
+ok 68 - final top-level arg contains range
+ok 69 - final top-level arg is lazy
+ok 70 - +args passes through Seq unscathed
+ok 71 - +args passes through Seq unscathed
+ok 72 - iteration succeeds on first pass
+ok 73 - +args can't repeat a Seq
+ok 74 - produces the right error
+ok 75 - iteration dies on second pass
+ok 76 - +@args converts Seq to List
+ok 77 - +@args handles List from Seq
+ok 78 - iteration succeeds on second pass
+# Subtest: Can't put required parameter after variadic parameters
+    1..2
+    ok 1 - 'sub rt65324(*@x, $oops) { say $oops }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+ok 79 - Can't put required parameter after variadic parameters
+# Subtest: did we throws-like X::Parameter::TypedSlurpy?
+    1..3
+    ok 1 - 'sub typed-slurpy-pos(Int *@a) { }' died
+    ok 2 - right exception type (X::Parameter::TypedSlurpy)
+    ok 3 - .kind matches positional
+ok 80 - did we throws-like X::Parameter::TypedSlurpy?
+# Subtest: did we throws-like X::Parameter::TypedSlurpy?
+    1..3
+    ok 1 - 'sub typed-slurpy-pos(Int *%h) { }' died
+    ok 2 - right exception type (X::Parameter::TypedSlurpy)
+    ok 3 - .kind matches named
+ok 81 - did we throws-like X::Parameter::TypedSlurpy?
+ok 82 - slurpy is copy-array works fine, thank you
+ok 83 - slurpy array can be indexed if index contains prefix:<+>
+ok 84 - .gist on @_ containing lazy list does not hang
+True
+ok 85 - slurpy positional param does not hang when given infinite lists
+ok 86 - no crashes with slurpies

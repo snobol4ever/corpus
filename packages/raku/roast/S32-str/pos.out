@@ -1,0 +1,7 @@
+1..2
+# Subtest: Str.pos superseeded by $/.to
+    1..2
+    ok 1 - '$str.pos' died
+    ok 2 - right exception type (X::Method::NotFound)
+ok 1 - Str.pos superseeded by $/.to
+ok 2 - $/.to works

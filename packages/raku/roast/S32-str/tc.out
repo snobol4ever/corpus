@@ -1,0 +1,10 @@
+1..9
+ok 1 - simple
+ok 2 - empty string
+ok 3 - umlaut
+ok 4 - accented chars
+ok 5 - sharp s => Ss
+ok 6 - lj => Lj (in one character)
+ok 7 - method form of title case
+ok 8 - tc only modifies first character
+ok 9 - tc works on codepoints greater than 0xffff

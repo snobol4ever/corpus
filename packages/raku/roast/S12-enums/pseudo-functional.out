@@ -1,0 +1,12 @@
+1..11
+ok 1 - day(Tue) same as day(3)
+ok 2 - day(Tue) same as day(3) in variables
+ok 3 - day(Tue).day is a day
+ok 4 - day(Tue) == Tue
+ok 5 - day($x) lives
+ok 6 - day(Tue).Tue
+ok 7 - day(Tue) != Wed
+ok 8 - ! day(Tue).does(Wed)
+ok 9 - ! day(Tue).does(Wed)
+ok 10 - 8 is not a day
+ok 11 - 8 does not match day

@@ -1,0 +1,11 @@
+1..5
+ok 1 - Simple combination of :x(2) and :exhaustive
+not ok 2 - First entry of prev. genenerated $/ # TODO exhaustive capture too greedy RT #125133
+# Failed test 'First entry of prev. genenerated $/'
+# at S05-modifier/repetition-exhaustive.rakudo line 24
+# expected: 'ab'
+#      got: 'abbb'
+ok 3 - Second entry of prev. genenerated $/
+ok 4 - Simple combination of :x(3) and :exhaustive
+ok 5 - Simple combination of :x(4) and :exhaustive
+# FUDGED!

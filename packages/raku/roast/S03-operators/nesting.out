@@ -1,0 +1,27 @@
+1..26
+ok 1 - long and short form are the same (+)
+ok 2 - long and short form are the same (==)
+ok 3 - sort works using &[<=>]
+ok 4 - &[+] as a function
+ok 5 - [+] as an infix
+ok 6 - 4 R[+] 5
+ok 7 - 4 R[+] 5 is the same type as 5 + 4
+ok 8 - 4 [R-] 5
+ok 9 - 4 [R-] 5 is the same type as 5 - 4
+ok 10 - 4 [R*] 5
+ok 11 - 4 [R*] 5 is the same type as 5 * 4
+ok 12 - 4 R[/] 5
+ok 13 - 4 R[/] 5 is the same type as 5 / 4
+ok 14 - 4 R[cmp] 5
+ok 15 - 4 R[cmp] 5 is the same type as 5 cmp 4
+ok 16 - R[/] gets precedence of /
+ok 17 - Rop gets the precedence of op
+ok 18 - Rop gets list_infix precedence correctly
+ok 19 - zip-concat produces expected result
+ok 20 - zip-product works
+ok 21 - zip-cmp works
+ok 22 - [[+]] works
+ok 23 - [R[+]] works
+ok 24 - R[R[R-]] works
+ok 25 - RR[R-] works
+ok 26 - 1031 [blue] 4 == 3

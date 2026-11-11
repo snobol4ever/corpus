@@ -1,0 +1,135 @@
+1..83
+ok 1 - class test
+ok 2 - autovivification(?) for nested packages
+ok 3 - test for working .raku method
+# Subtest: Non-existent sub through package
+    1..2
+    ok 1 - 'ThisEmpty::no_such_sub()' died
+    ok 2 - right exception type (Exception)
+ok 4 - Non-existent sub through package
+# Subtest: Non-existent method with package
+    1..2
+    ok 1 - 'ThisEmpty.no_such_sub_or_prop' died
+    ok 2 - right exception type (X::Method::NotFound)
+ok 5 - Non-existent method with package
+ok 6 - enum in package
+ok 7 - # SKIP RT  \#59484
+ok 8 - some WHO implementation
+ok 9 - WHO implementation with longname
+ok 10 - can refer to role using package
+ok 11 - since role is in package should not need package name
+ok 12 - reference to grammar before definition dies
+ok 13 - error message mentions the undefined grammar
+ok 14 - reference to module before definition dies
+ok 15 - error message mentions the undefined module
+ok 16 - reference to role before definition dies
+ok 17 - error message mentions the undefined role
+ok 18 - reference to class before definition dies
+ok 19 - error message mentions the undefined class
+ok 20 - reference to package before definition dies
+ok 21 - error message mentions the undefined package
+ok 22 - two different packages should be two different Baz
+ok 23 - two different packages should be two different EHomeE
+ok 24 - call of method defined in package
+ok 25 - map in package
+ok 26 - use outer lexical
+ok 27 - use outer package var
+ok 28 - Should be able to update outer package var
+ok 29 - simple package case that should not blow platform
+ok 30 - another simple package case that should not blow platform
+ok 31 - map works in a module (RT  \#64606)
+ok 32 - array initialization works fine in imported subs
+# Subtest: sub redefined in class dies
+    1..2
+    ok 1 - 'class A { sub a { say "a" }; sub a { say "a" } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 33 - sub redefined in class dies
+# Subtest: sub redefined in package dies
+    1..2
+    ok 1 - 'package P { sub p { say "p" }; sub p { say "p" } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 34 - sub redefined in package dies
+# Subtest: sub redefined in module dies
+    1..2
+    ok 1 - 'module M { sub m { say "m" }; sub m { say "m" } }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 35 - sub redefined in module dies
+# Subtest: token redefined in grammar dies
+    1..2
+    ok 1 - 'grammar B { token b { 'b' }; token b { 'b' } };' died
+    ok 2 - right exception type (Exception)
+ok 36 - token redefined in grammar dies
+# Subtest: method redefined in class dies
+    1..2
+    ok 1 - 'class C { method c { say "c" }; method c { say "c" } }' died
+    ok 2 - right exception type (Exception)
+ok 37 - method redefined in class dies
+ok 38 - use after class line
+ok 39 - use in class block
+ok 40 - use after module line
+ok 41 - use in module block
+ok 42 - use in package block
+ok 43 - use after grammar line
+ok 44 - use in grammar block
+ok 45 - use after role line
+ok 46 - use in role block
+ok 47 - can "use" a class inside a module
+ok 48 - can "use" a class inside a class
+ok 49 - overrides from one module do not affect a module that is loaded later on
+ok 50 - can load a module ending in .rakumod
+ok 51 - can call subs exported from .rakumod module
+# Subtest: package Foo; is indicator for Perl code
+    1..2
+    ok 1 - 'package PerlCode;
+    # 'this is Perl code'' died
+    ok 2 - right exception type (Exception)
+ok 52 - package Foo; is indicator for Perl code
+# Subtest: die if module "is" a nonexistent
+    1..2
+    ok 1 - 'module RT80856 is not_RT80856 {}' died
+    ok 2 - right exception type (X::Inheritance::UnknownParent)
+ok 53 - die if module "is" a nonexistent
+ok 54 - SomeType.WHO is a Stash
+ok 55 - and Stash correctly .gist-ifies
+ok 56 - can re-declare a class over a package of the same name
+# Subtest: Too late for semicolon form
+    1..2
+    ok 1 - '
+    #     my package A {
+    #         package B;
+    #         1+1;
+    #     }
+    # ' died
+    ok 2 - right exception type (X::UnitScope::TooLate)
+ok 57 - Too late for semicolon form
+ok 58 - return value of "my" package declaration
+ok 59 - return value of "Our" package declaration
+ok 60 - can use two packages that both use the same third package
+ok 61 - accessing module variable from within sub called from outside the module
+ok 62 - autovivification works with nested "use" directives (import from two nested files)
+ok 63 - no Null PMC access with "use lib $double_quoted_string"
+ok 64 - type object of class gists to short name in parens
+ok 65 - .WHO of class gists to long name
+ok 66 - .WHO of class stringifies to long name
+ok 67 - type object of nested module definition gists to short name in parens
+ok 68 - .WHO of nested module definition gists to long name
+ok 69 - .WHO of nested module definition stringifies to long name
+ok 70 - type object of role gists to short name in parens
+ok 71 - .WHO of role gists to long name
+ok 72 - .WHO of role stringifies to long name
+ok 73 - type object of nested role definition gists to short name in parens
+ok 74 - .WHO of nested role definition gists to long name
+ok 75 - .WHO of nested role definition stringifies to long name
+ok 76 - type object of subset gists to short name in parens
+ok 77 - .WHO of subset gists to long name
+ok 78 - .WHO of subset stringifies to long name
+ok 79 - type object of nested subset definition gists to short name in parens
+ok 80 - .WHO of nested subset definition gists to long name
+ok 81 - .WHO of nested subset definition stringifies to long name
+ok 82 - loop that isn't Perl is not identified as such
+# Subtest: `use lib` accepts IO::Path objects
+    1..2
+    ok 1 - single object
+    ok 2 - a mixed list of IO::Path and Str
+ok 83 - `use lib` accepts IO::Path objects
+# FUDGED!

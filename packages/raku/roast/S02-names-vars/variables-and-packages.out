@@ -1,0 +1,80 @@
+1..39
+# Subtest: MY is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 1 - MY is an out of scope name
+# Subtest: OUR is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 2 - OUR is an out of scope name
+# Subtest: GLOBAL is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 3 - GLOBAL is an out of scope name
+# Subtest: PROCESS is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 4 - PROCESS is an out of scope name
+# Subtest: OUTER is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 5 - OUTER is an out of scope name
+# Subtest: CALLER is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 6 - CALLER is an out of scope name
+# Subtest: DYNAMIC is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 7 - DYNAMIC is an out of scope name
+# Subtest: COMPILING is an out of scope name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::PseudoPackage::InDeclaration)
+ok 8 - COMPILING is an out of scope name
+ok 9 - get regular a
+ok 10 - get $OUTER::a
+ok 11 - get $OUTER::OUTER::a
+ok 12 - get regular $a (1)
+ok 13 - get new regular $a (1)
+ok 14 - get very new regular $a
+ok 15 - get $OUTER::a
+ok 16 - get $OUTER::OUTER::a
+ok 17 - get regular $a
+ok 18 - get hidden $a (1)
+ok 19 - get hidden $a (2)
+ok 20 - get hidden $a (3)
+ok 21 - recursively called subref shouldn't stomp on the lexical vars of other instances
+ok 22 - recursively called sub shouldn't stomp on the lexical vars of other instances
+ok 23 - get variable not yet declared using a sub (1)
+ok 24 - get variable not yet declared using a sub (2)
+ok 25 - get variable not yet declared using a sub (3)
+ok 26 - runtime part of my not yet executed (1)
+ok 27 - runtime part of my not yet executed (2)
+ok 28 - runtime part of my not yet executed (3)
+ok 29 - initilization from BEGIN block (1)
+ok 30 - initilization from BEGIN block (2)
+ok 31 - initilization from BEGIN block (3)
+ok 32 - get real hidden var using a sub (1)
+ok 33 - get real hidden var using a sub (1)
+ok 34 - get real hidden var using a sub (1)
+ok 35 - var captured by sub is the right var (1)
+ok 36 - var captured by sub is the right var (2)
+# Subtest: can't redeclare something with an implicit outer binding
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Redeclaration::Outer)
+ok 37 - can't redeclare something with an implicit outer binding
+# Subtest: can't redeclare something with an implicit outer binding with signature form
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Redeclaration::Outer)
+ok 38 - can't redeclare something with an implicit outer binding with signature form
+ok 39 - $OUTER::_ can access a $_

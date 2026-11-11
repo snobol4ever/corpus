@@ -1,0 +1,6 @@
+1..1
+# Subtest: $*ARGFILES is set to $*IN inside sub MAIN
+    1..2
+    ok 1 - inside MAIN in 6.c language (with @*ARGS content)
+    ok 2 - inside MAIN in 6.c language (without @*ARGS content)
+ok 1 - $*ARGFILES is set to $*IN inside sub MAIN

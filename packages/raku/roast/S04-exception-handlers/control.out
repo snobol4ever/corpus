@@ -1,0 +1,18 @@
+1..17
+ok 1 - next with CONTROL gives error mentioning next
+ok 2 - next causes CX::Next control exception
+ok 3 - redo causes CX::Redo control exception
+ok 4 - last causes CX::Last control exception
+ok 5 - succeed causes CX::Succeed control exception
+ok 6 - proceed causes CX::Proceed control exception
+ok 7 - take causes CX::Take control exception
+ok 8 - warn causes CX::Warn control exception
+ok 9 - CX::Warn carries the message we warned with
+ok 10 - emit causes CX::Emit control exception
+ok 11 - done causes CX::Done control exception
+ok 12 - take without gather error mentions location
+ok 13 - Exception doing X::Control caught by CONTROL block
+ok 14 - Exception doing X::Control not caught by CATCH block
+ok 15 - Correct control exception type
+ok 16 - did 'a warning' fire
+ok 17 - did 'different warning' fire

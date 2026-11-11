@@ -1,0 +1,182 @@
+1..89
+ok 1 - 0 ** 0 ==  1
+ok 2 - 0 ** 1 ==  0
+ok 3 - 1 **  2 ==  1
+ok 4 - 4 **  0 ==  1
+ok 5 - 4 **  1 ==  4
+ok 6 - 4 **  2 == 16
+ok 7 -   0 ** 4553535345364535345634543534 == 0
+ok 8 -   1 ** 4553535345364535345634543534 == 1
+ok 9 - 1e0 ** 4553535345364535345634543534 == 1
+ok 10 -  -1 ** 4553535345364535345634543534 == 1
+ok 11 -  -1 ** 4553535345364535345634543533  == -1
+ok 12 - 4 ** .5 ==  2
+ok 13 - 4 ** (1/2) == 2 
+ok 14 - 4 ** (-1/2) == 1/2 
+ok 15 - -2 ** 2 = 4
+ok 16 - 1**Inf=1
+ok 17 - 0**Inf=0
+ok 18 - Inf**2 = Inf
+ok 19 - (-Inf)**3 = -Inf
+ok 20 - Inf**Inf = Inf
+ok 21 - NaN propagates with integer powers
+ok 22 - NaN propagates with numeric powers
+ok 23 - 0**NaN=NaN
+not ok 24 - NaN**1i=NaN # TODO wrong results for "NaN" used with "**"
+# Failed test 'NaN**1i=NaN'
+# at S32-num/power.rakudo line 40
+# expected: NaN
+#      got: <NaN+NaN\i>
+not ok 25 - 1i**NaN=NaN # TODO wrong results for "NaN" used with "**"
+# Failed test '1i**NaN=NaN'
+# at S32-num/power.rakudo line 41
+# expected: NaN
+#      got: <NaN+NaN\i>
+ok 26 - NaN**0=1
+ok 27 - 1**NaN=1
+ok 28 - NaN**NaN=NaN
+ok 29 - Inf**NaN=NaN
+ok 30 - NaN**Inf=NaN
+ok 31 - e **  .5 ==   exp(.5)
+ok 32 - e ** 2.5 ==  exp(2.5)
+ok 33 - (4+0i) ** 2 == 16
+ok 34 - i ** 4 == 1
+ok 35 - (4+0i) ** .5 == 2
+ok 36 - i ** 2 == -1
+ok 37 - i ** 3 == -i
+ok 38 - 5i ** 3 = -125i
+ok 39 - 3i ** 3 = -27i
+ok 40 - -3i ** 3 = 27i
+not ok 41 - (-1) ** -i is approx 23.1406926327793 # TODO i
+# Failed test '(-1) ** -i is approx 23.1406926327793'
+# at S32-num/power.rakudo line 67
+#     expected approximately: 23.1406926327793
+#                        got: NaN+NaN\i
+# maximum relative tolerance: 1e-06
+# actual relative difference: NaN
+ok 42 - quartic root of 8i ** 4 = 8i
+ok 43 - quartic root of 8i ** 4 = 8i
+ok 44 - quartic root of 8i ** 4 = 8i
+ok 45 - quartic root of 8i ** 4 = 8i
+ok 46 - e ** pi i = -1
+ok 47 - (4+0i) ** (2+0i) == 16
+ok 48 - 1.015 ** 200 is not NaN
+ok 49 - 1.015 ** 200 == 19.6430286394751
+ok 50 - 0⁰ ==  1
+ok 51 - 0¹ ==  0
+ok 52 - 1² ==  1
+ok 53 - 4⁰ ==  1
+ok 54 - 4¹ ==  4
+ok 55 - 4² == 16
+ok 56 - 2³² == 2 ** 32
+ok 57 - 2⁶⁴ == 2 ** 64
+ok 58 - 10¹⁰⁰ == 10 ** 100
+ok 59 - *⁰(0) ==  1
+ok 60 - *¹(0) ==  0
+ok 61 - *²(1) ==  1
+ok 62 - *⁰() ==  1
+ok 63 - *¹() ==  4
+ok 64 - *²() == 16
+ok 65 - *³²(2) == 2 ** 32
+ok 66 - *⁶⁴(2) == 2 ** 64
+ok 67 - *¹⁰⁰(10) == 10 ** 100
+ok 68 - 3³
+ok 69 - 3⁴
+ok 70 - 3⁵
+ok 71 - 3⁶
+ok 72 - 3⁷
+ok 73 - 3⁸
+ok 74 - 3⁹
+ok 75 - 3¹⁰
+ok 76 - 3¹³
+ok 77 - (-1)¹²³
+ok 78 -    0⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ ==  0
+ok 79 -    1⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ ==  1
+ok 80 -  1e0⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ ==  1
+ok 81 - (-1)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁵⁴ ==  1
+ok 82 - (-1)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ == -1
+ok 83 - 4 ** ½ ==  2
+ok 84 - 4 ** -½ == ½
+ok 85 - 27 ** ⅓ ==  3
+ok 86 - 27 ** ⅔ ==  9
+ok 87 - 27 ** -⅓ == ⅓
+ok 88 - 27 ** -⅔ == ⅑
+# Subtest: power ops with uncommon No chars as terms work
+    1..75
+    ok 1 - ⁰¹²
+    ok 2 - ⁰⁺¹²
+    ok 3 - ⁰⁻¹²
+    ok 4 - # SKIP this is all bogus, but this one throws
+    ok 5 - 2**⁰²
+    ok 6 - ¹¹²
+    ok 7 - ¹⁺¹²
+    ok 8 - ¹⁻¹²
+    ok 9 - # SKIP this is all bogus, but this one throws
+    ok 10 - 2**¹²
+    ok 11 - ²¹²
+    ok 12 - ²⁺¹²
+    ok 13 - ²⁻¹²
+    ok 14 - # SKIP this is all bogus, but this one throws
+    ok 15 - 2**²²
+    ok 16 - ³¹²
+    ok 17 - ³⁺¹²
+    ok 18 - ³⁻¹²
+    ok 19 - # SKIP this is all bogus, but this one throws
+    ok 20 - 2**³²
+    ok 21 - ⁴¹²
+    ok 22 - ⁴⁺¹²
+    ok 23 - ⁴⁻¹²
+    ok 24 - # SKIP this is all bogus, but this one throws
+    ok 25 - 2**⁴²
+    ok 26 - ⁵¹²
+    ok 27 - ⁵⁺¹²
+    ok 28 - ⁵⁻¹²
+    ok 29 - # SKIP this is all bogus, but this one throws
+    ok 30 - 2**⁵²
+    ok 31 - ⁶¹²
+    ok 32 - ⁶⁺¹²
+    ok 33 - ⁶⁻¹²
+    ok 34 - # SKIP this is all bogus, but this one throws
+    ok 35 - 2**⁶²
+    ok 36 - ⁷¹²
+    ok 37 - ⁷⁺¹²
+    ok 38 - ⁷⁻¹²
+    ok 39 - # SKIP this is all bogus, but this one throws
+    ok 40 - 2**⁷²
+    ok 41 - ⁸¹²
+    ok 42 - ⁸⁺¹²
+    ok 43 - ⁸⁻¹²
+    ok 44 - # SKIP this is all bogus, but this one throws
+    ok 45 - 2**⁸²
+    ok 46 - ⁹¹²
+    ok 47 - ⁹⁺¹²
+    ok 48 - ⁹⁻¹²
+    ok 49 - # SKIP this is all bogus, but this one throws
+    ok 50 - 2**⁹²
+    ok 51 - ⅟¹²
+    ok 52 - ⅟⁺¹²
+    ok 53 - ⅟⁻¹²
+    ok 54 - # SKIP this is all bogus, but this one throws
+    ok 55 - 2**⅟²
+    ok 56 - 𑁓¹²
+    ok 57 - 𑁓⁺¹²
+    ok 58 - 𑁓⁻¹²
+    ok 59 - # SKIP this is all bogus, but this one throws
+    ok 60 - 2**𑁓²
+    ok 61 - ౸¹²
+    ok 62 - ౸⁺¹²
+    ok 63 - ౸⁻¹²
+    ok 64 - # SKIP this is all bogus, but this one throws
+    ok 65 - 2**౸²
+    ok 66 - ㆒¹²
+    ok 67 - ㆒⁺¹²
+    ok 68 - ㆒⁻¹²
+    ok 69 - # SKIP this is all bogus, but this one throws
+    ok 70 - 2**㆒²
+    ok 71 - 𐌣¹²
+    ok 72 - 𐌣⁺¹²
+    ok 73 - 𐌣⁻¹²
+    ok 74 - # SKIP this is all bogus, but this one throws
+    ok 75 - 2**𐌣²
+ok 89 - power ops with uncommon No chars as terms work
+# FUDGED!

@@ -1,0 +1,31 @@
+1..22
+ok 1 - scalar assignment sanity
+ok 2 - scalar reset sanity
+ok 3 - scalar default value
+ok 4 - scalar with default - defined
+ok 5 - assigned scalar
+ok 6 - assigned scalar reset
+ok 7 - array default
+ok 8 - array default
+# Subtest: did we throws-like X::Parameter::Default::TypeCheck?
+    1..2
+    ok 1 - 'my Bool $a is default(42)' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+ok 9 - did we throws-like X::Parameter::Default::TypeCheck?
+ok 10 - eval type check
+ok 11 - array default has value
+ok 12 - array default is defined
+ok 13 - ...but does not exist
+ok 14 - default doesn't set type
+# Subtest: did we throws-like X::TypeCheck::Assignment?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 15 - did we throws-like X::TypeCheck::Assignment?
+ok 16 - deleted value
+ok 17 - deleted !exists
+ok 18 - Nil as default
+ok 19 - Nil as default
+ok 20 - VAR introspection (default)
+ok 21 - VAR introspection (default)
+ok 22 - VAR introspection (dynamic)

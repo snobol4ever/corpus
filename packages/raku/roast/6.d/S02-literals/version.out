@@ -1,0 +1,32 @@
+1..31
+ok 1 - version literal stringification
+ok 2 - version literal stringification
+ok 3 - version literal stringification
+ok 4 - eqv works on version literals (+)
+ok 5 - eqv works on version literals (-)
+ok 6 - + makes a difference in eqv
+ok 7 - version literals are value types
+ok 8 - === (-)
+ok 9 - smart-matching (same)
+ok 10 - smart-matching (different)
+ok 11 - smart-matching treats trailing 0 correctly (left)
+ok 12 - smart-matching treats trailing 0 correctly (right)
+ok 13 - smart-matching and plus (+1)
+ok 14 - smart-matching and plus (+2)
+ok 15 - + scopes to the whole version, not just the last chunk
+ok 16 - * wildcard (1+)
+ok 17 - * wildcard (2+)
+ok 18 - * wildcard (-)
+ok 19 - smart-matching and plus (-)
+ok 20 - smart-matching only cares about the length of the LHS
+ok 21 - ... but it can still fail
+ok 22 - cmp: Same
+ok 23 - cmp: Less
+ok 24 - cmp: More
+ok 25 - cmp isn't Stringy-based
+ok 26 - trailing zeroes are equivalent
+ok 27 - trailing zeroes are equivalent
+ok 28 - trailing zeroes are equivalent
+ok 29 - can we handle empty string versions
+ok 30 - can we handle empty string versions
+ok 31 - can we handle a bare Whatever

@@ -1,0 +1,117 @@
+1..98
+ok 1 - The object is-a 'Pod::Block::Code'
+ok 2 - 
+ok 3 - The object is-a 'Pod::Config'
+ok 4 - 
+ok 5 - 
+ok 6 - 
+ok 7 - 
+ok 8 - bool config uses Bool type (True)
+ok 9 - bool config uses Bool type (False)
+not ok 10 -  # TODO https://github.com/Raku/old-issue-tracker/issues/3778
+# Failed test at S26-documentation/09-configuration.rakudo line 40
+# expected: $(IntStr.new(1, "1"), IntStr.new(2, "2"), IntStr.new(3, "3"), IntStr.new(4, "4"))
+#      got: "1 2 3 4"
+ok 11 - 
+ok 12 - 
+ok 13 - 
+ok 14 - The object is-a 'Pod::Block::Table'
+ok 15 - 
+ok 16 - The object is-a 'Pod::FormattingCode'
+=== testing strings
+ok 17 - The object is-a 'Str'
+ok 18 - The object is-a 'Str'
+ok 19 - The object is-a 'Str'
+ok 20 - The object is-a 'Str'
+ok 21 - The object is-a 'Str'
+ok 22 - <str>
+ok 23 - 'str'
+ok 24 - "str"
+ok 25 - "str"
+ok 26 - using a Q/q quote
+=== testing string and ints
+ok 27 - The object is-a 'Str'
+ok 28 - The object is-a 'Int'
+ok 29 - The object is-a 'Int'
+ok 30 - The object is-a 'Int'
+ok 31 - The object is-a 'Int'
+ok 32 - The object is-a 'Int'
+ok 33 - The object is-a 'Int'
+ok 34 - '1'
+ok 35 - 2
+ok 36 - 2
+ok 37 - +2000000000
+ok 38 - -2000000000
+ok 39 - +99999999999999999
+ok 40 - -99999999999999999
+=== testing nums
+not ok 41 - The object is-a 'Rat' # TODO 2.3 and -2.3 are Rats, not Nums
+# Failed test 'The object is-a 'Rat''
+# at S26-documentation/09-configuration.rakudo line 162
+# Actual type: Num
+not ok 42 - The object is-a 'Rat' # TODO 2.3 and -2.3 are Rats, not Nums
+# Failed test 'The object is-a 'Rat''
+# at S26-documentation/09-configuration.rakudo line 163
+# Actual type: Num
+ok 43 - The object is-a 'Num'
+ok 44 - The object is-a 'Num'
+ok 45 - The object is-a 'Num'
+ok 46 - 2.3
+ok 47 - -2.3
+ok 48 - +1e4
+ok 49 - 3.1e+04
+ok 50 - -3.1E-04
+=== testing booleans
+ok 51 - The object is-a 'Bool'
+ok 52 - The object is-a 'Bool'
+ok 53 - The object is-a 'Bool'
+ok 54 - The object is-a 'Bool'
+ok 55 - The object is-a 'Bool'
+ok 56 - The object is-a 'Bool'
+ok 57 - :key
+ok 58 - :!key
+ok 59 - :key(True)
+ok 60 - :key[True]
+ok 61 - :key(False)
+ok 62 - :key[False]
+=== testing lists
+ok 63 - The object is-a 'List'
+ok 64 - The object is-a 'List'
+ok 65 - 1
+ok 66 - 'b c'
+ok 67 - 2.3
+ok 68 - True
+ok 69 - False
+ok 70 - 1
+ok 71 - 'b c'
+ok 72 - 2.3
+ok 73 - True
+ok 74 - False
+=== testing hashes
+ok 75 - The object is-a 'Map'
+ok 76 - 1
+ok 77 - 'b'
+ok 78 - True
+ok 79 - 2.3
+ok 80 - False
+=== testing troublesome hashes
+ok 81 - The object is-a 'Map'
+ok 82 - 'b => ?'
+ok 83 - ","
+ok 84 - 2.3
+ok 85 - The object is-a 'Map'
+ok 86 - 'b => "'
+ok 87 - '"'
+ok 88 - "\""
+=== testing string and ints
+ok 89 - The object is-a 'Int'
+ok 90 - The object is-a 'Int'
+ok 91 - +9 ** 30
+ok 92 - -9 ** 30
+ok 93 - 034foo: foo => 34
+ok 94 - foo => 34
+ok 95 - 0foo: foo => 0
+ok 96 - foo => 0
+ok 97 - 1foo: foo => 1
+ok 98 - foo => 1
+# FUDGED!

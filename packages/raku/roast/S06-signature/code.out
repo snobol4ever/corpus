@@ -1,0 +1,13 @@
+1..8
+ok 1 - Can call my_sub() if &my_sub was a parameter
+ok 2 - same with anonymous sub
+ok 3 - can't pass thing that doesn't do Callable
+ok 4 - can't pass thing that doesn't do Callable
+ok 5 - Can pass a block to a &parameter
+ok 6 - Can't pass something that isn't typed as returning Callable
+not ok 7 - can call a sub with a code object defaulting to something of its own name # TODO RT #67932
+# Failed test 'can call a sub with a code object defaulting to something of its own name'
+# at S06-signature/code.rakudo line 46
+# Type check failed in binding to parameter '&foo'; expected Callable but got Nil (Nil)
+ok 8 - the inner &foo is undefined (scoping)
+# FUDGED!

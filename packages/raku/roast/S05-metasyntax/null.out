@@ -1,0 +1,5 @@
+1..4
+ok 1 - Simple null as <?>
+ok 2 - Simple null as ''
+ok 3 - Simple null A
+ok 4 - Compound null AB

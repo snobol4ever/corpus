@@ -1,0 +1,114 @@
+1..10
+# Subtest: non-resolving parent fails (given path is non-child)
+    1..2
+    not ok 1 - code returned a Failure # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'code returned a Failure'
+    # at S32-io/child-secure.rakudo line 19
+    # Actual type: IO::Path
+    # Subtest: Failure threw when sunk
+        1..2
+        not ok 1 - code dies # TODO IO::Path doesn't implement :secure yet
+        # Failed test 'code dies'
+        # at S32-io/child-secure.rakudo line 20
+        ok 2 - # SKIP Code did not die, can not check exception
+    not ok 2 - Failure threw when sunk # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'Failure threw when sunk'
+    # at S32-io/child-secure.rakudo line 20
+not ok 1 - non-resolving parent fails (given path is non-child) # TODO IO::Path doesn't implement :secure yet
+# Failed test 'non-resolving parent fails (given path is non-child)'
+# at S32-io/child-secure.rakudo line 9
+# Subtest: non-resolving parent fails (given path is child)
+    1..2
+    not ok 1 - code returned a Failure # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'code returned a Failure'
+    # at S32-io/child-secure.rakudo line 19
+    # Actual type: IO::Path
+    # Subtest: Failure threw when sunk
+        1..2
+        not ok 1 - code dies # TODO IO::Path doesn't implement :secure yet
+        # Failed test 'code dies'
+        # at S32-io/child-secure.rakudo line 20
+        ok 2 - # SKIP Code did not die, can not check exception
+    not ok 2 - Failure threw when sunk # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'Failure threw when sunk'
+    # at S32-io/child-secure.rakudo line 20
+not ok 2 - non-resolving parent fails (given path is child) # TODO IO::Path doesn't implement :secure yet
+# Failed test 'non-resolving parent fails (given path is child)'
+# at S32-io/child-secure.rakudo line 9
+# Subtest: resolving parent fails (given path is a child, but not resolving)
+    1..2
+    not ok 1 - code returned a Failure # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'code returned a Failure'
+    # at S32-io/child-secure.rakudo line 19
+    # Actual type: IO::Path
+    # Subtest: Failure threw when sunk
+        1..2
+        not ok 1 - code dies # TODO IO::Path doesn't implement :secure yet
+        # Failed test 'code dies'
+        # at S32-io/child-secure.rakudo line 20
+        ok 2 - # SKIP Code did not die, can not check exception
+    not ok 2 - Failure threw when sunk # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'Failure threw when sunk'
+    # at S32-io/child-secure.rakudo line 20
+not ok 3 - resolving parent fails (given path is a child, but not resolving) # TODO IO::Path doesn't implement :secure yet
+# Failed test 'resolving parent fails (given path is a child, but not resolving)'
+# at S32-io/child-secure.rakudo line 9
+# Subtest: resolved parent fails (given path is not a child)
+    1..2
+    not ok 1 - code returned a Failure # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'code returned a Failure'
+    # at S32-io/child-secure.rakudo line 19
+    # Actual type: IO::Path
+    # Subtest: Failure threw when sunk
+        1..2
+        not ok 1 - code dies # TODO IO::Path doesn't implement :secure yet
+        # Failed test 'code dies'
+        # at S32-io/child-secure.rakudo line 20
+        ok 2 - # SKIP Code did not die, can not check exception
+    not ok 2 - Failure threw when sunk # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'Failure threw when sunk'
+    # at S32-io/child-secure.rakudo line 20
+not ok 4 - resolved parent fails (given path is not a child) # TODO IO::Path doesn't implement :secure yet
+# Failed test 'resolved parent fails (given path is not a child)'
+# at S32-io/child-secure.rakudo line 9
+ok 5 - resolved parent with resolving, non-existent child
+ok 6 - resolved parent with resolving, existent child
+ok 7 - resolved parent with resolving, existent child in a subdir
+ok 8 - resolved parent with resolving, non-existent child, with ../
+# Subtest: resolved parent fails (given path is not a child, via child + ../)
+    1..2
+    not ok 1 - code returned a Failure # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'code returned a Failure'
+    # at S32-io/child-secure.rakudo line 19
+    # Actual type: IO::Path
+    # Subtest: Failure threw when sunk
+        1..2
+        not ok 1 - code dies # TODO IO::Path doesn't implement :secure yet
+        # Failed test 'code dies'
+        # at S32-io/child-secure.rakudo line 20
+        ok 2 - # SKIP Code did not die, can not check exception
+    not ok 2 - Failure threw when sunk # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'Failure threw when sunk'
+    # at S32-io/child-secure.rakudo line 20
+not ok 9 - resolved parent fails (given path is not a child, via child + ../) # TODO IO::Path doesn't implement :secure yet
+# Failed test 'resolved parent fails (given path is not a child, via child + ../)'
+# at S32-io/child-secure.rakudo line 9
+# Subtest: resolved parent fails (given path is not a child, via combiners)
+    1..2
+    not ok 1 - code returned a Failure # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'code returned a Failure'
+    # at S32-io/child-secure.rakudo line 19
+    # Actual type: IO::Path
+    # Subtest: Failure threw when sunk
+        1..2
+        not ok 1 - code dies # TODO IO::Path doesn't implement :secure yet
+        # Failed test 'code dies'
+        # at S32-io/child-secure.rakudo line 20
+        ok 2 - # SKIP Code did not die, can not check exception
+    not ok 2 - Failure threw when sunk # TODO IO::Path doesn't implement :secure yet
+    # Failed test 'Failure threw when sunk'
+    # at S32-io/child-secure.rakudo line 20
+not ok 10 - resolved parent fails (given path is not a child, via combiners) # TODO IO::Path doesn't implement :secure yet
+# Failed test 'resolved parent fails (given path is not a child, via combiners)'
+# at S32-io/child-secure.rakudo line 9
+# FUDGED!

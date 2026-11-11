@@ -1,0 +1,30 @@
+1..1
+# Subtest: Rolified MRO
+    1..2
+    # Subtest: On parametric
+        1..10
+        ok 1 - basic mro with roles
+        ok 2 - basic mro with parameterized roles
+        ok 3 - mro with roles: parent on a role
+        ok 4 - mro with roles: hiding a class hides its roles
+        ok 5 - mro with roles: .^mro method ignores hiding
+        ok 6 - mro with roles: puned 'is hidden' role hides its roles too
+        ok 7 - mro with roles: puned parameterized 'is hidden' role hides its roles too
+        ok 8 - mro with roles: 'hides' on a role hides its roles too
+        ok 9 - mro with roles: 'hides' on a parameterized role hides its roles too
+        ok 10 - mro with roles: 'hides' used with a role is preserved
+    ok 1 - On parametric
+    # Subtest: On concretizations
+        1..10
+        ok 1 - basic mro with roles
+        ok 2 - basic mro with parameterized roles
+        ok 3 - mro with roles: parent on a role
+        ok 4 - mro with roles: hiding a class hides its roles
+        ok 5 - mro with roles: .^mro method ignores hiding
+        ok 6 - mro with roles: puned 'is hidden' role hides its roles too
+        ok 7 - mro with roles: puned parameterized 'is hidden' role hides its roles too
+        ok 8 - mro with roles: 'hides' on a role hides its roles too
+        ok 9 - mro with roles: 'hides' on a parameterized role hides its roles too
+        ok 10 - mro with roles: 'hides' used with a role is preserved
+    ok 2 - On concretizations
+ok 1 - Rolified MRO

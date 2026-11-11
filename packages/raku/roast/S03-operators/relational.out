@@ -1,0 +1,180 @@
+1..179
+ok 1 - 1 is less than 2
+ok 2 - 2 is ~not~ less than 1
+ok 3 - 1/4 is less than 3/4
+ok 4 - 3/4 is not less than 1/4
+ok 5 - 1/2 is less than 1
+ok 6 - 1 is not less than 1/2
+ok 7 - 2 is greater than 1
+ok 8 - 1 is ~not~ greater than 2
+ok 9 - 3/4 is greater than 1/4
+ok 10 - 1/2 is not greater than 3/4
+ok 11 - 1 is greater than 1/2
+ok 12 - 1/2 is not greater than 1
+ok 13 - 1 is less than or equal to 2
+ok 14 - 1 is less than or equal to 1
+ok 15 - 1 is ~not~ less than or equal to 0
+ok 16 - 1/4 is less than or equal to 3/4
+ok 17 - 3/4 is not less than or equal to 1/4
+ok 18 - 1/2 is less than or equal to 1
+ok 19 - 1 is not less than or equal to 1/2
+ok 20 - 1/2 is less than or equal to 1/2
+ok 21 - 2 is greater than or equal to 1
+ok 22 - 2 is greater than or equal to 2
+ok 23 - 2 is ~not~ greater than or equal to 3
+ok 24 - 1/4 is greater than or equal to 3/4
+ok 25 - 3/4 is not greater than or equal to 1/4
+ok 26 - 1/2 is greater than or equal to 1
+ok 27 - 1 is not greater than or equal to 1/2
+ok 28 - 1/2 is greater than or equal to 1/2
+ok 29 - < true
+ok 30 - > true
+ok 31 - <= true
+ok 32 - >= true
+ok 33 - < false
+ok 34 - > false
+ok 35 - <= false
+ok 36 - >= false
+ok 37 - a is less than b
+ok 38 - b is ~not~ less than a
+ok 39 - b is greater than a
+ok 40 - a is ~not~ greater than b
+ok 41 - a is less than or equal to b
+ok 42 - a is less than or equal to a
+ok 43 - b is ~not~ less than or equal to a
+ok 44 - b is greater than or equal to a
+ok 45 - b is greater than or equal to b
+ok 46 - b is ~not~ greater than or equal to c
+ok 47 - lt uses string context
+ok 48 - le uses string context (1)
+ok 49 - le uses string context (2)
+ok 50 - gt uses string context
+ok 51 - ge uses string context (1)
+ok 52 - ge uses string context (2)
+ok 53 - lt true
+ok 54 - gt true
+ok 55 - le true
+ok 56 - ge true
+ok 57 - lt false
+ok 58 - gt false
+ok 59 - le false
+ok 60 - ge false
+ok 61 - le is ok over many iterations
+ok 62 - ge is ok over many iterations
+ok 63 - lt is ok over many iterations
+ok 64 - gt is ok over many iterations
+ok 65 - chained >
+ok 66 - chained <
+ok 67 - chained mixed = and > 
+ok 68 - chained > and <
+ok 69 - chained <= and >
+ok 70 - chained < and >=
+ok 71 - chained 5 > 1 < 10
+ok 72 - chained 5 < 1 < 10
+ok 73 - chained gt
+ok 74 - chained lt
+ok 75 - chained mixed = and gt 
+ok 76 - chained gt and lt
+ok 77 - chained le and gt
+ok 78 - chained lt and ge
+ok 79 - e gt a lt j
+ok 80 - e lt a lt j
+ok 81 - 5 gt 4 gt 3 chained str comparison
+ok 82 - 3 lt 4 gt 5 chained str comparison
+ok 83 - !(3 gt 4 lt 5) chained str comparison
+ok 84 - "5" eq "5" gt "0" chained str comparison with equality
+ok 85 - 5 le 5 gt 0 chained str comparison with le
+ok 86 - 0 lt 5 ge 5 chained comparison with ge
+ok 87 - chained smartmatch ~~ ~~ true (0)
+ok 88 - chained smartmatch ~~ ~~ true (1)
+ok 89 - chained smartmatch ~~ ~~ false
+ok 90 - chained smartmatch ~~ ==
+ok 91 - chained smartmatch == ~~
+ok 92 - chained smartmatch ~~ !~~ false
+ok 93 - chained smartmatch ~~ !~~ true
+ok 94 - chained mixed ~~ and ge
+ok 95 - chained smartmatch ~~ ~~ with regex true
+ok 96 - chained smartmatch ~~ ~~ with regex false
+ok 97 - chained smartmatch == ~~ with regex
+ok 98 - chained smartmatch == ~~ with closure
+ok 99 - chained smartmatch ~~ ~~ with variables true
+ok 100 - chained smartmatch ~~ ~~ with variables false
+ok 101 - chained !before
+ok 102 - chained !after
+ok 103 - chained !>
+ok 104 - chained !<
+ok 105 - a lt a\0
+ok 106 - a lt a\x20
+ok 107 - a\0 gt a
+ok 108 - a\x20 gt a
+ok 109 - NaN == 1
+ok 110 - NaN <  1
+ok 111 - NaN <= 1
+ok 112 - NaN >  1
+ok 113 - NaN >= 1
+ok 114 - NaN != 1
+ok 115 - 1 == NaN
+ok 116 - 1 <  NaN
+ok 117 - 1 <= NaN
+ok 118 - 1 >  NaN
+ok 119 - 1 >= NaN
+ok 120 - 1 != NaN
+ok 121 - NaN == NaN
+ok 122 - NaN <  NaN
+ok 123 - NaN <= NaN
+ok 124 - NaN >  NaN
+ok 125 - NaN >= NaN
+ok 126 - NaN != NaN
+ok 127 - Int == Rat
+ok 128 - Int != Rat
+ok 129 - Int <  Rat
+ok 130 - Int <= Rat
+ok 131 - Int >  Rat
+ok 132 - Int >= Rat
+ok 133 - Int <=> Rat
+ok 134 - Rat == Int
+ok 135 - Rat != Int
+ok 136 - Rat <  Int
+ok 137 - Rat <= Int
+ok 138 - Rat >  Int
+ok 139 - Rat >= Int
+ok 140 - Rat <=> Int
+ok 141 - =~= does approximate equality
+ok 142 - ≅ does approximate equality
+ok 143 - can use approximate on Complex with negligible real
+ok 144 - can use approximate on Complex with non-negligible real
+ok 145 - can use approximate on Complex
+ok 146 -  ∞  ≅   ∞ gives True
+ok 147 - -∞  ≅  -∞ gives True
+ok 148 -  ∞ =~=  ∞ gives True
+ok 149 - -∞ =~= -∞ gives True
+ok 150 -  ∞  ≅  -∞ gives False
+ok 151 - -∞  ≅   ∞ gives False
+ok 152 -  ∞ =~= -∞ gives False
+ok 153 - -∞ =~=  ∞ gives False
+ok 154 - =~= pays attention to $*TOLERANCE (More)
+ok 155 - =~= pays attention to $*TOLERANCE (Less)
+ok 156 - ≅ pays attention to $*TOLERANCE (More)
+ok 157 - ≅ pays attention to $*TOLERANCE (Less)
+ok 158 - ≅ pays attention to $*TOLERANCE (more More)
+ok 159 - ≅ pays attention to $*TOLERANCE (more Less)
+ok 160 - =~= pays attention to scaled-up $*TOLERANCE (More)
+ok 161 - =~= pays attention to scaled-up $*TOLERANCE (Less)
+ok 162 - ≅ pays attention to scaled-up $*TOLERANCE (More)
+ok 163 - ≅ pays attention to scaled-up $*TOLERANCE (Less)
+ok 164 - ≅ pays attention to scaled-up $*TOLERANCE (more More)
+ok 165 - ≅ pays attention to scaled-up $*TOLERANCE (more Less)
+ok 166 - =~= pays attention to scaled-down $*TOLERANCE (More)
+ok 167 - =~= pays attention to scaled-down $*TOLERANCE (Less)
+ok 168 - ≅ pays attention to scaled-down $*TOLERANCE (More)
+ok 169 - ≅ pays attention to scaled-down $*TOLERANCE (Less)
+ok 170 - ≅ pays attention to scaled-down $*TOLERANCE (more More)
+ok 171 - ≅ pays attention to scaled-down $*TOLERANCE (more Less)
+ok 172 - =~= correctly handles pos=~=neg comparison
+ok 173 - =~= correctly handles pos=~=neg comparison (reversed)
+ok 174 - ≅ correctly handles pos≅neg comparison
+ok 175 - ≅ correctly handles pos≅neg comparison (reversed)
+ok 176 - single arg `before` gives True
+ok 177 -     no arg `before` gives True
+ok 178 - single arg `after`  gives True
+ok 179 -     no arg `after`  gives True

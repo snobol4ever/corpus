@@ -1,0 +1,351 @@
+1..150
+ok 1 - array[int].elems (original)
+ok 2 - array[int].AT-POS
+ok 3 - array[int].AT-POS =
+ok 4 - array[int].AT-POS (changed)
+ok 5 - array[int].EXISTS-POS (existing)
+ok 6 - !array[int].EXISTS-POS (non-existing)
+ok 7 - array[int].ASSIGN-POS (existing)
+ok 8 - array[int].AT-POS (existing ASSIGN-POS)
+ok 9 - array[int].ASSIGN-POS (non-existing)
+ok 10 - array[int].AT-POS (non-existing ASSIGN-POS)
+ok 11 - array[int].elens (one added)
+# Subtest: array[int].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 12 - array[int].BIND-POS (existing)
+# Subtest: array[int].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 13 - array[int].BIND-POS (non-existing)
+# Subtest: array[int].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 14 - array[int].DELETE-POS (existing)
+# Subtest: array[int].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 15 - array[int].DELETE-POS (non-existing)
+ok 16 - array[int8].elems (original)
+ok 17 - array[int8].AT-POS
+ok 18 - array[int8].AT-POS =
+ok 19 - array[int8].AT-POS (changed)
+ok 20 - array[int8].EXISTS-POS (existing)
+ok 21 - !array[int8].EXISTS-POS (non-existing)
+ok 22 - array[int8].ASSIGN-POS (existing)
+ok 23 - array[int8].AT-POS (existing ASSIGN-POS)
+ok 24 - array[int8].ASSIGN-POS (non-existing)
+ok 25 - array[int8].AT-POS (non-existing ASSIGN-POS)
+ok 26 - array[int8].elens (one added)
+# Subtest: array[int8].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 27 - array[int8].BIND-POS (existing)
+# Subtest: array[int8].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 28 - array[int8].BIND-POS (non-existing)
+# Subtest: array[int8].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 29 - array[int8].DELETE-POS (existing)
+# Subtest: array[int8].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 30 - array[int8].DELETE-POS (non-existing)
+ok 31 - array[int16].elems (original)
+ok 32 - array[int16].AT-POS
+ok 33 - array[int16].AT-POS =
+ok 34 - array[int16].AT-POS (changed)
+ok 35 - array[int16].EXISTS-POS (existing)
+ok 36 - !array[int16].EXISTS-POS (non-existing)
+ok 37 - array[int16].ASSIGN-POS (existing)
+ok 38 - array[int16].AT-POS (existing ASSIGN-POS)
+ok 39 - array[int16].ASSIGN-POS (non-existing)
+ok 40 - array[int16].AT-POS (non-existing ASSIGN-POS)
+ok 41 - array[int16].elens (one added)
+# Subtest: array[int16].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 42 - array[int16].BIND-POS (existing)
+# Subtest: array[int16].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 43 - array[int16].BIND-POS (non-existing)
+# Subtest: array[int16].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 44 - array[int16].DELETE-POS (existing)
+# Subtest: array[int16].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 45 - array[int16].DELETE-POS (non-existing)
+ok 46 - array[int32].elems (original)
+ok 47 - array[int32].AT-POS
+ok 48 - array[int32].AT-POS =
+ok 49 - array[int32].AT-POS (changed)
+ok 50 - array[int32].EXISTS-POS (existing)
+ok 51 - !array[int32].EXISTS-POS (non-existing)
+ok 52 - array[int32].ASSIGN-POS (existing)
+ok 53 - array[int32].AT-POS (existing ASSIGN-POS)
+ok 54 - array[int32].ASSIGN-POS (non-existing)
+ok 55 - array[int32].AT-POS (non-existing ASSIGN-POS)
+ok 56 - array[int32].elens (one added)
+# Subtest: array[int32].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 57 - array[int32].BIND-POS (existing)
+# Subtest: array[int32].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 58 - array[int32].BIND-POS (non-existing)
+# Subtest: array[int32].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 59 - array[int32].DELETE-POS (existing)
+# Subtest: array[int32].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 60 - array[int32].DELETE-POS (non-existing)
+ok 61 - array[int64].elems (original)
+ok 62 - array[int64].AT-POS
+ok 63 - array[int64].AT-POS =
+ok 64 - array[int64].AT-POS (changed)
+ok 65 - array[int64].EXISTS-POS (existing)
+ok 66 - !array[int64].EXISTS-POS (non-existing)
+ok 67 - array[int64].ASSIGN-POS (existing)
+ok 68 - array[int64].AT-POS (existing ASSIGN-POS)
+ok 69 - array[int64].ASSIGN-POS (non-existing)
+ok 70 - array[int64].AT-POS (non-existing ASSIGN-POS)
+ok 71 - array[int64].elens (one added)
+# Subtest: array[int64].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 72 - array[int64].BIND-POS (existing)
+# Subtest: array[int64].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 73 - array[int64].BIND-POS (non-existing)
+# Subtest: array[int64].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 74 - array[int64].DELETE-POS (existing)
+# Subtest: array[int64].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 75 - array[int64].DELETE-POS (non-existing)
+ok 76 - array[uint].elems (original)
+ok 77 - array[uint].AT-POS
+ok 78 - array[uint].AT-POS =
+ok 79 - array[uint].AT-POS (changed)
+ok 80 - array[uint].EXISTS-POS (existing)
+ok 81 - !array[uint].EXISTS-POS (non-existing)
+ok 82 - array[uint].ASSIGN-POS (existing)
+ok 83 - array[uint].AT-POS (existing ASSIGN-POS)
+ok 84 - array[uint].ASSIGN-POS (non-existing)
+ok 85 - array[uint].AT-POS (non-existing ASSIGN-POS)
+ok 86 - array[uint].elens (one added)
+# Subtest: array[uint].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 87 - array[uint].BIND-POS (existing)
+# Subtest: array[uint].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 88 - array[uint].BIND-POS (non-existing)
+# Subtest: array[uint].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 89 - array[uint].DELETE-POS (existing)
+# Subtest: array[uint].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 90 - array[uint].DELETE-POS (non-existing)
+ok 91 - array[uint8].elems (original)
+ok 92 - array[uint8].AT-POS
+ok 93 - array[uint8].AT-POS =
+ok 94 - array[uint8].AT-POS (changed)
+ok 95 - array[uint8].EXISTS-POS (existing)
+ok 96 - !array[uint8].EXISTS-POS (non-existing)
+ok 97 - array[uint8].ASSIGN-POS (existing)
+ok 98 - array[uint8].AT-POS (existing ASSIGN-POS)
+ok 99 - array[uint8].ASSIGN-POS (non-existing)
+ok 100 - array[uint8].AT-POS (non-existing ASSIGN-POS)
+ok 101 - array[uint8].elens (one added)
+# Subtest: array[uint8].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 102 - array[uint8].BIND-POS (existing)
+# Subtest: array[uint8].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 103 - array[uint8].BIND-POS (non-existing)
+# Subtest: array[uint8].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 104 - array[uint8].DELETE-POS (existing)
+# Subtest: array[uint8].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 105 - array[uint8].DELETE-POS (non-existing)
+ok 106 - array[uint16].elems (original)
+ok 107 - array[uint16].AT-POS
+ok 108 - array[uint16].AT-POS =
+ok 109 - array[uint16].AT-POS (changed)
+ok 110 - array[uint16].EXISTS-POS (existing)
+ok 111 - !array[uint16].EXISTS-POS (non-existing)
+ok 112 - array[uint16].ASSIGN-POS (existing)
+ok 113 - array[uint16].AT-POS (existing ASSIGN-POS)
+ok 114 - array[uint16].ASSIGN-POS (non-existing)
+ok 115 - array[uint16].AT-POS (non-existing ASSIGN-POS)
+ok 116 - array[uint16].elens (one added)
+# Subtest: array[uint16].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 117 - array[uint16].BIND-POS (existing)
+# Subtest: array[uint16].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 118 - array[uint16].BIND-POS (non-existing)
+# Subtest: array[uint16].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 119 - array[uint16].DELETE-POS (existing)
+# Subtest: array[uint16].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 120 - array[uint16].DELETE-POS (non-existing)
+ok 121 - array[uint32].elems (original)
+ok 122 - array[uint32].AT-POS
+ok 123 - array[uint32].AT-POS =
+ok 124 - array[uint32].AT-POS (changed)
+ok 125 - array[uint32].EXISTS-POS (existing)
+ok 126 - !array[uint32].EXISTS-POS (non-existing)
+ok 127 - array[uint32].ASSIGN-POS (existing)
+ok 128 - array[uint32].AT-POS (existing ASSIGN-POS)
+ok 129 - array[uint32].ASSIGN-POS (non-existing)
+ok 130 - array[uint32].AT-POS (non-existing ASSIGN-POS)
+ok 131 - array[uint32].elens (one added)
+# Subtest: array[uint32].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 132 - array[uint32].BIND-POS (existing)
+# Subtest: array[uint32].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 133 - array[uint32].BIND-POS (non-existing)
+# Subtest: array[uint32].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 134 - array[uint32].DELETE-POS (existing)
+# Subtest: array[uint32].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 135 - array[uint32].DELETE-POS (non-existing)
+ok 136 - array[uint64].elems (original)
+ok 137 - array[uint64].AT-POS
+ok 138 - array[uint64].AT-POS =
+ok 139 - array[uint64].AT-POS (changed)
+ok 140 - array[uint64].EXISTS-POS (existing)
+ok 141 - !array[uint64].EXISTS-POS (non-existing)
+ok 142 - array[uint64].ASSIGN-POS (existing)
+ok 143 - array[uint64].AT-POS (existing ASSIGN-POS)
+ok 144 - array[uint64].ASSIGN-POS (non-existing)
+ok 145 - array[uint64].AT-POS (non-existing ASSIGN-POS)
+ok 146 - array[uint64].elens (one added)
+# Subtest: array[uint64].BIND-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 147 - array[uint64].BIND-POS (existing)
+# Subtest: array[uint64].BIND-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot bind to a natively typed array
+ok 148 - array[uint64].BIND-POS (non-existing)
+# Subtest: array[uint64].DELETE-POS (existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 149 - array[uint64].DELETE-POS (existing)
+# Subtest: array[uint64].DELETE-POS (non-existing)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Cannot delete from a natively typed array
+ok 150 - array[uint64].DELETE-POS (non-existing)

@@ -1,0 +1,540 @@
+1..115
+# Subtest: Testing 2..6
+    1..10
+    ok 1 - 2..6 is a Range
+    ok 2 - 2..6.min is 2
+    ok 3 - 2..6.max is 6
+    ok 4 - 2..6.excludes-min is False
+    ok 5 - 2..6.excludes-max is False
+    ok 6 - 2..6.infinite is False
+    ok 7 - 2..6.raku is 2..6
+    ok 8 - 2..6.elems is 5
+    ok 9 - for 2..6 runs 5 times
+    ok 10 - my @ = 2..6 stores 5 elems
+ok 1 - Testing 2..6
+# Subtest: Testing -1^..7
+    1..10
+    ok 1 - -1^..7 is a Range
+    ok 2 - -1^..7.min is 2
+    ok 3 - -1^..7.max is 6
+    ok 4 - -1^..7.excludes-min is True
+    ok 5 - -1^..7.excludes-max is False
+    ok 6 - -1^..7.infinite is False
+    ok 7 - -1^..7.raku is -1^..7
+    ok 8 - -1^..7.elems is 8
+    ok 9 - for -1^..7 runs 8 times
+    ok 10 - my @ = -1^..7 stores 8 elems
+ok 2 - Testing -1^..7
+# Subtest: Testing 3..^-1
+    1..10
+    ok 1 - 3..^-1 is a Range
+    ok 2 - 3..^-1.min is 2
+    ok 3 - 3..^-1.max is 6
+    ok 4 - 3..^-1.excludes-min is False
+    ok 5 - 3..^-1.excludes-max is True
+    ok 6 - 3..^-1.infinite is False
+    ok 7 - 3..^-1.raku is 3..^-1
+    ok 8 - 3..^-1.elems is 0
+    ok 9 - for 3..^-1 runs 0 times
+    ok 10 - my @ = 3..^-1 stores 0 elems
+ok 3 - Testing 3..^-1
+# Subtest: Testing 666..42
+    1..10
+    ok 1 - 666..42 is a Range
+    ok 2 - 666..42.min is 2
+    ok 3 - 666..42.max is 6
+    ok 4 - 666..42.excludes-min is False
+    ok 5 - 666..42.excludes-max is False
+    ok 6 - 666..42.infinite is False
+    ok 7 - 666..42.raku is 666..42
+    ok 8 - 666..42.elems is 0
+    ok 9 - for 666..42 runs 0 times
+    ok 10 - my @ = 666..42 stores 0 elems
+ok 4 - Testing 666..42
+# Subtest: Testing "a".."g"
+    1..10
+    ok 1 - "a".."g" is a Range
+    ok 2 - "a".."g".min is 2
+    ok 3 - "a".."g".max is 6
+    ok 4 - "a".."g".excludes-min is False
+    ok 5 - "a".."g".excludes-max is False
+    ok 6 - "a".."g".infinite is False
+    ok 7 - "a".."g".raku is "a".."g"
+    ok 8 - "a".."g".elems is 7
+    ok 9 - for "a".."g" runs 7 times
+    ok 10 - my @ = "a".."g" stores 7 elems
+ok 5 - Testing "a".."g"
+# Subtest: Testing "a"..^"g"
+    1..10
+    ok 1 - "a"..^"g" is a Range
+    ok 2 - "a"..^"g".min is 2
+    ok 3 - "a"..^"g".max is 6
+    ok 4 - "a"..^"g".excludes-min is False
+    ok 5 - "a"..^"g".excludes-max is True
+    ok 6 - "a"..^"g".infinite is False
+    ok 7 - "a"..^"g".raku is "a"..^"g"
+    ok 8 - "a"..^"g".elems is 6
+    ok 9 - for "a"..^"g" runs 6 times
+    ok 10 - my @ = "a"..^"g" stores 6 elems
+ok 6 - Testing "a"..^"g"
+# Subtest: Testing "a"^.."g"
+    1..10
+    ok 1 - "a"^.."g" is a Range
+    ok 2 - "a"^.."g".min is 2
+    ok 3 - "a"^.."g".max is 6
+    ok 4 - "a"^.."g".excludes-min is True
+    ok 5 - "a"^.."g".excludes-max is False
+    ok 6 - "a"^.."g".infinite is False
+    ok 7 - "a"^.."g".raku is "a"^.."g"
+    ok 8 - "a"^.."g".elems is 6
+    ok 9 - for "a"^.."g" runs 6 times
+    ok 10 - my @ = "a"^.."g" stores 6 elems
+ok 7 - Testing "a"^.."g"
+# Subtest: Testing "a"^..^"g"
+    1..10
+    ok 1 - "a"^..^"g" is a Range
+    ok 2 - "a"^..^"g".min is 2
+    ok 3 - "a"^..^"g".max is 6
+    ok 4 - "a"^..^"g".excludes-min is True
+    ok 5 - "a"^..^"g".excludes-max is True
+    ok 6 - "a"^..^"g".infinite is False
+    ok 7 - "a"^..^"g".raku is "a"^..^"g"
+    ok 8 - "a"^..^"g".elems is 5
+    ok 9 - for "a"^..^"g" runs 5 times
+    ok 10 - my @ = "a"^..^"g" stores 5 elems
+ok 8 - Testing "a"^..^"g"
+# Subtest: Testing "g".."a"
+    1..10
+    ok 1 - "g".."a" is a Range
+    ok 2 - "g".."a".min is 2
+    ok 3 - "g".."a".max is 6
+    ok 4 - "g".."a".excludes-min is False
+    ok 5 - "g".."a".excludes-max is False
+    ok 6 - "g".."a".infinite is False
+    ok 7 - "g".."a".raku is "g".."a"
+    ok 8 - "g".."a".elems is 0
+    ok 9 - for "g".."a" runs 0 times
+    ok 10 - my @ = "g".."a" stores 0 elems
+ok 9 - Testing "g".."a"
+# Subtest: Testing "!".."\&"
+    1..10
+    ok 1 - "!".."\&" is a Range
+    ok 2 - "!".."\&".min is 2
+    ok 3 - "!".."\&".max is 6
+    ok 4 - "!".."\&".excludes-min is False
+    ok 5 - "!".."\&".excludes-max is False
+    ok 6 - "!".."\&".infinite is False
+    ok 7 - "!".."\&".raku is "!".."\&"
+    ok 8 - "!".."\&".elems is 6
+    ok 9 - for "!".."\&" runs 6 times
+    ok 10 - my @ = "!".."\&" stores 6 elems
+ok 10 - Testing "!".."\&"
+# Subtest: Testing "!"..^"\&"
+    1..10
+    ok 1 - "!"..^"\&" is a Range
+    ok 2 - "!"..^"\&".min is 2
+    ok 3 - "!"..^"\&".max is 6
+    ok 4 - "!"..^"\&".excludes-min is False
+    ok 5 - "!"..^"\&".excludes-max is True
+    ok 6 - "!"..^"\&".infinite is False
+    ok 7 - "!"..^"\&".raku is "!"..^"\&"
+    ok 8 - "!"..^"\&".elems is 5
+    ok 9 - for "!"..^"\&" runs 5 times
+    ok 10 - my @ = "!"..^"\&" stores 5 elems
+ok 11 - Testing "!"..^"\&"
+# Subtest: Testing "!"^.."\&"
+    1..10
+    ok 1 - "!"^.."\&" is a Range
+    ok 2 - "!"^.."\&".min is 2
+    ok 3 - "!"^.."\&".max is 6
+    ok 4 - "!"^.."\&".excludes-min is True
+    ok 5 - "!"^.."\&".excludes-max is False
+    ok 6 - "!"^.."\&".infinite is False
+    ok 7 - "!"^.."\&".raku is "!"^.."\&"
+    ok 8 - "!"^.."\&".elems is 5
+    ok 9 - for "!"^.."\&" runs 5 times
+    ok 10 - my @ = "!"^.."\&" stores 5 elems
+ok 12 - Testing "!"^.."\&"
+# Subtest: Testing "!"^..^"\&"
+    1..10
+    ok 1 - "!"^..^"\&" is a Range
+    ok 2 - "!"^..^"\&".min is 2
+    ok 3 - "!"^..^"\&".max is 6
+    ok 4 - "!"^..^"\&".excludes-min is True
+    ok 5 - "!"^..^"\&".excludes-max is True
+    ok 6 - "!"^..^"\&".infinite is False
+    ok 7 - "!"^..^"\&".raku is "!"^..^"\&"
+    ok 8 - "!"^..^"\&".elems is 4
+    ok 9 - for "!"^..^"\&" runs 4 times
+    ok 10 - my @ = "!"^..^"\&" stores 4 elems
+ok 13 - Testing "!"^..^"\&"
+# Subtest: Testing "\&".."!"
+    1..10
+    ok 1 - "\&".."!" is a Range
+    ok 2 - "\&".."!".min is 2
+    ok 3 - "\&".."!".max is 6
+    ok 4 - "\&".."!".excludes-min is False
+    ok 5 - "\&".."!".excludes-max is False
+    ok 6 - "\&".."!".infinite is False
+    ok 7 - "\&".."!".raku is "\&".."!"
+    ok 8 - "\&".."!".elems is 0
+    ok 9 - for "\&".."!" runs 0 times
+    ok 10 - my @ = "\&".."!" stores 0 elems
+ok 14 - Testing "\&".."!"
+# Subtest: Testing ^5
+    1..10
+    ok 1 - ^5 is a Range
+    ok 2 - ^5.min is 2
+    ok 3 - ^5.max is 6
+    ok 4 - ^5.excludes-min is False
+    ok 5 - ^5.excludes-max is True
+    ok 6 - ^5.infinite is False
+    ok 7 - ^5.raku is ^5
+    ok 8 - ^5.elems is 5
+    ok 9 - for ^5 runs 5 times
+    ok 10 - my @ = ^5 stores 5 elems
+ok 15 - Testing ^5
+# Subtest: Testing 0..^5.5
+    1..10
+    ok 1 - 0..^5.5 is a Range
+    ok 2 - 0..^5.5.min is 2
+    ok 3 - 0..^5.5.max is 6
+    ok 4 - 0..^5.5.excludes-min is False
+    ok 5 - 0..^5.5.excludes-max is True
+    ok 6 - 0..^5.5.infinite is False
+    ok 7 - 0..^5.5.raku is 0..^5.5
+    ok 8 - 0..^5.5.elems is 6
+    ok 9 - for 0..^5.5 runs 6 times
+    ok 10 - my @ = 0..^5.5 stores 6 elems
+ok 16 - Testing 0..^5.5
+# Subtest: Testing 0..^5.5e0
+    1..10
+    ok 1 - 0..^5.5e0 is a Range
+    ok 2 - 0..^5.5e0.min is 2
+    ok 3 - 0..^5.5e0.max is 6
+    ok 4 - 0..^5.5e0.excludes-min is False
+    ok 5 - 0..^5.5e0.excludes-max is True
+    ok 6 - 0..^5.5e0.infinite is False
+    ok 7 - 0..^5.5e0.raku is 0..^5.5e0
+    ok 8 - 0..^5.5e0.elems is 6
+    ok 9 - for 0..^5.5e0 runs 6 times
+    ok 10 - my @ = 0..^5.5e0 stores 6 elems
+ok 17 - Testing 0..^5.5e0
+# Subtest: Testing 1..Inf
+    1..8
+    ok 1 - 1..Inf is a Range
+    ok 2 - 1..Inf.min is 2
+    ok 3 - 1..Inf.max is 6
+    ok 4 - 1..Inf.excludes-min is False
+    ok 5 - 1..Inf.excludes-max is False
+    ok 6 - 1..Inf.infinite is True
+    ok 7 - 1..Inf.raku is 1..Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 18 - Testing 1..Inf
+# Subtest: Testing 1^..Inf
+    1..8
+    ok 1 - 1^..Inf is a Range
+    ok 2 - 1^..Inf.min is 2
+    ok 3 - 1^..Inf.max is 6
+    ok 4 - 1^..Inf.excludes-min is True
+    ok 5 - 1^..Inf.excludes-max is False
+    ok 6 - 1^..Inf.infinite is True
+    ok 7 - 1^..Inf.raku is 1^..Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 19 - Testing 1^..Inf
+# Subtest: Testing 1..^Inf
+    1..8
+    ok 1 - 1..^Inf is a Range
+    ok 2 - 1..^Inf.min is 2
+    ok 3 - 1..^Inf.max is 6
+    ok 4 - 1..^Inf.excludes-min is False
+    ok 5 - 1..^Inf.excludes-max is True
+    ok 6 - 1..^Inf.infinite is True
+    ok 7 - 1..^Inf.raku is 1..^Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 20 - Testing 1..^Inf
+# Subtest: Testing 1^..^Inf
+    1..8
+    ok 1 - 1^..^Inf is a Range
+    ok 2 - 1^..^Inf.min is 2
+    ok 3 - 1^..^Inf.max is 6
+    ok 4 - 1^..^Inf.excludes-min is True
+    ok 5 - 1^..^Inf.excludes-max is True
+    ok 6 - 1^..^Inf.infinite is True
+    ok 7 - 1^..^Inf.raku is 1^..^Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 21 - Testing 1^..^Inf
+# Subtest: Testing -Inf..1
+    1..8
+    ok 1 - -Inf..1 is a Range
+    ok 2 - -Inf..1.min is 2
+    ok 3 - -Inf..1.max is 6
+    ok 4 - -Inf..1.excludes-min is False
+    ok 5 - -Inf..1.excludes-max is False
+    ok 6 - -Inf..1.infinite is True
+    ok 7 - -Inf..1.raku is -Inf..1
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 22 - Testing -Inf..1
+# Subtest: Testing -Inf^..1
+    1..8
+    ok 1 - -Inf^..1 is a Range
+    ok 2 - -Inf^..1.min is 2
+    ok 3 - -Inf^..1.max is 6
+    ok 4 - -Inf^..1.excludes-min is True
+    ok 5 - -Inf^..1.excludes-max is False
+    ok 6 - -Inf^..1.infinite is True
+    ok 7 - -Inf^..1.raku is -Inf^..1
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 23 - Testing -Inf^..1
+# Subtest: Testing -Inf..^1
+    1..8
+    ok 1 - -Inf..^1 is a Range
+    ok 2 - -Inf..^1.min is 2
+    ok 3 - -Inf..^1.max is 6
+    ok 4 - -Inf..^1.excludes-min is False
+    ok 5 - -Inf..^1.excludes-max is True
+    ok 6 - -Inf..^1.infinite is True
+    ok 7 - -Inf..^1.raku is -Inf..^1
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 24 - Testing -Inf..^1
+# Subtest: Testing -Inf^..^1
+    1..8
+    ok 1 - -Inf^..^1 is a Range
+    ok 2 - -Inf^..^1.min is 2
+    ok 3 - -Inf^..^1.max is 6
+    ok 4 - -Inf^..^1.excludes-min is True
+    ok 5 - -Inf^..^1.excludes-max is True
+    ok 6 - -Inf^..^1.infinite is True
+    ok 7 - -Inf^..^1.raku is -Inf^..^1
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 25 - Testing -Inf^..^1
+# Subtest: Testing -Inf..Inf
+    1..8
+    ok 1 - -Inf..Inf is a Range
+    ok 2 - -Inf..Inf.min is 2
+    ok 3 - -Inf..Inf.max is 6
+    ok 4 - -Inf..Inf.excludes-min is False
+    ok 5 - -Inf..Inf.excludes-max is False
+    ok 6 - -Inf..Inf.infinite is True
+    ok 7 - -Inf..Inf.raku is -Inf..Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 26 - Testing -Inf..Inf
+# Subtest: Testing -Inf^..Inf
+    1..8
+    ok 1 - -Inf^..Inf is a Range
+    ok 2 - -Inf^..Inf.min is 2
+    ok 3 - -Inf^..Inf.max is 6
+    ok 4 - -Inf^..Inf.excludes-min is True
+    ok 5 - -Inf^..Inf.excludes-max is False
+    ok 6 - -Inf^..Inf.infinite is True
+    ok 7 - -Inf^..Inf.raku is -Inf^..Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 27 - Testing -Inf^..Inf
+# Subtest: Testing -Inf..^Inf
+    1..8
+    ok 1 - -Inf..^Inf is a Range
+    ok 2 - -Inf..^Inf.min is 2
+    ok 3 - -Inf..^Inf.max is 6
+    ok 4 - -Inf..^Inf.excludes-min is False
+    ok 5 - -Inf..^Inf.excludes-max is True
+    ok 6 - -Inf..^Inf.infinite is True
+    ok 7 - -Inf..^Inf.raku is -Inf..^Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 28 - Testing -Inf..^Inf
+# Subtest: Testing -Inf^..^Inf
+    1..8
+    ok 1 - -Inf^..^Inf is a Range
+    ok 2 - -Inf^..^Inf.min is 2
+    ok 3 - -Inf^..^Inf.max is 6
+    ok 4 - -Inf^..^Inf.excludes-min is True
+    ok 5 - -Inf^..^Inf.excludes-max is True
+    ok 6 - -Inf^..^Inf.infinite is True
+    ok 7 - -Inf^..^Inf.raku is -Inf^..^Inf
+    # Subtest: did we throws-like X::Cannot::Lazy?
+        1..3
+        ok 1 - 
+        ok 2 - right exception type (X::Cannot::Lazy)
+        ok 3 - .action matches .elems
+    ok 8 - did we throws-like X::Cannot::Lazy?
+ok 29 - Testing -Inf^..^Inf
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '10 .. ^20' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches ^20
+ok 30 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '^10 .. 20' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches ^10
+ok 31 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '* .. ^20' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches ^20
+ok 32 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '^10 .. *' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches ^10
+ok 33 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '* .. 42i' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches 0+42i
+ok 34 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '42i .. *' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches 0+42i
+ok 35 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '42.map({$_}) .. *' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches (Seq)
+ok 36 - did we throws-like X::Range::InvalidArg?
+# Subtest: did we throws-like X::Range::InvalidArg?
+    1..3
+    ok 1 - '* .. 42.map({$_})' died
+    ok 2 - right exception type (X::Range::InvalidArg)
+    ok 3 - .got matches (Seq)
+ok 37 - did we throws-like X::Range::InvalidArg?
+ok 38 - 3 ~~ 1..5
+ok 39 - 2.5 ~~ 1..5
+ok 40 - 2.5e0 ~~ 1..5
+ok 41 - 1 ~~ 1..5
+ok 42 - 1.0 ~~ 1..5
+ok 43 - 1.0e0 ~~ 1..5
+ok 44 - 5 ~~ 1..5
+ok 45 - 5.0 ~~ 1..5
+ok 46 - 5.0e0 ~~ 1..5
+ok 47 - not 0 ~~ 1..5
+ok 48 - not 0.999 ~~ 1..5
+ok 49 - not 0.999e0 ~~ 1..5
+ok 50 - not 6 ~~ 1..5
+ok 51 - not 5.001 ~~ 1..5
+ok 52 - not 5.001e0 ~~ 1..5
+ok 53 - 3 ~~ 1^..5
+ok 54 - 2.5 ~~ 1^..5
+ok 55 - 2.5e0 ~~ 1^..5
+ok 56 - not 1 ~~ 1^..5
+ok 57 - not 1.0 ~~ 1^..5
+ok 58 - not 1.0e0 ~~ 1^..5
+ok 59 - 5 ~~ 1^..5
+ok 60 - 5.0 ~~ 1^..5
+ok 61 - 5.0e0 ~~ 1^..5
+ok 62 - not 0 ~~ 1^..5
+ok 63 - not 0.999 ~~ 1^..5
+ok 64 - not 0.999e0 ~~ 1^..5
+ok 65 - not 6 ~~ 1^..5
+ok 66 - not 5.001 ~~ 1^..5
+ok 67 - not 5.001e0 ~~ 1^..5
+ok 68 - 3 ~~ 1..^5
+ok 69 - 2.5 ~~ 1..^5
+ok 70 - 2.5e0 ~~ 1..^5
+ok 71 - 1 ~~ 1..^5
+ok 72 - 1.0 ~~ 1..^5
+ok 73 - 1.0e0 ~~ 1..^5
+ok 74 - not 5 ~~ 1..^5
+ok 75 - not 5.0 ~~ 1..^5
+ok 76 - not 5.0e0 ~~ 1..^5
+ok 77 - not 0 ~~ 1..^5
+ok 78 - not 0.999 ~~ 1..^5
+ok 79 - not 0.999e0 ~~ 1..^5
+ok 80 - not 6 ~~ 1..^5
+ok 81 - not 5.001 ~~ 1..^5
+ok 82 - not 5.001e0 ~~ 1..^5
+ok 83 - 3 ~~ 1^..^5
+ok 84 - 2.5 ~~ 1^..^5
+ok 85 - 2.5e0 ~~ 1^..^5
+ok 86 - not 1 ~~ 1^..^5
+ok 87 - not 1.0 ~~ 1^..^5
+ok 88 - not 1.0e0 ~~ 1^..^5
+ok 89 - not 5 ~~ 1^..^5
+ok 90 - not 5.0 ~~ 1^..^5
+ok 91 - not 5.0e0 ~~ 1^..^5
+ok 92 - not 0 ~~ 1^..^5
+ok 93 - not 0.999 ~~ 1^..^5
+ok 94 - not 0.999e0 ~~ 1^..^5
+ok 95 - not 6 ~~ 1^..^5
+ok 96 - not 5.001 ~~ 1^..^5
+ok 97 - not 5.001e0 ~~ 1^..^5
+ok 98 - 6 ~~ 5..21
+ok 99 - 21 ~~ 3..50
+ok 100 - not 3 ~~ 11..50
+ok 101 - not 21 ~~ 1..5
+ok 102 - 'c' ~~ 'b'..'g'
+ok 103 - 'b' ~~ 'b'..'g'
+ok 104 - 'g' ~~ 'b'..'g'
+ok 105 - not 'a' ~~ 'b'..'g'
+ok 106 - not 'h' ~~ 'b'..'g'
+ok 107 - not 0 ~~ 'a'..'g'
+ok 108 - 'd' ~~ 'c'..*
+ok 109 - not 'b' ~~ 'c'..*
+ok 110 - 'b' ~~ *..'c'
+ok 111 - not 'd' ~~ *..'c'
+ok 112 - ' ' ~~ ' '..' '
+ok 113 - ' ' ~~ ' '..'A'
+ok 114 - 1 .. * is lazy
+ok 115 - 1 .. 2 is not lazy

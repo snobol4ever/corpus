@@ -1,0 +1,41 @@
+1..24
+ok 1 - SOS abc
+ok 2 - SOS bc
+ok 3 - SOL abc
+ok 4 - SOL bc
+ok 5 - abc newline EOL
+ok 6 - abc EOL
+ok 7 - ab EOL
+ok 8 - abc EOS
+ok 9 - SOS def
+ok 10 - SOL def
+ok 11 - def newline EOL
+ok 12 - def EOL
+ok 13 - def EOS
+ok 14 - SOS ghi
+ok 15 - SOL ghi
+ok 16 - ghi newline EOL
+ok 17 - ghi EOL
+ok 18 - ghi EOS
+ok 19 - All dot
+# Subtest: error when quantifying ^
+    1..2
+    ok 1 - '/ ^+ /' died
+    ok 2 - right exception type (X::Syntax::Regex::NonQuantifiable)
+ok 20 - error when quantifying ^
+# Subtest: error when quantifying ^^
+    1..2
+    ok 1 - '/ ^^+ /' died
+    ok 2 - right exception type (X::Syntax::Regex::NonQuantifiable)
+ok 21 - error when quantifying ^^
+# Subtest: error when quantifying $
+    1..2
+    ok 1 - '/ $+ /' died
+    ok 2 - right exception type (X::Syntax::Regex::NonQuantifiable)
+ok 22 - error when quantifying $
+# Subtest: error when quantifying $$
+    1..2
+    ok 1 - '/ $$+ /' died
+    ok 2 - right exception type (X::Syntax::Regex::NonQuantifiable)
+ok 23 - error when quantifying $$
+ok 24 - No accidental match of ^^\s$$ between \r and \n

@@ -1,0 +1,41 @@
+1..40
+ok 1 - unival an empty string yields Nil
+ok 2 - univals an empty string yields an empty list
+ok 3 - ''.unival yields Nil
+ok 4 - ''.univals yields an empty list
+ok 5 - cannot call unival with a Str
+ok 6 - cannot call unival with a Str
+ok 7 - cannot call unival with a Int
+ok 8 - cannot call unival with a Int
+ok 9 - 0x30 is Int
+ok 10 - 0x30 has numeric value 0
+ok 11 - '0' has numeric value 0
+ok 12 - 0x39 has numeric value 9
+ok 13 - '9' has numeric value 9
+ok 14 - '⅓' is a Rat
+ok 15 - '⅓' has the value 1/3
+ok 16 - 0x30 is Int
+ok 17 - 0x30 has numeric value 0
+ok 18 - '0' has numeric value 0
+ok 19 - 0x39 has numeric value 9
+ok 20 - '9' has numeric value 9
+ok 21 - '⅓' is a Rat
+ok 22 - '⅓' has the value 1/3
+ok 23 - '⅒' is a Rat
+ok 24 - '⅒' has the value 1/10
+ok 25 - '⅚' has the value 5/6
+ok 26 - 'ⅵ' has the value 6
+ok 27 - 'ↇ' has the value 50000
+ok 28 - '༲' has the value 8.5
+ok 29 - '𒐳' has the value 432000
+ok 30 - '仟' has the value 1000
+ok 31 - '千' has the value 1000
+ok 32 - '阡' has the value 1000
+ok 33 - '万' has the value 1_0000
+ok 34 - '萬' has the value 1_0000
+ok 35 - '億' has the value 1_0000_0000
+ok 36 - '亿' has the value 1_0000_0000
+ok 37 - '兆' has the value 1_0000_0000_0000
+ok 38 - NEW TAI LUE THAM DIGIT ONE has value 1
+ok 39 - AEGEAN NUMBER NINETY THOUSAND has value 90000
+ok 40 - MATHEMATICAL MONOSPACE DIGIT FIVE has value 5

@@ -1,0 +1,4 @@
+1..3
+ok 1 - anon sub def parses when pod block is within it
+ok 2 - anon hash def parses when pod block is within it
+ok 3 - anon array def parses when pod block is within it

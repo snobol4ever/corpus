@@ -1,0 +1,65 @@
+1..13
+# Subtest: flush
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 1 - flush
+# Subtest: out-buffer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 2 - out-buffer
+# Subtest: print
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 3 - print
+# Subtest: printf
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 4 - printf
+# Subtest: print-nl
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 5 - print-nl
+# Subtest: put
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 6 - put
+# Subtest: say
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 7 - say
+# Subtest: write
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 8 - write
+# Subtest: WRITE
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 9 - WRITE
+# Subtest: READ
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 10 - READ
+# Subtest: EOF
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::NYI)
+ok 11 - EOF
+# Subtest: .slurp-rest
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .old matches slurp-rest
+    ok 4 - .replacement matches slurp
+    ok 5 - .when matches with IO::CatHandle
+ok 12 - .slurp-rest
+ok 13 - .Str on closed handle

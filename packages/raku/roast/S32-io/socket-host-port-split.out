@@ -1,0 +1,4 @@
+1..2
+ok 1 - IPv4 server responded
+ok 2 - # SKIP Hangs on boxes without IPv6 support
+# FUDGED!

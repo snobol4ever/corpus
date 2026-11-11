@@ -1,0 +1,67 @@
+1..58
+ok 1 - successful require PACKAGE returns PACKAGE
+ok 2 - successful require STRING returns STRING
+ok 3 - require Test installs stub Test package at compile time
+ok 4 - can introspect EXPORT of require'd package
+ok 5 - can call our-sub from required module
+ok 6 - can load InnerModule from a path at run time
+ok 7 - can load InnerModule from a variable at run time
+ok 8 - can import symbol not inside module
+ok 9 - can load InnerModule by name and path, with import list
+ok 10 - &bar didn't leak to outer scope
+# Subtest: &-less import of sub does not produce `Null PMC access` error
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Import::MissingSymbols)
+ok 11 - &-less import of sub does not produce `Null PMC access` error
+ok 12 - can load InnerClass.rakumod class into specified stub
+ok 13 - TestStub::<InnerClass>.test1 is callable
+ok 14 - can load multiple classes from InnerClass.rakumod class into specified stub
+ok 15 - TestStub::<InnerClass>.test1 is callable
+ok 16 - can call our-sub from required module
+ok 17 - can load Fancy::Utilities at run time
+ok 18 - can require with variable name
+ok 19 - can call subroutines in a module by name
+ok 20 - package returned from Fancy::Utilities matches the indirect lookup
+ok 21 - require with import list
+ok 22 - loading modules does not clobber GLOBAL
+ok 23 - can change directory and require a module
+ok 24 - requiring something non-existent does not make it segfault
+# Subtest: throws correct exception
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Import::MissingSymbols)
+ok 25 - throws correct exception
+ok 26 - require works at BEGIN
+ok 27 - require can import at BEGIN
+ok 28 - got outer symbol
+ok 29 - call method that causes a require
+ok 30 - Did not find inner symbol
+ok 31 - Cool::Utils has been merged
+ok 32 - Cool::Utils was returned
+ok 33 - 1. multiple requires with top level package already defined
+ok 34 - 2. multiple requires with top level package already defined
+ok 35 - 3. multiple requires with top level package already defined
+ok 36 - class in required package
+ok 37 - class in long required package name
+ok 38 - require class with `Set` constant
+ok 39 - role imported as itself
+ok 40 - role's metaclass is ParametricRoleGroupHOW
+ok 41 - role is not containerized
+ok 42 - class imported as itself
+ok 43 - class' metaclass is ClassHOW
+ok 44 - class is not containerized
+ok 45 - constant is imported
+ok 46 - constant is not containerized
+ok 47 - a variable is imported ok
+ok 48 - the variable is containerized
+ok 49 - role imported as itself
+ok 50 - role's metaclass is ParametricRoleGroupHOW
+ok 51 - role is not containerized
+ok 52 - class imported as itself
+ok 53 - class' metaclass is ClassHOW
+ok 54 - class is not containerized
+ok 55 - constant is imported
+ok 56 - constant is not containerized
+ok 57 - a variable is imported ok
+ok 58 - the variable is containerized

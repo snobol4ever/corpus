@@ -1,0 +1,12 @@
+1..10
+ok 1 - call rule with positional argument
+ok 2 - call rule with positional argument
+ok 3 - call rule with named argument
+ok 4 - call rule with named argument
+ok 5 - read token from grammar namespace
+ok 6 - # SKIP Method "speaker" not found for invocant of class "Cursor"
+ok 7 - <return> inside grammar must reference token `return`, not &return
+ok 8 - token `return` parses things correctly
+ok 9 - # SKIP Method "speaker" not found for invocant of class "Cursor"
+ok 10 - lookbehind that should not match does not match
+# FUDGED!

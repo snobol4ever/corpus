@@ -1,0 +1,241 @@
+1..190
+ok 1 -  (type)
+ok 2 -  (value)
+ok 3 -   (type)
+ok 4 -   (value)
+ok 5 -     (type)
+ok 6 -     (value)
+ok 7 - 123 (type)
+ok 8 - 123 (value)
+ok 9 -  123 (type)
+ok 10 -  123 (value)
+ok 11 - 0000123 (type)
+ok 12 - 0000123 (value)
+ok 13 - 1_2_3 (type)
+ok 14 - 1_2_3 (value)
+ok 15 - +123 (type)
+ok 16 - +123 (value)
+ok 17 - -123 (type)
+ok 18 - -123 (value)
+ok 19 - 3433683820292512484657849089281 (type)
+ok 20 - 3433683820292512484657849089281 (value)
+ok 21 - +"a+123" fails
+ok 22 - +"123foo" fails
+ok 23 - +"123+" fails
+ok 24 - +"1__2" fails
+ok 25 - +"123_" fails
+ok 26 - +"123 and stuff" fails
+ok 27 - 0b111 (type)
+ok 28 - 0b111 (value)
+ok 29 - 0b1_1_1 (type)
+ok 30 - 0b1_1_1 (value)
+ok 31 - +0b111 (type)
+ok 32 - +0b111 (value)
+ok 33 - -0b111 (type)
+ok 34 - -0b111 (value)
+ok 35 - 0b_1 (type)
+ok 36 - 0b_1 (value)
+ok 37 - +"0b112" fails
+ok 38 - +"0b" fails
+ok 39 - 0o77 (type)
+ok 40 - 0o77 (value)
+ok 41 - +0o77 (type)
+ok 42 - +0o77 (value)
+ok 43 - -0o77 (type)
+ok 44 - -0o77 (value)
+ok 45 - +"0o8" fails
+ok 46 - 0d123 (type)
+ok 47 - 0d123 (value)
+ok 48 - -0d123 (type)
+ok 49 - -0d123 (value)
+ok 50 - +"0da" fails
+ok 51 - 0x123 (type)
+ok 52 - 0x123 (value)
+ok 53 - -0x123 (type)
+ok 54 - -0x123 (value)
+ok 55 - 0xa0 (type)
+ok 56 - 0xa0 (value)
+ok 57 - -0xA0 (type)
+ok 58 - -0xA0 (value)
+ok 59 - +"0xag" fails
+ok 60 - +"0xaf-" fails
+ok 61 - :10<42> (type)
+ok 62 - :10<42> (value)
+ok 63 - -:10<42> (type)
+ok 64 - -:10<42> (value)
+ok 65 - -:1_0<4_2> (type)
+ok 66 - -:1_0<4_2> (value)
+ok 67 - :36<aZ> (type)
+ok 68 - :36<aZ> (value)
+ok 69 - :2<11> (type)
+ok 70 - :2<11> (value)
+ok 71 - +":2<2>" fails
+ok 72 - +":37<8>" fails
+ok 73 - +":10<8_>" fails
+ok 74 - +":10<_8>" fails
+ok 75 - +":18<>" fails
+ok 76 - +":10<8" fails
+ok 77 - +"123." fails
+ok 78 - 123.0 (type)
+ok 79 - 123.0 (value)
+ok 80 - -123.0 (type)
+ok 81 - -123.0 (value)
+ok 82 - +123.0 (type)
+ok 83 - +123.0 (value)
+ok 84 - +1_2_3.0_0 (type)
+ok 85 - +1_2_3.0_0 (value)
+ok 86 - 3/2 (type)
+ok 87 - 3/2 (value)
+ok 88 - +3/2 (type)
+ok 89 - +3/2 (value)
+ok 90 - -3/2 (type)
+ok 91 - -3/2 (value)
+not ok 92 - +"-3/-2" fails # TODO Unsure of what val() should accept
+# Failed test '+"-3/-2" fails'
+# at S32-str/numeric.rakudo line 82
+not ok 93 - +"3/-2" fails # TODO Unsure of what val() should accept
+# Failed test '+"3/-2" fails'
+# at S32-str/numeric.rakudo line 83
+not ok 94 - +"+3/-2" fails # TODO Unsure of what val() should accept
+# Failed test '+"+3/-2" fails'
+# at S32-str/numeric.rakudo line 84
+not ok 95 - +"3.0/2" fails # TODO Unsure of what val() should accept
+# Failed test '+"3.0/2" fails'
+# at S32-str/numeric.rakudo line 85
+not ok 96 - +"3/2.0" fails # TODO Unsure of what val() should accept
+# Failed test '+"3/2.0" fails'
+# at S32-str/numeric.rakudo line 86
+ok 97 - -:10<4_2.3_5> (type)
+ok 98 - -:10<4_2.3_5> (value)
+ok 99 - -:8<4_2.3_5> (type)
+ok 100 - -:8<4_2.3_5> (value)
+ok 101 - +":2.4<01>" fails
+ok 102 - +":10<12f>" fails
+ok 103 - +":1b<10>" fails
+ok 104 - +":10<>" fails
+ok 105 - +":_2<01>" fails
+ok 106 - +":2<_01>" fails
+ok 107 - +":2<01_>" fails
+ok 108 - +":_2_<_0_1_>_" fails
+ok 109 - +":2<1.3>" fails
+ok 110 - +"0b1.1e10" fails
+ok 111 - +":2<10dlk" fails
+ok 112 - +":2lks01>" fails
+ok 113 - 123e0 (type)
+ok 114 - 123e0 (value)
+ok 115 - -123e0 (type)
+ok 116 - -123e0 (value)
+ok 117 - −123e0 (type)
+ok 118 - −123e0 (value)
+ok 119 - +123e0 (type)
+ok 120 - +123e0 (value)
+ok 121 - +123.0e0 (type)
+ok 122 - +123.0e0 (value)
+ok 123 - +123.0_1e2 (type)
+ok 124 - +123.0_1e2 (value)
+ok 125 - +123.0_1e0_2 (type)
+ok 126 - +123.0_1e0_2 (value)
+ok 127 - 123e-0 (type)
+ok 128 - 123e-0 (value)
+ok 129 - -123e+0 (type)
+ok 130 - -123e+0 (value)
+ok 131 - −123e+0 (type)
+ok 132 - −123e+0 (value)
+ok 133 - 123E0 (type)
+ok 134 - 123E0 (value)
+ok 135 - 1_2_3E0_0 (type)
+ok 136 - 1_2_3E0_0 (value)
+ok 137 - -123E0 (type)
+ok 138 - -123E0 (value)
+ok 139 - −123E0 (type)
+ok 140 - −123E0 (value)
+ok 141 - +123E0 (type)
+ok 142 - +123E0 (value)
+ok 143 - 123E-0 (type)
+ok 144 - 123E-0 (value)
+ok 145 - 123E−0 (type)
+ok 146 - 123E−0 (value)
+ok 147 - -123E+0 (type)
+ok 148 - -123E+0 (value)
+ok 149 - -123E+0_1 (type)
+ok 150 - -123E+0_1 (value)
+ok 151 - 1230E-1 (type)
+ok 152 - 1230E-1 (value)
+ok 153 - 1230E−1 (type)
+ok 154 - 1230E−1 (value)
+ok 155 - -12E+1 (type)
+ok 156 - -12E+1 (value)
+ok 157 - −12E+1 (type)
+ok 158 - −12E+1 (value)
+ok 159 - +"120e" fails
+ok 160 - +"120e2_" fails
+ok 161 - Inf
+ok 162 - +Inf
+ok 163 - -Inf
+ok 164 - NaN
+ok 165 - 1+2i (type)
+ok 166 - 1+2i (value)
+ok 167 - -1-2i (type)
+ok 168 - -1-2i (value)
+ok 169 - -1-2\i (type)
+ok 170 - -1-2\i (value)
+ok 171 - -1.0-2.0\i (type)
+ok 172 - -1.0-2.0\i (value)
+ok 173 - -1.0e0-2.0e0\i (type)
+ok 174 - -1.0e0-2.0e0\i (value)
+ok 175 - -1.0e0_0-2.0e0_0\i (type)
+ok 176 - -1.0e0_0-2.0e0_0\i (value)
+ok 177 - 3+Inf\i (type)
+ok 178 - 3+Inf\i (value)
+ok 179 - Inf+2e2i (type)
+ok 180 - Inf+2e2i (value)
+ok 181 - +"3+3i+4i" fails
+ok 182 - +"3+3+4i" fails
+ok 183 - +"3+Infi" fails
+ok 184 - RT  \#100778
+# Subtest: .Int on strings with numerics with combining characters throws
+    1..2
+    ok 1 - '"34\x[308]5".Int' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 185 - .Int on strings with numerics with combining characters throws
+ok 186 - "a".Int lives...
+ok 187 - "a".Int produces a failure
+ok 188 - cannot do math with a Failure
+# Subtest: "a".UInt produces a Failure
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Numeric)
+    ok 2 - Failure threw when sunk
+ok 189 - "a".UInt produces a Failure
+# Subtest: can handle − (U+2212) minus as regular minus
+    1..4
+    ok 1 - Int
+    ok 2 - Rat
+    # Subtest: Num (minus in...)
+        1..3
+        ok 1 - base
+        ok 2 - exponent
+        ok 3 - both base and exponent
+    ok 3 - Num (minus in...)
+    # Subtest: Complex
+        1..4
+        ok 1 - # SKIP cannot handle lone i yet
+        ok 2 - # SKIP cannot handle lone i yet
+        # Subtest: numberless i (minus in ...)
+            1..3
+            ok 1 - # SKIP cannot handle lone i yet
+            ok 2 - # SKIP cannot handle lone i yet
+            ok 3 - # SKIP cannot handle lone i yet
+        ok 3 - numberless i (minus in ...)
+        # Subtest: i with number (minus in ...)
+            1..3
+            ok 1 - real
+            ok 2 - imaginary
+            ok 3 - both real and imaginary
+        ok 4 - i with number (minus in ...)
+    ok 4 - Complex
+ok 190 - can handle − (U+2212) minus as regular minus
+# FUDGED!

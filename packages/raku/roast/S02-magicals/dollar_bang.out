@@ -1,0 +1,16 @@
+1..15
+ok 1 - error in try makes $! defined
+ok 2 - successful try { } resets $!
+ok 3 - Calling a nonexisting method defines $!
+ok 4 - Calling a subroutine with a nonmatching signature sets $!
+ok 5 - The subroutine also was not called
+ok 6 - Dividing one by zero sets $!
+ok 7 - Modifying a constant sets $!
+ok 8 - die sets $! properly
+ok 9 - $! has working Raku object methods after try
+ok 10 - $! is Exception object after try
+ok 11 - $! as boolean works (true)
+ok 12 - $! has working Raku object methods after eval
+ok 13 - $! is Exception object after eval
+ok 14 - $! has correct value after eval
+ok 15 - $! as boolean works (false)

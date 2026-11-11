@@ -1,0 +1,31 @@
+1..30
+ok 1 - The object is-a '"Pod::Defn"'
+ok 2 - 
+ok 3 - 
+ok 4 - The object is-a '"Pod::Block::Para"'
+ok 5 - 
+ok 6 - The object is-a '"Pod::Defn"'
+ok 7 - 
+ok 8 - The object is-a '"Pod::Block::Para"'
+ok 9 - 
+ok 10 - The object is-a '"Pod::Defn"'
+ok 11 - 
+ok 12 - 
+ok 13 - The object is-a '"Pod::Block::Para"'
+ok 14 - 
+ok 15 - The object is-a '"Pod::Defn"'
+ok 16 - 
+ok 17 - The object is-a '"Pod::Block::Para"'
+ok 18 - 
+ok 19 - The object is-a '"Pod::Defn"'
+ok 20 - 
+ok 21 - 
+ok 22 - The object is-a '"Pod::Block::Para"'
+ok 23 - 
+ok 24 - The object is-a '"Pod::Defn"'
+ok 25 - 
+ok 26 - 
+ok 27 - The object is-a '"Pod::Block::Para"'
+ok 28 - 
+ok 29 - The object is-a '"Pod::Block::Para"'
+ok 30 - 

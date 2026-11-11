@@ -1,0 +1,5 @@
+1..4
+ok 1 - description role applied to class and set with argument
+ok 2 - description role applied to class without argument
+ok 3 - description role applied to role and set with argument
+ok 4 - description role applied to role without argument

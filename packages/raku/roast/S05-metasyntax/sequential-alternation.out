@@ -1,0 +1,15 @@
+1..14
+ok 1 - 
+ok 2 - first || alternative matches
+ok 3 - 
+ok 4 - first || alternative matches
+ok 5 - 
+ok 6 - second alternative || matches if first fails
+ok 7 - 
+ok 8 - first ||@list alternative matches
+ok 9 - 
+ok 10 - first ||@list alternative matches
+ok 11 - backtrack into ||
+ok 12 - don't backtrack into [ || ]:
+ok 13 - don't backtrack into || under :r
+ok 14 - backtrack into [ || ]:! despite :r

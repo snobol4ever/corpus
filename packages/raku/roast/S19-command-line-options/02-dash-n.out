@@ -1,0 +1,19 @@
+1..6
+ok 1 - -n -e .say works like cat
+ok 2 - -ne .say works like cat
+# Subtest: -n -e "" works like awk ""
+    1..3
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+ok 3 - -n -e "" works like awk ""
+not ok 4 - -n -e "FIRST .say" prints the first line of the input # TODO LAST working with -n NYI
+# Failed test '-n -e "FIRST .say" prints the first line of the input'
+# at S19-command-line-options/02-dash-n.rakudo line 60
+not ok 5 - -n -e "LAST .say" prints the last line of the input # TODO LAST working with -n NYI
+# Failed test '-n -e "LAST .say" prints the last line of the input'
+# at S19-command-line-options/02-dash-n.rakudo line 71
+not ok 6 - -n -e "NEXT .say" prints each line of the input # TODO LAST working with -n NYI
+# Failed test '-n -e "NEXT .say" prints each line of the input'
+# at S19-command-line-options/02-dash-n.rakudo line 82
+# FUDGED!

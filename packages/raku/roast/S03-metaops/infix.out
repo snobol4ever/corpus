@@ -1,0 +1,5077 @@
+1..5076
+ok 1 - $a >>~<< $b
+ok 2 - $a <<~<< $b
+ok 3 - $a <<~>> $b
+ok 4 - $a >>~>> $b
+ok 5 - $a >>~=<< $b
+ok 6 - $a assigned from $a >>~=<< $b
+ok 7 - $a <<~=<< $b
+ok 8 - $a assigned from $a <<~=<< $b
+ok 9 - $a <<~=>> $b
+ok 10 - $a assigned from $a <<~=>> $b
+ok 11 - $a >>~=>> $b
+ok 12 - $a assigned from $a >>~=>> $b
+ok 13 - @a >>~<< @b
+ok 14 - @a <<~<< @b
+ok 15 - @a <<~>> @b
+ok 16 - @a >>~>> @b
+ok 17 - @a >>~=<< @b
+ok 18 - @a assigned from @a >>~=<< @b
+ok 19 - @a <<~=<< @b
+ok 20 - @a assigned from @a <<~=<< @b
+ok 21 - @a <<~=>> @b
+ok 22 - @a assigned from @a <<~=>> @b
+ok 23 - @a >>~=>> @b
+ok 24 - @a assigned from @a >>~=>> @b
+ok 25 - @a >>~<< 3 dies
+ok 26 - @a <<~<< 3 dies
+ok 27 - @a <<~>> 3
+ok 28 - @a >>~>> 3
+ok 29 - @a >>~=<< 3 dies
+ok 30 - @a <<~=<< 3 dies
+ok 31 - @a <<~=>> 3
+ok 32 - @a assigned from @a <<~=>> 3
+ok 33 - @a >>~=>> 3
+ok 34 - @a assigned from @a >>~=>> 3
+ok 35 - 3 >>~<< @a dies
+ok 36 - 3 >>~>> @a dies
+ok 37 - 3 <<~>> @a
+ok 38 - 3 <<~<< @a
+ok 39 - 3 >>~=<< @a dies
+ok 40 - 3 >>~=>> @a dies
+ok 41 - 3 <<~=>> @a dies
+ok 42 - 3 <<~=<< @a dies
+ok 43 - @a >>~<< @b
+ok 44 - @a <<~<< @b
+ok 45 - @a <<~>> @b
+ok 46 - @a >>~>> @b
+ok 47 - @a >>~=<< @b
+ok 48 - @a assigned from @a >>~=<< @b
+ok 49 - @a <<~=<< @b
+ok 50 - @a assigned from @a <<~=<< @b
+ok 51 - @a <<~=>> @b
+ok 52 - @a assigned from @a <<~=>> @b
+ok 53 - @a >>~=>> @b
+ok 54 - @a assigned from @a >>~=>> @b
+ok 55 - @a >>~<< 3 dies
+ok 56 - @a <<~<< 3 dies
+ok 57 - @a <<~>> 3
+ok 58 - @a >>~>> 3
+ok 59 - @a >>~=<< 3 dies
+ok 60 - @a <<~=<< 3 dies
+ok 61 - @a <<~=>> 3
+ok 62 - @a assigned from @a <<~=>> 3
+ok 63 - @a >>~=>> 3
+ok 64 - @a assigned from @a >>~=>> 3
+ok 65 - 3 >>~<< @a dies
+ok 66 - 3 >>~>> @a dies
+ok 67 - 3 <<~>> @a
+ok 68 - 3 <<~<< @a
+ok 69 - 3 >>~=<< @a dies
+ok 70 - 3 >>~=>> @a dies
+ok 71 - 3 <<~=>> @a dies
+ok 72 - 3 <<~=<< @a dies
+ok 73 - %a >>~<< %b
+ok 74 - %a <<~<< %b
+ok 75 - %a <<~>> %b
+ok 76 - %a >>~>> %b
+ok 77 - %a >>~=<< %b
+ok 78 - %a assigned from %a >>~=<< %b
+ok 79 - %a <<~=<< %b
+ok 80 - %a assigned from %a <<~=<< %b
+ok 81 - %a <<~=>> %b
+ok 82 - %a assigned from %a <<~=>> %b
+ok 83 - %a >>~=>> %b
+ok 84 - %a assigned from %a >>~=>> %b
+ok 85 - %a >>~<< 3 dies
+ok 86 - %a <<~<< 3 dies
+ok 87 - %a <<~>> 3
+ok 88 - %a >>~>> 3
+ok 89 - %a >>~=<< 3 dies
+ok 90 - %a <<~=<< 3 dies
+ok 91 - %a <<~=>> 3
+ok 92 - %a assigned from %a <<~=>> 3
+ok 93 - %a >>~=>> 3
+ok 94 - %a assigned from %a >>~=>> 3
+ok 95 - 3 >>~<< %a dies
+ok 96 - 3 >>~>> %a dies
+ok 97 - 3 <<~>> %a
+ok 98 - 3 <<~<< %a
+ok 99 - 3 >>~=<< %a dies
+ok 100 - 3 >>~=>> %a dies
+ok 101 - 3 <<~=>> %a dies
+ok 102 - 3 <<~=<< %a dies
+ok 103 - %a >>~<< %b
+ok 104 - %a <<~<< %b
+ok 105 - %a <<~>> %b
+ok 106 - %a >>~>> %b
+ok 107 - %a >>~=<< %b
+ok 108 - %a assigned from %a >>~=<< %b
+ok 109 - %a <<~=<< %b
+ok 110 - %a assigned from %a <<~=<< %b
+ok 111 - %a <<~=>> %b
+ok 112 - %a assigned from %a <<~=>> %b
+ok 113 - %a >>~=>> %b
+ok 114 - %a assigned from %a >>~=>> %b
+ok 115 - %a >>~<< 3 dies
+ok 116 - %a <<~<< 3 dies
+ok 117 - %a <<~>> 3
+ok 118 - %a >>~>> 3
+ok 119 - %a >>~=<< 3 dies
+ok 120 - %a <<~=<< 3 dies
+ok 121 - %a <<~=>> 3
+ok 122 - %a assigned from %a <<~=>> 3
+ok 123 - %a >>~=>> 3
+ok 124 - %a assigned from %a >>~=>> 3
+ok 125 - 3 >>~<< %a dies
+ok 126 - 3 >>~>> %a dies
+ok 127 - 3 <<~>> %a
+ok 128 - 3 <<~<< %a
+ok 129 - 3 >>~=<< %a dies
+ok 130 - 3 >>~=>> %a dies
+ok 131 - 3 <<~=>> %a dies
+ok 132 - 3 <<~=<< %a dies
+ok 133 - %a >>~<< %b
+ok 134 - %a <<~<< %b
+ok 135 - %a <<~>> %b
+ok 136 - %a >>~>> %b
+ok 137 - %a >>~=<< %b
+ok 138 - %a assigned from %a >>~=<< %b
+ok 139 - %a <<~=<< %b
+ok 140 - %a assigned from %a <<~=<< %b
+ok 141 - %a <<~=>> %b
+ok 142 - %a assigned from %a <<~=>> %b
+ok 143 - %a >>~=>> %b
+ok 144 - %a assigned from %a >>~=>> %b
+ok 145 - %a >>~<< 3 dies
+ok 146 - %a <<~<< 3 dies
+ok 147 - %a <<~>> 3
+ok 148 - %a >>~>> 3
+ok 149 - %a >>~=<< 3 dies
+ok 150 - %a <<~=<< 3 dies
+ok 151 - %a <<~=>> 3
+ok 152 - %a assigned from %a <<~=>> 3
+ok 153 - %a >>~=>> 3
+ok 154 - %a assigned from %a >>~=>> 3
+ok 155 - 3 >>~<< %a dies
+ok 156 - 3 >>~>> %a dies
+ok 157 - 3 <<~>> %a
+ok 158 - 3 <<~<< %a
+ok 159 - 3 >>~=<< %a dies
+ok 160 - 3 >>~=>> %a dies
+ok 161 - 3 <<~=>> %a dies
+ok 162 - 3 <<~=<< %a dies
+ok 163 - $a >>x<< $b
+ok 164 - $a <<x<< $b
+ok 165 - $a <<x>> $b
+ok 166 - $a >>x>> $b
+ok 167 - $a >>x=<< $b
+ok 168 - $a assigned from $a >>x=<< $b
+ok 169 - $a <<x=<< $b
+ok 170 - $a assigned from $a <<x=<< $b
+ok 171 - $a <<x=>> $b
+ok 172 - $a assigned from $a <<x=>> $b
+ok 173 - $a >>x=>> $b
+ok 174 - $a assigned from $a >>x=>> $b
+ok 175 - @a >>x<< @b
+ok 176 - @a <<x<< @b
+ok 177 - @a <<x>> @b
+ok 178 - @a >>x>> @b
+ok 179 - @a >>x=<< @b
+ok 180 - @a assigned from @a >>x=<< @b
+ok 181 - @a <<x=<< @b
+ok 182 - @a assigned from @a <<x=<< @b
+ok 183 - @a <<x=>> @b
+ok 184 - @a assigned from @a <<x=>> @b
+ok 185 - @a >>x=>> @b
+ok 186 - @a assigned from @a >>x=>> @b
+ok 187 - @a >>x<< 3 dies
+ok 188 - @a <<x<< 3 dies
+ok 189 - @a <<x>> 3
+ok 190 - @a >>x>> 3
+ok 191 - @a >>x=<< 3 dies
+ok 192 - @a <<x=<< 3 dies
+ok 193 - @a <<x=>> 3
+ok 194 - @a assigned from @a <<x=>> 3
+ok 195 - @a >>x=>> 3
+ok 196 - @a assigned from @a >>x=>> 3
+ok 197 - 3 >>x<< @a dies
+ok 198 - 3 >>x>> @a dies
+ok 199 - 3 <<x>> @a
+ok 200 - 3 <<x<< @a
+ok 201 - 3 >>x=<< @a dies
+ok 202 - 3 >>x=>> @a dies
+ok 203 - 3 <<x=>> @a dies
+ok 204 - 3 <<x=<< @a dies
+ok 205 - @a >>x<< @b
+ok 206 - @a <<x<< @b
+ok 207 - @a <<x>> @b
+ok 208 - @a >>x>> @b
+ok 209 - @a >>x=<< @b
+ok 210 - @a assigned from @a >>x=<< @b
+ok 211 - @a <<x=<< @b
+ok 212 - @a assigned from @a <<x=<< @b
+ok 213 - @a <<x=>> @b
+ok 214 - @a assigned from @a <<x=>> @b
+ok 215 - @a >>x=>> @b
+ok 216 - @a assigned from @a >>x=>> @b
+ok 217 - @a >>x<< 3 dies
+ok 218 - @a <<x<< 3 dies
+ok 219 - @a <<x>> 3
+ok 220 - @a >>x>> 3
+ok 221 - @a >>x=<< 3 dies
+ok 222 - @a <<x=<< 3 dies
+ok 223 - @a <<x=>> 3
+ok 224 - @a assigned from @a <<x=>> 3
+ok 225 - @a >>x=>> 3
+ok 226 - @a assigned from @a >>x=>> 3
+ok 227 - 3 >>x<< @a dies
+ok 228 - 3 >>x>> @a dies
+ok 229 - 3 <<x>> @a
+ok 230 - 3 <<x<< @a
+ok 231 - 3 >>x=<< @a dies
+ok 232 - 3 >>x=>> @a dies
+ok 233 - 3 <<x=>> @a dies
+ok 234 - 3 <<x=<< @a dies
+ok 235 - %a >>x<< %b
+ok 236 - %a <<x<< %b
+ok 237 - %a <<x>> %b
+ok 238 - %a >>x>> %b
+ok 239 - %a >>x=<< %b
+ok 240 - %a assigned from %a >>x=<< %b
+ok 241 - %a <<x=<< %b
+ok 242 - %a assigned from %a <<x=<< %b
+ok 243 - %a <<x=>> %b
+ok 244 - %a assigned from %a <<x=>> %b
+ok 245 - %a >>x=>> %b
+ok 246 - %a assigned from %a >>x=>> %b
+ok 247 - %a >>x<< 3 dies
+ok 248 - %a <<x<< 3 dies
+ok 249 - %a <<x>> 3
+ok 250 - %a >>x>> 3
+ok 251 - %a >>x=<< 3 dies
+ok 252 - %a <<x=<< 3 dies
+ok 253 - %a <<x=>> 3
+ok 254 - %a assigned from %a <<x=>> 3
+ok 255 - %a >>x=>> 3
+ok 256 - %a assigned from %a >>x=>> 3
+ok 257 - 3 >>x<< %a dies
+ok 258 - 3 >>x>> %a dies
+ok 259 - 3 <<x>> %a
+ok 260 - 3 <<x<< %a
+ok 261 - 3 >>x=<< %a dies
+ok 262 - 3 >>x=>> %a dies
+ok 263 - 3 <<x=>> %a dies
+ok 264 - 3 <<x=<< %a dies
+ok 265 - %a >>x<< %b
+ok 266 - %a <<x<< %b
+ok 267 - %a <<x>> %b
+ok 268 - %a >>x>> %b
+ok 269 - %a >>x=<< %b
+ok 270 - %a assigned from %a >>x=<< %b
+ok 271 - %a <<x=<< %b
+ok 272 - %a assigned from %a <<x=<< %b
+ok 273 - %a <<x=>> %b
+ok 274 - %a assigned from %a <<x=>> %b
+ok 275 - %a >>x=>> %b
+ok 276 - %a assigned from %a >>x=>> %b
+ok 277 - %a >>x<< 3 dies
+ok 278 - %a <<x<< 3 dies
+ok 279 - %a <<x>> 3
+ok 280 - %a >>x>> 3
+ok 281 - %a >>x=<< 3 dies
+ok 282 - %a <<x=<< 3 dies
+ok 283 - %a <<x=>> 3
+ok 284 - %a assigned from %a <<x=>> 3
+ok 285 - %a >>x=>> 3
+ok 286 - %a assigned from %a >>x=>> 3
+ok 287 - 3 >>x<< %a dies
+ok 288 - 3 >>x>> %a dies
+ok 289 - 3 <<x>> %a
+ok 290 - 3 <<x<< %a
+ok 291 - 3 >>x=<< %a dies
+ok 292 - 3 >>x=>> %a dies
+ok 293 - 3 <<x=>> %a dies
+ok 294 - 3 <<x=<< %a dies
+ok 295 - %a >>x<< %b
+ok 296 - %a <<x<< %b
+ok 297 - %a <<x>> %b
+ok 298 - %a >>x>> %b
+ok 299 - %a >>x=<< %b
+ok 300 - %a assigned from %a >>x=<< %b
+ok 301 - %a <<x=<< %b
+ok 302 - %a assigned from %a <<x=<< %b
+ok 303 - %a <<x=>> %b
+ok 304 - %a assigned from %a <<x=>> %b
+ok 305 - %a >>x=>> %b
+ok 306 - %a assigned from %a >>x=>> %b
+ok 307 - %a >>x<< 3 dies
+ok 308 - %a <<x<< 3 dies
+ok 309 - %a <<x>> 3
+ok 310 - %a >>x>> 3
+ok 311 - %a >>x=<< 3 dies
+ok 312 - %a <<x=<< 3 dies
+ok 313 - %a <<x=>> 3
+ok 314 - %a assigned from %a <<x=>> 3
+ok 315 - %a >>x=>> 3
+ok 316 - %a assigned from %a >>x=>> 3
+ok 317 - 3 >>x<< %a dies
+ok 318 - 3 >>x>> %a dies
+ok 319 - 3 <<x>> %a
+ok 320 - 3 <<x<< %a
+ok 321 - 3 >>x=<< %a dies
+ok 322 - 3 >>x=>> %a dies
+ok 323 - 3 <<x=>> %a dies
+ok 324 - 3 <<x=<< %a dies
+ok 325 - $a >>cst<< $b
+ok 326 - $a <<cst<< $b
+ok 327 - $a <<cst>> $b
+ok 328 - $a >>cst>> $b
+ok 329 - $a >>cst=<< $b
+ok 330 - $a assigned from $a >>cst=<< $b
+ok 331 - $a <<cst=<< $b
+ok 332 - $a assigned from $a <<cst=<< $b
+ok 333 - $a <<cst=>> $b
+ok 334 - $a assigned from $a <<cst=>> $b
+ok 335 - $a >>cst=>> $b
+ok 336 - $a assigned from $a >>cst=>> $b
+ok 337 - @a >>cst<< @b
+ok 338 - @a <<cst<< @b
+ok 339 - @a <<cst>> @b
+ok 340 - @a >>cst>> @b
+ok 341 - @a >>cst=<< @b
+ok 342 - @a assigned from @a >>cst=<< @b
+ok 343 - @a <<cst=<< @b
+ok 344 - @a assigned from @a <<cst=<< @b
+ok 345 - @a <<cst=>> @b
+ok 346 - @a assigned from @a <<cst=>> @b
+ok 347 - @a >>cst=>> @b
+ok 348 - @a assigned from @a >>cst=>> @b
+ok 349 - @a >>cst<< 3 dies
+ok 350 - @a <<cst<< 3 dies
+ok 351 - @a <<cst>> 3
+ok 352 - @a >>cst>> 3
+ok 353 - @a >>cst=<< 3 dies
+ok 354 - @a <<cst=<< 3 dies
+ok 355 - @a <<cst=>> 3
+ok 356 - @a assigned from @a <<cst=>> 3
+ok 357 - @a >>cst=>> 3
+ok 358 - @a assigned from @a >>cst=>> 3
+ok 359 - 3 >>cst<< @a dies
+ok 360 - 3 >>cst>> @a dies
+ok 361 - 3 <<cst>> @a
+ok 362 - 3 <<cst<< @a
+ok 363 - 3 >>cst=<< @a dies
+ok 364 - 3 >>cst=>> @a dies
+ok 365 - 3 <<cst=>> @a dies
+ok 366 - 3 <<cst=<< @a dies
+ok 367 - @a >>cst<< @b
+ok 368 - @a <<cst<< @b
+ok 369 - @a <<cst>> @b
+ok 370 - @a >>cst>> @b
+ok 371 - @a >>cst=<< @b
+ok 372 - @a assigned from @a >>cst=<< @b
+ok 373 - @a <<cst=<< @b
+ok 374 - @a assigned from @a <<cst=<< @b
+ok 375 - @a <<cst=>> @b
+ok 376 - @a assigned from @a <<cst=>> @b
+ok 377 - @a >>cst=>> @b
+ok 378 - @a assigned from @a >>cst=>> @b
+ok 379 - @a >>cst<< 3 dies
+ok 380 - @a <<cst<< 3 dies
+ok 381 - @a <<cst>> 3
+ok 382 - @a >>cst>> 3
+ok 383 - @a >>cst=<< 3 dies
+ok 384 - @a <<cst=<< 3 dies
+ok 385 - @a <<cst=>> 3
+ok 386 - @a assigned from @a <<cst=>> 3
+ok 387 - @a >>cst=>> 3
+ok 388 - @a assigned from @a >>cst=>> 3
+ok 389 - 3 >>cst<< @a dies
+ok 390 - 3 >>cst>> @a dies
+ok 391 - 3 <<cst>> @a
+ok 392 - 3 <<cst<< @a
+ok 393 - 3 >>cst=<< @a dies
+ok 394 - 3 >>cst=>> @a dies
+ok 395 - 3 <<cst=>> @a dies
+ok 396 - 3 <<cst=<< @a dies
+ok 397 - %a >>cst<< %b
+ok 398 - %a <<cst<< %b
+ok 399 - %a <<cst>> %b
+ok 400 - %a >>cst>> %b
+ok 401 - %a >>cst=<< %b
+ok 402 - %a assigned from %a >>cst=<< %b
+ok 403 - %a <<cst=<< %b
+ok 404 - %a assigned from %a <<cst=<< %b
+ok 405 - %a <<cst=>> %b
+ok 406 - %a assigned from %a <<cst=>> %b
+ok 407 - %a >>cst=>> %b
+ok 408 - %a assigned from %a >>cst=>> %b
+ok 409 - %a >>cst<< 3 dies
+ok 410 - %a <<cst<< 3 dies
+ok 411 - %a <<cst>> 3
+ok 412 - %a >>cst>> 3
+ok 413 - %a >>cst=<< 3 dies
+ok 414 - %a <<cst=<< 3 dies
+ok 415 - %a <<cst=>> 3
+ok 416 - %a assigned from %a <<cst=>> 3
+ok 417 - %a >>cst=>> 3
+ok 418 - %a assigned from %a >>cst=>> 3
+ok 419 - 3 >>cst<< %a dies
+ok 420 - 3 >>cst>> %a dies
+ok 421 - 3 <<cst>> %a
+ok 422 - 3 <<cst<< %a
+ok 423 - 3 >>cst=<< %a dies
+ok 424 - 3 >>cst=>> %a dies
+ok 425 - 3 <<cst=>> %a dies
+ok 426 - 3 <<cst=<< %a dies
+ok 427 - %a >>cst<< %b
+ok 428 - %a <<cst<< %b
+ok 429 - %a <<cst>> %b
+ok 430 - %a >>cst>> %b
+ok 431 - %a >>cst=<< %b
+ok 432 - %a assigned from %a >>cst=<< %b
+ok 433 - %a <<cst=<< %b
+ok 434 - %a assigned from %a <<cst=<< %b
+ok 435 - %a <<cst=>> %b
+ok 436 - %a assigned from %a <<cst=>> %b
+ok 437 - %a >>cst=>> %b
+ok 438 - %a assigned from %a >>cst=>> %b
+ok 439 - %a >>cst<< 3 dies
+ok 440 - %a <<cst<< 3 dies
+ok 441 - %a <<cst>> 3
+ok 442 - %a >>cst>> 3
+ok 443 - %a >>cst=<< 3 dies
+ok 444 - %a <<cst=<< 3 dies
+ok 445 - %a <<cst=>> 3
+ok 446 - %a assigned from %a <<cst=>> 3
+ok 447 - %a >>cst=>> 3
+ok 448 - %a assigned from %a >>cst=>> 3
+ok 449 - 3 >>cst<< %a dies
+ok 450 - 3 >>cst>> %a dies
+ok 451 - 3 <<cst>> %a
+ok 452 - 3 <<cst<< %a
+ok 453 - 3 >>cst=<< %a dies
+ok 454 - 3 >>cst=>> %a dies
+ok 455 - 3 <<cst=>> %a dies
+ok 456 - 3 <<cst=<< %a dies
+ok 457 - %a >>cst<< %b
+ok 458 - %a <<cst<< %b
+ok 459 - %a <<cst>> %b
+ok 460 - %a >>cst>> %b
+ok 461 - %a >>cst=<< %b
+ok 462 - %a assigned from %a >>cst=<< %b
+ok 463 - %a <<cst=<< %b
+ok 464 - %a assigned from %a <<cst=<< %b
+ok 465 - %a <<cst=>> %b
+ok 466 - %a assigned from %a <<cst=>> %b
+ok 467 - %a >>cst=>> %b
+ok 468 - %a assigned from %a >>cst=>> %b
+ok 469 - %a >>cst<< 3 dies
+ok 470 - %a <<cst<< 3 dies
+ok 471 - %a <<cst>> 3
+ok 472 - %a >>cst>> 3
+ok 473 - %a >>cst=<< 3 dies
+ok 474 - %a <<cst=<< 3 dies
+ok 475 - %a <<cst=>> 3
+ok 476 - %a assigned from %a <<cst=>> 3
+ok 477 - %a >>cst=>> 3
+ok 478 - %a assigned from %a >>cst=>> 3
+ok 479 - 3 >>cst<< %a dies
+ok 480 - 3 >>cst>> %a dies
+ok 481 - 3 <<cst>> %a
+ok 482 - 3 <<cst<< %a
+ok 483 - 3 >>cst=<< %a dies
+ok 484 - 3 >>cst=>> %a dies
+ok 485 - 3 <<cst=>> %a dies
+ok 486 - 3 <<cst=<< %a dies
+ok 487 - $a >>~|<< $b
+ok 488 - $a <<~|<< $b
+ok 489 - $a <<~|>> $b
+ok 490 - $a >>~|>> $b
+ok 491 - $a >>~|=<< $b
+ok 492 - $a assigned from $a >>~|=<< $b
+ok 493 - $a <<~|=<< $b
+ok 494 - $a assigned from $a <<~|=<< $b
+ok 495 - $a <<~|=>> $b
+ok 496 - $a assigned from $a <<~|=>> $b
+ok 497 - $a >>~|=>> $b
+ok 498 - $a assigned from $a >>~|=>> $b
+ok 499 - @a >>~|<< @b
+ok 500 - @a <<~|<< @b
+ok 501 - @a <<~|>> @b
+ok 502 - @a >>~|>> @b
+ok 503 - @a >>~|=<< @b
+ok 504 - @a assigned from @a >>~|=<< @b
+ok 505 - @a <<~|=<< @b
+ok 506 - @a assigned from @a <<~|=<< @b
+ok 507 - @a <<~|=>> @b
+ok 508 - @a assigned from @a <<~|=>> @b
+ok 509 - @a >>~|=>> @b
+ok 510 - @a assigned from @a >>~|=>> @b
+ok 511 - @a >>~|<< 3 dies
+ok 512 - @a <<~|<< 3 dies
+ok 513 - @a <<~|>> 3
+ok 514 - @a >>~|>> 3
+ok 515 - @a >>~|=<< 3 dies
+ok 516 - @a <<~|=<< 3 dies
+ok 517 - @a <<~|=>> 3
+ok 518 - @a assigned from @a <<~|=>> 3
+ok 519 - @a >>~|=>> 3
+ok 520 - @a assigned from @a >>~|=>> 3
+ok 521 - 3 >>~|<< @a dies
+ok 522 - 3 >>~|>> @a dies
+ok 523 - 3 <<~|>> @a
+ok 524 - 3 <<~|<< @a
+ok 525 - 3 >>~|=<< @a dies
+ok 526 - 3 >>~|=>> @a dies
+ok 527 - 3 <<~|=>> @a dies
+ok 528 - 3 <<~|=<< @a dies
+ok 529 - @a >>~|<< @b
+ok 530 - @a <<~|<< @b
+ok 531 - @a <<~|>> @b
+ok 532 - @a >>~|>> @b
+ok 533 - @a >>~|=<< @b
+ok 534 - @a assigned from @a >>~|=<< @b
+ok 535 - @a <<~|=<< @b
+ok 536 - @a assigned from @a <<~|=<< @b
+ok 537 - @a <<~|=>> @b
+ok 538 - @a assigned from @a <<~|=>> @b
+ok 539 - @a >>~|=>> @b
+ok 540 - @a assigned from @a >>~|=>> @b
+ok 541 - @a >>~|<< 3 dies
+ok 542 - @a <<~|<< 3 dies
+ok 543 - @a <<~|>> 3
+ok 544 - @a >>~|>> 3
+ok 545 - @a >>~|=<< 3 dies
+ok 546 - @a <<~|=<< 3 dies
+ok 547 - @a <<~|=>> 3
+ok 548 - @a assigned from @a <<~|=>> 3
+ok 549 - @a >>~|=>> 3
+ok 550 - @a assigned from @a >>~|=>> 3
+ok 551 - 3 >>~|<< @a dies
+ok 552 - 3 >>~|>> @a dies
+ok 553 - 3 <<~|>> @a
+ok 554 - 3 <<~|<< @a
+ok 555 - 3 >>~|=<< @a dies
+ok 556 - 3 >>~|=>> @a dies
+ok 557 - 3 <<~|=>> @a dies
+ok 558 - 3 <<~|=<< @a dies
+ok 559 - %a >>~|<< %b
+ok 560 - %a <<~|<< %b
+ok 561 - %a <<~|>> %b
+ok 562 - %a >>~|>> %b
+ok 563 - %a >>~|=<< %b
+ok 564 - %a assigned from %a >>~|=<< %b
+ok 565 - %a <<~|=<< %b
+ok 566 - %a assigned from %a <<~|=<< %b
+ok 567 - %a <<~|=>> %b
+ok 568 - %a assigned from %a <<~|=>> %b
+ok 569 - %a >>~|=>> %b
+ok 570 - %a assigned from %a >>~|=>> %b
+ok 571 - %a >>~|<< 3 dies
+ok 572 - %a <<~|<< 3 dies
+ok 573 - %a <<~|>> 3
+ok 574 - %a >>~|>> 3
+ok 575 - %a >>~|=<< 3 dies
+ok 576 - %a <<~|=<< 3 dies
+ok 577 - %a <<~|=>> 3
+ok 578 - %a assigned from %a <<~|=>> 3
+ok 579 - %a >>~|=>> 3
+ok 580 - %a assigned from %a >>~|=>> 3
+ok 581 - 3 >>~|<< %a dies
+ok 582 - 3 >>~|>> %a dies
+ok 583 - 3 <<~|>> %a
+ok 584 - 3 <<~|<< %a
+ok 585 - 3 >>~|=<< %a dies
+ok 586 - 3 >>~|=>> %a dies
+ok 587 - 3 <<~|=>> %a dies
+ok 588 - 3 <<~|=<< %a dies
+ok 589 - %a >>~|<< %b
+ok 590 - %a <<~|<< %b
+ok 591 - %a <<~|>> %b
+ok 592 - %a >>~|>> %b
+ok 593 - %a >>~|=<< %b
+ok 594 - %a assigned from %a >>~|=<< %b
+ok 595 - %a <<~|=<< %b
+ok 596 - %a assigned from %a <<~|=<< %b
+ok 597 - %a <<~|=>> %b
+ok 598 - %a assigned from %a <<~|=>> %b
+ok 599 - %a >>~|=>> %b
+ok 600 - %a assigned from %a >>~|=>> %b
+ok 601 - %a >>~|<< 3 dies
+ok 602 - %a <<~|<< 3 dies
+ok 603 - %a <<~|>> 3
+ok 604 - %a >>~|>> 3
+ok 605 - %a >>~|=<< 3 dies
+ok 606 - %a <<~|=<< 3 dies
+ok 607 - %a <<~|=>> 3
+ok 608 - %a assigned from %a <<~|=>> 3
+ok 609 - %a >>~|=>> 3
+ok 610 - %a assigned from %a >>~|=>> 3
+ok 611 - 3 >>~|<< %a dies
+ok 612 - 3 >>~|>> %a dies
+ok 613 - 3 <<~|>> %a
+ok 614 - 3 <<~|<< %a
+ok 615 - 3 >>~|=<< %a dies
+ok 616 - 3 >>~|=>> %a dies
+ok 617 - 3 <<~|=>> %a dies
+ok 618 - 3 <<~|=<< %a dies
+ok 619 - %a >>~|<< %b
+ok 620 - %a <<~|<< %b
+ok 621 - %a <<~|>> %b
+ok 622 - %a >>~|>> %b
+ok 623 - %a >>~|=<< %b
+ok 624 - %a assigned from %a >>~|=<< %b
+ok 625 - %a <<~|=<< %b
+ok 626 - %a assigned from %a <<~|=<< %b
+ok 627 - %a <<~|=>> %b
+ok 628 - %a assigned from %a <<~|=>> %b
+ok 629 - %a >>~|=>> %b
+ok 630 - %a assigned from %a >>~|=>> %b
+ok 631 - %a >>~|<< 3 dies
+ok 632 - %a <<~|<< 3 dies
+ok 633 - %a <<~|>> 3
+ok 634 - %a >>~|>> 3
+ok 635 - %a >>~|=<< 3 dies
+ok 636 - %a <<~|=<< 3 dies
+ok 637 - %a <<~|=>> 3
+ok 638 - %a assigned from %a <<~|=>> 3
+ok 639 - %a >>~|=>> 3
+ok 640 - %a assigned from %a >>~|=>> 3
+ok 641 - 3 >>~|<< %a dies
+ok 642 - 3 >>~|>> %a dies
+ok 643 - 3 <<~|>> %a
+ok 644 - 3 <<~|<< %a
+ok 645 - 3 >>~|=<< %a dies
+ok 646 - 3 >>~|=>> %a dies
+ok 647 - 3 <<~|=>> %a dies
+ok 648 - 3 <<~|=<< %a dies
+ok 649 - $a >>~&<< $b
+ok 650 - $a <<~&<< $b
+ok 651 - $a <<~&>> $b
+ok 652 - $a >>~&>> $b
+ok 653 - $a >>~&=<< $b
+ok 654 - $a assigned from $a >>~&=<< $b
+ok 655 - $a <<~&=<< $b
+ok 656 - $a assigned from $a <<~&=<< $b
+ok 657 - $a <<~&=>> $b
+ok 658 - $a assigned from $a <<~&=>> $b
+ok 659 - $a >>~&=>> $b
+ok 660 - $a assigned from $a >>~&=>> $b
+ok 661 - @a >>~&<< @b
+ok 662 - @a <<~&<< @b
+ok 663 - @a <<~&>> @b
+ok 664 - @a >>~&>> @b
+ok 665 - @a >>~&=<< @b
+ok 666 - @a assigned from @a >>~&=<< @b
+ok 667 - @a <<~&=<< @b
+ok 668 - @a assigned from @a <<~&=<< @b
+ok 669 - @a <<~&=>> @b
+ok 670 - @a assigned from @a <<~&=>> @b
+ok 671 - @a >>~&=>> @b
+ok 672 - @a assigned from @a >>~&=>> @b
+ok 673 - @a >>~&<< 3 dies
+ok 674 - @a <<~&<< 3 dies
+ok 675 - @a <<~&>> 3
+ok 676 - @a >>~&>> 3
+ok 677 - @a >>~&=<< 3 dies
+ok 678 - @a <<~&=<< 3 dies
+ok 679 - @a <<~&=>> 3
+ok 680 - @a assigned from @a <<~&=>> 3
+ok 681 - @a >>~&=>> 3
+ok 682 - @a assigned from @a >>~&=>> 3
+ok 683 - 3 >>~&<< @a dies
+ok 684 - 3 >>~&>> @a dies
+ok 685 - 3 <<~&>> @a
+ok 686 - 3 <<~&<< @a
+ok 687 - 3 >>~&=<< @a dies
+ok 688 - 3 >>~&=>> @a dies
+ok 689 - 3 <<~&=>> @a dies
+ok 690 - 3 <<~&=<< @a dies
+ok 691 - @a >>~&<< @b
+ok 692 - @a <<~&<< @b
+ok 693 - @a <<~&>> @b
+ok 694 - @a >>~&>> @b
+ok 695 - @a >>~&=<< @b
+ok 696 - @a assigned from @a >>~&=<< @b
+ok 697 - @a <<~&=<< @b
+ok 698 - @a assigned from @a <<~&=<< @b
+ok 699 - @a <<~&=>> @b
+ok 700 - @a assigned from @a <<~&=>> @b
+ok 701 - @a >>~&=>> @b
+ok 702 - @a assigned from @a >>~&=>> @b
+ok 703 - @a >>~&<< 3 dies
+ok 704 - @a <<~&<< 3 dies
+ok 705 - @a <<~&>> 3
+ok 706 - @a >>~&>> 3
+ok 707 - @a >>~&=<< 3 dies
+ok 708 - @a <<~&=<< 3 dies
+ok 709 - @a <<~&=>> 3
+ok 710 - @a assigned from @a <<~&=>> 3
+ok 711 - @a >>~&=>> 3
+ok 712 - @a assigned from @a >>~&=>> 3
+ok 713 - 3 >>~&<< @a dies
+ok 714 - 3 >>~&>> @a dies
+ok 715 - 3 <<~&>> @a
+ok 716 - 3 <<~&<< @a
+ok 717 - 3 >>~&=<< @a dies
+ok 718 - 3 >>~&=>> @a dies
+ok 719 - 3 <<~&=>> @a dies
+ok 720 - 3 <<~&=<< @a dies
+ok 721 - %a >>~&<< %b
+ok 722 - %a <<~&<< %b
+ok 723 - %a <<~&>> %b
+ok 724 - %a >>~&>> %b
+ok 725 - %a >>~&=<< %b
+ok 726 - %a assigned from %a >>~&=<< %b
+ok 727 - %a <<~&=<< %b
+ok 728 - %a assigned from %a <<~&=<< %b
+ok 729 - %a <<~&=>> %b
+ok 730 - %a assigned from %a <<~&=>> %b
+ok 731 - %a >>~&=>> %b
+ok 732 - %a assigned from %a >>~&=>> %b
+ok 733 - %a >>~&<< 3 dies
+ok 734 - %a <<~&<< 3 dies
+ok 735 - %a <<~&>> 3
+ok 736 - %a >>~&>> 3
+ok 737 - %a >>~&=<< 3 dies
+ok 738 - %a <<~&=<< 3 dies
+ok 739 - %a <<~&=>> 3
+ok 740 - %a assigned from %a <<~&=>> 3
+ok 741 - %a >>~&=>> 3
+ok 742 - %a assigned from %a >>~&=>> 3
+ok 743 - 3 >>~&<< %a dies
+ok 744 - 3 >>~&>> %a dies
+ok 745 - 3 <<~&>> %a
+ok 746 - 3 <<~&<< %a
+ok 747 - 3 >>~&=<< %a dies
+ok 748 - 3 >>~&=>> %a dies
+ok 749 - 3 <<~&=>> %a dies
+ok 750 - 3 <<~&=<< %a dies
+ok 751 - %a >>~&<< %b
+ok 752 - %a <<~&<< %b
+ok 753 - %a <<~&>> %b
+ok 754 - %a >>~&>> %b
+ok 755 - %a >>~&=<< %b
+ok 756 - %a assigned from %a >>~&=<< %b
+ok 757 - %a <<~&=<< %b
+ok 758 - %a assigned from %a <<~&=<< %b
+ok 759 - %a <<~&=>> %b
+ok 760 - %a assigned from %a <<~&=>> %b
+ok 761 - %a >>~&=>> %b
+ok 762 - %a assigned from %a >>~&=>> %b
+ok 763 - %a >>~&<< 3 dies
+ok 764 - %a <<~&<< 3 dies
+ok 765 - %a <<~&>> 3
+ok 766 - %a >>~&>> 3
+ok 767 - %a >>~&=<< 3 dies
+ok 768 - %a <<~&=<< 3 dies
+ok 769 - %a <<~&=>> 3
+ok 770 - %a assigned from %a <<~&=>> 3
+ok 771 - %a >>~&=>> 3
+ok 772 - %a assigned from %a >>~&=>> 3
+ok 773 - 3 >>~&<< %a dies
+ok 774 - 3 >>~&>> %a dies
+ok 775 - 3 <<~&>> %a
+ok 776 - 3 <<~&<< %a
+ok 777 - 3 >>~&=<< %a dies
+ok 778 - 3 >>~&=>> %a dies
+ok 779 - 3 <<~&=>> %a dies
+ok 780 - 3 <<~&=<< %a dies
+ok 781 - %a >>~&<< %b
+ok 782 - %a <<~&<< %b
+ok 783 - %a <<~&>> %b
+ok 784 - %a >>~&>> %b
+ok 785 - %a >>~&=<< %b
+ok 786 - %a assigned from %a >>~&=<< %b
+ok 787 - %a <<~&=<< %b
+ok 788 - %a assigned from %a <<~&=<< %b
+ok 789 - %a <<~&=>> %b
+ok 790 - %a assigned from %a <<~&=>> %b
+ok 791 - %a >>~&=>> %b
+ok 792 - %a assigned from %a >>~&=>> %b
+ok 793 - %a >>~&<< 3 dies
+ok 794 - %a <<~&<< 3 dies
+ok 795 - %a <<~&>> 3
+ok 796 - %a >>~&>> 3
+ok 797 - %a >>~&=<< 3 dies
+ok 798 - %a <<~&=<< 3 dies
+ok 799 - %a <<~&=>> 3
+ok 800 - %a assigned from %a <<~&=>> 3
+ok 801 - %a >>~&=>> 3
+ok 802 - %a assigned from %a >>~&=>> 3
+ok 803 - 3 >>~&<< %a dies
+ok 804 - 3 >>~&>> %a dies
+ok 805 - 3 <<~&>> %a
+ok 806 - 3 <<~&<< %a
+ok 807 - 3 >>~&=<< %a dies
+ok 808 - 3 >>~&=>> %a dies
+ok 809 - 3 <<~&=>> %a dies
+ok 810 - 3 <<~&=<< %a dies
+ok 811 - $a >>~^<< $b
+ok 812 - $a <<~^<< $b
+ok 813 - $a <<~^>> $b
+ok 814 - $a >>~^>> $b
+ok 815 - $a >>~^=<< $b
+ok 816 - $a assigned from $a >>~^=<< $b
+ok 817 - $a <<~^=<< $b
+ok 818 - $a assigned from $a <<~^=<< $b
+ok 819 - $a <<~^=>> $b
+ok 820 - $a assigned from $a <<~^=>> $b
+ok 821 - $a >>~^=>> $b
+ok 822 - $a assigned from $a >>~^=>> $b
+ok 823 - @a >>~^<< @b
+ok 824 - @a <<~^<< @b
+ok 825 - @a <<~^>> @b
+ok 826 - @a >>~^>> @b
+ok 827 - @a >>~^=<< @b
+ok 828 - @a assigned from @a >>~^=<< @b
+ok 829 - @a <<~^=<< @b
+ok 830 - @a assigned from @a <<~^=<< @b
+ok 831 - @a <<~^=>> @b
+ok 832 - @a assigned from @a <<~^=>> @b
+ok 833 - @a >>~^=>> @b
+ok 834 - @a assigned from @a >>~^=>> @b
+ok 835 - @a >>~^<< 3 dies
+ok 836 - @a <<~^<< 3 dies
+ok 837 - @a <<~^>> 3
+ok 838 - @a >>~^>> 3
+ok 839 - @a >>~^=<< 3 dies
+ok 840 - @a <<~^=<< 3 dies
+ok 841 - @a <<~^=>> 3
+ok 842 - @a assigned from @a <<~^=>> 3
+ok 843 - @a >>~^=>> 3
+ok 844 - @a assigned from @a >>~^=>> 3
+ok 845 - 3 >>~^<< @a dies
+ok 846 - 3 >>~^>> @a dies
+ok 847 - 3 <<~^>> @a
+ok 848 - 3 <<~^<< @a
+ok 849 - 3 >>~^=<< @a dies
+ok 850 - 3 >>~^=>> @a dies
+ok 851 - 3 <<~^=>> @a dies
+ok 852 - 3 <<~^=<< @a dies
+ok 853 - @a >>~^<< @b
+ok 854 - @a <<~^<< @b
+ok 855 - @a <<~^>> @b
+ok 856 - @a >>~^>> @b
+ok 857 - @a >>~^=<< @b
+ok 858 - @a assigned from @a >>~^=<< @b
+ok 859 - @a <<~^=<< @b
+ok 860 - @a assigned from @a <<~^=<< @b
+ok 861 - @a <<~^=>> @b
+ok 862 - @a assigned from @a <<~^=>> @b
+ok 863 - @a >>~^=>> @b
+ok 864 - @a assigned from @a >>~^=>> @b
+ok 865 - @a >>~^<< 3 dies
+ok 866 - @a <<~^<< 3 dies
+ok 867 - @a <<~^>> 3
+ok 868 - @a >>~^>> 3
+ok 869 - @a >>~^=<< 3 dies
+ok 870 - @a <<~^=<< 3 dies
+ok 871 - @a <<~^=>> 3
+ok 872 - @a assigned from @a <<~^=>> 3
+ok 873 - @a >>~^=>> 3
+ok 874 - @a assigned from @a >>~^=>> 3
+ok 875 - 3 >>~^<< @a dies
+ok 876 - 3 >>~^>> @a dies
+ok 877 - 3 <<~^>> @a
+ok 878 - 3 <<~^<< @a
+ok 879 - 3 >>~^=<< @a dies
+ok 880 - 3 >>~^=>> @a dies
+ok 881 - 3 <<~^=>> @a dies
+ok 882 - 3 <<~^=<< @a dies
+ok 883 - %a >>~^<< %b
+ok 884 - %a <<~^<< %b
+ok 885 - %a <<~^>> %b
+ok 886 - %a >>~^>> %b
+ok 887 - %a >>~^=<< %b
+ok 888 - %a assigned from %a >>~^=<< %b
+ok 889 - %a <<~^=<< %b
+ok 890 - %a assigned from %a <<~^=<< %b
+ok 891 - %a <<~^=>> %b
+ok 892 - %a assigned from %a <<~^=>> %b
+ok 893 - %a >>~^=>> %b
+ok 894 - %a assigned from %a >>~^=>> %b
+ok 895 - %a >>~^<< 3 dies
+ok 896 - %a <<~^<< 3 dies
+ok 897 - %a <<~^>> 3
+ok 898 - %a >>~^>> 3
+ok 899 - %a >>~^=<< 3 dies
+ok 900 - %a <<~^=<< 3 dies
+ok 901 - %a <<~^=>> 3
+ok 902 - %a assigned from %a <<~^=>> 3
+ok 903 - %a >>~^=>> 3
+ok 904 - %a assigned from %a >>~^=>> 3
+ok 905 - 3 >>~^<< %a dies
+ok 906 - 3 >>~^>> %a dies
+ok 907 - 3 <<~^>> %a
+ok 908 - 3 <<~^<< %a
+ok 909 - 3 >>~^=<< %a dies
+ok 910 - 3 >>~^=>> %a dies
+ok 911 - 3 <<~^=>> %a dies
+ok 912 - 3 <<~^=<< %a dies
+ok 913 - %a >>~^<< %b
+ok 914 - %a <<~^<< %b
+ok 915 - %a <<~^>> %b
+ok 916 - %a >>~^>> %b
+ok 917 - %a >>~^=<< %b
+ok 918 - %a assigned from %a >>~^=<< %b
+ok 919 - %a <<~^=<< %b
+ok 920 - %a assigned from %a <<~^=<< %b
+ok 921 - %a <<~^=>> %b
+ok 922 - %a assigned from %a <<~^=>> %b
+ok 923 - %a >>~^=>> %b
+ok 924 - %a assigned from %a >>~^=>> %b
+ok 925 - %a >>~^<< 3 dies
+ok 926 - %a <<~^<< 3 dies
+ok 927 - %a <<~^>> 3
+ok 928 - %a >>~^>> 3
+ok 929 - %a >>~^=<< 3 dies
+ok 930 - %a <<~^=<< 3 dies
+ok 931 - %a <<~^=>> 3
+ok 932 - %a assigned from %a <<~^=>> 3
+ok 933 - %a >>~^=>> 3
+ok 934 - %a assigned from %a >>~^=>> 3
+ok 935 - 3 >>~^<< %a dies
+ok 936 - 3 >>~^>> %a dies
+ok 937 - 3 <<~^>> %a
+ok 938 - 3 <<~^<< %a
+ok 939 - 3 >>~^=<< %a dies
+ok 940 - 3 >>~^=>> %a dies
+ok 941 - 3 <<~^=>> %a dies
+ok 942 - 3 <<~^=<< %a dies
+ok 943 - %a >>~^<< %b
+ok 944 - %a <<~^<< %b
+ok 945 - %a <<~^>> %b
+ok 946 - %a >>~^>> %b
+ok 947 - %a >>~^=<< %b
+ok 948 - %a assigned from %a >>~^=<< %b
+ok 949 - %a <<~^=<< %b
+ok 950 - %a assigned from %a <<~^=<< %b
+ok 951 - %a <<~^=>> %b
+ok 952 - %a assigned from %a <<~^=>> %b
+ok 953 - %a >>~^=>> %b
+ok 954 - %a assigned from %a >>~^=>> %b
+ok 955 - %a >>~^<< 3 dies
+ok 956 - %a <<~^<< 3 dies
+ok 957 - %a <<~^>> 3
+ok 958 - %a >>~^>> 3
+ok 959 - %a >>~^=<< 3 dies
+ok 960 - %a <<~^=<< 3 dies
+ok 961 - %a <<~^=>> 3
+ok 962 - %a assigned from %a <<~^=>> 3
+ok 963 - %a >>~^=>> 3
+ok 964 - %a assigned from %a >>~^=>> 3
+ok 965 - 3 >>~^<< %a dies
+ok 966 - 3 >>~^>> %a dies
+ok 967 - 3 <<~^>> %a
+ok 968 - 3 <<~^<< %a
+ok 969 - 3 >>~^=<< %a dies
+ok 970 - 3 >>~^=>> %a dies
+ok 971 - 3 <<~^=>> %a dies
+ok 972 - 3 <<~^=<< %a dies
+ok 973 - $a >>+<< $b
+ok 974 - $a <<+<< $b
+ok 975 - $a <<+>> $b
+ok 976 - $a >>+>> $b
+ok 977 - $a >>+=<< $b
+ok 978 - $a assigned from $a >>+=<< $b
+ok 979 - $a <<+=<< $b
+ok 980 - $a assigned from $a <<+=<< $b
+ok 981 - $a <<+=>> $b
+ok 982 - $a assigned from $a <<+=>> $b
+ok 983 - $a >>+=>> $b
+ok 984 - $a assigned from $a >>+=>> $b
+ok 985 - @a >>+<< @b
+ok 986 - @a <<+<< @b
+ok 987 - @a <<+>> @b
+ok 988 - @a >>+>> @b
+ok 989 - @a >>+=<< @b
+ok 990 - @a assigned from @a >>+=<< @b
+ok 991 - @a <<+=<< @b
+ok 992 - @a assigned from @a <<+=<< @b
+ok 993 - @a <<+=>> @b
+ok 994 - @a assigned from @a <<+=>> @b
+ok 995 - @a >>+=>> @b
+ok 996 - @a assigned from @a >>+=>> @b
+ok 997 - @a >>+<< 3 dies
+ok 998 - @a <<+<< 3 dies
+ok 999 - @a <<+>> 3
+ok 1000 - @a >>+>> 3
+ok 1001 - @a >>+=<< 3 dies
+ok 1002 - @a <<+=<< 3 dies
+ok 1003 - @a <<+=>> 3
+ok 1004 - @a assigned from @a <<+=>> 3
+ok 1005 - @a >>+=>> 3
+ok 1006 - @a assigned from @a >>+=>> 3
+ok 1007 - 3 >>+<< @a dies
+ok 1008 - 3 >>+>> @a dies
+ok 1009 - 3 <<+>> @a
+ok 1010 - 3 <<+<< @a
+ok 1011 - 3 >>+=<< @a dies
+ok 1012 - 3 >>+=>> @a dies
+ok 1013 - 3 <<+=>> @a dies
+ok 1014 - 3 <<+=<< @a dies
+ok 1015 - @a >>+<< @b
+ok 1016 - @a <<+<< @b
+ok 1017 - @a <<+>> @b
+ok 1018 - @a >>+>> @b
+ok 1019 - @a >>+=<< @b
+ok 1020 - @a assigned from @a >>+=<< @b
+ok 1021 - @a <<+=<< @b
+ok 1022 - @a assigned from @a <<+=<< @b
+ok 1023 - @a <<+=>> @b
+ok 1024 - @a assigned from @a <<+=>> @b
+ok 1025 - @a >>+=>> @b
+ok 1026 - @a assigned from @a >>+=>> @b
+ok 1027 - @a >>+<< 3 dies
+ok 1028 - @a <<+<< 3 dies
+ok 1029 - @a <<+>> 3
+ok 1030 - @a >>+>> 3
+ok 1031 - @a >>+=<< 3 dies
+ok 1032 - @a <<+=<< 3 dies
+ok 1033 - @a <<+=>> 3
+ok 1034 - @a assigned from @a <<+=>> 3
+ok 1035 - @a >>+=>> 3
+ok 1036 - @a assigned from @a >>+=>> 3
+ok 1037 - 3 >>+<< @a dies
+ok 1038 - 3 >>+>> @a dies
+ok 1039 - 3 <<+>> @a
+ok 1040 - 3 <<+<< @a
+ok 1041 - 3 >>+=<< @a dies
+ok 1042 - 3 >>+=>> @a dies
+ok 1043 - 3 <<+=>> @a dies
+ok 1044 - 3 <<+=<< @a dies
+ok 1045 - %a >>+<< %b
+ok 1046 - %a <<+<< %b
+ok 1047 - %a <<+>> %b
+ok 1048 - %a >>+>> %b
+ok 1049 - %a >>+=<< %b
+ok 1050 - %a assigned from %a >>+=<< %b
+ok 1051 - %a <<+=<< %b
+ok 1052 - %a assigned from %a <<+=<< %b
+ok 1053 - %a <<+=>> %b
+ok 1054 - %a assigned from %a <<+=>> %b
+ok 1055 - %a >>+=>> %b
+ok 1056 - %a assigned from %a >>+=>> %b
+ok 1057 - %a >>+<< 3 dies
+ok 1058 - %a <<+<< 3 dies
+ok 1059 - %a <<+>> 3
+ok 1060 - %a >>+>> 3
+ok 1061 - %a >>+=<< 3 dies
+ok 1062 - %a <<+=<< 3 dies
+ok 1063 - %a <<+=>> 3
+ok 1064 - %a assigned from %a <<+=>> 3
+ok 1065 - %a >>+=>> 3
+ok 1066 - %a assigned from %a >>+=>> 3
+ok 1067 - 3 >>+<< %a dies
+ok 1068 - 3 >>+>> %a dies
+ok 1069 - 3 <<+>> %a
+ok 1070 - 3 <<+<< %a
+ok 1071 - 3 >>+=<< %a dies
+ok 1072 - 3 >>+=>> %a dies
+ok 1073 - 3 <<+=>> %a dies
+ok 1074 - 3 <<+=<< %a dies
+ok 1075 - %a >>+<< %b
+ok 1076 - %a <<+<< %b
+ok 1077 - %a <<+>> %b
+ok 1078 - %a >>+>> %b
+ok 1079 - %a >>+=<< %b
+ok 1080 - %a assigned from %a >>+=<< %b
+ok 1081 - %a <<+=<< %b
+ok 1082 - %a assigned from %a <<+=<< %b
+ok 1083 - %a <<+=>> %b
+ok 1084 - %a assigned from %a <<+=>> %b
+ok 1085 - %a >>+=>> %b
+ok 1086 - %a assigned from %a >>+=>> %b
+ok 1087 - %a >>+<< 3 dies
+ok 1088 - %a <<+<< 3 dies
+ok 1089 - %a <<+>> 3
+ok 1090 - %a >>+>> 3
+ok 1091 - %a >>+=<< 3 dies
+ok 1092 - %a <<+=<< 3 dies
+ok 1093 - %a <<+=>> 3
+ok 1094 - %a assigned from %a <<+=>> 3
+ok 1095 - %a >>+=>> 3
+ok 1096 - %a assigned from %a >>+=>> 3
+ok 1097 - 3 >>+<< %a dies
+ok 1098 - 3 >>+>> %a dies
+ok 1099 - 3 <<+>> %a
+ok 1100 - 3 <<+<< %a
+ok 1101 - 3 >>+=<< %a dies
+ok 1102 - 3 >>+=>> %a dies
+ok 1103 - 3 <<+=>> %a dies
+ok 1104 - 3 <<+=<< %a dies
+ok 1105 - %a >>+<< %b
+ok 1106 - %a <<+<< %b
+ok 1107 - %a <<+>> %b
+ok 1108 - %a >>+>> %b
+ok 1109 - %a >>+=<< %b
+ok 1110 - %a assigned from %a >>+=<< %b
+ok 1111 - %a <<+=<< %b
+ok 1112 - %a assigned from %a <<+=<< %b
+ok 1113 - %a <<+=>> %b
+ok 1114 - %a assigned from %a <<+=>> %b
+ok 1115 - %a >>+=>> %b
+ok 1116 - %a assigned from %a >>+=>> %b
+ok 1117 - %a >>+<< 3 dies
+ok 1118 - %a <<+<< 3 dies
+ok 1119 - %a <<+>> 3
+ok 1120 - %a >>+>> 3
+ok 1121 - %a >>+=<< 3 dies
+ok 1122 - %a <<+=<< 3 dies
+ok 1123 - %a <<+=>> 3
+ok 1124 - %a assigned from %a <<+=>> 3
+ok 1125 - %a >>+=>> 3
+ok 1126 - %a assigned from %a >>+=>> 3
+ok 1127 - 3 >>+<< %a dies
+ok 1128 - 3 >>+>> %a dies
+ok 1129 - 3 <<+>> %a
+ok 1130 - 3 <<+<< %a
+ok 1131 - 3 >>+=<< %a dies
+ok 1132 - 3 >>+=>> %a dies
+ok 1133 - 3 <<+=>> %a dies
+ok 1134 - 3 <<+=<< %a dies
+ok 1135 - $a >>-<< $b
+ok 1136 - $a <<-<< $b
+ok 1137 - $a <<->> $b
+ok 1138 - $a >>->> $b
+ok 1139 - $a >>-=<< $b
+ok 1140 - $a assigned from $a >>-=<< $b
+ok 1141 - $a <<-=<< $b
+ok 1142 - $a assigned from $a <<-=<< $b
+ok 1143 - $a <<-=>> $b
+ok 1144 - $a assigned from $a <<-=>> $b
+ok 1145 - $a >>-=>> $b
+ok 1146 - $a assigned from $a >>-=>> $b
+ok 1147 - @a >>-<< @b
+ok 1148 - @a <<-<< @b
+ok 1149 - @a <<->> @b
+ok 1150 - @a >>->> @b
+ok 1151 - @a >>-=<< @b
+ok 1152 - @a assigned from @a >>-=<< @b
+ok 1153 - @a <<-=<< @b
+ok 1154 - @a assigned from @a <<-=<< @b
+ok 1155 - @a <<-=>> @b
+ok 1156 - @a assigned from @a <<-=>> @b
+ok 1157 - @a >>-=>> @b
+ok 1158 - @a assigned from @a >>-=>> @b
+ok 1159 - @a >>-<< 3 dies
+ok 1160 - @a <<-<< 3 dies
+ok 1161 - @a <<->> 3
+ok 1162 - @a >>->> 3
+ok 1163 - @a >>-=<< 3 dies
+ok 1164 - @a <<-=<< 3 dies
+ok 1165 - @a <<-=>> 3
+ok 1166 - @a assigned from @a <<-=>> 3
+ok 1167 - @a >>-=>> 3
+ok 1168 - @a assigned from @a >>-=>> 3
+ok 1169 - 3 >>-<< @a dies
+ok 1170 - 3 >>->> @a dies
+ok 1171 - 3 <<->> @a
+ok 1172 - 3 <<-<< @a
+ok 1173 - 3 >>-=<< @a dies
+ok 1174 - 3 >>-=>> @a dies
+ok 1175 - 3 <<-=>> @a dies
+ok 1176 - 3 <<-=<< @a dies
+ok 1177 - @a >>-<< @b
+ok 1178 - @a <<-<< @b
+ok 1179 - @a <<->> @b
+ok 1180 - @a >>->> @b
+ok 1181 - @a >>-=<< @b
+ok 1182 - @a assigned from @a >>-=<< @b
+ok 1183 - @a <<-=<< @b
+ok 1184 - @a assigned from @a <<-=<< @b
+ok 1185 - @a <<-=>> @b
+ok 1186 - @a assigned from @a <<-=>> @b
+ok 1187 - @a >>-=>> @b
+ok 1188 - @a assigned from @a >>-=>> @b
+ok 1189 - @a >>-<< 3 dies
+ok 1190 - @a <<-<< 3 dies
+ok 1191 - @a <<->> 3
+ok 1192 - @a >>->> 3
+ok 1193 - @a >>-=<< 3 dies
+ok 1194 - @a <<-=<< 3 dies
+ok 1195 - @a <<-=>> 3
+ok 1196 - @a assigned from @a <<-=>> 3
+ok 1197 - @a >>-=>> 3
+ok 1198 - @a assigned from @a >>-=>> 3
+ok 1199 - 3 >>-<< @a dies
+ok 1200 - 3 >>->> @a dies
+ok 1201 - 3 <<->> @a
+ok 1202 - 3 <<-<< @a
+ok 1203 - 3 >>-=<< @a dies
+ok 1204 - 3 >>-=>> @a dies
+ok 1205 - 3 <<-=>> @a dies
+ok 1206 - 3 <<-=<< @a dies
+ok 1207 - %a >>-<< %b
+ok 1208 - %a <<-<< %b
+ok 1209 - %a <<->> %b
+ok 1210 - %a >>->> %b
+ok 1211 - %a >>-=<< %b
+ok 1212 - %a assigned from %a >>-=<< %b
+ok 1213 - %a <<-=<< %b
+ok 1214 - %a assigned from %a <<-=<< %b
+ok 1215 - %a <<-=>> %b
+ok 1216 - %a assigned from %a <<-=>> %b
+ok 1217 - %a >>-=>> %b
+ok 1218 - %a assigned from %a >>-=>> %b
+ok 1219 - %a >>-<< 3 dies
+ok 1220 - %a <<-<< 3 dies
+ok 1221 - %a <<->> 3
+ok 1222 - %a >>->> 3
+ok 1223 - %a >>-=<< 3 dies
+ok 1224 - %a <<-=<< 3 dies
+ok 1225 - %a <<-=>> 3
+ok 1226 - %a assigned from %a <<-=>> 3
+ok 1227 - %a >>-=>> 3
+ok 1228 - %a assigned from %a >>-=>> 3
+ok 1229 - 3 >>-<< %a dies
+ok 1230 - 3 >>->> %a dies
+ok 1231 - 3 <<->> %a
+ok 1232 - 3 <<-<< %a
+ok 1233 - 3 >>-=<< %a dies
+ok 1234 - 3 >>-=>> %a dies
+ok 1235 - 3 <<-=>> %a dies
+ok 1236 - 3 <<-=<< %a dies
+ok 1237 - %a >>-<< %b
+ok 1238 - %a <<-<< %b
+ok 1239 - %a <<->> %b
+ok 1240 - %a >>->> %b
+ok 1241 - %a >>-=<< %b
+ok 1242 - %a assigned from %a >>-=<< %b
+ok 1243 - %a <<-=<< %b
+ok 1244 - %a assigned from %a <<-=<< %b
+ok 1245 - %a <<-=>> %b
+ok 1246 - %a assigned from %a <<-=>> %b
+ok 1247 - %a >>-=>> %b
+ok 1248 - %a assigned from %a >>-=>> %b
+ok 1249 - %a >>-<< 3 dies
+ok 1250 - %a <<-<< 3 dies
+ok 1251 - %a <<->> 3
+ok 1252 - %a >>->> 3
+ok 1253 - %a >>-=<< 3 dies
+ok 1254 - %a <<-=<< 3 dies
+ok 1255 - %a <<-=>> 3
+ok 1256 - %a assigned from %a <<-=>> 3
+ok 1257 - %a >>-=>> 3
+ok 1258 - %a assigned from %a >>-=>> 3
+ok 1259 - 3 >>-<< %a dies
+ok 1260 - 3 >>->> %a dies
+ok 1261 - 3 <<->> %a
+ok 1262 - 3 <<-<< %a
+ok 1263 - 3 >>-=<< %a dies
+ok 1264 - 3 >>-=>> %a dies
+ok 1265 - 3 <<-=>> %a dies
+ok 1266 - 3 <<-=<< %a dies
+ok 1267 - %a >>-<< %b
+ok 1268 - %a <<-<< %b
+ok 1269 - %a <<->> %b
+ok 1270 - %a >>->> %b
+ok 1271 - %a >>-=<< %b
+ok 1272 - %a assigned from %a >>-=<< %b
+ok 1273 - %a <<-=<< %b
+ok 1274 - %a assigned from %a <<-=<< %b
+ok 1275 - %a <<-=>> %b
+ok 1276 - %a assigned from %a <<-=>> %b
+ok 1277 - %a >>-=>> %b
+ok 1278 - %a assigned from %a >>-=>> %b
+ok 1279 - %a >>-<< 3 dies
+ok 1280 - %a <<-<< 3 dies
+ok 1281 - %a <<->> 3
+ok 1282 - %a >>->> 3
+ok 1283 - %a >>-=<< 3 dies
+ok 1284 - %a <<-=<< 3 dies
+ok 1285 - %a <<-=>> 3
+ok 1286 - %a assigned from %a <<-=>> 3
+ok 1287 - %a >>-=>> 3
+ok 1288 - %a assigned from %a >>-=>> 3
+ok 1289 - 3 >>-<< %a dies
+ok 1290 - 3 >>->> %a dies
+ok 1291 - 3 <<->> %a
+ok 1292 - 3 <<-<< %a
+ok 1293 - 3 >>-=<< %a dies
+ok 1294 - 3 >>-=>> %a dies
+ok 1295 - 3 <<-=>> %a dies
+ok 1296 - 3 <<-=<< %a dies
+ok 1297 - $a >>*<< $b
+ok 1298 - $a <<*<< $b
+ok 1299 - $a <<*>> $b
+ok 1300 - $a >>*>> $b
+ok 1301 - $a >>*=<< $b
+ok 1302 - $a assigned from $a >>*=<< $b
+ok 1303 - $a <<*=<< $b
+ok 1304 - $a assigned from $a <<*=<< $b
+ok 1305 - $a <<*=>> $b
+ok 1306 - $a assigned from $a <<*=>> $b
+ok 1307 - $a >>*=>> $b
+ok 1308 - $a assigned from $a >>*=>> $b
+ok 1309 - @a >>*<< @b
+ok 1310 - @a <<*<< @b
+ok 1311 - @a <<*>> @b
+ok 1312 - @a >>*>> @b
+ok 1313 - @a >>*=<< @b
+ok 1314 - @a assigned from @a >>*=<< @b
+ok 1315 - @a <<*=<< @b
+ok 1316 - @a assigned from @a <<*=<< @b
+ok 1317 - @a <<*=>> @b
+ok 1318 - @a assigned from @a <<*=>> @b
+ok 1319 - @a >>*=>> @b
+ok 1320 - @a assigned from @a >>*=>> @b
+ok 1321 - @a >>*<< 3 dies
+ok 1322 - @a <<*<< 3 dies
+ok 1323 - @a <<*>> 3
+ok 1324 - @a >>*>> 3
+ok 1325 - @a >>*=<< 3 dies
+ok 1326 - @a <<*=<< 3 dies
+ok 1327 - @a <<*=>> 3
+ok 1328 - @a assigned from @a <<*=>> 3
+ok 1329 - @a >>*=>> 3
+ok 1330 - @a assigned from @a >>*=>> 3
+ok 1331 - 3 >>*<< @a dies
+ok 1332 - 3 >>*>> @a dies
+ok 1333 - 3 <<*>> @a
+ok 1334 - 3 <<*<< @a
+ok 1335 - 3 >>*=<< @a dies
+ok 1336 - 3 >>*=>> @a dies
+ok 1337 - 3 <<*=>> @a dies
+ok 1338 - 3 <<*=<< @a dies
+ok 1339 - @a >>*<< @b
+ok 1340 - @a <<*<< @b
+ok 1341 - @a <<*>> @b
+ok 1342 - @a >>*>> @b
+ok 1343 - @a >>*=<< @b
+ok 1344 - @a assigned from @a >>*=<< @b
+ok 1345 - @a <<*=<< @b
+ok 1346 - @a assigned from @a <<*=<< @b
+ok 1347 - @a <<*=>> @b
+ok 1348 - @a assigned from @a <<*=>> @b
+ok 1349 - @a >>*=>> @b
+ok 1350 - @a assigned from @a >>*=>> @b
+ok 1351 - @a >>*<< 3 dies
+ok 1352 - @a <<*<< 3 dies
+ok 1353 - @a <<*>> 3
+ok 1354 - @a >>*>> 3
+ok 1355 - @a >>*=<< 3 dies
+ok 1356 - @a <<*=<< 3 dies
+ok 1357 - @a <<*=>> 3
+ok 1358 - @a assigned from @a <<*=>> 3
+ok 1359 - @a >>*=>> 3
+ok 1360 - @a assigned from @a >>*=>> 3
+ok 1361 - 3 >>*<< @a dies
+ok 1362 - 3 >>*>> @a dies
+ok 1363 - 3 <<*>> @a
+ok 1364 - 3 <<*<< @a
+ok 1365 - 3 >>*=<< @a dies
+ok 1366 - 3 >>*=>> @a dies
+ok 1367 - 3 <<*=>> @a dies
+ok 1368 - 3 <<*=<< @a dies
+ok 1369 - %a >>*<< %b
+ok 1370 - %a <<*<< %b
+ok 1371 - %a <<*>> %b
+ok 1372 - %a >>*>> %b
+ok 1373 - %a >>*=<< %b
+ok 1374 - %a assigned from %a >>*=<< %b
+ok 1375 - %a <<*=<< %b
+ok 1376 - %a assigned from %a <<*=<< %b
+ok 1377 - %a <<*=>> %b
+ok 1378 - %a assigned from %a <<*=>> %b
+ok 1379 - %a >>*=>> %b
+ok 1380 - %a assigned from %a >>*=>> %b
+ok 1381 - %a >>*<< 3 dies
+ok 1382 - %a <<*<< 3 dies
+ok 1383 - %a <<*>> 3
+ok 1384 - %a >>*>> 3
+ok 1385 - %a >>*=<< 3 dies
+ok 1386 - %a <<*=<< 3 dies
+ok 1387 - %a <<*=>> 3
+ok 1388 - %a assigned from %a <<*=>> 3
+ok 1389 - %a >>*=>> 3
+ok 1390 - %a assigned from %a >>*=>> 3
+ok 1391 - 3 >>*<< %a dies
+ok 1392 - 3 >>*>> %a dies
+ok 1393 - 3 <<*>> %a
+ok 1394 - 3 <<*<< %a
+ok 1395 - 3 >>*=<< %a dies
+ok 1396 - 3 >>*=>> %a dies
+ok 1397 - 3 <<*=>> %a dies
+ok 1398 - 3 <<*=<< %a dies
+ok 1399 - %a >>*<< %b
+ok 1400 - %a <<*<< %b
+ok 1401 - %a <<*>> %b
+ok 1402 - %a >>*>> %b
+ok 1403 - %a >>*=<< %b
+ok 1404 - %a assigned from %a >>*=<< %b
+ok 1405 - %a <<*=<< %b
+ok 1406 - %a assigned from %a <<*=<< %b
+ok 1407 - %a <<*=>> %b
+ok 1408 - %a assigned from %a <<*=>> %b
+ok 1409 - %a >>*=>> %b
+ok 1410 - %a assigned from %a >>*=>> %b
+ok 1411 - %a >>*<< 3 dies
+ok 1412 - %a <<*<< 3 dies
+ok 1413 - %a <<*>> 3
+ok 1414 - %a >>*>> 3
+ok 1415 - %a >>*=<< 3 dies
+ok 1416 - %a <<*=<< 3 dies
+ok 1417 - %a <<*=>> 3
+ok 1418 - %a assigned from %a <<*=>> 3
+ok 1419 - %a >>*=>> 3
+ok 1420 - %a assigned from %a >>*=>> 3
+ok 1421 - 3 >>*<< %a dies
+ok 1422 - 3 >>*>> %a dies
+ok 1423 - 3 <<*>> %a
+ok 1424 - 3 <<*<< %a
+ok 1425 - 3 >>*=<< %a dies
+ok 1426 - 3 >>*=>> %a dies
+ok 1427 - 3 <<*=>> %a dies
+ok 1428 - 3 <<*=<< %a dies
+ok 1429 - %a >>*<< %b
+ok 1430 - %a <<*<< %b
+ok 1431 - %a <<*>> %b
+ok 1432 - %a >>*>> %b
+ok 1433 - %a >>*=<< %b
+ok 1434 - %a assigned from %a >>*=<< %b
+ok 1435 - %a <<*=<< %b
+ok 1436 - %a assigned from %a <<*=<< %b
+ok 1437 - %a <<*=>> %b
+ok 1438 - %a assigned from %a <<*=>> %b
+ok 1439 - %a >>*=>> %b
+ok 1440 - %a assigned from %a >>*=>> %b
+ok 1441 - %a >>*<< 3 dies
+ok 1442 - %a <<*<< 3 dies
+ok 1443 - %a <<*>> 3
+ok 1444 - %a >>*>> 3
+ok 1445 - %a >>*=<< 3 dies
+ok 1446 - %a <<*=<< 3 dies
+ok 1447 - %a <<*=>> 3
+ok 1448 - %a assigned from %a <<*=>> 3
+ok 1449 - %a >>*=>> 3
+ok 1450 - %a assigned from %a >>*=>> 3
+ok 1451 - 3 >>*<< %a dies
+ok 1452 - 3 >>*>> %a dies
+ok 1453 - 3 <<*>> %a
+ok 1454 - 3 <<*<< %a
+ok 1455 - 3 >>*=<< %a dies
+ok 1456 - 3 >>*=>> %a dies
+ok 1457 - 3 <<*=>> %a dies
+ok 1458 - 3 <<*=<< %a dies
+ok 1459 - $a >>×<< $b
+ok 1460 - $a <<×<< $b
+ok 1461 - $a <<×>> $b
+ok 1462 - $a >>×>> $b
+ok 1463 - $a >>×=<< $b
+ok 1464 - $a assigned from $a >>×=<< $b
+ok 1465 - $a <<×=<< $b
+ok 1466 - $a assigned from $a <<×=<< $b
+ok 1467 - $a <<×=>> $b
+ok 1468 - $a assigned from $a <<×=>> $b
+ok 1469 - $a >>×=>> $b
+ok 1470 - $a assigned from $a >>×=>> $b
+ok 1471 - @a >>×<< @b
+ok 1472 - @a <<×<< @b
+ok 1473 - @a <<×>> @b
+ok 1474 - @a >>×>> @b
+ok 1475 - @a >>×=<< @b
+ok 1476 - @a assigned from @a >>×=<< @b
+ok 1477 - @a <<×=<< @b
+ok 1478 - @a assigned from @a <<×=<< @b
+ok 1479 - @a <<×=>> @b
+ok 1480 - @a assigned from @a <<×=>> @b
+ok 1481 - @a >>×=>> @b
+ok 1482 - @a assigned from @a >>×=>> @b
+ok 1483 - @a >>×<< 3 dies
+ok 1484 - @a <<×<< 3 dies
+ok 1485 - @a <<×>> 3
+ok 1486 - @a >>×>> 3
+ok 1487 - @a >>×=<< 3 dies
+ok 1488 - @a <<×=<< 3 dies
+ok 1489 - @a <<×=>> 3
+ok 1490 - @a assigned from @a <<×=>> 3
+ok 1491 - @a >>×=>> 3
+ok 1492 - @a assigned from @a >>×=>> 3
+ok 1493 - 3 >>×<< @a dies
+ok 1494 - 3 >>×>> @a dies
+ok 1495 - 3 <<×>> @a
+ok 1496 - 3 <<×<< @a
+ok 1497 - 3 >>×=<< @a dies
+ok 1498 - 3 >>×=>> @a dies
+ok 1499 - 3 <<×=>> @a dies
+ok 1500 - 3 <<×=<< @a dies
+ok 1501 - @a >>×<< @b
+ok 1502 - @a <<×<< @b
+ok 1503 - @a <<×>> @b
+ok 1504 - @a >>×>> @b
+ok 1505 - @a >>×=<< @b
+ok 1506 - @a assigned from @a >>×=<< @b
+ok 1507 - @a <<×=<< @b
+ok 1508 - @a assigned from @a <<×=<< @b
+ok 1509 - @a <<×=>> @b
+ok 1510 - @a assigned from @a <<×=>> @b
+ok 1511 - @a >>×=>> @b
+ok 1512 - @a assigned from @a >>×=>> @b
+ok 1513 - @a >>×<< 3 dies
+ok 1514 - @a <<×<< 3 dies
+ok 1515 - @a <<×>> 3
+ok 1516 - @a >>×>> 3
+ok 1517 - @a >>×=<< 3 dies
+ok 1518 - @a <<×=<< 3 dies
+ok 1519 - @a <<×=>> 3
+ok 1520 - @a assigned from @a <<×=>> 3
+ok 1521 - @a >>×=>> 3
+ok 1522 - @a assigned from @a >>×=>> 3
+ok 1523 - 3 >>×<< @a dies
+ok 1524 - 3 >>×>> @a dies
+ok 1525 - 3 <<×>> @a
+ok 1526 - 3 <<×<< @a
+ok 1527 - 3 >>×=<< @a dies
+ok 1528 - 3 >>×=>> @a dies
+ok 1529 - 3 <<×=>> @a dies
+ok 1530 - 3 <<×=<< @a dies
+ok 1531 - %a >>×<< %b
+ok 1532 - %a <<×<< %b
+ok 1533 - %a <<×>> %b
+ok 1534 - %a >>×>> %b
+ok 1535 - %a >>×=<< %b
+ok 1536 - %a assigned from %a >>×=<< %b
+ok 1537 - %a <<×=<< %b
+ok 1538 - %a assigned from %a <<×=<< %b
+ok 1539 - %a <<×=>> %b
+ok 1540 - %a assigned from %a <<×=>> %b
+ok 1541 - %a >>×=>> %b
+ok 1542 - %a assigned from %a >>×=>> %b
+ok 1543 - %a >>×<< 3 dies
+ok 1544 - %a <<×<< 3 dies
+ok 1545 - %a <<×>> 3
+ok 1546 - %a >>×>> 3
+ok 1547 - %a >>×=<< 3 dies
+ok 1548 - %a <<×=<< 3 dies
+ok 1549 - %a <<×=>> 3
+ok 1550 - %a assigned from %a <<×=>> 3
+ok 1551 - %a >>×=>> 3
+ok 1552 - %a assigned from %a >>×=>> 3
+ok 1553 - 3 >>×<< %a dies
+ok 1554 - 3 >>×>> %a dies
+ok 1555 - 3 <<×>> %a
+ok 1556 - 3 <<×<< %a
+ok 1557 - 3 >>×=<< %a dies
+ok 1558 - 3 >>×=>> %a dies
+ok 1559 - 3 <<×=>> %a dies
+ok 1560 - 3 <<×=<< %a dies
+ok 1561 - %a >>×<< %b
+ok 1562 - %a <<×<< %b
+ok 1563 - %a <<×>> %b
+ok 1564 - %a >>×>> %b
+ok 1565 - %a >>×=<< %b
+ok 1566 - %a assigned from %a >>×=<< %b
+ok 1567 - %a <<×=<< %b
+ok 1568 - %a assigned from %a <<×=<< %b
+ok 1569 - %a <<×=>> %b
+ok 1570 - %a assigned from %a <<×=>> %b
+ok 1571 - %a >>×=>> %b
+ok 1572 - %a assigned from %a >>×=>> %b
+ok 1573 - %a >>×<< 3 dies
+ok 1574 - %a <<×<< 3 dies
+ok 1575 - %a <<×>> 3
+ok 1576 - %a >>×>> 3
+ok 1577 - %a >>×=<< 3 dies
+ok 1578 - %a <<×=<< 3 dies
+ok 1579 - %a <<×=>> 3
+ok 1580 - %a assigned from %a <<×=>> 3
+ok 1581 - %a >>×=>> 3
+ok 1582 - %a assigned from %a >>×=>> 3
+ok 1583 - 3 >>×<< %a dies
+ok 1584 - 3 >>×>> %a dies
+ok 1585 - 3 <<×>> %a
+ok 1586 - 3 <<×<< %a
+ok 1587 - 3 >>×=<< %a dies
+ok 1588 - 3 >>×=>> %a dies
+ok 1589 - 3 <<×=>> %a dies
+ok 1590 - 3 <<×=<< %a dies
+ok 1591 - %a >>×<< %b
+ok 1592 - %a <<×<< %b
+ok 1593 - %a <<×>> %b
+ok 1594 - %a >>×>> %b
+ok 1595 - %a >>×=<< %b
+ok 1596 - %a assigned from %a >>×=<< %b
+ok 1597 - %a <<×=<< %b
+ok 1598 - %a assigned from %a <<×=<< %b
+ok 1599 - %a <<×=>> %b
+ok 1600 - %a assigned from %a <<×=>> %b
+ok 1601 - %a >>×=>> %b
+ok 1602 - %a assigned from %a >>×=>> %b
+ok 1603 - %a >>×<< 3 dies
+ok 1604 - %a <<×<< 3 dies
+ok 1605 - %a <<×>> 3
+ok 1606 - %a >>×>> 3
+ok 1607 - %a >>×=<< 3 dies
+ok 1608 - %a <<×=<< 3 dies
+ok 1609 - %a <<×=>> 3
+ok 1610 - %a assigned from %a <<×=>> 3
+ok 1611 - %a >>×=>> 3
+ok 1612 - %a assigned from %a >>×=>> 3
+ok 1613 - 3 >>×<< %a dies
+ok 1614 - 3 >>×>> %a dies
+ok 1615 - 3 <<×>> %a
+ok 1616 - 3 <<×<< %a
+ok 1617 - 3 >>×=<< %a dies
+ok 1618 - 3 >>×=>> %a dies
+ok 1619 - 3 <<×=>> %a dies
+ok 1620 - 3 <<×=<< %a dies
+ok 1621 - $a >>÷<< $b
+ok 1622 - $a <<÷<< $b
+ok 1623 - $a <<÷>> $b
+ok 1624 - $a >>÷>> $b
+ok 1625 - $a >>÷=<< $b
+ok 1626 - $a assigned from $a >>÷=<< $b
+ok 1627 - $a <<÷=<< $b
+ok 1628 - $a assigned from $a <<÷=<< $b
+ok 1629 - $a <<÷=>> $b
+ok 1630 - $a assigned from $a <<÷=>> $b
+ok 1631 - $a >>÷=>> $b
+ok 1632 - $a assigned from $a >>÷=>> $b
+ok 1633 - @a >>÷<< @b
+ok 1634 - @a <<÷<< @b
+ok 1635 - @a <<÷>> @b
+ok 1636 - @a >>÷>> @b
+ok 1637 - @a >>÷=<< @b
+ok 1638 - @a assigned from @a >>÷=<< @b
+ok 1639 - @a <<÷=<< @b
+ok 1640 - @a assigned from @a <<÷=<< @b
+ok 1641 - @a <<÷=>> @b
+ok 1642 - @a assigned from @a <<÷=>> @b
+ok 1643 - @a >>÷=>> @b
+ok 1644 - @a assigned from @a >>÷=>> @b
+ok 1645 - @a >>÷<< 3 dies
+ok 1646 - @a <<÷<< 3 dies
+ok 1647 - @a <<÷>> 3
+ok 1648 - @a >>÷>> 3
+ok 1649 - @a >>÷=<< 3 dies
+ok 1650 - @a <<÷=<< 3 dies
+ok 1651 - @a <<÷=>> 3
+ok 1652 - @a assigned from @a <<÷=>> 3
+ok 1653 - @a >>÷=>> 3
+ok 1654 - @a assigned from @a >>÷=>> 3
+ok 1655 - 3 >>÷<< @a dies
+ok 1656 - 3 >>÷>> @a dies
+ok 1657 - 3 <<÷>> @a
+ok 1658 - 3 <<÷<< @a
+ok 1659 - 3 >>÷=<< @a dies
+ok 1660 - 3 >>÷=>> @a dies
+ok 1661 - 3 <<÷=>> @a dies
+ok 1662 - 3 <<÷=<< @a dies
+ok 1663 - @a >>÷<< @b
+ok 1664 - @a <<÷<< @b
+ok 1665 - @a <<÷>> @b
+ok 1666 - @a >>÷>> @b
+ok 1667 - @a >>÷=<< @b
+ok 1668 - @a assigned from @a >>÷=<< @b
+ok 1669 - @a <<÷=<< @b
+ok 1670 - @a assigned from @a <<÷=<< @b
+ok 1671 - @a <<÷=>> @b
+ok 1672 - @a assigned from @a <<÷=>> @b
+ok 1673 - @a >>÷=>> @b
+ok 1674 - @a assigned from @a >>÷=>> @b
+ok 1675 - @a >>÷<< 3 dies
+ok 1676 - @a <<÷<< 3 dies
+ok 1677 - @a <<÷>> 3
+ok 1678 - @a >>÷>> 3
+ok 1679 - @a >>÷=<< 3 dies
+ok 1680 - @a <<÷=<< 3 dies
+ok 1681 - @a <<÷=>> 3
+ok 1682 - @a assigned from @a <<÷=>> 3
+ok 1683 - @a >>÷=>> 3
+ok 1684 - @a assigned from @a >>÷=>> 3
+ok 1685 - 3 >>÷<< @a dies
+ok 1686 - 3 >>÷>> @a dies
+ok 1687 - 3 <<÷>> @a
+ok 1688 - 3 <<÷<< @a
+ok 1689 - 3 >>÷=<< @a dies
+ok 1690 - 3 >>÷=>> @a dies
+ok 1691 - 3 <<÷=>> @a dies
+ok 1692 - 3 <<÷=<< @a dies
+ok 1693 - %a >>÷<< %b
+ok 1694 - %a <<÷<< %b
+ok 1695 - %a <<÷>> %b
+ok 1696 - %a >>÷>> %b
+ok 1697 - %a >>÷=<< %b
+ok 1698 - %a assigned from %a >>÷=<< %b
+ok 1699 - %a <<÷=<< %b
+ok 1700 - %a assigned from %a <<÷=<< %b
+ok 1701 - %a <<÷=>> %b
+ok 1702 - %a assigned from %a <<÷=>> %b
+ok 1703 - %a >>÷=>> %b
+ok 1704 - %a assigned from %a >>÷=>> %b
+ok 1705 - %a >>÷<< 3 dies
+ok 1706 - %a <<÷<< 3 dies
+ok 1707 - %a <<÷>> 3
+ok 1708 - %a >>÷>> 3
+ok 1709 - %a >>÷=<< 3 dies
+ok 1710 - %a <<÷=<< 3 dies
+ok 1711 - %a <<÷=>> 3
+ok 1712 - %a assigned from %a <<÷=>> 3
+ok 1713 - %a >>÷=>> 3
+ok 1714 - %a assigned from %a >>÷=>> 3
+ok 1715 - 3 >>÷<< %a dies
+ok 1716 - 3 >>÷>> %a dies
+ok 1717 - 3 <<÷>> %a
+ok 1718 - 3 <<÷<< %a
+ok 1719 - 3 >>÷=<< %a dies
+ok 1720 - 3 >>÷=>> %a dies
+ok 1721 - 3 <<÷=>> %a dies
+ok 1722 - 3 <<÷=<< %a dies
+ok 1723 - %a >>÷<< %b
+ok 1724 - %a <<÷<< %b
+ok 1725 - %a <<÷>> %b
+ok 1726 - %a >>÷>> %b
+ok 1727 - %a >>÷=<< %b
+ok 1728 - %a assigned from %a >>÷=<< %b
+ok 1729 - %a <<÷=<< %b
+ok 1730 - %a assigned from %a <<÷=<< %b
+ok 1731 - %a <<÷=>> %b
+ok 1732 - %a assigned from %a <<÷=>> %b
+ok 1733 - %a >>÷=>> %b
+ok 1734 - %a assigned from %a >>÷=>> %b
+ok 1735 - %a >>÷<< 3 dies
+ok 1736 - %a <<÷<< 3 dies
+ok 1737 - %a <<÷>> 3
+ok 1738 - %a >>÷>> 3
+ok 1739 - %a >>÷=<< 3 dies
+ok 1740 - %a <<÷=<< 3 dies
+ok 1741 - %a <<÷=>> 3
+ok 1742 - %a assigned from %a <<÷=>> 3
+ok 1743 - %a >>÷=>> 3
+ok 1744 - %a assigned from %a >>÷=>> 3
+ok 1745 - 3 >>÷<< %a dies
+ok 1746 - 3 >>÷>> %a dies
+ok 1747 - 3 <<÷>> %a
+ok 1748 - 3 <<÷<< %a
+ok 1749 - 3 >>÷=<< %a dies
+ok 1750 - 3 >>÷=>> %a dies
+ok 1751 - 3 <<÷=>> %a dies
+ok 1752 - 3 <<÷=<< %a dies
+ok 1753 - %a >>÷<< %b
+ok 1754 - %a <<÷<< %b
+ok 1755 - %a <<÷>> %b
+ok 1756 - %a >>÷>> %b
+ok 1757 - %a >>÷=<< %b
+ok 1758 - %a assigned from %a >>÷=<< %b
+ok 1759 - %a <<÷=<< %b
+ok 1760 - %a assigned from %a <<÷=<< %b
+ok 1761 - %a <<÷=>> %b
+ok 1762 - %a assigned from %a <<÷=>> %b
+ok 1763 - %a >>÷=>> %b
+ok 1764 - %a assigned from %a >>÷=>> %b
+ok 1765 - %a >>÷<< 3 dies
+ok 1766 - %a <<÷<< 3 dies
+ok 1767 - %a <<÷>> 3
+ok 1768 - %a >>÷>> 3
+ok 1769 - %a >>÷=<< 3 dies
+ok 1770 - %a <<÷=<< 3 dies
+ok 1771 - %a <<÷=>> 3
+ok 1772 - %a assigned from %a <<÷=>> 3
+ok 1773 - %a >>÷=>> 3
+ok 1774 - %a assigned from %a >>÷=>> 3
+ok 1775 - 3 >>÷<< %a dies
+ok 1776 - 3 >>÷>> %a dies
+ok 1777 - 3 <<÷>> %a
+ok 1778 - 3 <<÷<< %a
+ok 1779 - 3 >>÷=<< %a dies
+ok 1780 - 3 >>÷=>> %a dies
+ok 1781 - 3 <<÷=>> %a dies
+ok 1782 - 3 <<÷=<< %a dies
+ok 1783 - $a >>**<< $b
+ok 1784 - $a <<**<< $b
+ok 1785 - $a <<**>> $b
+ok 1786 - $a >>**>> $b
+ok 1787 - $a >>**=<< $b
+ok 1788 - $a assigned from $a >>**=<< $b
+ok 1789 - $a <<**=<< $b
+ok 1790 - $a assigned from $a <<**=<< $b
+ok 1791 - $a <<**=>> $b
+ok 1792 - $a assigned from $a <<**=>> $b
+ok 1793 - $a >>**=>> $b
+ok 1794 - $a assigned from $a >>**=>> $b
+ok 1795 - @a >>**<< @b
+ok 1796 - @a <<**<< @b
+ok 1797 - @a <<**>> @b
+ok 1798 - @a >>**>> @b
+ok 1799 - @a >>**=<< @b
+ok 1800 - @a assigned from @a >>**=<< @b
+ok 1801 - @a <<**=<< @b
+ok 1802 - @a assigned from @a <<**=<< @b
+ok 1803 - @a <<**=>> @b
+ok 1804 - @a assigned from @a <<**=>> @b
+ok 1805 - @a >>**=>> @b
+ok 1806 - @a assigned from @a >>**=>> @b
+ok 1807 - @a >>**<< 3 dies
+ok 1808 - @a <<**<< 3 dies
+ok 1809 - @a <<**>> 3
+ok 1810 - @a >>**>> 3
+ok 1811 - @a >>**=<< 3 dies
+ok 1812 - @a <<**=<< 3 dies
+ok 1813 - @a <<**=>> 3
+ok 1814 - @a assigned from @a <<**=>> 3
+ok 1815 - @a >>**=>> 3
+ok 1816 - @a assigned from @a >>**=>> 3
+ok 1817 - 3 >>**<< @a dies
+ok 1818 - 3 >>**>> @a dies
+ok 1819 - 3 <<**>> @a
+ok 1820 - 3 <<**<< @a
+ok 1821 - 3 >>**=<< @a dies
+ok 1822 - 3 >>**=>> @a dies
+ok 1823 - 3 <<**=>> @a dies
+ok 1824 - 3 <<**=<< @a dies
+ok 1825 - @a >>**<< @b
+ok 1826 - @a <<**<< @b
+ok 1827 - @a <<**>> @b
+ok 1828 - @a >>**>> @b
+ok 1829 - @a >>**=<< @b
+ok 1830 - @a assigned from @a >>**=<< @b
+ok 1831 - @a <<**=<< @b
+ok 1832 - @a assigned from @a <<**=<< @b
+ok 1833 - @a <<**=>> @b
+ok 1834 - @a assigned from @a <<**=>> @b
+ok 1835 - @a >>**=>> @b
+ok 1836 - @a assigned from @a >>**=>> @b
+ok 1837 - @a >>**<< 3 dies
+ok 1838 - @a <<**<< 3 dies
+ok 1839 - @a <<**>> 3
+ok 1840 - @a >>**>> 3
+ok 1841 - @a >>**=<< 3 dies
+ok 1842 - @a <<**=<< 3 dies
+ok 1843 - @a <<**=>> 3
+ok 1844 - @a assigned from @a <<**=>> 3
+ok 1845 - @a >>**=>> 3
+ok 1846 - @a assigned from @a >>**=>> 3
+ok 1847 - 3 >>**<< @a dies
+ok 1848 - 3 >>**>> @a dies
+ok 1849 - 3 <<**>> @a
+ok 1850 - 3 <<**<< @a
+ok 1851 - 3 >>**=<< @a dies
+ok 1852 - 3 >>**=>> @a dies
+ok 1853 - 3 <<**=>> @a dies
+ok 1854 - 3 <<**=<< @a dies
+ok 1855 - %a >>**<< %b
+ok 1856 - %a <<**<< %b
+ok 1857 - %a <<**>> %b
+ok 1858 - %a >>**>> %b
+ok 1859 - %a >>**=<< %b
+ok 1860 - %a assigned from %a >>**=<< %b
+ok 1861 - %a <<**=<< %b
+ok 1862 - %a assigned from %a <<**=<< %b
+ok 1863 - %a <<**=>> %b
+ok 1864 - %a assigned from %a <<**=>> %b
+ok 1865 - %a >>**=>> %b
+ok 1866 - %a assigned from %a >>**=>> %b
+ok 1867 - %a >>**<< 3 dies
+ok 1868 - %a <<**<< 3 dies
+ok 1869 - %a <<**>> 3
+ok 1870 - %a >>**>> 3
+ok 1871 - %a >>**=<< 3 dies
+ok 1872 - %a <<**=<< 3 dies
+ok 1873 - %a <<**=>> 3
+ok 1874 - %a assigned from %a <<**=>> 3
+ok 1875 - %a >>**=>> 3
+ok 1876 - %a assigned from %a >>**=>> 3
+ok 1877 - 3 >>**<< %a dies
+ok 1878 - 3 >>**>> %a dies
+ok 1879 - 3 <<**>> %a
+ok 1880 - 3 <<**<< %a
+ok 1881 - 3 >>**=<< %a dies
+ok 1882 - 3 >>**=>> %a dies
+ok 1883 - 3 <<**=>> %a dies
+ok 1884 - 3 <<**=<< %a dies
+ok 1885 - %a >>**<< %b
+ok 1886 - %a <<**<< %b
+ok 1887 - %a <<**>> %b
+ok 1888 - %a >>**>> %b
+ok 1889 - %a >>**=<< %b
+ok 1890 - %a assigned from %a >>**=<< %b
+ok 1891 - %a <<**=<< %b
+ok 1892 - %a assigned from %a <<**=<< %b
+ok 1893 - %a <<**=>> %b
+ok 1894 - %a assigned from %a <<**=>> %b
+ok 1895 - %a >>**=>> %b
+ok 1896 - %a assigned from %a >>**=>> %b
+ok 1897 - %a >>**<< 3 dies
+ok 1898 - %a <<**<< 3 dies
+ok 1899 - %a <<**>> 3
+ok 1900 - %a >>**>> 3
+ok 1901 - %a >>**=<< 3 dies
+ok 1902 - %a <<**=<< 3 dies
+ok 1903 - %a <<**=>> 3
+ok 1904 - %a assigned from %a <<**=>> 3
+ok 1905 - %a >>**=>> 3
+ok 1906 - %a assigned from %a >>**=>> 3
+ok 1907 - 3 >>**<< %a dies
+ok 1908 - 3 >>**>> %a dies
+ok 1909 - 3 <<**>> %a
+ok 1910 - 3 <<**<< %a
+ok 1911 - 3 >>**=<< %a dies
+ok 1912 - 3 >>**=>> %a dies
+ok 1913 - 3 <<**=>> %a dies
+ok 1914 - 3 <<**=<< %a dies
+ok 1915 - %a >>**<< %b
+ok 1916 - %a <<**<< %b
+ok 1917 - %a <<**>> %b
+ok 1918 - %a >>**>> %b
+ok 1919 - %a >>**=<< %b
+ok 1920 - %a assigned from %a >>**=<< %b
+ok 1921 - %a <<**=<< %b
+ok 1922 - %a assigned from %a <<**=<< %b
+ok 1923 - %a <<**=>> %b
+ok 1924 - %a assigned from %a <<**=>> %b
+ok 1925 - %a >>**=>> %b
+ok 1926 - %a assigned from %a >>**=>> %b
+ok 1927 - %a >>**<< 3 dies
+ok 1928 - %a <<**<< 3 dies
+ok 1929 - %a <<**>> 3
+ok 1930 - %a >>**>> 3
+ok 1931 - %a >>**=<< 3 dies
+ok 1932 - %a <<**=<< 3 dies
+ok 1933 - %a <<**=>> 3
+ok 1934 - %a assigned from %a <<**=>> 3
+ok 1935 - %a >>**=>> 3
+ok 1936 - %a assigned from %a >>**=>> 3
+ok 1937 - 3 >>**<< %a dies
+ok 1938 - 3 >>**>> %a dies
+ok 1939 - 3 <<**>> %a
+ok 1940 - 3 <<**<< %a
+ok 1941 - 3 >>**=<< %a dies
+ok 1942 - 3 >>**=>> %a dies
+ok 1943 - 3 <<**=>> %a dies
+ok 1944 - 3 <<**=<< %a dies
+ok 1945 - $a >>%<< $b
+ok 1946 - $a <<%<< $b
+ok 1947 - $a <<%>> $b
+ok 1948 - $a >>%>> $b
+ok 1949 - $a >>%=<< $b
+ok 1950 - $a assigned from $a >>%=<< $b
+ok 1951 - $a <<%=<< $b
+ok 1952 - $a assigned from $a <<%=<< $b
+ok 1953 - $a <<%=>> $b
+ok 1954 - $a assigned from $a <<%=>> $b
+ok 1955 - $a >>%=>> $b
+ok 1956 - $a assigned from $a >>%=>> $b
+ok 1957 - @a >>%<< @b
+ok 1958 - @a <<%<< @b
+ok 1959 - @a <<%>> @b
+ok 1960 - @a >>%>> @b
+ok 1961 - @a >>%=<< @b
+ok 1962 - @a assigned from @a >>%=<< @b
+ok 1963 - @a <<%=<< @b
+ok 1964 - @a assigned from @a <<%=<< @b
+ok 1965 - @a <<%=>> @b
+ok 1966 - @a assigned from @a <<%=>> @b
+ok 1967 - @a >>%=>> @b
+ok 1968 - @a assigned from @a >>%=>> @b
+ok 1969 - @a >>%<< 3 dies
+ok 1970 - @a <<%<< 3 dies
+ok 1971 - @a <<%>> 3
+ok 1972 - @a >>%>> 3
+ok 1973 - @a >>%=<< 3 dies
+ok 1974 - @a <<%=<< 3 dies
+ok 1975 - @a <<%=>> 3
+ok 1976 - @a assigned from @a <<%=>> 3
+ok 1977 - @a >>%=>> 3
+ok 1978 - @a assigned from @a >>%=>> 3
+ok 1979 - 3 >>%<< @a dies
+ok 1980 - 3 >>%>> @a dies
+ok 1981 - 3 <<%>> @a
+ok 1982 - 3 <<%<< @a
+ok 1983 - 3 >>%=<< @a dies
+ok 1984 - 3 >>%=>> @a dies
+ok 1985 - 3 <<%=>> @a dies
+ok 1986 - 3 <<%=<< @a dies
+ok 1987 - @a >>%<< @b
+ok 1988 - @a <<%<< @b
+ok 1989 - @a <<%>> @b
+ok 1990 - @a >>%>> @b
+ok 1991 - @a >>%=<< @b
+ok 1992 - @a assigned from @a >>%=<< @b
+ok 1993 - @a <<%=<< @b
+ok 1994 - @a assigned from @a <<%=<< @b
+ok 1995 - @a <<%=>> @b
+ok 1996 - @a assigned from @a <<%=>> @b
+ok 1997 - @a >>%=>> @b
+ok 1998 - @a assigned from @a >>%=>> @b
+ok 1999 - @a >>%<< 3 dies
+ok 2000 - @a <<%<< 3 dies
+ok 2001 - @a <<%>> 3
+ok 2002 - @a >>%>> 3
+ok 2003 - @a >>%=<< 3 dies
+ok 2004 - @a <<%=<< 3 dies
+ok 2005 - @a <<%=>> 3
+ok 2006 - @a assigned from @a <<%=>> 3
+ok 2007 - @a >>%=>> 3
+ok 2008 - @a assigned from @a >>%=>> 3
+ok 2009 - 3 >>%<< @a dies
+ok 2010 - 3 >>%>> @a dies
+ok 2011 - 3 <<%>> @a
+ok 2012 - 3 <<%<< @a
+ok 2013 - 3 >>%=<< @a dies
+ok 2014 - 3 >>%=>> @a dies
+ok 2015 - 3 <<%=>> @a dies
+ok 2016 - 3 <<%=<< @a dies
+ok 2017 - %a >>%<< %b
+ok 2018 - %a <<%<< %b
+ok 2019 - %a <<%>> %b
+ok 2020 - %a >>%>> %b
+ok 2021 - %a >>%=<< %b
+ok 2022 - %a assigned from %a >>%=<< %b
+ok 2023 - %a <<%=<< %b
+ok 2024 - %a assigned from %a <<%=<< %b
+ok 2025 - %a <<%=>> %b
+ok 2026 - %a assigned from %a <<%=>> %b
+ok 2027 - %a >>%=>> %b
+ok 2028 - %a assigned from %a >>%=>> %b
+ok 2029 - %a >>%<< 3 dies
+ok 2030 - %a <<%<< 3 dies
+ok 2031 - %a <<%>> 3
+ok 2032 - %a >>%>> 3
+ok 2033 - %a >>%=<< 3 dies
+ok 2034 - %a <<%=<< 3 dies
+ok 2035 - %a <<%=>> 3
+ok 2036 - %a assigned from %a <<%=>> 3
+ok 2037 - %a >>%=>> 3
+ok 2038 - %a assigned from %a >>%=>> 3
+ok 2039 - 3 >>%<< %a dies
+ok 2040 - 3 >>%>> %a dies
+ok 2041 - 3 <<%>> %a
+ok 2042 - 3 <<%<< %a
+ok 2043 - 3 >>%=<< %a dies
+ok 2044 - 3 >>%=>> %a dies
+ok 2045 - 3 <<%=>> %a dies
+ok 2046 - 3 <<%=<< %a dies
+ok 2047 - %a >>%<< %b
+ok 2048 - %a <<%<< %b
+ok 2049 - %a <<%>> %b
+ok 2050 - %a >>%>> %b
+ok 2051 - %a >>%=<< %b
+ok 2052 - %a assigned from %a >>%=<< %b
+ok 2053 - %a <<%=<< %b
+ok 2054 - %a assigned from %a <<%=<< %b
+ok 2055 - %a <<%=>> %b
+ok 2056 - %a assigned from %a <<%=>> %b
+ok 2057 - %a >>%=>> %b
+ok 2058 - %a assigned from %a >>%=>> %b
+ok 2059 - %a >>%<< 3 dies
+ok 2060 - %a <<%<< 3 dies
+ok 2061 - %a <<%>> 3
+ok 2062 - %a >>%>> 3
+ok 2063 - %a >>%=<< 3 dies
+ok 2064 - %a <<%=<< 3 dies
+ok 2065 - %a <<%=>> 3
+ok 2066 - %a assigned from %a <<%=>> 3
+ok 2067 - %a >>%=>> 3
+ok 2068 - %a assigned from %a >>%=>> 3
+ok 2069 - 3 >>%<< %a dies
+ok 2070 - 3 >>%>> %a dies
+ok 2071 - 3 <<%>> %a
+ok 2072 - 3 <<%<< %a
+ok 2073 - 3 >>%=<< %a dies
+ok 2074 - 3 >>%=>> %a dies
+ok 2075 - 3 <<%=>> %a dies
+ok 2076 - 3 <<%=<< %a dies
+ok 2077 - %a >>%<< %b
+ok 2078 - %a <<%<< %b
+ok 2079 - %a <<%>> %b
+ok 2080 - %a >>%>> %b
+ok 2081 - %a >>%=<< %b
+ok 2082 - %a assigned from %a >>%=<< %b
+ok 2083 - %a <<%=<< %b
+ok 2084 - %a assigned from %a <<%=<< %b
+ok 2085 - %a <<%=>> %b
+ok 2086 - %a assigned from %a <<%=>> %b
+ok 2087 - %a >>%=>> %b
+ok 2088 - %a assigned from %a >>%=>> %b
+ok 2089 - %a >>%<< 3 dies
+ok 2090 - %a <<%<< 3 dies
+ok 2091 - %a <<%>> 3
+ok 2092 - %a >>%>> 3
+ok 2093 - %a >>%=<< 3 dies
+ok 2094 - %a <<%=<< 3 dies
+ok 2095 - %a <<%=>> 3
+ok 2096 - %a assigned from %a <<%=>> 3
+ok 2097 - %a >>%=>> 3
+ok 2098 - %a assigned from %a >>%=>> 3
+ok 2099 - 3 >>%<< %a dies
+ok 2100 - 3 >>%>> %a dies
+ok 2101 - 3 <<%>> %a
+ok 2102 - 3 <<%<< %a
+ok 2103 - 3 >>%=<< %a dies
+ok 2104 - 3 >>%=>> %a dies
+ok 2105 - 3 <<%=>> %a dies
+ok 2106 - 3 <<%=<< %a dies
+ok 2107 - $a >>max<< $b
+ok 2108 - $a <<max<< $b
+ok 2109 - $a <<max>> $b
+ok 2110 - $a >>max>> $b
+ok 2111 - $a >>max=<< $b
+ok 2112 - $a assigned from $a >>max=<< $b
+ok 2113 - $a <<max=<< $b
+ok 2114 - $a assigned from $a <<max=<< $b
+ok 2115 - $a <<max=>> $b
+ok 2116 - $a assigned from $a <<max=>> $b
+ok 2117 - $a >>max=>> $b
+ok 2118 - $a assigned from $a >>max=>> $b
+ok 2119 - @a >>max<< @b
+ok 2120 - @a <<max<< @b
+ok 2121 - @a <<max>> @b
+ok 2122 - @a >>max>> @b
+ok 2123 - @a >>max=<< @b
+ok 2124 - @a assigned from @a >>max=<< @b
+ok 2125 - @a <<max=<< @b
+ok 2126 - @a assigned from @a <<max=<< @b
+ok 2127 - @a <<max=>> @b
+ok 2128 - @a assigned from @a <<max=>> @b
+ok 2129 - @a >>max=>> @b
+ok 2130 - @a assigned from @a >>max=>> @b
+ok 2131 - @a >>max<< 3 dies
+ok 2132 - @a <<max<< 3 dies
+ok 2133 - @a <<max>> 3
+ok 2134 - @a >>max>> 3
+ok 2135 - @a >>max=<< 3 dies
+ok 2136 - @a <<max=<< 3 dies
+ok 2137 - @a <<max=>> 3
+ok 2138 - @a assigned from @a <<max=>> 3
+ok 2139 - @a >>max=>> 3
+ok 2140 - @a assigned from @a >>max=>> 3
+ok 2141 - 3 >>max<< @a dies
+ok 2142 - 3 >>max>> @a dies
+ok 2143 - 3 <<max>> @a
+ok 2144 - 3 <<max<< @a
+ok 2145 - 3 >>max=<< @a dies
+ok 2146 - 3 >>max=>> @a dies
+ok 2147 - 3 <<max=>> @a dies
+ok 2148 - 3 <<max=<< @a dies
+ok 2149 - @a >>max<< @b
+ok 2150 - @a <<max<< @b
+ok 2151 - @a <<max>> @b
+ok 2152 - @a >>max>> @b
+ok 2153 - @a >>max=<< @b
+ok 2154 - @a assigned from @a >>max=<< @b
+ok 2155 - @a <<max=<< @b
+ok 2156 - @a assigned from @a <<max=<< @b
+ok 2157 - @a <<max=>> @b
+ok 2158 - @a assigned from @a <<max=>> @b
+ok 2159 - @a >>max=>> @b
+ok 2160 - @a assigned from @a >>max=>> @b
+ok 2161 - @a >>max<< 3 dies
+ok 2162 - @a <<max<< 3 dies
+ok 2163 - @a <<max>> 3
+ok 2164 - @a >>max>> 3
+ok 2165 - @a >>max=<< 3 dies
+ok 2166 - @a <<max=<< 3 dies
+ok 2167 - @a <<max=>> 3
+ok 2168 - @a assigned from @a <<max=>> 3
+ok 2169 - @a >>max=>> 3
+ok 2170 - @a assigned from @a >>max=>> 3
+ok 2171 - 3 >>max<< @a dies
+ok 2172 - 3 >>max>> @a dies
+ok 2173 - 3 <<max>> @a
+ok 2174 - 3 <<max<< @a
+ok 2175 - 3 >>max=<< @a dies
+ok 2176 - 3 >>max=>> @a dies
+ok 2177 - 3 <<max=>> @a dies
+ok 2178 - 3 <<max=<< @a dies
+ok 2179 - %a >>max<< %b
+ok 2180 - %a <<max<< %b
+ok 2181 - %a <<max>> %b
+ok 2182 - %a >>max>> %b
+ok 2183 - %a >>max=<< %b
+ok 2184 - %a assigned from %a >>max=<< %b
+ok 2185 - %a <<max=<< %b
+ok 2186 - %a assigned from %a <<max=<< %b
+ok 2187 - %a <<max=>> %b
+ok 2188 - %a assigned from %a <<max=>> %b
+ok 2189 - %a >>max=>> %b
+ok 2190 - %a assigned from %a >>max=>> %b
+ok 2191 - %a >>max<< 3 dies
+ok 2192 - %a <<max<< 3 dies
+ok 2193 - %a <<max>> 3
+ok 2194 - %a >>max>> 3
+ok 2195 - %a >>max=<< 3 dies
+ok 2196 - %a <<max=<< 3 dies
+ok 2197 - %a <<max=>> 3
+ok 2198 - %a assigned from %a <<max=>> 3
+ok 2199 - %a >>max=>> 3
+ok 2200 - %a assigned from %a >>max=>> 3
+ok 2201 - 3 >>max<< %a dies
+ok 2202 - 3 >>max>> %a dies
+ok 2203 - 3 <<max>> %a
+ok 2204 - 3 <<max<< %a
+ok 2205 - 3 >>max=<< %a dies
+ok 2206 - 3 >>max=>> %a dies
+ok 2207 - 3 <<max=>> %a dies
+ok 2208 - 3 <<max=<< %a dies
+ok 2209 - %a >>max<< %b
+ok 2210 - %a <<max<< %b
+ok 2211 - %a <<max>> %b
+ok 2212 - %a >>max>> %b
+ok 2213 - %a >>max=<< %b
+ok 2214 - %a assigned from %a >>max=<< %b
+ok 2215 - %a <<max=<< %b
+ok 2216 - %a assigned from %a <<max=<< %b
+ok 2217 - %a <<max=>> %b
+ok 2218 - %a assigned from %a <<max=>> %b
+ok 2219 - %a >>max=>> %b
+ok 2220 - %a assigned from %a >>max=>> %b
+ok 2221 - %a >>max<< 3 dies
+ok 2222 - %a <<max<< 3 dies
+ok 2223 - %a <<max>> 3
+ok 2224 - %a >>max>> 3
+ok 2225 - %a >>max=<< 3 dies
+ok 2226 - %a <<max=<< 3 dies
+ok 2227 - %a <<max=>> 3
+ok 2228 - %a assigned from %a <<max=>> 3
+ok 2229 - %a >>max=>> 3
+ok 2230 - %a assigned from %a >>max=>> 3
+ok 2231 - 3 >>max<< %a dies
+ok 2232 - 3 >>max>> %a dies
+ok 2233 - 3 <<max>> %a
+ok 2234 - 3 <<max<< %a
+ok 2235 - 3 >>max=<< %a dies
+ok 2236 - 3 >>max=>> %a dies
+ok 2237 - 3 <<max=>> %a dies
+ok 2238 - 3 <<max=<< %a dies
+ok 2239 - %a >>max<< %b
+ok 2240 - %a <<max<< %b
+ok 2241 - %a <<max>> %b
+ok 2242 - %a >>max>> %b
+ok 2243 - %a >>max=<< %b
+ok 2244 - %a assigned from %a >>max=<< %b
+ok 2245 - %a <<max=<< %b
+ok 2246 - %a assigned from %a <<max=<< %b
+ok 2247 - %a <<max=>> %b
+ok 2248 - %a assigned from %a <<max=>> %b
+ok 2249 - %a >>max=>> %b
+ok 2250 - %a assigned from %a >>max=>> %b
+ok 2251 - %a >>max<< 3 dies
+ok 2252 - %a <<max<< 3 dies
+ok 2253 - %a <<max>> 3
+ok 2254 - %a >>max>> 3
+ok 2255 - %a >>max=<< 3 dies
+ok 2256 - %a <<max=<< 3 dies
+ok 2257 - %a <<max=>> 3
+ok 2258 - %a assigned from %a <<max=>> 3
+ok 2259 - %a >>max=>> 3
+ok 2260 - %a assigned from %a >>max=>> 3
+ok 2261 - 3 >>max<< %a dies
+ok 2262 - 3 >>max>> %a dies
+ok 2263 - 3 <<max>> %a
+ok 2264 - 3 <<max<< %a
+ok 2265 - 3 >>max=<< %a dies
+ok 2266 - 3 >>max=>> %a dies
+ok 2267 - 3 <<max=>> %a dies
+ok 2268 - 3 <<max=<< %a dies
+ok 2269 - $a >>min<< $b
+ok 2270 - $a <<min<< $b
+ok 2271 - $a <<min>> $b
+ok 2272 - $a >>min>> $b
+ok 2273 - $a >>min=<< $b
+ok 2274 - $a assigned from $a >>min=<< $b
+ok 2275 - $a <<min=<< $b
+ok 2276 - $a assigned from $a <<min=<< $b
+ok 2277 - $a <<min=>> $b
+ok 2278 - $a assigned from $a <<min=>> $b
+ok 2279 - $a >>min=>> $b
+ok 2280 - $a assigned from $a >>min=>> $b
+ok 2281 - @a >>min<< @b
+ok 2282 - @a <<min<< @b
+ok 2283 - @a <<min>> @b
+ok 2284 - @a >>min>> @b
+ok 2285 - @a >>min=<< @b
+ok 2286 - @a assigned from @a >>min=<< @b
+ok 2287 - @a <<min=<< @b
+ok 2288 - @a assigned from @a <<min=<< @b
+ok 2289 - @a <<min=>> @b
+ok 2290 - @a assigned from @a <<min=>> @b
+ok 2291 - @a >>min=>> @b
+ok 2292 - @a assigned from @a >>min=>> @b
+ok 2293 - @a >>min<< 3 dies
+ok 2294 - @a <<min<< 3 dies
+ok 2295 - @a <<min>> 3
+ok 2296 - @a >>min>> 3
+ok 2297 - @a >>min=<< 3 dies
+ok 2298 - @a <<min=<< 3 dies
+ok 2299 - @a <<min=>> 3
+ok 2300 - @a assigned from @a <<min=>> 3
+ok 2301 - @a >>min=>> 3
+ok 2302 - @a assigned from @a >>min=>> 3
+ok 2303 - 3 >>min<< @a dies
+ok 2304 - 3 >>min>> @a dies
+ok 2305 - 3 <<min>> @a
+ok 2306 - 3 <<min<< @a
+ok 2307 - 3 >>min=<< @a dies
+ok 2308 - 3 >>min=>> @a dies
+ok 2309 - 3 <<min=>> @a dies
+ok 2310 - 3 <<min=<< @a dies
+ok 2311 - @a >>min<< @b
+ok 2312 - @a <<min<< @b
+ok 2313 - @a <<min>> @b
+ok 2314 - @a >>min>> @b
+ok 2315 - @a >>min=<< @b
+ok 2316 - @a assigned from @a >>min=<< @b
+ok 2317 - @a <<min=<< @b
+ok 2318 - @a assigned from @a <<min=<< @b
+ok 2319 - @a <<min=>> @b
+ok 2320 - @a assigned from @a <<min=>> @b
+ok 2321 - @a >>min=>> @b
+ok 2322 - @a assigned from @a >>min=>> @b
+ok 2323 - @a >>min<< 3 dies
+ok 2324 - @a <<min<< 3 dies
+ok 2325 - @a <<min>> 3
+ok 2326 - @a >>min>> 3
+ok 2327 - @a >>min=<< 3 dies
+ok 2328 - @a <<min=<< 3 dies
+ok 2329 - @a <<min=>> 3
+ok 2330 - @a assigned from @a <<min=>> 3
+ok 2331 - @a >>min=>> 3
+ok 2332 - @a assigned from @a >>min=>> 3
+ok 2333 - 3 >>min<< @a dies
+ok 2334 - 3 >>min>> @a dies
+ok 2335 - 3 <<min>> @a
+ok 2336 - 3 <<min<< @a
+ok 2337 - 3 >>min=<< @a dies
+ok 2338 - 3 >>min=>> @a dies
+ok 2339 - 3 <<min=>> @a dies
+ok 2340 - 3 <<min=<< @a dies
+ok 2341 - %a >>min<< %b
+ok 2342 - %a <<min<< %b
+ok 2343 - %a <<min>> %b
+ok 2344 - %a >>min>> %b
+ok 2345 - %a >>min=<< %b
+ok 2346 - %a assigned from %a >>min=<< %b
+ok 2347 - %a <<min=<< %b
+ok 2348 - %a assigned from %a <<min=<< %b
+ok 2349 - %a <<min=>> %b
+ok 2350 - %a assigned from %a <<min=>> %b
+ok 2351 - %a >>min=>> %b
+ok 2352 - %a assigned from %a >>min=>> %b
+ok 2353 - %a >>min<< 3 dies
+ok 2354 - %a <<min<< 3 dies
+ok 2355 - %a <<min>> 3
+ok 2356 - %a >>min>> 3
+ok 2357 - %a >>min=<< 3 dies
+ok 2358 - %a <<min=<< 3 dies
+ok 2359 - %a <<min=>> 3
+ok 2360 - %a assigned from %a <<min=>> 3
+ok 2361 - %a >>min=>> 3
+ok 2362 - %a assigned from %a >>min=>> 3
+ok 2363 - 3 >>min<< %a dies
+ok 2364 - 3 >>min>> %a dies
+ok 2365 - 3 <<min>> %a
+ok 2366 - 3 <<min<< %a
+ok 2367 - 3 >>min=<< %a dies
+ok 2368 - 3 >>min=>> %a dies
+ok 2369 - 3 <<min=>> %a dies
+ok 2370 - 3 <<min=<< %a dies
+ok 2371 - %a >>min<< %b
+ok 2372 - %a <<min<< %b
+ok 2373 - %a <<min>> %b
+ok 2374 - %a >>min>> %b
+ok 2375 - %a >>min=<< %b
+ok 2376 - %a assigned from %a >>min=<< %b
+ok 2377 - %a <<min=<< %b
+ok 2378 - %a assigned from %a <<min=<< %b
+ok 2379 - %a <<min=>> %b
+ok 2380 - %a assigned from %a <<min=>> %b
+ok 2381 - %a >>min=>> %b
+ok 2382 - %a assigned from %a >>min=>> %b
+ok 2383 - %a >>min<< 3 dies
+ok 2384 - %a <<min<< 3 dies
+ok 2385 - %a <<min>> 3
+ok 2386 - %a >>min>> 3
+ok 2387 - %a >>min=<< 3 dies
+ok 2388 - %a <<min=<< 3 dies
+ok 2389 - %a <<min=>> 3
+ok 2390 - %a assigned from %a <<min=>> 3
+ok 2391 - %a >>min=>> 3
+ok 2392 - %a assigned from %a >>min=>> 3
+ok 2393 - 3 >>min<< %a dies
+ok 2394 - 3 >>min>> %a dies
+ok 2395 - 3 <<min>> %a
+ok 2396 - 3 <<min<< %a
+ok 2397 - 3 >>min=<< %a dies
+ok 2398 - 3 >>min=>> %a dies
+ok 2399 - 3 <<min=>> %a dies
+ok 2400 - 3 <<min=<< %a dies
+ok 2401 - %a >>min<< %b
+ok 2402 - %a <<min<< %b
+ok 2403 - %a <<min>> %b
+ok 2404 - %a >>min>> %b
+ok 2405 - %a >>min=<< %b
+ok 2406 - %a assigned from %a >>min=<< %b
+ok 2407 - %a <<min=<< %b
+ok 2408 - %a assigned from %a <<min=<< %b
+ok 2409 - %a <<min=>> %b
+ok 2410 - %a assigned from %a <<min=>> %b
+ok 2411 - %a >>min=>> %b
+ok 2412 - %a assigned from %a >>min=>> %b
+ok 2413 - %a >>min<< 3 dies
+ok 2414 - %a <<min<< 3 dies
+ok 2415 - %a <<min>> 3
+ok 2416 - %a >>min>> 3
+ok 2417 - %a >>min=<< 3 dies
+ok 2418 - %a <<min=<< 3 dies
+ok 2419 - %a <<min=>> 3
+ok 2420 - %a assigned from %a <<min=>> 3
+ok 2421 - %a >>min=>> 3
+ok 2422 - %a assigned from %a >>min=>> 3
+ok 2423 - 3 >>min<< %a dies
+ok 2424 - 3 >>min>> %a dies
+ok 2425 - 3 <<min>> %a
+ok 2426 - 3 <<min<< %a
+ok 2427 - 3 >>min=<< %a dies
+ok 2428 - 3 >>min=>> %a dies
+ok 2429 - 3 <<min=>> %a dies
+ok 2430 - 3 <<min=<< %a dies
+ok 2431 - $a >>mod<< $b
+ok 2432 - $a <<mod<< $b
+ok 2433 - $a <<mod>> $b
+ok 2434 - $a >>mod>> $b
+ok 2435 - $a >>mod=<< $b
+ok 2436 - $a assigned from $a >>mod=<< $b
+ok 2437 - $a <<mod=<< $b
+ok 2438 - $a assigned from $a <<mod=<< $b
+ok 2439 - $a <<mod=>> $b
+ok 2440 - $a assigned from $a <<mod=>> $b
+ok 2441 - $a >>mod=>> $b
+ok 2442 - $a assigned from $a >>mod=>> $b
+ok 2443 - @a >>mod<< @b
+ok 2444 - @a <<mod<< @b
+ok 2445 - @a <<mod>> @b
+ok 2446 - @a >>mod>> @b
+ok 2447 - @a >>mod=<< @b
+ok 2448 - @a assigned from @a >>mod=<< @b
+ok 2449 - @a <<mod=<< @b
+ok 2450 - @a assigned from @a <<mod=<< @b
+ok 2451 - @a <<mod=>> @b
+ok 2452 - @a assigned from @a <<mod=>> @b
+ok 2453 - @a >>mod=>> @b
+ok 2454 - @a assigned from @a >>mod=>> @b
+ok 2455 - @a >>mod<< 3 dies
+ok 2456 - @a <<mod<< 3 dies
+ok 2457 - @a <<mod>> 3
+ok 2458 - @a >>mod>> 3
+ok 2459 - @a >>mod=<< 3 dies
+ok 2460 - @a <<mod=<< 3 dies
+ok 2461 - @a <<mod=>> 3
+ok 2462 - @a assigned from @a <<mod=>> 3
+ok 2463 - @a >>mod=>> 3
+ok 2464 - @a assigned from @a >>mod=>> 3
+ok 2465 - 3 >>mod<< @a dies
+ok 2466 - 3 >>mod>> @a dies
+ok 2467 - 3 <<mod>> @a
+ok 2468 - 3 <<mod<< @a
+ok 2469 - 3 >>mod=<< @a dies
+ok 2470 - 3 >>mod=>> @a dies
+ok 2471 - 3 <<mod=>> @a dies
+ok 2472 - 3 <<mod=<< @a dies
+ok 2473 - @a >>mod<< @b
+ok 2474 - @a <<mod<< @b
+ok 2475 - @a <<mod>> @b
+ok 2476 - @a >>mod>> @b
+ok 2477 - @a >>mod=<< @b
+ok 2478 - @a assigned from @a >>mod=<< @b
+ok 2479 - @a <<mod=<< @b
+ok 2480 - @a assigned from @a <<mod=<< @b
+ok 2481 - @a <<mod=>> @b
+ok 2482 - @a assigned from @a <<mod=>> @b
+ok 2483 - @a >>mod=>> @b
+ok 2484 - @a assigned from @a >>mod=>> @b
+ok 2485 - @a >>mod<< 3 dies
+ok 2486 - @a <<mod<< 3 dies
+ok 2487 - @a <<mod>> 3
+ok 2488 - @a >>mod>> 3
+ok 2489 - @a >>mod=<< 3 dies
+ok 2490 - @a <<mod=<< 3 dies
+ok 2491 - @a <<mod=>> 3
+ok 2492 - @a assigned from @a <<mod=>> 3
+ok 2493 - @a >>mod=>> 3
+ok 2494 - @a assigned from @a >>mod=>> 3
+ok 2495 - 3 >>mod<< @a dies
+ok 2496 - 3 >>mod>> @a dies
+ok 2497 - 3 <<mod>> @a
+ok 2498 - 3 <<mod<< @a
+ok 2499 - 3 >>mod=<< @a dies
+ok 2500 - 3 >>mod=>> @a dies
+ok 2501 - 3 <<mod=>> @a dies
+ok 2502 - 3 <<mod=<< @a dies
+ok 2503 - %a >>mod<< %b
+ok 2504 - %a <<mod<< %b
+ok 2505 - %a <<mod>> %b
+ok 2506 - %a >>mod>> %b
+ok 2507 - %a >>mod=<< %b
+ok 2508 - %a assigned from %a >>mod=<< %b
+ok 2509 - %a <<mod=<< %b
+ok 2510 - %a assigned from %a <<mod=<< %b
+ok 2511 - %a <<mod=>> %b
+ok 2512 - %a assigned from %a <<mod=>> %b
+ok 2513 - %a >>mod=>> %b
+ok 2514 - %a assigned from %a >>mod=>> %b
+ok 2515 - %a >>mod<< 3 dies
+ok 2516 - %a <<mod<< 3 dies
+ok 2517 - %a <<mod>> 3
+ok 2518 - %a >>mod>> 3
+ok 2519 - %a >>mod=<< 3 dies
+ok 2520 - %a <<mod=<< 3 dies
+ok 2521 - %a <<mod=>> 3
+ok 2522 - %a assigned from %a <<mod=>> 3
+ok 2523 - %a >>mod=>> 3
+ok 2524 - %a assigned from %a >>mod=>> 3
+ok 2525 - 3 >>mod<< %a dies
+ok 2526 - 3 >>mod>> %a dies
+ok 2527 - 3 <<mod>> %a
+ok 2528 - 3 <<mod<< %a
+ok 2529 - 3 >>mod=<< %a dies
+ok 2530 - 3 >>mod=>> %a dies
+ok 2531 - 3 <<mod=>> %a dies
+ok 2532 - 3 <<mod=<< %a dies
+ok 2533 - %a >>mod<< %b
+ok 2534 - %a <<mod<< %b
+ok 2535 - %a <<mod>> %b
+ok 2536 - %a >>mod>> %b
+ok 2537 - %a >>mod=<< %b
+ok 2538 - %a assigned from %a >>mod=<< %b
+ok 2539 - %a <<mod=<< %b
+ok 2540 - %a assigned from %a <<mod=<< %b
+ok 2541 - %a <<mod=>> %b
+ok 2542 - %a assigned from %a <<mod=>> %b
+ok 2543 - %a >>mod=>> %b
+ok 2544 - %a assigned from %a >>mod=>> %b
+ok 2545 - %a >>mod<< 3 dies
+ok 2546 - %a <<mod<< 3 dies
+ok 2547 - %a <<mod>> 3
+ok 2548 - %a >>mod>> 3
+ok 2549 - %a >>mod=<< 3 dies
+ok 2550 - %a <<mod=<< 3 dies
+ok 2551 - %a <<mod=>> 3
+ok 2552 - %a assigned from %a <<mod=>> 3
+ok 2553 - %a >>mod=>> 3
+ok 2554 - %a assigned from %a >>mod=>> 3
+ok 2555 - 3 >>mod<< %a dies
+ok 2556 - 3 >>mod>> %a dies
+ok 2557 - 3 <<mod>> %a
+ok 2558 - 3 <<mod<< %a
+ok 2559 - 3 >>mod=<< %a dies
+ok 2560 - 3 >>mod=>> %a dies
+ok 2561 - 3 <<mod=>> %a dies
+ok 2562 - 3 <<mod=<< %a dies
+ok 2563 - %a >>mod<< %b
+ok 2564 - %a <<mod<< %b
+ok 2565 - %a <<mod>> %b
+ok 2566 - %a >>mod>> %b
+ok 2567 - %a >>mod=<< %b
+ok 2568 - %a assigned from %a >>mod=<< %b
+ok 2569 - %a <<mod=<< %b
+ok 2570 - %a assigned from %a <<mod=<< %b
+ok 2571 - %a <<mod=>> %b
+ok 2572 - %a assigned from %a <<mod=>> %b
+ok 2573 - %a >>mod=>> %b
+ok 2574 - %a assigned from %a >>mod=>> %b
+ok 2575 - %a >>mod<< 3 dies
+ok 2576 - %a <<mod<< 3 dies
+ok 2577 - %a <<mod>> 3
+ok 2578 - %a >>mod>> 3
+ok 2579 - %a >>mod=<< 3 dies
+ok 2580 - %a <<mod=<< 3 dies
+ok 2581 - %a <<mod=>> 3
+ok 2582 - %a assigned from %a <<mod=>> 3
+ok 2583 - %a >>mod=>> 3
+ok 2584 - %a assigned from %a >>mod=>> 3
+ok 2585 - 3 >>mod<< %a dies
+ok 2586 - 3 >>mod>> %a dies
+ok 2587 - 3 <<mod>> %a
+ok 2588 - 3 <<mod<< %a
+ok 2589 - 3 >>mod=<< %a dies
+ok 2590 - 3 >>mod=>> %a dies
+ok 2591 - 3 <<mod=>> %a dies
+ok 2592 - 3 <<mod=<< %a dies
+ok 2593 - $a >>gcd<< $b
+ok 2594 - $a <<gcd<< $b
+ok 2595 - $a <<gcd>> $b
+ok 2596 - $a >>gcd>> $b
+ok 2597 - $a >>gcd=<< $b
+ok 2598 - $a assigned from $a >>gcd=<< $b
+ok 2599 - $a <<gcd=<< $b
+ok 2600 - $a assigned from $a <<gcd=<< $b
+ok 2601 - $a <<gcd=>> $b
+ok 2602 - $a assigned from $a <<gcd=>> $b
+ok 2603 - $a >>gcd=>> $b
+ok 2604 - $a assigned from $a >>gcd=>> $b
+ok 2605 - @a >>gcd<< @b
+ok 2606 - @a <<gcd<< @b
+ok 2607 - @a <<gcd>> @b
+ok 2608 - @a >>gcd>> @b
+ok 2609 - @a >>gcd=<< @b
+ok 2610 - @a assigned from @a >>gcd=<< @b
+ok 2611 - @a <<gcd=<< @b
+ok 2612 - @a assigned from @a <<gcd=<< @b
+ok 2613 - @a <<gcd=>> @b
+ok 2614 - @a assigned from @a <<gcd=>> @b
+ok 2615 - @a >>gcd=>> @b
+ok 2616 - @a assigned from @a >>gcd=>> @b
+ok 2617 - @a >>gcd<< 3 dies
+ok 2618 - @a <<gcd<< 3 dies
+ok 2619 - @a <<gcd>> 3
+ok 2620 - @a >>gcd>> 3
+ok 2621 - @a >>gcd=<< 3 dies
+ok 2622 - @a <<gcd=<< 3 dies
+ok 2623 - @a <<gcd=>> 3
+ok 2624 - @a assigned from @a <<gcd=>> 3
+ok 2625 - @a >>gcd=>> 3
+ok 2626 - @a assigned from @a >>gcd=>> 3
+ok 2627 - 3 >>gcd<< @a dies
+ok 2628 - 3 >>gcd>> @a dies
+ok 2629 - 3 <<gcd>> @a
+ok 2630 - 3 <<gcd<< @a
+ok 2631 - 3 >>gcd=<< @a dies
+ok 2632 - 3 >>gcd=>> @a dies
+ok 2633 - 3 <<gcd=>> @a dies
+ok 2634 - 3 <<gcd=<< @a dies
+ok 2635 - @a >>gcd<< @b
+ok 2636 - @a <<gcd<< @b
+ok 2637 - @a <<gcd>> @b
+ok 2638 - @a >>gcd>> @b
+ok 2639 - @a >>gcd=<< @b
+ok 2640 - @a assigned from @a >>gcd=<< @b
+ok 2641 - @a <<gcd=<< @b
+ok 2642 - @a assigned from @a <<gcd=<< @b
+ok 2643 - @a <<gcd=>> @b
+ok 2644 - @a assigned from @a <<gcd=>> @b
+ok 2645 - @a >>gcd=>> @b
+ok 2646 - @a assigned from @a >>gcd=>> @b
+ok 2647 - @a >>gcd<< 3 dies
+ok 2648 - @a <<gcd<< 3 dies
+ok 2649 - @a <<gcd>> 3
+ok 2650 - @a >>gcd>> 3
+ok 2651 - @a >>gcd=<< 3 dies
+ok 2652 - @a <<gcd=<< 3 dies
+ok 2653 - @a <<gcd=>> 3
+ok 2654 - @a assigned from @a <<gcd=>> 3
+ok 2655 - @a >>gcd=>> 3
+ok 2656 - @a assigned from @a >>gcd=>> 3
+ok 2657 - 3 >>gcd<< @a dies
+ok 2658 - 3 >>gcd>> @a dies
+ok 2659 - 3 <<gcd>> @a
+ok 2660 - 3 <<gcd<< @a
+ok 2661 - 3 >>gcd=<< @a dies
+ok 2662 - 3 >>gcd=>> @a dies
+ok 2663 - 3 <<gcd=>> @a dies
+ok 2664 - 3 <<gcd=<< @a dies
+ok 2665 - %a >>gcd<< %b
+ok 2666 - %a <<gcd<< %b
+ok 2667 - %a <<gcd>> %b
+ok 2668 - %a >>gcd>> %b
+ok 2669 - %a >>gcd=<< %b
+ok 2670 - %a assigned from %a >>gcd=<< %b
+ok 2671 - %a <<gcd=<< %b
+ok 2672 - %a assigned from %a <<gcd=<< %b
+ok 2673 - %a <<gcd=>> %b
+ok 2674 - %a assigned from %a <<gcd=>> %b
+ok 2675 - %a >>gcd=>> %b
+ok 2676 - %a assigned from %a >>gcd=>> %b
+ok 2677 - %a >>gcd<< 3 dies
+ok 2678 - %a <<gcd<< 3 dies
+ok 2679 - %a <<gcd>> 3
+ok 2680 - %a >>gcd>> 3
+ok 2681 - %a >>gcd=<< 3 dies
+ok 2682 - %a <<gcd=<< 3 dies
+ok 2683 - %a <<gcd=>> 3
+ok 2684 - %a assigned from %a <<gcd=>> 3
+ok 2685 - %a >>gcd=>> 3
+ok 2686 - %a assigned from %a >>gcd=>> 3
+ok 2687 - 3 >>gcd<< %a dies
+ok 2688 - 3 >>gcd>> %a dies
+ok 2689 - 3 <<gcd>> %a
+ok 2690 - 3 <<gcd<< %a
+ok 2691 - 3 >>gcd=<< %a dies
+ok 2692 - 3 >>gcd=>> %a dies
+ok 2693 - 3 <<gcd=>> %a dies
+ok 2694 - 3 <<gcd=<< %a dies
+ok 2695 - %a >>gcd<< %b
+ok 2696 - %a <<gcd<< %b
+ok 2697 - %a <<gcd>> %b
+ok 2698 - %a >>gcd>> %b
+ok 2699 - %a >>gcd=<< %b
+ok 2700 - %a assigned from %a >>gcd=<< %b
+ok 2701 - %a <<gcd=<< %b
+ok 2702 - %a assigned from %a <<gcd=<< %b
+ok 2703 - %a <<gcd=>> %b
+ok 2704 - %a assigned from %a <<gcd=>> %b
+ok 2705 - %a >>gcd=>> %b
+ok 2706 - %a assigned from %a >>gcd=>> %b
+ok 2707 - %a >>gcd<< 3 dies
+ok 2708 - %a <<gcd<< 3 dies
+ok 2709 - %a <<gcd>> 3
+ok 2710 - %a >>gcd>> 3
+ok 2711 - %a >>gcd=<< 3 dies
+ok 2712 - %a <<gcd=<< 3 dies
+ok 2713 - %a <<gcd=>> 3
+ok 2714 - %a assigned from %a <<gcd=>> 3
+ok 2715 - %a >>gcd=>> 3
+ok 2716 - %a assigned from %a >>gcd=>> 3
+ok 2717 - 3 >>gcd<< %a dies
+ok 2718 - 3 >>gcd>> %a dies
+ok 2719 - 3 <<gcd>> %a
+ok 2720 - 3 <<gcd<< %a
+ok 2721 - 3 >>gcd=<< %a dies
+ok 2722 - 3 >>gcd=>> %a dies
+ok 2723 - 3 <<gcd=>> %a dies
+ok 2724 - 3 <<gcd=<< %a dies
+ok 2725 - %a >>gcd<< %b
+ok 2726 - %a <<gcd<< %b
+ok 2727 - %a <<gcd>> %b
+ok 2728 - %a >>gcd>> %b
+ok 2729 - %a >>gcd=<< %b
+ok 2730 - %a assigned from %a >>gcd=<< %b
+ok 2731 - %a <<gcd=<< %b
+ok 2732 - %a assigned from %a <<gcd=<< %b
+ok 2733 - %a <<gcd=>> %b
+ok 2734 - %a assigned from %a <<gcd=>> %b
+ok 2735 - %a >>gcd=>> %b
+ok 2736 - %a assigned from %a >>gcd=>> %b
+ok 2737 - %a >>gcd<< 3 dies
+ok 2738 - %a <<gcd<< 3 dies
+ok 2739 - %a <<gcd>> 3
+ok 2740 - %a >>gcd>> 3
+ok 2741 - %a >>gcd=<< 3 dies
+ok 2742 - %a <<gcd=<< 3 dies
+ok 2743 - %a <<gcd=>> 3
+ok 2744 - %a assigned from %a <<gcd=>> 3
+ok 2745 - %a >>gcd=>> 3
+ok 2746 - %a assigned from %a >>gcd=>> 3
+ok 2747 - 3 >>gcd<< %a dies
+ok 2748 - 3 >>gcd>> %a dies
+ok 2749 - 3 <<gcd>> %a
+ok 2750 - 3 <<gcd<< %a
+ok 2751 - 3 >>gcd=<< %a dies
+ok 2752 - 3 >>gcd=>> %a dies
+ok 2753 - 3 <<gcd=>> %a dies
+ok 2754 - 3 <<gcd=<< %a dies
+ok 2755 - $a >>lcm<< $b
+ok 2756 - $a <<lcm<< $b
+ok 2757 - $a <<lcm>> $b
+ok 2758 - $a >>lcm>> $b
+ok 2759 - $a >>lcm=<< $b
+ok 2760 - $a assigned from $a >>lcm=<< $b
+ok 2761 - $a <<lcm=<< $b
+ok 2762 - $a assigned from $a <<lcm=<< $b
+ok 2763 - $a <<lcm=>> $b
+ok 2764 - $a assigned from $a <<lcm=>> $b
+ok 2765 - $a >>lcm=>> $b
+ok 2766 - $a assigned from $a >>lcm=>> $b
+ok 2767 - @a >>lcm<< @b
+ok 2768 - @a <<lcm<< @b
+ok 2769 - @a <<lcm>> @b
+ok 2770 - @a >>lcm>> @b
+ok 2771 - @a >>lcm=<< @b
+ok 2772 - @a assigned from @a >>lcm=<< @b
+ok 2773 - @a <<lcm=<< @b
+ok 2774 - @a assigned from @a <<lcm=<< @b
+ok 2775 - @a <<lcm=>> @b
+ok 2776 - @a assigned from @a <<lcm=>> @b
+ok 2777 - @a >>lcm=>> @b
+ok 2778 - @a assigned from @a >>lcm=>> @b
+ok 2779 - @a >>lcm<< 3 dies
+ok 2780 - @a <<lcm<< 3 dies
+ok 2781 - @a <<lcm>> 3
+ok 2782 - @a >>lcm>> 3
+ok 2783 - @a >>lcm=<< 3 dies
+ok 2784 - @a <<lcm=<< 3 dies
+ok 2785 - @a <<lcm=>> 3
+ok 2786 - @a assigned from @a <<lcm=>> 3
+ok 2787 - @a >>lcm=>> 3
+ok 2788 - @a assigned from @a >>lcm=>> 3
+ok 2789 - 3 >>lcm<< @a dies
+ok 2790 - 3 >>lcm>> @a dies
+ok 2791 - 3 <<lcm>> @a
+ok 2792 - 3 <<lcm<< @a
+ok 2793 - 3 >>lcm=<< @a dies
+ok 2794 - 3 >>lcm=>> @a dies
+ok 2795 - 3 <<lcm=>> @a dies
+ok 2796 - 3 <<lcm=<< @a dies
+ok 2797 - @a >>lcm<< @b
+ok 2798 - @a <<lcm<< @b
+ok 2799 - @a <<lcm>> @b
+ok 2800 - @a >>lcm>> @b
+ok 2801 - @a >>lcm=<< @b
+ok 2802 - @a assigned from @a >>lcm=<< @b
+ok 2803 - @a <<lcm=<< @b
+ok 2804 - @a assigned from @a <<lcm=<< @b
+ok 2805 - @a <<lcm=>> @b
+ok 2806 - @a assigned from @a <<lcm=>> @b
+ok 2807 - @a >>lcm=>> @b
+ok 2808 - @a assigned from @a >>lcm=>> @b
+ok 2809 - @a >>lcm<< 3 dies
+ok 2810 - @a <<lcm<< 3 dies
+ok 2811 - @a <<lcm>> 3
+ok 2812 - @a >>lcm>> 3
+ok 2813 - @a >>lcm=<< 3 dies
+ok 2814 - @a <<lcm=<< 3 dies
+ok 2815 - @a <<lcm=>> 3
+ok 2816 - @a assigned from @a <<lcm=>> 3
+ok 2817 - @a >>lcm=>> 3
+ok 2818 - @a assigned from @a >>lcm=>> 3
+ok 2819 - 3 >>lcm<< @a dies
+ok 2820 - 3 >>lcm>> @a dies
+ok 2821 - 3 <<lcm>> @a
+ok 2822 - 3 <<lcm<< @a
+ok 2823 - 3 >>lcm=<< @a dies
+ok 2824 - 3 >>lcm=>> @a dies
+ok 2825 - 3 <<lcm=>> @a dies
+ok 2826 - 3 <<lcm=<< @a dies
+ok 2827 - %a >>lcm<< %b
+ok 2828 - %a <<lcm<< %b
+ok 2829 - %a <<lcm>> %b
+ok 2830 - %a >>lcm>> %b
+ok 2831 - %a >>lcm=<< %b
+ok 2832 - %a assigned from %a >>lcm=<< %b
+ok 2833 - %a <<lcm=<< %b
+ok 2834 - %a assigned from %a <<lcm=<< %b
+ok 2835 - %a <<lcm=>> %b
+ok 2836 - %a assigned from %a <<lcm=>> %b
+ok 2837 - %a >>lcm=>> %b
+ok 2838 - %a assigned from %a >>lcm=>> %b
+ok 2839 - %a >>lcm<< 3 dies
+ok 2840 - %a <<lcm<< 3 dies
+ok 2841 - %a <<lcm>> 3
+ok 2842 - %a >>lcm>> 3
+ok 2843 - %a >>lcm=<< 3 dies
+ok 2844 - %a <<lcm=<< 3 dies
+ok 2845 - %a <<lcm=>> 3
+ok 2846 - %a assigned from %a <<lcm=>> 3
+ok 2847 - %a >>lcm=>> 3
+ok 2848 - %a assigned from %a >>lcm=>> 3
+ok 2849 - 3 >>lcm<< %a dies
+ok 2850 - 3 >>lcm>> %a dies
+ok 2851 - 3 <<lcm>> %a
+ok 2852 - 3 <<lcm<< %a
+ok 2853 - 3 >>lcm=<< %a dies
+ok 2854 - 3 >>lcm=>> %a dies
+ok 2855 - 3 <<lcm=>> %a dies
+ok 2856 - 3 <<lcm=<< %a dies
+ok 2857 - %a >>lcm<< %b
+ok 2858 - %a <<lcm<< %b
+ok 2859 - %a <<lcm>> %b
+ok 2860 - %a >>lcm>> %b
+ok 2861 - %a >>lcm=<< %b
+ok 2862 - %a assigned from %a >>lcm=<< %b
+ok 2863 - %a <<lcm=<< %b
+ok 2864 - %a assigned from %a <<lcm=<< %b
+ok 2865 - %a <<lcm=>> %b
+ok 2866 - %a assigned from %a <<lcm=>> %b
+ok 2867 - %a >>lcm=>> %b
+ok 2868 - %a assigned from %a >>lcm=>> %b
+ok 2869 - %a >>lcm<< 3 dies
+ok 2870 - %a <<lcm<< 3 dies
+ok 2871 - %a <<lcm>> 3
+ok 2872 - %a >>lcm>> 3
+ok 2873 - %a >>lcm=<< 3 dies
+ok 2874 - %a <<lcm=<< 3 dies
+ok 2875 - %a <<lcm=>> 3
+ok 2876 - %a assigned from %a <<lcm=>> 3
+ok 2877 - %a >>lcm=>> 3
+ok 2878 - %a assigned from %a >>lcm=>> 3
+ok 2879 - 3 >>lcm<< %a dies
+ok 2880 - 3 >>lcm>> %a dies
+ok 2881 - 3 <<lcm>> %a
+ok 2882 - 3 <<lcm<< %a
+ok 2883 - 3 >>lcm=<< %a dies
+ok 2884 - 3 >>lcm=>> %a dies
+ok 2885 - 3 <<lcm=>> %a dies
+ok 2886 - 3 <<lcm=<< %a dies
+ok 2887 - %a >>lcm<< %b
+ok 2888 - %a <<lcm<< %b
+ok 2889 - %a <<lcm>> %b
+ok 2890 - %a >>lcm>> %b
+ok 2891 - %a >>lcm=<< %b
+ok 2892 - %a assigned from %a >>lcm=<< %b
+ok 2893 - %a <<lcm=<< %b
+ok 2894 - %a assigned from %a <<lcm=<< %b
+ok 2895 - %a <<lcm=>> %b
+ok 2896 - %a assigned from %a <<lcm=>> %b
+ok 2897 - %a >>lcm=>> %b
+ok 2898 - %a assigned from %a >>lcm=>> %b
+ok 2899 - %a >>lcm<< 3 dies
+ok 2900 - %a <<lcm<< 3 dies
+ok 2901 - %a <<lcm>> 3
+ok 2902 - %a >>lcm>> 3
+ok 2903 - %a >>lcm=<< 3 dies
+ok 2904 - %a <<lcm=<< 3 dies
+ok 2905 - %a <<lcm=>> 3
+ok 2906 - %a assigned from %a <<lcm=>> 3
+ok 2907 - %a >>lcm=>> 3
+ok 2908 - %a assigned from %a >>lcm=>> 3
+ok 2909 - 3 >>lcm<< %a dies
+ok 2910 - 3 >>lcm>> %a dies
+ok 2911 - 3 <<lcm>> %a
+ok 2912 - 3 <<lcm<< %a
+ok 2913 - 3 >>lcm=<< %a dies
+ok 2914 - 3 >>lcm=>> %a dies
+ok 2915 - 3 <<lcm=>> %a dies
+ok 2916 - 3 <<lcm=<< %a dies
+ok 2917 - $a >>+|<< $b
+ok 2918 - $a <<+|<< $b
+ok 2919 - $a <<+|>> $b
+ok 2920 - $a >>+|>> $b
+ok 2921 - $a >>+|=<< $b
+ok 2922 - $a assigned from $a >>+|=<< $b
+ok 2923 - $a <<+|=<< $b
+ok 2924 - $a assigned from $a <<+|=<< $b
+ok 2925 - $a <<+|=>> $b
+ok 2926 - $a assigned from $a <<+|=>> $b
+ok 2927 - $a >>+|=>> $b
+ok 2928 - $a assigned from $a >>+|=>> $b
+ok 2929 - @a >>+|<< @b
+ok 2930 - @a <<+|<< @b
+ok 2931 - @a <<+|>> @b
+ok 2932 - @a >>+|>> @b
+ok 2933 - @a >>+|=<< @b
+ok 2934 - @a assigned from @a >>+|=<< @b
+ok 2935 - @a <<+|=<< @b
+ok 2936 - @a assigned from @a <<+|=<< @b
+ok 2937 - @a <<+|=>> @b
+ok 2938 - @a assigned from @a <<+|=>> @b
+ok 2939 - @a >>+|=>> @b
+ok 2940 - @a assigned from @a >>+|=>> @b
+ok 2941 - @a >>+|<< 3 dies
+ok 2942 - @a <<+|<< 3 dies
+ok 2943 - @a <<+|>> 3
+ok 2944 - @a >>+|>> 3
+ok 2945 - @a >>+|=<< 3 dies
+ok 2946 - @a <<+|=<< 3 dies
+ok 2947 - @a <<+|=>> 3
+ok 2948 - @a assigned from @a <<+|=>> 3
+ok 2949 - @a >>+|=>> 3
+ok 2950 - @a assigned from @a >>+|=>> 3
+ok 2951 - 3 >>+|<< @a dies
+ok 2952 - 3 >>+|>> @a dies
+ok 2953 - 3 <<+|>> @a
+ok 2954 - 3 <<+|<< @a
+ok 2955 - 3 >>+|=<< @a dies
+ok 2956 - 3 >>+|=>> @a dies
+ok 2957 - 3 <<+|=>> @a dies
+ok 2958 - 3 <<+|=<< @a dies
+ok 2959 - @a >>+|<< @b
+ok 2960 - @a <<+|<< @b
+ok 2961 - @a <<+|>> @b
+ok 2962 - @a >>+|>> @b
+ok 2963 - @a >>+|=<< @b
+ok 2964 - @a assigned from @a >>+|=<< @b
+ok 2965 - @a <<+|=<< @b
+ok 2966 - @a assigned from @a <<+|=<< @b
+ok 2967 - @a <<+|=>> @b
+ok 2968 - @a assigned from @a <<+|=>> @b
+ok 2969 - @a >>+|=>> @b
+ok 2970 - @a assigned from @a >>+|=>> @b
+ok 2971 - @a >>+|<< 3 dies
+ok 2972 - @a <<+|<< 3 dies
+ok 2973 - @a <<+|>> 3
+ok 2974 - @a >>+|>> 3
+ok 2975 - @a >>+|=<< 3 dies
+ok 2976 - @a <<+|=<< 3 dies
+ok 2977 - @a <<+|=>> 3
+ok 2978 - @a assigned from @a <<+|=>> 3
+ok 2979 - @a >>+|=>> 3
+ok 2980 - @a assigned from @a >>+|=>> 3
+ok 2981 - 3 >>+|<< @a dies
+ok 2982 - 3 >>+|>> @a dies
+ok 2983 - 3 <<+|>> @a
+ok 2984 - 3 <<+|<< @a
+ok 2985 - 3 >>+|=<< @a dies
+ok 2986 - 3 >>+|=>> @a dies
+ok 2987 - 3 <<+|=>> @a dies
+ok 2988 - 3 <<+|=<< @a dies
+ok 2989 - %a >>+|<< %b
+ok 2990 - %a <<+|<< %b
+ok 2991 - %a <<+|>> %b
+ok 2992 - %a >>+|>> %b
+ok 2993 - %a >>+|=<< %b
+ok 2994 - %a assigned from %a >>+|=<< %b
+ok 2995 - %a <<+|=<< %b
+ok 2996 - %a assigned from %a <<+|=<< %b
+ok 2997 - %a <<+|=>> %b
+ok 2998 - %a assigned from %a <<+|=>> %b
+ok 2999 - %a >>+|=>> %b
+ok 3000 - %a assigned from %a >>+|=>> %b
+ok 3001 - %a >>+|<< 3 dies
+ok 3002 - %a <<+|<< 3 dies
+ok 3003 - %a <<+|>> 3
+ok 3004 - %a >>+|>> 3
+ok 3005 - %a >>+|=<< 3 dies
+ok 3006 - %a <<+|=<< 3 dies
+ok 3007 - %a <<+|=>> 3
+ok 3008 - %a assigned from %a <<+|=>> 3
+ok 3009 - %a >>+|=>> 3
+ok 3010 - %a assigned from %a >>+|=>> 3
+ok 3011 - 3 >>+|<< %a dies
+ok 3012 - 3 >>+|>> %a dies
+ok 3013 - 3 <<+|>> %a
+ok 3014 - 3 <<+|<< %a
+ok 3015 - 3 >>+|=<< %a dies
+ok 3016 - 3 >>+|=>> %a dies
+ok 3017 - 3 <<+|=>> %a dies
+ok 3018 - 3 <<+|=<< %a dies
+ok 3019 - %a >>+|<< %b
+ok 3020 - %a <<+|<< %b
+ok 3021 - %a <<+|>> %b
+ok 3022 - %a >>+|>> %b
+ok 3023 - %a >>+|=<< %b
+ok 3024 - %a assigned from %a >>+|=<< %b
+ok 3025 - %a <<+|=<< %b
+ok 3026 - %a assigned from %a <<+|=<< %b
+ok 3027 - %a <<+|=>> %b
+ok 3028 - %a assigned from %a <<+|=>> %b
+ok 3029 - %a >>+|=>> %b
+ok 3030 - %a assigned from %a >>+|=>> %b
+ok 3031 - %a >>+|<< 3 dies
+ok 3032 - %a <<+|<< 3 dies
+ok 3033 - %a <<+|>> 3
+ok 3034 - %a >>+|>> 3
+ok 3035 - %a >>+|=<< 3 dies
+ok 3036 - %a <<+|=<< 3 dies
+ok 3037 - %a <<+|=>> 3
+ok 3038 - %a assigned from %a <<+|=>> 3
+ok 3039 - %a >>+|=>> 3
+ok 3040 - %a assigned from %a >>+|=>> 3
+ok 3041 - 3 >>+|<< %a dies
+ok 3042 - 3 >>+|>> %a dies
+ok 3043 - 3 <<+|>> %a
+ok 3044 - 3 <<+|<< %a
+ok 3045 - 3 >>+|=<< %a dies
+ok 3046 - 3 >>+|=>> %a dies
+ok 3047 - 3 <<+|=>> %a dies
+ok 3048 - 3 <<+|=<< %a dies
+ok 3049 - %a >>+|<< %b
+ok 3050 - %a <<+|<< %b
+ok 3051 - %a <<+|>> %b
+ok 3052 - %a >>+|>> %b
+ok 3053 - %a >>+|=<< %b
+ok 3054 - %a assigned from %a >>+|=<< %b
+ok 3055 - %a <<+|=<< %b
+ok 3056 - %a assigned from %a <<+|=<< %b
+ok 3057 - %a <<+|=>> %b
+ok 3058 - %a assigned from %a <<+|=>> %b
+ok 3059 - %a >>+|=>> %b
+ok 3060 - %a assigned from %a >>+|=>> %b
+ok 3061 - %a >>+|<< 3 dies
+ok 3062 - %a <<+|<< 3 dies
+ok 3063 - %a <<+|>> 3
+ok 3064 - %a >>+|>> 3
+ok 3065 - %a >>+|=<< 3 dies
+ok 3066 - %a <<+|=<< 3 dies
+ok 3067 - %a <<+|=>> 3
+ok 3068 - %a assigned from %a <<+|=>> 3
+ok 3069 - %a >>+|=>> 3
+ok 3070 - %a assigned from %a >>+|=>> 3
+ok 3071 - 3 >>+|<< %a dies
+ok 3072 - 3 >>+|>> %a dies
+ok 3073 - 3 <<+|>> %a
+ok 3074 - 3 <<+|<< %a
+ok 3075 - 3 >>+|=<< %a dies
+ok 3076 - 3 >>+|=>> %a dies
+ok 3077 - 3 <<+|=>> %a dies
+ok 3078 - 3 <<+|=<< %a dies
+ok 3079 - $a >>+&<< $b
+ok 3080 - $a <<+&<< $b
+ok 3081 - $a <<+&>> $b
+ok 3082 - $a >>+&>> $b
+ok 3083 - $a >>+&=<< $b
+ok 3084 - $a assigned from $a >>+&=<< $b
+ok 3085 - $a <<+&=<< $b
+ok 3086 - $a assigned from $a <<+&=<< $b
+ok 3087 - $a <<+&=>> $b
+ok 3088 - $a assigned from $a <<+&=>> $b
+ok 3089 - $a >>+&=>> $b
+ok 3090 - $a assigned from $a >>+&=>> $b
+ok 3091 - @a >>+&<< @b
+ok 3092 - @a <<+&<< @b
+ok 3093 - @a <<+&>> @b
+ok 3094 - @a >>+&>> @b
+ok 3095 - @a >>+&=<< @b
+ok 3096 - @a assigned from @a >>+&=<< @b
+ok 3097 - @a <<+&=<< @b
+ok 3098 - @a assigned from @a <<+&=<< @b
+ok 3099 - @a <<+&=>> @b
+ok 3100 - @a assigned from @a <<+&=>> @b
+ok 3101 - @a >>+&=>> @b
+ok 3102 - @a assigned from @a >>+&=>> @b
+ok 3103 - @a >>+&<< 3 dies
+ok 3104 - @a <<+&<< 3 dies
+ok 3105 - @a <<+&>> 3
+ok 3106 - @a >>+&>> 3
+ok 3107 - @a >>+&=<< 3 dies
+ok 3108 - @a <<+&=<< 3 dies
+ok 3109 - @a <<+&=>> 3
+ok 3110 - @a assigned from @a <<+&=>> 3
+ok 3111 - @a >>+&=>> 3
+ok 3112 - @a assigned from @a >>+&=>> 3
+ok 3113 - 3 >>+&<< @a dies
+ok 3114 - 3 >>+&>> @a dies
+ok 3115 - 3 <<+&>> @a
+ok 3116 - 3 <<+&<< @a
+ok 3117 - 3 >>+&=<< @a dies
+ok 3118 - 3 >>+&=>> @a dies
+ok 3119 - 3 <<+&=>> @a dies
+ok 3120 - 3 <<+&=<< @a dies
+ok 3121 - @a >>+&<< @b
+ok 3122 - @a <<+&<< @b
+ok 3123 - @a <<+&>> @b
+ok 3124 - @a >>+&>> @b
+ok 3125 - @a >>+&=<< @b
+ok 3126 - @a assigned from @a >>+&=<< @b
+ok 3127 - @a <<+&=<< @b
+ok 3128 - @a assigned from @a <<+&=<< @b
+ok 3129 - @a <<+&=>> @b
+ok 3130 - @a assigned from @a <<+&=>> @b
+ok 3131 - @a >>+&=>> @b
+ok 3132 - @a assigned from @a >>+&=>> @b
+ok 3133 - @a >>+&<< 3 dies
+ok 3134 - @a <<+&<< 3 dies
+ok 3135 - @a <<+&>> 3
+ok 3136 - @a >>+&>> 3
+ok 3137 - @a >>+&=<< 3 dies
+ok 3138 - @a <<+&=<< 3 dies
+ok 3139 - @a <<+&=>> 3
+ok 3140 - @a assigned from @a <<+&=>> 3
+ok 3141 - @a >>+&=>> 3
+ok 3142 - @a assigned from @a >>+&=>> 3
+ok 3143 - 3 >>+&<< @a dies
+ok 3144 - 3 >>+&>> @a dies
+ok 3145 - 3 <<+&>> @a
+ok 3146 - 3 <<+&<< @a
+ok 3147 - 3 >>+&=<< @a dies
+ok 3148 - 3 >>+&=>> @a dies
+ok 3149 - 3 <<+&=>> @a dies
+ok 3150 - 3 <<+&=<< @a dies
+ok 3151 - %a >>+&<< %b
+ok 3152 - %a <<+&<< %b
+ok 3153 - %a <<+&>> %b
+ok 3154 - %a >>+&>> %b
+ok 3155 - %a >>+&=<< %b
+ok 3156 - %a assigned from %a >>+&=<< %b
+ok 3157 - %a <<+&=<< %b
+ok 3158 - %a assigned from %a <<+&=<< %b
+ok 3159 - %a <<+&=>> %b
+ok 3160 - %a assigned from %a <<+&=>> %b
+ok 3161 - %a >>+&=>> %b
+ok 3162 - %a assigned from %a >>+&=>> %b
+ok 3163 - %a >>+&<< 3 dies
+ok 3164 - %a <<+&<< 3 dies
+ok 3165 - %a <<+&>> 3
+ok 3166 - %a >>+&>> 3
+ok 3167 - %a >>+&=<< 3 dies
+ok 3168 - %a <<+&=<< 3 dies
+ok 3169 - %a <<+&=>> 3
+ok 3170 - %a assigned from %a <<+&=>> 3
+ok 3171 - %a >>+&=>> 3
+ok 3172 - %a assigned from %a >>+&=>> 3
+ok 3173 - 3 >>+&<< %a dies
+ok 3174 - 3 >>+&>> %a dies
+ok 3175 - 3 <<+&>> %a
+ok 3176 - 3 <<+&<< %a
+ok 3177 - 3 >>+&=<< %a dies
+ok 3178 - 3 >>+&=>> %a dies
+ok 3179 - 3 <<+&=>> %a dies
+ok 3180 - 3 <<+&=<< %a dies
+ok 3181 - %a >>+&<< %b
+ok 3182 - %a <<+&<< %b
+ok 3183 - %a <<+&>> %b
+ok 3184 - %a >>+&>> %b
+ok 3185 - %a >>+&=<< %b
+ok 3186 - %a assigned from %a >>+&=<< %b
+ok 3187 - %a <<+&=<< %b
+ok 3188 - %a assigned from %a <<+&=<< %b
+ok 3189 - %a <<+&=>> %b
+ok 3190 - %a assigned from %a <<+&=>> %b
+ok 3191 - %a >>+&=>> %b
+ok 3192 - %a assigned from %a >>+&=>> %b
+ok 3193 - %a >>+&<< 3 dies
+ok 3194 - %a <<+&<< 3 dies
+ok 3195 - %a <<+&>> 3
+ok 3196 - %a >>+&>> 3
+ok 3197 - %a >>+&=<< 3 dies
+ok 3198 - %a <<+&=<< 3 dies
+ok 3199 - %a <<+&=>> 3
+ok 3200 - %a assigned from %a <<+&=>> 3
+ok 3201 - %a >>+&=>> 3
+ok 3202 - %a assigned from %a >>+&=>> 3
+ok 3203 - 3 >>+&<< %a dies
+ok 3204 - 3 >>+&>> %a dies
+ok 3205 - 3 <<+&>> %a
+ok 3206 - 3 <<+&<< %a
+ok 3207 - 3 >>+&=<< %a dies
+ok 3208 - 3 >>+&=>> %a dies
+ok 3209 - 3 <<+&=>> %a dies
+ok 3210 - 3 <<+&=<< %a dies
+ok 3211 - %a >>+&<< %b
+ok 3212 - %a <<+&<< %b
+ok 3213 - %a <<+&>> %b
+ok 3214 - %a >>+&>> %b
+ok 3215 - %a >>+&=<< %b
+ok 3216 - %a assigned from %a >>+&=<< %b
+ok 3217 - %a <<+&=<< %b
+ok 3218 - %a assigned from %a <<+&=<< %b
+ok 3219 - %a <<+&=>> %b
+ok 3220 - %a assigned from %a <<+&=>> %b
+ok 3221 - %a >>+&=>> %b
+ok 3222 - %a assigned from %a >>+&=>> %b
+ok 3223 - %a >>+&<< 3 dies
+ok 3224 - %a <<+&<< 3 dies
+ok 3225 - %a <<+&>> 3
+ok 3226 - %a >>+&>> 3
+ok 3227 - %a >>+&=<< 3 dies
+ok 3228 - %a <<+&=<< 3 dies
+ok 3229 - %a <<+&=>> 3
+ok 3230 - %a assigned from %a <<+&=>> 3
+ok 3231 - %a >>+&=>> 3
+ok 3232 - %a assigned from %a >>+&=>> 3
+ok 3233 - 3 >>+&<< %a dies
+ok 3234 - 3 >>+&>> %a dies
+ok 3235 - 3 <<+&>> %a
+ok 3236 - 3 <<+&<< %a
+ok 3237 - 3 >>+&=<< %a dies
+ok 3238 - 3 >>+&=>> %a dies
+ok 3239 - 3 <<+&=>> %a dies
+ok 3240 - 3 <<+&=<< %a dies
+ok 3241 - $a >>+^<< $b
+ok 3242 - $a <<+^<< $b
+ok 3243 - $a <<+^>> $b
+ok 3244 - $a >>+^>> $b
+ok 3245 - $a >>+^=<< $b
+ok 3246 - $a assigned from $a >>+^=<< $b
+ok 3247 - $a <<+^=<< $b
+ok 3248 - $a assigned from $a <<+^=<< $b
+ok 3249 - $a <<+^=>> $b
+ok 3250 - $a assigned from $a <<+^=>> $b
+ok 3251 - $a >>+^=>> $b
+ok 3252 - $a assigned from $a >>+^=>> $b
+ok 3253 - @a >>+^<< @b
+ok 3254 - @a <<+^<< @b
+ok 3255 - @a <<+^>> @b
+ok 3256 - @a >>+^>> @b
+ok 3257 - @a >>+^=<< @b
+ok 3258 - @a assigned from @a >>+^=<< @b
+ok 3259 - @a <<+^=<< @b
+ok 3260 - @a assigned from @a <<+^=<< @b
+ok 3261 - @a <<+^=>> @b
+ok 3262 - @a assigned from @a <<+^=>> @b
+ok 3263 - @a >>+^=>> @b
+ok 3264 - @a assigned from @a >>+^=>> @b
+ok 3265 - @a >>+^<< 3 dies
+ok 3266 - @a <<+^<< 3 dies
+ok 3267 - @a <<+^>> 3
+ok 3268 - @a >>+^>> 3
+ok 3269 - @a >>+^=<< 3 dies
+ok 3270 - @a <<+^=<< 3 dies
+ok 3271 - @a <<+^=>> 3
+ok 3272 - @a assigned from @a <<+^=>> 3
+ok 3273 - @a >>+^=>> 3
+ok 3274 - @a assigned from @a >>+^=>> 3
+ok 3275 - 3 >>+^<< @a dies
+ok 3276 - 3 >>+^>> @a dies
+ok 3277 - 3 <<+^>> @a
+ok 3278 - 3 <<+^<< @a
+ok 3279 - 3 >>+^=<< @a dies
+ok 3280 - 3 >>+^=>> @a dies
+ok 3281 - 3 <<+^=>> @a dies
+ok 3282 - 3 <<+^=<< @a dies
+ok 3283 - @a >>+^<< @b
+ok 3284 - @a <<+^<< @b
+ok 3285 - @a <<+^>> @b
+ok 3286 - @a >>+^>> @b
+ok 3287 - @a >>+^=<< @b
+ok 3288 - @a assigned from @a >>+^=<< @b
+ok 3289 - @a <<+^=<< @b
+ok 3290 - @a assigned from @a <<+^=<< @b
+ok 3291 - @a <<+^=>> @b
+ok 3292 - @a assigned from @a <<+^=>> @b
+ok 3293 - @a >>+^=>> @b
+ok 3294 - @a assigned from @a >>+^=>> @b
+ok 3295 - @a >>+^<< 3 dies
+ok 3296 - @a <<+^<< 3 dies
+ok 3297 - @a <<+^>> 3
+ok 3298 - @a >>+^>> 3
+ok 3299 - @a >>+^=<< 3 dies
+ok 3300 - @a <<+^=<< 3 dies
+ok 3301 - @a <<+^=>> 3
+ok 3302 - @a assigned from @a <<+^=>> 3
+ok 3303 - @a >>+^=>> 3
+ok 3304 - @a assigned from @a >>+^=>> 3
+ok 3305 - 3 >>+^<< @a dies
+ok 3306 - 3 >>+^>> @a dies
+ok 3307 - 3 <<+^>> @a
+ok 3308 - 3 <<+^<< @a
+ok 3309 - 3 >>+^=<< @a dies
+ok 3310 - 3 >>+^=>> @a dies
+ok 3311 - 3 <<+^=>> @a dies
+ok 3312 - 3 <<+^=<< @a dies
+ok 3313 - %a >>+^<< %b
+ok 3314 - %a <<+^<< %b
+ok 3315 - %a <<+^>> %b
+ok 3316 - %a >>+^>> %b
+ok 3317 - %a >>+^=<< %b
+ok 3318 - %a assigned from %a >>+^=<< %b
+ok 3319 - %a <<+^=<< %b
+ok 3320 - %a assigned from %a <<+^=<< %b
+ok 3321 - %a <<+^=>> %b
+ok 3322 - %a assigned from %a <<+^=>> %b
+ok 3323 - %a >>+^=>> %b
+ok 3324 - %a assigned from %a >>+^=>> %b
+ok 3325 - %a >>+^<< 3 dies
+ok 3326 - %a <<+^<< 3 dies
+ok 3327 - %a <<+^>> 3
+ok 3328 - %a >>+^>> 3
+ok 3329 - %a >>+^=<< 3 dies
+ok 3330 - %a <<+^=<< 3 dies
+ok 3331 - %a <<+^=>> 3
+ok 3332 - %a assigned from %a <<+^=>> 3
+ok 3333 - %a >>+^=>> 3
+ok 3334 - %a assigned from %a >>+^=>> 3
+ok 3335 - 3 >>+^<< %a dies
+ok 3336 - 3 >>+^>> %a dies
+ok 3337 - 3 <<+^>> %a
+ok 3338 - 3 <<+^<< %a
+ok 3339 - 3 >>+^=<< %a dies
+ok 3340 - 3 >>+^=>> %a dies
+ok 3341 - 3 <<+^=>> %a dies
+ok 3342 - 3 <<+^=<< %a dies
+ok 3343 - %a >>+^<< %b
+ok 3344 - %a <<+^<< %b
+ok 3345 - %a <<+^>> %b
+ok 3346 - %a >>+^>> %b
+ok 3347 - %a >>+^=<< %b
+ok 3348 - %a assigned from %a >>+^=<< %b
+ok 3349 - %a <<+^=<< %b
+ok 3350 - %a assigned from %a <<+^=<< %b
+ok 3351 - %a <<+^=>> %b
+ok 3352 - %a assigned from %a <<+^=>> %b
+ok 3353 - %a >>+^=>> %b
+ok 3354 - %a assigned from %a >>+^=>> %b
+ok 3355 - %a >>+^<< 3 dies
+ok 3356 - %a <<+^<< 3 dies
+ok 3357 - %a <<+^>> 3
+ok 3358 - %a >>+^>> 3
+ok 3359 - %a >>+^=<< 3 dies
+ok 3360 - %a <<+^=<< 3 dies
+ok 3361 - %a <<+^=>> 3
+ok 3362 - %a assigned from %a <<+^=>> 3
+ok 3363 - %a >>+^=>> 3
+ok 3364 - %a assigned from %a >>+^=>> 3
+ok 3365 - 3 >>+^<< %a dies
+ok 3366 - 3 >>+^>> %a dies
+ok 3367 - 3 <<+^>> %a
+ok 3368 - 3 <<+^<< %a
+ok 3369 - 3 >>+^=<< %a dies
+ok 3370 - 3 >>+^=>> %a dies
+ok 3371 - 3 <<+^=>> %a dies
+ok 3372 - 3 <<+^=<< %a dies
+ok 3373 - %a >>+^<< %b
+ok 3374 - %a <<+^<< %b
+ok 3375 - %a <<+^>> %b
+ok 3376 - %a >>+^>> %b
+ok 3377 - %a >>+^=<< %b
+ok 3378 - %a assigned from %a >>+^=<< %b
+ok 3379 - %a <<+^=<< %b
+ok 3380 - %a assigned from %a <<+^=<< %b
+ok 3381 - %a <<+^=>> %b
+ok 3382 - %a assigned from %a <<+^=>> %b
+ok 3383 - %a >>+^=>> %b
+ok 3384 - %a assigned from %a >>+^=>> %b
+ok 3385 - %a >>+^<< 3 dies
+ok 3386 - %a <<+^<< 3 dies
+ok 3387 - %a <<+^>> 3
+ok 3388 - %a >>+^>> 3
+ok 3389 - %a >>+^=<< 3 dies
+ok 3390 - %a <<+^=<< 3 dies
+ok 3391 - %a <<+^=>> 3
+ok 3392 - %a assigned from %a <<+^=>> 3
+ok 3393 - %a >>+^=>> 3
+ok 3394 - %a assigned from %a >>+^=>> 3
+ok 3395 - 3 >>+^<< %a dies
+ok 3396 - 3 >>+^>> %a dies
+ok 3397 - 3 <<+^>> %a
+ok 3398 - 3 <<+^<< %a
+ok 3399 - 3 >>+^=<< %a dies
+ok 3400 - 3 >>+^=>> %a dies
+ok 3401 - 3 <<+^=>> %a dies
+ok 3402 - 3 <<+^=<< %a dies
+ok 3403 - $a >>/<< $b
+ok 3404 - $a <</<< $b
+ok 3405 - $a <</>> $b
+ok 3406 - $a >>/>> $b
+ok 3407 - $a >>/=<< $b
+ok 3408 - $a assigned from $a >>/=<< $b
+ok 3409 - $a <</=<< $b
+ok 3410 - $a assigned from $a <</=<< $b
+ok 3411 - $a <</=>> $b
+ok 3412 - $a assigned from $a <</=>> $b
+ok 3413 - $a >>/=>> $b
+ok 3414 - $a assigned from $a >>/=>> $b
+ok 3415 - @a >>/<< @b
+ok 3416 - @a <</<< @b
+ok 3417 - @a <</>> @b
+ok 3418 - @a >>/>> @b
+ok 3419 - @a >>/=<< @b
+ok 3420 - @a assigned from @a >>/=<< @b
+ok 3421 - @a <</=<< @b
+ok 3422 - @a assigned from @a <</=<< @b
+ok 3423 - @a <</=>> @b
+ok 3424 - @a assigned from @a <</=>> @b
+ok 3425 - @a >>/=>> @b
+ok 3426 - @a assigned from @a >>/=>> @b
+ok 3427 - @a >>/<< 3 dies
+ok 3428 - @a <</<< 3 dies
+ok 3429 - @a <</>> 3
+ok 3430 - @a >>/>> 3
+ok 3431 - @a >>/=<< 3 dies
+ok 3432 - @a <</=<< 3 dies
+ok 3433 - @a <</=>> 3
+ok 3434 - @a assigned from @a <</=>> 3
+ok 3435 - @a >>/=>> 3
+ok 3436 - @a assigned from @a >>/=>> 3
+ok 3437 - 3 >>/<< @a dies
+ok 3438 - 3 >>/>> @a dies
+ok 3439 - 3 <</>> @a
+ok 3440 - 3 <</<< @a
+ok 3441 - 3 >>/=<< @a dies
+ok 3442 - 3 >>/=>> @a dies
+ok 3443 - 3 <</=>> @a dies
+ok 3444 - 3 <</=<< @a dies
+ok 3445 - @a >>/<< @b
+ok 3446 - @a <</<< @b
+ok 3447 - @a <</>> @b
+ok 3448 - @a >>/>> @b
+ok 3449 - @a >>/=<< @b
+ok 3450 - @a assigned from @a >>/=<< @b
+ok 3451 - @a <</=<< @b
+ok 3452 - @a assigned from @a <</=<< @b
+ok 3453 - @a <</=>> @b
+ok 3454 - @a assigned from @a <</=>> @b
+ok 3455 - @a >>/=>> @b
+ok 3456 - @a assigned from @a >>/=>> @b
+ok 3457 - @a >>/<< 3 dies
+ok 3458 - @a <</<< 3 dies
+ok 3459 - @a <</>> 3
+ok 3460 - @a >>/>> 3
+ok 3461 - @a >>/=<< 3 dies
+ok 3462 - @a <</=<< 3 dies
+ok 3463 - @a <</=>> 3
+ok 3464 - @a assigned from @a <</=>> 3
+ok 3465 - @a >>/=>> 3
+ok 3466 - @a assigned from @a >>/=>> 3
+ok 3467 - 3 >>/<< @a dies
+ok 3468 - 3 >>/>> @a dies
+ok 3469 - 3 <</>> @a
+ok 3470 - 3 <</<< @a
+ok 3471 - 3 >>/=<< @a dies
+ok 3472 - 3 >>/=>> @a dies
+ok 3473 - 3 <</=>> @a dies
+ok 3474 - 3 <</=<< @a dies
+ok 3475 - %a >>/<< %b
+ok 3476 - %a <</<< %b
+ok 3477 - %a <</>> %b
+ok 3478 - %a >>/>> %b
+ok 3479 - %a >>/=<< %b
+ok 3480 - %a assigned from %a >>/=<< %b
+ok 3481 - %a <</=<< %b
+ok 3482 - %a assigned from %a <</=<< %b
+ok 3483 - %a <</=>> %b
+ok 3484 - %a assigned from %a <</=>> %b
+ok 3485 - %a >>/=>> %b
+ok 3486 - %a assigned from %a >>/=>> %b
+ok 3487 - %a >>/<< 3 dies
+ok 3488 - %a <</<< 3 dies
+ok 3489 - %a <</>> 3
+ok 3490 - %a >>/>> 3
+ok 3491 - %a >>/=<< 3 dies
+ok 3492 - %a <</=<< 3 dies
+ok 3493 - %a <</=>> 3
+ok 3494 - %a assigned from %a <</=>> 3
+ok 3495 - %a >>/=>> 3
+ok 3496 - %a assigned from %a >>/=>> 3
+ok 3497 - 3 >>/<< %a dies
+ok 3498 - 3 >>/>> %a dies
+ok 3499 - 3 <</>> %a
+ok 3500 - 3 <</<< %a
+ok 3501 - 3 >>/=<< %a dies
+ok 3502 - 3 >>/=>> %a dies
+ok 3503 - 3 <</=>> %a dies
+ok 3504 - 3 <</=<< %a dies
+ok 3505 - %a >>/<< %b
+ok 3506 - %a <</<< %b
+ok 3507 - %a <</>> %b
+ok 3508 - %a >>/>> %b
+ok 3509 - %a >>/=<< %b
+ok 3510 - %a assigned from %a >>/=<< %b
+ok 3511 - %a <</=<< %b
+ok 3512 - %a assigned from %a <</=<< %b
+ok 3513 - %a <</=>> %b
+ok 3514 - %a assigned from %a <</=>> %b
+ok 3515 - %a >>/=>> %b
+ok 3516 - %a assigned from %a >>/=>> %b
+ok 3517 - %a >>/<< 3 dies
+ok 3518 - %a <</<< 3 dies
+ok 3519 - %a <</>> 3
+ok 3520 - %a >>/>> 3
+ok 3521 - %a >>/=<< 3 dies
+ok 3522 - %a <</=<< 3 dies
+ok 3523 - %a <</=>> 3
+ok 3524 - %a assigned from %a <</=>> 3
+ok 3525 - %a >>/=>> 3
+ok 3526 - %a assigned from %a >>/=>> 3
+ok 3527 - 3 >>/<< %a dies
+ok 3528 - 3 >>/>> %a dies
+ok 3529 - 3 <</>> %a
+ok 3530 - 3 <</<< %a
+ok 3531 - 3 >>/=<< %a dies
+ok 3532 - 3 >>/=>> %a dies
+ok 3533 - 3 <</=>> %a dies
+ok 3534 - 3 <</=<< %a dies
+ok 3535 - %a >>/<< %b
+ok 3536 - %a <</<< %b
+ok 3537 - %a <</>> %b
+ok 3538 - %a >>/>> %b
+ok 3539 - %a >>/=<< %b
+ok 3540 - %a assigned from %a >>/=<< %b
+ok 3541 - %a <</=<< %b
+ok 3542 - %a assigned from %a <</=<< %b
+ok 3543 - %a <</=>> %b
+ok 3544 - %a assigned from %a <</=>> %b
+ok 3545 - %a >>/=>> %b
+ok 3546 - %a assigned from %a >>/=>> %b
+ok 3547 - %a >>/<< 3 dies
+ok 3548 - %a <</<< 3 dies
+ok 3549 - %a <</>> 3
+ok 3550 - %a >>/>> 3
+ok 3551 - %a >>/=<< 3 dies
+ok 3552 - %a <</=<< 3 dies
+ok 3553 - %a <</=>> 3
+ok 3554 - %a assigned from %a <</=>> 3
+ok 3555 - %a >>/=>> 3
+ok 3556 - %a assigned from %a >>/=>> 3
+ok 3557 - 3 >>/<< %a dies
+ok 3558 - 3 >>/>> %a dies
+ok 3559 - 3 <</>> %a
+ok 3560 - 3 <</<< %a
+ok 3561 - 3 >>/=<< %a dies
+ok 3562 - 3 >>/=>> %a dies
+ok 3563 - 3 <</=>> %a dies
+ok 3564 - 3 <</=<< %a dies
+ok 3565 - $a >>div<< $b
+ok 3566 - $a <<div<< $b
+ok 3567 - $a <<div>> $b
+ok 3568 - $a >>div>> $b
+ok 3569 - $a >>div=<< $b
+ok 3570 - $a assigned from $a >>div=<< $b
+ok 3571 - $a <<div=<< $b
+ok 3572 - $a assigned from $a <<div=<< $b
+ok 3573 - $a <<div=>> $b
+ok 3574 - $a assigned from $a <<div=>> $b
+ok 3575 - $a >>div=>> $b
+ok 3576 - $a assigned from $a >>div=>> $b
+ok 3577 - @a >>div<< @b
+ok 3578 - @a <<div<< @b
+ok 3579 - @a <<div>> @b
+ok 3580 - @a >>div>> @b
+ok 3581 - @a >>div=<< @b
+ok 3582 - @a assigned from @a >>div=<< @b
+ok 3583 - @a <<div=<< @b
+ok 3584 - @a assigned from @a <<div=<< @b
+ok 3585 - @a <<div=>> @b
+ok 3586 - @a assigned from @a <<div=>> @b
+ok 3587 - @a >>div=>> @b
+ok 3588 - @a assigned from @a >>div=>> @b
+ok 3589 - @a >>div<< 3 dies
+ok 3590 - @a <<div<< 3 dies
+ok 3591 - @a <<div>> 3
+ok 3592 - @a >>div>> 3
+ok 3593 - @a >>div=<< 3 dies
+ok 3594 - @a <<div=<< 3 dies
+ok 3595 - @a <<div=>> 3
+ok 3596 - @a assigned from @a <<div=>> 3
+ok 3597 - @a >>div=>> 3
+ok 3598 - @a assigned from @a >>div=>> 3
+ok 3599 - 3 >>div<< @a dies
+ok 3600 - 3 >>div>> @a dies
+ok 3601 - 3 <<div>> @a
+ok 3602 - 3 <<div<< @a
+ok 3603 - 3 >>div=<< @a dies
+ok 3604 - 3 >>div=>> @a dies
+ok 3605 - 3 <<div=>> @a dies
+ok 3606 - 3 <<div=<< @a dies
+ok 3607 - @a >>div<< @b
+ok 3608 - @a <<div<< @b
+ok 3609 - @a <<div>> @b
+ok 3610 - @a >>div>> @b
+ok 3611 - @a >>div=<< @b
+ok 3612 - @a assigned from @a >>div=<< @b
+ok 3613 - @a <<div=<< @b
+ok 3614 - @a assigned from @a <<div=<< @b
+ok 3615 - @a <<div=>> @b
+ok 3616 - @a assigned from @a <<div=>> @b
+ok 3617 - @a >>div=>> @b
+ok 3618 - @a assigned from @a >>div=>> @b
+ok 3619 - @a >>div<< 3 dies
+ok 3620 - @a <<div<< 3 dies
+ok 3621 - @a <<div>> 3
+ok 3622 - @a >>div>> 3
+ok 3623 - @a >>div=<< 3 dies
+ok 3624 - @a <<div=<< 3 dies
+ok 3625 - @a <<div=>> 3
+ok 3626 - @a assigned from @a <<div=>> 3
+ok 3627 - @a >>div=>> 3
+ok 3628 - @a assigned from @a >>div=>> 3
+ok 3629 - 3 >>div<< @a dies
+ok 3630 - 3 >>div>> @a dies
+ok 3631 - 3 <<div>> @a
+ok 3632 - 3 <<div<< @a
+ok 3633 - 3 >>div=<< @a dies
+ok 3634 - 3 >>div=>> @a dies
+ok 3635 - 3 <<div=>> @a dies
+ok 3636 - 3 <<div=<< @a dies
+ok 3637 - %a >>div<< %b
+ok 3638 - %a <<div<< %b
+ok 3639 - %a <<div>> %b
+ok 3640 - %a >>div>> %b
+ok 3641 - %a >>div=<< %b
+ok 3642 - %a assigned from %a >>div=<< %b
+ok 3643 - %a <<div=<< %b
+ok 3644 - %a assigned from %a <<div=<< %b
+ok 3645 - %a <<div=>> %b
+ok 3646 - %a assigned from %a <<div=>> %b
+ok 3647 - %a >>div=>> %b
+ok 3648 - %a assigned from %a >>div=>> %b
+ok 3649 - %a >>div<< 3 dies
+ok 3650 - %a <<div<< 3 dies
+ok 3651 - %a <<div>> 3
+ok 3652 - %a >>div>> 3
+ok 3653 - %a >>div=<< 3 dies
+ok 3654 - %a <<div=<< 3 dies
+ok 3655 - %a <<div=>> 3
+ok 3656 - %a assigned from %a <<div=>> 3
+ok 3657 - %a >>div=>> 3
+ok 3658 - %a assigned from %a >>div=>> 3
+ok 3659 - 3 >>div<< %a dies
+ok 3660 - 3 >>div>> %a dies
+ok 3661 - 3 <<div>> %a
+ok 3662 - 3 <<div<< %a
+ok 3663 - 3 >>div=<< %a dies
+ok 3664 - 3 >>div=>> %a dies
+ok 3665 - 3 <<div=>> %a dies
+ok 3666 - 3 <<div=<< %a dies
+ok 3667 - %a >>div<< %b
+ok 3668 - %a <<div<< %b
+ok 3669 - %a <<div>> %b
+ok 3670 - %a >>div>> %b
+ok 3671 - %a >>div=<< %b
+ok 3672 - %a assigned from %a >>div=<< %b
+ok 3673 - %a <<div=<< %b
+ok 3674 - %a assigned from %a <<div=<< %b
+ok 3675 - %a <<div=>> %b
+ok 3676 - %a assigned from %a <<div=>> %b
+ok 3677 - %a >>div=>> %b
+ok 3678 - %a assigned from %a >>div=>> %b
+ok 3679 - %a >>div<< 3 dies
+ok 3680 - %a <<div<< 3 dies
+ok 3681 - %a <<div>> 3
+ok 3682 - %a >>div>> 3
+ok 3683 - %a >>div=<< 3 dies
+ok 3684 - %a <<div=<< 3 dies
+ok 3685 - %a <<div=>> 3
+ok 3686 - %a assigned from %a <<div=>> 3
+ok 3687 - %a >>div=>> 3
+ok 3688 - %a assigned from %a >>div=>> 3
+ok 3689 - 3 >>div<< %a dies
+ok 3690 - 3 >>div>> %a dies
+ok 3691 - 3 <<div>> %a
+ok 3692 - 3 <<div<< %a
+ok 3693 - 3 >>div=<< %a dies
+ok 3694 - 3 >>div=>> %a dies
+ok 3695 - 3 <<div=>> %a dies
+ok 3696 - 3 <<div=<< %a dies
+ok 3697 - %a >>div<< %b
+ok 3698 - %a <<div<< %b
+ok 3699 - %a <<div>> %b
+ok 3700 - %a >>div>> %b
+ok 3701 - %a >>div=<< %b
+ok 3702 - %a assigned from %a >>div=<< %b
+ok 3703 - %a <<div=<< %b
+ok 3704 - %a assigned from %a <<div=<< %b
+ok 3705 - %a <<div=>> %b
+ok 3706 - %a assigned from %a <<div=>> %b
+ok 3707 - %a >>div=>> %b
+ok 3708 - %a assigned from %a >>div=>> %b
+ok 3709 - %a >>div<< 3 dies
+ok 3710 - %a <<div<< 3 dies
+ok 3711 - %a <<div>> 3
+ok 3712 - %a >>div>> 3
+ok 3713 - %a >>div=<< 3 dies
+ok 3714 - %a <<div=<< 3 dies
+ok 3715 - %a <<div=>> 3
+ok 3716 - %a assigned from %a <<div=>> 3
+ok 3717 - %a >>div=>> 3
+ok 3718 - %a assigned from %a >>div=>> 3
+ok 3719 - 3 >>div<< %a dies
+ok 3720 - 3 >>div>> %a dies
+ok 3721 - 3 <<div>> %a
+ok 3722 - 3 <<div<< %a
+ok 3723 - 3 >>div=<< %a dies
+ok 3724 - 3 >>div=>> %a dies
+ok 3725 - 3 <<div=>> %a dies
+ok 3726 - 3 <<div=<< %a dies
+ok 3727 - set %a >>+<< %b
+ok 3728 - set %a <<+<< %b
+ok 3729 - set %a <<+>> %b
+ok 3730 - set %a >>+>> %b
+ok 3731 - set %a >>+=<< %b
+ok 3732 - set %a assigned from %a >>+=<< %b
+ok 3733 - set %a <<+=<< %b
+ok 3734 - set %a assigned from %a <<+=<< %b
+ok 3735 - set %a <<+=>> %b
+ok 3736 - set %a assigned from %a <<+=>> %b
+ok 3737 - set %a >>+=>> %b
+ok 3738 - set %a assigned from %a >>+=>> %b
+ok 3739 - set %a >>+<< 3 dies
+ok 3740 - set %a <<+<< 3 dies
+ok 3741 - set %a <<+>> 3
+ok 3742 - set %a >>+>> 3
+ok 3743 - set %a >>+=<< 3 dies
+ok 3744 - set %a <<+=<< 3 dies
+ok 3745 - set %a <<+=>> 3
+ok 3746 - set %a assigned from %a <<+=>> 3
+ok 3747 - set %a >>+=>> 3
+ok 3748 - set %a assigned from %a >>+=>> 3
+ok 3749 - set 3 >>+<< %a dies
+ok 3750 - set 3 >>+>> %a dies
+ok 3751 - set 3 <<+>> %a
+ok 3752 - set 3 <<+<< %a
+ok 3753 - set 3 >>+=<< %a dies
+ok 3754 - set 3 >>+=>> %a dies
+ok 3755 - set 3 <<+=>> %a dies
+ok 3756 - set 3 <<+=<< %a dies
+ok 3757 - bag %a >>+<< %b
+ok 3758 - bag %a <<+<< %b
+ok 3759 - bag %a <<+>> %b
+ok 3760 - bag %a >>+>> %b
+ok 3761 - bag %a >>+=<< %b
+ok 3762 - bag %a assigned from %a >>+=<< %b
+ok 3763 - bag %a <<+=<< %b
+ok 3764 - bag %a assigned from %a <<+=<< %b
+ok 3765 - bag %a <<+=>> %b
+ok 3766 - bag %a assigned from %a <<+=>> %b
+ok 3767 - bag %a >>+=>> %b
+ok 3768 - bag %a assigned from %a >>+=>> %b
+ok 3769 - bag %a >>+<< 3 dies
+ok 3770 - bag %a <<+<< 3 dies
+ok 3771 - bag %a <<+>> 3
+ok 3772 - bag %a >>+>> 3
+ok 3773 - bag %a >>+=<< 3 dies
+ok 3774 - bag %a <<+=<< 3 dies
+ok 3775 - bag %a <<+=>> 3
+ok 3776 - bag %a assigned from %a <<+=>> 3
+ok 3777 - bag %a >>+=>> 3
+ok 3778 - bag %a assigned from %a >>+=>> 3
+ok 3779 - bag 3 >>+<< %a dies
+ok 3780 - bag 3 >>+>> %a dies
+ok 3781 - bag 3 <<+>> %a
+ok 3782 - bag 3 <<+<< %a
+ok 3783 - bag 3 >>+=<< %a dies
+ok 3784 - bag 3 >>+=>> %a dies
+ok 3785 - bag 3 <<+=>> %a dies
+ok 3786 - bag 3 <<+=<< %a dies
+ok 3787 - mix %a >>+<< %b
+ok 3788 - mix %a <<+<< %b
+ok 3789 - mix %a <<+>> %b
+ok 3790 - mix %a >>+>> %b
+ok 3791 - mix %a >>+=<< %b
+ok 3792 - mix %a assigned from %a >>+=<< %b
+ok 3793 - mix %a <<+=<< %b
+ok 3794 - mix %a assigned from %a <<+=<< %b
+ok 3795 - mix %a <<+=>> %b
+ok 3796 - mix %a assigned from %a <<+=>> %b
+ok 3797 - mix %a >>+=>> %b
+ok 3798 - mix %a assigned from %a >>+=>> %b
+ok 3799 - mix %a >>+<< 3 dies
+ok 3800 - mix %a <<+<< 3 dies
+ok 3801 - mix %a <<+>> 3
+ok 3802 - mix %a >>+>> 3
+ok 3803 - mix %a >>+=<< 3 dies
+ok 3804 - mix %a <<+=<< 3 dies
+ok 3805 - mix %a <<+=>> 3
+ok 3806 - mix %a assigned from %a <<+=>> 3
+ok 3807 - mix %a >>+=>> 3
+ok 3808 - mix %a assigned from %a >>+=>> 3
+ok 3809 - mix 3 >>+<< %a dies
+ok 3810 - mix 3 >>+>> %a dies
+ok 3811 - mix 3 <<+>> %a
+ok 3812 - mix 3 <<+<< %a
+ok 3813 - mix 3 >>+=<< %a dies
+ok 3814 - mix 3 >>+=>> %a dies
+ok 3815 - mix 3 <<+=>> %a dies
+ok 3816 - mix 3 <<+=<< %a dies
+ok 3817 - set %a >>-<< %b
+ok 3818 - set %a <<-<< %b
+ok 3819 - set %a <<->> %b
+ok 3820 - set %a >>->> %b
+ok 3821 - set %a >>-=<< %b
+ok 3822 - set %a assigned from %a >>-=<< %b
+ok 3823 - set %a <<-=<< %b
+ok 3824 - set %a assigned from %a <<-=<< %b
+ok 3825 - set %a <<-=>> %b
+ok 3826 - set %a assigned from %a <<-=>> %b
+ok 3827 - set %a >>-=>> %b
+ok 3828 - set %a assigned from %a >>-=>> %b
+ok 3829 - set %a >>-<< 3 dies
+ok 3830 - set %a <<-<< 3 dies
+ok 3831 - set %a <<->> 3
+ok 3832 - set %a >>->> 3
+ok 3833 - set %a >>-=<< 3 dies
+ok 3834 - set %a <<-=<< 3 dies
+ok 3835 - set %a <<-=>> 3
+ok 3836 - set %a assigned from %a <<-=>> 3
+ok 3837 - set %a >>-=>> 3
+ok 3838 - set %a assigned from %a >>-=>> 3
+ok 3839 - set 3 >>-<< %a dies
+ok 3840 - set 3 >>->> %a dies
+ok 3841 - set 3 <<->> %a
+ok 3842 - set 3 <<-<< %a
+ok 3843 - set 3 >>-=<< %a dies
+ok 3844 - set 3 >>-=>> %a dies
+ok 3845 - set 3 <<-=>> %a dies
+ok 3846 - set 3 <<-=<< %a dies
+ok 3847 - bag %a >>-<< %b
+ok 3848 - bag %a <<-<< %b
+ok 3849 - bag %a <<->> %b
+ok 3850 - bag %a >>->> %b
+ok 3851 - bag %a >>-=<< %b
+ok 3852 - bag %a assigned from %a >>-=<< %b
+ok 3853 - bag %a <<-=<< %b
+ok 3854 - bag %a assigned from %a <<-=<< %b
+ok 3855 - bag %a <<-=>> %b
+ok 3856 - bag %a assigned from %a <<-=>> %b
+ok 3857 - bag %a >>-=>> %b
+ok 3858 - bag %a assigned from %a >>-=>> %b
+ok 3859 - bag %a >>-<< 3 dies
+ok 3860 - bag %a <<-<< 3 dies
+ok 3861 - bag %a <<->> 3
+ok 3862 - bag %a >>->> 3
+ok 3863 - bag %a >>-=<< 3 dies
+ok 3864 - bag %a <<-=<< 3 dies
+ok 3865 - bag %a <<-=>> 3
+ok 3866 - bag %a assigned from %a <<-=>> 3
+ok 3867 - bag %a >>-=>> 3
+ok 3868 - bag %a assigned from %a >>-=>> 3
+ok 3869 - bag 3 >>-<< %a dies
+ok 3870 - bag 3 >>->> %a dies
+ok 3871 - bag 3 <<->> %a
+ok 3872 - bag 3 <<-<< %a
+ok 3873 - bag 3 >>-=<< %a dies
+ok 3874 - bag 3 >>-=>> %a dies
+ok 3875 - bag 3 <<-=>> %a dies
+ok 3876 - bag 3 <<-=<< %a dies
+ok 3877 - mix %a >>-<< %b
+ok 3878 - mix %a <<-<< %b
+ok 3879 - mix %a <<->> %b
+ok 3880 - mix %a >>->> %b
+ok 3881 - mix %a >>-=<< %b
+ok 3882 - mix %a assigned from %a >>-=<< %b
+ok 3883 - mix %a <<-=<< %b
+ok 3884 - mix %a assigned from %a <<-=<< %b
+ok 3885 - mix %a <<-=>> %b
+ok 3886 - mix %a assigned from %a <<-=>> %b
+ok 3887 - mix %a >>-=>> %b
+ok 3888 - mix %a assigned from %a >>-=>> %b
+ok 3889 - mix %a >>-<< 3 dies
+ok 3890 - mix %a <<-<< 3 dies
+ok 3891 - mix %a <<->> 3
+ok 3892 - mix %a >>->> 3
+ok 3893 - mix %a >>-=<< 3 dies
+ok 3894 - mix %a <<-=<< 3 dies
+ok 3895 - mix %a <<-=>> 3
+ok 3896 - mix %a assigned from %a <<-=>> 3
+ok 3897 - mix %a >>-=>> 3
+ok 3898 - mix %a assigned from %a >>-=>> 3
+ok 3899 - mix 3 >>-<< %a dies
+ok 3900 - mix 3 >>->> %a dies
+ok 3901 - mix 3 <<->> %a
+ok 3902 - mix 3 <<-<< %a
+ok 3903 - mix 3 >>-=<< %a dies
+ok 3904 - mix 3 >>-=>> %a dies
+ok 3905 - mix 3 <<-=>> %a dies
+ok 3906 - mix 3 <<-=<< %a dies
+ok 3907 - set %a >>*<< %b
+ok 3908 - set %a <<*<< %b
+ok 3909 - set %a <<*>> %b
+ok 3910 - set %a >>*>> %b
+ok 3911 - set %a >>*=<< %b
+ok 3912 - set %a assigned from %a >>*=<< %b
+ok 3913 - set %a <<*=<< %b
+ok 3914 - set %a assigned from %a <<*=<< %b
+ok 3915 - set %a <<*=>> %b
+ok 3916 - set %a assigned from %a <<*=>> %b
+ok 3917 - set %a >>*=>> %b
+ok 3918 - set %a assigned from %a >>*=>> %b
+ok 3919 - set %a >>*<< 3 dies
+ok 3920 - set %a <<*<< 3 dies
+ok 3921 - set %a <<*>> 3
+ok 3922 - set %a >>*>> 3
+ok 3923 - set %a >>*=<< 3 dies
+ok 3924 - set %a <<*=<< 3 dies
+ok 3925 - set %a <<*=>> 3
+ok 3926 - set %a assigned from %a <<*=>> 3
+ok 3927 - set %a >>*=>> 3
+ok 3928 - set %a assigned from %a >>*=>> 3
+ok 3929 - set 3 >>*<< %a dies
+ok 3930 - set 3 >>*>> %a dies
+ok 3931 - set 3 <<*>> %a
+ok 3932 - set 3 <<*<< %a
+ok 3933 - set 3 >>*=<< %a dies
+ok 3934 - set 3 >>*=>> %a dies
+ok 3935 - set 3 <<*=>> %a dies
+ok 3936 - set 3 <<*=<< %a dies
+ok 3937 - bag %a >>*<< %b
+ok 3938 - bag %a <<*<< %b
+ok 3939 - bag %a <<*>> %b
+ok 3940 - bag %a >>*>> %b
+ok 3941 - bag %a >>*=<< %b
+ok 3942 - bag %a assigned from %a >>*=<< %b
+ok 3943 - bag %a <<*=<< %b
+ok 3944 - bag %a assigned from %a <<*=<< %b
+ok 3945 - bag %a <<*=>> %b
+ok 3946 - bag %a assigned from %a <<*=>> %b
+ok 3947 - bag %a >>*=>> %b
+ok 3948 - bag %a assigned from %a >>*=>> %b
+ok 3949 - bag %a >>*<< 3 dies
+ok 3950 - bag %a <<*<< 3 dies
+ok 3951 - bag %a <<*>> 3
+ok 3952 - bag %a >>*>> 3
+ok 3953 - bag %a >>*=<< 3 dies
+ok 3954 - bag %a <<*=<< 3 dies
+ok 3955 - bag %a <<*=>> 3
+ok 3956 - bag %a assigned from %a <<*=>> 3
+ok 3957 - bag %a >>*=>> 3
+ok 3958 - bag %a assigned from %a >>*=>> 3
+ok 3959 - bag 3 >>*<< %a dies
+ok 3960 - bag 3 >>*>> %a dies
+ok 3961 - bag 3 <<*>> %a
+ok 3962 - bag 3 <<*<< %a
+ok 3963 - bag 3 >>*=<< %a dies
+ok 3964 - bag 3 >>*=>> %a dies
+ok 3965 - bag 3 <<*=>> %a dies
+ok 3966 - bag 3 <<*=<< %a dies
+ok 3967 - mix %a >>*<< %b
+ok 3968 - mix %a <<*<< %b
+ok 3969 - mix %a <<*>> %b
+ok 3970 - mix %a >>*>> %b
+ok 3971 - mix %a >>*=<< %b
+ok 3972 - mix %a assigned from %a >>*=<< %b
+ok 3973 - mix %a <<*=<< %b
+ok 3974 - mix %a assigned from %a <<*=<< %b
+ok 3975 - mix %a <<*=>> %b
+ok 3976 - mix %a assigned from %a <<*=>> %b
+ok 3977 - mix %a >>*=>> %b
+ok 3978 - mix %a assigned from %a >>*=>> %b
+ok 3979 - mix %a >>*<< 3 dies
+ok 3980 - mix %a <<*<< 3 dies
+ok 3981 - mix %a <<*>> 3
+ok 3982 - mix %a >>*>> 3
+ok 3983 - mix %a >>*=<< 3 dies
+ok 3984 - mix %a <<*=<< 3 dies
+ok 3985 - mix %a <<*=>> 3
+ok 3986 - mix %a assigned from %a <<*=>> 3
+ok 3987 - mix %a >>*=>> 3
+ok 3988 - mix %a assigned from %a >>*=>> 3
+ok 3989 - mix 3 >>*<< %a dies
+ok 3990 - mix 3 >>*>> %a dies
+ok 3991 - mix 3 <<*>> %a
+ok 3992 - mix 3 <<*<< %a
+ok 3993 - mix 3 >>*=<< %a dies
+ok 3994 - mix 3 >>*=>> %a dies
+ok 3995 - mix 3 <<*=>> %a dies
+ok 3996 - mix 3 <<*=<< %a dies
+ok 3997 - set %a >>×<< %b
+ok 3998 - set %a <<×<< %b
+ok 3999 - set %a <<×>> %b
+ok 4000 - set %a >>×>> %b
+ok 4001 - set %a >>×=<< %b
+ok 4002 - set %a assigned from %a >>×=<< %b
+ok 4003 - set %a <<×=<< %b
+ok 4004 - set %a assigned from %a <<×=<< %b
+ok 4005 - set %a <<×=>> %b
+ok 4006 - set %a assigned from %a <<×=>> %b
+ok 4007 - set %a >>×=>> %b
+ok 4008 - set %a assigned from %a >>×=>> %b
+ok 4009 - set %a >>×<< 3 dies
+ok 4010 - set %a <<×<< 3 dies
+ok 4011 - set %a <<×>> 3
+ok 4012 - set %a >>×>> 3
+ok 4013 - set %a >>×=<< 3 dies
+ok 4014 - set %a <<×=<< 3 dies
+ok 4015 - set %a <<×=>> 3
+ok 4016 - set %a assigned from %a <<×=>> 3
+ok 4017 - set %a >>×=>> 3
+ok 4018 - set %a assigned from %a >>×=>> 3
+ok 4019 - set 3 >>×<< %a dies
+ok 4020 - set 3 >>×>> %a dies
+ok 4021 - set 3 <<×>> %a
+ok 4022 - set 3 <<×<< %a
+ok 4023 - set 3 >>×=<< %a dies
+ok 4024 - set 3 >>×=>> %a dies
+ok 4025 - set 3 <<×=>> %a dies
+ok 4026 - set 3 <<×=<< %a dies
+ok 4027 - bag %a >>×<< %b
+ok 4028 - bag %a <<×<< %b
+ok 4029 - bag %a <<×>> %b
+ok 4030 - bag %a >>×>> %b
+ok 4031 - bag %a >>×=<< %b
+ok 4032 - bag %a assigned from %a >>×=<< %b
+ok 4033 - bag %a <<×=<< %b
+ok 4034 - bag %a assigned from %a <<×=<< %b
+ok 4035 - bag %a <<×=>> %b
+ok 4036 - bag %a assigned from %a <<×=>> %b
+ok 4037 - bag %a >>×=>> %b
+ok 4038 - bag %a assigned from %a >>×=>> %b
+ok 4039 - bag %a >>×<< 3 dies
+ok 4040 - bag %a <<×<< 3 dies
+ok 4041 - bag %a <<×>> 3
+ok 4042 - bag %a >>×>> 3
+ok 4043 - bag %a >>×=<< 3 dies
+ok 4044 - bag %a <<×=<< 3 dies
+ok 4045 - bag %a <<×=>> 3
+ok 4046 - bag %a assigned from %a <<×=>> 3
+ok 4047 - bag %a >>×=>> 3
+ok 4048 - bag %a assigned from %a >>×=>> 3
+ok 4049 - bag 3 >>×<< %a dies
+ok 4050 - bag 3 >>×>> %a dies
+ok 4051 - bag 3 <<×>> %a
+ok 4052 - bag 3 <<×<< %a
+ok 4053 - bag 3 >>×=<< %a dies
+ok 4054 - bag 3 >>×=>> %a dies
+ok 4055 - bag 3 <<×=>> %a dies
+ok 4056 - bag 3 <<×=<< %a dies
+ok 4057 - mix %a >>×<< %b
+ok 4058 - mix %a <<×<< %b
+ok 4059 - mix %a <<×>> %b
+ok 4060 - mix %a >>×>> %b
+ok 4061 - mix %a >>×=<< %b
+ok 4062 - mix %a assigned from %a >>×=<< %b
+ok 4063 - mix %a <<×=<< %b
+ok 4064 - mix %a assigned from %a <<×=<< %b
+ok 4065 - mix %a <<×=>> %b
+ok 4066 - mix %a assigned from %a <<×=>> %b
+ok 4067 - mix %a >>×=>> %b
+ok 4068 - mix %a assigned from %a >>×=>> %b
+ok 4069 - mix %a >>×<< 3 dies
+ok 4070 - mix %a <<×<< 3 dies
+ok 4071 - mix %a <<×>> 3
+ok 4072 - mix %a >>×>> 3
+ok 4073 - mix %a >>×=<< 3 dies
+ok 4074 - mix %a <<×=<< 3 dies
+ok 4075 - mix %a <<×=>> 3
+ok 4076 - mix %a assigned from %a <<×=>> 3
+ok 4077 - mix %a >>×=>> 3
+ok 4078 - mix %a assigned from %a >>×=>> 3
+ok 4079 - mix 3 >>×<< %a dies
+ok 4080 - mix 3 >>×>> %a dies
+ok 4081 - mix 3 <<×>> %a
+ok 4082 - mix 3 <<×<< %a
+ok 4083 - mix 3 >>×=<< %a dies
+ok 4084 - mix 3 >>×=>> %a dies
+ok 4085 - mix 3 <<×=>> %a dies
+ok 4086 - mix 3 <<×=<< %a dies
+ok 4087 - set %a >>÷<< %b
+ok 4088 - set %a <<÷<< %b
+ok 4089 - set %a <<÷>> %b
+ok 4090 - set %a >>÷>> %b
+ok 4091 - set %a >>÷=<< %b
+ok 4092 - set %a assigned from %a >>÷=<< %b
+ok 4093 - set %a <<÷=<< %b
+ok 4094 - set %a assigned from %a <<÷=<< %b
+ok 4095 - set %a <<÷=>> %b
+ok 4096 - set %a assigned from %a <<÷=>> %b
+ok 4097 - set %a >>÷=>> %b
+ok 4098 - set %a assigned from %a >>÷=>> %b
+ok 4099 - set %a >>÷<< 3 dies
+ok 4100 - set %a <<÷<< 3 dies
+ok 4101 - set %a <<÷>> 3
+ok 4102 - set %a >>÷>> 3
+ok 4103 - set %a >>÷=<< 3 dies
+ok 4104 - set %a <<÷=<< 3 dies
+ok 4105 - set %a <<÷=>> 3
+ok 4106 - set %a assigned from %a <<÷=>> 3
+ok 4107 - set %a >>÷=>> 3
+ok 4108 - set %a assigned from %a >>÷=>> 3
+ok 4109 - set 3 >>÷<< %a dies
+ok 4110 - set 3 >>÷>> %a dies
+ok 4111 - set 3 <<÷>> %a
+ok 4112 - set 3 <<÷<< %a
+ok 4113 - set 3 >>÷=<< %a dies
+ok 4114 - set 3 >>÷=>> %a dies
+ok 4115 - set 3 <<÷=>> %a dies
+ok 4116 - set 3 <<÷=<< %a dies
+ok 4117 - bag %a >>÷<< %b
+ok 4118 - bag %a <<÷<< %b
+ok 4119 - bag %a <<÷>> %b
+ok 4120 - bag %a >>÷>> %b
+ok 4121 - bag %a >>÷=<< %b
+ok 4122 - bag %a assigned from %a >>÷=<< %b
+ok 4123 - bag %a <<÷=<< %b
+ok 4124 - bag %a assigned from %a <<÷=<< %b
+ok 4125 - bag %a <<÷=>> %b
+ok 4126 - bag %a assigned from %a <<÷=>> %b
+ok 4127 - bag %a >>÷=>> %b
+ok 4128 - bag %a assigned from %a >>÷=>> %b
+ok 4129 - bag %a >>÷<< 3 dies
+ok 4130 - bag %a <<÷<< 3 dies
+ok 4131 - bag %a <<÷>> 3
+ok 4132 - bag %a >>÷>> 3
+ok 4133 - bag %a >>÷=<< 3 dies
+ok 4134 - bag %a <<÷=<< 3 dies
+ok 4135 - bag %a <<÷=>> 3
+ok 4136 - bag %a assigned from %a <<÷=>> 3
+ok 4137 - bag %a >>÷=>> 3
+ok 4138 - bag %a assigned from %a >>÷=>> 3
+ok 4139 - bag 3 >>÷<< %a dies
+ok 4140 - bag 3 >>÷>> %a dies
+ok 4141 - bag 3 <<÷>> %a
+ok 4142 - bag 3 <<÷<< %a
+ok 4143 - bag 3 >>÷=<< %a dies
+ok 4144 - bag 3 >>÷=>> %a dies
+ok 4145 - bag 3 <<÷=>> %a dies
+ok 4146 - bag 3 <<÷=<< %a dies
+ok 4147 - mix %a >>÷<< %b
+ok 4148 - mix %a <<÷<< %b
+ok 4149 - mix %a <<÷>> %b
+ok 4150 - mix %a >>÷>> %b
+ok 4151 - mix %a >>÷=<< %b
+ok 4152 - mix %a assigned from %a >>÷=<< %b
+ok 4153 - mix %a <<÷=<< %b
+ok 4154 - mix %a assigned from %a <<÷=<< %b
+ok 4155 - mix %a <<÷=>> %b
+ok 4156 - mix %a assigned from %a <<÷=>> %b
+ok 4157 - mix %a >>÷=>> %b
+ok 4158 - mix %a assigned from %a >>÷=>> %b
+ok 4159 - mix %a >>÷<< 3 dies
+ok 4160 - mix %a <<÷<< 3 dies
+ok 4161 - mix %a <<÷>> 3
+ok 4162 - mix %a >>÷>> 3
+ok 4163 - mix %a >>÷=<< 3 dies
+ok 4164 - mix %a <<÷=<< 3 dies
+ok 4165 - mix %a <<÷=>> 3
+ok 4166 - mix %a assigned from %a <<÷=>> 3
+ok 4167 - mix %a >>÷=>> 3
+ok 4168 - mix %a assigned from %a >>÷=>> 3
+ok 4169 - mix 3 >>÷<< %a dies
+ok 4170 - mix 3 >>÷>> %a dies
+ok 4171 - mix 3 <<÷>> %a
+ok 4172 - mix 3 <<÷<< %a
+ok 4173 - mix 3 >>÷=<< %a dies
+ok 4174 - mix 3 >>÷=>> %a dies
+ok 4175 - mix 3 <<÷=>> %a dies
+ok 4176 - mix 3 <<÷=<< %a dies
+ok 4177 - set %a >>**<< %b
+ok 4178 - set %a <<**<< %b
+ok 4179 - set %a <<**>> %b
+ok 4180 - set %a >>**>> %b
+ok 4181 - set %a >>**=<< %b
+ok 4182 - set %a assigned from %a >>**=<< %b
+ok 4183 - set %a <<**=<< %b
+ok 4184 - set %a assigned from %a <<**=<< %b
+ok 4185 - set %a <<**=>> %b
+ok 4186 - set %a assigned from %a <<**=>> %b
+ok 4187 - set %a >>**=>> %b
+ok 4188 - set %a assigned from %a >>**=>> %b
+ok 4189 - set %a >>**<< 3 dies
+ok 4190 - set %a <<**<< 3 dies
+ok 4191 - set %a <<**>> 3
+ok 4192 - set %a >>**>> 3
+ok 4193 - set %a >>**=<< 3 dies
+ok 4194 - set %a <<**=<< 3 dies
+ok 4195 - set %a <<**=>> 3
+ok 4196 - set %a assigned from %a <<**=>> 3
+ok 4197 - set %a >>**=>> 3
+ok 4198 - set %a assigned from %a >>**=>> 3
+ok 4199 - set 3 >>**<< %a dies
+ok 4200 - set 3 >>**>> %a dies
+ok 4201 - set 3 <<**>> %a
+ok 4202 - set 3 <<**<< %a
+ok 4203 - set 3 >>**=<< %a dies
+ok 4204 - set 3 >>**=>> %a dies
+ok 4205 - set 3 <<**=>> %a dies
+ok 4206 - set 3 <<**=<< %a dies
+ok 4207 - bag %a >>**<< %b
+ok 4208 - bag %a <<**<< %b
+ok 4209 - bag %a <<**>> %b
+ok 4210 - bag %a >>**>> %b
+ok 4211 - bag %a >>**=<< %b
+ok 4212 - bag %a assigned from %a >>**=<< %b
+ok 4213 - bag %a <<**=<< %b
+ok 4214 - bag %a assigned from %a <<**=<< %b
+ok 4215 - bag %a <<**=>> %b
+ok 4216 - bag %a assigned from %a <<**=>> %b
+ok 4217 - bag %a >>**=>> %b
+ok 4218 - bag %a assigned from %a >>**=>> %b
+ok 4219 - bag %a >>**<< 3 dies
+ok 4220 - bag %a <<**<< 3 dies
+ok 4221 - bag %a <<**>> 3
+ok 4222 - bag %a >>**>> 3
+ok 4223 - bag %a >>**=<< 3 dies
+ok 4224 - bag %a <<**=<< 3 dies
+ok 4225 - bag %a <<**=>> 3
+ok 4226 - bag %a assigned from %a <<**=>> 3
+ok 4227 - bag %a >>**=>> 3
+ok 4228 - bag %a assigned from %a >>**=>> 3
+ok 4229 - bag 3 >>**<< %a dies
+ok 4230 - bag 3 >>**>> %a dies
+ok 4231 - bag 3 <<**>> %a
+ok 4232 - bag 3 <<**<< %a
+ok 4233 - bag 3 >>**=<< %a dies
+ok 4234 - bag 3 >>**=>> %a dies
+ok 4235 - bag 3 <<**=>> %a dies
+ok 4236 - bag 3 <<**=<< %a dies
+ok 4237 - mix %a >>**<< %b
+ok 4238 - mix %a <<**<< %b
+ok 4239 - mix %a <<**>> %b
+ok 4240 - mix %a >>**>> %b
+ok 4241 - mix %a >>**=<< %b
+ok 4242 - mix %a assigned from %a >>**=<< %b
+ok 4243 - mix %a <<**=<< %b
+ok 4244 - mix %a assigned from %a <<**=<< %b
+ok 4245 - mix %a <<**=>> %b
+ok 4246 - mix %a assigned from %a <<**=>> %b
+ok 4247 - mix %a >>**=>> %b
+ok 4248 - mix %a assigned from %a >>**=>> %b
+ok 4249 - mix %a >>**<< 3 dies
+ok 4250 - mix %a <<**<< 3 dies
+ok 4251 - mix %a <<**>> 3
+ok 4252 - mix %a >>**>> 3
+ok 4253 - mix %a >>**=<< 3 dies
+ok 4254 - mix %a <<**=<< 3 dies
+ok 4255 - mix %a <<**=>> 3
+ok 4256 - mix %a assigned from %a <<**=>> 3
+ok 4257 - mix %a >>**=>> 3
+ok 4258 - mix %a assigned from %a >>**=>> 3
+ok 4259 - mix 3 >>**<< %a dies
+ok 4260 - mix 3 >>**>> %a dies
+ok 4261 - mix 3 <<**>> %a
+ok 4262 - mix 3 <<**<< %a
+ok 4263 - mix 3 >>**=<< %a dies
+ok 4264 - mix 3 >>**=>> %a dies
+ok 4265 - mix 3 <<**=>> %a dies
+ok 4266 - mix 3 <<**=<< %a dies
+ok 4267 - set %a >>%<< %b
+ok 4268 - set %a <<%<< %b
+ok 4269 - set %a <<%>> %b
+ok 4270 - set %a >>%>> %b
+ok 4271 - set %a >>%=<< %b
+ok 4272 - set %a assigned from %a >>%=<< %b
+ok 4273 - set %a <<%=<< %b
+ok 4274 - set %a assigned from %a <<%=<< %b
+ok 4275 - set %a <<%=>> %b
+ok 4276 - set %a assigned from %a <<%=>> %b
+ok 4277 - set %a >>%=>> %b
+ok 4278 - set %a assigned from %a >>%=>> %b
+ok 4279 - set %a >>%<< 3 dies
+ok 4280 - set %a <<%<< 3 dies
+ok 4281 - set %a <<%>> 3
+ok 4282 - set %a >>%>> 3
+ok 4283 - set %a >>%=<< 3 dies
+ok 4284 - set %a <<%=<< 3 dies
+ok 4285 - set %a <<%=>> 3
+ok 4286 - set %a assigned from %a <<%=>> 3
+ok 4287 - set %a >>%=>> 3
+ok 4288 - set %a assigned from %a >>%=>> 3
+ok 4289 - set 3 >>%<< %a dies
+ok 4290 - set 3 >>%>> %a dies
+ok 4291 - set 3 <<%>> %a
+ok 4292 - set 3 <<%<< %a
+ok 4293 - set 3 >>%=<< %a dies
+ok 4294 - set 3 >>%=>> %a dies
+ok 4295 - set 3 <<%=>> %a dies
+ok 4296 - set 3 <<%=<< %a dies
+ok 4297 - bag %a >>%<< %b
+ok 4298 - bag %a <<%<< %b
+ok 4299 - bag %a <<%>> %b
+ok 4300 - bag %a >>%>> %b
+ok 4301 - bag %a >>%=<< %b
+ok 4302 - bag %a assigned from %a >>%=<< %b
+ok 4303 - bag %a <<%=<< %b
+ok 4304 - bag %a assigned from %a <<%=<< %b
+ok 4305 - bag %a <<%=>> %b
+ok 4306 - bag %a assigned from %a <<%=>> %b
+ok 4307 - bag %a >>%=>> %b
+ok 4308 - bag %a assigned from %a >>%=>> %b
+ok 4309 - bag %a >>%<< 3 dies
+ok 4310 - bag %a <<%<< 3 dies
+ok 4311 - bag %a <<%>> 3
+ok 4312 - bag %a >>%>> 3
+ok 4313 - bag %a >>%=<< 3 dies
+ok 4314 - bag %a <<%=<< 3 dies
+ok 4315 - bag %a <<%=>> 3
+ok 4316 - bag %a assigned from %a <<%=>> 3
+ok 4317 - bag %a >>%=>> 3
+ok 4318 - bag %a assigned from %a >>%=>> 3
+ok 4319 - bag 3 >>%<< %a dies
+ok 4320 - bag 3 >>%>> %a dies
+ok 4321 - bag 3 <<%>> %a
+ok 4322 - bag 3 <<%<< %a
+ok 4323 - bag 3 >>%=<< %a dies
+ok 4324 - bag 3 >>%=>> %a dies
+ok 4325 - bag 3 <<%=>> %a dies
+ok 4326 - bag 3 <<%=<< %a dies
+ok 4327 - mix %a >>%<< %b
+ok 4328 - mix %a <<%<< %b
+ok 4329 - mix %a <<%>> %b
+ok 4330 - mix %a >>%>> %b
+ok 4331 - mix %a >>%=<< %b
+ok 4332 - mix %a assigned from %a >>%=<< %b
+ok 4333 - mix %a <<%=<< %b
+ok 4334 - mix %a assigned from %a <<%=<< %b
+ok 4335 - mix %a <<%=>> %b
+ok 4336 - mix %a assigned from %a <<%=>> %b
+ok 4337 - mix %a >>%=>> %b
+ok 4338 - mix %a assigned from %a >>%=>> %b
+ok 4339 - mix %a >>%<< 3 dies
+ok 4340 - mix %a <<%<< 3 dies
+ok 4341 - mix %a <<%>> 3
+ok 4342 - mix %a >>%>> 3
+ok 4343 - mix %a >>%=<< 3 dies
+ok 4344 - mix %a <<%=<< 3 dies
+ok 4345 - mix %a <<%=>> 3
+ok 4346 - mix %a assigned from %a <<%=>> 3
+ok 4347 - mix %a >>%=>> 3
+ok 4348 - mix %a assigned from %a >>%=>> 3
+ok 4349 - mix 3 >>%<< %a dies
+ok 4350 - mix 3 >>%>> %a dies
+ok 4351 - mix 3 <<%>> %a
+ok 4352 - mix 3 <<%<< %a
+ok 4353 - mix 3 >>%=<< %a dies
+ok 4354 - mix 3 >>%=>> %a dies
+ok 4355 - mix 3 <<%=>> %a dies
+ok 4356 - mix 3 <<%=<< %a dies
+ok 4357 - set %a >>max<< %b
+ok 4358 - set %a <<max<< %b
+ok 4359 - set %a <<max>> %b
+ok 4360 - set %a >>max>> %b
+ok 4361 - set %a >>max=<< %b
+ok 4362 - set %a assigned from %a >>max=<< %b
+ok 4363 - set %a <<max=<< %b
+ok 4364 - set %a assigned from %a <<max=<< %b
+ok 4365 - set %a <<max=>> %b
+ok 4366 - set %a assigned from %a <<max=>> %b
+ok 4367 - set %a >>max=>> %b
+ok 4368 - set %a assigned from %a >>max=>> %b
+ok 4369 - set %a >>max<< 3 dies
+ok 4370 - set %a <<max<< 3 dies
+ok 4371 - set %a <<max>> 3
+ok 4372 - set %a >>max>> 3
+ok 4373 - set %a >>max=<< 3 dies
+ok 4374 - set %a <<max=<< 3 dies
+ok 4375 - set %a <<max=>> 3
+ok 4376 - set %a assigned from %a <<max=>> 3
+ok 4377 - set %a >>max=>> 3
+ok 4378 - set %a assigned from %a >>max=>> 3
+ok 4379 - set 3 >>max<< %a dies
+ok 4380 - set 3 >>max>> %a dies
+ok 4381 - set 3 <<max>> %a
+ok 4382 - set 3 <<max<< %a
+ok 4383 - set 3 >>max=<< %a dies
+ok 4384 - set 3 >>max=>> %a dies
+ok 4385 - set 3 <<max=>> %a dies
+ok 4386 - set 3 <<max=<< %a dies
+ok 4387 - bag %a >>max<< %b
+ok 4388 - bag %a <<max<< %b
+ok 4389 - bag %a <<max>> %b
+ok 4390 - bag %a >>max>> %b
+ok 4391 - bag %a >>max=<< %b
+ok 4392 - bag %a assigned from %a >>max=<< %b
+ok 4393 - bag %a <<max=<< %b
+ok 4394 - bag %a assigned from %a <<max=<< %b
+ok 4395 - bag %a <<max=>> %b
+ok 4396 - bag %a assigned from %a <<max=>> %b
+ok 4397 - bag %a >>max=>> %b
+ok 4398 - bag %a assigned from %a >>max=>> %b
+ok 4399 - bag %a >>max<< 3 dies
+ok 4400 - bag %a <<max<< 3 dies
+ok 4401 - bag %a <<max>> 3
+ok 4402 - bag %a >>max>> 3
+ok 4403 - bag %a >>max=<< 3 dies
+ok 4404 - bag %a <<max=<< 3 dies
+ok 4405 - bag %a <<max=>> 3
+ok 4406 - bag %a assigned from %a <<max=>> 3
+ok 4407 - bag %a >>max=>> 3
+ok 4408 - bag %a assigned from %a >>max=>> 3
+ok 4409 - bag 3 >>max<< %a dies
+ok 4410 - bag 3 >>max>> %a dies
+ok 4411 - bag 3 <<max>> %a
+ok 4412 - bag 3 <<max<< %a
+ok 4413 - bag 3 >>max=<< %a dies
+ok 4414 - bag 3 >>max=>> %a dies
+ok 4415 - bag 3 <<max=>> %a dies
+ok 4416 - bag 3 <<max=<< %a dies
+ok 4417 - mix %a >>max<< %b
+ok 4418 - mix %a <<max<< %b
+ok 4419 - mix %a <<max>> %b
+ok 4420 - mix %a >>max>> %b
+ok 4421 - mix %a >>max=<< %b
+ok 4422 - mix %a assigned from %a >>max=<< %b
+ok 4423 - mix %a <<max=<< %b
+ok 4424 - mix %a assigned from %a <<max=<< %b
+ok 4425 - mix %a <<max=>> %b
+ok 4426 - mix %a assigned from %a <<max=>> %b
+ok 4427 - mix %a >>max=>> %b
+ok 4428 - mix %a assigned from %a >>max=>> %b
+ok 4429 - mix %a >>max<< 3 dies
+ok 4430 - mix %a <<max<< 3 dies
+ok 4431 - mix %a <<max>> 3
+ok 4432 - mix %a >>max>> 3
+ok 4433 - mix %a >>max=<< 3 dies
+ok 4434 - mix %a <<max=<< 3 dies
+ok 4435 - mix %a <<max=>> 3
+ok 4436 - mix %a assigned from %a <<max=>> 3
+ok 4437 - mix %a >>max=>> 3
+ok 4438 - mix %a assigned from %a >>max=>> 3
+ok 4439 - mix 3 >>max<< %a dies
+ok 4440 - mix 3 >>max>> %a dies
+ok 4441 - mix 3 <<max>> %a
+ok 4442 - mix 3 <<max<< %a
+ok 4443 - mix 3 >>max=<< %a dies
+ok 4444 - mix 3 >>max=>> %a dies
+ok 4445 - mix 3 <<max=>> %a dies
+ok 4446 - mix 3 <<max=<< %a dies
+ok 4447 - set %a >>min<< %b
+ok 4448 - set %a <<min<< %b
+ok 4449 - set %a <<min>> %b
+ok 4450 - set %a >>min>> %b
+ok 4451 - set %a >>min=<< %b
+ok 4452 - set %a assigned from %a >>min=<< %b
+ok 4453 - set %a <<min=<< %b
+ok 4454 - set %a assigned from %a <<min=<< %b
+ok 4455 - set %a <<min=>> %b
+ok 4456 - set %a assigned from %a <<min=>> %b
+ok 4457 - set %a >>min=>> %b
+ok 4458 - set %a assigned from %a >>min=>> %b
+ok 4459 - set %a >>min<< 3 dies
+ok 4460 - set %a <<min<< 3 dies
+ok 4461 - set %a <<min>> 3
+ok 4462 - set %a >>min>> 3
+ok 4463 - set %a >>min=<< 3 dies
+ok 4464 - set %a <<min=<< 3 dies
+ok 4465 - set %a <<min=>> 3
+ok 4466 - set %a assigned from %a <<min=>> 3
+ok 4467 - set %a >>min=>> 3
+ok 4468 - set %a assigned from %a >>min=>> 3
+ok 4469 - set 3 >>min<< %a dies
+ok 4470 - set 3 >>min>> %a dies
+ok 4471 - set 3 <<min>> %a
+ok 4472 - set 3 <<min<< %a
+ok 4473 - set 3 >>min=<< %a dies
+ok 4474 - set 3 >>min=>> %a dies
+ok 4475 - set 3 <<min=>> %a dies
+ok 4476 - set 3 <<min=<< %a dies
+ok 4477 - bag %a >>min<< %b
+ok 4478 - bag %a <<min<< %b
+ok 4479 - bag %a <<min>> %b
+ok 4480 - bag %a >>min>> %b
+ok 4481 - bag %a >>min=<< %b
+ok 4482 - bag %a assigned from %a >>min=<< %b
+ok 4483 - bag %a <<min=<< %b
+ok 4484 - bag %a assigned from %a <<min=<< %b
+ok 4485 - bag %a <<min=>> %b
+ok 4486 - bag %a assigned from %a <<min=>> %b
+ok 4487 - bag %a >>min=>> %b
+ok 4488 - bag %a assigned from %a >>min=>> %b
+ok 4489 - bag %a >>min<< 3 dies
+ok 4490 - bag %a <<min<< 3 dies
+ok 4491 - bag %a <<min>> 3
+ok 4492 - bag %a >>min>> 3
+ok 4493 - bag %a >>min=<< 3 dies
+ok 4494 - bag %a <<min=<< 3 dies
+ok 4495 - bag %a <<min=>> 3
+ok 4496 - bag %a assigned from %a <<min=>> 3
+ok 4497 - bag %a >>min=>> 3
+ok 4498 - bag %a assigned from %a >>min=>> 3
+ok 4499 - bag 3 >>min<< %a dies
+ok 4500 - bag 3 >>min>> %a dies
+ok 4501 - bag 3 <<min>> %a
+ok 4502 - bag 3 <<min<< %a
+ok 4503 - bag 3 >>min=<< %a dies
+ok 4504 - bag 3 >>min=>> %a dies
+ok 4505 - bag 3 <<min=>> %a dies
+ok 4506 - bag 3 <<min=<< %a dies
+ok 4507 - mix %a >>min<< %b
+ok 4508 - mix %a <<min<< %b
+ok 4509 - mix %a <<min>> %b
+ok 4510 - mix %a >>min>> %b
+ok 4511 - mix %a >>min=<< %b
+ok 4512 - mix %a assigned from %a >>min=<< %b
+ok 4513 - mix %a <<min=<< %b
+ok 4514 - mix %a assigned from %a <<min=<< %b
+ok 4515 - mix %a <<min=>> %b
+ok 4516 - mix %a assigned from %a <<min=>> %b
+ok 4517 - mix %a >>min=>> %b
+ok 4518 - mix %a assigned from %a >>min=>> %b
+ok 4519 - mix %a >>min<< 3 dies
+ok 4520 - mix %a <<min<< 3 dies
+ok 4521 - mix %a <<min>> 3
+ok 4522 - mix %a >>min>> 3
+ok 4523 - mix %a >>min=<< 3 dies
+ok 4524 - mix %a <<min=<< 3 dies
+ok 4525 - mix %a <<min=>> 3
+ok 4526 - mix %a assigned from %a <<min=>> 3
+ok 4527 - mix %a >>min=>> 3
+ok 4528 - mix %a assigned from %a >>min=>> 3
+ok 4529 - mix 3 >>min<< %a dies
+ok 4530 - mix 3 >>min>> %a dies
+ok 4531 - mix 3 <<min>> %a
+ok 4532 - mix 3 <<min<< %a
+ok 4533 - mix 3 >>min=<< %a dies
+ok 4534 - mix 3 >>min=>> %a dies
+ok 4535 - mix 3 <<min=>> %a dies
+ok 4536 - mix 3 <<min=<< %a dies
+ok 4537 - set %a >>mod<< %b
+ok 4538 - set %a <<mod<< %b
+ok 4539 - set %a <<mod>> %b
+ok 4540 - set %a >>mod>> %b
+ok 4541 - set %a >>mod=<< %b
+ok 4542 - set %a assigned from %a >>mod=<< %b
+ok 4543 - set %a <<mod=<< %b
+ok 4544 - set %a assigned from %a <<mod=<< %b
+ok 4545 - set %a <<mod=>> %b
+ok 4546 - set %a assigned from %a <<mod=>> %b
+ok 4547 - set %a >>mod=>> %b
+ok 4548 - set %a assigned from %a >>mod=>> %b
+ok 4549 - set %a >>mod<< 3 dies
+ok 4550 - set %a <<mod<< 3 dies
+ok 4551 - set %a <<mod>> 3
+ok 4552 - set %a >>mod>> 3
+ok 4553 - set %a >>mod=<< 3 dies
+ok 4554 - set %a <<mod=<< 3 dies
+ok 4555 - set %a <<mod=>> 3
+ok 4556 - set %a assigned from %a <<mod=>> 3
+ok 4557 - set %a >>mod=>> 3
+ok 4558 - set %a assigned from %a >>mod=>> 3
+ok 4559 - set 3 >>mod<< %a dies
+ok 4560 - set 3 >>mod>> %a dies
+ok 4561 - set 3 <<mod>> %a
+ok 4562 - set 3 <<mod<< %a
+ok 4563 - set 3 >>mod=<< %a dies
+ok 4564 - set 3 >>mod=>> %a dies
+ok 4565 - set 3 <<mod=>> %a dies
+ok 4566 - set 3 <<mod=<< %a dies
+ok 4567 - bag %a >>mod<< %b
+ok 4568 - bag %a <<mod<< %b
+ok 4569 - bag %a <<mod>> %b
+ok 4570 - bag %a >>mod>> %b
+ok 4571 - bag %a >>mod=<< %b
+ok 4572 - bag %a assigned from %a >>mod=<< %b
+ok 4573 - bag %a <<mod=<< %b
+ok 4574 - bag %a assigned from %a <<mod=<< %b
+ok 4575 - bag %a <<mod=>> %b
+ok 4576 - bag %a assigned from %a <<mod=>> %b
+ok 4577 - bag %a >>mod=>> %b
+ok 4578 - bag %a assigned from %a >>mod=>> %b
+ok 4579 - bag %a >>mod<< 3 dies
+ok 4580 - bag %a <<mod<< 3 dies
+ok 4581 - bag %a <<mod>> 3
+ok 4582 - bag %a >>mod>> 3
+ok 4583 - bag %a >>mod=<< 3 dies
+ok 4584 - bag %a <<mod=<< 3 dies
+ok 4585 - bag %a <<mod=>> 3
+ok 4586 - bag %a assigned from %a <<mod=>> 3
+ok 4587 - bag %a >>mod=>> 3
+ok 4588 - bag %a assigned from %a >>mod=>> 3
+ok 4589 - bag 3 >>mod<< %a dies
+ok 4590 - bag 3 >>mod>> %a dies
+ok 4591 - bag 3 <<mod>> %a
+ok 4592 - bag 3 <<mod<< %a
+ok 4593 - bag 3 >>mod=<< %a dies
+ok 4594 - bag 3 >>mod=>> %a dies
+ok 4595 - bag 3 <<mod=>> %a dies
+ok 4596 - bag 3 <<mod=<< %a dies
+ok 4597 - mix %a >>mod<< %b
+ok 4598 - mix %a <<mod<< %b
+ok 4599 - mix %a <<mod>> %b
+ok 4600 - mix %a >>mod>> %b
+ok 4601 - mix %a >>mod=<< %b
+ok 4602 - mix %a assigned from %a >>mod=<< %b
+ok 4603 - mix %a <<mod=<< %b
+ok 4604 - mix %a assigned from %a <<mod=<< %b
+ok 4605 - mix %a <<mod=>> %b
+ok 4606 - mix %a assigned from %a <<mod=>> %b
+ok 4607 - mix %a >>mod=>> %b
+ok 4608 - mix %a assigned from %a >>mod=>> %b
+ok 4609 - mix %a >>mod<< 3 dies
+ok 4610 - mix %a <<mod<< 3 dies
+ok 4611 - mix %a <<mod>> 3
+ok 4612 - mix %a >>mod>> 3
+ok 4613 - mix %a >>mod=<< 3 dies
+ok 4614 - mix %a <<mod=<< 3 dies
+ok 4615 - mix %a <<mod=>> 3
+ok 4616 - mix %a assigned from %a <<mod=>> 3
+ok 4617 - mix %a >>mod=>> 3
+ok 4618 - mix %a assigned from %a >>mod=>> 3
+ok 4619 - mix 3 >>mod<< %a dies
+ok 4620 - mix 3 >>mod>> %a dies
+ok 4621 - mix 3 <<mod>> %a
+ok 4622 - mix 3 <<mod<< %a
+ok 4623 - mix 3 >>mod=<< %a dies
+ok 4624 - mix 3 >>mod=>> %a dies
+ok 4625 - mix 3 <<mod=>> %a dies
+ok 4626 - mix 3 <<mod=<< %a dies
+ok 4627 - set %a >>gcd<< %b
+ok 4628 - set %a <<gcd<< %b
+ok 4629 - set %a <<gcd>> %b
+ok 4630 - set %a >>gcd>> %b
+ok 4631 - set %a >>gcd=<< %b
+ok 4632 - set %a assigned from %a >>gcd=<< %b
+ok 4633 - set %a <<gcd=<< %b
+ok 4634 - set %a assigned from %a <<gcd=<< %b
+ok 4635 - set %a <<gcd=>> %b
+ok 4636 - set %a assigned from %a <<gcd=>> %b
+ok 4637 - set %a >>gcd=>> %b
+ok 4638 - set %a assigned from %a >>gcd=>> %b
+ok 4639 - set %a >>gcd<< 3 dies
+ok 4640 - set %a <<gcd<< 3 dies
+ok 4641 - set %a <<gcd>> 3
+ok 4642 - set %a >>gcd>> 3
+ok 4643 - set %a >>gcd=<< 3 dies
+ok 4644 - set %a <<gcd=<< 3 dies
+ok 4645 - set %a <<gcd=>> 3
+ok 4646 - set %a assigned from %a <<gcd=>> 3
+ok 4647 - set %a >>gcd=>> 3
+ok 4648 - set %a assigned from %a >>gcd=>> 3
+ok 4649 - set 3 >>gcd<< %a dies
+ok 4650 - set 3 >>gcd>> %a dies
+ok 4651 - set 3 <<gcd>> %a
+ok 4652 - set 3 <<gcd<< %a
+ok 4653 - set 3 >>gcd=<< %a dies
+ok 4654 - set 3 >>gcd=>> %a dies
+ok 4655 - set 3 <<gcd=>> %a dies
+ok 4656 - set 3 <<gcd=<< %a dies
+ok 4657 - bag %a >>gcd<< %b
+ok 4658 - bag %a <<gcd<< %b
+ok 4659 - bag %a <<gcd>> %b
+ok 4660 - bag %a >>gcd>> %b
+ok 4661 - bag %a >>gcd=<< %b
+ok 4662 - bag %a assigned from %a >>gcd=<< %b
+ok 4663 - bag %a <<gcd=<< %b
+ok 4664 - bag %a assigned from %a <<gcd=<< %b
+ok 4665 - bag %a <<gcd=>> %b
+ok 4666 - bag %a assigned from %a <<gcd=>> %b
+ok 4667 - bag %a >>gcd=>> %b
+ok 4668 - bag %a assigned from %a >>gcd=>> %b
+ok 4669 - bag %a >>gcd<< 3 dies
+ok 4670 - bag %a <<gcd<< 3 dies
+ok 4671 - bag %a <<gcd>> 3
+ok 4672 - bag %a >>gcd>> 3
+ok 4673 - bag %a >>gcd=<< 3 dies
+ok 4674 - bag %a <<gcd=<< 3 dies
+ok 4675 - bag %a <<gcd=>> 3
+ok 4676 - bag %a assigned from %a <<gcd=>> 3
+ok 4677 - bag %a >>gcd=>> 3
+ok 4678 - bag %a assigned from %a >>gcd=>> 3
+ok 4679 - bag 3 >>gcd<< %a dies
+ok 4680 - bag 3 >>gcd>> %a dies
+ok 4681 - bag 3 <<gcd>> %a
+ok 4682 - bag 3 <<gcd<< %a
+ok 4683 - bag 3 >>gcd=<< %a dies
+ok 4684 - bag 3 >>gcd=>> %a dies
+ok 4685 - bag 3 <<gcd=>> %a dies
+ok 4686 - bag 3 <<gcd=<< %a dies
+ok 4687 - mix %a >>gcd<< %b
+ok 4688 - mix %a <<gcd<< %b
+ok 4689 - mix %a <<gcd>> %b
+ok 4690 - mix %a >>gcd>> %b
+ok 4691 - mix %a >>gcd=<< %b
+ok 4692 - mix %a assigned from %a >>gcd=<< %b
+ok 4693 - mix %a <<gcd=<< %b
+ok 4694 - mix %a assigned from %a <<gcd=<< %b
+ok 4695 - mix %a <<gcd=>> %b
+ok 4696 - mix %a assigned from %a <<gcd=>> %b
+ok 4697 - mix %a >>gcd=>> %b
+ok 4698 - mix %a assigned from %a >>gcd=>> %b
+ok 4699 - mix %a >>gcd<< 3 dies
+ok 4700 - mix %a <<gcd<< 3 dies
+ok 4701 - mix %a <<gcd>> 3
+ok 4702 - mix %a >>gcd>> 3
+ok 4703 - mix %a >>gcd=<< 3 dies
+ok 4704 - mix %a <<gcd=<< 3 dies
+ok 4705 - mix %a <<gcd=>> 3
+ok 4706 - mix %a assigned from %a <<gcd=>> 3
+ok 4707 - mix %a >>gcd=>> 3
+ok 4708 - mix %a assigned from %a >>gcd=>> 3
+ok 4709 - mix 3 >>gcd<< %a dies
+ok 4710 - mix 3 >>gcd>> %a dies
+ok 4711 - mix 3 <<gcd>> %a
+ok 4712 - mix 3 <<gcd<< %a
+ok 4713 - mix 3 >>gcd=<< %a dies
+ok 4714 - mix 3 >>gcd=>> %a dies
+ok 4715 - mix 3 <<gcd=>> %a dies
+ok 4716 - mix 3 <<gcd=<< %a dies
+ok 4717 - set %a >>lcm<< %b
+ok 4718 - set %a <<lcm<< %b
+ok 4719 - set %a <<lcm>> %b
+ok 4720 - set %a >>lcm>> %b
+ok 4721 - set %a >>lcm=<< %b
+ok 4722 - set %a assigned from %a >>lcm=<< %b
+ok 4723 - set %a <<lcm=<< %b
+ok 4724 - set %a assigned from %a <<lcm=<< %b
+ok 4725 - set %a <<lcm=>> %b
+ok 4726 - set %a assigned from %a <<lcm=>> %b
+ok 4727 - set %a >>lcm=>> %b
+ok 4728 - set %a assigned from %a >>lcm=>> %b
+ok 4729 - set %a >>lcm<< 3 dies
+ok 4730 - set %a <<lcm<< 3 dies
+ok 4731 - set %a <<lcm>> 3
+ok 4732 - set %a >>lcm>> 3
+ok 4733 - set %a >>lcm=<< 3 dies
+ok 4734 - set %a <<lcm=<< 3 dies
+ok 4735 - set %a <<lcm=>> 3
+ok 4736 - set %a assigned from %a <<lcm=>> 3
+ok 4737 - set %a >>lcm=>> 3
+ok 4738 - set %a assigned from %a >>lcm=>> 3
+ok 4739 - set 3 >>lcm<< %a dies
+ok 4740 - set 3 >>lcm>> %a dies
+ok 4741 - set 3 <<lcm>> %a
+ok 4742 - set 3 <<lcm<< %a
+ok 4743 - set 3 >>lcm=<< %a dies
+ok 4744 - set 3 >>lcm=>> %a dies
+ok 4745 - set 3 <<lcm=>> %a dies
+ok 4746 - set 3 <<lcm=<< %a dies
+ok 4747 - bag %a >>lcm<< %b
+ok 4748 - bag %a <<lcm<< %b
+ok 4749 - bag %a <<lcm>> %b
+ok 4750 - bag %a >>lcm>> %b
+ok 4751 - bag %a >>lcm=<< %b
+ok 4752 - bag %a assigned from %a >>lcm=<< %b
+ok 4753 - bag %a <<lcm=<< %b
+ok 4754 - bag %a assigned from %a <<lcm=<< %b
+ok 4755 - bag %a <<lcm=>> %b
+ok 4756 - bag %a assigned from %a <<lcm=>> %b
+ok 4757 - bag %a >>lcm=>> %b
+ok 4758 - bag %a assigned from %a >>lcm=>> %b
+ok 4759 - bag %a >>lcm<< 3 dies
+ok 4760 - bag %a <<lcm<< 3 dies
+ok 4761 - bag %a <<lcm>> 3
+ok 4762 - bag %a >>lcm>> 3
+ok 4763 - bag %a >>lcm=<< 3 dies
+ok 4764 - bag %a <<lcm=<< 3 dies
+ok 4765 - bag %a <<lcm=>> 3
+ok 4766 - bag %a assigned from %a <<lcm=>> 3
+ok 4767 - bag %a >>lcm=>> 3
+ok 4768 - bag %a assigned from %a >>lcm=>> 3
+ok 4769 - bag 3 >>lcm<< %a dies
+ok 4770 - bag 3 >>lcm>> %a dies
+ok 4771 - bag 3 <<lcm>> %a
+ok 4772 - bag 3 <<lcm<< %a
+ok 4773 - bag 3 >>lcm=<< %a dies
+ok 4774 - bag 3 >>lcm=>> %a dies
+ok 4775 - bag 3 <<lcm=>> %a dies
+ok 4776 - bag 3 <<lcm=<< %a dies
+ok 4777 - mix %a >>lcm<< %b
+ok 4778 - mix %a <<lcm<< %b
+ok 4779 - mix %a <<lcm>> %b
+ok 4780 - mix %a >>lcm>> %b
+ok 4781 - mix %a >>lcm=<< %b
+ok 4782 - mix %a assigned from %a >>lcm=<< %b
+ok 4783 - mix %a <<lcm=<< %b
+ok 4784 - mix %a assigned from %a <<lcm=<< %b
+ok 4785 - mix %a <<lcm=>> %b
+ok 4786 - mix %a assigned from %a <<lcm=>> %b
+ok 4787 - mix %a >>lcm=>> %b
+ok 4788 - mix %a assigned from %a >>lcm=>> %b
+ok 4789 - mix %a >>lcm<< 3 dies
+ok 4790 - mix %a <<lcm<< 3 dies
+ok 4791 - mix %a <<lcm>> 3
+ok 4792 - mix %a >>lcm>> 3
+ok 4793 - mix %a >>lcm=<< 3 dies
+ok 4794 - mix %a <<lcm=<< 3 dies
+ok 4795 - mix %a <<lcm=>> 3
+ok 4796 - mix %a assigned from %a <<lcm=>> 3
+ok 4797 - mix %a >>lcm=>> 3
+ok 4798 - mix %a assigned from %a >>lcm=>> 3
+ok 4799 - mix 3 >>lcm<< %a dies
+ok 4800 - mix 3 >>lcm>> %a dies
+ok 4801 - mix 3 <<lcm>> %a
+ok 4802 - mix 3 <<lcm<< %a
+ok 4803 - mix 3 >>lcm=<< %a dies
+ok 4804 - mix 3 >>lcm=>> %a dies
+ok 4805 - mix 3 <<lcm=>> %a dies
+ok 4806 - mix 3 <<lcm=<< %a dies
+ok 4807 - set %a >>+|<< %b
+ok 4808 - set %a <<+|<< %b
+ok 4809 - set %a <<+|>> %b
+ok 4810 - set %a >>+|>> %b
+ok 4811 - set %a >>+|=<< %b
+ok 4812 - set %a assigned from %a >>+|=<< %b
+ok 4813 - set %a <<+|=<< %b
+ok 4814 - set %a assigned from %a <<+|=<< %b
+ok 4815 - set %a <<+|=>> %b
+ok 4816 - set %a assigned from %a <<+|=>> %b
+ok 4817 - set %a >>+|=>> %b
+ok 4818 - set %a assigned from %a >>+|=>> %b
+ok 4819 - set %a >>+|<< 3 dies
+ok 4820 - set %a <<+|<< 3 dies
+ok 4821 - set %a <<+|>> 3
+ok 4822 - set %a >>+|>> 3
+ok 4823 - set %a >>+|=<< 3 dies
+ok 4824 - set %a <<+|=<< 3 dies
+ok 4825 - set %a <<+|=>> 3
+ok 4826 - set %a assigned from %a <<+|=>> 3
+ok 4827 - set %a >>+|=>> 3
+ok 4828 - set %a assigned from %a >>+|=>> 3
+ok 4829 - set 3 >>+|<< %a dies
+ok 4830 - set 3 >>+|>> %a dies
+ok 4831 - set 3 <<+|>> %a
+ok 4832 - set 3 <<+|<< %a
+ok 4833 - set 3 >>+|=<< %a dies
+ok 4834 - set 3 >>+|=>> %a dies
+ok 4835 - set 3 <<+|=>> %a dies
+ok 4836 - set 3 <<+|=<< %a dies
+ok 4837 - bag %a >>+|<< %b
+ok 4838 - bag %a <<+|<< %b
+ok 4839 - bag %a <<+|>> %b
+ok 4840 - bag %a >>+|>> %b
+ok 4841 - bag %a >>+|=<< %b
+ok 4842 - bag %a assigned from %a >>+|=<< %b
+ok 4843 - bag %a <<+|=<< %b
+ok 4844 - bag %a assigned from %a <<+|=<< %b
+ok 4845 - bag %a <<+|=>> %b
+ok 4846 - bag %a assigned from %a <<+|=>> %b
+ok 4847 - bag %a >>+|=>> %b
+ok 4848 - bag %a assigned from %a >>+|=>> %b
+ok 4849 - bag %a >>+|<< 3 dies
+ok 4850 - bag %a <<+|<< 3 dies
+ok 4851 - bag %a <<+|>> 3
+ok 4852 - bag %a >>+|>> 3
+ok 4853 - bag %a >>+|=<< 3 dies
+ok 4854 - bag %a <<+|=<< 3 dies
+ok 4855 - bag %a <<+|=>> 3
+ok 4856 - bag %a assigned from %a <<+|=>> 3
+ok 4857 - bag %a >>+|=>> 3
+ok 4858 - bag %a assigned from %a >>+|=>> 3
+ok 4859 - bag 3 >>+|<< %a dies
+ok 4860 - bag 3 >>+|>> %a dies
+ok 4861 - bag 3 <<+|>> %a
+ok 4862 - bag 3 <<+|<< %a
+ok 4863 - bag 3 >>+|=<< %a dies
+ok 4864 - bag 3 >>+|=>> %a dies
+ok 4865 - bag 3 <<+|=>> %a dies
+ok 4866 - bag 3 <<+|=<< %a dies
+ok 4867 - mix %a >>+|<< %b
+ok 4868 - mix %a <<+|<< %b
+ok 4869 - mix %a <<+|>> %b
+ok 4870 - mix %a >>+|>> %b
+ok 4871 - mix %a >>+|=<< %b
+ok 4872 - mix %a assigned from %a >>+|=<< %b
+ok 4873 - mix %a <<+|=<< %b
+ok 4874 - mix %a assigned from %a <<+|=<< %b
+ok 4875 - mix %a <<+|=>> %b
+ok 4876 - mix %a assigned from %a <<+|=>> %b
+ok 4877 - mix %a >>+|=>> %b
+ok 4878 - mix %a assigned from %a >>+|=>> %b
+ok 4879 - mix %a >>+|<< 3 dies
+ok 4880 - mix %a <<+|<< 3 dies
+ok 4881 - mix %a <<+|>> 3
+ok 4882 - mix %a >>+|>> 3
+ok 4883 - mix %a >>+|=<< 3 dies
+ok 4884 - mix %a <<+|=<< 3 dies
+ok 4885 - mix %a <<+|=>> 3
+ok 4886 - mix %a assigned from %a <<+|=>> 3
+ok 4887 - mix %a >>+|=>> 3
+ok 4888 - mix %a assigned from %a >>+|=>> 3
+ok 4889 - mix 3 >>+|<< %a dies
+ok 4890 - mix 3 >>+|>> %a dies
+ok 4891 - mix 3 <<+|>> %a
+ok 4892 - mix 3 <<+|<< %a
+ok 4893 - mix 3 >>+|=<< %a dies
+ok 4894 - mix 3 >>+|=>> %a dies
+ok 4895 - mix 3 <<+|=>> %a dies
+ok 4896 - mix 3 <<+|=<< %a dies
+ok 4897 - set %a >>+&<< %b
+ok 4898 - set %a <<+&<< %b
+ok 4899 - set %a <<+&>> %b
+ok 4900 - set %a >>+&>> %b
+ok 4901 - set %a >>+&=<< %b
+ok 4902 - set %a assigned from %a >>+&=<< %b
+ok 4903 - set %a <<+&=<< %b
+ok 4904 - set %a assigned from %a <<+&=<< %b
+ok 4905 - set %a <<+&=>> %b
+ok 4906 - set %a assigned from %a <<+&=>> %b
+ok 4907 - set %a >>+&=>> %b
+ok 4908 - set %a assigned from %a >>+&=>> %b
+ok 4909 - set %a >>+&<< 3 dies
+ok 4910 - set %a <<+&<< 3 dies
+ok 4911 - set %a <<+&>> 3
+ok 4912 - set %a >>+&>> 3
+ok 4913 - set %a >>+&=<< 3 dies
+ok 4914 - set %a <<+&=<< 3 dies
+ok 4915 - set %a <<+&=>> 3
+ok 4916 - set %a assigned from %a <<+&=>> 3
+ok 4917 - set %a >>+&=>> 3
+ok 4918 - set %a assigned from %a >>+&=>> 3
+ok 4919 - set 3 >>+&<< %a dies
+ok 4920 - set 3 >>+&>> %a dies
+ok 4921 - set 3 <<+&>> %a
+ok 4922 - set 3 <<+&<< %a
+ok 4923 - set 3 >>+&=<< %a dies
+ok 4924 - set 3 >>+&=>> %a dies
+ok 4925 - set 3 <<+&=>> %a dies
+ok 4926 - set 3 <<+&=<< %a dies
+ok 4927 - bag %a >>+&<< %b
+ok 4928 - bag %a <<+&<< %b
+ok 4929 - bag %a <<+&>> %b
+ok 4930 - bag %a >>+&>> %b
+ok 4931 - bag %a >>+&=<< %b
+ok 4932 - bag %a assigned from %a >>+&=<< %b
+ok 4933 - bag %a <<+&=<< %b
+ok 4934 - bag %a assigned from %a <<+&=<< %b
+ok 4935 - bag %a <<+&=>> %b
+ok 4936 - bag %a assigned from %a <<+&=>> %b
+ok 4937 - bag %a >>+&=>> %b
+ok 4938 - bag %a assigned from %a >>+&=>> %b
+ok 4939 - bag %a >>+&<< 3 dies
+ok 4940 - bag %a <<+&<< 3 dies
+ok 4941 - bag %a <<+&>> 3
+ok 4942 - bag %a >>+&>> 3
+ok 4943 - bag %a >>+&=<< 3 dies
+ok 4944 - bag %a <<+&=<< 3 dies
+ok 4945 - bag %a <<+&=>> 3
+ok 4946 - bag %a assigned from %a <<+&=>> 3
+ok 4947 - bag %a >>+&=>> 3
+ok 4948 - bag %a assigned from %a >>+&=>> 3
+ok 4949 - bag 3 >>+&<< %a dies
+ok 4950 - bag 3 >>+&>> %a dies
+ok 4951 - bag 3 <<+&>> %a
+ok 4952 - bag 3 <<+&<< %a
+ok 4953 - bag 3 >>+&=<< %a dies
+ok 4954 - bag 3 >>+&=>> %a dies
+ok 4955 - bag 3 <<+&=>> %a dies
+ok 4956 - bag 3 <<+&=<< %a dies
+ok 4957 - mix %a >>+&<< %b
+ok 4958 - mix %a <<+&<< %b
+ok 4959 - mix %a <<+&>> %b
+ok 4960 - mix %a >>+&>> %b
+ok 4961 - mix %a >>+&=<< %b
+ok 4962 - mix %a assigned from %a >>+&=<< %b
+ok 4963 - mix %a <<+&=<< %b
+ok 4964 - mix %a assigned from %a <<+&=<< %b
+ok 4965 - mix %a <<+&=>> %b
+ok 4966 - mix %a assigned from %a <<+&=>> %b
+ok 4967 - mix %a >>+&=>> %b
+ok 4968 - mix %a assigned from %a >>+&=>> %b
+ok 4969 - mix %a >>+&<< 3 dies
+ok 4970 - mix %a <<+&<< 3 dies
+ok 4971 - mix %a <<+&>> 3
+ok 4972 - mix %a >>+&>> 3
+ok 4973 - mix %a >>+&=<< 3 dies
+ok 4974 - mix %a <<+&=<< 3 dies
+ok 4975 - mix %a <<+&=>> 3
+ok 4976 - mix %a assigned from %a <<+&=>> 3
+ok 4977 - mix %a >>+&=>> 3
+ok 4978 - mix %a assigned from %a >>+&=>> 3
+ok 4979 - mix 3 >>+&<< %a dies
+ok 4980 - mix 3 >>+&>> %a dies
+ok 4981 - mix 3 <<+&>> %a
+ok 4982 - mix 3 <<+&<< %a
+ok 4983 - mix 3 >>+&=<< %a dies
+ok 4984 - mix 3 >>+&=>> %a dies
+ok 4985 - mix 3 <<+&=>> %a dies
+ok 4986 - mix 3 <<+&=<< %a dies
+ok 4987 - set %a >>+^<< %b
+ok 4988 - set %a <<+^<< %b
+ok 4989 - set %a <<+^>> %b
+ok 4990 - set %a >>+^>> %b
+ok 4991 - set %a >>+^=<< %b
+ok 4992 - set %a assigned from %a >>+^=<< %b
+ok 4993 - set %a <<+^=<< %b
+ok 4994 - set %a assigned from %a <<+^=<< %b
+ok 4995 - set %a <<+^=>> %b
+ok 4996 - set %a assigned from %a <<+^=>> %b
+ok 4997 - set %a >>+^=>> %b
+ok 4998 - set %a assigned from %a >>+^=>> %b
+ok 4999 - set %a >>+^<< 3 dies
+ok 5000 - set %a <<+^<< 3 dies
+ok 5001 - set %a <<+^>> 3
+ok 5002 - set %a >>+^>> 3
+ok 5003 - set %a >>+^=<< 3 dies
+ok 5004 - set %a <<+^=<< 3 dies
+ok 5005 - set %a <<+^=>> 3
+ok 5006 - set %a assigned from %a <<+^=>> 3
+ok 5007 - set %a >>+^=>> 3
+ok 5008 - set %a assigned from %a >>+^=>> 3
+ok 5009 - set 3 >>+^<< %a dies
+ok 5010 - set 3 >>+^>> %a dies
+ok 5011 - set 3 <<+^>> %a
+ok 5012 - set 3 <<+^<< %a
+ok 5013 - set 3 >>+^=<< %a dies
+ok 5014 - set 3 >>+^=>> %a dies
+ok 5015 - set 3 <<+^=>> %a dies
+ok 5016 - set 3 <<+^=<< %a dies
+ok 5017 - bag %a >>+^<< %b
+ok 5018 - bag %a <<+^<< %b
+ok 5019 - bag %a <<+^>> %b
+ok 5020 - bag %a >>+^>> %b
+ok 5021 - bag %a >>+^=<< %b
+ok 5022 - bag %a assigned from %a >>+^=<< %b
+ok 5023 - bag %a <<+^=<< %b
+ok 5024 - bag %a assigned from %a <<+^=<< %b
+ok 5025 - bag %a <<+^=>> %b
+ok 5026 - bag %a assigned from %a <<+^=>> %b
+ok 5027 - bag %a >>+^=>> %b
+ok 5028 - bag %a assigned from %a >>+^=>> %b
+ok 5029 - bag %a >>+^<< 3 dies
+ok 5030 - bag %a <<+^<< 3 dies
+ok 5031 - bag %a <<+^>> 3
+ok 5032 - bag %a >>+^>> 3
+ok 5033 - bag %a >>+^=<< 3 dies
+ok 5034 - bag %a <<+^=<< 3 dies
+ok 5035 - bag %a <<+^=>> 3
+ok 5036 - bag %a assigned from %a <<+^=>> 3
+ok 5037 - bag %a >>+^=>> 3
+ok 5038 - bag %a assigned from %a >>+^=>> 3
+ok 5039 - bag 3 >>+^<< %a dies
+ok 5040 - bag 3 >>+^>> %a dies
+ok 5041 - bag 3 <<+^>> %a
+ok 5042 - bag 3 <<+^<< %a
+ok 5043 - bag 3 >>+^=<< %a dies
+ok 5044 - bag 3 >>+^=>> %a dies
+ok 5045 - bag 3 <<+^=>> %a dies
+ok 5046 - bag 3 <<+^=<< %a dies
+ok 5047 - mix %a >>+^<< %b
+ok 5048 - mix %a <<+^<< %b
+ok 5049 - mix %a <<+^>> %b
+ok 5050 - mix %a >>+^>> %b
+ok 5051 - mix %a >>+^=<< %b
+ok 5052 - mix %a assigned from %a >>+^=<< %b
+ok 5053 - mix %a <<+^=<< %b
+ok 5054 - mix %a assigned from %a <<+^=<< %b
+ok 5055 - mix %a <<+^=>> %b
+ok 5056 - mix %a assigned from %a <<+^=>> %b
+ok 5057 - mix %a >>+^=>> %b
+ok 5058 - mix %a assigned from %a >>+^=>> %b
+ok 5059 - mix %a >>+^<< 3 dies
+ok 5060 - mix %a <<+^<< 3 dies
+ok 5061 - mix %a <<+^>> 3
+ok 5062 - mix %a >>+^>> 3
+ok 5063 - mix %a >>+^=<< 3 dies
+ok 5064 - mix %a <<+^=<< 3 dies
+ok 5065 - mix %a <<+^=>> 3
+ok 5066 - mix %a assigned from %a <<+^=>> 3
+ok 5067 - mix %a >>+^=>> 3
+ok 5068 - mix %a assigned from %a >>+^=>> 3
+ok 5069 - mix 3 >>+^<< %a dies
+ok 5070 - mix 3 >>+^>> %a dies
+ok 5071 - mix 3 <<+^>> %a
+ok 5072 - mix 3 <<+^<< %a
+ok 5073 - mix 3 >>+^=<< %a dies
+ok 5074 - mix 3 >>+^=>> %a dies
+ok 5075 - mix 3 <<+^=>> %a dies
+ok 5076 - mix 3 <<+^=<< %a dies

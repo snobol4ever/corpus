@@ -1,0 +1,434 @@
+1..104
+ok 1 - int8 can be 127
+ok 2 - int8 can be -128
+ok 3 - int8 overflows to -128
+ok 4 - int8 underflows to 127
+# Subtest: setting int8 to more than 127 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 5 - setting int8 to more than 127 throws # TODO setting more than max throws
+# Failed test 'setting int8 to more than 127 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting int8 to less than -128 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 6 - setting int8 to less than -128 throws # TODO setting less than min throws
+# Failed test 'setting int8 to less than -128 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: int8 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 7 - int8 cannot be a string
+# Subtest: int8 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 8 - int8 cannot be non-integer
+# Subtest: int8 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 9 - int8 cannot be NaN
+ok 10 - int8 $var++ works
+ok 11 - int8 $var-- works
+ok 12 - int16 can be 32767
+ok 13 - int16 can be -32768
+ok 14 - int16 overflows to -32768
+ok 15 - int16 underflows to 32767
+# Subtest: setting int16 to more than 32767 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 16 - setting int16 to more than 32767 throws # TODO setting more than max throws
+# Failed test 'setting int16 to more than 32767 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting int16 to less than -32768 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 17 - setting int16 to less than -32768 throws # TODO setting less than min throws
+# Failed test 'setting int16 to less than -32768 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: int16 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 18 - int16 cannot be a string
+# Subtest: int16 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 19 - int16 cannot be non-integer
+# Subtest: int16 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 20 - int16 cannot be NaN
+ok 21 - int16 $var++ works
+ok 22 - int16 $var-- works
+ok 23 - int32 can be 2147483647
+ok 24 - int32 can be -2147483648
+ok 25 - int32 overflows to -2147483648
+ok 26 - int32 underflows to 2147483647
+# Subtest: setting int32 to more than 2147483647 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 27 - setting int32 to more than 2147483647 throws # TODO setting more than max throws
+# Failed test 'setting int32 to more than 2147483647 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting int32 to less than -2147483648 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 28 - setting int32 to less than -2147483648 throws # TODO setting less than min throws
+# Failed test 'setting int32 to less than -2147483648 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: int32 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 29 - int32 cannot be a string
+# Subtest: int32 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 30 - int32 cannot be non-integer
+# Subtest: int32 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 31 - int32 cannot be NaN
+ok 32 - int32 $var++ works
+ok 33 - int32 $var-- works
+ok 34 - int64 can be 9223372036854775807
+ok 35 - int64 can be -9223372036854775808
+ok 36 - int64 overflows to -9223372036854775808
+ok 37 - int64 underflows to 9223372036854775807
+# Subtest: setting int64 to more than 9223372036854775807 throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 38 - setting int64 to more than 9223372036854775807 throws
+# Subtest: setting int64 to less than -9223372036854775808 throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 39 - setting int64 to less than -9223372036854775808 throws
+# Subtest: int64 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 40 - int64 cannot be a string
+# Subtest: int64 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 41 - int64 cannot be non-integer
+# Subtest: int64 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 42 - int64 cannot be NaN
+ok 43 - int64 $var++ works
+ok 44 - int64 $var-- works
+ok 45 - uint8 can be 255
+ok 46 - uint8 can be 0
+ok 47 - uint8 overflows to 0
+ok 48 - uint8 underflows to 255
+# Subtest: setting uint8 to more than 255 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 49 - setting uint8 to more than 255 throws # TODO setting more than max throws
+# Failed test 'setting uint8 to more than 255 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting uint8 to less than 0 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 50 - setting uint8 to less than 0 throws # TODO setting less than min throws
+# Failed test 'setting uint8 to less than 0 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: uint8 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 51 - uint8 cannot be a string
+# Subtest: uint8 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 52 - uint8 cannot be non-integer
+# Subtest: uint8 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 53 - uint8 cannot be NaN
+ok 54 - uint8 $var++ works
+ok 55 - uint8 $var-- works
+ok 56 - uint16 can be 65535
+ok 57 - uint16 can be 0
+ok 58 - uint16 overflows to 0
+ok 59 - uint16 underflows to 65535
+# Subtest: setting uint16 to more than 65535 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 60 - setting uint16 to more than 65535 throws # TODO setting more than max throws
+# Failed test 'setting uint16 to more than 65535 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting uint16 to less than 0 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 61 - setting uint16 to less than 0 throws # TODO setting less than min throws
+# Failed test 'setting uint16 to less than 0 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: uint16 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 62 - uint16 cannot be a string
+# Subtest: uint16 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 63 - uint16 cannot be non-integer
+# Subtest: uint16 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 64 - uint16 cannot be NaN
+ok 65 - uint16 $var++ works
+ok 66 - uint16 $var-- works
+ok 67 - uint32 can be 4294967295
+ok 68 - uint32 can be 0
+ok 69 - uint32 overflows to 0
+ok 70 - uint32 underflows to 4294967295
+# Subtest: setting uint32 to more than 4294967295 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 71 - setting uint32 to more than 4294967295 throws # TODO setting more than max throws
+# Failed test 'setting uint32 to more than 4294967295 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting uint32 to less than 0 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 72 - setting uint32 to less than 0 throws # TODO setting less than min throws
+# Failed test 'setting uint32 to less than 0 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: uint32 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 73 - uint32 cannot be a string
+# Subtest: uint32 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 74 - uint32 cannot be non-integer
+# Subtest: uint32 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 75 - uint32 cannot be NaN
+ok 76 - uint32 $var++ works
+ok 77 - uint32 $var-- works
+ok 78 - uint64 can be 18446744073709551615
+ok 79 - uint64 can be 0
+ok 80 - uint64 overflows to 0
+ok 81 - uint64 underflows to 18446744073709551615
+# Subtest: setting uint64 to more than 18446744073709551615 throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 82 - setting uint64 to more than 18446744073709551615 throws
+# Subtest: setting uint64 to less than 0 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 83 - setting uint64 to less than 0 throws # TODO setting less than min throws
+# Failed test 'setting uint64 to less than 0 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: uint64 cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 84 - uint64 cannot be a string
+# Subtest: uint64 cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 85 - uint64 cannot be non-integer
+# Subtest: uint64 cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 86 - uint64 cannot be NaN
+ok 87 - uint64 $var++ works
+ok 88 - uint64 $var-- works
+ok 89 - byte can be 255
+ok 90 - byte can be 0
+ok 91 - byte overflows to 0
+ok 92 - byte underflows to 255
+# Subtest: setting byte to more than 255 throws
+    1..2
+    not ok 1 - code dies # TODO setting more than max throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 67
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 93 - setting byte to more than 255 throws # TODO setting more than max throws
+# Failed test 'setting byte to more than 255 throws'
+# at S02-types/int-uint.rakudo line 67
+# Subtest: setting byte to less than 0 throws
+    1..2
+    not ok 1 - code dies # TODO setting less than min throws
+    # Failed test 'code dies'
+    # at S02-types/int-uint.rakudo line 81
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 94 - setting byte to less than 0 throws # TODO setting less than min throws
+# Failed test 'setting byte to less than 0 throws'
+# at S02-types/int-uint.rakudo line 81
+# Subtest: byte cannot be a string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 95 - byte cannot be a string
+# Subtest: byte cannot be non-integer
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 96 - byte cannot be non-integer
+# Subtest: byte cannot be NaN
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 97 - byte cannot be NaN
+ok 98 - byte $var++ works
+ok 99 - byte $var-- works
+ok 100 - uint32 in union is unsigned
+ok 101 - uint16 in union is unsigned
+ok 102 - uint8 in union is unsigned
+ok 103 - byte.Range works
+# Subtest: Testing native coercers
+    ok 1 - Did 0.byte coerce to 0
+    ok 2 - Did '0'.byte coerce to 0
+    ok 3 - Did 255.byte coerce to 255
+    ok 4 - Did '255'.byte coerce to 255
+    ok 5 - Did 256.byte coerce to 0
+    ok 6 - Did '256'.byte coerce to 0
+    ok 7 - Did 0.uint8 coerce to 0
+    ok 8 - Did '0'.uint8 coerce to 0
+    ok 9 - Did 255.uint8 coerce to 255
+    ok 10 - Did '255'.uint8 coerce to 255
+    ok 11 - Did 256.uint8 coerce to 0
+    ok 12 - Did '256'.uint8 coerce to 0
+    ok 13 - Did 0.uint16 coerce to 0
+    ok 14 - Did '0'.uint16 coerce to 0
+    ok 15 - Did 65535.uint16 coerce to 65535
+    ok 16 - Did '65535'.uint16 coerce to 65535
+    ok 17 - Did 65536.uint16 coerce to 0
+    ok 18 - Did '65536'.uint16 coerce to 0
+    ok 19 - Did 0.uint32 coerce to 0
+    ok 20 - Did '0'.uint32 coerce to 0
+    ok 21 - Did 4294967295.uint32 coerce to 4294967295
+    ok 22 - Did '4294967295'.uint32 coerce to 4294967295
+    ok 23 - Did 4294967296.uint32 coerce to 0
+    ok 24 - Did '4294967296'.uint32 coerce to 0
+    ok 25 - Did 0.uint64 coerce to 0
+    ok 26 - Did '0'.uint64 coerce to 0
+    ok 27 - Did 18446744073709551615.uint64 coerce to 18446744073709551615
+    ok 28 - Did '18446744073709551615'.uint64 coerce to 18446744073709551615
+    ok 29 - Did 18446744073709551616.uint64 coerce to 0
+    ok 30 - Did '18446744073709551616'.uint64 coerce to 0
+    ok 31 - Did 0.uint coerce to 0
+    ok 32 - Did '0'.uint coerce to 0
+    ok 33 - Did 18446744073709551615.uint coerce to 18446744073709551615
+    ok 34 - Did '18446744073709551615'.uint coerce to 18446744073709551615
+    ok 35 - Did 18446744073709551616.uint coerce to 0
+    ok 36 - Did '18446744073709551616'.uint coerce to 0
+    ok 37 - Did 0.int8 coerce to 0
+    ok 38 - Did '0'.int8 coerce to 0
+    ok 39 - Did 255.int8 coerce to -1
+    ok 40 - Did '255'.int8 coerce to -1
+    ok 41 - Did 256.int8 coerce to 0
+    ok 42 - Did '256'.int8 coerce to 0
+    ok 43 - Did 127.int8 coerce to 127
+    ok 44 - Did '127'.int8 coerce to 127
+    ok 45 - Did 128.int8 coerce to -128
+    ok 46 - Did '128'.int8 coerce to -128
+    ok 47 - Did 0.int16 coerce to 0
+    ok 48 - Did '0'.int16 coerce to 0
+    ok 49 - Did 65535.int16 coerce to -1
+    ok 50 - Did '65535'.int16 coerce to -1
+    ok 51 - Did 65536.int16 coerce to 0
+    ok 52 - Did '65536'.int16 coerce to 0
+    ok 53 - Did 32767.int16 coerce to 32767
+    ok 54 - Did '32767'.int16 coerce to 32767
+    ok 55 - Did 32768.int16 coerce to -32768
+    ok 56 - Did '32768'.int16 coerce to -32768
+    ok 57 - Did 0.int32 coerce to 0
+    ok 58 - Did '0'.int32 coerce to 0
+    ok 59 - Did 4294967295.int32 coerce to -1
+    ok 60 - Did '4294967295'.int32 coerce to -1
+    ok 61 - Did 4294967296.int32 coerce to 0
+    ok 62 - Did '4294967296'.int32 coerce to 0
+    ok 63 - Did 2147483647.int32 coerce to 2147483647
+    ok 64 - Did '2147483647'.int32 coerce to 2147483647
+    ok 65 - Did 2147483648.int32 coerce to -2147483648
+    ok 66 - Did '2147483648'.int32 coerce to -2147483648
+    ok 67 - Did 0.int64 coerce to 0
+    ok 68 - Did '0'.int64 coerce to 0
+    ok 69 - Did 9223372036854775807.int64 coerce to 9223372036854775807
+    ok 70 - Did '9223372036854775807'.int64 coerce to 9223372036854775807
+    ok 71 - Did 9223372036854775808.int64 coerce to -9223372036854775808
+    ok 72 - Did '9223372036854775808'.int64 coerce to -9223372036854775808
+    ok 73 - Did 18446744073709551615.int64 coerce to -1
+    ok 74 - Did '18446744073709551615'.int64 coerce to -1
+    ok 75 - Did 18446744073709551616.int64 coerce to 0
+    ok 76 - Did '18446744073709551616'.int64 coerce to 0
+    ok 77 - Did 0.int coerce to 0
+    ok 78 - Did '0'.int coerce to 0
+    ok 79 - Did 9223372036854775807.int coerce to 9223372036854775807
+    ok 80 - Did '9223372036854775807'.int coerce to 9223372036854775807
+    ok 81 - Did 9223372036854775808.int coerce to -9223372036854775808
+    ok 82 - Did '9223372036854775808'.int coerce to -9223372036854775808
+    ok 83 - Did 18446744073709551615.int coerce to -1
+    ok 84 - Did '18446744073709551615'.int coerce to -1
+    ok 85 - Did 18446744073709551616.int coerce to 0
+    ok 86 - Did '18446744073709551616'.int coerce to 0
+    1..86
+ok 104 - Testing native coercers
+# FUDGED!

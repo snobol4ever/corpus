@@ -1,0 +1,4 @@
+1..3
+ok 1 - array of single Pair holds a Pair
+ok 2 - array of Pairs holds Pairs
+ok 3 - array of Pair and others holds a Pair

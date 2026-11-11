@@ -1,0 +1,14 @@
+1..13
+ok 1 - can recv immediately with recv (chars)
+ok 2 - can recv rest afterwards (chars)
+ok 3 - recv char count is not lower limit (chars)
+ok 4 - recv argument serves as upper limit (chars)
+ok 5 - can recv immediately with recv (bytes)
+ok 6 - can recv rest afterwards (bytes)
+ok 7 - recv char count is not lower limit (bytes)
+ok 8 - recv argument serves as upper limit (bytes)
+ok 9 - recv with Inf works (chars 1)
+ok 10 - recv with Inf works (chars 2)
+ok 11 - read blocks until it has enough data
+ok 12 - read gets the chars from across low level socket reads
+ok 13 - read stops blocking when server closes connection

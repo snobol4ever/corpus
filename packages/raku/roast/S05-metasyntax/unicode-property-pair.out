@@ -1,0 +1,7 @@
+1..6
+ok 1 - a letter
+ok 2 - a non-letter
+ok 3 - the char has a proper fractional value
+ok 4 - negated numeric value match
+ok 5 - match character names
+ok 6 - match character names

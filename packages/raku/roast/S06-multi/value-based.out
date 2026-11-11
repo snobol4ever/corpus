@@ -1,0 +1,14 @@
+1..13
+ok 1 - literal Str in signature matches value correctly
+ok 2 - literal Str in signature matches value correctly
+ok 3 - dies if no matching value even if type matches
+ok 4 - literal Int in signature matches value correctly
+ok 5 - literal Int in signature matches value correctly
+ok 6 - fallback to Int variant which is less narrow than constrained one
+ok 7 - if not an Int at all, fall back to Any candidate
+ok 8 - negative literal Int in signature matches value correctly
+ok 9 - literal Int, anonymous parameters and default values mix
+ok 10 - Literals and optionals mix
+ok 11 - can call a sub f(True)  with True as argument
+ok 12 - works with False too, since False ~~ True
+ok 13 - type constraint is still Bool

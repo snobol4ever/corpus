@@ -1,0 +1,12 @@
+1..11
+ok 1 - Can load classes from nested modules
+ok 2 - ... and the composition worked
+ok 3 - ... and instantiation works
+ok 4 - RT  \#62162
+ok 5 - dependency loop detected in use
+ok 6 - can use multiple "Role $name" statements (in multiple files) RT  \#67976
+ok 7 - Nested package not shadowed by later declaration of containing package
+ok 8 - Main package not shadowed by later loading of nested package
+ok 9 - Nested package not cought by lexically imported main package
+ok 10 - All nested modules available
+ok 11 - Composition worked

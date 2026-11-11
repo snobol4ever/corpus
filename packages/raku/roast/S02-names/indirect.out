@@ -1,0 +1,11 @@
+1..10
+ok 1 - can declare and use a class with indirect (but constant) name
+ok 2 - and it reports the right name
+ok 3 - indirect sub name works
+ok 4 - and the sub knows its name
+ok 5 - can declare method with indirect name
+ok 6 - can declare indirect method name with space
+ok 7 - ::("&foo") without whitespace
+ok 8 - ::("&foo") with whitespace (1)
+ok 9 - ::("&foo") with whitespace (2)
+ok 10 - ::("&foo") with a comment

@@ -1,0 +1,7 @@
+1..6
+ok 1 - use newline :lf influences \n
+ok 2 - use newline :lf decodes to \n
+ok 3 - use newline :cr influences \n
+ok 4 - use newline :cr decodes to \n
+ok 5 - use newline :crlf influences \n
+ok 6 - use newline :crlf decodes to \n

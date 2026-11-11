@@ -1,0 +1,63 @@
+1..36
+ok 1 - coercion type on the inside
+ok 2 - Coercion type coerces
+ok 3 - Coercion type coerces to correct value
+# Subtest: coercion type still type-checks
+    1..2
+    ok 1 - ' sub g(Str(Cool) $x) { $x }; g(Any) ' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 4 - coercion type still type-checks
+ok 5 - Coercion with user-defined types
+# Subtest: coercion that does not produce the target type dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Coerce::Impossible)
+ok 6 - coercion that does not produce the target type dies
+# Subtest: did we throws-like X::TypeCheck::Binding::Parameter?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 3 - .message matches /expected \s \S* Cool\:D/
+ok 7 - did we throws-like X::TypeCheck::Binding::Parameter?
+# Subtest: did we throws-like X::TypeCheck::Binding::Parameter?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 3 - .message matches /expected \s \S* Cool\:D/
+ok 8 - did we throws-like X::TypeCheck::Binding::Parameter?
+ok 9 - Definedness check + coercion (1)
+ok 10 - Definedness check + coercion (2)
+ok 11 - Coercion dies if it doees not satisfy definedness constraint of target
+ok 12 - basic enum sanity
+ok 13 - coercion to enum
+ok 14 - Coercion type on variable
+ok 15 - Coercion type on variable after assignment (type)
+ok 16 - Coercion type on variable after assignment (value)
+ok 17 - an array with coercion type
+ok 18 - a hash with coercion type for values
+ok 19 - a hash with coercion type for keys (1)
+ok 20 - a hash with coercion type for keys (2)
+ok 21 - coercion on method param
+ok 22 - coercion on method param from a non-positional argument
+ok 23 - Can coerce invocant to subclass
+ok 24 - Can gist a coercion type
+ok 25 - Sigilless variable does not confuse coercion type parsing
+ok 26 - coercer with subset target did not crash
+ok 27 - coercions from a Str subclass works
+# Subtest: .^coerce throws on unacceptable value
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Coerce::Impossible)
+ok 28 - .^coerce throws on unacceptable value
+# Subtest: assigning unacceptable value to a coercive variable throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 29 - assigning unacceptable value to a coercive variable throws
+ok 30 - nested coercions work
+ok 31 - optional coercive parameter defaults to its target type
+ok 32 - optional parameter coerces
+ok 33 - optional coercive parameter
+ok 34 - multi-dispatch coerces
+ok 35 - multi-dispatch candidate with a coercive parameter
+ok 36 - No phantom BOOTStr appears with a lookup hash

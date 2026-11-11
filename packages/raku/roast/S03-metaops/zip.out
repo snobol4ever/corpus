@@ -1,0 +1,86 @@
+1..77
+ok 1 - zip non-meta operator parses
+ok 2 - non-meta zip produces expected result
+ok 3 - zip-power works
+ok 4 - zip metaoperator parses
+ok 5 - zip-concat produces expected result
+ok 6 - zip-product works
+ok 7 - zip-cmp works
+ok 8 - zip-power with lazy lists
+ok 9 - zip-plus with lazy lists
+ok 10 - zip-product works with scalar left side
+ok 11 - zip-product works with scalar right side
+ok 12 - zip-product works with scalar both sides
+ok 13 - non-meta zip extends right argument ending with *
+ok 14 - non-meta zip extends left argument ending with *
+ok 15 - non-meta zip extends two arguments ending with *
+ok 16 - zip-concat extends right argument ending with *
+ok 17 - zip-plus extends left argument ending with *
+ok 18 - zip-product extends two arguments ending with *
+ok 19 - [Z+] with three lists
+ok 20 - zip returns a list of lists
+ok 21 - Z, retains list associativity
+ok 22 - Z, retains list associativity
+ok 23 - Z, retains list associativity
+ok 24 - Z, flattens in list context
+ok 25 - zip can modify containers on the left
+ok 26 - zip does not flatten itemized list
+ok 27 - Z= works
+ok 28 - can reduce-zip a direct lol
+ok 29 - can reduce-zip-< a direct lol
+ok 30 - can reduce-zip an indirect lol
+ok 31 - can reduce-zip-< an indirect lol
+ok 32 - laziness induced by two arguments (Z)
+ok 33 - laziness induced by three arguments (Z)
+ok 34 - laziness defeated by last argument (Z)
+ok 35 - laziness defeated by first argument (Z)
+ok 36 - laziness defeated by middle argument (Z)
+ok 37 - laziness defeated by first argument (Z)
+ok 38 - laziness defeated by last argument (Z)
+ok 39 - laziness defeated by middle argument (Z)
+ok 40 - laziness induced by two arguments (Z*)
+ok 41 - laziness induced by three arguments (Z*)
+ok 42 - laziness defeated by last argument (Z*)
+ok 43 - laziness defeated by first argument (Z*)
+ok 44 - laziness defeated by middle argument (Z*)
+ok 45 - laziness defeated by first argument (Z*)
+ok 46 - laziness defeated by last argument (Z*)
+ok 47 - laziness defeated by middle argument (Z*)
+# Subtest: Z. is too fiddly
+    1..2
+    ok 1 - '3 Z. note' died
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 48 - Z. is too fiddly
+# Subtest: Z. can't do P5 concat
+    1..2
+    ok 1 - '3 Z. "foo"' died
+    ok 2 - right exception type (X::Obsolete)
+ok 49 - Z. can't do P5 concat
+ok 50 - Meta zip can autogen
+ok 51 - Meta zip can autogen (3-ary)
+ok 52 - Meta zip can autogen (3-ary) without &
+ok 53 - Meta zip can autogen (3-ary) with &[]
+ok 54 - Zxx does not thunk non-list
+ok 55 - Zxx thunks left side properly
+ok 56 - Zxx thunk runs when needed
+ok 57 - Zxx thunk runs repeatedly when needed
+ok 58 - Zand thunks right side properly
+ok 59 - Zand thunks runs when needed
+ok 60 - Z&& thunks right side properly
+ok 61 - Z&& thunk runs when needed
+ok 62 - Zor thunks right side properly
+ok 63 - Zor thunk runs when needed
+ok 64 - Z|| thunks right side properly
+ok 65 - Z|| thunk runs when needed
+ok 66 - Zandthen thunks right side properly
+ok 67 - Zandthen thunks runs when needed
+ok 68 - Zandthen topicalizes when needed
+ok 69 - Zorelse thunks right side properly
+ok 70 - Zorelse thunk runs when needed
+ok 71 - Zorelse topicalizes when needed
+ok 72 - Z respects itemization of arguments (1)
+ok 73 - Z respects itemization of arguments (2)
+ok 74 - Z meta-op respects itemization of arguments (1)
+ok 75 - Z meta-op respects itemization of arguments (2)
+ok 76 - artity-0 Z returns a Seq
+ok 77 - is a 1-element list handled correctly with zip

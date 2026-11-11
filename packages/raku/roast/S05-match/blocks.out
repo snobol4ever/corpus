@@ -1,0 +1,25 @@
+1..19
+ok 1 - Can match in an if block
+ok 2 - ... and can use the match var
+ok 3 - $/ is a dynamic lexical, so it is set outside that block.
+ok 4 - Can match in a while block
+ok 5 - ... and can use the match var
+ok 6 - Can match in a bare block
+ok 7 - ... and can use the match var
+ok 8 - Can match in a do block
+ok 9 - ... and can use the match var
+ok 10 - Can match in the condition of a while loop
+ok 11 - ... and can use $/ in the block
+not ok 12 - ... and can use $/ outside the block # TODO Assignment to matched string affects earlier match objects
+# Failed test '... and can use $/ outside the block'
+# at S05-match/blocks.rakudo line 54
+# expected: 'b'
+#      got: ''
+ok 13 - Can match in the condition of an if statement
+ok 14 - ... and can use $/ outside the block
+ok 15 - $/ is properly set with explicit $_ in a given { } block
+ok 16 - $/ is properly set in a given { } block
+ok 17 - /foo/ matched against $_ (successfully)
+ok 18 - /not/ matched against $_ (no match)
+ok 19 - match in /if/;
+# FUDGED!

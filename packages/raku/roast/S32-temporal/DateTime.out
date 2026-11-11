@@ -1,0 +1,413 @@
+1..314
+ok 1 - time returns an Int
+ok 2 - DateTimes are immutable (1)
+ok 3 - DateTimes are immutable (2)
+ok 4 - DateTimes are immutable (3)
+ok 5 - DateTimes are immutable (4)
+ok 6 - Must provide arguments to DateTime
+ok 7 - DateTime accepts January
+ok 8 - DateTime rejects month 0
+ok 9 - DateTime rejects month -1
+ok 10 - DateTime accepts December
+ok 11 - DateTime rejects month 13
+ok 12 - DateTime accepts January 31
+ok 13 - DateTime rejects January 32
+ok 14 - DateTime accepts June 30
+ok 15 - DateTime rejects June 31
+ok 16 - DateTime rejects February 30
+ok 17 - DateTime accepts 29 Feb 1996
+ok 18 - DateTime rejects 29 Feb 1995
+ok 19 - DateTime accepts 29 Feb 2000
+ok 20 - DateTime accepts 29 Feb 2000 (clone)
+ok 21 - DateTime accepts 29 Feb 2000 (ISO)
+ok 22 - DateTime rejects 29 Feb 1900
+ok 23 - DateTime rejects 29 Feb 1900 (clone)
+ok 24 - DateTime rejects 29 Feb 1900 (ISO)
+ok 25 - DateTime accepts hour 0
+ok 26 - DateTime rejects hour 0
+ok 27 - DateTime accepts hour 23
+ok 28 - DateTime rejects hour 24
+ok 29 - DateTime accepts minute 0
+ok 30 - DateTime rejects minute -1
+ok 31 - DateTime accepts minute 59
+ok 32 - DateTime accepts minute 59 (clone)
+ok 33 - DateTime accepts minute 59 (ISO)
+ok 34 - DateTime accepts minute 59 (with Date)
+ok 35 - DateTime rejects minute 60
+ok 36 - DateTime rejects minute 60 (clone)
+ok 37 - DateTime rejects minute 60 (ISO)
+ok 38 - DateTime rejects minute 60 (with Date)
+ok 39 - DateTime accepts second 0
+ok 40 - DateTime accepts second 1/2
+ok 41 - DateTime rejects second -1
+ok 42 - DateTime rejects second -1/2
+ok 43 - DateTime accepts second 59.5
+ok 44 - DateTime accepts second 59.5 (clone)
+ok 45 - DateTime accepts nanosecond precision
+ok 46 - DateTime rejects second 62
+ok 47 - DateTime rejects second 62 (clone)
+ok 48 - DateTime rejects second 62 (ISO)
+ok 49 - DateTime rejects second 62 (with Date)
+ok 50 - Leap-second validation: Wrong time and date
+ok 51 - Leap-second validation: Wrong date
+ok 52 - Leap-second validation: Wrong year (1)
+ok 53 - Leap-second validation: Wrong year (2)
+ok 54 - Leap-second validation: Wrong; June 30 on a year with a leap second in December 31
+ok 55 - Leap-second validation: Wrong minute
+ok 56 - Leap-second validation: Wrong hour
+ok 57 - Leap-second validation: Okay; December 31
+ok 58 - Leap-second validation: Wrong; December 31 on a year with a leap second in June 30
+ok 59 - Leap-second validation: Wrong; December 31 on a year with a leap second in June 30 (second 60.9)
+ok 60 - Leap-second validation: Okay; June 30
+ok 61 - Leap-second validation: Okay; June 30 (second 60.9)
+ok 62 - Leap-second validation: Wrong; there are no seconds 61 (in the 20th century, anyway).
+ok 63 - Leap-second validation: Wrong because of TZ; December 31
+ok 64 - Leap-second validation: Okay because of TZ; January 1
+ok 65 - Leap-second validation: Wrong because of TZ; June 30
+ok 66 - Leap-second validation: Okay because of TZ; June 30
+ok 67 - Leap-second validation: Wrong because of TZ; December 31 (second 60.9)
+ok 68 - Leap-second validation: Okay because of TZ; January 1 (second 60.9)
+ok 69 - DateTime at beginning of Unix epoch
+ok 70 - from POSIX at 1999-12-31T23:59:59Z
+ok 71 - from POSIX at 2000-01-01T00:00:00Z
+ok 72 - crosscheck 2026-04-03T11:15:04Z
+ok 73 - .raku round-tripping with 2026-04-03T11:15:04Z
+ok 74 - crosscheck 2027-06-14T07:57:46Z
+ok 75 - .raku round-tripping with 2027-06-14T07:57:46Z
+ok 76 - crosscheck 2025-08-28T00:53:43Z
+ok 77 - .raku round-tripping with 2025-08-28T00:53:43Z
+ok 78 - crosscheck 2028-01-18T18:19:07Z
+ok 79 - .raku round-tripping with 2028-01-18T18:19:07Z
+ok 80 - crosscheck 2025-01-21T14:32:22Z
+ok 81 - .raku round-tripping with 2025-01-21T14:32:22Z
+ok 82 - crosscheck 2028-08-24T04:40:28Z
+ok 83 - .raku round-tripping with 2028-08-24T04:40:28Z
+ok 84 - DateTime.new(Int) with time zone and formatter
+ok 85 - from POSIX at 1999-01-01T00:00:00Z
+ok 86 - from POSIX at 1983-07-01T00:00:00Z
+ok 87 - round-tripping ISO 8601 (Z)
+ok 88 - round-tripping ISO 8601 (+0000 to Z)
+ok 89 - round-tripping ISO 8601 (+1100)
+ok 90 - DateTime.new(Str) defaults to UTC
+ok 91 - DateTime.new(Str) with :timezone
+ok 92 - DateTime.new(Str) with formatter
+ok 93 - offset with no minutes specified
+ok 94 - negative offset with no minutes specified
+ok 95 - colonated offset
+ok 96 - negative colonated offset
+ok 97 - colonated non-zero offset
+ok 98 - colonated negative non-zero offset
+ok 99 - +00 with no minutes
+ok 100 - -00 with no minutes
+ok 101 - colonated +00
+ok 102 - colonated -00
+ok 103 - More seconds precision
+ok 104 - More seconds precision
+ok 105 - Truncate precision on round-trip
+ok 106 - Full precision maintained internally
+ok 107 - +00 with trailing colon
+ok 108 - single digit hour +0
+ok 109 - +0 with trailing colon
+ok 110 - dies because of trailing colon
+ok 111 - dies with a single digit hour offset
+ok 112 - single digit hour, trailing colon
+ok 113 - Truncated to milliseconds by default
+ok 114 - Full precision available
+ok 115 - DateTime.truncated-to(second)
+ok 116 - DateTime.truncated-to(minute)
+ok 117 - DateTime.truncated-to(hour)
+ok 118 - DateTime.truncate-to(day)
+ok 119 - DateTime.now uses current time
+ok 120 - DateTime.now with time zone and formatter
+ok 121 - DateTime.now agrees with now pseudo-constant
+ok 122 - DateTime.posix (1970-01-01T00:00:00Z)
+ok 123 - DateTime.posix (1970-01-01T00:00:01.2345Z)
+ok 124 - DateTime.posix (1970-01-01T00:00:01.2345Z)
+ok 125 - DateTime.posix (1970-01-01T01:01:01Z)
+ok 126 - DateTime.posix (1970-01-01T01:01:01-01:01)
+ok 127 - at 2026-11-07T21:36:27Z, POSIX is 1794087387
+ok 128 - DateTime.whole-second (22)
+ok 129 - DateTime.whole-second (22.1)
+ok 130 - DateTime.whole-second (15.9)
+ok 131 - DateTime.whole-second (0)
+ok 132 - DateTime.whole-second (0.9)
+ok 133 - DateTime.whole-second (60)
+ok 134 - DateTime.whole-second (60.5)
+ok 135 - DateTime.Date
+ok 136 - Date object is correct class
+ok 137 - Date year
+ok 138 - Date month
+ok 139 - Date day
+ok 140 - DateTime.offset (Z)
+ok 141 - DateTime.offset (+0000)
+ok 142 - DateTime.offset (-0000)
+ok 143 - DateTime.offset (+0015)
+ok 144 - DateTime.offset (-0015)
+ok 145 - DateTime.offset (+0700)
+ok 146 - DateTime.offset (-0700)
+ok 147 - DateTime.offset (+1433)
+ok 148 - DateTime.offset (-1433)
+ok 149 - DateTime.offset (1 hour, 1 minute, 1 second)
+ok 150 - DateTime.in-timezone (adding hours)
+ok 151 - DateTime.in-timezone (subtracting hours)
+ok 152 - DateTime.in-timezone (-0100 to UTC)
+ok 153 - DateTime.utc (from -0100)
+ok 154 - DateTime.in-timezone (+ hours to - hours)
+ok 155 - DateTime.in-timezone (decreasing negative hours)
+ok 156 - DateTime.in-timezone (negative minutes)
+ok 157 - DateTime.in-timezone (negative seconds)
+ok 158 - DateTime.in-timezone (hour rollover 1)
+ok 159 - DateTime.in-timezone (hour rollover 2)
+ok 160 - DateTime.in-timezone (hours and minutes)
+ok 161 - DateTime.in-timezone (hours, minutes, and seconds)
+ok 162 - DateTime.in-timezone (one-day rollover)
+ok 163 - DateTime.in-timezone (two-day rollover)
+ok 164 - DateTime.in-timezone (year rollover)
+ok 165 - DateTime.in-timezone (fractional seconds)
+ok 166 - DateTime.in-timezone (big rollover)
+ok 167 - DateTime.new(...).year isa Int
+ok 168 - DateTime.new(...).hour isa Int
+ok 169 - DateTime.new(..., hour => 13).hour isa Int
+ok 170 - $dt.clone(...).year isa Int
+ok 171 - $dt.clone(...).hour isa Int
+ok 172 - $dt.clone(..., hour => 13).hour isa Int
+ok 173 - DateTime.new(Int).year isa Int
+ok 174 - DateTime.new(Int).hour isa Int
+ok 175 - DateTime.new(Instant).year isa Int
+ok 176 - DateTime.new(Instant).hour isa Int
+ok 177 - ds(Str).year isa Int
+ok 178 - ds(Str).hour isa Int
+ok 179 - dt.in-timezone(Int).year isa Int
+ok 180 - dt.in-timezone(Int).hour isa Int
+ok 181 - dt.truncated-to(week).year isa Int
+ok 182 - dt.truncated-to(week).hour isa Int
+ok 183 - DateTime.now.year isa Int
+ok 184 - DateTime.now.hour isa Int
+ok 185 - coercion to Date (this test can fail if run exactly at midnight)
+ok 186 - adding 1 second
+ok 187 - adding 10 seconds
+ok 188 - adding 14 seconds, overflowing to minutes
+ok 189 - adding 74 seconds, overflowing to hours
+ok 190 - adding 1 second, overflowing to days
+ok 191 - adding 1 second, overflowing to years
+ok 192 - delting to a leap second
+ok 193 - delting from a leap second
+ok 194 - adding 1 minute
+ok 195 - adding 10 minutes
+ok 196 - adding 14 minutes, overflowing to hours
+ok 197 - adding 1 hour
+ok 198 - adding 10 hours
+ok 199 - adding 14 hours, overflowing to days
+ok 200 - adding 1 day
+ok 201 - adding 1 day, overflowing to February
+ok 202 - adding 2 days, overflowing to March
+ok 203 - adding a day to a leap second clips
+ok 204 - adding a year to a leap second, landing on another leap second
+ok 205 - adding 1 week
+ok 206 - adding 1 week, overflowing to February
+ok 207 - adding 2 weeks, overflowing to March
+ok 208 - adding 3 weeks, overflowing to years
+ok 209 - subtracting 1 second
+ok 210 - subtracting 10 seconds
+ok 211 - subtracting 14 seconds, overflowing to minutes
+ok 212 - subtracting 74 seconds, overflowing to hours
+ok 213 - subtracting 1 second, overflowing to days
+ok 214 - subtracting 1 second, overflowing to years
+ok 215 - subtracting 1 minute
+ok 216 - subtracting 10 minutes
+ok 217 - subtracting 14 minutes, overflowing to hours
+ok 218 - subtracting 1 hour
+ok 219 - subtracting 10 hours
+ok 220 - subtracting 14 hours, overflowing to days
+ok 221 - subtracting 1 day
+ok 222 - subtracting 1 day, overflowing to February
+ok 223 - subtracting 2 days, overflowing to March
+ok 224 - subtracting 1 week
+ok 225 - subtracting 1 week, overflowing to February
+ok 226 - subtracting 2 weeks, overflowing to March
+ok 227 - subtracting 3 weeks, overflowing to years
+ok 228 - subtracting a day from a leap second clips
+ok 229 - subtracting a second from time can land on a leap second
+ok 230 - .later does not try to create an impossible datetime
+ok 231 - positive smartmatch against a Date
+ok 232 - negative smartmatch against a Date
+ok 233 - 1971-10-28T10:45:00Z == 1971-10-28T10:45:00Z
+ok 234 - 1971-10-28T10:45:00Z != 1998-10-19T02:03:00Z
+ok 235 - 1971-10-28T10:45:00Z <= 1971-10-28T10:45:00Z
+ok 236 - 1971-10-28T10:45:00Z <= 1998-10-19T02:03:00Z
+ok 237 - 1971-10-28T10:45:00Z < 1998-10-19T02:03:00Z
+ok 238 - 1971-10-28T10:45:00Z >= 1971-10-28T10:45:00Z
+ok 239 - 1998-10-19T02:03:00Z >= 1971-10-28T10:45:00Z
+ok 240 - 1998-10-19T02:03:00Z > 1971-10-28T10:45:00Z
+ok 241 - 1971-10-28T10:45:00Z cmp 1971-10-28T10:45:00Z == 0
+ok 242 - 1971-10-28T10:45:00Z cmp 1998-10-19T02:03:00Z == -1
+ok 243 - 1998-10-19T02:03:00Z cmp 1971-10-28T10:45:00Z == 1
+ok 244 - 1971-10-28T10:45:00Z before 1998-10-19T02:03:00Z
+ok 245 - 1998-10-19T02:03:00Z after 1971-10-28T10:45:00Z
+# Subtest: did we throws-like X::OutOfRange?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .what matches rx{minute}
+ok 246 - did we throws-like X::OutOfRange?
+ok 247 - t and T work, are same
+ok 248 - z and Z work, are same
+ok 249 - adding large values of days does not overflow
+ok 250 - subtracting large values days does not overflow
+ok 251 - second value with a comma works
+ok 252 - large value of year in string works
+ok 253 - negative value of year in string works
+ok 254 - very large value for epoch
+ok 255 - moving a year from a leap-date into a year without leap-date
+ok 256 - did role attributes get initialized ok
+ok 257 - created object is of right type
+ok 258 - created object is a subclass
+ok 259 - is year in FooDateTime ok
+ok 260 - is month in FooDateTime ok
+ok 261 - is day in FooDateTime ok
+ok 262 - is hour in FooDateTime ok
+ok 263 - is minute in FooDateTime ok
+ok 264 - is second in FooDateTime ok
+ok 265 - is foo in FooDateTime ok
+ok 266 - created object is of right type
+ok 267 - created object is a subclass
+ok 268 - is year in FooDateTime ok
+ok 269 - is month in FooDateTime ok
+ok 270 - is day in FooDateTime ok
+ok 271 - is hour in FooDateTime ok
+ok 272 - is minute in FooDateTime ok
+ok 273 - is second in FooDateTime ok
+ok 274 - is foo in FooDateTime ok
+ok 275 - created object is of right type
+ok 276 - created object is a subclass
+ok 277 - is year in FooDateTime ok
+ok 278 - is month in FooDateTime ok
+ok 279 - is day in FooDateTime ok
+ok 280 - is hour in FooDateTime ok
+ok 281 - is minute in FooDateTime ok
+ok 282 - is second in FooDateTime ok
+ok 283 - is foo in FooDateTime ok
+# Subtest: synthetics not allowed in date formats
+    1..2
+    # Subtest: DateTime.new (+01:00 format)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Temporal::InvalidFormat)
+    ok 1 - DateTime.new (+01:00 format)
+    # Subtest: DateTime.new (Z format)
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Temporal::InvalidFormat)
+    ok 2 - DateTime.new (Z format)
+ok 284 - synthetics not allowed in date formats
+# Subtest: DateTime.offset-in-hours
+    1..9
+    ok 1 - UTC
+    ok 2 - +1
+    ok 3 - -1
+    ok 4 - +4:30
+    ok 5 - -4:30
+    ok 6 - +4:05
+    ok 7 - -4:05
+    ok 8 - +42:30
+    ok 9 - -42:30
+ok 285 - DateTime.offset-in-hours
+# Subtest: DateTime <=> DateTime
+    1..21
+    ok 1 - Same (same offsets)
+    ok 2 - Same (LHS has smaller offset)
+    ok 3 - Same (RHS has smaller offset)
+    ok 4 - Same (multi-day difference in offsets)
+    ok 5 - Less (different years)
+    ok 6 - More (different years)
+    ok 7 - Less (different months)
+    ok 8 - More (different months)
+    ok 9 - Less (different days)
+    ok 10 - More (different days)
+    ok 11 - Less (different hours)
+    ok 12 - More (different hours)
+    ok 13 - Less (different minutes)
+    ok 14 - More (different minutes)
+    ok 15 - Less (different seconds)
+    ok 16 - More (different seconds)
+    ok 17 - Less (leap seconds)
+    ok 18 - Moar (leap seconds)
+    ok 19 - Same (leap seconds) (1)
+    ok 20 - Same (leap seconds) (2)
+    ok 21 - Same (leap seconds) (3)
+ok 286 - DateTime <=> DateTime
+# Subtest: can parse leap second in non-UTC timezones
+    1..20
+    ok 1 - parsed correct date for .in-timezone(-360000)
+    ok 2 - parsed correct date for .in-timezone(360000)
+    ok 3 - parsed correct date for .in-timezone(-108000)
+    ok 4 - parsed correct date for .in-timezone(108000)
+    ok 5 - parsed correct date for .in-timezone(-86400)
+    ok 6 - parsed correct date for .in-timezone(86400)
+    ok 7 - parsed correct date for .in-timezone(-43200)
+    ok 8 - parsed correct date for .in-timezone(43200)
+    ok 9 - parsed correct date for .in-timezone(-10800)
+    ok 10 - parsed correct date for .in-timezone(10800)
+    ok 11 - parsed correct date for .in-timezone(0)
+    ok 12 - parsed correct date for .in-timezone(0)
+    ok 13 - parsed correct date for .in-timezone(-1800)
+    ok 14 - parsed correct date for .in-timezone(1800)
+    ok 15 - parsed correct date for .in-timezone(-33300)
+    ok 16 - parsed correct date for .in-timezone(33300)
+    ok 17 - parsed correct date for .in-timezone(-19620)
+    ok 18 - parsed correct date for .in-timezone(19620)
+    ok 19 - parsed correct date for .in-timezone(-7200)
+    ok 20 - parsed correct date for .in-timezone(7200)
+ok 287 - can parse leap second in non-UTC timezones
+# Subtest: DateTime:D.Date returns correct date
+    1..4
+    ok 1 - .Date returns Date:D
+    ok 2 - .year is right
+    ok 3 - .month is right
+    ok 4 - .day is right
+ok 288 - DateTime:D.Date returns correct date
+ok 289 - DateTime:U.Date returns Date:U
+ok 290 - DateTime:U.DateTime returns self
+ok 291 - DateTime:D.DateTime returns self
+# Subtest: .hh-mm-ss
+    1..5
+    ok 1 - Date -> DateTime
+    ok 2 - leap second
+    ok 3 - posix 4242
+    ok 4 - 13 hours later
+    ok 5 - 50 hours earlier
+ok 292 - .hh-mm-ss
+# Subtest: unexpected named arg with positional arg to .new throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 293 - unexpected named arg with positional arg to .new throws
+ok 294 - DateTime - DateTime = Duration
+ok 295 - DateTime - Duration = DateTime
+ok 296 - DateTime − DateTime = Duration(U+2212 minus)
+ok 297 - DateTime − Duration = DateTime(U+2212 minus)
+ok 298 - DateTime + Duration = DateTime
+ok 299 - Duration + DateTime = DateTime
+ok 300 - DateTime <  DateTime
+ok 301 - DateTime <= DateTime
+ok 302 - DateTime == DateTime
+ok 303 - DateTime != DateTime
+ok 304 - DateTime >  DateTime
+ok 305 - DateTime >= DateTime
+# Subtest: subsecond .later/.earlier
+    1..6
+    ok 1 - .7s later
+    ok 2 - .007s later
+    ok 3 - 2.707s later
+    ok 4 - .7s earlier
+    ok 5 - .007s earlier
+    ok 6 - 2.707s earlier
+ok 306 - subsecond .later/.earlier
+ok 307 - does .later work on on DateTime subclasses 0
+ok 308 - does .later work on on DateTime subclasses 1
+ok 309 - Check of default stringification of second 0 partial works
+ok 310 - does DateTime(then) work
+ok 311 - does DateTime(then-str) work
+ok 312 - can specify multiple units as list
+ok 313 - did the first mixin survive
+ok 314 - did the second mixin survive

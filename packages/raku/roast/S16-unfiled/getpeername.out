@@ -1,0 +1,5 @@
+1..1
+not ok 1 - IO::Socket::INet.getpeername works # TODO getpeername is not implemented yet
+# Failed test 'IO::Socket::INet.getpeername works'
+# at S16-unfiled/getpeername.rakudo line 17
+# FUDGED!

@@ -1,0 +1,17 @@
+1..16
+ok 1 - "%hash[]" works and sorts keys
+ok 2 - "{%hash}" works and sorts keys
+ok 3 - "%hash<a>" works
+ok 4 - "<%hash<a>>" works
+ok 5 - "$hash<a>" works
+ok 6 - "<$hash<a>>" works
+ok 7 - interpolation with curly braces
+ok 8 - interpolation with angle brackets
+ok 9 - no interpolation
+ok 10 - %hash{do_a} calls do_a()
+ok 11 - can quote hash indexes in interpolations 1
+ok 12 - can quote hash indexes in interpolations 2
+ok 13 - %h<<a>> interpolates correctly
+ok 14 - %h<<$foo>> interpolates correctly
+ok 15 - %h«a» interpolates correctly
+ok 16 - %h«$foo» interpolates correctly

@@ -1,0 +1,40 @@
+1..21
+ok 1 - slurp() on non-existent files fails
+ok 2 - slurp() on directories fails
+ok 3 - slurp on open directory fails
+ok 4 - test file slurp with path call ok
+ok 5 - slurp returns a string
+ok 6 - slurp with path loads entire file
+ok 7 - empty files yield empty string
+ok 8 - method form .slurp works
+ok 9 - function passed a path works
+ok 10 - :bin option runs
+ok 11 - :bin returns a Buf
+ok 12 - binary slurp returns correct content
+ok 13 - slurp :enc - encoding functions
+ok 14 - utf8 looks normal
+ok 15 - iso-8859-1 makes mojibake correctly
+ok 16 - lines() - exactly 1 line in this file
+ok 17 - .lines on a directory fails
+# Subtest: &slurp(IO::Handle)
+    1..9
+    ok 1 - slurp() uses $*ARGFILES
+    ok 2 - slurp() uses $*ARGFILES (binary mode)
+    ok 3 - slurp($fh)
+    ok 4 - slurp($fh, :bin)
+    ok 5 - slurp($fh, :enc<utf8-c8>)
+    ok 6 - $fh.&slurp
+    ok 7 - without :close, handle stays open
+    ok 8 - $fh.&slurp(:close)
+    ok 9 - with :close, handle is closed
+ok 18 - &slurp(IO::Handle)
+# Subtest: :bin arg to IO::Handle.slurp method
+    1..5
+    ok 1 - fresh handle
+    ok 2 - fresh bin handle
+    ok 3 - after .get
+    ok 4 - after .get on large data file
+    ok 5 - after .read on large data file with bin handle
+ok 19 - :bin arg to IO::Handle.slurp method
+ok 20 - does slurp() with :bin return a Buf-like thing
+ok 21 - does .IO.slurp() with :bin return a Buf-like thing

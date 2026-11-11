@@ -1,0 +1,67 @@
+1..49
+ok 1 - () is defined
+ok 2 - Nil as part of list is element
+ok 3 - Empty as part of list, is empty list
+ok 4 - Pushing Empty returns same array
+ok 5 - Pushing Empty in list context is empty list
+ok 6 - Unshifting Empty returns same array
+ok 7 - Unshifting Empty in list context is empty list
+ok 8 - Setting array to Empty returns empty string
+ok 9 - Setting to Empty restores original state
+ok 10 - assigning Nil to Int should work
+ok 11 - Nil makes undefined here
+not ok 12 - Check that we have an 'Int' array # TODO .clone doesn't copy typedness
+# Failed test 'Check that we have an 'Int' array'
+# at S02-types/undefined-types.rakudo line 32
+# expected: '(Int)'
+#      got: (Int)
+ok 13 - Empty as part of Int list, is empty list
+ok 14 - assigning Empty returns same array
+ok 15 - Pushing Empty in Int list context is empty list
+ok 16 - assigning Empty returns same array
+ok 17 - Unshifting Empty in Int list context is empty list
+ok 18 - assigning Nil to Int should work
+ok 19 - Nil makes undefined here
+ok 20 - setting array to Empty returns empty string
+not ok 21 - Check that we still have an 'Int' array # TODO .clone doesn't copy typedness
+# Failed test 'Check that we still have an 'Int' array'
+# at S02-types/undefined-types.rakudo line 42
+# expected: '(Int)'
+#      got: (Int)
+ok 22 - Setting to Empty restores original state
+not ok 23 - Check that we have an 'Int' hash # TODO .clone doesn't copy typedness
+# Failed test 'Check that we have an 'Int' hash'
+# at S02-types/undefined-types.rakudo line 50
+# expected: '(Int)'
+#      got: (Int)
+ok 24 - Empty as part of Int list, is empty pair
+ok 25 - assigning Nil to hash element should work
+ok 26 - Nil makes undefined here
+ok 27 - setting hash to Empty returns empty string
+not ok 28 - Check that we still have an 'Int' hash # TODO .clone doesn't copy typedness
+# Failed test 'Check that we still have an 'Int' hash'
+# at S02-types/undefined-types.rakudo line 56
+# expected: '(Int)'
+#      got: (Int)
+ok 29 - Setting to Empty restores original state
+ok 30 - sink statement prefix returns Nil (list context)
+ok 31 - sink execucted the statement
+ok 32 - sink block prefix returns Nil (list context)
+ok 33 - the block was executed
+ok 34 - sink in scalar context (statement)
+ok 35 - ... statement executed
+ok 36 - sink in scalar context (block)
+ok 37 - ... block executed
+ok 38 - prefix:<~> on type object gives empty string (Any)
+ok 39 - prefix:<~> on type object gives empty string (Int)
+ok 40 - .Stringy on type object gives empty string (Any)
+ok 41 - .Stringy on type object gives empty string (Int)
+ok 42 - prefix:<~> returns a Stringy (Any)
+ok 43 - prefix:<~> returns a Stringy (Int)
+ok 44 - .Stringy returns a Stringy (Any)
+ok 45 - .Stringy returns a Stringy (Int)
+ok 46 - .gist on type object gives (Any)
+ok 47 - .gist on type object gives (Int)
+ok 48 - infix:<~> uses coercion to Stringy (Any)
+ok 49 - infix:<~> uses coercion to Stringy (Int)
+# FUDGED!

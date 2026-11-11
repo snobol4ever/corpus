@@ -1,0 +1,4 @@
+1..3
+ok 1 - Rat $!numerator $!denominator& attributes
+ok 2 - Rat Str and round methods
+ok 3 - log signature

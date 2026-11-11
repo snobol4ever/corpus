@@ -1,0 +1,1090 @@
+1..55
+# Subtest: tests for list
+    1..17
+    ok 1 - list: pull-one until exhausted
+    ok 2 - list: push-exactly until exhausted
+    ok 3 - list: push-at-least until exhausted
+    ok 4 - list: does push-all return IterationEnd
+    ok 5 - list: push-all
+    ok 6 - list: does push-until-lazy return IterationEnd
+    ok 7 - list: push-until-lazy
+    ok 8 - list: does sink-all return IterationEnd
+    ok 9 - list: skip-one until exhausted
+    ok 10 - list: skip-at-least except last
+    ok 11 - list: skip-at-least check last value
+    ok 12 - list: did skip-at-least after pull-one exhaust?
+    ok 13 - list: skip-at-least-pull-one last
+    ok 14 - list: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - list: count-only
+    ok 16 - list: bool-only
+    ok 17 - list: count/bool-only didn't pull
+ok 1 - tests for list
+# Subtest: tests for list.kv
+    1..17
+    ok 1 - list.kv: pull-one until exhausted
+    ok 2 - list.kv: push-exactly until exhausted
+    ok 3 - list.kv: push-at-least until exhausted
+    ok 4 - list.kv: does push-all return IterationEnd
+    ok 5 - list.kv: push-all
+    ok 6 - list.kv: does push-until-lazy return IterationEnd
+    ok 7 - list.kv: push-until-lazy
+    ok 8 - list.kv: does sink-all return IterationEnd
+    ok 9 - list.kv: skip-one until exhausted
+    ok 10 - list.kv: skip-at-least except last
+    ok 11 - list.kv: skip-at-least check last value
+    ok 12 - list.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - list.kv: skip-at-least-pull-one last
+    ok 14 - list.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - list.kv: doesn't support count-only
+    ok 16 - list.kv: doesn't support bool-only
+    ok 17 - list.kv: count/bool-only didn't pull
+ok 2 - tests for list.kv
+# Subtest: tests for list.keys
+    1..17
+    ok 1 - list.keys: pull-one until exhausted
+    ok 2 - list.keys: push-exactly until exhausted
+    ok 3 - list.keys: push-at-least until exhausted
+    ok 4 - list.keys: does push-all return IterationEnd
+    ok 5 - list.keys: push-all
+    ok 6 - list.keys: does push-until-lazy return IterationEnd
+    ok 7 - list.keys: push-until-lazy
+    ok 8 - list.keys: does sink-all return IterationEnd
+    ok 9 - list.keys: skip-one until exhausted
+    ok 10 - list.keys: skip-at-least except last
+    ok 11 - list.keys: skip-at-least check last value
+    ok 12 - list.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - list.keys: skip-at-least-pull-one last
+    ok 14 - list.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - list.keys: count-only
+    ok 16 - list.keys: bool-only
+    ok 17 - list.keys: count/bool-only didn't pull
+ok 3 - tests for list.keys
+# Subtest: tests for list.values
+    1..17
+    ok 1 - list.values: pull-one until exhausted
+    ok 2 - list.values: push-exactly until exhausted
+    ok 3 - list.values: push-at-least until exhausted
+    ok 4 - list.values: does push-all return IterationEnd
+    ok 5 - list.values: push-all
+    ok 6 - list.values: does push-until-lazy return IterationEnd
+    ok 7 - list.values: push-until-lazy
+    ok 8 - list.values: does sink-all return IterationEnd
+    ok 9 - list.values: skip-one until exhausted
+    ok 10 - list.values: skip-at-least except last
+    ok 11 - list.values: skip-at-least check last value
+    ok 12 - list.values: did skip-at-least after pull-one exhaust?
+    ok 13 - list.values: skip-at-least-pull-one last
+    ok 14 - list.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - list.values: count-only
+    ok 16 - list.values: bool-only
+    ok 17 - list.values: count/bool-only didn't pull
+ok 4 - tests for list.values
+# Subtest: tests for list.pairs
+    1..17
+    ok 1 - list.pairs: pull-one until exhausted
+    ok 2 - list.pairs: push-exactly until exhausted
+    ok 3 - list.pairs: push-at-least until exhausted
+    ok 4 - list.pairs: does push-all return IterationEnd
+    ok 5 - list.pairs: push-all
+    ok 6 - list.pairs: does push-until-lazy return IterationEnd
+    ok 7 - list.pairs: push-until-lazy
+    ok 8 - list.pairs: does sink-all return IterationEnd
+    ok 9 - list.pairs: skip-one until exhausted
+    ok 10 - list.pairs: skip-at-least except last
+    ok 11 - list.pairs: skip-at-least check last value
+    ok 12 - list.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - list.pairs: skip-at-least-pull-one last
+    ok 14 - list.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - list.pairs: doesn't support count-only
+    ok 16 - list.pairs: doesn't support bool-only
+    ok 17 - list.pairs: count/bool-only didn't pull
+ok 5 - tests for list.pairs
+# Subtest: tests for list.antipairs
+    1..17
+    ok 1 - list.antipairs: pull-one until exhausted
+    ok 2 - list.antipairs: push-exactly until exhausted
+    ok 3 - list.antipairs: push-at-least until exhausted
+    ok 4 - list.antipairs: does push-all return IterationEnd
+    ok 5 - list.antipairs: push-all
+    ok 6 - list.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - list.antipairs: push-until-lazy
+    ok 8 - list.antipairs: does sink-all return IterationEnd
+    ok 9 - list.antipairs: skip-one until exhausted
+    ok 10 - list.antipairs: skip-at-least except last
+    ok 11 - list.antipairs: skip-at-least check last value
+    ok 12 - list.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - list.antipairs: skip-at-least-pull-one last
+    ok 14 - list.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - list.antipairs: doesn't support count-only
+    ok 16 - list.antipairs: doesn't support bool-only
+    ok 17 - list.antipairs: count/bool-only didn't pull
+ok 6 - tests for list.antipairs
+# Subtest: tests for lazy list
+    1..17
+    ok 1 - lazy list: pull-one until exhausted
+    ok 2 - lazy list: push-exactly until exhausted
+    ok 3 - lazy list: push-at-least until exhausted
+    ok 4 - lazy list: does push-all return IterationEnd
+    ok 5 - lazy list: push-all
+    ok 6 - lazy list: does push-until-lazy return IterationEnd
+    ok 7 - lazy list: push-until-lazy
+    ok 8 - lazy list: does sink-all return IterationEnd
+    ok 9 - lazy list: skip-one until exhausted
+    ok 10 - lazy list: skip-at-least except last
+    ok 11 - lazy list: skip-at-least check last value
+    ok 12 - lazy list: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy list: skip-at-least-pull-one last
+    ok 14 - lazy list: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy list: doesn't support count-only
+    ok 16 - lazy list: doesn't support bool-only
+    ok 17 - lazy list: count/bool-only didn't pull
+ok 7 - tests for lazy list
+# Subtest: tests for lazy list.kv
+    1..17
+    ok 1 - lazy list.kv: pull-one until exhausted
+    ok 2 - lazy list.kv: push-exactly until exhausted
+    ok 3 - lazy list.kv: push-at-least until exhausted
+    ok 4 - lazy list.kv: does push-all return IterationEnd
+    ok 5 - lazy list.kv: push-all
+    ok 6 - lazy list.kv: does push-until-lazy return IterationEnd
+    ok 7 - lazy list.kv: push-until-lazy
+    ok 8 - lazy list.kv: does sink-all return IterationEnd
+    ok 9 - lazy list.kv: skip-one until exhausted
+    ok 10 - lazy list.kv: skip-at-least except last
+    ok 11 - lazy list.kv: skip-at-least check last value
+    ok 12 - lazy list.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy list.kv: skip-at-least-pull-one last
+    ok 14 - lazy list.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy list.kv: doesn't support count-only
+    ok 16 - lazy list.kv: doesn't support bool-only
+    ok 17 - lazy list.kv: count/bool-only didn't pull
+ok 8 - tests for lazy list.kv
+# Subtest: tests for lazy list.keys
+    1..17
+    ok 1 - lazy list.keys: pull-one until exhausted
+    ok 2 - lazy list.keys: push-exactly until exhausted
+    ok 3 - lazy list.keys: push-at-least until exhausted
+    ok 4 - lazy list.keys: does push-all return IterationEnd
+    ok 5 - lazy list.keys: push-all
+    ok 6 - lazy list.keys: does push-until-lazy return IterationEnd
+    ok 7 - lazy list.keys: push-until-lazy
+    ok 8 - lazy list.keys: does sink-all return IterationEnd
+    ok 9 - lazy list.keys: skip-one until exhausted
+    ok 10 - lazy list.keys: skip-at-least except last
+    ok 11 - lazy list.keys: skip-at-least check last value
+    ok 12 - lazy list.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy list.keys: skip-at-least-pull-one last
+    ok 14 - lazy list.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy list.keys: count-only
+    ok 16 - lazy list.keys: bool-only
+    ok 17 - lazy list.keys: count/bool-only didn't pull
+ok 9 - tests for lazy list.keys
+# Subtest: tests for lazy list.values
+    1..17
+    ok 1 - lazy list.values: pull-one until exhausted
+    ok 2 - lazy list.values: push-exactly until exhausted
+    ok 3 - lazy list.values: push-at-least until exhausted
+    ok 4 - lazy list.values: does push-all return IterationEnd
+    ok 5 - lazy list.values: push-all
+    ok 6 - lazy list.values: does push-until-lazy return IterationEnd
+    ok 7 - lazy list.values: push-until-lazy
+    ok 8 - lazy list.values: does sink-all return IterationEnd
+    ok 9 - lazy list.values: skip-one until exhausted
+    ok 10 - lazy list.values: skip-at-least except last
+    ok 11 - lazy list.values: skip-at-least check last value
+    ok 12 - lazy list.values: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy list.values: skip-at-least-pull-one last
+    ok 14 - lazy list.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy list.values: doesn't support count-only
+    ok 16 - lazy list.values: doesn't support bool-only
+    ok 17 - lazy list.values: count/bool-only didn't pull
+ok 10 - tests for lazy list.values
+# Subtest: tests for lazy list.pairs
+    1..17
+    ok 1 - lazy list.pairs: pull-one until exhausted
+    ok 2 - lazy list.pairs: push-exactly until exhausted
+    ok 3 - lazy list.pairs: push-at-least until exhausted
+    ok 4 - lazy list.pairs: does push-all return IterationEnd
+    ok 5 - lazy list.pairs: push-all
+    ok 6 - lazy list.pairs: does push-until-lazy return IterationEnd
+    ok 7 - lazy list.pairs: push-until-lazy
+    ok 8 - lazy list.pairs: does sink-all return IterationEnd
+    ok 9 - lazy list.pairs: skip-one until exhausted
+    ok 10 - lazy list.pairs: skip-at-least except last
+    ok 11 - lazy list.pairs: skip-at-least check last value
+    ok 12 - lazy list.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy list.pairs: skip-at-least-pull-one last
+    ok 14 - lazy list.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy list.pairs: doesn't support count-only
+    ok 16 - lazy list.pairs: doesn't support bool-only
+    ok 17 - lazy list.pairs: count/bool-only didn't pull
+ok 11 - tests for lazy list.pairs
+# Subtest: tests for lazy list.antipairs
+    1..17
+    ok 1 - lazy list.antipairs: pull-one until exhausted
+    ok 2 - lazy list.antipairs: push-exactly until exhausted
+    ok 3 - lazy list.antipairs: push-at-least until exhausted
+    ok 4 - lazy list.antipairs: does push-all return IterationEnd
+    ok 5 - lazy list.antipairs: push-all
+    ok 6 - lazy list.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - lazy list.antipairs: push-until-lazy
+    ok 8 - lazy list.antipairs: does sink-all return IterationEnd
+    ok 9 - lazy list.antipairs: skip-one until exhausted
+    ok 10 - lazy list.antipairs: skip-at-least except last
+    ok 11 - lazy list.antipairs: skip-at-least check last value
+    ok 12 - lazy list.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy list.antipairs: skip-at-least-pull-one last
+    ok 14 - lazy list.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy list.antipairs: doesn't support count-only
+    ok 16 - lazy list.antipairs: doesn't support bool-only
+    ok 17 - lazy list.antipairs: count/bool-only didn't pull
+ok 12 - tests for lazy list.antipairs
+# Subtest: tests for lazy sequence
+    1..17
+    ok 1 - lazy sequence: pull-one until exhausted
+    ok 2 - lazy sequence: push-exactly until exhausted
+    ok 3 - lazy sequence: push-at-least until exhausted
+    ok 4 - lazy sequence: does push-all return IterationEnd
+    ok 5 - lazy sequence: push-all
+    ok 6 - lazy sequence: does push-until-lazy return IterationEnd
+    ok 7 - lazy sequence: push-until-lazy
+    ok 8 - lazy sequence: does sink-all return IterationEnd
+    ok 9 - lazy sequence: skip-one until exhausted
+    ok 10 - lazy sequence: skip-at-least except last
+    ok 11 - lazy sequence: skip-at-least check last value
+    ok 12 - lazy sequence: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy sequence: skip-at-least-pull-one last
+    ok 14 - lazy sequence: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy sequence: doesn't support count-only
+    ok 16 - lazy sequence: doesn't support bool-only
+    ok 17 - lazy sequence: count/bool-only didn't pull
+ok 13 - tests for lazy sequence
+# Subtest: tests for lazy sequence.kv
+    1..17
+    ok 1 - lazy sequence.kv: pull-one until exhausted
+    ok 2 - lazy sequence.kv: push-exactly until exhausted
+    ok 3 - lazy sequence.kv: push-at-least until exhausted
+    ok 4 - lazy sequence.kv: does push-all return IterationEnd
+    ok 5 - lazy sequence.kv: push-all
+    ok 6 - lazy sequence.kv: does push-until-lazy return IterationEnd
+    ok 7 - lazy sequence.kv: push-until-lazy
+    ok 8 - lazy sequence.kv: does sink-all return IterationEnd
+    ok 9 - lazy sequence.kv: skip-one until exhausted
+    ok 10 - lazy sequence.kv: skip-at-least except last
+    ok 11 - lazy sequence.kv: skip-at-least check last value
+    ok 12 - lazy sequence.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy sequence.kv: skip-at-least-pull-one last
+    ok 14 - lazy sequence.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy sequence.kv: doesn't support count-only
+    ok 16 - lazy sequence.kv: doesn't support bool-only
+    ok 17 - lazy sequence.kv: count/bool-only didn't pull
+ok 14 - tests for lazy sequence.kv
+# Subtest: tests for lazy sequence.keys
+    1..17
+    ok 1 - lazy sequence.keys: pull-one until exhausted
+    ok 2 - lazy sequence.keys: push-exactly until exhausted
+    ok 3 - lazy sequence.keys: push-at-least until exhausted
+    ok 4 - lazy sequence.keys: does push-all return IterationEnd
+    ok 5 - lazy sequence.keys: push-all
+    ok 6 - lazy sequence.keys: does push-until-lazy return IterationEnd
+    ok 7 - lazy sequence.keys: push-until-lazy
+    ok 8 - lazy sequence.keys: does sink-all return IterationEnd
+    ok 9 - lazy sequence.keys: skip-one until exhausted
+    ok 10 - lazy sequence.keys: skip-at-least except last
+    ok 11 - lazy sequence.keys: skip-at-least check last value
+    ok 12 - lazy sequence.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy sequence.keys: skip-at-least-pull-one last
+    ok 14 - lazy sequence.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy sequence.keys: count-only
+    ok 16 - lazy sequence.keys: bool-only
+    ok 17 - lazy sequence.keys: count/bool-only didn't pull
+ok 15 - tests for lazy sequence.keys
+# Subtest: tests for lazy sequence.values
+    1..17
+    ok 1 - lazy sequence.values: pull-one until exhausted
+    ok 2 - lazy sequence.values: push-exactly until exhausted
+    ok 3 - lazy sequence.values: push-at-least until exhausted
+    ok 4 - lazy sequence.values: does push-all return IterationEnd
+    ok 5 - lazy sequence.values: push-all
+    ok 6 - lazy sequence.values: does push-until-lazy return IterationEnd
+    ok 7 - lazy sequence.values: push-until-lazy
+    ok 8 - lazy sequence.values: does sink-all return IterationEnd
+    ok 9 - lazy sequence.values: skip-one until exhausted
+    ok 10 - lazy sequence.values: skip-at-least except last
+    ok 11 - lazy sequence.values: skip-at-least check last value
+    ok 12 - lazy sequence.values: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy sequence.values: skip-at-least-pull-one last
+    ok 14 - lazy sequence.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy sequence.values: doesn't support count-only
+    ok 16 - lazy sequence.values: doesn't support bool-only
+    ok 17 - lazy sequence.values: count/bool-only didn't pull
+ok 16 - tests for lazy sequence.values
+# Subtest: tests for lazy sequence.pairs
+    1..17
+    ok 1 - lazy sequence.pairs: pull-one until exhausted
+    ok 2 - lazy sequence.pairs: push-exactly until exhausted
+    ok 3 - lazy sequence.pairs: push-at-least until exhausted
+    ok 4 - lazy sequence.pairs: does push-all return IterationEnd
+    ok 5 - lazy sequence.pairs: push-all
+    ok 6 - lazy sequence.pairs: does push-until-lazy return IterationEnd
+    ok 7 - lazy sequence.pairs: push-until-lazy
+    ok 8 - lazy sequence.pairs: does sink-all return IterationEnd
+    ok 9 - lazy sequence.pairs: skip-one until exhausted
+    ok 10 - lazy sequence.pairs: skip-at-least except last
+    ok 11 - lazy sequence.pairs: skip-at-least check last value
+    ok 12 - lazy sequence.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy sequence.pairs: skip-at-least-pull-one last
+    ok 14 - lazy sequence.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy sequence.pairs: doesn't support count-only
+    ok 16 - lazy sequence.pairs: doesn't support bool-only
+    ok 17 - lazy sequence.pairs: count/bool-only didn't pull
+ok 17 - tests for lazy sequence.pairs
+# Subtest: tests for lazy sequence.antipairs
+    1..17
+    ok 1 - lazy sequence.antipairs: pull-one until exhausted
+    ok 2 - lazy sequence.antipairs: push-exactly until exhausted
+    ok 3 - lazy sequence.antipairs: push-at-least until exhausted
+    ok 4 - lazy sequence.antipairs: does push-all return IterationEnd
+    ok 5 - lazy sequence.antipairs: push-all
+    ok 6 - lazy sequence.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - lazy sequence.antipairs: push-until-lazy
+    ok 8 - lazy sequence.antipairs: does sink-all return IterationEnd
+    ok 9 - lazy sequence.antipairs: skip-one until exhausted
+    ok 10 - lazy sequence.antipairs: skip-at-least except last
+    ok 11 - lazy sequence.antipairs: skip-at-least check last value
+    ok 12 - lazy sequence.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - lazy sequence.antipairs: skip-at-least-pull-one last
+    ok 14 - lazy sequence.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - lazy sequence.antipairs: doesn't support count-only
+    ok 16 - lazy sequence.antipairs: doesn't support bool-only
+    ok 17 - lazy sequence.antipairs: count/bool-only didn't pull
+ok 18 - tests for lazy sequence.antipairs
+# Subtest: tests for array
+    1..17
+    ok 1 - array: pull-one until exhausted
+    ok 2 - array: push-exactly until exhausted
+    ok 3 - array: push-at-least until exhausted
+    ok 4 - array: does push-all return IterationEnd
+    ok 5 - array: push-all
+    ok 6 - array: does push-until-lazy return IterationEnd
+    ok 7 - array: push-until-lazy
+    ok 8 - array: does sink-all return IterationEnd
+    ok 9 - array: skip-one until exhausted
+    ok 10 - array: skip-at-least except last
+    ok 11 - array: skip-at-least check last value
+    ok 12 - array: did skip-at-least after pull-one exhaust?
+    ok 13 - array: skip-at-least-pull-one last
+    ok 14 - array: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - array: count-only
+    ok 16 - array: bool-only
+    ok 17 - array: count/bool-only didn't pull
+ok 19 - tests for array
+# Subtest: tests for array.kv
+    1..17
+    ok 1 - array.kv: pull-one until exhausted
+    ok 2 - array.kv: push-exactly until exhausted
+    ok 3 - array.kv: push-at-least until exhausted
+    ok 4 - array.kv: does push-all return IterationEnd
+    ok 5 - array.kv: push-all
+    ok 6 - array.kv: does push-until-lazy return IterationEnd
+    ok 7 - array.kv: push-until-lazy
+    ok 8 - array.kv: does sink-all return IterationEnd
+    ok 9 - array.kv: skip-one until exhausted
+    ok 10 - array.kv: skip-at-least except last
+    ok 11 - array.kv: skip-at-least check last value
+    ok 12 - array.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - array.kv: skip-at-least-pull-one last
+    ok 14 - array.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - array.kv: doesn't support count-only
+    ok 16 - array.kv: doesn't support bool-only
+    ok 17 - array.kv: count/bool-only didn't pull
+ok 20 - tests for array.kv
+# Subtest: tests for array.keys
+    1..17
+    ok 1 - array.keys: pull-one until exhausted
+    ok 2 - array.keys: push-exactly until exhausted
+    ok 3 - array.keys: push-at-least until exhausted
+    ok 4 - array.keys: does push-all return IterationEnd
+    ok 5 - array.keys: push-all
+    ok 6 - array.keys: does push-until-lazy return IterationEnd
+    ok 7 - array.keys: push-until-lazy
+    ok 8 - array.keys: does sink-all return IterationEnd
+    ok 9 - array.keys: skip-one until exhausted
+    ok 10 - array.keys: skip-at-least except last
+    ok 11 - array.keys: skip-at-least check last value
+    ok 12 - array.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - array.keys: skip-at-least-pull-one last
+    ok 14 - array.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - array.keys: count-only
+    ok 16 - array.keys: bool-only
+    ok 17 - array.keys: count/bool-only didn't pull
+ok 21 - tests for array.keys
+# Subtest: tests for array.values
+    1..17
+    ok 1 - array.values: pull-one until exhausted
+    ok 2 - array.values: push-exactly until exhausted
+    ok 3 - array.values: push-at-least until exhausted
+    ok 4 - array.values: does push-all return IterationEnd
+    ok 5 - array.values: push-all
+    ok 6 - array.values: does push-until-lazy return IterationEnd
+    ok 7 - array.values: push-until-lazy
+    ok 8 - array.values: does sink-all return IterationEnd
+    ok 9 - array.values: skip-one until exhausted
+    ok 10 - array.values: skip-at-least except last
+    ok 11 - array.values: skip-at-least check last value
+    ok 12 - array.values: did skip-at-least after pull-one exhaust?
+    ok 13 - array.values: skip-at-least-pull-one last
+    ok 14 - array.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - array.values: count-only
+    ok 16 - array.values: bool-only
+    ok 17 - array.values: count/bool-only didn't pull
+ok 22 - tests for array.values
+# Subtest: tests for array.pairs
+    1..17
+    ok 1 - array.pairs: pull-one until exhausted
+    ok 2 - array.pairs: push-exactly until exhausted
+    ok 3 - array.pairs: push-at-least until exhausted
+    ok 4 - array.pairs: does push-all return IterationEnd
+    ok 5 - array.pairs: push-all
+    ok 6 - array.pairs: does push-until-lazy return IterationEnd
+    ok 7 - array.pairs: push-until-lazy
+    ok 8 - array.pairs: does sink-all return IterationEnd
+    ok 9 - array.pairs: skip-one until exhausted
+    ok 10 - array.pairs: skip-at-least except last
+    ok 11 - array.pairs: skip-at-least check last value
+    ok 12 - array.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - array.pairs: skip-at-least-pull-one last
+    ok 14 - array.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - array.pairs: doesn't support count-only
+    ok 16 - array.pairs: doesn't support bool-only
+    ok 17 - array.pairs: count/bool-only didn't pull
+ok 23 - tests for array.pairs
+# Subtest: tests for array.antipairs
+    1..17
+    ok 1 - array.antipairs: pull-one until exhausted
+    ok 2 - array.antipairs: push-exactly until exhausted
+    ok 3 - array.antipairs: push-at-least until exhausted
+    ok 4 - array.antipairs: does push-all return IterationEnd
+    ok 5 - array.antipairs: push-all
+    ok 6 - array.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - array.antipairs: push-until-lazy
+    ok 8 - array.antipairs: does sink-all return IterationEnd
+    ok 9 - array.antipairs: skip-one until exhausted
+    ok 10 - array.antipairs: skip-at-least except last
+    ok 11 - array.antipairs: skip-at-least check last value
+    ok 12 - array.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - array.antipairs: skip-at-least-pull-one last
+    ok 14 - array.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - array.antipairs: doesn't support count-only
+    ok 16 - array.antipairs: doesn't support bool-only
+    ok 17 - array.antipairs: count/bool-only didn't pull
+ok 24 - tests for array.antipairs
+# Subtest: tests for shaped array
+    1..17
+    ok 1 - shaped array: pull-one until exhausted
+    ok 2 - shaped array: push-exactly until exhausted
+    ok 3 - shaped array: push-at-least until exhausted
+    ok 4 - shaped array: does push-all return IterationEnd
+    ok 5 - shaped array: push-all
+    ok 6 - shaped array: does push-until-lazy return IterationEnd
+    ok 7 - shaped array: push-until-lazy
+    ok 8 - shaped array: does sink-all return IterationEnd
+    ok 9 - shaped array: skip-one until exhausted
+    ok 10 - shaped array: skip-at-least except last
+    ok 11 - shaped array: skip-at-least check last value
+    ok 12 - shaped array: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped array: skip-at-least-pull-one last
+    ok 14 - shaped array: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped array: count-only
+    ok 16 - shaped array: bool-only
+    ok 17 - shaped array: count/bool-only didn't pull
+ok 25 - tests for shaped array
+# Subtest: tests for shaped array.kv
+    1..17
+    ok 1 - shaped array.kv: pull-one until exhausted
+    ok 2 - shaped array.kv: push-exactly until exhausted
+    ok 3 - shaped array.kv: push-at-least until exhausted
+    ok 4 - shaped array.kv: does push-all return IterationEnd
+    ok 5 - shaped array.kv: push-all
+    ok 6 - shaped array.kv: does push-until-lazy return IterationEnd
+    ok 7 - shaped array.kv: push-until-lazy
+    ok 8 - shaped array.kv: does sink-all return IterationEnd
+    ok 9 - shaped array.kv: skip-one until exhausted
+    ok 10 - shaped array.kv: skip-at-least except last
+    ok 11 - shaped array.kv: skip-at-least check last value
+    ok 12 - shaped array.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped array.kv: skip-at-least-pull-one last
+    ok 14 - shaped array.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped array.kv: doesn't support count-only
+    ok 16 - shaped array.kv: doesn't support bool-only
+    ok 17 - shaped array.kv: count/bool-only didn't pull
+ok 26 - tests for shaped array.kv
+# Subtest: tests for shaped array.keys
+    1..17
+    ok 1 - shaped array.keys: pull-one until exhausted
+    ok 2 - shaped array.keys: push-exactly until exhausted
+    ok 3 - shaped array.keys: push-at-least until exhausted
+    ok 4 - shaped array.keys: does push-all return IterationEnd
+    ok 5 - shaped array.keys: push-all
+    ok 6 - shaped array.keys: does push-until-lazy return IterationEnd
+    ok 7 - shaped array.keys: push-until-lazy
+    ok 8 - shaped array.keys: does sink-all return IterationEnd
+    ok 9 - shaped array.keys: skip-one until exhausted
+    ok 10 - shaped array.keys: skip-at-least except last
+    ok 11 - shaped array.keys: skip-at-least check last value
+    ok 12 - shaped array.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped array.keys: skip-at-least-pull-one last
+    ok 14 - shaped array.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped array.keys: count-only
+    ok 16 - shaped array.keys: bool-only
+    ok 17 - shaped array.keys: count/bool-only didn't pull
+ok 27 - tests for shaped array.keys
+# Subtest: tests for shaped array.values
+    1..17
+    ok 1 - shaped array.values: pull-one until exhausted
+    ok 2 - shaped array.values: push-exactly until exhausted
+    ok 3 - shaped array.values: push-at-least until exhausted
+    ok 4 - shaped array.values: does push-all return IterationEnd
+    ok 5 - shaped array.values: push-all
+    ok 6 - shaped array.values: does push-until-lazy return IterationEnd
+    ok 7 - shaped array.values: push-until-lazy
+    ok 8 - shaped array.values: does sink-all return IterationEnd
+    ok 9 - shaped array.values: skip-one until exhausted
+    ok 10 - shaped array.values: skip-at-least except last
+    ok 11 - shaped array.values: skip-at-least check last value
+    ok 12 - shaped array.values: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped array.values: skip-at-least-pull-one last
+    ok 14 - shaped array.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped array.values: count-only
+    ok 16 - shaped array.values: bool-only
+    ok 17 - shaped array.values: count/bool-only didn't pull
+ok 28 - tests for shaped array.values
+# Subtest: tests for shaped array.pairs
+    1..17
+    ok 1 - shaped array.pairs: pull-one until exhausted
+    ok 2 - shaped array.pairs: push-exactly until exhausted
+    ok 3 - shaped array.pairs: push-at-least until exhausted
+    ok 4 - shaped array.pairs: does push-all return IterationEnd
+    ok 5 - shaped array.pairs: push-all
+    ok 6 - shaped array.pairs: does push-until-lazy return IterationEnd
+    ok 7 - shaped array.pairs: push-until-lazy
+    ok 8 - shaped array.pairs: does sink-all return IterationEnd
+    ok 9 - shaped array.pairs: skip-one until exhausted
+    ok 10 - shaped array.pairs: skip-at-least except last
+    ok 11 - shaped array.pairs: skip-at-least check last value
+    ok 12 - shaped array.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped array.pairs: skip-at-least-pull-one last
+    ok 14 - shaped array.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped array.pairs: doesn't support count-only
+    ok 16 - shaped array.pairs: doesn't support bool-only
+    ok 17 - shaped array.pairs: count/bool-only didn't pull
+ok 29 - tests for shaped array.pairs
+# Subtest: tests for shaped array.antipairs
+    1..17
+    ok 1 - shaped array.antipairs: pull-one until exhausted
+    ok 2 - shaped array.antipairs: push-exactly until exhausted
+    ok 3 - shaped array.antipairs: push-at-least until exhausted
+    ok 4 - shaped array.antipairs: does push-all return IterationEnd
+    ok 5 - shaped array.antipairs: push-all
+    ok 6 - shaped array.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - shaped array.antipairs: push-until-lazy
+    ok 8 - shaped array.antipairs: does sink-all return IterationEnd
+    ok 9 - shaped array.antipairs: skip-one until exhausted
+    ok 10 - shaped array.antipairs: skip-at-least except last
+    ok 11 - shaped array.antipairs: skip-at-least check last value
+    ok 12 - shaped array.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped array.antipairs: skip-at-least-pull-one last
+    ok 14 - shaped array.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped array.antipairs: doesn't support count-only
+    ok 16 - shaped array.antipairs: doesn't support bool-only
+    ok 17 - shaped array.antipairs: count/bool-only didn't pull
+ok 30 - tests for shaped array.antipairs
+# Subtest: tests for Str array
+    1..17
+    ok 1 - Str array: pull-one until exhausted
+    ok 2 - Str array: push-exactly until exhausted
+    ok 3 - Str array: push-at-least until exhausted
+    ok 4 - Str array: does push-all return IterationEnd
+    ok 5 - Str array: push-all
+    ok 6 - Str array: does push-until-lazy return IterationEnd
+    ok 7 - Str array: push-until-lazy
+    ok 8 - Str array: does sink-all return IterationEnd
+    ok 9 - Str array: skip-one until exhausted
+    ok 10 - Str array: skip-at-least except last
+    ok 11 - Str array: skip-at-least check last value
+    ok 12 - Str array: did skip-at-least after pull-one exhaust?
+    ok 13 - Str array: skip-at-least-pull-one last
+    ok 14 - Str array: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Str array: count-only
+    ok 16 - Str array: bool-only
+    ok 17 - Str array: count/bool-only didn't pull
+ok 31 - tests for Str array
+# Subtest: tests for Str array.kv
+    1..17
+    ok 1 - Str array.kv: pull-one until exhausted
+    ok 2 - Str array.kv: push-exactly until exhausted
+    ok 3 - Str array.kv: push-at-least until exhausted
+    ok 4 - Str array.kv: does push-all return IterationEnd
+    ok 5 - Str array.kv: push-all
+    ok 6 - Str array.kv: does push-until-lazy return IterationEnd
+    ok 7 - Str array.kv: push-until-lazy
+    ok 8 - Str array.kv: does sink-all return IterationEnd
+    ok 9 - Str array.kv: skip-one until exhausted
+    ok 10 - Str array.kv: skip-at-least except last
+    ok 11 - Str array.kv: skip-at-least check last value
+    ok 12 - Str array.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - Str array.kv: skip-at-least-pull-one last
+    ok 14 - Str array.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Str array.kv: doesn't support count-only
+    ok 16 - Str array.kv: doesn't support bool-only
+    ok 17 - Str array.kv: count/bool-only didn't pull
+ok 32 - tests for Str array.kv
+# Subtest: tests for Str array.keys
+    1..17
+    ok 1 - Str array.keys: pull-one until exhausted
+    ok 2 - Str array.keys: push-exactly until exhausted
+    ok 3 - Str array.keys: push-at-least until exhausted
+    ok 4 - Str array.keys: does push-all return IterationEnd
+    ok 5 - Str array.keys: push-all
+    ok 6 - Str array.keys: does push-until-lazy return IterationEnd
+    ok 7 - Str array.keys: push-until-lazy
+    ok 8 - Str array.keys: does sink-all return IterationEnd
+    ok 9 - Str array.keys: skip-one until exhausted
+    ok 10 - Str array.keys: skip-at-least except last
+    ok 11 - Str array.keys: skip-at-least check last value
+    ok 12 - Str array.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - Str array.keys: skip-at-least-pull-one last
+    ok 14 - Str array.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Str array.keys: count-only
+    ok 16 - Str array.keys: bool-only
+    ok 17 - Str array.keys: count/bool-only didn't pull
+ok 33 - tests for Str array.keys
+# Subtest: tests for Str array.values
+    1..17
+    ok 1 - Str array.values: pull-one until exhausted
+    ok 2 - Str array.values: push-exactly until exhausted
+    ok 3 - Str array.values: push-at-least until exhausted
+    ok 4 - Str array.values: does push-all return IterationEnd
+    ok 5 - Str array.values: push-all
+    ok 6 - Str array.values: does push-until-lazy return IterationEnd
+    ok 7 - Str array.values: push-until-lazy
+    ok 8 - Str array.values: does sink-all return IterationEnd
+    ok 9 - Str array.values: skip-one until exhausted
+    ok 10 - Str array.values: skip-at-least except last
+    ok 11 - Str array.values: skip-at-least check last value
+    ok 12 - Str array.values: did skip-at-least after pull-one exhaust?
+    ok 13 - Str array.values: skip-at-least-pull-one last
+    ok 14 - Str array.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Str array.values: count-only
+    ok 16 - Str array.values: bool-only
+    ok 17 - Str array.values: count/bool-only didn't pull
+ok 34 - tests for Str array.values
+# Subtest: tests for Str array.pairs
+    1..17
+    ok 1 - Str array.pairs: pull-one until exhausted
+    ok 2 - Str array.pairs: push-exactly until exhausted
+    ok 3 - Str array.pairs: push-at-least until exhausted
+    ok 4 - Str array.pairs: does push-all return IterationEnd
+    ok 5 - Str array.pairs: push-all
+    ok 6 - Str array.pairs: does push-until-lazy return IterationEnd
+    ok 7 - Str array.pairs: push-until-lazy
+    ok 8 - Str array.pairs: does sink-all return IterationEnd
+    ok 9 - Str array.pairs: skip-one until exhausted
+    ok 10 - Str array.pairs: skip-at-least except last
+    ok 11 - Str array.pairs: skip-at-least check last value
+    ok 12 - Str array.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Str array.pairs: skip-at-least-pull-one last
+    ok 14 - Str array.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Str array.pairs: doesn't support count-only
+    ok 16 - Str array.pairs: doesn't support bool-only
+    ok 17 - Str array.pairs: count/bool-only didn't pull
+ok 35 - tests for Str array.pairs
+# Subtest: tests for Str array.antipairs
+    1..17
+    ok 1 - Str array.antipairs: pull-one until exhausted
+    ok 2 - Str array.antipairs: push-exactly until exhausted
+    ok 3 - Str array.antipairs: push-at-least until exhausted
+    ok 4 - Str array.antipairs: does push-all return IterationEnd
+    ok 5 - Str array.antipairs: push-all
+    ok 6 - Str array.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - Str array.antipairs: push-until-lazy
+    ok 8 - Str array.antipairs: does sink-all return IterationEnd
+    ok 9 - Str array.antipairs: skip-one until exhausted
+    ok 10 - Str array.antipairs: skip-at-least except last
+    ok 11 - Str array.antipairs: skip-at-least check last value
+    ok 12 - Str array.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Str array.antipairs: skip-at-least-pull-one last
+    ok 14 - Str array.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Str array.antipairs: doesn't support count-only
+    ok 16 - Str array.antipairs: doesn't support bool-only
+    ok 17 - Str array.antipairs: count/bool-only didn't pull
+ok 36 - tests for Str array.antipairs
+# Subtest: tests for shaped Str array
+    1..17
+    ok 1 - shaped Str array: pull-one until exhausted
+    ok 2 - shaped Str array: push-exactly until exhausted
+    ok 3 - shaped Str array: push-at-least until exhausted
+    ok 4 - shaped Str array: does push-all return IterationEnd
+    ok 5 - shaped Str array: push-all
+    ok 6 - shaped Str array: does push-until-lazy return IterationEnd
+    ok 7 - shaped Str array: push-until-lazy
+    ok 8 - shaped Str array: does sink-all return IterationEnd
+    ok 9 - shaped Str array: skip-one until exhausted
+    ok 10 - shaped Str array: skip-at-least except last
+    ok 11 - shaped Str array: skip-at-least check last value
+    ok 12 - shaped Str array: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped Str array: skip-at-least-pull-one last
+    ok 14 - shaped Str array: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped Str array: count-only
+    ok 16 - shaped Str array: bool-only
+    ok 17 - shaped Str array: count/bool-only didn't pull
+ok 37 - tests for shaped Str array
+# Subtest: tests for shaped Str array.kv
+    1..17
+    ok 1 - shaped Str array.kv: pull-one until exhausted
+    ok 2 - shaped Str array.kv: push-exactly until exhausted
+    ok 3 - shaped Str array.kv: push-at-least until exhausted
+    ok 4 - shaped Str array.kv: does push-all return IterationEnd
+    ok 5 - shaped Str array.kv: push-all
+    ok 6 - shaped Str array.kv: does push-until-lazy return IterationEnd
+    ok 7 - shaped Str array.kv: push-until-lazy
+    ok 8 - shaped Str array.kv: does sink-all return IterationEnd
+    ok 9 - shaped Str array.kv: skip-one until exhausted
+    ok 10 - shaped Str array.kv: skip-at-least except last
+    ok 11 - shaped Str array.kv: skip-at-least check last value
+    ok 12 - shaped Str array.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped Str array.kv: skip-at-least-pull-one last
+    ok 14 - shaped Str array.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped Str array.kv: doesn't support count-only
+    ok 16 - shaped Str array.kv: doesn't support bool-only
+    ok 17 - shaped Str array.kv: count/bool-only didn't pull
+ok 38 - tests for shaped Str array.kv
+# Subtest: tests for shaped Str array.keys
+    1..17
+    ok 1 - shaped Str array.keys: pull-one until exhausted
+    ok 2 - shaped Str array.keys: push-exactly until exhausted
+    ok 3 - shaped Str array.keys: push-at-least until exhausted
+    ok 4 - shaped Str array.keys: does push-all return IterationEnd
+    ok 5 - shaped Str array.keys: push-all
+    ok 6 - shaped Str array.keys: does push-until-lazy return IterationEnd
+    ok 7 - shaped Str array.keys: push-until-lazy
+    ok 8 - shaped Str array.keys: does sink-all return IterationEnd
+    ok 9 - shaped Str array.keys: skip-one until exhausted
+    ok 10 - shaped Str array.keys: skip-at-least except last
+    ok 11 - shaped Str array.keys: skip-at-least check last value
+    ok 12 - shaped Str array.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped Str array.keys: skip-at-least-pull-one last
+    ok 14 - shaped Str array.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped Str array.keys: count-only
+    ok 16 - shaped Str array.keys: bool-only
+    ok 17 - shaped Str array.keys: count/bool-only didn't pull
+ok 39 - tests for shaped Str array.keys
+# Subtest: tests for shaped Str array.values
+    1..17
+    ok 1 - shaped Str array.values: pull-one until exhausted
+    ok 2 - shaped Str array.values: push-exactly until exhausted
+    ok 3 - shaped Str array.values: push-at-least until exhausted
+    ok 4 - shaped Str array.values: does push-all return IterationEnd
+    ok 5 - shaped Str array.values: push-all
+    ok 6 - shaped Str array.values: does push-until-lazy return IterationEnd
+    ok 7 - shaped Str array.values: push-until-lazy
+    ok 8 - shaped Str array.values: does sink-all return IterationEnd
+    ok 9 - shaped Str array.values: skip-one until exhausted
+    ok 10 - shaped Str array.values: skip-at-least except last
+    ok 11 - shaped Str array.values: skip-at-least check last value
+    ok 12 - shaped Str array.values: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped Str array.values: skip-at-least-pull-one last
+    ok 14 - shaped Str array.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped Str array.values: count-only
+    ok 16 - shaped Str array.values: bool-only
+    ok 17 - shaped Str array.values: count/bool-only didn't pull
+ok 40 - tests for shaped Str array.values
+# Subtest: tests for shaped Str array.pairs
+    1..17
+    ok 1 - shaped Str array.pairs: pull-one until exhausted
+    ok 2 - shaped Str array.pairs: push-exactly until exhausted
+    ok 3 - shaped Str array.pairs: push-at-least until exhausted
+    ok 4 - shaped Str array.pairs: does push-all return IterationEnd
+    ok 5 - shaped Str array.pairs: push-all
+    ok 6 - shaped Str array.pairs: does push-until-lazy return IterationEnd
+    ok 7 - shaped Str array.pairs: push-until-lazy
+    ok 8 - shaped Str array.pairs: does sink-all return IterationEnd
+    ok 9 - shaped Str array.pairs: skip-one until exhausted
+    ok 10 - shaped Str array.pairs: skip-at-least except last
+    ok 11 - shaped Str array.pairs: skip-at-least check last value
+    ok 12 - shaped Str array.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped Str array.pairs: skip-at-least-pull-one last
+    ok 14 - shaped Str array.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped Str array.pairs: doesn't support count-only
+    ok 16 - shaped Str array.pairs: doesn't support bool-only
+    ok 17 - shaped Str array.pairs: count/bool-only didn't pull
+ok 41 - tests for shaped Str array.pairs
+# Subtest: tests for shaped Str array.antipairs
+    1..17
+    ok 1 - shaped Str array.antipairs: pull-one until exhausted
+    ok 2 - shaped Str array.antipairs: push-exactly until exhausted
+    ok 3 - shaped Str array.antipairs: push-at-least until exhausted
+    ok 4 - shaped Str array.antipairs: does push-all return IterationEnd
+    ok 5 - shaped Str array.antipairs: push-all
+    ok 6 - shaped Str array.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - shaped Str array.antipairs: push-until-lazy
+    ok 8 - shaped Str array.antipairs: does sink-all return IterationEnd
+    ok 9 - shaped Str array.antipairs: skip-one until exhausted
+    ok 10 - shaped Str array.antipairs: skip-at-least except last
+    ok 11 - shaped Str array.antipairs: skip-at-least check last value
+    ok 12 - shaped Str array.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped Str array.antipairs: skip-at-least-pull-one last
+    ok 14 - shaped Str array.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped Str array.antipairs: doesn't support count-only
+    ok 16 - shaped Str array.antipairs: doesn't support bool-only
+    ok 17 - shaped Str array.antipairs: count/bool-only didn't pull
+ok 42 - tests for shaped Str array.antipairs
+# Subtest: tests for str array
+    1..17
+    ok 1 - str array: pull-one until exhausted
+    ok 2 - str array: push-exactly until exhausted
+    ok 3 - str array: push-at-least until exhausted
+    ok 4 - str array: does push-all return IterationEnd
+    ok 5 - str array: push-all
+    ok 6 - str array: does push-until-lazy return IterationEnd
+    ok 7 - str array: push-until-lazy
+    ok 8 - str array: does sink-all return IterationEnd
+    ok 9 - str array: skip-one until exhausted
+    ok 10 - str array: skip-at-least except last
+    ok 11 - str array: skip-at-least check last value
+    ok 12 - str array: did skip-at-least after pull-one exhaust?
+    ok 13 - str array: skip-at-least-pull-one last
+    ok 14 - str array: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - str array: count-only
+    ok 16 - str array: bool-only
+    ok 17 - str array: count/bool-only didn't pull
+ok 43 - tests for str array
+# Subtest: tests for str array.kv
+    1..17
+    ok 1 - str array.kv: pull-one until exhausted
+    ok 2 - str array.kv: push-exactly until exhausted
+    ok 3 - str array.kv: push-at-least until exhausted
+    ok 4 - str array.kv: does push-all return IterationEnd
+    ok 5 - str array.kv: push-all
+    ok 6 - str array.kv: does push-until-lazy return IterationEnd
+    ok 7 - str array.kv: push-until-lazy
+    ok 8 - str array.kv: does sink-all return IterationEnd
+    ok 9 - str array.kv: skip-one until exhausted
+    ok 10 - str array.kv: skip-at-least except last
+    ok 11 - str array.kv: skip-at-least check last value
+    ok 12 - str array.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - str array.kv: skip-at-least-pull-one last
+    ok 14 - str array.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - str array.kv: doesn't support count-only
+    ok 16 - str array.kv: doesn't support bool-only
+    ok 17 - str array.kv: count/bool-only didn't pull
+ok 44 - tests for str array.kv
+# Subtest: tests for str array.keys
+    1..17
+    ok 1 - str array.keys: pull-one until exhausted
+    ok 2 - str array.keys: push-exactly until exhausted
+    ok 3 - str array.keys: push-at-least until exhausted
+    ok 4 - str array.keys: does push-all return IterationEnd
+    ok 5 - str array.keys: push-all
+    ok 6 - str array.keys: does push-until-lazy return IterationEnd
+    ok 7 - str array.keys: push-until-lazy
+    ok 8 - str array.keys: does sink-all return IterationEnd
+    ok 9 - str array.keys: skip-one until exhausted
+    ok 10 - str array.keys: skip-at-least except last
+    ok 11 - str array.keys: skip-at-least check last value
+    ok 12 - str array.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - str array.keys: skip-at-least-pull-one last
+    ok 14 - str array.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - str array.keys: count-only
+    ok 16 - str array.keys: bool-only
+    ok 17 - str array.keys: count/bool-only didn't pull
+ok 45 - tests for str array.keys
+# Subtest: tests for str array.values
+    1..17
+    ok 1 - str array.values: pull-one until exhausted
+    ok 2 - str array.values: push-exactly until exhausted
+    ok 3 - str array.values: push-at-least until exhausted
+    ok 4 - str array.values: does push-all return IterationEnd
+    ok 5 - str array.values: push-all
+    ok 6 - str array.values: does push-until-lazy return IterationEnd
+    ok 7 - str array.values: push-until-lazy
+    ok 8 - str array.values: does sink-all return IterationEnd
+    ok 9 - str array.values: skip-one until exhausted
+    ok 10 - str array.values: skip-at-least except last
+    ok 11 - str array.values: skip-at-least check last value
+    ok 12 - str array.values: did skip-at-least after pull-one exhaust?
+    ok 13 - str array.values: skip-at-least-pull-one last
+    ok 14 - str array.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - str array.values: doesn't support count-only
+    ok 16 - str array.values: doesn't support bool-only
+    ok 17 - str array.values: count/bool-only didn't pull
+ok 46 - tests for str array.values
+# Subtest: tests for str array.pairs
+    1..17
+    ok 1 - str array.pairs: pull-one until exhausted
+    ok 2 - str array.pairs: push-exactly until exhausted
+    ok 3 - str array.pairs: push-at-least until exhausted
+    ok 4 - str array.pairs: does push-all return IterationEnd
+    ok 5 - str array.pairs: push-all
+    ok 6 - str array.pairs: does push-until-lazy return IterationEnd
+    ok 7 - str array.pairs: push-until-lazy
+    ok 8 - str array.pairs: does sink-all return IterationEnd
+    ok 9 - str array.pairs: skip-one until exhausted
+    ok 10 - str array.pairs: skip-at-least except last
+    ok 11 - str array.pairs: skip-at-least check last value
+    ok 12 - str array.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - str array.pairs: skip-at-least-pull-one last
+    ok 14 - str array.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - str array.pairs: doesn't support count-only
+    ok 16 - str array.pairs: doesn't support bool-only
+    ok 17 - str array.pairs: count/bool-only didn't pull
+ok 47 - tests for str array.pairs
+# Subtest: tests for str array.antipairs
+    1..17
+    ok 1 - str array.antipairs: pull-one until exhausted
+    ok 2 - str array.antipairs: push-exactly until exhausted
+    ok 3 - str array.antipairs: push-at-least until exhausted
+    ok 4 - str array.antipairs: does push-all return IterationEnd
+    ok 5 - str array.antipairs: push-all
+    ok 6 - str array.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - str array.antipairs: push-until-lazy
+    ok 8 - str array.antipairs: does sink-all return IterationEnd
+    ok 9 - str array.antipairs: skip-one until exhausted
+    ok 10 - str array.antipairs: skip-at-least except last
+    ok 11 - str array.antipairs: skip-at-least check last value
+    ok 12 - str array.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - str array.antipairs: skip-at-least-pull-one last
+    ok 14 - str array.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - str array.antipairs: doesn't support count-only
+    ok 16 - str array.antipairs: doesn't support bool-only
+    ok 17 - str array.antipairs: count/bool-only didn't pull
+ok 48 - tests for str array.antipairs
+# Subtest: tests for shaped str array
+    1..17
+    ok 1 - shaped str array: pull-one until exhausted
+    ok 2 - shaped str array: push-exactly until exhausted
+    ok 3 - shaped str array: push-at-least until exhausted
+    ok 4 - shaped str array: does push-all return IterationEnd
+    ok 5 - shaped str array: push-all
+    ok 6 - shaped str array: does push-until-lazy return IterationEnd
+    ok 7 - shaped str array: push-until-lazy
+    ok 8 - shaped str array: does sink-all return IterationEnd
+    ok 9 - shaped str array: skip-one until exhausted
+    ok 10 - shaped str array: skip-at-least except last
+    ok 11 - shaped str array: skip-at-least check last value
+    ok 12 - shaped str array: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped str array: skip-at-least-pull-one last
+    ok 14 - shaped str array: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped str array: count-only
+    ok 16 - shaped str array: bool-only
+    ok 17 - shaped str array: count/bool-only didn't pull
+ok 49 - tests for shaped str array
+# Subtest: tests for shaped str array.kv
+    1..17
+    ok 1 - shaped str array.kv: pull-one until exhausted
+    ok 2 - shaped str array.kv: push-exactly until exhausted
+    ok 3 - shaped str array.kv: push-at-least until exhausted
+    ok 4 - shaped str array.kv: does push-all return IterationEnd
+    ok 5 - shaped str array.kv: push-all
+    ok 6 - shaped str array.kv: does push-until-lazy return IterationEnd
+    ok 7 - shaped str array.kv: push-until-lazy
+    ok 8 - shaped str array.kv: does sink-all return IterationEnd
+    ok 9 - shaped str array.kv: skip-one until exhausted
+    ok 10 - shaped str array.kv: skip-at-least except last
+    ok 11 - shaped str array.kv: skip-at-least check last value
+    ok 12 - shaped str array.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped str array.kv: skip-at-least-pull-one last
+    ok 14 - shaped str array.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped str array.kv: doesn't support count-only
+    ok 16 - shaped str array.kv: doesn't support bool-only
+    ok 17 - shaped str array.kv: count/bool-only didn't pull
+ok 50 - tests for shaped str array.kv
+# Subtest: tests for shaped str array.keys
+    1..17
+    ok 1 - shaped str array.keys: pull-one until exhausted
+    ok 2 - shaped str array.keys: push-exactly until exhausted
+    ok 3 - shaped str array.keys: push-at-least until exhausted
+    ok 4 - shaped str array.keys: does push-all return IterationEnd
+    ok 5 - shaped str array.keys: push-all
+    ok 6 - shaped str array.keys: does push-until-lazy return IterationEnd
+    ok 7 - shaped str array.keys: push-until-lazy
+    ok 8 - shaped str array.keys: does sink-all return IterationEnd
+    ok 9 - shaped str array.keys: skip-one until exhausted
+    ok 10 - shaped str array.keys: skip-at-least except last
+    ok 11 - shaped str array.keys: skip-at-least check last value
+    ok 12 - shaped str array.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped str array.keys: skip-at-least-pull-one last
+    ok 14 - shaped str array.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped str array.keys: count-only
+    ok 16 - shaped str array.keys: bool-only
+    ok 17 - shaped str array.keys: count/bool-only didn't pull
+ok 51 - tests for shaped str array.keys
+# Subtest: tests for shaped str array.values
+    1..17
+    ok 1 - shaped str array.values: pull-one until exhausted
+    ok 2 - shaped str array.values: push-exactly until exhausted
+    ok 3 - shaped str array.values: push-at-least until exhausted
+    ok 4 - shaped str array.values: does push-all return IterationEnd
+    ok 5 - shaped str array.values: push-all
+    ok 6 - shaped str array.values: does push-until-lazy return IterationEnd
+    ok 7 - shaped str array.values: push-until-lazy
+    ok 8 - shaped str array.values: does sink-all return IterationEnd
+    ok 9 - shaped str array.values: skip-one until exhausted
+    ok 10 - shaped str array.values: skip-at-least except last
+    ok 11 - shaped str array.values: skip-at-least check last value
+    ok 12 - shaped str array.values: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped str array.values: skip-at-least-pull-one last
+    ok 14 - shaped str array.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped str array.values: count-only
+    ok 16 - shaped str array.values: bool-only
+    ok 17 - shaped str array.values: count/bool-only didn't pull
+ok 52 - tests for shaped str array.values
+# Subtest: tests for shaped str array.pairs
+    1..17
+    ok 1 - shaped str array.pairs: pull-one until exhausted
+    ok 2 - shaped str array.pairs: push-exactly until exhausted
+    ok 3 - shaped str array.pairs: push-at-least until exhausted
+    ok 4 - shaped str array.pairs: does push-all return IterationEnd
+    ok 5 - shaped str array.pairs: push-all
+    ok 6 - shaped str array.pairs: does push-until-lazy return IterationEnd
+    ok 7 - shaped str array.pairs: push-until-lazy
+    ok 8 - shaped str array.pairs: does sink-all return IterationEnd
+    ok 9 - shaped str array.pairs: skip-one until exhausted
+    ok 10 - shaped str array.pairs: skip-at-least except last
+    ok 11 - shaped str array.pairs: skip-at-least check last value
+    ok 12 - shaped str array.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped str array.pairs: skip-at-least-pull-one last
+    ok 14 - shaped str array.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped str array.pairs: doesn't support count-only
+    ok 16 - shaped str array.pairs: doesn't support bool-only
+    ok 17 - shaped str array.pairs: count/bool-only didn't pull
+ok 53 - tests for shaped str array.pairs
+# Subtest: tests for shaped str array.antipairs
+    1..17
+    ok 1 - shaped str array.antipairs: pull-one until exhausted
+    ok 2 - shaped str array.antipairs: push-exactly until exhausted
+    ok 3 - shaped str array.antipairs: push-at-least until exhausted
+    ok 4 - shaped str array.antipairs: does push-all return IterationEnd
+    ok 5 - shaped str array.antipairs: push-all
+    ok 6 - shaped str array.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - shaped str array.antipairs: push-until-lazy
+    ok 8 - shaped str array.antipairs: does sink-all return IterationEnd
+    ok 9 - shaped str array.antipairs: skip-one until exhausted
+    ok 10 - shaped str array.antipairs: skip-at-least except last
+    ok 11 - shaped str array.antipairs: skip-at-least check last value
+    ok 12 - shaped str array.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - shaped str array.antipairs: skip-at-least-pull-one last
+    ok 14 - shaped str array.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - shaped str array.antipairs: doesn't support count-only
+    ok 16 - shaped str array.antipairs: doesn't support bool-only
+    ok 17 - shaped str array.antipairs: count/bool-only didn't pull
+ok 54 - tests for shaped str array.antipairs
+# Subtest: Mu.iterator
+    1..6
+    ok 1 - returns Iterator (:U)
+    ok 2 - first   value    (:U)
+    ok 3 - no more values   (:U)
+    ok 4 - returns Iterator (:D)
+    ok 5 - first   value    (:D)
+    ok 6 - no more values   (:D)
+ok 55 - Mu.iterator

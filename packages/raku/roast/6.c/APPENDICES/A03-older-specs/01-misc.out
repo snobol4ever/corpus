@@ -1,0 +1,465 @@
+1..9
+# Subtest: .open with "-" as path uses $*IN/$*OUT
+    1..2
+    # Subtest: STDOUT
+        1..3
+        ok 1 - returned handle is STDOUT
+        ok 2 - set binary mode
+        ok 3 - changed encoding
+    ok 1 - STDOUT
+    # Subtest: STDIN
+        1..3
+        ok 1 - returned handle is STDIN
+        ok 2 - set binary mode
+        ok 3 - changed encoding
+    ok 2 - STDIN
+ok 1 - .open with "-" as path uses $*IN/$*OUT
+# Subtest: .open with "-" as path can open closed $*IN/$*OUT
+    1..3
+    # Subtest: STDOUT
+        1..4
+        ok 1 - returned handle is STDOUT
+        ok 2 - $*OUT is now opened
+        ok 3 - set binary mode
+        ok 4 - changed encoding
+    ok 1 - STDOUT
+    # Subtest: STDIN
+        1..4
+        ok 1 - returned handle is STDIN
+        ok 2 - $*IN is now opened
+        ok 3 - set binary mode
+        ok 4 - changed encoding
+    ok 2 - STDIN
+    ok 3 - can use unopened handle with path '-'.IO
+ok 2 - .open with "-" as path can open closed $*IN/$*OUT
+ok 3 - can .slurp from "-".IO path
+# Subtest: now-deprecated subst-mutate
+    1..7
+    # Subtest: Cool.subst-mutate works same as on .Str
+        1..64
+        ok 1 - correct return value when using \("", "")
+        ok 2 - correct modification when using \("", "")
+        ok 3 - correct return value when using \("", "", :g)
+        ok 4 - correct modification when using \("", "", :g)
+        ok 5 - correct return value when using \("", "", :global)
+        ok 6 - correct modification when using \("", "", :global)
+        ok 7 - correct return value when using \("a", "")
+        ok 8 - correct modification when using \("a", "")
+        ok 9 - correct return value when using \("a", "", :g)
+        ok 10 - correct modification when using \("a", "", :g)
+        ok 11 - correct return value when using \("a", "", :global)
+        ok 12 - correct modification when using \("a", "", :global)
+        ok 13 - correct return value when using \("b", "")
+        ok 14 - correct modification when using \("b", "")
+        ok 15 - correct return value when using \("b", "", :g)
+        ok 16 - correct modification when using \("b", "", :g)
+        ok 17 - correct return value when using \("b", "", :global)
+        ok 18 - correct modification when using \("b", "", :global)
+        ok 19 - correct return value when using \(/<[abc]>/, "")
+        ok 20 - correct modification when using \(/<[abc]>/, "")
+        ok 21 - correct return value when using \(/<[abc]>/, "", :g)
+        ok 22 - correct modification when using \(/<[abc]>/, "", :g)
+        ok 23 - correct return value when using \(/<[abc]>/, "", :global)
+        ok 24 - correct modification when using \(/<[abc]>/, "", :global)
+        ok 25 - correct return value when using \(/<[abc]>/, "", :st(1))
+        ok 26 - correct modification when using \(/<[abc]>/, "", :st(1))
+        ok 27 - correct return value when using \(/<[abc]>/, "", :st(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490792832) ... }))
+        ok 28 - correct modification when using \(/<[abc]>/, "", :st(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490792832) ... }))
+        ok 29 - correct return value when using \(/<[abc]>/, "", :nd(2))
+        ok 30 - correct modification when using \(/<[abc]>/, "", :nd(2))
+        ok 31 - correct return value when using \(/<[abc]>/, "", :nd(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793048) ... }))
+        ok 32 - correct modification when using \(/<[abc]>/, "", :nd(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793048) ... }))
+        ok 33 - correct return value when using \(/<[abc]>/, "", :rd(3))
+        ok 34 - correct modification when using \(/<[abc]>/, "", :rd(3))
+        ok 35 - correct return value when using \(/<[abc]>/, "", :rd(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793120) ... }))
+        ok 36 - correct modification when using \(/<[abc]>/, "", :rd(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793120) ... }))
+        ok 37 - correct return value when using \(/<[abc]>/, "", :th(4))
+        ok 38 - correct modification when using \(/<[abc]>/, "", :th(4))
+        ok 39 - correct return value when using \(/<[abc]>/, "", :th(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793192) ... }))
+        ok 40 - correct modification when using \(/<[abc]>/, "", :th(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793192) ... }))
+        ok 41 - correct return value when using \(/<[abc]>/, "", :nth(5))
+        ok 42 - correct modification when using \(/<[abc]>/, "", :nth(5))
+        ok 43 - correct return value when using \(/<[abc]>/, "", :nth(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793264) ... }))
+        ok 44 - correct modification when using \(/<[abc]>/, "", :nth(-> ;; $_? is raw = OUTER::<$_> {  \#`(Block|2225490793264) ... }))
+        ok 45 - correct return value when using \(/<[abc]>/, "", :x(5))
+        ok 46 - correct modification when using \(/<[abc]>/, "", :x(5))
+        ok 47 - correct return value when using \(/<[abc]>/, "", :x(1..5))
+        ok 48 - correct modification when using \(/<[abc]>/, "", :x(1..5))
+        ok 49 - correct return value when using \(/<[cz]> \s+ <[xy]>/, "Z P", :ss)
+        ok 50 - correct modification when using \(/<[cz]> \s+ <[xy]>/, "Z P", :ss)
+        ok 51 - correct return value when using \(/<[cz]> \s+ <[xy]>/, "Z P", :global, :ss)
+        ok 52 - correct modification when using \(/<[cz]> \s+ <[xy]>/, "Z P", :global, :ss)
+        ok 53 - correct return value when using \("a", "Z", :ii)
+        ok 54 - correct modification when using \("a", "Z", :ii)
+        ok 55 - correct return value when using \("a", "Z", :global, :ii)
+        ok 56 - correct modification when using \("a", "Z", :global, :ii)
+        ok 57 - correct return value when using \(/<[b]+[b\x[308]]>/, "Z", :mm)
+        ok 58 - correct modification when using \(/<[b]+[b\x[308]]>/, "Z", :mm)
+        ok 59 - correct return value when using \(/<[b]+[b\x[308]]>/, "Z", :global, :mm)
+        ok 60 - correct modification when using \(/<[b]+[b\x[308]]>/, "Z", :global, :mm)
+        ok 61 - correct return value when using \(/<[b]+[b\x[308]]>/, "Z", :ii, :mm)
+        ok 62 - correct modification when using \(/<[b]+[b\x[308]]>/, "Z", :ii, :mm)
+        ok 63 - correct return value when using \(/<[b]+[b\x[308]]>/, "Z", :global, :ii, :mm)
+        ok 64 - correct modification when using \(/<[b]+[b\x[308]]>/, "Z", :global, :ii, :mm)
+    ok 1 - Cool.subst-mutate works same as on .Str
+    # Subtest: .subst-mutate returns a List for things .match return a List for
+        1..68
+        ok 1 - :g with Regex matcher on Str
+        ok 2 - :x with Regex matcher on Str
+        ok 3 - :nth(List) with Regex matcher on Str
+        ok 4 - :nth(Seq) with Regex matcher on Str
+        ok 5 - :nth(Range) with Regex matcher on Str
+        ok 6 - :th(List) with Regex matcher on Str
+        ok 7 - :th(Seq) with Regex matcher on Str
+        ok 8 - :th(Range) with Regex matcher on Str
+        ok 9 - :st(List) with Regex matcher on Str
+        ok 10 - :st(Seq) with Regex matcher on Str
+        ok 11 - :st(Range) with Regex matcher on Str
+        ok 12 - :nd(List) with Regex matcher on Str
+        ok 13 - :nd(Seq) with Regex matcher on Str
+        ok 14 - :nd(Range) with Regex matcher on Str
+        ok 15 - :rd(List) with Regex matcher on Str
+        ok 16 - :rd(Seq) with Regex matcher on Str
+        ok 17 - :rd(Range) with Regex matcher on Str
+        ok 18 - :g with Regex matcher on Int
+        ok 19 - :x with Regex matcher on Int
+        ok 20 - :nth(List) with Regex matcher on Int
+        ok 21 - :nth(Seq) with Regex matcher on Int
+        ok 22 - :nth(Range) with Regex matcher on Int
+        ok 23 - :th(List) with Regex matcher on Int
+        ok 24 - :th(Seq) with Regex matcher on Int
+        ok 25 - :th(Range) with Regex matcher on Int
+        ok 26 - :st(List) with Regex matcher on Int
+        ok 27 - :st(Seq) with Regex matcher on Int
+        ok 28 - :st(Range) with Regex matcher on Int
+        ok 29 - :nd(List) with Regex matcher on Int
+        ok 30 - :nd(Seq) with Regex matcher on Int
+        ok 31 - :nd(Range) with Regex matcher on Int
+        ok 32 - :rd(List) with Regex matcher on Int
+        ok 33 - :rd(Seq) with Regex matcher on Int
+        ok 34 - :rd(Range) with Regex matcher on Int
+        ok 35 - :g with Str matcher on Str
+        ok 36 - :x with Str matcher on Str
+        ok 37 - :nth(List) with Str matcher on Str
+        ok 38 - :nth(Seq) with Str matcher on Str
+        ok 39 - :nth(Range) with Str matcher on Str
+        ok 40 - :th(List) with Str matcher on Str
+        ok 41 - :th(Seq) with Str matcher on Str
+        ok 42 - :th(Range) with Str matcher on Str
+        ok 43 - :st(List) with Str matcher on Str
+        ok 44 - :st(Seq) with Str matcher on Str
+        ok 45 - :st(Range) with Str matcher on Str
+        ok 46 - :nd(List) with Str matcher on Str
+        ok 47 - :nd(Seq) with Str matcher on Str
+        ok 48 - :nd(Range) with Str matcher on Str
+        ok 49 - :rd(List) with Str matcher on Str
+        ok 50 - :rd(Seq) with Str matcher on Str
+        ok 51 - :rd(Range) with Str matcher on Str
+        ok 52 - :g with Str matcher on Int
+        ok 53 - :x with Str matcher on Int
+        ok 54 - :nth(List) with Str matcher on Int
+        ok 55 - :nth(Seq) with Str matcher on Int
+        ok 56 - :nth(Range) with Str matcher on Int
+        ok 57 - :th(List) with Str matcher on Int
+        ok 58 - :th(Seq) with Str matcher on Int
+        ok 59 - :th(Range) with Str matcher on Int
+        ok 60 - :st(List) with Str matcher on Int
+        ok 61 - :st(Seq) with Str matcher on Int
+        ok 62 - :st(Range) with Str matcher on Int
+        ok 63 - :nd(List) with Str matcher on Int
+        ok 64 - :nd(Seq) with Str matcher on Int
+        ok 65 - :nd(Range) with Str matcher on Int
+        ok 66 - :rd(List) with Str matcher on Int
+        ok 67 - :rd(Seq) with Str matcher on Int
+        ok 68 - :rd(Range) with Str matcher on Int
+    ok 2 - .subst-mutate returns a List for things .match return a List for
+    # Subtest: no-matches .subst-mutate: with multi-match opts = empty List
+        1..68
+        ok 1 - :g with Regex matcher on Str
+        ok 2 - :x with Regex matcher on Str
+        ok 3 - :nth(List) with Regex matcher on Str
+        ok 4 - :nth(Seq) with Regex matcher on Str
+        ok 5 - :nth(Range) with Regex matcher on Str
+        ok 6 - :th(List) with Regex matcher on Str
+        ok 7 - :th(Seq) with Regex matcher on Str
+        ok 8 - :th(Range) with Regex matcher on Str
+        ok 9 - :st(List) with Regex matcher on Str
+        ok 10 - :st(Seq) with Regex matcher on Str
+        ok 11 - :st(Range) with Regex matcher on Str
+        ok 12 - :nd(List) with Regex matcher on Str
+        ok 13 - :nd(Seq) with Regex matcher on Str
+        ok 14 - :nd(Range) with Regex matcher on Str
+        ok 15 - :rd(List) with Regex matcher on Str
+        ok 16 - :rd(Seq) with Regex matcher on Str
+        ok 17 - :rd(Range) with Regex matcher on Str
+        ok 18 - :g with Regex matcher on Int
+        ok 19 - :x with Regex matcher on Int
+        ok 20 - :nth(List) with Regex matcher on Int
+        ok 21 - :nth(Seq) with Regex matcher on Int
+        ok 22 - :nth(Range) with Regex matcher on Int
+        ok 23 - :th(List) with Regex matcher on Int
+        ok 24 - :th(Seq) with Regex matcher on Int
+        ok 25 - :th(Range) with Regex matcher on Int
+        ok 26 - :st(List) with Regex matcher on Int
+        ok 27 - :st(Seq) with Regex matcher on Int
+        ok 28 - :st(Range) with Regex matcher on Int
+        ok 29 - :nd(List) with Regex matcher on Int
+        ok 30 - :nd(Seq) with Regex matcher on Int
+        ok 31 - :nd(Range) with Regex matcher on Int
+        ok 32 - :rd(List) with Regex matcher on Int
+        ok 33 - :rd(Seq) with Regex matcher on Int
+        ok 34 - :rd(Range) with Regex matcher on Int
+        ok 35 - :g with Str matcher on Str
+        ok 36 - :x with Str matcher on Str
+        ok 37 - :nth(List) with Str matcher on Str
+        ok 38 - :nth(Seq) with Str matcher on Str
+        ok 39 - :nth(Range) with Str matcher on Str
+        ok 40 - :th(List) with Str matcher on Str
+        ok 41 - :th(Seq) with Str matcher on Str
+        ok 42 - :th(Range) with Str matcher on Str
+        ok 43 - :st(List) with Str matcher on Str
+        ok 44 - :st(Seq) with Str matcher on Str
+        ok 45 - :st(Range) with Str matcher on Str
+        ok 46 - :nd(List) with Str matcher on Str
+        ok 47 - :nd(Seq) with Str matcher on Str
+        ok 48 - :nd(Range) with Str matcher on Str
+        ok 49 - :rd(List) with Str matcher on Str
+        ok 50 - :rd(Seq) with Str matcher on Str
+        ok 51 - :rd(Range) with Str matcher on Str
+        ok 52 - :g with Str matcher on Int
+        ok 53 - :x with Str matcher on Int
+        ok 54 - :nth(List) with Str matcher on Int
+        ok 55 - :nth(Seq) with Str matcher on Int
+        ok 56 - :nth(Range) with Str matcher on Int
+        ok 57 - :th(List) with Str matcher on Int
+        ok 58 - :th(Seq) with Str matcher on Int
+        ok 59 - :th(Range) with Str matcher on Int
+        ok 60 - :st(List) with Str matcher on Int
+        ok 61 - :st(Seq) with Str matcher on Int
+        ok 62 - :st(Range) with Str matcher on Int
+        ok 63 - :nd(List) with Str matcher on Int
+        ok 64 - :nd(Seq) with Str matcher on Int
+        ok 65 - :nd(Range) with Str matcher on Int
+        ok 66 - :rd(List) with Str matcher on Int
+        ok 67 - :rd(Seq) with Str matcher on Int
+        ok 68 - :rd(Range) with Str matcher on Int
+    ok 3 - no-matches .subst-mutate: with multi-match opts = empty List
+    # Subtest: .subst-mutate with multi-match args set $/ to a List of matches
+        1..14
+        # Subtest: Int.subst-mutate: :g
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 1 - Int.subst-mutate: :g
+        # Subtest: .subst-mutate: :x
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 2 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 2 - .subst-mutate: :x
+        # Subtest: .subst-mutate: :nth
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 3 - .subst-mutate: :nth
+        # Subtest: .subst-mutate: :st
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 4 - .subst-mutate: :st
+        # Subtest: .subst-mutate: :nd
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 5 - .subst-mutate: :nd
+        # Subtest: .subst-mutate: :rd
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 6 - .subst-mutate: :rd
+        # Subtest: .subst-mutate: :th
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 7 - .subst-mutate: :th
+        # Subtest: Str.subst-mutate: :g
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 8 - Str.subst-mutate: :g
+        # Subtest: .subst-mutate: :x
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 2 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 9 - .subst-mutate: :x
+        # Subtest: .subst-mutate: :nth
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 10 - .subst-mutate: :nth
+        # Subtest: .subst-mutate: :st
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 11 - .subst-mutate: :st
+        # Subtest: .subst-mutate: :nd
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 12 - .subst-mutate: :nd
+        # Subtest: .subst-mutate: :rd
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 13 - .subst-mutate: :rd
+        # Subtest: .subst-mutate: :th
+            1..4
+            ok 1 - $/ is a List…
+            ok 2 - …with 3 items…
+            ok 3 - …all are Match…
+            ok 4 - …all have right values
+        ok 14 - .subst-mutate: :th
+    ok 4 - .subst-mutate with multi-match args set $/ to a List of matches
+    # Subtest: giving .subst-mutate invalid args throws
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Str::Match::x)
+    ok 5 - giving .subst-mutate invalid args throws
+    ok 6 - Cool.subst-mutate with wrong args does not hang
+    # Subtest: $/ is set when matching in a loop
+        1..2
+        ok 1 - Str.subst-mutate
+        ok 2 - Cool.subst-mutate
+    ok 7 - $/ is set when matching in a loop
+ok 4 - now-deprecated subst-mutate
+# Subtest: Pair.freeze
+    1..7
+    ok 1 - The object is-a 'Int'
+    ok 2 - can assign integer value and return that
+    ok 3 - the expected Int value was set
+    # Subtest: cannot assign a Str to an Int
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Assignment)
+    ok 4 - cannot assign a Str to an Int
+    # Subtest: cannot assign an Int to a frozen
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Assignment::RO)
+    ok 5 - cannot assign an Int to a frozen
+    ok 6 - did not change integer value
+    ok 7 - Pair.freeze doesn't change object identity
+ok 5 - Pair.freeze
+# Subtest: :count arg on &lines/Str.lines
+    1..2
+    ok 1 - lines(Str, :count)
+    ok 2 - Str.lines(:count)
+ok 6 - :count arg on &lines/Str.lines
+# Subtest: language switching
+    1..5
+    # Subtest: version as first thing
+        1..4
+        ok 1 - no version pragma
+        ok 2 - 6.c version pragma
+        ok 3 - 6.d version pragma
+        ok 4 - 6.d version pragma
+    ok 1 - version as first thing
+    # Subtest: version after comments
+        1..4
+        ok 1 - no version pragma
+        ok 2 - 6.c version pragma
+        ok 3 - 6.d version pragma
+        ok 4 - 6.d version pragma
+    ok 2 - version after comments
+    # Subtest: version after POD
+        1..4
+        ok 1 - no version pragma
+        ok 2 - 6.c version pragma
+        ok 3 - 6.d version pragma
+        ok 4 - 6.d version pragma
+    ok 3 - version after POD
+    # Subtest: error out when trying to switch version too late
+        1..3
+        ok 1 - 6.c version pragma
+        ok 2 - 6.d version pragma
+        ok 3 - 6.d version pragma
+    ok 4 - error out when trying to switch version too late
+    # Subtest: versions without dot
+        1..4
+        ok 1 - no version pragma
+        ok 2 - 6.c version pragma
+        ok 3 - 6.d version pragma
+        ok 4 - 6.d version pragma
+    ok 5 - versions without dot
+ok 7 - language switching
+# Subtest: IO::Handle.new can take a bunch of options
+    1..1
+    # Subtest: .print-nl method
+        1..4
+        ok 1 - defaults
+        ok 2 - :nl-out set to ♥
+        ok 3 - :nl-out set to a string (via .new)
+        ok 4 - :nl-out set via .new, then via .open, then via attribute assignment
+    ok 1 - .print-nl method
+ok 8 - IO::Handle.new can take a bunch of options
+# Subtest: $CALLER::_
+    1..12
+    ok 1 - CALLER:: string arg
+    ok 2 - CALLER:: number arg
+    not ok 3 - CALLER:: $_ set once # TODO NYI
+    # Failed test 'CALLER:: $_ set once'
+    # at 6.c/APPENDICES/A03-older-specs/01-misc.rakudo line 400
+    # expected: '-foo-'
+    #      got: '--'
+    not ok 4 - CALLER:: $_ set twice # TODO NYI
+    # Failed test 'CALLER:: $_ set twice'
+    # at 6.c/APPENDICES/A03-older-specs/01-misc.rakudo line 400
+    # expected: '-bar-'
+    #      got: '--'
+    not ok 5 - CALLER:: $_ set by for # TODO NYI
+    # Failed test 'CALLER:: $_ set by for'
+    # at 6.c/APPENDICES/A03-older-specs/01-misc.rakudo line 400
+    # expected: '-quux-'
+    #      got: '--'
+    not ok 6 - $CALLER::_ set by given # TODO NYI
+    # Failed test '$CALLER::_ set by given'
+    # at 6.c/APPENDICES/A03-older-specs/01-misc.rakudo line 400
+    # expected: '-hirgel-'
+    #      got: '--'
+    not ok 7 - CALLER:: $_ reset after for # TODO NYI
+    # Failed test 'CALLER:: $_ reset after for'
+    # at 6.c/APPENDICES/A03-older-specs/01-misc.rakudo line 400
+    # expected: '-bar-'
+    #      got: '--'
+    ok 8 - $_ is implicitly declared "is dynamic" (1)
+    ok 9 - $_ is implicitly declared "is dynamic" (2)
+    ok 10 - $_ is implicitly rw (2)
+    ok 11 - can we call the sub with a parameter
+    ok 12 - can we call the sub without a parameter
+ok 9 - $CALLER::_
+# FUDGED!

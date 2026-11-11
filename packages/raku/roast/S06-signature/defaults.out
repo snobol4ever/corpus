@@ -1,0 +1,18 @@
+1..17
+ok 1 - default sub called
+ok 2 - default sub can be overridden
+ok 3 - default sub called in package namespace
+ok 4 - can have a list literal as default value
+ok 5 - ":x" is the same as "x => True" in sub call
+ok 6 - no comma required between parameter with default value and returns-arrow ("-->")
+ok 7 - comma allowed between parameter with default value and returns-arrow ("-->")
+ok 8 - default lambda parameters don't choke on block
+ok 9 - rx{foo} works as a default
+ok 10 - untyped optional arrays get their default Array...
+ok 11 - ...which is an instance
+ok 12 - typed optional arrays get their default parameterized Array...
+ok 13 - ...which is an instance
+ok 14 - untyped optional hashes get their default Hash...
+ok 15 - ...which is an instance
+ok 16 - typed optional hashes get their default parameterized Hash...
+ok 17 - ...which is an instance

@@ -1,0 +1,156 @@
+1..77
+ok 1 - (5, 7, 8) is List
+ok 2 - prefix:<+> on a List
+ok 3 - prefix:<~> on a List
+ok 4 - .Str on a List
+ok 5 - .raku on empty List
+ok 6 - .item.raku on empty List
+ok 7 - can roundtrip ().item
+ok 8 - ().item .raku.EVAL roundtrip preserves itemization
+ok 9 - <5 7 8> is List
+ok 10 - prefix:<+> on an angle bracket List
+ok 11 - prefix:<~> on an angle bracket List
+ok 12 - .Str on an angle bracket List
+ok 13 - .List returns a list
+ok 14 - .List contains the right items
+ok 15 - .List contains the right number of elements
+ok 16 - empty List is False
+ok 17 - non-empty List is True
+ok 18 - can zen slice a List
+ok 19 - $(;) parses, and is empty
+ok 20 - List.rotate defaults to +1
+ok 21 - original list unmodified
+ok 22 - .rotate(2)
+ok 23 - original list still unmodified
+ok 24 - .rotate(-2)
+ok 25 - original still unmodified (negative)
+ok 26 - .rotate(0)
+ok 27 - .rotate(5)
+ok 28 - .rotate(15)
+ok 29 - .rotate(7)
+ok 30 - original still unmodified (negative)
+ok 31 - .rotate(-8)
+ok 32 - original still unmodified (negative)
+ok 33 - rotate(@a)
+ok 34 - original list unmodified
+ok 35 - rotate(@a, 2)
+ok 36 - original list still unmodified
+ok 37 - rotate(@a, -2)
+ok 38 - original still unmodified (negative)
+ok 39 - rotate(@a, 0)
+ok 40 - rotate(@a, 5)
+ok 41 - rotate(@a, 15)
+ok 42 - rotate(@a, 7)
+ok 43 - original still unmodified (negative)
+ok 44 - rotate(@a, -8)
+ok 45 - original still unmodified (negative)
+ok 46 - .rotate("2")
+ok 47 - .rotate(2.5)
+ok 48 - a b c !=== a b c (List is not a value type)
+ok 49 - $x1 = 42,1 !=== 42,1
+ok 50 - $x2 = 42,1 !=== $y = 42,1
+ok 51 - $x3=42,1 !=== $y2 := $x3,1 (List is not a value type)
+ok 52 - did we get the list
+ok 53 - did we get what we put in
+ok 54 - did we get the parameters
+ok 55 - did we get what we put in
+ok 56 - can gist a list with a role
+# Subtest: did we throws-like X::Immutable?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches push
+    ok 4 - .typename matches List
+ok 57 - did we throws-like X::Immutable?
+# Subtest: did we throws-like X::Immutable?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches pop
+    ok 4 - .typename matches List
+ok 58 - did we throws-like X::Immutable?
+# Subtest: did we throws-like X::Immutable?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .typename matches List
+    ok 4 - .method matches shift
+ok 59 - did we throws-like X::Immutable?
+# Subtest: did we throws-like X::Immutable?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches unshift
+    ok 4 - .typename matches List
+ok 60 - did we throws-like X::Immutable?
+# Subtest: did we throws-like X::Immutable?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .typename matches List
+    ok 4 - .method matches append
+ok 61 - did we throws-like X::Immutable?
+# Subtest: did we throws-like X::Immutable?
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+    ok 3 - .method matches prepend
+    ok 4 - .typename matches List
+ok 62 - did we throws-like X::Immutable?
+ok 63 - can we do .sum on a List
+ok 64 - even if they are not ints
+ok 65 - even if they are numified strings
+# Subtest: fail if they are non-numeric strings
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .reason matches base-10 number must begin with valid digits or '.'
+ok 66 - fail if they are non-numeric strings
+ok 67 - first with a Regexp object
+ok 68 - grep with a Regexp object
+# Subtest: .sum can handle Junctions
+    1..7
+    ok 1 - sum() produces same thing as .sum
+    ok 2 - [+] produces same thing as .sum
+    ok 3 - sum is correct (1)
+    ok 4 - sum is correct (2)
+    ok 5 - sum is correct (3)
+    ok 6 - sum is correct (4)
+    ok 7 - sum is correct (6)
+ok 69 - .sum can handle Junctions
+ok 70 - .flat does not skip inner iterables
+# Subtest: cannot assign to a element of an immutable List
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .value matches (1 2 3)
+ok 71 - cannot assign to a element of an immutable List
+# Subtest: cannot assign to a element of an immutable Range
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+    ok 3 - .value matches ^10
+ok 72 - cannot assign to a element of an immutable Range
+ok 73 - 
+ok 74 - can assign to a List element if it is a container
+# Subtest: List.new does not create unwanted containers
+    1..4
+    ok 1 - right values
+    # Subtest: no containers were created
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Assignment::RO)
+    ok 2 - no containers were created
+    ok 3 - passed containers get preserved
+    ok 4 - value assigneed to passed container is right
+ok 75 - List.new does not create unwanted containers
+# Subtest: Cannot bind at pos of immutable List
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+ok 76 - Cannot bind at pos of immutable List
+# Subtest: Cannot bind at pos of immutable List, Scalar at pos
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bind)
+ok 77 - Cannot bind at pos of immutable List, Scalar at pos

@@ -1,0 +1,8 @@
+1..1
+# Subtest: whenever not in lexical scope of react throws
+    1..2
+    ok 1 - '
+    #     sub foo { whenever Promise.in(2) { say ‘hello’ } }; react foo
+    # ' died
+    ok 2 - right exception type (X::Comp::WheneverOutOfScope)
+ok 1 - whenever not in lexical scope of react throws

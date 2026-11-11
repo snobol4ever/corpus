@@ -1,0 +1,82 @@
+1..45
+ok 1 - multi sub with empty signature
+ok 2 - multi sub with parameter list
+ok 3 - multi sub with no signature
+ok 4 - multi sub with parameter list
+ok 5 - multi with no signature
+ok 6 - multi with parameter list
+ok 7 - multi with empty signature
+ok 8 - multi with parameter list
+ok 9 - dispatch tied as expected
+ok 10 - not tied as only first type in the dispatch
+# Subtest: anonymous only sub is an error
+    1..2
+    ok 1 - 'only sub {}' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 11 - anonymous only sub is an error
+# Subtest: anonymous multi sub is an error
+    1..2
+    ok 1 - 'multi sub {}' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 12 - anonymous multi sub is an error
+# Subtest: anonymous proto sub is an error
+    1..2
+    ok 1 - 'proto sub {}' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 13 - anonymous proto sub is an error
+# Subtest: anonymous only is an error
+    1..2
+    ok 1 - 'only {}' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 14 - anonymous only is an error
+# Subtest: anonymous multi is an error
+    1..2
+    ok 1 - 'multi {}' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 15 - anonymous multi is an error
+# Subtest: anonymous proto is an error
+    1..2
+    ok 1 - 'proto {}' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 16 - anonymous proto is an error
+# Subtest: anonymous only method is an error
+    1..2
+    ok 1 - 'class A { only method {} }' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 17 - anonymous only method is an error
+# Subtest: anonymous multi method is an error
+    1..2
+    ok 1 - 'class B { multi method {} }' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 18 - anonymous multi method is an error
+# Subtest: anonymous proto method is an error
+    1..2
+    ok 1 - 'class C { proto method {} }' died
+    ok 2 - right exception type (X::Anon::Multi)
+ok 19 - anonymous proto method is an error
+ok 20 - a multi does Callable
+ok 21 - a multi stringifies sensibly
+ok 22 - use multi method to override builtin lives
+ok 23 - use multi method to override builtin
+ok 24 - interaction between named and slurpy (1)
+ok 25 - interaction between named and slurpy (2)
+ok 26 - interaction between named and slurpy (3)
+ok 27 - interaction between named and slurpy (4)
+ok 28 - can find multi method with key
+ok 29 - can find multi method with slurpy
+ok 30 - non-slurpy wins over slurpy
+ok 31 - slurpy called when non-slurpy can not bind
+ok 32 - optional parameter does not break type-based candidate sorting
+ok 33 - optional parameter does not break type-based candidate sorting
+ok 34 - multi can be passed as callable
+ok 35 - can write anonymous methods inside multi subs
+ok 36 - multi sub declaration returns just the current candidate
+ok 37 - and that candidate works
+ok 38 - ... and does not contain the full multiness
+ok 39 - captures in multi sigs work
+ok 40 - ordered multi subs
+ok 41 - first defined wins the tie
+ok 42 - Exact arity match wins over candidates with optionals
+ok 43 - With Int argument hit optional Int candidate
+ok 44 - With Str argument hit optional Str candidate
+ok 45 - where-blocked multi has higher priority than non-where-blocked multi

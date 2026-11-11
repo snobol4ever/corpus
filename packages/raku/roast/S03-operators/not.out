@@ -1,0 +1,23 @@
+1..22
+ok 1 - not 1 is false
+ok 2 - not -1 is false
+ok 3 - !not 0 is false
+ok 4 - not sub{} is false
+ok 5 - not "x" is false
+ok 6 - not $not_var is false
+ok 7 - not $false_var is not false
+ok 8 - not($b) is (not $b)
+ok 9 - not(not 42) is true
+ok 10 - not(not  0) is false
+ok 11 - 'Bool::True' is not 'Bool::False'
+ok 12 - 'not Bool::True' is a Bool
+ok 13 - 'Bool::True' is not 'False'
+ok 14 - 'True' is not 'False'
+ok 15 - 'not True' is a Bool
+ok 16 - 'True' is not 'Bool::False'
+ok 17 - 'Bool::False' is not 'Bool::True'
+ok 18 - 'not Bool::False' is a Bool
+ok 19 - 'Bool::False' is not 'True'
+ok 20 - 'False' is not 'True'
+ok 21 - 'not False' is a Bool
+ok 22 - 'False' is not 'Bool::True'

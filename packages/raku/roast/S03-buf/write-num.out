@@ -1,0 +1,3151 @@
+1..82
+# Subtest: did all possible negative offsets die
+    1..12
+    ok 1 - does write-num32 -1 42e0 die on type object
+    ok 2 - does write-num32 -1 42e0 die on uninited
+    ok 3 - does write-num32 -1 42e0 die on inited
+    ok 4 - does write-num32 -1 42e0 NativeEndian die on type object
+    ok 5 - does write-num32 -1 42e0 NativeEndian die on uninited
+    ok 6 - does write-num32 -1 42e0 NativeEndian die
+    ok 7 - does write-num32 -1 42e0 LittleEndian die on type object
+    ok 8 - does write-num32 -1 42e0 LittleEndian die on uninited
+    ok 9 - does write-num32 -1 42e0 LittleEndian die
+    ok 10 - does write-num32 -1 42e0 BigEndian die on type object
+    ok 11 - does write-num32 -1 42e0 BigEndian die on uninited
+    ok 12 - does write-num32 -1 42e0 BigEndian die
+ok 1 - did all possible negative offsets die
+# Subtest: did all tests pass for write-num32 0 0
+    1..36
+    ok 1 - does existing write-num32 0 0 return existing
+    ok 2 - did existing write-num32 0 0 not change size
+    ok 3 - did existing read-num32 0 give 0
+    ok 4 - does existing write-num32 0 0 NativeEndian return existing
+    ok 5 - did existing write-num32 0 0 NativeEndian not change size
+    ok 6 - did existing read-num32 0 NativeEndian give 0
+    ok 7 - does existing write-num32 0 0 LittleEndian return existing
+    ok 8 - did existing write-num32 0 0 LittleEndian not change size
+    ok 9 - did existing read-num32 0 LittleEndian give 0
+    ok 10 - does existing write-num32 0 0 BigEndian return existing
+    ok 11 - did existing write-num32 0 0 BigEndian not change size
+    ok 12 - did existing read-num32 0 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 0 0 set size 4
+    ok 15 - did type read-num32 0 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 0 0 NativeEndian set size 4
+    ok 18 - did new read-num32 0 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 0 0 LittleEndian set size 4
+    ok 21 - did new read-num32 0 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 0 0 BigEndian set size 4
+    ok 24 - did new read-num32 0 BigEndian give 0
+    ok 25 - does new write-num32 0 0 return $buf
+    ok 26 - did new write-num32 0 0 set size 4
+    ok 27 - did new read-num32 0 give 0
+    ok 28 - does new write-num32 0 0 NativeEndian return $buf
+    ok 29 - did new write-num32 0 0 NativeEndian set size 4
+    ok 30 - did new read-num32 0 NativeEndian give 0
+    ok 31 - does new write-num32 0 0 LittleEndian return $buf
+    ok 32 - did new write-num32 0 0 LittleEndian set size 4
+    ok 33 - did new read-num32 0 LittleEndian give 0
+    ok 34 - does new write-num32 0 0 BigEndian return $buf
+    ok 35 - did new write-num32 0 0 BigEndian set size 4
+    ok 36 - did new read-num32 0 BigEndian give 0
+ok 2 - did all tests pass for write-num32 0 0
+# Subtest: did all tests pass for write-num32 1 0
+    1..36
+    ok 1 - does existing write-num32 1 0 return existing
+    ok 2 - did existing write-num32 1 0 not change size
+    ok 3 - did existing read-num32 1 give 0
+    ok 4 - does existing write-num32 1 0 NativeEndian return existing
+    ok 5 - did existing write-num32 1 0 NativeEndian not change size
+    ok 6 - did existing read-num32 1 NativeEndian give 0
+    ok 7 - does existing write-num32 1 0 LittleEndian return existing
+    ok 8 - did existing write-num32 1 0 LittleEndian not change size
+    ok 9 - did existing read-num32 1 LittleEndian give 0
+    ok 10 - does existing write-num32 1 0 BigEndian return existing
+    ok 11 - did existing write-num32 1 0 BigEndian not change size
+    ok 12 - did existing read-num32 1 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 1 0 set size 5
+    ok 15 - did type read-num32 1 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 1 0 NativeEndian set size 5
+    ok 18 - did new read-num32 1 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 1 0 LittleEndian set size 5
+    ok 21 - did new read-num32 1 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 1 0 BigEndian set size 5
+    ok 24 - did new read-num32 1 BigEndian give 0
+    ok 25 - does new write-num32 1 0 return $buf
+    ok 26 - did new write-num32 1 0 set size 5
+    ok 27 - did new read-num32 1 give 0
+    ok 28 - does new write-num32 1 0 NativeEndian return $buf
+    ok 29 - did new write-num32 1 0 NativeEndian set size 5
+    ok 30 - did new read-num32 1 NativeEndian give 0
+    ok 31 - does new write-num32 1 0 LittleEndian return $buf
+    ok 32 - did new write-num32 1 0 LittleEndian set size 5
+    ok 33 - did new read-num32 1 LittleEndian give 0
+    ok 34 - does new write-num32 1 0 BigEndian return $buf
+    ok 35 - did new write-num32 1 0 BigEndian set size 5
+    ok 36 - did new read-num32 1 BigEndian give 0
+ok 3 - did all tests pass for write-num32 1 0
+# Subtest: did all tests pass for write-num32 2 0
+    1..36
+    ok 1 - does existing write-num32 2 0 return existing
+    ok 2 - did existing write-num32 2 0 not change size
+    ok 3 - did existing read-num32 2 give 0
+    ok 4 - does existing write-num32 2 0 NativeEndian return existing
+    ok 5 - did existing write-num32 2 0 NativeEndian not change size
+    ok 6 - did existing read-num32 2 NativeEndian give 0
+    ok 7 - does existing write-num32 2 0 LittleEndian return existing
+    ok 8 - did existing write-num32 2 0 LittleEndian not change size
+    ok 9 - did existing read-num32 2 LittleEndian give 0
+    ok 10 - does existing write-num32 2 0 BigEndian return existing
+    ok 11 - did existing write-num32 2 0 BigEndian not change size
+    ok 12 - did existing read-num32 2 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 2 0 set size 6
+    ok 15 - did type read-num32 2 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 2 0 NativeEndian set size 6
+    ok 18 - did new read-num32 2 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 2 0 LittleEndian set size 6
+    ok 21 - did new read-num32 2 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 2 0 BigEndian set size 6
+    ok 24 - did new read-num32 2 BigEndian give 0
+    ok 25 - does new write-num32 2 0 return $buf
+    ok 26 - did new write-num32 2 0 set size 6
+    ok 27 - did new read-num32 2 give 0
+    ok 28 - does new write-num32 2 0 NativeEndian return $buf
+    ok 29 - did new write-num32 2 0 NativeEndian set size 6
+    ok 30 - did new read-num32 2 NativeEndian give 0
+    ok 31 - does new write-num32 2 0 LittleEndian return $buf
+    ok 32 - did new write-num32 2 0 LittleEndian set size 6
+    ok 33 - did new read-num32 2 LittleEndian give 0
+    ok 34 - does new write-num32 2 0 BigEndian return $buf
+    ok 35 - did new write-num32 2 0 BigEndian set size 6
+    ok 36 - did new read-num32 2 BigEndian give 0
+ok 4 - did all tests pass for write-num32 2 0
+# Subtest: did all tests pass for write-num32 3 0
+    1..36
+    ok 1 - does existing write-num32 3 0 return existing
+    ok 2 - did existing write-num32 3 0 not change size
+    ok 3 - did existing read-num32 3 give 0
+    ok 4 - does existing write-num32 3 0 NativeEndian return existing
+    ok 5 - did existing write-num32 3 0 NativeEndian not change size
+    ok 6 - did existing read-num32 3 NativeEndian give 0
+    ok 7 - does existing write-num32 3 0 LittleEndian return existing
+    ok 8 - did existing write-num32 3 0 LittleEndian not change size
+    ok 9 - did existing read-num32 3 LittleEndian give 0
+    ok 10 - does existing write-num32 3 0 BigEndian return existing
+    ok 11 - did existing write-num32 3 0 BigEndian not change size
+    ok 12 - did existing read-num32 3 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 3 0 set size 7
+    ok 15 - did type read-num32 3 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 3 0 NativeEndian set size 7
+    ok 18 - did new read-num32 3 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 3 0 LittleEndian set size 7
+    ok 21 - did new read-num32 3 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 3 0 BigEndian set size 7
+    ok 24 - did new read-num32 3 BigEndian give 0
+    ok 25 - does new write-num32 3 0 return $buf
+    ok 26 - did new write-num32 3 0 set size 7
+    ok 27 - did new read-num32 3 give 0
+    ok 28 - does new write-num32 3 0 NativeEndian return $buf
+    ok 29 - did new write-num32 3 0 NativeEndian set size 7
+    ok 30 - did new read-num32 3 NativeEndian give 0
+    ok 31 - does new write-num32 3 0 LittleEndian return $buf
+    ok 32 - did new write-num32 3 0 LittleEndian set size 7
+    ok 33 - did new read-num32 3 LittleEndian give 0
+    ok 34 - does new write-num32 3 0 BigEndian return $buf
+    ok 35 - did new write-num32 3 0 BigEndian set size 7
+    ok 36 - did new read-num32 3 BigEndian give 0
+ok 5 - did all tests pass for write-num32 3 0
+# Subtest: did all tests pass for write-num32 4 0
+    1..36
+    ok 1 - does existing write-num32 4 0 return existing
+    ok 2 - did existing write-num32 4 0 not change size
+    ok 3 - did existing read-num32 4 give 0
+    ok 4 - does existing write-num32 4 0 NativeEndian return existing
+    ok 5 - did existing write-num32 4 0 NativeEndian not change size
+    ok 6 - did existing read-num32 4 NativeEndian give 0
+    ok 7 - does existing write-num32 4 0 LittleEndian return existing
+    ok 8 - did existing write-num32 4 0 LittleEndian not change size
+    ok 9 - did existing read-num32 4 LittleEndian give 0
+    ok 10 - does existing write-num32 4 0 BigEndian return existing
+    ok 11 - did existing write-num32 4 0 BigEndian not change size
+    ok 12 - did existing read-num32 4 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 4 0 set size 8
+    ok 15 - did type read-num32 4 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 4 0 NativeEndian set size 8
+    ok 18 - did new read-num32 4 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 4 0 LittleEndian set size 8
+    ok 21 - did new read-num32 4 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 4 0 BigEndian set size 8
+    ok 24 - did new read-num32 4 BigEndian give 0
+    ok 25 - does new write-num32 4 0 return $buf
+    ok 26 - did new write-num32 4 0 set size 8
+    ok 27 - did new read-num32 4 give 0
+    ok 28 - does new write-num32 4 0 NativeEndian return $buf
+    ok 29 - did new write-num32 4 0 NativeEndian set size 8
+    ok 30 - did new read-num32 4 NativeEndian give 0
+    ok 31 - does new write-num32 4 0 LittleEndian return $buf
+    ok 32 - did new write-num32 4 0 LittleEndian set size 8
+    ok 33 - did new read-num32 4 LittleEndian give 0
+    ok 34 - does new write-num32 4 0 BigEndian return $buf
+    ok 35 - did new write-num32 4 0 BigEndian set size 8
+    ok 36 - did new read-num32 4 BigEndian give 0
+ok 6 - did all tests pass for write-num32 4 0
+# Subtest: did all tests pass for write-num32 5 0
+    1..36
+    ok 1 - does existing write-num32 5 0 return existing
+    ok 2 - did existing write-num32 5 0 not change size
+    ok 3 - did existing read-num32 5 give 0
+    ok 4 - does existing write-num32 5 0 NativeEndian return existing
+    ok 5 - did existing write-num32 5 0 NativeEndian not change size
+    ok 6 - did existing read-num32 5 NativeEndian give 0
+    ok 7 - does existing write-num32 5 0 LittleEndian return existing
+    ok 8 - did existing write-num32 5 0 LittleEndian not change size
+    ok 9 - did existing read-num32 5 LittleEndian give 0
+    ok 10 - does existing write-num32 5 0 BigEndian return existing
+    ok 11 - did existing write-num32 5 0 BigEndian not change size
+    ok 12 - did existing read-num32 5 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 5 0 set size 9
+    ok 15 - did type read-num32 5 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 5 0 NativeEndian set size 9
+    ok 18 - did new read-num32 5 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 5 0 LittleEndian set size 9
+    ok 21 - did new read-num32 5 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 5 0 BigEndian set size 9
+    ok 24 - did new read-num32 5 BigEndian give 0
+    ok 25 - does new write-num32 5 0 return $buf
+    ok 26 - did new write-num32 5 0 set size 9
+    ok 27 - did new read-num32 5 give 0
+    ok 28 - does new write-num32 5 0 NativeEndian return $buf
+    ok 29 - did new write-num32 5 0 NativeEndian set size 9
+    ok 30 - did new read-num32 5 NativeEndian give 0
+    ok 31 - does new write-num32 5 0 LittleEndian return $buf
+    ok 32 - did new write-num32 5 0 LittleEndian set size 9
+    ok 33 - did new read-num32 5 LittleEndian give 0
+    ok 34 - does new write-num32 5 0 BigEndian return $buf
+    ok 35 - did new write-num32 5 0 BigEndian set size 9
+    ok 36 - did new read-num32 5 BigEndian give 0
+ok 7 - did all tests pass for write-num32 5 0
+# Subtest: did all tests pass for write-num32 6 0
+    1..36
+    ok 1 - does existing write-num32 6 0 return existing
+    ok 2 - did existing write-num32 6 0 not change size
+    ok 3 - did existing read-num32 6 give 0
+    ok 4 - does existing write-num32 6 0 NativeEndian return existing
+    ok 5 - did existing write-num32 6 0 NativeEndian not change size
+    ok 6 - did existing read-num32 6 NativeEndian give 0
+    ok 7 - does existing write-num32 6 0 LittleEndian return existing
+    ok 8 - did existing write-num32 6 0 LittleEndian not change size
+    ok 9 - did existing read-num32 6 LittleEndian give 0
+    ok 10 - does existing write-num32 6 0 BigEndian return existing
+    ok 11 - did existing write-num32 6 0 BigEndian not change size
+    ok 12 - did existing read-num32 6 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 6 0 set size 10
+    ok 15 - did type read-num32 6 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 6 0 NativeEndian set size 10
+    ok 18 - did new read-num32 6 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 6 0 LittleEndian set size 10
+    ok 21 - did new read-num32 6 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 6 0 BigEndian set size 10
+    ok 24 - did new read-num32 6 BigEndian give 0
+    ok 25 - does new write-num32 6 0 return $buf
+    ok 26 - did new write-num32 6 0 set size 10
+    ok 27 - did new read-num32 6 give 0
+    ok 28 - does new write-num32 6 0 NativeEndian return $buf
+    ok 29 - did new write-num32 6 0 NativeEndian set size 10
+    ok 30 - did new read-num32 6 NativeEndian give 0
+    ok 31 - does new write-num32 6 0 LittleEndian return $buf
+    ok 32 - did new write-num32 6 0 LittleEndian set size 10
+    ok 33 - did new read-num32 6 LittleEndian give 0
+    ok 34 - does new write-num32 6 0 BigEndian return $buf
+    ok 35 - did new write-num32 6 0 BigEndian set size 10
+    ok 36 - did new read-num32 6 BigEndian give 0
+ok 8 - did all tests pass for write-num32 6 0
+# Subtest: did all tests pass for write-num32 7 0
+    1..36
+    ok 1 - does existing write-num32 7 0 return existing
+    ok 2 - did existing write-num32 7 0 not change size
+    ok 3 - did existing read-num32 7 give 0
+    ok 4 - does existing write-num32 7 0 NativeEndian return existing
+    ok 5 - did existing write-num32 7 0 NativeEndian not change size
+    ok 6 - did existing read-num32 7 NativeEndian give 0
+    ok 7 - does existing write-num32 7 0 LittleEndian return existing
+    ok 8 - did existing write-num32 7 0 LittleEndian not change size
+    ok 9 - did existing read-num32 7 LittleEndian give 0
+    ok 10 - does existing write-num32 7 0 BigEndian return existing
+    ok 11 - did existing write-num32 7 0 BigEndian not change size
+    ok 12 - did existing read-num32 7 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 7 0 set size 11
+    ok 15 - did type read-num32 7 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 7 0 NativeEndian set size 11
+    ok 18 - did new read-num32 7 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 7 0 LittleEndian set size 11
+    ok 21 - did new read-num32 7 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 7 0 BigEndian set size 11
+    ok 24 - did new read-num32 7 BigEndian give 0
+    ok 25 - does new write-num32 7 0 return $buf
+    ok 26 - did new write-num32 7 0 set size 11
+    ok 27 - did new read-num32 7 give 0
+    ok 28 - does new write-num32 7 0 NativeEndian return $buf
+    ok 29 - did new write-num32 7 0 NativeEndian set size 11
+    ok 30 - did new read-num32 7 NativeEndian give 0
+    ok 31 - does new write-num32 7 0 LittleEndian return $buf
+    ok 32 - did new write-num32 7 0 LittleEndian set size 11
+    ok 33 - did new read-num32 7 LittleEndian give 0
+    ok 34 - does new write-num32 7 0 BigEndian return $buf
+    ok 35 - did new write-num32 7 0 BigEndian set size 11
+    ok 36 - did new read-num32 7 BigEndian give 0
+ok 9 - did all tests pass for write-num32 7 0
+# Subtest: did all tests pass for write-num32 0 1
+    1..36
+    ok 1 - does existing write-num32 0 1 return existing
+    ok 2 - did existing write-num32 0 1 not change size
+    ok 3 - did existing read-num32 0 give 1
+    ok 4 - does existing write-num32 0 1 NativeEndian return existing
+    ok 5 - did existing write-num32 0 1 NativeEndian not change size
+    ok 6 - did existing read-num32 0 NativeEndian give 1
+    ok 7 - does existing write-num32 0 1 LittleEndian return existing
+    ok 8 - did existing write-num32 0 1 LittleEndian not change size
+    ok 9 - did existing read-num32 0 LittleEndian give 1
+    ok 10 - does existing write-num32 0 1 BigEndian return existing
+    ok 11 - did existing write-num32 0 1 BigEndian not change size
+    ok 12 - did existing read-num32 0 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 0 1 set size 4
+    ok 15 - did type read-num32 0 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 0 1 NativeEndian set size 4
+    ok 18 - did new read-num32 0 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 0 1 LittleEndian set size 4
+    ok 21 - did new read-num32 0 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 0 1 BigEndian set size 4
+    ok 24 - did new read-num32 0 BigEndian give 1
+    ok 25 - does new write-num32 0 1 return $buf
+    ok 26 - did new write-num32 0 1 set size 4
+    ok 27 - did new read-num32 0 give 1
+    ok 28 - does new write-num32 0 1 NativeEndian return $buf
+    ok 29 - did new write-num32 0 1 NativeEndian set size 4
+    ok 30 - did new read-num32 0 NativeEndian give 1
+    ok 31 - does new write-num32 0 1 LittleEndian return $buf
+    ok 32 - did new write-num32 0 1 LittleEndian set size 4
+    ok 33 - did new read-num32 0 LittleEndian give 1
+    ok 34 - does new write-num32 0 1 BigEndian return $buf
+    ok 35 - did new write-num32 0 1 BigEndian set size 4
+    ok 36 - did new read-num32 0 BigEndian give 1
+ok 10 - did all tests pass for write-num32 0 1
+# Subtest: did all tests pass for write-num32 1 1
+    1..36
+    ok 1 - does existing write-num32 1 1 return existing
+    ok 2 - did existing write-num32 1 1 not change size
+    ok 3 - did existing read-num32 1 give 1
+    ok 4 - does existing write-num32 1 1 NativeEndian return existing
+    ok 5 - did existing write-num32 1 1 NativeEndian not change size
+    ok 6 - did existing read-num32 1 NativeEndian give 1
+    ok 7 - does existing write-num32 1 1 LittleEndian return existing
+    ok 8 - did existing write-num32 1 1 LittleEndian not change size
+    ok 9 - did existing read-num32 1 LittleEndian give 1
+    ok 10 - does existing write-num32 1 1 BigEndian return existing
+    ok 11 - did existing write-num32 1 1 BigEndian not change size
+    ok 12 - did existing read-num32 1 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 1 1 set size 5
+    ok 15 - did type read-num32 1 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 1 1 NativeEndian set size 5
+    ok 18 - did new read-num32 1 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 1 1 LittleEndian set size 5
+    ok 21 - did new read-num32 1 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 1 1 BigEndian set size 5
+    ok 24 - did new read-num32 1 BigEndian give 1
+    ok 25 - does new write-num32 1 1 return $buf
+    ok 26 - did new write-num32 1 1 set size 5
+    ok 27 - did new read-num32 1 give 1
+    ok 28 - does new write-num32 1 1 NativeEndian return $buf
+    ok 29 - did new write-num32 1 1 NativeEndian set size 5
+    ok 30 - did new read-num32 1 NativeEndian give 1
+    ok 31 - does new write-num32 1 1 LittleEndian return $buf
+    ok 32 - did new write-num32 1 1 LittleEndian set size 5
+    ok 33 - did new read-num32 1 LittleEndian give 1
+    ok 34 - does new write-num32 1 1 BigEndian return $buf
+    ok 35 - did new write-num32 1 1 BigEndian set size 5
+    ok 36 - did new read-num32 1 BigEndian give 1
+ok 11 - did all tests pass for write-num32 1 1
+# Subtest: did all tests pass for write-num32 2 1
+    1..36
+    ok 1 - does existing write-num32 2 1 return existing
+    ok 2 - did existing write-num32 2 1 not change size
+    ok 3 - did existing read-num32 2 give 1
+    ok 4 - does existing write-num32 2 1 NativeEndian return existing
+    ok 5 - did existing write-num32 2 1 NativeEndian not change size
+    ok 6 - did existing read-num32 2 NativeEndian give 1
+    ok 7 - does existing write-num32 2 1 LittleEndian return existing
+    ok 8 - did existing write-num32 2 1 LittleEndian not change size
+    ok 9 - did existing read-num32 2 LittleEndian give 1
+    ok 10 - does existing write-num32 2 1 BigEndian return existing
+    ok 11 - did existing write-num32 2 1 BigEndian not change size
+    ok 12 - did existing read-num32 2 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 2 1 set size 6
+    ok 15 - did type read-num32 2 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 2 1 NativeEndian set size 6
+    ok 18 - did new read-num32 2 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 2 1 LittleEndian set size 6
+    ok 21 - did new read-num32 2 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 2 1 BigEndian set size 6
+    ok 24 - did new read-num32 2 BigEndian give 1
+    ok 25 - does new write-num32 2 1 return $buf
+    ok 26 - did new write-num32 2 1 set size 6
+    ok 27 - did new read-num32 2 give 1
+    ok 28 - does new write-num32 2 1 NativeEndian return $buf
+    ok 29 - did new write-num32 2 1 NativeEndian set size 6
+    ok 30 - did new read-num32 2 NativeEndian give 1
+    ok 31 - does new write-num32 2 1 LittleEndian return $buf
+    ok 32 - did new write-num32 2 1 LittleEndian set size 6
+    ok 33 - did new read-num32 2 LittleEndian give 1
+    ok 34 - does new write-num32 2 1 BigEndian return $buf
+    ok 35 - did new write-num32 2 1 BigEndian set size 6
+    ok 36 - did new read-num32 2 BigEndian give 1
+ok 12 - did all tests pass for write-num32 2 1
+# Subtest: did all tests pass for write-num32 3 1
+    1..36
+    ok 1 - does existing write-num32 3 1 return existing
+    ok 2 - did existing write-num32 3 1 not change size
+    ok 3 - did existing read-num32 3 give 1
+    ok 4 - does existing write-num32 3 1 NativeEndian return existing
+    ok 5 - did existing write-num32 3 1 NativeEndian not change size
+    ok 6 - did existing read-num32 3 NativeEndian give 1
+    ok 7 - does existing write-num32 3 1 LittleEndian return existing
+    ok 8 - did existing write-num32 3 1 LittleEndian not change size
+    ok 9 - did existing read-num32 3 LittleEndian give 1
+    ok 10 - does existing write-num32 3 1 BigEndian return existing
+    ok 11 - did existing write-num32 3 1 BigEndian not change size
+    ok 12 - did existing read-num32 3 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 3 1 set size 7
+    ok 15 - did type read-num32 3 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 3 1 NativeEndian set size 7
+    ok 18 - did new read-num32 3 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 3 1 LittleEndian set size 7
+    ok 21 - did new read-num32 3 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 3 1 BigEndian set size 7
+    ok 24 - did new read-num32 3 BigEndian give 1
+    ok 25 - does new write-num32 3 1 return $buf
+    ok 26 - did new write-num32 3 1 set size 7
+    ok 27 - did new read-num32 3 give 1
+    ok 28 - does new write-num32 3 1 NativeEndian return $buf
+    ok 29 - did new write-num32 3 1 NativeEndian set size 7
+    ok 30 - did new read-num32 3 NativeEndian give 1
+    ok 31 - does new write-num32 3 1 LittleEndian return $buf
+    ok 32 - did new write-num32 3 1 LittleEndian set size 7
+    ok 33 - did new read-num32 3 LittleEndian give 1
+    ok 34 - does new write-num32 3 1 BigEndian return $buf
+    ok 35 - did new write-num32 3 1 BigEndian set size 7
+    ok 36 - did new read-num32 3 BigEndian give 1
+ok 13 - did all tests pass for write-num32 3 1
+# Subtest: did all tests pass for write-num32 4 1
+    1..36
+    ok 1 - does existing write-num32 4 1 return existing
+    ok 2 - did existing write-num32 4 1 not change size
+    ok 3 - did existing read-num32 4 give 1
+    ok 4 - does existing write-num32 4 1 NativeEndian return existing
+    ok 5 - did existing write-num32 4 1 NativeEndian not change size
+    ok 6 - did existing read-num32 4 NativeEndian give 1
+    ok 7 - does existing write-num32 4 1 LittleEndian return existing
+    ok 8 - did existing write-num32 4 1 LittleEndian not change size
+    ok 9 - did existing read-num32 4 LittleEndian give 1
+    ok 10 - does existing write-num32 4 1 BigEndian return existing
+    ok 11 - did existing write-num32 4 1 BigEndian not change size
+    ok 12 - did existing read-num32 4 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 4 1 set size 8
+    ok 15 - did type read-num32 4 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 4 1 NativeEndian set size 8
+    ok 18 - did new read-num32 4 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 4 1 LittleEndian set size 8
+    ok 21 - did new read-num32 4 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 4 1 BigEndian set size 8
+    ok 24 - did new read-num32 4 BigEndian give 1
+    ok 25 - does new write-num32 4 1 return $buf
+    ok 26 - did new write-num32 4 1 set size 8
+    ok 27 - did new read-num32 4 give 1
+    ok 28 - does new write-num32 4 1 NativeEndian return $buf
+    ok 29 - did new write-num32 4 1 NativeEndian set size 8
+    ok 30 - did new read-num32 4 NativeEndian give 1
+    ok 31 - does new write-num32 4 1 LittleEndian return $buf
+    ok 32 - did new write-num32 4 1 LittleEndian set size 8
+    ok 33 - did new read-num32 4 LittleEndian give 1
+    ok 34 - does new write-num32 4 1 BigEndian return $buf
+    ok 35 - did new write-num32 4 1 BigEndian set size 8
+    ok 36 - did new read-num32 4 BigEndian give 1
+ok 14 - did all tests pass for write-num32 4 1
+# Subtest: did all tests pass for write-num32 5 1
+    1..36
+    ok 1 - does existing write-num32 5 1 return existing
+    ok 2 - did existing write-num32 5 1 not change size
+    ok 3 - did existing read-num32 5 give 1
+    ok 4 - does existing write-num32 5 1 NativeEndian return existing
+    ok 5 - did existing write-num32 5 1 NativeEndian not change size
+    ok 6 - did existing read-num32 5 NativeEndian give 1
+    ok 7 - does existing write-num32 5 1 LittleEndian return existing
+    ok 8 - did existing write-num32 5 1 LittleEndian not change size
+    ok 9 - did existing read-num32 5 LittleEndian give 1
+    ok 10 - does existing write-num32 5 1 BigEndian return existing
+    ok 11 - did existing write-num32 5 1 BigEndian not change size
+    ok 12 - did existing read-num32 5 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 5 1 set size 9
+    ok 15 - did type read-num32 5 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 5 1 NativeEndian set size 9
+    ok 18 - did new read-num32 5 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 5 1 LittleEndian set size 9
+    ok 21 - did new read-num32 5 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 5 1 BigEndian set size 9
+    ok 24 - did new read-num32 5 BigEndian give 1
+    ok 25 - does new write-num32 5 1 return $buf
+    ok 26 - did new write-num32 5 1 set size 9
+    ok 27 - did new read-num32 5 give 1
+    ok 28 - does new write-num32 5 1 NativeEndian return $buf
+    ok 29 - did new write-num32 5 1 NativeEndian set size 9
+    ok 30 - did new read-num32 5 NativeEndian give 1
+    ok 31 - does new write-num32 5 1 LittleEndian return $buf
+    ok 32 - did new write-num32 5 1 LittleEndian set size 9
+    ok 33 - did new read-num32 5 LittleEndian give 1
+    ok 34 - does new write-num32 5 1 BigEndian return $buf
+    ok 35 - did new write-num32 5 1 BigEndian set size 9
+    ok 36 - did new read-num32 5 BigEndian give 1
+ok 15 - did all tests pass for write-num32 5 1
+# Subtest: did all tests pass for write-num32 6 1
+    1..36
+    ok 1 - does existing write-num32 6 1 return existing
+    ok 2 - did existing write-num32 6 1 not change size
+    ok 3 - did existing read-num32 6 give 1
+    ok 4 - does existing write-num32 6 1 NativeEndian return existing
+    ok 5 - did existing write-num32 6 1 NativeEndian not change size
+    ok 6 - did existing read-num32 6 NativeEndian give 1
+    ok 7 - does existing write-num32 6 1 LittleEndian return existing
+    ok 8 - did existing write-num32 6 1 LittleEndian not change size
+    ok 9 - did existing read-num32 6 LittleEndian give 1
+    ok 10 - does existing write-num32 6 1 BigEndian return existing
+    ok 11 - did existing write-num32 6 1 BigEndian not change size
+    ok 12 - did existing read-num32 6 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 6 1 set size 10
+    ok 15 - did type read-num32 6 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 6 1 NativeEndian set size 10
+    ok 18 - did new read-num32 6 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 6 1 LittleEndian set size 10
+    ok 21 - did new read-num32 6 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 6 1 BigEndian set size 10
+    ok 24 - did new read-num32 6 BigEndian give 1
+    ok 25 - does new write-num32 6 1 return $buf
+    ok 26 - did new write-num32 6 1 set size 10
+    ok 27 - did new read-num32 6 give 1
+    ok 28 - does new write-num32 6 1 NativeEndian return $buf
+    ok 29 - did new write-num32 6 1 NativeEndian set size 10
+    ok 30 - did new read-num32 6 NativeEndian give 1
+    ok 31 - does new write-num32 6 1 LittleEndian return $buf
+    ok 32 - did new write-num32 6 1 LittleEndian set size 10
+    ok 33 - did new read-num32 6 LittleEndian give 1
+    ok 34 - does new write-num32 6 1 BigEndian return $buf
+    ok 35 - did new write-num32 6 1 BigEndian set size 10
+    ok 36 - did new read-num32 6 BigEndian give 1
+ok 16 - did all tests pass for write-num32 6 1
+# Subtest: did all tests pass for write-num32 7 1
+    1..36
+    ok 1 - does existing write-num32 7 1 return existing
+    ok 2 - did existing write-num32 7 1 not change size
+    ok 3 - did existing read-num32 7 give 1
+    ok 4 - does existing write-num32 7 1 NativeEndian return existing
+    ok 5 - did existing write-num32 7 1 NativeEndian not change size
+    ok 6 - did existing read-num32 7 NativeEndian give 1
+    ok 7 - does existing write-num32 7 1 LittleEndian return existing
+    ok 8 - did existing write-num32 7 1 LittleEndian not change size
+    ok 9 - did existing read-num32 7 LittleEndian give 1
+    ok 10 - does existing write-num32 7 1 BigEndian return existing
+    ok 11 - did existing write-num32 7 1 BigEndian not change size
+    ok 12 - did existing read-num32 7 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 7 1 set size 11
+    ok 15 - did type read-num32 7 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 7 1 NativeEndian set size 11
+    ok 18 - did new read-num32 7 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 7 1 LittleEndian set size 11
+    ok 21 - did new read-num32 7 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 7 1 BigEndian set size 11
+    ok 24 - did new read-num32 7 BigEndian give 1
+    ok 25 - does new write-num32 7 1 return $buf
+    ok 26 - did new write-num32 7 1 set size 11
+    ok 27 - did new read-num32 7 give 1
+    ok 28 - does new write-num32 7 1 NativeEndian return $buf
+    ok 29 - did new write-num32 7 1 NativeEndian set size 11
+    ok 30 - did new read-num32 7 NativeEndian give 1
+    ok 31 - does new write-num32 7 1 LittleEndian return $buf
+    ok 32 - did new write-num32 7 1 LittleEndian set size 11
+    ok 33 - did new read-num32 7 LittleEndian give 1
+    ok 34 - does new write-num32 7 1 BigEndian return $buf
+    ok 35 - did new write-num32 7 1 BigEndian set size 11
+    ok 36 - did new read-num32 7 BigEndian give 1
+ok 17 - did all tests pass for write-num32 7 1
+# Subtest: did all tests pass for write-num32 0 -1
+    1..36
+    ok 1 - does existing write-num32 0 -1 return existing
+    ok 2 - did existing write-num32 0 -1 not change size
+    ok 3 - did existing read-num32 0 give -1
+    ok 4 - does existing write-num32 0 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 0 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 0 NativeEndian give -1
+    ok 7 - does existing write-num32 0 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 0 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 0 LittleEndian give -1
+    ok 10 - does existing write-num32 0 -1 BigEndian return existing
+    ok 11 - did existing write-num32 0 -1 BigEndian not change size
+    ok 12 - did existing read-num32 0 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 0 -1 set size 4
+    ok 15 - did type read-num32 0 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 0 -1 NativeEndian set size 4
+    ok 18 - did new read-num32 0 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 0 -1 LittleEndian set size 4
+    ok 21 - did new read-num32 0 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 0 -1 BigEndian set size 4
+    ok 24 - did new read-num32 0 BigEndian give -1
+    ok 25 - does new write-num32 0 -1 return $buf
+    ok 26 - did new write-num32 0 -1 set size 4
+    ok 27 - did new read-num32 0 give -1
+    ok 28 - does new write-num32 0 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 0 -1 NativeEndian set size 4
+    ok 30 - did new read-num32 0 NativeEndian give -1
+    ok 31 - does new write-num32 0 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 0 -1 LittleEndian set size 4
+    ok 33 - did new read-num32 0 LittleEndian give -1
+    ok 34 - does new write-num32 0 -1 BigEndian return $buf
+    ok 35 - did new write-num32 0 -1 BigEndian set size 4
+    ok 36 - did new read-num32 0 BigEndian give -1
+ok 18 - did all tests pass for write-num32 0 -1
+# Subtest: did all tests pass for write-num32 1 -1
+    1..36
+    ok 1 - does existing write-num32 1 -1 return existing
+    ok 2 - did existing write-num32 1 -1 not change size
+    ok 3 - did existing read-num32 1 give -1
+    ok 4 - does existing write-num32 1 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 1 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 1 NativeEndian give -1
+    ok 7 - does existing write-num32 1 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 1 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 1 LittleEndian give -1
+    ok 10 - does existing write-num32 1 -1 BigEndian return existing
+    ok 11 - did existing write-num32 1 -1 BigEndian not change size
+    ok 12 - did existing read-num32 1 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 1 -1 set size 5
+    ok 15 - did type read-num32 1 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 1 -1 NativeEndian set size 5
+    ok 18 - did new read-num32 1 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 1 -1 LittleEndian set size 5
+    ok 21 - did new read-num32 1 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 1 -1 BigEndian set size 5
+    ok 24 - did new read-num32 1 BigEndian give -1
+    ok 25 - does new write-num32 1 -1 return $buf
+    ok 26 - did new write-num32 1 -1 set size 5
+    ok 27 - did new read-num32 1 give -1
+    ok 28 - does new write-num32 1 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 1 -1 NativeEndian set size 5
+    ok 30 - did new read-num32 1 NativeEndian give -1
+    ok 31 - does new write-num32 1 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 1 -1 LittleEndian set size 5
+    ok 33 - did new read-num32 1 LittleEndian give -1
+    ok 34 - does new write-num32 1 -1 BigEndian return $buf
+    ok 35 - did new write-num32 1 -1 BigEndian set size 5
+    ok 36 - did new read-num32 1 BigEndian give -1
+ok 19 - did all tests pass for write-num32 1 -1
+# Subtest: did all tests pass for write-num32 2 -1
+    1..36
+    ok 1 - does existing write-num32 2 -1 return existing
+    ok 2 - did existing write-num32 2 -1 not change size
+    ok 3 - did existing read-num32 2 give -1
+    ok 4 - does existing write-num32 2 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 2 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 2 NativeEndian give -1
+    ok 7 - does existing write-num32 2 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 2 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 2 LittleEndian give -1
+    ok 10 - does existing write-num32 2 -1 BigEndian return existing
+    ok 11 - did existing write-num32 2 -1 BigEndian not change size
+    ok 12 - did existing read-num32 2 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 2 -1 set size 6
+    ok 15 - did type read-num32 2 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 2 -1 NativeEndian set size 6
+    ok 18 - did new read-num32 2 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 2 -1 LittleEndian set size 6
+    ok 21 - did new read-num32 2 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 2 -1 BigEndian set size 6
+    ok 24 - did new read-num32 2 BigEndian give -1
+    ok 25 - does new write-num32 2 -1 return $buf
+    ok 26 - did new write-num32 2 -1 set size 6
+    ok 27 - did new read-num32 2 give -1
+    ok 28 - does new write-num32 2 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 2 -1 NativeEndian set size 6
+    ok 30 - did new read-num32 2 NativeEndian give -1
+    ok 31 - does new write-num32 2 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 2 -1 LittleEndian set size 6
+    ok 33 - did new read-num32 2 LittleEndian give -1
+    ok 34 - does new write-num32 2 -1 BigEndian return $buf
+    ok 35 - did new write-num32 2 -1 BigEndian set size 6
+    ok 36 - did new read-num32 2 BigEndian give -1
+ok 20 - did all tests pass for write-num32 2 -1
+# Subtest: did all tests pass for write-num32 3 -1
+    1..36
+    ok 1 - does existing write-num32 3 -1 return existing
+    ok 2 - did existing write-num32 3 -1 not change size
+    ok 3 - did existing read-num32 3 give -1
+    ok 4 - does existing write-num32 3 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 3 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 3 NativeEndian give -1
+    ok 7 - does existing write-num32 3 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 3 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 3 LittleEndian give -1
+    ok 10 - does existing write-num32 3 -1 BigEndian return existing
+    ok 11 - did existing write-num32 3 -1 BigEndian not change size
+    ok 12 - did existing read-num32 3 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 3 -1 set size 7
+    ok 15 - did type read-num32 3 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 3 -1 NativeEndian set size 7
+    ok 18 - did new read-num32 3 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 3 -1 LittleEndian set size 7
+    ok 21 - did new read-num32 3 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 3 -1 BigEndian set size 7
+    ok 24 - did new read-num32 3 BigEndian give -1
+    ok 25 - does new write-num32 3 -1 return $buf
+    ok 26 - did new write-num32 3 -1 set size 7
+    ok 27 - did new read-num32 3 give -1
+    ok 28 - does new write-num32 3 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 3 -1 NativeEndian set size 7
+    ok 30 - did new read-num32 3 NativeEndian give -1
+    ok 31 - does new write-num32 3 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 3 -1 LittleEndian set size 7
+    ok 33 - did new read-num32 3 LittleEndian give -1
+    ok 34 - does new write-num32 3 -1 BigEndian return $buf
+    ok 35 - did new write-num32 3 -1 BigEndian set size 7
+    ok 36 - did new read-num32 3 BigEndian give -1
+ok 21 - did all tests pass for write-num32 3 -1
+# Subtest: did all tests pass for write-num32 4 -1
+    1..36
+    ok 1 - does existing write-num32 4 -1 return existing
+    ok 2 - did existing write-num32 4 -1 not change size
+    ok 3 - did existing read-num32 4 give -1
+    ok 4 - does existing write-num32 4 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 4 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 4 NativeEndian give -1
+    ok 7 - does existing write-num32 4 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 4 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 4 LittleEndian give -1
+    ok 10 - does existing write-num32 4 -1 BigEndian return existing
+    ok 11 - did existing write-num32 4 -1 BigEndian not change size
+    ok 12 - did existing read-num32 4 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 4 -1 set size 8
+    ok 15 - did type read-num32 4 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 4 -1 NativeEndian set size 8
+    ok 18 - did new read-num32 4 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 4 -1 LittleEndian set size 8
+    ok 21 - did new read-num32 4 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 4 -1 BigEndian set size 8
+    ok 24 - did new read-num32 4 BigEndian give -1
+    ok 25 - does new write-num32 4 -1 return $buf
+    ok 26 - did new write-num32 4 -1 set size 8
+    ok 27 - did new read-num32 4 give -1
+    ok 28 - does new write-num32 4 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 4 -1 NativeEndian set size 8
+    ok 30 - did new read-num32 4 NativeEndian give -1
+    ok 31 - does new write-num32 4 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 4 -1 LittleEndian set size 8
+    ok 33 - did new read-num32 4 LittleEndian give -1
+    ok 34 - does new write-num32 4 -1 BigEndian return $buf
+    ok 35 - did new write-num32 4 -1 BigEndian set size 8
+    ok 36 - did new read-num32 4 BigEndian give -1
+ok 22 - did all tests pass for write-num32 4 -1
+# Subtest: did all tests pass for write-num32 5 -1
+    1..36
+    ok 1 - does existing write-num32 5 -1 return existing
+    ok 2 - did existing write-num32 5 -1 not change size
+    ok 3 - did existing read-num32 5 give -1
+    ok 4 - does existing write-num32 5 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 5 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 5 NativeEndian give -1
+    ok 7 - does existing write-num32 5 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 5 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 5 LittleEndian give -1
+    ok 10 - does existing write-num32 5 -1 BigEndian return existing
+    ok 11 - did existing write-num32 5 -1 BigEndian not change size
+    ok 12 - did existing read-num32 5 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 5 -1 set size 9
+    ok 15 - did type read-num32 5 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 5 -1 NativeEndian set size 9
+    ok 18 - did new read-num32 5 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 5 -1 LittleEndian set size 9
+    ok 21 - did new read-num32 5 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 5 -1 BigEndian set size 9
+    ok 24 - did new read-num32 5 BigEndian give -1
+    ok 25 - does new write-num32 5 -1 return $buf
+    ok 26 - did new write-num32 5 -1 set size 9
+    ok 27 - did new read-num32 5 give -1
+    ok 28 - does new write-num32 5 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 5 -1 NativeEndian set size 9
+    ok 30 - did new read-num32 5 NativeEndian give -1
+    ok 31 - does new write-num32 5 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 5 -1 LittleEndian set size 9
+    ok 33 - did new read-num32 5 LittleEndian give -1
+    ok 34 - does new write-num32 5 -1 BigEndian return $buf
+    ok 35 - did new write-num32 5 -1 BigEndian set size 9
+    ok 36 - did new read-num32 5 BigEndian give -1
+ok 23 - did all tests pass for write-num32 5 -1
+# Subtest: did all tests pass for write-num32 6 -1
+    1..36
+    ok 1 - does existing write-num32 6 -1 return existing
+    ok 2 - did existing write-num32 6 -1 not change size
+    ok 3 - did existing read-num32 6 give -1
+    ok 4 - does existing write-num32 6 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 6 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 6 NativeEndian give -1
+    ok 7 - does existing write-num32 6 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 6 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 6 LittleEndian give -1
+    ok 10 - does existing write-num32 6 -1 BigEndian return existing
+    ok 11 - did existing write-num32 6 -1 BigEndian not change size
+    ok 12 - did existing read-num32 6 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 6 -1 set size 10
+    ok 15 - did type read-num32 6 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 6 -1 NativeEndian set size 10
+    ok 18 - did new read-num32 6 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 6 -1 LittleEndian set size 10
+    ok 21 - did new read-num32 6 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 6 -1 BigEndian set size 10
+    ok 24 - did new read-num32 6 BigEndian give -1
+    ok 25 - does new write-num32 6 -1 return $buf
+    ok 26 - did new write-num32 6 -1 set size 10
+    ok 27 - did new read-num32 6 give -1
+    ok 28 - does new write-num32 6 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 6 -1 NativeEndian set size 10
+    ok 30 - did new read-num32 6 NativeEndian give -1
+    ok 31 - does new write-num32 6 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 6 -1 LittleEndian set size 10
+    ok 33 - did new read-num32 6 LittleEndian give -1
+    ok 34 - does new write-num32 6 -1 BigEndian return $buf
+    ok 35 - did new write-num32 6 -1 BigEndian set size 10
+    ok 36 - did new read-num32 6 BigEndian give -1
+ok 24 - did all tests pass for write-num32 6 -1
+# Subtest: did all tests pass for write-num32 7 -1
+    1..36
+    ok 1 - does existing write-num32 7 -1 return existing
+    ok 2 - did existing write-num32 7 -1 not change size
+    ok 3 - did existing read-num32 7 give -1
+    ok 4 - does existing write-num32 7 -1 NativeEndian return existing
+    ok 5 - did existing write-num32 7 -1 NativeEndian not change size
+    ok 6 - did existing read-num32 7 NativeEndian give -1
+    ok 7 - does existing write-num32 7 -1 LittleEndian return existing
+    ok 8 - did existing write-num32 7 -1 LittleEndian not change size
+    ok 9 - did existing read-num32 7 LittleEndian give -1
+    ok 10 - does existing write-num32 7 -1 BigEndian return existing
+    ok 11 - did existing write-num32 7 -1 BigEndian not change size
+    ok 12 - did existing read-num32 7 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 7 -1 set size 11
+    ok 15 - did type read-num32 7 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 7 -1 NativeEndian set size 11
+    ok 18 - did new read-num32 7 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 7 -1 LittleEndian set size 11
+    ok 21 - did new read-num32 7 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 7 -1 BigEndian set size 11
+    ok 24 - did new read-num32 7 BigEndian give -1
+    ok 25 - does new write-num32 7 -1 return $buf
+    ok 26 - did new write-num32 7 -1 set size 11
+    ok 27 - did new read-num32 7 give -1
+    ok 28 - does new write-num32 7 -1 NativeEndian return $buf
+    ok 29 - did new write-num32 7 -1 NativeEndian set size 11
+    ok 30 - did new read-num32 7 NativeEndian give -1
+    ok 31 - does new write-num32 7 -1 LittleEndian return $buf
+    ok 32 - did new write-num32 7 -1 LittleEndian set size 11
+    ok 33 - did new read-num32 7 LittleEndian give -1
+    ok 34 - does new write-num32 7 -1 BigEndian return $buf
+    ok 35 - did new write-num32 7 -1 BigEndian set size 11
+    ok 36 - did new read-num32 7 BigEndian give -1
+ok 25 - did all tests pass for write-num32 7 -1
+# Subtest: did all tests pass for write-num32 0 42
+    1..36
+    ok 1 - does existing write-num32 0 42 return existing
+    ok 2 - did existing write-num32 0 42 not change size
+    ok 3 - did existing read-num32 0 give 42
+    ok 4 - does existing write-num32 0 42 NativeEndian return existing
+    ok 5 - did existing write-num32 0 42 NativeEndian not change size
+    ok 6 - did existing read-num32 0 NativeEndian give 42
+    ok 7 - does existing write-num32 0 42 LittleEndian return existing
+    ok 8 - did existing write-num32 0 42 LittleEndian not change size
+    ok 9 - did existing read-num32 0 LittleEndian give 42
+    ok 10 - does existing write-num32 0 42 BigEndian return existing
+    ok 11 - did existing write-num32 0 42 BigEndian not change size
+    ok 12 - did existing read-num32 0 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 0 42 set size 4
+    ok 15 - did type read-num32 0 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 0 42 NativeEndian set size 4
+    ok 18 - did new read-num32 0 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 0 42 LittleEndian set size 4
+    ok 21 - did new read-num32 0 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 0 42 BigEndian set size 4
+    ok 24 - did new read-num32 0 BigEndian give 42
+    ok 25 - does new write-num32 0 42 return $buf
+    ok 26 - did new write-num32 0 42 set size 4
+    ok 27 - did new read-num32 0 give 42
+    ok 28 - does new write-num32 0 42 NativeEndian return $buf
+    ok 29 - did new write-num32 0 42 NativeEndian set size 4
+    ok 30 - did new read-num32 0 NativeEndian give 42
+    ok 31 - does new write-num32 0 42 LittleEndian return $buf
+    ok 32 - did new write-num32 0 42 LittleEndian set size 4
+    ok 33 - did new read-num32 0 LittleEndian give 42
+    ok 34 - does new write-num32 0 42 BigEndian return $buf
+    ok 35 - did new write-num32 0 42 BigEndian set size 4
+    ok 36 - did new read-num32 0 BigEndian give 42
+ok 26 - did all tests pass for write-num32 0 42
+# Subtest: did all tests pass for write-num32 1 42
+    1..36
+    ok 1 - does existing write-num32 1 42 return existing
+    ok 2 - did existing write-num32 1 42 not change size
+    ok 3 - did existing read-num32 1 give 42
+    ok 4 - does existing write-num32 1 42 NativeEndian return existing
+    ok 5 - did existing write-num32 1 42 NativeEndian not change size
+    ok 6 - did existing read-num32 1 NativeEndian give 42
+    ok 7 - does existing write-num32 1 42 LittleEndian return existing
+    ok 8 - did existing write-num32 1 42 LittleEndian not change size
+    ok 9 - did existing read-num32 1 LittleEndian give 42
+    ok 10 - does existing write-num32 1 42 BigEndian return existing
+    ok 11 - did existing write-num32 1 42 BigEndian not change size
+    ok 12 - did existing read-num32 1 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 1 42 set size 5
+    ok 15 - did type read-num32 1 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 1 42 NativeEndian set size 5
+    ok 18 - did new read-num32 1 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 1 42 LittleEndian set size 5
+    ok 21 - did new read-num32 1 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 1 42 BigEndian set size 5
+    ok 24 - did new read-num32 1 BigEndian give 42
+    ok 25 - does new write-num32 1 42 return $buf
+    ok 26 - did new write-num32 1 42 set size 5
+    ok 27 - did new read-num32 1 give 42
+    ok 28 - does new write-num32 1 42 NativeEndian return $buf
+    ok 29 - did new write-num32 1 42 NativeEndian set size 5
+    ok 30 - did new read-num32 1 NativeEndian give 42
+    ok 31 - does new write-num32 1 42 LittleEndian return $buf
+    ok 32 - did new write-num32 1 42 LittleEndian set size 5
+    ok 33 - did new read-num32 1 LittleEndian give 42
+    ok 34 - does new write-num32 1 42 BigEndian return $buf
+    ok 35 - did new write-num32 1 42 BigEndian set size 5
+    ok 36 - did new read-num32 1 BigEndian give 42
+ok 27 - did all tests pass for write-num32 1 42
+# Subtest: did all tests pass for write-num32 2 42
+    1..36
+    ok 1 - does existing write-num32 2 42 return existing
+    ok 2 - did existing write-num32 2 42 not change size
+    ok 3 - did existing read-num32 2 give 42
+    ok 4 - does existing write-num32 2 42 NativeEndian return existing
+    ok 5 - did existing write-num32 2 42 NativeEndian not change size
+    ok 6 - did existing read-num32 2 NativeEndian give 42
+    ok 7 - does existing write-num32 2 42 LittleEndian return existing
+    ok 8 - did existing write-num32 2 42 LittleEndian not change size
+    ok 9 - did existing read-num32 2 LittleEndian give 42
+    ok 10 - does existing write-num32 2 42 BigEndian return existing
+    ok 11 - did existing write-num32 2 42 BigEndian not change size
+    ok 12 - did existing read-num32 2 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 2 42 set size 6
+    ok 15 - did type read-num32 2 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 2 42 NativeEndian set size 6
+    ok 18 - did new read-num32 2 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 2 42 LittleEndian set size 6
+    ok 21 - did new read-num32 2 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 2 42 BigEndian set size 6
+    ok 24 - did new read-num32 2 BigEndian give 42
+    ok 25 - does new write-num32 2 42 return $buf
+    ok 26 - did new write-num32 2 42 set size 6
+    ok 27 - did new read-num32 2 give 42
+    ok 28 - does new write-num32 2 42 NativeEndian return $buf
+    ok 29 - did new write-num32 2 42 NativeEndian set size 6
+    ok 30 - did new read-num32 2 NativeEndian give 42
+    ok 31 - does new write-num32 2 42 LittleEndian return $buf
+    ok 32 - did new write-num32 2 42 LittleEndian set size 6
+    ok 33 - did new read-num32 2 LittleEndian give 42
+    ok 34 - does new write-num32 2 42 BigEndian return $buf
+    ok 35 - did new write-num32 2 42 BigEndian set size 6
+    ok 36 - did new read-num32 2 BigEndian give 42
+ok 28 - did all tests pass for write-num32 2 42
+# Subtest: did all tests pass for write-num32 3 42
+    1..36
+    ok 1 - does existing write-num32 3 42 return existing
+    ok 2 - did existing write-num32 3 42 not change size
+    ok 3 - did existing read-num32 3 give 42
+    ok 4 - does existing write-num32 3 42 NativeEndian return existing
+    ok 5 - did existing write-num32 3 42 NativeEndian not change size
+    ok 6 - did existing read-num32 3 NativeEndian give 42
+    ok 7 - does existing write-num32 3 42 LittleEndian return existing
+    ok 8 - did existing write-num32 3 42 LittleEndian not change size
+    ok 9 - did existing read-num32 3 LittleEndian give 42
+    ok 10 - does existing write-num32 3 42 BigEndian return existing
+    ok 11 - did existing write-num32 3 42 BigEndian not change size
+    ok 12 - did existing read-num32 3 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 3 42 set size 7
+    ok 15 - did type read-num32 3 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 3 42 NativeEndian set size 7
+    ok 18 - did new read-num32 3 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 3 42 LittleEndian set size 7
+    ok 21 - did new read-num32 3 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 3 42 BigEndian set size 7
+    ok 24 - did new read-num32 3 BigEndian give 42
+    ok 25 - does new write-num32 3 42 return $buf
+    ok 26 - did new write-num32 3 42 set size 7
+    ok 27 - did new read-num32 3 give 42
+    ok 28 - does new write-num32 3 42 NativeEndian return $buf
+    ok 29 - did new write-num32 3 42 NativeEndian set size 7
+    ok 30 - did new read-num32 3 NativeEndian give 42
+    ok 31 - does new write-num32 3 42 LittleEndian return $buf
+    ok 32 - did new write-num32 3 42 LittleEndian set size 7
+    ok 33 - did new read-num32 3 LittleEndian give 42
+    ok 34 - does new write-num32 3 42 BigEndian return $buf
+    ok 35 - did new write-num32 3 42 BigEndian set size 7
+    ok 36 - did new read-num32 3 BigEndian give 42
+ok 29 - did all tests pass for write-num32 3 42
+# Subtest: did all tests pass for write-num32 4 42
+    1..36
+    ok 1 - does existing write-num32 4 42 return existing
+    ok 2 - did existing write-num32 4 42 not change size
+    ok 3 - did existing read-num32 4 give 42
+    ok 4 - does existing write-num32 4 42 NativeEndian return existing
+    ok 5 - did existing write-num32 4 42 NativeEndian not change size
+    ok 6 - did existing read-num32 4 NativeEndian give 42
+    ok 7 - does existing write-num32 4 42 LittleEndian return existing
+    ok 8 - did existing write-num32 4 42 LittleEndian not change size
+    ok 9 - did existing read-num32 4 LittleEndian give 42
+    ok 10 - does existing write-num32 4 42 BigEndian return existing
+    ok 11 - did existing write-num32 4 42 BigEndian not change size
+    ok 12 - did existing read-num32 4 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 4 42 set size 8
+    ok 15 - did type read-num32 4 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 4 42 NativeEndian set size 8
+    ok 18 - did new read-num32 4 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 4 42 LittleEndian set size 8
+    ok 21 - did new read-num32 4 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 4 42 BigEndian set size 8
+    ok 24 - did new read-num32 4 BigEndian give 42
+    ok 25 - does new write-num32 4 42 return $buf
+    ok 26 - did new write-num32 4 42 set size 8
+    ok 27 - did new read-num32 4 give 42
+    ok 28 - does new write-num32 4 42 NativeEndian return $buf
+    ok 29 - did new write-num32 4 42 NativeEndian set size 8
+    ok 30 - did new read-num32 4 NativeEndian give 42
+    ok 31 - does new write-num32 4 42 LittleEndian return $buf
+    ok 32 - did new write-num32 4 42 LittleEndian set size 8
+    ok 33 - did new read-num32 4 LittleEndian give 42
+    ok 34 - does new write-num32 4 42 BigEndian return $buf
+    ok 35 - did new write-num32 4 42 BigEndian set size 8
+    ok 36 - did new read-num32 4 BigEndian give 42
+ok 30 - did all tests pass for write-num32 4 42
+# Subtest: did all tests pass for write-num32 5 42
+    1..36
+    ok 1 - does existing write-num32 5 42 return existing
+    ok 2 - did existing write-num32 5 42 not change size
+    ok 3 - did existing read-num32 5 give 42
+    ok 4 - does existing write-num32 5 42 NativeEndian return existing
+    ok 5 - did existing write-num32 5 42 NativeEndian not change size
+    ok 6 - did existing read-num32 5 NativeEndian give 42
+    ok 7 - does existing write-num32 5 42 LittleEndian return existing
+    ok 8 - did existing write-num32 5 42 LittleEndian not change size
+    ok 9 - did existing read-num32 5 LittleEndian give 42
+    ok 10 - does existing write-num32 5 42 BigEndian return existing
+    ok 11 - did existing write-num32 5 42 BigEndian not change size
+    ok 12 - did existing read-num32 5 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 5 42 set size 9
+    ok 15 - did type read-num32 5 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 5 42 NativeEndian set size 9
+    ok 18 - did new read-num32 5 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 5 42 LittleEndian set size 9
+    ok 21 - did new read-num32 5 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 5 42 BigEndian set size 9
+    ok 24 - did new read-num32 5 BigEndian give 42
+    ok 25 - does new write-num32 5 42 return $buf
+    ok 26 - did new write-num32 5 42 set size 9
+    ok 27 - did new read-num32 5 give 42
+    ok 28 - does new write-num32 5 42 NativeEndian return $buf
+    ok 29 - did new write-num32 5 42 NativeEndian set size 9
+    ok 30 - did new read-num32 5 NativeEndian give 42
+    ok 31 - does new write-num32 5 42 LittleEndian return $buf
+    ok 32 - did new write-num32 5 42 LittleEndian set size 9
+    ok 33 - did new read-num32 5 LittleEndian give 42
+    ok 34 - does new write-num32 5 42 BigEndian return $buf
+    ok 35 - did new write-num32 5 42 BigEndian set size 9
+    ok 36 - did new read-num32 5 BigEndian give 42
+ok 31 - did all tests pass for write-num32 5 42
+# Subtest: did all tests pass for write-num32 6 42
+    1..36
+    ok 1 - does existing write-num32 6 42 return existing
+    ok 2 - did existing write-num32 6 42 not change size
+    ok 3 - did existing read-num32 6 give 42
+    ok 4 - does existing write-num32 6 42 NativeEndian return existing
+    ok 5 - did existing write-num32 6 42 NativeEndian not change size
+    ok 6 - did existing read-num32 6 NativeEndian give 42
+    ok 7 - does existing write-num32 6 42 LittleEndian return existing
+    ok 8 - did existing write-num32 6 42 LittleEndian not change size
+    ok 9 - did existing read-num32 6 LittleEndian give 42
+    ok 10 - does existing write-num32 6 42 BigEndian return existing
+    ok 11 - did existing write-num32 6 42 BigEndian not change size
+    ok 12 - did existing read-num32 6 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 6 42 set size 10
+    ok 15 - did type read-num32 6 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 6 42 NativeEndian set size 10
+    ok 18 - did new read-num32 6 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 6 42 LittleEndian set size 10
+    ok 21 - did new read-num32 6 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 6 42 BigEndian set size 10
+    ok 24 - did new read-num32 6 BigEndian give 42
+    ok 25 - does new write-num32 6 42 return $buf
+    ok 26 - did new write-num32 6 42 set size 10
+    ok 27 - did new read-num32 6 give 42
+    ok 28 - does new write-num32 6 42 NativeEndian return $buf
+    ok 29 - did new write-num32 6 42 NativeEndian set size 10
+    ok 30 - did new read-num32 6 NativeEndian give 42
+    ok 31 - does new write-num32 6 42 LittleEndian return $buf
+    ok 32 - did new write-num32 6 42 LittleEndian set size 10
+    ok 33 - did new read-num32 6 LittleEndian give 42
+    ok 34 - does new write-num32 6 42 BigEndian return $buf
+    ok 35 - did new write-num32 6 42 BigEndian set size 10
+    ok 36 - did new read-num32 6 BigEndian give 42
+ok 32 - did all tests pass for write-num32 6 42
+# Subtest: did all tests pass for write-num32 7 42
+    1..36
+    ok 1 - does existing write-num32 7 42 return existing
+    ok 2 - did existing write-num32 7 42 not change size
+    ok 3 - did existing read-num32 7 give 42
+    ok 4 - does existing write-num32 7 42 NativeEndian return existing
+    ok 5 - did existing write-num32 7 42 NativeEndian not change size
+    ok 6 - did existing read-num32 7 NativeEndian give 42
+    ok 7 - does existing write-num32 7 42 LittleEndian return existing
+    ok 8 - did existing write-num32 7 42 LittleEndian not change size
+    ok 9 - did existing read-num32 7 LittleEndian give 42
+    ok 10 - does existing write-num32 7 42 BigEndian return existing
+    ok 11 - did existing write-num32 7 42 BigEndian not change size
+    ok 12 - did existing read-num32 7 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 7 42 set size 11
+    ok 15 - did type read-num32 7 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 7 42 NativeEndian set size 11
+    ok 18 - did new read-num32 7 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 7 42 LittleEndian set size 11
+    ok 21 - did new read-num32 7 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 7 42 BigEndian set size 11
+    ok 24 - did new read-num32 7 BigEndian give 42
+    ok 25 - does new write-num32 7 42 return $buf
+    ok 26 - did new write-num32 7 42 set size 11
+    ok 27 - did new read-num32 7 give 42
+    ok 28 - does new write-num32 7 42 NativeEndian return $buf
+    ok 29 - did new write-num32 7 42 NativeEndian set size 11
+    ok 30 - did new read-num32 7 NativeEndian give 42
+    ok 31 - does new write-num32 7 42 LittleEndian return $buf
+    ok 32 - did new write-num32 7 42 LittleEndian set size 11
+    ok 33 - did new read-num32 7 LittleEndian give 42
+    ok 34 - does new write-num32 7 42 BigEndian return $buf
+    ok 35 - did new write-num32 7 42 BigEndian set size 11
+    ok 36 - did new read-num32 7 BigEndian give 42
+ok 33 - did all tests pass for write-num32 7 42
+# Subtest: did all tests pass for write-num32 0 -42
+    1..36
+    ok 1 - does existing write-num32 0 -42 return existing
+    ok 2 - did existing write-num32 0 -42 not change size
+    ok 3 - did existing read-num32 0 give -42
+    ok 4 - does existing write-num32 0 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 0 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 0 NativeEndian give -42
+    ok 7 - does existing write-num32 0 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 0 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 0 LittleEndian give -42
+    ok 10 - does existing write-num32 0 -42 BigEndian return existing
+    ok 11 - did existing write-num32 0 -42 BigEndian not change size
+    ok 12 - did existing read-num32 0 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 0 -42 set size 4
+    ok 15 - did type read-num32 0 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 0 -42 NativeEndian set size 4
+    ok 18 - did new read-num32 0 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 0 -42 LittleEndian set size 4
+    ok 21 - did new read-num32 0 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 0 -42 BigEndian set size 4
+    ok 24 - did new read-num32 0 BigEndian give -42
+    ok 25 - does new write-num32 0 -42 return $buf
+    ok 26 - did new write-num32 0 -42 set size 4
+    ok 27 - did new read-num32 0 give -42
+    ok 28 - does new write-num32 0 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 0 -42 NativeEndian set size 4
+    ok 30 - did new read-num32 0 NativeEndian give -42
+    ok 31 - does new write-num32 0 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 0 -42 LittleEndian set size 4
+    ok 33 - did new read-num32 0 LittleEndian give -42
+    ok 34 - does new write-num32 0 -42 BigEndian return $buf
+    ok 35 - did new write-num32 0 -42 BigEndian set size 4
+    ok 36 - did new read-num32 0 BigEndian give -42
+ok 34 - did all tests pass for write-num32 0 -42
+# Subtest: did all tests pass for write-num32 1 -42
+    1..36
+    ok 1 - does existing write-num32 1 -42 return existing
+    ok 2 - did existing write-num32 1 -42 not change size
+    ok 3 - did existing read-num32 1 give -42
+    ok 4 - does existing write-num32 1 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 1 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 1 NativeEndian give -42
+    ok 7 - does existing write-num32 1 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 1 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 1 LittleEndian give -42
+    ok 10 - does existing write-num32 1 -42 BigEndian return existing
+    ok 11 - did existing write-num32 1 -42 BigEndian not change size
+    ok 12 - did existing read-num32 1 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 1 -42 set size 5
+    ok 15 - did type read-num32 1 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 1 -42 NativeEndian set size 5
+    ok 18 - did new read-num32 1 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 1 -42 LittleEndian set size 5
+    ok 21 - did new read-num32 1 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 1 -42 BigEndian set size 5
+    ok 24 - did new read-num32 1 BigEndian give -42
+    ok 25 - does new write-num32 1 -42 return $buf
+    ok 26 - did new write-num32 1 -42 set size 5
+    ok 27 - did new read-num32 1 give -42
+    ok 28 - does new write-num32 1 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 1 -42 NativeEndian set size 5
+    ok 30 - did new read-num32 1 NativeEndian give -42
+    ok 31 - does new write-num32 1 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 1 -42 LittleEndian set size 5
+    ok 33 - did new read-num32 1 LittleEndian give -42
+    ok 34 - does new write-num32 1 -42 BigEndian return $buf
+    ok 35 - did new write-num32 1 -42 BigEndian set size 5
+    ok 36 - did new read-num32 1 BigEndian give -42
+ok 35 - did all tests pass for write-num32 1 -42
+# Subtest: did all tests pass for write-num32 2 -42
+    1..36
+    ok 1 - does existing write-num32 2 -42 return existing
+    ok 2 - did existing write-num32 2 -42 not change size
+    ok 3 - did existing read-num32 2 give -42
+    ok 4 - does existing write-num32 2 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 2 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 2 NativeEndian give -42
+    ok 7 - does existing write-num32 2 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 2 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 2 LittleEndian give -42
+    ok 10 - does existing write-num32 2 -42 BigEndian return existing
+    ok 11 - did existing write-num32 2 -42 BigEndian not change size
+    ok 12 - did existing read-num32 2 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 2 -42 set size 6
+    ok 15 - did type read-num32 2 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 2 -42 NativeEndian set size 6
+    ok 18 - did new read-num32 2 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 2 -42 LittleEndian set size 6
+    ok 21 - did new read-num32 2 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 2 -42 BigEndian set size 6
+    ok 24 - did new read-num32 2 BigEndian give -42
+    ok 25 - does new write-num32 2 -42 return $buf
+    ok 26 - did new write-num32 2 -42 set size 6
+    ok 27 - did new read-num32 2 give -42
+    ok 28 - does new write-num32 2 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 2 -42 NativeEndian set size 6
+    ok 30 - did new read-num32 2 NativeEndian give -42
+    ok 31 - does new write-num32 2 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 2 -42 LittleEndian set size 6
+    ok 33 - did new read-num32 2 LittleEndian give -42
+    ok 34 - does new write-num32 2 -42 BigEndian return $buf
+    ok 35 - did new write-num32 2 -42 BigEndian set size 6
+    ok 36 - did new read-num32 2 BigEndian give -42
+ok 36 - did all tests pass for write-num32 2 -42
+# Subtest: did all tests pass for write-num32 3 -42
+    1..36
+    ok 1 - does existing write-num32 3 -42 return existing
+    ok 2 - did existing write-num32 3 -42 not change size
+    ok 3 - did existing read-num32 3 give -42
+    ok 4 - does existing write-num32 3 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 3 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 3 NativeEndian give -42
+    ok 7 - does existing write-num32 3 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 3 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 3 LittleEndian give -42
+    ok 10 - does existing write-num32 3 -42 BigEndian return existing
+    ok 11 - did existing write-num32 3 -42 BigEndian not change size
+    ok 12 - did existing read-num32 3 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 3 -42 set size 7
+    ok 15 - did type read-num32 3 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 3 -42 NativeEndian set size 7
+    ok 18 - did new read-num32 3 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 3 -42 LittleEndian set size 7
+    ok 21 - did new read-num32 3 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 3 -42 BigEndian set size 7
+    ok 24 - did new read-num32 3 BigEndian give -42
+    ok 25 - does new write-num32 3 -42 return $buf
+    ok 26 - did new write-num32 3 -42 set size 7
+    ok 27 - did new read-num32 3 give -42
+    ok 28 - does new write-num32 3 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 3 -42 NativeEndian set size 7
+    ok 30 - did new read-num32 3 NativeEndian give -42
+    ok 31 - does new write-num32 3 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 3 -42 LittleEndian set size 7
+    ok 33 - did new read-num32 3 LittleEndian give -42
+    ok 34 - does new write-num32 3 -42 BigEndian return $buf
+    ok 35 - did new write-num32 3 -42 BigEndian set size 7
+    ok 36 - did new read-num32 3 BigEndian give -42
+ok 37 - did all tests pass for write-num32 3 -42
+# Subtest: did all tests pass for write-num32 4 -42
+    1..36
+    ok 1 - does existing write-num32 4 -42 return existing
+    ok 2 - did existing write-num32 4 -42 not change size
+    ok 3 - did existing read-num32 4 give -42
+    ok 4 - does existing write-num32 4 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 4 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 4 NativeEndian give -42
+    ok 7 - does existing write-num32 4 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 4 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 4 LittleEndian give -42
+    ok 10 - does existing write-num32 4 -42 BigEndian return existing
+    ok 11 - did existing write-num32 4 -42 BigEndian not change size
+    ok 12 - did existing read-num32 4 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 4 -42 set size 8
+    ok 15 - did type read-num32 4 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 4 -42 NativeEndian set size 8
+    ok 18 - did new read-num32 4 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 4 -42 LittleEndian set size 8
+    ok 21 - did new read-num32 4 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 4 -42 BigEndian set size 8
+    ok 24 - did new read-num32 4 BigEndian give -42
+    ok 25 - does new write-num32 4 -42 return $buf
+    ok 26 - did new write-num32 4 -42 set size 8
+    ok 27 - did new read-num32 4 give -42
+    ok 28 - does new write-num32 4 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 4 -42 NativeEndian set size 8
+    ok 30 - did new read-num32 4 NativeEndian give -42
+    ok 31 - does new write-num32 4 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 4 -42 LittleEndian set size 8
+    ok 33 - did new read-num32 4 LittleEndian give -42
+    ok 34 - does new write-num32 4 -42 BigEndian return $buf
+    ok 35 - did new write-num32 4 -42 BigEndian set size 8
+    ok 36 - did new read-num32 4 BigEndian give -42
+ok 38 - did all tests pass for write-num32 4 -42
+# Subtest: did all tests pass for write-num32 5 -42
+    1..36
+    ok 1 - does existing write-num32 5 -42 return existing
+    ok 2 - did existing write-num32 5 -42 not change size
+    ok 3 - did existing read-num32 5 give -42
+    ok 4 - does existing write-num32 5 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 5 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 5 NativeEndian give -42
+    ok 7 - does existing write-num32 5 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 5 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 5 LittleEndian give -42
+    ok 10 - does existing write-num32 5 -42 BigEndian return existing
+    ok 11 - did existing write-num32 5 -42 BigEndian not change size
+    ok 12 - did existing read-num32 5 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 5 -42 set size 9
+    ok 15 - did type read-num32 5 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 5 -42 NativeEndian set size 9
+    ok 18 - did new read-num32 5 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 5 -42 LittleEndian set size 9
+    ok 21 - did new read-num32 5 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 5 -42 BigEndian set size 9
+    ok 24 - did new read-num32 5 BigEndian give -42
+    ok 25 - does new write-num32 5 -42 return $buf
+    ok 26 - did new write-num32 5 -42 set size 9
+    ok 27 - did new read-num32 5 give -42
+    ok 28 - does new write-num32 5 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 5 -42 NativeEndian set size 9
+    ok 30 - did new read-num32 5 NativeEndian give -42
+    ok 31 - does new write-num32 5 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 5 -42 LittleEndian set size 9
+    ok 33 - did new read-num32 5 LittleEndian give -42
+    ok 34 - does new write-num32 5 -42 BigEndian return $buf
+    ok 35 - did new write-num32 5 -42 BigEndian set size 9
+    ok 36 - did new read-num32 5 BigEndian give -42
+ok 39 - did all tests pass for write-num32 5 -42
+# Subtest: did all tests pass for write-num32 6 -42
+    1..36
+    ok 1 - does existing write-num32 6 -42 return existing
+    ok 2 - did existing write-num32 6 -42 not change size
+    ok 3 - did existing read-num32 6 give -42
+    ok 4 - does existing write-num32 6 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 6 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 6 NativeEndian give -42
+    ok 7 - does existing write-num32 6 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 6 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 6 LittleEndian give -42
+    ok 10 - does existing write-num32 6 -42 BigEndian return existing
+    ok 11 - did existing write-num32 6 -42 BigEndian not change size
+    ok 12 - did existing read-num32 6 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 6 -42 set size 10
+    ok 15 - did type read-num32 6 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 6 -42 NativeEndian set size 10
+    ok 18 - did new read-num32 6 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 6 -42 LittleEndian set size 10
+    ok 21 - did new read-num32 6 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 6 -42 BigEndian set size 10
+    ok 24 - did new read-num32 6 BigEndian give -42
+    ok 25 - does new write-num32 6 -42 return $buf
+    ok 26 - did new write-num32 6 -42 set size 10
+    ok 27 - did new read-num32 6 give -42
+    ok 28 - does new write-num32 6 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 6 -42 NativeEndian set size 10
+    ok 30 - did new read-num32 6 NativeEndian give -42
+    ok 31 - does new write-num32 6 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 6 -42 LittleEndian set size 10
+    ok 33 - did new read-num32 6 LittleEndian give -42
+    ok 34 - does new write-num32 6 -42 BigEndian return $buf
+    ok 35 - did new write-num32 6 -42 BigEndian set size 10
+    ok 36 - did new read-num32 6 BigEndian give -42
+ok 40 - did all tests pass for write-num32 6 -42
+# Subtest: did all tests pass for write-num32 7 -42
+    1..36
+    ok 1 - does existing write-num32 7 -42 return existing
+    ok 2 - did existing write-num32 7 -42 not change size
+    ok 3 - did existing read-num32 7 give -42
+    ok 4 - does existing write-num32 7 -42 NativeEndian return existing
+    ok 5 - did existing write-num32 7 -42 NativeEndian not change size
+    ok 6 - did existing read-num32 7 NativeEndian give -42
+    ok 7 - does existing write-num32 7 -42 LittleEndian return existing
+    ok 8 - did existing write-num32 7 -42 LittleEndian not change size
+    ok 9 - did existing read-num32 7 LittleEndian give -42
+    ok 10 - does existing write-num32 7 -42 BigEndian return existing
+    ok 11 - did existing write-num32 7 -42 BigEndian not change size
+    ok 12 - did existing read-num32 7 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num32 7 -42 set size 11
+    ok 15 - did type read-num32 7 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num32 7 -42 NativeEndian set size 11
+    ok 18 - did new read-num32 7 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num32 7 -42 LittleEndian set size 11
+    ok 21 - did new read-num32 7 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num32 7 -42 BigEndian set size 11
+    ok 24 - did new read-num32 7 BigEndian give -42
+    ok 25 - does new write-num32 7 -42 return $buf
+    ok 26 - did new write-num32 7 -42 set size 11
+    ok 27 - did new read-num32 7 give -42
+    ok 28 - does new write-num32 7 -42 NativeEndian return $buf
+    ok 29 - did new write-num32 7 -42 NativeEndian set size 11
+    ok 30 - did new read-num32 7 NativeEndian give -42
+    ok 31 - does new write-num32 7 -42 LittleEndian return $buf
+    ok 32 - did new write-num32 7 -42 LittleEndian set size 11
+    ok 33 - did new read-num32 7 LittleEndian give -42
+    ok 34 - does new write-num32 7 -42 BigEndian return $buf
+    ok 35 - did new write-num32 7 -42 BigEndian set size 11
+    ok 36 - did new read-num32 7 BigEndian give -42
+ok 41 - did all tests pass for write-num32 7 -42
+# Subtest: did all possible negative offsets die
+    1..12
+    ok 1 - does write-num64 -1 42e0 die on type object
+    ok 2 - does write-num64 -1 42e0 die on uninited
+    ok 3 - does write-num64 -1 42e0 die on inited
+    ok 4 - does write-num64 -1 42e0 NativeEndian die on type object
+    ok 5 - does write-num64 -1 42e0 NativeEndian die on uninited
+    ok 6 - does write-num64 -1 42e0 NativeEndian die
+    ok 7 - does write-num64 -1 42e0 LittleEndian die on type object
+    ok 8 - does write-num64 -1 42e0 LittleEndian die on uninited
+    ok 9 - does write-num64 -1 42e0 LittleEndian die
+    ok 10 - does write-num64 -1 42e0 BigEndian die on type object
+    ok 11 - does write-num64 -1 42e0 BigEndian die on uninited
+    ok 12 - does write-num64 -1 42e0 BigEndian die
+ok 42 - did all possible negative offsets die
+# Subtest: did all tests pass for write-num64 0 0
+    1..36
+    ok 1 - does existing write-num64 0 0 return existing
+    ok 2 - did existing write-num64 0 0 not change size
+    ok 3 - did existing read-num64 0 give 0
+    ok 4 - does existing write-num64 0 0 NativeEndian return existing
+    ok 5 - did existing write-num64 0 0 NativeEndian not change size
+    ok 6 - did existing read-num64 0 NativeEndian give 0
+    ok 7 - does existing write-num64 0 0 LittleEndian return existing
+    ok 8 - did existing write-num64 0 0 LittleEndian not change size
+    ok 9 - did existing read-num64 0 LittleEndian give 0
+    ok 10 - does existing write-num64 0 0 BigEndian return existing
+    ok 11 - did existing write-num64 0 0 BigEndian not change size
+    ok 12 - did existing read-num64 0 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 0 0 set size 8
+    ok 15 - did type read-num64 0 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 0 0 NativeEndian set size 8
+    ok 18 - did new read-num64 0 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 0 0 LittleEndian set size 8
+    ok 21 - did new read-num64 0 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 0 0 BigEndian set size 8
+    ok 24 - did new read-num64 0 BigEndian give 0
+    ok 25 - does new write-num64 0 0 return $buf
+    ok 26 - did new write-num64 0 0 set size 8
+    ok 27 - did new read-num64 0 give 0
+    ok 28 - does new write-num64 0 0 NativeEndian return $buf
+    ok 29 - did new write-num64 0 0 NativeEndian set size 8
+    ok 30 - did new read-num64 0 NativeEndian give 0
+    ok 31 - does new write-num64 0 0 LittleEndian return $buf
+    ok 32 - did new write-num64 0 0 LittleEndian set size 8
+    ok 33 - did new read-num64 0 LittleEndian give 0
+    ok 34 - does new write-num64 0 0 BigEndian return $buf
+    ok 35 - did new write-num64 0 0 BigEndian set size 8
+    ok 36 - did new read-num64 0 BigEndian give 0
+ok 43 - did all tests pass for write-num64 0 0
+# Subtest: did all tests pass for write-num64 1 0
+    1..36
+    ok 1 - does existing write-num64 1 0 return existing
+    ok 2 - did existing write-num64 1 0 not change size
+    ok 3 - did existing read-num64 1 give 0
+    ok 4 - does existing write-num64 1 0 NativeEndian return existing
+    ok 5 - did existing write-num64 1 0 NativeEndian not change size
+    ok 6 - did existing read-num64 1 NativeEndian give 0
+    ok 7 - does existing write-num64 1 0 LittleEndian return existing
+    ok 8 - did existing write-num64 1 0 LittleEndian not change size
+    ok 9 - did existing read-num64 1 LittleEndian give 0
+    ok 10 - does existing write-num64 1 0 BigEndian return existing
+    ok 11 - did existing write-num64 1 0 BigEndian not change size
+    ok 12 - did existing read-num64 1 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 1 0 set size 9
+    ok 15 - did type read-num64 1 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 1 0 NativeEndian set size 9
+    ok 18 - did new read-num64 1 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 1 0 LittleEndian set size 9
+    ok 21 - did new read-num64 1 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 1 0 BigEndian set size 9
+    ok 24 - did new read-num64 1 BigEndian give 0
+    ok 25 - does new write-num64 1 0 return $buf
+    ok 26 - did new write-num64 1 0 set size 9
+    ok 27 - did new read-num64 1 give 0
+    ok 28 - does new write-num64 1 0 NativeEndian return $buf
+    ok 29 - did new write-num64 1 0 NativeEndian set size 9
+    ok 30 - did new read-num64 1 NativeEndian give 0
+    ok 31 - does new write-num64 1 0 LittleEndian return $buf
+    ok 32 - did new write-num64 1 0 LittleEndian set size 9
+    ok 33 - did new read-num64 1 LittleEndian give 0
+    ok 34 - does new write-num64 1 0 BigEndian return $buf
+    ok 35 - did new write-num64 1 0 BigEndian set size 9
+    ok 36 - did new read-num64 1 BigEndian give 0
+ok 44 - did all tests pass for write-num64 1 0
+# Subtest: did all tests pass for write-num64 2 0
+    1..36
+    ok 1 - does existing write-num64 2 0 return existing
+    ok 2 - did existing write-num64 2 0 not change size
+    ok 3 - did existing read-num64 2 give 0
+    ok 4 - does existing write-num64 2 0 NativeEndian return existing
+    ok 5 - did existing write-num64 2 0 NativeEndian not change size
+    ok 6 - did existing read-num64 2 NativeEndian give 0
+    ok 7 - does existing write-num64 2 0 LittleEndian return existing
+    ok 8 - did existing write-num64 2 0 LittleEndian not change size
+    ok 9 - did existing read-num64 2 LittleEndian give 0
+    ok 10 - does existing write-num64 2 0 BigEndian return existing
+    ok 11 - did existing write-num64 2 0 BigEndian not change size
+    ok 12 - did existing read-num64 2 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 2 0 set size 10
+    ok 15 - did type read-num64 2 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 2 0 NativeEndian set size 10
+    ok 18 - did new read-num64 2 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 2 0 LittleEndian set size 10
+    ok 21 - did new read-num64 2 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 2 0 BigEndian set size 10
+    ok 24 - did new read-num64 2 BigEndian give 0
+    ok 25 - does new write-num64 2 0 return $buf
+    ok 26 - did new write-num64 2 0 set size 10
+    ok 27 - did new read-num64 2 give 0
+    ok 28 - does new write-num64 2 0 NativeEndian return $buf
+    ok 29 - did new write-num64 2 0 NativeEndian set size 10
+    ok 30 - did new read-num64 2 NativeEndian give 0
+    ok 31 - does new write-num64 2 0 LittleEndian return $buf
+    ok 32 - did new write-num64 2 0 LittleEndian set size 10
+    ok 33 - did new read-num64 2 LittleEndian give 0
+    ok 34 - does new write-num64 2 0 BigEndian return $buf
+    ok 35 - did new write-num64 2 0 BigEndian set size 10
+    ok 36 - did new read-num64 2 BigEndian give 0
+ok 45 - did all tests pass for write-num64 2 0
+# Subtest: did all tests pass for write-num64 3 0
+    1..36
+    ok 1 - does existing write-num64 3 0 return existing
+    ok 2 - did existing write-num64 3 0 not change size
+    ok 3 - did existing read-num64 3 give 0
+    ok 4 - does existing write-num64 3 0 NativeEndian return existing
+    ok 5 - did existing write-num64 3 0 NativeEndian not change size
+    ok 6 - did existing read-num64 3 NativeEndian give 0
+    ok 7 - does existing write-num64 3 0 LittleEndian return existing
+    ok 8 - did existing write-num64 3 0 LittleEndian not change size
+    ok 9 - did existing read-num64 3 LittleEndian give 0
+    ok 10 - does existing write-num64 3 0 BigEndian return existing
+    ok 11 - did existing write-num64 3 0 BigEndian not change size
+    ok 12 - did existing read-num64 3 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 3 0 set size 11
+    ok 15 - did type read-num64 3 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 3 0 NativeEndian set size 11
+    ok 18 - did new read-num64 3 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 3 0 LittleEndian set size 11
+    ok 21 - did new read-num64 3 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 3 0 BigEndian set size 11
+    ok 24 - did new read-num64 3 BigEndian give 0
+    ok 25 - does new write-num64 3 0 return $buf
+    ok 26 - did new write-num64 3 0 set size 11
+    ok 27 - did new read-num64 3 give 0
+    ok 28 - does new write-num64 3 0 NativeEndian return $buf
+    ok 29 - did new write-num64 3 0 NativeEndian set size 11
+    ok 30 - did new read-num64 3 NativeEndian give 0
+    ok 31 - does new write-num64 3 0 LittleEndian return $buf
+    ok 32 - did new write-num64 3 0 LittleEndian set size 11
+    ok 33 - did new read-num64 3 LittleEndian give 0
+    ok 34 - does new write-num64 3 0 BigEndian return $buf
+    ok 35 - did new write-num64 3 0 BigEndian set size 11
+    ok 36 - did new read-num64 3 BigEndian give 0
+ok 46 - did all tests pass for write-num64 3 0
+# Subtest: did all tests pass for write-num64 4 0
+    1..36
+    ok 1 - does existing write-num64 4 0 return existing
+    ok 2 - did existing write-num64 4 0 not change size
+    ok 3 - did existing read-num64 4 give 0
+    ok 4 - does existing write-num64 4 0 NativeEndian return existing
+    ok 5 - did existing write-num64 4 0 NativeEndian not change size
+    ok 6 - did existing read-num64 4 NativeEndian give 0
+    ok 7 - does existing write-num64 4 0 LittleEndian return existing
+    ok 8 - did existing write-num64 4 0 LittleEndian not change size
+    ok 9 - did existing read-num64 4 LittleEndian give 0
+    ok 10 - does existing write-num64 4 0 BigEndian return existing
+    ok 11 - did existing write-num64 4 0 BigEndian not change size
+    ok 12 - did existing read-num64 4 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 4 0 set size 12
+    ok 15 - did type read-num64 4 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 4 0 NativeEndian set size 12
+    ok 18 - did new read-num64 4 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 4 0 LittleEndian set size 12
+    ok 21 - did new read-num64 4 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 4 0 BigEndian set size 12
+    ok 24 - did new read-num64 4 BigEndian give 0
+    ok 25 - does new write-num64 4 0 return $buf
+    ok 26 - did new write-num64 4 0 set size 12
+    ok 27 - did new read-num64 4 give 0
+    ok 28 - does new write-num64 4 0 NativeEndian return $buf
+    ok 29 - did new write-num64 4 0 NativeEndian set size 12
+    ok 30 - did new read-num64 4 NativeEndian give 0
+    ok 31 - does new write-num64 4 0 LittleEndian return $buf
+    ok 32 - did new write-num64 4 0 LittleEndian set size 12
+    ok 33 - did new read-num64 4 LittleEndian give 0
+    ok 34 - does new write-num64 4 0 BigEndian return $buf
+    ok 35 - did new write-num64 4 0 BigEndian set size 12
+    ok 36 - did new read-num64 4 BigEndian give 0
+ok 47 - did all tests pass for write-num64 4 0
+# Subtest: did all tests pass for write-num64 5 0
+    1..36
+    ok 1 - does existing write-num64 5 0 return existing
+    ok 2 - did existing write-num64 5 0 not change size
+    ok 3 - did existing read-num64 5 give 0
+    ok 4 - does existing write-num64 5 0 NativeEndian return existing
+    ok 5 - did existing write-num64 5 0 NativeEndian not change size
+    ok 6 - did existing read-num64 5 NativeEndian give 0
+    ok 7 - does existing write-num64 5 0 LittleEndian return existing
+    ok 8 - did existing write-num64 5 0 LittleEndian not change size
+    ok 9 - did existing read-num64 5 LittleEndian give 0
+    ok 10 - does existing write-num64 5 0 BigEndian return existing
+    ok 11 - did existing write-num64 5 0 BigEndian not change size
+    ok 12 - did existing read-num64 5 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 5 0 set size 13
+    ok 15 - did type read-num64 5 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 5 0 NativeEndian set size 13
+    ok 18 - did new read-num64 5 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 5 0 LittleEndian set size 13
+    ok 21 - did new read-num64 5 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 5 0 BigEndian set size 13
+    ok 24 - did new read-num64 5 BigEndian give 0
+    ok 25 - does new write-num64 5 0 return $buf
+    ok 26 - did new write-num64 5 0 set size 13
+    ok 27 - did new read-num64 5 give 0
+    ok 28 - does new write-num64 5 0 NativeEndian return $buf
+    ok 29 - did new write-num64 5 0 NativeEndian set size 13
+    ok 30 - did new read-num64 5 NativeEndian give 0
+    ok 31 - does new write-num64 5 0 LittleEndian return $buf
+    ok 32 - did new write-num64 5 0 LittleEndian set size 13
+    ok 33 - did new read-num64 5 LittleEndian give 0
+    ok 34 - does new write-num64 5 0 BigEndian return $buf
+    ok 35 - did new write-num64 5 0 BigEndian set size 13
+    ok 36 - did new read-num64 5 BigEndian give 0
+ok 48 - did all tests pass for write-num64 5 0
+# Subtest: did all tests pass for write-num64 6 0
+    1..36
+    ok 1 - does existing write-num64 6 0 return existing
+    ok 2 - did existing write-num64 6 0 not change size
+    ok 3 - did existing read-num64 6 give 0
+    ok 4 - does existing write-num64 6 0 NativeEndian return existing
+    ok 5 - did existing write-num64 6 0 NativeEndian not change size
+    ok 6 - did existing read-num64 6 NativeEndian give 0
+    ok 7 - does existing write-num64 6 0 LittleEndian return existing
+    ok 8 - did existing write-num64 6 0 LittleEndian not change size
+    ok 9 - did existing read-num64 6 LittleEndian give 0
+    ok 10 - does existing write-num64 6 0 BigEndian return existing
+    ok 11 - did existing write-num64 6 0 BigEndian not change size
+    ok 12 - did existing read-num64 6 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 6 0 set size 14
+    ok 15 - did type read-num64 6 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 6 0 NativeEndian set size 14
+    ok 18 - did new read-num64 6 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 6 0 LittleEndian set size 14
+    ok 21 - did new read-num64 6 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 6 0 BigEndian set size 14
+    ok 24 - did new read-num64 6 BigEndian give 0
+    ok 25 - does new write-num64 6 0 return $buf
+    ok 26 - did new write-num64 6 0 set size 14
+    ok 27 - did new read-num64 6 give 0
+    ok 28 - does new write-num64 6 0 NativeEndian return $buf
+    ok 29 - did new write-num64 6 0 NativeEndian set size 14
+    ok 30 - did new read-num64 6 NativeEndian give 0
+    ok 31 - does new write-num64 6 0 LittleEndian return $buf
+    ok 32 - did new write-num64 6 0 LittleEndian set size 14
+    ok 33 - did new read-num64 6 LittleEndian give 0
+    ok 34 - does new write-num64 6 0 BigEndian return $buf
+    ok 35 - did new write-num64 6 0 BigEndian set size 14
+    ok 36 - did new read-num64 6 BigEndian give 0
+ok 49 - did all tests pass for write-num64 6 0
+# Subtest: did all tests pass for write-num64 7 0
+    1..36
+    ok 1 - does existing write-num64 7 0 return existing
+    ok 2 - did existing write-num64 7 0 not change size
+    ok 3 - did existing read-num64 7 give 0
+    ok 4 - does existing write-num64 7 0 NativeEndian return existing
+    ok 5 - did existing write-num64 7 0 NativeEndian not change size
+    ok 6 - did existing read-num64 7 NativeEndian give 0
+    ok 7 - does existing write-num64 7 0 LittleEndian return existing
+    ok 8 - did existing write-num64 7 0 LittleEndian not change size
+    ok 9 - did existing read-num64 7 LittleEndian give 0
+    ok 10 - does existing write-num64 7 0 BigEndian return existing
+    ok 11 - did existing write-num64 7 0 BigEndian not change size
+    ok 12 - did existing read-num64 7 BigEndian give 0
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 7 0 set size 15
+    ok 15 - did type read-num64 7 give 0
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 7 0 NativeEndian set size 15
+    ok 18 - did new read-num64 7 NativeEndian give 0
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 7 0 LittleEndian set size 15
+    ok 21 - did new read-num64 7 LittleEndian give 0
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 7 0 BigEndian set size 15
+    ok 24 - did new read-num64 7 BigEndian give 0
+    ok 25 - does new write-num64 7 0 return $buf
+    ok 26 - did new write-num64 7 0 set size 15
+    ok 27 - did new read-num64 7 give 0
+    ok 28 - does new write-num64 7 0 NativeEndian return $buf
+    ok 29 - did new write-num64 7 0 NativeEndian set size 15
+    ok 30 - did new read-num64 7 NativeEndian give 0
+    ok 31 - does new write-num64 7 0 LittleEndian return $buf
+    ok 32 - did new write-num64 7 0 LittleEndian set size 15
+    ok 33 - did new read-num64 7 LittleEndian give 0
+    ok 34 - does new write-num64 7 0 BigEndian return $buf
+    ok 35 - did new write-num64 7 0 BigEndian set size 15
+    ok 36 - did new read-num64 7 BigEndian give 0
+ok 50 - did all tests pass for write-num64 7 0
+# Subtest: did all tests pass for write-num64 0 1
+    1..36
+    ok 1 - does existing write-num64 0 1 return existing
+    ok 2 - did existing write-num64 0 1 not change size
+    ok 3 - did existing read-num64 0 give 1
+    ok 4 - does existing write-num64 0 1 NativeEndian return existing
+    ok 5 - did existing write-num64 0 1 NativeEndian not change size
+    ok 6 - did existing read-num64 0 NativeEndian give 1
+    ok 7 - does existing write-num64 0 1 LittleEndian return existing
+    ok 8 - did existing write-num64 0 1 LittleEndian not change size
+    ok 9 - did existing read-num64 0 LittleEndian give 1
+    ok 10 - does existing write-num64 0 1 BigEndian return existing
+    ok 11 - did existing write-num64 0 1 BigEndian not change size
+    ok 12 - did existing read-num64 0 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 0 1 set size 8
+    ok 15 - did type read-num64 0 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 0 1 NativeEndian set size 8
+    ok 18 - did new read-num64 0 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 0 1 LittleEndian set size 8
+    ok 21 - did new read-num64 0 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 0 1 BigEndian set size 8
+    ok 24 - did new read-num64 0 BigEndian give 1
+    ok 25 - does new write-num64 0 1 return $buf
+    ok 26 - did new write-num64 0 1 set size 8
+    ok 27 - did new read-num64 0 give 1
+    ok 28 - does new write-num64 0 1 NativeEndian return $buf
+    ok 29 - did new write-num64 0 1 NativeEndian set size 8
+    ok 30 - did new read-num64 0 NativeEndian give 1
+    ok 31 - does new write-num64 0 1 LittleEndian return $buf
+    ok 32 - did new write-num64 0 1 LittleEndian set size 8
+    ok 33 - did new read-num64 0 LittleEndian give 1
+    ok 34 - does new write-num64 0 1 BigEndian return $buf
+    ok 35 - did new write-num64 0 1 BigEndian set size 8
+    ok 36 - did new read-num64 0 BigEndian give 1
+ok 51 - did all tests pass for write-num64 0 1
+# Subtest: did all tests pass for write-num64 1 1
+    1..36
+    ok 1 - does existing write-num64 1 1 return existing
+    ok 2 - did existing write-num64 1 1 not change size
+    ok 3 - did existing read-num64 1 give 1
+    ok 4 - does existing write-num64 1 1 NativeEndian return existing
+    ok 5 - did existing write-num64 1 1 NativeEndian not change size
+    ok 6 - did existing read-num64 1 NativeEndian give 1
+    ok 7 - does existing write-num64 1 1 LittleEndian return existing
+    ok 8 - did existing write-num64 1 1 LittleEndian not change size
+    ok 9 - did existing read-num64 1 LittleEndian give 1
+    ok 10 - does existing write-num64 1 1 BigEndian return existing
+    ok 11 - did existing write-num64 1 1 BigEndian not change size
+    ok 12 - did existing read-num64 1 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 1 1 set size 9
+    ok 15 - did type read-num64 1 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 1 1 NativeEndian set size 9
+    ok 18 - did new read-num64 1 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 1 1 LittleEndian set size 9
+    ok 21 - did new read-num64 1 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 1 1 BigEndian set size 9
+    ok 24 - did new read-num64 1 BigEndian give 1
+    ok 25 - does new write-num64 1 1 return $buf
+    ok 26 - did new write-num64 1 1 set size 9
+    ok 27 - did new read-num64 1 give 1
+    ok 28 - does new write-num64 1 1 NativeEndian return $buf
+    ok 29 - did new write-num64 1 1 NativeEndian set size 9
+    ok 30 - did new read-num64 1 NativeEndian give 1
+    ok 31 - does new write-num64 1 1 LittleEndian return $buf
+    ok 32 - did new write-num64 1 1 LittleEndian set size 9
+    ok 33 - did new read-num64 1 LittleEndian give 1
+    ok 34 - does new write-num64 1 1 BigEndian return $buf
+    ok 35 - did new write-num64 1 1 BigEndian set size 9
+    ok 36 - did new read-num64 1 BigEndian give 1
+ok 52 - did all tests pass for write-num64 1 1
+# Subtest: did all tests pass for write-num64 2 1
+    1..36
+    ok 1 - does existing write-num64 2 1 return existing
+    ok 2 - did existing write-num64 2 1 not change size
+    ok 3 - did existing read-num64 2 give 1
+    ok 4 - does existing write-num64 2 1 NativeEndian return existing
+    ok 5 - did existing write-num64 2 1 NativeEndian not change size
+    ok 6 - did existing read-num64 2 NativeEndian give 1
+    ok 7 - does existing write-num64 2 1 LittleEndian return existing
+    ok 8 - did existing write-num64 2 1 LittleEndian not change size
+    ok 9 - did existing read-num64 2 LittleEndian give 1
+    ok 10 - does existing write-num64 2 1 BigEndian return existing
+    ok 11 - did existing write-num64 2 1 BigEndian not change size
+    ok 12 - did existing read-num64 2 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 2 1 set size 10
+    ok 15 - did type read-num64 2 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 2 1 NativeEndian set size 10
+    ok 18 - did new read-num64 2 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 2 1 LittleEndian set size 10
+    ok 21 - did new read-num64 2 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 2 1 BigEndian set size 10
+    ok 24 - did new read-num64 2 BigEndian give 1
+    ok 25 - does new write-num64 2 1 return $buf
+    ok 26 - did new write-num64 2 1 set size 10
+    ok 27 - did new read-num64 2 give 1
+    ok 28 - does new write-num64 2 1 NativeEndian return $buf
+    ok 29 - did new write-num64 2 1 NativeEndian set size 10
+    ok 30 - did new read-num64 2 NativeEndian give 1
+    ok 31 - does new write-num64 2 1 LittleEndian return $buf
+    ok 32 - did new write-num64 2 1 LittleEndian set size 10
+    ok 33 - did new read-num64 2 LittleEndian give 1
+    ok 34 - does new write-num64 2 1 BigEndian return $buf
+    ok 35 - did new write-num64 2 1 BigEndian set size 10
+    ok 36 - did new read-num64 2 BigEndian give 1
+ok 53 - did all tests pass for write-num64 2 1
+# Subtest: did all tests pass for write-num64 3 1
+    1..36
+    ok 1 - does existing write-num64 3 1 return existing
+    ok 2 - did existing write-num64 3 1 not change size
+    ok 3 - did existing read-num64 3 give 1
+    ok 4 - does existing write-num64 3 1 NativeEndian return existing
+    ok 5 - did existing write-num64 3 1 NativeEndian not change size
+    ok 6 - did existing read-num64 3 NativeEndian give 1
+    ok 7 - does existing write-num64 3 1 LittleEndian return existing
+    ok 8 - did existing write-num64 3 1 LittleEndian not change size
+    ok 9 - did existing read-num64 3 LittleEndian give 1
+    ok 10 - does existing write-num64 3 1 BigEndian return existing
+    ok 11 - did existing write-num64 3 1 BigEndian not change size
+    ok 12 - did existing read-num64 3 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 3 1 set size 11
+    ok 15 - did type read-num64 3 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 3 1 NativeEndian set size 11
+    ok 18 - did new read-num64 3 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 3 1 LittleEndian set size 11
+    ok 21 - did new read-num64 3 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 3 1 BigEndian set size 11
+    ok 24 - did new read-num64 3 BigEndian give 1
+    ok 25 - does new write-num64 3 1 return $buf
+    ok 26 - did new write-num64 3 1 set size 11
+    ok 27 - did new read-num64 3 give 1
+    ok 28 - does new write-num64 3 1 NativeEndian return $buf
+    ok 29 - did new write-num64 3 1 NativeEndian set size 11
+    ok 30 - did new read-num64 3 NativeEndian give 1
+    ok 31 - does new write-num64 3 1 LittleEndian return $buf
+    ok 32 - did new write-num64 3 1 LittleEndian set size 11
+    ok 33 - did new read-num64 3 LittleEndian give 1
+    ok 34 - does new write-num64 3 1 BigEndian return $buf
+    ok 35 - did new write-num64 3 1 BigEndian set size 11
+    ok 36 - did new read-num64 3 BigEndian give 1
+ok 54 - did all tests pass for write-num64 3 1
+# Subtest: did all tests pass for write-num64 4 1
+    1..36
+    ok 1 - does existing write-num64 4 1 return existing
+    ok 2 - did existing write-num64 4 1 not change size
+    ok 3 - did existing read-num64 4 give 1
+    ok 4 - does existing write-num64 4 1 NativeEndian return existing
+    ok 5 - did existing write-num64 4 1 NativeEndian not change size
+    ok 6 - did existing read-num64 4 NativeEndian give 1
+    ok 7 - does existing write-num64 4 1 LittleEndian return existing
+    ok 8 - did existing write-num64 4 1 LittleEndian not change size
+    ok 9 - did existing read-num64 4 LittleEndian give 1
+    ok 10 - does existing write-num64 4 1 BigEndian return existing
+    ok 11 - did existing write-num64 4 1 BigEndian not change size
+    ok 12 - did existing read-num64 4 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 4 1 set size 12
+    ok 15 - did type read-num64 4 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 4 1 NativeEndian set size 12
+    ok 18 - did new read-num64 4 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 4 1 LittleEndian set size 12
+    ok 21 - did new read-num64 4 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 4 1 BigEndian set size 12
+    ok 24 - did new read-num64 4 BigEndian give 1
+    ok 25 - does new write-num64 4 1 return $buf
+    ok 26 - did new write-num64 4 1 set size 12
+    ok 27 - did new read-num64 4 give 1
+    ok 28 - does new write-num64 4 1 NativeEndian return $buf
+    ok 29 - did new write-num64 4 1 NativeEndian set size 12
+    ok 30 - did new read-num64 4 NativeEndian give 1
+    ok 31 - does new write-num64 4 1 LittleEndian return $buf
+    ok 32 - did new write-num64 4 1 LittleEndian set size 12
+    ok 33 - did new read-num64 4 LittleEndian give 1
+    ok 34 - does new write-num64 4 1 BigEndian return $buf
+    ok 35 - did new write-num64 4 1 BigEndian set size 12
+    ok 36 - did new read-num64 4 BigEndian give 1
+ok 55 - did all tests pass for write-num64 4 1
+# Subtest: did all tests pass for write-num64 5 1
+    1..36
+    ok 1 - does existing write-num64 5 1 return existing
+    ok 2 - did existing write-num64 5 1 not change size
+    ok 3 - did existing read-num64 5 give 1
+    ok 4 - does existing write-num64 5 1 NativeEndian return existing
+    ok 5 - did existing write-num64 5 1 NativeEndian not change size
+    ok 6 - did existing read-num64 5 NativeEndian give 1
+    ok 7 - does existing write-num64 5 1 LittleEndian return existing
+    ok 8 - did existing write-num64 5 1 LittleEndian not change size
+    ok 9 - did existing read-num64 5 LittleEndian give 1
+    ok 10 - does existing write-num64 5 1 BigEndian return existing
+    ok 11 - did existing write-num64 5 1 BigEndian not change size
+    ok 12 - did existing read-num64 5 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 5 1 set size 13
+    ok 15 - did type read-num64 5 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 5 1 NativeEndian set size 13
+    ok 18 - did new read-num64 5 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 5 1 LittleEndian set size 13
+    ok 21 - did new read-num64 5 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 5 1 BigEndian set size 13
+    ok 24 - did new read-num64 5 BigEndian give 1
+    ok 25 - does new write-num64 5 1 return $buf
+    ok 26 - did new write-num64 5 1 set size 13
+    ok 27 - did new read-num64 5 give 1
+    ok 28 - does new write-num64 5 1 NativeEndian return $buf
+    ok 29 - did new write-num64 5 1 NativeEndian set size 13
+    ok 30 - did new read-num64 5 NativeEndian give 1
+    ok 31 - does new write-num64 5 1 LittleEndian return $buf
+    ok 32 - did new write-num64 5 1 LittleEndian set size 13
+    ok 33 - did new read-num64 5 LittleEndian give 1
+    ok 34 - does new write-num64 5 1 BigEndian return $buf
+    ok 35 - did new write-num64 5 1 BigEndian set size 13
+    ok 36 - did new read-num64 5 BigEndian give 1
+ok 56 - did all tests pass for write-num64 5 1
+# Subtest: did all tests pass for write-num64 6 1
+    1..36
+    ok 1 - does existing write-num64 6 1 return existing
+    ok 2 - did existing write-num64 6 1 not change size
+    ok 3 - did existing read-num64 6 give 1
+    ok 4 - does existing write-num64 6 1 NativeEndian return existing
+    ok 5 - did existing write-num64 6 1 NativeEndian not change size
+    ok 6 - did existing read-num64 6 NativeEndian give 1
+    ok 7 - does existing write-num64 6 1 LittleEndian return existing
+    ok 8 - did existing write-num64 6 1 LittleEndian not change size
+    ok 9 - did existing read-num64 6 LittleEndian give 1
+    ok 10 - does existing write-num64 6 1 BigEndian return existing
+    ok 11 - did existing write-num64 6 1 BigEndian not change size
+    ok 12 - did existing read-num64 6 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 6 1 set size 14
+    ok 15 - did type read-num64 6 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 6 1 NativeEndian set size 14
+    ok 18 - did new read-num64 6 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 6 1 LittleEndian set size 14
+    ok 21 - did new read-num64 6 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 6 1 BigEndian set size 14
+    ok 24 - did new read-num64 6 BigEndian give 1
+    ok 25 - does new write-num64 6 1 return $buf
+    ok 26 - did new write-num64 6 1 set size 14
+    ok 27 - did new read-num64 6 give 1
+    ok 28 - does new write-num64 6 1 NativeEndian return $buf
+    ok 29 - did new write-num64 6 1 NativeEndian set size 14
+    ok 30 - did new read-num64 6 NativeEndian give 1
+    ok 31 - does new write-num64 6 1 LittleEndian return $buf
+    ok 32 - did new write-num64 6 1 LittleEndian set size 14
+    ok 33 - did new read-num64 6 LittleEndian give 1
+    ok 34 - does new write-num64 6 1 BigEndian return $buf
+    ok 35 - did new write-num64 6 1 BigEndian set size 14
+    ok 36 - did new read-num64 6 BigEndian give 1
+ok 57 - did all tests pass for write-num64 6 1
+# Subtest: did all tests pass for write-num64 7 1
+    1..36
+    ok 1 - does existing write-num64 7 1 return existing
+    ok 2 - did existing write-num64 7 1 not change size
+    ok 3 - did existing read-num64 7 give 1
+    ok 4 - does existing write-num64 7 1 NativeEndian return existing
+    ok 5 - did existing write-num64 7 1 NativeEndian not change size
+    ok 6 - did existing read-num64 7 NativeEndian give 1
+    ok 7 - does existing write-num64 7 1 LittleEndian return existing
+    ok 8 - did existing write-num64 7 1 LittleEndian not change size
+    ok 9 - did existing read-num64 7 LittleEndian give 1
+    ok 10 - does existing write-num64 7 1 BigEndian return existing
+    ok 11 - did existing write-num64 7 1 BigEndian not change size
+    ok 12 - did existing read-num64 7 BigEndian give 1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 7 1 set size 15
+    ok 15 - did type read-num64 7 give 1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 7 1 NativeEndian set size 15
+    ok 18 - did new read-num64 7 NativeEndian give 1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 7 1 LittleEndian set size 15
+    ok 21 - did new read-num64 7 LittleEndian give 1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 7 1 BigEndian set size 15
+    ok 24 - did new read-num64 7 BigEndian give 1
+    ok 25 - does new write-num64 7 1 return $buf
+    ok 26 - did new write-num64 7 1 set size 15
+    ok 27 - did new read-num64 7 give 1
+    ok 28 - does new write-num64 7 1 NativeEndian return $buf
+    ok 29 - did new write-num64 7 1 NativeEndian set size 15
+    ok 30 - did new read-num64 7 NativeEndian give 1
+    ok 31 - does new write-num64 7 1 LittleEndian return $buf
+    ok 32 - did new write-num64 7 1 LittleEndian set size 15
+    ok 33 - did new read-num64 7 LittleEndian give 1
+    ok 34 - does new write-num64 7 1 BigEndian return $buf
+    ok 35 - did new write-num64 7 1 BigEndian set size 15
+    ok 36 - did new read-num64 7 BigEndian give 1
+ok 58 - did all tests pass for write-num64 7 1
+# Subtest: did all tests pass for write-num64 0 -1
+    1..36
+    ok 1 - does existing write-num64 0 -1 return existing
+    ok 2 - did existing write-num64 0 -1 not change size
+    ok 3 - did existing read-num64 0 give -1
+    ok 4 - does existing write-num64 0 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 0 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 0 NativeEndian give -1
+    ok 7 - does existing write-num64 0 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 0 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 0 LittleEndian give -1
+    ok 10 - does existing write-num64 0 -1 BigEndian return existing
+    ok 11 - did existing write-num64 0 -1 BigEndian not change size
+    ok 12 - did existing read-num64 0 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 0 -1 set size 8
+    ok 15 - did type read-num64 0 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 0 -1 NativeEndian set size 8
+    ok 18 - did new read-num64 0 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 0 -1 LittleEndian set size 8
+    ok 21 - did new read-num64 0 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 0 -1 BigEndian set size 8
+    ok 24 - did new read-num64 0 BigEndian give -1
+    ok 25 - does new write-num64 0 -1 return $buf
+    ok 26 - did new write-num64 0 -1 set size 8
+    ok 27 - did new read-num64 0 give -1
+    ok 28 - does new write-num64 0 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 0 -1 NativeEndian set size 8
+    ok 30 - did new read-num64 0 NativeEndian give -1
+    ok 31 - does new write-num64 0 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 0 -1 LittleEndian set size 8
+    ok 33 - did new read-num64 0 LittleEndian give -1
+    ok 34 - does new write-num64 0 -1 BigEndian return $buf
+    ok 35 - did new write-num64 0 -1 BigEndian set size 8
+    ok 36 - did new read-num64 0 BigEndian give -1
+ok 59 - did all tests pass for write-num64 0 -1
+# Subtest: did all tests pass for write-num64 1 -1
+    1..36
+    ok 1 - does existing write-num64 1 -1 return existing
+    ok 2 - did existing write-num64 1 -1 not change size
+    ok 3 - did existing read-num64 1 give -1
+    ok 4 - does existing write-num64 1 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 1 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 1 NativeEndian give -1
+    ok 7 - does existing write-num64 1 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 1 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 1 LittleEndian give -1
+    ok 10 - does existing write-num64 1 -1 BigEndian return existing
+    ok 11 - did existing write-num64 1 -1 BigEndian not change size
+    ok 12 - did existing read-num64 1 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 1 -1 set size 9
+    ok 15 - did type read-num64 1 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 1 -1 NativeEndian set size 9
+    ok 18 - did new read-num64 1 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 1 -1 LittleEndian set size 9
+    ok 21 - did new read-num64 1 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 1 -1 BigEndian set size 9
+    ok 24 - did new read-num64 1 BigEndian give -1
+    ok 25 - does new write-num64 1 -1 return $buf
+    ok 26 - did new write-num64 1 -1 set size 9
+    ok 27 - did new read-num64 1 give -1
+    ok 28 - does new write-num64 1 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 1 -1 NativeEndian set size 9
+    ok 30 - did new read-num64 1 NativeEndian give -1
+    ok 31 - does new write-num64 1 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 1 -1 LittleEndian set size 9
+    ok 33 - did new read-num64 1 LittleEndian give -1
+    ok 34 - does new write-num64 1 -1 BigEndian return $buf
+    ok 35 - did new write-num64 1 -1 BigEndian set size 9
+    ok 36 - did new read-num64 1 BigEndian give -1
+ok 60 - did all tests pass for write-num64 1 -1
+# Subtest: did all tests pass for write-num64 2 -1
+    1..36
+    ok 1 - does existing write-num64 2 -1 return existing
+    ok 2 - did existing write-num64 2 -1 not change size
+    ok 3 - did existing read-num64 2 give -1
+    ok 4 - does existing write-num64 2 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 2 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 2 NativeEndian give -1
+    ok 7 - does existing write-num64 2 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 2 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 2 LittleEndian give -1
+    ok 10 - does existing write-num64 2 -1 BigEndian return existing
+    ok 11 - did existing write-num64 2 -1 BigEndian not change size
+    ok 12 - did existing read-num64 2 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 2 -1 set size 10
+    ok 15 - did type read-num64 2 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 2 -1 NativeEndian set size 10
+    ok 18 - did new read-num64 2 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 2 -1 LittleEndian set size 10
+    ok 21 - did new read-num64 2 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 2 -1 BigEndian set size 10
+    ok 24 - did new read-num64 2 BigEndian give -1
+    ok 25 - does new write-num64 2 -1 return $buf
+    ok 26 - did new write-num64 2 -1 set size 10
+    ok 27 - did new read-num64 2 give -1
+    ok 28 - does new write-num64 2 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 2 -1 NativeEndian set size 10
+    ok 30 - did new read-num64 2 NativeEndian give -1
+    ok 31 - does new write-num64 2 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 2 -1 LittleEndian set size 10
+    ok 33 - did new read-num64 2 LittleEndian give -1
+    ok 34 - does new write-num64 2 -1 BigEndian return $buf
+    ok 35 - did new write-num64 2 -1 BigEndian set size 10
+    ok 36 - did new read-num64 2 BigEndian give -1
+ok 61 - did all tests pass for write-num64 2 -1
+# Subtest: did all tests pass for write-num64 3 -1
+    1..36
+    ok 1 - does existing write-num64 3 -1 return existing
+    ok 2 - did existing write-num64 3 -1 not change size
+    ok 3 - did existing read-num64 3 give -1
+    ok 4 - does existing write-num64 3 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 3 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 3 NativeEndian give -1
+    ok 7 - does existing write-num64 3 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 3 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 3 LittleEndian give -1
+    ok 10 - does existing write-num64 3 -1 BigEndian return existing
+    ok 11 - did existing write-num64 3 -1 BigEndian not change size
+    ok 12 - did existing read-num64 3 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 3 -1 set size 11
+    ok 15 - did type read-num64 3 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 3 -1 NativeEndian set size 11
+    ok 18 - did new read-num64 3 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 3 -1 LittleEndian set size 11
+    ok 21 - did new read-num64 3 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 3 -1 BigEndian set size 11
+    ok 24 - did new read-num64 3 BigEndian give -1
+    ok 25 - does new write-num64 3 -1 return $buf
+    ok 26 - did new write-num64 3 -1 set size 11
+    ok 27 - did new read-num64 3 give -1
+    ok 28 - does new write-num64 3 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 3 -1 NativeEndian set size 11
+    ok 30 - did new read-num64 3 NativeEndian give -1
+    ok 31 - does new write-num64 3 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 3 -1 LittleEndian set size 11
+    ok 33 - did new read-num64 3 LittleEndian give -1
+    ok 34 - does new write-num64 3 -1 BigEndian return $buf
+    ok 35 - did new write-num64 3 -1 BigEndian set size 11
+    ok 36 - did new read-num64 3 BigEndian give -1
+ok 62 - did all tests pass for write-num64 3 -1
+# Subtest: did all tests pass for write-num64 4 -1
+    1..36
+    ok 1 - does existing write-num64 4 -1 return existing
+    ok 2 - did existing write-num64 4 -1 not change size
+    ok 3 - did existing read-num64 4 give -1
+    ok 4 - does existing write-num64 4 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 4 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 4 NativeEndian give -1
+    ok 7 - does existing write-num64 4 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 4 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 4 LittleEndian give -1
+    ok 10 - does existing write-num64 4 -1 BigEndian return existing
+    ok 11 - did existing write-num64 4 -1 BigEndian not change size
+    ok 12 - did existing read-num64 4 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 4 -1 set size 12
+    ok 15 - did type read-num64 4 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 4 -1 NativeEndian set size 12
+    ok 18 - did new read-num64 4 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 4 -1 LittleEndian set size 12
+    ok 21 - did new read-num64 4 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 4 -1 BigEndian set size 12
+    ok 24 - did new read-num64 4 BigEndian give -1
+    ok 25 - does new write-num64 4 -1 return $buf
+    ok 26 - did new write-num64 4 -1 set size 12
+    ok 27 - did new read-num64 4 give -1
+    ok 28 - does new write-num64 4 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 4 -1 NativeEndian set size 12
+    ok 30 - did new read-num64 4 NativeEndian give -1
+    ok 31 - does new write-num64 4 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 4 -1 LittleEndian set size 12
+    ok 33 - did new read-num64 4 LittleEndian give -1
+    ok 34 - does new write-num64 4 -1 BigEndian return $buf
+    ok 35 - did new write-num64 4 -1 BigEndian set size 12
+    ok 36 - did new read-num64 4 BigEndian give -1
+ok 63 - did all tests pass for write-num64 4 -1
+# Subtest: did all tests pass for write-num64 5 -1
+    1..36
+    ok 1 - does existing write-num64 5 -1 return existing
+    ok 2 - did existing write-num64 5 -1 not change size
+    ok 3 - did existing read-num64 5 give -1
+    ok 4 - does existing write-num64 5 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 5 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 5 NativeEndian give -1
+    ok 7 - does existing write-num64 5 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 5 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 5 LittleEndian give -1
+    ok 10 - does existing write-num64 5 -1 BigEndian return existing
+    ok 11 - did existing write-num64 5 -1 BigEndian not change size
+    ok 12 - did existing read-num64 5 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 5 -1 set size 13
+    ok 15 - did type read-num64 5 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 5 -1 NativeEndian set size 13
+    ok 18 - did new read-num64 5 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 5 -1 LittleEndian set size 13
+    ok 21 - did new read-num64 5 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 5 -1 BigEndian set size 13
+    ok 24 - did new read-num64 5 BigEndian give -1
+    ok 25 - does new write-num64 5 -1 return $buf
+    ok 26 - did new write-num64 5 -1 set size 13
+    ok 27 - did new read-num64 5 give -1
+    ok 28 - does new write-num64 5 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 5 -1 NativeEndian set size 13
+    ok 30 - did new read-num64 5 NativeEndian give -1
+    ok 31 - does new write-num64 5 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 5 -1 LittleEndian set size 13
+    ok 33 - did new read-num64 5 LittleEndian give -1
+    ok 34 - does new write-num64 5 -1 BigEndian return $buf
+    ok 35 - did new write-num64 5 -1 BigEndian set size 13
+    ok 36 - did new read-num64 5 BigEndian give -1
+ok 64 - did all tests pass for write-num64 5 -1
+# Subtest: did all tests pass for write-num64 6 -1
+    1..36
+    ok 1 - does existing write-num64 6 -1 return existing
+    ok 2 - did existing write-num64 6 -1 not change size
+    ok 3 - did existing read-num64 6 give -1
+    ok 4 - does existing write-num64 6 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 6 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 6 NativeEndian give -1
+    ok 7 - does existing write-num64 6 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 6 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 6 LittleEndian give -1
+    ok 10 - does existing write-num64 6 -1 BigEndian return existing
+    ok 11 - did existing write-num64 6 -1 BigEndian not change size
+    ok 12 - did existing read-num64 6 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 6 -1 set size 14
+    ok 15 - did type read-num64 6 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 6 -1 NativeEndian set size 14
+    ok 18 - did new read-num64 6 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 6 -1 LittleEndian set size 14
+    ok 21 - did new read-num64 6 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 6 -1 BigEndian set size 14
+    ok 24 - did new read-num64 6 BigEndian give -1
+    ok 25 - does new write-num64 6 -1 return $buf
+    ok 26 - did new write-num64 6 -1 set size 14
+    ok 27 - did new read-num64 6 give -1
+    ok 28 - does new write-num64 6 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 6 -1 NativeEndian set size 14
+    ok 30 - did new read-num64 6 NativeEndian give -1
+    ok 31 - does new write-num64 6 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 6 -1 LittleEndian set size 14
+    ok 33 - did new read-num64 6 LittleEndian give -1
+    ok 34 - does new write-num64 6 -1 BigEndian return $buf
+    ok 35 - did new write-num64 6 -1 BigEndian set size 14
+    ok 36 - did new read-num64 6 BigEndian give -1
+ok 65 - did all tests pass for write-num64 6 -1
+# Subtest: did all tests pass for write-num64 7 -1
+    1..36
+    ok 1 - does existing write-num64 7 -1 return existing
+    ok 2 - did existing write-num64 7 -1 not change size
+    ok 3 - did existing read-num64 7 give -1
+    ok 4 - does existing write-num64 7 -1 NativeEndian return existing
+    ok 5 - did existing write-num64 7 -1 NativeEndian not change size
+    ok 6 - did existing read-num64 7 NativeEndian give -1
+    ok 7 - does existing write-num64 7 -1 LittleEndian return existing
+    ok 8 - did existing write-num64 7 -1 LittleEndian not change size
+    ok 9 - did existing read-num64 7 LittleEndian give -1
+    ok 10 - does existing write-num64 7 -1 BigEndian return existing
+    ok 11 - did existing write-num64 7 -1 BigEndian not change size
+    ok 12 - did existing read-num64 7 BigEndian give -1
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 7 -1 set size 15
+    ok 15 - did type read-num64 7 give -1
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 7 -1 NativeEndian set size 15
+    ok 18 - did new read-num64 7 NativeEndian give -1
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 7 -1 LittleEndian set size 15
+    ok 21 - did new read-num64 7 LittleEndian give -1
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 7 -1 BigEndian set size 15
+    ok 24 - did new read-num64 7 BigEndian give -1
+    ok 25 - does new write-num64 7 -1 return $buf
+    ok 26 - did new write-num64 7 -1 set size 15
+    ok 27 - did new read-num64 7 give -1
+    ok 28 - does new write-num64 7 -1 NativeEndian return $buf
+    ok 29 - did new write-num64 7 -1 NativeEndian set size 15
+    ok 30 - did new read-num64 7 NativeEndian give -1
+    ok 31 - does new write-num64 7 -1 LittleEndian return $buf
+    ok 32 - did new write-num64 7 -1 LittleEndian set size 15
+    ok 33 - did new read-num64 7 LittleEndian give -1
+    ok 34 - does new write-num64 7 -1 BigEndian return $buf
+    ok 35 - did new write-num64 7 -1 BigEndian set size 15
+    ok 36 - did new read-num64 7 BigEndian give -1
+ok 66 - did all tests pass for write-num64 7 -1
+# Subtest: did all tests pass for write-num64 0 42
+    1..36
+    ok 1 - does existing write-num64 0 42 return existing
+    ok 2 - did existing write-num64 0 42 not change size
+    ok 3 - did existing read-num64 0 give 42
+    ok 4 - does existing write-num64 0 42 NativeEndian return existing
+    ok 5 - did existing write-num64 0 42 NativeEndian not change size
+    ok 6 - did existing read-num64 0 NativeEndian give 42
+    ok 7 - does existing write-num64 0 42 LittleEndian return existing
+    ok 8 - did existing write-num64 0 42 LittleEndian not change size
+    ok 9 - did existing read-num64 0 LittleEndian give 42
+    ok 10 - does existing write-num64 0 42 BigEndian return existing
+    ok 11 - did existing write-num64 0 42 BigEndian not change size
+    ok 12 - did existing read-num64 0 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 0 42 set size 8
+    ok 15 - did type read-num64 0 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 0 42 NativeEndian set size 8
+    ok 18 - did new read-num64 0 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 0 42 LittleEndian set size 8
+    ok 21 - did new read-num64 0 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 0 42 BigEndian set size 8
+    ok 24 - did new read-num64 0 BigEndian give 42
+    ok 25 - does new write-num64 0 42 return $buf
+    ok 26 - did new write-num64 0 42 set size 8
+    ok 27 - did new read-num64 0 give 42
+    ok 28 - does new write-num64 0 42 NativeEndian return $buf
+    ok 29 - did new write-num64 0 42 NativeEndian set size 8
+    ok 30 - did new read-num64 0 NativeEndian give 42
+    ok 31 - does new write-num64 0 42 LittleEndian return $buf
+    ok 32 - did new write-num64 0 42 LittleEndian set size 8
+    ok 33 - did new read-num64 0 LittleEndian give 42
+    ok 34 - does new write-num64 0 42 BigEndian return $buf
+    ok 35 - did new write-num64 0 42 BigEndian set size 8
+    ok 36 - did new read-num64 0 BigEndian give 42
+ok 67 - did all tests pass for write-num64 0 42
+# Subtest: did all tests pass for write-num64 1 42
+    1..36
+    ok 1 - does existing write-num64 1 42 return existing
+    ok 2 - did existing write-num64 1 42 not change size
+    ok 3 - did existing read-num64 1 give 42
+    ok 4 - does existing write-num64 1 42 NativeEndian return existing
+    ok 5 - did existing write-num64 1 42 NativeEndian not change size
+    ok 6 - did existing read-num64 1 NativeEndian give 42
+    ok 7 - does existing write-num64 1 42 LittleEndian return existing
+    ok 8 - did existing write-num64 1 42 LittleEndian not change size
+    ok 9 - did existing read-num64 1 LittleEndian give 42
+    ok 10 - does existing write-num64 1 42 BigEndian return existing
+    ok 11 - did existing write-num64 1 42 BigEndian not change size
+    ok 12 - did existing read-num64 1 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 1 42 set size 9
+    ok 15 - did type read-num64 1 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 1 42 NativeEndian set size 9
+    ok 18 - did new read-num64 1 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 1 42 LittleEndian set size 9
+    ok 21 - did new read-num64 1 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 1 42 BigEndian set size 9
+    ok 24 - did new read-num64 1 BigEndian give 42
+    ok 25 - does new write-num64 1 42 return $buf
+    ok 26 - did new write-num64 1 42 set size 9
+    ok 27 - did new read-num64 1 give 42
+    ok 28 - does new write-num64 1 42 NativeEndian return $buf
+    ok 29 - did new write-num64 1 42 NativeEndian set size 9
+    ok 30 - did new read-num64 1 NativeEndian give 42
+    ok 31 - does new write-num64 1 42 LittleEndian return $buf
+    ok 32 - did new write-num64 1 42 LittleEndian set size 9
+    ok 33 - did new read-num64 1 LittleEndian give 42
+    ok 34 - does new write-num64 1 42 BigEndian return $buf
+    ok 35 - did new write-num64 1 42 BigEndian set size 9
+    ok 36 - did new read-num64 1 BigEndian give 42
+ok 68 - did all tests pass for write-num64 1 42
+# Subtest: did all tests pass for write-num64 2 42
+    1..36
+    ok 1 - does existing write-num64 2 42 return existing
+    ok 2 - did existing write-num64 2 42 not change size
+    ok 3 - did existing read-num64 2 give 42
+    ok 4 - does existing write-num64 2 42 NativeEndian return existing
+    ok 5 - did existing write-num64 2 42 NativeEndian not change size
+    ok 6 - did existing read-num64 2 NativeEndian give 42
+    ok 7 - does existing write-num64 2 42 LittleEndian return existing
+    ok 8 - did existing write-num64 2 42 LittleEndian not change size
+    ok 9 - did existing read-num64 2 LittleEndian give 42
+    ok 10 - does existing write-num64 2 42 BigEndian return existing
+    ok 11 - did existing write-num64 2 42 BigEndian not change size
+    ok 12 - did existing read-num64 2 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 2 42 set size 10
+    ok 15 - did type read-num64 2 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 2 42 NativeEndian set size 10
+    ok 18 - did new read-num64 2 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 2 42 LittleEndian set size 10
+    ok 21 - did new read-num64 2 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 2 42 BigEndian set size 10
+    ok 24 - did new read-num64 2 BigEndian give 42
+    ok 25 - does new write-num64 2 42 return $buf
+    ok 26 - did new write-num64 2 42 set size 10
+    ok 27 - did new read-num64 2 give 42
+    ok 28 - does new write-num64 2 42 NativeEndian return $buf
+    ok 29 - did new write-num64 2 42 NativeEndian set size 10
+    ok 30 - did new read-num64 2 NativeEndian give 42
+    ok 31 - does new write-num64 2 42 LittleEndian return $buf
+    ok 32 - did new write-num64 2 42 LittleEndian set size 10
+    ok 33 - did new read-num64 2 LittleEndian give 42
+    ok 34 - does new write-num64 2 42 BigEndian return $buf
+    ok 35 - did new write-num64 2 42 BigEndian set size 10
+    ok 36 - did new read-num64 2 BigEndian give 42
+ok 69 - did all tests pass for write-num64 2 42
+# Subtest: did all tests pass for write-num64 3 42
+    1..36
+    ok 1 - does existing write-num64 3 42 return existing
+    ok 2 - did existing write-num64 3 42 not change size
+    ok 3 - did existing read-num64 3 give 42
+    ok 4 - does existing write-num64 3 42 NativeEndian return existing
+    ok 5 - did existing write-num64 3 42 NativeEndian not change size
+    ok 6 - did existing read-num64 3 NativeEndian give 42
+    ok 7 - does existing write-num64 3 42 LittleEndian return existing
+    ok 8 - did existing write-num64 3 42 LittleEndian not change size
+    ok 9 - did existing read-num64 3 LittleEndian give 42
+    ok 10 - does existing write-num64 3 42 BigEndian return existing
+    ok 11 - did existing write-num64 3 42 BigEndian not change size
+    ok 12 - did existing read-num64 3 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 3 42 set size 11
+    ok 15 - did type read-num64 3 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 3 42 NativeEndian set size 11
+    ok 18 - did new read-num64 3 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 3 42 LittleEndian set size 11
+    ok 21 - did new read-num64 3 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 3 42 BigEndian set size 11
+    ok 24 - did new read-num64 3 BigEndian give 42
+    ok 25 - does new write-num64 3 42 return $buf
+    ok 26 - did new write-num64 3 42 set size 11
+    ok 27 - did new read-num64 3 give 42
+    ok 28 - does new write-num64 3 42 NativeEndian return $buf
+    ok 29 - did new write-num64 3 42 NativeEndian set size 11
+    ok 30 - did new read-num64 3 NativeEndian give 42
+    ok 31 - does new write-num64 3 42 LittleEndian return $buf
+    ok 32 - did new write-num64 3 42 LittleEndian set size 11
+    ok 33 - did new read-num64 3 LittleEndian give 42
+    ok 34 - does new write-num64 3 42 BigEndian return $buf
+    ok 35 - did new write-num64 3 42 BigEndian set size 11
+    ok 36 - did new read-num64 3 BigEndian give 42
+ok 70 - did all tests pass for write-num64 3 42
+# Subtest: did all tests pass for write-num64 4 42
+    1..36
+    ok 1 - does existing write-num64 4 42 return existing
+    ok 2 - did existing write-num64 4 42 not change size
+    ok 3 - did existing read-num64 4 give 42
+    ok 4 - does existing write-num64 4 42 NativeEndian return existing
+    ok 5 - did existing write-num64 4 42 NativeEndian not change size
+    ok 6 - did existing read-num64 4 NativeEndian give 42
+    ok 7 - does existing write-num64 4 42 LittleEndian return existing
+    ok 8 - did existing write-num64 4 42 LittleEndian not change size
+    ok 9 - did existing read-num64 4 LittleEndian give 42
+    ok 10 - does existing write-num64 4 42 BigEndian return existing
+    ok 11 - did existing write-num64 4 42 BigEndian not change size
+    ok 12 - did existing read-num64 4 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 4 42 set size 12
+    ok 15 - did type read-num64 4 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 4 42 NativeEndian set size 12
+    ok 18 - did new read-num64 4 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 4 42 LittleEndian set size 12
+    ok 21 - did new read-num64 4 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 4 42 BigEndian set size 12
+    ok 24 - did new read-num64 4 BigEndian give 42
+    ok 25 - does new write-num64 4 42 return $buf
+    ok 26 - did new write-num64 4 42 set size 12
+    ok 27 - did new read-num64 4 give 42
+    ok 28 - does new write-num64 4 42 NativeEndian return $buf
+    ok 29 - did new write-num64 4 42 NativeEndian set size 12
+    ok 30 - did new read-num64 4 NativeEndian give 42
+    ok 31 - does new write-num64 4 42 LittleEndian return $buf
+    ok 32 - did new write-num64 4 42 LittleEndian set size 12
+    ok 33 - did new read-num64 4 LittleEndian give 42
+    ok 34 - does new write-num64 4 42 BigEndian return $buf
+    ok 35 - did new write-num64 4 42 BigEndian set size 12
+    ok 36 - did new read-num64 4 BigEndian give 42
+ok 71 - did all tests pass for write-num64 4 42
+# Subtest: did all tests pass for write-num64 5 42
+    1..36
+    ok 1 - does existing write-num64 5 42 return existing
+    ok 2 - did existing write-num64 5 42 not change size
+    ok 3 - did existing read-num64 5 give 42
+    ok 4 - does existing write-num64 5 42 NativeEndian return existing
+    ok 5 - did existing write-num64 5 42 NativeEndian not change size
+    ok 6 - did existing read-num64 5 NativeEndian give 42
+    ok 7 - does existing write-num64 5 42 LittleEndian return existing
+    ok 8 - did existing write-num64 5 42 LittleEndian not change size
+    ok 9 - did existing read-num64 5 LittleEndian give 42
+    ok 10 - does existing write-num64 5 42 BigEndian return existing
+    ok 11 - did existing write-num64 5 42 BigEndian not change size
+    ok 12 - did existing read-num64 5 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 5 42 set size 13
+    ok 15 - did type read-num64 5 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 5 42 NativeEndian set size 13
+    ok 18 - did new read-num64 5 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 5 42 LittleEndian set size 13
+    ok 21 - did new read-num64 5 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 5 42 BigEndian set size 13
+    ok 24 - did new read-num64 5 BigEndian give 42
+    ok 25 - does new write-num64 5 42 return $buf
+    ok 26 - did new write-num64 5 42 set size 13
+    ok 27 - did new read-num64 5 give 42
+    ok 28 - does new write-num64 5 42 NativeEndian return $buf
+    ok 29 - did new write-num64 5 42 NativeEndian set size 13
+    ok 30 - did new read-num64 5 NativeEndian give 42
+    ok 31 - does new write-num64 5 42 LittleEndian return $buf
+    ok 32 - did new write-num64 5 42 LittleEndian set size 13
+    ok 33 - did new read-num64 5 LittleEndian give 42
+    ok 34 - does new write-num64 5 42 BigEndian return $buf
+    ok 35 - did new write-num64 5 42 BigEndian set size 13
+    ok 36 - did new read-num64 5 BigEndian give 42
+ok 72 - did all tests pass for write-num64 5 42
+# Subtest: did all tests pass for write-num64 6 42
+    1..36
+    ok 1 - does existing write-num64 6 42 return existing
+    ok 2 - did existing write-num64 6 42 not change size
+    ok 3 - did existing read-num64 6 give 42
+    ok 4 - does existing write-num64 6 42 NativeEndian return existing
+    ok 5 - did existing write-num64 6 42 NativeEndian not change size
+    ok 6 - did existing read-num64 6 NativeEndian give 42
+    ok 7 - does existing write-num64 6 42 LittleEndian return existing
+    ok 8 - did existing write-num64 6 42 LittleEndian not change size
+    ok 9 - did existing read-num64 6 LittleEndian give 42
+    ok 10 - does existing write-num64 6 42 BigEndian return existing
+    ok 11 - did existing write-num64 6 42 BigEndian not change size
+    ok 12 - did existing read-num64 6 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 6 42 set size 14
+    ok 15 - did type read-num64 6 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 6 42 NativeEndian set size 14
+    ok 18 - did new read-num64 6 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 6 42 LittleEndian set size 14
+    ok 21 - did new read-num64 6 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 6 42 BigEndian set size 14
+    ok 24 - did new read-num64 6 BigEndian give 42
+    ok 25 - does new write-num64 6 42 return $buf
+    ok 26 - did new write-num64 6 42 set size 14
+    ok 27 - did new read-num64 6 give 42
+    ok 28 - does new write-num64 6 42 NativeEndian return $buf
+    ok 29 - did new write-num64 6 42 NativeEndian set size 14
+    ok 30 - did new read-num64 6 NativeEndian give 42
+    ok 31 - does new write-num64 6 42 LittleEndian return $buf
+    ok 32 - did new write-num64 6 42 LittleEndian set size 14
+    ok 33 - did new read-num64 6 LittleEndian give 42
+    ok 34 - does new write-num64 6 42 BigEndian return $buf
+    ok 35 - did new write-num64 6 42 BigEndian set size 14
+    ok 36 - did new read-num64 6 BigEndian give 42
+ok 73 - did all tests pass for write-num64 6 42
+# Subtest: did all tests pass for write-num64 7 42
+    1..36
+    ok 1 - does existing write-num64 7 42 return existing
+    ok 2 - did existing write-num64 7 42 not change size
+    ok 3 - did existing read-num64 7 give 42
+    ok 4 - does existing write-num64 7 42 NativeEndian return existing
+    ok 5 - did existing write-num64 7 42 NativeEndian not change size
+    ok 6 - did existing read-num64 7 NativeEndian give 42
+    ok 7 - does existing write-num64 7 42 LittleEndian return existing
+    ok 8 - did existing write-num64 7 42 LittleEndian not change size
+    ok 9 - did existing read-num64 7 LittleEndian give 42
+    ok 10 - does existing write-num64 7 42 BigEndian return existing
+    ok 11 - did existing write-num64 7 42 BigEndian not change size
+    ok 12 - did existing read-num64 7 BigEndian give 42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 7 42 set size 15
+    ok 15 - did type read-num64 7 give 42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 7 42 NativeEndian set size 15
+    ok 18 - did new read-num64 7 NativeEndian give 42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 7 42 LittleEndian set size 15
+    ok 21 - did new read-num64 7 LittleEndian give 42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 7 42 BigEndian set size 15
+    ok 24 - did new read-num64 7 BigEndian give 42
+    ok 25 - does new write-num64 7 42 return $buf
+    ok 26 - did new write-num64 7 42 set size 15
+    ok 27 - did new read-num64 7 give 42
+    ok 28 - does new write-num64 7 42 NativeEndian return $buf
+    ok 29 - did new write-num64 7 42 NativeEndian set size 15
+    ok 30 - did new read-num64 7 NativeEndian give 42
+    ok 31 - does new write-num64 7 42 LittleEndian return $buf
+    ok 32 - did new write-num64 7 42 LittleEndian set size 15
+    ok 33 - did new read-num64 7 LittleEndian give 42
+    ok 34 - does new write-num64 7 42 BigEndian return $buf
+    ok 35 - did new write-num64 7 42 BigEndian set size 15
+    ok 36 - did new read-num64 7 BigEndian give 42
+ok 74 - did all tests pass for write-num64 7 42
+# Subtest: did all tests pass for write-num64 0 -42
+    1..36
+    ok 1 - does existing write-num64 0 -42 return existing
+    ok 2 - did existing write-num64 0 -42 not change size
+    ok 3 - did existing read-num64 0 give -42
+    ok 4 - does existing write-num64 0 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 0 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 0 NativeEndian give -42
+    ok 7 - does existing write-num64 0 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 0 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 0 LittleEndian give -42
+    ok 10 - does existing write-num64 0 -42 BigEndian return existing
+    ok 11 - did existing write-num64 0 -42 BigEndian not change size
+    ok 12 - did existing read-num64 0 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 0 -42 set size 8
+    ok 15 - did type read-num64 0 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 0 -42 NativeEndian set size 8
+    ok 18 - did new read-num64 0 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 0 -42 LittleEndian set size 8
+    ok 21 - did new read-num64 0 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 0 -42 BigEndian set size 8
+    ok 24 - did new read-num64 0 BigEndian give -42
+    ok 25 - does new write-num64 0 -42 return $buf
+    ok 26 - did new write-num64 0 -42 set size 8
+    ok 27 - did new read-num64 0 give -42
+    ok 28 - does new write-num64 0 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 0 -42 NativeEndian set size 8
+    ok 30 - did new read-num64 0 NativeEndian give -42
+    ok 31 - does new write-num64 0 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 0 -42 LittleEndian set size 8
+    ok 33 - did new read-num64 0 LittleEndian give -42
+    ok 34 - does new write-num64 0 -42 BigEndian return $buf
+    ok 35 - did new write-num64 0 -42 BigEndian set size 8
+    ok 36 - did new read-num64 0 BigEndian give -42
+ok 75 - did all tests pass for write-num64 0 -42
+# Subtest: did all tests pass for write-num64 1 -42
+    1..36
+    ok 1 - does existing write-num64 1 -42 return existing
+    ok 2 - did existing write-num64 1 -42 not change size
+    ok 3 - did existing read-num64 1 give -42
+    ok 4 - does existing write-num64 1 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 1 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 1 NativeEndian give -42
+    ok 7 - does existing write-num64 1 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 1 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 1 LittleEndian give -42
+    ok 10 - does existing write-num64 1 -42 BigEndian return existing
+    ok 11 - did existing write-num64 1 -42 BigEndian not change size
+    ok 12 - did existing read-num64 1 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 1 -42 set size 9
+    ok 15 - did type read-num64 1 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 1 -42 NativeEndian set size 9
+    ok 18 - did new read-num64 1 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 1 -42 LittleEndian set size 9
+    ok 21 - did new read-num64 1 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 1 -42 BigEndian set size 9
+    ok 24 - did new read-num64 1 BigEndian give -42
+    ok 25 - does new write-num64 1 -42 return $buf
+    ok 26 - did new write-num64 1 -42 set size 9
+    ok 27 - did new read-num64 1 give -42
+    ok 28 - does new write-num64 1 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 1 -42 NativeEndian set size 9
+    ok 30 - did new read-num64 1 NativeEndian give -42
+    ok 31 - does new write-num64 1 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 1 -42 LittleEndian set size 9
+    ok 33 - did new read-num64 1 LittleEndian give -42
+    ok 34 - does new write-num64 1 -42 BigEndian return $buf
+    ok 35 - did new write-num64 1 -42 BigEndian set size 9
+    ok 36 - did new read-num64 1 BigEndian give -42
+ok 76 - did all tests pass for write-num64 1 -42
+# Subtest: did all tests pass for write-num64 2 -42
+    1..36
+    ok 1 - does existing write-num64 2 -42 return existing
+    ok 2 - did existing write-num64 2 -42 not change size
+    ok 3 - did existing read-num64 2 give -42
+    ok 4 - does existing write-num64 2 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 2 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 2 NativeEndian give -42
+    ok 7 - does existing write-num64 2 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 2 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 2 LittleEndian give -42
+    ok 10 - does existing write-num64 2 -42 BigEndian return existing
+    ok 11 - did existing write-num64 2 -42 BigEndian not change size
+    ok 12 - did existing read-num64 2 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 2 -42 set size 10
+    ok 15 - did type read-num64 2 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 2 -42 NativeEndian set size 10
+    ok 18 - did new read-num64 2 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 2 -42 LittleEndian set size 10
+    ok 21 - did new read-num64 2 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 2 -42 BigEndian set size 10
+    ok 24 - did new read-num64 2 BigEndian give -42
+    ok 25 - does new write-num64 2 -42 return $buf
+    ok 26 - did new write-num64 2 -42 set size 10
+    ok 27 - did new read-num64 2 give -42
+    ok 28 - does new write-num64 2 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 2 -42 NativeEndian set size 10
+    ok 30 - did new read-num64 2 NativeEndian give -42
+    ok 31 - does new write-num64 2 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 2 -42 LittleEndian set size 10
+    ok 33 - did new read-num64 2 LittleEndian give -42
+    ok 34 - does new write-num64 2 -42 BigEndian return $buf
+    ok 35 - did new write-num64 2 -42 BigEndian set size 10
+    ok 36 - did new read-num64 2 BigEndian give -42
+ok 77 - did all tests pass for write-num64 2 -42
+# Subtest: did all tests pass for write-num64 3 -42
+    1..36
+    ok 1 - does existing write-num64 3 -42 return existing
+    ok 2 - did existing write-num64 3 -42 not change size
+    ok 3 - did existing read-num64 3 give -42
+    ok 4 - does existing write-num64 3 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 3 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 3 NativeEndian give -42
+    ok 7 - does existing write-num64 3 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 3 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 3 LittleEndian give -42
+    ok 10 - does existing write-num64 3 -42 BigEndian return existing
+    ok 11 - did existing write-num64 3 -42 BigEndian not change size
+    ok 12 - did existing read-num64 3 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 3 -42 set size 11
+    ok 15 - did type read-num64 3 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 3 -42 NativeEndian set size 11
+    ok 18 - did new read-num64 3 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 3 -42 LittleEndian set size 11
+    ok 21 - did new read-num64 3 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 3 -42 BigEndian set size 11
+    ok 24 - did new read-num64 3 BigEndian give -42
+    ok 25 - does new write-num64 3 -42 return $buf
+    ok 26 - did new write-num64 3 -42 set size 11
+    ok 27 - did new read-num64 3 give -42
+    ok 28 - does new write-num64 3 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 3 -42 NativeEndian set size 11
+    ok 30 - did new read-num64 3 NativeEndian give -42
+    ok 31 - does new write-num64 3 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 3 -42 LittleEndian set size 11
+    ok 33 - did new read-num64 3 LittleEndian give -42
+    ok 34 - does new write-num64 3 -42 BigEndian return $buf
+    ok 35 - did new write-num64 3 -42 BigEndian set size 11
+    ok 36 - did new read-num64 3 BigEndian give -42
+ok 78 - did all tests pass for write-num64 3 -42
+# Subtest: did all tests pass for write-num64 4 -42
+    1..36
+    ok 1 - does existing write-num64 4 -42 return existing
+    ok 2 - did existing write-num64 4 -42 not change size
+    ok 3 - did existing read-num64 4 give -42
+    ok 4 - does existing write-num64 4 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 4 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 4 NativeEndian give -42
+    ok 7 - does existing write-num64 4 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 4 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 4 LittleEndian give -42
+    ok 10 - does existing write-num64 4 -42 BigEndian return existing
+    ok 11 - did existing write-num64 4 -42 BigEndian not change size
+    ok 12 - did existing read-num64 4 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 4 -42 set size 12
+    ok 15 - did type read-num64 4 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 4 -42 NativeEndian set size 12
+    ok 18 - did new read-num64 4 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 4 -42 LittleEndian set size 12
+    ok 21 - did new read-num64 4 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 4 -42 BigEndian set size 12
+    ok 24 - did new read-num64 4 BigEndian give -42
+    ok 25 - does new write-num64 4 -42 return $buf
+    ok 26 - did new write-num64 4 -42 set size 12
+    ok 27 - did new read-num64 4 give -42
+    ok 28 - does new write-num64 4 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 4 -42 NativeEndian set size 12
+    ok 30 - did new read-num64 4 NativeEndian give -42
+    ok 31 - does new write-num64 4 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 4 -42 LittleEndian set size 12
+    ok 33 - did new read-num64 4 LittleEndian give -42
+    ok 34 - does new write-num64 4 -42 BigEndian return $buf
+    ok 35 - did new write-num64 4 -42 BigEndian set size 12
+    ok 36 - did new read-num64 4 BigEndian give -42
+ok 79 - did all tests pass for write-num64 4 -42
+# Subtest: did all tests pass for write-num64 5 -42
+    1..36
+    ok 1 - does existing write-num64 5 -42 return existing
+    ok 2 - did existing write-num64 5 -42 not change size
+    ok 3 - did existing read-num64 5 give -42
+    ok 4 - does existing write-num64 5 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 5 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 5 NativeEndian give -42
+    ok 7 - does existing write-num64 5 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 5 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 5 LittleEndian give -42
+    ok 10 - does existing write-num64 5 -42 BigEndian return existing
+    ok 11 - did existing write-num64 5 -42 BigEndian not change size
+    ok 12 - did existing read-num64 5 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 5 -42 set size 13
+    ok 15 - did type read-num64 5 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 5 -42 NativeEndian set size 13
+    ok 18 - did new read-num64 5 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 5 -42 LittleEndian set size 13
+    ok 21 - did new read-num64 5 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 5 -42 BigEndian set size 13
+    ok 24 - did new read-num64 5 BigEndian give -42
+    ok 25 - does new write-num64 5 -42 return $buf
+    ok 26 - did new write-num64 5 -42 set size 13
+    ok 27 - did new read-num64 5 give -42
+    ok 28 - does new write-num64 5 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 5 -42 NativeEndian set size 13
+    ok 30 - did new read-num64 5 NativeEndian give -42
+    ok 31 - does new write-num64 5 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 5 -42 LittleEndian set size 13
+    ok 33 - did new read-num64 5 LittleEndian give -42
+    ok 34 - does new write-num64 5 -42 BigEndian return $buf
+    ok 35 - did new write-num64 5 -42 BigEndian set size 13
+    ok 36 - did new read-num64 5 BigEndian give -42
+ok 80 - did all tests pass for write-num64 5 -42
+# Subtest: did all tests pass for write-num64 6 -42
+    1..36
+    ok 1 - does existing write-num64 6 -42 return existing
+    ok 2 - did existing write-num64 6 -42 not change size
+    ok 3 - did existing read-num64 6 give -42
+    ok 4 - does existing write-num64 6 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 6 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 6 NativeEndian give -42
+    ok 7 - does existing write-num64 6 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 6 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 6 LittleEndian give -42
+    ok 10 - does existing write-num64 6 -42 BigEndian return existing
+    ok 11 - did existing write-num64 6 -42 BigEndian not change size
+    ok 12 - did existing read-num64 6 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 6 -42 set size 14
+    ok 15 - did type read-num64 6 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 6 -42 NativeEndian set size 14
+    ok 18 - did new read-num64 6 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 6 -42 LittleEndian set size 14
+    ok 21 - did new read-num64 6 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 6 -42 BigEndian set size 14
+    ok 24 - did new read-num64 6 BigEndian give -42
+    ok 25 - does new write-num64 6 -42 return $buf
+    ok 26 - did new write-num64 6 -42 set size 14
+    ok 27 - did new read-num64 6 give -42
+    ok 28 - does new write-num64 6 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 6 -42 NativeEndian set size 14
+    ok 30 - did new read-num64 6 NativeEndian give -42
+    ok 31 - does new write-num64 6 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 6 -42 LittleEndian set size 14
+    ok 33 - did new read-num64 6 LittleEndian give -42
+    ok 34 - does new write-num64 6 -42 BigEndian return $buf
+    ok 35 - did new write-num64 6 -42 BigEndian set size 14
+    ok 36 - did new read-num64 6 BigEndian give -42
+ok 81 - did all tests pass for write-num64 6 -42
+# Subtest: did all tests pass for write-num64 7 -42
+    1..36
+    ok 1 - does existing write-num64 7 -42 return existing
+    ok 2 - did existing write-num64 7 -42 not change size
+    ok 3 - did existing read-num64 7 give -42
+    ok 4 - does existing write-num64 7 -42 NativeEndian return existing
+    ok 5 - did existing write-num64 7 -42 NativeEndian not change size
+    ok 6 - did existing read-num64 7 NativeEndian give -42
+    ok 7 - does existing write-num64 7 -42 LittleEndian return existing
+    ok 8 - did existing write-num64 7 -42 LittleEndian not change size
+    ok 9 - did existing read-num64 7 LittleEndian give -42
+    ok 10 - does existing write-num64 7 -42 BigEndian return existing
+    ok 11 - did existing write-num64 7 -42 BigEndian not change size
+    ok 12 - did existing read-num64 7 BigEndian give -42
+    ok 13 - did we get a buf8?
+    ok 14 - did type write-num64 7 -42 set size 15
+    ok 15 - did type read-num64 7 give -42
+    ok 16 - did we get a buf8 for NativeEndian?
+    ok 17 - did new write-num64 7 -42 NativeEndian set size 15
+    ok 18 - did new read-num64 7 NativeEndian give -42
+    ok 19 - did we get a buf8 for LittleEndian?
+    ok 20 - did new write-num64 7 -42 LittleEndian set size 15
+    ok 21 - did new read-num64 7 LittleEndian give -42
+    ok 22 - did we get a buf8 for BigEndian?
+    ok 23 - did new write-num64 7 -42 BigEndian set size 15
+    ok 24 - did new read-num64 7 BigEndian give -42
+    ok 25 - does new write-num64 7 -42 return $buf
+    ok 26 - did new write-num64 7 -42 set size 15
+    ok 27 - did new read-num64 7 give -42
+    ok 28 - does new write-num64 7 -42 NativeEndian return $buf
+    ok 29 - did new write-num64 7 -42 NativeEndian set size 15
+    ok 30 - did new read-num64 7 NativeEndian give -42
+    ok 31 - does new write-num64 7 -42 LittleEndian return $buf
+    ok 32 - did new write-num64 7 -42 LittleEndian set size 15
+    ok 33 - did new read-num64 7 LittleEndian give -42
+    ok 34 - does new write-num64 7 -42 BigEndian return $buf
+    ok 35 - did new write-num64 7 -42 BigEndian set size 15
+    ok 36 - did new read-num64 7 BigEndian give -42
+ok 82 - did all tests pass for write-num64 7 -42

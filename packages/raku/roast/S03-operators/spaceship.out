@@ -1,0 +1,12 @@
+1..7
+ok 1 - parens with spaceship parse incorrectly
+ok 2 - When spaceship terms are non-trivial members it parses incorrectly
+ok 3 - When spaceship terms are non-trivial members it parses incorrectly
+ok 4 - When spaceship terms are non-trivial members it parses incorrectly
+ok 5 - When spaceship terms are non-integral numbers it parses incorrectly
+# Subtest: <=> with non-numerics throws correct exception
+    1..2
+    ok 1 - 'say ’a‘ <=> ’b‘' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 6 - <=> with non-numerics throws correct exception
+ok 7 - handling 0 denominators on Rat

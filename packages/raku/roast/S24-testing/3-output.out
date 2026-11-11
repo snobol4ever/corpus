@@ -1,0 +1,7 @@
+1..6
+ok 1 - expected output with failing test "is-deeply"
+ok 2 - expected output with passing test "is-deeply"
+ok 3 - eval error via diag
+ok 4 - expected output with passing todo test
+ok 5 - descriptions with newlines get escaped from TAP with ` \#` at start of line
+ok 6 - skip() escapes ` \#` but not the ` \#` of SKIP marker itself

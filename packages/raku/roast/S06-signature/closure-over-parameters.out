@@ -1,0 +1,5 @@
+1..4
+ok 1 - closing over params of outer subs (0)
+ok 2 - closing over params of outer subs (1)
+ok 3 - closing over params of outer subs (2)
+ok 4 - closing over params of outer subs (3)

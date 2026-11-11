@@ -1,0 +1,41 @@
+1..16
+# Subtest: bare say is a compiler error
+    1..2
+    ok 1 - 'say' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 1 - bare say is a compiler error
+# Subtest: bare print is a compiler error
+    1..2
+    ok 1 - 'print' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 2 - bare print is a compiler error
+# Subtest: bare put is a compiler error
+    1..2
+    ok 1 - 'put' died
+    ok 2 - right exception type (X::Comp::Group)
+ok 3 - bare put is a compiler error
+# Subtest: `put for ...` throws
+    1..2
+    ok 1 - 'put for 1' died
+    ok 2 - right exception type (Exception)
+ok 4 - `put for ...` throws
+ok 5 - say ()
+ok 6 - say("")
+ok 7 - say()
+ok 8 - put ()
+ok 9 - put("")
+ok 10 - put()
+ok 11 - print ()
+ok 12 - print("")
+ok 13 - print()
+# Subtest: say for 1  is an error
+    1..2
+    ok 1 - 'say for 1' died
+    ok 2 - right exception type (X::Obsolete)
+ok 14 - say for 1  is an error
+# Subtest: say  for 1  is an error
+    1..2
+    ok 1 - 'say  for 1' died
+    ok 2 - right exception type (X::Obsolete)
+ok 15 - say  for 1  is an error
+ok 16 - for %h { .say } (RT  \#74822)

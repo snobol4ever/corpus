@@ -1,0 +1,17 @@
+1..16
+ok 1 - 'foo' matches any <foo bar baz>
+ok 2 - 'foo' matches any(<foo bar baz>)
+ok 3 - 'bar' matches any <foo bar baz>
+ok 4 - 'bar' matches any(<foo bar baz>)
+ok 5 - 'fo' does not match any <foo bar baz>
+ok 6 - 'fo' does not match any(<foo bar baz>)
+ok 7 - 'foo ' does not match any <foo bar baz>
+ok 8 - 'foo ' does not match any(<foo bar baz>)
+ok 9 - 'foo bar baz' does not match any <foo bar baz>
+ok 10 - 'foo bar baz' does not match any(<foo bar baz>)
+ok 11 - 'oo' does not match any <foo bar baz>
+ok 12 - 'oo' does not match any(<foo bar baz>)
+ok 13 - 'bar b' does not match any <foo bar baz>
+ok 14 - 'bar b' does not match any(<foo bar baz>)
+ok 15 - 'bar baz' does not match any <foo bar baz>
+ok 16 - 'bar baz' does not match any(<foo bar baz>)

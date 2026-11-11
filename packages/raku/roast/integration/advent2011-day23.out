@@ -1,0 +1,56 @@
+1..55
+ok 1 - @array[ rand*@array ];
+ok 2 - @array.pick;
+ok 3 - for 0 .. @array.end -> $i {...}
+ok 4 - for @array.keys -> $i {...}
+ok 5 - Int( $x / 3 )
+ok 6 - $x div 3
+ok 7 - Int( $x / 3 )
+ok 8 - $x div 3
+ok 9 - Int( $x / 3 )
+ok 10 - $x div 3
+ok 11 - Int( $x / 3 )
+ok 12 - $x div 3
+ok 13 - 0+@array
+ok 14 - +@array
+ok 15 - @array.elems
+ok 16 - if !($x % 5) {...}
+ok 17 - if $x %% 5 {...}
+ok 18 - for 0 ..^ $n {...}
+ok 19 - for ^$n {...}
+ok 20 - @words = .split(/\s+/);
+ok 21 - @words = .words
+ok 22 - @chars = $word.split('');
+ok 23 - @chars = $word.comb;
+ok 24 - while 1 {...}
+ok 25 - loop {...}
+ok 26 - my %s;  return grep { !%s{$_}++ }, @a
+ok 27 - @a.unique
+ok 28 - my @alpha = 'A' .. 'Z'
+ok 29 - @a = qw{ able baker charlie };
+ok 30 - %meta = ( foo => 'bar', baz => 'quz' );
+ok 31 - my @squares = map { $_ * $_ }, @a;
+ok 32 - @starts_with_number = grep { /^\d/ }, @a;
+ok 33 - for $*ARGFILES.lines {...}
+ok 34 - for lines() {...}
+ok 35 - lines() defaults to $*ARGFILES
+ok 36 - my %h = map { $_ => 1 }, @a
+ok 37 - my %h = @a X=> 1
+ok 38 - my $c;   my %h = map { $_ => ++$c }, @a
+ok 39 - my $c;   my %h = map { $_ => ++$c }, @a
+ok 40 - my %h = @a.pairs.invert;
+ok 41 - ( $x, $y ) =   $y, $x;
+ok 42 - ( $x, $y ) .= reverse;
+ok 43 - @a.push: @a.shift;
+ok 44 - @a .= rotate
+ok 45 - my $pet = Dog.new;
+ok 46 - my Dog $pet .= new;
+ok 47 - @z = map { $_ > 5 ?? ($_) xx 3 !! Nil }, @y
+ok 48 - @y.map: { $_ xx 3 if $_ > 5 };
+ok 49 - @z = ($_ xx 3 if $_ > 5 for @y);
+ok 50 - $z = 3 + Int(5.rand)
+ok 51 - (3..7).pick
+ok 52 - for 3, * + 3 ... * -> $n {...}
+ok 53 - for 3, 6, 9 ... * -> $n {...}
+ok 54 - for ($start+1) .. ($limit-1) -> $i {...}
+ok 55 - for $start ^..^ $limit -> $i {...}

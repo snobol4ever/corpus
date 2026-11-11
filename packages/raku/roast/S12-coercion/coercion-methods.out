@@ -1,0 +1,64 @@
+1..2
+# Subtest: Classes
+    1..11
+    # Subtest: coercion of a Numeric
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 1 - coercion of a Numeric
+    # Subtest: coercion of Bool
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 2 - coercion of Bool
+    # Subtest: coercion via stringification
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 3 - coercion via stringification
+    # Subtest: coercion via fallback to method new
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 4 - coercion via fallback to method new
+    ok 5 - method new has its context set
+    # Subtest: coercion throws when no matching method found
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 6 - coercion throws when no matching method found
+    # Subtest: submethod COERCE works
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 7 - submethod COERCE works
+    # Subtest: a submethod blocks use of parent COERCE methods
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 8 - a submethod blocks use of parent COERCE methods
+    # Subtest: coercion via MRO works
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 9 - coercion via MRO works
+    # Subtest: a descendant class can extend ancestor's coercions
+        ok 1 - target type is 
+        ok 2 - value
+        1..2
+    ok 10 - a descendant class can extend ancestor's coercions
+    # Subtest: badly engineered COERCE method results in error on a descendant class
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Coerce::Impossible)
+    ok 11 - badly engineered COERCE method results in error on a descendant class
+ok 1 - Classes
+# Subtest: Roles
+    1..6
+    ok 1 - coercing into role with method 'COERCE' doesn't fail
+    ok 2 - method 'COERCE' produces an instance of its pun
+    ok 3 - method 'COERCE': coerced value is as expected
+    ok 4 - coercing into role with method 'new' doesn't fail
+    ok 5 - method 'new' produces an instance of its pun
+    ok 6 - method 'new': coerced value is as expected
+ok 2 - Roles

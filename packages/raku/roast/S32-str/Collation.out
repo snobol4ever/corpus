@@ -1,0 +1,99 @@
+1..15
+ok 1 - !tertiary, !quaternary returns ‘Same’ for ‘a’ coll ‘A’
+# Subtest
+    1..81
+    ok 1 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => 1,quaternary => -1
+    ok 2 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => 1,quaternary => 0
+    ok 3 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => 1,quaternary => 1
+    ok 4 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => -1,quaternary => 0
+    ok 5 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => -1,quaternary => 1
+    ok 6 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => -1,quaternary => -1
+    ok 7 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => 0,quaternary => 1
+    ok 8 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => 0,quaternary => -1
+    ok 9 - $*COLLATION.set(primary=>-1,secondary=>0,tertiary => 0,quaternary => 0
+    ok 10 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => -1,quaternary => 0
+    ok 11 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => -1,quaternary => 1
+    ok 12 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => -1,quaternary => -1
+    ok 13 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => 0,quaternary => 1
+    ok 14 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => 0,quaternary => -1
+    ok 15 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => 0,quaternary => 0
+    ok 16 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => 1,quaternary => -1
+    ok 17 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => 1,quaternary => 0
+    ok 18 - $*COLLATION.set(primary=>-1,secondary=>1,tertiary => 1,quaternary => 1
+    ok 19 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => 0,quaternary => 1
+    ok 20 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => 0,quaternary => -1
+    ok 21 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => 0,quaternary => 0
+    ok 22 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => 1,quaternary => -1
+    ok 23 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => 1,quaternary => 0
+    ok 24 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => 1,quaternary => 1
+    ok 25 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => -1,quaternary => 0
+    ok 26 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => -1,quaternary => 1
+    ok 27 - $*COLLATION.set(primary=>-1,secondary=>-1,tertiary => -1,quaternary => -1
+    ok 28 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => -1,quaternary => 0
+    ok 29 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => -1,quaternary => 1
+    ok 30 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => -1,quaternary => -1
+    ok 31 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => 0,quaternary => 1
+    ok 32 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => 0,quaternary => -1
+    ok 33 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => 0,quaternary => 0
+    ok 34 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => 1,quaternary => -1
+    ok 35 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => 1,quaternary => 0
+    ok 36 - $*COLLATION.set(primary=>0,secondary=>1,tertiary => 1,quaternary => 1
+    ok 37 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => 0,quaternary => 1
+    ok 38 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => 0,quaternary => -1
+    ok 39 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => 0,quaternary => 0
+    ok 40 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => 1,quaternary => -1
+    ok 41 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => 1,quaternary => 0
+    ok 42 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => 1,quaternary => 1
+    ok 43 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => -1,quaternary => 0
+    ok 44 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => -1,quaternary => 1
+    ok 45 - $*COLLATION.set(primary=>0,secondary=>-1,tertiary => -1,quaternary => -1
+    ok 46 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => 1,quaternary => -1
+    ok 47 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => 1,quaternary => 0
+    ok 48 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => 1,quaternary => 1
+    ok 49 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => -1,quaternary => 0
+    ok 50 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => -1,quaternary => 1
+    ok 51 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => -1,quaternary => -1
+    ok 52 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => 0,quaternary => 1
+    ok 53 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => 0,quaternary => -1
+    ok 54 - $*COLLATION.set(primary=>0,secondary=>0,tertiary => 0,quaternary => 0
+    ok 55 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => 0,quaternary => 1
+    ok 56 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => 0,quaternary => -1
+    ok 57 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => 0,quaternary => 0
+    ok 58 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => 1,quaternary => -1
+    ok 59 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => 1,quaternary => 0
+    ok 60 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => 1,quaternary => 1
+    ok 61 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => -1,quaternary => 0
+    ok 62 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => -1,quaternary => 1
+    ok 63 - $*COLLATION.set(primary=>1,secondary=>-1,tertiary => -1,quaternary => -1
+    ok 64 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => 1,quaternary => -1
+    ok 65 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => 1,quaternary => 0
+    ok 66 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => 1,quaternary => 1
+    ok 67 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => -1,quaternary => 0
+    ok 68 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => -1,quaternary => 1
+    ok 69 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => -1,quaternary => -1
+    ok 70 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => 0,quaternary => 1
+    ok 71 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => 0,quaternary => -1
+    ok 72 - $*COLLATION.set(primary=>1,secondary=>0,tertiary => 0,quaternary => 0
+    ok 73 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => -1,quaternary => 0
+    ok 74 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => -1,quaternary => 1
+    ok 75 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => -1,quaternary => -1
+    ok 76 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => 0,quaternary => 1
+    ok 77 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => 0,quaternary => -1
+    ok 78 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => 0,quaternary => 0
+    ok 79 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => 1,quaternary => -1
+    ok 80 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => 1,quaternary => 0
+    ok 81 - $*COLLATION.set(primary=>1,secondary=>1,tertiary => 1,quaternary => 1
+ok 2 - 
+ok 3 - a is less than b
+ok 4 - a is less than Z
+ok 5 - woman facepalming is less than man facepalming
+ok 6 - a is less than A
+ok 7 - -tertiary -quaternary a is Same as A
+ok 8 - 
+ok 9 - gist
+ok 10 - collation 0 for everything doesn't sort at all
+ok 11 - collation 0 for everything doesn't sort at all
+ok 12 - 
+ok 13 - <a á A Á ó ø 1 z t ṫ>.collate
+ok 14 - !secondary, !tertiary; <a á A Á ó ø 1 z t ṫ>.collate
+ok 15 - :!tertiary, :!quaternary collation puts "a" and "A" as Same

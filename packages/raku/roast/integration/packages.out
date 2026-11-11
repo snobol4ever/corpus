@@ -1,0 +1,4 @@
+1..3
+ok 1 - "if" inside a module works
+ok 2 - for loop inside a module works
+ok 3 - EVAL inside a module looks up subs in the right namespace

@@ -1,0 +1,78 @@
+1..41
+ok 1 - Mu++ == 0
+ok 2 - postincrement (& decrement) returns 0 the first time
+ok 3 - magical ++ should not be numified
+ok 4 - it isa Str
+ok 5 - magical ++ is carrying properly
+ok 6 - hash key
+ok 7 - hash key via var
+ok 8 - array elem
+ok 9 - array elem via var
+ok 10 - var was not touched
+ok 11 - ++ evaluates the expression to increment only once (1)
+ok 12 - ++ evaluates the expression to increment only once (2)
+ok 13 - postincrements in array subscripts work
+ok 14 - postincrements in array subscripts work
+ok 15 - postincrements in array subscripts work
+# Subtest: can't postincrement a literal number
+    1..2
+    ok 1 - ' 4++ ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 16 - can't postincrement a literal number
+# Subtest: can't preincrement a literal number
+    1..2
+    ok 1 - ' ++4 ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 17 - can't preincrement a literal number
+# Subtest: can't postdecrement a literal number
+    1..2
+    ok 1 - ' 4-- ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 18 - can't postdecrement a literal number
+# Subtest: can't predecrement a literal number
+    1..2
+    ok 1 - ' --4 ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 19 - can't predecrement a literal number
+# Subtest: can't postincrement a literal string
+    1..2
+    ok 1 - ' "x"++ ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 20 - can't postincrement a literal string
+# Subtest: can't preincrement a literal string
+    1..2
+    ok 1 - ' ++"x" ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 21 - can't preincrement a literal string
+# Subtest: can't postdecrement a literal string
+    1..2
+    ok 1 - ' "x"-- ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 22 - can't postdecrement a literal string
+# Subtest: can't predecrement a literal string
+    1..2
+    ok 1 - ' --"x" ' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 23 - can't predecrement a literal string
+ok 24 - can add Int to Rat with +=
+ok 25 - can add Int to Rat with += and type constraint
+ok 26 - can add Int to Num with +=
+ok 27 - can add Int to Num with += and type constraint
+ok 28 - ++ on False works
+ok 29 - .succ on False works
+ok 30 - -- on True works
+ok 31 - .succ on False works
+# Subtest: can not double-increment, because the return value is not a container
+    1..2
+    ok 1 - 'my $x = 0; ++++$x' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 32 - can not double-increment, because the return value is not a container
+ok 33 - ++ is allowed on declarator
+ok 34 - ...and actually increments variable
+ok 35 - .++ is allowed on declarator
+ok 36 - ...and actually increments variable
+ok 37 - method is allowed on declarator
+ok 38 - prefix:<--> on Any:U returns -1
+ok 39 - prefix:<--> on Any:U makes it -1
+ok 40 - did we get correct increments on ⁰
+ok 41 - did we get correct decrements on ¹⁰⁰

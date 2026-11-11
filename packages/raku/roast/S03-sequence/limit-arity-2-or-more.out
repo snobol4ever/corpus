@@ -1,0 +1,9 @@
+1..8
+ok 1 - arity-2 convergence limit
+ok 2 - arity-2 excluded convergence limit
+ok 3 - arity-3 curvature limit
+ok 4 - arity-3 excluded curvature limit
+ok 5 - ASAP arity-2 convergence limit
+ok 6 - ASAP arity-2 excluded convergence limit
+ok 7 - arity-Inf limit
+ok 8 - arity-Inf excluded limit

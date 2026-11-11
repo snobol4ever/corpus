@@ -1,0 +1,198 @@
+1..54
+ok 1 - can Int   be on its own
+ok 2 - can Int   take an Int:U
+ok 3 - can Int   take an Int:D
+ok 4 - can Int:_ be on its own
+ok 5 - can Int:_ take an Int:U
+ok 6 - can Int:_ take an Int:D
+ok 7 - can Int:U be on its own
+ok 8 - can Int:U take an Int:U
+# Subtest: can Int:U take an Int:D
+    1..3
+    ok 1 - 'class { has Int:U $.a = 42 }.new.a' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .name matches $!a
+ok 9 - can Int:U take an Int:D
+# Subtest: can Int:D be on its own
+    1..3
+    ok 1 - 'class { has Int:D $.a }' died
+    ok 2 - right exception type (X::Syntax::Variable::MissingInitializer)
+    ok 3 - .type matches Int:D
+ok 10 - can Int:D be on its own
+# Subtest: can Int:D take an Int:U
+    1..3
+    ok 1 - 'class { has Int:D $.a = Int }.new.a' died
+    not ok 2 - right exception type (X::TypeCheck::Attribute::Default) # TODO only pass with rakuast
+    # Failed test 'right exception type (X::TypeCheck::Attribute::Default)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::TypeCheck::Attribute::Default
+    # Got:      X::TypeCheck::Assignment
+    # Exception message: Type check failed in assignment to $!a; expected Int:D but got Int (Int) (perhaps Nil was assigned to a :D which had no default?)
+    ok 3 - # SKIP wrong exception type
+not ok 11 - can Int:D take an Int:U # TODO only pass with rakuast
+# Failed test 'can Int:D take an Int:U'
+# at S12-attributes/smiley.rakudo line 23
+ok 12 - can Int:D take an Int:D
+ok 13 - with :_, can Int   be on its own
+ok 14 - with :_, can Int   take an Int:U
+ok 15 - with :_, can Int   take an Int:D
+ok 16 - with :_, can Int:_ be on its own
+ok 17 - with :_, can Int:_ take an Int:U
+ok 18 - with :_, can Int:_ take an Int:D
+ok 19 - with :_, can Int:U be on its own
+ok 20 - with :_, can Int:U take an Int:U
+# Subtest: with :_, can Int:U take an Int:D
+    1..3
+    ok 1 - 'class { has Int:U $.a = 42 }.new' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .name matches $!a
+ok 21 - with :_, can Int:U take an Int:D
+# Subtest: with :_, can Int:D be on its own
+    1..3
+    ok 1 - 'class { has Int:D $.a }' died
+    ok 2 - right exception type (X::Syntax::Variable::MissingInitializer)
+    ok 3 - .type matches Int:D
+ok 22 - with :_, can Int:D be on its own
+# Subtest: with :_, can Int:D take an Int:U
+    1..3
+    ok 1 - 'class { has Int:D $.a = Int }.new' died
+    not ok 2 - right exception type (X::TypeCheck::Attribute::Default) # TODO only pass with rakuast
+    # Failed test 'right exception type (X::TypeCheck::Attribute::Default)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::TypeCheck::Attribute::Default
+    # Got:      X::TypeCheck::Assignment
+    # Exception message: Type check failed in assignment to $!a; expected Int:D but got Int (Int) (perhaps Nil was assigned to a :D which had no default?)
+    ok 3 - # SKIP wrong exception type
+not ok 23 - with :_, can Int:D take an Int:U # TODO only pass with rakuast
+# Failed test 'with :_, can Int:D take an Int:U'
+# at S12-attributes/smiley.rakudo line 48
+ok 24 - with :_, can Int:D take an Int:D
+ok 25 - with :U, can Int   be on its own
+ok 26 - with :U, can Int   take an Int:U
+# Subtest: with :U, can Int   take an Int:D
+    1..3
+    ok 1 - 'use attributes :U; class { has Int $a = 42 }.new' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .name matches $!a
+ok 27 - with :U, can Int   take an Int:D
+ok 28 - with :U, can Int:_ be on its own
+ok 29 - with :U, can Int:_ take an Int:U
+ok 30 - with :U, can Int:_ take an Int:D
+ok 31 - with :U, can Int:U be on its own
+ok 32 - with :U, can Int:U take an Int:U
+# Subtest: with :U, can Int:U take an Int:D
+    1..3
+    ok 1 - 'use attributes :U; class { has Int:U $.a = 42 }.new' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .name matches $!a
+ok 33 - with :U, can Int:U take an Int:D
+# Subtest: with :U, can Int:D be on its own
+    1..3
+    ok 1 - 'use attributes :U; class { has Int:D $a }' died
+    ok 2 - right exception type (X::Syntax::Variable::MissingInitializer)
+    ok 3 - .type matches Int:D
+ok 34 - with :U, can Int:D be on its own
+# Subtest: with :U, can Int:D take an Int:U
+    1..3
+    ok 1 - 'class { has Int:D $.a = Int }.new' died
+    not ok 2 - right exception type (X::TypeCheck::Attribute::Default) # TODO only pass with rakuast
+    # Failed test 'right exception type (X::TypeCheck::Attribute::Default)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::TypeCheck::Attribute::Default
+    # Got:      X::TypeCheck::Assignment
+    # Exception message: Type check failed in assignment to $!a; expected Int:D but got Int (Int) (perhaps Nil was assigned to a :D which had no default?)
+    ok 3 - # SKIP wrong exception type
+not ok 35 - with :U, can Int:D take an Int:U # TODO only pass with rakuast
+# Failed test 'with :U, can Int:D take an Int:U'
+# at S12-attributes/smiley.rakudo line 76
+ok 36 - with :U, can Int:D take an Int:D
+# Subtest: with :D, can Int   be on its own
+    1..4
+    ok 1 - 'use attributes :D; class { has Int $a }' died
+    ok 2 - right exception type (X::Syntax::Variable::MissingInitializer)
+    ok 3 - .implicit matches :D by pragma
+    ok 4 - .type matches Int:D
+ok 37 - with :D, can Int   be on its own
+# Subtest: with :D, can Int   take an Int:U
+    1..3
+    ok 1 - 'use attributes :D; class { has Int $a = Int }.new' died
+    not ok 2 - right exception type (X::TypeCheck::Attribute::Default) # TODO only pass with rakuast
+    # Failed test 'right exception type (X::TypeCheck::Attribute::Default)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::TypeCheck::Attribute::Default
+    # Got:      X::TypeCheck::Assignment
+    # Exception message: Type check failed in assignment to $!a; expected Int:D but got Int (Int) (perhaps Nil was assigned to a :D which had no default?)
+    ok 3 - # SKIP wrong exception type
+not ok 38 - with :D, can Int   take an Int:U # TODO only pass with rakuast
+# Failed test 'with :D, can Int   take an Int:U'
+# at S12-attributes/smiley.rakudo line 88
+ok 39 - with :D, can Int   take an Int:D
+ok 40 - with :D, can Int:_ be on its own
+ok 41 - with :D, can Int:_ take an Int:U
+ok 42 - with :D, can Int:_ take an Int:D
+ok 43 - with :D, can Int:U be on its own
+ok 44 - with :D, can Int:U take an Int:U
+# Subtest: with :D, can Int:U take an Int:D
+    1..3
+    ok 1 - 'class { has Int:U $.a = 42 }.new' died
+    ok 2 - right exception type (X::TypeCheck::Attribute::Default)
+    ok 3 - .name matches $!a
+ok 45 - with :D, can Int:U take an Int:D
+# Subtest: with :D, can Int:D be on its own
+    1..3
+    ok 1 - 'use attributes :D; class { has Int:D $.a }' died
+    ok 2 - right exception type (X::Syntax::Variable::MissingInitializer)
+    ok 3 - .type matches Int:D
+ok 46 - with :D, can Int:D be on its own
+# Subtest: with :D, can Int:D take an Int:U
+    1..3
+    ok 1 - 'class { has Int:D $.a = Int }.new' died
+    not ok 2 - right exception type (X::TypeCheck::Attribute::Default) # TODO only pass with rakuast
+    # Failed test 'right exception type (X::TypeCheck::Attribute::Default)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::TypeCheck::Attribute::Default
+    # Got:      X::TypeCheck::Assignment
+    # Exception message: Type check failed in assignment to $!a; expected Int:D but got Int (Int) (perhaps Nil was assigned to a :D which had no default?)
+    ok 3 - # SKIP wrong exception type
+not ok 47 - with :D, can Int:D take an Int:U # TODO only pass with rakuast
+# Failed test 'with :D, can Int:D take an Int:U'
+# at S12-attributes/smiley.rakudo line 107
+ok 48 - with :D, can Int:D take an Int:D
+# Subtest: does Int:foo fail
+    1..2
+    ok 1 - 'my Int:foo $a' died
+    ok 2 - right exception type (X::InvalidTypeSmiley)
+ok 49 - does Int:foo fail
+# Subtest: does use attributes fail
+    1..3
+    ok 1 - 'use attributes' died
+    ok 2 - right exception type (X::Pragma::MustOneOf)
+    ok 3 - .name matches attributes
+ok 50 - does use attributes fail
+# Subtest: does no attributes fail
+    1..4
+    ok 1 - 'no attributes' died
+    ok 2 - right exception type (X::Pragma::CannotWhat)
+    ok 3 - .what matches no
+    ok 4 - .name matches attributes
+ok 51 - does no attributes fail
+# Subtest: does use attributes "bar" fail
+    1..4
+    ok 1 - 'use attributes "bar"' died
+    ok 2 - right exception type (X::Pragma::UnknownArg)
+    ok 3 - .arg matches bar
+    ok 4 - .name matches attributes
+ok 52 - does use attributes "bar" fail
+# Subtest: does use attributes :U, :D fail
+    1..3
+    ok 1 - 'use attributes :U, :D' died
+    ok 2 - right exception type (X::Pragma::OnlyOne)
+    ok 3 - .name matches attributes
+ok 53 - does use attributes :U, :D fail
+# Subtest: does use attributes :foo fail
+    1..3
+    ok 1 - 'use attributes :foo' died
+    ok 2 - right exception type (X::InvalidTypeSmiley)
+    ok 3 - .name matches foo
+ok 54 - does use attributes :foo fail
+# FUDGED!

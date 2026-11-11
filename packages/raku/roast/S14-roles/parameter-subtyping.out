@@ -1,0 +1,23 @@
+1..22
+ok 1 - basic sanity
+ok 2 - basic sanity
+ok 3 - subtyping by role parameters (one param)
+ok 4 - subtyping by role parameters (one param)
+ok 5 - subtyping by role parameters (one param)
+ok 6 - basic sanity
+ok 7 - basic sanity
+ok 8 - subtyping by role parameters (nested)
+ok 9 - subtyping by role parameters (nested)
+ok 10 - subtyping by role parameters (nested)
+ok 11 - basic sanity
+ok 12 - basic sanity
+ok 13 - subtyping by role parameters (two params)
+ok 14 - subtyping by role parameters (two params)
+ok 15 - subtyping by role parameters (two params)
+ok 16 - subtyping by role parameters (two params)
+ok 17 - subtyping by role parameters (two params)
+ok 18 - single dispatch relying on parametric subtype
+ok 19 - multi dispatch relying on parametric subtype
+ok 20 - type constraints enforced properly
+ok 21 - assignment worked as expected
+ok 22 - assignment worked as expected

@@ -1,0 +1,46 @@
+1..42
+ok 1 - q:to// is singular
+ok 2 - here doc interpolated
+ok 3 - here doc interpolating with indentation
+ok 4 - q:to// is singular, also when indented
+ok 5 - indentation stripped
+ok 6 - q:heredoc// is singular
+ok 7 - backslashes
+ok 8 - indent with multiline interpolation
+ok 9 - indent with multiline interpolation with spaces at the beginning
+ok 10 - extra spaces after interpolation will be kept
+ok 11 - interpolations without constant strings in the middle
+ok 12 - interpolations at the very end
+ok 13 - empty lines
+ok 14 - Tabs get correctly removed
+ok 15 - mixed tabs and spaces get correctly removed
+ok 16 - mixing tabs and spaces even more evil-ly
+ok 17 - Constant heredocs work
+ok 18 - Heredoc leading and trailing empty lines
+ok 19 - Completely empty heredoc
+ok 20 - Heredoc one empty line
+ok 21 - Heredoc two empty lines
+ok 22 - Heredoc tab explosion makefile use case is usesul.
+ok 23 - # SKIP RT  \#131927
+ok 24 - # SKIP RT  \#131927
+ok 25 - # SKIP RT  \#131927
+ok 26 - # SKIP RT  \#131927
+ok 27 - # SKIP RT  \#131927
+ok 28 - # SKIP RT  \#131927
+ok 29 - # SKIP RT  \#131927
+ok 30 - # SKIP RT  \#131927
+ok 31 - # SKIP RT  \#131927
+ok 32 - # SKIP RT  \#131927
+ok 33 - # SKIP RT  \#131927
+ok 34 - heredoc list element 0
+ok 35 - heredoc list element 1
+ok 36 - heredoc list element 2
+ok 37 - heredoc in a function call
+Say me!
+
+ok 38 - heredoc ok in block 1
+ok 39 - heredoc fails in block 2a
+ok 40 - heredoc made to work in block 2b
+ok 41 - heredoc ok in block 3
+ok 42 - heredoc fails in block 4
+# FUDGED!

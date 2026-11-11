@@ -1,0 +1,379 @@
+1..302
+ok 1 - assigned correct value to first of two scalars
+ok 2 - ... and second
+ok 3 - swap assignment works for the first value
+ok 4 - ... and second
+ok 5 - assignment operator called as function
+ok 6 - assignment as function with types (1)
+ok 7 - assignment as function with types (2)
+ok 8 - assignment operator called as function
+ok 9 - slice assignment swapping two element in the same array
+ok 10 - slice assignment swapping two element in the same array
+ok 11 - slice assignment swapping with array dwim
+ok 12 - slice assignment swapping with array dwim
+ok 13 - slice assignment swapping with array dwim makes listop
+ok 14 - list assignment my ($, $, $) = @ works
+ok 15 - list assignment my ($, $, $) = @ works
+ok 16 - list assignment my ($, $, $) = @ works
+ok 17 - list assignment my ($a, $, $b) = @ works
+ok 18 - list assignment my ($, $a) = @ works
+ok 19 - list assignment my ($, $, $, $a) = @ works
+ok 20 - list assignment my ($, @) = @ works
+ok 21 - list assignment my ($, @, $c) = @ works
+ok 22 - list assignment ($a, *, $b) = @ works
+ok 23 - list assignment (*, $a, *) = @ works
+ok 24 - list assignment (*, *, *, $a) = @ works
+ok 25 - list assignment (*, @) = @ works
+ok 26 - list assignment (*, @, $c) = @ works
+ok 27 - list assignment ($a, $, $b) = @ works
+ok 28 - signature binding my ($one, *@) = 1..4 works
+ok 29 - signature binding my ($a, $b, *@) = 1..4 works
+ok 30 - signature binding my ($c, $d, *@) = 1..2 works
+ok 31 - '$a' is '1'?: ($,$,$) = 1 .. 3
+ok 32 - '$b' is '2'?: ($,$,$) = 1 .. 3
+ok 33 - '$c' is '3'?: ($,$,$) = 1 .. 3
+ok 34 - '@a' is '1 2 3'?:        @a = 1 .. 3
+ok 35 - $s is '1'?:    my ($s,@a) = 1 .. 3
+ok 36 - '@b' is '2 3'?: my ($s,@a) = 1 .. 3
+ok 37 - got scalar in (scalar,hash) = list
+ok 38 - got hash in (scalar,hash) = list
+ok 39 - assigned correct value from list to sliced array
+ok 40 - ... and second
+ok 41 - ... and third
+ok 42 - won't modify unassigned one
+ok 43 - assigned correct value from list to unsorted sliced array
+ok 44 - ... and second
+ok 45 - ... and third
+ok 46 - assigned correct value from list to slice-in-list
+ok 47 - ... and second
+ok 48 - ... and third
+ok 49 - ... and fourth
+ok 50 - ... and fifth
+ok 51 - won't modify unassigned one
+ok 52 - chained @ = % = list assignment
+ok 53 - chained @ = % = list assignment
+ok 54 - chained $ = % = list assignment
+ok 55 - chained $ = % = list assignment
+ok 56 - (@b, @a) = (@a, @b) assignment \@a[0] == undefined
+ok 57 - (@b, @a) = (@a, @b) assignment \@b[0]
+ok 58 - (@b, @a) = (@a, @b) assignment \@b[1]
+ok 59 - (@b, @a) = @a, @b assignment \@a[0] == undefined
+ok 60 - (@b, @a) = @a, @b assignment \@b[0]
+ok 61 - (@b, @a) = @a, @b assignment \@b[1]
+ok 62 - ||= operator
+ok 63 - ||= operator parses as item assignment 1
+ok 64 - ||= operator parses as item assignment 2
+ok 65 - ... and second
+ok 66 - ||= operator parses as item assignment 3
+ok 67 - ||= operator parses as item assignment 4
+ok 68 - or= operator
+ok 69 - or= operator parses as list assignment 1
+ok 70 - or= operator parses as list assignment 2
+ok 71 - ... and second
+ok 72 - or= operator parses as list assignment 3
+ok 73 - or= operator parses as list assignment 4
+ok 74 - or= thunks RHS
+ok 75 - //= operator
+ok 76 - //= operator parses as item assignment 1
+ok 77 - //= operator parses as item assignment 2
+ok 78 - ... and second
+ok 79 - //= operator parses as item assignment 3
+ok 80 - //= operator parses as item assignment 4
+ok 81 - Verify //= autovivifies correctly
+ok 82 - Verify //= autovivifies correctly
+ok 83 - //= also works in declaration
+ok 84 - orelse= operator
+ok 85 - orelse= operator parses as list assignment 1
+ok 86 - orelse= operator parses as list assignment 2
+ok 87 - ... and second
+ok 88 - orelse= operator parses as list assignment 3
+ok 89 - orelse= operator parses as list assignment 4
+ok 90 - Verify orelse= autovivifies correctly
+ok 91 - Verify orelse= autovivifies correctly
+ok 92 - orelse= also works in declaration
+ok 93 - &&= operator
+ok 94 - &&= operator parses as item assignment 1
+ok 95 - &&= operator parses as item assignment 2
+ok 96 - ... and second
+ok 97 - &&= operator parses as item assignment 3
+ok 98 - &&= operator parses as item assignment 4
+ok 99 - &&= operator with True and False
+ok 100 - and= operator
+ok 101 - and= operator parses as list assignment 1
+ok 102 - and= operator parses as list assignment 2
+ok 103 - ... and second
+ok 104 - and= operator parses as list assignment 3
+ok 105 - and= operator parses as list assignment 4
+ok 106 - and= operator with True and False
+ok 107 - and= thunks RHS
+ok 108 - (($c = 3) = 4) return val should be good as an lval
+ok 109 - += operator
+ok 110 - += operator parses as item assignment 1
+ok 111 - += operator parses as item assignment 2
+ok 112 - -= operator
+ok 113 - -= operator parses as item assignment 1
+ok 114 - -= operator parses as item assignment 2
+ok 115 - *= operator
+ok 116 - *= operator parses as item assignment 1
+ok 117 - *= operator parses as item assignment 2
+ok 118 - div= operator
+ok 119 - div= operator parses as item assignment 1
+ok 120 - div= operator parses as item assignment 2
+ok 121 - **= operator
+ok 122 - **= operator parses as item assignment 1
+ok 123 - **= operator parses as item assignment 2
+ok 124 - ~= operator
+ok 125 - ~= operator parses as item assignment 1
+ok 126 - ~= operator parses as item assignment 2
+# Subtest: use of R~= operator on a non-container dies
+    1..2
+    ok 1 - 'my $foo = 'foo'; $foo R~= 'foo';' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 127 - use of R~= operator on a non-container dies
+ok 128 - R~= operator works
+ok 129 - use of += on a Failure will trigger the failure to be thrown
+ok 130 - x= operator
+ok 131 - x= operator parses as item assignment 1
+ok 132 - x= operator parses as item assignment 2
+ok 133 - +&= operator
+ok 134 - +&= operator parses as item assignment 1
+ok 135 - +&= operator parses as item assignment 2
+ok 136 - +|= operator
+ok 137 - +|= operator parses as item assignment 1
+ok 138 - +|= operator parses as item assignment 2
+ok 139 - ~&= operator
+ok 140 - ~&= operator parses as item assignment 1
+ok 141 - ~&= operator parses as item assignment 2
+ok 142 - ~|= operator
+ok 143 - ~|= operator parses as item assignment 1
+ok 144 - ~|= operator parses as item assignment 2
+ok 145 - %= operator
+ok 146 - %= operator parses as item assignment 1
+ok 147 - %= operator parses as item assignment 2
+ok 148 - +^= operator
+ok 149 - +^= operator parses as item assignment 1
+ok 150 - +^= operator parses as item assignment 2
+ok 151 - ~^= operator
+ok 152 - ~^= operator parses as item assignment 1
+ok 153 - ~^= operator parses as item assignment 2
+ok 154 - ^^= operator
+ok 155 - ^^= operator parses as item assignment 1
+ok 156 - ^^= operator parses as item assignment 2
+ok 157 - ^^= with two true arguments yields Nil -> Any
+ok 158 - ^^= doesn't permanently falsify scalars
+ok 159 - xor= operator
+ok 160 - xor= operator parses as list assignment 1
+ok 161 - xor= operator parses as list assignment 2
+ok 162 - xor= with two true arguments yields Nil -> Any
+ok 163 - xor= doesn't permanently falsify scalars
+ok 164 - ?|= operator
+ok 165 - ?|= operator parses as item assignment 1
+ok 166 - ?|= operator parses as item assignment 2
+ok 167 - ?&= operator
+ok 168 - ?&= operator parses as item assignment 1
+ok 169 - ?&= operator parses as item assignment 2
+ok 170 - ?^= operator
+ok 171 - ?^= operator parses as item assignment 1
+ok 172 - ?^= operator parses as item assignment 2
+ok 173 - +<= operator
+ok 174 - +<= operator parses as item assignment 1
+ok 175 - +<= operator parses as item assignment 2
+ok 176 - +>= operator
+ok 177 - +>= operator parses as item assignment 1
+ok 178 - +>= operator parses as item assignment 2
+ok 179 - # SKIP ~< and ~> NYI
+ok 180 - # SKIP ~< and ~> NYI
+ok 181 - # SKIP ~< and ~> NYI
+ok 182 - # SKIP ~< and ~> NYI
+ok 183 - # SKIP ~< and ~> NYI
+ok 184 - # SKIP ~< and ~> NYI
+ok 185 - [+]= operator (just like +=)
+ok 186 - [+]= operator parses as item assignment 1
+ok 187 - [+]= operator parses as item assignment 2
+ok 188 - [[+]]= operator (just like +=)
+ok 189 - [[+]]= operator parses as item assignment 1
+ok 190 - [[+]]= operator parses as item assignment 2
+ok 191 - item assignment infix:<=> is tighter than the comma
+ok 192 - item assignment infix:<=> is tighter than the comma (2)
+ok 193 - item assignment infix:<=> is tighter than the comma (3)
+ok 194 - lhs treats $::('Foo::b') as scalar (1)
+ok 195 - lhs treats $::('Foo::b') as scalar (2)
+ok 196 - lhs treats $Foo::c as scalar (1)
+ok 197 - lhs treats $Foo::c as scalar (2)
+ok 198 - lhs treats $(@a[0]) as scalar (1)
+ok 199 - lhs treats $(@a[0]) as scalar (2)
+ok 200 - lhs treats ($a) as list
+not ok 201 - lhs treats ($a) as list # TODO item/list assignment
+# Failed test 'lhs treats ($a) as list'
+# at S03-operators/assign.rakudo line 591
+# expected: '3'
+#      got: '1'
+ok 202 - lhs treats ($a, *) as list (1)
+not ok 203 - lhs treats ($a, *) as list (2) # TODO list assignment with ($var, *)
+# Failed test 'lhs treats ($a, *) as list (2)'
+# at S03-operators/assign.rakudo line 599
+# expected: '6'
+#      got: '2'
+ok 204 - # SKIP cannot modify an immutable value
+ok 205 - # SKIP cannot modify an immutable value
+ok 206 - # SKIP cannot modify an immutable value
+ok 207 - lhs treats ($a,$b) as list
+ok 208 - lhs treats ($a,$b) as list
+ok 209 - lhs treats ($a,$b) as list, and passes only two items on
+not ok 210 - lhs treats @a[0] as one-item list # TODO list assignment to scalar
+# Failed test 'lhs treats @a[0] as one-item list'
+# at S03-operators/assign.rakudo line 630
+# expected: '1'
+#      got: '2'
+ok 211 - lhs treats @a[0] as one-item list
+ok 212 - lhs treats @a[0] as one-item list
+ok 213 - lhs treats @a[0,] as one-item list
+ok 214 - lhs treats @a[0,] as one-item list
+ok 215 - lhs treats @a[0,] as one-item list
+not ok 216 - lhs treats %a<x> as one-item list # TODO list assignment to scalar
+# Failed test 'lhs treats %a<x> as one-item list'
+# at S03-operators/assign.rakudo line 647
+# expected: '1'
+#      got: '2'
+not ok 217 - lhs treats %a<x> as one-item list # TODO list assignment to scalar
+# Failed test 'lhs treats %a<x> as one-item list'
+# at S03-operators/assign.rakudo line 648
+# expected: '1'
+#      got: '2'
+ok 218 - lhs treats %a<x> as one-item list
+ok 219 - lhs treats %a<x y z> as list
+ok 220 - lhs treats %a<x y z> as list
+ok 221 - lhs treats %a<x y z> as list
+not ok 222 - lhs treats %a{'x'} as list # TODO list assignment to scalar
+# Failed test 'lhs treats %a{'x'} as list'
+# at S03-operators/assign.rakudo line 664
+# expected: '1'
+#      got: '1 2 1 2'
+not ok 223 - lhs treats %a{'x'} as list # TODO list assignment to scalar
+# Failed test 'lhs treats %a{'x'} as list'
+# at S03-operators/assign.rakudo line 665
+# expected: '1'
+#      got: '1 2 1 2'
+ok 224 - lhs treats %a{'x'} as list
+ok 225 - lhs treats %a{'x','y','z'} as list
+ok 226 - lhs treats %a{'x','y','z'} as list
+ok 227 - lhs treats %a{'x','y','z'} as list
+ok 228 - lhs treats %a{'x','y','z'} as list
+ok 229 - lhs treats %a{'x','y','z'} as list
+ok 230 - lhs treats %a{'x','y','z'} as list
+ok 231 - lhs treats %a{'x'..'z'} as list
+ok 232 - lhs treats %a{'x'..'z'} as list
+ok 233 - lhs treats %a{'x'..'z'} as list
+ok 234 - lhs treats %a{'x'..'z'} as list
+ok 235 - lhs treats %a{'x'..'z'} as list
+ok 236 - lhs treats %a{'x'..'z'} as list
+not ok 237 - lhs treats @a[@b[$c]] as list # TODO list assignment, autovivification (?)
+# Failed test 'lhs treats @a[@b[$c]] as list'
+# at S03-operators/assign.rakudo line 698
+# expected: '1'
+#      got: '1 2 1 2'
+not ok 238 - lhs treats @a[@b[$c]] as list # TODO list assignment, autovivification (?)
+# Failed test 'lhs treats @a[@b[$c]] as list'
+# at S03-operators/assign.rakudo line 699
+# expected: '1'
+#      got: '1 2 1 2'
+not ok 239 -  # TODO list assignment, autovivification (?)
+# Failed test at S03-operators/assign.rakudo line 700
+# expected: 'lhs treats @a[@b[$c]] as list'
+#      got: 'True'
+ok 240 - lhs treats @a[@b[$c,]] as list
+not ok 241 - lhs treats @a[@b[$c,]] as list # TODO list assignment
+# Failed test 'lhs treats @a[@b[$c,]] as list'
+# at S03-operators/assign.rakudo line 710
+# expected: '2'
+#      got: '1'
+ok 242 - lhs treats @a[@b[$c,]] as list
+ok 243 - lhs treats foo()[$b] as list
+not ok 244 - lhs treats foo()[$b] as list # TODO list assignment
+# Failed test 'lhs treats foo()[$b] as list'
+# at S03-operators/assign.rakudo line 721
+# expected: '1'
+#      got: '2'
+ok 245 - lhs treats foo()[$b] as list
+ok 246 - lhs treats foo()[$b,] as list
+ok 247 - lhs treats foo()[$b,] as list
+ok 248 - lhs treats foo()[$b,] as list
+ok 249 - lhs treats $(@a[$b]) as item (1)
+not ok 250 - lhs treats $(@a[$b]) as item (2) # TODO item assignment
+# Failed test 'lhs treats $(@a[$b]) as item (2)'
+# at S03-operators/assign.rakudo line 741
+# expected: '1'
+#      got: '2'
+not ok 251 - lhs treats $(@a[$b]) as item (3) # TODO item assignment
+# Failed test 'lhs treats $(@a[$b]) as item (3)'
+# at S03-operators/assign.rakudo line 742
+# expected: '3'
+#      got: '2'
+ok 252 - # SKIP ,= needs to be special cased after GLR to compile to push(@a, 3, 4)
+ok 253 - # SKIP ,= needs to be special cased after GLR to compile to push(@a, 3, 4)
+ok 254 - ,= works for hashes (return value)
+ok 255 - ,= works for hashes (hash modified)
+ok 256 - .= on scalars works
+ok 257 - .= on array indexed values
+ok 258 - .= on hash keyed values
+ok 259 - min= worked (positive)
+ok 260 - min= worked (negative)
+ok 261 - max= worked (positive)
+ok 262 - max= worked (negative)
+ok 263 - my $t; $t = (cond) ?? !! gets value from ?? !!, not conds bool
+ok 264 - .. also for false
+ok 265 - truth with "our"
+ok 266 - ... and false
+ok 267 - my $t = (cond) ?? !! gets value from ?? !!
+ok 268 - .. also for false
+ok 269 - Can grep lazily through a very long range
+ok 270 - ... with correct result
+ok 271 - assignment to scalar via array item from array item
+ok 272 - assignment to array item from array item to scalar
+ok 273 - chained assignment works
+ok 274 - chained assignment works
+ok 275 - $rt125407 and @rt125407[0] should be equal
+# Subtest: correct precedence between sub call and assignment (1)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 276 - correct precedence between sub call and assignment (1)
+ok 277 - correct precedence between sub call and assignment (2)
+ok 278 - Assign to hash with the same hash on rhs
+ok 279 - Assign to array with the same array on rhs
+ok 280 - same with List
+ok 281 - Assign to array with the same array on rhs
+ok 282 - 
+ok 283 - 
+ok 284 - Assignment into parentheses'd my works.
+ok 285 - Routine call taking a parenthesised my as argument works.  \#1
+ok 286 - Routine call taking a parenthesised my as argument works.  \#2
+ok 287 - Routine call taking a parenthesised my as argument works.  \#3
+ok 288 - infix:<,=> has list precedence in the cases where infix:<=> does
+# Subtest: Can't use diffy >= with the = metaop 
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 289 - Can't use diffy >= with the = metaop 
+# Subtest: Can't use fiddly ~~ with the = metaop 
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::CannotMeta)
+ok 290 - Can't use fiddly ~~ with the = metaop 
+ok 291 - default-assignment (//=) does mix with implicit-variable method call
+ok 292 - declarator gets its own precedence analysis (1)
+ok 293 - declarator gets its own precedence analysis (2)
+ok 294 - Chained assignment respects right associativity when evaluating left sigil for $
+ok 295 - Internal chained item assignment does not mess up outer list assignment
+ok 296 - @a[^2] on empty array vivifies the slots and assignment works
+ok 297 - andthen= thunks RHS
+ok 298 - notandthen= thunks RHS
+ok 299 - orelse= thunks RHS
+ok 300 - -= with :U target gives right result
+# Subtest: %= with :U target throws
+    1..2
+    ok 1 - 'use fatal; my $b; $b %= 2' died
+    ok 2 - right exception type (Exception)
+ok 301 - %= with :U target throws
+ok 302 - auto vivifying hash worked
+# FUDGED!

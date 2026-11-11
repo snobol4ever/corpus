@@ -1,0 +1,392 @@
+ok 1 - The object is-a 'Int'
+ok 2 - The object is-a 'List'
+ok 3 - method did not find anything
+ok 4 - The object is-a 'Int'
+ok 5 - The object is-a 'List'
+ok 6 - sub did not find anything
+ok 7 - meth o simple test, no overlap
+ok 8 - meth oo simple test, no overlap
+ok 9 - meth o simple test, overlap
+ok 10 - meth oo simple test, overlap
+ok 11 - meth empty simple test, no overlap
+ok 12 - meth empty simple test, no overlap
+ok 13 - sub o simple test, no overlap
+ok 14 - sub oo simple test, no overlap
+ok 15 - sub o simple test, overlap
+ok 16 - sub oo simple test, overlap
+ok 17 - sub empty simple test, no overlap
+ok 18 - sub empty simple test, no overlap
+ok 19 - coercion with sub
+ok 20 - coercion with method
+ok 21 - Accented chars sub
+ok 22 - Umlaut sub
+ok 23 - Accented chars meth
+ok 24 - Umlaut meth
+ok 25 - Str, Str, Int
+ok 26 - Str, Str, Rat
+ok 27 - Str, Int, Int
+ok 28 - Str, Int, Rat
+ok 29 - Int, Int, Int
+ok 30 - Int, Int, Rat
+ok 31 - Cool.indices with wrong args does not hang
+# Subtest: indices with negative start position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches -1
+    ok 2 - Failure threw when sunk
+ok 32 - indices with negative start position fails
+# Subtest: sub does -1e+34 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches -1e+34
+    ok 2 - Failure threw when sunk
+ok 33 - sub does -1e+34 fails
+# Subtest: method does -1e+34 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches -1e+34
+    ok 2 - Failure threw when sunk
+ok 34 - method does -1e+34 fails
+# Subtest: sub does -1e+35 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches -1e+35
+    ok 2 - Failure threw when sunk
+ok 35 - sub does -1e+35 fails
+# Subtest: method does -1e+35 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches -1e+35
+    ok 2 - Failure threw when sunk
+ok 36 - method does -1e+35 fails
+# Subtest: sub does 1e+34 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches 1e+34
+    ok 2 - Failure threw when sunk
+ok 37 - sub does 1e+34 fails
+# Subtest: method does 1e+34 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches 1e+34
+    ok 2 - Failure threw when sunk
+ok 38 - method does 1e+34 fails
+# Subtest: sub does 1e+35 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches 1e+35
+    ok 2 - Failure threw when sunk
+ok 39 - sub does 1e+35 fails
+# Subtest: method does 1e+35 fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+        ok 3 - .got matches 1e+35
+    ok 2 - Failure threw when sunk
+ok 40 - method does 1e+35 fails
+# Subtest: substr-eq with negative position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 41 - substr-eq with negative position fails
+# Subtest: substr-eq with very large positive position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 42 - substr-eq with very large positive position fails
+ok 43 - "foobara".index("a", 3, :!i) is (4 6)
+ok 44 - index("foobara", "a", 3, :!i) is (4 6)
+ok 45 - "foobara".index("a", 3, :!ignorecase) is (4 6)
+ok 46 - index("foobara", "a", 3, :!ignorecase) is (4 6)
+ok 47 - "foobara".index("a", 3, :!m) is (4 6)
+ok 48 - index("foobara", "a", 3, :!m) is (4 6)
+ok 49 - "foobara".index("a", 3, :!ignoremark) is (4 6)
+ok 50 - index("foobara", "a", 3, :!ignoremark) is (4 6)
+ok 51 - "foobara".index("a", 3, :!i, :!m) is (4 6)
+ok 52 - index("foobara", "a", 3, :!i, :!m) is (4 6)
+ok 53 - "foobara".index("a", 3, :!ignorecase, :!ignoremark) is (4 6)
+ok 54 - index("foobara", "a", 3, :!ignorecase, :!ignoremark) is (4 6)
+ok 55 - "foobara".index("a", 3, :i) is (4 6)
+ok 56 - index("foobara", "a", 3, :i) is (4 6)
+ok 57 - "foobara".index("a", 3, :ignorecase) is (4 6)
+ok 58 - index("foobara", "a", 3, :ignorecase) is (4 6)
+ok 59 - "foobara".index("a", 3, :m) is (4 6)
+ok 60 - index("foobara", "a", 3, :m) is (4 6)
+ok 61 - "foobara".index("a", 3, :ignoremark) is (4 6)
+ok 62 - index("foobara", "a", 3, :ignoremark) is (4 6)
+ok 63 - "foobara".index("a", 3, :i, :m) is (4 6)
+ok 64 - index("foobara", "a", 3, :i, :m) is (4 6)
+ok 65 - "foobara".index("a", 3, :ignorecase, :ignoremark) is (4 6)
+ok 66 - index("foobara", "a", 3, :ignorecase, :ignoremark) is (4 6)
+ok 67 - "foobara".index("foobar", :!i) is (0)
+ok 68 - index("foobara", "foobar", :!i) is (0)
+ok 69 - "foobara".index("foobar", :!ignorecase) is (0)
+ok 70 - index("foobara", "foobar", :!ignorecase) is (0)
+ok 71 - "foobara".index("foobar", :!m) is (0)
+ok 72 - index("foobara", "foobar", :!m) is (0)
+ok 73 - "foobara".index("foobar", :!ignoremark) is (0)
+ok 74 - index("foobara", "foobar", :!ignoremark) is (0)
+ok 75 - "foobara".index("foobar", :!i, :!m) is (0)
+ok 76 - index("foobara", "foobar", :!i, :!m) is (0)
+ok 77 - "foobara".index("foobar", :!ignorecase, :!ignoremark) is (0)
+ok 78 - index("foobara", "foobar", :!ignorecase, :!ignoremark) is (0)
+ok 79 - "foobara".index("foobar", :i) is (0)
+ok 80 - index("foobara", "foobar", :i) is (0)
+ok 81 - "foobara".index("foobar", :ignorecase) is (0)
+ok 82 - index("foobara", "foobar", :ignorecase) is (0)
+ok 83 - "foobara".index("foobar", :m) is (0)
+ok 84 - index("foobara", "foobar", :m) is (0)
+ok 85 - "foobara".index("foobar", :ignoremark) is (0)
+ok 86 - index("foobara", "foobar", :ignoremark) is (0)
+ok 87 - "foobara".index("foobar", :i, :m) is (0)
+ok 88 - index("foobara", "foobar", :i, :m) is (0)
+ok 89 - "foobara".index("foobar", :ignorecase, :ignoremark) is (0)
+ok 90 - index("foobara", "foobar", :ignorecase, :ignoremark) is (0)
+ok 91 - "foobara".index("goo", 2, :!i) is ()
+ok 92 - index("foobara", "goo", 2, :!i) is ()
+ok 93 - "foobara".index("goo", 2, :!ignorecase) is ()
+ok 94 - index("foobara", "goo", 2, :!ignorecase) is ()
+ok 95 - "foobara".index("goo", 2, :!m) is ()
+ok 96 - index("foobara", "goo", 2, :!m) is ()
+ok 97 - "foobara".index("goo", 2, :!ignoremark) is ()
+ok 98 - index("foobara", "goo", 2, :!ignoremark) is ()
+ok 99 - "foobara".index("goo", 2, :!i, :!m) is ()
+ok 100 - index("foobara", "goo", 2, :!i, :!m) is ()
+ok 101 - "foobara".index("goo", 2, :!ignorecase, :!ignoremark) is ()
+ok 102 - index("foobara", "goo", 2, :!ignorecase, :!ignoremark) is ()
+ok 103 - "foobara".index("goo", 2, :i) is ()
+ok 104 - index("foobara", "goo", 2, :i) is ()
+ok 105 - "foobara".index("goo", 2, :ignorecase) is ()
+ok 106 - index("foobara", "goo", 2, :ignorecase) is ()
+ok 107 - "foobara".index("goo", 2, :m) is ()
+ok 108 - index("foobara", "goo", 2, :m) is ()
+ok 109 - "foobara".index("goo", 2, :ignoremark) is ()
+ok 110 - index("foobara", "goo", 2, :ignoremark) is ()
+ok 111 - "foobara".index("goo", 2, :i, :m) is ()
+ok 112 - index("foobara", "goo", 2, :i, :m) is ()
+ok 113 - "foobara".index("goo", 2, :ignorecase, :ignoremark) is ()
+ok 114 - index("foobara", "goo", 2, :ignorecase, :ignoremark) is ()
+ok 115 - "foobara".index("foobarx", :!i) is ()
+ok 116 - index("foobara", "foobarx", :!i) is ()
+ok 117 - "foobara".index("foobarx", :!ignorecase) is ()
+ok 118 - index("foobara", "foobarx", :!ignorecase) is ()
+ok 119 - "foobara".index("foobarx", :!m) is ()
+ok 120 - index("foobara", "foobarx", :!m) is ()
+ok 121 - "foobara".index("foobarx", :!ignoremark) is ()
+ok 122 - index("foobara", "foobarx", :!ignoremark) is ()
+ok 123 - "foobara".index("foobarx", :!i, :!m) is ()
+ok 124 - index("foobara", "foobarx", :!i, :!m) is ()
+ok 125 - "foobara".index("foobarx", :!ignorecase, :!ignoremark) is ()
+ok 126 - index("foobara", "foobarx", :!ignorecase, :!ignoremark) is ()
+ok 127 - "foobara".index("foobarx", :i) is ()
+ok 128 - index("foobara", "foobarx", :i) is ()
+ok 129 - "foobara".index("foobarx", :ignorecase) is ()
+ok 130 - index("foobara", "foobarx", :ignorecase) is ()
+ok 131 - "foobara".index("foobarx", :m) is ()
+ok 132 - index("foobara", "foobarx", :m) is ()
+ok 133 - "foobara".index("foobarx", :ignoremark) is ()
+ok 134 - index("foobara", "foobarx", :ignoremark) is ()
+ok 135 - "foobara".index("foobarx", :i, :m) is ()
+ok 136 - index("foobara", "foobarx", :i, :m) is ()
+ok 137 - "foobara".index("foobarx", :ignorecase, :ignoremark) is ()
+ok 138 - index("foobara", "foobarx", :ignorecase, :ignoremark) is ()
+ok 139 - ｢foobara｣.index("a", 3, :!i) is (4 6)
+ok 140 - index(｢foobara｣, "a", 3, :!i) is (4 6)
+ok 141 - ｢foobara｣.index("a", 3, :!ignorecase) is (4 6)
+ok 142 - index(｢foobara｣, "a", 3, :!ignorecase) is (4 6)
+ok 143 - ｢foobara｣.index("a", 3, :!m) is (4 6)
+ok 144 - index(｢foobara｣, "a", 3, :!m) is (4 6)
+ok 145 - ｢foobara｣.index("a", 3, :!ignoremark) is (4 6)
+ok 146 - index(｢foobara｣, "a", 3, :!ignoremark) is (4 6)
+ok 147 - ｢foobara｣.index("a", 3, :!i, :!m) is (4 6)
+ok 148 - index(｢foobara｣, "a", 3, :!i, :!m) is (4 6)
+ok 149 - ｢foobara｣.index("a", 3, :!ignorecase, :!ignoremark) is (4 6)
+ok 150 - index(｢foobara｣, "a", 3, :!ignorecase, :!ignoremark) is (4 6)
+ok 151 - ｢foobara｣.index("a", 3, :i) is (4 6)
+ok 152 - index(｢foobara｣, "a", 3, :i) is (4 6)
+ok 153 - ｢foobara｣.index("a", 3, :ignorecase) is (4 6)
+ok 154 - index(｢foobara｣, "a", 3, :ignorecase) is (4 6)
+ok 155 - ｢foobara｣.index("a", 3, :m) is (4 6)
+ok 156 - index(｢foobara｣, "a", 3, :m) is (4 6)
+ok 157 - ｢foobara｣.index("a", 3, :ignoremark) is (4 6)
+ok 158 - index(｢foobara｣, "a", 3, :ignoremark) is (4 6)
+ok 159 - ｢foobara｣.index("a", 3, :i, :m) is (4 6)
+ok 160 - index(｢foobara｣, "a", 3, :i, :m) is (4 6)
+ok 161 - ｢foobara｣.index("a", 3, :ignorecase, :ignoremark) is (4 6)
+ok 162 - index(｢foobara｣, "a", 3, :ignorecase, :ignoremark) is (4 6)
+ok 163 - ｢foobara｣.index("foobar", :!i) is (0)
+ok 164 - index(｢foobara｣, "foobar", :!i) is (0)
+ok 165 - ｢foobara｣.index("foobar", :!ignorecase) is (0)
+ok 166 - index(｢foobara｣, "foobar", :!ignorecase) is (0)
+ok 167 - ｢foobara｣.index("foobar", :!m) is (0)
+ok 168 - index(｢foobara｣, "foobar", :!m) is (0)
+ok 169 - ｢foobara｣.index("foobar", :!ignoremark) is (0)
+ok 170 - index(｢foobara｣, "foobar", :!ignoremark) is (0)
+ok 171 - ｢foobara｣.index("foobar", :!i, :!m) is (0)
+ok 172 - index(｢foobara｣, "foobar", :!i, :!m) is (0)
+ok 173 - ｢foobara｣.index("foobar", :!ignorecase, :!ignoremark) is (0)
+ok 174 - index(｢foobara｣, "foobar", :!ignorecase, :!ignoremark) is (0)
+ok 175 - ｢foobara｣.index("foobar", :i) is (0)
+ok 176 - index(｢foobara｣, "foobar", :i) is (0)
+ok 177 - ｢foobara｣.index("foobar", :ignorecase) is (0)
+ok 178 - index(｢foobara｣, "foobar", :ignorecase) is (0)
+ok 179 - ｢foobara｣.index("foobar", :m) is (0)
+ok 180 - index(｢foobara｣, "foobar", :m) is (0)
+ok 181 - ｢foobara｣.index("foobar", :ignoremark) is (0)
+ok 182 - index(｢foobara｣, "foobar", :ignoremark) is (0)
+ok 183 - ｢foobara｣.index("foobar", :i, :m) is (0)
+ok 184 - index(｢foobara｣, "foobar", :i, :m) is (0)
+ok 185 - ｢foobara｣.index("foobar", :ignorecase, :ignoremark) is (0)
+ok 186 - index(｢foobara｣, "foobar", :ignorecase, :ignoremark) is (0)
+ok 187 - ｢foobara｣.index("goo", 2, :!i) is ()
+ok 188 - index(｢foobara｣, "goo", 2, :!i) is ()
+ok 189 - ｢foobara｣.index("goo", 2, :!ignorecase) is ()
+ok 190 - index(｢foobara｣, "goo", 2, :!ignorecase) is ()
+ok 191 - ｢foobara｣.index("goo", 2, :!m) is ()
+ok 192 - index(｢foobara｣, "goo", 2, :!m) is ()
+ok 193 - ｢foobara｣.index("goo", 2, :!ignoremark) is ()
+ok 194 - index(｢foobara｣, "goo", 2, :!ignoremark) is ()
+ok 195 - ｢foobara｣.index("goo", 2, :!i, :!m) is ()
+ok 196 - index(｢foobara｣, "goo", 2, :!i, :!m) is ()
+ok 197 - ｢foobara｣.index("goo", 2, :!ignorecase, :!ignoremark) is ()
+ok 198 - index(｢foobara｣, "goo", 2, :!ignorecase, :!ignoremark) is ()
+ok 199 - ｢foobara｣.index("goo", 2, :i) is ()
+ok 200 - index(｢foobara｣, "goo", 2, :i) is ()
+ok 201 - ｢foobara｣.index("goo", 2, :ignorecase) is ()
+ok 202 - index(｢foobara｣, "goo", 2, :ignorecase) is ()
+ok 203 - ｢foobara｣.index("goo", 2, :m) is ()
+ok 204 - index(｢foobara｣, "goo", 2, :m) is ()
+ok 205 - ｢foobara｣.index("goo", 2, :ignoremark) is ()
+ok 206 - index(｢foobara｣, "goo", 2, :ignoremark) is ()
+ok 207 - ｢foobara｣.index("goo", 2, :i, :m) is ()
+ok 208 - index(｢foobara｣, "goo", 2, :i, :m) is ()
+ok 209 - ｢foobara｣.index("goo", 2, :ignorecase, :ignoremark) is ()
+ok 210 - index(｢foobara｣, "goo", 2, :ignorecase, :ignoremark) is ()
+ok 211 - ｢foobara｣.index("foobarx", :!i) is ()
+ok 212 - index(｢foobara｣, "foobarx", :!i) is ()
+ok 213 - ｢foobara｣.index("foobarx", :!ignorecase) is ()
+ok 214 - index(｢foobara｣, "foobarx", :!ignorecase) is ()
+ok 215 - ｢foobara｣.index("foobarx", :!m) is ()
+ok 216 - index(｢foobara｣, "foobarx", :!m) is ()
+ok 217 - ｢foobara｣.index("foobarx", :!ignoremark) is ()
+ok 218 - index(｢foobara｣, "foobarx", :!ignoremark) is ()
+ok 219 - ｢foobara｣.index("foobarx", :!i, :!m) is ()
+ok 220 - index(｢foobara｣, "foobarx", :!i, :!m) is ()
+ok 221 - ｢foobara｣.index("foobarx", :!ignorecase, :!ignoremark) is ()
+ok 222 - index(｢foobara｣, "foobarx", :!ignorecase, :!ignoremark) is ()
+ok 223 - ｢foobara｣.index("foobarx", :i) is ()
+ok 224 - index(｢foobara｣, "foobarx", :i) is ()
+ok 225 - ｢foobara｣.index("foobarx", :ignorecase) is ()
+ok 226 - index(｢foobara｣, "foobarx", :ignorecase) is ()
+ok 227 - ｢foobara｣.index("foobarx", :m) is ()
+ok 228 - index(｢foobara｣, "foobarx", :m) is ()
+ok 229 - ｢foobara｣.index("foobarx", :ignoremark) is ()
+ok 230 - index(｢foobara｣, "foobarx", :ignoremark) is ()
+ok 231 - ｢foobara｣.index("foobarx", :i, :m) is ()
+ok 232 - index(｢foobara｣, "foobarx", :i, :m) is ()
+ok 233 - ｢foobara｣.index("foobarx", :ignorecase, :ignoremark) is ()
+ok 234 - index(｢foobara｣, "foobarx", :ignorecase, :ignoremark) is ()
+ok 235 - "foöbÀra".indices("bar", 3) is ()
+ok 236 - indices("foöbÀra", "bar", 3) is ()
+ok 237 - "foöbÀra".indices("bar", 3, :i) is ()
+ok 238 - indices("foöbÀra", "bar", 3, :i) is ()
+ok 239 - "foöbÀra".indices("bar", "3", :ignorecase) is ()
+ok 240 - indices("foöbÀra", "bar", "3", :ignorecase) is ()
+ok 241 - "foöbÀra".indices("BAR", "3") is ()
+ok 242 - indices("foöbÀra", "BAR", "3") is ()
+ok 243 - "foöbÀra".indices("BÀR", 3, :i) is (3)
+ok 244 - indices("foöbÀra", "BÀR", 3, :i) is (3)
+ok 245 - "foöbÀra".indices("BÀR", :ignorecase) is (3)
+ok 246 - indices("foöbÀra", "BÀR", :ignorecase) is (3)
+ok 247 - "foöbÀra".indices("bAr", "3", :m) is (3)
+ok 248 - indices("foöbÀra", "bAr", "3", :m) is (3)
+ok 249 - "foöbÀra".indices("bAr", "0", :ignoremark) is (3)
+ok 250 - indices("foöbÀra", "bAr", "0", :ignoremark) is (3)
+ok 251 - "foöbÀra".indices("foobar") is ()
+ok 252 - indices("foöbÀra", "foobar") is ()
+ok 253 - "foöbÀra".indices("foobar", :i) is ()
+ok 254 - indices("foöbÀra", "foobar", :i) is ()
+ok 255 - "foöbÀra".indices("foobar", 0, :ignorecase) is ()
+ok 256 - indices("foöbÀra", "foobar", 0, :ignorecase) is ()
+ok 257 - "foöbÀra".indices("foobar", "0", :m) is ()
+ok 258 - indices("foöbÀra", "foobar", "0", :m) is ()
+ok 259 - "foöbÀra".indices("foobar", :ignoremark) is ()
+ok 260 - indices("foöbÀra", "foobar", :ignoremark) is ()
+ok 261 - "foöbÀra".indices("foobar", "0", :i, :m) is (0)
+ok 262 - indices("foöbÀra", "foobar", "0", :i, :m) is (0)
+ok 263 - "foöbÀra".indices("foobar", :ignorecase, :ignoremark) is (0)
+ok 264 - indices("foöbÀra", "foobar", :ignorecase, :ignoremark) is (0)
+ok 265 - ｢foöbÀra｣.indices("bar", 3) is ()
+ok 266 - indices(｢foöbÀra｣, "bar", 3) is ()
+ok 267 - ｢foöbÀra｣.indices("bar", 3, :i) is ()
+ok 268 - indices(｢foöbÀra｣, "bar", 3, :i) is ()
+ok 269 - ｢foöbÀra｣.indices("bar", "3", :ignorecase) is ()
+ok 270 - indices(｢foöbÀra｣, "bar", "3", :ignorecase) is ()
+ok 271 - ｢foöbÀra｣.indices("BAR", "3") is ()
+ok 272 - indices(｢foöbÀra｣, "BAR", "3") is ()
+ok 273 - ｢foöbÀra｣.indices("BÀR", 3, :i) is (3)
+ok 274 - indices(｢foöbÀra｣, "BÀR", 3, :i) is (3)
+ok 275 - ｢foöbÀra｣.indices("BÀR", :ignorecase) is (3)
+ok 276 - indices(｢foöbÀra｣, "BÀR", :ignorecase) is (3)
+ok 277 - ｢foöbÀra｣.indices("bAr", "3", :m) is (3)
+ok 278 - indices(｢foöbÀra｣, "bAr", "3", :m) is (3)
+ok 279 - ｢foöbÀra｣.indices("bAr", "0", :ignoremark) is (3)
+ok 280 - indices(｢foöbÀra｣, "bAr", "0", :ignoremark) is (3)
+ok 281 - ｢foöbÀra｣.indices("foobar") is ()
+ok 282 - indices(｢foöbÀra｣, "foobar") is ()
+ok 283 - ｢foöbÀra｣.indices("foobar", :i) is ()
+ok 284 - indices(｢foöbÀra｣, "foobar", :i) is ()
+ok 285 - ｢foöbÀra｣.indices("foobar", 0, :ignorecase) is ()
+ok 286 - indices(｢foöbÀra｣, "foobar", 0, :ignorecase) is ()
+ok 287 - ｢foöbÀra｣.indices("foobar", "0", :m) is ()
+ok 288 - indices(｢foöbÀra｣, "foobar", "0", :m) is ()
+ok 289 - ｢foöbÀra｣.indices("foobar", :ignoremark) is ()
+ok 290 - indices(｢foöbÀra｣, "foobar", :ignoremark) is ()
+ok 291 - ｢foöbÀra｣.indices("foobar", "0", :i, :m) is (0)
+ok 292 - indices(｢foöbÀra｣, "foobar", "0", :i, :m) is (0)
+ok 293 - ｢foöbÀra｣.indices("foobar", :ignorecase, :ignoremark) is (0)
+ok 294 - indices(｢foöbÀra｣, "foobar", :ignorecase, :ignoremark) is (0)
+1..294

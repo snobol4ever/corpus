@@ -1,0 +1,13 @@
+1..12
+ok 1 - dir
+ok 2 - dir
+ok 3 - IO handle gist
+ok 4 - first char of TODO
+ok 5 - first line of TODO
+ok 6 - IO handle gist
+ok 7 - print
+ok 8 - say
+ok 9 - slurp
+ok 10 - IO :e
+ok 11 - IO :d
+ok 12 - IO :e

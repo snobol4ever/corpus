@@ -1,0 +1,20 @@
+1..19
+ok 1 - signature is :() when none is specified
+ok 2 - can call sub with no signature specified
+ok 3 - sub with no signature dies when given a named argument
+ok 4 - sub with no signature dies when given positional argument
+ok 5 - signature is :(Mu *@_) when none is specified and @_ is used, RT  \#125486
+ok 6 - can call sub with positional param used
+ok 7 - sub using positional param called with no params
+ok 8 - sub using positional param called with named param
+ok 9 - signature is :(Mu *%_) when none is specified and %_ is used, RT  \#125486
+ok 10 - can call sub with named param used
+ok 11 - named param sub is callable with no params
+ok 12 - named param sub dies with positional param
+ok 13 - signature is :(Mu *@_, Mu *%_) when none is specified and @_ and %_ are used, RT  \#125486
+ok 14 - can call sub with both named and positional params used
+ok 15 - sub using both named and position params works with no params
+ok 16 - Sub can modify its @_ as it has is copy semantics
+ok 17 - And its modifications stick in its copy
+ok 18 - The variable passed is unchanged
+ok 19 - 

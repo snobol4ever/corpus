@@ -1,0 +1,24 @@
+1..23
+ok 1 - %hash.keys works
+ok 2 - keys(%hash) on hashes
+ok 3 - we have the same number of keys as elements in the hash
+ok 4 - %hash.values works
+ok 5 - values(%hash) works
+ok 6 - we have the same number of keys as elements in the hash
+ok 7 - $pair.keys works
+ok 8 - keys($pair) works
+ok 9 - we have one key
+ok 10 - $pair.values works
+ok 11 - values($pair) works
+ok 12 - we have one value
+ok 13 - Can call Any.values
+ok 14 - Can call Any.keys
+ok 15 - .kv on pair with Mu in value
+ok 16 - .kv on pair with Mu in key
+ok 17 - .kv on pair with Mu in key and value
+ok 18 - .keys on pair with Mu in value
+ok 19 - .keys on pair with Mu in key
+ok 20 - .keys on pair with Mu in key and value
+ok 21 - .values on pair with Mu in value
+ok 22 - .values on pair with Mu in key
+ok 23 - .values on pair with Mu in key and value

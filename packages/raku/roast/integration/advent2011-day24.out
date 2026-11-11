@@ -1,0 +1,13 @@
+1..8
+ok 1 - multi
+ok 2 - multi
+ok 3 - Yum! /tmp/s4e/cao/fudge/m/integration/advent2011-day24.t was tasty. Got another one?
+ok 4 - unambiguous multi - lives
+# Subtest: ambiguous multi - dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::Ambiguous)
+ok 5 - ambiguous multi - dies
+ok 6 - It's wrapped.
+ok 7 - You unwrap the present and find...!
+ok 8 - A sock!

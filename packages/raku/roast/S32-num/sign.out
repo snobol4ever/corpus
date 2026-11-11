@@ -1,0 +1,45 @@
+1..35
+ok 1 - got the right sign for 0
+ok 2 - got the right sign for -100
+ok 3 - got the right sign for 100
+ok 4 - got the right sign for 3/2
+ok 5 - got the right sign for -3/2
+ok 6 - got the right sign for 1.5e1
+ok 7 - got the right sign for -1.5e1
+ok 8 - got the right type for 0
+ok 9 - got the right type for -100
+ok 10 - got the right type for 100
+ok 11 - got the right type for 3/2
+ok 12 - got the right type for -3/2
+ok 13 - got the right type for 1.5e1
+ok 14 - got the right type for -1.5e1
+ok 15 - got the right sign for 0
+ok 16 - got the right sign for -100
+ok 17 - got the right sign for 100
+ok 18 - got the right sign for 1.5
+ok 19 - got the right sign for -1.5
+ok 20 - got the right sign for 1.5e1
+ok 21 - got the right sign for -1.5e1
+ok 22 - got the right type for 0
+ok 23 - got the right type for -100
+ok 24 - got the right type for 100
+ok 25 - got the right type for 1.5
+ok 26 - got the right type for -1.5
+ok 27 - got the right type for 1.5e1
+ok 28 - got the right type for -1.5e1
+ok 29 - got correct sign for +Inf
+ok 30 - got correct sign for -Inf
+ok 31 - got correct type for +Inf
+ok 32 - got correct type for -Inf
+ok 33 - sign of NaN is NaN
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 34 - did we throws-like Exception?
+not ok 35 - Does sign(Complex) return a Complex # TODO better behaviour in 6.e+
+# Failed test 'Does sign(Complex) return a Complex'
+# at S32-num/sign.rakudo line 54
+# expected: <0.6+0.8i>
+#      got: Nil
+# FUDGED!

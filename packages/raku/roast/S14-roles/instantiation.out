@@ -1,0 +1,20 @@
+1..19
+ok 1 - roles can be instantiated
+ok 2 - our instantiated role object smartmatches against our role
+ok 3 - calling a method on our instantiated role object worked
+ok 4 - Punned role classes have the same .WHAT
+ok 5 - .WHAT as a string gives the name of the role
+ok 6 - our instantiated role object smartmatches against our role
+ok 7 - role attributes initialized in constructor
+ok 8 - role attributes initialized in constructor
+ok 9 - instantiated object smartmatches against parameterized role
+ok 10 - instantiated object smartmatches against parameterized role (with param)
+ok 11 - instantiated object smartmatches against parameterized role
+ok 12 - instantiated object smartmatches against parameterized role (with param)
+ok 13 - instantiated object has method with correct associated role parameter
+ok 14 - instantiated object has method with correct associated role parameter
+ok 15 - instantiating a parametric role with two arguments works
+ok 16 - can call method from punned class of inherited role
+ok 17 - can access attribute from punned class of inherited role
+ok 18 - can access attribute from punned class of inherited role
+ok 19 - it's not just .new that causes a pun, but any method

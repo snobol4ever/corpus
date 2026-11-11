@@ -1,0 +1,9 @@
+1..8
+ok 1 - ~~ .() sub call truth (+)
+ok 2 - ~~ .() sub call truth (-)
+ok 3 - ~~ sub call truth (+)
+ok 4 - ~~ sub call truth (-)
+ok 5 - ~~ sub call truth (+,1)
+ok 6 - ~~ sub call truth (-,1)
+ok 7 - ~~ sub call truth (+,2)
+ok 8 - ~~ sub call truth (-,2)

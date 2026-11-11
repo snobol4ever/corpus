@@ -1,0 +1,9 @@
+1..8
+ok 1 - iterator works as expected
+ok 2 - iterator was lazy and only ran the block once
+ok 3 - iterator has expected length
+ok 4 - iterator was lazy and only ran the block once
+ok 5 - iterator works as expected
+ok 6 - iterator was eager and calculated all the values
+ok 7 - hyper returned all the values in some order
+ok 8 - iterator was hyper and calculated all the values

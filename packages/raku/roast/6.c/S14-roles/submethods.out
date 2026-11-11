@@ -1,0 +1,5 @@
+1..4
+ok 1 - Class that does role should do submethods of role
+ok 2 - submethod composes ok...
+ok 3 - submethod in class wins
+ok 4 - composed submethod acts like one

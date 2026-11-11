@@ -1,0 +1,7 @@
+1..6
+ok 1 - basic instantiation of declared class
+ok 2 - destructor should not fire while object is active
+ok 3 - ... only when object goes away everywhere
+ok 4 - ... only a multiple of the available DESTROY submethods
+ok 5 - Parent after child
+ok 6 - Parent after child

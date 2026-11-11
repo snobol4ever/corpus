@@ -1,0 +1,7 @@
+1..6
+ok 1 - note(an integer)
+ok 2 - note() calls .gist method of a single argument
+ok 3 - note() joins multiple args with whitespace
+ok 4 - .note as a method on Str (for example)
+ok 5 - note Class name is ok
+ok 6 - did note() call .gist even when given a Str

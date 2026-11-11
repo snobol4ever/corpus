@@ -1,0 +1,9 @@
+1..4
+ok 1 - got the right routine name in the default package
+ok 2 - got the right routine name outside the default package
+ok 3 - got an empty string for an anon block
+# Subtest: &?ROUTINE not available outside of a routine
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 4 - &?ROUTINE not available outside of a routine

@@ -1,0 +1,28 @@
+1..22
+ok 1 - basic class instantiation
+ok 2 - basic attribute access
+ok 3 - own constructor was not called
+ok 4 - own construction instantiated its class
+ok 5 - attribute was set from our constructor
+ok 6 - own constructor was actually called
+ok 7 - ... our Foo instance was created
+ok 8 - our own 'new' was called
+ok 9 - instantiating an object using .= worked (1)
+ok 10 - instantiating an object using .=() worked
+ok 11 - Array initialized in auto-constructor is not unwritable...
+ok 12 - ... and keeps its value properly.
+ok 13 - assign to attr of .CREATEd class
+ok 14 - assignment works
+ok 15 - monkey-typed .new() method is called
+ok 16 - .new with a native int attribute
+ok 17 - .new with a native num attribute
+ok 18 - .new with a native str attribute
+ok 19 - can use attributes in TWEAK to declare sized arrays
+ok 20 - can use attributes in BUILD to declare sized arrays
+ok 21 - can we create with a custom "bless" method
+# Subtest: all parents' attributes are set with .new
+    1..3
+    ok 1 - ancestor 1
+    ok 2 - ancestor 2
+    ok 3 - parent
+ok 22 - all parents' attributes are set with .new

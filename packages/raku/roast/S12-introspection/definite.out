@@ -1,0 +1,8 @@
+1..7
+ok 1 - .DEFINITE on type object
+ok 2 - .DEFINITE on literal value
+ok 3 - .DEFINITE on undeclared variable
+ok 4 - .DEFINITE on variable with value
+ok 5 - Class declaring DEFINITE method doesn't influence .DEFINITE macro
+ok 6 - Quoting lets us call the method, however
+ok 7 - DEFINITE doesn't destroy containers

@@ -1,0 +1,10 @@
+1..9
+ok 1 - Matched 1
+ok 2 - Saved 1
+ok 3 - Grabbed all 1
+ok 4 - Correctly captured 1
+ok 5 - Matched 2
+ok 6 - Saved 2
+ok 7 - Grabbed all 2
+ok 8 - Correctly didn't capture 2
+ok 9 - Once match

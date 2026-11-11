@@ -1,0 +1,11 @@
+1..10
+ok 1 - Gather/task and push building the same list
+ok 2 - String accumulator
+ok 3 - In order tree traversal with gather/take
+ok 4 - natural numbers
+ok 5 - even numbers
+ok 6 - odd numbers
+ok 7 - powers of two
+ok 8 - square of odd numbers
+ok 9 - Lazy implementation of fibonacci with gather/take
+ok 10 - xmas tree

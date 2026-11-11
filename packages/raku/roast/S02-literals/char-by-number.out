@@ -1,0 +1,71 @@
+1..38
+ok 1 - \x20 normal space
+ok 2 - \xa0 non-breaking space
+ok 3 - \x[20] normal space
+ok 4 - \x[a0] non-breaking space
+ok 5 - \x[263a] wide hex character (SMILEY)
+ok 6 - \x[597d] wide hex character (Chinese char)
+# Subtest: broken "\x[6211"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 7 - broken "\x[6211"
+# Subtest: broken "\x [6211]"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Backslash::UnrecognizedSequence)
+ok 8 - broken "\x [6211]"
+ok 9 - \x[list]
+ok 10 - \x[a,b]
+ok 11 - \xlist not valid
+ok 12 - \o40 normal space
+ok 13 - \o240 non-breaking space
+ok 14 - \o[40] normal space
+ok 15 - \o[240] non-breaking space
+ok 16 - \o[23072] wide hex character (SMILEY)
+ok 17 - \o[61021] wide hex character (Chinese char)
+# Subtest: broken "\o[6211"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 18 - broken "\o[6211"
+# Subtest: broken "\o [6211]"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Backslash::UnrecognizedSequence)
+ok 19 - broken "\o [6211]"
+ok 20 - \o[list]
+ok 21 - \o[a,b]
+ok 22 - \olist not valid
+ok 23 - \c32 normal space
+ok 24 - \c160 non-breaking space
+ok 25 - \c[32] normal space
+ok 26 - \c[240] non-breaking space
+ok 27 - \c[9786] wide hex character (SMILEY)
+ok 28 - \c[25105] wide hex character (Chinese char)
+# Subtest: broken "\c[6211"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 29 - broken "\c[6211"
+# Subtest: broken "\c [6211]"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 30 - broken "\c [6211]"
+ok 31 - \c[list]
+ok 32 - \c[a,b]
+ok 33 - \clist not valid
+# Subtest: "\123" form is no longer valid Perl 6
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 34 - "\123" form is no longer valid Perl 6
+# Subtest: "\10" form is no longer valid Perl 6
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 35 - "\10" form is no longer valid Perl 6
+ok 36 - \0stuff is actually valid
+ok 37 - next char of \0 is 8 (> 7)
+ok 38 - next char of \0 is `f`

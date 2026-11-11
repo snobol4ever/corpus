@@ -1,0 +1,7 @@
+1..6
+ok 1 - but role {...}
+ok 2 - but role {...}
+ok 3 - 42 but False
+ok 4 - 42 but False
+ok 5 - True but False
+ok 6 - True but False

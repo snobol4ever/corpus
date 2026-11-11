@@ -1,0 +1,67 @@
+1..66
+ok 1 - Can decode byte buffer with 0xFE in it as utf8-c8
+ok 2 - Got expected number of chars
+ok 3 - Got first char, which was valid UTF-8
+ok 4 - Got last char, which was valid UTF-8
+ok 5 - Encoding back to utf8-c8 round-trips
+ok 6 - Can decode byte buffer with 0xFE 0xFD bytes in middle as utf8-c8
+ok 7 - Got expected number of chars
+ok 8 - Got first char, which was valid UTF-8
+ok 9 - Got last char, which was valid UTF-8
+ok 10 - Encoding back to utf8-c8 round-trips
+ok 11 - Can decode byte buffer with 0xFC at end as utf8-c8
+ok 12 - Got expected number of chars
+ok 13 - Got first char, which was valid UTF-8
+ok 14 - Got second char, which was valid UTF-8
+ok 15 - Encoding back to utf8-c8 round-trips
+ok 16 - utf8-c8 can cope with ordinary synthetics
+ok 17 - utf8-c8 round-trips ordinary synthetics
+ok 18 - Can decode byte buffer with 0xE9 in middle as utf8-c8
+ok 19 - Got expected number of chars
+ok 20 - Got first char, which was valid UTF-8
+ok 21 - Got third char, which was valid UTF-8
+ok 22 - Got forth char, which was valid UTF-8
+ok 23 - Encoding back to utf8-c8 round-trips
+ok 24 - Can slurp file with non-UTF-8 octets as utf8-c8
+ok 25 - Slurped correct number of chars
+ok 26 - First valid UTF-8 char OK
+ok 27 - Second valid UTF-8 char OK
+ok 28 - Third valid UTF-8 char OK
+ok 29 - Encoding back to utf8-c8 roundtrips
+ok 30 - Can run Raku with non-UTF-8 environment
+ok 31 - Can run Raku sourcefile with non-UTF-8 name
+ok 32 - Decoding Buf with just 0xFE works
+ok 33 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#1]
+ok 34 - Also round-trips correct from a file [Buf  \#1]
+ok 35 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#2]
+ok 36 - Also round-trips correct from a file [Buf  \#2]
+ok 37 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#3]
+ok 38 - Also round-trips correct from a file [Buf  \#3]
+ok 39 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#4]
+ok 40 - Also round-trips correct from a file [Buf  \#4]
+ok 41 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#5]
+ok 42 - Also round-trips correct from a file [Buf  \#5]
+ok 43 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#6]
+ok 44 - Also round-trips correct from a file [Buf  \#6]
+ok 45 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#7]
+ok 46 - Also round-trips correct from a file [Buf  \#7]
+ok 47 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#8]
+ok 48 - Also round-trips correct from a file [Buf  \#8]
+ok 49 - .decode.encode roundtrips correctly for utf8-c8 [Buf  \#9]
+ok 50 - Also round-trips correct from a file [Buf  \#9]
+ok 51 - Can slurp long file using utf8-c8 encoding
+ok 52 - Can read lines correctly using utf8-c8
+ok 53 - Valid and NFC UTF-8 comes out fine (string case)
+ok 54 - Valid and NFC UTF-8 comes out fine (file case)
+ok 55 - dir returns something when encountering malformed utf8 names
+ok 56 - utf8-c8 name roundtripped through dir
+ok 57 - can slurp a file with utf8-c8 name
+ok 58 - dir lives with malformed utf8 names
+ok 59 - UTF8-C8 retains the same number of ‘chars’ after .subst operation
+ok 60 - lives-ok when decoding Unicode Surrogates and values higher than 0x10FFFF
+ok 61 - Regex still matches when utf8-c8 graphemes are adjacent (end)
+ok 62 - Regex still matches when utf8-c8 graphemes are adjacent (start/end)
+ok 63 - Regex still matches when utf8-c8 graphemes are adjacent (start)
+ok 64 - utf8-c8 does not generate spurious NUL 1
+ok 65 - utf8-c8 does not generate spurious NUL 2
+ok 66 - Non normalized NFC is not mangled by utf-c8

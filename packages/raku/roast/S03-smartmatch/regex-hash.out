@@ -1,0 +1,5 @@
+1..4
+ok 1 - Regex ~~ Hash (+,1)
+ok 2 - Regex ~~ Hash (+,2)
+ok 3 - Regex ~~ Hash (-,1)
+ok 4 - Regex ~~ Hash (-,value)

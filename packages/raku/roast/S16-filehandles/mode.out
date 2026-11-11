@@ -1,0 +1,13 @@
+1..12
+ok 1 - One file successfully changed
+ok 2 - name of the file returned
+ok 3 - successfully set to 700 and read back as such
+ok 4 - One file successfully changed
+ok 5 - name of the file returned
+ok 6 - successfully changed to 600 and read back as such
+ok 7 - One file successfully changed
+ok 8 - name of the file returned
+ok 9 - permission is not 777 when created
+ok 10 - One file successfully changed
+ok 11 - name of the file returned
+ok 12 - changed mode of one file using mode of another

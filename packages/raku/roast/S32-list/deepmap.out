@@ -1,0 +1,15 @@
+1..14
+ok 1 - deepmap works
+ok 2 - deepmap descends into sublists
+ok 3 - deepmap copes with empty lists
+ok 4 - deepmap descends into hashes
+ok 5 - deepmap applies correctly
+ok 6 - deepmap is callable as method
+ok 7 - deepmap preserves structure
+ok 8 - hypering or deepmapping an Iterable type object does not hang
+ok 9 - did next work
+ok 10 - did next work
+ok 11 - did we get sublists in containers
+ok 12 - do we get a Str @ if the constraint allows
+ok 13 - do we get a List if the constraint disallows
+ok 14 - did the keys and values match up?

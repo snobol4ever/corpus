@@ -1,0 +1,10 @@
+1..9
+ok 1 - handing of 5
+ok 2 - handing of 0
+ok 3 - handing of -3
+ok 4 - handing of 1+2i
+ok 5 - compiler error message
+ok 6 - compiler error class
+ok 7 - compile error does X::Comp
+ok 8 - runtime error
+ok 9 - runtime error doesn't X::Comp

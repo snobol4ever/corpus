@@ -1,0 +1,31 @@
+1..29
+ok 1 - Foo.new() worked (1)
+ok 2 - Foo's BUILD was called
+ok 3 - Bar's BUILD counter not available
+ok 4 - Bar.new() worked
+ok 5 - Foo's BUILD was called again
+ok 6 - Bar's BUILD was called, too
+ok 7 - Foo.new() worked (2)
+ok 8 - Foo's BUILD was called again
+ok 9 - Baz.new() worked
+ok 10 - Grtz.new() worked
+ok 11 - can call submethod on parent class
+ok 12 - Baz's submethod blarb was called
+ok 13 - Grtz's submethod blarb was not called
+ok 14 - can call submethod on child class
+ok 15 - Baz's submethod blarb was not called
+ok 16 - Grtz's submethod blarb was called now
+ok 17 - $obj.Class::submthod
+ok 18 - Baz's submethod blarb was called now
+ok 19 - Grtz's submethod blarb was not called again
+ok 20 - # SKIP outer lexicals in roles
+ok 21 - # SKIP outer lexicals in roles
+ok 22 - # SKIP roles and submethods
+ok 23 - # SKIP roles and submethods
+ok 24 - # SKIP roles and submethods
+ok 25 - # SKIP roles and submethods
+ok 26 - BUILD() should allow default values of optional params in signature
+ok 27 - ... or value passed in
+ok 28 - Bool method in class is used in boolificiation
+ok 29 - Bool submethod in class is used in boolificiation
+# FUDGED!

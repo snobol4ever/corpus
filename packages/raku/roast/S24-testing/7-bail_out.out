@@ -1,0 +1,5 @@
+1..4
+ok 1 - bail out without a description or plan
+ok 2 - no more tests run after bailing out
+ok 3 - bail out with description
+ok 4 - immediate bail out does not crash

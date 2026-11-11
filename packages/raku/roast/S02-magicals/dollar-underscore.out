@@ -1,0 +1,28 @@
+1..23
+ok 1 - bare block aliases $_
+ok 2 - conditional block (if) aliases $_
+ok 3 - conditional block (else) aliases $_
+ok 4 - conditional block (elsif) aliases $_
+ok 5 - conditional loop block (while) aliases $_
+ok 6 - conditional loop block (while) aliases $_
+ok 7 - condition of conditional block (if) does not alias $_
+ok 8 - condition of conditional block (elsif) does not alias $_
+ok 9 - condition of loop block (while) does not alias $_
+ok 10 - condition of loop block (until) does not alias $_
+ok 11 - no interaction between $_s from conditional and body in loop (while)
+ok 12 - no interaction between $_s from conditional and body in loop (until)
+ok 13 - can bind to variable in pointy
+# Subtest: $_ does not get set implicitly if a pointy is given
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 14 - $_ does not get set implicitly if a pointy is given
+ok 15 - $_ does not get set implicitly if a pointy is given
+ok 16 - outer $_ increments
+ok 17 - default topic is rw by default
+ok 18 - Two iterations of a loop share the same $_ if it is not a formal parameter
+ok 19 - no Null PMC access error when outer $_ is used in block of for loop
+ok 20 - $_ in block of for loop is a SixModelObject
+ok 21 - $_ starts undefined
+ok 22 - now $_ is 2
+ok 23 - outer $_ is unchanged

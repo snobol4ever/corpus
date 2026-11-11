@@ -1,0 +1,16 @@
+1..15
+ok 1 - \n
+ok 2 - CR/LF
+ok 3 - LF
+ok 4 - aLF
+ok 5 - CR
+ok 6 - NEL
+ok 7 - LINE SEP
+ok 8 - not abc
+ok 9 - not \n
+ok 10 - not LF
+ok 11 - not CR/LF
+ok 12 - not CR
+ok 13 - not NEL
+ok 14 - not LINE SEP
+ok 15 - abc

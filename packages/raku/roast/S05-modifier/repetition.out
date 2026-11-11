@@ -1,0 +1,13 @@
+1..12
+ok 1 - :2x (repetition) modifier (+)
+ok 2 - :2x (repetition) modifier (-)
+ok 3 - :2x (repetition) modifier (+)
+ok 4 - :2x (repetition) modifier (-)
+ok 5 - :x(2) with .match method (+)
+ok 6 - :x(2) with .match method (-)
+ok 7 - :x(3) with .match method (bool)
+ok 8 - :x(3) with .match method (result)
+ok 9 - :x(Range)
+ok 10 - :x(Range) > number of matches
+ok 11 - :x(Range) (upper bound)
+ok 12 - :x(Range) (takes as much as it can)

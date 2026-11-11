@@ -1,0 +1,42 @@
+1..41
+ok 1 - Match <:OtherAlphabetic>
+ok 2 - Don't match negated <OtherAlphabetic>
+ok 3 - Don't match inverted <OtherAlphabetic>
+ok 4 - Don't match unrelated <OtherAlphabetic>
+ok 5 - Match unrelated negated <OtherAlphabetic>
+ok 6 - Match unrelated inverted <OtherAlphabetic>
+ok 7 - Match <:OtherDefaultIgnorableCodePoint>
+ok 8 - Don't match negated <OtherDefaultIgnorableCodePoint>
+ok 9 - Don't match inverted <OtherDefaultIgnorableCodePoint>
+ok 10 - Don't match unrelated <OtherDefaultIgnorableCodePoint>
+ok 11 - Match unrelated negated <OtherDefaultIgnorableCodePoint>
+ok 12 - Match unrelated inverted <OtherDefaultIgnorableCodePoint>
+ok 13 - Match unanchored <OtherDefaultIgnorableCodePoint>
+ok 14 - Match <:OtherGraphemeExtend>
+ok 15 - Don't match negated <OtherGraphemeExtend>
+ok 16 - Don't match inverted <OtherGraphemeExtend>
+ok 17 - Don't match unrelated <OtherGraphemeExtend>
+ok 18 - Match unrelated negated <OtherGraphemeExtend>
+ok 19 - Match unrelated inverted <OtherGraphemeExtend>
+ok 20 - Match unanchored <OtherGraphemeExtend>
+ok 21 - Match <:OtherLowercase>
+ok 22 - Don't match negated <OtherLowercase>
+ok 23 - Don't match inverted <OtherLowercase>
+ok 24 - Don't match unrelated <OtherLowercase>
+ok 25 - Match unrelated negated <OtherLowercase>
+ok 26 - Match unrelated inverted <OtherLowercase>
+ok 27 - Match unanchored <OtherLowercase>
+ok 28 - Match <:OtherMath>
+ok 29 - Don't match negated <OtherMath>
+ok 30 - Don't match inverted <OtherMath>
+ok 31 - Don't match unrelated <OtherMath>
+ok 32 - Match unrelated negated <OtherMath>
+ok 33 - Match unrelated inverted <OtherMath>
+ok 34 - Match unanchored <OtherMath>
+ok 35 - Match <:OtherUppercase>
+ok 36 - Don't match negated <OtherUppercase>
+ok 37 - Don't match inverted <OtherUppercase>
+ok 38 - Don't match unrelated <OtherUppercase>
+ok 39 - Match unrelated negated <OtherUppercase>
+ok 40 - Match unrelated inverted <OtherUppercase>
+ok 41 - Match unanchored <OtherUppercase>

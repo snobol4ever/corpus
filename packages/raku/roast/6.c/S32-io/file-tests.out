@@ -1,0 +1,539 @@
+1..16
+# Subtest: .e
+    1..8
+    ok 1 - It exists
+    ok 2 - .e returns Bool
+    ok 3 - It exists
+    ok 4 - ~~ :e returns Bool
+    ok 5 - It doesn't
+    ok 6 - .e returns Bool
+    ok 7 - It doesn't
+    ok 8 - ~~ :e returns Bool
+ok 1 - .e
+# Subtest: .d
+    1..2
+    # Subtest: Existing file
+        1..4
+        ok 1 - Existing file is not a directory
+        ok 2 - .d returns Bool
+        ok 3 - Existing file is not a directory
+        ok 4 - ~~ :d returns Bool
+    ok 1 - Existing file
+    # Subtest: Non-existent file
+        1..4
+        ok 1 - Non-existant file is also not a directory
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existant file is also not a directory
+        ok 4 - ~~ :d returns Bool
+    ok 2 - Non-existent file
+ok 2 - .d
+# Subtest: .f
+    1..8
+    ok 1 - Is normal file
+    ok 2 - .f returns Bool
+    ok 3 - Is normal file
+    ok 4 - ~~ :f returns Bool
+    ok 5 - Is not a normal file
+    # Subtest: did we fails-like X::IO::DoesNotExist?
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::DoesNotExist)
+        ok 2 - Failure threw when sunk
+    ok 6 - did we fails-like X::IO::DoesNotExist?
+    ok 7 - Is not a normal file
+    ok 8 - ~~ :!f returns Bool
+ok 3 - .f
+# Subtest: .s
+    1..5
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Size on non-existent file
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Is not a normal file
+        ok 4 - ~~ :!s returns Bool
+    ok 1 - Non-existing file
+    # Subtest: Existing file with content
+        1..4
+        ok 1 - Is not
+        ok 2 - .s returns Int
+        ok 3 - Is not
+        ok 4 - ~~ :s returns Bool
+    ok 2 - Existing file with content
+    # Subtest: Existing file with zero-length
+        1..4
+        ok 1 - Is empty
+        ok 2 - .s returns Int
+        ok 3 - Is empty
+        ok 4 - ~~ :!s returns Bool
+    ok 3 - Existing file with zero-length
+    # Subtest: Get filesize
+        1..4
+        ok 1 - No size
+        ok 2 - .s returns Int
+        ok 3 - size of file
+        ok 4 - .s returns Int
+    ok 4 - Get filesize
+    ok 5 - Can get the size of a directory without dying
+ok 4 - .s
+# Subtest: .l
+    1..4
+    # Subtest: Existing file
+        1..4
+        ok 1 - Existing file is not a symlink
+        ok 2 - .l returns Bool
+        ok 3 - Existing file is not a symlink
+        ok 4 - ~~ :l returns Bool
+    ok 1 - Existing file
+    # Subtest: Non-existent file
+        1..4
+        ok 1 - Non-existant file is also not a symlink
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existant file is also not a symlink
+        ok 4 - ~~ :l returns Bool
+    ok 2 - Non-existent file
+    # Subtest: Symlink to existing file
+        1..4
+        ok 1 - Existing file is a symlink
+        ok 2 - .l returns Bool
+        ok 3 - Existing file is a symlink
+        ok 4 - ~~ :l returns Bool
+    ok 3 - Symlink to existing file
+    # Subtest: Symlink to non-existant file
+        1..4
+        ok 1 - Symlink to non-existant file
+        ok 2 - .l returns Bool
+        ok 3 - Symlink to non-existant file
+        ok 4 - ~~ :l returns Bool
+    ok 4 - Symlink to non-existant file
+ok 5 - .l
+# Subtest: .r
+    1..6
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Non-existing file is not readable
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existing file is not readable
+        ok 4 - ~~ :r returns Bool
+    ok 1 - Non-existing file
+    # Subtest: File with r--
+        1..4
+        ok 1 - File with r-- is readable
+        ok 2 - .r returns Bool
+        ok 3 - File with r-- is readable
+        ok 4 - ~~ :r returns Bool
+    ok 2 - File with r--
+    # Subtest: File with -w-
+        1..4
+        ok 1 - File with -w- is not readable
+        ok 2 - .r returns Bool
+        ok 3 - File with -w- is not readable
+        ok 4 - ~~ :r returns Bool
+    ok 3 - File with -w-
+    # Subtest: File with --x
+        1..4
+        ok 1 - File with --x is not readable
+        ok 2 - .r returns Bool
+        ok 3 - File with --x is not readable
+        ok 4 - ~~ :r returns Bool
+    ok 4 - File with --x
+    # Subtest: File with rw-
+        1..4
+        ok 1 - File with rw- is readable
+        ok 2 - .r returns Bool
+        ok 3 - File with rw- is readable
+        ok 4 - ~~ :r returns Bool
+    ok 5 - File with rw-
+    # Subtest: File with rwx
+        1..4
+        ok 1 - File with rwx is readable
+        ok 2 - .r returns Bool
+        ok 3 - File with rwx is readable
+        ok 4 - ~~ :r returns Bool
+    ok 6 - File with rwx
+ok 6 - .r
+# Subtest: .w
+    1..6
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Non-existing file is not writable
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existing file is not writable
+        ok 4 - ~~ :r returns Bool
+    ok 1 - Non-existing file
+    # Subtest: File with r--
+        1..4
+        ok 1 - File with r-- is not writable
+        ok 2 - .w returns Bool
+        ok 3 - File with r-- is not writable
+        ok 4 - ~~ :r returns Bool
+    ok 2 - File with r--
+    # Subtest: File with -w-
+        1..4
+        ok 1 - File with -w- is writable
+        ok 2 - .w returns Bool
+        ok 3 - File with -w- is writable
+        ok 4 - ~~ :r returns Bool
+    ok 3 - File with -w-
+    # Subtest: File with --x
+        1..4
+        ok 1 - File with --x is not writable
+        ok 2 - .w returns Bool
+        ok 3 - File with --x is not writable
+        ok 4 - ~~ :r returns Bool
+    ok 4 - File with --x
+    # Subtest: File with rw-
+        1..4
+        ok 1 - File with rw- is writable
+        ok 2 - .w returns Bool
+        ok 3 - File with rw- is writable
+        ok 4 - ~~ :r returns Bool
+    ok 5 - File with rw-
+    # Subtest: File with rwx
+        1..4
+        ok 1 - File with rwx is writable
+        ok 2 - .w returns Bool
+        ok 3 - File with rwx is writable
+        ok 4 - ~~ :r returns Bool
+    ok 6 - File with rwx
+ok 7 - .w
+# Subtest: .rw
+    1..6
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Non-existing file is not readable and writable
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existing file is not readbale and writable
+        ok 4 - ~~ :r returns Bool
+    ok 1 - Non-existing file
+    # Subtest: File with r--
+        1..4
+        ok 1 - File with r-- is not readable and writable
+        ok 2 - .rw returns Bool
+        ok 3 - File with r-- is not readable and writable
+        ok 4 - ~~ :r returns Bool
+    ok 2 - File with r--
+    # Subtest: File with -w-
+        1..4
+        ok 1 - File with -w- is not readable and writable
+        ok 2 - .rw returns Bool
+        ok 3 - File with -w- is not readable and writable
+        ok 4 - ~~ :r returns Bool
+    ok 3 - File with -w-
+    # Subtest: File with --x
+        1..4
+        ok 1 - File with --x is not readable and writable
+        ok 2 - .rw returns Bool
+        ok 3 - File with --x is not readable and writable
+        ok 4 - ~~ :r returns Bool
+    ok 4 - File with --x
+    # Subtest: File with rw-
+        1..4
+        ok 1 - File with rw- is readable and writable
+        ok 2 - .rw returns Bool
+        ok 3 - File with rw- is readable and writable
+        ok 4 - ~~ :r returns Bool
+    ok 5 - File with rw-
+    # Subtest: File with rwx
+        1..4
+        ok 1 - File with rwx is readable and writable
+        ok 2 - .rw returns Bool
+        ok 3 - File with rwx is readable and writable
+        ok 4 - ~~ :r returns Bool
+    ok 6 - File with rwx
+ok 8 - .rw
+# Subtest: .x
+    1..6
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Non-existing file is not executable
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existing file is not executable
+        ok 4 - ~~ :r returns Bool
+    ok 1 - Non-existing file
+    # Subtest: File with r--
+        1..4
+        ok 1 - File with r-- is not executable
+        ok 2 - .w returns Bool
+        ok 3 - File with r-- is not executable
+        ok 4 - ~~ :r returns Bool
+    ok 2 - File with r--
+    # Subtest: File with -w-
+        1..4
+        ok 1 - File with -w- is not executable
+        ok 2 - .w returns Bool
+        ok 3 - File with -w- is not executable
+        ok 4 - ~~ :r returns Bool
+    ok 3 - File with -w-
+    # Subtest: File with --x
+        1..4
+        ok 1 - File with --x is executable
+        ok 2 - .w returns Bool
+        ok 3 - File with --x is executable
+        ok 4 - ~~ :r returns Bool
+    ok 4 - File with --x
+    # Subtest: File with rw-
+        1..4
+        ok 1 - File with rw- is not executable
+        ok 2 - .w returns Bool
+        ok 3 - File with rw- is not executable
+        ok 4 - ~~ :r returns Bool
+    ok 5 - File with rw-
+    # Subtest: File with rwx
+        1..4
+        ok 1 - File with rwx is executable
+        ok 2 - .w returns Bool
+        ok 3 - File with rwx is executable
+        ok 4 - ~~ :r returns Bool
+    ok 6 - File with rwx
+ok 9 - .x
+# Subtest: .rwx
+    1..6
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Non-existing file is not readable, writable and executable
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existing file is not readable, writable and executable
+        ok 4 - ~~ :rwx returns Bool
+    ok 1 - Non-existing file
+    # Subtest: File with r--
+        1..4
+        ok 1 - File with r-- is not readable, writable and executable
+        ok 2 - .rwx returns Bool
+        ok 3 - File with r-- is not readable, writable and executable
+        ok 4 - ~~ :rwx returns Bool
+    ok 2 - File with r--
+    # Subtest: File with -w-
+        1..4
+        ok 1 - File with -w- is not readable, writable and executable
+        ok 2 - .rwx returns Bool
+        ok 3 - File with -w- is not readable, writable and executable
+        ok 4 - ~~ :rwx returns Bool
+    ok 3 - File with -w-
+    # Subtest: File with --x
+        1..4
+        ok 1 - File with --x is not readable, writable and executable
+        ok 2 - .rwx returns Bool
+        ok 3 - File with --x is not readable, writable and executable
+        ok 4 - ~~ :rwx returns Bool
+    ok 4 - File with --x
+    # Subtest: File with rw-
+        1..4
+        ok 1 - File with rw- is not readable, writable and executable
+        ok 2 - .rwx returns Bool
+        ok 3 - File with rw- is not readable, writable and executable
+        ok 4 - ~~ :rwx returns Bool
+    ok 5 - File with rw-
+    # Subtest: File with rwx
+        1..4
+        ok 1 - File with rwx is readable, writable and executable
+        ok 2 - .rwx returns Bool
+        ok 3 - File with rwx is readable, writable and executable
+        ok 4 - ~~ :rwx returns Bool
+    ok 6 - File with rwx
+ok 10 - .rwx
+# Subtest: .z
+    1..3
+    # Subtest: Non-existing file
+        1..4
+        ok 1 - Non-existing file returns false on .z
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 2 - did we fails-like X::IO::DoesNotExist?
+        ok 3 - Non-existing file returns false on :z
+        ok 4 - ~~ :z returns Bool
+    ok 1 - Non-existing file
+    # Subtest: Existing file with zero-length content
+        1..4
+        ok 1 - Existing file with non-zero-length content returns false on .z
+        ok 2 - .z returns Bool
+        ok 3 - Existing file with non-zero-length content returns false on :z
+        ok 4 - ~~ :z returns Bool
+    ok 2 - Existing file with zero-length content
+    # Subtest: Existing file with none-zero-length content
+        1..4
+        ok 1 - Existing file with zero-length content returns true on .z
+        ok 2 - .z returns Bool
+        ok 3 - Existing file with zero-length content returns true on :z
+        ok 4 - ~~ :z returns Bool
+    ok 3 - Existing file with none-zero-length content
+ok 11 - .z
+# Subtest: .modified
+    1..2
+    # Subtest: Non-existing file
+        1..1
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 1 - did we fails-like X::IO::DoesNotExist?
+    ok 1 - Non-existing file
+    # Subtest: Existing file
+        1..1
+        ok 1 - .modified returns Instant
+    ok 2 - Existing file
+ok 12 - .modified
+# Subtest: .accessed
+    1..2
+    # Subtest: Non-existing file
+        1..1
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 1 - did we fails-like X::IO::DoesNotExist?
+    ok 1 - Non-existing file
+    # Subtest: Existing file
+        1..1
+        ok 1 - .accessed returns Instant
+    ok 2 - Existing file
+ok 13 - .accessed
+# Subtest: .changed
+    1..2
+    # Subtest: Non-existing file
+        1..1
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 1 - did we fails-like X::IO::DoesNotExist?
+    ok 1 - Non-existing file
+    # Subtest: Existing file
+        1..1
+        ok 1 - .changed returns Instant
+    ok 2 - Existing file
+ok 14 - .changed
+# Subtest: .mode
+    1..6
+    # Subtest: Non-existing file
+        1..1
+        # Subtest: did we fails-like X::IO::DoesNotExist?
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..2
+                ok 1 - code dies
+                ok 2 - right exception type (X::IO::DoesNotExist)
+            ok 2 - Failure threw when sunk
+        ok 1 - did we fails-like X::IO::DoesNotExist?
+    ok 1 - Non-existing file
+    # Subtest: x
+        1..3
+        ok 1 - .mode returns IntStr
+        ok 2 - .mode returns correct value
+        ok 3 - .mode.Int returns correct value
+    ok 2 - x
+    # Subtest: r
+        1..3
+        ok 1 - .mode returns IntStr
+        ok 2 - .mode returns correct value
+        ok 3 - .mode.Int returns correct value
+    ok 3 - r
+    # Subtest: rwx
+        1..3
+        ok 1 - .mode returns IntStr
+        ok 2 - .mode returns correct value
+        ok 3 - .mode.Int returns correct value
+    ok 4 - rwx
+    # Subtest: rw
+        1..3
+        ok 1 - .mode returns IntStr
+        ok 2 - .mode returns correct value
+        ok 3 - .mode.Int returns correct value
+    ok 5 - rw
+    # Subtest: w
+        1..3
+        ok 1 - .mode returns IntStr
+        ok 2 - .mode returns correct value
+        ok 3 - .mode.Int returns correct value
+    ok 6 - w
+ok 15 - .mode
+# Subtest: Cleanup
+    1..2
+    ok 1 - Testfile symlink-existing has been removed
+    ok 2 - Testfile symlink-non-existing has been removed
+ok 16 - Cleanup

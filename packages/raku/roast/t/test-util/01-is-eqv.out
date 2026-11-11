@@ -1,0 +1,11 @@
+1..10
+ok 1 - Seq:U, Seq:U
+ok 2 - Seq:D, Seq:D
+ok 3 - List:D, List:D
+ok 4 - Seq:U, Seq:D
+ok 5 - Seq:D, Seq:U
+ok 6 - Seq:D, different Seq:D
+ok 7 - Seq:D, List:D
+ok 8 - List:D, Seq:D
+ok 9 - List:D, different List:D
+ok 10 - List:D, Int:D

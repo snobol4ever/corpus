@@ -1,0 +1,19 @@
+1..18
+ok 1 - @array = ($arrayitem,) does not flatten the arrayitem
+ok 2 - @array = ($arrayitem) does not flatten the arrayitem
+ok 3 - @array = $arrayitem does not flatten the arrayitem
+ok 4 - %hash = ($hashitem,) does not flatten the hashitem
+ok 5 - %hash = ($hashitem,) does not flatten the hashitem
+ok 6 - %hash = $hashitem works due to single argument rule
+ok 7 - $bar = ($foo,) does not flatten the arrayitem
+ok 8 - $bar = ($foo) does flatten the arrayitem
+ok 9 - $bar = $foo does flatten the arrayitem
+ok 10 - $bar = ($foo,) does not flatten the hashitem
+ok 11 - $bar = ($foo) does flatten the hashitem
+ok 12 - $bar = $foo does flatten the hashitem
+ok 13 - @array[0] = ($arrayitem,) does not flatten the arrayitem
+ok 14 - @array[0] = ($arrayitem) does not flatten the arrayitem
+ok 15 - @array[0] = $arrayitem does not flatten the arrayitem
+ok 16 - %hash<a> = ($hashitem,) does not flatten the hashitem
+ok 17 - %hash<a> = ($hashitem) does not flatten the hashitem
+ok 18 - %hash<a> = $hashitem does not flatten the hashitem

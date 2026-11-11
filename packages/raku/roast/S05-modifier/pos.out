@@ -1,0 +1,54 @@
+1..40
+ok 1 - Matched 1: 'abc'
+ok 2 - Interim position correct
+ok 3 - Matched 2: 'def'
+ok 4 - Final position correct
+ok 5 - Globally contiguous substitution
+not ok 6 - Correctly substituted contiguously # TODO s:pos/// NYI
+# Failed test 'Correctly substituted contiguously'
+# at S05-modifier/pos.rakudo line 26
+# expected: 'FOOFOOFOO foofoofoo'
+#      got: 'FOOFOOFOO FOOFOOFOO'
+ok 7 - Continued match
+ok 8 - Continued match pos
+ok 9 - Insensitive continued match pos
+ok 10 - Insensitive recontinued match pos
+not ok 11 - Insensitive repeated continued match # TODO m:g
+# Failed test 'Insensitive repeated continued match'
+# at S05-modifier/pos.rakudo line 50
+# expected: 'abc abc abc'
+#      got: '@x'
+ok 12 - Insensitive repeated continued match pos
+ok 13 - 
+not ok 14 - Insensitive scalar repeated continued match pos # TODO m:p:i:g// NYI
+# Failed test 'Insensitive scalar repeated continued match pos'
+# at S05-modifier/pos.rakudo line 61
+# expected: '3'
+#      got: '9'
+ok 15 - Match anchored to 0
+ok 16 - and the match is in the correct position
+ok 17 - No match anchored to 1
+ok 18 - No match anchored to 2
+ok 19 - Match anchored to 3
+ok 20 - and the match is in the correct position
+ok 21 - No match anchored to 4
+ok 22 - Match anchored to 6
+ok 23 - and the match is in the correct position
+ok 24 - No match anchored to 7
+ok 25 - No match anchored to 8
+ok 26 - No match anchored to 9
+ok 27 - No match anchored to 10
+ok 28 - Match anchored to 0
+ok 29 - and the match is in the correct position
+ok 30 - No match anchored to 1
+ok 31 - No match anchored to 2
+ok 32 - Match anchored to 3
+ok 33 - and the match is in the correct position
+ok 34 - No match anchored to 4
+ok 35 - Match anchored to 6
+ok 36 - and the match is in the correct position
+ok 37 - No match anchored to 7
+ok 38 - No match anchored to 8
+ok 39 - No match anchored to 9
+ok 40 - No match anchored to 10
+# FUDGED!

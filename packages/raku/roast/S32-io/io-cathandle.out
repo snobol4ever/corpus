@@ -1,0 +1,405 @@
+1..31
+# Subtest: chomp method and nl-in method
+    1..4
+    ok 1 - default
+    ok 2 - changed
+    ok 3 - attributes get set on next handles
+    ok 4 - can set .nl-in to a string
+ok 1 - chomp method and nl-in method
+# Subtest: close method
+    1..4
+    ok 1 - we have some IO::Handles that are open before calling .close
+    ok 2 - .close returns True
+    ok 3 - all of original IO::Handles got closed
+    ok 4 - all the handles get removed and active handle is niled
+ok 2 - close method
+# Subtest: comb method
+    1..12
+    ok 1 - \()
+    ok 2 - \("")
+    ok 3 - \("♥")
+    ok 4 - \("♥", 2)
+    ok 5 - \(0)
+    ok 6 - \(1)
+    ok 7 - \(5)
+    ok 8 - \(1000)
+    ok 9 - \(2, 3)
+    ok 10 - \(/../)
+    ok 11 - \(/../, 2)
+    ok 12 - \(/<:alpha>/, 3)
+ok 3 - comb method
+# Subtest: DESTROY method
+    1..3
+    ok 1 - we have some IO::Handles that are open before calling .DESTROY
+    ok 2 - all of original IO::Handles got closed
+    ok 3 - all the handles get removed and active handle is niled
+ok 4 - DESTROY method
+# Subtest: encoding method
+    1..4
+    ok 1 - default
+    ok 2 - can change via .new
+    # Subtest: can change via .encoding while iterating through handles
+        1..3
+        ok 1 - ascii
+        ok 2 - utf8
+        ok 3 - utf8-c8
+    ok 3 - can change via .encoding while iterating through handles
+    ok 4 - can change via .encoding when no @handles are left
+ok 5 - encoding method
+# Subtest: eof method
+    1..8
+    ok 1 - no handles from start
+    ok 2 - no handles from start (bin)
+    # Subtest: with 1 handle
+        1..2
+        ok 1 - before exhausting handle
+        ok 2 - after exhausting handle
+    ok 3 - with 1 handle
+    # Subtest: with 1 handle (bin)
+        1..2
+        ok 1 - before exhausting handle
+        ok 2 - after exhausting handle
+    ok 4 - with 1 handle (bin)
+    # Subtest: with 2 handles
+        1..5
+        ok 1 - before exhausting handles
+        ok 2 - after exhausting first handle
+        ok 3 - read a bit of second handle
+        ok 4 - after exhausting all handles
+        ok 5 - after read after exhaustion
+    ok 5 - with 2 handles
+    # Subtest: with 2 handles (bin)
+        1..5
+        ok 1 - before exhausting handles
+        ok 2 - after exhausting first handle
+        ok 3 - read a bit of second handle
+        ok 4 - after exhausting all handles
+        ok 5 - after read after exhaustion
+    ok 6 - with 2 handles (bin)
+    # Subtest: with 3 handles to empty files
+        1..2
+        ok 1 - before reads
+        ok 2 - after reads
+    ok 7 - with 3 handles to empty files
+    # Subtest: with 3 handles to empty files (bin)
+        1..2
+        ok 1 - before reads
+        ok 2 - after reads
+    ok 8 - with 3 handles to empty files (bin)
+ok 6 - eof method
+# Subtest: get method
+    1..3
+    ok 1 - .get with defaults
+    ok 2 - .get on exhausted handle
+    ok 3 - .get with handles set to different chomp/nl-in attributes
+ok 7 - get method
+# Subtest: getc method
+    1..4
+    ok 1 - .getc on handle-path mix
+    ok 2 - .getc on exhausted cat handle
+    ok 3 - .getc on exhausted cat handle continues giving Nil
+    ok 4 - .getc on text with combiners # TODO end of file
+ok 8 - getc method
+# Subtest: gist method
+    1..5
+    ok 1 - type object
+    ok 2 - instantiated with no handles
+    ok 3 - opened, first handle
+    ok 4 - opened, second handle
+    ok 5 - after exhausting handles
+ok 9 - gist method
+# Subtest: handles method
+    1..4
+    # Subtest: called on fresh cat
+        1..1
+        ok 1 - received right data
+    ok 1 - called on fresh cat
+    # Subtest: called on partially-consumed cat
+        1..1
+        ok 1 - received right data
+    ok 2 - called on partially-consumed cat
+    # Subtest: called on fully-consumed cat
+        1..1
+        ok 1 - received right data
+    ok 3 - called on fully-consumed cat
+    # Subtest: using handles while also consuming using other methods
+        1..5
+        ok 1 - first use
+        ok 2 - second use
+        ok 3 - handles gives right handle even if it was switched by other means
+        ok 4 - no more handles (1)
+        ok 5 - no more handles (2)
+    ok 4 - using handles while also consuming using other methods
+ok 10 - handles method
+# Subtest: IO method
+    1..4
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - 4
+ok 11 - IO method
+# Subtest: lines method
+    1..13
+    ok 1 - no arg
+    ok 2 - $limit 500
+    ok 3 - $limit 5
+    ok 4 - $limit 0 (return value)
+    ok 5 - $limit 0 (all opened handles remained open)
+    ok 6 - :close arg (return value)
+    ok 7 - :close arg (all opened handles got closed)
+    ok 8 - $limit 500, :close arg (return value)
+    ok 9 - $limit 500, :close arg (all opened handles got closed)
+    ok 10 - $limit 5, :close arg (return value)
+    ok 11 - $limit 5, :close arg (all opened handles got closed)
+    ok 12 - $limit 0, :close arg (return value)
+    ok 13 - $limit 0, :close arg (all opened handles got closed)
+ok 12 - lines method
+# Subtest: native-descriptor method
+    1..5
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - The object is-a 'Int'
+    ok 5 - after exhausting handles
+ok 13 - native-descriptor method
+# Subtest: new method
+    1..3
+    ok 1 - .new
+    ok 2 - .new of subclass returns subclass
+    ok 3 - instantiated subclass is a CatHandle
+ok 14 - new method
+# Subtest: next-handle method
+    1..11
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - 4
+    ok 5 - 5
+    ok 6 - 6
+    ok 7 - 7
+    ok 8 - 8
+    ok 9 - 9
+    ok 10 - 10
+    ok 11 - .next-handle causes .on-switch callable to be called
+ok 15 - next-handle method
+# Subtest: on-switch method
+    1..11
+    ok 1 - can count files' line numbers (.count 0)
+    ok 2 - .count 1
+    ok 3 - .count 2 (first arg)
+    ok 4 - .count 2 (second arg)
+    ok 5 - .count Inf (first arg)
+    ok 6 - .count Inf (second arg)
+    # Subtest: can change .on-switch by assigning to attribute
+        1..5
+        ok 1 - first change
+        ok 2 - second change
+        ok 3 - third change
+        ok 4 - fourth change
+        ok 5 - can change attribute after setting it via .new
+    ok 7 - can change .on-switch by assigning to attribute
+    ok 8 - on-switch gets called $handles + 1 number of times
+    ok 9 - second arg on first iteration is Nil
+    ok 10 - first arg on last iteration is Nil
+    ok 11 - .on-switch an iteration after handle exhaustion has Nil args
+ok 16 - on-switch method
+# Subtest: open method
+    1..4
+    ok 1 - after instantiation (no handles)
+    ok 2 - after instantiation
+    ok 3 - second handle
+    ok 4 - after exhausting all handles
+ok 17 - open method
+# Subtest: opened method
+    1..4
+    ok 1 - after instantiation (no handles)
+    ok 2 - after instantiation
+    ok 3 - second handle
+    ok 4 - after exhausting all handles
+ok 18 - opened method
+# Subtest: path method
+    1..4
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - 4
+ok 19 - path method
+# Subtest: perl method
+    1..8
+    ok 1 - type object
+    ok 2 - no args
+    ok 3 - just handles
+    ok 4 - :bin
+    ok 5 - :encoding
+    ok 6 - :encoding + :nl-in
+    ok 7 - :encoding + :nl-in + :!chomp
+    ok 8 - :encoding, :nl-in, :!chomp and no handles
+ok 20 - perl method
+# Subtest: read method
+    1..3
+    # Subtest: binary cat
+        1..4
+        ok 1 - 1
+        ok 2 - 2
+        ok 3 - 3
+        ok 4 - 4
+    ok 1 - binary cat
+    # Subtest: non-binary cat
+        1..4
+        ok 1 - 1
+        ok 2 - 2
+        ok 3 - 3
+        ok 4 - 4
+    ok 2 - non-binary cat
+    ok 3 - IO::CatHandle.read has some reasonable size default value
+ok 21 - read method
+# Subtest: readchars method
+    1..8
+    # Subtest: binary cat
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::BinaryMode)
+    ok 1 - binary cat
+    ok 2 - 1
+    ok 3 - 2
+    ok 4 - 3
+    ok 5 - 4
+    ok 6 - 5
+    ok 7 - 6
+    ok 8 - 7
+ok 22 - readchars method
+# Subtest: seek method and tell method
+    1..5
+    ok 1 - .seek on zero-handle cat
+    ok 2 - .tell on zero-handle cat
+    # Subtest: SeekFromBeginning
+        1..3
+        ok 1 - first handle
+        ok 2 - seeking past handle's end does not switch handles
+        # Subtest: seeking earlier than beginning of active handle throws
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 3 - seeking earlier than beginning of active handle throws
+    ok 3 - SeekFromBeginning
+    # Subtest: SeekFromCurrent
+        1..4
+        ok 1 - first handle
+        ok 2 - first handle
+        ok 3 - seeking past handle's end does not switch handles
+        # Subtest: seeking earlier than beginning of active handle throws
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 4 - seeking earlier than beginning of active handle throws
+    ok 4 - SeekFromCurrent
+    # Subtest: SeekFromEnd
+        1..3
+        ok 1 - first handle
+        ok 2 - seeking past handle's end does not switch handles
+        # Subtest: seeking earlier than beginning of active handle throws
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (Exception)
+        ok 3 - seeking earlier than beginning of active handle throws
+    ok 5 - SeekFromEnd
+ok 23 - seek method and tell method
+# Subtest: slurp method
+    1..4
+    ok 1 - non-binary
+    ok 2 - binary
+    ok 3 - :enc parameter works
+    # Subtest: file containing single non-valid-UTF8 byte throws in utf8 slurp
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 4 - file containing single non-valid-UTF8 byte throws in utf8 slurp
+ok 24 - slurp method
+# Subtest: split method
+    1..22
+    ok 1 - \("")
+    ok 2 - \("♥")
+    ok 3 - \("♥", 2)
+    ok 4 - \(0)
+    ok 5 - \(1)
+    ok 6 - \(5)
+    ok 7 - \(1000)
+    ok 8 - \(2, 3)
+    ok 9 - \(/../)
+    ok 10 - \(/../, 2)
+    ok 11 - \(/<:alpha>/, 3)
+    ok 12 - \("", :skip-empty)
+    ok 13 - \("♥", :k)
+    ok 14 - \("♥", :v)
+    ok 15 - \(0, :kv)
+    ok 16 - \(1, :p)
+    ok 17 - \(5, :k, :skip-empty)
+    ok 18 - \(1000, :skip-empty, :v)
+    ok 19 - \(2, 3, :kv, :skip-empty)
+    ok 20 - \(/../, :p, :skip-empty)
+    ok 21 - \(/../, 2, :p, :skip-empty)
+    ok 22 - \(/<:alpha>/, 3, :kv, :skip-empty)
+ok 25 - split method
+# Subtest: Str method
+    1..4
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - 4
+ok 26 - Str method
+# Subtest: Supply method
+    1..5
+    # Subtest: binary cat
+        1..4
+        ok 1 - no args
+        ok 2 - size 2
+        ok 3 - size 5
+        ok 4 - size 1000
+    ok 1 - binary cat
+    # Subtest: non-binary cat, utf8
+        1..4
+        ok 1 - no args
+        ok 2 - size 2
+        ok 3 - size 5
+        ok 4 - size 1000
+    ok 2 - non-binary cat, utf8
+    # Subtest: non-binary cat, utf8-c8
+        1..4
+        ok 1 - no args
+        ok 2 - size 2
+        ok 3 - size 5
+        ok 4 - size 1000
+    ok 3 - non-binary cat, utf8-c8
+    ok 4 - supply on exhausted cat is empty
+    ok 5 - supply on exhausted cat is empty (second call)
+ok 27 - Supply method
+# Subtest: t method
+    1..4
+    ok 1 - 1
+    ok 2 - 2
+    ok 3 - 3
+    ok 4 - after exhausting handles
+ok 28 - t method
+# Subtest: words method
+    1..13
+    ok 1 - no arg
+    ok 2 - $limit 500
+    ok 3 - $limit 5
+    ok 4 - $limit 0 (return value)
+    ok 5 - $limit 0 (all opened handles remained open)
+    ok 6 - :close arg (return value)
+    ok 7 - :close arg (all opened handles got closed)
+    ok 8 - $limit 500, :close arg (return value)
+    ok 9 - $limit 500, :close arg (all opened handles got closed)
+    ok 10 - $limit 5, :close arg (return value)
+    ok 11 - $limit 5, :close arg (all opened handles got closed)
+    ok 12 - $limit 0, :close arg (return value)
+    ok 13 - $limit 0, :close arg (all opened handles got closed)
+ok 29 - words method
+# Subtest: IO::CatHandle.read does not switch to another handle too early
+    1..2
+    ok 1 - got all elements
+    ok 2 - STDERR is empty
+ok 30 - IO::CatHandle.read does not switch to another handle too early
+ok 31 - supports lazy list of paths
+# FUDGED!

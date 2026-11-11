@@ -1,0 +1,13 @@
+1..11
+ok 1 - named rule ordinal capture
+ok 2 - named rule ordinal capture with abbreviated variable
+ok 3 - $/.orig works
+ok 4 - named rule named capture
+ok 5 - named rule named capture with abbreviated variable
+ok 6 - # SKIP assigning to match object
+ok 7 - # SKIP assigning to match object
+ok 8 - grammar sanity
+ok 9 - right keys in top level match
+ok 10 - $<b> has no captures
+ok 11 - can capture inside a || alternation even if previous capture was quantified (RT  \#107746)
+# FUDGED!

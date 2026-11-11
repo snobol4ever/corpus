@@ -1,0 +1,32 @@
+1..31
+ok 1 - named me
+ok 2 - named you
+ok 3 - named me, named him
+ok 4 - named him, named me
+ok 5 - named me named him named her
+ok 6 - named him named me named her
+ok 7 - named her named me named him
+ok 8 - named her named him named me
+ok 9 - pos, named you
+ok 10 - pos, named her
+ok 11 - pos, pos
+ok 12 - pos, pos, named
+ok 13 - named me
+ok 14 - named you
+ok 15 - named me, named him
+ok 16 - named him, named me
+ok 17 - named me named him named her
+ok 18 - named him named me named her
+ok 19 - named her named me named him
+ok 20 - named her named him named me
+ok 21 - pos, named you
+ok 22 - pos, named her
+ok 23 - pos, pos
+ok 24 - pos, pos, named
+ok 25 - slurpy and named interact well (1)
+ok 26 - slurpy and named interact well (2)
+ok 27 - presence of mandatory named multi does not corrupt calling a nullary
+ok 28 - optional named param in a multi still makes candidate narrower
+ok 29 - Correctly reached first multi
+ok 30 - Correctly reached second multi
+ok 31 - Correctly reached third multi

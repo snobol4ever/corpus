@@ -1,0 +1,809 @@
+1..17
+# Subtest: .open with ()/(:r)/(:mode<ro>)
+    1..5
+    # Subtest: Sub form with Str
+        1..6
+        # Subtest: missing file (no args)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547456816) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (no args)
+        # Subtest: missing file (:r)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547456960) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:r)
+        # Subtest: missing file (:mode<ro>)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457032) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - missing file (:mode<ro>)
+        ok 4 - can read (no args)
+        ok 5 - can read (:r)
+        ok 6 - can read (:mode<ro>)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..6
+        # Subtest: missing file (no args)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457248) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (no args)
+        # Subtest: missing file (:r)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457320) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:r)
+        # Subtest: missing file (:mode<ro>)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457392) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - missing file (:mode<ro>)
+        ok 4 - can read (no args)
+        ok 5 - can read (:r)
+        ok 6 - can read (:mode<ro>)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..6
+        # Subtest: missing file (no args)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457464) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (no args)
+        # Subtest: missing file (:r)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457536) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:r)
+        # Subtest: missing file (:mode<ro>)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457608) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - missing file (:mode<ro>)
+        ok 4 - can read (no args)
+        ok 5 - can read (:r)
+        ok 6 - can read (:mode<ro>)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..6
+        # Subtest: missing file (no args)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457680) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (no args)
+        # Subtest: missing file (:r)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457752) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:r)
+        # Subtest: missing file (:mode<ro>)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457824) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - missing file (:mode<ro>)
+        ok 4 - can read (no args)
+        ok 5 - can read (:r)
+        ok 6 - can read (:mode<ro>)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..6
+        # Subtest: missing file (no args)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457896) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (no args)
+        # Subtest: missing file (:r)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547457968) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:r)
+        # Subtest: missing file (:mode<ro>)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547458040) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - missing file (:mode<ro>)
+        ok 4 - can read (no args)
+        ok 5 - can read (:r)
+        ok 6 - can read (:mode<ro>)
+    ok 5 - Method form with IO::Handle
+ok 1 - .open with ()/(:r)/(:mode<ro>)
+# Subtest: .open with :w / :mode<wo>, :create, :truncate
+    1..5
+    # Subtest: Sub form with Str
+        1..4
+        ok 1 - creates   on write (:w)
+        ok 2 - creates   on write (:mode)
+        ok 3 - truncates on write (:w)
+        ok 4 - truncates on write (:mode)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..4
+        ok 1 - creates   on write (:w)
+        ok 2 - creates   on write (:mode)
+        ok 3 - truncates on write (:w)
+        ok 4 - truncates on write (:mode)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..4
+        ok 1 - creates   on write (:w)
+        ok 2 - creates   on write (:mode)
+        ok 3 - truncates on write (:w)
+        ok 4 - truncates on write (:mode)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..4
+        ok 1 - creates   on write (:w)
+        ok 2 - creates   on write (:mode)
+        ok 3 - truncates on write (:w)
+        ok 4 - truncates on write (:mode)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..4
+        ok 1 - creates   on write (:w)
+        ok 2 - creates   on write (:mode)
+        ok 3 - truncates on write (:w)
+        ok 4 - truncates on write (:mode)
+    ok 5 - Method form with IO::Handle
+ok 2 - .open with :w / :mode<wo>, :create, :truncate
+# Subtest: .open with :a / :mode<wo>, :create, :append
+    1..5
+    # Subtest: Sub form with Str
+        1..4
+        ok 1 - creates on write (:a)
+        ok 2 - creates on write (:mode)
+        ok 3 - appends on write (:a)
+        ok 4 - appends on write (:mode)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..4
+        ok 1 - creates on write (:a)
+        ok 2 - creates on write (:mode)
+        ok 3 - appends on write (:a)
+        ok 4 - appends on write (:mode)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..4
+        ok 1 - creates on write (:a)
+        ok 2 - creates on write (:mode)
+        ok 3 - appends on write (:a)
+        ok 4 - appends on write (:mode)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..4
+        ok 1 - creates on write (:a)
+        ok 2 - creates on write (:mode)
+        ok 3 - appends on write (:a)
+        ok 4 - appends on write (:mode)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..4
+        ok 1 - creates on write (:a)
+        ok 2 - creates on write (:mode)
+        ok 3 - appends on write (:a)
+        ok 4 - appends on write (:mode)
+    ok 5 - Method form with IO::Handle
+ok 3 - .open with :a / :mode<wo>, :create, :append
+# Subtest: .open with :x / :mode<wo>, :create, :exclusive
+    1..5
+    # Subtest: Sub form with Str
+        1..4
+        ok 1 - creates on write (:x)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:x)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547464592) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:x)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547464664) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..4
+        ok 1 - creates on write (:x)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:x)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547464736) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:x)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547464808) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..4
+        ok 1 - creates on write (:x)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:x)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547464880) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:x)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547464952) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..4
+        ok 1 - creates on write (:x)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:x)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465024) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:x)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465096) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..4
+        ok 1 - creates on write (:x)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:x)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465168) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:x)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465240) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+    ok 5 - Method form with IO::Handle
+ok 4 - .open with :x / :mode<wo>, :create, :exclusive
+# Subtest: .open with :update / :mode<rw>
+    1..5
+    # Subtest: Sub form with Str
+        1..8
+        # Subtest: missing file (:update)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465312) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (:update)
+        # Subtest: missing file (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465384) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:mode)
+        ok 3 - can read (:update)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:x)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:x)
+        ok 8 - seek + update (:mode)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..8
+        # Subtest: missing file (:update)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465456) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (:update)
+        # Subtest: missing file (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465528) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:mode)
+        ok 3 - can read (:update)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:x)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:x)
+        ok 8 - seek + update (:mode)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..8
+        # Subtest: missing file (:update)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465600) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (:update)
+        # Subtest: missing file (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465672) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:mode)
+        ok 3 - can read (:update)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:x)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:x)
+        ok 8 - seek + update (:mode)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..8
+        # Subtest: missing file (:update)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465744) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (:update)
+        # Subtest: missing file (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547465816) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:mode)
+        ok 3 - can read (:update)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:x)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:x)
+        ok 8 - seek + update (:mode)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..8
+        # Subtest: missing file (:update)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526464) ... }
+            ok 2 - Failure threw when sunk
+        ok 1 - missing file (:update)
+        # Subtest: missing file (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526536) ... }
+            ok 2 - Failure threw when sunk
+        ok 2 - missing file (:mode)
+        ok 3 - can read (:update)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:x)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:x)
+        ok 8 - seek + update (:mode)
+    ok 5 - Method form with IO::Handle
+ok 5 - .open with :update / :mode<rw>
+# Subtest: .open with :rw / :mode<rw>, :create
+    1..5
+    # Subtest: Sub form with Str
+        1..8
+        ok 1 - creates on write (:rw)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:rw)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:rw)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:rw)
+        ok 8 - seek + update (:mode)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..8
+        ok 1 - creates on write (:rw)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:rw)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:rw)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:rw)
+        ok 8 - seek + update (:mode)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..8
+        ok 1 - creates on write (:rw)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:rw)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:rw)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:rw)
+        ok 8 - seek + update (:mode)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..8
+        ok 1 - creates on write (:rw)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:rw)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:rw)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:rw)
+        ok 8 - seek + update (:mode)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..8
+        ok 1 - creates on write (:rw)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:rw)
+        ok 4 - can read (:mode)
+        ok 5 - updates on write (:rw)
+        ok 6 - updates on write (:mode)
+        ok 7 - seek + update (:rw)
+        ok 8 - seek + update (:mode)
+    ok 5 - Method form with IO::Handle
+ok 6 - .open with :rw / :mode<rw>, :create
+# Subtest: .open with :ra / :mode<rw>, :create, :append
+    1..5
+    # Subtest: Sub form with Str
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:ra)
+        ok 4 - can read (:mode)
+        ok 5 - appends on write (:ra)
+        ok 6 - appends on write (:mode)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:ra)
+        ok 4 - can read (:mode)
+        ok 5 - appends on write (:ra)
+        ok 6 - appends on write (:mode)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:ra)
+        ok 4 - can read (:mode)
+        ok 5 - appends on write (:ra)
+        ok 6 - appends on write (:mode)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:ra)
+        ok 4 - can read (:mode)
+        ok 5 - appends on write (:ra)
+        ok 6 - appends on write (:mode)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        ok 3 - can read (:ra)
+        ok 4 - can read (:mode)
+        ok 5 - appends on write (:ra)
+        ok 6 - appends on write (:mode)
+    ok 5 - Method form with IO::Handle
+ok 7 - .open with :ra / :mode<rw>, :create, :append
+# Subtest: .open with :rx / :mode<rw>, :create, :exclusive
+    1..5
+    # Subtest: Sub form with Str
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:rx)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526608) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:rx)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526680) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+        ok 5 - can read after writing (:rx)
+        ok 6 - can read after writing (:rx)
+    ok 1 - Sub form with Str
+    # Subtest: Sub form with IO::Path
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:rx)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526752) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:rx)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526824) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+        ok 5 - can read after writing (:rx)
+        ok 6 - can read after writing (:rx)
+    ok 2 - Sub form with IO::Path
+    # Subtest: Sub form with IO::Handle
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:rx)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526896) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:rx)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547526968) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+        ok 5 - can read after writing (:rx)
+        ok 6 - can read after writing (:rx)
+    ok 3 - Sub form with IO::Handle
+    # Subtest: Method form with IO::Path
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:rx)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547527040) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:rx)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547527112) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+        ok 5 - can read after writing (:rx)
+        ok 6 - can read after writing (:rx)
+    ok 4 - Method form with IO::Path
+    # Subtest: Method form with IO::Handle
+        1..6
+        ok 1 - creates on write (:ra)
+        ok 2 - creates on write (:mode)
+        # Subtest: fails if file exists (:rx)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547527184) ... }
+            ok 2 - Failure threw when sunk
+        ok 3 - fails if file exists (:rx)
+        # Subtest: fails if file exists (:mode)
+            1..2
+            ok 1 - code returned a Failure
+            # Subtest: Failure threw when sunk
+                1..3
+                ok 1 - code dies
+                ok 2 - right exception type (Exception)
+                ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547527256) ... }
+            ok 2 - Failure threw when sunk
+        ok 4 - fails if file exists (:mode)
+        ok 5 - can read after writing (:rx)
+        ok 6 - can read after writing (:rx)
+    ok 5 - Method form with IO::Handle
+ok 8 - .open with :rx / :mode<rw>, :create, :exclusive
+ok 9 - can set $!chomp to False with open
+ok 10 - can set $!nl-in to Array with open
+ok 11 - can set $!nl-out with open
+ok 12 - can set $!chomp to True with open
+ok 13 - can set $!nl-in to Str with open
+ok 14 - can set $!encoding with 
+# Subtest: .open uses attributes by default
+    1..8
+    ok 1 - .nl-in remains same after open
+    ok 2 - .nl-out remains same after open
+    ok 3 - .encoding is Nil due to :bin
+    ok 4 - .chomp remains same after open
+    ok 5 - .encoding is respected
+    ok 6 - .chomp is respected
+    ok 7 - .nl-out is respected
+    ok 8 - .nl-in is respected
+ok 15 - .open uses attributes by default
+# Subtest: .DESTROY does not close standard handles
+    1..3
+    ok 1 - IO::Handle.new(path => IO::Special.new("<STDIN>"), chomp => Bool::True, nl-in => $["\n", "\r\n"], nl-out => "\n", encoding => "utf8")
+    ok 2 - IO::Handle.new(path => IO::Special.new("<STDOUT>"), chomp => Bool::True, nl-in => $["\n", "\r\n"], nl-out => "\n", encoding => "utf8")
+    ok 3 - IO::Handle.new(path => IO::Special.new("<STDERR>"), chomp => Bool::True, nl-in => $["\n", "\r\n"], nl-out => "\n", encoding => "utf8")
+ok 16 - .DESTROY does not close standard handles
+# Subtest: .open error does not incorrectly complain about malformed UTF-8
+    1..3
+    ok 1 - '('a' x 975).IO.open' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|4937547558496) ... }
+ok 17 - .open error does not incorrectly complain about malformed UTF-8

@@ -1,0 +1,116 @@
+1..84
+ok 1 - re_tests 1215  (1419)
+ok 2 - re_tests 1216  (1420)
+ok 3 - re_tests 1218/1 (1422)
+ok 4 - re_tests 1220  (1424)
+ok 5 - re_tests 1222  (1426)
+ok 6 - re_tests 1224/1 (1428)
+ok 7 - re_tests 1226/1 (1430)
+ok 8 - re_tests 1228  (1432)
+ok 9 - re_tests 1230  (1434)
+ok 10 - re_tests 1232/1 (1436)
+ok 11 - re_tests 1232/2 (1437)
+ok 12 - re_tests 1234/1 (1440)
+ok 13 - re_tests 1234/2 (1441)
+ok 14 - re_tests 1236/1 (1444)
+ok 15 - re_tests 1236/2 (1445)
+ok 16 - re_tests 1238  (1448)
+ok 17 - re_tests 1239  (1449)
+ok 18 - re_tests 1241/2 (1451)
+ok 19 - re_tests 1242  (1452)
+not ok 20 - re_tests 1244  (1454) # TODO test file needs review
+# Failed test 're_tests 1244  (1454)'
+# at S05-modifier/Perl_9.rakudo line 37
+not ok 21 - re_tests 1246/2 (1456) # TODO test file needs review
+# Failed test 're_tests 1246/2 (1456)'
+# at S05-modifier/Perl_9.rakudo line 38
+# expected: ''
+#      got: 'CD'
+not ok 22 - re_tests 1246/3 (1457) # TODO test file needs review
+# Failed test 're_tests 1246/3 (1457)'
+# at S05-modifier/Perl_9.rakudo line 39
+# expected: 'CD'
+#      got: (Nil)
+ok 23 - re_tests 1248/2 (1460)
+not ok 24 - re_tests 1248/3 (1461) # TODO test file needs review
+# Failed test 're_tests 1248/3 (1461)'
+# at S05-modifier/Perl_9.rakudo line 43
+# expected: ''
+#      got: (Nil)
+not ok 25 - re_tests 1250/2 (1464) # TODO test file needs review
+# Failed test 're_tests 1250/2 (1464)'
+# at S05-modifier/Perl_9.rakudo line 44
+# expected: ''
+#      got: 'CD'
+not ok 26 - re_tests 1250/3 (1465) # TODO test file needs review
+# Failed test 're_tests 1250/3 (1465)'
+# at S05-modifier/Perl_9.rakudo line 45
+# expected: 'CD'
+#      got: (Nil)
+ok 27 - re_tests 1252/2 (1468)
+not ok 28 - re_tests 1252/3 (1469) # TODO test file needs review
+# Failed test 're_tests 1252/3 (1469)'
+# at S05-modifier/Perl_9.rakudo line 49
+# expected: ''
+#      got: (Nil)
+not ok 29 - re_tests 1254  (1472) # TODO test file needs review
+# Failed test 're_tests 1254  (1472)'
+# at S05-modifier/Perl_9.rakudo line 50
+ok 30 - re_tests 1256/1 (1474)
+ok 31 - re_tests 1258/1 (1476)
+ok 32 - re_tests 1259/1 (1477)
+ok 33 - re_tests 1261/1 (1479)
+ok 34 - re_tests 1263/1 (1481)
+ok 35 - re_tests 1265/1 (1483)
+ok 36 - re_tests 1267/1 (1485)
+ok 37 - re_tests 1269/1 (1487)
+ok 38 - re_tests 1271/1 (1489)
+ok 39 - re_tests 1273/1 (1491)
+ok 40 - re_tests 1275/1 (1493)
+ok 41 - re_tests 1277/1 (1495)
+ok 42 - re_tests 1279/1 (1497)
+ok 43 - re_tests 1281/1 (1499)
+ok 44 - re_tests 1283/1 (1501)
+ok 45 - re_tests 1285/1 (1503)
+ok 46 - re_tests 1287/1 (1505)
+ok 47 - re_tests 1289/1 (1507)
+ok 48 - re_tests 1291/1 (1509)
+ok 49 - re_tests 1293/1 (1511)
+ok 50 - re_tests 1295/1 (1513)
+ok 51 - re_tests 1297/1 (1515)
+ok 52 - re_tests 1299/1 (1517)
+ok 53 - re_tests 1301/1 (1519)
+ok 54 - re_tests 1303/1 (1521)
+ok 55 - re_tests 1305/1 (1523)
+ok 56 - re_tests 1307/1 (1525)
+ok 57 - re_tests 1309/1 (1527)
+ok 58 - re_tests 1311/1 (1529)
+ok 59 - re_tests 1313/1 (1531)
+ok 60 - re_tests 1315/1 (1533)
+ok 61 - re_tests 1317/1 (1535)
+ok 62 - re_tests 1319/1 (1537)
+ok 63 - re_tests 1321/1 (1539)
+ok 64 - re_tests 1323/1 (1541)
+ok 65 - re_tests 1325/1 (1543)
+ok 66 - re_tests 1327/0 (1545)
+not ok 67 - re_tests 1329  (1547) # TODO test file needs review
+# Failed test 're_tests 1329  (1547)'
+# at S05-modifier/Perl_9.rakudo line 90
+ok 68 - re_tests 1330/1 (1548)
+ok 69 - re_tests 1332/1 (1550)
+ok 70 - re_tests 1334/1 (1552)
+ok 71 - re_tests 1336/1 (1554)
+ok 72 - re_tests 1338/1 (1556)
+ok 73 - re_tests 1340/1 (1558)
+ok 74 - re_tests 1342/1 (1560)
+ok 75 - re_tests 1344/1 (1562)
+ok 76 - re_tests 1346/1 (1564)
+ok 77 - re_tests 1348/1 (1566)
+ok 78 - re_tests 1350/1 (1568)
+ok 79 - re_tests 1352/1 (1570)
+ok 80 - re_tests 1354/1 (1572)
+ok 81 - re_tests 1356/1 (1574)
+ok 82 - re_tests 1358/1 (1576)
+ok 83 - re_tests 1360/1 (1578)
+ok 84 - re_tests 1362  (1580)
+# FUDGED!

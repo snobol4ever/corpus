@@ -1,0 +1,57 @@
+1..56
+ok 1 - 0 arity &sub
+ok 2 - 1 arity &sub
+ok 3 - 2 arity &sub
+ok 4 - 3 arity &sub
+ok 5 - 4 arity &foo
+ok 6 - 0 count &sub
+ok 7 - 1 count &sub
+ok 8 - 2 count &sub
+ok 9 - 3 count &sub
+ok 10 - 4 count &foo
+ok 11 - arity 0 sub with optional params
+ok 12 - arity 1 sub with optional params
+ok 13 - arity with optional and required named params
+ok 14 - count on sub with optional params
+ok 15 - count on sub with optional params
+ok 16 - count on sub with optional and required named params
+ok 17 - 0 arity &sub (sigils only)
+ok 18 - 1 arity &sub (sigils only)
+ok 19 - 2 arity &sub (sigils only)
+ok 20 - 3 arity &sub (sigils only)
+ok 21 - 4 arity &foo (sigils only)
+ok 22 - block with one placeholder var has .arity == 1
+ok 23 - pointy block with one placeholder var has .arity == 1
+ok 24 - block with two placeholder vars has .arity == 2
+ok 25 - pointy block with two placeholder vars has .arity == 2
+ok 26 - block with three placeholder vars has .arity == 3
+ok 27 - pointy block with three placeholder vars has .arity == 3
+ok 28 - block with one placeholder var has .count == 1
+ok 29 - pointy block with one placeholder var has .count == 1
+ok 30 - block with two placeholder vars has .count == 2
+ok 31 - pointy block with two placeholder vars has .count == 2
+ok 32 - block with three placeholder vars has .count == 3
+ok 33 - pointy block with three placeholder vars has .count == 3
+ok 34 - additional my() vars don't influence .arity calculation (1-1)
+ok 35 - additional my() vars don't influence .arity calculation (1-2)
+ok 36 - additional my() vars don't influence .arity calculation (1-3)
+ok 37 - additional my() vars don't influence .count calculation (1-1)
+ok 38 - additional my() vars don't influence .count calculation (1-2)
+ok 39 - additional my() vars don't influence .count calculation (1-3)
+ok 40 - additional my() vars don't influence .arity calculation (2-1)
+ok 41 - additional my() vars don't influence .arity calculation (2-2)
+ok 42 - additional my() vars don't influence .arity calculation (2-3)
+ok 43 - additional my() vars don't influence .count calculation (2-1)
+ok 44 - additional my() vars don't influence .count calculation (2-2)
+ok 45 - additional my() vars don't influence .count calculation (2-3)
+ok 46 - +$obj.signature.params work
+ok 47 - ... also when passed to a sub first
+ok 48 - no matching sub signature
+ok 49 - &multi.count
+ok 50 - &multi.arity
+ok 51 - slurpy positional causes infinite count
+ok 52 - slurpy named causes no count change
+ok 53 - arity of original sub is 3
+ok 54 - .assuming(1) reduces arity by 1
+ok 55 - correct number of required parameters for assuming-derived method (1)
+ok 56 - correct number of required parameters for assuming-derived method (1)

@@ -1,0 +1,10 @@
+1..9
+ok 1 - The object is-a 'IO::Path'
+ok 2 - $*TMPDIR.raku works
+ok 3 - $*TMPDIR.gist works
+ok 4 - IO::Spec::Unix.tmpdir returns IO::Path
+ok 5 - IO::Spec::Win32.tmpdir returns IO::Path
+ok 6 - IO::Spec::Cygwin.tmpdir returns IO::Path
+ok 7 - IO::Spec::QNX.tmpdir returns IO::Path
+ok 8 - was able to `temp` $*TMPDIR
+ok 9 - `temp`ed $*TMPDIR got restored to previous value

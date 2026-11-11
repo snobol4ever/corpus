@@ -1,0 +1,7 @@
+1..6
+ok 1 - Taking the boolean of a true pair should live
+ok 2 - Taking the boolean of a false pair should live
+ok 3 - A pair with a true value is true
+ok 4 - A pair with a false value is also true
+ok 5 - Ternary on a true pair returns first option
+ok 6 - Ternary on a false pair returns first option too

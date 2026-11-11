@@ -1,0 +1,40 @@
+1..39
+ok 1 - lives-ok .encode('utf16le')
+ok 2 - Buf.encode('utf16le') gives correct output
+ok 3 - lives-ok .encode('utf16be')
+ok 4 - Buf.encode('utf16be') gives correct output
+ok 5 - decodestream(utf16): sample-UTF-16LE-bom.txt
+ok 6 - decode(utf16): sample-UTF-16LE-bom.txt
+ok 7 - .readchars(1) 6 times. sample-UTF-16LE-bom.txt :enc(utf16)
+ok 8 - Writing text to a file in encoding utf16 reads properly
+ok 9 - decodestream(utf16): sample-UTF-16BE-bom.txt
+ok 10 - decode(utf16): sample-UTF-16BE-bom.txt
+ok 11 - .readchars(1) 6 times. sample-UTF-16BE-bom.txt :enc(utf16)
+ok 12 - Writing text to a file in encoding utf16 reads properly
+ok 13 - decodestream(utf16): sample-UTF-16LE.txt
+ok 14 - decode(utf16): sample-UTF-16LE.txt
+ok 15 - .readchars(1) 6 times. sample-UTF-16LE.txt :enc(utf16)
+ok 16 - Writing text to a file in encoding utf16 reads properly
+ok 17 - decodestream(utf8): sample-UTF-8.txt
+ok 18 - decode(utf8): sample-UTF-8.txt
+ok 19 - .readchars(1) 6 times. sample-UTF-8.txt :enc(utf8)
+ok 20 - Writing text to a file in encoding utf8 reads properly
+ok 21 - decodestream(utf16be): sample-UTF-16BE-bom.txt
+ok 22 - decode(utf16be): sample-UTF-16BE-bom.txt
+ok 23 - .readchars(1) 6 times. sample-UTF-16BE-bom.txt :enc(utf16be)
+ok 24 - Writing text to a file in encoding utf16be reads properly
+ok 25 - decodestream(utf16be): sample-UTF-16BE.txt
+ok 26 - decode(utf16be): sample-UTF-16BE.txt
+ok 27 - .readchars(1) 6 times. sample-UTF-16BE.txt :enc(utf16be)
+ok 28 - Writing text to a file in encoding utf16be reads properly
+ok 29 - decodestream(utf16le): sample-UTF-16LE-bom.txt
+ok 30 - decode(utf16le): sample-UTF-16LE-bom.txt
+ok 31 - .readchars(1) 6 times. sample-UTF-16LE-bom.txt :enc(utf16le)
+ok 32 - Writing text to a file in encoding utf16le reads properly
+ok 33 - decodestream(utf16le): sample-UTF-16LE.txt
+ok 34 - decode(utf16le): sample-UTF-16LE.txt
+ok 35 - .readchars(1) 6 times. sample-UTF-16LE.txt :enc(utf16le)
+ok 36 - Writing text to a file in encoding utf16le reads properly
+ok 37 - writing utf16 file has BOM and bytes are in the right order
+ok 38 - writing utf16 file has BOM and bytes are in the right order (spurt)
+ok 39 - utf16: BOM is written correctly with append, and written only once

@@ -1,0 +1,11 @@
+1..10
+ok 1 - post unless
+ok 2 - post unless
+ok 3 - sanity check
+ok 4 - unless expr on true cond
+ok 5 - sanity check
+ok 6 - unless expr on false cond
+ok 7 - Statement-modifier unless runs bare block
+ok 8 - Statement-modifier unless runs block with placeholder
+ok 9 - unless is a terminator even after comma
+ok 10 - Correct handling of $_ in block to left of statement modifer unless

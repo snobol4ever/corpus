@@ -1,0 +1,5 @@
+1..4
+ok 1 - progname var matches test file path
+ok 2 - progname var accessible as context var
+ok 3 - $*PROGRAM-NAME is assignable
+ok 4 - $*PROGRAM-NAME is not confused by compiler options

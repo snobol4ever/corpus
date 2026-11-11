@@ -1,0 +1,34 @@
+1..28
+ok 1 - imperative does to apply a parametrized role (1)
+ok 2 - attribute was initialized correctly (1)
+ok 3 - .HOW.does gives correct information (1-1)
+ok 4 - .^does gives correct information (1-1)
+ok 5 - .HOW.does gives correct information (1-2)
+ok 6 - .^does gives correct information (1-2)
+ok 7 - imperative does to apply a parametrized role (2)
+ok 8 - attribute was initialized correctly (2)
+ok 9 - .HOW.does gives correct information (2-1)
+ok 10 - .^does gives correct information (2-1)
+ok 11 - .HOW.does gives correct information (2-2)
+ok 12 - .^does gives correct information (2-2)
+ok 13 - imperative does to apply a parametrized role (3)
+ok 14 - .HOW.does gives correct information (3-1)
+ok 15 - .^does gives correct information (3-1)
+ok 16 - .HOW.does gives correct information (3-2)
+ok 17 - .^does gives correct information (3-2)
+ok 18 - type information was processed correctly (1)
+ok 19 - type information was processed correctly (2)
+ok 20 - imperative does to apply a parametrized role (4)
+ok 21 - .HOW.does gives correct information (4-1)
+ok 22 - .^does gives correct information (4-1)
+not ok 23 - .HOW.does gives correct information (4-3) # TODO .does with parametric roles
+# Failed test '.HOW.does gives correct information (4-3)'
+# at S14-roles/parameterized-mixin.rakudo line 95
+not ok 24 - .^does gives correct information (4-3) # TODO .does with parametric roles
+# Failed test '.^does gives correct information (4-3)'
+# at S14-roles/parameterized-mixin.rakudo line 97
+ok 25 - .type works correctly
+ok 26 - .name works correctly
+ok 27 - Parametric role used first time uses correct default value
+ok 28 - Parametric role used a second time uses correct default value
+# FUDGED!

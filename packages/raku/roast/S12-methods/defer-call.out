@@ -1,0 +1,26 @@
+1..21
+ok 1 - nextwith passed on right number of parameters
+ok 2 - invocant passed on correctly
+ok 3 - first argument correct
+ok 4 - second argument correct
+ok 5 - callsame inheritance test
+ok 6 - sanity test for clearing
+ok 7 - callsame multimethod/inheritance test
+ok 8 - callwith() inheritance test
+ok 9 - sanity test for clearing
+ok 10 - callwith() multimethod/inheritance test
+ok 11 - callwith(42) inheritance test
+ok 12 - sanity test for clearing
+ok 13 - callwith(42) multimethod/inheritance test
+ok 14 - can recurse several levels with callwith()
+ok 15 - callsame exhausts the iterator
+ok 16 - use nextcallee in order to call multiple times
+ok 17 - callwith with nowhere to defer produces Nil
+ok 18 - control reaches after callwith that has nowhere to go
+ok 19 - callsame with nowhere to defer produces Nil
+ok 20 - control reaches after callsame that has nowhere to go
+# Subtest: Two methods of different names in a class both using callsame
+    ok 1 - First method callsame works
+    ok 2 - Second method callsame works
+    1..2
+ok 21 - Two methods of different names in a class both using callsame

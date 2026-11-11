@@ -1,0 +1,27 @@
+1..26
+ok 1 - nextwith passed on right number of parameters
+ok 2 - invocant passed on correctly
+ok 3 - first argument correct
+ok 4 - second argument correct
+ok 5 - nextsame inheritance test
+ok 6 - sanity test for clearing
+ok 7 - nextsame multimethod/inheritance test
+ok 8 - nextwith() inheritance test
+ok 9 - sanity test for clearing
+ok 10 - nextwith() multimethod/inheritance test
+ok 11 - nextwith(42) inheritance test
+ok 12 - sanity test for clearing
+ok 13 - nextwith(42) multimethod/inheritance test
+ok 14 - return direct call to code ref candidate
+ok 15 - direct call to code ref candidate
+ok 16 - return from hash candidate
+ok 17 - call to hash candidate
+ok 18 - return from array candidate
+ok 19 - call to array candidate
+ok 20 - nextwith with nowhere to defer produces Nil
+ok 21 - control does not reach beyond nextwith that has nowhere to go
+ok 22 - nextsame with nowhere to defer produces Nil
+ok 23 - control does not reach beyond nextsame that has nowhere to go
+ok 24 - nextsame + multi + where interact correctly...
+ok 25 - ...including in a repeated loop
+ok 26 - No optimization-induced crash of samewith

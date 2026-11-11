@@ -1,0 +1,39 @@
+1..2
+# Subtest: Test fix for issue GH 1852
+    1..3
+    ok 1 - non-breaking space as entered by the user
+    ok 2 - user's non-breaking whitespace is unchanged by pod processing
+    ok 3 - user's non-breaking white space is unchanged by pod processing
+ok 1 - Test fix for issue GH 1852
+# Subtest: Test non-breaking spaces in tables...
+    1..5
+    ok 1 - table contains elems for all known non-breaking spaces
+    # Subtest: Row 1, char 0xA0
+        1..4
+        ok 1 - col 1: content matches
+        ok 2 - col 1: all spaces match
+        ok 3 - col 2: content matches
+        ok 4 - col 2: all spaces match
+    ok 2 - Row 1, char 0xA0
+    # Subtest: Row 2, char 0x202F
+        1..4
+        ok 1 - col 1: content matches
+        ok 2 - col 1: all spaces match
+        ok 3 - col 2: content matches
+        ok 4 - col 2: all spaces match
+    ok 3 - Row 2, char 0x202F
+    # Subtest: Row 3, char 0x2060
+        1..4
+        ok 1 - col 1: content matches
+        ok 2 - col 1: all spaces match
+        ok 3 - col 2: content matches
+        ok 4 - col 2: all spaces match
+    ok 4 - Row 3, char 0x2060
+    # Subtest: Row 4, char 0xFEFF
+        1..4
+        ok 1 - col 1: content matches
+        ok 2 - col 1: all spaces match
+        ok 3 - col 2: content matches
+        ok 4 - col 2: all spaces match
+    ok 5 - Row 4, char 0xFEFF
+ok 2 - Test non-breaking spaces in tables...

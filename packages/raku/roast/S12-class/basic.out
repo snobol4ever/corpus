@@ -1,0 +1,64 @@
+1..43
+ok 1 - Classname.raku produces the class name
+ok 2 - Classname.new.raku just adds .new
+ok 3 - ... smartmatch our $foo to the Foo class
+ok 4 - .isa(Foo)
+ok 5 - .isa(::Foo)
+ok 6 - .isa("Foo")
+ok 7 - !.isa("Bar")
+ok 8 - ... smartmatch our $foo_clone to the Foo class
+ok 9 - proto-objects are undefined
+ok 10 - proto-objects are undefined
+ok 11 - instances of the object are defined
+ok 12 - ... smartmatch our $foo_bar to the Foo::Bar class
+ok 13 - .isa(Foo::Bar)
+ok 14 - !Foo::Bar.new.isa(::Foo)
+ok 15 - ... smartmatch our Bar to the Foo class
+ok 16 - ... smartmatch our $bar to the Bar class
+ok 17 - ... .isa(Bar)
+ok 18 - ... smartmatch our $bar to the Foo class
+ok 19 - new Bar .isa(Foo)
+ok 20 - ... smartmatch our $bar_clone to the Bar class
+ok 21 - ... .isa(Bar)
+ok 22 - ... smartmatch our $bar_clone to the Foo class
+ok 23 - ... .isa(Foo)
+ok 24 - ... smartmatch our Baz to the Foo class
+ok 25 - ... smartmatch our $baz to the Baz class
+ok 26 - ... .isa(Baz)
+ok 27 - type distinguishing is not done by case of first letter
+# Subtest: die on non-existing class names
+    1..2
+    ok 1 - 'my $x; $x ~~ NonExistingClassName' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 28 - die on non-existing class names
+ok 29 - created One::Two after One::Two::Three
+ok 30 - cannot redeclare an existing class
+ok 31 - A after A::B
+ok 32 - can just use EVAL to add method to class
+ok 33 - The object is-a '"class"'
+# Subtest: call to method in undeclared A::B dies after class A::C defined
+    1..2
+    ok 1 - 'class Romeo::Tango {}; Romeo::Juliet.rt64686' died
+    ok 2 - right exception type (Exception)
+ok 34 - call to method in undeclared A::B dies after class A::C defined
+# Subtest: self is not writable
+    1..2
+    ok 1 - 'class WritableSelf { method f { self = 5 } }; WritableSelf.new.f' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 35 - self is not writable
+ok 36 - Nested classes in different classes can have the same name
+ok 37 - named class declaration returns the class object
+ok 38 - add_method returns a Method object
+ok 39 - no need to add a semicolon after closing brace of class definition followed by newline
+ok 40 - Can call method on class definition without parens
+# Subtest: RT124017 - can't declare Foo:D
+    1..2
+    ok 1 - 'class RT124017_A:D {}' died
+    ok 2 - right exception type (X::Syntax::Type::Adverb)
+ok 41 - RT124017 - can't declare Foo:D
+# Subtest: RT124017 - can't declare Foo:no-such-adverb
+    1..2
+    ok 1 - 'class RT124017_B:no_such_adverb {}' died
+    ok 2 - right exception type (X::Syntax::Type::Adverb)
+ok 42 - RT124017 - can't declare Foo:no-such-adverb
+ok 43 - can declare class with :auth and :ver adverbs

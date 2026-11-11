@@ -1,0 +1,4 @@
+1..2
+ok 1 - # SKIP contextual rebinding regression
+ok 2 - # SKIP contextual rebinding regression
+# FUDGED!

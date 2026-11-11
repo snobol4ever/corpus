@@ -1,0 +1,696 @@
+1..54
+# Subtest: Simple
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 28
+    # expected: 'Simple'
+    #      got: 'Any'
+    ok 2 - simple case - contents
+    ok 3 - simple case - WHEREFORE
+    ok 4 - simple case - trailing
+    ok 5 - simple case - no leading
+    ok 6 - simple case - stringifies correctly
+    ok 7 - $=pod simple case - WHEREFORE
+    ok 8 - $=pod simple case
+ok 1 - Simple
+# Subtest: MultiLine
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 34
+    # expected: 'MultiLine'
+    #      got: 'Any'
+    ok 2 - multi line - contents
+    ok 3 - multi line - WHEREFORE
+    ok 4 - multi line - trailing
+    ok 5 - multi line - no leading
+    ok 6 - multi line - stringifies correctly
+    ok 7 - $=pod multi line - WHEREFORE
+    ok 8 - $=pod multi line
+ok 2 - MultiLine
+# Subtest: Outer
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 43
+    # expected: 'Outer'
+    #      got: 'Any'
+    ok 2 - giraffe - contents
+    ok 3 - giraffe - WHEREFORE
+    ok 4 - giraffe - trailing
+    ok 5 - giraffe - no leading
+    ok 6 - giraffe - stringifies correctly
+    ok 7 - $=pod giraffe - WHEREFORE
+    ok 8 - $=pod giraffe
+ok 3 - Outer
+# Subtest: Outer::Inner
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 44
+    # expected: 'Outer::Inner'
+    #      got: 'Any'
+    ok 2 - zebra - contents
+    ok 3 - zebra - WHEREFORE
+    ok 4 - zebra - trailing
+    ok 5 - zebra - no leading
+    ok 6 - zebra - stringifies correctly
+    ok 7 - $=pod zebra - WHEREFORE
+    ok 8 - $=pod zebra
+ok 4 - Outer::Inner
+# Subtest: foo
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 56
+    # expected: 'foo'
+    #      got: 'Any'
+    ok 2 - a module - contents
+    ok 3 - a module - WHEREFORE
+    ok 4 - a module - trailing
+    ok 5 - a module - no leading
+    ok 6 - a module - stringifies correctly
+    ok 7 - $=pod a module - WHEREFORE
+    ok 8 - $=pod a module
+ok 5 - foo
+# Subtest: foo::bar
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 57
+    # expected: 'foo::bar'
+    #      got: 'Any'
+    ok 2 - a package - contents
+    ok 3 - a package - WHEREFORE
+    ok 4 - a package - trailing
+    ok 5 - a package - no leading
+    ok 6 - a package - stringifies correctly
+    ok 7 - $=pod a package - WHEREFORE
+    ok 8 - $=pod a package
+ok 6 - foo::bar
+# Subtest: foo::bar::baz
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 58
+    # expected: 'foo::bar::baz'
+    #      got: 'Any'
+    ok 2 - and a class - contents
+    ok 3 - and a class - WHEREFORE
+    ok 4 - and a class - trailing
+    ok 5 - and a class - no leading
+    ok 6 - and a class - stringifies correctly
+    ok 7 - $=pod and a class - WHEREFORE
+    ok 8 - $=pod and a class
+ok 7 - foo::bar::baz
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 62
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - yellow - contents
+    ok 3 - yellow - WHEREFORE
+    ok 4 - yellow - trailing
+    ok 5 - yellow - no leading
+    ok 6 - yellow - stringifies correctly
+    ok 7 - $=pod yellow - WHEREFORE
+    ok 8 - $=pod yellow
+ok 8 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 67
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - pink - contents
+    ok 3 - pink - WHEREFORE
+    ok 4 - pink - trailing
+    ok 5 - pink - no leading
+    ok 6 - pink - stringifies correctly
+    ok 7 - $=pod pink - WHEREFORE
+    ok 8 - $=pod pink
+ok 9 - Sub
+# Subtest: Sheep
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 82
+    # expected: 'Sheep'
+    #      got: 'Any'
+    ok 2 - a sheep - contents
+    ok 3 - a sheep - WHEREFORE
+    ok 4 - a sheep - trailing
+    ok 5 - a sheep - no leading
+    ok 6 - a sheep - stringifies correctly
+    ok 7 - $=pod a sheep - WHEREFORE
+    ok 8 - $=pod a sheep
+ok 10 - Sheep
+# Subtest: Attribute
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 83
+    # expected: 'Attribute'
+    #      got: 'Any'
+    ok 2 - usually white - contents
+    ok 3 - usually white - WHEREFORE
+    ok 4 - usually white - trailing
+    ok 5 - usually white - no leading
+    ok 6 - usually white - stringifies correctly
+    ok 7 - $=pod usually white - WHEREFORE
+    ok 8 - $=pod usually white
+ok 11 - Attribute
+# Subtest: Attribute
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 84
+    # expected: 'Attribute'
+    #      got: 'Any'
+    ok 2 - usually quiet - contents
+    ok 3 - usually quiet - WHEREFORE
+    ok 4 - usually quiet - trailing
+    ok 5 - usually quiet - no leading
+    ok 6 - usually quiet - stringifies correctly
+    ok 7 - $=pod usually quiet - WHEREFORE
+    ok 8 - $=pod usually quiet
+ok 12 - Attribute
+# Subtest: Method
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 85
+    # expected: 'Method'
+    #      got: 'Any'
+    ok 2 - not too scary - contents
+    ok 3 - not too scary - WHEREFORE
+    ok 4 - not too scary - trailing
+    ok 5 - not too scary - no leading
+    ok 6 - not too scary - stringifies correctly
+    ok 7 - $=pod not too scary - WHEREFORE
+    ok 8 - $=pod not too scary
+ok 13 - Method
+ok 14 - lack of sub comment
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 94
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - our works too - contents
+    ok 3 - our works too - WHEREFORE
+    ok 4 - our works too - trailing
+    ok 5 - our works too - no leading
+    ok 6 - our works too - stringifies correctly
+    ok 7 - $=pod our works too - WHEREFORE
+    ok 8 - $=pod our works too
+ok 15 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 104
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - one - contents
+    ok 3 - one - WHEREFORE
+    ok 4 - one - trailing
+    ok 5 - one - no leading
+    ok 6 - one - stringifies correctly
+    ok 7 - $=pod one - WHEREFORE
+    ok 8 - $=pod one
+ok 16 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 105
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - two - contents
+    ok 3 - two - WHEREFORE
+    ok 4 - two - trailing
+    ok 5 - two - no leading
+    ok 6 - two - stringifies correctly
+    ok 7 - $=pod two - WHEREFORE
+    ok 8 - $=pod two
+ok 17 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 113
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - that will break - contents
+    ok 3 - that will break - WHEREFORE
+    ok 4 - that will break - trailing
+    ok 5 - that will break - no leading
+    ok 6 - that will break - stringifies correctly
+    ok 7 - $=pod that will break - WHEREFORE
+    ok 8 - $=pod that will break
+ok 18 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 114
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - that will break - contents
+    ok 3 - that will break - WHEREFORE
+    ok 4 - that will break - trailing
+    ok 5 - that will break - no leading
+    ok 6 - that will break - stringifies correctly
+    ok 7 - $=pod that will break - WHEREFORE
+    ok 8 - $=pod that will break
+ok 19 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 119
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - leading space here - contents
+    ok 3 - leading space here - WHEREFORE
+    ok 4 - leading space here - trailing
+    ok 5 - leading space here - no leading
+    ok 6 - leading space here - stringifies correctly
+    ok 7 - $=pod leading space here - WHEREFORE
+    ok 8 - $=pod leading space here
+ok 20 - Sub
+# Subtest: Parameter
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - documented - contents
+    ok 3 - documented - WHEREFORE
+    ok 4 - documented - trailing
+    ok 5 - documented - no leading
+    ok 6 - documented - stringifies correctly
+    ok 7 - $=pod documented - WHEREFORE
+    ok 8 - $=pod documented
+ok 21 - Parameter
+# Subtest: Parameter
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - documented as well - contents
+    ok 3 - documented as well - WHEREFORE
+    ok 4 - documented as well - trailing
+    ok 5 - documented as well - no leading
+    ok 6 - documented as well - stringifies correctly
+    ok 7 - $=pod documented as well - WHEREFORE
+    ok 8 - $=pod documented as well
+ok 22 - Parameter
+# Subtest: Parameter
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - first param - contents
+    ok 3 - first param - WHEREFORE
+    ok 4 - first param - trailing
+    ok 5 - first param - no leading
+    ok 6 - first param - stringifies correctly
+    ok 7 - $=pod first param - WHEREFORE
+    ok 8 - $=pod first param
+ok 23 - Parameter
+# Subtest: Parameter
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - second param - contents
+    ok 3 - second param - WHEREFORE
+    ok 4 - second param - trailing
+    ok 5 - second param - no leading
+    ok 6 - second param - stringifies correctly
+    ok 7 - $=pod second param - WHEREFORE
+    ok 8 - $=pod second param
+ok 24 - Parameter
+ok 25 - the third parameter has no comments
+# Subtest: Parameter
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - trailing - contents
+    ok 3 - trailing - WHEREFORE
+    ok 4 - trailing - trailing
+    ok 5 - trailing - no leading
+    ok 6 - trailing - stringifies correctly
+    ok 7 - $=pod trailing - WHEREFORE
+    ok 8 - $=pod trailing
+ok 26 - Parameter
+# Subtest: Parameter
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - invocant comment - contents
+    ok 3 - invocant comment - WHEREFORE
+    ok 4 - invocant comment - trailing
+    ok 5 - invocant comment - no leading
+    ok 6 - invocant comment - stringifies correctly
+    ok 7 - $=pod invocant comment - WHEREFORE
+    ok 8 - $=pod invocant comment
+ok 27 - Parameter
+# Subtest: Boxer
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 187
+    # expected: 'Boxer'
+    #      got: 'Any'
+    ok 2 - Are you talking to me? - contents
+    ok 3 - Are you talking to me? - WHEREFORE
+    ok 4 - Are you talking to me? - trailing
+    ok 5 - Are you talking to me? - no leading
+    ok 6 - Are you talking to me? - stringifies correctly
+    ok 7 - $=pod Are you talking to me? - WHEREFORE
+    ok 8 - $=pod Are you talking to me?
+ok 28 - Boxer
+# Subtest: Method
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 188
+    # expected: 'Method'
+    #      got: 'Any'
+    ok 2 - Robert De Niro - contents
+    ok 3 - Robert De Niro - WHEREFORE
+    ok 4 - Robert De Niro - trailing
+    ok 5 - Robert De Niro - no leading
+    ok 6 - Robert De Niro - stringifies correctly
+    ok 7 - $=pod Robert De Niro - WHEREFORE
+    ok 8 - $=pod Robert De Niro
+ok 29 - Method
+# Subtest: Submethod
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 211
+    # expected: 'Submethod'
+    #      got: 'Any'
+    ok 2 - Bob - contents
+    ok 3 - Bob - WHEREFORE
+    ok 4 - Bob - trailing
+    ok 5 - Bob - no leading
+    ok 6 - Bob - stringifies correctly
+    ok 7 - $=pod Bob - WHEREFORE
+    ok 8 - $=pod Bob
+ok 30 - Submethod
+# Subtest: Method
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 215
+    # expected: 'Method'
+    #      got: 'Any'
+    ok 2 - Takes a single argument - contents
+    ok 3 - Takes a single argument - WHEREFORE
+    ok 4 - Takes a single argument - trailing
+    ok 5 - Takes a single argument - no leading
+    ok 6 - Takes a single argument - stringifies correctly
+    ok 7 - $=pod Takes a single argument - WHEREFORE
+    ok 8 - $=pod Takes a single argument
+ok 31 - Method
+# Subtest: Method
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 216
+    # expected: 'Method'
+    #      got: 'Any'
+    ok 2 - Single Int argument - contents
+    ok 3 - Single Int argument - WHEREFORE
+    ok 4 - Single Int argument - trailing
+    ok 5 - Single Int argument - no leading
+    ok 6 - Single Int argument - stringifies correctly
+    ok 7 - $=pod Single Int argument - WHEREFORE
+    ok 8 - $=pod Single Int argument
+ok 32 - Method
+# Subtest: Method
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 217
+    # expected: 'Method'
+    #      got: 'Any'
+    ok 2 - Single Str argument - contents
+    ok 3 - Single Str argument - WHEREFORE
+    ok 4 - Single Str argument - trailing
+    ok 5 - Single Str argument - no leading
+    ok 6 - Single Str argument - stringifies correctly
+    ok 7 - $=pod Single Str argument - WHEREFORE
+    ok 8 - $=pod Single Str argument
+ok 33 - Method
+# Subtest: G
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 234
+    # expected: 'G'
+    #      got: 'Any'
+    ok 2 - grammar - contents
+    ok 3 - grammar - WHEREFORE
+    ok 4 - grammar - trailing
+    ok 5 - grammar - no leading
+    ok 6 - grammar - stringifies correctly
+    ok 7 - $=pod grammar - WHEREFORE
+    ok 8 - $=pod grammar
+ok 34 - G
+# Subtest: Regex
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 235
+    # expected: 'Regex'
+    #      got: 'Any'
+    ok 2 - rule - contents
+    ok 3 - rule - WHEREFORE
+    ok 4 - rule - trailing
+    ok 5 - rule - no leading
+    ok 6 - rule - stringifies correctly
+    ok 7 - $=pod rule - WHEREFORE
+    ok 8 - $=pod rule
+ok 35 - Regex
+# Subtest: Regex
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 236
+    # expected: 'Regex'
+    #      got: 'Any'
+    ok 2 - token - contents
+    ok 3 - token - WHEREFORE
+    ok 4 - token - trailing
+    ok 5 - token - no leading
+    ok 6 - token - stringifies correctly
+    ok 7 - $=pod token - WHEREFORE
+    ok 8 - $=pod token
+ok 36 - Regex
+# Subtest: Regex
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 237
+    # expected: 'Regex'
+    #      got: 'Any'
+    ok 2 - regex - contents
+    ok 3 - regex - WHEREFORE
+    ok 4 - regex - trailing
+    ok 5 - regex - no leading
+    ok 6 - regex - stringifies correctly
+    ok 7 - $=pod regex - WHEREFORE
+    ok 8 - $=pod regex
+ok 37 - Regex
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 243
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - solo - contents
+    ok 3 - solo - WHEREFORE
+    ok 4 - solo - trailing
+    ok 5 - solo - no leading
+    ok 6 - solo - stringifies correctly
+    ok 7 - $=pod solo - WHEREFORE
+    ok 8 - $=pod solo
+ok 38 - Sub
+ok 39 - 
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 249
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - no proto - contents
+    ok 3 - no proto - WHEREFORE
+    ok 4 - no proto - trailing
+    ok 5 - no proto - no leading
+    ok 6 - no proto - stringifies correctly
+    ok 7 - $=pod no proto - WHEREFORE
+    ok 8 - $=pod no proto
+ok 40 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 258
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - variant A - contents
+    ok 3 - variant A - WHEREFORE
+    ok 4 - variant A - trailing
+    ok 5 - variant A - no leading
+    ok 6 - variant A - stringifies correctly
+    ok 7 - $=pod variant A - WHEREFORE
+    ok 8 - $=pod variant A
+ok 41 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 259
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - variant B - contents
+    ok 3 - variant B - WHEREFORE
+    ok 4 - variant B - trailing
+    ok 5 - variant B - no leading
+    ok 6 - variant B - stringifies correctly
+    ok 7 - $=pod variant B - WHEREFORE
+    ok 8 - $=pod variant B
+ok 42 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 271
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - proto - contents
+    ok 3 - proto - WHEREFORE
+    ok 4 - proto - trailing
+    ok 5 - proto - no leading
+    ok 6 - proto - stringifies correctly
+    ok 7 - $=pod proto - WHEREFORE
+    ok 8 - $=pod proto
+ok 43 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 272
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - alpha - contents
+    ok 3 - alpha - WHEREFORE
+    ok 4 - alpha - trailing
+    ok 5 - alpha - no leading
+    ok 6 - alpha - stringifies correctly
+    ok 7 - $=pod alpha - WHEREFORE
+    ok 8 - $=pod alpha
+ok 44 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 273
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - beta - contents
+    ok 3 - beta - WHEREFORE
+    ok 4 - beta - trailing
+    ok 5 - beta - no leading
+    ok 6 - beta - stringifies correctly
+    ok 7 - $=pod beta - WHEREFORE
+    ok 8 - $=pod beta
+ok 45 - Sub
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 279
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - Orbison - contents
+    ok 3 - Orbison - WHEREFORE
+    ok 4 - Orbison - trailing
+    ok 5 - Orbison - no leading
+    ok 6 - Orbison - stringifies correctly
+    ok 7 - $=pod Orbison - WHEREFORE
+    ok 8 - $=pod Orbison
+ok 46 - Sub
+# Subtest: Sub+{Callable[Str]}
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - Anonymous - contents
+    ok 3 - Anonymous - WHEREFORE
+    ok 4 - Anonymous - trailing
+    ok 5 - Anonymous - no leading
+    ok 6 - Anonymous - stringifies correctly
+    ok 7 - $=pod Anonymous - WHEREFORE
+    ok 8 - $=pod Anonymous
+ok 47 - Sub+{Callable[Str]}
+# Subtest: Colors
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 289
+    # expected: 'Colors'
+    #      got: 'Any'
+    ok 2 - Enumeration - contents
+    ok 3 - Enumeration - WHEREFORE
+    ok 4 - Enumeration - trailing
+    ok 5 - Enumeration - no leading
+    ok 6 - Enumeration - stringifies correctly
+    ok 7 - $=pod Enumeration - WHEREFORE
+    ok 8 - $=pod Enumeration
+ok 48 - Colors
+# Subtest: EvenNum
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 294
+    # expected: 'EvenNum'
+    #      got: 'Any'
+    ok 2 - Even - contents
+    ok 3 - Even - WHEREFORE
+    ok 4 - Even - trailing
+    ok 5 - Even - no leading
+    ok 6 - Even - stringifies correctly
+    ok 7 - $=pod Even - WHEREFORE
+    ok 8 - $=pod Even
+ok 49 - EvenNum
+ok 50 - # SKIP declaration comments are NYI on constants
+ok 51 - # SKIP declaration comments are NYI on variables
+# Subtest: Sub
+    1..8
+    not ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    # Failed test ' - $=pod $value WHEREFORE (pre WHY)'
+    # at S26-documentation/why-trailing.rakudo line 317
+    # expected: 'Sub'
+    #      got: 'Any'
+    ok 2 - where constraints shouldn't prevent declarative comments - contents
+    ok 3 - where constraints shouldn't prevent declarative comments - WHEREFORE
+    ok 4 - where constraints shouldn't prevent declarative comments - trailing
+    ok 5 - where constraints shouldn't prevent declarative comments - no leading
+    ok 6 - where constraints shouldn't prevent declarative comments - stringifies correctly
+    ok 7 - $=pod where constraints shouldn't prevent declarative comments - WHEREFORE
+    ok 8 - $=pod where constraints shouldn't prevent declarative comments
+ok 52 - Sub
+# Subtest: Block
+    1..8
+    ok 1 -  - $=pod $value WHEREFORE (pre WHY) # TODO https://github.com/rakudo/rakudo/issues/4866
+    ok 2 - this is a block - contents
+    ok 3 - this is a block - WHEREFORE
+    ok 4 - this is a block - trailing
+    ok 5 - this is a block - no leading
+    ok 6 - this is a block - stringifies correctly
+    ok 7 - $=pod this is a block - WHEREFORE
+    ok 8 - $=pod this is a block
+ok 53 - Block
+ok 54 - 
+# FUDGED!

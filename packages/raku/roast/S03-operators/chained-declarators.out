@@ -1,0 +1,15 @@
+1..5
+ok 1 - chained my
+ok 2 - chained my, our
+ok 3 - chained my, constant
+ok 4 - chained my, state
+# Subtest: scoping our, my ('our' doesn't leak)
+    1..2
+    ok 1 - '
+    #     {
+    #         our $sa2 = my $sb2 = 42;
+    #     }
+    #     ($sa2, $sb2);
+    #    ' died
+    ok 2 - right exception type (X::Undeclared)
+ok 5 - scoping our, my ('our' doesn't leak)

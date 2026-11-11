@@ -1,0 +1,46 @@
+1..45
+ok 1 - The object is-a 'List'
+ok 2 - the array_ref1 has 3 elements
+ok 3 - got the right value at array_ref1 index 0
+ok 4 - got the right value at array_ref1 index 1
+ok 5 - got the right value at array_ref1 index 2
+ok 6 - got the right value at array_ref1 index 0 using the . notation
+ok 7 - The object is-a 'Array'
+ok 8 - the array_ref2 has 3 elements
+ok 9 - got the right value at array_ref2 index 0
+ok 10 - got the right value at array_ref2 index 1
+ok 11 - got the right value at array_ref2 index 2
+ok 12 - The object is-a 'Array'
+ok 13 - the array_ref4 has 3 elements
+ok 14 - got the right value at array_ref4 index 0
+ok 15 - got the right value at array_ref4 index 1
+ok 16 - got the right value at array_ref4 index 2
+ok 17 - The object is-a 'Array'
+ok 18 - the array_ref5 has 6 elements
+ok 19 - got the right value at array_ref5 index 0
+ok 20 - got the right value at array_ref5 index 1
+ok 21 - got the right value at array_ref5 index 2
+ok 22 - got the right value at array_ref5 index 3
+ok 23 - got the right value at array_ref5 index 4
+ok 24 - got the right value at array_ref5 index 5
+ok 25 - The object is-a 'Array'
+ok 26 - the array_ref6 has 3 elements
+ok 27 - got the right value at array_ref6 index 0
+ok 28 - got the right value at array_ref6 index 1
+ok 29 - got the right value at array_ref6 index 2
+ok 30 - The object is-a 'Array'
+ok 31 - the array_ref7 has 3 elements
+ok 32 - got the right value at array_ref7 index 0
+ok 33 - got the right value at array_ref7 index 1
+ok 34 - got the right value at array_ref7 index 2
+ok 35 - trailing commas make correct array
+ok 36 - The object is-a 'Array'
+ok 37 - The object is-a 'Array'
+ok 38 - recursive array access (0)
+ok 39 - recursive array access (1)
+ok 40 - recursive array access (2)
+ok 41 - recursive array access (3)
+ok 42 - changing nested array (1)
+ok 43 - changing nested array (2)
+ok 44 - creating arrays using [] creates new containers (1)
+ok 45 - creating arrays using [] creates new containers (2)

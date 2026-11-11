@@ -1,0 +1,39 @@
+1..38
+ok 1 - default should not be called at compile-time
+ok 2 - default should not be called at compile-time
+ok 3 - default should be called only once in construction
+ok 4 - attribute default worked
+ok 5 - default should be called only once
+ok 6 - default should not have been called yet
+ok 7 - attribute default is a closure
+ok 8 - default should not have been called yet
+ok 9 - attribute can be called
+ok 10 - and now get_a_str has run
+ok 11 - construction of second object also only calls default closure once
+ok 12 - attribute default worked
+ok 13 - default should be called only once
+ok 14 - construction of second object still doesn't call closure
+ok 15 - attribute default worked, even called the other way
+ok 16 - get_a_str now called twice
+ok 17 - default should not be called at compile-time
+ok 18 - default should not be called at compile-time
+ok 19 - default should not be called if value provide
+ok 20 - attribute default worked
+ok 21 - default should still not be called
+ok 22 - default should not have been called yet
+ok 23 - attribute default is a closure
+ok 24 - default should not have been called yet
+ok 25 - attribute can be called
+ok 26 - and now get_a_str has run
+ok 27 - construction of second object only calls default closure once
+ok 28 - attribute default worked
+ok 29 - default should be called only once
+ok 30 - construction of second object still doesn't call closure
+ok 31 - attribute default was not used
+ok 32 - get_a_str now called twice
+ok 33 - self is the object being initialized
+ok 34 - self is the object being initialized
+ok 35 - Native int default in mixed in role works
+ok 36 - Native num default in mixed in role works
+ok 37 - Native str default in mixed in role works
+ok 38 - Attribute constraint checked at run-time

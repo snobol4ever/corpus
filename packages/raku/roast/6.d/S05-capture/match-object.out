@@ -1,0 +1,4 @@
+1..3
+ok 1 - was $/ set by Grammar.parse
+ok 2 - was $/ set by Grammar.subparse
+ok 3 - was $/ set by Grammar.parsefile

@@ -1,0 +1,73 @@
+1..56
+ok 1 - we have an empty array
+ok 2 - we have 1 element in the array
+ok 3 - we found the right element
+ok 4 - we have 2 elements in the array
+ok 5 - we found the right element
+ok 6 - we have 3 elements in the array
+ok 7 - we found the right element
+ok 8 - we have 4 elements in the array
+ok 9 - we found the right element
+ok 10 - single element array
+ok 11 - @p ~~ Array
+ok 12 - array received second element
+ok 13 - modified array, returned
+ok 14 - ~@p
+ok 15 - ~ on the push
+ok 16 - we have 1 element in the array
+ok 17 - push @array, $val worked
+ok 18 - we have 2 elements in the array
+ok 19 - @push.push(200) works
+ok 20 - we have 3 elements in the array
+ok 21 - @push.push(400) works
+ok 22 - we have 3 elements in the array
+ok 23 - got the expected element
+ok 24 - got the expected element
+ok 25 - got the expected element
+ok 26 - we have 5 elements in the array
+ok 27 - got the expected element
+ok 28 - got the expected element
+ok 29 - we have 8 elements in the array
+ok 30 - got the expected element
+ok 31 - got the expected element
+ok 32 - got the expected element
+ok 33 - we have 1 element in the array
+ok 34 - got the element expected
+ok 35 - we have 1 element in the array
+ok 36 - got the element expected
+ok 37 - got the element expected
+ok 38 - starting length is 6
+ok 39 - length is still 6
+ok 40 - length is still 6
+# Subtest: push() requires arguments (1)
+    1..2
+    ok 1 - 'push()' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 41 - push() requires arguments (1)
+ok 42 - push() requires arguments (2)
+# Subtest: .push should not work on scalars
+    1..2
+    ok 1 - '42.push(3)' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 43 - .push should not work on scalars
+ok 44 - nested arrayitem, array length is 1
+ok 45 - nested arrayitem, arrayitem length is 5
+ok 46 - nested arrayitem, first value is 21
+ok 47 - nested arrayitem, last value is 25
+ok 48 - New element created by push(@a, $x) isn't affected by changes to $x
+ok 49 - $x isn't affected by changes to new element created by push(@a, $x)
+ok 50 - pushing assignment to array-in-hash
+# Subtest: cannot push strings onto in Int array
+    1..2
+    ok 1 - '@a.push: "a"' died
+    ok 2 - right exception type (X::TypeCheck)
+ok 51 - cannot push strings onto in Int array
+# Subtest: pushing non-A objects to an attribute array typed with A dies
+    1..2
+    ok 1 - 'RT112660.new.slots.push: [1, 2, 3]' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 52 - pushing non-A objects to an attribute array typed with A dies
+ok 53 - no named on push()
+ok 54 - no named on append()
+ok 55 - no named on unshifth()
+ok 56 - no named on prepend()

@@ -1,0 +1,28 @@
+1..18
+ok 1 - got the square root of 2
+ok 2 - got the square root of 5
+ok 3 - got the square root of 42
+ok 4 - got the square root of 1/42
+ok 5 - got square root of 1e2
+ok 6 - got the square root of 2
+ok 7 - got the square root of 5
+ok 8 - got the square root of 42
+ok 9 - got the square root of 1/42
+ok 10 - got square root of 1e2
+not ok 11 - sqrt(-1) is i # TODO better behaviour in 6.e+
+# Failed test 'sqrt(-1) is i'
+# at S32-num/sqrt.rakudo line 25
+# expected: '0+1i'
+#      got: 'NaN'
+ok 12 - sqrt(NaN) is NaN
+ok 13 - sqrt(Inf) is Inf
+not ok 14 - sqrt(-Inf) is 0+Inf\i # TODO better behaviour in 6.e+
+# Failed test 'sqrt(-Inf) is 0+Inf\i'
+# at S32-num/sqrt.rakudo line 29
+# expected: '0+Inf\i'
+#      got: 'NaN'
+ok 15 - sqrt preserves sign of Num zero
+ok 16 - got the square root of -1+0i
+ok 17 - got the square root of 1i
+ok 18 - got the square root of -1i
+# FUDGED!

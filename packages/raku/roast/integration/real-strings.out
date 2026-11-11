@@ -1,0 +1,25 @@
+1..20
+ok 1 - basic sanity: .trans works with native Raku strings
+ok 2 - Still works with strings returned from split() (lives)
+ok 3 - Still works with strings returned from split() (result)
+ok 4 - same for split(Str)
+# Subtest: variables returned from split and passed to pointy block are still ro
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 5 - variables returned from split and passed to pointy block are still ro
+ok 6 - Str.split(Str) works with postfix:<++>
+ok 7 - 1.Str is a "good" Str
+ok 8 - .flip.trans
+ok 9 - .flip.trans
+ok 10 - .flip.trans
+ok 11 - join returns HLL strings
+ok 12 - substr returns HLL strings
+ok 13 - .subst works in a multi
+ok 14 - can .trans() on normal string
+ok 15 - can .trans() on bitwise result
+ok 16 - matching sanity
+ok 17 - numification of match objects with trailing whitespace
+ok 18 - Still works with strings returned from chomp() (lives)
+ok 19 - Still works with strings returned from chomp() (result)
+ok 20 - Still works with strings returned from slurp() (lives)

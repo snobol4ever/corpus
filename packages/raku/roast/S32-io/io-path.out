@@ -1,0 +1,940 @@
+1..43
+ok 1 - Str.IO returns an IO::Path
+ok 2 - Constructor works without named arguments
+ok 3 - Can use either :basename or positional argument
+ok 4 - Can construct path from :dirname and :basename
+ok 5 - volume
+ok 6 - dirname
+ok 7 - basename
+ok 8 - parent
+ok 9 - parent of parent
+ok 10 - is-absolute
+ok 11 - is-relative
+ok 12 - IO::Path.path returns Str
+ok 13 - IO::Path.IO returns IO::Path
+ok 14 - POSIX OS loaded (no volume)
+ok 15 - POSIX OS loaded (forward slash)
+# Subtest: .raku.EVAL rountrips
+    1..14
+    # Subtest: using IO::Path.new("\\x[308]foo|ba\"'\\''r", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 1 - using IO::Path.new("\\x[308]foo|ba\"'\\''r", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+    # Subtest: using IO::Path.new("/foo|\\bar", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 2 - using IO::Path.new("/foo|\\bar", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+    # Subtest: using IO::Path.new("/foo\tbar", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 3 - using IO::Path.new("/foo\tbar", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+    # Subtest: using IO::Path::Win32.new(".", :CWD("foo"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 4 - using IO::Path::Win32.new(".", :CWD("foo"))
+    ok 5 - new eqv old using IO::Path
+    # Subtest: using IO::Path.new("/foo", :SPEC(IO::Spec::Unix), :CWD("bar"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 6 - using IO::Path.new("/foo", :SPEC(IO::Spec::Unix), :CWD("bar"))
+    ok 7 - new eqv old using IO::Path::Cygwin
+    # Subtest: using IO::Path::Cygwin.new("/foo", :CWD("bar"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 8 - using IO::Path::Cygwin.new("/foo", :CWD("bar"))
+    ok 9 - new eqv old using IO::Path::QNX
+    # Subtest: using IO::Path::QNX.new("/foo", :CWD("bar"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 10 - using IO::Path::QNX.new("/foo", :CWD("bar"))
+    ok 11 - new eqv old using IO::Path::Unix
+    # Subtest: using IO::Path::Unix.new("/foo", :CWD("bar"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 12 - using IO::Path::Unix.new("/foo", :CWD("bar"))
+    ok 13 - new eqv old using IO::Path::Win32
+    # Subtest: using IO::Path::Win32.new("/foo", :CWD("bar"))
+        1..4
+        ok 1 - equivalent object
+        ok 2 - same .path
+        ok 3 - same .CWD
+        ok 4 - same .SPEC
+    ok 14 - using IO::Path::Win32.new("/foo", :CWD("bar"))
+ok 16 - .raku.EVAL rountrips
+ok 17 - IO::Path.new with wrong args must not claim it only takes named ones
+ok 18 - "-" as the path of an IO::Handle gists correctly
+ok 19 - "-".IO gists correctly
+ok 20 - temporary test file does not exist
+ok 21 - .e detects change on filesystem and returns True now
+# Subtest: IO::Path.ACCEPTS
+    1..64
+    ok 1 - foo    ~~ /tmp/s4e/cao/fudge/cwd/foo.IO
+    ok 2 - /tmp/s4e/cao/fudge/cwd/foo    ~~ foo.IO
+    ok 3 - foo.IO ~~ /tmp/s4e/cao/fudge/cwd/foo.IO
+    ok 4 - /tmp/s4e/cao/fudge/cwd/foo.IO ~~ foo.IO
+    ok 5 - /foo    ~~ /../foo.IO
+    ok 6 - /../foo    ~~ /foo.IO
+    ok 7 - /foo.IO ~~ /../foo.IO
+    ok 8 - /../foo.IO ~~ /foo.IO
+    ok 9 - ////foo    ~~ ////.././/foo.IO
+    ok 10 - ////.././/foo    ~~ ////foo.IO
+    ok 11 - ////foo.IO ~~ ////.././/foo.IO
+    ok 12 - ////.././/foo.IO ~~ ////foo.IO
+    ok 13 - 4    ~~ 4.IO
+    ok 14 - 4    ~~ 4.IO
+    ok 15 - 4.IO ~~ 4.IO
+    ok 16 - 4.IO ~~ 4.IO
+    ok 17 - foo    ~~ /tmp/s4e/cao/fudge/cwd/foo.IO
+    ok 18 - /tmp/s4e/cao/fudge/cwd/foo    ~~ foo.IO
+    ok 19 - foo.IO ~~ /tmp/s4e/cao/fudge/cwd/foo.IO
+    ok 20 - /tmp/s4e/cao/fudge/cwd/foo.IO ~~ foo.IO
+    ok 21 - /foo    ~~ /../foo.IO
+    ok 22 - /../foo    ~~ /foo.IO
+    ok 23 - /foo.IO ~~ /../foo.IO
+    ok 24 - /../foo.IO ~~ /foo.IO
+    ok 25 - ////foo    ~~ ////.././/foo.IO
+    ok 26 - ////.././/foo    ~~ ////foo.IO
+    ok 27 - ////foo.IO ~~ ////.././/foo.IO
+    ok 28 - ////.././/foo.IO ~~ ////foo.IO
+    ok 29 - 4    ~~ 4.IO
+    ok 30 - 4    ~~ 4.IO
+    ok 31 - 4.IO ~~ 4.IO
+    ok 32 - 4.IO ~~ 4.IO
+    ok 33 - a    ~~ b.IO
+    ok 34 - b    ~~ a.IO
+    ok 35 - a.IO ~~ b.IO
+    ok 36 - b.IO ~~ a.IO
+    ok 37 - /a    ~~ /b.IO
+    ok 38 - /b    ~~ /a.IO
+    ok 39 - /a.IO ~~ /b.IO
+    ok 40 - /b.IO ~~ /a.IO
+    ok 41 - 4    ~~ 5.IO
+    ok 42 - 5    ~~ 4.IO
+    ok 43 - 4.IO ~~ 5.IO
+    ok 44 - 5.IO ~~ 4.IO
+    ok 45 - non-existent-blarg/../foo    ~~ foo.IO
+    ok 46 - foo    ~~ non-existent-blarg/../foo.IO
+    ok 47 - non-existent-blarg/../foo.IO ~~ foo.IO
+    ok 48 - foo.IO ~~ non-existent-blarg/../foo.IO
+    ok 49 - a    ~~ b.IO
+    ok 50 - b    ~~ a.IO
+    ok 51 - a.IO ~~ b.IO
+    ok 52 - b.IO ~~ a.IO
+    ok 53 - /a    ~~ /b.IO
+    ok 54 - /b    ~~ /a.IO
+    ok 55 - /a.IO ~~ /b.IO
+    ok 56 - /b.IO ~~ /a.IO
+    ok 57 - 4    ~~ 5.IO
+    ok 58 - 5    ~~ 4.IO
+    ok 59 - 4.IO ~~ 5.IO
+    ok 60 - 5.IO ~~ 4.IO
+    ok 61 - non-existent-blarg/../foo    ~~ foo.IO
+    ok 62 - foo    ~~ non-existent-blarg/../foo.IO
+    ok 63 - non-existent-blarg/../foo.IO ~~ foo.IO
+    ok 64 - foo.IO ~~ non-existent-blarg/../foo.IO
+ok 22 - IO::Path.ACCEPTS
+ok 23 - Str does not include CWD [relative path]
+ok 24 - Str does not include CWD [absolute path]
+ok 25 - Str does not include CWD [multi-part .new()]
+# Subtest: .add
+    1..40
+    ok 1 - /foo/ add bar => /foo/bar (Unix)
+    ok 2 - /foo/ add bar => /foo/bar (Win32)
+    ok 3 - /foo/ add bar => /foo/bar (Cygwin)
+    ok 4 - /foo/ add bar => /foo/bar (QNX)
+    ok 5 - foo/ add bar => foo/bar (Unix)
+    ok 6 - foo/ add bar => foo/bar (Win32)
+    ok 7 - foo/ add bar => foo/bar (Cygwin)
+    ok 8 - foo/ add bar => foo/bar (QNX)
+    ok 9 - /foo/ add ../bar => /foo/../bar (Unix)
+    ok 10 - /foo/ add ../bar => /foo/../bar (Win32)
+    ok 11 - /foo/ add ../bar => /foo/../bar (Cygwin)
+    ok 12 - /foo/ add ../bar => /foo/../bar (QNX)
+    ok 13 - foo/ add ../bar => foo/../bar (Unix)
+    ok 14 - foo/ add ../bar => foo/../bar (Win32)
+    ok 15 - foo/ add ../bar => foo/../bar (Cygwin)
+    ok 16 - foo/ add ../bar => foo/../bar (QNX)
+    ok 17 - /foo/ add ../../bar => /foo/../../bar (Unix)
+    ok 18 - /foo/ add ../../bar => /foo/../../bar (Win32)
+    ok 19 - /foo/ add ../../bar => /foo/../../bar (Cygwin)
+    ok 20 - /foo/ add ../../bar => /foo/../../bar (QNX)
+    ok 21 - foo/ add ../../bar => foo/../../bar (Unix)
+    ok 22 - foo/ add ../../bar => foo/../../bar (Win32)
+    ok 23 - foo/ add ../../bar => foo/../../bar (Cygwin)
+    ok 24 - foo/ add ../../bar => foo/../../bar (QNX)
+    ok 25 - /foo/ add . => /foo/. (Unix)
+    ok 26 - /foo/ add . => /foo/. (Win32)
+    ok 27 - /foo/ add . => /foo/. (Cygwin)
+    ok 28 - /foo/ add . => /foo/. (QNX)
+    ok 29 - foo/ add . => foo/. (Unix)
+    ok 30 - foo/ add . => foo/. (Win32)
+    ok 31 - foo/ add . => foo/. (Cygwin)
+    ok 32 - foo/ add . => foo/. (QNX)
+    ok 33 - /foo/ add .. => /foo/.. (Unix)
+    ok 34 - /foo/ add .. => /foo/.. (Win32)
+    ok 35 - /foo/ add .. => /foo/.. (Cygwin)
+    ok 36 - /foo/ add .. => /foo/.. (QNX)
+    ok 37 - foo/ add .. => foo/.. (Unix)
+    ok 38 - foo/ add .. => foo/.. (Win32)
+    ok 39 - foo/ add .. => foo/.. (Cygwin)
+    ok 40 - foo/ add .. => foo/.. (QNX)
+ok 26 - .add
+# Subtest: .resolve
+    1..10
+    ok 1 - .resolve() cleans up paths it can't resolve
+    # Subtest: .resolve(:completely) fails with X::IO::Resolve
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Resolve)
+        ok 2 - Failure threw when sunk
+    ok 2 - .resolve(:completely) fails with X::IO::Resolve
+    ok 3 - .resolve() cleans up paths it can resolve
+    ok 4 - .resolve(:completely) cleans up paths it can resolve
+    ok 5 - .resolve(:completely) succeeds even when last part does not exist
+    ok 6 - .resolve sets CWD to SPEC's dir-sep for IO::Path.new("foo", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 7 - .resolve sets CWD to SPEC's dir-sep for IO::Path::Cygwin.new("foo", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 8 - .resolve sets CWD to SPEC's dir-sep for IO::Path::QNX.new("foo", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 9 - .resolve sets CWD to SPEC's dir-sep for IO::Path::Unix.new("foo", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 10 - .resolve sets CWD to SPEC's dir-sep for IO::Path::Win32.new("foo", :CWD("/tmp/s4e/cao/fudge/cwd"))
+ok 27 - .resolve
+# Subtest: .link
+    1..10
+    # Subtest: fail when target does not exist
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..4
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Link)
+            ok 3 - .name matches "/tmp/raku_roast_io_path_t_line203_0_78934537281105391794086967".IO
+            ok 4 - .target matches "/tmp/raku_roast_io_path_t_line203_0_085834284697929861794086967".IO
+        ok 2 - Failure threw when sunk
+    ok 1 - fail when target does not exist
+    ok 2 - can create links
+    ok 3 - created link filetests True for .e and False for .l
+    ok 4 - slurping from a link gives right data
+    # Subtest: fail when link already exists
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..4
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Link)
+            ok 3 - .name matches "/tmp/raku_roast_io_path_t_line203_0_78934537281105391794086967".IO
+            ok 4 - .target matches "/tmp/raku_roast_io_path_t_line203_0_085834284697929861794086967".IO
+        ok 2 - Failure threw when sunk
+    ok 5 - fail when link already exists
+    # Subtest: fail when target does not exist
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..4
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Link)
+            ok 3 - .name matches "/tmp/raku_roast_io_path_t_line203_0_6171461239056311794086967".IO
+            ok 4 - .target matches "/tmp/raku_roast_io_path_t_line203_0_72837240210559381794086967".IO
+        ok 2 - Failure threw when sunk
+    ok 6 - fail when target does not exist
+    ok 7 - can create links
+    ok 8 - created link filetests True for .e and False for .l
+    ok 9 - slurping from a link gives right data
+    # Subtest: fail when link already exists
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..4
+            ok 1 - code dies
+            ok 2 - right exception type (X::IO::Link)
+            ok 3 - .target matches "/tmp/raku_roast_io_path_t_line203_0_72837240210559381794086967".IO
+            ok 4 - .name matches "/tmp/raku_roast_io_path_t_line203_0_6171461239056311794086967".IO
+        ok 2 - Failure threw when sunk
+    ok 10 - fail when link already exists
+ok 28 - .link
+# Subtest: .sibling
+    1..46
+    ok 1 - IO::Path with "foo"
+    ok 2 - IO::Path::Cygwin with "foo"
+    ok 3 - IO::Path::QNX with "foo"
+    ok 4 - IO::Path::Unix with "foo"
+    ok 5 - IO::Path::Win32 with "foo"
+    ok 6 - IO::Path with "/foo"
+    ok 7 - IO::Path::Cygwin with "/foo"
+    ok 8 - IO::Path::QNX with "/foo"
+    ok 9 - IO::Path::Unix with "/foo"
+    ok 10 - IO::Path::Win32 with "/foo"
+    ok 11 - IO::Path with "../foo"
+    ok 12 - IO::Path::Cygwin with "../foo"
+    ok 13 - IO::Path::QNX with "../foo"
+    ok 14 - IO::Path::Unix with "../foo"
+    ok 15 - IO::Path::Win32 with "../foo"
+    ok 16 - IO::Path with "C:/foo"
+    ok 17 - IO::Path::Cygwin with "C:/foo"
+    ok 18 - IO::Path::QNX with "C:/foo"
+    ok 19 - IO::Path::Unix with "C:/foo"
+    ok 20 - IO::Path::Win32 with "C:/foo"
+    ok 21 - IO::Path with "C:/foo/../meow"
+    ok 22 - IO::Path::Cygwin with "C:/foo/../meow"
+    ok 23 - IO::Path::QNX with "C:/foo/../meow"
+    ok 24 - IO::Path::Unix with "C:/foo/../meow"
+    ok 25 - IO::Path::Win32 with "C:/foo/../meow"
+    ok 26 - IO::Path with "/"
+    ok 27 - IO::Path::Cygwin with "/"
+    ok 28 - IO::Path::QNX with "/"
+    ok 29 - IO::Path::Unix with "/"
+    ok 30 - IO::Path::Win32 with "/"
+    ok 31 - IO::Path with "./"
+    ok 32 - IO::Path::Cygwin with "./"
+    ok 33 - IO::Path::QNX with "./"
+    ok 34 - IO::Path::Unix with "./"
+    ok 35 - IO::Path::Win32 with "./"
+    ok 36 - IO::Path with "/foo/"
+    ok 37 - IO::Path::Cygwin with "/foo/"
+    ok 38 - IO::Path::QNX with "/foo/"
+    ok 39 - IO::Path::Unix with "/foo/"
+    ok 40 - IO::Path::Win32 with "/foo/"
+    ok 41 - IO::Path with "/foo/."
+    ok 42 - IO::Path::Cygwin with "/foo/."
+    ok 43 - IO::Path::QNX with "/foo/."
+    ok 44 - IO::Path::Unix with "/foo/."
+    ok 45 - IO::Path::Win32 with "/foo/."
+    ok 46 - "C:/" with IO::Path::Win32
+ok 29 - .sibling
+# Subtest: .IO on :U gives right class
+    1..5
+    ok 1 - IO::Path
+    ok 2 - IO::Path::Cygwin
+    ok 3 - IO::Path::QNX
+    ok 4 - IO::Path::Unix
+    ok 5 - IO::Path::Win32
+ok 30 - .IO on :U gives right class
+# Subtest: .gist
+    1..50
+    ok 1 - foo
+    ok 2 - foo
+    ok 3 - foo
+    ok 4 - foo
+    ok 5 - foo
+    ok 6 - /foo
+    ok 7 - /foo
+    ok 8 - /foo
+    ok 9 - /foo
+    ok 10 - /foo
+    ok 11 - -
+    ok 12 - -
+    ok 13 - -
+    ok 14 - -
+    ok 15 - -
+    ok 16 - /-
+    ok 17 - /-
+    ok 18 - /-
+    ok 19 - /-
+    ok 20 - /-
+    ok 21 - bar/ber
+    ok 22 - bar/ber
+    ok 23 - bar/ber
+    ok 24 - bar/ber
+    ok 25 - bar/ber
+    ok 26 - /bar/ber
+    ok 27 - /bar/ber
+    ok 28 - /bar/ber
+    ok 29 - /bar/ber
+    ok 30 - /bar/ber
+    ok 31 - foo/bar\ber.txt
+    ok 32 - foo/bar\ber.txt
+    ok 33 - foo/bar\ber.txt
+    ok 34 - foo/bar\ber.txt
+    ok 35 - foo/bar\ber.txt
+    ok 36 - /foo/bar\ber.txt
+    ok 37 - /foo/bar\ber.txt
+    ok 38 - /foo/bar\ber.txt
+    ok 39 - /foo/bar\ber.txt
+    ok 40 - /foo/bar\ber.txt
+    ok 41 - I ♥ Raku
+    ok 42 - I ♥ Raku
+    ok 43 - I ♥ Raku
+    ok 44 - I ♥ Raku
+    ok 45 - I ♥ Raku
+    ok 46 - /I ♥ Raku
+    ok 47 - /I ♥ Raku
+    ok 48 - /I ♥ Raku
+    ok 49 - /I ♥ Raku
+    ok 50 - /I ♥ Raku
+ok 31 - .gist
+# Subtest: combiners on "/" do not interfere with absolute path detection
+    1..5
+    ok 1 - IO::Path.new("/̈", :SPEC(IO::Spec::Unix), :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 2 - IO::Path::Cygwin.new("/̈", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 3 - IO::Path::QNX.new("/̈", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 4 - IO::Path::Unix.new("/̈", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 5 - IO::Path::Win32.new("/̈", :CWD("/tmp/s4e/cao/fudge/cwd"))
+ok 32 - combiners on "/" do not interfere with absolute path detection
+# Subtest: .parts attribute
+    1..35
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 1 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 2 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - volume is correct
+        ok 3 - dirname is correct
+        ok 4 - basename is correct
+    ok 3 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - volume is correct
+        ok 3 - dirname is correct
+        ok 4 - basename is correct
+    ok 4 - parts match
+    # Subtest: parts match
+        1..3
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+    ok 5 - parts match
+    ok 6 - / IO::Path (basename)
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - volume is correct
+        ok 3 - dirname is correct
+        ok 4 - basename is correct
+    ok 7 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 8 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+        ok 4 - basename is correct
+    ok 9 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - basename is correct
+        ok 4 - volume is correct
+    ok 10 - parts match
+    # Subtest: parts match
+        1..3
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+    ok 11 - parts match
+    ok 12 - / IO::Path::Cygwin (basename)
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 13 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+        ok 4 - basename is correct
+    ok 14 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 15 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - volume is correct
+        ok 3 - basename is correct
+        ok 4 - dirname is correct
+    ok 16 - parts match
+    # Subtest: parts match
+        1..3
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+    ok 17 - parts match
+    ok 18 - / IO::Path::QNX (basename)
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 19 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - dirname is correct
+        ok 4 - volume is correct
+    ok 20 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - volume is correct
+        ok 3 - basename is correct
+        ok 4 - dirname is correct
+    ok 21 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - dirname is correct
+        ok 4 - volume is correct
+    ok 22 - parts match
+    # Subtest: parts match
+        1..3
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+    ok 23 - parts match
+    ok 24 - / IO::Path::Unix (basename)
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 25 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 26 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 27 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+        ok 4 - basename is correct
+    ok 28 - parts match
+    # Subtest: parts match
+        1..3
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - volume is correct
+    ok 29 - parts match
+    ok 30 - / IO::Path::Win32 (basename)
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 31 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 32 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - dirname is correct
+        ok 3 - basename is correct
+        ok 4 - volume is correct
+    ok 33 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - volume is correct
+        ok 4 - dirname is correct
+    ok 34 - parts match
+    # Subtest: parts match
+        1..4
+        ok 1 - parts does the Associative role
+        ok 2 - basename is correct
+        ok 3 - dirname is correct
+        ok 4 - volume is correct
+    ok 35 - parts match
+ok 33 - .parts attribute
+# Subtest: .SPEC attribute
+    1..5
+    ok 1 - .new defaults to $*SPEC
+    ok 2 - .IO  defaults to $*SPEC
+    ok 3 - .new accepts :SPEC param
+    ok 4 - .IO ignores :SPEC param
+    # Subtest: cannot change .SPEC by assignment
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Assignment::RO)
+    ok 5 - cannot change .SPEC by assignment
+ok 34 - .SPEC attribute
+# Subtest: .CWD attribute
+    1..5
+    ok 1 - .new defaults to $*CWD
+    ok 2 - .IO  defaults to $*CWD
+    ok 3 - .new accepts :CWD param
+    ok 4 - .IO ignores :CWD param
+    # Subtest: cannot change .CWD by assignment
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Assignment::RO)
+    ok 5 - cannot change .CWD by assignment
+ok 35 - .CWD attribute
+# Subtest: .path attribute
+    1..3
+    ok 1 - .path of .new($path)
+    ok 2 - .path of $path.IO
+    ok 3 - .path of .new(from parts)
+ok 36 - .path attribute
+# Subtest: .Numeric and related methods
+    1..25
+    ok 1 - Rat (.Numeric)
+    ok 2 - Num (.Numeric)
+    ok 3 - Int (.Numeric)
+    ok 4 - Complex (.Numeric)
+    # Subtest: non-numeric  (.Numeric)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 5 - non-numeric  (.Numeric)
+    ok 6 - Rat (.Rat)
+    ok 7 - Num (.Rat)
+    ok 8 - Int (.Rat)
+    ok 9 - Complex (.Rat)
+    # Subtest: non-numeric (.Rat)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 10 - non-numeric (.Rat)
+    ok 11 - Rat (.Num)
+    ok 12 - Num (.Num)
+    ok 13 - Int (.Num)
+    ok 14 - Complex (.Num)
+    # Subtest: non-numeric (.Num)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 15 - non-numeric (.Num)
+    ok 16 - Rat (.Int)
+    ok 17 - Num (.Int)
+    ok 18 - Int (.Int)
+    ok 19 - Complex (.Int)
+    # Subtest: non-numeric (.Int)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 20 - non-numeric (.Int)
+    ok 21 - Rat (.FatRat)
+    ok 22 - Num (.FatRat)
+    ok 23 - Int (.FatRat)
+    ok 24 - Complex (.FatRat)
+    # Subtest: non-numeric (.FatRat)
+        1..2
+        ok 1 - code returned a Failure
+        # Subtest: Failure threw when sunk
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Str::Numeric)
+        ok 2 - Failure threw when sunk
+    ok 25 - non-numeric (.FatRat)
+ok 37 - .Numeric and related methods
+# Subtest: Ensure <0> can be used to make an IO::Path
+    1..30
+    ok 1 - IntStr.new(0, "0") with IO::Path
+    ok 2 - IntStr.new(0, "0") with IO::Path::Cygwin
+    ok 3 - IntStr.new(0, "0") with IO::Path::QNX
+    ok 4 - IntStr.new(0, "0") with IO::Path::Unix
+    ok 5 - IntStr.new(0, "0") with IO::Path::Win32
+    ok 6 - IntStr.new(0, "0") with .IO coercer
+    ok 7 - RatStr.new(0.0, "0.0") with IO::Path
+    ok 8 - RatStr.new(0.0, "0.0") with IO::Path::Cygwin
+    ok 9 - RatStr.new(0.0, "0.0") with IO::Path::QNX
+    ok 10 - RatStr.new(0.0, "0.0") with IO::Path::Unix
+    ok 11 - RatStr.new(0.0, "0.0") with IO::Path::Win32
+    ok 12 - RatStr.new(0.0, "0.0") with .IO coercer
+    ok 13 - NumStr.new(0e0, "0e0") with IO::Path
+    ok 14 - NumStr.new(0e0, "0e0") with IO::Path::Cygwin
+    ok 15 - NumStr.new(0e0, "0e0") with IO::Path::QNX
+    ok 16 - NumStr.new(0e0, "0e0") with IO::Path::Unix
+    ok 17 - NumStr.new(0e0, "0e0") with IO::Path::Win32
+    ok 18 - NumStr.new(0e0, "0e0") with .IO coercer
+    ok 19 - RatStr.new(0.0, "0/1") with IO::Path
+    ok 20 - RatStr.new(0.0, "0/1") with IO::Path::Cygwin
+    ok 21 - RatStr.new(0.0, "0/1") with IO::Path::QNX
+    ok 22 - RatStr.new(0.0, "0/1") with IO::Path::Unix
+    ok 23 - RatStr.new(0.0, "0/1") with IO::Path::Win32
+    ok 24 - RatStr.new(0.0, "0/1") with .IO coercer
+    ok 25 - ComplexStr.new(<0+0i>, "0+0i") with IO::Path
+    ok 26 - ComplexStr.new(<0+0i>, "0+0i") with IO::Path::Cygwin
+    ok 27 - ComplexStr.new(<0+0i>, "0+0i") with IO::Path::QNX
+    ok 28 - ComplexStr.new(<0+0i>, "0+0i") with IO::Path::Unix
+    ok 29 - ComplexStr.new(<0+0i>, "0+0i") with IO::Path::Win32
+    ok 30 - ComplexStr.new(<0+0i>, "0+0i") with .IO coercer
+ok 38 - Ensure <0> can be used to make an IO::Path
+# Subtest: .parent(Int)
+    1..192
+    ok 1 - negative parents handled ok
+    ok 2 - 0 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 3 - 1 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 4 - 2 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 5 - 3 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 6 - 4 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 7 - 5 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 8 - 6 IO::Path::Unix.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 9 - negative parents handled ok
+    ok 10 - 0 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 11 - 1 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 12 - 2 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 13 - 3 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 14 - 4 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 15 - 5 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 16 - 6 IO::Path::Win32.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 17 - negative parents handled ok
+    ok 18 - 0 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 19 - 1 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 20 - 2 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 21 - 3 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 22 - 4 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 23 - 5 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 24 - 6 IO::Path::Cygwin.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 25 - negative parents handled ok
+    ok 26 - 0 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 27 - 1 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 28 - 2 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 29 - 3 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 30 - 4 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 31 - 5 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 32 - 6 IO::Path::QNX.new("foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 33 - negative parents handled ok
+    ok 34 - 0 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 35 - 1 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 36 - 2 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 37 - 3 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 38 - 4 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 39 - 5 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 40 - 6 IO::Path::Unix.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 41 - negative parents handled ok
+    ok 42 - 0 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 43 - 1 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 44 - 2 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 45 - 3 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 46 - 4 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 47 - 5 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 48 - 6 IO::Path::Win32.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 49 - negative parents handled ok
+    ok 50 - 0 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 51 - 1 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 52 - 2 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 53 - 3 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 54 - 4 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 55 - 5 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 56 - 6 IO::Path::Cygwin.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 57 - negative parents handled ok
+    ok 58 - 0 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 59 - 1 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 60 - 2 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 61 - 3 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 62 - 4 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 63 - 5 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 64 - 6 IO::Path::QNX.new("/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 65 - negative parents handled ok
+    ok 66 - 0 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 67 - 1 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 68 - 2 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 69 - 3 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 70 - 4 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 71 - 5 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 72 - 6 IO::Path::Unix.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 73 - negative parents handled ok
+    ok 74 - 0 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 75 - 1 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 76 - 2 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 77 - 3 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 78 - 4 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 79 - 5 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 80 - 6 IO::Path::Win32.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 81 - negative parents handled ok
+    ok 82 - 0 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 83 - 1 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 84 - 2 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 85 - 3 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 86 - 4 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 87 - 5 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 88 - 6 IO::Path::Cygwin.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 89 - negative parents handled ok
+    ok 90 - 0 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 91 - 1 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 92 - 2 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 93 - 3 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 94 - 4 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 95 - 5 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 96 - 6 IO::Path::QNX.new(".", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 97 - negative parents handled ok
+    ok 98 - 0 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 99 - 1 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 100 - 2 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 101 - 3 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 102 - 4 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 103 - 5 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 104 - 6 IO::Path::Unix.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 105 - negative parents handled ok
+    ok 106 - 0 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 107 - 1 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 108 - 2 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 109 - 3 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 110 - 4 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 111 - 5 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 112 - 6 IO::Path::Win32.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 113 - negative parents handled ok
+    ok 114 - 0 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 115 - 1 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 116 - 2 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 117 - 3 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 118 - 4 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 119 - 5 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 120 - 6 IO::Path::Cygwin.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 121 - negative parents handled ok
+    ok 122 - 0 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 123 - 1 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 124 - 2 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 125 - 3 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 126 - 4 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 127 - 5 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 128 - 6 IO::Path::QNX.new("../", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 129 - negative parents handled ok
+    ok 130 - 0 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 131 - 1 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 132 - 2 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 133 - 3 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 134 - 4 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 135 - 5 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 136 - 6 IO::Path::Unix.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 137 - negative parents handled ok
+    ok 138 - 0 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 139 - 1 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 140 - 2 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 141 - 3 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 142 - 4 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 143 - 5 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 144 - 6 IO::Path::Win32.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 145 - negative parents handled ok
+    ok 146 - 0 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 147 - 1 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 148 - 2 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 149 - 3 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 150 - 4 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 151 - 5 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 152 - 6 IO::Path::Cygwin.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 153 - negative parents handled ok
+    ok 154 - 0 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 155 - 1 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 156 - 2 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 157 - 3 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 158 - 4 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 159 - 5 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 160 - 6 IO::Path::QNX.new("C:/foo/bar/ber.txt", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 161 - negative parents handled ok
+    ok 162 - 0 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 163 - 1 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 164 - 2 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 165 - 3 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 166 - 4 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 167 - 5 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 168 - 6 IO::Path::Unix.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 169 - negative parents handled ok
+    ok 170 - 0 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 171 - 1 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 172 - 2 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 173 - 3 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 174 - 4 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 175 - 5 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 176 - 6 IO::Path::Win32.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 177 - negative parents handled ok
+    ok 178 - 0 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 179 - 1 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 180 - 2 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 181 - 3 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 182 - 4 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 183 - 5 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 184 - 6 IO::Path::Cygwin.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 185 - negative parents handled ok
+    ok 186 - 0 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 187 - 1 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 188 - 2 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 189 - 3 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 190 - 4 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 191 - 5 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+    ok 192 - 6 IO::Path::QNX.new("\\foo\\bar\\ber", :CWD("/tmp/s4e/cao/fudge/cwd"))
+ok 39 - .parent(Int)
+ok 40 - was this script created before now
+ok 41 - was this script modified before now
+ok 42 - was this script accessed before now
+ok 43 - was this script's meta-date changed before now

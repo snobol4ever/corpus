@@ -1,0 +1,174 @@
+1..84
+ok 1 - 'a => 42' is a named
+ok 2 - ':a(42)' is a named
+ok 3 - ':a' is a named
+ok 4 - ':!a' is also named
+ok 5 - '"a" => 42' is a pair
+ok 6 - '("a") => 42' is a pair
+ok 7 - '(a => 42)' is a pair
+ok 8 - '("a" => 42)' is a pair
+ok 9 - '(:a(42))' is a pair
+ok 10 - '(:a)' is a pair
+ok 11 - '(:a)' is also a pair
+ok 12 - :a[...] constructs an Array value
+ok 13 - :a{...} constructs a Hash value
+ok 14 - correct key for :a[1, 2, 3]
+ok 15 - correct value for :a[1, 2, 3]
+ok 16 - correct key for :a{ b => "c" }
+ok 17 - correct value for :a{ b => "c" } (keys)
+ok 18 - correct value for :a{ b => "c" } (values)
+ok 19 - 'a => 42' is a named
+ok 20 - ':a(42)' is a named
+ok 21 - ':a' is a named
+ok 22 - in '&f2.(:a)', ':a' is a named
+ok 23 - in '$f2(:a)', ':a' is a named
+ok 24 - in '$f2.(:a)', ':a' is a named
+# Subtest: '"a" => 42' is a pair
+    1..2
+    ok 1 - 'f2("a"   => 42)' died
+    ok 2 - right exception type (Exception)
+ok 25 - '"a" => 42' is a pair
+# Subtest: '("a") => 42' is a pair
+    1..2
+    ok 1 - 'f2(("a") => 42)' died
+    ok 2 - right exception type (Exception)
+ok 26 - '("a") => 42' is a pair
+# Subtest: '(a => 42)' is a pair
+    1..2
+    ok 1 - 'f2((a   => 42))' died
+    ok 2 - right exception type (Exception)
+ok 27 - '(a => 42)' is a pair
+# Subtest: '("a" => 42)' is a pair
+    1..2
+    ok 1 - 'f2(("a" => 42))' died
+    ok 2 - right exception type (Exception)
+ok 28 - '("a" => 42)' is a pair
+# Subtest: '(:a(42))' is a pair
+    1..2
+    ok 1 - 'f2((:a(42)))' died
+    ok 2 - right exception type (Exception)
+ok 29 - '(:a(42))' is a pair
+# Subtest: '(:a)' is a pair
+    1..2
+    ok 1 - 'f2((:a))' died
+    ok 2 - right exception type (Exception)
+ok 30 - '(:a)' is a pair
+# Subtest: in '&f2.((:a))', '(:a)' is a pair
+    1..2
+    ok 1 - '&f2.((:a))' died
+    ok 2 - right exception type (Exception)
+ok 31 - in '&f2.((:a))', '(:a)' is a pair
+# Subtest: in '$f2((:a))', '(:a)' is a pair
+    1..2
+    ok 1 - '$f2((:a))' died
+    ok 2 - right exception type (Exception)
+ok 32 - in '$f2((:a))', '(:a)' is a pair
+# Subtest: in '$f2.((:a))', '(:a)' is a pair
+    1..2
+    ok 1 - '$f2.((:a))' died
+    ok 2 - right exception type (Exception)
+ok 33 - in '$f2.((:a))', '(:a)' is a pair
+# Subtest: in '$f2(((:a)))', '(:a)' is a pair
+    1..2
+    ok 1 - '$f2(((:a)))' died
+    ok 2 - right exception type (Exception)
+ok 34 - in '$f2(((:a)))', '(:a)' is a pair
+# Subtest: in '$f2.(((:a)))', '(:a)' is a pair
+    1..2
+    ok 1 - '$f2.(((:a)))' died
+    ok 2 - right exception type (Exception)
+ok 35 - in '$f2.(((:a)))', '(:a)' is a pair
+ok 36 - a $pair is not treated magically...
+ok 37 - |$pair becomes a name, which fails to dispatch
+ok 38 - get_pair() is not treated magically...
+ok 39 - an array of pairs is not treated magically...
+ok 40 - ...and |@array isn't either
+# Subtest: variables cannot be keys of syntactical pairs (1)
+    1..2
+    ok 1 - 'f7($bar => 42)' died
+    ok 2 - right exception type (Exception)
+ok 41 - variables cannot be keys of syntactical pairs (1)
+# Subtest: variables cannot be keys of syntactical pairs (2)
+    1..2
+    ok 1 - 'f8(@array => 42)' died
+    ok 2 - right exception type (Exception)
+ok 42 - variables cannot be keys of syntactical pairs (2)
+# Subtest: variables cannot be keys of syntactical pairs (3)
+    1..2
+    ok 1 - 'f9($arrayitem => 42)' died
+    ok 2 - right exception type (Exception)
+ok 43 - variables cannot be keys of syntactical pairs (3)
+ok 44 - Pair.elems
+ok 45 - Pair with 'self' as key
+ok 46 - Pair with 'rand' as key
+ok 47 - Pair with 'time' as key
+ok 48 - Pair with 'now' as key
+ok 49 - Pair with 'YOU_ARE_HERE' as key
+ok 50 - Pair with 'package' as key
+ok 51 - Pair with 'module' as key
+ok 52 - Pair with 'class' as key
+ok 53 - Pair with 'role' as key
+ok 54 - Pair with 'grammar' as key
+ok 55 - Pair with 'my' as key
+ok 56 - Pair with 'our' as key
+ok 57 - Pair with 'state' as key
+ok 58 - Pair with 'let' as key
+ok 59 - Pair with 'temp' as key
+ok 60 - Pair with 'has' as key
+ok 61 - Pair with 'augment' as key
+ok 62 - Pair with 'anon' as key
+ok 63 - Pair with 'supersede' as key
+ok 64 - Pair with 'sub' as key
+ok 65 - Pair with 'method' as key
+ok 66 - Pair with 'submethod' as key
+ok 67 - Pair with 'macro' as key
+ok 68 - Pair with 'multi' as key
+ok 69 - Pair with 'proto' as key
+ok 70 - Pair with 'only' as key
+ok 71 - Pair with 'regex' as key
+ok 72 - Pair with 'token' as key
+ok 73 - Pair with 'rule' as key
+ok 74 - Pair with 'constant' as key
+ok 75 - Pair with 'enum' as key
+ok 76 - Pair with 'subset' as key
+# Subtest: synthetic numerals in colon pairs in :42foo format throw
+    1..2
+    ok 1 - ':7̈a' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 77 - synthetic numerals in colon pairs in :42foo format throw
+# Subtest: .raku of (Int) => 42 is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 78 - .raku of (Int) => 42 is idempotent
+# Subtest: .raku of (Pair) => 42 is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 79 - .raku of (Pair) => 42 is idempotent
+# Subtest: .raku of (Num) => 42 is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 80 - .raku of (Num) => 42 is idempotent
+# Subtest: .raku of (Str) => 42 is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 81 - .raku of (Str) => 42 is idempotent
+# Subtest: .raku of a => (Bool) is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 82 - .raku of a => (Bool) is idempotent
+# Subtest: .raku of Nil => 42 is idempotent
+    1..2
+    ok 1 - Same .raku output
+    ok 2 - ...and no failures.
+ok 83 - .raku of Nil => 42 is idempotent
+not ok 84 - do colonpairs get assigned ok # TODO fixed in RakuAST
+# Failed test 'do colonpairs get assigned ok'
+# at S02-literals/pairs.rakudo line 195
+# expected: $[:a, :!b, :c(42)]
+#      got: $[:a]
+# FUDGED!

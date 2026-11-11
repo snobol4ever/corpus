@@ -1,0 +1,25 @@
+1..23
+ok 1 - :ii modifier: Hello ~~ s:ii/.*/foo/ => Foo
+ok 2 - :ii modifier: hEllo ~~ s:ii/.*/foo/ => fOo
+ok 3 - :ii modifier: A ~~ s:ii/.*/foo/ => FOO
+ok 4 - :ii modifier: AA ~~ s:ii/.*/foo/ => FOO
+ok 5 - :ii modifier: a b ~~ s:ii/.*/FOO/ => fOo
+ok 6 - :ii modifier: a b ~~ s:ii/.*/FOOB/ => fOob
+ok 7 - :ii modifier: Ab  ~~ s:ii/.*/ABCDE/ => AbCDE
+ok 8 - :ii modifier: aB  ~~ s:ii/.*/abcde/ => aBcde
+ok 9 - :ii modifier: aB  ~~ s:ii/.*/ABCDE/ => aBCDE
+ok 10 - :i:ii:sigspace modifier: HELLO ~~ s:ii:s/.*/foo/ => FOO
+ok 11 - :i:ii:sigspace modifier: hello ~~ s:ii:s/.*/fOo/ => foo
+ok 12 - :i:ii:sigspace modifier: he lo ~~ s:ii:s/.*/FOOOoO/ => fooooo
+ok 13 - :i:ii:sigspace modifier: He lo ~~ s:ii:s/.*/FOOO/ => Fooo
+ok 14 - :i:ii:sigspace modifier: hE LO ~~ s:ii:s/.*/fooo/ => fOOO
+ok 15 - :i:ii:sigspace modifier: hE LO ~~ s:ii:s/.*/foobar/ => fOOBAR
+ok 16 - :i:ii:sigspace modifier: HE LO ~~ s:ii:s/.*/foo/ => FOO
+ok 17 - :i:ii:sigspace modifier: Ab Cd E ~~ s:ii:s/.*/abc de ghi j/ => Abc De GHI J
+ok 18 - :i:ii:sigspace modifier: Ab CD ~~ s:ii:s/.*/abc de ghi j/ => Abc DE GHI J
+ok 19 - :i:ii:sigspace modifier: Ab Cd ~~ s:ii:s/.*/abc de ghi j/ => Abc De Ghi J
+ok 20 - :ii implies :i
+ok 21 - duplicated before-regexp modifier ":i" allowed (1)
+ok 22 - duplicated before-regexp modifier ":i" allowed (2)
+ok 23 - duplicated before-regexp modifier ":i" allowed (3)
+# FUDGED!

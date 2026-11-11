@@ -1,0 +1,39 @@
+1..35
+ok 1 - EVAL once {...} works
+ok 2 - once {...} has not run yet
+ok 3 - can run code with once block
+ok 4 - once {...} fired
+ok 5 - can run code with once block again
+ok 6 - once {...} fired only once
+ok 7 - cloning code does not run anything
+ok 8 - can run clone of code with once block
+ok 9 - once {...} fired again for the clone
+ok 10 - can run clone of once block code again
+ok 11 - cloned once {...} fired only once
+ok 12 - EVAL INIT {...} works
+not ok 13 - INIT did not run at compile time # TODO not sure
+# Failed test 'INIT did not run at compile time'
+# at S04-phasers/in-eval.rakudo line 39
+ok 14 - can run code with INIT block
+ok 15 - INIT {...} fires at run-time
+ok 16 - can run code with INIT block again
+ok 17 - INIT runs only once
+ok 18 - cloning code does not run anything
+ok 19 - can run clone of code with INIT block
+ok 20 - INIT {...} did not fire again for the clone
+ok 21 - EVAL CHECK {...} (and BEGIN {...}) works
+ok 22 - CHECK and BEGIN blocks ran before run time
+ok 23 - can run code with CHECK and BEGIN blocks
+ok 24 - CHECK {...} runs at compile time after BEGIN
+ok 25 - can run code with CHECK and BEGIN again
+ok 26 - CHECK runs once
+ok 27 - EVAL BEGIN {...} works
+ok 28 - BEGIN ran before run time
+ok 29 - can run code with BEGIN block
+ok 30 - BEGIN does not run again at run time
+ok 31 - EVAL END {...} works
+ok 32 - END {} has not run yet
+ok 33 - can call code with END block
+ok 34 - END {} does not run at run time either
+# FUDGED!
+ok 35 - the END {...} in EVAL has run already

@@ -1,0 +1,124 @@
+1..112
+ok 1 - str array is Positional
+not ok 2 - str array is Positional[str] # TODO apparently it is not a typed Positional
+# Failed test 'str array is Positional[str]'
+# at S09-typed-arrays/native-shape1-str.rakudo line 12
+ok 3 - str array .of is str
+ok 4 - str array is Positional
+not ok 5 - str array is Positional[str] # TODO apparently it is not a typed Positional
+# Failed test 'str array is Positional[str]'
+# at S09-typed-arrays/native-shape1-str.rakudo line 18
+ok 6 - str array .of is str
+ok 7 - .new from str array is Positional
+not ok 8 - .new from str array Positional[str] # TODO apparently it is not a typed Positional
+# Failed test '.new from str array Positional[str]'
+# at S09-typed-arrays/native-shape1-str.rakudo line 22
+ok 9 - .new from str array .of is str
+ok 10 - New str array has 5 elems
+ok 11 - New str array has end of -1
+ok 12 - New str array Int-ifies to 5
+ok 13 - New str array numifies to 5
+ok 14 - Empty str array is not lazy
+ok 15 - Accessing non-existing on str array dies
+ok 16 - Elems do not grow just from an access on str array
+ok 17 - Can store string in an str array with Int index
+ok 18 - Can get value from str array with Int index
+ok 19 - can store string in an $t array with int index
+ok 20 - Can get value from str array with int index
+ok 21 - Can slice-assign to an str array
+ok 22 - Can get slice-assigned value from str array (1)
+ok 23 - Can get slice-assigned value from str array (2)
+ok 24 - :exists works on str array with int index
+ok 25 - :exists works on str array with Int index
+ok 26 - :exists works on str array when out of range
+ok 27 - :!exists works on str array with int index
+ok 28 - :!exists works on str array with Int index
+ok 29 - :!exists works on str array when out of range
+ok 30 - :delete dies on str array with int index
+ok 31 - :delete dies on str array with Int index
+ok 32 - :!delete works on str array with int index
+ok 33 - :!delete works on str array with Int index
+ok 34 - Can call str array constructor with a single value
+ok 35 - Correct number of elems set in constructor of str array
+ok 36 - Correct element value set by constructor of str array
+ok 37 - Can call str array constructor with values
+ok 38 - Correct number of elems set in constructor of str array
+ok 39 - Correct elem value set by constructor of str array (1)
+ok 40 - Correct elem value set by constructor of str array (2)
+ok 41 - Correct elem value set by constructor of str array (3)
+ok 42 - Correct elem value set by constructor of str array (4)
+ok 43 - Can also get last 2 elements on str array
+ok 44 - str array .flat returns a Seq
+ok 45 - str array .eager returns identity
+ok 46 - Mutating for loop on str array works (1)
+ok 47 - Mutating for loop on str array works (2)
+ok 48 - Mutating for loop on str array works (3)
+ok 49 - Mutating for loop on str array works (4)
+ok 50 - Can map over str array
+ok 51 - Mutating map on str array works (1)
+ok 52 - Mutating map on str array works (2)
+ok 53 - Mutating map on str array works (3)
+ok 54 - Mutating map on str array works (4)
+ok 55 - grep a str array
+ok 56 - str array.grep(Str)
+ok 57 - str array.grep(Str, :k)
+ok 58 - str array.grep(Str, :kv)
+ok 59 - str array.grep(Str, :p)
+ok 60 - str array.grep(Str, :v)
+ok 61 - str array.grep(Str)
+ok 62 - str array.grep(Str, :k)
+ok 63 - str array.grep(Str, :kv)
+ok 64 - str array.grep(Str, :p)
+ok 65 - str array.grep(Str, :v)
+ok 66 - Can use reduce meta-op on a str array
+ok 67 - .values from a str array
+ok 68 - .pairup from a str array
+ok 69 - .keys from a str array
+ok 70 - .pairs from a str array
+ok 71 - .antipairs from a str array
+ok 72 - .kv from a str array
+ok 73 - .pick from a str array
+ok 74 - .roll from a str array
+ok 75 - str array.unique
+ok 76 - str array.repeated
+ok 77 - str array.squish
+ok 78 - Trying to pop a shaped str array dies
+ok 79 - Trying to shift a shaped str array dies
+ok 80 - Trying to push a shaped str array dies
+ok 81 - Trying to unshift a shaped str array dies
+ok 82 - Cannot bind to a str array
+ok 83 - Cannot delete from a str array
+ok 84 - Cannot append to a str array
+ok 85 - Cannot prepend to a str array
+ok 86 - Cannot splice to a str array
+ok 87 - .Str space-separates on str array
+ok 88 - .gist space-separates on str array
+ok 89 - .raku includes type and str values on str array
+ok 90 - # SKIP STORE not working correctly yet)
+ok 91 - does slice handle containerized range
+ok 92 - does join a str array
+ok 93 - Can clear str array by assigning empty list
+ok 94 - does emptying a str array reset
+ok 95 - does re-initializing a str array work
+ok 96 - List-assigning str array to untyped works (1)
+ok 97 - List-assigning str array to untyped works (2)
+ok 98 - List-assigning str array to untyped works (3)
+ok 99 - List-assign str array surrounded by literals (1)
+ok 100 - List-assign str array surrounded by literals (2)
+ok 101 - List-assign str array surrounded by literals (3)
+ok 102 - List-assign str array surrounded by literals (4)
+ok 103 - List-assign str array surrounded by literals (5)
+ok 104 - List-assign untyped array of Str to str array (1)
+ok 105 - List-assign untyped array of Str to str array (2)
+ok 106 - List-assign untyped array of Str to str array (3)
+# Subtest: List-assigning incompatible untyped array to str array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 107 - List-assigning incompatible untyped array to str array dies
+ok 108 - Smartmatching same str arrays works
+ok 109 - Can we sort str array
+ok 110 - Can we sort 2-element sorted str array
+ok 111 - Can we sort 1-element sorted str array
+ok 112 - does copying from an uninitialized shaped str array work
+# FUDGED!

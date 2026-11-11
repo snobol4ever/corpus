@@ -1,0 +1,22 @@
+1..17
+ok 1 - .parse method invokes TOP rule, no match
+ok 2 - .parse method invokes TOP rule, match
+ok 3 - .parse method requires match to end
+ok 4 - .subparse method doesn't require match to end
+ok 5 - dies if no TOP rule
+ok 6 - .parsefile method invokes TOP rule, no match
+ok 7 - .parsefile method invokes TOP rule, match
+ok 8 - dies if no TOP rule
+ok 9 - dies if file not found
+ok 10 - .parse works with namespaced grammars, no match
+ok 11 - .parse works with namespaced grammars, match
+# Subtest: .parse on missing grammar dies
+    1..2
+    ok 1 - '::No::Such::Grammar.parse()' died
+    ok 2 - right exception type (Exception)
+ok 12 - .parse on missing grammar dies
+ok 13 - can .parse grammar named "Integer"
+ok 14 - empty match is perlable, not Null PMC access
+ok 15 - can use <rule "param"> form of rule invocation in grammar
+ok 16 - Recursive .ast calls work
+ok 17 - A regex TOP will be backtracked into to get a long enough match

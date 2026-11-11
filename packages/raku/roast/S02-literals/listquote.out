@@ -1,0 +1,58 @@
+1..24
+ok 1 - list context <list>
+not ok 2 - listop |<< <list> # TODO meta operators RT #124558
+# Failed test 'listop |<< <list>'
+# at S02-literals/listquote.rakudo line 14
+# expected: 'xayaz'
+#      got: ''
+ok 3 - .join<abc> parses and fails
+ok 4 - {...}<a b c> is hash subscript
+# Subtest: {...} <...> parsefail
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 5 - {...} <...> parsefail
+ok 6 - (...) < 3 no parsefail
+# Subtest: ()<3 parsefail
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 7 - ()<3 parsefail
+# Subtest: :foo <1 2 3> parsefail
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 8 - :foo <1 2 3> parsefail
+# Subtest: <3 is comparison, but dies at run time
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 9 - <3 is comparison, but dies at run time
+ok 10 - :foo<1 2 3> is pair of list
+ok 11 - Hashes with embedded newlines in the list (1)
+ok 12 - Hashes with embedded newlines in the list (2)
+ok 13 - Hashes with embedded newlines in the list (3)
+# Subtest: bare <> is disallowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Obsolete)
+ok 14 - bare <> is disallowed
+# Subtest: <STDIN> is disallowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Obsolete)
+ok 15 - <STDIN> is disallowed
+ok 16 - <a b c> produces a List
+# Subtest: ... which is immutable
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Immutable)
+ok 17 - ... which is immutable
+ok 18 - <...> numeric literals stringify correctly
+ok 19 - <foo ...> is a Str
+ok 20 - < ... 3 ...> is an Int
+ok 21 - < ... 4.5 ...> is a Rat
+ok 22 - < ... 1.2e1 ...> is a Num
+ok 23 - < ... -2+3i ...> is a Complex
+ok 24 - function call with assignment to list
+# FUDGED!

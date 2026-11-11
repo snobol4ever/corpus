@@ -1,0 +1,17 @@
+1..16
+ok 1 - is_pos worked for 1
+ok 2 - KEEP ran as expected
+ok 3 - is_pos worked for 0
+ok 4 - UNDO worked as expected
+ok 5 - is_pos worked for 0
+ok 6 - UNDO worked as expected
+ok 7 - KEEP triggered as part of LEAVE blocks
+ok 8 - UNDO triggered as part of LEAVE blocks
+ok 9 - 2 KEEP blocks triggered
+ok 10 - 2 UNDO blocks triggered
+ok 11 - fail() does not trigger KEEP
+ok 12 - fail() triggers UNDO
+ok 13 - UNDO fires after die
+ok 14 - UNDO fires after die
+ok 15 - UNDO fires after die if block is a "try" block
+ok 16 - UNDO in sub fires after "fail"

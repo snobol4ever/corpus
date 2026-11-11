@@ -1,0 +1,23 @@
+1..1
+# Subtest: :numbered alias abbreviated blocks
+    1..19
+    ok 1 - is config<numbered>:exists
+    ok 2 - ok config<numbered>
+    ok 3 - is config<numbered>:exists
+    ok 4 - ok config<numbered>
+    ok 5 - is term "foo"
+    ok 6 - is config<numbered>:exists
+    ok 7 - ok config<numbered>
+    ok 8 - is config<numbered>:exists
+    ok 9 - ok config<numbered>
+    ok 10 - is config<numbered>:exists
+    ok 11 - ok config<numbered>
+    ok 12 - is config<numbered>:exists
+    ok 13 - ok config<numbered>
+    ok 14 - is config<numbered>:exists
+    ok 15 - ok config<numbered>
+    ok 16 - is config<numbered>:exists
+    ok 17 - ok config<numbered>
+    ok 18 - is config<numbered>:exists
+    ok 19 - ok config<numbered>
+ok 1 - :numbered alias abbreviated blocks

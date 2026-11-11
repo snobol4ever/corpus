@@ -1,0 +1,13 @@
+1..4
+ok 1 - trying to skip-all inside Block of 1st-level subtest
+ok 2 - trying to skip-all inside Block of 2nd-level subtest
+# Subtest: level-one subtest with skip-all
+    1..0 # Skipped: Testing skippage of `plan skip-all`
+ok 3 - level-one subtest with skip-all
+# Subtest: level-one subtest with level-two subtest with skip-all
+    1..2
+    # Subtest: level-two subtest with skip-all
+        1..0 # Skipped: Testing skippage of `plan skip-all`
+    ok 1 - level-two subtest with skip-all
+    ok 2 - skip-all inside subtests does not skip outside tests
+ok 4 - level-one subtest with level-two subtest with skip-all

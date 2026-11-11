@@ -1,0 +1,20 @@
+1..7
+ok 1 - Can initialize inherited attribute
+ok 2 - accessor can use inherited attribute
+# Subtest: Compile error for subclass to access private attribute of parent
+    1..2
+    ok 1 - 'class Artay61500 is Artie61500 { method bomb { return $!p } }' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 3 - Compile error for subclass to access private attribute of parent
+ok 4 - private attributes do not leak from child to parent class (1)
+ok 5 - private attributes do not leak from child to parent class (2)
+ok 6 - If parent and child have an attribute of the same name, they do not share storage location
+# Subtest: rt 61500
+    1..2
+    ok 1 - '
+    #         class RT61500_A { has $!foo = 7 };
+    #         class RT61500_B is RT61500_A { method x { say $!foo } };
+    #         RT61500_B.new.x
+    #     ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 7 - rt 61500

@@ -1,0 +1,9 @@
+1..8
+ok 1 - Correct value of .chars for 'o' (no combining characters)
+ok 2 - Correct value of .chars for 'ȯ' (combining characters, but not CGJ)
+ok 3 - Correct value of .chars for 'ọ' (combining characters, but not CGJ)
+ok 4 - Correct value of .chars for 'ọ̇' (combining characters, but not CGJ)
+ok 5 - Correct value of .chars for 'o͏' (combining characters, including CGJ)
+ok 6 - Correct value of .chars for 'ȯ͏' (combining characters, including CGJ)
+ok 7 - Correct value of .chars for 'o͏̣' (combining characters, including CGJ)
+ok 8 - Correct value of .chars for 'ȯ͏̣' (combining characters, including CGJ)

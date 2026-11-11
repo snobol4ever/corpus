@@ -1,0 +1,98 @@
+1..69
+ok 1 - 0;0 does not exist before assignment
+ok 2 - 0;1 does not exist before assignment
+ok 3 - 1;0 does not exist before assignment
+ok 4 - 0;1 does not exist before assignment
+ok 5 - Can store to array with multi-dim AT-POS as l-value (1)
+ok 6 - Can store to array with multi-dim AT-POS as l-value (2)
+ok 7 - Access out of bounds dies (1)
+ok 8 - Access out of bounds dies (2)
+ok 9 - Can store to array with multi-dim ASSIGN-POS (1)
+ok 10 - Can store to array with multi-dim ASSIGN-POS (2)
+# Subtest: did we throws-like X::NotEnoughDimensions?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::NotEnoughDimensions)
+    ok 3 - .needed-dimensions matches 2
+    ok 4 - .got-dimensions matches 1
+    ok 5 - .operation matches assign to
+ok 11 - did we throws-like X::NotEnoughDimensions?
+ok 12 - Assign out of bounds dies (1)
+ok 13 - Assign out of bounds dies (2)
+ok 14 - 0;0 exists
+ok 15 - 0;1 exists
+ok 16 - 1;0 exists
+ok 17 - 1;1 exists
+ok 18 - 1;2 does not exist
+ok 19 - 1;2 does not exist
+ok 20 - 0 exists
+ok 21 - 1 exists
+ok 22 - 2 does not exist
+ok 23 - 1;1 ceaess to exist after deletion
+ok 24 - deletion does not change shape, however
+# Subtest: did we throws-like X::NotEnoughDimensions?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::NotEnoughDimensions)
+    ok 3 - .needed-dimensions matches 2
+    ok 4 - .operation matches delete from
+    ok 5 - .got-dimensions matches 1
+ok 25 - did we throws-like X::NotEnoughDimensions?
+ok 26 - Delete out of bounds dies (1)
+ok 27 - Delete out of bounds dies (2)
+ok 28 - Can bind to array element with multi-dim BIND-POS
+ok 29 - BIND-POS really bound and replaced container
+ok 30 - 0;0 exists
+ok 31 - 0;1 exists
+ok 32 - 1;0 exists
+ok 33 - 1;1 exists
+ok 34 - 1;2 does not exist
+ok 35 - 1;2 does not exist
+ok 36 - 0 exists
+ok 37 - 1 exists
+ok 38 - 2 does not exist
+ok 39 - Access out of bounds dies (1)
+ok 40 - Access out of bounds dies (2)
+ok 41 - Can store to native int array with multi-dim ASSIGN-POS/AT-POS (1)
+ok 42 - Can store to native int array with multi-dim ASSIGN-POS/AT-POS (1)
+ok 43 - Can store to native int array with multi-dim ASSIGN-POS/AT-POS (1)
+ok 44 - Can store to native int array with multi-dim ASSIGN-POS/AT-POS (1)
+# Subtest: did we throws-like X::NotEnoughDimensions?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::NotEnoughDimensions)
+    ok 3 - .got-dimensions matches 1
+    ok 4 - .needed-dimensions matches 2
+    ok 5 - .operation matches assign to
+ok 45 - did we throws-like X::NotEnoughDimensions?
+ok 46 - Assign out of bounds dies (1)
+ok 47 - Assign out of bounds dies (2)
+ok 48 - Cannot delete from a native int array
+ok 49 - Cannot bind to a native int array
+ok 50 - 0;0 exists
+ok 51 - 0;1 exists
+ok 52 - 1;0 exists
+ok 53 - 1;1 exists
+ok 54 - 1;2 does not exist
+ok 55 - 1;2 does not exist
+ok 56 - 0 exists
+ok 57 - 1 exists
+ok 58 - 2 does not exist
+ok 59 - Access out of bounds dies (1)
+ok 60 - Access out of bounds dies (2)
+ok 61 - Can store to native num array with multi-dim ASSIGN-POS/AT-POS (1)
+ok 62 - Can store to native num array with multi-dim ASSIGN-POS/AT-POS (1)
+ok 63 - Can store to native num array with multi-dim ASSIGN-POS/AT-POS (1)
+ok 64 - Can store to native num array with multi-dim ASSIGN-POS/AT-POS (1)
+# Subtest: did we throws-like X::NotEnoughDimensions?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::NotEnoughDimensions)
+    ok 3 - .operation matches assign to
+    ok 4 - .got-dimensions matches 1
+    ok 5 - .needed-dimensions matches 2
+ok 65 - did we throws-like X::NotEnoughDimensions?
+ok 66 - Assign out of bounds dies (1)
+ok 67 - Assign out of bounds dies (2)
+ok 68 - Cannot delete from a native num array
+ok 69 - Cannot bind to a native num array

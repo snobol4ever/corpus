@@ -1,0 +1,60 @@
+1..53
+ok 1 - exists(positive index) on arrays (1)
+ok 2 - exists(positive index) on arrays (2)
+ok 3 - exists(positive index) on arrays (3)
+ok 4 - exists(positive index) on arrays (4)
+ok 5 - exists(positive index) on arrays (5)
+ok 6 - exists(positive index) on arrays (6)
+ok 7 - basic sanity
+ok 8 - Bool test for exists single element
+ok 9 - !Bool test for exists single element
+ok 10 - Bool test for non-exists single element
+ok 11 - !Bool test for non-exists single element
+ok 12 - Test for exists single element
+ok 13 - Test for non-exists single element
+ok 14 - Test non-exists with ! single elem 9
+ok 15 - Test non-exists with ! single elem 10
+ok 16 - Test non-exists with (0) single elem 9
+ok 17 - Test non-exists with (0) single elem 10
+ok 18 - Test non-exists with (False) single elem 9
+ok 19 - Test non-exists with (False) single elem 10
+ok 20 - Test non-exists with ($dont) single elem 9
+ok 21 - Test non-exists with ($dont) single elem 10
+ok 22 - Test exists with (1) single elem 9
+ok 23 - Test exists with (1) single elem 10
+ok 24 - Test exists TTT
+ok 25 - Test exists TTF
+ok 26 - Test non-exists T[]
+ok 27 - Test non-exists T[*]
+ok 28 - Test non-exists FFF
+ok 29 - Test non-exists FFT
+ok 30 - Test non-exists F[]
+ok 31 - Test non-exists F[*]
+ok 32 - Test exists:kv TTT
+ok 33 - Test exists:kv TT.
+ok 34 - Test exists:!kv TTF
+ok 35 - Test !exists:kv FFF
+ok 36 - Test !exists:kv FF.
+ok 37 - Test !exists:kv FFT
+ok 38 - Test exists:p TTT
+ok 39 - Test exists:p TT.
+ok 40 - Test exists:!p TTF
+ok 41 - Test exists:!v TTF
+ok 42 - Test !exists:p FFF
+ok 43 - Test !exists:p FF.
+ok 44 - Test !exists:!p FFT
+ok 45 - Test !exists:!v FFT
+ok 46 - Test exists:k,   invalid combo
+ok 47 - Test exists:!k,  invalid combo
+ok 48 - Test !exists:k,  invalid combo
+ok 49 - Test !exists:!k, invalid combo
+ok 50 - Test exists:v,   invalid combo
+ok 51 - Test !exists:v,  invalid combo
+ok 52 - should be untouched
+# Subtest: recursive :exists dies on incorrect index
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches -1
+    ok 4 - .what matches Index
+ok 53 - recursive :exists dies on incorrect index

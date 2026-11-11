@@ -1,0 +1,5 @@
+1..4
+ok 1 - factorial operator
+ok 2 - + override
+ok 3 - override equality
+ok 4 - Str override

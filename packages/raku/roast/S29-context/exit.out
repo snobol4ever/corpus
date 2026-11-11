@@ -1,0 +1,4 @@
+1..3
+ok 1 - bare exit; works
+ok 2 - exit 5; works
+ok 3 - try-block does not catch exit exceptions

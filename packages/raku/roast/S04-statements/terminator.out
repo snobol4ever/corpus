@@ -1,0 +1,38 @@
+1..20
+ok 1 - empty statement
+ok 2 - simple statement no semi
+ok 3 - simple statement on two lines no semi
+ok 4 - simple statement with semi
+ok 5 - end of closure terminator
+ok 6 - double terminator
+ok 7 - extra terminators
+# Subtest: open closure
+    1..2
+    ok 1 - '{my $x = 2;' died
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 8 - open closure
+# Subtest: incomplete expression
+    1..2
+    ok 1 - 'my $x = ' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+ok 9 - incomplete expression
+ok 10 - '} + 1' is in a single statement
+ok 11 - }\n + 1 are two statements
+ok 12 - auto-curly applies inside array composer
+# Subtest: if postfix modifier and is() is parsed correctly
+    1..2
+    ok 1 - '42 if 23
+    # is 50; 1' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 13 - if postfix modifier and is() is parsed correctly
+# Subtest: parens do not eat spaces after them
+    1..2
+    ok 1 - '(1) { $foo = 2 }' died
+    ok 2 - right exception type (Exception)
+ok 14 - parens do not eat spaces after them
+ok 15 - implicit terminator before & sigil
+ok 16 - trailing comma allowed (1)
+ok 17 - trailing comma allowed (2)
+ok 18 - trailing comma allowed (3)
+ok 19 - trailing comma allowed (4)
+ok 20 - trailing comma allowed (5)

@@ -1,0 +1,152 @@
+1..110
+ok 1 - unspace with numbers
+ok 2 - unspace with comments
+ok 3 - unspace with strings
+ok 4 - unspace with strings + parens
+ok 5 - (short) unspace with postfix inc
+ok 6 - (short) unspace with postfix inc really postfix
+ok 7 - unspace with postfix inc
+ok 8 - unspace with postfix inc really postfix
+ok 9 - unspace with postfix dec
+ok 10 - unspace with postfix dec really postfix
+ok 11 - unspace without spaces
+ok 12 - unspace with newline
+ok 13 - unspace with adverb
+ok 14 - unspace on postfix subscript
+ok 15 - unspace with postfix pre-dot hyperops
+ok 16 - unspace with postfix pre- and/or post-dot hyperops
+ok 17 - sanity - foo.lc
+ok 18 - sanity - foo .lc
+ok 19 - sanity - bar.lc
+ok 20 - sanity - bar .lc
+ok 21 - short unspace
+ok 22 - unspace
+ok 23 - unspace before arguments
+ok 24 - not a unspace
+# Subtest: unspace not allowed in identifier
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 25 - unspace not allowed in identifier
+ok 26 - longer dot
+ok 27 - unspace with embedded comment
+# Subtest: unspace can't hide space between # and opening bracket
+    1..2
+    not ok 1 - code dies # TODO unspace NYI
+    # Failed test 'code dies'
+    # at S02-lexical-conventions/unspace.rakudo line 77
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 28 - unspace can't hide space between  \# and opening bracket # TODO unspace NYI
+# Failed test 'unspace can't hide space between  \# and opening bracket'
+# at S02-lexical-conventions/unspace.rakudo line 77
+ok 29 - unspace with end-of-line comment
+ok 30 - unspace in colonpair
+ok 31 - unspace is allowed both before and after method .
+ok 32 - unspace with pod =begin/=end comment
+ok 33 - unspace with pod =for comment
+ok 34 - unspace with pod =comment
+ok 35 - # SKIP pod and unspace
+ok 36 - # SKIP =for pod NYI (in STD.pm, from Perl)
+ok 37 - # SKIP pod and unspace
+ok 38 - # SKIP pod and unspace
+ok 39 - # SKIP =for pod NYI (in STD.pm, from Perl)
+ok 40 - # SKIP =for pod NYI (in STD.pm, from Perl)
+ok 41 - # SKIP =for pod NYI (in STD.pm, from Perl)
+# Subtest: semicolon or newline required between blocks
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 42 - semicolon or newline required between blocks
+ok 43 - comma immediately following arg block
+ok 44 - comma not immediately following arg block
+ok 45 - unspace then comma following arg block
+ok 46 - colon immediately following arg block
+ok 47 - colon not immediately following arg block
+ok 48 - unspace then colon following arg block
+# Subtest: infix requires space when ambiguous with postfix
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 49 - infix requires space when ambiguous with postfix
+ok 50 - check $n
+ok 51 - check $m
+ok 52 - $n ++$m with infix:<++> is $n ++ $m
+ok 53 - check $n
+ok 54 - check $m
+ok 55 - postfix requires no space w/ infix ambiguity
+ok 56 - check $n
+ok 57 - check $m
+# Subtest: postfix dot w/ infix ambiguity
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 58 - postfix dot w/ infix ambiguity
+# Subtest: postfix unspace w/ infix ambiguity
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 59 - postfix unspace w/ infix ambiguity
+# Subtest: postfix unspace w/ infix ambiguity
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 60 - postfix unspace w/ infix ambiguity
+ok 61 - check $n
+ok 62 - check $m
+ok 63 - unspace inside operator splits it
+ok 64 - check $n
+ok 65 - check $m
+# Subtest: postfix requires no space
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 66 - postfix requires no space
+ok 67 - check $n
+ok 68 - postfix dot
+ok 69 - check $n
+ok 70 - postfix unspace
+ok 71 - check $n
+ok 72 - postfix unspace
+ok 73 - check $n
+ok 74 - unspace with U+301D/U+301E comment
+# Subtest: unspace with U+301D/U+301F is invalid
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 75 - unspace with U+301D/U+301F is invalid
+ok 76 -  .123 is equal to 0.123
+ok 77 - .123 is equal to 0.123
+ok 78 - unspaced postfix after method call not misparsed
+ok 79 - unspace between parameter and before and after method .
+ok 80 - sanity
+ok 81 - unspace between method and first argument
+ok 82 - unspace between method and first argument with leading space
+ok 83 - unspace between first and second argument
+ok 84 - unspace between first and second argument with leading space
+ok 85 - two unspace in a row after . for method call
+ok 86 - two unspace in a row before . for method call
+ok 87 - Unspace restriction in regex does not apply to \ \#
+ok 88 - bareword call with unspace
+ok 89 - bareword call with degenerate unspace
+ok 90 - bare longname call with unspace
+ok 91 - bare longname call with degenerate unspace
+ok 92 - longname array subscript with unspace
+ok 93 - longname array subscript with degenerate unspace
+ok 94 - longname hash subscript with unspace
+ok 95 - longname hash subscript with degenerate unspace
+ok 96 - longname pointy hash subscript with unspace
+ok 97 - longname pointy hash subscript with degenerate unspace
+ok 98 - bare longname metamethod call with unspace
+ok 99 - bare longname metamethod call with degenerate unspace
+ok 100 - unspace with method calls detached from sigiless terms works
+ok 101 - unspace with array subscript detached from sigiless terms works
+ok 102 - unspace with hash subscript detached from sigiless terms works
+ok 103 - unspace with pointy hash subscript detached from sigiless terms works
+ok 104 - degenerate unspace with method calls detached from sigiless terms works
+ok 105 - degenerate unspace with array subscript detached from sigiless terms works
+ok 106 - degenerate unspace with hash subscript detached from sigiless terms works
+ok 107 - degenerate unspace with pointy hash subscript detached from sigiless terms works
+ok 108 - unspace can recurse
+ok 109 - unspace combined with map and a constant
+ok 110 - unspace combined with map and constants
+# FUDGED!

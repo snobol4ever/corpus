@@ -1,0 +1,26 @@
+1..25
+ok 1 - ("").raku returned something whose EVAL()ed stringification is unchanged
+ok 2 - ("").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 3 - ("42").raku returned something whose EVAL()ed stringification is unchanged
+ok 4 - ("42").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 5 - ("a b c").raku returned something whose EVAL()ed stringification is unchanged
+ok 6 - ("a b c").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 7 - ("3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42").raku returned something whose EVAL()ed stringification is unchanged
+ok 8 - ("3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 9 - ("1 2 3").raku returned something whose EVAL()ed stringification is unchanged
+ok 10 - ("1 2 3").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 11 - ("2 3 4 6 8").raku returned something whose EVAL()ed stringification is unchanged
+ok 12 - ("2 3 4 6 8").raku returned something whose EVAL()ed .WHAT is unchanged
+ok 13 - basic recursive arrayitem
+ok 14 - .raku doesn't hang on a recursive arrayitem
+ok 15 - .raku output parses on a recursive arrayitem
+ok 16 - .raku on a nested list
+ok 17 - strange inner parens from .raku on result of hyperop
+ok 18 - .raku on a nested list result of hyper operator
+ok 19 - EVAL(@list.raku) gives a list, not a scalar
+ok 20 - EVAL($@list.raku) gives a scalar list, not a list
+ok 21 - EVAL of .raku returns original for '[1, 2, 3]'
+ok 22 - EVAL of .raku returns original for '[1]'
+ok 23 - 
+ok 24 - $(\(1, 2), \(3, 4)).raku
+ok 25 - no duplicate keys in .gist of Match of regex which backtracked

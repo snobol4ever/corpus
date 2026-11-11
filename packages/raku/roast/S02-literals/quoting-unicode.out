@@ -1,0 +1,135 @@
+1..101
+ok 1 - Shortform for Q[...] is ｢...｣ (HALFWIDTH LEFT/RIGHT CORNER BRACKET)
+ok 2 - q-style string with LEFT/RIGHT CORNER BRACKET
+ok 3 - q-style string with LEFT/RIGHT WHITE CORNER BRACKET
+ok 4 - q-style string with REVERSED DOUBLE PRIME QUOTATION MARK and
+#  DOUBLE PRIME QUOTATION MARK(U+301D/U+301E)
+ok 5 - q-style string with LEFT SQUARE BRACKET WITH TICK IN TOP CORNER and RIGHT SQUARE BRACKET WITH TICK IN TOP CORNER(U+298D/U+2990)
+ok 6 - q-style string with LEFT SQUARE BRACKET WITH TICK IN BOTTOM CORNER and RIGHT SQUARE BRACKET WITH TICK IN BOTTOM CORNER(U+298F/U+298E)
+ok 7 - q[abc] (U+5B/U+5D)
+ok 8 - q{abc} (U+7B/U+7D)
+ok 9 - q༺abc༻ (U+F3A/U+F3B)
+ok 10 - q༼abc༽ (U+F3C/U+F3D)
+ok 11 - q᚛abc᚜ (U+169B/U+169C)
+ok 12 - q⁅abc⁆ (U+2045/U+2046)
+ok 13 - q⁽abc⁾ (U+207D/U+207E)
+ok 14 - q₍abc₎ (U+208D/U+208E)
+ok 15 - q〈abc〉 (U+3008/U+3009)
+ok 16 - q❨abc❩ (U+2768/U+2769)
+ok 17 - q❪abc❫ (U+276A/U+276B)
+ok 18 - q❬abc❭ (U+276C/U+276D)
+ok 19 - q❮abc❯ (U+276E/U+276F)
+ok 20 - q❰abc❱ (U+2770/U+2771)
+ok 21 - q❲abc❳ (U+2772/U+2773)
+ok 22 - q❴abc❵ (U+2774/U+2775)
+ok 23 - q⟅abc⟆ (U+27C5/U+27C6)
+ok 24 - q⟦abc⟧ (U+27E6/U+27E7)
+ok 25 - q⟨abc⟩ (U+27E8/U+27E9)
+ok 26 - q⟪abc⟫ (U+27EA/U+27EB)
+ok 27 - q⦃abc⦄ (U+2983/U+2984)
+ok 28 - q⦅abc⦆ (U+2985/U+2986)
+ok 29 - q⦇abc⦈ (U+2987/U+2988)
+ok 30 - q⦉abc⦊ (U+2989/U+298A)
+ok 31 - q⦋abc⦌ (U+298B/U+298C)
+ok 32 - q⦑abc⦒ (U+2991/U+2992)
+ok 33 - q⦓abc⦔ (U+2993/U+2994)
+ok 34 - q⦕abc⦖ (U+2995/U+2996)
+ok 35 - q⦗abc⦘ (U+2997/U+2998)
+ok 36 - q⧘abc⧙ (U+29D8/U+29D9)
+ok 37 - q⧚abc⧛ (U+29DA/U+29DB)
+ok 38 - q⧼abc⧽ (U+29FC/U+29FD)
+ok 39 - q〈abc〉 (U+3008/U+3009)
+ok 40 - q《abc》 (U+300A/U+300B)
+ok 41 - q「abc」 (U+300C/U+300D)
+ok 42 - q『abc』 (U+300E/U+300F)
+ok 43 - q【abc】 (U+3010/U+3011)
+ok 44 - q〔abc〕 (U+3014/U+3015)
+ok 45 - q〖abc〗 (U+3016/U+3017)
+ok 46 - q〘abc〙 (U+3018/U+3019)
+ok 47 - q〚abc〛 (U+301A/U+301B)
+ok 48 - q〝abc〞 (U+301D/U+301E)
+ok 49 - q︗abc︘ (U+FE17/U+FE18)
+ok 50 - q︵abc︶ (U+FE35/U+FE36)
+ok 51 - q︷abc︸ (U+FE37/U+FE38)
+ok 52 - q︹abc︺ (U+FE39/U+FE3A)
+ok 53 - q︻abc︼ (U+FE3B/U+FE3C)
+ok 54 - q︽abc︾ (U+FE3D/U+FE3E)
+ok 55 - q︿abc﹀ (U+FE3F/U+FE40)
+ok 56 - q﹁abc﹂ (U+FE41/U+FE42)
+ok 57 - q﹃abc﹄ (U+FE43/U+FE44)
+ok 58 - q﹇abc﹈ (U+FE47/U+FE48)
+ok 59 - q﹙abc﹚ (U+FE59/U+FE5A)
+ok 60 - q﹛abc﹜ (U+FE5B/U+FE5C)
+ok 61 - q﹝abc﹞ (U+FE5D/U+FE5E)
+ok 62 - q（abc） (U+FF08/U+FF09)
+ok 63 - q［abc］ (U+FF3B/U+FF3D)
+ok 64 - q｛abc｝ (U+FF5B/U+FF5D)
+ok 65 - q｟abc｠ (U+FF5F/U+FF60)
+ok 66 - q｢abc｣ (U+FF62/U+FF63)
+ok 67 - q⸨abc⸩ (U+2E28/U+2E29)
+ok 68 - q-style string with FULLWIDTH LEFT/RIGHT PARENTHESIS
+ok 69 - q-style string with LEFT/RIGHT DOUBLE ANGLE BRACKET
+ok 70 - q-style string with LEFT/RIGHT ANGLE BRACKET
+# Subtest: Can't quote a string with a snowman and comet (U+2603 and U+2604)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 71 - Can't quote a string with a snowman and comet (U+2603 and U+2604)
+# Subtest: Can't quote a regex with a snowman and comet (U+2603 and U+2604)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp::Group)
+ok 72 - Can't quote a regex with a snowman and comet (U+2603 and U+2604)
+ok 73 - curly “” quotes are accepted and not confused with ASCII quotes
+# Subtest: Can't mix curly quote with ASCII quote
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 74 - Can't mix curly quote with ASCII quote
+ok 75 - curly „” quotes are accepted and not confused with ASCII quotes
+# Subtest: Can't mix curly quote with ASCII quote
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 76 - Can't mix curly quote with ASCII quote
+ok 77 - curly „“ quotes are accepted and not confused with ASCII quotes
+ok 78 - curly ‘’ quotes are accepted and not confused with ASCII quotes
+# Subtest: Can't mix curly quote with ASCII quote
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 79 - Can't mix curly quote with ASCII quote
+ok 80 - curly ‚’ quotes are accepted and not confused with ASCII quotes
+# Subtest: Can't mix curly quote with ASCII quote
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 81 - Can't mix curly quote with ASCII quote
+ok 82 - curly ‚‘ quotes are accepted and not confused with ASCII quotes
+ok 83 - curly ”” quotes are accepted and not confused with ASCII quotes
+# Subtest: Can't mix curly quote with ASCII quote
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 84 - Can't mix curly quote with ASCII quote
+ok 85 - curly ”“ quotes are accepted and not confused with ASCII quotes
+ok 86 - curly ’’ quotes are accepted and not confused with ASCII quotes
+# Subtest: Can't mix curly quote with ASCII quote
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 87 - Can't mix curly quote with ASCII quote
+ok 88 - curly ’‘ quotes are accepted and not confused with ASCII quotes
+ok 89 - Single interpolated Scalar does not return as Slip
+ok 90 - Single interpolated Scalar correct result
+ok 91 - Single interpolated Array does not return as Slip
+ok 92 - Single interpolated Array correct result
+ok 93 - Single interpolated block does not return as Slip
+ok 94 - Single interpolated block correct result
+ok 95 - Single interpolated value in dbl quotes, preserves String
+ok 96 - Literal directly precedes interpolated Scalar, no nested List produced
+ok 97 - Literal directly precedes interpolated Array, no nested List produced
+ok 98 - Literal directly follows interpolated Array, no nested List produced
+ok 99 - Literal directly precedes interpolated block, no nested List produced
+ok 100 - Literal directly follows interpolated block, no nested List produced
+ok 101 - Literals directly bookend multiple interpolated, no nested Lists

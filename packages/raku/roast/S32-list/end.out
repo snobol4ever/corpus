@@ -1,0 +1,19 @@
+1..14
+ok 1 - we have an empty array
+ok 2 - index of last element is 42 after assignment
+ok 3 - index of last element is 41 after pop
+ok 4 - index of last element is 40 after shift
+ok 5 - index of last element is 41 after unshift
+ok 6 - index of last element is 42 after push
+ok 7 - we have an empty array
+ok 8 - index of last element is 42 after assignment
+ok 9 - index of last element is 41 after pop
+ok 10 - index of last element is 40 after shift
+ok 11 - index of last element is 41 after unshift
+ok 12 - index of last element is 42 after push
+ok 13 - Scalars look like wrapped in a single-item list
+# Subtest: ... end() dies without an argument
+    1..2
+    ok 1 - ' end() ' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 14 - ... end() dies without an argument

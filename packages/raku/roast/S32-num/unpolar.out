@@ -1,0 +1,200 @@
+1..199
+ok 1 - cis(0)     == 1
+ok 2 - cis(pi)    == -1
+ok 3 - cis(pi/2)  == i
+ok 4 - cis(3pi/2) == -i
+ok 5 - cis(x) == 1.unpolar(x) No. 1
+ok 6 - x.cis == 1.unpolar(x) No. 1
+ok 7 - x.Rat.cis == 1.unpolar(x) No. 1
+ok 8 - x.Num.cis == 1.unpolar(x) No. 1
+ok 9 - cis(x) == 1.unpolar(x) No. 2
+ok 10 - x.cis == 1.unpolar(x) No. 2
+ok 11 - x.Rat.cis == 1.unpolar(x) No. 2
+ok 12 - x.Num.cis == 1.unpolar(x) No. 2
+ok 13 - cis(x) == 1.unpolar(x) No. 3
+ok 14 - x.cis == 1.unpolar(x) No. 3
+ok 15 - x.Rat.cis == 1.unpolar(x) No. 3
+ok 16 - x.Num.cis == 1.unpolar(x) No. 3
+ok 17 - cis(x) == 1.unpolar(x) No. 4
+ok 18 - x.cis == 1.unpolar(x) No. 4
+ok 19 - x.Rat.cis == 1.unpolar(x) No. 4
+ok 20 - x.Num.cis == 1.unpolar(x) No. 4
+ok 21 - cis(x) == 1.unpolar(x) No. 5
+ok 22 - x.cis == 1.unpolar(x) No. 5
+ok 23 - x.Rat.cis == 1.unpolar(x) No. 5
+ok 24 - x.Num.cis == 1.unpolar(x) No. 5
+ok 25 - cis(x) == 1.unpolar(x) No. 6
+ok 26 - x.cis == 1.unpolar(x) No. 6
+ok 27 - x.Rat.cis == 1.unpolar(x) No. 6
+ok 28 - x.Num.cis == 1.unpolar(x) No. 6
+ok 29 - cis(x) == 1.unpolar(x) No. 7
+ok 30 - x.cis == 1.unpolar(x) No. 7
+ok 31 - x.Rat.cis == 1.unpolar(x) No. 7
+ok 32 - x.Num.cis == 1.unpolar(x) No. 7
+ok 33 - cis(x) == 1.unpolar(x) No. 8
+ok 34 - x.cis == 1.unpolar(x) No. 8
+ok 35 - x.Rat.cis == 1.unpolar(x) No. 8
+ok 36 - x.Num.cis == 1.unpolar(x) No. 8
+ok 37 - cis(x) == 1.unpolar(x) No. 9
+ok 38 - x.cis == 1.unpolar(x) No. 9
+ok 39 - x.Rat.cis == 1.unpolar(x) No. 9
+ok 40 - x.Num.cis == 1.unpolar(x) No. 9
+ok 41 - cis(x) == 1.unpolar(x) No. 10
+ok 42 - x.cis == 1.unpolar(x) No. 10
+ok 43 - x.Rat.cis == 1.unpolar(x) No. 10
+ok 44 - x.Num.cis == 1.unpolar(x) No. 10
+ok 45 - cis(x) == 1.unpolar(x) No. 11
+ok 46 - x.cis == 1.unpolar(x) No. 11
+ok 47 - x.Rat.cis == 1.unpolar(x) No. 11
+ok 48 - x.Num.cis == 1.unpolar(x) No. 11
+ok 49 - cis(x) == 1.unpolar(x) No. 12
+ok 50 - x.cis == 1.unpolar(x) No. 12
+ok 51 - x.Rat.cis == 1.unpolar(x) No. 12
+ok 52 - x.Num.cis == 1.unpolar(x) No. 12
+ok 53 - cis(x) == 1.unpolar(x) No. 13
+ok 54 - x.cis == 1.unpolar(x) No. 13
+ok 55 - x.Rat.cis == 1.unpolar(x) No. 13
+ok 56 - x.Num.cis == 1.unpolar(x) No. 13
+ok 57 - cis(x) == 1.unpolar(x) No. 14
+ok 58 - x.cis == 1.unpolar(x) No. 14
+ok 59 - x.Rat.cis == 1.unpolar(x) No. 14
+ok 60 - x.Num.cis == 1.unpolar(x) No. 14
+ok 61 - cis(x) == 1.unpolar(x) No. 15
+ok 62 - x.cis == 1.unpolar(x) No. 15
+ok 63 - x.Rat.cis == 1.unpolar(x) No. 15
+ok 64 - x.Num.cis == 1.unpolar(x) No. 15
+ok 65 - cis(x) == 1.unpolar(x) No. 16
+ok 66 - x.cis == 1.unpolar(x) No. 16
+ok 67 - x.Rat.cis == 1.unpolar(x) No. 16
+ok 68 - x.Num.cis == 1.unpolar(x) No. 16
+ok 69 - cis(x) == 1.unpolar(x) No. 17
+ok 70 - x.cis == 1.unpolar(x) No. 17
+ok 71 - x.Rat.cis == 1.unpolar(x) No. 17
+ok 72 - x.Num.cis == 1.unpolar(x) No. 17
+ok 73 - cis(x) == 1.unpolar(x) No. 18
+ok 74 - x.cis == 1.unpolar(x) No. 18
+ok 75 - x.Rat.cis == 1.unpolar(x) No. 18
+ok 76 - x.Num.cis == 1.unpolar(x) No. 18
+ok 77 - cis(x) == 1.unpolar(x) No. 19
+ok 78 - x.cis == 1.unpolar(x) No. 19
+ok 79 - x.Rat.cis == 1.unpolar(x) No. 19
+ok 80 - x.Num.cis == 1.unpolar(x) No. 19
+ok 81 - cis(x) == 1.unpolar(x) No. 20
+ok 82 - x.cis == 1.unpolar(x) No. 20
+ok 83 - x.Rat.cis == 1.unpolar(x) No. 20
+ok 84 - x.Num.cis == 1.unpolar(x) No. 20
+ok 85 - unpolar doesn't change the absolute value (No. 1)
+ok 86 - unpolar doesn't change the absolute value (No. 2)
+ok 87 - unpolar doesn't change the absolute value (No. 3)
+ok 88 - unpolar doesn't change the absolute value (No. 4)
+ok 89 - unpolar doesn't change the absolute value (No. 5)
+ok 90 - unpolar doesn't change the absolute value (No. 6)
+ok 91 - unpolar doesn't change the absolute value (No. 7)
+ok 92 - unpolar doesn't change the absolute value (No. 8)
+ok 93 - unpolar doesn't change the absolute value (No. 9)
+ok 94 - unpolar doesn't change the absolute value (No. 10)
+ok 95 - unpolar doesn't change the absolute value (No. 11)
+ok 96 - unpolar doesn't change the absolute value (No. 12)
+ok 97 - unpolar doesn't change the absolute value (No. 13)
+ok 98 - unpolar doesn't change the absolute value (No. 14)
+ok 99 - unpolar doesn't change the absolute value (No. 15)
+ok 100 - unpolar doesn't change the absolute value (No. 16)
+ok 101 - unpolar doesn't change the absolute value (No. 17)
+ok 102 - unpolar doesn't change the absolute value (No. 18)
+ok 103 - unpolar doesn't change the absolute value (No. 19)
+ok 104 - unpolar doesn't change the absolute value (No. 20)
+ok 105 - unpolar doesn't change the absolute value (No. 21)
+ok 106 - unpolar doesn't change the absolute value (No. 22)
+ok 107 - unpolar doesn't change the absolute value (No. 23)
+ok 108 - unpolar doesn't change the absolute value (No. 24)
+ok 109 - unpolar doesn't change the absolute value (No. 25)
+ok 110 - unpolar doesn't change the absolute value (No. 26)
+ok 111 - unpolar doesn't change the absolute value (No. 27)
+ok 112 - unpolar doesn't change the absolute value (No. 28)
+ok 113 - unpolar doesn't change the absolute value (No. 29)
+ok 114 - unpolar doesn't change the absolute value (No. 30)
+ok 115 - unpolar doesn't change the absolute value (No. 31)
+ok 116 - unpolar doesn't change the absolute value (No. 32)
+ok 117 - unpolar doesn't change the absolute value (No. 33)
+ok 118 - unpolar doesn't change the absolute value (No. 34)
+ok 119 - unpolar doesn't change the absolute value (No. 35)
+ok 120 - unpolar doesn't change the absolute value (No. 36)
+ok 121 - unpolar doesn't change the absolute value (No. 37)
+ok 122 - unpolar doesn't change the absolute value (No. 38)
+ok 123 - unpolar doesn't change the absolute value (No. 39)
+ok 124 - unpolar doesn't change the absolute value (No. 40)
+ok 125 - unpolar doesn't change the absolute value (No. 41)
+ok 126 - unpolar doesn't change the absolute value (No. 42)
+ok 127 - unpolar doesn't change the absolute value (No. 43)
+ok 128 - unpolar doesn't change the absolute value (No. 44)
+ok 129 - unpolar doesn't change the absolute value (No. 45)
+ok 130 - unpolar doesn't change the absolute value (No. 46)
+ok 131 - unpolar doesn't change the absolute value (No. 47)
+ok 132 - unpolar doesn't change the absolute value (No. 48)
+ok 133 - unpolar doesn't change the absolute value (No. 49)
+ok 134 - unpolar doesn't change the absolute value (No. 50)
+ok 135 - unpolar doesn't change the absolute value (No. 51)
+ok 136 - unpolar doesn't change the absolute value (No. 52)
+ok 137 - unpolar doesn't change the absolute value (No. 53)
+ok 138 - unpolar doesn't change the absolute value (No. 54)
+ok 139 - unpolar doesn't change the absolute value (No. 55)
+ok 140 - unpolar doesn't change the absolute value (No. 56)
+ok 141 - unpolar doesn't change the absolute value (No. 57)
+ok 142 - unpolar doesn't change the absolute value (No. 58)
+ok 143 - unpolar doesn't change the absolute value (No. 59)
+ok 144 - unpolar doesn't change the absolute value (No. 60)
+ok 145 - unpolar doesn't change the absolute value (No. 61)
+ok 146 - unpolar doesn't change the absolute value (No. 62)
+ok 147 - unpolar doesn't change the absolute value (No. 63)
+ok 148 - unpolar doesn't change the absolute value (No. 64)
+ok 149 - unpolar doesn't change the absolute value (No. 65)
+ok 150 - unpolar doesn't change the absolute value (No. 66)
+ok 151 - unpolar doesn't change the absolute value (No. 67)
+ok 152 - unpolar doesn't change the absolute value (No. 68)
+ok 153 - unpolar doesn't change the absolute value (No. 69)
+ok 154 - unpolar doesn't change the absolute value (No. 70)
+ok 155 - unpolar doesn't change the absolute value (No. 71)
+ok 156 - unpolar doesn't change the absolute value (No. 72)
+ok 157 - unpolar doesn't change the absolute value (No. 73)
+ok 158 - unpolar doesn't change the absolute value (No. 74)
+ok 159 - unpolar doesn't change the absolute value (No. 75)
+ok 160 - unpolar doesn't change the absolute value (No. 76)
+ok 161 - unpolar doesn't change the absolute value (No. 77)
+ok 162 - unpolar doesn't change the absolute value (No. 78)
+ok 163 - unpolar doesn't change the absolute value (No. 79)
+ok 164 - unpolar doesn't change the absolute value (No. 80)
+ok 165 - unpolar doesn't change the absolute value (No. 81)
+ok 166 - unpolar doesn't change the absolute value (No. 82)
+ok 167 - unpolar doesn't change the absolute value (No. 83)
+ok 168 - unpolar doesn't change the absolute value (No. 84)
+ok 169 - unpolar doesn't change the absolute value (No. 85)
+ok 170 - unpolar doesn't change the absolute value (No. 86)
+ok 171 - unpolar doesn't change the absolute value (No. 87)
+ok 172 - unpolar doesn't change the absolute value (No. 88)
+ok 173 - unpolar doesn't change the absolute value (No. 89)
+ok 174 - unpolar doesn't change the absolute value (No. 90)
+ok 175 - unpolar doesn't change the absolute value (No. 91)
+ok 176 - unpolar doesn't change the absolute value (No. 92)
+ok 177 - unpolar doesn't change the absolute value (No. 93)
+ok 178 - unpolar doesn't change the absolute value (No. 94)
+ok 179 - unpolar doesn't change the absolute value (No. 95)
+ok 180 - unpolar doesn't change the absolute value (No. 96)
+ok 181 - unpolar doesn't change the absolute value (No. 97)
+ok 182 - unpolar doesn't change the absolute value (No. 98)
+ok 183 - unpolar doesn't change the absolute value (No. 99)
+ok 184 - unpolar doesn't change the absolute value (No. 100)
+ok 185 - 4.unpolar(0)    == 4
+ok 186 - 4.unpolar(pi/4) == 2+2i
+ok 187 - 4.unpolar(pi/2) == 4i
+ok 188 - 4.unpolar(3*pi/4) == -2+2i
+ok 189 - 4.unpolar(pi)   == -4
+ok 190 - 4.Rat.unpolar(0)    == 4
+ok 191 - 4.Rat.unpolar(pi/4) == 2+2i
+ok 192 - 4.Rat.unpolar(pi/2) == 4i
+ok 193 - 4.Rat.unpolar(3*pi/4) == -2+2i
+ok 194 - 4.Rat.unpolar(pi)   == -4
+ok 195 - 4.Num.unpolar(0)    == 4
+ok 196 - 4.Num.unpolar(pi/4) == 2+2i
+ok 197 - 4.Num.unpolar(pi/2) == 4i
+ok 198 - 4.Num.unpolar(3*pi/4) == -2+2i
+ok 199 - 4.Num.unpolar(pi)   == -4

@@ -1,0 +1,55 @@
+1..54
+ok 1 - infix:<−>() returns zero
+ok 2 - infix:<−>(arg) does not negate arg
+ok 3 - infix, Custom class, Custom class
+ok 4 - infix, Num:D, Num:D
+ok 5 - infix, Num:D, Rat:D
+ok 6 - infix, Num:D, Int:D
+ok 7 - infix, Num:D, Complex:D
+ok 8 - infix, Num:D, int
+ok 9 - infix, Num:D, num
+ok 10 - infix, Rat:D, Num:D
+ok 11 - infix, Rat:D, Rat:D
+ok 12 - infix, Rat:D, Int:D
+ok 13 - infix, Rat:D, Complex:D
+ok 14 - infix, Rat:D, int
+ok 15 - infix, Rat:D, num
+ok 16 - infix, Int:D, Num:D
+ok 17 - infix, Int:D, Rat:D
+ok 18 - infix, Int:D, Int:D
+ok 19 - infix, Int:D, Complex:D
+ok 20 - infix, Int:D, int
+ok 21 - infix, Int:D, num
+ok 22 - infix, Complex:D, Num:D
+ok 23 - infix, Complex:D, Rat:D
+ok 24 - infix, Complex:D, Int:D
+ok 25 - infix, Complex:D, Complex:D
+ok 26 - infix, Complex:D, int
+ok 27 - infix, Complex:D, num
+ok 28 - infix, int, Num:D
+ok 29 - infix, int, Rat:D
+ok 30 - infix, int, Int:D
+ok 31 - infix, int, Complex:D
+ok 32 - infix, int, int
+ok 33 - infix, int, num
+ok 34 - infix, num, Num:D
+ok 35 - infix, num, Int:D
+ok 36 - infix, num, Rat:D
+ok 37 - infix, num, Complex:D
+ok 38 - infix, num, int
+ok 39 - infix, num, num
+ok 40 - infix, Range:D, Int:D
+ok 41 - infix, Range:D, Num:D
+ok 42 - infix, Range:D, Rat:D
+ok 43 - infix, Instant:D, Instant:D
+ok 44 - infix, Instant:D, Real:D
+ok 45 - infix, Duration:D, Int:D
+ok 46 - infix, Duration:D, Duration:D
+ok 47 - infix, Date:D, Int:D
+ok 48 - infix, Date:D, Date:D
+ok 49 - prefix, Custom class
+ok 50 - prefix, Int
+ok 51 - prefix, Rat
+ok 52 - prefix, Num
+ok 53 - prefix, Complex
+ok 54 - prefix, Duration

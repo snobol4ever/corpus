@@ -1,0 +1,60 @@
+1..59
+ok 1 - === on values (1)
+ok 2 - === on values (2)
+ok 3 - === on non-literal values
+ok 4 - === on values (3)
+ok 5 - === on values (4)
+ok 6 - === on values(abc)
+ok 7 - === on values(abc === ABC)
+ok 8 - === on values (abc)
+ok 9 - === on values (1 === 1.0)
+ok 10 - === on values (1 === "1")
+ok 11 - === on Rats
+ok 12 - !=== on Rats
+ok 13 - === on Rats yields Bool
+ok 14 - !=== on Rats yields Bool
+ok 15 - === on Nums
+ok 16 - !=== on Nums
+ok 17 - === on Nums yields Bool
+ok 18 - !=== on Nums yields Bool
+ok 19 - === on Complex (1)
+ok 20 - === on Complex (2)
+ok 21 - !=== on Complex (1)
+ok 22 - !=== on Complex (2)
+ok 23 - === on Complexes yields Bool
+ok 24 - !=== on Complexes yields Bool
+ok 25 - === on value types (1-1)
+ok 26 - === on value types (1-2)
+ok 27 - === on value types (1-3)
+ok 28 - === on value types (1-4)
+ok 29 - === on value types (2-1)
+ok 30 - === on value types (2-2)
+ok 31 - === on value types (2-3)
+ok 32 - === on value types (2-4)
+ok 33 - chained === (1)
+ok 34 - chained === (2)
+ok 35 - subparam binding doesn't affect === (1)
+ok 36 - subparam binding doesn't affect === (2)
+ok 37 - subparam binding doesn't affect === (3)
+ok 38 - subparam binding doesn't affect === (4)
+ok 39 - === returns Bool::True when true
+ok 40 - === returns Bool::False when false
+ok 41 - !=== on values (1)
+ok 42 - !=== on values (2)
+ok 43 - !=== on values (3)
+ok 44 - !=== on values (4)
+ok 45 - !=== on values(abc)
+ok 46 - !=== on values(abc !=== ABC)
+ok 47 - !=== on values (1 !=== 1.0)
+ok 48 - !=== on values (1 !=== "1")
+ok 49 - === does autothread (1)
+ok 50 - === does autothread (2)
+ok 51 - two lexical roles come out as different when compared with ===
+ok 52 - === on Int correctly demands exact type match
+ok 53 - === on Num correctly demands exact type match
+ok 54 - === on Rat correctly demands exact type match
+ok 55 - === on Complex correctly demands exact type match
+ok 56 - single arg === gives True
+ok 57 -     no arg === gives True
+ok 58 - compare different type objects with ===
+ok 59 - compare same type objects with ===

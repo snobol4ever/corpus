@@ -1,0 +1,17 @@
+1..16
+ok 1 - lexical scalar properly initialized, round 1
+ok 2 - lexical scalar properly initialized, round 2
+ok 3 - lexical array properly initialized, round 1
+ok 4 - lexical array properly initialized, round 2
+ok 5 - lexical scalar properly initialized, round 1, explicit $_
+ok 6 - lexical scalar properly initialized, round 2, explicit $_
+ok 7 - lexical array properly initialized, round 1, explicit $_
+ok 8 - lexical array properly initialized, round 2, explicit $_
+ok 9 - lexical scalar properly initialized, round 1, two explicit $_s
+ok 10 - lexical scalar properly initialized, round 2, two explicit $_s
+ok 11 - lexical array properly initialized, round 1, two explicit $_s
+ok 12 - lexical array properly initialized, round 2, two explicit $_s
+ok 13 - a for loop inside a sub loops over each of the elements
+ok 14 - ... but only over one itemized array
+ok 15 - ...and when the array is declared in the argument list
+ok 16 - and the array get the right values

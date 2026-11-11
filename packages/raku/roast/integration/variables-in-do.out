@@ -1,0 +1,4 @@
+1..3
+ok 1 - $i has proper value in loop
+ok 2 - $i has proper value in loop
+ok 3 - $i still has proper value

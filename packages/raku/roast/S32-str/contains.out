@@ -1,0 +1,458 @@
+ok 1 - Cool.contains with wrong args does not hang
+# Subtest: contains with negative position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 2 - contains with negative position fails
+# Subtest: contains with very large positive position fails
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::OutOfRange)
+    ok 2 - Failure threw when sunk
+ok 3 - contains with very large positive position fails
+ok 4 - "foobara".contains("bar", :!i) is True
+ok 5 - "foobara".contains("bar", 0, :!i) is True
+ok 6 - "foobara".contains("bar", "0", :!i) is True
+ok 7 - "foobara".contains("bar", :!ignorecase) is True
+ok 8 - "foobara".contains("bar", 0, :!ignorecase) is True
+ok 9 - "foobara".contains("bar", "0", :!ignorecase) is True
+ok 10 - "foobara".contains("bar", :!m) is True
+ok 11 - "foobara".contains("bar", 0, :!m) is True
+ok 12 - "foobara".contains("bar", "0", :!m) is True
+ok 13 - "foobara".contains("bar", :!ignoremark) is True
+ok 14 - "foobara".contains("bar", 0, :!ignoremark) is True
+ok 15 - "foobara".contains("bar", "0", :!ignoremark) is True
+ok 16 - "foobara".contains("bar", :!i, :!m) is True
+ok 17 - "foobara".contains("bar", 0, :!i, :!m) is True
+ok 18 - "foobara".contains("bar", "0", :!i, :!m) is True
+ok 19 - "foobara".contains("bar", :!ignorecase, :!ignoremark) is True
+ok 20 - "foobara".contains("bar", 0, :!ignorecase, :!ignoremark) is True
+ok 21 - "foobara".contains("bar", "0", :!ignorecase, :!ignoremark) is True
+ok 22 - "foobara".contains("bar", :i) is True
+ok 23 - "foobara".contains("bar", 0, :i) is True
+ok 24 - "foobara".contains("bar", "0", :i) is True
+ok 25 - "foobara".contains("bar", :ignorecase) is True
+ok 26 - "foobara".contains("bar", 0, :ignorecase) is True
+ok 27 - "foobara".contains("bar", "0", :ignorecase) is True
+ok 28 - "foobara".contains("bar", :m) is True
+ok 29 - "foobara".contains("bar", 0, :m) is True
+ok 30 - "foobara".contains("bar", "0", :m) is True
+ok 31 - "foobara".contains("bar", :ignoremark) is True
+ok 32 - "foobara".contains("bar", 0, :ignoremark) is True
+ok 33 - "foobara".contains("bar", "0", :ignoremark) is True
+ok 34 - "foobara".contains("bar", :i, :m) is True
+ok 35 - "foobara".contains("bar", 0, :i, :m) is True
+ok 36 - "foobara".contains("bar", "0", :i, :m) is True
+ok 37 - "foobara".contains("bar", :ignorecase, :ignoremark) is True
+ok 38 - "foobara".contains("bar", 0, :ignorecase, :ignoremark) is True
+ok 39 - "foobara".contains("bar", "0", :ignorecase, :ignoremark) is True
+ok 40 - "foobara".contains("foobar", :!i) is True
+ok 41 - "foobara".contains("foobar", 0, :!i) is True
+ok 42 - "foobara".contains("foobar", "0", :!i) is True
+ok 43 - "foobara".contains("foobar", :!ignorecase) is True
+ok 44 - "foobara".contains("foobar", 0, :!ignorecase) is True
+ok 45 - "foobara".contains("foobar", "0", :!ignorecase) is True
+ok 46 - "foobara".contains("foobar", :!m) is True
+ok 47 - "foobara".contains("foobar", 0, :!m) is True
+ok 48 - "foobara".contains("foobar", "0", :!m) is True
+ok 49 - "foobara".contains("foobar", :!ignoremark) is True
+ok 50 - "foobara".contains("foobar", 0, :!ignoremark) is True
+ok 51 - "foobara".contains("foobar", "0", :!ignoremark) is True
+ok 52 - "foobara".contains("foobar", :!i, :!m) is True
+ok 53 - "foobara".contains("foobar", 0, :!i, :!m) is True
+ok 54 - "foobara".contains("foobar", "0", :!i, :!m) is True
+ok 55 - "foobara".contains("foobar", :!ignorecase, :!ignoremark) is True
+ok 56 - "foobara".contains("foobar", 0, :!ignorecase, :!ignoremark) is True
+ok 57 - "foobara".contains("foobar", "0", :!ignorecase, :!ignoremark) is True
+ok 58 - "foobara".contains("foobar", :i) is True
+ok 59 - "foobara".contains("foobar", 0, :i) is True
+ok 60 - "foobara".contains("foobar", "0", :i) is True
+ok 61 - "foobara".contains("foobar", :ignorecase) is True
+ok 62 - "foobara".contains("foobar", 0, :ignorecase) is True
+ok 63 - "foobara".contains("foobar", "0", :ignorecase) is True
+ok 64 - "foobara".contains("foobar", :m) is True
+ok 65 - "foobara".contains("foobar", 0, :m) is True
+ok 66 - "foobara".contains("foobar", "0", :m) is True
+ok 67 - "foobara".contains("foobar", :ignoremark) is True
+ok 68 - "foobara".contains("foobar", 0, :ignoremark) is True
+ok 69 - "foobara".contains("foobar", "0", :ignoremark) is True
+ok 70 - "foobara".contains("foobar", :i, :m) is True
+ok 71 - "foobara".contains("foobar", 0, :i, :m) is True
+ok 72 - "foobara".contains("foobar", "0", :i, :m) is True
+ok 73 - "foobara".contains("foobar", :ignorecase, :ignoremark) is True
+ok 74 - "foobara".contains("foobar", 0, :ignorecase, :ignoremark) is True
+ok 75 - "foobara".contains("foobar", "0", :ignorecase, :ignoremark) is True
+ok 76 - "foobara".contains("goo", :!i) is False
+ok 77 - "foobara".contains("goo", 0, :!i) is False
+ok 78 - "foobara".contains("goo", "0", :!i) is False
+ok 79 - "foobara".contains("goo", :!ignorecase) is False
+ok 80 - "foobara".contains("goo", 0, :!ignorecase) is False
+ok 81 - "foobara".contains("goo", "0", :!ignorecase) is False
+ok 82 - "foobara".contains("goo", :!m) is False
+ok 83 - "foobara".contains("goo", 0, :!m) is False
+ok 84 - "foobara".contains("goo", "0", :!m) is False
+ok 85 - "foobara".contains("goo", :!ignoremark) is False
+ok 86 - "foobara".contains("goo", 0, :!ignoremark) is False
+ok 87 - "foobara".contains("goo", "0", :!ignoremark) is False
+ok 88 - "foobara".contains("goo", :!i, :!m) is False
+ok 89 - "foobara".contains("goo", 0, :!i, :!m) is False
+ok 90 - "foobara".contains("goo", "0", :!i, :!m) is False
+ok 91 - "foobara".contains("goo", :!ignorecase, :!ignoremark) is False
+ok 92 - "foobara".contains("goo", 0, :!ignorecase, :!ignoremark) is False
+ok 93 - "foobara".contains("goo", "0", :!ignorecase, :!ignoremark) is False
+ok 94 - "foobara".contains("goo", :i) is False
+ok 95 - "foobara".contains("goo", 0, :i) is False
+ok 96 - "foobara".contains("goo", "0", :i) is False
+ok 97 - "foobara".contains("goo", :ignorecase) is False
+ok 98 - "foobara".contains("goo", 0, :ignorecase) is False
+ok 99 - "foobara".contains("goo", "0", :ignorecase) is False
+ok 100 - "foobara".contains("goo", :m) is False
+ok 101 - "foobara".contains("goo", 0, :m) is False
+ok 102 - "foobara".contains("goo", "0", :m) is False
+ok 103 - "foobara".contains("goo", :ignoremark) is False
+ok 104 - "foobara".contains("goo", 0, :ignoremark) is False
+ok 105 - "foobara".contains("goo", "0", :ignoremark) is False
+ok 106 - "foobara".contains("goo", :i, :m) is False
+ok 107 - "foobara".contains("goo", 0, :i, :m) is False
+ok 108 - "foobara".contains("goo", "0", :i, :m) is False
+ok 109 - "foobara".contains("goo", :ignorecase, :ignoremark) is False
+ok 110 - "foobara".contains("goo", 0, :ignorecase, :ignoremark) is False
+ok 111 - "foobara".contains("goo", "0", :ignorecase, :ignoremark) is False
+ok 112 - "foobara".contains("foobarx", :!i) is False
+ok 113 - "foobara".contains("foobarx", 0, :!i) is False
+ok 114 - "foobara".contains("foobarx", "0", :!i) is False
+ok 115 - "foobara".contains("foobarx", :!ignorecase) is False
+ok 116 - "foobara".contains("foobarx", 0, :!ignorecase) is False
+ok 117 - "foobara".contains("foobarx", "0", :!ignorecase) is False
+ok 118 - "foobara".contains("foobarx", :!m) is False
+ok 119 - "foobara".contains("foobarx", 0, :!m) is False
+ok 120 - "foobara".contains("foobarx", "0", :!m) is False
+ok 121 - "foobara".contains("foobarx", :!ignoremark) is False
+ok 122 - "foobara".contains("foobarx", 0, :!ignoremark) is False
+ok 123 - "foobara".contains("foobarx", "0", :!ignoremark) is False
+ok 124 - "foobara".contains("foobarx", :!i, :!m) is False
+ok 125 - "foobara".contains("foobarx", 0, :!i, :!m) is False
+ok 126 - "foobara".contains("foobarx", "0", :!i, :!m) is False
+ok 127 - "foobara".contains("foobarx", :!ignorecase, :!ignoremark) is False
+ok 128 - "foobara".contains("foobarx", 0, :!ignorecase, :!ignoremark) is False
+ok 129 - "foobara".contains("foobarx", "0", :!ignorecase, :!ignoremark) is False
+ok 130 - "foobara".contains("foobarx", :i) is False
+ok 131 - "foobara".contains("foobarx", 0, :i) is False
+ok 132 - "foobara".contains("foobarx", "0", :i) is False
+ok 133 - "foobara".contains("foobarx", :ignorecase) is False
+ok 134 - "foobara".contains("foobarx", 0, :ignorecase) is False
+ok 135 - "foobara".contains("foobarx", "0", :ignorecase) is False
+ok 136 - "foobara".contains("foobarx", :m) is False
+ok 137 - "foobara".contains("foobarx", 0, :m) is False
+ok 138 - "foobara".contains("foobarx", "0", :m) is False
+ok 139 - "foobara".contains("foobarx", :ignoremark) is False
+ok 140 - "foobara".contains("foobarx", 0, :ignoremark) is False
+ok 141 - "foobara".contains("foobarx", "0", :ignoremark) is False
+ok 142 - "foobara".contains("foobarx", :i, :m) is False
+ok 143 - "foobara".contains("foobarx", 0, :i, :m) is False
+ok 144 - "foobara".contains("foobarx", "0", :i, :m) is False
+ok 145 - "foobara".contains("foobarx", :ignorecase, :ignoremark) is False
+ok 146 - "foobara".contains("foobarx", 0, :ignorecase, :ignoremark) is False
+ok 147 - "foobara".contains("foobarx", "0", :ignorecase, :ignoremark) is False
+ok 148 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :!i) is True
+ok 149 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :!i) is True
+ok 150 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :!i) is True
+ok 151 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :!ignorecase) is True
+ok 152 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :!ignorecase) is True
+ok 153 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :!ignorecase) is True
+ok 154 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :!m) is True
+ok 155 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :!m) is True
+ok 156 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :!m) is True
+ok 157 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :!ignoremark) is True
+ok 158 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :!ignoremark) is True
+ok 159 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :!ignoremark) is True
+ok 160 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :!i, :!m) is True
+ok 161 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :!i, :!m) is True
+ok 162 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :!i, :!m) is True
+ok 163 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :!ignorecase, :!ignoremark) is True
+ok 164 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :!ignorecase, :!ignoremark) is True
+ok 165 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :!ignorecase, :!ignoremark) is True
+ok 166 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :i) is True
+ok 167 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :i) is True
+ok 168 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :i) is True
+ok 169 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :ignorecase) is True
+ok 170 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :ignorecase) is True
+ok 171 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :ignorecase) is True
+ok 172 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :m) is True
+ok 173 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :m) is True
+ok 174 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :m) is True
+ok 175 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :ignoremark) is True
+ok 176 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :ignoremark) is True
+ok 177 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :ignoremark) is True
+ok 178 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :i, :m) is True
+ok 179 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :i, :m) is True
+ok 180 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :i, :m) is True
+ok 181 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", :ignorecase, :ignoremark) is True
+ok 182 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", 0, :ignorecase, :ignoremark) is True
+ok 183 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("bar", "0", :ignorecase, :ignoremark) is True
+ok 184 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :!i) is True
+ok 185 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :!i) is True
+ok 186 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :!i) is True
+ok 187 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :!ignorecase) is True
+ok 188 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :!ignorecase) is True
+ok 189 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :!ignorecase) is True
+ok 190 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :!m) is True
+ok 191 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :!m) is True
+ok 192 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :!m) is True
+ok 193 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :!ignoremark) is True
+ok 194 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :!ignoremark) is True
+ok 195 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :!ignoremark) is True
+ok 196 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :!i, :!m) is True
+ok 197 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :!i, :!m) is True
+ok 198 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :!i, :!m) is True
+ok 199 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :!ignorecase, :!ignoremark) is True
+ok 200 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :!ignorecase, :!ignoremark) is True
+ok 201 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :!ignorecase, :!ignoremark) is True
+ok 202 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :i) is True
+ok 203 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :i) is True
+ok 204 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :i) is True
+ok 205 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :ignorecase) is True
+ok 206 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :ignorecase) is True
+ok 207 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :ignorecase) is True
+ok 208 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :m) is True
+ok 209 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :m) is True
+ok 210 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :m) is True
+ok 211 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :ignoremark) is True
+ok 212 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :ignoremark) is True
+ok 213 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :ignoremark) is True
+ok 214 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :i, :m) is True
+ok 215 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :i, :m) is True
+ok 216 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :i, :m) is True
+ok 217 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", :ignorecase, :ignoremark) is True
+ok 218 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", 0, :ignorecase, :ignoremark) is True
+ok 219 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobar", "0", :ignorecase, :ignoremark) is True
+ok 220 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :!i) is False
+ok 221 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :!i) is False
+ok 222 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :!i) is False
+ok 223 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :!ignorecase) is False
+ok 224 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :!ignorecase) is False
+ok 225 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :!ignorecase) is False
+ok 226 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :!m) is False
+ok 227 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :!m) is False
+ok 228 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :!m) is False
+ok 229 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :!ignoremark) is False
+ok 230 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :!ignoremark) is False
+ok 231 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :!ignoremark) is False
+ok 232 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :!i, :!m) is False
+ok 233 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :!i, :!m) is False
+ok 234 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :!i, :!m) is False
+ok 235 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :!ignorecase, :!ignoremark) is False
+ok 236 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :!ignorecase, :!ignoremark) is False
+ok 237 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :!ignorecase, :!ignoremark) is False
+ok 238 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :i) is False
+ok 239 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :i) is False
+ok 240 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :i) is False
+ok 241 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :ignorecase) is False
+ok 242 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :ignorecase) is False
+ok 243 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :ignorecase) is False
+ok 244 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :m) is False
+ok 245 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :m) is False
+ok 246 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :m) is False
+ok 247 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :ignoremark) is False
+ok 248 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :ignoremark) is False
+ok 249 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :ignoremark) is False
+ok 250 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :i, :m) is False
+ok 251 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :i, :m) is False
+ok 252 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :i, :m) is False
+ok 253 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", :ignorecase, :ignoremark) is False
+ok 254 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", 0, :ignorecase, :ignoremark) is False
+ok 255 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("goo", "0", :ignorecase, :ignoremark) is False
+ok 256 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :!i) is False
+ok 257 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :!i) is False
+ok 258 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :!i) is False
+ok 259 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :!ignorecase) is False
+ok 260 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :!ignorecase) is False
+ok 261 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :!ignorecase) is False
+ok 262 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :!m) is False
+ok 263 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :!m) is False
+ok 264 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :!m) is False
+ok 265 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :!ignoremark) is False
+ok 266 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :!ignoremark) is False
+ok 267 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :!ignoremark) is False
+ok 268 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :!i, :!m) is False
+ok 269 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :!i, :!m) is False
+ok 270 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :!i, :!m) is False
+ok 271 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :!ignorecase, :!ignoremark) is False
+ok 272 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :!ignorecase, :!ignoremark) is False
+ok 273 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :!ignorecase, :!ignoremark) is False
+ok 274 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :i) is False
+ok 275 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :i) is False
+ok 276 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :i) is False
+ok 277 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :ignorecase) is False
+ok 278 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :ignorecase) is False
+ok 279 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :ignorecase) is False
+ok 280 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :m) is False
+ok 281 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :m) is False
+ok 282 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :m) is False
+ok 283 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :ignoremark) is False
+ok 284 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :ignoremark) is False
+ok 285 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :ignoremark) is False
+ok 286 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :i, :m) is False
+ok 287 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :i, :m) is False
+ok 288 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :i, :m) is False
+ok 289 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", :ignorecase, :ignoremark) is False
+ok 290 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", 0, :ignorecase, :ignoremark) is False
+ok 291 - Match.new(:orig("foobara"), :from(0), :pos(7)).contains("foobarx", "0", :ignorecase, :ignoremark) is False
+ok 292 - "foöbÀra".contains("bar") is False
+ok 293 - "foöbÀra".contains("bar", 0) is False
+ok 294 - "foöbÀra".contains("bar", "0") is False
+ok 295 - "foöbÀra".contains("ar", 1) is False
+ok 296 - "foöbÀra".contains("ar", "1") is False
+ok 297 - "foöbÀra".contains("bar", :i) is False
+ok 298 - "foöbÀra".contains("bar", 0, :i) is False
+ok 299 - "foöbÀra".contains("bar", "0", :i) is False
+ok 300 - "foöbÀra".contains("ar", 1, :i) is False
+ok 301 - "foöbÀra".contains("ar", "1", :i) is False
+ok 302 - "foöbÀra".contains("bar", :ignorecase) is False
+ok 303 - "foöbÀra".contains("bar", 0, :ignorecase) is False
+ok 304 - "foöbÀra".contains("bar", "0", :ignorecase) is False
+ok 305 - "foöbÀra".contains("ar", 1, :ignorecase) is False
+ok 306 - "foöbÀra".contains("ar", "1", :ignorecase) is False
+ok 307 - "foöbÀra".contains("BAR") is False
+ok 308 - "foöbÀra".contains("BAR", 0) is False
+ok 309 - "foöbÀra".contains("BAR", "0") is False
+ok 310 - "foöbÀra".contains("AR", 1) is False
+ok 311 - "foöbÀra".contains("AR", "1") is False
+ok 312 - "foöbÀra".contains("BÀR", :i) is True
+ok 313 - "foöbÀra".contains("BÀR", 0, :i) is True
+ok 314 - "foöbÀra".contains("BÀR", "0", :i) is True
+ok 315 - "foöbÀra".contains("ÀR", 1, :i) is True
+ok 316 - "foöbÀra".contains("ÀR", "1", :i) is True
+ok 317 - "foöbÀra".contains("BÀR", :ignorecase) is True
+ok 318 - "foöbÀra".contains("BÀR", 0, :ignorecase) is True
+ok 319 - "foöbÀra".contains("BÀR", "0", :ignorecase) is True
+ok 320 - "foöbÀra".contains("ÀR", 1, :ignorecase) is True
+ok 321 - "foöbÀra".contains("ÀR", "1", :ignorecase) is True
+ok 322 - "foöbÀra".contains("bAr", :m) is True
+ok 323 - "foöbÀra".contains("bAr", 0, :m) is True
+ok 324 - "foöbÀra".contains("bAr", "0", :m) is True
+ok 325 - "foöbÀra".contains("Ar", 1, :m) is True
+ok 326 - "foöbÀra".contains("Ar", "1", :m) is True
+ok 327 - "foöbÀra".contains("bAr", :ignoremark) is True
+ok 328 - "foöbÀra".contains("bAr", 0, :ignoremark) is True
+ok 329 - "foöbÀra".contains("bAr", "0", :ignoremark) is True
+ok 330 - "foöbÀra".contains("Ar", 1, :ignoremark) is True
+ok 331 - "foöbÀra".contains("Ar", "1", :ignoremark) is True
+ok 332 - "foöbÀra".contains("foobar") is False
+ok 333 - "foöbÀra".contains("foobar", 0) is False
+ok 334 - "foöbÀra".contains("foobar", "0") is False
+ok 335 - "foöbÀra".contains("oobar", 1) is False
+ok 336 - "foöbÀra".contains("oobar", "1") is False
+ok 337 - "foöbÀra".contains("foobar", :i) is False
+ok 338 - "foöbÀra".contains("foobar", 0, :i) is False
+ok 339 - "foöbÀra".contains("foobar", "0", :i) is False
+ok 340 - "foöbÀra".contains("oobar", 1, :i) is False
+ok 341 - "foöbÀra".contains("oobar", "1", :i) is False
+ok 342 - "foöbÀra".contains("foobar", :ignorecase) is False
+ok 343 - "foöbÀra".contains("foobar", 0, :ignorecase) is False
+ok 344 - "foöbÀra".contains("foobar", "0", :ignorecase) is False
+ok 345 - "foöbÀra".contains("oobar", 1, :ignorecase) is False
+ok 346 - "foöbÀra".contains("oobar", "1", :ignorecase) is False
+ok 347 - "foöbÀra".contains("foobar", :m) is False
+ok 348 - "foöbÀra".contains("foobar", 0, :m) is False
+ok 349 - "foöbÀra".contains("foobar", "0", :m) is False
+ok 350 - "foöbÀra".contains("oobar", 1, :m) is False
+ok 351 - "foöbÀra".contains("oobar", "1", :m) is False
+ok 352 - "foöbÀra".contains("foobar", :ignoremark) is False
+ok 353 - "foöbÀra".contains("foobar", 0, :ignoremark) is False
+ok 354 - "foöbÀra".contains("foobar", "0", :ignoremark) is False
+ok 355 - "foöbÀra".contains("oobar", 1, :ignoremark) is False
+ok 356 - "foöbÀra".contains("oobar", "1", :ignoremark) is False
+ok 357 - "foöbÀra".contains("foobar", :i, :m) is True
+ok 358 - "foöbÀra".contains("foobar", 0, :i, :m) is True
+ok 359 - "foöbÀra".contains("foobar", "0", :i, :m) is True
+ok 360 - "foöbÀra".contains("oobar", 1, :i, :m) is True
+ok 361 - "foöbÀra".contains("oobar", "1", :i, :m) is True
+ok 362 - "foöbÀra".contains("foobar", :ignorecase, :ignoremark) is True
+ok 363 - "foöbÀra".contains("foobar", 0, :ignorecase, :ignoremark) is True
+ok 364 - "foöbÀra".contains("foobar", "0", :ignorecase, :ignoremark) is True
+ok 365 - "foöbÀra".contains("oobar", 1, :ignorecase, :ignoremark) is True
+ok 366 - "foöbÀra".contains("oobar", "1", :ignorecase, :ignoremark) is True
+ok 367 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar") is False
+ok 368 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", 0) is False
+ok 369 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", "0") is False
+ok 370 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ar", 1) is False
+ok 371 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ar", "1") is False
+ok 372 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", :i) is False
+ok 373 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", 0, :i) is False
+ok 374 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", "0", :i) is False
+ok 375 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ar", 1, :i) is False
+ok 376 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ar", "1", :i) is False
+ok 377 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", :ignorecase) is False
+ok 378 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", 0, :ignorecase) is False
+ok 379 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bar", "0", :ignorecase) is False
+ok 380 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ar", 1, :ignorecase) is False
+ok 381 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ar", "1", :ignorecase) is False
+ok 382 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BAR") is False
+ok 383 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BAR", 0) is False
+ok 384 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BAR", "0") is False
+ok 385 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("AR", 1) is False
+ok 386 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("AR", "1") is False
+ok 387 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BÀR", :i) is True
+ok 388 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BÀR", 0, :i) is True
+ok 389 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BÀR", "0", :i) is True
+ok 390 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ÀR", 1, :i) is True
+ok 391 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ÀR", "1", :i) is True
+ok 392 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BÀR", :ignorecase) is True
+ok 393 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BÀR", 0, :ignorecase) is True
+ok 394 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("BÀR", "0", :ignorecase) is True
+ok 395 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ÀR", 1, :ignorecase) is True
+ok 396 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("ÀR", "1", :ignorecase) is True
+ok 397 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bAr", :m) is True
+ok 398 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bAr", 0, :m) is True
+ok 399 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bAr", "0", :m) is True
+ok 400 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("Ar", 1, :m) is True
+ok 401 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("Ar", "1", :m) is True
+ok 402 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bAr", :ignoremark) is True
+ok 403 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bAr", 0, :ignoremark) is True
+ok 404 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("bAr", "0", :ignoremark) is True
+ok 405 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("Ar", 1, :ignoremark) is True
+ok 406 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("Ar", "1", :ignoremark) is True
+ok 407 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar") is False
+ok 408 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0) is False
+ok 409 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0") is False
+ok 410 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1) is False
+ok 411 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1") is False
+ok 412 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", :i) is False
+ok 413 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0, :i) is False
+ok 414 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0", :i) is False
+ok 415 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1, :i) is False
+ok 416 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1", :i) is False
+ok 417 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", :ignorecase) is False
+ok 418 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0, :ignorecase) is False
+ok 419 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0", :ignorecase) is False
+ok 420 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1, :ignorecase) is False
+ok 421 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1", :ignorecase) is False
+ok 422 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", :m) is False
+ok 423 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0, :m) is False
+ok 424 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0", :m) is False
+ok 425 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1, :m) is False
+ok 426 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1", :m) is False
+ok 427 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", :ignoremark) is False
+ok 428 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0, :ignoremark) is False
+ok 429 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0", :ignoremark) is False
+ok 430 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1, :ignoremark) is False
+ok 431 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1", :ignoremark) is False
+ok 432 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", :i, :m) is True
+ok 433 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0, :i, :m) is True
+ok 434 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0", :i, :m) is True
+ok 435 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1, :i, :m) is True
+ok 436 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1", :i, :m) is True
+ok 437 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", :ignorecase, :ignoremark) is True
+ok 438 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", 0, :ignorecase, :ignoremark) is True
+ok 439 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("foobar", "0", :ignorecase, :ignoremark) is True
+ok 440 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", 1, :ignorecase, :ignoremark) is True
+ok 441 - Match.new(:orig("foöbÀra"), :from(0), :pos(7)).contains("oobar", "1", :ignorecase, :ignoremark) is True
+1..441

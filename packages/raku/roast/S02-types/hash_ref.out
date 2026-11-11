@@ -1,0 +1,32 @@
+1..31
+ok 1 - The object is-a 'Any'
+ok 2 - The object is-a 'Hash'
+ok 3 - lvalue hash assignment works (w/ double quoted keys)
+ok 4 - lvalue hash re-assignment works (w/ single quoted keys)
+ok 5 - lvalue hash assignment works (w/ unquoted style <key>)
+ok 6 - The object is-a 'Hash'
+ok 7 - comma separated key/value hash creation works
+ok 8 - unquoted <key> fetching works
+ok 9 - The object is-a 'Hash'
+ok 10 - comma separated key/value hash creation works with more than 1st pair
+ok 11 - comma separated key/value hash creation works with more than 1st pair
+ok 12 - The object is-a 'Hash'
+ok 13 - got the right amount of values from the %hash{} slice
+ok 14 - %hash{} slice successful (1)
+ok 15 - %hash{} slice successful (2)
+ok 16 - got the right amount of values from the %hash<> slice
+ok 17 - %hash<> slice was successful (1)
+ok 18 - %hash<> slice was successful (2)
+ok 19 - value was changed successfully with slice assignment
+ok 20 - value was changed successfully with slice assignment
+ok 21 - value was changed successfully with slice assignment
+ok 22 - value was changed successfully with slice assignment
+ok 23 - The object is-a '"Hash"'
+ok 24 - The object is-a '"Hash"'
+ok 25 - The object is-a '"Hash"'
+ok 26 - The object is-a '"Hash"'
+ok 27 - The object is-a 'Hash'
+ok 28 - The object is-a 'Hash'
+ok 29 - The object is-a 'Hash'
+ok 30 - access to infinite HoHoHoH... (1)
+ok 31 - access to infinite HoHoHoH... (2)

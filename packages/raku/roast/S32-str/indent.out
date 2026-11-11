@@ -1,0 +1,75 @@
+1..63
+ok 1 - Simple .indent(1)
+ok 2 - Simple .indent(2)
+ok 3 - Simple .indent(3)
+ok 4 - Simple .indent(4)
+ok 5 - New indent goes after existing - .indent(1)
+ok 6 - New indent goes after existing - .indent(2)
+ok 7 - New indent goes after existing - .indent(3)
+ok 8 - New indent goes after existing - .indent(4)
+ok 9 - Same space - .indent(1) prefix="\x[20]"
+ok 10 - Same space - .indent(1) prefix="\x[2002]"
+ok 11 - Same space - .indent(2) prefix="\x[20]"
+ok 12 - Same space - .indent(2) prefix="\x[2002]"
+ok 13 - Same space - .indent(3) prefix="\x[20]"
+ok 14 - Same space - .indent(3) prefix="\x[2002]"
+ok 15 - Same space - .indent(4) prefix="\x[20]"
+ok 16 - Same space - .indent(4) prefix="\x[2002]"
+ok 17 - Samespace indent should work for a full $?TABSTOP with \t
+ok 18 - Mixed space - .indent(1) prefix="\x[20]"
+ok 19 - Mixed space - .indent(1) prefix="\x[9]"
+ok 20 - Mixed space - .indent(1) prefix="\x[2002]"
+ok 21 - Mixed space - .indent(2) prefix="\x[20]"
+ok 22 - Mixed space - .indent(2) prefix="\x[9]"
+ok 23 - Mixed space - .indent(2) prefix="\x[2002]"
+ok 24 - Mixed space - .indent(3) prefix="\x[20]"
+ok 25 - Mixed space - .indent(3) prefix="\x[9]"
+ok 26 - Mixed space - .indent(3) prefix="\x[2002]"
+ok 27 - Mixed space - .indent(4) prefix="\x[20]"
+ok 28 - Mixed space - .indent(4) prefix="\x[9]"
+ok 29 - Mixed space - .indent(4) prefix="\x[2002]"
+ok 30 - Mixed space - .indent(5) prefix="\x[20]"
+ok 31 - Mixed space - .indent(5) prefix="\x[9]"
+ok 32 - Mixed space - .indent(5) prefix="\x[2002]"
+ok 33 - Mixed space - .indent(6) prefix="\x[20]"
+ok 34 - Mixed space - .indent(6) prefix="\x[9]"
+ok 35 - Mixed space - .indent(6) prefix="\x[2002]"
+ok 36 - Mixed space - .indent(7) prefix="\x[20]"
+ok 37 - Mixed space - .indent(7) prefix="\x[9]"
+ok 38 - Mixed space - .indent(7) prefix="\x[2002]"
+ok 39 - Mixed space - .indent(8) prefix="\x[20]"
+ok 40 - Mixed space - .indent(8) prefix="\x[9]"
+ok 41 - Mixed space - .indent(8) prefix="\x[2002]"
+ok 42 - Simple outdent
+ok 43 - Simple outdent with tab (explodes because we delete from left)
+ok 44 - Excess outdent test for correct output
+ok 45 - Excess outdent test for warning
+ok 46 - indent(*) on empty string
+ok 47 - Whatever* outdent with at least 1 common indent
+ok 48 - Whatever* outdent with one line flush left already
+ok 49 - .indent(*) ignores empty lines
+ok 50 - Tab explosion on outdent
+ok 51 - Test that tabs explode from the right
+ok 52 - Check that varying amounts of space before a tabstop explode in a visually consistent way
+ok 53 - Spaces before a hard tab should be coalesced into the tabstop when exploding
+ok 54 - Test that space-tab-tab outdent works as intended
+ok 55 - Check that mixed spaces and tabs outdent correctly
+ok 56 - Multiline indent test with tab-space indent
+ok 57 - Multiline indent test with mixed line beginnings
+ok 58 - Multiline $?TABSTOP-width indent with an unindented line and a tab-indented line
+ok 59 - .indent(0) should be a no-op
+ok 60 - .indent ignores empty lines
+ok 61 - .indent accepts weird scalar input and coerces it to Int when necessary
+ok 62 - Indentation should not be appended after a trailing \n
+# Subtest: indent/dedent
+    1..6
+    not ok 1 - no warnings when blank lines have trailing whitespace # TODO https://github.com/rakudo/rakudo/issues/2409
+    # Failed test 'no warnings when blank lines have trailing whitespace'
+    # at S32-str/indent.rakudo line 145
+    ok 2 - -4
+    ok 3 - -8
+    ok 4 - 0
+    ok 5 - 4
+    ok 6 - 8
+ok 63 - indent/dedent
+# FUDGED!

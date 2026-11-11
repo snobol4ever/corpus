@@ -1,0 +1,4 @@
+1..3
+ok 1 - open() created a tempfile
+ok 2 - unlink() returned true
+ok 3 - unlink() actually deleted the tempfile

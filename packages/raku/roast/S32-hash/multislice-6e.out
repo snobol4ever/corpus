@@ -1,0 +1,1838 @@
+1..549
+ok 1 - %hash{"a";"b";"c"} gives 42
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 2 - check assignability with 999
+# Subtest: %hash{"a";"b";"c"}:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 3 - %hash{"a";"b";"c"}:exists gives True
+# Subtest: %hash{"a";"b";"c"}:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 4 - %hash{"a";"b";"c"}:!exists gives False
+# Subtest: %hash{"a";"b";"c"}:exists:kv gives (("a", "b", "c"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 5 - %hash{"a";"b";"c"}:exists:kv gives (("a", "b", "c"),True)
+# Subtest: %hash{"a";"b";"c"}:exists:p gives Pair.new(("a", "b", "c"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 6 - %hash{"a";"b";"c"}:exists:p gives Pair.new(("a", "b", "c"),True)
+# Subtest: %hash{"a";"b";"c"}:k: gives ("a", "b", "c")
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 7 - %hash{"a";"b";"c"}:k: gives ("a", "b", "c")
+# Subtest: %hash{"a";"b";"c"}:kv gives (("a", "b", "c"),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 8 - %hash{"a";"b";"c"}:kv gives (("a", "b", "c"),42)
+# Subtest: %hash{"a";"b";"c"}:p gives Pair.new(("a", "b", "c"),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 9 - %hash{"a";"b";"c"}:p gives Pair.new(("a", "b", "c"),42)
+# Subtest: %hash{"a";"b";"c"}:v gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 10 - %hash{"a";"b";"c"}:v gives 42
+ok 11 - %hash{"a";"b";"c"}:delete gives 42
+ok 12 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"c"}:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 13 - %hash{"a";"b";"c"}:exists:delete gives True
+ok 14 - is hash as expected after deletion of key?
+ok 15 - %hash{"a";"b";"c"}:!exists:delete dies ok
+# Subtest: %hash{"a";"b";"c"}:exists:kv:delete gives (("a", "b", "c"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 16 - %hash{"a";"b";"c"}:exists:kv:delete gives (("a", "b", "c"),True)
+ok 17 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"c"}:exists:p:delete gives Pair.new(("a", "b", "c"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 18 - %hash{"a";"b";"c"}:exists:p:delete gives Pair.new(("a", "b", "c"),True)
+ok 19 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"c"}:k::delete gives ("a", "b", "c")
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 20 - %hash{"a";"b";"c"}:k::delete gives ("a", "b", "c")
+ok 21 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"c"}:kv:delete gives (("a", "b", "c"),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 22 - %hash{"a";"b";"c"}:kv:delete gives (("a", "b", "c"),42)
+ok 23 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"c"}:p:delete gives Pair.new(("a", "b", "c"),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 24 - %hash{"a";"b";"c"}:p:delete gives Pair.new(("a", "b", "c"),42)
+ok 25 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"c"}:v:delete gives 42
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 26 - %hash{"a";"b";"c"}:v:delete gives 42
+ok 27 - is hash as expected after deletion of key?
+ok 28 - %hash{"a";"b";"d"} gives 666
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 29 - check assignability with 999
+# Subtest: %hash{"a";"b";"d"}:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 30 - %hash{"a";"b";"d"}:exists gives True
+# Subtest: %hash{"a";"b";"d"}:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 31 - %hash{"a";"b";"d"}:!exists gives False
+# Subtest: %hash{"a";"b";"d"}:exists:kv gives (("a", "b", "d"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 32 - %hash{"a";"b";"d"}:exists:kv gives (("a", "b", "d"),True)
+# Subtest: %hash{"a";"b";"d"}:exists:p gives Pair.new(("a", "b", "d"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 33 - %hash{"a";"b";"d"}:exists:p gives Pair.new(("a", "b", "d"),True)
+# Subtest: %hash{"a";"b";"d"}:k: gives ("a", "b", "d")
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 34 - %hash{"a";"b";"d"}:k: gives ("a", "b", "d")
+# Subtest: %hash{"a";"b";"d"}:kv gives (("a", "b", "d"),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 35 - %hash{"a";"b";"d"}:kv gives (("a", "b", "d"),666)
+# Subtest: %hash{"a";"b";"d"}:p gives Pair.new(("a", "b", "d"),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 36 - %hash{"a";"b";"d"}:p gives Pair.new(("a", "b", "d"),666)
+# Subtest: %hash{"a";"b";"d"}:v gives 666
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 37 - %hash{"a";"b";"d"}:v gives 666
+ok 38 - %hash{"a";"b";"d"}:delete gives 666
+ok 39 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"d"}:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 40 - %hash{"a";"b";"d"}:exists:delete gives True
+ok 41 - is hash as expected after deletion of key?
+ok 42 - %hash{"a";"b";"d"}:!exists:delete dies ok
+# Subtest: %hash{"a";"b";"d"}:exists:kv:delete gives (("a", "b", "d"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 43 - %hash{"a";"b";"d"}:exists:kv:delete gives (("a", "b", "d"),True)
+ok 44 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"d"}:exists:p:delete gives Pair.new(("a", "b", "d"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 45 - %hash{"a";"b";"d"}:exists:p:delete gives Pair.new(("a", "b", "d"),True)
+ok 46 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"d"}:k::delete gives ("a", "b", "d")
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 47 - %hash{"a";"b";"d"}:k::delete gives ("a", "b", "d")
+ok 48 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"d"}:kv:delete gives (("a", "b", "d"),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 49 - %hash{"a";"b";"d"}:kv:delete gives (("a", "b", "d"),666)
+ok 50 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"d"}:p:delete gives Pair.new(("a", "b", "d"),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 51 - %hash{"a";"b";"d"}:p:delete gives Pair.new(("a", "b", "d"),666)
+ok 52 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"d"}:v:delete gives 666
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 53 - %hash{"a";"b";"d"}:v:delete gives 666
+ok 54 - is hash as expected after deletion of key?
+ok 55 - %hash{"a";"b";"e"} gives ${:f(314)}
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 56 - check assignability with 999
+# Subtest: %hash{"a";"b";"e"}:exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 57 - %hash{"a";"b";"e"}:exists gives True
+# Subtest: %hash{"a";"b";"e"}:!exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 58 - %hash{"a";"b";"e"}:!exists gives False
+# Subtest: %hash{"a";"b";"e"}:exists:kv gives (("a", "b", "e"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 59 - %hash{"a";"b";"e"}:exists:kv gives (("a", "b", "e"),True)
+# Subtest: %hash{"a";"b";"e"}:exists:p gives Pair.new(("a", "b", "e"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 60 - %hash{"a";"b";"e"}:exists:p gives Pair.new(("a", "b", "e"),True)
+# Subtest: %hash{"a";"b";"e"}:k: gives ("a", "b", "e")
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 61 - %hash{"a";"b";"e"}:k: gives ("a", "b", "e")
+# Subtest: %hash{"a";"b";"e"}:kv gives (("a", "b", "e"),${:f(314)})
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 62 - %hash{"a";"b";"e"}:kv gives (("a", "b", "e"),${:f(314)})
+# Subtest: %hash{"a";"b";"e"}:p gives Pair.new(("a", "b", "e"),${:f(314)})
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 63 - %hash{"a";"b";"e"}:p gives Pair.new(("a", "b", "e"),${:f(314)})
+# Subtest: %hash{"a";"b";"e"}:v gives ${:f(314)}
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 64 - %hash{"a";"b";"e"}:v gives ${:f(314)}
+ok 65 - %hash{"a";"b";"e"}:delete gives ${:f(314)}
+ok 66 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"e"}:exists:delete gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 67 - %hash{"a";"b";"e"}:exists:delete gives True
+ok 68 - is hash as expected after deletion of key?
+ok 69 - %hash{"a";"b";"e"}:!exists:delete dies ok
+# Subtest: %hash{"a";"b";"e"}:exists:kv:delete gives (("a", "b", "e"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 70 - %hash{"a";"b";"e"}:exists:kv:delete gives (("a", "b", "e"),True)
+ok 71 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"e"}:exists:p:delete gives Pair.new(("a", "b", "e"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 72 - %hash{"a";"b";"e"}:exists:p:delete gives Pair.new(("a", "b", "e"),True)
+ok 73 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"e"}:k::delete gives ("a", "b", "e")
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 74 - %hash{"a";"b";"e"}:k::delete gives ("a", "b", "e")
+ok 75 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"e"}:kv:delete gives (("a", "b", "e"),${:f(314)})
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 76 - %hash{"a";"b";"e"}:kv:delete gives (("a", "b", "e"),${:f(314)})
+ok 77 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"e"}:p:delete gives Pair.new(("a", "b", "e"),${:f(314)})
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 78 - %hash{"a";"b";"e"}:p:delete gives Pair.new(("a", "b", "e"),${:f(314)})
+ok 79 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"e"}:v:delete gives ${:f(314)}
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 80 - %hash{"a";"b";"e"}:v:delete gives ${:f(314)}
+ok 81 - is hash as expected after deletion of key?
+ok 82 - %hash{"a";"b";"x"} gives Nil
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 83 - check assignability with 999
+# Subtest: %hash{"a";"b";"x"}:exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 84 - %hash{"a";"b";"x"}:exists gives False
+# Subtest: %hash{"a";"b";"x"}:!exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 85 - %hash{"a";"b";"x"}:!exists gives True
+# Subtest: %hash{"a";"b";"x"}:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 86 - %hash{"a";"b";"x"}:exists:kv gives ()
+# Subtest: %hash{"a";"b";"x"}:exists:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 87 - %hash{"a";"b";"x"}:exists:p gives Nil
+# Subtest: %hash{"a";"b";"x"}:k: gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 88 - %hash{"a";"b";"x"}:k: gives Nil
+# Subtest: %hash{"a";"b";"x"}:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 89 - %hash{"a";"b";"x"}:kv gives ()
+# Subtest: %hash{"a";"b";"x"}:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 90 - %hash{"a";"b";"x"}:p gives Nil
+# Subtest: %hash{"a";"b";"x"}:v gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 91 - %hash{"a";"b";"x"}:v gives Nil
+ok 92 - %hash{"a";"b";"x"}:delete gives Nil
+ok 93 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"x"}:exists:delete gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 94 - %hash{"a";"b";"x"}:exists:delete gives False
+ok 95 - is hash as expected after deletion of key?
+ok 96 - %hash{"a";"b";"x"}:!exists:delete dies ok
+# Subtest: %hash{"a";"b";"x"}:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 97 - %hash{"a";"b";"x"}:exists:kv:delete gives ()
+ok 98 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"x"}:exists:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 99 - %hash{"a";"b";"x"}:exists:p:delete gives Nil
+ok 100 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"x"}:k::delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 101 - %hash{"a";"b";"x"}:k::delete gives Nil
+ok 102 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"x"}:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 103 - %hash{"a";"b";"x"}:kv:delete gives ()
+ok 104 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"x"}:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 105 - %hash{"a";"b";"x"}:p:delete gives Nil
+ok 106 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";"x"}:v:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 107 - %hash{"a";"b";"x"}:v:delete gives Nil
+ok 108 - is hash as expected after deletion of key?
+ok 109 - %hash{"a";"x";"e"} gives Nil
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 110 - check assignability with 999
+# Subtest: %hash{"a";"x";"e"}:exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 111 - %hash{"a";"x";"e"}:exists gives False
+# Subtest: %hash{"a";"x";"e"}:!exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 112 - %hash{"a";"x";"e"}:!exists gives True
+# Subtest: %hash{"a";"x";"e"}:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 113 - %hash{"a";"x";"e"}:exists:kv gives ()
+# Subtest: %hash{"a";"x";"e"}:exists:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 114 - %hash{"a";"x";"e"}:exists:p gives Nil
+# Subtest: %hash{"a";"x";"e"}:k: gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 115 - %hash{"a";"x";"e"}:k: gives Nil
+# Subtest: %hash{"a";"x";"e"}:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 116 - %hash{"a";"x";"e"}:kv gives ()
+# Subtest: %hash{"a";"x";"e"}:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 117 - %hash{"a";"x";"e"}:p gives Nil
+# Subtest: %hash{"a";"x";"e"}:v gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 118 - %hash{"a";"x";"e"}:v gives Nil
+ok 119 - %hash{"a";"x";"e"}:delete gives Nil
+ok 120 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"x";"e"}:exists:delete gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 121 - %hash{"a";"x";"e"}:exists:delete gives False
+ok 122 - is hash as expected after deletion of key?
+ok 123 - %hash{"a";"x";"e"}:!exists:delete dies ok
+# Subtest: %hash{"a";"x";"e"}:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 124 - %hash{"a";"x";"e"}:exists:kv:delete gives ()
+ok 125 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"x";"e"}:exists:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 126 - %hash{"a";"x";"e"}:exists:p:delete gives Nil
+ok 127 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"x";"e"}:k::delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 128 - %hash{"a";"x";"e"}:k::delete gives Nil
+ok 129 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"x";"e"}:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 130 - %hash{"a";"x";"e"}:kv:delete gives ()
+ok 131 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"x";"e"}:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 132 - %hash{"a";"x";"e"}:p:delete gives Nil
+ok 133 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"x";"e"}:v:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 134 - %hash{"a";"x";"e"}:v:delete gives Nil
+ok 135 - is hash as expected after deletion of key?
+ok 136 - %hash{"x";"b";"e"} gives Nil
+# Subtest: check assignability with 999
+    ok 1 - could we assign 999 and did we get 999 back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 137 - check assignability with 999
+# Subtest: %hash{"x";"b";"e"}:exists gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 138 - %hash{"x";"b";"e"}:exists gives False
+# Subtest: %hash{"x";"b";"e"}:!exists gives True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 139 - %hash{"x";"b";"e"}:!exists gives True
+# Subtest: %hash{"x";"b";"e"}:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 140 - %hash{"x";"b";"e"}:exists:kv gives ()
+# Subtest: %hash{"x";"b";"e"}:exists:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 141 - %hash{"x";"b";"e"}:exists:p gives Nil
+# Subtest: %hash{"x";"b";"e"}:k: gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 142 - %hash{"x";"b";"e"}:k: gives Nil
+# Subtest: %hash{"x";"b";"e"}:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 143 - %hash{"x";"b";"e"}:kv gives ()
+# Subtest: %hash{"x";"b";"e"}:p gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 144 - %hash{"x";"b";"e"}:p gives Nil
+# Subtest: %hash{"x";"b";"e"}:v gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 145 - %hash{"x";"b";"e"}:v gives Nil
+ok 146 - %hash{"x";"b";"e"}:delete gives Nil
+ok 147 - is hash as expected after deletion of key?
+# Subtest: %hash{"x";"b";"e"}:exists:delete gives False
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 148 - %hash{"x";"b";"e"}:exists:delete gives False
+ok 149 - is hash as expected after deletion of key?
+ok 150 - %hash{"x";"b";"e"}:!exists:delete dies ok
+# Subtest: %hash{"x";"b";"e"}:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 151 - %hash{"x";"b";"e"}:exists:kv:delete gives ()
+ok 152 - is hash as expected after deletion of key?
+# Subtest: %hash{"x";"b";"e"}:exists:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 153 - %hash{"x";"b";"e"}:exists:p:delete gives Nil
+ok 154 - is hash as expected after deletion of key?
+# Subtest: %hash{"x";"b";"e"}:k::delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 155 - %hash{"x";"b";"e"}:k::delete gives Nil
+ok 156 - is hash as expected after deletion of key?
+# Subtest: %hash{"x";"b";"e"}:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 157 - %hash{"x";"b";"e"}:kv:delete gives ()
+ok 158 - is hash as expected after deletion of key?
+# Subtest: %hash{"x";"b";"e"}:p:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 159 - %hash{"x";"b";"e"}:p:delete gives Nil
+ok 160 - is hash as expected after deletion of key?
+# Subtest: %hash{"x";"b";"e"}:v:delete gives Nil
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 161 - %hash{"x";"b";"e"}:v:delete gives Nil
+ok 162 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"} gives (42,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 163 - %hash{*;"b";"c"} gives (42,)
+# Subtest: %hash{*;"b";"c"}:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 164 - %hash{*;"b";"c"}:exists gives (True,)
+# Subtest: %hash{*;"b";"c"}:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 165 - %hash{*;"b";"c"}:!exists gives (False,)
+# Subtest: %hash{*;"b";"c"}:exists:kv gives (("a", "b", "c"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 166 - %hash{*;"b";"c"}:exists:kv gives (("a", "b", "c"),True)
+# Subtest: %hash{*;"b";"c"}:exists:p gives (Pair.new(("a", "b", "c"),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 167 - %hash{*;"b";"c"}:exists:p gives (Pair.new(("a", "b", "c"),True),)
+# Subtest: %hash{*;"b";"c"}:k gives (("a", "b", "c"),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 168 - %hash{*;"b";"c"}:k gives (("a", "b", "c"),)
+# Subtest: %hash{*;"b";"c"}:kv gives (("a", "b", "c"),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 169 - %hash{*;"b";"c"}:kv gives (("a", "b", "c"),42)
+# Subtest: %hash{*;"b";"c"}:p gives (Pair.new(("a", "b", "c"),42),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 170 - %hash{*;"b";"c"}:p gives (Pair.new(("a", "b", "c"),42),)
+# Subtest: %hash{*;"b";"c"}:v gives (42,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 171 - %hash{*;"b";"c"}:v gives (42,)
+# Subtest: %hash{*;"b";"c"}:delete gives (42,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 172 - %hash{*;"b";"c"}:delete gives (42,)
+ok 173 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"}:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 174 - %hash{*;"b";"c"}:exists:delete gives (True,)
+ok 175 - is hash as expected after deletion of key?
+ok 176 - %hash{*;"b";"c"}:!exists:delete dies ok
+# Subtest: %hash{*;"b";"c"}:exists:kv:delete gives (("a", "b", "c"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 177 - %hash{*;"b";"c"}:exists:kv:delete gives (("a", "b", "c"),True)
+ok 178 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"}:exists:p:delete gives (Pair.new(("a", "b", "c"),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 179 - %hash{*;"b";"c"}:exists:p:delete gives (Pair.new(("a", "b", "c"),True),)
+ok 180 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"}:k:delete gives (("a", "b", "c"),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 181 - %hash{*;"b";"c"}:k:delete gives (("a", "b", "c"),)
+ok 182 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"}:kv:delete gives (("a", "b", "c"),42)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 183 - %hash{*;"b";"c"}:kv:delete gives (("a", "b", "c"),42)
+ok 184 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"}:p:delete gives (Pair.new(("a", "b", "c"),42),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 185 - %hash{*;"b";"c"}:p:delete gives (Pair.new(("a", "b", "c"),42),)
+ok 186 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"c"}:v:delete gives (42,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 187 - %hash{*;"b";"c"}:v:delete gives (42,)
+ok 188 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"} gives (666,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 189 - %hash{"a";*;"d"} gives (666,)
+# Subtest: %hash{"a";*;"d"}:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 190 - %hash{"a";*;"d"}:exists gives (True,)
+# Subtest: %hash{"a";*;"d"}:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 191 - %hash{"a";*;"d"}:!exists gives (False,)
+# Subtest: %hash{"a";*;"d"}:exists:kv gives (("a", "b", "d"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 192 - %hash{"a";*;"d"}:exists:kv gives (("a", "b", "d"),True)
+# Subtest: %hash{"a";*;"d"}:exists:p gives (Pair.new(("a", "b", "d"),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 193 - %hash{"a";*;"d"}:exists:p gives (Pair.new(("a", "b", "d"),True),)
+# Subtest: %hash{"a";*;"d"}:k gives (("a", "b", "d"),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 194 - %hash{"a";*;"d"}:k gives (("a", "b", "d"),)
+# Subtest: %hash{"a";*;"d"}:kv gives (("a", "b", "d"),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 195 - %hash{"a";*;"d"}:kv gives (("a", "b", "d"),666)
+# Subtest: %hash{"a";*;"d"}:p gives (Pair.new(("a", "b", "d"),666),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 196 - %hash{"a";*;"d"}:p gives (Pair.new(("a", "b", "d"),666),)
+# Subtest: %hash{"a";*;"d"}:v gives (666,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 197 - %hash{"a";*;"d"}:v gives (666,)
+# Subtest: %hash{"a";*;"d"}:delete gives (666,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 198 - %hash{"a";*;"d"}:delete gives (666,)
+ok 199 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"}:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 200 - %hash{"a";*;"d"}:exists:delete gives (True,)
+ok 201 - is hash as expected after deletion of key?
+ok 202 - %hash{"a";*;"d"}:!exists:delete dies ok
+# Subtest: %hash{"a";*;"d"}:exists:kv:delete gives (("a", "b", "d"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 203 - %hash{"a";*;"d"}:exists:kv:delete gives (("a", "b", "d"),True)
+ok 204 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"}:exists:p:delete gives (Pair.new(("a", "b", "d"),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 205 - %hash{"a";*;"d"}:exists:p:delete gives (Pair.new(("a", "b", "d"),True),)
+ok 206 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"}:k:delete gives (("a", "b", "d"),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 207 - %hash{"a";*;"d"}:k:delete gives (("a", "b", "d"),)
+ok 208 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"}:kv:delete gives (("a", "b", "d"),666)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 209 - %hash{"a";*;"d"}:kv:delete gives (("a", "b", "d"),666)
+ok 210 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"}:p:delete gives (Pair.new(("a", "b", "d"),666),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 211 - %hash{"a";*;"d"}:p:delete gives (Pair.new(("a", "b", "d"),666),)
+ok 212 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"d"}:v:delete gives (666,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 213 - %hash{"a";*;"d"}:v:delete gives (666,)
+ok 214 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"} gives (${:f(314)},)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 215 - %hash{*;*;"e"} gives (${:f(314)},)
+# Subtest: %hash{*;*;"e"}:exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 216 - %hash{*;*;"e"}:exists gives (True,)
+# Subtest: %hash{*;*;"e"}:!exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 217 - %hash{*;*;"e"}:!exists gives (False,)
+# Subtest: %hash{*;*;"e"}:exists:kv gives (("a", "b", "e"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 218 - %hash{*;*;"e"}:exists:kv gives (("a", "b", "e"),True)
+# Subtest: %hash{*;*;"e"}:exists:p gives (Pair.new(("a", "b", "e"),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 219 - %hash{*;*;"e"}:exists:p gives (Pair.new(("a", "b", "e"),True),)
+# Subtest: %hash{*;*;"e"}:k gives (("a", "b", "e"),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 220 - %hash{*;*;"e"}:k gives (("a", "b", "e"),)
+# Subtest: %hash{*;*;"e"}:kv gives (("a", "b", "e"),${:f(314)})
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 221 - %hash{*;*;"e"}:kv gives (("a", "b", "e"),${:f(314)})
+# Subtest: %hash{*;*;"e"}:p gives (Pair.new(("a", "b", "e"),${:f(314)}),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 222 - %hash{*;*;"e"}:p gives (Pair.new(("a", "b", "e"),${:f(314)}),)
+# Subtest: %hash{*;*;"e"}:v gives (${:f(314)},)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 223 - %hash{*;*;"e"}:v gives (${:f(314)},)
+# Subtest: %hash{*;*;"e"}:delete gives (${:f(314)},)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 224 - %hash{*;*;"e"}:delete gives (${:f(314)},)
+ok 225 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"}:exists:delete gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 226 - %hash{*;*;"e"}:exists:delete gives (True,)
+ok 227 - is hash as expected after deletion of key?
+ok 228 - %hash{*;*;"e"}:!exists:delete dies ok
+# Subtest: %hash{*;*;"e"}:exists:kv:delete gives (("a", "b", "e"),True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 229 - %hash{*;*;"e"}:exists:kv:delete gives (("a", "b", "e"),True)
+ok 230 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"}:exists:p:delete gives (Pair.new(("a", "b", "e"),True),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 231 - %hash{*;*;"e"}:exists:p:delete gives (Pair.new(("a", "b", "e"),True),)
+ok 232 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"}:k:delete gives (("a", "b", "e"),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 233 - %hash{*;*;"e"}:k:delete gives (("a", "b", "e"),)
+ok 234 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"}:kv:delete gives (("a", "b", "e"),${:f(314)})
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 235 - %hash{*;*;"e"}:kv:delete gives (("a", "b", "e"),${:f(314)})
+ok 236 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"}:p:delete gives (Pair.new(("a", "b", "e"),${:f(314)}),)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 237 - %hash{*;*;"e"}:p:delete gives (Pair.new(("a", "b", "e"),${:f(314)}),)
+ok 238 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"e"}:v:delete gives (${:f(314)},)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 239 - %hash{*;*;"e"}:v:delete gives (${:f(314)},)
+ok 240 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"} gives (Nil,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 241 - %hash{*;"b";"x"} gives (Nil,)
+# Subtest: %hash{*;"b";"x"}:exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 242 - %hash{*;"b";"x"}:exists gives (False,)
+# Subtest: %hash{*;"b";"x"}:!exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 243 - %hash{*;"b";"x"}:!exists gives (True,)
+# Subtest: %hash{*;"b";"x"}:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 244 - %hash{*;"b";"x"}:exists:kv gives ()
+# Subtest: %hash{*;"b";"x"}:exists:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 245 - %hash{*;"b";"x"}:exists:p gives ()
+# Subtest: %hash{*;"b";"x"}:k gives ()
+    ok 1 - was the value ok
+    1..1
+ok 246 - %hash{*;"b";"x"}:k gives ()
+# Subtest: %hash{*;"b";"x"}:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 247 - %hash{*;"b";"x"}:kv gives ()
+# Subtest: %hash{*;"b";"x"}:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 248 - %hash{*;"b";"x"}:p gives ()
+# Subtest: %hash{*;"b";"x"}:v gives ()
+    ok 1 - was the value ok
+    1..1
+ok 249 - %hash{*;"b";"x"}:v gives ()
+# Subtest: %hash{*;"b";"x"}:delete gives (Nil,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 250 - %hash{*;"b";"x"}:delete gives (Nil,)
+ok 251 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"}:exists:delete gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 252 - %hash{*;"b";"x"}:exists:delete gives (False,)
+ok 253 - is hash as expected after deletion of key?
+ok 254 - %hash{*;"b";"x"}:!exists:delete dies ok
+# Subtest: %hash{*;"b";"x"}:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 255 - %hash{*;"b";"x"}:exists:kv:delete gives ()
+ok 256 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"}:exists:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 257 - %hash{*;"b";"x"}:exists:p:delete gives ()
+ok 258 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"}:k:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 259 - %hash{*;"b";"x"}:k:delete gives ()
+ok 260 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"}:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 261 - %hash{*;"b";"x"}:kv:delete gives ()
+ok 262 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"}:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 263 - %hash{*;"b";"x"}:p:delete gives ()
+ok 264 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";"x"}:v:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 265 - %hash{*;"b";"x"}:v:delete gives ()
+ok 266 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"} gives (Nil,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 267 - %hash{"a";*;"x"} gives (Nil,)
+# Subtest: %hash{"a";*;"x"}:exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 268 - %hash{"a";*;"x"}:exists gives (False,)
+# Subtest: %hash{"a";*;"x"}:!exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 269 - %hash{"a";*;"x"}:!exists gives (True,)
+# Subtest: %hash{"a";*;"x"}:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 270 - %hash{"a";*;"x"}:exists:kv gives ()
+# Subtest: %hash{"a";*;"x"}:exists:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 271 - %hash{"a";*;"x"}:exists:p gives ()
+# Subtest: %hash{"a";*;"x"}:k gives ()
+    ok 1 - was the value ok
+    1..1
+ok 272 - %hash{"a";*;"x"}:k gives ()
+# Subtest: %hash{"a";*;"x"}:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 273 - %hash{"a";*;"x"}:kv gives ()
+# Subtest: %hash{"a";*;"x"}:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 274 - %hash{"a";*;"x"}:p gives ()
+# Subtest: %hash{"a";*;"x"}:v gives ()
+    ok 1 - was the value ok
+    1..1
+ok 275 - %hash{"a";*;"x"}:v gives ()
+# Subtest: %hash{"a";*;"x"}:delete gives (Nil,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 276 - %hash{"a";*;"x"}:delete gives (Nil,)
+ok 277 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"}:exists:delete gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 278 - %hash{"a";*;"x"}:exists:delete gives (False,)
+ok 279 - is hash as expected after deletion of key?
+ok 280 - %hash{"a";*;"x"}:!exists:delete dies ok
+# Subtest: %hash{"a";*;"x"}:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 281 - %hash{"a";*;"x"}:exists:kv:delete gives ()
+ok 282 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"}:exists:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 283 - %hash{"a";*;"x"}:exists:p:delete gives ()
+ok 284 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"}:k:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 285 - %hash{"a";*;"x"}:k:delete gives ()
+ok 286 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"}:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 287 - %hash{"a";*;"x"}:kv:delete gives ()
+ok 288 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"}:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 289 - %hash{"a";*;"x"}:p:delete gives ()
+ok 290 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;"x"}:v:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 291 - %hash{"a";*;"x"}:v:delete gives ()
+ok 292 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"} gives (Nil,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 293 - %hash{*;*;"x"} gives (Nil,)
+# Subtest: %hash{*;*;"x"}:exists gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 294 - %hash{*;*;"x"}:exists gives (False,)
+# Subtest: %hash{*;*;"x"}:!exists gives (True,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 295 - %hash{*;*;"x"}:!exists gives (True,)
+# Subtest: %hash{*;*;"x"}:exists:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 296 - %hash{*;*;"x"}:exists:kv gives ()
+# Subtest: %hash{*;*;"x"}:exists:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 297 - %hash{*;*;"x"}:exists:p gives ()
+# Subtest: %hash{*;*;"x"}:k gives ()
+    ok 1 - was the value ok
+    1..1
+ok 298 - %hash{*;*;"x"}:k gives ()
+# Subtest: %hash{*;*;"x"}:kv gives ()
+    ok 1 - was the value ok
+    1..1
+ok 299 - %hash{*;*;"x"}:kv gives ()
+# Subtest: %hash{*;*;"x"}:p gives ()
+    ok 1 - was the value ok
+    1..1
+ok 300 - %hash{*;*;"x"}:p gives ()
+# Subtest: %hash{*;*;"x"}:v gives ()
+    ok 1 - was the value ok
+    1..1
+ok 301 - %hash{*;*;"x"}:v gives ()
+# Subtest: %hash{*;*;"x"}:delete gives (Nil,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 302 - %hash{*;*;"x"}:delete gives (Nil,)
+ok 303 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"}:exists:delete gives (False,)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 304 - %hash{*;*;"x"}:exists:delete gives (False,)
+ok 305 - is hash as expected after deletion of key?
+ok 306 - %hash{*;*;"x"}:!exists:delete dies ok
+# Subtest: %hash{*;*;"x"}:exists:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 307 - %hash{*;*;"x"}:exists:kv:delete gives ()
+ok 308 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"}:exists:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 309 - %hash{*;*;"x"}:exists:p:delete gives ()
+ok 310 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"}:k:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 311 - %hash{*;*;"x"}:k:delete gives ()
+ok 312 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"}:kv:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 313 - %hash{*;*;"x"}:kv:delete gives ()
+ok 314 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"}:p:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 315 - %hash{*;*;"x"}:p:delete gives ()
+ok 316 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;"x"}:v:delete gives ()
+    ok 1 - was the value ok
+    1..1
+ok 317 - %hash{*;*;"x"}:v:delete gives ()
+ok 318 - is hash as expected after deletion of key?
+ok 319 - %hash{"a";"b";("c", "d", "e")} gives (42, 666, { f => 314 })
+# Subtest: check assignability with (777, 888, 999)
+    ok 1 - could we assign (777, 888, 999) and did we get (777, 888, 999) back
+    ok 2 - did we assign value at the right place
+    1..2
+ok 320 - check assignability with (777, 888, 999)
+# Subtest: %hash{"a";"b";("c", "d", "e")}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 321 - %hash{"a";"b";("c", "d", "e")}:exists gives (True,True,True)
+# Subtest: %hash{"a";"b";("c", "d", "e")}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 322 - %hash{"a";"b";("c", "d", "e")}:!exists gives (False,False,False)
+# Subtest: %hash{"a";"b";("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 323 - %hash{"a";"b";("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{"a";"b";("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 324 - %hash{"a";"b";("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{"a";"b";("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 325 - %hash{"a";"b";("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{"a";"b";("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 326 - %hash{"a";"b";("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{"a";"b";("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 327 - %hash{"a";"b";("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{"a";"b";("c", "d", "e")}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 328 - %hash{"a";"b";("c", "d", "e")}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{"a";"b";("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 329 - %hash{"a";"b";("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+ok 330 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";("c", "d", "e")}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 331 - %hash{"a";"b";("c", "d", "e")}:exists:delete gives (True,True,True)
+ok 332 - is hash as expected after deletion of key?
+ok 333 - %hash{"a";"b";("c", "d", "e")}:!exists:delete dies ok
+# Subtest: %hash{"a";"b";("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 334 - %hash{"a";"b";("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 335 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 336 - %hash{"a";"b";("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 337 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 338 - %hash{"a";"b";("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 339 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 340 - %hash{"a";"b";("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 341 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 342 - %hash{"a";"b";("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 343 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 344 - %hash{"a";"b";("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+ok 345 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 346 - %hash{*;"b";("c", "d", "e")} gives (42, 666, { f => 314 })
+# Subtest: %hash{*;"b";("c", "d", "e")}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 347 - %hash{*;"b";("c", "d", "e")}:exists gives (True,True,True)
+# Subtest: %hash{*;"b";("c", "d", "e")}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 348 - %hash{*;"b";("c", "d", "e")}:!exists gives (False,False,False)
+# Subtest: %hash{*;"b";("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 349 - %hash{*;"b";("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{*;"b";("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 350 - %hash{*;"b";("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{*;"b";("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 351 - %hash{*;"b";("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{*;"b";("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 352 - %hash{*;"b";("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{*;"b";("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 353 - %hash{*;"b";("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{*;"b";("c", "d", "e")}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 354 - %hash{*;"b";("c", "d", "e")}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{*;"b";("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 355 - %hash{*;"b";("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+ok 356 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 357 - %hash{*;"b";("c", "d", "e")}:exists:delete gives (True,True,True)
+ok 358 - is hash as expected after deletion of key?
+ok 359 - %hash{*;"b";("c", "d", "e")}:!exists:delete dies ok
+# Subtest: %hash{*;"b";("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 360 - %hash{*;"b";("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 361 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 362 - %hash{*;"b";("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 363 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 364 - %hash{*;"b";("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 365 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 366 - %hash{*;"b";("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 367 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 368 - %hash{*;"b";("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 369 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 370 - %hash{*;"b";("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+ok 371 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 372 - %hash{"a";*;("c", "d", "e")} gives (42, 666, { f => 314 })
+# Subtest: %hash{"a";*;("c", "d", "e")}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 373 - %hash{"a";*;("c", "d", "e")}:exists gives (True,True,True)
+# Subtest: %hash{"a";*;("c", "d", "e")}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 374 - %hash{"a";*;("c", "d", "e")}:!exists gives (False,False,False)
+# Subtest: %hash{"a";*;("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 375 - %hash{"a";*;("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{"a";*;("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 376 - %hash{"a";*;("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{"a";*;("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 377 - %hash{"a";*;("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{"a";*;("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 378 - %hash{"a";*;("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{"a";*;("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 379 - %hash{"a";*;("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{"a";*;("c", "d", "e")}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 380 - %hash{"a";*;("c", "d", "e")}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{"a";*;("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 381 - %hash{"a";*;("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+ok 382 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 383 - %hash{"a";*;("c", "d", "e")}:exists:delete gives (True,True,True)
+ok 384 - is hash as expected after deletion of key?
+ok 385 - %hash{"a";*;("c", "d", "e")}:!exists:delete dies ok
+# Subtest: %hash{"a";*;("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 386 - %hash{"a";*;("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 387 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 388 - %hash{"a";*;("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 389 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 390 - %hash{"a";*;("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 391 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 392 - %hash{"a";*;("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 393 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 394 - %hash{"a";*;("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 395 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 396 - %hash{"a";*;("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+ok 397 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 398 - %hash{*;*;("c", "d", "e")} gives (42, 666, { f => 314 })
+# Subtest: %hash{*;*;("c", "d", "e")}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 399 - %hash{*;*;("c", "d", "e")}:exists gives (True,True,True)
+# Subtest: %hash{*;*;("c", "d", "e")}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 400 - %hash{*;*;("c", "d", "e")}:!exists gives (False,False,False)
+# Subtest: %hash{*;*;("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 401 - %hash{*;*;("c", "d", "e")}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{*;*;("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 402 - %hash{*;*;("c", "d", "e")}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{*;*;("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 403 - %hash{*;*;("c", "d", "e")}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{*;*;("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 404 - %hash{*;*;("c", "d", "e")}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{*;*;("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 405 - %hash{*;*;("c", "d", "e")}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{*;*;("c", "d", "e")}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 406 - %hash{*;*;("c", "d", "e")}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{*;*;("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 407 - %hash{*;*;("c", "d", "e")}:delete gives (42, 666, { f => 314 })
+ok 408 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 409 - %hash{*;*;("c", "d", "e")}:exists:delete gives (True,True,True)
+ok 410 - is hash as expected after deletion of key?
+ok 411 - %hash{*;*;("c", "d", "e")}:!exists:delete dies ok
+# Subtest: %hash{*;*;("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 412 - %hash{*;*;("c", "d", "e")}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 413 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 414 - %hash{*;*;("c", "d", "e")}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 415 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 416 - %hash{*;*;("c", "d", "e")}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 417 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 418 - %hash{*;*;("c", "d", "e")}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 419 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 420 - %hash{*;*;("c", "d", "e")}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 421 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 422 - %hash{*;*;("c", "d", "e")}:v:delete gives 42, 666, { f => 314 }
+ok 423 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 424 - %hash{"a";"b";*} gives (42, 666, { f => 314 })
+# Subtest: %hash{"a";"b";*}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 425 - %hash{"a";"b";*}:exists gives (True,True,True)
+# Subtest: %hash{"a";"b";*}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 426 - %hash{"a";"b";*}:!exists gives (False,False,False)
+# Subtest: %hash{"a";"b";*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 427 - %hash{"a";"b";*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{"a";"b";*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 428 - %hash{"a";"b";*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{"a";"b";*}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 429 - %hash{"a";"b";*}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{"a";"b";*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 430 - %hash{"a";"b";*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{"a";"b";*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 431 - %hash{"a";"b";*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{"a";"b";*}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 432 - %hash{"a";"b";*}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{"a";"b";*}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 433 - %hash{"a";"b";*}:delete gives (42, 666, { f => 314 })
+ok 434 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 435 - %hash{"a";"b";*}:exists:delete gives (True,True,True)
+ok 436 - is hash as expected after deletion of key?
+ok 437 - %hash{"a";"b";*}:!exists:delete dies ok
+# Subtest: %hash{"a";"b";*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 438 - %hash{"a";"b";*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 439 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 440 - %hash{"a";"b";*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 441 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 442 - %hash{"a";"b";*}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 443 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 444 - %hash{"a";"b";*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 445 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 446 - %hash{"a";"b";*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 447 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";"b";*}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 448 - %hash{"a";"b";*}:v:delete gives 42, 666, { f => 314 }
+ok 449 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 450 - %hash{*;"b";*} gives (42, 666, { f => 314 })
+# Subtest: %hash{*;"b";*}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 451 - %hash{*;"b";*}:exists gives (True,True,True)
+# Subtest: %hash{*;"b";*}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 452 - %hash{*;"b";*}:!exists gives (False,False,False)
+# Subtest: %hash{*;"b";*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 453 - %hash{*;"b";*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{*;"b";*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 454 - %hash{*;"b";*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{*;"b";*}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 455 - %hash{*;"b";*}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{*;"b";*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 456 - %hash{*;"b";*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{*;"b";*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 457 - %hash{*;"b";*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{*;"b";*}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 458 - %hash{*;"b";*}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{*;"b";*}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 459 - %hash{*;"b";*}:delete gives (42, 666, { f => 314 })
+ok 460 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 461 - %hash{*;"b";*}:exists:delete gives (True,True,True)
+ok 462 - is hash as expected after deletion of key?
+ok 463 - %hash{*;"b";*}:!exists:delete dies ok
+# Subtest: %hash{*;"b";*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 464 - %hash{*;"b";*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 465 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 466 - %hash{*;"b";*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 467 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 468 - %hash{*;"b";*}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 469 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 470 - %hash{*;"b";*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 471 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 472 - %hash{*;"b";*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 473 - is hash as expected after deletion of key?
+# Subtest: %hash{*;"b";*}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 474 - %hash{*;"b";*}:v:delete gives 42, 666, { f => 314 }
+ok 475 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 476 - %hash{"a";*;*} gives (42, 666, { f => 314 })
+# Subtest: %hash{"a";*;*}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 477 - %hash{"a";*;*}:exists gives (True,True,True)
+# Subtest: %hash{"a";*;*}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 478 - %hash{"a";*;*}:!exists gives (False,False,False)
+# Subtest: %hash{"a";*;*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 479 - %hash{"a";*;*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{"a";*;*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 480 - %hash{"a";*;*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{"a";*;*}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 481 - %hash{"a";*;*}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{"a";*;*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 482 - %hash{"a";*;*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{"a";*;*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 483 - %hash{"a";*;*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{"a";*;*}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 484 - %hash{"a";*;*}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{"a";*;*}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 485 - %hash{"a";*;*}:delete gives (42, 666, { f => 314 })
+ok 486 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 487 - %hash{"a";*;*}:exists:delete gives (True,True,True)
+ok 488 - is hash as expected after deletion of key?
+ok 489 - %hash{"a";*;*}:!exists:delete dies ok
+# Subtest: %hash{"a";*;*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 490 - %hash{"a";*;*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 491 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 492 - %hash{"a";*;*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 493 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 494 - %hash{"a";*;*}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 495 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 496 - %hash{"a";*;*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 497 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 498 - %hash{"a";*;*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 499 - is hash as expected after deletion of key?
+# Subtest: %hash{"a";*;*}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 500 - %hash{"a";*;*}:v:delete gives 42, 666, { f => 314 }
+ok 501 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*} gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 502 - %hash{*;*;*} gives (42, 666, { f => 314 })
+# Subtest: %hash{*;*;*}:exists gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 503 - %hash{*;*;*}:exists gives (True,True,True)
+# Subtest: %hash{*;*;*}:!exists gives (False,False,False)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 504 - %hash{*;*;*}:!exists gives (False,False,False)
+# Subtest: %hash{*;*;*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 505 - %hash{*;*;*}:exists:kv gives <a b c>,True,<a b d>,True,<a b e>,True
+# Subtest: %hash{*;*;*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 506 - %hash{*;*;*}:exists:p gives <a b c> => True,<a b d> => True,<a b e> => True
+# Subtest: %hash{*;*;*}:k gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 507 - %hash{*;*;*}:k gives <a b c>,<a b d>,<a b e>
+# Subtest: %hash{*;*;*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 508 - %hash{*;*;*}:kv gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+# Subtest: %hash{*;*;*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 509 - %hash{*;*;*}:p gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+# Subtest: %hash{*;*;*}:v gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 510 - %hash{*;*;*}:v gives 42, 666, { f => 314 }
+# Subtest: %hash{*;*;*}:delete gives (42, 666, { f => 314 })
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 511 - %hash{*;*;*}:delete gives (42, 666, { f => 314 })
+ok 512 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*}:exists:delete gives (True,True,True)
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 513 - %hash{*;*;*}:exists:delete gives (True,True,True)
+ok 514 - is hash as expected after deletion of key?
+ok 515 - %hash{*;*;*}:!exists:delete dies ok
+# Subtest: %hash{*;*;*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 516 - %hash{*;*;*}:exists:kv:delete gives <a b c>,True,<a b d>,True,<a b e>,True
+ok 517 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 518 - %hash{*;*;*}:exists:p:delete gives <a b c> => True,<a b d> => True,<a b e> => True
+ok 519 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*}:k:delete gives <a b c>,<a b d>,<a b e>
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 520 - %hash{*;*;*}:k:delete gives <a b c>,<a b d>,<a b e>
+ok 521 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 522 - %hash{*;*;*}:kv:delete gives <a b c>,42,<a b d>,666,<a b e>,{ f => 314 }
+ok 523 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 524 - %hash{*;*;*}:p:delete gives <a b c> => 42,<a b d> => 666,<a b e> => { f => 314 }
+ok 525 - is hash as expected after deletion of key?
+# Subtest: %hash{*;*;*}:v:delete gives 42, 666, { f => 314 }
+    ok 1 - was the value ok
+    ok 2 - did assignment die
+    1..2
+ok 526 - %hash{*;*;*}:v:delete gives 42, 666, { f => 314 }
+ok 527 - is hash as expected after deletion of key?
+ok 528 - did assignment to non-existing hashes return the assigned values
+ok 529 - did initialization work
+ok 530 - did assignment return the assigned values
+ok 531 - did the hash get changed correctly
+ok 532 - did deletion return the expected values
+ok 533 - did the hash get changed correctly
+ok 534 - did assignment to non-existing keys return the assigned values
+ok 535 - did the hash get changed correctly
+ok 536 - || did assignment to non-existing hashes return the assigned values
+ok 537 - || did initialization work
+ok 538 - || did assignment return the assigned values
+ok 539 - || did the hash get changed correctly
+ok 540 - || did deletion return the expected values
+ok 541 - || did the hash get changed correctly
+ok 542 - || did assignment to non-existing keys return the assigned values
+ok 543 - || did the hash get changed correctly
+ok 544 - || did single key get handled correctly
+ok 545 - simple slice with lazy indices doesn't hang
+ok 546 - simple slice with lazy indices and :exists doesn't hang (1)
+ok 547 - simple slice with lazy indices and :delete doesn't hang
+ok 548 - proper elements were deleted from multidim array
+ok 549 - simple slice with lazy indices and :exists doesn't hang (2)

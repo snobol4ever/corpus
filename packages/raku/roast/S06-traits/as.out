@@ -1,0 +1,6 @@
+1..5
+ok 1 - object bound .WHATs to the right thing
+ok 2 - object bound was coerced to the right value
+ok 3 - object bound .WHATs to the right thing
+ok 4 - object bound was coerced to the right value
+ok 5 - Type checks still enforced

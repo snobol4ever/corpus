@@ -1,0 +1,6 @@
+1..5
+ok 1 - nextsame inheritance
+ok 2 - nextsame wrapping
+ok 3 - multisub sanity
+ok 4 - 
+ok 5 - nextsame mixin

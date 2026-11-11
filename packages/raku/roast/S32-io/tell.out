@@ -1,0 +1,28 @@
+1..5
+# Subtest: open(:w) handle
+    1..3
+    ok 1 - .tell at start
+    ok 2 - .tell after writing
+    ok 3 - .tell after seeking
+ok 1 - open(:w) handle
+# Subtest: open(:w, :bin) handle
+    1..3
+    ok 1 - .tell at start
+    ok 2 - .tell after writing
+    ok 3 - .tell after seeking
+ok 2 - open(:w, :bin) handle
+# Subtest: open(:a) handle
+    1..4
+    ok 1 - .tell at start
+    ok 2 - .tell after writing (1)
+    ok 3 - .tell after writing (2)
+    ok 4 - .tell after seeking
+ok 3 - open(:a) handle
+# Subtest: open(:bin) handle
+    1..4
+    ok 1 - .tell at start
+    ok 2 - .tell after slurping
+    ok 3 - .tell after seeking
+    ok 4 - .tell after reading 3 bytes
+ok 4 - open(:bin) handle
+ok 5 - .tell gave us some non-zero value

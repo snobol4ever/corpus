@@ -1,0 +1,241 @@
+1..12
+# Subtest: tests for Set
+    1..17
+    ok 1 - Set: pull-one until exhausted
+    ok 2 - Set: push-exactly until exhausted
+    ok 3 - Set: push-at-least until exhausted
+    ok 4 - Set: does push-all return IterationEnd
+    ok 5 - Set: push-all
+    ok 6 - Set: does push-until-lazy return IterationEnd
+    ok 7 - Set: push-until-lazy
+    ok 8 - Set: does sink-all return IterationEnd
+    ok 9 - Set: skip-one until exhausted
+    ok 10 - Set: skip-at-least except last
+    ok 11 - Set: skip-at-least check last value
+    ok 12 - Set: did skip-at-least after pull-one exhaust?
+    ok 13 - Set: skip-at-least-pull-one last
+    ok 14 - Set: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Set: doesn't support count-only
+    ok 16 - Set: doesn't support bool-only
+    ok 17 - Set: count/bool-only didn't pull
+ok 1 - tests for Set
+# Subtest: tests for Set.kv
+    1..17
+    ok 1 - Set.kv: pull-one until exhausted
+    ok 2 - Set.kv: push-exactly until exhausted
+    ok 3 - Set.kv: push-at-least until exhausted
+    ok 4 - Set.kv: does push-all return IterationEnd
+    ok 5 - Set.kv: push-all
+    ok 6 - Set.kv: does push-until-lazy return IterationEnd
+    ok 7 - Set.kv: push-until-lazy
+    ok 8 - Set.kv: does sink-all return IterationEnd
+    ok 9 - Set.kv: skip-one until exhausted
+    ok 10 - Set.kv: skip-at-least except last
+    ok 11 - Set.kv: skip-at-least check last value
+    ok 12 - Set.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - Set.kv: skip-at-least-pull-one last
+    ok 14 - Set.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Set.kv: doesn't support count-only
+    ok 16 - Set.kv: doesn't support bool-only
+    ok 17 - Set.kv: count/bool-only didn't pull
+ok 2 - tests for Set.kv
+# Subtest: tests for Set.keys
+    1..17
+    ok 1 - Set.keys: pull-one until exhausted
+    ok 2 - Set.keys: push-exactly until exhausted
+    ok 3 - Set.keys: push-at-least until exhausted
+    ok 4 - Set.keys: does push-all return IterationEnd
+    ok 5 - Set.keys: push-all
+    ok 6 - Set.keys: does push-until-lazy return IterationEnd
+    ok 7 - Set.keys: push-until-lazy
+    ok 8 - Set.keys: does sink-all return IterationEnd
+    ok 9 - Set.keys: skip-one until exhausted
+    ok 10 - Set.keys: skip-at-least except last
+    ok 11 - Set.keys: skip-at-least check last value
+    ok 12 - Set.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - Set.keys: skip-at-least-pull-one last
+    ok 14 - Set.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Set.keys: doesn't support count-only
+    ok 16 - Set.keys: doesn't support bool-only
+    ok 17 - Set.keys: count/bool-only didn't pull
+ok 3 - tests for Set.keys
+# Subtest: tests for Set.values
+    1..17
+    ok 1 - Set.values: pull-one until exhausted
+    ok 2 - Set.values: push-exactly until exhausted
+    ok 3 - Set.values: push-at-least until exhausted
+    ok 4 - Set.values: does push-all return IterationEnd
+    ok 5 - Set.values: push-all
+    ok 6 - Set.values: does push-until-lazy return IterationEnd
+    ok 7 - Set.values: push-until-lazy
+    ok 8 - Set.values: does sink-all return IterationEnd
+    ok 9 - Set.values: skip-one until exhausted
+    ok 10 - Set.values: skip-at-least except last
+    ok 11 - Set.values: skip-at-least check last value
+    ok 12 - Set.values: did skip-at-least after pull-one exhaust?
+    ok 13 - Set.values: skip-at-least-pull-one last
+    ok 14 - Set.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Set.values: count-only
+    ok 16 - Set.values: bool-only
+    ok 17 - Set.values: count/bool-only didn't pull
+ok 4 - tests for Set.values
+# Subtest: tests for Set.pairs
+    1..17
+    ok 1 - Set.pairs: pull-one until exhausted
+    ok 2 - Set.pairs: push-exactly until exhausted
+    ok 3 - Set.pairs: push-at-least until exhausted
+    ok 4 - Set.pairs: does push-all return IterationEnd
+    ok 5 - Set.pairs: push-all
+    ok 6 - Set.pairs: does push-until-lazy return IterationEnd
+    ok 7 - Set.pairs: push-until-lazy
+    ok 8 - Set.pairs: does sink-all return IterationEnd
+    ok 9 - Set.pairs: skip-one until exhausted
+    ok 10 - Set.pairs: skip-at-least except last
+    ok 11 - Set.pairs: skip-at-least check last value
+    ok 12 - Set.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Set.pairs: skip-at-least-pull-one last
+    ok 14 - Set.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Set.pairs: doesn't support count-only
+    ok 16 - Set.pairs: doesn't support bool-only
+    ok 17 - Set.pairs: count/bool-only didn't pull
+ok 5 - tests for Set.pairs
+# Subtest: tests for Set.antipairs
+    1..17
+    ok 1 - Set.antipairs: pull-one until exhausted
+    ok 2 - Set.antipairs: push-exactly until exhausted
+    ok 3 - Set.antipairs: push-at-least until exhausted
+    ok 4 - Set.antipairs: does push-all return IterationEnd
+    ok 5 - Set.antipairs: push-all
+    ok 6 - Set.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - Set.antipairs: push-until-lazy
+    ok 8 - Set.antipairs: does sink-all return IterationEnd
+    ok 9 - Set.antipairs: skip-one until exhausted
+    ok 10 - Set.antipairs: skip-at-least except last
+    ok 11 - Set.antipairs: skip-at-least check last value
+    ok 12 - Set.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Set.antipairs: skip-at-least-pull-one last
+    ok 14 - Set.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Set.antipairs: doesn't support count-only
+    ok 16 - Set.antipairs: doesn't support bool-only
+    ok 17 - Set.antipairs: count/bool-only didn't pull
+ok 6 - tests for Set.antipairs
+# Subtest: tests for SetHash
+    1..17
+    ok 1 - SetHash: pull-one until exhausted
+    ok 2 - SetHash: push-exactly until exhausted
+    ok 3 - SetHash: push-at-least until exhausted
+    ok 4 - SetHash: does push-all return IterationEnd
+    ok 5 - SetHash: push-all
+    ok 6 - SetHash: does push-until-lazy return IterationEnd
+    ok 7 - SetHash: push-until-lazy
+    ok 8 - SetHash: does sink-all return IterationEnd
+    ok 9 - SetHash: skip-one until exhausted
+    ok 10 - SetHash: skip-at-least except last
+    ok 11 - SetHash: skip-at-least check last value
+    ok 12 - SetHash: did skip-at-least after pull-one exhaust?
+    ok 13 - SetHash: skip-at-least-pull-one last
+    ok 14 - SetHash: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - SetHash: doesn't support count-only
+    ok 16 - SetHash: doesn't support bool-only
+    ok 17 - SetHash: count/bool-only didn't pull
+ok 7 - tests for SetHash
+# Subtest: tests for SetHash.kv
+    1..17
+    ok 1 - SetHash.kv: pull-one until exhausted
+    ok 2 - SetHash.kv: push-exactly until exhausted
+    ok 3 - SetHash.kv: push-at-least until exhausted
+    ok 4 - SetHash.kv: does push-all return IterationEnd
+    ok 5 - SetHash.kv: push-all
+    ok 6 - SetHash.kv: does push-until-lazy return IterationEnd
+    ok 7 - SetHash.kv: push-until-lazy
+    ok 8 - SetHash.kv: does sink-all return IterationEnd
+    ok 9 - SetHash.kv: skip-one until exhausted
+    ok 10 - SetHash.kv: skip-at-least except last
+    ok 11 - SetHash.kv: skip-at-least check last value
+    ok 12 - SetHash.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - SetHash.kv: skip-at-least-pull-one last
+    ok 14 - SetHash.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - SetHash.kv: doesn't support count-only
+    ok 16 - SetHash.kv: doesn't support bool-only
+    ok 17 - SetHash.kv: count/bool-only didn't pull
+ok 8 - tests for SetHash.kv
+# Subtest: tests for SetHash.keys
+    1..17
+    ok 1 - SetHash.keys: pull-one until exhausted
+    ok 2 - SetHash.keys: push-exactly until exhausted
+    ok 3 - SetHash.keys: push-at-least until exhausted
+    ok 4 - SetHash.keys: does push-all return IterationEnd
+    ok 5 - SetHash.keys: push-all
+    ok 6 - SetHash.keys: does push-until-lazy return IterationEnd
+    ok 7 - SetHash.keys: push-until-lazy
+    ok 8 - SetHash.keys: does sink-all return IterationEnd
+    ok 9 - SetHash.keys: skip-one until exhausted
+    ok 10 - SetHash.keys: skip-at-least except last
+    ok 11 - SetHash.keys: skip-at-least check last value
+    ok 12 - SetHash.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - SetHash.keys: skip-at-least-pull-one last
+    ok 14 - SetHash.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - SetHash.keys: doesn't support count-only
+    ok 16 - SetHash.keys: doesn't support bool-only
+    ok 17 - SetHash.keys: count/bool-only didn't pull
+ok 9 - tests for SetHash.keys
+# Subtest: tests for SetHash.values
+    1..17
+    ok 1 - SetHash.values: pull-one until exhausted
+    ok 2 - SetHash.values: push-exactly until exhausted
+    ok 3 - SetHash.values: push-at-least until exhausted
+    ok 4 - SetHash.values: does push-all return IterationEnd
+    ok 5 - SetHash.values: push-all
+    ok 6 - SetHash.values: does push-until-lazy return IterationEnd
+    ok 7 - SetHash.values: push-until-lazy
+    ok 8 - SetHash.values: does sink-all return IterationEnd
+    ok 9 - SetHash.values: skip-one until exhausted
+    ok 10 - SetHash.values: skip-at-least except last
+    ok 11 - SetHash.values: skip-at-least check last value
+    ok 12 - SetHash.values: did skip-at-least after pull-one exhaust?
+    ok 13 - SetHash.values: skip-at-least-pull-one last
+    ok 14 - SetHash.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - SetHash.values: doesn't support count-only
+    ok 16 - SetHash.values: doesn't support bool-only
+    ok 17 - SetHash.values: count/bool-only didn't pull
+ok 10 - tests for SetHash.values
+# Subtest: tests for SetHash.pairs
+    1..17
+    ok 1 - SetHash.pairs: pull-one until exhausted
+    ok 2 - SetHash.pairs: push-exactly until exhausted
+    ok 3 - SetHash.pairs: push-at-least until exhausted
+    ok 4 - SetHash.pairs: does push-all return IterationEnd
+    ok 5 - SetHash.pairs: push-all
+    ok 6 - SetHash.pairs: does push-until-lazy return IterationEnd
+    ok 7 - SetHash.pairs: push-until-lazy
+    ok 8 - SetHash.pairs: does sink-all return IterationEnd
+    ok 9 - SetHash.pairs: skip-one until exhausted
+    ok 10 - SetHash.pairs: skip-at-least except last
+    ok 11 - SetHash.pairs: skip-at-least check last value
+    ok 12 - SetHash.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - SetHash.pairs: skip-at-least-pull-one last
+    ok 14 - SetHash.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - SetHash.pairs: doesn't support count-only
+    ok 16 - SetHash.pairs: doesn't support bool-only
+    ok 17 - SetHash.pairs: count/bool-only didn't pull
+ok 11 - tests for SetHash.pairs
+# Subtest: tests for SetHash.antipairs
+    1..17
+    ok 1 - SetHash.antipairs: pull-one until exhausted
+    ok 2 - SetHash.antipairs: push-exactly until exhausted
+    ok 3 - SetHash.antipairs: push-at-least until exhausted
+    ok 4 - SetHash.antipairs: does push-all return IterationEnd
+    ok 5 - SetHash.antipairs: push-all
+    ok 6 - SetHash.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - SetHash.antipairs: push-until-lazy
+    ok 8 - SetHash.antipairs: does sink-all return IterationEnd
+    ok 9 - SetHash.antipairs: skip-one until exhausted
+    ok 10 - SetHash.antipairs: skip-at-least except last
+    ok 11 - SetHash.antipairs: skip-at-least check last value
+    ok 12 - SetHash.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - SetHash.antipairs: skip-at-least-pull-one last
+    ok 14 - SetHash.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - SetHash.antipairs: doesn't support count-only
+    ok 16 - SetHash.antipairs: doesn't support bool-only
+    ok 17 - SetHash.antipairs: count/bool-only didn't pull
+ok 12 - tests for SetHash.antipairs

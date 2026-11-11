@@ -1,0 +1,12 @@
+1..11
+ok 1 - Weather given/when
+ok 2 - Probability given/when
+ok 3 - 6th fibonacci number
+ok 4 - Given as a sort of once-only for loop.
+ok 5 - Statement ending given
+ok 6 - Statement ending when
+ok 7 - Nesting when inside given
+ok 8 - We got a bunch of DNA
+ok 9 - On 20 line
+ok 10 - Containing 20 pairs
+ok 11 - Can handle "map {...} ,$x,$y"

@@ -1,0 +1,41 @@
+1..40
+ok 1 - method form of unique works
+ok 2 - subroutine form of unique works
+ok 3 - inplace form of unique works
+ok 4 - final result of in place
+ok 5 - slurpy subroutine form of unique works
+ok 6 - method form of unique with own comparator works
+ok 7 - subroutine form of unique with own comparator works
+ok 8 - sorting the result
+ok 9 - .unique can work on scalars
+ok 10 - .unique can work on one-elem arrays
+ok 11 - .unique does not use naive WHICH (1)
+ok 12 - .unique does not use naive WHICH (2)
+ok 13 - unique has === semantics
+ok 14 - unique has === semantics
+ok 15 - .= unique in sink context works on $a
+ok 16 - .= unique in sink context works on @a
+ok 17 - method form of unique with :as works
+ok 18 - subroutine form of unique with :as works
+ok 19 - inplace form of unique with :as works
+ok 20 - final result with :as in place
+ok 21 - method form of unique with :with works
+ok 22 - subroutine form of unique with :with works
+ok 23 - inplace form of unique with :with works
+ok 24 - final result with :with in place
+ok 25 - method form of unique with :as works
+ok 26 - subroutine form of unique with :as works
+ok 27 - inplace form of unique with :as works
+ok 28 - final result with :as in place
+ok 29 - method form of unique with [eqv] and objects works
+ok 30 - subroutine form of unique with [eqv] and objects works
+ok 31 - inplace form of unique with [eqv] and objects works
+ok 32 - final result with [eqv] and objects in place
+ok 33 - method form of unique with :as and :with and objects works
+ok 34 - subroutine form of unique with :as and :with and objects works
+ok 35 - inplace form of unique with :as and :with and objects works
+ok 36 - final result with :as and :with and objects in place
+ok 37 - %a<foo> not clobbered by .=unique
+ok 38 - .unique doesn't flatten
+ok 39 - no SEGV with Scalar.unique
+ok 40 - Seq as the result of an :as caches the Seq

@@ -1,0 +1,478 @@
+1..17
+ok 1 - thou shall not coredump
+# Subtest: .count-only/.bool-only for iterated content
+    1..25
+    # Subtest: List.iterator
+        1..9
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (after last pull)
+        ok 8 - bool   (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 1 - List.iterator
+    # Subtest: List.reverse.iterator
+        1..9
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (after last pull)
+        ok 8 - bool   (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 2 - List.reverse.iterator
+    # Subtest: Array.iterator
+        1..9
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (after last pull)
+        ok 8 - bool   (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 3 - Array.iterator
+    # Subtest: Buf.iterator
+        1..9
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (after last pull)
+        ok 8 - bool   (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 4 - Buf.iterator
+    # Subtest: &combinations
+        1..11
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (before pull 3)
+        ok 8 - bool   (before pull 3)
+        ok 9 - count  (after last pull)
+        ok 10 - bool   (after last pull)
+        ok 11 - one more pull gives IterationEnd
+    ok 5 - &combinations
+    # Subtest: &permutations
+        1..7
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (after last pull)
+        ok 6 - bool   (after last pull)
+        ok 7 - one more pull gives IterationEnd
+    ok 6 - &permutations
+    # Subtest: .combinations
+        1..11
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (before pull 3)
+        ok 8 - bool   (before pull 3)
+        ok 9 - count  (after last pull)
+        ok 10 - bool   (after last pull)
+        ok 11 - one more pull gives IterationEnd
+    ok 7 - .combinations
+    # Subtest: .permutations
+        1..7
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (after last pull)
+        ok 6 - bool   (after last pull)
+        ok 7 - one more pull gives IterationEnd
+    ok 8 - .permutations
+    # Subtest: Pair.iterator
+        1..5
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (after last pull)
+        ok 4 - bool   (after last pull)
+        ok 5 - one more pull gives IterationEnd
+    ok 9 - Pair.iterator
+    # Subtest: Pair.kv.iterator
+        1..7
+        ok 1 - # SKIP iterator does not support .count-only (before pull 0)
+        ok 2 - # SKIP iterator does not support .bool-only (before pull 0)
+        ok 3 - # SKIP iterator does not support .count-only (before pull 1)
+        ok 4 - # SKIP iterator does not support .bool-only (before pull 1)
+        ok 5 - # SKIP iterator does not support .count-only (after last pull)
+        ok 6 - # SKIP iterator does not support .bool-only (after last pull)
+        ok 7 - one more pull gives IterationEnd
+    ok 10 - Pair.kv.iterator
+    # Subtest: Hash.kv.iterator
+        1..11
+        ok 1 - # SKIP iterator does not support .count-only (before pull 0)
+        ok 2 - # SKIP iterator does not support .bool-only (before pull 0)
+        ok 3 - # SKIP iterator does not support .count-only (before pull 1)
+        ok 4 - # SKIP iterator does not support .bool-only (before pull 1)
+        ok 5 - # SKIP iterator does not support .count-only (before pull 2)
+        ok 6 - # SKIP iterator does not support .bool-only (before pull 2)
+        ok 7 - # SKIP iterator does not support .count-only (before pull 3)
+        ok 8 - # SKIP iterator does not support .bool-only (before pull 3)
+        ok 9 - # SKIP iterator does not support .count-only (after last pull)
+        ok 10 - # SKIP iterator does not support .bool-only (after last pull)
+        ok 11 - one more pull gives IterationEnd
+    ok 11 - Hash.kv.iterator
+    # Subtest: Hash.keys.iterator
+        1..9
+        ok 1 - # SKIP iterator does not support .count-only (before pull 0)
+        ok 2 - # SKIP iterator does not support .bool-only (before pull 0)
+        ok 3 - # SKIP iterator does not support .count-only (before pull 1)
+        ok 4 - # SKIP iterator does not support .bool-only (before pull 1)
+        ok 5 - # SKIP iterator does not support .count-only (before pull 2)
+        ok 6 - # SKIP iterator does not support .bool-only (before pull 2)
+        ok 7 - # SKIP iterator does not support .count-only (after last pull)
+        ok 8 - # SKIP iterator does not support .bool-only (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 12 - Hash.keys.iterator
+    # Subtest: Str.lines.iterator
+        1..9
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (after last pull)
+        ok 8 - bool   (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 13 - Str.lines.iterator
+    # Subtest: 1 dim shaped array
+        1..13
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (before pull 3)
+        ok 8 - bool   (before pull 3)
+        ok 9 - count  (before pull 4)
+        ok 10 - bool   (before pull 4)
+        ok 11 - count  (after last pull)
+        ok 12 - bool   (after last pull)
+        ok 13 - one more pull gives IterationEnd
+    ok 14 - 1 dim shaped array
+    # Subtest: Str.comb
+        1..9
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (before pull 2)
+        ok 6 - bool   (before pull 2)
+        ok 7 - count  (after last pull)
+        ok 8 - bool   (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 15 - Str.comb
+    # Subtest: Str.comb(Regex)
+        1..9
+        ok 1 - # SKIP iterator does not support .count-only (before pull 0)
+        ok 2 - # SKIP iterator does not support .bool-only (before pull 0)
+        ok 3 - # SKIP iterator does not support .count-only (before pull 1)
+        ok 4 - # SKIP iterator does not support .bool-only (before pull 1)
+        ok 5 - # SKIP iterator does not support .count-only (before pull 2)
+        ok 6 - # SKIP iterator does not support .bool-only (before pull 2)
+        ok 7 - # SKIP iterator does not support .count-only (after last pull)
+        ok 8 - # SKIP iterator does not support .bool-only (after last pull)
+        ok 9 - one more pull gives IterationEnd
+    ok 16 - Str.comb(Regex)
+    # Subtest: Str.comb(Int)
+        1..7
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (after last pull)
+        ok 6 - bool   (after last pull)
+        ok 7 - one more pull gives IterationEnd
+    ok 17 - Str.comb(Int)
+    # Subtest: Str.comb(Str)
+        1..7
+        ok 1 - # SKIP iterator does not support .count-only (before pull 0)
+        ok 2 - # SKIP iterator does not support .bool-only (before pull 0)
+        ok 3 - # SKIP iterator does not support .count-only (before pull 1)
+        ok 4 - # SKIP iterator does not support .bool-only (before pull 1)
+        ok 5 - # SKIP iterator does not support .count-only (after last pull)
+        ok 6 - # SKIP iterator does not support .bool-only (after last pull)
+        ok 7 - one more pull gives IterationEnd
+    ok 18 - Str.comb(Str)
+    # Subtest: Range
+        1..12
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (after last pull)
+        ok 11 - bool   (after last pull)
+        ok 12 - one more pull gives IterationEnd
+    ok 19 - Range
+    # Subtest: Range.reverse
+        1..12
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (after last pull)
+        ok 11 - bool   (after last pull)
+        ok 12 - one more pull gives IterationEnd
+    ok 20 - Range.reverse
+    # Subtest: reified list
+        1..12
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (after last pull)
+        ok 11 - bool   (after last pull)
+        ok 12 - one more pull gives IterationEnd
+    ok 21 - reified list
+    # Subtest: reified list reverse
+        1..12
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (after last pull)
+        ok 11 - bool   (after last pull)
+        ok 12 - one more pull gives IterationEnd
+    ok 22 - reified list reverse
+    # Subtest: reified list
+        1..12
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (after last pull)
+        ok 11 - bool   (after last pull)
+        ok 12 - one more pull gives IterationEnd
+    ok 23 - reified list
+    # Subtest: reified list reverse
+        1..12
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - pulled (pull 0)
+        ok 4 - count  (before pull 1)
+        ok 5 - bool   (before pull 1)
+        ok 6 - pulled (pull 1)
+        ok 7 - count  (before pull 2)
+        ok 8 - bool   (before pull 2)
+        ok 9 - pulled (pull 2)
+        ok 10 - count  (after last pull)
+        ok 11 - bool   (after last pull)
+        ok 12 - one more pull gives IterationEnd
+    ok 24 - reified list reverse
+    # Subtest: baggy .pick(n)
+        1..7
+        ok 1 - count  (before pull 0)
+        ok 2 - bool   (before pull 0)
+        ok 3 - count  (before pull 1)
+        ok 4 - bool   (before pull 1)
+        ok 5 - count  (after last pull)
+        ok 6 - bool   (after last pull)
+        ok 7 - one more pull gives IterationEnd
+    ok 25 - baggy .pick(n)
+ok 2 - .count-only/.bool-only for iterated content
+# Subtest: enums with names of core types do not blow things up unexpectedly
+    1..3
+    ok 1 - Hash works
+    ok 2 - Callable works
+    ok 3 - Array works
+ok 3 - enums with names of core types do not blow things up unexpectedly
+# Subtest: no crashes with native types in conditionals
+    1..6
+    # Subtest: if
+        1..12
+        ok 1 - HLL obj
+        ok 2 - int8
+        ok 3 - int16
+        ok 4 - int32
+        ok 5 - int64
+        ok 6 - uint8
+        ok 7 - uint16
+        ok 8 - uint32
+        ok 9 - uint64
+        ok 10 - num32
+        ok 11 - num64
+        ok 12 - str
+    ok 1 - if
+    # Subtest: unless
+        1..12
+        ok 1 - HLL obj
+        ok 2 - int8
+        ok 3 - int16
+        ok 4 - int32
+        ok 5 - int64
+        ok 6 - uint8
+        ok 7 - uint16
+        ok 8 - uint32
+        ok 9 - uint64
+        ok 10 - num32
+        ok 11 - num64
+        ok 12 - str
+    ok 2 - unless
+    # Subtest: repeat while
+        1..12
+        ok 1 - HLL obj
+        ok 2 - int8
+        ok 3 - int16
+        ok 4 - int32
+        ok 5 - int64
+        ok 6 - uint8
+        ok 7 - uint16
+        ok 8 - uint32
+        ok 9 - uint64
+        ok 10 - num32
+        ok 11 - num64
+        ok 12 - str
+    ok 3 - repeat while
+    # Subtest: repeat until
+        1..12
+        ok 1 - HLL obj
+        ok 2 - int8
+        ok 3 - int16
+        ok 4 - int32
+        ok 5 - int64
+        ok 6 - uint8
+        ok 7 - uint16
+        ok 8 - uint32
+        ok 9 - uint64
+        ok 10 - num32
+        ok 11 - num64
+        ok 12 - str
+    ok 4 - repeat until
+    # Subtest: repeat while
+        1..12
+        ok 1 - HLL obj
+        ok 2 - int8
+        ok 3 - int16
+        ok 4 - int32
+        ok 5 - int64
+        ok 6 - uint8
+        ok 7 - uint16
+        ok 8 - uint32
+        ok 9 - uint64
+        ok 10 - num32
+        ok 11 - num64
+        ok 12 - str
+    ok 5 - repeat while
+    # Subtest: repeat until
+        1..12
+        ok 1 - HLL obj
+        ok 2 - int8
+        ok 3 - int16
+        ok 4 - int32
+        ok 5 - int64
+        ok 6 - uint8
+        ok 7 - uint16
+        ok 8 - uint32
+        ok 9 - uint64
+        ok 10 - num32
+        ok 11 - num64
+        ok 12 - str
+    ok 6 - repeat until
+ok 4 - no crashes with native types in conditionals
+# Subtest: thunking closure scoping
+    1..11
+    ok 1 - basic andthen
+    ok 2 - nested `for`s with thunk in statement modifier
+    ok 3 - xx inside `with`
+    ok 4 - try with block and andthen
+    ok 5 - block in a sub with orelse
+    ok 6 - loop + lexical variable plus chain of andthens
+    ok 7 - loop + andthen + orelse
+    ok 8 - parentheses + xx + given
+    ok 9 - postfix for + take + block in a string
+    ok 10 - given + whatever code closure execution
+    ok 11 - sub + given + whatevercode closure execution
+ok 5 - thunking closure scoping
+# Subtest: thunking closure scoping (2)
+    1..1
+    ok 1 - sub with `with` + orelse + block interpolation
+ok 6 - thunking closure scoping (2)
+# Subtest: block in string in parentheses in `for` statement mod
+    1..4
+    ok 1 - first run
+    ok 2 - second run
+    ok 3 - third run
+    ok 4 - fourth run
+ok 7 - block in string in parentheses in `for` statement mod
+ok 8 - no segfaults in sub call with ternary
+ok 9 - $match should not be true and false
+# Subtest: $_ and with/andthen/for combinations are not buggy
+    1..4
+    ok 1 - with (for -> ... { $_ })
+    ok 2 - andthen (for -> ... { $_ })
+    ok 3 - with (with -> ... { $_ })
+    ok 4 - andthen (with -> ... { $_ })
+ok 10 - $_ and with/andthen/for combinations are not buggy
+ok 11 - no "Illegal Instruction" crashes
+# Subtest: non DWIM hyper throws good error
+    1..2
+    ok 1 - 'my $ = 5 »*» (2..4)' died
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+ok 12 - non DWIM hyper throws good error
+# Subtest: cover potential bugs in possible optimization of `for ...`
+    1..11
+    ok 1 - Rat, Rat ... Int
+    ok 2 - Rat, Int ... Int
+    ok 3 - Rat, Rat ... Rat
+    ok 4 - Int, Int ... Rat
+    ok 5 - Int ... Rat
+    ok 6 - Rat ... Int
+    ok 7 - Rat ... Rat
+    ok 8 - no crashes with endpoint > 64-bit int (^)
+    ok 9 - no crashes with endpoint > 64-bit int (^)
+    ok 10 - no crashes with endpoint > 64-bit int (^..)
+    ok 11 - no crashes with endpoint > 64-bit int (..^)
+ok 13 - cover potential bugs in possible optimization of `for ...`
+# Subtest: negative offset in JIT lables errors
+    1..2
+    ok 1 - .comb
+    ok 2 - tokens and subs
+ok 14 - negative offset in JIT lables errors
+ok 15 - no weird type check issues with modules
+ok 16 - use of :D in a module does not mess up parametarization of a Hash
+ok 17 - use of Hash[…:D, …:D] in a module does not explode

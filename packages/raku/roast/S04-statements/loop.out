@@ -1,0 +1,33 @@
+1..18
+ok 1 - verify our starting condition
+ok 2 - verify our ending condition
+ok 3 - verify our starting condition
+ok 4 - verify our ending condition
+ok 5 - verify our starting condition
+ok 6 - verify our ending condition
+ok 7 - verify our starting condition
+ok 8 - verify our ending condition
+ok 9 - loop with an initially-false condition executes 0 times
+ok 10 - next performs a loop's continue expression
+ok 11 - bare loop exited after 3 iterations
+ok 12 - loop with two variables in init works
+ok 13 - pair colon syntax in a loop refers to an attribute works
+# Subtest: "loop {} while" is a syntax error (RT #63760)
+    1..2
+    ok 1 - 'loop { say " \# RT63760"; last } while 1' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 14 - "loop {} while" is a syntax error (RT  \#63760)
+ok 15 - gather, take and loop work together
+ok 16 - loop variable inside sub is correctly set
+# Subtest: `last` aborts loop when using `without Any`
+    1..3
+    ok 1 - program did not hang
+    ok 2 - STDOUT
+    ok 3 - STDERR
+ok 17 - `last` aborts loop when using `without Any`
+# Subtest: `last` aborts loop when using `with 42`
+    1..3
+    ok 1 - program did not hang
+    ok 2 - STDOUT
+    ok 3 - STDERR
+ok 18 - `last` aborts loop when using `with 42`

@@ -1,0 +1,459 @@
+1..92
+ok 1 - we can compile subtype declarations
+ok 2 - and we can use them, too
+ok 3 - and they actually work
+ok 4 - we can compile subtype declarations
+ok 5 - and we can use them, too
+ok 6 - and they actually work
+ok 7 - subset types refine candidate matches
+ok 8 - 3 is an odd num
+ok 9 - objects of Int::Odd don't get even
+ok 10 - subtypes are undefined
+ok 11 - calling sub worked
+ok 12 - calling sub did not work
+ok 13 - Int accepted by Int::Odd
+ok 14 - 
+ok 15 - our var is a Int::Even
+ok 16 - setting a Int::Even to an odd value dies
+ok 17 - lexically declared subtype went out of scope
+ok 18 - basic sanity (1)
+ok 19 - basic sanity (2)
+ok 20 - creating a new Num::Multiple
+ok 21 - creating a new Num::Multiple actually worked
+ok 22 - negative test also works
+ok 23 - variable kept previous value
+ok 24 - changed subtype definition worked
+# Subtest: custom subset errors can be created with fail()
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches 1 is not even
+ok 25 - custom subset errors can be created with fail()
+ok 26 - where /regex/ works (positive)
+# Subtest: where /regex/ works (negative)
+    1..2
+    ok 1 - 'my HasA $x = "foo"' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 27 - where /regex/ works (negative)
+ok 28 - where works with smart-matching on string
+ok 29 - where works with smart-matching on string
+ok 30 - where works with smart-matching on regex
+ok 31 - where works with smart-matching on regex
+ok 32 - where works with smart-matching on regex
+ok 33 - parameter in subtype is read-only...
+ok 34 - ...even in anonymous ones.
+# Subtest: Even $x can not be ++ed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 35 - Even $x can not be ++ed
+ok 36 - ..and the value was preserved
+# Subtest: Even $x can not be --ed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 37 - Even $x can not be --ed
+ok 38 - and the value was preserved
+ok 39 - can satisfy both conditions on chained subset types
+ok 40 - violating first condition barfs
+ok 41 - violating second condition barfs
+ok 42 - subtypes based on classes work
+ok 43 - subtypes based on classes work
+ok 44 - subtypes based on roles work
+ok 45 - subtypes based on roles work
+ok 46 - subset declaration without where clause does type it refines
+ok 47 - subset declaration without where clause accepts right value
+ok 48 - subset declaration without where clause accepts right value
+ok 49 - subset declaration without where clause rejects wrong value
+ok 50 - subset declaration without where clause rejects wrong value
+ok 51 - subset type is enforced as attribute in new() (1)
+ok 52 - subset type enforced as attribute in new() (2)
+ok 53 - my subset type is enforced as attribute in new() (1)
+ok 54 - my subset type enforced as attribute in new() (2)
+ok 55 - code called when subtype built on subtype
+ok 56 - level one subset check is false
+ok 57 - level one subset checked (should fail)
+ok 58 - level two subset not checked
+ok 59 - overall subset check is false
+ok 60 - level one subset checked (should fail)
+ok 61 - level two subset not checked
+ok 62 - level one subset check is true
+ok 63 - level one subset checked (should succeed)
+ok 64 - level two subset not checked
+ok 65 - overall subset check is true
+ok 66 - level one subset checked (should succeed)
+ok 67 - level two subset checked (should succeed)
+ok 68 - subsets of roles (1)
+ok 69 - subsets of roles (2)
+ok 70 - smart-matching a subset returns a Bool (1)
+ok 71 - smart-matching a subset returns a Bool (2)
+ok 72 - subset names with many parts work
+ok 73 - Cannot violate Int::Positive constraint
+not ok 74 - Array of subset type as parameter to function # TODO Parameterized subs do not take Array of subset types
+# Failed test 'Array of subset type as parameter to function'
+# at S12-subset/subtypes.rakudo line 272
+# Constraint type check failed in binding to parameter '@a'; expected PInt but got Array[PInt] (Array[PInt].new(2, 3))
+ok 75 - error message mentions subset name
+ok 76 - my str subset MyStr creates basically a type alias (1)
+ok 77 - my str subset MyStr creates basically a type alias (2)
+ok 78 - Ints are not in there
+ok 79 - subset in signature cannot use non-predeclared variable
+# Subtest: code dies with right exception
+    1..2
+    ok 1 - '
+    #         subset Tiny of Any where ^3;
+    #         my Tiny $foo;
+    #         $foo = 42; say $foo;
+    #     ' died
+    ok 2 - right exception type (X::TypeCheck)
+ok 80 - code dies with right exception
+ok 81 - code runs without error (and does not mention "Obsolete"!)
+ok 82 - ASubType:D dies if passed type object
+ok 83 - ASubType:D dies if passed non-matching concrete value
+ok 84 - ASubType:D passes if passed matching concrete value
+# Subtest: multi with :D subset dispatches correctly
+    1..2
+    ok 1 - dispatch does not die
+    ok 2 - dispatch happened in right order
+ok 85 - multi with :D subset dispatches correctly
+ok 86 - where constraint on |c parameter works
+# Subtest: where constraint on |c parameter is enforced
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+ok 87 - where constraint on |c parameter is enforced
+ok 88 - UInt:D parameter doesn't fail in a multi
+# Subtest: "any" Junction of types in where
+    1..3
+    # Subtest: routine sig
+        1..22
+        # Subtest: rejected by where, type
+            1..2
+            ok 1 - 'b1 "x"' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - rejected by where, type
+        # Subtest: rejected by where, type (2)
+            1..2
+            ok 1 - 'b1 2.2' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - rejected by where, type (2)
+        # Subtest: rejected by where, type (3)
+            1..2
+            ok 1 - 'b2 2.2' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 3 - rejected by where, type (3)
+        # Subtest: rejected by where, type (4)
+            1..2
+            ok 1 - 'b4 i' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 4 - rejected by where, type (4)
+        # Subtest: rejected by where, definiteness
+            1..2
+            ok 1 - 'b2 Num' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 5 - rejected by where, definiteness
+        # Subtest: rejected by where, definiteness (2)
+            1..2
+            ok 1 - 'b4 Num' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 6 - rejected by where, definiteness (2)
+        # Subtest: rejected by where, definiteness (3)
+            1..2
+            ok 1 - 'b3 42' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 7 - rejected by where, definiteness (3)
+        # Subtest: rejected by type, type
+            1..2
+            ok 1 - 'b2 $*VM' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 8 - rejected by type, type
+        # Subtest: rejected by type, definiteness
+            1..2
+            ok 1 - 'b3 Num' died
+            ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+        ok 9 - rejected by type, definiteness
+        # Subtest: rejected by coercer, source type
+            1..2
+            ok 1 - 'b4 Any' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 10 - rejected by coercer, source type
+        # Subtest: rejected by coercer, target type
+            1..2
+            ok 1 - 'b4 "x"' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 11 - rejected by coercer, target type
+        ok 12 - accepted (1)
+        ok 13 - accepted (2)
+        ok 14 - accepted (3)
+        ok 15 - accepted (4)
+        ok 16 - accepted (5)
+        ok 17 - accepted (6)
+        ok 18 - accepted (7)
+        ok 19 - accepted (8)
+        ok 20 - accepted (9)
+        ok 21 - accepted (10)
+        ok 22 - accepted (11)
+    ok 1 - routine sig
+    # Subtest: variables
+        1..14
+        # Subtest: rejected by where, type
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 1 - rejected by where, type
+        # Subtest: rejected by where, type (2)
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 2 - rejected by where, type (2)
+        # Subtest: rejected by where, type (3)
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 3 - rejected by where, type (3)
+        # Subtest: rejected by where, definiteness
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 4 - rejected by where, definiteness
+        # Subtest: rejected by where, definiteness (3)
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 5 - rejected by where, definiteness (3)
+        # Subtest: rejected by type, type
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 6 - rejected by type, type
+        # Subtest: rejected by type, definiteness
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 7 - rejected by type, definiteness
+        ok 8 - accepted (1)
+        ok 9 - accepted (2)
+        ok 10 - accepted (3)
+        ok 11 - accepted (4)
+        ok 12 - accepted (5)
+        ok 13 - accepted (6)
+        ok 14 - accepted (7)
+    ok 2 - variables
+    # Subtest: subset
+        1..14
+        ok 1 - rejected by where, type
+        ok 2 - rejected by where, type (2)
+        ok 3 - rejected by where, type (3)
+        ok 4 - rejected by where, definiteness
+        ok 5 - rejected by where, definiteness (3)
+        ok 6 - rejected by type, type
+        ok 7 - rejected by type, definiteness
+        ok 8 - accepted (1)
+        ok 9 - accepted (2)
+        ok 10 - accepted (3)
+        ok 11 - accepted (4)
+        ok 12 - accepted (5)
+        ok 13 - accepted (6)
+        ok 14 - accepted (7)
+    ok 3 - subset
+ok 89 - "any" Junction of types in where
+# Subtest: postconstraints on variables in my (...)
+    1..6
+    ok 1 - stored $a
+    ok 2 - stored $b
+    ok 3 - stored b
+    ok 4 - stored $d
+    # Subtest: single-arg
+        1..5
+        # Subtest: anon where literal
+            1..2
+            ok 1 - 'my ($ where 2)  = 3' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 1 - anon where literal
+        # Subtest: where literal
+            1..2
+            ok 1 - 'my ($a where 2) = 3' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 2 - where literal
+        # Subtest: where type
+            1..2
+            ok 1 - 'my ($b where Int) = .1' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 3 - where type
+        # Subtest: sigilless where literal
+            1..2
+            ok 1 - 'my (\b where "x") = "y"' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 4 - sigilless where literal
+        # Subtest: literal
+            1..2
+            ok 1 - 'my ("foo") = "bar"' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 5 - literal
+    ok 5 - single-arg
+    # Subtest: multi-arg
+        1..5
+        # Subtest: anon where literal
+            1..2
+            ok 1 - 'my ($ where 2, $b where Int ) = 3, 4' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 1 - anon where literal
+        # Subtest: where literal
+            1..2
+            ok 1 - 'my ($a where 2, $b where Int) = 3, .1' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 2 - where literal
+        # Subtest: where type
+            1..2
+            ok 1 - 'my ($a where 2, $b where Int) = 3, .1' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 3 - where type
+        # Subtest: sigilless where literal
+            1..2
+            ok 1 - 'my (\b where "x", "foo") = "y", "foo"' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 4 - sigilless where literal
+        # Subtest: literal
+            1..2
+            ok 1 - 'my (\b where "x", "foo") = "x", "bar"' died
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 5 - literal
+    ok 6 - multi-arg
+ok 90 - postconstraints on variables in my (...)
+# Subtest: `&`- sigiled variable be used in where
+    1..6
+    # Subtest: subset
+        1..12
+        ok 1 - pos
+        ok 2 - pos arg
+        ok 3 - neg
+        ok 4 - neg arg
+        ok 5 - pos block
+        ok 6 - pos arg block
+        ok 7 - neg block
+        ok 8 - neg arg block
+        ok 9 - pos Whatever
+        ok 10 - pos arg Whatever
+        ok 11 - neg Whatever
+        ok 12 - neg arg Whatever
+    ok 1 - subset
+    # Subtest: my
+        1..12
+        ok 1 - pos
+        ok 2 - pos arg
+        # Subtest: neg
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 3 - neg
+        ok 4 - neg arg
+        ok 5 - pos block
+        ok 6 - pos arg block
+        # Subtest: neg block
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 7 - neg block
+        ok 8 - neg arg block
+        ok 9 - pos Whatever
+        ok 10 - pos arg Whatever
+        # Subtest: neg Whatever
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Assignment)
+        ok 11 - neg Whatever
+        ok 12 - neg arg Whatever
+    ok 2 - my
+    # Subtest: sub signature, simple
+        1..12
+        ok 1 - sub called with right arg value [sub]
+        ok 2 - pos arg
+        # Subtest: neg
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck)
+        ok 3 - neg
+        ok 4 - neg arg
+        ok 5 - sub called with right arg value [block]
+        ok 6 - pos arg block
+        # Subtest: neg block
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck)
+        ok 7 - neg block
+        ok 8 - neg arg block
+        ok 9 - sub called with right arg value [Whatever]
+        ok 10 - pos arg wat
+        # Subtest: neg wat
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck)
+        ok 11 - neg wat
+        ok 12 - neg arg wat
+    ok 3 - sub signature, simple
+    # Subtest: sub signature, multi-dispatch
+        1..12
+        ok 1 - sub called with right arg value [sub]
+        ok 2 - pos arg
+        ok 3 - neg
+        ok 4 - neg arg
+        ok 5 - sub called with right arg value [block]
+        ok 6 - pos arg block
+        ok 7 - neg block
+        ok 8 - neg arg block
+        ok 9 - sub called with right arg value [Whatever]
+        ok 10 - pos arg Whatever
+        ok 11 - neg Whatever
+        ok 12 - neg arg Whatever
+    ok 4 - sub signature, multi-dispatch
+    # Subtest: method signature, fancy
+        1..21
+        ok 1 - method called w/right arg val [sub]
+        ok 2 - pos arg
+        # Subtest: neg
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck)
+        ok 3 - neg
+        ok 4 - neg arg
+        ok 5 - method called w/right val in $x [sub]
+        ok 6 - method called w/right val in $y [sub]
+        ok 7 - pos arg in wild method
+        ok 8 - method called w/right arg val [block]
+        ok 9 - pos arg block
+        # Subtest: neg block
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck)
+        ok 10 - neg block
+        ok 11 - neg arg block
+        ok 12 - method called w/right val in $x [block]
+        ok 13 - method called w/right val in $y [block]
+        ok 14 - pos arg in wild method block
+        ok 15 - method called w/right arg val [Whatever]
+        ok 16 - pos arg Whatever
+        # Subtest: neg Whatever
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck)
+        ok 17 - neg Whatever
+        ok 18 - neg arg Whatever
+        ok 19 - method called w/right val in $x [Whatever]
+        ok 20 - method called w/right val in $y [Whatever]
+        ok 21 - pos arg in wild method Whatever
+    ok 5 - method signature, fancy
+    # Subtest: detached signature object
+        1..6
+        ok 1 - sig matches capture [sub]
+        ok 2 - pos arg [sub]
+        ok 3 - sig matches capture [block]
+        ok 4 - pos arg [block]
+        ok 5 - sig matches capture [Whatever]
+        ok 6 - pos arg [Whatever]
+    ok 6 - detached signature object
+ok 91 - `&`- sigiled variable be used in where
+not ok 92 - custom type checking ok # TODO custom type checking on hashes NYI
+# Failed test 'custom type checking ok'
+# at S12-subset/subtypes.rakudo line 724
+# Constraint type check failed in binding to parameter '%f'; expected Foo but got Hash[Foo:D] ((my Foo:D %))
+# FUDGED!

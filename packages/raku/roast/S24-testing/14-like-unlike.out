@@ -1,0 +1,5 @@
+1..4
+ok 1 - `like` can accept non-Str objects (Int)
+ok 2 - `like` can accept non-Str objects (custom)
+ok 3 - `unlike` can accept non-Str objects (Int)
+ok 4 - `unlike` can accept non-Str objects (custom)

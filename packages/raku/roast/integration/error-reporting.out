@@ -1,0 +1,105 @@
+1..33
+ok 1 - Parse error contains line number
+ok 2 - Runtime error contains line number
+ok 3 - Method not found error mentions method name and line number
+ok 4 - got the right line number for nonexisting sub inside another sub
+ok 5 - non-existing subroutine is caught before run time
+ok 6 - subset type check fail mentions type check
+ok 7 - subset type check fail mentions constraint
+ok 8 - got the right line number for accessors
+ok 9 - use of leading zero causes warning about octal
+ok 10 - multiple anonymous variables do not warn or err out
+ok 11 - warning reports correct line number and subroutine
+ok 12 - END phasers are run after die()
+ok 13 - correct line number reported for assignment to non-variable
+ok 14 - it died
+ok 15 - found original file name in the backtrace
+ok 16 - found script file name in the backtrace
+ok 17 - Backtrace may be used more than once
+ok 18 - Backtrace does not change on additional .backtrace
+ok 19 - Error for obsolete syntax contains line number
+ok 20 - Thrown Failure outputs dual backtraces
+ok 21 - Correct error and a backtrace for return in mainline code
+ok 22 - Using type object in string context provides help
+# Subtest: `BEGIN` suggested when `begin` is used
+    1..3
+    ok 1 - 'begin 42' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+    ok 3 - .message matches /'BEGIN'/
+ok 23 - `BEGIN` suggested when `begin` is used
+# Subtest: `too few positionals` error in gather/for/take includes line number
+    1..3
+    ok 1 - 'gather for ^3 -> $a, $b { take 1 }' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .backtrace matches /line/
+ok 24 - `too few positionals` error in gather/for/take includes line number
+# Subtest: useful error message for ‘%::{''}’ construct
+    1..3
+    ok 1 - '%::{''}' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .line matches /^\d+$/
+ok 25 - useful error message for ‘%::{''}’ construct
+ok 26 - stub code must not produce `Unhandled exception` message
+ok 27 - Unfinished comment error points on correct line
+# Subtest: all roles with unimplemented method shown in error
+    1..3
+    ok 1 - 'role R-RT130211 { method overload-this(){...} };
+    #              role C-RT130211 { method overload-this(){...} };
+    #              class A does R-RT130211 does C-RT130211 {};' died
+    ok 2 - right exception type (X::Comp)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|3818779877960) ... }
+ok 28 - all roles with unimplemented method shown in error
+# Subtest: X::Multi::NoMatch correct shows named arguments
+    1..4
+    # Subtest: message mentions our positional
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Multi::NoMatch)
+        ok 3 - .message matches /':foo(Int)'/
+    ok 1 - message mentions our positional
+    # Subtest: type of named is correct
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Multi::NoMatch)
+        ok 3 - .message matches /':foo(Str)'/
+    ok 2 - type of named is correct
+    # Subtest: custom types detected
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Multi::NoMatch)
+        ok 3 - .message matches /':foo(Foo)'/
+    ok 3 - custom types detected
+    # Subtest: fallback mechanism works
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Multi::NoMatch)
+        ok 3 - .message matches /':Foo'/
+    ok 4 - fallback mechanism works
+ok 29 - X::Multi::NoMatch correct shows named arguments
+# Subtest: composition errors do not crash when printing
+    1..2
+    # Subtest: Accessing X::Inheritance::Unsupported.message does not crash
+        1..3
+        ok 1 - '-> ::RT129906 { class :: is RT129906 {} }' died
+        ok 2 - right exception type (X::Inheritance::Unsupported)
+        ok 3 - .message matches /RT129906/
+    ok 1 - Accessing X::Inheritance::Unsupported.message does not crash
+    # Subtest: Accessing X::Composition::NotComposable.message does not crash
+        1..3
+        ok 1 - 'class A129906 { ... }; class B129906 does A129906 { };' died
+        ok 2 - right exception type (X::Composition::NotComposable)
+        ok 3 - .message matches /129906/
+    ok 2 - Accessing X::Composition::NotComposable.message does not crash
+ok 30 - composition errors do not crash when printing
+# Subtest: broken promise exception backtrace knows it is runtime
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .backtrace matches WhateverCode.new
+ok 31 - broken promise exception backtrace knows it is runtime
+ok 32 - bad `use` gives line number in error message
+# Subtest: Backtrace.gist
+    1..2
+    ok 1 - backtrace with multiple frames uses plural "frames" in .gist
+    ok 2 - backtrace with one frame uses singular "frame" in .gist
+ok 33 - Backtrace.gist

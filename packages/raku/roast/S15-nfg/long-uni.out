@@ -1,0 +1,25 @@
+1..24
+ok 1 - long Uni -> Str works out
+ok 2 - long Str -> NFC works out
+ok 3 - NFC buffer has correct first value
+ok 4 - NFC buffer has correct second value
+ok 5 - NFC buffer has correct second-to-last value
+ok 6 - NFC buffer has correct last value
+ok 7 - long Uni -> Str works out
+ok 8 - long Str -> NFC works out
+ok 9 - NFC buffer has correct first value
+ok 10 - NFC buffer has correct second value
+ok 11 - NFC buffer has correct second-to-last value
+ok 12 - NFC buffer has correct last value
+ok 13 - long Uni -> Str works out
+ok 14 - long Str -> NFC works out
+ok 15 - NFC buffer has correct first value
+ok 16 - NFC buffer has correct second value
+ok 17 - NFC buffer has correct second-to-last value
+ok 18 - NFC buffer has correct last value
+ok 19 - long Uni -> Str works out
+ok 20 - long Str -> NFC works out
+ok 21 - NFC buffer has correct first value
+ok 22 - NFC buffer has correct second value
+ok 23 - NFC buffer has correct second-to-last value
+ok 24 - NFC buffer has correct last value

@@ -1,0 +1,49 @@
+1..44
+ok 1 - ascii declaration
+ok 2 - evaluation
+ok 3 - umlauts declaration
+ok 4 - evaluation
+ok 5 - a møøse once bit my sister
+ok 6 - møøse bites kan be preti nasti
+ok 7 - french declaration
+ok 8 - evaluation
+ok 9 - chinese declaration
+ok 10 - evaluation
+ok 11 - tibetan declaration
+ok 12 - evaluation
+ok 13 - japanese declaration
+ok 14 - evaluation
+ok 15 - arabic declaration
+ok 16 - evaluation
+ok 17 - hebrew declaration
+ok 18 - evaluation
+ok 19 - magyar declaration
+ok 20 - evaluation
+ok 21 - russian declaration
+ok 22 - evaluation
+ok 23 - hindi declaration
+ok 24 - evaluation
+ok 25 - Unicode subs with no parameters
+ok 26 - Unicode subs with one parameter (parsed as listop)
+ok 27 - Unicode named params (1)
+ok 28 - Unicode named params (2)
+ok 29 - Unicode placeholder variables
+ok 30 - Unicode methods and attributes
+ok 31 - non-ASCII named arguments
+ok 32 - Unicode 000A (LINE FEED (LF)) can terminate lines
+ok 33 - Unicode 000B (LINE TABULATION) can terminate lines
+ok 34 - Unicode 000C (FORM FEED (FF)) can terminate lines
+ok 35 - Unicode 000D (CARRIAGE RETURN (CR)) can terminate lines
+ok 36 - Unicode 0085 (NEXT LINE (NEL)) can terminate lines
+ok 37 - Unicode 2028 (LINE SEPARATOR) can terminate lines
+ok 38 - Unicode 2029 (PARAGRAPH SEPARATOR) can terminate lines
+ok 39 - Unicode open-298d does not map to close-298e
+ok 40 - Unicode open-301d maps to close-301e
+# Subtest: Unicode open-301d does not map to close-301f
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 41 - Unicode open-301d does not map to close-301f
+ok 42 - Unicode open-2018 maps to to close-2019
+ok 43 - Unicode open-201a maps to to close-2019
+ok 44 - Alternative open-brakets treat their other alternates as non-special

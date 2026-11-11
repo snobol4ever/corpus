@@ -1,0 +1,24 @@
+1..23
+ok 1 - list was reversed
+ok 2 - string was not reversed; that's what flip() is for
+ok 3 - the reversed list has two elements
+ok 4 - the list was reversed properly
+ok 5 - the list was reversed properly
+ok 6 - .reverse returns an Iterable
+ok 7 - .reverse assigned to a scalar is Iterable
+ok 8 - our list is reversed properly
+ok 9 - in scalar context it is still a list
+ok 10 - original array left untouched
+ok 11 - in place reversal works
+ok 12 - our array is reversed
+ok 13 - our array is reversed
+ok 14 - in scalar context it is still a list
+ok 15 - original array left untouched
+ok 16 - original array left untouched
+ok 17 - in place reversal works
+ok 18 - in place reversal works
+ok 19 - .reverse does NOT flatten lists
+ok 20 - reverses correctly over holes
+ok 21 - reverse returns containers, also for holes
+ok 22 - reverse also works on Lists
+ok 23 - infinite range from end produces Nils

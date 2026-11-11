@@ -1,0 +1,27 @@
+1..17
+ok 1 - can call sub that has had a trait applied to it by role name with arg
+ok 2 - description role applied and set with argument
+ok 3 - can call sub that has had a trait applied to it by role name without arg
+ok 4 - description role applied without argument
+ok 5 - can call sub that has had a trait applied to it by named param with arg
+ok 6 - named trait handler applied other role set with argument
+ok 7 - can call sub that has had a trait applied to it by named param without arg
+ok 8 - named trait handler applied other role without argument
+ok 9 - Can call subroutine that was wrapped by a trait
+not ok 10 - and the wrapper has been called once # TODO trait mod / .wrap interaction
+# Failed test 'and the wrapper has been called once'
+# at S14-traits/routines.rakudo line 51
+# expected: 'wrap'
+#      got: ''
+ok 11 - [BUG] multi without proto gets wrong lexical lookup chain (RT  \#112664)
+ok 12 - declaration of a sub with an unknown trait mentions trait_mod:<is> in dispatch error
+ok 13 - wrapping a routine at compile time makes it soft
+ok 14 - Applying traits to submethods works
+# Subtest: Applying traits to submethods retains submethod semantics
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 15 - Applying traits to submethods retains submethod semantics
+ok 16 - interaction of mixin to routine with array attribute and wrap is correct
+ok 17 - was the wrapper preserved
+# FUDGED!

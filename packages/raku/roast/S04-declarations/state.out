@@ -1,0 +1,52 @@
+1..46
+ok 1 - Assignment to state variable with //= works.
+ok 2 - Assignment to state variable with //= happens once.
+ok 3 - state() works inside subs (first)
+ok 4 - state() works inside subs (second)
+ok 5 - state() works inside subs ( \#3)
+ok 6 - state() works inside coderefs
+ok 7 - state() works inside for-loops
+ok 8 - array state initialized correctly
+ok 9 - array state retained between calls
+ok 10 - array state initialized from call correctly
+ok 11 - array state retained between calls
+ok 12 - (state @foo) = @bar is not state @foo = @bar
+ok 13 - (state @foo) = @bar is not state @foo = @bar
+ok 14 - RHS of state $x = ... only called once
+ok 15 - state() and parens
+ok 16 - state() variable referenced from regex replacement part works
+ok 17 - chained state (1)
+ok 18 - chained state (2)
+ok 19 - state was initialized properly (first time)
+ok 20 - state keeps its value across calls (first time)
+ok 21 - state was initialized properly (second time)
+ok 22 - state keeps its value across calls (second time)
+ok 23 - state was initialized correctly for clone 1
+ok 24 - state was initialized correctly for clone 2
+ok 25 - state between clones is independent
+ok 26 - fib 10 works
+ok 27 - list assignment state in fib memoizes
+ok 28 - fib 2 works
+ok 29 - [list] assignment state in fib memoizes
+ok 30 - growing subset types rejects too high values
+ok 31 - the state variable in subset types works (1)
+ok 32 - the state variable in subset types works (2)
+ok 33 - the state variable in subset types works (3)
+ok 34 - a state variable in parens works with a state variable with //= init
+ok 35 - can parse "state $i++"
+ok 36 - state var in anonymous closure in loop is not shared
+ok 37 - state outside control structure
+not ok 38 - initialization not reached on first run of the functions # TODO initialization happens only on first call(?)
+# Failed test 'initialization not reached on first run of the functions'
+# at S04-declarations/state.rakudo line 256
+# expected: '5'
+#      got: (Any)
+ok 39 - state vars and list assignment mixes
+ok 40 - anonymous state variable (1)
+ok 41 - anonymous state variable (2)
+ok 42 - Intensive use of state variable in inline-friendly sub does not hit problems
+ok 43 - Statevars work in block following "do" statement prefix
+ok 44 - Statevar uses the correct scope
+ok 45 - initial call
+ok 46 - second call
+# FUDGED!

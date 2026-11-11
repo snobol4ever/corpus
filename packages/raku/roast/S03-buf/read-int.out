@@ -1,0 +1,2009 @@
+1..2008
+ok 1 - is blob8-1234 uint8 0 correct
+ok 2 - is blob8-1234 int8 0 correct
+ok 3 - is blob8-1234 uint8 0 NativeEndian correct
+ok 4 - is blob8-1234 int8 0 NativeEndian correct
+ok 5 - is blob8-1234 uint8 0 LittleEndian correct
+ok 6 - is blob8-1234 int8 0 LittleEndian correct
+ok 7 - is blob8-1234 uint8 0 BigEndian correct
+ok 8 - is blob8-1234 int8 0 BigEndian correct
+ok 9 - is blob8-1234 uint8 1 correct
+ok 10 - is blob8-1234 int8 1 correct
+ok 11 - is blob8-1234 uint8 1 NativeEndian correct
+ok 12 - is blob8-1234 int8 1 NativeEndian correct
+ok 13 - is blob8-1234 uint8 1 LittleEndian correct
+ok 14 - is blob8-1234 int8 1 LittleEndian correct
+ok 15 - is blob8-1234 uint8 1 BigEndian correct
+ok 16 - is blob8-1234 int8 1 BigEndian correct
+ok 17 - is blob8-1234 uint8 17 correct
+ok 18 - is blob8-1234 int8 17 correct
+ok 19 - is blob8-1234 uint8 17 NativeEndian correct
+ok 20 - is blob8-1234 int8 17 NativeEndian correct
+ok 21 - is blob8-1234 uint8 17 LittleEndian correct
+ok 22 - is blob8-1234 int8 17 LittleEndian correct
+ok 23 - is blob8-1234 uint8 17 BigEndian correct
+ok 24 - is blob8-1234 int8 17 BigEndian correct
+ok 25 - is blob8-1234 uint8 18 correct
+ok 26 - is blob8-1234 int8 18 correct
+ok 27 - is blob8-1234 uint8 18 NativeEndian correct
+ok 28 - is blob8-1234 int8 18 NativeEndian correct
+ok 29 - is blob8-1234 uint8 18 LittleEndian correct
+ok 30 - is blob8-1234 int8 18 LittleEndian correct
+ok 31 - is blob8-1234 uint8 18 BigEndian correct
+ok 32 - is blob8-1234 int8 18 BigEndian correct
+ok 33 - does  int8 0 die
+ok 34 - does  uint8 0 die
+ok 35 - does blob8-1234 int8 -1 die
+ok 36 - does blob8-1234 uint8 -1 die
+ok 37 - does blob8-1234 int8 -1 die
+ok 38 - does blob8-1234 uint8 19 die
+ok 39 - does blob8-1234 int8 19 die
+ok 40 - does blob8-1234 uint8 -1 NativeEndian die
+ok 41 - does blob8-1234 int8 -1 NativeEndian die
+ok 42 - does blob8-1234 uint8 19 NativeEndian die
+ok 43 - does blob8-1234 int8 19 NativeEndian die
+ok 44 - does blob8-1234 uint8 -1 LittleEndian die
+ok 45 - does blob8-1234 int8 -1 LittleEndian die
+ok 46 - does blob8-1234 uint8 19 LittleEndian die
+ok 47 - does blob8-1234 int8 19 LittleEndian die
+ok 48 - does blob8-1234 uint8 -1 BigEndian die
+ok 49 - does blob8-1234 int8 -1 BigEndian die
+ok 50 - does blob8-1234 uint8 19 BigEndian die
+ok 51 - does blob8-1234 int8 19 BigEndian die
+ok 52 - is blob8-1234 0 uint16 correct
+ok 53 - is blob8-1234 0 uint16 NativeEndian correct
+ok 54 - is blob8-1234 0 int16 correct
+ok 55 - is blob8-1234 0 int16 NativeEndian correct
+ok 56 - is blob8-1234 0 uint16 LittleEndian correct
+ok 57 - is blob8-1234 0 int16 LittleEndian correct
+ok 58 - is blob8-1234 0 uint16 BigEndian correct
+ok 59 - is blob8-1234 0 int16 BigEndian correct
+ok 60 - is blob8-1234 1 uint16 correct
+ok 61 - is blob8-1234 1 uint16 NativeEndian correct
+ok 62 - is blob8-1234 1 int16 correct
+ok 63 - is blob8-1234 1 int16 NativeEndian correct
+ok 64 - is blob8-1234 1 uint16 LittleEndian correct
+ok 65 - is blob8-1234 1 int16 LittleEndian correct
+ok 66 - is blob8-1234 1 uint16 BigEndian correct
+ok 67 - is blob8-1234 1 int16 BigEndian correct
+ok 68 - is blob8-1234 16 uint16 correct
+ok 69 - is blob8-1234 16 uint16 NativeEndian correct
+ok 70 - is blob8-1234 16 int16 correct
+ok 71 - is blob8-1234 16 int16 NativeEndian correct
+ok 72 - is blob8-1234 16 uint16 LittleEndian correct
+ok 73 - is blob8-1234 16 int16 LittleEndian correct
+ok 74 - is blob8-1234 16 uint16 BigEndian correct
+ok 75 - is blob8-1234 16 int16 BigEndian correct
+ok 76 - is blob8-1234 17 uint16 correct
+ok 77 - is blob8-1234 17 uint16 NativeEndian correct
+ok 78 - is blob8-1234 17 int16 correct
+ok 79 - is blob8-1234 17 int16 NativeEndian correct
+ok 80 - is blob8-1234 17 uint16 LittleEndian correct
+ok 81 - is blob8-1234 17 int16 LittleEndian correct
+ok 82 - is blob8-1234 17 uint16 BigEndian correct
+ok 83 - is blob8-1234 17 int16 BigEndian correct
+ok 84 - does Blob[uint8] int16 0 die
+ok 85 - does Blob[uint8] uint16 0 die
+ok 86 - does blob8-1234 uint16 -1 die
+ok 87 - does blob8-1234 int16 -1 die
+ok 88 - does blob8-1234 uint16 18 die
+ok 89 - does blob8-1234 int16 18 die
+ok 90 - does blob8-1234 uint16 -1 NativeEndian die
+ok 91 - does blob8-1234 int16 -1 NativeEndian die
+ok 92 - does blob8-1234 uint16 18 NativeEndian die
+ok 93 - does blob8-1234 int16 18 NativeEndian die
+ok 94 - does blob8-1234 uint16 -1 LittleEndian die
+ok 95 - does blob8-1234 int16 -1 LittleEndian die
+ok 96 - does blob8-1234 uint16 18 LittleEndian die
+ok 97 - does blob8-1234 int16 18 LittleEndian die
+ok 98 - does blob8-1234 uint16 -1 BigEndian die
+ok 99 - does blob8-1234 int16 -1 BigEndian die
+ok 100 - does blob8-1234 uint16 18 BigEndian die
+ok 101 - does blob8-1234 int16 18 BigEndian die
+ok 102 - is blob8-1234 0 uint32 correct
+ok 103 - is blob8-1234 0 uint32 NativeEndian correct
+ok 104 - is blob8-1234 0 int32 correct
+ok 105 - is blob8-1234 0 int32 NativeEndian correct
+ok 106 - is blob8-1234 0 uint32 LittleEndian correct
+ok 107 - is blob8-1234 0 int32 LittleEndian correct
+ok 108 - is blob8-1234 0 uint32 BigEndian correct
+ok 109 - is blob8-1234 0 int32 BigEndian correct
+ok 110 - is blob8-1234 1 uint32 correct
+ok 111 - is blob8-1234 1 uint32 NativeEndian correct
+ok 112 - is blob8-1234 1 int32 correct
+ok 113 - is blob8-1234 1 int32 NativeEndian correct
+ok 114 - is blob8-1234 1 uint32 LittleEndian correct
+ok 115 - is blob8-1234 1 int32 LittleEndian correct
+ok 116 - is blob8-1234 1 uint32 BigEndian correct
+ok 117 - is blob8-1234 1 int32 BigEndian correct
+ok 118 - is blob8-1234 14 uint32 correct
+ok 119 - is blob8-1234 14 uint32 NativeEndian correct
+ok 120 - is blob8-1234 14 int32 correct
+ok 121 - is blob8-1234 14 int32 NativeEndian correct
+ok 122 - is blob8-1234 14 uint32 LittleEndian correct
+ok 123 - is blob8-1234 14 int32 LittleEndian correct
+ok 124 - is blob8-1234 14 uint32 BigEndian correct
+ok 125 - is blob8-1234 14 int32 BigEndian correct
+ok 126 - is blob8-1234 15 uint32 correct
+ok 127 - is blob8-1234 15 uint32 NativeEndian correct
+ok 128 - is blob8-1234 15 int32 correct
+ok 129 - is blob8-1234 15 int32 NativeEndian correct
+ok 130 - is blob8-1234 15 uint32 LittleEndian correct
+ok 131 - is blob8-1234 15 int32 LittleEndian correct
+ok 132 - is blob8-1234 15 uint32 BigEndian correct
+ok 133 - is blob8-1234 15 int32 BigEndian correct
+ok 134 - does Blob[uint8] int32 0 die
+ok 135 - does Blob[uint8] uint32 0 die
+ok 136 - does blob8-1234 uint32 -1 die
+ok 137 - does blob8-1234 int32 -1 die
+ok 138 - does blob8-1234 uint32 16 die
+ok 139 - does blob8-1234 int32 16 die
+ok 140 - does blob8-1234 uint32 -1 NativeEndian die
+ok 141 - does blob8-1234 int32 -1 NativeEndian die
+ok 142 - does blob8-1234 uint32 16 NativeEndian die
+ok 143 - does blob8-1234 int32 16 NativeEndian die
+ok 144 - does blob8-1234 uint32 -1 LittleEndian die
+ok 145 - does blob8-1234 int32 -1 LittleEndian die
+ok 146 - does blob8-1234 uint32 16 LittleEndian die
+ok 147 - does blob8-1234 int32 16 LittleEndian die
+ok 148 - does blob8-1234 uint32 -1 BigEndian die
+ok 149 - does blob8-1234 int32 -1 BigEndian die
+ok 150 - does blob8-1234 uint32 16 BigEndian die
+ok 151 - does blob8-1234 int32 16 BigEndian die
+ok 152 - is blob8-1234 0 uint64 correct
+ok 153 - is blob8-1234 0 uint64 NativeEndian correct
+ok 154 - is blob8-1234 0 int64 correct
+ok 155 - is blob8-1234 0 int64 NativeEndian correct
+ok 156 - is blob8-1234 0 uint64 LittleEndian correct
+ok 157 - is blob8-1234 0 int64 LittleEndian correct
+ok 158 - is blob8-1234 0 uint64 BigEndian correct
+ok 159 - is blob8-1234 0 int64 BigEndian correct
+ok 160 - is blob8-1234 1 uint64 correct
+ok 161 - is blob8-1234 1 uint64 NativeEndian correct
+ok 162 - is blob8-1234 1 int64 correct
+ok 163 - is blob8-1234 1 int64 NativeEndian correct
+ok 164 - is blob8-1234 1 uint64 LittleEndian correct
+ok 165 - is blob8-1234 1 int64 LittleEndian correct
+ok 166 - is blob8-1234 1 uint64 BigEndian correct
+ok 167 - is blob8-1234 1 int64 BigEndian correct
+ok 168 - is blob8-1234 10 uint64 correct
+ok 169 - is blob8-1234 10 uint64 NativeEndian correct
+ok 170 - is blob8-1234 10 int64 correct
+ok 171 - is blob8-1234 10 int64 NativeEndian correct
+ok 172 - is blob8-1234 10 uint64 LittleEndian correct
+ok 173 - is blob8-1234 10 int64 LittleEndian correct
+ok 174 - is blob8-1234 10 uint64 BigEndian correct
+ok 175 - is blob8-1234 10 int64 BigEndian correct
+ok 176 - is blob8-1234 11 uint64 correct
+ok 177 - is blob8-1234 11 uint64 NativeEndian correct
+ok 178 - is blob8-1234 11 int64 correct
+ok 179 - is blob8-1234 11 int64 NativeEndian correct
+ok 180 - is blob8-1234 11 uint64 LittleEndian correct
+ok 181 - is blob8-1234 11 int64 LittleEndian correct
+ok 182 - is blob8-1234 11 uint64 BigEndian correct
+ok 183 - is blob8-1234 11 int64 BigEndian correct
+ok 184 - does Blob[uint8] int64 0 die
+ok 185 - does Blob[uint8] uint64 0 die
+ok 186 - does blob8-1234 uint64 -1 die
+ok 187 - does blob8-1234 int64 -1 die
+ok 188 - does blob8-1234 uint64 12 die
+ok 189 - does blob8-1234 int64 12 die
+ok 190 - does blob8-1234 uint64 -1 NativeEndian die
+ok 191 - does blob8-1234 int64 -1 NativeEndian die
+ok 192 - does blob8-1234 uint64 12 NativeEndian die
+ok 193 - does blob8-1234 int64 12 NativeEndian die
+ok 194 - does blob8-1234 uint64 -1 LittleEndian die
+ok 195 - does blob8-1234 int64 -1 LittleEndian die
+ok 196 - does blob8-1234 uint64 12 LittleEndian die
+ok 197 - does blob8-1234 int64 12 LittleEndian die
+ok 198 - does blob8-1234 uint64 -1 BigEndian die
+ok 199 - does blob8-1234 int64 -1 BigEndian die
+ok 200 - does blob8-1234 uint64 12 BigEndian die
+ok 201 - does blob8-1234 int64 12 BigEndian die
+ok 202 - is blob8-1234 0 uint128 correct
+ok 203 - is blob8-1234 0 uint128 NativeEndian correct
+ok 204 - is blob8-1234 0 int128 correct
+ok 205 - is blob8-1234 0 int128 NativeEndian correct
+ok 206 - is blob8-1234 0 uint128 LittleEndian correct
+ok 207 - is blob8-1234 0 int128 LittleEndian correct
+ok 208 - is blob8-1234 0 uint128 BigEndian correct
+ok 209 - is blob8-1234 0 int128 BigEndian correct
+ok 210 - is blob8-1234 1 uint128 correct
+ok 211 - is blob8-1234 1 uint128 NativeEndian correct
+ok 212 - is blob8-1234 1 int128 correct
+ok 213 - is blob8-1234 1 int128 NativeEndian correct
+ok 214 - is blob8-1234 1 uint128 LittleEndian correct
+ok 215 - is blob8-1234 1 int128 LittleEndian correct
+ok 216 - is blob8-1234 1 uint128 BigEndian correct
+ok 217 - is blob8-1234 1 int128 BigEndian correct
+ok 218 - is blob8-1234 2 uint128 correct
+ok 219 - is blob8-1234 2 uint128 NativeEndian correct
+ok 220 - is blob8-1234 2 int128 correct
+ok 221 - is blob8-1234 2 int128 NativeEndian correct
+ok 222 - is blob8-1234 2 uint128 LittleEndian correct
+ok 223 - is blob8-1234 2 int128 LittleEndian correct
+ok 224 - is blob8-1234 2 uint128 BigEndian correct
+ok 225 - is blob8-1234 2 int128 BigEndian correct
+ok 226 - is blob8-1234 3 uint128 correct
+ok 227 - is blob8-1234 3 uint128 NativeEndian correct
+ok 228 - is blob8-1234 3 int128 correct
+ok 229 - is blob8-1234 3 int128 NativeEndian correct
+ok 230 - is blob8-1234 3 uint128 LittleEndian correct
+ok 231 - is blob8-1234 3 int128 LittleEndian correct
+ok 232 - is blob8-1234 3 uint128 BigEndian correct
+ok 233 - is blob8-1234 3 int128 BigEndian correct
+ok 234 - does Blob[uint8] int128 -1 die
+ok 235 - does Blob[uint8] uint128 -1 die
+ok 236 - does blob8-1234 uint128 -1 die
+ok 237 - does blob8-1234 int128 -1 die
+ok 238 - does blob8-1234 uint128 4 die
+ok 239 - does blob8-1234 int128 4 die
+ok 240 - does blob8-1234 uint128 -1 NativeEndian die
+ok 241 - does blob8-1234 int128 -1 NativeEndian die
+ok 242 - does blob8-1234 uint128 4 NativeEndian die
+ok 243 - does blob8-1234 int128 4 NativeEndian die
+ok 244 - does blob8-1234 uint128 -1 LittleEndian die
+ok 245 - does blob8-1234 int128 -1 LittleEndian die
+ok 246 - does blob8-1234 uint128 4 LittleEndian die
+ok 247 - does blob8-1234 int128 4 LittleEndian die
+ok 248 - does blob8-1234 uint128 -1 BigEndian die
+ok 249 - does blob8-1234 int128 -1 BigEndian die
+ok 250 - does blob8-1234 uint128 4 BigEndian die
+ok 251 - does blob8-1234 int128 4 BigEndian die
+ok 252 - is blob8-255 uint8 0 correct
+ok 253 - is blob8-255 int8 0 correct
+ok 254 - is blob8-255 uint8 0 NativeEndian correct
+ok 255 - is blob8-255 int8 0 NativeEndian correct
+ok 256 - is blob8-255 uint8 0 LittleEndian correct
+ok 257 - is blob8-255 int8 0 LittleEndian correct
+ok 258 - is blob8-255 uint8 0 BigEndian correct
+ok 259 - is blob8-255 int8 0 BigEndian correct
+ok 260 - is blob8-255 uint8 1 correct
+ok 261 - is blob8-255 int8 1 correct
+ok 262 - is blob8-255 uint8 1 NativeEndian correct
+ok 263 - is blob8-255 int8 1 NativeEndian correct
+ok 264 - is blob8-255 uint8 1 LittleEndian correct
+ok 265 - is blob8-255 int8 1 LittleEndian correct
+ok 266 - is blob8-255 uint8 1 BigEndian correct
+ok 267 - is blob8-255 int8 1 BigEndian correct
+ok 268 - is blob8-255 uint8 17 correct
+ok 269 - is blob8-255 int8 17 correct
+ok 270 - is blob8-255 uint8 17 NativeEndian correct
+ok 271 - is blob8-255 int8 17 NativeEndian correct
+ok 272 - is blob8-255 uint8 17 LittleEndian correct
+ok 273 - is blob8-255 int8 17 LittleEndian correct
+ok 274 - is blob8-255 uint8 17 BigEndian correct
+ok 275 - is blob8-255 int8 17 BigEndian correct
+ok 276 - is blob8-255 uint8 18 correct
+ok 277 - is blob8-255 int8 18 correct
+ok 278 - is blob8-255 uint8 18 NativeEndian correct
+ok 279 - is blob8-255 int8 18 NativeEndian correct
+ok 280 - is blob8-255 uint8 18 LittleEndian correct
+ok 281 - is blob8-255 int8 18 LittleEndian correct
+ok 282 - is blob8-255 uint8 18 BigEndian correct
+ok 283 - is blob8-255 int8 18 BigEndian correct
+ok 284 - does  int8 0 die
+ok 285 - does  uint8 0 die
+ok 286 - does blob8-255 int8 -1 die
+ok 287 - does blob8-255 uint8 -1 die
+ok 288 - does blob8-255 int8 -1 die
+ok 289 - does blob8-255 uint8 19 die
+ok 290 - does blob8-255 int8 19 die
+ok 291 - does blob8-255 uint8 -1 NativeEndian die
+ok 292 - does blob8-255 int8 -1 NativeEndian die
+ok 293 - does blob8-255 uint8 19 NativeEndian die
+ok 294 - does blob8-255 int8 19 NativeEndian die
+ok 295 - does blob8-255 uint8 -1 LittleEndian die
+ok 296 - does blob8-255 int8 -1 LittleEndian die
+ok 297 - does blob8-255 uint8 19 LittleEndian die
+ok 298 - does blob8-255 int8 19 LittleEndian die
+ok 299 - does blob8-255 uint8 -1 BigEndian die
+ok 300 - does blob8-255 int8 -1 BigEndian die
+ok 301 - does blob8-255 uint8 19 BigEndian die
+ok 302 - does blob8-255 int8 19 BigEndian die
+ok 303 - is blob8-255 0 uint16 correct
+ok 304 - is blob8-255 0 uint16 NativeEndian correct
+ok 305 - is blob8-255 0 int16 correct
+ok 306 - is blob8-255 0 int16 NativeEndian correct
+ok 307 - is blob8-255 0 uint16 LittleEndian correct
+ok 308 - is blob8-255 0 int16 LittleEndian correct
+ok 309 - is blob8-255 0 uint16 BigEndian correct
+ok 310 - is blob8-255 0 int16 BigEndian correct
+ok 311 - is blob8-255 1 uint16 correct
+ok 312 - is blob8-255 1 uint16 NativeEndian correct
+ok 313 - is blob8-255 1 int16 correct
+ok 314 - is blob8-255 1 int16 NativeEndian correct
+ok 315 - is blob8-255 1 uint16 LittleEndian correct
+ok 316 - is blob8-255 1 int16 LittleEndian correct
+ok 317 - is blob8-255 1 uint16 BigEndian correct
+ok 318 - is blob8-255 1 int16 BigEndian correct
+ok 319 - is blob8-255 16 uint16 correct
+ok 320 - is blob8-255 16 uint16 NativeEndian correct
+ok 321 - is blob8-255 16 int16 correct
+ok 322 - is blob8-255 16 int16 NativeEndian correct
+ok 323 - is blob8-255 16 uint16 LittleEndian correct
+ok 324 - is blob8-255 16 int16 LittleEndian correct
+ok 325 - is blob8-255 16 uint16 BigEndian correct
+ok 326 - is blob8-255 16 int16 BigEndian correct
+ok 327 - is blob8-255 17 uint16 correct
+ok 328 - is blob8-255 17 uint16 NativeEndian correct
+ok 329 - is blob8-255 17 int16 correct
+ok 330 - is blob8-255 17 int16 NativeEndian correct
+ok 331 - is blob8-255 17 uint16 LittleEndian correct
+ok 332 - is blob8-255 17 int16 LittleEndian correct
+ok 333 - is blob8-255 17 uint16 BigEndian correct
+ok 334 - is blob8-255 17 int16 BigEndian correct
+ok 335 - does Blob[uint8] int16 0 die
+ok 336 - does Blob[uint8] uint16 0 die
+ok 337 - does blob8-255 uint16 -1 die
+ok 338 - does blob8-255 int16 -1 die
+ok 339 - does blob8-255 uint16 18 die
+ok 340 - does blob8-255 int16 18 die
+ok 341 - does blob8-255 uint16 -1 NativeEndian die
+ok 342 - does blob8-255 int16 -1 NativeEndian die
+ok 343 - does blob8-255 uint16 18 NativeEndian die
+ok 344 - does blob8-255 int16 18 NativeEndian die
+ok 345 - does blob8-255 uint16 -1 LittleEndian die
+ok 346 - does blob8-255 int16 -1 LittleEndian die
+ok 347 - does blob8-255 uint16 18 LittleEndian die
+ok 348 - does blob8-255 int16 18 LittleEndian die
+ok 349 - does blob8-255 uint16 -1 BigEndian die
+ok 350 - does blob8-255 int16 -1 BigEndian die
+ok 351 - does blob8-255 uint16 18 BigEndian die
+ok 352 - does blob8-255 int16 18 BigEndian die
+ok 353 - is blob8-255 0 uint32 correct
+ok 354 - is blob8-255 0 uint32 NativeEndian correct
+ok 355 - is blob8-255 0 int32 correct
+ok 356 - is blob8-255 0 int32 NativeEndian correct
+ok 357 - is blob8-255 0 uint32 LittleEndian correct
+ok 358 - is blob8-255 0 int32 LittleEndian correct
+ok 359 - is blob8-255 0 uint32 BigEndian correct
+ok 360 - is blob8-255 0 int32 BigEndian correct
+ok 361 - is blob8-255 1 uint32 correct
+ok 362 - is blob8-255 1 uint32 NativeEndian correct
+ok 363 - is blob8-255 1 int32 correct
+ok 364 - is blob8-255 1 int32 NativeEndian correct
+ok 365 - is blob8-255 1 uint32 LittleEndian correct
+ok 366 - is blob8-255 1 int32 LittleEndian correct
+ok 367 - is blob8-255 1 uint32 BigEndian correct
+ok 368 - is blob8-255 1 int32 BigEndian correct
+ok 369 - is blob8-255 14 uint32 correct
+ok 370 - is blob8-255 14 uint32 NativeEndian correct
+ok 371 - is blob8-255 14 int32 correct
+ok 372 - is blob8-255 14 int32 NativeEndian correct
+ok 373 - is blob8-255 14 uint32 LittleEndian correct
+ok 374 - is blob8-255 14 int32 LittleEndian correct
+ok 375 - is blob8-255 14 uint32 BigEndian correct
+ok 376 - is blob8-255 14 int32 BigEndian correct
+ok 377 - is blob8-255 15 uint32 correct
+ok 378 - is blob8-255 15 uint32 NativeEndian correct
+ok 379 - is blob8-255 15 int32 correct
+ok 380 - is blob8-255 15 int32 NativeEndian correct
+ok 381 - is blob8-255 15 uint32 LittleEndian correct
+ok 382 - is blob8-255 15 int32 LittleEndian correct
+ok 383 - is blob8-255 15 uint32 BigEndian correct
+ok 384 - is blob8-255 15 int32 BigEndian correct
+ok 385 - does Blob[uint8] int32 0 die
+ok 386 - does Blob[uint8] uint32 0 die
+ok 387 - does blob8-255 uint32 -1 die
+ok 388 - does blob8-255 int32 -1 die
+ok 389 - does blob8-255 uint32 16 die
+ok 390 - does blob8-255 int32 16 die
+ok 391 - does blob8-255 uint32 -1 NativeEndian die
+ok 392 - does blob8-255 int32 -1 NativeEndian die
+ok 393 - does blob8-255 uint32 16 NativeEndian die
+ok 394 - does blob8-255 int32 16 NativeEndian die
+ok 395 - does blob8-255 uint32 -1 LittleEndian die
+ok 396 - does blob8-255 int32 -1 LittleEndian die
+ok 397 - does blob8-255 uint32 16 LittleEndian die
+ok 398 - does blob8-255 int32 16 LittleEndian die
+ok 399 - does blob8-255 uint32 -1 BigEndian die
+ok 400 - does blob8-255 int32 -1 BigEndian die
+ok 401 - does blob8-255 uint32 16 BigEndian die
+ok 402 - does blob8-255 int32 16 BigEndian die
+ok 403 - is blob8-255 0 uint64 correct
+ok 404 - is blob8-255 0 uint64 NativeEndian correct
+ok 405 - is blob8-255 0 int64 correct
+ok 406 - is blob8-255 0 int64 NativeEndian correct
+ok 407 - is blob8-255 0 uint64 LittleEndian correct
+ok 408 - is blob8-255 0 int64 LittleEndian correct
+ok 409 - is blob8-255 0 uint64 BigEndian correct
+ok 410 - is blob8-255 0 int64 BigEndian correct
+ok 411 - is blob8-255 1 uint64 correct
+ok 412 - is blob8-255 1 uint64 NativeEndian correct
+ok 413 - is blob8-255 1 int64 correct
+ok 414 - is blob8-255 1 int64 NativeEndian correct
+ok 415 - is blob8-255 1 uint64 LittleEndian correct
+ok 416 - is blob8-255 1 int64 LittleEndian correct
+ok 417 - is blob8-255 1 uint64 BigEndian correct
+ok 418 - is blob8-255 1 int64 BigEndian correct
+ok 419 - is blob8-255 10 uint64 correct
+ok 420 - is blob8-255 10 uint64 NativeEndian correct
+ok 421 - is blob8-255 10 int64 correct
+ok 422 - is blob8-255 10 int64 NativeEndian correct
+ok 423 - is blob8-255 10 uint64 LittleEndian correct
+ok 424 - is blob8-255 10 int64 LittleEndian correct
+ok 425 - is blob8-255 10 uint64 BigEndian correct
+ok 426 - is blob8-255 10 int64 BigEndian correct
+ok 427 - is blob8-255 11 uint64 correct
+ok 428 - is blob8-255 11 uint64 NativeEndian correct
+ok 429 - is blob8-255 11 int64 correct
+ok 430 - is blob8-255 11 int64 NativeEndian correct
+ok 431 - is blob8-255 11 uint64 LittleEndian correct
+ok 432 - is blob8-255 11 int64 LittleEndian correct
+ok 433 - is blob8-255 11 uint64 BigEndian correct
+ok 434 - is blob8-255 11 int64 BigEndian correct
+ok 435 - does Blob[uint8] int64 0 die
+ok 436 - does Blob[uint8] uint64 0 die
+ok 437 - does blob8-255 uint64 -1 die
+ok 438 - does blob8-255 int64 -1 die
+ok 439 - does blob8-255 uint64 12 die
+ok 440 - does blob8-255 int64 12 die
+ok 441 - does blob8-255 uint64 -1 NativeEndian die
+ok 442 - does blob8-255 int64 -1 NativeEndian die
+ok 443 - does blob8-255 uint64 12 NativeEndian die
+ok 444 - does blob8-255 int64 12 NativeEndian die
+ok 445 - does blob8-255 uint64 -1 LittleEndian die
+ok 446 - does blob8-255 int64 -1 LittleEndian die
+ok 447 - does blob8-255 uint64 12 LittleEndian die
+ok 448 - does blob8-255 int64 12 LittleEndian die
+ok 449 - does blob8-255 uint64 -1 BigEndian die
+ok 450 - does blob8-255 int64 -1 BigEndian die
+ok 451 - does blob8-255 uint64 12 BigEndian die
+ok 452 - does blob8-255 int64 12 BigEndian die
+ok 453 - is blob8-255 0 uint128 correct
+ok 454 - is blob8-255 0 uint128 NativeEndian correct
+ok 455 - is blob8-255 0 int128 correct
+ok 456 - is blob8-255 0 int128 NativeEndian correct
+ok 457 - is blob8-255 0 uint128 LittleEndian correct
+ok 458 - is blob8-255 0 int128 LittleEndian correct
+ok 459 - is blob8-255 0 uint128 BigEndian correct
+ok 460 - is blob8-255 0 int128 BigEndian correct
+ok 461 - is blob8-255 1 uint128 correct
+ok 462 - is blob8-255 1 uint128 NativeEndian correct
+ok 463 - is blob8-255 1 int128 correct
+ok 464 - is blob8-255 1 int128 NativeEndian correct
+ok 465 - is blob8-255 1 uint128 LittleEndian correct
+ok 466 - is blob8-255 1 int128 LittleEndian correct
+ok 467 - is blob8-255 1 uint128 BigEndian correct
+ok 468 - is blob8-255 1 int128 BigEndian correct
+ok 469 - is blob8-255 2 uint128 correct
+ok 470 - is blob8-255 2 uint128 NativeEndian correct
+ok 471 - is blob8-255 2 int128 correct
+ok 472 - is blob8-255 2 int128 NativeEndian correct
+ok 473 - is blob8-255 2 uint128 LittleEndian correct
+ok 474 - is blob8-255 2 int128 LittleEndian correct
+ok 475 - is blob8-255 2 uint128 BigEndian correct
+ok 476 - is blob8-255 2 int128 BigEndian correct
+ok 477 - is blob8-255 3 uint128 correct
+ok 478 - is blob8-255 3 uint128 NativeEndian correct
+ok 479 - is blob8-255 3 int128 correct
+ok 480 - is blob8-255 3 int128 NativeEndian correct
+ok 481 - is blob8-255 3 uint128 LittleEndian correct
+ok 482 - is blob8-255 3 int128 LittleEndian correct
+ok 483 - is blob8-255 3 uint128 BigEndian correct
+ok 484 - is blob8-255 3 int128 BigEndian correct
+ok 485 - does Blob[uint8] int128 -1 die
+ok 486 - does Blob[uint8] uint128 -1 die
+ok 487 - does blob8-255 uint128 -1 die
+ok 488 - does blob8-255 int128 -1 die
+ok 489 - does blob8-255 uint128 4 die
+ok 490 - does blob8-255 int128 4 die
+ok 491 - does blob8-255 uint128 -1 NativeEndian die
+ok 492 - does blob8-255 int128 -1 NativeEndian die
+ok 493 - does blob8-255 uint128 4 NativeEndian die
+ok 494 - does blob8-255 int128 4 NativeEndian die
+ok 495 - does blob8-255 uint128 -1 LittleEndian die
+ok 496 - does blob8-255 int128 -1 LittleEndian die
+ok 497 - does blob8-255 uint128 4 LittleEndian die
+ok 498 - does blob8-255 int128 4 LittleEndian die
+ok 499 - does blob8-255 uint128 -1 BigEndian die
+ok 500 - does blob8-255 int128 -1 BigEndian die
+ok 501 - does blob8-255 uint128 4 BigEndian die
+ok 502 - does blob8-255 int128 4 BigEndian die
+ok 503 - is blob8-random uint8 0 correct
+ok 504 - is blob8-random int8 0 correct
+ok 505 - is blob8-random uint8 0 NativeEndian correct
+ok 506 - is blob8-random int8 0 NativeEndian correct
+ok 507 - is blob8-random uint8 0 LittleEndian correct
+ok 508 - is blob8-random int8 0 LittleEndian correct
+ok 509 - is blob8-random uint8 0 BigEndian correct
+ok 510 - is blob8-random int8 0 BigEndian correct
+ok 511 - is blob8-random uint8 1 correct
+ok 512 - is blob8-random int8 1 correct
+ok 513 - is blob8-random uint8 1 NativeEndian correct
+ok 514 - is blob8-random int8 1 NativeEndian correct
+ok 515 - is blob8-random uint8 1 LittleEndian correct
+ok 516 - is blob8-random int8 1 LittleEndian correct
+ok 517 - is blob8-random uint8 1 BigEndian correct
+ok 518 - is blob8-random int8 1 BigEndian correct
+ok 519 - is blob8-random uint8 17 correct
+ok 520 - is blob8-random int8 17 correct
+ok 521 - is blob8-random uint8 17 NativeEndian correct
+ok 522 - is blob8-random int8 17 NativeEndian correct
+ok 523 - is blob8-random uint8 17 LittleEndian correct
+ok 524 - is blob8-random int8 17 LittleEndian correct
+ok 525 - is blob8-random uint8 17 BigEndian correct
+ok 526 - is blob8-random int8 17 BigEndian correct
+ok 527 - is blob8-random uint8 18 correct
+ok 528 - is blob8-random int8 18 correct
+ok 529 - is blob8-random uint8 18 NativeEndian correct
+ok 530 - is blob8-random int8 18 NativeEndian correct
+ok 531 - is blob8-random uint8 18 LittleEndian correct
+ok 532 - is blob8-random int8 18 LittleEndian correct
+ok 533 - is blob8-random uint8 18 BigEndian correct
+ok 534 - is blob8-random int8 18 BigEndian correct
+ok 535 - does  int8 0 die
+ok 536 - does  uint8 0 die
+ok 537 - does blob8-random int8 -1 die
+ok 538 - does blob8-random uint8 -1 die
+ok 539 - does blob8-random int8 -1 die
+ok 540 - does blob8-random uint8 19 die
+ok 541 - does blob8-random int8 19 die
+ok 542 - does blob8-random uint8 -1 NativeEndian die
+ok 543 - does blob8-random int8 -1 NativeEndian die
+ok 544 - does blob8-random uint8 19 NativeEndian die
+ok 545 - does blob8-random int8 19 NativeEndian die
+ok 546 - does blob8-random uint8 -1 LittleEndian die
+ok 547 - does blob8-random int8 -1 LittleEndian die
+ok 548 - does blob8-random uint8 19 LittleEndian die
+ok 549 - does blob8-random int8 19 LittleEndian die
+ok 550 - does blob8-random uint8 -1 BigEndian die
+ok 551 - does blob8-random int8 -1 BigEndian die
+ok 552 - does blob8-random uint8 19 BigEndian die
+ok 553 - does blob8-random int8 19 BigEndian die
+ok 554 - is blob8-random 0 uint16 correct
+ok 555 - is blob8-random 0 uint16 NativeEndian correct
+ok 556 - is blob8-random 0 int16 correct
+ok 557 - is blob8-random 0 int16 NativeEndian correct
+ok 558 - is blob8-random 0 uint16 LittleEndian correct
+ok 559 - is blob8-random 0 int16 LittleEndian correct
+ok 560 - is blob8-random 0 uint16 BigEndian correct
+ok 561 - is blob8-random 0 int16 BigEndian correct
+ok 562 - is blob8-random 1 uint16 correct
+ok 563 - is blob8-random 1 uint16 NativeEndian correct
+ok 564 - is blob8-random 1 int16 correct
+ok 565 - is blob8-random 1 int16 NativeEndian correct
+ok 566 - is blob8-random 1 uint16 LittleEndian correct
+ok 567 - is blob8-random 1 int16 LittleEndian correct
+ok 568 - is blob8-random 1 uint16 BigEndian correct
+ok 569 - is blob8-random 1 int16 BigEndian correct
+ok 570 - is blob8-random 16 uint16 correct
+ok 571 - is blob8-random 16 uint16 NativeEndian correct
+ok 572 - is blob8-random 16 int16 correct
+ok 573 - is blob8-random 16 int16 NativeEndian correct
+ok 574 - is blob8-random 16 uint16 LittleEndian correct
+ok 575 - is blob8-random 16 int16 LittleEndian correct
+ok 576 - is blob8-random 16 uint16 BigEndian correct
+ok 577 - is blob8-random 16 int16 BigEndian correct
+ok 578 - is blob8-random 17 uint16 correct
+ok 579 - is blob8-random 17 uint16 NativeEndian correct
+ok 580 - is blob8-random 17 int16 correct
+ok 581 - is blob8-random 17 int16 NativeEndian correct
+ok 582 - is blob8-random 17 uint16 LittleEndian correct
+ok 583 - is blob8-random 17 int16 LittleEndian correct
+ok 584 - is blob8-random 17 uint16 BigEndian correct
+ok 585 - is blob8-random 17 int16 BigEndian correct
+ok 586 - does Blob[uint8] int16 0 die
+ok 587 - does Blob[uint8] uint16 0 die
+ok 588 - does blob8-random uint16 -1 die
+ok 589 - does blob8-random int16 -1 die
+ok 590 - does blob8-random uint16 18 die
+ok 591 - does blob8-random int16 18 die
+ok 592 - does blob8-random uint16 -1 NativeEndian die
+ok 593 - does blob8-random int16 -1 NativeEndian die
+ok 594 - does blob8-random uint16 18 NativeEndian die
+ok 595 - does blob8-random int16 18 NativeEndian die
+ok 596 - does blob8-random uint16 -1 LittleEndian die
+ok 597 - does blob8-random int16 -1 LittleEndian die
+ok 598 - does blob8-random uint16 18 LittleEndian die
+ok 599 - does blob8-random int16 18 LittleEndian die
+ok 600 - does blob8-random uint16 -1 BigEndian die
+ok 601 - does blob8-random int16 -1 BigEndian die
+ok 602 - does blob8-random uint16 18 BigEndian die
+ok 603 - does blob8-random int16 18 BigEndian die
+ok 604 - is blob8-random 0 uint32 correct
+ok 605 - is blob8-random 0 uint32 NativeEndian correct
+ok 606 - is blob8-random 0 int32 correct
+ok 607 - is blob8-random 0 int32 NativeEndian correct
+ok 608 - is blob8-random 0 uint32 LittleEndian correct
+ok 609 - is blob8-random 0 int32 LittleEndian correct
+ok 610 - is blob8-random 0 uint32 BigEndian correct
+ok 611 - is blob8-random 0 int32 BigEndian correct
+ok 612 - is blob8-random 1 uint32 correct
+ok 613 - is blob8-random 1 uint32 NativeEndian correct
+ok 614 - is blob8-random 1 int32 correct
+ok 615 - is blob8-random 1 int32 NativeEndian correct
+ok 616 - is blob8-random 1 uint32 LittleEndian correct
+ok 617 - is blob8-random 1 int32 LittleEndian correct
+ok 618 - is blob8-random 1 uint32 BigEndian correct
+ok 619 - is blob8-random 1 int32 BigEndian correct
+ok 620 - is blob8-random 14 uint32 correct
+ok 621 - is blob8-random 14 uint32 NativeEndian correct
+ok 622 - is blob8-random 14 int32 correct
+ok 623 - is blob8-random 14 int32 NativeEndian correct
+ok 624 - is blob8-random 14 uint32 LittleEndian correct
+ok 625 - is blob8-random 14 int32 LittleEndian correct
+ok 626 - is blob8-random 14 uint32 BigEndian correct
+ok 627 - is blob8-random 14 int32 BigEndian correct
+ok 628 - is blob8-random 15 uint32 correct
+ok 629 - is blob8-random 15 uint32 NativeEndian correct
+ok 630 - is blob8-random 15 int32 correct
+ok 631 - is blob8-random 15 int32 NativeEndian correct
+ok 632 - is blob8-random 15 uint32 LittleEndian correct
+ok 633 - is blob8-random 15 int32 LittleEndian correct
+ok 634 - is blob8-random 15 uint32 BigEndian correct
+ok 635 - is blob8-random 15 int32 BigEndian correct
+ok 636 - does Blob[uint8] int32 0 die
+ok 637 - does Blob[uint8] uint32 0 die
+ok 638 - does blob8-random uint32 -1 die
+ok 639 - does blob8-random int32 -1 die
+ok 640 - does blob8-random uint32 16 die
+ok 641 - does blob8-random int32 16 die
+ok 642 - does blob8-random uint32 -1 NativeEndian die
+ok 643 - does blob8-random int32 -1 NativeEndian die
+ok 644 - does blob8-random uint32 16 NativeEndian die
+ok 645 - does blob8-random int32 16 NativeEndian die
+ok 646 - does blob8-random uint32 -1 LittleEndian die
+ok 647 - does blob8-random int32 -1 LittleEndian die
+ok 648 - does blob8-random uint32 16 LittleEndian die
+ok 649 - does blob8-random int32 16 LittleEndian die
+ok 650 - does blob8-random uint32 -1 BigEndian die
+ok 651 - does blob8-random int32 -1 BigEndian die
+ok 652 - does blob8-random uint32 16 BigEndian die
+ok 653 - does blob8-random int32 16 BigEndian die
+ok 654 - is blob8-random 0 uint64 correct
+ok 655 - is blob8-random 0 uint64 NativeEndian correct
+ok 656 - is blob8-random 0 int64 correct
+ok 657 - is blob8-random 0 int64 NativeEndian correct
+ok 658 - is blob8-random 0 uint64 LittleEndian correct
+ok 659 - is blob8-random 0 int64 LittleEndian correct
+ok 660 - is blob8-random 0 uint64 BigEndian correct
+ok 661 - is blob8-random 0 int64 BigEndian correct
+ok 662 - is blob8-random 1 uint64 correct
+ok 663 - is blob8-random 1 uint64 NativeEndian correct
+ok 664 - is blob8-random 1 int64 correct
+ok 665 - is blob8-random 1 int64 NativeEndian correct
+ok 666 - is blob8-random 1 uint64 LittleEndian correct
+ok 667 - is blob8-random 1 int64 LittleEndian correct
+ok 668 - is blob8-random 1 uint64 BigEndian correct
+ok 669 - is blob8-random 1 int64 BigEndian correct
+ok 670 - is blob8-random 10 uint64 correct
+ok 671 - is blob8-random 10 uint64 NativeEndian correct
+ok 672 - is blob8-random 10 int64 correct
+ok 673 - is blob8-random 10 int64 NativeEndian correct
+ok 674 - is blob8-random 10 uint64 LittleEndian correct
+ok 675 - is blob8-random 10 int64 LittleEndian correct
+ok 676 - is blob8-random 10 uint64 BigEndian correct
+ok 677 - is blob8-random 10 int64 BigEndian correct
+ok 678 - is blob8-random 11 uint64 correct
+ok 679 - is blob8-random 11 uint64 NativeEndian correct
+ok 680 - is blob8-random 11 int64 correct
+ok 681 - is blob8-random 11 int64 NativeEndian correct
+ok 682 - is blob8-random 11 uint64 LittleEndian correct
+ok 683 - is blob8-random 11 int64 LittleEndian correct
+ok 684 - is blob8-random 11 uint64 BigEndian correct
+ok 685 - is blob8-random 11 int64 BigEndian correct
+ok 686 - does Blob[uint8] int64 0 die
+ok 687 - does Blob[uint8] uint64 0 die
+ok 688 - does blob8-random uint64 -1 die
+ok 689 - does blob8-random int64 -1 die
+ok 690 - does blob8-random uint64 12 die
+ok 691 - does blob8-random int64 12 die
+ok 692 - does blob8-random uint64 -1 NativeEndian die
+ok 693 - does blob8-random int64 -1 NativeEndian die
+ok 694 - does blob8-random uint64 12 NativeEndian die
+ok 695 - does blob8-random int64 12 NativeEndian die
+ok 696 - does blob8-random uint64 -1 LittleEndian die
+ok 697 - does blob8-random int64 -1 LittleEndian die
+ok 698 - does blob8-random uint64 12 LittleEndian die
+ok 699 - does blob8-random int64 12 LittleEndian die
+ok 700 - does blob8-random uint64 -1 BigEndian die
+ok 701 - does blob8-random int64 -1 BigEndian die
+ok 702 - does blob8-random uint64 12 BigEndian die
+ok 703 - does blob8-random int64 12 BigEndian die
+ok 704 - is blob8-random 0 uint128 correct
+ok 705 - is blob8-random 0 uint128 NativeEndian correct
+ok 706 - is blob8-random 0 int128 correct
+ok 707 - is blob8-random 0 int128 NativeEndian correct
+ok 708 - is blob8-random 0 uint128 LittleEndian correct
+ok 709 - is blob8-random 0 int128 LittleEndian correct
+ok 710 - is blob8-random 0 uint128 BigEndian correct
+ok 711 - is blob8-random 0 int128 BigEndian correct
+ok 712 - is blob8-random 1 uint128 correct
+ok 713 - is blob8-random 1 uint128 NativeEndian correct
+ok 714 - is blob8-random 1 int128 correct
+ok 715 - is blob8-random 1 int128 NativeEndian correct
+ok 716 - is blob8-random 1 uint128 LittleEndian correct
+ok 717 - is blob8-random 1 int128 LittleEndian correct
+ok 718 - is blob8-random 1 uint128 BigEndian correct
+ok 719 - is blob8-random 1 int128 BigEndian correct
+ok 720 - is blob8-random 2 uint128 correct
+ok 721 - is blob8-random 2 uint128 NativeEndian correct
+ok 722 - is blob8-random 2 int128 correct
+ok 723 - is blob8-random 2 int128 NativeEndian correct
+ok 724 - is blob8-random 2 uint128 LittleEndian correct
+ok 725 - is blob8-random 2 int128 LittleEndian correct
+ok 726 - is blob8-random 2 uint128 BigEndian correct
+ok 727 - is blob8-random 2 int128 BigEndian correct
+ok 728 - is blob8-random 3 uint128 correct
+ok 729 - is blob8-random 3 uint128 NativeEndian correct
+ok 730 - is blob8-random 3 int128 correct
+ok 731 - is blob8-random 3 int128 NativeEndian correct
+ok 732 - is blob8-random 3 uint128 LittleEndian correct
+ok 733 - is blob8-random 3 int128 LittleEndian correct
+ok 734 - is blob8-random 3 uint128 BigEndian correct
+ok 735 - is blob8-random 3 int128 BigEndian correct
+ok 736 - does Blob[uint8] int128 -1 die
+ok 737 - does Blob[uint8] uint128 -1 die
+ok 738 - does blob8-random uint128 -1 die
+ok 739 - does blob8-random int128 -1 die
+ok 740 - does blob8-random uint128 4 die
+ok 741 - does blob8-random int128 4 die
+ok 742 - does blob8-random uint128 -1 NativeEndian die
+ok 743 - does blob8-random int128 -1 NativeEndian die
+ok 744 - does blob8-random uint128 4 NativeEndian die
+ok 745 - does blob8-random int128 4 NativeEndian die
+ok 746 - does blob8-random uint128 -1 LittleEndian die
+ok 747 - does blob8-random int128 -1 LittleEndian die
+ok 748 - does blob8-random uint128 4 LittleEndian die
+ok 749 - does blob8-random int128 4 LittleEndian die
+ok 750 - does blob8-random uint128 -1 BigEndian die
+ok 751 - does blob8-random int128 -1 BigEndian die
+ok 752 - does blob8-random uint128 4 BigEndian die
+ok 753 - does blob8-random int128 4 BigEndian die
+ok 754 - is Blob[uint8]-random uint8 0 correct
+ok 755 - is Blob[uint8]-random int8 0 correct
+ok 756 - is Blob[uint8]-random uint8 0 NativeEndian correct
+ok 757 - is Blob[uint8]-random int8 0 NativeEndian correct
+ok 758 - is Blob[uint8]-random uint8 0 LittleEndian correct
+ok 759 - is Blob[uint8]-random int8 0 LittleEndian correct
+ok 760 - is Blob[uint8]-random uint8 0 BigEndian correct
+ok 761 - is Blob[uint8]-random int8 0 BigEndian correct
+ok 762 - is Blob[uint8]-random uint8 1 correct
+ok 763 - is Blob[uint8]-random int8 1 correct
+ok 764 - is Blob[uint8]-random uint8 1 NativeEndian correct
+ok 765 - is Blob[uint8]-random int8 1 NativeEndian correct
+ok 766 - is Blob[uint8]-random uint8 1 LittleEndian correct
+ok 767 - is Blob[uint8]-random int8 1 LittleEndian correct
+ok 768 - is Blob[uint8]-random uint8 1 BigEndian correct
+ok 769 - is Blob[uint8]-random int8 1 BigEndian correct
+ok 770 - is Blob[uint8]-random uint8 17 correct
+ok 771 - is Blob[uint8]-random int8 17 correct
+ok 772 - is Blob[uint8]-random uint8 17 NativeEndian correct
+ok 773 - is Blob[uint8]-random int8 17 NativeEndian correct
+ok 774 - is Blob[uint8]-random uint8 17 LittleEndian correct
+ok 775 - is Blob[uint8]-random int8 17 LittleEndian correct
+ok 776 - is Blob[uint8]-random uint8 17 BigEndian correct
+ok 777 - is Blob[uint8]-random int8 17 BigEndian correct
+ok 778 - is Blob[uint8]-random uint8 18 correct
+ok 779 - is Blob[uint8]-random int8 18 correct
+ok 780 - is Blob[uint8]-random uint8 18 NativeEndian correct
+ok 781 - is Blob[uint8]-random int8 18 NativeEndian correct
+ok 782 - is Blob[uint8]-random uint8 18 LittleEndian correct
+ok 783 - is Blob[uint8]-random int8 18 LittleEndian correct
+ok 784 - is Blob[uint8]-random uint8 18 BigEndian correct
+ok 785 - is Blob[uint8]-random int8 18 BigEndian correct
+ok 786 - does  int8 0 die
+ok 787 - does  uint8 0 die
+ok 788 - does Blob[uint8]-random int8 -1 die
+ok 789 - does Blob[uint8]-random uint8 -1 die
+ok 790 - does Blob[uint8]-random int8 -1 die
+ok 791 - does Blob[uint8]-random uint8 19 die
+ok 792 - does Blob[uint8]-random int8 19 die
+ok 793 - does Blob[uint8]-random uint8 -1 NativeEndian die
+ok 794 - does Blob[uint8]-random int8 -1 NativeEndian die
+ok 795 - does Blob[uint8]-random uint8 19 NativeEndian die
+ok 796 - does Blob[uint8]-random int8 19 NativeEndian die
+ok 797 - does Blob[uint8]-random uint8 -1 LittleEndian die
+ok 798 - does Blob[uint8]-random int8 -1 LittleEndian die
+ok 799 - does Blob[uint8]-random uint8 19 LittleEndian die
+ok 800 - does Blob[uint8]-random int8 19 LittleEndian die
+ok 801 - does Blob[uint8]-random uint8 -1 BigEndian die
+ok 802 - does Blob[uint8]-random int8 -1 BigEndian die
+ok 803 - does Blob[uint8]-random uint8 19 BigEndian die
+ok 804 - does Blob[uint8]-random int8 19 BigEndian die
+ok 805 - is Blob[uint8]-random 0 uint16 correct
+ok 806 - is Blob[uint8]-random 0 uint16 NativeEndian correct
+ok 807 - is Blob[uint8]-random 0 int16 correct
+ok 808 - is Blob[uint8]-random 0 int16 NativeEndian correct
+ok 809 - is Blob[uint8]-random 0 uint16 LittleEndian correct
+ok 810 - is Blob[uint8]-random 0 int16 LittleEndian correct
+ok 811 - is Blob[uint8]-random 0 uint16 BigEndian correct
+ok 812 - is Blob[uint8]-random 0 int16 BigEndian correct
+ok 813 - is Blob[uint8]-random 1 uint16 correct
+ok 814 - is Blob[uint8]-random 1 uint16 NativeEndian correct
+ok 815 - is Blob[uint8]-random 1 int16 correct
+ok 816 - is Blob[uint8]-random 1 int16 NativeEndian correct
+ok 817 - is Blob[uint8]-random 1 uint16 LittleEndian correct
+ok 818 - is Blob[uint8]-random 1 int16 LittleEndian correct
+ok 819 - is Blob[uint8]-random 1 uint16 BigEndian correct
+ok 820 - is Blob[uint8]-random 1 int16 BigEndian correct
+ok 821 - is Blob[uint8]-random 16 uint16 correct
+ok 822 - is Blob[uint8]-random 16 uint16 NativeEndian correct
+ok 823 - is Blob[uint8]-random 16 int16 correct
+ok 824 - is Blob[uint8]-random 16 int16 NativeEndian correct
+ok 825 - is Blob[uint8]-random 16 uint16 LittleEndian correct
+ok 826 - is Blob[uint8]-random 16 int16 LittleEndian correct
+ok 827 - is Blob[uint8]-random 16 uint16 BigEndian correct
+ok 828 - is Blob[uint8]-random 16 int16 BigEndian correct
+ok 829 - is Blob[uint8]-random 17 uint16 correct
+ok 830 - is Blob[uint8]-random 17 uint16 NativeEndian correct
+ok 831 - is Blob[uint8]-random 17 int16 correct
+ok 832 - is Blob[uint8]-random 17 int16 NativeEndian correct
+ok 833 - is Blob[uint8]-random 17 uint16 LittleEndian correct
+ok 834 - is Blob[uint8]-random 17 int16 LittleEndian correct
+ok 835 - is Blob[uint8]-random 17 uint16 BigEndian correct
+ok 836 - is Blob[uint8]-random 17 int16 BigEndian correct
+ok 837 - does Blob[uint8] int16 0 die
+ok 838 - does Blob[uint8] uint16 0 die
+ok 839 - does Blob[uint8]-random uint16 -1 die
+ok 840 - does Blob[uint8]-random int16 -1 die
+ok 841 - does Blob[uint8]-random uint16 18 die
+ok 842 - does Blob[uint8]-random int16 18 die
+ok 843 - does Blob[uint8]-random uint16 -1 NativeEndian die
+ok 844 - does Blob[uint8]-random int16 -1 NativeEndian die
+ok 845 - does Blob[uint8]-random uint16 18 NativeEndian die
+ok 846 - does Blob[uint8]-random int16 18 NativeEndian die
+ok 847 - does Blob[uint8]-random uint16 -1 LittleEndian die
+ok 848 - does Blob[uint8]-random int16 -1 LittleEndian die
+ok 849 - does Blob[uint8]-random uint16 18 LittleEndian die
+ok 850 - does Blob[uint8]-random int16 18 LittleEndian die
+ok 851 - does Blob[uint8]-random uint16 -1 BigEndian die
+ok 852 - does Blob[uint8]-random int16 -1 BigEndian die
+ok 853 - does Blob[uint8]-random uint16 18 BigEndian die
+ok 854 - does Blob[uint8]-random int16 18 BigEndian die
+ok 855 - is Blob[uint8]-random 0 uint32 correct
+ok 856 - is Blob[uint8]-random 0 uint32 NativeEndian correct
+ok 857 - is Blob[uint8]-random 0 int32 correct
+ok 858 - is Blob[uint8]-random 0 int32 NativeEndian correct
+ok 859 - is Blob[uint8]-random 0 uint32 LittleEndian correct
+ok 860 - is Blob[uint8]-random 0 int32 LittleEndian correct
+ok 861 - is Blob[uint8]-random 0 uint32 BigEndian correct
+ok 862 - is Blob[uint8]-random 0 int32 BigEndian correct
+ok 863 - is Blob[uint8]-random 1 uint32 correct
+ok 864 - is Blob[uint8]-random 1 uint32 NativeEndian correct
+ok 865 - is Blob[uint8]-random 1 int32 correct
+ok 866 - is Blob[uint8]-random 1 int32 NativeEndian correct
+ok 867 - is Blob[uint8]-random 1 uint32 LittleEndian correct
+ok 868 - is Blob[uint8]-random 1 int32 LittleEndian correct
+ok 869 - is Blob[uint8]-random 1 uint32 BigEndian correct
+ok 870 - is Blob[uint8]-random 1 int32 BigEndian correct
+ok 871 - is Blob[uint8]-random 14 uint32 correct
+ok 872 - is Blob[uint8]-random 14 uint32 NativeEndian correct
+ok 873 - is Blob[uint8]-random 14 int32 correct
+ok 874 - is Blob[uint8]-random 14 int32 NativeEndian correct
+ok 875 - is Blob[uint8]-random 14 uint32 LittleEndian correct
+ok 876 - is Blob[uint8]-random 14 int32 LittleEndian correct
+ok 877 - is Blob[uint8]-random 14 uint32 BigEndian correct
+ok 878 - is Blob[uint8]-random 14 int32 BigEndian correct
+ok 879 - is Blob[uint8]-random 15 uint32 correct
+ok 880 - is Blob[uint8]-random 15 uint32 NativeEndian correct
+ok 881 - is Blob[uint8]-random 15 int32 correct
+ok 882 - is Blob[uint8]-random 15 int32 NativeEndian correct
+ok 883 - is Blob[uint8]-random 15 uint32 LittleEndian correct
+ok 884 - is Blob[uint8]-random 15 int32 LittleEndian correct
+ok 885 - is Blob[uint8]-random 15 uint32 BigEndian correct
+ok 886 - is Blob[uint8]-random 15 int32 BigEndian correct
+ok 887 - does Blob[uint8] int32 0 die
+ok 888 - does Blob[uint8] uint32 0 die
+ok 889 - does Blob[uint8]-random uint32 -1 die
+ok 890 - does Blob[uint8]-random int32 -1 die
+ok 891 - does Blob[uint8]-random uint32 16 die
+ok 892 - does Blob[uint8]-random int32 16 die
+ok 893 - does Blob[uint8]-random uint32 -1 NativeEndian die
+ok 894 - does Blob[uint8]-random int32 -1 NativeEndian die
+ok 895 - does Blob[uint8]-random uint32 16 NativeEndian die
+ok 896 - does Blob[uint8]-random int32 16 NativeEndian die
+ok 897 - does Blob[uint8]-random uint32 -1 LittleEndian die
+ok 898 - does Blob[uint8]-random int32 -1 LittleEndian die
+ok 899 - does Blob[uint8]-random uint32 16 LittleEndian die
+ok 900 - does Blob[uint8]-random int32 16 LittleEndian die
+ok 901 - does Blob[uint8]-random uint32 -1 BigEndian die
+ok 902 - does Blob[uint8]-random int32 -1 BigEndian die
+ok 903 - does Blob[uint8]-random uint32 16 BigEndian die
+ok 904 - does Blob[uint8]-random int32 16 BigEndian die
+ok 905 - is Blob[uint8]-random 0 uint64 correct
+ok 906 - is Blob[uint8]-random 0 uint64 NativeEndian correct
+ok 907 - is Blob[uint8]-random 0 int64 correct
+ok 908 - is Blob[uint8]-random 0 int64 NativeEndian correct
+ok 909 - is Blob[uint8]-random 0 uint64 LittleEndian correct
+ok 910 - is Blob[uint8]-random 0 int64 LittleEndian correct
+ok 911 - is Blob[uint8]-random 0 uint64 BigEndian correct
+ok 912 - is Blob[uint8]-random 0 int64 BigEndian correct
+ok 913 - is Blob[uint8]-random 1 uint64 correct
+ok 914 - is Blob[uint8]-random 1 uint64 NativeEndian correct
+ok 915 - is Blob[uint8]-random 1 int64 correct
+ok 916 - is Blob[uint8]-random 1 int64 NativeEndian correct
+ok 917 - is Blob[uint8]-random 1 uint64 LittleEndian correct
+ok 918 - is Blob[uint8]-random 1 int64 LittleEndian correct
+ok 919 - is Blob[uint8]-random 1 uint64 BigEndian correct
+ok 920 - is Blob[uint8]-random 1 int64 BigEndian correct
+ok 921 - is Blob[uint8]-random 10 uint64 correct
+ok 922 - is Blob[uint8]-random 10 uint64 NativeEndian correct
+ok 923 - is Blob[uint8]-random 10 int64 correct
+ok 924 - is Blob[uint8]-random 10 int64 NativeEndian correct
+ok 925 - is Blob[uint8]-random 10 uint64 LittleEndian correct
+ok 926 - is Blob[uint8]-random 10 int64 LittleEndian correct
+ok 927 - is Blob[uint8]-random 10 uint64 BigEndian correct
+ok 928 - is Blob[uint8]-random 10 int64 BigEndian correct
+ok 929 - is Blob[uint8]-random 11 uint64 correct
+ok 930 - is Blob[uint8]-random 11 uint64 NativeEndian correct
+ok 931 - is Blob[uint8]-random 11 int64 correct
+ok 932 - is Blob[uint8]-random 11 int64 NativeEndian correct
+ok 933 - is Blob[uint8]-random 11 uint64 LittleEndian correct
+ok 934 - is Blob[uint8]-random 11 int64 LittleEndian correct
+ok 935 - is Blob[uint8]-random 11 uint64 BigEndian correct
+ok 936 - is Blob[uint8]-random 11 int64 BigEndian correct
+ok 937 - does Blob[uint8] int64 0 die
+ok 938 - does Blob[uint8] uint64 0 die
+ok 939 - does Blob[uint8]-random uint64 -1 die
+ok 940 - does Blob[uint8]-random int64 -1 die
+ok 941 - does Blob[uint8]-random uint64 12 die
+ok 942 - does Blob[uint8]-random int64 12 die
+ok 943 - does Blob[uint8]-random uint64 -1 NativeEndian die
+ok 944 - does Blob[uint8]-random int64 -1 NativeEndian die
+ok 945 - does Blob[uint8]-random uint64 12 NativeEndian die
+ok 946 - does Blob[uint8]-random int64 12 NativeEndian die
+ok 947 - does Blob[uint8]-random uint64 -1 LittleEndian die
+ok 948 - does Blob[uint8]-random int64 -1 LittleEndian die
+ok 949 - does Blob[uint8]-random uint64 12 LittleEndian die
+ok 950 - does Blob[uint8]-random int64 12 LittleEndian die
+ok 951 - does Blob[uint8]-random uint64 -1 BigEndian die
+ok 952 - does Blob[uint8]-random int64 -1 BigEndian die
+ok 953 - does Blob[uint8]-random uint64 12 BigEndian die
+ok 954 - does Blob[uint8]-random int64 12 BigEndian die
+ok 955 - is Blob[uint8]-random 0 uint128 correct
+ok 956 - is Blob[uint8]-random 0 uint128 NativeEndian correct
+ok 957 - is Blob[uint8]-random 0 int128 correct
+ok 958 - is Blob[uint8]-random 0 int128 NativeEndian correct
+ok 959 - is Blob[uint8]-random 0 uint128 LittleEndian correct
+ok 960 - is Blob[uint8]-random 0 int128 LittleEndian correct
+ok 961 - is Blob[uint8]-random 0 uint128 BigEndian correct
+ok 962 - is Blob[uint8]-random 0 int128 BigEndian correct
+ok 963 - is Blob[uint8]-random 1 uint128 correct
+ok 964 - is Blob[uint8]-random 1 uint128 NativeEndian correct
+ok 965 - is Blob[uint8]-random 1 int128 correct
+ok 966 - is Blob[uint8]-random 1 int128 NativeEndian correct
+ok 967 - is Blob[uint8]-random 1 uint128 LittleEndian correct
+ok 968 - is Blob[uint8]-random 1 int128 LittleEndian correct
+ok 969 - is Blob[uint8]-random 1 uint128 BigEndian correct
+ok 970 - is Blob[uint8]-random 1 int128 BigEndian correct
+ok 971 - is Blob[uint8]-random 2 uint128 correct
+ok 972 - is Blob[uint8]-random 2 uint128 NativeEndian correct
+ok 973 - is Blob[uint8]-random 2 int128 correct
+ok 974 - is Blob[uint8]-random 2 int128 NativeEndian correct
+ok 975 - is Blob[uint8]-random 2 uint128 LittleEndian correct
+ok 976 - is Blob[uint8]-random 2 int128 LittleEndian correct
+ok 977 - is Blob[uint8]-random 2 uint128 BigEndian correct
+ok 978 - is Blob[uint8]-random 2 int128 BigEndian correct
+ok 979 - is Blob[uint8]-random 3 uint128 correct
+ok 980 - is Blob[uint8]-random 3 uint128 NativeEndian correct
+ok 981 - is Blob[uint8]-random 3 int128 correct
+ok 982 - is Blob[uint8]-random 3 int128 NativeEndian correct
+ok 983 - is Blob[uint8]-random 3 uint128 LittleEndian correct
+ok 984 - is Blob[uint8]-random 3 int128 LittleEndian correct
+ok 985 - is Blob[uint8]-random 3 uint128 BigEndian correct
+ok 986 - is Blob[uint8]-random 3 int128 BigEndian correct
+ok 987 - does Blob[uint8] int128 -1 die
+ok 988 - does Blob[uint8] uint128 -1 die
+ok 989 - does Blob[uint8]-random uint128 -1 die
+ok 990 - does Blob[uint8]-random int128 -1 die
+ok 991 - does Blob[uint8]-random uint128 4 die
+ok 992 - does Blob[uint8]-random int128 4 die
+ok 993 - does Blob[uint8]-random uint128 -1 NativeEndian die
+ok 994 - does Blob[uint8]-random int128 -1 NativeEndian die
+ok 995 - does Blob[uint8]-random uint128 4 NativeEndian die
+ok 996 - does Blob[uint8]-random int128 4 NativeEndian die
+ok 997 - does Blob[uint8]-random uint128 -1 LittleEndian die
+ok 998 - does Blob[uint8]-random int128 -1 LittleEndian die
+ok 999 - does Blob[uint8]-random uint128 4 LittleEndian die
+ok 1000 - does Blob[uint8]-random int128 4 LittleEndian die
+ok 1001 - does Blob[uint8]-random uint128 -1 BigEndian die
+ok 1002 - does Blob[uint8]-random int128 -1 BigEndian die
+ok 1003 - does Blob[uint8]-random uint128 4 BigEndian die
+ok 1004 - does Blob[uint8]-random int128 4 BigEndian die
+ok 1005 - is buf8-1234 uint8 0 correct
+ok 1006 - is buf8-1234 int8 0 correct
+ok 1007 - is buf8-1234 uint8 0 NativeEndian correct
+ok 1008 - is buf8-1234 int8 0 NativeEndian correct
+ok 1009 - is buf8-1234 uint8 0 LittleEndian correct
+ok 1010 - is buf8-1234 int8 0 LittleEndian correct
+ok 1011 - is buf8-1234 uint8 0 BigEndian correct
+ok 1012 - is buf8-1234 int8 0 BigEndian correct
+ok 1013 - is buf8-1234 uint8 1 correct
+ok 1014 - is buf8-1234 int8 1 correct
+ok 1015 - is buf8-1234 uint8 1 NativeEndian correct
+ok 1016 - is buf8-1234 int8 1 NativeEndian correct
+ok 1017 - is buf8-1234 uint8 1 LittleEndian correct
+ok 1018 - is buf8-1234 int8 1 LittleEndian correct
+ok 1019 - is buf8-1234 uint8 1 BigEndian correct
+ok 1020 - is buf8-1234 int8 1 BigEndian correct
+ok 1021 - is buf8-1234 uint8 17 correct
+ok 1022 - is buf8-1234 int8 17 correct
+ok 1023 - is buf8-1234 uint8 17 NativeEndian correct
+ok 1024 - is buf8-1234 int8 17 NativeEndian correct
+ok 1025 - is buf8-1234 uint8 17 LittleEndian correct
+ok 1026 - is buf8-1234 int8 17 LittleEndian correct
+ok 1027 - is buf8-1234 uint8 17 BigEndian correct
+ok 1028 - is buf8-1234 int8 17 BigEndian correct
+ok 1029 - is buf8-1234 uint8 18 correct
+ok 1030 - is buf8-1234 int8 18 correct
+ok 1031 - is buf8-1234 uint8 18 NativeEndian correct
+ok 1032 - is buf8-1234 int8 18 NativeEndian correct
+ok 1033 - is buf8-1234 uint8 18 LittleEndian correct
+ok 1034 - is buf8-1234 int8 18 LittleEndian correct
+ok 1035 - is buf8-1234 uint8 18 BigEndian correct
+ok 1036 - is buf8-1234 int8 18 BigEndian correct
+ok 1037 - does  int8 0 die
+ok 1038 - does  uint8 0 die
+ok 1039 - does buf8-1234 int8 -1 die
+ok 1040 - does buf8-1234 uint8 -1 die
+ok 1041 - does buf8-1234 int8 -1 die
+ok 1042 - does buf8-1234 uint8 19 die
+ok 1043 - does buf8-1234 int8 19 die
+ok 1044 - does buf8-1234 uint8 -1 NativeEndian die
+ok 1045 - does buf8-1234 int8 -1 NativeEndian die
+ok 1046 - does buf8-1234 uint8 19 NativeEndian die
+ok 1047 - does buf8-1234 int8 19 NativeEndian die
+ok 1048 - does buf8-1234 uint8 -1 LittleEndian die
+ok 1049 - does buf8-1234 int8 -1 LittleEndian die
+ok 1050 - does buf8-1234 uint8 19 LittleEndian die
+ok 1051 - does buf8-1234 int8 19 LittleEndian die
+ok 1052 - does buf8-1234 uint8 -1 BigEndian die
+ok 1053 - does buf8-1234 int8 -1 BigEndian die
+ok 1054 - does buf8-1234 uint8 19 BigEndian die
+ok 1055 - does buf8-1234 int8 19 BigEndian die
+ok 1056 - is buf8-1234 0 uint16 correct
+ok 1057 - is buf8-1234 0 uint16 NativeEndian correct
+ok 1058 - is buf8-1234 0 int16 correct
+ok 1059 - is buf8-1234 0 int16 NativeEndian correct
+ok 1060 - is buf8-1234 0 uint16 LittleEndian correct
+ok 1061 - is buf8-1234 0 int16 LittleEndian correct
+ok 1062 - is buf8-1234 0 uint16 BigEndian correct
+ok 1063 - is buf8-1234 0 int16 BigEndian correct
+ok 1064 - is buf8-1234 1 uint16 correct
+ok 1065 - is buf8-1234 1 uint16 NativeEndian correct
+ok 1066 - is buf8-1234 1 int16 correct
+ok 1067 - is buf8-1234 1 int16 NativeEndian correct
+ok 1068 - is buf8-1234 1 uint16 LittleEndian correct
+ok 1069 - is buf8-1234 1 int16 LittleEndian correct
+ok 1070 - is buf8-1234 1 uint16 BigEndian correct
+ok 1071 - is buf8-1234 1 int16 BigEndian correct
+ok 1072 - is buf8-1234 16 uint16 correct
+ok 1073 - is buf8-1234 16 uint16 NativeEndian correct
+ok 1074 - is buf8-1234 16 int16 correct
+ok 1075 - is buf8-1234 16 int16 NativeEndian correct
+ok 1076 - is buf8-1234 16 uint16 LittleEndian correct
+ok 1077 - is buf8-1234 16 int16 LittleEndian correct
+ok 1078 - is buf8-1234 16 uint16 BigEndian correct
+ok 1079 - is buf8-1234 16 int16 BigEndian correct
+ok 1080 - is buf8-1234 17 uint16 correct
+ok 1081 - is buf8-1234 17 uint16 NativeEndian correct
+ok 1082 - is buf8-1234 17 int16 correct
+ok 1083 - is buf8-1234 17 int16 NativeEndian correct
+ok 1084 - is buf8-1234 17 uint16 LittleEndian correct
+ok 1085 - is buf8-1234 17 int16 LittleEndian correct
+ok 1086 - is buf8-1234 17 uint16 BigEndian correct
+ok 1087 - is buf8-1234 17 int16 BigEndian correct
+ok 1088 - does Buf[uint8] int16 0 die
+ok 1089 - does Buf[uint8] uint16 0 die
+ok 1090 - does buf8-1234 uint16 -1 die
+ok 1091 - does buf8-1234 int16 -1 die
+ok 1092 - does buf8-1234 uint16 18 die
+ok 1093 - does buf8-1234 int16 18 die
+ok 1094 - does buf8-1234 uint16 -1 NativeEndian die
+ok 1095 - does buf8-1234 int16 -1 NativeEndian die
+ok 1096 - does buf8-1234 uint16 18 NativeEndian die
+ok 1097 - does buf8-1234 int16 18 NativeEndian die
+ok 1098 - does buf8-1234 uint16 -1 LittleEndian die
+ok 1099 - does buf8-1234 int16 -1 LittleEndian die
+ok 1100 - does buf8-1234 uint16 18 LittleEndian die
+ok 1101 - does buf8-1234 int16 18 LittleEndian die
+ok 1102 - does buf8-1234 uint16 -1 BigEndian die
+ok 1103 - does buf8-1234 int16 -1 BigEndian die
+ok 1104 - does buf8-1234 uint16 18 BigEndian die
+ok 1105 - does buf8-1234 int16 18 BigEndian die
+ok 1106 - is buf8-1234 0 uint32 correct
+ok 1107 - is buf8-1234 0 uint32 NativeEndian correct
+ok 1108 - is buf8-1234 0 int32 correct
+ok 1109 - is buf8-1234 0 int32 NativeEndian correct
+ok 1110 - is buf8-1234 0 uint32 LittleEndian correct
+ok 1111 - is buf8-1234 0 int32 LittleEndian correct
+ok 1112 - is buf8-1234 0 uint32 BigEndian correct
+ok 1113 - is buf8-1234 0 int32 BigEndian correct
+ok 1114 - is buf8-1234 1 uint32 correct
+ok 1115 - is buf8-1234 1 uint32 NativeEndian correct
+ok 1116 - is buf8-1234 1 int32 correct
+ok 1117 - is buf8-1234 1 int32 NativeEndian correct
+ok 1118 - is buf8-1234 1 uint32 LittleEndian correct
+ok 1119 - is buf8-1234 1 int32 LittleEndian correct
+ok 1120 - is buf8-1234 1 uint32 BigEndian correct
+ok 1121 - is buf8-1234 1 int32 BigEndian correct
+ok 1122 - is buf8-1234 14 uint32 correct
+ok 1123 - is buf8-1234 14 uint32 NativeEndian correct
+ok 1124 - is buf8-1234 14 int32 correct
+ok 1125 - is buf8-1234 14 int32 NativeEndian correct
+ok 1126 - is buf8-1234 14 uint32 LittleEndian correct
+ok 1127 - is buf8-1234 14 int32 LittleEndian correct
+ok 1128 - is buf8-1234 14 uint32 BigEndian correct
+ok 1129 - is buf8-1234 14 int32 BigEndian correct
+ok 1130 - is buf8-1234 15 uint32 correct
+ok 1131 - is buf8-1234 15 uint32 NativeEndian correct
+ok 1132 - is buf8-1234 15 int32 correct
+ok 1133 - is buf8-1234 15 int32 NativeEndian correct
+ok 1134 - is buf8-1234 15 uint32 LittleEndian correct
+ok 1135 - is buf8-1234 15 int32 LittleEndian correct
+ok 1136 - is buf8-1234 15 uint32 BigEndian correct
+ok 1137 - is buf8-1234 15 int32 BigEndian correct
+ok 1138 - does Buf[uint8] int32 0 die
+ok 1139 - does Buf[uint8] uint32 0 die
+ok 1140 - does buf8-1234 uint32 -1 die
+ok 1141 - does buf8-1234 int32 -1 die
+ok 1142 - does buf8-1234 uint32 16 die
+ok 1143 - does buf8-1234 int32 16 die
+ok 1144 - does buf8-1234 uint32 -1 NativeEndian die
+ok 1145 - does buf8-1234 int32 -1 NativeEndian die
+ok 1146 - does buf8-1234 uint32 16 NativeEndian die
+ok 1147 - does buf8-1234 int32 16 NativeEndian die
+ok 1148 - does buf8-1234 uint32 -1 LittleEndian die
+ok 1149 - does buf8-1234 int32 -1 LittleEndian die
+ok 1150 - does buf8-1234 uint32 16 LittleEndian die
+ok 1151 - does buf8-1234 int32 16 LittleEndian die
+ok 1152 - does buf8-1234 uint32 -1 BigEndian die
+ok 1153 - does buf8-1234 int32 -1 BigEndian die
+ok 1154 - does buf8-1234 uint32 16 BigEndian die
+ok 1155 - does buf8-1234 int32 16 BigEndian die
+ok 1156 - is buf8-1234 0 uint64 correct
+ok 1157 - is buf8-1234 0 uint64 NativeEndian correct
+ok 1158 - is buf8-1234 0 int64 correct
+ok 1159 - is buf8-1234 0 int64 NativeEndian correct
+ok 1160 - is buf8-1234 0 uint64 LittleEndian correct
+ok 1161 - is buf8-1234 0 int64 LittleEndian correct
+ok 1162 - is buf8-1234 0 uint64 BigEndian correct
+ok 1163 - is buf8-1234 0 int64 BigEndian correct
+ok 1164 - is buf8-1234 1 uint64 correct
+ok 1165 - is buf8-1234 1 uint64 NativeEndian correct
+ok 1166 - is buf8-1234 1 int64 correct
+ok 1167 - is buf8-1234 1 int64 NativeEndian correct
+ok 1168 - is buf8-1234 1 uint64 LittleEndian correct
+ok 1169 - is buf8-1234 1 int64 LittleEndian correct
+ok 1170 - is buf8-1234 1 uint64 BigEndian correct
+ok 1171 - is buf8-1234 1 int64 BigEndian correct
+ok 1172 - is buf8-1234 10 uint64 correct
+ok 1173 - is buf8-1234 10 uint64 NativeEndian correct
+ok 1174 - is buf8-1234 10 int64 correct
+ok 1175 - is buf8-1234 10 int64 NativeEndian correct
+ok 1176 - is buf8-1234 10 uint64 LittleEndian correct
+ok 1177 - is buf8-1234 10 int64 LittleEndian correct
+ok 1178 - is buf8-1234 10 uint64 BigEndian correct
+ok 1179 - is buf8-1234 10 int64 BigEndian correct
+ok 1180 - is buf8-1234 11 uint64 correct
+ok 1181 - is buf8-1234 11 uint64 NativeEndian correct
+ok 1182 - is buf8-1234 11 int64 correct
+ok 1183 - is buf8-1234 11 int64 NativeEndian correct
+ok 1184 - is buf8-1234 11 uint64 LittleEndian correct
+ok 1185 - is buf8-1234 11 int64 LittleEndian correct
+ok 1186 - is buf8-1234 11 uint64 BigEndian correct
+ok 1187 - is buf8-1234 11 int64 BigEndian correct
+ok 1188 - does Buf[uint8] int64 0 die
+ok 1189 - does Buf[uint8] uint64 0 die
+ok 1190 - does buf8-1234 uint64 -1 die
+ok 1191 - does buf8-1234 int64 -1 die
+ok 1192 - does buf8-1234 uint64 12 die
+ok 1193 - does buf8-1234 int64 12 die
+ok 1194 - does buf8-1234 uint64 -1 NativeEndian die
+ok 1195 - does buf8-1234 int64 -1 NativeEndian die
+ok 1196 - does buf8-1234 uint64 12 NativeEndian die
+ok 1197 - does buf8-1234 int64 12 NativeEndian die
+ok 1198 - does buf8-1234 uint64 -1 LittleEndian die
+ok 1199 - does buf8-1234 int64 -1 LittleEndian die
+ok 1200 - does buf8-1234 uint64 12 LittleEndian die
+ok 1201 - does buf8-1234 int64 12 LittleEndian die
+ok 1202 - does buf8-1234 uint64 -1 BigEndian die
+ok 1203 - does buf8-1234 int64 -1 BigEndian die
+ok 1204 - does buf8-1234 uint64 12 BigEndian die
+ok 1205 - does buf8-1234 int64 12 BigEndian die
+ok 1206 - is buf8-1234 0 uint128 correct
+ok 1207 - is buf8-1234 0 uint128 NativeEndian correct
+ok 1208 - is buf8-1234 0 int128 correct
+ok 1209 - is buf8-1234 0 int128 NativeEndian correct
+ok 1210 - is buf8-1234 0 uint128 LittleEndian correct
+ok 1211 - is buf8-1234 0 int128 LittleEndian correct
+ok 1212 - is buf8-1234 0 uint128 BigEndian correct
+ok 1213 - is buf8-1234 0 int128 BigEndian correct
+ok 1214 - is buf8-1234 1 uint128 correct
+ok 1215 - is buf8-1234 1 uint128 NativeEndian correct
+ok 1216 - is buf8-1234 1 int128 correct
+ok 1217 - is buf8-1234 1 int128 NativeEndian correct
+ok 1218 - is buf8-1234 1 uint128 LittleEndian correct
+ok 1219 - is buf8-1234 1 int128 LittleEndian correct
+ok 1220 - is buf8-1234 1 uint128 BigEndian correct
+ok 1221 - is buf8-1234 1 int128 BigEndian correct
+ok 1222 - is buf8-1234 2 uint128 correct
+ok 1223 - is buf8-1234 2 uint128 NativeEndian correct
+ok 1224 - is buf8-1234 2 int128 correct
+ok 1225 - is buf8-1234 2 int128 NativeEndian correct
+ok 1226 - is buf8-1234 2 uint128 LittleEndian correct
+ok 1227 - is buf8-1234 2 int128 LittleEndian correct
+ok 1228 - is buf8-1234 2 uint128 BigEndian correct
+ok 1229 - is buf8-1234 2 int128 BigEndian correct
+ok 1230 - is buf8-1234 3 uint128 correct
+ok 1231 - is buf8-1234 3 uint128 NativeEndian correct
+ok 1232 - is buf8-1234 3 int128 correct
+ok 1233 - is buf8-1234 3 int128 NativeEndian correct
+ok 1234 - is buf8-1234 3 uint128 LittleEndian correct
+ok 1235 - is buf8-1234 3 int128 LittleEndian correct
+ok 1236 - is buf8-1234 3 uint128 BigEndian correct
+ok 1237 - is buf8-1234 3 int128 BigEndian correct
+ok 1238 - does Buf[uint8] int128 -1 die
+ok 1239 - does Buf[uint8] uint128 -1 die
+ok 1240 - does buf8-1234 uint128 -1 die
+ok 1241 - does buf8-1234 int128 -1 die
+ok 1242 - does buf8-1234 uint128 4 die
+ok 1243 - does buf8-1234 int128 4 die
+ok 1244 - does buf8-1234 uint128 -1 NativeEndian die
+ok 1245 - does buf8-1234 int128 -1 NativeEndian die
+ok 1246 - does buf8-1234 uint128 4 NativeEndian die
+ok 1247 - does buf8-1234 int128 4 NativeEndian die
+ok 1248 - does buf8-1234 uint128 -1 LittleEndian die
+ok 1249 - does buf8-1234 int128 -1 LittleEndian die
+ok 1250 - does buf8-1234 uint128 4 LittleEndian die
+ok 1251 - does buf8-1234 int128 4 LittleEndian die
+ok 1252 - does buf8-1234 uint128 -1 BigEndian die
+ok 1253 - does buf8-1234 int128 -1 BigEndian die
+ok 1254 - does buf8-1234 uint128 4 BigEndian die
+ok 1255 - does buf8-1234 int128 4 BigEndian die
+ok 1256 - is buf8-255 uint8 0 correct
+ok 1257 - is buf8-255 int8 0 correct
+ok 1258 - is buf8-255 uint8 0 NativeEndian correct
+ok 1259 - is buf8-255 int8 0 NativeEndian correct
+ok 1260 - is buf8-255 uint8 0 LittleEndian correct
+ok 1261 - is buf8-255 int8 0 LittleEndian correct
+ok 1262 - is buf8-255 uint8 0 BigEndian correct
+ok 1263 - is buf8-255 int8 0 BigEndian correct
+ok 1264 - is buf8-255 uint8 1 correct
+ok 1265 - is buf8-255 int8 1 correct
+ok 1266 - is buf8-255 uint8 1 NativeEndian correct
+ok 1267 - is buf8-255 int8 1 NativeEndian correct
+ok 1268 - is buf8-255 uint8 1 LittleEndian correct
+ok 1269 - is buf8-255 int8 1 LittleEndian correct
+ok 1270 - is buf8-255 uint8 1 BigEndian correct
+ok 1271 - is buf8-255 int8 1 BigEndian correct
+ok 1272 - is buf8-255 uint8 17 correct
+ok 1273 - is buf8-255 int8 17 correct
+ok 1274 - is buf8-255 uint8 17 NativeEndian correct
+ok 1275 - is buf8-255 int8 17 NativeEndian correct
+ok 1276 - is buf8-255 uint8 17 LittleEndian correct
+ok 1277 - is buf8-255 int8 17 LittleEndian correct
+ok 1278 - is buf8-255 uint8 17 BigEndian correct
+ok 1279 - is buf8-255 int8 17 BigEndian correct
+ok 1280 - is buf8-255 uint8 18 correct
+ok 1281 - is buf8-255 int8 18 correct
+ok 1282 - is buf8-255 uint8 18 NativeEndian correct
+ok 1283 - is buf8-255 int8 18 NativeEndian correct
+ok 1284 - is buf8-255 uint8 18 LittleEndian correct
+ok 1285 - is buf8-255 int8 18 LittleEndian correct
+ok 1286 - is buf8-255 uint8 18 BigEndian correct
+ok 1287 - is buf8-255 int8 18 BigEndian correct
+ok 1288 - does  int8 0 die
+ok 1289 - does  uint8 0 die
+ok 1290 - does buf8-255 int8 -1 die
+ok 1291 - does buf8-255 uint8 -1 die
+ok 1292 - does buf8-255 int8 -1 die
+ok 1293 - does buf8-255 uint8 19 die
+ok 1294 - does buf8-255 int8 19 die
+ok 1295 - does buf8-255 uint8 -1 NativeEndian die
+ok 1296 - does buf8-255 int8 -1 NativeEndian die
+ok 1297 - does buf8-255 uint8 19 NativeEndian die
+ok 1298 - does buf8-255 int8 19 NativeEndian die
+ok 1299 - does buf8-255 uint8 -1 LittleEndian die
+ok 1300 - does buf8-255 int8 -1 LittleEndian die
+ok 1301 - does buf8-255 uint8 19 LittleEndian die
+ok 1302 - does buf8-255 int8 19 LittleEndian die
+ok 1303 - does buf8-255 uint8 -1 BigEndian die
+ok 1304 - does buf8-255 int8 -1 BigEndian die
+ok 1305 - does buf8-255 uint8 19 BigEndian die
+ok 1306 - does buf8-255 int8 19 BigEndian die
+ok 1307 - is buf8-255 0 uint16 correct
+ok 1308 - is buf8-255 0 uint16 NativeEndian correct
+ok 1309 - is buf8-255 0 int16 correct
+ok 1310 - is buf8-255 0 int16 NativeEndian correct
+ok 1311 - is buf8-255 0 uint16 LittleEndian correct
+ok 1312 - is buf8-255 0 int16 LittleEndian correct
+ok 1313 - is buf8-255 0 uint16 BigEndian correct
+ok 1314 - is buf8-255 0 int16 BigEndian correct
+ok 1315 - is buf8-255 1 uint16 correct
+ok 1316 - is buf8-255 1 uint16 NativeEndian correct
+ok 1317 - is buf8-255 1 int16 correct
+ok 1318 - is buf8-255 1 int16 NativeEndian correct
+ok 1319 - is buf8-255 1 uint16 LittleEndian correct
+ok 1320 - is buf8-255 1 int16 LittleEndian correct
+ok 1321 - is buf8-255 1 uint16 BigEndian correct
+ok 1322 - is buf8-255 1 int16 BigEndian correct
+ok 1323 - is buf8-255 16 uint16 correct
+ok 1324 - is buf8-255 16 uint16 NativeEndian correct
+ok 1325 - is buf8-255 16 int16 correct
+ok 1326 - is buf8-255 16 int16 NativeEndian correct
+ok 1327 - is buf8-255 16 uint16 LittleEndian correct
+ok 1328 - is buf8-255 16 int16 LittleEndian correct
+ok 1329 - is buf8-255 16 uint16 BigEndian correct
+ok 1330 - is buf8-255 16 int16 BigEndian correct
+ok 1331 - is buf8-255 17 uint16 correct
+ok 1332 - is buf8-255 17 uint16 NativeEndian correct
+ok 1333 - is buf8-255 17 int16 correct
+ok 1334 - is buf8-255 17 int16 NativeEndian correct
+ok 1335 - is buf8-255 17 uint16 LittleEndian correct
+ok 1336 - is buf8-255 17 int16 LittleEndian correct
+ok 1337 - is buf8-255 17 uint16 BigEndian correct
+ok 1338 - is buf8-255 17 int16 BigEndian correct
+ok 1339 - does Buf[uint8] int16 0 die
+ok 1340 - does Buf[uint8] uint16 0 die
+ok 1341 - does buf8-255 uint16 -1 die
+ok 1342 - does buf8-255 int16 -1 die
+ok 1343 - does buf8-255 uint16 18 die
+ok 1344 - does buf8-255 int16 18 die
+ok 1345 - does buf8-255 uint16 -1 NativeEndian die
+ok 1346 - does buf8-255 int16 -1 NativeEndian die
+ok 1347 - does buf8-255 uint16 18 NativeEndian die
+ok 1348 - does buf8-255 int16 18 NativeEndian die
+ok 1349 - does buf8-255 uint16 -1 LittleEndian die
+ok 1350 - does buf8-255 int16 -1 LittleEndian die
+ok 1351 - does buf8-255 uint16 18 LittleEndian die
+ok 1352 - does buf8-255 int16 18 LittleEndian die
+ok 1353 - does buf8-255 uint16 -1 BigEndian die
+ok 1354 - does buf8-255 int16 -1 BigEndian die
+ok 1355 - does buf8-255 uint16 18 BigEndian die
+ok 1356 - does buf8-255 int16 18 BigEndian die
+ok 1357 - is buf8-255 0 uint32 correct
+ok 1358 - is buf8-255 0 uint32 NativeEndian correct
+ok 1359 - is buf8-255 0 int32 correct
+ok 1360 - is buf8-255 0 int32 NativeEndian correct
+ok 1361 - is buf8-255 0 uint32 LittleEndian correct
+ok 1362 - is buf8-255 0 int32 LittleEndian correct
+ok 1363 - is buf8-255 0 uint32 BigEndian correct
+ok 1364 - is buf8-255 0 int32 BigEndian correct
+ok 1365 - is buf8-255 1 uint32 correct
+ok 1366 - is buf8-255 1 uint32 NativeEndian correct
+ok 1367 - is buf8-255 1 int32 correct
+ok 1368 - is buf8-255 1 int32 NativeEndian correct
+ok 1369 - is buf8-255 1 uint32 LittleEndian correct
+ok 1370 - is buf8-255 1 int32 LittleEndian correct
+ok 1371 - is buf8-255 1 uint32 BigEndian correct
+ok 1372 - is buf8-255 1 int32 BigEndian correct
+ok 1373 - is buf8-255 14 uint32 correct
+ok 1374 - is buf8-255 14 uint32 NativeEndian correct
+ok 1375 - is buf8-255 14 int32 correct
+ok 1376 - is buf8-255 14 int32 NativeEndian correct
+ok 1377 - is buf8-255 14 uint32 LittleEndian correct
+ok 1378 - is buf8-255 14 int32 LittleEndian correct
+ok 1379 - is buf8-255 14 uint32 BigEndian correct
+ok 1380 - is buf8-255 14 int32 BigEndian correct
+ok 1381 - is buf8-255 15 uint32 correct
+ok 1382 - is buf8-255 15 uint32 NativeEndian correct
+ok 1383 - is buf8-255 15 int32 correct
+ok 1384 - is buf8-255 15 int32 NativeEndian correct
+ok 1385 - is buf8-255 15 uint32 LittleEndian correct
+ok 1386 - is buf8-255 15 int32 LittleEndian correct
+ok 1387 - is buf8-255 15 uint32 BigEndian correct
+ok 1388 - is buf8-255 15 int32 BigEndian correct
+ok 1389 - does Buf[uint8] int32 0 die
+ok 1390 - does Buf[uint8] uint32 0 die
+ok 1391 - does buf8-255 uint32 -1 die
+ok 1392 - does buf8-255 int32 -1 die
+ok 1393 - does buf8-255 uint32 16 die
+ok 1394 - does buf8-255 int32 16 die
+ok 1395 - does buf8-255 uint32 -1 NativeEndian die
+ok 1396 - does buf8-255 int32 -1 NativeEndian die
+ok 1397 - does buf8-255 uint32 16 NativeEndian die
+ok 1398 - does buf8-255 int32 16 NativeEndian die
+ok 1399 - does buf8-255 uint32 -1 LittleEndian die
+ok 1400 - does buf8-255 int32 -1 LittleEndian die
+ok 1401 - does buf8-255 uint32 16 LittleEndian die
+ok 1402 - does buf8-255 int32 16 LittleEndian die
+ok 1403 - does buf8-255 uint32 -1 BigEndian die
+ok 1404 - does buf8-255 int32 -1 BigEndian die
+ok 1405 - does buf8-255 uint32 16 BigEndian die
+ok 1406 - does buf8-255 int32 16 BigEndian die
+ok 1407 - is buf8-255 0 uint64 correct
+ok 1408 - is buf8-255 0 uint64 NativeEndian correct
+ok 1409 - is buf8-255 0 int64 correct
+ok 1410 - is buf8-255 0 int64 NativeEndian correct
+ok 1411 - is buf8-255 0 uint64 LittleEndian correct
+ok 1412 - is buf8-255 0 int64 LittleEndian correct
+ok 1413 - is buf8-255 0 uint64 BigEndian correct
+ok 1414 - is buf8-255 0 int64 BigEndian correct
+ok 1415 - is buf8-255 1 uint64 correct
+ok 1416 - is buf8-255 1 uint64 NativeEndian correct
+ok 1417 - is buf8-255 1 int64 correct
+ok 1418 - is buf8-255 1 int64 NativeEndian correct
+ok 1419 - is buf8-255 1 uint64 LittleEndian correct
+ok 1420 - is buf8-255 1 int64 LittleEndian correct
+ok 1421 - is buf8-255 1 uint64 BigEndian correct
+ok 1422 - is buf8-255 1 int64 BigEndian correct
+ok 1423 - is buf8-255 10 uint64 correct
+ok 1424 - is buf8-255 10 uint64 NativeEndian correct
+ok 1425 - is buf8-255 10 int64 correct
+ok 1426 - is buf8-255 10 int64 NativeEndian correct
+ok 1427 - is buf8-255 10 uint64 LittleEndian correct
+ok 1428 - is buf8-255 10 int64 LittleEndian correct
+ok 1429 - is buf8-255 10 uint64 BigEndian correct
+ok 1430 - is buf8-255 10 int64 BigEndian correct
+ok 1431 - is buf8-255 11 uint64 correct
+ok 1432 - is buf8-255 11 uint64 NativeEndian correct
+ok 1433 - is buf8-255 11 int64 correct
+ok 1434 - is buf8-255 11 int64 NativeEndian correct
+ok 1435 - is buf8-255 11 uint64 LittleEndian correct
+ok 1436 - is buf8-255 11 int64 LittleEndian correct
+ok 1437 - is buf8-255 11 uint64 BigEndian correct
+ok 1438 - is buf8-255 11 int64 BigEndian correct
+ok 1439 - does Buf[uint8] int64 0 die
+ok 1440 - does Buf[uint8] uint64 0 die
+ok 1441 - does buf8-255 uint64 -1 die
+ok 1442 - does buf8-255 int64 -1 die
+ok 1443 - does buf8-255 uint64 12 die
+ok 1444 - does buf8-255 int64 12 die
+ok 1445 - does buf8-255 uint64 -1 NativeEndian die
+ok 1446 - does buf8-255 int64 -1 NativeEndian die
+ok 1447 - does buf8-255 uint64 12 NativeEndian die
+ok 1448 - does buf8-255 int64 12 NativeEndian die
+ok 1449 - does buf8-255 uint64 -1 LittleEndian die
+ok 1450 - does buf8-255 int64 -1 LittleEndian die
+ok 1451 - does buf8-255 uint64 12 LittleEndian die
+ok 1452 - does buf8-255 int64 12 LittleEndian die
+ok 1453 - does buf8-255 uint64 -1 BigEndian die
+ok 1454 - does buf8-255 int64 -1 BigEndian die
+ok 1455 - does buf8-255 uint64 12 BigEndian die
+ok 1456 - does buf8-255 int64 12 BigEndian die
+ok 1457 - is buf8-255 0 uint128 correct
+ok 1458 - is buf8-255 0 uint128 NativeEndian correct
+ok 1459 - is buf8-255 0 int128 correct
+ok 1460 - is buf8-255 0 int128 NativeEndian correct
+ok 1461 - is buf8-255 0 uint128 LittleEndian correct
+ok 1462 - is buf8-255 0 int128 LittleEndian correct
+ok 1463 - is buf8-255 0 uint128 BigEndian correct
+ok 1464 - is buf8-255 0 int128 BigEndian correct
+ok 1465 - is buf8-255 1 uint128 correct
+ok 1466 - is buf8-255 1 uint128 NativeEndian correct
+ok 1467 - is buf8-255 1 int128 correct
+ok 1468 - is buf8-255 1 int128 NativeEndian correct
+ok 1469 - is buf8-255 1 uint128 LittleEndian correct
+ok 1470 - is buf8-255 1 int128 LittleEndian correct
+ok 1471 - is buf8-255 1 uint128 BigEndian correct
+ok 1472 - is buf8-255 1 int128 BigEndian correct
+ok 1473 - is buf8-255 2 uint128 correct
+ok 1474 - is buf8-255 2 uint128 NativeEndian correct
+ok 1475 - is buf8-255 2 int128 correct
+ok 1476 - is buf8-255 2 int128 NativeEndian correct
+ok 1477 - is buf8-255 2 uint128 LittleEndian correct
+ok 1478 - is buf8-255 2 int128 LittleEndian correct
+ok 1479 - is buf8-255 2 uint128 BigEndian correct
+ok 1480 - is buf8-255 2 int128 BigEndian correct
+ok 1481 - is buf8-255 3 uint128 correct
+ok 1482 - is buf8-255 3 uint128 NativeEndian correct
+ok 1483 - is buf8-255 3 int128 correct
+ok 1484 - is buf8-255 3 int128 NativeEndian correct
+ok 1485 - is buf8-255 3 uint128 LittleEndian correct
+ok 1486 - is buf8-255 3 int128 LittleEndian correct
+ok 1487 - is buf8-255 3 uint128 BigEndian correct
+ok 1488 - is buf8-255 3 int128 BigEndian correct
+ok 1489 - does Buf[uint8] int128 -1 die
+ok 1490 - does Buf[uint8] uint128 -1 die
+ok 1491 - does buf8-255 uint128 -1 die
+ok 1492 - does buf8-255 int128 -1 die
+ok 1493 - does buf8-255 uint128 4 die
+ok 1494 - does buf8-255 int128 4 die
+ok 1495 - does buf8-255 uint128 -1 NativeEndian die
+ok 1496 - does buf8-255 int128 -1 NativeEndian die
+ok 1497 - does buf8-255 uint128 4 NativeEndian die
+ok 1498 - does buf8-255 int128 4 NativeEndian die
+ok 1499 - does buf8-255 uint128 -1 LittleEndian die
+ok 1500 - does buf8-255 int128 -1 LittleEndian die
+ok 1501 - does buf8-255 uint128 4 LittleEndian die
+ok 1502 - does buf8-255 int128 4 LittleEndian die
+ok 1503 - does buf8-255 uint128 -1 BigEndian die
+ok 1504 - does buf8-255 int128 -1 BigEndian die
+ok 1505 - does buf8-255 uint128 4 BigEndian die
+ok 1506 - does buf8-255 int128 4 BigEndian die
+ok 1507 - is buf8-random uint8 0 correct
+ok 1508 - is buf8-random int8 0 correct
+ok 1509 - is buf8-random uint8 0 NativeEndian correct
+ok 1510 - is buf8-random int8 0 NativeEndian correct
+ok 1511 - is buf8-random uint8 0 LittleEndian correct
+ok 1512 - is buf8-random int8 0 LittleEndian correct
+ok 1513 - is buf8-random uint8 0 BigEndian correct
+ok 1514 - is buf8-random int8 0 BigEndian correct
+ok 1515 - is buf8-random uint8 1 correct
+ok 1516 - is buf8-random int8 1 correct
+ok 1517 - is buf8-random uint8 1 NativeEndian correct
+ok 1518 - is buf8-random int8 1 NativeEndian correct
+ok 1519 - is buf8-random uint8 1 LittleEndian correct
+ok 1520 - is buf8-random int8 1 LittleEndian correct
+ok 1521 - is buf8-random uint8 1 BigEndian correct
+ok 1522 - is buf8-random int8 1 BigEndian correct
+ok 1523 - is buf8-random uint8 17 correct
+ok 1524 - is buf8-random int8 17 correct
+ok 1525 - is buf8-random uint8 17 NativeEndian correct
+ok 1526 - is buf8-random int8 17 NativeEndian correct
+ok 1527 - is buf8-random uint8 17 LittleEndian correct
+ok 1528 - is buf8-random int8 17 LittleEndian correct
+ok 1529 - is buf8-random uint8 17 BigEndian correct
+ok 1530 - is buf8-random int8 17 BigEndian correct
+ok 1531 - is buf8-random uint8 18 correct
+ok 1532 - is buf8-random int8 18 correct
+ok 1533 - is buf8-random uint8 18 NativeEndian correct
+ok 1534 - is buf8-random int8 18 NativeEndian correct
+ok 1535 - is buf8-random uint8 18 LittleEndian correct
+ok 1536 - is buf8-random int8 18 LittleEndian correct
+ok 1537 - is buf8-random uint8 18 BigEndian correct
+ok 1538 - is buf8-random int8 18 BigEndian correct
+ok 1539 - does  int8 0 die
+ok 1540 - does  uint8 0 die
+ok 1541 - does buf8-random int8 -1 die
+ok 1542 - does buf8-random uint8 -1 die
+ok 1543 - does buf8-random int8 -1 die
+ok 1544 - does buf8-random uint8 19 die
+ok 1545 - does buf8-random int8 19 die
+ok 1546 - does buf8-random uint8 -1 NativeEndian die
+ok 1547 - does buf8-random int8 -1 NativeEndian die
+ok 1548 - does buf8-random uint8 19 NativeEndian die
+ok 1549 - does buf8-random int8 19 NativeEndian die
+ok 1550 - does buf8-random uint8 -1 LittleEndian die
+ok 1551 - does buf8-random int8 -1 LittleEndian die
+ok 1552 - does buf8-random uint8 19 LittleEndian die
+ok 1553 - does buf8-random int8 19 LittleEndian die
+ok 1554 - does buf8-random uint8 -1 BigEndian die
+ok 1555 - does buf8-random int8 -1 BigEndian die
+ok 1556 - does buf8-random uint8 19 BigEndian die
+ok 1557 - does buf8-random int8 19 BigEndian die
+ok 1558 - is buf8-random 0 uint16 correct
+ok 1559 - is buf8-random 0 uint16 NativeEndian correct
+ok 1560 - is buf8-random 0 int16 correct
+ok 1561 - is buf8-random 0 int16 NativeEndian correct
+ok 1562 - is buf8-random 0 uint16 LittleEndian correct
+ok 1563 - is buf8-random 0 int16 LittleEndian correct
+ok 1564 - is buf8-random 0 uint16 BigEndian correct
+ok 1565 - is buf8-random 0 int16 BigEndian correct
+ok 1566 - is buf8-random 1 uint16 correct
+ok 1567 - is buf8-random 1 uint16 NativeEndian correct
+ok 1568 - is buf8-random 1 int16 correct
+ok 1569 - is buf8-random 1 int16 NativeEndian correct
+ok 1570 - is buf8-random 1 uint16 LittleEndian correct
+ok 1571 - is buf8-random 1 int16 LittleEndian correct
+ok 1572 - is buf8-random 1 uint16 BigEndian correct
+ok 1573 - is buf8-random 1 int16 BigEndian correct
+ok 1574 - is buf8-random 16 uint16 correct
+ok 1575 - is buf8-random 16 uint16 NativeEndian correct
+ok 1576 - is buf8-random 16 int16 correct
+ok 1577 - is buf8-random 16 int16 NativeEndian correct
+ok 1578 - is buf8-random 16 uint16 LittleEndian correct
+ok 1579 - is buf8-random 16 int16 LittleEndian correct
+ok 1580 - is buf8-random 16 uint16 BigEndian correct
+ok 1581 - is buf8-random 16 int16 BigEndian correct
+ok 1582 - is buf8-random 17 uint16 correct
+ok 1583 - is buf8-random 17 uint16 NativeEndian correct
+ok 1584 - is buf8-random 17 int16 correct
+ok 1585 - is buf8-random 17 int16 NativeEndian correct
+ok 1586 - is buf8-random 17 uint16 LittleEndian correct
+ok 1587 - is buf8-random 17 int16 LittleEndian correct
+ok 1588 - is buf8-random 17 uint16 BigEndian correct
+ok 1589 - is buf8-random 17 int16 BigEndian correct
+ok 1590 - does Buf[uint8] int16 0 die
+ok 1591 - does Buf[uint8] uint16 0 die
+ok 1592 - does buf8-random uint16 -1 die
+ok 1593 - does buf8-random int16 -1 die
+ok 1594 - does buf8-random uint16 18 die
+ok 1595 - does buf8-random int16 18 die
+ok 1596 - does buf8-random uint16 -1 NativeEndian die
+ok 1597 - does buf8-random int16 -1 NativeEndian die
+ok 1598 - does buf8-random uint16 18 NativeEndian die
+ok 1599 - does buf8-random int16 18 NativeEndian die
+ok 1600 - does buf8-random uint16 -1 LittleEndian die
+ok 1601 - does buf8-random int16 -1 LittleEndian die
+ok 1602 - does buf8-random uint16 18 LittleEndian die
+ok 1603 - does buf8-random int16 18 LittleEndian die
+ok 1604 - does buf8-random uint16 -1 BigEndian die
+ok 1605 - does buf8-random int16 -1 BigEndian die
+ok 1606 - does buf8-random uint16 18 BigEndian die
+ok 1607 - does buf8-random int16 18 BigEndian die
+ok 1608 - is buf8-random 0 uint32 correct
+ok 1609 - is buf8-random 0 uint32 NativeEndian correct
+ok 1610 - is buf8-random 0 int32 correct
+ok 1611 - is buf8-random 0 int32 NativeEndian correct
+ok 1612 - is buf8-random 0 uint32 LittleEndian correct
+ok 1613 - is buf8-random 0 int32 LittleEndian correct
+ok 1614 - is buf8-random 0 uint32 BigEndian correct
+ok 1615 - is buf8-random 0 int32 BigEndian correct
+ok 1616 - is buf8-random 1 uint32 correct
+ok 1617 - is buf8-random 1 uint32 NativeEndian correct
+ok 1618 - is buf8-random 1 int32 correct
+ok 1619 - is buf8-random 1 int32 NativeEndian correct
+ok 1620 - is buf8-random 1 uint32 LittleEndian correct
+ok 1621 - is buf8-random 1 int32 LittleEndian correct
+ok 1622 - is buf8-random 1 uint32 BigEndian correct
+ok 1623 - is buf8-random 1 int32 BigEndian correct
+ok 1624 - is buf8-random 14 uint32 correct
+ok 1625 - is buf8-random 14 uint32 NativeEndian correct
+ok 1626 - is buf8-random 14 int32 correct
+ok 1627 - is buf8-random 14 int32 NativeEndian correct
+ok 1628 - is buf8-random 14 uint32 LittleEndian correct
+ok 1629 - is buf8-random 14 int32 LittleEndian correct
+ok 1630 - is buf8-random 14 uint32 BigEndian correct
+ok 1631 - is buf8-random 14 int32 BigEndian correct
+ok 1632 - is buf8-random 15 uint32 correct
+ok 1633 - is buf8-random 15 uint32 NativeEndian correct
+ok 1634 - is buf8-random 15 int32 correct
+ok 1635 - is buf8-random 15 int32 NativeEndian correct
+ok 1636 - is buf8-random 15 uint32 LittleEndian correct
+ok 1637 - is buf8-random 15 int32 LittleEndian correct
+ok 1638 - is buf8-random 15 uint32 BigEndian correct
+ok 1639 - is buf8-random 15 int32 BigEndian correct
+ok 1640 - does Buf[uint8] int32 0 die
+ok 1641 - does Buf[uint8] uint32 0 die
+ok 1642 - does buf8-random uint32 -1 die
+ok 1643 - does buf8-random int32 -1 die
+ok 1644 - does buf8-random uint32 16 die
+ok 1645 - does buf8-random int32 16 die
+ok 1646 - does buf8-random uint32 -1 NativeEndian die
+ok 1647 - does buf8-random int32 -1 NativeEndian die
+ok 1648 - does buf8-random uint32 16 NativeEndian die
+ok 1649 - does buf8-random int32 16 NativeEndian die
+ok 1650 - does buf8-random uint32 -1 LittleEndian die
+ok 1651 - does buf8-random int32 -1 LittleEndian die
+ok 1652 - does buf8-random uint32 16 LittleEndian die
+ok 1653 - does buf8-random int32 16 LittleEndian die
+ok 1654 - does buf8-random uint32 -1 BigEndian die
+ok 1655 - does buf8-random int32 -1 BigEndian die
+ok 1656 - does buf8-random uint32 16 BigEndian die
+ok 1657 - does buf8-random int32 16 BigEndian die
+ok 1658 - is buf8-random 0 uint64 correct
+ok 1659 - is buf8-random 0 uint64 NativeEndian correct
+ok 1660 - is buf8-random 0 int64 correct
+ok 1661 - is buf8-random 0 int64 NativeEndian correct
+ok 1662 - is buf8-random 0 uint64 LittleEndian correct
+ok 1663 - is buf8-random 0 int64 LittleEndian correct
+ok 1664 - is buf8-random 0 uint64 BigEndian correct
+ok 1665 - is buf8-random 0 int64 BigEndian correct
+ok 1666 - is buf8-random 1 uint64 correct
+ok 1667 - is buf8-random 1 uint64 NativeEndian correct
+ok 1668 - is buf8-random 1 int64 correct
+ok 1669 - is buf8-random 1 int64 NativeEndian correct
+ok 1670 - is buf8-random 1 uint64 LittleEndian correct
+ok 1671 - is buf8-random 1 int64 LittleEndian correct
+ok 1672 - is buf8-random 1 uint64 BigEndian correct
+ok 1673 - is buf8-random 1 int64 BigEndian correct
+ok 1674 - is buf8-random 10 uint64 correct
+ok 1675 - is buf8-random 10 uint64 NativeEndian correct
+ok 1676 - is buf8-random 10 int64 correct
+ok 1677 - is buf8-random 10 int64 NativeEndian correct
+ok 1678 - is buf8-random 10 uint64 LittleEndian correct
+ok 1679 - is buf8-random 10 int64 LittleEndian correct
+ok 1680 - is buf8-random 10 uint64 BigEndian correct
+ok 1681 - is buf8-random 10 int64 BigEndian correct
+ok 1682 - is buf8-random 11 uint64 correct
+ok 1683 - is buf8-random 11 uint64 NativeEndian correct
+ok 1684 - is buf8-random 11 int64 correct
+ok 1685 - is buf8-random 11 int64 NativeEndian correct
+ok 1686 - is buf8-random 11 uint64 LittleEndian correct
+ok 1687 - is buf8-random 11 int64 LittleEndian correct
+ok 1688 - is buf8-random 11 uint64 BigEndian correct
+ok 1689 - is buf8-random 11 int64 BigEndian correct
+ok 1690 - does Buf[uint8] int64 0 die
+ok 1691 - does Buf[uint8] uint64 0 die
+ok 1692 - does buf8-random uint64 -1 die
+ok 1693 - does buf8-random int64 -1 die
+ok 1694 - does buf8-random uint64 12 die
+ok 1695 - does buf8-random int64 12 die
+ok 1696 - does buf8-random uint64 -1 NativeEndian die
+ok 1697 - does buf8-random int64 -1 NativeEndian die
+ok 1698 - does buf8-random uint64 12 NativeEndian die
+ok 1699 - does buf8-random int64 12 NativeEndian die
+ok 1700 - does buf8-random uint64 -1 LittleEndian die
+ok 1701 - does buf8-random int64 -1 LittleEndian die
+ok 1702 - does buf8-random uint64 12 LittleEndian die
+ok 1703 - does buf8-random int64 12 LittleEndian die
+ok 1704 - does buf8-random uint64 -1 BigEndian die
+ok 1705 - does buf8-random int64 -1 BigEndian die
+ok 1706 - does buf8-random uint64 12 BigEndian die
+ok 1707 - does buf8-random int64 12 BigEndian die
+ok 1708 - is buf8-random 0 uint128 correct
+ok 1709 - is buf8-random 0 uint128 NativeEndian correct
+ok 1710 - is buf8-random 0 int128 correct
+ok 1711 - is buf8-random 0 int128 NativeEndian correct
+ok 1712 - is buf8-random 0 uint128 LittleEndian correct
+ok 1713 - is buf8-random 0 int128 LittleEndian correct
+ok 1714 - is buf8-random 0 uint128 BigEndian correct
+ok 1715 - is buf8-random 0 int128 BigEndian correct
+ok 1716 - is buf8-random 1 uint128 correct
+ok 1717 - is buf8-random 1 uint128 NativeEndian correct
+ok 1718 - is buf8-random 1 int128 correct
+ok 1719 - is buf8-random 1 int128 NativeEndian correct
+ok 1720 - is buf8-random 1 uint128 LittleEndian correct
+ok 1721 - is buf8-random 1 int128 LittleEndian correct
+ok 1722 - is buf8-random 1 uint128 BigEndian correct
+ok 1723 - is buf8-random 1 int128 BigEndian correct
+ok 1724 - is buf8-random 2 uint128 correct
+ok 1725 - is buf8-random 2 uint128 NativeEndian correct
+ok 1726 - is buf8-random 2 int128 correct
+ok 1727 - is buf8-random 2 int128 NativeEndian correct
+ok 1728 - is buf8-random 2 uint128 LittleEndian correct
+ok 1729 - is buf8-random 2 int128 LittleEndian correct
+ok 1730 - is buf8-random 2 uint128 BigEndian correct
+ok 1731 - is buf8-random 2 int128 BigEndian correct
+ok 1732 - is buf8-random 3 uint128 correct
+ok 1733 - is buf8-random 3 uint128 NativeEndian correct
+ok 1734 - is buf8-random 3 int128 correct
+ok 1735 - is buf8-random 3 int128 NativeEndian correct
+ok 1736 - is buf8-random 3 uint128 LittleEndian correct
+ok 1737 - is buf8-random 3 int128 LittleEndian correct
+ok 1738 - is buf8-random 3 uint128 BigEndian correct
+ok 1739 - is buf8-random 3 int128 BigEndian correct
+ok 1740 - does Buf[uint8] int128 -1 die
+ok 1741 - does Buf[uint8] uint128 -1 die
+ok 1742 - does buf8-random uint128 -1 die
+ok 1743 - does buf8-random int128 -1 die
+ok 1744 - does buf8-random uint128 4 die
+ok 1745 - does buf8-random int128 4 die
+ok 1746 - does buf8-random uint128 -1 NativeEndian die
+ok 1747 - does buf8-random int128 -1 NativeEndian die
+ok 1748 - does buf8-random uint128 4 NativeEndian die
+ok 1749 - does buf8-random int128 4 NativeEndian die
+ok 1750 - does buf8-random uint128 -1 LittleEndian die
+ok 1751 - does buf8-random int128 -1 LittleEndian die
+ok 1752 - does buf8-random uint128 4 LittleEndian die
+ok 1753 - does buf8-random int128 4 LittleEndian die
+ok 1754 - does buf8-random uint128 -1 BigEndian die
+ok 1755 - does buf8-random int128 -1 BigEndian die
+ok 1756 - does buf8-random uint128 4 BigEndian die
+ok 1757 - does buf8-random int128 4 BigEndian die
+ok 1758 - is Buf[uint8]-random uint8 0 correct
+ok 1759 - is Buf[uint8]-random int8 0 correct
+ok 1760 - is Buf[uint8]-random uint8 0 NativeEndian correct
+ok 1761 - is Buf[uint8]-random int8 0 NativeEndian correct
+ok 1762 - is Buf[uint8]-random uint8 0 LittleEndian correct
+ok 1763 - is Buf[uint8]-random int8 0 LittleEndian correct
+ok 1764 - is Buf[uint8]-random uint8 0 BigEndian correct
+ok 1765 - is Buf[uint8]-random int8 0 BigEndian correct
+ok 1766 - is Buf[uint8]-random uint8 1 correct
+ok 1767 - is Buf[uint8]-random int8 1 correct
+ok 1768 - is Buf[uint8]-random uint8 1 NativeEndian correct
+ok 1769 - is Buf[uint8]-random int8 1 NativeEndian correct
+ok 1770 - is Buf[uint8]-random uint8 1 LittleEndian correct
+ok 1771 - is Buf[uint8]-random int8 1 LittleEndian correct
+ok 1772 - is Buf[uint8]-random uint8 1 BigEndian correct
+ok 1773 - is Buf[uint8]-random int8 1 BigEndian correct
+ok 1774 - is Buf[uint8]-random uint8 17 correct
+ok 1775 - is Buf[uint8]-random int8 17 correct
+ok 1776 - is Buf[uint8]-random uint8 17 NativeEndian correct
+ok 1777 - is Buf[uint8]-random int8 17 NativeEndian correct
+ok 1778 - is Buf[uint8]-random uint8 17 LittleEndian correct
+ok 1779 - is Buf[uint8]-random int8 17 LittleEndian correct
+ok 1780 - is Buf[uint8]-random uint8 17 BigEndian correct
+ok 1781 - is Buf[uint8]-random int8 17 BigEndian correct
+ok 1782 - is Buf[uint8]-random uint8 18 correct
+ok 1783 - is Buf[uint8]-random int8 18 correct
+ok 1784 - is Buf[uint8]-random uint8 18 NativeEndian correct
+ok 1785 - is Buf[uint8]-random int8 18 NativeEndian correct
+ok 1786 - is Buf[uint8]-random uint8 18 LittleEndian correct
+ok 1787 - is Buf[uint8]-random int8 18 LittleEndian correct
+ok 1788 - is Buf[uint8]-random uint8 18 BigEndian correct
+ok 1789 - is Buf[uint8]-random int8 18 BigEndian correct
+ok 1790 - does  int8 0 die
+ok 1791 - does  uint8 0 die
+ok 1792 - does Buf[uint8]-random int8 -1 die
+ok 1793 - does Buf[uint8]-random uint8 -1 die
+ok 1794 - does Buf[uint8]-random int8 -1 die
+ok 1795 - does Buf[uint8]-random uint8 19 die
+ok 1796 - does Buf[uint8]-random int8 19 die
+ok 1797 - does Buf[uint8]-random uint8 -1 NativeEndian die
+ok 1798 - does Buf[uint8]-random int8 -1 NativeEndian die
+ok 1799 - does Buf[uint8]-random uint8 19 NativeEndian die
+ok 1800 - does Buf[uint8]-random int8 19 NativeEndian die
+ok 1801 - does Buf[uint8]-random uint8 -1 LittleEndian die
+ok 1802 - does Buf[uint8]-random int8 -1 LittleEndian die
+ok 1803 - does Buf[uint8]-random uint8 19 LittleEndian die
+ok 1804 - does Buf[uint8]-random int8 19 LittleEndian die
+ok 1805 - does Buf[uint8]-random uint8 -1 BigEndian die
+ok 1806 - does Buf[uint8]-random int8 -1 BigEndian die
+ok 1807 - does Buf[uint8]-random uint8 19 BigEndian die
+ok 1808 - does Buf[uint8]-random int8 19 BigEndian die
+ok 1809 - is Buf[uint8]-random 0 uint16 correct
+ok 1810 - is Buf[uint8]-random 0 uint16 NativeEndian correct
+ok 1811 - is Buf[uint8]-random 0 int16 correct
+ok 1812 - is Buf[uint8]-random 0 int16 NativeEndian correct
+ok 1813 - is Buf[uint8]-random 0 uint16 LittleEndian correct
+ok 1814 - is Buf[uint8]-random 0 int16 LittleEndian correct
+ok 1815 - is Buf[uint8]-random 0 uint16 BigEndian correct
+ok 1816 - is Buf[uint8]-random 0 int16 BigEndian correct
+ok 1817 - is Buf[uint8]-random 1 uint16 correct
+ok 1818 - is Buf[uint8]-random 1 uint16 NativeEndian correct
+ok 1819 - is Buf[uint8]-random 1 int16 correct
+ok 1820 - is Buf[uint8]-random 1 int16 NativeEndian correct
+ok 1821 - is Buf[uint8]-random 1 uint16 LittleEndian correct
+ok 1822 - is Buf[uint8]-random 1 int16 LittleEndian correct
+ok 1823 - is Buf[uint8]-random 1 uint16 BigEndian correct
+ok 1824 - is Buf[uint8]-random 1 int16 BigEndian correct
+ok 1825 - is Buf[uint8]-random 16 uint16 correct
+ok 1826 - is Buf[uint8]-random 16 uint16 NativeEndian correct
+ok 1827 - is Buf[uint8]-random 16 int16 correct
+ok 1828 - is Buf[uint8]-random 16 int16 NativeEndian correct
+ok 1829 - is Buf[uint8]-random 16 uint16 LittleEndian correct
+ok 1830 - is Buf[uint8]-random 16 int16 LittleEndian correct
+ok 1831 - is Buf[uint8]-random 16 uint16 BigEndian correct
+ok 1832 - is Buf[uint8]-random 16 int16 BigEndian correct
+ok 1833 - is Buf[uint8]-random 17 uint16 correct
+ok 1834 - is Buf[uint8]-random 17 uint16 NativeEndian correct
+ok 1835 - is Buf[uint8]-random 17 int16 correct
+ok 1836 - is Buf[uint8]-random 17 int16 NativeEndian correct
+ok 1837 - is Buf[uint8]-random 17 uint16 LittleEndian correct
+ok 1838 - is Buf[uint8]-random 17 int16 LittleEndian correct
+ok 1839 - is Buf[uint8]-random 17 uint16 BigEndian correct
+ok 1840 - is Buf[uint8]-random 17 int16 BigEndian correct
+ok 1841 - does Buf[uint8] int16 0 die
+ok 1842 - does Buf[uint8] uint16 0 die
+ok 1843 - does Buf[uint8]-random uint16 -1 die
+ok 1844 - does Buf[uint8]-random int16 -1 die
+ok 1845 - does Buf[uint8]-random uint16 18 die
+ok 1846 - does Buf[uint8]-random int16 18 die
+ok 1847 - does Buf[uint8]-random uint16 -1 NativeEndian die
+ok 1848 - does Buf[uint8]-random int16 -1 NativeEndian die
+ok 1849 - does Buf[uint8]-random uint16 18 NativeEndian die
+ok 1850 - does Buf[uint8]-random int16 18 NativeEndian die
+ok 1851 - does Buf[uint8]-random uint16 -1 LittleEndian die
+ok 1852 - does Buf[uint8]-random int16 -1 LittleEndian die
+ok 1853 - does Buf[uint8]-random uint16 18 LittleEndian die
+ok 1854 - does Buf[uint8]-random int16 18 LittleEndian die
+ok 1855 - does Buf[uint8]-random uint16 -1 BigEndian die
+ok 1856 - does Buf[uint8]-random int16 -1 BigEndian die
+ok 1857 - does Buf[uint8]-random uint16 18 BigEndian die
+ok 1858 - does Buf[uint8]-random int16 18 BigEndian die
+ok 1859 - is Buf[uint8]-random 0 uint32 correct
+ok 1860 - is Buf[uint8]-random 0 uint32 NativeEndian correct
+ok 1861 - is Buf[uint8]-random 0 int32 correct
+ok 1862 - is Buf[uint8]-random 0 int32 NativeEndian correct
+ok 1863 - is Buf[uint8]-random 0 uint32 LittleEndian correct
+ok 1864 - is Buf[uint8]-random 0 int32 LittleEndian correct
+ok 1865 - is Buf[uint8]-random 0 uint32 BigEndian correct
+ok 1866 - is Buf[uint8]-random 0 int32 BigEndian correct
+ok 1867 - is Buf[uint8]-random 1 uint32 correct
+ok 1868 - is Buf[uint8]-random 1 uint32 NativeEndian correct
+ok 1869 - is Buf[uint8]-random 1 int32 correct
+ok 1870 - is Buf[uint8]-random 1 int32 NativeEndian correct
+ok 1871 - is Buf[uint8]-random 1 uint32 LittleEndian correct
+ok 1872 - is Buf[uint8]-random 1 int32 LittleEndian correct
+ok 1873 - is Buf[uint8]-random 1 uint32 BigEndian correct
+ok 1874 - is Buf[uint8]-random 1 int32 BigEndian correct
+ok 1875 - is Buf[uint8]-random 14 uint32 correct
+ok 1876 - is Buf[uint8]-random 14 uint32 NativeEndian correct
+ok 1877 - is Buf[uint8]-random 14 int32 correct
+ok 1878 - is Buf[uint8]-random 14 int32 NativeEndian correct
+ok 1879 - is Buf[uint8]-random 14 uint32 LittleEndian correct
+ok 1880 - is Buf[uint8]-random 14 int32 LittleEndian correct
+ok 1881 - is Buf[uint8]-random 14 uint32 BigEndian correct
+ok 1882 - is Buf[uint8]-random 14 int32 BigEndian correct
+ok 1883 - is Buf[uint8]-random 15 uint32 correct
+ok 1884 - is Buf[uint8]-random 15 uint32 NativeEndian correct
+ok 1885 - is Buf[uint8]-random 15 int32 correct
+ok 1886 - is Buf[uint8]-random 15 int32 NativeEndian correct
+ok 1887 - is Buf[uint8]-random 15 uint32 LittleEndian correct
+ok 1888 - is Buf[uint8]-random 15 int32 LittleEndian correct
+ok 1889 - is Buf[uint8]-random 15 uint32 BigEndian correct
+ok 1890 - is Buf[uint8]-random 15 int32 BigEndian correct
+ok 1891 - does Buf[uint8] int32 0 die
+ok 1892 - does Buf[uint8] uint32 0 die
+ok 1893 - does Buf[uint8]-random uint32 -1 die
+ok 1894 - does Buf[uint8]-random int32 -1 die
+ok 1895 - does Buf[uint8]-random uint32 16 die
+ok 1896 - does Buf[uint8]-random int32 16 die
+ok 1897 - does Buf[uint8]-random uint32 -1 NativeEndian die
+ok 1898 - does Buf[uint8]-random int32 -1 NativeEndian die
+ok 1899 - does Buf[uint8]-random uint32 16 NativeEndian die
+ok 1900 - does Buf[uint8]-random int32 16 NativeEndian die
+ok 1901 - does Buf[uint8]-random uint32 -1 LittleEndian die
+ok 1902 - does Buf[uint8]-random int32 -1 LittleEndian die
+ok 1903 - does Buf[uint8]-random uint32 16 LittleEndian die
+ok 1904 - does Buf[uint8]-random int32 16 LittleEndian die
+ok 1905 - does Buf[uint8]-random uint32 -1 BigEndian die
+ok 1906 - does Buf[uint8]-random int32 -1 BigEndian die
+ok 1907 - does Buf[uint8]-random uint32 16 BigEndian die
+ok 1908 - does Buf[uint8]-random int32 16 BigEndian die
+ok 1909 - is Buf[uint8]-random 0 uint64 correct
+ok 1910 - is Buf[uint8]-random 0 uint64 NativeEndian correct
+ok 1911 - is Buf[uint8]-random 0 int64 correct
+ok 1912 - is Buf[uint8]-random 0 int64 NativeEndian correct
+ok 1913 - is Buf[uint8]-random 0 uint64 LittleEndian correct
+ok 1914 - is Buf[uint8]-random 0 int64 LittleEndian correct
+ok 1915 - is Buf[uint8]-random 0 uint64 BigEndian correct
+ok 1916 - is Buf[uint8]-random 0 int64 BigEndian correct
+ok 1917 - is Buf[uint8]-random 1 uint64 correct
+ok 1918 - is Buf[uint8]-random 1 uint64 NativeEndian correct
+ok 1919 - is Buf[uint8]-random 1 int64 correct
+ok 1920 - is Buf[uint8]-random 1 int64 NativeEndian correct
+ok 1921 - is Buf[uint8]-random 1 uint64 LittleEndian correct
+ok 1922 - is Buf[uint8]-random 1 int64 LittleEndian correct
+ok 1923 - is Buf[uint8]-random 1 uint64 BigEndian correct
+ok 1924 - is Buf[uint8]-random 1 int64 BigEndian correct
+ok 1925 - is Buf[uint8]-random 10 uint64 correct
+ok 1926 - is Buf[uint8]-random 10 uint64 NativeEndian correct
+ok 1927 - is Buf[uint8]-random 10 int64 correct
+ok 1928 - is Buf[uint8]-random 10 int64 NativeEndian correct
+ok 1929 - is Buf[uint8]-random 10 uint64 LittleEndian correct
+ok 1930 - is Buf[uint8]-random 10 int64 LittleEndian correct
+ok 1931 - is Buf[uint8]-random 10 uint64 BigEndian correct
+ok 1932 - is Buf[uint8]-random 10 int64 BigEndian correct
+ok 1933 - is Buf[uint8]-random 11 uint64 correct
+ok 1934 - is Buf[uint8]-random 11 uint64 NativeEndian correct
+ok 1935 - is Buf[uint8]-random 11 int64 correct
+ok 1936 - is Buf[uint8]-random 11 int64 NativeEndian correct
+ok 1937 - is Buf[uint8]-random 11 uint64 LittleEndian correct
+ok 1938 - is Buf[uint8]-random 11 int64 LittleEndian correct
+ok 1939 - is Buf[uint8]-random 11 uint64 BigEndian correct
+ok 1940 - is Buf[uint8]-random 11 int64 BigEndian correct
+ok 1941 - does Buf[uint8] int64 0 die
+ok 1942 - does Buf[uint8] uint64 0 die
+ok 1943 - does Buf[uint8]-random uint64 -1 die
+ok 1944 - does Buf[uint8]-random int64 -1 die
+ok 1945 - does Buf[uint8]-random uint64 12 die
+ok 1946 - does Buf[uint8]-random int64 12 die
+ok 1947 - does Buf[uint8]-random uint64 -1 NativeEndian die
+ok 1948 - does Buf[uint8]-random int64 -1 NativeEndian die
+ok 1949 - does Buf[uint8]-random uint64 12 NativeEndian die
+ok 1950 - does Buf[uint8]-random int64 12 NativeEndian die
+ok 1951 - does Buf[uint8]-random uint64 -1 LittleEndian die
+ok 1952 - does Buf[uint8]-random int64 -1 LittleEndian die
+ok 1953 - does Buf[uint8]-random uint64 12 LittleEndian die
+ok 1954 - does Buf[uint8]-random int64 12 LittleEndian die
+ok 1955 - does Buf[uint8]-random uint64 -1 BigEndian die
+ok 1956 - does Buf[uint8]-random int64 -1 BigEndian die
+ok 1957 - does Buf[uint8]-random uint64 12 BigEndian die
+ok 1958 - does Buf[uint8]-random int64 12 BigEndian die
+ok 1959 - is Buf[uint8]-random 0 uint128 correct
+ok 1960 - is Buf[uint8]-random 0 uint128 NativeEndian correct
+ok 1961 - is Buf[uint8]-random 0 int128 correct
+ok 1962 - is Buf[uint8]-random 0 int128 NativeEndian correct
+ok 1963 - is Buf[uint8]-random 0 uint128 LittleEndian correct
+ok 1964 - is Buf[uint8]-random 0 int128 LittleEndian correct
+ok 1965 - is Buf[uint8]-random 0 uint128 BigEndian correct
+ok 1966 - is Buf[uint8]-random 0 int128 BigEndian correct
+ok 1967 - is Buf[uint8]-random 1 uint128 correct
+ok 1968 - is Buf[uint8]-random 1 uint128 NativeEndian correct
+ok 1969 - is Buf[uint8]-random 1 int128 correct
+ok 1970 - is Buf[uint8]-random 1 int128 NativeEndian correct
+ok 1971 - is Buf[uint8]-random 1 uint128 LittleEndian correct
+ok 1972 - is Buf[uint8]-random 1 int128 LittleEndian correct
+ok 1973 - is Buf[uint8]-random 1 uint128 BigEndian correct
+ok 1974 - is Buf[uint8]-random 1 int128 BigEndian correct
+ok 1975 - is Buf[uint8]-random 2 uint128 correct
+ok 1976 - is Buf[uint8]-random 2 uint128 NativeEndian correct
+ok 1977 - is Buf[uint8]-random 2 int128 correct
+ok 1978 - is Buf[uint8]-random 2 int128 NativeEndian correct
+ok 1979 - is Buf[uint8]-random 2 uint128 LittleEndian correct
+ok 1980 - is Buf[uint8]-random 2 int128 LittleEndian correct
+ok 1981 - is Buf[uint8]-random 2 uint128 BigEndian correct
+ok 1982 - is Buf[uint8]-random 2 int128 BigEndian correct
+ok 1983 - is Buf[uint8]-random 3 uint128 correct
+ok 1984 - is Buf[uint8]-random 3 uint128 NativeEndian correct
+ok 1985 - is Buf[uint8]-random 3 int128 correct
+ok 1986 - is Buf[uint8]-random 3 int128 NativeEndian correct
+ok 1987 - is Buf[uint8]-random 3 uint128 LittleEndian correct
+ok 1988 - is Buf[uint8]-random 3 int128 LittleEndian correct
+ok 1989 - is Buf[uint8]-random 3 uint128 BigEndian correct
+ok 1990 - is Buf[uint8]-random 3 int128 BigEndian correct
+ok 1991 - does Buf[uint8] int128 -1 die
+ok 1992 - does Buf[uint8] uint128 -1 die
+ok 1993 - does Buf[uint8]-random uint128 -1 die
+ok 1994 - does Buf[uint8]-random int128 -1 die
+ok 1995 - does Buf[uint8]-random uint128 4 die
+ok 1996 - does Buf[uint8]-random int128 4 die
+ok 1997 - does Buf[uint8]-random uint128 -1 NativeEndian die
+ok 1998 - does Buf[uint8]-random int128 -1 NativeEndian die
+ok 1999 - does Buf[uint8]-random uint128 4 NativeEndian die
+ok 2000 - does Buf[uint8]-random int128 4 NativeEndian die
+ok 2001 - does Buf[uint8]-random uint128 -1 LittleEndian die
+ok 2002 - does Buf[uint8]-random int128 -1 LittleEndian die
+ok 2003 - does Buf[uint8]-random uint128 4 LittleEndian die
+ok 2004 - does Buf[uint8]-random int128 4 LittleEndian die
+ok 2005 - does Buf[uint8]-random uint128 -1 BigEndian die
+ok 2006 - does Buf[uint8]-random int128 -1 BigEndian die
+ok 2007 - does Buf[uint8]-random uint128 4 BigEndian die
+ok 2008 - does Buf[uint8]-random int128 4 BigEndian die

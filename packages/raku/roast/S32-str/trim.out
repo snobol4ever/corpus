@@ -1,0 +1,46 @@
+1..37
+ok 1 - our variable was not yet trimmed
+ok 2 - our variable is trimmed correctly
+ok 3 - our variable is trimmed again with no effect
+ok 4 - trimming an empty string gives an empty string
+ok 5 - trimming one character string, no spaces, works
+ok 6 - trimming one character string preceded by space works
+ok 7 - trimming one character string followed by space works
+ok 8 - trimming one character string surrounded by spaces works
+ok 9 - our variable is trimmed correctly
+ok 10 - our variable is trimmed again with no effect
+ok 11 - our variable can be trimmed multiple times
+ok 12 - .trim has no effect on the original string
+ok 13 - .trim returns correctly trimmed value
+ok 14 - .trim returns correctly trimmed value again
+ok 15 - trim-leading does not trim a variable in-place
+ok 16 - trim-leading works correctly
+ok 17 - our variable is trimmed again with no effect
+ok 18 - trim-leading on an empty string gives an empty string
+ok 19 - trim-leading on an one-space string gives an empty string
+ok 20 - trim-leading on newline string gives an empty string
+ok 21 - trim-leading on a two-space string gives an empty string
+ok 22 - our variable is trimmed correctly
+ok 23 - our variable is trimmed again with no effect
+ok 24 - our variable can be trimmed multiple times
+ok 25 - trim-trailing does not trim a variable in-place
+ok 26 - trim-trailing works correctly
+ok 27 - our variable is trimmed again with no effect
+ok 28 - trim-trailing on an empty string gives an empty string
+ok 29 - trim-trailing on an one-space string gives an empty string
+ok 30 - trim-trailing on newline string gives an empty string
+ok 31 - trim-trailing on a two-space string gives an empty string
+ok 32 - our variable is trimmed correctly
+ok 33 - our variable is trimmed again with no effect
+ok 34 - our variable can be trimmed multiple times
+ok 35 - regex sanity
+ok 36 - Match.trim
+# Subtest: trim routines on Cool
+    1..6
+    ok 1 - &trim works with Cool instance
+    ok 2 - &trim-leading works with Cool instance
+    ok 3 - &trim-trailing works with Cool instance
+    ok 4 - .trim works with Cool instance
+    ok 5 - .trim-leading works with Cool instance
+    ok 6 - .trim-trailing works with Cool instance
+ok 37 - trim routines on Cool

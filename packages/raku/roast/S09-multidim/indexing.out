@@ -1,0 +1,59 @@
+1..32
+ok 1 - 0;0 does not exist before assignment (:exists)
+ok 2 - 0;1 does not exist before assignment (:exists)
+ok 3 - 1;0 does not exist before assignment (:exists)
+ok 4 - 0;1 does not exist before assignment (:exists)
+ok 5 - Can store to multi-dim array with indexer (1)
+ok 6 - Can store to multi-dim array with indexer (2)
+ok 7 - Can store to multi-dim array with indexer (3)
+ok 8 - Can store to multi-dim array with indexer (4)
+not ok 9 - Partially dimensioned view lives # TODO partially dimensioned NYI
+# Failed test 'Partially dimensioned view lives'
+# at S09-multidim/indexing.rakudo line 22
+# Partially dimensioned views of shaped arrays not yet implemented. Sorry.
+ok 10 - Access out of bounds with indexer dies (1)
+ok 11 - Access out of bounds with indexer dies (2)
+# Subtest: did we throws-like X::NotEnoughDimensions?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::NotEnoughDimensions)
+    ok 3 - .operation matches assign to
+    ok 4 - .got-dimensions matches 1
+    ok 5 - .needed-dimensions matches 2
+ok 12 - did we throws-like X::NotEnoughDimensions?
+ok 13 - Assign out of bounds with indexer dies (1)
+ok 14 - Assign out of bounds with indexer dies (2)
+ok 15 - 0;0 exists (:exists)
+ok 16 - 0;1 exists (:exists)
+ok 17 - 1;0 exists (:exists)
+ok 18 - 0;1 exists (:exists)
+ok 19 - 1;2 does not exist (:exists)
+ok 20 - 2;1 does not exist (:exists)
+ok 21 - 0 exists (:exists)
+ok 22 - 1 exists (:exists)
+ok 23 - 2 does not exist (:exists)
+ok 24 - 1;1 ceaess to exist after deletion (:delete)
+ok 25 - deletion does not change shape, however (:delete)
+# Subtest: did we throws-like X::NotEnoughDimensions?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::NotEnoughDimensions)
+    ok 3 - .got-dimensions matches 1
+    ok 4 - .operation matches delete from
+    ok 5 - .needed-dimensions matches 2
+ok 26 - did we throws-like X::NotEnoughDimensions?
+not ok 27 - Delete out of bounds returns default (:delete) (1) # TODO returns default in 6.e
+# Failed test 'Delete out of bounds returns default (:delete) (1)'
+# at S09-multidim/indexing.rakudo line 49
+# expected: Any
+#      got: Nil
+not ok 28 - Delete out of bounds returns default (:delete) (2) # TODO returns default in 6.e
+# Failed test 'Delete out of bounds returns default (:delete) (2)'
+# at S09-multidim/indexing.rakudo line 51
+# expected: Any
+#      got: Nil
+ok 29 - Can bind with := to multi-dim array
+ok 30 - Really bound an Int, so cannot assign
+ok 31 - Bind out of bounds dies (1)
+ok 32 - Bind out of bounds dies (2)
+# FUDGED!

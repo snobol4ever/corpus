@@ -1,0 +1,59 @@
+1..50
+ok 1 - array has 5 elements
+ok 2 - first value is 11
+ok 3 - last value is 15
+ok 4 - first arrayitem has 5 elements
+ok 5 - second arrayitem has 5 elements
+ok 6 - first element in first arrayitem is 11
+ok 7 - last element in first arrayitem is 15
+ok 8 - first element in second arrayitem is 21
+ok 9 - last element in second arrayitem is 25
+ok 10 - first element in last arrayitem is 31
+ok 11 - last element in last arrayitem is 35
+ok 12 - k1 has 5 elements
+ok 13 - first element in k1 is 11
+ok 14 - last element in k1 is 15
+ok 15 - nothing at key "12"
+ok 16 - k1 has 5 elements
+ok 17 - k2 has 5 elements
+ok 18 - first element in k1 is 11
+ok 19 - last element in k1 is 15
+ok 20 - first element in k1 is 21
+ok 21 - last element in k1 is 25
+ok 22 - nothing at key "12"
+ok 23 - nothing at key "22"
+ok 24 - Simple push works
+ok 25 - Array literal not flattened
+ok 26 - Hash literal not flattened
+ok 27 - Array not flattened
+ok 28 - Hash not flattened
+ok 29 - Array flattened by append
+ok 30 - Hash flattened by append
+ok 31 - |Array flattened
+ok 32 - |Hash flattened
+ok 33 - Array flattened by .append
+ok 34 - Hash flattened by .append
+ok 35 - push and .push flatten multiple values the same way
+ok 36 - unshift and .unshift flatten multiple values the same way
+ok 37 - $[] in array slice numifies (1)
+ok 38 - $[] in array slice numifies (2)
+ok 39 - hash slicing sanity
+ok 40 - hash slicing stringifies []
+ok 41 - @ sigil flattening of itemized array
+ok 42 - % sigil flattening of itemized array
+ok 43 - @ sigil flattening of itemized hash
+ok 44 - % sigil flattening of itemized hash
+ok 45 - method push does not flatten an array arg (1)
+ok 46 - method push does not flatten an array arg (2)
+ok 47 - method append does flatten an array arg (1)
+ok 48 - method append does flatten an array arg (2)
+ok 49 - slipping a Bool into arguments does not crash
+# Subtest: .flat on type objects
+    1..6
+    ok 1 - did array flatten ok
+    ok 2 - did Array flatten ok
+    ok 3 - did Iterable flatten ok
+    ok 4 - did List flatten ok
+    ok 5 - did Range flatten ok
+    ok 6 - did Supply flatten ok
+ok 50 - .flat on type objects

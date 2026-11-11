@@ -1,0 +1,7 @@
+1..6
+ok 1 - a b c   ⊆ a b c d
+ok 2 - a b c d ⊆ a b c
+ok 3 - a b c   ⊆ a b d
+ok 4 - a b c === a b c
+ok 5 - a b c eqv a b c
+ok 6 - make sure .WHICH is consistent

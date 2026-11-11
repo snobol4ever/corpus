@@ -1,0 +1,67 @@
+1..48
+ok 1 - "-17".abs == 17
+ok 2 - NotComplex.new.abs == $magic.abs
+ok 3 - "3".conj == 3
+ok 4 - NotComplex.new.conj == $magic.conj
+ok 5 - "3".exp == 3.exp
+ok 6 - NotComplex.new.exp == $magic.exp
+ok 7 - "3".exp("2") == 3.exp(2)
+ok 8 - NotComplex.new.exp("2") == $magic.exp("2")
+ok 9 - "3".exp(NotComplex.new) == 3.exp($magic)
+ok 10 - NotComplex.new.exp(NotComplex.new) == $magic.exp($magic)
+ok 11 - "17".log == 17.log
+ok 12 - NotComplex.new.log == $magic.log
+ok 13 - "17".log("17") == 17.log(17)
+ok 14 - NotComplex.new.log("17") == $magic.log(17)
+ok 15 - "17".log("17") == 17.log(17)
+ok 16 - NotComplex.new.log(NotComplex.new) == $magic.log($magic)
+ok 17 - "17".log10 == 17.log10
+ok 18 - NotComplex.new.log10 == $magic.log10
+ok 19 - "17".log2 == 17.log2
+ok 20 - NotComplex.new.log2 == $magic.log2
+ok 21 - "17".sqrt == 17.sqrt
+ok 22 - NotComplex.new.sqrt == $magic.sqrt
+ok 23 - root 2.0305431848689306+0i found once
+ok 24 - root 1.243349105940104e-16+2.0305431848689306i found once
+ok 25 - root -2.0305431848689306+2.486698211880208e-16i found once
+ok 26 - root -3.730047317820312e-16-2.0305431848689306i found once
+ok 27 - root 1.2466105363113318+0.4731614097078769i found once
+ok 28 - root -1.033075069053144+0.8430156882170183i found once
+ok 29 - root -0.21353546725818734-1.3161770979248952i found once
+ok 30 - "17"i == 17i
+ok 31 - (NotComplex.new)i == $magic\i
+ok 32 - # SKIP angle conversion
+ok 33 - # SKIP angle conversion
+ok 34 - # SKIP angle conversion
+ok 35 - # SKIP angle conversion
+ok 36 - "17.25".floor == 17.25.floor
+ok 37 - "17.25".ceiling == 17.25.ceiling
+ok 38 - "17.25".round == 17.25.round
+ok 39 - "17.25".round("0.1") == 17.25.round(0.1)
+ok 40 - "17.25".truncate == 17.25.truncate
+ok 41 - "17".sign == 1
+ok 42 - "-17".sign == -1
+ok 43 - "0".sign == 0
+ok 44 - "17".cis == 17.cis
+ok 45 - <4+2i>.cis
+ok 46 - i.cis
+ok 47 - "17".unpolar("42") == 17.unpolar(42)
+# Subtest: truncate() with Cools
+    1..15
+    ok 1 - truncate(Array)
+    ok 2 - truncate(Bool::True)
+    ok 3 - truncate(Bool::False)
+    ok 4 - truncate(Cool)
+    ok 5 - truncate(Duration)
+    ok 6 - truncate(Map)
+    ok 7 - truncate(FatRat)
+    ok 8 - truncate(Hash)
+    ok 9 - truncate(Instant)
+    ok 10 - truncate(List)
+    ok 11 - truncate(Match)
+    ok 12 - truncate(Num)
+    ok 13 - truncate(Range)
+    ok 14 - truncate(Seq)
+    ok 15 - truncate(Stash)
+ok 48 - truncate() with Cools
+# FUDGED!

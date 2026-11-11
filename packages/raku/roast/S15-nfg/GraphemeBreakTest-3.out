@@ -1,0 +1,967 @@
+1..166
+# Subtest: Codepoint sequence "\x[0915,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 1 - Codepoint sequence "\x[0915,0915]"
+# Subtest: Codepoint sequence "\x[0915,0308,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 2 - Codepoint sequence "\x[0915,0308,0915]"
+# Subtest: Codepoint sequence "\x[0915,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 3 - Codepoint sequence "\x[0915,00A9]"
+# Subtest: Codepoint sequence "\x[0915,0308,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 4 - Codepoint sequence "\x[0915,0308,00A9]"
+# Subtest: Codepoint sequence "\x[0915,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 5 - Codepoint sequence "\x[0915,0020]"
+# Subtest: Codepoint sequence "\x[0915,0308,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 6 - Codepoint sequence "\x[0915,0308,0020]"
+# Subtest: Codepoint sequence "\x[0915,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 7 - Codepoint sequence "\x[0915,0378]"
+# Subtest: Codepoint sequence "\x[0915,0308,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 8 - Codepoint sequence "\x[0915,0308,0378]"
+# Subtest: Codepoint sequence "\x[00A9,000D]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 9 - Codepoint sequence "\x[00A9,000D]"
+# Subtest: Codepoint sequence "\x[00A9,0308,000D]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 10 - Codepoint sequence "\x[00A9,0308,000D]"
+# Subtest: Codepoint sequence "\x[00A9,000A]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 11 - Codepoint sequence "\x[00A9,000A]"
+# Subtest: Codepoint sequence "\x[00A9,0308,000A]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 12 - Codepoint sequence "\x[00A9,0308,000A]"
+# Subtest: Codepoint sequence "\x[00A9,0000]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 13 - Codepoint sequence "\x[00A9,0000]"
+# Subtest: Codepoint sequence "\x[00A9,0308,0000]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 14 - Codepoint sequence "\x[00A9,0308,0000]"
+# Subtest: Codepoint sequence "\x[00A9,094D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 15 - Codepoint sequence "\x[00A9,094D]"
+# Subtest: Codepoint sequence "\x[00A9,0308,094D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 16 - Codepoint sequence "\x[00A9,0308,094D]"
+# Subtest: Codepoint sequence "\x[00A9,0300]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 17 - Codepoint sequence "\x[00A9,0300]"
+# Subtest: Codepoint sequence "\x[00A9,0308,0300]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 18 - Codepoint sequence "\x[00A9,0308,0300]"
+# Subtest: Codepoint sequence "\x[00A9,200C]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 19 - Codepoint sequence "\x[00A9,200C]"
+# Subtest: Codepoint sequence "\x[00A9,0308,200C]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 20 - Codepoint sequence "\x[00A9,0308,200C]"
+# Subtest: Codepoint sequence "\x[00A9,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 21 - Codepoint sequence "\x[00A9,200D]"
+# Subtest: Codepoint sequence "\x[00A9,0308,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 22 - Codepoint sequence "\x[00A9,0308,200D]"
+# Subtest: Codepoint sequence "\x[00A9,1F1E6]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 23 - Codepoint sequence "\x[00A9,1F1E6]"
+# Subtest: Codepoint sequence "\x[00A9,0308,1F1E6]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 24 - Codepoint sequence "\x[00A9,0308,1F1E6]"
+# Subtest: Codepoint sequence "\x[00A9,06DD]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 25 - Codepoint sequence "\x[00A9,06DD]"
+# Subtest: Codepoint sequence "\x[00A9,0308,06DD]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 26 - Codepoint sequence "\x[00A9,0308,06DD]"
+# Subtest: Codepoint sequence "\x[00A9,0903]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 27 - Codepoint sequence "\x[00A9,0903]"
+# Subtest: Codepoint sequence "\x[00A9,0308,0903]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 28 - Codepoint sequence "\x[00A9,0308,0903]"
+# Subtest: Codepoint sequence "\x[00A9,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 29 - Codepoint sequence "\x[00A9,1100]"
+# Subtest: Codepoint sequence "\x[00A9,0308,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 30 - Codepoint sequence "\x[00A9,0308,1100]"
+# Subtest: Codepoint sequence "\x[00A9,1160]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 31 - Codepoint sequence "\x[00A9,1160]"
+# Subtest: Codepoint sequence "\x[00A9,0308,1160]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 32 - Codepoint sequence "\x[00A9,0308,1160]"
+# Subtest: Codepoint sequence "\x[00A9,11A8]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 33 - Codepoint sequence "\x[00A9,11A8]"
+# Subtest: Codepoint sequence "\x[00A9,0308,11A8]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 34 - Codepoint sequence "\x[00A9,0308,11A8]"
+# Subtest: Codepoint sequence "\x[00A9,AC00]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 35 - Codepoint sequence "\x[00A9,AC00]"
+# Subtest: Codepoint sequence "\x[00A9,0308,AC00]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 36 - Codepoint sequence "\x[00A9,0308,AC00]"
+# Subtest: Codepoint sequence "\x[00A9,AC01]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 37 - Codepoint sequence "\x[00A9,AC01]"
+# Subtest: Codepoint sequence "\x[00A9,0308,AC01]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 38 - Codepoint sequence "\x[00A9,0308,AC01]"
+# Subtest: Codepoint sequence "\x[00A9,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 39 - Codepoint sequence "\x[00A9,0915]"
+# Subtest: Codepoint sequence "\x[00A9,0308,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 40 - Codepoint sequence "\x[00A9,0308,0915]"
+# Subtest: Codepoint sequence "\x[00A9,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 41 - Codepoint sequence "\x[00A9,00A9]"
+# Subtest: Codepoint sequence "\x[00A9,0308,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 42 - Codepoint sequence "\x[00A9,0308,00A9]"
+# Subtest: Codepoint sequence "\x[00A9,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 43 - Codepoint sequence "\x[00A9,0020]"
+# Subtest: Codepoint sequence "\x[00A9,0308,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 44 - Codepoint sequence "\x[00A9,0308,0020]"
+# Subtest: Codepoint sequence "\x[00A9,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 45 - Codepoint sequence "\x[00A9,0378]"
+# Subtest: Codepoint sequence "\x[00A9,0308,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 46 - Codepoint sequence "\x[00A9,0308,0378]"
+# Subtest: Codepoint sequence "\x[0020,000D]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 47 - Codepoint sequence "\x[0020,000D]"
+# Subtest: Codepoint sequence "\x[0020,0308,000D]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 48 - Codepoint sequence "\x[0020,0308,000D]"
+# Subtest: Codepoint sequence "\x[0020,000A]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 49 - Codepoint sequence "\x[0020,000A]"
+# Subtest: Codepoint sequence "\x[0020,0308,000A]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 50 - Codepoint sequence "\x[0020,0308,000A]"
+# Subtest: Codepoint sequence "\x[0020,0000]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 51 - Codepoint sequence "\x[0020,0000]"
+# Subtest: Codepoint sequence "\x[0020,0308,0000]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 52 - Codepoint sequence "\x[0020,0308,0000]"
+# Subtest: Codepoint sequence "\x[0020,094D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 53 - Codepoint sequence "\x[0020,094D]"
+# Subtest: Codepoint sequence "\x[0020,0308,094D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 54 - Codepoint sequence "\x[0020,0308,094D]"
+# Subtest: Codepoint sequence "\x[0020,0300]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 55 - Codepoint sequence "\x[0020,0300]"
+# Subtest: Codepoint sequence "\x[0020,0308,0300]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 56 - Codepoint sequence "\x[0020,0308,0300]"
+# Subtest: Codepoint sequence "\x[0020,200C]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 57 - Codepoint sequence "\x[0020,200C]"
+# Subtest: Codepoint sequence "\x[0020,0308,200C]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 58 - Codepoint sequence "\x[0020,0308,200C]"
+# Subtest: Codepoint sequence "\x[0020,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 59 - Codepoint sequence "\x[0020,200D]"
+# Subtest: Codepoint sequence "\x[0020,0308,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 60 - Codepoint sequence "\x[0020,0308,200D]"
+# Subtest: Codepoint sequence "\x[0020,1F1E6]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 61 - Codepoint sequence "\x[0020,1F1E6]"
+# Subtest: Codepoint sequence "\x[0020,0308,1F1E6]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 62 - Codepoint sequence "\x[0020,0308,1F1E6]"
+# Subtest: Codepoint sequence "\x[0020,06DD]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 63 - Codepoint sequence "\x[0020,06DD]"
+# Subtest: Codepoint sequence "\x[0020,0308,06DD]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 64 - Codepoint sequence "\x[0020,0308,06DD]"
+# Subtest: Codepoint sequence "\x[0020,0903]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 65 - Codepoint sequence "\x[0020,0903]"
+# Subtest: Codepoint sequence "\x[0020,0308,0903]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 66 - Codepoint sequence "\x[0020,0308,0903]"
+# Subtest: Codepoint sequence "\x[0020,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 67 - Codepoint sequence "\x[0020,1100]"
+# Subtest: Codepoint sequence "\x[0020,0308,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 68 - Codepoint sequence "\x[0020,0308,1100]"
+# Subtest: Codepoint sequence "\x[0020,1160]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 69 - Codepoint sequence "\x[0020,1160]"
+# Subtest: Codepoint sequence "\x[0020,0308,1160]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 70 - Codepoint sequence "\x[0020,0308,1160]"
+# Subtest: Codepoint sequence "\x[0020,11A8]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 71 - Codepoint sequence "\x[0020,11A8]"
+# Subtest: Codepoint sequence "\x[0020,0308,11A8]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 72 - Codepoint sequence "\x[0020,0308,11A8]"
+# Subtest: Codepoint sequence "\x[0020,AC00]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 73 - Codepoint sequence "\x[0020,AC00]"
+# Subtest: Codepoint sequence "\x[0020,0308,AC00]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 74 - Codepoint sequence "\x[0020,0308,AC00]"
+# Subtest: Codepoint sequence "\x[0020,AC01]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 75 - Codepoint sequence "\x[0020,AC01]"
+# Subtest: Codepoint sequence "\x[0020,0308,AC01]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 76 - Codepoint sequence "\x[0020,0308,AC01]"
+# Subtest: Codepoint sequence "\x[0020,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 77 - Codepoint sequence "\x[0020,0915]"
+# Subtest: Codepoint sequence "\x[0020,0308,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 78 - Codepoint sequence "\x[0020,0308,0915]"
+# Subtest: Codepoint sequence "\x[0020,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 79 - Codepoint sequence "\x[0020,00A9]"
+# Subtest: Codepoint sequence "\x[0020,0308,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 80 - Codepoint sequence "\x[0020,0308,00A9]"
+# Subtest: Codepoint sequence "\x[0020,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 81 - Codepoint sequence "\x[0020,0020]"
+# Subtest: Codepoint sequence "\x[0020,0308,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 82 - Codepoint sequence "\x[0020,0308,0020]"
+# Subtest: Codepoint sequence "\x[0020,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 83 - Codepoint sequence "\x[0020,0378]"
+# Subtest: Codepoint sequence "\x[0020,0308,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 84 - Codepoint sequence "\x[0020,0308,0378]"
+# Subtest: Codepoint sequence "\x[0378,000D]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 85 - Codepoint sequence "\x[0378,000D]"
+# Subtest: Codepoint sequence "\x[0378,0308,000D]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 86 - Codepoint sequence "\x[0378,0308,000D]"
+# Subtest: Codepoint sequence "\x[0378,000A]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 87 - Codepoint sequence "\x[0378,000A]"
+# Subtest: Codepoint sequence "\x[0378,0308,000A]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 88 - Codepoint sequence "\x[0378,0308,000A]"
+# Subtest: Codepoint sequence "\x[0378,0000]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 89 - Codepoint sequence "\x[0378,0000]"
+# Subtest: Codepoint sequence "\x[0378,0308,0000]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 90 - Codepoint sequence "\x[0378,0308,0000]"
+# Subtest: Codepoint sequence "\x[0378,094D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 91 - Codepoint sequence "\x[0378,094D]"
+# Subtest: Codepoint sequence "\x[0378,0308,094D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 92 - Codepoint sequence "\x[0378,0308,094D]"
+# Subtest: Codepoint sequence "\x[0378,0300]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 93 - Codepoint sequence "\x[0378,0300]"
+# Subtest: Codepoint sequence "\x[0378,0308,0300]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 94 - Codepoint sequence "\x[0378,0308,0300]"
+# Subtest: Codepoint sequence "\x[0378,200C]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 95 - Codepoint sequence "\x[0378,200C]"
+# Subtest: Codepoint sequence "\x[0378,0308,200C]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 96 - Codepoint sequence "\x[0378,0308,200C]"
+# Subtest: Codepoint sequence "\x[0378,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 97 - Codepoint sequence "\x[0378,200D]"
+# Subtest: Codepoint sequence "\x[0378,0308,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 98 - Codepoint sequence "\x[0378,0308,200D]"
+# Subtest: Codepoint sequence "\x[0378,1F1E6]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 99 - Codepoint sequence "\x[0378,1F1E6]"
+# Subtest: Codepoint sequence "\x[0378,0308,1F1E6]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 100 - Codepoint sequence "\x[0378,0308,1F1E6]"
+# Subtest: Codepoint sequence "\x[0378,06DD]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 101 - Codepoint sequence "\x[0378,06DD]"
+# Subtest: Codepoint sequence "\x[0378,0308,06DD]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 102 - Codepoint sequence "\x[0378,0308,06DD]"
+# Subtest: Codepoint sequence "\x[0378,0903]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 103 - Codepoint sequence "\x[0378,0903]"
+# Subtest: Codepoint sequence "\x[0378,0308,0903]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 104 - Codepoint sequence "\x[0378,0308,0903]"
+# Subtest: Codepoint sequence "\x[0378,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 105 - Codepoint sequence "\x[0378,1100]"
+# Subtest: Codepoint sequence "\x[0378,0308,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 106 - Codepoint sequence "\x[0378,0308,1100]"
+# Subtest: Codepoint sequence "\x[0378,1160]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 107 - Codepoint sequence "\x[0378,1160]"
+# Subtest: Codepoint sequence "\x[0378,0308,1160]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 108 - Codepoint sequence "\x[0378,0308,1160]"
+# Subtest: Codepoint sequence "\x[0378,11A8]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 109 - Codepoint sequence "\x[0378,11A8]"
+# Subtest: Codepoint sequence "\x[0378,0308,11A8]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 110 - Codepoint sequence "\x[0378,0308,11A8]"
+# Subtest: Codepoint sequence "\x[0378,AC00]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 111 - Codepoint sequence "\x[0378,AC00]"
+# Subtest: Codepoint sequence "\x[0378,0308,AC00]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 112 - Codepoint sequence "\x[0378,0308,AC00]"
+# Subtest: Codepoint sequence "\x[0378,AC01]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 113 - Codepoint sequence "\x[0378,AC01]"
+# Subtest: Codepoint sequence "\x[0378,0308,AC01]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 114 - Codepoint sequence "\x[0378,0308,AC01]"
+# Subtest: Codepoint sequence "\x[0378,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 115 - Codepoint sequence "\x[0378,0915]"
+# Subtest: Codepoint sequence "\x[0378,0308,0915]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 116 - Codepoint sequence "\x[0378,0308,0915]"
+# Subtest: Codepoint sequence "\x[0378,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 117 - Codepoint sequence "\x[0378,00A9]"
+# Subtest: Codepoint sequence "\x[0378,0308,00A9]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 118 - Codepoint sequence "\x[0378,0308,00A9]"
+# Subtest: Codepoint sequence "\x[0378,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 119 - Codepoint sequence "\x[0378,0020]"
+# Subtest: Codepoint sequence "\x[0378,0308,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 120 - Codepoint sequence "\x[0378,0308,0020]"
+# Subtest: Codepoint sequence "\x[0378,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 121 - Codepoint sequence "\x[0378,0378]"
+# Subtest: Codepoint sequence "\x[0378,0308,0378]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 122 - Codepoint sequence "\x[0378,0308,0378]"
+# Subtest: Codepoint sequence "\x[000D,000A,0061,000A,0308]"
+    1..5
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/4
+    ok 3 - Grapheme 2/4
+    ok 4 - Grapheme 3/4
+    ok 5 - Grapheme 4/4
+ok 123 - Codepoint sequence "\x[000D,000A,0061,000A,0308]"
+# Subtest: Codepoint sequence "\x[0061,0308]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 124 - Codepoint sequence "\x[0061,0308]"
+# Subtest: Codepoint sequence "\x[0020,200D,0646]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 125 - Codepoint sequence "\x[0020,200D,0646]"
+# Subtest: Codepoint sequence "\x[0646,200D,0020]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 126 - Codepoint sequence "\x[0646,200D,0020]"
+# Subtest: Codepoint sequence "\x[1100,1100]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 127 - Codepoint sequence "\x[1100,1100]"
+# Subtest: Codepoint sequence "\x[AC00,11A8,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 128 - Codepoint sequence "\x[AC00,11A8,1100]"
+# Subtest: Codepoint sequence "\x[AC01,11A8,1100]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 129 - Codepoint sequence "\x[AC01,11A8,1100]"
+# Subtest: Codepoint sequence "\x[1F1E6,1F1E7,1F1E8,0062]"
+    1..4
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/3
+    ok 3 - Grapheme 2/3
+    ok 4 - Grapheme 3/3
+ok 130 - Codepoint sequence "\x[1F1E6,1F1E7,1F1E8,0062]"
+# Subtest: Codepoint sequence "\x[0061,1F1E6,1F1E7,1F1E8,0062]"
+    1..5
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/4
+    ok 3 - Grapheme 2/4
+    ok 4 - Grapheme 3/4
+    ok 5 - Grapheme 4/4
+ok 131 - Codepoint sequence "\x[0061,1F1E6,1F1E7,1F1E8,0062]"
+# Subtest: Codepoint sequence "\x[0061,1F1E6,1F1E7,200D,1F1E8,0062]"
+    1..5
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/4
+    ok 3 - Grapheme 2/4
+    ok 4 - Grapheme 3/4
+    ok 5 - Grapheme 4/4
+ok 132 - Codepoint sequence "\x[0061,1F1E6,1F1E7,200D,1F1E8,0062]"
+# Subtest: Codepoint sequence "\x[0061,1F1E6,200D,1F1E7,1F1E8,0062]"
+    1..5
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/4
+    ok 3 - Grapheme 2/4
+    ok 4 - Grapheme 3/4
+    ok 5 - Grapheme 4/4
+ok 133 - Codepoint sequence "\x[0061,1F1E6,200D,1F1E7,1F1E8,0062]"
+# Subtest: Codepoint sequence "\x[0061,1F1E6,1F1E7,1F1E8,1F1E9,0062]"
+    1..5
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/4
+    ok 3 - Grapheme 2/4
+    ok 4 - Grapheme 3/4
+    ok 5 - Grapheme 4/4
+ok 134 - Codepoint sequence "\x[0061,1F1E6,1F1E7,1F1E8,1F1E9,0062]"
+# Subtest: Codepoint sequence "\x[0061,200D]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 135 - Codepoint sequence "\x[0061,200D]"
+# Subtest: Codepoint sequence "\x[0061,0308,0062]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 136 - Codepoint sequence "\x[0061,0308,0062]"
+# Subtest: Codepoint sequence "\x[0061,0903,0062]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 137 - Codepoint sequence "\x[0061,0903,0062]"
+# Subtest: Codepoint sequence "\x[0061,0600,0062]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 138 - Codepoint sequence "\x[0061,0600,0062]"
+# Subtest: Codepoint sequence "\x[1F476,1F3FF,1F476]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 139 - Codepoint sequence "\x[1F476,1F3FF,1F476]"
+# Subtest: Codepoint sequence "\x[0061,1F3FF,1F476]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 140 - Codepoint sequence "\x[0061,1F3FF,1F476]"
+# Subtest: Codepoint sequence "\x[0061,1F3FF,1F476,200D,1F6D1]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 141 - Codepoint sequence "\x[0061,1F3FF,1F476,200D,1F6D1]"
+# Subtest: Codepoint sequence "\x[1F476,1F3FF,0308,200D,1F476,1F3FF]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 142 - Codepoint sequence "\x[1F476,1F3FF,0308,200D,1F476,1F3FF]"
+# Subtest: Codepoint sequence "\x[1F6D1,200D,1F6D1]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 143 - Codepoint sequence "\x[1F6D1,200D,1F6D1]"
+# Subtest: Codepoint sequence "\x[0061,200D,1F6D1]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 144 - Codepoint sequence "\x[0061,200D,1F6D1]"
+# Subtest: Codepoint sequence "\x[2701,200D,2701]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 145 - Codepoint sequence "\x[2701,200D,2701]"
+# Subtest: Codepoint sequence "\x[0061,200D,2701]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 146 - Codepoint sequence "\x[0061,200D,2701]"
+# Subtest: Codepoint sequence "\x[0915,0924]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 147 - Codepoint sequence "\x[0915,0924]"
+# Subtest: Codepoint sequence "\x[0915,094D,0924]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 148 - Codepoint sequence "\x[0915,094D,0924]"
+# Subtest: Codepoint sequence "\x[0915,094D,094D,0924]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 149 - Codepoint sequence "\x[0915,094D,094D,0924]"
+# Subtest: Codepoint sequence "\x[0915,094D,200D,0924]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 150 - Codepoint sequence "\x[0915,094D,200D,0924]"
+# Subtest: Codepoint sequence "\x[0915,093C,200D,094D,0924]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 151 - Codepoint sequence "\x[0915,093C,200D,094D,0924]"
+# Subtest: Codepoint sequence "\x[0915,093C,094D,200D,0924]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 152 - Codepoint sequence "\x[0915,093C,094D,200D,0924]"
+# Subtest: Codepoint sequence "\x[0915,094D,0924,094D,092F]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 153 - Codepoint sequence "\x[0915,094D,0924,094D,092F]"
+# Subtest: Codepoint sequence "\x[0915,094D,0061]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 154 - Codepoint sequence "\x[0915,094D,0061]"
+# Subtest: Codepoint sequence "\x[0061,094D,0924]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 155 - Codepoint sequence "\x[0061,094D,0924]"
+# Subtest: Codepoint sequence "\x[003F,094D,0924]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 156 - Codepoint sequence "\x[003F,094D,0924]"
+# Subtest: Codepoint sequence "\x[0915,094D,094D,0924]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 157 - Codepoint sequence "\x[0915,094D,094D,0924]"
+# Subtest: Codepoint sequence "\x[0AB8,0AFB,0ACD,0AB8,0AFB]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 158 - Codepoint sequence "\x[0AB8,0AFB,0ACD,0AB8,0AFB]"
+# Subtest: Codepoint sequence "\x[1019,1039,1018,102C,1037]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 159 - Codepoint sequence "\x[1019,1039,1018,102C,1037]"
+# Subtest: Codepoint sequence "\x[1004,103A,1039,1011,1039,1011]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 160 - Codepoint sequence "\x[1004,103A,1039,1011,1039,1011]"
+# Subtest: Codepoint sequence "\x[1B12,1B01,1B32,1B44,1B2F,1B32,1B44,1B22,1B44,1B2C,1B32,1B44,1B22,1B38]"
+    1..5
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/4
+    ok 3 - Grapheme 2/4
+    ok 4 - Grapheme 3/4
+    ok 5 - Grapheme 4/4
+ok 161 - Codepoint sequence "\x[1B12,1B01,1B32,1B44,1B2F,1B32,1B44,1B22,1B44,1B2C,1B32,1B44,1B22,1B38]"
+# Subtest: Codepoint sequence "\x[179F,17D2,178F,17D2,179A,17B8]"
+    1..2
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/1
+ok 162 - Codepoint sequence "\x[179F,17D2,178F,17D2,179A,17B8]"
+# Subtest: Codepoint sequence "\x[1B26,1B17,1B44,1B13]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 163 - Codepoint sequence "\x[1B26,1B17,1B44,1B13]"
+# Subtest: Codepoint sequence "\x[1B27,1B13,1B44,1B0B,1B0B,1B04]"
+    1..4
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/3
+    ok 3 - Grapheme 2/3
+    ok 4 - Grapheme 3/3
+ok 164 - Codepoint sequence "\x[1B27,1B13,1B44,1B0B,1B0B,1B04]"
+# Subtest: Codepoint sequence "\x[1795,17D2,17AF,1798]"
+    1..3
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/2
+    ok 3 - Grapheme 2/2
+ok 165 - Codepoint sequence "\x[1795,17D2,17AF,1798]"
+# Subtest: Codepoint sequence "\x[17A0,17D2,17AB,1791,17D0,1799]"
+    1..4
+    ok 1 - Correct number of graphemes
+    ok 2 - Grapheme 1/3
+    ok 3 - Grapheme 2/3
+    ok 4 - Grapheme 3/3
+ok 166 - Codepoint sequence "\x[17A0,17D2,17AB,1791,17D0,1799]"

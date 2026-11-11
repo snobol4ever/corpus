@@ -1,0 +1,16 @@
+1..15
+ok 1 - The gcd of 10 and 5 is 5
+ok 2 - The gcd of -432 and 63 is 9
+ok 3 - The gcd of 4342 and 65536 is 2
+ok 4 - The gcd of 0 and 42 is 42
+ok 5 - The gcd of 42 and 0 is 42
+ok 6 - The gcd of 0 and 0 is 0
+ok 7 - [gcd] Range works
+ok 8 - [gcd] array works
+ok 9 - gcd converts Rats to Ints correctly
+ok 10 - gcd converts Nums to Ints correctly
+ok 11 - gcd handles big Int and small Int
+ok 12 - gcd handles big Int and small Int
+ok 13 - gcd handles small Int and big Int
+ok 14 - gcd handles small Int and big Int
+ok 15 - gcd handles big Int and big Int

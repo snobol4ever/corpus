@@ -1,0 +1,51 @@
+1..12
+ok 1 - count([1, 2, 3, 4])
+ok 2 - count(my @b = 1, 2, 3)
+ok 3 - count((1, 2, 3))
+ok 4 - count2((1,2,3))
+ok 5 - basic array type sanity
+ok 6 - non-slurpy array does not take a single Int
+ok 7 - an Int is not a Hash
+ok 8 - can pass arrays through multiple subs
+ok 9 - Passing array references to functions accepting arrays works.
+ok 10 - can pass parameter Array on to next function
+ok 11 - ... and that did not make the caller Array ro
+# Subtest: Positional Bind Failover
+    # Subtest: PBF on @-siglled
+        # Subtest: Seq argument
+            ok 1 - argument is accepted
+            ok 2 - parameter value
+            1..2
+        ok 1 - Seq argument
+        # Subtest: HyperSeq argument
+            ok 1 - argument is accepted
+            ok 2 - parameter value
+            1..2
+        ok 2 - HyperSeq argument
+        # Subtest: RaceSeq argument
+            ok 1 - argument is accepted
+            ok 2 - parameter value
+            1..2
+        ok 3 - RaceSeq argument
+        1..3
+    ok 1 - PBF on @-siglled
+    # Subtest: PBF on Positional-typed
+        # Subtest: Seq argument
+            ok 1 - argument is accepted
+            ok 2 - parameter value
+            1..2
+        ok 1 - Seq argument
+        # Subtest: HyperSeq argument
+            ok 1 - argument is accepted
+            ok 2 - parameter value
+            1..2
+        ok 2 - HyperSeq argument
+        # Subtest: RaceSeq argument
+            ok 1 - argument is accepted
+            ok 2 - parameter value
+            1..2
+        ok 3 - RaceSeq argument
+        1..3
+    ok 2 - PBF on Positional-typed
+    1..2
+ok 12 - Positional Bind Failover

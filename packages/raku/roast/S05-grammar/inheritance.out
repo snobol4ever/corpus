@@ -1,0 +1,43 @@
+1..37
+ok 1 - don't let a Mu based action method fail the parse
+ok 2 - got right match (foo)
+ok 3 - got the right match through .parse TOP
+ok 4 - got the right match through .parse foo
+ok 5 - grammar isa Grammar
+ok 6 - inherited grammar still isa Grammar
+ok 7 - child isa parent
+ok 8 - got right match (bar)
+ok 9 - got right match (foo)
+ok 10 - got right match (any)
+ok 11 - got right match (any)
+ok 12 - can parse foo through .parsed and inherited subrule
+ok 13 - got right match (bar)
+ok 14 - got right match (foo)
+ok 15 - got right match (any)
+ok 16 - got right match (any)
+ok 17 - No match for bad input (any)
+ok 18 - got right match
+ok 19 - got right match
+ok 20 - got right match
+ok 21 - got right match
+ok 22 - got right match
+ok 23 - got right match
+ok 24 - got right match (baz)
+ok 25 - got right match (foo)
+ok 26 - got right match (bar)
+ok 27 - got right match (any)
+ok 28 - got right match (any)
+ok 29 - got right match (any)
+ok 30 - No match for bad input (any)
+not ok 31 - A grammar isa Grammar, even if inherting from a class # TODO automatic Grammar superclass
+# Failed test 'A grammar isa Grammar, even if inherting from a class'
+# at S05-grammar/inheritance.rakudo line 69
+# Actual type: B
+ok 32 - Grammar.WHAT.gist = Grammar()
+ok 33 - did the array initialize ok
+ok 34 - does it have the right type
+ok 35 - does it type check ok
+ok 36 - use of "to" as token is ok
+a
+ok 37 - can call Match.print
+# FUDGED!

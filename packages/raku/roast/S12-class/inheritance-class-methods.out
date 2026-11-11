@@ -1,0 +1,6 @@
+1..5
+ok 1 - inheritance works on class methods
+ok 2 - >1 level deep inheritance works on class methods
+ok 3 - multiple inheritance works on class methods (1)
+ok 4 - multiple inheritance works on class methods (2)
+ok 5 - method from class is selected over inherited method

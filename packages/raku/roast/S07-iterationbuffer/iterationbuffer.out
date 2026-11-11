@@ -1,0 +1,35 @@
+1..34
+ok 1 - The object is-a 'IterationBuffer'
+ok 2 - no elements
+ok 3 - element 0 uninitialized
+ok 4 - was the value 42 returned
+ok 5 - one element
+ok 6 - element initialized
+ok 7 - was the value 666 returned
+ok 8 - two elements
+ok 9 - element initialized
+ok 10 - element moved
+ok 11 - was the value 137 returned
+ok 12 - three elements
+ok 13 - element stayed
+ok 14 - element stayed
+ok 15 - element initialized
+ok 16 - coercion to List ok
+ok 17 - coercion to Slip ok
+ok 18 - coercion to Seq ok
+ok 19 - The object is-a 'IterationBuffer'
+ok 20 - did it get initialized properly
+ok 21 - three elements
+ok 22 - appending returns invocant
+ok 23 - six elements
+ok 24 - appended properly
+ok 25 - three elements unchanged
+ok 26 - original unchanged
+ok 27 - prepending returns invocant
+ok 28 - nine elements
+ok 29 - prepended properly
+ok 30 - three elements unchanged
+ok 31 - original unchanged
+ok 32 - resetting returns Nil
+ok 33 - no elements
+ok 34 - original unchanged

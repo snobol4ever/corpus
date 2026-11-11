@@ -1,0 +1,210 @@
+1..143
+ok 1 - floor(NaN) is NaN
+ok 2 - round(NaN) is NaN
+ok 3 - ceiling(NaN) is NaN
+ok 4 - truncate(NaN) is NaN
+ok 5 - floor(Inf) is Inf
+ok 6 - round(Inf) is Inf
+ok 7 - ceiling(Inf) is Inf
+ok 8 - truncate(Inf) is Inf
+ok 9 - floor(-Inf) is -Inf
+ok 10 - round(-Inf) is -Inf
+ok 11 - ceiling(-Inf) is -Inf
+ok 12 - truncate(-Inf) is -Inf
+ok 13 - NaN.floor is NaN
+ok 14 - NaN.round is NaN
+ok 15 - NaN.ceiling is NaN
+ok 16 - NaN.truncate is NaN
+ok 17 - Inf.floor is Inf
+ok 18 - Inf.round is Inf
+ok 19 - Inf.ceiling is Inf
+ok 20 - Inf.truncate is Inf
+ok 21 - (-Inf).floor is -Inf
+ok 22 - (-Inf).round is -Inf
+ok 23 - (-Inf).ceiling is -Inf
+ok 24 - (-Inf).truncate is -Inf
+ok 25 - ceiling(1.5) == 2
+ok 26 - ceiling(2) == 2
+ok 27 - ceiling(1.4999) == 2
+ok 28 - ceiling(-0.1) == 0
+ok 29 - ceiling(-1) == -1
+ok 30 - ceiling(-5.9) == -5
+ok 31 - ceiling(-0.5) == 0
+ok 32 - ceiling(-0.499) == 0
+ok 33 - ceiling(-5.499) == -5
+ok 34 - ceiling(2) == 2
+ok 35 - floor(1.5) == 1
+ok 36 - floor(2) == 2
+ok 37 - floor(1.4999) == 1
+ok 38 - floor(-0.1) == -1
+ok 39 - floor(-1) == -1
+ok 40 - floor(-5.9) == -6
+ok 41 - floor(-0.5) == -1
+ok 42 - floor(-0.499) == -1
+ok 43 - floor(-5.499) == -6
+ok 44 - floor(2) == 2
+ok 45 - round(1.5) == 2
+ok 46 - round(2) == 2
+ok 47 - round(1.4999) == 1
+ok 48 - round(-0.1) == 0
+ok 49 - round(-1) == -1
+ok 50 - round(-5.9) == -6
+ok 51 - round(-0.5) == 0
+ok 52 - round(-0.499) == 0
+ok 53 - round(-5.499) == -5
+ok 54 - round(2) == 2
+ok 55 - truncate(1.5) == 1
+ok 56 - truncate(2) == 2
+ok 57 - truncate(1.4999) == 1
+ok 58 - truncate(-0.1) == 0
+ok 59 - truncate(-1) == -1
+ok 60 - truncate(-5.9) == -5
+ok 61 - truncate(-0.5) == 0
+ok 62 - truncate(-0.499) == 0
+ok 63 - truncate(-5.499) == -5
+ok 64 - truncate(2) == 2
+ok 65 - round(1.23456, 0.00001) == 1.23456
+ok 66 - round(1.23456, 0.0001) == 1.2346
+ok 67 - round(1.23456, 0.001) == 1.235
+ok 68 - round(1.23456, 0.01) == 1.23
+ok 69 - round(1.23456, 0.1) == 1.2
+ok 70 - round("123.12", 0.01) == 123.12
+ok 71 - round($["foo", "bar", "baz"], 1) == 3
+ok 72 - round(${:bar(2), :baz(3), :foo(1)}, 1) == 3
+ok 73 - (1.5).ceiling == 2
+ok 74 - (2).ceiling == 2
+ok 75 - (1.4999).ceiling == 2
+ok 76 - (-0.1).ceiling == 0
+ok 77 - (-1).ceiling == -1
+ok 78 - (-5.9).ceiling == -5
+ok 79 - (-0.5).ceiling == 0
+ok 80 - (-0.499).ceiling == 0
+ok 81 - (-5.499).ceiling == -5
+ok 82 - (2).ceiling == 2
+ok 83 - (1.5).floor == 1
+ok 84 - (2).floor == 2
+ok 85 - (1.4999).floor == 1
+ok 86 - (-0.1).floor == -1
+ok 87 - (-1).floor == -1
+ok 88 - (-5.9).floor == -6
+ok 89 - (-0.5).floor == -1
+ok 90 - (-0.499).floor == -1
+ok 91 - (-5.499).floor == -6
+ok 92 - (2).floor == 2
+ok 93 - (1.5).round == 2
+ok 94 - (2).round == 2
+ok 95 - (1.4999).round == 1
+ok 96 - (-0.1).round == 0
+ok 97 - (-1).round == -1
+ok 98 - (-5.9).round == -6
+ok 99 - (-0.5).round == 0
+ok 100 - (-0.499).round == 0
+ok 101 - (-5.499).round == -5
+ok 102 - (2).round == 2
+ok 103 - (1.5).truncate == 1
+ok 104 - (2).truncate == 2
+ok 105 - (1.4999).truncate == 1
+ok 106 - (-0.1).truncate == 0
+ok 107 - (-1).truncate == -1
+ok 108 - (-5.9).truncate == -5
+ok 109 - (-0.5).truncate == 0
+ok 110 - (-0.499).truncate == 0
+ok 111 - (-5.499).truncate == -5
+ok 112 - (2).truncate == 2
+ok 113 - rounder ceiling returns an Int
+ok 114 - rounder floor returns an Int
+ok 115 - rounder round returns an Int
+ok 116 - rounder truncate returns an Int
+ok 117 - large positive numbers rounded do not give negative numbers (1)
+ok 118 - large positive numbers rounded do not give negative numbers (2)
+ok 119 - round integer with argument
+ok 120 - (987654321).round(5) == 987654320
+ok 121 - (987654321).round(1e5) == 987700000
+ok 122 - 2.round(3/20) == 1.95
+ok 123 - round with argument
+ok 124 - (123.456789).round(5) == 125
+ok 125 - (123.456789).round(1/100) == 123.46
+ok 126 - (123.456789).round(1e-5) =~= 123.45679e0
+ok 127 - complex round with argument
+ok 128 - (5.123456789+3.987654321i).round(5) == 5+5i
+ok 129 - (5.123456789+3.987654321i).round(1/100) == 5.12+3.99i
+ok 130 - (5.123456789+3.987654321i).round(1e-3) == 5.123+3.988i
+ok 131 - floor passes bigints unchanged
+ok 132 - ceiling passes bigints unchanged
+ok 133 - round passes bigints unchanged
+ok 134 - truncate passes bigints unchanged
+ok 135 - floor handles Rats properly
+ok 136 - ceiling handles Rats properly
+ok 137 - round handles Rats properly
+ok 138 - truncate handles Rats properly
+ok 139 - floor handles FatRats properly
+ok 140 - ceiling handles FatRats properly
+ok 141 - round handles FatRats properly
+ok 142 - truncate handles FatRats properly
+# Subtest: type of .round's return value
+    1..64
+    ok 1 - Int with Int rounder is Int
+    ok 2 - Int with IntStr rounder is Int
+    ok 3 - Int with Num rounder is Num
+    ok 4 - Int with NumStr rounder is Num
+    ok 5 - Int with Rat rounder is Rat
+    ok 6 - Int with RatStr rounder is Rat
+    ok 7 - Int with Complex rounder is Num
+    ok 8 - Int with ComplexStr rounder is Num
+    ok 9 - IntStr with Int rounder is Int
+    ok 10 - IntStr with IntStr rounder is Int
+    ok 11 - IntStr with Num rounder is Num
+    ok 12 - IntStr with NumStr rounder is Num
+    ok 13 - IntStr with Rat rounder is Rat
+    ok 14 - IntStr with RatStr rounder is Rat
+    ok 15 - IntStr with Complex rounder is Num
+    ok 16 - IntStr with ComplexStr rounder is Num
+    ok 17 - Num with Int rounder is Int
+    ok 18 - Num with IntStr rounder is Int
+    ok 19 - Num with Num rounder is Num
+    ok 20 - Num with NumStr rounder is Num
+    ok 21 - Num with Rat rounder is Rat
+    ok 22 - Num with RatStr rounder is Rat
+    ok 23 - Num with Complex rounder is Num
+    ok 24 - Num with ComplexStr rounder is Num
+    ok 25 - NumStr with Int rounder is Int
+    ok 26 - NumStr with IntStr rounder is Int
+    ok 27 - NumStr with Num rounder is Num
+    ok 28 - NumStr with NumStr rounder is Num
+    ok 29 - NumStr with Rat rounder is Rat
+    ok 30 - NumStr with RatStr rounder is Rat
+    ok 31 - NumStr with Complex rounder is Num
+    ok 32 - NumStr with ComplexStr rounder is Num
+    ok 33 - Rat with Int rounder is Int
+    ok 34 - Rat with IntStr rounder is Int
+    ok 35 - Rat with Num rounder is Num
+    ok 36 - Rat with NumStr rounder is Num
+    ok 37 - Rat with Rat rounder is Rat
+    ok 38 - Rat with RatStr rounder is Rat
+    ok 39 - Rat with Complex rounder is Num
+    ok 40 - Rat with ComplexStr rounder is Num
+    ok 41 - RatStr with Int rounder is Int
+    ok 42 - RatStr with IntStr rounder is Int
+    ok 43 - RatStr with Num rounder is Num
+    ok 44 - RatStr with NumStr rounder is Num
+    ok 45 - RatStr with Rat rounder is Rat
+    ok 46 - RatStr with RatStr rounder is Rat
+    ok 47 - RatStr with Complex rounder is Num
+    ok 48 - RatStr with ComplexStr rounder is Num
+    ok 49 - Complex with Int rounder is Complex
+    ok 50 - Complex with IntStr rounder is Complex
+    ok 51 - Complex with Num rounder is Complex
+    ok 52 - Complex with NumStr rounder is Complex
+    ok 53 - Complex with Rat rounder is Complex
+    ok 54 - Complex with RatStr rounder is Complex
+    ok 55 - Complex with Complex rounder is Complex
+    ok 56 - Complex with ComplexStr rounder is Complex
+    ok 57 - ComplexStr with Int rounder is Complex
+    ok 58 - ComplexStr with IntStr rounder is Complex
+    ok 59 - ComplexStr with Num rounder is Complex
+    ok 60 - ComplexStr with NumStr rounder is Complex
+    ok 61 - ComplexStr with Rat rounder is Complex
+    ok 62 - ComplexStr with RatStr rounder is Complex
+    ok 63 - ComplexStr with Complex rounder is Complex
+    ok 64 - ComplexStr with ComplexStr rounder is Complex
+ok 143 - type of .round's return value

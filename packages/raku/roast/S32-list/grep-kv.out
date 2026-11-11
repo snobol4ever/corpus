@@ -1,0 +1,26 @@
+1..17
+ok 1 - do we get Ints
+ok 2 - simple direct test of sub
+ok 3 - simple direct test of method
+ok 4 - method form of grep works on numbers
+ok 5 - method form of grep works on strings
+ok 6 - mutating $_ in grep works (1)
+ok 7 - mutating $_ in grep works (2)
+ok 8 - last works in grep
+ok 9 - next works in grep
+ok 10 - .grep with non-Code matcher
+ok 11 - grep with non-Code matcher
+ok 12 - Junction matcher
+# Subtest: did we throws-like X::Match::Bool?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Match::Bool)
+ok 13 - did we throws-like X::Match::Bool?
+# Subtest: did we throws-like X::Match::Bool?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Match::Bool)
+ok 14 - did we throws-like X::Match::Bool?
+ok 15 - can we match on Bool as type
+ok 16 - can we match on Bool as type
+ok 17 - is :!kv the same as no attribute

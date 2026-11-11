@@ -1,0 +1,32 @@
+1..13
+ok 1 - Basic function composition (1)
+ok 2 - Basic function composition (2)
+ok 3 - Basic function composition (Unicode)
+ok 4 - function composition with primed method
+ok 5 - can use WhateverCodes on both sides
+ok 6 - can autocurry with Whatever on left side
+ok 7 - can autocurry with Whatever on right side
+ok 8 - can autocurry with Whatever on both sides
+ok 9 - can compose functions that pass two arguments
+ok 10 - can compose functions that pass multiple arguments
+# Subtest: infix:<∘> preserves .count and .arity of RHS
+    1..5
+    ok 1 - composition copies LHS's return type
+    ok 2 - can 2-at-a-time map with a composed routine
+    ok 3 - can 2-at-a-time map with a double-composed routine
+    ok 4 - can 2-at-a-time grep with a composed routine
+    ok 5 - Can use infix:<∘> as a meta
+ok 11 - infix:<∘> preserves .count and .arity of RHS
+# Subtest: infix:<o> preserves .count and .arity of RHS
+    1..5
+    ok 1 - composition copies LHS's return type
+    ok 2 - can 2-at-a-time map with a composed routine
+    ok 3 - can 2-at-a-time map with a double-composed routine
+    ok 4 - can 2-at-a-time grep with a composed routine
+    ok 5 - Can use infix:<o> as a meta
+ok 12 - infix:<o> preserves .count and .arity of RHS
+# Subtest: identify function does not explode/handle Failures
+    1..2
+    ok 1 - processed Failure remained unhandled and unexploded (ASCII)
+    ok 2 - processed Failure remained unhandled and unexploded (Unicode)
+ok 13 - identify function does not explode/handle Failures

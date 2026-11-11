@@ -1,0 +1,16 @@
+1..15
+ok 1 - Base + combiner is 1 grapheme (1)
+ok 2 - Base + combiner is 1 grapheme (2)
+ok 3 - Base + 2 combiners is 1 grapheme (1)
+ok 4 - Base + 2 combiners is 1 grapheme (2)
+ok 5 - Order of combiners concatenated does not affect equality
+ok 6 - join respects NFG (1)
+ok 7 - join respects NFG (2)
+ok 8 - join respects NFG (3)
+ok 9 - \xfacf ~ \n is ok
+ok 10 - \xfad0 ~ \n is ok
+ok 11 - \xfad7 ~ \n is ok
+ok 12 - a\r ~ \na is ok
+ok 13 - Concat works with combining repeated characters
+ok 14 - Concat works with combining repeated characters
+ok 15 - Concat works with combining repeated characters

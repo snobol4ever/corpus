@@ -1,0 +1,20 @@
+1..15
+ok 1 - :($a) create a Signature object
+ok 2 - can bind to one-element signature
+# Subtest: cannot increment an Int
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 3 - cannot increment an Int
+ok 4 - .WHAT on :() is Signature
+ok 5 - signature binding works
+ok 6 - complex signature bindings works (1)
+ok 7 - complex signature bindings works (2)
+ok 8 - a signature stringifies
+ok 9 - a subroutine's signature can be accessed via .signature (1)
+ok 10 - a subroutine's signature can be accessed via .signature (2)
+ok 11 - a subroutine's signature can be accessed via .signature (3)
+ok 12 - asigning to an array in a signature is sane
+ok 13 - signature binding with a hash works
+ok 14 - is coercion type.raku shown
+ok 15 - is coercion type.gist shown

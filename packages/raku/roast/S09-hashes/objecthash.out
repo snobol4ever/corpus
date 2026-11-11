@@ -1,0 +1,68 @@
+1..62
+ok 1 - Any-typed hash access (+)
+ok 2 - and the hash really uses ===-semantics
+ok 3 - Any-typed hash does not like Mu keys
+ok 4 - returned key is correct
+ok 5 - value-type semantics
+ok 6 - non-conformant type dies
+ok 7 - key type mismatch
+ok 8 - value type mismatch
+ok 9 - key and value type mismatch
+ok 10 - .keys
+ok 11 - .values
+ok 12 - .kv types (1)
+ok 13 - .kv types (2)
+ok 14 - .pairs.key type
+ok 15 - .pairs.value type
+ok 16 - .elems
+ok 17 - binding to typed objecthash elements
+ok 18 - updated .elems
+ok 19 - binding key type check failure
+ok 20 - binding value type check failure
+ok 21 - Hash.push fails when the resulting array conflicts with the type check
+ok 22 - Hash.push without array creation is OK
+ok 23 - Hash.push key type check failure
+ok 24 - Hash.push value type check failure
+ok 25 - list assignment + object hashes
+ok 26 - using Mu as a key
+ok 27 - using Any as a key
+ok 28 - # SKIP oh noes, it dies
+ok 29 - check whatever access with Mu as key
+ok 30 - .exists returns True on a %h{Any} in a TypedHash
+ok 31 - declaring empty object hash on rhs of assignment to hash does not die with "Cannot look up attributes in a type object"
+ok 32 - empty hash listifies to empty list
+ok 33 - empty object hash listifies to empty list
+ok 34 - New on an object hash instance produces an object hash
+ok 35 - Clone of an object hash instance is an object hash
+ok 36 - Can use mixin objects as keys
+ok 37 - Assigning a list with an object hash to another Hash gives the content back
+ok 38 - Enforcing hash context on a list of an object hash gives the content back
+ok 39 - 
+ok 40 - 
+ok 41 - 
+ok 42 - 
+ok 43 - 
+ok 44 - 
+ok 45 - 
+ok 46 - 
+ok 47 - 
+ok 48 - 
+ok 49 - 
+ok 50 - 
+ok 51 - 
+ok 52 - 
+ok 53 - 
+ok 54 - 
+ok 55 - 
+ok 56 - Accept dynamic object hash
+ok 57 - self referencing object hash doesn't loop on 'Str'
+ok 58 - self referencing object hash doesn't loop on 'gist'
+ok 59 - self referencing object hash doesn't loop on 'raku'
+ok 60 - is original unchanged
+ok 61 - is clone updated
+# Subtest: did the coercion failure throw in time
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 62 - did the coercion failure throw in time
+# FUDGED!

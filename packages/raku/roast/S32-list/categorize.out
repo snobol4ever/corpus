@@ -1,0 +1,29 @@
+1..28
+ok 1 - simple sub call with Sub
+ok 2 - method call on list with Sub
+ok 3 - basic categorize as sub with Sub and new into
+ok 4 - basic categorize as sub with Sub and existing into
+ok 5 - basic categorize from list with Sub and new into
+ok 6 - basic categorize from list with Sub and existing into
+ok 7 - simple sub call with Block
+ok 8 - method call on list with Block
+ok 9 - basic categorize as sub with Block and new into
+ok 10 - basic categorize as sub with Block and existing into
+ok 11 - basic categorize from list with Block and new into
+ok 12 - basic categorize from list with Block and existing into
+ok 13 - simple sub call with Hash
+ok 14 - method call on list with Hash
+ok 15 - basic categorize as sub with Hash and new into
+ok 16 - basic categorize as sub with Hash and existing into
+ok 17 - basic categorize from list with Hash and new into
+ok 18 - basic categorize from list with Hash and existing into
+ok 19 - simple sub call with Array
+ok 20 - method call on list with Array
+ok 21 - basic categorize as sub with Array and new into
+ok 22 - basic categorize as sub with Array and existing into
+ok 23 - basic categorize from list with Array and new into
+ok 24 - basic categorize from list with Array and existing into
+ok 25 - sub with named sub mapper
+ok 26 - method with code block mapper using :as
+ok 27 - method with named sub mapper using gather
+ok 28 - multi-level categorize

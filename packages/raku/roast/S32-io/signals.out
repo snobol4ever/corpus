@@ -1,0 +1,8 @@
+1..1
+# Subtest: &signal
+    1..4
+    ok 1 - can be invoked with two separate signals
+    ok 2 - can be invoked with a signal and a list of signals
+    ok 3 - can be invoked with a list of signals and a signal
+    ok 4 - can be invoked with a list of signals
+ok 1 - &signal

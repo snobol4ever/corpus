@@ -1,0 +1,5 @@
+1..4
+ok 1 - $~MAIN is defined
+ok 2 - $~Quote is defined
+ok 3 - $~Regex is defined
+ok 4 - $~P5Regex is defined

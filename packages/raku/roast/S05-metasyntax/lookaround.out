@@ -1,0 +1,16 @@
+1..15
+ok 1 - Lookbehind
+ok 2 - Lookbehind failure
+ok 3 - Negative lookbehind failure
+ok 4 - Negative lookbehind
+ok 5 - Lookahead
+ok 6 - Verify lookahead
+ok 7 - Lookahead failure
+ok 8 - Negative lookahead failure
+ok 9 - Negative lookahead
+ok 10 - Verify negative lookahead
+ok 11 - ^^ in <?after ...>
+ok 12 - ^ in <?after ...>
+ok 13 - $$ in <?after ...>
+ok 14 - $ in <?after ...>
+ok 15 - did assertion at end work

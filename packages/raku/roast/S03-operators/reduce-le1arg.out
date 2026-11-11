@@ -1,0 +1,56 @@
+1..54
+ok 1 - [**] () eq 1 (arguably nonsensical)
+ok 2 - [*] () eq 1
+ok 3 - [/] () should fail
+ok 4 - [%] () should fail
+ok 5 - [x] () should fail
+ok 6 - [xx] () should fail
+ok 7 - [+&] () eq +^0
+ok 8 - [+<] () should fail
+ok 9 - [+>] () should fail
+ok 10 - [~&] () should fail
+ok 11 - # SKIP ~< NYI
+ok 12 - # SKIP ~> NYI
+ok 13 - [+] () eq 0
+ok 14 - [-] () eq 0
+ok 15 - [~] () eq ''
+ok 16 - [+|] () eq 0
+ok 17 - [+^] () eq 0
+ok 18 - [~|] () eq ''
+ok 19 - [~^] () eq ''
+ok 20 - [&] () eq all()
+ok 21 - [|] () eq any()
+ok 22 - [^] () eq one()
+ok 23 - [!==] () eq True
+ok 24 - [==] () eq True
+ok 25 - [<] () eq True
+ok 26 - [<=] () eq True
+ok 27 - [>] () eq True
+ok 28 - [>=] () eq True
+ok 29 - [before] () eq True
+ok 30 - [after] () eq True
+ok 31 - [~~] () eq True
+ok 32 - [!~~] () eq True
+ok 33 - [eq] () eq True)
+ok 34 - [ne] () eq True)
+ok 35 - [!eq] () eq True
+ok 36 - [lt] () eq True
+ok 37 - [le] () eq True
+ok 38 - [gt] () eq True
+ok 39 - [ge] () eq True
+ok 40 - [=:=] () eq True
+ok 41 - [!=:=] () eq True
+ok 42 - [===] () eq True
+ok 43 - [!===] () eq True
+ok 44 - [eqv] () eq True
+ok 45 - [!eqv] () eq True
+ok 46 - [&&] () eq True
+ok 47 - [||] () eq False
+ok 48 - [^^] () eq False
+ok 49 - [//] () is Any
+ok 50 - [,] () eq ()
+ok 51 - [Z] () eq []
+ok 52 - unary [==]
+ok 53 - unary [!=]
+ok 54 - unary [!==]
+# FUDGED!

@@ -1,0 +1,40 @@
+1..29
+ok 1 - Array.rotate defaults to +1
+ok 2 - original array unmodified
+ok 3 - .rotate(2)
+ok 4 - original array still unmodified
+ok 5 - .rotate(-2)
+ok 6 - original still unmodified (negative)
+ok 7 - .rotate(0)
+ok 8 - .rotate(5)
+ok 9 - .rotate(15)
+ok 10 - .rotate(7)
+ok 11 - original still unmodified (negative)
+ok 12 - .rotate(-8)
+ok 13 - original still unmodified (negative)
+ok 14 - rotate(@a)
+ok 15 - original array unmodified
+ok 16 - rotate(@a, 2)
+ok 17 - original array still unmodified
+ok 18 - rotate(@a, -2)
+ok 19 - original still unmodified (negative)
+ok 20 - rotate(@a, 0)
+ok 21 - rotate(@a, 5)
+ok 22 - rotate(@a, 15)
+ok 23 - rotate(@a, 7)
+ok 24 - original still unmodified (negative)
+ok 25 - rotate(@a, -8)
+ok 26 - original still unmodified (negative)
+ok 27 - .rotate("2")
+ok 28 - .rotate(2.5)
+# Subtest: .rotate can be used on empty List
+    1..8
+    ok 1 - List (1)
+    ok 2 - List (-1)
+    ok 3 - Array (1)
+    ok 4 - Array (-1)
+    ok 5 - Slip (1)
+    ok 6 - Slip (-1)
+    ok 7 - Seq's cache (1)
+    ok 8 - Seq's cache (-1)
+ok 29 - .rotate can be used on empty List

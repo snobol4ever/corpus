@@ -1,0 +1,52 @@
+1..51
+ok 1 - AT-POS with many indices digs into nested arrays
+ok 2 - AT-POS with many indices digs into nested arrays
+ok 3 - AT-POS with many indices digs into nested arrays
+ok 4 - AT-POS with many indices digs into nested arrays
+ok 5 - The object is-a 'Failure'
+ok 6 - The object is-a 'Failure'
+ok 7 - The object is-a 'Failure'
+ok 8 - EXISTS-POS with many indices digs into nested arrays
+ok 9 - EXISTS-POS with many indices digs into nested arrays
+ok 10 - EXISTS-POS with many indices digs into nested arrays
+ok 11 - EXISTS-POS with many indices digs into nested arrays
+ok 12 - EXISTS-POS with many indices digs into nested arrays
+ok 13 - EXISTS-POS with many indices digs into nested arrays
+ok 14 - EXISTS-POS with many indices digs into nested arrays
+ok 15 - negative index dies on assignment
+ok 16 - negative index dies on assignment
+ok 17 - negative index dies on assignment
+ok 18 - ASSIGN-POS with many indices digs into nested arrays
+ok 19 - ASSIGN-POS with many indices digs into nested arrays
+ok 20 - ASSIGN-POS with many indices digs into nested arrays
+ok 21 - ASSIGN-POS with many indices digs into nested arrays
+ok 22 - ASSIGN-POS with many indices digs into nested arrays
+ok 23 - DELETE-POS with many indices digs into nested arrays
+ok 24 - BIND-POS with many indices digs into nested arrays
+ok 25 - BIND-POS with many indices really binds
+ok 26 - AT-POS with many indices digs into nested arrays
+ok 27 - AT-POS with many indices digs into nested arrays
+ok 28 - AT-POS with many indices digs into nested arrays
+ok 29 - AT-POS with many indices digs into nested arrays
+ok 30 - The object is-a 'Failure'
+ok 31 - The object is-a 'Failure'
+ok 32 - The object is-a 'Failure'
+ok 33 - The object is-a 'Failure'
+ok 34 - EXISTS-POS with many indices digs into nested arrays
+ok 35 - EXISTS-POS with many indices digs into nested arrays
+ok 36 - EXISTS-POS with many indices digs into nested arrays
+ok 37 - EXISTS-POS with many indices digs into nested arrays
+ok 38 - EXISTS-POS with many indices digs into nested arrays
+ok 39 - EXISTS-POS with many indices digs into nested arrays
+ok 40 - EXISTS-POS with many indices digs into nested arrays
+ok 41 - EXISTS-POS with many indices digs into nested arrays
+ok 42 - negative index dies on assignment
+ok 43 - negative index dies on assignment
+ok 44 - negative index dies on assignment
+ok 45 - ASSIGN-POS with many indices digs into nested arrays
+ok 46 - ASSIGN-POS with many indices digs into nested arrays
+ok 47 - ASSIGN-POS with many indices digs into nested arrays
+ok 48 - ASSIGN-POS with many indices digs into nested arrays
+ok 49 - DELETE-POS with many indices digs into nested arrays
+ok 50 - BIND-POS with many indices digs into nested arrays
+ok 51 - BIND-POS with many indices really binds

@@ -1,0 +1,10 @@
+1..9
+ok 1 - Two matches found
+ok 2 - First match is 'lo'
+ok 3 - Second match is 'wo'
+ok 4 - Zero matches found
+ok 5 - Three matches found
+ok 6 - First match is 'el'
+ok 7 - Second match is 'o '
+ok 8 - Third match is 'or'
+ok 9 - m:g/.../ with an embedded {} produces correct results

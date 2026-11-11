@@ -1,0 +1,167 @@
+1..62
+ok 1 - ~<3+4i>
+ok 2 - <3+4i>.Str
+ok 3 - <3+4i>.gist
+ok 4 - <3+4i>.raku
+ok 5 - ~<3-4i>
+ok 6 - <3-4i>.Str
+ok 7 - <3-4i>.gist
+ok 8 - <3-4i>.raku
+ok 9 - ~<-3+4i>
+ok 10 - <-3+4i>.Str
+ok 11 - <-3+4i>.gist
+ok 12 - <-3+4i>.raku
+ok 13 - ~<3.5+4i>
+ok 14 - <3.5+4i>.Str
+ok 15 - <3.5+4i>.gist
+ok 16 - <3.5+4i>.raku
+ok 17 - ~<3+4.5i>
+ok 18 - <3+4.5i>.Str
+ok 19 - <3+4.5i>.gist
+ok 20 - <3+4.5i>.raku
+ok 21 - ~<Inf+3i>
+ok 22 - <Inf+3i>.Str
+ok 23 - <Inf+3i>.gist
+ok 24 - <Inf+3i>.raku
+ok 25 - ~<0+Inf\i>
+ok 26 - <0+Inf\i>.Str
+ok 27 - <0+Inf\i>.gist
+ok 28 - <0+Inf\i>.raku
+ok 29 - ~<-Inf+3i>
+ok 30 - <-Inf+3i>.Str
+ok 31 - <-Inf+3i>.gist
+ok 32 - <-Inf+3i>.raku
+ok 33 - ~<0-Inf\i>
+ok 34 - <0-Inf\i>.Str
+ok 35 - <0-Inf\i>.gist
+ok 36 - <0-Inf\i>.raku
+ok 37 - ~<NaN+3i>
+ok 38 - <NaN+3i>.Str
+ok 39 - <NaN+3i>.gist
+ok 40 - <NaN+3i>.raku
+ok 41 - ~<0+NaN\i>
+ok 42 - <0+NaN\i>.Str
+ok 43 - <0+NaN\i>.gist
+ok 44 - <0+NaN\i>.raku
+ok 45 - Complex.gist
+ok 46 - Complex.raku
+ok 47 - ~Complex does not die
+ok 48 - Complex.Str does not die
+# Subtest: Rat Stringification (0.5)
+    1..7
+    ok 1 - ~<1/2>
+    ok 2 - <1/2>.Str
+    ok 3 - <1/2>.gist
+    ok 4 - <1/2>.raku
+    ok 5 - ~<1/2>.FatRat
+    ok 6 - <1/2>.FatRat.Str
+    ok 7 - <1/2>.FatRat.gist
+ok 49 - Rat Stringification (0.5)
+# Subtest: Rat Stringification (-0.5)
+    1..7
+    ok 1 - ~<-1/2>
+    ok 2 - <-1/2>.Str
+    ok 3 - <-1/2>.gist
+    ok 4 - <-1/2>.raku
+    ok 5 - ~<-1/2>.FatRat
+    ok 6 - <-1/2>.FatRat.Str
+    ok 7 - <-1/2>.FatRat.gist
+ok 50 - Rat Stringification (-0.5)
+# Subtest: Rat Stringification (0)
+    1..7
+    ok 1 - ~<0/1>
+    ok 2 - <0/1>.Str
+    ok 3 - <0/1>.gist
+    ok 4 - <0/1>.raku
+    ok 5 - ~<0/1>.FatRat
+    ok 6 - <0/1>.FatRat.Str
+    ok 7 - <0/1>.FatRat.gist
+ok 51 - Rat Stringification (0)
+# Subtest: Rat Stringification (1)
+    1..7
+    ok 1 - ~<1/1>
+    ok 2 - <1/1>.Str
+    ok 3 - <1/1>.gist
+    ok 4 - <1/1>.raku
+    ok 5 - ~<1/1>.FatRat
+    ok 6 - <1/1>.FatRat.Str
+    ok 7 - <1/1>.FatRat.gist
+ok 52 - Rat Stringification (1)
+# Subtest: Rat Stringification (0.333333)
+    1..7
+    ok 1 - ~<1/3>
+    ok 2 - <1/3>.Str
+    ok 3 - <1/3>.gist
+    ok 4 - <1/3>.raku
+    ok 5 - ~<1/3>.FatRat
+    ok 6 - <1/3>.FatRat.Str
+    ok 7 - <1/3>.FatRat.gist
+ok 53 - Rat Stringification (0.333333)
+# Subtest: Rat Stringification (100.0001)
+    1..7
+    ok 1 - ~<1000001/10000>
+    ok 2 - <1000001/10000>.Str
+    ok 3 - <1000001/10000>.gist
+    ok 4 - <1000001/10000>.raku
+    ok 5 - ~<1000001/10000>.FatRat
+    ok 6 - <1000001/10000>.FatRat.Str
+    ok 7 - <1000001/10000>.FatRat.gist
+ok 54 - Rat Stringification (100.0001)
+# Subtest: Rat Stringification (-100.0001)
+    1..7
+    ok 1 - ~<-1000001/10000>
+    ok 2 - <-1000001/10000>.Str
+    ok 3 - <-1000001/10000>.gist
+    ok 4 - <-1000001/10000>.raku
+    ok 5 - ~<-1000001/10000>.FatRat
+    ok 6 - <-1000001/10000>.FatRat.Str
+    ok 7 - <-1000001/10000>.FatRat.gist
+ok 55 - Rat Stringification (-100.0001)
+# Subtest: Rat Stringification (111111111111111111111111111111111111111111111)
+    1..7
+    ok 1 - ~<555555555555555555555555555555555555555555555/5>
+    ok 2 - <555555555555555555555555555555555555555555555/5>.Str
+    ok 3 - <555555555555555555555555555555555555555555555/5>.gist
+    ok 4 - <555555555555555555555555555555555555555555555/5>.raku
+    ok 5 - ~<555555555555555555555555555555555555555555555/5>.FatRat
+    ok 6 - <555555555555555555555555555555555555555555555/5>.FatRat.Str
+    ok 7 - <555555555555555555555555555555555555555555555/5>.FatRat.gist
+ok 56 - Rat Stringification (111111111111111111111111111111111111111111111)
+# Subtest: Rat Stringification (1558657976916843360832062017400788597510.0588349539456355106)
+    1..7
+    not ok 1 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976> # TODO big stuff
+    # Failed test '~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>'
+    # at S32-num/stringify.rakudo line 71
+    # expected: '1558657976916843360832062017400788597510.058834953945635510598466400011830046423710882663726806640625'
+    #      got: '1558657976916843360832062017400788597510.0588349539456355106'
+    not ok 2 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.Str # TODO big stuff
+    # Failed test '<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.Str'
+    # at S32-num/stringify.rakudo line 71
+    # expected: '1558657976916843360832062017400788597510.058834953945635510598466400011830046423710882663726806640625'
+    #      got: '1558657976916843360832062017400788597510.0588349539456355106'
+    not ok 3 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.gist # TODO big stuff
+    # Failed test '<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.gist'
+    # at S32-num/stringify.rakudo line 71
+    # expected: '1558657976916843360832062017400788597510.058834953945635510598466400011830046423710882663726806640625'
+    #      got: '1558657976916843360832062017400788597510.0588349539456355106'
+    ok 4 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.raku
+    ok 5 - ~<1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat
+    ok 6 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat.Str
+    ok 7 - <1797010299914431210413179829509605039731475627537851106401/1152921504606846976>.FatRat.gist
+not ok 57 - Rat Stringification (1558657976916843360832062017400788597510.0588349539456355106) # TODO big stuff
+# Failed test 'Rat Stringification (1558657976916843360832062017400788597510.0588349539456355106)'
+# at S32-num/stringify.rakudo line 71
+ok 58 - Rat.gist
+ok 59 - Rat.raku
+ok 60 - ~Rat does not die
+ok 61 - Rat.Str does not die
+# Subtest: no precision loss in stringification of Nums
+    1..6
+    ok 1 - pi
+    ok 2 - pi (.raku.EVAL roundtripped)
+    ok 3 - 0.1e0 does not get long string of zeros
+    ok 4 - 0.3e0 does not get long string of zeros
+    ok 5 - 0.1e0+0.2e0 gets 0.3000…
+    ok 6 - 2e25 and 20e24 stringify the same
+ok 62 - no precision loss in stringification of Nums
+# FUDGED!

@@ -1,0 +1,55 @@
+1..37
+ok 1 - object sanity test
+ok 2 - parallel dispatch using » works
+ok 3 - parallel dispatch using >> works
+ok 4 - parallel dispatch to a private using »! works
+ok 5 - parallel dispatch to a private using >>! works
+ok 6 - object sanity test
+ok 7 - parallel dispatch using @o».?not_here lives
+ok 8 - parallel dispatch using @o>>.?not_here lives
+ok 9 - parallel dispatch using @o».not_here dies
+ok 10 - parallel dispatch using @o>>.not_here dies
+ok 11 - parallel dispatch using @o».?doit works
+ok 12 - parallel dispatch using @o>>.?doit works
+ok 13 - $obj».?nonexistingmethod returns a list of Nil
+ok 14 - $obj».?existingmethod returns a list of the return values
+ok 15 - object sanity test
+ok 16 - parallel dispatch using @o».*not_here lives
+ok 17 - parallel dispatch using @o>>.*not_here lives
+ok 18 - parallel dispatch using @o».+not_here dies
+ok 19 - parallel dispatch using @o>>.+not_here dies
+ok 20 - parallel dispatch using @o».*doit works
+ok 21 - parallel dispatch using @o».*doit works
+ok 22 - <list>».method works
+ok 23 - <list>>>.method works
+ok 24 - @list».=method works
+ok 25 - @list>>.=method works
+ok 26 - return value of @a».method(@args)
+ok 27 - ... indirect
+ok 28 - return value of @a».?method(@args)
+ok 29 - ... indirect
+not ok 30 - return value of @a».+method is a list of lists # TODO is-deeply does not think map results are the same as list on LHS
+# Failed test 'return value of @a».+method is a list of lists'
+# at S12-methods/parallel-dispatch.rakudo line 103
+# expected: $([2, 4], [4, 8], [6, 12])
+#      got: $[(2,), (4,), (6,)]
+not ok 31 - ... indirect # TODO is-deeply does not think map results are the same as list on LHS
+# Failed test '... indirect'
+# at S12-methods/parallel-dispatch.rakudo line 105
+# expected: $([2, 4], [4, 8], [6, 12])
+#      got: $[(2,), (4,), (6,)]
+not ok 32 - return value of @a».*method is a list of lists # TODO is-deeply does not think map results are the same as list on LHS
+# Failed test 'return value of @a».*method is a list of lists'
+# at S12-methods/parallel-dispatch.rakudo line 108
+# expected: $([2, 4], [4, 8], [6, 12])
+#      got: $[(2,), (4,), (6,)]
+not ok 33 - ... indirect # TODO is-deeply does not think map results are the same as list on LHS
+# Failed test '... indirect'
+# at S12-methods/parallel-dispatch.rakudo line 110
+# expected: $([2, 4], [4, 8], [6, 12])
+#      got: $[(2,), (4,), (6,)]
+ok 34 - >>.<a>
+ok 35 - parallel dispatch with » works in modules too
+ok 36 - $( ) after dotty parallel dispatch
+ok 37 - &( ) after dotty parallel dispatch
+# FUDGED!

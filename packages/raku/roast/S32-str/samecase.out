@@ -1,0 +1,9 @@
+1..8
+ok 1 - as a function
+ok 2 - empty string
+ok 3 - literal
+ok 4 - with a Str variable
+ok 5 - with a Str variable and <unicode> arg
+ok 6 - samecase should not be in-place
+ok 7 - after a .= samecase(...)
+ok 8 - some unicode characters

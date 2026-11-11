@@ -1,0 +1,11 @@
+1..10
+ok 1 - barfoo matches
+ok 2 - foobar doesnt match
+ok 3 - named arg passed in subrule call with => syntax
+ok 4 - named arg passed in subrule call with colonpair syntax
+ok 5 - flattened positional arg in subrule call (1)
+ok 6 - flattened positional arg in subrule call (2)
+ok 7 - flattened positional arg in subrule call (3)
+ok 8 - flattening named arg in subrule call (1)
+ok 9 - flattening named arg in subrule call (2)
+ok 10 - Grammar with various subrule arg passings parsed

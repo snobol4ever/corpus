@@ -1,0 +1,362 @@
+1..313
+ok 1 - afraid is (elem) of Set
+ok 2 - Set (cont) afraid
+ok 3 - afraid is (elem) of SetHash
+ok 4 - SetHash (cont) afraid
+ok 5 - earthly is (elem) of Bag
+ok 6 - Bag (cont) earthly
+ok 7 - your is (elem) of BagHash
+ok 8 - BagHash (cont) your
+ok 9 - before is (elem) of Mix
+ok 10 - Mix (cont) before
+ok 11 - dosage is (elem) of MixHash
+ok 12 - MixHash (cont) dosage
+ok 13 - factual is (elem) of Map
+ok 14 - Map (cont) factual
+ok 15 - global is (elem) of Hash
+ok 16 - Hash (cont) global
+ok 17 - ideas is (elem) of Hash[Any,Any]
+ok 18 - Hash[Any,Any] (cont) ideas
+ok 19 - 13 is (elem) of Hash[Any,Any]
+ok 20 - Hash[Any,Any] (cont) 13
+ok 21 - quick is (elem) of List
+ok 22 - List (cont) quick
+ok 23 - 1000000000000000000000000000000000000000000 is (elem) of Range
+ok 24 - Range (cont) 1000000000000000000000000000000000000000000
+ok 25 - 2 is (elem) of Range
+ok 26 - Range (cont) 2
+ok 27 - 42.5 is (elem) of Range
+ok 28 - Range (cont) 42.5
+ok 29 - 42.5 is (elem) of Range
+ok 30 - Range (cont) 42.5
+ok 31 - b is (elem) of Range
+ok 32 - Range (cont) b
+ok 33 - marmoset is NOT (elem) of Set
+ok 34 - Set NOT (cont) marmoset
+ok 35 - marmoset is NOT (elem) of Set
+ok 36 - Set NOT (cont) marmoset
+ok 37 - marmoset is NOT (elem) of SetHash
+ok 38 - SetHash NOT (cont) marmoset
+ok 39 - marmoset is NOT (elem) of SetHash
+ok 40 - SetHash NOT (cont) marmoset
+ok 41 - marmoset is NOT (elem) of SetHash
+ok 42 - SetHash NOT (cont) marmoset
+ok 43 - marmoset is NOT (elem) of Bag
+ok 44 - Bag NOT (cont) marmoset
+ok 45 - marmoset is NOT (elem) of Bag
+ok 46 - Bag NOT (cont) marmoset
+ok 47 - marmoset is NOT (elem) of BagHash
+ok 48 - BagHash NOT (cont) marmoset
+ok 49 - marmoset is NOT (elem) of BagHash
+ok 50 - BagHash NOT (cont) marmoset
+ok 51 - marmoset is NOT (elem) of BagHash
+ok 52 - BagHash NOT (cont) marmoset
+ok 53 - marmoset is NOT (elem) of Mix
+ok 54 - Mix NOT (cont) marmoset
+ok 55 - marmoset is NOT (elem) of Mix
+ok 56 - Mix NOT (cont) marmoset
+ok 57 - marmoset is NOT (elem) of MixHash
+ok 58 - MixHash NOT (cont) marmoset
+ok 59 - marmoset is NOT (elem) of MixHash
+ok 60 - MixHash NOT (cont) marmoset
+ok 61 - marmoset is NOT (elem) of MixHash
+ok 62 - MixHash NOT (cont) marmoset
+ok 63 - marmoset is NOT (elem) of Map
+ok 64 - Map NOT (cont) marmoset
+ok 65 - marmoset is NOT (elem) of Map
+ok 66 - Map NOT (cont) marmoset
+ok 67 - marmoset is NOT (elem) of Hash
+ok 68 - Hash NOT (cont) marmoset
+ok 69 - 999 is NOT (elem) of Hash
+ok 70 - Hash NOT (cont) 999
+ok 71 - marmoset is NOT (elem) of Hash
+ok 72 - Hash NOT (cont) marmoset
+ok 73 - marmoset is NOT (elem) of Hash
+ok 74 - Hash NOT (cont) marmoset
+ok 75 - marmoset is NOT (elem) of Hash[Any,Any]
+ok 76 - Hash[Any,Any] NOT (cont) marmoset
+ok 77 - 13 is NOT (elem) of Hash[Any,Any]
+ok 78 - Hash[Any,Any] NOT (cont) 13
+ok 79 - marmoset is NOT (elem) of Hash[Any,Any]
+ok 80 - Hash[Any,Any] NOT (cont) marmoset
+ok 81 - marmoset is NOT (elem) of Hash[Mu,Mu,Any]
+ok 82 - Hash[Mu,Mu,Any] NOT (cont) marmoset
+ok 83 - marmoset is NOT (elem) of List
+ok 84 - List NOT (cont) marmoset
+ok 85 - marmoset is NOT (elem) of List
+ok 86 - List NOT (cont) marmoset
+ok 87 - 1000000000000000000000000000000000000000001 is NOT (elem) of Range
+ok 88 - Range NOT (cont) 1000000000000000000000000000000000000000001
+ok 89 - 0 1 is NOT (elem) of Rat
+ok 90 - Rat NOT (cont) 0 1
+ok 91 - -1 0 is NOT (elem) of Rat
+ok 92 - Rat NOT (cont) -1 0
+ok 93 - 0 1 is NOT (elem) of Int
+ok 94 - Int NOT (cont) 0 1
+ok 95 - 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 is NOT (elem) of Num
+ok 96 - Num NOT (cont) 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5
+ok 97 - 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 is NOT (elem) of Num
+ok 98 - Num NOT (cont) 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5
+ok 99 - a b c is NOT (elem) of Str
+ok 100 - Str NOT (cont) a b c
+# Subtest: (elem) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 101 - (elem) with a Failure:D on the RHS throws
+# Subtest: (elem) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 102 - (elem) with a Failure:D on the LHS throws
+# Subtest: (cont) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 103 - (cont) with a Failure:D on the RHS throws
+# Subtest: (cont) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 104 - (cont) with a Failure:D on the LHS throws
+ok 105 - afraid is ∈ of Set
+ok 106 - Set ∋ afraid
+ok 107 - afraid is ∈ of SetHash
+ok 108 - SetHash ∋ afraid
+ok 109 - earthly is ∈ of Bag
+ok 110 - Bag ∋ earthly
+ok 111 - your is ∈ of BagHash
+ok 112 - BagHash ∋ your
+ok 113 - before is ∈ of Mix
+ok 114 - Mix ∋ before
+ok 115 - dosage is ∈ of MixHash
+ok 116 - MixHash ∋ dosage
+ok 117 - factual is ∈ of Map
+ok 118 - Map ∋ factual
+ok 119 - global is ∈ of Hash
+ok 120 - Hash ∋ global
+ok 121 - ideas is ∈ of Hash[Any,Any]
+ok 122 - Hash[Any,Any] ∋ ideas
+ok 123 - 13 is ∈ of Hash[Any,Any]
+ok 124 - Hash[Any,Any] ∋ 13
+ok 125 - quick is ∈ of List
+ok 126 - List ∋ quick
+ok 127 - 1000000000000000000000000000000000000000000 is ∈ of Range
+ok 128 - Range ∋ 1000000000000000000000000000000000000000000
+ok 129 - 2 is ∈ of Range
+ok 130 - Range ∋ 2
+ok 131 - 42.5 is ∈ of Range
+ok 132 - Range ∋ 42.5
+ok 133 - 42.5 is ∈ of Range
+ok 134 - Range ∋ 42.5
+ok 135 - b is ∈ of Range
+ok 136 - Range ∋ b
+ok 137 - marmoset is NOT ∈ of Set
+ok 138 - Set NOT ∋ marmoset
+ok 139 - marmoset is NOT ∈ of Set
+ok 140 - Set NOT ∋ marmoset
+ok 141 - marmoset is NOT ∈ of SetHash
+ok 142 - SetHash NOT ∋ marmoset
+ok 143 - marmoset is NOT ∈ of SetHash
+ok 144 - SetHash NOT ∋ marmoset
+ok 145 - marmoset is NOT ∈ of SetHash
+ok 146 - SetHash NOT ∋ marmoset
+ok 147 - marmoset is NOT ∈ of Bag
+ok 148 - Bag NOT ∋ marmoset
+ok 149 - marmoset is NOT ∈ of Bag
+ok 150 - Bag NOT ∋ marmoset
+ok 151 - marmoset is NOT ∈ of BagHash
+ok 152 - BagHash NOT ∋ marmoset
+ok 153 - marmoset is NOT ∈ of BagHash
+ok 154 - BagHash NOT ∋ marmoset
+ok 155 - marmoset is NOT ∈ of BagHash
+ok 156 - BagHash NOT ∋ marmoset
+ok 157 - marmoset is NOT ∈ of Mix
+ok 158 - Mix NOT ∋ marmoset
+ok 159 - marmoset is NOT ∈ of Mix
+ok 160 - Mix NOT ∋ marmoset
+ok 161 - marmoset is NOT ∈ of MixHash
+ok 162 - MixHash NOT ∋ marmoset
+ok 163 - marmoset is NOT ∈ of MixHash
+ok 164 - MixHash NOT ∋ marmoset
+ok 165 - marmoset is NOT ∈ of MixHash
+ok 166 - MixHash NOT ∋ marmoset
+ok 167 - marmoset is NOT ∈ of Map
+ok 168 - Map NOT ∋ marmoset
+ok 169 - marmoset is NOT ∈ of Map
+ok 170 - Map NOT ∋ marmoset
+ok 171 - marmoset is NOT ∈ of Hash
+ok 172 - Hash NOT ∋ marmoset
+ok 173 - 999 is NOT ∈ of Hash
+ok 174 - Hash NOT ∋ 999
+ok 175 - marmoset is NOT ∈ of Hash
+ok 176 - Hash NOT ∋ marmoset
+ok 177 - marmoset is NOT ∈ of Hash
+ok 178 - Hash NOT ∋ marmoset
+ok 179 - marmoset is NOT ∈ of Hash[Any,Any]
+ok 180 - Hash[Any,Any] NOT ∋ marmoset
+ok 181 - 13 is NOT ∈ of Hash[Any,Any]
+ok 182 - Hash[Any,Any] NOT ∋ 13
+ok 183 - marmoset is NOT ∈ of Hash[Any,Any]
+ok 184 - Hash[Any,Any] NOT ∋ marmoset
+ok 185 - marmoset is NOT ∈ of Hash[Mu,Mu,Any]
+ok 186 - Hash[Mu,Mu,Any] NOT ∋ marmoset
+ok 187 - marmoset is NOT ∈ of List
+ok 188 - List NOT ∋ marmoset
+ok 189 - marmoset is NOT ∈ of List
+ok 190 - List NOT ∋ marmoset
+ok 191 - 1000000000000000000000000000000000000000001 is NOT ∈ of Range
+ok 192 - Range NOT ∋ 1000000000000000000000000000000000000000001
+ok 193 - 0 1 is NOT ∈ of Rat
+ok 194 - Rat NOT ∋ 0 1
+ok 195 - -1 0 is NOT ∈ of Rat
+ok 196 - Rat NOT ∋ -1 0
+ok 197 - 0 1 is NOT ∈ of Int
+ok 198 - Int NOT ∋ 0 1
+ok 199 - 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 is NOT ∈ of Num
+ok 200 - Num NOT ∋ 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5
+ok 201 - 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 is NOT ∈ of Num
+ok 202 - Num NOT ∋ 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5
+ok 203 - a b c is NOT ∈ of Str
+ok 204 - Str NOT ∋ a b c
+# Subtest: ∈ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 205 - ∈ with a Failure:D on the RHS throws
+# Subtest: ∈ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 206 - ∈ with a Failure:D on the LHS throws
+# Subtest: ∋ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 207 - ∋ with a Failure:D on the RHS throws
+# Subtest: ∋ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 208 - ∋ with a Failure:D on the LHS throws
+ok 209 - afraid is NOT ∉ of Set
+ok 210 - Set NOT ∌ afraid
+ok 211 - afraid is NOT ∉ of SetHash
+ok 212 - SetHash NOT ∌ afraid
+ok 213 - earthly is NOT ∉ of Bag
+ok 214 - Bag NOT ∌ earthly
+ok 215 - your is NOT ∉ of BagHash
+ok 216 - BagHash NOT ∌ your
+ok 217 - before is NOT ∉ of Mix
+ok 218 - Mix NOT ∌ before
+ok 219 - dosage is NOT ∉ of MixHash
+ok 220 - MixHash NOT ∌ dosage
+ok 221 - factual is NOT ∉ of Map
+ok 222 - Map NOT ∌ factual
+ok 223 - global is NOT ∉ of Hash
+ok 224 - Hash NOT ∌ global
+ok 225 - ideas is NOT ∉ of Hash[Any,Any]
+ok 226 - Hash[Any,Any] NOT ∌ ideas
+ok 227 - 13 is NOT ∉ of Hash[Any,Any]
+ok 228 - Hash[Any,Any] NOT ∌ 13
+ok 229 - quick is NOT ∉ of List
+ok 230 - List NOT ∌ quick
+ok 231 - 1000000000000000000000000000000000000000000 is NOT ∉ of Range
+ok 232 - Range NOT ∌ 1000000000000000000000000000000000000000000
+ok 233 - 2 is NOT ∉ of Range
+ok 234 - Range NOT ∌ 2
+ok 235 - 42.5 is NOT ∉ of Range
+ok 236 - Range NOT ∌ 42.5
+ok 237 - 42.5 is NOT ∉ of Range
+ok 238 - Range NOT ∌ 42.5
+ok 239 - b is NOT ∉ of Range
+ok 240 - Range NOT ∌ b
+ok 241 - marmoset is NOT ∉ of Set
+ok 242 - Set NOT ∌ marmoset
+ok 243 - marmoset is NOT ∉ of Set
+ok 244 - Set NOT ∌ marmoset
+ok 245 - marmoset is NOT ∉ of SetHash
+ok 246 - SetHash NOT ∌ marmoset
+ok 247 - marmoset is NOT ∉ of SetHash
+ok 248 - SetHash NOT ∌ marmoset
+ok 249 - marmoset is NOT ∉ of SetHash
+ok 250 - SetHash NOT ∌ marmoset
+ok 251 - marmoset is NOT ∉ of Bag
+ok 252 - Bag NOT ∌ marmoset
+ok 253 - marmoset is NOT ∉ of Bag
+ok 254 - Bag NOT ∌ marmoset
+ok 255 - marmoset is NOT ∉ of BagHash
+ok 256 - BagHash NOT ∌ marmoset
+ok 257 - marmoset is NOT ∉ of BagHash
+ok 258 - BagHash NOT ∌ marmoset
+ok 259 - marmoset is NOT ∉ of BagHash
+ok 260 - BagHash NOT ∌ marmoset
+ok 261 - marmoset is NOT ∉ of Mix
+ok 262 - Mix NOT ∌ marmoset
+ok 263 - marmoset is NOT ∉ of Mix
+ok 264 - Mix NOT ∌ marmoset
+ok 265 - marmoset is NOT ∉ of MixHash
+ok 266 - MixHash NOT ∌ marmoset
+ok 267 - marmoset is NOT ∉ of MixHash
+ok 268 - MixHash NOT ∌ marmoset
+ok 269 - marmoset is NOT ∉ of MixHash
+ok 270 - MixHash NOT ∌ marmoset
+ok 271 - marmoset is NOT ∉ of Map
+ok 272 - Map NOT ∌ marmoset
+ok 273 - marmoset is NOT ∉ of Map
+ok 274 - Map NOT ∌ marmoset
+ok 275 - marmoset is NOT ∉ of Hash
+ok 276 - Hash NOT ∌ marmoset
+ok 277 - 999 is NOT ∉ of Hash
+ok 278 - Hash NOT ∌ 999
+ok 279 - marmoset is NOT ∉ of Hash
+ok 280 - Hash NOT ∌ marmoset
+ok 281 - marmoset is NOT ∉ of Hash
+ok 282 - Hash NOT ∌ marmoset
+ok 283 - marmoset is NOT ∉ of Hash[Any,Any]
+ok 284 - Hash[Any,Any] NOT ∌ marmoset
+ok 285 - 13 is NOT ∉ of Hash[Any,Any]
+ok 286 - Hash[Any,Any] NOT ∌ 13
+ok 287 - marmoset is NOT ∉ of Hash[Any,Any]
+ok 288 - Hash[Any,Any] NOT ∌ marmoset
+ok 289 - marmoset is NOT ∉ of Hash[Mu,Mu,Any]
+ok 290 - Hash[Mu,Mu,Any] NOT ∌ marmoset
+ok 291 - marmoset is NOT ∉ of List
+ok 292 - List NOT ∌ marmoset
+ok 293 - marmoset is NOT ∉ of List
+ok 294 - List NOT ∌ marmoset
+ok 295 - 1000000000000000000000000000000000000000001 is NOT ∉ of Range
+ok 296 - Range NOT ∌ 1000000000000000000000000000000000000000001
+ok 297 - 0 1 is NOT ∉ of Rat
+ok 298 - Rat NOT ∌ 0 1
+ok 299 - -1 0 is NOT ∉ of Rat
+ok 300 - Rat NOT ∌ -1 0
+ok 301 - 0 1 is NOT ∉ of Int
+ok 302 - Int NOT ∌ 0 1
+ok 303 - 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 is NOT ∉ of Num
+ok 304 - Num NOT ∌ 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5
+ok 305 - 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5 is NOT ∉ of Num
+ok 306 - Num NOT ∌ 41.5 42.5 43.5 44.5 45.5 46.5 47.5 48.5 49.5
+ok 307 - a b c is NOT ∉ of Str
+ok 308 - Str NOT ∌ a b c
+# Subtest: ∉ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 309 - ∉ with a Failure:D on the RHS throws
+# Subtest: ∉ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 310 - ∉ with a Failure:D on the LHS throws
+# Subtest: ∌ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 311 - ∌ with a Failure:D on the RHS throws
+# Subtest: ∌ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 312 - ∌ with a Failure:D on the LHS throws
+ok 313 - no explosion

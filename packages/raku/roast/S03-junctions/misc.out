@@ -1,0 +1,231 @@
+1..155
+ok 1 - The object is-a 'Junction'
+ok 2 - junction.WHAT works
+ok 3 - junction of ($a & $b & $c) matches an empty string
+ok 4 - junction of all($a, $b, $c) matches an empty string
+ok 5 - junction of ($b | $c | $a) matches at least one "a"
+ok 6 - junction of any($b, $c, $a) matches at least one "a"
+ok 7 - junction of ($b | $c | $a) matches at least one empty string
+ok 8 - junction of any($b, $c, $a) matches at least one empty string
+ok 9 - junction of ($b ^ $c ^ $a) matches at ~only~ one "a"
+ok 10 - junction of one($b, $c, $a) matches at ~only~ one "a"
+ok 11 - junction of ($b ^ $c ^ $a) matches at more than one "a"
+ok 12 - junction of ($b ^ $c ^ $a) matches at ~only~ one "a"
+ok 13 - junction of ($a ^ $b ^ $c) matches at ~only~ one "b"
+ok 14 - junction of ($c ^ $a ^ $b) matches at ~only~ one "c"
+ok 15 - junction of ($b | $c | $a) matches at least one "a"
+ok 16 - junction of ($a | $b | $c) matches at least one "b"
+ok 17 - junction of ($c | $a | $b) matches at least one "c"
+ok 18 - junction ("a" | "b" | "c") matches junction ($a & $b & $c)
+ok 19 - junction ("a" & "b" & "c") matches junction ($a | $b | $c)
+ok 20 - junction ($a & "b" & "c") matches junction ("a" | $b | $c)
+ok 21 - junction ($a & "b" & $c) matches junction ("a" | $b | "c")
+ok 22 - junction variable of ($a & $b & $c) matches and empty string
+ok 23 - junction variable of ($b | $c | $a) matches at least one "a"
+ok 24 - junction variable of ($b | $c | $a) matches at least one empty string
+ok 25 - junction variable of ($b ^ $c ^ $a) matches at ~only~ one "a"
+ok 26 - junction variable of ($b ^ $c ^ $a) matches at more than one "a"
+ok 27 - junction of ($b ^ $c ^ $a) matches at ~only~ one "a"
+ok 28 - junction of ($a ^ $b ^ $c) matches at ~only~ one "b"
+ok 29 - junction of ($c ^ $a ^ $b) matches at ~only~ one "c"
+ok 30 - junction of ($b | $c | $a) matches at least one "a"
+ok 31 - junction of ($a | $b | $c) matches at least one "b"
+ok 32 - junction of ($c | $a | $b) matches at least one "c"
+ok 33 - reassignment of junction variable
+ok 34 - basic junction type reference test
+ok 35 - assignment preserves reference
+ok 36 - thread + returning junctive result
+ok 37 - thread + returning junctive combination of results
+ok 38 - any() junction threading ==
+ok 39 - any() junction threading ==
+ok 40 - | junction threading ==
+ok 41 - | junction threading ==
+ok 42 - junctions work through subscripting, 0 matches
+ok 43 - junctions work through subscripting, 1 match
+ok 44 - junctions work through subscripting, 3 matches
+ok 45 - .() on any() junction of subs
+ok 46 - .() on all() junction of subs
+ok 47 - .() on one() junction of subs
+ok 48 - .() on none() junction of subs
+ok 49 - .() on complex junction of subs
+ok 50 - ((1|2)^(3&4)) equiv to one(any(1,2),all(3,4))
+ok 51 - ((1|2)&(3&4)) equiv to all(any(1,2),all(3,4))
+ok 52 - ((1|2)|(3&4)) equiv to any(any(1,2),all(3,4))
+ok 53 - boolean context
+ok 54 - boolean context
+ok 55 - boolean context
+ok 56 - boolean context
+ok 57 - boolean context
+ok 58 - boolean context
+ok 59 - boolean context
+ok 60 - boolean context
+ok 61 - 
+ok 62 - 
+ok 63 - 
+ok 64 - 
+ok 65 - if modifier with junction should be called once
+ok 66 - if modifier with junction should be called once
+ok 67 - if modifier with junction should be called once
+ok 68 - all(@x) == one(@x) tests uniqueness(+ve)
+ok 69 - all(@x) == one(@x) tests uniqueness(-ve)
+ok 70 - Mu & Mu ~~ Mu works
+ok 71 - simple substr
+ok 72 - The object is-a 'Junction'
+ok 73 - substr on junctions: bc
+ok 74 - substr on junctions: fg
+ok 75 - The object is-a 'Junction'
+ok 76 - substr on junctions: bc
+ok 77 - substr on junctions: cd
+ok 78 - The object is-a 'Junction'
+ok 79 - substr on junctions: bc
+ok 80 - substr on junctions: b
+ok 81 - The object is-a 'Junction'
+ok 82 - index on junctions: 1
+ok 83 - index on junctions: 3
+ok 84 - The object is-a 'Junction'
+ok 85 - index on junctions: 1
+ok 86 - index on junctions: 3
+ok 87 - for loop over junction in try block
+ok 88 - for loop over junction in sub
+ok 89 - for loop over Junction gets the Junction
+ok 90 - test WHAT on empty any junction
+ok 91 - test WHAT on empty any junction
+ok 92 - test WHAT on any junction
+ok 93 - test WHAT on any junction
+ok 94 - .all method builds "all" junction
+ok 95 - .all method builds "all" junction
+ok 96 - .one method builds "one" junction
+ok 97 - .none method builds "none" junction
+ok 98 - .all method works on array objects
+ok 99 - junction can be used to index Array
+ok 100 - junction can be used to index Hash
+ok 101 - regex match in all junction is an empty all junction (1)
+ok 102 - regex match in all junction is an empty all junction (2)
+ok 103 - regex match in all junction is an empty all junction (3)
+ok 104 - regex match in all junction is an empty all junction (4)
+ok 105 - successful regex match in any junction
+ok 106 - successful regex match in all junction
+ok 107 - successful regex match in all junction if one element does not match
+ok 108 - any(Foo.new).raku
+ok 109 - any(Foo.new).gist
+ok 110 - Can construct junction with List type object
+ok 111 - test junction evaluation order
+ok 112 - test junction evaluation order
+ok 113 - any is not flattening 1
+ok 114 - any is not flattening 2
+ok 115 - any is not flattening 3
+ok 116 - any is onearg
+ok 117 - all is not flattening 1
+ok 118 - all is non flattening 2
+ok 119 - all is not flattening 3
+ok 120 - all is onearg
+ok 121 - one is not flattening 1
+ok 122 - one is not flattening 2
+ok 123 - one is not flattening 3
+ok 124 - one is onearg
+ok 125 - none is not flattening 1
+ok 126 - none is not flattening 2
+ok 127 - none is not flattening 3
+ok 128 - none is onearg
+ok 129 - .any is not flattening 1
+ok 130 - .any is not flattening 2
+ok 131 - .any is not flattening 3
+ok 132 - .all is not flattening 1
+ok 133 - .all is not flattening 2
+ok 134 - .any is not flattening 3
+ok 135 - .one is not flattening 1
+ok 136 - .one is not flattening 2
+ok 137 - .one is not flattening 3
+ok 138 - .none is not flattening 1
+ok 139 - .none is not flattening 2
+ok 140 - .none is not flattening 3
+# Subtest: Do not try to auto-thread Junction type object (multi case)
+    1..2
+    ok 1 - 'multi sub foo($) { }; foo(Junction)' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 141 - Do not try to auto-thread Junction type object (multi case)
+# Subtest: Do not try to auto-thread Junction type object (only case)
+    1..2
+    ok 1 - 'sub foo($) { }; foo(Junction)' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 142 - Do not try to auto-thread Junction type object (only case)
+ok 143 - Junctions with autovivification
+# Subtest: Junction.new
+    1..4
+    ok 1 - all
+    ok 2 - one
+    ok 3 - any
+    ok 4 - none
+ok 144 - Junction.new
+# Subtest: Junction.new does not crash with empty, but touched array
+    1..4
+    ok 1 - all
+    ok 2 - none
+    ok 3 - any
+    ok 4 - one
+ok 145 - Junction.new does not crash with empty, but touched array
+# Subtest: Junction .Str, .gist, and .raku
+    1..11
+    ok 1 - Junction.Str juncts
+    ok 2 - Junction.gist does not junct
+    ok 3 - Junction.raku does not junct
+    ok 4 - Junction.gist on none junction looks about right
+    ok 5 - Junction.raku on none junction roundtrips
+    ok 6 - Junction.gist on one junction looks about right
+    ok 7 - Junction.raku on one junction roundtrips
+    ok 8 - Junction.gist on any junction looks about right
+    ok 9 - Junction.raku on any junction roundtrips
+    ok 10 - Junction.gist on all junction looks about right
+    ok 11 - Junction.raku on all junction roundtrips
+ok 146 - Junction .Str, .gist, and .raku
+# Subtest: meta-assignment to a scalar doesn't cause freezing
+    1..3
+    # Subtest: junction 'all' doesn't freeze after assign metaop
+        1..3
+        ok 1 - program did not hang
+        ok 2 - STDOUT
+        ok 3 - STDERR
+    ok 1 - junction 'all' doesn't freeze after assign metaop
+    # Subtest: junction 'any' doesn't freeze after assign metaop
+        1..3
+        ok 1 - program did not hang
+        ok 2 - STDOUT
+        ok 3 - STDERR
+    ok 2 - junction 'any' doesn't freeze after assign metaop
+    # Subtest: junction 'one' doesn't freeze after assign metaop
+        1..3
+        ok 1 - program did not hang
+        ok 2 - STDOUT
+        ok 3 - STDERR
+    ok 3 - junction 'one' doesn't freeze after assign metaop
+ok 147 - meta-assignment to a scalar doesn't cause freezing
+ok 148 - did all() on left concate with any() on right ok
+ok 149 - did any() on left concate with all() on right ok
+# Subtest: IO
+    1..16
+    ok 1 - say
+    ok 2 - say sub as .&method
+    ok 3 - say as method
+    ok 4 - say as method-prefix
+    ok 5 - put
+    ok 6 - put sub as .&method
+    ok 7 - put as method
+    ok 8 - put as method-prefix
+    ok 9 - note
+    ok 10 - note sub as .&method
+    ok 11 - note as method
+    ok 12 - note as method-prefix
+    ok 13 - print
+    ok 14 - print sub as .&method
+    ok 15 - print as method
+    ok 16 - print as method-prefix
+ok 150 - IO
+# Subtest: Value Object
+    ok 1 - identical junctions are different object
+    ok 2 - but they're identity
+    1..2
+ok 151 - Value Object
+ok 152 - starts-with
+ok 153 - ends-with
+ok 154 - contains
+ok 155 - substr-eq

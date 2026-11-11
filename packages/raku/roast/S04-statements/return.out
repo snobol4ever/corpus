@@ -1,0 +1,56 @@
+1..26
+ok 1 - ... bare return statement returned Nil
+ok 2 - ... bare return statement w/ parens returned Nil
+ok 3 - ... return worked with a statement modifier
+ok 4 - ... bare return worked with a statement modifier
+ok 5 - ... bare return worked with a statement modifier
+ok 6 - sub returned Nil
+ok 7 - ... return_1() returned 1 correctly
+ok 8 - return in while
+ok 9 - bare return fails (2)
+ok 10 - cannot return out of a bare for block
+ok 11 - cannot return out of a bare while
+ok 12 - cannot return out of a bare until
+ok 13 - cannot return out of a bare loop
+ok 14 - cannot return out of a do block
+ok 15 - return is lexotic only; must not attempt dynamic return
+ok 16 - Should not return empty string
+ok 17 - proxied return produces the correct value
+ok 18 - proxied return produced the right side effect
+ok 19 - does .return work?
+ok 20 - The object is-a 'Junction'
+# Subtest: INIT return handled correctly
+    1..2
+    ok 1 - 'sub { INIT return }' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+ok 21 - INIT return handled correctly
+# Subtest: CHECK return handled correctly
+    1..3
+    ok 1 - 'sub {CHECK return;}' died
+    ok 2 - right exception type (X::Comp::BeginTime)
+    ok 3 - .exception matches (Return)
+ok 22 - CHECK return handled correctly
+# Subtest: X::ControlFlow::Return tells when return is outside of dyn scope
+    1..3
+    ok 1 - 'sub { eager sub { ^1 .map: { return } }() }()' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+    ok 3 - .out-of-dynamic-scope matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5020718195576) ... }
+ok 23 - X::ControlFlow::Return tells when return is outside of dyn scope
+# Subtest: X::ControlFlow::Return tells when return is outside of dyn scope
+    1..3
+    ok 1 - 'sub a1 { my &x = { return }; &x }; my &y = a1; &y()' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+    ok 3 - .out-of-dynamic-scope matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5020704323056) ... }
+ok 24 - X::ControlFlow::Return tells when return is outside of dyn scope
+# Subtest: X::ControlFlow::Return tells when return is outside of dyn scope
+    1..3
+    ok 1 - 'sub a2 { my &x = { return }; &x }; sub b1(&x) { &x() }; b1(a2)' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+    ok 3 - .out-of-dynamic-scope matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5020704323632) ... }
+ok 25 - X::ControlFlow::Return tells when return is outside of dyn scope
+# Subtest: bare return does not set $.out-of-dynamic-scope
+    1..3
+    ok 1 - 'return' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+    ok 3 - .out-of-dynamic-scope matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|5020704323992) ... }
+ok 26 - bare return does not set $.out-of-dynamic-scope

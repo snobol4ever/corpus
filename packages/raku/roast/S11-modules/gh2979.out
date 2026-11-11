@@ -1,0 +1,9 @@
+1..8
+ok 1 - re-exported Array
+ok 2 - re-exported Hash
+ok 3 - re-exported Scalar
+ok 4 - re-exported Sub
+ok 5 - exported Array
+ok 6 - exported Hash
+ok 7 - exported Scalar
+ok 8 - exported Sub

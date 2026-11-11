@@ -1,0 +1,14 @@
+1..13
+ok 1 - ... slurpy args flattening and matching parameters
+ok 2 - ... slurpy args flattening and matching parameters
+ok 3 - ... slurpy args flattening and matching parameters
+ok 4 - ... slurpy args flattening and not matching because of too many parameters
+ok 5 - Can interpolate hashes into slurpy named parameters
+ok 6 - ... with a sane return value
+ok 7 - Can interpolate typed hashes into slurpy named parameters
+ok 8 - can interpolate ranges into arglists
+ok 9 - Survived trying to pass 65534 flattened args
+ok 10 - Survived trying to pass 65535 flattened args
+ok 11 - Survived trying to pass 65536 flattened args
+ok 12 - Survived trying to pass 65537 flattened args
+ok 13 - Survived trying to pass 65538 flattened args

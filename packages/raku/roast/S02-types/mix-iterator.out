@@ -1,0 +1,281 @@
+1..14
+# Subtest: tests for Mix
+    1..17
+    ok 1 - Mix: pull-one until exhausted
+    ok 2 - Mix: push-exactly until exhausted
+    ok 3 - Mix: push-at-least until exhausted
+    ok 4 - Mix: does push-all return IterationEnd
+    ok 5 - Mix: push-all
+    ok 6 - Mix: does push-until-lazy return IterationEnd
+    ok 7 - Mix: push-until-lazy
+    ok 8 - Mix: does sink-all return IterationEnd
+    ok 9 - Mix: skip-one until exhausted
+    ok 10 - Mix: skip-at-least except last
+    ok 11 - Mix: skip-at-least check last value
+    ok 12 - Mix: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix: skip-at-least-pull-one last
+    ok 14 - Mix: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix: doesn't support count-only
+    ok 16 - Mix: doesn't support bool-only
+    ok 17 - Mix: count/bool-only didn't pull
+ok 1 - tests for Mix
+# Subtest: tests for Mix.kv
+    1..17
+    ok 1 - Mix.kv: pull-one until exhausted
+    ok 2 - Mix.kv: push-exactly until exhausted
+    ok 3 - Mix.kv: push-at-least until exhausted
+    ok 4 - Mix.kv: does push-all return IterationEnd
+    ok 5 - Mix.kv: push-all
+    ok 6 - Mix.kv: does push-until-lazy return IterationEnd
+    ok 7 - Mix.kv: push-until-lazy
+    ok 8 - Mix.kv: does sink-all return IterationEnd
+    ok 9 - Mix.kv: skip-one until exhausted
+    ok 10 - Mix.kv: skip-at-least except last
+    ok 11 - Mix.kv: skip-at-least check last value
+    ok 12 - Mix.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix.kv: skip-at-least-pull-one last
+    ok 14 - Mix.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix.kv: doesn't support count-only
+    ok 16 - Mix.kv: doesn't support bool-only
+    ok 17 - Mix.kv: count/bool-only didn't pull
+ok 2 - tests for Mix.kv
+# Subtest: tests for Mix.keys
+    1..17
+    ok 1 - Mix.keys: pull-one until exhausted
+    ok 2 - Mix.keys: push-exactly until exhausted
+    ok 3 - Mix.keys: push-at-least until exhausted
+    ok 4 - Mix.keys: does push-all return IterationEnd
+    ok 5 - Mix.keys: push-all
+    ok 6 - Mix.keys: does push-until-lazy return IterationEnd
+    ok 7 - Mix.keys: push-until-lazy
+    ok 8 - Mix.keys: does sink-all return IterationEnd
+    ok 9 - Mix.keys: skip-one until exhausted
+    ok 10 - Mix.keys: skip-at-least except last
+    ok 11 - Mix.keys: skip-at-least check last value
+    ok 12 - Mix.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix.keys: skip-at-least-pull-one last
+    ok 14 - Mix.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix.keys: doesn't support count-only
+    ok 16 - Mix.keys: doesn't support bool-only
+    ok 17 - Mix.keys: count/bool-only didn't pull
+ok 3 - tests for Mix.keys
+# Subtest: tests for Mix.values
+    1..17
+    ok 1 - Mix.values: pull-one until exhausted
+    ok 2 - Mix.values: push-exactly until exhausted
+    ok 3 - Mix.values: push-at-least until exhausted
+    ok 4 - Mix.values: does push-all return IterationEnd
+    ok 5 - Mix.values: push-all
+    ok 6 - Mix.values: does push-until-lazy return IterationEnd
+    ok 7 - Mix.values: push-until-lazy
+    ok 8 - Mix.values: does sink-all return IterationEnd
+    ok 9 - Mix.values: skip-one until exhausted
+    ok 10 - Mix.values: skip-at-least except last
+    ok 11 - Mix.values: skip-at-least check last value
+    ok 12 - Mix.values: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix.values: skip-at-least-pull-one last
+    ok 14 - Mix.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix.values: doesn't support count-only
+    ok 16 - Mix.values: doesn't support bool-only
+    ok 17 - Mix.values: count/bool-only didn't pull
+ok 4 - tests for Mix.values
+# Subtest: tests for Mix.pairs
+    1..17
+    ok 1 - Mix.pairs: pull-one until exhausted
+    ok 2 - Mix.pairs: push-exactly until exhausted
+    ok 3 - Mix.pairs: push-at-least until exhausted
+    ok 4 - Mix.pairs: does push-all return IterationEnd
+    ok 5 - Mix.pairs: push-all
+    ok 6 - Mix.pairs: does push-until-lazy return IterationEnd
+    ok 7 - Mix.pairs: push-until-lazy
+    ok 8 - Mix.pairs: does sink-all return IterationEnd
+    ok 9 - Mix.pairs: skip-one until exhausted
+    ok 10 - Mix.pairs: skip-at-least except last
+    ok 11 - Mix.pairs: skip-at-least check last value
+    ok 12 - Mix.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix.pairs: skip-at-least-pull-one last
+    ok 14 - Mix.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix.pairs: doesn't support count-only
+    ok 16 - Mix.pairs: doesn't support bool-only
+    ok 17 - Mix.pairs: count/bool-only didn't pull
+ok 5 - tests for Mix.pairs
+# Subtest: tests for Mix.antipairs
+    1..17
+    ok 1 - Mix.antipairs: pull-one until exhausted
+    ok 2 - Mix.antipairs: push-exactly until exhausted
+    ok 3 - Mix.antipairs: push-at-least until exhausted
+    ok 4 - Mix.antipairs: does push-all return IterationEnd
+    ok 5 - Mix.antipairs: push-all
+    ok 6 - Mix.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - Mix.antipairs: push-until-lazy
+    ok 8 - Mix.antipairs: does sink-all return IterationEnd
+    ok 9 - Mix.antipairs: skip-one until exhausted
+    ok 10 - Mix.antipairs: skip-at-least except last
+    ok 11 - Mix.antipairs: skip-at-least check last value
+    ok 12 - Mix.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix.antipairs: skip-at-least-pull-one last
+    ok 14 - Mix.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix.antipairs: doesn't support count-only
+    ok 16 - Mix.antipairs: doesn't support bool-only
+    ok 17 - Mix.antipairs: count/bool-only didn't pull
+ok 6 - tests for Mix.antipairs
+# Subtest: tests for Mix.invert
+    1..17
+    ok 1 - Mix.invert: pull-one until exhausted
+    ok 2 - Mix.invert: push-exactly until exhausted
+    ok 3 - Mix.invert: push-at-least until exhausted
+    ok 4 - Mix.invert: does push-all return IterationEnd
+    ok 5 - Mix.invert: push-all
+    ok 6 - Mix.invert: does push-until-lazy return IterationEnd
+    ok 7 - Mix.invert: push-until-lazy
+    ok 8 - Mix.invert: does sink-all return IterationEnd
+    ok 9 - Mix.invert: skip-one until exhausted
+    ok 10 - Mix.invert: skip-at-least except last
+    ok 11 - Mix.invert: skip-at-least check last value
+    ok 12 - Mix.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - Mix.invert: skip-at-least-pull-one last
+    ok 14 - Mix.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - Mix.invert: doesn't support count-only
+    ok 16 - Mix.invert: doesn't support bool-only
+    ok 17 - Mix.invert: count/bool-only didn't pull
+ok 7 - tests for Mix.invert
+# Subtest: tests for MixHash
+    1..17
+    ok 1 - MixHash: pull-one until exhausted
+    ok 2 - MixHash: push-exactly until exhausted
+    ok 3 - MixHash: push-at-least until exhausted
+    ok 4 - MixHash: does push-all return IterationEnd
+    ok 5 - MixHash: push-all
+    ok 6 - MixHash: does push-until-lazy return IterationEnd
+    ok 7 - MixHash: push-until-lazy
+    ok 8 - MixHash: does sink-all return IterationEnd
+    ok 9 - MixHash: skip-one until exhausted
+    ok 10 - MixHash: skip-at-least except last
+    ok 11 - MixHash: skip-at-least check last value
+    ok 12 - MixHash: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash: skip-at-least-pull-one last
+    ok 14 - MixHash: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash: doesn't support count-only
+    ok 16 - MixHash: doesn't support bool-only
+    ok 17 - MixHash: count/bool-only didn't pull
+ok 8 - tests for MixHash
+# Subtest: tests for MixHash.kv
+    1..17
+    ok 1 - MixHash.kv: pull-one until exhausted
+    ok 2 - MixHash.kv: push-exactly until exhausted
+    ok 3 - MixHash.kv: push-at-least until exhausted
+    ok 4 - MixHash.kv: does push-all return IterationEnd
+    ok 5 - MixHash.kv: push-all
+    ok 6 - MixHash.kv: does push-until-lazy return IterationEnd
+    ok 7 - MixHash.kv: push-until-lazy
+    ok 8 - MixHash.kv: does sink-all return IterationEnd
+    ok 9 - MixHash.kv: skip-one until exhausted
+    ok 10 - MixHash.kv: skip-at-least except last
+    ok 11 - MixHash.kv: skip-at-least check last value
+    ok 12 - MixHash.kv: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash.kv: skip-at-least-pull-one last
+    ok 14 - MixHash.kv: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash.kv: doesn't support count-only
+    ok 16 - MixHash.kv: doesn't support bool-only
+    ok 17 - MixHash.kv: count/bool-only didn't pull
+ok 9 - tests for MixHash.kv
+# Subtest: tests for MixHash.keys
+    1..17
+    ok 1 - MixHash.keys: pull-one until exhausted
+    ok 2 - MixHash.keys: push-exactly until exhausted
+    ok 3 - MixHash.keys: push-at-least until exhausted
+    ok 4 - MixHash.keys: does push-all return IterationEnd
+    ok 5 - MixHash.keys: push-all
+    ok 6 - MixHash.keys: does push-until-lazy return IterationEnd
+    ok 7 - MixHash.keys: push-until-lazy
+    ok 8 - MixHash.keys: does sink-all return IterationEnd
+    ok 9 - MixHash.keys: skip-one until exhausted
+    ok 10 - MixHash.keys: skip-at-least except last
+    ok 11 - MixHash.keys: skip-at-least check last value
+    ok 12 - MixHash.keys: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash.keys: skip-at-least-pull-one last
+    ok 14 - MixHash.keys: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash.keys: doesn't support count-only
+    ok 16 - MixHash.keys: doesn't support bool-only
+    ok 17 - MixHash.keys: count/bool-only didn't pull
+ok 10 - tests for MixHash.keys
+# Subtest: tests for MixHash.values
+    1..17
+    ok 1 - MixHash.values: pull-one until exhausted
+    ok 2 - MixHash.values: push-exactly until exhausted
+    ok 3 - MixHash.values: push-at-least until exhausted
+    ok 4 - MixHash.values: does push-all return IterationEnd
+    ok 5 - MixHash.values: push-all
+    ok 6 - MixHash.values: does push-until-lazy return IterationEnd
+    ok 7 - MixHash.values: push-until-lazy
+    ok 8 - MixHash.values: does sink-all return IterationEnd
+    ok 9 - MixHash.values: skip-one until exhausted
+    ok 10 - MixHash.values: skip-at-least except last
+    ok 11 - MixHash.values: skip-at-least check last value
+    ok 12 - MixHash.values: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash.values: skip-at-least-pull-one last
+    ok 14 - MixHash.values: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash.values: doesn't support count-only
+    ok 16 - MixHash.values: doesn't support bool-only
+    ok 17 - MixHash.values: count/bool-only didn't pull
+ok 11 - tests for MixHash.values
+# Subtest: tests for MixHash.pairs
+    1..17
+    ok 1 - MixHash.pairs: pull-one until exhausted
+    ok 2 - MixHash.pairs: push-exactly until exhausted
+    ok 3 - MixHash.pairs: push-at-least until exhausted
+    ok 4 - MixHash.pairs: does push-all return IterationEnd
+    ok 5 - MixHash.pairs: push-all
+    ok 6 - MixHash.pairs: does push-until-lazy return IterationEnd
+    ok 7 - MixHash.pairs: push-until-lazy
+    ok 8 - MixHash.pairs: does sink-all return IterationEnd
+    ok 9 - MixHash.pairs: skip-one until exhausted
+    ok 10 - MixHash.pairs: skip-at-least except last
+    ok 11 - MixHash.pairs: skip-at-least check last value
+    ok 12 - MixHash.pairs: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash.pairs: skip-at-least-pull-one last
+    ok 14 - MixHash.pairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash.pairs: doesn't support count-only
+    ok 16 - MixHash.pairs: doesn't support bool-only
+    ok 17 - MixHash.pairs: count/bool-only didn't pull
+ok 12 - tests for MixHash.pairs
+# Subtest: tests for MixHash.antipairs
+    1..17
+    ok 1 - MixHash.antipairs: pull-one until exhausted
+    ok 2 - MixHash.antipairs: push-exactly until exhausted
+    ok 3 - MixHash.antipairs: push-at-least until exhausted
+    ok 4 - MixHash.antipairs: does push-all return IterationEnd
+    ok 5 - MixHash.antipairs: push-all
+    ok 6 - MixHash.antipairs: does push-until-lazy return IterationEnd
+    ok 7 - MixHash.antipairs: push-until-lazy
+    ok 8 - MixHash.antipairs: does sink-all return IterationEnd
+    ok 9 - MixHash.antipairs: skip-one until exhausted
+    ok 10 - MixHash.antipairs: skip-at-least except last
+    ok 11 - MixHash.antipairs: skip-at-least check last value
+    ok 12 - MixHash.antipairs: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash.antipairs: skip-at-least-pull-one last
+    ok 14 - MixHash.antipairs: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash.antipairs: doesn't support count-only
+    ok 16 - MixHash.antipairs: doesn't support bool-only
+    ok 17 - MixHash.antipairs: count/bool-only didn't pull
+ok 13 - tests for MixHash.antipairs
+# Subtest: tests for MixHash.invert
+    1..17
+    ok 1 - MixHash.invert: pull-one until exhausted
+    ok 2 - MixHash.invert: push-exactly until exhausted
+    ok 3 - MixHash.invert: push-at-least until exhausted
+    ok 4 - MixHash.invert: does push-all return IterationEnd
+    ok 5 - MixHash.invert: push-all
+    ok 6 - MixHash.invert: does push-until-lazy return IterationEnd
+    ok 7 - MixHash.invert: push-until-lazy
+    ok 8 - MixHash.invert: does sink-all return IterationEnd
+    ok 9 - MixHash.invert: skip-one until exhausted
+    ok 10 - MixHash.invert: skip-at-least except last
+    ok 11 - MixHash.invert: skip-at-least check last value
+    ok 12 - MixHash.invert: did skip-at-least after pull-one exhaust?
+    ok 13 - MixHash.invert: skip-at-least-pull-one last
+    ok 14 - MixHash.invert: is iterator exhausted after skip-at-least-pull-one?
+    ok 15 - MixHash.invert: doesn't support count-only
+    ok 16 - MixHash.invert: doesn't support bool-only
+    ok 17 - MixHash.invert: count/bool-only didn't pull
+ok 14 - tests for MixHash.invert

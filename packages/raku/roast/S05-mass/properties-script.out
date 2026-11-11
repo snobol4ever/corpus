@@ -1,0 +1,361 @@
+1..360
+ok 1 - Match (Left-to-Right)
+ok 2 - Don't match negated (Left-to-Right)
+ok 3 - Don't match inverted (Left-to-Right)
+ok 4 - Don't match unrelated (Left-to-Right)
+ok 5 - Match unrelated negated (Left-to-Right)
+ok 6 - Match unrelated inverted (Left-to-Right)
+ok 7 - Match unanchored (Left-to-Right)
+ok 8 - Match (European Number)
+ok 9 - Don't match negated (European Number)
+ok 10 - Don't match inverted (European Number)
+ok 11 - Don't match unrelated (European Number)
+ok 12 - Match unrelated negated (European Number)
+ok 13 - Match unrelated inverted (European Number)
+ok 14 - Match unanchored (European Number)
+ok 15 - Match (European Number Separator)
+ok 16 - Don't match negated (European Number Separator)
+ok 17 - Don't match inverted (European Number Separator)
+ok 18 - Don't match unrelated (European Number Separator)
+ok 19 - Match unrelated negated (European Number Separator)
+ok 20 - Match unrelated inverted (European Number Separator)
+ok 21 - Match unanchored (European Number Separator)
+ok 22 - Match (European Number Terminator)
+ok 23 - Don't match negated (European Number Terminator)
+ok 24 - Don't match inverted (European Number Terminator)
+ok 25 - Don't match unrelated (European Number Terminator)
+ok 26 - Match unrelated negated (European Number Terminator)
+ok 27 - Match unrelated inverted (European Number Terminator)
+ok 28 - Match unanchored (European Number Terminator)
+ok 29 - Match (Whitespace)
+ok 30 - Don't match negated (Whitespace)
+ok 31 - Don't match inverted (Whitespace)
+ok 32 - Don't match unrelated (Whitespace)
+ok 33 - Match unrelated negated (Whitespace)
+ok 34 - Match unrelated inverted (Whitespace)
+ok 35 - Match unanchored (Whitespace)
+ok 36 - Match <:Arabic>
+ok 37 - Don't match negated <Arabic>
+ok 38 - Don't match inverted <Arabic>
+ok 39 - Don't match unrelated <Arabic>
+ok 40 - Match unrelated negated <Arabic>
+ok 41 - Match unrelated inverted <Arabic>
+ok 42 - Match unanchored <Arabic>
+ok 43 - Match <:Armenian>
+ok 44 - Don't match negated <Armenian>
+ok 45 - Don't match inverted <Armenian>
+ok 46 - Don't match unrelated <Armenian>
+ok 47 - Match unrelated negated <Armenian>
+ok 48 - Match unrelated inverted <Armenian>
+ok 49 - Match unanchored <Armenian>
+ok 50 - Match <:Bengali>
+ok 51 - Don't match negated <Bengali>
+ok 52 - Don't match inverted <Bengali>
+ok 53 - Don't match unrelated <Bengali>
+ok 54 - Match unrelated negated <Bengali>
+ok 55 - Match unrelated inverted <Bengali>
+ok 56 - Match unanchored <Bengali>
+ok 57 - Match <:Bopomofo>
+ok 58 - Don't match negated <Bopomofo>
+ok 59 - Don't match inverted <Bopomofo>
+ok 60 - Don't match unrelated <Bopomofo>
+ok 61 - Match unrelated negated <Bopomofo>
+ok 62 - Match unrelated inverted <Bopomofo>
+ok 63 - Match unanchored <Bopomofo>
+ok 64 - Match <:Buhid>
+ok 65 - Don't match negated <Buhid>
+ok 66 - Don't match inverted <Buhid>
+ok 67 - Don't match unrelated <Buhid>
+ok 68 - Match unrelated negated <Buhid>
+ok 69 - Match unrelated inverted <Buhid>
+ok 70 - Match unanchored <Buhid>
+ok 71 - Match <:Canadian_Aboriginal>
+ok 72 - Don't match negated <Canadian_Aboriginal>
+ok 73 - Don't match inverted <Canadian_Aboriginal>
+ok 74 - Don't match unrelated <Canadian_Aboriginal>
+ok 75 - Match unrelated negated <Canadian_Aboriginal>
+ok 76 - Match unrelated inverted <Canadian_Aboriginal>
+ok 77 - Don't match related <Canadian_Aboriginal>
+ok 78 - Match related negated <Canadian_Aboriginal>
+ok 79 - Match related inverted <Canadian_Aboriginal>
+ok 80 - Match unanchored <Canadian_Aboriginal>
+ok 81 - Match <:Cherokee>
+ok 82 - Don't match negated <Cherokee>
+ok 83 - Don't match inverted <Cherokee>
+ok 84 - Don't match unrelated <Cherokee>
+ok 85 - Match unrelated negated <Cherokee>
+ok 86 - Match unrelated inverted <Cherokee>
+ok 87 - Don't match related <Cherokee>
+ok 88 - Match related negated <Cherokee>
+ok 89 - Match related inverted <Cherokee>
+ok 90 - Match unanchored <Cherokee>
+ok 91 - Match <:Cyrillic>
+ok 92 - Don't match negated <Cyrillic>
+ok 93 - Don't match inverted <Cyrillic>
+ok 94 - Don't match unrelated <Cyrillic>
+ok 95 - Match unrelated negated <Cyrillic>
+ok 96 - Match unrelated inverted <Cyrillic>
+ok 97 - Don't match related <Cyrillic>
+ok 98 - Match related negated <Cyrillic>
+ok 99 - Match related inverted <Cyrillic>
+ok 100 - Match unanchored <Cyrillic>
+ok 101 - Don't match unrelated <Deseret>
+ok 102 - Match unrelated negated <Deseret>
+ok 103 - Match unrelated inverted <Deseret>
+ok 104 - Match <:Devanagari>
+ok 105 - Don't match negated <Devanagari>
+ok 106 - Don't match inverted <Devanagari>
+ok 107 - Don't match unrelated <Devanagari>
+ok 108 - Match unrelated negated <Devanagari>
+ok 109 - Match unrelated inverted <Devanagari>
+ok 110 - Match unanchored <Devanagari>
+ok 111 - Match <:Ethiopic>
+ok 112 - Don't match negated <Ethiopic>
+ok 113 - Don't match inverted <Ethiopic>
+ok 114 - Don't match unrelated <Ethiopic>
+ok 115 - Match unrelated negated <Ethiopic>
+ok 116 - Match unrelated inverted <Ethiopic>
+ok 117 - Match unanchored <Ethiopic>
+ok 118 - Match <:Georgian>
+ok 119 - Don't match negated <Georgian>
+ok 120 - Don't match inverted <Georgian>
+ok 121 - Don't match unrelated <Georgian>
+ok 122 - Match unrelated negated <Georgian>
+ok 123 - Match unrelated inverted <Georgian>
+ok 124 - Match unanchored <Georgian>
+ok 125 - Don't match unrelated <Gothic>
+ok 126 - Match unrelated negated <Gothic>
+ok 127 - Match unrelated inverted <Gothic>
+ok 128 - Match <:Greek>
+ok 129 - Don't match negated <Greek>
+ok 130 - Don't match inverted <Greek>
+ok 131 - Don't match unrelated <Greek>
+ok 132 - Match unrelated negated <Greek>
+ok 133 - Match unrelated inverted <Greek>
+ok 134 - Match unanchored <Greek>
+ok 135 - Match <:Gujarati>
+ok 136 - Don't match negated <Gujarati>
+ok 137 - Don't match inverted <Gujarati>
+ok 138 - Don't match unrelated <Gujarati>
+ok 139 - Match unrelated negated <Gujarati>
+ok 140 - Match unrelated inverted <Gujarati>
+ok 141 - Match unanchored <Gujarati>
+ok 142 - Match <:Gurmukhi>
+ok 143 - Don't match negated <Gurmukhi>
+ok 144 - Don't match inverted <Gurmukhi>
+ok 145 - Don't match unrelated <Gurmukhi>
+ok 146 - Match unrelated negated <Gurmukhi>
+ok 147 - Match unrelated inverted <Gurmukhi>
+ok 148 - Match unanchored <Gurmukhi>
+ok 149 - Match <:Han>
+ok 150 - Don't match negated <Han>
+ok 151 - Don't match inverted <Han>
+ok 152 - Don't match unrelated <Han>
+ok 153 - Match unrelated negated <Han>
+ok 154 - Match unrelated inverted <Han>
+ok 155 - Match unanchored <Han>
+ok 156 - Match <:Hangul>
+ok 157 - Don't match negated <Hangul>
+ok 158 - Don't match inverted <Hangul>
+ok 159 - Don't match unrelated <Hangul>
+ok 160 - Match unrelated negated <Hangul>
+ok 161 - Match unrelated inverted <Hangul>
+ok 162 - Match unanchored <Hangul>
+ok 163 - Match <:Hanunoo>
+ok 164 - Don't match negated <Hanunoo>
+ok 165 - Don't match inverted <Hanunoo>
+ok 166 - Don't match unrelated <Hanunoo>
+ok 167 - Match unrelated negated <Hanunoo>
+ok 168 - Match unrelated inverted <Hanunoo>
+ok 169 - Match unanchored <Hanunoo>
+ok 170 - Match <:Hebrew>
+ok 171 - Don't match negated <Hebrew>
+ok 172 - Don't match inverted <Hebrew>
+ok 173 - Don't match unrelated <Hebrew>
+ok 174 - Match unrelated negated <Hebrew>
+ok 175 - Match unrelated inverted <Hebrew>
+ok 176 - Match unanchored <Hebrew>
+ok 177 - Match <:Hiragana>
+ok 178 - Don't match negated <Hiragana>
+ok 179 - Don't match inverted <Hiragana>
+ok 180 - Don't match unrelated <Hiragana>
+ok 181 - Match unrelated negated <Hiragana>
+ok 182 - Match unrelated inverted <Hiragana>
+ok 183 - Match unanchored <Hiragana>
+ok 184 - Match <:Inherited>
+ok 185 - Don't match negated <Inherited>
+ok 186 - Don't match inverted <Inherited>
+ok 187 - Don't match unrelated <Inherited>
+ok 188 - Match unrelated negated <Inherited>
+ok 189 - Match unrelated inverted <Inherited>
+ok 190 - Match <:Kannada>
+ok 191 - Don't match negated <Kannada>
+ok 192 - Don't match inverted <Kannada>
+ok 193 - Don't match unrelated <Kannada>
+ok 194 - Match unrelated negated <Kannada>
+ok 195 - Match unrelated inverted <Kannada>
+ok 196 - Match unanchored <Kannada>
+ok 197 - Match <:Katakana>
+ok 198 - Don't match negated <Katakana>
+ok 199 - Don't match inverted <Katakana>
+ok 200 - Don't match unrelated <Katakana>
+ok 201 - Match unrelated negated <Katakana>
+ok 202 - Match unrelated inverted <Katakana>
+ok 203 - Match unanchored <Katakana>
+ok 204 - Match <:Khmer>
+ok 205 - Don't match negated <Khmer>
+ok 206 - Don't match inverted <Khmer>
+ok 207 - Don't match unrelated <Khmer>
+ok 208 - Match unrelated negated <Khmer>
+ok 209 - Match unrelated inverted <Khmer>
+ok 210 - Match unanchored <Khmer>
+ok 211 - Match <:Lao>
+ok 212 - Don't match negated <Lao>
+ok 213 - Don't match inverted <Lao>
+ok 214 - Don't match unrelated <Lao>
+ok 215 - Match unrelated negated <Lao>
+ok 216 - Match unrelated inverted <Lao>
+ok 217 - Don't match related <Lao>
+ok 218 - Match related negated <Lao>
+ok 219 - Match related inverted <Lao>
+ok 220 - Match unanchored <Lao>
+ok 221 - Match <:Latin>
+ok 222 - Don't match negated <Latin>
+ok 223 - Don't match inverted <Latin>
+ok 224 - Don't match unrelated <Latin>
+ok 225 - Match unrelated negated <Latin>
+ok 226 - Match unrelated inverted <Latin>
+ok 227 - Don't match related <Latin>
+ok 228 - Match related negated <Latin>
+ok 229 - Match related inverted <Latin>
+ok 230 - Match unanchored <Latin>
+ok 231 - Match <:Malayalam>
+ok 232 - Don't match negated <Malayalam>
+ok 233 - Don't match inverted <Malayalam>
+ok 234 - Don't match unrelated <Malayalam>
+ok 235 - Match unrelated negated <Malayalam>
+ok 236 - Match unrelated inverted <Malayalam>
+ok 237 - Don't match related <Malayalam>
+ok 238 - Match related negated <Malayalam>
+ok 239 - Match related inverted <Malayalam>
+ok 240 - Match unanchored <Malayalam>
+ok 241 - Match <:Mongolian>
+ok 242 - Don't match negated <Mongolian>
+ok 243 - Don't match inverted <Mongolian>
+ok 244 - Don't match unrelated <Mongolian>
+ok 245 - Match unrelated negated <Mongolian>
+ok 246 - Match unrelated inverted <Mongolian>
+ok 247 - Don't match related <Mongolian>
+ok 248 - Match related negated <Mongolian>
+ok 249 - Match related inverted <Mongolian>
+ok 250 - Match unanchored <Mongolian>
+ok 251 - Match <:Myanmar>
+ok 252 - Don't match negated <Myanmar>
+ok 253 - Don't match inverted <Myanmar>
+ok 254 - Don't match unrelated <Myanmar>
+ok 255 - Match unrelated negated <Myanmar>
+ok 256 - Match unrelated inverted <Myanmar>
+ok 257 - Don't match related <Myanmar>
+ok 258 - Match related negated <Myanmar>
+ok 259 - Match related inverted <Myanmar>
+ok 260 - Match unanchored <Myanmar>
+ok 261 - Match <:Ogham>
+ok 262 - Don't match negated <Ogham>
+ok 263 - Don't match inverted <Ogham>
+ok 264 - Don't match unrelated <Ogham>
+ok 265 - Match unrelated negated <Ogham>
+ok 266 - Match unrelated inverted <Ogham>
+ok 267 - Match unanchored <Ogham>
+ok 268 - Don't match unrelated <Old_Italic>
+ok 269 - Match unrelated negated <Old_Italic>
+ok 270 - Match unrelated inverted <Old_Italic>
+ok 271 - Match <:Oriya>
+ok 272 - Don't match negated <Oriya>
+ok 273 - Don't match inverted <Oriya>
+ok 274 - Don't match unrelated <Oriya>
+ok 275 - Match unrelated negated <Oriya>
+ok 276 - Match unrelated inverted <Oriya>
+ok 277 - Match unanchored <Oriya>
+ok 278 - Match <:Runic>
+ok 279 - Don't match negated <Runic>
+ok 280 - Don't match inverted <Runic>
+ok 281 - Don't match unrelated <Runic>
+ok 282 - Match unrelated negated <Runic>
+ok 283 - Match unrelated inverted <Runic>
+ok 284 - Match unanchored <Runic>
+ok 285 - Match <:Sinhala>
+ok 286 - Don't match negated <Sinhala>
+ok 287 - Don't match inverted <Sinhala>
+ok 288 - Don't match unrelated <Sinhala>
+ok 289 - Match unrelated negated <Sinhala>
+ok 290 - Match unrelated inverted <Sinhala>
+ok 291 - Don't match related <Sinhala>
+ok 292 - Match related negated <Sinhala>
+ok 293 - Match related inverted <Sinhala>
+ok 294 - Match unanchored <Sinhala>
+ok 295 - Match <:Syriac>
+ok 296 - Don't match negated <Syriac>
+ok 297 - Don't match inverted <Syriac>
+ok 298 - Don't match unrelated <Syriac>
+ok 299 - Match unrelated negated <Syriac>
+ok 300 - Match unrelated inverted <Syriac>
+ok 301 - Don't match related <Syriac>
+ok 302 - Match related negated <Syriac>
+ok 303 - Match related inverted <Syriac>
+ok 304 - Match unanchored <Syriac>
+ok 305 - Match <:Tagalog>
+ok 306 - Don't match negated <Tagalog>
+ok 307 - Don't match inverted <Tagalog>
+ok 308 - Don't match unrelated <Tagalog>
+ok 309 - Match unrelated negated <Tagalog>
+ok 310 - Match unrelated inverted <Tagalog>
+ok 311 - Match unanchored <Tagalog>
+ok 312 - Match <:Tagbanwa>
+ok 313 - Don't match negated <Tagbanwa>
+ok 314 - Don't match inverted <Tagbanwa>
+ok 315 - Don't match unrelated <Tagbanwa>
+ok 316 - Match unrelated negated <Tagbanwa>
+ok 317 - Match unrelated inverted <Tagbanwa>
+ok 318 - Match unanchored <Tagbanwa>
+ok 319 - Match <:Tamil>
+ok 320 - Don't match negated <Tamil>
+ok 321 - Don't match inverted <Tamil>
+ok 322 - Don't match unrelated <Tamil>
+ok 323 - Match unrelated negated <Tamil>
+ok 324 - Match unrelated inverted <Tamil>
+ok 325 - Match unanchored <Tamil>
+ok 326 - Match <:Telugu>
+ok 327 - Don't match negated <Telugu>
+ok 328 - Don't match inverted <Telugu>
+ok 329 - Don't match unrelated <Telugu>
+ok 330 - Match unrelated negated <Telugu>
+ok 331 - Match unrelated inverted <Telugu>
+ok 332 - Match unanchored <Telugu>
+ok 333 - Match <:Thaana>
+ok 334 - Don't match negated <Thaana>
+ok 335 - Don't match inverted <Thaana>
+ok 336 - Don't match unrelated <Thaana>
+ok 337 - Match unrelated negated <Thaana>
+ok 338 - Match unrelated inverted <Thaana>
+ok 339 - Match unanchored <Thaana>
+ok 340 - Match <:Thai>
+ok 341 - Don't match negated <Thai>
+ok 342 - Don't match inverted <Thai>
+ok 343 - Don't match unrelated <Thai>
+ok 344 - Match unrelated negated <Thai>
+ok 345 - Match unrelated inverted <Thai>
+ok 346 - Match unanchored <Thai>
+ok 347 - Match <:Tibetan>
+ok 348 - Don't match negated <Tibetan>
+ok 349 - Don't match inverted <Tibetan>
+ok 350 - Don't match unrelated <Tibetan>
+ok 351 - Match unrelated negated <Tibetan>
+ok 352 - Match unrelated inverted <Tibetan>
+ok 353 - Match unanchored <Tibetan>
+ok 354 - Match <:Yi>
+ok 355 - Don't match negated <Yi>
+ok 356 - Don't match inverted <Yi>
+ok 357 - Don't match unrelated <Yi>
+ok 358 - Match unrelated negated <Yi>
+ok 359 - Match unrelated inverted <Yi>
+ok 360 - Match unanchored <Yi>

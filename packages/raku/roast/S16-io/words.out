@@ -1,0 +1,242 @@
+1..11
+# Subtest: no extra args (IO::Handle method form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - did not close handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 5 - Seq
+ok 1 - no extra args (IO::Handle method form)
+# Subtest: :close arg (IO::Handle method form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - still-open handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - closed handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 5 - Seq
+ok 2 - :close arg (IO::Handle method form)
+# Subtest: $limit arg (IO::Handle method form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - did not close handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 5 - Seq
+ok 3 - $limit arg (IO::Handle method form)
+# Subtest: $limit and :close args (IO::Handle method form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - closed handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 5 - Seq
+ok 4 - $limit and :close args (IO::Handle method form)
+# Subtest: no extra args (sub form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - did not close handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 5 - Seq
+ok 5 - no extra args (sub form)
+# Subtest: :close arg (sub form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - still-open handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - closed handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 5 - Seq
+ok 6 - :close arg (sub form)
+# Subtest: $limit arg (sub form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - did not close handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - did not close handle
+    ok 5 - Seq
+ok 7 - $limit arg (sub form)
+# Subtest: $limit and :close args (sub form)
+    1..5
+    # Subtest: .pull-one
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 1 - .pull-one
+    # Subtest: .push-all
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 2 - .push-all
+    # Subtest: .push-exactly
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 3 - .push-exactly
+    # Subtest: .count-only
+        1..2
+        ok 1 - right count
+        ok 2 - closed handle
+    ok 4 - .count-only
+    # Subtest: Seq
+        1..2
+        ok 1 - right words
+        ok 2 - closed handle
+    ok 5 - Seq
+ok 8 - $limit and :close args (sub form)
+# Subtest: no extra args (IO::Path method)
+    1..5
+    ok 1 - right words (.pull-one)
+    ok 2 - right words (.push-all)
+    ok 3 - right words (.push-exactly)
+    ok 4 - right count (.count-only)
+    ok 5 - right words (Seq)
+ok 9 - no extra args (IO::Path method)
+# Subtest: $limit arg (IO::Path method)
+    1..5
+    ok 1 - right words (.pull-one)
+    ok 2 - right words (.push-all)
+    ok 3 - right words (.push-exactly)
+    ok 4 - right count (.count-only)
+    ok 5 - right words (Seq)
+ok 10 - $limit arg (IO::Path method)
+ok 11 - words() without args uses $*ARGFILES

@@ -1,0 +1,105 @@
+1..104
+ok 1 - Repeatable every-way match (1)
+ok 2 - Correct number of matches (pass 1)
+ok 3 - Matched 'abrAcadAbbra' (1)
+ok 4 - At correct position of 'abrAcadAbbra' (1)
+ok 5 - Matched 'abrAcadA' (1)
+ok 6 - At correct position of 'abrAcadA' (1)
+ok 7 - Matched 'abrAca' (1)
+ok 8 - At correct position of 'abrAca' (1)
+ok 9 - Matched 'abrA' (1)
+ok 10 - At correct position of 'abrA' (1)
+ok 11 - Matched 'AcadAbbra' (1)
+ok 12 - At correct position of 'AcadAbbra' (1)
+ok 13 - Matched 'AcadA' (1)
+ok 14 - At correct position of 'AcadA' (1)
+ok 15 - Matched 'Aca' (1)
+ok 16 - At correct position of 'Aca' (1)
+ok 17 - Matched 'adAbbra' (1)
+ok 18 - At correct position of 'adAbbra' (1)
+ok 19 - Matched 'adA' (1)
+ok 20 - At correct position of 'adA' (1)
+ok 21 - Matched 'Abbra' (1)
+ok 22 - At correct position of 'Abbra' (1)
+ok 23 - No matches missed (1)
+ok 24 - Repeatable every-way match (2)
+ok 25 - Correct number of matches (pass 2)
+ok 26 - Matched 'abrAcadAbbra' (2)
+ok 27 - At correct position of 'abrAcadAbbra' (2)
+ok 28 - Matched 'abrAcadA' (2)
+ok 29 - At correct position of 'abrAcadA' (2)
+ok 30 - Matched 'abrAca' (2)
+ok 31 - At correct position of 'abrAca' (2)
+ok 32 - Matched 'abrA' (2)
+ok 33 - At correct position of 'abrA' (2)
+ok 34 - Matched 'AcadAbbra' (2)
+ok 35 - At correct position of 'AcadAbbra' (2)
+ok 36 - Matched 'AcadA' (2)
+ok 37 - At correct position of 'AcadA' (2)
+ok 38 - Matched 'Aca' (2)
+ok 39 - At correct position of 'Aca' (2)
+ok 40 - Matched 'adAbbra' (2)
+ok 41 - At correct position of 'adAbbra' (2)
+ok 42 - Matched 'adA' (2)
+ok 43 - At correct position of 'adA' (2)
+ok 44 - Matched 'Abbra' (2)
+ok 45 - At correct position of 'Abbra' (2)
+ok 46 - No matches missed (2)
+ok 47 - Failed every-way match
+ok 48 - No matches
+ok 49 - Capturing every-way match
+ok 50 - Correct number of capturing matches
+ok 51 - Capture matched 'abrAcadAbbra'
+ok 52 - Captured within 'abrAcadAbbra'
+ok 53 - Capture matched 'abrAcadA'
+ok 54 - Captured within 'abrAcadA'
+ok 55 - Capture matched 'abrAca'
+ok 56 - Captured within 'abrAca'
+ok 57 - Capture matched 'abrA'
+ok 58 - Captured within 'abrA'
+ok 59 - Capture matched 'AcadAbbra'
+ok 60 - Captured within 'AcadAbbra'
+ok 61 - Capture matched 'AcadA'
+ok 62 - Captured within 'AcadA'
+ok 63 - Capture matched 'Aca'
+ok 64 - Captured within 'Aca'
+ok 65 - Capture matched 'adAbbra'
+ok 66 - Captured within 'adAbbra'
+ok 67 - Capture matched 'adA'
+ok 68 - Captured within 'adA'
+ok 69 - Capture matched 'Abbra'
+ok 70 - Captured within 'Abbra'
+ok 71 - Multiple capturing
+ok 72 - Capture 0 adj
+ok 73 - Capture 0 subj
+ok 74 - Capture 0 verb
+ok 75 - Capture 0 art
+ok 76 - Capture 0 obj
+ok 77 - Capture 1 subj
+ok 78 - Capture 1 verb
+ok 79 - Capture 1 prep
+ok 80 - Capture 1 art
+ok 81 - Capture 1 obj
+ok 82 - Capture 2 verb
+ok 83 - Capture 2 obj
+ok 84 - Capture 2 prep
+ok 85 - Capture 2 art
+ok 86 - Capture 2 noun
+ok 87 - Any with capturing rules
+ok 88 - Rule capture 0 adj
+ok 89 - Rule capture 0 subj
+ok 90 - Rule capture 0 verb
+ok 91 - Rule capture 0 art
+ok 92 - Rule capture 0 obj
+ok 93 - Rule capture 1 subj
+ok 94 - Rule capture 1 verb
+ok 95 - Rule capture 1 prep
+ok 96 - Rule capture 1 art
+ok 97 - Rule capture 1 noun
+ok 98 - Rule capture 2 verb
+ok 99 - Rule capture 2 obj
+ok 100 - Rule capture 2 prep
+ok 101 - Rule capture 2 art
+ok 102 - Rule capture 2 noun
+ok 103 - Subsequent failed any match...
+ok 104 - ...leaves @$/ empty

@@ -1,0 +1,38 @@
+1..24
+ok 1 - substitute regexp works
+ok 2 - substitute regexp works with :g modifier
+ok 3 - substitute regexp works with :g modifier
+ok 4 - substitute regexp with capturing variables works
+ok 5 - substitute regexp with capturing variables works with :g
+ok 6 - Zero width replace works with :g
+ok 7 - s/// in boolean context properly defaults to $_
+ok 8 - test the regular expression escape
+not ok 9 - returned two values in the match # TODO NYI
+# Failed test 'returned two values in the match'
+# at S05-modifier/Perl_0.rakudo line 54
+# expected: '2'
+#      got: 'hello world'
+ok 10 - returned two values in the match
+ok 11 - returned correct first value in the match
+ok 12 - returned correct second value in the match
+ok 13 - An unmatched capture should be undefined.
+ok 14 - 
+not ok 15 - interpolated rule applied successfully # TODO NYI
+# Failed test 'interpolated rule applied successfully'
+# at S05-modifier/Perl_0.rakudo line 70
+not ok 16 - interpolated rule applied successfully # TODO NYI
+# Failed test 'interpolated rule applied successfully'
+# at S05-modifier/Perl_0.rakudo line 74
+not ok 17 - variable interpolation in substitute regexp works with :g modifier # TODO NYI
+# Failed test 'variable interpolation in substitute regexp works with :g modifier'
+# at S05-modifier/Perl_0.rakudo line 81
+# expected: 'baz'
+#      got: 'barrrr'
+ok 18 - closure interpolation with qq[] as delimiter
+ok 19 - closure interpolation with no delimiter
+ok 20 - Test the status of non-matched number match variable (1)
+ok 21 - Test the status of non-matched number match variable (2)
+ok 22 - The object is-a '"Regex"'
+ok 23 - ... applying rule object returns true
+ok 24 - ... applying rule object returns false (correctly)
+# FUDGED!

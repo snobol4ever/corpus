@@ -1,0 +1,4 @@
+1..3
+ok 1 - $*INIT-INSTANT is defined
+ok 2 -    ... and is-a type Instant
+ok 3 -    ... of approximately correct value

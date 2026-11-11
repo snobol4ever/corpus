@@ -1,0 +1,11 @@
+1..10
+ok 1 - Left-associative any, | operator
+ok 2 - Right-associative any, | operator
+ok 3 - Left-associative any()
+ok 4 - Right-associative any()
+ok 5 - Left-associative all, & operator
+ok 6 - Right-associative all, & operator
+ok 7 - Left-associative all()
+ok 8 - Right-associative all()
+ok 9 - Left-associative none()
+ok 10 - Right-associative none()

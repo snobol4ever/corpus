@@ -1,0 +1,18 @@
+1..17
+ok 1 - ident chars
+ok 2 - alpha chars
+ok 3 - space chars
+ok 4 - digit chars
+ok 5 - alnum chars
+ok 6 - blank chars
+ok 7 - cntrl chars
+ok 8 - lower chars
+ok 9 - punct chars since unicode 6.1
+ok 10 - :Punctuation chars since unicode 6.1
+ok 11 - upper chars
+ok 12 - xdigit chars
+ok 13 - unicode Letter chars
+ok 14 - combined builtin classes
+ok 15 - combined unicode classes
+ok 16 - combined unicode and builtins
+ok 17 - Can match negated quantified character class

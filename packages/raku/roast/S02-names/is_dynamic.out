@@ -1,0 +1,29 @@
+1..28
+ok 1 - dynamic set correctly for uninitialized $a
+ok 2 - dynamic set correctly for initialized $a
+ok 3 - dynamic set correctly for reset $a
+ok 4 - dynamic set correctly for uninitialized Int $a
+ok 5 - dynamic set correctly for initialized Int $a
+ok 6 - dynamic set correctly for reset Int $a
+ok 7 - dynamic set correctly for @a
+ok 8 - dynamic set correctly for non-existing @a[0]
+ok 9 - dynamic set correctly for existing @a[0]
+ok 10 - dynamic set correctly for reset @a[0]
+ok 11 - dynamic set correctly for Int @a
+ok 12 - dynamic set correctly for non-existing Int @a[0]
+ok 13 - dynamic set correctly for existing Int @a[0]
+ok 14 - dynamic set correctly for reset Int @a[0]
+ok 15 - dynamic set correctly for %a
+ok 16 - dynamic set correctly for non-existing %a<a>
+ok 17 - dynamic set correctly for existing %a<a>
+ok 18 - dynamic set correctly for reset %a<a>
+ok 19 - dynamic set correctly for Int %a
+ok 20 - dynamic set correctly for non-existing Int %a<a>
+ok 21 - dynamic set correctly for existing Int %a<a>
+ok 22 - dynamic set correctly for reset Int %a<a>
+ok 23 - is $*a visible
+ok 24 - is $*a is copy visible
+ok 25 - did the assignment work with is copy
+ok 26 - is $*a is rw visible
+ok 27 - did the assignment work with is rw
+ok 28 - did the assignment work pass through with is rw

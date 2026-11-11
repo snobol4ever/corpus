@@ -1,0 +1,28 @@
+1..27
+ok 1 - %hash.kv returns the correct number of elems
+ok 2 - %hash.kv has no inner list
+ok 3 - kv(%hash) returns the correct number of elems
+ok 4 - kv(%hash) has no inner list
+ok 5 - $pair.kv returned one elem
+ok 6 - $pair.kv inner list has two elems
+ok 7 - $pair.kv inner list matched expectation
+ok 8 - .kv works with normal hashes (sanity check)
+ok 9 - .kv works with constant hash references
+ok 10 - .kv works with normal hashes (sanity check)
+ok 11 - .kv works with dereferenced constant hash references
+ok 12 - test1: (Pair) $pair got the right $key
+ok 13 - test1: (Pair) $pair got the right $value
+ok 14 - test2: 1 elem (Hash) %pair got the right $key
+ok 15 - test2: 1 elem (Hash) %pair got the right $value
+ok 16 - test3:  from 1-elem (Hash) %h got the right $key
+ok 17 - test3: from 1-elem (Hash) %h got the right $value
+ok 18 - test4: elem 0 of 2-elem (Seq) %hash.kv correctly accessed
+ok 19 - test4: elem 1 of 2-elem (Seq) %hash.kv correctly accessed
+ok 20 - for(): from 1-elem (Hash) %hash got the right $key
+ok 21 - for(): from 1-elem (Hash) %hash got the right $value
+ok 22 - aliases returned by %hash.kv should be rw (1)
+ok 23 - aliases returned by %hash.kv should be rw (2)
+ok 24 - aliases returned by @array.kv should be rw (1)
+ok 25 - aliases returned by @array.kv should be rw (2)
+ok 26 - aliases to items returned by $pair.kv should be rw (1)
+ok 27 - aliases returned by $pair.kv should be rw (2)

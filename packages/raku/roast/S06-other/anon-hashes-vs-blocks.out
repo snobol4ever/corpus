@@ -1,0 +1,27 @@
+1..26
+ok 1 - First nested element.
+ok 2 - Second nested element.
+ok 3 - First nested element.
+ok 4 - Second nested element.
+ok 5 - %foo in a block causes hash composing
+ok 6 - Parses as two items
+ok 7 - Parens do not help
+ok 8 - It is not limited to hash values
+ok 9 - {; ... } is a Block
+ok 10 - { a => 1} is a Hash
+ok 11 - placeholders force it to be a block
+ok 12 - ... as a key
+ok 13 - ... as a value
+ok 14 - ... somewhere deep inside
+ok 15 - {;} is a Block
+ok 16 - state variable declaration certainly makes it a block (1)
+ok 17 - state variable declaration certainly makes it a block (2)
+ok 18 - block with $_ is not a hash
+ok 19 - fa has been called
+ok 20 - fa has been called
+ok 21 - fb has been called
+ok 22 - fb has been called
+ok 23 - { %*foo } is a Hash
+ok 24 - { %*foo } constructs correct hash
+ok 25 - { 1 R=> "a" } is a Hash
+ok 26 - { 1 R=> "a" } constructs correct hash

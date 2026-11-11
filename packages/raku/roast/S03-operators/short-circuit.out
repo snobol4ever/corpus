@@ -1,0 +1,90 @@
+1..84
+ok 1 - || operator short circuiting
+ok 2 - || operator short circuiting exactly when needed
+ok 3 - 'or' operator short circuiting
+ok 4 - 'or' operator short circuiting exactly when needed
+ok 5 - && operator short circuiting
+ok 6 - && operator short circuiting exactly when needed
+ok 7 - 'and' operator short circuiting
+ok 8 - 'and' operator short circuiting exactly when needed
+ok 9 - // operator short circuiting
+ok 10 - // operator short circuiting exactly when needed
+ok 11 - // operator short circuiting exactly when needed
+ok 12 - 'orelse' operator short circuiting
+ok 13 - 'orelse' operator short circuiting exactly when needed
+ok 14 - 'orelse' operator short circuiting exactly when needed
+ok 15 - // operator working
+ok 16 - 'orelse' operator working
+ok 17 - ^^ operator not short circuiting
+ok 18 - ^^ operator short circuiting
+ok 19 - ^^ operator short circuiting exactly when needed
+ok 20 - xor operator not short circuiting
+ok 21 - xor operator short circuiting
+ok 22 - xor operator short circuiting exactly when needed
+ok 23 - &&   operator working
+ok 24 - and  operator working
+ok 25 - ||   operator working
+ok 26 - or   operator working
+ok 27 - //   operator working
+ok 28 - orelse  operator working
+ok 29 - ^^  operator working (one true)
+ok 30 - ^^  operator working (one true)
+ok 31 - ^^  operator working (both true)
+ok 32 - ^^  operator working (both false)
+ok 33 - xor operator working (one true)
+ok 34 - xor operator working (one true)
+ok 35 - xor operator working (one true)
+ok 36 - xor operator working (one true)
+ok 37 - xor operator working (both true)
+ok 38 - xor operator working (both false)
+ok 39 - ^^ given all false values returns last (1)
+ok 40 - ^^ given all false values returns last (2)
+ok 41 - ^^ given one true value returns it (1)
+ok 42 - ^^ given one true value returns it (2)
+ok 43 - ^^ given two true values returns False (1)
+ok 44 - ^^ given two true values returns False (2)
+ok 45 - xor given all false values returns last (1)
+ok 46 - xor given all false values returns last (2)
+ok 47 - xor given one true value returns it (1)
+ok 48 - xor given one true value returns it (2)
+ok 49 - xor given two true values returns False (1)
+ok 50 - xor given two true values returns False (2)
+ok 51 - ^^ can return a Bool
+ok 52 - ^^ can return an Int
+ok 53 - ^^ can return a Range
+ok 54 - ^^ can return a Range
+ok 55 - ^^ can return a Complex
+ok 56 - ^^ can return a Num
+ok 57 - ^^ can return a Str
+ok 58 - Array ^^ true returns true array
+ok 59 - Array ^^ true returns true array
+ok 60 - Array ^^ true returns empty list
+ok 61 - Array ^^ true returns empty list
+ok 62 - True array ^^ empty list returns array
+ok 63 - Empty list ^^ true array returns array
+ok 64 - Empty list ^^ empty array returns ()
+ok 65 - 'and' operator short circuiting
+ok 66 - 'and' operator working with list assignment
+ok 67 - 'or' operator short circuiting
+ok 68 - 'or' operator working with list assignment
+ok 69 - chained comparison (truth - 1)
+ok 70 - chained comparison short-circuit: not re-evaluating middle
+ok 71 - chained comparison (truth - 2)
+ok 72 - chained comparison short-circuit: stopping soon enough
+ok 73 - shortcircuit idiom given coderef works
+ok 74 - shortcircuit idiom given Mu works
+ok 75 - 0 || 0 || 1 is true
+ok 76 - &&= on a fresh variable works
+ok 77 - ||= on a fresh variable works
+ok 78 - basic //=
+ok 79 - //= short-circuits
+ok 80 - basic ||=
+ok 81 - ||= short-circuits
+ok 82 - ||= works with array on the LHS
+ok 83 - //= can cope with role type objects
+# Subtest: xor warns when used with bad precedence
+    1..3
+    ok 1 - 2-arg
+    ok 2 - 4-arg
+    ok 3 - 4-arg, with all but last args wanted
+ok 84 - xor warns when used with bad precedence

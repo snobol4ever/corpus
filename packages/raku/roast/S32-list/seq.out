@@ -1,0 +1,142 @@
+1..50
+ok 1 - seq => array works 1
+ok 2 - We didn't flatten the RHS because it's no single argument
+ok 3 - Seq stayed intact
+ok 4 - seq => array works 2
+ok 5 - We didn't flatten the RHS because it's no single argument
+ok 6 - Seq stayed intact
+ok 7 - seq => array works 3
+ok 8 - can assign a Seq to an array slice
+ok 9 - assign slice from Seq that references same array
+ok 10 - slice assignment from seq Nils out unused indices
+ok 11 - assign slice indexed by self-referential Seq (1)
+ok 12 - assign slice indexed by self-referential Seq (2)
+ok 13 - array slice assigned from Seq evals indices first
+ok 14 - array slice assigned from Seq evals index Seq first
+ok 15 - WhateverCode works on array slice assigned from Seq
+ok 16 - Whatever array slice assigned from Seq works
+ok 17 - Whatever array slice assigned from Seq Nils unassigned indices
+ok 18 - Array slice assigned from Seq is eager
+ok 19 - Chained array assignment from Seq
+ok 20 - single index array slice assignment from Seq
+ok 21 - single index assignment from Seq
+ok 22 - Seq slice assignment works
+ok 23 - .raku.EVAL on consumed Seq gives Seq:D
+# Subtest: .raku.EVAL-roundtripped Seq throws when attempting to consume again
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Seq::Consumed)
+ok 24 - .raku.EVAL-roundtripped Seq throws when attempting to consume again
+ok 25 - from-loop(&body) returns a Seq
+ok 26 - the Seq object is lazy
+ok 27 - from-loop(&body, &condition) returns a Seq
+ok 28 - from-loop(&body, &condition) terminates calling &body if &condition returns False
+ok 29 - from-loop(&body, &condition, &afterward) returns a Seq
+ok 30 - from-loop(&body, &condition, &afterward) terminates calling &body if &condition returns False
+ok 31 - &afterward is called after each call to &body.
+ok 32 - .raku on cached Seq does not think it was consumed
+# Subtest: Seq.Capture
+    1..2
+    ok 1 - .Capture returns a Capture of the List of the Seq
+    ok 2 - can unpack a Seq
+ok 33 - Seq.Capture
+# Subtest: methods on cached Seqs
+    1..2
+    # Subtest: methods work fine when Seq *is* cached
+        1..11
+        ok 1 - infix:<eqv>
+        ok 2 - .iterator
+        ok 3 - .Slip
+        ok 4 - .join
+        ok 5 - .List
+        ok 6 - .list
+        ok 7 - .eager
+        ok 8 - .Array
+        ok 9 - .is-lazy (when not lazy)
+        ok 10 - .is-lazy
+        ok 11 - .sinking a cached Seq does not pull from iterator
+    ok 1 - methods work fine when Seq *is* cached
+    # Subtest: methods still throw when Seq is NOT cached
+        1..12
+        # Subtest: infix:<eqv>
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 1 - infix:<eqv>
+        # Subtest: .iterator
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 2 - .iterator
+        # Subtest: .Slip
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 3 - .Slip
+        # Subtest: .join
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 4 - .join
+        # Subtest: .List
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 5 - .List
+        # Subtest: .list
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 6 - .list
+        # Subtest: .eager
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 7 - .eager
+        # Subtest: .Array
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 8 - .Array
+        # Subtest: .is-lazy
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 9 - .is-lazy
+        # Subtest: .is-lazy (when lazy)
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Seq::Consumed)
+        ok 10 - .is-lazy (when lazy)
+        ok 11 - .sinking uncached Seq pulls from iterator
+        ok 12 - .sinking again does not throw
+    ok 2 - methods still throw when Seq is NOT cached
+ok 34 - methods on cached Seqs
+ok 35 - skip works with a WhateverCode
+ok 36 - Seq.raku roundtrips containerized Seqs correctly
+ok 37 - Seq.Numeric uses .count-only method, when available
+# Subtest: ZEN slices do not cache Seqs
+    1..2
+    # Subtest: <> ZEN slice
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Seq::Consumed)
+    ok 1 - <> ZEN slice
+    # Subtest: [] ZEN slice
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Seq::Consumed)
+    ok 2 - [] ZEN slice
+ok 38 - ZEN slices do not cache Seqs
+ok 39 - did we get 1 as the first value
+ok 40 - did accessing first element die
+ok 41 - lazy for loop does not execute prematurely (1)
+ok 42 - lazy for loop does not execute prematurely (2)
+ok 43 - parenthesis do not imply laziness (1)
+ok 44 - parenthesis do not imply laziness (2)
+ok 45 - Elems on Seq calculates size
+ok 46 - First pass on cached Seq
+ok 47 - Second pass on cached Seq
+ok 48 - elems call caches Seq
+ok 49 - check that we do not create 1 element lists
+ok 50 - Seq.sort(:k) works as it should

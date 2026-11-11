@@ -1,0 +1,5 @@
+1..4
+ok 1 - unpacking a Pair
+ok 2 - unpacking attribute of custom class
+ok 3 - typed Pair unpackaing (Int)
+ok 4 - typed Pair unpackaing (Str)

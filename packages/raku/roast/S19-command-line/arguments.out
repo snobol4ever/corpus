@@ -1,0 +1,7 @@
+1..6
+ok 1 - concise error message when called script not found
+ok 2 - '-' as argument means STDIN
+ok 3 - concise error message when called script is a directory
+ok 4 - UTF-8 in arguments is decoded correctly
+ok 5 - printed chars match input
+ok 6 - Unknown options do not spit warnings to stdout

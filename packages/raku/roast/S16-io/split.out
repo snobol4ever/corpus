@@ -1,0 +1,127 @@
+1..18
+# Subtest: testing 'zero' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 1 - testing 'zero' with Str
+# Subtest: testing 'zero' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 2 - testing 'zero' with Regex
+# Subtest: testing ':zer' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 3 - testing ':zer' with Str
+# Subtest: testing ':zer' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 4 - testing ':zer' with Regex
+# Subtest: testing 'none' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 5 - testing 'none' with Str
+# Subtest: testing 'none' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 6 - testing 'none' with Regex
+# Subtest: testing '' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 7 - testing '' with Str
+# Subtest: testing '' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 8 - testing '' with Regex
+# Subtest: testing 'xxxx' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 9 - testing 'xxxx' with Str
+# Subtest: testing 'xxxx' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 10 - testing 'xxxx' with Regex
+# Subtest: testing 'yyyy' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 11 - testing 'yyyy' with Str
+# Subtest: testing 'yyyy' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 12 - testing 'yyyy' with Regex
+# Subtest: testing 'zzzz' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 13 - testing 'zzzz' with Str
+# Subtest: testing 'zzzz' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 14 - testing 'zzzz' with Regex
+# Subtest: testing 'ZZZZ' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 15 - testing 'ZZZZ' with Str
+# Subtest: testing 'ZZZZ' with Regex
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 16 - testing 'ZZZZ' with Regex
+# Subtest: testing 'abcd' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 17 - testing 'abcd' with Str
+# Subtest: testing '' with Str
+    1..4
+    ok 1 - could we spurt /tmp/s4e/cao/fudge/m/S16-io/split.testing
+    ok 2 - did we get expected result in array
+    ok 3 - did we get expected result in for loop
+    ok 4 - elems ok
+ok 18 - testing '' with Str

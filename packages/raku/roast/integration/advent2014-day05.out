@@ -1,0 +1,9 @@
+1..7
+ok 1 - do we have right number of elements
+ok 2 - did we get the right string
+ok 3 - # SKIP sometimes hangs, sometimes segfaults
+ok 4 - do we have right number of elements
+ok 5 - did we get the right string
+ok 6 - do we have right number of elements
+ok 7 - did we get the right string
+# FUDGED!

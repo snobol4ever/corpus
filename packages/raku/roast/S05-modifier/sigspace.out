@@ -1,0 +1,20 @@
+1..19
+ok 1 - Literal space nonmatch
+ok 2 - Nonspace match
+ok 3 - Word space match
+ok 4 - word space match with ms//
+ok 5 - Word newline match
+ok 6 - Word nonspace nonmatch
+ok 7 - Word explicit space match
+ok 8 - inline :s (+)
+ok 9 - inline :s (+)
+ok 10 - inline :s doesn't imply <.ws> immediately (-)
+ok 11 - inline :s (sigspace)'s trailing whitespace is significant
+ok 12 - inline :s (sigspace)'s trailing whitespace is significant (2)
+ok 13 - m:s/  / starting whitespace between delimiters is not significant.
+ok 14 - ms// works, implies :s (+)
+ok 15 - ms// works, implies :s (-)
+ok 16 - Semantics of sigspace after ^
+ok 17 - Semantics of sigspace after ^
+ok 18 - Semantics of sigspace after ^
+ok 19 - Semantics of sigspace after ^

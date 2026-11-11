@@ -1,0 +1,32 @@
+1..30
+ok 1 - EVAL runs code in the proper lexical scope
+ok 2 - simple EVAL works and returns the value
+ok 3 - simple EVAL using variable defined outside
+ok 4 - EVAL does not trap die
+ok 5 - EVAL throws on syntax error
+ok 6 - EVAL dies on fatal use
+ok 7 - block EVAL is gone
+ok 8 - EVAL works inside class methods
+ok 9 - EVAL works inside instance methods
+ok 10 - EVAL works inside class methods, with outer lexicals
+ok 11 - EVAL works inside instance methods, with outer lexicals
+ok 12 - EVAL(Buf)
+ok 13 - # SKIP Buf.EVAL NYI (if ever)
+ok 14 - EVAL of non-string works
+ok 15 - .EVAL of non-string works
+ok 16 - EVAL of non-string variable works
+ok 17 - .EVAL of non-string variable works
+ok 18 - can execute the same EVAL multiple times, without surrounding block
+ok 19 - EVAL in bogus language mentions the language
+ok 20 - method form of EVAL sees outer lexicals
+ok 21 - presence of low level types doesn't cause EVAL error
+ok 22 - Can EVAL with a sigilless var
+ok 23 - EVAL with sigilless var gives correct result
+ok 24 - EVAL's package does not leak to the surrounding compilation unit
+ok 25 - EVAL(Buf)
+ok 26 - Did the EVAL run BEGIN
+ok 27 - Did the EVAL run CHECK
+ok 28 - Did the EVAL NOT run the code
+ok 29 - EVAL preserves version 6.c
+ok 30 - EVAL preserves version 6.d
+# FUDGED!

@@ -1,0 +1,49 @@
+1..48
+ok 1 - basic sanity
+ok 2 - Bool test for exists single key
+ok 3 - !Bool test for exists single key
+ok 4 - Bool test for non-exists single key
+ok 5 - !Bool test for non-exists single key
+ok 6 - Test for exists single key
+ok 7 - Test for non-exists single key
+ok 8 - Test non-exists with ! single key c
+ok 9 - Test non-exists with ! single key X
+ok 10 - Test non-exists with (0) single key c
+ok 11 - Test non-exists with (0) single key X
+ok 12 - Test non-exists with (False) single key c
+ok 13 - Test non-exists with (False) single key X
+ok 14 - Test non-exists with ($dont) single key c
+ok 15 - Test non-exists with ($dont) single key X
+ok 16 - Test exists with (1) single key c
+ok 17 - Test exists with (1) single key X
+ok 18 - Test exists TTT
+ok 19 - Test exists TTF
+ok 20 - Test exists T
+ok 21 - Test exists T{*}
+ok 22 - Test non-exists FFF
+ok 23 - Test non-exists FFT
+ok 24 - Test non-exists F
+ok 25 - Test non-exists F{*}
+ok 26 - Test exists:kv TTT
+ok 27 - Test exists:kv TT.
+ok 28 - Test exists:kv TTF
+ok 29 - Test exists:kv FFF
+ok 30 - Test exists:kv FF.
+ok 31 - Test exists:kv FFT
+ok 32 - Test exists:p TTT
+ok 33 - Test exists:p TT.
+ok 34 - Test exists:p TTF
+ok 35 - Test exists:p FFF
+ok 36 - Test exists:p FF.
+ok 37 - Test exists:p FFT
+ok 38 - Test exists:k,   invalid combo
+ok 39 - Test exists:!k,  invalid combo
+ok 40 - Test !exists:k,  invalid combo
+ok 41 - Test !exists:!k, invalid combo
+ok 42 - Test exists:v,   invalid combo
+ok 43 - Test exists:!v,  invalid combo
+ok 44 - Test !exists:v,  invalid combo
+ok 45 - Test !exists:!v, invalid combo
+ok 46 - should not have changed hash
+ok 47 - Bool test for literal multi dim key
+ok 48 - no internal error with :exists adverb on non existing key of hash initialized at BEGIN time

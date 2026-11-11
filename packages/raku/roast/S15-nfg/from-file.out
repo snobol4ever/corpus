@@ -1,0 +1,6 @@
+1..4
+ok 1 - Reading UTF-8 file as NFG (one grapheme)
+ok 2 - Reading UTF-8 file as NFG (a few graphemes)
+ok 3 - # SKIP writing utf16 NYI
+ok 4 - # SKIP writing utf16 NYI
+# FUDGED!

@@ -1,0 +1,51 @@
+1..4
+# Subtest: Subset of a coercion
+    1..7
+    ok 1 - variable of subset type has the right type
+    ok 2 - the variable got the right value
+    ok 3 - function parameter of subset type has the right type
+    ok 4 - the parameter got the right value
+    ok 5 - constraint type matches against coercive subset
+    ok 6 - target type matches against coercive subset
+    ok 7 - a string is coerced and matches against subset
+ok 1 - Subset of a coercion
+# Subtest: Subset of a definite
+    1..3
+    ok 1 - the subset compiles
+    # Subtest: doesn't accept undefineds
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 2 - doesn't accept undefineds
+    ok 3 - accepts a concrete string
+ok 2 - Subset of a definite
+# Subtest: Subset of a definite coercion
+    1..3
+    # Subtest: can't declare a variable without initializer
+        1..2
+        ok 1 - 'my OfDefCoerce $v' died
+        ok 2 - right exception type (X::Syntax::Variable::MissingInitializer)
+    ok 1 - can't declare a variable without initializer
+    ok 2 - coerces correctly
+    # Subtest: incorrect coercion into a typeobject throws on the subset
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 3 - incorrect coercion into a typeobject throws on the subset
+ok 3 - Subset of a definite coercion
+# Subtest: Nested coercers
+    1..5
+    # Subtest: control: direct coercion fails as expected
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::AdHoc)
+    ok 1 - control: direct coercion fails as expected
+    # Subtest: assignment of unacceptable value to a variable fails
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::TypeCheck::Assignment)
+    ok 2 - assignment of unacceptable value to a variable fails
+    ok 3 - a chained coercion accepts an intermidiate target type
+    ok 4 - nested coercions work for a scalar
+    ok 5 - nested coercions work for function parameters
+ok 4 - Nested coercers

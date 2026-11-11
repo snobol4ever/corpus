@@ -1,0 +1,10 @@
+1..9
+ok 1 - .new returns a subclass of IO::Path
+ok 2 - .SPEC is set correctly, even if other value is given to .new
+ok 3 - .new returns a subclass of IO::Path
+ok 4 - .SPEC is set correctly, even if other value is given to .new
+ok 5 - .new returns a subclass of IO::Path
+ok 6 - .SPEC is set correctly, even if other value is given to .new
+ok 7 - .new returns a subclass of IO::Path
+ok 8 - .SPEC is set correctly, even if other value is given to .new
+ok 9 - .absolute on paths starting with `-` does not produce empty string (QNX)

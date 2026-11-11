@@ -1,0 +1,4 @@
+1..3
+ok 1 - Can say array ref
+ok 2 - Can print array ref
+ok 3 - Can do IO.say

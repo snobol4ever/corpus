@@ -1,0 +1,15 @@
+1..14
+ok 1 - lvalue subroutine references work (simple)
+ok 2 - lvalue subroutine references work (nested)
+ok 3 - assigning to non-rw subrefs should die
+ok 4 - assigning to non-rw subrefs shouldn't modify the original variable
+ok 5 - lvalue subroutines work (simple)
+ok 6 - lvalue subroutines work (nested)
+ok 7 - assigning to non-rw subs should die
+ok 8 - assigning to non-rw subs shouldn't modify the original variable
+ok 9 - checklastval STORE can die
+ok 10 - proxy lvalue subroutine STORE works
+ok 11 - proxy lvalue subroutine FETCH works
+ok 12 - proxy lvalue subroutine FETCH works
+ok 13 - proxy lvalue subroutine STORE works and returns the correct value
+ok 14 - variable was modified

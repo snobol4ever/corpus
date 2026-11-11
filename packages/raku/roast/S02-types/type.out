@@ -1,0 +1,299 @@
+1..81
+ok 1 - compile my Int $foo
+ok 2 - compile my Str $bar
+ok 3 - Int $foo isa Int
+ok 4 - Str $bar isa Str
+# Subtest: Int restricts to integers
+    1..2
+    ok 1 - '$foo = 'xyz'' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 5 - Int restricts to integers
+# Subtest: Int does not accept Mu
+    1..2
+    ok 1 - '$foo = Mu' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 6 - Int does not accept Mu
+ok 7 - Int is an integer
+# Subtest: Str restricts to strings
+    1..2
+    ok 1 - '$bar = 42' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 8 - Str restricts to strings
+# Subtest: Str does not accept Mu
+    1..2
+    ok 1 - '$bar = Mu' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 9 - Str does not accept Mu
+ok 10 - Str is a strings
+# Subtest: of Int restricts to integers
+    1..2
+    ok 1 - '$baz = 'xyz'' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 11 - of Int restricts to integers
+ok 12 - of Int is an integer
+ok 13 - Has native type int
+# Subtest: native int type cannot be undefined
+    1..2
+    ok 1 - 'my int $alpha = Nil' died
+    ok 2 - right exception type (Exception)
+ok 14 - native int type cannot be undefined
+ok 15 - object Int type can be undefined
+ok 16 - Has native type num
+not ok 17 - native num type can be undefined # TODO assigning Nil to natives
+# Failed test 'native num type can be undefined'
+# at S02-types/type.rakudo line 48
+# Error: Cannot unbox a type object (Nil) to a num.
+ok 18 - object Num type can be undefined
+ok 19 - object Str type can be undefined, list context
+ok 20 - sub parameters with matching type
+# Subtest: sub parameters with non-matching type dies
+    1..2
+    ok 1 - 'paramtype("foo")' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 21 - sub parameters with non-matching type dies
+ok 22 - recursive factorial with type contstraints work
+# Subtest: Num does not accept Int
+    1..2
+    ok 1 - 'my Num $n; $n = 42' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 23 - Num does not accept Int
+# Subtest: Num does not accept Int
+    1..2
+    ok 1 - 'my Num $n; $n = $*PID' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 24 - Num does not accept Int
+# Subtest: Complex does not accept Int
+    1..2
+    ok 1 - 'my Complex $n; $n = 42' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 25 - Complex does not accept Int
+# Subtest: Complex does not accept Int
+    1..2
+    ok 1 - 'my Complex $n; $n = $*PID' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 26 - Complex does not accept Int
+# Subtest: Rat does not accept Int
+    1..2
+    ok 1 - 'my Rat $n; $n = 42' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 27 - Rat does not accept Int
+# Subtest: Rat does not accept Int
+    1..2
+    ok 1 - 'my Rat $n; $n = $*PID' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 28 - Rat does not accept Int
+# Subtest: Int does not accept Num
+    1..2
+    ok 1 - 'my Int $n; $n = 42e0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 29 - Int does not accept Num
+# Subtest: Int does not accept Num
+    1..2
+    ok 1 - 'my Int $n; $n = $*PID.Num' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 30 - Int does not accept Num
+# Subtest: Complex does not accept Num
+    1..2
+    ok 1 - 'my Complex $n; $n = 42e0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 31 - Complex does not accept Num
+# Subtest: Complex does not accept Num
+    1..2
+    ok 1 - 'my Complex $n; $n = $*PID.Num' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 32 - Complex does not accept Num
+# Subtest: Rat does not accept Num
+    1..2
+    ok 1 - 'my Rat $n; $n = 42e0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 33 - Rat does not accept Num
+# Subtest: Rat does not accept Num
+    1..2
+    ok 1 - 'my Rat $n; $n = $*PID.Num' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 34 - Rat does not accept Num
+# Subtest: Int does not accept Rat
+    1..2
+    ok 1 - 'my Int $n; $n = 42.0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 35 - Int does not accept Rat
+# Subtest: Int does not accept Rat
+    1..2
+    ok 1 - 'my Int $n; $n = $*PID.Rat' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 36 - Int does not accept Rat
+# Subtest: Complex does not accept Rat
+    1..2
+    ok 1 - 'my Complex $n; $n = 42.0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 37 - Complex does not accept Rat
+# Subtest: Complex does not accept Rat
+    1..2
+    ok 1 - 'my Complex $n; $n = $*PID.Rat' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 38 - Complex does not accept Rat
+# Subtest: Num does not accept Rat
+    1..2
+    ok 1 - 'my Num $n; $n = 42.0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 39 - Num does not accept Rat
+# Subtest: Num does not accept Rat
+    1..2
+    ok 1 - 'my Num $n; $n = $*PID.Rat' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 40 - Num does not accept Rat
+# Subtest: Int does not accept Complex
+    1..2
+    ok 1 - 'my Int $n; $n = <42+0i>' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 41 - Int does not accept Complex
+# Subtest: Int does not accept Complex
+    1..2
+    ok 1 - 'my Int $n; $n = $*PID\i' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 42 - Int does not accept Complex
+# Subtest: Rat does not accept Complex
+    1..2
+    ok 1 - 'my Rat $n; $n = <42+0i>' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 43 - Rat does not accept Complex
+# Subtest: Rat does not accept Complex
+    1..2
+    ok 1 - 'my Rat $n; $n = $*PID\i' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 44 - Rat does not accept Complex
+# Subtest: Num does not accept Complex
+    1..2
+    ok 1 - 'my Num $n; $n = <42+0i>' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 45 - Num does not accept Complex
+# Subtest: Num does not accept Complex
+    1..2
+    ok 1 - 'my Num $n; $n = $*PID\i' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 46 - Num does not accept Complex
+# Subtest: num does not accept Int
+    1..2
+    ok 1 - 'my num $n; $n = 42' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 47 - num does not accept Int
+# Subtest: int does not accept Num
+    1..2
+    ok 1 - 'my int $n; $n = 42e0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 48 - int does not accept Num
+# Subtest: int does not accept Rat
+    1..2
+    ok 1 - 'my int $n; $n = 42.0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 49 - int does not accept Rat
+# Subtest: num does not accept Rat
+    1..2
+    ok 1 - 'my num $n; $n = 42.0' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 50 - num does not accept Rat
+# Subtest: int does not accept Complex
+    1..2
+    ok 1 - 'my int $n; $n = <42+0i>' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 51 - int does not accept Complex
+# Subtest: num does not accept Complex
+    1..2
+    ok 1 - 'my num $n; $n = <42+0i>' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+ok 52 - num does not accept Complex
+ok 53 - good return value works (returns)
+# Subtest: bad return value dies (returns)
+    1..2
+    ok 1 - 'returntype1(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 54 - bad return value dies (returns)
+ok 55 - good return value works (of)
+# Subtest: bad return value dies (of)
+    1..2
+    ok 1 - 'returntype2(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 56 - bad return value dies (of)
+ok 57 - good return value works (my Type sub)
+# Subtest: bad return value dies (my Type sub)
+    1..2
+    ok 1 - 'returntype3(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 58 - bad return value dies (my Type sub)
+ok 59 - good return value works (-->)
+# Subtest: bad return value dies (-->)
+    1..2
+    ok 1 - 'returntype4(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 60 - bad return value dies (-->)
+ok 61 - good implicit return value works (returns)
+# Subtest: bad implicit return value dies (returns)
+    1..2
+    ok 1 - 'returntype1(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 62 - bad implicit return value dies (returns)
+ok 63 - good implicit return value works (of)
+# Subtest: bad implicit return value dies (of)
+    1..2
+    ok 1 - 'returntype2(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 64 - bad implicit return value dies (of)
+ok 65 - good implicit return value works (my Type sub)
+# Subtest: bad implicit return value dies (my Type sub)
+    1..2
+    ok 1 - 'returntype3(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 66 - bad implicit return value dies (my Type sub)
+ok 67 - good implicit return value works (-->)
+# Subtest: bad implicit return value dies (-->)
+    1..2
+    ok 1 - 'returntype4(Bool::False)' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+ok 68 - bad implicit return value dies (-->)
+# Subtest: multiple prefix constraints not allowed
+    1..2
+    ok 1 - 'my Int Str $x' died
+    ok 2 - right exception type (X::Comp::NYI)
+ok 69 - multiple prefix constraints not allowed
+# Subtest: multiple prefix constraints not allowed
+    1..2
+    ok 1 - 'sub foo(Int Str $x) { }' died
+    ok 2 - right exception type (X::Parameter::MultipleTypeConstraints)
+ok 70 - multiple prefix constraints not allowed
+# Subtest: multiple prefix constraints not allowed
+    1..2
+    ok 1 - 'sub foo(--> Int Str) { }' died
+    ok 2 - right exception type (Exception)
+ok 71 - multiple prefix constraints not allowed
+# Subtest: multiple prefix constraints not allowed
+    1..2
+    ok 1 - 'our Int Str sub foo() { }' died
+    ok 2 - right exception type (X::Comp::NYI)
+ok 72 - multiple prefix constraints not allowed
+ok 73 - Any ~~ Mu
+ok 74 - Mu !~~ Any
+ok 75 - Mu !~~ Int
+ok 76 - Int ~~ Numeric
+ok 77 - Numeric !~~ Int
+ok 78 - Array is a kind of List
+ok 79 - A List is not an Array
+ok 80 - Array does Positional too
+# Subtest: testing .elems on core type objects
+    ok 1 - Bag.elems is 1
+    ok 2 - BagHash.elems is 1
+    ok 3 - Capture.elems is 1
+    ok 4 - Channel.elems is 1
+    ok 5 - Hash.elems is 1
+    ok 6 - IterationBuffer.elems is 1
+    ok 7 - Map.elems is 1
+    ok 8 - Mix.elems is 1
+    ok 9 - MixHash.elems is 1
+    ok 10 - PseudoStash.elems is 1
+    ok 11 - Range.elems is 1
+    ok 12 - Seq.elems is 1
+    ok 13 - Set.elems is 1
+    ok 14 - SetHash.elems is 1
+    ok 15 - Uni.elems is 1
+    1..15
+ok 81 - testing .elems on core type objects
+# FUDGED!

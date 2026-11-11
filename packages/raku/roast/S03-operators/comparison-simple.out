@@ -1,0 +1,25 @@
+1..24
+ok 1 - 1 <=> 1 is same
+ok 2 - 1 <=> 2 is increase
+ok 3 - 2 <=> 1 is decrease
+ok 4 - 0 <=> -1 is increase
+ok 5 - -1 <=> 0 is decrease
+ok 6 - 0 <=> -1/2 is increase
+ok 7 - 0 <=> 1/2 is increase
+ok 8 - -1/2 <=> 0 is decrease
+ok 9 - 1/2 <=> 0 is decrease
+ok 10 - 1/2 <=> 1/2 is same
+ok 11 - -1/2 <=> -1/2 is same
+ok 12 - 1/2 <=> -1/2 is decrease
+ok 13 - -1/2 <=> 1/2 is increase
+ok 14 - a leg a is same
+ok 15 - a leg b is increase
+ok 16 - b leg a is decrease
+ok 17 - leg is in string context
+ok 18 - a cmp a is same
+ok 19 - a cmp b is increase
+ok 20 - b cmp a is decrease
+ok 21 - 1 cmp 1 is same
+ok 22 - 1 cmp 2 is increase
+ok 23 - 2 cmp 1 is decrease
+ok 24 - "a" cmp 1 is decrease

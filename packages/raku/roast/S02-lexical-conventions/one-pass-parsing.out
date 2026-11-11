@@ -1,0 +1,8 @@
+1..5
+ok 1 - can parse non-backslashed curly and right bracket in cclass
+#foo
+ok 2 - Can call sub if()
+ok 3 - Calling sub if without parens parsefails due to no-arg say
+#foo
+ok 4 - Calling sub if okay parens as long as not followed by whitespace
+ok 5 - Using keyword if fails if not followed by whitespace

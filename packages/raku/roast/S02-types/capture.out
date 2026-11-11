@@ -1,0 +1,274 @@
+1..46
+ok 1 - simply capture creation with \( works (1)
+# Subtest: simply capture creation with \( works (2)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 2 - simply capture creation with \( works (2)
+ok 3 - simply capture creation with \( works (3)
+ok 4 - simply capture creation with \( works (4)
+ok 5 - capture creation with \( works
+ok 6 - capture creation with \$ works (1)
+# Subtest: capture creation with \$ works (2)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 7 - capture creation with \$ works (2)
+# Subtest: capture creation with \$ works (3)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 8 - capture creation with \$ works (3)
+ok 9 - captures are first-class objects (1)
+ok 10 - captures are first-class objects (2)
+ok 11 - captures are first-class objects (3)
+ok 12 - captures are first-class objects (4)
+ok 13 - captures are first-class objects (5)
+ok 14 - unflattened captures can be passed to subs
+# Subtest: mixing ordinary args with captures (1)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 15 - mixing ordinary args with captures (1)
+ok 16 - mixing ordinary args with captures (2)
+ok 17 - |@a interpolation into \(...) works
+ok 18 - |%h interpolation into \(...) works
+ok 19 - .<key> of Pair.Capture
+ok 20 - .<value> of Pair.Capture
+ok 21 - \()[0] is not defined
+ok 22 - capture with scalar matches signature
+ok 23 - capture with one element array does not match signature
+ok 24 - capture with infix:<|> on one element array matches signature
+ok 25 - Parens around a colonpair in \(...) make a positional (1)
+ok 26 - Parens around a colonpair in \(...) make a positional (2)
+ok 27 - Hashes not flattened into capture list
+ok 28 - Can modify Capture positional elements
+ok 29 - Can modify Capture associative elements
+ok 30 - .raku of Capture formed from Range does not explode
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - '(1..*).list.Capture' died
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches create a Capture from
+ok 31 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - '(my @ = 1..*).Capture' died
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches create a Capture from
+ok 32 - did we throws-like X::Cannot::Lazy?
+ok 33 - .antipairs returns correct result
+ok 34 - 
+ok 35 - 
+# Subtest: non-Str-key Pairs in List
+    1..3
+    ok 1 - (Mu => Any,)
+    ok 2 - ( custom class => 432,)
+    ok 3 - numerics and allomorphs
+ok 36 - non-Str-key Pairs in List
+ok 37 - Capture.Capture returns self
+ok 38 - Match.Capture returns self
+# Subtest: types whose .Capture throws
+    1..14
+    # Subtest: Bool
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 1 - Bool
+    # Subtest: Str
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 2 - Str
+    # Subtest: Int
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 3 - Int
+    # Subtest: Num
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 4 - Num
+    # Subtest: IntStr
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 5 - IntStr
+    # Subtest: NumStr
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 6 - NumStr
+    # Subtest: Callable
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 7 - Callable
+    # Subtest: Whatever
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 8 - Whatever
+    # Subtest: HyperWhatever
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 9 - HyperWhatever
+    # Subtest: WhateverCode
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 10 - WhateverCode
+    # Subtest: Signature
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 11 - Signature
+    # Subtest: Version
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 12 - Version
+    # Subtest: Regex
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Capture)
+    ok 13 - Regex
+    # Subtest: Failure
+        1..3
+        # Subtest: :U
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Cannot::Capture)
+        ok 1 - :U
+        # Subtest: handled
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Cannot::Capture)
+        ok 2 - handled
+        # Subtest: unhandled
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::Meows)
+        ok 3 - unhandled
+    ok 14 - Failure
+ok 39 - types whose .Capture throws
+# Subtest: types whose .Capture behaves like List.Capture
+    1..18
+    ok 1 - Blob
+    ok 2 - Buf
+    ok 3 - utf8
+    ok 4 - Channel
+    ok 5 - Supply
+    ok 6 - Seq
+    ok 7 - List
+    ok 8 - Array
+    ok 9 - Slip
+    ok 10 - Map
+    ok 11 - Hash
+    ok 12 - Object Hash
+    ok 13 - Set
+    ok 14 - SetHash
+    ok 15 - Bag
+    ok 16 - BagHash
+    ok 17 - Bag
+    ok 18 - BagHash
+ok 40 - types whose .Capture behaves like List.Capture
+# Subtest: types whose .Capture behaves like Mu.Capture
+    1..17
+    # Subtest: Range.Capture has named argument...
+        1..5
+        ok 1 - excludes-min
+        ok 2 - max
+        ok 3 - is-int
+        ok 4 - excludes-max
+        ok 5 - min
+    ok 1 - Range.Capture has named argument...
+    # Subtest: Complex.Capture has named argument...
+        1..2
+        ok 1 - im
+        ok 2 - re
+    ok 2 - Complex.Capture has named argument...
+    # Subtest: ComplexStr.Capture has named argument...
+        1..2
+        ok 1 - re
+        ok 2 - im
+    ok 3 - ComplexStr.Capture has named argument...
+    # Subtest: Rat.Capture has named argument...
+        1..2
+        ok 1 - denominator
+        ok 2 - numerator
+    ok 4 - Rat.Capture has named argument...
+    # Subtest: RatStr.Capture has named argument...
+        1..2
+        ok 1 - numerator
+        ok 2 - denominator
+    ok 5 - RatStr.Capture has named argument...
+    # Subtest: FatRat.Capture has named argument...
+        1..2
+        ok 1 - denominator
+        ok 2 - numerator
+    ok 6 - FatRat.Capture has named argument...
+    # Subtest: X::Str::Numeric.Capture has named argument...
+        1..1
+        ok 1 - source
+    ok 7 - X::Str::Numeric.Capture has named argument...
+    # Subtest: Pair.Capture has named argument...
+        1..2
+        ok 1 - key
+        ok 2 - value
+    ok 8 - Pair.Capture has named argument...
+    # Subtest: DateTime.Capture has named argument...
+        1..3
+        ok 1 - month
+        ok 2 - day
+        ok 3 - year
+    ok 9 - DateTime.Capture has named argument...
+    # Subtest: Date.Capture has named argument...
+        1..3
+        ok 1 - month
+        ok 2 - day
+        ok 3 - year
+    ok 10 - Date.Capture has named argument...
+    # Subtest: Duration.Capture has named argument...
+        1..1
+        ok 1 - tai
+    ok 11 - Duration.Capture has named argument...
+    # Subtest: Instant.Capture has named argument...
+        1..1
+        ok 1 - tai
+    ok 12 - Instant.Capture has named argument...
+    # Subtest: Promise.Capture has named argument...
+        1..1
+        ok 1 - status
+    ok 13 - Promise.Capture has named argument...
+    # Subtest: IO::Path.Capture has named argument...
+        1..2
+        ok 1 - path
+        ok 2 - CWD
+    ok 14 - IO::Path.Capture has named argument...
+    # Subtest: Proc.Capture has named argument...
+        1..3
+        ok 1 - command
+        ok 2 - exitcode
+        ok 3 - signal
+    ok 15 - Proc.Capture has named argument...
+    # Subtest: IO::Handle.Capture has named argument...
+        1..3
+        ok 1 - nl-out
+        ok 2 - chomp
+        ok 3 - encoding
+    ok 16 - IO::Handle.Capture has named argument...
+    # Subtest: IO::CatHandle.Capture has named argument...
+        1..3
+        ok 1 - nl-out
+        ok 2 - chomp
+        ok 3 - encoding
+    ok 17 - IO::CatHandle.Capture has named argument...
+ok 41 - types whose .Capture behaves like Mu.Capture
+ok 42 - Duplicate named arguments are eliminated
+ok 43 - Eliminated named argument side-effect kept
+ok 44 - Eliminated named argument with named-only passing
+ok 45 - captures and instances of subclasses of Capture do not have the same WHICH
+ok 46 - can call EXISTS-KEY on captures w/o a concrete %!hash

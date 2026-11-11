@@ -1,0 +1,61 @@
+1..50
+ok 1 - 
+ok 2 - The object is-a 'Pod::Block::Code'
+ok 3 - 
+ok 4 - 
+ok 5 - 
+ok 6 - The object is-a 'Pod::Block::Code'
+ok 7 - 
+ok 8 - The object is-a 'Pod::Block'
+ok 9 - 
+not ok 10 - The object is-a 'Pod::Block::Code' # TODO legacy pod grammar incorrectly assumes not code
+# Failed test 'The object is-a 'Pod::Block::Code''
+# at S26-documentation/04-code.rakudo line 47
+# Actual type: Pod::Block::Para
+not ok 11 -  # TODO legacy pod grammar incorrectly assumes not code
+# Failed test at S26-documentation/04-code.rakudo line 48
+# expected: "Unsurprisingly, this is also a code block\n    (with fancy indentation too)"
+#      got: $["Unsurprisingly, this is also a code block (with fancy indentation too)"]
+ok 12 - 
+ok 13 - 
+ok 14 - The object is-a 'Pod::Block::Code'
+ok 15 - 
+ok 16 - 
+ok 17 - 
+ok 18 - The object is-a 'Pod::Block::Code'
+ok 19 - 
+ok 20 - The object is-a 'Pod::Block::Code'
+ok 21 - 
+ok 22 - The object is-a 'Pod::Block::Code'
+ok 23 - 
+ok 24 - 
+ok 25 - The object is-a 'Pod::Block'
+ok 26 - 
+ok 27 - 
+ok 28 - The object is-a 'Pod::FormattingCode'
+ok 29 - 
+ok 30 - 
+ok 31 - 
+ok 32 - The object is-a 'Pod::Block::Code'
+ok 33 - 
+ok 34 - 
+ok 35 - The object is-a 'Pod::Block::Code'
+ok 36 - 
+ok 37 - The object is-a 'Pod::Block::Named'
+ok 38 - 
+ok 39 - 
+not ok 40 - The object is-a 'Pod::Block::Code' # TODO legacy pod grammar incorrectly assumes not code
+# Failed test 'The object is-a 'Pod::Block::Code''
+# at S26-documentation/04-code.rakudo line 143
+# Actual type: Pod::Block::Para
+ok 41 - 
+ok 42 - The object is-a 'Pod::Block::Named'
+ok 43 - 
+ok 44 - 
+ok 45 - The object is-a 'Pod::Block::Named'
+ok 46 - 
+ok 47 - 
+ok 48 - The object is-a 'Pod::Block::Code'
+ok 49 - 
+ok 50 - The object is-a 'Pod::Block::Code'
+# FUDGED!

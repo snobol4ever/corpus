@@ -1,0 +1,250 @@
+1..129
+ok 1 - un-parameterized Set
+ok 2 - does .keyof return the correct type
+ok 3 - can we parameterize for strings?
+ok 4 - does .keyof return the correct type
+ok 5 - can we parameterize with a coercive type for integers?
+ok 6 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 7 - do wrong values make initialization croak
+ok 8 - can we parameterize with a coercive type for dates?
+ok 9 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 10 - do wrong values make initialization croak
+ok 11 - un-parameterized Bag
+ok 12 - does .keyof return the correct type
+ok 13 - can we parameterize for strings?
+ok 14 - does .keyof return the correct type
+ok 15 - can we parameterize with a coercive type for integers?
+ok 16 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 17 - do wrong values make initialization croak
+ok 18 - can we parameterize with a coercive type for dates?
+ok 19 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 20 - do wrong values make initialization croak
+ok 21 - un-parameterized Mix
+ok 22 - does .keyof return the correct type
+ok 23 - can we parameterize for strings?
+ok 24 - does .keyof return the correct type
+ok 25 - can we parameterize with a coercive type for integers?
+ok 26 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 27 - do wrong values make initialization croak
+ok 28 - can we parameterize with a coercive type for dates?
+ok 29 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 30 - do wrong values make initialization croak
+ok 31 - un-parameterized SetHash
+ok 32 - does .keyof return the correct type
+ok 33 - can we parameterize for strings?
+ok 34 - does .keyof return the correct type
+ok 35 - can we parameterize with a coercive type for integers?
+ok 36 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 37 - do wrong values make initialization croak
+ok 38 - can we parameterize with a coercive type for dates?
+ok 39 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 40 - do wrong values make initialization croak
+ok 41 - un-parameterized BagHash
+ok 42 - does .keyof return the correct type
+ok 43 - can we parameterize for strings?
+ok 44 - does .keyof return the correct type
+ok 45 - can we parameterize with a coercive type for integers?
+ok 46 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 47 - do wrong values make initialization croak
+ok 48 - can we parameterize with a coercive type for dates?
+ok 49 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 50 - do wrong values make initialization croak
+ok 51 - un-parameterized MixHash
+ok 52 - does .keyof return the correct type
+ok 53 - can we parameterize for strings?
+ok 54 - does .keyof return the correct type
+ok 55 - can we parameterize with a coercive type for integers?
+ok 56 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 57 - do wrong values make initialization croak
+ok 58 - can we parameterize with a coercive type for dates?
+ok 59 - does .keyof return the correct type
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 60 - do wrong values make initialization croak
+ok 61 - The object is-a 'Set[Str]'
+# Subtest: can not assign to Set[Str]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 62 - can not assign to Set[Str]
+ok 63 - did not find a value at "a"
+ok 64 - The object is-a 'Set[Int(Any)]'
+# Subtest: cannot assign Int to Set[Int(Any)]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 65 - cannot assign Int to Set[Int(Any)]
+ok 66 - where there no keys added
+# Subtest: do bad keys make access croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 67 - do bad keys make access croak
+# Subtest: do bad keys make assignment croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 68 - do bad keys make assignment croak
+ok 69 - The object is-a 'Bag[Str]'
+# Subtest: can not assign to Bag[Str]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 70 - can not assign to Bag[Str]
+ok 71 - did not find a value at "a"
+ok 72 - The object is-a 'Bag[Int(Any)]'
+# Subtest: cannot assign Int to Bag[Int(Any)]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 73 - cannot assign Int to Bag[Int(Any)]
+ok 74 - where there no keys added
+# Subtest: do bad keys make access croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 75 - do bad keys make access croak
+# Subtest: do bad keys make assignment croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 76 - do bad keys make assignment croak
+ok 77 - The object is-a 'Mix[Str]'
+# Subtest: can not assign to Mix[Str]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 78 - can not assign to Mix[Str]
+ok 79 - did not find a value at "a"
+ok 80 - The object is-a 'Mix[Int(Any)]'
+# Subtest: cannot assign Int to Mix[Int(Any)]
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 81 - cannot assign Int to Mix[Int(Any)]
+ok 82 - where there no keys added
+# Subtest: do bad keys make access croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 83 - do bad keys make access croak
+# Subtest: do bad keys make assignment croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 84 - do bad keys make assignment croak
+ok 85 - The object is-a 'SetHash[Str]'
+ok 86 - can assign to mutable SetHash[Str]
+ok 87 - found a value at "a"
+ok 88 - did not find a value at "b"
+ok 89 - The object is-a 'SetHash[Int(Any)]'
+ok 90 - can assign Int to mutable SetHash[Int(Any)]
+ok 91 - found a value at "a" using Int
+ok 92 - found a value at "a" using Str
+ok 93 - can assign Str to mutable SetHash[Int(Any)]
+ok 94 - found a value at "666"
+ok 95 - found a value at 666
+ok 96 - did we get integer keys
+ok 97 - did all keys get removed
+# Subtest: do bad keys make access croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 98 - do bad keys make access croak
+# Subtest: do bad keys make assignment croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 99 - do bad keys make assignment croak
+ok 100 - The object is-a 'BagHash[Str]'
+ok 101 - can assign to mutable BagHash[Str]
+ok 102 - found a value at "a"
+ok 103 - did not find a value at "b"
+ok 104 - The object is-a 'BagHash[Int(Any)]'
+ok 105 - can assign Int to mutable BagHash[Int(Any)]
+ok 106 - found a value at "a" using Int
+ok 107 - found a value at "a" using Str
+ok 108 - can assign Str to mutable BagHash[Int(Any)]
+ok 109 - found a value at "666"
+ok 110 - found a value at 666
+ok 111 - did we get integer keys
+ok 112 - did all keys get removed
+# Subtest: do bad keys make access croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 113 - do bad keys make access croak
+# Subtest: do bad keys make assignment croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 114 - do bad keys make assignment croak
+ok 115 - The object is-a 'MixHash[Str]'
+ok 116 - can assign to mutable MixHash[Str]
+ok 117 - found a value at "a"
+ok 118 - did not find a value at "b"
+ok 119 - The object is-a 'MixHash[Int(Any)]'
+ok 120 - can assign Int to mutable MixHash[Int(Any)]
+ok 121 - found a value at "a" using Int
+ok 122 - found a value at "a" using Str
+ok 123 - can assign Str to mutable MixHash[Int(Any)]
+ok 124 - found a value at "666"
+ok 125 - found a value at 666
+ok 126 - did we get integer keys
+ok 127 - did all keys get removed
+# Subtest: do bad keys make access croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 128 - do bad keys make access croak
+# Subtest: do bad keys make assignment croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 129 - do bad keys make assignment croak

@@ -1,0 +1,89 @@
+1..20
+# Subtest: sprintf formats
+    1..6
+    ok 1 - sub, %f, -0e0
+    ok 2 - sub, %e, -0e0
+    ok 3 - sub, %g, -0e0
+    ok 4 - method, %f, -0e0
+    ok 5 - method, %e, -0e0
+    ok 6 - method, %g, -0e0
+ok 1 - sprintf formats
+ok 2 - val() negative zero, U+002D minus
+ok 3 - val() negative zero, U+2212 minus
+ok 4 - Str.Num gives neg. zero, U+002D minus
+ok 5 - Str.Num gives neg. zero, U+2212 minus
+ok 6 - Str.Num gives neg. zero (non-num str), U+002D
+ok 7 - Str.Num gives neg. zero (non-num str), U+2212
+# Subtest: cmp on num zeros
+    1..12
+    ok 1 -  0e0 cmp -0e0
+    ok 2 - -0e0 cmp  0e0
+    ok 3 - -0e0 cmp -0e0
+    ok 4 -  0e0 cmp  0e0
+    ok 5 -  0e0 cmp -0e0, native nums
+    ok 6 - -0e0 cmp  0e0, native nums
+    ok 7 - -0e0 cmp -0e0, native nums
+    ok 8 -  0e0 cmp  0e0, native nums
+    ok 9 -  0e0 cmp -0e0 (native)
+    ok 10 - -0e0 (native) cmp  0e0
+    ok 11 -  0e0 (native) cmp -0e0
+    ok 12 - -0e0 cmp  0e0 (native)
+ok 8 - cmp on num zeros
+# Subtest: infix:<===> on num zeros
+    1..12
+    ok 1 -  0e0 === -0e0
+    ok 2 - -0e0 ===  0e0
+    ok 3 - -0e0 === -0e0
+    ok 4 -  0e0 ===  0e0
+    ok 5 -  0e0 === -0e0, native nums
+    ok 6 - -0e0 ===  0e0, native nums
+    ok 7 - -0e0 === -0e0, native nums
+    ok 8 -  0e0 ===  0e0, native nums
+    ok 9 -  0e0 === -0e0 (native)
+    ok 10 - -0e0 (native) ===  0e0
+    ok 11 -  0e0 (native) === -0e0
+    ok 12 - -0e0 ===  0e0 (native)
+ok 9 - infix:<===> on num zeros
+# Subtest: infix:<===> on complex zeros
+    1..16
+    ok 1 - -0-0i === -0-0i
+    ok 2 - -0-0i === +0-0i
+    ok 3 - -0-0i === -0+0i
+    ok 4 - -0-0i === +0+0i
+    ok 5 - +0-0i === -0-0i
+    ok 6 - +0-0i === +0-0i
+    ok 7 - +0-0i === -0+0i
+    ok 8 - +0-0i === +0+0i
+    ok 9 - -0+0i === -0-0i
+    ok 10 - -0+0i === +0-0i
+    ok 11 - -0+0i === -0+0i
+    ok 12 - -0+0i === +0+0i
+    ok 13 - +0+0i === -0-0i
+    ok 14 - +0+0i === +0-0i
+    ok 15 - +0+0i === -0+0i
+    ok 16 - +0+0i === +0+0i
+ok 10 - infix:<===> on complex zeros
+# Subtest: Stringification of Complex handles signed zeros
+    1..12
+    ok 1 - <-0-0i>.raku
+    ok 2 - <-0+0i>.raku
+    ok 3 - <+0-0i>.raku
+    ok 4 - <+0+0i>.raku
+    ok 5 - <-0-0i>.gist
+    ok 6 - <-0+0i>.gist
+    ok 7 - <+0-0i>.gist
+    ok 8 - <+0+0i>.gist
+    ok 9 - <-0-0i>.Str
+    ok 10 - <-0+0i>.Str
+    ok 11 - <+0-0i>.Str
+    ok 12 - <+0+0i>.Str
+ok 11 - Stringification of Complex handles signed zeros
+ok 12 - -0e0 eqv 0e0 when stored in variables
+ok 13 - -0e0 eqv 0e0 when using literals
+ok 14 - -0e0 eqv 0e0 when using native nums
+ok 15 - abs(-0e0) == 0e0 when stored in variables [sub]
+ok 16 - abs(-0e0) == 0e0 when using literals [sub]
+ok 17 - abs(-0e0) == 0e0 when using native nums [sub]
+ok 18 - abs(-0e0) == 0e0 when stored in variables [method]
+ok 19 - abs(-0e0) == 0e0 when using literals [method]
+ok 20 - abs(-0e0) == 0e0 when using native nums [method]

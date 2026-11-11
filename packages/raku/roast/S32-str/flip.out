@@ -1,0 +1,14 @@
+1..13
+ok 1 - as a function
+ok 2 - empty string
+ok 3 - literal
+ok 4 - with a Str variable
+ok 5 - flip should not be in-place
+ok 6 - after a .=flip
+ok 7 - two flip in a row.
+ok 8 - some unicode characters
+ok 9 - grapheme precomposed
+ok 10 - grapheme without precomposed
+ok 11 - .flip on non-string
+ok 12 - flip() on non-strings
+ok 13 - in-place flip

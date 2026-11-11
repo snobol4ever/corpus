@@ -1,0 +1,14 @@
+1..13
+ok 1 - Str matches at grapheme level
+ok 2 - (and not NFC code points)
+ok 3 - (and certainly not the input code points!)
+ok 4 - Can use character classes on the graphemes
+ok 5 - Can use character classes on the graphemes (quantified)
+ok 6 - ...and get the 2 graphemes matched
+ok 7 - Do not have accidents involving enumerated char class and base char
+ok 8 - Do not have accidents involving enumerated char class and NFC
+ok 9 - Do not have accidents involving range char class and base char
+ok 10 - Do not have accidents involving range char class and NFC
+ok 11 - Do not have accidents involving range char class and NFC under :i
+ok 12 - Can use Unicode properties on grapheme
+ok 13 - Can use Unicode properties on grapheme (quantified)

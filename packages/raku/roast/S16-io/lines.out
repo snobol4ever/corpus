@@ -1,0 +1,206 @@
+1..178
+ok 1 - could we spurt a file with LF
+ok 2 - The object is-a 'IO::Handle'
+ok 3 - read first line: () / LF
+ok 4 - rest of file: () / LF
+ok 5 - handle still open
+ok 6 - closed handle
+ok 7 - The object is-a 'IO::Handle'
+ok 8 - handle 1,2: () / LF
+ok 9 - handle last line: () / LF
+ok 10 - path 1,2: () / LF
+ok 11 - path last line: () / LF
+ok 12 - path elems: () / LF
+ok 13 - The object is-a 'IO::Handle'
+ok 14 - read first line: chomp => True / LF
+ok 15 - rest of file: chomp => True / LF
+ok 16 - handle still open
+ok 17 - closed handle
+ok 18 - The object is-a 'IO::Handle'
+ok 19 - handle 1,2: chomp => True / LF
+ok 20 - handle last line: chomp => True / LF
+ok 21 - path 1,2: chomp => True / LF
+ok 22 - path last line: chomp => True / LF
+ok 23 - path elems: chomp => True / LF
+ok 24 - The object is-a 'IO::Handle'
+ok 25 - read first line: chomp => False / LF
+ok 26 - rest of file: chomp => False / LF
+ok 27 - handle still open
+ok 28 - closed handle
+ok 29 - The object is-a 'IO::Handle'
+ok 30 - handle 1,2: chomp => False / LF
+ok 31 - handle last line: chomp => False / LF
+ok 32 - path 1,2: chomp => False / LF
+ok 33 - path last line: chomp => False / LF
+ok 34 - path elems: chomp => False / LF
+ok 35 - could we spurt a file with CR
+ok 36 - The object is-a 'IO::Handle'
+ok 37 - read first line: () / CR
+ok 38 - rest of file: () / CR
+ok 39 - handle still open
+ok 40 - closed handle
+ok 41 - The object is-a 'IO::Handle'
+ok 42 - handle 1,2: () / CR
+ok 43 - handle last line: () / CR
+ok 44 - path 1,2: () / CR
+ok 45 - path last line: () / CR
+ok 46 - path elems: () / CR
+ok 47 - The object is-a 'IO::Handle'
+ok 48 - read first line: chomp => True / CR
+ok 49 - rest of file: chomp => True / CR
+ok 50 - handle still open
+ok 51 - closed handle
+ok 52 - The object is-a 'IO::Handle'
+ok 53 - handle 1,2: chomp => True / CR
+ok 54 - handle last line: chomp => True / CR
+ok 55 - path 1,2: chomp => True / CR
+ok 56 - path last line: chomp => True / CR
+ok 57 - path elems: chomp => True / CR
+ok 58 - The object is-a 'IO::Handle'
+ok 59 - read first line: chomp => False / CR
+ok 60 - rest of file: chomp => False / CR
+ok 61 - handle still open
+ok 62 - closed handle
+ok 63 - The object is-a 'IO::Handle'
+ok 64 - handle 1,2: chomp => False / CR
+ok 65 - handle last line: chomp => False / CR
+ok 66 - path 1,2: chomp => False / CR
+ok 67 - path last line: chomp => False / CR
+ok 68 - path elems: chomp => False / CR
+ok 69 - could we spurt a file with semi-colon
+ok 70 - The object is-a 'IO::Handle'
+ok 71 - read first line: () / semi-colon
+ok 72 - rest of file: () / semi-colon
+ok 73 - handle still open
+ok 74 - closed handle
+ok 75 - The object is-a 'IO::Handle'
+ok 76 - handle 1,2: () / semi-colon
+ok 77 - handle last line: () / semi-colon
+ok 78 - path 1,2: () / semi-colon
+ok 79 - path last line: () / semi-colon
+ok 80 - path elems: () / semi-colon
+ok 81 - The object is-a 'IO::Handle'
+ok 82 - read first line: chomp => True / semi-colon
+ok 83 - rest of file: chomp => True / semi-colon
+ok 84 - handle still open
+ok 85 - closed handle
+ok 86 - The object is-a 'IO::Handle'
+ok 87 - handle 1,2: chomp => True / semi-colon
+ok 88 - handle last line: chomp => True / semi-colon
+ok 89 - path 1,2: chomp => True / semi-colon
+ok 90 - path last line: chomp => True / semi-colon
+ok 91 - path elems: chomp => True / semi-colon
+ok 92 - The object is-a 'IO::Handle'
+ok 93 - read first line: chomp => False / semi-colon
+ok 94 - rest of file: chomp => False / semi-colon
+ok 95 - handle still open
+ok 96 - closed handle
+ok 97 - The object is-a 'IO::Handle'
+ok 98 - handle 1,2: chomp => False / semi-colon
+ok 99 - handle last line: chomp => False / semi-colon
+ok 100 - path 1,2: chomp => False / semi-colon
+ok 101 - path last line: chomp => False / semi-colon
+ok 102 - path elems: chomp => False / semi-colon
+ok 103 - could we spurt a file with colons
+ok 104 - The object is-a 'IO::Handle'
+ok 105 - read first line: () / colons
+ok 106 - rest of file: () / colons
+ok 107 - handle still open
+ok 108 - closed handle
+ok 109 - The object is-a 'IO::Handle'
+ok 110 - handle 1,2: () / colons
+ok 111 - handle last line: () / colons
+ok 112 - path 1,2: () / colons
+ok 113 - path last line: () / colons
+ok 114 - path elems: () / colons
+ok 115 - The object is-a 'IO::Handle'
+ok 116 - read first line: chomp => True / colons
+ok 117 - rest of file: chomp => True / colons
+ok 118 - handle still open
+ok 119 - closed handle
+ok 120 - The object is-a 'IO::Handle'
+ok 121 - handle 1,2: chomp => True / colons
+ok 122 - handle last line: chomp => True / colons
+ok 123 - path 1,2: chomp => True / colons
+ok 124 - path last line: chomp => True / colons
+ok 125 - path elems: chomp => True / colons
+ok 126 - The object is-a 'IO::Handle'
+ok 127 - read first line: chomp => False / colons
+ok 128 - rest of file: chomp => False / colons
+ok 129 - handle still open
+ok 130 - closed handle
+ok 131 - The object is-a 'IO::Handle'
+ok 132 - handle 1,2: chomp => False / colons
+ok 133 - handle last line: chomp => False / colons
+ok 134 - path 1,2: chomp => False / colons
+ok 135 - path last line: chomp => False / colons
+ok 136 - path elems: chomp => False / colons
+ok 137 - could we spurt a file with multi
+ok 138 - The object is-a 'IO::Handle'
+ok 139 - read first line: () / multi
+ok 140 - rest of file: () / multi
+ok 141 - handle still open
+ok 142 - closed handle
+ok 143 - The object is-a 'IO::Handle'
+ok 144 - handle 1,2: () / multi
+ok 145 - handle last line: () / multi
+ok 146 - path 1,2: () / multi
+ok 147 - path last line: () / multi
+ok 148 - path elems: () / multi
+ok 149 - The object is-a 'IO::Handle'
+ok 150 - read first line: chomp => True / multi
+ok 151 - rest of file: chomp => True / multi
+ok 152 - handle still open
+ok 153 - closed handle
+ok 154 - The object is-a 'IO::Handle'
+ok 155 - handle 1,2: chomp => True / multi
+ok 156 - handle last line: chomp => True / multi
+ok 157 - path 1,2: chomp => True / multi
+ok 158 - path last line: chomp => True / multi
+ok 159 - path elems: chomp => True / multi
+ok 160 - The object is-a 'IO::Handle'
+ok 161 - read first line: chomp => False / multi
+ok 162 - rest of file: chomp => False / multi
+ok 163 - handle still open
+ok 164 - closed handle
+ok 165 - The object is-a 'IO::Handle'
+ok 166 - handle 1,2: chomp => False / multi
+ok 167 - handle last line: chomp => False / multi
+ok 168 - path 1,2: chomp => False / multi
+ok 169 - path last line: chomp => False / multi
+ok 170 - path elems: chomp => False / multi
+ok 171 - Attempting to read lines in from `/proc/$$/statm` does not hang
+ok 172 - we stop when data ends, even if limit has not been reached yet
+ok 173 - calling lines() after exhausting previous input does not crash
+ok 174 - .lines does not crash with partial .rotor
+ok 175 - can use Whatever as limit to IO::Pipe.lines
+ok 176 - can sink-all IO::Pipe.lines
+# Subtest: $limit works right with any combination of args
+    1..5
+    ok 1 - IO::Path.lines($limit)
+    # Subtest: IO::Handle.lines($limit)
+        1..2
+        ok 1 - right lines
+        ok 2 - left handle opened
+    ok 2 - IO::Handle.lines($limit)
+    # Subtest: IO::Handle.lines($limit, :close)
+        1..4
+        ok 1 - right lines (full read)
+        ok 2 - closed handle (full read)
+        ok 3 - right lines (slice)
+        ok 4 - closed handle (slice)
+    ok 3 - IO::Handle.lines($limit, :close)
+    # Subtest: &lines($fh, $limit)
+        1..2
+        ok 1 - right lines
+        ok 2 - left handle opened
+    ok 4 - &lines($fh, $limit)
+    # Subtest: &lines($fh, $limit, :close)
+        1..4
+        ok 1 - right lines (full read)
+        ok 2 - closed handle (full read)
+        ok 3 - right lines (slice)
+        ok 4 - closed handle (slice)
+    ok 5 - &lines($fh, $limit, :close)
+ok 177 - $limit works right with any combination of args
+ok 178 - heuristic for testing whether handle is closed

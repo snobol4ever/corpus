@@ -1,0 +1,8 @@
+1..7
+ok 1 - ~ two literals correctly
+ok 2 - ~ two variables correctly
+ok 3 - ~= a literal string correctly
+ok 4 - ~= variable correctly
+ok 5 - Concatenating two empty strings
+ok 6 - Concatenente non-empty and empty string
+ok 7 - Concatenente empty and non-empty string

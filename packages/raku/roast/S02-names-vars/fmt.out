@@ -1,0 +1,22 @@
+1..21
+ok 1 - fmt() works with %s
+ok 2 - fmt() works with %d
+ok 3 - fmt() works with %f
+ok 4 - fmt() works with plain lists
+ok 5 - fmt() works with @ array
+ok 6 - fmt() works with Array object
+ok 7 - fmt() works for single elem array
+ok 8 - fmt() works with hashes
+ok 9 - Range.fmt
+ok 10 - Range.fmt with defaults
+ok 11 - .fmt works with a single pair
+ok 12 - .fmt works with lists of a single pair
+ok 13 - fmt() works with lists of pairs
+ok 14 - fmt() works with lists of pairs
+ok 15 - default $comma for array
+ok 16 - default $comma works with hashes
+ok 17 - scalar .fmt without $fmt
+ok 18 - pair .fmt without $fmt
+ok 19 - list .fmt without $fmt
+ok 20 - array .fmt without $fmt
+ok 21 - hash .fmt without $fmt

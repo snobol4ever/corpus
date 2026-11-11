@@ -1,0 +1,29 @@
+1..12
+ok 1 - . matches something
+ok 2 - . matches \n
+ok 3 - ^ matches beginning of string
+ok 4 - ^ does not match \n
+ok 5 - $ matches end of string
+ok 6 - $ does not match \n
+# Subtest: /m modifier is gone
+    1..2
+    ok 1 - '$str ~~ m/bc$/m' died
+    ok 2 - right exception type (X::Obsolete)
+ok 7 - /m modifier is gone
+ok 8 - \n$ matches as expected
+ok 9 - $ does not match \n at end of string
+# Subtest: \A is gone
+    1..2
+    ok 1 - '/\A/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 10 - \A is gone
+# Subtest: \Z is gone
+    1..2
+    ok 1 - '/\Z/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 11 - \Z is gone
+# Subtest: \z is gone
+    1..2
+    ok 1 - '/\z/' died
+    ok 2 - right exception type (X::Obsolete)
+ok 12 - \z is gone

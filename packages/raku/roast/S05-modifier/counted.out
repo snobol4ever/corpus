@@ -1,0 +1,157 @@
+1..126
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$data ~~ m:nth(0)/fo+/' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 1 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$data ~~ m:nth(-1)/fo+/' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 2 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$data ~~ m:nth(-Inf)/fo+/' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 3 - did we throws-like Exception?
+ok 4 - Match nth(1)
+ok 5 - Matched value for nth(1)
+ok 6 - Match nth(2)
+ok 7 - Matched value for nth(2)
+ok 8 - Match nth(3)
+ok 9 - Matched value for nth(3)
+ok 10 - Match nth(4)
+ok 11 - Matched value for nth(4)
+ok 12 - Match nth(5)
+ok 13 - Matched value for nth(5)
+ok 14 - Match nth(6)
+ok 15 - Matched value for nth(6)
+ok 16 - No match nth(7)
+ok 17 - Match nth($N) for $N == 1
+ok 18 - Matched value for 1
+ok 19 - Match nth($N) for $N == 2
+ok 20 - Matched value for 2
+ok 21 - Match nth($N) for $N == 3
+ok 22 - Matched value for 3
+ok 23 - Match nth($N) for $N == 4
+ok 24 - Matched value for 4
+ok 25 - Match nth($N) for $N == 5
+ok 26 - Matched value for 5
+ok 27 - Match nth($N) for $N == 6
+ok 28 - Matched value for 6
+ok 29 - nth(list) is ok
+ok 30 - nth(list) matched correctly
+ok 31 - Match 1st
+ok 32 - Matched value for 1st
+ok 33 - Match 2st
+ok 34 - Matched value for 2st
+ok 35 - Match 3st
+ok 36 - Matched value for 3st
+ok 37 - Match 4st
+ok 38 - Matched value for 4st
+ok 39 - Match 5st
+ok 40 - Matched value for 5st
+ok 41 - Match 6st
+ok 42 - Matched value for 6st
+ok 43 - No match 7st
+ok 44 - Match 1nd
+ok 45 - Matched value for 1nd
+ok 46 - Match 2nd
+ok 47 - Matched value for 2nd
+ok 48 - Match 3nd
+ok 49 - Matched value for 3nd
+ok 50 - Match 4nd
+ok 51 - Matched value for 4nd
+ok 52 - Match 5nd
+ok 53 - Matched value for 5nd
+ok 54 - Match 6nd
+ok 55 - Matched value for 6nd
+ok 56 - No match 7nd
+ok 57 - Match 1rd
+ok 58 - Matched value for 1rd
+ok 59 - Match 2rd
+ok 60 - Matched value for 2rd
+ok 61 - Match 3rd
+ok 62 - Matched value for 3rd
+ok 63 - Match 4rd
+ok 64 - Matched value for 4rd
+ok 65 - Match 5rd
+ok 66 - Matched value for 5rd
+ok 67 - Match 6rd
+ok 68 - Matched value for 6rd
+ok 69 - No match 7rd
+ok 70 - Match 1th
+ok 71 - Matched value for 1th
+ok 72 - Match 2th
+ok 73 - Matched value for 2th
+ok 74 - Match 3th
+ok 75 - Matched value for 3th
+ok 76 - Match 4th
+ok 77 - Matched value for 4th
+ok 78 - Match 5th
+ok 79 - Matched value for 5th
+ok 80 - Match 6th
+ok 81 - Matched value for 6th
+ok 82 - No match 7th
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$try ~~ s:0th{fo+}=q{bar}' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 83 - did we throws-like Exception?
+ok 84 - No change to data for 0th
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$try ~~ s:th(-1){fo+}=q{bar}' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 85 - did we throws-like Exception?
+ok 86 - No change to data for :th(-1)
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '$try ~~ s:th(-Inf){fo+}=q{bar}' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 87 - did we throws-like Exception?
+ok 88 - No change to data for :th(-Inf)
+ok 89 - substitute 1st
+ok 90 - substituted 1st correctly
+ok 91 - substitute 2nd
+ok 92 - substituted 2nd correctly
+ok 93 - substitute 3rd
+ok 94 - substituted 3rd correctly
+ok 95 - substitute 4th
+ok 96 - substituted 4th correctly
+ok 97 - substitute 5th
+ok 98 - substituted 5th correctly
+ok 99 - substitute 6th
+ok 100 - substituted 6th correctly
+ok 101 - Can't substitute 7th
+ok 102 - No change to data for 7th
+ok 103 - Match 3rd f[\d|\w+]
+ok 104 - Matched value for 3rd f[\d|\w+]
+ok 105 - Match 3rd <ident>
+ok 106 - Matched value for 3th <ident>
+ok 107 - Match 3rd « <ident>
+ok 108 - Matched value for 3th « <ident>
+ok 109 - Can match with * index
+ok 110 - Can match with *-1 index
+ok 111 - Can't substitute 0x
+ok 112 - No change to data for 0x
+ok 113 - substitute 1x
+ok 114 - substituted 1x correctly
+ok 115 - substitute 2x
+ok 116 - substituted 2x correctly
+ok 117 - substitute 3x
+ok 118 - substituted 3x correctly
+ok 119 - substitute 4x
+ok 120 - substituted 4x correctly
+ok 121 - substitute 5x
+ok 122 - substituted 5x correctly
+ok 123 - substitute 6x
+ok 124 - substituted 6x correctly
+ok 125 - substitute 7x
+ok 126 - did not substitute 7x

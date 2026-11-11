@@ -1,0 +1,5 @@
+1..4
+ok 1 - some SETTING::(OUTER::)* path resolves to CORE &not
+ok 2 - ::('SETTING') reaches CORE &not from top-level
+ok 3 - ::('SETTING') reaches CORE &not from inside EVAL
+ok 4 - CALLER::('SETTING') reaches CORE &not from closure called via EVAL

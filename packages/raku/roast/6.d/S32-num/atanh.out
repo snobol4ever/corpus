@@ -1,0 +1,19 @@
+1..18
+ok 1 - atanh(2.718281828459045) is a NaN
+ok 2 - atanh(-2.718281828459045) is a NaN
+ok 3 - atanh(10) is a NaN
+ok 4 - atanh(-10) is a NaN
+ok 5 - atanh(3.141592653589793) is a NaN
+ok 6 - atanh(-3.141592653589793) is a NaN
+ok 7 - atanh(6.283185307179586) is a NaN
+ok 8 - atanh(-6.283185307179586) is a NaN
+ok 9 - atanh(1e+20) is a NaN
+ok 10 - atanh(-1e+20) is a NaN
+ok 11 - atanh(1e+100) is a NaN
+ok 12 - atanh(-1e+100) is a NaN
+ok 13 - atanh(1e+200) is a NaN
+ok 14 - atanh(-1e+200) is a NaN
+ok 15 - atanh(Inf) is a NaN
+ok 16 - atanh(-Inf) is a NaN
+ok 17 - atanh(Inf) is a NaN
+ok 18 - atanh(-Inf) is a NaN

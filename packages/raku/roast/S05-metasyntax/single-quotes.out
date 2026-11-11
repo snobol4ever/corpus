@@ -1,0 +1,31 @@
+1..30
+ok 1 - ab cd 1
+ok 2 - not abcd 1
+ok 3 - ab cd 2
+ok 4 - Single quotes group
+ok 5 - ab/cd
+ok 6 - Can use after %
+ok 7 - ab cd 1
+ok 8 - not abcd 1
+ok 9 - ab cd 2
+ok 10 - Single quotes group
+ok 11 - ab/cd
+ok 12 - Can use after %
+ok 13 - ab cd 1
+ok 14 - not abcd 1
+ok 15 - ab cd 2
+ok 16 - Single quotes group
+ok 17 - ab/cd
+ok 18 - Can use after %
+ok 19 - ab cd 1
+ok 20 - not abcd 1
+ok 21 - ab cd 2
+ok 22 - Single quotes group
+ok 23 - ab/cd
+ok 24 - Can use after %
+ok 25 - ab cd 1
+ok 26 - not abcd 1
+ok 27 - ab cd 2
+ok 28 - Single quotes group
+ok 29 - ab/cd
+ok 30 - Can use after %

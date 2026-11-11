@@ -1,0 +1,432 @@
+1..431
+ok 1 - Unanchored named LINE FEED
+ok 2 - Unanchored \x[A]
+ok 3 - Unanchored \o[12]
+ok 4 - Anchored LINE FEED
+ok 5 - Unanchored named FORM FEED
+ok 6 - Unanchored \x[C]
+ok 7 - Unanchored \o[14]
+ok 8 - Anchored FORM FEED
+ok 9 - Multiple FORM FEED, LINE FEED
+ok 10 - Charclass multiple FORM FEED, LINE FEED
+ok 11 - Negative charclass FORM FEED, LINE FEED
+ok 12 - Negative named FORM FEED nomatch
+ok 13 - Negative named FORM FEED match
+ok 14 - Negative charclass named FORM FEED nomatch
+ok 15 - Negative charclass named FORM FEED match
+ok 16 - Negative hex \X[C] nomatch
+ok 17 - Negative charclass hex \X[C] nomatch
+ok 18 - Negative hex \X[A] match
+ok 19 - Negative charclass hex \X[A] match
+ok 20 - Unanchored named CARRIAGE RETURN
+ok 21 - Unanchored \x[d]
+ok 22 - Unanchored \o[15]
+ok 23 - Anchored CARRIAGE RETURN
+ok 24 - Multiple CARRIAGE RETURN, FORM FEED
+ok 25 - Charclass multiple CARRIAGE RETURN, FORM FEED
+ok 26 - Negative charclass CARRIAGE RETURN, FORM FEED
+ok 27 - Negative named CARRIAGE RETURN nomatch
+ok 28 - Negative named CARRIAGE RETURN match
+ok 29 - Negative charclass named CARRIAGE RETURN nomatch
+ok 30 - Negative charclass named CARRIAGE RETURN match
+ok 31 - Negative hex \X[D] nomatch
+ok 32 - Negative charclass hex \X[D] nomatch
+ok 33 - Negative hex \X[C] match
+ok 34 - Negative charclass hex \X[C] match
+ok 35 - Unanchored named NEXT LINE
+ok 36 - Unanchored \x[85]
+ok 37 - Unanchored \o[205]
+ok 38 - Anchored NEXT LINE
+ok 39 - Multiple NEXT LINE, CARRIAGE RETURN
+ok 40 - Charclass multiple NEXT LINE, CARRIAGE RETURN
+ok 41 - Negative charclass NEXT LINE, CARRIAGE RETURN
+ok 42 - Negative named NEXT LINE nomatch
+ok 43 - Negative named NEXT LINE match
+ok 44 - Negative charclass named NEXT LINE nomatch
+ok 45 - Negative charclass named NEXT LINE match
+ok 46 - Negative hex \X[85] nomatch
+ok 47 - Negative charclass hex \X[85] nomatch
+ok 48 - Negative hex \X[D] match
+ok 49 - Negative charclass hex \X[D] match
+ok 50 - Unanchored named LINE FEED
+ok 51 - Anchored LINE FEED
+ok 52 - Multiple LINE FEED, NEXT LINE
+ok 53 - Charclass multiple LINE FEED, NEXT LINE
+ok 54 - Negative charclass LINE FEED, NEXT LINE
+ok 55 - Negative named LINE FEED nomatch
+ok 56 - Negative named LINE FEED match
+ok 57 - Negative charclass named LINE FEED nomatch
+ok 58 - Negative charclass named LINE FEED match
+ok 59 - Unanchored named FORM FEED
+ok 60 - Anchored FORM FEED
+ok 61 - Multiple FORM FEED, LINE FEED
+ok 62 - Charclass multiple FORM FEED, LINE FEED
+ok 63 - Negative charclass FORM FEED, LINE FEED
+ok 64 - Negative named FORM FEED nomatch
+ok 65 - Negative named FORM FEED match
+ok 66 - Negative charclass named FORM FEED nomatch
+ok 67 - Negative charclass named FORM FEED match
+ok 68 - Unanchored named CARRIAGE RETURN
+ok 69 - Anchored CARRIAGE RETURN
+ok 70 - Multiple CARRIAGE RETURN,FORM FEED
+ok 71 - Charclass multiple CARRIAGE RETURN,FORM FEED
+ok 72 - Negative charclass CARRIAGE RETURN,FORM FEED
+ok 73 - Negative named CARRIAGE RETURN nomatch
+ok 74 - Negative named CARRIAGE RETURN match
+ok 75 - Negative charclass named CARRIAGE RETURN nomatch
+ok 76 - Negative charclass named CARRIAGE RETURN match
+ok 77 - Unanchored named NEXT LINE
+ok 78 - Anchored NEXT LINE
+ok 79 - Multiple NEXT LINE,CARRIAGE RETURN
+ok 80 - Charclass multiple NEXT LINE,CARRIAGE RETURN
+ok 81 - Negative charclass NEXT LINE,CARRIAGE RETURN
+ok 82 - Negative named NEXT LINE nomatch
+ok 83 - Negative named NEXT LINE match
+ok 84 - Negative charclass named NEXT LINE nomatch
+ok 85 - Negative charclass named NEXT LINE match
+ok 86 - Unanchored named LF
+ok 87 - Anchored LF
+ok 88 - Multiple LF, NEXT LINE
+ok 89 - Charclass multiple LF, NEXT LINE
+ok 90 - Negative charclass LF, NEXT LINE
+ok 91 - Negative named LF nomatch
+ok 92 - Negative named LF match
+ok 93 - Negative charclass named LF nomatch
+ok 94 - Negative charclass named LF match
+ok 95 - Unanchored named FF
+ok 96 - Anchored FF
+ok 97 - Multiple FF,LF
+ok 98 - Charclass multiple FF,LF
+ok 99 - Negative charclass FF,LF
+ok 100 - Negative named FF nomatch
+ok 101 - Negative named FF match
+ok 102 - Negative charclass named FF nomatch
+ok 103 - Negative charclass named FF match
+ok 104 - Unanchored named CR
+ok 105 - Anchored CR
+ok 106 - Multiple CR,FF
+ok 107 - Charclass multiple CR,FF
+ok 108 - Negative charclass CR,FF
+ok 109 - Negative named CR nomatch
+ok 110 - Negative named CR match
+ok 111 - Negative charclass named CR nomatch
+ok 112 - Negative charclass named CR match
+ok 113 - Unanchored named NEL
+ok 114 - Anchored NEL
+ok 115 - Multiple NEL,CR
+ok 116 - Charclass multiple NEL,CR
+ok 117 - Negative charclass NEL,CR
+ok 118 - Negative named NEL nomatch
+ok 119 - Negative named NEL match
+ok 120 - Negative charclass named NEL nomatch
+ok 121 - Negative charclass named NEL match
+ok 122 - Unanchored named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
+ok 123 - Unanchored \x[fd55]
+ok 124 - Unanchored \o[176525]
+ok 125 - Anchored ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
+ok 126 - Multiple ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM,NEL
+ok 127 - Charclass multiple ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM,NEL
+ok 128 - Negative charclass ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM,NEL
+ok 129 - Negative named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM nomatch
+ok 130 - Negative named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM match
+ok 131 - Negative charclass named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM nomatch
+ok 132 - Negative charclass named ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM match
+ok 133 - Negative hex \X[FD55] nomatch
+ok 134 - Negative charclass hex \X[FD55] nomatch
+ok 135 - Solitary named HEBREW POINT HIRIQ
+ok 136 - Solitary \x[5B4]
+ok 137 - Solitary \o[2664]
+ok 138 - Anchored HEBREW POINT HIRIQ
+ok 139 - Solitary multiple HEBREW POINT HIRIQ,ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
+ok 140 - Charclass multiple HEBREW POINT HIRIQ,ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
+ok 141 - Negative charclass HEBREW POINT HIRIQ,ARABIC LIGATURE TEH WITH MEEM WITH JEEM INITIAL FORM
+ok 142 - Negative named HEBREW POINT HIRIQ nomatch
+ok 143 - Negative named HEBREW POINT HIRIQ match
+ok 144 - Negative charclass named HEBREW POINT HIRIQ nomatch
+ok 145 - Negative charclass named HEBREW POINT HIRIQ match
+ok 146 - Negative hex \X[5B4] nomatch
+ok 147 - Negative charclass hex \X[5B4] nomatch
+ok 148 - Negative hex \X[FD55] match
+ok 149 - Negative charclass hex \X[FD55] match
+ok 150 - Unanchored named LATIN CAPITAL LETTER A WITH HOOK ABOVE
+ok 151 - Unanchored \x[1EA2]
+ok 152 - Unanchored \o[17242]
+ok 153 - Anchored LATIN CAPITAL LETTER A WITH HOOK ABOVE
+ok 154 - Solitary multiple LATIN CAPITAL LETTER A WITH HOOK ABOVE,HEBREW POINT HIRIQ
+ok 155 - Charclass multiple LATIN CAPITAL LETTER A WITH HOOK ABOVE,HEBREW POINT HIRIQ
+ok 156 - Negative charclass LATIN CAPITAL LETTER A WITH HOOK ABOVE,HEBREW POINT HIRIQ
+ok 157 - Negative named LATIN CAPITAL LETTER A WITH HOOK ABOVE nomatch
+ok 158 - Negative named LATIN CAPITAL LETTER A WITH HOOK ABOVE match
+ok 159 - Negative charclass named LATIN CAPITAL LETTER A WITH HOOK ABOVE nomatch
+ok 160 - Negative charclass named LATIN CAPITAL LETTER A WITH HOOK ABOVE match
+ok 161 - Negative hex \X[1EA2] nomatch
+ok 162 - Negative charclass hex \X[1EA2] nomatch
+ok 163 - Negative hex \X[5B4] match
+ok 164 - Negative charclass hex \X[5B4] match
+ok 165 - Unanchored named ARMENIAN SMALL LETTER ECH
+ok 166 - Unanchored \x[565]
+ok 167 - Unanchored \o[2545]
+ok 168 - Anchored ARMENIAN SMALL LETTER ECH
+ok 169 - Multiple ARMENIAN SMALL LETTER ECH,LATIN CAPITAL LETTER A WITH HOOK ABOVE
+ok 170 - Charclass multiple ARMENIAN SMALL LETTER ECH,LATIN CAPITAL LETTER A WITH HOOK ABOVE
+ok 171 - Negative charclass ARMENIAN SMALL LETTER ECH,LATIN CAPITAL LETTER A WITH HOOK ABOVE
+ok 172 - Negative named ARMENIAN SMALL LETTER ECH nomatch
+ok 173 - Negative named ARMENIAN SMALL LETTER ECH match
+ok 174 - Negative charclass named ARMENIAN SMALL LETTER ECH nomatch
+ok 175 - Negative charclass named ARMENIAN SMALL LETTER ECH match
+ok 176 - Negative hex \X[565] nomatch
+ok 177 - Negative charclass hex \X[565] nomatch
+ok 178 - Negative hex \X[1EA2] match
+ok 179 - Negative charclass hex \X[1EA2] match
+ok 180 - Unanchored named LOWER HALF INVERSE WHITE CIRCLE
+ok 181 - Unanchored \x[25DB]
+ok 182 - Unanchored \o[22733]
+ok 183 - Anchored LOWER HALF INVERSE WHITE CIRCLE
+ok 184 - Multiple LOWER HALF INVERSE WHITE CIRCLE,ARMENIAN SMALL LETTER ECH
+ok 185 - Charclass multiple LOWER HALF INVERSE WHITE CIRCLE,ARMENIAN SMALL LETTER ECH
+ok 186 - Negative charclass LOWER HALF INVERSE WHITE CIRCLE,ARMENIAN SMALL LETTER ECH
+ok 187 - Negative named LOWER HALF INVERSE WHITE CIRCLE nomatch
+ok 188 - Negative named LOWER HALF INVERSE WHITE CIRCLE match
+ok 189 - Negative charclass named LOWER HALF INVERSE WHITE CIRCLE nomatch
+ok 190 - Negative charclass named LOWER HALF INVERSE WHITE CIRCLE match
+ok 191 - Negative hex \X[25DB] nomatch
+ok 192 - Negative charclass hex \X[25DB] nomatch
+ok 193 - Negative hex \X[565] match
+ok 194 - Negative charclass hex \X[565] match
+ok 195 - Unanchored named ARABIC SHADDA MEDIAL FORM
+ok 196 - Unanchored \x[fe7d]
+ok 197 - Unanchored \o[177175]
+ok 198 - Anchored ARABIC SHADDA MEDIAL FORM
+ok 199 - Multiple ARABIC SHADDA MEDIAL FORM,LOWER HALF INVERSE WHITE CIRCLE
+ok 200 - Charclass multiple ARABIC SHADDA MEDIAL FORM,LOWER HALF INVERSE WHITE CIRCLE
+ok 201 - Negative charclass ARABIC SHADDA MEDIAL FORM,LOWER HALF INVERSE WHITE CIRCLE
+ok 202 - Negative named ARABIC SHADDA MEDIAL FORM nomatch
+ok 203 - Negative named ARABIC SHADDA MEDIAL FORM match
+ok 204 - Negative charclass named ARABIC SHADDA MEDIAL FORM nomatch
+ok 205 - Negative charclass named ARABIC SHADDA MEDIAL FORM match
+ok 206 - Negative hex \X[FE7D] nomatch
+ok 207 - Negative charclass hex \X[FE7D] nomatch
+ok 208 - Negative hex \X[25DB] match
+ok 209 - Negative charclass hex \X[25DB] match
+ok 210 - Unanchored named YI SYLLABLE NDO
+ok 211 - Unanchored \x[A15D]
+ok 212 - Unanchored \o[120535]
+ok 213 - Anchored YI SYLLABLE NDO
+ok 214 - Multiple YI SYLLABLE NDO, ARABIC SHADDA MEDIAL FORM
+ok 215 - Charclass multiple YI SYLLABLE NDO, ARABIC SHADDA MEDIAL FORM
+ok 216 - Negative charclass YI SYLLABLE NDO, ARABIC SHADDA MEDIAL FORM
+ok 217 - Negative named YI SYLLABLE NDO nomatch
+ok 218 - Negative named YI SYLLABLE NDO match
+ok 219 - Negative charclass named YI SYLLABLE NDO nomatch
+ok 220 - Negative charclass named YI SYLLABLE NDO match
+ok 221 - Negative hex \X[A15D] nomatch
+ok 222 - Negative charclass hex \X[A15D] nomatch
+ok 223 - Negative hex \X[FE7D] match
+ok 224 - Negative charclass hex \X[FE7D] match
+ok 225 - Unanchored named RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN
+ok 226 - Unanchored \x[2964]
+ok 227 - Unanchored \o[24544]
+ok 228 - Anchored RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN
+ok 229 - Multiple RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN,YI SYLLABLE NDO
+ok 230 - Charclass multiple RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN,YI SYLLABLE NDO
+ok 231 - Negative charclass RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN,YI SYLLABLE NDO
+ok 232 - Negative named RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN nomatch
+ok 233 - Negative named RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN match
+ok 234 - Negative charclass named RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN nomatch
+ok 235 - Negative charclass named RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN match
+ok 236 - Negative hex \X[2964] nomatch
+ok 237 - Negative charclass hex \X[2964] nomatch
+ok 238 - Negative hex \X[A15D] match
+ok 239 - Negative charclass hex \X[A15D] match
+ok 240 - Unanchored named HALFWIDTH KATAKANA LETTER SMALL YU
+ok 241 - Unanchored \x[FF6D]
+ok 242 - Unanchored \o[177555]
+ok 243 - Anchored HALFWIDTH KATAKANA LETTER SMALL YU
+ok 244 - Multiple HALFWIDTH KATAKANA LETTER SMALL YU, RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN
+ok 245 - Charclass multiple HALFWIDTH KATAKANA LETTER SMALL YU, RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN
+ok 246 - Negative charclass HALFWIDTH KATAKANA LETTER SMALL YU, RIGHTWARDS HARPOON WITH BARB UP ABOVE RIGHTWARDS HARPOON WITH BARB DOWN
+ok 247 - Negative named HALFWIDTH KATAKANA LETTER SMALL YU nomatch
+ok 248 - Negative named HALFWIDTH KATAKANA LETTER SMALL YU match
+ok 249 - Negative charclass named HALFWIDTH KATAKANA LETTER SMALL YU nomatch
+ok 250 - Negative charclass named HALFWIDTH KATAKANA LETTER SMALL YU match
+ok 251 - Negative hex \X[FF6D] nomatch
+ok 252 - Negative charclass hex \X[FF6D] nomatch
+ok 253 - Negative hex \X[2964] match
+ok 254 - Negative charclass hex \X[2964] match
+ok 255 - Unanchored named DIGIT SIX
+ok 256 - Unanchored \x[36]
+ok 257 - Unanchored \o[66]
+ok 258 - Anchored DIGIT SIX
+ok 259 - Multiple DIGIT SIX,HALFWIDTH KATAKANA LETTER SMALL YU
+ok 260 - Charclass multiple DIGIT SIX,HALFWIDTH KATAKANA LETTER SMALL YU
+ok 261 - Negative charclass DIGIT SIX,HALFWIDTH KATAKANA LETTER SMALL YU
+ok 262 - Negative named DIGIT SIX nomatch
+ok 263 - Negative named DIGIT SIX match
+ok 264 - Negative charclass named DIGIT SIX nomatch
+ok 265 - Negative charclass named DIGIT SIX match
+ok 266 - Negative hex \X[36] nomatch
+ok 267 - Negative charclass hex \X[36] nomatch
+ok 268 - Negative hex \X[FF6D] match
+ok 269 - Negative charclass hex \X[FF6D] match
+ok 270 - Unanchored named ETHIOPIC SYLLABLE THAA
+ok 271 - Unanchored \x[1323]
+ok 272 - Unanchored \o[11443]
+ok 273 - Anchored ETHIOPIC SYLLABLE THAA
+ok 274 - Multiple ETHIOPIC SYLLABLE THAA, DIGIT SIX
+ok 275 - Charclass multiple ETHIOPIC SYLLABLE THAA, DIGIT SIX
+ok 276 - Negative charclass ETHIOPIC SYLLABLE THAA, DIGIT SIX
+ok 277 - Negative named ETHIOPIC SYLLABLE THAA nomatch
+ok 278 - Negative named ETHIOPIC SYLLABLE THAA match
+ok 279 - Negative charclass named ETHIOPIC SYLLABLE THAA nomatch
+ok 280 - Negative charclass named ETHIOPIC SYLLABLE THAA match
+ok 281 - Negative hex \X[1323] nomatch
+ok 282 - Negative charclass hex \X[1323] nomatch
+ok 283 - Negative hex \X[36] match
+ok 284 - Negative charclass hex \X[36] match
+ok 285 - Unanchored named OGHAM LETTER UILLEANN
+ok 286 - Unanchored \x[1697]
+ok 287 - Unanchored \o[13227]
+ok 288 - Anchored OGHAM LETTER UILLEANN
+ok 289 - Multiple OGHAM LETTER UILLEANN,ETHIOPIC SYLLABLE THAA
+ok 290 - Charclass multiple OGHAM LETTER UILLEANN,ETHIOPIC SYLLABLE THAA
+ok 291 - Negative charclass OGHAM LETTER UILLEANN,ETHIOPIC SYLLABLE THAA
+ok 292 - Negative named OGHAM LETTER UILLEANN nomatch
+ok 293 - Negative named OGHAM LETTER UILLEANN match
+ok 294 - Negative charclass named OGHAM LETTER UILLEANN nomatch
+ok 295 - Negative charclass named OGHAM LETTER UILLEANN match
+ok 296 - Negative hex \X[1697] nomatch
+ok 297 - Negative charclass hex \X[1697] nomatch
+ok 298 - Negative hex \X[1323] match
+ok 299 - Negative charclass hex \X[1323] match
+ok 300 - Unanchored named ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM
+ok 301 - Unanchored \x[fe8b]
+ok 302 - Unanchored \o[177213]
+ok 303 - Anchored ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM
+ok 304 - Multiple ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM,OGHAM LETTER UILLEANN
+ok 305 - Charclass multiple ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM,OGHAM LETTER UILLEANN
+ok 306 - Negative charclass ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM,OGHAM LETTER UILLEANN
+ok 307 - Negative named ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM nomatch
+ok 308 - Negative named ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM match
+ok 309 - Negative charclass named ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM nomatch
+ok 310 - Negative charclass named ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM match
+ok 311 - Negative hex \X[FE8B] nomatch
+ok 312 - Negative charclass hex \X[FE8B] nomatch
+ok 313 - Negative hex \X[1697] match
+ok 314 - Negative charclass hex \X[1697] match
+ok 315 - Unanchored named RUNIC LETTER DAGAZ DAEG D
+ok 316 - Unanchored \x[16DE]
+ok 317 - Unanchored \o[13336]
+ok 318 - Anchored RUNIC LETTER DAGAZ DAEG D
+ok 319 - Multiple RUNIC LETTER DAGAZ DAEG D,ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM
+ok 320 - Charclass multiple RUNIC LETTER DAGAZ DAEG D,ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM
+ok 321 - Negative charclass RUNIC LETTER DAGAZ DAEG D,ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM
+ok 322 - Negative named RUNIC LETTER DAGAZ DAEG D nomatch
+ok 323 - Negative named RUNIC LETTER DAGAZ DAEG D match
+ok 324 - Negative charclass named RUNIC LETTER DAGAZ DAEG D nomatch
+ok 325 - Negative charclass named RUNIC LETTER DAGAZ DAEG D match
+ok 326 - Negative hex \X[16DE] nomatch
+ok 327 - Negative charclass hex \X[16DE] nomatch
+ok 328 - Negative hex \X[FE8B] match
+ok 329 - Negative charclass hex \X[FE8B] match
+ok 330 - Unanchored named LATIN SMALL LETTER D
+ok 331 - Unanchored \x[64]
+ok 332 - Unanchored \o[144]
+ok 333 - Anchored LATIN SMALL LETTER D
+ok 334 - Multiple LATIN SMALL LETTER D,RUNIC LETTER DAGAZ DAEG D
+ok 335 - Charclass multiple LATIN SMALL LETTER D,RUNIC LETTER DAGAZ DAEG D
+ok 336 - Negative charclass LATIN SMALL LETTER D,RUNIC LETTER DAGAZ DAEG D
+ok 337 - Negative named LATIN SMALL LETTER D nomatch
+ok 338 - Negative named LATIN SMALL LETTER D match
+ok 339 - Negative charclass named LATIN SMALL LETTER D nomatch
+ok 340 - Negative charclass named LATIN SMALL LETTER D match
+ok 341 - Negative hex \X[64] nomatch
+ok 342 - Negative charclass hex \X[64] nomatch
+ok 343 - Negative hex \X[16DE] match
+ok 344 - Negative charclass hex \X[16DE] match
+ok 345 - Unanchored named HEAVY FOUR BALLOON-SPOKED ASTERISK
+ok 346 - Unanchored \x[2724]
+ok 347 - Unanchored \o[23444]
+ok 348 - Anchored HEAVY FOUR BALLOON-SPOKED ASTERISK
+ok 349 - Multiple HEAVY FOUR BALLOON-SPOKED ASTERISK,LATIN SMALL LETTER D
+ok 350 - Charclass multiple HEAVY FOUR BALLOON-SPOKED ASTERISK,LATIN SMALL LETTER D
+ok 351 - Negative charclass HEAVY FOUR BALLOON-SPOKED ASTERISK,LATIN SMALL LETTER D
+ok 352 - Negative named HEAVY FOUR BALLOON-SPOKED ASTERISK nomatch
+ok 353 - Negative named HEAVY FOUR BALLOON-SPOKED ASTERISK match
+ok 354 - Negative charclass named HEAVY FOUR BALLOON-SPOKED ASTERISK nomatch
+ok 355 - Negative charclass named HEAVY FOUR BALLOON-SPOKED ASTERISK match
+ok 356 - Negative hex \X[2724] nomatch
+ok 357 - Negative charclass hex \X[2724] nomatch
+ok 358 - Negative hex \X[64] match
+ok 359 - Negative charclass hex \X[64] match
+ok 360 - Unanchored named OUTLINED GREEK CROSS
+ok 361 - Unanchored \x[2719]
+ok 362 - Unanchored \o[23431]
+ok 363 - Anchored OUTLINED GREEK CROSS
+ok 364 - Multiple OUTLINED GREEK CROSS,HEAVY FOUR BALLOON-SPOKED ASTERISK
+ok 365 - Charclass multiple OUTLINED GREEK CROSS,HEAVY FOUR BALLOON-SPOKED ASTERISK
+ok 366 - Negative charclass OUTLINED GREEK CROSS,HEAVY FOUR BALLOON-SPOKED ASTERISK
+ok 367 - Negative named OUTLINED GREEK CROSS nomatch
+ok 368 - Negative named OUTLINED GREEK CROSS match
+ok 369 - Negative charclass named OUTLINED GREEK CROSS nomatch
+ok 370 - Negative charclass named OUTLINED GREEK CROSS match
+ok 371 - Negative hex \X[2719] nomatch
+ok 372 - Negative charclass hex \X[2719] nomatch
+ok 373 - Negative hex \X[2724] match
+ok 374 - Negative charclass hex \X[2724] match
+ok 375 - Unanchored named LAO LETTER THO TAM
+ok 376 - Unanchored \x[e97]
+ok 377 - Unanchored \o[7227]
+ok 378 - Anchored LAO LETTER THO TAM
+ok 379 - Multiple LAO LETTER THO TAM, OUTLINED GREEK CROSS
+ok 380 - Charclass multiple LAO LETTER THO TAM, OUTLINED GREEK CROSS
+ok 381 - Negative charclass LAO LETTER THO TAM, OUTLINED GREEK CROSS
+ok 382 - Negative named LAO LETTER THO TAM nomatch
+ok 383 - Negative named LAO LETTER THO TAM match
+ok 384 - Negative charclass named LAO LETTER THO TAM nomatch
+ok 385 - Negative charclass named LAO LETTER THO TAM match
+ok 386 - Negative hex \X[E97] nomatch
+ok 387 - Negative charclass hex \X[E97] nomatch
+ok 388 - Negative hex \X[2719] match
+ok 389 - Negative charclass hex \X[2719] match
+ok 390 - Unanchored named YI SYLLABLE JJYT
+ok 391 - Unanchored \x[a42d]
+ok 392 - Unanchored \o[122055]
+ok 393 - Anchored YI SYLLABLE JJYT
+ok 394 - Multiple YI SYLLABLE JJYT,LAO LETTER THO TAM
+ok 395 - Charclass multiple YI SYLLABLE JJYT,LAO LETTER THO TAM
+ok 396 - Negative charclass YI SYLLABLE JJYT,LAO LETTER THO TAM
+ok 397 - Negative named YI SYLLABLE JJYT nomatch
+ok 398 - Negative named YI SYLLABLE JJYT match
+ok 399 - Negative charclass named YI SYLLABLE JJYT nomatch
+ok 400 - Negative charclass named YI SYLLABLE JJYT match
+ok 401 - Negative hex \X[A42D] nomatch
+ok 402 - Negative charclass hex \X[A42D] nomatch
+ok 403 - Negative hex \X[E97] match
+ok 404 - Negative charclass hex \X[E97] match
+ok 405 - Unanchored named HALFWIDTH KATAKANA LETTER SMALL YO
+ok 406 - Unanchored \x[FF6E]
+ok 407 - Unanchored \o[177556]
+ok 408 - Anchored HALFWIDTH KATAKANA LETTER SMALL YO
+ok 409 - Multiple HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
+ok 410 - Charclass multiple HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
+ok 411 - Negative charclass HALFWIDTH KATAKANA LETTER SMALL YO,YI SYLLABLE JJYT
+ok 412 - Negative named HALFWIDTH KATAKANA LETTER SMALL YO nomatch
+ok 413 - Negative named HALFWIDTH KATAKANA LETTER SMALL YO match
+ok 414 - Negative charclass named HALFWIDTH KATAKANA LETTER SMALL YO nomatch
+ok 415 - Negative charclass named HALFWIDTH KATAKANA LETTER SMALL YO match
+ok 416 - Negative hex \X[FF6E] nomatch
+ok 417 - Negative charclass hex \X[FF6E] nomatch
+ok 418 - Negative hex \X[A42D] match
+ok 419 - Negative charclass hex \X[A42D] match
+ok 420 - match named TIBETAN LETTER A
+ok 421 - match named TIBETAN LETTER -A
+ok 422 - nomatch named TIBETAN LETTER A versus -A
+ok 423 - nomatch named TIBETAN LETTER -A versus A
+ok 424 - match named TIBETAN SUBJOINED LETTER A
+ok 425 - match named TIBETAN SUBJOINED LETTER -A
+ok 426 - nomatch named TIBETAN SUBJOINED LETTER A versus -A
+ok 427 - nomatch named TIBETAN SUBJOINED LETTER -A versus A
+ok 428 - match named HANGUL JUNGSEONG OE
+ok 429 - match named HANGUL JUNGSEONG O-E
+ok 430 - nomatch named HANGUL JUNGSEONG OE versus O-E
+ok 431 - nomatch named HANGUL JUNGSEONG O-E versus OE

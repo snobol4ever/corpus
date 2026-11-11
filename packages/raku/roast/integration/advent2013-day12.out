@@ -1,0 +1,33 @@
+1..32
+ok 1 - exists
+ok 2 - exists - slice
+ok 3 - exists type
+ok 4 - exists type - slice
+ok 5 - exists type - array
+ok 6 - does not exist
+ok 7 - delete
+ok 8 - delete result
+ok 9 - delete slice
+ok 10 - delete result
+ok 11 - delete slice with default
+ok 12 - delete(True) slice
+ok 13 - delete(True) result
+ok 14 - delete(False) slice
+ok 15 - delete(False) result
+ok 16 - :kv
+ok 17 - :p
+ok 18 - :k
+ok 19 - :v
+ok 20 - hash slice
+ok 21 - hash slice :v
+ok 22 - hash slice, :k adverb
+ok 23 - hash slice :!k adverb
+ok 24 - %h
+ok 25 - %i
+ok 26 - :delete:k adverbs
+ok 27 - @a[]:k
+ok 28 - @a[]:!k
+ok 29 - @a[2,3,4]
+ok 30 - @a[2,3,4]
+ok 31 - @a[2,3,4] (default)
+ok 32 - @a[2,3,4] (default)

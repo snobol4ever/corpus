@@ -1,0 +1,14 @@
+1..10
+ok 1 - Rule block second
+ok 2 - Rule block first
+not ok 3 - Rule block fail # TODO dunno rule block fail
+# Failed test 'Rule block fail'
+# at S05-metasyntax/interpolating-closure.rakudo line 28
+ok 4 - Rule block interp
+ok 5 - interpolating string with meta characters
+ok 6 - ... gives the right match
+ok 7 - sequence in a closure interpolates ok
+ok 8 - scoping of variable in regex generated from <{}> metasyntax
+ok 9 - stage of variable in regex generated from <{}> metasyntax
+ok 10 - stage of variable in regex generated from <{}> metasyntax (2)
+# FUDGED!

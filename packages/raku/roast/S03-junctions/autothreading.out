@@ -1,0 +1,195 @@
+1..107
+ok 1 - called lots of times :-)
+ok 2 - found right answer
+ok 3 - method called right number of times
+ok 4 - right values passed to method
+ok 5 - method called right number of times
+ok 6 - junction structure maintained
+ok 7 - correct multi-sub called right number of times
+ok 8 - incorrect multi-sub not called
+ok 9 - incorrect multi-sub not called
+ok 10 - junction structure maintained
+ok 11 - correct multi-sub called right number of times
+ok 12 - incorrect multi-sub not called
+ok 13 - incorrect multi-sub not called
+ok 14 - correct multi-sub called right number of times (junction of many types)
+ok 15 - correct multi-sub called right number of times (junction of many types)
+ok 16 - incorrect multi-sub not called
+ok 17 - correct multi-sub called again right number of times (junction of many types)
+ok 18 - correct multi-sub called again right number of times (junction of many types)
+ok 19 - incorrect multi-sub again not called
+ok 20 - non-junctional dispatch still works
+ok 21 - non-junctional dispatch still works
+ok 22 - non-junctional dispatch still works
+ok 23 - correct multi-method called right number of times
+ok 24 - incorrect multi-method not called
+ok 25 - incorrect multi-method not called
+ok 26 - junction structure maintained
+ok 27 - correct multi-method called right number of times
+ok 28 - incorrect multi-method not called
+ok 29 - incorrect multi-method not called
+ok 30 - correct multi-method called right number of times (junction of many types)
+ok 31 - correct multi-method called right number of times (junction of many types)
+ok 32 - incorrect multi-method not called
+ok 33 - auto-threaded over named parameters to call sub enough times
+ok 34 - got array of right size to check what was called
+ok 35 - called with correct parameters
+ok 36 - called with correct parameters
+ok 37 - called with correct parameters
+ok 38 - called with correct parameters
+ok 39 - auto-threaded over named parameters to call multi-sub variant enough times
+ok 40 - auto-threaded over named parameters to call multi-sub variant enough times
+ok 41 - got array of right size to check what was called
+ok 42 - called with correct parameters
+ok 43 - called with correct parameters
+ok 44 - called with correct parameters
+ok 45 - called with correct parameters
+ok 46 - basic auto-threading over invocant works
+ok 47 - basic auto-threading over invocant works
+ok 48 - auto-threading over invocant of nested junctions works
+ok 49 - auto-threading over invocant of nested junctions works
+ok 50 - auto-threading over invocant produced correct junctional result
+ok 51 - auto-threading over invocant and parameters works
+ok 52 - prefix:<+> autothreads (1)
+ok 53 - prefix:<+> autothreads (2)
+ok 54 - prefix:<+> autothreads (3)
+ok 55 - primality test for 2 works
+ok 56 - primality test for 3 works
+ok 57 - primality test for 4 works
+ok 58 - primality test for 5 works
+ok 59 - primality test for 6 works
+ok 60 - primality test for 7 works
+ok 61 - primality test for 8 works
+ok 62 - primality test for 9 works
+ok 63 - primality test for 10 works
+ok 64 - primality test for 11 works
+ok 65 - primality test for 12 works
+ok 66 - primality test for 13 works
+ok 67 - primality test for 14 works
+ok 68 - primality test for 15 works
+ok 69 - can autothread over array indexes
+ok 70 - substr()
+ok 71 - substr() called 4 times
+ok 72 - autothreading over array parameters (0)
+ok 73 - autothreading over array parameters (1)
+ok 74 - autothreading over array parameters (2)
+ok 75 - autothreading over array parameters (3)
+ok 76 - do not autothread over blocks by default
+ok 77 - do autothread over blocks with explicit Any
+ok 78 - infix:<ne> collapses the junction (1)
+ok 79 - infix:<ne> collapses the junction (2)
+ok 80 - ... and the result is False
+ok 81 - infix:<!eq> collapses the junction (1)
+ok 82 - infix:<!eq> collapses the junction (2)
+ok 83 - ... and the result is False
+ok 84 - != autothreads like not == (1)
+ok 85 - != autothreads like not == (2)
+ok 86 - named-only params autothread correctly
+ok 87 - infix | does not flatten ranges
+ok 88 - an & junction right of a | junction will be autothreaded first
+ok 89 - an & junction left of a | junction will be autothreaded first
+ok 90 - all/Mu smartmatch True
+ok 91 - all/Any smartmatch autothreads
+ok 92 - all/Cool smartmatch autothreads True
+ok 93 - all/Int smartmatch autothreads True
+ok 94 - all/Real smartmatch autothreads True
+ok 95 - all/Int smartmatch autothreads False
+ok 96 - all/Junction smartmatch does not autothread
+ok 97 - any/Int smartmatch autothreads True
+ok 98 - any/Rat smartmatch autothreads True
+ok 99 - any/Str smartmatch autothreads True
+ok 100 - any/Num smartmatch autothreads False
+ok 101 - any/Junction smartmatch does not autothread
+ok 102 - Mu/Junction smartmatch False
+ok 103 - Junction/Junction smartmatch True
+ok 104 - Junction/Mu smartmatch True
+# Subtest: smartmatch against ranges
+    1..9
+    ok 1 - any, when at least one value matches
+    ok 2 - any, when no value matches
+    ok 3 - all, when all values match
+    ok 4 - all, when at least one value doesn't match
+    ok 5 - one, when exactly one matches
+    ok 6 - one, when none matches
+    ok 7 - one, when two or more matches
+    ok 8 - none, when none matches
+    ok 9 - none, when at least one matches
+ok 105 - smartmatch against ranges
+# Subtest: smartmatch against Bool:U
+    1..16
+    ok 1 - any (true by True Bool)
+    ok 2 - any (true by False Bool)
+    ok 3 - any (false)
+    ok 4 - all (true by True Bool)
+    ok 5 - all (true by False Bool)
+    ok 6 - all (true by Mixed Bools)
+    ok 7 - all (false; no Bools)
+    ok 8 - all (false not all are Bools)
+    ok 9 - one (true by True Bool)
+    ok 10 - one (true by False Bool)
+    ok 11 - one (false, too few)
+    ok 12 - one (false, too many)
+    ok 13 - none (true)
+    ok 14 - none (false by True Bool)
+    ok 15 - none (false by False Bool)
+    ok 16 - none (false by True Bool)
+ok 106 - smartmatch against Bool:U
+# Subtest: defined with Junctions autothreads
+    1..56
+    ok 1 - any(42,).defined -> True
+    ok 2 - defined(any((42,))) -> True
+    ok 3 - any(Str,42,).defined -> True
+    ok 4 - defined(any((Str,42,))) -> True
+    ok 5 - any(,).defined -> False
+    ok 6 - defined(any((,))) -> False
+    ok 7 - any(Str,).defined -> False
+    ok 8 - defined(any((Str,))) -> False
+    ok 9 - any(Str,Int,).defined -> False
+    ok 10 - defined(any((Str,Int,))) -> False
+    ok 11 - any(Failure,).defined -> False
+    ok 12 - defined(any((Failure,))) -> False
+    ok 13 - none(,).defined -> True
+    ok 14 - defined(none((,))) -> True
+    ok 15 - none(Str,).defined -> True
+    ok 16 - defined(none((Str,))) -> True
+    ok 17 - none(Str,Int,).defined -> True
+    ok 18 - defined(none((Str,Int,))) -> True
+    ok 19 - none(Failure,).defined -> True
+    ok 20 - defined(none((Failure,))) -> True
+    ok 21 - none(42,).defined -> False
+    ok 22 - defined(none((42,))) -> False
+    ok 23 - none(Str,42,).defined -> False
+    ok 24 - defined(none((Str,42,))) -> False
+    ok 25 - all(,).defined -> True
+    ok 26 - defined(all((,))) -> True
+    ok 27 - all(42,).defined -> True
+    ok 28 - defined(all((42,))) -> True
+    ok 29 - all(42,"x",).defined -> True
+    ok 30 - defined(all((42,"x",))) -> True
+    ok 31 - all(Str,).defined -> False
+    ok 32 - defined(all((Str,))) -> False
+    ok 33 - all(Str,Int,).defined -> False
+    ok 34 - defined(all((Str,Int,))) -> False
+    ok 35 - all(Failure,).defined -> False
+    ok 36 - defined(all((Failure,))) -> False
+    ok 37 - one(42,).defined -> True
+    ok 38 - defined(one((42,))) -> True
+    ok 39 - one(42,Str,).defined -> True
+    ok 40 - defined(one((42,Str,))) -> True
+    ok 41 - one(Str,42,).defined -> True
+    ok 42 - defined(one((Str,42,))) -> True
+    ok 43 - one(Failure,42,).defined -> True
+    ok 44 - defined(one((Failure,42,))) -> True
+    ok 45 - one(42,Failure,).defined -> True
+    ok 46 - defined(one((42,Failure,))) -> True
+    ok 47 - one(,).defined -> False
+    ok 48 - defined(one((,))) -> False
+    ok 49 - one(Str,).defined -> False
+    ok 50 - defined(one((Str,))) -> False
+    ok 51 - one(Str,Int,).defined -> False
+    ok 52 - defined(one((Str,Int,))) -> False
+    ok 53 - one(42,666,).defined -> False
+    ok 54 - defined(one((42,666,))) -> False
+    ok 55 - one(42,Str,666,).defined -> False
+    ok 56 - defined(one((42,Str,666,))) -> False
+ok 107 - defined with Junctions autothreads

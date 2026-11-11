@@ -1,0 +1,39 @@
+1..22
+ok 1 - fetching doesn't autovivify.
+ok 2 - and the return value is not defined
+ok 3 - exists doesn't autovivify.
+ok 4 - ... and it returns the right value
+ok 5 - in ro arguments doesn't autovivify.
+ok 6 - binding does not immediately autovivify
+ok 7 - ... to an undefined value
+ok 8 - .. but autovivifies after assignment
+ok 9 - having it in there
+ok 10 - check binding
+ok 11 - capturing does not autovivify
+ok 12 - in rw arguments does not autovivify
+ok 13 - storing from within the sub does autovivify
+ok 14 - got the right value
+ok 15 - store autovivify.
+ok 16 - got the right value
+ok 17 - successfully autovivified lower level
+# Subtest: can autovivify in...
+    1..2
+    # Subtest: ...sub form of...
+        1..4
+        ok 1 - push
+        ok 2 - unshift
+        ok 3 - append
+        ok 4 - prepend
+    ok 1 - ...sub form of...
+    # Subtest: ...method form of...
+        1..4
+        ok 1 - push
+        ok 2 - unshift
+        ok 3 - append
+        ok 4 - prepend
+    ok 2 - ...method form of...
+ok 18 - can autovivify in...
+ok 19 - Can autovivify Array
+ok 20 - Can autovivify Array-typed scalar
+ok 21 - Can autovivify Hash
+ok 22 - Can autovivify Hash-typed scalar

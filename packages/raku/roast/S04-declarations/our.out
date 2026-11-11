@@ -1,0 +1,56 @@
+1..31
+ok 1 - $a is still the outer $a
+ok 2 - $a is now the lexical (inner) $a
+ok 3 - $a has not changed
+ok 4 - $a is now another lexical (inner) $a
+ok 5 - $a has changed
+ok 6 - Can use @a
+ok 7 - Can use @b
+ok 8 - push actually worked on @a
+ok 9 - push actually worked on @b
+ok 10 - we can of course see the variable from its own package
+# Subtest: variables aren't seen within other lexical child blocks
+    1..2
+    ok 1 - '$d3' died
+    ok 2 - right exception type (X::Undeclared)
+ok 11 - variables aren't seen within other lexical child blocks
+ok 12 - variables are seen within other lexical child blocks via package
+# Subtest:  ... and not from within child packages
+    1..2
+    ok 1 - '$d3' died
+    ok 2 - right exception type (X::Undeclared)
+ok 13 -  ... and not from within child packages
+ok 14 -  ... and from within child packages via package
+# Subtest: variables do not leak from lexical blocks
+    1..2
+    ok 1 - 'd3' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 15 - variables do not leak from lexical blocks
+ok 16 - variables are seen from lexical blocks via pacakage
+# Subtest: our() variable not yet visible outside its package
+    1..2
+    ok 1 - '$d2' died
+    ok 2 - right exception type (X::Undeclared)
+ok 17 - our() variable not yet visible outside its package
+# Subtest: our() variable not yet visible outside its package
+    1..2
+    ok 1 - '$d3' died
+    ok 2 - right exception type (X::Undeclared)
+ok 18 - our() variable not yet visible outside its package
+# Subtest: our() variable not yet visible outside its package
+    1..2
+    ok 1 - '$d1' died
+    ok 2 - right exception type (X::Undeclared)
+ok 19 - our() variable not yet visible outside its package
+ok 20 - we can declare and initialize an our-scoped array
+ok 21 - we can declare and initialize an our-scoped hash
+ok 22 - our-scoped array has correct value
+ok 23 - our-scoped hash has correct value
+ok 24 - our-declared @-sigil var is an Array
+ok 25 - our-declared %-sigil var is a Hash
+ok 26 - our-var returned by our-sub gives previously set value
+ok 27 - return value of sub call declaring our-scoped var
+ok 28 - redeclaration will make previous value available
+ok 29 - ... and the value stays
+ok 30 - declaring and initializing several vars at once
+ok 31 - declaring/initializing our-scoped var in class

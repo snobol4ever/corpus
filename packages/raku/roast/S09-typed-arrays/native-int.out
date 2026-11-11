@@ -1,0 +1,2411 @@
+1..1840
+ok 1 - int array type is Positional
+ok 2 - int array type is Positional[int]
+ok 3 - int array type .of is int
+ok 4 - int array is Positional
+ok 5 - int array is Positional[int]
+ok 6 - int array .of is int
+ok 7 - int array is Positional
+ok 8 - int array is Positional[int]
+ok 9 - int array .of is int
+ok 10 - .new from int array is Positional
+ok 11 - .new from int array Positional[int]
+ok 12 - .new from int array .of is int
+ok 13 - New int array has no elems
+ok 14 - New int array has end of -1
+ok 15 - New int array Int-ifies to 0
+ok 16 - New int array numifies to 0
+ok 17 - New int array is falsey
+ok 18 - Empty int array is not lazy
+ok 19 - Accessing non-existing on int array gives 0
+ok 20 - Elems do not grow just from an access on int array
+ok 21 - Can store integer in an int array
+ok 22 - Can get value from int array
+ok 23 - The elems grew as expected on int array
+ok 24 - int array becomes truthy when it has an element
+ok 25 - Can slice-assign to an int array
+ok 26 - Can get slice-assigned value from int array (1)
+ok 27 - Can get slice-assigned value from int array (2)
+ok 28 - The elems grew as expected on int array
+ok 29 - The end value matches grown elems on int array
+ok 30 - Int-ifies to grown number of elems on int array
+ok 31 - Numifies to grown number of elems on int array
+ok 32 - int array with values is not lazy
+ok 33 - Can assign non-contiguously to int array
+ok 34 - Elems behind non-contiguous assign are 0 on int array
+ok 35 - Non-contiguous assignment works on int array
+ok 36 - Can also get last element on int array
+ok 37 - Can clear int array by assigning empty list
+ok 38 - Cleared int array has no elems
+ok 39 - Cleared int array has end of -1
+ok 40 - Cleared int array Int-ifies to 0
+ok 41 - Cleared int array numifies to 0
+ok 42 - Cleared int array is falsey
+ok 43 - Can assign integer range to int array
+ok 44 - Got correct elems from range assign on int array
+ok 45 - Got correct element from range assign on int array (1)
+ok 46 - Got correct element from range assign on int array (2)
+ok 47 - :exists works on int array (1)
+ok 48 - :exists works on int array (2)
+ok 49 - :exists works on int array (3)
+ok 50 - Can call int array constructor with a single value
+ok 51 - Correct number of elems set in constructor of int array
+ok 52 - Correct element value set by constructor of int array
+ok 53 - Can call int array constructor with values
+ok 54 - Correct number of elems set in constructor of int array
+ok 55 - Correct elem value set by constructor of int array (1)
+ok 56 - Correct elem value set by constructor of int array (2)
+ok 57 - Correct elem value set by constructor of int array (3)
+ok 58 - Correct elem value set by constructor of int array (4)
+ok 59 - Can also get last 2 elements on int array
+ok 60 - int array .flat returns a Seq
+ok 61 - int array .eager returns identity
+ok 62 - Can iterate over int array
+ok 63 - Mutating for loop on int array works (1)
+ok 64 - Mutating for loop on int array works (2)
+ok 65 - Mutating for loop on int array works (3)
+ok 66 - Mutating for loop on int array works (4)
+ok 67 - Can map over int array
+ok 68 - Mutating map on int array works (1)
+ok 69 - Mutating map on int array works (2)
+ok 70 - Mutating map on int array works (3)
+ok 71 - Mutating map on int array works (4)
+ok 72 - grep a int array
+ok 73 - int array.grep(Int)
+ok 74 - int array.grep(Int, :k)
+ok 75 - int array.grep(Int, :kv)
+ok 76 - int array.grep(Int, :p)
+ok 77 - int array.grep(Int, :v)
+ok 78 - int array.grep(Int)
+ok 79 - int array.grep(Int, :k)
+ok 80 - int array.grep(Int, :kv)
+ok 81 - int array.grep(Int, :p)
+ok 82 - int array.grep(Int, :v)
+ok 83 - Can use reduce meta-op on a int array
+ok 84 - .values from a int array
+ok 85 - .pairup from a int array
+ok 86 - .keys from a int array
+ok 87 - .pairs from a int array
+ok 88 - .antipairs from a int array
+ok 89 - .kv from a int array
+ok 90 - .pick from a int array
+ok 91 - .roll from a int array
+ok 92 - int array.unique
+ok 93 - int array.repeated
+ok 94 - int array.squish
+# Subtest: Trying to pop an empty int array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[int]
+ok 95 - Trying to pop an empty int array dies
+# Subtest: Trying to shift an empty int array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[int]
+    ok 4 - .action matches shift
+ok 96 - Trying to shift an empty int array dies
+ok 97 - can push to int array
+ok 98 - push to int array works (1)
+ok 99 - push to int array works (2)
+# Subtest: Cannot push non-int/Int to int array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 100 - Cannot push non-int/Int to int array
+# Subtest: Cannot bind to int array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 101 - Cannot bind to int array
+# Subtest: Cannot delete from int array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 102 - Cannot delete from int array
+ok 103 - can push multiple to int array
+ok 104 - push multiple to int array works (1)
+ok 105 - push multiple to int array works (2)
+ok 106 - push multiple to int array works (3)
+# Subtest: Cannot push non-int/Int to int array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 107 - Cannot push non-int/Int to int array (multiple push)
+ok 108 - can append to int array
+ok 109 - append to int array works (1)
+ok 110 - append to int array works (2)
+# Subtest: Cannot append non-int/Int to int array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 111 - Cannot append non-int/Int to int array
+ok 112 - can append multiple to int array
+ok 113 - append multiple to int array works (1)
+ok 114 - append multiple to int array works (2)
+ok 115 - append multiple to int array works (3)
+# Subtest: Cannot append non-int/Int to int array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 116 - Cannot append non-int/Int to int array (multiple append)
+ok 117 - pop from int array works (1)
+ok 118 - pop from int array works (2)
+ok 119 - can unshift to int array
+ok 120 - unshift to int array works (1)
+ok 121 - unshift to int array works (2)
+ok 122 - unshift to int array works (3)
+# Subtest: Cannot unshift non-int/Int to int array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 123 - Cannot unshift non-int/Int to int array
+ok 124 - can unshift multiple to int array
+ok 125 - unshift multiple to int array works (1)
+ok 126 - unshift multiple to int array works (2)
+ok 127 - unshift multiple to int array works (3)
+ok 128 - unshift multiple to int array works (4)
+ok 129 - unshift multiple to int array works (5)
+# Subtest: Cannot unshift non-int/Int to int array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 130 - Cannot unshift non-int/Int to int array (multiple unshift)
+ok 131 - can prepend to int array
+ok 132 - prepend to int array works (1)
+ok 133 - prepend to int array works (2)
+ok 134 - prepend to int array works (3)
+# Subtest: Cannot prepend non-int/Int to int array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 135 - Cannot prepend non-int/Int to int array
+ok 136 - can prepend multiple to int array
+ok 137 - unshift multiple to int array works (1)
+ok 138 - prepend multiple to int array works (2)
+ok 139 - prepend multiple to int array works (3)
+ok 140 - prepend multiple to int array works (4)
+ok 141 - prepend multiple to int array works (5)
+# Subtest: Cannot prepend non-int/Int to int array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 142 - Cannot prepend non-int/Int to int array (multiple unshift)
+ok 143 - shift from int array works (1)
+ok 144 - shift from int array works (2)
+ok 145 - can initialize int from Range
+ok 146 - Number of elems after splice int array
+ok 147 - Splice on int array did the right thing (1)
+ok 148 - Splice on int array did the right thing (2)
+ok 149 - Splice on int array did the right thing (3)
+ok 150 - Splice on int array did the right thing (4)
+ok 151 - Splice on int array did the right thing (5)
+ok 152 - Number of returned spliced values from int array
+ok 153 - Correct value in splice returned from int array (1)
+ok 154 - Correct value in splice returned from int array (2)
+ok 155 - .Str space-separates on int array
+ok 156 - .gist space-separates on int array
+ok 157 - .raku includes type and int values on int array
+ok 158 - does slice return same type
+ok 159 - does slice handle containerized range
+ok 160 - Flattening int array in call works
+ok 161 - does join a int array
+ok 162 - does emptying a int array really empty
+ok 163 - does join handle holes in a int array
+ok 164 - List-assigning int array to untyped works (1)
+ok 165 - List-assigning int array to untyped works (2)
+ok 166 - List-assigning int array to untyped works (3)
+ok 167 - List-assign int array surrounded by literals (1)
+ok 168 - List-assign int array surrounded by literals (2)
+ok 169 - List-assign int array surrounded by literals (3)
+ok 170 - List-assign int array surrounded by literals (4)
+ok 171 - List-assign int array surrounded by literals (5)
+ok 172 - List-assign untyped array of Int to int array (1)
+ok 173 - List-assign untyped array of Int to int array (2)
+ok 174 - List-assign untyped array of Int to int array (3)
+# Subtest: List-assigning incompatible untyped array to int array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 175 - List-assigning incompatible untyped array to int array dies
+ok 176 - Smartmatching same int arrays works
+ok 177 - Smartmatching different int arrays works
+ok 178 - Can we sort int array
+ok 179 - Can we sort 2-element sorted int array
+ok 180 - Can we sort 2-element unsorted int array
+ok 181 - Can we sort 1-element int array
+ok 182 - Can we sort 0-element int array
+ok 183 - int8 array type is Positional
+ok 184 - int8 array type is Positional[int8]
+ok 185 - int8 array type .of is int8
+ok 186 - int8 array is Positional
+ok 187 - int8 array is Positional[int8]
+ok 188 - int8 array .of is int8
+ok 189 - int8 array is Positional
+ok 190 - int8 array is Positional[int8]
+ok 191 - int8 array .of is int8
+ok 192 - .new from int8 array is Positional
+ok 193 - .new from int8 array Positional[int8]
+ok 194 - .new from int8 array .of is int8
+ok 195 - New int8 array has no elems
+ok 196 - New int8 array has end of -1
+ok 197 - New int8 array Int-ifies to 0
+ok 198 - New int8 array numifies to 0
+ok 199 - New int8 array is falsey
+ok 200 - Empty int8 array is not lazy
+ok 201 - Accessing non-existing on int8 array gives 0
+ok 202 - Elems do not grow just from an access on int8 array
+ok 203 - Can store integer in an int8 array
+ok 204 - Can get value from int8 array
+ok 205 - The elems grew as expected on int8 array
+ok 206 - int8 array becomes truthy when it has an element
+ok 207 - Can slice-assign to an int8 array
+ok 208 - Can get slice-assigned value from int8 array (1)
+ok 209 - Can get slice-assigned value from int8 array (2)
+ok 210 - The elems grew as expected on int8 array
+ok 211 - The end value matches grown elems on int8 array
+ok 212 - Int-ifies to grown number of elems on int8 array
+ok 213 - Numifies to grown number of elems on int8 array
+ok 214 - int8 array with values is not lazy
+ok 215 - Can assign non-contiguously to int8 array
+ok 216 - Elems behind non-contiguous assign are 0 on int8 array
+ok 217 - Non-contiguous assignment works on int8 array
+ok 218 - Can also get last element on int8 array
+ok 219 - Can clear int8 array by assigning empty list
+ok 220 - Cleared int8 array has no elems
+ok 221 - Cleared int8 array has end of -1
+ok 222 - Cleared int8 array Int-ifies to 0
+ok 223 - Cleared int8 array numifies to 0
+ok 224 - Cleared int8 array is falsey
+ok 225 - Can assign integer range to int8 array
+ok 226 - Got correct elems from range assign on int8 array
+ok 227 - Got correct element from range assign on int8 array (1)
+ok 228 - Got correct element from range assign on int8 array (2)
+ok 229 - :exists works on int8 array (1)
+ok 230 - :exists works on int8 array (2)
+ok 231 - :exists works on int8 array (3)
+ok 232 - Can call int8 array constructor with a single value
+ok 233 - Correct number of elems set in constructor of int8 array
+ok 234 - Correct element value set by constructor of int8 array
+ok 235 - Can call int8 array constructor with values
+ok 236 - Correct number of elems set in constructor of int8 array
+ok 237 - Correct elem value set by constructor of int8 array (1)
+ok 238 - Correct elem value set by constructor of int8 array (2)
+ok 239 - Correct elem value set by constructor of int8 array (3)
+ok 240 - Correct elem value set by constructor of int8 array (4)
+ok 241 - Can also get last 2 elements on int8 array
+ok 242 - int8 array .flat returns a Seq
+ok 243 - int8 array .eager returns identity
+ok 244 - Can iterate over int8 array
+ok 245 - Mutating for loop on int8 array works (1)
+ok 246 - Mutating for loop on int8 array works (2)
+ok 247 - Mutating for loop on int8 array works (3)
+ok 248 - Mutating for loop on int8 array works (4)
+ok 249 - Can map over int8 array
+ok 250 - Mutating map on int8 array works (1)
+ok 251 - Mutating map on int8 array works (2)
+ok 252 - Mutating map on int8 array works (3)
+ok 253 - Mutating map on int8 array works (4)
+ok 254 - grep a int8 array
+ok 255 - int8 array.grep(Int)
+ok 256 - int8 array.grep(Int, :k)
+ok 257 - int8 array.grep(Int, :kv)
+ok 258 - int8 array.grep(Int, :p)
+ok 259 - int8 array.grep(Int, :v)
+ok 260 - int8 array.grep(Int)
+ok 261 - int8 array.grep(Int, :k)
+ok 262 - int8 array.grep(Int, :kv)
+ok 263 - int8 array.grep(Int, :p)
+ok 264 - int8 array.grep(Int, :v)
+ok 265 - Can use reduce meta-op on a int8 array
+ok 266 - .values from a int8 array
+ok 267 - .pairup from a int8 array
+ok 268 - .keys from a int8 array
+ok 269 - .pairs from a int8 array
+ok 270 - .antipairs from a int8 array
+ok 271 - .kv from a int8 array
+ok 272 - .pick from a int8 array
+ok 273 - .roll from a int8 array
+ok 274 - int8 array.unique
+ok 275 - int8 array.repeated
+ok 276 - int8 array.squish
+# Subtest: Trying to pop an empty int8 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[int8]
+ok 277 - Trying to pop an empty int8 array dies
+# Subtest: Trying to shift an empty int8 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[int8]
+    ok 4 - .action matches shift
+ok 278 - Trying to shift an empty int8 array dies
+ok 279 - can push to int8 array
+ok 280 - push to int8 array works (1)
+ok 281 - push to int8 array works (2)
+# Subtest: Cannot push non-int/Int to int8 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 282 - Cannot push non-int/Int to int8 array
+# Subtest: Cannot bind to int8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 283 - Cannot bind to int8 array
+# Subtest: Cannot delete from int8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 284 - Cannot delete from int8 array
+ok 285 - can push multiple to int8 array
+ok 286 - push multiple to int8 array works (1)
+ok 287 - push multiple to int8 array works (2)
+ok 288 - push multiple to int8 array works (3)
+# Subtest: Cannot push non-int/Int to int8 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 289 - Cannot push non-int/Int to int8 array (multiple push)
+ok 290 - can append to int8 array
+ok 291 - append to int8 array works (1)
+ok 292 - append to int8 array works (2)
+# Subtest: Cannot append non-int/Int to int8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 293 - Cannot append non-int/Int to int8 array
+ok 294 - can append multiple to int8 array
+ok 295 - append multiple to int8 array works (1)
+ok 296 - append multiple to int8 array works (2)
+ok 297 - append multiple to int8 array works (3)
+# Subtest: Cannot append non-int/Int to int8 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 298 - Cannot append non-int/Int to int8 array (multiple append)
+ok 299 - pop from int8 array works (1)
+ok 300 - pop from int8 array works (2)
+ok 301 - can unshift to int8 array
+ok 302 - unshift to int8 array works (1)
+ok 303 - unshift to int8 array works (2)
+ok 304 - unshift to int8 array works (3)
+# Subtest: Cannot unshift non-int/Int to int8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 305 - Cannot unshift non-int/Int to int8 array
+ok 306 - can unshift multiple to int8 array
+ok 307 - unshift multiple to int8 array works (1)
+ok 308 - unshift multiple to int8 array works (2)
+ok 309 - unshift multiple to int8 array works (3)
+ok 310 - unshift multiple to int8 array works (4)
+ok 311 - unshift multiple to int8 array works (5)
+# Subtest: Cannot unshift non-int/Int to int8 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 312 - Cannot unshift non-int/Int to int8 array (multiple unshift)
+ok 313 - can prepend to int8 array
+ok 314 - prepend to int8 array works (1)
+ok 315 - prepend to int8 array works (2)
+ok 316 - prepend to int8 array works (3)
+# Subtest: Cannot prepend non-int/Int to int8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 317 - Cannot prepend non-int/Int to int8 array
+ok 318 - can prepend multiple to int8 array
+ok 319 - unshift multiple to int8 array works (1)
+ok 320 - prepend multiple to int8 array works (2)
+ok 321 - prepend multiple to int8 array works (3)
+ok 322 - prepend multiple to int8 array works (4)
+ok 323 - prepend multiple to int8 array works (5)
+# Subtest: Cannot prepend non-int/Int to int8 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 324 - Cannot prepend non-int/Int to int8 array (multiple unshift)
+ok 325 - shift from int8 array works (1)
+ok 326 - shift from int8 array works (2)
+ok 327 - can initialize int8 from Range
+ok 328 - Number of elems after splice int8 array
+ok 329 - Splice on int8 array did the right thing (1)
+ok 330 - Splice on int8 array did the right thing (2)
+ok 331 - Splice on int8 array did the right thing (3)
+ok 332 - Splice on int8 array did the right thing (4)
+ok 333 - Splice on int8 array did the right thing (5)
+ok 334 - Number of returned spliced values from int8 array
+ok 335 - Correct value in splice returned from int8 array (1)
+ok 336 - Correct value in splice returned from int8 array (2)
+ok 337 - .Str space-separates on int8 array
+ok 338 - .gist space-separates on int8 array
+ok 339 - .raku includes type and int values on int8 array
+ok 340 - does slice return same type
+ok 341 - does slice handle containerized range
+ok 342 - Flattening int8 array in call works
+ok 343 - does join a int8 array
+ok 344 - does emptying a int8 array really empty
+ok 345 - does join handle holes in a int8 array
+ok 346 - List-assigning int8 array to untyped works (1)
+ok 347 - List-assigning int8 array to untyped works (2)
+ok 348 - List-assigning int8 array to untyped works (3)
+ok 349 - List-assign int8 array surrounded by literals (1)
+ok 350 - List-assign int8 array surrounded by literals (2)
+ok 351 - List-assign int8 array surrounded by literals (3)
+ok 352 - List-assign int8 array surrounded by literals (4)
+ok 353 - List-assign int8 array surrounded by literals (5)
+ok 354 - List-assign untyped array of Int to int8 array (1)
+ok 355 - List-assign untyped array of Int to int8 array (2)
+ok 356 - List-assign untyped array of Int to int8 array (3)
+# Subtest: List-assigning incompatible untyped array to int8 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 357 - List-assigning incompatible untyped array to int8 array dies
+ok 358 - Smartmatching same int8 arrays works
+ok 359 - Smartmatching different int8 arrays works
+ok 360 - Can we sort int8 array
+ok 361 - Can we sort 2-element sorted int8 array
+ok 362 - Can we sort 2-element unsorted int8 array
+ok 363 - Can we sort 1-element int8 array
+ok 364 - Can we sort 0-element int8 array
+ok 365 - int16 array type is Positional
+ok 366 - int16 array type is Positional[int16]
+ok 367 - int16 array type .of is int16
+ok 368 - int16 array is Positional
+ok 369 - int16 array is Positional[int16]
+ok 370 - int16 array .of is int16
+ok 371 - int16 array is Positional
+ok 372 - int16 array is Positional[int16]
+ok 373 - int16 array .of is int16
+ok 374 - .new from int16 array is Positional
+ok 375 - .new from int16 array Positional[int16]
+ok 376 - .new from int16 array .of is int16
+ok 377 - New int16 array has no elems
+ok 378 - New int16 array has end of -1
+ok 379 - New int16 array Int-ifies to 0
+ok 380 - New int16 array numifies to 0
+ok 381 - New int16 array is falsey
+ok 382 - Empty int16 array is not lazy
+ok 383 - Accessing non-existing on int16 array gives 0
+ok 384 - Elems do not grow just from an access on int16 array
+ok 385 - Can store integer in an int16 array
+ok 386 - Can get value from int16 array
+ok 387 - The elems grew as expected on int16 array
+ok 388 - int16 array becomes truthy when it has an element
+ok 389 - Can slice-assign to an int16 array
+ok 390 - Can get slice-assigned value from int16 array (1)
+ok 391 - Can get slice-assigned value from int16 array (2)
+ok 392 - The elems grew as expected on int16 array
+ok 393 - The end value matches grown elems on int16 array
+ok 394 - Int-ifies to grown number of elems on int16 array
+ok 395 - Numifies to grown number of elems on int16 array
+ok 396 - int16 array with values is not lazy
+ok 397 - Can assign non-contiguously to int16 array
+ok 398 - Elems behind non-contiguous assign are 0 on int16 array
+ok 399 - Non-contiguous assignment works on int16 array
+ok 400 - Can also get last element on int16 array
+ok 401 - Can clear int16 array by assigning empty list
+ok 402 - Cleared int16 array has no elems
+ok 403 - Cleared int16 array has end of -1
+ok 404 - Cleared int16 array Int-ifies to 0
+ok 405 - Cleared int16 array numifies to 0
+ok 406 - Cleared int16 array is falsey
+ok 407 - Can assign integer range to int16 array
+ok 408 - Got correct elems from range assign on int16 array
+ok 409 - Got correct element from range assign on int16 array (1)
+ok 410 - Got correct element from range assign on int16 array (2)
+ok 411 - :exists works on int16 array (1)
+ok 412 - :exists works on int16 array (2)
+ok 413 - :exists works on int16 array (3)
+ok 414 - Can call int16 array constructor with a single value
+ok 415 - Correct number of elems set in constructor of int16 array
+ok 416 - Correct element value set by constructor of int16 array
+ok 417 - Can call int16 array constructor with values
+ok 418 - Correct number of elems set in constructor of int16 array
+ok 419 - Correct elem value set by constructor of int16 array (1)
+ok 420 - Correct elem value set by constructor of int16 array (2)
+ok 421 - Correct elem value set by constructor of int16 array (3)
+ok 422 - Correct elem value set by constructor of int16 array (4)
+ok 423 - Can also get last 2 elements on int16 array
+ok 424 - int16 array .flat returns a Seq
+ok 425 - int16 array .eager returns identity
+ok 426 - Can iterate over int16 array
+ok 427 - Mutating for loop on int16 array works (1)
+ok 428 - Mutating for loop on int16 array works (2)
+ok 429 - Mutating for loop on int16 array works (3)
+ok 430 - Mutating for loop on int16 array works (4)
+ok 431 - Can map over int16 array
+ok 432 - Mutating map on int16 array works (1)
+ok 433 - Mutating map on int16 array works (2)
+ok 434 - Mutating map on int16 array works (3)
+ok 435 - Mutating map on int16 array works (4)
+ok 436 - grep a int16 array
+ok 437 - int16 array.grep(Int)
+ok 438 - int16 array.grep(Int, :k)
+ok 439 - int16 array.grep(Int, :kv)
+ok 440 - int16 array.grep(Int, :p)
+ok 441 - int16 array.grep(Int, :v)
+ok 442 - int16 array.grep(Int)
+ok 443 - int16 array.grep(Int, :k)
+ok 444 - int16 array.grep(Int, :kv)
+ok 445 - int16 array.grep(Int, :p)
+ok 446 - int16 array.grep(Int, :v)
+ok 447 - Can use reduce meta-op on a int16 array
+ok 448 - .values from a int16 array
+ok 449 - .pairup from a int16 array
+ok 450 - .keys from a int16 array
+ok 451 - .pairs from a int16 array
+ok 452 - .antipairs from a int16 array
+ok 453 - .kv from a int16 array
+ok 454 - .pick from a int16 array
+ok 455 - .roll from a int16 array
+ok 456 - int16 array.unique
+ok 457 - int16 array.repeated
+ok 458 - int16 array.squish
+# Subtest: Trying to pop an empty int16 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[int16]
+    ok 4 - .action matches pop
+ok 459 - Trying to pop an empty int16 array dies
+# Subtest: Trying to shift an empty int16 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[int16]
+ok 460 - Trying to shift an empty int16 array dies
+ok 461 - can push to int16 array
+ok 462 - push to int16 array works (1)
+ok 463 - push to int16 array works (2)
+# Subtest: Cannot push non-int/Int to int16 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 464 - Cannot push non-int/Int to int16 array
+# Subtest: Cannot bind to int16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 465 - Cannot bind to int16 array
+# Subtest: Cannot delete from int16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 466 - Cannot delete from int16 array
+ok 467 - can push multiple to int16 array
+ok 468 - push multiple to int16 array works (1)
+ok 469 - push multiple to int16 array works (2)
+ok 470 - push multiple to int16 array works (3)
+# Subtest: Cannot push non-int/Int to int16 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 471 - Cannot push non-int/Int to int16 array (multiple push)
+ok 472 - can append to int16 array
+ok 473 - append to int16 array works (1)
+ok 474 - append to int16 array works (2)
+# Subtest: Cannot append non-int/Int to int16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 475 - Cannot append non-int/Int to int16 array
+ok 476 - can append multiple to int16 array
+ok 477 - append multiple to int16 array works (1)
+ok 478 - append multiple to int16 array works (2)
+ok 479 - append multiple to int16 array works (3)
+# Subtest: Cannot append non-int/Int to int16 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 480 - Cannot append non-int/Int to int16 array (multiple append)
+ok 481 - pop from int16 array works (1)
+ok 482 - pop from int16 array works (2)
+ok 483 - can unshift to int16 array
+ok 484 - unshift to int16 array works (1)
+ok 485 - unshift to int16 array works (2)
+ok 486 - unshift to int16 array works (3)
+# Subtest: Cannot unshift non-int/Int to int16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 487 - Cannot unshift non-int/Int to int16 array
+ok 488 - can unshift multiple to int16 array
+ok 489 - unshift multiple to int16 array works (1)
+ok 490 - unshift multiple to int16 array works (2)
+ok 491 - unshift multiple to int16 array works (3)
+ok 492 - unshift multiple to int16 array works (4)
+ok 493 - unshift multiple to int16 array works (5)
+# Subtest: Cannot unshift non-int/Int to int16 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 494 - Cannot unshift non-int/Int to int16 array (multiple unshift)
+ok 495 - can prepend to int16 array
+ok 496 - prepend to int16 array works (1)
+ok 497 - prepend to int16 array works (2)
+ok 498 - prepend to int16 array works (3)
+# Subtest: Cannot prepend non-int/Int to int16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 499 - Cannot prepend non-int/Int to int16 array
+ok 500 - can prepend multiple to int16 array
+ok 501 - unshift multiple to int16 array works (1)
+ok 502 - prepend multiple to int16 array works (2)
+ok 503 - prepend multiple to int16 array works (3)
+ok 504 - prepend multiple to int16 array works (4)
+ok 505 - prepend multiple to int16 array works (5)
+# Subtest: Cannot prepend non-int/Int to int16 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 506 - Cannot prepend non-int/Int to int16 array (multiple unshift)
+ok 507 - shift from int16 array works (1)
+ok 508 - shift from int16 array works (2)
+ok 509 - can initialize int16 from Range
+ok 510 - Number of elems after splice int16 array
+ok 511 - Splice on int16 array did the right thing (1)
+ok 512 - Splice on int16 array did the right thing (2)
+ok 513 - Splice on int16 array did the right thing (3)
+ok 514 - Splice on int16 array did the right thing (4)
+ok 515 - Splice on int16 array did the right thing (5)
+ok 516 - Number of returned spliced values from int16 array
+ok 517 - Correct value in splice returned from int16 array (1)
+ok 518 - Correct value in splice returned from int16 array (2)
+ok 519 - .Str space-separates on int16 array
+ok 520 - .gist space-separates on int16 array
+ok 521 - .raku includes type and int values on int16 array
+ok 522 - does slice return same type
+ok 523 - does slice handle containerized range
+ok 524 - Flattening int16 array in call works
+ok 525 - does join a int16 array
+ok 526 - does emptying a int16 array really empty
+ok 527 - does join handle holes in a int16 array
+ok 528 - List-assigning int16 array to untyped works (1)
+ok 529 - List-assigning int16 array to untyped works (2)
+ok 530 - List-assigning int16 array to untyped works (3)
+ok 531 - List-assign int16 array surrounded by literals (1)
+ok 532 - List-assign int16 array surrounded by literals (2)
+ok 533 - List-assign int16 array surrounded by literals (3)
+ok 534 - List-assign int16 array surrounded by literals (4)
+ok 535 - List-assign int16 array surrounded by literals (5)
+ok 536 - List-assign untyped array of Int to int16 array (1)
+ok 537 - List-assign untyped array of Int to int16 array (2)
+ok 538 - List-assign untyped array of Int to int16 array (3)
+# Subtest: List-assigning incompatible untyped array to int16 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 539 - List-assigning incompatible untyped array to int16 array dies
+ok 540 - Smartmatching same int16 arrays works
+ok 541 - Smartmatching different int16 arrays works
+ok 542 - Can we sort int16 array
+ok 543 - Can we sort 2-element sorted int16 array
+ok 544 - Can we sort 2-element unsorted int16 array
+ok 545 - Can we sort 1-element int16 array
+ok 546 - Can we sort 0-element int16 array
+ok 547 - int32 array type is Positional
+ok 548 - int32 array type is Positional[int32]
+ok 549 - int32 array type .of is int32
+ok 550 - int32 array is Positional
+ok 551 - int32 array is Positional[int32]
+ok 552 - int32 array .of is int32
+ok 553 - int32 array is Positional
+ok 554 - int32 array is Positional[int32]
+ok 555 - int32 array .of is int32
+ok 556 - .new from int32 array is Positional
+ok 557 - .new from int32 array Positional[int32]
+ok 558 - .new from int32 array .of is int32
+ok 559 - New int32 array has no elems
+ok 560 - New int32 array has end of -1
+ok 561 - New int32 array Int-ifies to 0
+ok 562 - New int32 array numifies to 0
+ok 563 - New int32 array is falsey
+ok 564 - Empty int32 array is not lazy
+ok 565 - Accessing non-existing on int32 array gives 0
+ok 566 - Elems do not grow just from an access on int32 array
+ok 567 - Can store integer in an int32 array
+ok 568 - Can get value from int32 array
+ok 569 - The elems grew as expected on int32 array
+ok 570 - int32 array becomes truthy when it has an element
+ok 571 - Can slice-assign to an int32 array
+ok 572 - Can get slice-assigned value from int32 array (1)
+ok 573 - Can get slice-assigned value from int32 array (2)
+ok 574 - The elems grew as expected on int32 array
+ok 575 - The end value matches grown elems on int32 array
+ok 576 - Int-ifies to grown number of elems on int32 array
+ok 577 - Numifies to grown number of elems on int32 array
+ok 578 - int32 array with values is not lazy
+ok 579 - Can assign non-contiguously to int32 array
+ok 580 - Elems behind non-contiguous assign are 0 on int32 array
+ok 581 - Non-contiguous assignment works on int32 array
+ok 582 - Can also get last element on int32 array
+ok 583 - Can clear int32 array by assigning empty list
+ok 584 - Cleared int32 array has no elems
+ok 585 - Cleared int32 array has end of -1
+ok 586 - Cleared int32 array Int-ifies to 0
+ok 587 - Cleared int32 array numifies to 0
+ok 588 - Cleared int32 array is falsey
+ok 589 - Can assign integer range to int32 array
+ok 590 - Got correct elems from range assign on int32 array
+ok 591 - Got correct element from range assign on int32 array (1)
+ok 592 - Got correct element from range assign on int32 array (2)
+ok 593 - :exists works on int32 array (1)
+ok 594 - :exists works on int32 array (2)
+ok 595 - :exists works on int32 array (3)
+ok 596 - Can call int32 array constructor with a single value
+ok 597 - Correct number of elems set in constructor of int32 array
+ok 598 - Correct element value set by constructor of int32 array
+ok 599 - Can call int32 array constructor with values
+ok 600 - Correct number of elems set in constructor of int32 array
+ok 601 - Correct elem value set by constructor of int32 array (1)
+ok 602 - Correct elem value set by constructor of int32 array (2)
+ok 603 - Correct elem value set by constructor of int32 array (3)
+ok 604 - Correct elem value set by constructor of int32 array (4)
+ok 605 - Can also get last 2 elements on int32 array
+ok 606 - int32 array .flat returns a Seq
+ok 607 - int32 array .eager returns identity
+ok 608 - Can iterate over int32 array
+ok 609 - Mutating for loop on int32 array works (1)
+ok 610 - Mutating for loop on int32 array works (2)
+ok 611 - Mutating for loop on int32 array works (3)
+ok 612 - Mutating for loop on int32 array works (4)
+ok 613 - Can map over int32 array
+ok 614 - Mutating map on int32 array works (1)
+ok 615 - Mutating map on int32 array works (2)
+ok 616 - Mutating map on int32 array works (3)
+ok 617 - Mutating map on int32 array works (4)
+ok 618 - grep a int32 array
+ok 619 - int32 array.grep(Int)
+ok 620 - int32 array.grep(Int, :k)
+ok 621 - int32 array.grep(Int, :kv)
+ok 622 - int32 array.grep(Int, :p)
+ok 623 - int32 array.grep(Int, :v)
+ok 624 - int32 array.grep(Int)
+ok 625 - int32 array.grep(Int, :k)
+ok 626 - int32 array.grep(Int, :kv)
+ok 627 - int32 array.grep(Int, :p)
+ok 628 - int32 array.grep(Int, :v)
+ok 629 - Can use reduce meta-op on a int32 array
+ok 630 - .values from a int32 array
+ok 631 - .pairup from a int32 array
+ok 632 - .keys from a int32 array
+ok 633 - .pairs from a int32 array
+ok 634 - .antipairs from a int32 array
+ok 635 - .kv from a int32 array
+ok 636 - .pick from a int32 array
+ok 637 - .roll from a int32 array
+ok 638 - int32 array.unique
+ok 639 - int32 array.repeated
+ok 640 - int32 array.squish
+# Subtest: Trying to pop an empty int32 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[int32]
+    ok 4 - .action matches pop
+ok 641 - Trying to pop an empty int32 array dies
+# Subtest: Trying to shift an empty int32 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[int32]
+ok 642 - Trying to shift an empty int32 array dies
+ok 643 - can push to int32 array
+ok 644 - push to int32 array works (1)
+ok 645 - push to int32 array works (2)
+# Subtest: Cannot push non-int/Int to int32 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 646 - Cannot push non-int/Int to int32 array
+# Subtest: Cannot bind to int32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 647 - Cannot bind to int32 array
+# Subtest: Cannot delete from int32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 648 - Cannot delete from int32 array
+ok 649 - can push multiple to int32 array
+ok 650 - push multiple to int32 array works (1)
+ok 651 - push multiple to int32 array works (2)
+ok 652 - push multiple to int32 array works (3)
+# Subtest: Cannot push non-int/Int to int32 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 653 - Cannot push non-int/Int to int32 array (multiple push)
+ok 654 - can append to int32 array
+ok 655 - append to int32 array works (1)
+ok 656 - append to int32 array works (2)
+# Subtest: Cannot append non-int/Int to int32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 657 - Cannot append non-int/Int to int32 array
+ok 658 - can append multiple to int32 array
+ok 659 - append multiple to int32 array works (1)
+ok 660 - append multiple to int32 array works (2)
+ok 661 - append multiple to int32 array works (3)
+# Subtest: Cannot append non-int/Int to int32 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 662 - Cannot append non-int/Int to int32 array (multiple append)
+ok 663 - pop from int32 array works (1)
+ok 664 - pop from int32 array works (2)
+ok 665 - can unshift to int32 array
+ok 666 - unshift to int32 array works (1)
+ok 667 - unshift to int32 array works (2)
+ok 668 - unshift to int32 array works (3)
+# Subtest: Cannot unshift non-int/Int to int32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 669 - Cannot unshift non-int/Int to int32 array
+ok 670 - can unshift multiple to int32 array
+ok 671 - unshift multiple to int32 array works (1)
+ok 672 - unshift multiple to int32 array works (2)
+ok 673 - unshift multiple to int32 array works (3)
+ok 674 - unshift multiple to int32 array works (4)
+ok 675 - unshift multiple to int32 array works (5)
+# Subtest: Cannot unshift non-int/Int to int32 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 676 - Cannot unshift non-int/Int to int32 array (multiple unshift)
+ok 677 - can prepend to int32 array
+ok 678 - prepend to int32 array works (1)
+ok 679 - prepend to int32 array works (2)
+ok 680 - prepend to int32 array works (3)
+# Subtest: Cannot prepend non-int/Int to int32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 681 - Cannot prepend non-int/Int to int32 array
+ok 682 - can prepend multiple to int32 array
+ok 683 - unshift multiple to int32 array works (1)
+ok 684 - prepend multiple to int32 array works (2)
+ok 685 - prepend multiple to int32 array works (3)
+ok 686 - prepend multiple to int32 array works (4)
+ok 687 - prepend multiple to int32 array works (5)
+# Subtest: Cannot prepend non-int/Int to int32 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 688 - Cannot prepend non-int/Int to int32 array (multiple unshift)
+ok 689 - shift from int32 array works (1)
+ok 690 - shift from int32 array works (2)
+ok 691 - can initialize int32 from Range
+ok 692 - Number of elems after splice int32 array
+ok 693 - Splice on int32 array did the right thing (1)
+ok 694 - Splice on int32 array did the right thing (2)
+ok 695 - Splice on int32 array did the right thing (3)
+ok 696 - Splice on int32 array did the right thing (4)
+ok 697 - Splice on int32 array did the right thing (5)
+ok 698 - Number of returned spliced values from int32 array
+ok 699 - Correct value in splice returned from int32 array (1)
+ok 700 - Correct value in splice returned from int32 array (2)
+ok 701 - .Str space-separates on int32 array
+ok 702 - .gist space-separates on int32 array
+ok 703 - .raku includes type and int values on int32 array
+ok 704 - does slice return same type
+ok 705 - does slice handle containerized range
+ok 706 - Flattening int32 array in call works
+ok 707 - does join a int32 array
+ok 708 - does emptying a int32 array really empty
+ok 709 - does join handle holes in a int32 array
+ok 710 - List-assigning int32 array to untyped works (1)
+ok 711 - List-assigning int32 array to untyped works (2)
+ok 712 - List-assigning int32 array to untyped works (3)
+ok 713 - List-assign int32 array surrounded by literals (1)
+ok 714 - List-assign int32 array surrounded by literals (2)
+ok 715 - List-assign int32 array surrounded by literals (3)
+ok 716 - List-assign int32 array surrounded by literals (4)
+ok 717 - List-assign int32 array surrounded by literals (5)
+ok 718 - List-assign untyped array of Int to int32 array (1)
+ok 719 - List-assign untyped array of Int to int32 array (2)
+ok 720 - List-assign untyped array of Int to int32 array (3)
+# Subtest: List-assigning incompatible untyped array to int32 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 721 - List-assigning incompatible untyped array to int32 array dies
+ok 722 - Smartmatching same int32 arrays works
+ok 723 - Smartmatching different int32 arrays works
+ok 724 - Can we sort int32 array
+ok 725 - Can we sort 2-element sorted int32 array
+ok 726 - Can we sort 2-element unsorted int32 array
+ok 727 - Can we sort 1-element int32 array
+ok 728 - Can we sort 0-element int32 array
+ok 729 - int64 array type is Positional
+ok 730 - int64 array type is Positional[int64]
+ok 731 - int64 array type .of is int64
+ok 732 - int64 array is Positional
+ok 733 - int64 array is Positional[int64]
+ok 734 - int64 array .of is int64
+ok 735 - int64 array is Positional
+ok 736 - int64 array is Positional[int64]
+ok 737 - int64 array .of is int64
+ok 738 - .new from int64 array is Positional
+ok 739 - .new from int64 array Positional[int64]
+ok 740 - .new from int64 array .of is int64
+ok 741 - New int64 array has no elems
+ok 742 - New int64 array has end of -1
+ok 743 - New int64 array Int-ifies to 0
+ok 744 - New int64 array numifies to 0
+ok 745 - New int64 array is falsey
+ok 746 - Empty int64 array is not lazy
+ok 747 - Accessing non-existing on int64 array gives 0
+ok 748 - Elems do not grow just from an access on int64 array
+ok 749 - Can store integer in an int64 array
+ok 750 - Can get value from int64 array
+ok 751 - The elems grew as expected on int64 array
+ok 752 - int64 array becomes truthy when it has an element
+ok 753 - Can slice-assign to an int64 array
+ok 754 - Can get slice-assigned value from int64 array (1)
+ok 755 - Can get slice-assigned value from int64 array (2)
+ok 756 - The elems grew as expected on int64 array
+ok 757 - The end value matches grown elems on int64 array
+ok 758 - Int-ifies to grown number of elems on int64 array
+ok 759 - Numifies to grown number of elems on int64 array
+ok 760 - int64 array with values is not lazy
+ok 761 - Can assign non-contiguously to int64 array
+ok 762 - Elems behind non-contiguous assign are 0 on int64 array
+ok 763 - Non-contiguous assignment works on int64 array
+ok 764 - Can also get last element on int64 array
+ok 765 - Can clear int64 array by assigning empty list
+ok 766 - Cleared int64 array has no elems
+ok 767 - Cleared int64 array has end of -1
+ok 768 - Cleared int64 array Int-ifies to 0
+ok 769 - Cleared int64 array numifies to 0
+ok 770 - Cleared int64 array is falsey
+ok 771 - Can assign integer range to int64 array
+ok 772 - Got correct elems from range assign on int64 array
+ok 773 - Got correct element from range assign on int64 array (1)
+ok 774 - Got correct element from range assign on int64 array (2)
+ok 775 - :exists works on int64 array (1)
+ok 776 - :exists works on int64 array (2)
+ok 777 - :exists works on int64 array (3)
+ok 778 - Can call int64 array constructor with a single value
+ok 779 - Correct number of elems set in constructor of int64 array
+ok 780 - Correct element value set by constructor of int64 array
+ok 781 - Can call int64 array constructor with values
+ok 782 - Correct number of elems set in constructor of int64 array
+ok 783 - Correct elem value set by constructor of int64 array (1)
+ok 784 - Correct elem value set by constructor of int64 array (2)
+ok 785 - Correct elem value set by constructor of int64 array (3)
+ok 786 - Correct elem value set by constructor of int64 array (4)
+ok 787 - Can also get last 2 elements on int64 array
+ok 788 - int64 array .flat returns a Seq
+ok 789 - int64 array .eager returns identity
+ok 790 - Can iterate over int64 array
+ok 791 - Mutating for loop on int64 array works (1)
+ok 792 - Mutating for loop on int64 array works (2)
+ok 793 - Mutating for loop on int64 array works (3)
+ok 794 - Mutating for loop on int64 array works (4)
+ok 795 - Can map over int64 array
+ok 796 - Mutating map on int64 array works (1)
+ok 797 - Mutating map on int64 array works (2)
+ok 798 - Mutating map on int64 array works (3)
+ok 799 - Mutating map on int64 array works (4)
+ok 800 - grep a int64 array
+ok 801 - int64 array.grep(Int)
+ok 802 - int64 array.grep(Int, :k)
+ok 803 - int64 array.grep(Int, :kv)
+ok 804 - int64 array.grep(Int, :p)
+ok 805 - int64 array.grep(Int, :v)
+ok 806 - int64 array.grep(Int)
+ok 807 - int64 array.grep(Int, :k)
+ok 808 - int64 array.grep(Int, :kv)
+ok 809 - int64 array.grep(Int, :p)
+ok 810 - int64 array.grep(Int, :v)
+ok 811 - Can use reduce meta-op on a int64 array
+ok 812 - .values from a int64 array
+ok 813 - .pairup from a int64 array
+ok 814 - .keys from a int64 array
+ok 815 - .pairs from a int64 array
+ok 816 - .antipairs from a int64 array
+ok 817 - .kv from a int64 array
+ok 818 - .pick from a int64 array
+ok 819 - .roll from a int64 array
+ok 820 - int64 array.unique
+ok 821 - int64 array.repeated
+ok 822 - int64 array.squish
+# Subtest: Trying to pop an empty int64 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[int64]
+ok 823 - Trying to pop an empty int64 array dies
+# Subtest: Trying to shift an empty int64 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[int64]
+ok 824 - Trying to shift an empty int64 array dies
+ok 825 - can push to int64 array
+ok 826 - push to int64 array works (1)
+ok 827 - push to int64 array works (2)
+# Subtest: Cannot push non-int/Int to int64 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 828 - Cannot push non-int/Int to int64 array
+# Subtest: Cannot bind to int64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 829 - Cannot bind to int64 array
+# Subtest: Cannot delete from int64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 830 - Cannot delete from int64 array
+ok 831 - can push multiple to int64 array
+ok 832 - push multiple to int64 array works (1)
+ok 833 - push multiple to int64 array works (2)
+ok 834 - push multiple to int64 array works (3)
+# Subtest: Cannot push non-int/Int to int64 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 835 - Cannot push non-int/Int to int64 array (multiple push)
+ok 836 - can append to int64 array
+ok 837 - append to int64 array works (1)
+ok 838 - append to int64 array works (2)
+# Subtest: Cannot append non-int/Int to int64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 839 - Cannot append non-int/Int to int64 array
+ok 840 - can append multiple to int64 array
+ok 841 - append multiple to int64 array works (1)
+ok 842 - append multiple to int64 array works (2)
+ok 843 - append multiple to int64 array works (3)
+# Subtest: Cannot append non-int/Int to int64 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 844 - Cannot append non-int/Int to int64 array (multiple append)
+ok 845 - pop from int64 array works (1)
+ok 846 - pop from int64 array works (2)
+ok 847 - can unshift to int64 array
+ok 848 - unshift to int64 array works (1)
+ok 849 - unshift to int64 array works (2)
+ok 850 - unshift to int64 array works (3)
+# Subtest: Cannot unshift non-int/Int to int64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 851 - Cannot unshift non-int/Int to int64 array
+ok 852 - can unshift multiple to int64 array
+ok 853 - unshift multiple to int64 array works (1)
+ok 854 - unshift multiple to int64 array works (2)
+ok 855 - unshift multiple to int64 array works (3)
+ok 856 - unshift multiple to int64 array works (4)
+ok 857 - unshift multiple to int64 array works (5)
+# Subtest: Cannot unshift non-int/Int to int64 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 858 - Cannot unshift non-int/Int to int64 array (multiple unshift)
+ok 859 - can prepend to int64 array
+ok 860 - prepend to int64 array works (1)
+ok 861 - prepend to int64 array works (2)
+ok 862 - prepend to int64 array works (3)
+# Subtest: Cannot prepend non-int/Int to int64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 863 - Cannot prepend non-int/Int to int64 array
+ok 864 - can prepend multiple to int64 array
+ok 865 - unshift multiple to int64 array works (1)
+ok 866 - prepend multiple to int64 array works (2)
+ok 867 - prepend multiple to int64 array works (3)
+ok 868 - prepend multiple to int64 array works (4)
+ok 869 - prepend multiple to int64 array works (5)
+# Subtest: Cannot prepend non-int/Int to int64 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 870 - Cannot prepend non-int/Int to int64 array (multiple unshift)
+ok 871 - shift from int64 array works (1)
+ok 872 - shift from int64 array works (2)
+ok 873 - can initialize int64 from Range
+ok 874 - Number of elems after splice int64 array
+ok 875 - Splice on int64 array did the right thing (1)
+ok 876 - Splice on int64 array did the right thing (2)
+ok 877 - Splice on int64 array did the right thing (3)
+ok 878 - Splice on int64 array did the right thing (4)
+ok 879 - Splice on int64 array did the right thing (5)
+ok 880 - Number of returned spliced values from int64 array
+ok 881 - Correct value in splice returned from int64 array (1)
+ok 882 - Correct value in splice returned from int64 array (2)
+ok 883 - .Str space-separates on int64 array
+ok 884 - .gist space-separates on int64 array
+ok 885 - .raku includes type and int values on int64 array
+ok 886 - does slice return same type
+ok 887 - does slice handle containerized range
+ok 888 - Flattening int64 array in call works
+ok 889 - does join a int64 array
+ok 890 - does emptying a int64 array really empty
+ok 891 - does join handle holes in a int64 array
+ok 892 - List-assigning int64 array to untyped works (1)
+ok 893 - List-assigning int64 array to untyped works (2)
+ok 894 - List-assigning int64 array to untyped works (3)
+ok 895 - List-assign int64 array surrounded by literals (1)
+ok 896 - List-assign int64 array surrounded by literals (2)
+ok 897 - List-assign int64 array surrounded by literals (3)
+ok 898 - List-assign int64 array surrounded by literals (4)
+ok 899 - List-assign int64 array surrounded by literals (5)
+ok 900 - List-assign untyped array of Int to int64 array (1)
+ok 901 - List-assign untyped array of Int to int64 array (2)
+ok 902 - List-assign untyped array of Int to int64 array (3)
+# Subtest: List-assigning incompatible untyped array to int64 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 903 - List-assigning incompatible untyped array to int64 array dies
+ok 904 - Smartmatching same int64 arrays works
+ok 905 - Smartmatching different int64 arrays works
+ok 906 - Can we sort int64 array
+ok 907 - Can we sort 2-element sorted int64 array
+ok 908 - Can we sort 2-element unsorted int64 array
+ok 909 - Can we sort 1-element int64 array
+ok 910 - Can we sort 0-element int64 array
+ok 911 - uint array type is Positional
+ok 912 - uint array type is Positional[uint]
+ok 913 - uint array type .of is uint
+ok 914 - uint array is Positional
+ok 915 - uint array is Positional[uint]
+ok 916 - uint array .of is uint
+ok 917 - uint array is Positional
+ok 918 - uint array is Positional[uint]
+ok 919 - uint array .of is uint
+ok 920 - .new from uint array is Positional
+ok 921 - .new from uint array Positional[uint]
+ok 922 - .new from uint array .of is uint
+ok 923 - New uint array has no elems
+ok 924 - New uint array has end of -1
+ok 925 - New uint array Int-ifies to 0
+ok 926 - New uint array numifies to 0
+ok 927 - New uint array is falsey
+ok 928 - Empty uint array is not lazy
+ok 929 - Accessing non-existing on uint array gives 0
+ok 930 - Elems do not grow just from an access on uint array
+ok 931 - Can store integer in an uint array
+ok 932 - Can get value from uint array
+ok 933 - The elems grew as expected on uint array
+ok 934 - uint array becomes truthy when it has an element
+ok 935 - Can slice-assign to an uint array
+ok 936 - Can get slice-assigned value from uint array (1)
+ok 937 - Can get slice-assigned value from uint array (2)
+ok 938 - The elems grew as expected on uint array
+ok 939 - The end value matches grown elems on uint array
+ok 940 - Int-ifies to grown number of elems on uint array
+ok 941 - Numifies to grown number of elems on uint array
+ok 942 - uint array with values is not lazy
+ok 943 - Can assign non-contiguously to uint array
+ok 944 - Elems behind non-contiguous assign are 0 on uint array
+ok 945 - Non-contiguous assignment works on uint array
+ok 946 - Can also get last element on uint array
+ok 947 - Can clear uint array by assigning empty list
+ok 948 - Cleared uint array has no elems
+ok 949 - Cleared uint array has end of -1
+ok 950 - Cleared uint array Int-ifies to 0
+ok 951 - Cleared uint array numifies to 0
+ok 952 - Cleared uint array is falsey
+ok 953 - Can assign integer range to uint array
+ok 954 - Got correct elems from range assign on uint array
+ok 955 - Got correct element from range assign on uint array (1)
+ok 956 - Got correct element from range assign on uint array (2)
+ok 957 - :exists works on uint array (1)
+ok 958 - :exists works on uint array (2)
+ok 959 - :exists works on uint array (3)
+ok 960 - Can call uint array constructor with a single value
+ok 961 - Correct number of elems set in constructor of uint array
+ok 962 - Correct element value set by constructor of uint array
+ok 963 - Can call uint array constructor with values
+ok 964 - Correct number of elems set in constructor of uint array
+ok 965 - Correct elem value set by constructor of uint array (1)
+ok 966 - Correct elem value set by constructor of uint array (2)
+ok 967 - Correct elem value set by constructor of uint array (3)
+ok 968 - Correct elem value set by constructor of uint array (4)
+ok 969 - Can also get last 2 elements on uint array
+ok 970 - uint array .flat returns a Seq
+ok 971 - uint array .eager returns identity
+ok 972 - Can iterate over uint array
+ok 973 - Mutating for loop on uint array works (1)
+ok 974 - Mutating for loop on uint array works (2)
+ok 975 - Mutating for loop on uint array works (3)
+ok 976 - Mutating for loop on uint array works (4)
+ok 977 - Can map over uint array
+ok 978 - Mutating map on uint array works (1)
+ok 979 - Mutating map on uint array works (2)
+ok 980 - Mutating map on uint array works (3)
+ok 981 - Mutating map on uint array works (4)
+ok 982 - grep a uint array
+ok 983 - uint array.grep(Int)
+ok 984 - uint array.grep(Int, :k)
+ok 985 - uint array.grep(Int, :kv)
+ok 986 - uint array.grep(Int, :p)
+ok 987 - uint array.grep(Int, :v)
+ok 988 - uint array.grep(Int)
+ok 989 - uint array.grep(Int, :k)
+ok 990 - uint array.grep(Int, :kv)
+ok 991 - uint array.grep(Int, :p)
+ok 992 - uint array.grep(Int, :v)
+ok 993 - Can use reduce meta-op on a uint array
+ok 994 - .values from a uint array
+ok 995 - .pairup from a uint array
+ok 996 - .keys from a uint array
+ok 997 - .pairs from a uint array
+ok 998 - .antipairs from a uint array
+ok 999 - .kv from a uint array
+ok 1000 - .pick from a uint array
+ok 1001 - .roll from a uint array
+ok 1002 - uint array.unique
+ok 1003 - uint array.repeated
+ok 1004 - uint array.squish
+# Subtest: Trying to pop an empty uint array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[uint]
+ok 1005 - Trying to pop an empty uint array dies
+# Subtest: Trying to shift an empty uint array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[uint]
+ok 1006 - Trying to shift an empty uint array dies
+ok 1007 - can push to uint array
+ok 1008 - push to uint array works (1)
+ok 1009 - push to uint array works (2)
+# Subtest: Cannot push non-int/Int to uint array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 1010 - Cannot push non-int/Int to uint array
+# Subtest: Cannot bind to uint array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1011 - Cannot bind to uint array
+# Subtest: Cannot delete from uint array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1012 - Cannot delete from uint array
+ok 1013 - can push multiple to uint array
+ok 1014 - push multiple to uint array works (1)
+ok 1015 - push multiple to uint array works (2)
+ok 1016 - push multiple to uint array works (3)
+# Subtest: Cannot push non-int/Int to uint array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1017 - Cannot push non-int/Int to uint array (multiple push)
+ok 1018 - can append to uint array
+ok 1019 - append to uint array works (1)
+ok 1020 - append to uint array works (2)
+# Subtest: Cannot append non-int/Int to uint array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1021 - Cannot append non-int/Int to uint array
+ok 1022 - can append multiple to uint array
+ok 1023 - append multiple to uint array works (1)
+ok 1024 - append multiple to uint array works (2)
+ok 1025 - append multiple to uint array works (3)
+# Subtest: Cannot append non-int/Int to uint array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1026 - Cannot append non-int/Int to uint array (multiple append)
+ok 1027 - pop from uint array works (1)
+ok 1028 - pop from uint array works (2)
+ok 1029 - can unshift to uint array
+ok 1030 - unshift to uint array works (1)
+ok 1031 - unshift to uint array works (2)
+ok 1032 - unshift to uint array works (3)
+# Subtest: Cannot unshift non-int/Int to uint array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1033 - Cannot unshift non-int/Int to uint array
+ok 1034 - can unshift multiple to uint array
+ok 1035 - unshift multiple to uint array works (1)
+ok 1036 - unshift multiple to uint array works (2)
+ok 1037 - unshift multiple to uint array works (3)
+ok 1038 - unshift multiple to uint array works (4)
+ok 1039 - unshift multiple to uint array works (5)
+# Subtest: Cannot unshift non-int/Int to uint array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1040 - Cannot unshift non-int/Int to uint array (multiple unshift)
+ok 1041 - can prepend to uint array
+ok 1042 - prepend to uint array works (1)
+ok 1043 - prepend to uint array works (2)
+ok 1044 - prepend to uint array works (3)
+# Subtest: Cannot prepend non-int/Int to uint array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1045 - Cannot prepend non-int/Int to uint array
+ok 1046 - can prepend multiple to uint array
+ok 1047 - unshift multiple to uint array works (1)
+ok 1048 - prepend multiple to uint array works (2)
+ok 1049 - prepend multiple to uint array works (3)
+ok 1050 - prepend multiple to uint array works (4)
+ok 1051 - prepend multiple to uint array works (5)
+# Subtest: Cannot prepend non-int/Int to uint array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1052 - Cannot prepend non-int/Int to uint array (multiple unshift)
+ok 1053 - shift from uint array works (1)
+ok 1054 - shift from uint array works (2)
+ok 1055 - can initialize uint from Range
+ok 1056 - Number of elems after splice uint array
+ok 1057 - Splice on uint array did the right thing (1)
+ok 1058 - Splice on uint array did the right thing (2)
+ok 1059 - Splice on uint array did the right thing (3)
+ok 1060 - Splice on uint array did the right thing (4)
+ok 1061 - Splice on uint array did the right thing (5)
+ok 1062 - Number of returned spliced values from uint array
+ok 1063 - Correct value in splice returned from uint array (1)
+ok 1064 - Correct value in splice returned from uint array (2)
+ok 1065 - .Str space-separates on uint array
+ok 1066 - .gist space-separates on uint array
+ok 1067 - .raku includes type and int values on uint array
+ok 1068 - does slice return same type
+ok 1069 - does slice handle containerized range
+ok 1070 - Flattening uint array in call works
+ok 1071 - does join a uint array
+ok 1072 - does emptying a uint array really empty
+ok 1073 - does join handle holes in a uint array
+ok 1074 - List-assigning uint array to untyped works (1)
+ok 1075 - List-assigning uint array to untyped works (2)
+ok 1076 - List-assigning uint array to untyped works (3)
+ok 1077 - List-assign uint array surrounded by literals (1)
+ok 1078 - List-assign uint array surrounded by literals (2)
+ok 1079 - List-assign uint array surrounded by literals (3)
+ok 1080 - List-assign uint array surrounded by literals (4)
+ok 1081 - List-assign uint array surrounded by literals (5)
+ok 1082 - List-assign untyped array of Int to uint array (1)
+ok 1083 - List-assign untyped array of Int to uint array (2)
+ok 1084 - List-assign untyped array of Int to uint array (3)
+# Subtest: List-assigning incompatible untyped array to uint array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1085 - List-assigning incompatible untyped array to uint array dies
+ok 1086 - Smartmatching same uint arrays works
+ok 1087 - Smartmatching different uint arrays works
+ok 1088 - Can we sort uint array
+ok 1089 - Can we sort 2-element sorted uint array
+ok 1090 - Can we sort 2-element unsorted uint array
+ok 1091 - Can we sort 1-element uint array
+ok 1092 - Can we sort 0-element uint array
+ok 1093 - uint8 array type is Positional
+ok 1094 - uint8 array type is Positional[uint8]
+ok 1095 - uint8 array type .of is uint8
+ok 1096 - uint8 array is Positional
+ok 1097 - uint8 array is Positional[uint8]
+ok 1098 - uint8 array .of is uint8
+ok 1099 - uint8 array is Positional
+ok 1100 - uint8 array is Positional[uint8]
+ok 1101 - uint8 array .of is uint8
+ok 1102 - .new from uint8 array is Positional
+ok 1103 - .new from uint8 array Positional[uint8]
+ok 1104 - .new from uint8 array .of is uint8
+ok 1105 - New uint8 array has no elems
+ok 1106 - New uint8 array has end of -1
+ok 1107 - New uint8 array Int-ifies to 0
+ok 1108 - New uint8 array numifies to 0
+ok 1109 - New uint8 array is falsey
+ok 1110 - Empty uint8 array is not lazy
+ok 1111 - Accessing non-existing on uint8 array gives 0
+ok 1112 - Elems do not grow just from an access on uint8 array
+ok 1113 - Can store integer in an uint8 array
+ok 1114 - Can get value from uint8 array
+ok 1115 - The elems grew as expected on uint8 array
+ok 1116 - uint8 array becomes truthy when it has an element
+ok 1117 - Can slice-assign to an uint8 array
+ok 1118 - Can get slice-assigned value from uint8 array (1)
+ok 1119 - Can get slice-assigned value from uint8 array (2)
+ok 1120 - The elems grew as expected on uint8 array
+ok 1121 - The end value matches grown elems on uint8 array
+ok 1122 - Int-ifies to grown number of elems on uint8 array
+ok 1123 - Numifies to grown number of elems on uint8 array
+ok 1124 - uint8 array with values is not lazy
+ok 1125 - Can assign non-contiguously to uint8 array
+ok 1126 - Elems behind non-contiguous assign are 0 on uint8 array
+ok 1127 - Non-contiguous assignment works on uint8 array
+ok 1128 - Can also get last element on uint8 array
+ok 1129 - Can clear uint8 array by assigning empty list
+ok 1130 - Cleared uint8 array has no elems
+ok 1131 - Cleared uint8 array has end of -1
+ok 1132 - Cleared uint8 array Int-ifies to 0
+ok 1133 - Cleared uint8 array numifies to 0
+ok 1134 - Cleared uint8 array is falsey
+ok 1135 - Can assign integer range to uint8 array
+ok 1136 - Got correct elems from range assign on uint8 array
+ok 1137 - Got correct element from range assign on uint8 array (1)
+ok 1138 - Got correct element from range assign on uint8 array (2)
+ok 1139 - :exists works on uint8 array (1)
+ok 1140 - :exists works on uint8 array (2)
+ok 1141 - :exists works on uint8 array (3)
+ok 1142 - Can call uint8 array constructor with a single value
+ok 1143 - Correct number of elems set in constructor of uint8 array
+ok 1144 - Correct element value set by constructor of uint8 array
+ok 1145 - Can call uint8 array constructor with values
+ok 1146 - Correct number of elems set in constructor of uint8 array
+ok 1147 - Correct elem value set by constructor of uint8 array (1)
+ok 1148 - Correct elem value set by constructor of uint8 array (2)
+ok 1149 - Correct elem value set by constructor of uint8 array (3)
+ok 1150 - Correct elem value set by constructor of uint8 array (4)
+ok 1151 - Can also get last 2 elements on uint8 array
+ok 1152 - uint8 array .flat returns a Seq
+ok 1153 - uint8 array .eager returns identity
+ok 1154 - Can iterate over uint8 array
+ok 1155 - Mutating for loop on uint8 array works (1)
+ok 1156 - Mutating for loop on uint8 array works (2)
+ok 1157 - Mutating for loop on uint8 array works (3)
+ok 1158 - Mutating for loop on uint8 array works (4)
+ok 1159 - Can map over uint8 array
+ok 1160 - Mutating map on uint8 array works (1)
+ok 1161 - Mutating map on uint8 array works (2)
+ok 1162 - Mutating map on uint8 array works (3)
+ok 1163 - Mutating map on uint8 array works (4)
+ok 1164 - grep a uint8 array
+ok 1165 - uint8 array.grep(Int)
+ok 1166 - uint8 array.grep(Int, :k)
+ok 1167 - uint8 array.grep(Int, :kv)
+ok 1168 - uint8 array.grep(Int, :p)
+ok 1169 - uint8 array.grep(Int, :v)
+ok 1170 - uint8 array.grep(Int)
+ok 1171 - uint8 array.grep(Int, :k)
+ok 1172 - uint8 array.grep(Int, :kv)
+ok 1173 - uint8 array.grep(Int, :p)
+ok 1174 - uint8 array.grep(Int, :v)
+ok 1175 - Can use reduce meta-op on a uint8 array
+ok 1176 - .values from a uint8 array
+ok 1177 - .pairup from a uint8 array
+ok 1178 - .keys from a uint8 array
+ok 1179 - .pairs from a uint8 array
+ok 1180 - .antipairs from a uint8 array
+ok 1181 - .kv from a uint8 array
+ok 1182 - .pick from a uint8 array
+ok 1183 - .roll from a uint8 array
+ok 1184 - uint8 array.unique
+ok 1185 - uint8 array.repeated
+ok 1186 - uint8 array.squish
+# Subtest: Trying to pop an empty uint8 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[uint8]
+ok 1187 - Trying to pop an empty uint8 array dies
+# Subtest: Trying to shift an empty uint8 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[uint8]
+    ok 4 - .action matches shift
+ok 1188 - Trying to shift an empty uint8 array dies
+ok 1189 - can push to uint8 array
+ok 1190 - push to uint8 array works (1)
+ok 1191 - push to uint8 array works (2)
+# Subtest: Cannot push non-int/Int to uint8 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 1192 - Cannot push non-int/Int to uint8 array
+# Subtest: Cannot bind to uint8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1193 - Cannot bind to uint8 array
+# Subtest: Cannot delete from uint8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1194 - Cannot delete from uint8 array
+ok 1195 - can push multiple to uint8 array
+ok 1196 - push multiple to uint8 array works (1)
+ok 1197 - push multiple to uint8 array works (2)
+ok 1198 - push multiple to uint8 array works (3)
+# Subtest: Cannot push non-int/Int to uint8 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1199 - Cannot push non-int/Int to uint8 array (multiple push)
+ok 1200 - can append to uint8 array
+ok 1201 - append to uint8 array works (1)
+ok 1202 - append to uint8 array works (2)
+# Subtest: Cannot append non-int/Int to uint8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1203 - Cannot append non-int/Int to uint8 array
+ok 1204 - can append multiple to uint8 array
+ok 1205 - append multiple to uint8 array works (1)
+ok 1206 - append multiple to uint8 array works (2)
+ok 1207 - append multiple to uint8 array works (3)
+# Subtest: Cannot append non-int/Int to uint8 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1208 - Cannot append non-int/Int to uint8 array (multiple append)
+ok 1209 - pop from uint8 array works (1)
+ok 1210 - pop from uint8 array works (2)
+ok 1211 - can unshift to uint8 array
+ok 1212 - unshift to uint8 array works (1)
+ok 1213 - unshift to uint8 array works (2)
+ok 1214 - unshift to uint8 array works (3)
+# Subtest: Cannot unshift non-int/Int to uint8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1215 - Cannot unshift non-int/Int to uint8 array
+ok 1216 - can unshift multiple to uint8 array
+ok 1217 - unshift multiple to uint8 array works (1)
+ok 1218 - unshift multiple to uint8 array works (2)
+ok 1219 - unshift multiple to uint8 array works (3)
+ok 1220 - unshift multiple to uint8 array works (4)
+ok 1221 - unshift multiple to uint8 array works (5)
+# Subtest: Cannot unshift non-int/Int to uint8 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1222 - Cannot unshift non-int/Int to uint8 array (multiple unshift)
+ok 1223 - can prepend to uint8 array
+ok 1224 - prepend to uint8 array works (1)
+ok 1225 - prepend to uint8 array works (2)
+ok 1226 - prepend to uint8 array works (3)
+# Subtest: Cannot prepend non-int/Int to uint8 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1227 - Cannot prepend non-int/Int to uint8 array
+ok 1228 - can prepend multiple to uint8 array
+ok 1229 - unshift multiple to uint8 array works (1)
+ok 1230 - prepend multiple to uint8 array works (2)
+ok 1231 - prepend multiple to uint8 array works (3)
+ok 1232 - prepend multiple to uint8 array works (4)
+ok 1233 - prepend multiple to uint8 array works (5)
+# Subtest: Cannot prepend non-int/Int to uint8 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1234 - Cannot prepend non-int/Int to uint8 array (multiple unshift)
+ok 1235 - shift from uint8 array works (1)
+ok 1236 - shift from uint8 array works (2)
+ok 1237 - can initialize uint8 from Range
+ok 1238 - Number of elems after splice uint8 array
+ok 1239 - Splice on uint8 array did the right thing (1)
+ok 1240 - Splice on uint8 array did the right thing (2)
+ok 1241 - Splice on uint8 array did the right thing (3)
+ok 1242 - Splice on uint8 array did the right thing (4)
+ok 1243 - Splice on uint8 array did the right thing (5)
+ok 1244 - Number of returned spliced values from uint8 array
+ok 1245 - Correct value in splice returned from uint8 array (1)
+ok 1246 - Correct value in splice returned from uint8 array (2)
+ok 1247 - .Str space-separates on uint8 array
+ok 1248 - .gist space-separates on uint8 array
+ok 1249 - .raku includes type and int values on uint8 array
+ok 1250 - does slice return same type
+ok 1251 - does slice handle containerized range
+ok 1252 - Flattening uint8 array in call works
+ok 1253 - does join a uint8 array
+ok 1254 - does emptying a uint8 array really empty
+ok 1255 - does join handle holes in a uint8 array
+ok 1256 - List-assigning uint8 array to untyped works (1)
+ok 1257 - List-assigning uint8 array to untyped works (2)
+ok 1258 - List-assigning uint8 array to untyped works (3)
+ok 1259 - List-assign uint8 array surrounded by literals (1)
+ok 1260 - List-assign uint8 array surrounded by literals (2)
+ok 1261 - List-assign uint8 array surrounded by literals (3)
+ok 1262 - List-assign uint8 array surrounded by literals (4)
+ok 1263 - List-assign uint8 array surrounded by literals (5)
+ok 1264 - List-assign untyped array of Int to uint8 array (1)
+ok 1265 - List-assign untyped array of Int to uint8 array (2)
+ok 1266 - List-assign untyped array of Int to uint8 array (3)
+# Subtest: List-assigning incompatible untyped array to uint8 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1267 - List-assigning incompatible untyped array to uint8 array dies
+ok 1268 - Smartmatching same uint8 arrays works
+ok 1269 - Smartmatching different uint8 arrays works
+ok 1270 - Can we sort uint8 array
+ok 1271 - Can we sort 2-element sorted uint8 array
+ok 1272 - Can we sort 2-element unsorted uint8 array
+ok 1273 - Can we sort 1-element uint8 array
+ok 1274 - Can we sort 0-element uint8 array
+ok 1275 - uint16 array type is Positional
+ok 1276 - uint16 array type is Positional[uint16]
+ok 1277 - uint16 array type .of is uint16
+ok 1278 - uint16 array is Positional
+ok 1279 - uint16 array is Positional[uint16]
+ok 1280 - uint16 array .of is uint16
+ok 1281 - uint16 array is Positional
+ok 1282 - uint16 array is Positional[uint16]
+ok 1283 - uint16 array .of is uint16
+ok 1284 - .new from uint16 array is Positional
+ok 1285 - .new from uint16 array Positional[uint16]
+ok 1286 - .new from uint16 array .of is uint16
+ok 1287 - New uint16 array has no elems
+ok 1288 - New uint16 array has end of -1
+ok 1289 - New uint16 array Int-ifies to 0
+ok 1290 - New uint16 array numifies to 0
+ok 1291 - New uint16 array is falsey
+ok 1292 - Empty uint16 array is not lazy
+ok 1293 - Accessing non-existing on uint16 array gives 0
+ok 1294 - Elems do not grow just from an access on uint16 array
+ok 1295 - Can store integer in an uint16 array
+ok 1296 - Can get value from uint16 array
+ok 1297 - The elems grew as expected on uint16 array
+ok 1298 - uint16 array becomes truthy when it has an element
+ok 1299 - Can slice-assign to an uint16 array
+ok 1300 - Can get slice-assigned value from uint16 array (1)
+ok 1301 - Can get slice-assigned value from uint16 array (2)
+ok 1302 - The elems grew as expected on uint16 array
+ok 1303 - The end value matches grown elems on uint16 array
+ok 1304 - Int-ifies to grown number of elems on uint16 array
+ok 1305 - Numifies to grown number of elems on uint16 array
+ok 1306 - uint16 array with values is not lazy
+ok 1307 - Can assign non-contiguously to uint16 array
+ok 1308 - Elems behind non-contiguous assign are 0 on uint16 array
+ok 1309 - Non-contiguous assignment works on uint16 array
+ok 1310 - Can also get last element on uint16 array
+ok 1311 - Can clear uint16 array by assigning empty list
+ok 1312 - Cleared uint16 array has no elems
+ok 1313 - Cleared uint16 array has end of -1
+ok 1314 - Cleared uint16 array Int-ifies to 0
+ok 1315 - Cleared uint16 array numifies to 0
+ok 1316 - Cleared uint16 array is falsey
+ok 1317 - Can assign integer range to uint16 array
+ok 1318 - Got correct elems from range assign on uint16 array
+ok 1319 - Got correct element from range assign on uint16 array (1)
+ok 1320 - Got correct element from range assign on uint16 array (2)
+ok 1321 - :exists works on uint16 array (1)
+ok 1322 - :exists works on uint16 array (2)
+ok 1323 - :exists works on uint16 array (3)
+ok 1324 - Can call uint16 array constructor with a single value
+ok 1325 - Correct number of elems set in constructor of uint16 array
+ok 1326 - Correct element value set by constructor of uint16 array
+ok 1327 - Can call uint16 array constructor with values
+ok 1328 - Correct number of elems set in constructor of uint16 array
+ok 1329 - Correct elem value set by constructor of uint16 array (1)
+ok 1330 - Correct elem value set by constructor of uint16 array (2)
+ok 1331 - Correct elem value set by constructor of uint16 array (3)
+ok 1332 - Correct elem value set by constructor of uint16 array (4)
+ok 1333 - Can also get last 2 elements on uint16 array
+ok 1334 - uint16 array .flat returns a Seq
+ok 1335 - uint16 array .eager returns identity
+ok 1336 - Can iterate over uint16 array
+ok 1337 - Mutating for loop on uint16 array works (1)
+ok 1338 - Mutating for loop on uint16 array works (2)
+ok 1339 - Mutating for loop on uint16 array works (3)
+ok 1340 - Mutating for loop on uint16 array works (4)
+ok 1341 - Can map over uint16 array
+ok 1342 - Mutating map on uint16 array works (1)
+ok 1343 - Mutating map on uint16 array works (2)
+ok 1344 - Mutating map on uint16 array works (3)
+ok 1345 - Mutating map on uint16 array works (4)
+ok 1346 - grep a uint16 array
+ok 1347 - uint16 array.grep(Int)
+ok 1348 - uint16 array.grep(Int, :k)
+ok 1349 - uint16 array.grep(Int, :kv)
+ok 1350 - uint16 array.grep(Int, :p)
+ok 1351 - uint16 array.grep(Int, :v)
+ok 1352 - uint16 array.grep(Int)
+ok 1353 - uint16 array.grep(Int, :k)
+ok 1354 - uint16 array.grep(Int, :kv)
+ok 1355 - uint16 array.grep(Int, :p)
+ok 1356 - uint16 array.grep(Int, :v)
+ok 1357 - Can use reduce meta-op on a uint16 array
+ok 1358 - .values from a uint16 array
+ok 1359 - .pairup from a uint16 array
+ok 1360 - .keys from a uint16 array
+ok 1361 - .pairs from a uint16 array
+ok 1362 - .antipairs from a uint16 array
+ok 1363 - .kv from a uint16 array
+ok 1364 - .pick from a uint16 array
+ok 1365 - .roll from a uint16 array
+ok 1366 - uint16 array.unique
+ok 1367 - uint16 array.repeated
+ok 1368 - uint16 array.squish
+# Subtest: Trying to pop an empty uint16 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[uint16]
+ok 1369 - Trying to pop an empty uint16 array dies
+# Subtest: Trying to shift an empty uint16 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches shift
+    ok 4 - .what matches array[uint16]
+ok 1370 - Trying to shift an empty uint16 array dies
+ok 1371 - can push to uint16 array
+ok 1372 - push to uint16 array works (1)
+ok 1373 - push to uint16 array works (2)
+# Subtest: Cannot push non-int/Int to uint16 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 1374 - Cannot push non-int/Int to uint16 array
+# Subtest: Cannot bind to uint16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1375 - Cannot bind to uint16 array
+# Subtest: Cannot delete from uint16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1376 - Cannot delete from uint16 array
+ok 1377 - can push multiple to uint16 array
+ok 1378 - push multiple to uint16 array works (1)
+ok 1379 - push multiple to uint16 array works (2)
+ok 1380 - push multiple to uint16 array works (3)
+# Subtest: Cannot push non-int/Int to uint16 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1381 - Cannot push non-int/Int to uint16 array (multiple push)
+ok 1382 - can append to uint16 array
+ok 1383 - append to uint16 array works (1)
+ok 1384 - append to uint16 array works (2)
+# Subtest: Cannot append non-int/Int to uint16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1385 - Cannot append non-int/Int to uint16 array
+ok 1386 - can append multiple to uint16 array
+ok 1387 - append multiple to uint16 array works (1)
+ok 1388 - append multiple to uint16 array works (2)
+ok 1389 - append multiple to uint16 array works (3)
+# Subtest: Cannot append non-int/Int to uint16 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1390 - Cannot append non-int/Int to uint16 array (multiple append)
+ok 1391 - pop from uint16 array works (1)
+ok 1392 - pop from uint16 array works (2)
+ok 1393 - can unshift to uint16 array
+ok 1394 - unshift to uint16 array works (1)
+ok 1395 - unshift to uint16 array works (2)
+ok 1396 - unshift to uint16 array works (3)
+# Subtest: Cannot unshift non-int/Int to uint16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1397 - Cannot unshift non-int/Int to uint16 array
+ok 1398 - can unshift multiple to uint16 array
+ok 1399 - unshift multiple to uint16 array works (1)
+ok 1400 - unshift multiple to uint16 array works (2)
+ok 1401 - unshift multiple to uint16 array works (3)
+ok 1402 - unshift multiple to uint16 array works (4)
+ok 1403 - unshift multiple to uint16 array works (5)
+# Subtest: Cannot unshift non-int/Int to uint16 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1404 - Cannot unshift non-int/Int to uint16 array (multiple unshift)
+ok 1405 - can prepend to uint16 array
+ok 1406 - prepend to uint16 array works (1)
+ok 1407 - prepend to uint16 array works (2)
+ok 1408 - prepend to uint16 array works (3)
+# Subtest: Cannot prepend non-int/Int to uint16 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1409 - Cannot prepend non-int/Int to uint16 array
+ok 1410 - can prepend multiple to uint16 array
+ok 1411 - unshift multiple to uint16 array works (1)
+ok 1412 - prepend multiple to uint16 array works (2)
+ok 1413 - prepend multiple to uint16 array works (3)
+ok 1414 - prepend multiple to uint16 array works (4)
+ok 1415 - prepend multiple to uint16 array works (5)
+# Subtest: Cannot prepend non-int/Int to uint16 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1416 - Cannot prepend non-int/Int to uint16 array (multiple unshift)
+ok 1417 - shift from uint16 array works (1)
+ok 1418 - shift from uint16 array works (2)
+ok 1419 - can initialize uint16 from Range
+ok 1420 - Number of elems after splice uint16 array
+ok 1421 - Splice on uint16 array did the right thing (1)
+ok 1422 - Splice on uint16 array did the right thing (2)
+ok 1423 - Splice on uint16 array did the right thing (3)
+ok 1424 - Splice on uint16 array did the right thing (4)
+ok 1425 - Splice on uint16 array did the right thing (5)
+ok 1426 - Number of returned spliced values from uint16 array
+ok 1427 - Correct value in splice returned from uint16 array (1)
+ok 1428 - Correct value in splice returned from uint16 array (2)
+ok 1429 - .Str space-separates on uint16 array
+ok 1430 - .gist space-separates on uint16 array
+ok 1431 - .raku includes type and int values on uint16 array
+ok 1432 - does slice return same type
+ok 1433 - does slice handle containerized range
+ok 1434 - Flattening uint16 array in call works
+ok 1435 - does join a uint16 array
+ok 1436 - does emptying a uint16 array really empty
+ok 1437 - does join handle holes in a uint16 array
+ok 1438 - List-assigning uint16 array to untyped works (1)
+ok 1439 - List-assigning uint16 array to untyped works (2)
+ok 1440 - List-assigning uint16 array to untyped works (3)
+ok 1441 - List-assign uint16 array surrounded by literals (1)
+ok 1442 - List-assign uint16 array surrounded by literals (2)
+ok 1443 - List-assign uint16 array surrounded by literals (3)
+ok 1444 - List-assign uint16 array surrounded by literals (4)
+ok 1445 - List-assign uint16 array surrounded by literals (5)
+ok 1446 - List-assign untyped array of Int to uint16 array (1)
+ok 1447 - List-assign untyped array of Int to uint16 array (2)
+ok 1448 - List-assign untyped array of Int to uint16 array (3)
+# Subtest: List-assigning incompatible untyped array to uint16 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1449 - List-assigning incompatible untyped array to uint16 array dies
+ok 1450 - Smartmatching same uint16 arrays works
+ok 1451 - Smartmatching different uint16 arrays works
+ok 1452 - Can we sort uint16 array
+ok 1453 - Can we sort 2-element sorted uint16 array
+ok 1454 - Can we sort 2-element unsorted uint16 array
+ok 1455 - Can we sort 1-element uint16 array
+ok 1456 - Can we sort 0-element uint16 array
+ok 1457 - uint32 array type is Positional
+ok 1458 - uint32 array type is Positional[uint32]
+ok 1459 - uint32 array type .of is uint32
+ok 1460 - uint32 array is Positional
+ok 1461 - uint32 array is Positional[uint32]
+ok 1462 - uint32 array .of is uint32
+ok 1463 - uint32 array is Positional
+ok 1464 - uint32 array is Positional[uint32]
+ok 1465 - uint32 array .of is uint32
+ok 1466 - .new from uint32 array is Positional
+ok 1467 - .new from uint32 array Positional[uint32]
+ok 1468 - .new from uint32 array .of is uint32
+ok 1469 - New uint32 array has no elems
+ok 1470 - New uint32 array has end of -1
+ok 1471 - New uint32 array Int-ifies to 0
+ok 1472 - New uint32 array numifies to 0
+ok 1473 - New uint32 array is falsey
+ok 1474 - Empty uint32 array is not lazy
+ok 1475 - Accessing non-existing on uint32 array gives 0
+ok 1476 - Elems do not grow just from an access on uint32 array
+ok 1477 - Can store integer in an uint32 array
+ok 1478 - Can get value from uint32 array
+ok 1479 - The elems grew as expected on uint32 array
+ok 1480 - uint32 array becomes truthy when it has an element
+ok 1481 - Can slice-assign to an uint32 array
+ok 1482 - Can get slice-assigned value from uint32 array (1)
+ok 1483 - Can get slice-assigned value from uint32 array (2)
+ok 1484 - The elems grew as expected on uint32 array
+ok 1485 - The end value matches grown elems on uint32 array
+ok 1486 - Int-ifies to grown number of elems on uint32 array
+ok 1487 - Numifies to grown number of elems on uint32 array
+ok 1488 - uint32 array with values is not lazy
+ok 1489 - Can assign non-contiguously to uint32 array
+ok 1490 - Elems behind non-contiguous assign are 0 on uint32 array
+ok 1491 - Non-contiguous assignment works on uint32 array
+ok 1492 - Can also get last element on uint32 array
+ok 1493 - Can clear uint32 array by assigning empty list
+ok 1494 - Cleared uint32 array has no elems
+ok 1495 - Cleared uint32 array has end of -1
+ok 1496 - Cleared uint32 array Int-ifies to 0
+ok 1497 - Cleared uint32 array numifies to 0
+ok 1498 - Cleared uint32 array is falsey
+ok 1499 - Can assign integer range to uint32 array
+ok 1500 - Got correct elems from range assign on uint32 array
+ok 1501 - Got correct element from range assign on uint32 array (1)
+ok 1502 - Got correct element from range assign on uint32 array (2)
+ok 1503 - :exists works on uint32 array (1)
+ok 1504 - :exists works on uint32 array (2)
+ok 1505 - :exists works on uint32 array (3)
+ok 1506 - Can call uint32 array constructor with a single value
+ok 1507 - Correct number of elems set in constructor of uint32 array
+ok 1508 - Correct element value set by constructor of uint32 array
+ok 1509 - Can call uint32 array constructor with values
+ok 1510 - Correct number of elems set in constructor of uint32 array
+ok 1511 - Correct elem value set by constructor of uint32 array (1)
+ok 1512 - Correct elem value set by constructor of uint32 array (2)
+ok 1513 - Correct elem value set by constructor of uint32 array (3)
+ok 1514 - Correct elem value set by constructor of uint32 array (4)
+ok 1515 - Can also get last 2 elements on uint32 array
+ok 1516 - uint32 array .flat returns a Seq
+ok 1517 - uint32 array .eager returns identity
+ok 1518 - Can iterate over uint32 array
+ok 1519 - Mutating for loop on uint32 array works (1)
+ok 1520 - Mutating for loop on uint32 array works (2)
+ok 1521 - Mutating for loop on uint32 array works (3)
+ok 1522 - Mutating for loop on uint32 array works (4)
+ok 1523 - Can map over uint32 array
+ok 1524 - Mutating map on uint32 array works (1)
+ok 1525 - Mutating map on uint32 array works (2)
+ok 1526 - Mutating map on uint32 array works (3)
+ok 1527 - Mutating map on uint32 array works (4)
+ok 1528 - grep a uint32 array
+ok 1529 - uint32 array.grep(Int)
+ok 1530 - uint32 array.grep(Int, :k)
+ok 1531 - uint32 array.grep(Int, :kv)
+ok 1532 - uint32 array.grep(Int, :p)
+ok 1533 - uint32 array.grep(Int, :v)
+ok 1534 - uint32 array.grep(Int)
+ok 1535 - uint32 array.grep(Int, :k)
+ok 1536 - uint32 array.grep(Int, :kv)
+ok 1537 - uint32 array.grep(Int, :p)
+ok 1538 - uint32 array.grep(Int, :v)
+ok 1539 - Can use reduce meta-op on a uint32 array
+ok 1540 - .values from a uint32 array
+ok 1541 - .pairup from a uint32 array
+ok 1542 - .keys from a uint32 array
+ok 1543 - .pairs from a uint32 array
+ok 1544 - .antipairs from a uint32 array
+ok 1545 - .kv from a uint32 array
+ok 1546 - .pick from a uint32 array
+ok 1547 - .roll from a uint32 array
+ok 1548 - uint32 array.unique
+ok 1549 - uint32 array.repeated
+ok 1550 - uint32 array.squish
+# Subtest: Trying to pop an empty uint32 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .action matches pop
+    ok 4 - .what matches array[uint32]
+ok 1551 - Trying to pop an empty uint32 array dies
+# Subtest: Trying to shift an empty uint32 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[uint32]
+    ok 4 - .action matches shift
+ok 1552 - Trying to shift an empty uint32 array dies
+ok 1553 - can push to uint32 array
+ok 1554 - push to uint32 array works (1)
+ok 1555 - push to uint32 array works (2)
+# Subtest: Cannot push non-int/Int to uint32 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 1556 - Cannot push non-int/Int to uint32 array
+# Subtest: Cannot bind to uint32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1557 - Cannot bind to uint32 array
+# Subtest: Cannot delete from uint32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1558 - Cannot delete from uint32 array
+ok 1559 - can push multiple to uint32 array
+ok 1560 - push multiple to uint32 array works (1)
+ok 1561 - push multiple to uint32 array works (2)
+ok 1562 - push multiple to uint32 array works (3)
+# Subtest: Cannot push non-int/Int to uint32 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1563 - Cannot push non-int/Int to uint32 array (multiple push)
+ok 1564 - can append to uint32 array
+ok 1565 - append to uint32 array works (1)
+ok 1566 - append to uint32 array works (2)
+# Subtest: Cannot append non-int/Int to uint32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1567 - Cannot append non-int/Int to uint32 array
+ok 1568 - can append multiple to uint32 array
+ok 1569 - append multiple to uint32 array works (1)
+ok 1570 - append multiple to uint32 array works (2)
+ok 1571 - append multiple to uint32 array works (3)
+# Subtest: Cannot append non-int/Int to uint32 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1572 - Cannot append non-int/Int to uint32 array (multiple append)
+ok 1573 - pop from uint32 array works (1)
+ok 1574 - pop from uint32 array works (2)
+ok 1575 - can unshift to uint32 array
+ok 1576 - unshift to uint32 array works (1)
+ok 1577 - unshift to uint32 array works (2)
+ok 1578 - unshift to uint32 array works (3)
+# Subtest: Cannot unshift non-int/Int to uint32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1579 - Cannot unshift non-int/Int to uint32 array
+ok 1580 - can unshift multiple to uint32 array
+ok 1581 - unshift multiple to uint32 array works (1)
+ok 1582 - unshift multiple to uint32 array works (2)
+ok 1583 - unshift multiple to uint32 array works (3)
+ok 1584 - unshift multiple to uint32 array works (4)
+ok 1585 - unshift multiple to uint32 array works (5)
+# Subtest: Cannot unshift non-int/Int to uint32 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1586 - Cannot unshift non-int/Int to uint32 array (multiple unshift)
+ok 1587 - can prepend to uint32 array
+ok 1588 - prepend to uint32 array works (1)
+ok 1589 - prepend to uint32 array works (2)
+ok 1590 - prepend to uint32 array works (3)
+# Subtest: Cannot prepend non-int/Int to uint32 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1591 - Cannot prepend non-int/Int to uint32 array
+ok 1592 - can prepend multiple to uint32 array
+ok 1593 - unshift multiple to uint32 array works (1)
+ok 1594 - prepend multiple to uint32 array works (2)
+ok 1595 - prepend multiple to uint32 array works (3)
+ok 1596 - prepend multiple to uint32 array works (4)
+ok 1597 - prepend multiple to uint32 array works (5)
+# Subtest: Cannot prepend non-int/Int to uint32 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1598 - Cannot prepend non-int/Int to uint32 array (multiple unshift)
+ok 1599 - shift from uint32 array works (1)
+ok 1600 - shift from uint32 array works (2)
+ok 1601 - can initialize uint32 from Range
+ok 1602 - Number of elems after splice uint32 array
+ok 1603 - Splice on uint32 array did the right thing (1)
+ok 1604 - Splice on uint32 array did the right thing (2)
+ok 1605 - Splice on uint32 array did the right thing (3)
+ok 1606 - Splice on uint32 array did the right thing (4)
+ok 1607 - Splice on uint32 array did the right thing (5)
+ok 1608 - Number of returned spliced values from uint32 array
+ok 1609 - Correct value in splice returned from uint32 array (1)
+ok 1610 - Correct value in splice returned from uint32 array (2)
+ok 1611 - .Str space-separates on uint32 array
+ok 1612 - .gist space-separates on uint32 array
+ok 1613 - .raku includes type and int values on uint32 array
+ok 1614 - does slice return same type
+ok 1615 - does slice handle containerized range
+ok 1616 - Flattening uint32 array in call works
+ok 1617 - does join a uint32 array
+ok 1618 - does emptying a uint32 array really empty
+ok 1619 - does join handle holes in a uint32 array
+ok 1620 - List-assigning uint32 array to untyped works (1)
+ok 1621 - List-assigning uint32 array to untyped works (2)
+ok 1622 - List-assigning uint32 array to untyped works (3)
+ok 1623 - List-assign uint32 array surrounded by literals (1)
+ok 1624 - List-assign uint32 array surrounded by literals (2)
+ok 1625 - List-assign uint32 array surrounded by literals (3)
+ok 1626 - List-assign uint32 array surrounded by literals (4)
+ok 1627 - List-assign uint32 array surrounded by literals (5)
+ok 1628 - List-assign untyped array of Int to uint32 array (1)
+ok 1629 - List-assign untyped array of Int to uint32 array (2)
+ok 1630 - List-assign untyped array of Int to uint32 array (3)
+# Subtest: List-assigning incompatible untyped array to uint32 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1631 - List-assigning incompatible untyped array to uint32 array dies
+ok 1632 - Smartmatching same uint32 arrays works
+ok 1633 - Smartmatching different uint32 arrays works
+ok 1634 - Can we sort uint32 array
+ok 1635 - Can we sort 2-element sorted uint32 array
+ok 1636 - Can we sort 2-element unsorted uint32 array
+ok 1637 - Can we sort 1-element uint32 array
+ok 1638 - Can we sort 0-element uint32 array
+ok 1639 - uint64 array type is Positional
+ok 1640 - uint64 array type is Positional[uint64]
+ok 1641 - uint64 array type .of is uint64
+ok 1642 - uint64 array is Positional
+ok 1643 - uint64 array is Positional[uint64]
+ok 1644 - uint64 array .of is uint64
+ok 1645 - uint64 array is Positional
+ok 1646 - uint64 array is Positional[uint64]
+ok 1647 - uint64 array .of is uint64
+ok 1648 - .new from uint64 array is Positional
+ok 1649 - .new from uint64 array Positional[uint64]
+ok 1650 - .new from uint64 array .of is uint64
+ok 1651 - New uint64 array has no elems
+ok 1652 - New uint64 array has end of -1
+ok 1653 - New uint64 array Int-ifies to 0
+ok 1654 - New uint64 array numifies to 0
+ok 1655 - New uint64 array is falsey
+ok 1656 - Empty uint64 array is not lazy
+ok 1657 - Accessing non-existing on uint64 array gives 0
+ok 1658 - Elems do not grow just from an access on uint64 array
+ok 1659 - Can store integer in an uint64 array
+ok 1660 - Can get value from uint64 array
+ok 1661 - The elems grew as expected on uint64 array
+ok 1662 - uint64 array becomes truthy when it has an element
+ok 1663 - Can slice-assign to an uint64 array
+ok 1664 - Can get slice-assigned value from uint64 array (1)
+ok 1665 - Can get slice-assigned value from uint64 array (2)
+ok 1666 - The elems grew as expected on uint64 array
+ok 1667 - The end value matches grown elems on uint64 array
+ok 1668 - Int-ifies to grown number of elems on uint64 array
+ok 1669 - Numifies to grown number of elems on uint64 array
+ok 1670 - uint64 array with values is not lazy
+ok 1671 - Can assign non-contiguously to uint64 array
+ok 1672 - Elems behind non-contiguous assign are 0 on uint64 array
+ok 1673 - Non-contiguous assignment works on uint64 array
+ok 1674 - Can also get last element on uint64 array
+ok 1675 - Can clear uint64 array by assigning empty list
+ok 1676 - Cleared uint64 array has no elems
+ok 1677 - Cleared uint64 array has end of -1
+ok 1678 - Cleared uint64 array Int-ifies to 0
+ok 1679 - Cleared uint64 array numifies to 0
+ok 1680 - Cleared uint64 array is falsey
+ok 1681 - Can assign integer range to uint64 array
+ok 1682 - Got correct elems from range assign on uint64 array
+ok 1683 - Got correct element from range assign on uint64 array (1)
+ok 1684 - Got correct element from range assign on uint64 array (2)
+ok 1685 - :exists works on uint64 array (1)
+ok 1686 - :exists works on uint64 array (2)
+ok 1687 - :exists works on uint64 array (3)
+ok 1688 - Can call uint64 array constructor with a single value
+ok 1689 - Correct number of elems set in constructor of uint64 array
+ok 1690 - Correct element value set by constructor of uint64 array
+ok 1691 - Can call uint64 array constructor with values
+ok 1692 - Correct number of elems set in constructor of uint64 array
+ok 1693 - Correct elem value set by constructor of uint64 array (1)
+ok 1694 - Correct elem value set by constructor of uint64 array (2)
+ok 1695 - Correct elem value set by constructor of uint64 array (3)
+ok 1696 - Correct elem value set by constructor of uint64 array (4)
+ok 1697 - Can also get last 2 elements on uint64 array
+ok 1698 - uint64 array .flat returns a Seq
+ok 1699 - uint64 array .eager returns identity
+ok 1700 - Can iterate over uint64 array
+ok 1701 - Mutating for loop on uint64 array works (1)
+ok 1702 - Mutating for loop on uint64 array works (2)
+ok 1703 - Mutating for loop on uint64 array works (3)
+ok 1704 - Mutating for loop on uint64 array works (4)
+ok 1705 - Can map over uint64 array
+ok 1706 - Mutating map on uint64 array works (1)
+ok 1707 - Mutating map on uint64 array works (2)
+ok 1708 - Mutating map on uint64 array works (3)
+ok 1709 - Mutating map on uint64 array works (4)
+ok 1710 - grep a uint64 array
+ok 1711 - uint64 array.grep(Int)
+ok 1712 - uint64 array.grep(Int, :k)
+ok 1713 - uint64 array.grep(Int, :kv)
+ok 1714 - uint64 array.grep(Int, :p)
+ok 1715 - uint64 array.grep(Int, :v)
+ok 1716 - uint64 array.grep(Int)
+ok 1717 - uint64 array.grep(Int, :k)
+ok 1718 - uint64 array.grep(Int, :kv)
+ok 1719 - uint64 array.grep(Int, :p)
+ok 1720 - uint64 array.grep(Int, :v)
+ok 1721 - Can use reduce meta-op on a uint64 array
+ok 1722 - .values from a uint64 array
+ok 1723 - .pairup from a uint64 array
+ok 1724 - .keys from a uint64 array
+ok 1725 - .pairs from a uint64 array
+ok 1726 - .antipairs from a uint64 array
+ok 1727 - .kv from a uint64 array
+ok 1728 - .pick from a uint64 array
+ok 1729 - .roll from a uint64 array
+ok 1730 - uint64 array.unique
+ok 1731 - uint64 array.repeated
+ok 1732 - uint64 array.squish
+# Subtest: Trying to pop an empty uint64 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[uint64]
+    ok 4 - .action matches pop
+ok 1733 - Trying to pop an empty uint64 array dies
+# Subtest: Trying to shift an empty uint64 array dies
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+    ok 3 - .what matches array[uint64]
+    ok 4 - .action matches shift
+ok 1734 - Trying to shift an empty uint64 array dies
+ok 1735 - can push to uint64 array
+ok 1736 - push to uint64 array works (1)
+ok 1737 - push to uint64 array works (2)
+# Subtest: Cannot push non-int/Int to uint64 array
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck)
+    ok 3 - .got matches (Str)
+ok 1738 - Cannot push non-int/Int to uint64 array
+# Subtest: Cannot bind to uint64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1739 - Cannot bind to uint64 array
+# Subtest: Cannot delete from uint64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1740 - Cannot delete from uint64 array
+ok 1741 - can push multiple to uint64 array
+ok 1742 - push multiple to uint64 array works (1)
+ok 1743 - push multiple to uint64 array works (2)
+ok 1744 - push multiple to uint64 array works (3)
+# Subtest: Cannot push non-int/Int to uint64 array (multiple push)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1745 - Cannot push non-int/Int to uint64 array (multiple push)
+ok 1746 - can append to uint64 array
+ok 1747 - append to uint64 array works (1)
+ok 1748 - append to uint64 array works (2)
+# Subtest: Cannot append non-int/Int to uint64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1749 - Cannot append non-int/Int to uint64 array
+ok 1750 - can append multiple to uint64 array
+ok 1751 - append multiple to uint64 array works (1)
+ok 1752 - append multiple to uint64 array works (2)
+ok 1753 - append multiple to uint64 array works (3)
+# Subtest: Cannot append non-int/Int to uint64 array (multiple append)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1754 - Cannot append non-int/Int to uint64 array (multiple append)
+ok 1755 - pop from uint64 array works (1)
+ok 1756 - pop from uint64 array works (2)
+ok 1757 - can unshift to uint64 array
+ok 1758 - unshift to uint64 array works (1)
+ok 1759 - unshift to uint64 array works (2)
+ok 1760 - unshift to uint64 array works (3)
+# Subtest: Cannot unshift non-int/Int to uint64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1761 - Cannot unshift non-int/Int to uint64 array
+ok 1762 - can unshift multiple to uint64 array
+ok 1763 - unshift multiple to uint64 array works (1)
+ok 1764 - unshift multiple to uint64 array works (2)
+ok 1765 - unshift multiple to uint64 array works (3)
+ok 1766 - unshift multiple to uint64 array works (4)
+ok 1767 - unshift multiple to uint64 array works (5)
+# Subtest: Cannot unshift non-int/Int to uint64 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1768 - Cannot unshift non-int/Int to uint64 array (multiple unshift)
+ok 1769 - can prepend to uint64 array
+ok 1770 - prepend to uint64 array works (1)
+ok 1771 - prepend to uint64 array works (2)
+ok 1772 - prepend to uint64 array works (3)
+# Subtest: Cannot prepend non-int/Int to uint64 array
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1773 - Cannot prepend non-int/Int to uint64 array
+ok 1774 - can prepend multiple to uint64 array
+ok 1775 - unshift multiple to uint64 array works (1)
+ok 1776 - prepend multiple to uint64 array works (2)
+ok 1777 - prepend multiple to uint64 array works (3)
+ok 1778 - prepend multiple to uint64 array works (4)
+ok 1779 - prepend multiple to uint64 array works (5)
+# Subtest: Cannot prepend non-int/Int to uint64 array (multiple unshift)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1780 - Cannot prepend non-int/Int to uint64 array (multiple unshift)
+ok 1781 - shift from uint64 array works (1)
+ok 1782 - shift from uint64 array works (2)
+ok 1783 - can initialize uint64 from Range
+ok 1784 - Number of elems after splice uint64 array
+ok 1785 - Splice on uint64 array did the right thing (1)
+ok 1786 - Splice on uint64 array did the right thing (2)
+ok 1787 - Splice on uint64 array did the right thing (3)
+ok 1788 - Splice on uint64 array did the right thing (4)
+ok 1789 - Splice on uint64 array did the right thing (5)
+ok 1790 - Number of returned spliced values from uint64 array
+ok 1791 - Correct value in splice returned from uint64 array (1)
+ok 1792 - Correct value in splice returned from uint64 array (2)
+ok 1793 - .Str space-separates on uint64 array
+ok 1794 - .gist space-separates on uint64 array
+ok 1795 - .raku includes type and int values on uint64 array
+ok 1796 - does slice return same type
+ok 1797 - does slice handle containerized range
+ok 1798 - Flattening uint64 array in call works
+ok 1799 - does join a uint64 array
+ok 1800 - does emptying a uint64 array really empty
+ok 1801 - does join handle holes in a uint64 array
+ok 1802 - List-assigning uint64 array to untyped works (1)
+ok 1803 - List-assigning uint64 array to untyped works (2)
+ok 1804 - List-assigning uint64 array to untyped works (3)
+ok 1805 - List-assign uint64 array surrounded by literals (1)
+ok 1806 - List-assign uint64 array surrounded by literals (2)
+ok 1807 - List-assign uint64 array surrounded by literals (3)
+ok 1808 - List-assign uint64 array surrounded by literals (4)
+ok 1809 - List-assign uint64 array surrounded by literals (5)
+ok 1810 - List-assign untyped array of Int to uint64 array (1)
+ok 1811 - List-assign untyped array of Int to uint64 array (2)
+ok 1812 - List-assign untyped array of Int to uint64 array (3)
+# Subtest: List-assigning incompatible untyped array to uint64 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1813 - List-assigning incompatible untyped array to uint64 array dies
+ok 1814 - Smartmatching same uint64 arrays works
+ok 1815 - Smartmatching different uint64 arrays works
+ok 1816 - Can we sort uint64 array
+ok 1817 - Can we sort 2-element sorted uint64 array
+ok 1818 - Can we sort 2-element unsorted uint64 array
+ok 1819 - Can we sort 1-element uint64 array
+ok 1820 - Can we sort 0-element uint64 array
+ok 1821 - assigning -1 on uint array passes value on through?
+ok 1822 - negative value on uint array becomes positive
+ok 1823 - assigning -1 on uint8 array passes value on through?
+ok 1824 - negative value on uint8 array becomes positive
+ok 1825 - assigning -1 on uint16 array passes value on through?
+ok 1826 - negative value on uint16 array becomes positive
+ok 1827 - assigning -1 on uint32 array passes value on through?
+ok 1828 - negative value on uint32 array becomes positive
+ok 1829 - assigning -1 on uint64 array passes value on through?
+ok 1830 - negative value on uint64 array becomes positive
+ok 1831 - Trying to assign ^Inf to an int array dies
+ok 1832 - is 1999999000000 == 1999999000000
+ok 1833 - did we survive the hole
+ok 1834 - can we assign with '.first'
+ok 1835 - did the assign with '.first' work
+ok 1836 - can we assign with '.head'
+ok 1837 - did the assign with '.head' work
+ok 1838 - can we assign with '.tail'
+ok 1839 - did the assign with '.tail' work
+ok 1840 - is the final array correct

@@ -1,0 +1,32 @@
+1..27
+ok 1 - Int.minpairs
+ok 2 - Int.maxpairs
+ok 3 - Str.minpairs
+ok 4 - Str.maxpairs
+ok 5 - Num.minpairs
+ok 6 - Num.maxpairs
+ok 7 - Rat.minpairs
+ok 8 - Rat.maxpairs
+ok 9 - DateTime.minpairs
+ok 10 - DateTime.maxpairs
+ok 11 - Duration.minpairs
+ok 12 - Duration.maxpairs
+ok 13 - Instant.minpairs
+ok 14 - Instant.maxpairs
+ok 15 - Date.minpairs
+ok 16 - Date.maxpairs
+ok 17 - IO::Path.minpairs
+ok 18 - IO::Path.maxpairs
+ok 19 - Foo.minpairs
+ok 20 - Foo.maxpairs
+ok 21 - maxpairs on a List of mixed types
+ok 22 - minpairs on a List of mixed types
+# Subtest: Setty.maxpairs/.minpairs
+    1..2
+    ok 1 - Setty.maxpairs returns .pairs
+    ok 2 - Setty.minpairs returns .pairs
+ok 23 - Setty.maxpairs/.minpairs
+ok 24 - maxpairs on sparse
+ok 25 - maxpairs should not have warned
+ok 26 - minpairs on sparse
+ok 27 - minpairs should not have warned

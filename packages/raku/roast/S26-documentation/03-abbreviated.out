@@ -1,0 +1,31 @@
+1..30
+ok 1 - returns a Pod6 Block
+ok 2 - returns a named Block
+ok 3 - no contents, all right
+ok 4 - the contents are all right
+ok 5 - the contents are all right
+ok 6 - The object is-a 'Pod::Block'
+ok 7 - paragraph block contents ok, 1/2
+ok 8 - The object is-a 'Pod::Block'
+ok 9 - paragraph block contents ok, 1/2
+ok 10 - The object is-a 'Pod::Block::Para'
+ok 11 - contents outside blocks is all right
+ok 12 - mixed blocks, 1
+ok 13 - mixed blocks, 2
+ok 14 - mixed blocks, 3
+ok 15 - mixed blocks, 4
+ok 16 - mixed blocks, 5
+ok 17 - The object is-a 'Pod::Block'
+ok 18 - 5 sub-nodes in foo
+ok 19 - ...in the marmelade forest
+ok 20 - ...between the make-believe trees
+ok 21 - ...in a cottage cheese cottage
+ok 22 - ...lives Albi! Albi!
+ok 23 - ...Albi, the Racist Dragon
+ok 24 - The object is-a 'Pod::Block'
+ok 25 - 
+ok 26 - 
+ok 27 - The object is-a 'Pod::Block'
+ok 28 - The object is-a 'Pod::Heading'
+ok 29 - 
+ok 30 - 

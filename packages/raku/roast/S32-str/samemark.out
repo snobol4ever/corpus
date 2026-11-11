@@ -1,0 +1,10 @@
+1..9
+ok 1 - samemark as a function works
+ok 2 - samemark without a change (no accents)
+ok 3 - samemark as a method works
+ok 4 - samemark without a change (no accents)
+ok 5 - samemark without a change (accents already present
+ok 6 - samemark changes to new accents
+ok 7 - samemark with longer base string
+ok 8 - samemark with longer source string
+ok 9 - samemark "": nothing to be done

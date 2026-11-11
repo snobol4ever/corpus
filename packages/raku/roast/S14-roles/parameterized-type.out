@@ -1,0 +1,49 @@
+1..11
+# Subtest: Parameterization as constraint
+    ok 1 - using of as type constraint on variable works (class does role)
+    ok 2 - using of as type constraint on variable works (class does role)
+    ok 3 - using of as type constraint on variable works (role instantiation)
+    ok 4 - using of as type constraint on variable works (role instantiation)
+    ok 5 - using of as type constraint on parameter works (class does role)
+    ok 6 - using of as type constraint on parameter works (class does role)
+    ok 7 - using of as type constraint on parameter works (role instantiation)
+    ok 8 - using of as type constraint on parameter works (role instantiation)
+    1..8
+ok 1 - Parameterization as constraint
+# Subtest: Recursive-ish parameterization
+    ok 1 - roles parameterized with themselves as type constraints
+    ok 2 - roles parameterized with themselves as type constraints
+    ok 3 - roles parameterized with themselves as type constraints
+    ok 4 - roles parameterized with themselves as type constraints
+    ok 5 - roles parameterized with themselves as type constraints
+    ok 6 - roles parameterized with themselves as type constraints
+    ok 7 - roles parameterized with themselves as type constraints
+    ok 8 - roles parameterized with themselves as type constraints
+    ok 9 - types being used as type constraints inside roles work
+    ok 10 - types being used as type constraints inside roles work
+    ok 11 - roles being used as type constraints inside roles work
+    ok 12 - roles being used as type constraints inside roles work
+    ok 13 - roles being used as type constraints inside roles work
+    ok 14 - roles being used as type constraints inside roles work
+    ok 15 - classes being used as type constraints inside roles work
+    ok 16 - classes being used as type constraints inside roles work
+    1..16
+ok 2 - Recursive-ish parameterization
+# Subtest: role with undefined type as parameter dies
+    1..2
+    ok 1 - 'role ABCD[EFGH] { }' died
+    ok 2 - right exception type (X::Parameter::InvalidType)
+ok 3 - role with undefined type as parameter dies
+ok 4 - parameterized role doing non-parameterized role
+ok 5 - can not use ::T in role application
+ok 6 - can use a parameterized role as a default value of a parameterized role
+ok 7 - can export and import parameterized roles
+ok 8 - correct multi selected from multiple parametric roles
+# Subtest: error message mentions expected type when a typed array in a signature fails to bind
+    1..3
+    ok 1 - 'sub f(Int @x) {}; f( [] )' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+    ok 3 - .message matches /Positional\[Int\]/
+ok 9 - error message mentions expected type when a typed array in a signature fails to bind
+ok 10 - role with where clause and default in parametric signature works out OK
+ok 11 - role is correctly paramterized in a role's method body

@@ -1,0 +1,4 @@
+1..3
+ok 1 - boolification of role type object
+ok 2 - boolification of role-typed container (false)
+ok 3 - boolification of role-typed container (true)

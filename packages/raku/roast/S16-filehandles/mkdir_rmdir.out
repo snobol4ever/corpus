@@ -1,0 +1,15 @@
+1..14
+ok 1 - mkdir-t-testfile-929334 does not currently exist
+ok 2 - mkdir mkdir-t-testfile-929334 returns true
+ok 3 - mkdir-t-testfile-929334 now exists
+ok 4 - ... and is a directory
+ok 5 - mkdir mkdir-t-testfile-929334/green returns true
+ok 6 - mkdir-t-testfile-929334/green now exists
+ok 7 - ... and is a directory
+ok 8 - Get false when we try to rmdir a directory with something in it
+ok 9 - mkdir-t-testfile-929334 still exists
+ok 10 - Can remove mkdir-t-testfile-929334/green
+ok 11 - mkdir-t-testfile-929334/green no longer exists
+ok 12 - mkdir-t-testfile-929334 still exists
+ok 13 - Can remove mkdir-t-testfile-929334 now
+ok 14 - mkdir-t-testfile-929334 no longer exists

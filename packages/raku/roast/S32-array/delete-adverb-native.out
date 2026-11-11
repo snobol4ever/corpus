@@ -1,0 +1,139 @@
+1..138
+ok 1 - do we have a valid array
+ok 2 - Test for delete single element
+ok 3 - 3 should be deleted now
+ok 4 - array still has same length
+ok 5 - Test non-deletion with ! single elem
+ok 6 - 9 should not have been deleted
+ok 7 - Test non-deletion with (0) single elem
+ok 8 - 9 should not have been deleted
+ok 9 - Test non-deletion with (False) single elem
+ok 10 - 9 should not have been deleted
+ok 11 - Test non-deletion with ($dont) single elem
+ok 12 - 9 should not have been deleted
+ok 13 - Test deletion with (1) single elem
+ok 14 - 9 should be deleted now
+ok 15 - array should be shortened now
+ok 16 - return a single pair out
+ok 17 - 8 should not have been deleted
+ok 18 - slice a single pair out
+ok 19 - 8 should be deleted now
+ok 20 - slice unexisting single pair out
+ok 21 - slice unexisting single pair out
+ok 22 - should have been shortened
+ok 23 - return a single elem/value out
+ok 24 - 7 should not have been deleted
+ok 25 - slice a single elem/value out
+ok 26 - 7 should be deleted now
+ok 27 - slice unexisting single elem/value
+ok 28 - slice unexisting single elem/value
+ok 29 - should have been shortened
+ok 30 - return a single elem out
+ok 31 - 6 should not have been deleted
+ok 32 - slice a single elem out
+ok 33 - 6 should be deleted now
+ok 34 - slice unexisting single elem
+ok 35 - slice unexisting single elem
+ok 36 - should have been shortened
+ok 37 - return a single value out
+ok 38 - 5 should not have been deleted
+ok 39 - slice a single value out
+ok 40 - 5 should be deleted now
+ok 41 - slice unexisting single elem
+ok 42 - slice unexisting single elem
+ok 43 - should have been shortened
+ok 44 - 9:exists single existing elem
+ok 45 - 9 should be deleted now
+ok 46 - 9:exists one non-existing elem
+ok 47 - 9:!exists one non-existing elem
+ok 48 - should have been shortened
+ok 49 - 8:exists:kv 1 eelem
+ok 50 - 8 should be deleted now
+ok 51 - 1 neelem d:exists:!kv
+ok 52 - 1 neelem d:!exists:!kv
+ok 53 - 1 neelem d:exists:kv
+ok 54 - 1 neelem d:!exists:kv
+ok 55 - should have been shortened
+ok 56 - 7:exists:p 1 eelem
+ok 57 - 7 should be deleted now
+ok 58 - 1 neelem exists:!p
+ok 59 - 1 neelem !exists:!p
+ok 60 - 1 neelem exists:p
+ok 61 - 1 neelem !exists:p
+ok 62 - should have been shortened
+ok 63 - :delete non-existing
+ok 64 - should not vivify
+ok 65 - :!delete non-existing
+ok 66 - should not vivify
+ok 67 - :delete:exists non-existing
+ok 68 - should not vivify
+ok 69 - :!delete:exists non-existing
+ok 70 - should not vivify
+ok 71 - :delete:!exists non-existing
+ok 72 - should not vivify
+ok 73 - :!delete:!exists non-existing
+ok 74 - should not vivify
+ok 75 - :delete:exists:kv non-existing
+ok 76 - should not vivify
+ok 77 - :!delete:exists:kv non-existing
+ok 78 - should not vivify
+ok 79 - :delete:!exists:kv non-existing
+ok 80 - should not vivify
+ok 81 - :!delete:!exists:kv non-existing
+ok 82 - should not vivify
+ok 83 - :delete:exists:!kv non-existing
+ok 84 - should not vivify
+ok 85 - :!delete:exists:!kv non-existing
+ok 86 - should not vivify
+ok 87 - :delete:!exists:!kv non-existing
+ok 88 - should not vivify
+ok 89 - :!delete:!exists:!kv non-existing
+ok 90 - should not vivify
+ok 91 - :delete:exists:p non-existing
+ok 92 - should not vivify
+ok 93 - :!delete:exists:p non-existing
+ok 94 - should not vivify
+ok 95 - :delete:!exists:p non-existing
+ok 96 - should not vivify
+ok 97 - :!delete:!exists:p non-existing
+ok 98 - should not vivify
+ok 99 - :delete:exists:!p non-existing
+ok 100 - should not vivify
+ok 101 - :!delete:exists:!p non-existing
+ok 102 - should not vivify
+ok 103 - :delete:!exists:!p non-existing
+ok 104 - should not vivify
+ok 105 - :!delete:!exists:!p non-existing
+ok 106 - should not vivify
+ok 107 - :exists:kv non-existing
+ok 108 - should not vivify
+ok 109 - :!exists:kv non-existing
+ok 110 - should not vivify
+ok 111 - :exists:!kv non-existing
+ok 112 - should not vivify
+ok 113 - :!exists:!kv non-existing
+ok 114 - should not vivify
+ok 115 - :exists:p non-existing
+ok 116 - should not vivify
+ok 117 - :!exists:p non-existing
+ok 118 - should not vivify
+ok 119 - :exists:!p non-existing
+ok 120 - should not vivify
+ok 121 - :!exists:!p non-existing
+ok 122 - should not vivify
+ok 123 - :kv non-existing
+ok 124 - should not vivify
+ok 125 - :!kv non-existing
+ok 126 - should not vivify
+ok 127 - :p non-existing
+ok 128 - should not vivify
+ok 129 - :!p non-existing
+ok 130 - should not vivify
+ok 131 - :k non-existing
+ok 132 - should not vivify
+ok 133 - :!k non-existing
+ok 134 - should not vivify
+ok 135 - :v non-existing
+ok 136 - should not vivify
+ok 137 - :!v non-existing
+ok 138 - should not vivify

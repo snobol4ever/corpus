@@ -1,0 +1,65 @@
+1..34
+ok 1 - basic sanity (1)
+ok 2 - deletion of an array element returned the right thing
+ok 3 - deletion of an array element
+ok 4 - deletion of array elements returned the right things
+ok 5 - deletion of array elements (1)
+ok 6 - deletion of array elements (2)
+ok 7 - deletion of array element accessed by an negative index returned the right thing
+ok 8 - deletion of an array element accessed by an negative index (1)
+ok 9 - deletion of an array element accessed by an negative index (2)
+ok 10 - deletion of last array element returned the right thing
+ok 11 - deletion of last array element (1)
+ok 12 - deletion of last array element (2)
+ok 13 - deletion of array elements accessed by positive and negative indices returned right things
+ok 14 - deletion of array elements accessed by positive and negative indices (1)
+ok 15 - deletion of array elements accessed by positive and negative indices (2)
+ok 16 - deletion of the same array element accessed by different indices returned right things
+ok 17 - deletion of the same array element accessed by different indices (1)
+ok 18 - deletion of the same array element accessed by different indices (2)
+ok 19 - deletion of trailing items purge empty positions
+ok 20 - deletion of array elements accessed by a range of positives indices returned right things
+ok 21 - deletion of array elements accessed by a range of positive indices (1)
+ok 22 - deletion of array elements accessed by a range of positive indices (2)
+ok 23 - deletion of array elements accessed by a range of positives indices returned right things (2)
+ok 24 - deletion of array elements accessed by a range of positive indices (3)
+ok 25 - deletion of array elements accessed by a range of positive indices (4)
+ok 26 - @array.raku works after init
+ok 27 - map @array works after init
+ok 28 - @array.raku lives after delete
+ok 29 - map @array lives after delete
+ok 30 - deletion of trailing item does not purge elements we assigned to (1)
+ok 31 - deletion of trailing item does not purge elements we assigned to (2)
+ok 32 - deletion of trailing item followed by add item beyond does not resurrect deleted item
+# Subtest: .Slip and .List on Arrays with holes
+    1..4
+    # Subtest: .List with default `is default` converts holes to Nil
+        1..4
+        ok 1 - actual values are correct
+        ok 2 - index 1 has a Nil
+        ok 3 - index 3 has a Nil
+        ok 4 - index 4 has a Nil
+    ok 1 - .List with default `is default` converts holes to Nil
+    # Subtest: .List with custom `is default` still converts holes to Nil
+        1..4
+        ok 1 - actual values are correct
+        ok 2 - index 1 has a Nil
+        ok 3 - index 3 has a Nil
+        ok 4 - index 4 has a Nil
+    ok 2 - .List with custom `is default` still converts holes to Nil
+    # Subtest: .Slip with default `is default` converts holes to Any
+        1..4
+        ok 1 - actual values are correct
+        ok 2 - index 1 has an Any
+        ok 3 - index 3 has an Any
+        ok 4 - index 4 has an Any
+    ok 3 - .Slip with default `is default` converts holes to Any
+    # Subtest: .Slip with custom `is default` converts holes to default
+        1..4
+        ok 1 - actual values are correct
+        ok 2 - index 1 has a default value
+        ok 3 - index 3 has a default value
+        ok 4 - index 4 has a default value
+    ok 4 - .Slip with custom `is default` converts holes to default
+ok 33 - .Slip and .List on Arrays with holes
+ok 34 - Array.List fills holes with Nils

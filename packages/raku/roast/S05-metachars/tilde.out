@@ -1,0 +1,35 @@
+1..30
+ok 1 - Can work with ~ and constant atoms (match)
+ok 2 - ~ and constant atoms (missing opening bracket)
+ok 3 - ~ and constant atoms (wrong content)
+ok 4 - ~ and constant atoms (missing closing bracket)
+ok 5 - recursive "()"
+ok 6 - recursive "(a)"
+ok 7 - recursive "(aa)"
+ok 8 - recursive "(a(a))"
+ok 9 - recursive "(()())"
+ok 10 - "(" is not matched
+ok 11 - "(()" is not matched
+ok 12 - "())" is not matched
+ok 13 - "a()" is not matched
+ok 14 - mutually recursive "()"
+ok 15 - mutually recursive "(a)"
+ok 16 - mutually recursive "(aa)"
+ok 17 - mutually recursive "(a(a))"
+ok 18 - mutually recursive "(()())"
+ok 19 - "(" is not matched
+ok 20 - "(()" is not matched
+ok 21 - "())" is not matched
+ok 22 - "a()" is not matched
+ok 23 - backtracking into tilde rule (1)
+ok 24 - backtracking into tilde rule (2)
+ok 25 - tilde regex backtracks to find its goal
+ok 26 - ...and fails for odd numbers
+ok 27 - ~ operator in regexp does not revert capture order
+ok 28 - Only take single atom after goal (1)
+ok 29 - Only take single atom after goal (2)
+# Subtest: Correct error when quantifier placed after ~ metachar
+    1..2
+    ok 1 - '/ ‘[’ ~? ‘]’/' died
+    ok 2 - right exception type (X::Syntax::Regex::SolitaryQuantifier)
+ok 30 - Correct error when quantifier placed after ~ metachar

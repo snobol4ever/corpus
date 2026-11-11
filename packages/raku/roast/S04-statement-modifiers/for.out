@@ -1,0 +1,36 @@
+1..31
+ok 1 - post for with parens
+ok 2 - post for without parens
+ok 3 - post for 1 .. 10 with parens
+ok 4 - post for 1 .. 10 without parens
+ok 5 - post for array
+ok 6 - sub Int with post for
+ok 7 - sub Int with post for
+ok 8 - sub Int with post for
+ok 9 - iterating one constant element works
+ok 10 - iterating one variable element works
+ok 11 - the closure was called
+ok 12 - the closure was called
+ok 13 - outer $_ did not get updated in lhs of for
+ok 14 - postfix for worked
+ok 15 - statement modifier "for" sets $_ correctl
+ok 16 - "for" statement modifier restored $_ of outer block
+ok 17 - statement modifier "for" makes no implicit block
+# Subtest: double statement-modifying for is not allowed
+    1..2
+    ok 1 - '1 for <a b> for <c d>;' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 18 - double statement-modifying for is not allowed
+ok 19 - 
+ok 20 - 
+ok 21 - Anon sub in statement modifier for works.
+ok 22 - can assign to $_ in a statement_mod "for" loop (1)
+ok 23 - can assign to $_ in a statement_mod "for" loop (2)
+ok 24 - for modifies the $_ that is visible to the {} interpolator
+ok 25 - Correct $_ in try block in statement-modifying for
+ok 26 - for thunk does not mess up statement modifier closures
+ok 27 - default-assignment (//-) doesn't mix with implicit-variable method call
+ok 28 - does for modifier respect itemization
+ok 29 - for is a terminator even after comma
+ok 30 - for loops do not decontainerize
+ok 31 - for statement modifier sinks its content

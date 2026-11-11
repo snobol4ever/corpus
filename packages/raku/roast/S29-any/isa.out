@@ -1,0 +1,16 @@
+1..11
+ok 1 - ... @arr is-a Array (invocant notation)
+ok 2 - ... @arr is-not-a Hash (invocant notation)
+ok 3 - ... $arr is-not-a Hash (invocant notation)
+# Subtest: no sub called isa()
+    1..2
+    ok 1 - 'isa(@arr, Array)' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 4 - no sub called isa()
+ok 5 - ... isa() with a single arg is a failing case (invocant notation)
+ok 6 - ... isa() with a extra args is a failing case (invocant notation)
+ok 7 - ... [1, 2, 3, 4].isa("Array") works
+ok 8 - ... [1, 2, 3, 4].isa("Hash") fail predicably
+ok 9 - .isa named class
+ok 10 - .isa named class with colons
+ok 11 - A punned role is not an isa of itself by type

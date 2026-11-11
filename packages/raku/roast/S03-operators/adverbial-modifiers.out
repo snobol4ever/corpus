@@ -1,0 +1,44 @@
+1..42
+ok 1 - user-defined prefix operator, long name
+ok 2 - user-defined prefix operator, long name, optional parameter
+ok 3 - user-defined prefix operator, long name, :times adverb, leading
+ok 4 - user-defined prefix operator, long name, :times adverb, trailing
+ok 5 - user-defined prefix operator, basic call
+ok 6 - user-defined prefix operator, :times adverb, space
+ok 7 - user-defined prefix operator, :times adverb, no space
+ok 8 - :foo($bar)
+ok 9 - :foo[1,2,3,@many]
+ok 10 - :foo«alice bob charles»
+ok 11 - :foo«alice»
+ok 12 - :foo{ a => 1, b => 2 }
+ok 13 - :foo{ dostuff() }
+ok 14 - :foo(0)
+ok 15 - :foo
+ok 16 - fiddle(:x("a"):y("b"))
+ok 17 - fiddle(:y("b"):x("a"))
+ok 18 - fiddle(:x:y("b"))
+ok 19 - fiddle(:x("a"):y)
+ok 20 - fiddle(:x("a")):y("b")
+ok 21 - fiddle(:y("b")):x("a")
+ok 22 - fiddle(:x("a")):y("b")
+ok 23 - fiddle(:x("a")):y
+ok 24 - fiddle(:x):y
+ok 25 - fiddle():x("a"):y("b")
+ok 26 - fiddle():y("b"):x("a")
+ok 27 - fiddle():x:y("b")
+ok 28 - fiddle():x("a"):y
+ok 29 - fiddle():x:y
+ok 30 - f(:x("a") "b")
+ok 31 - f(:x("a")"b")
+ok 32 - f("b" :x("a"))
+ok 33 - f("b":x("a"))
+ok 34 - f(:x "b")
+ok 35 - f("b" :x)
+ok 36 - f("b"):x("a")
+ok 37 - # SKIP Multi colonpair syntax not yet understood
+ok 38 - f2((:bar))
+ok 39 - f3((:bar),(:hee(3)))
+ok 40 - (zpre 4 :x(5))
+ok 41 - (4 zpost :x(5))
+ok 42 - (3 zin 4 :x(5))
+# FUDGED!

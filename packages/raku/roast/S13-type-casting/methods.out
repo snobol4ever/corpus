@@ -1,0 +1,14 @@
+1..13
+ok 1 - method Stringy takes care of correct stringification
+ok 2 - method Numeric takes care of correct numification
+ok 3 - call to .Str works
+ok 4 - call to RT69378str.new properly initializes $.a
+ok 5 - call to .Str works on "class is Str"
+ok 6 - Str(...) coercion syntax calls our .Str too
+ok 7 - Int()
+ok 8 - .Str can be called on Str
+ok 9 - .Str can be called on Str
+ok 10 - DerivedFromStr.new isa DerivedFromStr
+ok 11 - DerivedFromStr.new isa DerivedFromStr
+ok 12 - DerivedFromStr.new.Str isa DerivedFromStr
+ok 13 - DerivedFromStr.new.Str isa Str

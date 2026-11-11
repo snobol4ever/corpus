@@ -1,0 +1,23 @@
+1..17
+ok 1 - Priming :(::T  $a, $b, :$c) with \(1) gave :($b, :$c)
+ok 2 - Priming :(::T  $a, T $b, T :$c) with \(1) gave :(Int $b, Int :$c) # TODO awaiting resurrecting of RakuAST assuming
+ok 3 - Priming :(::T  $a, T @b, T :@c) with \(1) gave :(Int @b, Int :@c) # TODO awaiting resurrecting of RakuAST assuming
+ok 4 - Priming :(::T  $a, T $b, T :$c) with \(1, 1) gave :(Int :$c) # TODO awaiting resurrecting of RakuAST assuming
+ok 5 - Priming :(::T  $a, T @b, T :@c) with \(1, Array[Int].new(1)) gave :(Int :@c) # TODO awaiting resurrecting of RakuAST assuming
+ok 6 - # SKIP not yet properly supported
+ok 7 - # SKIP not yet properly supported
+ok 8 - # SKIP not yet properly supported
+ok 9 - # SKIP not yet properly supported
+ok 10 - # SKIP We could do better here
+ok 11 - # SKIP We could do better here
+# Subtest: Backtrace mentions priming and does not mention currying
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 12 - Backtrace mentions priming and does not mention currying
+ok 13 - &abc123.assuming(("a", "b", "c").Seq)((1, 2, 3).Seq) returned expected value ["a", "b", "c", 1, 2, 3]
+ok 14 - can we use a generic on an array parameter
+ok 15 - can we use a generic on a positional parameter
+ok 16 - can we use a generic on a hash parameter
+ok 17 - can we use a generic on an associative parameter
+# FUDGED!

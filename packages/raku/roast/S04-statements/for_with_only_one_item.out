@@ -1,0 +1,13 @@
+1..12
+ok 1 - for works with an <...> array literal
+ok 2 - for works with an (<...>) array literal
+ok 3 - for works with an (a_single_constant,) array literal
+ok 4 - for works with (a_single_constant)
+ok 5 - for works with "a_single_constant"
+ok 6 - for ($arrayitem,) {...} executes the loop body only once
+ok 7 - for ($arrayitem) {...} executes the loop body only once
+ok 8 - for $arrayitem {...} executes the loop body only once
+ok 9 - for on (a_single_var,) -> is rw
+ok 10 - for on (a_single_var) -> is rw
+ok 11 - for on a_single_var -> is rw
+ok 12 - for $capture {...} executes the loop body only once

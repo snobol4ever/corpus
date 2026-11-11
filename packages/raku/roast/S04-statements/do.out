@@ -1,0 +1,62 @@
+1..32
+# Subtest: 'do' can't take the 'while' modifier
+    1..2
+    ok 1 - 'my $i = 1; do { $i++ } while $i < 5;' died
+    ok 2 - right exception type (X::Obsolete)
+ok 1 - 'do' can't take the 'while' modifier
+# Subtest: 'do' can't take the 'until' modifier
+    1..2
+    ok 1 - 'my $i = 1; do { $i++ } until $i > 4;' died
+    ok 2 - right exception type (X::Obsolete)
+ok 2 - 'do' can't take the 'until' modifier
+# Subtest: 'do' can't take the 'for' modifier
+    1..2
+    ok 1 - 'my $i; do { $i++ } for 1..3;' died
+    ok 2 - right exception type (X::Obsolete)
+ok 3 - 'do' can't take the 'for' modifier
+# Subtest: 'do' can't take the 'given' modifier
+    1..2
+    ok 1 - 'my $i; do { $i++ } given $i;' died
+    ok 2 - right exception type (X::Obsolete)
+ok 4 - 'do' can't take the 'given' modifier
+ok 5 - 'do' can take the 'unless' modifier
+ok 6 - 'do' can take the 'if' modifier
+ok 7 - prefixing 'if' statement with 'do' (then)
+ok 8 - prefixing 'if' statement with 'do' (else)
+ok 9 - when if does not execute any branch, return undefined
+ok 10 - when if does not execute any branch, return undefined (unfolded)
+ok 11 - when if does not execute any branch, returns empty Slip
+ok 12 - when if does not execute any branch, returns empty Slip (unfolded)
+ok 13 - do STMT works
+ok 14 - do { STMT } works
+ok 15 - do EXPR should also work (single number)
+ok 16 - do EXPR should also work (simple + expr)
+ok 17 - nested do (1)
+ok 18 - nested do (2)
+ok 19 - do affects precedence correctly
+ok 20 - # SKIP next without loop construct RT  \#124573
+ok 21 - # SKIP next without loop construct RT  \#124573
+ok 22 - # SKIP Undeclared name A
+ok 23 - # SKIP Undeclared name A
+ok 24 - # SKIP Undeclared name A
+ok 25 - # SKIP last without loop construct RT  \#124575
+ok 26 - # SKIP redo without loop construct RT  \#124576
+# Subtest: bare block can't take 'next'
+    1..2
+    ok 1 - 'my $i; { $i++; next; $i--; }' died
+    ok 2 - right exception type (X::ControlFlow)
+ok 27 - bare block can't take 'next'
+# Subtest: bare block can't take 'last'
+    1..2
+    ok 1 - 'my $i; { $i++; last; $i--; }' died
+    ok 2 - right exception type (X::ControlFlow)
+ok 28 - bare block can't take 'last'
+# Subtest: bare block can't take 'last'
+    1..2
+    ok 1 - 'my $i; { $i++; redo; $i--; }' died
+    ok 2 - right exception type (X::ControlFlow)
+ok 29 - bare block can't take 'last'
+ok 30 - final `}' on a line reverted to `;'
+ok 31 - empty do block lives (RT  \#61034)
+ok 32 - Correct $_ value visible inside do if 42 { ... } construct
+# FUDGED!

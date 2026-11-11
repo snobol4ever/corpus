@@ -1,0 +1,5 @@
+1..4
+ok 1 - -e print $something works
+ok 2 - -e print $something works with non-ASCII string literals
+ok 3 - -e works with non-ASCII program texts
+ok 4 - -e works correctly as a stopper

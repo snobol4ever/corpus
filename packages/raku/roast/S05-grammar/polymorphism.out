@@ -1,0 +1,37 @@
+1..28
+ok 1 - <Another::abc>
+ok 2 - abc $/
+ok 3 - abc $0
+ok 4 - <Another::bee>
+ok 5 - bee $/
+ok 6 - bee $0
+ok 7 - <Another::bee>
+ok 8 - (<Another::def>)
+ok 9 - def $/
+ok 10 - def $0
+ok 11 - <.Another::def>
+ok 12 - .def $/
+ok 13 - .def $0
+ok 14 - <Yet::Another::abc>
+ok 15 - abc $/
+ok 16 - abc $0
+ok 17 - abc <Yet::Another::bee>
+ok 18 - aBc <Yet::Another::bee>
+ok 19 - Yet::Another::bee $/
+ok 20 - Yet::Another::bee $0
+ok 21 - def (<Yet::Another::def>)
+ok 22 - DeF (<Yet::Another::def>)
+ok 23 - DeF $/
+ok 24 - DeF $0
+ok 25 - <?Yet::Another::def>
+ok 26 - .Yet::Another.def $/
+# Subtest: <Another.sea>
+    1..2
+    ok 1 - ' 'abc' ~~ m/ (<Another.sea>) /  ' died
+    ok 2 - right exception type (Exception)
+ok 27 - <Another.sea>
+# Subtest: match against No::Such::Rule dies
+    1..2
+    ok 1 - ' 'x' ~~ / <No::Such::Rule> / ' died
+    ok 2 - right exception type (Exception)
+ok 28 - match against No::Such::Rule dies

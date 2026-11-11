@@ -1,0 +1,35 @@
+1..28
+ok 1 - 0 * Inf
+ok 2 - Inf / Inf
+ok 3 - Inf - Inf
+ok 4 - NaN ** 0
+ok 5 - 0**0 is 1, _not_ NaN
+ok 6 - Inf**0 is 1, _not_ NaN
+ok 7 - NaN is a NaN
+ok 8 - 4 is not a NaN
+ok 9 - 4.Num is not a NaN
+ok 10 - NaN + 1i is a Complex number
+ok 11 - NaN + 1i ~~ NaN
+ok 12 - NaN ~~ NaN + 1i
+ok 13 - (NaN)i is a Complex number
+ok 14 - (NaN)i ~~ NaN
+ok 15 - NaN ~~ (NaN)i
+ok 16 - (NaN)i ~~ NaN + 1i
+ok 17 - NaN + 1i ~~ (NaN)i
+ok 18 - truncate(NaN) ~~ NaN
+ok 19 - NaN perlification ok
+ok 20 - NaN value identity
+ok 21 - NaN value identity (native num)
+# Subtest: trying to assign NaN to Int gives a helpful error
+    1..4
+    ok 1 - 'my Int $x = NaN' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+    ok 3 - .vartype matches (Int)
+    ok 4 - .value matches NaN
+ok 22 - trying to assign NaN to Int gives a helpful error
+ok 23 - assigning NaN to Num works without errors
+ok 24 - sublcass of NaN !== NaN
+ok 25 - sublcass of NaN !=== NaN
+ok 26 - NaN eqv NaN when stored in variables
+ok 27 - NaN eqv NaN when using literals
+ok 28 - NaN eqv NaN when using native nums

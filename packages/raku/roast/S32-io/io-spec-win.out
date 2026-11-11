@@ -1,0 +1,244 @@
+1..213
+ok 1 - canonpath: '' -> ''
+ok 2 - canonpath: 'a:' -> 'A:'
+ok 3 - canonpath: 'A:f' -> 'A:f'
+ok 4 - canonpath: 'A:/' -> 'A:\'
+ok 5 - canonpath: 'a\..\..\b\c' -> 'a\..\..\b\c'
+ok 6 - canonpath: '//a\b//c' -> '\\a\b\c'
+ok 7 - canonpath: '/a/..../c' -> '\a\....\c'
+ok 8 - canonpath: '//a/b\c' -> '\\a\b\c'
+ok 9 - canonpath: '////' -> '\'
+ok 10 - canonpath: '//' -> '\'
+ok 11 - canonpath: '/.' -> '\'
+ok 12 - canonpath: '//a/b/../../c' -> '\\a\b\c'
+ok 13 - canonpath: '\../temp\' -> '\temp'
+ok 14 - canonpath: '\../' -> '\'
+ok 15 - canonpath: '\..\' -> '\'
+ok 16 - canonpath: '/../' -> '\'
+ok 17 - canonpath: '/..\' -> '\'
+ok 18 - canonpath: 'd1/../foo' -> 'd1\..\foo'
+ok 19 - canonpath(:parent): 'foo\bar\..' -> 'foo'
+ok 20 - canonpath(:parent): 'foo/bar/baz/../..' -> 'foo'
+ok 21 - canonpath(:parent): '/foo/..' -> '\'
+ok 22 - canonpath(:parent): 'foo/..' -> '.'
+ok 23 - canonpath(:parent): 'foo/../bar/../baz' -> 'baz'
+ok 24 - canonpath(:parent): 'foo/../../bar' -> '..\bar'
+ok 25 - canonpath(:parent): 'foo/bar/baz/../..' -> 'foo'
+ok 26 - canonpath(:parent): '../../..' -> '..\..\..'
+ok 27 - canonpath(:parent): '\..\..\..' -> '\'
+ok 28 - canonpath(:parent): '/foo/../..' -> '\'
+ok 29 - canonpath(:parent): 'C:\..\foo' -> 'C:\foo'
+ok 30 - canonpath(:parent): 'C:..' -> 'C:..'
+ok 31 - canonpath(:parent): '\\server\share\..' -> '\\server\share'
+ok 32 - canonpath(:parent): '0' -> '0'
+ok 33 - canonpath(:parent): '/..//..usr/bin/../foo/.///ef' -> '\..usr\foo\ef'
+ok 34 - canonpath: Any -> ''
+ok 35 - splitdir: '' -> ''
+ok 36 - splitdir: '\d1/d2\d3/' -> ',d1,d2,d3,'
+ok 37 - splitdir: 'd1/d2\d3/' -> 'd1,d2,d3,'
+ok 38 - splitdir: '\d1/d2\d3' -> ',d1,d2,d3'
+ok 39 - splitdir: 'd1/d2\d3' -> 'd1,d2,d3'
+ok 40 - No argument returns empty string
+ok 41 - catdir: "/" -> '\'
+ok 42 - catdir: $("/", "../") -> '\'
+ok 43 - catdir: $("/", "..\\") -> '\'
+ok 44 - catdir: $("\\", "../") -> '\'
+ok 45 - catdir: $("\\", "..\\") -> '\'
+ok 46 - catdir: $("//d1", "d2") -> '\\d1\d2'
+ok 47 - catdir: $("\\d1\\", "d2") -> '\d1\d2'
+ok 48 - catdir: $("\\d1", "d2") -> '\d1\d2'
+ok 49 - catdir: $("\\d1", "\\d2") -> '\d1\d2'
+ok 50 - catdir: $("\\d1", "\\d2\\") -> '\d1\d2'
+ok 51 - catdir: $("", "/d1", "d2") -> '\d1\d2'
+ok 52 - catdir: $("", "", "/d1", "d2") -> '\d1\d2'
+ok 53 - catdir: $("", "//d1", "d2") -> '\d1\d2'
+ok 54 - catdir: $("", "", "//d1", "d2") -> '\d1\d2'
+ok 55 - catdir: $("", "d1", "", "d2", "") -> '\d1\d2'
+ok 56 - catdir: $("", "d1", "d2", "d3", "") -> '\d1\d2\d3'
+ok 57 - catdir: $("d1", "d2", "d3", "") -> 'd1\d2\d3'
+ok 58 - catdir: $("", "d1", "d2", "d3") -> '\d1\d2\d3'
+ok 59 - catdir: $("d1", "d2", "d3") -> 'd1\d2\d3'
+ok 60 - catdir: $("A:/d1", "d2", "d3") -> 'A:\d1\d2\d3'
+ok 61 - catdir: $("A:/d1", "d2", "d3", "") -> 'A:\d1\d2\d3'
+ok 62 - catdir: $("A:/d1", "B:/d2", "d3", "") -> 'A:\d1\B:\d2\d3'
+ok 63 - catdir: "A:/" -> 'A:\'
+ok 64 - catdir: $("\\", "foo") -> '\foo'
+ok 65 - catdir: $("", "", "..") -> '\'
+ok 66 - catdir: $("A:", "foo") -> 'A:foo'
+ok 67 - splitpath: "file" -> ',,file'
+ok 68 - splitpath: "\\d1/d2\\d3/" -> ',\d1/d2\d3/,'
+ok 69 - splitpath: "d1/d2\\d3/" -> ',d1/d2\d3/,'
+ok 70 - splitpath: "\\d1/d2\\d3/." -> ',\d1/d2\d3/.,'
+ok 71 - splitpath: "\\d1/d2\\d3/.." -> ',\d1/d2\d3/..,'
+ok 72 - splitpath: "\\d1/d2\\d3/.file" -> ',\d1/d2\d3/,.file'
+ok 73 - splitpath: "\\d1/d2\\d3/file" -> ',\d1/d2\d3/,file'
+ok 74 - splitpath: "d1/d2\\d3/file" -> ',d1/d2\d3/,file'
+ok 75 - splitpath: "C:\\d1/d2\\d3/" -> 'C:,\d1/d2\d3/,'
+ok 76 - splitpath: "C:d1/d2\\d3/" -> 'C:,d1/d2\d3/,'
+ok 77 - splitpath: "C:\\d1/d2\\d3/file" -> 'C:,\d1/d2\d3/,file'
+ok 78 - splitpath: "C:d1/d2\\d3/file" -> 'C:,d1/d2\d3/,file'
+ok 79 - splitpath: "C:\\../d2\\d3/file" -> 'C:,\../d2\d3/,file'
+ok 80 - splitpath: "C:../d2\\d3/file" -> 'C:,../d2\d3/,file'
+ok 81 - splitpath: "\\../..\\d1/" -> ',\../..\d1/,'
+ok 82 - splitpath: "\\./.\\d1/" -> ',\./.\d1/,'
+ok 83 - splitpath: "\\\\node\\share\\d1/d2\\d3/" -> '\\node\share,\d1/d2\d3/,'
+ok 84 - splitpath: "\\\\node\\share\\d1/d2\\d3/file" -> '\\node\share,\d1/d2\d3/,file'
+ok 85 - splitpath: "\\\\node\\share\\d1/d2\\file" -> '\\node\share,\d1/d2\,file'
+ok 86 - splitpath: \("file", :nofile) -> ',file,'
+ok 87 - splitpath: \("\\d1/d2\\d3/", :nofile) -> ',\d1/d2\d3/,'
+ok 88 - splitpath: \("d1/d2\\d3/", :nofile) -> ',d1/d2\d3/,'
+ok 89 - splitpath: \("\\\\node\\share\\d1/d2\\d3/", :nofile) -> '\\node\share,\d1/d2\d3/,'
+ok 90 - catpath: $("", "", "file") -> 'file'
+ok 91 - catpath: $("", "\\d1/d2\\d3/", "") -> '\d1/d2\d3/'
+ok 92 - catpath: $("", "d1/d2\\d3/", "") -> 'd1/d2\d3/'
+ok 93 - catpath: $("", "\\d1/d2\\d3/.", "") -> '\d1/d2\d3/.'
+ok 94 - catpath: $("", "\\d1/d2\\d3/..", "") -> '\d1/d2\d3/..'
+ok 95 - catpath: $("", "\\d1/d2\\d3/", ".file") -> '\d1/d2\d3/.file'
+ok 96 - catpath: $("", "\\d1/d2\\d3/", "file") -> '\d1/d2\d3/file'
+ok 97 - catpath: $("", "d1/d2\\d3/", "file") -> 'd1/d2\d3/file'
+ok 98 - catpath: $("C:", "\\d1/d2\\d3/", "") -> 'C:\d1/d2\d3/'
+ok 99 - catpath: $("C:", "d1/d2\\d3/", "") -> 'C:d1/d2\d3/'
+ok 100 - catpath: $("C:", "\\d1/d2\\d3/", "file") -> 'C:\d1/d2\d3/file'
+ok 101 - catpath: $("C:", "d1/d2\\d3/", "file") -> 'C:d1/d2\d3/file'
+ok 102 - catpath: $("C:", "\\../d2\\d3/", "file") -> 'C:\../d2\d3/file'
+ok 103 - catpath: $("C:", "../d2\\d3/", "file") -> 'C:../d2\d3/file'
+ok 104 - catpath: $("", "\\../..\\d1/", "") -> '\../..\d1/'
+ok 105 - catpath: $("", "\\./.\\d1/", "") -> '\./.\d1/'
+ok 106 - catpath: $("C:", "foo", "bar") -> 'C:foo\bar'
+ok 107 - catpath: $("\\\\node\\share", "\\d1/d2\\d3/", "") -> '\\node\share\d1/d2\d3/'
+ok 108 - catpath: $("\\\\node\\share", "\\d1/d2\\d3/", "file") -> '\\node\share\d1/d2\d3/file'
+ok 109 - catpath: $("\\\\node\\share", "\\d1/d2\\", "file") -> '\\node\share\d1/d2\file'
+ok 110 - split: "\\" -> ',\,\'
+ok 111 - split: "." -> ',.,.'
+ok 112 - split: "file" -> ',.,file'
+ok 113 - split: "\\d1/d2\\d3/" -> ',\d1/d2,d3'
+ok 114 - split: "d1/d2\\d3/" -> ',d1/d2,d3'
+ok 115 - split: "\\d1/d2\\d3/." -> ',\d1/d2\d3,.'
+ok 116 - split: "\\d1/d2\\d3/.." -> ',\d1/d2\d3,..'
+ok 117 - split: "\\d1/d2\\d3/.file" -> ',\d1/d2\d3,.file'
+ok 118 - split: "\\d1/d2\\d3/file" -> ',\d1/d2\d3,file'
+ok 119 - split: "d1/d2\\d3/file" -> ',d1/d2\d3,file'
+ok 120 - split: "C:\\d1/d2\\d3/" -> 'C:,\d1/d2,d3'
+ok 121 - split: "C:d1/d2\\d3/" -> 'C:,d1/d2,d3'
+ok 122 - split: "C:\\d1/d2\\d3/file" -> 'C:,\d1/d2\d3,file'
+ok 123 - split: "C:d1/d2\\d3/file" -> 'C:,d1/d2\d3,file'
+ok 124 - split: "C:\\../d2\\d3/file" -> 'C:,\../d2\d3,file'
+ok 125 - split: "C:../d2\\d3/file" -> 'C:,../d2\d3,file'
+ok 126 - split: "\\../..\\d1/" -> ',\../..,d1'
+ok 127 - split: "\\./.\\d1/" -> ',\./.,d1'
+ok 128 - split: "//unc/share" -> '//unc/share,\,\'
+ok 129 - split: "\\\\node\\share\\d1/d2\\d3/" -> '\\node\share,\d1/d2,d3'
+ok 130 - split: "\\\\node\\share\\d1/d2\\d3/file" -> '\\node\share,\d1/d2\d3,file'
+ok 131 - split: "\\\\node\\share\\d1/d2\\file" -> '\\node\share,\d1/d2,file'
+ok 132 - join: $("", "\\", "\\") -> '\'
+ok 133 - join: $("", "/", "\\") -> '/'
+ok 134 - join: $("", "\\", "/") -> '\'
+ok 135 - join: $("", ".", ".") -> '.'
+ok 136 - join: $("", "", "file") -> 'file'
+ok 137 - join: $("", ".", "file") -> 'file'
+ok 138 - join: $("", "\\d1/d2\\d3/", "") -> '\d1/d2\d3/'
+ok 139 - join: $("", "d1/d2\\d3/", "") -> 'd1/d2\d3/'
+ok 140 - join: $("", "\\d1/d2\\d3/.", "") -> '\d1/d2\d3/.'
+ok 141 - join: $("", "\\d1/d2\\d3/..", "") -> '\d1/d2\d3/..'
+ok 142 - join: $("", "\\d1/d2\\d3/", ".file") -> '\d1/d2\d3/.file'
+ok 143 - join: $("", "\\d1/d2\\d3/", "file") -> '\d1/d2\d3/file'
+ok 144 - join: $("", "d1/d2\\d3/", "file") -> 'd1/d2\d3/file'
+ok 145 - join: $("C:", "\\d1/d2\\d3/", "") -> 'C:\d1/d2\d3/'
+ok 146 - join: $("C:", "d1/d2\\d3/", "") -> 'C:d1/d2\d3/'
+ok 147 - join: $("C:", "\\d1/d2\\d3/", "file") -> 'C:\d1/d2\d3/file'
+ok 148 - join: $("C:", "d1/d2\\d3/", "file") -> 'C:d1/d2\d3/file'
+ok 149 - join: $("C:", "\\../d2\\d3/", "file") -> 'C:\../d2\d3/file'
+ok 150 - join: $("C:", "../d2\\d3/", "file") -> 'C:../d2\d3/file'
+ok 151 - join: $("", "\\../..\\d1/", "") -> '\../..\d1/'
+ok 152 - join: $("", "\\./.\\d1/", "") -> '\./.\d1/'
+ok 153 - join: $("C:", "foo", "bar") -> 'C:foo\bar'
+ok 154 - join: $("\\\\server\\share", "\\", "\\") -> '\\server\share'
+ok 155 - join: $("\\\\node\\share", "\\d1/d2\\d3/", "") -> '\\node\share\d1/d2\d3/'
+ok 156 - join: $("\\\\node\\share", "\\d1/d2\\d3/", "file") -> '\\node\share\d1/d2\d3/file'
+ok 157 - join: $("\\\\node\\share", "\\d1/d2\\", "file") -> '\\node\share\d1/d2\file'
+ok 158 - is-absolute: ok "/"
+ok 159 - is-absolute: ok "\"
+ok 160 - is-absolute: ok "C:\"
+ok 161 - is-absolute: ok "C:\foo/bar"
+ok 162 - is-absolute: ok "\\server\share"
+ok 163 - is-absolute: nok "foo/bar"
+ok 164 - is-absolute: nok "."
+ok 165 - is-absolute: nok "C:"
+ok 166 - is-absolute: nok "C:dir\file.txt"
+ok 167 - catfile: $("a", "b", "c") -> 'a\b\c'
+ok 168 - catfile: $("a", "b", ".\\c") -> 'a\b\c'
+ok 169 - catfile: $(".\\a", "b", "c") -> 'a\b\c'
+ok 170 - catfile: "c" -> 'c'
+ok 171 - catfile: ".\\c" -> 'c'
+ok 172 - catfile: $("a/..", "../b") -> 'a\..\..\b'
+ok 173 - catfile: $("A:", "foo") -> 'A:foo'
+ok 174 - abs2rel: $("/t1/t2/t3", "/t1/t2/t3") -> '.'
+ok 175 - abs2rel: $("/t1/t2/t4", "/t1/t2/t3") -> '..\t4'
+ok 176 - abs2rel: $("/t1/t2", "/t1/t2/t3") -> '..'
+ok 177 - abs2rel: $("/t1/t2/t3/t4", "/t1/t2/t3") -> 't4'
+ok 178 - abs2rel: $("/t4/t5/t6", "/t1/t2/t3") -> '..\..\..\t4\t5\t6'
+ok 179 - abs2rel: $("/", "/t1/t2/t3") -> '..\..\..'
+ok 180 - abs2rel: $("///", "/t1/t2/t3") -> '..\..\..'
+ok 181 - abs2rel: $("/.", "/t1/t2/t3") -> '..\..\..'
+ok 182 - abs2rel: $("/./", "/t1/t2/t3") -> '..\..\..'
+ok 183 - abs2rel: $("\\\\a/t1/t2/t4", "/t2/t3") -> '\\a\t1\t2\t4'
+ok 184 - abs2rel: $("//a/t1/t2/t4", "/t2/t3") -> '\\a\t1\t2\t4'
+ok 185 - abs2rel: $("A:/t1/t2/t3", "A:/t1/t2/t3") -> '.'
+ok 186 - abs2rel: $("A:/t1/t2/t3/t4", "A:/t1/t2/t3") -> 't4'
+ok 187 - abs2rel: $("A:/t1/t2/t3", "A:/t1/t2/t3/t4") -> '..'
+ok 188 - abs2rel: $("A:/t1/t2/t3", "B:/t1/t2/t3") -> 'A:\t1\t2\t3'
+ok 189 - abs2rel: $("A:/t1/t2/t3/t4", "B:/t1/t2/t3") -> 'A:\t1\t2\t3\t4'
+ok 190 - abs2rel: "E:/foo/bar/baz" -> 'E:\foo\bar\baz'
+ok 191 - abs2rel: $("C:\\Windows\\System32", "C:\\") -> 'Windows\System32'
+ok 192 - abs2rel: $("\\\\computer2\\share3\\foo.txt", "\\\\computer2\\share3") -> 'foo.txt'
+ok 193 - rel2abs: $("temp", "C:/") -> 'C:\temp'
+ok 194 - rel2abs: $("temp", "C:/a") -> 'C:\a\temp'
+ok 195 - rel2abs: $("temp", "C:/a/") -> 'C:\a\temp'
+ok 196 - rel2abs: $("../", "C:/") -> 'C:\'
+ok 197 - rel2abs: $("../", "C:/a") -> 'C:\a\..'
+ok 198 - rel2abs: $("\\foo", "C:/a") -> 'C:\foo'
+ok 199 - rel2abs: $("temp", "//prague_main/work/") -> '\\prague_main\work\temp'
+ok 200 - rel2abs: $("../temp", "//prague_main/work/") -> '\\prague_main\work\temp'
+ok 201 - rel2abs: $("temp", "//prague_main/work") -> '\\prague_main\work\temp'
+ok 202 - rel2abs: $("../", "//prague_main/work") -> '\\prague_main\work'
+ok 203 - curdir is "."
+ok 204 - devnull is nul
+ok 205 - rootdir is "\"
+ok 206 - updir is ".."
+ok 207 - # SKIP Win32ish on-platform tests
+ok 208 - # SKIP Win32ish on-platform tests
+ok 209 - # SKIP Win32ish on-platform tests
+# Subtest: .basename
+    1..14
+    ok 1 - 
+    ok 2 - .
+    ok 3 - /
+    ok 4 - foo/
+    ok 5 - /.
+    ok 6 - foo/.
+    ok 7 - foo/..
+    ok 8 - foo/...
+    ok 9 - y/\z
+    ok 10 - bar/♥foo
+    ok 11 - ♥foo
+    ok 12 - ♥foo/..
+    ok 13 - //server/share
+    ok 14 - //server/share/
+ok 210 - .basename
+ok 211 - combiners on "/" do not interfere with absolute path detection
+# Subtest: .absolute with paths that have combiners on slashes
+    1..2
+    ok 1 - "/̈"
+    ok 2 - "\\"
+ok 212 - .absolute with paths that have combiners on slashes
+# Subtest: .path
+    1..8
+    ok 1 - env unset
+    ok 2 - Path set to empty str
+    ok 3 - Path and PATH set to empty str
+    ok 4 - PATH set to empty str
+    ok 5 - PATH set to path
+    ok 6 - PATH overrides Path
+    ok 7 - PATH overrides Path even when set to empty string
+    ok 8 - Path set to path
+ok 213 - .path

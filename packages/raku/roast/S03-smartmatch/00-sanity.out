@@ -1,0 +1,28 @@
+1..2
+# Subtest: direct
+    1..11
+    ok 1 - plan smartmatch return Bool
+    ok 2 - a junction on LHS doesn't autothread
+    ok 3 - a junction on RHS doesn't autothread
+    ok 4 - simple regex returns a Match object on success
+    ok 5 - simple regex returns a Bool object on negated success
+    ok 6 - successfull m// returns a Match object
+    ok 7 - successfull m// returns a Bool object when negated
+    ok 8 - successfull s/// returns a Match object
+    ok 9 - failed regex match returns Nil
+    ok 10 - failed m// returns False
+    ok 11 - failed s/// returns False
+ok 1 - direct
+# Subtest: indirect
+    1..10
+    ok 1 - failed regex match returns Nil
+    ok 2 - a junction on RHS doesn't autothread
+    ok 3 - negated failed regex match returns Bool
+    ok 4 - negated simple regex returns a Bool object
+    ok 5 - negated: a junction on RHS doesn't autothread
+    ok 6 - negated plain smartmatch return Bool
+    ok 7 - simple regex returns a Match object on success
+    ok 8 - a junction on LHS doesn't autothread
+    ok 9 - negated: a junction on LHS doesn't autothread
+    ok 10 - plain smartmatch return Bool
+ok 2 - indirect

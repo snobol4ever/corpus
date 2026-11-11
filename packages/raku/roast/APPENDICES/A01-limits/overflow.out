@@ -1,0 +1,95 @@
+1..18
+# Subtest: attempting to raise to a huge power throws
+    1..2
+    ok 1 - '2**10000000000' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 1 - attempting to raise to a huge power throws
+# Subtest: attempting to raise to a huge negative power throws
+    1..2
+    ok 1 - '2**-10000000000' died
+    ok 2 - right exception type (X::Numeric::Underflow)
+ok 2 - attempting to raise to a huge negative power throws
+# Subtest: attempting to raise to a large negative power throws
+    1..2
+    ok 1 - '2**-999999' died
+    ok 2 - right exception type (X::Numeric::Underflow)
+ok 3 - attempting to raise to a large negative power throws
+# Subtest:  2 ** 4553535345364535345634543534
+    1..2
+    ok 1 - '  2  ** 4553535345364535345634543534' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 4 -  2 ** 4553535345364535345634543534
+# Subtest: -2 ** 4553535345364535345634543534
+    1..2
+    ok 1 - '(-2) ** 4553535345364535345634543534' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 5 - -2 ** 4553535345364535345634543534
+# Subtest: -2 ** 4553535345364535345634543533
+    1..2
+    ok 1 - '(-2) ** 4553535345364535345634543533' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 6 - -2 ** 4553535345364535345634543533
+# Subtest: 2⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ throws
+    1..2
+    ok 1 - '2⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 7 - 2⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ throws
+# Subtest: (-2)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁵⁴ throws
+    1..2
+    ok 1 - '(-2)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁵⁴' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 8 - (-2)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁵⁴ throws
+# Subtest: (-2)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ throws
+    1..2
+    ok 1 - '(-2)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 9 - (-2)⁴⁵⁵³⁵³⁵³⁴⁵³⁶⁴⁵³⁵³⁴⁵ throws
+ok 10 - raising a Rat to largish power does not throw
+# Subtest: raising a Rat to a very large number throws
+    1..2
+    ok 1 - 'say 1.0000001 ** (10 ** 90000)' died
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 11 - raising a Rat to a very large number throws
+# Subtest: rat (small nu / large de) to large power
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Overflow)
+    ok 2 - Failure threw when sunk
+ok 12 - rat (small nu / large de) to large power
+# Subtest: rat (small nu / large de) to large negative power
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Underflow)
+    ok 2 - Failure threw when sunk
+ok 13 - rat (small nu / large de) to large negative power
+# Subtest: rat (large nu / small de) to large power
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Overflow)
+    ok 2 - Failure threw when sunk
+ok 14 - rat (large nu / small de) to large power
+# Subtest: rat (large nu / small de) to large negative power
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Underflow)
+    ok 2 - Failure threw when sunk
+ok 15 - rat (large nu / small de) to large negative power
+ok 16 - int does not get confused with goldilocks number (low)
+ok 17 - int does not get confused with goldilocks number (high)
+# Subtest: extremely large exponents must throw numeric overflow
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::Overflow)
+ok 18 - extremely large exponents must throw numeric overflow

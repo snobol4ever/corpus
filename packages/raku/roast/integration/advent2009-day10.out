@@ -1,0 +1,6 @@
+1..5
+ok 1 - Incorrect line does not parse
+ok 2 - Standard line parsed ok
+ok 3 - Result OK
+ok 4 - Color in description
+ok 5 - Result OK

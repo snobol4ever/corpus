@@ -1,0 +1,409 @@
+1..57
+# Subtest: Simple
+    1..7
+    ok 1 - simple case\nnot so simple now! - contents
+    ok 2 - simple case\nnot so simple now! - WHEREFORE
+    ok 3 - simple case\nnot so simple now! - trailing
+    ok 4 - simple case\nnot so simple now! - trailing
+    ok 5 - simple case\nnot so simple now! - stringifies correctly
+    ok 6 - $=pod simple case\nnot so simple now! - WHEREFORE
+    ok 7 - $=pod simple case\nnot so simple now!
+ok 1 - Simple
+# Subtest: foo
+    1..7
+    ok 1 - a module\nmoar module stuff - contents
+    ok 2 - a module\nmoar module stuff - WHEREFORE
+    ok 3 - a module\nmoar module stuff - trailing
+    ok 4 - a module\nmoar module stuff - trailing
+    ok 5 - a module\nmoar module stuff - stringifies correctly
+    ok 6 - $=pod a module\nmoar module stuff - WHEREFORE
+    ok 7 - $=pod a module\nmoar module stuff
+ok 2 - foo
+# Subtest: foo::bar
+    1..7
+    ok 1 - a package\nmore package stuff - contents
+    ok 2 - a package\nmore package stuff - WHEREFORE
+    ok 3 - a package\nmore package stuff - trailing
+    ok 4 - a package\nmore package stuff - trailing
+    ok 5 - a package\nmore package stuff - stringifies correctly
+    ok 6 - $=pod a package\nmore package stuff - WHEREFORE
+    ok 7 - $=pod a package\nmore package stuff
+ok 3 - foo::bar
+# Subtest: foo::bar::baz
+    1..7
+    ok 1 - and a class\nmore class stuff - contents
+    ok 2 - and a class\nmore class stuff - WHEREFORE
+    ok 3 - and a class\nmore class stuff - trailing
+    ok 4 - and a class\nmore class stuff - trailing
+    ok 5 - and a class\nmore class stuff - stringifies correctly
+    ok 6 - $=pod and a class\nmore class stuff - WHEREFORE
+    ok 7 - $=pod and a class\nmore class stuff
+ok 4 - foo::bar::baz
+# Subtest: Sub
+    1..7
+    ok 1 - yellow\nsubmarine - contents
+    ok 2 - yellow\nsubmarine - WHEREFORE
+    ok 3 - yellow\nsubmarine - trailing
+    ok 4 - yellow\nsubmarine - trailing
+    ok 5 - yellow\nsubmarine - stringifies correctly
+    ok 6 - $=pod yellow\nsubmarine - WHEREFORE
+    ok 7 - $=pod yellow\nsubmarine
+ok 5 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - pink\npanther - contents
+    ok 2 - pink\npanther - WHEREFORE
+    ok 3 - pink\npanther - trailing
+    ok 4 - pink\npanther - trailing
+    ok 5 - pink\npanther - stringifies correctly
+    ok 6 - $=pod pink\npanther - WHEREFORE
+    ok 7 - $=pod pink\npanther
+ok 6 - Sub
+# Subtest: Sheep
+    1..7
+    ok 1 - a sheep\nor is it? - contents
+    ok 2 - a sheep\nor is it? - WHEREFORE
+    ok 3 - a sheep\nor is it? - trailing
+    ok 4 - a sheep\nor is it? - trailing
+    ok 5 - a sheep\nor is it? - stringifies correctly
+    ok 6 - $=pod a sheep\nor is it? - WHEREFORE
+    ok 7 - $=pod a sheep\nor is it?
+ok 7 - Sheep
+# Subtest: Attribute
+    1..7
+    ok 1 - usually white\nnot very dirty - contents
+    ok 2 - usually white\nnot very dirty - WHEREFORE
+    ok 3 - usually white\nnot very dirty - trailing
+    ok 4 - usually white\nnot very dirty - trailing
+    ok 5 - usually white\nnot very dirty - stringifies correctly
+    ok 6 - $=pod usually white\nnot very dirty - WHEREFORE
+    ok 7 - $=pod usually white\nnot very dirty
+ok 8 - Attribute
+# Subtest: Method
+    1..7
+    ok 1 - not too scary\n...unless you fear sheep! - contents
+    ok 2 - not too scary\n...unless you fear sheep! - WHEREFORE
+    ok 3 - not too scary\n...unless you fear sheep! - trailing
+    ok 4 - not too scary\n...unless you fear sheep! - trailing
+    ok 5 - not too scary\n...unless you fear sheep! - stringifies correctly
+    ok 6 - $=pod not too scary\n...unless you fear sheep! - WHEREFORE
+    ok 7 - $=pod not too scary\n...unless you fear sheep!
+ok 9 - Method
+# Subtest: Sub
+    1..7
+    ok 1 - trailing space here\nleading space here - contents
+    ok 2 - trailing space here\nleading space here - WHEREFORE
+    ok 3 - trailing space here\nleading space here - trailing
+    ok 4 - trailing space here\nleading space here - trailing
+    ok 5 - trailing space here\nleading space here - stringifies correctly
+    ok 6 - $=pod trailing space here\nleading space here - WHEREFORE
+    ok 7 - $=pod trailing space here\nleading space here
+ok 10 - Sub
+# Subtest: Parameter
+    1..7
+    ok 1 - before\nafter - contents
+    ok 2 - before\nafter - WHEREFORE
+    ok 3 - before\nafter - trailing
+    ok 4 - before\nafter - trailing
+    ok 5 - before\nafter - stringifies correctly
+    ok 6 - $=pod before\nafter - WHEREFORE
+    ok 7 - $=pod before\nafter
+ok 11 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - preceding\nfollowing - contents
+    ok 2 - preceding\nfollowing - WHEREFORE
+    ok 3 - preceding\nfollowing - trailing
+    ok 4 - preceding\nfollowing - trailing
+    ok 5 - preceding\nfollowing - stringifies correctly
+    ok 6 - $=pod preceding\nfollowing - WHEREFORE
+    ok 7 - $=pod preceding\nfollowing
+ok 12 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - next param\nfirst param - contents
+    ok 2 - next param\nfirst param - WHEREFORE
+    ok 3 - next param\nfirst param - trailing
+    ok 4 - next param\nfirst param - trailing
+    ok 5 - next param\nfirst param - stringifies correctly
+    ok 6 - $=pod next param\nfirst param - WHEREFORE
+    ok 7 - $=pod next param\nfirst param
+ok 13 - Parameter
+ok 14 - the second parameter has no comments
+# Subtest: Parameter
+    1..7
+    ok 1 - leading\ntrailing - contents
+    ok 2 - leading\ntrailing - WHEREFORE
+    ok 3 - leading\ntrailing - trailing
+    ok 4 - leading\ntrailing - trailing
+    ok 5 - leading\ntrailing - stringifies correctly
+    ok 6 - $=pod leading\ntrailing - WHEREFORE
+    ok 7 - $=pod leading\ntrailing
+ok 15 - Parameter
+# Subtest: Parameter
+    1..7
+    ok 1 - invocant comment\nanother invocant comment - contents
+    ok 2 - invocant comment\nanother invocant comment - WHEREFORE
+    ok 3 - invocant comment\nanother invocant comment - trailing
+    ok 4 - invocant comment\nanother invocant comment - trailing
+    ok 5 - invocant comment\nanother invocant comment - stringifies correctly
+    ok 6 - $=pod invocant comment\nanother invocant comment - WHEREFORE
+    ok 7 - $=pod invocant comment\nanother invocant comment
+ok 16 - Parameter
+# Subtest: Boxer
+    1..7
+    ok 1 - Are you talking to me?\nI said, are you talking to me? - contents
+    ok 2 - Are you talking to me?\nI said, are you talking to me? - WHEREFORE
+    ok 3 - Are you talking to me?\nI said, are you talking to me? - trailing
+    ok 4 - Are you talking to me?\nI said, are you talking to me? - trailing
+    ok 5 - Are you talking to me?\nI said, are you talking to me? - stringifies correctly
+    ok 6 - $=pod Are you talking to me?\nI said, are you talking to me? - WHEREFORE
+    ok 7 - $=pod Are you talking to me?\nI said, are you talking to me?
+ok 17 - Boxer
+ok 18 - Role group's WHY is the one of its default candidate
+# Subtest: Method
+    1..7
+    ok 1 - Robert De Niro\nhe's an actor - contents
+    ok 2 - Robert De Niro\nhe's an actor - WHEREFORE
+    ok 3 - Robert De Niro\nhe's an actor - trailing
+    ok 4 - Robert De Niro\nhe's an actor - trailing
+    ok 5 - Robert De Niro\nhe's an actor - stringifies correctly
+    ok 6 - $=pod Robert De Niro\nhe's an actor - WHEREFORE
+    ok 7 - $=pod Robert De Niro\nhe's an actor
+ok 19 - Method
+# Subtest: Boxer
+    1..7
+    ok 1 - I'm not talkative\nand this is OK - contents
+    ok 2 - I'm not talkative\nand this is OK - WHEREFORE
+    ok 3 - I'm not talkative\nand this is OK - trailing
+    ok 4 - I'm not talkative\nand this is OK - trailing
+    ok 5 - I'm not talkative\nand this is OK - stringifies correctly
+    ok 6 - $=pod I'm not talkative\nand this is OK - WHEREFORE
+    ok 7 - $=pod I'm not talkative\nand this is OK
+ok 20 - Boxer
+# Subtest: Submethod
+    1..7
+    ok 1 - Bob\nFrank - contents
+    ok 2 - Bob\nFrank - WHEREFORE
+    ok 3 - Bob\nFrank - trailing
+    ok 4 - Bob\nFrank - trailing
+    ok 5 - Bob\nFrank - stringifies correctly
+    ok 6 - $=pod Bob\nFrank - WHEREFORE
+    ok 7 - $=pod Bob\nFrank
+ok 21 - Submethod
+# Subtest: Method
+    1..7
+    ok 1 - Takes a\nsingle argument - contents
+    ok 2 - Takes a\nsingle argument - WHEREFORE
+    ok 3 - Takes a\nsingle argument - trailing
+    ok 4 - Takes a\nsingle argument - trailing
+    ok 5 - Takes a\nsingle argument - stringifies correctly
+    ok 6 - $=pod Takes a\nsingle argument - WHEREFORE
+    ok 7 - $=pod Takes a\nsingle argument
+ok 22 - Method
+# Subtest: Method
+    1..7
+    ok 1 - Single Int\nargument - contents
+    ok 2 - Single Int\nargument - WHEREFORE
+    ok 3 - Single Int\nargument - trailing
+    ok 4 - Single Int\nargument - trailing
+    ok 5 - Single Int\nargument - stringifies correctly
+    ok 6 - $=pod Single Int\nargument - WHEREFORE
+    ok 7 - $=pod Single Int\nargument
+ok 23 - Method
+# Subtest: Method
+    1..7
+    ok 1 - Single\nStr argument - contents
+    ok 2 - Single\nStr argument - WHEREFORE
+    ok 3 - Single\nStr argument - trailing
+    ok 4 - Single\nStr argument - trailing
+    ok 5 - Single\nStr argument - stringifies correctly
+    ok 6 - $=pod Single\nStr argument - WHEREFORE
+    ok 7 - $=pod Single\nStr argument
+ok 24 - Method
+# Subtest: G
+    1..7
+    ok 1 - grammar\nmore grammar - contents
+    ok 2 - grammar\nmore grammar - WHEREFORE
+    ok 3 - grammar\nmore grammar - trailing
+    ok 4 - grammar\nmore grammar - trailing
+    ok 5 - grammar\nmore grammar - stringifies correctly
+    ok 6 - $=pod grammar\nmore grammar - WHEREFORE
+    ok 7 - $=pod grammar\nmore grammar
+ok 25 - G
+# Subtest: Regex
+    1..7
+    ok 1 - rule\nreading - contents
+    ok 2 - rule\nreading - WHEREFORE
+    ok 3 - rule\nreading - trailing
+    ok 4 - rule\nreading - trailing
+    ok 5 - rule\nreading - stringifies correctly
+    ok 6 - $=pod rule\nreading - WHEREFORE
+    ok 7 - $=pod rule\nreading
+ok 26 - Regex
+# Subtest: Regex
+    1..7
+    ok 1 - token\nwriting - contents
+    ok 2 - token\nwriting - WHEREFORE
+    ok 3 - token\nwriting - trailing
+    ok 4 - token\nwriting - trailing
+    ok 5 - token\nwriting - stringifies correctly
+    ok 6 - $=pod token\nwriting - WHEREFORE
+    ok 7 - $=pod token\nwriting
+ok 27 - Regex
+# Subtest: Regex
+    1..7
+    ok 1 - regex\narithmetic - contents
+    ok 2 - regex\narithmetic - WHEREFORE
+    ok 3 - regex\narithmetic - trailing
+    ok 4 - regex\narithmetic - trailing
+    ok 5 - regex\narithmetic - stringifies correctly
+    ok 6 - $=pod regex\narithmetic - WHEREFORE
+    ok 7 - $=pod regex\narithmetic
+ok 28 - Regex
+# Subtest: Sub
+    1..7
+    ok 1 - solo\nmio - contents
+    ok 2 - solo\nmio - WHEREFORE
+    ok 3 - solo\nmio - trailing
+    ok 4 - solo\nmio - trailing
+    ok 5 - solo\nmio - stringifies correctly
+    ok 6 - $=pod solo\nmio - WHEREFORE
+    ok 7 - $=pod solo\nmio
+ok 29 - Sub
+ok 30 - 
+# Subtest: Sub
+    1..7
+    ok 1 - no proto\npro bono - contents
+    ok 2 - no proto\npro bono - WHEREFORE
+    ok 3 - no proto\npro bono - trailing
+    ok 4 - no proto\npro bono - trailing
+    ok 5 - no proto\npro bono - stringifies correctly
+    ok 6 - $=pod no proto\npro bono - WHEREFORE
+    ok 7 - $=pod no proto\npro bono
+ok 31 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - variant A\nvariation - contents
+    ok 2 - variant A\nvariation - WHEREFORE
+    ok 3 - variant A\nvariation - trailing
+    ok 4 - variant A\nvariation - trailing
+    ok 5 - variant A\nvariation - stringifies correctly
+    ok 6 - $=pod variant A\nvariation - WHEREFORE
+    ok 7 - $=pod variant A\nvariation
+ok 32 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - variant B\nstation - contents
+    ok 2 - variant B\nstation - WHEREFORE
+    ok 3 - variant B\nstation - trailing
+    ok 4 - variant B\nstation - trailing
+    ok 5 - variant B\nstation - stringifies correctly
+    ok 6 - $=pod variant B\nstation - WHEREFORE
+    ok 7 - $=pod variant B\nstation
+ok 33 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - proto\ntype - contents
+    ok 2 - proto\ntype - WHEREFORE
+    ok 3 - proto\ntype - trailing
+    ok 4 - proto\ntype - trailing
+    ok 5 - proto\ntype - stringifies correctly
+    ok 6 - $=pod proto\ntype - WHEREFORE
+    ok 7 - $=pod proto\ntype
+ok 34 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - alpha\ncentauri - contents
+    ok 2 - alpha\ncentauri - WHEREFORE
+    ok 3 - alpha\ncentauri - trailing
+    ok 4 - alpha\ncentauri - trailing
+    ok 5 - alpha\ncentauri - stringifies correctly
+    ok 6 - $=pod alpha\ncentauri - WHEREFORE
+    ok 7 - $=pod alpha\ncentauri
+ok 35 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - beta\nmale - contents
+    ok 2 - beta\nmale - WHEREFORE
+    ok 3 - beta\nmale - trailing
+    ok 4 - beta\nmale - trailing
+    ok 5 - beta\nmale - stringifies correctly
+    ok 6 - $=pod beta\nmale - WHEREFORE
+    ok 7 - $=pod beta\nmale
+ok 36 - Sub
+# Subtest: Sub
+    1..7
+    ok 1 - Roy\nOrbison - contents
+    ok 2 - Roy\nOrbison - WHEREFORE
+    ok 3 - Roy\nOrbison - trailing
+    ok 4 - Roy\nOrbison - trailing
+    ok 5 - Roy\nOrbison - stringifies correctly
+    ok 6 - $=pod Roy\nOrbison - WHEREFORE
+    ok 7 - $=pod Roy\nOrbison
+ok 37 - Sub
+# Subtest: Sub+{Callable[Str]}
+    1..7
+    ok 1 - Anonymous\nSub - contents
+    ok 2 - Anonymous\nSub - WHEREFORE
+    ok 3 - Anonymous\nSub - trailing
+    ok 4 - Anonymous\nSub - trailing
+    ok 5 - Anonymous\nSub - stringifies correctly
+    ok 6 - $=pod Anonymous\nSub - WHEREFORE
+    ok 7 - $=pod Anonymous\nSub
+ok 38 - Sub+{Callable[Str]}
+# Subtest: Colors
+    1..7
+    ok 1 - Enumer\nation - contents
+    ok 2 - Enumer\nation - WHEREFORE
+    ok 3 - Enumer\nation - trailing
+    ok 4 - Enumer\nation - trailing
+    ok 5 - Enumer\nation - stringifies correctly
+    ok 6 - $=pod Enumer\nation - WHEREFORE
+    ok 7 - $=pod Enumer\nation
+ok 39 - Colors
+# Subtest: EvenNum
+    1..7
+    ok 1 - Even\nNumbers - contents
+    ok 2 - Even\nNumbers - WHEREFORE
+    ok 3 - Even\nNumbers - trailing
+    ok 4 - Even\nNumbers - trailing
+    ok 5 - Even\nNumbers - stringifies correctly
+    ok 6 - $=pod Even\nNumbers - WHEREFORE
+    ok 7 - $=pod Even\nNumbers
+ok 40 - EvenNum
+ok 41 - # SKIP declaration comments are NYI on constants
+ok 42 - # SKIP declaration comments are NYI on constants
+ok 43 - # SKIP declaration comments are NYI on constants
+ok 44 - # SKIP declaration comments are NYI on constants
+ok 45 - # SKIP declaration comments are NYI on constants
+ok 46 - # SKIP declaration comments are NYI on constants
+ok 47 - # SKIP declaration comments are NYI on constants
+ok 48 - # SKIP declaration comments are NYI on variables
+ok 49 - # SKIP declaration comments are NYI on variables
+ok 50 - # SKIP declaration comments are NYI on variables
+ok 51 - # SKIP declaration comments are NYI on variables
+ok 52 - # SKIP declaration comments are NYI on variables
+ok 53 - # SKIP declaration comments are NYI on variables
+ok 54 - # SKIP declaration comments are NYI on variables
+# Subtest: Sub
+    1..7
+    ok 1 - where constraints shouldn't\nprevent declarative comments - contents
+    ok 2 - where constraints shouldn't\nprevent declarative comments - WHEREFORE
+    ok 3 - where constraints shouldn't\nprevent declarative comments - trailing
+    ok 4 - where constraints shouldn't\nprevent declarative comments - trailing
+    ok 5 - where constraints shouldn't\nprevent declarative comments - stringifies correctly
+    ok 6 - $=pod where constraints shouldn't\nprevent declarative comments - WHEREFORE
+    ok 7 - $=pod where constraints shouldn't\nprevent declarative comments
+ok 55 - Sub
+# Subtest: Block
+    1..7
+    ok 1 - this is\na block - contents
+    ok 2 - this is\na block - WHEREFORE
+    ok 3 - this is\na block - trailing
+    ok 4 - this is\na block - trailing
+    ok 5 - this is\na block - stringifies correctly
+    ok 6 - $=pod this is\na block - WHEREFORE
+    ok 7 - $=pod this is\na block
+ok 56 - Block
+ok 57 - 

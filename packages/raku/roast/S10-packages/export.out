@@ -1,0 +1,8 @@
+1..7
+ok 1 - 'is export' works correctly even when not exporting to Main (1)
+ok 2 - 'is export' works correctly even when not exporting to Main (2)
+ok 3 - lexical export works
+ok 4 - lexical export is indeed lexical
+ok 5 - lexical import survives pad regeneration
+ok 6 - lexical import survives pad regeneration
+ok 7 - lexical import survives pad regeneration

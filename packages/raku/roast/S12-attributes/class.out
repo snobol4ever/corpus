@@ -1,0 +1,54 @@
+1..28
+ok 1 - accessors for class attributes work
+ok 2 - class attributes really work
+ok 3 - inherited class attribute accessors work
+ok 4 - inherited class attributes really work
+ok 5 - inherited rw class attribute accessors work
+ok 6 - inherited rw class attributes really work
+ok 7 - Can instantiate with overridden instance method
+ok 8 - Instance call gets instance attribute, not class attribute
+ok 9 - class attribute accessor hidden by accessor in subclass; we do not magically ignore it
+ok 10 - class attribute accessors work
+ok 11 - class attributes shared by all instances
+ok 12 - class attribute initialization works
+ok 13 - bad code: '$.a'
+ok 14 - bad code: '$!a'
+ok 15 - bad code: 'class B0rk { has $.a; say $.a; }'
+ok 16 - bad code: 'class Chef { my $.a; say $.a; }'
+ok 17 - no Null PMC access when doing //= on an undefined attribute and then calling it
+ok 18 - don't create accessor if the class declares an explicit method of that name
+ok 19 - 
+ok 20 - can declare attribute inside of a BEGIN EVAL in class
+# Subtest: cannot declare attribute inside of an EVAL in class
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 21 - cannot declare attribute inside of an EVAL in class
+ok 22 - useless our $.a accessor method generation error contains useful enough hints
+ok 23 - useless my $.a accessor method generation error contains useful enough hints
+# Subtest: attribute access from where clauses
+    1..7
+    # Subtest: where, thunk, attr only
+        1..2
+        ok 1 - 'my class RT130748a { has $.a; has $.b where $!a }' died
+        ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 1 - where, thunk, attr only
+    # Subtest: where, whatevercode
+        1..2
+        ok 1 - 'my class RT130748b { has $.a; has $.b where * > $!a }' died
+        ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 2 - where, whatevercode
+    # Subtest: where, block
+        1..2
+        ok 1 - 'my class RT130748c { has $.a; has $.b where {$!a} }' died
+        ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 3 - where, block
+    ok 4 - can still use attr in default values
+    ok 5 - where in method param, thunk
+    ok 6 - where in method param, block
+    ok 7 - where in method param, whatevercode
+ok 24 - attribute access from where clauses
+ok 25 - is the private attribute initialized to default value
+ok 26 - is the private attribute initialized with .new
+ok 27 - is the public attribute initialized to default value
+ok 28 - is the public attribute **NOT** initialized with .new

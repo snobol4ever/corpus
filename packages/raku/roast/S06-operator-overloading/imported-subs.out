@@ -1,0 +1,25 @@
+1..20
+ok 1 - postfix:<!> was exported...
+ok 2 - ... and it works
+ok 3 - infix:<yadayada> was exported
+ok 4 - ... and it works
+ok 5 - ... and yadayada= works too
+ok 6 - imported Unicode prefix operator
+ok 7 - ... and it works
+ok 8 - infix:<±> was exported
+ok 9 - ... and it works
+ok 10 - infix:<NAN+> was exported
+ok 11 - multi infix:<+> was exported and is visible
+ok 12 - NAN+= works too
+ok 13 - += works too
+ok 14 - Normal infix:<+> still works
+ok 15 - not-exported operator was not imported
+ok 16 - not imported operator fails with X::Syntax::Confused.
+ok 17 - the reason is "Two terms in a row"
+ok 18 - exporting circumfixes works
+# Subtest: import of operators is lexical
+    1..2
+    ok 1 - '5!' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 19 - import of operators is lexical
+ok 20 - precedence is exported/imported properly along with operators

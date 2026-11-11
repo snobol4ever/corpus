@@ -1,0 +1,71 @@
+1..23
+not ok 1 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 19
+not ok 2 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 3 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 4 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 5 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 6 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 7 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 8 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 9 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 10 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 11 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 12 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 13 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 14 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 15 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 16 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 17 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 18 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 19 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 20 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 21 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 22 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+not ok 23 - non-compiling test # TODO leave is not implemented yet
+# Failed test 'non-compiling test'
+# at S04-statements/leave.rakudo line 211
+# FUDGED!

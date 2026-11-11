@@ -1,0 +1,501 @@
+1..500
+ok 1 - 0x1E0A, 0x323 -> Str -> 0x1E0C, 0x307 NormalizationTest.txt line no 46
+ok 2 - 0x44, 0x307, 0x323 -> Str -> 0x1E0C, 0x307 NormalizationTest.txt line no 48
+ok 3 - 0x44, 0x323, 0x307 -> Str -> 0x1E0C, 0x307 NormalizationTest.txt line no 49
+ok 4 - 0x1E0A, 0x31B, 0x323 -> Str -> 0x1E0C, 0x31B, 0x307 NormalizationTest.txt line no 52
+ok 5 - 0x44, 0x31B, 0x307, 0x323 -> Str -> 0x1E0C, 0x31B, 0x307 NormalizationTest.txt line no 54
+ok 6 - 0x44, 0x31B, 0x323, 0x307 -> Str -> 0x1E0C, 0x31B, 0x307 NormalizationTest.txt line no 55
+ok 7 - 0x45, 0x300 -> Str -> 0xC8 NormalizationTest.txt line no 58
+ok 8 - 0x45, 0x304 -> Str -> 0x112 NormalizationTest.txt line no 59
+ok 9 - 0x112, 0x300 -> Str -> 0x1E14 NormalizationTest.txt line no 61
+ok 10 - 0x45, 0x304, 0x300 -> Str -> 0x1E14 NormalizationTest.txt line no 63
+ok 11 - 0x45, 0x300, 0x304 -> Str -> 0xC8, 0x304 NormalizationTest.txt line no 64
+ok 12 - 0x5B8, 0x5B9, 0x5B1, 0x591, 0x5C3, 0x5B0, 0x5AC, 0x59F -> Str -> 0x5B1, 0x5B8, 0x5B9, 0x591, 0x5C3, 0x5B0, 0x5AC, 0x59F NormalizationTest.txt line no 65
+ok 13 - 0x592, 0x5B7, 0x5BC, 0x5A5, 0x5B0, 0x5C0, 0x5C4, 0x5AD -> Str -> 0x5B0, 0x5B7, 0x5BC, 0x5A5, 0x592, 0x5C0, 0x5AD, 0x5C4 NormalizationTest.txt line no 66
+ok 14 - 0x1100, 0xAC00, 0x11A8 -> Str -> 0x1100, 0xAC01 NormalizationTest.txt line no 67
+ok 15 - 0x1100, 0xAC00, 0x11A8, 0x11A8 -> Str -> 0x1100, 0xAC01, 0x11A8 NormalizationTest.txt line no 68
+ok 16 - 0x340 -> Str -> 0x300 NormalizationTest.txt line no 397
+ok 17 - 0x341 -> Str -> 0x301 NormalizationTest.txt line no 398
+ok 18 - 0x343 -> Str -> 0x313 NormalizationTest.txt line no 399
+ok 19 - 0x344 -> Str -> 0x308, 0x301 NormalizationTest.txt line no 400
+ok 20 - 0x374 -> Str -> 0x2B9 NormalizationTest.txt line no 401
+ok 21 - 0x37E -> Str -> 0x3B NormalizationTest.txt line no 403
+ok 22 - 0x387 -> Str -> 0xB7 NormalizationTest.txt line no 407
+ok 23 - 0x958 -> Str -> 0x915, 0x93C NormalizationTest.txt line no 508
+ok 24 - 0x959 -> Str -> 0x916, 0x93C NormalizationTest.txt line no 509
+ok 25 - 0x95A -> Str -> 0x917, 0x93C NormalizationTest.txt line no 510
+ok 26 - 0x95B -> Str -> 0x91C, 0x93C NormalizationTest.txt line no 511
+ok 27 - 0x95C -> Str -> 0x921, 0x93C NormalizationTest.txt line no 512
+ok 28 - 0x95D -> Str -> 0x922, 0x93C NormalizationTest.txt line no 513
+ok 29 - 0x95E -> Str -> 0x92B, 0x93C NormalizationTest.txt line no 514
+ok 30 - 0x95F -> Str -> 0x92F, 0x93C NormalizationTest.txt line no 515
+ok 31 - 0x9DC -> Str -> 0x9A1, 0x9BC NormalizationTest.txt line no 518
+ok 32 - 0x9DD -> Str -> 0x9A2, 0x9BC NormalizationTest.txt line no 519
+ok 33 - 0x9DF -> Str -> 0x9AF, 0x9BC NormalizationTest.txt line no 520
+ok 34 - 0xA33 -> Str -> 0xA32, 0xA3C NormalizationTest.txt line no 521
+ok 35 - 0xA36 -> Str -> 0xA38, 0xA3C NormalizationTest.txt line no 522
+ok 36 - 0xA59 -> Str -> 0xA16, 0xA3C NormalizationTest.txt line no 523
+ok 37 - 0xA5A -> Str -> 0xA17, 0xA3C NormalizationTest.txt line no 524
+ok 38 - 0xA5B -> Str -> 0xA1C, 0xA3C NormalizationTest.txt line no 525
+ok 39 - 0xA5E -> Str -> 0xA2B, 0xA3C NormalizationTest.txt line no 526
+ok 40 - 0xB5C -> Str -> 0xB21, 0xB3C NormalizationTest.txt line no 530
+ok 41 - 0xB5D -> Str -> 0xB22, 0xB3C NormalizationTest.txt line no 531
+ok 42 - 0xF43 -> Str -> 0xF42, 0xFB7 NormalizationTest.txt line no 554
+ok 43 - 0xF4D -> Str -> 0xF4C, 0xFB7 NormalizationTest.txt line no 555
+ok 44 - 0xF52 -> Str -> 0xF51, 0xFB7 NormalizationTest.txt line no 556
+ok 45 - 0xF57 -> Str -> 0xF56, 0xFB7 NormalizationTest.txt line no 557
+ok 46 - 0xF5C -> Str -> 0xF5B, 0xFB7 NormalizationTest.txt line no 558
+ok 47 - 0xF69 -> Str -> 0xF40, 0xFB5 NormalizationTest.txt line no 559
+ok 48 - 0xF73 -> Str -> 0xF71, 0xF72 NormalizationTest.txt line no 560
+ok 49 - 0xF75 -> Str -> 0xF71, 0xF74 NormalizationTest.txt line no 561
+ok 50 - 0xF76 -> Str -> 0xFB2, 0xF80 NormalizationTest.txt line no 562
+ok 51 - 0xF78 -> Str -> 0xFB3, 0xF80 NormalizationTest.txt line no 564
+ok 52 - 0xF81 -> Str -> 0xF71, 0xF80 NormalizationTest.txt line no 566
+ok 53 - 0xF93 -> Str -> 0xF92, 0xFB7 NormalizationTest.txt line no 567
+ok 54 - 0xF9D -> Str -> 0xF9C, 0xFB7 NormalizationTest.txt line no 568
+ok 55 - 0xFA2 -> Str -> 0xFA1, 0xFB7 NormalizationTest.txt line no 569
+ok 56 - 0xFA7 -> Str -> 0xFA6, 0xFB7 NormalizationTest.txt line no 570
+ok 57 - 0xFAC -> Str -> 0xFAB, 0xFB7 NormalizationTest.txt line no 571
+ok 58 - 0xFB9 -> Str -> 0xF90, 0xFB5 NormalizationTest.txt line no 572
+ok 59 - 0x1F71 -> Str -> 0x3AC NormalizationTest.txt line no 1031
+ok 60 - 0x1F73 -> Str -> 0x3AD NormalizationTest.txt line no 1033
+ok 61 - 0x1F75 -> Str -> 0x3AE NormalizationTest.txt line no 1035
+ok 62 - 0x1F77 -> Str -> 0x3AF NormalizationTest.txt line no 1037
+ok 63 - 0x1F79 -> Str -> 0x3CC NormalizationTest.txt line no 1039
+ok 64 - 0x1F7B -> Str -> 0x3CD NormalizationTest.txt line no 1041
+ok 65 - 0x1F7D -> Str -> 0x3CE NormalizationTest.txt line no 1043
+ok 66 - 0x1FBB -> Str -> 0x386 NormalizationTest.txt line no 1102
+ok 67 - 0x1FBE -> Str -> 0x3B9 NormalizationTest.txt line no 1105
+ok 68 - 0x1FC9 -> Str -> 0x388 NormalizationTest.txt line no 1115
+ok 69 - 0x1FCB -> Str -> 0x389 NormalizationTest.txt line no 1117
+ok 70 - 0x1FD3 -> Str -> 0x390 NormalizationTest.txt line no 1125
+ok 71 - 0x1FDB -> Str -> 0x38A NormalizationTest.txt line no 1131
+ok 72 - 0x1FE3 -> Str -> 0x3B0 NormalizationTest.txt line no 1138
+ok 73 - 0x1FEB -> Str -> 0x38E NormalizationTest.txt line no 1146
+ok 74 - 0x1FEE -> Str -> 0x385 NormalizationTest.txt line no 1149
+ok 75 - 0x1FEF -> Str -> 0x60 NormalizationTest.txt line no 1150
+ok 76 - 0x1FF9 -> Str -> 0x38C NormalizationTest.txt line no 1157
+ok 77 - 0x1FFB -> Str -> 0x38F NormalizationTest.txt line no 1159
+ok 78 - 0x1FFD -> Str -> 0xB4 NormalizationTest.txt line no 1161
+ok 79 - 0x2000 -> Str -> 0x2002 NormalizationTest.txt line no 1163
+ok 80 - 0x2001 -> Str -> 0x2003 NormalizationTest.txt line no 1164
+ok 81 - 0x2126 -> Str -> 0x3A9 NormalizationTest.txt line no 1263
+ok 82 - 0x212A -> Str -> 0x4B NormalizationTest.txt line no 1265
+ok 83 - 0x212B -> Str -> 0xC5 NormalizationTest.txt line no 1266
+ok 84 - 0x2329 -> Str -> 0x3008 NormalizationTest.txt line no 1387
+ok 85 - 0x232A -> Str -> 0x3009 NormalizationTest.txt line no 1388
+ok 86 - 0x2ADC -> Str -> 0x2ADD, 0x338 NormalizationTest.txt line no 1532
+ok 87 - 0xF900 -> Str -> 0x8C48 NormalizationTest.txt line no 13615
+ok 88 - 0xF901 -> Str -> 0x66F4 NormalizationTest.txt line no 13616
+ok 89 - 0xF902 -> Str -> 0x8ECA NormalizationTest.txt line no 13617
+ok 90 - 0xF903 -> Str -> 0x8CC8 NormalizationTest.txt line no 13618
+ok 91 - 0xF904 -> Str -> 0x6ED1 NormalizationTest.txt line no 13619
+ok 92 - 0xF905 -> Str -> 0x4E32 NormalizationTest.txt line no 13620
+ok 93 - 0xF906 -> Str -> 0x53E5 NormalizationTest.txt line no 13621
+ok 94 - 0xF907 -> Str -> 0x9F9C NormalizationTest.txt line no 13622
+ok 95 - 0xF908 -> Str -> 0x9F9C NormalizationTest.txt line no 13623
+ok 96 - 0xF909 -> Str -> 0x5951 NormalizationTest.txt line no 13624
+ok 97 - 0xF90A -> Str -> 0x91D1 NormalizationTest.txt line no 13625
+ok 98 - 0xF90B -> Str -> 0x5587 NormalizationTest.txt line no 13626
+ok 99 - 0xF90C -> Str -> 0x5948 NormalizationTest.txt line no 13627
+ok 100 - 0xF90D -> Str -> 0x61F6 NormalizationTest.txt line no 13628
+ok 101 - 0xF90E -> Str -> 0x7669 NormalizationTest.txt line no 13629
+ok 102 - 0xF90F -> Str -> 0x7F85 NormalizationTest.txt line no 13630
+ok 103 - 0xF910 -> Str -> 0x863F NormalizationTest.txt line no 13631
+ok 104 - 0xF911 -> Str -> 0x87BA NormalizationTest.txt line no 13632
+ok 105 - 0xF912 -> Str -> 0x88F8 NormalizationTest.txt line no 13633
+ok 106 - 0xF913 -> Str -> 0x908F NormalizationTest.txt line no 13634
+ok 107 - 0xF914 -> Str -> 0x6A02 NormalizationTest.txt line no 13635
+ok 108 - 0xF915 -> Str -> 0x6D1B NormalizationTest.txt line no 13636
+ok 109 - 0xF916 -> Str -> 0x70D9 NormalizationTest.txt line no 13637
+ok 110 - 0xF917 -> Str -> 0x73DE NormalizationTest.txt line no 13638
+ok 111 - 0xF918 -> Str -> 0x843D NormalizationTest.txt line no 13639
+ok 112 - 0xF919 -> Str -> 0x916A NormalizationTest.txt line no 13640
+ok 113 - 0xF91A -> Str -> 0x99F1 NormalizationTest.txt line no 13641
+ok 114 - 0xF91B -> Str -> 0x4E82 NormalizationTest.txt line no 13642
+ok 115 - 0xF91C -> Str -> 0x5375 NormalizationTest.txt line no 13643
+ok 116 - 0xF91D -> Str -> 0x6B04 NormalizationTest.txt line no 13644
+ok 117 - 0xF91E -> Str -> 0x721B NormalizationTest.txt line no 13645
+ok 118 - 0xF91F -> Str -> 0x862D NormalizationTest.txt line no 13646
+ok 119 - 0xF920 -> Str -> 0x9E1E NormalizationTest.txt line no 13647
+ok 120 - 0xF921 -> Str -> 0x5D50 NormalizationTest.txt line no 13648
+ok 121 - 0xF922 -> Str -> 0x6FEB NormalizationTest.txt line no 13649
+ok 122 - 0xF923 -> Str -> 0x85CD NormalizationTest.txt line no 13650
+ok 123 - 0xF924 -> Str -> 0x8964 NormalizationTest.txt line no 13651
+ok 124 - 0xF925 -> Str -> 0x62C9 NormalizationTest.txt line no 13652
+ok 125 - 0xF926 -> Str -> 0x81D8 NormalizationTest.txt line no 13653
+ok 126 - 0xF927 -> Str -> 0x881F NormalizationTest.txt line no 13654
+ok 127 - 0xF928 -> Str -> 0x5ECA NormalizationTest.txt line no 13655
+ok 128 - 0xF929 -> Str -> 0x6717 NormalizationTest.txt line no 13656
+ok 129 - 0xF92A -> Str -> 0x6D6A NormalizationTest.txt line no 13657
+ok 130 - 0xF92B -> Str -> 0x72FC NormalizationTest.txt line no 13658
+ok 131 - 0xF92C -> Str -> 0x90CE NormalizationTest.txt line no 13659
+ok 132 - 0xF92D -> Str -> 0x4F86 NormalizationTest.txt line no 13660
+ok 133 - 0xF92E -> Str -> 0x51B7 NormalizationTest.txt line no 13661
+ok 134 - 0xF92F -> Str -> 0x52DE NormalizationTest.txt line no 13662
+ok 135 - 0xF930 -> Str -> 0x64C4 NormalizationTest.txt line no 13663
+ok 136 - 0xF931 -> Str -> 0x6AD3 NormalizationTest.txt line no 13664
+ok 137 - 0xF932 -> Str -> 0x7210 NormalizationTest.txt line no 13665
+ok 138 - 0xF933 -> Str -> 0x76E7 NormalizationTest.txt line no 13666
+ok 139 - 0xF934 -> Str -> 0x8001 NormalizationTest.txt line no 13667
+ok 140 - 0xF935 -> Str -> 0x8606 NormalizationTest.txt line no 13668
+ok 141 - 0xF936 -> Str -> 0x865C NormalizationTest.txt line no 13669
+ok 142 - 0xF937 -> Str -> 0x8DEF NormalizationTest.txt line no 13670
+ok 143 - 0xF938 -> Str -> 0x9732 NormalizationTest.txt line no 13671
+ok 144 - 0xF939 -> Str -> 0x9B6F NormalizationTest.txt line no 13672
+ok 145 - 0xF93A -> Str -> 0x9DFA NormalizationTest.txt line no 13673
+ok 146 - 0xF93B -> Str -> 0x788C NormalizationTest.txt line no 13674
+ok 147 - 0xF93C -> Str -> 0x797F NormalizationTest.txt line no 13675
+ok 148 - 0xF93D -> Str -> 0x7DA0 NormalizationTest.txt line no 13676
+ok 149 - 0xF93E -> Str -> 0x83C9 NormalizationTest.txt line no 13677
+ok 150 - 0xF93F -> Str -> 0x9304 NormalizationTest.txt line no 13678
+ok 151 - 0xF940 -> Str -> 0x9E7F NormalizationTest.txt line no 13679
+ok 152 - 0xF941 -> Str -> 0x8AD6 NormalizationTest.txt line no 13680
+ok 153 - 0xF942 -> Str -> 0x58DF NormalizationTest.txt line no 13681
+ok 154 - 0xF943 -> Str -> 0x5F04 NormalizationTest.txt line no 13682
+ok 155 - 0xF944 -> Str -> 0x7C60 NormalizationTest.txt line no 13683
+ok 156 - 0xF945 -> Str -> 0x807E NormalizationTest.txt line no 13684
+ok 157 - 0xF946 -> Str -> 0x7262 NormalizationTest.txt line no 13685
+ok 158 - 0xF947 -> Str -> 0x78CA NormalizationTest.txt line no 13686
+ok 159 - 0xF948 -> Str -> 0x8CC2 NormalizationTest.txt line no 13687
+ok 160 - 0xF949 -> Str -> 0x96F7 NormalizationTest.txt line no 13688
+ok 161 - 0xF94A -> Str -> 0x58D8 NormalizationTest.txt line no 13689
+ok 162 - 0xF94B -> Str -> 0x5C62 NormalizationTest.txt line no 13690
+ok 163 - 0xF94C -> Str -> 0x6A13 NormalizationTest.txt line no 13691
+ok 164 - 0xF94D -> Str -> 0x6DDA NormalizationTest.txt line no 13692
+ok 165 - 0xF94E -> Str -> 0x6F0F NormalizationTest.txt line no 13693
+ok 166 - 0xF94F -> Str -> 0x7D2F NormalizationTest.txt line no 13694
+ok 167 - 0xF950 -> Str -> 0x7E37 NormalizationTest.txt line no 13695
+ok 168 - 0xF951 -> Str -> 0x964B NormalizationTest.txt line no 13696
+ok 169 - 0xF952 -> Str -> 0x52D2 NormalizationTest.txt line no 13697
+ok 170 - 0xF953 -> Str -> 0x808B NormalizationTest.txt line no 13698
+ok 171 - 0xF954 -> Str -> 0x51DC NormalizationTest.txt line no 13699
+ok 172 - 0xF955 -> Str -> 0x51CC NormalizationTest.txt line no 13700
+ok 173 - 0xF956 -> Str -> 0x7A1C NormalizationTest.txt line no 13701
+ok 174 - 0xF957 -> Str -> 0x7DBE NormalizationTest.txt line no 13702
+ok 175 - 0xF958 -> Str -> 0x83F1 NormalizationTest.txt line no 13703
+ok 176 - 0xF959 -> Str -> 0x9675 NormalizationTest.txt line no 13704
+ok 177 - 0xF95A -> Str -> 0x8B80 NormalizationTest.txt line no 13705
+ok 178 - 0xF95B -> Str -> 0x62CF NormalizationTest.txt line no 13706
+ok 179 - 0xF95C -> Str -> 0x6A02 NormalizationTest.txt line no 13707
+ok 180 - 0xF95D -> Str -> 0x8AFE NormalizationTest.txt line no 13708
+ok 181 - 0xF95E -> Str -> 0x4E39 NormalizationTest.txt line no 13709
+ok 182 - 0xF95F -> Str -> 0x5BE7 NormalizationTest.txt line no 13710
+ok 183 - 0xF960 -> Str -> 0x6012 NormalizationTest.txt line no 13711
+ok 184 - 0xF961 -> Str -> 0x7387 NormalizationTest.txt line no 13712
+ok 185 - 0xF962 -> Str -> 0x7570 NormalizationTest.txt line no 13713
+ok 186 - 0xF963 -> Str -> 0x5317 NormalizationTest.txt line no 13714
+ok 187 - 0xF964 -> Str -> 0x78FB NormalizationTest.txt line no 13715
+ok 188 - 0xF965 -> Str -> 0x4FBF NormalizationTest.txt line no 13716
+ok 189 - 0xF966 -> Str -> 0x5FA9 NormalizationTest.txt line no 13717
+ok 190 - 0xF967 -> Str -> 0x4E0D NormalizationTest.txt line no 13718
+ok 191 - 0xF968 -> Str -> 0x6CCC NormalizationTest.txt line no 13719
+ok 192 - 0xF969 -> Str -> 0x6578 NormalizationTest.txt line no 13720
+ok 193 - 0xF96A -> Str -> 0x7D22 NormalizationTest.txt line no 13721
+ok 194 - 0xF96B -> Str -> 0x53C3 NormalizationTest.txt line no 13722
+ok 195 - 0xF96C -> Str -> 0x585E NormalizationTest.txt line no 13723
+ok 196 - 0xF96D -> Str -> 0x7701 NormalizationTest.txt line no 13724
+ok 197 - 0xF96E -> Str -> 0x8449 NormalizationTest.txt line no 13725
+ok 198 - 0xF96F -> Str -> 0x8AAA NormalizationTest.txt line no 13726
+ok 199 - 0xF970 -> Str -> 0x6BBA NormalizationTest.txt line no 13727
+ok 200 - 0xF971 -> Str -> 0x8FB0 NormalizationTest.txt line no 13728
+ok 201 - 0xF972 -> Str -> 0x6C88 NormalizationTest.txt line no 13729
+ok 202 - 0xF973 -> Str -> 0x62FE NormalizationTest.txt line no 13730
+ok 203 - 0xF974 -> Str -> 0x82E5 NormalizationTest.txt line no 13731
+ok 204 - 0xF975 -> Str -> 0x63A0 NormalizationTest.txt line no 13732
+ok 205 - 0xF976 -> Str -> 0x7565 NormalizationTest.txt line no 13733
+ok 206 - 0xF977 -> Str -> 0x4EAE NormalizationTest.txt line no 13734
+ok 207 - 0xF978 -> Str -> 0x5169 NormalizationTest.txt line no 13735
+ok 208 - 0xF979 -> Str -> 0x51C9 NormalizationTest.txt line no 13736
+ok 209 - 0xF97A -> Str -> 0x6881 NormalizationTest.txt line no 13737
+ok 210 - 0xF97B -> Str -> 0x7CE7 NormalizationTest.txt line no 13738
+ok 211 - 0xF97C -> Str -> 0x826F NormalizationTest.txt line no 13739
+ok 212 - 0xF97D -> Str -> 0x8AD2 NormalizationTest.txt line no 13740
+ok 213 - 0xF97E -> Str -> 0x91CF NormalizationTest.txt line no 13741
+ok 214 - 0xF97F -> Str -> 0x52F5 NormalizationTest.txt line no 13742
+ok 215 - 0xF980 -> Str -> 0x5442 NormalizationTest.txt line no 13743
+ok 216 - 0xF981 -> Str -> 0x5973 NormalizationTest.txt line no 13744
+ok 217 - 0xF982 -> Str -> 0x5EEC NormalizationTest.txt line no 13745
+ok 218 - 0xF983 -> Str -> 0x65C5 NormalizationTest.txt line no 13746
+ok 219 - 0xF984 -> Str -> 0x6FFE NormalizationTest.txt line no 13747
+ok 220 - 0xF985 -> Str -> 0x792A NormalizationTest.txt line no 13748
+ok 221 - 0xF986 -> Str -> 0x95AD NormalizationTest.txt line no 13749
+ok 222 - 0xF987 -> Str -> 0x9A6A NormalizationTest.txt line no 13750
+ok 223 - 0xF988 -> Str -> 0x9E97 NormalizationTest.txt line no 13751
+ok 224 - 0xF989 -> Str -> 0x9ECE NormalizationTest.txt line no 13752
+ok 225 - 0xF98A -> Str -> 0x529B NormalizationTest.txt line no 13753
+ok 226 - 0xF98B -> Str -> 0x66C6 NormalizationTest.txt line no 13754
+ok 227 - 0xF98C -> Str -> 0x6B77 NormalizationTest.txt line no 13755
+ok 228 - 0xF98D -> Str -> 0x8F62 NormalizationTest.txt line no 13756
+ok 229 - 0xF98E -> Str -> 0x5E74 NormalizationTest.txt line no 13757
+ok 230 - 0xF98F -> Str -> 0x6190 NormalizationTest.txt line no 13758
+ok 231 - 0xF990 -> Str -> 0x6200 NormalizationTest.txt line no 13759
+ok 232 - 0xF991 -> Str -> 0x649A NormalizationTest.txt line no 13760
+ok 233 - 0xF992 -> Str -> 0x6F23 NormalizationTest.txt line no 13761
+ok 234 - 0xF993 -> Str -> 0x7149 NormalizationTest.txt line no 13762
+ok 235 - 0xF994 -> Str -> 0x7489 NormalizationTest.txt line no 13763
+ok 236 - 0xF995 -> Str -> 0x79CA NormalizationTest.txt line no 13764
+ok 237 - 0xF996 -> Str -> 0x7DF4 NormalizationTest.txt line no 13765
+ok 238 - 0xF997 -> Str -> 0x806F NormalizationTest.txt line no 13766
+ok 239 - 0xF998 -> Str -> 0x8F26 NormalizationTest.txt line no 13767
+ok 240 - 0xF999 -> Str -> 0x84EE NormalizationTest.txt line no 13768
+ok 241 - 0xF99A -> Str -> 0x9023 NormalizationTest.txt line no 13769
+ok 242 - 0xF99B -> Str -> 0x934A NormalizationTest.txt line no 13770
+ok 243 - 0xF99C -> Str -> 0x5217 NormalizationTest.txt line no 13771
+ok 244 - 0xF99D -> Str -> 0x52A3 NormalizationTest.txt line no 13772
+ok 245 - 0xF99E -> Str -> 0x54BD NormalizationTest.txt line no 13773
+ok 246 - 0xF99F -> Str -> 0x70C8 NormalizationTest.txt line no 13774
+ok 247 - 0xF9A0 -> Str -> 0x88C2 NormalizationTest.txt line no 13775
+ok 248 - 0xF9A1 -> Str -> 0x8AAA NormalizationTest.txt line no 13776
+ok 249 - 0xF9A2 -> Str -> 0x5EC9 NormalizationTest.txt line no 13777
+ok 250 - 0xF9A3 -> Str -> 0x5FF5 NormalizationTest.txt line no 13778
+ok 251 - 0xF9A4 -> Str -> 0x637B NormalizationTest.txt line no 13779
+ok 252 - 0xF9A5 -> Str -> 0x6BAE NormalizationTest.txt line no 13780
+ok 253 - 0xF9A6 -> Str -> 0x7C3E NormalizationTest.txt line no 13781
+ok 254 - 0xF9A7 -> Str -> 0x7375 NormalizationTest.txt line no 13782
+ok 255 - 0xF9A8 -> Str -> 0x4EE4 NormalizationTest.txt line no 13783
+ok 256 - 0xF9A9 -> Str -> 0x56F9 NormalizationTest.txt line no 13784
+ok 257 - 0xF9AA -> Str -> 0x5BE7 NormalizationTest.txt line no 13785
+ok 258 - 0xF9AB -> Str -> 0x5DBA NormalizationTest.txt line no 13786
+ok 259 - 0xF9AC -> Str -> 0x601C NormalizationTest.txt line no 13787
+ok 260 - 0xF9AD -> Str -> 0x73B2 NormalizationTest.txt line no 13788
+ok 261 - 0xF9AE -> Str -> 0x7469 NormalizationTest.txt line no 13789
+ok 262 - 0xF9AF -> Str -> 0x7F9A NormalizationTest.txt line no 13790
+ok 263 - 0xF9B0 -> Str -> 0x8046 NormalizationTest.txt line no 13791
+ok 264 - 0xF9B1 -> Str -> 0x9234 NormalizationTest.txt line no 13792
+ok 265 - 0xF9B2 -> Str -> 0x96F6 NormalizationTest.txt line no 13793
+ok 266 - 0xF9B3 -> Str -> 0x9748 NormalizationTest.txt line no 13794
+ok 267 - 0xF9B4 -> Str -> 0x9818 NormalizationTest.txt line no 13795
+ok 268 - 0xF9B5 -> Str -> 0x4F8B NormalizationTest.txt line no 13796
+ok 269 - 0xF9B6 -> Str -> 0x79AE NormalizationTest.txt line no 13797
+ok 270 - 0xF9B7 -> Str -> 0x91B4 NormalizationTest.txt line no 13798
+ok 271 - 0xF9B8 -> Str -> 0x96B8 NormalizationTest.txt line no 13799
+ok 272 - 0xF9B9 -> Str -> 0x60E1 NormalizationTest.txt line no 13800
+ok 273 - 0xF9BA -> Str -> 0x4E86 NormalizationTest.txt line no 13801
+ok 274 - 0xF9BB -> Str -> 0x50DA NormalizationTest.txt line no 13802
+ok 275 - 0xF9BC -> Str -> 0x5BEE NormalizationTest.txt line no 13803
+ok 276 - 0xF9BD -> Str -> 0x5C3F NormalizationTest.txt line no 13804
+ok 277 - 0xF9BE -> Str -> 0x6599 NormalizationTest.txt line no 13805
+ok 278 - 0xF9BF -> Str -> 0x6A02 NormalizationTest.txt line no 13806
+ok 279 - 0xF9C0 -> Str -> 0x71CE NormalizationTest.txt line no 13807
+ok 280 - 0xF9C1 -> Str -> 0x7642 NormalizationTest.txt line no 13808
+ok 281 - 0xF9C2 -> Str -> 0x84FC NormalizationTest.txt line no 13809
+ok 282 - 0xF9C3 -> Str -> 0x907C NormalizationTest.txt line no 13810
+ok 283 - 0xF9C4 -> Str -> 0x9F8D NormalizationTest.txt line no 13811
+ok 284 - 0xF9C5 -> Str -> 0x6688 NormalizationTest.txt line no 13812
+ok 285 - 0xF9C6 -> Str -> 0x962E NormalizationTest.txt line no 13813
+ok 286 - 0xF9C7 -> Str -> 0x5289 NormalizationTest.txt line no 13814
+ok 287 - 0xF9C8 -> Str -> 0x677B NormalizationTest.txt line no 13815
+ok 288 - 0xF9C9 -> Str -> 0x67F3 NormalizationTest.txt line no 13816
+ok 289 - 0xF9CA -> Str -> 0x6D41 NormalizationTest.txt line no 13817
+ok 290 - 0xF9CB -> Str -> 0x6E9C NormalizationTest.txt line no 13818
+ok 291 - 0xF9CC -> Str -> 0x7409 NormalizationTest.txt line no 13819
+ok 292 - 0xF9CD -> Str -> 0x7559 NormalizationTest.txt line no 13820
+ok 293 - 0xF9CE -> Str -> 0x786B NormalizationTest.txt line no 13821
+ok 294 - 0xF9CF -> Str -> 0x7D10 NormalizationTest.txt line no 13822
+ok 295 - 0xF9D0 -> Str -> 0x985E NormalizationTest.txt line no 13823
+ok 296 - 0xF9D1 -> Str -> 0x516D NormalizationTest.txt line no 13824
+ok 297 - 0xF9D2 -> Str -> 0x622E NormalizationTest.txt line no 13825
+ok 298 - 0xF9D3 -> Str -> 0x9678 NormalizationTest.txt line no 13826
+ok 299 - 0xF9D4 -> Str -> 0x502B NormalizationTest.txt line no 13827
+ok 300 - 0xF9D5 -> Str -> 0x5D19 NormalizationTest.txt line no 13828
+ok 301 - 0xF9D6 -> Str -> 0x6DEA NormalizationTest.txt line no 13829
+ok 302 - 0xF9D7 -> Str -> 0x8F2A NormalizationTest.txt line no 13830
+ok 303 - 0xF9D8 -> Str -> 0x5F8B NormalizationTest.txt line no 13831
+ok 304 - 0xF9D9 -> Str -> 0x6144 NormalizationTest.txt line no 13832
+ok 305 - 0xF9DA -> Str -> 0x6817 NormalizationTest.txt line no 13833
+ok 306 - 0xF9DB -> Str -> 0x7387 NormalizationTest.txt line no 13834
+ok 307 - 0xF9DC -> Str -> 0x9686 NormalizationTest.txt line no 13835
+ok 308 - 0xF9DD -> Str -> 0x5229 NormalizationTest.txt line no 13836
+ok 309 - 0xF9DE -> Str -> 0x540F NormalizationTest.txt line no 13837
+ok 310 - 0xF9DF -> Str -> 0x5C65 NormalizationTest.txt line no 13838
+ok 311 - 0xF9E0 -> Str -> 0x6613 NormalizationTest.txt line no 13839
+ok 312 - 0xF9E1 -> Str -> 0x674E NormalizationTest.txt line no 13840
+ok 313 - 0xF9E2 -> Str -> 0x68A8 NormalizationTest.txt line no 13841
+ok 314 - 0xF9E3 -> Str -> 0x6CE5 NormalizationTest.txt line no 13842
+ok 315 - 0xF9E4 -> Str -> 0x7406 NormalizationTest.txt line no 13843
+ok 316 - 0xF9E5 -> Str -> 0x75E2 NormalizationTest.txt line no 13844
+ok 317 - 0xF9E6 -> Str -> 0x7F79 NormalizationTest.txt line no 13845
+ok 318 - 0xF9E7 -> Str -> 0x88CF NormalizationTest.txt line no 13846
+ok 319 - 0xF9E8 -> Str -> 0x88E1 NormalizationTest.txt line no 13847
+ok 320 - 0xF9E9 -> Str -> 0x91CC NormalizationTest.txt line no 13848
+ok 321 - 0xF9EA -> Str -> 0x96E2 NormalizationTest.txt line no 13849
+ok 322 - 0xF9EB -> Str -> 0x533F NormalizationTest.txt line no 13850
+ok 323 - 0xF9EC -> Str -> 0x6EBA NormalizationTest.txt line no 13851
+ok 324 - 0xF9ED -> Str -> 0x541D NormalizationTest.txt line no 13852
+ok 325 - 0xF9EE -> Str -> 0x71D0 NormalizationTest.txt line no 13853
+ok 326 - 0xF9EF -> Str -> 0x7498 NormalizationTest.txt line no 13854
+ok 327 - 0xF9F0 -> Str -> 0x85FA NormalizationTest.txt line no 13855
+ok 328 - 0xF9F1 -> Str -> 0x96A3 NormalizationTest.txt line no 13856
+ok 329 - 0xF9F2 -> Str -> 0x9C57 NormalizationTest.txt line no 13857
+ok 330 - 0xF9F3 -> Str -> 0x9E9F NormalizationTest.txt line no 13858
+ok 331 - 0xF9F4 -> Str -> 0x6797 NormalizationTest.txt line no 13859
+ok 332 - 0xF9F5 -> Str -> 0x6DCB NormalizationTest.txt line no 13860
+ok 333 - 0xF9F6 -> Str -> 0x81E8 NormalizationTest.txt line no 13861
+ok 334 - 0xF9F7 -> Str -> 0x7ACB NormalizationTest.txt line no 13862
+ok 335 - 0xF9F8 -> Str -> 0x7B20 NormalizationTest.txt line no 13863
+ok 336 - 0xF9F9 -> Str -> 0x7C92 NormalizationTest.txt line no 13864
+ok 337 - 0xF9FA -> Str -> 0x72C0 NormalizationTest.txt line no 13865
+ok 338 - 0xF9FB -> Str -> 0x7099 NormalizationTest.txt line no 13866
+ok 339 - 0xF9FC -> Str -> 0x8B58 NormalizationTest.txt line no 13867
+ok 340 - 0xF9FD -> Str -> 0x4EC0 NormalizationTest.txt line no 13868
+ok 341 - 0xF9FE -> Str -> 0x8336 NormalizationTest.txt line no 13869
+ok 342 - 0xF9FF -> Str -> 0x523A NormalizationTest.txt line no 13870
+ok 343 - 0xFA00 -> Str -> 0x5207 NormalizationTest.txt line no 13871
+ok 344 - 0xFA01 -> Str -> 0x5EA6 NormalizationTest.txt line no 13872
+ok 345 - 0xFA02 -> Str -> 0x62D3 NormalizationTest.txt line no 13873
+ok 346 - 0xFA03 -> Str -> 0x7CD6 NormalizationTest.txt line no 13874
+ok 347 - 0xFA04 -> Str -> 0x5B85 NormalizationTest.txt line no 13875
+ok 348 - 0xFA05 -> Str -> 0x6D1E NormalizationTest.txt line no 13876
+ok 349 - 0xFA06 -> Str -> 0x66B4 NormalizationTest.txt line no 13877
+ok 350 - 0xFA07 -> Str -> 0x8F3B NormalizationTest.txt line no 13878
+ok 351 - 0xFA08 -> Str -> 0x884C NormalizationTest.txt line no 13879
+ok 352 - 0xFA09 -> Str -> 0x964D NormalizationTest.txt line no 13880
+ok 353 - 0xFA0A -> Str -> 0x898B NormalizationTest.txt line no 13881
+ok 354 - 0xFA0B -> Str -> 0x5ED3 NormalizationTest.txt line no 13882
+ok 355 - 0xFA0C -> Str -> 0x5140 NormalizationTest.txt line no 13883
+ok 356 - 0xFA0D -> Str -> 0x55C0 NormalizationTest.txt line no 13884
+ok 357 - 0xFA10 -> Str -> 0x585A NormalizationTest.txt line no 13885
+ok 358 - 0xFA12 -> Str -> 0x6674 NormalizationTest.txt line no 13886
+ok 359 - 0xFA15 -> Str -> 0x51DE NormalizationTest.txt line no 13887
+ok 360 - 0xFA16 -> Str -> 0x732A NormalizationTest.txt line no 13888
+ok 361 - 0xFA17 -> Str -> 0x76CA NormalizationTest.txt line no 13889
+ok 362 - 0xFA18 -> Str -> 0x793C NormalizationTest.txt line no 13890
+ok 363 - 0xFA19 -> Str -> 0x795E NormalizationTest.txt line no 13891
+ok 364 - 0xFA1A -> Str -> 0x7965 NormalizationTest.txt line no 13892
+ok 365 - 0xFA1B -> Str -> 0x798F NormalizationTest.txt line no 13893
+ok 366 - 0xFA1C -> Str -> 0x9756 NormalizationTest.txt line no 13894
+ok 367 - 0xFA1D -> Str -> 0x7CBE NormalizationTest.txt line no 13895
+ok 368 - 0xFA1E -> Str -> 0x7FBD NormalizationTest.txt line no 13896
+ok 369 - 0xFA20 -> Str -> 0x8612 NormalizationTest.txt line no 13897
+ok 370 - 0xFA22 -> Str -> 0x8AF8 NormalizationTest.txt line no 13898
+ok 371 - 0xFA25 -> Str -> 0x9038 NormalizationTest.txt line no 13899
+ok 372 - 0xFA26 -> Str -> 0x90FD NormalizationTest.txt line no 13900
+ok 373 - 0xFA2A -> Str -> 0x98EF NormalizationTest.txt line no 13901
+ok 374 - 0xFA2B -> Str -> 0x98FC NormalizationTest.txt line no 13902
+ok 375 - 0xFA2C -> Str -> 0x9928 NormalizationTest.txt line no 13903
+ok 376 - 0xFA2D -> Str -> 0x9DB4 NormalizationTest.txt line no 13904
+ok 377 - 0xFA2E -> Str -> 0x90DE NormalizationTest.txt line no 13905
+ok 378 - 0xFA2F -> Str -> 0x96B7 NormalizationTest.txt line no 13906
+ok 379 - 0xFA30 -> Str -> 0x4FAE NormalizationTest.txt line no 13907
+ok 380 - 0xFA31 -> Str -> 0x50E7 NormalizationTest.txt line no 13908
+ok 381 - 0xFA32 -> Str -> 0x514D NormalizationTest.txt line no 13909
+ok 382 - 0xFA33 -> Str -> 0x52C9 NormalizationTest.txt line no 13910
+ok 383 - 0xFA34 -> Str -> 0x52E4 NormalizationTest.txt line no 13911
+ok 384 - 0xFA35 -> Str -> 0x5351 NormalizationTest.txt line no 13912
+ok 385 - 0xFA36 -> Str -> 0x559D NormalizationTest.txt line no 13913
+ok 386 - 0xFA37 -> Str -> 0x5606 NormalizationTest.txt line no 13914
+ok 387 - 0xFA38 -> Str -> 0x5668 NormalizationTest.txt line no 13915
+ok 388 - 0xFA39 -> Str -> 0x5840 NormalizationTest.txt line no 13916
+ok 389 - 0xFA3A -> Str -> 0x58A8 NormalizationTest.txt line no 13917
+ok 390 - 0xFA3B -> Str -> 0x5C64 NormalizationTest.txt line no 13918
+ok 391 - 0xFA3C -> Str -> 0x5C6E NormalizationTest.txt line no 13919
+ok 392 - 0xFA3D -> Str -> 0x6094 NormalizationTest.txt line no 13920
+ok 393 - 0xFA3E -> Str -> 0x6168 NormalizationTest.txt line no 13921
+ok 394 - 0xFA3F -> Str -> 0x618E NormalizationTest.txt line no 13922
+ok 395 - 0xFA40 -> Str -> 0x61F2 NormalizationTest.txt line no 13923
+ok 396 - 0xFA41 -> Str -> 0x654F NormalizationTest.txt line no 13924
+ok 397 - 0xFA42 -> Str -> 0x65E2 NormalizationTest.txt line no 13925
+ok 398 - 0xFA43 -> Str -> 0x6691 NormalizationTest.txt line no 13926
+ok 399 - 0xFA44 -> Str -> 0x6885 NormalizationTest.txt line no 13927
+ok 400 - 0xFA45 -> Str -> 0x6D77 NormalizationTest.txt line no 13928
+ok 401 - 0xFA46 -> Str -> 0x6E1A NormalizationTest.txt line no 13929
+ok 402 - 0xFA47 -> Str -> 0x6F22 NormalizationTest.txt line no 13930
+ok 403 - 0xFA48 -> Str -> 0x716E NormalizationTest.txt line no 13931
+ok 404 - 0xFA49 -> Str -> 0x722B NormalizationTest.txt line no 13932
+ok 405 - 0xFA4A -> Str -> 0x7422 NormalizationTest.txt line no 13933
+ok 406 - 0xFA4B -> Str -> 0x7891 NormalizationTest.txt line no 13934
+ok 407 - 0xFA4C -> Str -> 0x793E NormalizationTest.txt line no 13935
+ok 408 - 0xFA4D -> Str -> 0x7949 NormalizationTest.txt line no 13936
+ok 409 - 0xFA4E -> Str -> 0x7948 NormalizationTest.txt line no 13937
+ok 410 - 0xFA4F -> Str -> 0x7950 NormalizationTest.txt line no 13938
+ok 411 - 0xFA50 -> Str -> 0x7956 NormalizationTest.txt line no 13939
+ok 412 - 0xFA51 -> Str -> 0x795D NormalizationTest.txt line no 13940
+ok 413 - 0xFA52 -> Str -> 0x798D NormalizationTest.txt line no 13941
+ok 414 - 0xFA53 -> Str -> 0x798E NormalizationTest.txt line no 13942
+ok 415 - 0xFA54 -> Str -> 0x7A40 NormalizationTest.txt line no 13943
+ok 416 - 0xFA55 -> Str -> 0x7A81 NormalizationTest.txt line no 13944
+ok 417 - 0xFA56 -> Str -> 0x7BC0 NormalizationTest.txt line no 13945
+ok 418 - 0xFA57 -> Str -> 0x7DF4 NormalizationTest.txt line no 13946
+ok 419 - 0xFA58 -> Str -> 0x7E09 NormalizationTest.txt line no 13947
+ok 420 - 0xFA59 -> Str -> 0x7E41 NormalizationTest.txt line no 13948
+ok 421 - 0xFA5A -> Str -> 0x7F72 NormalizationTest.txt line no 13949
+ok 422 - 0xFA5B -> Str -> 0x8005 NormalizationTest.txt line no 13950
+ok 423 - 0xFA5C -> Str -> 0x81ED NormalizationTest.txt line no 13951
+ok 424 - 0xFA5D -> Str -> 0x8279 NormalizationTest.txt line no 13952
+ok 425 - 0xFA5E -> Str -> 0x8279 NormalizationTest.txt line no 13953
+ok 426 - 0xFA5F -> Str -> 0x8457 NormalizationTest.txt line no 13954
+ok 427 - 0xFA60 -> Str -> 0x8910 NormalizationTest.txt line no 13955
+ok 428 - 0xFA61 -> Str -> 0x8996 NormalizationTest.txt line no 13956
+ok 429 - 0xFA62 -> Str -> 0x8B01 NormalizationTest.txt line no 13957
+ok 430 - 0xFA63 -> Str -> 0x8B39 NormalizationTest.txt line no 13958
+ok 431 - 0xFA64 -> Str -> 0x8CD3 NormalizationTest.txt line no 13959
+ok 432 - 0xFA65 -> Str -> 0x8D08 NormalizationTest.txt line no 13960
+ok 433 - 0xFA66 -> Str -> 0x8FB6 NormalizationTest.txt line no 13961
+ok 434 - 0xFA67 -> Str -> 0x9038 NormalizationTest.txt line no 13962
+ok 435 - 0xFA68 -> Str -> 0x96E3 NormalizationTest.txt line no 13963
+ok 436 - 0xFA69 -> Str -> 0x97FF NormalizationTest.txt line no 13964
+ok 437 - 0xFA6A -> Str -> 0x983B NormalizationTest.txt line no 13965
+ok 438 - 0xFA6B -> Str -> 0x6075 NormalizationTest.txt line no 13966
+ok 439 - 0xFA6C -> Str -> 0x242EE NormalizationTest.txt line no 13967
+ok 440 - 0xFA6D -> Str -> 0x8218 NormalizationTest.txt line no 13968
+ok 441 - 0xFA70 -> Str -> 0x4E26 NormalizationTest.txt line no 13969
+ok 442 - 0xFA71 -> Str -> 0x51B5 NormalizationTest.txt line no 13970
+ok 443 - 0xFA72 -> Str -> 0x5168 NormalizationTest.txt line no 13971
+ok 444 - 0xFA73 -> Str -> 0x4F80 NormalizationTest.txt line no 13972
+ok 445 - 0xFA74 -> Str -> 0x5145 NormalizationTest.txt line no 13973
+ok 446 - 0xFA75 -> Str -> 0x5180 NormalizationTest.txt line no 13974
+ok 447 - 0xFA76 -> Str -> 0x52C7 NormalizationTest.txt line no 13975
+ok 448 - 0xFA77 -> Str -> 0x52FA NormalizationTest.txt line no 13976
+ok 449 - 0xFA78 -> Str -> 0x559D NormalizationTest.txt line no 13977
+ok 450 - 0xFA79 -> Str -> 0x5555 NormalizationTest.txt line no 13978
+ok 451 - 0xFA7A -> Str -> 0x5599 NormalizationTest.txt line no 13979
+ok 452 - 0xFA7B -> Str -> 0x55E2 NormalizationTest.txt line no 13980
+ok 453 - 0xFA7C -> Str -> 0x585A NormalizationTest.txt line no 13981
+ok 454 - 0xFA7D -> Str -> 0x58B3 NormalizationTest.txt line no 13982
+ok 455 - 0xFA7E -> Str -> 0x5944 NormalizationTest.txt line no 13983
+ok 456 - 0xFA7F -> Str -> 0x5954 NormalizationTest.txt line no 13984
+ok 457 - 0xFA80 -> Str -> 0x5A62 NormalizationTest.txt line no 13985
+ok 458 - 0xFA81 -> Str -> 0x5B28 NormalizationTest.txt line no 13986
+ok 459 - 0xFA82 -> Str -> 0x5ED2 NormalizationTest.txt line no 13987
+ok 460 - 0xFA83 -> Str -> 0x5ED9 NormalizationTest.txt line no 13988
+ok 461 - 0xFA84 -> Str -> 0x5F69 NormalizationTest.txt line no 13989
+ok 462 - 0xFA85 -> Str -> 0x5FAD NormalizationTest.txt line no 13990
+ok 463 - 0xFA86 -> Str -> 0x60D8 NormalizationTest.txt line no 13991
+ok 464 - 0xFA87 -> Str -> 0x614E NormalizationTest.txt line no 13992
+ok 465 - 0xFA88 -> Str -> 0x6108 NormalizationTest.txt line no 13993
+ok 466 - 0xFA89 -> Str -> 0x618E NormalizationTest.txt line no 13994
+ok 467 - 0xFA8A -> Str -> 0x6160 NormalizationTest.txt line no 13995
+ok 468 - 0xFA8B -> Str -> 0x61F2 NormalizationTest.txt line no 13996
+ok 469 - 0xFA8C -> Str -> 0x6234 NormalizationTest.txt line no 13997
+ok 470 - 0xFA8D -> Str -> 0x63C4 NormalizationTest.txt line no 13998
+ok 471 - 0xFA8E -> Str -> 0x641C NormalizationTest.txt line no 13999
+ok 472 - 0xFA8F -> Str -> 0x6452 NormalizationTest.txt line no 14000
+ok 473 - 0xFA90 -> Str -> 0x6556 NormalizationTest.txt line no 14001
+ok 474 - 0xFA91 -> Str -> 0x6674 NormalizationTest.txt line no 14002
+ok 475 - 0xFA92 -> Str -> 0x6717 NormalizationTest.txt line no 14003
+ok 476 - 0xFA93 -> Str -> 0x671B NormalizationTest.txt line no 14004
+ok 477 - 0xFA94 -> Str -> 0x6756 NormalizationTest.txt line no 14005
+ok 478 - 0xFA95 -> Str -> 0x6B79 NormalizationTest.txt line no 14006
+ok 479 - 0xFA96 -> Str -> 0x6BBA NormalizationTest.txt line no 14007
+ok 480 - 0xFA97 -> Str -> 0x6D41 NormalizationTest.txt line no 14008
+ok 481 - 0xFA98 -> Str -> 0x6EDB NormalizationTest.txt line no 14009
+ok 482 - 0xFA99 -> Str -> 0x6ECB NormalizationTest.txt line no 14010
+ok 483 - 0xFA9A -> Str -> 0x6F22 NormalizationTest.txt line no 14011
+ok 484 - 0xFA9B -> Str -> 0x701E NormalizationTest.txt line no 14012
+ok 485 - 0xFA9C -> Str -> 0x716E NormalizationTest.txt line no 14013
+ok 486 - 0xFA9D -> Str -> 0x77A7 NormalizationTest.txt line no 14014
+ok 487 - 0xFA9E -> Str -> 0x7235 NormalizationTest.txt line no 14015
+ok 488 - 0xFA9F -> Str -> 0x72AF NormalizationTest.txt line no 14016
+ok 489 - 0xFAA0 -> Str -> 0x732A NormalizationTest.txt line no 14017
+ok 490 - 0xFAA1 -> Str -> 0x7471 NormalizationTest.txt line no 14018
+ok 491 - 0xFAA2 -> Str -> 0x7506 NormalizationTest.txt line no 14019
+ok 492 - 0xFAA3 -> Str -> 0x753B NormalizationTest.txt line no 14020
+ok 493 - 0xFAA4 -> Str -> 0x761D NormalizationTest.txt line no 14021
+ok 494 - 0xFAA5 -> Str -> 0x761F NormalizationTest.txt line no 14022
+ok 495 - 0xFAA6 -> Str -> 0x76CA NormalizationTest.txt line no 14023
+ok 496 - 0xFAA7 -> Str -> 0x76DB NormalizationTest.txt line no 14024
+ok 497 - 0xFAA8 -> Str -> 0x76F4 NormalizationTest.txt line no 14025
+ok 498 - 0xFAA9 -> Str -> 0x774A NormalizationTest.txt line no 14026
+ok 499 - 0xFAAA -> Str -> 0x7740 NormalizationTest.txt line no 14027
+ok 500 - 0xFAAB -> Str -> 0x78CC NormalizationTest.txt line no 14028

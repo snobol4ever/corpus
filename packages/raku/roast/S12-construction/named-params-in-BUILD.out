@@ -1,0 +1,11 @@
+1..4
+ok 1 - BUILD arg declared as named and invoked with literal pair should contain only the pair value
+ok 2 - same arg should be of declared type
+ok 3 - The object was constructed of the right type
+# Subtest: can bind to native type attributes in build methods
+    1..4
+    ok 1 - can bind to native type attributes in signature of BUILD (1)
+    ok 2 - can bind to native type attributes in signature of BUILD (2)
+    ok 3 - can bind to native type attributes in signature of TWEAK (1)
+    ok 4 - can bind to native type attributes in signature of TWEAK (2)
+ok 4 - can bind to native type attributes in build methods

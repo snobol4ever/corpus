@@ -1,0 +1,10 @@
+1..9
+ok 1 - random numbers are greater than or equal to 0
+ok 2 - random numbers are less than 1
+ok 3 - 3 is greater than 0
+ok 4 - ~<...> is parsed correctly
+ok 5 - +<...> is parsed correctly
+ok 6 - ?<...> is parsed correctly
+ok 7 - ~(<...>) is parsed correctly
+ok 8 - +(<...>) is parsed correctly
+ok 9 - ?(<...>) is parsed correctly

@@ -1,0 +1,22 @@
+1..21
+ok 1 - basic sanity
+ok 2 - accessing a not existing array element should not automatically extend the array
+ok 3 - creating an array element should automatically extend the array (1)
+ok 4 - creating an array element should automatically extend the array (2)
+ok 5 - defined @array[$index_out_of_bounds] should be false
+ok 6 - defined @array[$index_out_of_bounds] should not have altered @array
+ok 7 - defined @array[$negative_index_out_of_bounds] should be false
+ok 8 - defined @array[$negative_index_out_of_bounds] should not have altered @array
+ok 9 - @array[$index_out_of_bounds]:exists should be false
+ok 10 - @array[$index_out_of_bounds]:exists should not have altered @array
+ok 11 - @array[$negative_index_out_of_bounds]:exists should be false
+ok 12 - @array[$negative_index_out_of_bounds]:exists should not have altered @array
+ok 13 - @a[2] = 6 ensures that @a has three items
+ok 14 - ... and the first is not defined
+ok 15 - ... and the second is not defined
+ok 16 - ... and  the third is 6
+ok 17 - really a degenerative case of assigning list to array
+ok 18 - assigning list with extended array to an array
+ok 19 - join on extended array
+ok 20 - grep on extended array
+ok 21 - min on list with undefined el ignores it

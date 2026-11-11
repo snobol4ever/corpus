@@ -1,0 +1,13 @@
+1..4
+# Subtest: circular dependencies are detected and reported
+    1..2
+    ok 1 - `use` first run
+    ok 2 - `use` second run (precompiled)
+ok 1 - circular dependencies are detected and reported
+# Subtest: use lib with empty string throws a useful error
+    1..2
+    ok 1 - 'use lib ‘’' died
+    ok 2 - right exception type (X::LibEmpty)
+ok 2 - use lib with empty string throws a useful error
+ok 3 - no confusion about CompUnit
+ok 4 - A .rakumod file is not over-shadowed by a .pm file of the same basename in a use statement

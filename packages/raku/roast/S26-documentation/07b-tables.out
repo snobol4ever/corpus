@@ -1,0 +1,19 @@
+1..4
+===FATAL: Table 0 has no data.
+===end FATAL table 0 input
+ok 1 - dies-ok, empty table
+===FATAL: Table 1 has no data.
+===end FATAL table 1 input
+ok 2 - dies-ok, empty table
+===FATAL: Table 2 has multiple interior row separator lines.
+1 | 2 | 3
+=========
+=========
+4 | 5 | 6
+===end FATAL table 2 input
+ok 3 - dies-ok, consecutive row separators
+===FATAL: Table 3 has a mixture of visible and invisible column-separator types.
+1 | 2 | 3
+4  5  6
+===end FATAL table 3 input
+ok 4 - dies-ok, mixed ws and vis col separators

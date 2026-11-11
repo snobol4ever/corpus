@@ -1,0 +1,1455 @@
+1..266
+# Subtest: missing rhs of infix
+    1..3
+    ok 1 - '42 +' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/term/
+ok 1 - missing rhs of infix
+# Subtest: did we throws-like X::Buf::AsStr?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Buf::AsStr)
+    ok 3 - .method matches Str
+ok 2 - did we throws-like X::Buf::AsStr?
+# Subtest: did we throws-like X::Attribute::Undeclared?
+    1..6
+    ok 1 - 'my class Foo { method a() { $!bar } }' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+    ok 3 - .what matches attribute
+    ok 4 - .package-kind matches class
+    ok 5 - .package-name matches Foo
+    ok 6 - .symbol matches $!bar
+ok 3 - did we throws-like X::Attribute::Undeclared?
+# Subtest: did we throws-like X::Signature::Placeholder?
+    1..4
+    ok 1 - 'sub f() { $^x }' died
+    ok 2 - right exception type (X::Signature::Placeholder)
+    ok 3 - .placeholder matches $^x
+    ok 4 - .line matches 1
+ok 4 - did we throws-like X::Signature::Placeholder?
+# Subtest: did we throws-like X::Obsolete?
+    1..4
+    ok 1 - 'qr/a/' died
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .old matches rx/<<qr>>/
+    ok 4 - .replacement matches rx/<<rx>>/
+ok 5 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..3
+    ok 1 - '"a" . "b"' died
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .replacement matches ~
+ok 6 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..2
+    ok 1 - 's/a/b/i' died
+    ok 2 - right exception type (X::Obsolete)
+ok 7 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..2
+    ok 1 - 'my $a; ${a} = 5' died
+    ok 2 - right exception type (X::Obsolete)
+ok 8 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..2
+    ok 1 - '${۳}' died
+    ok 2 - right exception type (X::Obsolete)
+ok 9 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Placeholder::Block?
+    1..3
+    ok 1 - 'do    { $^x }' died
+    ok 2 - right exception type (X::Placeholder::Block)
+    ok 3 - .placeholder matches $^x
+ok 10 - did we throws-like X::Placeholder::Block?
+# Subtest: did we throws-like X::Placeholder::Block?
+    1..3
+    ok 1 - 'do    { @_  }' died
+    ok 2 - right exception type (X::Placeholder::Block)
+    ok 3 - .placeholder matches @_
+ok 11 - did we throws-like X::Placeholder::Block?
+# Subtest: did we throws-like X::Placeholder::Block?
+    1..3
+    ok 1 - 'class { $^x }' died
+    ok 2 - right exception type (X::Placeholder::Block)
+    ok 3 - .placeholder matches $^x
+ok 12 - did we throws-like X::Placeholder::Block?
+# Subtest: did we throws-like X::Placeholder::Mainline?
+    1..3
+    ok 1 - '$^x' died
+    ok 2 - right exception type (X::Placeholder::Mainline)
+    ok 3 - .placeholder matches $^x
+ok 13 - did we throws-like X::Placeholder::Mainline?
+# Subtest: did we throws-like X::Placeholder::Mainline?
+    1..3
+    ok 1 - '@_' died
+    ok 2 - right exception type (X::Placeholder::Mainline)
+    ok 3 - .placeholder matches @_
+ok 14 - did we throws-like X::Placeholder::Mainline?
+# Subtest: did we throws-like X::Placeholder::Mainline?
+    1..2
+    ok 1 - '"foo".{ say $^a }' died
+    ok 2 - right exception type (X::Placeholder::Mainline)
+ok 15 - did we throws-like X::Placeholder::Mainline?
+# Subtest: did we throws-like X::Placeholder::Attribute?
+    1..3
+    ok 1 - 'class RT78112 { has $.a = $^b + 1; }' died
+    ok 2 - right exception type (X::Placeholder::Attribute)
+    ok 3 - .placeholder matches $^b
+ok 16 - did we throws-like X::Placeholder::Attribute?
+# Subtest: did we throws-like X::Parameter::Default?
+    1..4
+    ok 1 - 'sub f(*@ = 2) { }' died
+    ok 2 - right exception type (X::Parameter::Default)
+    ok 3 - .how matches slurpy
+    ok 4 - .parameter matches WhateverCode.new
+ok 17 - did we throws-like X::Parameter::Default?
+# Subtest: did we throws-like X::Parameter::Default?
+    1..4
+    ok 1 - 'sub f($x! = 3) { }' died
+    ok 2 - right exception type (X::Parameter::Default)
+    ok 3 - .parameter matches $x
+    ok 4 - .how matches required
+ok 18 - did we throws-like X::Parameter::Default?
+# Subtest: did we throws-like X::Parameter::Default?
+    1..3
+    ok 1 - 'sub f(:$x! = 3) { }' died
+    ok 2 - right exception type (X::Parameter::Default)
+    ok 3 - .how matches required
+ok 19 - did we throws-like X::Parameter::Default?
+# Subtest: did we throws-like X::Parameter::Placeholder?
+    1..4
+    ok 1 - 'sub f($:x) { }' died
+    ok 2 - right exception type (X::Parameter::Placeholder)
+    ok 3 - .right matches :$x
+    ok 4 - .parameter matches $:x
+ok 20 - did we throws-like X::Parameter::Placeholder?
+# Subtest: did we throws-like X::Parameter::Twigil?
+    1..4
+    ok 1 - 'sub f($?x) { }' died
+    ok 2 - right exception type (X::Parameter::Twigil)
+    ok 3 - .twigil matches ?
+    ok 4 - .parameter matches $?x
+ok 21 - did we throws-like X::Parameter::Twigil?
+# Subtest: did we throws-like X::Parameter::MultipleTypeConstraints?
+    1..2
+    ok 1 - 'sub (Int Str $x) { }' died
+    ok 2 - right exception type (X::Parameter::MultipleTypeConstraints)
+ok 22 - did we throws-like X::Parameter::MultipleTypeConstraints?
+# Subtest: did we throws-like X::Parameter::AfterDefault?
+    1..3
+    ok 1 - 'sub f($x = 60 is rw) { }' died
+    ok 2 - right exception type (X::Parameter::AfterDefault)
+    ok 3 - .type matches trait
+ok 23 - did we throws-like X::Parameter::AfterDefault?
+# Subtest: did we throws-like X::Parameter::AfterDefault?
+    1..3
+    ok 1 - 'sub f($x = 60 where Int) { }' died
+    ok 2 - right exception type (X::Parameter::AfterDefault)
+    ok 3 - .type matches post constraint
+ok 24 - did we throws-like X::Parameter::AfterDefault?
+# Subtest: did we throws-like X::Redeclaration?
+    1..4
+    ok 1 - 'sub a { }; sub a { }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches a
+    ok 4 - .what matches routine
+ok 25 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..4
+    ok 1 - 'my &a; multi a { }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches a
+    ok 4 - .what matches routine
+ok 26 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..4
+    ok 1 - 'sub a { }; multi sub a { }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .what matches routine
+    ok 4 - .symbol matches a
+ok 27 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'my class A { }; my class A { }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches A
+ok 28 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'my class B { }; my subset B of Any;' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches B
+ok 29 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Phaser::Multiple?
+    1..3
+    ok 1 - 'CATCH { }; CATCH { }' died
+    ok 2 - right exception type (X::Phaser::Multiple)
+    ok 3 - .block matches CATCH
+ok 30 - did we throws-like X::Phaser::Multiple?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'sub f(--> List) returns Str { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 31 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..2
+    ok 1 - 'my Int sub f(--> Str) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 32 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'my class F { }; role F { }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches F
+ok 33 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'class AAAA { class B {} }; use MONKEY; augment class AAAA { class B { } }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches B
+ok 34 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'class AAAAA { class B::C {} }; use MONKEY; augment class AAAAA { class B::C { } }' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches B::C
+ok 35 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Method::Private::Permission?
+    1..5
+    ok 1 - 'my class A { my @a; @a!List::foo() }' died
+    ok 2 - right exception type (X::Method::Private::Permission)
+    ok 3 - .method matches foo
+    ok 4 - .source-package matches List
+    ok 5 - .calling-package matches A
+ok 36 - did we throws-like X::Method::Private::Permission?
+# Subtest: did we throws-like X::Method::Private::Unqualified?
+    1..3
+    ok 1 - '1!foo()' died
+    ok 2 - right exception type (X::Method::Private::Unqualified)
+    ok 3 - .method matches foo
+ok 37 - did we throws-like X::Method::Private::Unqualified?
+# Subtest: did we throws-like X::Bind?
+    1..2
+    ok 1 - 'sub f() { }; f() := 2' died
+    ok 2 - right exception type (X::Bind)
+ok 38 - did we throws-like X::Bind?
+# Subtest: did we throws-like X::Bind?
+    1..3
+    ok 1 - 'OUTER := 5' died
+    ok 2 - right exception type (X::Bind)
+    ok 3 - .target matches /OUTER/
+ok 39 - did we throws-like X::Bind?
+# Subtest: did we throws-like X::Bind::NativeType?
+    1..3
+    ok 1 - 'my int $x := 2' died
+    ok 2 - right exception type (X::Bind::NativeType)
+    ok 3 - .name matches $x
+ok 40 - did we throws-like X::Bind::NativeType?
+# Subtest: did we throws-like X::Bind::ZenSlice?
+    1..3
+    ok 1 - 'my @a; @a[] := <foo bar baz>' died
+    ok 2 - right exception type (X::Bind::ZenSlice)
+    ok 3 - .type matches (Array)
+ok 41 - did we throws-like X::Bind::ZenSlice?
+# Subtest: did we throws-like X::Bind::ZenSlice?
+    1..3
+    ok 1 - 'my %a; %a{} := foo=>1, bar=>2, baz=>3' died
+    ok 2 - right exception type (X::Bind::ZenSlice)
+    ok 3 - .type matches (Hash)
+ok 42 - did we throws-like X::Bind::ZenSlice?
+# Subtest: did we throws-like X::Obsolete?
+    1..4
+    ok 1 - 'for (1; 1; 1) { }' died
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .replacement matches rx/<<loop>>/
+    ok 4 - .old matches rx/<<for>>/
+ok 43 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..4
+    ok 1 - 'foreach (1..10) { }' died
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .old matches 'foreach'
+    ok 4 - .replacement matches 'for'
+ok 44 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..3
+    ok 1 - 'undef' died
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .old matches rx/<<undef>>/
+ok 45 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..3
+    ok 1 - '<>' died
+    ok 2 - right exception type (X::Obsolete)
+    ok 3 - .old matches <>
+ok 46 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Obsolete?
+    1..2
+    ok 1 - 'my ($a, $b); $a . $b' died
+    ok 2 - right exception type (X::Obsolete)
+ok 47 - did we throws-like X::Obsolete?
+# Subtest: did we throws-like X::Syntax::Name::Null?
+    1..2
+    ok 1 - 'my $a::::b' died
+    ok 2 - right exception type (X::Syntax::Name::Null)
+ok 48 - did we throws-like X::Syntax::Name::Null?
+# Subtest: did we throws-like X::Syntax::UnlessElse?
+    1..2
+    ok 1 - 'unless 1 { } else { }' died
+    ok 2 - right exception type (X::Syntax::UnlessElse)
+ok 49 - did we throws-like X::Syntax::UnlessElse?
+# Subtest: did we throws-like X::Syntax::UnlessElse?
+    1..2
+    ok 1 - 'unless 1 { } elsif 42 { }' died
+    ok 2 - right exception type (X::Syntax::UnlessElse)
+ok 50 - did we throws-like X::Syntax::UnlessElse?
+# Subtest: did we throws-like X::Syntax::P5?
+    1..2
+    ok 1 - 'for my $x (1, 2, 3) { }' died
+    ok 2 - right exception type (X::Syntax::P5)
+ok 51 - did we throws-like X::Syntax::P5?
+# Subtest: did we throws-like X::Syntax::NegatedPair?
+    1..3
+    ok 1 - ':!foo(3)' died
+    ok 2 - right exception type (X::Syntax::NegatedPair)
+    ok 3 - .key matches foo
+ok 52 - did we throws-like X::Syntax::NegatedPair?
+# Subtest: did we throws-like X::Syntax::Variable::Numeric?
+    1..2
+    ok 1 - 'my $0' died
+    ok 2 - right exception type (X::Syntax::Variable::Numeric)
+ok 53 - did we throws-like X::Syntax::Variable::Numeric?
+# Subtest: did we throws-like X::Syntax::Variable::Numeric?
+    1..3
+    ok 1 - 'my sub f($0) { }' died
+    ok 2 - right exception type (X::Syntax::Variable::Numeric)
+    ok 3 - .what matches parameter
+ok 54 - did we throws-like X::Syntax::Variable::Numeric?
+# Subtest: did we throws-like X::Syntax::Variable::Match?
+    1..2
+    ok 1 - 'my $<a>' died
+    ok 2 - right exception type (X::Syntax::Variable::Match)
+ok 55 - did we throws-like X::Syntax::Variable::Match?
+# Subtest: did we throws-like X::Syntax::Variable::Twigil?
+    1..4
+    ok 1 - 'my class A { my $!foo }' died
+    ok 2 - right exception type (X::Syntax::Variable::Twigil)
+    ok 3 - .twigil matches !
+    ok 4 - .scope matches my
+ok 56 - did we throws-like X::Syntax::Variable::Twigil?
+# Subtest: did we throws-like X::Syntax::Variable::Twigil?
+    1..4
+    ok 1 - 'role Breakable { my $!broken = Bool::False; }; class Frobnitz does Breakable {};' died
+    ok 2 - right exception type (X::Syntax::Variable::Twigil)
+    ok 3 - .twigil matches !
+    ok 4 - .scope matches my
+ok 57 - did we throws-like X::Syntax::Variable::Twigil?
+# Subtest: did we throws-like X::Syntax::Variable::Twigil?
+    1..4
+    ok 1 - 'my $?FILE' died
+    ok 2 - right exception type (X::Syntax::Variable::Twigil)
+    ok 3 - .scope matches my
+    ok 4 - .twigil matches ?
+ok 58 - did we throws-like X::Syntax::Variable::Twigil?
+# Subtest: did we throws-like X::Comp::NYI?
+    1..2
+    ok 1 - 'constant $?FILE = "foo"' died
+    ok 2 - right exception type (X::Comp::NYI)
+ok 59 - did we throws-like X::Comp::NYI?
+# Subtest: did we throws-like X::Syntax::Variable::IndirectDeclaration?
+    1..2
+    ok 1 - 'my $::("foo")' died
+    ok 2 - right exception type (X::Syntax::Variable::IndirectDeclaration)
+ok 60 - did we throws-like X::Syntax::Variable::IndirectDeclaration?
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - '@a' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .symbol matches @a
+ok 61 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - '"@a[]"' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .symbol matches @a
+ok 62 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Syntax::Augment::WithoutMonkeyTyping?
+    1..2
+    ok 1 - 'augment class Any { }' died
+    ok 2 - right exception type (X::Syntax::Augment::WithoutMonkeyTyping)
+ok 63 - did we throws-like X::Syntax::Augment::WithoutMonkeyTyping?
+# Subtest: MONKEY-TYPING applies lexically
+    1..2
+    ok 1 - '{ use MONKEY-TYPING; }; augment class Any { }' died
+    ok 2 - right exception type (X::Syntax::Augment::WithoutMonkeyTyping)
+ok 64 - MONKEY-TYPING applies lexically
+# Subtest: did we throws-like X::Syntax::Augment::Illegal?
+    1..2
+    ok 1 - 'use MONKEY-TYPING; augment role Positional { }' died
+    ok 2 - right exception type (X::Syntax::Augment::Illegal)
+ok 65 - did we throws-like X::Syntax::Augment::Illegal?
+# Subtest: did we throws-like X::Syntax::Extension::Category?
+    1..3
+    ok 1 - 'sub twigil:<@>() { }' died
+    ok 2 - right exception type (X::Syntax::Extension::Category)
+    ok 3 - .category matches twigil
+ok 66 - did we throws-like X::Syntax::Extension::Category?
+# Subtest: did we throws-like X::Syntax::Extension::Null?
+    1..2
+    ok 1 - 'sub infix:sym< >() { }' died
+    ok 2 - right exception type (X::Syntax::Extension::Null)
+ok 67 - did we throws-like X::Syntax::Extension::Null?
+# Subtest: did we throws-like X::Syntax::InfixInTermPosition?
+    1..3
+    ok 1 - 'my @a = 1, => 2' died
+    ok 2 - right exception type (X::Syntax::InfixInTermPosition)
+    ok 3 - .infix matches =>
+ok 68 - did we throws-like X::Syntax::InfixInTermPosition?
+# Subtest: did we throws-like X::Signature::NameClash?
+    1..3
+    ok 1 - 'sub f(:in(:$in)) { }' died
+    ok 2 - right exception type (X::Signature::NameClash)
+    ok 3 - .name matches in
+ok 69 - did we throws-like X::Signature::NameClash?
+# Subtest: did we throws-like X::Does::TypeObject?
+    1..2
+    ok 1 - '(my $foo) does Int' died
+    ok 2 - right exception type (X::Does::TypeObject)
+ok 70 - did we throws-like X::Does::TypeObject?
+# Subtest: did we throws-like X::Does::TypeObject?
+    1..2
+    ok 1 - '(my $foo) does Int, Bool' died
+    ok 2 - right exception type (X::Does::TypeObject)
+ok 71 - did we throws-like X::Does::TypeObject?
+# Subtest: did we throws-like X::Does::TypeObject?
+    1..2
+    ok 1 - 'Bool does role { method Str() { $.raku } };' died
+    ok 2 - right exception type (X::Does::TypeObject)
+ok 72 - did we throws-like X::Does::TypeObject?
+# Subtest: did we throws-like X::Role::Initialization?
+    1..2
+    ok 1 - 'my role R { }; 99 but R("wrong");' died
+    ok 2 - right exception type (X::Role::Initialization)
+ok 73 - did we throws-like X::Role::Initialization?
+# Subtest: did we throws-like X::Role::Initialization?
+    1..2
+    ok 1 - 'my role R { has $.x; has $.y }; 99 but R("wrong");' died
+    ok 2 - right exception type (X::Role::Initialization)
+ok 74 - did we throws-like X::Role::Initialization?
+# Subtest: did we throws-like X::Role::Initialization?
+    1..2
+    ok 1 - 'my role R { }; 99 does R("wrong");' died
+    ok 2 - right exception type (X::Role::Initialization)
+ok 75 - did we throws-like X::Role::Initialization?
+# Subtest: did we throws-like X::Role::Initialization?
+    1..2
+    ok 1 - 'my role R { has $.x; has $.y }; 99 does R("wrong");' died
+    ok 2 - right exception type (X::Role::Initialization)
+ok 76 - did we throws-like X::Role::Initialization?
+# Subtest: did we throws-like X::Comp::Group?
+    1..3
+    ok 1 - 'if() {}' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .sorrows matches sub { }
+ok 77 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Comp::Group?
+    1..3
+    ok 1 - 'with() {}' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .sorrows matches sub { }
+ok 78 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Comp::Group?
+    1..3
+    ok 1 - 'without() {}' died
+    ok 2 - right exception type (X::Comp::Group)
+    ok 3 - .sorrows matches sub { }
+ok 79 - did we throws-like X::Comp::Group?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - 'my grammar G { regex foo { } }' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 80 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 81 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ a | /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 82 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ a || /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 83 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ a & /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 84 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ [] /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 85 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ | /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 86 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '/ () /' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 87 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - 's//b/' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 88 - did we throws-like X::Syntax::Regex::NullRegex?
+# Subtest: did we throws-like X::Parameter::WrongOrder?
+    1..4
+    ok 1 - 'sub f($a?, $b) { }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+    ok 3 - .misplaced matches required
+    ok 4 - .after matches optional
+ok 89 - did we throws-like X::Parameter::WrongOrder?
+# Subtest: did we throws-like X::Parameter::WrongOrder?
+    1..4
+    ok 1 - 'sub f(*@a, $b) { }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+    ok 3 - .after matches variadic
+    ok 4 - .misplaced matches required
+ok 90 - did we throws-like X::Parameter::WrongOrder?
+# Subtest: did we throws-like X::Parameter::WrongOrder?
+    1..4
+    ok 1 - 'sub f(*@a, $b?) { }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+    ok 3 - .misplaced matches optional positional
+    ok 4 - .after matches variadic
+ok 91 - did we throws-like X::Parameter::WrongOrder?
+# Subtest: did we throws-like X::Parameter::WrongOrder?
+    1..4
+    ok 1 - 'sub f(:$a, $b) { }' died
+    ok 2 - right exception type (X::Parameter::WrongOrder)
+    ok 3 - .after matches named
+    ok 4 - .misplaced matches required
+ok 92 - did we throws-like X::Parameter::WrongOrder?
+# Subtest: did we throws-like X::Syntax::Comment::Embedded?
+    1..2
+    ok 1 - ' \#`' died
+    ok 2 - right exception type (X::Syntax::Comment::Embedded)
+ok 93 - did we throws-like X::Syntax::Comment::Embedded?
+# Subtest: did we throws-like X::Syntax::Pod::BeginWithoutIdentifier?
+    1..4
+    ok 1 - '=begin
+    # ' died
+    ok 2 - right exception type (X::Syntax::Pod::BeginWithoutIdentifier)
+    ok 3 - .line matches 1
+    ok 4 - .filename matches rx/EVAL/
+ok 94 - did we throws-like X::Syntax::Pod::BeginWithoutIdentifier?
+# Subtest: Did $^A throw Perl5Var?
+    1..2
+    ok 1 - '$^A = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 95 - Did $^A throw Perl5Var?
+# Subtest: Did $^B throw Perl5Var?
+    1..2
+    ok 1 - '$^B = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 96 - Did $^B throw Perl5Var?
+# Subtest: Did $^C throw Perl5Var?
+    1..2
+    ok 1 - '$^C = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 97 - Did $^C throw Perl5Var?
+# Subtest: Did $^D throw Perl5Var?
+    1..2
+    ok 1 - '$^D = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 98 - Did $^D throw Perl5Var?
+# Subtest: Did $^E throw Perl5Var?
+    1..2
+    ok 1 - '$^E = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 99 - Did $^E throw Perl5Var?
+# Subtest: Did $^F throw Perl5Var?
+    1..2
+    ok 1 - '$^F = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 100 - Did $^F throw Perl5Var?
+# Subtest: Did $^G throw Perl5Var?
+    1..2
+    ok 1 - '$^G = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 101 - Did $^G throw Perl5Var?
+# Subtest: Did $^H throw Perl5Var?
+    1..2
+    ok 1 - '$^H = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 102 - Did $^H throw Perl5Var?
+# Subtest: Did $^I throw Perl5Var?
+    1..2
+    ok 1 - '$^I = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 103 - Did $^I throw Perl5Var?
+# Subtest: Did $^J throw Perl5Var?
+    1..2
+    ok 1 - '$^J = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 104 - Did $^J throw Perl5Var?
+# Subtest: Did $^K throw Perl5Var?
+    1..2
+    ok 1 - '$^K = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 105 - Did $^K throw Perl5Var?
+# Subtest: Did $^L throw Perl5Var?
+    1..2
+    ok 1 - '$^L = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 106 - Did $^L throw Perl5Var?
+# Subtest: Did $^M throw Perl5Var?
+    1..2
+    ok 1 - '$^M = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 107 - Did $^M throw Perl5Var?
+# Subtest: Did $^N throw Perl5Var?
+    1..2
+    ok 1 - '$^N = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 108 - Did $^N throw Perl5Var?
+# Subtest: Did $^O throw Perl5Var?
+    1..2
+    ok 1 - '$^O = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 109 - Did $^O throw Perl5Var?
+# Subtest: Did $^P throw Perl5Var?
+    1..2
+    ok 1 - '$^P = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 110 - Did $^P throw Perl5Var?
+# Subtest: Did $^Q throw Perl5Var?
+    1..2
+    ok 1 - '$^Q = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 111 - Did $^Q throw Perl5Var?
+# Subtest: Did $^R throw Perl5Var?
+    1..2
+    ok 1 - '$^R = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 112 - Did $^R throw Perl5Var?
+# Subtest: Did $^S throw Perl5Var?
+    1..2
+    ok 1 - '$^S = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 113 - Did $^S throw Perl5Var?
+# Subtest: Did $^T throw Perl5Var?
+    1..2
+    ok 1 - '$^T = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 114 - Did $^T throw Perl5Var?
+# Subtest: Did $^U throw Perl5Var?
+    1..2
+    ok 1 - '$^U = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 115 - Did $^U throw Perl5Var?
+# Subtest: Did $^V throw Perl5Var?
+    1..2
+    ok 1 - '$^V = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 116 - Did $^V throw Perl5Var?
+# Subtest: Did $^W throw Perl5Var?
+    1..2
+    ok 1 - '$^W = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 117 - Did $^W throw Perl5Var?
+# Subtest: Did $^X throw Perl5Var?
+    1..2
+    ok 1 - '$^X = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 118 - Did $^X throw Perl5Var?
+# Subtest: Did $^Y throw Perl5Var?
+    1..2
+    ok 1 - '$^Y = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 119 - Did $^Y throw Perl5Var?
+# Subtest: Did $^Z throw Perl5Var?
+    1..2
+    ok 1 - '$^Z = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 120 - Did $^Z throw Perl5Var?
+# Subtest: Did $" throw Perl5Var?
+    1..2
+    ok 1 - '$" = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 121 - Did $" throw Perl5Var?
+# Subtest: Did $$ throw Perl5Var?
+    1..2
+    ok 1 - '$$ = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 122 - Did $$ throw Perl5Var?
+# Subtest: Did $; throw Perl5Var?
+    1..2
+    ok 1 - '$; = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 123 - Did $; throw Perl5Var?
+# Subtest: Did $& throw Perl5Var?
+    1..2
+    ok 1 - '$& = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 124 - Did $& throw Perl5Var?
+# Subtest: Did $` throw Perl5Var?
+    1..2
+    ok 1 - '$` = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 125 - Did $` throw Perl5Var?
+# Subtest: Did $' throw Perl5Var?
+    1..2
+    ok 1 - '$' = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 126 - Did $' throw Perl5Var?
+# Subtest: Did $, throw Perl5Var?
+    1..2
+    ok 1 - '$, = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 127 - Did $, throw Perl5Var?
+# Subtest: Did $. throw Perl5Var?
+    1..2
+    ok 1 - '$. = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 128 - Did $. throw Perl5Var?
+# Subtest: Did $\ throw Perl5Var?
+    1..2
+    ok 1 - '$\ = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 129 - Did $\ throw Perl5Var?
+# Subtest: Did $| throw Perl5Var?
+    1..2
+    ok 1 - '$| = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 130 - Did $| throw Perl5Var?
+# Subtest: Did $? throw Perl5Var?
+    1..2
+    ok 1 - '$? = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 131 - Did $? throw Perl5Var?
+# Subtest: Did $@ throw Perl5Var?
+    1..2
+    ok 1 - '$@ = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 132 - Did $@ throw Perl5Var?
+# Subtest: Did @- throw Perl5Var?
+    1..2
+    ok 1 - '@- = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 133 - Did @- throw Perl5Var?
+# Subtest: Did @+ throw Perl5Var?
+    1..2
+    ok 1 - '@+ = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 134 - Did @+ throw Perl5Var?
+# Subtest: Did %- throw Perl5Var?
+    1..2
+    ok 1 - '%- = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 135 - Did %- throw Perl5Var?
+# Subtest: Did %+ throw Perl5Var?
+    1..2
+    ok 1 - '%+ = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 136 - Did %+ throw Perl5Var?
+# Subtest: Did %! throw Perl5Var?
+    1..2
+    ok 1 - '%! = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 137 - Did %! throw Perl5Var?
+# Subtest: did we throws-like X::Syntax::Confused?
+    1..2
+    ok 1 - '$] = 1' died
+    not ok 2 - right exception type (X::Syntax::Confused) # TODO to become less Perl-centric
+    # Failed test 'right exception type (X::Syntax::Confused)'
+    # at SETTING::src/core.c/Exception.rakumod line 65
+    # Expected: X::Syntax::Confused
+    # Got:      X::Syntax::Perl5Var
+    # Exception message: Unsupported use of $] variable; in Raku please use $*RAKU.version or $*RAKU.compiler.version
+not ok 138 - did we throws-like X::Syntax::Confused? # TODO to become less Perl-centric
+# Failed test 'did we throws-like X::Syntax::Confused?'
+# at S32-exceptions/misc2.rakudo line 200
+# Subtest: did we throws-like X::Syntax::Perl5Var?
+    1..2
+    ok 1 - '$ \#foo' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+ok 139 - did we throws-like X::Syntax::Perl5Var?
+ok 140 - $@ is no longer a problem
+# Subtest: Error message for $\ mentions .nl-out
+    1..3
+    ok 1 - '$\ = 1;' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+    ok 3 - .message matches /'.nl-out'/
+ok 141 - Error message for $\ mentions .nl-out
+# Subtest: Error message for $/ mentions .nl-in
+    1..3
+    ok 1 - '$/ = "\n\n";' died
+    ok 2 - right exception type (X::Syntax::Perl5Var)
+    ok 3 - .message matches /'.nl-in'/
+ok 142 - Error message for $/ mentions .nl-in
+# Subtest: non-variable $ in double quotes requires backslash
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Backslash::NonVariableDollar)
+ok 143 - non-variable $ in double quotes requires backslash
+ok 144 - uses of $@!bar not wrongfully accused of using old $@ variable
+# Subtest: did we throws-like X::Syntax::Confused?
+    1..2
+    ok 1 - '1∞' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 145 - did we throws-like X::Syntax::Confused?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..3
+    ok 1 - 'for 1, 2' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    ok 3 - .what matches block
+ok 146 - did we throws-like X::Syntax::Missing?
+# Subtest: did we throws-like X::Syntax::Reserved?
+    1..3
+    ok 1 - 'my @a()' died
+    ok 2 - right exception type (X::Syntax::Reserved)
+    ok 3 - .reserved matches all(/shape/, /array/)
+ok 147 - did we throws-like X::Syntax::Reserved?
+# Subtest: did we throws-like X::Syntax::Reserved?
+    1..3
+    ok 1 - 'my &a()' died
+    ok 2 - right exception type (X::Syntax::Reserved)
+    ok 3 - .instead matches /':()'/
+ok 148 - did we throws-like X::Syntax::Reserved?
+# Subtest: did we throws-like X::Backslash::UnrecognizedSequence?
+    1..3
+    ok 1 - '"\u"' died
+    ok 2 - right exception type (X::Backslash::UnrecognizedSequence)
+    ok 3 - .sequence matches u
+ok 149 - did we throws-like X::Backslash::UnrecognizedSequence?
+# Subtest: did we throws-like X::Value::Dynamic?
+    1..2
+    ok 1 - 'm:i(@*ARGS[0])/foo/' died
+    ok 2 - right exception type (X::Value::Dynamic)
+ok 150 - did we throws-like X::Value::Dynamic?
+# Subtest: did we throws-like X::Syntax::Self::WithoutObject?
+    1..2
+    ok 1 - 'self' died
+    ok 2 - right exception type (X::Syntax::Self::WithoutObject)
+ok 151 - did we throws-like X::Syntax::Self::WithoutObject?
+# Subtest: did we throws-like X::Syntax::VirtualCall?
+    1..3
+    ok 1 - 'class { has $.x = $.y }' died
+    ok 2 - right exception type (X::Syntax::VirtualCall)
+    ok 3 - .call matches $.y
+ok 152 - did we throws-like X::Syntax::VirtualCall?
+# Subtest: did we throws-like X::Syntax::NoSelf?
+    1..3
+    ok 1 - '$.a' died
+    ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 3 - .variable matches $.a
+ok 153 - did we throws-like X::Syntax::NoSelf?
+# Subtest: did we throws-like X::Syntax::NoSelf?
+    1..3
+    ok 1 - 'my class B0Rk { $.a }' died
+    ok 2 - right exception type (X::Syntax::NoSelf)
+    ok 3 - .variable matches $.a
+ok 154 - did we throws-like X::Syntax::NoSelf?
+# Subtest: did we throws-like X::Attribute::NoPackage?
+    1..2
+    ok 1 - 'has $.x' died
+    ok 2 - right exception type (X::Attribute::NoPackage)
+ok 155 - did we throws-like X::Attribute::NoPackage?
+# Subtest: did we throws-like X::Attribute::Package?
+    1..3
+    ok 1 - 'my module A { has $.x }' died
+    ok 2 - right exception type (X::Attribute::Package)
+    ok 3 - .package-kind matches module
+ok 156 - did we throws-like X::Attribute::Package?
+# Subtest: did we throws-like X::Attribute::Package?
+    1..3
+    ok 1 - 'package Y { has $.foo }' died
+    ok 2 - right exception type (X::Attribute::Package)
+    ok 3 - .package-kind matches package
+ok 157 - did we throws-like X::Attribute::Package?
+# Subtest: did we throws-like X::Declaration::Scope?
+    1..4
+    ok 1 - 'has sub a() { }' died
+    ok 2 - right exception type (X::Declaration::Scope)
+    ok 3 - .scope matches has
+    ok 4 - .declaration matches sub
+ok 158 - did we throws-like X::Declaration::Scope?
+# Subtest: did we throws-like X::Declaration::Scope?
+    1..4
+    ok 1 - 'has package a { }' died
+    ok 2 - right exception type (X::Declaration::Scope)
+    ok 3 - .scope matches has
+    ok 4 - .declaration matches package
+ok 159 - did we throws-like X::Declaration::Scope?
+# Subtest: did we throws-like X::Declaration::Scope::Multi?
+    1..3
+    ok 1 - 'our multi a() { }' died
+    ok 2 - right exception type (X::Declaration::Scope::Multi)
+    ok 3 - .scope matches our
+ok 160 - did we throws-like X::Declaration::Scope::Multi?
+# Subtest: did we throws-like X::Anon::Multi?
+    1..3
+    ok 1 - 'multi sub () { }' died
+    ok 2 - right exception type (X::Anon::Multi)
+    ok 3 - .multiness matches multi
+ok 161 - did we throws-like X::Anon::Multi?
+# Subtest: did we throws-like X::Anon::Multi?
+    1..3
+    ok 1 - 'proto sub () { }' died
+    ok 2 - right exception type (X::Anon::Multi)
+    ok 3 - .multiness matches proto
+ok 162 - did we throws-like X::Anon::Multi?
+# Subtest: did we throws-like X::Anon::Multi?
+    1..3
+    ok 1 - 'class { multi method () { }}' died
+    ok 2 - right exception type (X::Anon::Multi)
+    ok 3 - .routine-type matches method
+ok 163 - did we throws-like X::Anon::Multi?
+# Subtest: did we throws-like X::Anon::Augment?
+    1..3
+    ok 1 - 'use MONKEY-TYPING; augment class { }' died
+    ok 2 - right exception type (X::Anon::Augment)
+    ok 3 - .package-kind matches class
+ok 164 - did we throws-like X::Anon::Augment?
+# Subtest: did we throws-like X::Augment::NoSuchType?
+    1..4
+    ok 1 - 'use MONKEY-TYPING; augment class NoSuchClass { }' died
+    ok 2 - right exception type (X::Augment::NoSuchType)
+    ok 3 - .package-kind matches class
+    ok 4 - .package matches NoSuchClass
+ok 165 - did we throws-like X::Augment::NoSuchType?
+# Subtest: did we throws-like X::Augment::NoSuchType?
+    1..3
+    ok 1 - 'use MONKEY-TYPING; augment class No::Such::Class { }' died
+    ok 2 - right exception type (X::Augment::NoSuchType)
+    ok 3 - .package matches No::Such::Class
+ok 166 - did we throws-like X::Augment::NoSuchType?
+# Subtest: did we throws-like X::Syntax::Number::RadixOutOfRange?
+    1..3
+    ok 1 - ':45<abcd>' died
+    ok 2 - right exception type (X::Syntax::Number::RadixOutOfRange)
+    ok 3 - .radix matches 45
+ok 167 - did we throws-like X::Syntax::Number::RadixOutOfRange?
+# Subtest: did we throws-like X::Syntax::Number::RadixOutOfRange?
+    1..3
+    ok 1 - ':0<0>' died
+    ok 2 - right exception type (X::Syntax::Number::RadixOutOfRange)
+    ok 3 - .message matches rx/0/
+ok 168 - did we throws-like X::Syntax::Number::RadixOutOfRange?
+# Subtest: did we throws-like X::Syntax::Regex::Adverb?
+    1..4
+    ok 1 - 'rx:g/a/' died
+    ok 2 - right exception type (X::Syntax::Regex::Adverb)
+    ok 3 - .adverb matches g
+    ok 4 - .construct matches rx
+ok 169 - did we throws-like X::Syntax::Regex::Adverb?
+# Subtest: did we throws-like X::Syntax::Signature::InvocantMarker?
+    1..2
+    ok 1 - 'my sub f($x, $y:) { }' died
+    ok 2 - right exception type (X::Syntax::Signature::InvocantMarker)
+ok 170 - did we throws-like X::Syntax::Signature::InvocantMarker?
+# Subtest: did we throws-like X::OutOfRange?
+    1..3
+    ok 1 - 'Date.new("2012-02-30")' died
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .message matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6424567632608) ... }
+ok 171 - did we throws-like X::OutOfRange?
+# Subtest: did we throws-like X::OutOfRange?
+    1..3
+    ok 1 - 'DateTime.new(year => 2012, month => 5, day => 22, hour => 18, minute => 3, second => 60)' died
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .comment matches /'leap second'/
+ok 172 - did we throws-like X::OutOfRange?
+# Subtest: did we throws-like X::OutOfRange?
+    1..5
+    ok 1 - 'use fatal; "foo"[2]' died
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .what matches rx:i/index/
+    ok 4 - .range matches 0..0
+    ok 5 - .got matches 2
+ok 173 - did we throws-like X::OutOfRange?
+# Subtest: did we throws-like X::Routine::Unwrap?
+    1..2
+    ok 1 - 'sub f() { }; &f.unwrap("foo")' died
+    ok 2 - right exception type (X::Routine::Unwrap)
+ok 174 - did we throws-like X::Routine::Unwrap?
+# Subtest: did we throws-like X::Constructor::Positional?
+    1..3
+    ok 1 - 'Mu.new(1)' died
+    ok 2 - right exception type (X::Constructor::Positional)
+    ok 3 - .type matches (Mu)
+ok 175 - did we throws-like X::Constructor::Positional?
+# Subtest: did we throws-like X::Constructor::Positional?
+    1..3
+    ok 1 - 'Foo.new(1, 2, 3);' died
+    ok 2 - right exception type (X::Constructor::Positional)
+    ok 3 - .type matches (Foo)
+ok 176 - did we throws-like X::Constructor::Positional?
+# Subtest: did we throws-like X::Hash::Store::OddNumber?
+    1..2
+    ok 1 - 'my %h = 1' died
+    ok 2 - right exception type (X::Hash::Store::OddNumber)
+ok 177 - did we throws-like X::Hash::Store::OddNumber?
+# Subtest: did we throws-like X::UnitScope::Invalid?
+    1..3
+    ok 1 - 'sub foo;' died
+    ok 2 - right exception type (X::UnitScope::Invalid)
+    ok 3 - .what matches sub
+ok 178 - did we throws-like X::UnitScope::Invalid?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..3
+    ok 1 - 'my $d; my class A {method x { $d }}; for () { sub }' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    ok 3 - .what matches block
+ok 179 - did we throws-like X::Syntax::Missing?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..3
+    ok 1 - 'constant foo;' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    ok 3 - .what matches /initializer/
+ok 180 - did we throws-like X::Syntax::Missing?
+# Subtest: did we throws-like X::Syntax::Missing?
+    1..3
+    ok 1 - 'constant * = 3;' died
+    ok 2 - right exception type (X::Syntax::Missing)
+    ok 3 - .what matches /constant/
+ok 181 - did we throws-like X::Syntax::Missing?
+# Subtest: did we throws-like X::Syntax::NonAssociative?
+    1..4
+    ok 1 - '1 <=> 2 <=> 3' died
+    ok 2 - right exception type (X::Syntax::NonAssociative)
+    ok 3 - .right matches <=>
+    ok 4 - .left matches <=>
+ok 182 - did we throws-like X::Syntax::NonAssociative?
+# Subtest: did we throws-like X::Package::Stubbed?
+    1..3
+    ok 1 - 'my class A {...}; my grammar B { ... }' died
+    ok 2 - right exception type (X::Package::Stubbed)
+    ok 3 - .packages matches (A B)
+ok 183 - did we throws-like X::Package::Stubbed?
+# Subtest: did we throws-like X::Phaser::PrePost?
+    1..4
+    ok 1 - 'my sub a { PRE 0  }; a()' died
+    ok 2 - right exception type (X::Phaser::PrePost)
+    ok 3 - .phaser matches PRE
+    ok 4 - .condition matches /0/
+ok 184 - did we throws-like X::Phaser::PrePost?
+# Subtest: did we throws-like X::Phaser::PrePost?
+    1..4
+    ok 1 - 'my sub a { POST 0 }; a()' died
+    ok 2 - right exception type (X::Phaser::PrePost)
+    ok 3 - .phaser matches POST
+    ok 4 - .condition matches /0/
+ok 185 - did we throws-like X::Phaser::PrePost?
+# Subtest: did we throws-like X::Str::Numeric?
+    1..5
+    ok 1 - 'use fatal; my $x = "5 foo" + 8;' died
+    ok 2 - right exception type (X::Str::Numeric)
+    ok 3 - .reason matches /:i trailing/
+    ok 4 - .pos matches 1
+    ok 5 - .source matches 5 foo
+ok 186 - did we throws-like X::Str::Numeric?
+# Subtest: did we throws-like X::Str::Match::x?
+    1..3
+    ok 1 - '"a".match(:x([1, 2, 3]), /a/).Str' died
+    ok 2 - right exception type (X::Str::Match::x)
+    ok 3 - .got matches (Array)
+ok 187 - did we throws-like X::Str::Match::x?
+# Subtest: did we throws-like X::Str::Trans::IllegalKey?
+    1..3
+    ok 1 - '"a".trans([Any.new] => [Any.new])' died
+    ok 2 - right exception type (X::Str::Trans::IllegalKey)
+    ok 3 - .key matches (Any)
+ok 188 - did we throws-like X::Str::Trans::IllegalKey?
+# Subtest: did we throws-like X::Str::Trans::InvalidArg?
+    1..3
+    ok 1 - '"a".trans(rx/a/)' died
+    ok 2 - right exception type (X::Str::Trans::InvalidArg)
+    ok 3 - .got matches (Regex)
+ok 189 - did we throws-like X::Str::Trans::InvalidArg?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..4
+    ok 1 - '1.foo' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .method matches foo
+    ok 4 - .typename matches Int
+ok 190 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..4
+    ok 1 - '1.+foo' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .method matches foo
+    ok 4 - .typename matches Int
+ok 191 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..5
+    ok 1 - 'my class Priv { method x { self!foo } }; Priv.x' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .typename matches Priv
+    ok 4 - .method matches foo
+    ok 5 - .private matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6424567696064) ... }
+ok 192 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..3
+    ok 1 - 'my %h; %h.nosuchmethods' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .typename matches Hash
+ok 193 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..2
+    ok 1 - 'sub (int $i) { $i() }(42)' died
+    ok 2 - right exception type (X::Method::NotFound)
+ok 194 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Method::InvalidQualifier?
+    1..5
+    ok 1 - '1.List::join' died
+    ok 2 - right exception type (X::Method::InvalidQualifier)
+    ok 3 - .method matches join
+    ok 4 - .invocant matches 1
+    ok 5 - .qualifier-type matches (List)
+ok 195 - did we throws-like X::Method::InvalidQualifier?
+# Subtest: did we throws-like X::StubCode?
+    1..3
+    ok 1 - '!!! 42' died
+    ok 2 - right exception type (X::StubCode)
+    ok 3 - .message matches 42
+ok 196 - did we throws-like X::StubCode?
+# Subtest: did we throws-like X::StubCode?
+    1..3
+    ok 1 - 'use fatal; ... 42' died
+    ok 2 - right exception type (X::StubCode)
+    ok 3 - .message matches 42
+ok 197 - did we throws-like X::StubCode?
+ok 198 - ??? with argument warns
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - 'die "foo"' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .backtrace matches (Backtrace)
+ok 199 - did we throws-like Exception?
+# Subtest: did we throws-like X::Sequence::Deduction?
+    1..2
+    ok 1 - 'use fatal; ~(1, 2, 6 ... 10)' died
+    ok 2 - right exception type (X::Sequence::Deduction)
+ok 200 - did we throws-like X::Sequence::Deduction?
+# Subtest: did we throws-like X::Composition::NotComposable?
+    1..4
+    ok 1 - 'my class B does Int { }' died
+    ok 2 - right exception type (X::Composition::NotComposable)
+    ok 3 - .target-name matches B
+    ok 4 - .composer matches (Int)
+ok 201 - did we throws-like X::Composition::NotComposable?
+# Subtest: did we throws-like X::TypeCheck::Binding?
+    1..4
+    ok 1 - 'my Str $x := 3' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+    ok 3 - .expected matches (Str)
+    ok 4 - .got matches (Int)
+ok 202 - did we throws-like X::TypeCheck::Binding?
+# Subtest: did we throws-like X::TypeCheck::Return?
+    1..4
+    ok 1 - 'sub f() returns Str { 5 }; f' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+    ok 3 - .expected matches (Str)
+    ok 4 - .got matches (Int)
+ok 203 - did we throws-like X::TypeCheck::Return?
+# Subtest: did we throws-like X::Comp?
+    1..3
+    ok 1 - 'sub f(--> Nil) { return 5 }; f' died
+    ok 2 - right exception type (X::Comp)
+    ok 3 - .payload matches /Nil/
+ok 204 - did we throws-like X::Comp?
+# Subtest: did we throws-like X::Comp?
+    1..3
+    ok 1 - 'sub f(--> 42) { return 43 }; f' died
+    ok 2 - right exception type (X::Comp)
+    ok 3 - .payload matches /42/
+ok 205 - did we throws-like X::Comp?
+# Subtest: we don't allow args even if the same
+    1..3
+    ok 1 - 'sub f(--> 42) { return 42 }; f' died
+    ok 2 - right exception type (X::Comp)
+    ok 3 - .payload matches /42/
+ok 206 - we don't allow args even if the same
+# Subtest: did we throws-like X::Comp?
+    1..3
+    ok 1 - 'sub f(--> "foo") { return () }; f' died
+    ok 2 - right exception type (X::Comp)
+    ok 3 - .payload matches /'"foo"'/
+ok 207 - did we throws-like X::Comp?
+# Subtest: literal return constraint with .return should error
+    1..3
+    ok 1 - 'sub f(--> 42) { 27.return }; f' died
+    ok 2 - right exception type (X::AdHoc)
+    ok 3 - .payload matches /42/
+ok 208 - literal return constraint with .return should error
+# Subtest: did we throws-like X::TypeCheck::Return?
+    1..4
+    ok 1 - 'sub f(--> Junction) { 5 }; f' died
+    ok 2 - right exception type (X::TypeCheck::Return)
+    ok 3 - .expected matches (Junction)
+    ok 4 - .got matches (Int)
+ok 209 - did we throws-like X::TypeCheck::Return?
+# Subtest: did we throws-like X::TypeCheck::Assignment?
+    1..5
+    ok 1 - 'my Int $x = "foo"' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+    ok 3 - .got matches foo
+    ok 4 - .expected matches (Int)
+    ok 5 - .symbol matches $x
+ok 210 - did we throws-like X::TypeCheck::Assignment?
+# Subtest: did we throws-like X::TypeCheck::Assignment?
+    1..2
+    ok 1 - 'subset Fu of Mu where * eq "foo"; my Fu $x = "bar";' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 211 - did we throws-like X::TypeCheck::Assignment?
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - 'sub f() { 42 }; f() = 3' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 212 - did we throws-like X::Assignment::RO?
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - '1.0 = 3' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 213 - did we throws-like X::Assignment::RO?
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - '120 = 3' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 214 - did we throws-like X::Assignment::RO?
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - '1e0 = 3' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 215 - did we throws-like X::Assignment::RO?
+# Subtest: did we throws-like X::Assignment::RO?
+    1..2
+    ok 1 - '"a" = 3' died
+    ok 2 - right exception type (X::Assignment::RO)
+ok 216 - did we throws-like X::Assignment::RO?
+# Subtest: did we throws-like X::Method::NotFound?
+    1..4
+    ok 1 - '1.foo' died
+    ok 2 - right exception type (X::Method::NotFound)
+    ok 3 - .method matches foo
+    ok 4 - .typename matches Int
+ok 217 - did we throws-like X::Method::NotFound?
+# Subtest: did we throws-like X::Mixin::NotComposable?
+    1..4
+    ok 1 - 'my class NC { }; NC.new does NC' died
+    ok 2 - right exception type (X::Mixin::NotComposable)
+    ok 3 - .rolish matches WhateverCode.new
+    ok 4 - .target matches WhateverCode.new
+ok 218 - did we throws-like X::Mixin::NotComposable?
+# Subtest: did we throws-like X::Mixin::NotComposable?
+    1..4
+    ok 1 - 'my class NC { }; NC.new but  NC' died
+    ok 2 - right exception type (X::Mixin::NotComposable)
+    ok 3 - .target matches WhateverCode.new
+    ok 4 - .rolish matches WhateverCode.new
+ok 219 - did we throws-like X::Mixin::NotComposable?
+# Subtest: did we throws-like X::ControlFlow?
+    1..4
+    ok 1 - 'last' died
+    ok 2 - right exception type (X::ControlFlow)
+    ok 3 - .enclosing matches loop construct
+    ok 4 - .illegal matches last
+ok 220 - did we throws-like X::ControlFlow?
+# Subtest: did we throws-like X::ControlFlow?
+    1..4
+    ok 1 - 'next' died
+    ok 2 - right exception type (X::ControlFlow)
+    ok 3 - .illegal matches next
+    ok 4 - .enclosing matches loop construct
+ok 221 - did we throws-like X::ControlFlow?
+# Subtest: did we throws-like X::ControlFlow?
+    1..4
+    ok 1 - 'redo' died
+    ok 2 - right exception type (X::ControlFlow)
+    ok 3 - .illegal matches redo
+    ok 4 - .enclosing matches loop construct
+ok 222 - did we throws-like X::ControlFlow?
+# Subtest: did we throws-like X::Inheritance::Unsupported?
+    1..2
+    ok 1 - 'my package A { }; my class B is A { }' died
+    ok 2 - right exception type (X::Inheritance::Unsupported)
+ok 223 - did we throws-like X::Inheritance::Unsupported?
+# Subtest: did we throws-like X::Export::NameClash?
+    1..3
+    ok 1 - 'my module Expo { sub f is export { }; { sub f is export { } } }' died
+    ok 2 - right exception type (X::Export::NameClash)
+    ok 3 - .symbol matches &f
+ok 224 - did we throws-like X::Export::NameClash?
+# Subtest: did we throws-like X::HyperOp::NonDWIM?
+    1..5
+    ok 1 - '<a b> »+« <c>' died
+    ok 2 - right exception type (X::HyperOp::NonDWIM)
+    ok 3 - .right-elems matches 1
+    ok 4 - .operator matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6424567855872) ... }
+    ok 5 - .left-elems matches 2
+ok 225 - did we throws-like X::HyperOp::NonDWIM?
+# Subtest: did we throws-like X::ControlFlow::Return?
+    1..2
+    ok 1 - 'my sub f() { gather { return } }; ~f()' died
+    ok 2 - right exception type (X::ControlFlow::Return)
+ok 226 - did we throws-like X::ControlFlow::Return?
+# Subtest: did we throws-like X::Temporal::InvalidFormat?
+    1..4
+    ok 1 - 'DateTime.new("2012/04")' died
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+    ok 3 - .target matches DateTime
+    ok 4 - .invalid-str matches 2012/04
+ok 227 - did we throws-like X::Temporal::InvalidFormat?
+# Subtest: did we throws-like X::Temporal::InvalidFormat?
+    1..4
+    ok 1 - 'Date.new("2012/04")' died
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+    ok 3 - .target matches Date
+    ok 4 - .invalid-str matches 2012/04
+ok 228 - did we throws-like X::Temporal::InvalidFormat?
+# Subtest: did we throws-like X::Eval::NoSuchLang?
+    1..3
+    ok 1 - 'EVAL("foo", :lang<no-such-language>)' died
+    ok 2 - right exception type (X::Eval::NoSuchLang)
+    ok 3 - .lang matches no-such-language
+ok 229 - did we throws-like X::Eval::NoSuchLang?
+# Subtest: did we throws-like X::DateTime::TimezoneClash?
+    1..2
+    ok 1 - 'DateTime.new("1998-12-31T23:59:60+0200", :timezone<Z>)' died
+    ok 2 - right exception type (X::DateTime::TimezoneClash)
+ok 230 - did we throws-like X::DateTime::TimezoneClash?
+# Subtest: did we throws-like X::Numeric::Real?
+    1..3
+    ok 1 - 'use fatal; (1+2i).Num' died
+    ok 2 - right exception type (X::Numeric::Real)
+    ok 3 - .target matches (Num)
+ok 231 - did we throws-like X::Numeric::Real?
+# Subtest: did we throws-like X::Numeric::Real?
+    1..3
+    ok 1 - 'use fatal; (1+2i).Real' died
+    ok 2 - right exception type (X::Numeric::Real)
+    ok 3 - .target matches (Real)
+ok 232 - did we throws-like X::Numeric::Real?
+# Subtest: did we throws-like X::TypeCheck::Binding?
+    1..2
+    ok 1 - 'my class A {}; (-> &c, $m { A.new()(); CATCH { default { $m } } } )(A, "")' died
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 233 - did we throws-like X::TypeCheck::Binding?
+ok 234 - Should fail type check with unbound variable
+ok 235 - nextsame in proto
+# Subtest: did we throws-like X::Syntax::Confused?
+    1..3
+    ok 1 - '["a" "b"]' died
+    ok 2 - right exception type (X::Syntax::Confused)
+    ok 3 - .reason matches Two terms in a row
+ok 236 - did we throws-like X::Syntax::Confused?
+# Subtest: did we throws-like X::Syntax::Confused?
+    1..2
+    ok 1 - 'my class A { has $.a syntax error; }' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 237 - did we throws-like X::Syntax::Confused?
+# Subtest: did we throws-like X::Syntax::Confused?
+    1..2
+    ok 1 - 'my $bar = "test"; my $foo = { given $bar { when Real { 1 } when Str { 2 } } };' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 238 - did we throws-like X::Syntax::Confused?
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - 'my $foo = 10; say $Foo;' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .suggestions matches $foo
+ok 239 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - 'my @barf = 1, 2, 3; say $barf[2]' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .suggestions matches @barf
+ok 240 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - 'my $intergalactic-planetary = "planetary intergalactic"; say $IntergalacticPlanetary' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .suggestions matches $intergalactic-planetary
+ok 241 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Inheritance::UnknownParent?
+    1..3
+    ok 1 - 'my class Foo is Junktion {}' died
+    ok 2 - right exception type (X::Inheritance::UnknownParent)
+    ok 3 - .suggestions matches Junction
+ok 242 - did we throws-like X::Inheritance::UnknownParent?
+# Subtest: did we throws-like X::Inheritance::UnknownParent?
+    1..3
+    ok 1 - 'my class Bar is junction {}' died
+    ok 2 - right exception type (X::Inheritance::UnknownParent)
+    ok 3 - .suggestions matches Junction
+ok 243 - did we throws-like X::Inheritance::UnknownParent?
+# Subtest: did we throws-like X::Inheritance::UnknownParent?
+    1..3
+    ok 1 - 'my class Baz is Juntcion {}' died
+    ok 2 - right exception type (X::Inheritance::UnknownParent)
+    ok 3 - .suggestions matches Junction
+ok 244 - did we throws-like X::Inheritance::UnknownParent?
+ok 245 - &huc throws X::Undeclared::Symbols
+ok 246 - &uc is a suggestion
+ok 247 - huc throws X::Undeclared::Symbols
+ok 248 - uc is a suggestion
+ok 249 - no suggestions for a strange name
+ok 250 - doesn't show suggestions if there are none.
+ok 251 - no suggestions for a strange class
+ok 252 - doesn't show suggestions if there are none.
+ok 253 - no suggestions for a strange variable
+ok 254 - doesn't suggest if there's no suggestions.
+# Subtest: did we throws-like X::Parameter::InvalidType?
+    1..3
+    ok 1 - 'sub yoink(Junctoin $barf) { }' died
+    ok 2 - right exception type (X::Parameter::InvalidType)
+    ok 3 - .suggestions matches Junction
+ok 255 - did we throws-like X::Parameter::InvalidType?
+ok 256 - my cool $a throws an X::Comp::Group.
+ok 257 - the first sorrow is X::Undeclared.
+ok 258 - the suggestions are Cool and Bool
+ok 259 - Ecxeption.new throws X::Undeclared::Symbols
+ok 260 - Exception is a suggestion
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - 'sub greet($name) { say "hello, $nam" }' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .suggestions matches $name
+ok 261 - did we throws-like X::Undeclared?
+# Subtest: did we throws-like X::Undeclared?
+    1..3
+    ok 1 - 'class Greeter { has $.name; method greet { say "hi, $name" } }' died
+    ok 2 - right exception type (X::Undeclared)
+    ok 3 - .suggestions matches $!name
+ok 262 - did we throws-like X::Undeclared?
+# Subtest: ContainerDescriptor::BindHashPos has a 'name' method
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 263 - ContainerDescriptor::BindHashPos has a 'name' method
+# Subtest: ContainerDescriptor::BindArrayPos has a 'name' method
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 264 - ContainerDescriptor::BindArrayPos has a 'name' method
+# Subtest: did we throws-like X::Multi::NoMatch?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Multi::NoMatch)
+    ok 3 - .capture matches -> ;; $_? is raw = OUTER::<$_> {  \#`(Block|6424611536760) ... }
+ok 265 - did we throws-like X::Multi::NoMatch?
+# Subtest: did we throws-like X::Syntax::Adverb?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Adverb)
+ok 266 - did we throws-like X::Syntax::Adverb?
+# FUDGED!

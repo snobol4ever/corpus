@@ -1,0 +1,6 @@
+1..2
+ok 1 - without env var 'RAKUDO_POD_DECL_BLOCK_USER_FORMAT'
+not ok 2 - with env var 'RAKUDO_POD_DECL_BLOCK_USER_FORMAT' # TODO fixed in RakuAST
+# Failed test 'with env var 'RAKUDO_POD_DECL_BLOCK_USER_FORMAT''
+# at S26-documentation/block-leading-user-format.rakudo line 68
+# FUDGED!

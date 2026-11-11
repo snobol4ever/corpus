@@ -1,0 +1,5 @@
+1..4
+ok 1 - supply - singular tap
+ok 2 - supply dual tap
+ok 3 - supply grep and tap
+ok 4 - supply grep and tap

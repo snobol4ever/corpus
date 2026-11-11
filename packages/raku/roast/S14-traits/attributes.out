@@ -1,0 +1,9 @@
+1..8
+ok 1 - class with traits applied to attributes by name instantiated ok
+ok 2 - have correct number of attributes
+ok 3 - trait was applied to each attribute
+ok 4 - second instantiation of the classes does not re-apply traits
+ok 5 - class with traits applied to attributes by role instantiated ok
+ok 6 - trait applied to scalar attribute correctly
+ok 7 - trait applied to array attribute correctly
+ok 8 - trait applied to hash attribute correctly

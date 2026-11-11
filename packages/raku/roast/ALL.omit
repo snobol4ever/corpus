@@ -1,0 +1,197 @@
+6.c/S02-names/pseudo-6c: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/6.c/S02-names/pseudo-6c.t "::=" not yet implemented. Sor
+S02-literals/format: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Unrecognized adverb: :o at /home/resources/roast-master/S02-literals/format.t:8 
+S02-literals/pod: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-literals/pod.t Pod variable $=DATA not yet implement
+S02-literals/radix: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-literals/radix.t Malformed radix number at /home/res
+S02-literals/version: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-literals/version.t Malformed postfix call at /home/r
+S02-magicals/DISTRO: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-magicals/DISTRO.t Variable '$?DISTRO' is not declare
+S02-magicals/KERNEL: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-magicals/KERNEL.t Variable '$?KERNEL' is not declare
+S02-magicals/PERL: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-magicals/PERL.t Variable '$?PERL' is not declared. P
+S02-magicals/RAKU: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-magicals/RAKU.t Variable '$?RAKU' is not declared. P
+S02-magicals/VM: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-magicals/VM.t Variable '$?VM' is not declared. Perha
+S02-names-vars/names: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-names-vars/names.t Variable '$' is not declared. Per
+S02-names/caller: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-names/caller.t "::=" not yet implemented. Sorry. at 
+S02-names/pseudo-6d: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-names/pseudo-6d.t "::=" not yet implemented. Sorry. 
+S02-names/pseudo-6e: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S02-names/pseudo-6e.t Constants with a '?' twigil not ye
+S02-types/declare: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Type 'Bit' is not declared at /home/resources/roast-master/S02-types/declare.t:39 
+S03-binding/closure: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S03-binding/closure.t "::=" not yet implemented. Sorry. 
+S03-binding/ro: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S03-binding/ro.t "::=" not yet implemented. Sorry. at /h
+S03-binding/scalars: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S03-binding/scalars.t Cannot use bind operator with this
+S03-feeds/basic: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S03-feeds/basic.t ==>> feed operator not yet implemented
+S03-operators/precedence: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S03-operators/precedence.t Operators '++' and '²' are n
+S04-declarations/will: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: 1..19 /home/resources/roast-master/S04-declarations/will.t Variable trait 'will init 
+S05-capture/hash: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S05-capture/hash.t The use of hash variables in regexes 
+S05-mass/rx: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S05-mass/rx.t :: not yet implemented at /home/resources/
+S05-metasyntax/angle-brackets: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Unrecognized regex metacharacter < (must be quoted to match literally) at /home/resources/roast-m
+S05-metasyntax/longest-alternative: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S05-metasyntax/longest-alternative.t :: not yet implemen
+S05-modifier/Perl_8: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S05-modifier/Perl_8.t Illegal range endpoint in regex: a
+S05-syntactic-categories/new-symbols: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S05-syntactic-categories/new-symbols.t Unrecognized back
+S06-advanced/return_function: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-advanced/return_function.t Cannot use bind operator 
+S06-advanced/stub: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: 1..13 ok 1 - sub foo {...} works # Subtest: old Perl "sub foo;" syntax is dead 
+S06-operator-overloading/infix: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-operator-overloading/infix.t Cannot bind to '&infix:
+S06-operator-overloading/sub: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-operator-overloading/sub.t Whitespace required after
+S06-parameters/smiley: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-parameters/smiley.t use parameters not yet implement
+S06-signature/definite-return: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-signature/definite-return.t Malformed return value a
+S06-signature/multiple-signatures: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-signature/multiple-signatures.t Missing block at /ho
+S06-signature/named-parameters: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-signature/named-parameters.t Malformed parameter at 
+S06-signature/outside-subroutine: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Internal error: find_var_decl could not find $_ 
+S06-signature/slurpy-blocks: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S06-signature/slurpy-blocks.t You can't adverb :{ "foo" 
+S06-traits/is-assoc: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== MVMArray: Can't pop from an empty array 
+S09-typed-arrays/arrays: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S09-typed-arrays/arrays.t Cannot put a type constraint o
+S11-modules/import: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S11-modules/import.t Undeclared names:     Bfoo used at 
+S11-modules/import-multi: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S11-modules/import-multi.t A symbol '&Gfoo' has already 
+S12-attributes/trusts: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-attributes/trusts.t Type 'B' is not declared at /hom
+S12-class/augment-supersede: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-class/augment-supersede.t Redeclaration of symbol 'B
+S12-class/open_closed: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-class/open_closed.t Could not find oo in:     /home/
+S12-class/parent_attributes: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-class/parent_attributes.t Autovivifying object closu
+S12-construction/new: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-construction/new.t Autovivifying object closures not
+S12-methods/indirect_notation: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-methods/indirect_notation.t Redeclaration of method 
+S12-traits/basic: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-traits/basic.t Cannot add tokens of category 'trait_
+S12-traits/parameterized: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S12-traits/parameterized.t Cannot add tokens of category
+S13-overloading/multiple-signatures: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S13-overloading/multiple-signatures.t Missing block at /
+S13-syntax/aliasing: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S13-syntax/aliasing.t "::=" not yet implemented. Sorry. 
+S15-string-types/NF-types: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Unrecognized adverb: :nfc at /home/resources/roast-master/S15-string-types/NF-types.t:12 
+S15-string-types/NFK-types: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Unrecognized adverb: :nfkc at /home/resources/roast-master/S15-string-types/NFK-types.t:12 
+S15-string-types/Str: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S15-string-types/Str.t Unrecognized adverb: :nfg at /hom
+S32-list/classify: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/classify.t Cannot use bind operator with this l
+S32-list/first: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/first.t You can't adverb :{ ($^a == 4) } at /ho
+S32-list/first-end-k: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/first-end-k.t You can't adverb :{ $^a == 4 } at
+S32-list/first-k: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/first-k.t You can't adverb :{ $^a == 4 } at /ho
+S32-list/grep: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/grep.t You can't adverb :{ ($_ % 2) } at /home/
+S32-list/grep-k: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/grep-k.t You can't adverb :{ ($_ % 2) } at /hom
+S32-list/map: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/S32-list/map.t You can't adverb :{ $_ * 2 } at /home/res
+t/fudge: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/t/fudge.t Could not find warnings in:     /home/satirica
+t/fudgeandrun: NO_ORACLE_ANSWER: rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/t/fudgeandrun.t Could not find warnings in:     /home/sa
+S17-channel/basic: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-channel
+S17-channel/stress: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-channel
+S17-channel/subscription-drain-in-react: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-channel
+S17-lowlevel/atomic-ops: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/atomic: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas-int: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas-loop-int: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas-loop: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/cas: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/lock: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/semaphore: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/thread-start-join-stress: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-lowlevel/thread: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-lowlevel
+S17-procasync/basic: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/bind-handles: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/encoding: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/kill: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/many-processes-no-close-stdin: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/no-runaway-file-limit: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/nonexistent: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/print: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/stress: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-procasync/windows-arg-quoting: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-procasync
+S17-promise/allof: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/anyof: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/at: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/basic: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/in: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/lock-async-stress: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/lock-async-stress2: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/lock-async: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/nonblocking-await: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/single-assignment: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/start: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/stress: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-promise/then: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-promise
+S17-scheduler/at: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/basic: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/every: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/in: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-scheduler/times: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-scheduler
+S17-supply/Channel: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/Promise: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/Seq: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/act: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/basic: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/batch: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/categorize: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/classify: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/collate: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/comb: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/construction-recursion: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/decode: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/delayed: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/do: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/elems: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/encode: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/first: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/flat: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/from-list: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/grab: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/grep: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/head: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/interval: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/lines: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/list: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/map: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/max: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/merge: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/migrate: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/min: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/minmax: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/on-demand: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/produce: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/reduce: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/repeated: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/return-in-tap: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/reverse: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/rotate: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/rotor: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/schedule-on: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/skip: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/snip: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/sort: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/split: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/squish: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/stable: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/start: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/supplier-preserving: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/syntax-nonblocking-await: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/syntax: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/tail: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/throttle: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/unique: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/wait: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/watch-path: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/words: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/zip-latest: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S17-supply/zip: S17_CLOSED_BY_LON: S17 concurrency is closed until Lon opens it (skill raku section 7; CTO-514 ruling 1, GOAL-CTO.md 3fa655b86); the file lives in roast directory S17-supply
+S02-magicals/sub: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; Regex object coerced to string (please use .gist or .raku to do that) (the coo's cut of 2026-11-11, COO-508)
+S02-types/native: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; # Failed test 'uint64 attributes don't get sign-extended' (the coo's cut of 2026-11-11, COO-508)
+S04-phasers/pre-post: NO_ORACLE_ANSWER: rakudo 2026.05 fails the fudged file: exit 1; # Failed test 'failing POST on exception doesn't replace $!' (the coo's cut of 2026-11-11, COO-508)
+S04-statements/goto: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 255; No such method 'nextwith' for invocant of type 'Sub' (the coo's cut of 2026-11-11, COO-508)
+S05-mass/properties-general: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; # Failed test '<alpha> matches alphabetics which are not Letters' (the coo's cut of 2026-11-11, COO-508)
+S05-modifier/ignorecase: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 3; # Failed test 'ignorecase with ligature haystack in variable matches' (the coo's cut of 2026-11-11, COO-508)
+S05-nonstrings/basic: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; ===SORRY!=== (the coo's cut of 2026-11-11, COO-508)
+S06-advanced/caller: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; ===SORRY!=== Error while compiling /tmp/s4e/cao/fudge/m/S06-advanced/caller.t (the coo's cut of 2026-11-11, COO-508)
+S10-packages/precompilation: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S10-packages/require-and-use--dead-file: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 14; # use RequireAndUse1 (the coo's cut of 2026-11-11, COO-508)
+S11-modules/re-export: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; ===SORRY!=== Error while compiling /tmp/s4e/cao/fudge/m/S11-modules/re-export.t (the coo's cut of 2026-11-11, COO-508)
+S11-modules/versioning: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S13-overloading/fallbacks-deep: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; ===SORRY!=== Error while compiling /tmp/s4e/cao/fudge/m/S13-overloading/fallbacks-deep.t (the coo's cut of 2026-11-11, COO-508)
+S14-roles/generic-subtyping: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; # Failed test 'can do subtyped generic roles' (the coo's cut of 2026-11-11, COO-508)
+S15-normalization/nfc-concat: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S15-unicode-information/uniprop: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 26; # Failed test '¶.uniprop('Unicode_1_Name') returns Unicode 1 name' (the coo's cut of 2026-11-11, COO-508)
+S16-filehandles/open: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 1 and 0, 455 and 451 bytes) (the coo's cut of 2026-11-11, COO-508)
+S19-command-line-options/01-dash-uppercase-i: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 255; Dynamic variable $*OS not found (the coo's cut of 2026-11-11, COO-508)
+S24-testing/6-done_testing: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; Cannot resolve caller ok(Int:D, :todo(Int)); none of these signatures matches: (the coo's cut of 2026-11-11, COO-508)
+S28-named-variables/cwd: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 1 and 0, 77 and 73 bytes) (the coo's cut of 2026-11-11, COO-508)
+S29-os/system: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; WARNINGS for /tmp/s4e/coo/roastcut/m/S29-os/system.t: (the coo's cut of 2026-11-11, COO-508)
+S32-encoding/registry: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 2; # Failed test 'type of result' (the coo's cut of 2026-11-11, COO-508)
+S32-io/chdir: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 0 and 0, 23762 and 23710 bytes) (the coo's cut of 2026-11-11, COO-508)
+S32-io/spurt: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 1 and 0, 7965 and 7961 bytes) (the coo's cut of 2026-11-11, COO-508)
+S32-num/expmod: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 2; # Failed test '42,  -1,  1' (the coo's cut of 2026-11-11, COO-508)
+S32-str/gb18030-encode-decode: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 255 and 0, 38 and 270 bytes) (the coo's cut of 2026-11-11, COO-508)
+S32-str/gb2312-encode-decode: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 255 and 0, 38 and 331 bytes) (the coo's cut of 2026-11-11, COO-508)
+S32-str/shiftjis-encode-decode: NO_ORACLE_ANSWER: rakudo 2026.05 answers differently twice in its tests, not only in their descriptions (exit 255 and 0, 38 and 620 bytes) (the coo's cut of 2026-11-11, COO-508)
+S32-str/sprintf-b: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S32-str/sprintf-d: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S32-str/sprintf-e: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S32-str/sprintf-f: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S32-str/sprintf-x: NO_ORACLE_ANSWER: rakudo 2026.05 gives no answer inside 120 s on the file (the coo's cut of 2026-11-11, COO-508)
+S32-str/sprintf: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 33; # Failed test '5.2 %g' (the coo's cut of 2026-11-11, COO-508)
+S32-temporal/time: NO_ORACLE_ANSWER: rakudo 2026.05 fails the file: exit 1; ===SORRY!=== Error while compiling /tmp/s4e/cao/fudge/m/S32-temporal/time.t (the coo's cut of 2026-11-11, COO-508)

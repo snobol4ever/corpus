@@ -1,0 +1,7 @@
+1..1
+# Subtest: no segfault in ObjAt initialization when passing bogus named arguments
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches / 'Too few positionals passed' .+ 'expected 2 arguments but got 1' /
+ok 1 - no segfault in ObjAt initialization when passing bogus named arguments

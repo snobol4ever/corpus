@@ -1,0 +1,20 @@
+1..19
+ok 1 - One file successfully changed
+ok 2 - name of the file returned
+ok 3 - # SKIP :r :w :x can accidentally work with root permission
+ok 4 - # SKIP :r :w :x can accidentally work with root permission
+ok 5 - # SKIP :r :w :x can accidentally work with root permission
+ok 6 - Test file was successfully removed
+ok 7 - One file successfully changed
+ok 8 - name of the file returned
+ok 9 - readable after 700
+ok 10 - writabel after 700
+ok 11 - executable after 700
+ok 12 - Test file was successfully removed
+ok 13 - One file successfully changed
+ok 14 - name of the file returned
+ok 15 - readable after 777
+ok 16 - writable after 777
+ok 17 - executable after 777
+ok 18 - Test file was successfully removed
+ok 19 - ~~:!e syntax works

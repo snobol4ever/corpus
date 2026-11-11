@@ -1,0 +1,8 @@
+1..7
+ok 1 - mutli dispatch with type mutual exclusive type constaints 1
+ok 2 - mutli dispatch with type mutual exclusive type constaints 1
+ok 3 - MMD with subset type multi works
+ok 4 - subset multi is narrower than the general type
+ok 5 - when we have a single candidate with a constraint, it's enforced
+ok 6 - value that doesn't meet single constraint causes failed dispatch
+ok 7 - did the right candidate get called

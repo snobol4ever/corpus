@@ -1,0 +1,28 @@
+1..27
+ok 1 - splice
+ok 2 - elems
+ok 3 - simple slice
+ok 4 - simple slice
+ok 5 - assignment to infinite list
+ok 6 - array slice assignment
+ok 7 - big slice assignment
+ok 8 - sanity: make-lazy-list sets 1.
+ok 9 - sanity: make-lazy-list sets 0.
+ok 10 - sanity: binding won't slurp up the lazy list
+ok 11 - sanity: first is-prime is 2
+ok 12 - first is lazy
+ok 13 - sanity: first three primes are 2, 3 and 5
+ok 14 - grep is lazy
+ok 15 - sanity: first three numbers doubled are 0, 2, 4
+ok 16 - map is lazy
+ok 17 - first argument of Z is lazy
+ok 18 - second argument of Z is lazy
+ok 19 - first argument of X is lazy
+ok 20 - first argument of X~ is lazy
+ok 21 - push: did we not lose the split?
+ok 22 - unshift: did we not lose the split?
+ok 23 - for gather { ... } { last } properly lazy
+ok 24 - kv is lazy
+ok 25 - pairs is lazy
+ok 26 - antipairs is lazy
+ok 27 - did the array get flattened

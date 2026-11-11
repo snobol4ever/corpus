@@ -1,0 +1,85 @@
+1..18
+# Subtest: default handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 1 - default handle attributes
+# Subtest: changed handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 2 - changed handle attributes
+# Subtest: no-arg prompt
+    1..1
+    ok 1 - return value
+ok 3 - no-arg prompt
+# Subtest: default handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 4 - default handle attributes
+# Subtest: changed handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 5 - changed handle attributes
+# Subtest: no-arg prompt
+    1..1
+    ok 1 - return value
+ok 6 - no-arg prompt
+# Subtest: default handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 7 - default handle attributes
+# Subtest: changed handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 8 - changed handle attributes
+# Subtest: no-arg prompt
+    1..1
+    ok 1 - return value
+ok 9 - no-arg prompt
+# Subtest: default handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 10 - default handle attributes
+# Subtest: changed handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 11 - changed handle attributes
+# Subtest: no-arg prompt
+    1..1
+    ok 1 - return value
+ok 12 - no-arg prompt
+# Subtest: default handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 13 - default handle attributes
+# Subtest: changed handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 14 - changed handle attributes
+# Subtest: no-arg prompt
+    1..1
+    ok 1 - return value
+ok 15 - no-arg prompt
+# Subtest: default handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 16 - default handle attributes
+# Subtest: changed handle attributes
+    1..2
+    ok 1 - return value
+    ok 2 - printed content
+ok 17 - changed handle attributes
+# Subtest: no-arg prompt
+    1..1
+    ok 1 - return value
+ok 18 - no-arg prompt

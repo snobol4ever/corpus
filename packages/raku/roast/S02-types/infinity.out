@@ -1,0 +1,69 @@
+1..21
+ok 1 - numeric equal
+ok 2 - string equal
+ok 3 - negative numeric equal
+ok 4 - negative string equal
+ok 5 - # SKIP integer Inf
+ok 6 - # SKIP integer Inf
+ok 7 - # SKIP integer -Inf
+ok 8 - # SKIP integer -Inf
+ok 9 - truncate(Inf) ~~ Inf
+# Subtest: attempting to convert Inf to Int throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::CannotConvert)
+    ok 2 - Failure threw when sunk
+ok 10 - attempting to convert Inf to Int throws
+# Subtest: attempting to convert Inf to Int throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::CannotConvert)
+    ok 2 - Failure threw when sunk
+ok 11 - attempting to convert Inf to Int throws
+# Subtest: attempting to convert ∞ to Int throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::CannotConvert)
+    ok 2 - Failure threw when sunk
+ok 12 - attempting to convert ∞ to Int throws
+# Subtest: attempting to convert -∞ to Int throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::CannotConvert)
+    ok 2 - Failure threw when sunk
+ok 13 - attempting to convert -∞ to Int throws
+# Subtest: attempting to convert NaN to Int throws
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::CannotConvert)
+    ok 2 - Failure threw when sunk
+ok 14 - attempting to convert NaN to Int throws
+ok 15 - multiply rand by Inf without maximum recursion depth exceeded
+# Subtest: trying to assign Inf to Int gives a helpful error
+    1..4
+    ok 1 - 'my Int $x = Inf' died
+    ok 2 - right exception type (X::Syntax::Number::LiteralType)
+    ok 3 - .value matches Inf
+    ok 4 - .vartype matches (Int)
+ok 16 - trying to assign Inf to Int gives a helpful error
+ok 17 - assigning Inf to Num works without errors
+ok 18 - -Inf² follows mathematical order of operations
+ok 19 - -∞² follows mathematical order of operations
+ok 20 - −Inf² follows mathematical order of operations (U+2212 minus)
+ok 21 - −∞² follows mathematical order of operations (U+2212 minus)
+# FUDGED!

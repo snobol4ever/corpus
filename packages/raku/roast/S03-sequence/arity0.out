@@ -1,0 +1,14 @@
+1..13
+ok 1 - Got the number of rolls we asked for
+ok 2 - all the rolls are Ints
+ok 3 - all the rolls are in the Range 1..6
+ok 4 - the sequence had at least one element...
+ok 5 - ... and the sequence terminated
+ok 6 - all the rolls are Ints
+ok 7 - There was exactly one 2 rolled...
+ok 8 - ...and it was the last roll
+ok 9 - the sequence is infinite...
+ok 10 - all the rolls are Ints
+ok 11 - Got the number of rolls we asked for
+ok 12 - all the rolls are Ints
+ok 13 - all the rolls are in the Range 1..6

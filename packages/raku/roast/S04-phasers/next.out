@@ -1,0 +1,26 @@
+1..16
+ok 1 - NEXT called by both next and normal falling out
+ok 2 - NEXT called by both next and normal falling out
+ok 3 - NEXT called by both next and normal falling out
+ok 4 - NEXT are LAST blocks may not be exclusive
+ok 5 - die didn't trigger NEXT {}
+ok 6 - leave didn't trigger NEXT {}
+ok 7 - return didn't trigger NEXT {}
+ok 8 - last bypass NEXT {}
+not ok 9 - NEXT {} ran before LEAVE {} (1) # TODO NEXT/LEAVE ordering RT #124952
+# Failed test 'NEXT {} ran before LEAVE {} (1)'
+# at S04-phasers/next.rakudo line 110
+# expected: 'nlnl'
+#      got: 'lnln'
+not ok 10 - NEXT {} ran before LEAVE {} (2) # TODO NEXT/LEAVE ordering RT #124952
+# Failed test 'NEXT {} ran before LEAVE {} (2)'
+# at S04-phasers/next.rakudo line 122
+# expected: 'nlnl'
+#      got: 'lnln'
+ok 11 - NEXT {} ran in reversed order
+ok 12 - NEXT {} works in loop (;;) {}
+ok 13 - NEXT {} works in for loop
+ok 14 - last in a NEXT in a for loop terminates the loop
+ok 15 - last in a NEXT in a for loop terminates the loop, when triggered by next
+ok 16 - last in a NEXT in a loop terminates the loop
+# FUDGED!

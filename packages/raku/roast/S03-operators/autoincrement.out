@@ -1,0 +1,84 @@
+1..79
+ok 1 - 0 + ++$x - 1
+ok 2 - 0 + $x-- - 1
+ok 3 - 1 * $x
+ok 4 - 0 + $x-- - 0
+ok 5 - 1 + $x
+ok 6 - 1 + $x++
+ok 7 - 0 + $x
+ok 8 - 0 + --$x + 1
+ok 9 - 0 + ++$x + 0
+ok 10 - $x
+ok 11 - 0 + ++@x[0] - 1
+ok 12 - 0 + @x[0]-- - 1
+ok 13 - 1 * @x[0]
+ok 14 - 0 + @x[0]-- - 0
+ok 15 - 1 + @x[0]
+ok 16 - 1 + @x[0]++
+ok 17 - 0 + @x[0]
+ok 18 - 0 + ++@x[0] - 1
+ok 19 - 0 + --@x[0] + 0
+ok 20 - @x[0]
+ok 21 - 0 + ++%z{0} - 1
+ok 22 - 0 + %z{0}-- - 1
+ok 23 - 1 * %z{0}
+ok 24 - 0 + %z{0}-- - 0
+ok 25 - 1 + %z{0}
+ok 26 - 1 + %z{0}++
+ok 27 - 0 + %z{0}
+ok 28 - 0 + ++%z{0} - 1
+ok 29 - 0 + --%z{0} + 0
+ok 30 - %z{0}
+ok 31 - '123.456'++ is '124.456' (NOT 123.457)
+ok 32 - '124.456'-- is '123.456'
+ok 33 - '/tmp/pix000.jpg'++ is '/tmp/pix001.jpg'
+ok 34 - '/tmp/pix001.jpg'-- is '/tmp/pix000.jpg'
+ok 35 - 'zi'++ is 'zj'
+ok 36 - 'zj'-- is 'zi'
+ok 37 - 'zr'++ is 'zs'
+ok 38 - 'zs'-- is 'zr'
+ok 39 - Decrement of 'A00' should fail
+ok 40 - there is no \x[3a2]
+ok 41 - increment 'Kω'
+ok 42 - Can autoincrement a Mu variable (prefix)
+ok 43 - Can autoincrement a Mu variable (postfix)
+ok 44 - Overriding succ catches postfix increment
+ok 45 - Overriding succ catches prefix increment
+ok 46 - Overriding pred catches postfix decrement
+ok 47 - Overriding pred catches prefix decrement
+ok 48 - .succ for Str
+ok 49 - .pred for Str
+ok 50 - .succ for Int
+ok 51 - .pred for Int
+ok 52 - .succ for Num
+ok 53 - .pred for Num
+# Subtest: parse error for "$a++ ++"
+    1..2
+    ok 1 - 'my $a; $a++ ++;' died
+    ok 2 - right exception type (Exception)
+ok 54 - parse error for "$a++ ++"
+ok 55 - increment of $_ via .++
+ok 56 - Bool postincrement returns Bool
+ok 57 - Bool postincrement sets True
+ok 58 - False postincrement returns False
+ok 59 - False postincrement sets True
+ok 60 - True postincrement returns True
+ok 61 - True postincrement sets True
+ok 62 - Bool postdecrement returns Bool
+ok 63 - Bool postdecrement sets False
+ok 64 - False postdecrement returns False
+ok 65 - False postdecrement sets False
+ok 66 - True postdecrement returns True
+ok 67 - True postdecrement sets False
+ok 68 - Bool preincrement returns True
+ok 69 - Bool postincrement sets True
+ok 70 - False preincrement returns True
+ok 71 - False postincrement sets True
+ok 72 - True preincrement returns True
+ok 73 - True postincrement sets True
+ok 74 - Bool predecrement returns False
+ok 75 - Bool postdecrement sets False
+ok 76 - False predecrement returns False
+ok 77 - False postdecrement sets False
+ok 78 - True predecrement returns False
+ok 79 - True postdecrement sets False

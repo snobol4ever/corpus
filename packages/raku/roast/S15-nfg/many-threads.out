@@ -1,0 +1,5 @@
+1..4
+ok 1 - Thread 1 made strings successfully
+ok 2 - Thread 2 made strings successfully
+ok 3 - Thread 3 made strings successfully
+ok 4 - Thread 4 made strings successfully

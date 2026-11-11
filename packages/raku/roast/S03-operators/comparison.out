@@ -1,0 +1,125 @@
+1..112
+ok 1 - Order::Less numifies to -1
+ok 2 - Order::Same numifies to 0
+ok 3 - Order::More numifies to 1
+ok 4 - 1 <=> 1 is same
+ok 5 - 1 <=> 2 is less
+ok 6 - 2 <=> 1 is more
+ok 7 - 0 <=> -1 is less
+ok 8 - -1 <=> 0 is more
+ok 9 - 0 <=> -1/2 is more
+ok 10 - 0 <=> 1/2 is less
+ok 11 - -1/2 <=> 0 is more
+ok 12 - 1/2 <=> 0 is more
+ok 13 - 1/2 <=> 1/2 is same
+ok 14 - -1/2 <=> -1/2 is same
+ok 15 - 1/2 <=> -1/2 is more
+ok 16 - -1/2 <=> 1/2 is less
+ok 17 - NaN numeric comparison always produces Nil
+ok 18 - NaN numeric comparison always produces Nil
+ok 19 - NaN numeric comparison always produces Nil
+ok 20 - NaN generic comparison sorts NaN in with alphabetics
+ok 21 - NaN generic comparison sorts NaN in with alphabetics
+ok 22 - NaN generic comparison sorts NaN in with alphabetics
+ok 23 - <=> ignores tiny imaginary values
+ok 24 - <=> ignores tiny imaginary values, scaled up
+ok 25 - <=> ignores tiny imaginary values, scaled down
+# Subtest: (unless they exceed the signficance)
+    1..2
+    ok 1 - 'exp(i * pi) <=> -1' died
+    ok 2 - right exception type (Exception)
+ok 26 - (unless they exceed the signficance)
+# Subtest: (still fails scaled up)
+    1..2
+    ok 1 - 'exp(i * pi) * 1e10 <=> -1 * 1e10' died
+    ok 2 - right exception type (Exception)
+ok 27 - (still fails scaled up)
+# Subtest: (still fails scaled down)
+    1..2
+    ok 1 - 'exp(i * pi) * 1e-10 <=> -1 * 1e-10' died
+    ok 2 - right exception type (Exception)
+ok 28 - (still fails scaled down)
+ok 29 - a leg a is same
+ok 30 - a leg b is less
+ok 31 - b leg a is more
+ok 32 - leg is in string context
+ok 33 - a leg a\0 is less
+ok 34 - a\0 leg a\0 is same
+ok 35 - a\0 leg a is more
+ok 36 - "a" cmp "" is More
+ok 37 - "" cmp "a" is Less
+ok 38 - "a" ~ 'b' cmp "aa" is More
+ok 39 - 'abaaaaaaaaa' cmp 'aaaaaaaaaaa' is More
+ok 40 - 'a`aaaaaaaaa' cmp 'aaaaaaaaaaa' is Less
+ok 41 - "aa" cmp "a" is More
+ok 42 - "a" cmp "aa" is Less
+ok 43 - "aa" ~ 'b' cmp "aaa" is More
+ok 44 - 'aabaaaaaaaa' cmp 'aaaaaaaaaaa' is More
+ok 45 - 'aa`aaaaaaaa' cmp 'aaaaaaaaaaa' is Less
+ok 46 - "aaa" cmp "aa" is More
+ok 47 - "aa" cmp "aaa" is Less
+ok 48 - "aaa" ~ 'b' cmp "aaaa" is More
+ok 49 - 'aaabaaaaaaa' cmp 'aaaaaaaaaaa' is More
+ok 50 - 'aaa`aaaaaaa' cmp 'aaaaaaaaaaa' is Less
+ok 51 - "aaaa" cmp "aaa" is More
+ok 52 - "aaa" cmp "aaaa" is Less
+ok 53 - "aaaa" ~ 'b' cmp "aaaaa" is More
+ok 54 - 'aaaabaaaaaa' cmp 'aaaaaaaaaaa' is More
+ok 55 - 'aaaa`aaaaaa' cmp 'aaaaaaaaaaa' is Less
+ok 56 - "aaaaa" cmp "aaaa" is More
+ok 57 - "aaaa" cmp "aaaaa" is Less
+ok 58 - "aaaaa" ~ 'b' cmp "aaaaaa" is More
+ok 59 - 'aaaaabaaaaa' cmp 'aaaaaaaaaaa' is More
+ok 60 - 'aaaaa`aaaaa' cmp 'aaaaaaaaaaa' is Less
+ok 61 - "aaaaaa" cmp "aaaaa" is More
+ok 62 - "aaaaa" cmp "aaaaaa" is Less
+ok 63 - "aaaaaa" ~ 'b' cmp "aaaaaaa" is More
+ok 64 - 'aaaaaabaaaa' cmp 'aaaaaaaaaaa' is More
+ok 65 - 'aaaaaa`aaaa' cmp 'aaaaaaaaaaa' is Less
+ok 66 - "aaaaaaa" cmp "aaaaaa" is More
+ok 67 - "aaaaaa" cmp "aaaaaaa" is Less
+ok 68 - "aaaaaaa" ~ 'b' cmp "aaaaaaaa" is More
+ok 69 - 'aaaaaaabaaa' cmp 'aaaaaaaaaaa' is More
+ok 70 - 'aaaaaaa`aaa' cmp 'aaaaaaaaaaa' is Less
+ok 71 - "aaaaaaaa" cmp "aaaaaaa" is More
+ok 72 - "aaaaaaa" cmp "aaaaaaaa" is Less
+ok 73 - "aaaaaaaa" ~ 'b' cmp "aaaaaaaaa" is More
+ok 74 - 'aaaaaaaabaa' cmp 'aaaaaaaaaaa' is More
+ok 75 - 'aaaaaaaa`aa' cmp 'aaaaaaaaaaa' is Less
+ok 76 - "aaaaaaaaa" cmp "aaaaaaaa" is More
+ok 77 - "aaaaaaaa" cmp "aaaaaaaaa" is Less
+ok 78 - "aaaaaaaaa" ~ 'b' cmp "aaaaaaaaaa" is More
+ok 79 - 'aaaaaaaaaba' cmp 'aaaaaaaaaaa' is More
+ok 80 - 'aaaaaaaaa`a' cmp 'aaaaaaaaaaa' is Less
+ok 81 - "aaaaaaaaaa" cmp "aaaaaaaaa" is More
+ok 82 - "aaaaaaaaa" cmp "aaaaaaaaaa" is Less
+ok 83 - "aaaaaaaaaa" ~ 'b' cmp "aaaaaaaaaaa" is More
+ok 84 - 'aaaaaaaaaab' cmp 'aaaaaaaaaaa' is More
+ok 85 - 'aaaaaaaaaa`' cmp 'aaaaaaaaaaa' is Less
+ok 86 - Two empty strings cmp as Same
+ok 87 - '' cmp 'a' is Less
+ok 88 - 'a' cmp '' is More
+ok 89 - a cmp a is same
+ok 90 - a cmp b is less
+ok 91 - b cmp a is more
+ok 92 - 1 cmp 1 is same
+ok 93 - 1 cmp 2 is less
+ok 94 - 2 cmp 1 is more
+ok 95 - "a" cmp 1 is more
+ok 96 - a cmp a\0 is less
+ok 97 - a\0 cmp a\0 is same
+ok 98 - a\0 cmp a is more
+ok 99 - Two empty strings cmp as Same
+ok 100 - '' cmp 'a' is Less
+ok 101 - 'a' cmp '' is More
+ok 102 - Synthetic codepoints compare properly
+ok 103 - Synthetic codepoints compare properly
+ok 104 - Synthetic codepoints compare properly
+ok 105 - +$a == 3 (just checking)
+ok 106 - $a == 3
+ok 107 - $a != 4
+ok 108 - not true that $a != 3
+ok 109 - $a < 5 lives okay
+ok 110 - $a <= 5 lives okay
+ok 111 - $a > 5 lives okay
+ok 112 - $a => 5 lives okay

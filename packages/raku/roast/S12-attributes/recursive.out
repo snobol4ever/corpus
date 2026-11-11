@@ -1,0 +1,24 @@
+1..23
+ok 1 - Can instantiate class with recursively-typed attribute
+ok 2 - Sanity check, $a is of type A
+ok 3 - Recursively-typed attribute stores correctly
+ok 4 - Cycles are fine
+ok 5 - Cycles resolve correctly
+ok 6 - Can instantiate class with recursively-typed class lexical
+ok 7 - Recursively-typed class lexical stores correctly
+ok 8 - Can instantiate class with ::?CLASS attribute
+ok 9 - ::?CLASS attribute stores correctly
+ok 10 - ::?CLASS cycles are fine
+ok 11 - ::?CLASS cycles resolve correctly
+ok 12 - Can instantiate attribute of type ::?CLASS
+ok 13 - ::?CLASS instantiates to correct class
+ok 14 - Can instantiate derived class with ::?CLASS attribute
+ok 15 - ::?CLASS is lexical, not virtual
+ok 16 - check type-object
+ok 17 - can assign
+ok 18 - The object is-a 'Z'
+ok 19 - check type-object
+ok 20 - can assign
+ok 21 - The object is-a 'Z'
+ok 22 - can push
+ok 23 - The object is-a 'Z'

@@ -1,0 +1,26 @@
+1..25
+ok 1 - We should be able to run-length encode lists
+ok 2 - We should be able to decode run-length encoded lists
+ok 3 - We should be able to encode_direct an empty list
+ok 4 - .. or a one-element iist
+ok 5 - .. or a n-ary list with always same element
+ok 6 - .. or a generic list
+ok 7 - We should be able to encode_direct2 an empty list
+ok 8 - .. or a one-element iist
+ok 9 - .. or a n-ary list with always same element
+ok 10 - .. or a generic list
+ok 11 - We should be able to duplicate the elements of a list
+ok 12 - We should be able to duplicate the elements of a list
+ok 13 - We should be able to replicate array elements
+ok 14 - We should be able to drop list elements
+ok 15 - We should be able to drop list elements based on if returning ()
+ok 16 - We should be able to drop list elements using gather
+ok 17 - We should be able to drop list elements using (statement if) for
+ok 18 - We should be able to drop list elements using list comprehension
+ok 19 - The first array in the split should be correct
+ok 20 - ... as should the second
+ok 21 - We should be able to slice lists
+ok 22 - We should be able to rotate lists forwards
+ok 23 - ... and backwards
+ok 24 - We should be able to remove elements from a list
+ok 25 - ... and have the correct list as the result

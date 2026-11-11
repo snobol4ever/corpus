@@ -1,0 +1,12 @@
+1..11
+ok 1 - normal scalar variable interpolation
+ok 2 - normal scalar variable builtin call as a method
+ok 3 - fmt and scalar interpolation live
+ok 4 - fmt and scalar interpolation behave well
+ok 5 - normal scalar variable interpolation
+ok 6 - normal scalar variable builtin call as a method
+ok 7 - fmt and code interpolation live
+ok 8 - fmt and code interpolation behave well
+ok 9 - evals ok
+ok 10 - EVAL was *really* ok
+ok 11 - fmt and code interpolation behave well

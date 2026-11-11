@@ -1,0 +1,11 @@
+1..10
+ok 1 - Correct number of elements from race grep
+ok 2 - Correct results from race grep (sorted to compare)
+ok 3 - Correct number of elements from hyper grep
+ok 4 - Correct results from hyper grep (order preseved, no sorting)
+ok 5 - Correct number of elements from race map
+ok 6 - Correct results from race map (sorted to compare)
+ok 7 - Correct number of elements from hyper map
+ok 8 - Correct results from hyper map (order preseved, no sorting)
+ok 9 - Correct number of elements from race map with slip
+ok 10 - Correct number of elements from hyper map with slip

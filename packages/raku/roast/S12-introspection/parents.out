@@ -1,0 +1,60 @@
+1..59
+ok 1 - right number of parents in list of all, from type-object, with :all
+ok 2 - first parent is Any
+ok 3 - second parent is Mu
+ok 4 - right number of parents in list of all, from instance, with :all
+ok 5 - first parent is Any
+ok 6 - second parent is Mu
+ok 7 - right number of parents in default list, from type-object
+ok 8 - right number of parents in default list, from type-object, explicit :excl
+ok 9 - right number of parents in default list, from instance
+ok 10 - right number of parents in default list, from instance, explicit :excl
+ok 11 - right number of parents in list of all, from type-object, multiple inheritance
+ok 12 - first parent is B
+ok 13 - second parent is C
+ok 14 - third parent is A
+ok 15 - forth parent is Any
+ok 16 - fifth parent is Mu
+ok 17 - right number of parents in default list, from type-object, multiple inheritance
+ok 18 - first parent is B
+ok 19 - second parent is C
+ok 20 - third parent is A
+ok 21 - right number of parents in list of all, from instance, multiple inheritance
+ok 22 - first parent is B
+ok 23 - second parent is C
+ok 24 - third parent is A
+ok 25 - forth parent is Any
+ok 26 - fifth parent is Mu
+ok 27 - right number of parents in list with explicit :excl, from instance, multiple inheritance
+ok 28 - first parent is B
+ok 29 - second parent is C
+ok 30 - third parent is A
+ok 31 - right number of parents in list, from type-object, :local
+ok 32 - parent is A
+ok 33 - right number of parents in list, from instance, :local
+ok 34 - parent is A
+ok 35 - right number of parents in list, from type-object, :local, multiple inheritance
+ok 36 - first parent is B
+ok 37 - second parent is C
+ok 38 - right number of parents in list, from instance, :local, multiple inheritance
+ok 39 - first parent is B
+ok 40 - second parent is C
+ok 41 - with :tree, D has two immediate parents (on proto)
+ok 42 - :tree gives back nested arrays for each parent (on proto)
+ok 43 - :tree gives back nested arrays for each parent (on proto)
+ok 44 - :tree gives back the expected data structure (on proto)
+ok 45 - with :tree, D has two immediate parents (on instance)
+ok 46 - :tree gives back nested arrays for each parent (on instance)
+ok 47 - :tree gives back nested arrays for each parent (on instance)
+ok 48 - :tree gives back the expected data structure (on instance)
+ok 49 - right number of parents for Str built-in, from type-object
+ok 50 - first parent is Cool
+ok 51 - second parent is Any
+ok 52 - third parent is Mu
+ok 53 - right number of parents for Str built-in, from instance
+ok 54 - first parent is Cool
+ok 55 - second parent is Any
+ok 56 - third parent is Mu
+ok 57 - Mu has no parents (no params)
+ok 58 - Mu has no parents (:local)
+ok 59 - Mu has no parents (:tree)

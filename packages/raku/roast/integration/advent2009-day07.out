@@ -1,0 +1,15 @@
+1..14
+ok 1 - $_ is default topic
+ok 2 - explicit topic
+ok 3 - 2 topics
+ok 4 - $_ is default topic, variable list
+ok 5 - map
+ok 6 - hyperoperator form (say)
+ok 7 - testing hyperoperator form
+ok 8 - simple range
+ok 9 - upto
+ok 10 - zip with multiple topics
+ok 11 - infinite upto, zip with multiple topics
+ok 12 - elems upto, zip with multiple topics
+ok 13 - .kv, multiple topics
+ok 14 - multiple iteration

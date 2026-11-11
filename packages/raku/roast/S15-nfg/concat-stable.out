@@ -1,0 +1,56 @@
+1..55
+ok 1 - \r\n newline has same number of .chars as \n in Hangul
+ok 2 - Hangul text \r\n newlines roundtrips NFD to NFC
+ok 3 - Hangul text \n newlines roundtrips NFD to NFC
+ok 4 - Hangul concat equal
+ok 5 - Hangul concat charcount equal
+ok 6 - Hangul concat equal
+ok 7 - Hangul concat charcount equal
+ok 8 - \r\n newline has same number of .chars as \n in Arabic
+ok 9 - Arabic text \r\n newlines roundtrips NFD to NFC
+ok 10 - Arabic text \n newlines roundtrips NFD to NFC
+ok 11 - Arabic concat equal
+ok 12 - Arabic concat charcount equal
+ok 13 - Arabic concat equal
+ok 14 - Arabic concat charcount equal
+ok 15 - \r\n newline has same number of .chars as \n in Tibetan
+ok 16 - Tibetan text \r\n newlines roundtrips NFD to NFC
+ok 17 - Tibetan text \n newlines roundtrips NFD to NFC
+ok 18 - Tibetan concat equal
+ok 19 - Tibetan concat charcount equal
+ok 20 - Tibetan concat equal
+ok 21 - Tibetan concat charcount equal
+ok 22 - Regional Indicators: Graphemes compare correct in initial test of join+comb
+ok 23 - Regional Indicators:  Codepoints in isolated grapheme 0 are correct
+ok 24 - Regional Indicators:  Codepoints in isolated grapheme 1 are correct
+ok 25 - Regional Indicators:  Codepoints in isolated grapheme 2 are correct
+ok 26 - Regional Indicators:  Codepoints in isolated grapheme 3 are correct
+ok 27 - Regional Indicators:  Codepoints in grapheme 0 created from join+comb is correct
+ok 28 - Regional Indicators:  Number of graphemes in grapheme 0 created from join+comb is correct
+ok 29 - Regional Indicators:  Codepoints in grapheme 1 created from join+comb is correct
+ok 30 - Regional Indicators:  Number of graphemes in grapheme 1 created from join+comb is correct
+ok 31 - Regional Indicators:  Codepoints in grapheme 2 created from join+comb is correct
+ok 32 - Regional Indicators:  Number of graphemes in grapheme 2 created from join+comb is correct
+ok 33 - Regional Indicators:  Codepoints in grapheme 3 created from join+comb is correct
+ok 34 - Regional Indicators:  Number of graphemes in grapheme 3 created from join+comb is correct
+ok 35 - Regional Indicators: Graphemes compare correct in initial test of concat+comb 1
+ok 36 - Regional Indicators:  Codepoints in isolated grapheme 0 are correct
+ok 37 - Regional Indicators:  Codepoints in isolated grapheme 1 are correct
+ok 38 - Regional Indicators:  Codepoints in grapheme 0 created from concat+comb 1 is correct
+ok 39 - Regional Indicators:  Number of graphemes in grapheme 0 created from concat+comb 1 is correct
+ok 40 - Regional Indicators:  Codepoints in grapheme 1 created from concat+comb 1 is correct
+ok 41 - Regional Indicators:  Number of graphemes in grapheme 1 created from concat+comb 1 is correct
+ok 42 - Regional Indicators: Graphemes compare correct in initial test of concat+comb 2
+ok 43 - Regional Indicators:  Codepoints in isolated grapheme 0 are correct
+ok 44 - Regional Indicators:  Codepoints in isolated grapheme 1 are correct
+ok 45 - Regional Indicators:  Codepoints in grapheme 0 created from concat+comb 2 is correct
+ok 46 - Regional Indicators:  Number of graphemes in grapheme 0 created from concat+comb 2 is correct
+ok 47 - Regional Indicators:  Codepoints in grapheme 1 created from concat+comb 2 is correct
+ok 48 - Regional Indicators:  Number of graphemes in grapheme 1 created from concat+comb 2 is correct
+ok 49 - Regional Indicators: Graphemes compare correct in initial test of concat+comb 3
+ok 50 - Regional Indicators:  Codepoints in isolated grapheme 0 are correct
+ok 51 - Regional Indicators:  Codepoints in isolated grapheme 1 are correct
+ok 52 - Regional Indicators:  Codepoints in grapheme 0 created from concat+comb 3 is correct
+ok 53 - Regional Indicators:  Number of graphemes in grapheme 0 created from concat+comb 3 is correct
+ok 54 - Regional Indicators:  Codepoints in grapheme 1 created from concat+comb 3 is correct
+ok 55 - Regional Indicators:  Number of graphemes in grapheme 1 created from concat+comb 3 is correct

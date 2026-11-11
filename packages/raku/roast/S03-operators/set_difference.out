@@ -1,0 +1,480 @@
+1..315
+ok 1 - does (-)() return set()
+ok 2 - Sequence of empty Set is the empty Set
+# Subtest: Cannot Set.new (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 3 - Cannot Set.new (-) lazy list
+# Subtest: Cannot Set.new(<a b c>) (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 4 - Cannot Set.new(<a b c>) (-) lazy list
+ok 5 - Sequence of empty SetHash is the empty SetHash
+# Subtest: Cannot SetHash.new (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 6 - Cannot SetHash.new (-) lazy list
+# Subtest: Cannot SetHash.new(<a b c>) (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 7 - Cannot SetHash.new(<a b c>) (-) lazy list
+ok 8 - Sequence of empty Bag is the empty Bag
+# Subtest: Cannot Bag.new (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 9 - Cannot Bag.new (-) lazy list
+# Subtest: Cannot Bag.new(<a b c>) (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 10 - Cannot Bag.new(<a b c>) (-) lazy list
+ok 11 - Sequence of empty BagHash is the empty BagHash
+# Subtest: Cannot BagHash.new (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 12 - Cannot BagHash.new (-) lazy list
+# Subtest: Cannot BagHash.new(<a b c>) (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 13 - Cannot BagHash.new(<a b c>) (-) lazy list
+ok 14 - Sequence of empty Mix is the empty Mix
+# Subtest: Cannot Mix.new (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 15 - Cannot Mix.new (-) lazy list
+# Subtest: Cannot Mix.new(<a b c>) (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 16 - Cannot Mix.new(<a b c>) (-) lazy list
+ok 17 - Sequence of empty MixHash is the empty MixHash
+# Subtest: Cannot MixHash.new (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 18 - Cannot MixHash.new (-) lazy list
+# Subtest: Cannot MixHash.new(<a b c>) (-) lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 19 - Cannot MixHash.new(<a b c>) (-) lazy list
+ok 20 - infix:<(-)>(|Set(a b c))
+ok 21 - infix:<(-)>(|SetHash(a b c))
+ok 22 - infix:<(-)>(|Bag(a b c))
+ok 23 - infix:<(-)>(|BagHash(a b c))
+ok 24 - infix:<(-)>(|Mix(a b c))
+ok 25 - infix:<(-)>(|MixHash(a b c))
+ok 26 - infix:<(-)>(|{a => 42})
+ok 27 - infix:<(-)>(|{a => 42, b => 0})
+ok 28 - infix:<(-)>(|{a => 42})
+ok 29 - infix:<(-)>(|{a => 42, b => 0})
+ok 30 - infix:<(-)>(|(a b c))
+ok 31 - infix:<(-)>(|(a b c => 0))
+ok 32 - infix:<(-)>(|42)
+ok 33 - infix:<(-)>(|b => 0)
+ok 34 - Set() (-) Set()
+ok 35 - SetHash() (-) Set()
+ok 36 - Set() (-) SetHash()
+ok 37 - SetHash() (-) SetHash()
+ok 38 - SetHash() (-) Set()
+ok 39 - Set() (-) SetHash()
+ok 40 - SetHash() (-) SetHash()
+ok 41 - Set(a b) (-) Set()
+ok 42 - SetHash(a b) (-) Set()
+ok 43 - Set(a b) (-) Set(a b)
+ok 44 - SetHash(a b) (-) SetHash(a b)
+ok 45 - Set(a b) (-) Set(c d)
+ok 46 - Set(a b c) (-) Set(b c d)
+ok 47 - SetHash(a b) (-) SetHash(c d)
+ok 48 - SetHash(a b c) (-) SetHash(b c d)
+ok 49 - Bag() (-) Bag()
+ok 50 - BagHash() (-) Bag()
+ok 51 - Bag() (-) BagHash()
+ok 52 - BagHash() (-) BagHash()
+ok 53 - BagHash() (-) Bag()
+ok 54 - Bag() (-) BagHash()
+ok 55 - BagHash() (-) BagHash()
+ok 56 - Bag(a b(2)) (-) Bag()
+ok 57 - BagHash(a b(2)) (-) Bag()
+ok 58 - Bag(a b(2)) (-) Bag(a b)
+ok 59 - BagHash(a b(2)) (-) BagHash(a b)
+ok 60 - Bag(a b(2)) (-) Bag(c d)
+ok 61 - Bag(a b(2) c) (-) Bag(b c d)
+ok 62 - BagHash(a b(2)) (-) BagHash(c d)
+ok 63 - BagHash(a b(2) c) (-) BagHash(b c d)
+ok 64 - Bag(a(3) b) (-) (a a)
+ok 65 - Mix() (-) Mix()
+ok 66 - MixHash() (-) Mix()
+ok 67 - Mix() (-) MixHash()
+ok 68 - MixHash() (-) MixHash()
+ok 69 - MixHash() (-) Mix()
+ok 70 - Mix() (-) MixHash()
+ok 71 - MixHash() (-) MixHash()
+ok 72 - Mix() (-) Mix(a b)
+ok 73 - MixHash() (-) MixHash(a b)
+ok 74 - Mix(a(3.141592653589793) b(6.283185307179586)) (-) Mix()
+ok 75 - Mix(a(3.141592653589793) b(6.283185307179586)) (-) Mix()
+ok 76 - Mix(a(3.141592653589793) b(6.283185307179586)) (-) Mix(a b)
+ok 77 - Mix(a(3.141592653589793) b(6.283185307179586)) (-) Mix(c d)
+ok 78 - MixHash(a(3.141592653589793) b(6.283185307179586)) (-) MixHash(c d)
+ok 79 - Set(a b) (-) Bag(a b(2))
+ok 80 - SetHash(a b) (-) BagHash(a b(2))
+ok 81 - Bag(a b(2)) (-) Set(a b)
+ok 82 - BagHash(a b(2)) (-) SetHash(a b)
+ok 83 - Set(a b) (-) Mix(a b(2))
+ok 84 - SetHash(a b) (-) MixHash(a b(2))
+ok 85 - Set(a b) (-) Mix(b(-1))
+ok 86 - SetHash(a b) (-) MixHash(b(-1))
+ok 87 - BagHash(a b) (-) MixHash(a b(2))
+ok 88 - BagHash(a b) (-) MixHash(b(-1))
+ok 89 - Set(a b c) (-) {a => 42, b => 0}
+ok 90 - SetHash(a b c) (-) {a => 42, b => 0}
+ok 91 - Bag(a b(2) c) (-) {a => 42, b => 0}
+ok 92 - BagHash(a b(2) c) (-) {a => 42, b => 0}
+ok 93 - {a => 42, b => 0} (-) Set(a b c)
+ok 94 - {a => 42, b => 0} (-) SetHash(a b c)
+ok 95 - {a => 42, b => 0} (-) Bag(a b(2) c)
+ok 96 - {a => 42, b => 0} (-) BagHash(a b(2) c)
+ok 97 - {a => 42, b => 0} (-) Mix(a b(2) c)
+ok 98 - {a => 42, b => 0} (-) MixHash(a b(2) c)
+ok 99 - Set(a b c) (-) (a b c d)
+ok 100 - SetHash(a b c) (-) (a b c d)
+ok 101 - Bag(a b(2) c) (-) (a b c d)
+ok 102 - BagHash(a b(2) c) (-) (a b c d)
+ok 103 - (a b c d) (-) Set(a b c e)
+ok 104 - (a b c d) (-) SetHash(a b c e)
+ok 105 - (a b c d) (-) Bag(a b c e)
+ok 106 - (a b c d) (-) BagHash(a b c e)
+ok 107 - (a b c d) (-) Mix(a b c e)
+ok 108 - (a b c d) (-) MixHash(a b c e)
+ok 109 - (a b c) (-) (c d e)
+ok 110 - (a => 42 b => 0 c => True) (-) (c => True d => 42 e)
+ok 111 - (b => True c => True d => 42 e) (-) (a => 42 b => 0 c => True)
+ok 112 - (a => 42 b => 0) (-) (a => True d => 42 e)
+ok 113 - {a => 42, b => 0} (-) {a => True, c => True, d => 42}
+ok 114 - {42 => a, 666 => } (-) {55 => c, 66 => 1}
+ok 115 - {42 => a, 666 => } (-) {55 => c, 666 => 1}
+ok 116 - {42 => a, 666 => } (-) {42 => c, 666 => 1}
+ok 117 - {42 => a, 666 => } (-) {c => True, d => 42}
+ok 118 - {666 => , a => 42} (-) {a => True, d => 42}
+ok 119 - {a => 42, b => 0} (-) (c d e)
+ok 120 - {a => 42, b => 0} (-) (a d e)
+ok 121 - {42 => a, 666 => } (-) (a b c)
+ok 122 - {666 => , a => 42} (-) (a b c)
+ok 123 - 42 (-) 666
+ok 124 - [(-)] Set(a b c) Set(c d e) Set(e f)
+ok 125 - [(-)] Bag(a b c) Bag(c d e) Bag(e f)
+ok 126 - [(-)] Mix(a b c) Mix(c d e) Mix(e f)
+ok 127 - [(-)] Set(a b c) Set(c d e) Bag(e f)
+ok 128 - [(-)] Set(a b c) Set(c d e) Mix(e f)
+ok 129 - [(-)] Set(a b c) Bag(c d e) Mix(e f)
+ok 130 - [(-)] a b c c d e e f
+ok 131 - [(-)] a b c c d e Set(e f)
+ok 132 - [(-)] a b c c d e Bag(e f)
+ok 133 - [(-)] a b c c d e Mix(e f)
+ok 134 - [(-)] a b c Bag(c d e) Mix(e f)
+ok 135 - [(-)] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True e	True
+# f	True
+ok 136 - [(-)] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True Set(e f)
+ok 137 - [(-)] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True Bag(e f)
+ok 138 - [(-)] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True Mix(e f)
+ok 139 - [(-)] a	True
+# b	True
+# c	True c d e e	True
+# f	True
+ok 140 - [(-)] a	True
+# b	True
+# c	True c d e Set(e f)
+ok 141 - [(-)] a	True
+# b	True
+# c	True c d e Bag(e f)
+ok 142 - [(-)] a	a
+# b	b
+# c	c c d e Mix(e f)
+ok 143 - [(-)] Bag(a(42)) Bag(a(7)) Bag(a(41))
+ok 144 - [(-)] Bag(a(42)) Bag() Bag(a(41))
+ok 145 - [(-)] Mix(a(-42)) Mix(a) Mix(a(42))
+ok 146 - [(-)] Mix(a(-42)) Set() Mix(a(42))
+ok 147 - [(-)] Mix(a(-42)) Bag() Mix(a(42))
+ok 148 - [(-)] Mix(a(-42)) Mix() Mix(a(42))
+ok 149 - [(-)] Mix(a(-42)) Set(b) Mix(a(-42))
+ok 150 - [(-)] Mix(a(-42)) Bag(b) Mix(a(-42))
+ok 151 - [(-)] Mix(a(-42)) Mix(b) Mix(a(-42))
+ok 152 - [(-)] a b c
+ok 153 - [(-)] Set(a) Set(a) Set(a) Mix(a(-2))
+# Subtest: (-) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 154 - (-) with a Failure:D on the RHS throws
+# Subtest: (-) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 155 - (-) with a Failure:D on the LHS throws
+ok 156 - does ∖() return set()
+ok 157 - Sequence of empty Set is the empty Set
+# Subtest: Cannot Set.new ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 158 - Cannot Set.new ∖ lazy list
+# Subtest: Cannot Set.new(<a b c>) ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 159 - Cannot Set.new(<a b c>) ∖ lazy list
+ok 160 - Sequence of empty SetHash is the empty SetHash
+# Subtest: Cannot SetHash.new ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 161 - Cannot SetHash.new ∖ lazy list
+# Subtest: Cannot SetHash.new(<a b c>) ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 162 - Cannot SetHash.new(<a b c>) ∖ lazy list
+ok 163 - Sequence of empty Bag is the empty Bag
+# Subtest: Cannot Bag.new ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 164 - Cannot Bag.new ∖ lazy list
+# Subtest: Cannot Bag.new(<a b c>) ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 165 - Cannot Bag.new(<a b c>) ∖ lazy list
+ok 166 - Sequence of empty BagHash is the empty BagHash
+# Subtest: Cannot BagHash.new ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 167 - Cannot BagHash.new ∖ lazy list
+# Subtest: Cannot BagHash.new(<a b c>) ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 168 - Cannot BagHash.new(<a b c>) ∖ lazy list
+ok 169 - Sequence of empty Mix is the empty Mix
+# Subtest: Cannot Mix.new ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 170 - Cannot Mix.new ∖ lazy list
+# Subtest: Cannot Mix.new(<a b c>) ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 171 - Cannot Mix.new(<a b c>) ∖ lazy list
+ok 172 - Sequence of empty MixHash is the empty MixHash
+# Subtest: Cannot MixHash.new ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 173 - Cannot MixHash.new ∖ lazy list
+# Subtest: Cannot MixHash.new(<a b c>) ∖ lazy list
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+ok 174 - Cannot MixHash.new(<a b c>) ∖ lazy list
+ok 175 - infix:<∖>(|Set(a b c))
+ok 176 - infix:<∖>(|SetHash(a b c))
+ok 177 - infix:<∖>(|Bag(a b c))
+ok 178 - infix:<∖>(|BagHash(a b c))
+ok 179 - infix:<∖>(|Mix(a b c))
+ok 180 - infix:<∖>(|MixHash(a b c))
+ok 181 - infix:<∖>(|{a => 42})
+ok 182 - infix:<∖>(|{a => 42, b => 0})
+ok 183 - infix:<∖>(|{a => 42})
+ok 184 - infix:<∖>(|{a => 42, b => 0})
+ok 185 - infix:<∖>(|(a b c))
+ok 186 - infix:<∖>(|(a b c => 0))
+ok 187 - infix:<∖>(|42)
+ok 188 - infix:<∖>(|b => 0)
+ok 189 - Set() ∖ Set()
+ok 190 - SetHash() ∖ Set()
+ok 191 - Set() ∖ SetHash()
+ok 192 - SetHash() ∖ SetHash()
+ok 193 - SetHash() ∖ Set()
+ok 194 - Set() ∖ SetHash()
+ok 195 - SetHash() ∖ SetHash()
+ok 196 - Set(a b) ∖ Set()
+ok 197 - SetHash(a b) ∖ Set()
+ok 198 - Set(a b) ∖ Set(a b)
+ok 199 - SetHash(a b) ∖ SetHash(a b)
+ok 200 - Set(a b) ∖ Set(c d)
+ok 201 - Set(a b c) ∖ Set(b c d)
+ok 202 - SetHash(a b) ∖ SetHash(c d)
+ok 203 - SetHash(a b c) ∖ SetHash(b c d)
+ok 204 - Bag() ∖ Bag()
+ok 205 - BagHash() ∖ Bag()
+ok 206 - Bag() ∖ BagHash()
+ok 207 - BagHash() ∖ BagHash()
+ok 208 - BagHash() ∖ Bag()
+ok 209 - Bag() ∖ BagHash()
+ok 210 - BagHash() ∖ BagHash()
+ok 211 - Bag(a b(2)) ∖ Bag()
+ok 212 - BagHash(a b(2)) ∖ Bag()
+ok 213 - Bag(a b(2)) ∖ Bag(a b)
+ok 214 - BagHash(a b(2)) ∖ BagHash(a b)
+ok 215 - Bag(a b(2)) ∖ Bag(c d)
+ok 216 - Bag(a b(2) c) ∖ Bag(b c d)
+ok 217 - BagHash(a b(2)) ∖ BagHash(c d)
+ok 218 - BagHash(a b(2) c) ∖ BagHash(b c d)
+ok 219 - Bag(a(3) b) ∖ (a a)
+ok 220 - Mix() ∖ Mix()
+ok 221 - MixHash() ∖ Mix()
+ok 222 - Mix() ∖ MixHash()
+ok 223 - MixHash() ∖ MixHash()
+ok 224 - MixHash() ∖ Mix()
+ok 225 - Mix() ∖ MixHash()
+ok 226 - MixHash() ∖ MixHash()
+ok 227 - Mix() ∖ Mix(a b)
+ok 228 - MixHash() ∖ MixHash(a b)
+ok 229 - Mix(a(3.141592653589793) b(6.283185307179586)) ∖ Mix()
+ok 230 - Mix(a(3.141592653589793) b(6.283185307179586)) ∖ Mix()
+ok 231 - Mix(a(3.141592653589793) b(6.283185307179586)) ∖ Mix(a b)
+ok 232 - Mix(a(3.141592653589793) b(6.283185307179586)) ∖ Mix(c d)
+ok 233 - MixHash(a(3.141592653589793) b(6.283185307179586)) ∖ MixHash(c d)
+ok 234 - Set(a b) ∖ Bag(a b(2))
+ok 235 - SetHash(a b) ∖ BagHash(a b(2))
+ok 236 - Bag(a b(2)) ∖ Set(a b)
+ok 237 - BagHash(a b(2)) ∖ SetHash(a b)
+ok 238 - Set(a b) ∖ Mix(a b(2))
+ok 239 - SetHash(a b) ∖ MixHash(a b(2))
+ok 240 - Set(a b) ∖ Mix(b(-1))
+ok 241 - SetHash(a b) ∖ MixHash(b(-1))
+ok 242 - BagHash(a b) ∖ MixHash(a b(2))
+ok 243 - BagHash(a b) ∖ MixHash(b(-1))
+ok 244 - Set(a b c) ∖ {a => 42, b => 0}
+ok 245 - SetHash(a b c) ∖ {a => 42, b => 0}
+ok 246 - Bag(a b(2) c) ∖ {a => 42, b => 0}
+ok 247 - BagHash(a b(2) c) ∖ {a => 42, b => 0}
+ok 248 - {a => 42, b => 0} ∖ Set(a b c)
+ok 249 - {a => 42, b => 0} ∖ SetHash(a b c)
+ok 250 - {a => 42, b => 0} ∖ Bag(a b(2) c)
+ok 251 - {a => 42, b => 0} ∖ BagHash(a b(2) c)
+ok 252 - {a => 42, b => 0} ∖ Mix(a b(2) c)
+ok 253 - {a => 42, b => 0} ∖ MixHash(a b(2) c)
+ok 254 - Set(a b c) ∖ (a b c d)
+ok 255 - SetHash(a b c) ∖ (a b c d)
+ok 256 - Bag(a b(2) c) ∖ (a b c d)
+ok 257 - BagHash(a b(2) c) ∖ (a b c d)
+ok 258 - (a b c d) ∖ Set(a b c e)
+ok 259 - (a b c d) ∖ SetHash(a b c e)
+ok 260 - (a b c d) ∖ Bag(a b c e)
+ok 261 - (a b c d) ∖ BagHash(a b c e)
+ok 262 - (a b c d) ∖ Mix(a b c e)
+ok 263 - (a b c d) ∖ MixHash(a b c e)
+ok 264 - (a b c) ∖ (c d e)
+ok 265 - (a => 42 b => 0 c => True) ∖ (c => True d => 42 e)
+ok 266 - (b => True c => True d => 42 e) ∖ (a => 42 b => 0 c => True)
+ok 267 - (a => 42 b => 0) ∖ (a => True d => 42 e)
+ok 268 - {a => 42, b => 0} ∖ {a => True, c => True, d => 42}
+ok 269 - {42 => a, 666 => } ∖ {55 => c, 66 => 1}
+ok 270 - {42 => a, 666 => } ∖ {55 => c, 666 => 1}
+ok 271 - {42 => a, 666 => } ∖ {42 => c, 666 => 1}
+ok 272 - {42 => a, 666 => } ∖ {c => True, d => 42}
+ok 273 - {666 => , a => 42} ∖ {a => True, d => 42}
+ok 274 - {a => 42, b => 0} ∖ (c d e)
+ok 275 - {a => 42, b => 0} ∖ (a d e)
+ok 276 - {42 => a, 666 => } ∖ (a b c)
+ok 277 - {666 => , a => 42} ∖ (a b c)
+ok 278 - 42 ∖ 666
+ok 279 - [∖] Set(a b c) Set(c d e) Set(e f)
+ok 280 - [∖] Bag(a b c) Bag(c d e) Bag(e f)
+ok 281 - [∖] Mix(a b c) Mix(c d e) Mix(e f)
+ok 282 - [∖] Set(a b c) Set(c d e) Bag(e f)
+ok 283 - [∖] Set(a b c) Set(c d e) Mix(e f)
+ok 284 - [∖] Set(a b c) Bag(c d e) Mix(e f)
+ok 285 - [∖] a b c c d e e f
+ok 286 - [∖] a b c c d e Set(e f)
+ok 287 - [∖] a b c c d e Bag(e f)
+ok 288 - [∖] a b c c d e Mix(e f)
+ok 289 - [∖] a b c Bag(c d e) Mix(e f)
+ok 290 - [∖] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True e	True
+# f	True
+ok 291 - [∖] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True Set(e f)
+ok 292 - [∖] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True Bag(e f)
+ok 293 - [∖] a	True
+# b	True
+# c	True c	True
+# d	True
+# e	True Mix(e f)
+ok 294 - [∖] a	True
+# b	True
+# c	True c d e e	True
+# f	True
+ok 295 - [∖] a	True
+# b	True
+# c	True c d e Set(e f)
+ok 296 - [∖] a	True
+# b	True
+# c	True c d e Bag(e f)
+ok 297 - [∖] a	a
+# b	b
+# c	c c d e Mix(e f)
+ok 298 - [∖] Bag(a(42)) Bag(a(7)) Bag(a(41))
+ok 299 - [∖] Bag(a(42)) Bag() Bag(a(41))
+ok 300 - [∖] Mix(a(-42)) Mix(a) Mix(a(42))
+ok 301 - [∖] Mix(a(-42)) Set() Mix(a(42))
+ok 302 - [∖] Mix(a(-42)) Bag() Mix(a(42))
+ok 303 - [∖] Mix(a(-42)) Mix() Mix(a(42))
+ok 304 - [∖] Mix(a(-42)) Set(b) Mix(a(-42))
+ok 305 - [∖] Mix(a(-42)) Bag(b) Mix(a(-42))
+ok 306 - [∖] Mix(a(-42)) Mix(b) Mix(a(-42))
+ok 307 - [∖] a b c
+ok 308 - [∖] Set(a) Set(a) Set(a) Mix(a(-2))
+# Subtest: ∖ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 309 - ∖ with a Failure:D on the RHS throws
+# Subtest: ∖ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 310 - ∖ with a Failure:D on the LHS throws
+ok 311 - did Z handle (-) correctly (1)
+ok 312 - did Z handle ∖ correctly (1)
+ok 313 - did Z handle (-) correctly (2)
+ok 314 - did Z handle ∖ correctly (2)
+ok 315 - no explosion

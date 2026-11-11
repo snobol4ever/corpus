@@ -1,0 +1,82 @@
+1..69
+ok 1 - The object is-a 'Bool'
+ok 2 - The object is-a 'Bool'
+ok 3 - The object is-a 'Bool'
+ok 4 - The object is-a 'Bool'
+ok 5 - Bool.Bool is a Bool
+ok 6 - Bool.Bool is a Bool
+ok 7 - Bool.Bool works for True
+ok 8 - Bool.Bool works for False
+ok 9 - ?Bool is a Bool
+ok 10 - ?Bool is a Bool
+ok 11 - ?Bool works for True
+ok 12 - ?Bool works for False
+ok 13 - True works
+ok 14 - False works
+ok 15 - !True works
+ok 16 - !False works
+ok 17 - True works
+ok 18 - False works
+ok 19 - The object is-a 'Str'
+ok 20 - The object is-a 'Str'
+ok 21 - Bool stringification (True)
+ok 22 - Bool stringification (False)
+ok 23 - True.Str
+ok 24 - False.Str
+ok 25 - True.gist
+ok 26 - False.gist
+ok 27 - True.raku
+ok 28 - False.raku
+ok 29 - True numifies to an Int
+ok 30 - False numifies to an Int
+ok 31 - True Intifies to 1
+ok 32 - False Intifies to 0
+ok 33 - Increment of Bool::False produces Bool::True
+ok 34 - Increment of Bool::True still produces Bool::True
+ok 35 - Decrement of Bool::True produces Bool::False
+ok 36 - Decrement of Bool::False produces Bool::False
+ok 37 - Bool::True works with "but"
+ok 38 - Bool::True works with "but"
+ok 39 - Bool::False works with "but"
+ok 40 - Bool::False works with "but"
+ok 41 - Bool::True.key works (is "True")
+ok 42 - Bool::False.key works (is "False")
+ok 43 - Bool.pick return True or False
+ok 44 - Bool.pick(*) returns two elems
+ok 45 - Bool.roll(30) contains a True
+ok 46 - Bool.roll(30) contains a False
+ok 47 - Bool.roll(*) contains at least 10 elems
+ok 48 - True ~~ Int
+ok 49 - Bool ~~ Int
+ok 50 - Bool typed scalar coerces to Int
+ok 51 - ?Bool:U returns False
+ok 52 - so Bool:U returns False
+ok 53 - sub{} operand of ^^ op gets called
+ok 54 - ^^ operator with sub {} right operand works correctly
+ok 55 - sub{} operand of // op gets called
+ok 56 - // operator with sub {} right operand works correctly
+ok 57 - sub{} operand of xor op gets called
+ok 58 - xor operator with sub {} right operand works correctly
+ok 59 - infix:<and> with 1 arg returns the arg
+ok 60 - infix:<and> with 1 arg returns the arg even if it is false
+ok 61 - infix:<and> with no args returns True
+ok 62 - Bool:U stringifies to empty string
+ok 63 - construct returns Bool, not Int
+ok 64 - confusing prefix ! and :exists adverb dies with good error
+ok 65 - infix `or` with one argument returns the argument
+ok 66 - infix `or` with no argument is False
+# Subtest: invoking .new on Bool throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Constructor::BadType)
+ok 67 - invoking .new on Bool throws
+# Subtest: invoking .new on Bool::True throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Constructor::BadType)
+ok 68 - invoking .new on Bool::True throws
+# Subtest: invoking .new on Bool::False throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Constructor::BadType)
+ok 69 - invoking .new on Bool::False throws

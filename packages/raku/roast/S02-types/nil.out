@@ -1,0 +1,126 @@
+1..67
+ok 1 - empty sub returns Nil
+ok 2 - do {} is Nil
+ok 3 - if 1 {} is Nil
+ok 4 - else {} is Nil
+ok 5 - bare return returns Nil
+ok 6 - EVAL of empty string is Nil
+ok 7 - Nil is not defined
+ok 8 - () is defined
+ok 9 - assigning Nil to scalar leaves it undefined
+ok 10 - assigning () to scalar results in a defined list
+ok 11 - Nil.so is False
+not ok 12 - Nil.ACCEPTS always returns Nil # TODO returns True/False
+# Failed test 'Nil.ACCEPTS always returns Nil'
+# at S02-types/nil.rakudo line 30
+ok 13 - Any method on Nil should return Nil (no args)
+ok 14 - Any method on Nil should return Nil (with args)
+ok 15 - return_nil() === Nil
+ok 16 - return_nil().raku says Nil
+ok 17 - return_nil() called twice
+ok 18 - variable holding nil is not defined
+ok 19 - $Statement for Nil; does one iteration
+ok 20 - Nil is not any sort of Iter*
+ok 21 - Nil assigned to scalar produces an Any
+ok 22 - 
+ok 23 - Nil.gist eq "Nil"
+ok 24 - Nil.new is not defined
+ok 25 - can assign Nil to subsets
+ok 26 - assigns to subset type object
+ok 27 - can bind to Nil
+# Subtest: param: dies for mandatory
+    1..2
+    not ok 1 - code dies # TODO triage
+    # Failed test 'code dies'
+    # at S02-types/nil.rakudo line 82
+    ok 2 - # SKIP Code did not die, can not check exception
+not ok 28 - param: dies for mandatory # TODO triage
+# Failed test 'param: dies for mandatory'
+# at S02-types/nil.rakudo line 82
+ok 29 - # SKIP triage
+not ok 30 - ... set to type object # TODO triage
+# Failed test '... set to type object'
+# at S02-types/nil.rakudo line 92
+not ok 31 - param: lives for optional from var # TODO triage
+# Failed test 'param: lives for optional from var'
+# at S02-types/nil.rakudo line 95
+# Type check failed in binding to parameter '$x'; expected Int but got Nil (Nil)
+not ok 32 - ... set to type object # TODO triage
+# Failed test '... set to type object'
+# at S02-types/nil.rakudo line 97
+ok 33 - param: lives for with-default
+not ok 34 - ... set to default # TODO triage
+# Failed test '... set to default'
+# at S02-types/nil.rakudo line 102
+# expected: '123'
+#      got: (Any)
+ok 35 - can use Nil as a default (natural)
+ok 36 - can use Nil as a default (nil-triggered)
+ok 37 - $/ is by default Nil
+ok 38 - $! is by default Nil
+ok 39 - $_ is by default Any
+ok 40 - $/ has Nil as default
+ok 41 - $! has Nil as default
+ok 42 - $_ has Any as default
+ok 43 - sanity
+ok 44 - calling methods on Nil gives Nil again I
+ok 45 - calling methods on Nil gives Nil again II
+ok 46 - calling methods on Nil gives Nil again III
+ok 47 - array access on Nil gives Nil again I
+ok 48 - array access on Nil gives Nil again II
+ok 49 - array access on Nil gives Nil again III
+ok 50 - hash access on Nil gives Nil again I
+ok 51 - hash access on Nil gives Nil again II
+ok 52 - hash access on Nil gives Nil again II
+ok 53 - .<> and .[] works properly, too
+# Subtest: .BIND-POS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 54 - .BIND-POS throws
+# Subtest: .BIND-KEY throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 55 - .BIND-KEY throws
+# Subtest: .ASSIGN-POS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 56 - .ASSIGN-POS throws
+# Subtest: .ASSIGN-KEY throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 57 - .ASSIGN-KEY throws
+# Subtest: .STORE throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 58 - .STORE throws
+# Subtest: .push throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 59 - .push throws
+# Subtest: .append throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 60 - .append throws
+# Subtest: .unshift throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 61 - .unshift throws
+# Subtest: .prepend throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 62 - .prepend throws
+ok 63 - Nil.ords warns
+ok 64 - Nil.ords gives an empty Seq
+ok 65 - Nil.chrs warns
+ok 66 - Nil.chrs gives a null byte
+ok 67 - Assignment to scalar after assigning Nil takes effect
+# FUDGED!

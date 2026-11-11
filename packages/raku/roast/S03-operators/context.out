@@ -1,0 +1,59 @@
+1..38
+ok 1 - list(values) returns nothing more than a List
+ok 2 - @(values) returns nothing more than a List
+ok 3 - (list values) returns nothing more than a List
+ok 4 - list(values) returns nothing more than a List
+ok 5 - @(values) returns nothing more than a List
+ok 6 - (list values) returns nothing more than a List
+ok 7 - list($a, $b, $c) is ($a, $b, $c)
+ok 8 - @($a, $b, $c) is ($a, $b, $c)
+ok 9 - list() should return an empty list
+ok 10 - (item $a).WHAT matches $a.WHAT
+ok 11 - item $a is just $a
+ok 12 - item($a) is just $a
+ok 13 - $($a) is just $a
+ok 14 - (item $a, $b) makes a List
+ok 15 - item $a, $b makes a List
+ok 16 - $ $a, $b makes a List
+ok 17 - item($a, $b) is the same as <<$a $b>> in an array
+ok 18 - @array flattening
+ok 19 - item @array non-flattening
+ok 20 - %hash flattening
+ok 21 - item %hash non-flattening
+ok 22 - %(values) builds a hash
+ok 23 - hash(values) builds a hash
+ok 24 - hash values builds a hash
+# Subtest: building a hash of one item fails
+    1..2
+    ok 1 - 'hash("a")' died
+    ok 2 - right exception type (X::Hash::Store::OddNumber)
+ok 25 - building a hash of one item fails
+# Subtest: Perl form of ${$scalar} dies
+    1..2
+    ok 1 - '${$scalar}' died
+    ok 2 - right exception type (X::Obsolete)
+ok 26 - Perl form of ${$scalar} dies
+# Subtest: Perl form of "${$scalar}" dies
+    1..2
+    ok 1 - '"${$scalar}"' died
+    ok 2 - right exception type (X::Obsolete)
+ok 27 - Perl form of "${$scalar}" dies
+# Subtest: Perl form of @{$array} dies
+    1..2
+    ok 1 - '@{$array}' died
+    ok 2 - right exception type (X::Obsolete)
+ok 28 - Perl form of @{$array} dies
+# Subtest: Perl form of "@{$array}" dies
+    1..2
+    ok 1 - '"@{$array}"' died
+    ok 2 - right exception type (X::Obsolete)
+ok 29 - Perl form of "@{$array}" dies
+ok 30 - Let rare Perl form of %{$hash} fail for other reasons
+ok 31 - Anonymous $ variable can be declared
+ok 32 - Anonymous @ variable can be declared
+ok 33 - Anonymous % variable can be declared
+ok 34 - Anonymous $ variable can be incremented
+ok 35 - Anonymous @ variable can be pushed
+ok 36 - Anonymous $ is really a state variable
+ok 37 - %$var coercion
+ok 38 - @$var coercion

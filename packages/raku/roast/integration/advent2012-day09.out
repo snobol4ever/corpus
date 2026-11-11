@@ -1,0 +1,9 @@
+1..8
+ok 1 - ltm
+ok 2 - first alternative
+ok 3 - greeting parse
+ok 4 - closing parse
+ok 5 - informal letter parse
+ok 6 - informal letter greet
+ok 7 - informal letter close
+ok 8 - formal letter parse

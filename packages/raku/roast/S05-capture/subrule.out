@@ -1,0 +1,47 @@
+1..46
+ok 1 - Once match
+ok 2 - Once matched
+ok 3 - Once matched
+ok 4 - Once no array capture
+ok 5 - Once no hash capture
+ok 6 - Rep match
+ok 7 - Rep matched
+ok 8 - Rep matched
+ok 9 - Rep no array capture
+ok 10 - Rep no hash capture
+ok 11 - Cap match
+ok 12 - Cap matched
+ok 13 - Cap zero matched
+ok 14 - Cap captured
+ok 15 - Cap abc captured
+ok 16 - Cap no array capture
+ok 17 - Cap hash capture
+ok 18 - Repcap match
+ok 19 - Repcap matched
+ok 20 - Repcap matched
+ok 21 - Repcap captured
+ok 22 - Repcap abc zero captured
+ok 23 - Repcap abc one captured
+ok 24 - Repcap abc two captured
+ok 25 - Repcap abc three captured
+ok 26 - Repcap no array capture
+ok 27 - Caprep match
+ok 28 - Caprep matched
+ok 29 - Caprep matched
+ok 30 - Caprep captured
+ok 31 - Caprep abc one captured
+ok 32 - unsuccessful non-match
+ok 33 - failed !~~ still makes $0 available
+ok 34 - failed !~~ still makes $<foo> available
+ok 35 - regex matches
+ok 36 - Can call methods on captures from unsuccessful matches
+ok 37 - sanity
+ok 38 - can use $/ and subrule capture in embeeded code block
+ok 39 - basic grammar sanity
+ok 40 - matched the whole string
+ok 41 - right sub captures
+ok 42 - basic grammar sanity part two
+ok 43 - got the right sub caputre for ordinary subrule
+ok 44 - got the right sub capture for quantified subrule
+ok 45 - basic grammar sanity (grammar H)
+ok 46 - correct capture for quantified <digit>

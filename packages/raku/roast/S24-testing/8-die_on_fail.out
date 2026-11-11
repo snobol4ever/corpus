@@ -1,0 +1,7 @@
+1..6
+ok 1 - test failures without RAKU_TEST_DIE_ON_FAIL set do not die
+ok 2 - test failures with RAKU_TEST_DIE_ON_FAIL set die
+ok 3 - RAKU_TEST_DIE_ON_FAIL does not exit on failed TODO tests
+ok 4 - test failure diagnostics show up when RAKU_TEST_DIE_ON_FAIL is used
+ok 5 - RAKU_TEST_DIE_ON_FAIL does not exit in subtests that may be TODOed
+ok 6 - RAKU_TEST_DIE_ON_FAIL exits even when failures are inside subtests

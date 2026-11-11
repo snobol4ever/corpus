@@ -1,0 +1,18 @@
+1..17
+ok 1 - ... got the right line (array controlled loop)
+ok 2 - ... got the right line (array controlled loop)
+ok 3 - ... got the right line (array controlled loop)
+ok 4 - ... got the right line (array controlled loop)
+ok 5 - ... got the right line (array controlled loop)
+ok 6 - ... got the right line (array controlled loop)
+ok 7 - ... got the right line (get $fh controlled loop)
+ok 8 - ... got the right line (get $fh controlled loop)
+ok 9 - ... got the right line (get $fh controlled loop)
+ok 10 - ... got the right line (get $fh controlled loop)
+ok 11 - ... got the right line (get $fh controlled loop)
+ok 12 - ... got the right line (get $fh controlled loop)
+ok 13 - file has been removed
+ok 14 - Read correct number of lines with multi-char separator
+ok 15 - Correct first line
+ok 16 - Correct second line
+ok 17 - file has been removed

@@ -1,0 +1,13 @@
+1..12
+ok 1 - infix:<X>
+ok 2 - X+
+ok 3 - X~
+ok 4 - X==
+ok 5 - Z,
+ok 6 - Z+
+ok 7 - Z==
+ok 8 - infix:<Z>
+ok 9 - Z=>
+ok 10 - @a Z @b
+ok 11 - @a Z @b Z @c
+ok 12 - dice totals

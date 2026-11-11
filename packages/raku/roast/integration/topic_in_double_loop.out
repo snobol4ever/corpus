@@ -1,0 +1,6 @@
+1..5
+ok 1 - $_ has a sensible value here
+ok 2 - $_ has a sensible value here
+ok 3 - $_ has a sensible value here
+ok 4 - $_ has a sensible value here
+ok 5 - Got here!

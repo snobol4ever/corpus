@@ -1,0 +1,20 @@
+1..8
+# Subtest: &*chdir into IO::Path respects its :CWD attribute
+    1..1
+    ok 1 - found expected file
+ok 1 - &*chdir into IO::Path respects its :CWD attribute
+# Subtest: &*chdir to non-existent directory
+    1..2
+    # Subtest: call to chdir returned a Failure
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::Chdir)
+    ok 1 - call to chdir returned a Failure
+    ok 2 - $*CWD remains unchanged on failure
+ok 2 - &*chdir to non-existent directory
+ok 3 - &*chdir returns new $*CWD
+ok 4 - &*chdir updates $*CWD
+ok 5 - &*chdir updates process dir
+ok 6 - &*chdir returns new $*CWD [2]
+ok 7 - &*chdir updates $*CWD [2]
+ok 8 - &*chdir updates process dir [2]

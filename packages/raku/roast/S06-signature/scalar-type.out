@@ -1,0 +1,9 @@
+1..8
+ok 1 - anon-def empty array arg defined inline
+ok 2 - anon-def 1-elem array arg defined inline
+ok 3 - anon-def 2-elem array arg defined inline
+ok 4 - 2-elem array arg, sub-returned, invoked inline
+ok 5 - anon-def empty hash arg defined inline
+ok 6 - anon-def 1-elem hash arg defined inline
+ok 7 - anon-def 2-elem hash arg defined inline
+ok 8 - 2-elem hash arg, sub-returned, invoked inline

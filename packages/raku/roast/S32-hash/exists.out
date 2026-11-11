@@ -1,0 +1,17 @@
+1..15
+ok 1 - # SKIP unspecced
+ok 2 - Test existence for single key. (adverb)
+ok 3 - Test existence for single key. (adverb 2)
+ok 4 - Defined 0 value for key: none
+ok 5 - Defined 1 value for key: one
+ok 6 - NOT Defined value for key: nothing
+ok 7 - empty hash stays same when read from (1)
+ok 8 - empty hash stays same when read from (2)
+ok 9 - empty hash stays same when read from (3)
+ok 10 - taking a reference to a hash element does not auto-vivify the element
+ok 11 - empty hash stays same when read from (4)
+ok 12 - populated hash stays same when read from (1)
+ok 13 - populated hash stays same when read from (2)
+ok 14 - populated hash stays same when read from (3)
+ok 15 - populated hash stays same when read from (4)
+# FUDGED!

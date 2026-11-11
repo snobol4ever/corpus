@@ -1,0 +1,7 @@
+1..6
+ok 1 - Whatever indexing
+ok 2 - pick(*)
+ok 3 - * ~ 'A' with map
+ok 4 - * * 2 generates a code block
+ok 5 - *.succ with map
+ok 6 - ~* used to sort as list of strings

@@ -1,0 +1,203 @@
+1..90
+ok 1 - can hyper-map a simple code block
+ok 2 - hyper over a big-ish list of Ints
+ok 3 - two-stage hyper map over big-ish Int list
+ok 4 - two-stage hyper map over some strings
+ok 5 - hyper + grep
+ok 6 - hyper + grep + map
+# Subtest: hyper + map/grep in reverse
+    1..2
+    ok 1 - hyper + map
+    ok 2 - hyper + grep
+ok 7 - hyper + map/grep in reverse
+# Subtest: cannot have a batch of -1 for hyper
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .name matches batch
+    ok 4 - .value matches -1
+    ok 5 - .method matches hyper
+ok 8 - cannot have a batch of -1 for hyper
+# Subtest: cannot have a batch of 0 for hyper
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .value matches 0
+    ok 4 - .name matches batch
+    ok 5 - .method matches hyper
+ok 9 - cannot have a batch of 0 for hyper
+# Subtest: cannot have a degree of -1 for hyper
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .value matches -1
+    ok 4 - .name matches degree
+    ok 5 - .method matches hyper
+ok 10 - cannot have a degree of -1 for hyper
+# Subtest: cannot have a degree of 0 for hyper
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .method matches hyper
+    ok 4 - .value matches 0
+    ok 5 - .name matches degree
+ok 11 - cannot have a degree of 0 for hyper
+ok 12 - Exception thrown in hyper for is not lost (1..1)
+ok 13 - Exception thrown in hyper for is not lost (1..1000)
+ok 14 - Exception thrown in hyper map is not lost (1..1)
+ok 15 - Exception thrown in hyper map is not lost (1..1000)
+ok 16 - Exception thrown in hyper grep is not lost (1..1)
+ok 17 - Exception thrown in hyper grep is not lost (1..1000)
+# Subtest: .hyper with .map that sleep()s
+    1..10
+    ok 1 - .hyper(:3batch, :5degree) [0]
+    ok 2 - .hyper(:3batch, :5degree) [1]
+    ok 3 - .hyper(:3batch, :5degree) [2]
+    ok 4 - .hyper(:3batch, :5degree) [3]
+    ok 5 - .hyper(:3batch, :5degree) [4]
+    ok 6 - .hyper(:1batch) [0]
+    ok 7 - .hyper(:1batch) [1]
+    ok 8 - .hyper(:1batch) [2]
+    ok 9 - .hyper(:1batch) [3]
+    ok 10 - .hyper(:1batch) [4]
+ok 18 - .hyper with .map that sleep()s
+ok 19 - hyper map with a multi sub works
+ok 20 - for <a b c>.hyper { } actually iterates
+ok 21 - Correct result for [+] (1..100).hyper
+ok 22 - Correct result for [+] (1..100).hyper.grep(* != 22)
+ok 23 - Correct result for [+] (1..100).grep(* != 22).hyper
+ok 24 - .hyper.elems works
+ok 25 - hyper map in sink context iterates
+ok 26 - .is-lazy on HyperSeq returns False
+ok 27 - .Numeric on HyperSeq
+ok 28 - Correct result of .hyper.map(*+1) (try 0)
+ok 29 - Correct result of .hyper.map(*+1) (try 1)
+ok 30 - Correct result of .hyper.map(*+1) (try 2)
+ok 31 - Correct result of .hyper.map(*+1) (try 3)
+ok 32 - Correct result of .hyper.map(*+1) (try 4)
+ok 33 - .hyper.map({.fmt(...)}) on a Buf slice works
+ok 34 - .hyper.map({.fmt(...)}) on a Buf slice works
+ok 35 - .hyper.map({.fmt(...)}) on a Buf slice works
+ok 36 - .hyper.map({.fmt(...)}) on a Buf slice works
+ok 37 - .hyper.map({.fmt(...)}) on a Buf slice works
+ok 38 - can race-map a simple code block
+ok 39 - race over a big-ish list of Ints
+ok 40 - two-stage race map over big-ish Int list
+ok 41 - two-stage race map over some strings
+ok 42 - race + grep
+ok 43 - race + grep + map
+# Subtest: race + map/grep in reverse
+    1..2
+    ok 1 - race + map
+    ok 2 - race + grep
+ok 44 - race + map/grep in reverse
+# Subtest: cannot have a batch of -1 for race
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .value matches -1
+    ok 4 - .method matches race
+    ok 5 - .name matches batch
+ok 45 - cannot have a batch of -1 for race
+# Subtest: cannot have a batch of 0 for race
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .name matches batch
+    ok 4 - .value matches 0
+    ok 5 - .method matches race
+ok 46 - cannot have a batch of 0 for race
+# Subtest: cannot have a degree of -1 for race
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .value matches -1
+    ok 4 - .method matches race
+    ok 5 - .name matches degree
+ok 47 - cannot have a degree of -1 for race
+# Subtest: cannot have a degree of 0 for race
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Invalid::Value)
+    ok 3 - .method matches race
+    ok 4 - .name matches degree
+    ok 5 - .value matches 0
+ok 48 - cannot have a degree of 0 for race
+ok 49 - Exception thrown in race for is not lost (1..1)
+ok 50 - Exception thrown in race for is not lost (1..1000)
+ok 51 - Exception thrown in race map is not lost (1..1)
+ok 52 - Exception thrown in race map is not lost (1..1000)
+ok 53 - Exception thrown in race grep is not lost (1..1)
+ok 54 - Exception thrown in race grep is not lost (1..1000)
+# Subtest: .race with .map that sleep()s
+    1..10
+    ok 1 - .race(:3batch, :5degree) [0]
+    ok 2 - .race(:3batch, :5degree) [1]
+    ok 3 - .race(:3batch, :5degree) [2]
+    ok 4 - .race(:3batch, :5degree) [3]
+    ok 5 - .race(:3batch, :5degree) [4]
+    ok 6 - .race(:1batch) [0]
+    ok 7 - .race(:1batch) [1]
+    ok 8 - .race(:1batch) [2]
+    ok 9 - .race(:1batch) [3]
+    ok 10 - .race(:1batch) [4]
+ok 55 - .race with .map that sleep()s
+ok 56 - race map with a multi sub works
+ok 57 - for <a b c>.race { } actually iterates
+ok 58 - Correct result for [+] (1..100).race
+ok 59 - Correct result for [+] (1..100).race.grep(* != 22)
+ok 60 - Correct result for [+] (1..100).grep(* != 22).race
+ok 61 - .race.elems works
+ok 62 - race map in sink context iterates
+ok 63 - .is-lazy on RaceSeq returns False
+ok 64 - .Numeric on RaceSeq
+ok 65 - Correct result of .race.map(*+1) (try 0)
+ok 66 - Correct result of .race.map(*+1) (try 1)
+ok 67 - Correct result of .race.map(*+1) (try 2)
+ok 68 - Correct result of .race.map(*+1) (try 3)
+ok 69 - Correct result of .race.map(*+1) (try 4)
+ok 70 - .race.map({.fmt(...)}) on a Buf slice works
+ok 71 - .race.map({.fmt(...)}) on a Buf slice works
+ok 72 - .race.map({.fmt(...)}) on a Buf slice works
+ok 73 - .race.map({.fmt(...)}) on a Buf slice works
+ok 74 - .race.map({.fmt(...)}) on a Buf slice works
+ok 75 - Can switch from race to hyper mode
+ok 76 - Switching from race to hyper mode does not break results
+ok 77 - Can switch from race to sequential Seq
+ok 78 - Switching from race to sequential Seq does not break results
+ok 79 - Can switch from hyper to race mode
+ok 80 - Switching from hyper to race mode does not break results
+ok 81 - Can switch from hyper to sequential Seq
+ok 82 - hyper to sequential Seq switch does not break results or disorder
+ok 83 - .hyper preserves order
+ok 84 - hyperized s/…/…/;
+ok 85 - sprintf is threadsafe when format tokens use explicit indices
+ok 86 - die in a race nested in a race propagates exception
+ok 87 - die in a hyper nested in a hyper propagates exception
+# Subtest: can only have single iterator per hyper
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Seq::Consumed)
+ok 88 - can only have single iterator per hyper
+# Subtest: can only have single iterator per race
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Seq::Consumed)
+ok 89 - can only have single iterator per race
+# Subtest: Concurrent iterator access
+    1..2
+    # Subtest: HyperSeq
+        1..4
+        ok 1 - no freezes
+        ok 2 - success rate
+        ok 3 - correct exceptions thrown
+        ok 4 - no unexpected exceptions
+    ok 1 - HyperSeq
+    # Subtest: RaceSeq
+        1..4
+        ok 1 - no freezes
+        ok 2 - success rate
+        ok 3 - correct exceptions thrown
+        ok 4 - no unexpected exceptions
+    ok 2 - RaceSeq
+ok 90 - Concurrent iterator access

@@ -1,0 +1,73 @@
+1..72
+ok 1 - Sanity: 0x0044, 0x0323, 0x0307 = 1 grapheme
+ok 2 - uc still gives us one char
+ok 3 - uc gives identity
+ok 4 - uc gives correct NFD
+ok 5 - lc still gives us one char
+ok 6 - lc does not give identity
+ok 7 - lc gives correct NFD
+ok 8 - tc still gives us one char
+ok 9 - tc gives identity
+ok 10 - tc gives correct NFD
+ok 11 - fc still gives us one char
+ok 12 - fc does not give identity
+ok 13 - fc gives correct NFD
+ok 14 - Sanity: 0x0064, 0x0323, 0x0307 = 1 grapheme
+ok 15 - uc still gives us one char
+ok 16 - uc does not give identity
+ok 17 - uc gives correct NFD
+ok 18 - lc still gives us one char
+ok 19 - lc gives identity
+ok 20 - lc gives correct NFD
+ok 21 - tc still gives us one char
+ok 22 - tc does not give identity
+ok 23 - tc gives correct NFD
+ok 24 - fc still gives us one char
+ok 25 - fc gives identity
+ok 26 - fc gives correct NFD
+ok 27 - Sanity: 0x01F0, 0x0323 = 1 grapheme
+ok 28 - uc still gives us one char
+ok 29 - uc does not give identity
+ok 30 - uc gives correct NFD
+ok 31 - lc still gives us one char
+ok 32 - lc gives identity
+ok 33 - lc gives correct NFD
+ok 34 - tc still gives us one char
+ok 35 - tc does not give identity
+ok 36 - tc gives correct NFD
+ok 37 - fc still gives us one char
+ok 38 - fc gives identity
+ok 39 - fc gives correct NFD
+ok 40 - Sanity: 0xFB00, 0x0323 = 1 grapheme
+ok 41 - uc gives us 2 chars
+ok 42 - uc does not give identity
+ok 43 - uc gives correct NFD
+ok 44 - lc still gives us one char
+ok 45 - lc gives identity
+ok 46 - lc gives correct NFD
+ok 47 - tc gives us two chars
+ok 48 - tc does not give identity
+ok 49 - tc gives correct NFD
+ok 50 - fc gives us two chars
+ok 51 - fc gives identity
+ok 52 - fc gives correct NFD
+ok 53 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 0 ~ 'á' ~ Extend x 9).uc
+ok 54 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 0 ~ 'á' ~ Extend x 9).lc
+ok 55 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 1 ~ 'á' ~ Extend x 8).uc
+ok 56 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 1 ~ 'á' ~ Extend x 8).lc
+ok 57 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 2 ~ 'á' ~ Extend x 7).uc
+ok 58 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 2 ~ 'á' ~ Extend x 7).lc
+ok 59 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 3 ~ 'á' ~ Extend x 6).uc
+ok 60 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 3 ~ 'á' ~ Extend x 6).lc
+ok 61 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 4 ~ 'á' ~ Extend x 5).uc
+ok 62 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 4 ~ 'á' ~ Extend x 5).lc
+ok 63 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 5 ~ 'á' ~ Extend x 4).uc
+ok 64 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 5 ~ 'á' ~ Extend x 4).lc
+ok 65 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 6 ~ 'á' ~ Extend x 3).uc
+ok 66 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 6 ~ 'á' ~ Extend x 3).lc
+ok 67 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 7 ~ 'á' ~ Extend x 2).uc
+ok 68 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 7 ~ 'á' ~ Extend x 2).lc
+ok 69 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 8 ~ 'á' ~ Extend x 1).uc
+ok 70 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 8 ~ 'á' ~ Extend x 1).lc
+ok 71 - Prepend + á + Extend casechange is correct: .uc: (Prepend x 9 ~ 'á' ~ Extend x 0).uc
+ok 72 - Prepend + Á + Extend casechange is correct: .lc: (Prepend x 9 ~ 'á' ~ Extend x 0).lc

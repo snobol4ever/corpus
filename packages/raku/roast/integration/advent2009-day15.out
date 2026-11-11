@@ -1,0 +1,5 @@
+1..4
+ok 1 - Picking two elements using pick()
+ok 2 - Picking all elements using pick()
+ok 3 - Picking 10 elements from a list of 6 using roll
+ok 4 - Shuffled card deck

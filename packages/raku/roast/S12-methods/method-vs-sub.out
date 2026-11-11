@@ -1,0 +1,6 @@
+1..5
+ok 1 - method with colon notation
+ok 2 - method with dot notation
+ok 3 - adding trailing comma should call the "sub"
+ok 4 - Can return from method called from a hash lookup (RT  \#69610)
+ok 5 - RT  \#92192

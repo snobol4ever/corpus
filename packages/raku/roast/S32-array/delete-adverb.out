@@ -1,0 +1,226 @@
+1..221
+ok 1 - do we have a valid array
+ok 2 - Test for delete single element
+ok 3 - 3 should be deleted now
+ok 4 - array still has same length
+ok 5 - Test non-deletion with ! single elem
+ok 6 - 9 should not have been deleted
+ok 7 - Test non-deletion with (0) single elem
+ok 8 - 9 should not have been deleted
+ok 9 - Test non-deletion with (False) single elem
+ok 10 - 9 should not have been deleted
+ok 11 - Test non-deletion with ($dont) single elem
+ok 12 - 9 should not have been deleted
+ok 13 - Test deletion with (1) single elem
+ok 14 - 9 should be deleted now
+ok 15 - array should be shortened now
+ok 16 - return a single pair out
+ok 17 - 8 should not have been deleted
+ok 18 - slice a single pair out
+ok 19 - 8 should be deleted now
+ok 20 - slice unexisting single pair out
+ok 21 - slice unexisting single pair out
+ok 22 - should have been shortened
+ok 23 - return a single elem/value out
+ok 24 - 7 should not have been deleted
+ok 25 - slice a single elem/value out
+ok 26 - 7 should be deleted now
+ok 27 - slice unexisting single elem/value
+ok 28 - slice unexisting single elem/value
+ok 29 - should have been shortened
+ok 30 - return a single elem out
+ok 31 - 6 should not have been deleted
+ok 32 - slice a single elem out
+ok 33 - 6 should be deleted now
+ok 34 - slice unexisting single elem
+ok 35 - slice unexisting single elem
+ok 36 - should have been shortened
+ok 37 - return a single value out
+ok 38 - 5 should not have been deleted
+ok 39 - slice a single value out
+ok 40 - 5 should be deleted now
+ok 41 - slice unexisting single elem
+ok 42 - slice unexisting single elem
+ok 43 - should have been shortened
+ok 44 - 9:exists single existing elem
+ok 45 - 9 should be deleted now
+ok 46 - 9:exists one non-existing elem
+ok 47 - 9:!exists one non-existing elem
+ok 48 - should have been shortened
+ok 49 - 8:exists:kv 1 eelem
+ok 50 - 8 should be deleted now
+ok 51 - 1 neelem d:exists:!kv
+ok 52 - 1 neelem d:!exists:!kv
+ok 53 - 1 neelem d:exists:kv
+ok 54 - 1 neelem d:!exists:kv
+ok 55 - should have been shortened
+ok 56 - 7:exists:p 1 eelem
+ok 57 - 7 should be deleted now
+ok 58 - 1 neelem exists:!p
+ok 59 - 1 neelem !exists:!p
+ok 60 - 1 neelem exists:p
+ok 61 - 1 neelem !exists:p
+ok 62 - should have been shortened
+ok 63 - Test for delete multiple elements
+ok 64 - 1 3 should be deleted now
+ok 65 - 1 3 should be deleted now
+ok 66 - Test non-deletion with ! N
+ok 67 - 2 4 9 should not have been deleted
+ok 68 - Test non-deletion with (0) N
+ok 69 - 2 4 9 should not have been deleted
+ok 70 - Test non-deletion with (False) N
+ok 71 - 2 4 9 should not have been deleted
+ok 72 - Test non-deletion with ($dont) N
+ok 73 - 2 4 9 should not have been deleted
+ok 74 - Test deletion with (1) N
+ok 75 - 2 4 9 should be deleted now
+ok 76 - array should be shortened now
+ok 77 - return pairs
+ok 78 - 6 8 should not have been deleted
+ok 79 - slice pairs out
+ok 80 - 8 should be deleted now by count
+ok 81 - !d:exists ekeys
+ok 82 - d:exists ekeys
+ok 83 - 2 should be deleted now
+ok 84 - 3 should be deleted now
+ok 85 - d:exists nekeys
+ok 86 - d:!exists nekeys
+ok 87 - d:exists nekeys
+ok 88 - d:!exists nekeys
+ok 89 - 9 should be deleted now by count
+ok 90 - !d:!exists:kv ekeys
+ok 91 - d:!exists:kv ekeys
+ok 92 - 4 should be deleted now
+ok 93 - 5 should be deleted now
+ok 94 - d:exists:!kv nekeys
+ok 95 - d:!exists:!kv nekeys
+ok 96 - d:exists:kv nekey/ekey
+ok 97 - d:!exists:kv ekey/nekey
+ok 98 - only deletions in middle
+ok 99 - !d:!exists:p ekeys
+ok 100 - d:!exists:p ekeys
+ok 101 - 4 should be deleted now
+ok 102 - 5 should be deleted now
+ok 103 - d:exists:!p nekeys
+ok 104 - d:!exists:!p nekeys
+ok 105 - d:exists:p nekey/ekey
+ok 106 - d:!exists:p ekey/nekey
+ok 107 - only deletions in middle
+ok 108 - Test deletion with whatever
+ok 109 - * should be deleted now
+ok 110 - Test non-deletion with ! *
+ok 111 - Test non-deletion with (0) *
+ok 112 - Test non-deletion with (False) *
+ok 113 - Test non-deletion with ($dont) *
+ok 114 - * should not be deleted now
+ok 115 - Test deletion with (1) whatever
+ok 116 - * should be deleted now
+ok 117 - return all pairs
+ok 118 - * should not be deleted
+ok 119 - slice out all pairs
+ok 120 - * should be deleted now
+ok 121 - !d:exists whatever
+ok 122 - * should not be deleted
+ok 123 - d:!exists whatever
+ok 124 - * should be deleted now
+ok 125 - :!d:exists:kv whatever
+ok 126 - * should not be deleted
+ok 127 - d:!exists:kv whatever
+ok 128 - * should be deleted now
+ok 129 - :!d:exists:!kv whatever
+ok 130 - * should not be deleted
+ok 131 - d:!exists:!kv whatever
+ok 132 - * should be deleted now
+ok 133 - :!d:exists:p whatever
+ok 134 - * should not be deleted
+ok 135 - d:!exists:p whatever
+ok 136 - * should be deleted now
+ok 137 - :!d:exists:!p whatever
+ok 138 - * should not be deleted
+ok 139 - d:!exists:!p whatever
+ok 140 - * should be deleted now
+ok 141 - :delete non-existing
+ok 142 - should not vivify
+ok 143 - :!delete non-existing
+ok 144 - should not vivify
+ok 145 - :delete:exists non-existing
+ok 146 - should not vivify
+ok 147 - :!delete:exists non-existing
+ok 148 - should not vivify
+ok 149 - :delete:!exists non-existing
+ok 150 - should not vivify
+ok 151 - :!delete:!exists non-existing
+ok 152 - should not vivify
+ok 153 - :delete:exists:kv non-existing
+ok 154 - should not vivify
+ok 155 - :!delete:exists:kv non-existing
+ok 156 - should not vivify
+ok 157 - :delete:!exists:kv non-existing
+ok 158 - should not vivify
+ok 159 - :!delete:!exists:kv non-existing
+ok 160 - should not vivify
+ok 161 - :delete:exists:!kv non-existing
+ok 162 - should not vivify
+ok 163 - :!delete:exists:!kv non-existing
+ok 164 - should not vivify
+ok 165 - :delete:!exists:!kv non-existing
+ok 166 - should not vivify
+ok 167 - :!delete:!exists:!kv non-existing
+ok 168 - should not vivify
+ok 169 - :delete:exists:p non-existing
+ok 170 - should not vivify
+ok 171 - :!delete:exists:p non-existing
+ok 172 - should not vivify
+ok 173 - :delete:!exists:p non-existing
+ok 174 - should not vivify
+ok 175 - :!delete:!exists:p non-existing
+ok 176 - should not vivify
+ok 177 - :delete:exists:!p non-existing
+ok 178 - should not vivify
+ok 179 - :!delete:exists:!p non-existing
+ok 180 - should not vivify
+ok 181 - :delete:!exists:!p non-existing
+ok 182 - should not vivify
+ok 183 - :!delete:!exists:!p non-existing
+ok 184 - should not vivify
+ok 185 - :exists:kv non-existing
+ok 186 - should not vivify
+ok 187 - :!exists:kv non-existing
+ok 188 - should not vivify
+ok 189 - :exists:!kv non-existing
+ok 190 - should not vivify
+ok 191 - :!exists:!kv non-existing
+ok 192 - should not vivify
+ok 193 - :exists:p non-existing
+ok 194 - should not vivify
+ok 195 - :!exists:p non-existing
+ok 196 - should not vivify
+ok 197 - :exists:!p non-existing
+ok 198 - should not vivify
+ok 199 - :!exists:!p non-existing
+ok 200 - should not vivify
+ok 201 - :kv non-existing
+ok 202 - should not vivify
+ok 203 - :!kv non-existing
+ok 204 - should not vivify
+ok 205 - :p non-existing
+ok 206 - should not vivify
+ok 207 - :!p non-existing
+ok 208 - should not vivify
+ok 209 - :k non-existing
+ok 210 - should not vivify
+ok 211 - :!k non-existing
+ok 212 - should not vivify
+ok 213 - :v non-existing
+ok 214 - should not vivify
+ok 215 - :!v non-existing
+ok 216 - should not vivify
+ok 217 - array was shortened
+ok 218 - properly nulled even at end of array
+# Subtest: :delete on lazy Arrays
+    1..2
+    ok 1 - delete element on lazy Arrays succesfully
+    ok 2 - deleted element replaced with default value
+ok 219 - :delete on lazy Arrays
+ok 220 - did :delete return ok
+ok 221 - did :delete actually delete

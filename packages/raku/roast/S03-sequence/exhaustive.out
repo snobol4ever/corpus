@@ -1,0 +1,851 @@
+# Subtest: multiple endpoints 0 3 0
+    1..1
+    ok 1 -  ...  (0, 1, 2, 3, 2, 1, 0)
+ok 1 - multiple endpoints 0 3 0
+# Subtest: simple chained finite arithmetic sequence
+    1..1
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+ok 2 - simple chained finite arithmetic sequence
+# Subtest: chained finite arithmetic sequence
+    1..1
+    ok 1 -  ...  (3, 4, 5, 10, 15, 20, 25, 50, 75, 100)
+ok 3 - chained finite arithmetic sequence
+# Subtest: chained finite geometric sequence
+    1..1
+    ok 1 -  ...  (3, 4, 8, 16, 32, 64, 63, 62, 61, 60)
+ok 4 - chained finite geometric sequence
+# Subtest: chained infinite numeric sequence
+    1..1
+    ok 1 -  ...  (0.25, 0.5, 1.0, 2.0, 4.0, 8, 9, 10, 11, 12)
+ok 5 - chained infinite numeric sequence
+# Subtest: chained eventually constant numeric sequence
+    1..1
+    ok 1 -  ...  (1, 4, 7, 10, 13, 16, 16, 16, 16, 16)
+ok 6 - chained eventually constant numeric sequence
+# Subtest: single term sequence numeric
+    1..4
+    ok 1 -  ...  (1,)
+    ok 2 -  ...^ ()
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 7 - single term sequence numeric
+# Subtest: single term sequence stringy
+    1..4
+    ok 1 -  ...  ("a",)
+    ok 2 -  ...^ ()
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 8 - single term sequence stringy
+# Subtest: simple sequence with one item on the LHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5)
+    ok 2 -  ...^ (1, 2, 3, 4)
+    ok 3 - ^...  (2, 3, 4, 5)
+    ok 4 - ^...^ (2, 3, 4)
+ok 9 - simple sequence with one item on the LHS
+# Subtest: simple decreasing sequence with one item on the LHS
+    1..4
+    ok 1 -  ...  (1, 0, -1, -2, -3)
+    ok 2 -  ...^ (1, 0, -1, -2)
+    ok 3 - ^...  (0, -1, -2, -3)
+    ok 4 - ^...^ (0, -1, -2)
+ok 10 - simple decreasing sequence with one item on the LHS
+# Subtest: simple additive sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9)
+    ok 2 -  ...^ (1, 3, 5, 7)
+    ok 3 - ^...  (3, 5, 7, 9)
+    ok 4 - ^...^ (3, 5, 7)
+ok 11 - simple additive sequence with two items on the LHS
+# Subtest: simple decreasing sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, 0, -1, -2, -3)
+    ok 2 -  ...^ (1, 0, -1, -2)
+    ok 3 - ^...  (0, -1, -2, -3)
+    ok 4 - ^...^ (0, -1, -2)
+ok 12 - simple decreasing sequence with two items on the LHS
+# Subtest: simple sequence of Rats
+    1..4
+    ok 1 -  ...  (1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
+    ok 2 -  ...^ (1.0, 2.0, 3.0, 4.0, 5.0, 6.0)
+    ok 3 - ^...  (2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
+    ok 4 - ^...^ (2.0, 3.0, 4.0, 5.0, 6.0)
+ok 13 - simple sequence of Rats
+# Subtest: simple sequence of Nums
+    1..4
+    ok 1 -  ...  (1e0, 2e0, 3e0, 4e0, 5e0, 6e0, 7e0)
+    ok 2 -  ...^ (1e0, 2e0, 3e0, 4e0, 5e0, 6e0)
+    ok 3 - ^...  (2e0, 3e0, 4e0, 5e0, 6e0, 7e0)
+    ok 4 - ^...^ (2e0, 3e0, 4e0, 5e0, 6e0)
+ok 14 - simple sequence of Nums
+# Subtest: simple decreasing additive sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, -1, -3)
+    ok 2 -  ...^ (1, -1)
+    ok 3 - ^...  (-1, -3)
+    ok 4 - ^...^ (-1,)
+ok 15 - simple decreasing additive sequence with two items on the LHS
+# Subtest: simple additive sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9)
+    ok 2 -  ...^ (1, 3, 5, 7)
+    ok 3 - ^...  (3, 5, 7, 9)
+    ok 4 - ^...^ (3, 5, 7)
+ok 16 - simple additive sequence with three items on the LHS
+# Subtest: simple descreasing additive sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (9, 7, 5, 3, 1)
+    ok 2 -  ...^ (9, 7, 5, 3)
+    ok 3 - ^...  (7, 5, 3, 1)
+    ok 4 - ^...^ (7, 5, 3)
+ok 17 - simple descreasing additive sequence with three items on the LHS
+# Subtest: simple multiplicative sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 9, 27, 81)
+    ok 2 -  ...^ (1, 3, 9, 27)
+    ok 3 - ^...  (3, 9, 27, 81)
+    ok 4 - ^...^ (3, 9, 27)
+ok 18 - simple multiplicative sequence with three items on the LHS
+# Subtest: simple geometric sequence of Rats
+    1..4
+    ok 1 -  ...  (1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0)
+    ok 2 -  ...^ (1.0, 2.0, 4.0, 8.0, 16.0, 32.0)
+    ok 3 - ^...  (2.0, 4.0, 8.0, 16.0, 32.0, 64.0)
+    ok 4 - ^...^ (2.0, 4.0, 8.0, 16.0, 32.0)
+ok 19 - simple geometric sequence of Rats
+# Subtest: simple geometric sequence of Nums
+    1..4
+    ok 1 -  ...  (1e0, 2e0, 4e0, 8e0, 16e0, 32e0, 64e0)
+    ok 2 -  ...^ (1e0, 2e0, 4e0, 8e0, 16e0, 32e0)
+    ok 3 - ^...  (2e0, 4e0, 8e0, 16e0, 32e0, 64e0)
+    ok 4 - ^...^ (2e0, 4e0, 8e0, 16e0, 32e0)
+ok 20 - simple geometric sequence of Nums
+# Subtest: decreasing multiplicative sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (81, 27.0, 9.0, 3.0, 1.0)
+    ok 2 -  ...^ (81, 27.0, 9.0, 3.0)
+    ok 3 - ^...  (27.0, 9.0, 3.0, 1.0)
+    ok 4 - ^...^ (27.0, 9.0, 3.0)
+ok 21 - decreasing multiplicative sequence with three items on the LHS
+# Subtest: simple sequence with one item and block closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9)
+    ok 2 -  ...^ (1, 3, 5, 7)
+    ok 3 - ^...  (3, 5, 7, 9)
+    ok 4 - ^...^ (3, 5, 7)
+ok 22 - simple sequence with one item and block closure on the LHS
+# Subtest: simple sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, -1, -3, -5, -7)
+    ok 2 -  ...^ (1, -1, -3, -5)
+    ok 3 - ^...  (-1, -3, -5, -7)
+    ok 4 - ^...^ (-1, -3, -5)
+ok 23 - simple sequence with one item and closure on the LHS
+# Subtest: simple sequence with three items and block closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13)
+    ok 4 - ^...^ (3, 5, 7, 9, 11)
+ok 24 - simple sequence with three items and block closure on the LHS
+# Subtest: tricky sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 0.5, <1/3>, 0.25, 0.2)
+    ok 2 -  ...^ (1, 0.5, <1/3>, 0.25)
+    ok 3 - ^...  (0.5, <1/3>, 0.25, 0.2)
+    ok 4 - ^...^ (0.5, <1/3>, 0.25)
+ok 25 - tricky sequence with one item and closure on the LHS
+# Subtest: simple alternating sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1,)
+    ok 2 -  ...^ ()
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 26 - simple alternating sequence with one item and closure on the LHS
+# Subtest: simple unending alternating sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, -1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 2 -  ...^ (1, -1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 3 - ^...  (-1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 4 - ^...^ (-1, 1, -1, 1, -1, 1, -1, 1, -1)
+ok 27 - simple unending alternating sequence with one item and closure on the LHS
+# Subtest: simple unending alternating sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, -1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 2 -  ...^ (1, -1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 3 - ^...  (-1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 4 - ^...^ (-1, 1, -1, 1, -1, 1, -1, 1, -1)
+ok 28 - simple unending alternating sequence with one item and closure on the LHS
+# Subtest: sequence with one scalar containing Code on the LHS
+    1..4
+    ok 1 -  ...  (5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+    ok 2 -  ...^ (5, 5, 5, 5, 5, 5, 5, 5, 5, 5)
+    ok 3 - ^...  (5, 5, 5, 5, 5, 5, 5, 5, 5)
+    ok 4 - ^...^ (5, 5, 5, 5, 5, 5, 5, 5, 5)
+ok 29 - sequence with one scalar containing Code on the LHS
+# Subtest: simple sequence with two extra terms on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 4, 3)
+    ok 2 -  ...^ (1, 2, 3, 4, 4, 3)
+    ok 3 - ^...  (2, 3, 4, 5, 4, 3)
+    ok 4 - ^...^ (2, 3, 4, 4, 3)
+ok 30 - simple sequence with two extra terms on the RHS
+# Subtest: simple sequence with two extra terms on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 4, 3)
+    ok 2 -  ...^ (1, 2, 3, 4, 5, 4, 3)
+    ok 3 - ^...  (2, 3, 4, 5, 4, 3)
+    ok 4 - ^...^ (2, 3, 4, 5, 4, 3)
+ok 31 - simple sequence with two extra terms on the RHS
+# Subtest: simple sequence with two further terms on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6, 7)
+    ok 2 -  ...^ (1, 2, 3, 4, 5, 6, 7)
+    ok 3 - ^...  (2, 3, 4, 5, 6, 7)
+    ok 4 - ^...^ (2, 3, 4, 5, 6, 7)
+ok 32 - simple sequence with two further terms on the RHS
+# Subtest: simple sequence with two weird items on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, "a", "b")
+    ok 2 -  ...^ (1, 2, 3, 4, 5, "a", "b")
+    ok 3 - ^...  (2, 3, 4, 5, "a", "b")
+    ok 4 - ^...^ (2, 3, 4, 5, "a", "b")
+ok 33 - simple sequence with two weird items on the RHS
+# Subtest: simple sequence with two weird items on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, "a", "b")
+    ok 2 -  ...^ (1, 2, 3, 4, "a", "b")
+    ok 3 - ^...  (2, 3, 4, 5, "a", "b")
+    ok 4 - ^...^ (2, 3, 4, "a", "b")
+ok 34 - simple sequence with two weird items on the RHS
+# Subtest: simple sequence with one item on the LHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5)
+    ok 2 -  ...^ (1, 2, 3, 4, 5)
+    ok 3 - ^...  (2, 3, 4, 5)
+    ok 4 - ^...^ (2, 3, 4, 5)
+ok 35 - simple sequence with one item on the LHS
+# Subtest: simple decreasing sequence with one item on the LHS
+    1..4
+    ok 1 -  ...  (1, 0, -1, -2, -3)
+    ok 2 -  ...^ (1, 0, -1, -2, -3)
+    ok 3 - ^...  (0, -1, -2, -3)
+    ok 4 - ^...^ (0, -1, -2, -3)
+ok 36 - simple decreasing sequence with one item on the LHS
+# Subtest: simple additive sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9)
+    ok 2 -  ...^ (1, 3, 5, 7, 9)
+    ok 3 - ^...  (3, 5, 7, 9)
+    ok 4 - ^...^ (3, 5, 7, 9)
+ok 37 - simple additive sequence with two items on the LHS
+# Subtest: simple decreasing additive sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, 0, -1, -2, -3)
+    ok 2 -  ...^ (1, 0, -1, -2, -3)
+    ok 3 - ^...  (0, -1, -2, -3)
+    ok 4 - ^...^ (0, -1, -2, -3)
+ok 38 - simple decreasing additive sequence with two items on the LHS
+# Subtest: simple additive sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9)
+    ok 2 -  ...^ (1, 3, 5, 7, 9)
+    ok 3 - ^...  (3, 5, 7, 9)
+    ok 4 - ^...^ (3, 5, 7, 9)
+ok 39 - simple additive sequence with three items on the LHS
+# Subtest: simple multiplicative sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 9, 27, 81)
+    ok 2 -  ...^ (1, 3, 9, 27, 81)
+    ok 3 - ^...  (3, 9, 27, 81)
+    ok 4 - ^...^ (3, 9, 27, 81)
+ok 40 - simple multiplicative sequence with three items on the LHS
+# Subtest: decreasing multiplicative sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (81, 27.0, 9.0, 3.0, 1.0)
+    ok 2 -  ...^ (81, 27.0, 9.0, 3.0, 1.0)
+    ok 3 - ^...  (27.0, 9.0, 3.0, 1.0)
+    ok 4 - ^...^ (27.0, 9.0, 3.0, 1.0)
+ok 41 - decreasing multiplicative sequence with three items on the LHS
+# Subtest: simple sequence with one item and block closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 42 - simple sequence with one item and block closure on the LHS
+# Subtest: simple sequence with one item and * closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 43 - simple sequence with one item and * closure on the LHS
+# Subtest: simple sequence with three items and block closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 44 - simple sequence with three items and block closure on the LHS
+# Subtest: tricky sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+    ok 2 -  ...^ (1, 0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+    ok 3 - ^...  (0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+    ok 4 - ^...^ (0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+ok 45 - tricky sequence with one item and closure on the LHS
+# Subtest: simple sequence with one item on the LHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 2 -  ...^ (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 3 - ^...  (2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 4 - ^...^ (2, 3, 4, 5, 6, 7, 8, 9, 10)
+ok 46 - simple sequence with one item on the LHS
+# Subtest: simple additive sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 47 - simple additive sequence with two items on the LHS
+# Subtest: simple decreasing additive sequence with two items on the LHS
+    1..4
+    ok 1 -  ...  (1, 0, -1, -2, -3, -4, -5, -6, -7, -8)
+    ok 2 -  ...^ (1, 0, -1, -2, -3, -4, -5, -6, -7, -8)
+    ok 3 - ^...  (0, -1, -2, -3, -4, -5, -6, -7, -8)
+    ok 4 - ^...^ (0, -1, -2, -3, -4, -5, -6, -7, -8)
+ok 48 - simple decreasing additive sequence with two items on the LHS
+# Subtest: simple decreasing additive sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (8, 7, 6, 5, 4, 3, 2, 1, 0, -1)
+    ok 2 -  ...^ (8, 7, 6, 5, 4, 3, 2, 1, 0, -1)
+    ok 3 - ^...  (7, 6, 5, 4, 3, 2, 1, 0, -1)
+    ok 4 - ^...^ (7, 6, 5, 4, 3, 2, 1, 0, -1)
+ok 49 - simple decreasing additive sequence with three items on the LHS
+# Subtest: simple multiplicative sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 9, 27, 81, 243, 729, 2187, 6561, 19683)
+    ok 2 -  ...^ (1, 3, 9, 27, 81, 243, 729, 2187, 6561, 19683)
+    ok 3 - ^...  (3, 9, 27, 81, 243, 729, 2187, 6561, 19683)
+    ok 4 - ^...^ (3, 9, 27, 81, 243, 729, 2187, 6561, 19683)
+ok 50 - simple multiplicative sequence with three items on the LHS
+# Subtest: decreasing multiplicative sequence with three items on the LHS
+    1..4
+    ok 1 -  ...  (81, 27.0, 9.0, 3.0, 1.0, <1/3>, <1/9>, <1/27>, <1/81>, <1/243>)
+    ok 2 -  ...^ (81, 27.0, 9.0, 3.0, 1.0, <1/3>, <1/9>, <1/27>, <1/81>, <1/243>)
+    ok 3 - ^...  (27.0, 9.0, 3.0, 1.0, <1/3>, <1/9>, <1/27>, <1/81>, <1/243>)
+    ok 4 - ^...^ (27.0, 9.0, 3.0, 1.0, <1/3>, <1/9>, <1/27>, <1/81>, <1/243>)
+ok 51 - decreasing multiplicative sequence with three items on the LHS
+# Subtest: simple sequence with one item and block closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 52 - simple sequence with one item and block closure on the LHS
+# Subtest: simple sequence with one item and * closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 53 - simple sequence with one item and * closure on the LHS
+# Subtest: simple sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, -1, -3, -5, -7, -9, -11, -13, -15, -17)
+    ok 2 -  ...^ (1, -1, -3, -5, -7, -9, -11, -13, -15, -17)
+    ok 3 - ^...  (-1, -3, -5, -7, -9, -11, -13, -15, -17)
+    ok 4 - ^...^ (-1, -3, -5, -7, -9, -11, -13, -15, -17)
+ok 54 - simple sequence with one item and closure on the LHS
+# Subtest: simple sequence with three items and block closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 2 -  ...^ (1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 3 - ^...  (3, 5, 7, 9, 11, 13, 15, 17, 19)
+    ok 4 - ^...^ (3, 5, 7, 9, 11, 13, 15, 17, 19)
+ok 55 - simple sequence with three items and block closure on the LHS
+# Subtest: tricky sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, 0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+    ok 2 -  ...^ (1, 0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+    ok 3 - ^...  (0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+    ok 4 - ^...^ (0.5, <1/3>, 0.25, 0.2, <1/6>, <1/7>, 0.125, <1/9>, 0.1)
+ok 56 - tricky sequence with one item and closure on the LHS
+# Subtest: simple alternating sequence with one item and closure on the LHS
+    1..4
+    ok 1 -  ...  (1, -1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 2 -  ...^ (1, -1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 3 - ^...  (-1, 1, -1, 1, -1, 1, -1, 1, -1)
+    ok 4 - ^...^ (-1, 1, -1, 1, -1, 1, -1, 1, -1)
+ok 57 - simple alternating sequence with one item and closure on the LHS
+# Subtest: simple sequence with two further terms on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 2 -  ...^ (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 3 - ^...  (2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 4 - ^...^ (2, 3, 4, 5, 6, 7, 8, 9, 10)
+ok 58 - simple sequence with two further terms on the RHS
+# Subtest: simple sequence with two extra terms on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 2 -  ...^ (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 3 - ^...  (2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 4 - ^...^ (2, 3, 4, 5, 6, 7, 8, 9, 10)
+ok 59 - simple sequence with two extra terms on the RHS
+# Subtest: simple sequence with two weird items on the RHS
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 2 -  ...^ (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 3 - ^...  (2, 3, 4, 5, 6, 7, 8, 9, 10)
+    ok 4 - ^...^ (2, 3, 4, 5, 6, 7, 8, 9, 10)
+ok 60 - simple sequence with two weird items on the RHS
+# Subtest: constant sequence started with letter and identity closure
+    1..4
+    ok 1 -  ...  ("c", "c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 2 -  ...^ ("c", "c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 3 - ^...  ("c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 4 - ^...^ ("c", "c", "c", "c", "c", "c", "c", "c", "c")
+ok 61 - constant sequence started with letter and identity closure
+# Subtest: constant sequence started with two letters
+    1..4
+    ok 1 -  ...  ("c", "c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 2 -  ...^ ("c", "c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 3 - ^...  ("c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 4 - ^...^ ("c", "c", "c", "c", "c", "c", "c", "c", "c")
+ok 62 - constant sequence started with two letters
+# Subtest: constant sequence started with three letters
+    1..4
+    ok 1 -  ...  ("c", "c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 2 -  ...^ ("c", "c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 3 - ^...  ("c", "c", "c", "c", "c", "c", "c", "c", "c")
+    ok 4 - ^...^ ("c", "c", "c", "c", "c", "c", "c", "c", "c")
+ok 63 - constant sequence started with three letters
+# Subtest: constant sequence started with two numbers
+    1..4
+    ok 1 -  ...  (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 2 -  ...^ (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 3 - ^...  (1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 4 - ^...^ (1, 1, 1, 1, 1, 1, 1, 1, 1)
+ok 64 - constant sequence started with two numbers
+# Subtest: constant sequence started with three numbers
+    1..4
+    ok 1 -  ...  (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 2 -  ...^ (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 3 - ^...  (1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 4 - ^...^ (1, 1, 1, 1, 1, 1, 1, 1, 1)
+ok 65 - constant sequence started with three numbers
+# Subtest: sequence started with three identical numbers, but then goes arithmetic
+    1..4
+    ok 1 -  ...  (1, 1, 1, 2, 3, 4, 5, 6, 7)
+    ok 2 -  ...^ (1, 1, 1, 2, 3, 4, 5, 6)
+    ok 3 - ^...  (1, 1, 2, 3, 4, 5, 6, 7)
+    ok 4 - ^...^ (1, 1, 2, 3, 4, 5, 6)
+ok 66 - sequence started with three identical numbers, but then goes arithmetic
+# Subtest: sequence started with three identical numbers, but then goes geometric
+    1..4
+    ok 1 -  ...  (1, 1, 1, 2, 4, 8, 16)
+    ok 2 -  ...^ (1, 1, 1, 2, 4, 8)
+    ok 3 - ^...  (1, 1, 2, 4, 8, 16)
+    ok 4 - ^...^ (1, 1, 2, 4, 8)
+ok 67 - sequence started with three identical numbers, but then goes geometric
+# Subtest: geometric sequence started in one direction and continues in the other
+    1..4
+    ok 1 -  ...  (4, 2, 1, 2, 4, 8, 16)
+    ok 2 -  ...^ (4, 2, 1, 2, 4, 8)
+    ok 3 - ^...  (2, 1, 2, 4, 8, 16)
+    ok 4 - ^...^ (2, 1, 2, 4, 8)
+ok 68 - geometric sequence started in one direction and continues in the other
+# Subtest: alternating False and True
+    1..4
+    ok 1 -  ...  (Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+    ok 2 -  ...^ (Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+    ok 3 - ^...  (Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+    ok 4 - ^...^ (Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+ok 69 - alternating False and True
+# Subtest: alternating False and True
+    1..4
+    ok 1 -  ...  (Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+    ok 2 -  ...^ (Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+    ok 3 - ^...  (Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+    ok 4 - ^...^ (Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True, Bool::False, Bool::True)
+ok 70 - alternating False and True
+# Subtest: using &[+] works
+    1..4
+    ok 1 -  ...  (1, 2, 3, 5, 8)
+    ok 2 -  ...^ (1, 2, 3, 5)
+    ok 3 - ^...  (2, 3, 5, 8)
+    ok 4 - ^...^ (2, 3, 5)
+ok 71 - using &[+] works
+# Subtest: geometric sequence that never reaches its limit
+    1..4
+    ok 1 -  ...  (1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125)
+    ok 2 -  ...^ (1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125)
+    ok 3 - ^...  (0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125)
+    ok 4 - ^...^ (0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125)
+ok 72 - geometric sequence that never reaches its limit
+# Subtest: alternating geometric sequence that never reaches its limit
+    1..4
+    ok 1 -  ...  (1, -0.5, 0.25, -0.125, 0.0625, -0.03125, 0.015625, -0.0078125, 0.00390625, -0.001953125)
+    ok 2 -  ...^ (1, -0.5, 0.25, -0.125, 0.0625, -0.03125, 0.015625, -0.0078125, 0.00390625, -0.001953125)
+    ok 3 - ^...  (-0.5, 0.25, -0.125, 0.0625, -0.03125, 0.015625, -0.0078125, 0.00390625, -0.001953125)
+    ok 4 - ^...^ (-0.5, 0.25, -0.125, 0.0625, -0.03125, 0.015625, -0.0078125, 0.00390625, -0.001953125)
+ok 73 - alternating geometric sequence that never reaches its limit
+# Subtest: no more: limit value is on the wrong side
+    1..4
+    ok 1 -  ...  ()
+    ok 2 -  ...^ ()
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 74 - no more: limit value is on the wrong side
+# Subtest: -3 ... ^3 produces just one zero
+    1..4
+    ok 1 -  ...  (-3, -2, -1, 0, 1, 2)
+    ok 2 -  ...^ (-3, -2, -1, 1, 2)
+    ok 3 - ^...  (-2, -1, 0, 1, 2)
+    ok 4 - ^...^ (-2, -1, 1, 2)
+ok 75 - -3 ... ^3 produces just one zero
+# Subtest: geometric sequence started in one direction and continues the other
+    1..4
+    ok 1 -  ...  (4, 3, 2, 1, 0, 1, 2, 3, 4)
+    ok 2 -  ...^ (4, 3, 2, 1, 1, 2, 3, 4)
+    ok 3 - ^...  (3, 2, 1, 0, 1, 2, 3, 4)
+    ok 4 - ^...^ (3, 2, 1, 1, 2, 3, 4)
+ok 76 - geometric sequence started in one direction and continues the other
+# Subtest: geometric sequence that does not hit the limit in its seed
+    1..4
+    ok 1 -  ...  (1, 2)
+    ok 2 -  ...^ (1, 2)
+    ok 3 - ^...  (2,)
+    ok 4 - ^...^ (2,)
+ok 77 - geometric sequence that does not hit the limit in its seed
+# Subtest: sequence that aborts during LHS
+    1..4
+    ok 1 -  ...  (1, 2)
+    ok 2 -  ...^ (1,)
+    ok 3 - ^...  (2,)
+    ok 4 - ^...^ ()
+ok 78 - sequence that aborts during LHS
+# Subtest: sequence that does not hit the limit
+    1..4
+    ok 1 -  ...  (1,)
+    ok 2 -  ...^ (1,)
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 79 - sequence that does not hit the limit
+# Subtest: sequence that aborts during LHS
+    1..4
+    ok 1 -  ...  (1,)
+    ok 2 -  ...^ ()
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 80 - sequence that aborts during LHS
+# Subtest: geometric sequence with smaller RHS and sign change
+    1..4
+    ok 1 -  ...  (1,)
+    ok 2 -  ...^ ()
+    ok 3 - ^...  ()
+    ok 4 - ^...^ ()
+ok 81 - geometric sequence with smaller RHS and sign change
+# Subtest: geometric sequence with smaller RHS and sign change
+    1..4
+    ok 1 -  ...  (1, -2, 4, -8, 16, -32, 64, -128, 256, -512)
+    ok 2 -  ...^ (1, -2, 4, -8, 16, -32, 64, -128, 256, -512)
+    ok 3 - ^...  (-2, 4, -8, 16, -32, 64, -128, 256, -512)
+    ok 4 - ^...^ (-2, 4, -8, 16, -32, 64, -128, 256, -512)
+ok 82 - geometric sequence with smaller RHS and sign change
+# Subtest: geometric sequence with smaller RHS and sign change
+    1..4
+    ok 1 -  ...  (1, -2)
+    ok 2 -  ...^ (1, -2)
+    ok 3 - ^...  (-2,)
+    ok 4 - ^...^ (-2,)
+ok 83 - geometric sequence with smaller RHS and sign change
+# Subtest: geometric sequence with sign-change and non-matching end point
+    1..4
+    ok 1 -  ...  (1, -2, 4, -8, 16)
+    ok 2 -  ...^ (1, -2, 4, -8, 16)
+    ok 3 - ^...  (-2, 4, -8, 16)
+    ok 4 - ^...^ (-2, 4, -8, 16)
+ok 84 - geometric sequence with sign-change and non-matching end point
+# Subtest: sequence that aborts during LHS, before actual calculations kick in
+    1..4
+    ok 1 -  ...  (1, 2)
+    ok 2 -  ...^ (1,)
+    ok 3 - ^...  (2,)
+    ok 4 - ^...^ ()
+ok 85 - sequence that aborts during LHS, before actual calculations kick in
+# Subtest: sequence that aborts during LHS, before actual calculations kick in
+    1..4
+    ok 1 -  ...  (1, 2)
+    ok 2 -  ...^ (1, 2)
+    ok 3 - ^...  (2,)
+    ok 4 - ^...^ (2,)
+ok 86 - sequence that aborts during LHS, before actual calculations kick in
+# Subtest: 1, +* works for sequence
+    1..4
+    ok 1 -  ...  (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 2 -  ...^ (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 3 - ^...  (1, 1, 1, 1, 1, 1, 1, 1, 1)
+    ok 4 - ^...^ (1, 1, 1, 1, 1, 1, 1, 1, 1)
+ok 87 - 1, +* works for sequence
+# Subtest: sequence with code on the rhs
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5)
+    ok 2 -  ...^ (1, 2, 3, 4)
+    ok 3 - ^...  (2, 3, 4, 5)
+    ok 4 - ^...^ (2, 3, 4)
+ok 88 - sequence with code on the rhs
+# Subtest: sequence with code on the rhs
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5, 6)
+    ok 2 -  ...^ (1, 2, 3, 4, 5)
+    ok 3 - ^...  (2, 3, 4, 5, 6)
+    ok 4 - ^...^ (2, 3, 4, 5)
+ok 89 - sequence with code on the rhs
+# Subtest: sequence that lasts in the last item of lhs
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5)
+    ok 2 -  ...^ (1, 2, 3, 4, 5)
+    ok 3 - ^...  (2, 3, 4, 5)
+    ok 4 - ^...^ (2, 3, 4, 5)
+ok 90 - sequence that lasts in the last item of lhs
+# Subtest: sequence may be terminated by calling last from the generator function
+    1..4
+    ok 1 -  ...  (5, 4, 3, 2, 1)
+    ok 2 -  ...^ (5, 4, 3, 2, 1)
+    ok 3 - ^...  (4, 3, 2, 1)
+    ok 4 - ^...^ (4, 3, 2, 1)
+ok 91 - sequence may be terminated by calling last from the generator function
+# Subtest: range as LHS with fixed endpoint
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, 5)
+    ok 2 -  ...^ (1, 2, 3, 4)
+    ok 3 - ^...  (2, 3, 4, 5)
+    ok 4 - ^...^ (2, 3, 4)
+ok 92 - range as LHS with fixed endpoint
+# Subtest: stop on a matching type (1)
+    1..4
+    ok 1 -  ...  (32, 16.0)
+    ok 2 -  ...^ (32,)
+    ok 3 - ^...  (16.0,)
+    ok 4 - ^...^ ()
+ok 93 - stop on a matching type (1)
+# Subtest: stop on a matching type (2)
+    1..4
+    ok 1 -  ...  (32, 16, 8, 4, 2, 1, 0.5)
+    ok 2 -  ...^ (32, 16, 8, 4, 2, 1)
+    ok 3 - ^...  (16, 8, 4, 2, 1, 0.5)
+    ok 4 - ^...^ (16, 8, 4, 2, 1)
+ok 94 - stop on a matching type (2)
+# Subtest: use &[+] on infix:<...> series
+    1..4
+    ok 1 -  ...  (1, 1, 2, 3, 5, 8, 13, 21, 34, 55)
+    ok 2 -  ...^ (1, 1, 2, 3, 5, 8, 13, 21, 34, 55)
+    ok 3 - ^...  (1, 2, 3, 5, 8, 13, 21, 34, 55)
+    ok 4 - ^...^ (1, 2, 3, 5, 8, 13, 21, 34, 55)
+ok 95 - use &[+] on infix:<...> series
+# Subtest: WhateverCode with arity > 3 gets enough arguments
+    1..4
+    ok 1 -  ...  (1, 1, 2, 4, 8, 15, 29, 56, 108, 208)
+    ok 2 -  ...^ (1, 1, 2, 4, 8, 15, 29, 56, 108, 208)
+    ok 3 - ^...  (1, 2, 4, 8, 15, 29, 56, 108, 208)
+    ok 4 - ^...^ (1, 2, 4, 8, 15, 29, 56, 108, 208)
+ok 96 - WhateverCode with arity > 3 gets enough arguments
+# Subtest: arity-2 convergence limit
+    1..4
+    ok 1 -  ...  (8, 4.0, 2.0, 1.0)
+    ok 2 -  ...^ (8, 4.0, 2.0)
+    ok 3 - ^...  (4.0, 2.0, 1.0)
+    ok 4 - ^...^ (4.0, 2.0)
+ok 97 - arity-2 convergence limit
+# Subtest: arity-Inf limit
+    1..4
+    ok 1 -  ...  (1, 2, 3)
+    ok 2 -  ...^ (1, 2)
+    ok 3 - ^...  (2, 3)
+    ok 4 - ^...^ (2,)
+ok 98 - arity-Inf limit
+# Subtest: sequence stops when type of endpoint matches
+    1..4
+    ok 1 -  ...  (1, 2, 3, 4, "liftoff")
+    ok 2 -  ...^ (1, 2, 3, 4)
+    ok 3 - ^...  (2, 3, 4, "liftoff")
+    ok 4 - ^...^ (2, 3, 4)
+ok 99 - sequence stops when type of endpoint matches
+# Subtest: sequence of two interleaved sequences
+    1..4
+    ok 1 -  ...  (1, 1, 2, 2, 3, 4, 4, 8, 5, 16)
+    ok 2 -  ...^ (1, 1, 2, 2, 3, 4, 4, 8, 5, 16)
+    ok 3 - ^...  (1, 2, 2, 3, 4, 4, 8, 5, 16)
+    ok 4 - ^...^ (1, 2, 2, 3, 4, 4, 8, 5, 16)
+ok 100 - sequence of two interleaved sequences
+# Subtest: sequence of three interleaved sequences
+    1..4
+    ok 1 -  ...  (1, 1, 1, 2, 2, 0, 3, 4, -1, 4)
+    ok 2 -  ...^ (1, 1, 1, 2, 2, 0, 3, 4, -1, 4)
+    ok 3 - ^...  (1, 1, 2, 2, 0, 3, 4, -1, 4)
+    ok 4 - ^...^ (1, 1, 2, 2, 0, 3, 4, -1, 4)
+ok 101 - sequence of three interleaved sequences
+# Subtest: sequence with list-returning block
+    1..4
+    ok 1 -  ...  (1, 2, 2, 3, 3, 3, 4, 4, 4, 4)
+    ok 2 -  ...^ (1, 2, 2, 3, 3, 3, 4, 4, 4, 4)
+    ok 3 - ^...  (2, 2, 3, 3, 3, 4, 4, 4, 4)
+    ok 4 - ^...^ (2, 2, 3, 3, 3, 4, 4, 4, 4)
+ok 102 - sequence with list-returning block
+# Subtest: sequence with arity < number of return values
+    1..4
+    ok 1 -  ...  ("a", "b", "ax", "ab", "by", "abx", "abby", "byy", "abbyx", "abbybyy")
+    ok 2 -  ...^ ("a", "b", "ax", "ab", "by", "abx", "abby", "byy", "abbyx", "abbybyy")
+    ok 3 - ^...  ("b", "ax", "ab", "by", "abx", "abby", "byy", "abbyx", "abbybyy")
+    ok 4 - ^...^ ("b", "ax", "ab", "by", "abx", "abby", "byy", "abbyx", "abbybyy")
+ok 103 - sequence with arity < number of return values
+# Subtest: sequence with arity > number of return values
+    1..4
+    ok 1 -  ...  ("a", "b", "c", "ax", "bycz", "cx", "axybyczz", "byczx", "cxyaxybyczzz", "axybyczzx")
+    ok 2 -  ...^ ("a", "b", "c", "ax", "bycz", "cx", "axybyczz", "byczx", "cxyaxybyczzz", "axybyczzx")
+    ok 3 - ^...  ("b", "c", "ax", "bycz", "cx", "axybyczz", "byczx", "cxyaxybyczzz", "axybyczzx")
+    ok 4 - ^...^ ("b", "c", "ax", "bycz", "cx", "axybyczz", "byczx", "cxyaxybyczzz", "axybyczzx")
+ok 104 - sequence with arity > number of return values
+# Subtest: 0-ary generator output can be slipped from the start
+    1..4
+    ok 1 -  ...  ("zero", "one", "zero", "one", "zero", "one", "zero", "one", "zero", "one")
+    ok 2 -  ...^ ("zero", "one", "zero", "one", "zero", "one", "zero", "one", "zero", "one")
+    ok 3 - ^...  ("one", "zero", "one", "zero", "one", "zero", "one", "zero", "one")
+    ok 4 - ^...^ ("one", "zero", "one", "zero", "one", "zero", "one", "zero", "one")
+ok 105 - 0-ary generator output can be slipped from the start
+# Subtest: sequence with RHS junction I
+    1..4
+    ok 1 -  ...  (10, 8, 6, 4, 2)
+    ok 2 -  ...^ (10, 8, 6, 4)
+    ok 3 - ^...  (8, 6, 4, 2)
+    ok 4 - ^...^ (8, 6, 4)
+ok 106 - sequence with RHS junction I
+# Subtest: sequence with RHS junction II
+    1..4
+    ok 1 -  ...  (11, 9, 7, 5, 3)
+    ok 2 -  ...^ (11, 9, 7, 5)
+    ok 3 - ^...  (9, 7, 5, 3)
+    ok 4 - ^...^ (9, 7, 5)
+ok 107 - sequence with RHS junction II
+# Subtest: finite sequence started with one letter
+    1..4
+    ok 1 -  ...  ("a", "b", "c", "d", "e", "f", "g")
+    ok 2 -  ...^ ("a", "b", "c", "d", "e", "f")
+    ok 3 - ^...  ("b", "c", "d", "e", "f", "g")
+    ok 4 - ^...^ ("b", "c", "d", "e", "f")
+ok 108 - finite sequence started with one letter
+# Subtest: sequence started with one letter
+    1..4
+    ok 1 -  ...  ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 2 -  ...^ ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 3 - ^...  ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 4 - ^...^ ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+ok 109 - sequence started with one letter
+# Subtest: sequence started with two different letters
+    1..4
+    ok 1 -  ...  ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 2 -  ...^ ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 3 - ^...  ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 4 - ^...^ ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+ok 110 - sequence started with two different letters
+# Subtest: character sequence started from array
+    1..4
+    ok 1 -  ...  ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 2 -  ...^ ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 3 - ^...  ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 4 - ^...^ ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+ok 111 - character sequence started from array
+# Subtest: using a lazy array as a LHS
+    1..4
+    ok 1 -  ...  (0, 1, 1, 2, 3, 5, 8)
+    ok 2 -  ...^ (0, 1, 1, 2, 3, 5)
+    ok 3 - ^...  (1, 1, 2, 3, 5, 8)
+    ok 4 - ^...^ (1, 1, 2, 3, 5)
+ok 112 - using a lazy array as a LHS
+# Subtest: descending sequence started with one letter
+    1..4
+    ok 1 -  ...  ("i", "h", "g", "f", "e", "d", "c", "b", "a")
+    ok 2 -  ...^ ("i", "h", "g", "f", "e", "d", "c", "b")
+    ok 3 - ^...  ("h", "g", "f", "e", "d", "c", "b", "a")
+    ok 4 - ^...^ ("h", "g", "f", "e", "d", "c", "b")
+ok 113 - descending sequence started with one letter
+# Subtest: descending sequence started with two different letters
+    1..4
+    ok 1 -  ...  ("i", "h", "g", "f", "e", "d", "c", "b", "a")
+    ok 2 -  ...^ ("i", "h", "g", "f", "e", "d", "c", "b")
+    ok 3 - ^...  ("h", "g", "f", "e", "d", "c", "b", "a")
+    ok 4 - ^...^ ("h", "g", "f", "e", "d", "c", "b")
+ok 114 - descending sequence started with two different letters
+# Subtest: descending sequence started with three different letters
+    1..4
+    ok 1 -  ...  ("i", "h", "g", "f", "e", "d", "c", "b", "a")
+    ok 2 -  ...^ ("i", "h", "g", "f", "e", "d", "c", "b")
+    ok 3 - ^...  ("h", "g", "f", "e", "d", "c", "b", "a")
+    ok 4 - ^...^ ("h", "g", "f", "e", "d", "c", "b")
+ok 115 - descending sequence started with three different letters
+# Subtest: characters and arity-1
+    1..4
+    ok 1 -  ...  ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 2 -  ...^ ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 3 - ^...  ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+    ok 4 - ^...^ ("b", "c", "d", "e", "f", "g", "h", "i", "j")
+ok 116 - characters and arity-1
+# Subtest: sequence ending with "z" does not cross to two-letter strings
+    1..4
+    ok 1 -  ...  ("x", "y", "z")
+    ok 2 -  ...^ ("x", "y")
+    ok 3 - ^...  ("y", "z")
+    ok 4 - ^...^ ("y",)
+ok 117 - sequence ending with "z" does not cross to two-letter strings
+# Subtest: single letters follow codepoint logic 1
+    1..4
+    ok 1 -  ...  ("Z", "[", "\\", "]", "^", "_", "`", "a")
+    ok 2 -  ...^ ("Z", "[", "\\", "]", "^", "_", "`")
+    ok 3 - ^...  ("[", "\\", "]", "^", "_", "`", "a")
+    ok 4 - ^...^ ("[", "\\", "]", "^", "_", "`")
+ok 118 - single letters follow codepoint logic 1
+# Subtest: single letters follow codepoint logic 2
+    1..4
+    ok 1 -  ...  ("α", "β", "γ", "δ", "ε", "ζ", "η", "θ")
+    ok 2 -  ...^ ("α", "β", "γ", "δ", "ε", "ζ", "η")
+    ok 3 - ^...  ("β", "γ", "δ", "ε", "ζ", "η", "θ")
+    ok 4 - ^...^ ("β", "γ", "δ", "ε", "ζ", "η")
+ok 119 - single letters follow codepoint logic 2
+# Subtest: sequence from "☀" to "☆"
+    1..4
+    ok 1 -  ...  ("☀", "☁", "☂", "☃", "☄", "★", "☆")
+    ok 2 -  ...^ ("☀", "☁", "☂", "☃", "☄", "★")
+    ok 3 - ^...  ("☁", "☂", "☃", "☄", "★", "☆")
+    ok 4 - ^...^ ("☁", "☂", "☃", "☄", "★")
+ok 120 - sequence from "☀" to "☆"
+# Subtest: unicode blocks
+    1..4
+    ok 1 -  ...  ("▁", "▂", "▃", "▄", "▅", "▆", "▇", "█")
+    ok 2 -  ...^ ("▁", "▂", "▃", "▄", "▅", "▆", "▇")
+    ok 3 - ^...  ("▂", "▃", "▄", "▅", "▆", "▇", "█")
+    ok 4 - ^...^ ("▂", "▃", "▄", "▅", "▆", "▇")
+ok 121 - unicode blocks
+# Subtest: unicode blocks reversed
+    1..4
+    ok 1 -  ...  ("█", "▇", "▆", "▅", "▄", "▃", "▂", "▁")
+    ok 2 -  ...^ ("█", "▇", "▆", "▅", "▄", "▃", "▂")
+    ok 3 - ^...  ("▇", "▆", "▅", "▄", "▃", "▂", "▁")
+    ok 4 - ^...^ ("▇", "▆", "▅", "▄", "▃", "▂")
+ok 122 - unicode blocks reversed
+# Subtest: mixture
+    1..4
+    ok 1 -  ...  (".", "/", "0")
+    ok 2 -  ...^ (".", "/")
+    ok 3 - ^...  ("/", "0")
+    ok 4 - ^...^ ("/",)
+ok 123 - mixture
+# Subtest: intuition does not try to cmp a WhateverCode
+    1..4
+    ok 1 -  ...  (H.new(5), H.new(6), H.new(7), H.new(8), H.new(9))
+    ok 2 -  ...^ (H.new(5), H.new(6), H.new(7), H.new(8))
+    ok 3 - ^...  (H.new(6), H.new(7), H.new(8), H.new(9))
+    ok 4 - ^...^ (H.new(6), H.new(7), H.new(8))
+ok 124 - intuition does not try to cmp a WhateverCode
+1..124

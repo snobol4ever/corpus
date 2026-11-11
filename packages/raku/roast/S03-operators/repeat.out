@@ -1,0 +1,146 @@
+1..63
+ok 1 - string repeat operator works on single character
+ok 2 - string repeat operator works on multiple character
+ok 3 - number repeat operator works on number and creates string
+ok 4 - repeating an empty string creates an empty string
+ok 5 - repeating zero times produces an empty string
+ok 6 - repeating negative times produces an empty string
+ok 7 - repeating with a fractional number coerces to Int
+ok 8 - x with Int type object
+# Subtest: repeating with -NaN dies
+    1..2
+    ok 1 - ''a' x -NaN' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 9 - repeating with -NaN dies
+# Subtest: repeating with NaN dies
+    1..2
+    ok 1 - ''a' x NaN' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 10 - repeating with NaN dies
+# Subtest: repeating with -Inf dies
+    1..2
+    ok 1 - ''a' x -Inf' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 11 - repeating with -Inf dies
+ok 12 - repeating with * is a WhateverCode
+# Subtest: list repeating with -NaN fails
+    1..2
+    ok 1 - ''a' xx -NaN' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 13 - list repeating with -NaN fails
+# Subtest: list repeating with NaN fails
+    1..2
+    ok 1 - ''a' xx NaN' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 14 - list repeating with NaN fails
+# Subtest: list repeating with -Inf fails
+    1..2
+    ok 1 - ''a' xx -Inf' died
+    ok 2 - right exception type (X::Numeric::CannotConvert)
+ok 15 - list repeating with -Inf fails
+ok 16 - list repeat operator created correct array
+ok 17 - list repeat operator created correct array
+ok 18 - list repeat operator created array of the right size
+ok 19 - can repeat Mu
+ok 20 - can repeat lists
+ok 21 - can repeat lists
+ok 22 - can repeat lists
+ok 23 - can repeat lists
+ok 24 - repeating zero times produces an empty list
+ok 25 - repeating negative times produces an empty list
+ok 26 - can create 2d arrays
+ok 27 - operator x= for string works
+ok 28 - operator x= for string repeats correct
+ok 29 - basic infix:<xx>
+ok 30 - change to one item left the others unchanged
+ok 31 - basic sanity with <x y> xx 3
+ok 32 - change to one item left the others unchanged
+ok 33 - repeat properly numifies rhs
+ok 34 - xx understands Whatevers
+ok 35 - xx thunks the LHS
+ok 36 - xx works on a lazy list
+ok 37 - xx Inf
+ok 38 - xx * is lazy
+ok 39 - xx 3 is not lazy
+ok 40 - xx retains structure with list on LHS
+ok 41 - xx retained list structure can be flattened with .flat
+ok 42 - xx retains structure with Seq on LHS
+ok 43 - xx retained Seq structure can be flattened with .flat
+ok 44 - xx * retains structure with list on LHS
+ok 45 - xx * retains structure with Seq on LHS
+ok 46 - xx does not sink
+# Subtest: xx with no args throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 47 - xx with no args throws
+ok 48 - xx with single arg is identity
+ok 49 - (& xx *) works as & xx Inf
+ok 50 - (& xx Inf) works as & xx Inf
+ok 51 - (& xx Num) works as & xx Int
+# Subtest: x does not silence failures
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 52 - x does not silence failures
+ok 53 - type objects get interpreted as 0 iterations
+# Subtest: Failures in RHS of xx explode (callable LHS)
+    1..2
+    ok 1 - 'rand xx '123aaa'' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 54 - Failures in RHS of xx explode (callable LHS)
+# Subtest: Failures in RHS of xx explode (Int LHS)
+    1..2
+    ok 1 - '42   xx '123aaa'' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 55 - Failures in RHS of xx explode (Int LHS)
+# Subtest: using an unitialized value in repeat count throws
+    1..2
+    ok 1 - code threw a warning
+    ok 2 - warning message passes test
+ok 56 - using an unitialized value in repeat count throws
+ok 57 - empty slip with xx * works
+ok 58 - Repeat operator keeps text normalized (normalization + canonical combining class reordering)
+ok 59 - Repeat operator keeps text normalized (normalization + canonical combining class reordering)
+ok 60 - Nested xx in for-loop
+ok 61 - xx does not keep containers around
+# Subtest: sunk, plain value `xx` sink cheaply
+    1..6
+    # Subtest: 2⁹⁹⁹⁹⁹
+        1..3
+        ok 1 - bool-only gives true
+        ok 2 - count-only is right
+        ok 3 - sinking did not "hang"
+    ok 1 - 2⁹⁹⁹⁹⁹
+    # Subtest: 9999999999
+        1..3
+        ok 1 - bool-only gives true
+        ok 2 - count-only is right
+        ok 3 - sinking did not "hang"
+    ok 2 - 9999999999
+    # Subtest: 2 ** 62
+        1..3
+        ok 1 - bool-only gives true
+        ok 2 - count-only is right
+        ok 3 - sinking did not "hang"
+    ok 3 - 2 ** 62
+    # Subtest: ∞
+        1..3
+        ok 1 - # SKIP .bool-only not implemented
+        ok 2 - # SKIP .count-only not implemented
+        ok 3 - sinking did not "hang"
+    ok 4 - ∞
+    # Subtest: Inf
+        1..3
+        ok 1 - # SKIP .bool-only not implemented
+        ok 2 - # SKIP .count-only not implemented
+        ok 3 - sinking did not "hang"
+    ok 5 - Inf
+    # Subtest: *
+        1..3
+        ok 1 - # SKIP .bool-only not implemented
+        ok 2 - # SKIP .count-only not implemented
+        ok 3 - sinking did not "hang"
+    ok 6 - *
+ok 62 - sunk, plain value `xx` sink cheaply
+ok 63 - repetition + concatenation lives and gives correct .chars

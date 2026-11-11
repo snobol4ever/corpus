@@ -1,0 +1,241 @@
+1..224
+ok 1 - unimatch an empty string yields Nil
+ok 2 - ''.unimatch yields Nil
+# Subtest: cannot call unimatch with a Str
+    1..2
+    ok 1 - 'unimatch Str, 'Latin'' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 3 - cannot call unimatch with a Str
+# Subtest: cannot call unimatch with a Str
+    1..2
+    ok 1 - 'Str.unimatch: 'Latin'' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 4 - cannot call unimatch with a Str
+# Subtest: cannot call unimatch with a Int
+    1..2
+    ok 1 - 'unimatch Int, 'Latin'' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 5 - cannot call unimatch with a Int
+# Subtest: cannot call unimatch with a Int
+    1..2
+    ok 1 - 'Int.unimatch: 'Latin'' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 6 - cannot call unimatch with a Int
+ok 7 - 0x29 is not Nd
+ok 8 - 0x30 is Nd
+ok 9 - '0' is Nd
+ok 10 - 0x39 is Nd
+ok 11 - '9' is Nd
+ok 12 - 0x3a is not Nd
+ok 13 - '⅓' is No
+ok 14 - '⅓' is not Nd
+ok 15 - 0x29 is not Nd
+ok 16 - 0x30 is Nd
+ok 17 - '0' is Nd
+ok 18 - 0x39 is Nd
+ok 19 - '9' is Nd
+ok 20 - 0x3a is not Nd
+ok 21 - '⅓' is No
+ok 22 - '⅓' is not Nd
+ok 23 - AEGEAN NUMBER NINETY THOUSAND is No
+ok 24 - MATHEMATICAL MONOSPACE DIGIT ZERO is Nd
+ok 25 - 'פ' is in block Hebrew
+ok 26 - '💩' is in block Miscellaneous_Symbols_And_Pictographs
+ok 27 - '💩' is in block MiscellaneousSymbolsAndPictographs
+ok 28 - '💩' is in block miscellaneoussymbolsandpictographs
+ok 29 - NUMBER SIGN matches Po
+ok 30 - LATIN SMALL LETTER A matches L
+ok 31 - <control-0085> matches Cc
+ok 32 - BROKEN BAR matches So
+ok 33 - LEFT-POINTING DOUBLE ANGLE QUOTATION MARK matches Pi
+ok 34 - ACUTE ACCENT matches Sk
+ok 35 - RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK matches Pf
+ok 36 - MODIFIER LETTER GLOTTAL STOP matches Lm
+ok 37 - MODIFIER LETTER DOUBLE APOSTROPHE matches Lm
+ok 38 - GREEK PHI SYMBOL matches L
+ok 39 - GREEK LUNATE EPSILON SYMBOL matches L
+ok 40 - ARMENIAN MODIFIER LETTER LEFT HALF RING matches Lm
+ok 41 - HEBREW POINT SIN DOT matches Mn
+ok 42 - ARABIC SMALL KASRA matches Mn
+ok 43 - SAMARITAN VOWEL SIGN SUKUN matches Mn
+ok 44 - DEVANAGARI SIGN ANUSVARA matches Mn
+ok 45 - BENGALI VOWEL SIGN AA matches Mc
+ok 46 - GURMUKHI SIGN VIRAMA matches Mn
+ok 47 - GUJARATI VOWEL SIGN II matches Mc
+ok 48 - ORIYA VOWEL SIGN E matches Mc
+ok 49 - ORIYA VOWEL SIGN VOCALIC L matches Mn
+ok 50 - TAMIL SIGN ANUSVARA matches Mn
+ok 51 - TAMIL AU LENGTH MARK matches Mc
+ok 52 - MALAYALAM VOWEL SIGN E matches Mc
+ok 53 - SINHALA SIGN ANUSVARAYA matches Mc
+ok 54 - TIBETAN MARK NGAS BZUNG NYI ZLA matches Mn
+ok 55 - TIBETAN VOWEL SIGN VOCALIC RR matches Mn
+ok 56 - TIBETAN VOWEL SIGN REVERSED I matches Mn
+ok 57 - ETHIOPIC COMBINING GEMINATION MARK matches Mn
+ok 58 - KHMER VOWEL INHERENT AA matches Mn
+ok 59 - LIMBU SMALL LETTER TA matches Mc
+ok 60 - NEW TAI LUE THAM DIGIT ONE matches No
+ok 61 - TAI THAM SIGN KAAN matches Po
+ok 62 - BALINESE VOWEL SIGN LA LENGA TEDUNG matches Mc
+ok 63 - BATAK VOWEL SIGN PAKPAK E matches Mn
+ok 64 - VEDIC TONE CANDRA ABOVE matches Mn
+ok 65 - RIGHT DOUBLE QUOTATION MARK matches Pf
+ok 66 - SINGLE RIGHT-POINTING ANGLE QUOTATION MARK matches Pf
+ok 67 - DOUBLE QUESTION MARK matches Po
+ok 68 - DOUBLE-STRUCK SMALL PI matches L
+ok 69 - LEFTWARDS ARROW matches Sm
+ok 70 - DOWNWARDS TWO HEADED ARROW matches So
+ok 71 - LEFTWARDS ARROW WITH TAIL matches So
+ok 72 - LEFTWARDS ARROW FROM BAR matches So
+ok 73 - ANTICLOCKWISE TOP SEMICIRCLE ARROW matches So
+ok 74 - MINUS SIGN matches Sm
+ok 75 - BOTTOM RIGHT CROP matches So
+ok 76 - WHITE SQUARE matches So
+ok 77 - BLACK LEFT-POINTING TRIANGLE matches So
+ok 78 - BLACK LOWER RIGHT TRIANGLE matches So
+ok 79 - MATHEMATICAL RIGHT DOUBLE ANGLE BRACKET matches Pe
+ok 80 - RIGHT WHITE CURLY BRACKET matches Pe
+ok 81 - RIGHT WHITE CURLY BRACKET matches Pe
+ok 82 - Z NOTATION RIGHT IMAGE BRACKET matches Pe
+ok 83 - RIGHT SQUARE BRACKET WITH TICK IN BOTTOM CORNER matches Pe
+ok 84 - RIGHT ANGLE BRACKET WITH DOT matches Pe
+ok 85 - DOUBLE LEFT ARC GREATER-THAN BRACKET matches Ps
+ok 86 - RIGHT-POINTING CURVED ANGLE BRACKET matches Pe
+ok 87 - LEFTWARDS QUADRUPLE ARROW matches So
+ok 88 - LATIN SUBSCRIPT SMALL LETTER J matches Lm
+ok 89 - RIGHT DOUBLE PARENTHESIS matches Pe
+ok 90 - VERTICAL TILDE matches Lm
+ok 91 - TWO-EM DASH matches Pd
+ok 92 - IDEOGRAPHIC FULL STOP matches Po
+ok 93 - RIGHT WHITE CORNER BRACKET matches Pe
+ok 94 - GETA MARK matches So
+ok 95 - LEFT WHITE LENTICULAR BRACKET matches Ps
+ok 96 - CJK UNIFIED IDEOGRAPH-3400 matches Lo
+ok 97 - CJK UNIFIED IDEOGRAPH-4DB5 matches Lo
+ok 98 - COMBINING CYRILLIC KAVYKA matches Mn
+ok 99 - PHAGS-PA MARK SHAD matches Po
+ok 100 - SAURASHTRA CONSONANT SIGN HAARU matches Mc
+ok 101 - SAURASHTRA DOUBLE DANDA matches Po
+ok 102 - JAVANESE PADA LUNGSI matches Po
+ok 103 - TAI VIET TONE MAI THO matches Mn
+ok 104 - MEETEI MAYEK VOWEL SIGN INAP matches Mc
+ok 105 - CJK COMPATIBILITY IDEOGRAPH-FA29 matches Lo
+ok 106 - <noncharacter-FDD0> matches Cn
+ok 107 - SMALL ASTERISK matches Po
+ok 108 - SMALL HYPHEN-MINUS matches Pd
+ok 109 - <noncharacter-FFFE> matches Cn
+ok 110 - KHAROSHTHI PUNCTUATION DOUBLE DANDA matches Po
+ok 111 - LARGE ONE RING OVER TWO RINGS PUNCTUATION matches Po
+ok 112 - KAITHI VOWEL SIGN AI matches Mn
+ok 113 - SHARADA VOWEL SIGN AA matches Mc
+ok 114 - SHARADA VOWEL SIGN U matches Mn
+ok 115 - TAKRI SIGN VISARGA matches Mc
+ok 116 - TAKRI SIGN VIRAMA matches Mc
+ok 117 - MIAO LETTER REFORMED TONE-8 matches Lm
+ok 118 - MATHEMATICAL SCRIPT SMALL F matches L&
+ok 119 - MATHEMATICAL SCRIPT SMALL P matches L&
+ok 120 - MATHEMATICAL FRAKTUR CAPITAL G matches L&
+ok 121 - MATHEMATICAL BOLD FRAKTUR SMALL J matches L&
+ok 122 - ARABIC MATHEMATICAL TAILED HAH matches Lo
+ok 123 - ARABIC MATHEMATICAL TAILED NOON matches Lo
+ok 124 - ARABIC MATHEMATICAL TAILED AIN matches Lo
+ok 125 - <noncharacter-3FFFE> matches Cn
+ok 126 - <noncharacter-6FFFE> matches Cn
+ok 127 - TAG SPACE matches Cf
+ok 128 - <noncharacter-EFFFE> matches Cn
+ok 129 - SPACE matches Pattern_White_Space
+ok 130 - COLON matches Pattern_Syntax
+ok 131 - COLON matches Terminal_Punctuation
+ok 132 - CEDILLA matches Diacritic
+ok 133 - MODIFIER LETTER REVERSED GLOTTAL STOP matches Diacritic
+ok 134 - MODIFIER LETTER SMALL REVERSED GLOTTAL STOP matches Other_Lowercase
+ok 135 - MODIFIER LETTER EXTRA-HIGH TONE BAR matches Diacritic
+ok 136 - MODIFIER LETTER VOICING matches Diacritic
+ok 137 - MODIFIER LETTER LOW LEFT ARROW matches Diacritic
+ok 138 - COMBINING CYRILLIC TITLO matches Diacritic
+ok 139 - HEBREW ACCENT PAZER matches Diacritic
+ok 140 - HEBREW MARK UPPER DOT matches Diacritic
+ok 141 - ARABIC COMMA matches Terminal_Punctuation
+ok 142 - ARABIC FATHATAN matches Diacritic
+ok 143 - ARABIC INVERTED DAMMA matches Other_Alphabetic
+ok 144 - SYRIAC END OF PARAGRAPH matches Terminal_Punctuation
+ok 145 - THAANA SUKUN matches Diacritic
+ok 146 - ARABIC CURLY FATHA matches Other_Alphabetic
+ok 147 - ARABIC DAMMA WITH DOT matches Other_Alphabetic
+ok 148 - DEVANAGARI DANDA matches Terminal_Punctuation
+ok 149 - GURMUKHI VOWEL SIGN AA matches Other_Alphabetic
+ok 150 - GURMUKHI SIGN UDAAT matches Other_Alphabetic
+ok 151 - GUJARATI VOWEL SIGN U matches Other_Alphabetic
+ok 152 - ORIYA AU LENGTH MARK matches Other_Alphabetic
+ok 153 - TAMIL VOWEL SIGN U matches Other_Alphabetic
+ok 154 - MALAYALAM VOWEL SIGN VOCALIC RR matches Other_Alphabetic
+ok 155 - THAI CHARACTER MAI HAN-AKAT matches Other_Alphabetic
+ok 156 - THAI CHARACTER MAITAIKHU matches Diacritic
+ok 157 - LAO VOWEL SIGN MAI KAN matches Other_Alphabetic
+ok 158 - TIBETAN SIGN YAR TSHES matches Diacritic
+ok 159 - TIBETAN SUBJOINED LETTER JA matches Other_Alphabetic
+ok 160 - MYANMAR CONSONANT SIGN MEDIAL RA matches Other_Alphabetic
+ok 161 - MYANMAR SIGN RUMAI PALAUNG TONE-5 matches Diacritic
+ok 162 - ETHIOPIC WORDSPACE matches Terminal_Punctuation
+ok 163 - BALINESE VOWEL SIGN ULU matches Other_Alphabetic
+ok 164 - BALINESE MUSICAL SYMBOL COMBINING TEGEH matches Diacritic
+ok 165 - BALINESE MUSICAL SYMBOL COMBINING GONG matches Diacritic
+ok 166 - BATAK VOWEL SIGN E matches Other_Alphabetic
+ok 167 - BATAK VOWEL SIGN I matches Other_Alphabetic
+ok 168 - LEPCHA PUNCTUATION NYET THYOOM TA-ROL matches STerm
+ok 169 - LATIN SUBSCRIPT SMALL LETTER I matches Soft_Dotted
+ok 170 - LATIN SMALL LETTER I WITH DOT BELOW matches Soft_Dotted
+ok 171 - GREEK DASIA matches Diacritic
+ok 172 - ZERO WIDTH NON-JOINER matches Join_Control
+ok 173 - SINGLE HIGH-REVERSED-9 QUOTATION MARK matches Quotation_Mark
+ok 174 - DOUBLE EXCLAMATION MARK matches Terminal_Punctuation
+ok 175 - SWUNG DASH matches Pattern_Syntax
+ok 176 - LATIN SUBSCRIPT SMALL LETTER T matches Other_Lowercase
+ok 177 - DOWNWARDS TWO HEADED ARROW matches Other_Math
+ok 178 - UPWARDS DOUBLE ARROW matches Pattern_Syntax
+ok 179 - BOTTOM HALF INTEGRAL matches Pattern_Syntax
+ok 180 - CIRCLED LATIN SMALL LETTER Z matches Other_Alphabetic
+ok 181 - WHITE DIAMOND matches Other_Math
+ok 182 - HEAVY LEFT-POINTING ANGLE QUOTATION MARK ORNAMENT matches Pattern_Syntax
+ok 183 - HEAVY LEFT-POINTING ANGLE BRACKET ORNAMENT matches Pattern_Syntax
+ok 184 - LIGHT RIGHT TORTOISE SHELL BRACKET ORNAMENT matches Pattern_Syntax
+ok 185 - MEDIUM LEFT CURLY BRACKET ORNAMENT matches Pattern_Syntax
+ok 186 - MATHEMATICAL RIGHT ANGLE BRACKET matches Pattern_Syntax
+ok 187 - LEFT SQUARE BRACKET WITH TICK IN BOTTOM CORNER matches Other_Math
+ok 188 - LEFT ANGLE BRACKET WITH DOT matches Other_Math
+ok 189 - LEFT BLACK TORTOISE SHELL BRACKET matches Pattern_Syntax
+ok 190 - LEFT-POINTING CURVED ANGLE BRACKET matches Other_Math
+ok 191 - LATIN SUBSCRIPT SMALL LETTER J matches Other_Lowercase
+ok 192 - COMBINING CYRILLIC LETTER BE matches Other_Alphabetic
+ok 193 - RAISED INTERPOLATION MARKER matches Pattern_Syntax
+ok 194 - EDITORIAL CORONIS matches Pattern_Syntax
+ok 195 - TILDE WITH RING ABOVE matches Pattern_Syntax
+ok 196 - RIGHT VERTICAL BAR WITH QUILL matches Pattern_Syntax
+ok 197 - REVERSED QUESTION MARK matches STerm
+ok 198 - IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID matches IDS_Binary_Operator
+ok 199 - RIGHT WHITE CORNER BRACKET matches Pattern_Syntax
+ok 200 - DOUBLE PRIME QUOTATION MARK matches Quotation_Mark
+ok 201 - VAI SYLLABLE LENGTHENER matches Extender
+ok 202 - VAI QUESTION MARK matches Terminal_Punctuation
+ok 203 - JAVANESE SIGN PANYANGGA matches Other_Alphabetic
+ok 204 - TAI VIET TONE MAI SONG matches Diacritic
+ok 205 - TAI VIET SYMBOL SAM matches Extender
+ok 206 - CJK COMPATIBILITY IDEOGRAPH-FA0F matches Unified_Ideograph
+ok 207 - CJK COMPATIBILITY IDEOGRAPH-FA70 matches Ideographic
+ok 208 - FULLWIDTH LATIN SMALL LETTER F matches Hex_Digit
+ok 209 - HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK matches Diacritic
+ok 210 - IMPERIAL ARAMAIC SECTION SIGN matches Terminal_Punctuation
+ok 211 - TINY TWO DOTS OVER ONE DOT PUNCTUATION matches Terminal_Punctuation
+ok 212 - BRAHMI DANDA matches Terminal_Punctuation
+ok 213 - KAITHI VOWEL SIGN II matches Other_Alphabetic
+ok 214 - CHAKMA SIGN VISARGA matches Other_Alphabetic
+ok 215 - CHAKMA VOWEL SIGN A matches Other_Alphabetic
+ok 216 - CHAKMA QUESTION MARK matches STerm
+ok 217 - MIAO LETTER TONE-2 matches Diacritic
+ok 218 - MUSICAL SYMBOL COMBINING TREMOLO-1 matches Diacritic
+ok 219 - MATHEMATICAL ITALIC SMALL ALPHA matches Other_Math
+ok 220 - MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA matches Other_Math
+ok 221 - MATHEMATICAL BOLD DIGIT ZERO matches Other_Math
+ok 222 - ARABIC MATHEMATICAL TAILED DOTLESS QAF matches Other_Math
+ok 223 - ARABIC MATHEMATICAL DOUBLE-STRUCK LAM matches Other_Math
+ok 224 - Unimatch properly checks alternate/short canonical Unicode names

@@ -1,0 +1,30 @@
+1..29
+ok 1 - basic sanity
+ok 2 - calling a sub with an is copy param
+ok 3 - sub did not change our variable
+ok 4 - calling without arguments
+ok 5 - calling with one argument
+ok 6 - calling with two arguments
+ok 7 - calling with one argument
+ok 8 - variable was not affected
+ok 9 - calling with two arguments
+ok 10 - variable was not affected
+ok 11 - array copied correctly by is copy
+ok 12 - can modify array copied by is copy...
+ok 13 - ...and original is unmodified.
+ok 14 - hash copied correctly by is copy
+ok 15 - can modify hash copied by is copy...
+ok 16 - ...and original is unmodified.
+ok 17 - passing [1,2,3] to @a is copy does results in three array items
+ok 18 - list assignment (0)
+ok 19 - list assignment (1)
+ok 20 - can call a sub with an optional "is copy" hash param
+ok 21 - can re-assign to "is copy" parameter that held a Whatever
+ok 22 - can use ||= on "is copy" array
+ok 23 - can slice "is copy" arrays
+ok 24 - 
+ok 25 - Simple, easily inlinable, sub with copy trait not broken
+ok 26 - dependent default parameter in sub with '@list is copy' updated (1)
+ok 27 - dependent default parameter in sub with '@list is copy' updated (2)
+ok 28 - did we get the correct value
+ok 29 - An `is copy` in a sub-signature produces a writable variable

@@ -1,0 +1,42 @@
+1..33
+ok 1 - Empty CATCH rethrows exception
+ok 2 - CATCH in try overrides default exception handling
+ok 3 - Closure with CATCH {default {}} ignores exceptions
+ok 4 - do block with CATCH {default {}} ignores exceptions
+ok 5 - Subroutine with CATCH {default {}} ignores exceptions
+ok 6 - if block with CATCH {default {}} ignores exceptions...
+ok 7 - ...but the CATCH doesn't affect exceptions thrown in an attached else
+ok 8 - did not live after death
+ok 9 - caught exception of class Naughty
+ok 10 - did not catch sibling error class
+ok 11 - caught superclass
+ok 12 - did not live past uncaught throw
+ok 13 - did not get caught by wrong handler
+ok 14 - $! is an object
+ok 15 - .. of the right class
+ok 16 - Caught number
+ok 17 - can call rt63430() and examine the result
+ok 18 - CATCH does not intercept return from bare block
+ok 19 - CATCH block never invoked
+ok 20 - CATCH doesn't catch exceptions thrown in its own lexical scope
+ok 21 - CATCH doesn't catch exceptions thrown in its own dynamic scope
+ok 22 - CATCH directly nested in CATCH catches exceptions thrown in the outer CATCH
+ok 23 - CATCH indirectly nested in CATCH catches exceptions thrown in the outer CATCH
+ok 24 - $!.^isa works
+ok 25 - can throw exceptions in CATCH
+ok 26 - can define CATCH bock in .{}
+# Subtest: only one CATCH per block allowed
+    1..2
+    ok 1 - 'do { CATCH {}; CATCH { } }' died
+    ok 2 - right exception type (X::Phaser::Multiple)
+ok 27 - only one CATCH per block allowed
+# Subtest: doesn't segfault
+    1..2
+    ok 1 - 'try { CATCH { ~$! }; die }' died
+    ok 2 - right exception type (X::AdHoc)
+ok 28 - doesn't segfault
+ok 29 - Two invocations of a die()ing routine should still hit the CATCH handler
+ok 30 - Hot-path optimization does not break exception hanhttps://github.com/Raku/old-issue-tracker/issues/3330dling
+ok 31 - CATCH in a loop lives
+ok 32 - did not deadlock
+ok 33 - did the .resume work out ok

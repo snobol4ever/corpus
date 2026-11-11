@@ -1,0 +1,10 @@
+1..9
+ok 1 - ... we can require Foo
+ok 2 - ... we can require Bar (which requires Foo)
+ok 3 - ... we can require FooBar (which requires Bar (which requires Foo))
+ok 4 - ... the FooBar::foobar method resolved
+ok 5 - ... the FooBar::foobar method resolved
+ok 6 - ... the Bar::bar method resolved
+ok 7 - ... the Bar::bar method resolved
+ok 8 - ... the Foo::foo method resolved
+ok 9 - ... the Foo::foo method resolved

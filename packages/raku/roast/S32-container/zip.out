@@ -1,0 +1,16 @@
+1..14
+ok 1 - simple zip
+ok 2 - also with Z char
+ok 3 - zip of 3 arrays
+ok 4 - also with Z char
+ok 5 - zip uses length of shortest
+ok 6 - # SKIP lvalue zip
+ok 7 - # SKIP lvalue zip
+ok 8 - infix:<Z> imposes list context
+ok 9 - can mix arrays and ranges for infix:<Z>
+ok 10 - can mix arrays and ranges for infix:<Z>
+ok 11 - zip:with works on list associative
+ok 12 - zip:with works on left associative
+ok 13 - zip:with works on right associative
+ok 14 - zip:with works on chain associative
+# FUDGED!

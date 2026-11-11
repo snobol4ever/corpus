@@ -1,0 +1,396 @@
+1..191
+ok 1 - We can use subst
+ok 2 - .. withouth side effect
+ok 3 - .. or using Str as pattern
+ok 4 - .. with literal string matching
+ok 5 - We can have a closure as replacement
+ok 6 - .. and with the .= modifier
+ok 7 - .. it changes the receiver
+ok 8 - non-Str replacement works for string form too
+ok 9 - .. bare strings cannot see $/ because they are evaluated first
+ok 10 - .. you must wrap it in a closure to delay evaluation
+ok 11 - .. and do nifty things in closures
+ok 12 - "a".subst("a", "b") is "b"
+ok 13 - $/ is left untouched
+ok 14 - "a".subst(/a/, "b") is "b"
+ok 15 - $/ matched "a"
+ok 16 - "a".subst(/x/, "y") is "a"
+ok 17 - $/ is a falsey
+ok 18 - $_ = "a"; s/a/b/ is "a"
+ok 19 - $/ matched "a"
+ok 20 - $_ = "a"; s/x/y/ is a falsey
+ok 21 - $/ is a falsey
+ok 22 - .subst and :g
+ok 23 - .subst and :global
+ok 24 - .subst and :x(0)
+ok 25 - .subst and :x(1)
+ok 26 - .subst and :x(2)
+ok 27 - .subst and :x(3)
+ok 28 - .subst and :x(4)
+ok 29 - .subst and :x(5)
+ok 30 - .subst and :x(*)
+ok 31 - .subst and :x(0..1)
+ok 32 - .subst and :x(0..3)
+ok 33 - .subst and :x(3..5)
+ok 34 - .subst and :x(5..6)
+ok 35 - .subst and :x(3..2)
+ok 36 - .subst (str pattern) and :g
+ok 37 - .subst (str pattern) and :x(0)
+ok 38 - .subst (str pattern) and :x(1)
+ok 39 - .subst (str pattern) and :x(2)
+ok 40 - .subst (str pattern) and :x(3)
+ok 41 - .subst (str pattern) and :x(4)
+ok 42 - .subst (str pattern) and :x(5)
+ok 43 - .subst (str pattern) and :x(*)
+ok 44 - .subst (str pattern) and :x(0..1)
+ok 45 - .subst (str pattern) and :x(0..3)
+ok 46 - .subst (str pattern) and :x(3..5)
+ok 47 - .subst (str pattern) and :x(5..6)
+ok 48 - .subst (str pattern) and :x(3..2)
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '"a b c d".subst(/\w/, "x", :nth(0))' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 49 - did we throws-like Exception?
+ok 50 - .subst and :nth(1)
+ok 51 - .subst and :nth(2)
+ok 52 - .subst and :nth(3)
+ok 53 - .subst and :nth(4)
+ok 54 - .subst and :nth(5)
+# Subtest: did we throws-like Exception?
+    1..3
+    ok 1 - '"a a a a".subst("a", "x", :nth(0))' died
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches rx/nth/
+ok 55 - did we throws-like Exception?
+ok 56 - .subst (str pattern) and :nth(1)
+ok 57 - .subst (str pattern) and :nth(2)
+ok 58 - .subst (str pattern) and :nth(3)
+ok 59 - .subst (str pattern) and :nth(4)
+ok 60 - .subst (str pattern) and :nth(5)
+ok 61 - .subst with :nth(1,2,3,4)) and :x(3)
+ok 62 - .subst with :nth(2,4,6,8) and :x(2)
+# Subtest: .subst with :nth(2) and :x(3)
+    1..2
+    ok 1 - '"a b c d e f g h".subst(/\w/, "x", :nth(2, 4, 1, 6), :x(3))' died
+    ok 2 - right exception type (Exception)
+ok 63 - .subst with :nth(2) and :x(3)
+ok 64 - .subst with :p(0)
+ok 65 - .subst with :p(1)
+ok 66 - .subst with :p(2)
+ok 67 - .subst with :p(0) and :g
+ok 68 - .subst with :p(1) and :g
+ok 69 - .subst with :p(2) and :g
+ok 70 - .subst with :c(0)
+ok 71 - .subst with :c(1)
+ok 72 - .subst with :c(2)
+ok 73 - .subst with :c(0) and :g
+ok 74 - .subst with :c(1) and :g
+ok 75 - .subst with :c(2) and :g
+ok 76 - .subst with :c(0) and :nth(3, 4)
+ok 77 - .subst with :c(1) and :nth(3, 4)
+ok 78 - .subst with :c(2) and :nth(3, 4)
+ok 79 - Constant substitution succeeds and returns correct count
+ok 80 - Constant substitution produces correct result
+ok 81 - Global scalar substitution succeeds and returns a List
+ok 82 - Scalar substitution produces correct result
+ok 83 - Single list replacement succeeds and returns a Match
+ok 84 - List replacement produces correct result
+ok 85 - can't modify string literal (only variables)
+ok 86 - Cannot ss/// string literal
+ok 87 - successful s:ss substitution returns truthy
+ok 88 - s:ss/.../.../ preserves whitespace
+ok 89 - successful ss substitution returns truthy
+ok 90 - ss/.../.../ preserves whitespace
+ok 91 - successful s:s substitution returns truthy
+ok 92 - s:s/.../.../ does not preserve whitespace
+ok 93 - successful s:ss:ii substitution returns truthy
+ok 94 - s:ss:ii/.../.../ preserves whitespace and case
+ok 95 - successful ss:i substitution returns truthy
+ok 96 - ss:i/.../.../ preserves whitespace
+ok 97 - successful s:s:ii substitution returns truthy
+ok 98 - s:s:ii/.../.../ does not preserve whitespace but preserves case
+ok 99 - successful s:ss:ii:mm substitution returns truthy
+ok 100 - s:ss:ii:mm/.../.../ preserves whitespace, case, and marks
+ok 101 - successful ss substitution returns truthy
+ok 102 - ss/.../.../ preserves whitespace
+ok 103 - successful s:s substitution returns truthy
+ok 104 - s:s/.../.../ does not preserve whitespace but preserves case and marks
+ok 105 - s[...] = ... returns true on success
+ok 106 - substitution worked
+ok 107 - s[...] = ... returns false on failure
+ok 108 - failed substitutions leaves string unchanged
+# Subtest: s/// dies on unknown adverb
+    1..2
+    ok 1 - '$_ = "a"; s:unkonwn/a/b/' died
+    ok 2 - right exception type (X::Syntax::Regex::Adverb)
+ok 109 - s/// dies on unknown adverb
+# Subtest: :overlap does not make sense on s///
+    1..2
+    ok 1 - '$_ = "a"; s:overlap/a/b/' died
+    ok 2 - right exception type (X::Syntax::Regex::Adverb)
+ok 110 - :overlap does not make sense on s///
+ok 111 - s[...] = ... returns true on success
+ok 112 - substitution worked
+ok 113 - failed substitutions leaves string unchanged
+ok 114 - s:global[..] = returns correct count
+ok 115 - and the substition worked
+ok 116 - can use $/ on the RHS
+ok 117 - can use $0 on the RHS
+ok 118 - s:g[] returns proper count of matches
+ok 119 - s:g[...] and captures work together well
+ok 120 - s:x(2)
+ok 121 - s:1st return value
+ok 122 - s:1st side effect
+ok 123 - s:2nd return value
+ok 124 - s:2nd side effect
+ok 125 - s:3rd return value
+ok 126 - s:3rd side effect
+ok 127 - s:4th return value
+ok 128 - s:4th side effect
+ok 129 - s:nth(5) return value
+ok 130 - s:nth(5) side effect
+ok 131 - s:nth(6) return value
+ok 132 - s:nth(6) no side effect
+ok 133 - s:x(2):nth(1,3) works in combination
+ok 134 - s:2x:nth(1,3) works in combination
+ok 135 - ! separator
+ok 136 - s[...] += 5 returns True
+ok 137 - s[...] += 5 gave right result
+ok 138 - s:g[..] x= 2 worked
+ok 139 - s:g[...] customop= returned True
+ok 140 - ... and got right result
+ok 141 - s with colon is always substitution
+ok 142 - can call sub s as "s()"
+ok 143 - can call sub s as "s"
+ok 144 - bare ss is substitution before whitespace then parens
+ok 145 - .substr and :samecase (1)
+ok 146 - .substr and :samecase (2)
+ok 147 - .substr (string pattern) and :    samecase (1)
+ok 148 - .substr (string pattern) and :    samecase (2)
+ok 149 - .substr (string pattern)     and :g and :samecase (1)
+ok 150 - .substr (string pattern)     and :g and :samecase (2)
+ok 151 - .substr and samecase, worked with block replacement
+ok 152 - .substr and :g and :samecase, worked with block replacement
+ok 153 - :ii implies :i
+ok 154 - :samecase implies :i
+ok 155 - Zero-width substitution does not make the GC recurse
+# Subtest: Value of :i must be known at compile time
+    1..2
+    ok 1 - ' $_ = "abc"; my $i = 1; s:i($i)/a/b/ ' died
+    ok 2 - right exception type (X::Value::Dynamic)
+ok 156 - Value of :i must be known at compile time
+not ok 157 - :i(1) is OK # TODO be smarter about constant detection
+# Failed test ':i(1) is OK'
+# at S05-substitution/subst.rakudo line 445
+# Error: Adverb i value must be known at compile time
+ok 158 - can use $0 in RHS of s///
+ok 159 - (sanely) dies when trying to s/// a read-only variable
+ok 160 - s[f] is parsed as a substitution op
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - '$_ = "foo"; s[] = "bar";' died
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 161 - did we throws-like X::Syntax::Regex::NullRegex?
+ok 162 - get match variable in replacement of subst-mutator
+ok 163 - $ anchor directly at the end of the search pattern works
+ok 164 - s{}="" plus statement mod if is not parsed as /i
+ok 165 - s/// returns a Match object on non-strings
+ok 166 - s/// can modify a container that contains a non-string
+ok 167 - s{}="" can modify a container that contains a non-string
+ok 168 - s[]="" works when $_ is set
+# Subtest: did we throws-like X::Syntax::Regex::NullRegex?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Regex::NullRegex)
+ok 169 - did we throws-like X::Syntax::Regex::NullRegex?
+not ok 170 - can use s[]="" when $_ is not set # TODO RT #114388 -- expected: '', got: (Any)
+# Failed test 'can use s[]="" when $_ is not set'
+# at S05-substitution/subst.rakudo line 522
+# expected: ''
+#      got: (Any)
+ok 171 - non-mutating single substitution works ()
+ok 172 - non-mutating single substitution works (o)
+ok 173 - non-mutating global substitution works (o o)
+ok 174 - non-mutating single substitution assignment works (o)
+ok 175 - non-mutating global substitution assignment works (o o)
+ok 176 - non-mutating single substitution works (o)
+ok 177 - non-mutating global substitution works (o)
+ok 178 - non-mutating single substitution assignment works (o)
+ok 179 - non-mutating global substitution assignment works (o)
+ok 180 - code in replacement part of s/// has correct scoping
+# Subtest: giving .subst invalid args throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Match::x)
+ok 181 - giving .subst invalid args throws
+ok 182 - S:g/// returns original string on failure to match
+ok 183 - S/// can be used in map (does not reuse a container)
+# Subtest: List/Match result adverb handling
+    1..3
+    # Subtest: :2nd:g
+        1..2
+        # Subtest: S///
+            1..3
+            ok 1 - return value
+            ok 2 - $/ is Match
+            ok 3 - $/.Str
+        ok 1 - S///
+        # Subtest: s///
+            1..4
+            ok 1 - result
+            ok 2 - return value
+            ok 3 - $/ is Match
+            ok 4 - $/.Str
+        ok 2 - s///
+    ok 1 - :2nd:g
+    # Subtest: :x(1..3)
+        1..2
+        # Subtest: S///
+            1..3
+            ok 1 - return value
+            ok 2 - $/ is List
+            ok 3 - $/».Str
+        ok 1 - S///
+        # Subtest: s///
+            1..4
+            ok 1 - result
+            ok 2 - return value
+            ok 3 - $/ is List
+            ok 4 - $/».Str
+        ok 2 - s///
+    ok 2 - :x(1..3)
+    # Subtest: :th(1, 3)
+        1..2
+        # Subtest: S///
+            1..3
+            ok 1 - return value
+            ok 2 - $/ is List
+            ok 3 - $/».Str
+        ok 1 - S///
+        # Subtest: s///
+            1..4
+            ok 1 - result
+            ok 2 - return value
+            ok 3 - $/ is List
+            ok 4 - $/».Str
+        ok 2 - s///
+    ok 3 - :th(1, 3)
+ok 184 - List/Match result adverb handling
+# Subtest: .subst(Str:D, Str:D)
+    1..6
+    ok 1 - replace with longer
+    ok 2 - replace with shorter
+    ok 3 - replace with samelength
+    ok 4 - replace with longer (2)
+    ok 5 - replace with shorter (2)
+    ok 6 - replace with samelength (2)
+ok 185 - .subst(Str:D, Str:D)
+# Subtest: .subst with multi-match args set $/ to a List of matches
+    1..14
+    # Subtest: Int.subst: :g
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 1 - Int.subst: :g
+    # Subtest: .subst: :x
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 2 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 2 - .subst: :x
+    # Subtest: .subst: :nth
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 3 - .subst: :nth
+    # Subtest: .subst: :st
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 4 - .subst: :st
+    # Subtest: .subst: :nd
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 5 - .subst: :nd
+    # Subtest: .subst: :rd
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 6 - .subst: :rd
+    # Subtest: .subst: :th
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 7 - .subst: :th
+    # Subtest: Str.subst: :g
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 8 - Str.subst: :g
+    # Subtest: .subst: :x
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 2 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 9 - .subst: :x
+    # Subtest: .subst: :nth
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 10 - .subst: :nth
+    # Subtest: .subst: :st
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 11 - .subst: :st
+    # Subtest: .subst: :nd
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 12 - .subst: :nd
+    # Subtest: .subst: :rd
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 13 - .subst: :rd
+    # Subtest: .subst: :th
+        1..4
+        ok 1 - $/ is a List…
+        ok 2 - …with 3 items…
+        ok 3 - …all are Match…
+        ok 4 - …all have right values
+    ok 14 - .subst: :th
+ok 186 - .subst with multi-match args set $/ to a List of matches
+ok 187 - Placeholder parameter in substitution assignment
+ok 188 - Placeholder parameter in substitution quoted
+ok 189 - Placeholder parameter in substitution regex ({} quoter)
+ok 190 - Placeholder parameter in substitution regex (// quoter)
+ok 191 - .subst in BEGIN does not die
+# FUDGED!

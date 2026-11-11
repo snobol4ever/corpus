@@ -1,0 +1,15 @@
+1..14
+ok 1 - my int @x gives a native int array
+ok 2 - my @x of int gives a native int array
+ok 3 - Can initialize an int array at declaration (1)
+ok 4 - Can initialize an int array at declaration (2)
+ok 5 - Can initialize an int array at declaration (3)
+ok 6 - my int @x gives a native num array
+ok 7 - my @x of num gives a native num array
+ok 8 - Can initialize a num array at declaration (1)
+ok 9 - Can initialize a num array at declaration (2)
+ok 10 - Can initialize a num array at declaration (3)
+ok 11 - my str @a gives array[str]
+ok 12 - array[str].elems
+ok 13 - array[str].push
+ok 14 - array[str].join

@@ -1,0 +1,210 @@
+1..209
+ok 1 - cmp JD to DateTime hour
+ok 2 - cmp JD to DateTime minute
+ok 3 - cmp JD to DateTime second
+ok 4 - cmp JD to DateTime year
+ok 5 - cmp JD to DateTime month
+ok 6 - cmp JD to DateTime day
+ok 7 - cmp JD from DateTime.posix
+ok 8 - cmp JD from DateTime.daycount + day-frac
+ok 9 - cmp JD from DateTime.daycount + day-fraction
+ok 10 - cmp JD from DateTime.julian-date
+ok 11 - cmp JD from DateTime.modified-julian-date
+ok 12 - cmp JD to DateTime hour
+ok 13 - cmp JD to DateTime minute
+ok 14 - cmp JD to DateTime second
+ok 15 - cmp JD to DateTime year
+ok 16 - cmp JD to DateTime month
+ok 17 - cmp JD to DateTime day
+ok 18 - cmp JD from DateTime.posix
+ok 19 - cmp JD from DateTime.daycount + day-frac
+ok 20 - cmp JD from DateTime.daycount + day-fraction
+ok 21 - cmp JD from DateTime.julian-date
+ok 22 - cmp JD from DateTime.modified-julian-date
+ok 23 - cmp JD to DateTime hour
+ok 24 - cmp JD to DateTime minute
+ok 25 - cmp JD to DateTime second
+ok 26 - cmp JD to DateTime year
+ok 27 - cmp JD to DateTime month
+ok 28 - cmp JD to DateTime day
+ok 29 - cmp JD from DateTime.posix
+ok 30 - cmp JD from DateTime.daycount + day-frac
+ok 31 - cmp JD from DateTime.daycount + day-fraction
+ok 32 - cmp JD from DateTime.julian-date
+ok 33 - cmp JD from DateTime.modified-julian-date
+ok 34 - cmp JD to DateTime hour
+ok 35 - cmp JD to DateTime minute
+ok 36 - cmp JD to DateTime second
+ok 37 - cmp JD to DateTime year
+ok 38 - cmp JD to DateTime month
+ok 39 - cmp JD to DateTime day
+ok 40 - cmp JD from DateTime.posix
+ok 41 - cmp JD from DateTime.daycount + day-frac
+ok 42 - cmp JD from DateTime.daycount + day-fraction
+ok 43 - cmp JD from DateTime.julian-date
+ok 44 - cmp JD from DateTime.modified-julian-date
+ok 45 - cmp JD to DateTime hour
+ok 46 - cmp JD to DateTime minute
+ok 47 - cmp JD to DateTime second
+ok 48 - cmp JD to DateTime year
+ok 49 - cmp JD to DateTime month
+ok 50 - cmp JD to DateTime day
+ok 51 - cmp JD from DateTime.posix
+ok 52 - cmp JD from DateTime.daycount + day-frac
+ok 53 - cmp JD from DateTime.daycount + day-fraction
+ok 54 - cmp JD from DateTime.julian-date
+ok 55 - cmp JD from DateTime.modified-julian-date
+ok 56 - cmp JD to DateTime hour
+ok 57 - cmp JD to DateTime minute
+ok 58 - cmp JD to DateTime second
+ok 59 - cmp JD to DateTime year
+ok 60 - cmp JD to DateTime month
+ok 61 - cmp JD to DateTime day
+ok 62 - cmp JD from DateTime.posix
+ok 63 - cmp JD from DateTime.daycount + day-frac
+ok 64 - cmp JD from DateTime.daycount + day-fraction
+ok 65 - cmp JD from DateTime.julian-date
+ok 66 - cmp JD from DateTime.modified-julian-date
+ok 67 - cmp JD to DateTime hour
+ok 68 - cmp JD to DateTime minute
+ok 69 - cmp JD to DateTime second
+ok 70 - cmp JD to DateTime year
+ok 71 - cmp JD to DateTime month
+ok 72 - cmp JD to DateTime day
+ok 73 - cmp JD from DateTime.posix
+ok 74 - cmp JD from DateTime.daycount + day-frac
+ok 75 - cmp JD from DateTime.daycount + day-fraction
+ok 76 - cmp JD from DateTime.julian-date
+ok 77 - cmp JD from DateTime.modified-julian-date
+ok 78 - cmp JD to DateTime hour
+ok 79 - cmp JD to DateTime minute
+ok 80 - cmp JD to DateTime second
+ok 81 - cmp JD to DateTime year
+ok 82 - cmp JD to DateTime month
+ok 83 - cmp JD to DateTime day
+ok 84 - cmp JD from DateTime.posix
+ok 85 - cmp JD from DateTime.daycount + day-frac
+ok 86 - cmp JD from DateTime.daycount + day-fraction
+ok 87 - cmp JD from DateTime.julian-date
+ok 88 - cmp JD from DateTime.modified-julian-date
+ok 89 - cmp JD to DateTime hour
+ok 90 - cmp JD to DateTime minute
+ok 91 - cmp JD to DateTime second
+ok 92 - cmp JD to DateTime year
+ok 93 - cmp JD to DateTime month
+ok 94 - cmp JD to DateTime day
+ok 95 - cmp JD from DateTime.posix
+ok 96 - cmp JD from DateTime.daycount + day-frac
+ok 97 - cmp JD from DateTime.daycount + day-fraction
+ok 98 - cmp JD from DateTime.julian-date
+ok 99 - cmp JD from DateTime.modified-julian-date
+ok 100 - cmp JD to DateTime hour
+ok 101 - cmp JD to DateTime minute
+ok 102 - cmp JD to DateTime second
+ok 103 - cmp JD to DateTime year
+ok 104 - cmp JD to DateTime month
+ok 105 - cmp JD to DateTime day
+ok 106 - cmp JD from DateTime.posix
+ok 107 - cmp JD from DateTime.daycount + day-frac
+ok 108 - cmp JD from DateTime.daycount + day-fraction
+ok 109 - cmp JD from DateTime.julian-date
+ok 110 - cmp JD from DateTime.modified-julian-date
+ok 111 - cmp JD to DateTime hour
+ok 112 - cmp JD to DateTime minute
+ok 113 - cmp JD to DateTime second
+ok 114 - cmp JD to DateTime year
+ok 115 - cmp JD to DateTime month
+ok 116 - cmp JD to DateTime day
+ok 117 - cmp JD from DateTime.posix
+ok 118 - cmp JD from DateTime.daycount + day-frac
+ok 119 - cmp JD from DateTime.daycount + day-fraction
+ok 120 - cmp JD from DateTime.julian-date
+ok 121 - cmp JD from DateTime.modified-julian-date
+ok 122 - cmp JD to DateTime hour
+ok 123 - cmp JD to DateTime minute
+ok 124 - cmp JD to DateTime second
+ok 125 - cmp JD to DateTime year
+ok 126 - cmp JD to DateTime month
+ok 127 - cmp JD to DateTime day
+ok 128 - cmp JD from DateTime.posix
+ok 129 - cmp JD from DateTime.daycount + day-frac
+ok 130 - cmp JD from DateTime.daycount + day-fraction
+ok 131 - cmp JD from DateTime.julian-date
+ok 132 - cmp JD from DateTime.modified-julian-date
+ok 133 - cmp JD to DateTime hour
+ok 134 - cmp JD to DateTime minute
+ok 135 - cmp JD to DateTime second
+ok 136 - cmp JD to DateTime year
+ok 137 - cmp JD to DateTime month
+ok 138 - cmp JD to DateTime day
+ok 139 - cmp JD from DateTime.posix
+ok 140 - cmp JD from DateTime.daycount + day-frac
+ok 141 - cmp JD from DateTime.daycount + day-fraction
+ok 142 - cmp JD from DateTime.julian-date
+ok 143 - cmp JD from DateTime.modified-julian-date
+ok 144 - cmp JD to DateTime hour
+ok 145 - cmp JD to DateTime minute
+ok 146 - cmp JD to DateTime second
+ok 147 - cmp JD to DateTime year
+ok 148 - cmp JD to DateTime month
+ok 149 - cmp JD to DateTime day
+ok 150 - cmp JD from DateTime.posix
+ok 151 - cmp JD from DateTime.daycount + day-frac
+ok 152 - cmp JD from DateTime.daycount + day-fraction
+ok 153 - cmp JD from DateTime.julian-date
+ok 154 - cmp JD from DateTime.modified-julian-date
+ok 155 - cmp JD to DateTime hour
+ok 156 - cmp JD to DateTime minute
+ok 157 - cmp JD to DateTime second
+ok 158 - cmp JD to DateTime year
+ok 159 - cmp JD to DateTime month
+ok 160 - cmp JD to DateTime day
+ok 161 - cmp JD from DateTime.posix
+ok 162 - cmp JD from DateTime.daycount + day-frac
+ok 163 - cmp JD from DateTime.daycount + day-fraction
+ok 164 - cmp JD from DateTime.julian-date
+ok 165 - cmp JD from DateTime.modified-julian-date
+ok 166 - cmp JD to DateTime hour
+ok 167 - cmp JD to DateTime minute
+ok 168 - cmp JD to DateTime second
+ok 169 - cmp JD to DateTime year
+ok 170 - cmp JD to DateTime month
+ok 171 - cmp JD to DateTime day
+ok 172 - cmp JD from DateTime.posix
+ok 173 - cmp JD from DateTime.daycount + day-frac
+ok 174 - cmp JD from DateTime.daycount + day-fraction
+ok 175 - cmp JD from DateTime.julian-date
+ok 176 - cmp JD from DateTime.modified-julian-date
+ok 177 - cmp JD to DateTime hour
+ok 178 - cmp JD to DateTime minute
+ok 179 - cmp JD to DateTime second
+ok 180 - cmp JD to DateTime year
+ok 181 - cmp JD to DateTime month
+ok 182 - cmp JD to DateTime day
+ok 183 - cmp JD from DateTime.posix
+ok 184 - cmp JD from DateTime.daycount + day-frac
+ok 185 - cmp JD from DateTime.daycount + day-fraction
+ok 186 - cmp JD from DateTime.julian-date
+ok 187 - cmp JD from DateTime.modified-julian-date
+ok 188 - cmp JD to DateTime hour
+ok 189 - cmp JD to DateTime minute
+ok 190 - cmp JD to DateTime second
+ok 191 - cmp JD to DateTime year
+ok 192 - cmp JD to DateTime month
+ok 193 - cmp JD to DateTime day
+ok 194 - cmp JD from DateTime.posix
+ok 195 - cmp JD from DateTime.daycount + day-frac
+ok 196 - cmp JD from DateTime.daycount + day-fraction
+ok 197 - cmp JD from DateTime.julian-date
+ok 198 - cmp JD from DateTime.modified-julian-date
+ok 199 - cmp JD to DateTime hour
+ok 200 - cmp JD to DateTime minute
+ok 201 - cmp JD to DateTime second
+ok 202 - cmp JD to DateTime year
+ok 203 - cmp JD to DateTime month
+ok 204 - cmp JD to DateTime day
+ok 205 - cmp JD from DateTime.posix
+ok 206 - cmp JD from DateTime.daycount + day-frac
+ok 207 - cmp JD from DateTime.daycount + day-fraction
+ok 208 - cmp JD from DateTime.julian-date
+ok 209 - cmp JD from DateTime.modified-julian-date

@@ -1,0 +1,13 @@
+1..4
+ok 1 - infix less-than (<) requires whitespace before.
+ok 2 - infix less-than (<) requires whitespace before.
+# Subtest: infix less-than (<) requires whitespace before, so this is a parse error.
+    1..2
+    ok 1 - '1< 2' died
+    ok 2 - right exception type (Exception)
+ok 3 - infix less-than (<) requires whitespace before, so this is a parse error.
+# Subtest: infix less-than (<) requires whitespace before, so this is a parse error.
+    1..2
+    ok 1 - '1<2' died
+    ok 2 - right exception type (Exception)
+ok 4 - infix less-than (<) requires whitespace before, so this is a parse error.

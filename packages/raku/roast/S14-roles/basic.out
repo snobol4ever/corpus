@@ -1,0 +1,77 @@
+1..53
+ok 1 - ... smartmatch our $bar to the Bar class
+ok 2 - .HOW.does said our $bar does Foo
+ok 3 - .^does said our $bar does Foo
+ok 4 - smartmatch said our $bar does Foo
+ok 5 - role type objects are undefined
+ok 6 - smartmatch works when role is done inside class
+ok 7 - method composed when role is done inside class
+ok 8 - mixing in our Foo role into $baz worked
+ok 9 - .HOW.does said our $baz now does Foo
+ok 10 - .^does said our $baz now does Foo
+# Subtest: smartmatch against non-existent type dies
+    1..2
+    ok 1 - ' $baz ~~ Baz ' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 11 - smartmatch against non-existent type dies
+ok 12 - mixing A into $a worked
+ok 13 - $a "inherited" the .say_hello method of A
+ok 14 - mixing B into $b worked
+ok 15 - $b "inherited" the $.attr attribute of B (1)
+ok 16 - $b "inherited" the $.attr attribute of B (2)
+ok 17 - creating a Foo worked
+ok 18 - $c does not B
+ok 19 - mixing in a Role via but worked
+ok 20 - $c still does not B...
+ok 21 - ...but $d does B
+ok 22 - can use role as a type constraint on a variable
+ok 23 - type-check enforced
+ok 24 - type-check enforced in future assignments too
+ok 25 - type-check passes for class doing role
+ok 26 - type-check passes when role mixed in
+ok 27 - attributes typed as roles initialized OK
+ok 28 - typed attribute accepts things it should
+ok 29 - typed attribute rejects things it should
+ok 30 - typed attribute rejects things it should
+# Subtest: "but" with non-existent role dies
+    1..2
+    ok 1 - '0 but RT66178' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 31 - "but" with non-existent role dies
+ok 32 - a class dies when it does a non-existent role
+ok 33 - ... and the error message mentions the role
+ok 34 - class SomeClass does AnotherClass  dies
+ok 35 - Error message mentions the offending non-role
+ok 36 - class does itself produces sensible error message
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'role RR { }; class RR { };' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches RR
+ok 37 - did we throws-like X::Redeclaration?
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'role RRR { }; class RRR does RRR { };' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches RRR
+ok 38 - did we throws-like X::Redeclaration?
+ok 39 - default role gistification contains role name
+ok 40 - 0 but True has applicable candidate
+ok 41 - # SKIP RT  \#67768
+ok 42 - # SKIP RT  \#67768
+ok 43 - # SKIP RT  \#67768
+ok 44 - Can have "my $.r" in a role (RT  \#114380)
+ok 45 - $obj.Role::method() passes correct invocant
+ok 46 - private methods in roles bind "self" correctly
+ok 47 - can call a role method from within the role block
+# Subtest: undeclared type in signature in role results in X::Parameter::InvalidType
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::InvalidType)
+ok 48 - undeclared type in signature in role results in X::Parameter::InvalidType
+ok 49 - can call a sub which runs EVAL on minimal role declaration
+ok 50 - .^ver on role works
+ok 51 - .^auth on role works
+ok 52 - attribute value was set correctly
+ok 53 - deeper attribute value was set correctly
+# FUDGED!

@@ -1,0 +1,139 @@
+1..56
+ok 1 - basic slice
+ok 2 - basic slice, explicit list
+ok 3 - basic slice, duplicate indices
+ok 4 - slice from array, part 2
+ok 5 - slice from array slice, part 1
+ok 6 - slice from array slice, part 2
+ok 7 - range from array
+ok 8 - nested slice
+ok 9 - slice plus range from array
+ok 10 - range plus slice from array
+ok 11 - finite sequence slice
+ok 12 - infinite sequence slice
+ok 13 - infinite even sequence slice
+ok 14 - infinite even sequence slice
+ok 15 - assigning a slice too many items yields a correct return value
+ok 16 - slice on array literal
+ok 17 - slice on arrayitem literal
+ok 18 - values from hash keys, part 1
+ok 19 - values from hash keys, part 2
+ok 20 - calculated slice: hyperop
+ok 21 - @array[2..1] is an empty slice
+ok 22 - # SKIP *..* does not slice
+ok 23 - # SKIP *..* does not slice
+ok 24 - The object is-a 'Array'
+ok 25 - 
+ok 26 - slice with one element is a list
+ok 27 - slice with one element specified by variables
+ok 28 - can use 1..^@a for subscripting
+ok 29 - # SKIP .= with non-identifier postfixes
+ok 30 - # SKIP .= with non-identifier postfixes
+ok 31 - can assign to a Buf slice
+ok 32 - [*] slice returns all elements of a list of hash value
+# Subtest: no "drift" when re-using lazy iterable for indexing
+    1..3
+    ok 1 - more indexes than els
+    ok 2 - fewer indexes than els
+    not ok 3 - lazy iterable with iterator starting non-lazy # TODO semantics of a lazy slip are questionable
+    # Failed test 'lazy iterable with iterator starting non-lazy'
+    # at S09-subscript/slice.rakudo line 129
+    # expected: $("a", "b")
+    #      got: $("a", "b", Nil, Nil, Nil, Nil, Nil)
+ok 33 - no "drift" when re-using lazy iterable for indexing
+# Subtest: infinite ranges and whatever stars
+    1..6
+    ok 1 - Inf range inclusive
+    ok 2 - Inf range exclusive
+    ok 3 - Whatever range inclusive
+    ok 4 - Whatever range exclusive
+    ok 5 - Whatever callable
+    ok 6 - Callable
+ok 34 - infinite ranges and whatever stars
+# Subtest: nested slices
+    1..62
+    ok 1 - Nested slice, no adverbs
+    ok 2 - Nested slice, p adverb
+    ok 3 - Nested slice, negated p adverb
+    ok 4 - Nested slice, k adverb
+    ok 5 - Nested slice, negated k adverb
+    ok 6 - Nested slice, v adverb
+    ok 7 - Nested slice, negated v adverb
+    ok 8 - Nested slice, kv adverb
+    ok 9 - Nested slice, negated kv adverb
+    ok 10 - Nested slice, exists adverb 1
+    ok 11 - Nested slice, exists adverb 2
+    ok 12 - Nested slice, exists adverb 3
+    ok 13 - Nested slice, delete adverb 1-1
+    ok 14 - Nested slice, delete adverb 1-2
+    ok 15 - Nested slice, delete adverb 2-1
+    ok 16 - Nested slice, delete adverb 2-2
+    ok 17 - Nested slice, negated delete adverb 3-1
+    ok 18 - Nested slice, negated delete adverb 3-2
+    ok 19 - Nested slice, delete + kv adverbs
+    ok 20 - Nested slice, delete + kv adverbs 2
+    ok 21 - Nested slice, delete + !kv adverbs
+    ok 22 - Nested slice, delete + !kv adverbs 2
+    ok 23 - Nested slice, delete + p adverbs
+    ok 24 - Nested slice, delete + p adverbs 2
+    ok 25 - Nested slice, delete + !p adverbs
+    ok 26 - Nested slice, delete + !p adverbs 2
+    ok 27 - Nested slice, delete + k adverbs
+    ok 28 - Nested slice, delete + k adverbs 2
+    ok 29 - Nested slice, delete + !k adverbs
+    ok 30 - Nested slice, delete + !k adverbs 2
+    ok 31 - Nested slice, delete + v adverbs
+    ok 32 - Nested slice, delete + v adverbs 2
+    ok 33 - Nested slice, delete + !v adverbs
+    ok 34 - Nested slice, delete + !v adverbs 2
+    ok 35 - Nested slice, delete + exists adverbs
+    ok 36 - Nested slice, delete + exists adverbs 2
+    ok 37 - Nested slice, delete + !exists adverbs
+    ok 38 - Nested slice, delete + !exists adverbs 2
+    ok 39 - Nested slice, delete + exists + kv adverbs
+    ok 40 - Nested slice, delete + exists + kv adverbs 2
+    ok 41 - Nested slice, delete + !exists + kv adverbs
+    ok 42 - Nested slice, delete + !exists + kv adverbs 2
+    ok 43 - Nested slice, delete + exists + !kv adverbs
+    ok 44 - Nested slice, delete + exists + !kv adverbs 2
+    ok 45 - Nested slice, delete + !exists + !kv adverbs
+    ok 46 - Nested slice, delete + !exists + !kv adverbs 2
+    ok 47 - Nested slice, delete + exists + p adverbs
+    ok 48 - Nested slice, delete + exists + p adverbs 2
+    ok 49 - Nested slice, delete + !exists + p adverbs
+    ok 50 - Nested slice, delete + !exists + p adverbs 2
+    ok 51 - Nested slice, delete + exists + !p adverbs
+    ok 52 - Nested slice, delete + exists + !p adverbs 2
+    ok 53 - Nested slice, delete + !exists + !p adverbs
+    ok 54 - Nested slice, delete + !exists + !p adverbs 2
+    ok 55 - Nested slice, exists + kv adverbs
+    ok 56 - Nested slice, !exists + kv adverbs
+    ok 57 - Nested slice, exists + !kv adverbs
+    ok 58 - Nested slice, !exists + !kv adverbs
+    ok 59 - Nested slice, exists + p adverbs
+    ok 60 - Nested slice, !exists + p adverbs
+    ok 61 - Nested slice, exists + !p adverbs
+    ok 62 - Nested slice, !exists + !p adverbs
+ok 35 - nested slices
+ok 36 - lazy sublist in slice 1
+ok 37 - lazy sublist in slice 2
+ok 38 - sublist in lazy slice 1
+ok 39 - sublist in lazy slice 2
+ok 40 - lazy sublist in slice assignment 1
+ok 41 - result of lazy sublist in slice assignment 1
+ok 42 - lazy sublist in slice assignment 2
+ok 43 - result of lazy sublist in slice assignment 2
+ok 44 - lazy sublist in slice binding 1
+ok 45 - result of lazy sublist in slice binding 1
+ok 46 - lazy sublist in slice binding 2
+ok 47 - result of lazy sublist in slice binding 2
+ok 48 - sublist in lazy slice assignment 1
+ok 49 - result of sublist in lazy slice assignment 1
+ok 50 - sublist in lazy slice assignment 2
+ok 51 - result of sublist in lazy slice assignment 2
+ok 52 - sublist in lazy slice binding 1
+ok 53 - result of sublist in lazy slice binding 1
+ok 54 - sublist in lazy slice binding 2
+ok 55 - result of sublist in lazy slice binding 2
+ok 56 - did hyperwhatever hammer
+# FUDGED!

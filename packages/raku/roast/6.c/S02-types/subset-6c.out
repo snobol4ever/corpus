@@ -1,0 +1,188 @@
+1..51
+ok 1 - Can assign value to a type variable with subset
+# Subtest: Can't assign value that violates type constraint via subset
+    1..2
+    ok 1 - 'my Even $x = 3' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 2 - Can't assign value that violates type constraint via subset
+# Subtest: Cannot instantiate a subtype
+    1..2
+    ok 1 - 'Even.new' died
+    ok 2 - right exception type (Exception)
+ok 3 - Cannot instantiate a subtype
+ok 4 - Can smartmatch against subsets 1
+ok 5 - Can smartmatch against subsets 2
+ok 6 - Can assign to var with 'subset' type constraint
+ok 7 - one end of range
+ok 8 - other end of range
+# Subtest: type constraints prevents assignment 1
+    1..2
+    ok 1 - 'my Digit $x = 10' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 9 - type constraints prevents assignment 1
+# Subtest: type constraints prevents assignment 2
+    1..2
+    ok 1 - 'my Digit $x = -1' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 10 - type constraints prevents assignment 2
+# Subtest: original type prevents assignment
+    1..2
+    ok 1 - 'my Digit $x = 3.1' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 11 - original type prevents assignment
+ok 12 - can create subset of hash
+ok 13 - can create subset of hash with where
+# Subtest: subset of hash with where enforces where clause
+    1..2
+    ok 1 - 'my Person $p = { :first<Charlie>, :last<Delta> }' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 14 - subset of hash with where enforces where clause
+ok 15 - can create subset of array
+ok 16 - can create subset of array with where
+# Subtest: subset of array with where enforces where clause
+    1..2
+    ok 1 - 'my NumArray $n = <Echo 2>' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 17 - subset of array with where enforces where clause
+ok 18 - can create subset of pair
+ok 19 - can create subset of Pair with where
+# Subtest: subset of pair with where enforces where clause
+    1..2
+    ok 1 - 'my Ordered $o = 42 => 23' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 20 - subset of pair with where enforces where clause
+ok 21 - assignment to my subset of Str where pattern worked
+# Subtest: my subset of Str where pattern enforces pattern
+    1..2
+    ok 1 - ' $text = 'oops' ' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 22 - my subset of Str where pattern enforces pattern
+ok 23 - assignment to subset of Str where pattern worked
+# Subtest: subset of Str where pattern enforces pattern
+    1..2
+    ok 1 - ' $text = 'oops' ' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 24 - subset of Str where pattern enforces pattern
+ok 25 - subset of Int enforces where clause
+ok 26 - error for bad assignment mentions subset
+ok 27 - Nominal type is checked first
+ok 28 - and if nominal type check fails, it is False
+ok 29 - subset RT74234 of Mu + type check and assignment works
+ok 30 - can use subset that depends on lexical sub (1)
+ok 31 - can use subset that depends on lexical sub (2)
+ok 32 - can use subset that depends on lexical variable (1)
+ok 33 - can use subset that depends on lexical variable (2)
+ok 34 - subset with "::" in the name
+ok 35 - subset ... where any(...) (+)
+ok 36 - subset ... where any(...) (-)
+ok 37 - multi method with subset invocants do not magically find their way into the method dispatch
+ok 38 - where-constraint picks up the right lexical (+)
+# Subtest: where-constraint picks up the right lexical (-)
+    1..2
+    ok 1 - 'bar(1)' died
+    ok 2 - right exception type (Exception)
+ok 39 - where-constraint picks up the right lexical (-)
+ok 40 - subset conforms to Mu
+ok 41 - subset conforms to base type
+ok 42 - Mu does not conform to subset
+ok 43 - complicated subset combinations  \#74352
+ok 44 - subset constraint in attribute does not blow up optimizer dispatch analysis
+ok 45 - isa type
+ok 46 - isa type
+ok 47 - isa subset
+ok 48 - isa subset
+ok 49 - exclusive subsets
+# Subtest: Junction arguments to `where` parameters
+    1..6
+    # Subtest: implicit Mu, block, literal where
+        1..4
+        # Subtest: Junction, false
+            1..2
+            ok 1 - '-> $ where Int|Bool { }(none True)' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - Junction, false
+        # Subtest: other,    false
+            1..2
+            ok 1 - '-> $ where Int|Bool { }(2e0)' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - other,    false
+        ok 3 - Junction, true
+        ok 4 - other,    true
+    ok 1 - implicit Mu, block, literal where
+    # Subtest: subset, block
+        1..4
+        # Subtest: Junction, false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - Junction, false
+        # Subtest: other,    false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - other,    false
+        ok 3 - Junction, true
+        ok 4 - other,    true
+    ok 2 - subset, block
+    # Subtest: subset, block, literal where
+        1..4
+        # Subtest: Junction, false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - Junction, false
+        # Subtest: other,    false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - other,    false
+        ok 3 - Junction, true
+        ok 4 - other,    true
+    ok 3 - subset, block, literal where
+    # Subtest: implicit Any, sub, literal where
+        1..4
+        # Subtest: Junction, false
+            1..2
+            ok 1 - 'sub ($ where Int|Bool) { }(none 42e0)' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - Junction, false
+        # Subtest: other,    false
+            1..2
+            ok 1 - 'sub ($ where Int|Bool) { }(2e0)' died
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - other,    false
+        ok 3 - Junction, true
+        ok 4 - other,    true
+    ok 4 - implicit Any, sub, literal where
+    # Subtest: subset, sub
+        1..4
+        # Subtest: Junction, false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - Junction, false
+        # Subtest: other,    false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - other,    false
+        ok 3 - Junction, true
+        ok 4 - other,    true
+    ok 5 - subset, sub
+    # Subtest: subset, sub, literal where
+        1..4
+        # Subtest: Junction, false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 1 - Junction, false
+        # Subtest: other,    false
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+        ok 2 - other,    false
+        ok 3 - Junction, true
+        ok 4 - other,    true
+    ok 6 - subset, sub, literal where
+ok 50 - Junction arguments to `where` parameters
+ok 51 - subset with Code arity check in sub signature

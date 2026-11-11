@@ -1,0 +1,1803 @@
+1..1742
+ok 1 - Set (<) same
+ok 2 - Set (>) same
+ok 3 - SetHash (<) same
+ok 4 - SetHash (>) same
+ok 5 - SetHash (<) same
+ok 6 - SetHash (>) same
+ok 7 - Set (<) same
+ok 8 - Set (>) same
+ok 9 - SetHash (<) same
+ok 10 - SetHash (>) same
+ok 11 - Bag (<) same
+ok 12 - Bag (>) same
+ok 13 - BagHash (<) same
+ok 14 - BagHash (>) same
+ok 15 - BagHash (<) same
+ok 16 - BagHash (>) same
+ok 17 - Bag (<) same
+ok 18 - Bag (>) same
+ok 19 - BagHash (<) same
+ok 20 - BagHash (>) same
+ok 21 - Mix (<) same
+ok 22 - Mix (>) same
+ok 23 - MixHash (<) same
+ok 24 - MixHash (>) same
+ok 25 - MixHash (<) same
+ok 26 - MixHash (>) same
+ok 27 - Mix (<) same
+ok 28 - Mix (>) same
+ok 29 - MixHash (<) same
+ok 30 - MixHash (>) same
+ok 31 - Mix (<) same
+ok 32 - Mix (>) same
+ok 33 - MixHash (<) same
+ok 34 - MixHash (>) same
+ok 35 - Hash (<) same
+ok 36 - Hash (>) same
+ok 37 - Hash (<) same
+ok 38 - Hash (>) same
+ok 39 - Hash[Mu,Mu,Any] (<) same
+ok 40 - Hash[Mu,Mu,Any] (>) same
+ok 41 - Hash[Mu,Mu,Any] (<) same
+ok 42 - Hash[Mu,Mu,Any] (>) same
+ok 43 - List (<) same
+ok 44 - List (>) same
+ok 45 - List (<) same
+ok 46 - List (>) same
+ok 47 - Int (<) same
+ok 48 - Int (>) same
+ok 49 - Any (<) same
+ok 50 - Any (>) same
+ok 51 -  is (<) of Set
+ok 52 - Set (>) 
+ok 53 -  is (<) of Set
+ok 54 - Set (>) 
+ok 55 -  is (<) of Set
+ok 56 - Set (>) 
+ok 57 -  is (<) of Bag
+ok 58 - Bag (>) 
+ok 59 -  is (<) of Bag
+ok 60 - Bag (>) 
+ok 61 -  is (<) of Bag
+ok 62 - Bag (>) 
+ok 63 -  is (<) of Mix
+ok 64 - Mix (>) 
+ok 65 -  is (<) of Mix
+ok 66 - Mix (>) 
+ok 67 -  is (<) of Mix
+ok 68 - Mix (>) 
+ok 69 -  is (<) of Hash
+ok 70 - Hash (>) 
+ok 71 -  is (<) of Hash[Mu,Mu,Any]
+ok 72 - Hash[Mu,Mu,Any] (>) 
+ok 73 -  is (<) of List
+ok 74 - List (>) 
+ok 75 -  is (<) of Bag
+ok 76 - Bag (>) 
+ok 77 -  is (<) of Bag
+ok 78 - Bag (>) 
+ok 79 -  is (<) of Bag
+ok 80 - Bag (>) 
+ok 81 -  is (<) of Mix
+ok 82 - Mix (>) 
+ok 83 -  is (<) of Mix
+ok 84 - Mix (>) 
+ok 85 -  is (<) of Mix
+ok 86 - Mix (>) 
+ok 87 -  is (<) of Hash
+ok 88 - Hash (>) 
+ok 89 -  is (<) of Hash
+ok 90 - Hash (>) 
+ok 91 -  is (<) of Hash
+ok 92 - Hash (>) 
+ok 93 -  is (<) of Hash[Mu,Mu,Any]
+ok 94 - Hash[Mu,Mu,Any] (>) 
+ok 95 -  is (<) of Hash[Mu,Mu,Any]
+ok 96 - Hash[Mu,Mu,Any] (>) 
+ok 97 -  is (<) of Hash[Mu,Mu,Any]
+ok 98 - Hash[Mu,Mu,Any] (>) 
+ok 99 -  is (<) of List
+ok 100 - List (>) 
+ok 101 -  is (<) of List
+ok 102 - List (>) 
+ok 103 -  is (<) of List
+ok 104 - List (>) 
+ok 105 -  is (<) of Mix
+ok 106 - Mix (>) 
+ok 107 -  is (<) of Mix
+ok 108 - Mix (>) 
+ok 109 -  is (<) of Mix
+ok 110 - Mix (>) 
+ok 111 -  is (<) of Hash
+ok 112 - Hash (>) 
+ok 113 -  is (<) of Hash
+ok 114 - Hash (>) 
+ok 115 -  is (<) of Hash
+ok 116 - Hash (>) 
+ok 117 -  is (<) of Hash[Mu,Mu,Any]
+ok 118 - Hash[Mu,Mu,Any] (>) 
+ok 119 -  is (<) of Hash[Mu,Mu,Any]
+ok 120 - Hash[Mu,Mu,Any] (>) 
+ok 121 -  is (<) of Hash[Mu,Mu,Any]
+ok 122 - Hash[Mu,Mu,Any] (>) 
+ok 123 -  is (<) of List
+ok 124 - List (>) 
+ok 125 -  is (<) of List
+ok 126 - List (>) 
+ok 127 -  is (<) of List
+ok 128 - List (>) 
+ok 129 -  is (<) of Hash
+ok 130 - Hash (>) 
+ok 131 -  is (<) of Hash
+ok 132 - Hash (>) 
+ok 133 -  is (<) of Hash
+ok 134 - Hash (>) 
+ok 135 -  is (<) of Hash[Mu,Mu,Any]
+ok 136 - Hash[Mu,Mu,Any] (>) 
+ok 137 -  is (<) of Hash[Mu,Mu,Any]
+ok 138 - Hash[Mu,Mu,Any] (>) 
+ok 139 -  is (<) of Hash[Mu,Mu,Any]
+ok 140 - Hash[Mu,Mu,Any] (>) 
+ok 141 -  is (<) of List
+ok 142 - List (>) 
+ok 143 -  is (<) of List
+ok 144 - List (>) 
+ok 145 -  is (<) of List
+ok 146 - List (>) 
+ok 147 - a is (<) of Set
+ok 148 - Set (>) a
+ok 149 - a is (<) of Set
+ok 150 - Set (>) a
+ok 151 - a is (<) of Bag
+ok 152 - Bag (>) a
+ok 153 - a is (<) of Bag
+ok 154 - Bag (>) a
+ok 155 - a is (<) of Mix
+ok 156 - Mix (>) a
+ok 157 - a is (<) of Mix
+ok 158 - Mix (>) a
+ok 159 - a	0 is (<) of Hash
+ok 160 - Hash (>) a	0
+ok 161 - a	0 is (<) of Hash[Mu,Mu,Any]
+ok 162 - Hash[Mu,Mu,Any] (>) a	0
+ok 163 - a	True is (<) of Hash
+ok 164 - Hash (>) a	True
+ok 165 - a	True is (<) of Hash[Mu,Mu,Any]
+ok 166 - Hash[Mu,Mu,Any] (>) a	True
+ok 167 - a	0 is (<) of List
+ok 168 - List (>) a	0
+ok 169 - a is (<) of List
+ok 170 - List (>) a
+ok 171 - a is (<) of Bag
+ok 172 - Bag (>) a
+ok 173 - a is (<) of Bag
+ok 174 - Bag (>) a
+ok 175 - a is (<) of Mix
+ok 176 - Mix (>) a
+ok 177 - a is (<) of Mix
+ok 178 - Mix (>) a
+ok 179 - a is (<) of Hash
+ok 180 - Hash (>) a
+ok 181 - a is (<) of Hash
+ok 182 - Hash (>) a
+ok 183 - a is (<) of Hash[Mu,Mu,Any]
+ok 184 - Hash[Mu,Mu,Any] (>) a
+ok 185 - a is (<) of Hash[Mu,Mu,Any]
+ok 186 - Hash[Mu,Mu,Any] (>) a
+ok 187 - a is (<) of List
+ok 188 - List (>) a
+ok 189 - a is (<) of List
+ok 190 - List (>) a
+ok 191 - a is (<) of Mix
+ok 192 - Mix (>) a
+ok 193 - a is (<) of Mix
+ok 194 - Mix (>) a
+ok 195 - a is (<) of Hash
+ok 196 - Hash (>) a
+ok 197 - a is (<) of Hash
+ok 198 - Hash (>) a
+ok 199 - a is (<) of Hash[Mu,Mu,Any]
+ok 200 - Hash[Mu,Mu,Any] (>) a
+ok 201 - a is (<) of Hash[Mu,Mu,Any]
+ok 202 - Hash[Mu,Mu,Any] (>) a
+ok 203 - a is (<) of List
+ok 204 - List (>) a
+ok 205 - a is (<) of List
+ok 206 - List (>) a
+ok 207 - a is (<) of Hash
+ok 208 - Hash (>) a
+ok 209 - a is (<) of Hash
+ok 210 - Hash (>) a
+ok 211 - a is (<) of Hash[Mu,Mu,Any]
+ok 212 - Hash[Mu,Mu,Any] (>) a
+ok 213 - a is (<) of Hash[Mu,Mu,Any]
+ok 214 - Hash[Mu,Mu,Any] (>) a
+ok 215 - a is (<) of List
+ok 216 - List (>) a
+ok 217 - a is (<) of List
+ok 218 - List (>) a
+ok 219 - a is (<) of Bag
+ok 220 - Bag (>) a
+ok 221 - a is (<) of Bag
+ok 222 - Bag (>) a
+ok 223 - a is (<) of Mix
+ok 224 - Mix (>) a
+ok 225 - a is (<) of Mix
+ok 226 - Mix (>) a
+ok 227 - a(-1) is (<) of Mix
+ok 228 - Mix (>) a(-1)
+ok 229 - a(-1) is (<) of Mix
+ok 230 - Mix (>) a(-1)
+ok 231 - a(-1) is (<) of Mix
+ok 232 - Mix (>) a(-1)
+ok 233 - a(-1) is (<) of Mix
+ok 234 - Mix (>) a(-1)
+ok 235 - a(-2) is (<) of Mix
+ok 236 - Mix (>) a(-2)
+ok 237 - a(-2) is (<) of Mix
+ok 238 - Mix (>) a(-2)
+ok 239 - a is (<) of Mix
+ok 240 - Mix (>) a
+ok 241 - a is (<) of Mix
+ok 242 - Mix (>) a
+ok 243 -  is NOT (<) of Set
+ok 244 - Set NOT (>) 
+ok 245 -  is NOT (<) of Set
+ok 246 - Set NOT (>) 
+ok 247 -  is NOT (<) of SetHash
+ok 248 - SetHash NOT (>) 
+ok 249 -  is NOT (<) of Set
+ok 250 - Set NOT (>) 
+ok 251 -  is NOT (<) of SetHash
+ok 252 - SetHash NOT (>) 
+ok 253 -  is NOT (<) of Bag
+ok 254 - Bag NOT (>) 
+ok 255 -  is NOT (<) of Bag
+ok 256 - Bag NOT (>) 
+ok 257 -  is NOT (<) of BagHash
+ok 258 - BagHash NOT (>) 
+ok 259 -  is NOT (<) of Bag
+ok 260 - Bag NOT (>) 
+ok 261 -  is NOT (<) of BagHash
+ok 262 - BagHash NOT (>) 
+ok 263 -  is NOT (<) of Mix
+ok 264 - Mix NOT (>) 
+ok 265 -  is NOT (<) of Mix
+ok 266 - Mix NOT (>) 
+ok 267 -  is NOT (<) of MixHash
+ok 268 - MixHash NOT (>) 
+ok 269 -  is NOT (<) of Mix
+ok 270 - Mix NOT (>) 
+ok 271 -  is NOT (<) of MixHash
+ok 272 - MixHash NOT (>) 
+ok 273 -  is NOT (<) of Hash
+ok 274 - Hash NOT (>) 
+ok 275 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 276 - Hash[Mu,Mu,Any] NOT (>) 
+ok 277 -  is NOT (<) of List
+ok 278 - List NOT (>) 
+ok 279 -  is NOT (<) of Set
+ok 280 - Set NOT (>) 
+ok 281 -  is NOT (<) of Set
+ok 282 - Set NOT (>) 
+ok 283 -  is NOT (<) of Set
+ok 284 - Set NOT (>) 
+ok 285 -  is NOT (<) of Set
+ok 286 - Set NOT (>) 
+ok 287 -  is NOT (<) of Set
+ok 288 - Set NOT (>) 
+ok 289 -  is NOT (<) of Set
+ok 290 - Set NOT (>) 
+ok 291 -  is NOT (<) of Set
+ok 292 - Set NOT (>) 
+ok 293 -  is NOT (<) of Set
+ok 294 - Set NOT (>) 
+ok 295 -  is NOT (<) of Set
+ok 296 - Set NOT (>) 
+ok 297 -  is NOT (<) of Bag
+ok 298 - Bag NOT (>) 
+ok 299 -  is NOT (<) of Bag
+ok 300 - Bag NOT (>) 
+ok 301 -  is NOT (<) of Bag
+ok 302 - Bag NOT (>) 
+ok 303 -  is NOT (<) of Bag
+ok 304 - Bag NOT (>) 
+ok 305 -  is NOT (<) of Bag
+ok 306 - Bag NOT (>) 
+ok 307 -  is NOT (<) of Bag
+ok 308 - Bag NOT (>) 
+ok 309 -  is NOT (<) of Set
+ok 310 - Set NOT (>) 
+ok 311 -  is NOT (<) of Set
+ok 312 - Set NOT (>) 
+ok 313 -  is NOT (<) of Set
+ok 314 - Set NOT (>) 
+ok 315 -  is NOT (<) of Bag
+ok 316 - Bag NOT (>) 
+ok 317 -  is NOT (<) of Bag
+ok 318 - Bag NOT (>) 
+ok 319 -  is NOT (<) of Bag
+ok 320 - Bag NOT (>) 
+ok 321 -  is NOT (<) of Mix
+ok 322 - Mix NOT (>) 
+ok 323 -  is NOT (<) of Mix
+ok 324 - Mix NOT (>) 
+ok 325 -  is NOT (<) of Mix
+ok 326 - Mix NOT (>) 
+ok 327 -  is NOT (<) of Hash
+ok 328 - Hash NOT (>) 
+ok 329 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 330 - Hash[Mu,Mu,Any] NOT (>) 
+ok 331 -  is NOT (<) of List
+ok 332 - List NOT (>) 
+ok 333 -  is NOT (<) of Bag
+ok 334 - Bag NOT (>) 
+ok 335 -  is NOT (<) of Bag
+ok 336 - Bag NOT (>) 
+ok 337 -  is NOT (<) of Bag
+ok 338 - Bag NOT (>) 
+ok 339 -  is NOT (<) of Mix
+ok 340 - Mix NOT (>) 
+ok 341 -  is NOT (<) of Mix
+ok 342 - Mix NOT (>) 
+ok 343 -  is NOT (<) of Mix
+ok 344 - Mix NOT (>) 
+ok 345 -  is NOT (<) of Hash
+ok 346 - Hash NOT (>) 
+ok 347 -  is NOT (<) of Hash
+ok 348 - Hash NOT (>) 
+ok 349 -  is NOT (<) of Hash
+ok 350 - Hash NOT (>) 
+ok 351 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 352 - Hash[Mu,Mu,Any] NOT (>) 
+ok 353 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 354 - Hash[Mu,Mu,Any] NOT (>) 
+ok 355 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 356 - Hash[Mu,Mu,Any] NOT (>) 
+ok 357 -  is NOT (<) of List
+ok 358 - List NOT (>) 
+ok 359 -  is NOT (<) of List
+ok 360 - List NOT (>) 
+ok 361 -  is NOT (<) of List
+ok 362 - List NOT (>) 
+ok 363 -  is NOT (<) of Mix
+ok 364 - Mix NOT (>) 
+ok 365 -  is NOT (<) of Mix
+ok 366 - Mix NOT (>) 
+ok 367 -  is NOT (<) of Mix
+ok 368 - Mix NOT (>) 
+ok 369 -  is NOT (<) of Hash
+ok 370 - Hash NOT (>) 
+ok 371 -  is NOT (<) of Hash
+ok 372 - Hash NOT (>) 
+ok 373 -  is NOT (<) of Hash
+ok 374 - Hash NOT (>) 
+ok 375 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 376 - Hash[Mu,Mu,Any] NOT (>) 
+ok 377 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 378 - Hash[Mu,Mu,Any] NOT (>) 
+ok 379 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 380 - Hash[Mu,Mu,Any] NOT (>) 
+ok 381 -  is NOT (<) of List
+ok 382 - List NOT (>) 
+ok 383 -  is NOT (<) of List
+ok 384 - List NOT (>) 
+ok 385 -  is NOT (<) of List
+ok 386 - List NOT (>) 
+ok 387 -  is NOT (<) of Hash
+ok 388 - Hash NOT (>) 
+ok 389 -  is NOT (<) of Hash
+ok 390 - Hash NOT (>) 
+ok 391 -  is NOT (<) of Hash
+ok 392 - Hash NOT (>) 
+ok 393 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 394 - Hash[Mu,Mu,Any] NOT (>) 
+ok 395 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 396 - Hash[Mu,Mu,Any] NOT (>) 
+ok 397 -  is NOT (<) of Hash[Mu,Mu,Any]
+ok 398 - Hash[Mu,Mu,Any] NOT (>) 
+ok 399 -  is NOT (<) of List
+ok 400 - List NOT (>) 
+ok 401 -  is NOT (<) of List
+ok 402 - List NOT (>) 
+ok 403 -  is NOT (<) of List
+ok 404 - List NOT (>) 
+ok 405 - a is NOT (<) of Set
+ok 406 - Set NOT (>) a
+ok 407 - a is NOT (<) of Set
+ok 408 - Set NOT (>) a
+ok 409 - a is NOT (<) of Bag
+ok 410 - Bag NOT (>) a
+ok 411 - a is NOT (<) of Bag
+ok 412 - Bag NOT (>) a
+ok 413 - a is NOT (<) of Mix
+ok 414 - Mix NOT (>) a
+ok 415 - a is NOT (<) of Mix
+ok 416 - Mix NOT (>) a
+ok 417 - a	0 is NOT (<) of Hash
+ok 418 - Hash NOT (>) a	0
+ok 419 - a	0 is NOT (<) of Hash[Mu,Mu,Any]
+ok 420 - Hash[Mu,Mu,Any] NOT (>) a	0
+ok 421 - a	True is NOT (<) of Hash
+ok 422 - Hash NOT (>) a	True
+ok 423 - a	True
+# b	0 is NOT (<) of Hash
+ok 424 - Hash NOT (>) a	True
+# b	0
+ok 425 - a	True is NOT (<) of Hash[Mu,Mu,Any]
+ok 426 - Hash[Mu,Mu,Any] NOT (>) a	True
+ok 427 - a	True
+# b	0 is NOT (<) of Hash[Mu,Mu,Any]
+ok 428 - Hash[Mu,Mu,Any] NOT (>) a	True
+# b	0
+ok 429 - a is NOT (<) of List
+ok 430 - List NOT (>) a
+ok 431 - a b	0 is NOT (<) of List
+ok 432 - List NOT (>) a b	0
+ok 433 - a is NOT (<) of Set
+ok 434 - Set NOT (>) a
+ok 435 - a is NOT (<) of SetHash
+ok 436 - SetHash NOT (>) a
+ok 437 - a is NOT (<) of Set
+ok 438 - Set NOT (>) a
+ok 439 - a is NOT (<) of SetHash
+ok 440 - SetHash NOT (>) a
+ok 441 - a	True is NOT (<) of Set
+ok 442 - Set NOT (>) a	True
+ok 443 - a	True is NOT (<) of SetHash
+ok 444 - SetHash NOT (>) a	True
+ok 445 - a	True is NOT (<) of Set
+ok 446 - Set NOT (>) a	True
+ok 447 - a	True is NOT (<) of SetHash
+ok 448 - SetHash NOT (>) a	True
+ok 449 - a is NOT (<) of Set
+ok 450 - Set NOT (>) a
+ok 451 - a is NOT (<) of SetHash
+ok 452 - SetHash NOT (>) a
+ok 453 - a is NOT (<) of Bag
+ok 454 - Bag NOT (>) a
+ok 455 - a is NOT (<) of BagHash
+ok 456 - BagHash NOT (>) a
+ok 457 - a	True is NOT (<) of Bag
+ok 458 - Bag NOT (>) a	True
+ok 459 - a	True is NOT (<) of BagHash
+ok 460 - BagHash NOT (>) a	True
+ok 461 - a	True is NOT (<) of Bag
+ok 462 - Bag NOT (>) a	True
+ok 463 - a	True is NOT (<) of BagHash
+ok 464 - BagHash NOT (>) a	True
+ok 465 - a is NOT (<) of Bag
+ok 466 - Bag NOT (>) a
+ok 467 - a is NOT (<) of BagHash
+ok 468 - BagHash NOT (>) a
+ok 469 - a	True is NOT (<) of Mix
+ok 470 - Mix NOT (>) a	True
+ok 471 - a	True is NOT (<) of MixHash
+ok 472 - MixHash NOT (>) a	True
+ok 473 - a	True is NOT (<) of Mix
+ok 474 - Mix NOT (>) a	True
+ok 475 - a	True is NOT (<) of MixHash
+ok 476 - MixHash NOT (>) a	True
+ok 477 - a is NOT (<) of Mix
+ok 478 - Mix NOT (>) a
+ok 479 - a is NOT (<) of MixHash
+ok 480 - MixHash NOT (>) a
+ok 481 - a is NOT (<) of Bag
+ok 482 - Bag NOT (>) a
+ok 483 - a is NOT (<) of Bag
+ok 484 - Bag NOT (>) a
+ok 485 - a is NOT (<) of Mix
+ok 486 - Mix NOT (>) a
+ok 487 - a is NOT (<) of Mix
+ok 488 - Mix NOT (>) a
+ok 489 - a(-1) is NOT (<) of Mix
+ok 490 - Mix NOT (>) a(-1)
+ok 491 - a(-1) is NOT (<) of Mix
+ok 492 - Mix NOT (>) a(-1)
+ok 493 - a(-1) is NOT (<) of Mix
+ok 494 - Mix NOT (>) a(-1)
+ok 495 - a(-1) is NOT (<) of Mix
+ok 496 - Mix NOT (>) a(-1)
+ok 497 - a(-2) is NOT (<) of Mix
+ok 498 - Mix NOT (>) a(-2)
+ok 499 - a(-2) is NOT (<) of Mix
+ok 500 - Mix NOT (>) a(-2)
+ok 501 - a is NOT (<) of Bag
+ok 502 - Bag NOT (>) a
+ok 503 - a is NOT (<) of Bag
+ok 504 - Bag NOT (>) a
+ok 505 - a is NOT (<) of Set
+ok 506 - Set NOT (>) a
+ok 507 - a is NOT (<) of SetHash
+ok 508 - SetHash NOT (>) a
+ok 509 - a	True is NOT (<) of Hash
+ok 510 - Hash NOT (>) a	True
+ok 511 - a	True is NOT (<) of Hash[Mu,Mu,Any]
+ok 512 - Hash[Mu,Mu,Any] NOT (>) a	True
+ok 513 - a is NOT (<) of Set
+ok 514 - Set NOT (>) a
+ok 515 - a is NOT (<) of SetHash
+ok 516 - SetHash NOT (>) a
+ok 517 - a is NOT (<) of Set
+ok 518 - Set NOT (>) a
+ok 519 - a is NOT (<) of SetHash
+ok 520 - SetHash NOT (>) a
+ok 521 - a	True is NOT (<) of Set
+ok 522 - Set NOT (>) a	True
+ok 523 - a	True is NOT (<) of SetHash
+ok 524 - SetHash NOT (>) a	True
+ok 525 - a	True is NOT (<) of Set
+ok 526 - Set NOT (>) a	True
+ok 527 - a	True is NOT (<) of SetHash
+ok 528 - SetHash NOT (>) a	True
+ok 529 - a is NOT (<) of Set
+ok 530 - Set NOT (>) a
+ok 531 - a is NOT (<) of SetHash
+ok 532 - SetHash NOT (>) a
+ok 533 - a is NOT (<) of Bag
+ok 534 - Bag NOT (>) a
+ok 535 - a is NOT (<) of BagHash
+ok 536 - BagHash NOT (>) a
+ok 537 - a	True is NOT (<) of Bag
+ok 538 - Bag NOT (>) a	True
+ok 539 - a	True is NOT (<) of BagHash
+ok 540 - BagHash NOT (>) a	True
+ok 541 - a	True is NOT (<) of Bag
+ok 542 - Bag NOT (>) a	True
+ok 543 - a	True is NOT (<) of BagHash
+ok 544 - BagHash NOT (>) a	True
+ok 545 - a is NOT (<) of Bag
+ok 546 - Bag NOT (>) a
+ok 547 - a is NOT (<) of BagHash
+ok 548 - BagHash NOT (>) a
+ok 549 - a	True is NOT (<) of Mix
+ok 550 - Mix NOT (>) a	True
+ok 551 - a	True is NOT (<) of MixHash
+ok 552 - MixHash NOT (>) a	True
+ok 553 - a	True is NOT (<) of Mix
+ok 554 - Mix NOT (>) a	True
+ok 555 - a	True is NOT (<) of MixHash
+ok 556 - MixHash NOT (>) a	True
+ok 557 - a is NOT (<) of Mix
+ok 558 - Mix NOT (>) a
+ok 559 - a is NOT (<) of MixHash
+ok 560 - MixHash NOT (>) a
+ok 561 - a is NOT (<) of Bag
+ok 562 - Bag NOT (>) a
+ok 563 - a is NOT (<) of BagHash
+ok 564 - BagHash NOT (>) a
+ok 565 - a is NOT (<) of Mix
+ok 566 - Mix NOT (>) a
+ok 567 - a is NOT (<) of MixHash
+ok 568 - MixHash NOT (>) a
+ok 569 - a(-1) is NOT (<) of Mix
+ok 570 - Mix NOT (>) a(-1)
+ok 571 - a(-1) is NOT (<) of MixHash
+ok 572 - MixHash NOT (>) a(-1)
+ok 573 - a is NOT (<) of Bag
+ok 574 - Bag NOT (>) a
+ok 575 - a is NOT (<) of BagHash
+ok 576 - BagHash NOT (>) a
+# Subtest: (<) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 577 - (<) with a Failure:D on the RHS throws
+# Subtest: (<) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 578 - (<) with a Failure:D on the LHS throws
+# Subtest: (>) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 579 - (>) with a Failure:D on the RHS throws
+# Subtest: (>) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 580 - (>) with a Failure:D on the LHS throws
+ok 581 - Set ⊂ same
+ok 582 - Set ⊃ same
+ok 583 - SetHash ⊂ same
+ok 584 - SetHash ⊃ same
+ok 585 - SetHash ⊂ same
+ok 586 - SetHash ⊃ same
+ok 587 - Set ⊂ same
+ok 588 - Set ⊃ same
+ok 589 - SetHash ⊂ same
+ok 590 - SetHash ⊃ same
+ok 591 - Bag ⊂ same
+ok 592 - Bag ⊃ same
+ok 593 - BagHash ⊂ same
+ok 594 - BagHash ⊃ same
+ok 595 - BagHash ⊂ same
+ok 596 - BagHash ⊃ same
+ok 597 - Bag ⊂ same
+ok 598 - Bag ⊃ same
+ok 599 - BagHash ⊂ same
+ok 600 - BagHash ⊃ same
+ok 601 - Mix ⊂ same
+ok 602 - Mix ⊃ same
+ok 603 - MixHash ⊂ same
+ok 604 - MixHash ⊃ same
+ok 605 - MixHash ⊂ same
+ok 606 - MixHash ⊃ same
+ok 607 - Mix ⊂ same
+ok 608 - Mix ⊃ same
+ok 609 - MixHash ⊂ same
+ok 610 - MixHash ⊃ same
+ok 611 - Mix ⊂ same
+ok 612 - Mix ⊃ same
+ok 613 - MixHash ⊂ same
+ok 614 - MixHash ⊃ same
+ok 615 - Hash ⊂ same
+ok 616 - Hash ⊃ same
+ok 617 - Hash ⊂ same
+ok 618 - Hash ⊃ same
+ok 619 - Hash[Mu,Mu,Any] ⊂ same
+ok 620 - Hash[Mu,Mu,Any] ⊃ same
+ok 621 - Hash[Mu,Mu,Any] ⊂ same
+ok 622 - Hash[Mu,Mu,Any] ⊃ same
+ok 623 - List ⊂ same
+ok 624 - List ⊃ same
+ok 625 - List ⊂ same
+ok 626 - List ⊃ same
+ok 627 - Int ⊂ same
+ok 628 - Int ⊃ same
+ok 629 - Any ⊂ same
+ok 630 - Any ⊃ same
+ok 631 -  is ⊂ of Set
+ok 632 - Set ⊃ 
+ok 633 -  is ⊂ of Set
+ok 634 - Set ⊃ 
+ok 635 -  is ⊂ of Set
+ok 636 - Set ⊃ 
+ok 637 -  is ⊂ of Bag
+ok 638 - Bag ⊃ 
+ok 639 -  is ⊂ of Bag
+ok 640 - Bag ⊃ 
+ok 641 -  is ⊂ of Bag
+ok 642 - Bag ⊃ 
+ok 643 -  is ⊂ of Mix
+ok 644 - Mix ⊃ 
+ok 645 -  is ⊂ of Mix
+ok 646 - Mix ⊃ 
+ok 647 -  is ⊂ of Mix
+ok 648 - Mix ⊃ 
+ok 649 -  is ⊂ of Hash
+ok 650 - Hash ⊃ 
+ok 651 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 652 - Hash[Mu,Mu,Any] ⊃ 
+ok 653 -  is ⊂ of List
+ok 654 - List ⊃ 
+ok 655 -  is ⊂ of Bag
+ok 656 - Bag ⊃ 
+ok 657 -  is ⊂ of Bag
+ok 658 - Bag ⊃ 
+ok 659 -  is ⊂ of Bag
+ok 660 - Bag ⊃ 
+ok 661 -  is ⊂ of Mix
+ok 662 - Mix ⊃ 
+ok 663 -  is ⊂ of Mix
+ok 664 - Mix ⊃ 
+ok 665 -  is ⊂ of Mix
+ok 666 - Mix ⊃ 
+ok 667 -  is ⊂ of Hash
+ok 668 - Hash ⊃ 
+ok 669 -  is ⊂ of Hash
+ok 670 - Hash ⊃ 
+ok 671 -  is ⊂ of Hash
+ok 672 - Hash ⊃ 
+ok 673 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 674 - Hash[Mu,Mu,Any] ⊃ 
+ok 675 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 676 - Hash[Mu,Mu,Any] ⊃ 
+ok 677 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 678 - Hash[Mu,Mu,Any] ⊃ 
+ok 679 -  is ⊂ of List
+ok 680 - List ⊃ 
+ok 681 -  is ⊂ of List
+ok 682 - List ⊃ 
+ok 683 -  is ⊂ of List
+ok 684 - List ⊃ 
+ok 685 -  is ⊂ of Mix
+ok 686 - Mix ⊃ 
+ok 687 -  is ⊂ of Mix
+ok 688 - Mix ⊃ 
+ok 689 -  is ⊂ of Mix
+ok 690 - Mix ⊃ 
+ok 691 -  is ⊂ of Hash
+ok 692 - Hash ⊃ 
+ok 693 -  is ⊂ of Hash
+ok 694 - Hash ⊃ 
+ok 695 -  is ⊂ of Hash
+ok 696 - Hash ⊃ 
+ok 697 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 698 - Hash[Mu,Mu,Any] ⊃ 
+ok 699 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 700 - Hash[Mu,Mu,Any] ⊃ 
+ok 701 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 702 - Hash[Mu,Mu,Any] ⊃ 
+ok 703 -  is ⊂ of List
+ok 704 - List ⊃ 
+ok 705 -  is ⊂ of List
+ok 706 - List ⊃ 
+ok 707 -  is ⊂ of List
+ok 708 - List ⊃ 
+ok 709 -  is ⊂ of Hash
+ok 710 - Hash ⊃ 
+ok 711 -  is ⊂ of Hash
+ok 712 - Hash ⊃ 
+ok 713 -  is ⊂ of Hash
+ok 714 - Hash ⊃ 
+ok 715 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 716 - Hash[Mu,Mu,Any] ⊃ 
+ok 717 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 718 - Hash[Mu,Mu,Any] ⊃ 
+ok 719 -  is ⊂ of Hash[Mu,Mu,Any]
+ok 720 - Hash[Mu,Mu,Any] ⊃ 
+ok 721 -  is ⊂ of List
+ok 722 - List ⊃ 
+ok 723 -  is ⊂ of List
+ok 724 - List ⊃ 
+ok 725 -  is ⊂ of List
+ok 726 - List ⊃ 
+ok 727 - a is ⊂ of Set
+ok 728 - Set ⊃ a
+ok 729 - a is ⊂ of Set
+ok 730 - Set ⊃ a
+ok 731 - a is ⊂ of Bag
+ok 732 - Bag ⊃ a
+ok 733 - a is ⊂ of Bag
+ok 734 - Bag ⊃ a
+ok 735 - a is ⊂ of Mix
+ok 736 - Mix ⊃ a
+ok 737 - a is ⊂ of Mix
+ok 738 - Mix ⊃ a
+ok 739 - a	0 is ⊂ of Hash
+ok 740 - Hash ⊃ a	0
+ok 741 - a	0 is ⊂ of Hash[Mu,Mu,Any]
+ok 742 - Hash[Mu,Mu,Any] ⊃ a	0
+ok 743 - a	True is ⊂ of Hash
+ok 744 - Hash ⊃ a	True
+ok 745 - a	True is ⊂ of Hash[Mu,Mu,Any]
+ok 746 - Hash[Mu,Mu,Any] ⊃ a	True
+ok 747 - a	0 is ⊂ of List
+ok 748 - List ⊃ a	0
+ok 749 - a is ⊂ of List
+ok 750 - List ⊃ a
+ok 751 - a is ⊂ of Bag
+ok 752 - Bag ⊃ a
+ok 753 - a is ⊂ of Bag
+ok 754 - Bag ⊃ a
+ok 755 - a is ⊂ of Mix
+ok 756 - Mix ⊃ a
+ok 757 - a is ⊂ of Mix
+ok 758 - Mix ⊃ a
+ok 759 - a is ⊂ of Hash
+ok 760 - Hash ⊃ a
+ok 761 - a is ⊂ of Hash
+ok 762 - Hash ⊃ a
+ok 763 - a is ⊂ of Hash[Mu,Mu,Any]
+ok 764 - Hash[Mu,Mu,Any] ⊃ a
+ok 765 - a is ⊂ of Hash[Mu,Mu,Any]
+ok 766 - Hash[Mu,Mu,Any] ⊃ a
+ok 767 - a is ⊂ of List
+ok 768 - List ⊃ a
+ok 769 - a is ⊂ of List
+ok 770 - List ⊃ a
+ok 771 - a is ⊂ of Mix
+ok 772 - Mix ⊃ a
+ok 773 - a is ⊂ of Mix
+ok 774 - Mix ⊃ a
+ok 775 - a is ⊂ of Hash
+ok 776 - Hash ⊃ a
+ok 777 - a is ⊂ of Hash
+ok 778 - Hash ⊃ a
+ok 779 - a is ⊂ of Hash[Mu,Mu,Any]
+ok 780 - Hash[Mu,Mu,Any] ⊃ a
+ok 781 - a is ⊂ of Hash[Mu,Mu,Any]
+ok 782 - Hash[Mu,Mu,Any] ⊃ a
+ok 783 - a is ⊂ of List
+ok 784 - List ⊃ a
+ok 785 - a is ⊂ of List
+ok 786 - List ⊃ a
+ok 787 - a is ⊂ of Hash
+ok 788 - Hash ⊃ a
+ok 789 - a is ⊂ of Hash
+ok 790 - Hash ⊃ a
+ok 791 - a is ⊂ of Hash[Mu,Mu,Any]
+ok 792 - Hash[Mu,Mu,Any] ⊃ a
+ok 793 - a is ⊂ of Hash[Mu,Mu,Any]
+ok 794 - Hash[Mu,Mu,Any] ⊃ a
+ok 795 - a is ⊂ of List
+ok 796 - List ⊃ a
+ok 797 - a is ⊂ of List
+ok 798 - List ⊃ a
+ok 799 - a is ⊂ of Bag
+ok 800 - Bag ⊃ a
+ok 801 - a is ⊂ of Bag
+ok 802 - Bag ⊃ a
+ok 803 - a is ⊂ of Mix
+ok 804 - Mix ⊃ a
+ok 805 - a is ⊂ of Mix
+ok 806 - Mix ⊃ a
+ok 807 - a(-1) is ⊂ of Mix
+ok 808 - Mix ⊃ a(-1)
+ok 809 - a(-1) is ⊂ of Mix
+ok 810 - Mix ⊃ a(-1)
+ok 811 - a(-1) is ⊂ of Mix
+ok 812 - Mix ⊃ a(-1)
+ok 813 - a(-1) is ⊂ of Mix
+ok 814 - Mix ⊃ a(-1)
+ok 815 - a(-2) is ⊂ of Mix
+ok 816 - Mix ⊃ a(-2)
+ok 817 - a(-2) is ⊂ of Mix
+ok 818 - Mix ⊃ a(-2)
+ok 819 - a is ⊂ of Mix
+ok 820 - Mix ⊃ a
+ok 821 - a is ⊂ of Mix
+ok 822 - Mix ⊃ a
+ok 823 -  is NOT ⊂ of Set
+ok 824 - Set NOT ⊃ 
+ok 825 -  is NOT ⊂ of Set
+ok 826 - Set NOT ⊃ 
+ok 827 -  is NOT ⊂ of SetHash
+ok 828 - SetHash NOT ⊃ 
+ok 829 -  is NOT ⊂ of Set
+ok 830 - Set NOT ⊃ 
+ok 831 -  is NOT ⊂ of SetHash
+ok 832 - SetHash NOT ⊃ 
+ok 833 -  is NOT ⊂ of Bag
+ok 834 - Bag NOT ⊃ 
+ok 835 -  is NOT ⊂ of Bag
+ok 836 - Bag NOT ⊃ 
+ok 837 -  is NOT ⊂ of BagHash
+ok 838 - BagHash NOT ⊃ 
+ok 839 -  is NOT ⊂ of Bag
+ok 840 - Bag NOT ⊃ 
+ok 841 -  is NOT ⊂ of BagHash
+ok 842 - BagHash NOT ⊃ 
+ok 843 -  is NOT ⊂ of Mix
+ok 844 - Mix NOT ⊃ 
+ok 845 -  is NOT ⊂ of Mix
+ok 846 - Mix NOT ⊃ 
+ok 847 -  is NOT ⊂ of MixHash
+ok 848 - MixHash NOT ⊃ 
+ok 849 -  is NOT ⊂ of Mix
+ok 850 - Mix NOT ⊃ 
+ok 851 -  is NOT ⊂ of MixHash
+ok 852 - MixHash NOT ⊃ 
+ok 853 -  is NOT ⊂ of Hash
+ok 854 - Hash NOT ⊃ 
+ok 855 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 856 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 857 -  is NOT ⊂ of List
+ok 858 - List NOT ⊃ 
+ok 859 -  is NOT ⊂ of Set
+ok 860 - Set NOT ⊃ 
+ok 861 -  is NOT ⊂ of Set
+ok 862 - Set NOT ⊃ 
+ok 863 -  is NOT ⊂ of Set
+ok 864 - Set NOT ⊃ 
+ok 865 -  is NOT ⊂ of Set
+ok 866 - Set NOT ⊃ 
+ok 867 -  is NOT ⊂ of Set
+ok 868 - Set NOT ⊃ 
+ok 869 -  is NOT ⊂ of Set
+ok 870 - Set NOT ⊃ 
+ok 871 -  is NOT ⊂ of Set
+ok 872 - Set NOT ⊃ 
+ok 873 -  is NOT ⊂ of Set
+ok 874 - Set NOT ⊃ 
+ok 875 -  is NOT ⊂ of Set
+ok 876 - Set NOT ⊃ 
+ok 877 -  is NOT ⊂ of Bag
+ok 878 - Bag NOT ⊃ 
+ok 879 -  is NOT ⊂ of Bag
+ok 880 - Bag NOT ⊃ 
+ok 881 -  is NOT ⊂ of Bag
+ok 882 - Bag NOT ⊃ 
+ok 883 -  is NOT ⊂ of Bag
+ok 884 - Bag NOT ⊃ 
+ok 885 -  is NOT ⊂ of Bag
+ok 886 - Bag NOT ⊃ 
+ok 887 -  is NOT ⊂ of Bag
+ok 888 - Bag NOT ⊃ 
+ok 889 -  is NOT ⊂ of Set
+ok 890 - Set NOT ⊃ 
+ok 891 -  is NOT ⊂ of Set
+ok 892 - Set NOT ⊃ 
+ok 893 -  is NOT ⊂ of Set
+ok 894 - Set NOT ⊃ 
+ok 895 -  is NOT ⊂ of Bag
+ok 896 - Bag NOT ⊃ 
+ok 897 -  is NOT ⊂ of Bag
+ok 898 - Bag NOT ⊃ 
+ok 899 -  is NOT ⊂ of Bag
+ok 900 - Bag NOT ⊃ 
+ok 901 -  is NOT ⊂ of Mix
+ok 902 - Mix NOT ⊃ 
+ok 903 -  is NOT ⊂ of Mix
+ok 904 - Mix NOT ⊃ 
+ok 905 -  is NOT ⊂ of Mix
+ok 906 - Mix NOT ⊃ 
+ok 907 -  is NOT ⊂ of Hash
+ok 908 - Hash NOT ⊃ 
+ok 909 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 910 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 911 -  is NOT ⊂ of List
+ok 912 - List NOT ⊃ 
+ok 913 -  is NOT ⊂ of Bag
+ok 914 - Bag NOT ⊃ 
+ok 915 -  is NOT ⊂ of Bag
+ok 916 - Bag NOT ⊃ 
+ok 917 -  is NOT ⊂ of Bag
+ok 918 - Bag NOT ⊃ 
+ok 919 -  is NOT ⊂ of Mix
+ok 920 - Mix NOT ⊃ 
+ok 921 -  is NOT ⊂ of Mix
+ok 922 - Mix NOT ⊃ 
+ok 923 -  is NOT ⊂ of Mix
+ok 924 - Mix NOT ⊃ 
+ok 925 -  is NOT ⊂ of Hash
+ok 926 - Hash NOT ⊃ 
+ok 927 -  is NOT ⊂ of Hash
+ok 928 - Hash NOT ⊃ 
+ok 929 -  is NOT ⊂ of Hash
+ok 930 - Hash NOT ⊃ 
+ok 931 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 932 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 933 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 934 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 935 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 936 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 937 -  is NOT ⊂ of List
+ok 938 - List NOT ⊃ 
+ok 939 -  is NOT ⊂ of List
+ok 940 - List NOT ⊃ 
+ok 941 -  is NOT ⊂ of List
+ok 942 - List NOT ⊃ 
+ok 943 -  is NOT ⊂ of Mix
+ok 944 - Mix NOT ⊃ 
+ok 945 -  is NOT ⊂ of Mix
+ok 946 - Mix NOT ⊃ 
+ok 947 -  is NOT ⊂ of Mix
+ok 948 - Mix NOT ⊃ 
+ok 949 -  is NOT ⊂ of Hash
+ok 950 - Hash NOT ⊃ 
+ok 951 -  is NOT ⊂ of Hash
+ok 952 - Hash NOT ⊃ 
+ok 953 -  is NOT ⊂ of Hash
+ok 954 - Hash NOT ⊃ 
+ok 955 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 956 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 957 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 958 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 959 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 960 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 961 -  is NOT ⊂ of List
+ok 962 - List NOT ⊃ 
+ok 963 -  is NOT ⊂ of List
+ok 964 - List NOT ⊃ 
+ok 965 -  is NOT ⊂ of List
+ok 966 - List NOT ⊃ 
+ok 967 -  is NOT ⊂ of Hash
+ok 968 - Hash NOT ⊃ 
+ok 969 -  is NOT ⊂ of Hash
+ok 970 - Hash NOT ⊃ 
+ok 971 -  is NOT ⊂ of Hash
+ok 972 - Hash NOT ⊃ 
+ok 973 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 974 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 975 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 976 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 977 -  is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 978 - Hash[Mu,Mu,Any] NOT ⊃ 
+ok 979 -  is NOT ⊂ of List
+ok 980 - List NOT ⊃ 
+ok 981 -  is NOT ⊂ of List
+ok 982 - List NOT ⊃ 
+ok 983 -  is NOT ⊂ of List
+ok 984 - List NOT ⊃ 
+ok 985 - a is NOT ⊂ of Set
+ok 986 - Set NOT ⊃ a
+ok 987 - a is NOT ⊂ of Set
+ok 988 - Set NOT ⊃ a
+ok 989 - a is NOT ⊂ of Bag
+ok 990 - Bag NOT ⊃ a
+ok 991 - a is NOT ⊂ of Bag
+ok 992 - Bag NOT ⊃ a
+ok 993 - a is NOT ⊂ of Mix
+ok 994 - Mix NOT ⊃ a
+ok 995 - a is NOT ⊂ of Mix
+ok 996 - Mix NOT ⊃ a
+ok 997 - a	0 is NOT ⊂ of Hash
+ok 998 - Hash NOT ⊃ a	0
+ok 999 - a	0 is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 1000 - Hash[Mu,Mu,Any] NOT ⊃ a	0
+ok 1001 - a	True is NOT ⊂ of Hash
+ok 1002 - Hash NOT ⊃ a	True
+ok 1003 - a	True
+# b	0 is NOT ⊂ of Hash
+ok 1004 - Hash NOT ⊃ a	True
+# b	0
+ok 1005 - a	True is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 1006 - Hash[Mu,Mu,Any] NOT ⊃ a	True
+ok 1007 - a	True
+# b	0 is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 1008 - Hash[Mu,Mu,Any] NOT ⊃ a	True
+# b	0
+ok 1009 - a is NOT ⊂ of List
+ok 1010 - List NOT ⊃ a
+ok 1011 - a b	0 is NOT ⊂ of List
+ok 1012 - List NOT ⊃ a b	0
+ok 1013 - a is NOT ⊂ of Set
+ok 1014 - Set NOT ⊃ a
+ok 1015 - a is NOT ⊂ of SetHash
+ok 1016 - SetHash NOT ⊃ a
+ok 1017 - a is NOT ⊂ of Set
+ok 1018 - Set NOT ⊃ a
+ok 1019 - a is NOT ⊂ of SetHash
+ok 1020 - SetHash NOT ⊃ a
+ok 1021 - a	True is NOT ⊂ of Set
+ok 1022 - Set NOT ⊃ a	True
+ok 1023 - a	True is NOT ⊂ of SetHash
+ok 1024 - SetHash NOT ⊃ a	True
+ok 1025 - a	True is NOT ⊂ of Set
+ok 1026 - Set NOT ⊃ a	True
+ok 1027 - a	True is NOT ⊂ of SetHash
+ok 1028 - SetHash NOT ⊃ a	True
+ok 1029 - a is NOT ⊂ of Set
+ok 1030 - Set NOT ⊃ a
+ok 1031 - a is NOT ⊂ of SetHash
+ok 1032 - SetHash NOT ⊃ a
+ok 1033 - a is NOT ⊂ of Bag
+ok 1034 - Bag NOT ⊃ a
+ok 1035 - a is NOT ⊂ of BagHash
+ok 1036 - BagHash NOT ⊃ a
+ok 1037 - a	True is NOT ⊂ of Bag
+ok 1038 - Bag NOT ⊃ a	True
+ok 1039 - a	True is NOT ⊂ of BagHash
+ok 1040 - BagHash NOT ⊃ a	True
+ok 1041 - a	True is NOT ⊂ of Bag
+ok 1042 - Bag NOT ⊃ a	True
+ok 1043 - a	True is NOT ⊂ of BagHash
+ok 1044 - BagHash NOT ⊃ a	True
+ok 1045 - a is NOT ⊂ of Bag
+ok 1046 - Bag NOT ⊃ a
+ok 1047 - a is NOT ⊂ of BagHash
+ok 1048 - BagHash NOT ⊃ a
+ok 1049 - a	True is NOT ⊂ of Mix
+ok 1050 - Mix NOT ⊃ a	True
+ok 1051 - a	True is NOT ⊂ of MixHash
+ok 1052 - MixHash NOT ⊃ a	True
+ok 1053 - a	True is NOT ⊂ of Mix
+ok 1054 - Mix NOT ⊃ a	True
+ok 1055 - a	True is NOT ⊂ of MixHash
+ok 1056 - MixHash NOT ⊃ a	True
+ok 1057 - a is NOT ⊂ of Mix
+ok 1058 - Mix NOT ⊃ a
+ok 1059 - a is NOT ⊂ of MixHash
+ok 1060 - MixHash NOT ⊃ a
+ok 1061 - a is NOT ⊂ of Bag
+ok 1062 - Bag NOT ⊃ a
+ok 1063 - a is NOT ⊂ of Bag
+ok 1064 - Bag NOT ⊃ a
+ok 1065 - a is NOT ⊂ of Mix
+ok 1066 - Mix NOT ⊃ a
+ok 1067 - a is NOT ⊂ of Mix
+ok 1068 - Mix NOT ⊃ a
+ok 1069 - a(-1) is NOT ⊂ of Mix
+ok 1070 - Mix NOT ⊃ a(-1)
+ok 1071 - a(-1) is NOT ⊂ of Mix
+ok 1072 - Mix NOT ⊃ a(-1)
+ok 1073 - a(-1) is NOT ⊂ of Mix
+ok 1074 - Mix NOT ⊃ a(-1)
+ok 1075 - a(-1) is NOT ⊂ of Mix
+ok 1076 - Mix NOT ⊃ a(-1)
+ok 1077 - a(-2) is NOT ⊂ of Mix
+ok 1078 - Mix NOT ⊃ a(-2)
+ok 1079 - a(-2) is NOT ⊂ of Mix
+ok 1080 - Mix NOT ⊃ a(-2)
+ok 1081 - a is NOT ⊂ of Bag
+ok 1082 - Bag NOT ⊃ a
+ok 1083 - a is NOT ⊂ of Bag
+ok 1084 - Bag NOT ⊃ a
+ok 1085 - a is NOT ⊂ of Set
+ok 1086 - Set NOT ⊃ a
+ok 1087 - a is NOT ⊂ of SetHash
+ok 1088 - SetHash NOT ⊃ a
+ok 1089 - a	True is NOT ⊂ of Hash
+ok 1090 - Hash NOT ⊃ a	True
+ok 1091 - a	True is NOT ⊂ of Hash[Mu,Mu,Any]
+ok 1092 - Hash[Mu,Mu,Any] NOT ⊃ a	True
+ok 1093 - a is NOT ⊂ of Set
+ok 1094 - Set NOT ⊃ a
+ok 1095 - a is NOT ⊂ of SetHash
+ok 1096 - SetHash NOT ⊃ a
+ok 1097 - a is NOT ⊂ of Set
+ok 1098 - Set NOT ⊃ a
+ok 1099 - a is NOT ⊂ of SetHash
+ok 1100 - SetHash NOT ⊃ a
+ok 1101 - a	True is NOT ⊂ of Set
+ok 1102 - Set NOT ⊃ a	True
+ok 1103 - a	True is NOT ⊂ of SetHash
+ok 1104 - SetHash NOT ⊃ a	True
+ok 1105 - a	True is NOT ⊂ of Set
+ok 1106 - Set NOT ⊃ a	True
+ok 1107 - a	True is NOT ⊂ of SetHash
+ok 1108 - SetHash NOT ⊃ a	True
+ok 1109 - a is NOT ⊂ of Set
+ok 1110 - Set NOT ⊃ a
+ok 1111 - a is NOT ⊂ of SetHash
+ok 1112 - SetHash NOT ⊃ a
+ok 1113 - a is NOT ⊂ of Bag
+ok 1114 - Bag NOT ⊃ a
+ok 1115 - a is NOT ⊂ of BagHash
+ok 1116 - BagHash NOT ⊃ a
+ok 1117 - a	True is NOT ⊂ of Bag
+ok 1118 - Bag NOT ⊃ a	True
+ok 1119 - a	True is NOT ⊂ of BagHash
+ok 1120 - BagHash NOT ⊃ a	True
+ok 1121 - a	True is NOT ⊂ of Bag
+ok 1122 - Bag NOT ⊃ a	True
+ok 1123 - a	True is NOT ⊂ of BagHash
+ok 1124 - BagHash NOT ⊃ a	True
+ok 1125 - a is NOT ⊂ of Bag
+ok 1126 - Bag NOT ⊃ a
+ok 1127 - a is NOT ⊂ of BagHash
+ok 1128 - BagHash NOT ⊃ a
+ok 1129 - a	True is NOT ⊂ of Mix
+ok 1130 - Mix NOT ⊃ a	True
+ok 1131 - a	True is NOT ⊂ of MixHash
+ok 1132 - MixHash NOT ⊃ a	True
+ok 1133 - a	True is NOT ⊂ of Mix
+ok 1134 - Mix NOT ⊃ a	True
+ok 1135 - a	True is NOT ⊂ of MixHash
+ok 1136 - MixHash NOT ⊃ a	True
+ok 1137 - a is NOT ⊂ of Mix
+ok 1138 - Mix NOT ⊃ a
+ok 1139 - a is NOT ⊂ of MixHash
+ok 1140 - MixHash NOT ⊃ a
+ok 1141 - a is NOT ⊂ of Bag
+ok 1142 - Bag NOT ⊃ a
+ok 1143 - a is NOT ⊂ of BagHash
+ok 1144 - BagHash NOT ⊃ a
+ok 1145 - a is NOT ⊂ of Mix
+ok 1146 - Mix NOT ⊃ a
+ok 1147 - a is NOT ⊂ of MixHash
+ok 1148 - MixHash NOT ⊃ a
+ok 1149 - a(-1) is NOT ⊂ of Mix
+ok 1150 - Mix NOT ⊃ a(-1)
+ok 1151 - a(-1) is NOT ⊂ of MixHash
+ok 1152 - MixHash NOT ⊃ a(-1)
+ok 1153 - a is NOT ⊂ of Bag
+ok 1154 - Bag NOT ⊃ a
+ok 1155 - a is NOT ⊂ of BagHash
+ok 1156 - BagHash NOT ⊃ a
+# Subtest: ⊂ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1157 - ⊂ with a Failure:D on the RHS throws
+# Subtest: ⊂ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1158 - ⊂ with a Failure:D on the LHS throws
+# Subtest: ⊃ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1159 - ⊃ with a Failure:D on the RHS throws
+# Subtest: ⊃ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1160 - ⊃ with a Failure:D on the LHS throws
+ok 1161 - Set ⊈ same
+ok 1162 - Set ⊅ same
+ok 1163 - SetHash ⊈ same
+ok 1164 - SetHash ⊅ same
+ok 1165 - SetHash ⊈ same
+ok 1166 - SetHash ⊅ same
+ok 1167 - Set ⊈ same
+ok 1168 - Set ⊅ same
+ok 1169 - SetHash ⊈ same
+ok 1170 - SetHash ⊅ same
+ok 1171 - Bag ⊈ same
+ok 1172 - Bag ⊅ same
+ok 1173 - BagHash ⊈ same
+ok 1174 - BagHash ⊅ same
+ok 1175 - BagHash ⊈ same
+ok 1176 - BagHash ⊅ same
+ok 1177 - Bag ⊈ same
+ok 1178 - Bag ⊅ same
+ok 1179 - BagHash ⊈ same
+ok 1180 - BagHash ⊅ same
+ok 1181 - Mix ⊈ same
+ok 1182 - Mix ⊅ same
+ok 1183 - MixHash ⊈ same
+ok 1184 - MixHash ⊅ same
+ok 1185 - MixHash ⊈ same
+ok 1186 - MixHash ⊅ same
+ok 1187 - Mix ⊈ same
+ok 1188 - Mix ⊅ same
+ok 1189 - MixHash ⊈ same
+ok 1190 - MixHash ⊅ same
+ok 1191 - Mix ⊈ same
+ok 1192 - Mix ⊅ same
+ok 1193 - MixHash ⊈ same
+ok 1194 - MixHash ⊅ same
+ok 1195 - Hash ⊈ same
+ok 1196 - Hash ⊅ same
+ok 1197 - Hash ⊈ same
+ok 1198 - Hash ⊅ same
+ok 1199 - Hash[Mu,Mu,Any] ⊈ same
+ok 1200 - Hash[Mu,Mu,Any] ⊅ same
+ok 1201 - Hash[Mu,Mu,Any] ⊈ same
+ok 1202 - Hash[Mu,Mu,Any] ⊅ same
+ok 1203 - List ⊈ same
+ok 1204 - List ⊅ same
+ok 1205 - List ⊈ same
+ok 1206 - List ⊅ same
+ok 1207 - Int ⊈ same
+ok 1208 - Int ⊅ same
+ok 1209 - Any ⊈ same
+ok 1210 - Any ⊅ same
+ok 1211 -  is NOT ⊈ of Set
+ok 1212 - Set NOT ⊅ 
+ok 1213 -  is NOT ⊈ of Set
+ok 1214 - Set NOT ⊅ 
+ok 1215 -  is NOT ⊈ of Set
+ok 1216 - Set NOT ⊅ 
+ok 1217 -  is NOT ⊈ of Bag
+ok 1218 - Bag NOT ⊅ 
+ok 1219 -  is NOT ⊈ of Bag
+ok 1220 - Bag NOT ⊅ 
+ok 1221 -  is NOT ⊈ of Bag
+ok 1222 - Bag NOT ⊅ 
+ok 1223 -  is NOT ⊈ of Mix
+ok 1224 - Mix NOT ⊅ 
+ok 1225 -  is NOT ⊈ of Mix
+ok 1226 - Mix NOT ⊅ 
+ok 1227 -  is NOT ⊈ of Mix
+ok 1228 - Mix NOT ⊅ 
+ok 1229 -  is NOT ⊈ of Hash
+ok 1230 - Hash NOT ⊅ 
+ok 1231 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1232 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1233 -  is NOT ⊈ of List
+ok 1234 - List NOT ⊅ 
+ok 1235 -  is NOT ⊈ of Bag
+ok 1236 - Bag NOT ⊅ 
+ok 1237 -  is NOT ⊈ of Bag
+ok 1238 - Bag NOT ⊅ 
+ok 1239 -  is NOT ⊈ of Bag
+ok 1240 - Bag NOT ⊅ 
+ok 1241 -  is NOT ⊈ of Mix
+ok 1242 - Mix NOT ⊅ 
+ok 1243 -  is NOT ⊈ of Mix
+ok 1244 - Mix NOT ⊅ 
+ok 1245 -  is NOT ⊈ of Mix
+ok 1246 - Mix NOT ⊅ 
+ok 1247 -  is NOT ⊈ of Hash
+ok 1248 - Hash NOT ⊅ 
+ok 1249 -  is NOT ⊈ of Hash
+ok 1250 - Hash NOT ⊅ 
+ok 1251 -  is NOT ⊈ of Hash
+ok 1252 - Hash NOT ⊅ 
+ok 1253 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1254 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1255 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1256 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1257 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1258 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1259 -  is NOT ⊈ of List
+ok 1260 - List NOT ⊅ 
+ok 1261 -  is NOT ⊈ of List
+ok 1262 - List NOT ⊅ 
+ok 1263 -  is NOT ⊈ of List
+ok 1264 - List NOT ⊅ 
+ok 1265 -  is NOT ⊈ of Mix
+ok 1266 - Mix NOT ⊅ 
+ok 1267 -  is NOT ⊈ of Mix
+ok 1268 - Mix NOT ⊅ 
+ok 1269 -  is NOT ⊈ of Mix
+ok 1270 - Mix NOT ⊅ 
+ok 1271 -  is NOT ⊈ of Hash
+ok 1272 - Hash NOT ⊅ 
+ok 1273 -  is NOT ⊈ of Hash
+ok 1274 - Hash NOT ⊅ 
+ok 1275 -  is NOT ⊈ of Hash
+ok 1276 - Hash NOT ⊅ 
+ok 1277 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1278 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1279 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1280 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1281 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1282 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1283 -  is NOT ⊈ of List
+ok 1284 - List NOT ⊅ 
+ok 1285 -  is NOT ⊈ of List
+ok 1286 - List NOT ⊅ 
+ok 1287 -  is NOT ⊈ of List
+ok 1288 - List NOT ⊅ 
+ok 1289 -  is NOT ⊈ of Hash
+ok 1290 - Hash NOT ⊅ 
+ok 1291 -  is NOT ⊈ of Hash
+ok 1292 - Hash NOT ⊅ 
+ok 1293 -  is NOT ⊈ of Hash
+ok 1294 - Hash NOT ⊅ 
+ok 1295 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1296 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1297 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1298 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1299 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1300 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1301 -  is NOT ⊈ of List
+ok 1302 - List NOT ⊅ 
+ok 1303 -  is NOT ⊈ of List
+ok 1304 - List NOT ⊅ 
+ok 1305 -  is NOT ⊈ of List
+ok 1306 - List NOT ⊅ 
+ok 1307 - a is NOT ⊈ of Set
+ok 1308 - Set NOT ⊅ a
+ok 1309 - a is NOT ⊈ of Set
+ok 1310 - Set NOT ⊅ a
+ok 1311 - a is NOT ⊈ of Bag
+ok 1312 - Bag NOT ⊅ a
+ok 1313 - a is NOT ⊈ of Bag
+ok 1314 - Bag NOT ⊅ a
+ok 1315 - a is NOT ⊈ of Mix
+ok 1316 - Mix NOT ⊅ a
+ok 1317 - a is NOT ⊈ of Mix
+ok 1318 - Mix NOT ⊅ a
+ok 1319 - a	0 is NOT ⊈ of Hash
+ok 1320 - Hash NOT ⊅ a	0
+ok 1321 - a	0 is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1322 - Hash[Mu,Mu,Any] NOT ⊅ a	0
+ok 1323 - a	True is NOT ⊈ of Hash
+ok 1324 - Hash NOT ⊅ a	True
+ok 1325 - a	True is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1326 - Hash[Mu,Mu,Any] NOT ⊅ a	True
+ok 1327 - a	0 is NOT ⊈ of List
+ok 1328 - List NOT ⊅ a	0
+ok 1329 - a is NOT ⊈ of List
+ok 1330 - List NOT ⊅ a
+ok 1331 - a is NOT ⊈ of Bag
+ok 1332 - Bag NOT ⊅ a
+ok 1333 - a is NOT ⊈ of Bag
+ok 1334 - Bag NOT ⊅ a
+ok 1335 - a is NOT ⊈ of Mix
+ok 1336 - Mix NOT ⊅ a
+ok 1337 - a is NOT ⊈ of Mix
+ok 1338 - Mix NOT ⊅ a
+ok 1339 - a is NOT ⊈ of Hash
+ok 1340 - Hash NOT ⊅ a
+ok 1341 - a is NOT ⊈ of Hash
+ok 1342 - Hash NOT ⊅ a
+ok 1343 - a is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1344 - Hash[Mu,Mu,Any] NOT ⊅ a
+ok 1345 - a is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1346 - Hash[Mu,Mu,Any] NOT ⊅ a
+ok 1347 - a is NOT ⊈ of List
+ok 1348 - List NOT ⊅ a
+ok 1349 - a is NOT ⊈ of List
+ok 1350 - List NOT ⊅ a
+ok 1351 - a is NOT ⊈ of Mix
+ok 1352 - Mix NOT ⊅ a
+ok 1353 - a is NOT ⊈ of Mix
+ok 1354 - Mix NOT ⊅ a
+ok 1355 - a is NOT ⊈ of Hash
+ok 1356 - Hash NOT ⊅ a
+ok 1357 - a is NOT ⊈ of Hash
+ok 1358 - Hash NOT ⊅ a
+ok 1359 - a is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1360 - Hash[Mu,Mu,Any] NOT ⊅ a
+ok 1361 - a is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1362 - Hash[Mu,Mu,Any] NOT ⊅ a
+ok 1363 - a is NOT ⊈ of List
+ok 1364 - List NOT ⊅ a
+ok 1365 - a is NOT ⊈ of List
+ok 1366 - List NOT ⊅ a
+ok 1367 - a is NOT ⊈ of Hash
+ok 1368 - Hash NOT ⊅ a
+ok 1369 - a is NOT ⊈ of Hash
+ok 1370 - Hash NOT ⊅ a
+ok 1371 - a is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1372 - Hash[Mu,Mu,Any] NOT ⊅ a
+ok 1373 - a is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1374 - Hash[Mu,Mu,Any] NOT ⊅ a
+ok 1375 - a is NOT ⊈ of List
+ok 1376 - List NOT ⊅ a
+ok 1377 - a is NOT ⊈ of List
+ok 1378 - List NOT ⊅ a
+ok 1379 - a is NOT ⊈ of Bag
+ok 1380 - Bag NOT ⊅ a
+ok 1381 - a is NOT ⊈ of Bag
+ok 1382 - Bag NOT ⊅ a
+ok 1383 - a is NOT ⊈ of Mix
+ok 1384 - Mix NOT ⊅ a
+ok 1385 - a is NOT ⊈ of Mix
+ok 1386 - Mix NOT ⊅ a
+ok 1387 - a(-1) is NOT ⊈ of Mix
+ok 1388 - Mix NOT ⊅ a(-1)
+ok 1389 - a(-1) is NOT ⊈ of Mix
+ok 1390 - Mix NOT ⊅ a(-1)
+ok 1391 - a(-1) is NOT ⊈ of Mix
+ok 1392 - Mix NOT ⊅ a(-1)
+ok 1393 - a(-1) is NOT ⊈ of Mix
+ok 1394 - Mix NOT ⊅ a(-1)
+ok 1395 - a(-2) is NOT ⊈ of Mix
+ok 1396 - Mix NOT ⊅ a(-2)
+ok 1397 - a(-2) is NOT ⊈ of Mix
+ok 1398 - Mix NOT ⊅ a(-2)
+ok 1399 - a is NOT ⊈ of Mix
+ok 1400 - Mix NOT ⊅ a
+ok 1401 - a is NOT ⊈ of Mix
+ok 1402 - Mix NOT ⊅ a
+ok 1403 -  is NOT ⊈ of Set
+ok 1404 - Set NOT ⊅ 
+ok 1405 -  is NOT ⊈ of Set
+ok 1406 - Set NOT ⊅ 
+ok 1407 -  is NOT ⊈ of SetHash
+ok 1408 - SetHash NOT ⊅ 
+ok 1409 -  is NOT ⊈ of Set
+ok 1410 - Set NOT ⊅ 
+ok 1411 -  is NOT ⊈ of SetHash
+ok 1412 - SetHash NOT ⊅ 
+ok 1413 -  is NOT ⊈ of Bag
+ok 1414 - Bag NOT ⊅ 
+ok 1415 -  is NOT ⊈ of Bag
+ok 1416 - Bag NOT ⊅ 
+ok 1417 -  is NOT ⊈ of BagHash
+ok 1418 - BagHash NOT ⊅ 
+ok 1419 -  is NOT ⊈ of Bag
+ok 1420 - Bag NOT ⊅ 
+ok 1421 -  is NOT ⊈ of BagHash
+ok 1422 - BagHash NOT ⊅ 
+ok 1423 -  is NOT ⊈ of Mix
+ok 1424 - Mix NOT ⊅ 
+ok 1425 -  is NOT ⊈ of Mix
+ok 1426 - Mix NOT ⊅ 
+ok 1427 -  is NOT ⊈ of MixHash
+ok 1428 - MixHash NOT ⊅ 
+ok 1429 -  is NOT ⊈ of Mix
+ok 1430 - Mix NOT ⊅ 
+ok 1431 -  is NOT ⊈ of MixHash
+ok 1432 - MixHash NOT ⊅ 
+ok 1433 -  is NOT ⊈ of Hash
+ok 1434 - Hash NOT ⊅ 
+ok 1435 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1436 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1437 -  is NOT ⊈ of List
+ok 1438 - List NOT ⊅ 
+ok 1439 -  is NOT ⊈ of Set
+ok 1440 - Set NOT ⊅ 
+ok 1441 -  is NOT ⊈ of Set
+ok 1442 - Set NOT ⊅ 
+ok 1443 -  is NOT ⊈ of Set
+ok 1444 - Set NOT ⊅ 
+ok 1445 -  is NOT ⊈ of Set
+ok 1446 - Set NOT ⊅ 
+ok 1447 -  is NOT ⊈ of Set
+ok 1448 - Set NOT ⊅ 
+ok 1449 -  is NOT ⊈ of Set
+ok 1450 - Set NOT ⊅ 
+ok 1451 -  is NOT ⊈ of Set
+ok 1452 - Set NOT ⊅ 
+ok 1453 -  is NOT ⊈ of Set
+ok 1454 - Set NOT ⊅ 
+ok 1455 -  is NOT ⊈ of Set
+ok 1456 - Set NOT ⊅ 
+ok 1457 -  is NOT ⊈ of Bag
+ok 1458 - Bag NOT ⊅ 
+ok 1459 -  is NOT ⊈ of Bag
+ok 1460 - Bag NOT ⊅ 
+ok 1461 -  is NOT ⊈ of Bag
+ok 1462 - Bag NOT ⊅ 
+ok 1463 -  is NOT ⊈ of Bag
+ok 1464 - Bag NOT ⊅ 
+ok 1465 -  is NOT ⊈ of Bag
+ok 1466 - Bag NOT ⊅ 
+ok 1467 -  is NOT ⊈ of Bag
+ok 1468 - Bag NOT ⊅ 
+ok 1469 -  is NOT ⊈ of Set
+ok 1470 - Set NOT ⊅ 
+ok 1471 -  is NOT ⊈ of Set
+ok 1472 - Set NOT ⊅ 
+ok 1473 -  is NOT ⊈ of Set
+ok 1474 - Set NOT ⊅ 
+ok 1475 -  is NOT ⊈ of Bag
+ok 1476 - Bag NOT ⊅ 
+ok 1477 -  is NOT ⊈ of Bag
+ok 1478 - Bag NOT ⊅ 
+ok 1479 -  is NOT ⊈ of Bag
+ok 1480 - Bag NOT ⊅ 
+ok 1481 -  is NOT ⊈ of Mix
+ok 1482 - Mix NOT ⊅ 
+ok 1483 -  is NOT ⊈ of Mix
+ok 1484 - Mix NOT ⊅ 
+ok 1485 -  is NOT ⊈ of Mix
+ok 1486 - Mix NOT ⊅ 
+ok 1487 -  is NOT ⊈ of Hash
+ok 1488 - Hash NOT ⊅ 
+ok 1489 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1490 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1491 -  is NOT ⊈ of List
+ok 1492 - List NOT ⊅ 
+ok 1493 -  is NOT ⊈ of Bag
+ok 1494 - Bag NOT ⊅ 
+ok 1495 -  is NOT ⊈ of Bag
+ok 1496 - Bag NOT ⊅ 
+ok 1497 -  is NOT ⊈ of Bag
+ok 1498 - Bag NOT ⊅ 
+ok 1499 -  is NOT ⊈ of Mix
+ok 1500 - Mix NOT ⊅ 
+ok 1501 -  is NOT ⊈ of Mix
+ok 1502 - Mix NOT ⊅ 
+ok 1503 -  is NOT ⊈ of Mix
+ok 1504 - Mix NOT ⊅ 
+ok 1505 -  is NOT ⊈ of Hash
+ok 1506 - Hash NOT ⊅ 
+ok 1507 -  is NOT ⊈ of Hash
+ok 1508 - Hash NOT ⊅ 
+ok 1509 -  is NOT ⊈ of Hash
+ok 1510 - Hash NOT ⊅ 
+ok 1511 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1512 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1513 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1514 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1515 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1516 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1517 -  is NOT ⊈ of List
+ok 1518 - List NOT ⊅ 
+ok 1519 -  is NOT ⊈ of List
+ok 1520 - List NOT ⊅ 
+ok 1521 -  is NOT ⊈ of List
+ok 1522 - List NOT ⊅ 
+ok 1523 -  is NOT ⊈ of Mix
+ok 1524 - Mix NOT ⊅ 
+ok 1525 -  is NOT ⊈ of Mix
+ok 1526 - Mix NOT ⊅ 
+ok 1527 -  is NOT ⊈ of Mix
+ok 1528 - Mix NOT ⊅ 
+ok 1529 -  is NOT ⊈ of Hash
+ok 1530 - Hash NOT ⊅ 
+ok 1531 -  is NOT ⊈ of Hash
+ok 1532 - Hash NOT ⊅ 
+ok 1533 -  is NOT ⊈ of Hash
+ok 1534 - Hash NOT ⊅ 
+ok 1535 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1536 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1537 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1538 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1539 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1540 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1541 -  is NOT ⊈ of List
+ok 1542 - List NOT ⊅ 
+ok 1543 -  is NOT ⊈ of List
+ok 1544 - List NOT ⊅ 
+ok 1545 -  is NOT ⊈ of List
+ok 1546 - List NOT ⊅ 
+ok 1547 -  is NOT ⊈ of Hash
+ok 1548 - Hash NOT ⊅ 
+ok 1549 -  is NOT ⊈ of Hash
+ok 1550 - Hash NOT ⊅ 
+ok 1551 -  is NOT ⊈ of Hash
+ok 1552 - Hash NOT ⊅ 
+ok 1553 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1554 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1555 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1556 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1557 -  is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1558 - Hash[Mu,Mu,Any] NOT ⊅ 
+ok 1559 -  is NOT ⊈ of List
+ok 1560 - List NOT ⊅ 
+ok 1561 -  is NOT ⊈ of List
+ok 1562 - List NOT ⊅ 
+ok 1563 -  is NOT ⊈ of List
+ok 1564 - List NOT ⊅ 
+ok 1565 - a is NOT ⊈ of Set
+ok 1566 - Set NOT ⊅ a
+ok 1567 - a is NOT ⊈ of Set
+ok 1568 - Set NOT ⊅ a
+ok 1569 - a is NOT ⊈ of Bag
+ok 1570 - Bag NOT ⊅ a
+ok 1571 - a is NOT ⊈ of Bag
+ok 1572 - Bag NOT ⊅ a
+ok 1573 - a is NOT ⊈ of Mix
+ok 1574 - Mix NOT ⊅ a
+ok 1575 - a is NOT ⊈ of Mix
+ok 1576 - Mix NOT ⊅ a
+ok 1577 - a	0 is NOT ⊈ of Hash
+ok 1578 - Hash NOT ⊅ a	0
+ok 1579 - a	0 is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1580 - Hash[Mu,Mu,Any] NOT ⊅ a	0
+ok 1581 - a	True is NOT ⊈ of Hash
+ok 1582 - Hash NOT ⊅ a	True
+ok 1583 - a	True
+# b	0 is NOT ⊈ of Hash
+ok 1584 - Hash NOT ⊅ a	True
+# b	0
+ok 1585 - a	True is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1586 - Hash[Mu,Mu,Any] NOT ⊅ a	True
+ok 1587 - a	True
+# b	0 is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1588 - Hash[Mu,Mu,Any] NOT ⊅ a	True
+# b	0
+ok 1589 - a is NOT ⊈ of List
+ok 1590 - List NOT ⊅ a
+ok 1591 - a b	0 is NOT ⊈ of List
+ok 1592 - List NOT ⊅ a b	0
+ok 1593 - a is NOT ⊈ of Set
+ok 1594 - Set NOT ⊅ a
+ok 1595 - a is NOT ⊈ of SetHash
+ok 1596 - SetHash NOT ⊅ a
+ok 1597 - a is NOT ⊈ of Set
+ok 1598 - Set NOT ⊅ a
+ok 1599 - a is NOT ⊈ of SetHash
+ok 1600 - SetHash NOT ⊅ a
+ok 1601 - a	True is NOT ⊈ of Set
+ok 1602 - Set NOT ⊅ a	True
+ok 1603 - a	True is NOT ⊈ of SetHash
+ok 1604 - SetHash NOT ⊅ a	True
+ok 1605 - a	True is NOT ⊈ of Set
+ok 1606 - Set NOT ⊅ a	True
+ok 1607 - a	True is NOT ⊈ of SetHash
+ok 1608 - SetHash NOT ⊅ a	True
+ok 1609 - a is NOT ⊈ of Set
+ok 1610 - Set NOT ⊅ a
+ok 1611 - a is NOT ⊈ of SetHash
+ok 1612 - SetHash NOT ⊅ a
+ok 1613 - a is NOT ⊈ of Bag
+ok 1614 - Bag NOT ⊅ a
+ok 1615 - a is NOT ⊈ of BagHash
+ok 1616 - BagHash NOT ⊅ a
+ok 1617 - a	True is NOT ⊈ of Bag
+ok 1618 - Bag NOT ⊅ a	True
+ok 1619 - a	True is NOT ⊈ of BagHash
+ok 1620 - BagHash NOT ⊅ a	True
+ok 1621 - a	True is NOT ⊈ of Bag
+ok 1622 - Bag NOT ⊅ a	True
+ok 1623 - a	True is NOT ⊈ of BagHash
+ok 1624 - BagHash NOT ⊅ a	True
+ok 1625 - a is NOT ⊈ of Bag
+ok 1626 - Bag NOT ⊅ a
+ok 1627 - a is NOT ⊈ of BagHash
+ok 1628 - BagHash NOT ⊅ a
+ok 1629 - a	True is NOT ⊈ of Mix
+ok 1630 - Mix NOT ⊅ a	True
+ok 1631 - a	True is NOT ⊈ of MixHash
+ok 1632 - MixHash NOT ⊅ a	True
+ok 1633 - a	True is NOT ⊈ of Mix
+ok 1634 - Mix NOT ⊅ a	True
+ok 1635 - a	True is NOT ⊈ of MixHash
+ok 1636 - MixHash NOT ⊅ a	True
+ok 1637 - a is NOT ⊈ of Mix
+ok 1638 - Mix NOT ⊅ a
+ok 1639 - a is NOT ⊈ of MixHash
+ok 1640 - MixHash NOT ⊅ a
+ok 1641 - a is NOT ⊈ of Bag
+ok 1642 - Bag NOT ⊅ a
+ok 1643 - a is NOT ⊈ of Bag
+ok 1644 - Bag NOT ⊅ a
+ok 1645 - a is NOT ⊈ of Mix
+ok 1646 - Mix NOT ⊅ a
+ok 1647 - a is NOT ⊈ of Mix
+ok 1648 - Mix NOT ⊅ a
+ok 1649 - a(-1) is NOT ⊈ of Mix
+ok 1650 - Mix NOT ⊅ a(-1)
+ok 1651 - a(-1) is NOT ⊈ of Mix
+ok 1652 - Mix NOT ⊅ a(-1)
+ok 1653 - a(-1) is NOT ⊈ of Mix
+ok 1654 - Mix NOT ⊅ a(-1)
+ok 1655 - a(-1) is NOT ⊈ of Mix
+ok 1656 - Mix NOT ⊅ a(-1)
+ok 1657 - a(-2) is NOT ⊈ of Mix
+ok 1658 - Mix NOT ⊅ a(-2)
+ok 1659 - a(-2) is NOT ⊈ of Mix
+ok 1660 - Mix NOT ⊅ a(-2)
+ok 1661 - a is NOT ⊈ of Bag
+ok 1662 - Bag NOT ⊅ a
+ok 1663 - a is NOT ⊈ of Bag
+ok 1664 - Bag NOT ⊅ a
+ok 1665 - a is NOT ⊈ of Set
+ok 1666 - Set NOT ⊅ a
+ok 1667 - a is NOT ⊈ of SetHash
+ok 1668 - SetHash NOT ⊅ a
+ok 1669 - a	True is NOT ⊈ of Hash
+ok 1670 - Hash NOT ⊅ a	True
+ok 1671 - a	True is NOT ⊈ of Hash[Mu,Mu,Any]
+ok 1672 - Hash[Mu,Mu,Any] NOT ⊅ a	True
+ok 1673 - a is NOT ⊈ of Set
+ok 1674 - Set NOT ⊅ a
+ok 1675 - a is NOT ⊈ of SetHash
+ok 1676 - SetHash NOT ⊅ a
+ok 1677 - a is NOT ⊈ of Set
+ok 1678 - Set NOT ⊅ a
+ok 1679 - a is NOT ⊈ of SetHash
+ok 1680 - SetHash NOT ⊅ a
+ok 1681 - a	True is NOT ⊈ of Set
+ok 1682 - Set NOT ⊅ a	True
+ok 1683 - a	True is NOT ⊈ of SetHash
+ok 1684 - SetHash NOT ⊅ a	True
+ok 1685 - a	True is NOT ⊈ of Set
+ok 1686 - Set NOT ⊅ a	True
+ok 1687 - a	True is NOT ⊈ of SetHash
+ok 1688 - SetHash NOT ⊅ a	True
+ok 1689 - a is NOT ⊈ of Set
+ok 1690 - Set NOT ⊅ a
+ok 1691 - a is NOT ⊈ of SetHash
+ok 1692 - SetHash NOT ⊅ a
+ok 1693 - a is NOT ⊈ of Bag
+ok 1694 - Bag NOT ⊅ a
+ok 1695 - a is NOT ⊈ of BagHash
+ok 1696 - BagHash NOT ⊅ a
+ok 1697 - a	True is NOT ⊈ of Bag
+ok 1698 - Bag NOT ⊅ a	True
+ok 1699 - a	True is NOT ⊈ of BagHash
+ok 1700 - BagHash NOT ⊅ a	True
+ok 1701 - a	True is NOT ⊈ of Bag
+ok 1702 - Bag NOT ⊅ a	True
+ok 1703 - a	True is NOT ⊈ of BagHash
+ok 1704 - BagHash NOT ⊅ a	True
+ok 1705 - a is NOT ⊈ of Bag
+ok 1706 - Bag NOT ⊅ a
+ok 1707 - a is NOT ⊈ of BagHash
+ok 1708 - BagHash NOT ⊅ a
+ok 1709 - a	True is NOT ⊈ of Mix
+ok 1710 - Mix NOT ⊅ a	True
+ok 1711 - a	True is NOT ⊈ of MixHash
+ok 1712 - MixHash NOT ⊅ a	True
+ok 1713 - a	True is NOT ⊈ of Mix
+ok 1714 - Mix NOT ⊅ a	True
+ok 1715 - a	True is NOT ⊈ of MixHash
+ok 1716 - MixHash NOT ⊅ a	True
+ok 1717 - a is NOT ⊈ of Mix
+ok 1718 - Mix NOT ⊅ a
+ok 1719 - a is NOT ⊈ of MixHash
+ok 1720 - MixHash NOT ⊅ a
+ok 1721 - a is NOT ⊈ of Bag
+ok 1722 - Bag NOT ⊅ a
+ok 1723 - a is NOT ⊈ of BagHash
+ok 1724 - BagHash NOT ⊅ a
+ok 1725 - a is NOT ⊈ of Mix
+ok 1726 - Mix NOT ⊅ a
+ok 1727 - a is NOT ⊈ of MixHash
+ok 1728 - MixHash NOT ⊅ a
+ok 1729 - a(-1) is NOT ⊈ of Mix
+ok 1730 - Mix NOT ⊅ a(-1)
+ok 1731 - a(-1) is NOT ⊈ of MixHash
+ok 1732 - MixHash NOT ⊅ a(-1)
+ok 1733 - a is NOT ⊈ of Bag
+ok 1734 - Bag NOT ⊅ a
+ok 1735 - a is NOT ⊈ of BagHash
+ok 1736 - BagHash NOT ⊅ a
+# Subtest: ⊈ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1737 - ⊈ with a Failure:D on the RHS throws
+# Subtest: ⊈ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1738 - ⊈ with a Failure:D on the LHS throws
+# Subtest: ⊅ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1739 - ⊅ with a Failure:D on the RHS throws
+# Subtest: ⊅ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1740 - ⊅ with a Failure:D on the LHS throws
+ok 1741 - no explosion (>)
+ok 1742 - no explosion (<)

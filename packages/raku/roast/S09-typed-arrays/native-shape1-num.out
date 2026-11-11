@@ -1,0 +1,365 @@
+1..333
+ok 1 - num array is Positional
+not ok 2 - num array is Positional[num] # TODO apparently it is not a typed Positional
+# Failed test 'num array is Positional[num]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 17
+ok 3 - num array .of is num
+ok 4 - num array is Positional
+not ok 5 - num array is Positional[num] # TODO apparently it is not a typed Positional
+# Failed test 'num array is Positional[num]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 23
+ok 6 - num array .of is num
+ok 7 - .new from num array is Positional
+not ok 8 - .new from num array Positional[num] # TODO apparently it is not a typed Positional
+# Failed test '.new from num array Positional[num]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 27
+ok 9 - .new from num array .of is num
+ok 10 - New num array has 5 elems
+ok 11 - New num array has end of -1
+ok 12 - New num array Int-ifies to 5
+ok 13 - New num array numifies to 5
+ok 14 - Empty num array is not lazy
+ok 15 - Accessing non-existing on num array dies
+ok 16 - Elems do not grow just from an access on num array
+ok 17 - Can store num in an num array with Int index
+ok 18 - Can get value from num array with Int index
+ok 19 - can store num in an $t array with int index
+ok 20 - Can get value from num array with int index
+ok 21 - Can slice-assign to num array
+ok 22 - Can get slice-assigned value from num array (1)
+ok 23 - Can get slice-assigned value from num array (2)
+ok 24 - :exists works on num array with int index
+ok 25 - :exists works on num array with Int index
+ok 26 - :exists works on num array when out of range
+ok 27 - :!exists works on num array with int index
+ok 28 - :!exists works on num array with Int index
+ok 29 - :!exists works on num array when out of range
+ok 30 - :delete dies on num array with int index
+ok 31 - :delete dies on num array with Int index
+ok 32 - :!delete works on num array with int index
+ok 33 - :!delete works on num array with Int index
+ok 34 - Can call num array constructor with a single value
+ok 35 - Correct number of elems set in constructor of num array
+ok 36 - Correct element value set by constructor of num array
+ok 37 - Can call num array constructor with values
+ok 38 - Correct number of elems set in constructor of num array
+ok 39 - Correct elem value set by constructor of num array (1)
+ok 40 - Correct elem value set by constructor of num array (2)
+ok 41 - Correct elem value set by constructor of num array (3)
+ok 42 - Correct elem value set by constructor of num array (4)
+ok 43 - Can also get last 2 elements on num array
+ok 44 - num array .flat returns a Seq
+ok 45 - num array .eager returns identity
+ok 46 - Mutating for loop on num array works (1)
+ok 47 - Mutating for loop on num array works (2)
+ok 48 - Mutating for loop on num array works (3)
+ok 49 - Mutating for loop on num array works (4)
+ok 50 - Can map over num array
+ok 51 - Mutating map on num array works (1)
+ok 52 - Mutating map on num array works (2)
+ok 53 - Mutating map on num array works (3)
+ok 54 - Mutating map on num array works (4)
+ok 55 - grep a num array
+ok 56 - num array.grep(Num)
+ok 57 - num array.grep(Num, :k)
+ok 58 - num array.grep(Num, :kv)
+ok 59 - num array.grep(Num, :p)
+ok 60 - num array.grep(Num, :v)
+ok 61 - num array.grep(Num)
+ok 62 - num array.grep(Num, :k)
+ok 63 - num array.grep(Num, :kv)
+ok 64 - num array.grep(Num, :p)
+ok 65 - num array.grep(Num, :v)
+ok 66 - Can use reduce meta-op on a num array
+ok 67 - .values from a num array
+ok 68 - .pairup from a num array
+ok 69 - .keys from a num array
+ok 70 - .pairs from a num array
+ok 71 - .antipairs from a num array
+ok 72 - .kv from a num array
+ok 73 - .pick from a num array
+ok 74 - .roll from a num array
+ok 75 - num array.unique
+ok 76 - num array.repeated
+ok 77 - num array.squish
+ok 78 - Trying to pop a shaped num array dies
+ok 79 - Trying to shift a shaped num array dies
+ok 80 - Trying to push a shaped num array dies
+ok 81 - Trying to unshift a shaped num array dies
+ok 82 - Cannot bind to a num array
+ok 83 - Cannot delete from a num array
+ok 84 - Cannot append to a num array
+ok 85 - Cannot prepend to a num array
+ok 86 - Cannot splice to a num array
+ok 87 - .Str space-separates on num array
+ok 88 - .gist space-separates on num array
+ok 89 - .raku includes type and num values on num array
+ok 90 - # SKIP STORE not working correctly yet)
+ok 91 - does slice handle containerized range
+ok 92 - does join a num array
+ok 93 - Can clear num array by assigning empty list
+ok 94 - does emptying a num array reset
+ok 95 - does re-initializing a num array work
+ok 96 - List-assigning num array to untyped works (1)
+ok 97 - List-assigning num array to untyped works (2)
+ok 98 - List-assigning num array to untyped works (3)
+ok 99 - List-assign num array surrounded by literals (1)
+ok 100 - List-assign num array surrounded by literals (2)
+ok 101 - List-assign num array surrounded by literals (3)
+ok 102 - List-assign num array surrounded by literals (4)
+ok 103 - List-assign num array surrounded by literals (5)
+ok 104 - List-assign untyped array of Num to num array (1)
+ok 105 - List-assign untyped array of Num to num array (2)
+ok 106 - List-assign untyped array of Num to num array (3)
+# Subtest: List-assigning incompatible untyped array to num array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 107 - List-assigning incompatible untyped array to num array dies
+ok 108 - Smartmatching same num arrays works
+ok 109 - Can we sort num array
+ok 110 - Can we sort 2-element sorted num array
+ok 111 - Can we sort 1-element sorted num array
+ok 112 - num32 array is Positional
+not ok 113 - num32 array is Positional[num32] # TODO apparently it is not a typed Positional
+# Failed test 'num32 array is Positional[num32]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 17
+ok 114 - num32 array .of is num32
+ok 115 - num32 array is Positional
+not ok 116 - num32 array is Positional[num32] # TODO apparently it is not a typed Positional
+# Failed test 'num32 array is Positional[num32]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 23
+ok 117 - num32 array .of is num32
+ok 118 - .new from num32 array is Positional
+not ok 119 - .new from num32 array Positional[num32] # TODO apparently it is not a typed Positional
+# Failed test '.new from num32 array Positional[num32]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 27
+ok 120 - .new from num32 array .of is num32
+ok 121 - New num32 array has 5 elems
+ok 122 - New num32 array has end of -1
+ok 123 - New num32 array Int-ifies to 5
+ok 124 - New num32 array numifies to 5
+ok 125 - Empty num32 array is not lazy
+ok 126 - Accessing non-existing on num32 array dies
+ok 127 - Elems do not grow just from an access on num32 array
+ok 128 - Can store num in an num32 array with Int index
+ok 129 - Can get value from num32 array with Int index
+ok 130 - can store num in an $t array with int index
+ok 131 - Can get value from num32 array with int index
+ok 132 - Can slice-assign to num32 array
+ok 133 - Can get slice-assigned value from num32 array (1)
+ok 134 - Can get slice-assigned value from num32 array (2)
+ok 135 - :exists works on num32 array with int index
+ok 136 - :exists works on num32 array with Int index
+ok 137 - :exists works on num32 array when out of range
+ok 138 - :!exists works on num32 array with int index
+ok 139 - :!exists works on num32 array with Int index
+ok 140 - :!exists works on num32 array when out of range
+ok 141 - :delete dies on num32 array with int index
+ok 142 - :delete dies on num32 array with Int index
+ok 143 - :!delete works on num32 array with int index
+ok 144 - :!delete works on num32 array with Int index
+ok 145 - Can call num32 array constructor with a single value
+ok 146 - Correct number of elems set in constructor of num32 array
+ok 147 - Correct element value set by constructor of num32 array
+ok 148 - Can call num32 array constructor with values
+ok 149 - Correct number of elems set in constructor of num32 array
+ok 150 - Correct elem value set by constructor of num32 array (1)
+ok 151 - Correct elem value set by constructor of num32 array (2)
+ok 152 - Correct elem value set by constructor of num32 array (3)
+ok 153 - Correct elem value set by constructor of num32 array (4)
+ok 154 - Can also get last 2 elements on num32 array
+ok 155 - num32 array .flat returns a Seq
+ok 156 - num32 array .eager returns identity
+ok 157 - Mutating for loop on num32 array works (1)
+ok 158 - Mutating for loop on num32 array works (2)
+ok 159 - Mutating for loop on num32 array works (3)
+ok 160 - Mutating for loop on num32 array works (4)
+ok 161 - Can map over num32 array
+ok 162 - Mutating map on num32 array works (1)
+ok 163 - Mutating map on num32 array works (2)
+ok 164 - Mutating map on num32 array works (3)
+ok 165 - Mutating map on num32 array works (4)
+ok 166 - grep a num32 array
+ok 167 - num32 array.grep(Num)
+ok 168 - num32 array.grep(Num, :k)
+ok 169 - num32 array.grep(Num, :kv)
+ok 170 - num32 array.grep(Num, :p)
+ok 171 - num32 array.grep(Num, :v)
+ok 172 - num32 array.grep(Num)
+ok 173 - num32 array.grep(Num, :k)
+ok 174 - num32 array.grep(Num, :kv)
+ok 175 - num32 array.grep(Num, :p)
+ok 176 - num32 array.grep(Num, :v)
+ok 177 - Can use reduce meta-op on a num32 array
+ok 178 - .values from a num32 array
+ok 179 - .pairup from a num32 array
+ok 180 - .keys from a num32 array
+ok 181 - .pairs from a num32 array
+ok 182 - .antipairs from a num32 array
+ok 183 - .kv from a num32 array
+ok 184 - .pick from a num32 array
+ok 185 - .roll from a num32 array
+ok 186 - num32 array.unique
+ok 187 - num32 array.repeated
+ok 188 - num32 array.squish
+ok 189 - Trying to pop a shaped num32 array dies
+ok 190 - Trying to shift a shaped num32 array dies
+ok 191 - Trying to push a shaped num32 array dies
+ok 192 - Trying to unshift a shaped num32 array dies
+ok 193 - Cannot bind to a num32 array
+ok 194 - Cannot delete from a num32 array
+ok 195 - Cannot append to a num32 array
+ok 196 - Cannot prepend to a num32 array
+ok 197 - Cannot splice to a num32 array
+ok 198 - .Str space-separates on num32 array
+ok 199 - .gist space-separates on num32 array
+ok 200 - .raku includes type and num values on num32 array
+ok 201 - # SKIP STORE not working correctly yet)
+ok 202 - does slice handle containerized range
+ok 203 - does join a num32 array
+ok 204 - Can clear num32 array by assigning empty list
+ok 205 - does emptying a num32 array reset
+ok 206 - does re-initializing a num32 array work
+ok 207 - List-assigning num32 array to untyped works (1)
+ok 208 - List-assigning num32 array to untyped works (2)
+ok 209 - List-assigning num32 array to untyped works (3)
+ok 210 - List-assign num32 array surrounded by literals (1)
+ok 211 - List-assign num32 array surrounded by literals (2)
+ok 212 - List-assign num32 array surrounded by literals (3)
+ok 213 - List-assign num32 array surrounded by literals (4)
+ok 214 - List-assign num32 array surrounded by literals (5)
+ok 215 - List-assign untyped array of Num to num32 array (1)
+ok 216 - List-assign untyped array of Num to num32 array (2)
+ok 217 - List-assign untyped array of Num to num32 array (3)
+# Subtest: List-assigning incompatible untyped array to num32 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 218 - List-assigning incompatible untyped array to num32 array dies
+ok 219 - Smartmatching same num32 arrays works
+ok 220 - Can we sort num32 array
+ok 221 - Can we sort 2-element sorted num32 array
+ok 222 - Can we sort 1-element sorted num32 array
+ok 223 - num64 array is Positional
+not ok 224 - num64 array is Positional[num64] # TODO apparently it is not a typed Positional
+# Failed test 'num64 array is Positional[num64]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 17
+ok 225 - num64 array .of is num64
+ok 226 - num64 array is Positional
+not ok 227 - num64 array is Positional[num64] # TODO apparently it is not a typed Positional
+# Failed test 'num64 array is Positional[num64]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 23
+ok 228 - num64 array .of is num64
+ok 229 - .new from num64 array is Positional
+not ok 230 - .new from num64 array Positional[num64] # TODO apparently it is not a typed Positional
+# Failed test '.new from num64 array Positional[num64]'
+# at S09-typed-arrays/native-shape1-num.rakudo line 27
+ok 231 - .new from num64 array .of is num64
+ok 232 - New num64 array has 5 elems
+ok 233 - New num64 array has end of -1
+ok 234 - New num64 array Int-ifies to 5
+ok 235 - New num64 array numifies to 5
+ok 236 - Empty num64 array is not lazy
+ok 237 - Accessing non-existing on num64 array dies
+ok 238 - Elems do not grow just from an access on num64 array
+ok 239 - Can store num in an num64 array with Int index
+ok 240 - Can get value from num64 array with Int index
+ok 241 - can store num in an $t array with int index
+ok 242 - Can get value from num64 array with int index
+ok 243 - Can slice-assign to num64 array
+ok 244 - Can get slice-assigned value from num64 array (1)
+ok 245 - Can get slice-assigned value from num64 array (2)
+ok 246 - :exists works on num64 array with int index
+ok 247 - :exists works on num64 array with Int index
+ok 248 - :exists works on num64 array when out of range
+ok 249 - :!exists works on num64 array with int index
+ok 250 - :!exists works on num64 array with Int index
+ok 251 - :!exists works on num64 array when out of range
+ok 252 - :delete dies on num64 array with int index
+ok 253 - :delete dies on num64 array with Int index
+ok 254 - :!delete works on num64 array with int index
+ok 255 - :!delete works on num64 array with Int index
+ok 256 - Can call num64 array constructor with a single value
+ok 257 - Correct number of elems set in constructor of num64 array
+ok 258 - Correct element value set by constructor of num64 array
+ok 259 - Can call num64 array constructor with values
+ok 260 - Correct number of elems set in constructor of num64 array
+ok 261 - Correct elem value set by constructor of num64 array (1)
+ok 262 - Correct elem value set by constructor of num64 array (2)
+ok 263 - Correct elem value set by constructor of num64 array (3)
+ok 264 - Correct elem value set by constructor of num64 array (4)
+ok 265 - Can also get last 2 elements on num64 array
+ok 266 - num64 array .flat returns a Seq
+ok 267 - num64 array .eager returns identity
+ok 268 - Mutating for loop on num64 array works (1)
+ok 269 - Mutating for loop on num64 array works (2)
+ok 270 - Mutating for loop on num64 array works (3)
+ok 271 - Mutating for loop on num64 array works (4)
+ok 272 - Can map over num64 array
+ok 273 - Mutating map on num64 array works (1)
+ok 274 - Mutating map on num64 array works (2)
+ok 275 - Mutating map on num64 array works (3)
+ok 276 - Mutating map on num64 array works (4)
+ok 277 - grep a num64 array
+ok 278 - num64 array.grep(Num)
+ok 279 - num64 array.grep(Num, :k)
+ok 280 - num64 array.grep(Num, :kv)
+ok 281 - num64 array.grep(Num, :p)
+ok 282 - num64 array.grep(Num, :v)
+ok 283 - num64 array.grep(Num)
+ok 284 - num64 array.grep(Num, :k)
+ok 285 - num64 array.grep(Num, :kv)
+ok 286 - num64 array.grep(Num, :p)
+ok 287 - num64 array.grep(Num, :v)
+ok 288 - Can use reduce meta-op on a num64 array
+ok 289 - .values from a num64 array
+ok 290 - .pairup from a num64 array
+ok 291 - .keys from a num64 array
+ok 292 - .pairs from a num64 array
+ok 293 - .antipairs from a num64 array
+ok 294 - .kv from a num64 array
+ok 295 - .pick from a num64 array
+ok 296 - .roll from a num64 array
+ok 297 - num64 array.unique
+ok 298 - num64 array.repeated
+ok 299 - num64 array.squish
+ok 300 - Trying to pop a shaped num64 array dies
+ok 301 - Trying to shift a shaped num64 array dies
+ok 302 - Trying to push a shaped num64 array dies
+ok 303 - Trying to unshift a shaped num64 array dies
+ok 304 - Cannot bind to a num64 array
+ok 305 - Cannot delete from a num64 array
+ok 306 - Cannot append to a num64 array
+ok 307 - Cannot prepend to a num64 array
+ok 308 - Cannot splice to a num64 array
+ok 309 - .Str space-separates on num64 array
+ok 310 - .gist space-separates on num64 array
+ok 311 - .raku includes type and num values on num64 array
+ok 312 - # SKIP STORE not working correctly yet)
+ok 313 - does slice handle containerized range
+ok 314 - does join a num64 array
+ok 315 - Can clear num64 array by assigning empty list
+ok 316 - does emptying a num64 array reset
+ok 317 - does re-initializing a num64 array work
+ok 318 - List-assigning num64 array to untyped works (1)
+ok 319 - List-assigning num64 array to untyped works (2)
+ok 320 - List-assigning num64 array to untyped works (3)
+ok 321 - List-assign num64 array surrounded by literals (1)
+ok 322 - List-assign num64 array surrounded by literals (2)
+ok 323 - List-assign num64 array surrounded by literals (3)
+ok 324 - List-assign num64 array surrounded by literals (4)
+ok 325 - List-assign num64 array surrounded by literals (5)
+ok 326 - List-assign untyped array of Num to num64 array (1)
+ok 327 - List-assign untyped array of Num to num64 array (2)
+ok 328 - List-assign untyped array of Num to num64 array (3)
+# Subtest: List-assigning incompatible untyped array to num64 array dies
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 329 - List-assigning incompatible untyped array to num64 array dies
+ok 330 - Smartmatching same num64 arrays works
+ok 331 - Can we sort num64 array
+ok 332 - Can we sort 2-element sorted num64 array
+ok 333 - Can we sort 1-element sorted num64 array
+# FUDGED!

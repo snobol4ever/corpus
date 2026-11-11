@@ -1,0 +1,7 @@
+1..6
+ok 1 - prime (alpha)
+ok 2 - prime (beta)
+ok 3 - prime (rabin-miller)
+ok 4 - primes under 200 (beta)
+ok 5 - primes under 200 (rabin-miller)
+ok 6 - accuracy (rabin-miller)

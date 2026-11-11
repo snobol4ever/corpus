@@ -1,0 +1,46 @@
+1..45
+ok 1 - so('ä' ~~ /:m a /), True — Ignoremark: ä matches a
+ok 2 - so('Ä' ~~ /:m a /), False — Ignoremark: Ä doesn't match a
+ok 3 - so('ä' ~~ /:m A /), False — Ignoremark: ä doesn't match A
+ok 4 - so('a' ~~ /:m ä /), True — Ignoremark: a matches ä
+ok 5 - so('A' ~~ /:m ä /), False — Ignoremark: A doesn't match ä
+ok 6 - so('a' ~~ /:m Ä /), False — Ignoremark: a doesn't match Ä
+ok 7 - so('à' ~~ /:m a /), True — Ignoremark: à matches a
+ok 8 - so('À' ~~ /:m a /), False — Ignoremark: À doesn't match a
+ok 9 - so('à' ~~ /:m A /), False — Ignoremark: à doesn't match A
+ok 10 - so('á' ~~ /:m a /), True — Ignoremark: á matches a
+ok 11 - so('Á' ~~ /:m a /), False — Ignoremark: Á doesn't match a
+ok 12 - so('á' ~~ /:m A /), False — Ignoremark: á doesn't match A
+ok 13 - so('â' ~~ /:m a /), True — Ignoremark: â matches a
+ok 14 - so('Â' ~~ /:m a /), False — Ignoremark: Â doesn't match a
+ok 15 - so('â' ~~ /:m A /), False — Ignoremark: â doesn't match A
+ok 16 - so('å' ~~ /:m a /), True — Ignoremark: å matches a
+ok 17 - so('Å' ~~ /:m a /), False — Ignoremark: Å doesn't match a
+ok 18 - so('å' ~~ /:m A /), False — Ignoremark: å doesn't match A
+ok 19 - so('ƌ' ~~ /:m d /), False — Ignoremark: ƌ doesn't match d — TOPBAR is not a mark
+ok 20 - so('å' ~~ /:m ä /), True — Ignoremark: å matches ä — Both pattern and string may contain accents
+ok 21 - so('Å' ~~ /:m ä /), False — Ignoremark: Å doesn't match ä — Both pattern and string may contain accents
+ok 22 - so('å' ~~ /:m Ä /), False — Ignoremark: å doesn't match Ä — Both pattern and string may contain accents
+ok 23 - so('a' ~~ /:m ä /), True — Ignoremark: a matches ä — Pattern may contain accents
+ok 24 - so('A' ~~ /:m ä /), False — Ignoremark: A doesn't match ä — Pattern may contain accents
+ok 25 - so('a' ~~ /:m Ä /), False — Ignoremark: a doesn't match Ä — Pattern may contain accents
+ok 26 - Ignoremark: spelling out :ignoremark also works
+ok 27 - Ignoremark: spelling out :ignoremark also works
+ok 28 - Ignoremark: a+ b
+ok 29 - Ignoremark with character class
+ok 30 - Ignoremark with negated character class
+ok 31 - Ignoremark with range in character class
+ok 32 - :m can match empty string regex to the empty string
+ok 33 - Ignoremark with subrule
+ok 34 - Ignoremark on quoted double-quote
+ok 35 - Ignoremark on backslashed double-quote
+ok 36 - Synthetics with decomposable base characters properly work with ignoremark
+ok 37 - Synthetics properly can be matched with ignoremark
+ok 38 - Igoremark supports Prepend
+ok 39 - Ignoremark supports 0..9 prepend marks
+ok 40 - Ignoremark can match degenerate Prepend
+ok 41 - Ignoremark matches the first codepoint for all Prepend degenerates
+ok 42 - Ignoremark does not match the second codepoint for all Prepend degenerates
+ok 43 - Ignoremark doesn't match second codepoint for Prepend+Extend degenerate
+ok 44 - Ignoremark matches the first codepoint for all Prepend+Extend degenerates
+ok 45 - charclass ok

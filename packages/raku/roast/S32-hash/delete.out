@@ -1,0 +1,15 @@
+1..10
+ok 1 - Test for delete single key.
+ok 2 - basic sanity (2)
+ok 3 - deletion of a hash element returned the right value
+ok 4 - deletion of a hash element
+ok 5 - deleted hash elements are really deleted
+# Subtest: Can't :delete a scalar
+    1..2
+    ok 1 - '$a:delete' died
+    ok 2 - right exception type (Exception)
+ok 6 - Can't :delete a scalar
+ok 7 - delete.WHAT is the element
+ok 8 - .WHAT of stored delete is the element
+ok 9 - :delete on Hash:U returns Nil
+ok 10 - :delete of slice on Hash:U returns a list of Nils

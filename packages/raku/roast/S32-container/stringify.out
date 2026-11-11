@@ -1,0 +1,17 @@
+1..16
+ok 1 - Set.gist
+ok 2 - Set.raku
+ok 3 - Set.Str is empty string
+ok 4 - ~Set is empty string
+ok 5 - SetHash.gist
+ok 6 - SetHash.raku
+ok 7 - SetHash.Str is empty string
+ok 8 - ~SetHash is empty string
+ok 9 - Bag.gist
+ok 10 - Bag.raku
+ok 11 - Bag.Str is empty string
+ok 12 - ~Bag is empty string
+ok 13 - BagHash.gist
+ok 14 - BagHash.raku
+ok 15 - BagHash.Str is empty string
+ok 16 - ~BagHash is empty string

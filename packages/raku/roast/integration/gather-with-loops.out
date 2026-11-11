@@ -1,0 +1,22 @@
+1..21
+ok 1 - gather/take with last in loop
+ok 2 - gather/take with last in while loop
+ok 3 - gather/take with last in repeat-until loop
+ok 4 - gather/take with last in for loop
+ok 5 - eager gather/take with last in loop
+ok 6 - eager gather/take with last in while loop
+ok 7 - eager gather/take with last in repeat-until loop
+ok 8 - eager gather/take with last in for loop
+ok 9 - gather/take with next in loop
+ok 10 - gather/take with next in while loop
+ok 11 - gather/take with next in repeat-until loop
+ok 12 - gather/take with next in for loop
+ok 13 - gather/take with redo in loop
+ok 14 - gather/take with redo in while loop
+ok 15 - gather/take with redo in repeat-until loop
+ok 16 - gather/take with redo in for loop
+ok 17 - gather/take with last in nested for loop
+ok 18 - gather/take with next in nested for loop
+ok 19 - gather/take with redo in nested for loop
+ok 20 - gather/take with labeled last in nested for loop (1)
+ok 21 - gather/take with labeled last in nested for loop (2)

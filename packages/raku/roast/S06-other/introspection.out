@@ -1,0 +1,21 @@
+1..20
+ok 1 - an only subs lists itself in the .candidates
+ok 2 - an only subs lists itself in the .candidates
+ok 3 - an only sub implements .cando
+ok 4 - an only sub implements .cando
+ok 5 - an only sub implements .signature
+ok 6 - a multi sub returns all its candidates
+ok 7 - you can invoke through introspection
+ok 8 - you can invoke through introspection
+ok 9 - you can invoke through introspection
+ok 10 - junction sig matches first candidate
+ok 11 - junction sig matches second candidate
+ok 12 - junction sig matches third candidate
+ok 13 - Whatevercode with \()
+ok 14 - Whatevercode with \(666)
+ok 15 - Whatevercode with \(666,42)
+ok 16 - Whatevercode with \()
+ok 17 - Whatevercode with \(666)
+ok 18 - Whatevercode with \(666,42)
+ok 19 - calling without params should work
+ok 20 - actually calling should also work

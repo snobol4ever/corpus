@@ -1,0 +1,30 @@
+1..21
+ok 1 - first(&, @a, :kv)
+ok 2 - first(&, v1, v2, v3 …, :kv)
+ok 3 - @a.first(&, :kv)
+ok 4 - @a.first(&, :kv) [unsuccessful match]
+ok 5 - @a.first(&, :kv) search for odd elements
+ok 6 - matcher got only executed once
+ok 7 - @a.first(v1..v2,  :kv)
+ok 8 - @a.first(v1^..v2, :kv)
+ok 9 - @a.first(Str:U, :kv)
+ok 10 - @a.first(Int:U, :kv)
+ok 11 - @a.first(Rat:U, :kv)
+ok 12 - @a.first(/o/, :kv)
+ok 13 - @a.first(/ob/, :kv)
+ok 14 - @a.first(/l.*o/, :kv)
+ok 15 - List:D.first(Junction:D, :kv)
+ok 16 - first(Junction:D, List:D, :kv)
+# Subtest: first(Bool:D, v1, v2, …, :kv)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Match::Bool)
+ok 17 - first(Bool:D, v1, v2, …, :kv)
+# Subtest: List:D.first(Bool:D, :kv)
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Match::Bool)
+ok 18 - List:D.first(Bool:D, :kv)
+ok 19 - Bool:U as matcher (sub)
+ok 20 - Bool:U as matcher (method)
+ok 21 - is :!kv the same as no attribute

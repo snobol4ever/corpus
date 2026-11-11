@@ -1,0 +1,22 @@
+1..20
+ok 1 - left value is correct: basic hash
+ok 2 - right value is correct: basic hash
+ok 3 - left value is correct: hash with extra values
+ok 4 - right value is correct: hash with extra values
+ok 5 - left value is correct: hash with values that are hashes
+ok 6 - right value is correct: hash with values that are hashes
+ok 7 - east value is correct: custom hash values work
+ok 8 - west value is correct: custom hash values work
+ok 9 - east value is correct: custom hash, extra values
+ok 10 - west value is correct: custom hash, extra values
+ok 11 - east value is correct: custom hash with values that are hashes
+ok 12 - west value is correct: custom hash with values that are hashes
+ok 13 - left object value is correct: simple object
+ok 14 - right object value is correct: simple object
+ok 15 - left object value is correct: nested object tree
+ok 16 - right object value is correct: nested object tree
+ok 17 - # SKIP signature binding of return values NYI
+ok 18 - # SKIP signature binding of return values NYI
+ok 19 - # SKIP signature binding of return values NYI
+ok 20 - # SKIP signature binding of return values NYI
+# FUDGED!

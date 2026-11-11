@@ -1,0 +1,10 @@
+1..9
+ok 1 - ... our loop only got to 1 (last)
+ok 2 - can last() outside a subroutine and a for-loop
+ok 3 - ... our loop only got to 3 (last if <cond>)
+ok 4 - ... our loop only got to 3 (<cond> && last)
+ok 5 - ... our loop only got to 3 (<cond> and last)
+ok 6 - var is 0 because last before increment
+ok 7 - our inner loop only runs once per (last inside nested loops)
+ok 8 - var is 0 because last before increment in nested loop
+ok 9 - can use last in code block in regex in loop

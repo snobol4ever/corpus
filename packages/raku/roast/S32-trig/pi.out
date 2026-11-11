@@ -1,0 +1,4 @@
+1..3
+ok 1 - pi (using constant)
+ok 2 - pi checked by atan(1)*4
+ok 3 - 'pi + 3' = PI +3

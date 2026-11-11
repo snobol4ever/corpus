@@ -1,0 +1,50 @@
+1..45
+ok 1 - 1.2.1alpha1.0 cmp 1.2.1alpha1 is Same
+ok 2 - 1.2.1alpha1 cmp 1.2.1.alpha1 is Same
+ok 3 - 1.2.1.alpha1 cmp 1.2.1alpha.1 is Same
+ok 4 - 1.2.1alpha.1 cmp 1.2.1.alpha.1 is Same
+ok 5 - 1.2.1.alpha.1 cmp 1.2-1+alpha/1 is Same
+ok 6 - 1.2.1_01 cmp 1.2.1_1 is Same
+ok 7 - 1.2.1_1 cmp 1.2.1._1 is Same
+ok 8 - 1.2.1._1 cmp 1.2.1_1 is Same
+ok 9 - 1.2.1_1 cmp 1.2.1._.1 is Same
+ok 10 - 1.2.1._.1 cmp 001.0002.0000000001._.00000000001 is Same
+ok 11 - 001.0002.0000000001._.00000000001 cmp 1.2.1._.1.0.0.0.0.0 is Same
+ok 12 - 1.2.0.999 cmp 1.2.1_01 is Less
+ok 13 - 1.2.1_01 cmp 1.2.1_2 is Less
+ok 14 - 1.2.1_2 cmp 1.2.1_003 is Less
+ok 15 - 1.2.1_003 cmp 1.2.1a1 is Less
+ok 16 - 1.2.1a1 cmp 1.2.1.alpha1 is Less
+ok 17 - 1.2.1.alpha1 cmp 1.2.1b1 is Less
+ok 18 - 1.2.1b1 cmp 1.2.1.beta1 is Less
+ok 19 - 1.2.1.beta1 cmp 1.2.1.gamma is Less
+ok 20 - 1.2.1.gamma cmp 1.2.1α1 is Less
+ok 21 - 1.2.1α1 cmp 1.2.1β1 is Less
+ok 22 - 1.2.1β1 cmp 1.2.1γ is Less
+ok 23 - 1.2.1γ cmp 1.2.1 is Less
+ok 24 - 1.2.1 cmp 1.2.1γ is More
+ok 25 - 1.2.1γ cmp 1.2.1β1 is More
+ok 26 - 1.2.1β1 cmp 1.2.1α1 is More
+ok 27 - 1.2.1α1 cmp 1.2.1.gamma is More
+ok 28 - 1.2.1.gamma cmp 1.2.1.beta1 is More
+ok 29 - 1.2.1.beta1 cmp 1.2.1b1 is More
+ok 30 - 1.2.1b1 cmp 1.2.1.alpha1 is More
+ok 31 - 1.2.1.alpha1 cmp 1.2.1a1 is More
+ok 32 - 1.2.1a1 cmp 1.2.1_003 is More
+ok 33 - 1.2.1_003 cmp 1.2.1_2 is More
+ok 34 - 1.2.1_2 cmp 1.2.1_01 is More
+ok 35 - 1.2.1_01 cmp 1.2.0.999 is More
+ok 36 - can parse literal versions where major version is more than one digit
+ok 37 - v6   is newer than v2 [literals]
+ok 38 - v6.c is newer than v2 [literals]
+ok 39 - v6.d is newer than v2 [literals]
+ok 40 - v6.* is newer than v2 [literals]
+ok 41 - v6   is newer than v2 [Version.new]
+ok 42 - v6.* is newer than v2 [Version.new]
+ok 43 - v6. is newer than v2 for c..zz [Version.new]
+# Subtest: `eqv` on containerized Version objects
+    1..2
+    ok 1 - False result
+    ok 2 - True  result
+ok 44 - `eqv` on containerized Version objects
+ok 45 - can use `v6c` version literal (no dot) when specifying Raku version

@@ -1,0 +1,6 @@
+1..5
+ok 1 - !(foo ne foo)
+ok 2 - bar ne foo)
+ok 3 - string equality
+ok 4 - negated string equality
+ok 5 - Mu !~~ ""

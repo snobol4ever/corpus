@@ -1,0 +1,16 @@
+1..15
+ok 1 - :local returned list with correct number of roles
+ok 2 - role in list was correct
+ok 3 - :local returned list with correct number of roles
+ok 4 - roles in list were correct
+ok 5 - .^roles returns something Positional
+ok 6 - with no args returned list with correct number of roles
+ok 7 - first role in list was correct
+ok 8 - second and third roles in list were correct
+ok 9 - role R1 does no roles
+ok 10 - role R2 does one role
+ok 11 - class C1 does R2 and so also R1
+ok 12 - class C1 does R2 only with :!transitive
+ok 13 - class C2 does R3[Int]
+ok 14 - punned class shows transitively done roles
+ok 15 - punned class shows immediate role only with :!transitive

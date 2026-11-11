@@ -1,0 +1,138 @@
+1..128
+ok 1 - file test from before spec revision 27503 is error
+ok 2 - ~~:d returns true on directories
+ok 3 - can :d-test against non-existing dir and live
+ok 4 - can :d-test against non-existing dir and return false
+ok 5 - ~~:f returns true on files
+ok 6 - ~~:e returns true on files
+ok 7 - ~~:e returns true on directories
+ok 8 - ~~:r returns true on readable files
+ok 9 - ~~:w returns true on writable files
+ok 10 - # SKIP 'rakudo' is not present (interactive mode?)
+ok 11 - ~~:x returns true on cwd()able directories
+ok 12 - ~~:f returns false on directories
+ok 13 - ~~:r returns true on a readable directory
+ok 14 - ~~:d returns false on non-existent directories
+ok 15 - ~~:r returns false on non-existent directories
+ok 16 - ~~:w returns false on non-existent directories
+ok 17 - ~~:x returns false on non-existent directories
+ok 18 - ~~:f returns false on non-existent directories
+ok 19 - ~~:f returns false on non-existent files
+ok 20 - ~~:r returns false on non-existent files
+ok 21 - ~~:w returns false on non-existent files
+ok 22 - ~~:x returns false on non-existent files
+ok 23 - ~~:f returns false on non-existent files
+ok 24 - ~~:s returns size on existent files
+ok 25 - ~~:s returns false on non-existent files
+ok 26 - ~~:z returns false on existent files
+ok 27 - ~~:z returns false on non-existent files
+ok 28 - ~~:z returns inverse boolified size on directories
+ok 29 - ~~:z returns true for an empty file
+ok 30 - # SKIP :M, :C, :A
+ok 31 - # SKIP :M, :C, :A
+ok 32 - # SKIP :M, :C, :A
+ok 33 - # SKIP :M, :C, :A
+ok 34 - # SKIP :M, :C, :A
+ok 35 - # SKIP :M, :C, :A
+ok 36 - # SKIP :M, :C, :A
+ok 37 - # SKIP :M, :C, :A
+ok 38 - # SKIP :M, :C, :A
+ok 39 - f(...) works
+ok 40 - - f(...) does not call the ~~:f filetest
+ok 41 - - f(...) does not call the ~~:f filetest
+ok 42 - can :l-test against non-existing file and live
+ok 43 - ~~:l returns false on non-existent files
+ok 44 - .l on broken symlinks gives True
+# Subtest: .z fails for non-existent files
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::IO::DoesNotExist)
+    ok 2 - Failure threw when sunk
+ok 45 - .z fails for non-existent files
+ok 46 - .z returns True for empty files
+ok 47 - .z return False for non-empty files
+ok 48 - .z can be called on directories
+ok 49 - .r is True with 0777 mode
+ok 50 - ~~ :r is True with 0777 mode
+ok 51 - .r is True with 0666 mode
+ok 52 - ~~ :r is True with 0666 mode
+ok 53 - .r is True with 0555 mode
+ok 54 - ~~ :r is True with 0555 mode
+ok 55 - .r is True with 0444 mode
+ok 56 - ~~ :r is True with 0444 mode
+ok 57 - .r is False with 0333 mode
+ok 58 - ~~ :r is False with 0333 mode
+ok 59 - .r is False with 0222 mode
+ok 60 - ~~ :r is False with 0222 mode
+ok 61 - .r is False with 0111 mode
+ok 62 - ~~ :r is False with 0111 mode
+ok 63 - .r is False with 00 mode
+ok 64 - ~~ :r is False with 00 mode
+ok 65 - .w is True with 0777 mode
+ok 66 - ~~ :w is True with 0777 mode
+ok 67 - .w is True with 0666 mode
+ok 68 - ~~ :w is True with 0666 mode
+ok 69 - .w is False with 0555 mode
+ok 70 - ~~ :w is False with 0555 mode
+ok 71 - .w is False with 0444 mode
+ok 72 - ~~ :w is False with 0444 mode
+ok 73 - .w is True with 0333 mode
+ok 74 - ~~ :w is True with 0333 mode
+ok 75 - .w is True with 0222 mode
+ok 76 - ~~ :w is True with 0222 mode
+ok 77 - .w is False with 0111 mode
+ok 78 - ~~ :w is False with 0111 mode
+ok 79 - .w is False with 00 mode
+ok 80 - ~~ :w is False with 00 mode
+ok 81 - .x is True with 0777 mode
+ok 82 - ~~ :x is True with 0777 mode
+ok 83 - .x is False with 0666 mode
+ok 84 - ~~ :x is False with 0666 mode
+ok 85 - .x is True with 0555 mode
+ok 86 - ~~ :x is True with 0555 mode
+ok 87 - .x is False with 0444 mode
+ok 88 - ~~ :x is False with 0444 mode
+ok 89 - .x is True with 0333 mode
+ok 90 - ~~ :x is True with 0333 mode
+ok 91 - .x is False with 0222 mode
+ok 92 - ~~ :x is False with 0222 mode
+ok 93 - .x is True with 0111 mode
+ok 94 - ~~ :x is True with 0111 mode
+ok 95 - .x is False with 00 mode
+ok 96 - ~~ :x is False with 00 mode
+ok 97 - .rw is True with 0777 mode
+ok 98 - ~~ :rw is True with 0777 mode
+ok 99 - .rw is True with 0666 mode
+ok 100 - ~~ :rw is True with 0666 mode
+ok 101 - .rw is False with 0555 mode
+ok 102 - ~~ :rw is False with 0555 mode
+ok 103 - .rw is False with 0444 mode
+ok 104 - ~~ :rw is False with 0444 mode
+ok 105 - .rw is False with 0333 mode
+ok 106 - ~~ :rw is False with 0333 mode
+ok 107 - .rw is False with 0222 mode
+ok 108 - ~~ :rw is False with 0222 mode
+ok 109 - .rw is False with 0111 mode
+ok 110 - ~~ :rw is False with 0111 mode
+ok 111 - .rw is False with 00 mode
+ok 112 - ~~ :rw is False with 00 mode
+ok 113 - .rwx is True with 0777 mode
+ok 114 - ~~ :rwx is True with 0777 mode
+ok 115 - .rwx is False with 0666 mode
+ok 116 - ~~ :rwx is False with 0666 mode
+ok 117 - .rwx is False with 0555 mode
+ok 118 - ~~ :rwx is False with 0555 mode
+ok 119 - .rwx is False with 0444 mode
+ok 120 - ~~ :rwx is False with 0444 mode
+ok 121 - .rwx is False with 0333 mode
+ok 122 - ~~ :rwx is False with 0333 mode
+ok 123 - .rwx is False with 0222 mode
+ok 124 - ~~ :rwx is False with 0222 mode
+ok 125 - .rwx is False with 0111 mode
+ok 126 - ~~ :rwx is False with 0111 mode
+ok 127 - .rwx is False with 00 mode
+ok 128 - ~~ :rwx is False with 00 mode
+# FUDGED!

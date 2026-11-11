@@ -1,0 +1,14 @@
+1..13
+ok 1 - init blocks run after begin blocks
+ok 2 - init blocks run after check blocks
+ok 3 - init blocks run in forward order
+ok 4 - our INIT {...} block already gets called
+ok 5 - our INIT {...} block returned the correct var (1)
+ok 6 - our INIT {...} block returned the correct var (2)
+ok 7 - our rvalue INIT {...} block was executed exactly once
+ok 8 - the value set by INIT {} wiped out by the initializer of $str
+ok 9 - INIT {} always runs before the mainline code runs
+ok 10 - INIT has run exactly once (first time)
+ok 11 - INIT has run exactly once (second time)
+ok 12 - lexical initialized in INIT block in module is not reset
+ok 13 - lexical initialized in INIT block in class is not reset

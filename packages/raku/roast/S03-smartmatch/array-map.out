@@ -1,0 +1,7 @@
+1..6
+ok 1 - Array ~~ Map (exists and True)
+ok 2 - Array ~~ Map (exists but Mu)
+ok 3 - Array ~~ Map (both exist)
+ok 4 - Array ~~ Map (one exists)
+ok 5 - Array ~~ Map (empty list)
+ok 6 - Array ~~ Map (not exists)

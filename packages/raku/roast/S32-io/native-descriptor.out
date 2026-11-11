@@ -1,0 +1,5 @@
+1..4
+ok 1 - $*IN has a naitve descriptor
+ok 2 - $*OUT has a naitve descriptor
+ok 3 - $*ERR has a naitve descriptor
+ok 4 - file handle has a native descriptor

@@ -1,0 +1,51 @@
+1..44
+ok 1 - # SKIP hangs
+ok 2 - # SKIP hangs
+ok 3 - # SKIP hangs
+ok 4 - # SKIP hangs
+ok 5 - # SKIP hangs
+ok 6 - # SKIP hangs
+ok 7 - # SKIP hangs
+ok 8 - # SKIP hangs
+ok 9 - # SKIP hangs
+ok 10 - # SKIP hangs
+ok 11 - # SKIP hangs
+ok 12 - finite sequence started with one letter
+ok 13 - sequence started with one letter
+ok 14 - sequence started with two different letters
+ok 15 - character sequence started from array
+ok 16 - descending sequence started with one letter
+ok 17 - descending sequence started with two different letters
+ok 18 - descending sequence started with three different letters
+ok 19 - characters xand arity-1
+ok 20 - sequence ending with 'z' don't cross to two-letter strings
+ok 21 - sequence from 'A' to 'z' is finite and of correct length
+ok 22 - sequence from 'α' to 'ω' is finite and of correct length
+ok 23 - sequence from '☀' to '☕'
+ok 24 - exclusive sequence from '☀' to '☕'
+ok 25 - 'A' ... 'ZZ' does not go on forever
+ok 26 - last element of 'ZZ' ... 'AA' is 'AA'
+# Subtest: Str decrement fails after 'AA': leftmost characters are never removed
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches Decrement out of range
+ok 27 - Str decrement fails after 'AA': leftmost characters are never removed
+ok 28 - 'Y', 'Z' ... 'A' works
+ok 29 - A is before AA
+ok 30 - 'A' ...^ 'ZZ' omits last element
+ok 31 - # SKIP lifting comparison ops
+ok 32 - # SKIP lifting comparison ops
+ok 33 - # SKIP lifting comparison ops
+ok 34 - # SKIP lifting comparison ops
+ok 35 - # SKIP lifting comparison ops
+ok 36 - # SKIP lifting comparison ops
+ok 37 - sequence with strings that starts with a digit but cannot convert to numbers
+ok 38 - unicode blocks
+ok 39 - mixture
+ok 40 - intuition does not try to cmp a WhateverCode
+ok 41 - can generate octals
+ok 42 - can generate reverse octals
+ok 43 - can juggle unicode balls
+ok 44 - can juggle unicode balls upside down
+# FUDGED!

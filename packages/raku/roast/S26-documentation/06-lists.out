@@ -1,0 +1,40 @@
+1..39
+ok 1 - 
+ok 2 - The object is-a 'Pod::Item'
+ok 3 - The object is-a 'Pod::Item'
+ok 4 - The object is-a 'Pod::Item'
+ok 5 - The object is-a 'Pod::Item'
+ok 6 - The object is-a 'Pod::Item'
+ok 7 - The object is-a 'Pod::Item'
+ok 8 - The object is-a 'Pod::Item'
+ok 9 - contents is happy :)
+ok 10 - 
+ok 11 - 
+ok 12 - =item is an abbreviation of =item1
+ok 13 - 
+ok 14 - The object is-a 'Pod::Item'
+ok 15 - The object is-a 'Pod::Item'
+ok 16 - The object is-a 'Pod::Item'
+ok 17 - The object is-a 'Pod::Item'
+ok 18 - The object is-a 'Pod::Item'
+ok 19 - The object is-a 'Pod::Item'
+ok 20 - The object is-a 'Pod::Item'
+ok 21 - The object is-a 'Pod::Item'
+ok 22 - 
+ok 23 - 
+ok 24 - 
+ok 25 - 
+ok 26 - 
+ok 27 - 
+ok 28 - 
+ok 29 - 
+ok 30 - 
+ok 31 - The object is-a 'Pod::Item'
+ok 32 - The object is-a 'Pod::Item'
+ok 33 - The object is-a 'Pod::Item'
+ok 34 - The object is-a 'Pod::Item'
+ok 35 - 
+ok 36 - 
+ok 37 - 
+ok 38 - 
+ok 39 - 

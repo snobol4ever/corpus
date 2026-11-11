@@ -1,0 +1,89 @@
+1..76
+ok 1 - we have an empty array
+ok 2 - we have 1 element in the array
+ok 3 - we found the right element
+ok 4 - we have 2 elements in the array
+ok 5 - we found the right element
+ok 6 - we found the right element
+ok 7 - we have 3 element in the array
+ok 8 - we found the right element
+ok 9 - we found the right element
+ok 10 - we found the right element
+ok 11 - we have 4 element in the array
+ok 12 - we found the right element
+ok 13 - we found the right element
+ok 14 - we found the right element
+ok 15 - we found the right element
+ok 16 - we have 1 element in the array
+ok 17 - unshift @array, $val worked
+ok 18 - we have 2 elements in the array
+ok 19 - @unshift.unshift(200) works
+ok 20 - unshift @array, $val worked
+ok 21 - we have 3 elements in the array
+ok 22 - @unshift.unshift(400) works
+ok 23 - @unshift.unshift(200) works
+ok 24 - unshift @array, $val worked
+ok 25 - we have 3 elements in the array
+ok 26 - got the expected element
+ok 27 - got the expected element
+ok 28 - got the expected element
+ok 29 - we have 5 elements in the array
+ok 30 - got the expected element
+ok 31 - got the expected element
+ok 32 - got the expected element
+ok 33 - got the expected element
+ok 34 - got the expected element
+ok 35 - we have 8 elements in the array
+ok 36 - got the expected element
+ok 37 - got the expected element
+ok 38 - got the expected element
+ok 39 - got the expected element
+ok 40 - got the expected element
+ok 41 - got the expected element
+ok 42 - got the expected element
+ok 43 - got the expected element
+ok 44 - we have 1 element in the array
+ok 45 - got the expected element
+ok 46 - got the expected element
+ok 47 - got the expected element
+ok 48 - we have 5 elements in the array
+ok 49 - got the expected element
+ok 50 - got the expected element
+ok 51 - got the expected element
+ok 52 - got the expected element
+ok 53 - got the expected element
+ok 54 - we have 8 elements in the array
+ok 55 - got the expected element
+ok 56 - got the expected element
+ok 57 - got the expected element
+ok 58 - got the expected element
+ok 59 - got the expected element
+ok 60 - got the expected element
+ok 61 - got the expected element
+ok 62 - got the expected element
+ok 63 - we have 1 element in the array
+ok 64 - got the element expected
+ok 65 - we have 2 elements in the array
+ok 66 - got the element expected
+ok 67 - got the element expected
+ok 68 - starting length is 6
+ok 69 - length is still 6
+ok 70 - length is still 6
+# Subtest: unshift() requires arguments
+    1..2
+    ok 1 - 'unshift()' died
+    ok 2 - right exception type (X::TypeCheck::Argument)
+ok 71 - unshift() requires arguments
+# Subtest: .unshift should not work on scalars
+    1..2
+    ok 1 - '42.unshift(3)' died
+    ok 2 - right exception type (X::Multi::NoMatch)
+ok 72 - .unshift should not work on scalars
+ok 73 - New element created by unshift(@a, $x) isn't affected by changes to $x
+ok 74 - $x isn't affected by changes to new element created by unshift(@a, $x)
+ok 75 - can unshift an element that boolifies to False
+# Subtest: cannot unshift strings onto in Int array
+    1..2
+    ok 1 - '@a.unshift: "a"' died
+    ok 2 - right exception type (X::TypeCheck)
+ok 76 - cannot unshift strings onto in Int array

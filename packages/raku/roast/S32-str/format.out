@@ -1,0 +1,67 @@
+1..49
+ok 1 - The object is-a 'Format'
+ok 2 - The object is-a 'Callable'
+ok 3 - The object is-a 'Signature'
+ok 4 - arity no args
+ok 5 - count no args
+ok 6 - is $f0 callable
+ok 7 - does $f0 stringify ok
+ok 8 - does $f0 embed ok
+ok 9 - an empty list is ok for argless
+# Subtest: did we throws-like X::Str::Sprintf::Directives::Count?
+    1..5
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Sprintf::Directives::Count)
+    ok 3 - .format matches foo
+    ok 4 - .args-used matches 1
+    ok 5 - .args-have matches 0
+ok 10 - did we throws-like X::Str::Sprintf::Directives::Count?
+ok 11 - The object is-a 'Format'
+ok 12 - The object is-a 'Callable'
+ok 13 - The object is-a 'Signature'
+ok 14 - arity one arg
+ok 15 - count one arg
+ok 16 - is $f1 callable?
+ok 17 - does $f1 stringify ok
+ok 18 - does $f1 embed ok
+ok 19 - The object is-a 'Format'
+ok 20 - The object is-a 'Callable'
+ok 21 - The object is-a 'Signature'
+ok 22 - arity two args
+ok 23 - count two args
+ok 24 - is $f2 callable?
+ok 25 - does $f2 stringify ok
+ok 26 - does $f2 embed ok
+ok 27 - The object is-a 'Match'
+ok 28 - The object is-a 'Callable'
+ok 29 - The object is-a 'RakuAST::Node'
+ok 30 - fmt on Set with one arg
+ok 31 - fmt on SetHash with one arg
+ok 32 - fmt on Bag with one arg
+ok 33 - fmt on BagHash with one arg
+ok 34 - fmt on Mix with one arg
+ok 35 - fmt on MixHash with one arg
+ok 36 - fmt on Set with two args
+ok 37 - fmt on SetHash with two args
+ok 38 - fmt on Bag with two args
+ok 39 - fmt on BagHash with two args
+ok 40 - fmt on Mix with two args
+ok 41 - fmt on MixHash with two args
+ok 42 - fmt on Map with one arg
+ok 43 - fmt on Map with two args
+ok 44 - fmt on List with one arg
+ok 45 - fmt on List with two args
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches .fmt
+ok 46 - did we throws-like X::Cannot::Lazy?
+ok 47 - fmt on Seq with one arg
+ok 48 - fmt on Seq with two args
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .action matches .fmt
+ok 49 - did we throws-like X::Cannot::Lazy?

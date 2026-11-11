@@ -1,0 +1,9 @@
+1..8
+ok 1 - @arrays.keys works
+ok 2 - keys(@array) works
+ok 3 - we have the same number of keys as elements in the array
+ok 4 - @array.values works
+ok 5 - values(@array) works
+ok 6 - we have the same number of values as elements in the array
+ok 7 - shifting .values removes an element...
+ok 8 - ...while leaving original list alone.

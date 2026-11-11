@@ -1,0 +1,19 @@
+1..14
+ok 1 - slurpy circumfix:<<...>> works
+ok 2 - slurpy circumfix:<<...>> works, allows spaces
+ok 3 - lexically defined circumfix works inside EVAL
+ok 4 - circumfix with non-Latin1 bracketing characters
+ok 5 - circumfix with non-Latin1 bracketing characters, allows spaces
+ok 6 - sub postcircumfix:<...> works
+ok 7 - lexically defined postcircumfix works inside EVAL
+ok 8 - can define circumfix using << >> and both delimiters from the same constant
+ok 9 - can define and use circumfix using << >> and both delimiters from the same constant (1)
+ok 10 - can define circumfix using << >> and both delimiters from the same constant
+ok 11 - can define and use circumfix using << >> and both delimiters from the same constant (2)
+ok 12 - can define circumfix using << {sym} >> and both delimiters from the same constant
+ok 13 - can define and use circumfix using << >> and both delimiters from the same constant
+# Subtest: constants containing too many parts throw correctly
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::AddCategorical::TooManyParts)
+ok 14 - constants containing too many parts throw correctly

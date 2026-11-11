@@ -1,0 +1,87 @@
+1..39
+ok 1 - 2 and 2 make 4
+not ok 2 - 2 and 2 doesnt make 5 # TODO mitigate failing ok
+# Failed test '2 and 2 doesnt make 5'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 25
+ok 3 - 2 and 2 make 4
+not ok 4 - 2 and 2 doesnt make 5 # TODO mitigate failing is
+# Failed test '2 and 2 doesnt make 5'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 32
+# expected: '5'
+#      got: '4'
+ok 5 - 2 and 2 does not make 5
+not ok 6 - 2 and 2 does make 4 # TODO mitigate failing isnt
+# Failed test '2 and 2 does make 4'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 39
+# expected: anything except '4'
+#      got: '4'
+ok 7 - is-deeply (simple)
+ok 8 - is-deeply (more complex)
+ok 9 - is-deeply (test hash key ordering)
+ok 10 - The object is-a '"List"'
+ok 11 - The object is-a '"Hash"'
+not ok 12 - ... testing first failing isa-ok # TODO mitigate failing 2 isa-ok
+# Failed test '... testing first failing isa-ok'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 68
+# Actual type: Array
+not ok 13 - ... testing second failing isa-ok # TODO mitigate failing 2 isa-ok
+# Failed test '... testing second failing isa-ok'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 69
+# Actual type: Array
+ok 14 - The object is-a '"Foo"'
+ok 15 - The object is-a '"Foo"'
+ok 16 - The object is-a 'Perl6::Metamodel::ClassHOW'
+ok 17 - The object is-a 'Perl6::Metamodel::ParametricRoleGroupHOW'
+ok 18 - The object is-a 'Perl6::Metamodel::EnumHOW'
+ok 19 - The object is-a 'Perl6::Metamodel::SubsetHOW'
+ok 20 - ... testing like()
+not ok 21 - ... testing failing like() # TODO mitigate failing like
+# Failed test '... testing failing like()'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 87
+# expected a match with: rx/\s/
+#                   got: "HelloWorld"
+ok 22 - ... testing unlike()
+not ok 23 - ... testing failing unlike() # TODO mitigate failing unlike
+# Failed test '... testing failing unlike()'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 94
+# expected no match with: rx/\s/
+#                    got: "Hello World"
+ok 24 - ... testing gt on two strings
+not ok 25 - ... testing gt on two strings # TODO mitigate failing cmp-ok
+# Failed test '... testing gt on two strings'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 101
+# expected: "you"
+#  matcher: 'Sub'
+#      got: "test"
+ok 26 - use_ok_test module can be use-d ok
+not ok 27 - Non::Existent::Package module can be use-d ok # TODO mitigate failing use-ok
+# Failed test 'Non::Existent::Package module can be use-d ok'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 111
+# Could not find Non::Existent::Package in:
+#     /tmp/s4e/cao/fudge/m/S24-testing
+#     /home/satirical/.raku
+#     /home/resources/rakudo-local/share/perl6/site
+#     /home/resources/rakudo-local/share/perl6/vendor
+#     /home/resources/rakudo-local/share/perl6/core
+#     CompUnit::Repository::AbsolutePath<3394136781168>
+#     CompUnit::Repository::NQP<3394009278400>
+#     CompUnit::Repository::Perl5<3394009278440>
+ok 28 - ... it dies-ok
+not ok 29 - ... testing failing dies-ok # TODO mitigate failing dies-ok
+# Failed test '... testing failing dies-ok'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 118
+ok 30 - ... it lives-ok
+not ok 31 - ... testing failing lives-ok # TODO mitigate Failing lives-ok
+# Failed test '... testing failing lives-ok'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 125
+# test
+ok 32 - This test passed
+not ok 33 - This test failed # TODO mitigate flunk
+# Failed test 'This test failed'
+# at /tmp/s4e/cao/fudge/m/S24-testing/1-basic.t line 138
+ok 34 - # SKIP skip this test for now
+ok 35 - # SKIP skip 3 more tests for now
+ok 36 - # SKIP skip 3 more tests for now
+ok 37 - # SKIP skip 3 more tests for now
+ok 38 - # SKIP skipping the rest
+ok 39 - # SKIP skipping the rest

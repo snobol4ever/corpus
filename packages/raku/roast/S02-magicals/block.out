@@ -1,0 +1,4 @@
+1..3
+ok 1 - the &?BLOCK magical worked
+ok 2 - Correct result from function generator returning function using &?BLOCK
+ok 3 - Correct closure semantics with &?BLOCK

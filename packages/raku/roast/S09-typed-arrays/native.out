@@ -1,0 +1,189 @@
+1..12
+ok 1 - Must use native array with type parameter (1)
+ok 2 - Must use native array with type parameter (2)
+ok 3 - Must use native array with type parameter (3)
+# Subtest: .STORE(non-Iterable value) does not leave behind previous values
+    1..8
+    ok 1 - int
+    ok 2 - int8
+    ok 3 - int16
+    ok 4 - int32
+    ok 5 - int64
+    ok 6 - num
+    ok 7 - num32
+    ok 8 - num64
+ok 4 - .STORE(non-Iterable value) does not leave behind previous values
+# Subtest: .STORE(native iterable) does not leave behind previous values
+    1..8
+    ok 1 - int
+    ok 2 - int8
+    ok 3 - int16
+    ok 4 - int32
+    ok 5 - int64
+    ok 6 - num
+    ok 7 - num32
+    ok 8 - num64
+ok 5 - .STORE(native iterable) does not leave behind previous values
+# Subtest: .STORE(HLL iterable) does not leave behind previous values
+    1..8
+    ok 1 - int
+    ok 2 - int8
+    ok 3 - int16
+    ok 4 - int32
+    ok 5 - int64
+    ok 6 - num
+    ok 7 - num32
+    ok 8 - num64
+ok 6 - .STORE(HLL iterable) does not leave behind previous values
+# Subtest: no rogue leftovers when resizing natives
+    1..5
+    ok 1 - native int array, large resize, larger than original size
+    ok 2 - native int array, large resize, smaller than original size
+    ok 3 - native num array, small resize, smaller than original size
+    ok 4 - native num array, small resize, larger than original size
+    ok 5 - contents + unshift + clear clears old elements
+ok 7 - no rogue leftovers when resizing natives
+# Subtest: STOREing a Seq doesnt keep previous values around
+    1..3
+    ok 1 - STOREing a Seq into a native int array
+    ok 2 - STOREing a Seq into a native num array
+    ok 3 - STOREing a Seq into a native str array
+ok 8 - STOREing a Seq doesnt keep previous values around
+# Subtest: assigning other arrays into native arrays dies if the type of an element is wrong
+    1..14
+    # Subtest: assigning a str literal to an int array throws
+        1..2
+        ok 1 - 'my int @a = 1, "a"' died
+        ok 2 - right exception type (Exception)
+    ok 1 - assigning a str literal to an int array throws
+    # Subtest: assigning a num literal to an int array throws
+        1..2
+        ok 1 - 'my int @a = 1, 1e0' died
+        ok 2 - right exception type (Exception)
+    ok 2 - assigning a num literal to an int array throws
+    # Subtest: assigning a too big literal to an int array throws
+        1..2
+        ok 1 - 'my int @a = 1, 2**65' died
+        ok 2 - right exception type (Exception)
+    ok 3 - assigning a too big literal to an int array throws
+    # Subtest: assigning a str variable to an int array throws
+        1..2
+        ok 1 - 'my str $a = "a"; my int @a = 1, $a' died
+        ok 2 - right exception type (Exception)
+    ok 4 - assigning a str variable to an int array throws
+    # Subtest: assigning a num variable to an int array throws
+        1..2
+        ok 1 - 'my num $a = 1e0; my int @a = 1, $a' died
+        ok 2 - right exception type (Exception)
+    ok 5 - assigning a num variable to an int array throws
+    # Subtest: assigning a too big variable to an int array throws
+        1..2
+        ok 1 - 'my $a = 2**65;   my int @a = 1, $a' died
+        ok 2 - right exception type (Exception)
+    ok 6 - assigning a too big variable to an int array throws
+    # Subtest: assigning an int literal to a str array throws
+        1..2
+        ok 1 - 'my str @a = "a", 1' died
+        ok 2 - right exception type (Exception)
+    ok 7 - assigning an int literal to a str array throws
+    # Subtest: assigning a num literal to a str array throws
+        1..2
+        ok 1 - 'my str @a = "a", 1e0' died
+        ok 2 - right exception type (Exception)
+    ok 8 - assigning a num literal to a str array throws
+    # Subtest: assigning an int variable to a str array throws
+        1..2
+        ok 1 - 'my int $a = 1;   my str @a = "a", $a' died
+        ok 2 - right exception type (Exception)
+    ok 9 - assigning an int variable to a str array throws
+    # Subtest: assigning a num variable to a str array throws
+        1..2
+        ok 1 - 'my num $a = 1e0; my str @a = "a", $a' died
+        ok 2 - right exception type (Exception)
+    ok 10 - assigning a num variable to a str array throws
+    # Subtest: assigning an int literal to a num array throws
+        1..2
+        ok 1 - 'my num @a = 1e0, 1' died
+        ok 2 - right exception type (Exception)
+    ok 11 - assigning an int literal to a num array throws
+    # Subtest: assigning a str literal to a num array throws
+        1..2
+        ok 1 - 'my num @a = 1e0, "a"' died
+        ok 2 - right exception type (Exception)
+    ok 12 - assigning a str literal to a num array throws
+    # Subtest: assigning an int variable to a num array throws
+        1..2
+        ok 1 - 'my int $a = 1;   my num @a = 1e0, $a' died
+        ok 2 - right exception type (Exception)
+    ok 13 - assigning an int variable to a num array throws
+    # Subtest: assigning a str variable to a num array throws
+        1..2
+        ok 1 - 'my str $a = "a"; my num @a = 1e0, $a' died
+        ok 2 - right exception type (Exception)
+    ok 14 - assigning a str variable to a num array throws
+ok 9 - assigning other arrays into native arrays dies if the type of an element is wrong
+# Subtest: STOREing/splicing lazy Seq values throws
+    1..12
+    # Subtest: STORE int lazy prefix
+        1..2
+        ok 1 - 'my int @a = lazy 1..100; @a[1]' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 1 - STORE int lazy prefix
+    # Subtest: splice int lazy prefix
+        1..2
+        ok 1 - 'my int @a; @a.splice(0, 0, (lazy 1..100))' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 2 - splice int lazy prefix
+    # Subtest: STORE int sequence operator
+        1..2
+        ok 1 - 'my int @a = 2, 4, 8 ... *; @a[1]' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - STORE int sequence operator
+    # Subtest: splice int sequence operator
+        1..2
+        ok 1 - 'my int @a; @a.splice(0, 0, (2, 4, 8 ... *))' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 4 - splice int sequence operator
+    # Subtest: STORE num lazy prefix
+        1..2
+        ok 1 - 'my num @a = lazy 1e0..100e0; @a[1]' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 5 - STORE num lazy prefix
+    # Subtest: splice num lazy prefix
+        1..2
+        ok 1 - 'my num @a; @a.splice(0, 0, (lazy 1e0..100e0))' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 6 - splice num lazy prefix
+    # Subtest: STORE num sequence operator
+        1..2
+        ok 1 - 'my num @a = 2e0, 4e0, 8e0 ... *; @a[1]' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 7 - STORE num sequence operator
+    # Subtest: splice num sequence operator
+        1..2
+        ok 1 - 'my num @a; @a.splice(0, 0, (2e0, 4e0, 8e0 ... *))' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 8 - splice num sequence operator
+    # Subtest: STORE str lazy prefix
+        1..2
+        ok 1 - 'my str @a = lazy "a".."z"; @a[1]' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 9 - STORE str lazy prefix
+    # Subtest: splice str lazy prefix
+        1..2
+        ok 1 - 'my str @a; @a.splice(0, 0, (lazy "a".."z"))' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 10 - splice str lazy prefix
+    # Subtest: STORE str sequence operator
+        1..2
+        ok 1 - 'my str @a = "a" ... *; @a[1]' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 11 - STORE str sequence operator
+    # Subtest: splice str sequence operator
+        1..2
+        ok 1 - 'my str @a; @a.splice(0, 0, ("a" ... *))' died
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 12 - splice str sequence operator
+ok 10 - STOREing/splicing lazy Seq values throws
+ok 11 - can call a sub with coercion from Cool with a native array
+ok 12 - can call .raku on array[str] type object

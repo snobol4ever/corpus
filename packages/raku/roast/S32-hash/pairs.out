@@ -1,0 +1,27 @@
+1..26
+ok 1 - pairs on hashes
+ok 2 - Can sort list of pairs
+ok 3 - pairs on hashes returned the correct number of elems
+ok 4 - value of pair returned by hash.pairs was correct (1)
+ok 5 - value of pair returned by hash.pairs was correct (2)
+ok 6 - value of pair returned by hash.pairs was correct (3)
+ok 7 - key of pair returned by hash.pairs was correct (1)
+ok 8 - key of pair returned by hash.pairs was correct (2)
+ok 9 - key of pair returned by hash.pairs was correct (3)
+ok 10 - pairs on a pair
+ok 11 - pairs on a pair returned one elem
+ok 12 - key of pair returned by pair.pairs
+ok 13 - value of pair returned by pair.pairs
+ok 14 - pairs() on 2-elem hash, 1-depth joined
+ok 15 - pairs() on 1-elem hash, 1-depth joined
+ok 16 - pairs() on 2-elem hash, 2-depth joined
+ok 17 - pairs() on 1-elem hash, 2-depth joined
+ok 18 - aliases returned by %hash.pairs should be rw (1)
+ok 19 - aliases returned by %hash.pairs should be rw (2)
+ok 20 - aliases returned by $pair.value should be rw (1)
+ok 21 - aliases returned by $pair.kv should be rw (2)
+ok 22 - :p with existing key returns pair
+ok 23 - :p(0) with existing key returns pair
+ok 24 - :p with non-existing key returns empty list
+ok 25 - :p(0) with non-existing key returns pair
+ok 26 - pairs() gives same result as .pairs

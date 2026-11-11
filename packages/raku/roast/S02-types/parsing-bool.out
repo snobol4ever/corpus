@@ -1,0 +1,5 @@
+1..4
+ok 1 - Bool::False as RHS
+ok 2 - Bool::False as LHS
+ok 3 - False as RHS
+ok 4 - False as LHS

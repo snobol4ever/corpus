@@ -1,0 +1,8 @@
+1..7
+ok 1 - Can define postfix operator
+ok 2 - Can define recursive postfix operator
+ok 3 - Can use newly defined postfix operator with leading dot
+ok 4 - implementing AT-KEY gets {...} indexing working
+ok 5 - AT-KEY called once for each key
+ok 6 - can overload invoke
+ok 7 - earlier quoted strings do not interfere with later interpolation of newly defined ops

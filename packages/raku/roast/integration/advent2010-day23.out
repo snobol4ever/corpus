@@ -1,0 +1,9 @@
+1..8
+ok 1 - sort case insensitively
+ok 2 - sort by word length, shortest to longest
+ok 3 - sort by word length, longest to shortest
+ok 4 - sort by word length, then default
+ok 5 - double sort by default, then length
+ok 6 - double sort rewritten
+ok 7 - natural sort
+ok 8 - natural sort of ip's

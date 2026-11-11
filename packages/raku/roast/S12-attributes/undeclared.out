@@ -1,0 +1,41 @@
+1..11
+ok 1 - Test Undeclared public attribute assignment from a class
+ok 2 - Test Undeclared public attribute assignment from a role
+# Subtest: Test Undeclared private attribute assignment from a class
+    1..2
+    ok 1 - ' class D { method d { $!d = 1 }}; D.new.d; ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 3 - Test Undeclared private attribute assignment from a class
+# Subtest: Test Undeclared private attribute assignment from a role
+    1..2
+    ok 1 - ' role E { method e { $!e = 1 }};class F does E { }; F.new.e; ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 4 - Test Undeclared private attribute assignment from a role
+ok 5 - Test Undeclared public attribute access from a class
+ok 6 - Test Undeclared public attribute access from a role
+# Subtest: Test Undeclared private attribute access from a class
+    1..2
+    ok 1 - ' class K { method k { $!k }}; K.new.k; ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 7 - Test Undeclared private attribute access from a class
+# Subtest: Test Undeclared private attribute access from a role
+    1..2
+    ok 1 - ' role L { method l { $!l }};class M does L { }; M.new.l; ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 8 - Test Undeclared private attribute access from a role
+# Subtest: Test Undeclared private attribute binding from a role
+    1..2
+    ok 1 - ' role R { method r { $!r := 1 }};class S does R { }; S.new.r; ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 9 - Test Undeclared private attribute binding from a role
+# Subtest: Test Undeclared private attribute binding from a class
+    1..2
+    ok 1 - ' class T { method t { $!t := 1 }}; ::T.new.t; ' died
+    ok 2 - right exception type (X::Attribute::Undeclared)
+ok 10 - Test Undeclared private attribute binding from a class
+# Subtest: did we throws-like X::Attribute::NoPackage?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Attribute::NoPackage)
+    ok 3 - .message matches You cannot declare attribute '$.x' here; maybe you'd like a class or a role?
+ok 11 - did we throws-like X::Attribute::NoPackage?

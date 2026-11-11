@@ -1,0 +1,141 @@
+1..28
+# Subtest: &spurt with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 1 - &spurt with "\0foobar"
+# Subtest: &slurp with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 2 - &slurp with "\0foobar"
+# Subtest: &chdir with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 3 - &chdir with "\0foobar"
+# Subtest: &open with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 4 - &open with "\0foobar"
+# Subtest: .IO with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 5 - .IO with "\0foobar"
+# Subtest: IO::Path.new with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 6 - IO::Path.new with "\0foobar"
+# Subtest: .child with "\0foobar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 7 - .child with "\0foobar"
+# Subtest: &spurt with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 8 - &spurt with "foo\0bar"
+# Subtest: &slurp with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 9 - &slurp with "foo\0bar"
+# Subtest: &chdir with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 10 - &chdir with "foo\0bar"
+# Subtest: &open with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 11 - &open with "foo\0bar"
+# Subtest: .IO with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 12 - .IO with "foo\0bar"
+# Subtest: IO::Path.new with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 13 - IO::Path.new with "foo\0bar"
+# Subtest: .child with "foo\0bar"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 14 - .child with "foo\0bar"
+# Subtest: &spurt with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 15 - &spurt with "foobar\0"
+# Subtest: &slurp with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 16 - &slurp with "foobar\0"
+# Subtest: &chdir with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 17 - &chdir with "foobar\0"
+# Subtest: &open with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 18 - &open with "foobar\0"
+# Subtest: .IO with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 19 - .IO with "foobar\0"
+# Subtest: IO::Path.new with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 20 - IO::Path.new with "foobar\0"
+# Subtest: .child with "foobar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 21 - .child with "foobar\0"
+# Subtest: &spurt with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 22 - &spurt with "\0foo\0bar\0"
+# Subtest: &slurp with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 23 - &slurp with "\0foo\0bar\0"
+# Subtest: &chdir with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 24 - &chdir with "\0foo\0bar\0"
+# Subtest: &open with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 25 - &open with "\0foo\0bar\0"
+# Subtest: .IO with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 26 - .IO with "\0foo\0bar\0"
+# Subtest: IO::Path.new with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 27 - IO::Path.new with "\0foo\0bar\0"
+# Subtest: .child with "\0foo\0bar\0"
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::IO::Null)
+ok 28 - .child with "\0foo\0bar\0"

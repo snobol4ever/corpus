@@ -1,0 +1,64 @@
+1..48
+ok 1 - Native int is rw arg in sub got value
+ok 2 - Native int is rw arg works in sub
+ok 3 - Native num is rw arg in sub got value
+ok 4 - Native num is rw arg works in sub
+ok 5 - Native str is rw arg in sub got value
+ok 6 - Native str is rw arg works in sub
+ok 7 - Cannot pass non-container to native int is rw in sub
+ok 8 - Cannot pass non-container to native num is rw in sub
+ok 9 - Cannot pass non-container to native str is rw in sub
+ok 10 - Cannot pass wrong container to native int is rw in sub
+ok 11 - Cannot pass wrong container to native int is rw in sub
+ok 12 - Cannot pass wrong container to native num is rw in sub
+ok 13 - Cannot pass wrong container to native num is rw in sub
+ok 14 - Cannot pass wrong container to native str is rw in sub
+ok 15 - Cannot pass wrong container to native str is rw in sub
+ok 16 - Native int is rw arg in pointy block got value
+ok 17 - Native int is rw arg works in pointy block
+ok 18 - Native num is rw arg in pointy block got value
+ok 19 - Native num is rw arg works in pointy block
+ok 20 - Native str is rw arg in pointy block got value
+ok 21 - Native str is rw arg works in pointy block
+ok 22 - Cannot pass non-container to native int is rw in pointy block
+ok 23 - Cannot pass non-container to native num is rw in pointy block
+ok 24 - Cannot pass non-container to native str is rw in pointy block
+ok 25 - Cannot pass wrong container to native int is rw in pointy block
+ok 26 - Cannot pass wrong container to native int is rw in pointy block
+ok 27 - Cannot pass wrong container to native num is rw in pointy block
+ok 28 - Cannot pass wrong container to native num is rw in pointy block
+ok 29 - Cannot pass wrong container to native str is rw in pointy block
+ok 30 - Cannot pass wrong container to native str is rw in pointy block
+ok 31 - Native int is rw arg in method got value
+ok 32 - Native int is rw arg works in method
+ok 33 - Native num is rw arg in method got value
+ok 34 - Native num is rw arg works in method
+ok 35 - Native str is rw arg in method got value
+ok 36 - Native str is rw arg works in method
+ok 37 - Cannot pass non-container to native int is rw in method
+ok 38 - Cannot pass non-container to native num is rw in method
+ok 39 - Cannot pass non-container to native str is rw in method
+ok 40 - Cannot pass wrong container to native int is rw in method
+ok 41 - Cannot pass wrong container to native int is rw in method
+ok 42 - Cannot pass wrong container to native num is rw in method
+ok 43 - Cannot pass wrong container to native num is rw in method
+ok 44 - Cannot pass wrong container to native str is rw in method
+ok 45 - Cannot pass wrong container to native str is rw in method
+# Subtest: Assignment to sub native read-only arg caught at compile time
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO::Comp)
+    ok 3 - .variable matches $x
+ok 46 - Assignment to sub native read-only arg caught at compile time
+# Subtest: Assignment to method native read-only arg caught at compile time
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO::Comp)
+    ok 3 - .variable matches $x
+ok 47 - Assignment to method native read-only arg caught at compile time
+# Subtest: Assignment to pointy block native read-only arg caught at compile time
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO::Comp)
+    ok 3 - .variable matches $x
+ok 48 - Assignment to pointy block native read-only arg caught at compile time

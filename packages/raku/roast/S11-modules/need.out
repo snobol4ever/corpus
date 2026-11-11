@@ -1,0 +1,7 @@
+1..2
+ok 1 - Can "need" a module
+# Subtest: "need" did not import the default export list
+    1..2
+    ok 1 - 'exported_foo()' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 2 - "need" did not import the default export list

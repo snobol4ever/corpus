@@ -1,0 +1,802 @@
+1..112
+ok 1 - EVAL 1.Num.raku is Num
+ok 2 - EVAL 1.Num.raku is 1
+ok 3 - EVAL 0.Num.raku is Num
+ok 4 - EVAL 0.Num.raku is 0
+ok 5 - EVAL -1.Num.raku is Num
+ok 6 - EVAL -1.Num.raku is -1
+ok 7 - EVAL 1.1.Num.raku is Num
+ok 8 - EVAL 1.1.Num.raku is 1.1
+ok 9 - EVAL -1.1.Num.raku is Num
+ok 10 - EVAL -1.1.Num.raku is -1.1
+ok 11 - EVAL 1e100.Num.raku is Num
+ok 12 - EVAL 1e100.Num.raku is 1
+ok 13 - The object is-a 'Int'
+ok 14 - 1 stringification works
+ok 15 - The object is-a 'Int'
+ok 16 - -1 stringification works
+ok 17 - The object is-a 'Rat'
+ok 18 - 1/1 stringification works
+ok 19 - The object is-a 'Rat'
+ok 20 - -1 stringification works
+ok 21 - The object is-a 'Rat'
+ok 22 - 0.1 stringification works
+ok 23 - The object is-a 'Rat'
+ok 24 - -0.1 stringification works
+ok 25 - The object is-a 'Rat'
+ok 26 - 10.01 stringification works
+ok 27 - The object is-a 'Num'
+ok 28 - -1 stringification works
+ok 29 - The object is-a 'Num'
+ok 30 - 0.1 stringification works
+ok 31 - The object is-a 'Num'
+ok 32 - -0.1 stringification works
+ok 33 - The object is-a 'Num'
+ok 34 - 10.01 stringification works
+ok 35 - 1e3 conforms to Num
+ok 36 - 1e3 stringification works
+ok 37 - The object is-a 'Num'
+ok 38 - 10.01e3 stringification works
+ok 39 - The object is-a 'Int'
+ok 40 - 0b100 (binary) stringification works
+ok 41 - The object is-a 'Int'
+ok 42 - 0x100 (hex) stringification works
+ok 43 - The object is-a 'Int'
+ok 44 - 0o100 (octal) stringification works
+ok 45 - basic addition works
+ok 46 - basic addition with negative numbers works
+ok 47 - The object is-a 'Rat'
+ok 48 - The object is-a 'Rat'
+ok 49 - trailing zeros compare correctly
+ok 50 - The object is-a 'Num'
+ok 51 - trailing zeros compare correctly
+ok 52 - The object is-a 'Int'
+ok 53 - 1.01 intifies to 1
+ok 54 - The object is-a 'Int'
+ok 55 - 0d0101 numifies to 101
+ok 56 - we have bignums, not weeny floats
+ok 57 - underscores allowed (and ignored) in numeric literals
+ok 58 - multiple underscores ok
+ok 59 - underscores in fraction ok
+ok 60 - underscores in whole part ok
+# Subtest: single underscores are not ok directly after the dot
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Method::NotFound)
+ok 61 - single underscores are not ok directly after the dot
+ok 62 - single underscores are ok
+ok 63 - 0_1 is parsed as 0d1
+ok 64 - +^1 == -2 as promised
+ok 65 - 0xFFFFFFFFFFFFFFFF is not -1
+ok 66 - Num === Num should be truthy, and not die
+ok 67 - 1e0.atanh returns ∞
+ok 68 - Num:U.Range gives -Inf to Inf range
+# Subtest: Num.new coerces types that can .Num
+    1..6
+    ok 1 - Num
+    ok 2 - Rat
+    ok 3 - Int
+    ok 4 - Complex
+    ok 5 - Str
+    # Subtest: class that cannot .Num
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (Exception)
+    ok 6 - class that cannot .Num
+ok 69 - Num.new coerces types that can .Num
+# Subtest: ++Num
+    1..8
+    ok 1 - return value (:D)
+    ok 2 - new value (:D)
+    ok 3 - return value (:U)
+    ok 4 - new value (:U)
+    ok 5 - return value (native)
+    ok 6 - new value (native)
+    ok 7 - return value (uninit. native)
+    ok 8 - new value (uninit. native)
+ok 70 - ++Num
+# Subtest: --Num
+    1..8
+    ok 1 - return value (:D)
+    ok 2 - new value (:D)
+    ok 3 - return value (:U)
+    ok 4 - new value (:U)
+    ok 5 - return value (native)
+    ok 6 - new value (native)
+    ok 7 - return value (uninit. native)
+    ok 8 - new value (uninit. native)
+ok 71 - --Num
+# Subtest: Num++
+    1..4
+    ok 1 - return value
+    ok 2 - new value
+    ok 3 - return value (uninit. native)
+    ok 4 - new value (uninit. native)
+ok 72 - Num++
+# Subtest: Num--
+    1..6
+    ok 1 - return value (:U)
+    ok 2 - new value (:U)
+    ok 3 - return value (native)
+    ok 4 - new value (native)
+    ok 5 - return value (uninit. native)
+    ok 6 - new value (uninit. native)
+ok 73 - Num--
+# Subtest: prefix:<->(num) and U+2212 prefix op
+    1..8
+    ok 1 - - uninitialized
+    ok 2 - − (U+2212) uninitialized
+    ok 3 - - zero
+    ok 4 - − (U+2212) zero
+    ok 5 - - positive
+    ok 6 - − (U+2212) positive
+    ok 7 - - negative
+    ok 8 - − (U+2212) negative
+ok 74 - prefix:<->(num) and U+2212 prefix op
+# Subtest: abs(num)
+    1..4
+    ok 1 - uninitialized
+    ok 2 - zero
+    ok 3 - positive
+    ok 4 - negative
+ok 75 - abs(num)
+# Subtest: infix:<+>(num, num)
+    1..16
+    ok 1 - uninit + zero
+    ok 2 - uninit + positive
+    ok 3 - uninit + negative
+    ok 4 - uninit + uninit
+    ok 5 - zero + uninit
+    ok 6 - positive + uninit
+    ok 7 - negative + uninit
+    ok 8 - zero + positive
+    ok 9 - zero + negative
+    ok 10 - zero + zero
+    ok 11 - positive + negative
+    ok 12 - positive + zero
+    ok 13 - positive + positive
+    ok 14 - negative + zero
+    ok 15 - negative + positive
+    ok 16 - negative + negative
+ok 76 - infix:<+>(num, num)
+# Subtest: infix:<*>(num, num)
+    1..16
+    ok 1 - uninit * zero
+    ok 2 - uninit * positive
+    ok 3 - uninit * negative
+    ok 4 - uninit * uninit
+    ok 5 - zero * uninit
+    ok 6 - positive * uninit
+    ok 7 - negative * uninit
+    ok 8 - zero * positive
+    ok 9 - zero * negative
+    ok 10 - zero * zero
+    ok 11 - positive * negative
+    ok 12 - positive * zero
+    ok 13 - positive * positive
+    ok 14 - negative * zero
+    ok 15 - negative * positive
+    ok 16 - negative * negative
+ok 77 - infix:<*>(num, num)
+# Subtest: infix:<%>(num, num)
+    1..7
+    ok 1 - uninit % defined
+    ok 2 - 0 % 4
+    ok 3 - 4 % 5
+    ok 4 - 5 % 4
+    ok 5 - 0 % -4
+    ok 6 - -4 % 5
+    ok 7 - 5 % -4
+ok 78 - infix:<%>(num, num)
+# Subtest: infix:<**>(num, num)
+    1..22
+    ok 1 - uninit ** 1st power
+    ok 2 - uninit ** positive
+    ok 3 - uninit ** negative
+    ok 4 - uninit ** uninit
+    ok 5 - zero ** uninit
+    ok 6 - positive ** uninit
+    ok 7 - negative ** uninit
+    ok 8 - 1 ** uninit
+    ok 9 - uninit ** zero
+    ok 10 - zero ** positive
+    ok 11 - zero ** zero
+    ok 12 - zero ** 1st power
+    ok 13 - positive ** zero
+    ok 14 - positive ** 1st power
+    ok 15 - positive ** positive
+    ok 16 - negative ** zero
+    ok 17 - negative ** 1st power
+    ok 18 - negative ** positive
+    ok 19 - positive ** negative
+    ok 20 - negative ** negative
+    ok 21 - 1/3 power (third root)
+    ok 22 - 4/6 power (6th root of 4th power)
+ok 79 - infix:<**>(num, num)
+# Subtest: log(num)
+    1..9
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - negative
+    ok 4 - -∞
+    ok 5 - +∞
+    ok 6 - zero
+    ok 7 - neg zero
+    ok 8 - one
+    ok 9 - 42
+ok 80 - log(num)
+# Subtest: ceiling(num)
+    1..10
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - -∞
+    ok 4 - +∞
+    ok 5 - zero
+    ok 6 - neg zero
+    ok 7 - positive (1)
+    ok 8 - positive (2)
+    ok 9 - negative (1)
+    ok 10 - negative (2)
+ok 81 - ceiling(num)
+# Subtest: sin(num)
+    1..13
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - -∞
+    ok 4 - +∞
+    ok 5 - 0e0
+    ok 6 - τ
+    ok 7 - -τ
+    ok 8 - π
+    ok 9 - -π
+    ok 10 - π/2
+    ok 11 - -π/2
+    ok 12 - π/4
+    ok 13 - -π/4
+ok 82 - sin(num)
+# Subtest: asin(num)
+    1..11
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - -∞
+    ok 4 - +∞
+    ok 5 - -1.1e0
+    ok 6 - +1.1e0
+    ok 7 - 0e0
+    ok 8 - 1e0
+    ok 9 - -1e0
+    ok 10 - ½√2
+    ok 11 - -½√2
+ok 83 - asin(num)
+# Subtest: cos(num)
+    1..13
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - -∞
+    ok 4 - +∞
+    ok 5 - 0e0
+    ok 6 - π/4
+    ok 7 - -π/4
+    ok 8 - π
+    ok 9 - -π
+    ok 10 - π/2
+    ok 11 - -π/2
+    ok 12 - π/4
+    ok 13 - -π/4
+ok 84 - cos(num)
+# Subtest: acos(num)
+    1..11
+    ok 1 - NaN
+    ok 2 - -∞
+    ok 3 - +∞
+    ok 4 - -1.1e0
+    ok 5 - +1.1e0
+    ok 6 - 1e0
+    ok 7 - 1e0
+    ok 8 - -1e0
+    ok 9 - 0e0
+    ok 10 - ½√2
+    ok 11 - -½√2
+ok 85 - acos(num)
+# Subtest: tan(num)
+    1..13
+    ok 1 - NaN
+    ok 2 - -∞
+    ok 3 - +∞
+    ok 4 - uninitialized
+    ok 5 - 0e0
+    ok 6 - τ
+    ok 7 - -τ
+    ok 8 - π
+    ok 9 - -π
+    ok 10 - π/4
+    ok 11 - -π/4
+    ok 12 - π/2
+    ok 13 - -π/2
+ok 86 - tan(num)
+# Subtest: atan(num)
+    1..7
+    ok 1 - NaN
+    ok 2 - uninitialized
+    ok 3 - 0e0
+    ok 4 - 1e0
+    ok 5 - -1e0
+    ok 6 - π
+    ok 7 - -π
+ok 87 - atan(num)
+# Subtest: sec(num)
+    1..13
+    ok 1 - NaN
+    ok 2 - -∞
+    ok 3 - +∞
+    ok 4 - uninitialized
+    ok 5 - 0e0
+    ok 6 - τ
+    ok 7 - -τ
+    ok 8 - π
+    ok 9 - -π
+    ok 10 - π/4
+    ok 11 - -π/4
+    ok 12 - π/2
+    ok 13 - -π/2
+ok 88 - sec(num)
+# Subtest: asec(num)
+    1..10
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - 0e0
+    ok 4 - .9e0
+    ok 5 - -.9e0
+    ok 6 - 1e0
+    ok 7 - ∞
+    ok 8 - -∞
+    ok 9 - 2/√2
+    ok 10 - -2/√2
+ok 89 - asec(num)
+# Subtest: cotan(num)
+    1..38
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - -∞
+    ok 4 - +∞
+    ok 5 - 0e0
+    ok 6 - -0e0
+    ok 7 - π/12
+    ok 8 - π/10
+    ok 9 - π/8
+    ok 10 - π/6
+    ok 11 - π/5
+    ok 12 - π/4
+    ok 13 - 3*π/10
+    ok 14 - π/3
+    ok 15 - 3*π/8
+    ok 16 - 2*π/5
+    ok 17 - 5*π/12
+    ok 18 - -π/2
+    ok 19 - 3*π/2
+    ok 20 - 5*π/2
+    ok 21 - -π/12
+    ok 22 - -π/10
+    ok 23 - -π/8
+    ok 24 - -π/6
+    ok 25 - -π/5
+    ok 26 - -π/4
+    ok 27 - -3*π/10
+    ok 28 - -π/3
+    ok 29 - -3*π/8
+    ok 30 - -2*π/5
+    ok 31 - -5*π/12
+    ok 32 - -π/2
+    ok 33 - -3*π/2
+    ok 34 - -5*π/2
+    ok 35 - π
+    ok 36 - -π
+    ok 37 - τ
+    ok 38 - -τ
+ok 90 - cotan(num)
+# Subtest: acotan(num)
+    1..29
+    ok 1 - NaN
+    ok 2 - uninitialized
+    ok 3 - -∞ is -0
+    ok 4 - ∞
+    ok 5 - -∞
+    ok 6 - 0e0
+    ok 7 - -0e0
+    ok 8 - 2+√3
+    ok 9 - √(5+2*√5)
+    ok 10 - 1+√2
+    ok 11 - √3
+    ok 12 - √(1+2/√5)
+    ok 13 - 1e0
+    ok 14 - √(5-2*√5)
+    ok 15 - √3/3
+    ok 16 - √2-1
+    ok 17 - √(1-2/√5)
+    ok 18 - 2-√3
+    ok 19 - -(2+√3)
+    ok 20 - -√(5+2*√5)
+    ok 21 - -(1+√2)
+    ok 22 - -√3
+    ok 23 - -√(1+2/√5)
+    ok 24 - -1e0
+    ok 25 - -√(5-2*√5)
+    ok 26 - -√3/3
+    ok 27 - -(√2-1)
+    ok 28 - -√(1-2/√5)
+    ok 29 - -(2-√3)
+ok 91 - acotan(num)
+# Subtest: sinh(num)
+    1..18
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - ∞
+    ok 4 - -∞
+    ok 5 - 1e20
+    ok 6 - -1e20
+    ok 7 - 2.718281828459045
+    ok 8 - -2.718281828459045
+    ok 9 - 0
+    ok 10 - -0
+    ok 11 - 1
+    ok 12 - -1
+    ok 13 - 3.141592653589793
+    ok 14 - -3.141592653589793
+    ok 15 - 6.283185307179586
+    ok 16 - -6.283185307179586
+    ok 17 - 100
+    ok 18 - -100
+ok 92 - sinh(num)
+# Subtest: asinh(num)
+    1..19
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - ∞
+    ok 4 - -∞
+    ok 5 - 1e200
+    ok 6 - -1e200 # TODO asinh does not comply with IEEE
+    not ok 7 - -0e0 actually gives a minus 0 # TODO asinh does not comply with IEEE
+    # Failed test '-0e0 actually gives a minus 0'
+    # at S02-types/num.rakudo line 699
+    # expected: '-0'
+    #      got: '0'
+    ok 8 - 2.718281828459045
+    ok 9 - -2.718281828459045
+    ok 10 - 0
+    ok 11 - -0
+    ok 12 - 1
+    ok 13 - -1
+    ok 14 - 3.141592653589793
+    ok 15 - -3.141592653589793
+    ok 16 - 6.283185307179586
+    ok 17 - -6.283185307179586
+    ok 18 - 100
+    ok 19 - -100
+ok 93 - asinh(num)
+# Subtest: cosh(num)
+    1..18
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - ∞
+    ok 4 - -∞
+    ok 5 - 1e20
+    ok 6 - -1e20
+    ok 7 - 2.718281828459045
+    ok 8 - -2.718281828459045
+    ok 9 - 0
+    ok 10 - -0
+    ok 11 - 1
+    ok 12 - -1
+    ok 13 - 3.141592653589793
+    ok 14 - -3.141592653589793
+    ok 15 - 6.283185307179586
+    ok 16 - -6.283185307179586
+    ok 17 - 100
+    ok 18 - -100
+ok 94 - cosh(num)
+# Subtest: acosh(num)
+    1..20
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - 0e0
+    ok 4 - .9e0
+    ok 5 - -1e0
+    ok 6 - -1e100
+    ok 7 - -1e200
+    ok 8 - -∞
+    ok 9 - ∞
+    ok 10 - 1e200
+    ok 11 - 2.718281828459045
+    ok 12 - -2.718281828459045
+    ok 13 - 1
+    ok 14 - -1
+    ok 15 - 3.141592653589793
+    ok 16 - -3.141592653589793
+    ok 17 - 6.283185307179586
+    ok 18 - -6.283185307179586
+    ok 19 - 1e+20
+    ok 20 - -1e+20
+ok 95 - acosh(num)
+# Subtest: tanh(num)
+    1..18
+    ok 1 - uninitialized
+    ok 2 - NaN
+    ok 3 - ∞
+    ok 4 - -∞
+    ok 5 - 1e20
+    ok 6 - -1e20
+    ok 7 - 2.718281828459045
+    ok 8 - -2.718281828459045
+    ok 9 - 0
+    ok 10 - -0
+    ok 11 - 1
+    ok 12 - -1
+    ok 13 - 3.141592653589793
+    ok 14 - -3.141592653589793
+    ok 15 - 6.283185307179586
+    ok 16 - -6.283185307179586
+    ok 17 - 100
+    ok 18 - -100
+ok 96 - tanh(num)
+# Subtest: atanh(num)
+    1..32
+    ok 1 - 1e0
+    ok 2 - -1e0
+    not ok 3 - atanh(2.718281828459045) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(2.718281828459045) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 4 - atanh(-2.718281828459045) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-2.718281828459045) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 5 - atanh(10) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(10) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 6 - atanh(-10) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-10) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 7 - atanh(3.141592653589793) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(3.141592653589793) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 8 - atanh(-3.141592653589793) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-3.141592653589793) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 9 - atanh(6.283185307179586) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(6.283185307179586) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 10 - atanh(-6.283185307179586) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-6.283185307179586) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 11 - atanh(1e+20) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(1e+20) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 12 - atanh(-1e+20) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-1e+20) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 13 - atanh(1e+100) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(1e+100) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 14 - atanh(-1e+100) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-1e+100) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 15 - atanh(1e+200) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(1e+200) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 16 - atanh(-1e+200) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-1e+200) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 17 - atanh(Inf) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(Inf) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 18 - atanh(-Inf) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-Inf) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 19 - atanh(Inf) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(Inf) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    not ok 20 - atanh(-Inf) is a Complex # TODO atanh for these values return Complex in 6.e
+    # Failed test 'atanh(-Inf) is a Complex'
+    # at S02-types/num.rakudo line 773
+    #     expected approximately: NaN
+    #                        got: NaN
+    # maximum relative tolerance: 1e-06
+    # actual relative difference: NaN
+    ok 21 - 0
+    ok 22 - -0
+    ok 23 - 0.2
+    ok 24 - -0.2
+    ok 25 - 0.3
+    ok 26 - -0.3
+    ok 27 - 0.5
+    ok 28 - -0.5
+    ok 29 - 0.7
+    ok 30 - -0.7
+    ok 31 - 0.9
+    ok 32 - -0.9
+ok 97 - atanh(num)
+ok 98 - Literal Nums close to the upper limit are not Inf
+# Subtest: .Bool
+    1..5
+    ok 1 - positive
+    ok 2 - negative
+    ok 3 - zero
+    ok 4 - negative zero
+    ok 5 - NaN
+ok 99 - .Bool
+# Subtest: no parsing glitches in the way Num is parsed
+    1..3
+    ok 1 - (1)
+    ok 2 - (2)
+    ok 3 - (3)
+ok 100 - no parsing glitches in the way Num is parsed
+ok 101 - Nums that are close to each other parsed correctly as different
+# Subtest: Num literals yield closest available Num to their nominal value
+    1..2
+    ok 1 - 9.999e-5
+    ok 2 - 9.99899999999999995e-5
+ok 102 - Num literals yield closest available Num to their nominal value
+# Subtest: parsed nums choose closest available representation
+    1..13
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+    ok 5 - 
+    ok 6 - 
+    ok 7 - 
+    ok 8 - 
+    ok 9 - 
+    ok 10 - 
+    ok 11 - 
+    ok 12 - 
+    ok 13 - 
+ok 103 - parsed nums choose closest available representation
+ok 104 - Rat->Num conversion is monotonic
+# Subtest: parsed nums are the same as those produced from Str.Num
+    1..5
+    ok 1 - parsed number stringification
+    ok 2 - Str.Num stringification
+    ok 3 - val().Numeric.Str stringification
+    ok 4 - parsed matches Str.Num
+    ok 5 - parsed matches val()
+ok 105 - parsed nums are the same as those produced from Str.Num
+# Subtest: distinct num literals do not compare the same
+    1..3
+    ok 1 - ==
+    ok 2 - ===
+    ok 3 - === of .WHICHes
+ok 106 - distinct num literals do not compare the same
+ok 107 - .raku roundtrips the Num correctly
+# Subtest: no hangs/crashes when parsing nums with huge exponents
+    1..2
+    # Subtest: huge-ish exponent
+        1..7
+        ok 1 - Num literal
+        ok 2 - Num literal in EVAL
+        ok 3 - +Str
+        ok 4 - Str.Numeric
+        ok 5 - Str.Num
+        ok 6 - Num allomorph
+        ok 7 - Num allomorph in EVAL
+    ok 1 - huge-ish exponent
+    # Subtest: huge-huge-huge exponent
+        1..7
+        ok 1 - Num literal
+        ok 2 - Num literal in EVAL
+        ok 3 - +Str
+        ok 4 - Str.Numeric
+        ok 5 - Str.Num
+        ok 6 - Num allomorph
+        ok 7 - Num allomorph in EVAL
+    ok 2 - huge-huge-huge exponent
+ok 108 - no hangs/crashes when parsing nums with huge exponents
+# Subtest: does num % 0e0 return a Failure
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..4
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 3 - .using matches %
+        ok 4 - .numerator matches 5
+    ok 2 - Failure threw when sunk
+ok 109 - does num % 0e0 return a Failure
+# Subtest: does 0e0 % 0e0 return a Failure
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..4
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 3 - .using matches %
+        ok 4 - .numerator matches 0
+    ok 2 - Failure threw when sunk
+ok 110 - does 0e0 % 0e0 return a Failure
+# Subtest: does num / 0e0 return a Failure
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..4
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::DivideByZero)
+        ok 3 - .numerator matches 5
+        ok 4 - .using matches /
+    ok 2 - Failure threw when sunk
+ok 111 - does num / 0e0 return a Failure
+# Subtest: does num ** -1e20 return a Failure
+    1..2
+    ok 1 - code returned a Failure
+    # Subtest: Failure threw when sunk
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Numeric::Underflow)
+    ok 2 - Failure threw when sunk
+ok 112 - does num ** -1e20 return a Failure
+# FUDGED!

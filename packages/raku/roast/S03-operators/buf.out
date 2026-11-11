@@ -1,0 +1,247 @@
+1..194
+ok 1 - prefix:<~^>
+ok 2 - infix:<~&>
+ok 3 - infix:<~|>
+ok 4 - infix:<~^>
+ok 5 - ~& extends rightwards
+ok 6 - ~| extends rightwards
+ok 7 - ~^ extends rightwards
+ok 8 - eq +
+ok 9 - eq -
+ok 10 - ne +
+ok 11 - ne -
+ok 12 - lt +
+ok 13 - lt -
+ok 14 - lt -
+ok 15 - gt +
+ok 16 - gt -
+ok 17 - gt -
+ok 18 - cmp (same)
+ok 19 - cmp (smaller)
+ok 20 - cmp (larger)
+ok 21 - ~ and eq work on bufs
+ok 22 - ~ concatenates
+ok 23 - empty Buf is false
+ok 24 - non-empty Buf is true
+ok 25 - .subbuf(start)
+ok 26 - .subbuf(start, len)
+ok 27 - .subbuf length out of bounds
+ok 28 - subbuf on an empty buffer
+# Subtest: throw on negative range
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches -1
+    ok 4 - .range matches 0..1
+ok 29 - throw on negative range
+ok 30 - subbuf-rw empty source and destination
+ok 31 - subbuf-rw empty destination
+ok 32 - subbuf-rw insert
+ok 33 - subbuf-rw zero-length source
+ok 34 - subbuf-rw prepend
+ok 35 - subbuf-rw replace
+ok 36 - subbuf-rw append
+ok 37 - subbuf-rw fetch
+ok 38 - sub subbuf-rw($buf)
+# Subtest: throw on out of range (positive)
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .got matches 2
+    ok 4 - .range matches 0..1
+ok 39 - throw on out of range (positive)
+ok 40 - counted from the end
+ok 41 - counted from the end, length out of bounds
+# Subtest: throw on out of bounds, counted from the end
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .range matches 0..1
+    ok 4 - .got matches *
+ok 42 - throw on out of bounds, counted from the end
+# Subtest: throw on negative len
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+    ok 3 - .range matches 0..0
+    ok 4 - .got matches -1
+ok 43 - throw on negative len
+# Subtest: did we throws-like X::Buf::AsStr?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Buf::AsStr)
+ok 44 - did we throws-like X::Buf::AsStr?
+ok 45 - can concat a utf8 buffer to a string
+ok 46 - can concat a buffer to something undefined
+ok 47 - buf8 .bytes correct
+ok 48 - buf16 .bytes correct
+ok 49 - buf32 .bytes correct
+ok 50 - buf64 .bytes correct
+ok 51 - append returns self
+ok 52 - Buf .elems correct after append
+ok 53 - Buf last element correct after append
+ok 54 - append returns self
+ok 55 - Buf .elems correct after appending a list
+ok 56 - Buf penultimate element correct after appending a list
+ok 57 - Buf last element correct after appending a list
+ok 58 - append returns self
+ok 59 - Buf .elems correct after appending varargs
+ok 60 - Buf penultimate element correct appending appending varargs
+ok 61 - Buf last element correct after appending varargs
+ok 62 - append returns self
+ok 63 - Buf .elems correct after appending xx list
+ok 64 - Buf last element correct after appending xx list
+ok 65 - push returns self
+ok 66 - Buf .elems correct after push
+ok 67 - Buf last element correct after push
+ok 68 - push returns self
+ok 69 - Buf .elems correct after pushing a list
+ok 70 - Buf penultimate element correct after pushing a list
+ok 71 - Buf last element correct after pushing a list
+ok 72 - push returns self
+ok 73 - Buf .elems correct after pushing varargs
+ok 74 - Buf penultimate element correct pushing appending varargs
+ok 75 - Buf last element correct after pushing varargs
+ok 76 - push returns self
+ok 77 - Buf .elems correct after pushing xx list
+ok 78 - Buf last element correct after pushing xx list
+ok 79 - prepend returns self
+ok 80 - Buf .elems correct after prepend
+ok 81 - Buf first element correct after prepend
+ok 82 - prepend returns self
+ok 83 - Buf .elems correct after prepending a list
+ok 84 - Buf first element correct after prepending a list
+ok 85 - Buf second element correct after prepending a list
+ok 86 - prepend returns self
+ok 87 - Buf .elems correct after prepending varargs
+ok 88 - Buf first element correct prepending appending varargs
+ok 89 - Buf second element correct after prepending varargs
+ok 90 - prepend returns self
+ok 91 - Buf .elems correct after prepending xx list
+ok 92 - Buf first element correct after prepending xx list
+ok 93 - unshift returns self
+ok 94 - Buf .elems correct after unshift
+ok 95 - Buf first element correct after unshift
+ok 96 - unshift returns self
+ok 97 - Buf .elems correct after unshifting a list
+ok 98 - Buf first element correct after unshifting a list
+ok 99 - Buf second element correct after unshifting a list
+ok 100 - unshift returns self
+ok 101 - Buf .elems correct after unshifting varargs
+ok 102 - Buf first element correct unshifting appending varargs
+ok 103 - Buf second element correct after unshifting varargs
+ok 104 - unshift returns self
+ok 105 - Buf .elems correct after unshifting xx list
+ok 106 - Buf first element correct after unshifting xx list
+ok 107 - Can create Buf with .= new
+ok 108 - can we use ^10 as specifier
+ok 109 - can we use 10..20 as specifier
+ok 110 - single-element range (10..10) gives a single element buf in subbuf
+ok 111 - two-element range (10..11) gives two element buf in subbuf
+ok 112 - empty range (10..^10) gives empty buf in subbuf
+ok 113 - negative range (10..1) gives an empty buf in subbuf
+ok 114 - did Blob.new on empty array work
+ok 115 - did Buf.new on empty array work
+ok 116 - Blob eqv Blob lives, works
+ok 117 - Buf eqv Blob lives, works
+ok 118 - did we allocate a Blob of 10 elements
+ok 119 - was the Blob initialized correctly
+# Subtest: we cannot reallocate a Blob
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 120 - we cannot reallocate a Blob
+ok 121 - did we allocate a Blob to 10 elements
+ok 122 - was the Blob initialized correctly
+ok 123 - did we allocate a Blob to 10 elements
+ok 124 - was te Blob initialized correctly
+ok 125 - subbuf(3..7)
+ok 126 - subbuf(5)
+ok 127 - subbuf(5)
+ok 128 - subbuf(5,3)
+ok 129 - subbuf(5,*-3)
+ok 130 - subbuf(*-5,3)
+ok 131 - subbuf(*-5,*-3)
+ok 132 - subbuf(5,*)
+ok 133 - subbuf(5,Inf)
+ok 134 - subbuf(5,3.3)
+ok 135 - did we allocate a Buf of 10 elements
+ok 136 - was the Buf initialized correctly
+ok 137 - did we reallocate the Buf to 12 elements
+ok 138 - was the Buf changed correctly
+ok 139 - did we allocate a Buf to 10 elements
+ok 140 - was the Buf initialized correctly
+ok 141 - did we reallocate the Buf to 13 elements
+ok 142 - was the Buf changed correctly
+ok 143 - did we allocate a Buf to 10 elements
+ok 144 - was te Buf initialized correctly
+ok 145 - did we reallocate the Buf to 4 elements
+ok 146 - was the Buf changed correctly
+ok 147 - subbuf(3..7)
+ok 148 - subbuf(5)
+ok 149 - subbuf(5)
+ok 150 - subbuf(5,3)
+ok 151 - subbuf(5,*-3)
+ok 152 - subbuf(*-5,3)
+ok 153 - subbuf(*-5,*-3)
+ok 154 - subbuf(5,*)
+ok 155 - subbuf(5,Inf)
+ok 156 - subbuf(5,3.3)
+# Subtest: infix:<~> works with Blob
+    1..6
+    ok 1 - meta-assign form, return value
+    ok 2 - meta-assign form, result
+    ok 3 - a ~ b
+    ok 4 - infix:<~>(a, b)
+    ok 5 - [~] with 1 blob
+    ok 6 - [~] with 3 blobs
+ok 157 - infix:<~> works with Blob
+ok 158 - check infix +& int/Int
+ok 159 - check infix +| int/Int
+ok 160 - check infix +^ int/Int
+ok 161 - check infix +< int/Int
+ok 162 - check infix +> int/Int
+ok 163 - check prefix +^ int
+# Subtest: Blob:D le Blob:D
+    1..4
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+ok 164 - Blob:D le Blob:D
+# Subtest: Blob:D ge Blob:D
+    1..4
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+ok 165 - Blob:D ge Blob:D
+ok 166 - do same bufs smartmatch ok
+ok 167 - do different bufs smartmatch ok
+ok 168 - do same bufs smartmatch ok
+ok 169 - do different bufs smartmatch ok
+ok 170 - do same bufs smartmatch ok
+ok 171 - do different bufs smartmatch ok
+ok 172 - do same bufs smartmatch ok
+ok 173 - do different bufs smartmatch ok
+ok 174 - did my @a is Blob = ^10 work
+ok 175 - did my @a is Blob[uint8] = ^10 work
+ok 176 - did my @a is Blob[uint16] = ^10 work
+ok 177 - did my @a is Blob[uint32] = ^10 work
+ok 178 - did my @a is Blob[uint64] = ^10 work
+ok 179 - did my @a is Buf = ^10 work
+ok 180 - did my @a is Buf[uint8] = ^10 work
+ok 181 - did my @a is Buf[uint16] = ^10 work
+ok 182 - did my @a is Buf[uint32] = ^10 work
+ok 183 - did my @a is Buf[uint64] = ^10 work
+ok 184 - did my @a is Blob; @a = ^10 fail
+ok 185 - did my @a is Blob[uint8]; @a = ^10 fail
+ok 186 - did my @a is Blob[uint16]; @a = ^10 fail
+ok 187 - did my @a is Blob[uint32]; @a = ^10 fail
+ok 188 - did my @a is Blob[uint64]; @a = ^10 fail
+ok 189 - did my @a is Buf; @a = ^10 work
+ok 190 - did my @a is Buf[uint8]; @a = ^10 work
+ok 191 - did my @a is Buf[uint16]; @a = ^10 work
+ok 192 - did my @a is Buf[uint32]; @a = ^10 work
+ok 193 - did my @a is Buf[uint64]; @a = ^10 work
+ok 194 - is large uint value handled correctly in gist

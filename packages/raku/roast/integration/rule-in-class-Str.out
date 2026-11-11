@@ -1,0 +1,4 @@
+1..3
+ok 1 - m/<-[a]>/ in method in C (is Str)
+ok 2 - m/<-[a]>/ in method in Str
+ok 3 - m/<[a]>/ in method in Str

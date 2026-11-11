@@ -1,0 +1,51 @@
+1..50
+ok 1 - CHARACTER TABULATION
+ok 2 - LINE FEED (LF)
+ok 3 - LINE TABULATION
+ok 4 - FORM FEED (FF)
+ok 5 - CARRIAGE RETURN (CR)
+ok 6 - SPACE
+ok 7 - NEXT LINE (NEL)
+ok 8 - NO-BREAK SPACE
+ok 9 - OGHAM SPACE MARK
+ok 10 - EN QUAD
+ok 11 - EM QUAD
+ok 12 - EN SPACE
+ok 13 - EM SPACE
+ok 14 - THREE-PER-EM SPACE
+ok 15 - FOUR-PER-EM SPACE
+ok 16 - SIX-PER-EM SPACE
+ok 17 - FIGURE SPACE
+ok 18 - PUNCTUATION SPACE
+ok 19 - THIN SPACE
+ok 20 - HAIR SPACE
+ok 21 - LINE SEPARATOR
+ok 22 - PARAGRAPH SEPARATOR
+ok 23 - NARROW NO-BREAK SPACE
+ok 24 - MEDIUM MATHEMATICAL SPACE
+ok 25 - IDEOGRAPHIC SPACE
+ok 26 - long dot with CHARACTER TABULATION
+ok 27 - long dot with LINE FEED (LF)
+ok 28 - long dot with LINE TABULATION
+ok 29 - long dot with FORM FEED (FF)
+ok 30 - long dot with CARRIAGE RETURN (CR)
+ok 31 - long dot with SPACE
+ok 32 - long dot with NEXT LINE (NEL)
+ok 33 - long dot with NO-BREAK SPACE
+ok 34 - long dot with OGHAM SPACE MARK
+ok 35 - long dot with EN QUAD
+ok 36 - long dot with EM QUAD
+ok 37 - long dot with EN SPACE
+ok 38 - long dot with EM SPACE
+ok 39 - long dot with THREE-PER-EM SPACE
+ok 40 - long dot with FOUR-PER-EM SPACE
+ok 41 - long dot with SIX-PER-EM SPACE
+ok 42 - long dot with FIGURE SPACE
+ok 43 - long dot with PUNCTUATION SPACE
+ok 44 - long dot with THIN SPACE
+ok 45 - long dot with HAIR SPACE
+ok 46 - long dot with LINE SEPARATOR
+ok 47 - long dot with PARAGRAPH SEPARATOR
+ok 48 - long dot with NARROW NO-BREAK SPACE
+ok 49 - long dot with MEDIUM MATHEMATICAL SPACE
+ok 50 - long dot with IDEOGRAPHIC SPACE

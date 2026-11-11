@@ -1,0 +1,13 @@
+1..12
+ok 1 - sin(0)
+ok 2 - sin(pi)
+ok 3 - sin(2 pi)
+ok 4 - sin(random number 1)
+ok 5 - sin(random number 2)
+ok 6 - cos(0)
+ok 7 - cos(pi)
+ok 8 - cos(2 pi)
+ok 9 - cos(random number 1)
+ok 10 - cos(random number 2)
+ok 11 - tan(random number 1)
+ok 12 - tan(random number 2)

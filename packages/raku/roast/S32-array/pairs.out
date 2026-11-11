@@ -1,0 +1,15 @@
+1..14
+ok 1 - basic pairs on arrays with a function
+ok 2 - pairs on arrays returned the correct number of elems
+ok 3 - key of pair returned by array.pairs was correct (1)
+ok 4 - value of pair returned by array.pairs was correct (1)
+ok 5 - basic pairs on arrays with oo invocation
+ok 6 - pairs on arrays returned the correct number of elems
+ok 7 - key of pair returned by array.pairs was correct (1)
+ok 8 - key of pair returned by array.pairs was correct (2)
+ok 9 - key of pair returned by array.pairs was correct (3)
+ok 10 - value of pair returned by array.pairs was correct (1)
+ok 11 - value of pair returned by array.pairs was correct (2)
+ok 12 - value of pair returned by array.pairs was correct (3)
+ok 13 - aliases returned by @array.pairs should be rw (1)
+ok 14 - aliases returned by @array.pairs should be rw (2)

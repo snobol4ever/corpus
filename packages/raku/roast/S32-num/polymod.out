@@ -1,0 +1,17 @@
+1..11
+ok 1 - 86400 60
+ok 2 - 86400 60 60
+ok 3 - 86400 60 60 24
+ok 4 -   1234567890 10 xx *
+ok 5 - 0x1234567890 16 xx *
+ok 6 - 0x1234567890 16 xx 5
+# Subtest: .polymod with a lazy list does not lose divisors when list runs out
+    1..3
+    ok 1 - last mod is non-zero (Int)
+    ok 2 - last mod is non-zero (Rat)
+    ok 3 - last mod is zero
+ok 7 - .polymod with a lazy list does not lose divisors when list runs out
+ok 8 - modulo 1 stops (1)
+ok 9 - modulo 1 stops (2)
+ok 10 - polymod on non-integers
+ok 11 - fixed length produces right number of values, even with zeroes

@@ -1,0 +1,24 @@
+1..12
+ok 1 - permutations method
+ok 2 - permutations function
+ok 3 - method on single-element list
+ok 4 - method on empty list
+ok 5 - sub with 1 for its argument
+ok 6 - sub with 0 for its argument
+ok 7 - there is 1 .permutation of empty list
+ok 8 - there is 1 &permutation with 0 values
+ok 9 - &permutations with negative argument
+# Subtest: &permutations with Iterable first argument match calls with method form
+    1..9
+    ok 1 - ("a", "b", "c").Seq
+    ok 2 - ("a", "b", "c")
+    ok 3 - ["a", "b", "c"]
+    ok 4 - 2..4
+    ok 5 - 2^..4
+    ok 6 - 2^..^4
+    ok 7 - 2..^4
+    ok 8 - {:bar(70), :ber(12), :foo(42)}
+    ok 9 - Map.new((:bar(70),:ber(12),:foo(42)))
+ok 10 - &permutations with Iterable first argument match calls with method form
+ok 11 - Do not cowardly refuse just the total
+ok 12 - Do not cowardly refuse just the truthiness

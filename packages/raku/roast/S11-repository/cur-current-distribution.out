@@ -1,0 +1,19 @@
+# Subtest: CompUnit::Repository::FileSystem without META6.json
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    1..3
+ok 1 - CompUnit::Repository::FileSystem without META6.json
+# Subtest: CompUnit::Repository::FileSystem with META6.json
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    1..3
+ok 2 - CompUnit::Repository::FileSystem with META6.json
+# Subtest: CompUnit::Repository::Installation
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    1..3
+ok 3 - CompUnit::Repository::Installation
+1..3

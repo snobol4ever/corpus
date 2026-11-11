@@ -1,0 +1,7 @@
+1..6
+ok 1 - tclc sub form on mixed-case latin string
+ok 2 - method form
+ok 3 - tclc and German sharp s
+ok 4 - lj => Lj (in one character)
+ok 5 - Å remains Å
+ok 6 - tclc works on codepoints greater than 0xffff

@@ -1,0 +1,305 @@
+1..165
+ok 1 - -0 is the same as 0 - hey, they are integers ;-)
+ok 2 - EVAL 1.raku is Int
+ok 3 - EVAL 1.raku is 1
+ok 4 - EVAL -12.raku is Int
+ok 5 - EVAL -12.raku is -12
+ok 6 - EVAL 0.raku is Int
+ok 7 - EVAL 0.raku is 0
+ok 8 - EVAL -0.raku is Int
+ok 9 - EVAL -0.raku is 0
+ok 10 - (-1).Int is -1
+ok 11 - 0.Int is 0
+ok 12 - 1.Int is 1
+ok 13 - 3.14159265.Int is 3
+ok 14 - (-3.14159265).Int is -3
+ok 15 - 0.999.Int is 0
+ok 16 - 0.51.Int is 0
+ok 17 - 0.5.Int is 0
+ok 18 - 0.49.Int is 0
+ok 19 - 0.1.Int is 0
+ok 20 - 0.1.Int returns an Int
+ok 21 - (-0.999).Int is 0
+ok 22 - (-0.51).Int is 0
+ok 23 - (-0.5).Int is 0
+ok 24 - (-0.49).Int is 0
+ok 25 - (-0.1).Int is 0
+ok 26 - int(-0.1) returns an Int
+ok 27 - int(1.999) is 1
+ok 28 - int(1.51) is 1
+ok 29 - int(1.5) is 1
+ok 30 - int(1.49) is 1
+ok 31 - int(1.1) is 1
+ok 32 - int(-1.999) is -1
+ok 33 - int(-1.51) is -1
+ok 34 - int(-1.5) is -1
+ok 35 - int(-1.49) is -1
+ok 36 - int(-1.1) is -1
+ok 37 - int(1.999.Num) is 1
+ok 38 - int(1.1.Num) is 1
+ok 39 - int(-1.999.Num) is -1
+ok 40 - int(-1.1.Num) is -1
+ok 41 - ?0 is false
+ok 42 - ?0 is Bool
+ok 43 - ?1 is true
+ok 44 - ?1 is Bool
+ok 45 - ?42 is true
+ok 46 - ?42 is Bool
+ok 47 - 0.Bool is false
+ok 48 - 0.Bool is Bool
+ok 49 - 1.Bool is true
+ok 50 - 1.Bool is Bool
+ok 51 - 42.Bool is true
+ok 52 - 42.Bool is Bool
+ok 53 - int('-1.999') is -1
+ok 54 - int('0x123') is 0x123
+ok 55 - int('0d456') is 0d456
+# Subtest: conversion from string to number fails because of trailing characters (1)
+    1..2
+    ok 1 - ''0o678'.Int' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 56 - conversion from string to number fails because of trailing characters (1)
+# Subtest: conversion from string to number fails because of trailing characters (2)
+    1..2
+    ok 1 - ''3e4d5'.Int' died
+    ok 2 - right exception type (X::Str::Numeric)
+ok 57 - conversion from string to number fails because of trailing characters (2)
+ok 58 - integral value for 0 is 0
+ok 59 - The object is-a 'Int'
+ok 60 - integral value for 0 is 0
+ok 61 - The object is-a 'Int'
+ok 62 - integral value for 1 is 1
+ok 63 - The object is-a 'Int'
+ok 64 - integral value for 50 is 50
+ok 65 - The object is-a 'Int'
+ok 66 - integral value for 60 is 60
+ok 67 - The object is-a 'Int'
+ok 68 - integral value for 99.99 is 99
+ok 69 - The object is-a 'Int'
+ok 70 - integral value for 0.4 is 0
+ok 71 - The object is-a 'Int'
+ok 72 - integral value for 0.6 is 0
+ok 73 - The object is-a 'Int'
+ok 74 - integral value for -1 is -1
+ok 75 - The object is-a 'Int'
+ok 76 - integral value for -50 is -50
+ok 77 - The object is-a 'Int'
+ok 78 - integral value for -60 is -60
+ok 79 - The object is-a 'Int'
+ok 80 - integral value for -99.99 is -99
+ok 81 - The object is-a 'Int'
+ok 82 - int 1.9e3 is 1900
+# Subtest: dies: int 3.14 (prefix:int is gone)
+    1..2
+    ok 1 - 'int 3.14' died
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 83 - dies: int 3.14 (prefix:int is gone)
+ok 84 - 0.lsb is Nil
+ok 85 - 1.lsb is 0
+ok 86 - 2.lsb is 1
+ok 87 - 256.lsb is 8
+ok 88 - (-1).lsb is 0
+ok 89 - (-2).lsb is 1
+ok 90 - (-126).lsb is 1
+ok 91 - (-127).lsb is 0
+ok 92 - (-128).lsb is 7
+ok 93 - (-32768).lsb is 15
+ok 94 - 0.msb is Nil
+ok 95 - 1.msb is 0
+ok 96 - 2.msb is 1
+ok 97 - 256.msb is 8
+ok 98 - (-1).msb is 0
+ok 99 - (-2).msb is 1
+ok 100 - (-126).msb is 7
+ok 101 - (-127).msb is 7
+ok 102 - (-128).msb is 7
+ok 103 - (-129).msb is 8
+ok 104 - (-32768).msb is 15
+# Subtest: smartmatching :U numeric against :D numeric does not throw
+    1..60
+    ok 1 - Numeric:U ~~ -42 (Int)
+    ok 2 - Int:U     ~~ -42 (Int)
+    ok 3 - UInt:U    ~~ -42 (Int)
+    ok 4 - Num:U     ~~ -42 (Int)
+    ok 5 - Rat:U     ~~ -42 (Int)
+    ok 6 - Complex:U ~~ -42 (Int)
+    ok 7 - Numeric:U ~~ 42 (Int)
+    ok 8 - Int:U     ~~ 42 (Int)
+    ok 9 - UInt:U    ~~ 42 (Int)
+    ok 10 - Num:U     ~~ 42 (Int)
+    ok 11 - Rat:U     ~~ 42 (Int)
+    ok 12 - Complex:U ~~ 42 (Int)
+    ok 13 - Numeric:U ~~ 6.283185307179586 (Num)
+    ok 14 - Int:U     ~~ 6.283185307179586 (Num)
+    ok 15 - UInt:U    ~~ 6.283185307179586 (Num)
+    ok 16 - Num:U     ~~ 6.283185307179586 (Num)
+    ok 17 - Rat:U     ~~ 6.283185307179586 (Num)
+    ok 18 - Complex:U ~~ 6.283185307179586 (Num)
+    ok 19 - Numeric:U ~~ 0.5 (Rat)
+    ok 20 - Int:U     ~~ 0.5 (Rat)
+    ok 21 - UInt:U    ~~ 0.5 (Rat)
+    ok 22 - Num:U     ~~ 0.5 (Rat)
+    ok 23 - Rat:U     ~~ 0.5 (Rat)
+    ok 24 - Complex:U ~~ 0.5 (Rat)
+    ok 25 - Numeric:U ~~ 1+3i (Complex)
+    ok 26 - Int:U     ~~ 1+3i (Complex)
+    ok 27 - UInt:U    ~~ 1+3i (Complex)
+    ok 28 - Num:U     ~~ 1+3i (Complex)
+    ok 29 - Rat:U     ~~ 1+3i (Complex)
+    ok 30 - Complex:U ~~ 1+3i (Complex)
+    ok 31 - Numeric:U ~~ -42 (IntStr)
+    ok 32 - Int:U     ~~ -42 (IntStr)
+    ok 33 - UInt:U    ~~ -42 (IntStr)
+    ok 34 - Num:U     ~~ -42 (IntStr)
+    ok 35 - Rat:U     ~~ -42 (IntStr)
+    ok 36 - Complex:U ~~ -42 (IntStr)
+    ok 37 - Numeric:U ~~ 42 (IntStr)
+    ok 38 - Int:U     ~~ 42 (IntStr)
+    ok 39 - UInt:U    ~~ 42 (IntStr)
+    ok 40 - Num:U     ~~ 42 (IntStr)
+    ok 41 - Rat:U     ~~ 42 (IntStr)
+    ok 42 - Complex:U ~~ 42 (IntStr)
+    ok 43 - Numeric:U ~~ 1e0 (NumStr)
+    ok 44 - Int:U     ~~ 1e0 (NumStr)
+    ok 45 - UInt:U    ~~ 1e0 (NumStr)
+    ok 46 - Num:U     ~~ 1e0 (NumStr)
+    ok 47 - Rat:U     ~~ 1e0 (NumStr)
+    ok 48 - Complex:U ~~ 1e0 (NumStr)
+    ok 49 - Numeric:U ~~ 0.333333 (Rat)
+    ok 50 - Int:U     ~~ 0.333333 (Rat)
+    ok 51 - UInt:U    ~~ 0.333333 (Rat)
+    ok 52 - Num:U     ~~ 0.333333 (Rat)
+    ok 53 - Rat:U     ~~ 0.333333 (Rat)
+    ok 54 - Complex:U ~~ 0.333333 (Rat)
+    ok 55 - Numeric:U ~~ -1-3i (ComplexStr)
+    ok 56 - Int:U     ~~ -1-3i (ComplexStr)
+    ok 57 - UInt:U    ~~ -1-3i (ComplexStr)
+    ok 58 - Num:U     ~~ -1-3i (ComplexStr)
+    ok 59 - Rat:U     ~~ -1-3i (ComplexStr)
+    ok 60 - Complex:U ~~ -1-3i (ComplexStr)
+ok 105 - smartmatching :U numeric against :D numeric does not throw
+ok 106 - undefined UInt is undefined
+ok 107 - UInt var smartmatches True against UInt
+ok 108 - UInt is a subset
+# Subtest: attempting to instantiate UInt throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 109 - attempting to instantiate UInt throws
+ok 110 - Can store a positive Int in UInt
+ok 111 - Can store a zero in UInt
+# Subtest: UInt rejects negative numbers
+    1..2
+    ok 1 - 'my UInt $z = -42' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 112 - UInt rejects negative numbers
+# Subtest: UInt rejects other types
+    1..2
+    ok 1 - 'my UInt $y = "foo"' died
+    ok 2 - right exception type (X::TypeCheck::Assignment)
+ok 113 - UInt rejects other types
+ok 114 - Can assign Nil to UInt
+ok 115 - is default() trait works on brand new UInt
+ok 116 - is default()ed UInt can take values
+ok 117 - Nil assigned to is default()ed UInt gives default values
+# Subtest: Int.new
+    1..10
+    # Subtest: returns a new object (not a cached constant)
+        1..3
+        ok 1 - Int.new: int
+        ok 2 - Int.new: Int
+        ok 3 - Int.new: Str
+    ok 1 - returns a new object (not a cached constant)
+    ok 2 - Can use Str to construct an Int from
+    ok 3 - Can use Num to construct an Int from
+    ok 4 - Can use Rat to construct an Int from
+    ok 5 - Can use Int to construct an Int from
+    ok 6 - Can use Range to construct an Int from
+    ok 7 - Can use List to construct an Int from
+    ok 8 - Can use Array to construct an Int from
+    ok 9 - no args default to 0
+    # Subtest: .new of subclass of Int
+        1..12
+        ok 1 - lives (no-arg)
+        ok 2 - returns subclass (no-arg)
+        ok 3 - right numeric value (no-arg)
+        ok 4 - lives (Int)
+        ok 5 - returns subclass (Int)
+        ok 6 - right numeric value (Int)
+        ok 7 - lives (int)
+        ok 8 - returns subclass (int)
+        ok 9 - right numeric value (int)
+        ok 10 - lives (Str)
+        ok 11 - returns subclass (Str)
+        ok 12 - right numeric value (Str)
+    ok 10 - .new of subclass of Int
+ok 118 - Int.new
+ok 119 - Int.narrow gives Int
+ok 120 - int ** int returns int
+ok 121 - 0 (uninitialized int) ** int returns 0
+ok 122 - int ** 0 (uninitialized int) returns 1
+ok 123 - int * int returns int
+ok 124 - 0 (uninitialized int) * int returns 0
+ok 125 - int * 0 (uninitialized int) returns 0
+ok 126 - int(5) div int(2) returns int(2)
+ok 127 - int(8) div int(3) returns int(2)
+ok 128 - 0 div int returns 0
+ok 129 - 0 (uninitialized int) div int returns 0
+# Subtest: int div 0 throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 130 - int div 0 throws
+# Subtest: int div 0 (uninit. int) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 131 - int div 0 (uninit. int) throws
+ok 132 - int(5) % int(2) returns int(1)
+ok 133 - int(8) % int(2) returns int(0)
+ok 134 - 0 % int returns 0
+ok 135 - 0 (uninitialized int) div int returns 0
+ok 136 - int(3) lcm int(2) returns int(6)
+ok 137 - int(3) lcm int(2) returns int(6)
+ok 138 - int(8) lcm int(8) returns int(8)
+ok 139 - int(0) lcm int(8) returns int(0)
+ok 140 - int(uninitialized) lcm int(8) returns int(0)
+ok 141 - int(3) gcd int(2) returns int(1)
+ok 142 - int(8) gcd int(2) returns int(2)
+ok 143 - int(8) gcd int(0) returns int(8)
+ok 144 - int(0) gcd int(8) returns int(8)
+ok 145 - int(0) gcd int(0) returns int(0)
+ok 146 - int(uninitialized) gcd int(0) returns int(0)
+ok 147 - int === int (True)
+ok 148 - int === int (False)
+ok 149 - int (uninit.) === int(0) (True)
+ok 150 - int(uninit.) .chr works
+ok 151 - int(0) .chr works
+ok 152 - int(8) .chr works
+ok 153 - expmod with Ints (1)
+ok 154 - expmod with Ints (2)
+ok 155 - expmod with other types
+ok 156 - lsb (1)
+ok 157 - lsb (2)
+ok 158 - msb (1)
+ok 159 - msb (2)
+ok 160 - lsb 0
+ok 161 - msb 0
+ok 162 - accept undefined Int
+# Subtest: no funny business with Ints that are not representable in double
+    1..12
+    ok 1 - 
+    ok 2 - 
+    ok 3 - 
+    ok 4 - 
+    ok 5 - 
+    ok 6 - 
+    ok 7 - 
+    ok 8 - 
+    ok 9 - 
+    ok 10 - 
+    ok 11 - 
+    ok 12 - 
+ok 163 - no funny business with Ints that are not representable in double
+ok 164 - huge Ints stringify correctly
+ok 165 - does Int.new(Int) die?

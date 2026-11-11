@@ -1,0 +1,18 @@
+1..17
+ok 1 - basic sanity
+ok 2 - assignment meta-op
+ok 3 - reduce meta-op generated
+ok 4 - reverse meta-op generated
+ok 5 - cross meta-op generated
+ok 6 - >>...<< hyper generated
+ok 7 - <<...<< hyper generated
+ok 8 - >>...>> hyper generated
+ok 9 - <<...>> hyper generated
+ok 10 - can we use a sub as an reduce op between [[]]
+ok 11 - can we use a sub as an infix op between []
+ok 12 - can we use &infix:<.> as argument for []
+ok 13 - Triangular reduce with &infix:<,> and a list of lists doesn't flatten
+ok 14 - is key a 42?
+ok 15 - is key b 42?
+ok 16 - is key c 42?
+ok 17 - triangle meta op on , works correctly

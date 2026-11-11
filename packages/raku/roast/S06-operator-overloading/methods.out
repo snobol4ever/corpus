@@ -1,0 +1,9 @@
+1..3
+not ok 1 - custom postcircumfix{ } is tied to the right class # TODO nom regression
+# Failed test 'custom postcircumfix{ } is tied to the right class'
+# at S06-operator-overloading/methods.rakudo line 16
+# expected: 'bar'
+#      got: (Failure)
+ok 2 - custom postcircumfix{ } does not lead to warnings
+ok 3 - custom postcircumfix{ } with weird whitespacing does not require ;
+# FUDGED!

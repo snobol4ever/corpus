@@ -1,0 +1,5 @@
+1..4
+ok 1 - "die" in "quietly" dies
+ok 2 - "warn" in "quietly" does not warn, does not die
+ok 3 - "say" in "quietly" works fine
+ok 4 - "note" in "quietly" works

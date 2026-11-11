@@ -1,0 +1,23 @@
+1..22
+ok 1 - Find the last box of a list.
+ok 2 - Find the last box of a list via func.
+ok 3 - We should be able to grab the last two items from a list
+ok 4 - We should be able to grab the last two items from a list by func
+ok 5 - We should be able to index into lists
+ok 6 - ... and arrays
+ok 7 - We should be able to index into lists by func
+ok 8 - ... and arrays by func
+ok 9 - We should be able to count the items in a list
+ok 10 - ... and arrays
+ok 11 - We should be able to reverse a list
+ok 12 - ... and arrays
+ok 13 - <a b c d e> is not a palindrome
+ok 14 - <a b c b a> is a palindrome
+ok 15 - We should be able to flatten lists
+ok 16 - We should be able to flatten lists
+ok 17 - We should be able to compress lists
+ok 18 - ... even with multi subs
+ok 19 - We should be able to pack lists
+ok 20 - ... even using gather/take
+ok 21 - ... even using blockless gather/take
+ok 22 - We should be able to run-length encode lists

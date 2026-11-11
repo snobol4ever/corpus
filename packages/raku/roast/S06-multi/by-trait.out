@@ -1,0 +1,15 @@
+1..13
+ok 1 - multi works with constant
+ok 2 - read-only multi was called
+ok 3 - multi works with variable
+ok 4 - variable was modified
+ok 5 - read-write multi was called
+ok 6 - read-only multi was not called
+ok 7 - multi works with primitive
+ok 8 - read-write multi was not called
+ok 9 - read-only multi was not called
+ok 10 - native rw multi was called
+ok 11 - Optimization respects is rw
+ok 12 - rw native container hits correct candidate # TODO Only happen to pass because the optimizer inlines the most trivial cases
+ok 13 - non-rw literal does not reach is rw candidate
+# FUDGED!

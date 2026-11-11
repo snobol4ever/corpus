@@ -1,0 +1,25 @@
+1..24
+ok 1 - The Main $?PACKAGE was not broken by any declarations
+ok 2 - block-level package declarations
+ok 3 - block-level $?PACKAGE var
+ok 4 - export was not imported implicitly
+ok 5 - declared package
+ok 6 - declared package $?PACKAGE
+ok 7 - EVAL'ed package $?PACKAGE
+ok 8 - EVAL'ed package type object
+ok 9 - loaded package
+ok 10 - loaded package $?PACKAGE object
+ok 11 - export was imported successfully
+ok 12 - exported OK
+ok 13 - no ns() leaked
+ok 14 - Can't see `our' packages out of scope
+ok 15 - Package in scope can see `our' package declarations
+ok 16 - correct $?PACKAGE
+ok 17 - not the same as global type object
+ok 18 - can't see package declared out of scope
+ok 19 - can see package declared in same scope
+ok 20 - correct $?PACKAGE
+ok 21 - not the same as global type object
+ok 22 - parse for temp package vars
+ok 23 - scope returns value of a modified temp scalar
+ok 24 - temporization of external package variables

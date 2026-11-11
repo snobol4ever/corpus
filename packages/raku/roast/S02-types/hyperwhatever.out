@@ -1,0 +1,15 @@
+1..2
+# Subtest: .new throws that it cannot be called
+    1..2
+    ok 1 - 'HyperWhatever.new' died
+    ok 2 - right exception type (X::Cannot::New)
+ok 1 - .new throws that it cannot be called
+# Subtest: smartmatch with HyperWhatever type object
+    1..6
+    ok 1 - HW (true)
+    ok 2 - HW (false)
+    ok 3 - HW:U (true)
+    ok 4 - HW:U (false)
+    ok 5 - HW:D (true)
+    ok 6 - HW:D (false)
+ok 2 - smartmatch with HyperWhatever type object

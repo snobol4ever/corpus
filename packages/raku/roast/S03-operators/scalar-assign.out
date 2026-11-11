@@ -1,0 +1,5 @@
+1..4
+ok 1 - order of assignment respected (1)
+ok 2 - order of assignment respected (2)
+ok 3 - assignment is right-associative
+ok 4 - lvalue expressions are only evaluated once

@@ -1,0 +1,204 @@
+1..139
+ok 1 - Date.clone can take a formatter
+ok 2 - Date.new("2010-01-01")
+ok 3 - List constructor
+ok 4 - Date.new(2010, 12/2, 3)
+ok 5 - Date.new('2018', '1', '4')
+ok 6 - named arguments
+ok 7 - Date.today
+ok 8 - Date.new from DateTime
+ok 9 - obviously malformed string
+ok 10 - dies on zero-based months
+ok 11 - dies on month 13
+ok 12 - dies on zero-based days
+ok 13 - dies on day of month 32
+ok 14 - dies on 29 February 1999
+ok 15 - dies on 29 February 1900
+ok 16 - ...but not 29 February 2000
+ok 17 - Date.new() returns a Date
+ok 18 - dies on 29 February 1999 (Date.clone)
+ok 19 - ..but not 29 February 2000 (Date.clone)
+ok 20 - normal Date strinfies sanely
+ok 21 - creation
+ok 22 - year
+ok 23 - month
+ok 24 - day
+ok 25 - Day of week
+ok 26 - leap year
+ok 27 - days in month
+ok 28 - simple .succ
+ok 29 - simple .pred
+ok 30 - .succ with leap year (1)
+ok 31 - .pred with leap year (1)
+ok 32 - .succ with leap year (2)
+ok 33 - .pred with leap year (2)
+ok 34 - .pred with leap year (3)
+ok 35 - +7
+ok 36 - -14
+ok 37 - Difference of two dates
+ok 38 - +0
+ok 39 - + -3 == - 3
+ok 40 - == (+)
+ok 41 - == (-)
+ok 42 - != (+)
+ok 43 - != (-)
+ok 44 - <= (+)
+ok 45 - <= (+)
+ok 46 - <= (-)
+ok 47 - <  (-)
+ok 48 - <  (+)
+ok 49 - <  (-)
+ok 50 - >= (+)
+ok 51 - >= (+)
+ok 52 - >= (-)
+ok 53 - > (-)
+ok 54 - > (+)
+ok 55 - > (-)
+ok 56 - cmp ( 0)
+ok 57 - cmp (-1)
+ok 58 - cmp (+1)
+ok 59 - <=> ( 0)
+ok 60 - <=> (-1)
+ok 61 - <=> (+1)
+ok 62 - Can smartmatch Date objects
+ok 63 - adding 1 day
+ok 64 - adding 1 day, overflowing to February
+ok 65 - adding 2 days, overflowing to March
+ok 66 - adding 1 week
+ok 67 - adding 1 week, overflowing to February
+ok 68 - adding 2 weeks, overflowing to March
+ok 69 - adding 3 weeks, overflowing to years
+ok 70 - adding 3 months, overflowing to years
+ok 71 - adding 15 months, overflowing to years
+ok 72 - adding 3 years
+ok 73 - subtracting 1 day
+ok 74 - subtracting 1 day, overflowing from February
+ok 75 - subtracting 2 days, overflowing from March
+ok 76 - subtracting 1 week
+ok 77 - subtracting 1 week, overflowing from February
+ok 78 - subtracting 2 weeks, overflowing from March
+ok 79 - subtracting 3 weeks, overflowing to years
+ok 80 - .later does not try to create an impossible date
+ok 81 - subtracting 3 months, underflowing year
+ok 82 - subtracting 15 months, underflowing 2 years
+ok 83 - subtracting 1 year
+ok 84 - negative dates ISO-8601 rendering
+ok 85 - very large years, ISO-8601 rendering
+ok 86 - adding large years does not overflow
+ok 87 - subtracting large days does not underflow
+ok 88 - negative years handled correctly
+ok 89 - moving a year from a leap-date into a year without leap-date
+ok 90 - formatter with y,m,d
+ok 91 - formatter with "yyyy-mm-dd"
+ok 92 - did role attributes get initialized ok
+ok 93 - created object is of right type
+ok 94 - created object is a subclass
+ok 95 - is year in FooDate ok
+ok 96 - is month in FooDate ok
+ok 97 - is day in FooDate ok
+ok 98 - is foo in FooDate ok
+ok 99 - created object is of right type
+ok 100 - created object is a subclass
+ok 101 - is year in FooDate ok
+ok 102 - is month in FooDate ok
+ok 103 - is day in FooDate ok
+ok 104 - is foo in FooDate ok
+ok 105 - created object is of right type
+ok 106 - created object is a subclass
+ok 107 - is year in FooDate ok
+ok 108 - is month in FooDate ok
+ok 109 - is day in FooDate ok
+ok 110 - is foo in FooDate ok
+# Subtest: synthetics are rejected in constructor string
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Temporal::InvalidFormat)
+ok 111 - synthetics are rejected in constructor string
+# Subtest: can create Date from Instant
+    1..2
+    ok 1 - Instant only
+    ok 2 - Instant, with a custom formatter
+ok 112 - can create Date from Instant
+ok 113 - can roundtrip .raku output
+ok 114 - can Int + Date to increment date by Int days
+ok 115 - can roundtrip Date via DateTime
+ok 116 - Date:U.DateTime returns DateTime:U
+ok 117 - Date:U.Date returns self
+ok 118 - Date:D.Date returns self
+# Subtest: all Date constructors throw on invalid dates
+    1..3
+    # Subtest: .new($year, $month, $day)
+        1..3
+        # Subtest: day
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 1 - day
+        # Subtest: month
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - month
+        # Subtest: day + month
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 3 - day + month
+    ok 1 - .new($year, $month, $day)
+    # Subtest: .new(Str $date)
+        1..3
+        # Subtest: day
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 1 - day
+        # Subtest: month
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - month
+        # Subtest: both
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 3 - both
+    ok 2 - .new(Str $date)
+    # Subtest: .new(:$year, :$month, :$day)
+        1..3
+        # Subtest: day
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 1 - day
+        # Subtest: month
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 2 - month
+        # Subtest: both
+            1..2
+            ok 1 - code dies
+            ok 2 - right exception type (X::OutOfRange)
+        ok 3 - both
+    ok 3 - .new(:$year, :$month, :$day)
+ok 119 - all Date constructors throw on invalid dates
+ok 120 - Date.clone without formatter uses default formatter
+ok 121 - does .succ work on on Date subclasses 0
+ok 122 - does .succ work on on Date subclasses 1
+ok 123 - does .pred work on on Date subclasses 0
+ok 124 - does .pred work on on Date subclasses 1
+ok 125 - does adding Date to negative value work ok
+ok 126 - does adding negative values from Date work ok
+ok 127 - does subtracting negative values from Date work ok
+ok 128 - make sure we didn't lose the formatter
+ok 129 - must be an instance
+ok 130 - did we get the correct first date in month
+ok 131 - did we keep formatter
+ok 132 - must be an instance
+ok 133 - did we get the correct last date in month
+ok 134 - did we keep formatter
+ok 135 - does Date(then) work
+ok 136 - does Date(yyyy-mm-dd) work
+ok 137 - RT  \#114760
+ok 138 - did the first mixin survive
+ok 139 - did the second mixin survive

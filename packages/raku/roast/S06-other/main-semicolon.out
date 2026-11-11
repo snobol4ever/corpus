@@ -1,0 +1,26 @@
+1..10
+ok 1 - This was parsed and called
+ok 2 - first positional param set correctly
+ok 3 - second positional param set correctly
+ok 4 - slurpy param set correctly
+ok 5 - ...and we're actually in MAIN now
+# Subtest: did we throws-like X::UnitScope::TooLate?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::UnitScope::TooLate)
+    ok 3 - .what matches sub
+ok 6 - did we throws-like X::UnitScope::TooLate?
+# Subtest: did we throws-like X::UnitScope::Invalid?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::UnitScope::Invalid)
+    ok 3 - .what matches sub
+ok 7 - did we throws-like X::UnitScope::Invalid?
+# Subtest: did we throws-like X::UnitScope::Invalid?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::UnitScope::Invalid)
+    ok 3 - .what matches sub
+ok 8 - did we throws-like X::UnitScope::Invalid?
+ok 9 - can have where in sub MAIN(...);
+ok 10 - can have where in unit sub MAIN(...);

@@ -1,0 +1,22 @@
+1..21
+ok 1 - Created a new type object
+ok 2 - Has correct HOW
+ok 3 - Has correct REPR
+ok 4 - Union type broken before compose (1)
+ok 5 - Union type broken before compose (2)
+ok 6 - Union type broken before compose (3)
+ok 7 - Union type broken before compose (4)
+ok 8 - Union type ok before comopes if on LHS
+ok 9 - Type checking called method before compose
+ok 10 - ACCEPTS method lookup before compose
+ok 11 - Union type works with cache (1)
+ok 12 - Union type works with cache (2)
+ok 13 - Union type works with cache (3)
+ok 14 - Union type works with cache (4)
+ok 15 - Union type works with cache (5)
+ok 16 - Union type works with cache (6)
+ok 17 - Union type ok after comopes if on LHS
+ok 18 - Really did use type cache
+ok 19 - Sanity: object has expected type at creation
+ok 20 - Can rebless to a target mixin type
+ok 21 - Object has expected type after rebless

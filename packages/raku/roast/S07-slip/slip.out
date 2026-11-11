@@ -1,0 +1,26 @@
+1..25
+ok 1 - simple | middle
+ok 2 - simple | left
+ok 3 - simple | right
+ok 4 - simple slip middle
+ok 5 - simple slip left
+ok 6 - simple slip right
+ok 7 - simple Slip coercion middle
+ok 8 - simple Slip coercion left
+ok 9 - simple Slip coercion right
+ok 10 - simple Slip coercion middle
+ok 11 - simple Slip coercion left
+ok 12 - simple Slip coercion right
+ok 13 - simple slip listop middle
+ok 14 - simple slip listop left
+ok 15 - simple slip listop right
+ok 16 - slip flat listops middle
+ok 17 - slip flat listops left
+ok 18 - slip flat listops right
+ok 19 - .Slip can slip a long lazy list
+ok 20 - Slip() can slip a one-arg long lazy list
+ok 21 - slip works with one-arg long lazy
+ok 22 - prefix:<|> works with one-arg long lazy
+ok 23 - can .raku.EVAL roundtrip an itemized slip
+ok 24 - does an Array slip correctly
+ok 25 - does the Slip keep the original state

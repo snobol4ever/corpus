@@ -1,0 +1,9 @@
+1..8
+ok 1 - Can call die() from a method within a grammar
+ok 2 - and got the exception message
+ok 3 - regex in a grammar can see outer lexicals
+ok 4 - attributes work in grammars too
+ok 5 - empty attribute intilized to Str
+ok 6 - duplicate methods err sanely
+ok 7 - our token as rhs of smartmatch
+ok 8 - our token in regex assertion

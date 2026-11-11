@@ -1,0 +1,7 @@
+1..6
+ok 1 - @*ARGS is an Array
+ok 2 - by default @*ARGS is empty array
+ok 3 - @*ARGS is writable
+ok 4 - providing command line arguments sets @*ARGS
+ok 5 - postcircumfix:<[ ]> works for @*ARGS
+ok 6 - can copy @*ARGS to array.

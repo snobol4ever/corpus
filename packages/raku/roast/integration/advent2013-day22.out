@@ -1,0 +1,10 @@
+1..9
+ok 1 - factorial
+ok 2 - precedence
+ok 3 - precedence
+ok 4 - associativity
+ok 5 - associativity
+ok 6 - !eq
+ok 7 - !~~
+ok 8 - !<
+ok 9 - !before

@@ -1,0 +1,19 @@
+1..10
+ok 1 - basic OO sanity
+ok 2 - can call method that was later added
+ok 3 - can call new method that calls other methods
+ok 4 - can call method on object that was instantiated earlier
+ok 5 - works with other method too
+ok 6 - can extend Str
+ok 7 - can extend Int
+ok 8 - can extend class Array
+# Subtest: can't pass :D when augmenting class
+    1..2
+    ok 1 - 'use MONKEY-TYPING; class RT124017_A {}; augment class RT124017_A:D {}' died
+    ok 2 - right exception type (X::Syntax::Augment::Adverb)
+ok 9 - can't pass :D when augmenting class
+# Subtest: can't pass :auth when augmenting class
+    1..2
+    ok 1 - 'use MONKEY-TYPING; class RT124017_B {}; augment class RT124017_B:auth<random_auth> {}' died
+    ok 2 - right exception type (X::Syntax::Augment::Adverb)
+ok 10 - can't pass :auth when augmenting class

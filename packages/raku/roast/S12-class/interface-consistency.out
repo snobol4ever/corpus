@@ -1,0 +1,11 @@
+1..10
+ok 1 - implicit *%_ means we can pass extra nameds
+ok 2 - *%_ shows up in .raku of the Signature
+ok 3 - explicit *%_ means we can pass extra nameds
+ok 4 - With explicit one, *%_ not in .raku of the Signature
+ok 5 - is hidden means no implicit *%_
+ok 6 - *%_ does not show up in .raku of the Signature
+ok 7 - is hidden on Bar means we skip over it in deferal
+ok 8 - hides Fiz means we skip over Fiz in deferal
+ok 9 - *%_ before a *@_ also correctly prevents generation of auto-%_
+ok 10 - interface consistency rules apply to Grammar.parse

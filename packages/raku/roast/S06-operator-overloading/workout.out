@@ -1,0 +1,85 @@
+1..84
+ok 1 - Vector.new produces a Vector object
+ok 2 - Vector.new produces a Vector object
+ok 3 - Vector.new requires 3 parameters
+ok 4 - Vector.new requires an array with 3 members
+ok 5 - Constructor correctly assigns @coords[0]
+ok 6 - Constructor correctly assigns @coords[1]
+ok 7 - Constructor correctly assigns @coords[2]
+ok 8 - Subtraction correct for @coords[0]
+ok 9 - Subtraction correct for @coords[1]
+ok 10 - Subtraction correct for @coords[2]
+ok 11 - Vector<3104099173000>.abs is of appropriate size
+ok 12 - v1.abs returns correct value
+ok 13 - v1 is approximately equal to itself
+ok 14 - Different but very close Vectors
+ok 15 - Vectors of same size but different direction are not approximately equal
+ok 16 - Addition correct
+ok 17 - Negation correct
+ok 18 - Scalar multiply correct
+ok 19 - Scalar multiply correct
+ok 20 - Scalar division correct
+ok 21 - Scalar power correct
+ok 22 - ⋅ product correct
+ok 23 - T Addition correct
+ok 24 - T Subtraction correct
+ok 25 - T Negation correct
+ok 26 - T Scalar multiply correct
+ok 27 - T Scalar multiply correct
+ok 28 - T Scalar division correct
+ok 29 - T Scalar power correct
+ok 30 - dot product correct
+ok 31 - += works
+ok 32 - -= works
+ok 33 - *= works starting with scalar
+ok 34 - /= works
+ok 35 - **= works
+ok 36 - ⋅= works
+ok 37 - T+= works
+ok 38 - T-= works
+ok 39 - T*= works starting with scalar
+ok 40 - T/= works
+ok 41 - T**= works
+ok 42 - dot= works
+ok 43 - R Addition correct
+ok 44 - R Subtraction correct
+ok 45 - R Scalar multiply correct
+ok 46 - R Scalar multiply correct
+ok 47 - R Scalar division correct
+ok 48 - R Scalar power correct
+ok 49 - R Dot product correct
+ok 50 - R T Addition correct
+ok 51 - R T Subtraction correct
+ok 52 - R T Scalar multiply correct
+ok 53 - R T Scalar multiply correct
+ok 54 - R T Scalar division correct
+ok 55 - R T Scalar power correct
+ok 56 - R Dot product correct
+ok 57 - [+] of vectors == 2 * (v1 + v2)
+ok 58 - [T+] of vectors == 2 * (v1 + v2)
+ok 59 - [-] of vectors == -2 * v2
+ok 60 - [T-] of vectors == -2 * v2
+ok 61 - Hyper: doubling equals self + self
+ok 62 - Hyper: doubling does not equal self
+ok 63 - Hyper: doubling twice equals self+self+self+self
+ok 64 - Hyper: doubling equals self + self
+ok 65 - Hyper: doubling does not equal self
+ok 66 - Hyper: doubling twice equals self+self+self+self
+ok 67 - Hyper: doubling twice equals self+self+self+self
+ok 68 - Hyper: doubling twice equals self+self+self+self
+ok 69 - Hyper: doubling twice equals self+self+self+self
+ok 70 - Hyper: doubling equals self + self
+ok 71 - Hyper: doubling does not equal self
+ok 72 - Hyper: doubling twice equals self+self+self+self
+ok 73 - Hyper: doubling equals self + self
+ok 74 - Hyper: doubling does not equal self
+ok 75 - Hyper: doubling twice equals self+self+self+self
+ok 76 - Hyper sqrt of hyper dot equals hyper length
+ok 77 - Hyper sqrt of hyper dot equals hyper length
+ok 78 - Hyper sqrt of hyper dot equals hyper length
+ok 79 - Hyper sqrt of hyper dot equals hyper length
+ok 80 - Hyper sqrt of hyper dot equals hyper length
+ok 81 - Hyper: 3/2 v - v equals v / 2
+ok 82 - Hyper: 3/2 v - v equals v / 2
+ok 83 - Hyper: 3/2 v - v equals v / 2
+ok 84 - Hyper: 3/2 v - v equals v / 2

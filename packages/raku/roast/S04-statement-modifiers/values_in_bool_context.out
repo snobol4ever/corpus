@@ -1,0 +1,25 @@
+1..24
+ok 1 - literal in bool context - numeric true value
+ok 2 - literal in bool context - numeric false value
+ok 3 - literal in bool context - string true value
+ok 4 - literal in bool context - string false value
+ok 5 - literal in bool context - stringified true value
+ok 6 - literal in bool context - stringified true value
+ok 7 - literal in bool context - undefined value
+ok 8 - literal in bool context - scalar variable
+ok 9 - array in bool context - numeric true value
+ok 10 - array in bool context - numeric false value
+ok 11 - array in bool context - string true value
+ok 12 - array in bool context - string false value
+ok 13 - array in bool context - stringified true value
+ok 14 - array in bool context - stringified true value
+ok 15 - array in bool context - undefined value
+ok 16 - array in bool context  array as a whole
+ok 17 - hash in bool context - numeric true value
+ok 18 - hash in bool context - numeric false value
+ok 19 - hash in bool context - string true value
+ok 20 - hash in bool context - string false value
+ok 21 - hash in bool context - stringified true value
+ok 22 - hash in bool context - stringified true value
+ok 23 - hash in bool context - undefined value
+ok 24 - hash in bool context - hash as a whole

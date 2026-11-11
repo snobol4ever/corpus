@@ -1,0 +1,19 @@
+1..14
+ok 1 - my class parses OK
+ok 2 - declare classes with the same name in two scopes.
+ok 3 - can instantiate lexical class
+# Subtest: scope is correctly restricted
+    1..2
+    ok 1 - '{ my class B {}; B.new; }; B.new' died
+    ok 2 - right exception type (X::Undeclared::Symbols)
+ok 4 - scope is correctly restricted
+ok 5 - can smart-match against lexical class
+ok 6 - attribute in lexical class works
+ok 7 - method call on lexical class works
+ok 8 - lexical type object stringifies correct
+ok 9 - inehritance between lexical classes works
+ok 10 - can smart-match class that inherits
+ok 11 - can smart-match against parent class too
+ok 12 - can call overridden method
+ok 13 - can call inherited method that accesses inherited attribute
+ok 14 - can construct objects of inner class in outer constructor

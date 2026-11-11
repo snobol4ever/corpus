@@ -1,0 +1,9 @@
+1..8
+ok 1 - can use &exit from END block
+ok 2 - Can use END as a bareword hash key (RT  \#112408)
+ok 3 - outer lexicals are visible in END { ... } blocks
+ok 4 - and those from EVAL as well
+ok 5 - and they really worked
+ok 6 - exit does not prevent running of END blocks
+ok 7 - lexical lookup from END block to surrounding BEGIN block works
+ok 8 - lexical lookup from END block works

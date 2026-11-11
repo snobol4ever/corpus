@@ -1,0 +1,417 @@
+1..295
+We do get here, right?
+ok 1 - we got a MixHash
+ok 2 - ...with the right elements
+ok 3 - Defaults to 0
+ok 4 - Single-key subscript (existing element)
+ok 5 - Single-key subscript yields an Int
+ok 6 - Single-key subscript (nonexistent element)
+ok 7 - Single-key subscript yields an Int (nonexistent element)
+ok 8 - exists with existing element
+ok 9 - exists with nonexistent element
+ok 10 - Values returns the correct number of values
+ok 11 - Values returns the correct sum
+ok 12 - Bool returns True if there is something in the MixHash
+ok 13 - Bool returns False if there is nothing in the MixHash
+ok 14 - .hash doesn't die
+ok 15 - ...and it returned a Hash
+ok 16 - ...with the right elements
+# Subtest: Can't assign to .keys
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 17 - Can't assign to .keys
+# Subtest: Can't assign to .values
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 18 - Can't assign to .values
+ok 19 - Multiple-element access
+ok 20 - Multiple-element access (with nonexistent elements)
+ok 21 - .total gives sum of values
+ok 22 - .total gives sum of values
+ok 23 - +$mix gives sum of values
+ok 24 - Can assign to an existing element
+ok 25 - ... and assignment takes effect
+ok 26 - Can assign to a new element
+ok 27 - ... and assignment takes effect
+ok 28 - Can assign zero to a nonexistent element
+ok 29 - ... and that didn't create the element
+ok 30 - Can assign zero to a existing element
+ok 31 - ... and it goes away
+ok 32 - Can ++ an existing element
+ok 33 - ... and the increment happens
+ok 34 - Can ++ a new element
+ok 35 - ... and the element is created
+ok 36 - Can -- an existing element
+ok 37 - ... and the decrement happens
+ok 38 - Can -- an element with value 1
+ok 39 - ... and it goes away
+ok 40 - Can -- an element that doesn't exist
+ok 41 - ... and everything is still okay
+ok 42 - Identical mixs smartmatch with each other
+ok 43 - Identical mixs smartmatch with each other
+ok 44 - Subset does not smartmatch
+ok 45 - Subset (only quantity different) does not smartmatch
+ok 46 - Superset does not smartmatch
+ok 47 - Superset (only quantity different) does not smartmatch
+ok 48 - Smartmatch is not element of
+ok 49 - Type-checking smartmatch works
+ok 50 - Set smartmatches with equivalent MixHash.new:
+ok 51 - ... but not if the Mix has greater quantities
+ok 52 - Type-checking smartmatch works
+ok 53 - Str.MixHash makes a MixHash
+ok 54 - 'a'.MixHash is mix a
+ok 55 - Pair.MixHash makes a MixHash
+ok 56 - (a => 100000).MixHash is mix a:100000
+ok 57 - (a => 0).MixHash is the empty mix
+ok 58 - <a b c>.MixHash makes a MixHash
+ok 59 - <a b c a>.MixHash makes the mix a:2 b:1 c:1
+ok 60 - [a b c a].MixHash makes the mix a:2 b:1 c:1
+ok 61 - [a => 3, b => 0, 'c', 'a'].MixHash makes the mix a:4 c:1
+ok 62 - a	2 b	4 c	0.MixHash makes a MixHash
+ok 63 - a	2 b	4 c	0.MixHash makes the mix a:2 b:4
+ok 64 - :exists with existing element
+ok 65 - :exists with nonexistent element
+ok 66 - :delete works on MixHash
+ok 67 - ...and actually deletes
+ok 68 - Int keys are left as Ints
+ok 69 - Bool keys are left as Bools
+ok 70 - And Str keys are permitted in the same set
+ok 71 - All keys have the right values
+ok 72 - MixHash.kv returns list of keys and values
+ok 73 - &MixHash.new given an array of strings produces a MixHash
+ok 74 - ...with the right elements
+ok 75 - &MixHash.new given an array of pairs produces a MixHash
+ok 76 - make sure .total is ok
+ok 77 - make sure .elems is ok
+ok 78 - &MixHash.new given a Hash produces a MixHash
+ok 79 - ... with four elements
+ok 80 - ... which are all Pairs
+ok 81 - &MixHash.new given a Hash produces a MixHash
+ok 82 - ... with four elements
+ok 83 - &MixHash.new given a Set produces a MixHash
+ok 84 - ... with one element
+ok 85 - &MixHash.new given a MixHash produces a MixHash
+ok 86 - ... with one element
+ok 87 - &MixHash.new given a Mix produces a MixHash
+ok 88 - ... with one element
+ok 89 - make sure .total is ok
+ok 90 - make sure .elems is ok
+ok 91 - .list returns 3 things
+ok 92 - ... all of which are Pairs
+ok 93 - .pairs returns 3 things
+ok 94 - ... all of which are Pairs
+ok 95 - ... the keys of which are Strs
+ok 96 - ... and the values of which are Ints
+ok 97 - .raku lives
+ok 98 - ... and produces a string
+ok 99 - ... of reasonable length
+ok 100 - .raku.EVAL lives
+ok 101 - ... and produces a MixHash
+ok 102 - ... and it has the correct values
+ok 103 - .Str lives
+ok 104 - ... and produces a string
+ok 105 - ... which only contains bar baz and foo with the proper counts and separated by spaces
+ok 106 - .gist lives
+ok 107 - ... and produces a string
+ok 108 - ... of reasonable length
+ok 109 - ... which mentions foo
+ok 110 - ... which mentions bar
+ok 111 - ... which mentions baz
+ok 112 - A MixHash bound to a %var is a MixHash
+ok 113 - ...with the right elements
+ok 114 - Single-key subscript (existing element)
+ok 115 - Single-key subscript (nonexistent element)
+ok 116 - Assign to an element
+ok 117 - ... and gets the correct value
+ok 118 - We got one of the two choices
+ok 119 - .roll with no arguments returns a key of the MixHash
+ok 120 - .roll(0) gives you an Iterable
+ok 121 - .roll(1) gives you an Iterable
+ok 122 - .roll(2) gives you an Iterable
+ok 123 - .roll(0) returns 0 results
+ok 124 - .roll(1) returns 1 result
+ok 125 - .roll(2) returns the right number of items
+ok 126 - .roll(2) returned "a"s and "b"s
+ok 127 - .roll(100) returns 100 items
+ok 128 - .roll(100) (1)
+ok 129 - .roll(100) (2)
+ok 130 - .roll(*)[^100] (1)
+ok 131 - .roll(*)[^100] (2)
+ok 132 - .roll should not change MixHash
+ok 133 - .roll should not change MixHash
+ok 134 - make sure total is ok
+ok 135 - .roll should not change MixHash
+ok 136 - We got one of the two choices (and this was pretty quick, we hope!)
+ok 137 - .roll(100) returns 100 items
+ok 138 - .roll(100) (1)
+ok 139 - .roll(100) (2)
+ok 140 - .roll should not change MixHash
+ok 141 - .roll should not change MixHash
+ok 142 - did we get a Pair
+ok 143 - We got one of the two choices
+ok 144 - .grabpairs(2) returns the right number of items
+ok 145 - are they all Pairs
+ok 146 - We got one of the two choices
+ok 147 - .grabpairs *should* change MixHash
+ok 148 - .grabpairs *should* change MixHash
+ok 149 - .grabpairs(*) returns the right number of items
+ok 150 - are they all Pairs
+ok 151 - and they all have an expected value
+ok 152 - MixHash.grabpairs(*) gets all elements
+ok 153 - MixHash.grabpairs(*) returns elements in a random order
+ok 154 - .grabpairs *should* change MixHash
+ok 155 - .grabpairs *should* change MixHash
+ok 156 - "b", initialized to zero, does not exist
+ok 157 - Inititalization worked
+ok 158 - .elems works
+ok 159 - %h<nonexisting> is an Int
+ok 160 - %h<nonexisting> is 0
+ok 161 - can set an item to 0
+ok 162 - "c", set to zero, does not exist
+ok 163 - one item left
+ok 164 - ... and the right one is gone
+ok 165 - can add (++) an item that was removed
+ok 166 - ++ on an item reinstates it
+ok 167 - can "add" (++) an existing item
+ok 168 - ++ on an existing item increments the counter
+ok 169 - ++ on an existing item does not add a key
+ok 170 - can remove an item with decrement (--)
+ok 171 - decrement (--) removes items
+ok 172 - item is gone according to exists too
+ok 173 - removed item is zero
+ok 174 - going negative returns 0
+ok 175 - item exists too
+ok 176 - going negative adds the item
+ok 177 - item now at -1
+ok 178 - is the hash really a MixHash
+not ok 179 - Assigning a Mix to a MixHash # TODO in flux
+# Failed test 'Assigning a Mix to a MixHash'
+# at S02-types/mixhash.rakudo line 370
+# Type check failed for an element of %h; expected MixHash but got Int
+not ok 180 - ... works as expected # TODO in flux
+# Failed test '... works as expected'
+# at S02-types/mixhash.rakudo line 371
+# expected: 'a:1 b:2 c:2 d:1'
+#      got: ''
+ok 181 - Method .MixHash works on Int-1
+ok 182 - Method .MixHash works on Int-2
+ok 183 - Method .MixHash works on Str-1
+ok 184 - Method .MixHash works on Str-2
+ok 185 - Method .MixHash works on Array-1
+ok 186 - Method .MixHash works on Array-2
+ok 187 - Method .MixHash works on Hash-1
+ok 188 - Method .MixHash works on Hash-2
+ok 189 - Method .MixHash works on List-1
+ok 190 - Method .MixHash works on List-2
+ok 191 - .total gives sum of values (non-empty) 11
+ok 192 - +$mix gives sum of values (non-empty) 11
+ok 193 - .minpairs works (non-empty) 11
+ok 194 - .maxpairs works (non-empty) 11
+ok 195 - .fmt(%s) works (non-empty 11)
+ok 196 - .fmt(%s,sep) works (non-empty 11)
+ok 197 - .fmt(%s%s) works (non-empty 11)
+ok 198 - .fmt(%s%s,sep) works (non-empty 11)
+ok 199 - .total gives sum of values (non-empty) 8.8
+ok 200 - +$mix gives sum of values (non-empty) 8.8
+ok 201 - .minpairs works (non-empty) 8.8
+ok 202 - .maxpairs works (non-empty) 8.8
+ok 203 - .total gives sum of values (non-empty) 4.4
+ok 204 - +$mix gives sum of values (non-empty) 4.4
+ok 205 - .minpairs works (non-empty) 4.4
+ok 206 - .maxpairs works (non-empty) 4.4
+ok 207 - .total gives sum of values (empty)
+ok 208 - +$mix gives sum of values (empty)
+ok 209 - .minpairs works (empty)
+ok 210 - .maxpairs works (empty)
+ok 211 - .fmt(%s) works (empty)
+ok 212 - .fmt(%s,sep) works (empty)
+ok 213 - .fmt(%s%s) works (empty)
+ok 214 - .fmt(%s%s,sep) works (empty)
+ok 215 - did we set a Real value
+# Subtest: Make sure we cannot assign Str on a key
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 216 - Make sure we cannot assign Str on a key
+ok 217 - did we set a Real value from a .values alias
+# Subtest: Make sure we cannot assign Str on a .values alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 218 - Make sure we cannot assign Str on a .values alias
+ok 219 - did we set a Real value from a .pairs alias
+# Subtest: Make sure we cannot assign Str on a .pairs alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 220 - Make sure we cannot assign Str on a .pairs alias
+ok 221 - did we set a Real value from a .kv alias
+# Subtest: Make sure we cannot assign Str on a .kv alias
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 222 - Make sure we cannot assign Str on a .kv alias
+ok 223 - did we see all values
+ok 224 - did we see all keys
+ok 225 - did we see all the pairs
+ok 226 - did we see all the kv
+ok 227 - did we see all the antipairs
+# Subtest: .hash does not cause keys to be stringified
+    1..2
+    ok 1 - MixHash.new
+    ok 2 - .MixHash
+ok 228 - .hash does not cause keys to be stringified
+ok 229 - .Bag coercer
+ok 230 - .BagHash coercer
+ok 231 - negative MixHash weights removed from Bag coercion without warnings
+# Subtest: MixHash autovivification of non-existent keys
+    1..10
+    ok 1 - correct return of postfix ++
+    ok 2 - correct result of postfix ++
+    ok 3 - correct return of postfix --
+    ok 4 - correct result of postfix --
+    ok 5 - correct return of prefix ++
+    ok 6 - correct result of prefix ++
+    ok 7 - correct return of prefix --
+    ok 8 - correct result of prefix --
+    ok 9 - correct return of assignment
+    ok 10 - correct result of assignment
+ok 232 - MixHash autovivification of non-existent keys
+ok 233 - negative weights remain with  ∪  operator
+ok 234 - negative weights remain with (|) operator
+ok 235 - Can use $_ from .values to remove occurrences from MixHash
+ok 236 - Can use $_ from .values to set number occurrences in MixHash
+ok 237 - Can use $_ from .values to remove items from MixHash
+ok 238 - Can use value from .kv to remove occurrences from MixHash
+ok 239 - Can use value from .kv to set number occurrences in MixHash
+ok 240 - Can use $_ from .kv to remove items from MixHash
+ok 241 - Can use value from .pairs to remove occurrences from MixHash
+ok 242 - Can use value from .pairs to set number occurrences in MixHash
+ok 243 - Can use $_ from .pairs to remove items from MixHash
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches MixHash
+ok 244 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches MixHash
+ok 245 - did we throws-like X::Cannot::Lazy?
+# Subtest: did we throws-like X::Cannot::Lazy?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - .what matches MixHash
+ok 246 - did we throws-like X::Cannot::Lazy?
+# Subtest: (:a("a")).MixHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 247 - (:a("a")).MixHash throws
+# Subtest: MixHash.new-from-pairs( (:a("a")) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Str::Numeric)
+ok 248 - MixHash.new-from-pairs( (:a("a")) ) throws
+# Subtest: (:a(Inf)).MixHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 249 - (:a(Inf)).MixHash throws
+# Subtest: MixHash.new-from-pairs( (:a(Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 250 - MixHash.new-from-pairs( (:a(Inf)) ) throws
+# Subtest: (:a(-Inf)).MixHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 251 - (:a(-Inf)).MixHash throws
+# Subtest: MixHash.new-from-pairs( (:a(-Inf)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 252 - MixHash.new-from-pairs( (:a(-Inf)) ) throws
+# Subtest: (:a(NaN)).MixHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 253 - (:a(NaN)).MixHash throws
+# Subtest: MixHash.new-from-pairs( (:a(NaN)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::OutOfRange)
+ok 254 - MixHash.new-from-pairs( (:a(NaN)) ) throws
+# Subtest: (:a(<0+3i>)).MixHash throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::Real)
+ok 255 - (:a(<0+3i>)).MixHash throws
+# Subtest: MixHash.new-from-pairs( (:a(<0+3i>)) ) throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Numeric::Real)
+ok 256 - MixHash.new-from-pairs( (:a(<0+3i>)) ) throws
+ok 257 - can we parameterize for strings?
+ok 258 - does .keyof return the correct type
+# Subtest: does attempt to add item of wrong type croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 259 - does attempt to add item of wrong type croak
+# Subtest: do wrong values make initialization croak
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 260 - do wrong values make initialization croak
+ok 261 - final value 0 disappears in MixHash (1)
+ok 262 - final value 0 disappears in MixHash (2)
+# Subtest: elements with weight zero are removed
+    1..3
+    ok 1 - weight decrement
+    ok 2 - Pair value decrement
+    ok 3 - weight set to zero
+ok 263 - elements with weight zero are removed
+# Subtest: elements with negative weights are allowed in MixHashes
+    1..2
+    ok 1 - negative weights are ok
+    ok 2 - negative Pair values are ok
+ok 264 - elements with negative weights are allowed in MixHashes
+ok 265 - did we get right number of elements
+ok 266 - do we get 1 for a
+ok 267 - do we get 0 value for e
+ok 268 - is the %h really a BagHash
+ok 269 - did we get right number of elements after re-init
+ok 270 - did we get 5 by removing e
+ok 271 - did we get right number of elements after :delete
+ok 272 - can delete from MixHash by assignment
+ok 273 - did we get right number of elements assignment
+ok 274 - can we smartmatch empty
+ok 275 - coerce MixHash -> Set
+ok 276 - coerce MixHash -> SetHash
+ok 277 - coerce MixHash -> Bag
+ok 278 - coerce MixHash -> BagHash
+ok 279 - coerce MixHash -> Mix
+ok 280 - parameterized MixHash
+ok 281 - did it parameterize ok
+ok 282 - adding element of wrong type fails
+ok 283 - must have Ints on creation
+ok 284 - does .item work on MixHashes
+ok 285 - does MixHash type object return proper type
+ok 286 - does MixHash object return proper type
+ok 287 - Can we initialize a MixHash with a single value
+ok 288 - did on-the-fly value return original
+ok 289 - did on-the-fly value change original
+ok 290 - got a MixHash with a List
+ok 291 - got a MixHash with an Array
+ok 292 - MixHash Capture
+ok 293 - self referencing MixHash doesn't loop on 'Str'
+ok 294 - self referencing MixHash doesn't loop on 'gist'
+ok 295 - self referencing MixHash doesn't loop on 'raku'
+# FUDGED!

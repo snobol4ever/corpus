@@ -1,0 +1,4 @@
+1..3
+ok 1 - can define a class A when module A::B has been used
+ok 2 - can stub lexical classes with joined namespaces
+ok 3 - can sensibly die when calling method on package

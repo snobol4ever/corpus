@@ -1,0 +1,11 @@
+1..10
+ok 1 - Hash.push returns hash
+ok 2 - basic Hash.push with alternating items
+ok 3 - stacking push works with pairs
+ok 4 - basic Hash.push with pairs 
+ok 5 - stacking push worsk with alternating items
+ok 6 - Hash.push works pushing a non-Str-keyed alternating items
+ok 7 - Hash.push works pushing a non-Str-keyed Pair
+ok 8 - Hash.apend general functionailty
+ok 9 - Hash.push pushes to array elements
+ok 10 - Hash.append appends to array elements

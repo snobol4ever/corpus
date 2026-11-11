@@ -1,0 +1,58 @@
+1..43
+ok 1 - Can create IO::Path::Unix
+ok 2 - volume is empty on POSIX
+ok 3 - dirname "/foo/bar" -> "/foo"
+ok 4 - basename "/foo/bar" -> "bar"
+ok 5 - dirname "foo//bar//" -> "foo"
+ok 6 - basename "foo//bar//" -> "bar"
+ok 7 - .path returns Str
+IO::Path::Unix.new("foo//bar//", :CWD("/zip/loc"))
+ok 8 - .raku loopback
+ok 9 - current directory
+ok 10 - parent directory
+# Subtest: no path not allowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 11 - no path not allowed
+# Subtest: empty not allowed
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 12 - empty not allowed
+ok 13 - cleanup '/usr/////local/./bin/././perl/' -> '/usr/local/bin/perl'
+ok 14 - relative path is-relative
+ok 15 - relative path ! is-absolute
+ok 16 - absolute path ! is-relative
+ok 17 - absolute path is-absolute
+ok 18 - absolute path from $*CWD
+ok 19 - absolute path specified
+ok 20 - relative path specified
+ok 21 - relative inverts absolute
+ok 22 - absolute inverts relative
+not ok 23 - absolute inverts relative with resolve # TODO resolve NYI, needs nqp::readlink
+# Failed test 'absolute inverts relative with resolve'
+# at S32-io/io-path-unix.rakudo line 50
+# expected: '/foo/bar'
+#      got: '/zip/loc/../../foo/bar'
+ok 24 - parent of 'foo/bar' is 'foo'
+ok 25 - parent of 'foo' is '.'
+ok 26 - parent of '.' is '..'
+ok 27 - parent of '..' is '../..'
+ok 28 - parent at top level is '/'
+ok 29 - parent of root is '/'
+ok 30 - parent of '../foo' is '..'
+ok 31 - parent of 'foo/..' is 'foo'
+ok 32 - parent of '/foo/bar' is '/foo'
+ok 33 - parent of '/foo' is '/'
+ok 34 - parent of '/foo/..' is '/foo'
+ok 35 - parent of '/foo/../bar' is '/foo/..'
+ok 36 - append to root
+ok 37 - append to cwd
+ok 38 - succ basic
+ok 39 - succ x 2
+ok 40 - pred basic
+ok 41 - succ only effects basename
+ok 42 - pred only effects basename
+ok 43 - .absolute on paths starting with `-` does not produce empty string
+# FUDGED!

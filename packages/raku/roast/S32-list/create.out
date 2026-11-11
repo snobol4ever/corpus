@@ -1,0 +1,16 @@
+1..11
+ok 1 - &list() creates a list assignable to a scalar.
+ok 2 - The &list() function created a list.
+ok 3 - Finding the length of the list works as expected.
+ok 4 - Creating a new list object with new works.
+ok 5 - The list object contains the right values.
+ok 6 - Finding the length functions properly.
+ok 7 - List can be created by 'is List'
+ok 8 - The list objects contains the right values.
+ok 9 - The lenght is one
+ok 10 - The list constains the expected value
+# Subtest: An immutable List created via `is List` cannot be re-assigned
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Assignment::RO)
+ok 11 - An immutable List created via `is List` cannot be re-assigned

@@ -1,0 +1,52 @@
+1..50
+ok 1 - Named simple array capture
+ok 2 - Captured strings
+ok 3 - Sequential simple array capture
+ok 4 - First captured strings
+ok 5 - Last captured strings
+ok 6 - Repeated hypothetical array capture
+ok 7 - Hypothetical variable captured
+ok 8 - No extra captures
+ok 9 - Hypothetical array capture
+ok 10 - Hypothetical variable captured
+ok 11 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 12 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 13 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 14 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 15 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 16 - Compound hypothetical capture
+ok 17 - Implicit hypothetical variable captured -- lives-ok
+ok 18 - Implicit hypothetical variable captured -- retval is correct
+ok 19 - Explicit hypothetical variable captured
+ok 20 - Nested array capture
+ok 21 - Outer array capture
+ok 22 - Inner array capture
+ok 23 - Subrule array capture
+ok 24 - Outer rule array capture
+ok 25 - Final subrule array capture
+ok 26 - Nested subrule array capture
+ok 27 - Outer rule nested array capture
+ok 28 - Subrule array capture
+ok 29 - Nested multiple array capture
+ok 30 - Multiple capture to nested array
+ok 31 - Multiple capture count
+ok 32 - Multiple capture to nested AoA[0]
+ok 33 - Multiple capture to nested AoA[2]
+ok 34 - Multiple capture to nested AoA[3]
+ok 35 - Multiple capture value of nested AoA[0][0]
+ok 36 - Multiple capture value of nested AoA[0][1]
+ok 37 - Multiple capture value of nested AoA[1][0]
+ok 38 - Multiple capture value of nested AoA[1][1]
+ok 39 - Multiple capture value of nested AoA[2][0]
+ok 40 - Multiple capture value of nested AoA[2][1]
+ok 41 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 42 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 43 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 44 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 45 - # SKIP capturing to lexical variable NYI RT  \#126243
+ok 46 - no error with array alias and list-quantified subpattern (1)
+ok 47 - ... and correct result
+ok 48 - no error with array alias and list-quantified subpattern (2)
+ok 49 - ... and correct result
+ok 50 - array alias works with quantified non-capturing structure
+# FUDGED!

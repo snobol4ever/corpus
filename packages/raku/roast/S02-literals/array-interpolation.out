@@ -1,0 +1,13 @@
+1..12
+ok 1 - arrays whose elements don't contain whitespace stringify correctly (1)
+ok 2 - arrays whose elements don't contain whitespace stringify correctly (2)
+ok 3 - @array.[] interpolates
+ok 4 - @array (without brackets) doesnt interpolate
+ok 5 - arrays with embedded array references stringify correctly (1)
+ok 6 - arrays with embedded array references stringify correctly (2)
+ok 7 - array whose elements do contain whitespace stringify correctly (1-1)
+ok 8 - array whose elements do contain whitespace stringify correctly (1-2)
+ok 9 - array whose elements do contain whitespace stringify correctly (2-1)
+ok 10 - array whose elements do contain whitespace stringify correctly (2-2)
+ok 11 - array whose elements do contain whitespace stringify correctly (3-1)
+ok 12 - array whose elements do contain whitespace stringify correctly (3-2)

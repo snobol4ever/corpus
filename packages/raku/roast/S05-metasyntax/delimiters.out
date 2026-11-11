@@ -1,0 +1,22 @@
+1..21
+ok 1 - ^ as delimiter in match and substitution
+ok 2 - ° as delimiter in match and substitution
+ok 3 - ! as delimiter in match and substitution
+ok 4 - " as delimiter in match and substitution
+ok 5 - § as delimiter in match and substitution
+ok 6 - $ as delimiter in match and substitution
+ok 7 - % as delimiter in match and substitution
+ok 8 - @ as delimiter in match and substitution
+ok 9 - € as delimiter in match and substitution
+ok 10 - & as delimiter in match and substitution
+ok 11 - / as delimiter in match and substitution
+ok 12 - = as delimiter in match and substitution
+ok 13 - ? as delimiter in match and substitution
+ok 14 - ` as delimiter in match and substitution
+ok 15 - * as delimiter in match and substitution
+ok 16 - + as delimiter in match and substitution
+ok 17 - ~ as delimiter in match and substitution
+ok 18 - ; as delimiter in match and substitution
+ok 19 - , as delimiter in match and substitution
+ok 20 - . as delimiter in match and substitution
+ok 21 - | as delimiter in match and substitution

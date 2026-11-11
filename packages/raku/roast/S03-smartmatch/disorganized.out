@@ -1,0 +1,43 @@
+1..42
+ok 1 - foo is ~~ .defined
+ok 2 - not foo !~~ .defined
+ok 3 - Mu is not .defined
+ok 4 - 5 is in 1 .. 10
+ok 5 - 10 is not in 1 .. 5
+ok 6 - 1 is not i n 5 .. 10
+ok 7 - 5 is not in 5 .. 10, exclusive
+ok 8 - C<all(@x) ~~ { ... }> parses
+ok 9 - C<all(@x) ~~ { ... } when true for all
+ok 10 - C<all(@x) ~~ {...} when true for one
+ok 11 - C<all(@x) ~~ {...} when true for most
+ok 12 - C<all(@x) ~~ {...} when true for one
+ok 13 - smartmatch in a class lives (RT  \#62196)
+ok 14 - ~~ Callable (true)
+ok 15 - ~~ Callable (false)
+ok 16 - !~~ Callable (true)
+ok 17 - !~~ Callable (false)
+ok 18 - ~~ Routine (true)
+ok 19 - ~~ Routine (false)
+ok 20 - !~~ Routine (true)
+ok 21 - !~~ Routine (false)
+ok 22 - ~~ Sub (true)
+ok 23 - ~~ Sub (false)
+ok 24 - !~~ Sub (true)
+ok 25 - !~~ Sub (false)
+ok 26 - ~~ Block (true)
+ok 27 - ~~ Block (false)
+ok 28 - !~~ Block (true)
+ok 29 - !~~ Block (false)
+ok 30 - ~~ Code (true)
+ok 31 - ~~ Code (false)
+ok 32 - !~~ Code (true)
+ok 33 - !~~ Code (false)
+ok 34 - ~~ Method (true)
+ok 35 - ~~ Method (false)
+ok 36 - !~~ Method (true)
+ok 37 - !~~ Method (false)
+ok 38 - class instance matches role
+ok 39 - class instance !!matches role
+ok 40 - thing ~~ * autoprimes
+ok 41 - thing ~~ WhateverCode is a boolean
+ok 42 - * ~~ "foo" is WhateverCode

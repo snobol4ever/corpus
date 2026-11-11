@@ -1,0 +1,6 @@
+1..5
+ok 1 - have correct number of names noted from trait applied by name
+ok 2 - trait recorded correct information
+ok 3 - trait applied to scalar variable correctly
+ok 4 - trait applied to array variable correctly
+ok 5 - trait applied to hash variable correctly

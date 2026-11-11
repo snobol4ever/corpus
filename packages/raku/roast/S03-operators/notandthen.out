@@ -1,0 +1,13 @@
+1..6
+ok 1 - notandthen properly thunks RHS
+ok 2 - chaned notandthen executes RHS thunks only when appropriate
+# Subtest: Empty in args to notandthen/without does not disappear
+    1..4
+    ok 1 - postfix `without`
+    ok 2 - sub call
+    ok 3 - op
+    ok 4 - taking return of andthen
+ok 3 - Empty in args to notandthen/without does not disappear
+ok 4 - 1-arg Iterable gets flattened (like +@foo slurpy)
+ok 5 - notandthen does not call .defined on last arg (1)
+ok 6 - notandthen does not call .defined on last arg (2)

@@ -1,0 +1,59 @@
+1..44
+ok 1 - no public accessor for private attribute
+ok 2 - can assign and get from within the class
+ok 3 - can auto-increment an attribute
+ok 4 - has with no twigil creates alias
+ok 5 - list attribute declaration of publics works
+ok 6 - list attribute declaration of publics works
+ok 7 - list attribute declaration of alias works
+ok 8 - list attribute declaration of alias works
+ok 9 - list attribute declaration of privates works
+ok 10 - hash attribute initialized
+ok 11 - hash attribute initialized/works
+ok 12 - hash attribute initialized/works
+ok 13 - hash attribute initialized/works
+ok 14 - array attribute initialized
+ok 15 - array attribute initialized/works
+ok 16 - array attribute initialized/works
+ok 17 - array attribute initialized/works
+ok 18 - array attribute initialized/works
+ok 19 - array attribute initialized/works
+ok 20 - Providing a list of attributes to a single "has" works
+# Subtest: no attr access for sub inside class
+    1..2
+    ok 1 - '
+    #     class RT81718 {
+    #         has $.bughunt is rw;
+    #         sub bomb { "life is a $.bughunt" }
+    #         method meta_bomb { "the good " ~ bomb() }
+    #     }
+    # ' died
+    ok 2 - right exception type (X::Syntax::NoSelf)
+ok 21 - no attr access for sub inside class
+ok 22 - class attribute can be initialized using .=
+ok 23 - HOW on attributes lives, custom class
+ok 24 - HOW on attributes lives, builtin
+ok 25 - No segfault on state variables
+ok 26 - Plain array
+ok 27 - Array from 2-nd element to end+1, non-lazy
+ok 28 - Array from 2-nd element to end+1, lazy
+ok 29 - Array from 2-nd element to end
+ok 30 - Plain array in the method
+ok 31 - Array from 2-nd element to end+1 in the method
+ok 32 - Array from 2-nd element to end in the method
+ok 33 - can use where clause on an attribute
+ok 34 - where clause on attributes is taken into account
+ok 35 - typed array attribute (1)
+# Subtest: typed array attribute (2)
+    1..2
+    ok 1 - '$foo.a = 1,"b"' died
+    ok 2 - right exception type (Exception)
+ok 36 - typed array attribute (2)
+ok 37 - .gist works on attribute types (1)
+ok 38 - .gist works on attribute types (2)
+ok 39 - .= able to initialize attributes with types that has `::` in name
+ok 40 - is the primary accessor ok
+ok 41 - is the proxy ok
+ok 42 - is the mutator ok
+ok 43 - is the primary accessor still ok
+ok 44 - is the proxy still ok

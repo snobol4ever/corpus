@@ -1,0 +1,301 @@
+1..260
+ok 1 - ord() works for \32 == ' '
+ok 2 - chr() works for \32 == ' '
+ok 3 - ord() works for \33 == '!'
+ok 4 - chr() works for \33 == '!'
+ok 5 - ord() works for \34 == '"'
+ok 6 - chr() works for \34 == '"'
+ok 7 - ord() works for \35 == ' \#'
+ok 8 - chr() works for \35 == ' \#'
+ok 9 - ord() works for \36 == '$'
+ok 10 - chr() works for \36 == '$'
+ok 11 - ord() works for \37 == '%'
+ok 12 - chr() works for \37 == '%'
+ok 13 - ord() works for \38 == '&'
+ok 14 - chr() works for \38 == '&'
+ok 15 - ord() works for \39 == '''
+ok 16 - chr() works for \39 == '''
+ok 17 - ord() works for \40 == '('
+ok 18 - chr() works for \40 == '('
+ok 19 - ord() works for \41 == ')'
+ok 20 - chr() works for \41 == ')'
+ok 21 - ord() works for \42 == '*'
+ok 22 - chr() works for \42 == '*'
+ok 23 - ord() works for \43 == '+'
+ok 24 - chr() works for \43 == '+'
+ok 25 - ord() works for \44 == ','
+ok 26 - chr() works for \44 == ','
+ok 27 - ord() works for \45 == '-'
+ok 28 - chr() works for \45 == '-'
+ok 29 - ord() works for \46 == '.'
+ok 30 - chr() works for \46 == '.'
+ok 31 - ord() works for \47 == '/'
+ok 32 - chr() works for \47 == '/'
+ok 33 - ord() works for \48 == '0'
+ok 34 - chr() works for \48 == '0'
+ok 35 - ord() works for \49 == '1'
+ok 36 - chr() works for \49 == '1'
+ok 37 - ord() works for \50 == '2'
+ok 38 - chr() works for \50 == '2'
+ok 39 - ord() works for \51 == '3'
+ok 40 - chr() works for \51 == '3'
+ok 41 - ord() works for \52 == '4'
+ok 42 - chr() works for \52 == '4'
+ok 43 - ord() works for \53 == '5'
+ok 44 - chr() works for \53 == '5'
+ok 45 - ord() works for \54 == '6'
+ok 46 - chr() works for \54 == '6'
+ok 47 - ord() works for \55 == '7'
+ok 48 - chr() works for \55 == '7'
+ok 49 - ord() works for \56 == '8'
+ok 50 - chr() works for \56 == '8'
+ok 51 - ord() works for \57 == '9'
+ok 52 - chr() works for \57 == '9'
+ok 53 - ord() works for \58 == ':'
+ok 54 - chr() works for \58 == ':'
+ok 55 - ord() works for \59 == ';'
+ok 56 - chr() works for \59 == ';'
+ok 57 - ord() works for \60 == '<'
+ok 58 - chr() works for \60 == '<'
+ok 59 - ord() works for \61 == '='
+ok 60 - chr() works for \61 == '='
+ok 61 - ord() works for \62 == '>'
+ok 62 - chr() works for \62 == '>'
+ok 63 - ord() works for \63 == '?'
+ok 64 - chr() works for \63 == '?'
+ok 65 - ord() works for \64 == '@'
+ok 66 - chr() works for \64 == '@'
+ok 67 - ord() works for \65 == 'A'
+ok 68 - chr() works for \65 == 'A'
+ok 69 - ord() works for \66 == 'B'
+ok 70 - chr() works for \66 == 'B'
+ok 71 - ord() works for \67 == 'C'
+ok 72 - chr() works for \67 == 'C'
+ok 73 - ord() works for \68 == 'D'
+ok 74 - chr() works for \68 == 'D'
+ok 75 - ord() works for \69 == 'E'
+ok 76 - chr() works for \69 == 'E'
+ok 77 - ord() works for \70 == 'F'
+ok 78 - chr() works for \70 == 'F'
+ok 79 - ord() works for \71 == 'G'
+ok 80 - chr() works for \71 == 'G'
+ok 81 - ord() works for \72 == 'H'
+ok 82 - chr() works for \72 == 'H'
+ok 83 - ord() works for \73 == 'I'
+ok 84 - chr() works for \73 == 'I'
+ok 85 - ord() works for \74 == 'J'
+ok 86 - chr() works for \74 == 'J'
+ok 87 - ord() works for \75 == 'K'
+ok 88 - chr() works for \75 == 'K'
+ok 89 - ord() works for \76 == 'L'
+ok 90 - chr() works for \76 == 'L'
+ok 91 - ord() works for \77 == 'M'
+ok 92 - chr() works for \77 == 'M'
+ok 93 - ord() works for \78 == 'N'
+ok 94 - chr() works for \78 == 'N'
+ok 95 - ord() works for \79 == 'O'
+ok 96 - chr() works for \79 == 'O'
+ok 97 - ord() works for \80 == 'P'
+ok 98 - chr() works for \80 == 'P'
+ok 99 - ord() works for \81 == 'Q'
+ok 100 - chr() works for \81 == 'Q'
+ok 101 - ord() works for \82 == 'R'
+ok 102 - chr() works for \82 == 'R'
+ok 103 - ord() works for \83 == 'S'
+ok 104 - chr() works for \83 == 'S'
+ok 105 - ord() works for \84 == 'T'
+ok 106 - chr() works for \84 == 'T'
+ok 107 - ord() works for \85 == 'U'
+ok 108 - chr() works for \85 == 'U'
+ok 109 - ord() works for \86 == 'V'
+ok 110 - chr() works for \86 == 'V'
+ok 111 - ord() works for \87 == 'W'
+ok 112 - chr() works for \87 == 'W'
+ok 113 - ord() works for \88 == 'X'
+ok 114 - chr() works for \88 == 'X'
+ok 115 - ord() works for \89 == 'Y'
+ok 116 - chr() works for \89 == 'Y'
+ok 117 - ord() works for \90 == 'Z'
+ok 118 - chr() works for \90 == 'Z'
+ok 119 - ord() works for \91 == '['
+ok 120 - chr() works for \91 == '['
+ok 121 - ord() works for \92 == '\'
+ok 122 - chr() works for \92 == '\'
+ok 123 - ord() works for \93 == ']'
+ok 124 - chr() works for \93 == ']'
+ok 125 - ord() works for \94 == '^'
+ok 126 - chr() works for \94 == '^'
+ok 127 - ord() works for \95 == '_'
+ok 128 - chr() works for \95 == '_'
+ok 129 - ord() works for \96 == '`'
+ok 130 - chr() works for \96 == '`'
+ok 131 - ord() works for \97 == 'a'
+ok 132 - chr() works for \97 == 'a'
+ok 133 - ord() works for \98 == 'b'
+ok 134 - chr() works for \98 == 'b'
+ok 135 - ord() works for \99 == 'c'
+ok 136 - chr() works for \99 == 'c'
+ok 137 - ord() works for \100 == 'd'
+ok 138 - chr() works for \100 == 'd'
+ok 139 - ord() works for \101 == 'e'
+ok 140 - chr() works for \101 == 'e'
+ok 141 - ord() works for \102 == 'f'
+ok 142 - chr() works for \102 == 'f'
+ok 143 - ord() works for \103 == 'g'
+ok 144 - chr() works for \103 == 'g'
+ok 145 - ord() works for \104 == 'h'
+ok 146 - chr() works for \104 == 'h'
+ok 147 - ord() works for \105 == 'i'
+ok 148 - chr() works for \105 == 'i'
+ok 149 - ord() works for \106 == 'j'
+ok 150 - chr() works for \106 == 'j'
+ok 151 - ord() works for \107 == 'k'
+ok 152 - chr() works for \107 == 'k'
+ok 153 - ord() works for \108 == 'l'
+ok 154 - chr() works for \108 == 'l'
+ok 155 - ord() works for \109 == 'm'
+ok 156 - chr() works for \109 == 'm'
+ok 157 - ord() works for \110 == 'n'
+ok 158 - chr() works for \110 == 'n'
+ok 159 - ord() works for \111 == 'o'
+ok 160 - chr() works for \111 == 'o'
+ok 161 - ord() works for \112 == 'p'
+ok 162 - chr() works for \112 == 'p'
+ok 163 - ord() works for \113 == 'q'
+ok 164 - chr() works for \113 == 'q'
+ok 165 - ord() works for \114 == 'r'
+ok 166 - chr() works for \114 == 'r'
+ok 167 - ord() works for \115 == 's'
+ok 168 - chr() works for \115 == 's'
+ok 169 - ord() works for \116 == 't'
+ok 170 - chr() works for \116 == 't'
+ok 171 - ord() works for \117 == 'u'
+ok 172 - chr() works for \117 == 'u'
+ok 173 - ord() works for \118 == 'v'
+ok 174 - chr() works for \118 == 'v'
+ok 175 - ord() works for \119 == 'w'
+ok 176 - chr() works for \119 == 'w'
+ok 177 - ord() works for \120 == 'x'
+ok 178 - chr() works for \120 == 'x'
+ok 179 - ord() works for \121 == 'y'
+ok 180 - chr() works for \121 == 'y'
+ok 181 - ord() works for \122 == 'z'
+ok 182 - chr() works for \122 == 'z'
+ok 183 - ord() works for \123 == '{'
+ok 184 - chr() works for \123 == '{'
+ok 185 - ord() works for \124 == '|'
+ok 186 - chr() works for \124 == '|'
+ok 187 - ord() works for \125 == '}'
+ok 188 - chr() works for \125 == '}'
+ok 189 - ord() works for \126 == '~'
+ok 190 - chr() works for \126 == '~'
+ok 191 - ord() works for \228 == 'ä'
+ok 192 - chr() works for \228 == 'ä'
+ok 193 - ord() works for \8364 == '€'
+ok 194 - chr() works for \8364 == '€'
+ok 195 - ord() works for \187 == '»'
+ok 196 - chr() works for \187 == '»'
+ok 197 - ord() works for \171 == '«'
+ok 198 - chr() works for \171 == '«'
+ok 199 - ord() works for \0
+ok 200 - chr() works for \0
+ok 201 - ord() works for \1
+ok 202 - chr() works for \1
+ok 203 - ord() works for \3
+ok 204 - chr() works for \3
+ok 205 - ord(chr(0)) is 0
+ok 206 - ord(chr(1)) is 1
+ok 207 - ord(chr(2)) is 2
+ok 208 - ord(chr(3)) is 3
+ok 209 - ord(chr(4)) is 4
+ok 210 - ord(chr(5)) is 5
+ok 211 - ord(chr(6)) is 6
+ok 212 - ord(chr(7)) is 7
+ok 213 - ord(chr(8)) is 8
+ok 214 - ord(chr(9)) is 9
+ok 215 - ord(chr(10)) is 10
+ok 216 - ord(chr(11)) is 11
+ok 217 - ord(chr(12)) is 12
+ok 218 - ord(chr(13)) is 13
+ok 219 - ord(chr(14)) is 14
+ok 220 - ord(chr(15)) is 15
+ok 221 - ord(chr(16)) is 16
+ok 222 - ord(chr(17)) is 17
+ok 223 - ord(chr(18)) is 18
+ok 224 - ord(chr(19)) is 19
+ok 225 - ord(chr(20)) is 20
+ok 226 - ord(chr(21)) is 21
+ok 227 - ord(chr(22)) is 22
+ok 228 - ord(chr(23)) is 23
+ok 229 - ord(chr(24)) is 24
+ok 230 - ord(chr(25)) is 25
+ok 231 - ord(chr(26)) is 26
+ok 232 - ord(chr(27)) is 27
+ok 233 - ord(chr(28)) is 28
+ok 234 - ord(chr(29)) is 29
+ok 235 - ord(chr(30)) is 30
+ok 236 - ord(chr(31)) is 31
+ok 237 - ords() works as expected
+ok 238 - chrs() method works as expected
+ok 239 - chrs(ords()) round-trips correctly
+ok 240 - ords(chrs()) round-trips correctly
+ok 241 - there's a .ord method
+ok 242 - there's a .chr method
+ok 243 - there's a .ords method
+ok 244 - there's a .chrs method
+ok 245 - ords > chrs round-trips correctly
+ok 246 - chrs > ords round-trips correctly
+ok 247 - chrs works with a list of ints
+not ok 248 - chr of surrogate # TODO chr surrogate
+# Failed test 'chr of surrogate'
+# at S29-conversions/ord_and_chr.rakudo line 153
+ok 249 - chr of noncharacter
+ok 250 - chr of noncharacter
+ok 251 - chr out of range (max)
+ok 252 - chr out of range (negative)
+ok 253 - ord("") returns an undefined value
+ok 254 - ord of named high character
+ok 255 - chr > ord round trip of high character
+ok 256 - .ord gives first NFC codepoint (1)
+ok 257 - .ord gives first NFC codepoint (2)
+ok 258 - chrs works with a list of numifiable strings
+# Subtest: chr with large codepoints throws useful error
+    1..6
+    # Subtest: "chr 2⁶³-1"
+        1..2
+        ok 1 - 'chr 2⁶³-1' died
+        ok 2 - right exception type (Exception)
+    ok 1 - "chr 2⁶³-1"
+    # Subtest: "(2⁶³-1).chr"
+        1..2
+        ok 1 - '(2⁶³-1).chr' died
+        ok 2 - right exception type (Exception)
+    ok 2 - "(2⁶³-1).chr"
+    # Subtest: "chr 2⁶³"
+        1..2
+        ok 1 - 'chr 2⁶³' died
+        ok 2 - right exception type (Exception)
+    ok 3 - "chr 2⁶³"
+    # Subtest: "2⁶³.chr"
+        1..2
+        ok 1 - '2⁶³.chr' died
+        ok 2 - right exception type (Exception)
+    ok 4 - "2⁶³.chr"
+    # Subtest: "chr 2¹⁰⁰"
+        1..2
+        ok 1 - 'chr 2¹⁰⁰' died
+        ok 2 - right exception type (Exception)
+    ok 5 - "chr 2¹⁰⁰"
+    # Subtest: "(2¹⁰⁰).chr"
+        1..2
+        ok 1 - '(2¹⁰⁰).chr' died
+        ok 2 - right exception type (Exception)
+    ok 6 - "(2¹⁰⁰).chr"
+ok 259 - chr with large codepoints throws useful error
+# Subtest: did we throws-like X::AdHoc?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::AdHoc)
+    ok 3 - .message matches / 'out of bounds' /
+ok 260 - did we throws-like X::AdHoc?
+# FUDGED!

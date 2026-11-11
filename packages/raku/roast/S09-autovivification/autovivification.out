@@ -1,0 +1,54 @@
+1..44
+ok 1 - just mentioning a hash value should not autovivify it
+ok 2 - autovivification of a hash element to an arrayitem worked
+ok 3 - Created one hash item
+ok 4 - autovivification of a hash element to a hashitem worked
+ok 5 - Inner hash item is really a Hash
+ok 6 - autovivification to an array by &push
+ok 7 - autovivified to Array
+ok 8 - autovivification to an array by &unshift
+ok 9 - autovivification of an array element to an array by &push
+ok 10 - autovivification of an hash element to an array by &push
+ok 11 - uninitialized variable is not a Hash (1)
+ok 12 - hash element assignment worked
+ok 13 - # SKIP isa multi variant
+ok 14 - uninitialized variable is not a Hash (2)
+ok 15 - accessing a not existing hash element of an uninitialized variable works
+ok 16 - uninitialized variable is not autovivified to a hash (2)
+ok 17 - accessing a not existing hash element of an uninitialized variable works (2)
+ok 18 - uninitialized variable is not autovivified to a hash (3)
+ok 19 - uninitialized variable is not autovivified to a hash (4)
+ok 20 - uninitialized variable is not a Hash (3)
+ok 21 - binding a not existing hash element of an uninitialized variable works
+not ok 22 - uninitialized variable is autovivified to a hash (4) # TODO autoviv, binding
+# Failed test 'uninitialized variable is autovivified to a hash (4)'
+# at S09-autovivification/autovivification.rakudo line 102
+ok 23 - binding a not existing hash element of an uninitialized variable works (2)
+not ok 24 - uninitialized variable is autovivified to a hash (5) # TODO autoviv, binding
+# Failed test 'uninitialized variable is autovivified to a hash (5)'
+# at S09-autovivification/autovivification.rakudo line 107
+ok 25 - uninitialized variable is not an Array (1)
+ok 26 - uninitialized variable was autovivified to an array (1)
+ok 27 - array element assignment worked
+ok 28 - uninitialized variable is not an Array (2)
+ok 29 - accessing a not existing array element of an uninitialized variable works
+ok 30 - uninitialized variable was not autovivified to an array (2)
+ok 31 - accessing a not existing array element of an uninitialized variable works
+ok 32 - uninitialized variable was not autovivified to an array (3)
+ok 33 - uninitialized variable was not autovivified to an array (4)
+ok 34 - uninitialized variable is not an Array (3)
+ok 35 - binding a not existing array element of an uninitialized variable works (1)
+not ok 36 - uninitialized variable is autovivified to an array (1) # TODO unknown
+# Failed test 'uninitialized variable is autovivified to an array (1)'
+# at S09-autovivification/autovivification.rakudo line 145
+ok 37 - binding a not existing array element of an uninitialized variable works (2)
+not ok 38 - uninitialized variable is autovivified to an array (2) # TODO unknown
+# Failed test 'uninitialized variable is autovivified to an array (2)'
+# at S09-autovivification/autovivification.rakudo line 150
+ok 39 - autovivification of an array element to an arrayitem worked
+ok 40 - autovivification of an array element to a hashitem worked
+ok 41 - using an undeclared globaly qualified code variable in void context is ok
+ok 42 - ...but invoking undeclared globally qualifed code variable should die
+ok 43 - autovivificaion of arrays works via multidim syntax
+ok 44 - autovivification of hashes works via multidim syntax
+# FUDGED!

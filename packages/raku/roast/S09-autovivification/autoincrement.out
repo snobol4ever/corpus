@@ -1,0 +1,8 @@
+1..7
+ok 1 - lvalue $var works
+ok 2 - lvalue $var[] works
+ok 3 - lvalue $var[][] works
+ok 4 - lvalue @var[][] works
+ok 5 - lvalue [[]][][] works
+ok 6 - lvalue $var<>[] works
+ok 7 - lvalue %var<>[] works

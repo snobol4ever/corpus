@@ -1,0 +1,14 @@
+1..13
+ok 1 - basic sanity
+ok 2 - anonymous role mixin
+ok 3 - still basic sanity
+ok 4 - anonymous role gave us an attribute
+ok 5 - basic sanity
+ok 6 - anonymous role definition
+ok 7 - anonymous role variable mixin
+ok 8 - still basic sanity
+ok 9 - anonymous role variable gave us an attribute
+ok 10 - basic sanity
+ok 11 - role generating function mixin
+ok 12 - still basic sanity
+ok 13 - role generating function gave us an attribute

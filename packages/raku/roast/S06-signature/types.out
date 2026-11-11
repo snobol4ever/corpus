@@ -1,0 +1,126 @@
+1..19
+ok 1 - sub f returns Int can be queried for its return value
+ok 2 - sub f returns Int can be queried for its return value (.of)
+ok 3 - sub f ~~ Callable[Int]
+ok 4 - type check allows good return
+ok 5 - type check forbids bad return
+ok 6 - type check allows good implicit return
+ok 7 - type check forbids bad implicit return
+ok 8 - .raku on an :(Int $) roundtrips
+ok 9 - .raku on an :(Array[Int] $) roundtrips
+# Subtest: no segfault when calling a routine having a native parameter with a type object argument
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 10 - no segfault when calling a routine having a native parameter with a type object argument
+# Subtest: expected and got types in the exception are the correct ones
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .got matches Int
+    ok 4 - .expected matches Mu
+ok 11 - expected and got types in the exception are the correct ones
+# Subtest: expected and got types in the exception are the correct ones
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .expected matches Mu
+    ok 4 - .got matches Int
+ok 12 - expected and got types in the exception are the correct ones
+# Subtest: expected and got types in the exception are the correct ones
+    1..4
+    ok 1 - code dies
+    ok 2 - right exception type (X::Parameter::InvalidConcreteness)
+    ok 3 - .expected matches Int
+    ok 4 - .got matches UInt
+ok 13 - expected and got types in the exception are the correct ones
+ok 14 - Unicode digit negative type constraints work
+# Subtest: Code.of() returns return type
+    1..4
+    ok 1 - --> type
+    ok 2 - --> smiley
+    ok 3 - --> subset
+    ok 4 - no explicit return constraint
+ok 15 - Code.of() returns return type
+# Subtest: numeric literals as type constraints
+    1..10
+    # Subtest: integers
+        1..4
+        ok 1 - bare
+        ok 2 - plus
+        ok 3 - minus
+        ok 4 - U+2212 minus
+    ok 1 - integers
+    # Subtest: unum
+        1..4
+        ok 1 - bare
+        ok 2 - plus
+        ok 3 - minus
+        ok 4 - U+2212 minus
+    ok 2 - unum
+    # Subtest: rats
+        1..6
+        ok 1 - bare </> literal
+        ok 2 - minus </> literal
+        ok 3 - U+2212 minus </> literal
+        ok 4 - bare \d.\d literal
+        ok 5 - minus \d.\d literal
+        ok 6 - U+2212 minus \d.\d literal
+    ok 3 - rats
+    # Subtest: nums
+        1..10
+        ok 1 - bare
+        ok 2 - minus (base)
+        ok 3 - U+2212 minus (base)
+        ok 4 - bare (plus exp)
+        ok 5 - minus (base) (plus exp)
+        ok 6 - U+2212 minus (base) (plus exp)
+        ok 7 - minus (exp)
+        ok 8 - U+2212 minus (exp)
+        ok 9 - minus (base and exp)
+        ok 10 - U+2212 minus (base and exp)
+    ok 4 - nums
+    # Subtest: complex
+        1..7
+        ok 1 - bare
+        ok 2 - minus (real)
+        ok 3 - U+2212 minus (real)
+        ok 4 - minus (imaginary)
+        ok 5 - U+2212 minus (imaginary)
+        ok 6 - minus (real and imaginary)
+        ok 7 - U+2212 minus (real and imagin.)
+    ok 5 - complex
+    # Subtest: infinity
+        1..8
+        ok 1 - bare Inf
+        ok 2 - plus Inf
+        ok 3 - minus Inf
+        ok 4 - U+2212 minus Inf
+        ok 5 - bare ∞
+        ok 6 - plus ∞
+        ok 7 - minus ∞
+        ok 8 - U+2212 minus ∞
+    ok 6 - infinity
+    # Subtest: NaN
+        1..1
+        ok 1 - bare
+    ok 7 - NaN
+    # Subtest: π
+        1..2
+        ok 1 - bare, π
+        ok 2 - bare, pi
+    ok 8 - π
+    # Subtest: τ
+        1..2
+        ok 1 - bare, τ
+        ok 2 - bare, tau
+    ok 9 - τ
+    # Subtest: 𝑒
+        1..2
+        ok 1 - bare, 𝑒
+        ok 2 - bare, e
+    ok 10 - 𝑒
+ok 16 - numeric literals as type constraints
+ok 17 - `True` signature literal warns
+ok 18 - `False` signature literal warns
+ok 19 - `Bool` type constraint does not warn

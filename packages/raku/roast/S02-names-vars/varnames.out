@@ -1,0 +1,67 @@
+1..29
+ok 1 - $! can be declared again
+ok 2 - as can $/
+ok 3 - S05: Raku's $/ variable may not be assigned to directly.
+ok 4 - $! can be declared again if proto is used though
+ok 5 - as can $/
+# Subtest: normal varnames can't have ! in their name
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 6 - normal varnames can't have ! in their name
+# Subtest: var names can't have double colons in their adverb
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Confused)
+ok 7 - var names can't have double colons in their adverb
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'my Int a = 10;' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .message matches / sigilless /
+ok 8 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'my Int a;' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .message matches / sigilless /
+ok 9 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'my a = 10;' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .message matches / sigilless /
+ok 10 - did we throws-like X::Syntax::Malformed?
+# Subtest: did we throws-like X::Syntax::Malformed?
+    1..3
+    ok 1 - 'my a;' died
+    ok 2 - right exception type (X::Syntax::Malformed)
+    ok 3 - .message matches / sigilless /
+ok 11 - did we throws-like X::Syntax::Malformed?
+not ok 12 - Aliasing of $0 into $/ (1) # TODO cannot easily override [] at the moment
+# Failed test 'Aliasing of $0 into $/ (1)'
+# at S02-names-vars/varnames.rakudo line 42
+# expected: 'foo0'
+#      got: 'MyMatch<4782546185184>'
+not ok 13 - Aliasing of $0 into $/ (2) # TODO cannot easily override [] at the moment
+# Failed test 'Aliasing of $0 into $/ (2)'
+# at S02-names-vars/varnames.rakudo line 43
+# expected: 'foo4'
+#      got: (Failure)
+ok 14 - with <> def, multiple adverbs allowed on end, canonicalizing < >
+ok 15 - with <> def, multiple adverbs allowed on end, canonicalizing « »
+ok 16 - with <> def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 17 - with <> def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 18 - with «» def, multiple adverbs allowed on end, canonicalizing < >
+ok 19 - with «» def, multiple adverbs allowed on end, canonicalizing « »
+ok 20 - with «» def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 21 - with «» def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 22 - with [] def, multiple adverbs allowed on end, canonicalizing < >
+ok 23 - with [] def, multiple adverbs allowed on end, canonicalizing « »
+ok 24 - with [] def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 25 - with [] def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 26 - with () def, multiple adverbs allowed on end, canonicalizing < >
+ok 27 - with () def, multiple adverbs allowed on end, canonicalizing « »
+ok 28 - with () def, multiple adverbs allowed on end, canonicalizing [ ]
+ok 29 - with () def, multiple adverbs allowed on end, canonicalizing [ ]
+# FUDGED!

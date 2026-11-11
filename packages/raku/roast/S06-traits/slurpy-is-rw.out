@@ -1,0 +1,4 @@
+1..3
+ok 1 - trying to use an 'is rw' splat does work out
+ok 2 - @test was changed
+ok 3 - $test was changed

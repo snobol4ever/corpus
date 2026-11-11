@@ -1,0 +1,12 @@
+1..11
+ok 1 - can call .raku on multidimensional array with only some elements autovivified
+ok 2 - Autovivifying LoL assignment on Array with multiple final indices
+ok 3 - Autovivifying LoL assignment on Array with multiple starting indices
+ok 4 - Autovivifying LoL assignment on Array with multiple starting indices and multiple final indices
+ok 5 - Assignment on Array to * slices do nothing on empty, unshaped arrays
+ok 6 - LoL assignment on Array with WhateverCode indices
+ok 7 - Autovivifying LoL assignment on Array with Whatever/Code indices
+ok 8 - Autovivifying LoL assignment on Hash with multiple starting indices
+ok 9 - Autovivifying LoL assignment on Hash with multiple final indices
+ok 10 - Autovivifying LoL assignment on Hash with multiple starting indices and multiple final indices
+ok 11 - Assignment on Hash to * slices do nothing on empty, unshaped arrays

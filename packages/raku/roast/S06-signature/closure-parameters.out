@@ -1,0 +1,61 @@
+1..28
+ok 1 - code executes as testsub({...})
+ok 2 - code executes as testsub($closure)
+ok 3 - code executes as testsub(&subroutine)
+ok 4 - code runs with proper signature (1)
+# Subtest: code dies with invalid signature (1)
+    1..2
+    ok 1 - 'testit(&teststr)' died
+    ok 2 - right exception type (Exception)
+ok 5 - code dies with invalid signature (1)
+ok 6 - code runs with proper signature (1)
+# Subtest: code dies with invalid signature (1)
+    1..2
+    ok 1 - 'test-but-dont-call(&teststr)' died
+    ok 2 - right exception type (Exception)
+ok 7 - code dies with invalid signature (1)
+ok 8 - code runs with proper signature (2)
+# Subtest: code dies with invalid signature (2)
+    1..2
+    ok 1 - 'testit(&testintint)' died
+    ok 2 - right exception type (Exception)
+ok 9 - code dies with invalid signature (2)
+# Subtest: code dies with invalid signature (3)
+    1..2
+    ok 1 - 'testit(&teststrbool)' died
+    ok 2 - right exception type (Exception)
+ok 10 - code dies with invalid signature (3)
+# Subtest: code dies with invalid signature (4)
+    1..2
+    ok 1 - 'testit(&teststrint)' died
+    ok 2 - right exception type (Exception)
+ok 11 - code dies with invalid signature (4)
+ok 12 - Multi dispatch based on closure parameter syntax (1)
+ok 13 - Multi dispatch based on closure parameter syntax (2)
+ok 14 - Multi dispatch based on closure parameter syntax (3)
+ok 15 - Multi dispatch based on closure parameter syntax (4)
+ok 16 - Multi dispatch based on closure parameter syntax (5)
+ok 17 - can use &a as a named parameter
+# Subtest: only one way of specifying sub-signature return type allowed
+    1..2
+    ok 1 - 'sub f (Int &b:(--> Bool)) { }' died
+    ok 2 - right exception type (X::Redeclaration)
+ok 18 - only one way of specifying sub-signature return type allowed
+ok 19 - called sub in unpacking Callable signature with colon
+ok 20 - unpacking Callable signature with colon
+# Subtest: can use signature unpacking with anonymous parameters
+    1..2
+    ok 1 - can call with right signature
+    # Subtest: typcheck correctly fails with wrong arg
+        1..2
+        ok 1 - '-> &:(Int) {}({;})' died
+        ok 2 - right exception type (X::TypeCheck::Binding::Parameter)
+    ok 2 - typcheck correctly fails with wrong arg
+ok 21 - can use signature unpacking with anonymous parameters
+ok 22 - signature constraint works with a named callable parameter
+ok 23 - wrong signature is not accepted by named constrained parameter
+ok 24 - signature constraint with type capture (Int)
+ok 25 - signature constraint with type capture (Str)
+ok 26 - mismatch on captured and signature types predictably throws
+ok 27 - signature-constrained method on a parameterized role works
+ok 28 - mismatch on role parameterization and signature types predictable throws

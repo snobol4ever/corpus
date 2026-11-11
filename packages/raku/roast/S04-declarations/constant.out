@@ -1,0 +1,89 @@
+1..72
+ok 1 - declaring a sigilless constant using 'constant' works
+ok 2 - can't reassign to a sigil-less constant
+ok 3 - bare constant wins against sub of the same name
+ok 4 - ... but parens always indicate a sub call
+ok 5 - declaring a constant with a sigil using 'constant' works
+ok 6 - Can't reassign to a sigiled constant
+# Subtest: constant no longer takes list
+    1..2
+    ok 1 - 'constant ($a, $b) = (3, 4)' died
+    ok 2 - right exception type (X::Syntax::Missing)
+ok 7 - constant no longer takes list
+ok 8 - constants are our scoped
+ok 9 - # SKIP constants as type constraints
+ok 10 - # SKIP constants as type constraints
+ok 11 - # SKIP constants as type constraints
+ok 12 - declaring a constant in terms of another constant works
+ok 13 - constant is "our"-scoped
+ok 14 - constant can be explicitly "our"-scoped
+ok 15 - constant can be explicitly "my"-scoped
+not ok 16 - declaring a constant in terms of COMPILING constant works # TODO COMPILING
+# Failed test 'declaring a constant in terms of COMPILING constant works'
+# at S04-declarations/constant.rakudo line 92
+ok 17 - declaring a constant in terms of hash constant works
+not ok 18 - declaring a constant in terms of COMPILING hash constant works # TODO COMPILING
+# Failed test 'declaring a constant in terms of COMPILING hash constant works'
+# at S04-declarations/constant.rakudo line 113
+ok 19 - declaring a constant in terms of array constant works
+not ok 20 - declaring a constant in terms of COMPILING hash constant works # TODO COMPILING
+# Failed test 'declaring a constant in terms of COMPILING hash constant works'
+# at S04-declarations/constant.rakudo line 134
+ok 21 - declaring a sigilless constant with a type specification using 'constant' works
+ok 22 - declaring an Unicode constant using 'constant' works
+ok 23 - a constant declared using 'constant' is actually constant (1)
+ok 24 - a constant declared using 'constant' is actually constant (2)
+ok 25 - a constant declared using 'constant' is actually constant (3)
+ok 26 - a constant declared using 'constant' is actually constant (4)
+ok 27 - the initializing values for constants are evaluated at compile-time
+ok 28 - dies: constant += n
+ok 29 - constant after += has not changed
+ok 30 - constant-returning sub won't increment
+ok 31 - constant-returning sub after ++ has not changed
+ok 32 - append nothing to a constant
+ok 33 - assign constant its own value
+ok 34 - assign constant its own value from var
+ok 35 - assign constant its own value from expression
+ok 36 - add zero to constant number
+ok 37 - multiply constant number by 1
+ok 38 - assign constant its own value
+ok 39 - assign constant its own value from variable
+ok 40 - assign constant its own value from expression
+ok 41 - Can declare and use a constant in a class
+ok 42 - Can declare and use a constant with FQN in a class
+ok 43 - Can use outer constants in a class
+ok 44 - can use "constant" to alias an enum
+ok 45 - can use "constant" to alias an enum value
+ok 46 - can have a constant using a sequence and index it
+ok 47 - can assign result of smart matching to constant
+ok 48 - can assign True to constant
+ok 49 - can assign False to constant
+ok 50 - constant hashes constructed by map
+ok 51 - escaped constant declaration in class
+ok 52 - can index an infinite constant list at 100K
+ok 53 - can locally redefine True
+ok 54 - Constant is of the right type
+ok 55 - .= new initialization on constants works
+# Subtest: did we throws-like X::Redeclaration?
+    1..3
+    ok 1 - 'constant Mouse = Rat; constant Mouse = Rat' died
+    ok 2 - right exception type (X::Redeclaration)
+    ok 3 - .symbol matches Mouse
+ok 56 - did we throws-like X::Redeclaration?
+ok 57 - non constant doesn't flatten
+ok 58 - constant doesn't flatten
+ok 59 - constant @x does Positional
+ok 60 - constant @ sequence can be evaluated more than once
+ok 61 - can subscript into constant @ (1)
+ok 62 - can subscript into constant @ (2)
+ok 63 - can add operator synonym via 'constant'
+ok 64 - new synonym has same precedence as what it's aliasing
+ok 65 - can create synonym of operator in different grammatical category
+ok 66 - Operator multi defined on snowman works using snowman
+ok 67 - Operator multi defined on snowman works using comet
+ok 68 - Operator multi defined on comet works using comet
+ok 69 - Operator multi defined on comet works using snowman
+ok 70 - Can call an exported constant sub
+ok 71 - Can match a exported constant regex
+ok 72 - Regex stored in constant with sigil works properly
+# FUDGED!

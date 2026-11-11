@@ -1,0 +1,60 @@
+1..32
+ok 1 - can use regex for endpoint without it being confused for closure
+ok 2 - sequence stops when type of endpoint matches
+# Subtest: sequence terminated by signature mismatch
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::TypeCheck::Binding)
+ok 3 - sequence terminated by signature mismatch
+# Subtest: Nil sequence
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Cannot::Empty)
+ok 4 - Nil sequence
+ok 5 - sequence of two interleaved sequences
+ok 6 - sequence of three interleaved sequences
+ok 7 - sequence with list-returning block
+ok 8 - sequence with arity < number of return values
+ok 9 - sequence with arity > number of return values
+# Subtest: yada operator not confused for sequence operator
+    1..2
+    ok 1 - '(1, 2, ... 3)[2]' died
+    ok 2 - right exception type (Exception)
+ok 10 - yada operator not confused for sequence operator
+ok 11 - simple chained finite arithmetic sequence
+ok 12 - simple chained finite arithmetic sequence (with 'infix:<...>')
+ok 13 - chained finite arithmetic sequence
+ok 14 - chained finite numeric sequence
+ok 15 - chained finite numeric sequence (with 'infix:<...>')
+ok 16 - chained infinite numeric sequence
+ok 17 - chained infinite numeric sequence (with 'infix:<...>')
+ok 18 - chained eventually constant numeric sequence
+ok 19 - chained sequence with closures (1)
+ok 20 - chained sequence with closures (2)
+ok 21 - cained sequence with limit function
+ok 22 - chained sequence with more than one value after last infix:<...>
+ok 23 - 0-ary generator output can be slipped from the start
+ok 24 - sequence with RHS junction I
+ok 25 - sequence with RHS junction II
+ok 26 - sequence with RHS junction III
+# Subtest: did we throws-like X::Sequence::Deduction?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Sequence::Deduction)
+    ok 3 - .from matches 1,2,5
+ok 27 - did we throws-like X::Sequence::Deduction?
+# Subtest: non-deducible sequence ending in * throws X::Sequence::Deduction (1)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Sequence::Deduction)
+    ok 3 - .from matches 1,2,6
+ok 28 - non-deducible sequence ending in * throws X::Sequence::Deduction (1)
+# Subtest: non-deducible sequence ending in * throws X::Sequence::Deduction (2)
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Sequence::Deduction)
+    ok 3 - .from matches 1,2,6
+ok 29 - non-deducible sequence ending in * throws X::Sequence::Deduction (2)
+ok 30 - code endpoint protects item
+ok 31 - … op does not prematurely cause consumtion of Seqs
+ok 32 - A sequence with a block and an end value does not iterate the whole sequence to recognize it as non-lazy

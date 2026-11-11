@@ -1,0 +1,38 @@
+1..37
+ok 1 - $a default is Any
+ok 2 - @a default is Array
+ok 3 - @a[0] default is Any
+ok 4 - %a default is Hash
+ok 5 - %a<a> default is Any
+ok 6 - Array.new default is Array
+ok 7 - Array.new[0] default is Any
+ok 8 - Hash.new default is Hash
+ok 9 - Hash.new<a> default is Any
+ok 10 - A.new default is A
+ok 11 - A.new[0] default is Any
+ok 12 - H.new default is Hash
+ok 13 - H.new<a> default is Any
+ok 14 - Int $a default is Int
+ok 15 - Int @a default is Array[Int]
+ok 16 - Int @a[0] default is Int
+ok 17 - Int %a default is Hash[Int]
+ok 18 - Int %a<a> default is Int
+ok 19 - $a of Int default is Int
+ok 20 - @a of Int default is Array[Int]
+ok 21 - @a[0] of Int default is Int
+ok 22 - %a of Int default is Hash[Int]
+ok 23 - %a<a> of Int default is Int
+ok 24 - Int %a{Str} default is Hash[Int,Str]
+ok 25 - Int %a{Str}<a> default is Int
+ok 26 - %a{Str} of Int default is Hash[Int,Str]
+ok 27 - %a{Str}<a> of Int default is Int
+ok 28 - Array[Int].new default is Array
+ok 29 - Array[Int].new[0] default is Int
+ok 30 - Hash[Int].new default is Hash[Int]
+ok 31 - Hash[Int].new<a> default is Int
+ok 32 - A[Int].new default is A[Int]
+ok 33 - A[Int].new[0] default is Int
+ok 34 - H[Int].new default is H[Int]
+ok 35 - H[Int].new<a> default is Int
+ok 36 - H[Int,Str].new default is H[Int,Str]
+ok 37 - H[Int,Str].new<a> default is Int

@@ -1,0 +1,87 @@
+1..51
+ok 1 - multiline embedded comment with  \#`[]
+ok 2 - multiline embedded comment with  \#`()
+ok 3 - comment as first and only statement
+ok 4 - multiline comment with <<<
+ok 5 - embedded comment with  \#`{}
+ok 6 - embedded comment with LEFT/RIGHT CORNER BRACKET
+ok 7 - embedded comment with LEFT/RIGHT WHITE CORNER BRACKET
+ok 8 - embedded comment with FULLWIDTH LEFT/RIGHT PARENTHESIS
+ok 9 - embedded comment with LEFT/RIGHT DOUBLE ANGLE BRACKET
+ok 10 - embedded comment with LEFT/RIGHT ANGLE BRACKET
+ok 11 - embedded comment with  \#`᚛᚜
+ok 12 - embedded comment with  \#`⁅⁆
+ok 13 - embedded comment with  \#`⁽⁾
+ok 14 - embedded comment with  \#`❨ vo ❩
+ok 15 - embedded comment with  \#`❮❯
+ok 16 - embedded comment with  \#`❰❱
+ok 17 - embedded comment with  \#`❲❳
+ok 18 - embedded comment with  \#`⟦⟧
+ok 19 - embedded comment with  \#`⦅⦆
+ok 20 - embedded comment with  \#⦓`⦔
+ok 21 - embedded comment with  \#`⦕⦖
+ok 22 - embedded comment with  \#`『』
+# Subtest: no space allowed between '#`' and '('
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 23 - no space allowed between ' \#`' and '('
+# Subtest: no tab allowed between '#`' and '['
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 24 - no tab allowed between ' \#`' and '['
+# Subtest: no spaces allowed between '#`' and '{'
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 25 - no spaces allowed between ' \#`' and '{'
+# Subtest: no spaces allowed between '#`' and '<'
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Comment::Embedded)
+ok 26 - no spaces allowed between ' \#`' and '<'
+ok 27 -  \#`<<<...>>>
+ok 28 -  \#`(((...)))
+ok 29 - Unspaced bracketed comment throws no error
+ok 30 -  \#`<< < >>
+ok 31 -  \#`<< > >>
+ok 32 - nested parens  \#`(...(...)...)
+ok 33 - nested braces  \#`{...{...}...}
+ok 34 - comments can be nested with different brackets
+ok 35 - comments can be nested with same brackets
+# Subtest: single line comment in multiline does not hide delims
+    1..2
+    ok 1 - '  \#`<<
+    #  comment
+    #   \# >>
+    #  >> 3' died
+    ok 2 - right exception type (Exception)
+ok 36 - single line comment in multiline does not hide delims
+ok 37 - nested brackets in embedded comment
+ok 38 - embedded comments with nested/unmatched bracket chars
+# Subtest: comments can't contain unspace
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Comment::Embedded)
+ok 39 - comments can't contain unspace
+ok 40 - sanity check
+ok 41 - sanity check
+# Subtest: misuse of # as quote delimiters
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Comp)
+ok 42 - misuse of  \# as quote delimiters
+ok 43 - The  \# character can't be used as quote delimiters
+ok 44 - pragma use after single line comments
+ok 45 - =begin comment without =cut parses to whitespace in code
+ok 46 - =begin comment without =cut eval throws no error
+ok 47 - Single paragraph Pod parses to whitespace in code
+ok 48 - Single paragraph Pod eval throws no error
+ok 49 - Single paragraph Pod, multiple lines parses to whitespace in code
+ok 50 - Single paragraph Pod, multiple lines eval throws no error
+# Subtest: did we throws-like X::Syntax::Comment::Embedded?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Syntax::Comment::Embedded)
+ok 51 - did we throws-like X::Syntax::Comment::Embedded?

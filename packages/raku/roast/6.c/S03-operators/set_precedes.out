@@ -1,0 +1,73 @@
+1..40
+# Subtest: (<+) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 1 - (<+) with a Failure:D on the RHS throws
+# Subtest: (<+) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 2 - (<+) with a Failure:D on the LHS throws
+# Subtest: ≼ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 3 - ≼ with a Failure:D on the RHS throws
+# Subtest: ≼ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 4 - ≼ with a Failure:D on the LHS throws
+# Subtest: (>+) with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 5 - (>+) with a Failure:D on the RHS throws
+# Subtest: (>+) with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 6 - (>+) with a Failure:D on the LHS throws
+# Subtest: ≽ with a Failure:D on the RHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 7 - ≽ with a Failure:D on the RHS throws
+# Subtest: ≽ with a Failure:D on the LHS throws
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 8 - ≽ with a Failure:D on the LHS throws
+ok 9 - Our keybag is a msubset of our bag
+ok 10 - Our bag is not a msubset of our keybag
+ok 11 - Our bag is a msubset of itself
+ok 12 - Our keybag is a msubset of itself
+ok 13 - Our keybag is a msubset of our bag (ASCII)
+ok 14 - Our bag is not a msubset of our keybag (ASCII)
+ok 15 - Our bag is a msubset of itself (ASCII)
+ok 16 - Our keybag is a msubset of itself (ASCII)
+ok 17 - Our keybag is not a msuperset of our bag
+ok 18 - Our keybag is not a msuperset of our bag
+ok 19 - Our bag is a msuperset of itself
+ok 20 - Our keybag is a msuperset of itself
+ok 21 - Our keybag is not a msuperset of our bag
+ok 22 - Our bag is a msuperset of our keybag
+ok 23 - Our bag is a msuperset of itself
+ok 24 - Our keybag is a msuperset of itself
+ok 25 - Our MixHash is not a msubset of our Mix
+ok 26 - Our Mix is a msubset of our MixHash
+ok 27 - Our Mix is a msubset of itself
+ok 28 - Our MixHash is a msubset of itself
+ok 29 - Our MixHash is not a msubset of our Mix (ASCII)
+ok 30 - Our Mix is a msubset of our MixHash (ASCII)
+ok 31 - Our Mix is a msubset of itself (ASCII)
+ok 32 - Our MixHash is a msubset of itself (ASCII)
+ok 33 - Our MixHash is a msuperset of our Mix
+ok 34 - Our Mix is not a msuperset of our MixHash
+ok 35 - Our mix is a msuperset of itself
+ok 36 - Our keymix is a msuperset of itself
+ok 37 - Our MixHash is a msuperset of our Mix (ASCII)
+ok 38 - Our Mix is not a msuperset of our MixHash (ASCII)
+ok 39 - Our Mix is a msuperset of itself (ASCII)
+ok 40 - Our MixHash is a msuperset of itself (ASCII)

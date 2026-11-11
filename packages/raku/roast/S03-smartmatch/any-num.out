@@ -1,0 +1,31 @@
+1..21
+ok 1 - Int ~~ Int works
+ok 2 - Int ~~ Int works
+ok 3 - $something ~~ Int numifies
+ok 4 - $something ~~ Rat numifies
+ok 5 - $something ~~ Num numifies
+ok 6 - $thing ~~ Rat does numeric comparison
+ok 7 - $thing ~~ Num does numeric comparison
+ok 8 - Mu ~~ 0
+ok 9 - Mu ~~ 0
+ok 10 - Mu ~~ $other_number
+ok 11 - Complex ~~ Int (+)
+ok 12 - Complex ~~ Int (-)
+ok 13 - Complex ~~ Int (-)
+ok 14 - Complex ~~ Rat (+)
+ok 15 - Complex ~~ Rat (-)
+ok 16 - Complex ~~ Rat (-)
+ok 17 - Complex ~~ Num (+)
+ok 18 - Complex ~~ Num (-)
+ok 19 - Complex ~~ Num (-)
+# Subtest: Str ~~ Num
+    1..7
+    ok 1 - 'NaN'  ~~  NaN
+    ok 2 - 'NaN'  ~~ 42e0
+    ok 3 - 'x'    ~~ 42e0
+    ok 4 - '42'   ~~ 42e0
+    ok 5 - '0e0'  ~~ -0e0
+    ok 6 - '-0e0' ~~  0e0
+    ok 7 - '−0e0' ~~  0e0 (U+2212 minus)
+ok 20 - Str ~~ Num
+ok 21 - can smartmatch num64 against Num

@@ -1,0 +1,478 @@
+1..19
+# Subtest: on empty Hash, basic
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 1 - on empty Hash, basic
+# Subtest: on empty Hash, basic, with &as
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 2 - on empty Hash, basic, with &as
+# Subtest: on empty Hash, multi-level
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 3 - on empty Hash, multi-level
+# Subtest: on empty Hash, multi-level, with &as
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 4 - on empty Hash, multi-level, with &as
+# Subtest: on populated Hash, basic
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 5 - on populated Hash, basic
+# Subtest: on populated Hash, basic, with &as
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 6 - on populated Hash, basic, with &as
+# Subtest: on populated Hash, multi-level
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 7 - on populated Hash, multi-level
+# Subtest: on populated Hash, multi-level, with &as
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 8 - on populated Hash, multi-level, with &as
+# Subtest: on Hashes, degenerate cases
+    1..12
+    ok 1 - empty, &
+    ok 2 - empty, %
+    ok 3 - empty, @
+    ok 4 - empty, :&as, &
+    ok 5 - empty, :&as, %
+    ok 6 - empty, :&as, @
+    ok 7 - populated, &
+    ok 8 - populated, %
+    ok 9 - populated, @
+    ok 10 - populated, :&as, &
+    ok 11 - populated, :&as, %
+    ok 12 - populated, :&as, @
+ok 9 - on Hashes, degenerate cases
+# Subtest: on Hashes, exceptions, can't classify lazy lists
+    1..12
+    # Subtest: empty hash, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 1 - empty hash, &
+    # Subtest: empty hash, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 2 - empty hash, %
+    # Subtest: empty hash, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - empty hash, @
+    # Subtest: empty hash, :&as, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 4 - empty hash, :&as, &
+    # Subtest: empty hash, :&as, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 5 - empty hash, :&as, %
+    # Subtest: empty hash, :&as, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 6 - empty hash, :&as, @
+    # Subtest: populated hash, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 7 - populated hash, &
+    # Subtest: populated hash, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 8 - populated hash, %
+    # Subtest: populated hash, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 9 - populated hash, @
+    # Subtest: populated hash, :&as, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 10 - populated hash, :&as, &
+    # Subtest: populated hash, :&as, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 11 - populated hash, :&as, %
+    # Subtest: populated hash, :&as, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 12 - populated hash, :&as, @
+ok 10 - on Hashes, exceptions, can't classify lazy lists
+# Subtest: on Hashes, exceptions, can't do mixed-level classification
+    1..12
+    # Subtest: &, v1
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 1 - &, v1
+    # Subtest: %, v1
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 2 - %, v1
+    # Subtest: @, v1
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 3 - @, v1
+    # Subtest: &, v2
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 4 - &, v2
+    # Subtest: %, v2
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 5 - %, v2
+    # Subtest: @, v2
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 6 - @, v2
+    # Subtest: :&as, &, v1
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 7 - :&as, &, v1
+    # Subtest: :&as, %, v1
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 8 - :&as, %, v1
+    # Subtest: :&as, @, v1
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 9 - :&as, @, v1
+    # Subtest: :&as, &, v2
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 10 - :&as, &, v2
+    # Subtest: :&as, %, v2
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 11 - :&as, %, v2
+    # Subtest: :&as, @, v2
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /:i 'mixed-level'/
+    ok 12 - :&as, @, v2
+ok 11 - on Hashes, exceptions, can't do mixed-level classification
+# Subtest: on empty BagHash
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, comma list
+    ok 5 - %, comma list
+    ok 6 - @, comma list
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 12 - on empty BagHash
+# Subtest: on populated BagHash
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, commas
+    ok 5 - %, commas
+    ok 6 - @, commas
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 13 - on populated BagHash
+# Subtest: on populated MixHash
+    1..12
+    ok 1 - &, Array
+    ok 2 - %, Array
+    ok 3 - @, Array
+    ok 4 - &, commas
+    ok 5 - %, commas
+    ok 6 - @, commas
+    ok 7 - &, Range
+    ok 8 - %, Range
+    ok 9 - @, Range
+    ok 10 - &, Seq
+    ok 11 - %, Seq
+    ok 12 - @, Seq
+ok 14 - on populated MixHash
+# Subtest: degenerate cases, on Baggy
+    1..12
+    ok 1 - BagHash, empty, &
+    ok 2 - BagHash, empty, %
+    ok 3 - BagHash, empty, @
+    ok 4 - MixHash, empty, &
+    ok 5 - MixHash, empty, %
+    ok 6 - MixHash, empty, @
+    ok 7 - BagHash, populated, &
+    ok 8 - BagHash, populated, %
+    ok 9 - BagHash, populated, @
+    ok 10 - MixHash, populated, &
+    ok 11 - MixHash, populated, %
+    ok 12 - MixHash, populated, @
+ok 15 - degenerate cases, on Baggy
+# Subtest: on Baggy, exceptions, can't classify lazy lists
+    1..12
+    # Subtest: empty BagHash, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 1 - empty BagHash, &
+    # Subtest: empty BagHash, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 2 - empty BagHash, %
+    # Subtest: empty BagHash, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 3 - empty BagHash, @
+    # Subtest: empty MixHash, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 4 - empty MixHash, &
+    # Subtest: empty MixHash, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 5 - empty MixHash, %
+    # Subtest: empty MixHash, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 6 - empty MixHash, @
+    # Subtest: populated BagHash, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 7 - populated BagHash, &
+    # Subtest: populated BagHash, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 8 - populated BagHash, %
+    # Subtest: populated BagHash, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 9 - populated BagHash, @
+    # Subtest: populated MixHash, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 10 - populated MixHash, &
+    # Subtest: populated MixHash, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 11 - populated MixHash, %
+    # Subtest: populated MixHash, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Cannot::Lazy)
+    ok 12 - populated MixHash, @
+ok 16 - on Baggy, exceptions, can't classify lazy lists
+# Subtest: on Baggy, exceptions, can't multi-level classify
+    1..6
+    # Subtest: BagHash, &
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /'multi-level classification'/
+    ok 1 - BagHash, &
+    # Subtest: BagHash, %
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /'multi-level classification'/
+    ok 2 - BagHash, %
+    # Subtest: BagHash, @
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /'multi-level classification'/
+    ok 3 - BagHash, @
+    # Subtest: MixHash, &
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /'multi-level classification'/
+    ok 4 - MixHash, &
+    # Subtest: MixHash, %
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /'multi-level classification'/
+    ok 5 - MixHash, %
+    # Subtest: MixHash, @
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Invalid::ComputedValue)
+        ok 3 - .message matches /'multi-level classification'/
+    ok 6 - MixHash, @
+ok 17 - on Baggy, exceptions, can't multi-level classify
+# Subtest: on Baggy, exceptions, can't classify on immutable Bag/Mix
+    1..6
+    # Subtest: Bag, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Immutable)
+    ok 1 - Bag, &
+    # Subtest: Bag, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Immutable)
+    ok 2 - Bag, %
+    # Subtest: Bag, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Immutable)
+    ok 3 - Bag, @
+    # Subtest: Mix, &
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Immutable)
+    ok 4 - Mix, &
+    # Subtest: Mix, %
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Immutable)
+    ok 5 - Mix, %
+    # Subtest: Mix, @
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Immutable)
+    ok 6 - Mix, @
+ok 18 - on Baggy, exceptions, can't classify on immutable Bag/Mix
+# Subtest: Callable mapper is executed only once per each item
+    1..6
+    ok 1 - Hash,    ^10
+    ok 2 - BagHash, ^10
+    ok 3 - MixHash, ^10
+    ok 4 - Hash,    no items
+    ok 5 - BagHash, no items
+    ok 6 - MixHash, no items
+ok 19 - Callable mapper is executed only once per each item

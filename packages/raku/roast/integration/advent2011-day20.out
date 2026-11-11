@@ -1,0 +1,17 @@
+1..16
+ok 1 - +keys
+ok 2 - Hash .keys
+ok 3 - +values
+ok 4 - Hash .values
+ok 5 - hash lookup syntax
+ok 6 - hash slice syntax
+ok 7 - The object is-a 'Pair'
+ok 8 - Pair .key
+ok 9 - Pair .value
+ok 10 - Pair alternate syntax
+ok 11 - Hash to Array flattening
+ok 12 - Array flattening (gives pairs)
+ok 13 - Hash .kv flattening (flattens pairs)
+ok 14 - Hash .kv flattening (flattens pairs)
+ok 15 - Hash .push of Pair
+ok 16 - inversion push

@@ -1,0 +1,17 @@
+1..16
+ok 1 - $var == any(3,5,7)
+ok 2 - $var == any(3,5,7)
+ok 3 - $var == 3|5|7
+ok 4 - $var == 3|5|7
+ok 5 - $var == none(3,5,7)
+ok 6 - $var == none(3,5,7)
+ok 7 - 
+ok 8 - 'testing' ~~ /t/ & /s/ & /g/
+ok 9 - 'testing' ~~ /x/ & /s/ & /g/
+ok 10 - 'testing' ~~ /t/ | /s/ | /g/
+ok 11 - 'testing' ~~ /x/ | /s/ | /z/
+ok 12 - 'testing' ~~ /x/ | /y/ | /z/
+ok 13 - any(@list) == $var
+ok 14 - all(@list) > 0
+ok 15 - all(@a) == any(@b)
+ok 16 - all(@a) == any(@b)

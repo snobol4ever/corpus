@@ -1,0 +1,53 @@
+1..36
+ok 1 - o removed
+ok 2 - chop() original string unchanged
+ok 3 - o removed
+ok 4 - chop() original string unchanged (1)
+ok 5 - oo removed
+ok 6 - chop() original string unchanged (2)
+ok 7 - foo removed
+ok 8 - chop() original string unchanged (3)
+ok 9 - foo removed
+ok 10 - chop() original string unchanged (4)
+ok 11 - o removed
+ok 12 - .chop original string unchanged
+ok 13 - o removed
+ok 14 - .chop original string unchanged (1)
+ok 15 - oo removed
+ok 16 - .chop original string unchanged (2)
+ok 17 - foo removed
+ok 18 - .chop original string unchanged (3)
+ok 19 - foo removed
+ok 20 - .chop original string unchanged (4)
+ok 21 - chop on Int
+ok 22 - chop() original int unchanged
+ok 23 - chop on Int
+ok 24 - chop() original int unchanged (1)
+ok 25 - chop() on string literal
+ok 26 - .chop on string literal
+ok 27 - chop on empty string literal
+ok 28 - check coercion of number of characters
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'chop(Str)' died
+    ok 2 - right exception type (Exception)
+ok 29 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'chop(Str,10)' died
+    ok 2 - right exception type (Exception)
+ok 30 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'Str.chop' died
+    ok 2 - right exception type (Exception)
+ok 31 - did we throws-like Exception?
+# Subtest: did we throws-like Exception?
+    1..2
+    ok 1 - 'Str.chop(10)' died
+    ok 2 - right exception type (Exception)
+ok 32 - did we throws-like Exception?
+ok 33 - .chop with large values returns empty string [using 999999]
+ok 34 - .chop with large values returns empty string [using 999999999]
+ok 35 - .chop with large values returns empty string [using 999999999999]
+ok 36 - .chop with large values returns empty string [using 9999999999999999999999999999999999999999999999999]

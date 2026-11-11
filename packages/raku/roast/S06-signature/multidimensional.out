@@ -1,0 +1,11 @@
+1..10
+ok 1 - basic multidim arglist binding (1)
+ok 2 - basic multidim arglist binding (2)
+ok 3 - basic multidim arglist binding (3)
+ok 4 - multidim arglist binding with only one array (1)
+ok 5 - multidim arglist binding with only one array (2)
+ok 6 - multi sub with multidim arglist binding (1)
+ok 7 - multi sub with multidim arglist binding (2)
+ok 8 - multi sub with multidim arglist binding (3)
+ok 9 - multi sub with multidim arglist binding for only one array (1)
+ok 10 - multi sub with multidim arglist binding for only one array (2)

@@ -1,0 +1,17 @@
+1..12
+ok 1 - call with instance
+ok 2 - call with type object
+ok 3 - .gist
+ok 4 - Type object is False
+ok 5 - Type object is undefined
+ok 6 - instance is True
+ok 7 - instance is defined
+ok 8 - Attribute access on instance
+# Subtest: Cannot access attribute on type object
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 9 - Cannot access attribute on type object
+ok 10 - multi with instance
+ok 11 - multi with type object
+ok 12 - corniest one-liner

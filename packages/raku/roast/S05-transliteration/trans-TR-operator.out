@@ -1,0 +1,61 @@
+1..12
+# Subtest: TR///, writable $_
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 1 - TR///, writable $_
+# Subtest: TR///, read-only $_
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 2 - TR///, read-only $_
+# Subtest: TR:d///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 3 - TR:d///
+# Subtest: TR:delete///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 4 - TR:delete///
+# Subtest: TR:c///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 5 - TR:c///
+# Subtest: TR:complement///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 6 - TR:complement///
+# Subtest: TR:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 7 - TR:s///
+# Subtest: TR:squash///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 8 - TR:squash///
+# Subtest: TR:d:c///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 9 - TR:d:c///
+# Subtest: TR:d:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 10 - TR:d:s///
+# Subtest: TR:c:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 11 - TR:c:s///
+# Subtest: TR:d:c:s///
+    1..2
+    ok 1 - return value
+    ok 2 - $_ has original value
+ok 12 - TR:d:c:s///

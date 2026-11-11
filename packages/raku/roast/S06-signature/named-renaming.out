@@ -1,0 +1,12 @@
+1..11
+ok 1 - can use the alias name (1)
+ok 2 - can use the alias name (1)
+ok 3 - can use the var name
+ok 4 - cannot use the var name if there is no : in front of it
+ok 5 - mandatory named
+ok 6 - mandatory renamed
+ok 7 - and it really is mandatory
+ok 8 - typed renames -- sanity
+ok 9 - type constraint on var
+ok 10 - type constraint on var propagates to alias
+ok 11 - whitespaces allowed between named parameter and parentheses in signature
