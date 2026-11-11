@@ -1,17 +1,20 @@
 # scrip-highlight: syntax colouring in JupyterLab and Notebook 7 for the SCRIP kernel's languages
 
-One prebuilt JupyterLab extension. It registers four languages with the editor (CodeMirror 6, through JupyterLab's language registry) and colours them with one
-generic tokenizer that reads grammars converted from the Sublime syntax files in `../sublime`. The Sublime file is the one source of a language's colouring rules.
+One prebuilt JupyterLab extension. There is ONE kernel, SCRIP, and it handles every language; the extension colours each of its cells by the cell's own language.
+It registers the languages with the editor (CodeMirror 6, through JupyterLab's language registry) and colours them with one generic tokenizer that reads grammars
+converted from the Sublime syntax files in `../sublime`. The Sublime file is the one source of a language's colouring rules.
 
 | language | registered name | MIME type | file extensions |
 |---|---|---|---|
+| a cell of the SCRIP kernel | `scrip` | `text/x-scrip` | none |
 | SNOBOL4 | `snobol4` | `text/x-snobol4` | `.sno` `.spt` `.inc` |
 | Snocone | `snocone` | `text/x-snocone` | `.sc` |
 | Icon and Unicon | `icon` | `text/x-icon`, `text/x-unicon` | `.icn` |
 | Prolog | `prolog` | `text/x-prolog` | `.pro` |
 
-A notebook's cells are coloured by the language its kernel names: the SCRIP kernel answers `kernel_info` with `language_info.codemirror_mode` set to the
-registered name above. A file opened in the text editor is coloured by its extension.
+The SCRIP kernel answers `kernel_info` with `language_info.codemirror_mode` set to `scrip`. Under that name each cell is coloured by its own language: a cell
+whose first line is two percent signs and a language (`%%icon`, `%%prolog`, `%%snocone`) is coloured as that language and its tag line as a keyword; any other
+cell is SNOBOL4, as the kernel runs it. The four languages are also registered by themselves, for a file opened in the text editor (coloured by its extension).
 
 ## Install (for one user)
 
@@ -27,7 +30,7 @@ Reload JupyterLab. `jupyter labextension list` then shows `scrip-highlight v0.1.
   `--check grammars` reads them current.
 - `src/tokenizer.js`: the tokenizer, plain JavaScript with no import. `tokenize(grammar, line, stack)` returns a line's tokens and the stack the next line starts in.
 - `src/index.js`: the plugin `scrip-highlight:plugin`.
-- `test/tokens.mjs`: `node test/tokens.mjs` tokenizes one corpus program a language and prints `HIGHLIGHT_TOKENS ok languages=4`.
+- `test/tokens.mjs`: `node test/tokens.mjs` tokenizes one corpus program a language and prints `HIGHLIGHT_TOKENS ok languages=5` (the fifth is the SCRIP kernel's choice of a cell's language).
 - `labextension/`: the built extension. Generated: rebuilt, never edited.
 
 ## Rebuild
@@ -40,13 +43,14 @@ jupyter labextension build .
 ## Proof
 
 - `node test/tokens.mjs` (no browser).
-- `python3 harness/scripts/util_jupyterlab_highlight_look.py corpus/editor_configs/jupyterlab/labextension`: a real JupyterLab and headless Chrome; each language
-  reads COLOURED with the extension and PLAIN without it.
+- `python3 harness/scripts/util_jupyterlab_highlight_look.py corpus/editor_configs/jupyterlab/labextension`: a real JupyterLab and headless Chrome; each language,
+  and a SCRIP notebook of three cells in three languages, reads COLOURED with the extension and PLAIN without it.
 
 ## Known limits
 
 - A `.pl` file opened in the text editor is taken for Perl, which JupyterLab registers first; pick Prolog by hand (View, Text Editor Syntax Highlighting). A notebook
   cell is found by the kernel's language and is right.
 - Pascal is coloured by JupyterLab's own Pascal mode. Rebus and Raku have no Sublime syntax yet and are shown as plain text.
-- A cell of another language inside a notebook (a first line `%%icon` in a SNOBOL4 notebook) is coloured as the notebook's language: JupyterLab colours by notebook, not by cell.
+- A cell tagged with a language that has no grammar yet (`%%pascal`, `%%raku`, `%%rebus`) is shown as plain text under its tag line.
+- A cell whose language is set only by cell metadata (`scrip.language`), with no tag line, is coloured as SNOBOL4: the editor sees the cell's text, not its metadata.
 - HTML made by `jupyter nbconvert` is coloured by Pygments, not by this extension; Pygments has no Snocone or Rebus lexer.

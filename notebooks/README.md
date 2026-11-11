@@ -2,6 +2,9 @@
 
 Jupyter notebooks whose code cells are real SNOBOL4, run by SCRIP as the notebook's kernel (`scrip --kernel`).
 
+There is one kernel: its name is `scrip`, shown as SCRIP, and it handles every language. Each notebook here names it. A cell with no tag is SNOBOL4;
+a cell whose first line is two percent signs and a language (`%%icon`, `%%prolog`) runs in that language. `SCRIP/scrip --kernel-install` installs it.
+
 Each notebook here is the SNOBOL4 edition of the notebook of the same name in
 `github.com/snobol4ever/snobol4python/notebooks`: the markdown is the original's, every code cell is
 re-written in SNOBOL4. The Python originals live in that repository only and are not copied here.

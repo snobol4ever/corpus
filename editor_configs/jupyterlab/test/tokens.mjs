@@ -1,13 +1,13 @@
 // tokens.mjs -- THE TOKENIZER'S PROOF, RUN BY NODE WITH NO BROWSER (CIO-81, CTO-597): node test/tokens.mjs, from corpus/editor_configs/jupyterlab.
 // For each of the four grammars and one program of that language from the corpus, every line is tokenized with the stack the line before left. It fails when a
 // line does not end within ten thousand steps, when a token's range is empty, out of order or past the line, or when the whole sample yields no comment
-// token, no string token or no keyword token. It prints HIGHLIGHT_TOKENS ok languages=4, or one line a failure and exits 1; exit 2 when a file is absent.
+// token, no string token or no keyword token. It prints HIGHLIGHT_TOKENS ok languages=5, or one line a failure and exits 1 (the fifth language is scrip, the one kernel's cell-by-cell choice); exit 2 when a file is absent.
 import { createRequire } from 'node:module';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url)), corpus = join(here, '..', '..', '..');
-const { tokenize, tag } = createRequire(import.meta.url)('../src/tokenizer.js');
+const { tokenize, tag, cellLanguage } = createRequire(import.meta.url)('../src/tokenizer.js');
 const SAMPLES = [['snobol4', 'demos/snobol4/claws5/claws5.sno'], ['snocone', 'demos/snocone/claws5/claws5.sc'], ['icon', 'demos/icon/demo/family_icon.icn'], ['prolog', 'demos/prolog/family_prolog.pl']];
 const bad = [];
 let languages = 0;
@@ -33,5 +33,13 @@ for (const [name, sample] of SAMPLES) {
   if (process.argv.includes('--show')) console.log(name, lines.length, 'lines', count, 'tokens', JSON.stringify(seen), 'end stack', stack.join('>'));
   languages++;
 }
+// THE ONE KERNEL'S CELLS: the language of a cell is read from its first line, as the kernel reads it; a cell with no tag is SNOBOL4.
+const want = [[' OUTPUT = 1', 'snobol4', false], ['%%icon', 'icon', true], ['%%Prolog', 'prolog', true], ['%% unicon', 'icon', true], ['%%SPITBOL x', 'snobol4', true], ['%%snocone', 'snocone', true], ['%%pascal', null, true],
+  ['* %%icon', 'snobol4', false], ['', 'snobol4', false]];
+for (const [line, name, tagged] of want) {
+  const c = cellLanguage(line);
+  if (c.name !== name || c.tagged !== tagged) bad.push(`scrip: the cell that begins ${JSON.stringify(line)} reads ${JSON.stringify(c)}, want ${JSON.stringify({ name, tagged })}`);
+}
+languages++;
 if (bad.length) { for (const b of bad.slice(0, 12)) console.log('HIGHLIGHT_TOKENS RED: ' + b); process.exit(1); }
 console.log('HIGHLIGHT_TOKENS ok languages=' + languages);
