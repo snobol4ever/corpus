@@ -20,8 +20,9 @@ step	slug	executor	depends	probe	witnesses
 15	the-dependency-graph-abstracted	junior	14	entries=table_tests_test_sdg_print	xw18_tables_in_progress
 16	table-dump-and-the-answer-order	junior	12		xw19_table_dump
 17	parsort-as-xsb-sorts	junior	6		xw23_parsort
-18	bounded-rationality-as-xsb-cuts-an-answer	junior	6		xw21_bounded_rationality
+18	bounded-rationality-as-xsb-cuts-an-answer	junior	6,23		xw21_bounded_rationality
 19	unsafe-negation-is-undefined	junior	6		xw22_unsafe_negation
 20	the-residual-graph-and-why-an-answer-is-undefined	junior	18,19		xw24_residual_sccs
 21	the-dump-an-exception-writes	junior	14,20		xw25_exception_dump
 22	the-negative-pass-wakes-the-oldest-table-first	junior	6		xw26_negative_ring
+23	the-answer-size-flags-are-settable-under-xsb	junior	-		xw27_restraint_flags

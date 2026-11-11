@@ -1,0 +1,9 @@
+:- set_prolog_flag(max_table_answer_size, 3).
+:- set_prolog_flag(max_table_answer_size_action, bounded_rationality).
+kind(N,int) :- integer(N), !.
+kind(_,other).
+test :- current_prolog_flag(max_table_answer_size,N), kind(N,K), writeln(directive(N,K)), fail.
+test :- set_prolog_flag(max_table_answer_size, 4), current_prolog_flag(max_table_answer_size,N), kind(N,K), writeln(run_time(N,K)), fail.
+test :- set_prolog_flag(max_table_answer_size_action, bounded_rationality), writeln(action_set), fail.
+test :- set_prolog_flag(max_table_subgoal_size, 5), current_prolog_flag(max_table_subgoal_size,N), kind(N,K), writeln(run_time_only(N,K)), fail.
+test.
