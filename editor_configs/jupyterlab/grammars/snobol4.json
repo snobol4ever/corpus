@@ -1,0 +1,2490 @@
+{
+ "contexts": {
+  "brackets": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "single_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "brackets"
+     ]
+    }
+   ]
+  },
+  "continuation": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.separator.continuation.sno"
+     },
+     "match": "(^|;)(\\+)",
+     "set": [
+      "main"
+     ]
+    }
+   ]
+  },
+  "control_statement": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.separator.continuation.sno"
+     },
+     "match": "(^|;)(\\+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.comment.sno"
+     },
+     "match": "(^|;)(\\*)",
+     "set": [
+      "line_comment"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(^|;)(\\-)",
+     "set": [
+      "control_statement"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "keyword.control.sno"
+     },
+     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "entity.name.label.sno"
+     },
+     "match": "(^|;)([^ +\\t]+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": ";",
+     "scope": "punctuation.terminator.sno",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "single_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": "\\b(COPY|INCLUDE)\\b",
+     "scope": "keyword.other.sno"
+    },
+    {
+     "match": "\\b(DOUBLE|EJECT|LINE|LIST|NOLIST|NOPRINT|PRINT|SINGLE|SPACE|TITLE)\\b",
+     "scope": "keyword.other.sno"
+    },
+    {
+     "match": "\\b(CASE|ERRORS|EXECUTE|NOEXECUTE|FAIL|IN|NOFAIL|NOERRORS|NOOPTIMIZE|OPTIMIZE)\\b",
+     "scope": "keyword.other.sno"
+    },
+    {
+     "match": ":",
+     "scope": "invalid.illegal.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "$",
+     "set": [
+      "main"
+     ]
+    }
+   ]
+  },
+  "data_proto_double_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "entity.name.function.sno"
+     },
+     "match": "([A-Za-z][0-9A-Z_a-z\\.]*)\\("
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "entity.name.function.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\\"",
+     "pop": 1,
+     "scope": "punctuation.definition.annotation.end.sno"
+    }
+   ]
+  },
+  "data_proto_single_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "entity.name.function.sno"
+     },
+     "match": "([A-Za-z][0-9A-Z_a-z\\.]*)(\\()"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "entity.name.function.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\'",
+     "pop": 1,
+     "scope": "punctuation.definition.annotation.end.sno"
+    }
+   ]
+  },
+  "data_proto_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\"",
+     "push": [
+      "data_proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "data_proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    }
+   ]
+  },
+  "data_prototype_brackets": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "data_proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "data_proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "data_prototype_brackets"
+     ]
+    }
+   ]
+  },
+  "double_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.double.sno",
+   "rules": [
+    {
+     "match": "\\\"",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.sno"
+    }
+   ]
+  },
+  "function_proto_double_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "entity.name.function.sno"
+     },
+     "match": "([A-Za-z][0-9A-Z_a-z\\.]*)\\("
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\\"",
+     "pop": 1,
+     "scope": "punctuation.definition.annotation.end.sno"
+    }
+   ]
+  },
+  "function_proto_single_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "entity.name.function.sno"
+     },
+     "match": "([A-Za-z][0-9A-Z_a-z\\.]*)(\\()"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\'",
+     "pop": 1,
+     "scope": "punctuation.definition.annotation.end.sno"
+    }
+   ]
+  },
+  "function_proto_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\"",
+     "push": [
+      "function_proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "function_proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    }
+   ]
+  },
+  "function_prototype_brackets": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "function_proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "function_proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "function_prototype_brackets"
+     ]
+    }
+   ]
+  },
+  "goto_area": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.separator.continuation.sno"
+     },
+     "match": "(^|;)(\\+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.comment.sno"
+     },
+     "match": "(^|;)(\\*)",
+     "set": [
+      "line_comment"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(^|;)(\\-)",
+     "set": [
+      "control_statement"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "keyword.control.sno"
+     },
+     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "entity.name.label.sno"
+     },
+     "match": "(^|;)([^ +\\t]+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": ";",
+     "scope": "punctuation.terminator.sno",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "single_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "keyword.control.flow.goto.sno",
+      "2": "",
+      "3": "keyword.control.sno",
+      "6": ""
+     },
+     "match": "([SF]?)(\\()(\\b(ABORT|CONTINUE|FRETURN|NRETURN|RETURN|SCONTINUE|START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)(\\))"
+    },
+    {
+     "captures": {
+      "1": "keyword.control.flow.goto.sno",
+      "2": "",
+      "3": "entity.name.label.sno",
+      "4": ""
+     },
+     "match": "([SF]?)(\\()([A-Za-z][0-9A-Z_a-z\\.]*)(\\))"
+    },
+    {
+     "captures": {
+      "1": "keyword.control.flow.goto.sno",
+      "2": "variable.other.sno"
+     },
+     "match": "([SF]?)<([A-Za-z][0-9A-Z_a-z\\.]*)>"
+    },
+    {
+     "captures": {
+      "1": "keyword.control.flow.goto.sno",
+      "2": "",
+      "3": "entity.name.function.sno",
+      "4": ""
+     },
+     "match": "([SF]?)(\\()\\$\\'([^\\']*)\\'(\\))"
+    },
+    {
+     "captures": {
+      "1": "keyword.control.flow.goto.sno",
+      "2": "",
+      "3": "entity.name.function.sno",
+      "4": ""
+     },
+     "match": "([SF]?)(\\()\\$\\\"([^\\\"]*)\\\"(\\))"
+    },
+    {
+     "captures": {
+      "1": "keyword.control.flow.goto.sno"
+     },
+     "match": "([SF]?)\\("
+    },
+    {
+     "match": ":",
+     "scope": "invalid.illegal.sno"
+    },
+    {
+     "match": "$",
+     "set": [
+      "main"
+     ]
+    }
+   ]
+  },
+  "indirect_dquote_variable": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "scope": "string.quoted.double.sno"
+    }
+   ]
+  },
+  "indirect_squote_variable": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "scope": "string.quoted.single.sno"
+    }
+   ]
+  },
+  "line_comment": {
+   "meta_content_scope": null,
+   "meta_scope": "comment.line.semi-colon.sno",
+   "rules": [
+    {
+     "match": "$",
+     "pop": 1
+    }
+   ]
+  },
+  "main": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.separator.continuation.sno"
+     },
+     "match": "(^|;)(\\+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.comment.sno"
+     },
+     "match": "(^|;)(\\*)",
+     "set": [
+      "line_comment"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(^|;)(\\-)",
+     "set": [
+      "control_statement"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "keyword.control.sno"
+     },
+     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "entity.name.label.sno"
+     },
+     "match": "(^|;)([^ +\\t]+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": ";",
+     "scope": "punctuation.terminator.sno",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "single_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": ":",
+     "scope": "punctuation.separator.sno",
+     "set": [
+      "goto_area"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno",
+      "2": "punctuation.definition.generic.begin.sno"
+     },
+     "match": "\\b(ARRAY|CODE|EVAL)(\\()",
+     "push": [
+      "main#1"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno",
+      "2": "punctuation.definition.generic.begin.sno"
+     },
+     "match": "\\b(DATA)(\\()",
+     "push": [
+      "main#2"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno",
+      "2": "punctuation.definition.generic.begin.sno"
+     },
+     "match": "\\b(DEFINE)(\\()",
+     "push": [
+      "main#3"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "scope": "string.quoted.single.sno"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "scope": "string.quoted.double.sno"
+    }
+   ]
+  },
+  "main#1": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1,
+     "scope": "punctuation.definition.generic.end.sno"
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "scope": "string.quoted.single.sno"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "scope": "string.quoted.double.sno"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "prototype_brackets"
+     ]
+    }
+   ]
+  },
+  "main#2": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1,
+     "scope": "punctuation.definition.generic.end.sno"
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "data_proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "data_proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "scope": "string.quoted.single.sno"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "scope": "string.quoted.double.sno"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "data_prototype_brackets"
+     ]
+    }
+   ]
+  },
+  "main#3": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1,
+     "scope": "punctuation.definition.generic.end.sno"
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "function_proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "function_proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "scope": "string.quoted.single.sno"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "scope": "string.quoted.double.sno"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "function_prototype_brackets"
+     ]
+    }
+   ]
+  },
+  "proto_double_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.interpolated.sno",
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "scope": "string.quoted.single.sno"
+    },
+    {
+     "match": "\\'",
+     "scope": "string.other.single.sno",
+     "set": [
+      "proto_embedded_single_quoted_string"
+     ]
+    },
+    {
+     "match": "\\\"",
+     "pop": 1,
+     "scope": "punctuation.definition.annotation.end.sno"
+    }
+   ]
+  },
+  "proto_embedded_double_quoted_string": {
+   "meta_content_scope": "string.interpolated.sno string.other.double.sno",
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\"",
+     "set": [
+      "proto_single_quoted_string"
+     ]
+    },
+    {
+     "match": "\\'",
+     "pop": 1,
+     "scope": "string.interpolated.sno punctuation.definition.annotation.end.sno"
+    },
+    {
+     "match": "$",
+     "set": [
+      "proto_single_quoted_string"
+     ]
+    }
+   ]
+  },
+  "proto_embedded_single_quoted_string": {
+   "meta_content_scope": "string.interpolated.sno string.other.single.sno",
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\'",
+     "set": [
+      "proto_double_quoted_string"
+     ]
+    },
+    {
+     "match": "\\\"",
+     "pop": 1,
+     "scope": "string.interpolated.sno punctuation.definition.annotation.end.sno"
+    },
+    {
+     "match": "$",
+     "set": [
+      "proto_double_quoted_string"
+     ]
+    }
+   ]
+  },
+  "proto_single_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.interpolated.sno",
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "scope": "string.quoted.double.sno"
+    },
+    {
+     "match": "\\\"",
+     "scope": "string.other.double.sno",
+     "set": [
+      "proto_embedded_double_quoted_string"
+     ]
+    },
+    {
+     "match": "\\'",
+     "pop": 1,
+     "scope": "punctuation.definition.annotation.end.sno"
+    }
+   ]
+  },
+  "proto_string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\"",
+     "push": [
+      "proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    }
+   ]
+  },
+  "prototype_brackets": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\)",
+     "pop": 1
+    },
+    {
+     "match": "\\\"",
+     "push": [
+      "proto_double_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "proto_single_quoted_string"
+     ],
+     "scope": "punctuation.definition.annotation.begin.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "prototype_brackets"
+     ]
+    }
+   ]
+  },
+  "single_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.single.sno",
+   "rules": [
+    {
+     "match": "\\'",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.sno"
+    }
+   ]
+  },
+  "string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "single_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.sno"
+    }
+   ]
+  },
+  "term": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.sno"
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "scope": "constant.other.sno"
+    },
+    {
+     "captures": {
+      "1": "variable.language.sno"
+     },
+     "match": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "support.function.sno"
+     },
+     "match": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "variable.function.sno"
+     },
+     "match": "\\b([A-Za-z][0-9A-Z_a-z\\.]*)\\(",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "scope": "support.function.sno (blue)"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "scope": "variable.language.sno"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "scope": "constant.language.sno"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "scope": "constant.character.sno"
+    },
+    {
+     "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
+     "scope": "variable.other.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.sno"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.sno"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.assignment.sno"
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": "keyword.operator.logical.sno"
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    }
+   ]
+  },
+  "terminator": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.comment.sno"
+     },
+     "match": "(^|;)(\\*)",
+     "set": [
+      "line_comment"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "punctuation.definition.keyword.begin.sno"
+     },
+     "match": "(^|;)(\\-)",
+     "set": [
+      "control_statement"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "keyword.control.sno"
+     },
+     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "captures": {
+      "1": "punctuation.terminator.sno",
+      "2": "entity.name.label.sno"
+     },
+     "match": "(^|;)([^ +\\t]+)",
+     "set": [
+      "main"
+     ]
+    },
+    {
+     "match": ";",
+     "scope": "punctuation.terminator.sno",
+     "set": [
+      "main"
+     ]
+    }
+   ]
+  }
+ },
+ "file_extensions": [
+  "sno",
+  "spt",
+  "inc"
+ ],
+ "name": "SNOBOL4",
+ "scope": "source.sno"
+}

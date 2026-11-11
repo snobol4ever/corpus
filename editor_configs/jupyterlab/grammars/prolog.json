@@ -1,0 +1,428 @@
+{
+ "contexts": {
+  "comments": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "%",
+     "push": [
+      "main#1"
+     ],
+     "scope": "punctuation.definition.comment.pl"
+    },
+    {
+     "match": "/\\*",
+     "push": [
+      "main#2"
+     ],
+     "scope": "punctuation.definition.comment.begin.pl"
+    }
+   ]
+  },
+  "cut": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "!",
+     "scope": "keyword.control.cut.pl"
+    }
+   ]
+  },
+  "main": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "%",
+     "push": [
+      "main#1"
+     ],
+     "scope": "punctuation.definition.comment.pl"
+    },
+    {
+     "match": "/\\*",
+     "push": [
+      "main#2"
+     ],
+     "scope": "punctuation.definition.comment.begin.pl"
+    },
+    {
+     "captures": {
+      "1": "keyword.operator.definition.pl",
+      "2": "keyword.other.directive.pl"
+     },
+     "match": "(:-)\\s*(dynamic|discontiguous|multifile|module_transparent|meta_predicate|use_module|ensure_loaded|initialization|module|mode|op|current_prolog_flag|if|elif|else|endif)\\b"
+    },
+    {
+     "match": ":-|\\?-|-->",
+     "scope": "keyword.operator.definition.pl"
+    },
+    {
+     "match": "0'(?:\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?)|''|.)",
+     "scope": "constant.character.pl"
+    },
+    {
+     "match": "\\b0[bB][01_]+\\b",
+     "scope": "constant.numeric.integer.binary.pl"
+    },
+    {
+     "match": "\\b0[oO][0-7_]+\\b",
+     "scope": "constant.numeric.integer.octal.pl"
+    },
+    {
+     "match": "\\b0[xX][0-9A-Fa-f_]+\\b",
+     "scope": "constant.numeric.integer.hexadecimal.pl"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+(?:[eE][+-]?[0-9]+)?(?:NaN|Inf)?\\b",
+     "scope": "constant.numeric.float.pl"
+    },
+    {
+     "match": "\\b[0-9]+[eE][+-]?[0-9]+\\b",
+     "scope": "constant.numeric.float.pl"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.pl"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "main#3"
+     ],
+     "scope": "punctuation.definition.string.begin.pl"
+    },
+    {
+     "match": "'",
+     "push": [
+      "main#4"
+     ],
+     "scope": "punctuation.definition.string.begin.pl"
+    },
+    {
+     "match": "(?<![0-9A-Za-z_])_(?![0-9A-Za-z_])",
+     "scope": "variable.language.anonymous.pl"
+    },
+    {
+     "match": "\\b[A-Z][0-9A-Za-z_]*\\b|(?<![0-9A-Za-z_])_[0-9A-Za-z_]+\\b",
+     "scope": "variable.other.pl"
+    },
+    {
+     "match": "!",
+     "scope": "keyword.control.cut.pl"
+    },
+    {
+     "match": "=\\.\\.|=:=|=\\\\=|\\\\==|@=<|@>=|=<|>=|==|@<|@>|\\\\=|<|>",
+     "scope": "keyword.operator.comparison.pl"
+    },
+    {
+     "match": "->|;",
+     "scope": "keyword.operator.logical.pl"
+    },
+    {
+     "match": "\\\\\\+",
+     "scope": "keyword.operator.logical.negation.pl"
+    },
+    {
+     "match": "\\*\\*|<<|>>|//|[+\\-*/^]",
+     "scope": "keyword.operator.arithmetic.pl"
+    },
+    {
+     "match": "=",
+     "scope": "keyword.operator.unification.pl"
+    },
+    {
+     "match": "[+\\-*/\\\\^<>=~?@#&:.!][+\\-*/\\\\^<>=~?@#&:.!]+",
+     "scope": "keyword.operator.pl"
+    },
+    {
+     "captures": {
+      "1": "entity.name.function.pl"
+     },
+     "match": "^\\s*(\\b[a-z][0-9A-Za-z_]*\\b)(?=\\s*(?:\\(|:-|-->))"
+    },
+    {
+     "match": "\\b(?:is|mod|rem|xor)\\b",
+     "scope": "keyword.operator.word.pl"
+    },
+    {
+     "match": "\\bnot\\b",
+     "scope": "keyword.operator.logical.negation.pl"
+    },
+    {
+     "match": "\\b(?:true|fail|false)\\b",
+     "scope": "constant.language.pl"
+    },
+    {
+     "match": "\\b(?:abolish|abs|acos|acyclic_term|aggregate_all|arg|asin|assert|asserta|assertz|atan|atom|atom_chars|atom_codes|atom_concat|atomic|atomic_list_concat|atom_length|atom_number|atom_string|bagof|between|call|callable|catch|ceiling|char_type|clause|compound|concat_atom|copy_term|cos|current_op|current_predicate|current_prolog_flag|current_stream|downcase_atom|exp|findall|float|float_fractional_part|float_integer_part|floor|flush_output|forall|format|functor|gcd|ground|halt|ignore|integer|is_list|log|max|min|msort|name|nb_getval|nb_setval|nl|nonvar|number|number_chars|number_codes|number_string|numbervars|once|phrase|plus|predicate_property|print|put_char|read|read_term|retract|retractall|round|setof|setup_call_cleanup|sign|sin|sort|sqrt|stream_property|string_chars|string_codes|string_concat|string_length|string_lower|string_to_atom|string_upper|sub_atom|succ|tab|tan|term_string|term_to_atom|throw|truncate|upcase_atom|var|with_output_to|write|write_canonical|writeln|writeq)\\b(?=\\s*\\()",
+     "scope": "support.function.pl"
+    },
+    {
+     "match": "\\b(?:nl|halt|fail|true|listing)\\b",
+     "scope": "support.function.pl"
+    },
+    {
+     "match": "\\[\\]",
+     "scope": "constant.language.empty-list.pl"
+    },
+    {
+     "match": "\\b[a-z][0-9A-Za-z_]*\\b",
+     "scope": "constant.other.atom.pl"
+    },
+    {
+     "match": "[()\\[\\]{}]",
+     "scope": "punctuation.section.group.pl"
+    },
+    {
+     "match": "\\|",
+     "scope": "punctuation.separator.pl"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.pl"
+    }
+   ]
+  },
+  "main#1": {
+   "meta_content_scope": null,
+   "meta_scope": "comment.line.percentage.pl",
+   "rules": [
+    {
+     "match": "$",
+     "pop": 1
+    }
+   ]
+  },
+  "main#2": {
+   "meta_content_scope": null,
+   "meta_scope": "comment.block.pl",
+   "rules": [
+    {
+     "match": "\\*/",
+     "pop": 1,
+     "scope": "punctuation.definition.comment.end.pl"
+    }
+   ]
+  },
+  "main#3": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.double.pl",
+   "rules": [
+    {
+     "match": "\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?|\\n)",
+     "scope": "constant.character.escape.pl"
+    },
+    {
+     "match": "\"",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.pl"
+    }
+   ]
+  },
+  "main#4": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.single.pl",
+   "rules": [
+    {
+     "match": "''",
+     "scope": "constant.character.escape.pl"
+    },
+    {
+     "match": "\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?|\\n)",
+     "scope": "constant.character.escape.pl"
+    },
+    {
+     "match": "'",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.pl"
+    }
+   ]
+  },
+  "necks": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "keyword.operator.definition.pl",
+      "2": "keyword.other.directive.pl"
+     },
+     "match": "(:-)\\s*(dynamic|discontiguous|multifile|module_transparent|meta_predicate|use_module|ensure_loaded|initialization|module|mode|op|current_prolog_flag|if|elif|else|endif)\\b"
+    },
+    {
+     "match": ":-|\\?-|-->",
+     "scope": "keyword.operator.definition.pl"
+    }
+   ]
+  },
+  "numbers": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "0'(?:\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?)|''|.)",
+     "scope": "constant.character.pl"
+    },
+    {
+     "match": "\\b0[bB][01_]+\\b",
+     "scope": "constant.numeric.integer.binary.pl"
+    },
+    {
+     "match": "\\b0[oO][0-7_]+\\b",
+     "scope": "constant.numeric.integer.octal.pl"
+    },
+    {
+     "match": "\\b0[xX][0-9A-Fa-f_]+\\b",
+     "scope": "constant.numeric.integer.hexadecimal.pl"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+(?:[eE][+-]?[0-9]+)?(?:NaN|Inf)?\\b",
+     "scope": "constant.numeric.float.pl"
+    },
+    {
+     "match": "\\b[0-9]+[eE][+-]?[0-9]+\\b",
+     "scope": "constant.numeric.float.pl"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.pl"
+    }
+   ]
+  },
+  "operators": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "=\\.\\.|=:=|=\\\\=|\\\\==|@=<|@>=|=<|>=|==|@<|@>|\\\\=|<|>",
+     "scope": "keyword.operator.comparison.pl"
+    },
+    {
+     "match": "->|;",
+     "scope": "keyword.operator.logical.pl"
+    },
+    {
+     "match": "\\\\\\+",
+     "scope": "keyword.operator.logical.negation.pl"
+    },
+    {
+     "match": "\\*\\*|<<|>>|//|[+\\-*/^]",
+     "scope": "keyword.operator.arithmetic.pl"
+    },
+    {
+     "match": "=",
+     "scope": "keyword.operator.unification.pl"
+    },
+    {
+     "match": "[+\\-*/\\\\^<>=~?@#&:.!][+\\-*/\\\\^<>=~?@#&:.!]+",
+     "scope": "keyword.operator.pl"
+    }
+   ]
+  },
+  "punctuation": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "[()\\[\\]{}]",
+     "scope": "punctuation.section.group.pl"
+    },
+    {
+     "match": "\\|",
+     "scope": "punctuation.separator.pl"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.pl"
+    }
+   ]
+  },
+  "quoted-atoms": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "'",
+     "push": [
+      "main#4"
+     ],
+     "scope": "punctuation.definition.string.begin.pl"
+    }
+   ]
+  },
+  "strings": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\"",
+     "push": [
+      "main#3"
+     ],
+     "scope": "punctuation.definition.string.begin.pl"
+    }
+   ]
+  },
+  "variables": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "(?<![0-9A-Za-z_])_(?![0-9A-Za-z_])",
+     "scope": "variable.language.anonymous.pl"
+    },
+    {
+     "match": "\\b[A-Z][0-9A-Za-z_]*\\b|(?<![0-9A-Za-z_])_[0-9A-Za-z_]+\\b",
+     "scope": "variable.other.pl"
+    }
+   ]
+  },
+  "words": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "entity.name.function.pl"
+     },
+     "match": "^\\s*(\\b[a-z][0-9A-Za-z_]*\\b)(?=\\s*(?:\\(|:-|-->))"
+    },
+    {
+     "match": "\\b(?:is|mod|rem|xor)\\b",
+     "scope": "keyword.operator.word.pl"
+    },
+    {
+     "match": "\\bnot\\b",
+     "scope": "keyword.operator.logical.negation.pl"
+    },
+    {
+     "match": "\\b(?:true|fail|false)\\b",
+     "scope": "constant.language.pl"
+    },
+    {
+     "match": "\\b(?:abolish|abs|acos|acyclic_term|aggregate_all|arg|asin|assert|asserta|assertz|atan|atom|atom_chars|atom_codes|atom_concat|atomic|atomic_list_concat|atom_length|atom_number|atom_string|bagof|between|call|callable|catch|ceiling|char_type|clause|compound|concat_atom|copy_term|cos|current_op|current_predicate|current_prolog_flag|current_stream|downcase_atom|exp|findall|float|float_fractional_part|float_integer_part|floor|flush_output|forall|format|functor|gcd|ground|halt|ignore|integer|is_list|log|max|min|msort|name|nb_getval|nb_setval|nl|nonvar|number|number_chars|number_codes|number_string|numbervars|once|phrase|plus|predicate_property|print|put_char|read|read_term|retract|retractall|round|setof|setup_call_cleanup|sign|sin|sort|sqrt|stream_property|string_chars|string_codes|string_concat|string_length|string_lower|string_to_atom|string_upper|sub_atom|succ|tab|tan|term_string|term_to_atom|throw|truncate|upcase_atom|var|with_output_to|write|write_canonical|writeln|writeq)\\b(?=\\s*\\()",
+     "scope": "support.function.pl"
+    },
+    {
+     "match": "\\b(?:nl|halt|fail|true|listing)\\b",
+     "scope": "support.function.pl"
+    },
+    {
+     "match": "\\[\\]",
+     "scope": "constant.language.empty-list.pl"
+    },
+    {
+     "match": "\\b[a-z][0-9A-Za-z_]*\\b",
+     "scope": "constant.other.atom.pl"
+    }
+   ]
+  }
+ },
+ "file_extensions": [
+  "pl"
+ ],
+ "name": "Prolog",
+ "scope": "source.pl"
+}

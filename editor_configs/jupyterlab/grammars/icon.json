@@ -1,0 +1,1024 @@
+{
+ "contexts": {
+  "brackets": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\)",
+     "pop": 1,
+     "scope": "punctuation.section.group.end.icn"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.icn"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "cset_body"
+     ],
+     "scope": "punctuation.definition.string.begin.icn"
+    },
+    {
+     "match": "\\b0[xX][0-9A-Fa-f]+\\b",
+     "scope": "constant.numeric.integer.hexadecimal.icn"
+    },
+    {
+     "match": "\\b[0-9]+[rR][0-9A-Za-z]+\\b",
+     "scope": "constant.numeric.integer.radix.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9.])",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "(?<![0-9A-Za-z_])\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.icn"
+    },
+    {
+     "match": "\\b(if|then|else|while|until|repeat|every|do|case|of|default|break|next|return|suspend|fail|to|by|create|not|initial)\\b",
+     "scope": "keyword.control.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.icn"
+     },
+     "match": "(&)(?:allocated|ascii|clock|collections|col|control|cset|current|dateline|date|digits|dump|errornumber|errortext|errorvalue|errout|error|events|e|fail|features|file|host|input|interval|lcase|ldrag|letters|level|line|lpress|lrelease|main|mdrag|meta|mpress|mrelease|null|output|phi|pi|pos|progname|random|rdrag|regions|resize|row|rpress|rrelease|scrip|shift|source|storage|subject|time|trace|ucase|version|window|x|y)\\b",
+     "scope": "constant.language.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.icn"
+     },
+     "match": "(&)([A-Za-z_][0-9A-Za-z_]*)\\b",
+     "scope": "constant.other.icn"
+    },
+    {
+     "captures": {
+      "1": "support.function.icn",
+      "2": "punctuation.section.group.begin.icn"
+     },
+     "match": "\\b((?:\\b(abs|acos|any|args|asin|atan|bal|center|char|close|collect|copy|cos|cset|delete|detab|display|dtor|entab|exit|exp|find|flush|get|getenv|iand|icom|image|insert|integer|ior|ishift|ixor|key|left|list|log|many|map|match|member|move|name|numeric|open|ord|pop|pos|proc|pull|push|put|read|reads|real|remove|rename|repl|reverse|right|rtod|runerr|save|seek|seq|serial|set|sin|sort|sortf|sqrt|stop|string|system|tab|table|tan|trim|type|upto|variable|where|write|writes)\\b))(\\()",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "entity.name.class.forward-decl.icn",
+      "2": "punctuation.section.group.begin.icn"
+     },
+     "match": "\\b([A-Za-z_][0-9A-Za-z_]*)(\\()",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Za-z_]*\\b",
+     "scope": "variable.other.icn"
+    },
+    {
+     "match": "\\|\\|:=|\\+\\+:=|--:=|\\*\\*:=|<<=:=|>>=:=|~==:=|<<:=|>>:=|<=:=|>=:=|~=:=|==:=|\\+:=|-:=|\\*:=|/:=|%:=|\\^:=|<:=|>:=|=:=|\\?:=",
+     "scope": "keyword.operator.assignment.augmented.icn"
+    },
+    {
+     "match": ":=:",
+     "scope": "keyword.operator.assignment.swap.icn"
+    },
+    {
+     "match": ":=",
+     "scope": "keyword.operator.assignment.icn"
+    },
+    {
+     "match": "<->",
+     "scope": "keyword.operator.assignment.revswap.icn"
+    },
+    {
+     "match": "<-",
+     "scope": "keyword.operator.assignment.revassign.icn"
+    },
+    {
+     "match": "~===",
+     "scope": "keyword.operator.comparison.identity.icn"
+    },
+    {
+     "match": "===",
+     "scope": "keyword.operator.comparison.identity.icn"
+    },
+    {
+     "match": "~==",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "==",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "<<=|>>=",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "<<|>>",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "~=|<=|>=",
+     "scope": "keyword.operator.comparison.icn"
+    },
+    {
+     "match": "[<>=]",
+     "scope": "keyword.operator.comparison.icn"
+    },
+    {
+     "match": "\\|\\|\\|",
+     "scope": "keyword.operator.concatenation.list.icn"
+    },
+    {
+     "match": "\\|\\|",
+     "scope": "keyword.operator.concatenation.icn"
+    },
+    {
+     "match": "\\|",
+     "scope": "keyword.operator.alternation.icn"
+    },
+    {
+     "match": "\\+\\+|--|\\*\\*",
+     "scope": "keyword.operator.cset.icn"
+    },
+    {
+     "match": "[-+*/%^]",
+     "scope": "keyword.operator.arithmetic.icn"
+    },
+    {
+     "match": "~",
+     "scope": "keyword.operator.complement.icn"
+    },
+    {
+     "match": "\\\\",
+     "scope": "keyword.operator.nonnull.icn"
+    },
+    {
+     "match": "!",
+     "scope": "keyword.operator.bang.icn"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.scan.icn"
+    },
+    {
+     "match": "@",
+     "scope": "keyword.operator.activate.icn"
+    },
+    {
+     "match": "\\.",
+     "scope": "punctuation.accessor.icn"
+    },
+    {
+     "match": "&",
+     "scope": "keyword.operator.conjunction.icn"
+    },
+    {
+     "match": ":",
+     "scope": "punctuation.separator.icn"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "brackets"
+     ],
+     "scope": "punctuation.section.group.begin.icn"
+    },
+    {
+     "match": "[\\[\\],;{}]",
+     "scope": "punctuation.separator.icn"
+    }
+   ]
+  },
+  "comments": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    }
+   ]
+  },
+  "cset": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "cset_body"
+     ],
+     "scope": "punctuation.definition.string.begin.icn"
+    }
+   ]
+  },
+  "cset_body": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.single.icn",
+   "rules": [
+    {
+     "match": "\\\\['\\\\ntr]",
+     "scope": "constant.character.escape.icn"
+    },
+    {
+     "match": "\\'",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.icn"
+    }
+   ]
+  },
+  "double_quoted_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.double.icn",
+   "rules": [
+    {
+     "match": "\\\\[ntr\\\\\"'0]",
+     "scope": "constant.character.escape.icn"
+    },
+    {
+     "match": "\"",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.icn"
+    }
+   ]
+  },
+  "main": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "captures": {
+      "1": "storage.type.function.icn",
+      "2": "entity.name.function.icn"
+     },
+     "match": "\\b(procedure)\\s+([A-Za-z_][0-9A-Za-z_]*)\\b",
+     "push": [
+      "param_list"
+     ]
+    },
+    {
+     "captures": {
+      "1": "storage.type.icn",
+      "2": "entity.name.type.icn"
+     },
+     "match": "\\b(record)\\s+([A-Za-z_][0-9A-Za-z_]*)\\b",
+     "push": [
+      "record_fields"
+     ]
+    },
+    {
+     "match": "\\b(global|local|static)\\b",
+     "scope": "storage.modifier.icn"
+    },
+    {
+     "match": "\\b(link|invocable)\\b",
+     "scope": "keyword.control.import.icn"
+    },
+    {
+     "match": "\\b(end)\\b",
+     "scope": "storage.type.function.end.icn"
+    },
+    {
+     "match": "\\b(if|then|else|while|until|repeat|every|do|case|of|default|break|next|return|suspend|fail|to|by|create|not|initial)\\b",
+     "scope": "keyword.control.icn"
+    },
+    {
+     "match": "\\b(procedure|end|record|global|local|static|link|invocable)\\b",
+     "scope": "storage.type.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.begin.icn"
+     },
+     "match": "(&)(?:allocated|ascii|clock|collections|col|control|cset|current|dateline|date|digits|dump|errornumber|errortext|errorvalue|errout|error|events|e|fail|features|file|host|input|interval|lcase|ldrag|letters|level|line|lpress|lrelease|main|mdrag|meta|mpress|mrelease|null|output|phi|pi|pos|progname|random|rdrag|regions|resize|row|rpress|rrelease|scrip|shift|source|storage|subject|time|trace|ucase|version|window|x|y)\\b",
+     "scope": "constant.language.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.variable.begin.icn"
+     },
+     "match": "(&)([A-Za-z_][0-9A-Za-z_]*)\\b",
+     "scope": "constant.other.icn"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.icn"
+    },
+    {
+     "match": "\\'",
+     "push": [
+      "cset_body"
+     ],
+     "scope": "punctuation.definition.string.begin.icn"
+    },
+    {
+     "match": "\\b0[xX][0-9A-Fa-f]+\\b",
+     "scope": "constant.numeric.integer.hexadecimal.icn"
+    },
+    {
+     "match": "\\b[0-9]+[rR][0-9A-Za-z]+\\b",
+     "scope": "constant.numeric.integer.radix.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9.])",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "(?<![0-9A-Za-z_])\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.icn"
+    },
+    {
+     "captures": {
+      "1": "support.function.icn",
+      "2": "punctuation.section.group.begin.icn"
+     },
+     "match": "\\b((?:\\b(abs|acos|any|args|asin|atan|bal|center|char|close|collect|copy|cos|cset|delete|detab|display|dtor|entab|exit|exp|find|flush|get|getenv|iand|icom|image|insert|integer|ior|ishift|ixor|key|left|list|log|many|map|match|member|move|name|numeric|open|ord|pop|pos|proc|pull|push|put|read|reads|real|remove|rename|repl|reverse|right|rtod|runerr|save|seek|seq|serial|set|sin|sort|sortf|sqrt|stop|string|system|tab|table|tan|trim|type|upto|variable|where|write|writes)\\b))(\\()",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "captures": {
+      "1": "entity.name.class.forward-decl.icn",
+      "2": "punctuation.section.group.begin.icn"
+     },
+     "match": "\\b([A-Za-z_][0-9A-Za-z_]*)(\\()",
+     "push": [
+      "brackets"
+     ]
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Za-z_]*\\b",
+     "scope": "variable.other.icn"
+    },
+    {
+     "match": "\\|\\|:=|\\+\\+:=|--:=|\\*\\*:=|<<=:=|>>=:=|~==:=|<<:=|>>:=|<=:=|>=:=|~=:=|==:=|\\+:=|-:=|\\*:=|/:=|%:=|\\^:=|<:=|>:=|=:=|\\?:=",
+     "scope": "keyword.operator.assignment.augmented.icn"
+    },
+    {
+     "match": ":=:",
+     "scope": "keyword.operator.assignment.swap.icn"
+    },
+    {
+     "match": ":=",
+     "scope": "keyword.operator.assignment.icn"
+    },
+    {
+     "match": "<->",
+     "scope": "keyword.operator.assignment.revswap.icn"
+    },
+    {
+     "match": "<-",
+     "scope": "keyword.operator.assignment.revassign.icn"
+    },
+    {
+     "match": "~===",
+     "scope": "keyword.operator.comparison.identity.icn"
+    },
+    {
+     "match": "===",
+     "scope": "keyword.operator.comparison.identity.icn"
+    },
+    {
+     "match": "~==",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "==",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "<<=|>>=",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "<<|>>",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "~=|<=|>=",
+     "scope": "keyword.operator.comparison.icn"
+    },
+    {
+     "match": "[<>=]",
+     "scope": "keyword.operator.comparison.icn"
+    },
+    {
+     "match": "\\|\\|\\|",
+     "scope": "keyword.operator.concatenation.list.icn"
+    },
+    {
+     "match": "\\|\\|",
+     "scope": "keyword.operator.concatenation.icn"
+    },
+    {
+     "match": "\\|",
+     "scope": "keyword.operator.alternation.icn"
+    },
+    {
+     "match": "\\+\\+|--|\\*\\*",
+     "scope": "keyword.operator.cset.icn"
+    },
+    {
+     "match": "[-+*/%^]",
+     "scope": "keyword.operator.arithmetic.icn"
+    },
+    {
+     "match": "~",
+     "scope": "keyword.operator.complement.icn"
+    },
+    {
+     "match": "\\\\",
+     "scope": "keyword.operator.nonnull.icn"
+    },
+    {
+     "match": "!",
+     "scope": "keyword.operator.bang.icn"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.scan.icn"
+    },
+    {
+     "match": "@",
+     "scope": "keyword.operator.activate.icn"
+    },
+    {
+     "match": "\\.",
+     "scope": "punctuation.accessor.icn"
+    },
+    {
+     "match": "&",
+     "scope": "keyword.operator.conjunction.icn"
+    },
+    {
+     "match": ":",
+     "scope": "punctuation.separator.icn"
+    },
+    {
+     "match": "\\(",
+     "push": [
+      "brackets"
+     ],
+     "scope": "punctuation.section.group.begin.icn"
+    },
+    {
+     "match": "\\)",
+     "scope": "invalid.illegal.stray-bracket.icn"
+    },
+    {
+     "match": "\\{",
+     "scope": "punctuation.section.block.begin.icn"
+    },
+    {
+     "match": "\\}",
+     "scope": "punctuation.section.block.end.icn"
+    },
+    {
+     "match": "\\[",
+     "scope": "punctuation.section.brackets.begin.icn"
+    },
+    {
+     "match": "\\]",
+     "scope": "punctuation.section.brackets.end.icn"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.icn"
+    },
+    {
+     "match": ";",
+     "scope": "punctuation.terminator.icn"
+    }
+   ]
+  },
+  "number": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\b0[xX][0-9A-Fa-f]+\\b",
+     "scope": "constant.numeric.integer.hexadecimal.icn"
+    },
+    {
+     "match": "\\b[0-9]+[rR][0-9A-Za-z]+\\b",
+     "scope": "constant.numeric.integer.radix.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+[eE][-+]?[0-9]+\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9.])",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "(?<![0-9A-Za-z_])\\.[0-9]+([eE][-+]?[0-9]+)?\\b",
+     "scope": "constant.numeric.float.icn"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "scope": "constant.numeric.integer.icn"
+    }
+   ]
+  },
+  "operators": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\|\\|:=|\\+\\+:=|--:=|\\*\\*:=|<<=:=|>>=:=|~==:=|<<:=|>>:=|<=:=|>=:=|~=:=|==:=|\\+:=|-:=|\\*:=|/:=|%:=|\\^:=|<:=|>:=|=:=|\\?:=",
+     "scope": "keyword.operator.assignment.augmented.icn"
+    },
+    {
+     "match": ":=:",
+     "scope": "keyword.operator.assignment.swap.icn"
+    },
+    {
+     "match": ":=",
+     "scope": "keyword.operator.assignment.icn"
+    },
+    {
+     "match": "<->",
+     "scope": "keyword.operator.assignment.revswap.icn"
+    },
+    {
+     "match": "<-",
+     "scope": "keyword.operator.assignment.revassign.icn"
+    },
+    {
+     "match": "~===",
+     "scope": "keyword.operator.comparison.identity.icn"
+    },
+    {
+     "match": "===",
+     "scope": "keyword.operator.comparison.identity.icn"
+    },
+    {
+     "match": "~==",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "==",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "<<=|>>=",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "<<|>>",
+     "scope": "keyword.operator.comparison.lexical.icn"
+    },
+    {
+     "match": "~=|<=|>=",
+     "scope": "keyword.operator.comparison.icn"
+    },
+    {
+     "match": "[<>=]",
+     "scope": "keyword.operator.comparison.icn"
+    },
+    {
+     "match": "\\|\\|\\|",
+     "scope": "keyword.operator.concatenation.list.icn"
+    },
+    {
+     "match": "\\|\\|",
+     "scope": "keyword.operator.concatenation.icn"
+    },
+    {
+     "match": "\\|",
+     "scope": "keyword.operator.alternation.icn"
+    },
+    {
+     "match": "\\+\\+|--|\\*\\*",
+     "scope": "keyword.operator.cset.icn"
+    },
+    {
+     "match": "[-+*/%^]",
+     "scope": "keyword.operator.arithmetic.icn"
+    },
+    {
+     "match": "~",
+     "scope": "keyword.operator.complement.icn"
+    },
+    {
+     "match": "\\\\",
+     "scope": "keyword.operator.nonnull.icn"
+    },
+    {
+     "match": "!",
+     "scope": "keyword.operator.bang.icn"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.scan.icn"
+    },
+    {
+     "match": "@",
+     "scope": "keyword.operator.activate.icn"
+    },
+    {
+     "match": "\\.",
+     "scope": "punctuation.accessor.icn"
+    },
+    {
+     "match": "&",
+     "scope": "keyword.operator.conjunction.icn"
+    },
+    {
+     "match": ":",
+     "scope": "punctuation.separator.icn"
+    }
+   ]
+  },
+  "param_list": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\(",
+     "scope": "punctuation.section.group.begin.icn",
+     "set": [
+      "param_list#2"
+     ]
+    },
+    {
+     "match": "(?=\\S)",
+     "pop": 1
+    }
+   ]
+  },
+  "param_list#2": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Za-z_]*\\b",
+     "scope": "variable.parameter.icn"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.icn"
+    },
+    {
+     "match": "\\[\\]",
+     "scope": "keyword.operator.variadic.icn"
+    },
+    {
+     "match": "\\)",
+     "pop": 1,
+     "scope": "punctuation.section.group.end.icn"
+    },
+    {
+     "match": "(?=\\S)",
+     "pop": 1
+    }
+   ]
+  },
+  "prototype": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    }
+   ]
+  },
+  "prototype#1": {
+   "meta_content_scope": null,
+   "meta_scope": "comment.line.number-sign.icn",
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "$",
+     "pop": 1
+    }
+   ]
+  },
+  "record_fields": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\(",
+     "scope": "punctuation.section.group.begin.icn",
+     "set": [
+      "record_fields#3"
+     ]
+    },
+    {
+     "match": "(?=\\S)",
+     "pop": 1
+    }
+   ]
+  },
+  "record_fields#3": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Za-z_]*\\b",
+     "scope": "entity.name.function.icn"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.icn"
+    },
+    {
+     "match": "\\)",
+     "pop": 1,
+     "scope": "punctuation.section.group.end.icn"
+    },
+    {
+     "match": "(?=\\S)",
+     "pop": 1
+    }
+   ]
+  },
+  "string": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#",
+     "push": [
+      "prototype#1"
+     ],
+     "scope": "punctuation.definition.comment.icn"
+    },
+    {
+     "captures": {
+      "1": "punctuation.definition.keyword.icn"
+     },
+     "match": "^\\s*(\\$)\\S*",
+     "scope": "comment.line.preprocessor.icn"
+    },
+    {
+     "match": "^\\s*-\\s*(IMPORT|EXPORT)\\b.*$",
+     "scope": "comment.line.directive.icn"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "double_quoted_string"
+     ],
+     "scope": "punctuation.definition.string.begin.icn"
+    }
+   ]
+  }
+ },
+ "file_extensions": [
+  "icn"
+ ],
+ "name": "Icon",
+ "scope": "source.icn"
+}
