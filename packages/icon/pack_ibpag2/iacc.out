@@ -1,0 +1,1665 @@
+$define iierrok   (recover_shifts := &null & discards := 0)
+$define iiclearin (iidirective ||:= "clearin")
+$define IIERROR   (iidirective ||:= "error")
+$define IIACCEPT  (iidirective ||:= "accept")
+
+$line 71 "iacc.ibp"
+
+
+link strings,longstr
+global newrules,lval,symbol_no
+
+
+
+$define RCURL	270
+$define LCURL	269
+$define TYPE	265
+$define MARK	268
+$define IDENT	258
+$define C_IDENT	257
+$define PREC	264
+$define TOKEN	263
+$define LEFT	260
+$define START	266
+$define NUMBER	259
+$define NONASSOC	262
+$define UNION	267
+$define RIGHT	261
+procedure _2_(arg1,arg2)
+
+$line 95 "iacc.ibp"
+write(arg2)
+end
+
+procedure _3_(arg1,arg2)
+
+$line 96 "iacc.ibp"
+
+every write(!\newrules)
+if write(\arg2)then
+every write(!&input)
+
+end
+
+procedure _4_()
+
+$line 101 "iacc.ibp"
+return&null
+end
+
+procedure _5_(arg1)
+
+$line 102 "iacc.ibp"
+return arg1
+end
+
+procedure _7_(arg1,arg2)
+
+$line 105 "iacc.ibp"
+write(\arg2)
+end
+
+procedure _8_(arg1,arg2)
+
+$line 106 "iacc.ibp"
+write(\arg2)
+end
+
+procedure _9_(arg1,arg2)
+
+$line 108 "iacc.ibp"
+return arg1||" "||arg2
+end
+
+procedure _10_(arg1,arg2,arg3)
+
+$line 109 "iacc.ibp"
+
+if arg1=="%type"
+then return&null
+else return arg1||" "||arg3
+
+end
+
+procedure _11_(arg1,arg2,arg3)
+
+$line 114 "iacc.ibp"
+return arg1
+end
+
+procedure _12_(arg1)
+
+$line 115 "iacc.ibp"
+get_icon_code("%}");return&null
+end
+
+procedure _13_(arg1)
+
+$line 116 "iacc.ibp"
+return"%{ "||get_icon_code("%}")
+end
+
+procedure _19_()
+
+$line 120 "iacc.ibp"
+return&null
+end
+
+procedure _20_(arg1,arg2,arg3)
+
+$line 121 "iacc.ibp"
+return"<"||arg2||">"
+end
+
+procedure _21_(arg1)
+
+$line 123 "iacc.ibp"
+return arg1
+end
+
+procedure _22_(arg1,arg2)
+
+$line 124 "iacc.ibp"
+return arg1||", "||arg2
+end
+
+procedure _23_(arg1,arg2,arg3)
+
+$line 125 "iacc.ibp"
+return arg1||", "||arg3
+end
+
+procedure _24_(arg1)
+
+$line 127 "iacc.ibp"
+return arg1
+end
+
+procedure _25_(arg1,arg2)
+
+$line 128 "iacc.ibp"
+return arg1
+end
+
+procedure _26_(arg1,arg2,arg3)
+
+$line 130 "iacc.ibp"
+write(arg1,"\t: ",arg3)
+end
+
+procedure _27_(arg1,arg2)
+
+$line 131 "iacc.ibp"
+write(arg2)
+end
+
+procedure _28_(arg1,arg2)
+
+$line 133 "iacc.ibp"
+return arg1||" "||arg2
+end
+
+procedure _29_(arg1,arg2,arg3)
+
+$line 135 "iacc.ibp"
+return"\t| "||arg3
+end
+
+procedure _30_(arg1,arg2,arg3)
+
+$line 136 "iacc.ibp"
+return arg1||"\t: "||arg3
+end
+
+procedure _31_(arg1)
+
+$line 138 "iacc.ibp"
+symbol_no:=0;return arg1
+end
+
+procedure _32_()
+
+$line 139 "iacc.ibp"
+symbol_no:=0
+end
+
+procedure _33_(arg1)
+
+$line 141 "iacc.ibp"
+symbol_no+:=1;return arg1
+end
+
+procedure _34_(arg1)
+
+$line 142 "iacc.ibp"
+return"epsilon "||arg1
+end
+
+procedure _35_(arg1,arg2)
+
+$line 143 "iacc.ibp"
+return arg1||", "||arg2
+end
+
+procedure _36_(arg1,arg2)
+
+$line 144 "iacc.ibp"
+return arg1||" "||arg2
+end
+
+procedure _37_(arg1,arg2,arg3)
+
+$line 145 "iacc.ibp"
+return arg1||", "||arg3
+end
+
+procedure _38_()
+
+$line 146 "iacc.ibp"
+return"epsilon"
+end
+
+procedure _39_(arg1)
+
+$line 148 "iacc.ibp"
+symbol_no+:=1;return arg1
+end
+
+procedure _40_(arg1)
+
+$line 149 "iacc.ibp"
+symbol_no+:=1;return arg1
+end
+
+procedure _41_(arg1,arg2)
+
+$line 150 "iacc.ibp"
+symbol_no+:=1;return arg1||", "||arg2
+end
+
+procedure _42_(arg1,arg2,arg3)
+
+$line 151 "iacc.ibp"
+symbol_no+:=1;return arg1||", "||arg3
+end
+
+procedure _43_(arg1,arg2)
+
+$line 152 "iacc.ibp"
+
+local i,l1,l2
+static actno
+initial{actno:=0;newrules:=[]}
+actno+:=1
+l1:=[];l2:=[]
+every i:=1 to symbol_no do{
+every put(l1,("arg"|"$")||i)
+if symbol_no-i=0 then i:="0"
+else i:="-"||symbol_no-i
+every put(l2,("$"|"$")||i)
+}
+put(newrules,"ACT_"||actno||
+"\t: epsilon "||mapargs(arg2,l1,l2))
+symbol_no+:=1
+return arg1||", "||"ACT_"||actno
+
+end
+
+procedure _44_(arg1,arg2,arg3,arg4)
+
+$line 170 "iacc.ibp"
+return"{"||arg2
+end
+
+procedure _45_()
+
+$line 171 "iacc.ibp"
+return get_icon_code("}")
+end
+
+procedure _46_()
+
+$line 173 "iacc.ibp"
+return""
+end
+
+procedure _47_(arg1,arg2)
+
+$line 174 "iacc.ibp"
+return arg1||arg2
+end
+
+procedure _48_(arg1,arg2,arg3)
+
+$line 175 "iacc.ibp"
+return arg1||arg2||arg3
+end
+
+
+$line 178 "iacc.ibp"
+
+
+
+procedure iilex()
+
+local t
+static last_token,last_lval,colon
+initial colon:=ord(":")
+
+every t:=next_token()do{
+iilval:=last_lval
+if\last_token then{
+if t=colon then{
+if last_token=IDENT
+then suspend C_IDENT
+else suspend last_token
+}else
+suspend last_token
+}
+last_token:=t
+last_lval:=lval
+}
+iilval:=last_lval
+suspend\last_token
+
+end
+
+
+procedure next_token()
+
+local reserveds,UNreserveds,c,idchars,marks
+
+reserveds:=["break","by","case","create","default","do",
+"else","end","every","fail","global","if",
+"initial","invocable","link","local","next",
+"not","of","procedure","record","repeat",
+"return","static","suspend","then","to","until",
+"while"]
+
+UNreserveds:=["break_","by_","case_","create_","default_","do_",
+"else_","end_","every_","fail_","global_","if_",
+"initial_","invocable_","link_","local_","next_",
+"not_","of_","procedure_","record_","repeat_",
+"return_","static_","suspend_","then_","to_",
+"until_","while_"]
+
+idchars:=&letters++'._'
+marks:=0
+
+c:=reads()
+repeat{
+lval:=&null
+case c of{
+"#":{do_icon_comment();c:=reads()|break}
+"<":{suspend ord(c);c:=reads()|break}
+">":{suspend ord(c);c:=reads()|break}
+":":{suspend ord(c);c:=reads()|break}
+"|":{suspend ord(c);c:=reads()|break}
+",":{suspend ord(c);c:=reads()|break}
+"{":{suspend ord(c|"}"|"}");c:=reads()}
+"/":{
+reads()=="*"|stop("unknown YACC operator, \"/\"")
+do_c_comment()
+c:=reads()|break
+}
+"'":{
+lval:="'"
+while lval||:=(c:=reads())do{
+if c=="\\"
+then lval||:=reads()
+else if c=="'"then{
+suspend IDENT
+break
+}
+}
+c:=reads()|break
+}
+"%":{
+lval:="%"
+while any(&letters,c:=reads())do
+lval||:=c
+if*lval=1 then{
+if c=="%"then{
+lval:="%%"
+suspend MARK
+if(marks+:=1)>1 then
+fail
+}else{
+if c=="{"then{
+lval:="%{"
+suspend LCURL|RCURL|RCURL
+}
+else stop("malformed %declaration")
+}
+c:=reads()|break
+}else{
+case lval of{
+"%prec":suspend PREC
+"%left":suspend LEFT
+"%token":suspend TOKEN
+"%right":suspend RIGHT
+"%type":suspend TYPE
+"%start":suspend START
+"%union":suspend UNION|RCURL|RCURL
+"%nonassoc":suspend NONASSOC
+default:stop("unknown % code in def section")
+}
+}
+}
+default:{
+if any(&digits,c)then{
+lval:=c
+while any(&digits,c:=reads())do
+lval||:=c
+suspend NUMBER
+}
+else{
+if any(idchars,c)then{
+lval:=c
+while any(&digits++idchars,c:=reads())do
+lval||:=c
+lval:=mapargs(lval,reserveds,UNreserveds)
+suspend IDENT
+}
+else{
+
+c:=reads()|break
+}
+}
+}
+}
+}
+
+
+end
+
+
+procedure get_icon_code(endmark,comment)
+
+local yaccwords,ibpagwords,count,c,c2,s
+
+yaccwords:=["YYDEBUG","YYACCEPT","YYERROR","yyclearin","yyerrok"]
+ibpagwords:=["IIDEBUG","IIACCEPT","IIERROR","iiclearin","iierrok"]
+
+s:=""
+count:=1
+c:=reads()
+
+repeat{
+case c of{
+"\"":s||:=c||do_string()
+"'":s||:=c||do_charlit()
+"$":{
+c2:=reads()|break
+if c2=="$"then{
+until(c:=reads())=="="
+s||:="return "
+}else{
+s||:=c
+c:=c2
+next
+}
+}
+"#":{
+if s[-1]=="\n"
+then s[-1]:=""
+do_icon_comment()
+}
+"/":{
+c:=reads()|break
+if c=="*"then
+do_c_comment()
+else{
+s||:=c
+next
+}
+}
+"{":{
+s||:=c
+if endmark=="}"then
+count+:=1
+}
+"}":{
+s||:=c
+if endmark=="}"then{
+count-:=1
+count=0&(return mapargs(s,yaccwords,ibpagwords))
+}
+}
+"%":{
+s||:=c
+if endmark=="%}"then{
+if(c:=reads())=="}"
+then return mapargs(s||c,yaccwords,ibpagwords)
+else next
+}
+}
+default:s||:=c
+}
+c:=reads()|break
+}
+
+if\endmark
+then stop("input file has mis-braced { code }")
+else return mapargs(s,yaccwords,ibpagwords)
+
+end
+
+
+procedure do_string()
+
+local c,s
+
+s:=""
+while c:=reads()do{
+case c of{
+"\\":s||:=c||reads()
+"\"":return s||c||reads()
+default:s||:=c
+}
+}
+
+stop("malformed string literal")
+
+end
+
+
+procedure do_charlit()
+
+local c,s
+
+s:=""
+while c:=reads()do{
+case c of{
+"\\":s||:=c||reads()
+"'":return s||c||reads()
+default:s||:=c
+}
+}
+
+stop("malformed character literal")
+
+end
+
+
+procedure do_c_comment()
+
+local c,s
+
+s:=c:=reads()|
+stop("malformed C-style /* comment */")
+
+repeat{
+if c=="*"then{
+s||:=(c:=reads()|break)
+if c=="/"then
+return s
+}
+else s||:=(c:=reads()|break)
+}
+
+return s
+
+end
+
+
+procedure do_icon_comment()
+
+local c,s
+
+s:=""
+while c:=reads()do{
+case c of{
+"\\":s||:=c||(reads()|break)
+"\n":return s
+default:s||:=c
+}
+}
+
+return s
+
+end
+
+
+procedure mapargs(s,l1,l2)
+
+local i,s2
+static cs,tbl,last_l1,last_l2
+
+if/l1|*l1=0 then return s
+
+if not(last_l1===l1,last_l2===l2)then{
+cs:=''
+every cs++:=(!l1)[1]
+tbl:=table()
+every i:=1 to*l1 do
+insert(tbl,l1[i],(\l2)[i]|"")
+}
+
+s2:=""
+s?{
+while s2||:=tab(upto(cs))do{
+(s2<-(s2||tbl[tab(longstr(l1))]),
+not any(&letters++&digits++'_'))|
+(s2||:=move(1))
+}
+s2||:=tab(0)
+}
+
+return s2
+
+end
+
+
+procedure main()
+iiparse()
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$line 50"iiparse.lib"
+
+global iilval , errors , line_number , state_stack , value_stack ,
+ iidirective , recover_shifts , discards 
+
+procedure iiparse (stream,fail_on_error)
+
+local token,next_token,act,ruleno,newsym,rhsize,arglist,
+result,tmp,func
+static atbl,gtbl,ttbl
+
+initial{
+ iidirective :=""
+atbl:= T49 := table(&null)
+   T49[0] := T98 := table(&null)
+      T98[2] := "a"
+      T98[5] := "r1<yaccf>2"
+      T98[7] := "r4<tail>0"
+      T98[22] := "r38<rbody>0"
+      T98[23] := "r3<back>2"
+      T98[25] := "r27<rules>2"
+      T98[26] := "r5<tail>1"
+      T98[31] := "r26<rules>3"
+      T98[32] := "r46<prec>0"
+      T98[35] := "r33<rbody>1"
+      T98[36] := "r34<rbody>1"
+      T98[37] := "r38<rbody>0"
+      T98[38] := "r38<rbody>0"
+      T98[45] := "r28<RHS>2"
+      T98[47] := "r35<rbody>2"
+      T98[48] := "r36<rbody>2"
+      T98[50] := "r29<rule>3"
+      T98[51] := "r30<rule>3"
+      T98[56] := "r47<prec>2"
+      T98[57] := "r37<rbody>3"
+      T98[60] := "r48<prec>3"
+      T98[61] := "r44<act>4"
+   T49[44] := T124 := table(&null)
+      T124[33] := "s46.42"
+      T124[35] := "r39<middle>1"
+      T124[36] := "r40<middle>1"
+      T124[40] := "r21<nlist>1"
+      T124[41] := "r24<nmno>1"
+      T124[42] := "s54.23"
+      T124[47] := "r41<middle>2"
+      T124[48] := "r43<middle>2"
+      T124[52] := "r25<nmno>2"
+      T124[53] := "r22<nlist>2"
+      T124[57] := "r42<middle>3"
+      T124[59] := "r23<nlist>3"
+      T124[61] := "r44<act>4"
+   T49[58] := T101 := table(&null)
+      T101[3] := "r32<LHS>0"
+      T101[6] := "s22.26"
+      T101[7] := "r32<LHS>0"
+      T101[8] := "r31<LHS>1"
+      T101[18] := "r2<front>2"
+      T101[22] := "r38<rbody>0"
+      T101[24] := "s38.30"
+      T101[25] := "r27<rules>2"
+      T101[31] := "r26<rules>3"
+      T101[32] := "r46<prec>0"
+      T101[35] := "r33<rbody>1"
+      T101[36] := "r34<rbody>1"
+      T101[37] := "r38<rbody>0"
+      T101[38] := "r38<rbody>0"
+      T101[45] := "r28<RHS>2"
+      T101[47] := "r35<rbody>2"
+      T101[48] := "r36<rbody>2"
+      T101[50] := "r29<rule>3"
+      T101[51] := "r30<rule>3"
+      T101[56] := "r47<prec>2"
+      T101[57] := "r37<rbody>3"
+      T101[60] := "r48<prec>3"
+      T101[61] := "r44<act>4"
+   T49[60] := T112 := table(&null)
+      T112[10] := "r16<rword>1"
+      T112[13] := "r15<rword>1"
+      T112[14] := "r18<rword>1"
+      T112[17] := "r14<rword>1"
+      T112[20] := "r17<rword>1"
+      T112[21] := "s30.20"
+   T49[62] := T128 := table(&null)
+      T128[43] := "s55.20"
+   T49[123] := T116 := table(&null)
+      T116[22] := "s34.44"
+      T116[33] := "s34.44"
+      T116[35] := "r39<middle>1"
+      T116[36] := "r40<middle>1"
+      T116[37] := "s34.44"
+      T116[38] := "s34.44"
+      T116[47] := "r41<middle>2"
+      T116[48] := "r43<middle>2"
+      T116[56] := "s34.44"
+      T116[57] := "r42<middle>3"
+      T116[61] := "r44<act>4"
+   T49[124] := T100 := table(&null)
+      T100[3] := "r32<LHS>0"
+      T100[7] := "r32<LHS>0"
+      T100[8] := "r31<LHS>1"
+      T100[22] := "r38<rbody>0"
+      T100[24] := "s37.29"
+      T100[25] := "r27<rules>2"
+      T100[31] := "r26<rules>3"
+      T100[32] := "r46<prec>0"
+      T100[35] := "r33<rbody>1"
+      T100[36] := "r34<rbody>1"
+      T100[37] := "r38<rbody>0"
+      T100[38] := "r38<rbody>0"
+      T100[45] := "r28<RHS>2"
+      T100[47] := "r35<rbody>2"
+      T100[48] := "r36<rbody>2"
+      T100[50] := "r29<rule>3"
+      T100[51] := "r30<rule>3"
+      T100[56] := "r47<prec>2"
+      T100[57] := "r37<rbody>3"
+      T100[60] := "r48<prec>3"
+      T100[61] := "r44<act>4"
+   T49[125] := T126 := table(&null)
+      T126[34] := "r45<cstuff>0"
+      T126[49] := "s58.44"
+      T126[58] := "s61.44"
+   T49[257] := T99 := table(&null)
+      T99[3] := "s8.31"
+      T99[7] := "s8.31"
+      T99[18] := "r2<front>2"
+      T99[22] := "r38<rbody>0"
+      T99[25] := "r27<rules>2"
+      T99[31] := "r26<rules>3"
+      T99[32] := "r46<prec>0"
+      T99[35] := "r33<rbody>1"
+      T99[36] := "r34<rbody>1"
+      T99[37] := "r38<rbody>0"
+      T99[38] := "r38<rbody>0"
+      T99[45] := "r28<RHS>2"
+      T99[47] := "r35<rbody>2"
+      T99[48] := "r36<rbody>2"
+      T99[50] := "r29<rule>3"
+      T99[51] := "r30<rule>3"
+      T99[56] := "r47<prec>2"
+      T99[57] := "r37<rbody>3"
+      T99[60] := "r48<prec>3"
+      T99[61] := "r44<act>4"
+   T49[258] := T113 := table(&null)
+      T113[10] := "r16<rword>1"
+      T113[12] := "s27.9"
+      T113[13] := "r15<rword>1"
+      T113[14] := "r18<rword>1"
+      T113[17] := "r14<rword>1"
+      T113[20] := "r17<rword>1"
+      T113[21] := "r19<tag>0"
+      T113[22] := "s35.39"
+      T113[29] := "s41.25"
+      T113[30] := "s43.20"
+      T113[33] := "s47.41"
+      T113[35] := "r39<middle>1"
+      T113[36] := "r40<middle>1"
+      T113[37] := "s35.39"
+      T113[38] := "s35.39"
+      T113[40] := "r21<nlist>1"
+      T113[41] := "r24<nmno>1"
+      T113[42] := "s41.25"
+      T113[44] := "s56.47"
+      T113[46] := "s57.42"
+      T113[47] := "r41<middle>2"
+      T113[48] := "r43<middle>2"
+      T113[52] := "r25<nmno>2"
+      T113[53] := "r22<nlist>2"
+      T113[54] := "s41.25"
+      T113[55] := "r20<tag>3"
+      T113[57] := "r42<middle>3"
+      T113[59] := "r23<nlist>3"
+      T113[61] := "r44<act>4"
+   T49[259] := T127 := table(&null)
+      T127[41] := "s52.25"
+   T49[260] := T90 := table(&null)
+      T90[1] := "r6<defs>0"
+      T90[4] := "s13.15"
+      T90[11] := "r7<defs>2"
+      T90[15] := "r8<defs>2"
+      T90[27] := "r9<def>2"
+      T90[39] := "r11<cdef>3"
+      T90[40] := "r21<nlist>1"
+      T90[41] := "r24<nmno>1"
+      T90[42] := "r10<def>3"
+      T90[52] := "r25<nmno>2"
+      T90[53] := "r22<nlist>2"
+      T90[59] := "r23<nlist>3"
+   T49[261] := T88 := table(&null)
+      T88[1] := "r6<defs>0"
+      T88[4] := "s10.16"
+      T88[11] := "r7<defs>2"
+      T88[15] := "r8<defs>2"
+      T88[27] := "r9<def>2"
+      T88[39] := "r11<cdef>3"
+      T88[40] := "r21<nlist>1"
+      T88[41] := "r24<nmno>1"
+      T88[42] := "r10<def>3"
+      T88[52] := "r25<nmno>2"
+      T88[53] := "r22<nlist>2"
+      T88[59] := "r23<nlist>3"
+   T49[262] := T95 := table(&null)
+      T95[1] := "r6<defs>0"
+      T95[4] := "s20.17"
+      T95[11] := "r7<defs>2"
+      T95[15] := "r8<defs>2"
+      T95[27] := "r9<def>2"
+      T95[39] := "r11<cdef>3"
+      T95[40] := "r21<nlist>1"
+      T95[41] := "r24<nmno>1"
+      T95[42] := "r10<def>3"
+      T95[52] := "r25<nmno>2"
+      T95[53] := "r22<nlist>2"
+      T95[59] := "r23<nlist>3"
+   T49[263] := T93 := table(&null)
+      T93[1] := "r6<defs>0"
+      T93[4] := "s17.14"
+      T93[11] := "r7<defs>2"
+      T93[15] := "r8<defs>2"
+      T93[27] := "r9<def>2"
+      T93[39] := "r11<cdef>3"
+      T93[40] := "r21<nlist>1"
+      T93[41] := "r24<nmno>1"
+      T93[42] := "r10<def>3"
+      T93[52] := "r25<nmno>2"
+      T93[53] := "r22<nlist>2"
+      T93[59] := "r23<nlist>3"
+   T49[264] := T119 := table(&null)
+      T119[22] := "r38<rbody>0"
+      T119[32] := "s44.47"
+      T119[35] := "r33<rbody>1"
+      T119[36] := "r34<rbody>1"
+      T119[37] := "r38<rbody>0"
+      T119[38] := "r38<rbody>0"
+      T119[47] := "r35<rbody>2"
+      T119[48] := "r36<rbody>2"
+      T119[57] := "r37<rbody>3"
+      T119[61] := "r44<act>4"
+   T49[265] := T91 := table(&null)
+      T91[1] := "r6<defs>0"
+      T91[4] := "s14.18"
+      T91[11] := "r7<defs>2"
+      T91[15] := "r8<defs>2"
+      T91[27] := "r9<def>2"
+      T91[39] := "r11<cdef>3"
+      T91[40] := "r21<nlist>1"
+      T91[41] := "r24<nmno>1"
+      T91[42] := "r10<def>3"
+      T91[52] := "r25<nmno>2"
+      T91[53] := "r22<nlist>2"
+      T91[59] := "r23<nlist>3"
+   T49[266] := T89 := table(&null)
+      T89[1] := "r6<defs>0"
+      T89[4] := "s12.9"
+      T89[11] := "r7<defs>2"
+      T89[15] := "r8<defs>2"
+      T89[27] := "r9<def>2"
+      T89[39] := "r11<cdef>3"
+      T89[40] := "r21<nlist>1"
+      T89[41] := "r24<nmno>1"
+      T89[42] := "r10<def>3"
+      T89[52] := "r25<nmno>2"
+      T89[53] := "r22<nlist>2"
+      T89[59] := "r23<nlist>3"
+   T49[267] := T87 := table(&null)
+      T87[1] := "r6<defs>0"
+      T87[4] := "s9.12"
+      T87[11] := "r7<defs>2"
+      T87[15] := "r8<defs>2"
+      T87[27] := "r9<def>2"
+      T87[39] := "r11<cdef>3"
+      T87[40] := "r21<nlist>1"
+      T87[41] := "r24<nmno>1"
+      T87[42] := "r10<def>3"
+      T87[52] := "r25<nmno>2"
+      T87[53] := "r22<nlist>2"
+      T87[59] := "r23<nlist>3"
+   T49[268] := T94 := table(&null)
+      T94[1] := "r6<defs>0"
+      T94[4] := "s18.2"
+      T94[7] := "s26.5"
+      T94[11] := "r7<defs>2"
+      T94[15] := "r8<defs>2"
+      T94[22] := "r38<rbody>0"
+      T94[25] := "r27<rules>2"
+      T94[27] := "r9<def>2"
+      T94[31] := "r26<rules>3"
+      T94[32] := "r46<prec>0"
+      T94[35] := "r33<rbody>1"
+      T94[36] := "r34<rbody>1"
+      T94[37] := "r38<rbody>0"
+      T94[38] := "r38<rbody>0"
+      T94[39] := "r11<cdef>3"
+      T94[40] := "r21<nlist>1"
+      T94[41] := "r24<nmno>1"
+      T94[42] := "r10<def>3"
+      T94[45] := "r28<RHS>2"
+      T94[47] := "r35<rbody>2"
+      T94[48] := "r36<rbody>2"
+      T94[50] := "r29<rule>3"
+      T94[51] := "r30<rule>3"
+      T94[52] := "r25<nmno>2"
+      T94[53] := "r22<nlist>2"
+      T94[56] := "r47<prec>2"
+      T94[57] := "r37<rbody>3"
+      T94[59] := "r23<nlist>3"
+      T94[60] := "r48<prec>3"
+      T94[61] := "r44<act>4"
+   T49[269] := T92 := table(&null)
+      T92[1] := "r6<defs>0"
+      T92[4] := "s16.13"
+      T92[11] := "r7<defs>2"
+      T92[15] := "r8<defs>2"
+      T92[27] := "r9<def>2"
+      T92[39] := "r11<cdef>3"
+      T92[40] := "r21<nlist>1"
+      T92[41] := "r24<nmno>1"
+      T92[42] := "r10<def>3"
+      T92[52] := "r25<nmno>2"
+      T92[53] := "r22<nlist>2"
+      T92[59] := "r23<nlist>3"
+   T49[270] := T111 := table(&null)
+      T111[9] := "r12<stuff>1"
+      T111[16] := "r13<stuff>1"
+      T111[19] := "s28.11"
+      T111[28] := "s39.11"
+gtbl:= T50 := table(&null)
+   T50["LHS"] := T103 := table(&null)
+      T103[3] := 6
+      T103[7] := 24
+   T50["RHS"] := T120 := table(&null)
+      T120[22] := 31
+      T120[37] := 50
+      T120[38] := 51
+   T50["act"] := T117 := table(&null)
+      T117[22] := 36
+      T117[33] := 48
+      T117[37] := 36
+      T117[38] := 36
+      T117[56] := 60
+   T50["back"] := T104 := table(&null)
+      T104[3] := 5
+   T50["cdef"] := T108 := table(&null)
+      T108[4] := 15
+   T50["cstuff"] := T125 := table(&null)
+      T125[34] := 49
+   T50["def"] := T107 := table(&null)
+      T107[4] := 11
+   T50["defs"] := T96 := table(&null)
+      T96[1] := 4
+   T50["front"] := T97 := table(&null)
+      T97[1] := 3
+   T50["middle"] := T118 := table(&null)
+      T118[22] := 33
+      T118[37] := 33
+      T118[38] := 33
+   T50["nlist"] := T121 := table(&null)
+      T121[29] := 42
+   T50["nmno"] := T122 := table(&null)
+      T122[29] := 40
+      T122[42] := 53
+      T122[54] := 59
+   T50["prec"] := T123 := table(&null)
+      T123[32] := 45
+   T50["rbody"] := T115 := table(&null)
+      T115[22] := 32
+      T115[37] := 32
+      T115[38] := 32
+   T50["rule"] := T110 := table(&null)
+      T110[7] := 25
+   T50["rules"] := T102 := table(&null)
+      T102[3] := 7
+   T50["rword"] := T106 := table(&null)
+      T106[4] := 21
+   T50["stuff"] := T105 := table(&null)
+      T105[4] := 19
+   T50["tag"] := T114 := table(&null)
+      T114[21] := 29
+   T50["tail"] := T109 := table(&null)
+      T109[7] := 23
+   T50["yaccf"] := T82 := table(&null)
+      T82[1] := 2
+ttbl:= T3 := table(&null)
+   T3[-2] := "epsilon"
+   T3[0] := "$"
+   T3[44] := "\",\""
+   T3[58] := "\":\""
+   T3[60] := "\"<\""
+   T3[62] := "\">\""
+   T3[123] := "\"{\""
+   T3[124] := "\"|\""
+   T3[125] := "\"}\""
+   T3[257] := "C_IDENT"
+   T3[258] := "IDENT"
+   T3[259] := "NUMBER"
+   T3[260] := "LEFT"
+   T3[261] := "RIGHT"
+   T3[262] := "NONASSOC"
+   T3[263] := "TOKEN"
+   T3[264] := "PREC"
+   T3[265] := "TYPE"
+   T3[266] := "START"
+   T3[267] := "UNION"
+   T3[268] := "MARK"
+   T3[269] := "LCURL"
+   T3[270] := "RCURL"
+$line 86"iiparse.lib"
+\ iilex |stop("no iilex tokenizer defined")
+}
+
+$ifndef IIDEBUG
+ iidebug :=1
+$endif
+
+ state_stack :=[1]
+ value_stack :=[]
+
+ errors :=0
+next_token:=create iilex (stream,fail_on_error)|0
+
+token:=@next_token
+repeat{
+
+
+
+
+
+
+if act:=\(\atbl[token])[ state_stack [1]]then{
+$ifdef COMPRESSED_TABLES
+act:= uncompress_action (act)
+$endif
+act?{
+
+case move(1)of{
+"s":{
+
+
+
+
+push( state_stack ,integer(tab(find("."))))
+push( value_stack , iilval )
+=".";ruleno:=integer(tab(many(&digits)))
+pos(0)|stop("malformed action:  ",act)
+if token~=-1 then{
+if\ recover_shifts +:=1 then{
+
+if recover_shifts >4 then{
+ recover_shifts :=&null
+ discards :=0
+}
+}
+}
+ iidebug ("s",ttbl,token,ruleno)
+token:=@next_token|break
+}
+"r":{
+
+
+
+
+ruleno:=integer(1(tab(find("<")),move(1)))
+newsym:=1(tab(find(">")),move(1))
+rhsize:=integer(tab(many(&digits)))
+arglist:=[]
+every 1 to rhsize do{
+pop( state_stack )
+push(arglist,pop( value_stack ))
+}
+push( state_stack ,gtbl[newsym][ state_stack [1]])
+if func:=proc("_"||ruleno||"_"|| "")
+then{
+result:=func!arglist|arglist[-1]|&null
+tmp:= iidirective 
+ iidirective :=""
+if*tmp>0 then{
+if find("clearin",tmp)then
+token:=@next_token
+if find("error",tmp)then{
+
+pop( state_stack )
+every 1 to rhsize do
+push( value_stack ,!arglist)
+ errors +:=1
+next_token:=create(token|
+(|@next_token))
+token:=-1
+next
+}
+if find("accept",tmp)then{
+ iidebug ("a",ttbl,token,ruleno)
+return result
+}
+}
+}
+else{
+
+
+result:=arglist[-1]|&null
+}
+push( value_stack ,result)
+ iidebug ("r",ttbl,token,ruleno)
+}
+"a":{
+ iidebug ("a",ttbl,token,ruleno)
+return value_stack [1]
+}
+}
+}
+}
+else{
+if\ recover_shifts :=0 then{
+
+
+
+
+
+if( discards +:=1)>500 then{
+if\ iierror 
+then iierror ("fatal error: can't resynchronize")
+else write(&errout,"fatal error: can't resynchronize")
+if\fail_on_error then fail
+else stop()
+}
+ iidebug ("e",ttbl,token)
+token:=@next_token|break
+}else{
+ errors +:=1
+ discards := recover_shifts :=0
+if\ iierror 
+then iierror (image(\ttbl[token])|image(token))
+else write(&errout,"parse error")
+if\ttbl[-1]then{
+until* state_stack =0 do{
+if\atbl[-1][ state_stack [1]]then{
+ iidebug ("e",ttbl,token)
+next_token:=create(token|(|@next_token))
+token:=-1
+break next
+}else pop( state_stack )&pop( value_stack )
+}
+}
+if\fail_on_error then fail
+else stop()
+}
+}
+}
+
+if\ iierror 
+then iierror ("unexpected EOF")
+else write(&errout,"unexpected EOF")
+
+if\fail_on_error then fail
+else stop()
+
+end
+
+
+$ifdef IIDEBUG
+
+record production(LHS,RHS,POS,LOOK,no,prec,assoc)
+procedure iidebug (action,ttbl,token,ruleno)
+
+local p,t,state
+static rule_list
+initial{
+rule_list:= L3 := list(48)
+   L3[1] := R_production_1 := production()
+      R_production_1.LHS := "yaccf"
+      R_production_1.RHS := L164 := list(2)
+         L164[1] := "front"
+         L164[2] := "back"
+      R_production_1.no := 1
+   L3[2] := R_production_2 := production()
+      R_production_2.LHS := "front"
+      R_production_2.RHS := L167 := list(2)
+         L167[1] := "defs"
+         L167[2] := 268
+      R_production_2.no := 2
+      R_production_2.prec := 4
+   L3[3] := R_production_3 := production()
+      R_production_3.LHS := "back"
+      R_production_3.RHS := L174 := list(2)
+         L174[1] := "rules"
+         L174[2] := "tail"
+      R_production_3.no := 3
+   L3[4] := R_production_4 := production()
+      R_production_4.LHS := "tail"
+      R_production_4.RHS := L190 := list(1)
+         L190[1] := -2
+      R_production_4.POS := 2
+      R_production_4.no := 4
+   L3[5] := R_production_5 := production()
+      R_production_5.LHS := "tail"
+      R_production_5.RHS := L195 := list(1)
+         L195[1] := 268
+      R_production_5.no := 5
+      R_production_5.prec := 4
+   L3[6] := R_production_6 := production()
+      R_production_6.LHS := "defs"
+      R_production_6.RHS := L199 := list(1)
+         L199[1] := -2
+      R_production_6.POS := 2
+      R_production_6.no := 6
+   L3[7] := R_production_7 := production()
+      R_production_7.LHS := "defs"
+      R_production_7.RHS := L201 := list(2)
+         L201[1] := "defs"
+         L201[2] := "def"
+      R_production_7.no := 7
+   L3[8] := R_production_8 := production()
+      R_production_8.LHS := "defs"
+      R_production_8.RHS := L209 := list(2)
+         L209[1] := "defs"
+         L209[2] := "cdef"
+      R_production_8.no := 8
+   L3[9] := R_production_9 := production()
+      R_production_9.LHS := "def"
+      R_production_9.RHS := L217 := list(2)
+         L217[1] := 266
+         L217[2] := 258
+      R_production_9.no := 9
+      R_production_9.prec := 1
+   L3[10] := R_production_10 := production()
+      R_production_10.LHS := "def"
+      R_production_10.RHS := L226 := list(3)
+         L226[1] := "rword"
+         L226[2] := "tag"
+         L226[3] := "nlist"
+      R_production_10.no := 10
+   L3[11] := R_production_11 := production()
+      R_production_11.LHS := "cdef"
+      R_production_11.RHS := L239 := list(3)
+         L239[1] := "stuff"
+         L239[2] := 270
+         L239[3] := 270
+      R_production_11.no := 11
+      R_production_11.prec := 6
+   L3[12] := R_production_12 := production()
+      R_production_12.LHS := "stuff"
+      R_production_12.RHS := L245 := list(1)
+         L245[1] := 267
+      R_production_12.no := 12
+      R_production_12.prec := 3
+   L3[13] := R_production_13 := production()
+      R_production_13.LHS := "stuff"
+      R_production_13.RHS := L253 := list(1)
+         L253[1] := 269
+      R_production_13.no := 13
+      R_production_13.prec := 5
+   L3[14] := R_production_14 := production()
+      R_production_14.LHS := "rword"
+      R_production_14.RHS := L261 := list(1)
+         L261[1] := 263
+      R_production_14.no := 14
+      R_production_14.prec := 3
+   L3[15] := R_production_15 := production()
+      R_production_15.LHS := "rword"
+      R_production_15.RHS := L263 := list(1)
+         L263[1] := 260
+      R_production_15.no := 15
+      R_production_15.prec := 3
+   L3[16] := R_production_16 := production()
+      R_production_16.LHS := "rword"
+      R_production_16.RHS := L265 := list(1)
+         L265[1] := 261
+      R_production_16.no := 16
+      R_production_16.prec := 3
+   L3[17] := R_production_17 := production()
+      R_production_17.LHS := "rword"
+      R_production_17.RHS := L267 := list(1)
+         L267[1] := 262
+      R_production_17.no := 17
+      R_production_17.prec := 3
+   L3[18] := R_production_18 := production()
+      R_production_18.LHS := "rword"
+      R_production_18.RHS := L269 := list(1)
+         L269[1] := 265
+      R_production_18.no := 18
+      R_production_18.prec := 3
+   L3[19] := R_production_19 := production()
+      R_production_19.LHS := "tag"
+      R_production_19.RHS := L271 := list(1)
+         L271[1] := -2
+      R_production_19.POS := 2
+      R_production_19.no := 19
+   L3[20] := R_production_20 := production()
+      R_production_20.LHS := "tag"
+      R_production_20.RHS := L276 := list(3)
+         L276[1] := 60
+         L276[2] := 258
+         L276[3] := 62
+      R_production_20.no := 20
+      R_production_20.prec := 1
+   L3[21] := R_production_21 := production()
+      R_production_21.LHS := "nlist"
+      R_production_21.RHS := L286 := list(1)
+         L286[1] := "nmno"
+      R_production_21.no := 21
+   L3[22] := R_production_22 := production()
+      R_production_22.LHS := "nlist"
+      R_production_22.RHS := L290 := list(2)
+         L290[1] := "nlist"
+         L290[2] := "nmno"
+      R_production_22.no := 22
+   L3[23] := R_production_23 := production()
+      R_production_23.LHS := "nlist"
+      R_production_23.RHS := L299 := list(3)
+         L299[1] := "nlist"
+         L299[2] := 44
+         L299[3] := "nmno"
+      R_production_23.no := 23
+   L3[24] := R_production_24 := production()
+      R_production_24.LHS := "nmno"
+      R_production_24.RHS := L309 := list(1)
+         L309[1] := 258
+      R_production_24.no := 24
+      R_production_24.prec := 1
+   L3[25] := R_production_25 := production()
+      R_production_25.LHS := "nmno"
+      R_production_25.RHS := L313 := list(2)
+         L313[1] := 258
+         L313[2] := 259
+      R_production_25.no := 25
+      R_production_25.prec := 2
+   L3[26] := R_production_26 := production()
+      R_production_26.LHS := "rules"
+      R_production_26.RHS := L318 := list(3)
+         L318[1] := "LHS"
+         L318[2] := 58
+         L318[3] := "RHS"
+      R_production_26.no := 26
+   L3[27] := R_production_27 := production()
+      R_production_27.LHS := "rules"
+      R_production_27.RHS := L328 := list(2)
+         L328[1] := "rules"
+         L328[2] := "rule"
+      R_production_27.no := 27
+   L3[28] := R_production_28 := production()
+      R_production_28.LHS := "RHS"
+      R_production_28.RHS := L335 := list(2)
+         L335[1] := "rbody"
+         L335[2] := "prec"
+      R_production_28.no := 28
+   L3[29] := R_production_29 := production()
+      R_production_29.LHS := "rule"
+      R_production_29.RHS := L344 := list(3)
+         L344[1] := "LHS"
+         L344[2] := 124
+         L344[3] := "RHS"
+      R_production_29.no := 29
+   L3[30] := R_production_30 := production()
+      R_production_30.LHS := "rule"
+      R_production_30.RHS := L352 := list(3)
+         L352[1] := "LHS"
+         L352[2] := 58
+         L352[3] := "RHS"
+      R_production_30.no := 30
+   L3[31] := R_production_31 := production()
+      R_production_31.LHS := "LHS"
+      R_production_31.RHS := L362 := list(1)
+         L362[1] := 257
+      R_production_31.no := 31
+      R_production_31.prec := 1
+   L3[32] := R_production_32 := production()
+      R_production_32.LHS := "LHS"
+      R_production_32.RHS := L369 := list(1)
+         L369[1] := -2
+      R_production_32.POS := 2
+      R_production_32.no := 32
+   L3[33] := R_production_33 := production()
+      R_production_33.LHS := "rbody"
+      R_production_33.RHS := L375 := list(1)
+         L375[1] := 258
+      R_production_33.no := 33
+      R_production_33.prec := 1
+   L3[34] := R_production_34 := production()
+      R_production_34.LHS := "rbody"
+      R_production_34.RHS := L383 := list(1)
+         L383[1] := "act"
+      R_production_34.no := 34
+   L3[35] := R_production_35 := production()
+      R_production_35.LHS := "rbody"
+      R_production_35.RHS := L389 := list(2)
+         L389[1] := "middle"
+         L389[2] := 258
+      R_production_35.no := 35
+      R_production_35.prec := 1
+   L3[36] := R_production_36 := production()
+      R_production_36.LHS := "rbody"
+      R_production_36.RHS := L398 := list(2)
+         L398[1] := "middle"
+         L398[2] := "act"
+      R_production_36.no := 36
+   L3[37] := R_production_37 := production()
+      R_production_37.LHS := "rbody"
+      R_production_37.RHS := L407 := list(3)
+         L407[1] := "middle"
+         L407[2] := 44
+         L407[3] := 258
+      R_production_37.no := 37
+      R_production_37.prec := 1
+   L3[38] := R_production_38 := production()
+      R_production_38.LHS := "rbody"
+      R_production_38.RHS := L417 := list(1)
+         L417[1] := -2
+      R_production_38.POS := 2
+      R_production_38.no := 38
+   L3[39] := R_production_39 := production()
+      R_production_39.LHS := "middle"
+      R_production_39.RHS := L421 := list(1)
+         L421[1] := 258
+      R_production_39.no := 39
+      R_production_39.prec := 1
+   L3[40] := R_production_40 := production()
+      R_production_40.LHS := "middle"
+      R_production_40.RHS := L429 := list(1)
+         L429[1] := "act"
+      R_production_40.no := 40
+   L3[41] := R_production_41 := production()
+      R_production_41.LHS := "middle"
+      R_production_41.RHS := L437 := list(2)
+         L437[1] := "middle"
+         L437[2] := 258
+      R_production_41.no := 41
+      R_production_41.prec := 1
+   L3[42] := R_production_42 := production()
+      R_production_42.LHS := "middle"
+      R_production_42.RHS := L450 := list(3)
+         L450[1] := "middle"
+         L450[2] := 44
+         L450[3] := 258
+      R_production_42.no := 42
+      R_production_42.prec := 1
+   L3[43] := R_production_43 := production()
+      R_production_43.LHS := "middle"
+      R_production_43.RHS := L464 := list(2)
+         L464[1] := "middle"
+         L464[2] := "act"
+      R_production_43.no := 43
+   L3[44] := R_production_44 := production()
+      R_production_44.LHS := "act"
+      R_production_44.RHS := L543 := list(4)
+         L543[1] := 123
+         L543[2] := "cstuff"
+         L543[3] := 125
+         L543[4] := 125
+      R_production_44.no := 44
+   L3[45] := R_production_45 := production()
+      R_production_45.LHS := "cstuff"
+      R_production_45.RHS := L552 := list(1)
+         L552[1] := -2
+      R_production_45.POS := 2
+      R_production_45.no := 45
+   L3[46] := R_production_46 := production()
+      R_production_46.LHS := "prec"
+      R_production_46.RHS := L558 := list(1)
+         L558[1] := -2
+      R_production_46.POS := 2
+      R_production_46.no := 46
+   L3[47] := R_production_47 := production()
+      R_production_47.LHS := "prec"
+      R_production_47.RHS := L562 := list(2)
+         L562[1] := 264
+         L562[2] := 258
+      R_production_47.no := 47
+      R_production_47.prec := 1
+   L3[48] := R_production_48 := production()
+      R_production_48.LHS := "prec"
+      R_production_48.RHS := L569 := list(3)
+         L569[1] := 264
+         L569[2] := 258
+         L569[3] := "act"
+      R_production_48.no := 48
+      R_production_48.prec := 1
+$line 279"iiparse.lib"
+}
+
+case action of{
+"a":writes(&errout,"accepting ")&state:= state_stack [1]
+"e":writes(&errout,"***ERROR***\n")&
+writes(&errout,"recovery shifts = ", recover_shifts ,"\n")&
+writes(&errout,"discarded tokens = ", discards ,"\n")&
+writes(&errout,"total error count = ", errors ,"\n")&
+writes(&errout,"error action ")&state:= state_stack [1]
+"r":writes(&errout,"reducing ")&state:= state_stack [2]
+"s":writes(&errout,"shifting ")&state:= state_stack [2]
+default:stop("malformed action argument to iidebug")
+}
+
+t:=image(token)||(" ("||(\ttbl[token]|"unknown")||")")
+writes(&errout,"on lookahead ",t,", in state ",state)
+if\ruleno then{
+(p:=!rule_list).no=ruleno|
+stop("no rule number ",tbl[symbol][state])
+write(&errout,"; rule ", production_2_string (p,ttbl))
+}
+else write(&errout)
+
+write(&errout,"    state stack now: ")
+every write(&errout,"\t",image(! state_stack ))
+write(&errout,"    value stack now: ")
+if* value_stack >0
+then every write(&errout,"\t",image(! value_stack ))
+else write(&errout,"\t(empty)")
+
+return
+
+end
+
+
+
+
+
+
+
+
+
+procedure production_2_string (p,ibtoktbl)
+
+local s,m,t
+
+s:=image(p.LHS)||" -> "
+every m:=!p.RHS do{
+if t:=\(\ibtoktbl)[m]
+then s||:=t||" "
+else s||:=image(m)||" "
+}
+s||:="(POS = "||image(\p.POS)||") "
+s||:="lookahead = "||image(\p.LOOK)
+
+return trim(s)
+
+end
+$endif
+
+
+$ifdef COMPRESSED_TABLES
+
+procedure uncompress_action (action)
+
+local next_chunk,full_action
+
+next_chunk:=create ord(!action)
+case in_ib_bits (next_chunk,2)of{
+0:{
+full_action:="s"
+full_action||:= in_ib_bits (next_chunk,11)
+full_action||:="."
+full_action||:= in_ib_bits (next_chunk,11)
+}
+1:{
+full_action:="r"
+full_action||:= in_ib_bits (next_chunk,11)
+full_action||:="<"
+full_action||:= in_ib_bits (next_chunk,11)
+full_action||:=">"
+full_action||:= in_ib_bits (next_chunk,8)
+}
+2:{
+full_action:="a"
+}
+}
+
+return full_action
+
+end
+
+
+
+
+
+procedure in_ib_bits (next_chunk,len)
+
+local i,byte,old_byte_mask
+static old_byte,old_len,byte_length
+initial{
+old_byte:=old_len:=0
+byte_length:=8
+}
+
+old_byte_mask:=(0<2^old_len-1)|0
+old_byte:=iand(old_byte,old_byte_mask)
+i:=ishift(old_byte,len-old_len)
+
+len-:=(len>old_len)|{
+old_len-:=len
+return i
+}
+while byte:=@next_chunk do{
+i:=ior(i,ishift(byte,len-byte_length))
+len-:=(len>byte_length)|{
+old_len:=byte_length-len
+old_byte:=byte
+return i
+}
+}
+
+end
+
+$endif

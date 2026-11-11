@@ -1,0 +1,682 @@
+$define iierrok   (recover_shifts := &null & discards := 0)
+$define iiclearin (iidirective ||:= "clearin")
+$define IIERROR   (iidirective ||:= "error")
+$define IIACCEPT  (iidirective ||:= "accept")
+
+$line 9 "sample.ibp"
+
+
+
+
+
+$define IIDEBUG 1
+
+
+
+$define NUMBER	257
+$define UMINUS	258
+procedure _1_(arg1,arg2,arg3)
+
+$line 37 "sample.ibp"
+write( arg2 )
+end
+
+procedure _4_(arg1,arg2)
+
+$line 40 "sample.ibp"
+
+write("syntax error; try again:")
+iierrok
+
+end
+
+procedure _5_(arg1,arg2,arg3)
+
+$line 47 "sample.ibp"
+return arg1 + arg3 
+end
+
+procedure _6_(arg1,arg2,arg3)
+
+$line 48 "sample.ibp"
+return arg1 - arg3 
+end
+
+procedure _7_(arg1,arg2,arg3)
+
+$line 49 "sample.ibp"
+return arg1 * arg3 
+end
+
+procedure _8_(arg1,arg2,arg3)
+
+$line 50 "sample.ibp"
+return arg1 / arg3 
+end
+
+procedure _9_(arg1,arg2,arg3)
+
+$line 51 "sample.ibp"
+return arg2 
+end
+
+procedure _10_(arg1,arg2)
+
+$line 52 "sample.ibp"
+return- arg2 
+end
+
+procedure _11_(arg1)
+
+$line 53 "sample.ibp"
+return arg1 
+end
+
+
+$line 56 "sample.ibp"
+
+
+procedure iilex(infile)
+
+local nextchar,c,num
+initial{
+
+
+}
+
+nextchar:=create!(!infile||"\n"||"\n")
+
+c:=@nextchar|fail
+repeat{
+if any(&digits,c)then{
+if not(\num||:=c)then
+num:=c
+}else{
+if iilval:=\num then{
+suspend NUMBER
+num:=&null
+}
+if any('+-*/()\n',c)then{
+iilval:=c
+suspend ord(c)
+}else{
+if not any(' \t',c)then{
+
+suspend&null
+}
+}
+}
+c:=@nextchar|break
+}
+if iilval:=\num then{
+return NUMBER
+num:=&null
+}
+
+end
+
+procedure main()
+return iiparse(&input,1)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$line 50"iiparse.lib"
+
+global iilval , errors , line_number , state_stack , value_stack ,
+ iidirective , recover_shifts , discards 
+
+procedure iiparse (stream,fail_on_error)
+
+local token,next_token,act,ruleno,newsym,rhsize,arglist,
+result,tmp,func
+static atbl,gtbl,ttbl
+
+initial{
+ iidirective :=""
+atbl:= T35 := table(&null)
+   T35[-1] := T67 := table(&null)
+      T67[1] := "s2.4"
+   T35[0] := T62 := table(&null)
+      T62[1] := "r3<lines>0"
+      T62[3] := "a"
+      T62[4] := "r4<lines>2"
+      T62[5] := "r2<lines>2"
+      T62[13] := "r1<lines>3"
+   T35[10] := T63 := table(&null)
+      T63[1] := "r3<lines>0"
+      T63[2] := "s4.4"
+      T63[3] := "s5.2"
+      T63[4] := "r4<lines>2"
+      T63[5] := "r2<lines>2"
+      T63[8] := "s13.1"
+      T63[9] := "r11<expr>1"
+      T63[11] := "r10<expr>2"
+      T63[13] := "r1<lines>3"
+      T63[17] := "r9<expr>3"
+      T63[18] := "r8<expr>3"
+      T63[19] := "r6<expr>3"
+      T63[20] := "r5<expr>3"
+      T63[21] := "r7<expr>3"
+   T35[40] := T64 := table(&null)
+      T64[1] := "r3<lines>0"
+      T64[3] := "s6.9"
+      T64[4] := "r4<lines>2"
+      T64[5] := "r2<lines>2"
+      T64[6] := "s6.9"
+      T64[7] := "s6.9"
+      T64[12] := "s6.9"
+      T64[13] := "r1<lines>3"
+      T64[14] := "s6.9"
+      T64[15] := "s6.9"
+      T64[16] := "s6.9"
+   T35[41] := T72 := table(&null)
+      T72[9] := "r11<expr>1"
+      T72[10] := "s17.9"
+      T72[11] := "r10<expr>2"
+      T72[17] := "r9<expr>3"
+      T72[18] := "r8<expr>3"
+      T72[19] := "r6<expr>3"
+      T72[20] := "r5<expr>3"
+      T72[21] := "r7<expr>3"
+   T35[42] := T70 := table(&null)
+      T70[8] := "s16.7"
+      T70[9] := "r11<expr>1"
+      T70[10] := "s16.7"
+      T70[11] := "r10<expr>2"
+      T70[17] := "r9<expr>3"
+      T70[18] := "r8<expr>3"
+      T70[19] := "s16.7"
+      T70[20] := "s16.7"
+      T70[21] := "r7<expr>3"
+   T35[43] := T69 := table(&null)
+      T69[8] := "s15.5"
+      T69[9] := "r11<expr>1"
+      T69[10] := "s15.5"
+      T69[11] := "r10<expr>2"
+      T69[17] := "r9<expr>3"
+      T69[18] := "r8<expr>3"
+      T69[19] := "r6<expr>3"
+      T69[20] := "r5<expr>3"
+      T69[21] := "r7<expr>3"
+   T35[45] := T65 := table(&null)
+      T65[1] := "r3<lines>0"
+      T65[3] := "s7.10"
+      T65[4] := "r4<lines>2"
+      T65[5] := "r2<lines>2"
+      T65[6] := "s7.10"
+      T65[7] := "s7.10"
+      T65[8] := "s14.6"
+      T65[9] := "r11<expr>1"
+      T65[10] := "s14.6"
+      T65[11] := "r10<expr>2"
+      T65[12] := "s7.10"
+      T65[13] := "r1<lines>3"
+      T65[14] := "s7.10"
+      T65[15] := "s7.10"
+      T65[16] := "s7.10"
+      T65[17] := "r9<expr>3"
+      T65[18] := "r8<expr>3"
+      T65[19] := "r6<expr>3"
+      T65[20] := "r5<expr>3"
+      T65[21] := "r7<expr>3"
+   T35[47] := T71 := table(&null)
+      T71[8] := "s12.8"
+      T71[9] := "r11<expr>1"
+      T71[10] := "s12.8"
+      T71[11] := "r10<expr>2"
+      T71[17] := "r9<expr>3"
+      T71[18] := "r8<expr>3"
+      T71[19] := "s12.8"
+      T71[20] := "s12.8"
+      T71[21] := "r7<expr>3"
+   T35[257] := T66 := table(&null)
+      T66[1] := "r3<lines>0"
+      T66[3] := "s9.11"
+      T66[4] := "r4<lines>2"
+      T66[5] := "r2<lines>2"
+      T66[6] := "s9.11"
+      T66[7] := "s9.11"
+      T66[12] := "s9.11"
+      T66[13] := "r1<lines>3"
+      T66[14] := "s9.11"
+      T66[15] := "s9.11"
+      T66[16] := "s9.11"
+gtbl:= T36 := table(&null)
+   T36["expr"] := T68 := table(&null)
+      T68[3] := 8
+      T68[6] := 10
+      T68[7] := 11
+      T68[12] := 18
+      T68[14] := 19
+      T68[15] := 20
+      T68[16] := 21
+   T36["lines"] := T57 := table(&null)
+      T57[1] := 3
+ttbl:= T3 := table(&null)
+   T3[-2] := "epsilon"
+   T3[-1] := "error"
+   T3[0] := "$"
+   T3[10] := "\"\\n\""
+   T3[40] := "\"(\""
+   T3[41] := "\")\""
+   T3[42] := "\"*\""
+   T3[43] := "\"+\""
+   T3[45] := "\"-\""
+   T3[47] := "\"/\""
+   T3[257] := "NUMBER"
+   T3[258] := "UMINUS"
+$line 86"iiparse.lib"
+\ iilex |stop("no iilex tokenizer defined")
+}
+
+$ifndef IIDEBUG
+ iidebug :=1
+$endif
+
+ state_stack :=[1]
+ value_stack :=[]
+
+ errors :=0
+next_token:=create iilex (stream,fail_on_error)|0
+
+token:=@next_token
+repeat{
+
+
+
+
+
+
+if act:=\(\atbl[token])[ state_stack [1]]then{
+$ifdef COMPRESSED_TABLES
+act:= uncompress_action (act)
+$endif
+act?{
+
+case move(1)of{
+"s":{
+
+
+
+
+push( state_stack ,integer(tab(find("."))))
+push( value_stack , iilval )
+=".";ruleno:=integer(tab(many(&digits)))
+pos(0)|stop("malformed action:  ",act)
+if token~=-1 then{
+if\ recover_shifts +:=1 then{
+
+if recover_shifts >4 then{
+ recover_shifts :=&null
+ discards :=0
+}
+}
+}
+ iidebug ("s",ttbl,token,ruleno)
+token:=@next_token|break
+}
+"r":{
+
+
+
+
+ruleno:=integer(1(tab(find("<")),move(1)))
+newsym:=1(tab(find(">")),move(1))
+rhsize:=integer(tab(many(&digits)))
+arglist:=[]
+every 1 to rhsize do{
+pop( state_stack )
+push(arglist,pop( value_stack ))
+}
+push( state_stack ,gtbl[newsym][ state_stack [1]])
+if func:=proc("_"||ruleno||"_"|| "")
+then{
+result:=func!arglist|arglist[-1]|&null
+tmp:= iidirective 
+ iidirective :=""
+if*tmp>0 then{
+if find("clearin",tmp)then
+token:=@next_token
+if find("error",tmp)then{
+
+pop( state_stack )
+every 1 to rhsize do
+push( value_stack ,!arglist)
+ errors +:=1
+next_token:=create(token|
+(|@next_token))
+token:=-1
+next
+}
+if find("accept",tmp)then{
+ iidebug ("a",ttbl,token,ruleno)
+return result
+}
+}
+}
+else{
+
+
+result:=arglist[-1]|&null
+}
+push( value_stack ,result)
+ iidebug ("r",ttbl,token,ruleno)
+}
+"a":{
+ iidebug ("a",ttbl,token,ruleno)
+return value_stack [1]
+}
+}
+}
+}
+else{
+if\ recover_shifts :=0 then{
+
+
+
+
+
+if( discards +:=1)>500 then{
+if\ iierror 
+then iierror ("fatal error: can't resynchronize")
+else write(&errout,"fatal error: can't resynchronize")
+if\fail_on_error then fail
+else stop()
+}
+ iidebug ("e",ttbl,token)
+token:=@next_token|break
+}else{
+ errors +:=1
+ discards := recover_shifts :=0
+if\ iierror 
+then iierror (image(\ttbl[token])|image(token))
+else write(&errout,"parse error")
+if\ttbl[-1]then{
+until* state_stack =0 do{
+if\atbl[-1][ state_stack [1]]then{
+ iidebug ("e",ttbl,token)
+next_token:=create(token|(|@next_token))
+token:=-1
+break next
+}else pop( state_stack )&pop( value_stack )
+}
+}
+if\fail_on_error then fail
+else stop()
+}
+}
+}
+
+if\ iierror 
+then iierror ("unexpected EOF")
+else write(&errout,"unexpected EOF")
+
+if\fail_on_error then fail
+else stop()
+
+end
+
+
+$ifdef IIDEBUG
+
+record production(LHS,RHS,POS,LOOK,no,prec,assoc)
+procedure iidebug (action,ttbl,token,ruleno)
+
+local p,t,state
+static rule_list
+initial{
+rule_list:= L3 := list(11)
+   L3[1] := R_production_1 := production()
+      R_production_1.LHS := "lines"
+      R_production_1.RHS := L153 := list(3)
+         L153[1] := "lines"
+         L153[2] := "expr"
+         L153[3] := 10
+      R_production_1.no := 1
+   L3[2] := R_production_2 := production()
+      R_production_2.LHS := "lines"
+      R_production_2.RHS := L162 := list(2)
+         L162[1] := "lines"
+         L162[2] := 10
+      R_production_2.no := 2
+   L3[3] := R_production_3 := production()
+      R_production_3.LHS := "lines"
+      R_production_3.RHS := L165 := list(1)
+         L165[1] := -2
+      R_production_3.POS := 2
+      R_production_3.no := 3
+   L3[4] := R_production_4 := production()
+      R_production_4.LHS := "lines"
+      R_production_4.RHS := L167 := list(2)
+         L167[1] := -1
+         L167[2] := 10
+      R_production_4.no := 4
+   L3[5] := R_production_5 := production()
+      R_production_5.LHS := "expr"
+      R_production_5.RHS := L175 := list(3)
+         L175[1] := "expr"
+         L175[2] := 43
+         L175[3] := "expr"
+      R_production_5.no := 5
+      R_production_5.prec := 2
+      R_production_5.assoc := "l"
+   L3[6] := R_production_6 := production()
+      R_production_6.LHS := "expr"
+      R_production_6.RHS := L184 := list(3)
+         L184[1] := "expr"
+         L184[2] := 45
+         L184[3] := "expr"
+      R_production_6.no := 6
+      R_production_6.prec := 2
+      R_production_6.assoc := "l"
+   L3[7] := R_production_7 := production()
+      R_production_7.LHS := "expr"
+      R_production_7.RHS := L193 := list(3)
+         L193[1] := "expr"
+         L193[2] := 42
+         L193[3] := "expr"
+      R_production_7.no := 7
+      R_production_7.prec := 3
+      R_production_7.assoc := "l"
+   L3[8] := R_production_8 := production()
+      R_production_8.LHS := "expr"
+      R_production_8.RHS := L202 := list(3)
+         L202[1] := "expr"
+         L202[2] := 47
+         L202[3] := "expr"
+      R_production_8.no := 8
+      R_production_8.prec := 3
+      R_production_8.assoc := "l"
+   L3[9] := R_production_9 := production()
+      R_production_9.LHS := "expr"
+      R_production_9.RHS := L211 := list(3)
+         L211[1] := 40
+         L211[2] := "expr"
+         L211[3] := 41
+      R_production_9.no := 9
+   L3[10] := R_production_10 := production()
+      R_production_10.LHS := "expr"
+      R_production_10.RHS := L218 := list(2)
+         L218[1] := 45
+         L218[2] := "expr"
+      R_production_10.no := 10
+      R_production_10.prec := 4
+      R_production_10.assoc := "r"
+   L3[11] := R_production_11 := production()
+      R_production_11.LHS := "expr"
+      R_production_11.RHS := L226 := list(1)
+         L226[1] := 257
+      R_production_11.no := 11
+      R_production_11.prec := 1
+$line 279"iiparse.lib"
+}
+
+case action of{
+"a":writes(&errout,"accepting ")&state:= state_stack [1]
+"e":writes(&errout,"***ERROR***\n")&
+writes(&errout,"recovery shifts = ", recover_shifts ,"\n")&
+writes(&errout,"discarded tokens = ", discards ,"\n")&
+writes(&errout,"total error count = ", errors ,"\n")&
+writes(&errout,"error action ")&state:= state_stack [1]
+"r":writes(&errout,"reducing ")&state:= state_stack [2]
+"s":writes(&errout,"shifting ")&state:= state_stack [2]
+default:stop("malformed action argument to iidebug")
+}
+
+t:=image(token)||(" ("||(\ttbl[token]|"unknown")||")")
+writes(&errout,"on lookahead ",t,", in state ",state)
+if\ruleno then{
+(p:=!rule_list).no=ruleno|
+stop("no rule number ",tbl[symbol][state])
+write(&errout,"; rule ", production_2_string (p,ttbl))
+}
+else write(&errout)
+
+write(&errout,"    state stack now: ")
+every write(&errout,"\t",image(! state_stack ))
+write(&errout,"    value stack now: ")
+if* value_stack >0
+then every write(&errout,"\t",image(! value_stack ))
+else write(&errout,"\t(empty)")
+
+return
+
+end
+
+
+
+
+
+
+
+
+
+procedure production_2_string (p,ibtoktbl)
+
+local s,m,t
+
+s:=image(p.LHS)||" -> "
+every m:=!p.RHS do{
+if t:=\(\ibtoktbl)[m]
+then s||:=t||" "
+else s||:=image(m)||" "
+}
+s||:="(POS = "||image(\p.POS)||") "
+s||:="lookahead = "||image(\p.LOOK)
+
+return trim(s)
+
+end
+$endif
+
+
+$ifdef COMPRESSED_TABLES
+
+procedure uncompress_action (action)
+
+local next_chunk,full_action
+
+next_chunk:=create ord(!action)
+case in_ib_bits (next_chunk,2)of{
+0:{
+full_action:="s"
+full_action||:= in_ib_bits (next_chunk,11)
+full_action||:="."
+full_action||:= in_ib_bits (next_chunk,11)
+}
+1:{
+full_action:="r"
+full_action||:= in_ib_bits (next_chunk,11)
+full_action||:="<"
+full_action||:= in_ib_bits (next_chunk,11)
+full_action||:=">"
+full_action||:= in_ib_bits (next_chunk,8)
+}
+2:{
+full_action:="a"
+}
+}
+
+return full_action
+
+end
+
+
+
+
+
+procedure in_ib_bits (next_chunk,len)
+
+local i,byte,old_byte_mask
+static old_byte,old_len,byte_length
+initial{
+old_byte:=old_len:=0
+byte_length:=8
+}
+
+old_byte_mask:=(0<2^old_len-1)|0
+old_byte:=iand(old_byte,old_byte_mask)
+i:=ishift(old_byte,len-old_len)
+
+len-:=(len>old_len)|{
+old_len-:=len
+return i
+}
+while byte:=@next_chunk do{
+i:=ior(i,ishift(byte,len-byte_length))
+len-:=(len>byte_length)|{
+old_len:=byte_length-len
+old_byte:=byte
+return i
+}
+}
+
+end
+
+$endif
