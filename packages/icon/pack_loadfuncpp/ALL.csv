@@ -1,0 +1,9 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,factorials,factorials.icn,pack_loadfuncpp__factorials,pack_loadfuncpp,27,0,131072,4096,60,
+2,hello,hello.icn,pack_loadfuncpp__hello,pack_loadfuncpp,3,0,131072,4096,60,
+3,hexwords,hexwords.icn,pack_loadfuncpp__hexwords,pack_loadfuncpp,18,0,131072,4096,60,
+4,hexwords_oneline,hexwords_oneline.icn,pack_loadfuncpp__hexwords_oneline,pack_loadfuncpp,8,0,131072,4096,60,
+5,newprimes,newprimes.icn,pack_loadfuncpp__newprimes,pack_loadfuncpp,4,0,131072,4096,60,
+6,primes,primes.icn,pack_loadfuncpp__primes,pack_loadfuncpp,26,0,131072,4096,60,
+7,sums,sums.icn,pack_loadfuncpp__sums,pack_loadfuncpp,8,0,131072,4096,60,
+8,sums2,sums2.icn,pack_loadfuncpp__sums2,pack_loadfuncpp,6,0,131072,4096,60,
