@@ -1,0 +1,7 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,demo,demo.pl,press__demo,press,15,0,131072,4096,300,,swi
+2,aeb,aeb.pl,press__aeb,press,20,0,131072,4096,300,,swi
+3,dlon,dlon.pl,press__dlon,press,17,0,131072,4096,300,,swi
+4,high,high.pl,press__high,press,16,0,131072,4096,300,,swi
+5,lon,lon.pl,press__lon,press,17,0,131072,4096,300,,swi
+6,oxf,oxf.pl,press__oxf,press,16,0,131072,4096,300,,swi

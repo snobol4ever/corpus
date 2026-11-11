@@ -1,0 +1,96 @@
+library/abnf.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: abnf.pl:62:
+library/actors/tasks.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: tasks.pl:77:
+library/actors/threads.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: threads.pl:103:
+library/aggregate.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/arithmetic.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: arithmetic.pl:11:
+library/assoc.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/atts.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/builtins.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: builtins.pl:1:
+library/charsio.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/clpb.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: clpb.pl:49:
+library/clpz.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: clpz.pl:117:
+library/concurrent.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: concurrent.pl:40:32: Syntax error: Operator expected
+library/curl.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: curl.pl:8:
+library/debug.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: debug.pl:30:
+library/dif.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: dif.pl:8:
+library/error.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/filesex.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/format.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: format.pl:24:
+library/freestanding/socket.pl: NEEDS-NETWORK: the source names library(socket)
+library/freeze.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: freeze.pl:6:
+library/gensym.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: gensym.pl:6:
+library/gsl.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: gsl.pl:113:
+library/http.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: http.pl:91:
+library/iso_ext.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: iso_ext.pl:1:
+library/janus.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: janus.pl:205:
+library/json.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: json.pl:43:
+library/lambda.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lambda.pl:43:
+library/lists.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lists.pl:23:19: Syntax error: Operator expected
+library/ordsets.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/pairs.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/pio.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: pio.pl:17:
+library/plplot.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: plplot.pl:159:
+library/quads.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: quads.pl:188:
+library/random.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/raylib.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: raylib.pl:874:
+library/rbtrees.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: rbtrees.pl:68:10: Syntax error: Operator expected
+library/reif.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/si.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/socket.pl: NEEDS-NETWORK: the source names tcp_socket(
+library/sockets.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/sqlite3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: sqlite3.pl:6:
+library/syslog.pl: NEEDS-NETWORK: the source names library(socket)
+library/tabling.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: tabling.pl:18:
+library/tftp.pl: NEEDS-NETWORK: the source names library(socket)
+library/time.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: time.pl:10:
+library/tty.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: tty.pl:64:
+library/ugraphs.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/uri.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+library/uuid.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: uuid.pl:37:
+library/when.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: when.pl:7:
+library/yall.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+ports/arduino-nano-esp32/main/program.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+ports/rpi4/blink.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: blink.pl:13: Initialization goal raised exception:
+ports/rpi4/bounce.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: bounce.pl:8: Initialization goal raised exception:
+ports/rpi4/program.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+ports/rpi4/readings.pl: NEEDS-NETWORK: the source names library(socket)
+ports/rpi4/repl.pl: NEEDS-INPUT: its answer changes with what standard input holds
+samples/attrmod.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: attrmod.pl:5:
+samples/chess-alt.pl: ORACLE-REFUSES: swipl reports errors loading it (two ERROR lines), so what its main then prints is not its answer; alone it prints nothing
+samples/clpz-sudoku-9x9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: clpz-sudoku-9x9.pl:1:
+samples/db-stress.pl: DOES-NOT-END: its goal run gives no answer inside 60 s (twice)
+samples/domain.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: domain.pl:3:
+samples/ea.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: ea.pl:3: Initialization goal raised exception:
+samples/freestanding.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+samples/grammar.pl: ORACLE-REFUSES: swipl reports errors loading it (two ERROR lines), so what its main then prints is not its answer; alone it prints nothing
+samples/http_server.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for fork/0; alone it prints nothing
+samples/nfactorial.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: nfactorial.pl:1:
+samples/npuzzle.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: npuzzle.pl:1:
+samples/nqueens.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: nqueens.pl:1:
+samples/nrev.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+samples/nsudoku.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: nsudoku.pl:1:
+samples/repl.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: repl.pl:6:
+samples/skynet_mixed.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: skynet_mixed.pl:101:
+samples/skynet_tasks.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: skynet_tasks.pl:65:
+samples/skynet_threads.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: skynet_threads.pl:52:
+samples/sqlite3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: sqlite3.pl:1:
+samples/tco.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for statistics key active_frames; alone it prints nothing
+samples/test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test.pl:2:
+samples/test_concurrent.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_concurrent.pl:1:
+samples/test_curl.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_curl.pl:1:
+samples/test_domain.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for domain:put_atts/2; alone it prints nothing
+samples/test_linda.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_linda.pl:2:
+samples/test_matrix_det.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for a file of Trealla's own tree; alone it prints nothing
+samples/test_matrix_eigen.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for mat_from_list/2; alone it prints nothing
+samples/test_phrase_from_file.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_phrase_from_file.pl:12:
+samples/test_plplot.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_plplot.pl:7:
+samples/test_quad.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_quad.pl:2:
+samples/test_raylib1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_raylib1.pl:1:
+samples/test_raylib2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_raylib2.pl:1:
+samples/test_raylib3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_raylib3.pl:12:
+samples/test_sockets.pl: NEEDS-NETWORK: the source names library(sockets), Trealla's socket library; under swipl the load is refused and four of its mains print to no peer
+samples/test_timeout.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 204 and 204 bytes
+samples/test_tty.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+samples/tftp_demo.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: tftp_demo.pl:21:
+samples/tftp_sensors.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for Trealla's socket library; alone it prints nothing
+samples/threads.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

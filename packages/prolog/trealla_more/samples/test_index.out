@@ -1,0 +1,10 @@
+Match using atomic 1st-arg... Done...  1000000 items
+Match using atomic 2nd-arg... Done...  1000000 items
+Match using compound 1st-arg... Done...  1000000 items
+Match using compound 2nd-arg... Done...  1000000 items
+Iterate over set... Done...  1000000 items
+Use findall... Done...  1000000 items
+Iterate over 2nd-arg... Done...  1000000 items
+Retract... Done...  1000000 items
+Match using once 1st-arg... Done...  100000 items
+main succeeded

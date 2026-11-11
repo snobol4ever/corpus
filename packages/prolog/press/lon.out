@@ -1,0 +1,2382 @@
+
+Tracing level reset from 0 to 5.
+
+=== lon(1)
+
+Solving 10 ^ (x - 3) = 2 ^ (10 + x) for x
+
+Tidying to 10 ^ (-3 + x) + -1 * 2 ^ (10 + x) = 0
+
+Taking logs, base 10, gives 
+
+log(10, 2) * (-10 + -1 * x) + x = 3
+
+Polynomial -3 + x + (-10 + -1 * x) * log(10, 2) becomes 
+
+x * (1 + -1 * log(10, 2)) + (-3 + -10 * log(10, 2)) when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (3 + 10 * log(10, 2)) * (1 + -1 * log(10, 2)) ^ -1
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 8.59879525495411
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 8.59879525495411
+
+
+=== yes
+
+=== lon(2)
+
+Solving cot(2 * x) = 2 + cot(x) for x
+
+Tidying to cot(2 * x) + -1 * cot(x) = 2
+
+Offending set is [cot(2 * x), cot(x)]
+
+Reduced term is tan(x)
+
+Rewriting equation in terms of tan(x)
+gives (1 * (2 * tan(x) / (1 * 1 - 1 * tan(x) ^ 2))) ^ -1 + -1 * tan(x) ^ -1 = 2
+
+Substituting   x1 for tan(x) gives
+ -1 * x1 ^ -1 + (1/2) * x1 ^ -1 * (1 + -1 * x1 ^ 2) = 2
+
+Polynomial -2 + (1/2) * x1 ^ -1 * (1 + -1 * x1 ^ 2) + -1 * x1 ^ -1 becomes 
+
+(-1/2) * x1 + -2 + (-1/2) * x1 ^ -1 when in normal form
+
+Multiply through by x1 to get 
+
+(-1/2) * x1 ^ 2 + -2 * x1 + (-1/2) = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = -2 + -1 * 3 ^ (1/2) and x1 = -2 + 1 * 3 ^ (1/2)
+
+Applying substitution 
+    x1 = tan(x)
+
+   to    : 
+    x1 = -2 + -1 * 3 ^ (1/2) # x1 = -2 + 1 * 3 ^ (1/2)
+
+   gives : 
+    tan(x) = -2 + -1 * 3 ^ (1/2) # tan(x) = -2 + 3 ^ (1/2)
+
+
+
+Solving disjunct tan(x) = -2 + -1 * 3 ^ (1/2)
+
+	Letting n1 denote an arbitrary integer
+    x = arctan(-2 + -1 * 3 ^ (1/2)) + 180 * n1
+     (by Isolation)
+
+
+Solving disjunct tan(x) = -2 + 3 ^ (1/2)
+
+	Letting n2 denote an arbitrary integer
+    x = arctan(-2 + 3 ^ (1/2)) + 180 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 180 * n1 + arctan(-2 + -1 * 3 ^ (1/2))
+    X2 =  x = 180 * n2 + arctan(-2 + 3 ^ (1/2))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = -0.022846306484003147 + 180 * n1
+    X2 =  x = -0.004569261296800626 + 180 * n2
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = -0.022846306484003147 + 180 * n1
+    X2 =  x = -0.004569261296800626 + 180 * n2
+
+
+=== yes
+
+=== lon(3)
+
+Solving cos(3 * x) - 3 * cos(x) = cos(2 * x) + 1 for x
+
+Tidying to -3 * cos(x) + cos(3 * x) + -1 * cos(2 * x) = 1
+
+Angles are in arithmetic progression 
+
+Offending set is [cos(x), cos(3 * x), cos(2 * x)]
+
+Reduced term is cos(x)
+
+Rewriting equation in terms of cos(x)
+gives -3 * cos(x) + (4 * cos(x) ^ 3 - 3 * cos(x)) + -1 * (2 * cos(x) ^ 2 - 1 * 1) = 1
+
+Substituting   x2 for cos(x) gives
+ -2 * x2 ^ 2 + 4 * x2 ^ 3 + -3 * x2 + -3 * x2 = 0
+
+Polynomial -3 * x2 + -3 * x2 + -2 * x2 ^ 2 + 4 * x2 ^ 3 becomes 
+
+4 * x2 ^ 3 + -2 * x2 ^ 2 + -6 * x2 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x2 = (3/2) and x2 = -1
+
+Applying substitution 
+    x2 = cos(x)
+
+   to    : 
+    x2 = 0 # x2 = (3/2) # x2 = -1
+
+   gives : 
+    cos(x) = 0 # cos(x) = (3/2) # cos(x) = -1
+
+
+
+Solving disjunct cos(x) = 0
+
+	Letting n3 denote an arbitrary integer
+    x = 90 + 180 * n3
+     (by Isolation)
+
+
+Solving disjunct cos(x) = (3/2)
+
+cos(x)=(3/2) has no real roots, cos must lie in [-1,1]
+
+
+Solving disjunct cos(x) = -1
+
+	Letting n4 denote an arbitrary integer
+    x = 180 + 360 * n4
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 90 + 180 * n3
+    X2 =  x = 180 + 360 * n4
+
+
+=== yes
+
+=== lon(4)
+
+Solving 9 * cosh(x) - 6 * sinh(x) = 7 for x
+
+Tidying to 9 * cosh(x) + -6 * sinh(x) = 7
+
+Offending set is [cosh(x), sinh(x)]
+
+Reduced term is e ^ x
+
+Rewriting equation in terms of e ^ x
+gives 9 * (((e ^ x) ^ 1 + (e ^ x) ^ - 1) / 2) + -6 * (((e ^ x) ^ 1 - (e ^ x) ^ - 1) / 2) = 7
+
+Substituting   x3 for e ^ x gives
+ -6 * ((1/2) * (-1 * x3 ^ -1 + x3)) + 9 * ((1/2) * (x3 ^ -1 + x3)) = 7
+
+Polynomial -7 + 9 * ((1/2) * (x3 ^ -1 + x3)) + -6 * ((1/2) * (-1 * x3 ^ -1 + x3)) becomes 
+
+(3/2) * x3 + -7 + (15/2) * x3 ^ -1 when in normal form
+
+Multiply through by x3 to get 
+
+(3/2) * x3 ^ 2 + -7 * x3 + (15/2) = 0
+
+Using quadratic equation formula
+
+Solutions are x3 = 3 and x3 = (5/3)
+
+Applying substitution 
+    x3 = e ^ x
+
+   to    : 
+    x3 = 3 # x3 = (5/3)
+
+   gives : 
+    e ^ x = 3 # e ^ x = (5/3)
+
+
+
+Solving disjunct e ^ x = 3
+
+    x = log(e, 3)
+     (by Isolation)
+
+
+Solving disjunct e ^ x = (5/3)
+
+    x = log(e, (5/3))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = log(e, 3)
+    X2 =  x = log(e, (5/3))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 1.0986122886681098
+    X2 =  x = 0.5108256237659907
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 1.0986122886681098
+    X2 =  x = 0.5108256237659907
+
+
+=== yes
+
+=== lon(5)
+
+Solving sin(x) + sin(2 * x) = sin(3 * x) for x
+
+Tidying to -1 * sin(3 * x) + sin(2 * x) + sin(x) = 0
+
+Angles are in arithmetic progression 
+
+Offending set is [sin(3 * x), sin(2 * x), sin(x)]
+
+Reduced term is sin(x)
+
+Rewriting equation in terms of sin(x)
+gives -1 * (1 * (3 * sin(x) - 4 * sin(x) ^ 3)) + 1 * (2 * sin(x) * (1 - sin(x) ^ 2) ^ (1 / 2)) + sin(x) = 0
+
+Substituting   x4 for sin(x) gives
+ x4 + -3 * x4 + 4 * x4 ^ 3 + 2 * x4 * (1 + -1 * x4 ^ 2) ^ (1/2) = 0
+
+x4 * (1 + 2 * (1 + -1 * x4 ^ 2) ^ (1/2)) + -3 * x4 + 4 * x4 ^ 3 = 0
+
+4 * x4 ^ 3 + x4 * (-2 + 2 * (1 + -1 * x4 ^ 2) ^ (1/2)) = 0
+
+Trying to isolate 1 + -1 * x4 ^ 2
+ in (-2 + 2 * (1 + -1 * x4 ^ 2) ^ (1/2)) * x4 + 4 * x4 ^ 3 = 0
+
+Assuming x4 is non-zero
+
+    1 + -1 * x4 ^ 2 = (1 + (1/2) * (-4 * x4 ^ 3 * x4 ^ -1)) ^ 2
+     (by Isolation)
+
+Polynomial 1 + -1 * x4 ^ 2 + -1 * (1 + -2 * x4 ^ 3 * x4 ^ -1) ^ 2 becomes 
+
+-4 * x4 ^ 4 + 3 * x4 ^ 2 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x4 = (-1/8) * 48 ^ (1/2) and x4 = (1/8) * 48 ^ (1/2)
+
+Applying substitution 
+    x4 = sin(x)
+
+   to    : 
+    x4 = 0 # x4 = (-1/8) * 48 ^ (1/2) # x4 = (1/8) * 48 ^ (1/2)
+
+   gives : 
+    sin(x) = 0 # sin(x) = (-1/8) * 48 ^ (1/2) # sin(x) = (1/8) * 48 ^ (1/2)
+
+
+
+Solving disjunct sin(x) = 0
+
+	Letting n5 denote an arbitrary integer
+    x = 180 * n5
+     (by Isolation)
+
+
+Solving disjunct sin(x) = (-1/8) * 48 ^ (1/2)
+
+	Letting n6 denote an arbitrary integer
+    x = arcsin((-1/8) * 48 ^ (1/2)) * -1 ^ n6 + 180 * n6
+     (by Isolation)
+
+
+Solving disjunct sin(x) = (1/8) * 48 ^ (1/2)
+
+	Letting n7 denote an arbitrary integer
+    x = arcsin((1/8) * 48 ^ (1/2)) * -1 ^ n7 + 180 * n7
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 * n5
+    X2 =  x = 180 * n6 + -1 ^ n6 * arcsin((-1/8) * 48 ^ (1/2))
+    X3 =  x = 180 * n7 + -1 ^ n7 * arcsin((1/8) * 48 ^ (1/2))
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 * n5
+    X2 =  x = 180 * n6 + -1 ^ n6 * -0.01827704518720252
+    X3 =  x = 180 * n7 + -1 ^ n7 * 0.01827704518720252
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 * n5
+    X2 =  x = 180 * n6 + -1 ^ n6 * -0.01827704518720252
+    X3 =  x = 180 * n7 + -1 ^ n7 * 0.01827704518720252
+
+
+=== yes
+
+=== lon(7)
+
+Solving log(x, 45) + 4 * log(x, 2) - 1 / 2 * log(x, 81) - log(x, 10) = 3 / 2 for x
+
+Tidying to -1 * log(x, 10) + 4 * log(x, 2) + (-1/2) * log(x, 81) + log(x, 45) = (3/2)
+
+log(x, (8/5)) + (-1/2) * log(x, 81) + log(x, 45) = (3/2)
+
+(-1/2) * log(x, 81) + log(x, 72) = (3/2)
+
+log(x, 8) = (3/2)
+
+    x = 4
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 4
+
+
+=== yes
+
+=== lon(8)
+
+Solving 2 ^ (2 * x) - 5 * 2 ^ (x + 1) + 16 = 0 for x
+
+Tidying to 2 ^ (2 * x) + -5 * 2 ^ (1 + x) = -16
+
+Offending set is [2 ^ (2 * x), 2 ^ (1 + x)]
+
+Reduced term is 2 ^ x
+
+Rewriting equation in terms of 2 ^ x
+gives (2 ^ x) ^ 2 + -5 * (2 ^ 1 * 2 ^ x) = -16
+
+Substituting   x5 for 2 ^ x gives
+ -10 * x5 + x5 ^ 2 = -16
+
+Using quadratic equation formula
+
+Solutions are x5 = 8 and x5 = 2
+
+Applying substitution 
+    x5 = 2 ^ x
+
+   to    : 
+    x5 = 8 # x5 = 2
+
+   gives : 
+    2 ^ x = 8 # 2 ^ x = 2
+
+
+
+Solving disjunct 2 ^ x = 8
+
+    x = 3
+     (by Isolation)
+
+
+Solving disjunct 2 ^ x = 2
+
+    x = 1
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 3
+    X2 =  x = 1
+
+
+=== yes
+
+=== lon(9)
+
+Solving 8 * cos(x) - 15 * sin(x) = 3 for x
+
+Tidying to 8 * cos(x) + -15 * sin(x) = 3
+
+17 * sin(arctan((-15/8)) + x) = 3 
+
+	Letting n8 denote an arbitrary integer
+    x = -1 * arctan((-15/8)) + 180 * n8 + arcsin((3/17)) * -1 ^ n8
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n8 * arcsin((3/17)) + -1 * arctan((-15/8)) + 180 * n8
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * -0.01886419924340816 + 180 * n8 + -1 ^ n8 * 0.0030962071892200157
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * -0.01886419924340816 + 180 * n8 + -1 ^ n8 * 0.0030962071892200157
+
+
+=== yes
+
+=== lon(10)
+
+Solving e ^ (3 * x) - 2 * e ^ x - 3 * e ^ - x = 0 for x
+
+Tidying to -3 * e ^ (-1 * x) + e ^ (3 * x) + -2 * e ^ x = 0
+
+Offending set is [e ^ (-1 * x), e ^ (3 * x), e ^ x]
+
+Reduced term is e ^ x
+
+Rewriting equation in terms of e ^ x
+gives -3 * (e ^ x) ^ -1 + (e ^ x) ^ 3 + -2 * e ^ x = 0
+
+Substituting   x6 for e ^ x gives
+ -2 * x6 + -3 * x6 ^ -1 + x6 ^ 3 = 0
+
+Multiply through by x6 to get 
+
+x6 ^ 4 + -2 * x6 ^ 2 + -3 = 0
+
+This is a hidden polynomial in x6 ^ 2
+
+Using quadratic equation formula
+
+Solutions are x6 ^ 2 = 3 and x6 ^ 2 = -1
+
+The equation x6^2 = -1 has no real roots
+
+as -1^(1/2) is not real
+
+    x6 = 3 ^ (1/2) # x6 = -1 * 3 ^ (1/2)
+     (by Isolation)
+
+Applying substitution 
+    x6 = e ^ x
+
+   to    : 
+    x6 = 3 ^ (1/2) # x6 = -1 * 3 ^ (1/2)
+
+   gives : 
+    e ^ x = 3 ^ (1/2) # e ^ x = -1 * 3 ^ (1/2)
+
+
+
+Solving disjunct e ^ x = 3 ^ (1/2)
+
+    x = log(e, 3 ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct e ^ x = -1 * 3 ^ (1/2)
+
+    x = log(e, -1 * 3 ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = log(e, 3 ^ (1/2))
+    X2 =  x = log(e, -1 * 3 ^ (1/2))
+
+
+ Answer x = log(e, -1 * 3 ^ (1/2))
+ is invalid as it contains a negative argument to a log
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 0.5493061443340549
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 0.5493061443340549
+
+
+=== yes
+
+=== lon(11)
+
+Solving 2 * sin(x) + cos(x) + 2 = 0 for x
+
+Tidying to 2 * sin(x) + cos(x) = -2
+
+sin(arctan(2) + x) * 5 ^ (1/2) = -2 
+
+	Letting n9 denote an arbitrary integer
+    x = -1 * arctan(2) + 180 * n9 + arcsin(-2 * 5 ^ (-1/2)) * -1 ^ n9
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n9 * arcsin(-2 * 5 ^ (-1/2)) + -1 * arctan(2) + 180 * n9
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * 0.01932339043474041 + 180 * n9 + -1 ^ n9 * -0.01932339043474041
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * 0.01932339043474041 + 180 * n9 + -1 ^ n9 * -0.01932339043474041
+
+
+=== yes
+
+=== lon(12)
+
+Solving 7 * sin(x) ^ 2 - 5 * sin(x) + cos(x) ^ 2 = 0 for x
+
+Tidying to cos(x) ^ 2 + 7 * sin(x) ^ 2 + -5 * sin(x) = 0
+
+Offending set is [cos(x), sin(x)]
+
+Reduced term is sin(x)
+
+Rewriting equation in terms of sin(x)
+gives ((1 - sin(x) ^ 2) ^ (1 / 2)) ^ 2 + 7 * sin(x) ^ 2 + -5 * sin(x) = 0
+
+Substituting   x7 for sin(x) gives
+ -5 * x7 + (1 + -1 * x7 ^ 2) + 7 * x7 ^ 2 = 0
+
+Polynomial 1 + 7 * x7 ^ 2 + -1 * x7 ^ 2 + -5 * x7 becomes 
+
+6 * x7 ^ 2 + -5 * x7 + 1 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x7 = (1/2) and x7 = (1/3)
+
+Applying substitution 
+    x7 = sin(x)
+
+   to    : 
+    x7 = (1/2) # x7 = (1/3)
+
+   gives : 
+    sin(x) = (1/2) # sin(x) = (1/3)
+
+
+
+Solving disjunct sin(x) = (1/2)
+
+	Letting n10 denote an arbitrary integer
+    x = 30 * -1 ^ n10 + 180 * n10
+     (by Isolation)
+
+
+Solving disjunct sin(x) = (1/3)
+
+	Letting n11 denote an arbitrary integer
+    x = arcsin((1/3)) * -1 ^ n11 + 180 * n11
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 180 * n10 + 30 * -1 ^ n10
+    X2 =  x = 180 * n11 + -1 ^ n11 * arcsin((1/3))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 30 * -1 ^ n10 + 180 * n10
+    X2 =  x = 0.005931272989776273 * -1 ^ n11 + 180 * n11
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 30 * -1 ^ n10 + 180 * n10
+    X2 =  x = 0.005931272989776273 * -1 ^ n11 + 180 * n11
+
+
+=== yes
+
+=== lon(13)
+
+Solving 8 * sin(x) + 15 * cos(x) = 17 / 2 for x
+
+Tidying to 8 * sin(x) + 15 * cos(x) = (17/2)
+
+17 * sin(arctan((8/15)) + x) = (17/2) 
+
+	Letting n12 denote an arbitrary integer
+    x = -1 * arctan((8/15)) + 180 * n12 + 30 * -1 ^ n12
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 30 * -1 ^ n12 + -1 * arctan((8/15)) + 180 * n12
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * 0.008551368537395613 + 180 * n12 + 30 * -1 ^ n12
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * 0.008551368537395613 + 180 * n12 + 30 * -1 ^ n12
+
+
+=== yes
+
+=== lon(14)
+
+Solving x ^ 4 - 7 * x ^ 3 + 14 * x ^ 2 - 7 * x + 1 = 0 for x
+
+Tidying to -7 * x + -7 * x ^ 3 + 14 * x ^ 2 + x ^ 4 = -1
+
+Polynomial is symmetric
+
+Using quadratic equation formula
+
+Solutions are x + 1 / x = 4 and x + 1 / x = 3
+
+Multiply through by x to get 
+
+x ^ 2 + -4 * x + 1 = 0
+
+Using quadratic equation formula
+
+Solutions are x = 2 + (1/2) * 12 ^ (1/2) and x = 2 + (1/2) * (-1 * 12 ^ (1/2))
+
+Multiply through by x to get 
+
+x ^ 2 + -3 * x + 1 = 0
+
+Using quadratic equation formula
+
+Solutions are x = (3/2) + (1/2) * 5 ^ (1/2) and x = (3/2) + (1/2) * (-1 * 5 ^ (1/2))
+
+Answer is : 
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = 2 + (1/2) * 12 ^ (1/2)
+    X2 =  x = 2 + (-1/2) * 12 ^ (1/2)
+    X3 =  x = (3/2) + (1/2) * 5 ^ (1/2)
+    X4 =  x = (3/2) + (-1/2) * 5 ^ (1/2)
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = 3.7320508075688776
+    X2 =  x = 0.2679491924311226
+    X3 =  x = 2.618033988749895
+    X4 =  x = 0.3819660112501051
+
+
+Answer is : 
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = 3.7320508075688776
+    X2 =  x = 0.2679491924311226
+    X3 =  x = 2.618033988749895
+    X4 =  x = 0.3819660112501051
+
+
+=== yes
+
+=== lon(15)
+
+Solving log(2, x) + 4 * log(x, 2) = 5 for x
+
+Offending set is [log(2, x), log(x, 2)]
+
+Reduced term is _2544
+
+Rewriting equation in terms of log(2, x)
+gives log(2, x) + 4 * log(2, x) ^ -1 = 5
+
+Substituting   x8 for log(2, x) gives
+ 4 * x8 ^ -1 + x8 = 5
+
+Multiply through by x8 to get 
+
+x8 ^ 2 + -5 * x8 + 4 = 0
+
+Using quadratic equation formula
+
+Solutions are x8 = 4 and x8 = 1
+
+Applying substitution 
+    x8 = log(2, x)
+
+   to    : 
+    x8 = 4 # x8 = 1
+
+   gives : 
+    log(2, x) = 4 # log(2, x) = 1
+
+
+
+Solving disjunct log(2, x) = 4
+
+    x = 16
+     (by Isolation)
+
+
+Solving disjunct log(2, x) = 1
+
+    x = 2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 16
+    X2 =  x = 2
+
+
+=== yes
+
+=== lon(16)
+Simultaneously solving : 
+    2 * x + 6 * y + z = 0
+    - 1 * x + 2 * y - z = 10
+    4 * x + 3 * y + z = 1
+For [x, y, z].
+
+Solving 2 * x + 6 * y + z = 0 for x
+
+Tidying to 2 * x = -1 * z + -6 * y
+
+    x = (1/2) * (-6 * y + -1 * z)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (1/2) * (-1 * z + -6 * y)
+
+
+Applying substitution 
+    x = (1/2) * (-1 * z + -6 * y)
+
+   to    : 
+    - 1 * x + 2 * y - z = 10
+    4 * x + 3 * y + z = 1
+
+   gives : 
+    -1 * z + (-1/2) * (-6 * y + -1 * z) + 2 * y = 10
+    z + 4 * ((1/2) * (-6 * y + -1 * z)) + 3 * y = 1
+
+
+Solving -1 * z + (-1/2) * (-6 * y + -1 * z) + 2 * y = 10 for y
+
+Tidying to 2 * y + (-1/2) * (-1 * z + -6 * y) = 10 + z
+
+Polynomial -10 + (-1/2) * (-6 * y + -1 * z) + 2 * y + -1 * z becomes 
+
+5 * y + ((-1/2) * z + -10) when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  y = 2 + (1/10) * z
+
+
+Applying substitution 
+    y = 2 + (1/10) * z
+
+   to    : 
+    z + 4 * ((1/2) * (-6 * y + -1 * z)) + 3 * y = 1
+
+   gives : 
+    3 * ((1/10) * z) + 4 * ((1/2) * (-1 * z + -6 * ((1/10) * z))) + z = 19
+
+
+Solving 3 * ((1/10) * z) + 4 * ((1/2) * (-1 * z + -6 * ((1/10) * z))) + z = 19 for z
+
+Tidying to (3/10) * z + 4 * ((1/2) * ((-3/5) * z + -1 * z)) + z = 19
+
+Polynomial -19 + 4 * ((1/2) * (-1 * z + (-3/5) * z)) + (3/10) * z + z becomes 
+
+(-19/10) * z + -19 when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  z = -10
+
+Substituting back in y solution
+
+Applying substitution 
+    z = -10
+
+   to    : 
+    y = 2 + (1/10) * z
+
+   gives : 
+    y = 1
+
+Substituting back in x solution
+
+Applying substitution 
+    z = -10
+    y = 1
+
+   to    : 
+    x = (1/2) * (-1 * z + -6 * y)
+
+   gives : 
+    x = 2
+
+
+Final Answers are : 
+((X1 & X2) & X3)
+  where :
+    X1 =  z = -10
+    X2 =  y = 1
+    X3 =  x = 2
+
+=== yes
+
+=== lon(17)
+
+Solving 5 * cosh(x) - 3 * sinh(x) = 5 for x
+
+Tidying to 5 * cosh(x) + -3 * sinh(x) = 5
+
+Offending set is [cosh(x), sinh(x)]
+
+Reduced term is e ^ x
+
+Rewriting equation in terms of e ^ x
+gives 5 * (((e ^ x) ^ 1 + (e ^ x) ^ - 1) / 2) + -3 * (((e ^ x) ^ 1 - (e ^ x) ^ - 1) / 2) = 5
+
+Substituting   x9 for e ^ x gives
+ -3 * ((1/2) * (-1 * x9 ^ -1 + x9)) + 5 * ((1/2) * (x9 ^ -1 + x9)) = 5
+
+Polynomial -5 + 5 * ((1/2) * (x9 ^ -1 + x9)) + -3 * ((1/2) * (-1 * x9 ^ -1 + x9)) becomes 
+
+x9 + -5 + 4 * x9 ^ -1 when in normal form
+
+Multiply through by x9 to get 
+
+x9 ^ 2 + -5 * x9 + 4 = 0
+
+Using quadratic equation formula
+
+Solutions are x9 = 4 and x9 = 1
+
+Applying substitution 
+    x9 = e ^ x
+
+   to    : 
+    x9 = 4 # x9 = 1
+
+   gives : 
+    e ^ x = 4 # e ^ x = 1
+
+
+
+Solving disjunct e ^ x = 4
+
+    x = log(e, 4)
+     (by Isolation)
+
+
+Solving disjunct e ^ x = 1
+
+    x = 0
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = log(e, 4)
+    X2 =  x = 0
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 1.3862943611198906
+    X2 =  x = 0
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 1.3862943611198906
+    X2 =  x = 0
+
+
+=== yes
+
+=== lon(19)
+
+Solving sin(2 * x) = sin(x) for x
+
+Tidying to sin(2 * x) + -1 * sin(x) = 0
+
+Using trigonometric addition
+ 2 * sin((1/2) * x) * cos((3/2) * x) = 0
+
+Dividing through by 2
+
+Solving factor cos((3/2) * x) = 0
+
+	Letting n13 denote an arbitrary integer
+    x = 60 + (2/3) * (180 * n13)
+     (by Isolation)
+
+
+Solving factor sin((1/2) * x) = 0
+
+	Letting n14 denote an arbitrary integer
+    x = 360 * n14
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 60 + 120 * n13
+    X2 =  x = 360 * n14
+
+
+=== yes
+
+=== lon(20)
+
+Solving sin(x) - 7 * cos(x) + 5 = 0 for x
+
+Tidying to sin(x) + -7 * cos(x) = -5
+
+sin(arctan((-1/7)) + x) * 50 ^ (1/2) = -5 
+
+	Letting n15 denote an arbitrary integer
+    x = -1 * arctan((-1/7)) + 180 * n15 + arcsin(-5 * 50 ^ (-1/2)) * -1 ^ n15
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n15 * arcsin(-5 * 50 ^ (-1/2)) + -1 * arctan((-1/7)) + 180 * n15
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * -0.0024765708017248393 + 180 * n15 + -1 ^ n15 * -0.013707783890401884
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * -0.0024765708017248393 + 180 * n15 + -1 ^ n15 * -0.013707783890401884
+
+
+=== yes
+
+=== lon(21)
+
+Solving cos(3 * x) + sin(3 * x) = 1 for x
+
+Applying substitution 
+    3 * x = x10
+
+   to    : 
+    cos(3 * x) + sin(3 * x) = 1
+
+   gives : 
+    sin(x10) + cos(x10) = 1
+
+
+sin(45 + x10) * 2 ^ (1/2) = 1 
+
+	Letting n16 denote an arbitrary integer
+    x10 = -45 + 180 * n16 + arcsin(2 ^ (-1/2)) * -1 ^ n16
+     (by Isolation)
+
+Applying substitution 
+    x10 = 3 * x
+
+   to    : 
+    x10 = -45 + 180 * n16 + arcsin(2 ^ (-1/2)) * -1 ^ n16
+
+   gives : 
+    3 * x = -45 + 180 * n16 + -1 ^ n16 * arcsin(2 ^ (-1/2))
+
+
+    x = -15 + (1/3) * (arcsin(2 ^ (-1/2)) * -1 ^ n16 + 180 * n16)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -15 + (1/3) * (180 * n16 + -1 ^ n16 * arcsin(2 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -15 + 0.3333333333333333 * (180 * n16 + -1 ^ n16 * 0.013707783890401889)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -15 + 0.3333333333333333 * (180 * n16 + -1 ^ n16 * 0.013707783890401889)
+
+
+=== yes
+
+=== lon(22)
+
+Solving sin(3 * x) = sin(x) ^ 2 for x
+
+Tidying to sin(3 * x) + -1 * sin(x) ^ 2 = 0
+
+Offending set is [sin(3 * x), sin(x)]
+
+Reduced term is sin(x)
+
+Rewriting equation in terms of sin(x)
+gives 1 * (3 * sin(x) - 4 * sin(x) ^ 3) + -1 * sin(x) ^ 2 = 0
+
+Substituting   x11 for sin(x) gives
+ -1 * x11 ^ 2 + 3 * x11 + -4 * x11 ^ 3 = 0
+
+Using quadratic equation formula
+
+Solutions are x11 = -1 and x11 = (3/4)
+
+Applying substitution 
+    x11 = sin(x)
+
+   to    : 
+    x11 = 0 # x11 = -1 # x11 = (3/4)
+
+   gives : 
+    sin(x) = 0 # sin(x) = -1 # sin(x) = (3/4)
+
+
+
+Solving disjunct sin(x) = 0
+
+	Letting n17 denote an arbitrary integer
+    x = 180 * n17
+     (by Isolation)
+
+
+Solving disjunct sin(x) = -1
+
+	Letting n18 denote an arbitrary integer
+    x = -90 + 360 * n18
+     (by Isolation)
+
+
+Solving disjunct sin(x) = (3/4)
+
+	Letting n19 denote an arbitrary integer
+    x = arcsin((3/4)) * -1 ^ n19 + 180 * n19
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 * n17
+    X2 =  x = -90 + 360 * n18
+    X3 =  x = 180 * n19 + -1 ^ n19 * arcsin((3/4))
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 * n17
+    X2 =  x = -90 + 360 * n18
+    X3 =  x = 180 * n19 + -1 ^ n19 * 0.014801475539535043
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 * n17
+    X2 =  x = -90 + 360 * n18
+    X3 =  x = 180 * n19 + -1 ^ n19 * 0.014801475539535043
+
+
+=== yes
+
+=== lon(23)
+
+Solving 4 * cos(x) + sin(x) = 1 for x
+
+sin(arctan((1/4)) + x) * 17 ^ (1/2) = 1 
+
+	Letting n20 denote an arbitrary integer
+    x = -1 * arctan((1/4)) + 180 * n20 + arcsin(17 ^ (-1/2)) * -1 ^ n20
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n20 * arcsin(17 ^ (-1/2)) + -1 * arctan((1/4)) + 180 * n20
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * 0.004275684268697806 + 180 * n20 + -1 ^ n20 * 0.004275684268697806
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * 0.004275684268697806 + 180 * n20 + -1 ^ n20 * 0.004275684268697806
+
+
+=== yes
+
+=== lon(24)
+
+Solving 4 ^ (3 + x) / 8 ^ (10 * x) = 2 ^ (10 - 2 * x) / 64 ^ (3 * x) for x
+
+Tidying to (1/8) ^ (10 * x) * 4 ^ (3 + x) + -1 * (1/64) ^ (3 * x) * 2 ^ (10 + -2 * x) = 0
+
+Taking logs, base 2, gives 
+
+18 * x + 2 * x + 2 * x + -30 * x = 4
+
+Polynomial -4 + 18 * x + 2 * x + -30 * x + 2 * x becomes 
+
+-8 * x + -4 when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (-1/2)
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -0.5
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -0.5
+
+
+=== yes
+
+=== lon(25)
+
+Solving log(2, x + 4) = 2 - log(2, x) for x
+
+Tidying to log(2, 4 + x) + log(2, x) = 2
+x  attracted in log(2, 4 + x) + log(2, x) gives  
+    log(2, x * (4 + x))
+
+
+log(2, x * (4 + x)) = 2
+
+    (4 + x) * x = 4
+     (by Isolation)
+
+Polynomial -4 + x * (4 + x) becomes 
+
+x ^ 2 + 4 * x + -4 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x = -2 + (1/2) * 32 ^ (1/2) and x = -2 + (1/2) * (-1 * 32 ^ (1/2))
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = -2 + (1/2) * 32 ^ (1/2)
+    X2 =  x = -2 + (-1/2) * 32 ^ (1/2)
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0.8284271247461903
+    X2 =  x = -4.82842712474619
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0.8284271247461903
+    X2 =  x = -4.82842712474619
+
+
+=== yes
+
+=== lon(26)
+
+Solving 6 ^ (1 / 2) * cos(x) - 2 ^ (1 / 2) * sin(x) = 2 for x
+
+Tidying to cos(x) * 6 ^ (1/2) + -1 * 2 ^ (1/2) * sin(x) = 2
+
+sin(arctan(-1 * 2 ^ (1/2) * 6 ^ (-1/2)) + x) * (2 + 6) ^ (1/2) = 2 
+
+	Letting n21 denote an arbitrary integer
+    x = -1 * arctan(-1 * 2 ^ (1/2) * 6 ^ (-1/2)) + 180 * n21 + arcsin(2 * 8 ^ (-1/2)) * -1 ^ n21
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n21 * arcsin(2 * 8 ^ (-1/2)) + -1 * arctan(-1 * 2 ^ (1/2) * 6 ^ (-1/2)) + 180 * n21
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * -0.009138522593601256 + 180 * n21 + -1 ^ n21 * 0.013707783890401889
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * -0.009138522593601256 + 180 * n21 + -1 ^ n21 * 0.013707783890401889
+
+
+=== yes
+
+=== lon(27)
+
+Solving 2 * cosh(2 * x) + sinh(x) = 2 for x
+
+Offending set is [cosh(2 * x), sinh(x)]
+
+Reduced term is e ^ x
+
+Rewriting equation in terms of e ^ x
+gives 2 * (((e ^ x) ^ 2 + (e ^ x) ^ - 2) / 2) + ((e ^ x) ^ 1 - (e ^ x) ^ - 1) / 2 = 2
+
+Substituting   x12 for e ^ x gives
+ (1/2) * (-1 * x12 ^ -1 + x12) + 2 * ((1/2) * (x12 ^ -2 + x12 ^ 2)) = 2
+
+Polynomial -2 + 2 * ((1/2) * (x12 ^ -2 + x12 ^ 2)) + (1/2) * (-1 * x12 ^ -1 + x12) becomes 
+
+x12 ^ 2 + (1/2) * x12 + -2 + (-1/2) * x12 ^ -1 + x12 ^ -2 when in normal form
+
+Multiply through by x12 ^ 2 to get 
+
+x12 ^ 4 + (1/2) * x12 ^ 3 + -2 * x12 ^ 2 + (-1/2) * x12 + 1 = 0
+
+By inspection x12 = 1 is a solution
+
+After division, polynomial becomes
+x12 ^ 3 + (3/2) * x12 ^ 2 + (-1/2) * x12 + -1
+By inspection x12 = -1 is a solution
+
+After division, polynomial becomes
+x12 ^ 2 + (1/2) * x12 + -1
+Using quadratic equation formula
+
+Solutions are x12 = (-1/4) + (1/2) * (17/4) ^ (1/2) and x12 = (-1/4) + (1/2) * (-1 * (17/4) ^ (1/2))
+
+Applying substitution 
+    x12 = e ^ x
+
+   to    : 
+    x12 = 1 # x12 = -1 # x12 = (-1/4) + (1/2) * (17/4) ^ (1/2) # x12 = (-1/4) + (1/2) * (-1 * (17/4) ^ (1/2))
+
+   gives : 
+    e ^ x = 1 # e ^ x = -1 # e ^ x = (-1/4) + (1/2) * (17/4) ^ (1/2) # e ^ x = (-1/4) + (-1/2) * (17/4) ^ (1/2)
+
+
+
+Solving disjunct e ^ x = 1
+
+    x = 0
+     (by Isolation)
+
+
+Solving disjunct e ^ x = -1
+
+e^x = -1 has no real roots, e^x must be > 0
+
+
+Solving disjunct e ^ x = (-1/4) + (1/2) * (17/4) ^ (1/2)
+
+    x = log(e, (-1/4) + (1/2) * (17/4) ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct e ^ x = (-1/4) + (-1/2) * (17/4) ^ (1/2)
+
+    x = log(e, (-1/4) + (-1/2) * (17/4) ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0
+    X2 =  x = log(e, (-1/4) + (1/2) * (17/4) ^ (1/2))
+    X3 =  x = log(e, (-1/4) + (-1/2) * (17/4) ^ (1/2))
+
+
+ Answer x = log(e, (-1/4) + (-1/2) * (17/4) ^ (1/2))
+ is invalid as it contains a negative argument to a log
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -0.24746646154726343
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -0.24746646154726343
+
+
+=== yes
+
+=== lon(28)
+Simultaneously solving : 
+    cosh(y) * sinh(x) = 3
+    sinh(y) * cosh(x) = -1
+ For [x, y].
+
+Offending set is [sinh(x), cosh(x)]
+
+Reduced term is sinh(x)
+
+Homogenizing equations in x
+ gives 
+    cosh(y) * sinh(x) = 3
+    sinh(y) * (1 + sinh(x) ^ 2) ^ (1 / 2) = -1
+
+
+Substituting x13 = sinh(x) gives 
+    x13 * cosh(y) = 3
+    (1 + x13 ^ 2) ^ (1/2) * sinh(y) = -1
+
+
+Offending set is [cosh(y), sinh(y)]
+
+Reduced term is sinh(y)
+
+Homogenizing equations in y
+ gives 
+    x13 * (1 + sinh(y) ^ 2) ^ (1 / 2) = 3
+    (1 + x13 ^ 2) ^ (1/2) * sinh(y) = -1
+
+
+Substituting x14 = sinh(y) gives 
+    (1 + x14 ^ 2) ^ (1/2) * x13 = 3
+    x14 * (1 + x13 ^ 2) ^ (1/2) = -1
+
+
+Solving x13 * (1 + x14 ^ 2) ^ (1/2) = 3 for x13
+
+    x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+
+
+Applying substitution 
+    x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+
+   to    : 
+    (1 + x13 ^ 2) ^ (1/2) * x14 = -1
+
+   gives : 
+    x14 * (1 + 9 * (1 + x14 ^ 2) ^ -1) ^ (1/2) = -1
+
+
+Solving x14 * (1 + 9 * (1 + x14 ^ 2) ^ -1) ^ (1/2) = -1 for x14
+
+Trying to isolate 1 + 9 * (1 + x14 ^ 2) ^ -1
+ in x14 * (1 + 9 * (1 + x14 ^ 2) ^ -1) ^ (1/2) = -1
+
+Assuming x14 is non-zero
+
+    1 + 9 * (1 + x14 ^ 2) ^ -1 = x14 ^ -2
+     (by Isolation)
+
+Offending set is [x14 ^ 2, x14 ^ -2]
+
+Reduced term is x14 ^ 2
+
+Rewriting equation in terms of x14 ^ 2
+gives 9 * (1 + x14 ^ 2) ^ -1 + -1 * (x14 ^ 2) ^ -1 = -1
+
+Substituting   x15 for x14 ^ 2 gives
+ -1 * x15 ^ -1 + 9 * (1 + x15) ^ -1 = -1
+
+Clearing of rational functions
+
+-1 * x15 ^ -1 * (1 + x15) = -10 + -1 * x15
+
+Polynomial 10 + x15 + -1 * x15 ^ -1 * (1 + x15) becomes 
+
+x15 + 9 + -1 * x15 ^ -1 when in normal form
+
+Multiply through by x15 to get 
+
+x15 ^ 2 + 9 * x15 + -1 = 0
+
+Using quadratic equation formula
+
+Solutions are x15 = (-9/2) + (1/2) * 85 ^ (1/2) and x15 = (-9/2) + (1/2) * (-1 * 85 ^ (1/2))
+
+Applying substitution 
+    x15 = x14 ^ 2
+
+   to    : 
+    x15 = (-9/2) + (1/2) * 85 ^ (1/2) # x15 = (-9/2) + (1/2) * (-1 * 85 ^ (1/2))
+
+   gives : 
+    x14 ^ 2 = (-9/2) + (1/2) * 85 ^ (1/2) # x14 ^ 2 = (-9/2) + (-1/2) * 85 ^ (1/2)
+
+
+
+Solving disjunct x14 ^ 2 = (-9/2) + (1/2) * 85 ^ (1/2)
+
+    x14 = ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2) # x14 = -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+     (by Isolation)
+
+
+Solving disjunct x14 ^ 2 = (-9/2) + (-1/2) * 85 ^ (1/2)
+
+    x14 = ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) # x14 = -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x14 = ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+    X2 =  x14 = -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+    X3 =  x14 = ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+    X4 =  x14 = -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+Substituting back in x13 solution
+
+Applying substitution 
+    x14 = ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   to    : 
+    x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+
+   gives : 
+    x13 = 3 * (1 + ((-9/2) + (1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+
+Applying substitution 
+    x14 = -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   to    : 
+    x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+
+   gives : 
+    x13 = 3 * (1 + ((-9/2) + (1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+
+Applying substitution 
+    x14 = ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   to    : 
+    x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+
+   gives : 
+    x13 = 3 * (1 + ((-9/2) + (-1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+
+Applying substitution 
+    x14 = -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   to    : 
+    x13 = 3 * (1 + x14 ^ 2) ^ (-1/2)
+
+   gives : 
+    x13 = 3 * (1 + ((-9/2) + (-1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+
+Applying substitution 
+    x14 = sinh(y)
+
+   to    : 
+    x14 = ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   gives : 
+    sinh(y) = ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+
+
+    y = log(e, ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x13 = sinh(x)
+
+   to    : 
+    x13 = 3 * (1 + ((-9/2) + (1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+   gives : 
+    sinh(x) = 3 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (-1/2)
+
+
+    x = log(e, 3 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (-1/2) + (1 + 9 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x14 = sinh(y)
+
+   to    : 
+    x14 = -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   gives : 
+    sinh(y) = -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2)
+
+
+    y = log(e, -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x13 = sinh(x)
+
+   to    : 
+    x13 = 3 * (1 + ((-9/2) + (1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+   gives : 
+    sinh(x) = 3 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (-1/2)
+
+
+    x = log(e, 3 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (-1/2) + (1 + 9 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x14 = sinh(y)
+
+   to    : 
+    x14 = ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   gives : 
+    sinh(y) = ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+
+    y = log(e, ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x13 = sinh(x)
+
+   to    : 
+    x13 = 3 * (1 + ((-9/2) + (-1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+   gives : 
+    sinh(x) = 3 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (-1/2)
+
+
+    x = log(e, 3 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (-1/2) + (1 + 9 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x14 = sinh(y)
+
+   to    : 
+    x14 = -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+   gives : 
+    sinh(y) = -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2)
+
+
+    y = log(e, -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2))
+     (by Isolation)
+
+Applying substitution 
+    x13 = sinh(x)
+
+   to    : 
+    x13 = 3 * (1 + ((-9/2) + (-1/2) * 85 ^ (1/2))) ^ (-1/2)
+
+   gives : 
+    sinh(x) = 3 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (-1/2)
+
+
+    x = log(e, 3 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (-1/2) + (1 + 9 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2))
+     (by Isolation)
+
+Final Answers are : 
+((X1 & X2) # ((X3 & X4) # ((X5 & X6) # (X7 & X8))))
+  where :
+    X1 =  y = log(e, ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (1/2))
+    X2 =  x = log(e, (1 + 9 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2) + 3 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (-1/2))
+    X3 =  y = log(e, -1 * ((-9/2) + (1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (1/2))
+    X4 =  x = log(e, (1 + 9 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2) + 3 * ((-7/2) + (1/2) * 85 ^ (1/2)) ^ (-1/2))
+    X5 =  y = log(e, ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2))
+    X6 =  x = log(e, (1 + 9 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2) + 3 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (-1/2))
+    X7 =  y = log(e, -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2))
+    X8 =  x = log(e, (1 + 9 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ -1) ^ (1/2) + 3 * ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (-1/2))
+ 
+ Answer y = log(e, ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2))
+ is invalid as it contains a negative base argument to an exponent
+
+
+ Answer y = log(e, -1 * ((-9/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2) + ((-7/2) + (-1/2) * 85 ^ (1/2)) ^ (1/2))
+ is invalid as it contains a negative base argument to an exponent
+
+
+Evaluating expression to
+
+
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 0.3255385360411465
+    X2 =  x = 1.7691740112199557
+    X3 =  y = -0.3255385360411466
+    X4 =  x = 1.7691740112199557
+
+
+=== yes
+
+=== lon(29)
+
+Solving sin(x) = cos(a) for x
+
+	Letting n22 denote an arbitrary integer
+    x = (90 + -1 * a) * -1 ^ n22 + 180 * n22
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n22 + -1 ^ n22 * (90 + -1 * a)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (90 + -1 * a) * -1 ^ n22 + 180 * n22
+
+
+=== yes
+
+=== lon(30)
+
+Solving e ^ log(e, x) + log(e, e ^ x) = 8 for x
+
+Tidying to x + x = 8
+
+Polynomial -8 + x + x becomes 
+
+2 * x + -8 when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 4
+
+
+=== yes
+
+=== lon(31)
+
+Solving sin(2 * x) + sin(x) = 0 for x
+
+Using trigonometric addition
+ 2 * sin((3/2) * x) * cos((1/2) * x) = 0
+
+Dividing through by 2
+
+Solving factor cos((1/2) * x) = 0
+
+	Letting n23 denote an arbitrary integer
+    x = 180 + 2 * (180 * n23)
+     (by Isolation)
+
+
+Solving factor sin((3/2) * x) = 0
+
+	Letting n24 denote an arbitrary integer
+    x = 120 * n24
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 180 + 360 * n23
+    X2 =  x = 120 * n24
+
+
+=== yes
+
+=== lon(32)
+
+Solving 2 * cosh(x) - 2 * sinh(x) = 3 for x
+
+Tidying to 2 * cosh(x) + -2 * sinh(x) = 3
+
+Offending set is [cosh(x), sinh(x)]
+
+Reduced term is e ^ x
+
+Rewriting equation in terms of e ^ x
+gives 2 * (((e ^ x) ^ 1 + (e ^ x) ^ - 1) / 2) + -2 * (((e ^ x) ^ 1 - (e ^ x) ^ - 1) / 2) = 3
+
+Substituting   x16 for e ^ x gives
+ -2 * ((1/2) * (-1 * x16 ^ -1 + x16)) + 2 * ((1/2) * (x16 ^ -1 + x16)) = 3
+
+Polynomial -3 + 2 * ((1/2) * (x16 ^ -1 + x16)) + -2 * ((1/2) * (-1 * x16 ^ -1 + x16)) becomes 
+
+-3 + 2 * x16 ^ -1 when in normal form
+
+Multiply through by x16 to get 
+
+-3 * x16 + 2 = 0
+
+Applying substitution 
+    x16 = e ^ x
+
+   to    : 
+    x16 = (2/3)
+
+   gives : 
+    e ^ x = (2/3)
+
+
+    x = log(e, (2/3))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = log(e, (2/3))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -0.40546510810816444
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -0.40546510810816444
+
+
+=== yes
+
+=== lon(33)
+
+Solving 2 ^ (2 / x) = 32 for x
+
+Tidying to 2 ^ (2 * x ^ -1) = 32
+
+    x = (2/5)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (2/5)
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 0.4
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 0.4
+
+
+=== yes
+
+=== lon(34)
+
+Solving log(x, 2) * log(x, 3) = 5 for x
+
+Offending set is [log(x, 3), log(x, 2)]
+
+Reduced term is _2364
+
+Failed to find a rewrite for log(x, 2)
+ in terms of log(x, 3)
+
+Failed to find a rewrite for log(x, 2)
+ in terms of log(x, 3)
+
+Reduced term is log(10, x)
+
+Rewriting equation in terms of log(10, x)
+gives log(10, x) ^ -1 * log(10, 3) * (log(10, x) ^ -1 * log(10, 2)) = 5
+
+Substituting   x17 for log(10, x) gives
+ log(10, 2) * x17 ^ -1 * log(10, 3) * x17 ^ -1 = 5
+
+Polynomial -5 + log(10, 3) * x17 ^ -1 * log(10, 2) * x17 ^ -1 becomes 
+
+-5 + x17 ^ -2 * log(10, 3) * log(10, 2) when in normal form
+
+Multiply through by x17 ^ 2 to get 
+
+-5 * x17 ^ 2 + log(10, 3) * log(10, 2) = 0
+
+Using quadratic equation formula
+
+Solutions are x17 = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2) and x17 = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+Applying substitution 
+    x17 = log(10, x)
+
+   to    : 
+    x17 = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2) # x17 = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+   gives : 
+    log(10, x) = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2) # log(10, x) = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+
+
+Solving disjunct log(10, x) = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+    x = 10 ^ ((-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct log(10, x) = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+    x = 10 ^ ((1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 10 ^ ((-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+    X2 =  x = 10 ^ ((1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0.6768833476363658
+    X2 =  x = 1.4773594349631105
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0.6768833476363658
+    X2 =  x = 1.4773594349631105
+
+
+=== yes
+
+=== lon(35)
+
+Solving x ^ 3 - 2 * x ^ 2 - 4 * x + 8 = 0 for x
+
+Tidying to -4 * x + x ^ 3 + -2 * x ^ 2 = -8
+
+By inspection x = 2 is a solution
+
+After division, polynomial becomes
+x ^ 2 + -4
+Using quadratic equation formula
+
+Solutions are x = 2 and x = -2
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 2
+    X2 =  x = 2
+    X3 =  x = -2
+
+
+=== yes
+
+=== lon(36)
+
+Solving 4 * x ^ 3 - 24 * x ^ 2 + 23 * x + 18 = 0 for x
+
+Tidying to 23 * x + 4 * x ^ 3 + -24 * x ^ 2 = -18
+
+By inspection x = 2 is a solution
+
+After division, polynomial becomes
+4 * x ^ 2 + -16 * x + -9
+Using quadratic equation formula
+
+Solutions are x = (9/2) and x = (-1/2)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 2
+    X2 =  x = (9/2)
+    X3 =  x = (-1/2)
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 2
+    X2 =  x = 4.5
+    X3 =  x = -0.5
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 2
+    X2 =  x = 4.5
+    X3 =  x = -0.5
+
+
+=== yes
+
+=== lon(38)
+Simultaneously solving : 
+    tan(y) + 2 * sec(y) = 2 * x
+    x * cot(y) - 2 * cosec(y) = 3
+For [x, y].
+
+Solving tan(y) + 2 * sec(y) = 2 * x for x
+
+Tidying to -2 * x = -2 * sec(y) + -1 * tan(y)
+
+    x = (-1/2) * (-1 * tan(y) + -2 * sec(y))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (-1/2) * (-2 * sec(y) + -1 * tan(y))
+
+
+Applying substitution 
+    x = (-1/2) * (-2 * sec(y) + -1 * tan(y))
+
+   to    : 
+    x * cot(y) - 2 * cosec(y) = 3
+
+   gives : 
+    -2 * cosec(y) + cot(y) * ((-1/2) * (-1 * tan(y) + -2 * sec(y))) = 3
+
+
+Solving -2 * cosec(y) + cot(y) * ((-1/2) * (-1 * tan(y) + -2 * sec(y))) = 3 for y
+
+Offending set is [cosec(y), sec(y), tan(y), cot(y)]
+
+Reduced term is cos(y)
+
+Rewriting equation in terms of cos(y)
+gives -2 * (1 * (1 - cos(y) ^ 2) ^ (1 / 2)) ^ -1 + (-1/2) * (-2 * cos(y) ^ -1 + -1 * (1 * (1 - cos(y) ^ 2) ^ (1 / 2) * cos(y) ^ -1)) * (1 * (1 - cos(y) ^ 2) ^ (1 / 2) * cos(y) ^ -1) ^ -1 = 3
+
+Substituting   x18 for cos(y) gives
+ (-1/2) * (-1 * (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -1 + -2 * x18 ^ -1) * (1 + -1 * x18 ^ 2) ^ (-1/2) * x18 + -2 * (1 + -1 * x18 ^ 2) ^ (-1/2) = 3
+
+Trying to isolate 1 + -1 * x18 ^ 2
+ in (1 + -1 * x18 ^ 2) ^ (-1/2) * x18 * ((-1/2) * (-1 * (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -1 + -2 * x18 ^ -1)) + -2 * (1 + -1 * x18 ^ 2) ^ (-1/2) = 3
+
+Assuming (-1/2) * (-1 * (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -1 + -2 * x18 ^ -1) is non-zero
+
+Assuming x18 is non-zero
+
+    1 + -1 * x18 ^ 2 = x18 ^ 2 * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2 * ((-1/2) * (-1 * (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -1 + -2 * x18 ^ -1)) ^ 2
+     (by Isolation)
+
+-1 * x18 ^ 2 * (1 + ((-1/2) * (-1 * (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -1 + -2 * x18 ^ -1)) ^ 2 * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2) = -1
+
+Attracting nasty functions
+-1 * x18 ^ 2 * (1 + ((1/4) * x18 ^ -2 * (1 + -1 * x18 ^ 2) + x18 ^ -2 + (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -1 * x18 ^ -1) * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2) = -1
+
+-1 * x18 ^ 2 * (1 + (x18 ^ -1 * x18 ^ -1 * (1 + -1 * x18 ^ 2) ^ (1/2) + x18 ^ -2 * ((5/4) + (1/4) * (-1 * x18 ^ 2))) * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2) = -1
+
+-1 * x18 ^ 2 * (1 + ((1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -2 + x18 ^ -2 * ((5/4) + (1/4) * (-1 * x18 ^ 2))) * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2) = -1
+
+-1 * x18 ^ 2 * (1 + x18 ^ -2 * ((5/4) + (-1/4) * x18 ^ 2 + (1 + -1 * x18 ^ 2) ^ (1/2)) * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2) = -1
+
+Offending set is [x18 ^ -2, x18 ^ 2]
+
+Reduced term is x18 ^ 2
+
+Rewriting equation in terms of x18 ^ 2
+gives -1 * x18 ^ 2 * (1 + (x18 ^ 2) ^ -1 * ((5/4) + (-1/4) * x18 ^ 2 + (1 + -1 * x18 ^ 2) ^ (1/2)) * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ -2) = -1
+
+Substituting   x19 for x18 ^ 2 gives
+ -1 * x19 * (1 + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ -2 * x19 ^ -1 * ((5/4) + (-1/4) * x19 + (1 + -1 * x19) ^ (1/2))) = -1
+
+Clearing of rational functions
+
+(-5/4) * x19 * x19 ^ -1 + -1 * x19 * (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2 + (1/4) * x19 * x19 ^ -1 * x19 + -1 * x19 * x19 ^ -1 * (1 + -1 * x19) ^ (1/2) = -1 * (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2
+
+-1 * x19 * (x19 ^ -1 * (1 + -1 * x19) ^ (1/2) + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2) + (-5/4) * x19 * x19 ^ -1 + (1/4) * x19 * x19 ^ -1 * x19 + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2 = 0
+
+-1 * x19 * (x19 ^ -1 * (1 + -1 * x19) ^ (1/2) + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2) + ((-5/4) + ((1/4) * x19 * x19 ^ -1 * x19 + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2)) = 0
+
+-1 * x19 * (x19 ^ -1 * (1 + -1 * x19) ^ (1/2) + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2) + ((-5/4) + ((1/4) * x19 + (3 + 2 * (1 + -1 * x19) ^ (-1/2)) ^ 2)) = 0
+
+Attracting nasty functions
+6 * (1 + -1 * x19) ^ (-1/2) + -1 * x19 * (9 + (1 + -1 * x19) ^ -1 + 6 * (1 + -1 * x19) ^ (-1/2) + x19 ^ -1 * (1 + -1 * x19) ^ (1/2)) + (1/4) * x19 + (1 + -1 * x19) ^ -1 = (-31/4)
+
+Clearing of rational functions
+
+6 * (1 + -1 * x19) ^ (1/2) + (1/4) * x19 * (1 + -1 * x19) + -6 * x19 * (1 + -1 * x19) ^ (1/2) + -1 * (1 + -1 * x19) ^ (1/2) * x19 ^ -1 * x19 * (1 + -1 * x19) + -1 * x19 + -9 * x19 * (1 + -1 * x19) = (-35/4) + (31/4) * x19
+
+-1 * x19 * (1 + (1 + -1 * x19) * x19 ^ -1 * (1 + -1 * x19) ^ (1/2)) + (-31/4) * x19 + -9 * x19 * (1 + -1 * x19) + 6 * (1 + -1 * x19) ^ (1/2) + (1/4) * x19 * (1 + -1 * x19) + -6 * x19 * (1 + -1 * x19) ^ (1/2) = (-35/4)
+
+-1 * x19 * (1 + x19 ^ -1 * (1 + -1 * x19) ^ (3/2)) + ((-31/4) * x19 + (-9 * x19 * (1 + -1 * x19) + (6 * (1 + -1 * x19) ^ (1/2) + ((1/4) * x19 * (1 + -1 * x19) + -6 * x19 * (1 + -1 * x19) ^ (1/2))))) = (-35/4)
+
+Clearing of rational functions
+
+(-5/4) * x18 ^ 2 * x18 ^ -2 + -1 * x18 ^ 2 * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2 + (1/4) * x18 ^ 2 * x18 ^ -2 * x18 ^ 2 + -1 * x18 ^ 2 * x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (1/2) = -1 * (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2
+
+-1 * x18 ^ 2 * (x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (1/2) + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2) + (-5/4) * x18 ^ 2 * x18 ^ -2 + (1/4) * x18 ^ 2 * x18 ^ -2 * x18 ^ 2 + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2 = 0
+
+-1 * x18 ^ 2 * (x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (1/2) + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2) + ((-5/4) + ((1/4) * x18 ^ 2 * x18 ^ -2 * x18 ^ 2 + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2)) = 0
+
+-1 * x18 ^ 2 * (x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (1/2) + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2) + ((-5/4) + ((1/4) * x18 ^ 2 + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2)) = 0
+
+Offending set is [x18 ^ -2, x18 ^ 2]
+
+Reduced term is x18 ^ 2
+
+Rewriting equation in terms of x18 ^ 2
+gives -1 * x18 ^ 2 * ((x18 ^ 2) ^ -1 * (1 + -1 * x18 ^ 2) ^ (1/2) + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2) + ((-5/4) + ((1/4) * x18 ^ 2 + (3 + 2 * (1 + -1 * x18 ^ 2) ^ (-1/2)) ^ 2)) = 0
+
+Substituting   x20 for x18 ^ 2 gives
+ -1 * x20 * ((3 + 2 * (1 + -1 * x20) ^ (-1/2)) ^ 2 + (1 + -1 * x20) ^ (1/2) * x20 ^ -1) + (1/4) * x20 + (3 + 2 * (1 + -1 * x20) ^ (-1/2)) ^ 2 = (5/4)
+
+Attracting nasty functions
+-1 * x20 * (9 + (1 + -1 * x20) ^ -1 + 6 * (1 + -1 * x20) ^ (-1/2) + x20 ^ -1 * (1 + -1 * x20) ^ (1/2)) + (1 + -1 * x20) ^ -1 + 6 * (1 + -1 * x20) ^ (-1/2) + (1/4) * x20 = (-31/4)
+
+Attracting nasty functions
+6 * (1 + -1 * x18 ^ 2) ^ (-1/2) + -1 * x18 ^ 2 * (9 + (1 + -1 * x18 ^ 2) ^ -1 + 6 * (1 + -1 * x18 ^ 2) ^ (-1/2) + x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (1/2)) + (1/4) * x18 ^ 2 + (1 + -1 * x18 ^ 2) ^ -1 = (-31/4)
+
+Offending set is [x18 ^ -2, x18 ^ 2]
+
+Reduced term is x18 ^ 2
+
+Rewriting equation in terms of x18 ^ 2
+gives 6 * (1 + -1 * x18 ^ 2) ^ (-1/2) + (1 + -1 * x18 ^ 2) ^ -1 + -1 * x18 ^ 2 * (9 + (1 + -1 * x18 ^ 2) ^ -1 + 6 * (1 + -1 * x18 ^ 2) ^ (-1/2) + (x18 ^ 2) ^ -1 * (1 + -1 * x18 ^ 2) ^ (1/2)) + (1/4) * x18 ^ 2 = (-31/4)
+
+Substituting   x21 for x18 ^ 2 gives
+ (1/4) * x21 + 6 * (1 + -1 * x21) ^ (-1/2) + (1 + -1 * x21) ^ -1 + -1 * x21 * (9 + (1 + -1 * x21) ^ -1 + 6 * (1 + -1 * x21) ^ (-1/2) + (1 + -1 * x21) ^ (1/2) * x21 ^ -1) = (-31/4)
+
+Clearing of rational functions
+
+-1 * x21 + -9 * x21 * (1 + -1 * x21) + (1/4) * x21 * (1 + -1 * x21) + 6 * (1 + -1 * x21) ^ (1/2) + -1 * (1 + -1 * x21) ^ (1/2) * x21 ^ -1 * x21 * (1 + -1 * x21) + -6 * x21 * (1 + -1 * x21) ^ (1/2) = (-35/4) + (31/4) * x21
+
+-1 * x21 * (1 + (1 + -1 * x21) * x21 ^ -1 * (1 + -1 * x21) ^ (1/2)) + -6 * x21 * (1 + -1 * x21) ^ (1/2) + 6 * (1 + -1 * x21) ^ (1/2) + (-31/4) * x21 + -9 * x21 * (1 + -1 * x21) + (1/4) * x21 * (1 + -1 * x21) = (-35/4)
+
+-1 * x21 * (1 + x21 ^ -1 * (1 + -1 * x21) ^ (3/2)) + (-6 * x21 * (1 + -1 * x21) ^ (1/2) + (6 * (1 + -1 * x21) ^ (1/2) + ((-31/4) * x21 + (-9 * x21 * (1 + -1 * x21) + (1/4) * x21 * (1 + -1 * x21))))) = (-35/4)
+
+Clearing of rational functions
+
+6 * (1 + -1 * x18 ^ 2) ^ (1/2) + (1/4) * x18 ^ 2 * (1 + -1 * x18 ^ 2) + -6 * x18 ^ 2 * (1 + -1 * x18 ^ 2) ^ (1/2) + -1 * (1 + -1 * x18 ^ 2) ^ (1/2) * x18 ^ -2 * x18 ^ 2 * (1 + -1 * x18 ^ 2) + -1 * x18 ^ 2 + -9 * x18 ^ 2 * (1 + -1 * x18 ^ 2) = (-35/4) + (31/4) * x18 ^ 2
+
+-1 * x18 ^ 2 * (1 + (1 + -1 * x18 ^ 2) * x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (1/2)) + (-31/4) * x18 ^ 2 + -9 * x18 ^ 2 * (1 + -1 * x18 ^ 2) + 6 * (1 + -1 * x18 ^ 2) ^ (1/2) + (1/4) * x18 ^ 2 * (1 + -1 * x18 ^ 2) + -6 * x18 ^ 2 * (1 + -1 * x18 ^ 2) ^ (1/2) = (-35/4)
+
+-1 * x18 ^ 2 * (1 + x18 ^ -2 * (1 + -1 * x18 ^ 2) ^ (3/2)) + ((-31/4) * x18 ^ 2 + (-9 * x18 ^ 2 * (1 + -1 * x18 ^ 2) + (6 * (1 + -1 * x18 ^ 2) ^ (1/2) + ((1/4) * x18 ^ 2 * (1 + -1 * x18 ^ 2) + -6 * x18 ^ 2 * (1 + -1 * x18 ^ 2) ^ (1/2))))) = (-35/4)
+
+Offending set is [x18 ^ -2, x18 ^ 2]
+
+Reduced term is x18 ^ 2
+
+Rewriting equation in terms of x18 ^ 2
+gives -1 * x18 ^ 2 * (1 + (x18 ^ 2) ^ -1 * (1 + -1 * x18 ^ 2) ^ (3/2)) + ((-31/4) * x18 ^ 2 + (-9 * x18 ^ 2 * (1 + -1 * x18 ^ 2) + (6 * (1 + -1 * x18 ^ 2) ^ (1/2) + ((1/4) * x18 ^ 2 * (1 + -1 * x18 ^ 2) + -6 * x18 ^ 2 * (1 + -1 * x18 ^ 2) ^ (1/2))))) = (-35/4)
+
+Substituting   x22 for x18 ^ 2 gives
+ -1 * x22 * (1 + (1 + -1 * x22) ^ (3/2) * x22 ^ -1) + (1/4) * x22 * (1 + -1 * x22) + -6 * x22 * (1 + -1 * x22) ^ (1/2) + 6 * (1 + -1 * x22) ^ (1/2) + -9 * x22 * (1 + -1 * x22) + (-31/4) * x22 = (-35/4)
+
+Trying tan half-angle method
+
+Reduced term is tan((1/2) * y)
+
+Rewriting equation in terms of tan((1/2) * y)
+gives -2 * (2 * tan((1/2) * y) * (1 + tan((1/2) * y) ^ 2) ^ -1) ^ -1 + (-1/2) * (-2 * ((1 - tan((1/2) * y) ^ 2) * (1 + tan((1/2) * y) ^ 2) ^ -1) ^ -1 + -1 * (1 * (2 * tan((1/2) * y) / (1 * 1 - 1 * tan((1/2) * y) ^ 2)))) * (1 * (2 * tan((1/2) * y) / (1 * 1 - 1 * tan((1/2) * y) ^ 2))) ^ -1 = 3
+
+Substituting   x23 for tan((1/2) * y) gives
+ (1/2) * x23 ^ -1 * (1 + -1 * x23 ^ 2) * ((-1/2) * (-2 * x23 * (1 + -1 * x23 ^ 2) ^ -1 + -2 * (1 + -1 * x23 ^ 2) ^ -1 * (1 + x23 ^ 2))) + -1 * x23 ^ -1 * (1 + x23 ^ 2) = 3
+
+-1 * x23 ^ -1 * (1 + x23 ^ 2) + (1/2) * x23 ^ -1 * (1 + -1 * x23 ^ 2) * (-1/2) * (-2 * (1 + -1 * x23 ^ 2) ^ -1 * (1 + x23 ^ 2 + x23)) = 3
+
+-1 * x23 ^ -1 * (1 + x23 ^ 2) + (1/2) * x23 ^ -1 * (1 + x23 ^ 2 + x23) = 3
+
+Polynomial -3 + -1 * x23 ^ -1 * (1 + x23 ^ 2) + (1/2) * x23 ^ -1 * (1 + x23 ^ 2 + x23) becomes 
+
+(-1/2) * x23 + (-5/2) + (-1/2) * x23 ^ -1 when in normal form
+
+Multiply through by x23 to get 
+
+(-1/2) * x23 ^ 2 + (-5/2) * x23 + (-1/2) = 0
+
+Using quadratic equation formula
+
+Solutions are x23 = (-5/2) + -1 * (21/4) ^ (1/2) and x23 = (-5/2) + 1 * (21/4) ^ (1/2)
+
+Applying substitution 
+    x23 = tan((1/2) * y)
+
+   to    : 
+    x23 = (-5/2) + -1 * (21/4) ^ (1/2) # x23 = (-5/2) + 1 * (21/4) ^ (1/2)
+
+   gives : 
+    tan((1/2) * y) = (-5/2) + -1 * (21/4) ^ (1/2) # tan((1/2) * y) = (-5/2) + (21/4) ^ (1/2)
+
+
+
+Solving disjunct tan((1/2) * y) = (-5/2) + -1 * (21/4) ^ (1/2)
+
+	Letting n25 denote an arbitrary integer
+    y = 2 * (arctan((-5/2) + -1 * (21/4) ^ (1/2)) + 180 * n25)
+     (by Isolation)
+
+
+Solving disjunct tan((1/2) * y) = (-5/2) + (21/4) ^ (1/2)
+
+	Letting n26 denote an arbitrary integer
+    y = 2 * (arctan((-5/2) + (21/4) ^ (1/2)) + 180 * n26)
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  y = 2 * (180 * n25 + arctan((-5/2) + -1 * (21/4) ^ (1/2)))
+    X2 =  y = 2 * (180 * n26 + arctan((-5/2) + (21/4) ^ (1/2)))
+
+Substituting back in x solution
+
+Applying substitution 
+    y = 2 * (180 * n25 + arctan((-5/2) + -1 * (21/4) ^ (1/2)))
+
+   to    : 
+    x = (-1/2) * (-2 * sec(y) + -1 * tan(y))
+
+   gives : 
+    x = (-1/2) * (-1 * tan(2 * (arctan((-5/2) + -1 * (21/4) ^ (1/2)) + 180 * n25)) + -2 * sec(2 * (arctan((-5/2) + -1 * (21/4) ^ (1/2)) + 180 * n25)))
+
+
+Applying substitution 
+    y = 2 * (180 * n26 + arctan((-5/2) + (21/4) ^ (1/2)))
+
+   to    : 
+    x = (-1/2) * (-2 * sec(y) + -1 * tan(y))
+
+   gives : 
+    x = (-1/2) * (-1 * tan(2 * (arctan((-5/2) + (21/4) ^ (1/2)) + 180 * n26)) + -2 * sec(2 * (arctan((-5/2) + (21/4) ^ (1/2)) + 180 * n26)))
+
+
+Final Answers are : 
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 2 * (180 * n25 + arctan((-5/2) + -1 * (21/4) ^ (1/2)))
+    X2 =  x = (-1/2) * (-1 * tan(2 * (arctan((-5/2) + -1 * (21/4) ^ (1/2)) + 180 * n25)) + -2 * sec(2 * (arctan((-5/2) + -1 * (21/4) ^ (1/2)) + 180 * n25)))
+    X3 =  y = 2 * (180 * n26 + arctan((-5/2) + (21/4) ^ (1/2)))
+    X4 =  x = (-1/2) * (-1 * tan(2 * (arctan((-5/2) + (21/4) ^ (1/2)) + 180 * n26)) + -2 * sec(2 * (arctan((-5/2) + (21/4) ^ (1/2)) + 180 * n26)))
+
+Evaluating expression to
+
+
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 2 * (-0.0238244058351536 + 180 * n25)
+    X2 =  x = (-2 * sec(2 * (180 * n25 + -0.0238244058351536)) + -1 * tan(2 * (180 * n25 + -0.0238244058351536))) * -0.5
+    X3 =  y = 2 * (-0.003591161945650174 + 180 * n26)
+    X4 =  x = (-2 * sec(2 * (180 * n26 + -0.003591161945650174)) + -1 * tan(2 * (180 * n26 + -0.003591161945650174))) * -0.5
+
+
+Answer is : 
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 2 * (-0.0238244058351536 + 180 * n25)
+    X2 =  x = (-2 * sec(2 * (180 * n25 + -0.0238244058351536)) + -1 * tan(2 * (180 * n25 + -0.0238244058351536))) * -0.5
+    X3 =  y = 2 * (-0.003591161945650174 + 180 * n26)
+    X4 =  x = (-2 * sec(2 * (180 * n26 + -0.003591161945650174)) + -1 * tan(2 * (180 * n26 + -0.003591161945650174))) * -0.5
+
+
+=== yes
+
+=== lon(39)
+
+Solving sin(x) - cos(x) = 1 for x
+
+Tidying to sin(x) + -1 * cos(x) = 1
+
+sin(-45 + x) * 2 ^ (1/2) = 1 
+
+	Letting n27 denote an arbitrary integer
+    x = 45 + 180 * n27 + arcsin(2 ^ (-1/2)) * -1 ^ n27
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 45 + 180 * n27 + -1 ^ n27 * arcsin(2 ^ (-1/2))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 45 + 180 * n27 + -1 ^ n27 * 0.013707783890401889
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 45 + 180 * n27 + -1 ^ n27 * 0.013707783890401889
+
+
+=== yes
+
+=== lon(40)
+
+Solving cos(2 * x) + 1 = sin(2 * x) for x
+
+Tidying to -1 * sin(2 * x) + cos(2 * x) = -1
+
+Applying substitution 
+    2 * x = x24
+
+   to    : 
+    -1 * sin(2 * x) + cos(2 * x) = -1
+
+   gives : 
+    cos(x24) + -1 * sin(x24) = -1
+
+
+sin(-45 + x24) * 2 ^ (1/2) = -1 
+
+	Letting n28 denote an arbitrary integer
+    x24 = 45 + 180 * n28 + arcsin(-1 * 2 ^ (-1/2)) * -1 ^ n28
+     (by Isolation)
+
+Applying substitution 
+    x24 = 2 * x
+
+   to    : 
+    x24 = 45 + 180 * n28 + arcsin(-1 * 2 ^ (-1/2)) * -1 ^ n28
+
+   gives : 
+    2 * x = 45 + 180 * n28 + -1 ^ n28 * arcsin(-1 * 2 ^ (-1/2))
+
+
+    x = (45/2) + (1/2) * (arcsin(-1 * 2 ^ (-1/2)) * -1 ^ n28 + 180 * n28)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (45/2) + (1/2) * (180 * n28 + -1 ^ n28 * arcsin(-1 * 2 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 22.5 + 0.5 * (180 * n28 + -1 ^ n28 * -0.013707783890401889)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 22.5 + 0.5 * (180 * n28 + -1 ^ n28 * -0.013707783890401889)
+
+
+=== yes

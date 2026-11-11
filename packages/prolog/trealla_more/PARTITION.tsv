@@ -1,0 +1,24 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=20 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=1 chunks=1 sizes=18
+entry	part	cluster	shells
+ports/rpi4/hello	core	core	
+samples/antbee	core	core	
+samples/blocks	chunk:01	dir:samples	
+samples/chess	chunk:01	dir:samples	
+samples/factorial	chunk:01	dir:samples	
+samples/fft	chunk:01	dir:samples	
+samples/fib	chunk:01	dir:samples	
+samples/fib_fast	chunk:01	dir:samples	
+samples/fib_tabled	chunk:01	dir:samples	
+samples/hanoi	chunk:01	dir:samples	
+samples/indexing_shared_arg	chunk:01	dir:samples	
+samples/main	chunk:01	dir:samples	
+samples/nested_var_bug	chunk:01	dir:samples	
+samples/puzzle	chunk:01	dir:samples	
+samples/qsort	chunk:01	dir:samples	
+samples/queens11	chunk:01	dir:samples	
+samples/queens4	chunk:01	dir:samples	
+samples/sieve	chunk:01	dir:samples	
+samples/sudoku	chunk:01	dir:samples	
+samples/test_index	chunk:01	dir:samples	

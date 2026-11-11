@@ -1,0 +1,624 @@
+
+Tracing level reset from 0 to 5.
+
+=== high(1)
+
+Solving 10 * cos(x) ^ 2 + sin(x) - 7 = 0 for x
+
+Tidying to 10 * cos(x) ^ 2 + sin(x) = 7
+
+Offending set is [cos(x), sin(x)]
+
+Reduced term is sin(x)
+
+Rewriting equation in terms of sin(x)
+gives 10 * ((1 - sin(x) ^ 2) ^ (1 / 2)) ^ 2 + sin(x) = 7
+
+Substituting   x1 for sin(x) gives
+ x1 + 10 * (1 + -1 * x1 ^ 2) = 7
+
+Using quadratic equation formula
+
+Solutions are x1 = (-1/2) and x1 = (3/5)
+
+Applying substitution 
+    x1 = sin(x)
+
+   to    : 
+    x1 = (-1/2) # x1 = (3/5)
+
+   gives : 
+    sin(x) = (-1/2) # sin(x) = (3/5)
+
+
+
+Solving disjunct sin(x) = (-1/2)
+
+	Letting n1 denote an arbitrary integer
+    x = -30 * -1 ^ n1 + 180 * n1
+     (by Isolation)
+
+
+Solving disjunct sin(x) = (3/5)
+
+	Letting n2 denote an arbitrary integer
+    x = arcsin((3/5)) * -1 ^ n2 + 180 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 180 * n1 + -30 * -1 ^ n1
+    X2 =  x = 180 * n2 + -1 ^ n2 * arcsin((3/5))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = -30 * -1 ^ n1 + 180 * n1
+    X2 =  x = 0.011231213088677047 * -1 ^ n2 + 180 * n2
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = -30 * -1 ^ n1 + 180 * n1
+    X2 =  x = 0.011231213088677047 * -1 ^ n2 + 180 * n2
+
+
+=== yes
+
+=== high(2)
+Simultaneously solving : 
+    x + 3 * y = 4
+    x ^ 2 + 3 * x * y + 5 * y ^ 2 - 6 * x = 0
+For [x, y].
+
+Solving x + 3 * y = 4 for x
+
+Tidying to x = 4 + -3 * y
+
+    x = 4 + -3 * y
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 4 + -3 * y
+
+
+Applying substitution 
+    x = 4 + -3 * y
+
+   to    : 
+    x ^ 2 + 3 * x * y + 5 * y ^ 2 - 6 * x = 0
+
+   gives : 
+    -6 * (-3 * y) + (4 + -3 * y) ^ 2 + y * (12 + 3 * (-3 * y)) + 5 * y ^ 2 = 24
+
+
+Solving -6 * (-3 * y) + (4 + -3 * y) ^ 2 + y * (12 + 3 * (-3 * y)) + 5 * y ^ 2 = 24 for y
+
+Tidying to 5 * y ^ 2 + (4 + -3 * y) ^ 2 + (12 + -9 * y) * y + 18 * y = 24
+
+Polynomial -24 + 5 * y ^ 2 + (4 + -3 * y) ^ 2 + y * (12 + -9 * y) + 18 * y becomes 
+
+5 * y ^ 2 + 6 * y + -8 when in normal form
+
+Using quadratic equation formula
+
+Solutions are y = (4/5) and y = -2
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  y = (4/5)
+    X2 =  y = -2
+
+Substituting back in x solution
+
+Applying substitution 
+    y = (4/5)
+
+   to    : 
+    x = 4 + -3 * y
+
+   gives : 
+    x = (8/5)
+
+
+Applying substitution 
+    y = -2
+
+   to    : 
+    x = 4 + -3 * y
+
+   gives : 
+    x = 10
+
+
+Final Answers are : 
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = (4/5)
+    X2 =  x = (8/5)
+    X3 =  y = -2
+    X4 =  x = 10
+
+Evaluating expression to
+
+
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 0.8
+    X2 =  x = 1.6
+    X3 =  y = -2
+    X4 =  x = 10
+
+
+Answer is : 
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 0.8
+    X2 =  x = 1.6
+    X3 =  y = -2
+    X4 =  x = 10
+
+
+=== yes
+
+=== high(3)
+Simultaneously solving : 
+    2 * x - 3 * y + 1 = 0
+    2 * x ^ 2 + 3 * y ^ 2 + 3 * x + y = 4
+For [x, y].
+
+Solving 2 * x - 3 * y + 1 = 0 for x
+
+Tidying to 2 * x = -1 + 3 * y
+
+    x = (-1/2) + (1/2) * (3 * y)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (-1/2) + (3/2) * y
+
+
+Applying substitution 
+    x = (-1/2) + (3/2) * y
+
+   to    : 
+    2 * x ^ 2 + 3 * y ^ 2 + 3 * x + y = 4
+
+   gives : 
+    y + 2 * ((-1/2) + (3/2) * y) ^ 2 + 3 * y ^ 2 + 3 * ((3/2) * y) = (11/2)
+
+
+Solving y + 2 * ((-1/2) + (3/2) * y) ^ 2 + 3 * y ^ 2 + 3 * ((3/2) * y) = (11/2) for y
+
+Tidying to (9/2) * y + 2 * ((-1/2) + (3/2) * y) ^ 2 + 3 * y ^ 2 + y = (11/2)
+
+Polynomial (-11/2) + (9/2) * y + 2 * ((-1/2) + (3/2) * y) ^ 2 + 3 * y ^ 2 + y becomes 
+
+(15/2) * y ^ 2 + (5/2) * y + -5 when in normal form
+
+Using quadratic equation formula
+
+Solutions are y = (2/3) and y = -1
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  y = (2/3)
+    X2 =  y = -1
+
+Substituting back in x solution
+
+Applying substitution 
+    y = (2/3)
+
+   to    : 
+    x = (-1/2) + (3/2) * y
+
+   gives : 
+    x = (1/2)
+
+
+Applying substitution 
+    y = -1
+
+   to    : 
+    x = (-1/2) + (3/2) * y
+
+   gives : 
+    x = -2
+
+
+Final Answers are : 
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = (2/3)
+    X2 =  x = (1/2)
+    X3 =  y = -1
+    X4 =  x = -2
+
+Evaluating expression to
+
+
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 0.6666666666666666
+    X2 =  x = 0.5
+    X3 =  y = -1
+    X4 =  x = -2
+
+
+Answer is : 
+((X1 & X2) # (X3 & X4))
+  where :
+    X1 =  y = 0.6666666666666666
+    X2 =  x = 0.5
+    X3 =  y = -1
+    X4 =  x = -2
+
+
+=== yes
+
+=== high(4)
+
+Solving sin(5 * x) + sin(x) = 3 * cos(2 * x) for x
+
+Tidying to -3 * cos(2 * x) + sin(x) + sin(5 * x) = 0
+
+Adding sin terms 
+-3 * cos(2 * x) + 2 * sin(3 * x) * cos(2 * x) = 0 
+
+(-3 + 2 * sin(3 * x)) * cos(2 * x) = 0
+
+
+Solving factor cos(2 * x) = 0
+
+	Letting n3 denote an arbitrary integer
+    x = 45 + (1/2) * (180 * n3)
+     (by Isolation)
+
+
+Solving factor -3 + 2 * sin(3 * x) = 0
+
+sin(3 * x)=(0 + -1 * -3) * (1/2) has no real roots, sin must lie in [-1,1]
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 45 + 90 * n3
+
+
+=== yes
+
+=== high(5)
+Simultaneously solving : 
+    4 * x + y - z = 12
+    3 * x - y + 3 * z = 0
+    5 * x - 3 * y + 2 * z = -1
+For [x, y, z].
+
+Solving 4 * x + y - z = 12 for x
+
+Tidying to 4 * x = 12 + -1 * y + z
+
+    x = 3 + (1/4) * (z + -1 * y)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 3 + (1/4) * (-1 * y + z)
+
+
+Applying substitution 
+    x = 3 + (1/4) * (-1 * y + z)
+
+   to    : 
+    3 * x - y + 3 * z = 0
+    5 * x - 3 * y + 2 * z = -1
+
+   gives : 
+    3 * z + 3 * ((1/4) * (z + -1 * y)) + -1 * y = -9
+    2 * z + 5 * ((1/4) * (z + -1 * y)) + -3 * y = -16
+
+
+Solving 3 * z + 3 * ((1/4) * (z + -1 * y)) + -1 * y = -9 for y
+
+Tidying to -1 * y + 3 * ((1/4) * (-1 * y + z)) = -9 + -3 * z
+
+Polynomial 9 + 3 * ((1/4) * (z + -1 * y)) + -1 * y + 3 * z becomes 
+
+(-7/4) * y + ((15/4) * z + 9) when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  y = (36/7) + (15/7) * z
+
+
+Applying substitution 
+    y = (36/7) + (15/7) * z
+
+   to    : 
+    2 * z + 5 * ((1/4) * (z + -1 * y)) + -3 * y = -16
+
+   gives : 
+    -3 * ((15/7) * z) + 5 * ((1/4) * (z + (-15/7) * z)) + 2 * z = (41/7)
+
+
+Solving -3 * ((15/7) * z) + 5 * ((1/4) * (z + (-15/7) * z)) + 2 * z = (41/7) for z
+
+Tidying to (-45/7) * z + 5 * ((1/4) * ((-15/7) * z + z)) + 2 * z = (41/7)
+
+Polynomial (-41/7) + 5 * ((1/4) * (z + (-15/7) * z)) + (-45/7) * z + 2 * z becomes 
+
+(-41/7) * z + (-41/7) when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  z = -1
+
+Substituting back in y solution
+
+Applying substitution 
+    z = -1
+
+   to    : 
+    y = (36/7) + (15/7) * z
+
+   gives : 
+    y = 3
+
+Substituting back in x solution
+
+Applying substitution 
+    z = -1
+    y = 3
+
+   to    : 
+    x = 3 + (1/4) * (-1 * y + z)
+
+   gives : 
+    x = 2
+
+
+Final Answers are : 
+((X1 & X2) & X3)
+  where :
+    X1 =  z = -1
+    X2 =  y = 3
+    X3 =  x = 2
+
+=== yes
+
+=== high(6)
+
+Solving 2 * cos(2 * x) + cos(x) - 1 = 0 for x
+
+Tidying to 2 * cos(2 * x) + cos(x) = 1
+
+Offending set is [cos(2 * x), cos(x)]
+
+Reduced term is cos(x)
+
+Rewriting equation in terms of cos(x)
+gives 2 * (2 * cos(x) ^ 2 - 1 * 1) + cos(x) = 1
+
+Substituting   x2 for cos(x) gives
+ x2 + 2 * (2 * x2 ^ 2) = 3
+
+Using quadratic equation formula
+
+Solutions are x2 = (3/4) and x2 = -1
+
+Applying substitution 
+    x2 = cos(x)
+
+   to    : 
+    x2 = (3/4) # x2 = -1
+
+   gives : 
+    cos(x) = (3/4) # cos(x) = -1
+
+
+
+Solving disjunct cos(x) = (3/4)
+
+	Letting n4 denote an arbitrary integer
+    x = arccos((3/4)) + 360 * n4 # x = -1 * arccos((3/4)) + 360 * n4
+     (by Isolation)
+
+
+Solving disjunct cos(x) = -1
+
+	Letting n5 denote an arbitrary integer
+    x = 180 + 360 * n5
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 360 * n4 + arccos((3/4))
+    X2 =  x = 360 * n4 + -1 * arccos((3/4))
+    X3 =  x = 180 + 360 * n5
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0.012614092241268731 + 360 * n4
+    X2 =  x = 360 * n4 + -1 * 0.012614092241268731
+    X3 =  x = 180 + 360 * n5
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0.012614092241268731 + 360 * n4
+    X2 =  x = 360 * n4 + -1 * 0.012614092241268731
+    X3 =  x = 180 + 360 * n5
+
+
+=== yes
+
+=== high(7)
+
+Solving sin(5 * x / 2) - sin(3 * x / 2) = 0 for x
+
+Tidying to sin((5/2) * x) + -1 * sin((3/2) * x) = 0
+
+Using trigonometric addition
+ 2 * sin((1/2) * x) * cos(2 * x) = 0
+
+Dividing through by 2
+
+Solving factor cos(2 * x) = 0
+
+	Letting n6 denote an arbitrary integer
+    x = 45 + (1/2) * (180 * n6)
+     (by Isolation)
+
+
+Solving factor sin((1/2) * x) = 0
+
+	Letting n7 denote an arbitrary integer
+    x = 360 * n7
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n6
+    X2 =  x = 360 * n7
+
+
+=== yes
+
+=== high(8)
+
+Solving 9 * 6 ^ (2 * x) - 10 * 6 ^ x + 1 = 0 for x
+
+Tidying to 9 * 6 ^ (2 * x) + -10 * 6 ^ x = -1
+
+Offending set is [6 ^ (2 * x), 6 ^ x]
+
+Reduced term is 6 ^ x
+
+Rewriting equation in terms of 6 ^ x
+gives 9 * (6 ^ x) ^ 2 + -10 * 6 ^ x = -1
+
+Substituting   x3 for 6 ^ x gives
+ -10 * x3 + 9 * x3 ^ 2 = -1
+
+Using quadratic equation formula
+
+Solutions are x3 = 1 and x3 = (1/9)
+
+Applying substitution 
+    x3 = 6 ^ x
+
+   to    : 
+    x3 = 1 # x3 = (1/9)
+
+   gives : 
+    6 ^ x = 1 # 6 ^ x = (1/9)
+
+
+
+Solving disjunct 6 ^ x = 1
+
+    x = 0
+     (by Isolation)
+
+
+Solving disjunct 6 ^ x = (1/9)
+
+    x = log(6, (1/9))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = log(6, (1/9))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -1.226294385530917
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -1.226294385530917
+
+
+=== yes
+
+=== high(9)
+
+Solving sin(3 * x) - sin(x) = 1 / 2 * cos(2 * x) for x
+
+Tidying to (-1/2) * cos(2 * x) + -1 * sin(x) + sin(3 * x) = 0
+
+Adding sin terms 
+(-1/2) * cos(2 * x) + 2 * sin(x) * cos(2 * x) = 0 
+
+((-1/2) + 2 * sin(x)) * cos(2 * x) = 0
+
+
+Solving factor cos(2 * x) = 0
+
+	Letting n8 denote an arbitrary integer
+    x = 45 + (1/2) * (180 * n8)
+     (by Isolation)
+
+
+Solving factor (-1/2) + 2 * sin(x) = 0
+
+	Letting n9 denote an arbitrary integer
+    x = arcsin((1/4)) * -1 ^ n9 + 180 * n9
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n8
+    X2 =  x = 180 * n9 + -1 ^ n9 * arcsin((1/4))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n8
+    X2 =  x = 0.004410102407008605 * -1 ^ n9 + 180 * n9
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n8
+    X2 =  x = 0.004410102407008605 * -1 ^ n9 + 180 * n9
+
+
+=== yes

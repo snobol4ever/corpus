@@ -1,0 +1,6 @@
+root	/home/resources/prolog-demos/PRESS
+origin	https://github.com/maths/PRESS.git
+version	026ff5d5e2a572fd05e4313792a177dab6682660
+licence	MIT
+copy	root
+cwd	root

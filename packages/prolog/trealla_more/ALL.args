@@ -1,0 +1,17 @@
+samples/blocks	main
+samples/chess	main
+samples/factorial	test
+samples/fft	test
+samples/fib	test
+samples/fib_fast	test
+samples/fib_tabled	test
+samples/hanoi	test
+samples/indexing_shared_arg	main
+samples/nested_var_bug	main
+samples/puzzle	main
+samples/qsort	test
+samples/queens11	test
+samples/queens4	test
+samples/sieve	test
+samples/sudoku	test
+samples/test_index	main
