@@ -1,0 +1,65 @@
+This program plays TIC-TAC-TOE.  Your mark is X and you will play first.
+The board is numbered as follows:
+
+012
+345
+678
+
+When it is your turn to play, type the number of the square you wish to mark.
+For example, if you type '4', the result is:
+
+...
+.X.
+...
+
+Any time it is your turn to play, you may start a new game by typing 'N'
+or end the session by typing 'Q'
+----------
+NEW GAME
+Your play
+
+...
+.OX
+...
+
+Your play
+
+OX.
+.OX
+...
+
+Your play
+Erroneous move - try again
+Your play
+I win
+
+OX.
+XOX
+..O
+
+----------
+NEW GAME
+Your play
+
+...
+.O.
+.X.
+
+Your play
+
+O.X
+.O.
+.X.
+
+Your play
+
+O.X
+.O.
+OXX
+
+Your play
+Erroneous move - try again
+Your play
+Erroneous move - try again
+Your play
+Session abandoned

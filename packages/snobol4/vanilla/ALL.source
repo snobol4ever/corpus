@@ -1,0 +1,4 @@
+root	/home/resources/collections/snobol4/vanilla
+origin	the archive /home/resources/vanilla.tar.gz (Vanilla SNOBOL4, Catspaw, Inc.), unpacked once
+version	vanilla.tar.gz sha256 9e584a0ffe96f72d9070917997e1a3456d3c4c18b660de512de5ba5f412c597d
+licence	Catspaw Vanilla SNOBOL4 licence: copying only of the whole package, unmodified and together (readme.doc)

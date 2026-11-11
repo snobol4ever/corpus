@@ -1,0 +1,11 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,budget,budget.sno,vanilla__budget,vanilla,112,0,131072,4096,60,
+2,cross,cross.sno,vanilla__cross,vanilla,56,0,131072,4096,60,
+3,fcounts,fcounts.sno,vanilla__fcounts,vanilla,11,0,131072,4096,60,
+4,length,length.sno,vanilla__length,vanilla,7,0,131072,4096,60,
+5,smartvow,smartvow.sno,vanilla__smartvow,vanilla,52,0,131072,4096,60,
+6,tictac,tictac.sno,vanilla__tictac,vanilla,148,0,131072,4096,60,
+7,triplet,triplet.sno,vanilla__triplet,vanilla,19,0,131072,4096,60,
+8,vowels,vowels.sno,vanilla__vowels,vanilla,40,0,131072,4096,60,
+9,words,words.sno,vanilla__words,vanilla,23,0,131072,4096,60,
+10,wordsize,wordsize.sno,vanilla__wordsize,vanilla,57,0,131072,4096,60,

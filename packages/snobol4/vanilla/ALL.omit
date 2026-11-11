@@ -1,0 +1,11 @@
+bitzer.sno: ORACLE-REFUSES: SPITBOL ends it with an error: bitzer.sno(132) : ERROR 248 -- attempted redefinition of system function
+bnf.sno: ORACLE-REFUSES: SPITBOL ends it with an error: bnf.sno(31) : ERROR 251 -- keyword operand is not name of defined keyword
+capital.sno: ORACLE-REFUSES: SPITBOL ends it with an error: capital.sno(7) : ERROR 116 -- inappropriate file specification for input
+code.sno: DOES-NOT-END: no answer inside 60 s
+demo.sno: ORACLE-REFUSES: SPITBOL ends it with an error: demo.sno(1) : ERROR 251 -- keyword operand is not name of defined keyword
+diff.sno: ORACLE-REFUSES: SPITBOL ends it with an error: diff.sno(39) : ERROR 248 -- attempted redefinition of system function
+gentran.sno: ORACLE-REFUSES: SPITBOL ends it with an error: gentran.sno(108) : ERROR 116 -- inappropriate file specification for input
+labcent.sno: ORACLE-REFUSES: SPITBOL ends it with an error: labcent.sno(35) : ERROR 251 -- keyword operand is not name of defined keyword
+rpoem.sno: ORACLE-REFUSES: SPITBOL ends it with an error: rpoem.sno(25) : ERROR 116 -- inappropriate file specification for input
+vinside.sno: ORACLE-REFUSES: SPITBOL ends it with an error: vinside.sno(20) : ERROR 251 -- keyword operand is not name of defined keyword
+wdstar.sno: NO-OUTPUT: with the input we supply (our own text on standard input): nothing on standard output, exit 0
