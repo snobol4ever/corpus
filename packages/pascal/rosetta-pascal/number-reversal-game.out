@@ -1,0 +1,8 @@
+Number Reversal Game
+
+Sort the following list in ascending order by reversing the first n digits
+from the left.
+
+          6,           3,           4,           5,           7,           2,           1,           8,           9
+How many digits from the left will you reverse?
+> 

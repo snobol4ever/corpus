@@ -1,0 +1,24 @@
+Ternary logic test:
+
+NOT  True  Maybe False
+     False Maybe True 
+
+AND    True  Maybe False
+True   True  Maybe False
+Maybe  Maybe Maybe False
+False  False False False
+
+OR     True  Maybe False
+True   True  True  True 
+Maybe  True  Maybe Maybe
+False  True  Maybe False
+
+IFTHEN True  Maybe False
+True   True  Maybe False
+Maybe  True  Maybe Maybe
+False  True  True  True 
+
+EQUAL  True  Maybe False
+True   True  Maybe False
+Maybe  Maybe Maybe Maybe
+False  False Maybe True 

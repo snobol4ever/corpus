@@ -1,0 +1,8 @@
+sqrt(2)
+  1.41421356237309505 after 27 terms (converged)
+e
+  2.71828182845904524 after 20 terms (converged)
+pi
+  3.14159265383979293 after 1000 terms (too many terms)
+pi (alternative formula)
+  3.14159265358979324 after 29 terms (converged)

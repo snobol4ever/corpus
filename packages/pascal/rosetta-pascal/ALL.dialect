@@ -240,7 +240,6 @@ smith-numbers	objfpc
 sockets-1	fpc-default
 sort-disjoint-sublist	iso
 sort-using-a-custom-comparator	objfpc
-sorting-algorithms-bead-sort	iso
 sorting-algorithms-bogosort	iso
 sorting-algorithms-circle-sort	iso
 sorting-algorithms-comb-sort-1	iso

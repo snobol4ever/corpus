@@ -1,0 +1,5 @@
+ListA          -> Bob John Mary Serena 
+ListB          -> Bob Jim John Mary 
+ListA >< ListB -> Jim Serena 
+ListA -  ListB -> Serena 
+ListB -  ListA -> Jim 

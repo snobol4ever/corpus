@@ -1,0 +1,4 @@
+Length of Hailstone(27) is 112,
+it starts with [27, 82, 41, 124]
+and ends with  [8, 4, 2, 1]
+Maximum length 351 was found for Hailstone(77031)

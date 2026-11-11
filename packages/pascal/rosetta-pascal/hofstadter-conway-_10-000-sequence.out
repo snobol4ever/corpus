@@ -1,0 +1,22 @@
+Max between 2^ 0 and 2^ 1 1.00000000000 at         1 value :         1
+Max between 2^ 1 and 2^ 2 0.66666666667 at         3 value :         2
+Max between 2^ 2 and 2^ 3 0.66666666667 at         6 value :         4
+Max between 2^ 3 and 2^ 4 0.63636363636 at        11 value :         7
+Max between 2^ 4 and 2^ 5 0.60869565217 at        23 value :        14
+Max between 2^ 5 and 2^ 6 0.59090909091 at        44 value :        26
+Max between 2^ 6 and 2^ 7 0.57608695652 at        92 value :        53
+Max between 2^ 7 and 2^ 8 0.56741573034 at       178 value :       101
+Max between 2^ 8 and 2^ 9 0.55945945946 at       370 value :       207
+Max between 2^ 9 and 2^10 0.55493741307 at       719 value :       399
+Max between 2^10 and 2^11 0.55010087424 at      1487 value :       818
+Max between 2^11 and 2^12 0.54746289265 at      2897 value :      1586
+Max between 2^12 and 2^13 0.54414474786 at      5969 value :      3248
+Max between 2^13 and 2^14 0.54244270878 at     11651 value :      6320
+Max between 2^14 and 2^15 0.54007109751 at     22223 value :     12002
+Max between 2^15 and 2^16 0.53878402058 at     45083 value :     24290
+Max between 2^16 and 2^17 0.53704365700 at     89516 value :     48074
+Max between 2^17 and 2^18 0.53602006781 at    181385 value :     97226
+Max between 2^18 and 2^19 0.53464543108 at    353683 value :    189095
+Max between 2^19 and 2^20 0.53377922996 at    722589 value :    385703
+
+Mallows number with limit 0.55000000 at 1489

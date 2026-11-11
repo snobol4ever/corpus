@@ -1,0 +1,6 @@
+Shortest paths from node a:
+  b: length   7,  a -> b
+  c: length   9,  a -> c
+  d: length  20,  a -> c -> d
+  e: length  26,  a -> c -> d -> e
+  f: length  11,  a -> c -> f

@@ -1,0 +1,6 @@
+Version 1: simply stepping x:
+root found at x =  7.9183006354215199e-012
+root found at x =  1.0000000000158367e+000
+root found at x =  1.9999999999335700e+000
+Version 2: secant method:
+Exact root found at x =  1.0000000000000000e+000

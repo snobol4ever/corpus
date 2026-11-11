@@ -1,0 +1,5 @@
+success: 
+ieee, dware, gtech, dw01, std, synopsys, dw02, ramlib, std_cell_lib, des_system_lib, dw06, dw03, dw07, dw05, dw04
+
+circular dependency: 
+dw03->dw01->dw07->dw03

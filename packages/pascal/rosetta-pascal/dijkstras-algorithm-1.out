@@ -1,0 +1,7 @@
+Shortest path to each vertex from a:
+a:          0
+b:          7 (a→b)
+c:          9 (a→c)
+d:         20 (a→c→d)
+e:         26 (a→c→d→e)
+f:         11 (a→c→f)

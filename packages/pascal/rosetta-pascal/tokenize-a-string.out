@@ -1,0 +1,2 @@
+Tokenize from: "Hello,How,Are,You,Today"
+to:            "Hello.How.Are.You.Today"

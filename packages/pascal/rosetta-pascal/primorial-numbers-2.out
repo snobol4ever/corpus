@@ -1,0 +1,14 @@
+Primorial (0->9) 1,2,6,30,210,2310,30030,510510,9699690,223092870, 
+
+Primorial (10) = digits 10 digits
+Primorial (100) = digits 220 digits
+Primorial (1000) = digits 3393 digits
+Primorial (10000) = digits 45337 digits
+Primorial (100000) = digits 563921 digits
+Primorial (1000000) = digits 6722809 digits
+
+PrimorialExact (10) = digits 10 digits
+PrimorialExact (100) = digits 220 digits
+PrimorialExact (1000) = digits 3393 digits
+PrimorialExact (10000) = digits 45337 digits
+PrimorialExact (100000) = digits 563921 digits

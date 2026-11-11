@@ -1,0 +1,10 @@
+--- Examples in 10-Base ---
+627615(10) has additive persistence 2 and digital root 9.
+39390(10) has additive persistence 2 and digital root 6.
+588225(10) has additive persistence 2 and digital root 3.
+393900588225(10) has additive persistence 2 and digital root 9.
+--- Examples in 16-Base ---
+9939F(16) has additive persistence 2 and digital root 15.
+99DE(16) has additive persistence 2 and digital root 15.
+8F9C1(16) has additive persistence 2 and digital root 15.
+5BB64DFCC1(16) has additive persistence 2 and digital root 15.

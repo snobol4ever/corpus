@@ -1,0 +1,6 @@
+Accepts single-character variables (except for 'T' and 'F',
+which specify explicit true or false values), postfix, with
+&|!^ for and, or, not, xor, respectively; optionally
+seperated by space. Just enter nothing to quit.
+
+Boolean expression: 

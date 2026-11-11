@@ -1,0 +1,5 @@
+ Test abelian sandpile( 4 )
+010
+101
+010
+columns 3 checksum 4 ?=? 4

@@ -1,0 +1,11 @@
+Testing fifo implementation ...
+Ok, got           2.
+Ok, got           3.
+Ok, got           5.
+Ok, got           7.
+Ok, got          11.
+Ok, got          13.
+Ok, fifo is empty.
+Ok, got          17.
+Ok, fifo is empty.
+Testing finished.

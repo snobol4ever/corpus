@@ -1,0 +1,20 @@
+{
+  "answer" : {
+    "everything" : 42
+  },
+  "happy" : true,
+  "list" : [
+    0,
+    1,
+    2
+  ],
+  "name" : "Pierrot",
+  "nothing" : null,
+  "object" : {
+    "product" : "unknown",
+    "amount" : 1001
+  },
+  "pi" : 3.1415999999999999E+000
+}
+
+Objects look identical

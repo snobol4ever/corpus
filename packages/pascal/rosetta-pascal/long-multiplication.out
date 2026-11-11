@@ -1,0 +1,3 @@
+To calculate  x = 2**64, then x*x via multi-digit long multiplication.
+x = 2**64 = 18446744073709551616
+x*x = 340282366920938463463374607431768211456

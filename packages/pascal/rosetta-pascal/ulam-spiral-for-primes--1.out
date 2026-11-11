@@ -1,0 +1,4 @@
+Presents consecutive integers in a spiral, as per Stanislaw Ulam.
+Starting with 1, runs up to Order*Order.
+What value for Order? (Limit 49): 
+Out of range!
