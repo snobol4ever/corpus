@@ -1,0 +1,8 @@
+:- table win/1.
+:- dynamic made_n/1.
+made_n(0).
+win(X) :- move(X,Y), tnot(win(Y)), tick(X).
+move(N,N1) :- ( N = 10 -> N1 = 0 ; N1 is N + 1 ).
+tick(X) :- retract(made_n(N)), N1 is N + 1, assert(made_n(N1)), writeln(made(N1,X)).
+test :- win(0), fail.
+test :- writeln(done).

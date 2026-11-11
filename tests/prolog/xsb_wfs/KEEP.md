@@ -15,3 +15,7 @@ The witnesses of DESIGN-PLAN: xsb-tabling-wfs (.github/ARCH-PROLOG-WFS-TABLING.m
 ## 2026-11-10 (cio, CIO-102: the table-inspection design, steps 12 to 16)
 
 `xw16_table_record`, `xw17_visitors`, `xw18_tables_in_progress`, `xw19_table_dump` and `xw20_answer_order` (each a `.P` beside its `.ref`) are the inspection witnesses of GOAL-CIO.md CIO-102: what XSB reads inside a table (its calls, answers and component; the readers of a completed incremental table; the tables in progress and their dependency graph; table_dump). Every ref is cut from XSB 5.0.0 by the plan's protocol (consult, tell(temp), test, told, the lines sorted). Steps 12 to 16 name the first four; `xw20_answer_order` has no step and is kept for the measurement of the order a completed table's answers are returned. Each step is red on the day it is admitted.
+
+## 2026-11-10 (cio, CTO-587 answer 5: step 22)
+
+`xw26_negative_ring.P` beside its `.ref`: a ring of eleven calls under negation, each answer printed with the count of answers made before it, so the sorted lines carry the order the scheduler wakes the tables that wait on a negation. XSB 5.0.0 makes the answer of the oldest table's waiter first (10, then 0 to 9). The cto's first form of the program is `w5.P` in his evidence folder of CTO-587.
