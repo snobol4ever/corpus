@@ -1,0 +1,3 @@
+# the launch of the XsbExamples suite (CIO-83): each example is consulted and then the driver, ours, which calls the example's own entry goal
+scrip	around	-	drive.P
+oracle	around	-	drive.P

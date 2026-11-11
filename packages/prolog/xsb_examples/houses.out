@@ -1,0 +1,6 @@
+calls demo
+[config([norway,ukr,england,spain,japan],[yellow,blue,red,white,green],[fox,horse,snail,dog,zebra],[water,tea,milk,wine,coffe],[kool,chesterfield,old_gold,gitane,craven])]
+demo ended yes
+calls go
+cputime used: 0.003 sec
+go ended yes

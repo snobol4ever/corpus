@@ -1,0 +1,45 @@
+calls demo
+Grammar:
+  s ==> [a,s]
+  s ==> [a]
+
+Test: first([s],3,_h10266)
+  first([s],3,[a])
+  first([s],3,[a,a])
+  first([s],3,[a,a,a])
+
+
+Grammar:
+  s1 ==> []
+  s1 ==> [a,a,a1]
+  a1 ==> [s1,b1]
+  b1 ==> [a,b]
+
+Test: first([s1],4,_h10270)
+  first([s1],4,[a,a,a,a])
+  first([s1],4,[a,a,a,b])
+  first([s1],4,[])
+
+
+Grammar:
+  s2 ==> [s2,a]
+  s2 ==> [a]
+
+Test: first([s2],3,_h10266)
+  first([s2],3,[a])
+  first([s2],3,[a,a])
+  first([s2],3,[a,a,a])
+
+
+Grammar:
+  s3 ==> [s3,a]
+  s3 ==> []
+
+Test: first([s3],3,_h10266)
+  first([s3],3,[])
+  first([s3],3,[a])
+  first([s3],3,[a,a])
+  first([s3],3,[a,a,a])
+
+
+demo ended yes

@@ -1,5 +1,4 @@
 XSB_calling_c/call_simple_foreign.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-XSB_calling_c/fibp.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 actions.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Warning[XSB]: [Compiler] ./actions : Singleton variable X in a clause of jp/1
 c_calling_XSB/ctest.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 c_calling_XSB/edb.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Warning[XSB]: [Compiler] ./edb : Singleton variable X in a clause of test_r_err/0
@@ -16,23 +15,20 @@ curl/curltest.P: NEEDS-NETWORK: the source names url('http://
 cyl.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dyn_examples.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 exceptions.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-farmer.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+farmer.P: NEEDS-INPUT: its answer changes with what standard input holds
 fd.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-fib.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-first.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 gap.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ham.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-houses.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-incremental/neg1.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use table p(_h476)q(_h478) as incremental.
-incremental/neg2.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use table p(_h476)q(_h478) as incremental.
+ham.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2730 and 2730 bytes
+incremental/neg1.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use table p(_h573)q(_h575) as incremental.
+incremental/neg2.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use table p(_h573)q(_h575) as incremental.
 incremental/reach.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use dynamic edge/2 as incremental.
 incremental/testabolish.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use dynamic edge/2 as incremental.
-incremental/testopaque.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use table p(_h473) as incremental.
+incremental/testopaque.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Miscellaneous] use_incremental_dynamic/1 is now obsolete.  Use table p(_h570) as incremental.
 libwww/testsuite.P: NEEDS-C-COMPILER: the source names import libwww_request/1 from libwww.
-lips_mega.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-mandel.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-map.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-nrev.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lips_mega.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 37 and 37 bytes
+mandel.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 3052 and 3052 bytes
+map.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 5432 and 5432 bytes
+nrev.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 137 and 88 bytes
 ora_demo.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 parser.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 pcretest.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: /home/resources/prologs/xsb/XSB/packages/pcre/cc/pcre4pl.c:38:10: fatal error: pcre.h: No such file or directory
@@ -40,11 +36,9 @@ ptq.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn t
 ptq_examples.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ptq_utils.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ptqlex.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-qsort.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-queens.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+queens.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 5426 and 5426 bytes
 rdf/test_rdf.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 sgml/sgmltest.P: NEEDS-NETWORK: the source names url('http://
-shortest_path.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 socket/auxdefs.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 socket/msgclient.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 socket/msgserver.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

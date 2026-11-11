@@ -1,0 +1,22 @@
+% drive.P -- the driver of the XsbExamples suite (ours; XSB's examples are read in place and never changed).
+% Consulted AFTER one example. An example defines predicates and names in a comment the goal to type, so nothing runs
+% when it is loaded. The driver calls the example's own entry goal: demo/0, test/0, main/0 and go/0, each only when
+% the example defines it, in that order, and prints which it calls and how each ended (yes, no, or the ball it
+% raised). It prints nothing when the example defines none of the four: such an example is no test. No time and no
+% address is printed, and the driver lists no predicate: an engine's own helpers are not the example's.
+
+xsbx_drive :- xsbx_entries([demo, test, main, go]).
+
+xsbx_entries([]).
+xsbx_entries([G|T]) :- xsbx_entry(G), xsbx_entries(T).
+
+xsbx_entry(G) :- current_predicate(G/0), !,
+    write('calls '), write(G), nl,
+    catch(xsbx_run(G, R), E, R = raised(E)),
+    write(G), write(' ended '), writeq(R), nl.
+xsbx_entry(_).
+
+xsbx_run(G, yes) :- call(G), !.
+xsbx_run(_, no).
+
+:- xsbx_drive.
