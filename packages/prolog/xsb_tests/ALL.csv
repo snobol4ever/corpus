@@ -350,7 +350,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,timeout_s,compi
 349,retract_tests_test_retra_gc_nongen_fancy,xsb_tests__retract_tests_test_retra_gc_nongen_fancy,xsb_tests,126,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 350,retract_tests_test_retract_gc,xsb_tests__retract_tests_test_retract_gc,xsb_tests,82,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1
 351,retract_tests_testretract,xsb_tests__retract_tests_testretract,xsb_tests,38,0,0,131072,4096,300,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
-352,sub_tests_decker,xsb_tests__sub_tests_decker,xsb_tests,7,0,0,131072,4096,3600,-S,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+352,sub_tests_decker,xsb_tests__sub_tests_decker,xsb_tests,7,0,0,131072,4096,300,-S,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 353,sub_tests_drtc1,xsb_tests__sub_tests_drtc1,xsb_tests,7,0,0,131072,4096,300,-S,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 354,sub_tests_drtc2,xsb_tests__sub_tests_drtc2,xsb_tests,7,0,0,131072,4096,300,-S,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 355,sub_tests_drtc3,xsb_tests__sub_tests_drtc3,xsb_tests,7,0,0,131072,4096,300,-S,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
@@ -431,8 +431,8 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,timeout_s,compi
 430,table_tests_test_answerdepth,xsb_tests__table_tests_test_answerdepth,xsb_tests,69,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0
 431,table_tests_test_answerdepth_i,xsb_tests__table_tests_test_answerdepth_i,xsb_tests,40,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 432,table_tests_test_as_mod,xsb_tests__table_tests_test_as_mod,xsb_tests,13,0,0,131072,4096,300,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-433,table_tests_test_brat_ansdepth,xsb_tests__table_tests_test_brat_ansdepth,xsb_tests,141,0,0,131072,4096,3600,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
-434,table_tests_test_brat_ansdepth_i,xsb_tests__table_tests_test_brat_ansdepth_i,xsb_tests,134,0,0,131072,4096,3600,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+433,table_tests_test_brat_ansdepth,xsb_tests__table_tests_test_brat_ansdepth,xsb_tests,141,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+434,table_tests_test_brat_ansdepth_i,xsb_tests__table_tests_test_brat_ansdepth_i,xsb_tests,134,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 435,table_tests_test_calldepth,xsb_tests__table_tests_test_calldepth,xsb_tests,32,0,0,131072,4096,300,,,error-context+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 436,table_tests_test_check_variant,xsb_tests__table_tests_test_check_variant,xsb_tests,29,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 437,table_tests_test_cut_over_tables,xsb_tests__table_tests_test_cut_over_tables,xsb_tests,18,0,0,131072,4096,300,,,fresh-vars+ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0
@@ -458,7 +458,7 @@ rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,timeout_s,compi
 457,table_tests_test_subgoal_property,xsb_tests__table_tests_test_subgoal_property,xsb_tests,31,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 458,table_tests_test_tab_interact,xsb_tests__table_tests_test_tab_interact,xsb_tests,17,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 459,table_tests_test_table_as_intern,xsb_tests__table_tests_test_table_as_intern,xsb_tests,28,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,0,0,0
-460,table_tests_test_table_cycles,xsb_tests__table_tests_test_table_cycles,xsb_tests,83,0,0,131072,4096,3600,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0
+460,table_tests_test_table_cycles,xsb_tests__table_tests_test_table_cycles,xsb_tests,83,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0
 461,table_tests_test_table_dump,xsb_tests__table_tests_test_table_dump,xsb_tests,86,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 462,table_tests_test_table_index,xsb_tests__table_tests_test_table_index,xsb_tests,60,0,0,131072,4096,300,,,ignore-all-space,upstream,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0
 463,table_tests_test_td_incomp,xsb_tests__table_tests_test_td_incomp,xsb_tests,54,0,0,131072,4096,300,,,ignore-all-space,,,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,1,0,0,0
