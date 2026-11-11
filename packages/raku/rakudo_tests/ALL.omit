@@ -1,0 +1,55 @@
+t/02-rakudo/06-is.t: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 463 and 463 bytes
+t/02-rakudo/15-gh_1202.t: DOES-NOT-END: no answer inside 60 s
+t/02-rakudo/32-io-operators.t: DIFFERS-BETWEEN-RUNS: exit 0 and 124, 6413 and 5932 bytes
+t/02-rakudo/99-misc.t: ORACLE-REFUSES: Error while compiling t/02-rakudo/99-misc.t
+t/02-rakudo/nested-package-collision-gate.t: LIBRARY: the source names unit package
+t/02-rakudo/rakuast-suspend-precomp-deps.t: LIBRARY: the source names unit module
+t/02-rakudo/repl.t: NEEDS-DISPLAY: the source names Terminal::
+t/02-rakudo/reproducible-builds.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/00-misc.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/01-argless.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/02-simple-args.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/03-simple-returns.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/04-pointers.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/05-arrays.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/06-struct.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/07-writebarrier.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/08-callbacks.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/09-nativecast.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/10-cglobals.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/11-cpp.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/12-sizeof.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/13-cpp-mangling.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/13-union.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/14-rw-attrs.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/15-rw-args.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/16-rt125408.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/16-rt125729.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/17-libnames.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/18-routine-sig-sanity.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/19-function-pointers.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/20-concurrent.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/21-callback-other-thread.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/22-method.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/23-incomplete-types.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/24-cpp_param_letter.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/25-embedded.t: NEEDS-DISPLAY: the source names NativeCall
+t/04-nativecall/26-varargs.t: NEEDS-DISPLAY: the source names NativeCall
+t/05-messages/01-errors.t: NEEDS-NETWORK: the source names IO::Socket
+t/05-messages/02-errors.t: NEEDS-NETWORK: the source names IO::Socket
+t/05-messages/03-errors.t: NEEDS-NETWORK: the source names IO::Socket
+t/05-messages/11-overflow.t: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2040 and 2040 bytes
+t/12-rakuast/class.rakutest: LIBRARY: the source names unit class
+t/12-rakuast/errors.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/meta-operators.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/regex-assertion.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/signature.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/statement-mods.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/statement-phaser.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/statement-prefix.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/subset.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/terms.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/var.rakutest: NEEDS-DISPLAY: the source names Term::
+t/12-rakuast/xx-fixed-in-rakuast.rakutest: NEEDS-DISPLAY: the source names Terminal::
+t/13-experimental/macros-unquoting.rakutest: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 708 and 708 bytes
+t/13-experimental/macros.rakutest: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2313 and 2313 bytes

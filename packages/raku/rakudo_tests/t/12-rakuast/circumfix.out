@@ -1,0 +1,50 @@
+1..7
+# Subtest: Parenthesized expressions compile correctly
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - Parenthesized expressions compile correctly
+# Subtest: Multi-statement semilist compiles into a List
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - Multi-statement semilist compiles into a List
+# Subtest: Array composer produces an array
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Array composer produces an array
+# Subtest: Array composer works correctly with a single argument
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Array composer works correctly with a single argument
+# Subtest: Empty hash composer works correctly
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Empty hash composer works correctly
+# Subtest: Hash composer with fatarrow works correctly
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - Hash composer with fatarrow works correctly
+# Subtest: Hash composer with list of fat arrows works correctly
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - Hash composer with list of fat arrows works correctly

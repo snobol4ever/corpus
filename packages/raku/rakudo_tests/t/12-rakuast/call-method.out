@@ -1,0 +1,106 @@
+1..15
+# Subtest: Can make a call on a method without arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - Can make a call on a method without arguments
+# Subtest: Can make a call on a submethod without arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - Can make a call on a submethod without arguments
+# Subtest: Can make a call on a method with positional arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Can make a call on a method with positional arguments
+# Subtest: Method call WHAT compiles into MOP primitive
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Method call WHAT compiles into MOP primitive
+# Subtest: Method call HOW compiles into MOP primitive
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Method call HOW compiles into MOP primitive
+# Subtest: Method call WHO compiles into MOP primitive
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - Method call WHO compiles into MOP primitive
+# Subtest: Method call DEFINITE compiles into MOP primitive
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - Method call DEFINITE compiles into MOP primitive
+# Subtest: Method call REPR compiles into MOP primitive
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 8 - Method call REPR compiles into MOP primitive
+# Subtest: Can make a quoted call on a method without arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 9 - Can make a quoted call on a method without arguments
+# Subtest: Can make a quoted call on a method with positional arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 10 - Can make a quoted call on a method with positional arguments
+# Subtest: Can make a meta-method call
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 11 - Can make a meta-method call
+# Subtest: Can make a method call if the method exists
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 12 - Can make a method call if the method exists
+# Subtest: Can make a method call if the method does not exist
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 13 - Can make a method call if the method does not exist
+# Subtest: Can make a private method call
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 14 - Can make a private method call
+# Subtest: Can make a method call on a sub
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 15 - Can make a method call on a sub

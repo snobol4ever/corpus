@@ -1,0 +1,565 @@
+1..55
+# Subtest: Simple literal regex
+    ok 1 - deparse
+    ok 2 - AST: start of string
+    ok 3 - AST: middle of string
+    ok 4 - AST: not matched
+    ok 5 - Str: start of string
+    ok 6 - Str: middle of string
+    ok 7 - Str: not matched
+    ok 8 - Raku: start of string
+    ok 9 - Raku: middle of string
+    ok 10 - Raku: not matched
+    1..10
+ok 1 - Simple literal regex
+# Subtest: Sequential alternation takes first match even if second is longer
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 2 - Sequential alternation takes first match even if second is longer
+# Subtest: Sequential alternation takes second match if first fails
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 3 - Sequential alternation takes second match if first fails
+# Subtest: Sequential alternation fails if no alternative matches
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 4 - Sequential alternation fails if no alternative matches
+# Subtest: LTM alternation takes longest match even if it is not first
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 5 - LTM alternation takes longest match even if it is not first
+# Subtest: Alternation takes second match if first fails
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 6 - Alternation takes second match if first fails
+# Subtest: Alternation fails if no alternative matches
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 7 - Alternation fails if no alternative matches
+# Subtest: Conjunction matches when both items match
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 8 - Conjunction matches when both items match
+# Subtest: Conjunction fails when one item does not match
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 9 - Conjunction fails when one item does not match
+# Subtest: Conjunction fails when items match different lengths
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 10 - Conjunction fails when items match different lengths
+# Subtest: Sequence needs one thing to match after the other (pass case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 11 - Sequence needs one thing to match after the other (pass case)
+# Subtest: Sequence needs one thing to match after the other (failure case)
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 12 - Sequence needs one thing to match after the other (failure case)
+# Subtest: Beginning of string anchor works (pass case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 13 - Beginning of string anchor works (pass case)
+# Subtest: Beginning of string anchor works (failure case)
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 14 - Beginning of string anchor works (failure case)
+# Subtest: Beginning of line anchor works (pass case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 15 - Beginning of line anchor works (pass case)
+# Subtest: Beginning of line anchor works (failure case)
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 16 - Beginning of line anchor works (failure case)
+# Subtest: End of string anchor works (pass case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 17 - End of string anchor works (pass case)
+# Subtest: End of string anchor works (failure case)
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 18 - End of string anchor works (failure case)
+# Subtest: End of line anchor works (pass case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 19 - End of line anchor works (pass case)
+# Subtest: End of line anchor works (failure case)
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 20 - End of line anchor works (failure case)
+# Subtest: Right word boundary works
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - AST: fail case
+    ok 4 - Str: pass case
+    ok 5 - Str: fail case
+    ok 6 - Raku: pass case
+    ok 7 - Raku: fail case
+    1..7
+ok 21 - Right word boundary works
+# Subtest: Left word boundary works
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - AST: fail case
+    ok 4 - Str: pass case
+    ok 5 - Str: fail case
+    ok 6 - Raku: pass case
+    ok 7 - Raku: fail case
+    1..7
+ok 22 - Left word boundary works
+# Subtest: Quantified + built-in character class matches
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 23 - Quantified + built-in character class matches
+# Subtest: Quantified * built-in character class matches
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 24 - Quantified * built-in character class matches
+# Subtest: Quantified ? built-in character class matches
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 25 - Quantified ? built-in character class matches
+# Subtest: Quantified ** built-in character class matches
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 26 - Quantified ** built-in character class matches
+# Subtest: Quantified negated built-in character class matches
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 27 - Quantified negated built-in character class matches
+# Subtest: Quantified built-in character class matches (frugal mode)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 28 - Quantified built-in character class matches (frugal mode)
+# Subtest: Quantified negated built-in character class matches (frugal mode)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 29 - Quantified negated built-in character class matches (frugal mode)
+# Subtest: Greedy quantifier will backtrack
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 30 - Greedy quantifier will backtrack
+# Subtest: Ratchet quantifier will not backtrack
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 31 - Ratchet quantifier will not backtrack
+# Subtest: Separator works (non-trailing case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 32 - Separator works (non-trailing case)
+# Subtest: Separator works (trailing case)
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 33 - Separator works (trailing case)
+# Subtest: Separator must be between every quantified item
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 34 - Separator must be between every quantified item
+# Subtest: Regex groups compile correctly
+    ok 1 - deparse
+    ok 2 - AST: did we get correct match
+    ok 3 - AST: no positional captures from non-capturing group
+    ok 4 - AST: no named captures from non-capturing group
+    ok 5 - Str: did we get correct match
+    ok 6 - Str: no positional captures from non-capturing group
+    ok 7 - Str: no named captures from non-capturing group
+    ok 8 - Raku: did we get correct match
+    ok 9 - Raku: no positional captures from non-capturing group
+    ok 10 - Raku: no named captures from non-capturing group
+    1..10
+ok 35 - Regex groups compile correctly
+# Subtest: Regex with two positional capturing groups matches correctly
+    ok 1 - deparse
+    ok 2 - AST: did we get correct match
+    ok 3 - AST: Two positional captures
+    ok 4 - AST: First positional capture is correct
+    ok 5 - AST: Second positional capture is correct
+    ok 6 - AST: No named captures
+    ok 7 - Str: did we get correct match
+    ok 8 - Str: Two positional captures
+    ok 9 - Str: First positional capture is correct
+    ok 10 - Str: Second positional capture is correct
+    ok 11 - Str: No named captures
+    ok 12 - Raku: did we get correct match
+    ok 13 - Raku: Two positional captures
+    ok 14 - Raku: First positional capture is correct
+    ok 15 - Raku: Second positional capture is correct
+    ok 16 - Raku: No named captures
+    1..16
+ok 36 - Regex with two positional capturing groups matches correctly
+# Subtest: Match from and match to markers works
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 37 - Match from and match to markers works
+# Subtest: Match involving a quoted string literal works
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 38 - Match involving a quoted string literal works
+# Subtest: Match involving a quoted string with interpolation works
+    ok 1 - deparse
+    ok 2 - EVAL over RakuAST
+    ok 3 - EVAL over deparsed AST
+    1..3
+ok 39 - Match involving a quoted string with interpolation works
+# Subtest: Match involving quote words works
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 40 - Match involving quote words works
+# Subtest: Match with positional backreference
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 41 - Match with positional backreference
+# Subtest: Match with named backreference
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 42 - Match with named backreference
+# Subtest: Match with interpolated variable
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 43 - Match with interpolated variable
+# Subtest: Match with block
+    ok 1 - deparse
+    # Subtest: matches
+        1..6
+        ok 1 - block
+        ok 2 - AST: EVAL is
+        ok 3 - block
+        ok 4 - Str: EVAL is
+        ok 5 - block
+        ok 6 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 44 - Match with block
+# Subtest: Match with variable definition
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 45 - Match with variable definition
+# Subtest: Match with ignoring case
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 46 - Match with ignoring case
+# Subtest: Match with *not* ignoring case
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 47 - Match with *not* ignoring case
+# Subtest: No match with *not* ignoring case
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 48 - No match with *not* ignoring case
+# Subtest: Match with ignoring mark
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 49 - Match with ignoring mark
+# Subtest: Match with *not* ignoring mark
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 50 - Match with *not* ignoring mark
+# Subtest: No match with *not* ignoring mark
+    ok 1 - deparse
+    # Subtest: doesn't match
+        1..3
+        ok 1 - AST: EVAL nok
+        ok 2 - Str: EVAL nok
+        ok 3 - Raku: EVAL nok
+    ok 2 - doesn't match
+    1..2
+ok 51 - No match with *not* ignoring mark
+# Subtest: Match with ratchet
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 52 - Match with ratchet
+# Subtest: Match without ratchet
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 53 - Match without ratchet
+# Subtest: Match with sigspace
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 54 - Match with sigspace
+# Subtest: Match without sigspace
+    ok 1 - deparse
+    # Subtest: matches
+        1..3
+        ok 1 - AST: EVAL is
+        ok 2 - Str: EVAL is
+        ok 3 - Raku: EVAL is
+    ok 2 - matches
+    1..2
+ok 55 - Match without sigspace

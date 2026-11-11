@@ -1,0 +1,264 @@
+1..29
+# Subtest: Statement list evaluates to its final statement
+    ok 1 - deparse
+    ok 2 - AST: Statement list evaluates to its final statement
+    ok 3 - AST: First side-effecting statement was executed
+    ok 4 - AST: Second side-effecting statement was executed
+    ok 5 - Str: Statement list evaluates to its final statement
+    ok 6 - Str: First side-effecting statement was executed
+    ok 7 - Str: Second side-effecting statement was executed
+    ok 8 - Raku: Statement list evaluates to its final statement
+    ok 9 - Raku: First side-effecting statement was executed
+    ok 10 - Raku: Second side-effecting statement was executed
+    1..10
+ok 1 - Statement list evaluates to its final statement
+# Subtest: Basic if / elsif / else structure
+    ok 1 - deparse
+    ok 2 - AST: When all conditions False, else is evaluated
+    ok 3 - AST: Latest elsif reachable when matched
+    ok 4 - AST: First elsif reachable when matched
+    ok 5 - AST: When the main condition is true, the then block is picked
+    ok 6 - Str: When all conditions False, else is evaluated
+    ok 7 - Str: Latest elsif reachable when matched
+    ok 8 - Str: First elsif reachable when matched
+    ok 9 - Str: When the main condition is true, the then block is picked
+    ok 10 - Raku: When all conditions False, else is evaluated
+    ok 11 - Raku: Latest elsif reachable when matched
+    ok 12 - Raku: First elsif reachable when matched
+    ok 13 - Raku: When the main condition is true, the then block is picked
+    1..13
+ok 2 - Basic if / elsif / else structure
+# Subtest: simple if evaluation
+    ok 1 - deparse
+    ok 2 - AST: When simple if with no else has true condition
+    ok 3 - AST: When simple if with no else has false condition
+    ok 4 - Str: When simple if with no else has true condition
+    ok 5 - Str: When simple if with no else has false condition
+    ok 6 - Raku: When simple if with no else has true condition
+    ok 7 - Raku: When simple if with no else has false condition
+    1..7
+ok 3 - simple if evaluation
+# Subtest: Basic with / orwith / else structure
+    ok 1 - deparse
+    ok 2 - AST: When all conditions undefined, else is evaluated
+    ok 3 - AST: Latest orwith reachable when matched
+    ok 4 - AST: First orwith reachable when matched
+    ok 5 - AST: When the main condition is defined, the then block is picked
+    ok 6 - Str: When all conditions undefined, else is evaluated
+    ok 7 - Str: Latest orwith reachable when matched
+    ok 8 - Str: First orwith reachable when matched
+    ok 9 - Str: When the main condition is defined, the then block is picked
+    ok 10 - Raku: When all conditions undefined, else is evaluated
+    ok 11 - Raku: Latest orwith reachable when matched
+    ok 12 - Raku: First orwith reachable when matched
+    ok 13 - Raku: When the main condition is defined, the then block is picked
+    1..13
+ok 4 - Basic with / orwith / else structure
+# Subtest: simple with evaluation
+    ok 1 - deparse
+    ok 2 - AST: When simple when with no else has defined condition
+    ok 3 - AST: When simple with if with no else has undefined condition
+    ok 4 - Str: When simple when with no else has defined condition
+    ok 5 - Str: When simple with if with no else has undefined condition
+    ok 6 - Raku: When simple when with no else has defined condition
+    ok 7 - Raku: When simple with if with no else has undefined condition
+    1..7
+ok 5 - simple with evaluation
+# Subtest: with topicalizes in the body
+    ok 1 - deparse
+    ok 2 - AST: with topicalizes in the body
+    ok 3 - AST: with topicalizes in the else body too
+    ok 4 - Str: with topicalizes in the body
+    ok 5 - Str: with topicalizes in the else body too
+    ok 6 - Raku: with topicalizes in the body
+    ok 7 - Raku: with topicalizes in the else body too
+    1..7
+ok 6 - with topicalizes in the body
+# Subtest: simple unless with a false condition
+    ok 1 - deparse
+    ok 2 - AST: unless block with a false condition evaluates to its body
+    ok 3 - AST: side-effect of the body was performed
+    ok 4 - Str: unless block with a false condition evaluates to its body
+    ok 5 - Str: side-effect of the body was performed
+    ok 6 - Raku: unless block with a false condition evaluates to its body
+    ok 7 - Raku: side-effect of the body was performed
+    1..7
+ok 7 - simple unless with a false condition
+# Subtest: simple unless with a false condition
+    ok 1 - deparse
+    ok 2 - AST: unless block with a false condition evaluates to Empty
+    ok 3 - AST: side-effect of the body was not performed
+    ok 4 - Str: unless block with a false condition evaluates to Empty
+    ok 5 - Str: side-effect of the body was not performed
+    ok 6 - Raku: unless block with a false condition evaluates to Empty
+    ok 7 - Raku: side-effect of the body was not performed
+    1..7
+ok 8 - simple unless with a false condition
+# Subtest: simple without with an undefined condition
+    ok 1 - deparse
+    ok 2 - AST: without block with an undefined object evaluates to its body
+    ok 3 - AST: Side-effect of the body was performed
+    ok 4 - Str: without block with an undefined object evaluates to its body
+    ok 5 - Str: Side-effect of the body was performed
+    ok 6 - Raku: without block with an undefined object evaluates to its body
+    ok 7 - Raku: Side-effect of the body was performed
+    1..7
+ok 9 - simple without with an undefined condition
+# Subtest: simple without with a defined condition
+    ok 1 - deparse
+    ok 2 - AST: a without block with a defined object evaluates to Empty
+    ok 3 - AST: side-effect of the body was not performed
+    ok 4 - Str: a without block with a defined object evaluates to Empty
+    ok 5 - Str: side-effect of the body was not performed
+    ok 6 - Raku: a without block with a defined object evaluates to Empty
+    ok 7 - Raku: side-effect of the body was not performed
+    1..7
+ok 10 - simple without with a defined condition
+# Subtest: simple without with an undefined condition
+    ok 1 - deparse
+    ok 2 - AST: without block sets the topic
+    ok 3 - Str: without block sets the topic
+    ok 4 - Raku: without block sets the topic
+    1..4
+ok 11 - simple without with an undefined condition
+# Subtest: While loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: while loop at statement level evaluates to Nil
+    ok 3 - AST: Loop variable was decremented to zero
+    ok 4 - Str: while loop at statement level evaluates to Nil
+    ok 5 - Str: Loop variable was decremented to zero
+    ok 6 - Raku: while loop at statement level evaluates to Nil
+    ok 7 - Raku: Loop variable was decremented to zero
+    1..7
+ok 12 - While loop at statement level evaluates to Nil
+# Subtest: Until loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: until loop at statement level evaluates to Nil
+    ok 3 - AST: Loop variable was decremented to zero
+    ok 4 - Str: until loop at statement level evaluates to Nil
+    ok 5 - Str: Loop variable was decremented to zero
+    ok 6 - Raku: until loop at statement level evaluates to Nil
+    ok 7 - Raku: Loop variable was decremented to zero
+    1..7
+ok 13 - Until loop at statement level evaluates to Nil
+# Subtest: Repeat while loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: repeat until loop at statement level evaluates to Nil
+    ok 3 - AST: loop variable decremented to 0
+    ok 4 - Str: repeat until loop at statement level evaluates to Nil
+    ok 5 - Str: loop variable decremented to 0
+    ok 6 - Raku: repeat until loop at statement level evaluates to Nil
+    ok 7 - Raku: loop variable decremented to 0
+    1..7
+ok 14 - Repeat while loop at statement level evaluates to Nil
+# Subtest: Repeat until loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: repeat until loop at statement level evaluates to Nil
+    ok 3 - AST: loop ran once
+    ok 4 - Str: repeat until loop at statement level evaluates to Nil
+    ok 5 - Str: loop ran once
+    ok 6 - Raku: repeat until loop at statement level evaluates to Nil
+    ok 7 - Raku: loop ran once
+    1..7
+ok 15 - Repeat until loop at statement level evaluates to Nil
+# Subtest: Loop block with setup and increment expression
+    ok 1 - deparse
+    ok 2 - AST: loop with setup and increment evaluates to Nil
+    ok 3 - AST: loop ran as expected
+    ok 4 - Str: loop with setup and increment evaluates to Nil
+    ok 5 - Str: loop ran as expected
+    ok 6 - Raku: loop with setup and increment evaluates to Nil
+    ok 7 - Raku: loop ran as expected
+    1..7
+ok 16 - Loop block with setup and increment expression
+# Subtest: Statement level for loop
+    ok 1 - deparse
+    ok 2 - AST: for loop evaluates to Nil
+    ok 3 - AST: loop ran with expected number of times
+    ok 4 - Str: for loop evaluates to Nil
+    ok 5 - Str: loop ran with expected number of times
+    ok 6 - Raku: for loop evaluates to Nil
+    ok 7 - Raku: loop ran with expected number of times
+    1..7
+ok 17 - Statement level for loop
+# Subtest: for loop with explicit iteration variable
+    ok 1 - deparse
+    ok 2 - AST: result value of for
+    ok 3 - AST: correct value in iteration variable
+    ok 4 - Str: result value of for
+    ok 5 - Str: correct value in iteration variable
+    ok 6 - Raku: result value of for
+    ok 7 - Raku: correct value in iteration variable
+    1..7
+ok 18 - for loop with explicit iteration variable
+# Subtest: Statement level for loop with implicit topic
+    ok 1 - deparse
+    ok 2 - AST: result value of for
+    ok 3 - AST: correct value in implicit topic
+    ok 4 - Str: result value of for
+    ok 5 - Str: correct value in implicit topic
+    ok 6 - Raku: result value of for
+    ok 7 - Raku: correct value in implicit topic
+    1..7
+ok 19 - Statement level for loop with implicit topic
+# Subtest: given with explicit signature
+    ok 1 - deparse
+    ok 2 - AST: given topicalizes on the source (signature)
+    ok 3 - AST: given topicalizes even an undefined source (signature)
+    ok 4 - Str: given topicalizes on the source (signature)
+    ok 5 - Str: given topicalizes even an undefined source (signature)
+    ok 6 - Raku: given topicalizes on the source (signature)
+    ok 7 - Raku: given topicalizes even an undefined source (signature)
+    1..7
+ok 20 - given with explicit signature
+# Subtest: given with implicit signature
+    ok 1 - deparse
+    ok 2 - AST: given topicalizes on the source (implicit)
+    ok 3 - AST: given topicalizes even an undefined source (implicit)
+    ok 4 - Str: given topicalizes on the source (implicit)
+    ok 5 - Str: given topicalizes even an undefined source (implicit)
+    ok 6 - Raku: given topicalizes on the source (implicit)
+    ok 7 - Raku: given topicalizes even an undefined source (implicit)
+    1..7
+ok 21 - given with implicit signature
+# Subtest: given with when and default
+    ok 1 - deparse
+    ok 2 - AST: first when statement matching gives correct result
+    ok 3 - AST: second when statement matching gives correct result
+    ok 4 - AST: no when statement giving default
+    ok 5 - Str: first when statement matching gives correct result
+    ok 6 - Str: second when statement matching gives correct result
+    ok 7 - Str: no when statement giving default
+    ok 8 - Raku: first when statement matching gives correct result
+    ok 9 - Raku: second when statement matching gives correct result
+    ok 10 - Raku: no when statement giving default
+    1..10
+ok 22 - given with when and default
+ok 23 - deparse
+ok 24 - use statements work
+ok 25 - use statements work
+ok 26 - use statements work
+# Subtest: check parsing of 'use' pragma
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 27 - check parsing of 'use' pragma
+# Subtest: check parsing of 'no' pragma
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 28 - check parsing of 'no' pragma
+# Subtest: check parsing of 'need' pragma
+    1..7
+    ok 1 - deparse
+    ok 2 - 
+    ok 3 - AST: did eval work
+    ok 4 - 
+    ok 5 - Str: did eval work
+    ok 6 - 
+    ok 7 - Raku: did eval work
+ok 29 - check parsing of 'need' pragma

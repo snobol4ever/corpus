@@ -1,0 +1,48 @@
+1..42
+ok 1 - did we get a Telemetry object from T
+ok 2 - did we get a non-zero value for wallclock using AT-KEY
+ok 3 - did we get a non-zero value for wallclock with a method
+ok 4 - did we get a non-zero value for cpu using AT-KEY
+ok 5 - did we get a non-zero value for cpu with a method
+ok 6 - did we get a non-zero value for max-rss using AT-KEY
+ok 7 - did we get a non-zero value for max-rss with a method
+ok 8 - did we get a Telemetry object from T.raku.EVAL
+ok 9 - did wallclock roundtrip ok in Telemetry?
+ok 10 - did cpu roundtrip ok in Telemetry?
+ok 11 - did max-rss roundtrip ok in Telemetry?
+ok 12 - Did we get a Telemetry::Period
+ok 13 - did we get a non-zero value for wallclock using AT-KEY
+ok 14 - did we get a non-zero value for wallclock using AT-KEY
+ok 15 - did we get a non-zero value for cpu using AT-KEY
+ok 16 - did we get a non-zero value for cpu using AT-KEY
+ok 17 - did we get a Telemetry::Period object from period.raku.EVAL
+ok 18 - did wallclock roundtrip ok in Telemetry::Period?
+ok 19 - did cpu roundtrip ok in Telemetry::Period?
+ok 20 - did max-rss roundtrip ok in Telemetry::Period?
+ok 21 - did it contain a Sampler
+ok 22 - there are 2 default default instruments
+ok 23 - did we get a Telemetry::Instrument::Usage
+ok 24 - did we get a Telemetry::Instrument::ThreadPool
+ok 25 - was &snap exported
+ok 26 - was &snapper exported
+ok 27 - was &periods exported
+ok 28 - was &report exported
+ok 29 - was &safe-ctrl-c exported
+ok 30 - was &T exported
+ok 31 - did the snap return nothing
+ok 32 - did periods auto-add an extra snap?
+ok 33 - is it a Telemetry::Period
+ok 34 - Did the call to periods remove all of the snaps?
+ok 35 - did the snapper return nothing
+ok 36 - did the snapper start taking snaps
+ok 37 - did the snapper actually stop
+ok 38 - did the snapper start taking snaps
+ok 39 - did we only get the header of the report
+ok 40 - line 1 of report
+ok 41 - line 2 of report
+# Subtest: giving unknown column in RAKUDO_REPORT_COLUMNS warns instead of crashing
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 42 - giving unknown column in RAKUDO_REPORT_COLUMNS warns instead of crashing

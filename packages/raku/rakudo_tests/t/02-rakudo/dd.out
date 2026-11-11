@@ -1,0 +1,13 @@
+1..2
+# Subtest: Failures don't get marked as handled in &dd
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 1 - Failures don't get marked as handled in &dd
+# Subtest: Junctions do not crash
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 2 - Junctions do not crash

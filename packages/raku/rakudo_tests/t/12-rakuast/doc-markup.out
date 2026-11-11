@@ -1,0 +1,25 @@
+1..4
+# Subtest: simple bold markup
+    ok 1 - Str: deparse
+    ok 2 - Raku: deparse
+    1..2
+ok 1 - simple bold markup
+# Subtest: simple bold with italics markup
+    ok 1 - Str: deparse
+    ok 2 - Raku: deparse
+    1..2
+ok 2 - simple bold with italics markup
+# Subtest: link with code markup
+    ok 1 - Str: deparse
+    ok 2 - Raku: deparse
+    1..2
+ok 3 - link with code markup
+# Subtest: index entry with multiple lemmas
+    ok 1 - Str: deparse
+    ok 2 - Raku: deparse
+    ok 3 - Str: deparse
+    ok 4 - Raku: deparse
+    ok 5 - Str: deparse
+    ok 6 - Raku: deparse
+    1..6
+ok 4 - index entry with multiple lemmas

@@ -1,0 +1,4 @@
+1..3
+ok 1 - macro returning quasi
+ok 2 - Macros can return noops
+ok 3 - lexical vars in macros are not visible to the AST vars

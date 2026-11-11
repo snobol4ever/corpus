@@ -1,0 +1,7 @@
+1..1
+# Subtest: no crash when giving an Actions class to .refine_slang
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 1 - no crash when giving an Actions class to .refine_slang

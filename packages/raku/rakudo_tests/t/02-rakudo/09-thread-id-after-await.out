@@ -1,0 +1,2 @@
+1..1
+ok 1 - Correct dynamic seen after invokving continuation on different thread

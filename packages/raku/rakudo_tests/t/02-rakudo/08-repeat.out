@@ -1,0 +1,10 @@
+1..5
+ok 1 - concatenating strings with `~` that would create a too large result dies
+ok 2 - repeating strings with `x` that would create a too large result dies
+ok 3 - repeat count equal to the NQP limit works
+ok 4 - correct result for count equal to the NQP limit
+# Subtest: too large repeat count throws instead of going negative
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+ok 5 - too large repeat count throws instead of going negative

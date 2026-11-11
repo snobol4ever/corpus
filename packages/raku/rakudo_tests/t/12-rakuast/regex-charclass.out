@@ -1,0 +1,36 @@
+1..5
+# Subtest: All of the simple character classes
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - Str: pass case
+    ok 4 - Raku: pass case
+    1..4
+ok 1 - All of the simple character classes
+# Subtest: All of the simple character classes than can be negated
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - Str: pass case
+    ok 4 - Raku: pass case
+    1..4
+ok 2 - All of the simple character classes than can be negated
+# Subtest: A single unicode character specified by name
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - Str: pass case
+    ok 4 - Raku: pass case
+    1..4
+ok 3 - A single unicode character specified by name
+# Subtest: Multiple unicode characters specified by name
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - Str: pass case
+    ok 4 - Raku: pass case
+    1..4
+ok 4 - Multiple unicode characters specified by name
+# Subtest: Multiple unicode characters specified by name negated
+    ok 1 - deparse
+    ok 2 - AST: pass case
+    ok 3 - Str: pass case
+    ok 4 - Raku: pass case
+    1..4
+ok 5 - Multiple unicode characters specified by name negated

@@ -1,0 +1,22 @@
+1..1
+# Subtest: no SEGV with failed opens of MVM debug files
+    1..3
+    # Subtest: MVM_SPESH_LOG
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - MVM_SPESH_LOG
+    # Subtest: MVM_DYNVAR_LOG
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - MVM_DYNVAR_LOG
+    # Subtest: MVM_COVERAGE_LOG
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - MVM_COVERAGE_LOG
+ok 1 - no SEGV with failed opens of MVM debug files

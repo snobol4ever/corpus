@@ -1,0 +1,21 @@
+1..20
+ok 1 - The object is-a 'Pod::Block::Code'
+ok 2 - 
+ok 3 - The object is-a 'Pod::Block::Code'
+ok 4 - 
+ok 5 - The object is-a 'Pod::Block::Code'
+ok 6 - 
+ok 7 - The object is-a 'Pod::Block::Code'
+ok 8 - 
+ok 9 - The object is-a 'Pod::Block::Code'
+ok 10 - 
+ok 11 - The object is-a 'Pod::Block::Code'
+ok 12 - 
+ok 13 - The object is-a 'Pod::Block::Code'
+ok 14 - 
+ok 15 - The object is-a 'Pod::Block::Code'
+ok 16 - 
+ok 17 - The object is-a 'Pod::Block::Code'
+ok 18 - 
+ok 19 - The object is-a 'Pod::Defn'
+ok 20 - 

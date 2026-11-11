@@ -1,0 +1,9 @@
+1..8
+ok 1 - Can we run p5ish code without it complaining
+ok 2 - Did the code with 'use isms' actually run
+ok 3 - Can we run p5ish code without it complaining
+ok 4 - Did the code with 'use isms <Perl5>' actually run
+ok 5 - Can we run C++ish code without it complaining
+ok 6 - Did the code with 'use isms' actually run
+ok 7 - Can we run C++ish code without it complaining
+ok 8 - Did the code with 'use isms <C++>' actually run

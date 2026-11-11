@@ -1,0 +1,584 @@
+1..20
+# Subtest: Simple leading and trailing pod declarator test
+    ok 1 - Str: deparse
+    ok 2 - Raku: deparse
+    1..2
+ok 1 - Simple leading and trailing pod declarator test
+# Subtest: Simple block with leading and trailing pod test
+    ok 1 - deparse
+    ok 2 - AST: did we get a block
+    ok 3 - AST: can it run and return value
+    ok 4 - AST: did we get an Array
+    ok 5 - AST: does it have one element
+    ok 6 - AST: did we get a Pod::Block::Declarator
+    ok 7 - AST: is the object the target of the declarator
+    ok 8 - AST: is the leading comment correct
+    ok 9 - AST: is the trailing comment correct
+    ok 10 - Str: did we get a block
+    ok 11 - Str: can it run and return value
+    ok 12 - Str: did we get an Array
+    ok 13 - Str: does it have one element
+    ok 14 - Str: did we get a Pod::Block::Declarator
+    ok 15 - Str: is the object the target of the declarator
+    ok 16 - Str: is the leading comment correct
+    ok 17 - Str: is the trailing comment correct
+    ok 18 - Raku: did we get a block
+    ok 19 - Raku: can it run and return value
+    ok 20 - Raku: did we get an Array
+    ok 21 - Raku: does it have one element
+    ok 22 - Raku: did we get a Pod::Block::Declarator
+    ok 23 - Raku: is the object the target of the declarator
+    ok 24 - Raku: is the leading comment correct
+    ok 25 - Raku: is the trailing comment correct
+    1..25
+ok 2 - Simple block with leading and trailing pod test
+# Subtest: Simple pointy block with leading and trailing pod test
+    ok 1 - deparse
+    ok 2 - AST: did we get a block
+    ok 3 - AST: can it run and return value
+    ok 4 - AST: did we get an Array
+    ok 5 - AST: does it have one element
+    ok 6 - AST: did we get a Pod::Block::Declarator
+    ok 7 - AST: is the object the target of the declarator
+    ok 8 - AST: is the leading comment correct
+    ok 9 - AST: is the trailing comment correct
+    ok 10 - Str: did we get a block
+    ok 11 - Str: can it run and return value
+    ok 12 - Str: did we get an Array
+    ok 13 - Str: does it have one element
+    ok 14 - Str: did we get a Pod::Block::Declarator
+    ok 15 - Str: is the object the target of the declarator
+    ok 16 - Str: is the leading comment correct
+    ok 17 - Str: is the trailing comment correct
+    ok 18 - Raku: did we get a block
+    ok 19 - Raku: can it run and return value
+    ok 20 - Raku: did we get an Array
+    ok 21 - Raku: does it have one element
+    ok 22 - Raku: did we get a Pod::Block::Declarator
+    ok 23 - Raku: is the object the target of the declarator
+    ok 24 - Raku: is the leading comment correct
+    ok 25 - Raku: is the trailing comment correct
+    1..25
+ok 3 - Simple pointy block with leading and trailing pod test
+# Subtest: Simple sub with leading and trailing pod test
+    ok 1 - deparse
+    ok 2 - AST: did we get a sub
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it run and return value
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a sub
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it run and return value
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a sub
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it run and return value
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 4 - Simple sub with leading and trailing pod test
+# Subtest: Simple class with declarator pod
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 5 - Simple class with declarator pod
+# Subtest: Simple class with declarator pod, one attribute
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    not ok 19 - Str: is the trailing comment correct # TODO Str: trailing comment dropped somehow
+    # Failed test 'Str: is the trailing comment correct'
+    # at t/12-rakuast/doc-declarator.rakutest line 58
+    # expected: "trailing comment"
+    #      got: Nil
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 6 - Simple class with declarator pod, one attribute
+# Subtest: Simple class with declarator pod, two attributes
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 7 - Simple class with declarator pod, two attributes
+# Subtest: Simple class with declarator pod, one method
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 8 - Simple class with declarator pod, one method
+# Subtest: Simple class with declarator pod, one submethod
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 9 - Simple class with declarator pod, one submethod
+# Subtest: Simple class with declarator pod, one private method
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 10 - Simple class with declarator pod, one private method
+# Subtest: Simple class with declarator pod, one meta method
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 11 - Simple class with declarator pod, one meta method
+# Subtest: Simple class with declarator pod, two methods
+    ok 1 - deparse
+    ok 2 - AST: did we get a class
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: can it instantiate
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a class
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: can it instantiate
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a class
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: can it instantiate
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 12 - Simple class with declarator pod, two methods
+# Subtest: Simple enum with declarator pod
+    ok 1 - deparse
+    ok 2 - AST: did we get a Map
+    ok 3 - AST: did we get an Array
+    ok 4 - AST: does it have one element
+    ok 5 - AST: did we get a Pod::Block::Declarator
+    ok 6 - AST: is the leading comment correct
+    ok 7 - AST: is the trailing comment correct
+    ok 8 - Str: did we get a Map
+    ok 9 - Str: did we get an Array
+    ok 10 - Str: does it have one element
+    ok 11 - Str: did we get a Pod::Block::Declarator
+    ok 12 - Str: is the leading comment correct
+    not ok 13 - Str: is the trailing comment correct # TODO Str: trailing comment dropped somehow
+    # Failed test 'Str: is the trailing comment correct'
+    # at t/12-rakuast/doc-declarator.rakutest line 58
+    # expected: "trailing comment"
+    #      got: Nil
+    ok 14 - Raku: did we get a Map
+    ok 15 - Raku: did we get an Array
+    ok 16 - Raku: does it have one element
+    ok 17 - Raku: did we get a Pod::Block::Declarator
+    ok 18 - Raku: is the leading comment correct
+    ok 19 - Raku: is the trailing comment correct
+    1..19
+ok 13 - Simple enum with declarator pod
+# Subtest: Simple subset with declarator pod
+    ok 1 - deparse
+    ok 2 - AST: did we get a subset
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: does the subset accept Int
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a subset
+    ok 12 - Str: did it get the right name
+    ok 13 - Str: does the subset accept Int
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    not ok 19 - Str: is the trailing comment correct # TODO Str: trailing comment dropped somehow
+    # Failed test 'Str: is the trailing comment correct'
+    # at t/12-rakuast/doc-declarator.rakutest line 58
+    # expected: "trailing comment"
+    #      got: Nil
+    ok 20 - Raku: did we get a subset
+    ok 21 - Raku: did it get the right name
+    ok 22 - Raku: does the subset accept Int
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 14 - Simple subset with declarator pod
+# Subtest: Simple regex with declarator pod
+    ok 1 - deparse
+    ok 2 - AST: did we get a regex
+    ok 3 - AST: did it get the right name
+    ok 4 - AST: did we get an Array
+    ok 5 - AST: does it have one element
+    ok 6 - AST: did we get a Pod::Block::Declarator
+    ok 7 - AST: is the object the target of the declarator
+    ok 8 - AST: is the leading comment correct
+    ok 9 - AST: is the trailing comment correct
+    ok 10 - Str: did we get a regex
+    ok 11 - Str: did it get the right name
+    ok 12 - Str: did we get an Array
+    ok 13 - Str: does it have one element
+    ok 14 - Str: did we get a Pod::Block::Declarator
+    ok 15 - Str: is the object the target of the declarator
+    ok 16 - Str: is the leading comment correct
+    ok 17 - Str: is the trailing comment correct
+    ok 18 - Raku: did we get a regex
+    ok 19 - Raku: did it get the right name
+    ok 20 - Raku: did we get an Array
+    ok 21 - Raku: does it have one element
+    ok 22 - Raku: did we get a Pod::Block::Declarator
+    ok 23 - Raku: is the object the target of the declarator
+    ok 24 - Raku: is the leading comment correct
+    ok 25 - Raku: is the trailing comment correct
+    1..25
+ok 15 - Simple regex with declarator pod
+# Subtest: Sub with declarator pod on parameter (1)
+    ok 1 - deparse
+    ok 2 - AST: did we get a sub
+    ok 3 - AST: did sub get the right name
+    ok 4 - AST: did parameter get the right name
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a sub
+    ok 12 - Str: did sub get the right name
+    ok 13 - Str: did parameter get the right name
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a sub
+    ok 21 - Raku: did sub get the right name
+    ok 22 - Raku: did parameter get the right name
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 16 - Sub with declarator pod on parameter (1)
+# Subtest: Sub with declarator pod on parameter (2)
+    ok 1 - deparse
+    ok 2 - AST: did we get a sub
+    ok 3 - AST: did sub get the right name
+    ok 4 - AST: did parameter get the right name
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have one element
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading comment correct
+    ok 10 - AST: is the trailing comment correct
+    ok 11 - Str: did we get a sub
+    ok 12 - Str: did sub get the right name
+    ok 13 - Str: did parameter get the right name
+    ok 14 - Str: did we get an Array
+    ok 15 - Str: does it have one element
+    ok 16 - Str: did we get a Pod::Block::Declarator
+    ok 17 - Str: is the object the target of the declarator
+    ok 18 - Str: is the leading comment correct
+    ok 19 - Str: is the trailing comment correct
+    ok 20 - Raku: did we get a sub
+    ok 21 - Raku: did sub get the right name
+    ok 22 - Raku: did parameter get the right name
+    ok 23 - Raku: did we get an Array
+    ok 24 - Raku: does it have one element
+    ok 25 - Raku: did we get a Pod::Block::Declarator
+    ok 26 - Raku: is the object the target of the declarator
+    ok 27 - Raku: is the leading comment correct
+    ok 28 - Raku: is the trailing comment correct
+    1..28
+ok 17 - Sub with declarator pod on parameter (2)
+# Subtest: Sub with declarator pod on parameter (3)
+    ok 1 - deparse
+    ok 2 - AST: did we get a sub
+    ok 3 - AST: did sub get the right name
+    ok 4 - AST: did first parameter get the right name
+    ok 5 - AST: did second parameter get the right name
+    ok 6 - AST: did we get an Array
+    ok 7 - AST: does it have two elements
+    ok 8 - AST: did we get a Pod::Block::Declarator
+    ok 9 - AST: is the object the target of the declarator
+    ok 10 - AST: is the leading comment b correct
+    ok 11 - AST: did we get a Pod::Block::Declarator
+    ok 12 - AST: is the object the target of the declarator
+    ok 13 - AST: is the leading comment c correct
+    ok 14 - Str: did we get a sub
+    ok 15 - Str: did sub get the right name
+    ok 16 - Str: did first parameter get the right name
+    ok 17 - Str: did second parameter get the right name
+    ok 18 - Str: did we get an Array
+    ok 19 - Str: does it have two elements
+    ok 20 - Str: did we get a Pod::Block::Declarator
+    ok 21 - Str: is the object the target of the declarator
+    ok 22 - Str: is the leading comment b correct
+    ok 23 - Str: did we get a Pod::Block::Declarator
+    ok 24 - Str: is the object the target of the declarator
+    ok 25 - Str: is the leading comment c correct
+    ok 26 - Raku: did we get a sub
+    ok 27 - Raku: did sub get the right name
+    ok 28 - Raku: did first parameter get the right name
+    ok 29 - Raku: did second parameter get the right name
+    ok 30 - Raku: did we get an Array
+    ok 31 - Raku: does it have two elements
+    ok 32 - Raku: did we get a Pod::Block::Declarator
+    ok 33 - Raku: is the object the target of the declarator
+    ok 34 - Raku: is the leading comment b correct
+    ok 35 - Raku: did we get a Pod::Block::Declarator
+    ok 36 - Raku: is the object the target of the declarator
+    ok 37 - Raku: is the leading comment c correct
+    1..37
+ok 18 - Sub with declarator pod on parameter (3)
+# Subtest: Sub with declarator pod on parameter (4)
+    ok 1 - deparse
+    ok 2 - AST: did we get a sub
+    ok 3 - AST: did sub get the right name
+    ok 4 - AST: did parameter get the right name
+    ok 5 - AST: did we get an Array
+    ok 6 - AST: does it have two elements
+    ok 7 - AST: did we get a Pod::Block::Declarator
+    ok 8 - AST: is the object the target of the declarator
+    ok 9 - AST: is the leading sub correct
+    ok 10 - AST: is the trailing sub correct
+    ok 11 - AST: did we get a Pod::Block::Declarator
+    ok 12 - AST: is the object the target of the declarator
+    ok 13 - AST: is the leading param correct
+    ok 14 - AST: is the trailing param correct
+    ok 15 - Str: did we get a sub
+    ok 16 - Str: did sub get the right name
+    ok 17 - Str: did parameter get the right name
+    ok 18 - Str: did we get an Array
+    ok 19 - Str: does it have two elements
+    ok 20 - Str: did we get a Pod::Block::Declarator
+    ok 21 - Str: is the object the target of the declarator
+    ok 22 - Str: is the leading sub correct
+    ok 23 - Str: is the trailing sub correct
+    ok 24 - Str: did we get a Pod::Block::Declarator
+    ok 25 - Str: is the object the target of the declarator
+    ok 26 - Str: is the leading param correct
+    ok 27 - Str: is the trailing param correct
+    ok 28 - Raku: did we get a sub
+    ok 29 - Raku: did sub get the right name
+    ok 30 - Raku: did parameter get the right name
+    ok 31 - Raku: did we get an Array
+    ok 32 - Raku: does it have two elements
+    ok 33 - Raku: did we get a Pod::Block::Declarator
+    ok 34 - Raku: is the object the target of the declarator
+    ok 35 - Raku: is the leading sub correct
+    ok 36 - Raku: is the trailing sub correct
+    ok 37 - Raku: did we get a Pod::Block::Declarator
+    ok 38 - Raku: is the object the target of the declarator
+    ok 39 - Raku: is the leading param correct
+    ok 40 - Raku: is the trailing param correct
+    1..40
+ok 19 - Sub with declarator pod on parameter (4)
+# Subtest: a simple lexical var
+    ok 1 - deparse
+    ok 2 - did we find the paragraphs ok
+    1..2
+ok 20 - a simple lexical var

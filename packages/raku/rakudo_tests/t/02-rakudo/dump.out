@@ -1,0 +1,65 @@
+1..44
+ok 1 - DUMP(:U) is .raku (Mu)
+ok 2 - DUMP(:U) is .raku (Junction)
+ok 3 - DUMP(:U) is .raku (Any)
+ok 4 - DUMP(:U) is .raku (Bool)
+ok 5 - DUMP(:U) is .raku (Cool)
+ok 6 - DUMP(:U) is .raku (Str)
+ok 7 - DUMP(:U) is .raku (Int)
+ok 8 - DUMP(:U) is .raku (Num)
+ok 9 - DUMP(:U) is .raku (Rat)
+ok 10 - DUMP(:U) is .raku (FatRat)
+ok 11 - DUMP(:U) is .raku (Complex)
+ok 12 - DUMP(:U) is .raku (Duration)
+ok 13 - DUMP(:U) is .raku (Instant)
+not ok 14 - DUMP(Bool:D) is .Str (False) # TODO NYI
+# Failed test 'DUMP(Bool:D) is .Str (False)'
+# at t/02-rakudo/dump.t line 22
+# expected: 'False'
+#      got: 'Bool::False'
+not ok 15 - DUMP(Bool:D) is .Str (True) # TODO NYI
+# Failed test 'DUMP(Bool:D) is .Str (True)'
+# at t/02-rakudo/dump.t line 23
+# expected: 'True'
+#      got: 'Bool::True'
+ok 16 - DUMP(Int:D) is .raku (0)
+ok 17 - DUMP(Int:D) is .raku (1)
+ok 18 - DUMP(Int:D) is .raku (-128)
+ok 19 - DUMP(Int:D) is .raku (123456789)
+ok 20 - DUMP(Int:D) is .raku (1 +< 100)
+ok 21 - DUMP(Num:D) is .raku (0e0)
+ok 22 - DUMP(Num:D) is .raku (-0e0)
+ok 23 - DUMP(Num:D) is .raku (Inf)
+ok 24 - DUMP(Num:D) is .raku (-Inf)
+ok 25 - DUMP(Num:D) is .raku (NaN)
+ok 26 - DUMP(Rat:D) is .raku (0.0)
+ok 27 - DUMP(Rat:D) is .raku (-0.0)
+ok 28 - DUMP(Rat:D) is .raku (1.1)
+ok 29 - DUMP(Rat:D) is .raku (-1.1)
+ok 30 - DUMP(Rat:D) is .raku (22/7)
+ok 31 - DUMP(Rat:D) is .raku (-22/7)
+ok 32 - DUMP(Complex:D) is .raku (0i)
+ok 33 - DUMP(Complex:D) is .raku (-0i)
+ok 34 - DUMP(Complex:D) is .raku (0+0i)
+ok 35 - DUMP(Complex:D) is .raku (0-0i)
+ok 36 - DUMP(Complex:D) is .raku (-0+0i)
+ok 37 - DUMP(Complex:D) is .raku (-0-0i)
+ok 38 - DUMP(Complex:D) is .raku (1+1i)
+ok 39 - DUMP(Complex:D) is .raku (1-1i)
+ok 40 - DUMP(Complex:D) is .raku (-1+1i)
+ok 41 - DUMP(Complex:D) is .raku (-1-1i)
+not ok 42 - DUMP(int) dumps as a literal # TODO NYI (can it even?)
+# Failed test 'DUMP(int) dumps as a literal'
+# at t/02-rakudo/dump.t line 62
+# expected: '42'
+#      got: '▶42'
+not ok 43 - DUMP(num) dumps as a literal # TODO NYI (can it even?)
+# Failed test 'DUMP(num) dumps as a literal'
+# at t/02-rakudo/dump.t line 63
+# expected: '12345e0'
+#      got: '▶12345e0'
+not ok 44 - DUMP(str) dumps as a literal # TODO NYI (can it even?)
+# Failed test 'DUMP(str) dumps as a literal'
+# at t/02-rakudo/dump.t line 64
+# expected: '"a string"'
+#      got: '▶"a string"'

@@ -1,0 +1,237 @@
+1..30
+# Subtest: Application of an infix operator on two literals
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - Application of an infix operator on two literals
+# Subtest: The special form || operator works (1)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - The special form || operator works (1)
+# Subtest: The special form || operator works (2)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - The special form || operator works (2)
+# Subtest: The special form or operator works (1)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - The special form or operator works (1)
+# Subtest: The special form or operator works (2)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - The special form or operator works (2)
+# Subtest: The special form && operator works (1)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - The special form && operator works (1)
+# Subtest: The special form && operator works (2)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - The special form && operator works (2)
+# Subtest: The special form and operator works (1)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 8 - The special form and operator works (1)
+# Subtest: The special form and operator works (2)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 9 - The special form and operator works (2)
+# Subtest: Application of a prefix operator to a literal (1)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 10 - Application of a prefix operator to a literal (1)
+# Subtest: Application of a prefix operator to a literal (2)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 11 - Application of a prefix operator to a literal (2)
+# Subtest: Basic assignment to a Scalar container
+    ok 1 - deparse
+    ok 2 - AST: return value is ok
+    ok 3 - AST: was variable set ok
+    ok 4 - Str: return value is ok
+    ok 5 - Str: was variable set ok
+    ok 6 - Raku: return value is ok
+    ok 7 - Raku: was variable set ok
+    1..7
+ok 12 - Basic assignment to a Scalar container
+# Subtest: Application of a list infix operator on three operands
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 13 - Application of a list infix operator on three operands
+# Subtest: Application of a list infix operator on no operands
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    1..3
+ok 14 - Application of a list infix operator on no operands
+# Subtest: Chaining operator has correct outcome
+    ok 1 - deparse
+    ok 2 - AST: did the expression get evaluated
+    ok 3 - AST: was the update done
+    ok 4 - Str: did the expression get evaluated
+    ok 5 - Str: was the update done
+    ok 6 - Raku: did the expression get evaluated
+    ok 7 - Raku: was the update done
+    1..7
+ok 15 - Chaining operator has correct outcome
+# Subtest: Correct outcome of ternary operator
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    ok 5 - AST
+    ok 6 - Str
+    ok 7 - Raku
+    1..7
+ok 16 - Correct outcome of ternary operator
+# Subtest: Correct outcome of nested ternary operator
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    ok 5 - AST
+    ok 6 - Str
+    ok 7 - Raku
+    ok 8 - AST
+    ok 9 - Str
+    ok 10 - Raku
+    ok 11 - AST
+    ok 12 - Str
+    ok 13 - Raku
+    1..13
+ok 17 - Correct outcome of nested ternary operator
+# Subtest: Application of dotty infix `.`
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 18 - Application of dotty infix `.`
+# Subtest: Application of dotty infix `.=` evaluates to expected value
+    ok 1 - deparse
+    ok 2 - AST: did we get the right value
+    ok 3 - AST: was the value stored
+    ok 4 - Str: did we get the right value
+    ok 5 - Str: was the value stored
+    ok 6 - Raku: did we get the right value
+    ok 7 - Raku: was the value stored
+    1..7
+ok 19 - Application of dotty infix `.=` evaluates to expected value
+# Subtest: Application of a function infix on two literals
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 20 - Application of a function infix on two literals
+# Subtest: Application of ff
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 21 - Application of ff
+# Subtest: Application of ^ff
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 22 - Application of ^ff
+# Subtest: Application of ff^
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 23 - Application of ff^
+# Subtest: Application of ^ff^
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 24 - Application of ^ff^
+# Subtest: Application of fff
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 25 - Application of fff
+# Subtest: Application of ^fff
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 26 - Application of ^fff
+# Subtest: Application of fff^
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 27 - Application of fff^
+# Subtest: Application of ^fff^
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 28 - Application of ^fff^
+# Subtest: Feed operation ==>
+    ok 1 - deparse
+    ok 2 - AST: EVAL ==>
+    ok 3 - AST: stored ==>
+    ok 4 - Str: EVAL ==>
+    ok 5 - Str: stored ==>
+    ok 6 - Raku: EVAL ==>
+    ok 7 - Raku: stored ==>
+    1..7
+ok 29 - Feed operation ==>
+# Subtest: Feed operation <==
+    ok 1 - deparse
+    ok 2 - AST: EVAL <==
+    ok 3 - AST: stored <==
+    ok 4 - Str: EVAL <==
+    ok 5 - Str: stored <==
+    ok 6 - Raku: EVAL <==
+    ok 7 - Raku: stored <==
+    1..7
+ok 30 - Feed operation <==

@@ -1,0 +1,27 @@
+1..26
+ok 1 - TRANSPOSE foof,f,a  -> aooa
+ok 2 - TRANSPOSE foof,f,ab  -> abooab
+ok 3 - TRANSPOSE foof,f,ff  -> ffooff
+ok 4 - TRANSPOSE foof,f,  -> oo
+ok 5 - TRANSPOSE offo,f,a  -> oaao
+ok 6 - TRANSPOSE offo,f,ab  -> oababo
+ok 7 - TRANSPOSE offo,f,ff  -> offffo
+ok 8 - TRANSPOSE offo,f,  -> oo
+ok 9 - TRANSPOSE foof,fo,a  -> aof
+ok 10 - TRANSPOSE foof,fo,ab  -> abof
+ok 11 - TRANSPOSE foof,fo,ff  -> ffof
+ok 12 - TRANSPOSE foof,fo,  -> of
+ok 13 - TRANSPOSE offo,fo,a  -> ofa
+ok 14 - TRANSPOSE offo,fo,ab  -> ofab
+ok 15 - TRANSPOSE offo,fo,ff  -> offf
+ok 16 - TRANSPOSE offo,fo,  -> of
+ok 17 - TRANSPOSE ofof,fo,a  -> oaf
+ok 18 - TRANSPOSE ofof,fo,ab  -> oabf
+ok 19 - TRANSPOSE ofof,fo,ff  -> offf
+ok 20 - TRANSPOSE ofof,fo,  -> of
+ok 21 - TRANSPOSE oooo,o,  -> 
+ok 22 - TRANSPOSE oooo,o,x  -> xxxx
+ok 23 - TRANSPOSE oooo,o,xx  -> xxxxxxxx
+ok 24 - TRANSPOSE oooo,x,  -> oooo
+ok 25 - TRANSPOSE oooo,x,y  -> oooo
+ok 26 - TRANSPOSE oooo,x,yy  -> oooo

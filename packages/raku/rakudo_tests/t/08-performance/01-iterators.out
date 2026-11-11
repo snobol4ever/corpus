@@ -1,0 +1,7 @@
+1..6
+ok 1 - combinations() iterator implements efficient .count-only
+ok 2 - combinations() iterator implements efficient .bool-only
+ok 3 - &permutations() iterator implements efficient .count-only
+ok 4 - &permutations() iterator implements efficient .bool-only
+ok 5 - .permutations() iterator implements efficient .count-only
+ok 6 - .permutations() iterator implements efficient .bool-only

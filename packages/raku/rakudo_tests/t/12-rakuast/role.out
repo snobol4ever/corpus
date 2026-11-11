@@ -1,0 +1,94 @@
+1..6
+# Subtest: creating an empty role
+    ok 1 - deparse
+    ok 2 - AST: role gets correct name
+    ok 3 - AST: does the role auto-pun
+    ok 4 - AST: class gets correct name
+    ok 5 - AST: can it be instantiated
+    ok 6 - AST: did the role get consumed
+    ok 7 - Str: role gets correct name
+    ok 8 - Str: does the role auto-pun
+    ok 9 - Str: class gets correct name
+    ok 10 - Str: can it be instantiated
+    not ok 11 - Str: did the role get consumed # TODO needs work on consuming the role
+    # Failed test 'Str: did the role get consumed'
+    # at t/12-rakuast/role.rakutest line 41
+    # Type: Zippo doesn't do role Frobnicator
+    ok 12 - Raku: role gets correct name
+    ok 13 - Raku: does the role auto-pun
+    ok 14 - Raku: class gets correct name
+    ok 15 - Raku: can it be instantiated
+    not ok 16 - Raku: did the role get consumed # TODO needs work on consuming the role
+    # Failed test 'Raku: did the role get consumed'
+    # at t/12-rakuast/role.rakutest line 41
+    # Type: Zippo doesn't do role Frobnicator
+    1..16
+ok 1 - creating an empty role
+# Subtest: creating a role with an attribute
+    ok 1 - deparse
+    ok 2 - Str: role gets correct name
+    ok 3 - Str: does the role auto-pun (1)
+    ok 4 - Str: did the attribute get initialized (1)
+    ok 5 - Str: does the role auto-pun (2)
+    ok 6 - Str: did the attribute get initialized (2)
+    1..6
+ok 2 - creating a role with an attribute
+# Subtest: creating a role that does another role
+    ok 1 - deparse
+    ok 2 - AST: role gets correct name
+    ok 3 - AST: can we see the roles it does
+    ok 4 - AST: does the role auto-pun
+    ok 5 - Str: role gets correct name
+    ok 6 - Str: can we see the roles it does
+    ok 7 - Str: does the role auto-pun
+    ok 8 - Raku: role gets correct name
+    ok 9 - Raku: can we see the roles it does
+    ok 10 - Raku: does the role auto-pun
+    1..10
+ok 3 - creating a role that does another role
+# Subtest: creating a role that does a parameterized role
+    ok 1 - deparse
+    ok 2 - AST: role gets correct name
+    ok 3 - AST: can we see the roles it does
+    ok 4 - AST: does the role auto-pun
+    ok 5 - AST: did we get a rational 0
+    ok 6 - AST: did we get a rational 1
+    ok 7 - AST: did we get a rational 1/3
+    ok 8 - Str: role gets correct name
+    ok 9 - Str: can we see the roles it does
+    ok 10 - Str: does the role auto-pun
+    ok 11 - Str: did we get a rational 0
+    ok 12 - Str: did we get a rational 1
+    ok 13 - Str: did we get a rational 1/3
+    ok 14 - Raku: role gets correct name
+    ok 15 - Raku: can we see the roles it does
+    ok 16 - Raku: does the role auto-pun
+    ok 17 - Raku: did we get a rational 0
+    ok 18 - Raku: did we get a rational 1
+    ok 19 - Raku: did we get a rational 1/3
+    1..19
+ok 4 - creating a role that does a parameterized role
+# Subtest: creating a parameterized role
+    ok 1 - deparse
+    ok 2 - Str: role gets correct name
+    ok 3 - Str: can we see the roles it does
+    ok 4 - Str: does the role auto-pun (1)
+    ok 5 - Str: did the default value get set
+    ok 6 - Str: does the role auto-pun (2)
+    ok 7 - Str: did the value get set
+    1..7
+ok 5 - creating a parameterized role
+# Subtest: creating a parameterized role with a type capture
+    ok 1 - deparse
+    ok 2 - Str: role gets correct name
+    ok 3 - Str: can we see the roles it does
+    ok 4 - Str: does the role auto-pun (1)
+    ok 5 - Str: value returned (1)
+    ok 6 - Str: does uninstantiated type die (1) # TODO :D not yet being applied in type check
+    ok 7 - Str: does incorrect type die (1)
+    ok 8 - Str: does the role auto-pun (2)
+    ok 9 - Str: value returned (2)
+    ok 10 - Str: does uninstantiated type die (2) # TODO :D not yet being applied in type check
+    ok 11 - Str: does incorrect type die (2)
+    1..11
+ok 6 - creating a parameterized role with a type capture

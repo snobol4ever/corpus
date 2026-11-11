@@ -1,0 +1,64 @@
+1..9
+# Subtest: RakuAST::IntLiteral with constant
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 1 - RakuAST::IntLiteral with constant
+# Subtest: RakuAST::IntLiteral with calculated value
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 2 - RakuAST::IntLiteral with calculated value
+# Subtest: RakuAST::NumLiteral with constant
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 3 - RakuAST::NumLiteral with constant
+# Subtest: RakuAST::NumLiteral with calculated value
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 4 - RakuAST::NumLiteral with calculated value
+# Subtest: RakuAST::RatLiteral with constant
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 5 - RakuAST::RatLiteral with constant
+# Subtest: RakuAST::RatLiteral with calculated value
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 6 - RakuAST::RatLiteral with calculated value
+# Subtest: RakuAST::ComplexLiteral with constant
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 7 - RakuAST::ComplexLiteral with constant
+# Subtest: RakuAST::VersionLiteral with constant
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 8 - RakuAST::VersionLiteral with constant
+# Subtest: RakuAST::VersionLiteral with constructed version
+    1..4
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+ok 9 - RakuAST::VersionLiteral with constructed version

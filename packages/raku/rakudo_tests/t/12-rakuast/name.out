@@ -1,0 +1,43 @@
+1..4
+# Subtest: name from identifier
+    ok 1 - .from-identifier constructs a name
+    ok 2 - The element is considered an identifier
+    ok 3 - Has one part
+    ok 4 - Name has a single part
+    ok 5 - Part has expected name
+    ok 6 - Deparses in an expected way
+    ok 7 - rakufies in an expected way
+    1..7
+ok 1 - name from identifier
+# Subtest: name from identifier parts
+    ok 1 - .from-identifier-parts constructs a name
+    ok 2 - the element is NOT considered an identifier
+    ok 3 - Has two parts
+    ok 4 - first part is simple
+    ok 5 - second part is simple
+    ok 6 - part 1 has expected name
+    ok 7 - part 2 has expected name
+    ok 8 - deparses in an expected way
+    ok 9 - rakufies in an expected way
+    1..9
+ok 2 - name from identifier parts
+# Subtest: name from different parts
+    ok 1 - .new constructs a name
+    ok 2 - the element is NOT considered an identifier
+    ok 3 - Has two parts
+    ok 4 - first part is simple
+    ok 5 - second part is empty
+    ok 6 - part 1 has expected name
+    ok 7 - deparses in an expected way
+    ok 8 - rakufies in an expected way
+    1..8
+ok 3 - name from different parts
+# Subtest: name from expressions
+    ok 1 - .new constructs a name
+    ok 2 - the element is NOT considered an identifier
+    ok 3 - Has one parts
+    ok 4 - second part is ok
+    ok 5 - deparses in an expected way
+    ok 6 - rakufies in an expected way
+    1..6
+ok 4 - name from expressions

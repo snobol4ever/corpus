@@ -1,0 +1,4 @@
+root	/home/resources/unicon/uni
+origin	https://github.com/uniconproject/unicon
+version	d784f58 (2026-09-06)
+licence	GNU GPL for the extensions and GNU LGPL for the class library (the COPYING of Unicon)

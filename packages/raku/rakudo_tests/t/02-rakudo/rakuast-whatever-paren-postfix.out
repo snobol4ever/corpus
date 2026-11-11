@@ -1,0 +1,10 @@
+1..9
+ok 1 - (5 ~~ *).WHAT returns the WhateverCode type object
+ok 2 - (*+1).WHAT returns the WhateverCode type object
+ok 3 - ("- " ~ *).chars produces a WhateverCode
+ok 4 - ... a concrete curried instance
+ok 5 - ... that runs ("- " ~ $_).chars
+ok 6 - *.Str (no parens) curries to WhateverCode
+ok 7 - *.Str produces a concrete curried instance
+ok 8 - *.Str curried thunk runs with arg
+ok 9 - *+1 (no parens) still curries and runs

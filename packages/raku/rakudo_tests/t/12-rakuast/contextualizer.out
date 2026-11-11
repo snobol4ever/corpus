@@ -1,0 +1,50 @@
+1..7
+# Subtest: Item contextualizer from empty sequence
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 1 - Item contextualizer from empty sequence
+# Subtest: Hash contextualizer from empty sequence
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 2 - Hash contextualizer from empty sequence
+# Subtest: List contextualizer from empty sequence
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 3 - List contextualizer from empty sequence
+# Subtest: Item contextualizer with single value
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 4 - Item contextualizer with single value
+# Subtest: Item contextualizer with multiple values
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 5 - Item contextualizer with multiple values
+# Subtest: Hash contextualizer from pairs
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 6 - Hash contextualizer from pairs
+# Subtest: List contextualizer from pairs
+    ok 1 - deparse
+    ok 2 - AST: Contextualizer gives expected result
+    ok 3 - Str: Contextualizer gives expected result
+    ok 4 - Raku: Contextualizer gives expected result
+    1..4
+ok 7 - List contextualizer from pairs

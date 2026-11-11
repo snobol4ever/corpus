@@ -1,0 +1,199 @@
+1..14
+# Subtest: exception isn't lost
+    1..3
+    ok 1 - 'sub foo ( ::T $val ) { my T $a is default($val); }; foo(42)' died
+    ok 2 - right exception type (X::Parameter::Default::TypeCheck)
+    ok 3 - .message matches rx:s/Default value \'\(\w+\)\' will never bind to a variable of type T/
+ok 1 - exception isn't lost
+# Subtest: calling multi sub that expects a rw native argument with a literal is caught at compile time
+    1..2
+    ok 1 - 'multi sub f(int $foo is rw) { }; f(42)' died
+    ok 2 - right exception type (X::Comp)
+ok 2 - calling multi sub that expects a rw native argument with a literal is caught at compile time
+# Subtest: calling multi sub that expects a rw non-native argument with a literal is caught at compile time
+    1..2
+    ok 1 - 'multi sub f(Int $foo is rw) { }; f(42)' died
+    ok 2 - right exception type (X::Comp)
+ok 3 - calling multi sub that expects a rw non-native argument with a literal is caught at compile time
+# Subtest: inheriting from uncomposed parent
+    1..2
+    ok 1 - 'my \parent := Metamodel::ClassHOW.new_type(:name('Parent'));
+    # my \child := Metamodel::ClassHOW.new_type(:name('Child'));
+    # child.^add_parent(parent);
+    # child.^compose;
+    # ' died
+    ok 2 - right exception type (X::Inheritance::NotComposed)
+ok 4 - inheriting from uncomposed parent
+# Subtest: passing an initializer when role cannot accept it
+    1..2
+    ok 1 - 'role R {}; my $foo = 42 but R(1)' died
+    ok 2 - right exception type (X::Role::Initialization)
+ok 5 - passing an initializer when role cannot accept it
+# Subtest: Sigiled variables can be rebound
+    1..3
+    ok 1 - $-sigiled variable can be rebound
+    ok 2 - @-sigiled variable can be rebound
+    ok 3 - %-sigiled variable can be rebound
+ok 6 - Sigiled variables can be rebound
+# Subtest: Scalars in signatures be rebound if they are 'copy' or 'rw'
+    1..2
+    ok 1 - Scalars in function signatures can be rebound when they are 'is copy'
+    ok 2 - Scalars in function signatures can be rebound when they are 'is rw' (and get a writable container)
+ok 7 - Scalars in signatures be rebound if they are 'copy' or 'rw'
+# Subtest: Scalars in signatures that aren't 'copy' or 'rw' cannot be rebound
+    1..4
+    # Subtest: Scalars in function signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'$bound-scalar-in-sig'/, /'signature'/)
+    ok 1 - Scalars in function signatures cannot be rebound
+    # Subtest: Scalars in function signatures cannot be rebound even if they have a type constraint
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'$bound-scalar-with-type'/, /'signature'/)
+    ok 2 - Scalars in function signatures cannot be rebound even if they have a type constraint
+    # Subtest: Scalars in bound signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'$bound-scalar'/, /'signature'/)
+    ok 3 - Scalars in bound signatures cannot be rebound
+    # Subtest: Scalars in more complex bound signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'$bound-scalar'/, /'signature'/)
+    ok 4 - Scalars in more complex bound signatures cannot be rebound
+ok 8 - Scalars in signatures that aren't 'copy' or 'rw' cannot be rebound
+# Subtest: Positional and Associative variables in signatures can be rebound if they are 'copy'
+    1..4
+    ok 1 - Positional variables in function signatures can be rebound when they are 'is copy'
+    ok 2 - Positional variables in bound signatures can be rebound when they are 'is copy'
+    ok 3 - Associative variables in function signatures can be rebound when they are 'is copy'
+    ok 4 - Associative variables bound in signatures can be rebound when they are 'is copy'
+ok 9 - Positional and Associative variables in signatures can be rebound if they are 'copy'
+# Subtest: Positional and Associative variables in signatures that aren't 'copy' cannot be rebound
+    1..4
+    # Subtest: Positional variables in function signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'@bound-positional-in-sig'/, /'signature'/)
+    ok 1 - Positional variables in function signatures cannot be rebound
+    # Subtest: Positional variables in bound signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'@bound-positional'/, /'signature'/)
+    ok 2 - Positional variables in bound signatures cannot be rebound
+    # Subtest: Associative variables in function signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'%bound-associative-in-sig'/, /'signature'/)
+    ok 3 - Associative variables in function signatures cannot be rebound
+    # Subtest: Associative variables in bound signatures cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'%bound-associative'/, /'signature'/)
+    ok 4 - Associative variables in bound signatures cannot be rebound
+ok 10 - Positional and Associative variables in signatures that aren't 'copy' cannot be rebound
+# Subtest: Sigilless "variables" can never be rebound
+    1..4
+    # Subtest: Sigilless scalar terms cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'sigilless'/, none(/'signature'/))
+    ok 1 - Sigilless scalar terms cannot be rebound
+    # Subtest: Sigilless positional terms cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'sigilless-array'/, none(/'signature'/))
+    ok 2 - Sigilless positional terms cannot be rebound
+    # Subtest: Sigilless associative terms cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'sigilless-hash'/, none(/'signature'/))
+    ok 3 - Sigilless associative terms cannot be rebound
+    # Subtest: Constants cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'con'/, none(/'signature'/))
+    ok 4 - Constants cannot be rebound
+ok 11 - Sigilless "variables" can never be rebound
+# Subtest: Code items can never be rebound
+    1..2
+    # Subtest: A sub cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'&f'/, none(/'signature'/))
+    ok 1 - A sub cannot be rebound
+    # Subtest: A regex cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'&reg-exp'/, none(/'signature'/))
+    ok 2 - A regex cannot be rebound
+ok 12 - Code items can never be rebound
+# Subtest: Terms can never be rebound
+    1..4
+    # Subtest: A class cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'C'/, none(/'signature'/))
+    ok 1 - A class cannot be rebound
+    # Subtest: A role cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'R'/, none(/'signature'/))
+    ok 2 - A role cannot be rebound
+    # Subtest: A grammar cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'G'/, none(/'signature'/))
+    ok 3 - A grammar cannot be rebound
+    # Subtest: Native types cannot be rebound
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::Rebind)
+        ok 3 - .message matches all(/'int'/, none(/'signature'/))
+    ok 4 - Native types cannot be rebound
+ok 13 - Terms can never be rebound
+# Subtest: Items that were never bound don't throw *re*binding errors
+    1..8
+    ok 1 - Binding to a native type doesn't throw X::Bind::Rebind
+    # Subtest: Binding to a native type throws X::Bind::NativeType
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind::NativeType)
+    ok 2 - Binding to a native type throws X::Bind::NativeType
+    ok 3 - Binding to a literal doesn't throw X::Bind::Rebind
+    # Subtest: Binding to a literal throws X::Bind
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind)
+    ok 4 - Binding to a literal throws X::Bind
+    ok 5 - Binding to a function call LHS doesn't throw X::Bind::Rebind
+    # Subtest: Binding to a function call LHS throws X::Bind
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind)
+    ok 6 - Binding to a function call LHS throws X::Bind
+    ok 7 - Binding to a pseudo-package LHS doesn't throw X::Bind::Rebind
+    # Subtest: Binding to a pseudo-package LHS throws X::Bind
+        1..2
+        ok 1 - code dies
+        ok 2 - right exception type (X::Bind)
+    ok 8 - Binding to a pseudo-package LHS throws X::Bind
+ok 14 - Items that were never bound don't throw *re*binding errors

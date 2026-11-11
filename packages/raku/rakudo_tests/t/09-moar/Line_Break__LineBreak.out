@@ -1,0 +1,3 @@
+ok 1 - Property: Line_Break=ID from file: LineBreak.txt (Correct: 115049 Wrong: 57512). Todo'd if < 62579 failures. # TODO Expecting 62579 failures from Line_Break=ID
+ok 2 - Property: Line_Break=PR from file: LineBreak.txt (Correct: 53 Wrong: 14). Todo'd if < 15 failures. # TODO Expecting 15 failures from Line_Break=PR
+1..2

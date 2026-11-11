@@ -1,0 +1,13 @@
+1..12
+ok 1 - calls to macro are at parse time
+ok 2 - macro call with arguments works
+ok 3 - macro calls without parens work
+ok 4 - macro call with arguments works
+ok 5 - can define an entirely new operator
+ok 6 - can shadow an existing operator
+ok 7 - lexical lookup from quasi to macro works
+ok 8 - lexical lookup from quasi to macro params works
+ok 9 - macro can return its param
+ok 10 - Nil from an empty block turns into no code
+ok 11 - addition of two quasis with arithmetical expressions works (1)
+ok 12 - addition of two quasis with arithmetical expressions works (2)

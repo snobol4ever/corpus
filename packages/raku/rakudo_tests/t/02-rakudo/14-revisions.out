@@ -1,0 +1,70 @@
+1..3
+# Subtest: CORE.setting Revision
+    1..3
+    # Subtest: CORE.setting
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - CORE.setting
+    # Subtest: CORE.d.setting
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - CORE.d.setting
+    # Subtest: CORE.e.setting
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - CORE.e.setting
+ok 1 - CORE.setting Revision
+# Subtest: Modifiers
+    1..4
+    # Subtest: 6.e without PREVIEW dies
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - 6.e without PREVIEW dies
+    # Subtest: v6.d.TEST loads CORE.d.setting
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - v6.d.TEST loads CORE.d.setting
+    # Subtest: Deprecated modifier generates a warning
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - Deprecated modifier generates a warning
+    # Subtest: Unknown modifier dies
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 4 - Unknown modifier dies
+ok 2 - Modifiers
+# Subtest: Class Version
+    1..3
+    # Subtest: 6.c class version
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - 6.c class version
+    # Subtest: 6.c class version on 6.d compiler
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - 6.c class version on 6.d compiler
+    # Subtest: 6.e class version
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - 6.e class version
+ok 3 - Class Version

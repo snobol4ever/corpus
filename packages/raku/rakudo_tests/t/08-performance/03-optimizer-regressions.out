@@ -1,0 +1,2 @@
+1..1
+ok 1 - Smartmatch optimization does not lead to non-Mu:U object smartmatching with Mu:U

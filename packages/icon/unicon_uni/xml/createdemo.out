@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE tag PUBLIC "my-publicid" "my-systemid">
+<tag first="val" >
+  <innerTag second="val" >here is some text content</innerTag>
+</tag>

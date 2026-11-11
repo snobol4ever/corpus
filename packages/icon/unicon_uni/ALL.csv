@@ -1,0 +1,16 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,lib/attr,lib/attr.icn,unicon_uni__lib/attr,unicon_uni,50,0,131072,4096,60,,unicon
+2,progs/complex_ex,progs/complex_ex.icn,unicon_uni__progs/complex_ex,unicon_uni,20,1,131072,4096,60,,unicon
+3,progs/deen,progs/deen.icn,unicon_uni__progs/deen,unicon_uni,202,0,131072,4096,60,,unicon
+4,progs/genAcc,progs/genAcc.icn,unicon_uni__progs/genAcc,unicon_uni,21,0,131072,4096,60,,unicon
+5,progs/heap_demo,progs/heap_demo.icn,unicon_uni__progs/heap_demo,unicon_uni,80,1,131072,4096,60,,unicon
+6,progs/jsvalid,progs/jsvalid.icn,unicon_uni__progs/jsvalid,unicon_uni,61,255,131072,4096,60,,unicon
+7,progs/uget,progs/uget.icn,unicon_uni__progs/uget,unicon_uni,118,255,131072,4096,60,,unicon
+8,uflex/test/hello,uflex/test/hello.icn,unicon_uni__uflex/test/hello,unicon_uni,3,0,131072,4096,60,,unicon
+9,ulsp/launch-lsp,ulsp/launch-lsp.icn,unicon_uni__ulsp/launch-lsp,unicon_uni,93,255,131072,4096,60,,unicon
+10,unidoc/UniDoc,unidoc/UniDoc.icn,unicon_uni__unidoc/UniDoc,unicon_uni,228,1,131072,4096,60,,unicon
+11,util/ivibmigrate,util/ivibmigrate.icn,unicon_uni__util/ivibmigrate,unicon_uni,432,0,131072,4096,60,,unicon
+12,xml/createdemo,xml/createdemo.icn,unicon_uni__xml/createdemo,unicon_uni,35,0,131072,4096,60,,unicon
+13,xml/globaldemo,xml/globaldemo.icn,unicon_uni__xml/globaldemo,unicon_uni,52,0,131072,4096,60,,unicon
+14,xml/testpatterns,xml/testpatterns.icn,unicon_uni__xml/testpatterns,unicon_uni,105,0,131072,4096,60,,unicon
+15,xml/testxml,xml/testxml.icn,unicon_uni__xml/testxml,unicon_uni,81,0,131072,4096,60,,unicon

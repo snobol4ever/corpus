@@ -1,0 +1,63 @@
+1..43
+ok 1 - H* works
+ok 2 - H* works
+ok 3 - H works on odd-length strings
+ok 4 - H works on odd-length strings
+ok 5 - A11 A28 A8 A* works
+ok 6 - A11 A28 A8 A* works
+ok 7 - C S L n N v V work
+ok 8 - C S L n N v V work
+ok 9 - x by itself works
+ok 10 - x by itself works
+ok 11 - x4 & amount works
+ok 12 - x4 & amount works
+ok 13 - x* & amount works: does nothing
+ok 14 - x* & amount works: does nothing
+ok 15 - H* works
+ok 16 - H* works
+ok 17 - field 1 (A11) works
+ok 18 - field 2 (A28) works
+ok 19 - field 3 (A8) works
+ok 20 - field 4 (A*) works
+ok 21 - field 1 (A11) works
+ok 22 - field 2 (A28) works
+ok 23 - field 3 (A8) works
+ok 24 - field 4 (A*) works
+ok 25 - C works
+ok 26 - S works
+ok 27 - L works
+ok 28 - n works
+ok 29 - N works
+ok 30 - v works
+ok 31 - V works
+ok 32 - C works
+ok 33 - S works
+ok 34 - L works
+ok 35 - n works
+ok 36 - N works
+ok 37 - v works
+ok 38 - V works
+# Subtest: did we throws-like X::Buf::AsStr?
+    1..2
+    ok 1 - code dies
+    ok 2 - right exception type (X::Buf::AsStr)
+ok 39 - did we throws-like X::Buf::AsStr?
+# Subtest: did we throws-like X::Buf::Pack?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Buf::Pack)
+    ok 3 - .directive matches B
+ok 40 - did we throws-like X::Buf::Pack?
+# Subtest: did we throws-like X::Buf::Pack?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Buf::Pack)
+    ok 3 - .directive matches B
+ok 41 - did we throws-like X::Buf::Pack?
+# Subtest: did we throws-like X::Buf::Pack::NonASCII?
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Buf::Pack::NonASCII)
+    ok 3 - .char matches Ä
+ok 42 - did we throws-like X::Buf::Pack::NonASCII?
+ok 43 - is "use experimental :pack" visible?

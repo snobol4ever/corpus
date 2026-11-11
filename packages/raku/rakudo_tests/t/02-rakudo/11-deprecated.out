@@ -1,0 +1,13 @@
+1..2
+# Subtest: no deprecation message with \(v6.d, v6.e, :lang-vers)
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 1 - no deprecation message with \(v6.d, v6.e, :lang-vers)
+# Subtest: shows deprecation message with \(v6.d, v6.e, :lang-vers)
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 2 - shows deprecation message with \(v6.d, v6.e, :lang-vers)

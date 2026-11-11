@@ -1,0 +1,4 @@
+1..3
+ok 1 - did we get a Proc?
+ok 2 - is the program output ok?
+ok 3 - is the trace ok?

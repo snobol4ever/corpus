@@ -1,0 +1,89 @@
+1..12
+# Subtest: One-part heredoc with literal piece
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - One-part heredoc with literal piece
+# Subtest: Heredoc with interpolated string variable works
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - Heredoc with interpolated string variable works
+# Subtest: Heredoc with interpolated integer variable
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Heredoc with interpolated integer variable
+# Subtest: Heredoc with 3 parts works
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Heredoc with 3 parts works
+# Subtest: Heredoc involving an interpolated block
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Heredoc involving an interpolated block
+# Subtest: words processor splits a heredoc into words
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - words processor splits a heredoc into words
+# Subtest: Words processor applied to a heredoc with interpolation
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - Words processor applied to a heredoc with interpolation
+# Subtest: Using the val processor alone on a heredoc
+    ok 1 - deparse
+    ok 2 - AST
+    not ok 3 - Str # TODO problem in parsing static heredocs and :v
+    # Failed test 'Str'
+    # at t/12-rakuast/heredocs.rakutest line 181
+    # expected: IntStr.new(42, "42\n")
+    #      got: "42\n"
+    ok 4 - Raku # TODO problem in parsing static heredocs and :v
+    1..4
+ok 8 - Using the val processor alone on a heredoc
+# Subtest: Using the val processor in heredoc with interpolation
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 9 - Using the val processor in heredoc with interpolation
+# Subtest: Using the words and val processor in a heredoc
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 10 - Using the words and val processor in a heredoc
+# Subtest: Words processor applied to a heredoc with interpolation
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 11 - Words processor applied to a heredoc with interpolation
+# Subtest: Using the exec processor alone gives expected result
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 12 - Using the exec processor alone gives expected result

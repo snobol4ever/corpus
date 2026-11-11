@@ -1,0 +1,69 @@
+1..68
+ok 1 - return Nil when setting with Str
+ok 2 - Was one instrument set with Str
+ok 3 - do we get the right class when setting with Str
+ok 4 - return Nil when setting with Telemetry::Instrument::Thread
+ok 5 - Was one instrument set with Telemetry::Instrument::Thread
+ok 6 - do we get the right class when setting with Telemetry::Instrument::Thread
+ok 7 - are the columns in alphabetical order
+ok 8 - The object is-a 'Telemetry::Instrument::Thread::Snap'
+ok 9 - Did we get a Any after roundtripping
+ok 10 - did we get the same value for tad
+ok 11 - did we get the same value for tcd
+ok 12 - did we get the same value for thid
+ok 13 - did we get the same value for tjd
+ok 14 - did we get the same value for tsd
+ok 15 - did we get the same value for tys
+ok 16 - did we get a Snap object from first set of values
+ok 17 - did we get a Telemetry object from $S1
+ok 18 - does tad exist in Telemetry?
+ok 19 - did we get a non-zero value for tad using AT-KEY
+ok 20 - did we get a non-zero value for tad with a method
+ok 21 - did AT-KEY and method on T give the same value
+ok 22 - does tcd exist in Telemetry?
+ok 23 - did we get a non-zero value for tcd using AT-KEY
+ok 24 - did we get a non-zero value for tcd with a method
+ok 25 - did AT-KEY and method on T give the same value
+ok 26 - does thid exist in Telemetry?
+ok 27 - did we get a non-zero value for thid using AT-KEY
+ok 28 - did we get a non-zero value for thid with a method
+ok 29 - did AT-KEY and method on T give the same value
+ok 30 - does tjd exist in Telemetry?
+ok 31 - did we get a non-zero value for tjd using AT-KEY
+ok 32 - did we get a non-zero value for tjd with a method
+ok 33 - did AT-KEY and method on T give the same value
+ok 34 - does tsd exist in Telemetry?
+ok 35 - did we get a non-zero value for tsd using AT-KEY
+ok 36 - did we get a non-zero value for tsd with a method
+ok 37 - did AT-KEY and method on T give the same value
+ok 38 - does tys exist in Telemetry?
+ok 39 - did we get a non-zero value for tys using AT-KEY
+ok 40 - did we get a non-zero value for tys with a method
+ok 41 - did AT-KEY and method on T give the same value
+ok 42 - did we get a Snap object from second set of values
+ok 43 - did we get a Telemetry object from $S2
+ok 44 - Did we get a T::Period
+ok 45 - does tad exist in Telemetry::Period?
+ok 46 - did we get a positive value for tad using AT-KEY
+ok 47 - did we get a positive value for tad using AT-KEY
+ok 48 - did AT-KEY/method on T:P give same value for tad
+ok 49 - does tcd exist in Telemetry::Period?
+ok 50 - did we get a positive value for tcd using AT-KEY
+ok 51 - did we get a positive value for tcd using AT-KEY
+ok 52 - did AT-KEY/method on T:P give same value for tcd
+ok 53 - does thid exist in Telemetry::Period?
+ok 54 - did we get a positive value for thid using AT-KEY
+ok 55 - did we get a positive value for thid using AT-KEY
+ok 56 - did AT-KEY/method on T:P give same value for thid
+ok 57 - does tjd exist in Telemetry::Period?
+ok 58 - did we get a positive value for tjd using AT-KEY
+ok 59 - did we get a positive value for tjd using AT-KEY
+ok 60 - did AT-KEY/method on T:P give same value for tjd
+ok 61 - does tsd exist in Telemetry::Period?
+ok 62 - did we get a positive value for tsd using AT-KEY
+ok 63 - did we get a positive value for tsd using AT-KEY
+ok 64 - did AT-KEY/method on T:P give same value for tsd
+ok 65 - does tys exist in Telemetry::Period?
+ok 66 - did we get a positive value for tys using AT-KEY
+ok 67 - did we get a positive value for tys using AT-KEY
+ok 68 - did AT-KEY/method on T:P give same value for tys

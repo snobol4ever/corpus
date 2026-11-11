@@ -1,0 +1,6 @@
+1..1
+# Subtest: Symbols in 6.d CORE::
+    1..2
+    ok 1 - No unexpected entries
+    ok 2 - No missing entries
+ok 1 - Symbols in 6.d CORE::

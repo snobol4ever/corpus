@@ -1,0 +1,97 @@
+1..6
+# Subtest: can make a simple ... stub
+    ok 1 - deparse
+    ok 2 - AST: did we get return?
+    ok 3 - AST: did we get a Failure
+    ok 4 - AST: did we get right exception
+    ok 5 - AST: payload ok
+    ok 6 - Str: did we get return?
+    ok 7 - Str: did we get a Failure
+    ok 8 - Str: did we get right exception
+    ok 9 - Str: payload ok
+    ok 10 - Raku: did we get return?
+    ok 11 - Raku: did we get a Failure
+    ok 12 - Raku: did we get right exception
+    ok 13 - Raku: payload ok
+    1..13
+ok 1 - can make a simple ... stub
+# Subtest: can make a ... stub with info
+    ok 1 - deparse
+    ok 2 - AST: did we get return?
+    ok 3 - AST: did we get a Failure
+    ok 4 - AST: did we get right exception
+    ok 5 - AST: payload ok
+    ok 6 - Str: did we get return?
+    ok 7 - Str: did we get a Failure
+    ok 8 - Str: did we get right exception
+    ok 9 - Str: payload ok
+    ok 10 - Raku: did we get return?
+    ok 11 - Raku: did we get a Failure
+    ok 12 - Raku: did we get right exception
+    ok 13 - Raku: payload ok
+    1..13
+ok 2 - can make a ... stub with info
+# Subtest: can make a simple !!! stub
+    ok 1 - deparse
+    # Subtest: did we throws-like X::StubCode?
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::StubCode)
+        ok 3 - .message matches Stub code executed
+    ok 2 - did we throws-like X::StubCode?
+    # Subtest: did we throws-like X::StubCode?
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::StubCode)
+        ok 3 - .message matches Stub code executed
+    ok 3 - did we throws-like X::StubCode?
+    # Subtest: did we throws-like X::StubCode?
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::StubCode)
+        ok 3 - .message matches Stub code executed
+    ok 4 - did we throws-like X::StubCode?
+    1..4
+ok 3 - can make a simple !!! stub
+# Subtest: can make a !!! stub with info
+    ok 1 - deparse
+    # Subtest: did we throws-like X::StubCode?
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::StubCode)
+        ok 3 - .message matches foobar
+    ok 2 - did we throws-like X::StubCode?
+    # Subtest: did we throws-like X::StubCode?
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::StubCode)
+        ok 3 - .message matches foobar
+    ok 3 - did we throws-like X::StubCode?
+    # Subtest: did we throws-like X::StubCode?
+        1..3
+        ok 1 - code dies
+        ok 2 - right exception type (X::StubCode)
+        ok 3 - .message matches foobar
+    ok 4 - did we throws-like X::StubCode?
+    1..4
+ok 4 - can make a !!! stub with info
+# Subtest: can make a simple ??? stub
+    ok 1 - deparse
+    ok 2 - AST: did we get a warning?
+    ok 3 - AST: the right warning
+    ok 4 - Str: did we get a warning?
+    ok 5 - Str: the right warning
+    ok 6 - Raku: did we get a warning?
+    ok 7 - Raku: the right warning
+    1..7
+ok 5 - can make a simple ??? stub
+# Subtest: can make a ??? stub with info
+    ok 1 - deparse
+    ok 2 - AST: did we get a warning?
+    ok 3 - AST: the right warning
+    ok 4 - Str: did we get a warning?
+    ok 5 - Str: the right warning
+    ok 6 - Raku: did we get a warning?
+    ok 7 - Raku: the right warning
+    1..7
+ok 6 - can make a ??? stub with info

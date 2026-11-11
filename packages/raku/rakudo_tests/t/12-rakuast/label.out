@@ -1,0 +1,83 @@
+1..19
+ok 1 - .new constructs a label
+ok 2 - is the name correct
+ok 3 - is default scope ok
+ok 4 - are allowed-scopes ok
+ok 5 - Deparses in an expected way
+# Subtest: Statement list with labels evaluates to its final statement
+    ok 1 - deparse
+    1..1
+ok 6 - Statement list with labels evaluates to its final statement
+# Subtest: Basic if structure with a label
+    ok 1 - deparse
+    1..1
+ok 7 - Basic if structure with a label
+# Subtest: Basic with structure with label
+    ok 1 - deparse
+    1..1
+ok 8 - Basic with structure with label
+# Subtest: simple unless with a false condition and a label
+    ok 1 - deparse
+    1..1
+ok 9 - simple unless with a false condition and a label
+# Subtest: simple without with an undefined condition and a label
+    ok 1 - deparse
+    1..1
+ok 10 - simple without with an undefined condition and a label
+# Subtest: given with explicit signature
+    ok 1 - deparse
+    1..1
+ok 11 - given with explicit signature
+# Subtest: While loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: while loop at statement level evaluates to Nil
+    ok 3 - AST: Loop variable was decremented to zero
+    ok 4 - Str: while loop at statement level evaluates to Nil
+    ok 5 - Str: Loop variable was decremented to zero
+    1..5
+ok 12 - While loop at statement level evaluates to Nil
+# Subtest: Until loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: until loop at statement level evaluates to Nil
+    ok 3 - AST: Loop variable was decremented to zero
+    ok 4 - Str: until loop at statement level evaluates to Nil
+    ok 5 - Str: Loop variable was decremented to zero
+    1..5
+ok 13 - Until loop at statement level evaluates to Nil
+# Subtest: Repeat while loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: repeat until loop at statement level evaluates to Nil
+    ok 3 - AST: loop variable decremented to 0
+    ok 4 - Str: repeat until loop at statement level evaluates to Nil
+    ok 5 - Str: loop variable decremented to 0
+    1..5
+ok 14 - Repeat while loop at statement level evaluates to Nil
+# Subtest: Repeat until loop at statement level evaluates to Nil
+    ok 1 - deparse
+    ok 2 - AST: repeat until loop at statement level evaluates to Nil
+    ok 3 - AST: loop ran once
+    ok 4 - DEPARSE: repeat until loop at statement level evaluates to Nil
+    ok 5 - DEPARSE: loop ran once
+    1..5
+ok 15 - Repeat until loop at statement level evaluates to Nil
+# Subtest: Loop block with setup and increment expression
+    ok 1 - deparse
+    ok 2 - AST: loop with setup and increment evaluates to Nil
+    ok 3 - AST: loop ran as expected
+    ok 4 - Str: loop with setup and increment evaluates to Nil
+    ok 5 - Str: loop ran as expected
+    1..5
+ok 16 - Loop block with setup and increment expression
+# Subtest: Statement level for loop
+    ok 1 - deparse
+    ok 2 - AST: for loop evaluates to Nil
+    ok 3 - AST: loop ran with expected number of times
+    ok 4 - Str: for loop evaluates to Nil
+    ok 5 - Str: loop ran with expected number of times
+    1..5
+ok 17 - Statement level for loop
+ok 18 - deparse
+# Subtest: check parsing of 'need' pragma
+    ok 1 - deparse
+    1..1
+ok 19 - check parsing of 'need' pragma

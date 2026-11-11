@@ -1,0 +1,92 @@
+1..7
+# Subtest: Simple literal substitution on topic
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is topic changed
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is topic changed
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is topic changed
+    1..10
+ok 1 - Simple literal substitution on topic
+# Subtest: Simple literal modification on topic
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is topic unchanged
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is topic unchanged
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is topic unchanged
+    1..10
+ok 2 - Simple literal modification on topic
+# Subtest: Simple literal substitution using infix syntax
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is the result correct
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is the result correct
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is the result correct
+    1..10
+ok 3 - Simple literal substitution using infix syntax
+# Subtest: Simple literal substitution on variable
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is the result correct
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is the result correct
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is the result correct
+    1..10
+ok 4 - Simple literal substitution on variable
+# Subtest: Simple literal substitution on variable with adverbs
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is the result correct
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is the result correct
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is the result correct
+    1..10
+ok 5 - Simple literal substitution on variable with adverbs
+# Subtest: Simple variable substitution on variable
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is the result correct
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is the result correct
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is the result correct
+    1..10
+ok 6 - Simple variable substitution on variable
+# Subtest: Simple Callable substitution on variable
+    ok 1 - deparse
+    ok 2 - AST: did we get right return value
+    ok 3 - AST: did it set $/ correctly
+    ok 4 - AST: is the result correct
+    ok 5 - Str: did we get right return value
+    ok 6 - Str: did it set $/ correctly
+    ok 7 - Str: is the result correct
+    ok 8 - Raku: did we get right return value
+    ok 9 - Raku: did it set $/ correctly
+    ok 10 - Raku: is the result correct
+    1..10
+ok 7 - Simple Callable substitution on variable

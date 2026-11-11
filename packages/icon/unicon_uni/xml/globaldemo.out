@@ -1,0 +1,4 @@
+Encoding style="http://schemas.xmlsoap.org/soap/encoding/"
+Child value1 type="xsd:string" text="*"
+Child value2 type="xsd:string" text="host = 'tapestry.home.net'"
+Child value3 type="xsd:string" text="time DESC"

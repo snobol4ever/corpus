@@ -1,0 +1,105 @@
+1..104
+ok 1 - return Nil when setting with Str
+ok 2 - Was one instrument set with Str
+ok 3 - do we get the right class when setting with Str
+ok 4 - return Nil when setting with Telemetry::Instrument::ThreadPool
+ok 5 - Was one instrument set with Telemetry::Instrument::ThreadPool
+ok 6 - do we get the right class when setting with Telemetry::Instrument::ThreadPool
+ok 7 - are the columns in alphabetical order
+ok 8 - The object is-a 'Telemetry::Instrument::ThreadPool::Snap'
+ok 9 - Did we get a Any after roundtripping
+ok 10 - did we get the same value for atc
+ok 11 - did we get the same value for atq
+ok 12 - did we get the same value for aw
+ok 13 - did we get the same value for gtc
+ok 14 - did we get the same value for gtq
+ok 15 - did we get the same value for gw
+ok 16 - did we get the same value for s
+ok 17 - did we get the same value for ttc
+ok 18 - did we get the same value for ttq
+ok 19 - did we get the same value for tw
+ok 20 - did we get a Snap object from first set of values
+ok 21 - did we get a Telemetry object from $S1
+ok 22 - does atc exist in Telemetry?
+ok 23 - did we get a non-zero value for atc using AT-KEY
+ok 24 - did we get a non-zero value for atc with a method
+ok 25 - did AT-KEY and method on T give the same value
+ok 26 - does atq exist in Telemetry?
+ok 27 - did we get a non-zero value for atq using AT-KEY
+ok 28 - did we get a non-zero value for atq with a method
+ok 29 - did AT-KEY and method on T give the same value
+ok 30 - does aw exist in Telemetry?
+ok 31 - did we get a non-zero value for aw using AT-KEY
+ok 32 - did we get a non-zero value for aw with a method
+ok 33 - did AT-KEY and method on T give the same value
+ok 34 - does gtc exist in Telemetry?
+ok 35 - did we get a non-zero value for gtc using AT-KEY
+ok 36 - did we get a non-zero value for gtc with a method
+ok 37 - did AT-KEY and method on T give the same value
+ok 38 - does gtq exist in Telemetry?
+ok 39 - did we get a non-zero value for gtq using AT-KEY
+ok 40 - did we get a non-zero value for gtq with a method
+ok 41 - did AT-KEY and method on T give the same value
+ok 42 - does gw exist in Telemetry?
+ok 43 - did we get a non-zero value for gw using AT-KEY
+ok 44 - did we get a non-zero value for gw with a method
+ok 45 - did AT-KEY and method on T give the same value
+ok 46 - does s exist in Telemetry?
+ok 47 - did we get a non-zero value for s using AT-KEY
+ok 48 - did we get a non-zero value for s with a method
+ok 49 - did AT-KEY and method on T give the same value
+ok 50 - does ttc exist in Telemetry?
+ok 51 - did we get a non-zero value for ttc using AT-KEY
+ok 52 - did we get a non-zero value for ttc with a method
+ok 53 - did AT-KEY and method on T give the same value
+ok 54 - does ttq exist in Telemetry?
+ok 55 - did we get a non-zero value for ttq using AT-KEY
+ok 56 - did we get a non-zero value for ttq with a method
+ok 57 - did AT-KEY and method on T give the same value
+ok 58 - does tw exist in Telemetry?
+ok 59 - did we get a non-zero value for tw using AT-KEY
+ok 60 - did we get a non-zero value for tw with a method
+ok 61 - did AT-KEY and method on T give the same value
+ok 62 - did we get a Snap object from second set of values
+ok 63 - did we get a Telemetry object from $S2
+ok 64 - Did we get a T::Period
+ok 65 - does atc exist in Telemetry::Period?
+ok 66 - did we get a positive value for atc using AT-KEY
+ok 67 - did we get a positive value for atc using AT-KEY
+ok 68 - did AT-KEY/method on T:P give same value for atc
+ok 69 - does atq exist in Telemetry::Period?
+ok 70 - did we get a positive value for atq using AT-KEY
+ok 71 - did we get a positive value for atq using AT-KEY
+ok 72 - did AT-KEY/method on T:P give same value for atq
+ok 73 - does aw exist in Telemetry::Period?
+ok 74 - did we get a positive value for aw using AT-KEY
+ok 75 - did we get a positive value for aw using AT-KEY
+ok 76 - did AT-KEY/method on T:P give same value for aw
+ok 77 - does gtc exist in Telemetry::Period?
+ok 78 - did we get a positive value for gtc using AT-KEY
+ok 79 - did we get a positive value for gtc using AT-KEY
+ok 80 - did AT-KEY/method on T:P give same value for gtc
+ok 81 - does gtq exist in Telemetry::Period?
+ok 82 - did we get a positive value for gtq using AT-KEY
+ok 83 - did we get a positive value for gtq using AT-KEY
+ok 84 - did AT-KEY/method on T:P give same value for gtq
+ok 85 - does gw exist in Telemetry::Period?
+ok 86 - did we get a positive value for gw using AT-KEY
+ok 87 - did we get a positive value for gw using AT-KEY
+ok 88 - did AT-KEY/method on T:P give same value for gw
+ok 89 - does s exist in Telemetry::Period?
+ok 90 - did we get a positive value for s using AT-KEY
+ok 91 - did we get a positive value for s using AT-KEY
+ok 92 - did AT-KEY/method on T:P give same value for s
+ok 93 - does ttc exist in Telemetry::Period?
+ok 94 - did we get a positive value for ttc using AT-KEY
+ok 95 - did we get a positive value for ttc using AT-KEY
+ok 96 - did AT-KEY/method on T:P give same value for ttc
+ok 97 - does ttq exist in Telemetry::Period?
+ok 98 - did we get a positive value for ttq using AT-KEY
+ok 99 - did we get a positive value for ttq using AT-KEY
+ok 100 - did AT-KEY/method on T:P give same value for ttq
+ok 101 - does tw exist in Telemetry::Period?
+ok 102 - did we get a positive value for tw using AT-KEY
+ok 103 - did we get a positive value for tw using AT-KEY
+ok 104 - did AT-KEY/method on T:P give same value for tw

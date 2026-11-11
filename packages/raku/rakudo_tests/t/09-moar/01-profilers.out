@@ -1,0 +1,33 @@
+1..12
+# Subtest: can launch with profiling requested
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 1 - can launch with profiling requested
+ok 2 - profiler html output file exists on disk
+ok 3 - profiler html output file isn't tiny
+# Subtest: can launch with profiling requested
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 4 - can launch with profiling requested
+ok 5 - profiler json output file exists on disk
+ok 6 - profiler json output file isn't tiny
+# Subtest: can launch with profiling requested
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 7 - can launch with profiling requested
+ok 8 - profiler sql output file exists on disk
+ok 9 - profiler sql output file isn't tiny
+# Subtest: can launch with profiling requested
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 10 - can launch with profiling requested
+ok 11 - profiler heap output file exists on disk
+ok 12 - profiler heap output file isn't tiny

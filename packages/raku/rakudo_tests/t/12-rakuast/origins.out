@@ -1,0 +1,241 @@
+1..2
+# Subtest: Locations
+    1..12
+    # Subtest: Position 3
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 1 - Position 3
+    # Subtest: Position 14
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 2 - Position 14
+    # Subtest: Position 18
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 3 - Position 18
+    # Subtest: Position 53
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 4 - Position 53
+    # Subtest: Position 58
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 5 - Position 58
+    # Subtest: Position 61
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 6 - Position 61
+    # Subtest: Position 83
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 7 - Position 83
+    # Subtest: Position 86
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 8 - Position 86
+    # Subtest: Position 98
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 9 - Position 98
+    # Subtest: Position 113
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 10 - Position 113
+    # Subtest: Position 131
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 11 - Position 131
+    # Subtest: Position 135
+        1..2
+        # Subtest: Non-key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 1 - Non-key node
+        # Subtest: Key node
+            1..5
+            ok 1 - node type
+            ok 2 - attribute file
+            ok 3 - attribute from
+            ok 4 - attribute line
+            ok 5 - attribute orig-line
+        ok 2 - Key node
+    ok 12 - Position 135
+ok 1 - Locations
+# Subtest: Backtrace with line directive
+    1..1
+    # Subtest: die after a line directive
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - die after a line directive
+ok 2 - Backtrace with line directive

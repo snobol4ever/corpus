@@ -1,0 +1,8 @@
+Usage: jsvalid [options]
+
+jsvalid is a unicon utility for validating a json file given its schema
+Options:
+	 -f, file   : json filename
+	 -s, schema : json schema file, default to <basename file>.schema.json
+	 -h, help   : show this help
+

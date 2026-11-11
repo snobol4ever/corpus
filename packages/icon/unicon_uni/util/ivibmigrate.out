@@ -1,0 +1,2 @@
+Usage: ivibmigrate [OPTIONS] SOURCEFILE
+  -o OUTPUT FILE      Output file (if not given output is to stdout)

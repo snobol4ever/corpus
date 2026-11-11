@@ -1,0 +1,11 @@
+1..5
+# Subtest: no SPESH crashes with duplicate `use Test`
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 1 - no SPESH crashes with duplicate `use Test`
+ok 2 - No SEGV when many threads try to change the debug type name
+ok 3 - does srand produce same rand_I values
+ok 4 - does srand produce same rand_n values
+ok 5 - Repeatedly trying to clone a Lock does not lead to a crash

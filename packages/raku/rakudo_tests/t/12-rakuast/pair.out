@@ -1,0 +1,57 @@
+1..8
+# Subtest: Fat arrow syntax forms a Pair
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - Fat arrow syntax forms a Pair
+# Subtest: True colonpair forms a Pair with value True
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - True colonpair forms a Pair with value True
+# Subtest: False colonpair forms a Pair with value False
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - False colonpair forms a Pair with value False
+# Subtest: Number colonpair forms a Pair with the correct Int value
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Number colonpair forms a Pair with the correct Int value
+# Subtest: Value colonpair forms a Pair with the correct value (1)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Value colonpair forms a Pair with the correct value (1)
+# Subtest: Value colonpair forms a Pair with the correct value (2)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - Value colonpair forms a Pair with the correct value (2)
+# Subtest: Value colonpair forms a Pair with the correct value (3)
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - Value colonpair forms a Pair with the correct value (3)
+# Subtest: Variable colonpair forms a Pair that looks up the variable
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 8 - Variable colonpair forms a Pair that looks up the variable

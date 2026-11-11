@@ -1,0 +1,23 @@
+1..4
+# Subtest: Code blocks
+    1..3
+    ok 1 - Empty lines don't get added spaces
+    ok 2 - Plain continuation lines are aligned
+    ok 3 - Formatting Codes in code block
+ok 1 - Code blocks
+# Subtest: Input blocks
+    1..3
+    ok 1 - Empty lines don't get added spaces
+    ok 2 - Plain continuation lines are aligned
+    ok 3 - Formatting Codes in input block
+ok 2 - Input blocks
+# Subtest: Output blocks
+    1..3
+    ok 1 - Empty lines don't get added spaces
+    ok 2 - Plain continuation lines are aligned
+    ok 3 - Formatting Codes in output block
+ok 3 - Output blocks
+# Subtest: Tables
+    1..1
+    ok 1 - Final table row is not space-padded
+ok 4 - Tables

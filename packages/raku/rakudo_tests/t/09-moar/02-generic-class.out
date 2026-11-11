@@ -1,0 +1,21 @@
+1..8
+# Subtest: Before Instantiations
+    ok 1 - role attribute type name before instantiations
+    ok 2 - role attribute type archetypes are that of a generic class
+    ok 3 - role attribute type is-generic method
+    ok 4 - role attribute type instance archetypes is generic
+    1..4
+ok 1 - Before Instantiations
+ok 2 - attribute type is the first instantiation
+ok 3 - method body resolves generic class into the first instatiation
+ok 4 - class instantiated over role's Str:D argument
+ok 5 - attribute type is the second instantiation
+ok 6 - method body resolves generic class into the second instatiation
+ok 7 - class instantiated over role's Int:D arguments
+# Subtest: After Instantiations
+    ok 1 - role attribute type name before instantiations
+    ok 2 - role attribute type archetypes are that of a generic class
+    ok 3 - role attribute type is-generic method
+    ok 4 - role attribute type instance archetypes is generic
+    1..4
+ok 8 - After Instantiations

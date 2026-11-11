@@ -1,0 +1,195 @@
+1..194
+ok 1 - return Nil when setting with Str
+ok 2 - Was one instrument set with Str
+ok 3 - do we get the right class when setting with Str
+ok 4 - return Nil when setting with Telemetry::Instrument::Usage
+ok 5 - Was one instrument set with Telemetry::Instrument::Usage
+ok 6 - do we get the right class when setting with Telemetry::Instrument::Usage
+ok 7 - are the columns in alphabetical order
+ok 8 - The object is-a 'Telemetry::Instrument::Usage::Snap'
+ok 9 - Did we get a Any after roundtripping
+ok 10 - did we get the same value for cpu
+ok 11 - did we get the same value for cpu-sys
+ok 12 - did we get the same value for cpu-user
+ok 13 - did we get the same value for cpus
+ok 14 - did we get the same value for id-rss
+ok 15 - did we get the same value for inb
+ok 16 - did we get the same value for invcsw
+ok 17 - did we get the same value for is-rss
+ok 18 - did we get the same value for ix-rss
+ok 19 - did we get the same value for majf
+ok 20 - did we get the same value for max-rss
+ok 21 - did we get the same value for minf
+ok 22 - did we get the same value for mrcv
+ok 23 - did we get the same value for msnd
+ok 24 - did we get the same value for nsig
+ok 25 - did we get the same value for nswp
+ok 26 - did we get the same value for outb
+ok 27 - did we get the same value for util%
+ok 28 - did we get the same value for volcsw
+ok 29 - did we get the same value for wallclock
+ok 30 - did we get a Snap object from first set of values
+ok 31 - did we get a Telemetry object from $S1
+ok 32 - does cpu exist in Telemetry?
+ok 33 - did we get a non-zero value for cpu using AT-KEY
+ok 34 - did we get a non-zero value for cpu with a method
+ok 35 - did AT-KEY and method on T give the same value
+ok 36 - does cpu-sys exist in Telemetry?
+ok 37 - did we get a non-zero value for cpu-sys using AT-KEY
+ok 38 - did we get a non-zero value for cpu-sys with a method
+ok 39 - did AT-KEY and method on T give the same value
+ok 40 - does cpu-user exist in Telemetry?
+ok 41 - did we get a non-zero value for cpu-user using AT-KEY
+ok 42 - did we get a non-zero value for cpu-user with a method
+ok 43 - did AT-KEY and method on T give the same value
+ok 44 - does cpus exist in Telemetry?
+ok 45 - did we get a non-zero value for cpus using AT-KEY
+ok 46 - did we get a non-zero value for cpus with a method
+ok 47 - did AT-KEY and method on T give the same value
+ok 48 - does id-rss exist in Telemetry?
+ok 49 - did we get a non-zero value for id-rss using AT-KEY
+ok 50 - did we get a non-zero value for id-rss with a method
+ok 51 - did AT-KEY and method on T give the same value
+ok 52 - does inb exist in Telemetry?
+ok 53 - did we get a non-zero value for inb using AT-KEY
+ok 54 - did we get a non-zero value for inb with a method
+ok 55 - did AT-KEY and method on T give the same value
+ok 56 - does invcsw exist in Telemetry?
+ok 57 - did we get a non-zero value for invcsw using AT-KEY
+ok 58 - did we get a non-zero value for invcsw with a method
+ok 59 - did AT-KEY and method on T give the same value
+ok 60 - does is-rss exist in Telemetry?
+ok 61 - did we get a non-zero value for is-rss using AT-KEY
+ok 62 - did we get a non-zero value for is-rss with a method
+ok 63 - did AT-KEY and method on T give the same value
+ok 64 - does ix-rss exist in Telemetry?
+ok 65 - did we get a non-zero value for ix-rss using AT-KEY
+ok 66 - did we get a non-zero value for ix-rss with a method
+ok 67 - did AT-KEY and method on T give the same value
+ok 68 - does majf exist in Telemetry?
+ok 69 - did we get a non-zero value for majf using AT-KEY
+ok 70 - did we get a non-zero value for majf with a method
+ok 71 - did AT-KEY and method on T give the same value
+ok 72 - does max-rss exist in Telemetry?
+ok 73 - did we get a non-zero value for max-rss using AT-KEY
+ok 74 - did we get a non-zero value for max-rss with a method
+ok 75 - did AT-KEY and method on T give the same value
+ok 76 - does minf exist in Telemetry?
+ok 77 - did we get a non-zero value for minf using AT-KEY
+ok 78 - did we get a non-zero value for minf with a method
+ok 79 - did AT-KEY and method on T give the same value
+ok 80 - does mrcv exist in Telemetry?
+ok 81 - did we get a non-zero value for mrcv using AT-KEY
+ok 82 - did we get a non-zero value for mrcv with a method
+ok 83 - did AT-KEY and method on T give the same value
+ok 84 - does msnd exist in Telemetry?
+ok 85 - did we get a non-zero value for msnd using AT-KEY
+ok 86 - did we get a non-zero value for msnd with a method
+ok 87 - did AT-KEY and method on T give the same value
+ok 88 - does nsig exist in Telemetry?
+ok 89 - did we get a non-zero value for nsig using AT-KEY
+ok 90 - did we get a non-zero value for nsig with a method
+ok 91 - did AT-KEY and method on T give the same value
+ok 92 - does nswp exist in Telemetry?
+ok 93 - did we get a non-zero value for nswp using AT-KEY
+ok 94 - did we get a non-zero value for nswp with a method
+ok 95 - did AT-KEY and method on T give the same value
+ok 96 - does outb exist in Telemetry?
+ok 97 - did we get a non-zero value for outb using AT-KEY
+ok 98 - did we get a non-zero value for outb with a method
+ok 99 - did AT-KEY and method on T give the same value
+ok 100 - does util% exist in Telemetry?
+ok 101 - did we get a non-zero value for util% using AT-KEY
+ok 102 - did we get a non-zero value for util% with a method
+ok 103 - did AT-KEY and method on T give the same value
+ok 104 - does volcsw exist in Telemetry?
+ok 105 - did we get a non-zero value for volcsw using AT-KEY
+ok 106 - did we get a non-zero value for volcsw with a method
+ok 107 - did AT-KEY and method on T give the same value
+ok 108 - does wallclock exist in Telemetry?
+ok 109 - did we get a non-zero value for wallclock using AT-KEY
+ok 110 - did we get a non-zero value for wallclock with a method
+ok 111 - did AT-KEY and method on T give the same value
+ok 112 - did we get a Snap object from second set of values
+ok 113 - did we get a Telemetry object from $S2
+ok 114 - Did we get a T::Period
+ok 115 - does cpu exist in Telemetry::Period?
+ok 116 - did we get a positive value for cpu using AT-KEY
+ok 117 - did we get a positive value for cpu using AT-KEY
+ok 118 - did AT-KEY/method on T:P give same value for cpu
+ok 119 - does cpu-sys exist in Telemetry::Period?
+ok 120 - did we get a positive value for cpu-sys using AT-KEY
+ok 121 - did we get a positive value for cpu-sys using AT-KEY
+ok 122 - did AT-KEY/method on T:P give same value for cpu-sys
+ok 123 - does cpu-user exist in Telemetry::Period?
+ok 124 - did we get a positive value for cpu-user using AT-KEY
+ok 125 - did we get a positive value for cpu-user using AT-KEY
+ok 126 - did AT-KEY/method on T:P give same value for cpu-user
+ok 127 - does cpus exist in Telemetry::Period?
+ok 128 - did we get a positive value for cpus using AT-KEY
+ok 129 - did we get a positive value for cpus using AT-KEY
+ok 130 - did AT-KEY/method on T:P give same value for cpus
+ok 131 - does id-rss exist in Telemetry::Period?
+ok 132 - did we get a positive value for id-rss using AT-KEY
+ok 133 - did we get a positive value for id-rss using AT-KEY
+ok 134 - did AT-KEY/method on T:P give same value for id-rss
+ok 135 - does inb exist in Telemetry::Period?
+ok 136 - did we get a positive value for inb using AT-KEY
+ok 137 - did we get a positive value for inb using AT-KEY
+ok 138 - did AT-KEY/method on T:P give same value for inb
+ok 139 - does invcsw exist in Telemetry::Period?
+ok 140 - did we get a positive value for invcsw using AT-KEY
+ok 141 - did we get a positive value for invcsw using AT-KEY
+ok 142 - did AT-KEY/method on T:P give same value for invcsw
+ok 143 - does is-rss exist in Telemetry::Period?
+ok 144 - did we get a positive value for is-rss using AT-KEY
+ok 145 - did we get a positive value for is-rss using AT-KEY
+ok 146 - did AT-KEY/method on T:P give same value for is-rss
+ok 147 - does ix-rss exist in Telemetry::Period?
+ok 148 - did we get a positive value for ix-rss using AT-KEY
+ok 149 - did we get a positive value for ix-rss using AT-KEY
+ok 150 - did AT-KEY/method on T:P give same value for ix-rss
+ok 151 - does majf exist in Telemetry::Period?
+ok 152 - did we get a positive value for majf using AT-KEY
+ok 153 - did we get a positive value for majf using AT-KEY
+ok 154 - did AT-KEY/method on T:P give same value for majf
+ok 155 - does max-rss exist in Telemetry::Period?
+ok 156 - did we get a positive value for max-rss using AT-KEY
+ok 157 - did we get a positive value for max-rss using AT-KEY
+ok 158 - did AT-KEY/method on T:P give same value for max-rss
+ok 159 - does minf exist in Telemetry::Period?
+ok 160 - did we get a positive value for minf using AT-KEY
+ok 161 - did we get a positive value for minf using AT-KEY
+ok 162 - did AT-KEY/method on T:P give same value for minf
+ok 163 - does mrcv exist in Telemetry::Period?
+ok 164 - did we get a positive value for mrcv using AT-KEY
+ok 165 - did we get a positive value for mrcv using AT-KEY
+ok 166 - did AT-KEY/method on T:P give same value for mrcv
+ok 167 - does msnd exist in Telemetry::Period?
+ok 168 - did we get a positive value for msnd using AT-KEY
+ok 169 - did we get a positive value for msnd using AT-KEY
+ok 170 - did AT-KEY/method on T:P give same value for msnd
+ok 171 - does nsig exist in Telemetry::Period?
+ok 172 - did we get a positive value for nsig using AT-KEY
+ok 173 - did we get a positive value for nsig using AT-KEY
+ok 174 - did AT-KEY/method on T:P give same value for nsig
+ok 175 - does nswp exist in Telemetry::Period?
+ok 176 - did we get a positive value for nswp using AT-KEY
+ok 177 - did we get a positive value for nswp using AT-KEY
+ok 178 - did AT-KEY/method on T:P give same value for nswp
+ok 179 - does outb exist in Telemetry::Period?
+ok 180 - did we get a positive value for outb using AT-KEY
+ok 181 - did we get a positive value for outb using AT-KEY
+ok 182 - did AT-KEY/method on T:P give same value for outb
+ok 183 - does util% exist in Telemetry::Period?
+ok 184 - did we get a positive value for util% using AT-KEY
+ok 185 - did we get a positive value for util% using AT-KEY
+ok 186 - did AT-KEY/method on T:P give same value for util%
+ok 187 - does volcsw exist in Telemetry::Period?
+ok 188 - did we get a positive value for volcsw using AT-KEY
+ok 189 - did we get a positive value for volcsw using AT-KEY
+ok 190 - did AT-KEY/method on T:P give same value for volcsw
+ok 191 - does wallclock exist in Telemetry::Period?
+ok 192 - did we get a positive value for wallclock using AT-KEY
+ok 193 - did we get a positive value for wallclock using AT-KEY
+ok 194 - did AT-KEY/method on T:P give same value for wallclock

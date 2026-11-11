@@ -1,0 +1,17 @@
+Usage: uget [options] <URL>
+
+uget is a unicon utility for downlaoding files from the web. It supports
+HTTP and HTTPS. If the protocol is not specified in the URL it defaults to HTTP,
+(i,e unicon.org is equivalent to http://unicon.org)
+
+Options:
+	 -n : no https certificate verification
+	 -o : overwrite existing file
+	 -v : verbose output
+	 -s : show http server response only, don't save the file
+	 -p : print the content to the console, don't save to file
+	 -r : maximum allowed redirects. Default to 3
+	 -f : filename to save to. Default to the url filename
+	 -6 : use ipv6
+	 -h : show this help
+

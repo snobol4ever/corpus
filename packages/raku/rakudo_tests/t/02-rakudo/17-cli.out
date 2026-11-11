@@ -1,0 +1,4 @@
+1..3
+ok 1 - `raku -V` succeeds
+ok 2 - `raku -V` prints configuration options
+ok 3 - `raku -V` doesn't print to STDERR

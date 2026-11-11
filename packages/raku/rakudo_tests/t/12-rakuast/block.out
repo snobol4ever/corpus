@@ -1,0 +1,82 @@
+1..5
+# Subtest: A pointy block node evaluates to a Block
+    ok 1 - deparse
+    ok 2 - AST: A pointy block node evaluates to a Block
+    ok 3 - AST: The block has no parameters
+    ok 4 - AST: The block has 0 arity
+    ok 5 - AST: The block has 0 count
+    ok 6 - AST: Invoking the block returns the expected value
+    ok 7 - AST: Invoking the block with an argument dies
+    ok 8 - Str: A pointy block node evaluates to a Block
+    ok 9 - Str: The block has no parameters
+    ok 10 - Str: The block has 0 arity
+    ok 11 - Str: The block has 0 count
+    ok 12 - Str: Invoking the block returns the expected value
+    ok 13 - Str: Invoking the block with an argument dies
+    ok 14 - Raku: A pointy block node evaluates to a Block
+    ok 15 - Raku: The block has no parameters
+    ok 16 - Raku: The block has 0 arity
+    ok 17 - Raku: The block has 0 count
+    ok 18 - Raku: Invoking the block returns the expected value
+    ok 19 - Raku: Invoking the block with an argument dies
+    1..19
+ok 1 - A pointy block node evaluates to a Block
+# Subtest: A pointy block node taking a parameter evaluates to a Block
+    ok 1 - deparse
+    ok 2 - AST: A pointy block node taking a parameter evaluates to a Block
+    ok 3 - AST: The block has one parameters
+    ok 4 - AST: The block has 1 arity
+    ok 5 - AST: The block has 1 count
+    ok 6 - AST: Invoking the block with an argument returns the expected value
+    ok 7 - AST: Argument is bound read-only
+    ok 8 - AST: Invoking the block without an argument dies
+    ok 9 - Str: A pointy block node taking a parameter evaluates to a Block
+    ok 10 - Str: The block has one parameters
+    ok 11 - Str: The block has 1 arity
+    ok 12 - Str: The block has 1 count
+    ok 13 - Str: Invoking the block with an argument returns the expected value
+    ok 14 - Str: Argument is bound read-only
+    ok 15 - Str: Invoking the block without an argument dies
+    ok 16 - Raku: A pointy block node taking a parameter evaluates to a Block
+    ok 17 - Raku: The block has one parameters
+    ok 18 - Raku: The block has 1 arity
+    ok 19 - Raku: The block has 1 count
+    ok 20 - Raku: Invoking the block with an argument returns the expected value
+    ok 21 - Raku: Argument is bound read-only
+    ok 22 - Raku: Invoking the block without an argument dies
+    1..22
+ok 2 - A pointy block node taking a parameter evaluates to a Block
+# Subtest: Bare block at statement level is executed
+    ok 1 - deparse
+    ok 2 - AST: Bare block at statement level is executed
+    ok 3 - AST: Side-effects were performed as expected
+    ok 4 - Str: Bare block at statement level is executed
+    ok 5 - Str: Side-effects were performed as expected
+    ok 6 - Raku: Bare block at statement level is executed
+    ok 7 - Raku: Side-effects were performed as expected
+    1..7
+ok 3 - Bare block at statement level is executed
+# Subtest: Bare block in parentheses evaluates to Block
+    ok 1 - deparse
+    ok 2 - AST: Bare block in parentheses evaluates to Block
+    ok 3 - AST: Block has arity 0
+    ok 4 - AST: Block has count 1
+    ok 5 - AST: No side-effects were performed
+    ok 6 - AST: Can evaluate the returned block
+    ok 7 - AST: Block did perform side-effects when evaluated
+    ok 8 - Str: Bare block in parentheses evaluates to Block
+    ok 9 - Str: Block has arity 0
+    ok 10 - Str: Block has count 1
+    ok 11 - Str: No side-effects were performed
+    ok 12 - Str: Can evaluate the returned block
+    ok 13 - Str: Block did perform side-effects when evaluated
+    1..13
+ok 4 - Bare block in parentheses evaluates to Block
+# Subtest: Block has default parameter
+    ok 1 - deparse
+    ok 2 - AST: Block has default AST parameter
+    ok 3 - AST: That AST parameter is optional
+    ok 4 - Str: Block has default Str parameter
+    ok 5 - Str: That Str parameter is optional
+    1..5
+ok 5 - Block has default parameter

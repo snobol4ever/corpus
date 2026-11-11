@@ -1,0 +1,42 @@
+1..41
+ok 1 - does fib(9) work
+ok 2 - did we call them all (1)
+ok 3 - does fib(10) work
+ok 4 - did we call them all (2)
+ok 5 - does fib(10) work
+ok 6 - did we call them all (3)
+ok 7 - no args case(1)
+ok 8 - did we run (1)
+ok 9 - no args case (2)
+ok 10 - did we run (2)
+ok 11 - foo arg case (1)
+ok 12 - did we run (3)
+ok 13 - foo arg case (2)
+ok 14 - did we run (4)
+ok 15 - bar arg case (1)
+ok 16 - did we run (5)
+ok 17 - bar arg case (2)
+ok 18 - did we run (6)
+ok 19 - foo,bar arg case (1)
+ok 20 - did we run (7)
+ok 21 - foo,bar arg case (2)
+ok 22 - did we run (8)
+ok 23 - foo,bar case(1)
+ok 24 - did we run (1)
+ok 25 - foo,bar case(2)
+ok 26 - did we run (2)
+ok 27 - foo,bar,baz case(1)
+ok 28 - did we run (3)
+ok 29 - foo,bar,baz case(2)
+ok 30 - did we run (4)
+ok 31 - did we get the value back (1)
+ok 32 - was the code done (1)
+ok 33 - did we get the value back (2)
+ok 34 - was the code done (2)
+ok 35 - did we get the value back (3)
+ok 36 - was the code done (3)
+ok 37 - did we get the value back (4)
+ok 38 - was the code done (4)
+ok 39 - was the call successful
+ok 40 - did it produce the right output
+ok 41 - no error output

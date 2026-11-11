@@ -1,0 +1,92 @@
+1..13
+# Subtest: One-part quoted string with literal piece
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - One-part quoted string with literal piece
+# Subtest: Quoted string with interpolated string variable works
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - Quoted string with interpolated string variable works
+# Subtest: Quoted string with interpolated integer variable
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Quoted string with interpolated integer variable
+# Subtest: Quoted string consisting of only interpolated integer variable
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Quoted string consisting of only interpolated integer variable
+# Subtest: Quoted string with 3 parts works
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Quoted string with 3 parts works
+# Subtest: Quoted string involving an interpolated block
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - Quoted string involving an interpolated block
+# Subtest: words processor splits a single literal string into words
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - words processor splits a single literal string into words
+# Subtest: Words processor applied to a quoted string with interpolation
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 8 - Words processor applied to a quoted string with interpolation
+# Subtest: Using the val processor alone
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 9 - Using the val processor alone
+# Subtest: Using the val processor alone with interpolation
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 10 - Using the val processor alone with interpolation
+# Subtest: Using the words and val processor
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 11 - Using the words and val processor
+# Subtest: Words processor applied to a quoted string with interpolation
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 12 - Words processor applied to a quoted string with interpolation
+# Subtest: Using the exec processor alone gives expected result
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 13 - Using the exec processor alone gives expected result

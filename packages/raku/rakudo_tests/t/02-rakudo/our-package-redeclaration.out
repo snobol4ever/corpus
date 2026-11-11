@@ -1,0 +1,43 @@
+1..7
+# Subtest: cross-EVAL identifier class is a Redeclaration
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 1 - cross-EVAL identifier class is a Redeclaration
+# Subtest: cross-EVAL multi-part class is a Redeclaration
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 2 - cross-EVAL multi-part class is a Redeclaration
+# Subtest: in-source multi-part dupe is a Redeclaration
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 3 - in-source multi-part dupe is a Redeclaration
+# Subtest: stub-then-real composes and runs
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 4 - stub-then-real composes and runs
+# Subtest: sibling my-scoped parents do not collide
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 5 - sibling my-scoped parents do not collide
+# Subtest: augment-body nested class redecl is a Redeclaration
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 6 - augment-body nested class redecl is a Redeclaration
+# Subtest: cross-compunit $*REPO.load reload silent-replaces
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 7 - cross-compunit $*REPO.load reload silent-replaces

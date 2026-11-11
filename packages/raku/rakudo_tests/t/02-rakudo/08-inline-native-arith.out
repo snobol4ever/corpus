@@ -1,0 +1,5 @@
+1..4
+ok 1 - $i * 2 inlines to mul_i when $i is declared as int
+ok 2 - can trialbiand to a sig with slurpy named param
+ok 3 - trial bind notices `where` in the capture
+ok 4 - trial bind notices `where` in the named slurpy

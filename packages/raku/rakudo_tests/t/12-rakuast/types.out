@@ -1,0 +1,83 @@
+1..10
+# Subtest: look up an existing type
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - look up an existing type
+# Subtest: type with definedness constraint
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - type with definedness constraint
+# Subtest: type with undefinedness constraint
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - type with undefinedness constraint
+# Subtest: type with unspecified coercion
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - type with unspecified coercion
+# Subtest: type with specific coercion
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - type with specific coercion
+# Subtest: type with chained coercion
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - type with chained coercion
+# Subtest: parameterized type without type
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - parameterized type without type
+# Subtest: parameterized type with type
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 8 - parameterized type with type
+# Subtest: Single-part type from the setting
+    ok 1 - deparse
+    ok 2 - AST: did we get the setting version
+    ok 3 - Str: did we get the setting version
+    ok 4 - Raku: did we get the setting version
+    1..4
+ok 9 - Single-part type from the setting
+# Subtest: Multi-part type from the setting
+    ok 1 - deparse
+    not ok 2 - AST: did we get the setting version # TODO no actual lookup in SETTING only yet
+    # Failed test 'AST: did we get the setting version'
+    # at t/12-rakuast/types.rakutest line 159
+    # expected: IO::Path::Parts
+    #      got: IO::Path::Parts
+    not ok 3 - Str: did we get the setting version # TODO no actual lookup in SETTING only yet
+    # Failed test 'Str: did we get the setting version'
+    # at t/12-rakuast/types.rakutest line 159
+    # expected: IO::Path::Parts
+    #      got: IO::Path::Parts
+    not ok 4 - Raku: did we get the setting version # TODO no actual lookup in SETTING only yet
+    # Failed test 'Raku: did we get the setting version'
+    # at t/12-rakuast/types.rakutest line 159
+    # expected: IO::Path::Parts
+    #      got: IO::Path::Parts
+    1..4
+ok 10 - Multi-part type from the setting

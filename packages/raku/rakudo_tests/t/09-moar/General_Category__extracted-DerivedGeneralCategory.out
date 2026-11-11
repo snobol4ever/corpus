@@ -1,0 +1,2 @@
+ok 1 - Property: General_Category=Cn from file: extracted/DerivedGeneralCategory.txt (Correct: 814708 Wrong: 22). Todo'd if < 22 failures.
+1..1

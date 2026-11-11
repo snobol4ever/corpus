@@ -1,0 +1,78 @@
+1..9
+# Subtest: Supply.interval with negative value warns
+    1..2
+    ok 1 - useful warning
+    ok 2 - intervaled code ran
+ok 1 - Supply.interval with negative value warns
+# Subtest: no useless-use warning on return when KEEP/UNDO phasers used
+    1..3
+    # Subtest: we get warnings with phasers that do not care about return value
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - we get warnings with phasers that do not care about return value
+    # Subtest: no warnings with KEEP phaser
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - no warnings with KEEP phaser
+    # Subtest: no warnings with UNDO phaser
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - no warnings with UNDO phaser
+ok 2 - no useless-use warning on return when KEEP/UNDO phasers used
+# Subtest: no useless-use warning in andthen/notandthen/orelse/ chains
+    1..2
+    # Subtest: we get warnings when last value is useless
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - we get warnings when last value is useless
+    # Subtest: no warnings when last value is useful
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - no warnings when last value is useful
+ok 3 - no useless-use warning in andthen/notandthen/orelse/ chains
+# Subtest: no spurious warnings when invoking colonpaired routine
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 4 - no spurious warnings when invoking colonpaired routine
+# Subtest: metaops + metaassign op do not produce spurious warnings
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 5 - metaops + metaassign op do not produce spurious warnings
+# Subtest: no spurious warnings with `try` thunks in blocks
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 6 - no spurious warnings with `try` thunks in blocks
+# Subtest: no warnings when sinking variables
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 7 - no warnings when sinking variables
+# Subtest: args to macros do not cause useless use warnings
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 8 - args to macros do not cause useless use warnings
+# Subtest: ignored shape specification issues a warning
+    1..3
+    ok 1 - STDOUT
+    ok 2 - STDERR
+    ok 3 - Exit code
+ok 9 - ignored shape specification issues a warning

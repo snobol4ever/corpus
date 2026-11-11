@@ -1,0 +1,695 @@
+3d/animationcontroller.icn: LIBRARY: no procedure main
+3d/animationkeys.icn: LIBRARY: no procedure main
+3d/animationset.icn: LIBRARY: no procedure main
+3d/basicanimationobject3d.icn: LIBRARY: no procedure main
+3d/basicobject3d.icn: LIBRARY: no procedure main
+3d/bone.icn: LIBRARY: no procedure main
+3d/camera.icn: LIBRARY: no procedure main
+3d/face.icn: LIBRARY: no procedure main
+3d/graphics3dh.icn: LIBRARY: no procedure main
+3d/material.icn: LIBRARY: no procedure main
+3d/matrix.icn: LIBRARY: no procedure main
+3d/mesh.icn: LIBRARY: no procedure main
+3d/modelobject3d.icn: LIBRARY: no procedure main
+3d/node.icn: LIBRARY: no procedure main
+3d/quaternion.icn: LIBRARY: no procedure main
+3d/s3dparse.icn: LIBRARY: no procedure main
+3d/selection3D.icn: LIBRARY: no procedure main
+3d/skeleton.icn: LIBRARY: no procedure main
+3d/skinnedmodelobject3d.icn: LIBRARY: no procedure main
+3d/terrain.icn: LIBRARY: no procedure main
+3d/util3d.icn: LIBRARY: no procedure main
+3d/vector.icn: LIBRARY: no procedure main
+3d/viewer/subwin3d.icn: LIBRARY: no procedure main
+3d/viewer/u3dviewer.icn: NEEDS-DISPLAY: the source names import gui
+3d/viewer/world.icn: LIBRARY: no procedure main
+3d/xparse.icn: LIBRARY: no procedure main
+cint/test1.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
+cint/test3.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
+cint/test4.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
+gprogs/abook.icn: ORACLE-REFUSES: unicon does not translate it: abook.icn:51: # "global" Unable to import (1) package "guiwidgets"
+gprogs/kaleid.icn: NEEDS-DISPLAY: the source names import gui
+gprogs/qmazer.icn: NEEDS-DISPLAY: the source names &window
+gui/addressgui.icn: LIBRARY: no procedure main
+gui/border.icn: LIBRARY: no procedure main
+gui/button.icn: LIBRARY: no procedure main
+gui/buttongroup.icn: LIBRARY: no procedure main
+gui/checkbox.icn: LIBRARY: no procedure main
+gui/checkboxgroup.icn: LIBRARY: no procedure main
+gui/checkboxmenuitem.icn: LIBRARY: no procedure main
+gui/circulate.icn: LIBRARY: no procedure main
+gui/clipboard.icn: LIBRARY: no procedure main
+gui/component.icn: LIBRARY: no procedure main
+gui/componentscrollarea.icn: LIBRARY: no procedure main
+gui/dialog.icn: LIBRARY: no procedure main
+gui/dispatcher.icn: LIBRARY: no procedure main
+gui/displayscrollarea.icn: LIBRARY: no procedure main
+gui/drag.icn: LIBRARY: no procedure main
+gui/drawscrollarea.icn: LIBRARY: no procedure main
+gui/dropdown.icn: LIBRARY: no procedure main
+gui/editabletextlist.icn: LIBRARY: no procedure main
+gui/editlist.icn: LIBRARY: no procedure main
+gui/editspin.icn: LIBRARY: no procedure main
+gui/filedialog.icn: LIBRARY: no procedure main
+gui/font_dlg.icn: LIBRARY: no procedure main
+gui/gui_utils.icn: LIBRARY: no procedure main
+gui/guidemos/componentscrollareatest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/demo.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/dndtest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/dyncomps.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/editlisttest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/editor.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/empty.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/explorer.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/filedialogtest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/fillpanel.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/getweb.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/imageview.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/leak.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/lines.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/listtest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/menudemo.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/multi.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/palette.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/pointers.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/redundant.icn: LIBRARY: no procedure main
+gui/guidemos/secondtest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/sieve.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/sliders.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/spinners.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/tabletest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/tabs.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/testdialog.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/textsize.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/texttest.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/themedemo.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/tickdemo.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/ticks.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/toolbar.icn: NEEDS-DISPLAY: the source names import gui
+gui/guidemos/ttexplorer.icn: NEEDS-DISPLAY: the source names import gui
+gui/guih.icn: LIBRARY: no procedure main
+gui/guiprocs.icn: LIBRARY: no procedure main
+gui/icon.icn: LIBRARY: no procedure main
+gui/iconbutton.icn: LIBRARY: no procedure main
+gui/image.icn: LIBRARY: no procedure main
+gui/label.icn: LIBRARY: no procedure main
+gui/line.icn: LIBRARY: no procedure main
+gui/linebasedscrollarea.icn: LIBRARY: no procedure main
+gui/list.icn: LIBRARY: no procedure main
+gui/listspin.icn: LIBRARY: no procedure main
+gui/logindialog.icn: LIBRARY: no procedure main
+gui/menu.icn: LIBRARY: no procedure main
+gui/menubar.icn: LIBRARY: no procedure main
+gui/menubutton.icn: LIBRARY: no procedure main
+gui/menucomponent.icn: LIBRARY: no procedure main
+gui/menuseparator.icn: LIBRARY: no procedure main
+gui/messagebox.icn: LIBRARY: no procedure main
+gui/migration.icn: LIBRARY: no procedure main
+gui/node.icn: LIBRARY: no procedure main
+gui/overlayitem.icn: LIBRARY: no procedure main
+gui/overlayset.icn: LIBRARY: no procedure main
+gui/panel.icn: LIBRARY: no procedure main
+gui/popupmenu.icn: LIBRARY: no procedure main
+gui/printdlg.icn: LIBRARY: no procedure main
+gui/progressbar.icn: LIBRARY: no procedure main
+gui/rangespin.icn: LIBRARY: no procedure main
+gui/scrollarea.icn: LIBRARY: no procedure main
+gui/scrollbar.icn: LIBRARY: no procedure main
+gui/selectablescrollarea.icn: LIBRARY: no procedure main
+gui/sizer.icn: LIBRARY: no procedure main
+gui/slider.icn: LIBRARY: no procedure main
+gui/spin.icn: LIBRARY: no procedure main
+gui/staticspin.icn: LIBRARY: no procedure main
+gui/stddlg.icn: LIBRARY: no procedure main
+gui/submenu.icn: LIBRARY: no procedure main
+gui/tabitem.icn: LIBRARY: no procedure main
+gui/table.icn: LIBRARY: no procedure main
+gui/tablecolumn.icn: LIBRARY: no procedure main
+gui/tabset.icn: LIBRARY: no procedure main
+gui/textbutton.icn: LIBRARY: no procedure main
+gui/textdisplay.icn: LIBRARY: no procedure main
+gui/textfield.icn: LIBRARY: no procedure main
+gui/textlist.icn: LIBRARY: no procedure main
+gui/textmenuitem.icn: LIBRARY: no procedure main
+gui/theme.icn: LIBRARY: no procedure main
+gui/ticker.icn: LIBRARY: no procedure main
+gui/toggle.icn: LIBRARY: no procedure main
+gui/toggleiconbutton.icn: LIBRARY: no procedure main
+gui/toggletextbutton.icn: LIBRARY: no procedure main
+gui/toolbar.icn: LIBRARY: no procedure main
+gui/tree.icn: LIBRARY: no procedure main
+gui/treetable.icn: LIBRARY: no procedure main
+gui/yesnodialog.icn: LIBRARY: no procedure main
+ide/about.icn: LIBRARY: no procedure main
+ide/buffertabitem.icn: LIBRARY: no procedure main
+ide/buffertabset.icn: LIBRARY: no procedure main
+ide/buffertextlist.icn: LIBRARY: no procedure main
+ide/classbrowser.icn: LIBRARY: no procedure main
+ide/configopt.icn: LIBRARY: no procedure main
+ide/definitions.icn: LIBRARY: no procedure main
+ide/funclookup.icn: LIBRARY: no procedure main
+ide/hfiledialog.icn: LIBRARY: no procedure main
+ide/ide.icn: LIBRARY: no procedure main
+ide/imgs.icn: LIBRARY: no procedure main
+ide/is_binary.icn: LIBRARY: no procedure main
+ide/ivib/attribtab.icn: LIBRARY: no procedure main
+ide/ivib/basiccanvascomponentui.icn: LIBRARY: no procedure main
+ide/ivib/buttongroupset.icn: LIBRARY: no procedure main
+ide/ivib/canvas.icn: LIBRARY: no procedure main
+ide/ivib/canvasborder.icn: LIBRARY: no procedure main
+ide/ivib/canvasborderdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasborderui.icn: LIBRARY: no procedure main
+ide/ivib/canvasbutton.icn: LIBRARY: no procedure main
+ide/ivib/canvasbuttondialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasbuttongroup.icn: LIBRARY: no procedure main
+ide/ivib/canvascheckbox.icn: LIBRARY: no procedure main
+ide/ivib/canvascheckboxdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvascheckboxgroup.icn: LIBRARY: no procedure main
+ide/ivib/canvascheckboxmenuedit.icn: LIBRARY: no procedure main
+ide/ivib/canvascheckboxmenuitem.icn: LIBRARY: no procedure main
+ide/ivib/canvascheckboxui.icn: LIBRARY: no procedure main
+ide/ivib/canvascomponent.icn: LIBRARY: no procedure main
+ide/ivib/canvascomponentdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvascomponentui.icn: LIBRARY: no procedure main
+ide/ivib/canvascustom.icn: LIBRARY: no procedure main
+ide/ivib/canvascustomdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvascustomui.icn: LIBRARY: no procedure main
+ide/ivib/canvaseditabletextlist.icn: LIBRARY: no procedure main
+ide/ivib/canvaseditabletextlistdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaseditabletextlistui.icn: LIBRARY: no procedure main
+ide/ivib/canvaseditlist.icn: LIBRARY: no procedure main
+ide/ivib/canvaseditlistdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaseditlistui.icn: LIBRARY: no procedure main
+ide/ivib/canvashlineui.icn: LIBRARY: no procedure main
+ide/ivib/canvashscrollbarui.icn: LIBRARY: no procedure main
+ide/ivib/canvashsizerui.icn: LIBRARY: no procedure main
+ide/ivib/canvashsliderui.icn: LIBRARY: no procedure main
+ide/ivib/canvasicon.icn: LIBRARY: no procedure main
+ide/ivib/canvasiconbutton.icn: LIBRARY: no procedure main
+ide/ivib/canvasiconbuttondialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasiconbuttonui.icn: LIBRARY: no procedure main
+ide/ivib/canvasicondialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasiconui.icn: LIBRARY: no procedure main
+ide/ivib/canvasimage.icn: LIBRARY: no procedure main
+ide/ivib/canvasimagedialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasimageui.icn: LIBRARY: no procedure main
+ide/ivib/canvaslabel.icn: LIBRARY: no procedure main
+ide/ivib/canvaslabeldialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaslabelui.icn: LIBRARY: no procedure main
+ide/ivib/canvasline.icn: LIBRARY: no procedure main
+ide/ivib/canvaslinedialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaslist.icn: LIBRARY: no procedure main
+ide/ivib/canvaslistdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaslistspin.icn: LIBRARY: no procedure main
+ide/ivib/canvaslistspindialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaslistspinui.icn: LIBRARY: no procedure main
+ide/ivib/canvaslistui.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenu.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenubar.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenubardialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenubarui.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenubutton.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenubuttonui.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenucomponent.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenucomponentdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenuseparator.icn: LIBRARY: no procedure main
+ide/ivib/canvasmenuseparatoredit.icn: LIBRARY: no procedure main
+ide/ivib/canvasoverlayitem.icn: LIBRARY: no procedure main
+ide/ivib/canvasoverlayset.icn: LIBRARY: no procedure main
+ide/ivib/canvasoverlaysetdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasoverlaysetui.icn: LIBRARY: no procedure main
+ide/ivib/canvaspanel.icn: LIBRARY: no procedure main
+ide/ivib/canvaspaneldialog.icn: LIBRARY: no procedure main
+ide/ivib/canvaspanelui.icn: LIBRARY: no procedure main
+ide/ivib/canvasrangespin.icn: LIBRARY: no procedure main
+ide/ivib/canvasrangespindialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasrangespinui.icn: LIBRARY: no procedure main
+ide/ivib/canvasscrollbar.icn: LIBRARY: no procedure main
+ide/ivib/canvasscrollbardialog.icn: LIBRARY: no procedure main
+ide/ivib/canvassizer.icn: LIBRARY: no procedure main
+ide/ivib/canvassizerdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvasslider.icn: LIBRARY: no procedure main
+ide/ivib/canvassliderdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastabitem.icn: LIBRARY: no procedure main
+ide/ivib/canvastable.icn: LIBRARY: no procedure main
+ide/ivib/canvastablecolumn.icn: LIBRARY: no procedure main
+ide/ivib/canvastabledialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastableui.icn: LIBRARY: no procedure main
+ide/ivib/canvastabset.icn: LIBRARY: no procedure main
+ide/ivib/canvastabsetdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastabsetui.icn: LIBRARY: no procedure main
+ide/ivib/canvastextbutton.icn: LIBRARY: no procedure main
+ide/ivib/canvastextbuttondialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastextbuttonui.icn: LIBRARY: no procedure main
+ide/ivib/canvastextfield.icn: LIBRARY: no procedure main
+ide/ivib/canvastextfielddialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastextfieldui.icn: LIBRARY: no procedure main
+ide/ivib/canvastextlist.icn: LIBRARY: no procedure main
+ide/ivib/canvastextlistdialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastextlistui.icn: LIBRARY: no procedure main
+ide/ivib/canvastextmenuitem.icn: LIBRARY: no procedure main
+ide/ivib/canvastoolbar.icn: LIBRARY: no procedure main
+ide/ivib/canvastoolbardialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastoolbarui.icn: LIBRARY: no procedure main
+ide/ivib/canvastree.icn: LIBRARY: no procedure main
+ide/ivib/canvastreedialog.icn: LIBRARY: no procedure main
+ide/ivib/canvastreeui.icn: LIBRARY: no procedure main
+ide/ivib/canvasvlineui.icn: LIBRARY: no procedure main
+ide/ivib/canvasvscrollbarui.icn: LIBRARY: no procedure main
+ide/ivib/canvasvsizerui.icn: LIBRARY: no procedure main
+ide/ivib/canvasvsliderui.icn: LIBRARY: no procedure main
+ide/ivib/cdialog.icn: LIBRARY: no procedure main
+ide/ivib/checkboxgroupset.icn: LIBRARY: no procedure main
+ide/ivib/choicedialog.icn: LIBRARY: no procedure main
+ide/ivib/code.icn: LIBRARY: no procedure main
+ide/ivib/commondialog.icn: LIBRARY: no procedure main
+ide/ivib/componentsort.icn: LIBRARY: no procedure main
+ide/ivib/custom.icn: LIBRARY: no procedure main
+ide/ivib/eventtab.icn: LIBRARY: no procedure main
+ide/ivib/gridelement.icn: LIBRARY: no procedure main
+ide/ivib/gridset.icn: LIBRARY: no procedure main
+ide/ivib/group.icn: LIBRARY: no procedure main
+ide/ivib/groupset.icn: LIBRARY: no procedure main
+ide/ivib/groupsetdialog.icn: LIBRARY: no procedure main
+ide/ivib/hcomponentsort.icn: LIBRARY: no procedure main
+ide/ivib/icon/xpmtoims.icn: NEEDS-DISPLAY: the source names link graphics
+ide/ivib/infodialog.icn: LIBRARY: no procedure main
+ide/ivib/ivib.icn: NEEDS-DISPLAY: the source names import gui
+ide/ivib/ivibmigrate.icn: LIBRARY: no procedure main
+ide/ivib/linkfiles.icn: LIBRARY: no procedure main
+ide/ivib/main.icn: LIBRARY: no procedure main
+ide/ivib/menucomponentedit.icn: LIBRARY: no procedure main
+ide/ivib/menutree.icn: LIBRARY: no procedure main
+ide/ivib/menutreenode.icn: LIBRARY: no procedure main
+ide/ivib/savechangesdialog.icn: LIBRARY: no procedure main
+ide/ivib/utils.icn: LIBRARY: no procedure main
+ide/ivib/vcomponentsort.icn: LIBRARY: no procedure main
+ide/ivib/version.icn: LIBRARY: no procedure main
+ide/mainbar.icn: LIBRARY: no procedure main
+ide/matchparen.icn: LIBRARY: no procedure main
+ide/modified.icn: LIBRARY: no procedure main
+ide/online.icn: LIBRARY: no procedure main
+ide/preferences.icn: LIBRARY: no procedure main
+ide/ptyDispatcher.icn: LIBRARY: no procedure main
+ide/qu_replace.icn: LIBRARY: no procedure main
+ide/shelletl.icn: LIBRARY: no procedure main
+ide/templates.icn: LIBRARY: no procedure main
+ide/ui.icn: NEEDS-DISPLAY: the source names import gui
+ide/uproject.icn: LIBRARY: no procedure main
+ide/utags.icn: NEEDS-DISPLAY: the source names import gui
+ide/verifymake.icn: LIBRARY: no procedure main
+ide/wu.icn: NEEDS-DISPLAY: the source names link graphics
+lib/FxPt.icn: LIBRARY: no procedure main
+lib/_button.icn: LIBRARY: no procedure main
+lib/_image.icn: LIBRARY: no procedure main
+lib/_list.icn: LIBRARY: no procedure main
+lib/_menu.icn: LIBRARY: no procedure main
+lib/_node.icn: LIBRARY: no procedure main
+lib/_panel.icn: LIBRARY: no procedure main
+lib/_table.icn: LIBRARY: no procedure main
+lib/_ticker.icn: LIBRARY: no procedure main
+lib/_tree.icn: LIBRARY: no procedure main
+lib/address.icn: LIBRARY: no procedure main
+lib/addressdb.icn: LIBRARY: no procedure main
+lib/args.icn: LIBRARY: no procedure main
+lib/base64handler.icn: LIBRARY: no procedure main
+lib/basicclasscoding.icn: LIBRARY: no procedure main
+lib/blockread.icn: LIBRARY: no procedure main
+lib/border.icn: LIBRARY: no procedure main
+lib/buttongroup.icn: LIBRARY: no procedure main
+lib/checkbox.icn: LIBRARY: no procedure main
+lib/checkboxgroup.icn: LIBRARY: no procedure main
+lib/checkboxmenuitem.icn: LIBRARY: no procedure main
+lib/class.icn: LIBRARY: no procedure main
+lib/classcoding.icn: LIBRARY: no procedure main
+lib/classobject.icn: LIBRARY: no procedure main
+lib/cltable.icn: LIBRARY: no procedure main
+lib/comparator.icn: LIBRARY: no procedure main
+lib/complex.icn: LIBRARY: no procedure main
+lib/component.icn: LIBRARY: no procedure main
+lib/compoundedit.icn: LIBRARY: no procedure main
+lib/connectable.icn: LIBRARY: no procedure main
+lib/contentdisposition.icn: LIBRARY: no procedure main
+lib/contenttype.icn: LIBRARY: no procedure main
+lib/crypto.icn: LIBRARY: no procedure main
+lib/cvsuser.icn: LIBRARY: no procedure main
+lib/cvsutil.icn: LIBRARY: no procedure main
+lib/database.icn: LIBRARY: no procedure main
+lib/db.icn: LIBRARY: no procedure main
+lib/db_util.icn: LIBRARY: no procedure main
+lib/decode.icn: LIBRARY: no procedure main
+lib/dispatcher.icn: LIBRARY: no procedure main
+lib/doptions.icn: LIBRARY: no procedure main
+lib/dropdown.icn: LIBRARY: no procedure main
+lib/editabletextlist.icn: LIBRARY: no procedure main
+lib/editlist.icn: LIBRARY: no procedure main
+lib/encode.icn: LIBRARY: no procedure main
+lib/encodinghandler.icn: LIBRARY: no procedure main
+lib/error.icn: LIBRARY: no procedure main
+lib/errorsystem.icn: LIBRARY: no procedure main
+lib/exception.icn: LIBRARY: no procedure main
+lib/fastprime.icn: LIBRARY: no procedure main
+lib/fcn_util.icn: LIBRARY: no procedure main
+lib/file_dlg.icn: LIBRARY: no procedure main
+lib/format.icn: LIBRARY: no procedure main
+lib/genserve.icn: NEEDS-NETWORK: the source names open(":" || p, "nl"
+lib/group.icn: LIBRARY: no procedure main
+lib/gui.icn: LIBRARY: no procedure main
+lib/guiconst.icn: LIBRARY: no procedure main
+lib/heap.icn: LIBRARY: no procedure main
+lib/httpclient.icn: LIBRARY: no procedure main
+lib/httprequest.icn: LIBRARY: no procedure main
+lib/httpresponse.icn: LIBRARY: no procedure main
+lib/icmp.icn: LIBRARY: no procedure main
+lib/icon.icn: LIBRARY: no procedure main
+lib/iconbutton.icn: LIBRARY: no procedure main
+lib/igmp.icn: LIBRARY: no procedure main
+lib/json.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+lib/jsonrpc.icn: LIBRARY: no procedure main
+lib/label.icn: LIBRARY: no procedure main
+lib/langprocs.icn: LIBRARY: no procedure main
+lib/listener.icn: LIBRARY: no procedure main
+lib/logger.icn: LIBRARY: no procedure main
+lib/mailbox.icn: LIBRARY: no procedure main
+lib/mailmisc.icn: LIBRARY: no procedure main
+lib/mapbytes.icn: LIBRARY: no procedure main
+lib/matrix_util.icn: LIBRARY: no procedure main
+lib/md5.icn: LIBRARY: no procedure main
+lib/menubar.icn: LIBRARY: no procedure main
+lib/menubutton.icn: LIBRARY: no procedure main
+lib/menucomponent.icn: LIBRARY: no procedure main
+lib/menuseparator.icn: LIBRARY: no procedure main
+lib/message.icn: LIBRARY: no procedure main
+lib/messagehandler.icn: LIBRARY: no procedure main
+lib/method.icn: LIBRARY: no procedure main
+lib/misc_util.icn: LIBRARY: no procedure main
+lib/money.icn: LIBRARY: no procedure main
+lib/msg.icn: LIBRARY: no procedure main
+lib/msgutils.icn: LIBRARY: no procedure main
+lib/multipart.icn: LIBRARY: no procedure main
+lib/multiparthandler.icn: LIBRARY: no procedure main
+lib/netclient.icn: LIBRARY: no procedure main
+lib/noophandler.icn: LIBRARY: no procedure main
+lib/notification.icn: LIBRARY: no procedure main
+lib/notifier.icn: LIBRARY: no procedure main
+lib/object.icn: LIBRARY: no procedure main
+lib/overlayitem.icn: LIBRARY: no procedure main
+lib/overlayset.icn: LIBRARY: no procedure main
+lib/packetspec.icn: LIBRARY: no procedure main
+lib/pdb_util.icn: LIBRARY: no procedure main
+lib/popclient.icn: LIBRARY: no procedure main
+lib/popupmenu.icn: LIBRARY: no procedure main
+lib/pqueue.icn: LIBRARY: no procedure main
+lib/predicat.icn: LIBRARY: no procedure main
+lib/process.icn: LIBRARY: no procedure main
+lib/property.icn: LIBRARY: no procedure main
+lib/propertydb.icn: LIBRARY: no procedure main
+lib/pushback.icn: LIBRARY: no procedure main
+lib/qsort.icn: LIBRARY: no procedure main
+lib/quotedprintablehandler.icn: LIBRARY: no procedure main
+lib/rfc822parser.icn: LIBRARY: no procedure main
+lib/rfc822pr.icn: LIBRARY: no procedure main
+lib/runnable.icn: LIBRARY: no procedure main
+lib/runtimeerrors.icn: LIBRARY: no procedure main
+lib/scan_util.icn: LIBRARY: no procedure main
+lib/scrollarea.icn: LIBRARY: no procedure main
+lib/scrollbar.icn: LIBRARY: no procedure main
+lib/selectiveclasscoding.icn: LIBRARY: no procedure main
+lib/sem.icn: LIBRARY: no procedure main
+lib/setfields.icn: LIBRARY: no procedure main
+lib/shm.icn: LIBRARY: no procedure main
+lib/sizer.icn: LIBRARY: no procedure main
+lib/smtpclient.icn: LIBRARY: no procedure main
+lib/soap_util.icn: LIBRARY: no procedure main
+lib/soapclient.icn: LIBRARY: no procedure main
+lib/soapserver.icn: LIBRARY: no procedure main
+lib/sql.icn: LIBRARY: no procedure main
+lib/ssh.icn: LIBRARY: no procedure main
+lib/str_replacer.icn: LIBRARY: no procedure main
+lib/str_util.icn: LIBRARY: no procedure main
+lib/stringbuff.icn: LIBRARY: no procedure main
+lib/struct.icn: LIBRARY: no procedure main
+lib/submenu.icn: LIBRARY: no procedure main
+lib/tabitem.icn: LIBRARY: no procedure main
+lib/tablecolumn.icn: LIBRARY: no procedure main
+lib/tabset.icn: LIBRARY: no procedure main
+lib/textbutton.icn: LIBRARY: no procedure main
+lib/textfield.icn: LIBRARY: no procedure main
+lib/texthandler.icn: LIBRARY: no procedure main
+lib/textlist.icn: LIBRARY: no procedure main
+lib/textmenuitem.icn: LIBRARY: no procedure main
+lib/thread.icn: LIBRARY: no procedure main
+lib/threadh.icn: LIBRARY: no procedure main
+lib/time.icn: LIBRARY: no procedure main
+lib/timezone.icn: LIBRARY: no procedure main
+lib/toggle.icn: LIBRARY: no procedure main
+lib/toggleiconbutton.icn: LIBRARY: no procedure main
+lib/toggletextbutton.icn: LIBRARY: no procedure main
+lib/toolbar.icn: LIBRARY: no procedure main
+lib/typehandler.icn: LIBRARY: no procedure main
+lib/undoableedit.icn: LIBRARY: no procedure main
+lib/undomanager.icn: LIBRARY: no procedure main
+lib/union.icn: LIBRARY: no procedure main
+lib/unittest.icn: LIBRARY: no procedure main
+lib/url.icn: LIBRARY: no procedure main
+lib/utf8.icn: LIBRARY: no procedure main
+lib/utilities.icn: LIBRARY: no procedure main
+lib/vgamem.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+lib/webup.icn: LIBRARY: no procedure main
+monvis/tvs.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: no EvInit
+parser/classinfo.icn: LIBRARY: no procedure main
+parser/databaseinfo.icn: LIBRARY: no procedure main
+parser/packageinfo.icn: LIBRARY: no procedure main
+parser/parsedclass.icn: LIBRARY: no procedure main
+parser/parsedfunction.icn: LIBRARY: no procedure main
+parser/parsedinitiallymethod.icn: LIBRARY: no procedure main
+parser/parsedmethod.icn: LIBRARY: no procedure main
+parser/parsedobject.icn: LIBRARY: no procedure main
+parser/parsedprocedure.icn: LIBRARY: no procedure main
+parser/parsedprogram.icn: LIBRARY: no procedure main
+parser/parsedrecord.icn: LIBRARY: no procedure main
+parser/parser.icn: LIBRARY: no procedure main
+parser/preproce.icn: LIBRARY: no procedure main
+parser/showdb.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 124
+parser/showtree.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+parser/unigram.action.icn: LIBRARY: no procedure main
+parser/unigram.icn: LIBRARY: no procedure main
+parser/unigram.prefix.icn: LIBRARY: no procedure main
+parser/unigram.suffix.icn: LIBRARY: no procedure main
+parser/unilex.icn: LIBRARY: no procedure main
+parser/ytab_h.icn: LIBRARY: no procedure main
+progs/bored.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 538 and 538 bytes
+progs/cleanup.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+progs/csv.icn: NEEDS-INPUT: its answer changes with what standard input holds
+progs/env.icn: READS-THE-ENVIRONMENT: its answer holds TMPDIR of the process that runs it
+progs/exception_demo.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+progs/gcfreq.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+progs/htmltex.icn: NEEDS-INPUT: its answer changes with what standard input holds
+progs/idxGen.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot open idxterms.xml
+progs/ie.icn: NEEDS-INPUT: its answer changes with what standard input holds
+progs/mapStrings.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: mapStrings [oldString=newString]... <infile >outfile
+progs/mtrace.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Missing --log=LOGFILE argument
+progs/rankvote.icn: NEEDS-INPUT: its answer changes with what standard input holds
+progs/rpn.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+progs/splitmail.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: SplitMail (--name=USER | --file=FILENAME)
+progs/uigmp.icn: NEEDS-NETWORK: the source names import net
+progs/umake.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+progs/uping.icn: NEEDS-NETWORK: the source names import net
+progs/uprof.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: uprof [-l] [-o outfile] prog args
+progs/ush.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+progs/ussh.icn: NEEDS-NETWORK: the source names import net
+progs/uwc.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+shell/dist/Stream.icn: LIBRARY: no procedure main
+shell/dist/client.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/consumer.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/producer.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/queue_get.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/queue_put.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/s_file.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/s_file_consumer_test.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/service.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/shell.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/t_cat.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+shell/dist/ush.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
+udb/adapter.icn: LIBRARY: no procedure main
+udb/agent.icn: LIBRARY: no procedure main
+udb/breakpoint.icn: LIBRARY: no procedure main
+udb/coexp.icn: LIBRARY: no procedure main
+udb/console.icn: LIBRARY: no procedure main
+udb/dap_message.icn: LIBRARY: no procedure main
+udb/data.icn: LIBRARY: no procedure main
+udb/defaults.icn: LIBRARY: no procedure main
+udb/dta/atomic_agent.icn: LIBRARY: no procedure main
+udb/dta/temporals.icn: LIBRARY: no procedure main
+udb/evaluator.icn: LIBRARY: no procedure main
+udb/exparser.icn: LIBRARY: no procedure main
+udb/externals.icn: LIBRARY: no procedure main
+udb/help.icn: LIBRARY: no procedure main
+udb/icode.icn: LIBRARY: no procedure main
+udb/internals.icn: LIBRARY: no procedure main
+udb/lib/counter_deref.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/counter_line.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/counter_pcall.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/counter_syntax.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/deadvar.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/failedloop.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/failedsubscript.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/listener.icn: LIBRARY: no procedure main
+udb/lib/looptime.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/memory.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/memory_alloc.icn: NEEDS-DISPLAY: the source names $include "keysyms.icn"
+udb/lib/procprofile.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/proctime.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/structaliases.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/structusage.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/typechange.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/lib/varprofile.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+udb/session.icn: LIBRARY: no procedure main
+udb/srcfile.icn: LIBRARY: no procedure main
+udb/stack.icn: LIBRARY: no procedure main
+udb/state.icn: LIBRARY: no procedure main
+udb/stepping.icn: LIBRARY: no procedure main
+udb/symtab.icn: LIBRARY: no procedure main
+udb/system.icn: LIBRARY: no procedure main
+udb/trace.icn: LIBRARY: no procedure main
+udb/udb.icn: NEEDS-NETWORK: the source names open(port, "n"
+udb/watchpoint.icn: LIBRARY: no procedure main
+uflex/automata.icn: LIBRARY: no procedure main
+uflex/automatadfa.icn: LIBRARY: no procedure main
+uflex/convert.icn: LIBRARY: no procedure main
+uflex/dfa2auto.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Need  file
+uflex/dfadebug.icn: LIBRARY: no procedure main
+uflex/flexgram.icn: LIBRARY: no procedure main
+uflex/flexgram_tab.icn: LIBRARY: no procedure main
+uflex/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: uflex [-nopp|-token|-tree|-automaton] file
+uflex/nfa2dfa.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Need  file
+uflex/test/cgram.tab.icn: LIBRARY: no procedure main
+uflex/test/cmain.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: ucc filename
+uflex/test/foo.icn: LIBRARY: no procedure main
+uflex/test/go.tab.icn: LIBRARY: no procedure main
+uflex/test/gomain.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: g0 filename
+uflex/test/j0.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: j0 filename
+uflex/test/k0.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: k0 filename
+uflex/test/k0tok.icn: LIBRARY: no procedure main
+uflex/test/nummain.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+uflex/test/punygram.tab.icn: LIBRARY: no procedure main
+uflex/test/rustgram.tab.icn: LIBRARY: no procedure main
+uflex/test/rustmain.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: fec filename
+uflex/test/timetst2.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: can't open no file given
+uflex/test/timetst3.icn: ORACLE-REFUSES: unicon does not translate it: File timetst3.icn; Line 2 # $include: cannot open "../../unicon/ytab_h.icn"
+uflex/test/toymain.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: toy file.p
+uflex/test/y_tab.icn: LIBRARY: no procedure main
+uflex/tree.icn: LIBRARY: no procedure main
+uflex/uflex-lex.icn: LIBRARY: no procedure main
+uflex/uflexskel.icn: LIBRARY: no procedure main
+uflex/ulexskel.icn: LIBRARY: no procedure main
+uflex/ulpp.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
+ulsp/completion.icn: LIBRARY: no procedure main
+ulsp/database.icn: LIBRARY: no procedure main
+ulsp/definition.icn: LIBRARY: no procedure main
+ulsp/file_handler.icn: LIBRARY: no procedure main
+ulsp/folding.icn: LIBRARY: no procedure main
+ulsp/formatting.icn: LIBRARY: no procedure main
+ulsp/hover.icn: LIBRARY: no procedure main
+ulsp/jsonrpc-test.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1000 and 1000 bytes
+ulsp/lsif.icn: LIBRARY: no procedure main
+ulsp/server.icn: LIBRARY: no procedure main
+ulsp/signature.icn: LIBRARY: no procedure main
+ulsp/symbols.icn: LIBRARY: no procedure main
+ulsp/unicon_built_in_functions.icn: LIBRARY: no procedure main
+unicon/ca.icn: LIBRARY: no procedure main
+unicon/cfy.icn: LIBRARY: no procedure main
+unicon/grok.icn: ORACLE-REFUSES: unicon does not translate it: foo.icn:9: # "initially" syntax error (54;279)
+unicon/i.icn: NEEDS-DISPLAY: the source names link gui
+unicon/idol.icn: LIBRARY: no procedure main
+unicon/iol2htm.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+unicon/lump.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+unicon/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+unicon/merr.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: merr [-yYBG] [-W writefn] [-F filenm] [-s make] [-o msgfl]compiler [target] [-N MaxIterations] [-phase1] [-phase2]
+unicon/nocc.icn: LIBRARY: no procedure main
+unicon/parserr.icn: LIBRARY: no procedure main
+unicon/preproce.icn: LIBRARY: no procedure main
+unicon/samp.icn: ORACLE-REFUSES: unicon does not translate it: samp.icn:1: # ":" syntax error (316;369)
+unicon/tokens.icn: LIBRARY: no procedure main
+unicon/tree.icn: LIBRARY: no procedure main
+unicon/tstcls.icn: LIBRARY: no procedure main
+unicon/tstfld.icn: ORACLE-REFUSES: unicon does not translate it: tstfld.icn:2: # "initially" syntax error (54;279)
+unicon/tstmeth.icn: LIBRARY: no procedure main
+unicon/unicon.icn: LIBRARY: no procedure main
+unicon/unigram.icn: LIBRARY: no procedure main
+unicon/unilex.icn: LIBRARY: no procedure main
+unicon/unix.icn: LIBRARY: no procedure main
+unicon/ytab_h.icn: LIBRARY: no procedure main
+unicon/yyerror.icn: LIBRARY: no procedure main
+unidep/filearg.icn: LIBRARY: no procedure main
+unidep/fileargclass.icn: LIBRARY: no procedure main
+unidep/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+unidep/symbolinfo.icn: LIBRARY: no procedure main
+unidep/symboltable.icn: LIBRARY: no procedure main
+unidep/util.icn: LIBRARY: no procedure main
+unidoc/UniAll.icn: LIBRARY: no procedure main
+unidoc/UniFile.icn: LIBRARY: no procedure main
+unidoc/UniForm.icn: LIBRARY: no procedure main
+unidoc/UniHTML.icn: LIBRARY: no procedure main
+unidoc/UniToken.icn: LIBRARY: no procedure main
+unidoc/parlett/class.icn: LIBRARY: no procedure main
+unidoc/parlett/classvar.icn: LIBRARY: no procedure main
+unidoc/parlett/comment.icn: LIBRARY: no procedure main
+unidoc/parlett/file.icn: LIBRARY: no procedure main
+unidoc/parlett/filepos.icn: LIBRARY: no procedure main
+unidoc/parlett/groffoutputter.icn: LIBRARY: no procedure main
+unidoc/parlett/htmloutputter.icn: LIBRARY: no procedure main
+unidoc/parlett/linkfiles.icn: LIBRARY: no procedure main
+unidoc/parlett/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+unidoc/parlett/method.icn: LIBRARY: no procedure main
+unidoc/parlett/other.icn: LIBRARY: no procedure main
+unidoc/parlett/package.icn: LIBRARY: no procedure main
+unidoc/parlett/packageset.icn: LIBRARY: no procedure main
+uscribe/bib.icn: LIBRARY: no procedure main
+uscribe/config.icn: LIBRARY: no procedure main
+uscribe/directive.icn: LIBRARY: no procedure main
+uscribe/inline.icn: LIBRARY: no procedure main
+uscribe/labeltable.icn: LIBRARY: no procedure main
+uscribe/latexout.icn: LIBRARY: no procedure main
+uscribe/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: uscribe: could not read manifest 'book.manifest'
+uscribe/manifest.icn: LIBRARY: no procedure main
+uscribe/node.icn: LIBRARY: no procedure main
+uscribe/outputter.icn: LIBRARY: no procedure main
+uscribe/parser.icn: LIBRARY: no procedure main
+uscribe/scan.icn: LIBRARY: no procedure main
+xml/attlist.icn: LIBRARY: no procedure main
+xml/attributedef.icn: LIBRARY: no procedure main
+xml/canonicalxmlformatter.icn: LIBRARY: no procedure main
+xml/cdata.icn: LIBRARY: no procedure main
+xml/comment.icn: LIBRARY: no procedure main
+xml/contentspec.icn: LIBRARY: no procedure main
+xml/defaulterrorhandler.icn: LIBRARY: no procedure main
+xml/defaultresolver.icn: LIBRARY: no procedure main
+xml/doctype.icn: LIBRARY: no procedure main
+xml/document.icn: LIBRARY: no procedure main
+xml/element.icn: LIBRARY: no procedure main
+xml/elementdecl.icn: LIBRARY: no procedure main
+xml/entitydef.icn: LIBRARY: no procedure main
+xml/errorhandler.icn: LIBRARY: no procedure main
+xml/externalid.icn: LIBRARY: no procedure main
+xml/formatter.icn: LIBRARY: no procedure main
+xml/globalname.icn: LIBRARY: no procedure main
+xml/htmldocument.icn: LIBRARY: no procedure main
+xml/htmlelement.icn: LIBRARY: no procedure main
+xml/htmlformatter.icn: LIBRARY: no procedure main
+xml/htmlparser.icn: LIBRARY: no procedure main
+xml/node.icn: LIBRARY: no procedure main
+xml/notationdecl.icn: LIBRARY: no procedure main
+xml/parser.icn: LIBRARY: no procedure main
+xml/processinginstruction.icn: LIBRARY: no procedure main
+xml/resolver.icn: LIBRARY: no procedure main
+xml/testhtml.icn: NEEDS-NETWORK: the source names open(e, "m"
+xml/testinvalid.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: testcase source [output]
+xml/testnotwf.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: testnotwf source
+xml/testvalid.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: testcase source [output]
+xml/webscraper.icn: LIBRARY: no procedure main
+xml/xmldecl.icn: LIBRARY: no procedure main
+xml/xmldocument.icn: LIBRARY: no procedure main
+xml/xmlelement.icn: LIBRARY: no procedure main
+xml/xmlformatter.icn: LIBRARY: no procedure main
+xml/xmlparser.icn: LIBRARY: no procedure main

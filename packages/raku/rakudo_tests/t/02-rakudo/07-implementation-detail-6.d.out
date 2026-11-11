@@ -1,0 +1,5 @@
+1..4
+ok 1 - were any global uppercase CORE:: subs added
+ok 2 - were any global uppercase SETTING:: subs added
+ok 3 - were any global lowercase CORE:: subs added
+ok 4 - were any global lowercase SETTING:: subs added

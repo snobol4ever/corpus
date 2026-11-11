@@ -1,0 +1,144 @@
+1..11
+# Subtest: A bare sub evaluates to a Sub
+    ok 1 - deparse
+    ok 2 - AST: A sub node evaluates to a Sub
+    ok 3 - Str: A sub node evaluates to a Sub
+    ok 4 - Raku: A sub node evaluates to a Sub
+    ok 5 - was a declarator automatically created
+    ok 6 - was the leading doc stored
+    ok 7 - was the trailing doc stored
+    1..7
+ok 1 - A bare sub evaluates to a Sub
+# Subtest: A sub node evaluates to a Sub
+    ok 1 - deparse
+    ok 2 - AST: A sub node evaluates to a Sub
+    ok 3 - AST: The sub has one parameter
+    ok 4 - AST: The block has 1 arity
+    ok 5 - AST: The block has 1 count
+    ok 6 - AST: Invoking the sub with an argument returns the expected value
+    ok 7 - AST: Invoking the sub without an argument dies
+    ok 8 - Str: A sub node evaluates to a Sub
+    ok 9 - Str: The sub has one parameter
+    ok 10 - Str: The block has 1 arity
+    ok 11 - Str: The block has 1 count
+    ok 12 - Str: Invoking the sub with an argument returns the expected value
+    ok 13 - Str: Invoking the sub without an argument dies
+    ok 14 - Raku: A sub node evaluates to a Sub
+    ok 15 - Raku: The sub has one parameter
+    ok 16 - Raku: The block has 1 arity
+    ok 17 - Raku: The block has 1 count
+    ok 18 - Raku: Invoking the sub with an argument returns the expected value
+    ok 19 - Raku: Invoking the sub without an argument dies
+    1..19
+ok 2 - A sub node evaluates to a Sub
+# Subtest: Can call a named sub declaration
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Can call a named sub declaration
+# Subtest: A routine declared anonymous does not declare anything
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - A routine declared anonymous does not declare anything
+# Subtest: A sub node with a trait evaluates to a Sub
+    ok 1 - deparse
+    ok 2 - AST: A sub node with a trait evaluates to a Sub
+    ok 3 - AST: The returns trait was applied and .returns is correct
+    ok 4 - AST: It also does the correct parametric Callable
+    ok 5 - Str: A sub node with a trait evaluates to a Sub
+    ok 6 - Str: The returns trait was applied and .returns is correct
+    ok 7 - Str: It also does the correct parametric Callable
+    ok 8 - Raku: A sub node with a trait evaluates to a Sub
+    ok 9 - Raku: The returns trait was applied and .returns is correct
+    ok 10 - Raku: It also does the correct parametric Callable
+    1..10
+ok 5 - A sub node with a trait evaluates to a Sub
+# Subtest: Return type constraint
+    ok 1 - deparse
+    ok 2 - AST: type matches
+    ok 3 - AST: type does not match
+    ok 4 - Str: type matches
+    ok 5 - Str: type does not match
+    ok 6 - Raku: type matches
+    ok 7 - Raku: type does not match
+    1..7
+ok 6 - Return type constraint
+# Subtest: Using return with acceptable type works
+    ok 1 - deparse
+    ok 2 - AST: type matches
+    ok 3 - AST: type does not match
+    ok 4 - Str: type matches
+    ok 5 - Str: type does not match
+    ok 6 - Raku: type matches
+    ok 7 - Raku: type does not match
+    1..7
+ok 7 - Using return with acceptable type works
+# Subtest: Using a string literal works
+    ok 1 - deparse
+    ok 2 - AST: type matches
+    ok 3 - AST: type does not match
+    ok 4 - Str: type matches
+    ok 5 - Str: type does not match
+    ok 6 - Raku: type matches
+    ok 7 - Raku: type does not match
+    1..7
+ok 8 - Using a string literal works
+# Subtest: creating a proto sub works
+    ok 1 - deparse
+    ok 2 - AST: did we return a dispatcher
+    ok 3 - did we get no dispatchees
+    ok 4 - AST: can call without args
+    ok 5 - AST: can call with positionals
+    ok 6 - AST: can call with nameds
+    ok 7 - Str: did we return a dispatcher
+    ok 8 - did we get no dispatchees
+    ok 9 - Str: can call without args
+    ok 10 - Str: can call with positionals
+    ok 11 - Str: can call with nameds
+    ok 12 - Raku: did we return a dispatcher
+    ok 13 - did we get no dispatchees
+    ok 14 - Raku: can call without args
+    ok 15 - Raku: can call with positionals
+    ok 16 - Raku: can call with nameds
+    1..16
+ok 9 - creating a proto sub works
+# Subtest: creating a multi sub without proto works
+    ok 1 - deparse
+    ok 2 - did we create a dispatcher
+    ok 3 - did we get 1 dispatchee
+    ok 4 - can call without args
+    ok 5 - can NOT call with positionals
+    ok 6 - can NOT call with nameds
+    ok 7 - did we create a dispatcher
+    ok 8 - did we get 1 dispatchee
+    ok 9 - can call without args
+    ok 10 - can NOT call with positionals
+    ok 11 - can NOT call with nameds
+    ok 12 - did we create a dispatcher
+    ok 13 - did we get 1 dispatchee
+    ok 14 - can call without args
+    ok 15 - can NOT call with positionals
+    ok 16 - can NOT call with nameds
+    1..16
+ok 10 - creating a multi sub without proto works
+# Subtest: creating a multi sub with existing proto works
+    ok 1 - deparse
+    ok 2 - did we get a normal sub
+    ok 3 - can call without args
+    ok 4 - can NOT call with positionals
+    ok 5 - can NOT call with nameds
+    ok 6 - did we get a normal sub
+    ok 7 - can call without args
+    ok 8 - can NOT call with positionals
+    ok 9 - can NOT call with nameds
+    ok 10 - did we get a normal sub
+    ok 11 - can call without args
+    ok 12 - can NOT call with positionals
+    ok 13 - can NOT call with nameds
+    1..13
+ok 11 - creating a multi sub with existing proto works

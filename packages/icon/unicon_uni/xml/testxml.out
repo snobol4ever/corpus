@@ -1,0 +1,9 @@
+Usage: testxml [FILE]... [OPTIONS]
+Test parse FILE(s)
+  -g                      Show global names
+  -nc                     Don't preserve comments
+  -nv                     Don't validate
+  -fnw                    Format output with no whitespace
+  -ftt                    Format output with text trim
+  -far                    Format output as read
+  -fi INT                 Format output with given indent

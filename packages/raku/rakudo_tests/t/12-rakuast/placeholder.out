@@ -1,0 +1,118 @@
+1..6
+# Subtest: Placeholder positional parameter
+    ok 1 - deparse
+    ok 2 - AST: Sub has one params elem
+    ok 3 - AST: The block has 1 arity
+    ok 4 - AST: The block has 1 count
+    ok 5 - AST: Correct variable name
+    ok 6 - AST: It is not optional
+    ok 7 - AST: Invoking the sub with a positional argument works
+    ok 8 - AST: Invoking the sub without an argument dies
+    ok 9 - Str: Sub has one params elem
+    ok 10 - Str: The block has 1 arity
+    ok 11 - Str: The block has 1 count
+    ok 12 - Str: Correct variable name
+    ok 13 - Str: It is not optional
+    ok 14 - Str: Invoking the sub with a positional argument works
+    ok 15 - Str: Invoking the sub without an argument dies
+    ok 16 - Raku: Sub has one params elem
+    ok 17 - Raku: The block has 1 arity
+    ok 18 - Raku: The block has 1 count
+    ok 19 - Raku: Correct variable name
+    ok 20 - Raku: It is not optional
+    ok 21 - Raku: Invoking the sub with a positional argument works
+    ok 22 - Raku: Invoking the sub without an argument dies
+    1..22
+ok 1 - Placeholder positional parameter
+# Subtest: Placeholder named parameter
+    ok 1 - deparse
+    ok 2 - AST: Sub has one params elem
+    ok 3 - AST: The block has 0 arity
+    ok 4 - AST: The block has 0 count
+    ok 5 - AST: Correct variable name
+    ok 6 - AST: Correct named name
+    ok 7 - AST: It is not optional
+    ok 8 - AST: Invoking the sub with a named argument works
+    ok 9 - AST: Invoking the sub without an argument dies
+    ok 10 - Str: Sub has one params elem
+    ok 11 - Str: The block has 0 arity
+    ok 12 - Str: The block has 0 count
+    ok 13 - Str: Correct variable name
+    ok 14 - Str: Correct named name
+    ok 15 - Str: It is not optional
+    ok 16 - Str: Invoking the sub with a named argument works
+    ok 17 - Str: Invoking the sub without an argument dies
+    1..17
+ok 2 - Placeholder named parameter
+# Subtest: Placeholder slurpy array
+    ok 1 - deparse
+    ok 2 - AST: Sub has one params elem
+    ok 3 - AST: The block has 0 arity
+    ok 4 - AST: The block has Inf count
+    ok 5 - AST: Correct variable name
+    ok 6 - AST: It is not optional
+    ok 7 - AST: Invoking sub with a list works
+    ok 8 - AST: Invoking the sub without arguments works
+    ok 9 - Str: Sub has one params elem
+    ok 10 - Str: The block has 0 arity
+    ok 11 - Str: The block has Inf count
+    ok 12 - Str: Correct variable name
+    ok 13 - Str: It is not optional
+    ok 14 - Str: Invoking sub with a list works
+    ok 15 - Str: Invoking the sub without arguments works
+    1..15
+ok 3 - Placeholder slurpy array
+# Subtest: Placeholder slurpy hash
+    ok 1 - deparse
+    ok 2 - AST: Sub has one params elem
+    ok 3 - AST: The block has 0 arity
+    ok 4 - AST: The block has 0 count
+    ok 5 - AST: Correct variable name
+    ok 6 - AST: It is not optional
+    ok 7 - AST: Invoking sub with nameds works
+    ok 8 - AST: Invoking the sub without arguments works
+    ok 9 - Str: Sub has one params elem
+    ok 10 - Str: The block has 0 arity
+    ok 11 - Str: The block has 0 count
+    ok 12 - Str: Correct variable name
+    ok 13 - Str: It is not optional
+    ok 14 - Str: Invoking sub with nameds works
+    ok 15 - Str: Invoking the sub without arguments works
+    1..15
+ok 4 - Placeholder slurpy hash
+# Subtest: Placeholder fake slurpy array
+    ok 1 - deparse
+    ok 2 - AST: Sub has one params elem
+    ok 3 - AST: The block has 1 arity
+    ok 4 - AST: The block has 1 count
+    ok 5 - AST: Correct variable name
+    ok 6 - AST: It is not optional
+    ok 7 - AST: Invoking sub with a list works
+    ok 8 - AST: Invoking the sub with empty list works
+    ok 9 - Str: Sub has one params elem
+    ok 10 - Str: The block has 1 arity
+    ok 11 - Str: The block has 1 count
+    ok 12 - Str: Correct variable name
+    ok 13 - Str: It is not optional
+    ok 14 - Str: Invoking sub with a list works
+    ok 15 - Str: Invoking the sub with empty list works
+    1..15
+ok 5 - Placeholder fake slurpy array
+# Subtest: Placeholder fake slurpy hash
+    ok 1 - deparse
+    ok 2 - AST: Sub has one params elem
+    ok 3 - AST: The block has 1 arity
+    ok 4 - AST: The block has 1 count
+    ok 5 - AST: Correct variable name
+    ok 6 - AST: It is not optional
+    ok 7 - AST: Invoking sub with hash works
+    ok 8 - AST: Invoking the sub with empty hash
+    ok 9 - Str: Sub has one params elem
+    ok 10 - Str: The block has 1 arity
+    ok 11 - Str: The block has 1 count
+    ok 12 - Str: Correct variable name
+    ok 13 - Str: It is not optional
+    ok 14 - Str: Invoking sub with hash works
+    ok 15 - Str: Invoking the sub with empty hash
+    1..15
+ok 6 - Placeholder fake slurpy hash

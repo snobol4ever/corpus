@@ -1,0 +1,141 @@
+1..20
+# Subtest: Application of a positive power postfix operator
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - Application of a positive power postfix operator
+# Subtest: Application of a negative power postfix operator
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - Application of a negative power postfix operator
+# Subtest: Application of a (user-defined) postfix operator to a literal
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Application of a (user-defined) postfix operator to a literal
+# Subtest: Basic single-dimension array index
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Basic single-dimension array index
+# Subtest: Basic single-dimension array index with colonpair
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Basic single-dimension array index with colonpair
+# Subtest: Zen array slice
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - Zen array slice
+# Subtest: Zen array slice
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 7 - Zen array slice
+# Subtest: Multi-dimensional array indexing
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 8 - Multi-dimensional array indexing
+# Subtest: Basic single-dimension hash index
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 9 - Basic single-dimension hash index
+# Subtest: Basic single-dimension hash index with colonpairs
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 10 - Basic single-dimension hash index with colonpairs
+# Subtest: Zen hash slice
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 11 - Zen hash slice
+# Subtest: Zen hash slice with colonpairs
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 12 - Zen hash slice with colonpairs
+# Subtest: Basic literal hash index
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 13 - Basic literal hash index
+# Subtest: Basic literal hash index with colonpairs
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 14 - Basic literal hash index with colonpairs
+# Subtest: Literal hash index with multiple keys
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 15 - Literal hash index with multiple keys
+# Subtest: Literal hash index with multiple keys with colonpairs
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 16 - Literal hash index with multiple keys with colonpairs
+# Subtest: Empty literal hash index works as zen slice
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 17 - Empty literal hash index works as zen slice
+# Subtest: Empty literal hash index works as zen slice with colonpairs
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 18 - Empty literal hash index works as zen slice with colonpairs
+# Subtest: Multi-dimensional hash indexing
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 19 - Multi-dimensional hash indexing
+# Subtest: Multi-dimensional hash indexing with colonpairs
+    ok 1 - deparse
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 20 - Multi-dimensional hash indexing with colonpairs

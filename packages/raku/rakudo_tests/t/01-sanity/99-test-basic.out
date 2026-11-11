@@ -1,0 +1,108 @@
+ok 1 - pass($desc)
+ok 2 - ok with description
+ok 3 - ok returns True
+ok 4 - 
+ok 5 - ok returns True
+not ok 6 - calling ok False # TODO testing failure
+# Failed test 'calling ok False'
+# at t/01-sanity/99-test-basic.t line 16
+ok 7 - failure returns False
+ok 8 - nok with description
+ok 9 - nok 0 returns True
+ok 10 - 
+ok 11 - nok 0 returns True
+not ok 12 - nok 1 with description # TODO tesing nok True
+# Failed test 'nok 1 with description'
+# at t/01-sanity/99-test-basic.t line 27
+ok 13 - nok 1 returns False
+ok 14 - is with description
+ok 15 - is returns True
+ok 16 - 
+not ok 17 - is 1, 0; with description # TODO failing is
+# Failed test 'is 1, 0; with description'
+# at t/01-sanity/99-test-basic.t line 37
+# expected: '0'
+#      got: '1'
+ok 18 - is 1, 0;  returns False
+ok 19 - isnt with description
+ok 20 - isnt 1, 0; returns True
+ok 21 - 
+not ok 22 - isnt 1,1, with description # TODO testing isnt 1,1
+# Failed test 'isnt 1,1, with description'
+# at t/01-sanity/99-test-basic.t line 47
+# expected: anything except '1'
+#      got: '1'
+ok 23 - isnt 1, 1; returns False
+not ok 24 - this should fail, to test todo() # TODO testing todo twice
+# Failed test 'this should fail, to test todo()'
+# at t/01-sanity/99-test-basic.t line 51
+not ok 25 - this should also fail, to test todo() # TODO testing todo twice
+# Failed test 'this should also fail, to test todo()'
+# at t/01-sanity/99-test-basic.t line 52
+ok 26 - passing test (todo is done)
+not ok 27 - todo with no count covers one test # TODO todo with no count
+# Failed test 'todo with no count covers one test'
+# at t/01-sanity/99-test-basic.t line 56
+ok 28 - passing test (not todo)
+ok 29 - # SKIP skip with reason
+ok 30 - # SKIP
+ok 31 - # SKIP skip with count and reason
+ok 32 - # SKIP skip with count and reason
+not ok 33 - flunk # TODO testing flunk
+# Failed test 'flunk'
+# at t/01-sanity/99-test-basic.t line 68
+ok 34 - isa-ok with message
+ok 35 - isa-ok returns True
+ok 36 - The object is-a 'Int'
+not ok 37 - The object is-a 'Int' # TODO failing isa-ok returns False
+# Failed test 'The object is-a 'Int''
+# at t/01-sanity/99-test-basic.t line 78
+# Actual type: Str
+ok 38 - Failing isa-ok returns False
+ok 39 - skip() dies when given the arguments in the wrong order
+ok 40 - dies-ok returns True
+not ok 41 - dies-ok {1} # TODO failing dies-ok returns False
+# Failed test 'dies-ok {1}'
+# at t/01-sanity/99-test-basic.t line 88
+ok 42 - dies-ok returns False if code did not die
+ok 43 - dies-ok
+ok 44 - 
+ok 45 - lives_ok
+ok 46 - lives-ok returns True
+ok 47 - 
+not ok 48 - lives-ok { die } # TODO failing lives-ok returns False
+# Failed test 'lives-ok { die }'
+# at t/01-sanity/99-test-basic.t line 100
+# Died
+ok 49 - failing lives-ok returns False
+ok 50 - eval-dies-ok
+ok 51 - eavl-dies-ok returns True
+ok 52 - 
+not ok 53 - eval-dies-ok 1 fails # TODO eval-dies-ok 1 returns False
+# Failed test 'eval-dies-ok 1 fails'
+# at t/01-sanity/99-test-basic.t line 109
+ok 54 - eval-dies-ok 1 returns False
+ok 55 - eval-lives-ok
+ok 56 - eval-lives-ok 1 returns True
+ok 57 - 
+not ok 58 - lives-ok { die } # TODO failing eval-lives-ok returns False
+# Failed test 'lives-ok { die }'
+# at t/01-sanity/99-test-basic.t line 118
+# Error: Died
+ok 59 - failing eval-lives-ok returns False
+ok 60 - is-deeply
+ok 61 - is-deeply returns True
+ok 62 - 
+not ok 63 - is-deeply with exta key fails # TODO failing is-deeply returns False
+# Failed test 'is-deeply with exta key fails'
+# at t/01-sanity/99-test-basic.t line 140
+# expected: ${}
+#      got: ${:a(1)}
+ok 64 - failing is-deeply returns False
+ok 65 - Comparing eq Buf
+not ok 66 -  # TODO Comparing 2 not eq Buf, should not pass
+# Failed test at t/01-sanity/99-test-basic.t line 148
+# expected: Buf.new(43)
+#      got: Buf.new(42)
+ok 67 - Comparing neq Buf
+1..67

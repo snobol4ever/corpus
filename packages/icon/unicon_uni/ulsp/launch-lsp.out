@@ -1,0 +1,16 @@
+Usage: launch-lsp [options]
+
+launch-lsp is an implementation of the language server protocol.
+You are handling the socket parameters/options for your IDE incorrectly.
+Check your IDE for the correct LSP server invocation.
+
+Options:
+	 --socket <PORT> : set the lsp server port
+	 -s : run as a server (default)
+	 -c : run as a client
+	 --logfile <filename> : log file
+	 --loglevel <level> : log level from 0-17. log levels 8-17 are used for debugging
+	 --debug-kind  <kind>: debug kind to log
+	 --build-lsif <directory> : directory to parse for LSIF information or "all" for all directories
+	 -h : show this help
+

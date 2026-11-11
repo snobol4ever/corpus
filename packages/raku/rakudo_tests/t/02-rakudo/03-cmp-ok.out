@@ -1,0 +1,170 @@
+1..7
+# Subtest: string comparators
+    1..13
+    ok 1 - 
+    ok 2 - 
+    ok 3 - "foo" eq "foo"
+    ok 4 - "a" lt "b"
+    ok 5 - "b" gt "a"
+    ok 6 - 1 < 2
+    ok 7 - 2 >= 1
+    not ok 8 - 2 < 1 # TODO should fail due to requested comparison
+    # Failed test '2 < 1'
+    # at t/02-rakudo/03-cmp-ok.t line 14
+    # expected: 1
+    #  matcher: 'infix:«<»'
+    #      got: 2
+    ok 9 - should fail due to requested comparison
+    not ok 10 - "foo" eq "bar" # TODO should fail due to requested comparison
+    # Failed test '"foo" eq "bar"'
+    # at t/02-rakudo/03-cmp-ok.t line 14
+    # expected: "bar"
+    #  matcher: 'infix:<eq>'
+    #      got: "foo"
+    ok 11 - should fail due to requested comparison
+    not ok 12 -  # TODO should fail due to requested comparison
+    # Failed test at t/02-rakudo/03-cmp-ok.t line 14
+    # Could not use '"non-exisistant-op"' as a comparator. If you are trying to use a meta operator, pass it as a Callable instead of a string: &[non-exisistant-op]
+    ok 13 - should fail due to requested comparison
+ok 1 - string comparators
+# Subtest: &[] comparators
+    1..11
+    ok 1 - 
+    ok 2 - 
+    ok 3 - "foo" eq "foo"
+    ok 4 - "a" lt "b"
+    ok 5 - "b" gt "a"
+    ok 6 - 1 < 2
+    ok 7 - 2 >= 1
+    not ok 8 - 2 < 1 # TODO should fail due to requested comparison
+    # Failed test '2 < 1'
+    # at t/02-rakudo/03-cmp-ok.t line 30
+    # expected: 1
+    #  matcher: 'infix:«<»'
+    #      got: 2
+    ok 9 - should fail due to requested comparison
+    not ok 10 - "foo" eq "bar" # TODO should fail due to requested comparison
+    # Failed test '"foo" eq "bar"'
+    # at t/02-rakudo/03-cmp-ok.t line 30
+    # expected: "bar"
+    #  matcher: 'infix:<eq>'
+    #      got: "foo"
+    ok 11 - should fail due to requested comparison
+ok 2 - &[] comparators
+# Subtest: custom operators (in code)
+    1..6
+    ok 1 - comparing using a fancy operator (Callable version)
+    ok 2 - comparing using a fancy operator (Str version)
+    not ok 3 - failing comparison custom op (Callable) # TODO should fail due to requested comparison
+    # Failed test 'failing comparison custom op (Callable)'
+    # at t/02-rakudo/03-cmp-ok.t line 45
+    # expected: 1
+    #  matcher: 'infix:<◀>'
+    #      got: 2
+    ok 4 - should fail due to requested comparison
+    not ok 5 - failing comparison custom op (Str) # TODO should fail due to requested comparison
+    # Failed test 'failing comparison custom op (Str)'
+    # at t/02-rakudo/03-cmp-ok.t line 45
+    # expected: 1
+    #  matcher: 'infix:<◀>'
+    #      got: 2
+    ok 6 - should fail due to requested comparison
+ok 3 - custom operators (in code)
+# Subtest: custom operators (in nested scope)
+    1..6
+    ok 1 - passing, Callable
+    ok 2 - passing, Str
+    not ok 3 - failing, Callable # TODO should fail due to requested comparison
+    # Failed test 'failing, Callable'
+    # at t/02-rakudo/03-cmp-ok.t line 53
+    # expected: 1
+    #  matcher: 'infix:<◀>'
+    #      got: 2
+    ok 4 - should fail due to requested comparison
+    not ok 5 - failing, Str # TODO should fail due to requested comparison
+    # Failed test 'failing, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 53
+    # expected: 1
+    #  matcher: 'infix:<◀>'
+    #      got: 2
+    ok 6 - should fail due to requested comparison
+ok 4 - custom operators (in nested scope)
+# Subtest: custom operators (imported)
+    1..24
+    ok 1 - passing <=! op, Callable
+    ok 2 - passing <=! op, Str
+    ok 3 - passing <=» op, Str
+    ok 4 - passing « op, Callable
+    ok 5 - passing « op, Str
+    ok 6 - passing <« op, Str
+    ok 7 - passing >» op, Str
+    ok 8 - passing <«>» op, Str
+    not ok 9 - failing <=! op, Callable # TODO should fail due to requested comparison
+    # Failed test 'failing <=! op, Callable'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:«<=!»'
+    #      got: 2
+    ok 10 - should fail due to requested comparison
+    not ok 11 - failing <=! op, Str # TODO should fail due to requested comparison
+    # Failed test 'failing <=! op, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:«<=!»'
+    #      got: 2
+    ok 12 - should fail due to requested comparison
+    not ok 13 - failing <=» op, Str # TODO should fail due to requested comparison
+    # Failed test 'failing <=» op, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:<\<=»>'
+    #      got: 2
+    ok 14 - should fail due to requested comparison
+    not ok 15 - failing « op, Callable # TODO should fail due to requested comparison
+    # Failed test 'failing « op, Callable'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:<«>'
+    #      got: 2
+    ok 16 - should fail due to requested comparison
+    not ok 17 - failing « op, Str # TODO should fail due to requested comparison
+    # Failed test 'failing « op, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:<«>'
+    #      got: 2
+    ok 18 - should fail due to requested comparison
+    not ok 19 - failing <« op, Str # TODO should fail due to requested comparison
+    # Failed test 'failing <« op, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:<\<«>'
+    #      got: 2
+    ok 20 - should fail due to requested comparison
+    not ok 21 - failing >» op, Str # TODO should fail due to requested comparison
+    # Failed test 'failing >» op, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:<\>»>'
+    #      got: 2
+    ok 22 - should fail due to requested comparison
+    not ok 23 - failing <«>» op, Str # TODO should fail due to requested comparison
+    # Failed test 'failing <«>» op, Str'
+    # at t/02-rakudo/03-cmp-ok.t line 65
+    # expected: 1
+    #  matcher: 'infix:<\<«\>»>'
+    #      got: 2
+    ok 24 - should fail due to requested comparison
+ok 5 - custom operators (imported)
+# Subtest: no EVAL exploit (RT#128283)
+    1..2
+    not ok 1 -  # TODO should fail due to requested comparison
+    # Failed test at t/02-rakudo/03-cmp-ok.t line 97
+    # Could not use '"~~>;exit; <z"' as a comparator. If you are trying to use a meta operator, pass it as a Callable instead of a string: &[~~>;exit; <z]
+    ok 2 - should fail due to requested comparison
+ok 6 - no EVAL exploit (RT \#128283)
+# Subtest: objects lacking support for methods
+    1..2
+    ok 1 - can compare two objects without support for methods...
+    ok 2 - ...without throwing
+ok 7 - objects lacking support for methods

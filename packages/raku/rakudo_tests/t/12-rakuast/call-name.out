@@ -1,0 +1,65 @@
+1..8
+# Subtest: Can make a named call with no arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 1 - Can make a named call with no arguments
+# Subtest: Can make a named call with one positional argument
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 2 - Can make a named call with one positional argument
+# Subtest: Can make a named call with two positional arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 3 - Can make a named call with two positional arguments
+# Subtest: Can make a named call with two named arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 4 - Can make a named call with two named arguments
+# Subtest: Duplicated named arguments are correctly handled
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 5 - Duplicated named arguments are correctly handled
+# Subtest: Can make a call on a term with two positional arguments
+    ok 1 - deparsed
+    ok 2 - AST
+    ok 3 - Str
+    ok 4 - Raku
+    1..4
+ok 6 - Can make a call on a term with two positional arguments
+# Subtest: Can make a call that flattens into array
+    ok 1 - deparsed
+    ok 2 - AST: flattening empty list
+    ok 3 - Str: flattening empty list
+    ok 4 - Raku: flattening empty list
+    ok 5 - deparsed
+    ok 6 - AST: two positional arguments
+    ok 7 - Str: two positional arguments
+    ok 8 - Raku: two positional arguments
+    1..8
+ok 7 - Can make a call that flattens into array
+# Subtest: Can make a call that flattens into hash
+    ok 1 - deparsed
+    ok 2 - AST: flattening empty list
+    ok 3 - Str: flattening empty list
+    ok 4 - Raku: flattening empty list
+    ok 5 - deparsed
+    ok 6 - AST: flattening two named arguments
+    ok 7 - Str: flattening two named arguments
+    ok 8 - Raku: flattening two named arguments
+    1..8
+ok 8 - Can make a call that flattens into hash

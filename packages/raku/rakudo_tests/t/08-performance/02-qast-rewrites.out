@@ -1,0 +1,51 @@
+1..4
+# Subtest: postfix-inc/dec on natives gets overwritten to prefix
+    1..8
+    ok 1 - int, void context ++
+    ok 2 - int, non-void context ++
+    ok 3 - int, void context --
+    ok 4 - int, non-void context --
+    ok 5 - num, void context ++
+    ok 6 - num, non-void context ++
+    ok 7 - num, void context --
+    ok 8 - num, non-void context --
+ok 1 - postfix-inc/dec on natives gets overwritten to prefix
+# Subtest: .dispatch:<.=> gets rewritten to simple ops
+    1..15
+    ok 1 - (my Int $x .=new).="{"new"}"(42);
+    ok 2 - my Int $x; .=new andthen .=new orelse .=new;
+    ok 3 - my \foo .= new
+    ok 4 - my Int \foo .= new
+    ok 5 - my Int $a; .=new without $a
+    ok 6 - my Int $a; .=new with $a
+    ok 7 - my Int $a; $a .= new
+    ok 8 - my @a; @a .= new
+    ok 9 - my @a .= new
+    ok 10 - my %a; %a .= new
+    ok 11 - my %a .= new
+    ok 12 - my &a; &a .= new
+    ok 13 - my &a .= new
+    ok 14 - my $b = "meows"; $b .= WHAT
+    ok 15 - my @b = <z a b d e>; @b .= sort
+ok 2 - .dispatch:<.=> gets rewritten to simple ops
+# Subtest: for {}
+    1..13
+    ok 1 - for ^10 {} case gets optimized entirely
+    ok 2 - for 1..10 {} case gets optimized entirely
+    ok 3 - for 1..^10 {} case gets optimized entirely
+    ok 4 - for 1^..10 {} case gets optimized entirely
+    ok 5 - for 1^..^10 {} case gets optimized entirely
+    ok 6 - for 1...10 {} case gets optimized entirely
+    ok 7 - for 1, 2...10 {} case gets optimized entirely
+    ok 8 - for 10...2 {} case gets optimized entirely
+    ok 9 - for 1,3...9 {} case gets optimized entirely
+    ok 10 - for 9,7...1 {} case gets optimized entirely
+    ok 11 - for ^10 .reverse {} case gets optimized entirely
+    ok 12 - simple `for ^10 {}` case gets `p6forstmt` op to use
+    ok 13 - named arg does not accidentally get counted as a positional
+ok 3 - for {}
+# Subtest: nested metaops get fully rewritten away from &METAOP sub calls
+    1..2
+    ok 1 - (//=)+=
+    ok 2 - ((((//=)+=) //=) +=)
+ok 4 - nested metaops get fully rewritten away from &METAOP sub calls
