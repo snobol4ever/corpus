@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1390 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,39
+# shape: entries=1391 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=51 clusters=49 chunks=14 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,40
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -1204,7 +1204,7 @@ class_say_replace_17	chunk:05	feat:has	has say string_concat
 for_range_array_replace_1	chunk:07	feat:for_with_say	for for_with_say range_op sigil_array
 ladder__rung07_subs_a_core_routine_written_without_arguments_is_a_call	chunk:13	feat:try	if smartmatch string_concat try
 token_say_replace_1	chunk:14	feat:token	if regex say token
-class_method_sort_replace_1	chunk:13	feat:sort	method return sort
+class_method_sort_replace_1	chunk:14	feat:sort	method return sort
 ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots	chunk:13	feat:grep	grep map range_op say
 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it	chunk:07	feat:for_with_say	for for_with_say sigil_array sub
 ladder__rung024_kw_inf_inf_range	chunk:07	feat:for_with_say	for for_with_say if range_op say
@@ -1221,6 +1221,7 @@ sub_while_say_replace_1	chunk:12	feat:while	if say sub while
 ladder__rung12_exceptions_try_yields_a_code_value_call_and_a_sub_whose_last_statement_is_a_try_returns_it	chunk:13	feat:try	method sub try
 ladder__rung13_classes_nqp_create_and_bindattr	chunk:05	feat:has	has method string_concat
 ladder__rung04_arrays_hash_of_a_list_flattens_it_and_an_odd_number_of_elements_throws_x_hash_store_oddnumber	chunk:13	feat:try	say sigil_array sigil_hash try
+ladder__rung12_exceptions_a_method_a_string_lacks_throws_x_method_notfound	chunk:13	feat:try	has method try
 ladder__rung05_hashes_a_colon_pair_used_as_a_value_is_a_pair_in_a_hash_a_list_and_a_scalar	chunk:08	feat:sigil_hash	say sigil_array sigil_hash sub
 ladder__rung13_classes_a_forward_declared_class_stub_gives_way_to_the_full_class_and_typed_attributes_stay_attributes	chunk:05	feat:has	has method range_op
 sub_junction_say_replace_1	chunk:13	feat:junction	if junction say sub
