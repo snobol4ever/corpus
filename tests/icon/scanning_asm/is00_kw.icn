@@ -1,3 +1,0 @@
-procedure main();
-  "abcdef" ? { move(2); write(&pos); &pos := 4; write(&subject[&pos:0]); };
-end
