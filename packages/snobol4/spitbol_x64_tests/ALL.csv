@@ -31,6 +31,9 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 30,setexit,setexit.sbl,spitbol_x64_tests__setexit,spitbol_x64_tests,15,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 31,sv,sv.sbl,spitbol_x64_tests__sv,spitbol_x64_tests,4,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 32,trim,trim.sbl,spitbol_x64_tests__trim,spitbol_x64_tests,3,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+37,demos/keyword,demos/keyword.sbl,spitbol_x64_tests__demos/keyword,spitbol_x64_tests,53,0,131072,4096,,,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,1,0,0,0,1,0,0,0,1,1,1,0,0,0,1
+38,demos/sentenc,demos/sentenc.sbl,spitbol_x64_tests__demos/sentenc,spitbol_x64_tests,95,0,131072,4096,,,0,0,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,0,1,1,1,1,0,1,0,0
+39,demos/treesort,demos/treesort.sbl,spitbol_x64_tests__demos/treesort,spitbol_x64_tests,78,0,131072,4096,,,0,0,0,0,0,0,0,1,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,0,1,1,1,0,0,0,0
 33,arcget,arcget.sbl,spitbol_x64_tests__arcget,spitbol_x64_tests,24,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 34,cfreq,cfreq.sbl,spitbol_x64_tests__cfreq,spitbol_x64_tests,26,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 35,float,float.sbl,spitbol_x64_tests__float,spitbol_x64_tests,20,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
