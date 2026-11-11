@@ -1,0 +1,62 @@
+object foo_1(3) vs list_1(3) vs table_1(1)
+1
+pattern_2(2) = "this is a string" || "this is also a string"
+2
+pattern_5(3) = ("this is a string" .| "this is also a string")
+3
+pattern_8(3) = ("this is a string" .| Any('abc'))
+4
+pattern_12(5) = ("this is a string" .| (Any('1')) -> x)
+5
+pattern_15(2) = "this is a string" || `stringcall("one", "two")`
+6
+pattern_19(2) = "this is a string" || Any(`stringcall("one")`)
+7
+pattern_23(4) = (Any('abc')) -> x || "this string"
+8
+pattern_26(3) = (`stringcall("one", "two")` .| "this string")
+9
+pattern_28(1) = Any(`f.stringcall("one", "two")`)
+10
+pattern_29(1) =  .> x
+11
+pattern_30(1) = Abort()
+12
+pattern_31(1) = Any(&letters)
+13
+pattern_32(1) = Any('1')
+14
+pattern_33(1) = Any('hist')
+15
+pattern_36(3) = Arb() || Bal()
+16
+pattern_37(1) = Break('hist')
+17
+pattern_38(3) = Breakx('hist')
+18
+pattern_39(1) = Fail()
+19
+pattern_42(2) = Fence() || Bal()
+20
+pattern_47(5) = ((Bal() .| Fence()) .| "this string")
+21
+pattern_48(1) = Len(1)
+22
+23
+pattern_51(2) = Len(1) || Bal()
+24
+pattern_52(1) = NotAny(&digits)
+25
+pattern_54(3) = (Pos(22)) => x
+26
+pattern_55(1) = Rem()
+27
+pattern_58(2) = Span(' ghinrst') || Succeed()
+28
+pattern_61(2) = Tab(20) || "this string in here"
+29
+pattern_64(2) = Rpos(20) || "this string"
+30
+pattern_67(2) = Rtab(20) || "this string"
+31
+pattern_76(8) = Rpos(`stringcall("one", "two")`) || Rpos(`f.stringcall("one", "two")`) || Breakx('aht') || Breakx('hist')

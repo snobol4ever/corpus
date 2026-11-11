@@ -1,0 +1,9 @@
+feature _SSH: no
+bad-attribute open fails: yes
+bad-channel open fails: yes
+bad-verifyPeer open fails: yes
+channel=no+cmd open fails: no
+cmd-without-c open fails: no
+connect-refused open fails: no
+live round-trip: skipped (set UNICON_SSH_TESTHOST)
+ssh test done

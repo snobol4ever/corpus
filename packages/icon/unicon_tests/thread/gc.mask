@@ -1,3 +1,0 @@
-# gc.mask -- R-409 line mask declared beside the data (CTO-513, the one mask of UniTests). FORMAT: entry<TAB>L<n>-or-python-regex<TAB>reason.
-# gc.icn writes garbage collection = and then OK only when 190 < ampersand-collections < 210, the oracle collector window on 64-bit (the program comment); SCRIP collects on its own schedule (396 at SCRIP d71c76c55), so the line reads the collector, not the language.
-gc	^garbage collection =(OK|[0-9]+)$	ampersand-collections is implementation-defined (Icon book, appendix): gc.icn prints OK only inside the oracle collector window 190..210

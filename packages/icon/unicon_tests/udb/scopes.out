@@ -1,0 +1,20 @@
+1
+Test::f1(): a: 2
+Test::f1(): b: 4
+Test::f1(): c: 8
+main(): a: 2
+main(): b: 4
+main(): c: 8
+1
+scopepkg::Test::f1(): a: 20
+scopepkg::Test::f1(): b: 40
+scopepkg::Test::f1(): c: 80
+main(): a: 20
+main(): b: 40
+main(): c: 80
+f1(): a: 17
+f1(): b: 8
+f1(): c: 25
+scopepkg::f1(): a: 17
+scopepkg::f1(): b: 8
+scopepkg::f1(): c: 25
