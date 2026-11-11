@@ -1,0 +1,3 @@
+basename: libc.so
+dirname: /usr/lib64
+extension: so

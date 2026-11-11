@@ -1,0 +1,8 @@
+a b c d E is not a palindrome
+a b c b a is a palindrome
+a b b E is not a palindrome
+E b b a is not a palindrome
+a b b a is a palindrome
+a is a palindrome
+a a is a palindrome
+E a is not a palindrome

@@ -1,0 +1,11 @@
+../f
+../f/
+../f/09-01-get-set-filetime.raku
+../f/09-02-delete-file.raku
+../f/09-03-copy-move-file.raku
+../f/09-05-all-files-dir.raku
+../f/09-06-filenames-matching-pattern.raku
+../f/09-07-all-files-process.raku
+../f/09-10-filename-splitting.raku
+../f/09-11-all-files-lazy.raku
+../stdin

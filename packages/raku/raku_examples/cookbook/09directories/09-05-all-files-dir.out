@@ -1,0 +1,8 @@
+09-01-get-set-filetime.raku
+09-02-delete-file.raku
+09-03-copy-move-file.raku
+09-05-all-files-dir.raku
+09-06-filenames-matching-pattern.raku
+09-07-all-files-process.raku
+09-10-filename-splitting.raku
+09-11-all-files-lazy.raku

@@ -1,0 +1,60 @@
+99-problems/P23-topo.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 6 and 6 bytes
+99-problems/P24-topo.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 16 and 17 bytes
+99-problems/P25-topo.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 12 and 12 bytes
+best-of-rosettacode/24-game.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 39 and 39 bytes
+best-of-rosettacode/balanced-brackets.raku: NEEDS-INPUT: its answer changes with what standard input holds
+best-of-rosettacode/hailstone-sequence.raku: DOES-NOT-END: no answer inside 60 s
+cookbook/01strings/01-22soundex-matching.raku: ORACLE-REFUSES: Error while compiling 01-22soundex-matching.raku
+cookbook/03dates-and-times/03-09-hires-times.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 10 and 9 bytes
+cookbook/07file-access/07-01opening_file.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Use of uninitialized value element of type Any in string context.
+cookbook/08file-contents/08-03-process-words.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: "#!/usr/bin/env"
+cookbook/08file-contents/08-04-read-file-lines-backwards.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: "# vim: expandtab shiftwidth=4 ft=perl6"
+cookbook/09directories/09-01-get-set-filetime.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 42 and 42 bytes
+cookbook/09directories/09-02-delete-file.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+cookbook/09directories/09-03-copy-move-file.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+cookbook/09directories/09-06-filenames-matching-pattern.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+cookbook/09directories/09-07-all-files-process.raku: ORACLE-REFUSES: Error while compiling 09-07-all-files-process.raku
+cookbook/14database-access/14-09-dbi-sql.raku: NEEDS-NETWORK: the source names DBIish
+cookbook/15interactivity/15-01-parse-program-args.raku: NEEDS-INPUT: it asks for arguments (rakudo prints its usage, exit 2)
+cookbook/15interactivity/15-02-test-interactive-program.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+cookbook/15interactivity/15-04-changing-text-colour.raku: NEEDS-DISPLAY: the source names Terminal::
+cookbook/16processes/16-14-send-signal.raku: NEEDS-DISPLAY: the source names NativeCall
+cookbook/17sockets/17-01tcp_client.raku: NEEDS-NETWORK: the source names IO::Socket
+cookbook/17sockets/17-02tcp_server.raku: NEEDS-NETWORK: the source names IO::Socket
+cookbook/19cgi-programming/19-01cgi-script.raku: NEEDS-NETWORK: the source names HTTP::
+cookbook/20web-automation/20-01-fetching-uri.raku: NEEDS-NETWORK: the source names LWP::
+euler/prob012-polettix.raku: DOES-NOT-END: no answer inside 60 s
+euler/prob014-felher.raku: DOES-NOT-END: no answer inside 60 s
+euler/prob039-quinny.raku: DOES-NOT-END: no answer inside 60 s
+euler/prob047-gerdr.raku: NEEDS-DISPLAY: the source names NativeCall
+euler/prob060-andreoss.raku: DOES-NOT-END: no answer inside 60 s
+euler/prob092-moritz.raku: DOES-NOT-END: no answer inside 60 s
+games/blackjack.raku: DOES-NOT-END: no answer inside 60 s
+games/connect4.raku: DOES-NOT-END: no answer inside 60 s
+games/hangman.raku: DIFFERS-BETWEEN-RUNS: exit 1 and 1, 146 and 140 bytes
+games/yahtzee.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 87 and 87 bytes
+interpreters/calc.raku: NEEDS-INPUT: its answer changes with what standard input holds
+interpreters/lisp.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+other/malware_analysis.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file /script/mysample: No such file or directory
+rosalind/ctbl-grondilu.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'postmatch' for invocant of type 'List'
+rosalind/dbpr-grondilu.raku: NEEDS-NETWORK: the source names LWP::
+rosalind/eubt-grondilu.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: unexpected number of species
+rosalind/grph-grondilu.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 84 and 84 bytes
+rosalind/lcsq-grondilu.raku: NEEDS-DISPLAY: the source names NativeCall
+rosalind/lrep-grondilu-p5.raku: ORACLE-REFUSES: Error while compiling lrep-grondilu-p5.raku
+rosalind/qrt-grondilu.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Use of uninitialized value of type Any in numeric context
+rosalind/suff-grondilu.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 42 and 42 bytes
+shootout/fasta.p5.raku: ORACLE-REFUSES: Error while compiling fasta.p5.raku
+shootout/k-nucleotide.p5.raku: ORACLE-REFUSES: Error while compiling k-nucleotide.p5.raku
+shootout/n-body.p5.raku: ORACLE-REFUSES: Error while compiling n-body.p5.raku
+shootout/regex-dna.p5.raku: ORACLE-REFUSES: Error while compiling regex-dna.p5.raku
+shootout/revcomp.p5.raku: ORACLE-REFUSES: Error while compiling revcomp.p5.raku
+tutorial/01-read-from-terminal.raku: NEEDS-INPUT: its answer changes with what standard input holds
+tutorial/01-write-to-file.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+wsg/advanced-2008/event005-eric256.raku: NEEDS-INPUT: its answer changes with what standard input holds
+wsg/advanced-2008/event010-dwhipp.raku: DOES-NOT-END: no answer inside 60 s
+wsg/beginner-2008/event003-unobe.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+wsg/beginner-2008/event006-eric256.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 38 and 38 bytes
+wsg/beginner-2008/event006-j1n3l0.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 38 and 38 bytes
+wsg/beginner-2008/event008-eric256.raku: DOES-NOT-END: no answer inside 60 s
+wsg/beginner-2008/event008-j1n3l0.raku: DOES-NOT-END: no answer inside 60 s
