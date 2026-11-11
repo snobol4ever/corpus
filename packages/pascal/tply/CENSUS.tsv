@@ -1,0 +1,22 @@
+# the census of /home/resources/pascal-demos/tply by fpc (b29b897 (2024-10-20)), 2026-11-11: path from the root, verdict, note
+fpmake.pp	LIBRARY	the source names uses fpmkunit
+lexbase.pas	LIBRARY	the source names unit LexBase;
+lexdfa.pas	LIBRARY	the source names unit LexDFA;
+lexlib.pas	LIBRARY	the source names unit LexLib;
+lexlist.pas	LIBRARY	the source names unit LexList;
+lexmsgs.pas	LIBRARY	the source names unit LexMsgs;
+lexopt.pas	LIBRARY	the source names unit LexOpt;
+lexpos.pas	LIBRARY	the source names unit LexPos;
+lexrules.pas	LIBRARY	the source names unit LexRules;
+lextable.pas	LIBRARY	the source names unit LexTable;
+plex.pas	ENTRY	
+pyacc.pas	ENTRY	
+yaccbase.pas	LIBRARY	the source names unit YaccBase;
+yaccclos.pas	LIBRARY	the source names unit YaccClos;
+yacclib.pas	LIBRARY	the source names unit YaccLib;
+yacclook.pas	LIBRARY	the source names unit YaccLook;
+yacclr0.pas	LIBRARY	the source names unit YaccLR0;
+yaccmsgs.pas	LIBRARY	the source names unit YaccMsgs;
+yaccpars.pas	LIBRARY	the source names unit YaccPars;
+yaccsem.pas	LIBRARY	the source names unit YaccSem;
+yacctabl.pas	LIBRARY	the source names unit YaccTabl;

@@ -1,3 +1,4 @@
+fpmake.pp: LIBRARY: the source names uses fpmkunit
 lexbase.pas: LIBRARY: the source names unit LexBase;
 lexdfa.pas: LIBRARY: the source names unit LexDFA;
 lexlib.pas: LIBRARY: the source names unit LexLib;
