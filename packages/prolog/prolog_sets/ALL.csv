@@ -16,4 +16,4 @@ rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout
 15,PrologPuzzles/words,PrologPuzzles/words.pro,prolog,prolog_sets__PrologPuzzles/words,prolog_sets,51,0,131072,4096,60,,swi,
 16,PrologPuzzles/zebra,PrologPuzzles/zebra.pro,prolog,prolog_sets__PrologPuzzles/zebra,prolog_sets,52,0,131072,4096,60,,swi,
 17,bratko_4th_edition/fig25_12,bratko_4th_edition/fig25_12.pl,,prolog_sets__bratko_4th_edition/fig25_12,prolog_sets,39,0,131072,4096,60,,swi,
-18,eliza/elisa,eliza/elisa.pl,,prolog_sets__eliza/elisa,prolog_sets,211,0,131072,4096,60,,swi,
+18,eliza/elisa,eliza/elisa.pl,,prolog_sets__eliza/elisa,prolog_sets,211,0,131072,4096,60,,swi,error-context
