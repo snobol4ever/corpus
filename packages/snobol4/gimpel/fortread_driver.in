@@ -1,0 +1,10 @@
+C     THIS IS A COMMENT
+      PROGRAM MAIN
+C     ANOTHER COMMENT
+      X = AAAA + BBBB
+     1     + CCCC
+     2     + DDDD
+      CALL SUB(X)
+C     TRAILING COMMENT
+      STOP
+      END

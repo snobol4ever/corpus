@@ -7,6 +7,6 @@ a statement that does not compile: TIMER fails
 
 THE STATEMENT
  A = B + C 
-REQUIRED 18.8 MILLISECONDS +/- 10% TO EXECUTE IN SPITBOL
+REQUIRED 29.575 MILLISECONDS +/- 10% TO EXECUTE IN SPITBOL
 A is 3
 returned

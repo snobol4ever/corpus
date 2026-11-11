@@ -65,3 +65,7 @@ never an exclusion (CEO-1286's two-fold test).
 `sbl -bf` exits **0** while printing a fatal-error report for many drivers here, and exits 0 with zero output for others.
 Anything grading on exit status alone adopts a SPITBOL error dump — or silence — as ground truth. The scorecard tests the oracle's
 *output* for the fatal-report signature, and the drivers it refuses are named with its own error in `OUTSIDE_SPITBOL_BASELINE.tsv`.
+
+## Files of the distribution kept beside the programs
+
+`poker.in` is the distribution's own sample input for `poker.spt`; the graded entry `poker_driver` reads `poker_driver.in`, which is a different text. It is kept as the distribution shipped it (the cio 2026-11-10, the files form).
