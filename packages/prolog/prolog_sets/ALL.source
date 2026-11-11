@@ -1,0 +1,4 @@
+root	/home/resources/prolog-demos
+origin	six small sets gathered on this box: bratko_4th_edition, PrologPuzzles, provers, clpfd, advent-of-code-prolog, eliza; each set and its own origin is a line of /home/resources/collections/INDEX.tsv
+version	as found on this box 2026-11-11; each set by its own line of /home/resources/collections/INDEX.tsv
+licence	mixed: bratko_4th_edition, PrologPuzzles, provers and clpfd state none; eliza MIT; advent-of-code-prolog GPL-3.0

@@ -1,0 +1,7 @@
+Found sol=[17,r,a(r),b(r),c(r),d(r)]
+[15,l,a(l),b(l),c(r),d(r)]
+[14,r,a(r),b(l),c(r),d(r)]
+[4,l,a(r),b(l),c(l),d(l)]
+[2,r,a(r),b(r),c(l),d(l)]
+[0,l,a(l),b(l),c(l),d(l)]
+start succeeded
