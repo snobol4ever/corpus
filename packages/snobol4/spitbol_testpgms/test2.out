@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Mon Nov  9 11:40:12 2026
+
+
+
+SPITBOL TEST PROGRAM #2 -- DIAGNOSTICS PHASE TWO                                                                page 1
+
+
+259     .                                                          ERROR()
+
+test2.sno(238) : ERROR 214 -- bad label or misplaced continuation line

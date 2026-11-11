@@ -1,0 +1,53 @@
+UNSORTED DATA
+
+*
+*      A VARIETY OF CORRECT AND INCORRECT SPITBOL STATEMENTS FOLLOW
+*
+-LIST
+COMPUTE
+*      X   =  Y + 3 ** -'2'
+*      X   =   Y+Z
+*        ELEMENT<I,J>= ELEMENT<I,-J> + ELEMENT<-I,J>
+       ELEMENT<I><J><K>   =   ELEMENT<K><J><I>
+       A<X,Y,Z + 1>   =   F(X,STRUCTURE_BUILD(TYPE,LENGTH + 1))
+SETUP    PAT1   =   (BREAK(',:') $ FIRST | SPAN(' .') $ SECOND
+.                   . VALUE ARBNO(BAL | LEN(1))  :($SWITCH)
+       DEFINE('F(X,Y))
+       L   =   LT(N,B<J> L + 1
+NEWONE_TRIAL   X   =   !COORD<1,K> X * X
+       TRIM(INPUT)   PAT1    :S(OK)  :F(BAD)
+   X   =   3.01; Y = 2.    ; Z   =   X * -Y
+./*
+-TITLE SPITBOL TEST PROGRAM #5 -- DEMONSTRATION VERSION OF TREESORT4
+-STITL DRIVER
+ DEFINE('TREESORT4(DATA,NUMBER_TO_SORT)')
+ DEFINE('PRINTER()')
+ DATA = ARRAY(24)
+         INPUT(.INPUT,,72)
+
+SORTED DATA
+
+         INPUT(.INPUT,,72)
+       A<X,Y,Z + 1>   =   F(X,STRUCTURE_BUILD(TYPE,LENGTH + 1))
+       DEFINE('F(X,Y))
+       ELEMENT<I><J><K>   =   ELEMENT<K><J><I>
+       L   =   LT(N,B<J> L + 1
+       TRIM(INPUT)   PAT1    :S(OK)  :F(BAD)
+   X   =   3.01; Y = 2.    ; Z   =   X * -Y
+ DATA = ARRAY(24)
+ DEFINE('PRINTER()')
+ DEFINE('TREESORT4(DATA,NUMBER_TO_SORT)')
+*
+*
+*        ELEMENT<I,J>= ELEMENT<I,-J> + ELEMENT<-I,J>
+*      A VARIETY OF CORRECT AND INCORRECT SPITBOL STATEMENTS FOLLOW
+*      X   =   Y+Z
+*      X   =  Y + 3 ** -'2'
+-LIST
+-STITL DRIVER
+-TITLE SPITBOL TEST PROGRAM #5 -- DEMONSTRATION VERSION OF TREESORT4
+.                   . VALUE ARBNO(BAL | LEN(1))  :($SWITCH)
+./*
+COMPUTE
+NEWONE_TRIAL   X   =   !COORD<1,K> X * X
+SETUP    PAT1   =   (BREAK(',:') $ FIRST | SPAN(' .') $ SECOND

@@ -1,0 +1,137 @@
+************************************************
+**** S P I T B O L    D I A G N O S T I C S ****
+****          P H A S E    O N E            ****
+************************************************
+****  ANY TRACE OUTPUT INDICATES AN ERROR   ****
+************************************************
+****  ERROR AT   72      &ERRTYPE =      29 ****
+****  ERROR AT   73      &ERRTYPE =      29 ****
+****  ERROR AT   90      &ERRTYPE =      29 ****
+****  ERROR AT   91      &ERRTYPE =      29 ****
+****  ERROR AT   92      &ERRTYPE =      29 ****
+****  ERROR AT  137      &ERRTYPE =      22 ****
+****  ERROR AT  140      &ERRTYPE =      41 ****
+****  ERROR AT  145      &ERRTYPE =      29 ****
+****  ERROR AT  147      &ERRTYPE =      29 ****
+****  ERROR AT  148      &ERRTYPE =      29 ****
+****  ERROR AT  151      &ERRTYPE =      29 ****
+****  ERROR AT  153      &ERRTYPE =      29 ****
+****  ERROR AT  154      &ERRTYPE =      29 ****
+****  ERROR AT  157      &ERRTYPE =      29 ****
+****  ERROR AT  159      &ERRTYPE =      29 ****
+****  ERROR AT  160      &ERRTYPE =      29 ****
+****  ERROR AT  169      &ERRTYPE =      29 ****
+****  ERROR AT  171      &ERRTYPE =      29 ****
+****  ERROR AT  172      &ERRTYPE =      29 ****
+****  ERROR AT  178      &ERRTYPE =      29 ****
+****  ERROR AT  180      &ERRTYPE =      29 ****
+****248*****  TEST = '  ERROR DETECTED          ***'
+****249*****  TEST = '  ERROR DETECTED          ***'
+****252*****  TEST = '  ERROR DETECTED          ***'
+****253*****  TEST = '  ERROR DETECTED          ***'
+****  ERROR AT  257      &ERRTYPE =      29 ****
+****  ERROR AT  258      &ERRTYPE =      29 ****
+****  ERROR AT  259      &ERRTYPE =      29 ****
+****  ERROR AT  260      &ERRTYPE =      29 ****
+************************************************
+****    NUMBER OF ERRORS DETECTED     29    ****
+**** E N D    O F     D I A G N O S T I C S ****
+************************************************
+
+
+
+dump of natural variables
+
+A = ARRAY(3) #9
+AA = 'A'
+AAA = ARRAY(10) #13
+AMA = ARRAY(2,2,2,2) #14
+ATA = TABLE(2) #12
+B = NODE #7
+BAL = PATTERN
+BB = 'B'
+C = CLUNK #8
+CC = 'C'
+D = ARRAY(-1:1,2) #5
+DIAGNOSTICS = 29
+E = 'E'
+EXPR = EXPRESSION
+F = 'F'
+FEXP = EXPRESSION
+OUTPUT = '************************************************'
+Q = 'QQQ'
+QQ = 'X'
+SEXP = *Q
+STARS = '  ERROR DETECTED          ***'
+T = TABLE(10) #10
+TA = ARRAY(2,2) #11
+TEST = '  ERROR DETECTED          ***'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 2
+&ERRLIMIT = 975
+&ERRTEXT = 'undefined operator referenced'
+&ERRTYPE = 29
+&FILE = 'test1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'test1.sno'
+&LASTLINE = 385
+&LASTNO = 267
+&LINE = 399
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'FRETURN'
+&STCOUNT = 370
+&STLIMIT = 2147483647
+&STNO = 275
+&TRACE = 999971
+&TRIM = 1
+
+ARRAY(-1:1,2) #5
+D<-1,1> = 0
+
+NODE #6
+VAL(NODE #6) = 'X'
+LSON(NODE #6) = 'Y'
+RSON(NODE #6) = 'Z'
+
+NODE #7
+LSON(B) = NODE #6
+
+CLUNK #8
+VALUE(C) = 'A'
+LSON(C) = 'B'
+
+ARRAY(3) #9
+A<2> = 'X'
+
+TABLE(10) #10
+T<7> = 45
+T<'CAT'> = 'DOG'
+
+ARRAY(2,2) #11
+TA<1,1> = 'CAT'
+TA<1,2> = 'DOG'
+TA<2,1> = 7
+TA<2,2> = 45
+
+TABLE(2) #12
+ATA<'CAT'> = 'DOG'
+ATA<7> = 45
+
+ARRAY(10) #13
+AAA<1> = 5
+AAA<2> = 22
+
+ARRAY(2,2,2,2) #14
+AMA<1,2,1,2> = 1212
+AMA<2,1,2,1> = 2121
