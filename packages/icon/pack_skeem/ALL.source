@@ -1,0 +1,4 @@
+root	/home/resources/icon-master/ipl/packs/skeem
+origin	the Icon program library, packs/skeem (Arizona Icon 9.5.25a, https://github.com/gtownsend/icon)
+version	9.5.25a
+licence	public domain (the README of the Icon distribution); test.scm is copyright Aubrey Jaffer and is read in place

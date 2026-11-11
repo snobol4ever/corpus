@@ -1,0 +1,16 @@
+The files of this folder that come from the Icon program library (packs/skeem of the Icon distribution, version 9.5.25a) are in the public domain.
+The README of the Icon distribution says:
+
+    This material is in the public domain.  You may use and copy this material
+    freely.  This privilege extends to modifications, although any modified
+    version of this system given to a third party should clearly identify your
+    modifications as well as the original source.
+
+    The responsibility for the use of this material resides entirely with you.
+    We make no warranty of any kind concerning this material, nor do we make
+    any claim as to the suitability of Icon for any application.
+
+THE ORIGINAL SOURCE: the Icon program library, packs/skeem (Skeem, an implementation of the Scheme language in Icon, by Bob Alexander).
+OUR MODIFICATIONS, in the fifteen .icn files and nowhere else: tab characters are written as spaces (columns of eight), and a semicolon is written at the
+end of every statement, as SCRIP's Icon and the fleet's Icon translator require. No other byte is changed. The README beside this file says how and how it
+was proved.

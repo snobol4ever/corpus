@@ -1,0 +1,3 @@
+# the launch of the pack (CIO-83): the row is the pack's own test file, read in place, handed as the argument to the pack's program
+scrip	driver	skeem.icn
+oracle	driver	skeem.icn
