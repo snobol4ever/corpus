@@ -1,0 +1,18 @@
+Find limits to 10 digits
+lower: 1.797693134E+308 = 0.1797693134e+309
+upper: 1.797693135E+308 = ***
+Find limits to 11 digits
+lower: 1.7976931348E+308 = 0.17976931348e+309
+upper: 1.7976931349E+308 = ***
+Find limits to 12 digits
+lower: 1.79769313486E+308 = 0.179769313486e+309
+upper: 1.79769313487E+308 = ***
+Find limits to 13 digits
+lower: 1.797693134862E+308 = 0.1797693134862e+309
+upper: 1.797693134863E+308 = ***
+Find limits to 14 digits
+lower: 1.7976931348623E+308 = 0.17976931348623e+309
+upper: 1.7976931348624E+308 = ***
+Find limits to 15 digits
+lower: 1.79769313486231E+308 = 0.179769313486231e+309
+upper: 1.79769313486232E+308 = ***

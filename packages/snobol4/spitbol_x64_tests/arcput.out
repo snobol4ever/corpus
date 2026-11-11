@@ -1,0 +1,7 @@
+!@#$hello.sbl
+   OUTPUT = 'Hello World'
+END
+!@#$trim.sbl
+loop
+  OUTPUT = TRIM(INPUT)  :s(loop)
+END

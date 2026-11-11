@@ -1,0 +1,21 @@
+Find limits to 10 digits
+lower: -2.999999999E-324 = 0.
+upper: -3.000000000E-324 = 0.
+Find limits to 11 digits
+lower: -2.9999999999E-324 = 0.
+upper: -3.0000000000E-324 = 0.
+Find limits to 12 digits
+lower: -2.99999999999E-324 = 0.
+upper: -3.00000000000E-324 = 0.
+Find limits to 13 digits
+lower: -2.999999999999E-324 = 0.
+upper: -3.000000000000E-324 = 0.
+Find limits to 14 digits
+lower: -2.9999999999999E-324 = 0.
+upper: -3.0000000000000E-324 = 0.
+Find limits to 15 digits
+lower: -2.99999999999999E-324 = 0.
+upper: -3.00000000000000E-324 = 0.
+Find limits to 16 digits
+lower: -2.999999999999999E-324 = 0.
+upper: -3.000000000000000E-324 = 0.

@@ -1,0 +1,51 @@
+starting garbage collection
+84665
+84663
+test succeeded
+
+
+
+dump of natural variables
+
+BASEMEM = 133607047819280
+DATABTS = 134217728
+MEMINCB = 1048576
+N = 0
+OUTPUT = 'test succeeded'
+STACKCUR = 24
+STACKMAX = 1600072
+STACKSIZ = 4193904
+TOPMEM = 133607055159312
+WORDSIZE = 8
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'gcbuster.sbl'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'gcbuster.sbl'
+&LASTLINE = 20
+&LASTNO = 22
+&LINE = 21
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 500023
+&STLIMIT = 2147483647
+&STNO = 23
+&TRACE = 0
+&TRIM = 1
+
+
+
