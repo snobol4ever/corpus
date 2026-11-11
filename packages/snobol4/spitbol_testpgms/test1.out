@@ -77,12 +77,12 @@ dump of keyword values
 &ERRLIMIT = 975
 &ERRTEXT = 'undefined operator referenced'
 &ERRTYPE = 29
-&FILE = 'test1.sno'
+&FILE = 'test1.spt'
 &FNCLEVEL = 0
 &FTRACE = 0
 &FULLSCAN = 1
 &INPUT = 1
-&LASTFILE = 'test1.sno'
+&LASTFILE = 'test1.spt'
 &LASTLINE = 385
 &LASTNO = 267
 &LINE = 399
@@ -135,3 +135,6 @@ AAA<2> = 22
 ARRAY(2,2,2,2) #14
 AMA<1,2,1,2> = 1212
 AMA<2,1,2,1> = 2121
+
+
+

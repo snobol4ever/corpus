@@ -81,12 +81,12 @@ dump of keyword values
 &ERRLIMIT = 0
 &ERRTEXT = ''
 &ERRTYPE = 0
-&FILE = 'test6.sno'
+&FILE = 'test6.spt'
 &FNCLEVEL = 0
 &FTRACE = 0
 &FULLSCAN = 1
 &INPUT = 1
-&LASTFILE = 'test6.sno'
+&LASTFILE = 'test6.spt'
 &LASTLINE = 98
 &LASTNO = 47
 &LINE = 99
@@ -221,3 +221,6 @@ SUC(NODE #30) = 14
 
 NODE #31
 SUC(NODE #31) = 14
+
+
+
