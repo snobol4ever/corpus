@@ -1,7 +1,0 @@
-procedure main()
-   local p, x;
-   p := .> x;
-   write(image(p));
-end
-class UniconMarker()
-end

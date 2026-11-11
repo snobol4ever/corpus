@@ -1,3 +1,0 @@
-pattern_5(4) = Any('a') || "b" || Arbno("c")
-pattern_9(7) = (Any('a') || "b" || Arbno("c") .| Len(2)) || Rpos(0) pattern
-pattern_11(3) = (Span(&digits)) -> n

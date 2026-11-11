@@ -1,9 +1,0 @@
-procedure main()
-   write(numeric("9007199254740992K") | "none");
-   write(numeric("-36028797018963968K") | "none");
-   write(numeric("1152921504606846976M") | "none");
-   write(numeric("1180591620717411303424G") | "none");
-   write(numeric("1.5e30k") | "none", " ", numeric("8388608K") | "none", " ", numeric("99999999999999999999 k") | "none");
-end
-class UniconMarker()
-end

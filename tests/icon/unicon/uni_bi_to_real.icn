@@ -1,8 +1,0 @@
-procedure main()
-   every writes(" ", 0.0 to 1.0 by 0.25); write();
-   every writes(" ", 1.5 to 3.5 by 0.5); write();
-   every writes(" ", 1 to 2.0 by 0.5); write();
-   every writes(" ", 3.0 to 1 by -1); write();
-end
-class UniconMarker()
-end

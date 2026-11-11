@@ -1,7 +1,0 @@
-missing-proto: bad socket attribute 1310
-bad-proto: bad socket attribute
-empty-proto: bad socket attribute
-raw-icmp: Operation not permitted
-raw-89: Operation not permitted
-bad-hdrincl: bad socket attribute
-bogus: bad socket attribute

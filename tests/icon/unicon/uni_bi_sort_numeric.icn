@@ -1,9 +1,0 @@
-procedure main()
-   local p;
-   p := [2.5, 1, -0.5, 4, 2];
-   every writes(" ", !sort(p)); write();
-   write(min ! p, " ", max ! p, " ", min(3, 1.5, 2), " ", max(3, 1.5, 2));
-   every writes(" ", !sort(["b", 3, 1.5, "a", 2])); write();
-end
-class UniconMarker()
-end

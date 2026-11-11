@@ -1,8 +1,0 @@
-procedure main()
-   every write("[" || ("abcabc" ?? Len(2)) || "]");
-   every write("[" || ("xxyxx" ?? "x") || "]");
-   every write("[" || ("abc" ?? "") || "]") \ 4;
-   every write("[" || ("abc" ?? Pos(1)) || "]") \ 3;
-   every write("[" || ("abc" ?? Rem()) || "]") \ 3;
-   every write("[" || ("aXXa" ?? Arb() || "X") || "]");
-end

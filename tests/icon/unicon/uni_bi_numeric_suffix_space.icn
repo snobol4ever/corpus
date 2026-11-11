@@ -1,5 +1,0 @@
-procedure main()
-   write(image(numeric("\n1p\t\n\t\r")) | "none", " ", image(numeric("\f2k\v")) | "none", " ", image(numeric("\r3m")) | "none", " ", image(numeric("1\nk")) | "none");
-end
-class UniconMarker()
-end

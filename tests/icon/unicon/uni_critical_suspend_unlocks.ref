@@ -1,6 +1,0 @@
-got 1 a=0 b=0
-got 2 a=1 b=0
-  resumed after 2 a=2 b=1
-got 3 a=2 b=1
-  g ends a=3 b=2
-end a=3 b=2

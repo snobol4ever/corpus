@@ -1,8 +1,0 @@
-procedure main()
-   local p;
-   p := "ab" && "cd";
-   write(type(p));
-   write(image(p));
-end
-class UniconMarker()
-end

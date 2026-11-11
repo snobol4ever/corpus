@@ -1,8 +1,0 @@
-pattern_0(1) = Any('1')
-pattern_1(1) = Any('hist')
-pattern_2(1) = Span(' ghinrst')
-pattern_3(1) = Break('hist')
-pattern_4(3) = Breakx('hist')
-pattern_5(1) = NotAny('ab')
-pattern_6(1) = Any(&letters)
-pattern_7(1) = NotAny(&digits)

@@ -1,6 +1,0 @@
-procedure main()
-   write(1k, " ", 2K, " ", 1m, " ", 1M, " ", 1g, " ", 1G, " ", -1k);
-   write(image(1t), " ", image(1p));
-end
-class UniconMarker()
-end

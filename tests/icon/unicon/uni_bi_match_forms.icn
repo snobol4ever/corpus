@@ -1,8 +1,0 @@
-procedure main()
-   write(image(match("abc", "xabcabc", 2)) | "none");
-   write(image((7 ? =(1 to 10))) | "none");
-   write(image("abc" ? =("ab")) | "none");
-   write(image(upto('b', 5 ? tab(0))) | "none");
-end
-class UniconMarker()
-end

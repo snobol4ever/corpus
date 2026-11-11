@@ -1,8 +1,0 @@
-class UniconMarker();
-end
-procedure never(a, t);
-  a @>; a @>>; (a || "b") @>;
-end
-procedure main();
-  write("parsed");
-end

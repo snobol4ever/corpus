@@ -1,9 +1,0 @@
-procedure main();
-   local a, b, c, s, p;
-   s := "hello world";
-   s ?? (Len(2) || .> a || Len(3) || .> b);
-   write(a, " ", b);
-   p := Span("lo") || .> c;
-   s ?? ("he" || p);
-   write(c);
-end

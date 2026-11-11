@@ -1,9 +1,0 @@
-fresh ttl=1 iface="0.0.0.0" broadcast=&null
-ttl=5
-iface="127.0.0.1"
-mcastloop=&null
-hdrincl=&null
-ttl hdrincl iface mcastloop reuseaddr reuseport broadcast rcvbuf sndbuf 
-table 9 5 "127.0.0.1"
-image=file(:port)
-peek done

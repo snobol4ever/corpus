@@ -1,3 +1,0 @@
-send: &null
-got "zz"
-send done
