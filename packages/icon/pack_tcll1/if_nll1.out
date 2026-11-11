@@ -1,0 +1,5 @@
+Error: overlapping selection sets for
+1.	statement = if e then statement.
+2.	statement = if e then statement else statement.
+  overlap: {if}
+1 error and 0 warnings

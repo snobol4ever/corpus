@@ -1,0 +1,26 @@
+Error: e is left recursive, the grammar is not LL(1)
+Error: overlapping selection sets for
+1.	e = e "+" t A.
+2.	e = e "-" t S.
+  overlap: {"(", i}
+Error: overlapping selection sets for
+1.	e = e "+" t A.
+2.	e = t.
+  overlap: {"(", i}
+Error: overlapping selection sets for
+1.	e = e "-" t S.
+2.	e = t.
+  overlap: {"(", i}
+Error: overlapping selection sets for
+1.	t = f "*" t M.
+2.	t = f "/" t D.
+  overlap: {"(", i}
+Error: overlapping selection sets for
+1.	t = f "*" t M.
+2.	t = f.
+  overlap: {"(", i}
+Error: overlapping selection sets for
+1.	t = f "/" t D.
+2.	t = f.
+  overlap: {"(", i}
+7 errors and 0 warnings

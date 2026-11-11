@@ -1,0 +1,22 @@
+Error: e does not appear to derive a terminal string
+Error: start does not appear to derive a terminal string
+Error: p cannot appear in a sentential form
+Error: ) cannot appear in a sentential form
+Error: ( cannot appear in a sentential form
+Error: i cannot appear in a sentential form
+Error: t is both left and right recursive, the grammar is ambiguous
+Error: t is left recursive, the grammar is not LL(1)
+Error: e is left recursive, the grammar is not LL(1)
+Error: overlapping selection sets for
+1.	t = t "*" t.
+2.	t = t "/" t.
+  overlap: {f}
+Error: overlapping selection sets for
+1.	t = t "*" t.
+2.	t = f.
+  overlap: {f}
+Error: overlapping selection sets for
+1.	t = t "/" t.
+2.	t = f.
+  overlap: {f}
+12 errors and 0 warnings

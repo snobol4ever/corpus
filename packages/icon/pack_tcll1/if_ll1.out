@@ -1,0 +1,6 @@
+Warning: overlapping selection sets for
+	else_option_6_15 = else statement.
+and empty-deriving production
+	else_option_6_15 =.
+  overlap: {else}
+0 errors and 1 warning

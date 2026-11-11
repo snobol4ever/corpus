@@ -1,0 +1,6 @@
+Warning: overlapping selection sets for
+	label_5_9 = i ":" label_5_9.
+and empty-deriving production
+	label_5_9 =.
+  overlap: {i}
+0 errors and 1 warning
