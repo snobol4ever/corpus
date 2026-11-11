@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- this package's own run contract (key<TAB>value<TAB>evidence), read by util_build_package_suite.py and by s4e_cycle.sh.
+road	run-files	the package reads the same on both roads: 2026-11-10 23:5x CST, SCRIP 625220f31, harness 0873f6a62, corpus 45f998ac4, mode 3 from the coo root to scratch progress tables, 84 of 84 on the per-process road (200 s) and 84 of 84 through the package switch (131 s), verdicts equal entry for entry (the coo, CIO-118)
