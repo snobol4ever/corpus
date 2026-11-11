@@ -339,7 +339,6 @@ getenv $HOME succeeded
 getenv $FOOBAR failed
 found file: .
 found file: ..
-found file: Makefile
 found file: recent.icn
 found file: recogn.dat
 &ascii
