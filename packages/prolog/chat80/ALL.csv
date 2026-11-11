@@ -1,0 +1,3 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,prolog/chat80,prolog/chat80.pl,chat80__prolog/chat80,chat80,124,0,131072,4096,60,,swi
+2,prolog/chat80/chat,prolog/chat80/chat.pl,chat80__prolog/chat80/chat,chat80,42,0,131072,4096,60,,swi

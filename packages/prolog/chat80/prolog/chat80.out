@@ -1,0 +1,69 @@
+1: what rivers are there ? 
+   answer: [amazon,amu_darya,amur,brahmaputra,colorado,congo_river,cubango,danube,don,elbe,euphrates,ganges,hwang_ho,indus,irrawaddy,lena,limpopo,mackenzie,mekong,mississippi,murray,niger_river,nile,ob,oder,orange,orinoco,parana,rhine,rhone,rio_grande,salween,senegal_river,tagus,vistula,volga,volta,yangtze,yenisei,yukon,zambesi]
+   as recorded
+2: does afghanistan border china ? 
+   answer: [true]
+   as recorded
+3: what is the capital of upper_volta ? 
+   answer: [ouagadougou]
+   as recorded
+4: where is the largest country ? 
+   answer: [asia,northern_asia]
+   as recorded
+5: which countries are european ? 
+   answer: [albania,andorra,austria,belgium,bulgaria,cyprus,czechoslovakia,denmark,east_germany,eire,finland,france,greece,hungary,iceland,italy,liechtenstein,luxembourg,malta,monaco,netherlands,norway,poland,portugal,romania,san_marino,spain,sweden,switzerland,united_kingdom,west_germany,yugoslavia]
+   as recorded
+6: which country ' s capital is london ? 
+   answer: [united_kingdom]
+   as recorded
+7: which is the largest african country ? 
+   answer: [sudan]
+   as recorded
+8: how large is the smallest american country ? 
+   answer: [--(0,ksqmiles)]
+   as recorded
+9: what is the ocean that borders african countries and that borders asian countries ? 
+   answer: [indian_ocean]
+   as recorded
+10: what are the capitals of the countries bordering the baltic ? 
+   answer: [[[denmark]:[copenhagen],[east_germany]:[east_berlin],[finland]:[helsinki],[poland]:[warsaw],[soviet_union]:[moscow],[sweden]:[stockholm],[west_germany]:[bonn]]]
+   as recorded
+11: which countries are bordered by two seas ? 
+   answer: [egypt,iran,israel,saudi_arabia,turkey]
+   as recorded
+12: how many countries does the danube flow through ? 
+   answer: [6]
+   as recorded
+13: what is the total area of countries south of the equator and not in australasia ? 
+   answer: [--(10228,ksqmiles)]
+   as recorded
+14: what is the average area of the countries in each continent ? 
+   answer: [[africa,--(233,ksqmiles)],[america,--(496,ksqmiles)],[asia,--(485,ksqmiles)],[australasia,--(543,ksqmiles)],[europe,--(58,ksqmiles)]]
+   as recorded
+15: is there more than one country in each continent ? 
+   answer: [false]
+   as recorded
+16: is there some ocean that does not border any country ? 
+   answer: [true]
+   as recorded
+17: what are the countries from which a river flows into the black_sea ? 
+   answer: [[romania,soviet_union]]
+   as recorded
+18: what are the continents no country in which contains more than two cities whose population exceeds nb(1) million ? 
+   answer: [[africa,antarctica,australasia]]
+   as recorded
+19: which country bordering the mediterranean borders a country that is bordered by a country whose population exceeds the population of india ? 
+   answer: [turkey]
+   as recorded
+20: which countries have a population exceeding nb(10) million ? 
+   answer: [afghanistan,algeria,argentina,australia,bangladesh,brazil,burma,canada,china,colombia,czechoslovakia,east_germany,egypt,ethiopia,france,india,indonesia,iran,italy,japan,kenya,mexico,morocco,nepal,netherlands,nigeria,north_korea,pakistan,peru,philippines,poland,south_africa,south_korea,soviet_union,spain,sri_lanka,sudan,taiwan,tanzania,thailand,turkey,united_kingdom,united_states,venezuela,vietnam,west_germany,yugoslavia,zaire]
+   as recorded
+21: which countries with a population exceeding nb(10) million border the atlantic ? 
+   answer: [argentina,brazil,canada,colombia,france,mexico,morocco,netherlands,nigeria,south_africa,spain,united_kingdom,united_states,venezuela,west_germany,zaire]
+   as recorded
+22: what percentage of countries border each ocean ? 
+   answer: [[arctic_ocean,2],[atlantic,35],[indian_ocean,14],[pacific,20]]
+   as recorded
+23: what countries are there in europe ? 
+   answer: [albania,andorra,austria,belgium,bulgaria,cyprus,czechoslovakia,denmark,east_germany,eire,finland,france,greece,hungary,iceland,italy,liechtenstein,luxembourg,malta,monaco,netherlands,norway,poland,portugal,romania,san_marino,spain,sweden,switzerland,united_kingdom,west_germany,yugoslavia]
+   as recorded
