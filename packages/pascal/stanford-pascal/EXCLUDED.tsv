@@ -1,0 +1,4 @@
+# NO_ORACLE_ANSWER (CEO-1696; RULES.md FACT RULE A PROGRAM WITH NO ORACLE ANSWER IS EXCLUDED, NEVER DEBT; CTO-618 item 3, the Haiku row cut by officer_02 2026-11-11).
+# A program the oracle answers that ISO 7185 does not admit leaves the denominator, named here with its clause and its measurement. SCRIP refuses it, and the refusal is the ISO answer (CEO-1225: ISO wins where fpc -Miso is lax).
+# Columns: program<TAB>class<TAB>measurement.
+srctest/testlbl.pas	NO_ORACLE_ANSWER	ISO 7185 6.1.6 (a label lies in the closed interval 0 to 9999): labels 100000 and 123456 are not ISO; SCRIP refuses with ISO 7185 6.1.6 violation rc 1, fpc -Miso compiles rc 0 and prints Test Labels; measured 2026-11-11 (R-1225, CTO-618)
