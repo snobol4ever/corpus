@@ -27,3 +27,28 @@ progs/solit	solit	seed7
 progs/what	what	what_demo.txt
 progs/xtable	xtable	-a
 progs/yescr	yescr	yescr_unix.txt
+progs/applyfnc	reverse
+progs/bfd	20	bfd.in
+progs/choose	-20
+progs/chop	5
+progs/cstrings	cstrings.in
+progs/datmerge	-min	datmerge.in1	datmerge.in2
+progs/delam	1-3	-
+progs/delamc	-t:	-	-
+progs/dellines	2	4
+progs/diffn	diffn.in1	diffn.in2	diffn.in3
+progs/diffu	diffu.in1	diffu.in2
+progs/digcol	2
+progs/filerepl	3
+progs/filesect	2	4
+progs/findstr	findstr.in
+progs/fixpath	fixpath.in	/usr/local/bin/iconx	/opt/icon/bin/ix
+progs/getlines	1	3	5
+progs/icvt	-e
+progs/ifilter	reverse
+progs/iprint	-h	iprint.in
+progs/knapsack	10
+progs/lam	lam.in1	lam.in2
+progs/papply	reverse
+progs/patchu	patchu.src	patchu.dif
+progs/rcat	rcat.in

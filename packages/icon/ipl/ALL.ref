@@ -19068,3 +19068,151 @@ Mixed Case Words Here
 delta epsilon zeta
 alpha beta gamma
 one two three four five
+#------------------------------------------------------------ 549 progs/applyfnc
+ahpla
+ovarb
+eilrahc
+atled
+ohce
+tortxof
+#----------------------------------------------------------------- 550 progs/bfd
+
+          13	bravo
+           7	alpha
+          20	--total--
+
+          11	delta
+           5	charlie
+           3	echo
+          19	--total--
+#-------------------------------------------------------------- 551 progs/choose
+alpha
+bravo
+charlie
+delta
+echo
+foxtrot
+golf
+hotel
+#---------------------------------------------------------------- 552 progs/chop
+1
+5
+-3
+5
+5
+#------------------------------------------------------------ 553 progs/cstrings
++3 cstrings.in "hello, world"
++6 cstrings.in "%s\n"
+#------------------------------------------------------------ 554 progs/datmerge
+1 10 300
+3 50 500
+#--------------------------------------------------------------- 555 progs/delam
+abc
+ghi
+#-------------------------------------------------------------- 556 progs/delamc
+one
+two
+three
+four
+#------------------------------------------------------------ 557 progs/dellines
+alpha
+charlie
+echo
+foxtrot
+#--------------------------------------------------------------- 558 progs/diffn
+File 1: diffn.in1
+File 2: diffn.in2
+File 3: diffn.in3
+==================================
+---- File 1, line 2 ---- (diffn.in1)
+green
+---- File 2, line 2 ---- (diffn.in2)
+green
+---- File 3, line 2 ---- (diffn.in3)
+yellow
+#--------------------------------------------------------------- 559 progs/diffu
+3d2
+< c
+7,8c6,7
+< g
+< h
+---
+> i
+> j
+#-------------------------------------------------------------- 560 progs/digcol
+2
+5
+8
+#------------------------------------------------------------ 561 progs/filerepl
+first line
+second line
+
+fourth after a blank
+first line
+second line
+
+fourth after a blank
+first line
+second line
+
+fourth after a blank
+#------------------------------------------------------------ 562 progs/filesect
+bravo
+charlie
+delta
+echo
+#------------------------------------------------------------- 563 progs/findstr
+"alpha"
+"bravo charlie"
+"delta"
+#------------------------------------------------------------- 564 progs/fixpath
+replaced 1 occurrence
+#------------------------------------------------------------ 565 progs/getlines
+alpha
+charlie
+echo
+#---------------------------------------------------------------- 566 progs/icvt
+procedure main()
+   local a, t
+   a := $<1, 2, 3$>
+   t := table()
+   if *a > 0 then $( write("kept [as data]"); write(t) $)
+   every write(a$<1 to 3$>)
+end
+#------------------------------------------------------------- 567 progs/ifilter
+ahpla
+ovarb
+eilrahc
+atled
+ohce
+tortxof
+#-------------------------------------------------------------- 568 progs/iprint
+procedure main()
+   write("hello")
+end
+#------------------------------------------------------------ 569 progs/knapsack
+3
+7
+#----------------------------------------------------------------- 570 progs/lam
+a1b1
+a2
+a3
+#-------------------------------------------------------------- 571 progs/papply
+ahpla
+ovarb
+eilrahc
+atled
+ohce
+tortxof
+#-------------------------------------------------------------- 572 progs/patchu
+a
+b
+d
+e
+f
+i
+j
+#---------------------------------------------------------------- 573 progs/rcat
+third
+second
+first

@@ -38123,3 +38123,2223 @@ procedure main(args)
       writes(get(a));
 
 end
+#------------------------------------------------------------ 549 progs/applyfnc
+############################################################################
+#
+#	File:     applyfnc.icn
+#
+#	Subject:  Program to apply function to lines of a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     November 25, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program applies a function specified on the command line to the
+#  lines of a file.
+#
+############################################################################
+
+procedure main(args)
+   local func;
+
+   func := args[1] | stop("*** no function specified");
+
+   while args[1] := read() do
+      every write(func ! args);
+
+end
+#----------------------------------------------------------------- 550 progs/bfd
+############################################################################
+#
+#	File:     bfd.icn
+#
+#	Subject:  Program to compute best-fit-descending bin packing
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     December 4, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Usage:  bpack binsize [options] [file]
+#
+#  Input:  one entry per line, size in decimal followed by anything else
+#	   (anything else presumably being a file name or something)
+#
+#  Output: all the input lines, unchanged but reordered,
+#	   with an empty line before each bin and a total afterward
+#
+#  Options:
+#	-t	don't output anything except unannotated totals
+#	-n	don't output anything except the *number* of bins
+#	-b i	don't output anything except the details from bin i
+#
+############################################################################
+#
+#  Links:  options
+#
+############################################################################
+
+#  possible options to add later: optional quantization and padding values
+#	(e.g. to use with tar(1) you'd need it to round up to the next
+#	128 bytes and add 128 bytes for each file header -- or whatever)
+
+
+link options
+
+record obj(size,detail)
+
+global opts, binsize
+
+procedure main(args)
+   local ifile, line, n, d;
+   local objlist, bins, o, b;
+
+   opts := options(args, "tnb+");
+
+   binsize := integer(args[1]) | stop("usage: ", &progname, " binsize");
+
+   if *args > 1 then
+      ifile := open(args[2]) | stop("can't open ", args[2])
+   else
+      ifile := &input;
+
+   objlist := [];
+   while line := read(ifile) do line ? {
+      tab(many(' \t'));
+      n := integer(tab(many(&digits))) | next;
+      tab(many(' \t'));
+      d := trim(tab(0), ' \t');
+      put(objlist, obj(n, d))
+      };
+
+   objlist := sortf(objlist, 1);
+
+   bins := [];
+   while o := pull(objlist) do {
+      n := bestfit(bins, o.size);
+      put(bins[n].detail, o);
+      bins[n].size +:= o.size
+   };
+
+   if \opts["n"] then {
+      write(*bins);
+      return
+   };
+
+   if \opts["t"] then {
+      every write((!bins).size);
+      return
+   };
+
+   if n := \opts["b"] then {
+       b := bins[n] | stop("no bin ", n, "; only " *bins, " bins");
+       every write((!b.detail).detail);
+       return
+   };
+
+   while b := get(bins) do {
+      write();
+      while o := get(b.detail) do
+         write(right(o.size, 12), "\t", o.detail);
+      write(right(b.size, 12), "\t--total--")
+      };
+end
+
+procedure bestfit(bins, sz)
+   local b, i, n, d, best;
+
+   every i := 1 to *bins do {
+      b := bins[i];
+      d := binsize - b.size - sz;
+      if d < 0 | d > \best then
+	 next;
+      best := d;
+      n := i
+      };
+
+   if \n then
+      return n
+   else {
+      put(bins, obj(0, []));
+      return *bins
+      };
+end
+#-------------------------------------------------------------- 551 progs/choose
+############################################################################
+#
+#	File:     choose.icn
+#
+#	Subject:  Program to pick lines from a file
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     January 14, 2002
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  usage:  choose [-N] [file...]
+#
+#  This program randomly selects N lines from the input stream and
+#  outputs them in order.  If N is omitted, one line is chosen.
+#  If the input stream supplies fewer than N lines, all are output.
+#
+############################################################################
+#
+#  Links: random
+#
+############################################################################
+
+link random
+
+global wanted		# number of lines wanted
+global seen		# number of lines read so far
+
+record chosen(		# one tentatively chosen input line
+   lnum,		#    line number
+   text)		#    data
+
+global llist		# list of tentatively chosen lines
+
+procedure main(args)
+   local fname;
+
+   if wanted := abs(integer(args[1])) then
+      get(args)
+   else
+      wanted := 1;
+
+   llist := [];
+   seen := 0;
+   randomize();
+
+   if *args = 0 then
+      dofile(&input)
+   else while fname := get(args) do
+      dofile(open(fname)) | stop("cannot open ", fname);
+
+   llist := sortf(llist, 1);
+   every write((!llist).text);
+end
+
+procedure dofile(f)
+   local line;
+
+   while line := read(f) do {
+      seen +:= 1;
+      if seen <= wanted then
+         put(llist, chosen(seen, line))
+      else if ?0 < wanted / real(seen) then
+         ?llist := chosen(seen, line)
+      };
+   close(f);
+   return;
+end
+#---------------------------------------------------------------- 552 progs/chop
+############################################################################
+#
+#	File:     chop.icn
+#
+#	Subject:  Program to restrict numerical values
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 21, 1999
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program limits the numerical values in a sequence
+#  visualization stream.  The limit is given on the command line;
+#  default 200.
+#
+############################################################################
+
+procedure main(args)
+   local max, line, i;
+
+   max := \args[1] | 200;
+
+   while line := read() do {
+      line ? {
+         i := tab(upto(' \t') | 0);
+         if i > max then i := max;
+         write(i, tab(0))
+         }
+      };
+
+end
+#------------------------------------------------------------ 553 progs/cstrings
+############################################################################
+#
+#	File:     cstrings.icn
+#
+#	Subject:  Program to print strings in C files
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     September 17, 1990
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Program to print all strings (enclosed in double quotes) in C source
+#  files.
+#
+
+procedure main(arg)
+   local c,f,fn,line,lineNbr,s;
+   if *arg = 0 then stop("Usage: cstrings file...");
+   every fn := !arg do {
+      f := open(fn) | stop("Can't open \"",fn,"\"");
+      lineNbr := 0;
+      while line := read(f) do line ? {
+	 lineNbr +:= 1;
+	 while tab(upto('/"\'')) do {
+	    case move(1) of {
+	       #
+	       #  Comment -- handled because it could contain something that
+	       #  looks like a string.
+	       #
+	       "/": {
+		  if ="*" then {
+		     while not tab(find("*/") + 2) do {
+			&subject := read(f) | stop("Unexpected EOF in comment");
+			lineNbr +:= 1
+			}
+		     }
+		  };
+	       #
+	       #  String
+	       #
+	       "\"": {
+		  s := "\"";
+		  while s ||:= tab(upto('"\\')) do {
+		     s ||:= c := move(1);
+		     case c of {
+			"\\": {
+			   if not (s ||:= move(1)) then {
+			      s[-1] := "";
+			      &subject := read(f) |
+				    stop("Unexpected EOF in string");
+			      lineNbr +:= 1
+			      }
+			   };
+			"\"": {
+			   break
+			   }
+			}
+		     };
+		  write("+",lineNbr," ",fn," ",s)
+		  };
+	       #
+	       #  Character constant -- handled because it might contain
+	       #  a double quote, which could be mistaken for the start
+	       #  of a string.
+	       #
+	       "'": {
+		  while tab(upto('\'\\')) do {
+		     c := move(1);
+		     case c of {
+			"\\": {
+			   if not move(1) then {
+			      &subject := read(f) |
+				    stop("Unexpected EOF in character constant");
+			      lineNbr +:= 1
+			      }
+			   };
+			"'": {
+			   break
+			   }
+			}
+		     }
+		  }
+	       }
+	    }
+	 };
+      close(f)
+      };
+end
+#------------------------------------------------------------ 554 progs/datmerge
+############################################################################
+#
+#	File:     datmerge.icn
+#
+#	Subject:  Program to merge data files
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     November 16, 2001
+#
+############################################################################
+#
+#	This file is in the public domain.
+#
+############################################################################
+#
+#	Datmerge reads and combines arbitrary text-based data files that
+#	contain whitespace-separated data.  For each data field, a single
+#	value is written to standard output after applying a selected
+#	operator (such as median or minimum) to the corresponding values
+#	from all the input files.
+#
+#	Usage:  datmerge [-operator] filename...
+#
+#	Operators:
+#	    -min or -minimum
+#	    -max or -maximum
+#	    -med or -median   (this is the default)
+#	    -mean
+#
+#	Values convertible to numeric are treated as such.
+#	All others are treated as strings.
+#
+############################################################################
+#
+#  Links:  numbers, strings
+#
+############################################################################
+
+link numbers, strings
+
+
+
+procedure main(args)
+   local a, opr, files, lines;
+
+   if args[1][1] == '-' then {
+      a := get(args);
+      opr := case a of {
+         "-min" | "-minimum":  minimum;
+         "-max" | "-maximum":  maximum;
+         "-med" | "-median":   median;
+         "-mean":              mean;
+         default:              stop(&progname, ": unrecognized operator: ", a)
+         }
+      }
+   else
+      opr := median;
+
+   if *args < 1 then
+      stop("usage: ", &progname, " [-operator] filename...");
+
+   files := [];
+   while a := get(args) do
+      put(files, open(a)) | stop("cannot open ", a);
+
+   repeat {
+      lines := [];
+      every put(lines, read(!files));
+      if *lines = 0 then break;
+      merge(lines, opr)
+      };
+
+end
+
+
+
+#  merge(lines, opr) -- output the result of merging a list of lines.
+
+procedure merge(lines, opr)
+   local a, s, w, fields, ws;
+
+   fields := [];
+   every s := !lines do {
+      put(fields, a := []);
+      every w := words(s) do
+         put(a, numeric(w) | w)
+      };
+
+   ws := "";
+   repeat {
+      a := [];
+      every put(a, get(!fields));
+      if *a = 0 then break;
+      writes(ws, opr(a));
+      ws := " "
+      };
+
+   write();
+end
+
+
+
+#  Operator Procedures
+#
+#  These procedures take a list and return a value.
+#  They must always return something regardless of the data.
+#  Those that involve arithmetic need to tolerate string data somehow.
+
+procedure minimum(a)
+   a := sort(a);
+   return a[1];
+end
+
+procedure maximum(a)
+   a := sort(a);
+   return a[-1];
+end
+
+procedure mean(a)
+   return (amean ! nsubset(a)) | median(a);
+end
+
+procedure median(a)
+   a := sort(a);
+   return a[(*a + 1) / 2];
+end
+
+
+
+#  nsubset(a) -- return subset of array a that contains numeric values
+
+procedure nsubset(a)
+   local b;
+   b := [];
+   every put(b, numeric(!a));
+   if *b > 0 then
+      return b
+   else
+      fail;
+end
+#--------------------------------------------------------------- 555 progs/delam
+############################################################################
+#
+#	File:     delam.icn
+#
+#	Subject:  Program to delaminate file
+#
+#	Author:   Thomas R. Hicks
+#
+#	Date:     June 10, 1988
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     This program delaminates standard input into several output
+#  files according to the specified fields.  It writes the fields in
+#  each line to the corresponding output files as individual lines.
+#  If no data occurs in the specified position for a given input
+#  line an empty output line is written. This insures that all out-
+#  put files contain the same number of lines as the input file.
+#  
+#     If - is used for the input file, the standard input is read.
+#  If - is used as an output file name, the corresponding field is
+#  written to the standard output.
+#  
+#     The fields are defined by a list of field specifications,
+#  separated by commas or colons, of the following form:
+#  
+#          n    the character in column n
+#          n-m  the characters in columns n through m
+#          n+m  m characters beginning at column n
+#  
+#  where the columns in a line are numbered from 1 to the length of
+#  the line.
+#  
+#     The use of delam is illustrated by the following examples.
+#  The command
+#  
+#          delam 1-10,5 x.txt y.txt
+#  
+#  reads standard input and writes characters 1 through 10 to file
+#  x.txt and character 5 to file y.txt.  The command
+#  
+#          delam 10+5:1-10:1-10:80 mid x1 x2 end
+#  
+#  writes characters 10 through 14 to mid, 1 through 10 to x1 and
+#  x2, and character 80 to end.  The command
+#  
+#          delam 1-80,1-80 - -
+#  
+#  copies standard input to standard output, replicating the first
+#  eighty columns of each line twice.
+#  
+############################################################################
+#
+#  Links: usage
+#
+############################################################################
+
+link usage
+
+procedure main(a)
+   local fylist, ranges;
+   if any(&digits,a[1]) then
+      ranges := fldecode(a[1])
+   else
+      {
+      write(&errout,"Bad argument to delam: ",a[1]);
+      Usage("delam fieldlist {outputfile | -} ...")
+      };
+   if not a[2] then
+      Usage("delam fieldlist {outputfile | -} ...");
+   fylist := doutfyls(a,2);
+   if *fylist ~= *ranges then
+      stop("Unequal number of field args and output files");
+   delamr(ranges,fylist);
+end
+
+# delamr - do actual division of input file
+#
+procedure delamr(ranges,fylist)
+   local i, j, k, line;
+   while line := read() do
+      {
+      i := 1;
+      while i <= *fylist do
+         {
+         j := ranges[i][1];
+         k := ranges[i][2];
+         if k > 0 then
+            write(fylist[i][2],line[j+:k] | line[j:0] | "");
+         i +:= 1
+         }
+      };
+end
+
+# doutfyls - process the output file arguments; return list
+#
+procedure doutfyls(a,i)
+   local lst, x;
+   lst := [];
+   while \a[i] do
+      {
+      if x := llu(a[i],lst) then		# already in list
+         lst |||:= [[a[i],lst[x][2]]]
+      else					# not in list
+         if a[i] == "-" then			# standard out
+            lst |||:= [[a[i],&output]]
+         else					# new file
+            if not (x := open(a[i],"w")) then
+               stop("Cannot open ",a[i]," for output")
+            else
+               lst |||:= [[a[i],x]];
+      i +:= 1
+      };
+   return lst;
+
+end
+
+# fldecode - decode the fieldlist argument
+#
+procedure fldecode(fldlst)
+   local fld, flst, poslst, m, n, x;
+   poslst := [];
+   flst := str2lst(fldlst,':,');
+   every fld := !flst do
+      {
+      if x := upto('-+',fld) then
+         {
+         if not (m := integer(fld[1:x])) then
+            stop("bad argument in field list; ",fld);
+         if not (n := integer(fld[x+1:0])) then
+            stop("bad argument in field list; ",fld);
+         if upto('-',fld) then
+            {
+            if n < m then
+               n := 0
+            else
+               n := (n - m) + 1
+            }
+         }
+      else {
+         if not (m := integer(fld)) then
+            stop("bad argument in field list; ",fld);
+         n := 1
+         };
+      poslst |||:= [[m,n]]
+      };
+   return poslst;
+end
+
+# llu - lookup file name in output file list
+#
+procedure llu(str,lst)
+   local i;
+   i := 1;
+   while \lst[i] do
+      {
+      if \lst[i][1] == str then
+         return i;
+      i +:= 1
+      };
+end
+
+# str2lst - create a list from a delimited string
+#
+procedure str2lst(str,delim)
+   local lst, f;
+   lst := [];
+   str ? {
+      while f := (tab(upto(delim))) do
+      {
+      lst |||:= [f];
+      move(1)
+      };
+        if "" ~== (f := tab(0)) then
+        lst |||:= [f]
+        };
+   return lst;
+end
+#-------------------------------------------------------------- 556 progs/delamc
+############################################################################
+#
+#	File:     delamc.icn
+#
+#	Subject:  Program to delaminate file using tab characters
+#
+#	Author:   Thomas R. Hicks
+#
+#	Date:     May 28, 1989
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     This program delaminates standard input into several output
+#  files according to the separator characters specified by the
+#  string following the -t option.  It writes the fields in each
+#  line to the corresponding output files as individual lines. If no
+#  data occurs in the specified position for a given input line an
+#  empty output line is written. This insures that all output files
+#  contain the same number of lines as the input file.
+#  
+#     If - is used as an output file name, the corresponding field
+#  is written to the standard output. If the -t option is not used,
+#  an ascii horizontal tab character is assumed as the default field
+#  separator.
+#  
+#     The use of delamc is illustrated by the following examples.
+#  The command
+#  
+#          delamc labels opcodes operands
+#  
+#  writes the fields of standard input, each of which is separated
+#  by a tab character, to the output files labels, opcodes, and
+#  operands.  The command
+#  
+#          delamc -t: scores names matric ps1 ps2 ps3
+#  
+#  writes the fields of standard input, each of which are separated
+#  by a colon, to the indicated output files.  The command
+#  
+#          delamc -t,: oldata f1 f2
+#  
+#  separates the fields using either a comma or a colon.
+#  
+############################################################################
+#
+#  Links:  usage
+#
+############################################################################
+
+link usage
+
+procedure main(a)
+   local tabset, fylist, nxtarg;
+   if match("-t",a[1]) then {		# tab char given
+      tabset := cset(a[1][3:0]);
+      pop(a)				# get rid of that argument
+      };
+    if 0 = *(fylist := doutfyls(a)) then
+       Usage("delamc [-tc] {outputfile | -} ...");
+    /tabset := cset(&ascii[10]);			# tab is default separator
+    delamrc(tabset,fylist);			# call main routine
+end
+
+# delamrc - do actual division of input file using tab chars
+#
+procedure delamrc(tabset,fylist)
+    local i, flen, line;
+    while line := read() do
+        {
+        i := 1;
+        flen := *fylist;
+        line ? while (i <= flen) do
+            {
+            if i = flen then
+                write(fylist[i][2],tab(0) | "")
+            else
+                write(fylist[i][2],tab(upto(tabset)) | tab(0) | "");
+            move(1);
+            i +:= 1
+            }
+        };
+end
+
+# doutfyls - process output file arguments; return list
+#
+procedure doutfyls(a)
+   local lst, x, i;
+   lst := [];
+   i := 1;
+   while \a[i] do {
+      if x := llu(a[i],lst) then		# already in list
+         lst |||:= [[a[i],lst[x][2]]]
+      else					# not in list
+         if a[i] == "-" then			# standard out
+            lst |||:= [[a[i],&output]]
+         else				# a new file
+            if not (x := open(a[i],"w")) then
+               stop("Cannot open ",a[i]," for output")
+            else lst |||:= [[a[i],x]];
+      i +:= 1
+      };
+   return lst;
+end
+
+# llu - lookup file name in output file list
+#
+procedure llu(str,lst)
+   local i;
+   i := 1;
+   while \lst[i] do {
+      if \lst[i][1] == str then return i;
+      i +:= 1
+      };
+end
+#------------------------------------------------------------ 557 progs/dellines
+############################################################################
+#
+#	File:     dellines.icn
+#
+#	Subject:  Program to delete lines from a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     December 28, 1996
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program is designed to delete a few specified lines from a file.
+#  The line numbers are given on the command line, the file is read from
+#  standard input and the lines that are not deleted are written to standard
+#  output as in
+#
+#	dellines 46 23 119 <infile >outfile
+#
+#  which writes all lines but 23, 46, and 119 of infile (if it contains that
+#  many lines) to outfile.
+#
+#  Line numbers do not have to be given in order.  Numbers less than 1 are
+#  ignored, but a nonnumerical argument is treated as an error.
+#
+############################################################################
+
+procedure main(lines)
+   local i, line;
+
+   if *lines = 0 then stop("*** no lines specified");
+
+   every i := 1 to *lines do
+      lines[i] := integer(lines[i]) |
+         stop("*** nonnumeric argument: ", image(lines[i]));
+
+   lines := set(lines);  # inefficient method but easy
+
+   i := 0;
+
+   while line := read() do {
+      i +:= 1;
+      if not member(lines, i) then {
+         write(line);
+         delete(lines, i);  # so trailing lines aren't tested
+         if *lines = 0 then break
+         }
+      };
+
+   while write(read());
+
+end
+#--------------------------------------------------------------- 558 progs/diffn
+############################################################################
+#
+#	File:     diffn.icn
+#
+#	Subject:  Program to show differences among files
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     January 3, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#   This program shows the differences between n files. Is is invoked as
+#
+#        diffn file1 file2 ... filen
+#  
+############################################################################
+#
+#  Links: dif
+#
+############################################################################
+#
+#  Most of the work is done by an external procedure, dif().  This
+#  program analyzes the command line arguments, sets up a call to
+#  dif(), and displays the results.
+#
+
+
+link dif
+global f1,f2
+record dfile(file,linenbr)
+
+invocable all
+
+procedure main(arg)
+  local f, i, files, drec, status;
+  #
+  #  Analyze command line arguments, open the files, and output
+  #  some initial display lines.
+  #
+  if *arg < 2 then stop("usage: diffn file file ...");
+  f := list(*arg);
+  every i := 1 to *arg do
+    	f[i] := dfile(open(arg[i]) | stop("Can't open ",arg[i]),0);
+  files := list(*arg);
+  every i := 1 to *arg do {
+    write("File ",i,": ",arg[i]);
+    files[i] := diff_proc(myread,f[i])
+  };
+  #
+  #  Invoke dif() and display its generated results.
+  #
+  every drec := dif(files) do {
+    status := "diffs";
+    write("==================================");
+    every i := 1 to *drec do {
+      write("---- File ",i,", ",
+      		 (drec[i].pos > f[i].linenbr & "end of file") |
+		 "line " || drec[i].pos,
+		 " ---- (",arg[i],")");
+      listrange(drec[i].diffs,drec[i].pos)
+    }
+  };
+  if /status then write("==== Files match ====");
+  return;
+end
+
+
+#
+#  listrange() -- List a range of differing lines, each preceded by its
+#  line number.
+#
+procedure listrange(dlist,linenbr)
+  local x;
+  every x := !dlist do {
+    write(x); linenbr +:= 1
+  };
+  return;
+end
+
+
+#
+#  myread() -- Line-reading procedure to pass to dif().
+#
+procedure myread(x)
+  return x.linenbr <- x.linenbr + 1 & read(x.file);
+end
+
+#--------------------------------------------------------------- 559 progs/diffu
+############################################################################
+#
+#	File:     diffu.icn
+#
+#	Subject:  Program to show differences in files
+#
+#	Author:   Rich Morin
+#
+#	Date:     January 3, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program exercises the dif() procedure, making it act like the
+#  UNIX diff(1) file difference command.
+#
+#  Usage: diffu f1 f2
+#
+#	3d2
+#	< c
+#	7,8c6,7
+#	< g
+#	< h
+#	---
+#	> i
+#	> j
+#
+############################################################################
+#
+#  Links:  dif
+#
+############################################################################
+
+link dif
+
+invocable all
+
+procedure main(arg)
+  local f1, f2, ldr, n1, p1, n2, p2, h;
+
+  if *arg ~= 2 then
+    zot("usage: diffu f1 f2");
+
+  f1 := open(arg[1]) | zot("cannot open " || arg[1]);
+  f2 := open(arg[2]) | zot("cannot open " || arg[2]);
+
+  every ldr := dif([f1,f2]) do {
+    n1 := *ldr[1].diffs; p1 := ldr[1].pos;
+    n2 := *ldr[2].diffs; p2 := ldr[2].pos;
+
+    if n1 = 0 then {			# add lines
+      h := p1-1 || "a" || p2;
+      if n2 > 1 then
+        h ||:= "," || (p2 + n2 - 1);
+      write(h);
+      every write("> " || !ldr[2].diffs)
+    }
+    else if n2 = 0 then {		# delete lines
+      h := p1;
+      if n1 > 1 then
+        h ||:= "," || (p1 + n1 - 1);
+      h ||:= "d" || p2-1;
+      write(h);
+      every write("< " || !ldr[1].diffs)
+    }
+    else {				# change lines
+      h := p1;
+      if n1 > 1 then
+        h ||:= "," || (p1 + n1 - 1);
+      h ||:= "c" || p2;
+      if n2 > 1 then
+        h ||:= "," || (p2 + n2 - 1);
+      write(h);
+      every write("< " || !ldr[1].diffs);
+      write("---");
+      every write("> " || !ldr[2].diffs)
+    }
+  };
+end
+
+
+procedure zot(msg);				# exit w/message
+  write(&errout, "diff: " || msg);
+  exit(1);
+end
+#-------------------------------------------------------------- 560 progs/digcol
+############################################################################
+#
+#	File:     digcol.icn
+#
+#	Subject:  Program to produce nth column of digit data
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     November 25, 1996
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program filters input to produce the nth column of digit date.
+#
+############################################################################
+
+procedure main(args)
+   local n, line, s;
+
+   n := (0 < integer(args[1])) | stop("*** invalid specification");
+
+   while line := read() do
+      line ? {
+         every 1 to n do {
+            tab(upto(&digits)) | stop("*** column ", n, " does not exist");
+            s := tab(many(&digits))
+            };
+      
+         write(s)
+         };
+
+end
+#------------------------------------------------------------ 561 progs/filerepl
+############################################################################
+#
+#	File:     filerepl.icn
+#
+#	Subject:  Program to replicate file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 2, 1999
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program writes standard input to standard a specified number of
+#  times.  Number of replications is given on command line.
+#
+#  NOTE:  Since the input stream is stored internally, standard input
+#  must be of finite length.
+#
+############################################################################
+
+procedure main(args)
+   local file;
+
+   file := [];
+
+   while put(file, read());
+
+   every 1 to args[1] do
+      every write(!file);
+
+end
+#------------------------------------------------------------ 562 progs/filesect
+############################################################################
+#
+#	File:     filesect.icn
+#
+#	Subject:  Program to produce section of a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     March 26, 2002
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program writes the section of the input file starting at a
+#  specified line number and extending a specified number of lines.
+#
+#  The specifications are given as integer command-line arguments; the
+#  first is the starting line, the second is the number of lines.  For
+#  example,
+#
+#	filesect 20 100 <input >output
+#
+#  copies 100 lines from input to output, starting at line 20 of input.
+#
+#  If the specifications are out of range, the file written is truncated
+#  without comment.
+#
+#
+############################################################################
+
+procedure main(argl)
+   local start, count;
+
+   start := argl[1] | stop("*** starting value missing");
+   count := argl[2] | stop("*** count missing");
+
+   if not (start := integer(start) & start > 0) then
+      stop("starting value not positive integer");
+   if not (count := integer(count) & count >= 0) then
+      stop("starting value not non-negative integer");
+
+   every 1 to start - 1 do
+      read() | exit();
+
+   every 1 to count do
+      write(read()) | exit();
+
+end
+#------------------------------------------------------------- 563 progs/findstr
+############################################################################
+#
+#	File:     findstr.icn
+#
+#	Subject:  Program to find embedded character strings
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     March 26, 2002
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Utility filter to list character strings embedded in data files (e.g.
+#  object files).
+#
+#	findstr -options file...
+#
+#	-l length	minimum string size to be printed (default 3)
+#	-c chars	a string of characters (besides the standard ASCII
+#			printable characters) to be considered part of a
+#			string
+#
+#  Icon string escape sequences can be used to specify the -c option.
+#
+#  Multiple files can be specified as arguments, and will be processed
+#  in sequence.
+#
+
+link options,escape
+
+procedure main(arg)
+   local c, f, fn, header, min_string_size, okchars, opt, s, istring;
+   #
+   #  Process command line options and file names.
+   #
+   opt := options(arg,"l+c:");
+   if *arg = 0 then stop("Usage: findstr -options file..._
+      \n_
+      \n-l length\tminimum string size to be printed (default 3)_
+      \n-c chars\ta string of characters (besides the standard ASCII_
+      \n\t\tprintable characters) to be considered part of a string_
+      \n");
+   #
+   #  Define minimum string size to print.
+   #
+   min_string_size := \opt["l"] | 3;  # default min string size = 3
+   #
+   #  Define characters that can be in strings.
+   #
+   okchars := cset(&ascii[33:-1]);  # normal ASCII printable characters
+   okchars ++:= istring(\opt["c"]);  # additional chars supplied by user
+   #
+   #  Loop to process files.
+   #
+   every fn := !arg do {
+      f := open(fn,"u") | stop("Can't open input file \"",fn,"\"");
+      #
+      #  Now find and print the strings.
+      #
+      header := if *arg > 1 then fn || ": " else "";
+      s := "";
+      while c := reads(f) do {
+	 if any(okchars,c) then s ||:= c
+	 else {
+	    if *s >=  min_string_size then write(header,image(s));
+	    s := ""
+	    }
+	 };
+      #
+      #  Close this file.
+      #
+      close(f)
+      };
+end
+#------------------------------------------------------------- 564 progs/fixpath
+############################################################################
+#
+#	File:     fixpath.icn
+#
+#	Subject:  Program to replace path in a binary file
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     November 14, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Usage:  fixpath filename oldpath newpath
+#
+#  Fixpath changes file paths or other strings in a binary file by modifying
+#  the file in place.  Each null-terminated occurrence of "oldpath" is
+#  replaced by "newpath".
+#
+#  If the new path is longer than the old one, a warning is given and the
+#  old path is extended by null characters, which must be matched in the
+#  file for replacement to take place.  This is dangerous in general but
+#  allows repairing an errant fixpath command.
+#
+############################################################################
+
+
+procedure main(args)
+   local fname, oldpath, newpath, f, pgm, n, p, s;
+
+   (*args == 3) | stop("usage: fixpath filename oldpath newpath");
+   fname := args[1];
+   oldpath := args[2];
+   newpath := args[3];
+   if *newpath > *oldpath then {
+      write(&errout, "warning: newpath is longer than oldpath");
+      oldpath := left(oldpath, *newpath, "\0")
+   };
+   oldpath ||:= "\0";
+   newpath := left(newpath, *oldpath, "\0");
+
+   (f := open(fname, "rwu"))		| stop(fname, ": can't open");
+   pgm := "";
+   while pgm ||:= reads(f, 8192);
+   (*pgm > 0)				| stop(fname, ": empty file");
+   n := 0;
+   pgm ? {
+      while tab(p := find(oldpath)) do {
+         seek(f, p)			| stop(fname, ": can't seek");
+         writes(f, s, newpath)		| stop(fname, ": can't write");
+         move(*newpath);
+         n +:= 1
+      };
+      (n > 0) | stop(fname, ": can't find string `", args[2], "'")
+   };
+   write("replaced ", n, " occurrence", if n>1 then "s" else "");
+
+end
+
+#------------------------------------------------------------ 565 progs/getlines
+############################################################################
+#
+#	File:     getlines.icn
+#
+#	Subject:  Program to extract lines from a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     March 26, 2002
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program is designed to extract a few specified lines from a file.
+#  The line numbers are given on the command line, the file is read from
+#  standard input and the extracted lines are written to standard output
+#  as in
+#
+#	getlines 46 23 119 <infile >outfile
+#
+#  which writes lines 23, 46, and 119 of infile (if it contains that many
+#  lines) to outfile.
+#
+#  Line numbers do not have to be given in order.  Numbers less than 1 are
+#  ignored, but a nonnumerical argument is treated as an error.
+#
+############################################################################
+
+procedure main(lines)
+   local i, line;
+
+   if *lines = 0 then stop("*** no lines specified");
+
+   every i := 1 to *lines do
+      lines[i] := integer(lines[i]) |
+         stop("*** nonnumeric argument: ", image(lines[i]));
+
+   lines := set(lines);  # inefficient method but easy
+
+   i := 0;
+
+   while line := read() do {
+      i +:= 1;
+      if member(lines, i) then {
+         write(line);
+         delete(lines, i);  # so process can be stopped before end
+         if *lines = 0 then exit()
+         }
+      };
+
+end
+#---------------------------------------------------------------- 566 progs/icvt
+############################################################################
+#
+#	File:     icvt.icn
+#
+#	Subject:  Program for ASCII/EBCDIC program conversion
+#
+#	Author:   Cheyenne Wills, modified by Ralph E. Griswold
+#
+#	Date:     May 2, 2001
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts Icon programs from ASCII syntax to EBCDIC syntax
+#  or vice versa. The option -a converts to ASCII, while the option
+#  -e converts to EBCDIC. The program given in standard input is written
+#  in converted form to standard output.
+#
+############################################################################
+
+global outf,process,bb,quotechar
+global nrbrack,nlbrack,nrbrace,nlbrace,rbrack,lbrack,rbrace,lbrace
+
+procedure main(args)
+   local line;
+
+   case map(args[1]) | stop("Usage: icvt -a | -e") of {
+       "-a" : {
+	   lbrace := "$("; nlbrace := "{";
+	   rbrace := "$)"; nrbrace := "}";
+	   lbrack := "$<"; nlbrack := "[";
+	   rbrack := "$>"; nrbrack := "]";
+	   bb := '$'
+	   };
+       "-e" : {
+	   lbrace := "{"; nlbrace := "$(";
+	   rbrace := "}"; nrbrace := "$)";
+	   lbrack := "["; nlbrack := "$<";
+	   rbrack := "]"; nrbrack := "$>";
+	   bb := '[]{}'
+	   };
+       default :
+	   stop("Usage: icvt -a | -e")
+       };
+
+   process := standard;
+
+   while line := read() do {
+       line ||:= "\n";
+       line ? while not pos(0) do
+	   process()
+       };
+
+end
+
+procedure standard()
+   writes(tab(upto( '"\'#' ++ bb))) | (writes(tab(0)) & return);
+
+   if match("#") then {
+       writes(tab(0))
+       }
+   else if any('\'"') then {
+       process := inquote;
+       quotechar := move(1);
+       writes(quotechar)
+       }
+   else if match(lbrack) then {
+       move(*lbrack);
+       writes(nlbrack)
+       }
+   else if match(rbrack) then {
+       move(*rbrack);
+       writes(nrbrack)
+       }
+   else if match(lbrace) then {
+       move(*lbrace);
+       writes(nlbrace)
+       }
+   else if match(rbrace) then {
+       move(*rbrace);
+       writes(nrbrace)
+       }
+   else writes(move(1));
+   return;
+end
+
+procedure inquote()
+   writes( tab(upto( quotechar ++ '\\')) ) |
+       (writes(tab(0)) & return);
+   writes(="\\") & writes(move(1)) & return;
+   writes( =quotechar );
+   process := standard;
+   return;
+end
+#------------------------------------------------------------- 567 progs/ifilter
+############################################################################
+#
+#	File:     ifilter.icn
+#
+#	Subject:  Program to filter lines of file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 21, 1999
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program applies the operation given as a command-line argument
+#  to each line of standard input, writing out the results.  For example,
+#
+#	ifilter reverse <foo
+#  
+#  writes out the lines of foo reversed end-for-end.
+#
+#  Trailing arguments can be given on the command line, as in
+#
+#	ifilter right 10 0 <foo		# right(*, "10", "0")
+#	ifilter "%" 11 <foo		# * % "11"
+#
+#  The modules strings and numbers are linked to provide access to the
+#  procedures they contain.  Except for these and operators and (built-in)
+#  functions, this program needs to be linked with procedures to be
+#  used with it.
+#
+#  The following options are supported:
+#
+#	-a i	argument position for strings read in; default 1
+#	-o i	resolution of ambiguous operator string names, 1 for unary, 2
+#		  for binary; default 2
+#	-l i	limit on generation, with nonpositive indicating
+#		  no limitation; default 1
+#
+############################################################################
+#
+#  Note:  This is a renaming of an earlier program, filter.icn, to
+#  avoid name collisions on systems where there already is a utility
+#  named filter.
+#
+############################################################################
+#
+#  Links:  lists, numbers, options, and strings
+#
+############################################################################
+
+invocable all
+
+link lists
+link numbers
+link options
+link strings
+
+procedure main(args)
+   local op, opts, i, interp, limit;
+
+   opts := options(args, "a+o+l+");
+   i := \opts["a"] | 1;
+   limit := \opts["l"] | 1;
+   if limit < 1 then limit := 2 ^ 31;
+
+   if opts["o"] === (&null | 2) then {
+      op := proc(pop(args), 2 | 1 | 3) |
+         stop("*** invalid or missing operation")
+      }
+   else if opts["o"] = 1 then {
+       op := proc(pop(args), 1 | 2 | 3) |
+         stop("*** invalid or missing operation")
+      }
+   else stop("*** invalid -o option");
+
+   lextend(args, i - 1);  # be sure list is long enough
+
+   args := args[1:i] ||| [&null] ||| args[i:0];  # make room for input argument
+
+   while args[i] := read() do
+      every write(op ! args) \ limit;
+
+end
+#-------------------------------------------------------------- 568 progs/iprint
+############################################################################
+#
+#	File:     iprint.icn
+#
+#	Subject:  Program to print Icon program
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     March 26, 2002
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     The defaults are set up for printing of Icon programs, but
+#  through command line options it can be set up to print programs
+#  in other languages, too (such as C). This program has several
+#  features:
+#  
+#     If a program is written in a consistent style, this program
+#  will attempt to keep whole procedures on the same page. The
+#  default is to identify the end of a print group (i.e. a pro-
+#  cedure) by looking for the string "end" at the beginning of a
+#  line. Through the -g option, alternative strings can be used to
+#  signal end of a group. Using "end" as the group delimiter
+#  (inclusive), comments and declarations prior to the procedure are
+#  grouped with the procedure. Specifying a null group delimiter
+#  string (-g '') suppresses grouping.
+#  
+#     Page creases are skipped over, and form-feeds (^L) embedded in
+#  the file are handled properly. (Form-feeds are treated as spaces
+#  by many C compilers, and signal page ejects in a listing). Page
+#  headings (file name, date, time, page number) are normally
+#  printed unless suppressed by the -h option.
+#  
+#     Options:
+#  
+#       -n   number lines.
+#  
+#       -pN  page length: number of lines per page (default: 60
+#            lines).
+#  
+#       -tN   tab stop spacing (default: 8).
+#  
+#       -h   suppress page headings.
+#  
+#       -l   add three lines at top of each page for laser printer.
+#  
+#       -gS  end of group string (default: "end").
+#  
+#       -cS  start of comment string (default: "#").
+#  
+#       -xS  end of comment string (default: none).
+#  
+#       -i   ignore FF at start of line.
+#  
+#     Any number of file names specified will be printed, each
+#  starting on a new page.
+#  
+#     For example, to print C source files such as the Icon source
+#  code, use the following options:
+#  
+#     iprint -g ' }' -c '/*' -x '*/' file ...
+#  
+#     Control lines:
+#  
+#     Control lines are special character strings that occur at the
+#  beginnings of lines that signal special action. Control lines
+#  begin with the start of comment string (see options). The control
+#  lines currently recognized are:
+#  
+#     <comment string>eject -- page eject (line containing "eject"
+#  does not print).
+#  
+#     <comment string>title -- define a title line to print at top
+#  of each page. Title text is separated from the <comment
+#  string>title control string by one space and is terminated by
+#  <end of comment string> or end of line, whichever comes first.
+#  
+#     <comment string>subtitle -- define a sub-title line to print
+#  at top of each page. Format is parallel to the "title" control
+#  line, above.
+#  
+#     If a page eject is forced by maximum lines per page being
+#  exceeded (rather than intentional eject via control line, ff, or
+#  grouping), printing of blank lines at the top of the new page is
+#  suppressed. Line numbers will still be printed correctly.
+#  
+############################################################################
+
+global pagelines,tabsize,lines,page,datetime,title,subtitle,pagestatus,blanks,
+	group,numbers,noheaders,hstuff,gpat,comment,comment_end,laser,
+	ignore_ff
+
+procedure main(arg)
+  local files,x;
+  &dateline ? {tab(find(",")) ; move(2) ; datetime := tab(0)};
+  files := [];
+  pagelines := 60;
+  tabsize := 8;
+  gpat := "end";
+  comment := "#";
+
+  while x := get(arg) do {
+    if match("-",x) then {	# Arg is an option
+      case x[2] of {
+	"n": numbers := "yes";
+	"p": {
+	  pagelines := ("" ~== x[3:0]) | get(arg);
+	  if not (pagelines := integer(pagelines)) then
+		stop("Invalid -p parameter: ",pagelines)
+	};
+	"t": {
+	  tabsize := ("" ~== x[3:0]) | get(arg);
+	  if not (tabsize := integer(tabsize)) then
+		stop("Invalid -t parameter: ",tabsize)
+	};
+	"h": noheaders := "yes";
+	"l": laser := "yes";
+	"g": {
+	  gpat := ("" ~== x[3:0]) | get(arg)
+	};
+	"c": {
+	  comment := ("" ~== x[3:0]) | get(arg)
+	};
+	"x": {
+	  comment_end := ("" ~== x[3:0]) | get(arg)
+	};
+	"i": ignore_ff := "yes";
+	default: stop("Invalid option ",x)
+      }
+    }
+    else put(files,x)
+  };
+  if *files = 0 then stop("usage: iprint -options file ...\n_
+	options:\n_
+	\t-n\tnumber the lines\n_
+	\t-p N\tspecify lines per page (default 60)\n_
+	\t-t N\tspecify tab width (default 8)\n_
+	\t-h\tsuppress page headers\n_
+	\t-l\tadd 3 blank lines at top of each page\n_
+	\t-g S\tpattern for last line in group\n_
+	\t-c S\t'start of comment' string\n_
+	\t-x S\t'end of comment' string\n_
+	\t-i\tignore FF");
+  every x := !files do expand(x);
+end
+
+procedure expand(fn)
+  local f,line,cmd,linenbr,fname;
+  f := open(fn) | stop("Can't open ",fn);
+  fn ? {
+    while tab(find("/")) & move(1);
+    fname := tab(0)
+  };
+  hstuff := fname || "  " || datetime || "  page ";
+  title := subtitle := &null;
+  lines := pagelines;
+  page := 0 ; linenbr := 0;
+  group := [];
+  while line := trim(read(f)) do {
+    if \ignore_ff then while match("\f",line) do line[1] := "";
+    linenbr +:= 1;
+    if match("\f",line) then {
+      dumpgroup();
+      lines := pagelines;
+      repeat {
+	line[1] := "";
+	if not match("\f",line) then break
+      }
+    };
+    line ? {
+      if =comment & cmd := =("eject" | "title" | "subtitle") then {
+	dumpgroup();
+	case cmd of {		# Command line
+	  "title": (move(1) & title := trim(tab(find(comment_end)))) |
+		(title := &null);
+	  "subtitle": (move(1) & subtitle := trim(tab(find(comment_end)))) |
+		(subtitle := &null)
+	};
+	lines := pagelines
+      }
+      else {	# Ordinary (non-command) line
+	if not (*group = 0 & *line = 0) then {
+	  put(group,line);
+	  if \numbers then put(group,linenbr)
+	};
+	if endgroup(line) then dumpgroup()
+      }
+    }
+  };
+  dumpgroup();
+  close(f);
+  lines := pagelines;
+end
+
+procedure dumpgroup()
+  local line,linenbr;
+  if *group > 0 then {
+    if lines + *group / ((\numbers & 2) | 1) + 2 >= pagelines then
+	lines := pagelines
+    else {write("\n") ; lines +:= 2};
+    while line := get(group) do {
+      if \numbers then linenbr := get(group);
+      if lines >= pagelines then {
+	printhead()
+      };
+      if *line = 0 then {
+	if pagestatus ~== "empty" then {blanks +:= 1 ; lines +:= 1};
+	next
+      };
+      every 1 to blanks do write();
+      blanks := 0;
+      pagestatus := "not empty";
+      if \numbers then writes(right(linenbr,5)," ");
+      write(detab(line));
+      lines +:= 1
+    }
+  };
+  return;
+end
+
+procedure endgroup(s)
+  return match("" ~== gpat,s);
+end
+
+procedure printhead()
+  static ff,pg;
+  writes(ff) ; ff := "\f";
+  lines := 0;
+  pg := string(page +:= 1);
+  if /noheaders then {
+    if \laser then write("\n\n");
+    write(left(\title | "",79 - *hstuff - *pg),hstuff,pg);
+    lines +:= 2;
+    write(\subtitle) & lines +:= 1;
+    write()
+  };
+  pagestatus := "empty";
+  blanks := 0;
+  return;
+end
+
+procedure detab(s)
+  local t;
+  t := "";
+  s ? {
+    while t ||:= tab(find("\t")) do {
+      t ||:= repl(" ",tabsize - *t % tabsize);
+      move(1)
+    };
+    t ||:= tab(0)
+  };
+  return t;
+end
+
+#------------------------------------------------------------ 569 progs/knapsack
+############################################################################
+#
+#	File:     knapsack.icn
+#
+#	Subject:  Program to fill a container
+#
+#	Author:   Anthony V. Hewitt
+#
+#	Date:     August 8, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	Version:  1.1
+#
+############################################################################
+#                                                            
+# This filter solves a knapsack problem - how to fill a container to
+# capacity by inserting items of various volumes. 
+#
+#  input:       a string of newline-separated volumes
+#
+#  argument:    the capacity to be filled exactly
+#
+#  output:      a single solution
+#
+# It is derived from fillup.icn, which has a bewildering array of
+# options to make it applicable to real-world problems.  In 
+# contrast, knapsack is merely a demonstration of the underlying 
+# algorithm.
+#
+# The return statement in trynext() greatly improves the efficiency
+# by restricting the search to fruitful branches of the search tree.
+# While the use of multiple returns may be considered poor style,
+# such a structure is often more readable than the alternatives.  In
+# this case, it also seems to be faster.
+#
+#  Knapsack may be tested conveniently by piping to it the output
+#  of randi, a trivial program, like this:
+#   
+#  iconx randi 100 10 | iconx knapsack 250
+#  
+#  You may pick a different capacity, of course; this one just
+#  happens to produce a result quite quickly, as you might expect.
+#
+############################################################################
+ 
+global vols,chosen,capacity
+ 
+procedure main(args)
+    capacity := integer(args[1]) | stop("usage: knapsack capacity");
+    vols := []; every put(vols,0 < integer(!&input));
+    chosen := list(*vols,0);
+    # assert the requirement and write a solution
+    trynext(0,1) = capacity;
+    every write(0 < !chosen);
+    end
+ 
+#   trynext - recursively try to insert vols[n], incrementing n each
+#   time, while the knapsack is not full and the reference is within
+#   bounds
+procedure trynext(totvol,n)
+    (capacity <= totvol) & return totvol;    # prune the tree for efficiency
+    suspend trynext(totvol + (chosen[n] := (vols[n] | 0)), n+1);
+    end
+#----------------------------------------------------------------- 570 progs/lam
+############################################################################
+#
+#	File:     lam.icn
+#
+#	Subject:  Program to laminate files
+#
+#	Author:   Thomas R. Hicks
+#
+#	Date:     June 10, 1988
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     This program laminates files named on the command line onto
+#  the standard output, producing a concatenation of corresponding
+#  lines from each file named.  If the files are different lengths,
+#  empty lines are substituted for missing lines in the shorter
+#  files.  A command line argument of the form - s causes the string
+#  s to be inserted between the concatenated file lines.
+#  
+#     Each command line argument is placed in the output line at the
+#  point that it appears in the argument list.  For example, lines
+#  from file1 and file2 can be laminated with a colon between each
+#  line from file1 and the corresponding line from file2 by the com-
+#  mand
+#  
+#          lam file1 -: file2
+#  
+#     File names and strings may appear in any order in the argument
+#  list.  If - is given for a file name, standard input is read at
+#  that point.  If a file is named more than once, each of its lines
+#  will be duplicated on the output line, except that if standard
+#  input is named more than once, its lines will be read alter-
+#  nately.  For example, each pair of lines from standard input can
+#  be joined onto one line with a space between them by the command
+#  
+#          lam - "- " -
+#  
+#  while the command
+#  
+#          lam file1 "- " file1
+#  
+#  replicates each line from file1.
+#  
+############################################################################
+#
+#  Links: usage
+#
+############################################################################
+
+link usage
+
+global fndxs
+
+procedure main(a)
+   local bufs, i;
+   bufs := list(*a);
+   fndxs := [];
+   if (*a = 0) | a[1] == "?" then Usage("lam file [file | -string]...");
+   every i := 1 to *a do {
+      if a[i] == "-" then {
+         a[i] := &input;
+            put(fndxs,i)
+            }
+      else if match("-",a[i]) then {
+         bufs[i] := a[i][2:0];
+         a[i] := &null
+         }
+      else {
+         if not (a[i] := open(a[i])) then
+            stop("Can't open ",a[i])
+         else put(fndxs,i)
+         }
+     };
+   if 0 ~= *fndxs then lamr(a,bufs) else Usage("lam file [file | -string]...");
+end
+
+procedure lamr(args,bufs)
+   local i, j;
+   every i := !fndxs do
+      bufs[i] := (read(args[i]) | &null);
+   while \bufs[!fndxs] do {
+      every j := 1 to *bufs do
+         writes(\bufs[j]);
+      write();
+      every i := !fndxs do
+         bufs[i] := (read(args[i]) | &null)
+     };
+end
+#-------------------------------------------------------------- 571 progs/papply
+############################################################################
+#
+#	File:     papply.icn
+#
+#	Subject:  Program to apply procedure to lines of file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     May 31, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program applies the procedure given as a command-line argument
+#  to each line of standard input, writing out the results.  For example,
+#
+#	papply reverse <foo
+#  
+#  writes out the lines of foo reversed end-for-end.
+#
+#  As it stands, there is no way to provide other arguments.  That' easy
+#  to remedy.
+#
+#  Except for use with (built-in) functions, this program needs to be linked
+#  with procedures that might be used with it.
+#
+############################################################################
+
+invocable all
+
+procedure main(args)
+   local p, line;
+
+   p := proc(get(args)) | stop("*** invalid or missing procedure");
+
+   while line := read() do
+      write(p(line));
+
+end
+#-------------------------------------------------------------- 572 progs/patchu
+############################################################################
+#
+#	File:     patchu.icn
+#
+#	Subject:  Program to implement UNIX-like patch
+#
+#	Author:   Rich Morin
+#
+#	Date:     June 18, 1990
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program reads a source file and a diff file, producing an
+#  updated file.  The diff file may be generated by the UNIX diff(1)
+#  utility, or by diffu.icn, which uses dif.icn for the hard work.
+#
+#  The original patch(1) utility, written by Larry Wall, is widely
+#  used in the UNIX community.
+#
+#  The diff file contains edit lines, separators, and text lines.
+#  Edit lines may take the forms:
+#
+#	#a#[,#]			<- add    lines
+#	#[,#]c#[,#]		<- change lines
+#	#[,#]d#			<- delete lines
+#
+#  Change lines contain only the string "---".  All other lines are
+#  text lines.  See diff(1) in any UNIX manual for more details.
+#
+############################################################################
+#
+#  Requires:  co-expressions
+#
+############################################################################
+#
+#  Links:  options, patch
+#
+############################################################################
+
+link options, patch
+
+record diff_rec(pos, diffs)
+
+global n1, n2, n3, n4
+
+procedure main(arg)
+   local t, rev, source, dfile, diffs;
+
+  t := options(arg, "r");
+  rev := t["r"];
+
+  if *arg ~= 2 then
+    zot("usage: patchu source diffs");
+
+  source := open(arg[1]) | zot("cannot open " || arg[1]);
+  dfile  := open(arg[2]) | zot("cannot open " || arg[2]);
+
+# every write(patch(source, get_diff(dfile))) # ? shouldn't need diffs ?
+
+  diffs := [];
+  every put(diffs, get_diff(dfile));
+  every write(patch(source, diffs, rev));
+
+end
+
+
+procedure get_diff(dfile);		# get diff record
+  local ef, i1, i2, l1, l2, i, line;
+
+  repeat {
+    if ef := get_edit(dfile) then {
+#     write(">>> ",n1,", ",n2,", ",ef,", ",n3,", ",n4)
+      if ef == "a" then i1 := n1+1 else i1 := n1;
+      if ef == "d" then i2 := n3+1 else i2 := n3;
+      l1 := [];
+      l2 := [];
+      if ef == !"cd" then {
+        every i := n1 to n2 do {
+          line := !dfile | zot("unexpected end of edit data(1)");
+          if line[1:3] ~== "< " then
+            zot("bad edit data(1): " || line);
+          put(l1, line[3:0])
+        }
+      };
+
+      if ef == "c" then {
+        line := !dfile | zot("unexpected end of edit data(2)");
+        if line ~== "---" then
+          zot("bad edit data(2): " || line)
+      };
+
+      if ef == !"ac" then {
+        every i := n3 to n4 do {
+          line := !dfile | zot("unexpected end of edit data(3)");
+          if line[1:3] ~== "> " then
+            zot("bad edit data(3): " || line);
+          put(l2, line[3:0])
+        }
+      };
+      suspend [diff_rec(i1,l1), diff_rec(i2,l2)]
+    }
+    else
+      fail
+  };
+
+end
+
+
+procedure get_edit(dfile);		# get edit parameters
+  local edit, i1, i2, ef, i3, i4;
+
+  edit := !dfile | fail;
+  i1 := i2 := many(&digits, edit) | zot("bad edit spec(1): " || edit);
+  n1 := n2 := edit[1:i1];
+  if edit[i1] == "," then {
+    i2 := many(&digits, edit, i1+1) | zot("bad edit spec(2): " || edit);
+    n2 := edit[i1+1:i2]
+  };
+
+  if edit[i2] == !"acd" then {
+    ef := edit[i2];
+    i3 := i4 := many(&digits, edit, i2+1) | zot("bad edit spec(3): " || edit);
+    n3 := n4 := edit[i2+1:i3];
+    if edit[i3] == "," then {
+      i4 := many(&digits, edit, i3+1) | zot("bad edit spec(4): " || edit);
+      n4 := edit[i3+1:i4]
+    }
+  }
+  else
+    zot("bad edit spec(5): " || edit);
+
+  if i4 ~= *edit+1 then 
+    zot("bad edit spec(6): " || edit);
+
+  if not 0 <= n3 <= n4 then
+    zot("bad edit spec(7): " || edit);
+
+  if not 0 <= n1 <= n2 then
+    zot("bad edit spec(8): " || edit);
+
+  return ef;
+
+end    
+
+
+procedure zot(msg);				# exit w/message
+  write(&errout, "patchu: " || msg);
+  exit(1);
+end
+#---------------------------------------------------------------- 573 progs/rcat
+############################################################################
+#
+#	File:     rcat.icn
+#
+#	Subject:  Program to output a file from back to front
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     March 7, 2000
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#   This program outputs in reverse order the lines of one or more files.
+#   Unlike some versions of "tail -r", the input file does not need to
+#   fit in memory; but it must be seekable.
+#
+#   usage:  rcat file...
+#
+############################################################################
+
+$define BUFSIZE 65536
+
+procedure main(args)
+   local f, fname, len, i, nseg, buf, leftover, lines;
+
+   if *args = 0 then
+      stop("usage: ", &progname, " file...");
+
+   every fname := !args do {
+
+      lines := [];
+      leftover := "";
+      f := open(fname, "u") | stop("cannot open ", fname);
+      len := where(seek(f, 0)) - 1 | stop("cannot seek ", fname);
+      nseg := (len + BUFSIZE - 1) / BUFSIZE;
+
+      every i := nseg - 1 to 0 by -1 do {
+         seek(f, 1 + BUFSIZE * i);
+         (reads(f, BUFSIZE) || leftover) ? {
+            leftover := tab(upto('\n') + 1 | 0);
+            while push(lines, tab(upto('\n') + 1));
+            if not pos(0) then
+               push(lines, tab(0))
+            };
+         while writes(get(lines))
+         };
+
+      writes(leftover)
+      };
+end

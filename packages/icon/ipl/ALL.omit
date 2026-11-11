@@ -556,28 +556,16 @@ procs/xforms.icn: a library graded through its driver xforms_driver, which is th
 procs/ximage.icn: a library graded through its driver ximage_driver, which is the entry procs/ximage_driver (CONTRACT.tsv units=ref-beside, R-1269)
 procs/xrotate.icn: a library graded through its driver xrotate_driver, which is the entry procs/xrotate_driver (CONTRACT.tsv units=ref-beside, R-1269)
 procs/zipread.icn: a library graded through its driver zipread_driver, which is the entry procs/zipread_driver (CONTRACT.tsv units=ref-beside, R-1269)
-progs/applyfnc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/banner: no banner.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-progs/bfd: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/bj: no bj.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/calc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/catlines: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/chkhtml: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/choose: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/chop: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/colm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/compare: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/conman: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/cstrings: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/datmerge: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/daystil: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ddfdump: stdin ddfdump.dat is not valid UTF-8 (binary or 8-bit data) -- the container's stdin cell is text, so it would not be byte-identical to the file the ref was cut from (the same rule as a non-UTF-8 source)
-progs/delam: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/delamc: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/dellines: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/diffn: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/diffu: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/digcol: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/diskpack: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/duplfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/envelope: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -585,37 +573,27 @@ progs/evaluate: oracle produced EMPTY output when run bare, but a same-stem .dat
 progs/farb2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/filecnvt: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/fileprnt: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/filerepl: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/filesect: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/findstr: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/findtext: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/fixhqx: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/fixpath: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/fset: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/geddump: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/gediff: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/genfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/getlines: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/hcal4unx: no hcal4unx.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/hebcalen: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 progs/hebeng: no hebeng.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/hotedit: out_files names hidden file(s) .mosaic-hotlist-default .mosaic-hotlist-backup -- the staging rule admits a bare name with no leading '.' (validate_out_files_cell), so the run cannot own them; excluded rather than refused (the whole build would stop)
 progs/htget: no htget.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/huffstuf: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/icvt: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/ifilter: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/igrep: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ihelp: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iiencode: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/inter: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/interpe: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/iprint: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iprofile: no iprofile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/isize: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iundecl: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/knapsack: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/krieg: no krieg.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-progs/lam: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/lcfile: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/lineseq: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/lister: no lister.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
@@ -632,8 +610,6 @@ progs/newsrc: oracle produced EMPTY output when run bare, but a same-stem .dat c
 progs/noise: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 progs/oldicon: no oldicon.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/pack: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/papply: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
-progs/patchu: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/pbkdump: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/post: no post.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/press: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -641,7 +617,6 @@ progs/procprep: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/proto: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/psrsplit: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/ranstars: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/rcat: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/repeats: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/reply: no reply.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/setmerge: oracle produced EMPTY output -- refusing to mint a vacuous ref
