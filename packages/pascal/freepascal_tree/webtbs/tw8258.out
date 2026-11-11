@@ -1,0 +1,562 @@
+--- Variable against constant set [0, 2, 8..20, 99..192] ---
+
+100, should be true
+ u8 -> TRUE
+ s8 -> TRUE
+u16 -> TRUE
+s16 -> TRUE
+u32 -> TRUE
+s32 -> TRUE
+u64 -> TRUE
+s64 -> TRUE
+
+98, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+193, should be false
+ u8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+256, should be false
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+High(type), s8 should be true, u64/s64 should cause range check
+ u8 -> FALSE
+ s8 -> TRUE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> ERangeError: Range check error
+s64 -> ERangeError: Range check error
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error
+u8  -> TRUE
+s8  -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> ERangeError: Range check error
+
+--- Variable against set of byte with value [0, 2, 8..20, 99..192] ---
+
+100, should be true
+ u8 -> TRUE
+ s8 -> TRUE
+u16 -> TRUE
+s16 -> TRUE
+u32 -> TRUE
+s32 -> TRUE
+u64 -> TRUE
+s64 -> TRUE
+
+98, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+193, should be false
+ u8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+256, should be false
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+High(type), s8 should be true, u64/s64 should cause range check
+ u8 -> FALSE
+ s8 -> TRUE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> ERangeError: Range check error
+s64 -> ERangeError: Range check error
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error
+u8  -> TRUE
+s8  -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> ERangeError: Range check error
+
+--- constant value against constant set [0, 2, 8..20, 99..192] ---
+
+100, should be true
+100 -> TRUE
+
+98, should be false
+ 98 -> FALSE
+
+193, should be false
+193 -> FALSE
+
+256, should be false
+256 -> FALSE
+
+High(type), s8 should be true, u64/s64 should cause range check at compile time
+ u8 -> FALSE
+ s8 -> TRUE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> Error: range check error while evaluating constants
+s64 -> Error: range check error while evaluating constants
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error at compile time
+u8  -> TRUE
+s8  -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> Error: range check error while evaluating constants
+
+--- constant value against set of byte with value [0, 2, 8..20, 99..192] ---
+
+100, should be true
+100 -> TRUE
+
+98, should be false
+ 98 -> FALSE
+
+193, should be false
+193 -> FALSE
+
+256, should be false
+256 -> FALSE
+
+High(type), s8 should be true, u64/s64 should cause range check at compile time
+ u8 -> FALSE
+ s8 -> TRUE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> Error: range check error while evaluating constants
+s64 -> Error: range check error while evaluating constants
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error at compile time
+ u8 -> TRUE
+ s8 -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> Error: range check error while evaluating constants
+
+--- Variable against constant set [0, 2, 8..20] ---
+
+10, should be true
+ u8 -> TRUE
+ s8 -> TRUE
+u16 -> TRUE
+s16 -> TRUE
+u32 -> TRUE
+s32 -> TRUE
+u64 -> TRUE
+s64 -> TRUE
+
+7, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+30, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+256, should be false
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> ERangeError: Range check error
+s64 -> ERangeError: Range check error
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error
+u8  -> TRUE
+s8  -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> ERangeError: Range check error
+
+--- Variable against set of 0..31 with value [0, 2, 8..20] ---
+
+10, should be true
+ u8 -> TRUE
+ s8 -> TRUE
+u16 -> TRUE
+s16 -> TRUE
+u32 -> TRUE
+s32 -> TRUE
+u64 -> TRUE
+s64 -> TRUE
+
+7, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+30, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+256, should be false
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> ERangeError: Range check error
+s64 -> ERangeError: Range check error
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error
+u8  -> TRUE
+s8  -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> ERangeError: Range check error
+
+--- constant value against constant set [0, 2, 8..20] ---
+
+10, should be true
+10 -> TRUE
+
+7, should be false
+ 7 -> FALSE
+
+30, should be false
+30 -> FALSE
+
+256, should be false
+256 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check at compile time
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> Error: range check error while evaluating constants
+s64 -> Error: range check error while evaluating constants
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error at compile time
+u8  -> TRUE
+s8  -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> Error: range check error while evaluating constants
+
+--- constant value against set of 0..31 with value [0, 2, 8..20] ---
+
+10, should be true
+10 -> TRUE
+
+7, should be false
+ 7 -> FALSE
+
+30, should be false
+30 -> FALSE
+
+256, should be false
+256 -> FALSE
+
+High(type), all false, u64/s64 should cause range check at compile time
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> Error: range check error while evaluating constants
+s64 -> Error: range check error while evaluating constants
+
+Low(type), all unsigned true, all signed false, except s64 -> range check error at compile time
+ u8 -> TRUE
+ s8 -> FALSE
+u16 -> TRUE
+s16 -> FALSE
+u32 -> TRUE
+s32 -> FALSE
+u64 -> TRUE
+s64 -> Error: range check error while evaluating constants
+
+--- Variable against constant set [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41] ---
+
+25, should be true
+ u8 -> TRUE
+ s8 -> TRUE
+u16 -> TRUE
+s16 -> TRUE
+u32 -> TRUE
+s32 -> TRUE
+u64 -> TRUE
+s64 -> TRUE
+
+26, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+49, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+256, should be false
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> ERangeError: Range check error
+s64 -> ERangeError: Range check error
+
+Low(type), all false, except s64 -> range check error
+u8  -> FALSE
+s8  -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> ERangeError: Range check error
+
+--- constant value against constant set [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41] ---
+
+25, should be true
+25 -> TRUE
+
+26, should be false
+ 26 -> FALSE
+
+49, should be false
+49 -> FALSE
+
+256, should be false
+256 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check at compile time
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> Error: range check error while evaluating constants
+s64 -> Error: range check error while evaluating constants
+
+Low(type), all false, except s64 -> range check error at compile time
+u8  -> FALSE
+s8  -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> Error: range check error while evaluating constants
+
+--- Variable against constant set [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29] ---
+
+25, should be true
+ u8 -> TRUE
+ s8 -> TRUE
+u16 -> TRUE
+s16 -> TRUE
+u32 -> TRUE
+s32 -> TRUE
+u64 -> TRUE
+s64 -> TRUE
+
+26, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+30, should be false
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+256, should be false
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> ERangeError: Range check error
+s64 -> ERangeError: Range check error
+
+Low(type), all false, except s64 -> range check error
+u8  -> FALSE
+s8  -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> ERangeError: Range check error
+
+--- constant value against constant set [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29] ---
+
+25, should be true
+25 -> TRUE
+
+26, should be false
+ 26 -> FALSE
+
+30, should be false
+30 -> FALSE
+
+256, should be false
+256 -> FALSE
+
+High(type), should be false, u64/s64 should cause range check at compile time
+ u8 -> FALSE
+ s8 -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> Error: range check error while evaluating constants
+s64 -> Error: range check error while evaluating constants
+
+Low(type), all false, except s64 -> range check error at compile time
+u8  -> FALSE
+s8  -> FALSE
+u16 -> FALSE
+s16 -> FALSE
+u32 -> FALSE
+s32 -> FALSE
+u64 -> FALSE
+s64 -> Error: range check error while evaluating constants
+

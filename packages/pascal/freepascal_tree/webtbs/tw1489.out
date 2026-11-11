@@ -1,0 +1,10 @@
+Parameter: Hello,"This","i"s",a,"Test for"," TStringList"
+Strings:
+Hello
+This
+i
+s"
+a
+Test for
+ TStringList
+CommaText: Hello,This,i,"s""",a,"Test for"," TStringList"

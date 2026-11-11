@@ -1,0 +1,17 @@
+-> TMyObject3.NewInstance
+  -> TMyObject2.NewInstance
+    -> TMyObject1.NewInstance
+    <- TMyObject1.NewInstance
+  <- TMyObject2.NewInstance
+<- TMyObject3.NewInstance
+-> TMyObject3.Create
+  -> TMyObject2.Create
+    -> TMyObject1.Create
+    <- TMyObject1.Create
+  <- TMyObject2.Create
+<- TMyObject3.Create
+-> TMyObject3.Destroy
+  -> TMyObject2.Destroy
+  <- TMyObject2.Destroy
+<- TMyObject3.Destroy
+1r1l1f2f3f4f2l3l4l2r3r4r1o1i1c2c4c3i3o1p1j3j3p

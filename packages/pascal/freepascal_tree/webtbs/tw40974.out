@@ -1,0 +1,2 @@
+GetMem(128): MemSize returned 152, FreeMem returned 160.
+GetMem(16384): MemSize returned 16392, FreeMem returned 16416.

@@ -1,0 +1,4 @@
+*** global variable
+testproc called
+*** object field
+testproc called

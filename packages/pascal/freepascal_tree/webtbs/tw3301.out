@@ -1,0 +1,7 @@
+:  0 parameter is detected as a some other type - (18)
+:  1 parameter is detected as a some other type - (18)
+:  2 parameter is detected as a some other type - (9)
+:  3 parameter is detected as a some other type - (10)
+:  4 parameter is detected as a some other type - (10)
+
+Result is:wide string, Some other wide string, Z, Some other wide string, Some other wide string

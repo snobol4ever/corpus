@@ -1,0 +1,9 @@
+ByteBool(true) ok
+ByteBool(not false) ok
+WordBool(true) ok
+WordBool(not false) ok
+LongBool(true) ok
+LongBool(not false) ok
+QWordBool(true) ok
+QWordBool(not false) ok
+ok

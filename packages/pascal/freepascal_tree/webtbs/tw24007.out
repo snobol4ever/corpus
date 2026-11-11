@@ -1,0 +1,6 @@
+str[i] = 'a'; ord(str[2]) = 97
+str[i] = 'b'; ord(str[2]) = 98
+str[i] = 'c'; ord(str[2]) = 99
+str[i] = 'd'; ord(str[2]) = 100
+str[i] = 'e'; ord(str[2]) = 101
+str[i] = 'f'; ord(str[2]) = 102

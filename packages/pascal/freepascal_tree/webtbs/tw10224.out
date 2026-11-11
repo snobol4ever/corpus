@@ -1,0 +1,6 @@
+relative path: "four/five/test2.pp"
+relative path: "../../test2.pp"
+relative path: "four/five/test.pp"
+relative path: "../../test.pp"
+relative path: "four/five/"
+relative path: "../../"

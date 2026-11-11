@@ -1,0 +1,7 @@
+x := 1
+
+x := 1 + 1 + ...100 times ... + x, x = 101: 
+23 b of code
+
+x := x + 1 + 1 + ...100 times ..., x = 201: 
+418 b of code

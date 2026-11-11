@@ -1,0 +1,14 @@
+TBaseClass.check called
+TDer1Class.check called
+TDer2Class.check called
+TBaseClass.check called
+TDer1Class.check called
+TDer2Class.check called
+TDer2Class.check called
+TDer2Class.check called
+TBaseClass.check called
+TDer2Class.check called
+TBaseClass: x=5
+TDer1Class: x=5, y=2
+TDer2Class: x=5, z=2
+No exception generated on wrong typecast of class reference variable

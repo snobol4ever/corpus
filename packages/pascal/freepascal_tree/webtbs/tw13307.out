@@ -1,0 +1,24 @@
+DecimalSeparator  = .
+ThousandSeparator = ,
+(1) "123.456" -> 123.456
+(2) "123.456" -> 123.456
+(1) "123,456" -> Conversion Error
+(2) "123,456" -> Conversion Error
+DecimalSeparator  = ,
+ThousandSeparator = .
+(1) "123.456" -> Conversion Error
+(2) "123.456" -> Conversion Error
+(1) "123,456" -> 123,456
+(2) "123,456" -> 123,456
+DecimalSeparator  = ,
+ThousandSeparator = ,
+(1) "123.456" -> Conversion Error
+(2) "123.456" -> Conversion Error
+(1) "123,456" -> 123,456
+(2) "123,456" -> 123,456
+DecimalSeparator  = .
+ThousandSeparator = .
+(1) "123.456" -> 123.456
+(2) "123.456" -> 123.456
+(1) "123,456" -> Conversion Error
+(2) "123,456" -> Conversion Error

@@ -1,0 +1,15 @@
+VType of Currency element is: 12--------Ok
+VType of Interface(nil) element is: 14--------Ok
+VType of Interface element is: 14--------Ok
+VType of Class Object(nil) element is: 7--------Ok
+VType of Class element is: 8--------Ok
+VType of QWord element is: 17--------Ok
+VarType of Currency variant is: 6--------Ok
+VarType of Datetime variant is: 7--------Ok
+VarType of Interface variant is: 13--------Ok
+VarType of QWord variant is: 21--------Ok
+high of longword is: 4294967295 FFFFFFFF
+high of int64 is: 9223372036854775807 7FFFFFFFFFFFFFFF
+high of quadword is: 18446744073709551615 FFFFFFFFFFFFFFFF
+
+All passed

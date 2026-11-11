@@ -1,0 +1,23 @@
+
+str: "something"
+len (must be 9) : 9
+
+Try to access ws[1] OK
+Try to access ws[2] OK
+Try to access ws[3] OK
+Try to access ws[4] OK
+Try to access ws[5] OK
+Try to access ws[6] OK
+Try to access ws[7] OK
+Try to access ws[8] OK
+Try to access ws[9] OK
+Try to access ws[10] OK (got a range-check error as expected)
+Try to access ws[11] OK (got a range-check error as expected)
+Try to access ws[12] OK (got a range-check error as expected)
+Try to access ws[13] OK (got a range-check error as expected)
+Try to access ws[14] OK (got a range-check error as expected)
+Try to access ws[15] OK (got a range-check error as expected)
+Try to access ws[16] OK (got a range-check error as expected)
+Try to access ws[17] OK (got a range-check error as expected)
+Try to access ws[18] OK (got a range-check error as expected)
+Try to access ws[19] OK (got a range-check error as expected)

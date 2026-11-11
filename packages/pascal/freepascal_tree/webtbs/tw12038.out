@@ -1,0 +1,221 @@
+numi: 7
+Propriete 1 = FP2
+Property Type : AnsiString
+Getter :0000000000000010
+Setter :0000000000000010
+StoredProc :0000000000000001
+Index :0
+Default :0
+NameIndex :0
+
+Propriete 2 = OnArray
+Property Type : TArray
+Getter :0000000000000068
+Setter :0000000000000068
+StoredProc :0000000000000001
+Index :0
+Default :-2147483648
+NameIndex :3
+>>> Methode Type >>>
+Number of Parameters : 5
+Parameter List : 
+ord(Flags):128
+Length type:7
+ParamName:1:$self
+TypeName:1:Pointer
+ord(Flags):21
+Length type:10
+ParamName:2:Array1
+TypeName:2:AnsiString
+ord(Flags):130
+Length type:5
+ParamName:3:$highARRAY1
+TypeName:3:Int64
+ord(Flags):2
+Length type:7
+ParamName:4:P
+TypeName:4:Pointer
+ord(Flags):32
+Length type:5
+ParamName:5:Out1
+TypeName:5:Int64
+function (var array of reference ?Array1: AnsiString; const P: Pointer; out Out1: Int64): Int64 of object;
+
+Propriete 3 = OnFive
+Property Type : TOnFive
+Getter :0000000000000038
+Setter :0000000000000038
+StoredProc :0000000000000001
+Index :0
+Default :-2147483648
+NameIndex :5
+>>> Methode Type >>>
+Number of Parameters : 5
+Parameter List : 
+ord(Flags):128
+Length type:7
+ParamName:1:$self
+TypeName:1:Pointer
+ord(Flags):8
+Length type:10
+ParamName:2:Component1
+TypeName:2:TComponent
+ord(Flags):9
+Length type:10
+ParamName:3:Component2
+TypeName:3:TComponent
+ord(Flags):40
+Length type:10
+ParamName:4:Component3
+TypeName:4:TComponent
+ord(Flags):10
+Length type:10
+ParamName:5:Component4
+TypeName:5:TComponent
+procedure (adresse ?Component1: TComponent; var adresse ?Component2: TComponent; adresse ?out Component3: TComponent; const adresse ?Component4: TComponent) of object;
+
+Propriete 4 = OnFour
+Property Type : TOnFour
+Getter :0000000000000028
+Setter :0000000000000028
+StoredProc :0000000000000001
+Index :0
+Default :-2147483648
+NameIndex :4
+>>> Methode Type >>>
+Number of Parameters : 9
+Parameter List : 
+ord(Flags):128
+Length type:7
+ParamName:1:$self
+TypeName:1:Pointer
+ord(Flags):20
+Length type:4
+ParamName:2:A
+TypeName:2:Byte
+ord(Flags):130
+Length type:5
+ParamName:3:$highA
+TypeName:3:Int64
+ord(Flags):22
+Length type:4
+ParamName:4:B
+TypeName:4:Byte
+ord(Flags):130
+Length type:5
+ParamName:5:$highB
+TypeName:5:Int64
+ord(Flags):21
+Length type:4
+ParamName:6:C
+TypeName:6:Byte
+ord(Flags):130
+Length type:5
+ParamName:7:$highC
+TypeName:7:Int64
+ord(Flags):52
+Length type:4
+ParamName:8:D
+TypeName:8:Byte
+ord(Flags):130
+Length type:5
+ParamName:9:$highD
+TypeName:9:Int64
+function (array of reference ?A: Byte; const array of reference ?B: Byte; var array of reference ?C: Byte; array of reference ?out D: Byte): TComponent of object;
+
+Propriete 5 = OnProcess
+Property Type : TProcess
+Getter :0000000000000058
+Setter :0000000000000058
+StoredProc :0000000000000001
+Index :0
+Default :-2147483648
+NameIndex :2
+>>> Methode Type >>>
+Number of Parameters : 3
+Parameter List : 
+ord(Flags):128
+Length type:7
+ParamName:1:$self
+TypeName:1:Pointer
+ord(Flags):1
+Length type:10
+ParamName:2:S
+TypeName:2:AnsiString
+ord(Flags):2
+Length type:7
+ParamName:3:A
+TypeName:3:LongInt
+function (var S: AnsiString; const A: LongInt): Int64 of object;
+
+Propriete 6 = OnSix
+Property Type : TOnSix
+Getter :0000000000000048
+Setter :0000000000000048
+StoredProc :0000000000000001
+Index :0
+Default :-2147483648
+NameIndex :6
+>>> Methode Type >>>
+Number of Parameters : 9
+Parameter List : 
+ord(Flags):128
+Length type:7
+ParamName:1:$self
+TypeName:1:Pointer
+ord(Flags):129
+Length type:10
+ParamName:2:$result
+TypeName:2:AnsiString
+ord(Flags):2
+Length type:10
+ParamName:3:A
+TypeName:3:AnsiString
+ord(Flags):1
+Length type:7
+ParamName:4:Two
+TypeName:4:LongInt
+ord(Flags):40
+Length type:9
+ParamName:5:Three
+TypeName:5:TMyObject
+ord(Flags):0
+Length type:8
+ParamName:6:Four
+TypeName:6:PInteger
+ord(Flags):20
+Length type:4
+ParamName:7:Five
+TypeName:7:Byte
+ord(Flags):130
+Length type:5
+ParamName:8:$highFIVE
+TypeName:8:Int64
+ord(Flags):0
+Length type:7
+ParamName:9:Six
+TypeName:9:LongInt
+function (const A: AnsiString; var Two: LongInt; adresse ?out Three: TMyObject; Four: PInteger; array of reference ?Five: Byte; Six: LongInt): AnsiString of object;
+
+Propriete 7 = OnTraitement
+Property Type : TBatch
+Getter :0000000000000018
+Setter :0000000000000018
+StoredProc :0000000000000001
+Index :0
+Default :-2147483648
+NameIndex :1
+>>> Methode Type >>>
+Number of Parameters : 2
+Parameter List : 
+ord(Flags):128
+Length type:7
+ParamName:1:$self
+TypeName:1:Pointer
+ord(Flags):1
+Length type:10
+ParamName:2:S
+TypeName:2:AnsiString
+procedure (var S: AnsiString) of object;
+The Batch execute the procedure TMyObject.ProcNo1
+

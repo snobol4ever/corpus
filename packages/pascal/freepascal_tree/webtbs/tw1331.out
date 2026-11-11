@@ -1,0 +1,12 @@
+PropertyName=DummyEnum4
+0: 'tr3'
+1: 'tr4'
+PropertyName=DummyEnum3
+0: 'tr3'
+1: 'tr4'
+PropertyName=DummyEnum2
+0: 'tr1'
+1: 'tr2'
+PropertyName=DummyEnum1
+0: 'tr1'
+1: 'tr2'

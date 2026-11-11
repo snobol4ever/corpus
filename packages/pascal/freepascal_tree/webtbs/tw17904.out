@@ -1,0 +1,30 @@
+u8:    145, 17
+u16:    146, 18
+u32:    147, 19
+s8:     144, 16
+s16:    130, 2
+s32:    131, 3
+s64:    148, 20
+u64:    149, 21
+wordbool:139, 11
+curncy:  134, 6
+single:  132, 4
+double:  133, 5
+extended:5, 5
+date:    135, 7
+ansistr: 200, 72
+widestr: 201, 73
+unistr:  201, 73
+variant: 140, 12
+IUnknown:141, 13
+IDispatch:137, 9
+shortstr:73, 73
+longbool:11, 11
+u8+cast: 17, 17
+u16+cast:18, 18
+u32+cast:19, 19
+u64+cast:21, 21
+s8+cast:16, 16
+s16+cast:2, 2
+s32+cast:3, 3
+s64+cast:20, 20

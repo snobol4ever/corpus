@@ -1,0 +1,9 @@
+@S0            = 4346208
+@S1            = 4346224
+@S2            = 4346240
+Table[0].Name  = 4346208
+Table[1].Name  = 4346224
+Table[2].Name  = 4346240
+Table[0].Name^ = Obj-0
+Table[1].Name^ = Obj-1
+Table[2].Name^ = Obj-2

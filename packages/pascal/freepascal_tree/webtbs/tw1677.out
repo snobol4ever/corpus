@@ -1,0 +1,7 @@
+init
+Ref count is 2
+p1()
+Ref count is 2 expected 2
+p2()
+Ref count is 2 expected 2
+ok

@@ -1,0 +1,22 @@
+Before: 0 0 0 0
+
+a[NextIndex()] += 1...
+Incrementing 0th element
+Incrementing 1th element
+1 0 0 0
+
+a[NextIndex()] += 2...
+Incrementing 2th element
+Incrementing 3th element
+1 0 2 0
+
+a[NextIndex()] += 4...
+Incrementing 0th element
+Incrementing 1th element
+4 0 2 0
+
+a[NextIndex()] += 8...
+Incrementing 2th element
+Incrementing 3th element
+4 0 8 0
+

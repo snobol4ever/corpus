@@ -1,0 +1,10 @@
+
+Expanding "C:\Windows1\System"
+To become "/tmp/s4e/coo/mine_g31mhexl/f/C:/Windows1/System"
+
+Expanding "\\.\C\Windows1\System"
+To become "//C/Windows1/System"
+
+Expanding "C:\Windows1\System"
+To become "/tmp/s4e/coo/mine_g31mhexl/f/C:/Windows1/System"
+ERROR!

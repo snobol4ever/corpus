@@ -1,0 +1,5 @@
+Testing default rounding mode
+Testing round to nearest/even (should be same as default)
+Testing round up
+Testing round down
+Testing round to zero (truncate)

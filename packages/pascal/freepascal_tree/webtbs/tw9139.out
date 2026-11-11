@@ -1,0 +1,10 @@
+TTestBase result:
+base result
+
+TTestImpl result:
+pass 1
+pass 2
+pass 3
+result: parent meth
+pass 4
+parent meth

@@ -1,0 +1,3 @@
+Regex: Trim(s1) = >>as.*0<<
+Test: Trim(s2) = >>ascii_lf1<<
+No Match

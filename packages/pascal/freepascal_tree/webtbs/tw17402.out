@@ -1,0 +1,2 @@
+TNodeCylinder: Default TrianglesCount implementation, passes the call to the Proxy or must be overridden
+2

@@ -1,0 +1,2 @@
+Line "c:=..." raised EInvalidOp: Invalid floating point operation
+EOverflow exception expected

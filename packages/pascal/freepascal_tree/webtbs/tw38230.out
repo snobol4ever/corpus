@@ -1,0 +1,7 @@
+child thread: exDenormalized, exUnderflow, exPrecision, 
+thread: exDenormalized, exUnderflow, exPrecision, 
+after setting ExDenormalized mask: exDenormalized, 
+child thread: exDenormalized, 
+thread: exDenormalized, 
+after setting ExDenormalized mask: exDenormalized, 
+main: exDenormalized, exUnderflow, exPrecision, 

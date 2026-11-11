@@ -11,3 +11,7 @@ THE FIRST FOLDER IS `tbs` (784 programs): 205 entries; 431 print nothing on stan
 same answer); 85 are units; 49 fpc refuses as they stand (a missing unit of the tree's `units` folder, an option the test asks for in a
 `%OPT` line); the rest need a display, input or the network, or answer differently twice. The folders `test`, `webtbs`, `tbf` and `webtbf`
 follow, one a landing. An entry is graded on standard output and exit status.
+
+THE SECOND FOLDER IS `webtbs` (2,758 programs, added with `--mine-under webtbs --mine-add`, 2026-11-11): 853 entries; 1,151 print nothing; 320 are
+units; 369 fpc refuses as they stand; 26 need input, 26 differ between runs, 9 need a display, 2 the network, 2 do not end. The suite is 1,058
+entries. The folders `test`, `tbf` and `webtbf` follow.

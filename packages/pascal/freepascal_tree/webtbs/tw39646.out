@@ -1,0 +1,16 @@
+Testing "(UInt64 div 100000000) and $FF" with implicit typecast to Integer:
+- Input = 0 ... Passed
+- Input = 1 ... Passed
+- Input = 100000001 ... Passed
+- Input = 4000000385 ... Passed
+- Input = 5000000006 ... Passed
+- Input = 25700000385 ... Passed
+
+Testing "(UInt64 mod 100000000) and $FF" with implicit typecast to Integer:
+- Input = 0 ... Passed
+- Input = 1 ... Passed
+- Input = 100000001 ... Passed
+- Input = 4000000385 ... Passed
+- Input = 5000000006 ... Passed
+- Input = 25700000385 ... Passed
+ok

@@ -1,0 +1,21 @@
+p + 2 points at element #2
+ok
+
+p + 2 + 3 points at element #5
+ok
+
+p + 2 + 3 + 5 points at element #10
+ok
+
+pBaseType(pBaseType(p + 2) + 3) + 5 points at element #10
+ok
+
+pBaseType(pointer(pBaseType(pointer(p + 2)) + 3)) + 5 points at element #10
+ok
+
+p + (2 + 3 + 5) points at element #10
+ok
+
+p + 2 + 3 + 5 + 7 points at element #17
+ok
+

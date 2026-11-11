@@ -1,0 +1,19 @@
+testing push/pop global_proc
+testing push/pop word [global_proc]
+testing push/pop word ptr global_proc
+testing push/pop word ptr [global_proc]
+testing push/pop global_word
+testing push/pop global_int64
+testing push/pop word [global_int64]
+testing push/pop word ptr global_int64
+testing push/pop word ptr [global_int64]
+testing push/pop local_proc
+testing push/pop word [local_proc]
+testing push/pop word ptr local_proc
+testing push/pop word ptr [local_proc]
+testing push/pop local_word
+testing push/pop local_int64
+testing push/pop word [local_int64]
+testing push/pop word ptr local_int64
+testing push/pop word ptr [local_int64]
+Ok!

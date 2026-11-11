@@ -1,0 +1,5 @@
+31 concatenated string literals, completely folded:
+25 b of code
+
+1 dynamic string concatenated with 31 literals, they could fold but didn't at all:
+620 b of code

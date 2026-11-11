@@ -1,0 +1,20 @@
+TArray<Integer> Name:    TArray$1$crc9F312717
+Name mismatch
+   Expected: TArray<System.LongInt>
+   Actual: TArray$1$crc9F312717
+TArray<string> Name:    TArray$1$crc6824777A
+Name mismatch
+   Expected: TArray<System.AnsiString>
+   Actual: TArray$1$crc6824777A
+TArray<TMyClass> Name:    TArray$1$crc0EBA89EB
+Name mismatch
+   Expected: TArray<tw41526.TMyClass>
+   Actual: TArray$1$crc0EBA89EB
+TArray<TMyRecord> Name:    TArray$1$crc97B3D851
+Name mismatch
+   Expected: TArray<tw41526.TMyRecord>
+   Actual: TArray$1$crc97B3D851
+TArray<IMyInterface> Name:    TArray$1$crc09D74DF2
+Name mismatch
+   Expected: TArray<tw41526.IMyInterface>
+   Actual: TArray$1$crc09D74DF2

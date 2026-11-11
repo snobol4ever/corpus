@@ -1,0 +1,6 @@
+DefaultSystemCodePage = 65001
+sutf8: [65001] E2 82 AC: Ok
+s    : [01252] 80: Ok
+s1252: [01252] 80: Ok
+us   : 20AC: Ok
+us   : 20AC: Ok

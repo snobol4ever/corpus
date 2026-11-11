@@ -1,0 +1,5 @@
+(Double) Dbl * Ccy1 = 1501250 expected 1_501_250 SameValue: TRUE
+(Double) Dbl * Ccy1 = 1.501250 expected 1.50125 SameValue: TRUE
+(Currency) Dbl * Ccy1 = 1501250 expected 1_501_250 SameValue: TRUE
+(Double) Dbl * Int64(Ccy1)) / 10000 = 1501250 expected 1_501_250 SameValue: TRUE
+Dbl / Ccy1 =  1.501250 expected 1.50125 SameValue: TRUE

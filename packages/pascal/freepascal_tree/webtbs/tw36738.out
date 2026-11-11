@@ -1,0 +1,20 @@
+Yes, TMyRecSpec is a managed type
+MyGenRec.GenField.Field1 = 101
+MyGenRec.GenField.Field2 = 1001
+MyGenRec2.GenField.Field1 = 101
+MyGenRec2.GenField.Field2 = 1001
+201
+2001
+MyGenRec2.GenField.Field1 = 201
+MyGenRec2.GenField.Field2 = 2001
+
+Yes, TSimpleRec is a managed type
+MyRec.MngField.Field1 = 101
+MyRec.MngField.Field2 = 1001
+MyRec2.MngField.Field1 = 101
+MyRec2.MngField.Field2 = 1001
+201
+2001
+MyRec2.MngField.Field1 = 201
+MyRec2.MngField.Field2 = 2001
+ok

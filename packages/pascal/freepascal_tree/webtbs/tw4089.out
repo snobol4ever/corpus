@@ -1,0 +1,5 @@
+Kind: tkInterface
+Name: "itest2"
+IntfParent: 4854296
+Guid: 441492708
+IntfUnit: "project1"

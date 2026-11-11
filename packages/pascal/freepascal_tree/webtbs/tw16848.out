@@ -1,0 +1,7 @@
+BoolToStr(False, True): False
+BoolToStr(True, True): True
+BoolStrs = Não;Sim
+BoolToStr(False, True): Não
+BoolToStr(True, True): Sim
+StrToBool(Não) = Não
+StrToBool(Sim) = Sim

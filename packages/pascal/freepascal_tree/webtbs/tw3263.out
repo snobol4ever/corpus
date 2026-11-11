@@ -1,0 +1,3 @@
+TDerived.Create(aParam)
+TDerived.Create
+TAnscestor.Create

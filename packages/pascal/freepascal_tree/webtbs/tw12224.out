@@ -1,0 +1,9 @@
+Reading :
+ Using GetUnicodeStrProp() : azerty
+ Using GetStrProp() : azerty
+ Using GetWideStrProp() : azerty
+Writing :
+ Using SetUnicodeStrPr() : azerty
+ Using SetStrPr() : azerty
+ Using SetWideStrPr() : azerty
+ok

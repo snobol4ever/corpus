@@ -1,0 +1,38 @@
+-> TMyObject3.NewInstance
+  -> TMyObject2.NewInstance
+    -> TMyObject1.NewInstance
+    <- TMyObject1.NewInstance
+  <- TMyObject2.NewInstance
+<- TMyObject3.NewInstance
+-> TMyObject3.Create
+  -> TMyObject2.Create
+    -> TMyObject1.Create
+    <- TMyObject1.Create
+  <- TMyObject2.Create
+<- TMyObject3.Create
+-> TMyObject3.AfterConstruction
+  -> TMyObject2.AfterConstruction
+    -> TMyObject1.AfterConstruction
+    <- TMyObject1.AfterConstruction
+  <- TMyObject2.AfterConstruction
+<- TMyObject3.AfterConstruction
+1r1l1f2f3f4f2l3l4l2r3r4r1o1i1c2c3c4c5c2i3i4i2o3o4o1m1g1a2a3a4a2g3g4g2m3m4m
+-> TMyObject3.BeforeDestruction
+  -> TMyObject2.BeforeDestruction
+    -> TMyObject1.BeforeDestruction
+    <- TMyObject1.BeforeDestruction
+  <- TMyObject2.BeforeDestruction
+<- TMyObject3.BeforeDestruction
+-> TMyObject3.Destroy
+  -> TMyObject2.Destroy
+    -> TMyObject1.Destroy
+    <- TMyObject1.Destroy
+  <- TMyObject2.Destroy
+<- TMyObject3.Destroy
+-> TMyObject3.FreeInstance
+  -> TMyObject2.FreeInstance
+    -> TMyObject1.FreeInstance
+    <- TMyObject1.FreeInstance
+  <- TMyObject2.FreeInstance
+<- TMyObject3.FreeInstance
+ok1n1h1b2b3b4b2h3h4h2n3n4n1p1j1d2d3d4d2j3j4j2p3p4p1q1k1e2e3e4e2k3k4k2q3q4q

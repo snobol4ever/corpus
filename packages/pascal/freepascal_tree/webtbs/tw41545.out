@@ -1,0 +1,122 @@
+Testing GetVK Function
+======================
+
+-- Digit tests --
+[PASS] GetVK('0') = VK_0
+[PASS] GetVK('5') = VK_0 + 5
+[PASS] GetVK('9') = VK_0 + 9
+[PASS] Digit 0 maps to $30
+[PASS] Digit 1 maps to $31
+[PASS] Digit 2 maps to $32
+[PASS] Digit 3 maps to $33
+[PASS] Digit 4 maps to $34
+[PASS] Digit 5 maps to $35
+[PASS] Digit 6 maps to $36
+[PASS] Digit 7 maps to $37
+[PASS] Digit 8 maps to $38
+[PASS] Digit 9 maps to $39
+
+-- Uppercase letter tests --
+[PASS] GetVK('A') = VK_A
+[PASS] GetVK('M') = VK_A + 12
+[PASS] GetVK('Z') = VK_A + 25
+[PASS] Uppercase A maps to $41
+[PASS] Uppercase B maps to $42
+[PASS] Uppercase C maps to $43
+[PASS] Uppercase D maps to $44
+[PASS] Uppercase E maps to $45
+[PASS] Uppercase F maps to $46
+[PASS] Uppercase G maps to $47
+[PASS] Uppercase H maps to $48
+[PASS] Uppercase I maps to $49
+[PASS] Uppercase J maps to $4A
+[PASS] Uppercase K maps to $4B
+[PASS] Uppercase L maps to $4C
+[PASS] Uppercase M maps to $4D
+[PASS] Uppercase N maps to $4E
+[PASS] Uppercase O maps to $4F
+[PASS] Uppercase P maps to $50
+[PASS] Uppercase Q maps to $51
+[PASS] Uppercase R maps to $52
+[PASS] Uppercase S maps to $53
+[PASS] Uppercase T maps to $54
+[PASS] Uppercase U maps to $55
+[PASS] Uppercase V maps to $56
+[PASS] Uppercase W maps to $57
+[PASS] Uppercase X maps to $58
+[PASS] Uppercase Y maps to $59
+[PASS] Uppercase Z maps to $5A
+
+-- Lowercase letter tests --
+[PASS] GetVK('a') = VK_A
+[PASS] GetVK('m') = VK_A + 12
+[PASS] GetVK('z') = VK_A + 25
+[PASS] Lowercase a maps to $41
+[PASS] Lowercase b maps to $42
+[PASS] Lowercase c maps to $43
+[PASS] Lowercase d maps to $44
+[PASS] Lowercase e maps to $45
+[PASS] Lowercase f maps to $46
+[PASS] Lowercase g maps to $47
+[PASS] Lowercase h maps to $48
+[PASS] Lowercase i maps to $49
+[PASS] Lowercase j maps to $4A
+[PASS] Lowercase k maps to $4B
+[PASS] Lowercase l maps to $4C
+[PASS] Lowercase m maps to $4D
+[PASS] Lowercase n maps to $4E
+[PASS] Lowercase o maps to $4F
+[PASS] Lowercase p maps to $50
+[PASS] Lowercase q maps to $51
+[PASS] Lowercase r maps to $52
+[PASS] Lowercase s maps to $53
+[PASS] Lowercase t maps to $54
+[PASS] Lowercase u maps to $55
+[PASS] Lowercase v maps to $56
+[PASS] Lowercase w maps to $57
+[PASS] Lowercase x maps to $58
+[PASS] Lowercase y maps to $59
+[PASS] Lowercase z maps to $5A
+
+-- Case insensitivity tests --
+[PASS] GetVK('a') = GetVK('A')
+[PASS] GetVK('z') = GetVK('Z')
+[PASS] A and a produce same VK
+[PASS] B and b produce same VK
+[PASS] C and c produce same VK
+[PASS] D and d produce same VK
+[PASS] E and e produce same VK
+[PASS] F and f produce same VK
+[PASS] G and g produce same VK
+[PASS] H and h produce same VK
+[PASS] I and i produce same VK
+[PASS] J and j produce same VK
+[PASS] K and k produce same VK
+[PASS] L and l produce same VK
+[PASS] M and m produce same VK
+[PASS] N and n produce same VK
+[PASS] O and o produce same VK
+[PASS] P and p produce same VK
+[PASS] Q and q produce same VK
+[PASS] R and r produce same VK
+[PASS] S and s produce same VK
+[PASS] T and t produce same VK
+[PASS] U and u produce same VK
+[PASS] V and v produce same VK
+[PASS] W and w produce same VK
+[PASS] X and x produce same VK
+[PASS] Y and y produce same VK
+[PASS] Z and z produce same VK
+
+-- Invalid character tests --
+[PASS] GetVK(' ') = 0 (space)
+[PASS] GetVK('!') = 0
+[PASS] GetVK('@') = 0
+[PASS] GetVK('[') = 0
+[PASS] GetVK(#0) = 0 (null)
+
+======================
+Tests passed: 104
+Tests failed: 0
+
+All tests PASSED!

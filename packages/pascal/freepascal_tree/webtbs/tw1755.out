@@ -1,0 +1,3 @@
+assigned(nil): nil
+assigned(pointer(0)): nil
+assigned(pointer(10000)): assigned

@@ -1,0 +1,10 @@
+Test VarAsType
+TMyVariant.Cast
+now v is TMyVariant
+TMyVariant.CastTo
+now d is Integer
+Test VarCast
+TMyVariant.Cast
+now v is TMyVariant
+TMyVariant.CastTo
+now d is Integer
