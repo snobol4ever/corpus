@@ -1,0 +1,426 @@
+**********************************
+ NETWORK PARSE_CLAUSE
+**********************************
+    S1
+        IF PARSE_NOUN_GROUP(THIS_NODE) GOTO S2
+        AFTER SETR('SUBJECT',LAST_PARSED)
+        ENDIF
+    END S1
+**********************************
+    S2
+        IF PARSE_WORD(THIS_NODE,'VERB TENSED ') GOTO S3
+        AFTER SETR('VERB',LAST_PARSED)
+        ENDIF
+    END S2
+**********************************
+    S3
+        IF    TESTF(LAST_PARSED,'BE ')
+        PARSE_WORD(THIS_NODE,'PASTPARTICIPLE ') GOTO S4
+        AFTER    SETR('OBJECT',GETR('SUBJECT'))
+            SETR('SUBJECT')
+            SETR('VERB',LAST_PARSED)
+        ENDIF
+        IF    TESTF(GETR('VERB'),'TRANSITIVE ')
+        PARSE_NOUN_GROUP(THIS_NODE) GOTO S4
+        AFTER SETR('OBJECT',LAST_PARSED)
+        ENDIF
+        IF TESTF(GETR('VERB'),'INTRANSITIVE ') GOTO S4 ENDIF
+        IF ~NULL(GETR('OBJECT')) GOTO S4 ENDIF
+    END S3
+**********************************
+    S4
+        IF    ~NULL(GETR('SUBJECT'))
+        NULL(REMAINING_WORDS) GOTO WIN
+        ENDIF
+        IF    NULL(GETR('SUBJECT'))
+        IDENT(CURRENT_WORD,'BY')
+        PARSE_WORD(THIS_NODE) GOTO S5
+        ENDIF
+        IF NULL(GETR('SUBJECT')) GOTO S4
+        AFTER SETR('SUBJECT','SOMEONE')
+        ENDIF
+    END S4
+**********************************
+    S5
+        IF PARSE_NOUN_GROUP(THIS_NODE) GOTO S4
+        AFTER SETR('SUBJECT',LAST_PARSED)
+        ENDIF
+    END S5
+ END PARSE_CLAUSE
+
+790209 milliseconds compile time
+
+
+**********************************
+ NETWORK PARSE_NOUN_GROUP
+**********************************
+    S1
+        IF PARSE_WORD(THIS_NODE,'DETERMINER ') GOTO S2
+        AFTER SETR('NUMBER',
+               SELECT('SINGULAR PLURAL ',
+                  GETF(LAST_PARSED)))
+              SETR('DETERMINER',
+               SELECT('DEFINITE INDEFINITE ',
+                  GETF(LAST_PARSED)))
+        ENDIF
+    END S1
+**********************************
+    S2
+        IF PARSE_WORD(THIS_NODE,'ADJECTIVE ') GOTO S2
+         AFTER ADDR('ADJECTIVES',LAST_PARSED)
+        ENDIF
+        IF PARSE_WORD(THIS_NODE,'NOUN ') GOTO WIN
+         AFTER SETR('NUMBER',
+                SELECT('SINGULAR PLURAL ',
+                   GETF(LAST_PARSED)))
+               SETR('NOUN',LAST_PARSED)
+        ENDIF
+    END S2
+ END PARSE_NOUN_GROUP
+
+272587 milliseconds compile time
+
+
+**********************************
+ NETWORK PARSE_WORD
+    S1
+        IF NULL(null) GOTO WIN
+        AFTER PARSE_WORD_1()
+        ENDIF
+    END S1
+ END PARSE_WORD
+
+107754 milliseconds compile time
+
+
+**********************************
+ FUNCTION PARSE_WORD_1 () ()
+    THIS_NODE = CURRENT_WORD ;
+    REMAINING_WORDS BREAK(" ") SPAN(" ") = ;
+    REMAINING_WORDS (BREAK(" ") | null) $ CURRENT_WORD    :(RETURN) ;
+ END PARSE_WORD_1
+
+20980 milliseconds compile time
+
+
+**********************************
+ FUNCTION SETR (REGISTER,VALUE) ()
+    PUT(THIS_NODE,VALUE,REGISTER)        :(RETURN) ;
+ END SETR
+
+13857 milliseconds compile time
+
+
+**********************************
+ FUNCTION GETR (REGISTER) ()
+    GETR = GET(THIS_NODE,REGISTER)        :(RETURN) ;
+ END GETR
+
+16221 milliseconds compile time
+
+
+**********************************
+ FUNCTION ADDR (REGISTER,VALUE) ()
+    SETR(REGISTER,GETR(REGISTER) VALUE " ")    :(RETURN) ;
+ END ADDR
+
+3254926 milliseconds compile time
+
+
+**********************************
+ FUNCTION GENNAME (X) ()
+    GENNAME =
+        '*' X '_' &STCOUNT '*'
+        :(RETURN) ;
+ END GENNAME
+
+41860 milliseconds compile time
+
+
+**********************************
+ FUNCTION ATTACH (C,P) ()
+    PUT(C,P,'PARENT') ;
+    PUT(P,GET(P,'CHILDREN') C " ",'CHILDREN')
+        :(RETURN) ;
+ END ATTACH
+
+36489 milliseconds compile time
+
+
+**********************************
+ FUNCTION SELECT (S,T) ()
+    S (BREAK(" ") $ SELECT) SPAN(" ") =    :F(FRETURN) ;
+    T (POS(0) | " ") SELECT " "
+        :S(RETURN)F(SELECT) ;
+ END SELECT
+
+36309 milliseconds compile time
+
+
+**********************************
+ FUNCTION TESTF (X,F) (W,G)
+    NULL(F)        :S(RETURN) ;
+    G = GETF(X) ;
+TESTF1
+    F (BREAK(" ") $ W) SPAN(" ") =    :F(RETURN) ;
+    G (POS(0) | " ") W " "    :S(TESTF)F(FRETURN) ;
+ END TESTF
+
+46549 milliseconds compile time
+
+
+**********************************
+ FUNCTION GETF (X) ()
+    GETF = LEXICAL_FEATURES[X] :(RETURN) ;
+ END GETF
+
+32091 milliseconds compile time
+
+
+**********************************
+ LEXICON L1
+    <* >NOUN >SINGULAR BLOCK BOY
+    <* >DETERMINER >SINGULAR >INDEFINITE A
+               <SINGULAR >DEFINITE THE
+    <* >VERB >TENSED >TRANSITIVE >INTRANSITIVE >PASTPARTICIPLE DROPPED
+         <TENSED >BE WAS
+    <* >ADJECTIVE BIG RED
+    <* >PREPOSITION BY
+    <*
+ END L1
+     | BLOCK:  NOUN SINGULAR 
+     | BOY:  NOUN SINGULAR 
+     | A:  DETERMINER SINGULAR INDEFINITE 
+     | THE:  DETERMINER SINGULAR DEFINITE 
+     | DROPPED:  VERB TENSED TRANSITIVE INTRANSITIVE PASTPARTICIPLE 
+     | WAS:  VERB TENSED BE 
+     | BIG:  ADJECTIVE 
+     | RED:  ADJECTIVE 
+     | BY:  PREPOSITION 
+
+236369 milliseconds compile time
+
+
+**********************************
+ SENTENCES S1
+    A BIG RED BLOCK WAS DROPPED BY THE BOY ;
+    THE BOY DROPPED A BIG RED BLOCK ;
+    A BLOCK WAS DROPPED ;
+    THE BLOCK DROPPED ;
+ END S1
+
+694107 milliseconds compile time
+
+
+**********************************
+ EXEC PARSE_CLAUSE("SENTENCE",null)
+
+
+****** EXECUTION BEGINS WITH PARSE_CLAUSE("SENTENCE",null) ******
+
+
+
+------------------
+
+THE BLOCK DROPPED 
+
+------------------
+
+
+Parsing Succeeded
+
+257308 milliseconds used
+
+
+NODE: THE
+          PARENT = *PARSE_NOUN_GROUP_2443*
+
+NODE: *PARSE_NOUN_GROUP_2443*
+          CHILDREN = THE BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = DEFINITE
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_2436*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_2443*
+
+NODE: *PARSE_CLAUSE_2436*
+          CHILDREN = *PARSE_NOUN_GROUP_2443* DROPPED 
+          SUBJECT = *PARSE_NOUN_GROUP_2443*
+          VERB = DROPPED
+          PARENT = SENTENCE
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_2436*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_2436* 
+
+
+--------------------
+
+A BLOCK WAS DROPPED 
+
+--------------------
+
+
+Parsing Succeeded
+
+70664 milliseconds used
+
+
+NODE: A
+          PARENT = *PARSE_NOUN_GROUP_2901*
+
+NODE: *PARSE_NOUN_GROUP_2901*
+          CHILDREN = A BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = INDEFINITE
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_2894*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_2901*
+
+NODE: *PARSE_CLAUSE_2894*
+          CHILDREN = *PARSE_NOUN_GROUP_2901* WAS DROPPED 
+          SUBJECT = SOMEONE
+          VERB = DROPPED
+          OBJECT = *PARSE_NOUN_GROUP_2901*
+          PARENT = SENTENCE
+
+NODE: WAS
+          PARENT = *PARSE_CLAUSE_2894*
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_2894*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_2894* 
+
+
+--------------------------------
+
+THE BOY DROPPED A BIG RED BLOCK 
+
+--------------------------------
+
+
+Parsing Succeeded
+
+85673 milliseconds used
+
+
+NODE: THE
+          PARENT = *PARSE_NOUN_GROUP_3390*
+
+NODE: *PARSE_NOUN_GROUP_3390*
+          CHILDREN = THE BOY 
+          NUMBER = SINGULAR
+          DETERMINER = DEFINITE
+          NOUN = BOY
+          PARENT = *PARSE_CLAUSE_3383*
+
+NODE: BOY
+          PARENT = *PARSE_NOUN_GROUP_3390*
+
+NODE: *PARSE_CLAUSE_3383*
+          CHILDREN = *PARSE_NOUN_GROUP_3390* DROPPED *PARSE_NOUN_GROUP_3596* 
+          SUBJECT = *PARSE_NOUN_GROUP_3390*
+          VERB = DROPPED
+          OBJECT = *PARSE_NOUN_GROUP_3596*
+          PARENT = SENTENCE
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_3383*
+
+NODE: A
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: *PARSE_NOUN_GROUP_3596*
+          CHILDREN = A BIG RED BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = INDEFINITE
+          ADJECTIVES = BIG RED 
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_3383*
+
+NODE: BIG
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: RED
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_3596*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_3383* 
+
+
+---------------------------------------
+
+A BIG RED BLOCK WAS DROPPED BY THE BOY 
+
+---------------------------------------
+
+
+Parsing Succeeded
+
+92966 milliseconds used
+
+
+NODE: A
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: *PARSE_NOUN_GROUP_4138*
+          CHILDREN = A BIG RED BLOCK 
+          NUMBER = SINGULAR
+          DETERMINER = INDEFINITE
+          ADJECTIVES = BIG RED 
+          NOUN = BLOCK
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: BIG
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: RED
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: BLOCK
+          PARENT = *PARSE_NOUN_GROUP_4138*
+
+NODE: *PARSE_CLAUSE_4131*
+          CHILDREN = *PARSE_NOUN_GROUP_4138* WAS DROPPED BY *PARSE_NOUN_GROUP_4503* 
+          SUBJECT = *PARSE_NOUN_GROUP_4503*
+          VERB = DROPPED
+          OBJECT = *PARSE_NOUN_GROUP_4138*
+          PARENT = SENTENCE
+
+NODE: WAS
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: DROPPED
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: BY
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: THE
+          PARENT = *PARSE_NOUN_GROUP_4503*
+
+NODE: *PARSE_NOUN_GROUP_4503*
+          CHILDREN = THE BOY 
+          NUMBER = SINGULAR
+          DETERMINER = DEFINITE
+          NOUN = BOY
+          PARENT = *PARSE_CLAUSE_4131*
+
+NODE: BOY
+          PARENT = *PARSE_NOUN_GROUP_4503*
+
+NODE: SENTENCE
+          CHILDREN = *PARSE_CLAUSE_4131* 
+
+198096 milliseconds compile time

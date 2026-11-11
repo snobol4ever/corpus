@@ -1,0 +1,80 @@
+Any fem-libber is an example of a modern-person !
+I UNDERSTAND.
+Every modern-person is a person !
+I UNDERSTAND.
+Is a fem-libber a person ?
+YES.
+Is a person a person ?
+YES.
+Is a person a modern-person ?
+SOMETIMES.
+Is a chauvinist-pig a person ?
+INSUFFICIENT INFORMATION
+Caren is a modern-person !
+I UNDERSTAND.
+Is Caren a person ?
+YES.
+Is Schnertz a person ?
+INSUFFICIENT INFORMATION
+The man is a chauvinist-pig !
+GSYM92529 IS A MAN.
+I UNDERSTAND.
+Every chauvinist-pig is an old-fashioned person !
+I UNDERSTAND.
+Is the man an old-fashioned-person ?
+INSUFFICIENT INFORMATION
+Stu is a man !
+I UNDERSTAND.
+Is the man an old-fashioned-person ?
+WHICH MAN? ... (STU GSYM92529)
+
+Charlie is a fireman !
+I UNDERSTAND.
+Stu is Charlie !
+I UNDERSTAND.
+Is Stu a fireman ?
+YES.
+Is the fireman a man ?
+YES.
+Is every fireman a man ?
+INSUFFICIENT INFORMATION
+Judi is a fireman !
+I UNDERSTAND.
+Judith is a fireman !
+I UNDERSTAND.
+Is the fireman a man ?
+WHICH FIREMAN? ... (JUDITH JUDI CHARLIE)
+
+Judi is Judith !
+I UNDERSTAND.
+Is the fireman a man ?
+WHICH FIREMAN? ... (JUDITH CHARLIE)
+
+Every fireman owns a pair of red suspenders !
+I UNDERSTAND.
+Does a doctor own a pair of red suspenders ?
+INSUFFICIENT INFORMATION
+Does a coat own a coat ?
+NO, THEY ARE THE SAME.
+A firechief is a fireman !
+I UNDERSTAND.
+Does a firechief own a pair of suspenders ?
+YES.
+Judith is the firechief !
+GSYM161831 IS A FIRECHIEF.
+I UNDERSTAND.
+Does Judi own a pair of suspenders ?
+YES.
+Stu owns a cat !
+I UNDERSTAND.
+The cat is Schnertz !
+GSYM177415 IS A CAT.
+I UNDERSTAND.
+Does a fireman own the cat ?
+YES.
+What is the meaning of life ?
+STATEMENT FORM NOT RECOGNIZED.
+   IN PROCESS.1, 
+    SENTENCE = WHAT IS THE MEANING OF LIFE ?
+Bye !
+GOOD-BYE
