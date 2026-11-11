@@ -1,0 +1,35 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sat Oct  3 17:03:01 2026
+
+
+
+                                                                                                                page 1
+
+1       loop	output = input		:s(loop)
+1       loop	output = input		:s(loop)
+            	              		        !
+            	              		        !
+crlf.sno(1,30) : ERROR 230 -- syntax error: illegal character
+crlf.sno(1,30) : ERROR 230 -- syntax error: illegal character
+
+
+4       this line ends in a CR
+4       this line ends in a CR
+
+
+crlf.sno(4) : ERROR 217 -- syntax error: duplicate label
+crlf.sno(4) : ERROR 217 -- syntax error: duplicate label
+
+
+5       this line has no CR
+5       this line has no CR
+
+
+crlf.sno(5) : ERROR 217 -- syntax error: duplicate label
+crlf.sno(5) : ERROR 217 -- syntax error: duplicate label
+
+
+No END statement found in source file(s).

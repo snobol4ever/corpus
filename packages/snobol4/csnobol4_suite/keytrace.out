@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sat Sep  5 10:57:05 2026
+
+
+
+                                                                                                                page 1
+
+14      	X = 1 / 0
+
+keytrace.sno(15) : ERROR 014 -- division caused integer overflow
+
+24      	X = LEN(-1)
+
+keytrace.sno(25) : ERROR 121 -- len argument is negative or too large

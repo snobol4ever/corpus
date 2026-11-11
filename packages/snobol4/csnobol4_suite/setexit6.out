@@ -1,0 +1,18 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sat Oct  3 17:03:01 2026
+
+
+
+                                                                                                                page 1
+
+8       	output = 'DIVIDE: ' (1 / 0)	:f(l1)
+8       	output = 'DIVIDE: ' (1 / 0)	:f(l1)
+
+
+setexit6.sno(13) : ERROR 014 -- division caused integer overflow
+setexit6.sno(13) : ERROR 014 -- division caused integer overflow
+
+

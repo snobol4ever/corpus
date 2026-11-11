@@ -1,0 +1,18 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sat Oct  3 17:03:01 2026
+
+
+
+                                                                                                                page 1
+
+17      	x = 1 / 0
+17      	x = 1 / 0
+
+
+setexit5.sno(18) : ERROR 014 -- division caused integer overflow
+setexit5.sno(18) : ERROR 014 -- division caused integer overflow
+
+

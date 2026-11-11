@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sat Sep  5 10:57:05 2026
+
+
+
+                                                                                                                page 1
+
+16      	"FOO" @1					:S(END)
+
+scanerr.sno(18) : ERROR 212 -- syntax error: value used where name is required
