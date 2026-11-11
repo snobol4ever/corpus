@@ -1,0 +1,6 @@
+Find the optimal solution
+
+Finding all optimal solutions with MinVal 3:
+[0,0,0,1,0,1,1]
+[0,0,1,0,0,1,1]
+It was 2 solutions

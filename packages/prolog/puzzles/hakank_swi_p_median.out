@@ -1,0 +1,9 @@
+p=2
+z=670
+openWarehouse=[1,0,1]
+Open: Santa Clara
+Open: Berkeley
+Customer Albert: [1,0,0] [Santa Clara]
+Customer Bob: [1,0,0] [Santa Clara]
+Customer Chris: [0,0,1] [Berkeley]
+Customer Daniel: [0,0,1] [Berkeley]

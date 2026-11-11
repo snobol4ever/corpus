@@ -1,0 +1,4 @@
+exit_doors=[1,0,0,0]
+exit_doors=[A]
+truth_telling_monks=[1,0,0,0,0,0,1,1]
+truth_telling_monks=[1,7,8]

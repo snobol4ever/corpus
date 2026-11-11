@@ -1,0 +1,5 @@
+First part: find the maximum value of MONEY
+max=10876
+Second part: find all solutions with max value of MONEY
+[[9,7,8,2,1,0,4,6],[9,7,8,4,1,0,2,6]]
+len=2

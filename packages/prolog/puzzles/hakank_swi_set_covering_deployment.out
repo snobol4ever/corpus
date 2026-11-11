@@ -1,0 +1,59 @@
+
+Find the optimal solution
+
+armies=[Alexandria,Asia Minor,Britain,Byzantium,Gaul,Iberia,Rome,Tunis]
+minVal=4
+x=[0,0,0,1,0,1,0,0]
+y=[0,0,0,1,0,1,0,0]
+assigments=[Byzantium=2,Iberia=2]
+
+
+
+Now find all optimal solutions with MinVal 4:
+minVal=4
+x=[0,0,0,1,0,1,0,0]
+y=[0,0,0,1,0,1,0,0]
+assigments=[Byzantium=2,Iberia=2]
+
+
+minVal=4
+x=[0,1,0,0,0,1,0,0]
+y=[0,1,0,0,0,1,0,0]
+assigments=[Asia Minor=2,Iberia=2]
+
+
+minVal=4
+x=[0,1,1,0,0,0,1,0]
+y=[0,0,0,0,0,0,1,0]
+assigments=[Asia Minor=1,Britain=1,Rome=2]
+
+
+minVal=4
+x=[1,0,0,0,0,1,0,0]
+y=[1,0,0,0,0,1,0,0]
+assigments=[Alexandria=2,Iberia=2]
+
+
+minVal=4
+x=[1,0,0,0,1,0,0,0]
+y=[1,0,0,0,1,0,0,0]
+assigments=[Alexandria=2,Gaul=2]
+
+
+minVal=4
+x=[1,0,1,0,0,0,0,0]
+y=[1,0,1,0,0,0,0,0]
+assigments=[Alexandria=2,Britain=2]
+
+
+
+All solutions:
+
+[Byzantium=2,Iberia=2]
+[Asia Minor=2,Iberia=2]
+[Asia Minor=1,Britain=1,Rome=2]
+[Alexandria=2,Iberia=2]
+[Alexandria=2,Gaul=2]
+[Alexandria=2,Britain=2]
+
+It was 6 solution(s)

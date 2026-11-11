@@ -1,0 +1,11 @@
+Find the optimal solution:
+minVal=4
+x=[0,1,0,0,1,1,1,0]
+
+Finding all optimal solutions with MinVal 4:
+minVal=4
+x=[0,1,0,0,1,1,1,0]
+minVal=4
+x=[1,1,0,0,1,0,1,0]
+[[0,1,0,0,1,1,1,0],[1,1,0,0,1,0,1,0]]
+It was 2 solutions

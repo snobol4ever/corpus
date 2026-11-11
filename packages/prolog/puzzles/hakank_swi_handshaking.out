@@ -1,0 +1,13 @@
+solve
+x:[1,1,0,2]
+
+Who shake hands with whom:
+[0,0,0,1]
+[0,0,0,1]
+[0,0,0,0]
+[1,1,0,0]
+
+Person 1 shake hands with [4] (1 shakes)
+Person 2 shake hands with [4] (1 shakes)
+Person 3 shake hands with [] (0 shakes)
+Person 4 shake hands with [1,2] (2 shakes)

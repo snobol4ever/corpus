@@ -1,0 +1,4 @@
+min_distance=15
+num_cities=6
+z=2
+x=[0,1,0,1,0,0]

@@ -1,0 +1,17 @@
+x=[1,1,1,1,1,0,1,0,0,0,1,0,0,0,0,1,1,1,1,0,1,0]
+
+These are the items to pick:
+* 1 map                      9   150
+* 1 compass                  13  35
+* 1 water                    153 200
+* 1 sandwich                 50  160
+* 1 glucose                  15  60
+* 1 banana                   27  60
+* 1 suntancream              11  70
+* 1 waterproof trousers      42  70
+* 1 waterproof overclothes   43  75
+* 1 note-case                22  80
+* 1 sunglasses               7   20
+* 1 socks                    4   50
+Total weight: 396
+Total value: 1030

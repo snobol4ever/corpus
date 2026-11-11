@@ -1,0 +1,126 @@
+Developement: [3,6,5,2,1]
+Constraints broken: [0,0,0,0,0,0,0,0,0,0,0,1,0] Broken: [12]
+Total broken constraints: 1
+
+Developement: [4,6,5,2,1]
+Constraints broken: [0,0,0,0,0,0,0,0,0,0,0,1,0] Broken: [12]
+Total broken constraints: 1
+
+Developement: [3,5,6,2,1]
+Constraints broken: [0,0,0,0,0,0,0,0,0,0,0,0,1] Broken: [13]
+Total broken constraints: 1
+
+Developement: [4,5,6,2,1]
+Constraints broken: [0,0,0,0,0,0,0,0,0,0,0,0,1] Broken: [13]
+Total broken constraints: 1
+
+Developement: [3,7,6,2,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [3,7,6,5,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [4,7,6,2,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [4,7,6,5,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [3,8,6,2,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [3,8,6,5,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [4,8,6,2,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [4,8,6,5,1]
+Constraints broken: [0,1,0,0,0,0,0,0,0,0,0,0,0] Broken: [2]
+Total broken constraints: 1
+
+Developement: [3,6,7,2,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [3,6,7,5,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [4,6,7,2,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [4,6,7,5,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [3,6,8,2,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [3,6,8,5,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [4,6,8,2,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [4,6,8,5,1]
+Constraints broken: [0,0,1,0,0,0,0,0,0,0,0,0,0] Broken: [3]
+Total broken constraints: 1
+
+Developement: [3,6,5,1,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [3,6,5,2,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [4,6,5,1,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [4,6,5,2,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [3,5,6,1,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [3,5,6,2,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [4,5,6,1,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Developement: [4,5,6,2,8]
+Constraints broken: [0,0,0,0,1,0,0,0,0,0,0,0,0] Broken: [5]
+Total broken constraints: 1
+
+Which constraints was broken in the above list?
+Constraint   1 has 0 occurrences.
+Constraint   2 has 8 occurrences.
+Constraint   3 has 8 occurrences.
+Constraint   4 has 0 occurrences.
+Constraint   5 has 8 occurrences.
+Constraint   6 has 0 occurrences.
+Constraint   7 has 0 occurrences.
+Constraint   8 has 0 occurrences.
+Constraint   9 has 0 occurrences.
+Constraint  10 has 0 occurrences.
+Constraint  11 has 0 occurrences.
+Constraint  12 has 2 occurrences.
+Constraint  13 has 2 occurrences.

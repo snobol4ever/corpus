@@ -1,0 +1,22 @@
+Find the optimal solution
+x=[0,0,0,0,1,0,0,0,0,1]
+These selectors are selected: [e,j]
+minVal=2
+
+Finding all optimal solutions with MinVal 2:
+x=[0,0,0,0,1,0,0,0,0,1]
+These selectors are selected: [e,j]
+minVal=2
+x=[0,0,0,0,1,0,0,1,0,0]
+These selectors are selected: [e,h]
+minVal=2
+x=[0,1,0,0,0,0,1,0,0,0]
+These selectors are selected: [b,g]
+minVal=2
+x=[0,1,0,0,0,1,0,0,0,0]
+These selectors are selected: [b,f]
+minVal=2
+x=[1,0,0,0,0,0,0,0,1,0]
+These selectors are selected: [a,i]
+minVal=2
+It was 5 solutions

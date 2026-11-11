@@ -1,0 +1,11 @@
+problem=1
+celebrities=[4,5]
+
+problem=2
+celebrities=[]
+
+problem=3
+celebrities=[3,9,10]
+
+problem=4
+celebrities=[9]

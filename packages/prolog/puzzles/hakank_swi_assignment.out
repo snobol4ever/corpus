@@ -1,0 +1,41 @@
+
+Problem 1
+minimize
+
+z=11
+assignment=[2,1,3,5]
+
+
+Problem 2
+minimize
+
+z=207
+assignment=[3,4,1,2]
+
+
+Problem 3
+minimize
+
+z=181
+assignment=[3,6,5,7]
+
+
+Problem 4
+maximize
+
+z=30
+assignment=[3,2,4,1]
+
+
+Problem 5
+minimize
+
+z=8
+assignment=[2,1,4,5,3]
+
+
+Problem 6
+minimize
+
+z=76
+assignment=[1,8,7,5,2,6,4,3]

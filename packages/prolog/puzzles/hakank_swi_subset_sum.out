@@ -1,0 +1,5 @@
+coins=[16,17,23,24,39,40]
+total=100
+x=[2,4,0,0,0,0]
+num_stolen=6
+Stolen coin bags: [16,17]

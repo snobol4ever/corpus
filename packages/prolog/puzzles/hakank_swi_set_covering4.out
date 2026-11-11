@@ -1,0 +1,16 @@
+
+SET PARTITION
+Find the optimal solution
+
+Finding all optimal solutions with MinVal 49:
+all_solutions=[[3,5,9]]
+It was 1 solution(s) (Set partition)
+
+
+SET COVERING
+Find the optimal solution
+
+
+Finding all optimal solutions with MinVal 45:
+all_solutions=[[4,8,10]]
+It was 1 solution(s) (Set covering)

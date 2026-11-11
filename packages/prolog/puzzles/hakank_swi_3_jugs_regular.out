@@ -1,0 +1,19 @@
+len=1
+len=2
+len=3
+len=4
+len=5
+len=6
+len=7
+x=[9,10,11,12,13,14,15]
+path=[1,9,10,11,12,13,14,15]
+
+The path:
+state: 1  move: [8,0,0]
+state: 9  move: [3,5,0]
+state: 10  move: [3,2,3]
+state: 11  move: [6,2,0]
+state: 12  move: [6,0,2]
+state: 13  move: [1,5,2]
+state: 14  move: [1,4,3]
+state: 15  move: [4,4,0]
