@@ -1,8 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=18 features=2 ubiquitous=2(language package) distinctive=0 core=1 clusters=3 chunks=1 sizes=17
+# shape: entries=18 features=3 ubiquitous=2(language package) distinctive=1 core=1 clusters=3 chunks=1 sizes=17
 entry	part	cluster	shells
-PrologPuzzles/aa1	core	core	
+PrologPuzzles/aa1	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/anagram	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/canibmm	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/coins0	chunk:01	dir:PrologPuzzles	
@@ -11,7 +11,7 @@ PrologPuzzles/flashlight	chunk:01	dir:PrologPuzzles
 PrologPuzzles/flashlight2	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/flip	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/jazz	chunk:01	dir:PrologPuzzles	
-PrologPuzzles/knightN	chunk:01	dir:PrologPuzzles	
+PrologPuzzles/knightN	core	core	compare
 PrologPuzzles/magic	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/message	chunk:01	dir:PrologPuzzles	
 PrologPuzzles/sudoku	chunk:01	dir:PrologPuzzles	
