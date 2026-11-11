@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,lispi,lispi.pas,pascal-lisp__lispi,pascal-lisp,13,0,131072,4096,60,,delphi

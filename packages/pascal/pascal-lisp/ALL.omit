@@ -1,0 +1,7 @@
+boehmgc.pas: LIBRARY: the source names unit BoehmGC;
+lisp.pas: LIBRARY: the source names unit Lisp;
+lispdata.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: lispdata.pas(192,32) Error: Identifier not found "LV"
+lispinterpreter.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: lispinterpreter.pas(142,57) Error: Identifier not found "PLV"
+lispprimitives.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: lispprimitives.pas(3,32) Error: Identifier not found "LV"
+lispsyntax.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: lispsyntax.pas(18,40) Error: Identifier not found "LV"
+lisptypes.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: lispdata.pas(192,32) Error: Identifier not found "LV"

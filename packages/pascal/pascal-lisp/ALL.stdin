@@ -1,0 +1,2 @@
+# the standard input of an entry: a file of the collection, by its path from the root; never copied (the collection is GPL)
+lispi	prelude.scm

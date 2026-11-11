@@ -1,0 +1,2 @@
+tangle.p: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tangle.p(52,18) Error: Incompatible types: got "Constant String" expected "Char"
+tex.p: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tex.p(307,56) Error: Can't use readln or writeln on typed file
