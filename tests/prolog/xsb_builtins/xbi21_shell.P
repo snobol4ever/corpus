@@ -1,0 +1,11 @@
+% xbi21_shell -- shell/1 and shell/2 as XSB 5.0.0 (lib/shell.P): the command is an atom or a list of atoms joined with nothing between them; shell/1 succeeds whatever the command's status;
+% shell/2 answers the raw wait status (256 times the exit code); a list member that is not an atom is an error. The commands write nothing: their effect is read from a file.
+:- import shell/1, shell/2 from shell.
+there(F) :- ( file_exists(F) -> writeln(exists(F)) ; writeln(absent(F)) ).
+t(G) :- catch(( G -> writeln(yes(G)) ; writeln(no(G)) ), error(K, _), writeln(caught(K))).
+test :- F = 'xbi_shell_probe.tmp', open(F, write, S), close(S), there(F),
+        t(shell(['rm ', F])), there(F),
+        t(shell(['touch ', F])), there(F),
+        t(shell(['rm', ' ', F], _)), there(F),
+        t(shell(false)), t(shell(true)), t(shell(false, _)), t(shell(true, _)), t(shell('exit 3', _)),
+        t(shell(['true ', 1])), t(shell(['true ', f(x)], _)), writeln(done).

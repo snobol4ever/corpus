@@ -1,0 +1,4 @@
+% xbi20_abort -- abort/0 and abort/1 as XSB 5.0.0 (syslib/standard.P 2223 to 2236): at the top level each is misc_error with its message, error(misc_error, context(Message, Backtrace)),
+% catchable by catch/3 like any error; only the formal term and the message are printed, the backtrace is the engine's own addresses.
+t(G) :- catch((G, writeln(returned(G))), error(K, C), (C = context(M, _) -> writeln(caught(K, M)) ; writeln(caught(K)))).
+test :- t(abort), t(abort('my message')), t(abort(stop_here)), catch(abort, _, writeln(any_catcher)), writeln(done).

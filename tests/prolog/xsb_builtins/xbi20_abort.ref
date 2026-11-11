@@ -1,0 +1,5 @@
+caught(misc_error,Aborting...)
+caught(misc_error,my message)
+caught(misc_error,stop_here)
+any_catcher
+done
