@@ -1,6 +1,6 @@
-# KEEP.md — tests/prolog
+# PLUNIT.md -- the SWI-plunit shim, corpus/packages/prolog/swi_tests/plunit.pl
 
-Per `tests-consolidate-prolog` (parent: `corpus-suites-consolidation`).
+Moved here from corpus/tests/prolog/plunit.pl on 2026-11-12 (the coo's ruling, row tests-folder-consolidation-cto): it is this package's grading shim, not a test of the Prolog master, and every reader in harness/scripts now names this path. The section below is the 2026-08-29 keeper text from corpus/tests/prolog/KEEP.md as it stood; the paths in it are the old ones.
 
 ## `plunit.pl` — live SWI-plunit shim for the x86 backend, not a runtime test with its own output to grade
 
@@ -65,58 +65,3 @@ general — filed as
 `.github FINDING-2026-08-29-seat14-keepmd-gate-substring-false-positive.md` for whoever else's KEEP.md
 next names a file it does not mean to declare; not fixed here (harness correctness shared by every
 language's row, not this session's to change unilaterally).
-
-## `rung10_programs_puzzle_05.pl` — needs a grading convention that does not exist yet, not a fix
-
-**Not blocked, not a defect — the one member of the `rung10_programs_puzzle_*` family that does not
-crash, and that is exactly why it cannot be absorbed by this task's inherited method.** `rc=1`, and
-**no `.ref` exists**. hq_C ruled (transcribed via seat03, `tests-consolidate-prolog-pz4-blocked-33`'s
-own `PENDING.md`) that `rc=1` is **correct**, not a bug: `main` takes the top-level-goal role for a
-failure-driven loop with no fallback clause, so a clean exit-1 is the designed behavior
-(ARCH-LANGUAGES.md § ENTRY-POINT CONVENTION), not a crash or a wrong answer.
-
-**Why the inherited absorption method cannot take it as-is:** every other suite entry in this rung suite
-is graded by exact stdout match against a `.ref`, with `rc=0` implicit — there is no per-entry
-mechanism yet for declaring "stdout must match, AND rc must equal a specific non-zero value." Building
-one is real harness work (`corpus_suite_harness.py`'s grading contract), not a data fix to this one
-file, and is out of `tests-consolidate-prolog-pz4-blocked-33`'s own scope (that row converts files,
-it does not extend the suite format).
-
-**Its 19 `rung10_programs_puzzle_*` siblings** are separately deferred in `PENDING.md` under
-`tests-consolidate-prolog-pz4-blocked-33` — they still crash (rc=139), so they need
-`prolog-pz4-gamma-retain-activation-frames`'s fix first; once that lands, all 19 (plus this one) will
-need the same not-yet-built rc-expectation mechanism this entry names, not just a re-run.
-
-**Re-running this classification:** confirm no `.ref` has appeared and `rc=1` still holds
-(`./scrip --run corpus/tests/prolog/rung10_programs_puzzle_05.pl < /dev/null`); if a per-entry
-rc-expectation mechanism has since landed in the suite format, this file (and its 19 siblings, once
-PZ-4 clears) becomes absorbable and this entry should be deleted rather than updated, per the standing
-convention other entries in this file use.
-
-## Re-running this classification
-
-`grep -rn "tests/prolog/plunit.pl\|CORPUS.*plunit" SCRIP/scripts/*.sh` before trusting "these three
-scripts are the live consumers" — a future reorg could add or retire one. Re-run
-`bash SCRIP/scripts/test_prolog_swi_suite.sh --file test_call` before trusting the 0%-regression
-note above; if the silent `--run` failure is fixed, re-measure the real coverage number rather than
-assuming the old 100% baseline still holds.
-
-## ⛔ THE THREE rung15 abolish WITNESSES ARE NO LONGER KEEPERS — AND THEIR NAMES CANNOT BE WRITTEN HERE
-
-⭐ **THE HISTORY OF THIS SECTION LIVES IN THE FINDING AND THE BATON, NOT IN THIS FILE, AND THAT IS FORCED.**
-A KEEP.md declaration is a **delimited substring match over the WHOLE FILE** (`_delim_match` in
-`util_build_rungs_suite.py`), so **a paragraph explaining that a file stopped being a keeper re-declares it
-as one** — the retraction and the declaration are the same string to the matcher. There is no "former
-keepers" section that can exist here. Spelling any of those three basenames anywhere in this file, in any
-tone, silently keeps all three out of the rungs.
-
-They were declared here on 2026-09-12 as *"contradict BOTH ISO oracles, so no ref can be cut"*. **CEO-607
-overruled that the same day:** *"kept loose is not the answer — under no-XFAIL a faulty test is FIXED
-AGAINST ITS ORACLE."* They were wrong about Prolog (ISO `abolish/1` leaves the predicate unknown, so the
-later call raises `existence_error` under the default `unknown=error`), and a faulty test gets fixed, not
-filed. Rewritten against the oracle, refs re-cut from `swipl -q`, absorbed into the rungs, and the gprolog
-half — load-time `:- assertz(...)` directives being ignored — cured as the **fixture fault** it was, by
-moving the setup into the `initialization/1` goal.
-
-Record: `FINDING-2026-09-12-hq_C-a-keep-md-retraction-re-declares-the-very-files-it-retracts.md`, and the
-baton `prolog-absorb-every-owed-source-into-the-one-master-unabsorbed-census-reads-zero`.
