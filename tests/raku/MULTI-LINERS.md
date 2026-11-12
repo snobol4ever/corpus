@@ -5153,6 +5153,19 @@ before
 after
 ```
 
+## exceptions__ex11_rk_numeric_conversion_dies
+
+```Raku
+# ex11 -- a C conversion inside an operator raises: 'abc' + 1 is X::Str::Numeric, uncaught, so Rakudo prints what came before, speaks once on stderr and exits 1 (SCRIP at fe4714842 fails the statement silently and goes on: the protocol's P2 raise, P3 omega test and P5 root voice for Raku; DESIGN-PLAN exceptions, the cto 2026-10-29)
+say 'before';
+say 'abc' + 1;
+say 'never';
+```
+
+```stdout
+before
+```
+
 ## junction_say_6
 
 ```Raku
@@ -12445,6 +12458,18 @@ sub greet(Str:D $name) { say("hi " ~ $name); }
 hi Tom
 ```
 
+## builtin_table__bt03_raku_loop
+
+```Raku
+my $n = 0;
+for 1..200000 { $n = $n + "abcdef".chars; }
+say $n;
+```
+
+```stdout
+1200000
+```
+
 ## class_method_replace_12
 
 ```Raku
@@ -13315,6 +13340,33 @@ say $c.get;
 
 ```stdout
 2
+```
+
+## builtin_table__bt13_raku_user_sub_shadows_builtin
+
+```Raku
+sub chars($s) { return "mine:" ~ $s }
+sub uc($s) { return "upper:" ~ $s }
+say chars("abc");
+say "abc".chars;
+say uc("abc");
+say "abc".uc;
+{
+    sub flip($s) { return "flipped:" ~ $s }
+    say flip("ab");
+    say "ab".flip;
+}
+say flip("cd");
+```
+
+```stdout
+mine:abc
+3
+upper:abc
+ABC
+flipped:ab
+ba
+dc
 ```
 
 ## ladder__rung04_arrays_an_array_literal_of_one_iterable_argument_spreads_it_the_single_argument_rule
@@ -16600,6 +16652,36 @@ main();
 4
 5
 15
+```
+
+## builtin_table__bt12_raku_indirect_name
+
+```Raku
+my $m = "chars";
+say "abcd"."$m"();
+$m = "uc";
+say "abcd"."$m"();
+my $f = &::("uc");
+say $f("xyz");
+say &::("chars")("hello");
+my @names = <flip uc lc>;
+for @names -> $n { say "AbC"."$n"() }
+sub mysub($x) { "mysub:" ~ $x }
+say &::("mysub")("q");
+my $s = "mysub";
+say &::($s)("r");
+```
+
+```stdout
+4
+ABCD
+XYZ
+5
+CbA
+ABC
+abc
+mysub:q
+mysub:r
 ```
 
 ## roast_causes__rc11_a_positional_does_not_index_by_key
@@ -20224,6 +20306,77 @@ True
 [(a 0) (b 0)]
 ```
 
+## builtin_table__bt11_raku_methods_by_type
+
+```Raku
+sub anyval($x) { return $x }
+say "abc".chars;
+say "abc".uc;
+say "Hello".lc;
+say "abc".flip;
+say (1, 2, 3).elems;
+say [4, 5, 6].elems;
+say (-7).abs;
+say 16.sqrt;
+say 3.7.Int;
+say "42".Int + 1;
+say 5.Str ~ "x";
+say (3/4).numerator;
+say (1, 2, 3).join("-");
+say (3, 1, 2).sort.join(",");
+say {a => 1, b => 2}.keys.sort.join(",");
+say (1..5).sum;
+say "a,b,c".split(",").elems;
+say "hello world".words.join("|");
+say "hello".index("l");
+say "hello".substr(1, 3);
+say "Hello".starts-with("He");
+say 10.base(2);
+say 255.fmt("%x");
+say 3.14159.round(0.01);
+my $v = anyval("dyn");
+say $v.chars;
+say $v.uc;
+$v = anyval([1, 2]);
+say $v.elems;
+$v = anyval(2.5);
+say $v.floor;
+$v = anyval({x => 1});
+say $v.keys.join;
+```
+
+```stdout
+3
+ABC
+hello
+cba
+3
+3
+7
+4
+3
+43
+5x
+3
+1-2-3
+1,2,3
+a,b
+15
+3
+hello|world
+2
+ell
+True
+1010
+ff
+3.14
+3
+DYN
+2
+2
+x
+```
+
 ## ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys
 
 ```Raku
@@ -20474,6 +20627,43 @@ True
 99.999999
 ```
 
+## exceptions__ex09_rk_try_catch_die
+
+```Raku
+# ex09 -- die, try, CATCH with when and default, rethrow to an outer try, a runtime exception from division, and an uncaught die at the end (DESIGN-PLAN exceptions, the cto 2026-10-29)
+sub risky($n) {
+    my @a = 1..$n;
+    die "boom $n" if $n % 3 == 0;
+    @a.elems
+}
+my $ok = 0; my $caught = 0; my @msgs;
+for 1..9 -> $i {
+    try { $ok += risky($i); CATCH { default { $caught++; @msgs.push(.message) } } }
+}
+say "$ok $caught";
+say @msgs.join("|");
+my $r = try { 10 div 0 };
+say $r.defined ?? "defined" !! "undefined";
+say $!.^name;
+try {
+    try { die "inner"; CATCH { when X::AdHoc { say "inner caught: " ~ .message; .rethrow } } }
+    CATCH { default { say "outer caught: " ~ .message } }
+}
+say "before the end";
+die "uncaught at the end";
+say "never";
+```
+
+```stdout
+27 3
+boom 3|boom 6|boom 9
+undefined
+X::Numeric::DivideByZero
+inner caught: inner
+outer caught: inner
+before the end
+```
+
 ## rewrite__rr07_exceptions
 
 ```Raku
@@ -20603,6 +20793,33 @@ M 0 2 <12> alpha=[] digit=[<1>,<2>]
 M 0 5 <1,2,3> digit=[<1>,<2>,<3>]
 M 0 5 <1,2,3> 0=[<1>,<2>,<3>]
 M 0 5 <1,2,3> d=[<1>,<2>,<3>] digit=[<1>,<2>,<3>]
+```
+
+## zeta_layout__zl08_rk_lists_hashes
+
+```Raku
+# zl08 -- arrays, hashes, strings and gather/take in nested subs under collection (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+sub words($n) { gather for 1..$n -> $i { take "w" ~ $i ~ "-" ~ ("ab" x ($i % 7)) } }
+sub tally(@ws) { my %h; for @ws -> $w { %h{$w.chars}++ }; %h }
+my @all;
+my $total = 0;
+for 1..40 -> $r {
+    my @ws = words(60);
+    my %h = tally(@ws);
+    $total += [+] %h.values;
+    @all.push(@ws.grep({ .chars % 2 == 0 }).map({ .uc }).join(","));
+}
+say @all.elems, " ", $total;
+say @all[0].chars, " ", @all[*-1].substr(0, 12);
+my %counts;
+for @all -> $s { for $s.split(",") -> $w { %counts{$w.chars}++ } }
+say %counts.keys.sort(+*).map({ "$_=" ~ %counts{$_} }).join(" ");
+```
+
+```stdout
+40 2400
+562 W10-ABABAB,W
+4=280 6=280 8=280 10=320 12=320 14=280 16=280
 ```
 
 ## ladder__rung09_regex_engine_quantifiers_1_agree_with_rakudo

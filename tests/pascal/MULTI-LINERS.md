@@ -8980,6 +8980,29 @@ end.
 0 1 0 1 4 9 
 ```
 
+## exceptions__ex10_pas_runtime_error_exit
+
+```Pascal
+{ ex10 -- a run-time error after output: what was written is flushed and the exit code is the oracle's (DESIGN-PLAN exceptions, the cto 2026-10-29) }
+program ex10;
+var
+  a: array [1..5] of integer;
+  i, y, z: integer;
+begin
+  for i := 1 to 5 do a[i] := i * i;
+  writeln('before ', a[5]);
+  writeln('two');
+  y := a[1] - 1;
+  z := a[3] div y;
+  writeln('never ', z)
+end.
+```
+
+```stdout
+before          25
+two
+```
+
 ## ladder__rung06_arrays_named_string_elem
 
 ```Pascal
@@ -14547,5 +14570,55 @@ Yellow
 BLUE Red
 Red BLUE Yellow 
 Red;green;BLUE;Yellow;
+```
+
+## zeta_layout__zl07_pas_records_lists
+
+```Pascal
+{ zl07 -- linked records allocated and disposed in loops, packed strings, arrays of records (DESIGN-PLAN zeta-layout, the cto 2026-10-29) }
+program zl07;
+type
+  str = packed array [1..16] of char;
+  nodep = ^node;
+  node = record
+    key: integer;
+    name: str;
+    next: nodep
+  end;
+var
+  head, p, q: nodep;
+  i, round, count, sum: integer;
+  names: array [1..50] of str;
+procedure fill(var s: str; n: integer);
+var k: integer;
+begin
+  for k := 1 to 16 do s[k] := chr(ord('a') + (n + k) mod 26)
+end;
+begin
+  sum := 0; count := 0;
+  for round := 1 to 30 do
+  begin
+    head := nil;
+    for i := 1 to 200 do
+    begin
+      new(p); p^.key := i * round; fill(p^.name, i + round); p^.next := head; head := p
+    end;
+    p := head;
+    while p <> nil do
+    begin
+      if p^.key mod 3 = 0 then sum := sum + p^.key;
+      if p^.name[1] = 'q' then count := count + 1;
+      q := p^.next; dispose(p); p := q
+    end
+  end;
+  for i := 1 to 50 do fill(names[i], i);
+  writeln(sum, ' ', count);
+  writeln(names[1], ' ', names[50])
+end.
+```
+
+```stdout
+    5306400         232
+cdefghijklmnopqr zabcdefghijklmno
 ```
 

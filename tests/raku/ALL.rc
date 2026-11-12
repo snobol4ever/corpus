@@ -65,3 +65,5 @@ scrip_test_rk_map_grep_sort24	1
 scrip_test_rk_re32	1
 scrip_test_rk_re37	1
 scrip_test_rk_stdio39	1
+exceptions__ex09_rk_try_catch_die	1
+exceptions__ex11_rk_numeric_conversion_dies	1

@@ -11,3 +11,4 @@ ladder__rung17_real_div_zero_classes	217
 ladder__rung17_div_zero_sysutils_no_try	217
 ladder__rung17_div_zero_math_closure	217
 ladder__rung17_reset_missing_uncaught	217
+exceptions__ex10_pas_runtime_error_exit	200
