@@ -1,8 +1,0 @@
-:- dynamic pair/2.
-
-pair(Left, Right) :-
-    Right=r(Left, _).
-pair(Same, Same).
-
-pair(Left, A) :-
-    A=r(Left, _).

@@ -1,5 +1,0 @@
-greeting(A, [hello|B], C) :-
-    name_of(A, B, C).
-
-name_of(A, [A|B], B).
-
