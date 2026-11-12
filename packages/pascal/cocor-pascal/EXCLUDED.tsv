@@ -1,0 +1,18 @@
+# EXCLUDED.tsv -- cocor-pascal: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+EBNF/crossrefs.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CrossRef; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+Taste/CrossRef.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CrossRef; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+Taste/Prettier.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT Prettier; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+Taste/TC.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT TC; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+Taste/TL.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT TL; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+pretty/Prettier.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT Prettier; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+spreadsheets/Machine.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT Machine; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRA.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRA; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRC.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRC; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRG.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRG; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRP.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRP; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRS.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRS; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRTable.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRTable; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/CRX.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT CRX; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/FileIO.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT FileIO; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+src/Sets.pas	NOT_A_UNIT_TEST	LIBRARY: the source names UNIT Sets; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
