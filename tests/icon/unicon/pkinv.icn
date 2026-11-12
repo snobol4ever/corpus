@@ -1,5 +1,0 @@
-package pkinv
-
-procedure pkinv_a()
-   return "a-ok";
-end

@@ -1,7 +1,0 @@
-import pkinv
-procedure main()
-   write(pkinv_a());
-   write(pkinv_b());
-end
-class UniconMarker()
-end

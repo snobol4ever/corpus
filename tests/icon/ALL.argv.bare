@@ -1,4 +1,0 @@
-# ALL.argv.bare -- entries of the icon master GRADED BARE ON PURPOSE, each with its reason (read by util_rungs_sidecar_census.py).
-# Format: <entry name><TAB><reason>.  Blank lines and lines starting with # are ignored.
-rung36_jcon_geddump__rung36_jcon_geddump	jcon geddump reads args[1] as an optional input file and &input otherwise; the jcon suite runs it on stdin alone and its ref is cut that way (stdin fence)
-rung36_jcon_profsum__rung36_jcon_profsum	jcon profsum takes an optional -t and file argument and reads &input otherwise; the jcon suite runs it on stdin alone and its ref is cut that way (stdin fence)

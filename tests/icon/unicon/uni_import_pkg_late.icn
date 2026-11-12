@@ -1,5 +1,0 @@
-import late
-procedure main()
-   write(greet("pkg"));
-   write(late::greet("qualified"));
-end

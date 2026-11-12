@@ -1,9 +1,2 @@
 meander	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-rung36_jcon_recent	KEEPER, declared in KEEP.md -- never absorbed (deferral contract)
-unicon_pkself_uni_pkg_named_like_the_program	KEEPER, declared in unicon/KEEP.md -- never absorbed (deferral contract)
-unicon_uni_import_pkg_late	KEEPER, declared in unicon/KEEP.md -- never absorbed (deferral contract)
-unicon_uni_link_markerless_unicon	KEEPER, declared in unicon/KEEP.md -- never absorbed (deferral contract)
-unicon_uni_pkg_import	KEEPER, declared in unicon/KEEP.md -- never absorbed (deferral contract)
-unicon_uni_pkg_invocable_before_header	KEEPER, declared in unicon/KEEP.md -- never absorbed (deferral contract)
-unicon_uni_pkg_two_files	KEEPER, declared in unicon/KEEP.md -- never absorbed (deferral contract)
-# builder-digest: f4a7a1507f97ce9a06addb0749ca481c9abb7203193127267223ef84e45125b2
+# builder-digest: fbd885ab7698372612af0292b3cf6935ec718680a2a230291dfc3ef467b42880
