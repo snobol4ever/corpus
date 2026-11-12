@@ -1,6 +1,6 @@
 # EXCLUDED.tsv -- the Roast files with NO ORACLE ANSWER, out of the denominator (CEO-1696), read by raku_roast_scoreboard.sh through
 # lib_inventory.sh inventory_excluded_names: rakudo-local 2026.05 raku -c refuses the unfudged file. Taken from hq_raku's parse-only census
-# corpus tests/raku/config/ROAST-PARSE-CLASSES.tsv (CEO-1713, corpus cf4e15779), class NO_ORACLE_ANSWER; name<TAB>class<TAB>evidence.
+# ROAST-PARSE-CLASSES.tsv beside this table (corpus tests/raku/config until 2026-11-12; CEO-1713, corpus cf4e15779), class NO_ORACLE_ANSWER; name<TAB>class<TAB>evidence.
 # class S17_CLOSED_BY_LON (CTO-514 ruling 1, 2026-11-05): every S17 concurrency file leaves the denominator until Lon opens S17 (skill raku section 7); the class returns whole when he does.
 6.c/S02-names/pseudo-6c	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: /home/resources/roast-master/6.c/S02-names/pseudo-6c.t "::=" not yet implemented. Sor
 S02-literals/format	NO_ORACLE_ANSWER	rakudo-local 2026.05 raku -c refuses the unfudged file (census cf4e15779): rakudo -c: ===SORRY!=== Unrecognized adverb: :o at /home/resources/roast-master/S02-literals/format.t:8 
