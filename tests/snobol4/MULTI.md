@@ -3006,6 +3006,18 @@ END
 hello
 ```
 
+## gc_hb_deferexpr_a_substr
+
+```SNOBOL4
+                  s              =  SUBSTR('ZABZ',2,2)
+                  OUTPUT         =  s
+END
+```
+
+```stdout
+AB
+```
+
 ## scrip_test_polyglot_tri_main
 
 ```SNOBOL4
@@ -5557,6 +5569,42 @@ END
 
 ```stdout
 ababab
+```
+
+## gc_hb_deferexpr_a_dupl
+
+```SNOBOL4
+                  s              =  DUPL('AB',2)
+                  OUTPUT         =  s
+END
+```
+
+```stdout
+ABAB
+```
+
+## gc_hb_deferexpr_a_replace
+
+```SNOBOL4
+                  s              =  REPLACE('ABCD','CD','AB')
+                  OUTPUT         =  s
+END
+```
+
+```stdout
+ABAB
+```
+
+## gc_hb_deferexpr_a_trim
+
+```SNOBOL4
+                  s              =  TRIM('AB  ')
+                  OUTPUT         =  s
+END
+```
+
+```stdout
+AB
 ```
 
 ## keyword_23
@@ -13357,6 +13405,24 @@ END
 done
 ```
 
+## gc_hb_data_tweak_hook
+
+```SNOBOL4
+	DATA('pair(n,a)')
+	DEFINE('pair__TWEAK(self)')		:(tw_end)
+pair__TWEAK	fired = fired + 1
+	n(self) = n(self) * 100		:(RETURN)
+tw_end
+	p = pair(1, 2)
+	q = pair(3, 4)
+	OUTPUT = fired ' ' n(p) ' ' n(q)
+END
+```
+
+```stdout
+ 1 3
+```
+
 ## keyword_branch_4
 
 ```SNOBOL4
@@ -16893,6 +16959,25 @@ match FAILED, X=<unset>
 match ok, Y=a
 ```
 
+## gc_hb_datblk
+
+```SNOBOL4
+*  WITNESS for HB_PVEC through the DATA type block's field-name vector -- a DATA type and an instance held across allocation churn, then read back by field.
+        DATA('POINT(PX,PY)')
+        DATA('BOX(LO,HI,TAG)')
+        P = POINT(3,4)
+        B = BOX(P,POINT(7,8),'t')
+        I = 0
+CHURN   S = S 'y'
+        I = LT(I,300) I + 1                        :S(CHURN)
+        OUTPUT = 'PVEC-' PX(P) '-' PY(P) '-' DATATYPE(B) '-' PX(HI(B)) '-' TAG(B)
+END
+```
+
+```stdout
+PVEC-3-4-BOX-7-t
+```
+
 ## ladder__rung16_inf_dotnet_the_statement_in_error_of_a_failed_code_is_error_7
 
 ```SNOBOL4
@@ -20213,6 +20298,21 @@ END
 hello
 ```
 
+## gc_hb_deferexpr_d_substr
+
+```SNOBOL4
+                  subj           =  'AA'
+                  subj           POS(0) *SUBSTR('ZAAZ',2,2) RPOS(0)                              :F(no)
+                  OUTPUT         =  'match'                                      :(done)
+no                OUTPUT         =  'nomatch'
+done
+END
+```
+
+```stdout
+match
+```
+
 ## pos_len_defer_branch_3
 
 ```SNOBOL4
@@ -23219,6 +23319,36 @@ END
 123
 ```
 
+## gc_hb_deferexpr_d_dupl
+
+```SNOBOL4
+                  subj           =  'AA'
+                  subj           POS(0) *DUPL('A',2) RPOS(0)                              :F(no)
+                  OUTPUT         =  'match'                                      :(done)
+no                OUTPUT         =  'nomatch'
+done
+END
+```
+
+```stdout
+match
+```
+
+## gc_hb_deferexpr_d_replace
+
+```SNOBOL4
+                  subj           =  'AA'
+                  subj           POS(0) *REPLACE('BB','B','A') RPOS(0)                              :F(no)
+                  OUTPUT         =  'match'                                      :(done)
+no                OUTPUT         =  'nomatch'
+done
+END
+```
+
+```stdout
+match
+```
+
 ## ladder__rung33_fullscan_on
 
 ```SNOBOL4
@@ -23645,6 +23775,25 @@ END
 ```stdout
 A=aaa/bbb
 D=aaabbbccc
+```
+
+## gc_hb_defer_close_after_a_deferred_capture_polled
+
+```SNOBOL4
+        N = 3
+        S = 'AAAAB'
+        S LEN(*N) . X                              :F(NO)
+        OUTPUT = X
+        T = 'XYZ'
+        T *T . Y                                   :F(NO)
+        OUTPUT = Y                                 :(END)
+NO      OUTPUT = 'no'
+END
+```
+
+```stdout
+AAA
+XYZ
 ```
 
 ## ladder__rung09_a_subscript_error_in_a_capture_pattern_operand_is_raised_before_the_target_function_is_called
@@ -25251,6 +25400,39 @@ cdcdcd
 B
 efefef
 C
+```
+
+## gc_hb_arena_grow
+
+```SNOBOL4
+*  WITNESS for arena_grow (gc_heap.c:158-163, the soft end advancing) -- the ONE observable event that NO
+*  witness in the pool could reach. util_gc_event_coverage.py swept all 96 at SCRIP_HEAP_MB=1 stress 1 and
+*  read `grown N MB total` = 0 for every one, correctly diagnosing why: they all allocate heavily and RETAIN
+*  ALMOST NOTHING, so the collector reclaims faster than they allocate and the window is never outgrown.
+*  This witness is the missing SHAPE rather than more of the same -- it holds a LIVE SET LARGER THAN THE
+*  WINDOW, every element reachable through an ARRAY until after the sum reads it back, so the collector
+*  cannot reclaim its way out and the heap must grow. The sum is what makes the set genuinely live: without
+*  it a collector could prove the elements dead and the witness would measure nothing.
+*  SIZED FOR A PROBE, NOT FOR A BENCHMARK: the live set is ~2 MB in 2000 blocks rather than the same
+*  2 MB in 20000, because every collection walks the TITLE of every live block, so block COUNT and not
+*  byte count is what makes a retaining witness slow. The first shape timed out against the coverage
+*  tool's own 60s probe ceiling; this one holds the same bytes past the window at a tenth of the walk.
+*  The .ref is cut from /home/resources/x64/bin/sbl -bf, not from ./scrip.
+          N = 2000
+          A = ARRAY(N)
+          I = 0
+FILL      I = LT(I,N) I + 1                                     :F(SUM)
+          A[I] = DUPL('x',1000) I                               :(FILL)
+SUM       T = 0
+          I = 0
+ADD       I = LT(I,N) I + 1                                     :F(DONE)
+          T = T + SIZE(A[I])                                    :(ADD)
+DONE      OUTPUT = 'GROW=' T ' N=' N ' FIRST=' SIZE(A[1]) ' LAST=' SIZE(A[N])
+END
+```
+
+```stdout
+GROW=2006893 N=2000 FIRST=1001 LAST=1004
 ```
 
 ## span_pos_rpos_branch_3
@@ -32637,6 +32819,28 @@ match2 rejected ok
 match3 ok
 ```
 
+## gc_hb_blob_span_defer
+
+```SNOBOL4
+*  WITNESS for the R-4(b) blob frame's static layout (ARCH-GC 6.2e): a stored pattern's deferred SPAN(*C) keeps the
+*  string pointer rt_pat_prim_str returned in the blob's leaf pointer slot, and *ALLOC() allocates INSIDE the frame so
+*  a forced collection walks the frame while that word and the DTP word [rbp-24] are live. Nothing dies, so nothing
+*  slides: under SCRIP_GC_BLOB_LAYOUT_PLANT=2 the reporter's raw_in_heap column must count the retagged pointer words.
+        DEFINE('ALLOC()')                        :(START)
+ALLOC   G = DUPL('g', 300)                       :(RETURN)
+START   C = 'ab' 'c'
+        E = DUPL('e', 256)
+        P = SPAN(*C) . X *ALLOC() 'q'
+        'abcq' P                                 :F(NO)
+        OUTPUT = X '-' SIZE(E) '-' SIZE(G)       :(END)
+NO      OUTPUT = 'nomatch'
+END
+```
+
+```stdout
+abc-256-300
+```
+
 ## user_function_break_trim_branch_1
 
 ```SNOBOL4
@@ -34141,6 +34345,26 @@ END
 
 ```stdout
 match
+```
+
+## gc_hb_arbno_deferred_name
+
+```SNOBOL4
+        $'W' = FENCE(SPAN(' ') | '')
+        S = '1,2,3'
+        S POS(0) ANY('123') ARBNO($'W' ',' ANY('123')) RPOS(0)   :S(OK)F(BAD)
+OK      OUTPUT = 'MATCH'                                          :(NEXT)
+BAD     OUTPUT = 'FAIL'
+NEXT    T = 'a b  c'
+        T POS(0) ARBNO(ANY('abc') SPAN(' ')) ANY('abc') RPOS(0)  :S(OK2)F(BAD2)
+OK2     OUTPUT = 'MATCH2'                                         :(END)
+BAD2    OUTPUT = 'FAIL2'
+END
+```
+
+```stdout
+MATCH
+MATCH2
 ```
 
 ## rtab_pos_len_branch_1
