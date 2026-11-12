@@ -1,4 +1,3 @@
-arcget: oracle produced EMPTY output -- refusing to mint a vacuous ref
 cfreq: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 demos/align: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
 demos/atn: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
