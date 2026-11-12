@@ -1,5 +1,0 @@
-procedure f(p)
-   local c;
-   c := (g(\p.coord) | h("", 0, 0));
-   return c;
-end
