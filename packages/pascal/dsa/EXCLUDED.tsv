@@ -1,0 +1,4 @@
+# NO_ORACLE_ANSWER (CEO-1696: a program with no oracle answer is excluded, never debt; the rosetta-pascal count-in-factors.pas precedent, a function result never assigned).
+# A program whose printed answer is a value the language leaves undefined leaves the denominator, named here with its measurement; the entry stays in ALL.csv and the row reads shipped minus these.
+# Columns: program<TAB>class<TAB>measurement.
+Recursion/Zadanie5	NO_ORACLE_ANSWER	function nwd(n,m:integer):integer never assigns nwd (lines 2-9: it calls nwd(n,m) and drops the value; fpc warns Function result does not seem to be set), so the 6 the ref prints is the return register's leftover: fpc 3.2.2 -Mfpc on input 12 and 18 prints 6 at -O-, -O1 and -O2 and -1448 at -O3; SCRIP prints nothing after the label; measured by senior_03 (escalation rung 3) and re-measured by the coo at -O- and -O3, 2026-11-12 12:3x CST

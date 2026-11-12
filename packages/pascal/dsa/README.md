@@ -12,3 +12,4 @@ THE CENSUS: 11 programs; 5 entries; 5 need a display (crt); 1 clock-seeded (Recu
 in five runs, junior_05 2026-11-12). The five Recursion programs that read standard input are fed our own `NAME.in` beside their answer (one or two
 integers and the blank line their closing readln takes), written by hand before the census. An entry is a program fpc answers the same twice inside 60 s,
 with something on standard output; it is graded on standard output and exit status. Every verdict in `ALL.omit` is a measurement and is expected to be re-run.
+One entry is declared out in `EXCLUDED.tsv`: Recursion/Zadanie5, NO_ORACLE_ANSWER (nwd never sets its result; fpc prints 6 at -O- to -O2 and -1448 at -O3; senior_03 and the coo 2026-11-12), so the row is 4 of the 5 entries.
