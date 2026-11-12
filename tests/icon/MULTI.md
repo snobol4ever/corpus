@@ -44,6 +44,18 @@ procedure main(); write("ok"); end
 ok
 ```
 
+## batch_grader__bg06_icn_hello
+
+```Icon
+procedure main()
+  write("hello from icon");
+end
+```
+
+```stdout
+hello from icon
+```
+
 ## ladder_rung18_real_relop_real_ge
 
 ```Icon
@@ -3586,6 +3598,18 @@ end
 9
 ```
 
+## zeta_layout__zl11_icn_unreached_arm_end
+
+```Icon
+procedure main();
+    write(1(2, (until 1 do 2) | 5));
+end
+```
+
+```stdout
+2
+```
+
 ## ladder_rung40_strfn_repl
 
 ```Icon
@@ -5546,6 +5570,25 @@ end
 ```stdout
 hi!
 bye!
+```
+
+## exceptions__ex06_icn_runerr_fatal
+
+```Icon
+# ex06 -- an uncaught run-time error: the output before it is flushed and the exit code is the oracle's (DESIGN-PLAN exceptions, the cto 2026-10-29)
+procedure main()
+  local L;
+  L := [1, 2, 3];
+  write("before ", *L);
+  write("two");
+  write(L[2] + "abc");
+  write("never");
+end
+```
+
+```stdout
+before 3
+two
 ```
 
 ## procedure_every_write_2
@@ -8357,6 +8400,30 @@ end
 ```stdout
 3
 done
+```
+
+## builtin_table__bt07_icn_user_proc_shadows_builtin
+
+```Icon
+procedure main();
+   write(map("abc"));
+   write(reverse("abc"));
+   write(repl("ab", 2));
+end
+
+procedure map(s);
+   return "mine:" || s;
+end
+
+procedure repl(s, n);
+   return "repl:" || s || n;
+end
+```
+
+```stdout
+mine:abc
+cba
+repl:ab2
 ```
 
 ## ladder__rung43_initially
@@ -13598,6 +13665,43 @@ procedure
 2
 ```
 
+## builtin_table__bt08_icn_string_invocation
+
+```Icon
+procedure main();
+   local f, g, nm;
+   write("map"("ABC"));
+   write("reverse"("abc"));
+   f := proc("reverse");
+   write(f("xyz"));
+   nm := "re" || "pl";
+   g := proc(nm, 2);
+   write(g("ab", 3));
+   write(image(proc("write")));
+   write(image(proc("mine")));
+   write(proc("nosuch") | "no such function");
+   write("center"("x", 5, "-"));
+   write(proc("+", 2)(3, 4));
+   write(proc("*", 1)("abcd"));
+end
+
+procedure mine(x);
+   return x;
+end
+```
+
+```stdout
+abc
+cba
+zyx
+ababab
+function write
+no such function
+--x--
+7
+4
+```
+
 ## procedure_write_keyword_6
 
 ```Icon
@@ -14449,6 +14553,21 @@ end
 1
 2
 7
+```
+
+## builtin_table__bt02_icn_loop
+
+```Icon
+procedure main();
+   local n, i;
+   n := 0;
+   every i := 1 to 200000 do n +:= *map("abcdef");
+   write(n);
+end
+```
+
+```stdout
+1200000
 ```
 
 ## ladder__rung42_kw_not_of_a_keyword_in_a_condition_takes_a_branch
@@ -15322,6 +15441,40 @@ end
 'abc' 3 abc
 55
 'abcz' 4
+```
+
+## builtin_table__bt09_icn_arity_defaults
+
+```Icon
+procedure main();
+   write(map("Hello"));
+   write(map("hello", "lo", "LO"));
+   write(left("a"));
+   write(center("ab", 6), "|");
+   write(right("ab", 6, "."), "|");
+   write(reverse("abc", 5));
+   write(trim("abc   "));
+   write(trim("abc...", "."));
+   write(integer("12"), " ", real("1.5"), " ", string(7), " ", numeric("3"));
+   write(abs(-3), " ", char(65), " ", ord("A"));
+   write(image(type(1)), " ", image(copy("s")));
+   write(image(ishift(1, 3)), " ", iand(6, 3), " ", ior(4, 1), " ", ixor(5, 1), " ", icom(0));
+end
+```
+
+```stdout
+hello
+heLLO
+a
+  ab  |
+....ab|
+cba
+abc
+abc
+12 1.5 7 3
+3 A 65
+"integer" "s"
+8 2 5 4 -1
 ```
 
 ## ladder__rung15_swap_a_keyword_exchange_enters_the_reversible_exchange_after_it_at_its_start
@@ -16289,6 +16442,22 @@ end
 74
 83
 84
+```
+
+## zeta_layout__zl17_icn_goto_arm_end_is_landed
+
+```Icon
+procedure main();
+   local i;
+   every write((2 | ((i := seq(3, 2)) & i)) \ 4);
+end
+```
+
+```stdout
+2
+3
+5
+7
 ```
 
 ## ladder__rung05_scan_env_a_coexpr_sees_the_activators_subject_and_pos
@@ -21527,6 +21696,49 @@ R=2 pos=1
 1
 ```
 
+## zeta_layout__zl18_icn_suspend_in_limited_arm
+
+```Icon
+procedure g();
+   local x, r, r2;
+   x := 5;
+   r := ({ suspend 1; (r2 := { suspend 2 } \ 1) & x & x } \ 1) | (write("w") & &fail);
+   write(r);
+end
+procedure main();
+   every write(g());
+end
+```
+
+```stdout
+1
+2
+w
+
+```
+
+## zeta_layout__zl19_icn_two_alternations_yield
+
+```Icon
+procedure g();
+   local x, r, r2;
+   x := 5;
+   r := ({ suspend 1; ((r2 := { suspend 2 } \ 1) | (write("w") & &fail)) & x & x } \ 1) | (write("v") & &fail);
+   write(r);
+end
+procedure main();
+   every write(g());
+end
+```
+
+```stdout
+1
+2
+w
+v
+
+```
+
 ## unicon__uni_posix_fork_pipe
 
 ```Icon
@@ -22511,6 +22723,33 @@ e103
 e103
 ```
 
+## exceptions__ex07_icn_error_in_coexpr
+
+```Icon
+# ex07 -- errors converted inside a co-expression body and inside a procedure the co-expression calls; the activation fails and the activator goes on (DESIGN-PLAN exceptions, the cto 2026-10-29)
+procedure bump(x)
+  if x % 2 = 0 then return x * 10 else return x + "k";
+end
+procedure main()
+  local c, n, x, got;
+  &error := 100;
+  c := create bump(1 to 6);
+  got := []; n := 0;
+  while x := @c do { put(got, x); n +:= 1 };
+  write(n, " ", got[1], " ", got[-1], " ", &error);
+  c := create (1 + "a");
+  if x := @c then write("value ", x) else write("activation failed ", &errornumber);
+  c := create |bump(3);
+  if x := @c then write("value ", x) else write("second failed ", &errornumber, " ", &error);
+end
+```
+
+```stdout
+3 20 60 97
+activation failed 102
+second failed 102 95
+```
+
 ## ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
 
 ```Icon
@@ -22690,6 +22929,78 @@ integer
 he
 3
 = failed
+```
+
+## zeta_layout__zl04_icn_error_converted
+
+```Icon
+# zl04 -- run-time errors converted to failure by &error inside nested generators and scanning; the C raise returns to the box (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+procedure fails(i)
+  local x;
+  if x := (i + "a") then return "ok" else return "no";
+end
+procedure main()
+  local i, s, n, acc, t, codes;
+  &error := 1000;
+  n := 0; acc := ""; codes := table(0);
+  every i := 1 to 60 do {
+    if fails(i) == "no" then { n +:= 1; codes[&errornumber] +:= 1 };
+    acc ||:= string(i);
+    s := "abc" || string(i) || "def";
+    s ? { if tab(1 + "zz") then n +:= 1000 else n +:= 1 };
+    every t := !["a", "b", 3] do { if (t || "x") then n +:= 1 else n +:= 100 };
+  };
+  write(n, " ", *acc, " ", &error, " ", &errornumber);
+  every i := key(codes) do write("code ", i, " ", codes[i]);
+end
+```
+
+```stdout
+300 111 880 102
+code 102 60
+```
+
+## zeta_layout__zl20_icn_nested_critical_expansion
+
+```Icon
+procedure lock(m);
+   return write("lock ", m);
+end
+procedure unlock(m);
+   return write("unlock ", m);
+end
+procedure g();
+   local m1, r1, m2, r2;
+   m1 := "a" & lock(m1) & ((r1 := {
+         suspend (1(1, 1, unlock("a")) | (unlock("a") & &fail)) do lock("a");
+         m2 := "b" & lock(m2) & ((r2 := {
+               suspend (1(1, (1(1, 2, unlock("b")) | (unlock("b") & &fail)), unlock("a")) | (unlock("a") & &fail)) do { lock("a"); lock("b") }
+            } \ 1) | (unlock(m2) & &fail)) & unlock(m2) & r2
+      } \ 1) | (unlock(m1) & &fail)) & unlock(m1) & r1;
+   write("g ends");
+end
+procedure main();
+   every write(g());
+end
+```
+
+```stdout
+lock a
+unlock a
+1
+lock a
+unlock a
+lock b
+unlock b
+unlock a
+1
+lock a
+lock b
+unlock b
+unlock a
+unlock b
+unlock a
+g ends
 ```
 
 ## procedure_write_258
@@ -27601,6 +27912,57 @@ co-expression_1(1)
 co-expressio
 ```
 
+## builtin_table__bt10_icn_generator_builtins
+
+```Icon
+procedure main();
+   local t, L;
+   every write(find("a", "banana"));
+   every write(upto('an', "banana"));
+   every write(bal('+', "(", ")", "(a+b)+c+(d)"));
+   every write(many('ab', "aabbcc"));
+   every write(any('b', "banana"));
+   every write(match("ba", "banana"));
+   t := table();
+   t["x"] := 1; t["y"] := 2;
+   every write(key(t));
+   L := [1, 2, 3];
+   every write(!L);
+   every write(seq(10, 5) \\ 3);
+   write(find("z", "banana") | "none");
+   every write(find("a", "banana", 3));
+   every write(find("a", "banana", 3, 6));
+end
+```
+
+```stdout
+2
+4
+6
+2
+3
+4
+5
+6
+6
+8
+5
+2
+3
+x
+y
+1
+2
+3
+10
+15
+20
+none
+4
+6
+4
+```
+
 ## procedure_every_elemgen_replace_2
 
 ```Icon
@@ -28227,6 +28589,44 @@ beta
 gamma
 omega
 done
+```
+
+## exceptions__ex05_icn_error_conversion
+
+```Icon
+# ex05 -- &error converts run-time errors to failure inside generators, scanning, procedure calls and string invocation; the keywords read the error (DESIGN-PLAN exceptions, the cto 2026-10-29)
+procedure half(x)
+  return x / 2;
+end
+procedure gen(n)
+  local i;
+  every i := 1 to n do suspend i + "a";
+  suspend n * 10;
+end
+procedure main()
+  local i, n, acc, s, L, codes, k, v;
+  &error := 500;
+  n := 0; acc := 0; L := []; codes := table(0);
+  every i := 1 to 50 do {
+    if v := half("x") then acc +:= v else { n +:= 1; codes[&errornumber] +:= 1 };
+    every v := gen(3) do acc +:= v;
+    s := "abc" || string(i);
+    s ? { if tab(upto("z")) then acc +:= 1 else acc +:= 2 };
+    if v := "half"(i) then acc +:= v;
+    if v := "nosuch"(i) then acc +:= 1000 else { n +:= 1; codes[&errornumber] +:= 1 };
+    put(L, s);
+  };
+  write(n, " ", acc, " ", *L, " ", &error);
+  write(&errornumber, " ", &errortext, " ", image(&errorvalue));
+  every k := key(codes) do write("code ", k, " ", codes[k]);
+end
+```
+
+```stdout
+100 2225 50 250
+106 procedure or integer expected "nosuch"
+code 102 50
+code 106 50
 ```
 
 ## procedure_every_scan_replace_10
@@ -33349,6 +33749,82 @@ end
 &lcase 1 6 2 1
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff' 6 - - 6
 'abcdefg' 2 - - 2
+```
+
+## zeta_layout__zl03_icn_generators_coexpr
+
+```Icon
+# zl03 -- nested generators with retained frames, tables, lists, scanning and a co-expression under collection (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+procedure gen(n)
+  local i;
+  every i := 1 to n do suspend repl("x", i) || string(i);
+end
+procedure pairs(n)
+  local a, b;
+  every a := gen(n) do every b := gen(3) do suspend a || "-" || b;
+end
+procedure main()
+  local t, L, s, k, total, c, x, count, sorted, i;
+  t := table(0); L := []; total := 0;
+  every s := pairs(40) do { t[*s] +:= 1; put(L, s); total +:= *s };
+  write(*L, " ", total);
+  sorted := sort(t, 1);
+  every i := 1 to *sorted do write(sorted[i][1], " ", sorted[i][2]);
+  c := create (every s := !L do s ? { tab(upto('-')); move(1); tab(0) });
+  count := 0;
+  while x := @c do count +:= *x;
+  write(count);
+  write(L[1], " ", L[-1], " ", L[*L / 2]);
+end
+```
+
+```stdout
+120 3153
+5 1
+6 2
+7 3
+8 3
+9 3
+10 3
+11 3
+12 3
+13 3
+14 2
+15 2
+16 2
+17 3
+18 3
+19 3
+20 3
+21 3
+22 3
+23 3
+24 3
+25 3
+26 3
+27 3
+28 3
+29 3
+30 3
+31 3
+32 3
+33 3
+34 3
+35 3
+36 3
+37 3
+38 3
+39 3
+40 3
+41 3
+42 3
+43 3
+44 3
+45 3
+46 2
+47 1
+0
+x1-x1 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx40-xxx3 xxxxxxxxxxxxxxxxxxxx20-xxx3
 ```
 
 ## procedure_record_every_replace_1

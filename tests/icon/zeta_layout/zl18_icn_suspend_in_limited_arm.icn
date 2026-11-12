@@ -1,9 +1,0 @@
-procedure g();
-   local x, r, r2;
-   x := 5;
-   r := ({ suspend 1; (r2 := { suspend 2 } \ 1) & x & x } \ 1) | (write("w") & &fail);
-   write(r);
-end
-procedure main();
-   every write(g());
-end
