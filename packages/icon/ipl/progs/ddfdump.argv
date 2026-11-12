@@ -1,0 +1,2 @@
+# ddfdump.argv -- the DDF file to dump, staged from ddfdump.fixtures/ (it is binary, so it cannot be the container's stdin; ddfdump opens a file named on its command line, ddfdump.icn line 57)
+ddfdump	ddfdump.ddf

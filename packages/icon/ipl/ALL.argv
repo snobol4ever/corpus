@@ -78,3 +78,6 @@ progs/pack	first.txt	second.txt	third.txt
 progs/press	-p	test
 progs/setmerge	a.txt	+	b.txt
 progs/utrim	-v	tprog.u1
+progs/pbkdump	phone.pbk
+progs/ddfdump	ddfdump.ddf
+progs/genfile	genf_expr.txt

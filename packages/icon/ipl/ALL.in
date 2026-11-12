@@ -1703,3 +1703,36 @@ hello, world
 #-------------------------------------------------------------- 607 progs/newsrc
 two
 2
+#------------------------------------------------------------ 612 progs/catlines
+the quick brown fox
+jumps over the lazy dog
+
+pack my box with
+five dozen liquor jugs
+a short line
+#---------------------------------------------------------------- 613 progs/colm
+the quick brown fox
+jumps over the lazy dog
+
+pack my box with
+five dozen liquor jugs
+a short line
+#------------------------------------------------------------- 615 progs/lineseq
+alpha
+beta
+gamma
+delta
+#------------------------------------------------------------- 616 progs/longest
+the quick brown fox
+jumps over the lazy dog
+
+pack my box with
+five dozen liquor jugs
+a short line
+#------------------------------------------------------------ 618 progs/streamer
+the quick brown fox
+jumps over the lazy dog
+
+pack my box with
+five dozen liquor jugs
+a short line

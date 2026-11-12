@@ -1,10 +1,8 @@
-1
-1
-2
-3
-5
-8
-13
-21
-34
-55
+
+Run-time error 212
+File genfile.icn; Line 45
+attempt to read file not open for reading
+offending value: file(genf_expr.txt)
+Traceback:
+main(list_1 = ["genf_expr.txt"])
+{!(variable = file(genf_expr.txt))} from line 45 in genfile.icn

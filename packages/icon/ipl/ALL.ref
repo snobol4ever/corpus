@@ -19555,3 +19555,79 @@ delta
     26   triple          
     25   unused           triple
 Trimming 2/4 procedures (51%), 51/123 lines (41%)
+#------------------------------------------------------------ 612 progs/catlines
+the quick brown foxjumps over the lazy dogpack my box withfive dozen liquor jugsa short line
+#---------------------------------------------------------------- 613 progs/colm
+the quick brown fox  jumps over the lazy dog
+
+pack my box with
+five dozen liquor jugs  a short line
+#------------------------------------------------------------ 614 progs/duplfile
+file: "ledger.txt" occurs in the following directories
+	"."
+	"./north"
+
+file: "notes.txt" occurs in the following directories
+	"./north"
+	"./south"
+
+file: "report.dat" occurs in the following directories
+	"./north/inner"
+	"./south"
+#------------------------------------------------------------- 615 progs/lineseq
+alpha beta gamma delta 
+#------------------------------------------------------------- 616 progs/longest
+jumps over the lazy dog
+#------------------------------------------------------------- 617 progs/pbkdump
+Name:   Griswold, Ralph
+Number: 520-555-0101
+Address:
+Dept. of Computer Science
+University of Arizona
+Tucson AZ 85721
+
+Name:   Townsend, Gregg
+Number: 
+Address:
+This address line is deliberately much
+longer than thirty-nine characters so
+it wraps
+Short line
+
+Name:   Nobody
+Number: 555-0000
+Address:
+#------------------------------------------------------------ 618 progs/streamer
+the quick brown foxjumps over the lazy dogpack my box withfive dozen liquor jugsa short line
+#------------------------------------------------------------- 619 progs/ddfdump
+
+ddfdump.ddf:
+
+0000: <0000;&> <SAMPLE SPATIAL FILE> <>
+0001: <0100;&> <DDF RECORD IDENTIFIER> <(I(6))>
+   <RCID>
+SITE: <1600;&> <SITE DATA> <(A,I(3),R(6),B(16))>
+   <NAME>
+   <CODE>
+   <ELEV>
+   <FLAGS>
+PNTS: <2600;&> <POINT COORDINATES> <(I(4),I(4))>
+   <X>
+   <Y>
+
+0001: 1
+SITE: <ALPHA> 42 3.141 258
+PNTS: 10 20 30 40
+
+0001: 2
+SITE: <BRAVO> 117 -12.5 -2
+PNTS: 5 6 7 8 9 10
+#------------------------------------------------------------- 620 progs/genfile
+
+Run-time error 212
+File genfile.icn; Line 45
+attempt to read file not open for reading
+offending value: file(genf_expr.txt)
+Traceback:
+main(list_1 = ["genf_expr.txt"])
+{!(variable = file(genf_expr.txt))} from line 45 in genfile.icn
