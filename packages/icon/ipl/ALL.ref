@@ -19216,3 +19216,96 @@ j
 third
 second
 first
+#------------------------------------------------------------- 574 gprogs/dd2wif
+Cannot open nofile.blp
+#----------------------------------------------------------- 575 gprogs/painterc
+*** cannot open nofile.txt
+#---------------------------------------------------------------- 576 progs/calc
+*** erroneous input "the quick brown fox"
+*** erroneous input "jumps over the lazy dog"
+*** erroneous input "the quick brown fox"
+*** erroneous input "alpha beta gamma"
+*** erroneous input "12 7 93 7 12"
+*** erroneous input "Mixed Case Words Here"
+*** erroneous input "delta epsilon zeta"
+*** erroneous input "alpha beta gamma"
+*** erroneous input "one two three four five"
+#------------------------------------------------------------- 577 progs/chkhtml
+
+"chkhtml.in": Checking HTML format...
+"chkhtml.in":6: "&" in open text
+"chkhtml.in":6: Unknown tag: <HERE </BODY>
+"chkhtml.in":8: Mismatched closing tag </HTML> pairs with <BODY> in line 3
+"chkhtml.in":4: Anchor name referenced but not defined: "THERE"
+"chkhtml.in": Warning: Anchor name not referenced: "HERE"
+"chkhtml.in": 4 errors detected
+#-------------------------------------------------------------- 578 progs/conman
+Conman version 1.1, 7/24/87
+windup
+#------------------------------------------------------------ 579 progs/diskpack
+wc: '*.lzh': No such file or directory
+#------------------------------------------------------------ 580 progs/envelope
+lpr: Error - No default destination.
+#------------------------------------------------------------ 581 progs/evaluate
+*** syntax error
+*** syntax error
+*** syntax error
+*** syntax error
+*** syntax error
+*** syntax error
+*** syntax error
+*** syntax error
+*** syntax error
+#-------------------------------------------------------------- 582 progs/fixhqx
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 583 progs/geddump
+ERR, line 1: the quick brown fox
+ERR, line 2: jumps over the lazy dog
+ERR, line 3: the quick brown fox
+ERR, line 4: alpha beta gamma
+ERR, line 6: Mixed Case Words Here
+ERR, line 7: delta epsilon zeta
+ERR, line 8: alpha beta gamma
+ERR, line 9: one two three four five
+#--------------------------------------------------------------- 584 progs/igrep
+igrep -- emulates UNIX egrep
+Usage: igrep -Options [expression] filename...
+  Options:
+  c   print count of matching lines rather than actual lines
+  h   don't display file names
+  i   ignore case of letters
+  l   list only the names of files containing matching lines
+  n   precede lines with line numbers
+  s   work silently -- display nothing
+  v   invert search to display only lines that don't match
+  e expr  useful if expressions starts with -
+  E expr  expresson containing Icon escape sequences
+  f file  take list of alternated expressions from "file"
+#-------------------------------------------------------------- 585 progs/lcfile
+mv: cannot stat 'ReadMe.TXT': No such file or directory
+mv: cannot stat 'Makefile': No such file or directory
+mv: cannot stat 'SRC/Main.ICN': No such file or directory
+mv: cannot stat 'Doc/Guide.Html': No such file or directory
+#------------------------------------------------------------ 586 progs/psrsplit
+   writing psrsplit.p01
+   writing psrsplit.p02
+   writing psrsplit.p03
+#------------------------------------------------------------ 587 progs/strpsgml
+
+Run-time error 106
+File strpsgml.icn; Line 82
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = [])
+&null((variable = '<'),(variable = '>'),(variable = "<p>Hello, <b>wor..."),&null,&null,(variable = &null)) from line 82 in strpsgml.icn
+#------------------------------------------------------------- 588 progs/textcvt
+Converting textcvt.in -> textcvt.out -- done.

@@ -40343,3 +40343,2444 @@ procedure main(args)
       writes(leftover)
       };
 end
+#------------------------------------------------------------- 574 gprogs/dd2wif
+############################################################################
+#
+#	File:     dd2wif.icn
+#
+#	Subject:  Program to produce a WIF from drawdown
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     July 4, 2002
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program reads BLPs that represent drawdowns.  The names of BLP
+#  files are given on the command line.  WIF files are output.
+#
+#  The following option is supported:
+#
+#	-w	make Web page; default don't
+#
+#  If Web pages are being produced, the extension "html" is used; otherwise
+#  "wif".
+#
+############################################################################
+#
+#  Links:  basename, options, pattread, patutils
+#
+############################################################################
+
+link basename
+link options
+link pattread
+link patutils
+
+procedure main(args)
+   local rows, cols, treadling, threading, count, tieup, line, opts, lt, ext;
+   local shafts, treadles, i, tie_line, row, treadle, draft, title, web;
+   local name, input, output;
+
+   opts := options(args, "w");
+
+   title := \opts["t"] | "example";
+   web := \opts["w"];
+
+   if \web then {			# make Web page
+      lt := "<BR>";
+      ext := ".html"
+      }
+   else ext := ".wif";
+
+   every name := !args do {
+      input := open(name) | stop("Cannot open ", name);
+      rows := pattread(input);
+      close(input);
+      output := open(basename(name, ".blp") || ext, "w") |
+         stop("Cannot open file for writing.");
+      write(output, "<HTML>");
+      write(output, "<BODY>");
+      cols := rot(rows);  # rotate to get columns
+      treadles := examine(rows);  # get treadles
+      shafts := examine(cols);  # get shafts
+      treadling := [];  # construct treadling sequence
+      every put(treadling, treadles[!rows]);
+      threading := [];  # construct threading sequence
+      every put(threading, shafts[!cols]);
+      tieup := table();
+      every row := key(treadles) do {		# get unique rows
+         treadle := treadles[row];  # assigned treadle number
+         tie_line := repl("0", *shafts);  # blank tie-up line
+         every i := 1 to *row do			# go through row
+            if row[i] == "1" then			#    if warp on top
+               tie_line[threading[i]] := "1";	#       mark shaft position
+         tieup[treadle] := tie_line		# add line to tie-up
+         };
+      write(output, "[WIF]", lt);
+      write(output, "Version=1.1", lt);
+      write(output, "Date=" || &dateline, lt);
+      write(output, "Developers=ralph@cs.arizona.edu", lt);
+      write(output, "Source Program=dd2wif.icn", lt);
+      write(output, "[CONTENTS]", lt);
+      write(output, "Color Palette=yes", lt);
+      write(output, "Text=yes", lt);
+      write(output, "Weaving=yes", lt);
+      write(output, "Tieup=yes", lt);
+      write(output, "Color Table=yes", lt);
+      write(output, "Threading=yes", lt);
+      write(output, "Treadling=yes", lt);
+      write(output, "Warp colors=yes", lt);
+      write(output, "Weft colors=yes", lt);
+      write(output, "Warp=yes", lt);
+      write(output, "Weft=yes", lt);
+      write(output, "[COLOR PALETTE]", lt);
+      write(output, "Entries=2", lt);
+      write(output, "Form=RGB", lt);
+      write(output, "Range=0," || 2 ^ 16 - 1, lt);
+      write(output, "[TEXT]", lt);
+      write(output, "Title=", basename(name, ".blp"), lt);
+      write(output, "Author=Ralph E. Griswold", lt);
+      write(output, "Address=5302 E. 4th St., Tucson, AZ 85711-2304", lt);
+      write(output, "EMail=ralph@cs.arizona.edu", lt);
+      write(output, "Telephone=520-881-1470", lt);
+      write(output, "FAX=520-325-3948", lt);
+      write(output, "[WEAVING]", lt);
+      write(output, "Shafts=", *shafts, lt);
+      write(output, "Treadles=", *treadles, lt);
+      write(output, "Rising shed=yes", lt);
+      write(output, "[WARP]", lt);
+      write(output, "Threads=", *threading, lt);
+      write(output, "Units=Decipoints", lt);
+      write(output, "Thickness=10", lt);
+      write(output, "Color=1", lt);
+      write(output, "[WEFT]", lt);
+      write(output, "Threads=", *treadling, lt);
+      write(output, "Units=Decipoints", lt);
+      write(output, "Thickness=10", lt);
+      write(output, "Color=2", lt);
+      write(output, "[WARP THICKNESS]", lt);
+      write(output, "[WEFT THICKNESS]", lt);
+      write(output, "[COLOR TABLE]", lt);
+      write(output, "1=0,0,0", lt);
+      write(output, "2=65535,65535,65535", lt);
+      write(output, "[THREADING]", lt);
+      every i := 1 to *threading do
+         write(output, i, "=", threading[i], lt);
+      write(output, "[TREADLING]", lt);
+      every i := 1 to *treadling do
+         write(output, i, "=", treadling[i], lt);
+      write(output, "[TIEUP]", lt);
+      every i := 1 to *tieup do
+         write(output, i, "=", tromp(tieup[i]), lt);
+      if \web then {
+         write(output, "</BODY>");
+         write(output, "</HTML>")
+         };
+      close(output)
+      };
+
+end
+
+procedure tromp(treadle)
+   local result;
+
+   result := "";
+   
+   treadle ? {
+      every result ||:= upto("1") || ","
+      };
+
+   return result[1:-1];
+
+end
+
+procedure examine(array) 
+   local count, lines, line;
+
+   lines := table();  # table to be keyed by line patterns
+   count := 0;
+
+   every line := !array do		# process lines
+      /lines[line] := (count +:= 1);	# if new line, insert with new number
+
+   return lines;
+
+end
+
+procedure rot(rows)
+   local cols, row, grid, i;
+
+   cols := list(*rows[1], "");
+
+   every row := !rows do {
+      i := 0;
+      every grid := !row do
+         cols[i +:= 1] := grid || cols[i]
+      };
+
+   return cols;
+
+end
+#----------------------------------------------------------- 575 gprogs/painterc
+############################################################################
+#
+#	File:     painterc.icn
+#
+#	Subject:  Program to convert Painter color sets to Icon colors
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 6, 1995
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts color sets from Painter 3 to lists of Icon
+#  colors.
+#
+#  The lists are saved in files with the base name of the color set and
+#  the suffix ".clr".
+#
+############################################################################
+#
+#  Links:  basename
+#
+############################################################################
+
+link basename
+
+procedure main(args)
+   local line, file, name, input, output;
+
+   every file := !args do {
+      input := open(file) | {
+         write(&errout, "*** cannot open ", file);
+         next
+         };
+      name := basename(file, ".txt");
+      output := open(name || ".clr", "w") | {
+         write(&errout, "*** cannot open ", name, ".clr");
+         close(input);
+         next
+         };
+      while line := map(read(input)) do {
+         line ? {
+            ="r:" | next;
+            tab(upto(&digits));
+            writes(output, 256 * tab(many(&digits)), ",");
+            tab(find("g:") + 2) | {
+               write(&errout, "*** invalid data in ", file);
+               write(&errout, line);
+               next
+               };
+            tab(upto(&digits));
+            writes(output, 256 * tab(many(&digits)), ",");
+            tab(find("b:") + 2) | {
+               write(&errout, "*** invalid data in ", file);
+               write(&errout, line);
+               next
+               };
+            tab(upto(&digits));
+            writes(output, 256 * tab(many(&digits)));
+            tab(many(' \t'));
+            if not pos(0) then write(output, "\t", tab(0))
+            else write(output)
+            }
+         };
+     close(input);
+     close(output)
+     };
+
+end
+#---------------------------------------------------------------- 576 progs/calc
+############################################################################
+#
+#	File:     calc.icn
+#
+#	Subject:  Program to simulate desk calculator
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 3, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This is a simple Polish "desk calculator".  It accepts as values Icon
+#  integers, reals, csets, and strings (as they would appear in an Icon
+#  program) as well as an empty line for the null value.
+#
+#  Other lines of input are interpreted as operations. These may be Icon
+#  operators, functions, or the commands listed below.
+#
+#  In the case of operator symbols, such as +, that correspond to both unary
+#  and binary operations, the binary one is used.  Thus, the unary operation
+#  is not available.
+#
+#  In case of Icon functions like write() that take an arbitrary number of
+#  arguments, one argument is used.
+#
+#  The commands are:
+#
+#	clear	remove all values from the calculator's stack
+#	dump	write out the contents of the stack
+#	quit	exit from the calculator
+#
+#  Example: the input lines
+#
+#	"abc"
+#	3
+#	repl
+#	write
+#
+#  writes abcabcabc and leaves this as the top value on the stack.
+#
+#  Failure and most errors are detected, but in these cases, arguments are
+#  consumed and not restored to the stack.
+#
+############################################################################
+#
+#  Links: ivalue, usage
+#
+############################################################################
+
+invocable all
+
+link ivalue, usage
+
+global stack
+
+procedure main()
+   local line;
+
+   stack := [];
+
+   while line := read() do
+      (operation | value | command)(line) |
+         Error("erroneous input ",  image(line));
+
+end
+
+procedure command(line)
+
+   case line of {
+      "clear":	stack := [];
+      "dump":	every write(image(!stack));
+      "quit": 	exit();
+      default:	fail
+      };      
+
+   return;
+
+end
+
+procedure operation(line)
+   local p, n, arglist;
+
+   if p := proc(line, 2 | 1 | 3) then {	# function or operation?
+      n := abs(args(p));
+      arglist := stack[-n : *stack + 1] | {
+         Error("too few arguments");
+         fail
+         };
+      stack := stack[1 : -n];
+      &error := 1;  # anticipate possible error
+      put(stack, p ! arglist) | {	# invoke
+         if &error = 0 then
+            Error("error ", &errornumber, " evaluating ", image(line))
+         else
+            Error("failure evaluating ", image(line));
+         stack |||:= arglist		# restore unused arguments
+         };
+      &error := 0;
+      return
+      }
+
+   else fail;
+
+end
+
+procedure value(line)
+
+   put(stack,ivalue(line)) | fail;
+
+   return;
+
+end
+#------------------------------------------------------------- 577 progs/chkhtml
+############################################################################
+#
+#	File:     chkhtml.icn
+#
+#	Subject:  Program to check HTML files
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     November 15, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+# Program to check an HTML file.
+#
+# Errors detected:
+#
+#   - Reference to undefined anchor name.
+#   - Duplicated anchor name.
+#   - Warning for unreferenced anchor name.
+#   - Unknown tag.
+#   - Badly formed tag.
+#   - Improper tag nesting.
+#   - Unescaped <, >, ", or &.
+#   - Bad escape string.
+#   - Improper embedding of attributes.
+#   - Bad (non-ascii) characters
+#
+# Advises on:
+#   - Use of <HTML>, <HEAD, <BODY> tags.
+#
+
+procedure Usage(s)
+  write(&errout,\s);
+  stop(
+       "Usage: ChkHTML -options file..._
+      \n  -u     supress warnings for unreferenced anchor names_
+      \n  -q     supress errors for \"\\\"\" (quote) character in open text_
+      \n  -g     supress errors for \">\" character in open text_
+      \n  -l n   level of HTML (default 2)");
+end
+
+global SupressUnrefNames,SupressOpenQuot,SupressOpenGT,HTMLLevel
+
+procedure Init(arg)
+  local opt,f;
+  ListTypes := ["UL","OL","MENU","DIR"];
+
+  opt := options(arg,"uqgl+",Usage);
+  if *arg = 0 then Usage();
+  SupressUnrefNames := opt["u"];
+  SupressOpenQuot := opt["q"];
+  SupressOpenGT := opt["g"];
+  HTMLLevel := \opt["l"] | 2;
+  return opt;
+end
+
+link options
+
+global FileName,LineNbr,TagStack,HRefList,NameSet,NameRefSet,ErrorCount,
+    SeenSet,PlainText,Tagless,Msg,ListTypes
+
+procedure main(arg)
+  SetMsg();
+  Init(arg);
+  every CheckHTML(!arg);
+end
+
+procedure CheckHTML(fn)
+  local f,line,c;
+  static badChars,scanChars;
+  initial {
+    badChars := ~(&cset[33:128] ++ '\t');
+    scanChars := '<>"&' ++ badChars
+  };
+  #
+  # Open the input file.
+  #
+  f := open(fn) | {
+    write(&errout,"Can't open \"",fn,"\"");
+    fail
+  };
+  FileName := fn;
+  write(&errout);
+  Msg("Checking HTML format...");
+  ErrorCount := 0;
+  LineNbr := 0;
+  TagStack := [];
+  NameSet := set();
+  NameRefSet := set();
+  HRefList := [];
+  SeenSet := set();
+  PlainText := &null;
+  while line := read(f) do line ? {
+    LineNbr +:= 1;
+    while tab(upto(scanChars)) do {
+      case c := move(1) of {
+	"<": ProcessTag(f) | break;
+	">": if /Tagless & /SupressOpenGT then Error("\">\" in open text");
+	"\"": if /Tagless & /SupressOpenQuot then Error("\"\\\"\" (quote) in open text");
+	"&": if /Tagless then ProcessEscape() | Error("\"&\" in open text");
+	default: Error("Bad character: ",image(c))
+      }
+    }
+  };
+  close(f);
+  CheckStack();
+  CheckHRefs();
+  FileName := fn;
+  LineNbr := &null;
+  GiveAdvice();
+  Msg((if ErrorCount > 0 then string(ErrorCount) else "No")
+      ," error",(if ErrorCount = 1 then "" else "s"),
+      " detected");
+  return;
+end
+
+procedure CheckHRefs()
+  local x;
+  every x := !HRefList do {
+    if not member(NameSet,x.value) then {
+      FileName := x.fileName;
+      LineNbr := x.lineNbr;
+      Error("Anchor name referenced but not defined: ",image(x.value))
+    }
+  };
+  if /SupressUnrefNames then {
+    LineNbr := &null;
+    every x := !(NameSet -- NameRefSet) do {
+      Msg("Warning: Anchor name not referenced: ",image(x))
+    }
+  };
+  return;
+end
+
+procedure CheckStack()
+local tag;
+  every tag := pop(TagStack) do
+      Error(pop(TagStack),"Unterminated tag: <",tag,">");
+  return;
+end
+
+procedure ProcessTag(f)
+  local tag,subLine,upTag,endFlag,popCount,tagLines,listType;
+  #
+  # Scan to the end of the tag (which might be multiple lines).
+  #
+  tag := "";
+  tagLines := 0;
+  if ="!--" then {
+    #
+    # Comment tag.
+    #
+    until tab(find("-->") + 3) do {
+      &subject := read(f) | {
+	Error("Unclosed HTML comment (\"<!--\")");
+	LineNbr +:= tagLines;
+	fail
+      };
+      tagLines +:= 1
+    };
+    LineNbr +:= tagLines;
+    return
+  };
+  until tag ||:= tab(find(">")) do {
+    (*tag < 1000 & subLine := read(f)) | {
+      Error("Unclosed \"<\"");
+      LineNbr +:= tagLines;
+      fail
+    };
+    tagLines +:= 1;
+    tag ||:= tab(0) || " ";
+    &subject := subLine
+  };
+  move(1);
+  #
+  # Scan the tag contents.
+  #
+  tag ? {
+    Space();
+    endFlag := ="/";
+    tag := tab(upto(' \t>') | 0);
+    upTag := Up(tag);
+    Space();
+    if \endFlag then {
+      #
+      # Process closer tag </...>.
+      #
+      if tag == "PLAINTEXT" then {
+	Error("<PLAINTEXT> should not have a </PLAINTEXT> tag");
+	PlainText := Tagless := &null
+      }
+      else {
+	#
+	# Check that the tag closes a matching opening tag.
+	#
+	CheckTag(upTag,,"no/");
+	if tag == ("LISTING" | "PRE") then Tagless := &null;
+	popCount := 2;
+	if not (TagStack[1] == upTag) then {
+	  Error("Mismatched closing tag </",upTag,"> pairs with <",
+	      TagStack[1],"> in line ",TagStack[2]);
+	  #
+	  # Try to minimize cascading errors.
+	  #
+	  popCount :=
+	      if TagStack[3] == upTag then 4
+	      else if TagStack[5] == upTag then 6
+	      else 0
+	};
+	every 1 to popCount do pop(TagStack)
+      }
+    }
+    else {
+      #
+      # Process non-closing tag.
+      #
+      insert(SeenSet,upTag);
+      if HTMLLevel = 1 then case upTag of {
+	#
+	# Tags for HTML 1.
+	#
+	# Tags handled specially.
+	#
+	"A": ProcessATag();
+	"IMG": CheckTag(upTag,"SRC*ALIGN+(TOP,BOTTOM,MIDDLE)ALT+ISMAP-","no/");
+	"NEXTID": CheckTag(upTag,"N+","no/");
+	"DL": CheckTag(upTag,"COMPACT-");
+	"LINK": CheckTag(upTag,"REL+REV+HREF+","no/");
+	"FORM": CheckTag(upTag,"FORM#ACTION*METHOD+(POST,GET)");
+	"INPUT": CheckTag(upTag,
+	    "FORM@TYPE+(TEXT,CHECKBOX,RADIO,SUBMIT,RESET)NAME+VALUE+CHECKED-_
+	     SIZE+MAXLENGTH+","no/");
+	"SELECT": CheckTag(upTag,"FORM@NAME+SIZE+MULTIPLE-");
+	"OPTION": CheckTag(upTag,"FORM@SELECTED-","no/");
+	"TEXTAREA": CheckTag(upTag,"FORM@NAME+ROWS+COLS+");
+	"DT" | "DD": CheckTag(upTag,"DL@","no/");
+	"LI": CheckTag(upTag,"list@","no/");
+	#
+	# Things that can't be inside character style tags or <A>.
+	#
+	"HTML" | "HEAD" | "TITLE" | "BODY" |
+	    "H1" | "H2" | "H3" | "H4" | "H5" | "H6" |
+	    "DL" | "UL" | "OL" | "MENU" | "DIR" |
+	    "ADDRESS" | "BLOCKQUOTE" | "PRE" | "PRE" |
+	    "FORM" | "SELECT" | "TEXTAREA": CheckTag(upTag,"char#A#");
+	"LISTING" | "XMP": {CheckTag(upTag,"char#A#"); Tagless := "true"};
+	#
+	# Character style tags.
+	#
+	"EM" | "STRONG" | "B" | "I" | "U" |
+	    "VAR" | "CODE" | "DFN" | "CITE" | "KBD" | "SAMP" | "TT":
+	    CheckTag(upTag,"char#");
+	#
+	# Valueless tags that can appear anywhere.
+	#
+	"P" | "BR" | "HR" | "OPTION" | "ISINDEX": CheckTag(upTag,,"no/");
+	"PLAINTEXT": {
+	  CheckTag(upTag,,"no/");
+	  PlainText := Tagless := "true"
+	};
+	default: Error("Unknown tag: <",upTag,if pos(0) then "" else " ",
+	    tab(0),">")
+      }
+      else case upTag of {
+	#
+	# Tags for HTML 2.
+	#
+	# Tags handled specially.
+	#
+	"A": ProcessATag();
+	"IMG": CheckTag(upTag,
+	    "SRC*_
+	     ALIGN+(LEFT,RIGHT,TOP,TEXTTOP,MIDDLE,ABSMIDDLE,BASELINE,_
+	     BOTTOM,ABSBOTTOM)_
+	     WIDTH+HEIGHT+BORDER+VSPACE+HSPACE+ALT+ISMAP-","no/");
+	    
+	"NEXTID": CheckTag(upTag,"N+","no/");
+	"DL": CheckTag(upTag,"COMPACT-");
+	"LINK": CheckTag(upTag,"REL+REV+HREF+","no/");
+	"ISINDEX": CheckTag(upTag,"PROMPT-","no/");
+	"FORM": CheckTag(upTag,"FORM#ACTION*METHOD+(POST,GET)");
+	"INPUT": CheckTag(upTag,
+	    "FORM@TYPE+(TEXT,CHECKBOX,RADIO,SUBMIT,RESET)NAME+VALUE+CHECKED-_
+	     SIZE+MAXLENGTH+","no/");
+	"SELECT": CheckTag(upTag,"FORM@NAME+SIZE+MULTIPLE-");
+	"OPTION": CheckTag(upTag,"FORM@SELECTED-","no/");
+	"TEXTAREA": CheckTag(upTag,"FORM@NAME+ROWS+COLS+");
+	"DT" | "DD": CheckTag(upTag,"DL@","no/");
+	"LI": {
+	  listType := !TagStack == !ListTypes;
+	  CheckTag(upTag,case listType of {
+	    "UL": "list@TYPE+(DISC,CIRCLE,SQUARE)";
+	    "OL": "list@TYPE+(A,I,1)VALUE+";
+	    default: "list@"
+	  },"no/")
+	};
+	"HR": CheckTag(upTag,"SIZE+WIDTH+ALIGN+(LEFT,RIGHT,CENTER)NOSHADE-","no/");
+	"UL": CheckTag(upTag,"TYPE+(DISC,CIRCLE,SQUARE)");
+	"OL": CheckTag(upTag,"TYPE+(A,I,1)START+");
+	"BR": CheckTag(upTag,"CLEAR+(LEFT,RIGHT,ALL)","no/");
+	"NOBR" | "CENTER": CheckTag(upTag);
+	"WBR": CheckTag(upTag,"NOBR@","no/");
+	"FONT": CheckTag(upTag,"SIZE+");
+	"BASEFONT": CheckTag(upTag,"SIZE+","no/");
+	#
+	# Things that can't be inside character style tags or <A>.
+	#
+	"HTML" | "HEAD" | "TITLE" | "BODY" |
+	    "H1" | "H2" | "H3" | "H4" | "H5" | "H6" |
+	    "DL" | "MENU" | "DIR" |
+	    "ADDRESS" | "BLOCKQUOTE" | "PRE" | "PRE" |
+	    "FORM" | "SELECT" | "TEXTAREA": CheckTag(upTag,"char#A#");
+	"LISTING" | "XMP": {CheckTag(upTag,"char#A#"); Tagless := "true"};
+	#
+	# Character style tags.
+	#
+	"EM" | "STRONG" | "B" | "I" | "U" |
+	    "VAR" | "CODE" | "DFN" | "CITE" | "KBD" | "SAMP" | "TT":
+	    CheckTag(upTag);
+	#
+	# Valueless tags that can appear anywhere.
+	#
+	"P" | "OPTION": CheckTag(upTag,,"no/");
+	"PLAINTEXT": {
+	  CheckTag(upTag,,"no/");
+	  PlainText := Tagless := "true"
+	};
+	default: Error("Unknown tag: <",upTag,if pos(0) then "" else " ",
+	    tab(0),">")
+      }
+    }
+  };
+  LineNbr +:= tagLines;
+  return;
+end
+
+record HRefRec(fileName,lineNbr,value)
+
+procedure ProcessATag()
+  local attrTable,value,ok;
+  if attrTable := CheckTag("A","HREF+NAME+REL+REV+URN+TITLE+METHODS") then {
+    if value := \attrTable["HREF"] then {
+      if match("#",value) then {
+	value := Up(value[2:0]);
+	insert(NameRefSet,value);
+	if not member(NameSet,value) then {
+	  put(HRefList,HRefRec(FileName,LineNbr,value))
+	}
+      };
+      ok := "yes"
+    };
+    if value := \attrTable["NAME"] then {
+      value := Up(value);
+      if member(NameSet,value) then {
+	Error("Duplicate anchor name: ",image(value))
+      }
+      else {
+	insert(NameSet,value)
+      };
+      ok := "yes"
+    };
+    if /ok then Error("Either \"HREF\" or \"NAME\" attribute required for <A> tag")
+  };
+  return;
+end
+
+procedure CheckTag(tag,template,noCloser)
+  #
+  # separators:
+  #   + optional, with value
+  #   - optional, no value
+  #   * required, with value
+  #   @ must be in specified context
+  #   # must not be inspecified context
+  #
+  local attrTable,attr,origAttrs,c,error,value,valueList,valueString;
+  attrTable := ScanAttrs();
+  origAttrs := copy(attrTable);
+  \template ? {
+    while attr := tab(upto('+-*@#')) do {
+      case c := move(1) of {
+	!"+*": {
+	  #
+	  # Process an attribute with a value.
+	  # Scan allowed value set, if any.
+	  #
+	  if ="(" then {
+	    valueList := [];
+	    repeat {
+	      put(valueList,tab(upto(',)')));
+	      c := move(1);
+	      if c == ")" then break
+	    }
+	  }
+	  else valueList := &null;
+	  #
+	  # See if an attribute of the specified name (with a value)
+	  # exists.
+	  #
+	  if value := \attrTable[attr] then {
+	    delete(attrTable,attr);
+	    if \valueList then {
+	      if not (Up(value) == !valueList) then {
+		valueString := "";
+		every valueString ||:= " " || image(!valueList);
+		Error("Invalid value for attribute ",image(attr)," of tag <",
+		    tag,">: ",image(value),
+		    "\n    # must be one of: ",valueString)
+	      }
+	    }
+	  }
+	  else if c == "*" then {
+	    #
+	    # Attr not there -- see if it is required.
+	    #
+	    Error("Attribute ",image(attr),", required for tag <",tag,">, is missing");
+	    error := "yes"
+	  }
+	};
+	"-": {
+	  #
+	  # Process an atribute with no value.
+	  #
+	  if member(attrTable,attr) then {
+	    delete(attrTable,attr);
+	    if \attrTable[attr] then {
+	      Error("A value not expected for attribute: ",image(attr),
+		  "of tag <",tag,">");
+	      error := "yes"
+	    }
+	  }
+	};
+	"@": CheckContext(attr,tag);
+	"#": CheckContext(attr,tag,"notInContext")
+      }
+    }
+  };
+  every attr := key(attrTable) do {
+    Error("Unknown attribute ",image(attr)," of tag <",tag,">");
+    error := "yes"
+  };
+  if /noCloser then push(TagStack,LineNbr,tag);
+  return if /error then origAttrs;
+end
+
+procedure ScanAttrs()
+  local attr,value,attrTable;
+  attrTable := table();
+  until pos(0) do {
+    attr := Up(tab(upto(' \t=') | 0));
+    Space();
+    if ="=" then {
+      Space();
+      (="\"" & value := tab(find("\"")) & move(1)) |
+	  (value := tab(upto(' \t') | 0));
+      Space()
+    }
+    else value := &null;
+    attrTable[attr] := value
+  };
+  return attrTable;
+end
+
+procedure CheckContext(context,tag,notInContext)
+  local tags,inContext,sep;
+  static canned;
+  initial {
+    canned := table();
+    canned["list"] := ListTypes;
+    canned["char"] := ["EM","STRONG","B","I","U",
+	      "VAR","CODE","DFN","CITE","KBD","SAMP","TT"]
+
+  };
+  inContext :=
+      (if context := \canned[context] then !context else context) == !TagStack;
+  if \notInContext then inContext := if \inContext then &null else "true";
+  if \inContext then return
+  else {
+    if type(context) ~== "string" then {
+      tags := sep := "";
+      every tags ||:= sep || !canned do sep := " or ";
+      context := tags
+    };
+    if \notInContext then
+	Error("<",tag,"> should not be inside <",context,">")
+    else
+	Error("<",tag,"> out of context; should be inside <",context,">")
+  };
+end
+
+procedure ProcessEscape()
+  local escape;
+  static escSet,escChars;
+  initial {
+    escChars := &letters ++ &digits;
+    escSet := set([
+	"quot",
+	"lt",
+	"gt",
+	"amp",
+	"nbsp",
+	"reg",
+	"copy",
+
+	"AElig",
+	"Aacute",
+	"Acirc",
+	"Agrave",
+	"Aring",
+	"Atilde",
+	"Auml",
+	"Ccedil",
+	"ETH",
+	"Eacute",
+	"Ecirc",
+	"Egrave",
+	"Euml",
+	"Iacute",
+	"Icirc",
+	"Igrave",
+	"Iuml",
+	"Ntilde",
+	"Oacute",
+	"Ocirc",
+	"Ograve",
+	"Oslash",
+	"Otilde",
+	"Ouml",
+	"THORN",
+	"Uacute",
+	"Ucirc",
+	"Ugrave",
+	"Uuml",
+	"Yacute",
+	"aacute",
+	"acirc",
+	"aelig",
+	"agrave",
+	"aring",
+	"atilde",
+	"auml",
+	"ccedil",
+	"eacute",
+	"ecirc",
+	"egrave",
+	"eth",
+	"euml",
+	"iacute",
+	"icirc",
+	"igrave",
+	"iuml",
+	"ntilde",
+	"oacute",
+	"ocirc",
+	"ograve",
+	"oslash",
+	"otilde",
+	"ouml",
+	"szlig",
+	"thorn",
+	"uacute",
+	"ucirc",
+	"ugrave",
+	"uuml",
+	"yacute",
+	"yuml"]);
+      if HTMLLevel = 1 then every delete(escSet,"reg" | "copy")
+  };
+  (escape := tab(many(escChars)) & =";") | fail;
+  (escape ? (="#",tab(many(&digits)),pos(0))) | member(escSet,escape) | {
+    Error("Unknown escape string: &",escape,";")
+  };
+  return;
+end
+
+procedure GiveAdvice()
+  if not member(SeenSet,"HTML") then
+      Msg("Advice: File should be bracketed with <HTML>...</HTML> tags");
+  if not (member(SeenSet,"HEAD"),member(SeenSet,"BODY")) then {
+    if member(SeenSet,"HEAD") then
+	Error("<HEAD>, but no <BODY>")
+    else if member(SeenSet,"BODY") then
+	Error("<BODY>, but no <HEAD>")
+    else
+      Msg("Advice: Consider using <HEAD>...</HEAD> <BODY>...</BODY>")
+  };
+  return;
+end
+
+link shquote
+
+procedure SetMsg()
+  return Msg := (if &host == "Macintosh MPW" then MPWMsg else UnixMsg);
+end
+
+procedure UnixMsg(s[])
+  local lineNbr;
+  lineNbr := if type(s[1]) == "integer" then get(s) else LineNbr;
+  writes(&errout,"\"",FileName,"\"",":" || \lineNbr | "",": ");
+  every writes(&errout,!s);
+  write(&errout);
+  return;
+end
+
+procedure MPWMsg(s[])
+  local lineNbr;
+  lineNbr := if type(s[1]) == "integer" then get(s) else LineNbr;
+  writes(&errout,"File ",mpwquote(FileName),"; Line ",\lineNbr | "�"," # ");
+  every writes(&errout,!s);
+  write(&errout);
+  return;
+end
+
+procedure Error(s[])
+  ErrorCount +:= 1;
+  return Msg!s;
+end
+
+procedure Space()
+  suspend tab(many(' \t'));
+end
+
+procedure Up(s)
+  static lcase,ucase;
+  initial {
+    lcase := string(&lcase);
+    ucase := string(&ucase)
+  };
+  return map(s,lcase,ucase);
+end
+#-------------------------------------------------------------- 578 progs/conman
+############################################################################
+#
+#	File:     conman.icn
+#
+#	Subject:  Program to convert units
+#
+#	Author:   William E. Drissel
+#
+#	Date:     May 2, 2001
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Conman is a toy I used to teach myself elementary Icon.  I 
+#  once vaguely heard of a program which could respond to queries 
+#  like "? Volume of the earth in tbsp".  
+#
+#  The keywords of the language (which are not reserved) are:
+#
+#          load
+#          save
+#          print
+#          ? (same as print)
+#          list
+#          is and are which have the same effect
+#
+#  "Load" followed by an optional filename loads definitions of 
+#  units from a file.  If filename is not supplied, it defaults to 
+#  "conman.sav"  
+#
+#  "Save" makes a file for "load".  Filename defaults to 
+#  "conman.sav".  "Save" appends to an existing file so a user 
+#  needs to periodically edit his save file to prune it back.
+#
+#  "Print" and "?" are used in phrases like:
+#
+#          ? 5 minutes in seconds
+#
+#  Conman replies:
+#
+#          5 minutes in seconds  equals  300
+#
+#  List puts up on the screen all the defined units and the 
+#  corresponding values.  Format is same as load/store format.
+#
+#  "Is" and "are" are used like this:
+#
+#          100 cm are 1 meter
+#
+#  The discovery of is or are causes the preceding token (in 
+#  this case "cm") to be defined.  The load/store format is:
+#
+#         unitname "is" value
+#
+#  Examples:
+#
+#       8 furlongs is 1 mile
+#       furlong is 1 / 8 mile
+#
+#  These last two are equivalent.  Note spaces before and after 
+#  "/".  Continuing examples:
+#
+#       1 fortnight is 14 days
+#       furlong/fortnight is furlong / fortnight
+#       inches/hour is inch / hour
+#
+#  After this a user might type:
+#
+#       ? 1 furlong/fortnight in inches/hour
+#       
+#  Conman will reply:
+#
+#       1 furlong/fortnight in inches/hour equals 23.57
+#
+#  Note: the following feature of Conman:  his operators have no 
+#  precedence so the line above gets the right answer but 
+#
+#        1 furlong/fortnight in inches / hour 
+#
+#  gets the wrong answer.  (One definition of a feature is a flaw we're 
+#  not going to fix).
+#
+############################################################################
+#
+#  Program Notes:
+#
+#  The procedure, process, parses the user's string to see if it 
+#  begins with a keyword.  If so, it acts accordingly.  If not, 
+#  the user string is fed to isare.
+#
+#  Isare attempts to find "is" or "are" in the users string.  
+#  Failing to, isare feeds the string to conman which can 
+#  interpret anything.  If "is" or "are" is found, the tokens 
+#  (delimited by blanks) before the "is" or "are" are stacked in 
+#  foregoing; those after are stacked in subsequent.  Then the 
+#  name to be defined is popped off the foregoing and used as 
+#  the "index" into a table named values.  The corresponding 
+#  number is computed as eval(subsequent) / eval(foregoing).
+#
+#  The procedure, stack, is based on Griswold and Griswold, "The 
+#  Icon Programming Language", p122.
+#
+#  The procedure, eval, unstacks the tokens from a stack one by 
+#  one until all have been considered.  First, the tokens which 
+#  signify division by the next token are considered and used to 
+#  set a switch named action.  Then depending on action, the 
+#  token is used to multiply the accumulator or divide it.  If 
+#  eval can make the token into a number, the number is used, 
+#  failing that the token is looked up in the table named values 
+#  and the corresponding number is used.  Failing both of those, 
+#  conman gripes to the user and does nothing (in effect 
+#  multiplying or dividing by 1).  Finally, eval returns the 
+#  number accumulated by the operations with the tokens.
+#
+#  Load defaults the filename to conman.sav if the user didn't 
+#  supply one.  Each line read is fed to isare.  We will see 
+#  that save prepares the lines so isare can define the units.
+#
+#  Save uses Icon's sort to go thru the table "values".  The 
+#  unit name is the left of a pair and the number stored is the 
+#  right of the pair.  The word " is " is stuck between them so 
+#  isare will work.
+#
+#  Finally, we consider the procedure conman.  During initial 
+#  design, this was perceived to be the largest part of the 
+#  effort of conman.  It is a real tribute to the power of Icon 
+#  that only one non-trivial line of code is required.  The 
+#  user's string is reproduced then the word "equals" followed 
+#  the result produced by eval after the user's string is 
+#  stacked.
+#
+############################################################################
+#
+# Requires:  conman.sav
+#
+############################################################################
+#
+#  Links:  io
+#
+############################################################################
+
+link io
+
+global values, blank, nonblank
+
+procedure main (args)
+    local line;
+
+    if map(args[1]) == "-t" then &trace := -1;
+
+     init();
+
+     while line := prompt() do {
+         process(line || " ")      # pad with a blank to make life easy
+     };
+     windup();
+end
+############################################################################
+#
+# windup
+#
+procedure windup()
+     write(&errout,"windup");
+end
+############################################################################
+#
+# process
+#
+procedure process(str)
+
+     case parse(str) of {
+     "load"        : load(str);
+     "save"        : save(str);
+     "print"       : conman(butfirst(str));          # strip first token
+     "list"        : zlist();
+     default       : isare(str) # didn't start with a kw, try is or are
+     };
+end
+############################################################################
+#
+# parse
+#
+procedure parse(str)
+    local token;
+
+     token := first(str);
+     case token of  {
+         "?"       : return "print";             # only special case at present
+         default   : return token
+     };
+end
+############################################################################
+#
+# conman
+#
+# compute and write result - During initial design, this was perceived to
+#                            require 50 lines of complicated lookup etc.!
+#
+procedure conman(strn) 
+
+     write (strn , " equals ", eval(stack(strn, 1, *strn)));
+end
+############################################################################
+#
+# isare - routine to define values - tries to evaluate if not a definition
+#
+# locate is,are - delete
+# backup one word - save, delete
+# compute foregoing
+# compute subsequent
+# store word, subsequent/foregoing in values
+#
+procedure isare(str)
+    local after, before, foregoing, subsequent;
+
+# locate blank-delimited is or are - early (?clumsy) Icon code replaced at
+# the suggestion of one of REG's students
+
+     if (str ? (before := tab(find(" is ")) & move(4) & 
+                 after := \tab(0)))  then {  }                    # is
+
+     else if (str ? (before := tab(find(" are ")) & move(5) & 
+                 after := \tab(0)))  then {  }                    # are
+
+     else {                          # found nothing - try to eval anyhow
+         conman(str);
+         return 
+     }; 
+#
+# here if is or are
+#
+     foregoing  := stack(before);  # so we can look back one token
+     subsequent := stack(after);  # might as well stack this too
+
+     name := singular(pop(foregoing));  # define token before is or are
+#
+# next line so we can support "100 cms are 1 meter"
+#
+     values[name] := eval(subsequent) / eval(foregoing); 
+     return;
+end
+############################################################################
+#
+# stack - stack tokens - based on IPL section 12.1 p122
+#
+#  stack the "words" in str - needs cset nonblank
+#
+procedure stack(str)
+    local i, j, words;
+
+    words := [] ; i := 1;
+
+    while j := upto(nonblank, str, i) do {
+         i := many(nonblank, str, j);
+         push(words, str[i:j])
+         };
+    return words;
+end
+############################################################################
+#
+# eval - evaluate a stack
+#
+#  while more remain
+#    unstack a token
+#    if "in" or "over" or "/", set to divide next time
+#    else if number multiply/divide it
+#    else if in values, multiply/divide value
+#    else gripe and leave accum alone
+#
+procedure eval(stk)
+    local accum, action, token;
+
+    accum := 1.0  ;  action := "multiply";
+
+    while token := singular(pull(stk)) do {          
+
+         if token == ("in" | "over" | "/" )then action := "divide"
+         else if action == "multiply" then {
+
+#             write("multiplying by ", token, " ", (real(token) | 
+ #                                                  real(values[token]) |
+  #                                                 "unknown"))
+
+              if not (accum *:= \(real(token) | real(values[token]))) then
+                   write (&errout,
+                         "Can't evaluate ", token, " - using 1.0 instead")
+         }
+         else if action == "divide" then {
+              action := "multiply";
+              if not (accum /:= \(real(token) | real(values[token]))) then
+                   write (&errout,
+                         "Can't evaluate ", token, " - using 1.0 instead")
+         }
+     };#........................................ # end of while more tokens
+    return accum;       
+end
+############################################################################
+#
+# init
+#
+procedure init()
+     write(&errout, "Conman version 1.1, 7/24/87");
+     values := table(&null);
+     nonblank := &ascii -- ' ';
+     blank := ' ';
+     values["times"] := 1.0;
+     values["by"]    := 1.0;
+     values["of"]    := 1.0;
+     values["at"]    := 1.0;
+     values["print"] := 1.0;
+     values["?"]     := 1.0;
+     values["meter"] := 1.0;
+     values["kilogram"] := 1.0;
+     values["second"]   := 1.0;
+
+end
+############################################################################
+#
+# prompt
+#
+procedure prompt()
+    return read();
+end
+############################################################################
+#
+# load - loads table from a file - assumes save format compatible 
+#        with isare
+#
+procedure load(str)
+    local intext, line, filnam;
+
+    filnam := (\second(str) | "conman.sav");
+    write (&errout, "Load from ", filnam, ".  May take a minute or so.");
+    intext := dopen(filnam,"r") | { write(&errout, "can't open ", filnam);
+                                    fail};
+     while line := read(intext)  do {
+         isare(line || " ")  # pad with a blank to make life easy
+     };
+    close(intext);
+    return;
+end
+############################################################################
+#
+# save - saves table to file in format compatible with isare
+#
+procedure save(str)
+    local i, outtext, pair, wlist, filnam;
+ 
+    filnam := (\second(str) | "conman.sav");
+    write (&errout, "Save into ", filnam);
+    outtext := open(filnam,"a") | { write(&errout, "can't save to ", filnam);
+                                    fail};
+    wlist := sort(values);
+    i := 0;
+    every pair := !wlist do {
+         write(outtext, pair[1], " is ", pair[2])
+    };
+    close(outtext);
+end
+############################################################################
+#
+# zlist - lists the table
+#
+procedure zlist()
+    local i, pair, wlist;
+
+    i := 0;
+    wlist := sort(values);
+    every pair := !wlist do {
+         write(&errout, pair[1], " is ", pair[2])
+    };
+end
+############################################################################
+#
+# first - returns first token in a string - needs cset nonblank
+#
+procedure first(s)
+    local stuff;
+
+    s? (tab(upto(nonblank)) , (stuff := tab(many(nonblank))));
+    return \stuff; 
+end
+############################################################################
+#
+# second - returns second token in a string - needs cset nonblank
+#
+procedure second(s)
+    local stuff;
+
+    s? (tab(upto(nonblank)) , (tab(many(nonblank)) & tab(upto(nonblank)) &
+         (stuff := tab(many(nonblank)))));
+    return \stuff; 
+end
+############################################################################
+#
+# butfirst - returns all butfirst token in a string - needs cset nonblank
+#
+procedure butfirst(s)
+    local stuff;
+
+    s? (tab(upto(nonblank)) , tab(many(nonblank)) & tab(upto(nonblank)) &
+         (stuff := tab(0)));
+    return \stuff; 
+end
+############################################################################
+#
+# singular - returns singular of a unit of measure - add special cases in 
+#            an obvious way.  Note: singulars ending in "e" should be handled
+#            here also "per second" units which end in "s".
+#
+procedure singular(str)
+    local s;
+
+    s := str;
+    if s == "fps" then return "fps";
+    if s == "feet" then return "foot";
+    if s == "minutes" then return "minute";
+    if s == "miles" then return "mile";
+#
+## otherwise strip "es" or "s".  Slick code by Icon grad student
+#
+    return s? (1(tab(-2), ="es") | 1(tab(-1), ="s" ) | tab(0));
+end
+############################################################################
+#------------------------------------------------------------ 579 progs/diskpack
+############################################################################
+#
+#	File:     diskpack.icn
+#
+#	Subject:  Program to produce packing list for diskettes
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     June 10, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#   This program is designed to produce a list of files to fit onto
+#   diskettes.  It can be adapted to other uses.
+#
+#   This program uses a straightforward, first-fit algorithm.
+#
+#   The options supported are:
+#
+#	-s i	diskette capacity, default 360000
+#	-r i	space to reserve on first diskettes, default 0
+#	-n s	UNIX-style file name specification for files to
+#		be packed, default "*.lzh"
+#
+############################################################################
+#
+#  Requires:  UNIX
+#
+############################################################################
+#
+#  Links:  options
+#
+############################################################################
+
+link options
+
+procedure main(argl)
+   local files, disksize, reserve, firstsize, thissize, file, size, flist;
+   local disk, left, opts, spec, wc, used, number;
+
+
+   files := table();  # table of files
+ 
+   opts := options(argl, "s+r+n:");
+   disksize := \opts["s"] | 360000;  # diskette size
+   reserve := \opts["r"] | 0;  # reserved space on 1st
+   firstsize := disksize - reserve;  # available space on 1st
+   spec := \opts["n"] | "*.lzh";  # files to pack
+
+   wc := open("wc " || spec, "p");  # pipe to get sizes
+
+   every !wc ? {				# analyze wc output
+      tab(upto(&digits));
+      tab(many(&digits));
+      tab(upto(&digits));
+      tab(many(&digits));
+      tab(upto(&digits));
+      size := integer(tab(many(&digits)));  # 3rd field has bytes
+      tab(many(' '));
+      file := tab(0);  # file name
+      if file == "total" then break;		# exit on summary line
+      files[file] := size			# add information to table
+      };
+
+   number := 0;  # diskette number
+   thissize := firstsize;  # space on this diskette
+
+   while *files > 0 do {			# while files remain
+      number +:= 1;  # next diskette
+      flist := sort(files, 4);  # list of files and sizes
+      disk := [];  # empty diskette
+      left := thissize;  # space left
+      used := 0;  # space used
+      while size := pull(flist) do {		# get largest remaining size
+         file := pull(flist);  # file name
+         if size < left then {			# if it fits
+            put(disk, file);  # put it on disk
+            left -:= size;  # decrement remaining space
+            used +:= size;  # increment space used
+            delete(files, file)			# delete file from table
+            }
+         };
+						# if nothing on disk, can't do
+      if *disk = 0 then stop("*** can't fit on disks");
+						# write heading information
+      write("\ndiskette ", number, ": ", used, "/", disksize - thissize + left);
+      every write(!disk);			# write file names
+      thissize := disksize			# space on next diskette
+      };
+
+end
+#------------------------------------------------------------ 580 progs/envelope
+############################################################################
+#
+#	File:     envelope.icn
+#
+#	Subject:  Program to address envelopes
+#
+#	Author:   Ronald Florence
+#
+#	Date:     August 14, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	Version:  1.1
+#
+############################################################################
+#  
+#  This program addresses envelopes on a Postscript or HP-LJ printer,
+#  including barcodes for the zip code.  A line beginning with `#' or
+#  an optional alternate separator can be used to separate multiple
+#  addresses.  The parser will strip the formatting commands from an
+#  address in a troff or LaTeX letter.
+#
+#  usage: envelope [options] < address(es)
+#  
+#  Typically, envelope is used from inside an editor.  In emacs, mark
+#  the region of the address and do
+#	M-| envelope 
+#  In vi, put the cursor on the first line of the address and do
+#	:,+N w !envelope 
+#  where N = number-of-lines-in-address.  
+#
+#  The barcode algorithm is adapted from a perl script by Todd Merriman
+#  <todd@toolz.uucp>, Dave Buck <dave@dlb.uucp>, and Andy Rabagliati
+#  <andyr@wizzy.com>.
+#
+############################################################################
+#
+#  Links: options
+#
+############################################################################
+
+link options
+global Printertype
+
+procedure main(arg)
+  local opts, lp, separator, printerinit, printerclear, 
+	hpinit, hppos, xorigin, yorigin, rotate, font, 
+	prn, addr, psprefix, preface, optstr, usage, goodline;
+
+  usage := ["usage: envelope [options] < address(es)",
+	    "\t-p | -postscript",
+	    "\t-h | -hplj",
+	    "\t-l | -printer spooler-program",
+	    "\t-s | -separator string",
+	    "\t-i | -init  printer-init",
+	    "\t-c | -clear printer-clear",
+	    "\t-f | -font fontname    [Postscript only]",
+	    "\t-x | -xorigin xorigin  [Postscript only]",
+	    "\t-y | -yorigin yorigin  [Postscript only]",
+	    "\t-r | -rotate rotation  [Postscript only]",
+	    "\t-hpinit string  [hplj only]",
+	    "\t-hppos  string  [hplj only]" ];
+  psprefix := ["%! Postscript",
+               "/adline { 10 y moveto show /y y 13 sub def } def",
+               "/barcode {",
+               "  /y y 13 sub 0.72 div def",
+               "  0.72 dup scale 2 setlinewidth",
+               "  /x 100 def",
+               "  /next { x y moveto /x x 5 add def } def",
+               "  /S { next 0 5 rlineto stroke } def",
+               "  /L { next 0 12 rlineto stroke } def } def",
+               "/newenvelope {",
+               "  /y 80 def" ];
+  optstr := "hpl:f:r+i:c:x+y+s:?";
+  optstr ||:= "-help!-printer:-hpinit:-hppos:-postscript!:-font:-hplj!";
+  optstr ||:= "-rotate+-xorigin+-yorigin+-init:-clear:-separator:";
+  opts := options(arg, optstr);
+  \opts["?"|"help"] | arg[1] == "?" & { 
+    every write (!usage);
+    exit (-1)
+  };
+					# change defaults below as needed
+  Printertype := 				"hplj";
+  lp := \opts["l"|"printer"] |			"lpr";
+  separator := \opts["s"|"separator"] |		"#";
+  printerinit := \opts["i"|"init"] |	      	"";
+  printerclear := \opts["c"|"clear"] |		"";
+					# the next four are Postscript-only
+  xorigin := \opts["x"|"xorigin"] |		200;
+  yorigin := \opts["y"|"yorigin"] |		400;
+  rotate := \opts["r"|"rotate"] |		90;
+  font := \opts["f"|"font"] |			"Palatino-Bold";
+					# these two are hplj-only
+					# comm. env., manual feed, landscape
+  hpinit := \opts["hpinit"] |			"\33&k2G\33&l81a3h1O";
+  hppos := \opts["hppos"] |			"\33&a40L\33*p550Y";
+
+  \opts["h"|"hplj"] & Printertype := "hplj";
+  \opts["p"|"postscript"] & Printertype := "postscript";
+  if "pipes" == &features then prn := open(lp, "pw")
+  else if "MS-DOS" == &features then prn := open ("PRN", "w")
+  else stop ("envelope: please configure printer");
+  writes(prn, printerinit);
+
+  if map(Printertype) == "postscript" then {
+    every write(prn, !psprefix);
+    write(prn, "  ", xorigin, " ", yorigin, " translate ", rotate, " rotate");
+    write(prn, "  /", font, " findfont 12 scalefont setfont } def");
+    preface := "newenvelope\n"
+  }
+  else preface := hpinit || hppos;
+  addr := [];
+  every !&input ? {
+				# filter troff junk
+    =(".DE" | ".fi") & break;
+    if =(".DS" | ".nf") then tab(0);
+				# multiple addresses with separators
+    if =separator then {
+      (*addr > 0) & address(addr, prn, preface); 
+      addr := [];
+      tab(0)
+    }
+				# filter LaTeX junk
+    else {
+      if ="\\begin" then { 
+	every tab(upto('{')+1) \2;
+	goodline := clean(tab(0), '\\')
+      }
+      else goodline := clean(tab(0), '\\');
+      put(addr, trim(goodline, ' }'))
+    }
+  };
+  (*addr > 0) & address(addr, prn, preface);
+  writes(prn, printerclear);
+end
+
+
+procedure address(addr, prn, preface)
+  local zip, zline;
+
+  zip := "";
+  writes(prn, preface);
+  every !addr ? 
+    if map(Printertype) == "postscript" then 
+      write(prn, "(", tab(0), ") adline")
+    else write(prn, tab(0));
+				# scan for zipcode
+  while *(zline := trim(pull(addr))) = 0;
+  reverse(zline) ? if many(&digits++'-') = (6|11) then
+      while tab(upto(&digits)) do zip ||:= tab(many(&digits));
+  (*zip = (5|9)) & barcode(reverse(zip), prn);
+  if map(Printertype) == "postscript" then write(prn, "showpage")
+  else writes(prn, "\33E");
+end
+
+
+procedure barcode(zip, prn)
+  local z, zipstring, cksum, bar;
+
+  cksum := 0;
+  every cksum +:= !zip;
+  zip := zip || (100 - cksum) % 10;
+  bar := ["LLSSS", "SSSLL", "SSLSL", "SSLLS", "SLSSL", 
+	  "SLSLS", "SLLSS", "LSSSL", "LSSLS", "LSLSS" ];
+				# The barcode is wrapped in long marks
+  zipstring := "L";
+				# Icon lists are indexed from 1
+  every z := !zip do zipstring ||:= bar[z + 1];
+  zipstring ||:= "L";
+  if map(Printertype) == "postscript" then write(prn, "barcode")
+  else writes(prn, "\33*p990y1575X\33*c6A");	
+  every !zipstring ? 
+    if map(Printertype) == "postscript" then write(prn, tab(0))
+    else {
+      if =("S") then writes(prn, "\33*p+21Y\33*c15b0P\33*p-21Y")
+      else writes(prn, "\33*c36b0P");
+      writes(prn, "\33*p+15X")
+    };
+end
+
+
+procedure clean(s, c)
+  local i;
+
+  while i := upto(c, s) do s[i:many(c,s,i)] := "";
+  return s;
+end
+#------------------------------------------------------------ 581 progs/evaluate
+############################################################################
+#
+#	File:     evaluate.icn
+#
+#	Subject:  Program to evaluate Icon expressions
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     March 4, 1995
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program evaluates Icon operations given from standard input in
+#  functional form.  It cannot handle nested expressions or control
+#  structures.  See eval.icn for more details.
+#
+#  There is one option:
+#
+#	-l i	limit on number of results from a generator; default 2 ^ 30
+#
+############################################################################
+#
+#  Links:  eval, options
+#
+############################################################################
+
+link eval
+link options
+
+procedure main(args)
+   local expr, opts, limit;
+
+   opts := options(args, "l+");
+   limit := \opts["l"] | 2 ^ 30;
+
+   while expr := read() do
+      every write(eval(expr)) \ limit;
+
+end
+#-------------------------------------------------------------- 582 progs/fixhqx
+############################################################################
+#
+#	File:     fixhqx.icn
+#
+#	Subject:  Program to strip headers from BinHex files
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     February 20, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Sometimes Macintosh .hqx files come with commentary before the
+#  BinHex data.  This program strips off the heading material so that
+#  BinHex can be used.
+#
+#  Input comes from standard input and output goes to standard output.
+#
+############################################################################
+
+procedure main()
+   local line;
+
+   while line := read() do
+      line ? {
+         if ="(This file must be converted with BinHex 4.0)" then {
+            write(line);
+            break
+            }
+      else write(&errout, line)
+      };
+
+   while write(read());
+
+end
+#------------------------------------------------------------- 583 progs/geddump
+############################################################################
+#
+#	File:     geddump.icn
+#
+#	Subject:  Program to dump contents of GEDCOM file
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     July 3, 1998
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	usage:  geddump [file]
+#
+#	This program prints the genealogical information contained
+#	in a GEDCOM file.  Individuals are printed alphabetically,
+#	with sequence numbers to assist cross-referencing.
+#
+#	Marriages are noted for both partners.  Children are listed
+#	under the father, or under the mother if no father is known.
+#
+############################################################################
+#
+#  Links:  gedcom
+#
+############################################################################
+
+link gedcom
+
+record person(n, k, r)	# number, sort key, gedrec node
+
+
+global ptab		# person number table, indexed by gedrec node
+
+
+procedure main(args)
+   local f, g, i, n, p, r, plist, fam, husb, sp, b, d, byr, dyr;
+
+   if *args > 0 then
+      f := open(args[1]) | stop("can't open ", args[1])
+   else
+      f := &input;
+
+   g := gedload(f);
+   close(f);
+
+   plist := [];
+   ptab := table();
+   every r := !g.ind do
+      put(plist, ptab[r] := person(0, sortkey(r), r));
+
+   plist := sortf(plist, 2);
+
+   n := 0;
+   every (!plist).n := (n +:= 1);
+
+   every p := !plist do {
+      b := gedsub(p.r, "BIRT") | &null;
+      d := gedsub(p.r, "DEAT") | &null;
+
+      write();
+      writes("[", p.n, "] ", gedlnf(p.r));
+      byr := gedyear(\b) | &null;
+      dyr := gedyear(\d) | &null;
+      if \byr | \dyr then 
+         writes("  (", byr, " - ", dyr, ")");
+      write();
+
+      if fam := gedref(p.r, "FAMC") then {
+         refto("father", gedref(fam, "HUSB"));
+         refto("mother", gedref(fam, "WIFE"))
+         };
+
+      event("b.", \b);
+
+      r := &null;
+      every fam := gedref(p.r, "FAMS") do {		# for every family
+         r := event("m.", gedsub(fam, "MARR"));
+         r := refto("  husb", p.r ~=== gedref(fam, "HUSB"));
+         r := refto("  wife", p.r ~=== gedref(fam, "WIFE"));
+         # if had earlier kids and did not indicate remarriage, do so now
+         if \r then
+            write("   m.");
+         # print children under husband, or under wife if no husband
+         if (p.r === gedref(fam, "HUSB")) | (not gedref(fam, "HUSB")) then {
+            every r := gedref(fam, "CHIL") do {
+               case (gedval(r, "SEX") | "") of {
+                  "M":		refto("   son", r);
+                  "F":		refto("   dau", r);
+                  default:	refto(" child", r)
+                  }
+               }
+            }
+         };
+
+      event("d.", \d)
+      };
+end
+
+procedure event(label, r)
+   local date, place;
+
+   date := ("" ~== geddate(r));
+   place := ("" ~== gedval(r, "PLAC"));
+   if /place then
+      write("   ", label, " ", \date)
+   else
+      write("   ", label, " ", \date | "            ", "  ", place);
+   return;
+end
+
+procedure refto(label, r)
+   write("   ", label, " [", ptab[r].n, "] ", gedfnf(r));
+   return;
+end
+
+procedure sortkey(r)
+   return map(gedlnf(r));
+end
+#--------------------------------------------------------------- 584 progs/igrep
+############################################################################
+#
+#	File:     igrep.icn
+#
+#	Subject:  Program for string search similar to egrep
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     May 1, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Program to emulate UNIX egrep, but using the enhanced regular
+#  expressions supported by regexp.icn.  Options supported are nearly
+#  identical to those supported by egrep (no -b:  print disk block
+#  number).  There is one additional option, -E, to allow Icon-type
+#  (hence C-type) string escape sequences in the pattern string.
+#  BEWARE:  when -E is used, backslashes that are meant to be processed
+#  in the regular expression context must be doubled.  The following
+#  patterns are equivalent:
+#
+#   without -E: '\bFred\b'
+#   with    -E: '\\bFred\\b'
+#
+#  To enable the -D option (intended mainly for debugging), the Icon
+#  Program Library file "ximage" must be linked with this program.
+#
+############################################################################
+
+procedure Usage(n)
+   write(&errout,
+      "igrep -- emulates UNIX egrep\n_
+      Usage: igrep -Options [expression] filename..._
+    \n  Options:_
+    \n  c   print count of matching lines rather than actual lines_
+    \n  h   don't display file names_
+    \n  i   ignore case of letters_
+    \n  l   list only the names of files containing matching lines_
+    \n  n   precede lines with line numbers_
+    \n  s   work silently -- display nothing_
+    \n  v   invert search to display only lines that don't match_
+    \n  e expr  useful if expressions starts with -_
+    \n  E expr  expresson containing Icon escape sequences_
+    \n  f file  take list of alternated expressions from \"file\""
+#   ,if \xdump then
+#   "\n D   dump compiled pattern and quit" else ""
+);
+   exit(n);
+end
+
+link options,regexp
+
+procedure main(arg)
+   local compiledPattern;
+   if *arg = 0 then Usage();
+   Options(arg);
+   compiledPattern := GetPattern(arg) |
+         {write(&errout,"Bad pattern ",image(Pattern)) ; exit(2)};
+#   if \Dump then (\xdump)(compiledPattern)
+   exit(ScanFiles(arg,compiledPattern));
+end
+
+global CountOnly,NoNames,NamesOnly,NumberLines,Out,Invert,Escapes,
+      Pattern,PatternFile,Dump,Re_LeftmostShortest
+
+procedure Options(arg)
+   local opt;
+   opt := options(arg,"chilnsve:E:f:DS");
+   CountOnly := opt["c"];
+   NoNames := opt["h"];
+   if \opt["i"] then Re_Filter := map;
+   NamesOnly := opt["l"];
+   NumberLines := opt["n"];
+   Out := if \opt["s"] then &null else &output;
+   Invert := opt["v"];
+   Pattern := \opt["e" | "E"];
+   Escapes := opt["E"];
+   PatternFile := opt["f"];
+   Dump := opt["D"];
+   Re_LeftmostShortest := (\opt["S"],&null) | 1;
+   return opt;
+end
+
+procedure GetPattern(arg)
+   local f,sep;
+   if \PatternFile then {
+      f := open(PatternFile) |
+        stop("Can't open pattern file \"",PatternFile,"\"");
+      (/Pattern := "" & sep := "") | (sep := "|");
+      while Pattern ||:= sep || read(f) do sep := "|";
+      close(f)
+      };
+   /Pattern := get(arg);
+   if /Pattern then Usage(2);
+   return RePat(if \Escapes then istring(Pattern) else Pattern);
+end
+
+procedure ScanFiles(arg,pattern)
+   local errors,totalCount,fn,f,header,lineNbr,count,line,fLine,status,
+         lineNbrTag;
+   totalCount := 0;
+   if *arg = 0 then arg := ["-"];
+   every fn := !arg do {
+      f := if fn == "-" then &input else open(fn) |
+            {write(&errout,"Can't open \"",fn,"\" -- skipped") ; errors := 2 ;
+        next};
+      header := if \NoNames | *arg = 1 then &null else fn || ":";
+      lineNbr := count := 0;
+      while line := read(f) do {
+         lineNbr +:= 1;
+         fLine := (\Re_Filter)(line) | line;
+         status := ReFind(pattern,fLine) | &null;
+     status := if \Invert then (\status,&null) | 1;
+         if \status then {
+        count +:= 1;
+        if count = 1 & \NamesOnly then {write(\Out,fn) ; next};
+        lineNbrTag := if \NumberLines then lineNbr || ":" else &null;
+        if not \(CountOnly | NamesOnly) then
+          write(\Out,header,lineNbrTag,line)
+        }
+         };
+      close(f);
+      if \CountOnly then write(header,count);
+      totalCount +:= count
+      };
+   ## if \CountOnly & *arg > 1 then write(\Out,"** Total ** ",totalCount)
+   return \errors | if totalCount = 0 then 1 else 0;
+end
+
+#
+#  istring() -- Procedure to convert a string containing special escape
+#  constructs, of the same format as Icon source language character
+#  strings, to their true string representation.  Value returned is the
+#  string with special constructs converted to their respective
+#  characters.
+#
+
+procedure istring(s)
+  local r,c;
+  r := "";
+  s ? {
+    while r ||:= tab(upto('\\')) do {
+      move(1);
+      r ||:= case c := map(move(1)) of {
+    "b": "\b";       # backspace
+    "d": "\d";       # delete (rubout)
+    "e": "\e";       # escape (altmode)
+    "f": "\f";       # formfeed
+    "l": "\l";       # linefeed (newline)
+    "n": "\n";       # newline (linefeed)
+    "r": "\r";       # carriage return
+    "t": "\t";       # horizontal tab
+    "v": "\v";       # vertical tab
+    "x": istring_radix(16,2);# hexadecimal code
+    "^": char(ord(move(1)) % 32) | break; # control code
+    default: {      # either octal code or non-escaped character
+      if any('01234567',c) then {   # if octal digit
+        move(-1);
+        istring_radix(8,3)
+      }
+      else c            # else non-escaped character
+    } | break
+      }
+    };
+    r ||:= tab(0)
+  };
+  return r;
+end
+
+procedure istring_radix(r,max)
+  local n,d,i,c;
+  d := "0123456789abcdef"[1:r + 1];
+  n := 0;
+  every 1 to max do {
+    c := move(1) | break;
+    if not (i := find(map(c),d) - 1) then {
+      move(-1);
+      break
+    };
+    n := n * r + i
+  };
+  return char(n);
+end
+#-------------------------------------------------------------- 585 progs/lcfile
+############################################################################
+#
+#	File:     lcfile.icn
+#
+#	Subject:  Program to convert file names to lowercase
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     June 11, 2001
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts file names to lowercase letters.  File names to
+#  convert are given in standard input.
+#
+############################################################################
+#
+#  Requires:  UNIX
+#
+############################################################################
+
+procedure main()
+   local name;
+
+   while name := read() do
+      system("mv " || name || " " || map(name));
+
+end
+#------------------------------------------------------------ 586 progs/psrsplit
+############################################################################
+#
+#	File:     psrsplit.icn
+#
+#	Subject:  Program to separate psrecord.icn output pages
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     September 21, 1999
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  usage:  psrsplit file
+#
+#     If a file produced by the procedures in psrecord.icn contains multiple
+#  pages, it cannot be easily incorporated into another document.  psrsplit
+#  reads such a file and breaks it into individual pages.  The algorithm
+#  is frugal of memory and file descriptors at the expense of reading the
+#  input file multiple times.
+#
+#     For an input file is named xxxx or xxxx.yyy, the output files are
+#  named xxxx.p01, xxxx.p02, etc. for as many pages as are available.
+#  It is assumed that the input file was written by psrecord.icn; the
+#  likelihood of correctly processing anything else is small.
+#
+############################################################################
+
+procedure main(args)
+   local ifile, ofile, iname, basename, oname, pageno, line, n;
+
+   iname := args[1]			| stop("usage: ", &progname, " file");
+   ifile := open(iname)			| stop("can't open ", iname);
+   basename := (iname ? tab(upto('.') | 0));
+
+   every pageno := seq() do {		# read file once for each page
+      if pageno < 10 then
+         oname := basename || ".p0" || pageno
+      else
+         oname := basename || ".p" || pageno;
+      ofile := open(oname, "w")		| stop("can't open ", oname);
+
+      seek(ifile, 1)			| stop("can't rewind ", iname);
+      line := read(ifile)		| stop(iname, ": empty file");
+      line ? ="%!"			| stop(iname, ": not a PostScript file");
+      write(&errout, "   writing ", oname);
+      write(ofile, "%!PS-Adobe-3.0 EPSF-3.0");
+
+      n := 0;
+      while n < pageno do {		# copy to nth "copypage"
+         line := read(ifile) | break break;
+         if line ? ="copypage" then
+            n +:= 1
+         else
+            write(ofile, line)
+         };
+      write(ofile, "showpage");
+      write(ofile, "%%EOF");
+      close(ofile)
+      };
+end
+#------------------------------------------------------------ 587 progs/strpsgml
+############################################################################
+#
+#	File:     strpsgml.icn
+#
+#	Subject:  Program to strip/translate SGML tags
+#
+#	Author:   Richard L. Goerwitz
+#
+#	Date:     November 19, 1997
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	Version:  1.9
+#
+############################################################################
+#
+#  Strip or perform simple translation on SGML <>-style tags.  Usage
+#  is as follows:
+#
+#      strpsgml [-f translation-file] [left-delimiter [right-delimiter]]
+#
+#  The default left-delimiter is <, the default right delimiter is >.
+#  If no translation file is specified, the program acts as a strip-
+#  per, simply removing material between the delimiters.  Strpsgml
+#  takes its input from stdin, writing to stdout.
+#
+#  The format of the translation file is:
+#
+#      code	initialization	completion
+#
+#  A tab or colon separates the fields.  If you want to use a tab or colon
+#  as part of the text (and not as a separator), place a backslash before
+#  it.  The completion field is optional.  There is not currently any way
+#  of specifying a completion field without an initialization field.  Do
+#  not specify delimiters as part of code.
+#
+#  Note that, if you are translating SGML code into font change or escape
+#  sequences, you may get unexpected results.  This isn't strpsgml's
+#  fault.  It's just a matter of how your terminal or WP operate.  Some
+#  need to be "reminded" at the beginning of each line what mode or font
+#  is being used.  Note also that stripsgml assumes < and > as delimiters.
+#  If you want to put a greater-than or less-than sign into your text,
+#  put a backslash before it.  This will effectively "escape" the spe-
+#  cial meaning of those symbols.  It is now possible to change the
+#  default delimiters, but the option has not been thoroughly tested.
+#
+############################################################################
+#
+#  Links: scan, stripunb, readtbl
+#
+############################################################################
+
+link scan
+link stripunb
+link readtbl
+
+procedure main(a)
+
+    local usage, _arg, L, R, map_file, t, readtbl, line, stripunb, last_k;
+
+    usage:=
+     "usage:  stripsgml [-f map-file] [left-delimiter(s) [right-delimiter(s)]]";
+
+    L := '<'; R := '>';
+    while _arg := get(a) do {
+        if _arg == "-f" then {
+            map_file := open(get(a)) |
+                stop("stripsgml:  can't open map_file\n",usage);
+            t := readtbl(map_file)
+        }
+        else {
+            L := _arg;
+            R := cset(get(a))
+        }
+    };
+
+    every line := !&input do
+	write(stripunb(L,R,line,&null,&null,t));  # t is the map table
+
+    # last_k is the stack used in stripunb.icn
+    if *\last_k ~= 0 then
+	stop("Unexpected EOF encountered.  Expecting ", pop(last_k), ".");
+
+end
+#------------------------------------------------------------- 588 progs/textcvt
+############################################################################
+#
+#	File:     textcvt.icn
+#
+#	Subject:  Program to convert text file formats
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     November 21, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#
+#  Program to convert text file(s) among various platforms' formats.
+#
+#  The supported text file types are UNIX, MS-DOS, and Macintosh.  A
+#  universal input text reading algorithm is used, so only the output
+#  file format must be specified.
+#
+#  The files are either converted in-place by converting to a temporary
+#  file and copying the result back to the original, or are copied to a
+#  separate new file, depending on the command line options.  If the
+#  conversion is interrupted, the temporary file might still remain as
+#  <original name>.temp (or, for MS-DOS, <original name root>.tmp.
+#
+############################################################################
+#
+#  Links:  io, options
+#
+############################################################################
+
+link io
+link options
+
+procedure Usage(s)
+  write(&errout,\s);
+  stop("Usage: textcvt [-options] -<output format> textfile..._
+       \n  options:_
+       \n    f <file name>  output file name if different from input_
+       \n    o <dir name>   output filename prefix (e.g. directory)_
+       \n    c              copy first file to second file_
+       \n  <output format>:_
+       \n    u: UNIX_
+       \n    d: MS-DOS_
+       \n    m: Macintosh");
+end
+
+procedure Options(arg)
+  local opt;
+  opt := options(arg,"udmo:f:c",Usage);
+  OutEnder :=
+      if \opt["u"] then "\x0a"
+      else if \opt["d"] then "\x0d\x0a"
+      else if \opt["m"] then "\x0d"
+      else Usage();
+  OutDir := opt["o"];
+  if OutFile := \opt["f"] then {
+    if *arg > 1 then Usage("Only one input file allowed with -f")
+  }
+  else if \opt["c"] then {
+    if *arg ~= 2 then Usage("Exactly two files required for -c");
+    OutFile := pull(arg)
+  };
+  return opt;
+end
+
+
+global OutEnder,OutDir,OutFile
+
+procedure main(arg)
+  local oldName,old,newName,tmp,notInPlace,tmpName;
+  Options(arg);
+  notInPlace := \(OutFile | OutDir);
+  every oldName := !arg do {
+    old := open(oldName,"ru") | {
+      write(&errout,"Can't open ",oldName);
+      next
+    };
+    if \notInPlace then {
+      tmpName := (\OutDir | "") || (\OutFile | tail(oldName)[2]);
+      tmp := open(tmpName,"wu") | {
+        write(&errout,"Can't open output file ",tmpName);
+    close(old);
+    next
+      };
+      writes(&errout,"Converting ",oldName," -> ",tmpName," -- ")
+    }
+    else {
+      tmpName := if match("MS_DOS",&host) then suffix(oldName)[1] || ".tmp"
+          else oldName || ".temp";
+      tmp := open(tmpName,"wu") | {
+        write(&errout,"Can't open work file ",tmpName);
+    close(old);
+    next
+      };
+      writes(&errout,"Converting ",oldName," -- ")
+    };
+    flush(&errout);
+    ConvertText(old,tmp);
+    close(tmp);
+    close(old);
+    if \notInPlace then {
+      write(&errout,"done.")
+    }
+    else {
+      (fcopy(tmpName,oldName) & write(&errout,"done.")) |
+          write(&errout,"done.");
+      remove(tmpName)
+    }
+  };
+end
+
+procedure ConvertText(old,new)
+  local buf,c,trail;
+  while buf := reads(old,2000) do {
+    if buf[-1] == "\x0d" then buf ||:= reads(old);
+    buf ? {
+      while writes(new,tab(upto('\x0a\x0d')),OutEnder) do {
+        c := move(1);
+    if c == "\x0d" then ="\x0a"
+      };
+      writes(new,trail := tab(0))
+    }
+  };
+  if *\trail > 0 then writes(new,OutEnder);
+  return;
+end

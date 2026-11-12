@@ -52,3 +52,8 @@ progs/lam	lam.in1	lam.in2
 progs/papply	reverse
 progs/patchu	patchu.src	patchu.dif
 progs/rcat	rcat.in
+gprogs/dd2wif	nofile.blp
+gprogs/painterc	nofile.txt
+progs/chkhtml	chkhtml.in
+progs/psrsplit	psrsplit.in
+progs/textcvt	-d	-f	textcvt.out	textcvt.in

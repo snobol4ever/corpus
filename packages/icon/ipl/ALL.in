@@ -1622,3 +1622,69 @@ foxtrot
 first
 second
 third
+#---------------------------------------------------------------- 576 progs/calc
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 577 progs/chkhtml
+<HTML>
+<HEAD><TITLE>probe</TITLE></HEAD>
+<BODY>
+<A HREF="#there">go</A>
+<A NAME="here">anchor</A>
+<P>a bare ampersand & and a bare less-than < here
+</BODY>
+</HTML>
+#------------------------------------------------------------ 581 progs/evaluate
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 582 progs/fixhqx
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#------------------------------------------------------------- 583 progs/geddump
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#-------------------------------------------------------------- 585 progs/lcfile
+ReadMe.TXT
+Makefile
+SRC/Main.ICN
+Doc/Guide.Html
+#------------------------------------------------------------ 586 progs/psrsplit
+%!PS-Adobe-3.0
+page one content
+copypage
+page two content
+copypage
+#------------------------------------------------------------ 587 progs/strpsgml
+<p>Hello, <b>world</b>.</p>
+<i>second</i> line
+#------------------------------------------------------------- 588 progs/textcvt
+first line
+second line
