@@ -13,3 +13,7 @@ CENSUS.tsv` with `ALL.source` and `ALL.stdin` written first (COO-508, COO-513, C
 
 THE CENSUS: 8 programs; 1 entry; 2 are units; 5 are parts of the unit `Lisp` that fpc does not compile alone. The entry is the program fpc answers the same twice when fed
 `prelude.scm`, inside 60 s; it is graded on standard output and exit status. Every verdict in `ALL.omit` is a measurement and is expected to be re-run.
+
+THE EXCLUSION (officer_04 2026-11-12, row pascal-lisp-red-lispi): `EXCLUDED.tsv` takes `lispi` out of the denominator as NEEDS_C_LIBRARY: through unit `Lisp` it uses the
+collection's unit `BoehmGC`, which binds libgc's `GC_malloc` as a cdecl external and installs a memory manager over it; the row reads 0 of 0, excluded 1. The entry and
+its answer stay in the index, to be graded again the day SCRIP has a stand-in.
