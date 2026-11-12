@@ -1,0 +1,16 @@
+# EXCLUDED.tsv -- xsb-examples: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+c_calling_XSB/make.P	NEEDS_C_LIBRARY	NEEDS-C-COMPILER: the source names xsb_configuration(compiler, (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+c_calling_XSB/make_thread.P	NEEDS_C_LIBRARY	NEEDS-C-COMPILER: the source names xsb_configuration(compiler, (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+c_calling_XSB/make_thread2.P	NEEDS_C_LIBRARY	NEEDS-C-COMPILER: the source names xsb_configuration(compiler, (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+c_calling_XSB/makealt.P	NEEDS_C_LIBRARY	NEEDS-C-COMPILER: the source names xsb_configuration(compiler, (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+curl/curltest.P	NEEDS_NETWORK	NEEDS-NETWORK: the source names url('http:// (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+ham.P	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2730 and 2730 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+libwww/testsuite.P	NEEDS_C_LIBRARY	NEEDS-C-COMPILER: the source names import libwww_request/1 from libwww. (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+lips_mega.P	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 37 and 37 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+mandel.P	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 3052 and 3052 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+map.P	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 5432 and 5432 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+nrev.P	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 137 and 88 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+queens.P	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 5426 and 5426 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+sgml/sgmltest.P	NEEDS_NETWORK	NEEDS-NETWORK: the source names url('http:// (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
+xpath/xpathtest.P	NEEDS_NETWORK	NEEDS-NETWORK: the source names url('http:// (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
