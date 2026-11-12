@@ -1,9 +1,11 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=20 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=1 chunks=1 sizes=18
+# shape: entries=23 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=21
 entry	part	cluster	shells
+ports/arduino-nano-esp32/main/program	core	core	
 ports/rpi4/hello	core	core	
-samples/antbee	core	core	
+ports/rpi4/repl	chunk:01	dir:ports/rpi4	
+samples/antbee	chunk:01	dir:samples	
 samples/blocks	chunk:01	dir:samples	
 samples/chess	chunk:01	dir:samples	
 samples/factorial	chunk:01	dir:samples	
@@ -11,6 +13,7 @@ samples/fft	chunk:01	dir:samples
 samples/fib	chunk:01	dir:samples	
 samples/fib_fast	chunk:01	dir:samples	
 samples/fib_tabled	chunk:01	dir:samples	
+samples/freestanding	chunk:01	dir:samples	
 samples/hanoi	chunk:01	dir:samples	
 samples/indexing_shared_arg	chunk:01	dir:samples	
 samples/main	chunk:01	dir:samples	

@@ -49,19 +49,16 @@ library/uri.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine wou
 library/uuid.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: uuid.pl:37:
 library/when.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: when.pl:7:
 library/yall.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ports/arduino-nano-esp32/main/program.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ports/rpi4/blink.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: blink.pl:13: Initialization goal raised exception:
 ports/rpi4/bounce.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: bounce.pl:8: Initialization goal raised exception:
 ports/rpi4/program.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ports/rpi4/readings.pl: NEEDS-NETWORK: the source names library(socket)
-ports/rpi4/repl.pl: NEEDS-INPUT: its answer changes with what standard input holds
 samples/attrmod.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: attrmod.pl:5:
 samples/chess-alt.pl: ORACLE-REFUSES: swipl reports errors loading it (two ERROR lines), so what its main then prints is not its answer; alone it prints nothing
 samples/clpz-sudoku-9x9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: clpz-sudoku-9x9.pl:1:
 samples/db-stress.pl: DOES-NOT-END: its goal run gives no answer inside 60 s (twice)
 samples/domain.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: domain.pl:3:
 samples/ea.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: ea.pl:3: Initialization goal raised exception:
-samples/freestanding.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 samples/grammar.pl: ORACLE-REFUSES: swipl reports errors loading it (two ERROR lines), so what its main then prints is not its answer; alone it prints nothing
 samples/http_server.pl: NEEDS-ITS-OWN-SYSTEM: its main, called once by the driver, raises under swipl for fork/0; alone it prints nothing
 samples/nfactorial.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: nfactorial.pl:1:

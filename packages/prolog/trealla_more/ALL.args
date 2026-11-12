@@ -15,3 +15,5 @@ samples/queens4	test
 samples/sieve	test
 samples/sudoku	test
 samples/test_index	main
+samples/freestanding	freestanding_platform_probe
+ports/arduino-nano-esp32/main/program	freestanding_platform_probe
