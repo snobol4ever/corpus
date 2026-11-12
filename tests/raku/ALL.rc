@@ -60,3 +60,8 @@ parser_coverage__stmt_pfx_hyper	1
 parser_coverage__stmt_pfx_lazy	1
 parser_coverage__stmt_pfx_race	1
 setting__test_module	1
+scrip_test_rk_combinator	1
+scrip_test_rk_map_grep_sort24	1
+scrip_test_rk_re32	1
+scrip_test_rk_re37	1
+scrip_test_rk_stdio39	1

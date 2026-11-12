@@ -6064,6 +6064,49 @@ x x x x
 A B c d
 ```
 
+## scrip_test_rk_grammar_subrule
+
+```Raku
+# rk_grammar_subrule — G3-2 first milestone: <subrule> references compose via registry expansion.
+# Single subrule, concatenation <a><b>, and alternation-in-subrule grouping (foo|bar). token = ws
+# insignificant, anchored whole-string. Match -> matched text; no match -> Nil (stringifies empty).
+grammar Greet {
+    token hi  { hello }
+    token TOP { <hi> }
+}
+say Greet.parse("hello");
+say Greet.parse("nope");
+grammar Seq {
+    token a   { foo }
+    token b   { bar }
+    token TOP { <a> <b> }
+}
+say Seq.parse("foobar");
+say Seq.parse("fooqux");
+grammar Alt {
+    token x   { cat | dog }
+    token TOP { <x> s }
+}
+say Alt.parse("cats");
+say Alt.parse("dogs");
+say Alt.parse("fishs");
+```
+
+```stdout
+｢hello｣
+ hi => ｢hello｣
+Nil
+｢foobar｣
+ a => ｢foo｣
+ b => ｢bar｣
+Nil
+｢cats｣
+ x => ｢cat｣
+｢dogs｣
+ x => ｢dog｣
+Nil
+```
+
 ## ladder__rung02_arithmetic_rat_literals_division_stringification_and_methods
 
 ```Raku
@@ -8699,6 +8742,26 @@ True
 False
 ```
 
+## scrip_test_rk_grammar_parse
+
+```Raku
+# rk_grammar_parse — G3-1: Grammar.parse($s) runs the TOP rule (anchored, whole-string).
+# Match -> the matched text; no match -> Nil (stringifies empty). token = ratchet, ws insignificant.
+grammar Greeting { token TOP { hello } }
+say Greeting.parse("hello");
+say Greeting.parse("hi");
+grammar Digits { token TOP { \d+ } }
+say Digits.parse("12345");
+say Digits.parse("12a45");
+```
+
+```stdout
+｢hello｣
+Nil
+｢12345｣
+Nil
+```
+
 ## ladder__rung023_kw_nil_nil_literal_raku
 
 ```Raku
@@ -8931,6 +8994,24 @@ ok 8 - # SKIP skipped
 ok 9 - 
 ok 10 - 
 ok 11 - positional tolerance
+```
+
+## scrip_test_rk_stdio39
+
+```Raku
+# rk_stdio39.raku — RK-39: $*STDIN $*STDOUT $*STDERR handles
+
+sub main() {
+    # $*STDOUT is handle index 1 — print/say to it
+    print($*STDOUT, "stdout ok\n");
+    say($*STDOUT, 'say stdout ok');
+
+    # $*STDERR is handle index 2
+    print($*STDERR, "stderr ok\n");
+
+    say('rk_stdio39 ok');
+}
+main();
 ```
 
 ## ladder__rung04_arrays_a_collection_type_object_called_with_one_argument_coerces_it
@@ -11047,6 +11128,26 @@ False
 3
 True
 block
+```
+
+## scrip_test_rk_re32
+
+```Raku
+# rk_re32.raku — RK-32: NFA compilation gate
+# Verifies NFA builds for target patterns and reports state counts.
+# Execution (matching) is tested in RK-33.
+
+sub main() {
+    # The NFA state count is printed by the raku_nfa_compile builtin.
+    # Each call prints:  NFA:<pattern>:states=N
+    raku_nfa_compile('\d+');
+    raku_nfa_compile('[a-z]+');
+    raku_nfa_compile('a|b');
+    raku_nfa_compile('.*');
+    raku_nfa_compile('^x$');
+    say('rk_re32 ok');
+}
+main();
 ```
 
 ## ladder__rung03_strings_an_array_interpolates_in_a_double_quoted_string_only_when_a_subscript_or_a_call_follows
@@ -17069,6 +17170,40 @@ False
 10
 ```
 
+## scrip_test_rk_map_grep_sort24
+
+```Raku
+# rk_map_grep_sort24.raku — RK-24: map/grep/sort list ops
+sub main() {
+    my @nums = '';
+    push(@nums, 1); push(@nums, 2); push(@nums, 3);
+    push(@nums, 4); push(@nums, 5);
+
+    # map: double each element
+    my @doubled = map { $_ * 2 } @nums;
+    for @doubled -> $x { say($x); }
+
+    # grep: keep evens
+    my @evens = grep { $_ % 2 == 0 } @nums;
+    for @evens -> $x { say($x); }
+
+    # sort: lexicographic strings
+    my @words = '';
+    push(@words, 'banana'); push(@words, 'apple'); push(@words, 'cherry');
+    my @sorted = sort @words;
+    for @sorted -> $w { say($w); }
+
+    # sort: numeric
+    my @unsorted = '';
+    push(@unsorted, 3); push(@unsorted, 1); push(@unsorted, 4);
+    push(@unsorted, 1); push(@unsorted, 5); push(@unsorted, 9);
+    push(@unsorted, 2); push(@unsorted, 6);
+    my @nsorted = sort @unsorted;
+    for @nsorted -> $n { say($n); }
+}
+main();
+```
+
 ## ladder__rung13_classes_can_returns_invokable_methods_found_up_the_parents_and_knows_a_builtin_methods_name
 
 ```Raku
@@ -19363,6 +19498,38 @@ pipe-hit
 amp-hit
 ```
 
+## scrip_test_rk_re37
+
+```Raku
+# rk_re37.raku — RK-37: m:g/pat/ global match and s/pat/repl/ substitution
+
+sub main() {
+    my $s = 'one 1 two 22 three 333';
+
+    # global match: collect all digit sequences
+    my @nums = ($s ~~ m:g/\d+/);
+    for @nums -> $n { say($n); }
+
+    # substitution: single replace
+    my $t = 'hello world';
+    $t ~~ s/world/Raku/;
+    say($t);
+
+    # substitution: global replace
+    my $u = 'aabbcc';
+    $u ~~ s/b/X/g;
+    say($u);
+
+    # subst no match — string unchanged
+    my $v = 'hello';
+    $v ~~ s/xyz/WRONG/;
+    say($v);
+
+    say('rk_re37 ok');
+}
+main();
+```
+
 ## benchmark_rc-mandelbrot
 
 ```Raku
@@ -21111,6 +21278,138 @@ M 0 1 <\n>
 M 0 1 <a>
 M 0 1 <a>
 M 0 1 <a>
+```
+
+## scrip_test_rk_combinator
+
+```Raku
+# rk_combinator.raku — PEG ordered-choice combinator parser
+#
+# Demonstrates BB_PUMP architecture: each parser combinator is a sub that
+# returns the new position on success or -1 on failure. Ordered choice
+# (PEG ||) is sequential if/else — try alt1, if -1 try alt2.
+#
+# The gather { take tok } block is structurally present as a BB_PUMP-ready
+# generator. In the polyglot broker context (SNOBOL4 or Icon driving via
+# AST_EVERY), each take() suspends and yields one parse token to the consumer.
+# In standalone --run, parse_expr() emits tokens via say() directly.
+#
+# Grammar (PEG, ordered choice):
+#   expr  <- term ((addop || mulop) term)*
+#   term  <- digit
+#   addop <- '+' || '-'
+#   mulop <- '*' || '/'
+#   digit <- '0'..'9'
+#
+# Input "3+4*2" encoded in char_at() — Tiny-Raku has no string indexing.
+# A full Raku implementation would use: substr($s, $pos, 1).
+
+sub char_at($pos) {
+    if ($pos == 0) { return '3'; }
+    if ($pos == 1) { return '+'; }
+    if ($pos == 2) { return '4'; }
+    if ($pos == 3) { return '*'; }
+    if ($pos == 4) { return '2'; }
+    return '';
+}
+
+sub is_digit($c) {
+    if ($c eq '0') { return 1; } if ($c eq '1') { return 1; }
+    if ($c eq '2') { return 1; } if ($c eq '3') { return 1; }
+    if ($c eq '4') { return 1; } if ($c eq '5') { return 1; }
+    if ($c eq '6') { return 1; } if ($c eq '7') { return 1; }
+    if ($c eq '8') { return 1; } if ($c eq '9') { return 1; }
+    return 0;
+}
+
+# --- Primitive combinators (PEG ordered choice via if/else) ---
+
+# p_digit: succeeds if char at $pos is a digit (ordered choice '0'||'1'||...'9')
+sub p_digit($pos) {
+    my $c = char_at($pos);
+    if (is_digit($c) == 1) { return $pos + 1; }
+    return -1;
+}
+
+# p_addop: ordered choice '+' || '-'
+sub p_addop($pos) {
+    my $c = char_at($pos);
+    if ($c eq '+') { return $pos + 1; }
+    if ($c eq '-') { return $pos + 1; }
+    return -1;
+}
+
+# p_mulop: ordered choice '*' || '/'
+sub p_mulop($pos) {
+    my $c = char_at($pos);
+    if ($c eq '*') { return $pos + 1; }
+    if ($c eq '/') { return $pos + 1; }
+    return -1;
+}
+
+# p_op: ordered choice addop || mulop  (PEG left-to-right, no backtrack)
+sub p_op($pos) {
+    my $r = p_addop($pos);
+    if ($r != -1) { return $r; }
+    return p_mulop($pos);
+}
+
+# --- Token emitter: say() in standalone mode; take() drives BB_PUMP in broker ---
+
+sub emit($label, $val) {
+    say('  ' ~ $label ~ ' ' ~ $val);
+}
+
+# --- Top-level parser: expr <- term (op term)* ---
+# gather { take tok } is the BB_PUMP generator shell — structurally ready for
+# AST_EVERY-driven consumption by a broker consumer (SNOBOL4/Icon/Prolog).
+# In standalone --run, emit() (say) produces the token stream directly.
+
+sub parse_expr($len) {
+    my $pos = 0;
+    my $ok = 1;
+
+    my $r0 = p_digit($pos);
+    if ($r0 == -1) {
+        emit('FAIL', 'expected digit at 0');
+        $ok = 0;
+    }
+    if ($ok == 1) {
+        emit('digit', char_at($pos));
+        $pos = $r0;
+
+        while ($pos < $len) {
+            my $ro = p_op($pos);
+            if ($ro == -1) {
+                $pos = $len;
+            }
+            if ($ro != -1) {
+                my $op = char_at($pos);
+                $pos = $ro;
+                my $rd = p_digit($pos);
+                if ($rd == -1) {
+                    emit('FAIL', 'expected digit after op');
+                    $pos = $len;
+                    $ok = 0;
+                }
+                if ($rd != -1) {
+                    emit('op   ', $op);
+                    emit('digit', char_at($pos));
+                    $pos = $rd;
+                }
+            }
+        }
+    }
+    return $ok;
+}
+
+sub main() {
+    say('parse: 3+4*2');
+    my $result = parse_expr(5);
+    if ($result == 1) { say('ok'); }
+    if ($result != 1) { say('fail'); }
+}
+main();
 ```
 
 ## rewrite__rr13_integration

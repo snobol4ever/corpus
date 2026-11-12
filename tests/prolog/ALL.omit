@@ -34,7 +34,6 @@ pingpong[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than
 plunit[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 plunit_mock[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 poly_10[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
-polyglot_tri_rules[scrip_test]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prelude_gplc[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prelude_swipl[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prolog_parser[demos]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
@@ -42,7 +41,6 @@ prolog_recognizer[demos]	non-deterministic or diverges from the oracle -- m3=FAI
 prover[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 qsort[benchmarks]	over budget (m3/m4 exceeded 3.0s)
 queens[benchmarks]	over budget (oracle exceeded 3.0s)
-queens[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
 queens[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=SKIP vs oracle rc=0
 queens_8[benchmarks]	over budget (m3/m4 exceeded 3.0s)
 queens_clpfd[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
@@ -65,7 +63,6 @@ rung50_for_alias	DEFERRED (row prolog-backtracking-yields-first-solution-only: L
 rung66_current_stream	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 sdda[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 sendmore[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
-sentences[scrip_test]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 sentences[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 serialise[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 sieve[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
