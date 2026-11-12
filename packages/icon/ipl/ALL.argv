@@ -57,3 +57,24 @@ gprogs/painterc	nofile.txt
 progs/chkhtml	chkhtml.in
 progs/psrsplit	psrsplit.in
 progs/textcvt	-d	-f	textcvt.out	textcvt.in
+gprogs/autotile	-w	4	-h	4	-t	0.4	image.xbm
+gprogs/patfetch	pats.txt
+gprogs/pextract	-b	tiles.pat
+gprogs/pgmtoims	-g16	ramp.pgm
+gprogs/xbm2pat	tile.xbm
+progs/compare	x1.txt	x2.txt	b.txt
+progs/filecnvt	fixture.txt	-
+progs/fileprnt	small.txt
+progs/findtext	fruit	fruits.txt
+progs/fset	(fsx_*.txt++fsx_c*)--fsx_*.icn
+progs/gediff	fixture_a.txt	fixture_b.txt
+progs/ihelp	-f	ihelp.dat	functions	string
+progs/iiencode	fixture.txt
+progs/inter	a.txt	b.txt
+progs/mapcolrs	sampler.clr	palette.clr
+progs/mszip	-n	-v	-i	msroot
+progs/mtf3	test.tar	-e	.icn	-x	averyverylongfilenameXYZ
+progs/pack	first.txt	second.txt	third.txt
+progs/press	-p	test
+progs/setmerge	a.txt	+	b.txt
+progs/utrim	-v	tprog.u1

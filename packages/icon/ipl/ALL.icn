@@ -42784,3 +42784,3749 @@ procedure ConvertText(old,new)
   if *\trail > 0 then writes(new,OutEnder);
   return;
 end
+#----------------------------------------------------------- 589 gprogs/autotile
+############################################################################
+#
+#	File:     autotile.icn
+#
+#	Subject:  Program to produce tile from XBM image
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 3, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program creates a tile of a specified size by processing an
+#  XBM image file.  The tile grid is "laid over" the image to form squares.
+#
+#  The non-white pixels in each square of the image are counted. If the
+#  percentage of non-white pixels exceeds a specified threshold, the
+#  corresponding bit in the tile is set.
+#
+#  The supported options are:
+#
+#	-h i	tile height, default 32
+#	-w i	tile width, default 32
+#	-t r	threshold, default 0.50
+#
+############################################################################
+#
+#  Links:  options, patutils
+#
+############################################################################
+
+link options
+link patutils
+
+global pixmap
+
+procedure main(args)
+   local x, y, pixels, i, j, size, rows, wcell, hcell;
+   local opts, input, w, h, t, xoff, yoff;
+
+   opts := options(args, "t.h+w+");
+
+   input := open(args[1]) | stop("*** cannot open input file");
+
+   pixmap := [];  # image array
+
+   every put(pixmap, xbm2rows(input));
+
+   w := \opts["w"] | 32;
+   h := \opts["h"] | 32;
+   t := \opts["t"] | 0.50;
+
+   wcell := *pixmap[1] / w;
+   hcell := *pixmap / h;
+   
+   size := real(wcell * hcell);
+
+   rows := list(h, repl("0", w));  # tile
+
+   x :=  0;
+
+   every i := 1 to w do {
+      y := 0;
+      every j := 1 to h do {
+         pixels := 0;
+         xoff := x + 1;
+         every 1 to wcell do {
+            yoff := y + 1;
+            every 1 to hcell do {
+               every pixels +:=  pixmap[yoff, xoff];
+               yoff +:= 1
+               };
+            xoff +:= 1
+            };
+         if pixels / size > t then rows[j, i] := "1";
+         y +:= hcell
+         };
+      x +:= wcell
+      };
+
+   write(rows2pat(rows));
+   
+end
+#----------------------------------------------------------- 590 gprogs/patfetch
+############################################################################
+#
+#	File:     patfetch.icn
+#
+#	Subject:  Program to extract patterns from a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     July 22, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program accepts a list of integer specifications for patterns
+#  as the appear in order in a file of patterns.  The selected patterns
+#  are written to standard output, but not until the end of the input
+#  specifications.  The name of the pattern file is specified on the
+#  command line.
+#
+#  Each line of input can be a comma-separated string of either integers
+#  or integer ranges.  Blanks after commas are tolerated.  An example of
+#  input is:
+#
+#	1-3, 5
+#	10
+#	13-17
+#	8
+#
+#  which specifies the patterns 1, 2, 3, 5, 8, 10, 13, 14, 15, 16, and 17.
+#
+#  Note that the integers need not be in order, although within a range,
+#  the lower bound must precede the upper bound.
+#
+############################################################################
+#
+#  Links:  patutils
+#
+############################################################################
+
+link patutils
+
+procedure main(args)
+   local file, input, i, hitlist, patlist, spec, lo, hi, subspec;
+
+   file := args[1] | stop("*** no pattern list specified");
+
+   input := open(file) | stop(" *** cannot open input file");
+ 
+   hitlist := set();  # construct set of indices to remove
+
+   while spec := read() do {
+      spec ? {
+         while subspec := tab(upto(',') | 0) do {
+            if insert(hitlist, integer(subspec)) then {		# integer
+               move(1) | break;
+               tab(many(' '))
+               }
+            else {
+               subspec ? {
+                  lo := tab(many(&digits)) &
+                  ="-" &
+                  hi := tab(many(&digits)) &
+                  lo <= hi &
+                  pos(0) | write(&errout, "*** bad specification");
+                  every insert(hitlist, 0 < integer(lo to hi))
+                  };
+               move(1) | break;
+               tab(many(' '))
+               }
+            }
+         }
+      };
+
+   patlist := [];  # read in list of patterns
+
+   while put(patlist, readpatt(input));
+   
+   every i := !sort(hitlist) do {		# write out selected patterns
+      write(patlist[i]) | write(&errout, "*** ", i, " out of bounds")
+      };
+
+end
+#----------------------------------------------------------- 591 gprogs/pextract
+############################################################################
+#
+#	File:     pextract.icn
+#
+#	Subject:  Program to separate good and bad patterns
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     September 1, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program takes the name of a file containing tile specifications
+#  on the command line.   Tiles to be extracted are entered from standard
+#  input.  Extracted tiles are written to standard output.
+#
+#  Options:
+#
+#	-b		replace selected tiles by blank tiles
+#	-d		delete selected tiles from specification file
+#	-c		copy selected tiles, do not blank or delete
+#			  them.  This is the default; -c overrides
+#			  -b and -d.
+#
+############################################################################
+#
+#  Links:  options, patutils
+#
+############################################################################
+
+link options
+link patutils
+
+procedure main(args)
+   local file, input, i, hitlist, patlist, spec, lo, hi, output;
+   local subspec, opts;
+
+   opts := options(args, "cbd");
+   if \opts["c"] then opts["b"] := opts["d"] := &null;
+   if \opts["d"] then opts["b"] := 1;
+
+   file := args[1] | stop("*** no pattern list specified");
+
+   input := open(file) | stop(" *** cannot open input file");
+ 
+   hitlist := set();  # construct set of indices to remove
+
+   while spec := read() do {
+      spec ? {
+         while subspec := tab(upto(',') | 0) do {
+            if insert(hitlist, integer(subspec)) then {		# integer
+               move(1) | break;
+               tab(many(' '))
+               }
+            else {
+               subspec ? {
+                  lo := tab(many(&digits)) &
+                  ="-" &
+                  hi := tab(many(&digits)) &
+                  lo <= hi &
+                  pos(0) | {
+                     write(&errout, "*** bad specification");
+                     next
+                     };
+                  if not(integer(hi) & integer(lo)) then {
+                     write(&errout, "*** bad specification");
+                     next
+                     };
+                  every insert(hitlist, 0 < (lo to hi))
+                  };
+               move(1) | break;
+               tab(many(' '))
+               }
+            }
+         }
+      };
+
+   patlist := [];  # read in list of patterns
+
+   while put(patlist, readpatt(input));
+
+   close(input);
+
+   output := open(file, "w") |
+      stop("*** cannot reopen specified file for output");
+   
+   every i := !sort(hitlist) do {		# discard and "delete"
+      write(patlist[i]) | write(&errout, "*** ", i, " out of bounds");
+      if \opts["b"] then patlist[i] := "1,#0"
+      };
+
+   if \opts["d"] then
+      every write(output, "1,#0" ~== !patlist)
+   else
+      every write(output, !patlist);
+
+end
+#----------------------------------------------------------- 592 gprogs/pgmtoims
+############################################################################
+#
+#	File:     pgmtoims.icn
+#
+#	Subject:  Program to make an image from a PGM file
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     May 23, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Usage:  pgmtoims [-gn] [file]
+#
+#  Pgmtoims reads a PGM rawbits file and writes an Icon image string.
+#  The "-gn" option (2 <= n <= 64) selects the palette; g41 is the
+#  default.
+#
+#  Note that only rawbits-format PGM files can be read.
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links: options
+#
+############################################################################
+
+link options
+
+procedure main(args)
+   local opts, g, cs, f, w, h, maxv, data, s, i, n, ln;
+
+   # Process options.
+   opts := options(args, "g+");
+   g := \opts["g"] | 41;
+   if g < 2 | g > 64 | *args > 1 then
+      stop("usage: ", &progname, " [-gn] [file]");
+
+   # Select the set of image characters according to the palette.
+   cs := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz{}";
+   cs := cs[1+:g];
+
+   # Open the file and read it into memory.
+   if *args = 1 then
+      f := open(args[1], "ru") | stop("can't open ", args[1])
+   else
+      f := &input;
+   s := "";
+   while s ||:= reads(f, 1000);
+
+   # Crack the file header.
+   s ? {
+      ws();
+      if ="P" & any('1346') then
+         stop("input is not in PGM format; convert via \"ppmtopgm\"");
+      if ="P2" then
+         stop("input is not in *raw* PGM format");
+      if not ="P5" then
+         stop("input is not a PGM file");
+      ws();
+      w := tab(many(&digits));  # image width
+      ws();
+      h := tab(many(&digits));  # image height
+      ws();
+      maxv := tab(many(&digits));  # maximum byte value in input
+      tab(any(' \t\r\n'));
+      data := tab(0)			# image data
+      };
+
+   # Calculate the translation from input to output data bytes.
+   s := "";
+   every i := 0 to maxv do 
+      s ||:= cs[1 + (g * i) / (maxv + 1)];
+
+   # Figure out a reasonable line length for output,
+   # assuming not too many backslashes.
+   n := 79 > w / seq(1);
+   if w % n > 0 then
+      n +:= 1;
+
+   # Translate the data a line at a time, and write.
+   map(data, &cset, s) ? {
+      write("\"", w, ",g", g, ",_");
+      while not pos(0) do wdata(move(w) | tab(0), n);
+      write("\"")
+      };
+end
+
+
+#  wdata(s, n) -- write one line of data with max linelength n
+
+procedure wdata(s, n)
+   s ? while not pos(0) do 
+      write(image(move(n) | tab(0)) [2:-1], "_");
+   return;
+end
+
+
+#  ws() -- skip whitespace.
+
+procedure ws()
+   while tab(many(' \t\r\n')) | (="#" & tab(upto('\n')));
+   return;
+end
+#------------------------------------------------------------ 593 gprogs/xbm2pat
+############################################################################
+#
+#	File:     xbm2pat.icn
+#
+#	Subject:  Program to convert XBM file to pattern specification
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     August 14, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts an XBM file to a pattern specification.
+#
+############################################################################
+#
+#  Links: patutils
+#
+############################################################################
+
+link patutils
+
+procedure main(args)
+   local input, rlist;
+
+   input := open(args[1]) | stop("*** cannot open image file");
+
+   rlist := [];
+   every put(rlist, xbm2rows(input));
+   write(rows2pat(rlist),"	# ", args[1]);
+
+end
+#------------------------------------------------------------- 594 progs/compare
+############################################################################
+#
+#	File:     compare.icn
+#
+#	Subject:  Program to look for duplicates in a collection of files
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     January 7, 1997
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program compares files to locate ones that have the same content.
+#
+#  The file names are given on the command line.
+#
+#  This program has impossible time complexity if there are many files
+#  of the same size.
+#
+############################################################################
+#
+#  Requires:  UNIX
+#
+############################################################################
+
+procedure main(args)
+   local filesets, filelist, file, xfile, size, line, input;
+
+   filesets := table();
+
+   #  The strategy is to divide the files into equivalence classes by size.
+
+   every file := !args do {
+      input := open("wc " || image(file), "p");
+      line := read(input);
+      close(input);
+      line ? {
+         move(20);
+         tab(many(' '));
+         size := integer(tab(many(&digits))) | stop("bogus size")
+         };
+      /filesets[size] := [];
+      put(filesets[size], file)
+      };
+
+   filesets := sort(filesets, 3);
+
+   while get(filesets) do {			# don't need size for anything
+      filelist := get(filesets);  # just the files of that size
+      while file := get(filelist) do		# for every file
+         every xfile := !filelist do 		# compare against the rest
+            if system("cmp -s " || image(file) || " " || image(xfile) ||
+               ">/dev/null") = 0 then write(file, "==", xfile)
+      };
+   
+end
+#--------------------------------------------------------------- 595 progs/farb2
+############################################################################
+#
+#	File:     farb2.icn
+#
+#	Subject:  Program to generate Farberisms
+#
+#	Author:   Alan Beale
+#
+#	Date:     June 14, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     Dave Farber, co-author of the original SNOBOL programming
+#  language, is noted for his creative use of the English language.
+#  Hence the terms ``farberisms'' and ``to farberate''.  This pro-
+#  gram produces a randomly selected farberism.
+#
+#  Notes: Not all of the farberisms contained in this program were
+#  uttered by the master himself; others have learned to emulate
+#  him.  A few of the farberisms may be objectionable to some per-
+#  sons.  ``I wouldn't marry her with a twenty-foot pole.''
+#
+############################################################################
+#
+#     This program obtains its farberisms from the farber.sen file to
+#  allow additional farberisms to be added without recompilation or
+#  straining the limits of the Icon translator.  It builds an index file
+#  farber.idx to allow for efficient access to the sentences file.  The
+#  use of untranslated I/O for the index file is necessary for correct
+#  behavior on some systems (e.g., MVS).
+#
+############################################################################
+#
+#  Links:  random
+#
+############################################################################
+
+link random
+
+procedure main(argv)
+   local f, ix, n;
+
+   f := open("farber.sen", "r") | stop("*** cannot open \"farber.sen\"");
+   if not (ix := open("farber.idx", "ru")) then {
+      ix := open("farber.idx", "bcu");
+      n := 0;
+      repeat {
+         writes(ix, left(where(f), 10));
+         if not read(f) then break;
+         n +:= 1
+      };
+      seek(ix, -10);
+      writes(ix, left(n, 10))
+   };
+   seek(ix, -10);
+   randomize();
+   seek(ix,10*(?numeric(reads(ix,10))-1));
+   seek(f,numeric(reads(ix,10)));
+   write(read(f));
+end
+#------------------------------------------------------------ 596 progs/filecnvt
+############################################################################
+#
+#	File:     filecnvt.icn
+#
+#	Subject:  Program to convert line terminators
+#
+#	Author:   Beth Weiss
+#
+#	Date:     August 14, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     This program copies a text file, converting line terminators. It is
+#  called in the form
+#
+#	filecnvt [-i s1] [-o s2] infile outfile
+#
+#  The file name "-" is taken to be standard input or output, depending
+#  on its position, although standard input/output has limited usefulness,
+#  since it translates line terminators according the the system
+#  being used.
+#
+#     The options are:
+#
+#	-i s1	assume the input file has line termination for the
+#  		  system designated by s1. The default is "u".
+#
+#	-o s2	write the output file with line terminators for the
+#		  system designated by s2. The default is "u".
+#
+#  The designations are:
+#
+#	d	MS-DOS ("\n\r"); also works for the Atari ST
+#	m	Macintosh ("\r")
+#	u	UNIX ("\n"); also works for the Amiga
+#  
+############################################################################
+#
+#  Links:  options
+#
+############################################################################
+
+link options
+
+procedure main(args)
+   local T, input, output, input_eoln, output_eoln, last_part, line, result;
+
+   T := options(args, "i:o:");
+
+   if args[1] == "-" then
+      input := &input
+   else
+      input := open(args[1], "ru") | stop("*** cannot open ", args[1], "***");
+
+   if args[2] == "-" then
+      output := &output
+   else
+      output := open(args[2], "wu") | stop("*** cannot open ", args[2], "***");
+
+   input_eoln  := \eoln(T["i"]) | "\n";
+   output_eoln := \eoln(T["o"]) | "\n";
+
+   last_part := "";
+
+   while line := reads(input, 10000) do {	# magic number
+      (last_part || line) ? {
+         while result := tab(find(input_eoln)) do {
+            writes(output, result, output_eoln);
+            move(*input_eoln)
+         };
+         # Saving the last part of each read and prepending it to the next
+         # ensures that eoln symbols that span reads aren't missed.
+         last_part := tab(0)
+      }
+   };
+
+   writes(output, last_part);
+
+   close(input);
+   close(output);
+end
+
+procedure eoln(file_type)
+   case file_type of {
+      "u" : return "\n";
+      "d" : return "\r\n";
+      "m" : return "\r"
+   };
+end
+#------------------------------------------------------------ 597 progs/fileprnt
+############################################################################
+#
+#	File:     fileprnt.icn
+#
+#	Subject:  Program to display characters in file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     November 21, 1989
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     This program reads the file specified as a command-line argument and
+#  writes out a representation of each character in several forms:
+#  hexadecimal, octal, decimal, symbolic, and ASCII code.
+#
+#     Input is from a named file rather than standard input, so that it
+#  can be opened in untranslated mode.  Otherwise, on some systems, input
+#  is terminated for characters like ^Z.
+#
+#     Since this program is comparatively slow, it is not suitable
+#  for processing very large files.
+#
+#     There are several useful extensions that could be added to this program,
+#  including other character representations, an option to skip an initial
+#  portion of the input file, and suppression of long ranges of identical
+#  characters.
+#
+############################################################################
+#
+#  Requires: co-expressions
+#
+############################################################################
+#
+#  Program note:
+#
+#     This program illustrates a situation in which co-expressions can be
+#  used to considerably simplify programming.  Try recasting it without
+#  co-expressions.
+#
+############################################################################
+
+procedure main(arg)
+   local width, chars, nonprint, prntc, asc, hex, sym, dec;
+   local oct, ascgen, hexgen, octgen, chrgen, prtgen, c;
+   local cnt, line, length, bar, input;
+
+   input := open(arg[1],"u") | stop("*** cannot open input file");
+   width := 16;
+   chars := string(&cset);
+   nonprint := chars[1:33] || chars[128:0];
+   prntc := map(chars,nonprint,repl(" ",*nonprint));
+
+   asc := table("   |");
+   hex := table();
+   sym := table();
+   dec := table();
+   oct := table();
+   ascgen := create "NUL" | "SOH" | "STX" | "ETX" | "EOT" | "ENQ" | "ACK" |
+      "BEL" | " BS" | " HT" | " LF" |  " VT" | " FF" | " CR" | " SO" | " SI" |
+      "DLE" | "DC1" | "DC2" | "DC3" | "DC4" | "NAK" | "SYN" |  "ETB" | "CAN" |
+      " EM" | "SUB" | "ESC" | " FS" | " GS" | " RS" | " US" | " SP";
+   hexgen := create !"0123456789ABCDEF" || !"0123456789ABCDEF";
+   octgen := create (0 to 3) || (0 to 7) || (0 to 7);
+   chrgen := create !chars;
+   prtgen := create !prntc;
+   every c := !&cset do {
+      asc[c] := @ascgen || "|";
+      oct[c] := @octgen || "|";
+      hex[c] := " " || @hexgen || "|";
+      sym[c] := " " || @prtgen || " |"
+      };
+   asc[char(127)] := "DEL|";  # special case
+
+   cnt := -1;  # to handle zero-indexing of byte count
+
+   while line := reads(input,width) do {	# read one line's worth
+      length := *line;  # may not have gotten that many
+      bar := "\n" || repl("-",5 + length * 4);
+      write();
+      writes("BYTE|");
+      every writes(right(cnt + (1 to length),3),"|");
+      write(bar);
+      writes(" HEX|");
+      every writes(hex[!line]);
+      write(bar);
+      writes(" OCT|");
+      every writes(oct[!line]);
+      write(bar);
+      writes(" DEC|");
+      every writes(right(ord(!line),3),"|");
+      write(bar);
+      writes(" SYM|");
+      every writes(sym[!line]);
+      write(bar);
+      writes(" ASC|");
+      every writes(asc[!line]);
+      write(bar);
+      cnt +:= length
+      };
+end
+#------------------------------------------------------------ 598 progs/findtext
+############################################################################
+#
+#	File:     findtext.icn
+#
+#	Subject:  Program to retrieve data from files indexed by idxtext
+#
+#	Author:   Phillip Lee Thomas
+#
+#	Date:     November 21, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  History:  Tested with DOS, DOS-386, OS/2, ProIcon, UNIX
+#
+############################################################################
+#
+#  Version:  1.2 (August 5, 1995)
+#
+############################################################################
+#
+#  See documentation with idxtext.icn, gettext.icn, adjuncts.icn
+#
+# History:
+#   (1.1) Tested with DOS, DOS-386, OS/2, ProIcon, UNIX
+#   (1.2) Use preprocessor include statement instead of link.
+#
+############################################################################
+#
+#  Links:  gettext
+#
+#  Program findtext retrieves multiline text from database indexed by
+#     idxtext. Each stretch of text follows a line declaring the index
+#     terms:
+#
+#  ::be ::to ::by ::retrieved
+#  Text to be retrieved
+#  by findtext.
+#  ::index ::line
+#  Each index line begins with "::".
+#
+############################################################################
+
+link gettext
+
+procedure main(args)
+
+   local count, file, out_line, s;
+  
+   Set_OS();
+
+   s    := \args[1] | "";
+   file := \args[2] | "";
+
+   if *args ~= 2 then {
+      while *s = 0 do {                # force entry of search string
+         writes("Search string: ");
+         s := read()
+         };
+
+      while *file = 0 do {             # force entry of datafile name
+         writes("Search file:   ");
+         file := read()
+         }
+      };
+
+   # Find text associated with index s in file 'file'.
+
+   count := 0;
+   every out_line := gettext(s, file) do {
+      count +:= 1;
+      write(count, ": ", out_line)
+      };
+
+   if count = 0 then {
+      write("String '", s, "' not found in indexed file '", file, "'");
+      write("Format: [iconx] findtext string filename");
+      exit(1)
+      };
+
+   exit(0);
+end
+#---------------------------------------------------------------- 599 progs/fset
+############################################################################
+#
+#	File:     fset.icn
+#
+#	Subject:  Program to do set operations on file specifications
+#
+#	Author:   Thomas R. Hicks
+#
+#	Date:     June 10, 1988
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#   The UNIX shell provides for the specification of filenames
+#  using ``wildcards''.  Each wildcard specification may be
+#  thought of as defining a set of names (that is, those that
+#  match the specification).  Fset allows the user to apply the
+#  set operations of intersection, union, and difference to
+#  these filename sets. The resultant list may then be used as
+#  an argument to other shell commands.
+#
+#  Fset's argument is an expression composed of legal UNIX file
+#  specifications, parenthesis, and the following set opera-
+#  tors:
+#
+#	&&   intersection
+#	++   union
+#	--   difference
+#
+#  Because characters that have special meaning to the shell
+#  occur frequently in the arguments used for fset, it is
+#  advisable to quote the arguments consistently.
+#
+#  The use of fset is illustrated by the following examples:
+#
+#	fset 'g*--*.icn'
+#
+#  produces the list (set) of filenames for files beginning
+#  with g, excluding those ending with .icn.
+#
+#  Similarly,
+#
+#	fset '*'
+#
+#  produces all files in the current directory excluding the .
+#  and .. files.
+#
+#	fset '((*--*.icn)++c*)'
+#  and
+#
+#	fset '(*--*.icn)++c*'
+#
+#  produces the complement of all filenames ending with .icn in
+#  addition to all filenames beginning with c.
+#
+#	fset '(((c? && c*)))'
+#
+#  is a redundant, but legal, specification for all two-
+#  character filenames that begin with c, while
+#
+#	fset '.*'
+#
+#  produces the set of filenames for all hidden files, exclud-
+#  ing the . and ..  files.
+#
+#  Limitations:
+#
+#  Multiple command line arguments, formed by omitting the
+#  quotes around the file set expression, are permitted.  Their
+#  use is limited, however, since parentheses do not get past
+#  the shell's command-line expansion.
+#
+#  Almost any legal file specification will work when enclosed
+#  in quotes except that the simple grammar that is used cannot
+#  handle blanks adjacent to parentheses.
+#
+#  File names that begin or end in ``questionable'' characters
+#  such as *, ?, +, -, and &, probably will not work.
+#
+#  A file specification that, when interpreted by the shell,
+#  produces no matching filename will be placed (unchanged) in
+#  the result.
+#
+############################################################################
+#
+#  See also:  gcomp.icn
+#
+############################################################################
+#
+#  Requires:  UNIX
+#
+############################################################################
+
+procedure main(args)
+   local i, fyls, arglist;
+   if *args = 0 then return;
+   if *args > 1 then
+      every i := 2 to *args do
+         args[1] ||:= (" " || args[i]);
+   (arglist := parse(args[1])) |
+      stop("Invalid file specification expression");
+   case type(arglist) of {
+      "string"	: fyls := mkfset(arglist);
+      "list"	: fyls := exec(arglist);
+      default	: stop("Main: bad type -can't happen")
+      };
+   fyls := sort(fyls);
+   every write(!fyls," ");
+end
+
+procedure Exp();			# file spec expression parser
+   local a;
+   suspend (a := [Factor(),=Op(),Factor()] & [a[2],a[1],a[3]]) |
+      Factor() |
+      (a := [="(",Exp(),=")"] & .a[2]);
+end
+
+procedure Factor();		# file spec expression parser
+   local a;
+   suspend (a := [Term(),=Op(),Term()] & [a[2],a[1],a[3]]) |
+      Term() |
+      (a := [="(",Factor(),=")"] & .a[2]);
+end
+
+procedure Name();		# file spec name matcher
+   static valid;
+   initial valid := ~'()';
+   suspend (any(~valid) || fail) | tab(find(Op()) | many(valid));
+end
+
+procedure Non();			# file spec expression parser
+   local a;
+   suspend a := [Name(),=Op(),Name()] & [a[2],a[1],a[3]];
+end
+
+procedure Op();			# file spec operation matcher
+   suspend !["++","--","&&"];
+end
+
+procedure Term();		# file spec expression parser
+   local a;
+   suspend (a := [="(",Non(),=")"] & .a[2]) |
+           Name();
+end
+
+procedure bldfset(arg);		# build file set, excluding . and ..
+   local line;
+   static dotfiles;
+   initial dotfiles := set([".",".."]);
+   line := read(open("echo " || arg,"rp"));
+   return str2set(line,' ') -- dotfiles;
+end
+
+procedure exec(lst);		# process file spec list recursively
+   return setops(lst[1])(exec2(lst[2]),exec2(lst[3]));
+end
+
+procedure exec2(arg);		# helping procedure for exec
+   case type(arg) of {
+      "string"	: return mkfset(arg);
+      "list"	: return exec(arg);
+      default	: stop("exec2: can't happen")
+      };
+end
+
+procedure mkfset(fspec);		# make file list from specification
+   if fspec == "*" then
+      fspec := "* .*";
+   return bldfset(fspec);
+end
+
+procedure parse(str);		# top level of parsing procedures
+   local res;
+   str ? (res := Exp() & pos(0)) | fail;
+   return res;
+end
+
+procedure sdiff(f1,f2);		# set difference
+   return f1 -- f2;
+end
+
+procedure setops(op);		# return correct set operaton
+   case op of {
+      "++"	: return sunion;
+      "&&"	: return sinter;
+      "--"	: return sdiff
+      };
+end
+
+procedure sinter(f1,f2);		# set intersection
+   return f1 ** f2;
+end
+
+procedure str2set(str,delim);	# convert delimited string into a set
+   local fset, f;
+   fset := set();
+   str ? {
+      while f := (tab(upto(delim))) do {
+         insert(fset,f);
+         move(1)
+         };
+      if "" ~== (f := tab(0)) then
+         insert(fset,f)
+      };
+   return fset;
+end
+
+procedure sunion(f1,f2);		# set union
+   return f1 ++ f2;
+end
+#-------------------------------------------------------------- 600 progs/gediff
+############################################################################
+#
+#	File:	  gediff.icn
+#
+#	Subject:  Program to "diff" for use with ged
+#
+#	Author:	  Robert J. Alexander
+#
+#	Date:	  July 9, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Program to produce diff output in a format for use with ged's
+#  "FindFileAndLine" (esc-S) command.  It causes the "diffed" files
+#  to be open in the editor with the differing portions selected.
+#
+############################################################################
+#
+#  Links: options, word
+#
+############################################################################
+#
+#  Requires: pipes, a "diff" command in the environment
+#
+############################################################################
+#
+#  See also: diffn.icn (a diff-type program)
+#
+############################################################################
+
+link options,word
+
+global Diff,ArgStr
+
+procedure Options(arg)
+   local opt,c;
+   opt := options(arg,"dbitwrsS:");
+   Diff := \opt["d"] | "diff";
+   ArgStr := "";
+   ArgStr ||:= " -S " || \opt["S"];
+   every c := !"bitwrs" do {     # single-character options passed to diff
+      if \opt[c] then ArgStr ||:= " -" || c
+      };
+   return opt;
+end
+
+procedure main(arg)
+   local argstr,fn1,fn2,p,dargs,cmd;
+   Options(arg);
+   every ArgStr ||:= " " || !arg;
+   fn1 := arg[-2];
+   fn2 := arg[-1];
+   cmd := Diff || ArgStr;
+   #write(&errout,cmd)
+   p := open(cmd,"pr");
+   while read(p) ? {
+      if any(&digits) then {
+	 write(fn1,":",tab(upto(&letters)));
+	 move(1);
+	 write(fn2,":",tab(0))
+	 }
+      else if ="diff" & tab(many(' \t')) then {
+	 write(&subject);
+	 dargs := [];
+	 while put(dargs,word_dequote(tab(word()))) do tab(many(' \t'));
+	 fn1 := dargs[-2];
+	 fn2 := dargs[-1];
+	 while match("./",fn1) do fn1[1+:2] := "";
+	 while match("./",fn2) do fn2[1+:2] := ""
+	 }
+      else write(tab(0));
+      {}
+      };
+   exit(close(p));
+end
+#--------------------------------------------------------------- 601 progs/ihelp
+############################################################################
+#
+#	File:     ihelp.icn
+#
+#	Subject:  Program to give on-line help for Icon
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     December 5, 1989
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  ihelp -- Program to display "help" information
+#
+#       ihelp [-f helpfile] [item] [keyword ...]
+#
+#  The optional item name specifies the section of the help file which
+#  is to be displayed.  If no item name is specified a default section
+#  will be displayed, which usually lists the help items that are
+#  available.  An initial substring of the item name that differentiates
+#  it from other items is sufficient.
+#
+#  If keyword(s) are specified, then only lines that contain all of the
+#  keywords, in any order, are displayed.  The keywords do not have to
+#  correspond to whole words in the help text; only to text fragments.
+#
+#  All item name and keyword matches are case independent.
+#
+#  The help file name is taken from environment variable "HELPFILE".  If
+#  HELPFILE is not in the environment, file "help" in the current
+#  directory is used.  A help file name specified in the -f option
+#  overrides.
+#
+#  The help files are formatted as follows:
+#
+#       default text lines
+#       -
+#       one
+#       item "one" text lines
+#       -
+#       two
+#       item "two" text lines
+#       ...
+#
+#  Sections are separated by lines containing a single "-".  Item names
+#  are the first line following a separator line.
+#
+############################################################################
+#
+#  Links: options
+#
+############################################################################
+
+
+link options
+
+
+procedure main(arg)
+   local defaultHelpFile, opts, fn, f, item, line, keywords, i, lline, k;
+
+   #
+   #  Initialize.
+   #
+   defaultHelpFile := "ihelp.dat";
+   opts := options(arg,"f:");
+   fn := \opts["f"] | "" ~== getenv("HELPFILE") | defaultHelpFile;
+   f := open(fn) | stop("Can't open help file \"",fn,"\"");
+   #
+   #  Look for the specified section, if one was.
+   #
+   if item := map(arg[1]) then {
+      line := "";
+      until item == map(line[1:*item + 1]) do {
+	 while read(f) ~== "-";
+	 line := read(f) | stop("No help for ",item)
+	 }
+      };
+   #
+   #  Output the section lines that contain the keywords.
+   #
+   write(line);
+   keywords := arg[2:0] | [];
+   every i := 1 to *keywords do keywords[i] := map(keywords[i]);
+   while "-" ~== (line := read(f)) do {
+      lline := map(line);
+      if not (every k := !keywords do if not find(k,lline) then break) then
+	    write(line)
+      };
+end
+
+#------------------------------------------------------------ 602 progs/iiencode
+############################################################################
+#
+#       File:     iiencode.icn
+#
+#       Subject:  Program to encode text in the style of uuencode
+#
+#       Author:   Richard L. Goerwitz, enhanced by Frank J. Lhota
+#
+#       Date:     May 2, 2001
+#
+###########################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#       Version:  2.0
+#
+###########################################################################
+#
+#  This is an Icon port of the UNIX/C uuencode utility.  Since
+#  uuencode is publicly distributable BSD code, I simply grabbed a
+#  copy, and rewrote it in Icon.  The only basic functional changes I
+#  made to the program were:  (1) To simplify the notion of file mode
+#  (everything is encoded with 0644 permissions), and (2) to add sup-
+#  port for xxencode format (which will generally pass unscathed even
+#  through EBCDIC sites).
+#
+#  Iiencode's usage is compatible with that of the UNIX uuencode
+#  command, i.e. a first (optional) argument gives the name the file
+#  to be encoded.  If this is omitted, iiencode just uses the standard
+#  input.  The second argument specifies the name the encoded file
+#  should be given when it is ultimately decoded.
+#
+#  Extensions to the base uuencode command options include -x and -o.
+#  An -x tells iiencode to use xxencode (rather than uuencode) format.
+#  Option -o causes the following argument to be used as the file
+#  iiencode is to write its output to (the default is &output).  Note
+#  that, on systems with newline translation (e.g. MS-DOS), the -o
+#  argument should always be used.
+#
+#    iiencode [infile] [-x] remote-filename [-o output-filename]
+#
+#
+#  FIXES: Speeded up substantially (more than twice as fast on my
+#  machine) by using a more icon-ish algorithm.  We encode in two
+#  steps:
+#
+#  1)   We first "unpack" the bytes by taking groups of 3 bytes (24
+#       bits) and spreading them out by inserting two 0 bits before
+#       every block of 6 bits.  The result is that each group of 3     
+#       bytes is unpacked to 4 "small bytes", each <<= "\x3F".                          
+#  2)   The unpacked bytes are mapped to the coded line by using the
+#       Icon map function.                      
+#
+#  There are numerous advantages to this approach.  The Icon map
+#  function is much faster than the 'C'-ish alternatives.  We can
+#  process the file one line at a time. Also, the different encoding
+#  mechanisms (old BSD, new BSD, xxencode) can be produces by simply
+#  using different map parameters.
+#
+############################################################################
+#
+#  See also: iidecode.icn
+#
+############################################################################
+
+link options
+
+procedure main ( a )
+
+    local in_filename, out_filename, in, out, is_xx, remotename, opt;
+
+    # Parse arguments.
+
+    opt := options ( a, "-o:-x", Usage );
+    is_xx := opt [ "x" ];
+    out_filename := opt [ "o" ];
+    case *a of {
+    1 :
+    	in_filename := remotename := a [ 1 ];
+    2 :
+	{
+	in_filename := a [ 1 ];
+	remotename  := a [ 2 ]
+	};
+    default :
+	Usage ( "", write, 2 )
+    };
+       
+    # If no input filename was supplied, use &input.
+    if /in_filename then
+	in := &input
+    else
+	in := open ( in_filename, "ru" ) |
+	    Usage ( "Can't open input file " || in_filename || "." );
+
+    # If an output filename was specified, open it for writing.
+    if /out_filename then
+	out := &output
+    else
+	out := open ( out_filename, "w" ) |
+	    Usage ( "Can't open output file " || out_filename || "." );
+
+    # This generic version of uuencode treats file modes in a primitive
+    # manner so as to be usable in a number of environments.  Please
+    # don't get fancy and change this unless you plan on keeping your
+    # modified version on-site (or else modifying the code in such a
+    # way as to avoid dependence on a specific operating system).
+    write ( out, "begin 644 ", remotename );
+    encode ( out, in, is_xx );
+    write ( out, "end" );
+
+    every close ( ( &input ~=== in ) | ( &output ~=== out ) );
+    exit ( 0 );
+
+end
+
+###########################################################################
+#
+# Writes msg and the Usage line to &errout using the output procedure Show,
+# which defaults to stop.  If Show does not stop processing and \errcode,
+# exit with errcode.
+#
+###########################################################################
+procedure Usage ( msg, Show, errcode )
+    static usage;
+    initial usage := "usage:  iiencode [infile] [-x] _
+	remote-filename [-o output-filename]";
+
+    /Show := stop;
+    Show ( &errout, msg, "\n", usage );
+    exit ( \errcode );
+    return msg;
+end
+
+###########################################################################
+#
+# Reads all of file in, encodes it, and writes the encoded lines to out.
+# "uu" encoding is used unless \is_xx, in which case "xx" encoding is used.
+#
+###########################################################################
+procedure encode ( out, in, is_xx )
+
+    # Copy from in to out, encoding as you go along.
+
+    local line, coded;
+    static unpacked;
+    initial unpacked := "_
+	\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0B\x0C\x0D\x0E\x0F_
+	\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1A\x1B\x1C\x1D\x1E\x1F_
+	\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2A\x2B\x2C\x2D\x2E\x2F_
+	\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3A\x3B\x3C\x3D\x3E\x3F";
+
+    if \is_xx then {
+	coded := "_
+	    +-0123456789ABCD_
+	    EFGHIJKLMNOPQRST_
+	    UVWXYZabcdefghij_
+	    klmnopqrstuvwxyz"
+    }
+    else {
+	# 
+	# To get the BSD old code, replace the next 2 lines with:
+	#       coded := " _
+	#            !\"#$%&'()*+,-./_
+	#
+	coded := "_
+	    `!\"#$%&'()*+,-./_
+	    0123456789:;<=>?_
+	    @ABCDEFGHIJKLMNO_
+	    PQRSTUVWXYZ[\\]^_"
+    };
+
+    # 1 (up to) 45 character segment
+    while line := reads ( in, 45 ) do {
+	write ( out,
+	    map ( char ( *line ) || unpack ( line ), unpacked, coded )
+	)
+    };
+
+    # Output a zero-length line.
+    write ( out, coded [ 1 ] );
+    
+end
+
+###########################################################################
+#
+# Takes groups of 3 bytes in s and expands the groups to 4 bytes.  Each
+# byte in the unpacked group has 2 zero high bits, i.e. is <<= "\x3F".
+# If *s is not divisible by 3, we pad s with blanks on the right
+# to make up the last group.
+#
+###########################################################################
+procedure unpack ( s )
+
+    local n, grp;
+
+    s ? {
+	s := "";
+
+	while grp := ( move ( 3 ) | left ( "" ~== tab ( 0 ), 3 ) ) do
+	    {
+	    n := 0;
+	    grp ? while n := ord ( move ( 1 ) ) + ( n * 16r100 );
+
+	    s ||:=
+		char ( ishift ( iand ( n, 16rFC0000 ), -18 ) ) ||
+		char ( ishift ( iand ( n, 16r03F000 ), -12 ) ) ||
+		char ( ishift ( iand ( n, 16r000FC0 ), - 6 ) ) ||
+		char (          iand ( n, 16r00003F )        )
+	    }
+	};
+
+    return s;
+
+end
+#--------------------------------------------------------------- 603 progs/inter
+############################################################################
+#
+#	File:     inter.icn
+#
+#	Subject:  Program to find common values in two lists
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     August 13, 1995
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program lists lines common to two files.
+#
+############################################################################
+
+procedure main(args)
+   local in1, in2, one, two;
+
+   in1 := open(args[1]) | stop("*** cannot open file 1");
+   in2 := open(args[2]) | stop("*** cannot open file 2");
+
+   one := set();
+   two := set();
+
+   every insert(one, !in1);
+   every insert(two, !in2);
+
+   every write(!sort(one ** two));
+
+end
+#------------------------------------------------------------ 604 progs/mapcolrs
+############################################################################
+#
+#	File:     mapcolrs.icn
+#
+#	Subject:  Program to map colors in lists
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     August 3, 2000
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program maps colors in lists.
+#
+#  This is a work in progress.
+#
+############################################################################
+#
+#  Links:  io, ximage
+#
+############################################################################
+
+link io 
+link ximage
+
+procedure main(args)
+   local in_list, to_list, infile, tofile, colors, map, i;
+
+   in_list := args[1] | stop("*** no input list specified");
+   to_list := args[2] | stop("*** no map list specified");
+
+   infile := dopen(in_list) | stop("*** cannot open ", in_list);
+   tofile := dopen(to_list) | stop("*** cannot open ", to_list);
+
+   in_list := [];
+   write(read(infile));  # header
+   while put(in_list, read(infile));
+   to_list := [];
+   while put(to_list, read(tofile));
+
+   colors := table(0);
+   every colors[!in_list] +:= 1;
+   colors := sort(colors, 4);
+   map := table();
+   every i := 1 to *colors / 2 do {
+      pull(colors);
+      map[pull(colors)] := i
+      };
+
+   xdump(colors);
+   xdump(map);
+
+end
+#--------------------------------------------------------------- 605 progs/mszip
+############################################################################
+#
+#	File:     mszip.icn
+#
+#	Subject:  Program to ZIP a directory for MS-DOS use
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     June 23, 2000
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  usage:  mszip [options] root-directory zip-file
+#	-n	no action: just report; zip-file may be omitted
+#	-v	verbose commentary: list individual file types
+#	-i	check filenames for ISO 9660 (CD-ROM) legality
+#
+#  Mszip stuffs the contents of a directory into a ZIP archive file,
+#  translating text files to CRLF form.  Pipes are opened that
+#  require find, sort, and zip in the search path.
+#
+#  The default report gives an inventory of files by extension.  This
+#  can be useful even without creating a ZIP file ("mszip -n dir").
+#  
+#  File types on the verbose report are:
+#	x	unreadable file
+#	e	empty file
+#	b	binary file
+#	c	text file with CRLFs
+#	n	text file with newlines
+#  A file is "binary" if it contains more than 1% unexpected characters.
+#
+#  Symlinks, FIFOs, device files etc. are reported and not archived.
+#  Files with illegal MS-DOS names are reported but still archived.
+#
+############################################################################
+#
+#  Requires:  UNIX, zip program
+#
+############################################################################
+
+
+
+$define USAGE "[-n] [-v] [-i] root-directory zip-file"
+
+$define BTHRESH 0.01		# allowed fraction of wild bytes in text file
+
+$define BUFSIZ 65536		# size of buffer for checking binary/text
+				# (bytes beyond this many are not checked)
+
+$define ZIPOPTS "-9 -X"		# best compression; omit uid/gid
+
+
+link options
+
+
+
+global verbose
+global errorcount
+global allfiles, binlist, txtlist
+global extns
+
+
+
+procedure main(args)
+   local opts, root, zipopts, zipname;
+   local pwd, pipe, fname, errmsg;
+   local nmproc;
+
+   # process options
+   opts := options(args, "nvi");
+   verbose := opts["v"];
+   if \opts["i"] then
+      nmproc := isoname
+   else
+      nmproc := msname;
+
+   root := args[1] | stop("usage: ", &progname, " ", USAGE);
+
+   # get current directory name and prepend to zip file if necessary
+   if /opts["n"] then {
+      zipname := args[2] | stop("usage: ", &progname, USAGE);
+      pipe := popen("pwd");
+      pwd := read(pipe) | stop("can't read current directory");
+      close(pipe);
+      if not zipname ? ="/" then
+         zipname := pwd || "/" || zipname
+   };
+
+   # change to source directory
+   chdir(root) | stop("can't change to directory: ", root);
+
+   # verify that zip file is writable
+   if \zipname then {
+      if not close(open(zipname, "w")) then
+         stop(zipname, ": cannot write");
+      remove(zipname)
+      };
+
+   # initialize
+   errorcount := 0;
+   extns := table("");
+   allfiles := [];
+   binlist := [];
+   txtlist := [];
+
+   # check for "bad" files: symlinks, fifos, etc.
+   write(&errout, "finding files...");
+   pipe := popen("find . ! -type d ! -type f -print | sort");
+   while report(read(pipe), "bad file type");
+   close(pipe);
+
+   # get list of the rest
+   pipe := popen("find . -type f -print | sort");
+   while fname := read(pipe) do {
+      put(allfiles, fname);
+      if not nmproc(fname) then
+         report(fname, "illegal filename")
+      };
+   close(pipe);
+
+   # inspect files
+   write(&errout, "inspecting files...");
+   while inspect(get(allfiles));
+
+   # summarize file types by extension
+   summary();
+
+   # write zip file, if -n was not specified
+   if \zipname then {
+
+      zipopts := ZIPOPTS;
+      if /verbose then
+         zipopts := ZIPOPTS || " -q";
+
+      # create zip file and fill with text files
+      write(&errout, "storing text files...");
+      pipe := popen("zip -l " || zipopts || " " || zipname || " -@", "w");
+      every write(pipe, !txtlist);
+      close(pipe);
+
+      # add binary files to zip file
+      write();
+      write(&errout, "storing binary files...");
+      pipe := popen("zip -g " || zipopts || " " || zipname || " -@", "w");
+      every write(pipe, !binlist);
+      close(pipe)
+      };
+
+   # exit
+   if errorcount > 0 then
+      stop("\t", errorcount, " error(s)")
+   else
+      write("done.");
+end
+
+
+
+#  popen(cmd, mode) -- open pipe, and abort on error
+
+procedure popen(cmd, mode)
+   local f;
+
+   mode := "p" || (\mode | "r");
+   f := open(cmd, mode) | stop("can't open pipe: ", cmd);
+   return f;
+end
+
+
+
+#  census(s, c, lim) -- count occurrences of members of c in string s
+#
+#  If lim is given, counting can stop early.
+
+procedure census(s, c, lim)
+   local n;
+
+   /lim := *s;
+   n := 0;
+   s ? {
+      while n < lim & tab(upto(c)) do
+         n +:= *tab(many(c))
+      };
+   n >:= lim;
+   return n;
+end
+
+
+
+#  msname(fname) -- check filename for MS-DOS legality
+
+procedure msname(fname)
+   local dir, base, ext; 
+   static forbid;
+   initial forbid := &cset -- &letters -- &digits -- '/._^$~!#%&-{}()@\'`';
+
+   fname ? {
+      if upto(forbid) then fail;			# forbidden char
+      while dir := tab(upto('/') + 1) do 
+         if *dir > 9 then fail;			# dir component too long
+      if base := tab(upto('.')) then {
+         move(1);
+         if upto('.') then fail;			# two periods
+         ext := tab(0)
+         }
+      else {
+         base := tab(0);
+         ext := ""
+         };
+      if (*base > 8) | (*ext > 3) then fail	# component too long
+      };
+   return;
+end
+
+
+
+#  isoname(fname) -- check for ISO-9660 (CD-ROM) filename legality
+#
+#  (disallows explicit version numbers)
+
+procedure isoname(fname)
+   static legal;
+   initial legal := &lcase ++ &ucase ++ &digits ++ '_.';
+
+   fname ? {
+      while tab(upto('/') + 1);
+      tab(many(legal));
+      if pos(0) then
+         return msname(fname)
+      else
+         fail
+   };
+end
+
+
+
+#  inspect(fname) -- inspect one file and update lists
+
+procedure inspect(fname)
+   local c;
+
+   fname ? {
+      if ="./" then
+         fname := tab(0)
+   };
+
+   c := ftype(fname);
+   count(fname, c);
+   if \verbose then write(c, " ", fname);
+
+   if c == "x" then {
+      report(fname, "unreadable file");
+      return
+      };
+
+   if c == "n" then
+      put(txtlist, fname)
+   else
+      put(binlist, fname);
+
+   return;
+end
+
+
+
+#  ftype(fname) -- return file type character
+
+procedure ftype(fname)
+   local f, s, lim;
+   static bset;
+   initial bset :=		# allows \a\b\t\n\v\f\r\^Z
+      '\0\1\2\3\4\5\6\16\17\20\21\22\23\24\25\26\27\30\31\33\34\35\36\37' ++
+      &cset[128+:33];
+
+   f := open(fname, "ru") | return "x";
+   s := reads(f, BUFSIZ);
+   close(f);
+
+   if /s | (*s = 0) then return "e";
+   lim := BTHRESH * *s;
+   if census(s, bset, lim) >= lim then return "b"
+   else if census(s, '\l') > census(s, '\r') then return "n"
+   else return "c";
+end
+
+
+
+#   count(fname, typechar) -- count file extension
+
+procedure count(fname, tchar)
+   local extn;
+
+   fname ? {
+      while tab(upto('/') + 1);
+      if tab(upto('.') + 1) then {
+         while tab(upto('.') + 1);
+         extn := tab(0)
+         }
+      else
+         extn := ""
+      };
+   extns[extn] ||:= tchar;
+   return;
+end
+
+
+
+#  report(fname, errmsg) -- report error
+
+procedure report(fname, errmsg)
+   write(&errout, "\t", errmsg, ": ", fname);
+   errorcount +:= 1;
+   return;
+end
+
+
+
+#  summary() -- generate summary of extension counts
+
+procedure summary()
+   local tlist, ext, s, b, c, e, n, x, tb, tc, te, tn, tx;
+
+   write();
+   write(" unrd empty bin crlf newln  extension");
+   tb := tc := te := tn := tx := 0;
+
+   tlist := sort(extns, 3);
+   while ext := get(tlist) do {
+      s := get(tlist);
+      tb +:= (b := census(s, 'b'));
+      tc +:= (c := census(s, 'c'));
+      te +:= (e := census(s, 'e'));
+      tn +:= (n := census(s, 'n'));
+      tx +:= (x := census(s, 'x'));
+      write(r5(x), r5(e), r5(b), r5(c), r5(n), "   .", ext)
+      };
+
+   write();
+   write(r5(tx), r5(te), r5(tb), r5(tc), r5(tn), "   TOTAL: ", tx+te+tb+tc+tn);
+   write();
+   return;
+end
+
+
+
+#  r5(n) -- show integer in 5-char field, if nonzero
+
+procedure r5(n)
+   local s;
+
+   if n = 0 then return "     ";
+   s := integer(n);
+   if *s < 5 then
+      return right(s, 5)
+   else
+      return " " || s;
+end
+#---------------------------------------------------------------- 606 progs/mtf3
+############################################################################
+#
+#	File:     mtf3.icn
+#
+#	Subject:  Program to map tar file
+#
+#	Author:   Richard Goerwitz
+#
+#	Date:     June 3, 1991
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	Version:  3.4
+#
+############################################################################
+#
+#  PURPOSE: Maps 15+ char. filenames in a tar archive to 14 chars.
+#  Handles both header blocks and the archive itself.  Mtf is intended
+#  to facilitate installation of tar'd archives on systems subject to
+#  the System V 14-character filename limit.
+#
+#  USAGE:  mtf inputfile [-r reportfile] [-e .extensions] [-x exceptions]
+#
+#  "Inputfile" is a tar archive.  "Reportfile" is file containing a
+#  list of files already mapped by mtf in a previous run (used to
+#  avoid clashes with filenames in use outside the current archive).
+#  The -e switch precedes a list of filename .extensions which mtf is
+#  supposed to leave unscathed by the mapping process
+#  (single-character extensions such as .c and .o are automatically
+#  preserved; -e allows the user to specify additional extensions,
+#  such as .pxl, .cpi, and .icn).  The final switch, -x, precedes a
+#  list of strings which should not be mapped at all.  Use this switch
+#  if, say, you have a C file with a structure.field combination such
+#  as "thisisveryverybig.hashptr" in an archive that contains a file
+#  called "thisisveryverybig.h," and you want to avoid mapping that
+#  portion of the struct name which matches the name of the overlong
+#  file (to wit, "mtf inputfile -x thisisveryverybig.hashptr").  To
+#  prevent mapping of any string (including overlong filenames) begin-
+#  ning, say, with "thisisvery," use "mtf inputfile -x thisisvery."
+#  Be careful with this option, or you might end up defeating the
+#  whole point of using mtf in the first place.
+#
+#  OUTPUT FORMAT:  Mtf writes a mapped tar archive to the stdout.
+#  When finished, it leaves a file called "map.report" in the current
+#  directory which records what filenames were mapped and how.  Rename
+#  and save this file, and use it as the "reportfile" argument to any
+#  subsequent runs of mtf in this same directory.  Even if you don't
+#  plan to run mtf again, this file should still be examined, just to
+#  be sure that the new filenames are acceptable, and to see if
+#  perhaps additional .extensions and/or exceptions should be
+#  specified.
+#
+#  BUGS:  Mtf only maps filenames found in the main tar headers.
+#  Because of this, mtf cannot accept nested tar archives.  If you try
+#  to map a tar archive within a tar file, mtf will abort with a nasty
+#  message about screwing up your files.  Please note that, unless you
+#  give mtf a "reportfile" to consider, it knows nothing about files
+#  existing outside the archive.  Hence, if an input archive refers to
+#  an overlong filename in another archive, mtf naturally will not
+#  know to shorten it.  Mtf will, in fact, have no way of knowing that
+#  it is a filename, and not, say, an identifier in a C program.
+#  Final word of caution:  Try not to use mtf on binaries.  It cannot
+#  possibly preserve the correct format and alignment of strings in an
+#  executable.  Same goes for compressed files.  Mtf can't map
+#  filenames that it can't read!
+#
+############################################################################
+
+
+global filenametbl, chunkset, short_chunkset   # see procedure mappiece(s)
+global extensions, no_nos                      # ditto
+
+record hblock(name,junk,size,mtime,chksum,     # tar header struct;
+              linkflag,linkname,therest)       # see readtarhdr(s)
+
+
+procedure main(a)
+    local usage, intext, i, current_list;
+
+    usage := "usage:  mtf inputfile [-r reportfile] " ||
+	     "[-e .extensions] [-x exceptions]";
+
+    *a = 0 & stop(usage);
+
+    intext := open_input_file(a[1]) & pop(a);
+
+    i := 0;
+    extensions := []; no_nos := [];
+    while (i +:= 1) <= *a do {
+	case a[i] of {
+	    "-r"    :    readin_old_map_report(a[i+:=1]);
+	    "-e"    :    current_list := extensions;
+	    "-x"    :    current_list := no_nos;
+	    default :    put(current_list,a[i])
+	}
+    };
+
+    every !extensions ?:= (=".", tab(0));
+    
+    # Run through all the headers in the input file, filling
+    # (global) filenametbl with the names of overlong files;
+    # make_table_of_filenames fails if there are no such files.
+    make_table_of_filenames(intext) | {
+	write(&errout,"mtf:  no overlong path names to map");
+	a[1] ? (tab(find(".tar")+4), pos(0)) |
+	  write(&errout,"(Is ",a[1]," even a tar archive?)");
+ 	exit(1)
+    }; 
+
+    # Now that a table of overlong filenames exists, go back
+    # through the text, remapping all occurrences of these names
+    # to new, 14-char values; also, reset header checksums, and
+    # reformat text into correctly padded 512-byte blocks.  Ter-
+    # minate output with 512 nulls.
+    seek(intext,1);
+    every writes(output_mapped_headers_and_texts(intext));
+
+    close(intext);
+    write_report();  # Record mapped file and dir names for future ref.
+    exit(0);
+    
+end
+
+
+
+procedure open_input_file(s)
+    local intext;
+
+    intext := open("" ~== s,"r") |
+	stop("mtf:  can't open ",s);
+    find("UNIX",&features) |
+	stop("mtf:  I'm not tested on non-UNIX systems.");
+    s[-2:0] == ".Z" &
+        stop("mtf:  sorry, can't accept compressed files");
+    return intext;
+end
+
+
+
+procedure readin_old_map_report(s)
+    local mapfile, line, chunk, lchunk;
+
+    initial {
+	filenametbl := table();
+	chunkset := set();
+	short_chunkset := set()
+    };
+
+    mapfile := open_input_file(s);
+    while line := read(mapfile) do {
+	line ? {	
+	    if chunk := tab(many(~' \t')) & tab(upto(~' \t')) &
+		lchunk := move(14) & pos(0) then {
+		filenametbl[chunk] := lchunk;
+		insert(chunkset,chunk);
+		insert(short_chunkset,chunk[1:16])
+	    };
+	if /chunk | /lchunk
+	then stop("mtf:  report file, ",s," seems mangled.")
+	}
+    };
+
+end
+
+
+
+procedure make_table_of_filenames(intext)
+
+    local header; # chunkset is global
+
+    # search headers for overlong filenames; for now
+    # ignore everything else
+    while header := readtarhdr(reads(intext,512)) do {
+	# tab upto the next header block
+	tab_nxt_hdr(intext,trim_str(header.size),1);
+	# record overlong filenames in several global tables, sets
+	fixpath(trim_str(header.name))
+    };
+    *\chunkset ~= 0 | fail;
+    return &null;
+
+end
+
+
+
+procedure output_mapped_headers_and_texts(intext)
+
+    # Remember that filenametbl, chunkset, and short_chunkset
+    # (which are used by various procedures below) are global.
+    local header, newtext, full_block, block, lastblock;
+
+    # Read in headers, one at a time.
+    while header := readtarhdr(reads(intext,512)) do {
+
+	# Replace overlong filenames with shorter ones, according to
+	# the conversions specified in the global hash table filenametbl
+	# (which were generated by fixpath() on the first pass).
+      	header.name := left(map_filenams(header.name),100,"\x00");
+	header.linkname := left(map_filenams(header.linkname),100,"\x00");
+
+	# Use header.size field to determine the size of the subsequent text.
+	# Read in the text as one string.  Map overlong filenames found in it
+ 	# to shorter names as specified in the global hash table filenamtbl.
+	newtext := map_filenams(tab_nxt_hdr(intext,trim_str(header.size)));
+
+	# Now, find the length of newtext, and insert it into the size field.
+	header.size := right(exbase10(*newtext,8) || " ",12," ");
+
+	# Calculate the checksum of the newly retouched header.
+	header.chksum := right(exbase10(get_checksum(header),8)||"\x00 ",8," ");
+
+	# Finally, join all the header fields into a new block and write it out
+	full_block := ""; every full_block ||:= !header;
+	suspend left(full_block,512,"\x00");
+
+	# Now we're ready to write out the text, padding the final block
+	# out to an even 512 bytes if necessary; the next header must start
+	# right at the beginning of a 512-byte block.
+	newtext ? {
+	    while block := move(512)
+	    do suspend block;
+	    pos(0) & next;
+            lastblock := left(tab(0),512,"\x00");
+	    suspend lastblock
+	}
+    };
+    # Write out a final null-filled block.  Some tar programs will write
+    # out 1024 nulls at the end.  Dunno why.
+    return repl("\x00",512);
+
+end
+
+
+
+procedure trim_str(s)
+
+    # Knock out spaces, nulls from those crazy tar header
+    # block fields (some of which end in a space and a null,
+    # some just a space, and some just a null [anyone know
+    # why?]).
+    return s ? {
+	(tab(many(' ')) | &null) &
+	    trim(tab(find("\x00")|0))
+    };
+
+end 
+
+
+
+procedure tab_nxt_hdr(f,size_str,firstpass)
+
+    # Tab upto the next header block.  Return the bypassed text
+    # as a string if not the first pass.
+
+    local hs, next_header_offset;
+
+    hs := integer("8r" || size_str);
+    next_header_offset := (hs / 512) * 512;
+    hs % 512 ~= 0 & next_header_offset +:= 512;
+    if 0 = next_header_offset then return ""
+    else {
+	# if this is pass no. 1 don't bother returning a value; we're
+	# just collecting long filenames;
+	if \firstpass then {
+	    seek(f,where(f)+next_header_offset);
+	    return
+	}
+	else {
+	    return reads(f,next_header_offset)[1:hs+1] |
+		stop("mtf:  error reading in ",
+		     string(next_header_offset)," bytes.")
+	}
+    };
+
+end
+
+
+
+procedure fixpath(s)
+    local s2, piece;
+
+    # Fixpath is a misnomer of sorts, since it is used on
+    # the first pass only, and merely examines each filename
+    # in a path, using the procedure mappiece to record any
+    # overlong ones in the global table filenametbl and in
+    # the global sets chunkset and short_chunkset; no fixing
+    # is actually done here.
+
+    s2 := "";
+    s ? {
+	while piece := tab(find("/")+1)
+	do s2 ||:= mappiece(piece); 
+	s2 ||:= mappiece(tab(0))
+    };
+    return s2;
+
+end
+
+
+
+procedure mappiece(s)
+    local chunk, i, lchunk;
+
+    # Check s (the name of a file or dir as recorded in the tar header
+    # being examined) to see if it is over 14 chars long.  If so,
+    # generate a unique 14-char version of the name, and store
+    # both values in the global hashtable filenametbl.  Also store
+    # the original (overlong) file name in chunkset.  Store the
+    # first fifteen chars of the original file name in short_chunkset.
+    # Sorry about all of the tables and sets.  It actually makes for
+    # a reasonably efficient program.  Doing away with both sets,
+    # while possible, causes a tenfold drop in execution speed!
+    
+    # global filenametbl, chunkset, short_chunkset, extensions
+    local j, ending;
+
+    initial {
+	/filenametbl := table();
+	/chunkset := set();
+	/short_chunkset := set()
+    };
+   
+    chunk := trim(s,'/');
+    if chunk ? (tab(find(".tar")+4), pos(0)) then {
+	write(&errout, "mtf:  Sorry, I can't let you do this.\n",
+	               "      You've nested a tar archive within\n",
+	               "      another tar archive, which makes it\n",
+	               "      likely I'll f your filenames ubar.");
+	exit(2)
+    };
+    if *chunk > 14 then {
+	i := 0;
+
+	if /filenametbl[chunk] then {
+	# if we have not seen this file, then...
+	    repeat {
+		# ...find a new unique 14-character name for it;
+		# preserve important suffixes like ".Z," ".c," etc.
+		# First, check to see if the original filename (chunk)
+		# ends in an important extension...
+		if chunk ?
+		    (tab(find(".")),
+		     ending := move(1) || tab(match(!extensions)|any(&ascii)),
+		     pos(0)
+		     )
+		# ...If so, then leave the extension alone; mess with the
+		# middle part of the filename (e.g. file.with.extension.c ->
+		# file.with001.c).
+		then {
+		    j := (15 - *ending - 3);
+		    lchunk:= chunk[1:j] || right(string(i+:=1),3,"0") || ending
+		}
+		# If no important extension is present, then reformat the
+		# end of the file (e.g. too.long.file.name -> too.long.fi01).
+		else lchunk := chunk[1:13] || right(string(i+:=1),2,"0");
+
+		# If the resulting shorter file name has already been used...
+		if lchunk == !filenametbl
+		# ...then go back and find another (i.e. increment i & try
+		# again; else break from the repeat loop, and...
+		then next else break
+	    };
+            # ...record both the old filename (chunk) and its new,
+	    # mapped name (lchunk) in filenametbl.  Also record the
+	    # mapped names in chunkset and short_chunkset.
+	    filenametbl[chunk] := lchunk;
+	    insert(chunkset,chunk);
+	    insert(short_chunkset,chunk[1:16])
+	}
+    };
+
+    # If the filename is overlong, return lchunk (the shortened
+    # name), else return the original name (chunk).  If the name,
+    # as passed to the current function, contained a trailing /
+    # (i.e. if s[-1]=="/"), then put the / back.  This could be
+    # done more elegantly.
+    return (\lchunk | chunk) || ((s[-1] == "/") | "");
+
+end
+
+
+
+procedure readtarhdr(s)
+    local this_block;
+
+    # Read the silly tar header into a record.  Note that, as was
+    # complained about above, some of the fields end in a null, some
+    # in a space, and some in a space and a null.  The procedure
+    # trim_str() may (and in fact often _is_) used to remove this
+    # extra garbage.
+
+    this_block := hblock();
+    s ? {
+	this_block.name     := move(100);  # <- to be looked at later
+	this_block.junk     := move(8+8+8);  # skip the permissions, uid, etc.
+	this_block.size     := move(12);  # <- to be looked at later
+	this_block.mtime    := move(12);
+	this_block.chksum   := move(8);  # <- to be looked at later
+	this_block.linkflag := move(1);
+	this_block.linkname := move(100);  # <- to be looked at later
+	this_block.therest  := tab(0)
+    };
+    integer(this_block.size) | fail;  # If it's not an integer, we've hit
+                                     # the final (null-filled) block.
+    return this_block;
+
+end
+
+
+
+procedure map_filenams(s)
+    local el, ch;
+
+    # Chunkset is global, and contains all the overlong filenames
+    # found in the first pass through the input file; here the aim
+    # is to map these filenames to the shortened variants as stored
+    # in filenametbl (GLOBAL).
+
+    local s2, tmp_chunk_tbl, tmp_lst;
+    static new_chunklist;
+    initial {
+
+        # Make sure filenames are sorted, longest first.  Say we
+        # have a file called long_file_name_here.1 and one called
+        # long_file_name_here.1a.  We want to check for the longer
+        # one first.  Otherwise the portion of the second file which
+        # matches the first file will get remapped.
+        tmp_chunk_tbl := table();
+        every el := !chunkset
+        do insert(tmp_chunk_tbl,el,*el);
+        tmp_lst := sort(tmp_chunk_tbl,4);
+        new_chunklist := list();
+        every put(new_chunklist,tmp_lst[*tmp_lst-1 to 1 by -2])
+
+    };
+
+    s2 := "";
+    s ? {
+	until pos(0) do {
+	    # first narrow the possibilities, using short_chunkset
+	    if member(short_chunkset,&subject[&pos:&pos+15])
+            # then try to map from a long to a shorter 14-char filename
+	    then {
+		if match(ch := !new_chunklist) & not match(!no_nos)
+		then s2 ||:= filenametbl[=ch]
+		else s2 ||:= move(1)
+	    }
+	    else s2 ||:= move(1)
+	}
+    };
+    return s2;
+
+end
+
+
+#  From the IPL.  Thanks, Ralph -
+#  Author:  Ralph E. Griswold
+#  Date:  June 10, 1988
+#  exbase10(i,j) convert base-10 integer i to base j
+#  The maximum base allowed is 36.
+
+procedure exbase10(i,j)
+
+   static digits;
+   local s, d, sign;
+   initial digits := &digits || &lcase;
+   if i = 0 then return 0;
+   if i < 0 then {
+      sign := "-";
+      i := -i
+      }
+   else sign := "";
+   s := "";
+   while i > 0 do {
+      d := i % j;
+      if d > 9 then d := digits[d + 1];
+      s := d || s;
+      i /:= j
+      };
+   return sign || s;
+
+end
+
+# end IPL material
+
+
+procedure get_checksum(r)
+    local sum, field;
+ 
+    # Calculates the new value of the checksum field for the
+    # current header block.  Note that the specification say
+    # that, when calculating this value, the chksum field must
+    # be blank-filled.
+
+    sum := 0;
+    r.chksum := "        ";
+    every field := !r
+    do every sum +:= ord(!field);
+    return sum;
+
+end
+
+
+
+procedure write_report()
+
+    # This procedure writes out a list of filenames which were
+    # remapped (because they exceeded the SysV 14-char limit),
+    # and then notifies the user of the existence of this file.
+
+    local outtext, stbl, i, j, mapfile_name;
+
+    # Get a unique name for the map.report (thereby preventing
+    # us from overwriting an older one).
+    mapfile_name := "map.report"; j := 1;
+    until not close(open(mapfile_name,"r"))
+    do mapfile_name := (mapfile_name[1:11] || string(j+:=1));
+
+    (outtext := open(mapfile_name,"w")) |
+	open(mapfile_name := "/tmp/map.report","w") |
+	     stop("mtf:  Can't find a place to put map.report!");
+    stbl := sort(filenametbl,3);
+    every i := 1 to *stbl -1 by 2 do {
+	match(!no_nos,stbl[i]) |
+	    write(outtext,left(stbl[i],35," ")," ",stbl[i+1])
+    };
+    write(&errout,"\nmtf:  ",mapfile_name," contains the list of changes.");
+    write(&errout,"      Please save this list!");
+    close(outtext);
+    return &null;
+
+end
+#-------------------------------------------------------------- 607 progs/newsrc
+############################################################################
+#
+#	File:     newsrc.icn
+#
+#	Subject:  Program to organize UNIX .newsrc file
+#
+#	Author:   Alan D. Corre
+#
+#	Date:     April 1, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program takes the .newsrc file, moves active groups to the beginning
+#  then appends inactive groups with the numbers omitted, then anything else.
+#  the groups are alphabetized.
+#
+#  The user may retain a set of groups at the top of the file by specifying how
+#  many groups on the command line. If not specified, it will be prompted for.
+#  the new file is called newnewsrc. The user can replace .newsrc with it if it
+#  is satisfactory.
+#
+############################################################################
+
+procedure main(times)
+	process(times);
+end
+
+procedure process(times)
+local active, inactive, defective, invar, outvar, line, newline;
+
+#create three empty lists
+	active := [];
+	inactive := [];
+	defective := [];
+
+#open old and new files
+	if not (invar := open(".newsrc")) then stop("Unable to open .newsrc");
+	outvar := open("newnewsrc","w");
+
+#get saved lines
+if *times = 0 then put(times,ask()) else {
+	if not integer(times[1]) then stop("Bye");
+	if times[1] = 1 then write("The following line has been saved:") else
+	if times[1] > 1 then
+           write("The following ",times[1]," lines have been saved:")};
+	every 1 to times[1] do
+		write(write(outvar,read(invar)));
+#place the lines in appropriate lists
+	while line := read(invar) do {
+		newline := line;
+		line	?	{if find(":") then
+					put(active,newline) else
+				 if newline := (tab(find("!")) || "!") then
+					put(inactive,newline) else
+				 put(defective,newline)}};
+	close(invar);
+#sort the lists
+	active := sort(active);
+	inactive := sort(inactive);
+	defective := sort(defective);
+#create the new file
+	every line := !active do
+		write(outvar,line);
+	every line := !inactive do
+		write(outvar,line);
+	every line := !defective do
+		write(outvar,line);
+#notify user
+	write("File newnewsrc has been created.  If it is satisfactory, use");
+	write("mv newnewsrc .newsrc to replace old file.");
+	close(outvar);
+end
+ 
+
+procedure ask()
+local number,n;
+	n := 0;
+	write("You may save any number of lines at the top of the file.");
+	writes("Enter a whole number, 0 or greater.> ");
+	while not integer(number := read()) do  {
+		if (n +:= 1) > 3 then stop("Bye.");
+		writes("You must enter a whole number.> ")};
+		return number;
+end
+#---------------------------------------------------------------- 608 progs/pack
+############################################################################
+#
+#	File:     pack.icn
+#
+#	Subject:  Program to package multiple files
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     July 1, 1997
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     This programs takes a list of file names on the command line and
+#  packages the files into a single file, which is written to standard
+#  output.
+#
+#     Files are separated by a header, ##########, followed by the file
+#  name.  This simple scheme does not work if a file contains such a header
+#  itself, and it's problematical for files of binary data.
+#
+############################################################################
+#
+#  See also:  unpack.icn
+#
+############################################################################
+
+procedure main(args)
+   local in, name;
+
+   every name := !args do {
+      close(\in);
+      in := open(name) | stop("cannot open input file: ",name);
+      write("##########");
+      write(name);
+      while write(read(in))
+      };
+
+end
+#--------------------------------------------------------------- 609 progs/press
+############################################################################
+#
+#	File:     press.icn
+#
+#	Subject:  Program to archive files
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     November 14, 1991
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Besides being a useful file archiving utility, this program can be
+#  used to experiment with the LZW compression process, as it contains
+#  extensive tracing facilities that illustrate the process in detail.
+#
+#  Compression can be turned off if faster archiving is desired.
+#
+#  The LZW compression procedures in this program are general purpose
+#  and suitable for reuse in other programs.
+#
+############################################################################
+#
+#  Instructions for use are summarized in "help" procedures that follow.
+#
+############################################################################
+#
+#  Links: options, colmize, wildcard
+#
+############################################################################
+
+link options, colmize, wildcard
+
+procedure Usage(s)
+   /s := "";
+   stop("\nUsage:_
+\n      Compress: press -c <archive file> [<options>] [<file to compress>...]_
+\n      Archive:  press -a <archive file> [<options>] [<file to archive>...]_
+\n      Extract:  press -x <archive file> [<options>] [<file to extract>...]_
+\n      Print:    press -p <archive file> [<options>] [<file to print>...]_
+\n      List:     press -l <archive file> [<options>] [<file to list>...]_
+\n      Delete:   press -d <archive file> [<options>] <file to delete>..._
+\n_
+\n      Help:     press         (prints this message)_
+\n      More help:press -h      (prints more details)_
+\n_
+\n      -c  perform compression into <archive file>_
+\n      -a  add file(s) to <archive file> in uncompressed format_
+\n      -x  extract (& decompress) file(s) from <archive file>_
+\n      -p  extract (& decompress) from <archive file> to standard output_
+\n      -l  list file names in <archive file>_
+\n      -d  delete file(s) from <archive file>_
+\n          (produces new file -- old file saved with \".bak\" suffix)_
+\n_
+\n      Options:_
+\n      -q  work quietly_
+\n      -t  text file(s) (retrieves with correct line end format)_
+\n	-n  process all files in archive *except* specified files_
+\n_
+\n      LZW Experimentor Options:_
+\n      -T  produce detailed compression trace info (to standard error file)_
+\n      -S  maximum compression string table size_
+\n          (for -c only -- default = 1024)_
+\n"
+      ,s);
+end
+
+procedure MoreHelp()
+   return "\n _
+  The archive (-a) option means to add the file without compression._
+\n_
+\n If no files are specified to extract, print, or list, then all files_
+\n in the archive are used._
+\n_
+\n UNIX-style filename wildcard conventions can be used to express_
+\n the archived file names for extract, print, list, and delete_
+\n operations.  Be sure to quote names containing wildcard characters_
+\n so that they aren't expanded by the shell (if applicable)._
+\n_
+\n If a <file to compress> or <file to archive> is \"-\", or if no files_
+\n are specified, standard input is archived._
+\n_
+\n If <archive file> for extract, print, or list is \"-\", standard input_
+\n is the archive file._
+\n_
+\n If <archive file> for compress or archive is \"-\", archive is written_
+\n to standard output._
+\n_
+\n New files archived to an existing archive file are always appended,_
+\n deleting any previously archived version of the same file name._
+\n_
+\n Archive files can be simply concatenated to create their union._
+\n However, if the same file exists in both archives, only the first_
+\n in the resulting file will be able to be accessed._
+\n_
+\n If a \"compressed\" file turns out to be longer than the uncompressed_
+\n file (rare but possible, usually for very short files), the file will_
+\n automatically be archived in uncompressed format._
+\n_
+\n A default file name suffix of \".prx\" is assumed for <archive file>_
+\n names that are specified without a suffix._
+\n_
+\n_
+\n LZW \"internals\" option:_
+\n_
+\n If the specified maximum table size is positive, the string table is_
+\n discarded when the maximum size is reached and rebuilt (usually the_
+\n better choice).  If negative, the original table is not discarded,_
+\n which might produce better results in some circumstances.  This_
+\n option was provided primarily for experimentors._
+\n";
+end
+
+#
+#  Global variables.
+#
+#  Note:  additional globals that contain option values are defined near
+#  Options(), below.
+#
+global inchars,outchars,tinchars,toutchars,lzw_recycles,
+      lzw_stringTable,rf,wf,magic,rline,wline
+
+#
+#  Main procedure.
+#
+procedure main(arg)
+   local arcfile;
+   #
+   #  Initialize.
+   #
+   Options(arg);
+   inchars := outchars := tinchars := toutchars := lzw_recycles := 0;
+   magic := "\^p\^r\^e\^s\^s\^i\^c\^n";
+   #
+   #  Do requested operation.
+   #
+   arcfile :=
+         DefaultSuffix(\(compr | archive | extract | print | lister | deleter),
+         "prx") | Usage();
+   if \(compr | archive) then Archive(arcfile,arg)
+   else if \(extract | print) then Extract(arcfile,arg)
+   else if \lister then List(arcfile,arg)
+   else if \deleter then Delete(arcfile,arg);
+   return;
+end
+
+
+#
+#  Option global variables.
+#
+global lzw_trace,maxTableSpecified,maxTableSize,print,quiet,tmode,WildMatch
+global extract,compr,archive,lister,deleter
+
+#
+#  Options() -- Handle command line options.
+#
+procedure Options(arg)
+   local opt,n,x;
+   opt := options(arg,"hc:a:x:p:l:d:qtTS+n");
+   if \opt["h"] then Usage(MoreHelp());
+   extract := opt["x"];
+   print := opt["p"];
+   compr := opt["c"];
+   archive := opt["a"];
+   lister := opt["l"];
+   deleter := opt["d"];
+   quiet := opt["q"];
+   tmode := if \opt["t"] then "t" else "u";
+   WildMatch := if \opt["n"] then not_wild_match else whole_wild_match;
+   lzw_trace := opt["T"];
+   maxTableSpecified := opt["S"];
+   maxTableSize := \maxTableSpecified | 1024;  # 10 bits default
+   n := 0;
+   every x := compr | archive | extract | print | lister | deleter do
+         if \x then n +:= 1;
+   if n ~= 1 then Usage();
+   return;
+end
+
+
+#
+#  Archive() -- Do archiving.
+#
+procedure Archive(arcfile,arg)
+   local fn,addr,realLen,maxT,length,addr2,deleteFiles,new_data_start;
+   #
+   #  Confirm options and open the archive file.
+   #
+   if *arg = 0 | WildMatch === not_wild_match then Usage();
+   if ("" | "-") ~== arcfile then {
+      if wf := open(arcfile,"ru") then {
+         if not (reads(wf,*magic) == magic) then {
+            stop("Invalid archive file ",arcfile)
+            };
+         close(wf)
+         };
+      wf := open(arcfile,"bu" | "wu") | stop("Can't open archive file ",arcfile);
+      if tmode == "t" then rline := "\n";
+      seek(wf,0);
+      if where(wf) = 1 then writes(wf,magic)
+      }
+   else {
+      wf := &output;
+      arcfile := "stdout"
+      };
+   new_data_start := where(wf);
+   ## if /quiet then 
+   ##    write(&errout,"New data starting at byte ",new_data_start," of ",arcfile)
+   #
+   #  Loop to process files on command line.
+   #
+   if *arg = 0 then arg := ["-"];
+   deleteFiles := [];
+   every fn := !arg do {
+      if fn === arcfile then next;
+      if /quiet then
+         writes(&errout,"File \"",fn,"\" -- ");
+      rf := if fn ~== "-" then open(fn,tmode) | &null else &input;
+      if /rf then {
+         if /quiet then
+            write(&errout,"Can't open input file \"",fn,"\" -- skipped");
+         next
+         };
+      put(deleteFiles,fn);
+      WriteString(wf,Tail(fn));
+      addr := where(rf);
+      seek(rf,0);
+      realLen := where(rf) - 1;
+      WriteInteger(wf,realLen);
+      seek(rf,addr);
+      if /quiet then
+         writes(&errout,"Length: ",realLen);
+      addr := where(wf);
+      WriteInteger(wf,0);
+      writes(wf,"\1");  # write a compression version string
+      if \compr then {
+         WriteInteger(wf,maxTableSize);
+         maxT := Compress(R,W,maxTableSize);
+         length := outchars + 4;
+         if /quiet then
+            writes(&errout,"  Compressed: ",length,"  ",
+                  Percent(realLen - outchars,realLen))
+         };
+      #
+      #  If compressed file is larger than original, just copy the original.
+      #
+      if \archive | length > realLen then {
+         if /quiet then
+            writes(&errout," -- Archived uncompressed");
+         seek(wf,addr + 4);
+         writes(wf,"\0");  # write a zero version string for uncompressed
+         seek(rf,1);
+         CopyFile(rf,wf);
+         inchars := outchars := length := realLen;
+         maxT := 0;
+         lzw_stringTable := ""
+         };
+      if /quiet then
+         write(&errout);
+      close(rf);
+      addr2 := where(wf);
+      seek(wf,addr);
+      WriteInteger(wf,length);
+      seek(wf,addr2);
+      if /quiet then
+         Stats(maxT)
+      };
+   close(wf);
+   if /quiet then
+      if *arg > 1 then FinalStats();
+   Delete(arcfile,deleteFiles,new_data_start);
+   return;
+end
+
+
+#
+#  Extract() -- Extract a file from the archive.
+#
+procedure Extract(arcfile,arg)
+   local fileSet,wfn,realLen,cmprLen,maxT,version,theArg;
+   if \maxTableSpecified then Usage();
+   rf := OpenReadArchive(arcfile);
+   arcfile := rf[2];
+   rf := rf[1];
+   if *arg > 0 then fileSet := set(arg);
+   #
+   #  Process input file.
+   #
+   while wfn := ReadString(rf) do {
+      (realLen := ReadInteger(rf) &
+            cmprLen := ReadInteger(rf) &
+            version := ord(reads(rf))) |
+            stop("Bad format in compressed file");
+      if /quiet then
+         writes(&errout,"File \"",wfn,"\" -- length: ",realLen,
+               "  compressed: ",cmprLen," bytes -- ");
+      if /fileSet | WildMatch(theArg := !arg,wfn) then {
+         delete(\fileSet,theArg);
+         if not version = (0 | 1) then {
+         if /quiet then
+               write(&errout,"can't handle this compression type (",version,
+                     ") -- skipped");
+            seek(rf,where(rf) + cmprLen)
+            }
+         else {
+            if /quiet then
+               write(&errout,"extracted");
+            if /print then {
+               wf := open(wfn,"w" || tmode) | &null;
+               if /wf then {
+                  if /quiet then
+                     write(&errout,"Can't open output file \"",wfn,
+                           "\" -- quitting");
+                  exit(1)
+                  }
+               }
+            else wf := &output;
+            if version = 1 then {
+               maxT := ReadInteger(rf) |
+                     stop("Error in archive file format: ","table size missing");
+               Decompress(R,W,maxT)
+               }
+            else {
+               maxT := 0;
+               CopyFile(rf,wf,cmprLen);
+               outchars := inchars := realLen
+               };
+            close(&output ~=== wf);
+            if /quiet then
+               Stats(maxT)
+            }
+         }
+      else {
+         if /quiet then
+            write(&errout,"skipped");
+         seek(rf,where(rf) + cmprLen)
+         }
+      };
+   close(rf);
+   FilesNotFound(fileSet);
+   return;
+end
+
+
+#
+#  List() -- Skip through the archive, extracting info about files,
+#  then list in columns.
+#
+procedure List(arcfile,arg)
+   local fileSet,flist,wfn,realLen,cmprLen,version,theArg;
+   if \maxTableSpecified then Usage();
+   rf := OpenReadArchive(arcfile);
+   arcfile := rf[2];
+   rf := rf[1];
+   write(&errout,"Archive file ",arcfile,":");
+   if *arg > 0 then fileSet := set(arg);
+   #
+   #  Process input file.
+   #
+   flist := [];
+   while wfn := ReadString(rf) do {
+      (realLen := ReadInteger(rf) &
+            cmprLen := ReadInteger(rf) &
+            version := ord(reads(rf))) |
+            stop("Bad format in compressed file");
+      if /fileSet | WildMatch(theArg := !arg,wfn) then {
+         delete(\fileSet,theArg);
+         put(flist,"\"" || wfn || "\" " || realLen || "->" || cmprLen);
+         tinchars +:= realLen;
+         toutchars +:= cmprLen
+         };
+      seek(rf,where(rf) + cmprLen)
+      };
+   close(rf);
+   every write(&errout,colmize(sort(flist)));
+   FilesNotFound(fileSet);
+   FinalStats();
+   return;
+end
+
+
+#
+#  Delete() -- Delete a file from the archive.
+#
+procedure Delete(arcfile,arg,new_data_start)
+   local workfn,workf,fileSet,wfn,realLen,cmprLen,bakfn,deletedFiles,
+         head,version,hdrLen,theArg;
+   if *arg = 0 | (\deleter & \maxTableSpecified) then Usage();
+   rf := OpenReadArchive(arcfile);
+   arcfile := rf[2];
+   rf := rf[1];
+   workfn := Root(arcfile) || ".wrk";
+   workf := open(workfn,"wu") | stop("Can't open work file ",workfn);
+   writes(workf,magic);
+   fileSet := set(arg);
+   #
+   #  Process input file.
+   #
+   deletedFiles := 0;
+   head := if \deleter then "File" else "Replaced file";
+   while not (\new_data_start <= where(rf)) & wfn := ReadString(rf) do {
+      (realLen := ReadInteger(rf) &
+            cmprLen := ReadInteger(rf) &
+            version := ord(reads(rf))) |
+            stop("Bad format in compressed file");
+      if /quiet then
+         writes(&errout,head," \"",wfn,"\" -- length: ",realLen,
+               "  compressed: ",cmprLen," bytes -- ");
+      if WildMatch(theArg := !arg,wfn) then {
+         deletedFiles +:= 1;
+         delete(fileSet,theArg);
+         if /quiet then
+            write(&errout,"deleted");
+         seek(rf,where(rf) + cmprLen)
+         }
+      else {
+         if /quiet then
+            write(&errout,"kept");
+         hdrLen := *wfn + 10;
+         seek(rf,where(rf) - hdrLen);
+         CopyFile(rf,workf,cmprLen + hdrLen)
+         }
+      };
+   if deletedFiles > 0 then {
+      CopyFile(rf,workf);
+      every close(workf | rf);
+      if (rf ~=== &input) then {
+         bakfn := Root(arcfile) || ".bak";
+         remove(bakfn);
+         rename(arcfile,bakfn) | stop("Couldn't rename ",arcfile," to ",bakfn)
+         };
+      rename(workfn,arcfile) | stop("Couldn't rename ",workfn," to ",arcfile)
+      }
+   else {
+      every close(workf | rf);
+      remove(workfn)
+      };
+   if \deleter then FilesNotFound(fileSet);
+   return;
+end
+
+
+#
+#  OpenReadArchive() -- Open an archive for reading.
+#
+procedure OpenReadArchive(arcfile)
+   local rf;
+   rf := if ("" | "-") ~== arcfile then
+         open(arcfile,"ru") | stop("Can't open archive file ",arcfile)
+   else {
+      arcfile := "stdin";
+      &input
+      };
+   if reads(rf,*magic) ~== magic then stop("Invalid archive file ",arcfile);
+   if tmode == "t" then wline := "\x0a";
+   return [rf,arcfile];
+end
+
+
+#
+#  FilesNotFound() -- List the files remaining in "fileSet".
+#
+procedure FilesNotFound(fileSet)
+   return if *\fileSet > 0 then {
+      write(&errout,"\nFiles not found:");
+      every write(&errout," ",colmize(sort(fileSet),78));
+      &null
+      };
+end
+
+
+#
+#  Stats() -- Print stats after a file.
+#
+procedure Stats(maxTableSize)
+   #
+   #  Write statistics
+   #
+   if \lzw_trace then write(&errout,
+         "  table size = ",*lzw_stringTable,"/",maxTableSize,
+         " (recycles: ",lzw_recycles,")");
+   tinchars +:= inchars;
+   toutchars +:= outchars;
+   inchars := outchars := lzw_recycles := 0;
+   return;
+end
+
+
+#
+#  FinalStats() -- Print final stats.
+#
+procedure FinalStats()
+   #
+   #  Write final statistics
+   #
+   write(&errout,"\nTotals: ",
+         "\n  input: ",tinchars,
+         "\n  output: ",toutchars,
+         "\n  compression: ",Percent(tinchars - toutchars,tinchars) | "",
+         "\n");
+   return;
+end
+
+
+#
+#  WriteInteger() -- Write a 4-byte binary integer to "f".
+#
+procedure WriteInteger(f,i)
+   local s;
+   s := "";
+   every 1 to 4 do {
+      s := char(i % 256) || s;
+      i /:= 256
+      };
+   return writes(f,s);
+end
+
+
+#
+#  ReadInteger() -- Read a 4-byte binary integer from "f".
+#
+procedure ReadInteger(f)
+   local s,v;
+   s := reads(f,4) | fail;
+   if *s < 4 then
+         stop("Error in archive file format: ","bad integer");
+   v := 0;
+   s ? while v := v * 256 + ord(move(1));
+   return v;
+end
+
+
+#
+#  WriteString() -- Write a string preceded by a length byte to "f".
+#
+procedure WriteString(f,s)
+   return writes(f,char(*s),s);
+end
+
+
+#
+#  ReadString() -- Read a string preceded by a length byte from "f".
+#
+procedure ReadString(f)
+   local len,s;
+   len := ord(reads(f)) | fail;
+   s := reads(f,len);
+   if *s < len then
+         stop("Error in archive file format: ","bad string");
+   return s;
+end
+
+
+#
+#  CopyFile() -- Copy a file.
+#
+procedure CopyFile(rf,wf,len)
+   local s;
+   if /len then {
+      while writes(wf,s := reads(rf,1000))
+      }
+   else {
+      while len > 1000 & writes(wf,s := reads(rf,1000)) do len -:= *s;
+      writes(wf,s := reads(rf,len)) & len -:= *s
+      };
+   return len;
+end
+
+
+#
+#  Percent() -- Format a rational number "n"/"d" as a percentage.
+#
+procedure Percent(n,d)
+   local sign,whole,fraction;
+   n / (0.0 ~= d) ? {
+      sign := ="-" | "";
+      whole := tab(find("."));
+      move(1);
+      fraction := tab(0)
+      };
+   return (\sign || ("0" ~== whole | "") ||
+         (if whole == "0" then integer else 1)(left(fraction,2,"0")) | "--") ||
+         "%";
+end
+
+
+#
+#  R() -- Read-a-character procedure.
+#
+procedure R()
+   local c;
+
+   c := reads(rf) | fail;
+   inchars +:= 1;
+   if c === rline then c := "\x0a";
+   return c;
+end
+
+
+#
+#  W() -- Write-characters procedure.
+#
+procedure W(s)
+   local i;
+
+   every i := find(\wline,s) do s[i] := "\n";
+   outchars +:= *s;
+   return writes(wf,s);
+end
+
+
+#
+#  Tail() -- Return the file name portion (minus the path) of a
+#  qualified file name.
+#
+procedure Tail(fn)
+   local i;
+   i := 0;
+   every i := upto('/\\:',fn);
+   return .fn[i + 1:0];
+end
+
+
+#
+#  Root() -- Return the root portion (minus the suffix) of a file name.
+#
+procedure Root(fn)
+   local i;
+   i := 0;
+   every i := find(".",fn);
+   return .fn[1:i];
+end
+
+
+procedure DefaultSuffix(fn,suf)
+   local i;
+   return fn || "." || suf;
+end
+
+
+############################################################################
+#
+#  Compress() -- LZW compression
+#
+#  Arguments:
+#
+#       inproc  a procedure that returns a single character from
+#               the input stream.
+#
+#       outproc a procedure that writes a single character (its
+#               argument) to the output stream.
+#
+#       maxTableSize    the maximum size to which the string table
+#               is allowed to grow before something is done about it.
+#               If the size is positive, the table is discarded and
+#               a new one started.  If negative, it is retained, but
+#               no new entries are added.
+#
+
+procedure Compress(inproc,outproc,maxTableSize)
+   local EOF,c,charTable,junk1,junk2,outcode,s,t,tossTable,x;
+   #
+   #  Initialize.
+   #
+   /maxTableSize := 1024;  # default 10 "bits"
+   tossTable := maxTableSize;
+   /lzw_recycles := 0;
+   if maxTableSize < 0 then maxTableSize := -maxTableSize;
+   charTable := table();
+   every c := !&cset do charTable[c] := ord(c);
+   EOF := charTable[*charTable] := *charTable;  # reserve code=256 for EOF
+   lzw_stringTable := copy(charTable);
+   #
+   #  Compress the input stream.
+   #
+   s := inproc() | return maxTableSize;
+   if \lzw_trace then {
+      write(&errout,"\nInput string\tOutput code\tNew table entry");
+      writes(&errout,"\"",image(s)[2:-1])
+      };
+   while c := inproc() do {
+      if \lzw_trace then
+            writes(&errout,image(c)[2:-1]);
+      if \lzw_stringTable[t := s || c] then s := t
+      else {
+         Compress_output(outproc,junk2 := lzw_stringTable[s],
+               junk1 := *lzw_stringTable);
+         if *lzw_stringTable < maxTableSize then
+               lzw_stringTable[t] := *lzw_stringTable
+         else if tossTable >= 0 then {
+               lzw_stringTable := copy(charTable);
+               lzw_recycles +:= 1
+            };
+         if \lzw_trace then
+               writes(&errout,"\"\t\t",
+                     image(char(*&cset > junk2) | junk2),
+                     "(",junk1,")\t\t",lzw_stringTable[t]," = ",image(t),"\n\"");
+         s := c
+         }
+      };
+      Compress_output(outproc,junk2 := lzw_stringTable[s],
+	    junk1 := *lzw_stringTable);
+      if *lzw_stringTable < maxTableSize then
+	    {}
+      else if tossTable >= 0 then {
+	    lzw_stringTable := copy(charTable);
+	    lzw_recycles +:= 1
+	 };
+      if \lzw_trace then
+	    writes(&errout,"\"\t\t",
+		  image(char(*&cset > junk2) | junk2),"(",junk1,")\n");
+   Compress_output(outproc,EOF,*lzw_stringTable);
+   if \lzw_trace then write(&errout,"\"\t\t",EOF);
+   Compress_output(outproc);
+   return maxTableSize;
+end
+
+
+procedure Compress_output(outproc,code,stringTableSize)
+   local outcode;
+   static max,bits,buffer,bufferbits,lastSize;
+   #
+   #  Initialize.
+   #
+   initial {
+      lastSize := 1000000;
+      buffer := bufferbits := 0
+      };
+   #
+   #  If this is "close" call, flush buffer and reinitialize.
+   #
+   if /code then {
+      outcode := &null;
+      if bufferbits > 0 then
+            outproc(char(outcode := ishift(buffer,8 - bufferbits)));
+      lastSize := 1000000;
+      buffer := bufferbits := 0;
+      return outcode
+      };
+   #
+   #  Expand output code size if necessary.
+   #
+   if stringTableSize < lastSize then {
+      max := 1;
+      bits := 0
+      };
+   while stringTableSize > max do {
+      max *:= 2;
+      bits +:= 1
+      };
+   lastSize := stringTableSize;
+   #
+   #  Merge new code into buffer.
+   #
+   buffer := ior(ishift(buffer,bits),code);
+   bufferbits +:= bits;
+   #
+   #  Output bits.
+   #
+   while bufferbits >= 8 do {
+      outproc(char(outcode := ishift(buffer,8 - bufferbits)));
+      buffer := ixor(buffer,ishift(outcode,bufferbits - 8));
+      bufferbits -:= 8
+      };
+   return outcode;
+end
+
+
+############################################################################
+#
+#  Decompress() -- LZW decompression of compressed stream created
+#                  by Compress()
+#
+#  Arguments:
+#
+#       inproc  a procedure that returns a single character from
+#               the input stream.
+#
+#       outproc a procedure that writes a single character (its
+#               argument) to the output stream.
+#
+
+procedure Decompress(inproc,outproc,maxTableSize)
+   local EOF,c,charSize,code,i,new_code,old_strg,
+         strg,tossTable;
+   #
+   #  Initialize.
+   #
+   /maxTableSize := 1024;  # default 10 "bits"
+   tossTable := maxTableSize;
+   /lzw_recycles := 0;
+   if maxTableSize < 0 then maxTableSize := -maxTableSize;
+   maxTableSize -:= 1;
+   lzw_stringTable := list(*&cset);
+   every i := 1 to *lzw_stringTable do lzw_stringTable[i] := char(i - 1);
+   put(lzw_stringTable,EOF := *lzw_stringTable);  # reserve code=256 for EOF
+   charSize := *lzw_stringTable;
+   if \lzw_trace then
+         write(&errout,"\nInput code\tOutput string\tNew table entry");
+   #
+   #  Decompress the input stream.
+   #
+   while old_strg :=
+         lzw_stringTable[Decompress_read_code(inproc,
+         *lzw_stringTable,EOF) + 1] do {
+      if \lzw_trace then
+            write(&errout,image(old_strg),"(",*lzw_stringTable,")",
+                  "\t",image(old_strg));
+      outproc(old_strg);
+      c := old_strg[1];
+      (while new_code := Decompress_read_code(inproc,
+            *lzw_stringTable + 1,EOF) do {
+         strg := lzw_stringTable[new_code + 1] | old_strg || c;
+         outproc(strg);
+         c := strg[1];
+         if \lzw_trace then
+               write(&errout,image(char(*&cset > new_code) \ 1 | new_code),
+                     "(",*lzw_stringTable + 1,")","\t",
+                     image(strg),"\t\t",
+                     *lzw_stringTable," = ",image(old_strg || c));
+         if *lzw_stringTable < maxTableSize then
+               put(lzw_stringTable,old_strg || c)
+         else if tossTable >= 0 then {
+            lzw_stringTable := lzw_stringTable[1:charSize + 1];
+            lzw_recycles +:= 1;
+            break
+            };
+         old_strg := strg
+         }) | break  # exit outer loop if this loop completed
+      };
+   Decompress_read_code();
+   return maxTableSize;
+end
+
+
+procedure Decompress_read_code(inproc,stringTableSize,EOF)
+   local code;
+   static max,bits,buffer,bufferbits,lastSize;
+
+   #
+   #  Initialize.
+   #
+   initial {
+      lastSize := 1000000;
+      buffer := bufferbits := 0
+      };
+   #
+   #  Reinitialize if called with no arguments.
+   #
+   if /inproc then {
+      lastSize := 1000000;
+      buffer := bufferbits := 0;
+      return
+      };
+   #
+   #  Expand code size if necessary.
+   #
+   if stringTableSize < lastSize then {
+      max := 1;
+      bits := 0
+      };
+   while stringTableSize > max do {
+      max *:= 2;
+      bits +:= 1
+      };
+   #
+   #  Read in more data if necessary.
+   #
+   while bufferbits < bits do {
+      buffer := ior(ishift(buffer,8),ord(inproc())) |
+            stop("Premature end of file");
+      bufferbits +:= 8
+      };
+   #
+   #  Extract code from buffer and return.
+   #
+   code := ishift(buffer,bits - bufferbits);
+   buffer := ixor(buffer,ishift(code,bufferbits - bits));
+   bufferbits -:= bits;
+   return EOF ~= code;
+end
+
+
+procedure whole_wild_match(p,s)
+   return wild_match(p,s) > *s;
+end
+
+
+procedure not_wild_match(p,s)
+   return not (wild_match(p,s) > *s);
+end
+
+#------------------------------------------------------------ 610 progs/setmerge
+############################################################################
+#
+#	File:     setmerge.icn
+#
+#	Subject:  Program to combine sets of text items
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     May 31, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Setmerge combines sets of items according to the specified operators.
+#  Sets are read from files, one entry per line.  Operation is from left
+#  to right without any precedence rules.  After all operations are
+#  complete the resulting set is sorted and written to standard output.
+# 
+#  Usage:  setmerge file [[op] file]...
+#
+#  Operations:
+#	+  add contents to set
+#	-  subtract contents from set
+#	*  intersect contents with set
+#
+#  Note that operators must be separate command options, and that some
+#  shells my require some of them to be quoted.
+#
+#  Example 1: combine files, sorting and eliminating duplicates:
+#
+#	setmerge file1 + file2 + file3 + file4
+#
+#  Example 2: print lines common to three files
+#
+#	setmerge file1 '*' file2 '*' file3
+#
+#  Example 3: print lines in file1 or file2 but not in file3
+#
+#	setmerge file1 + file2 - file3
+#
+############################################################################
+
+
+procedure main(args)
+   local items, a, op, f, s;
+
+   items := set();
+   op := "+";
+   every a := !args do {
+      if *a = 1 & any('+-*', a) then {
+         op := a
+         }
+      else {
+         f := open(a) | stop("can't open ", a);
+         case op of {
+            "+": every insert(items, !f);
+            "-": every delete(items, !f);
+            "*": {
+               s := set();
+               every insert(s, member(items, !f));
+               items := s
+               }
+         }
+      }
+   };
+   every write(!sort(items));
+end
+#--------------------------------------------------------------- 611 progs/utrim
+############################################################################
+#
+#	File:     utrim.icn
+#
+#	Subject:  Program to remove unneeded procs from ucode
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     August 7, 1993
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Usage:  utrim [-s | -v] file...
+#
+#  Utrim alters a set of uncode files comprising a complete Icon program
+#  by removing unreferenced procedures.  The resulting files are smaller,
+#  and they produce a smaller icode file.
+#
+#  The basename of each command argument is used to find a pair of
+#  .u1 and .u2 files; each pair is renamed to .u1o and .u2o and
+#  replaced by new .u1 and .u2 files.
+#
+#  -s invokes silent mode; -v invokes verbose mode.
+#
+#  Warning: utrim may break programs that use string invocation.
+#
+############################################################################
+#
+#  Links: options
+#
+############################################################################
+
+link options
+
+record prc(name, size, calls, need)	# proc record
+record lcl(name, flags)			# local record
+
+global pnames, ptable			# proc names and table
+
+
+# main procedure
+
+procedure main(args)
+   local opts, fname, name, need;
+
+   # process options
+   opts := options(args, "sv");
+   if *args = 0 then
+      stop("usage: ", &progname, " [-s | -v] file.u1 ...");
+   every !args ?:= tab(upto('.'));
+
+   # scan .u1 files to decide what's needed
+   pnames := set();
+   ptable := table();
+   every scan1(!args);
+   if /ptable["main"] then
+      stop(&progname, ": no main procedure");
+   dependencies();
+   report(opts);
+
+   # write new .u1 and .u2 files
+   every fname := !args || (".u1" | ".u2") do {
+      remove(fname || "o");
+      rename(fname, fname || "o") | stop("can't rename ", fname)
+      };
+   every filter1(!args);
+   every filter2(!args);
+end
+
+
+#  scan1(fname) -- read .u1 file, add proc names and refs to ptable
+
+procedure scan1(fname)
+   local u1, line, i, name, flags, curr, locals;
+   u1 := open(fname || ".u1") | stop(&progname, ": can't open", fname || ".u1");
+   while line := read(u1) do line ? {
+      if ="proc " then {
+         # new proc: make table entry
+         name := tab(0);
+         insert(pnames, name);
+         ptable[name] := curr := prc(name, 0, set());
+         locals := []
+         }
+      else if ="\tlocal\t" then {
+         # new local: remember its name
+         i := tab(many(&digits));
+         =",";
+         flags := tab(upto(','));
+         =",";
+         name := tab(0);
+         put(locals, lcl(name, flags))
+         }
+      else if ="\tvar\t" then {
+         # ref to "local": note as needed if it's a global
+         i := tab(0) + 1;
+         if locals[i].flags = 0 then
+            insert(curr.calls, locals[i].name)
+         };
+      curr.size +:= 1		# tally number of lines
+      };
+   close(u1);
+   return;
+end
+
+
+#  dependencies() -- mark procs called directly or indirectly from main proc
+
+procedure dependencies()
+   local need, p;
+
+   need := ["main"];
+   while name := get(need) do
+      if (p := \ptable[name]) & (/p.need := 1) then
+         every put(need, !p.calls);
+   return;
+end
+
+
+#  report(opts) -- write reports as selected by command options
+
+procedure report(opts)
+   local name, p, ptrim, ltrim, ltotal;
+
+   ltotal := ltrim := ptrim := 0;
+   every name := !sort(pnames) do {
+      p := ptable[name];
+      ltotal +:= p.size;
+      if /p.need then {
+         ltrim +:= p.size;
+         ptrim +:= 1
+         };
+      if /opts["v"] then
+         next;
+      writes(right(p.size, 6));
+      writes(if \p.need then " * " else "   ");
+      writes(left(p.name, 16));
+      every writes(" ", !sort(p.calls));
+      write()
+      };
+   if /opts["s"] then
+      write(&errout, "Trimming ", ptrim, "/", *pnames, " procedures (",
+         (100 * ptrim + 5) / *pnames, "%), ", ltrim, "/", ltotal, " lines (",
+         (100 * ltrim + 5) / ltotal, "%)");
+   return;
+end
+
+
+#  filter1(fname) -- filter .u1o file to make new .u1 file
+#
+#  For each proc body, copy only if marked as needed in ptable.
+
+procedure filter1(fname)
+   local old, new, line;
+
+   old := open(fname||".u1o") | stop(&progname, ": can't open", fname||".u1o");
+   new := open(fname||".u1","w") | stop(&progname,": can't write",fname||".u1");
+
+   while line := read(old) do line ?
+      if ="proc " & /ptable[tab(0)].need then		    # check new proc
+         until (line ? ="\tend") | not (line := read(old))  # skip to proc end
+      else
+         write(new, line);
+   close(old);
+   close(new);
+   return;
+end
+
+
+#  filter2(fname) -- filter .u2o file to make new .u2 file
+#
+#  Copy header verbatim; read list of globals, remove procs trimmed from .u1,
+#  and write new (renumbered) global list.
+
+procedure filter2(fname)
+   local old, new, line, n, glist, flags, name, args, p;
+
+   old := open(fname||".u2o") | stop(&progname, ": can't open ", fname||".u2o");
+   new := open(fname||".u2","w") | stop(&progname,": can't write ",fname||".u2");
+
+   write(new, read(old)) | stop(&progname, ": empty ", fname || ".u2o");
+   while (line := read(old)) & not (line ? ="global") do
+      write(new, line);
+
+   glist := [];
+   while line := read(old) do line ? {
+      ="\t";
+      tab(many(&digits));
+      p := &pos;
+      =",";
+      flags := tab(upto(','));
+      =",";
+      name := tab(upto(','));
+      if flags = 5 & /(\ptable[name]).need then
+         next;
+      tab(p);
+      put(glist, tab(0))
+      };
+   write(new, "global\t", *glist);
+   every write(new, "\t", 0 to *glist - 1, get(glist));
+
+   close(old);
+   close(new);
+   return;
+end

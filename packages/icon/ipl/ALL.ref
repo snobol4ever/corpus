@@ -19309,3 +19309,249 @@ main(list_1 = [])
 &null((variable = '<'),(variable = '>'),(variable = "<p>Hello, <b>wor..."),&null,&null,(variable = &null)) from line 82 in strpsgml.icn
 #------------------------------------------------------------- 588 progs/textcvt
 Converting textcvt.in -> textcvt.out -- done.
+#----------------------------------------------------------- 589 gprogs/autotile
+4,#1248
+#----------------------------------------------------------- 590 gprogs/patfetch
+4,#5a5a
+4,#a5a5
+8,#aa55aa55aa55aa55
+4,#1248
+8,#ff818181818181ff
+3,#253
+8,#0102040810204080
+8,#8040201008040201
+4,#6996
+5,#1f11111f11
+6,#3f2121212121
+#----------------------------------------------------------- 591 gprogs/pextract
+4,#1248
+4,#f00f
+8,#ff818181818181ff
+6,#0c1e3f3f1e0c
+*** 9 out of bounds
+#----------------------------------------------------------- 592 gprogs/pgmtoims
+"100,g16,_
+00000001111112222223333334444444555555666666777777_
+8888889999999AAAAAABBBBBBCCCCCCDDDDDDEEEEEEEFFFFFF_
+555556666667777778888889999999AAAAAABBBBBBCCCCCCDD_
+DDDDEEEEEEEFFFFFF000000111111222222233333344444455_
+AAABBBBBBCCCCCCDDDDDDEEEEEEEFFFFFF0000001111112222_
+2223333334444445555556666667777777888888999999AAAA_
+"
+#------------------------------------------------------------ 593 gprogs/xbm2pat
+16,#8001400220041008081004200240ffff	# tile.xbm
+#------------------------------------------------------------- 594 progs/compare
+x1.txt==x2.txt
+#--------------------------------------------------------------- 595 progs/farb2
+That job is at the bottom of the rung.
+#------------------------------------------------------------ 596 progs/filecnvt
+line one
+line two
+line three
+#------------------------------------------------------------ 597 progs/fileprnt
+
+BYTE|  0|  1|  2|  3|  4|  5|  6|  7|  8|  9| 10| 11| 12| 13| 14| 15|
+---------------------------------------------------------------------
+ HEX| 68| 65| 6C| 6C| 6F| 2C| 20| 77| 6F| 72| 6C| 64| 09| 74| 61| 62|
+---------------------------------------------------------------------
+ OCT|150|145|154|154|157|054|040|167|157|162|154|144|011|164|141|142|
+---------------------------------------------------------------------
+ DEC|104|101|108|108|111| 44| 32|119|111|114|108|100|  9|116| 97| 98|
+---------------------------------------------------------------------
+ SYM| h | e | l | l | o | , |   | w | o | r | l | d |   | t | a | b |
+---------------------------------------------------------------------
+ ASC|   |   |   |   |   |   | SP|   |   |   |   |   | HT|   |   |   |
+---------------------------------------------------------------------
+
+BYTE| 16| 17| 18| 19| 20| 21| 22| 23| 24| 25|
+---------------------------------------------
+ HEX| 0A| 6C| 69| 6E| 65| 20| 74| 77| 6F| 0A|
+---------------------------------------------
+ OCT|012|154|151|156|145|040|164|167|157|012|
+---------------------------------------------
+ DEC| 10|108|105|110|101| 32|116|119|111| 10|
+---------------------------------------------
+ SYM|   | l | i | n | e |   | t | w | o |   |
+---------------------------------------------
+ ASC| LF|   |   |   |   | SP|   |   |   | LF|
+---------------------------------------------
+#------------------------------------------------------------ 598 progs/findtext
+1: An apple a day
+keeps the doctor away. (1-i)
+2: Bananas are yellow
+and curved. (55-i)
+3: Grapes grow in bunches. (187-s)
+#---------------------------------------------------------------- 599 progs/fset
+fsx_alpha.txt 
+fsx_beta.txt 
+fsx_c1 
+fsx_cz.txt 
+#-------------------------------------------------------------- 600 progs/gediff
+fixture_a.txt:2
+fixture_b.txt:2
+< banana
+---
+> blueberry
+#--------------------------------------------------------------- 601 progs/ihelp
+Functions and datatypes of arguments and produced values:
+center(s1,i,s2) : s3			# position string at center
+find(s1,s2,i1,i2) : i3,i4,...,in	# find string
+image(x) : s				# produce string image
+left(s1,i,s2) : s3			# position string at left
+match(s1,s2,i1,i2) : i3			# match initial string
+reads(f,i) : s				# read string
+repl(s1,i) : s2				# replicate string
+reverse(s1) : s2			# reverse string
+right(s1,i,s2) : s3			# position string at right
+string(x) : s				# convert to string
+trim(s1,c) : s2				# trim string
+writes(x1,x2,...,xn)			# write string
+#------------------------------------------------------------ 602 progs/iiencode
+begin 644 fixture.txt
+92&5L;&\L($E03"!F:7AT=7)E('1E<W0A"B`@
+`
+end
+#--------------------------------------------------------------- 603 progs/inter
+bravo
+#------------------------------------------------------------ 604 progs/mapcolrs
+colors used in sampler.pat
+L4 := list(0)
+T2 := table(&null)
+   T2["blue"] := 1
+   T2["green"] := 3
+   T2["red"] := 2
+   T2["white"] := 4
+#--------------------------------------------------------------- 605 progs/mszip
+finding files...
+inspecting files...
+b DATA.BIN
+n DOCS/INDEX.TXT
+c DOS.TXT
+e EMPTY.DAT
+n README.TXT
+n SUB/HELLO.ICN
+n SUB/NOTES
+
+ unrd empty bin crlf newln  extension
+                        1   .
+              1             .BIN
+         1                  .DAT
+                        1   .ICN
+                   1    2   .TXT
+
+         1    1    1    4   TOTAL: 7
+
+done.
+#---------------------------------------------------------------- 606 progs/mtf3
+averyvery001.c                                                                                      000644  001750  001750           63 05156223400   7034  0                                                                                                                                                                                                                                                                                                                                                                   #include "another001.icn"
+int main() { return 0; }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                             another001.icn                                                                                      000644  001750  001750           72 05156223400   6767  0                                                                                                                                                                                                                                                                                                                                                                   # see averyvery001.c
+procedure main()
+   write("hi");
+end
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      short.txt                                                                                           000644  001750  001750         1241 05156223400   6352  0                                                                                                                                                                                                                                                                                                                                                                   Files: averyvery001.c and another001.icn
+keep: averyverylongfilenameXYZ is an exception
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+padding line
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+mtf:  map.report contains the list of changes.
+      Please save this list!
+#-------------------------------------------------------------- 607 progs/newsrc
+You may save any number of lines at the top of the file.
+Enter a whole number, 0 or greater.> You must enter a whole number.> comp.lang.icon: 1-4127,4130
+news.announce.important: 1-12
+File newnewsrc has been created.  If it is satisfactory, use
+mv newnewsrc .newsrc to replace old file.
+#---------------------------------------------------------------- 608 progs/pack
+##########
+first.txt
+one
+two
+three
+##########
+second.txt
+a single line without newline
+##########
+third.txt
+
+blank line above
+#--------------------------------------------------------------- 609 progs/press
+File "poem.txt" -- length: 1491  compressed: 410 bytes -- extracted
+line 1: the rain in spain falls mainly on the plain, the plain, the plain
+line 2: the rain in spain falls mainly on the plain, the plain, the plain
+line 3: the rain in spain falls mainly on the plain, the plain, the plain
+line 4: the rain in spain falls mainly on the plain, the plain, the plain
+line 5: the rain in spain falls mainly on the plain, the plain, the plain
+line 6: the rain in spain falls mainly on the plain, the plain, the plain
+line 7: the rain in spain falls mainly on the plain, the plain, the plain
+line 8: the rain in spain falls mainly on the plain, the plain, the plain
+line 9: the rain in spain falls mainly on the plain, the plain, the plain
+line 10: the rain in spain falls mainly on the plain, the plain, the plain
+line 11: the rain in spain falls mainly on the plain, the plain, the plain
+line 12: the rain in spain falls mainly on the plain, the plain, the plain
+line 13: the rain in spain falls mainly on the plain, the plain, the plain
+line 14: the rain in spain falls mainly on the plain, the plain, the plain
+line 15: the rain in spain falls mainly on the plain, the plain, the plain
+line 16: the rain in spain falls mainly on the plain, the plain, the plain
+line 17: the rain in spain falls mainly on the plain, the plain, the plain
+line 18: the rain in spain falls mainly on the plain, the plain, the plain
+line 19: the rain in spain falls mainly on the plain, the plain, the plain
+line 20: the rain in spain falls mainly on the plain, the plain, the plain
+File "tiny.dat" -- length: 55  compressed: 26 bytes -- extracted
+abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc
+File "notes.txt" -- length: 11  compressed: 11 bytes -- extracted
+short note
+#------------------------------------------------------------ 610 progs/setmerge
+alpha
+bravo
+charlie
+delta
+#--------------------------------------------------------------- 611 progs/utrim
+    26 * double          
+    46 * main             counter double write
+    26   triple          
+    25   unused           triple
+Trimming 2/4 procedures (51%), 51/123 lines (41%)
