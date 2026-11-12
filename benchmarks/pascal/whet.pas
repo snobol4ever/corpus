@@ -48,7 +48,7 @@ END;
 
 PROCEDURE POUT (N, J, K : LONGINT; X1, X2, X3, X4 : DOUBLE);
 BEGIN
-        WriteLn(N:6,J:6,K:6,' ',X1:0:12,' ',X2:0:12,' ',X3:0:12,' ',X4:0:12);
+        WriteLn(N:6,J:6,K:6,' ',X1:1:12,' ',X2:1:12,' ',X3:1:12,' ',X4:1:12);
 END;
 
 PROCEDURE DoIt;
