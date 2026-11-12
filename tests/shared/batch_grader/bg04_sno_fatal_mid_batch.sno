@@ -1,5 +1,0 @@
-	OUTPUT = 'before'
-	Y = 0
-	X = 1 / Y
-	OUTPUT = 'after'
-END

@@ -1,3 +1,0 @@
-	X = 'dirty'
-	OUTPUT = 'X=<' X '>'
-END
