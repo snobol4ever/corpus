@@ -1,0 +1,21 @@
+DEALER:
+three of diamonds
+
+PLAYER:
+five of diamonds
+ten of diamonds
+current value is 15
+hit (h) or stay (s)
+hit
+two of diamonds
+current value is 17
+hit (h) or stay (s)
+stay
+
+DEALER:
+three of diamonds
+seven of diamonds
+dealer value: 10
+jack of spades
+dealer value: 20
+you lose!

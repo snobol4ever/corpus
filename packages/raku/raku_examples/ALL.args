@@ -1,0 +1,3 @@
+# ALL.args -- raku-examples: the arguments a program runs with, one line an entry (its path from the collection root without the extension), then each argument after a tab; read by the mine road and by the grader (the cfo 2026-11-12, row packages-owed-raku-examples-thirty-one)
+wsg/advanced-2008/event010-dwhipp	--computer-player
+interpreters/lisp	--test

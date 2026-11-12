@@ -1,0 +1,53 @@
+ok 1 - number
+ok 2 - true
+ok 3 - false
+ok 4 - simple s-exp
+ok 5 - nested s-exps
+ok 6 - parse atom (numeric)
+ok 7 - parse atom (boolean)
+ok 8 - parse atom (variable)
+ok 9 - sexp
+ok 10 - nested sexps
+ok 11 - s-exp
+ok 12 - spaces are irrelevant
+ok 13 - quote by symbol
+ok 14 - quote by word
+ok 15 - booleans
+ok 16 - booleans
+ok 17 - booleans
+ok 18 - booleans
+ok 19 - sum
+ok 20 - product
+ok 21 - cons
+ok 22 - append
+ok 23 - list
+ok 24 - car
+ok 25 - cdr
+ok 26 - list?
+ok 27 - list?
+ok 28 - null? on empty list
+ok 29 - null? on `() 
+ok 30 - null?
+ok 31 - equal?
+ok 32 - equal?
+ok 33 - define
+ok 34 - set!
+ok 35 - define
+ok 36 - define
+ok 37 - length
+ok 38 - lambda
+ok 39 - lambda
+ok 40 - lambda
+ok 41 - if
+ok 42 - if
+ok 43 - abs
+ok 44 - abs
+ok 45 - begin
+ok 46 - quote
+ok 47 - quote
+ok 48 - eval
+ok 49 - eval
+ok 50 - nested list
+ok 51 - fib(10)
+ok 52 - sqrt example
+1..52

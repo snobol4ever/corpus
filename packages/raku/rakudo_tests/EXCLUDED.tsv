@@ -1,8 +1,6 @@
 # EXCLUDED.tsv -- rakudo-t: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
 # the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
 t/02-rakudo/06-is.t	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 463 and 463 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
-t/02-rakudo/32-io-operators.t	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 124, 6413 and 5932 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
-t/02-rakudo/99-misc.t	NO_ORACLE_ANSWER	ORACLE-REFUSES: Error while compiling t/02-rakudo/99-misc.t (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
 t/02-rakudo/nested-package-collision-gate.t	NOT_A_UNIT_TEST	LIBRARY: the source names unit package (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
 t/02-rakudo/rakuast-suspend-precomp-deps.t	NOT_A_UNIT_TEST	LIBRARY: the source names unit module (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)
 t/02-rakudo/repl.t	NEEDS_TERMINAL	NEEDS-DISPLAY: the source names Terminal:: (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-owed-prolog-raku-cfo)

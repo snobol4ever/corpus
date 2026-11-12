@@ -1,0 +1,157 @@
+1..4
+# Subtest: chmod across the revisions
+    # Subtest: [v6.c] chmod with nonexistent file produces empty array 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - [v6.c] chmod with nonexistent file produces empty array 
+    # Subtest: [v6.d] chmod with nonexistent file produces empty array 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - [v6.d] chmod with nonexistent file produces empty array 
+    # Subtest: [v6.e] chmod with multiple nonexistent files and old signature produces empty array and expected deprecation message 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - [v6.e] chmod with multiple nonexistent files and old signature produces empty array and expected deprecation message 
+    # Subtest: [v6.e] chmod with single nonexistent file (Str) and old signature produces empty array and expected deprecation message '
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 4 - [v6.e] chmod with single nonexistent file (Str) and old signature produces empty array and expected deprecation message '
+    # Subtest: [v6.e] chmod with single nonexistent file (IO) and old signature produces empty array and expected deprecation message '
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 5 - [v6.e] chmod with single nonexistent file (IO) and old signature produces empty array and expected deprecation message '
+    # Subtest: chmod with nonexistent file (Str) produces Failure 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 6 - chmod with nonexistent file (Str) produces Failure 
+    # Subtest: chmod with nonexistent file (IO) produces Failure 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 7 - chmod with nonexistent file (IO) produces Failure 
+    1..7
+ok 1 - chmod across the revisions
+# Subtest: chown across the revisions
+    # Subtest: [v6.c] chown with nonexistent file produces empty array
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - [v6.c] chown with nonexistent file produces empty array
+    # Subtest: [v6.d] chown with nonexistent file produces empty array
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - [v6.d] chown with nonexistent file produces empty array
+    # Subtest: [v6.e] chown with multiple nonexistent files (UID + GID) produces empty array and deprecation 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - [v6.e] chown with multiple nonexistent files (UID + GID) produces empty array and deprecation 
+    # Subtest: [v6.e] chown with multiple nonexistent files (UID) produces empty array and deprecation 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 4 - [v6.e] chown with multiple nonexistent files (UID) produces empty array and deprecation 
+    # Subtest: [v6.e] chown with multiple nonexistent files (GID) produces empty array and deprecation 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 5 - [v6.e] chown with multiple nonexistent files (GID) produces empty array and deprecation 
+    # Subtest: [v6.e] chown with nonexistent file (Str) produces Failure 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 6 - [v6.e] chown with nonexistent file (Str) produces Failure 
+    # Subtest: [v6.e] chown with nonexistent file (IO) produces Failure 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 7 - [v6.e] chown with nonexistent file (IO) produces Failure 
+    1..7
+ok 2 - chown across the revisions
+# Subtest: unlink across the revisions
+    # Subtest: [v6.c] unlink with nonexistent file produces array containing file name 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - [v6.c] unlink with nonexistent file produces array containing file name 
+    # Subtest: [v6.d] unlink with nonexistent file produces array containing file name 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - [v6.d] unlink with nonexistent file produces array containing file name 
+    # Subtest: [v6.e] unlink with multiple nonexistent files produces empty array and deprecation 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - [v6.e] unlink with multiple nonexistent files produces empty array and deprecation 
+    # Subtest: [v6.e] unlink with nonexistent file (Str) produces True 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 4 - [v6.e] unlink with nonexistent file (Str) produces True 
+    # Subtest: [v6.e] chown with nonexistent file (IO) produces True 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 5 - [v6.e] chown with nonexistent file (IO) produces True 
+    1..5
+ok 3 - unlink across the revisions
+# Subtest: rmdir across the revisions
+    # Subtest: [v6.c] rmdir with nonexistent directory produces empty array 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 1 - [v6.c] rmdir with nonexistent directory produces empty array 
+    # Subtest: [v6.d] unlink with nonexistent directory produces empty array 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 2 - [v6.d] unlink with nonexistent directory produces empty array 
+    # Subtest: [v6.e] rmdir with multiple nonexistent directory produces empty array and deprecation 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 3 - [v6.e] rmdir with multiple nonexistent directory produces empty array and deprecation 
+    # Subtest: [v6.e] rmdir with nonexistent file (Str) produces True 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 4 - [v6.e] rmdir with nonexistent file (Str) produces True 
+    # Subtest: [v6.e] rmdir with nonexistent file (IO) produces True 
+        1..3
+        ok 1 - STDOUT
+        ok 2 - STDERR
+        ok 3 - Exit code
+    ok 5 - [v6.e] rmdir with nonexistent file (IO) produces True 
+    1..5
+ok 4 - rmdir across the revisions

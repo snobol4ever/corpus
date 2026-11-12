@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=246 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=25 chunks=3 sizes=100,100,45
+# shape: entries=255 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=25 chunks=3 sizes=100,100,54
 entry	part	cluster	shells
 99-problems/P01-scottp	chunk:01	dir:99-problems	
 99-problems/P01-topo	chunk:01	dir:99-problems	
@@ -28,9 +28,9 @@ entry	part	cluster	shells
 99-problems/P09-unobe	chunk:01	dir:99-problems	
 99-problems/P10-scottp	chunk:01	dir:99-problems	
 99-problems/P10-topo	chunk:01	dir:99-problems	
-99-problems/P10-unobe	chunk:01	dir:99-problems	
-99-problems/P11-topo	chunk:01	dir:99-problems	
-99-problems/P11-unobe	chunk:01	dir:99-problems	
+99-problems/P10-unobe	chunk:02	dir:99-problems	
+99-problems/P11-topo	chunk:02	dir:99-problems	
+99-problems/P11-unobe	chunk:02	dir:99-problems	
 99-problems/P12-rhebus	chunk:02	dir:99-problems	
 99-problems/P12-topo	chunk:02	dir:99-problems	
 99-problems/P12-unobe	chunk:02	dir:99-problems	
@@ -76,6 +76,7 @@ best-of-rosettacode/arbitrary-precision-integers	chunk:02	dir:best-of-rosettacod
 best-of-rosettacode/binomial-coefficient	chunk:02	dir:best-of-rosettacode	
 best-of-rosettacode/copy-a-string	chunk:02	dir:best-of-rosettacode	
 best-of-rosettacode/create-a-two-dimensional-array-at-runtime	core	core	want_rc
+best-of-rosettacode/hailstone-sequence	chunk:02	dir:best-of-rosettacode	
 best-of-rosettacode/last-fridays-of-year	chunk:02	dir:best-of-rosettacode	
 best-of-rosettacode/prime-decomposition	chunk:02	dir:best-of-rosettacode	
 cookbook/01strings/01-00introduction	chunk:02	dir:cookbook/01strings	
@@ -91,9 +92,9 @@ cookbook/02numbers/02-05-roman-numerals	chunk:03	dir:cookbook/02numbers
 cookbook/02numbers/02-12taking-logarithms	chunk:03	dir:cookbook/02numbers	
 cookbook/02numbers/02-14complex-number	chunk:03	dir:cookbook/02numbers	
 cookbook/02numbers/02-15convert-bases	chunk:03	dir:cookbook/02numbers	
-cookbook/03dates-and-times/03-01-todays-date	chunk:02	dir:cookbook/03dates-and-times	
-cookbook/03dates-and-times/03-02-datetime-to-epoch	chunk:02	dir:cookbook/03dates-and-times	
-cookbook/03dates-and-times/03-03-epoch-to-datetime	chunk:02	dir:cookbook/03dates-and-times	
+cookbook/03dates-and-times/03-01-todays-date	chunk:03	dir:cookbook/03dates-and-times	
+cookbook/03dates-and-times/03-02-datetime-to-epoch	chunk:03	dir:cookbook/03dates-and-times	
+cookbook/03dates-and-times/03-03-epoch-to-datetime	chunk:03	dir:cookbook/03dates-and-times	
 cookbook/03dates-and-times/03-04-date-add-sub	chunk:03	dir:cookbook/03dates-and-times	
 cookbook/03dates-and-times/03-05-sub-two-dates	chunk:03	dir:cookbook/03dates-and-times	
 cookbook/03dates-and-times/03-06-day-to-num-wmy	chunk:03	dir:cookbook/03dates-and-times	
@@ -142,6 +143,7 @@ euler/prob009-polettix	chunk:01	dir:euler
 euler/prob010-polettix	chunk:01	dir:euler	
 euler/prob011-moritz	chunk:01	dir:euler	
 euler/prob013-grondilu	chunk:01	dir:euler	
+euler/prob014-felher	chunk:01	dir:euler	
 euler/prob015-felher	chunk:01	dir:euler	
 euler/prob016-grondilu	chunk:01	dir:euler	
 euler/prob017-duff	chunk:01	dir:euler	
@@ -165,6 +167,7 @@ euler/prob033-andreoss	chunk:01	dir:euler
 euler/prob034-quinny	chunk:01	dir:euler	
 euler/prob036-xenu	chunk:01	dir:euler	
 euler/prob038-andreoss	chunk:01	dir:euler	
+euler/prob039-quinny	chunk:01	dir:euler	
 euler/prob041-heyajulia-alternative	chunk:01	dir:euler	
 euler/prob041-heyajulia	chunk:01	dir:euler	
 euler/prob042-shlomif	chunk:01	dir:euler	
@@ -175,6 +178,7 @@ euler/prob054-andreoss	chunk:01	dir:euler
 euler/prob055-shlomif	chunk:01	dir:euler	
 euler/prob056-shlomif	chunk:01	dir:euler	
 euler/prob059-andreoss	chunk:01	dir:euler	
+euler/prob060-andreoss	chunk:01	dir:euler	
 euler/prob063-moritz	chunk:01	dir:euler	
 euler/prob063-polettix	chunk:01	dir:euler	
 euler/prob065-andreoss	chunk:01	dir:euler	
@@ -191,6 +195,8 @@ games/flashcard	chunk:03	dir:games
 games/tictactoe	chunk:03	dir:games	
 interpreters/RPN	chunk:03	dir:interpreters	
 interpreters/brainfuck	chunk:03	dir:interpreters	
+interpreters/calc	chunk:03	dir:interpreters	
+interpreters/lisp	chunk:03	dir:interpreters	
 module-management/Fletcher	chunk:03	dir:module-management	
 other/array-contains-a-value	chunk:03	dir:other	
 other/bottles	chunk:03	dir:other	
@@ -237,12 +243,15 @@ shootout/n-body-v2	chunk:02	dir:shootout
 shootout/n-body	chunk:02	dir:shootout	
 shootout/regex-dna	chunk:02	dir:shootout	
 shootout/revcomp-v2	chunk:02	dir:shootout	
-shootout/revcomp	chunk:02	dir:shootout	
+shootout/revcomp	chunk:03	dir:shootout	
 tutorial/01-read-from-file	chunk:03	dir:tutorial	
+tutorial/01-read-from-terminal	chunk:03	dir:tutorial	
 tutorial/01-word-wrap	chunk:03	dir:tutorial	
 tutorial/lazy-evaluation	chunk:03	dir:tutorial	
 wsg/advanced-2008/event001-eric256	chunk:03	dir:wsg/advanced-2008	
 wsg/advanced-2008/event002-eric256	chunk:03	dir:wsg/advanced-2008	
+wsg/advanced-2008/event005-eric256	chunk:03	dir:wsg/advanced-2008	
+wsg/advanced-2008/event010-dwhipp	chunk:03	dir:wsg/advanced-2008	
 wsg/beginner-2007/event003-eric256	chunk:03	dir:wsg/beginner-2007	
 wsg/beginner-2008/event001-eric256	chunk:03	dir:wsg/beginner-2008	
 wsg/beginner-2008/event001-j1n3l0	chunk:03	dir:wsg/beginner-2008	

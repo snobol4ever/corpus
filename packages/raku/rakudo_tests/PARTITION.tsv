@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=120 features=2 ubiquitous=2(language package) distinctive=0 core=12 clusters=10 chunks=2 sizes=100,8
+# shape: entries=123 features=2 ubiquitous=2(language package) distinctive=0 core=12 clusters=10 chunks=2 sizes=100,11
 entry	part	cluster	shells
 t/01-sanity/01-literals	core	core	
 t/01-sanity/02-op-math	chunk:01	dir:t/01-sanity	
@@ -50,10 +50,13 @@ t/02-rakudo/12-multi-revision-gated	chunk:01	dir:t/02-rakudo
 t/02-rakudo/12-proto-arity-count	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/13-exceptions	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/14-revisions	chunk:01	dir:t/02-rakudo	
+t/02-rakudo/15-gh_1202	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/16-begin-time-eval	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/17-cli	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/18-pseudostash	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/19-mkdir	chunk:01	dir:t/02-rakudo	
+t/02-rakudo/32-io-operators	chunk:01	dir:t/02-rakudo	
+t/02-rakudo/99-misc	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/dd	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/dump	chunk:01	dir:t/02-rakudo	
 t/02-rakudo/our-package-redeclaration	chunk:01	dir:t/02-rakudo	
@@ -71,8 +74,8 @@ t/06-telemetry/04-threadpool	chunk:02	dir:t/06-telemetry
 t/07-pod-to-text/01-whitespace	core	core	
 t/07-pod-to-text/02-input-output	chunk:02	dir:t/07-pod-to-text	
 t/08-performance/01-iterators	core	core	
-t/08-performance/02-qast-rewrites	chunk:01	dir:t/08-performance	
-t/08-performance/03-optimizer-regressions	chunk:01	dir:t/08-performance	
+t/08-performance/02-qast-rewrites	chunk:02	dir:t/08-performance	
+t/08-performance/03-optimizer-regressions	chunk:02	dir:t/08-performance	
 t/08-performance/05-processkeys	chunk:02	dir:t/08-performance	
 t/08-performance/99-misc	chunk:02	dir:t/08-performance	
 t/09-moar/00-misc	core	core	
@@ -81,7 +84,7 @@ t/09-moar/02-generic-class	chunk:01	dir:t/09-moar
 t/09-moar/General_Category__UnicodeData__2	chunk:01	dir:t/09-moar	
 t/09-moar/General_Category__extracted-DerivedGeneralCategory	chunk:01	dir:t/09-moar	
 t/09-moar/Line_Break__LineBreak	chunk:01	dir:t/09-moar	
-t/09-moar/NAME__UnicodeData	chunk:01	dir:t/09-moar	
+t/09-moar/NAME__UnicodeData	chunk:02	dir:t/09-moar	
 t/10-qast/00-misc	core	core	
 t/11-js/eval-js	chunk:02	dir:t/11-js	
 t/12-rakuast/block	chunk:01	dir:t/12-rakuast	
