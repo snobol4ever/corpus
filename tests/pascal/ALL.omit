@@ -9,4 +9,4 @@ towers[benchmarks]	already in the rungs (origin benchmark_pascal_towers__towers)
 uplevel2[benchmarks]	already in the rungs (origin benchmark_pascal_uplevel2__uplevel2) -- not re-appended
 uplevel3[benchmarks]	already in the rungs (origin benchmark_pascal_uplevel3__uplevel3) -- not re-appended
 whet[benchmarks]	neither engine parses it: fpc -Miso rejects its FPC-dialect `uses Dos;` block (ISO 7185 has no unit/uses system) and SCRIP's own parser fails independently at a later line -- multi-dialect {$IFDEF}-guarded Whetstone source, not ISO-7185-clean under either engine (seat02 2026-09-06)
-# builder-digest: 6ed820d60fac47e3c72089a94d0175af98cd29e0def958fde034dfec5f53a9c1
+# builder-digest: 39d87e2fc46c255dfc0060a261d18d7c97b689bc37a6538dbcbdf0ab7bf4cea0

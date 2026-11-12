@@ -32,7 +32,6 @@ ops8[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than non
 perfect[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 pingpong[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 plunit[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
-plunit_mock[tests]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 poly_10[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prelude_gplc[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 prelude_swipl[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
@@ -47,23 +46,8 @@ queens_clpfd[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse 
 queensn[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 query[benchmarks]	over budget (m3/m4 exceeded 3.0s)
 reducer[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
-rung10_programs_puzzle_05[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
-rung10_programs_puzzle_09[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=PASS vs oracle rc=0
-rung10_programs_puzzle_19[tests]	over budget (m3/m4 exceeded 3.0s)
-rung11_findall_findall_arith	DEFERRED (row tests-consolidate-prolog-pz4-blocked-33: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung11_findall_findall_filter	DEFERRED (row tests-consolidate-prolog-pz4-blocked-33: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung14_retract_retract_basic	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung14_retract_retract_mixed	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung15_abolish_abolish_then_reassert	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung44_setof_group	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung45_reflect_clause_facts	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung45_reflect_clause_findall	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung50_between_enum	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung50_for_alias	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
-rung66_current_stream	DEFERRED (row prolog-backtracking-yields-first-solution-only: LIVE), declared in PENDING.md -- never absorbed (deferral contract)
 sdda[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 sendmore[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
-sentences[tests]	non-deterministic or diverges from the oracle -- m3=FAIL m4=FAIL vs oracle rc=0
 serialise[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 sieve[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 simple_analyzer[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
@@ -72,4 +56,4 @@ tak_gvar[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than
 times10[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 unify[benchmarks]	oracle produced EMPTY output -- a vacuous ref is worse than none (same guard as cmd_capture_oracle_refs)
 zebra[benchmarks]	over budget (m3/m4 exceeded 3.0s)
-# builder-digest: fba10f84f145faf572ad1e472d5a3dc8fbe171aa0055cef65a31d69a975f7def
+# builder-digest: dc1503bcb0461d37b2896108fdd44538ed32989dce608e03586abca0262a3525
