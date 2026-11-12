@@ -1,6 +1,0 @@
-:- dynamic lib_rule/2.
-
-lib_rule(First, Second) :-
-    Second=f(First, _).
-lib_rule([Head|_Tail], Head).
-

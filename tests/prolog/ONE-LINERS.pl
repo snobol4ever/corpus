@@ -1,0 +1,1 @@
+:- write(ran), nl.
