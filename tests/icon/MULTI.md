@@ -38801,6 +38801,393 @@ sig  count  bytes  indx
       0      0  0%  -2004 -100%  <unknown caller>
 ```
 
+## rung36_jcon_io__io
+
+```Icon
+#SRC: JCON
+
+#  I/O test -- writes ./tmp1 and ./tmp2 as well as stdout
+
+procedure main()
+   local L, f, m, n, t1, t2;
+
+   L := [&input, &output, &errout,
+   	m := open("/etc/passwd") | stop("no /etc/passwd"),
+	n := open("/dev/null" | stop("no /dev/null"), "w")];
+   L := sort(L);
+   every f := !L do
+      write(type(f), ": ", image(f));
+
+   write();
+   write(read());
+   write(read(&input));
+   while write(read()) do break;
+   write(!&input);
+   every write(!&input \ 2);
+   every write(!&input) \ 2;
+
+   write();
+   write("flush /etc/passwd: ", image(flush(m)) | "FAILED");
+   write("close /etc/passwd: ", image(close(m)) | "FAILED");
+   write("close /etc/passwd: ", image(close(m)) | "FAILED");
+   write("flush /etc/passwd: ", image(flush(m)) | "FAILED");
+
+   write();
+   write("flush /dev/null: ", image(flush(n)) | "FAILED");
+   write("close /dev/null: ", image(close(n)) | "FAILED");
+   write("close /dev/null: ", image(close(n)) | "FAILED");
+   write("flush /dev/null: ", image(flush(n)) | "FAILED");
+
+   every remove("tmp1" | "tmp2");
+   every remove("tmp1" | "tmp2");
+   write(image(open("tmp1")));		# should fail
+
+   write();
+   rfile("/dev/null");
+   wfile("tmp1", "w", "follow the yellow brick road");
+   rfile("tmp1");
+   wfile("tmp1", "w", "shorter file");
+   rfile("tmp1");
+   wfile("tmp1", "a", "gets extended");
+   rfile("tmp1");
+   wfile("tmp1", "rw", "changed");
+   rfile("tmp1");
+   wfile("tmp1", "b", "mode b ");
+   rfile("tmp1");
+   wfile("tmp1", "crw", "cleared anew");
+   rfile("tmp1");
+   rename("tmp1", "tmp2");
+   rfile("tmp2");
+
+   write();
+   write(image(t1 := open("tmp1", "w")) | "can't open tmp1");
+   write(image(t2 := open("tmp2", "w")) | "can't open tmp2");
+   writes(">stdout", t1, ">1a", t2, ">2a", &output);
+   writes(">stdout", t2, ">2b", t1, ">1b", &output);
+   write(">stdout", t1, ">1c", t2, t2, ">2c", &output);
+   write(">stdout", t2, ">2d", t1, t1, ">1d", &output);
+   every write(t1 | t2);
+   writes(t1, ">1e");
+   writes(t2, ">2e");
+   write(t1, ">1f");
+   write(t2, ">2f");
+   every close(t1 | t2);
+   rfile("tmp1");
+   rfile("tmp2");
+
+   every remove("tmp1" | "tmp2");
+   every remove("tmp1" | "tmp2");
+
+   write();
+   writes("abc");
+   writes("def\nghi");
+   writes("\njklmno\n");
+   write("pqr\nstu");
+   writes("vwxyz");
+   writes();
+   writes("");
+   writes("\n");
+
+   write();
+   tsys("echo hello world");			# simple echo
+   tsys("ls io.[ids][tca][dnt]");		# check wildcarding
+
+   tpipe();
+
+end
+
+
+
+#  wfile(name, mode, s) -- break apart string and write file
+
+procedure wfile(name, mode, s)
+   local f;
+
+   write();
+   writes("write ", name, ",", mode, ":\t ");
+   if f := open(name, mode) then s ? {
+      writes(s);
+      tab(many(' '));
+      while not pos(0) do {
+	 write(f, tab(upto(' ') | 0));
+	 tab(many(' '))
+         };
+      write(" : ", where(f));
+      flush(f);
+      close(f)
+      }
+   else {
+      write("can't open")
+      };
+   return;
+end
+
+
+
+#  rfile(name) -- read and echo file contents (several different ways)
+
+procedure rfile(name)
+   local f, i;
+
+   writes("read  ", name, ":\t");
+   if not (f := open(name, "r")) then {
+      write(" can't open");
+      fail
+      };
+
+   # read()
+   while writes(" ", read(f));
+   write();
+
+   # bang
+   seek(f, 1);
+   every writes(" ", "  !f:\t\t" | !f | "\n");
+
+   # both, mixed
+   seek(f, 1);
+   writes("   read/!f:\t");
+   while writes(" ", read(f)) do writes(" ", !f);
+   write();
+
+   # reads()
+   seek(f, 1);
+   writes("   reads():\t");
+   while writes(" ", map(reads(f, 5), "\n", "."));
+   write();
+
+   # nonsequential
+   writes("   nonseq:\t ");
+   every i := 30 to -30 by -1 do
+      if seek(f, i) then
+	 writes(map(reads(f), "\n", ".") | "?")
+      else
+	 writes("-");
+   write();
+
+   close(f);
+   return;
+end
+
+
+#  tsys(s) -- test system call
+
+procedure tsys(s)
+   write("$ ", s);
+   system(s);
+   return;
+end
+
+
+#  tpipe() -- test pipes
+
+procedure tpipe()
+   local f, p;
+
+   # very simple case
+   write();
+   p := open("echo hello world", "rp") | stop("can't open echo pipe");
+   write(image(p));
+   while write("> ", read(p));
+   close(p);
+
+   # check unclosed pipe
+   write();
+   p := open("sed 's/^/=()= /' io.icn", "p") | stop("can't open od pipe");
+   write(image(p));
+   every 1 to 10 do write("> ", read(p));
+   # p is deliberately left unclosed
+
+   # check wildcarding, and also !pipe
+   write();
+   p := open("ls io.i?n io.d?t io.s?d", "p") | stop("can't open ls pipe");
+   write(image(p));
+   every write("> ", !p);
+   close(p);
+
+   # check output pipe
+   write();
+   p := open("tr aeiou oaeui", "wp") | stop("can't open tr pipe");
+   write(image(p));
+   write(p, "once upon a midnight dreary");
+   write(p, "two roads diverged in a yellow wood");
+   write(p, "and the mome raths outgrabe");
+   write("--- closing output pipe");
+   close(p);
+   write("--- done closing output pipe");
+   remove("tmp1");
+
+   return;
+end
+```
+
+```file io.dat
+aaa
+bbbb
+ccccc
+dddddd
+eeeeeee
+ffffffff
+ggggggggg
+hhhhhhhhhh
+iiiiiiiiiii
+jjjjjjjjjjjj
+kkkkkkkkkkkkk
+llllllllllllll
+mmmmmmmmmmmmmmm
+```
+
+```stdin
+aaa
+bbbb
+ccccc
+dddddd
+eeeeeee
+ffffffff
+ggggggggg
+hhhhhhhhhh
+iiiiiiiiiii
+jjjjjjjjjjjj
+kkkkkkkkkkkkk
+llllllllllllll
+mmmmmmmmmmmmmmm
+```
+
+```stdout
+file: &errout
+file: &input
+file: &output
+file: file(/dev/null)
+file: file(/etc/passwd)
+
+aaa
+bbbb
+ccccc
+dddddd
+eeeeeee
+ffffffff
+ggggggggg
+hhhhhhhhhh
+
+flush /etc/passwd: file(/etc/passwd)
+close /etc/passwd: file(/etc/passwd)
+close /etc/passwd: file(/etc/passwd)
+flush /etc/passwd: file(/etc/passwd)
+
+flush /dev/null: file(/dev/null)
+close /dev/null: file(/dev/null)
+close /dev/null: file(/dev/null)
+flush /dev/null: file(/dev/null)
+
+read  /dev/null:	
+   !f:		 
+   read/!f:	
+   reads():	
+   nonseq:	 ?????????????????????????????????????????????????????????????
+
+write tmp1,w:	 follow the yellow brick road : 30
+read  tmp1:	 follow the yellow brick road
+   !f:		 follow the yellow brick road 
+   read/!f:	 follow the yellow brick road
+   reads():	 follo w.the .yell ow.br ick.r oad.
+   nonseq:	 ?.daor.kcirb.wolley.eht.wollof?.daor.kcirb.wolley.eht.wollof-
+
+write tmp1,w:	 shorter file : 14
+read  tmp1:	 shorter file
+   !f:		 shorter file 
+   read/!f:	 shorter file
+   reads():	 short er.fi le.
+   nonseq:	 ?????????????????.elif.retrohs?.elif.retrohs-----------------
+
+write tmp1,a:	 gets extended : 28
+read  tmp1:	 shorter file gets extended
+   !f:		 shorter file gets extended 
+   read/!f:	 shorter file gets extended
+   reads():	 short er.fi le.ge ts.ex tende d.
+   nonseq:	 ???.dednetxe.steg.elif.retrohs?.dednetxe.steg.elif.retrohs---
+
+write tmp1,rw:	 changed : 9
+read  tmp1:	 changed file gets extended
+   !f:		 changed file gets extended 
+   read/!f:	 changed file gets extended
+   reads():	 chang ed.fi le.ge ts.ex tende d.
+   nonseq:	 ???.dednetxe.steg.elif.degnahc?.dednetxe.steg.elif.degnahc---
+
+write tmp1,b:	 mode b  : 8
+read  tmp1:	 mode b  file gets extended
+   !f:		 mode b  file gets extended 
+   read/!f:	 mode b  file gets extended
+   reads():	 mode. b..fi le.ge ts.ex tende d.
+   nonseq:	 ???.dednetxe.steg.elif..b.edom?.dednetxe.steg.elif..b.edom---
+
+write tmp1,crw:	 cleared anew : 14
+read  tmp1:	 cleared anew
+   !f:		 cleared anew 
+   read/!f:	 cleared anew
+   reads():	 clear ed.an ew.
+   nonseq:	 ?????????????????.wena.deraelc?.wena.deraelc-----------------
+read  tmp2:	 cleared anew
+   !f:		 cleared anew 
+   read/!f:	 cleared anew
+   reads():	 clear ed.an ew.
+   nonseq:	 ?????????????????.wena.deraelc?.wena.deraelc-----------------
+
+file(tmp1)
+file(tmp2)
+>stdout>stdout>stdout
+
+>stdout
+
+read  tmp1:	 >1a>1b>1c  >1d  >1e>1f
+   !f:		 >1a>1b>1c  >1d  >1e>1f 
+   read/!f:	 >1a>1b>1c  >1d  >1e>1f
+   reads():	 >1a>1 b>1c. .>1d. .>1e> 1f.
+   nonseq:	 ???????.f1>e1>..d1>..c1>b1>a1>?.f1>e1>..d1>..c1>b1>a1>-------
+read  tmp2:	 >2a>2b >2c >2d  >2e>2f
+   !f:		 >2a>2b >2c >2d  >2e>2f 
+   read/!f:	 >2a>2b >2c >2d  >2e>2f
+   reads():	 >2a>2 b.>2c .>2d. .>2e> 2f.
+   nonseq:	 ???????.f2>e2>..d2>.c2>.b2>a2>?.f2>e2>..d2>.c2>.b2>a2>-------
+
+abcdef
+ghi
+jklmno
+pqr
+stu
+vwxyz
+
+$ echo hello world
+hello world
+$ ls io.[ids][tca][dnt]
+io.dat
+io.icn
+
+file(echo hello world)
+> hello world
+
+file(sed 's/^/=()= /' io.icn)
+> =()= #SRC: JCON
+> =()= 
+> =()= #  I/O test -- writes ./tmp1 and ./tmp2 as well as stdout
+> =()= 
+> =()= procedure main()
+> =()=    local L, f, m, n, t1, t2;
+> =()= 
+> =()=    L := [&input, &output, &errout,
+> =()=    	m := open("/etc/passwd") | stop("no /etc/passwd"),
+> =()= 	n := open("/dev/null" | stop("no /dev/null"), "w")];
+
+file(ls io.i?n io.d?t io.s?d)
+> io.dat
+> io.icn
+
+file(tr aeiou oaeui)
+--- closing output pipe
+unca ipun o medneght draory
+twu ruods devargad en o yalluw wuud
+ond tha muma roths uitgroba
+--- done closing output pipe
+```
+
 ## scanning_asm__is01b_consumers
 
 ```Icon
