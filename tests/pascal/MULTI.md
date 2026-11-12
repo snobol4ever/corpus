@@ -1,67 +1,158 @@
-{--------------------------------------------- 1 front_end__pf31_resourcestring}
+## front_end__pf31_resourcestring
+
+```Pascal
 {$mode objfpc}{$H+}
 uses SysUtils;
 resourcestring SErr = 'Invalid at line %d';
 begin
   writeln(Format(SErr, [3]));
 end.
-{------------ 2 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file}
-program ResetInput; begin reset(input); writeln('ok') end.
-{------------------------------------------------------- 3 ladder__rung00_hello}
+```
+
+```stdout
+Invalid at line 3
+```
+
+## ladder__rung00_hello
+
+```Pascal
 program rung00hello;
 begin
   writeln('Hello, world!')
 end.
-{------------------------------------------------- 4 ladder__rung00_hello_multi}
+```
+
+```stdout
+Hello, world!
+```
+
+## ladder__rung00_hello_multi
+
+```Pascal
 program rung00hellomulti;
 begin
   writeln('Hello, ', 'world!')
 end.
-{--------------------------------------------- 5 ladder__rung00_hello_paramlist}
+```
+
+```stdout
+Hello, world!
+```
+
+## ladder__rung00_hello_paramlist
+
+```Pascal
 program rung00helloparamlist(input, output);
 begin
   writeln('Hello, world!')
 end.
-{--------------------------------------- 6 ladder__rung02_arithmetic_mixed_type}
+```
+
+```stdout
+Hello, world!
+```
+
+## ladder__rung02_arithmetic_mixed_type
+
+```Pascal
 program rung02arithmixed;
 begin
   writeln((3 + 2.5):0:1)
 end.
-{----------------------------------------- 7 ladder__rung02_arithmetic_real_div}
+```
+
+```stdout
+5.5
+```
+
+## ladder__rung02_arithmetic_real_div
+
+```Pascal
 program rung02arithrealdiv;
 begin
   writeln((7 / 2):0:2)
 end.
-{--------------------------------------------------------- 8 program_writeln_12}
+```
+
+```stdout
+3.50
+```
+
+## program_writeln_12
+
+```Pascal
 program m4wexpr;
 begin
   writeln(2 + 3)
 end.
-{---------------------------------------------------------- 9 program_writeln_9}
+```
+
+```stdout
+          5
+```
+
+## program_writeln_9
+
+```Pascal
 program hello;
 begin
   writeln('Hello World!')
 end.
-{------------------------------------------------ 10 ladder__rung00_hello_width}
+```
+
+```stdout
+Hello World!
+```
+
+## ladder__rung00_hello_width
+
+```Pascal
 program rung00hellowidth;
 begin
   writeln('ab':5);
   writeln('abcdef':3)
 end.
-{-------------------------- 11 ladder__rung09_strings_get_on_the_standard_input}
+```
+
+```stdout
+   ab
+abc
+```
+
+## ladder__rung09_strings_get_on_the_standard_input
+
+```Pascal
 program getonthestandardinput(input,output);
 begin
 get(input);
 writeln('after get');
 end.
-{------------------------------------------------ 12 ladder__rung00_hello_blank}
+```
+
+```stdout
+after get
+```
+
+## ladder__rung00_hello_blank
+
+```Pascal
 program rung00helloblank;
 begin
   writeln('before');
   writeln;
   writeln('after')
 end.
-{----------------------------------------- 13 ladder__rung00_crt_tab_and_escape}
+```
+
+```stdout
+before
+
+after
+```
+
+## ladder__rung00_crt_tab_and_escape
+
+```Pascal
 program crt_tab_and_escape;
 {$mode objfpc}
 uses crt;
@@ -72,7 +163,19 @@ begin
   writeln('x'#27'[2Jy'#27'[3;5Hz');
   writeln('end'#8'D');
 end.
-{------------------------------------------------- 14 front_end__pf13_modeblank}
+```
+
+```stdout
+a         b c
+12345678 d  e
+plainbold back
+xyz
+endD
+```
+
+## front_end__pf13_modeblank
+
+```Pascal
 {$mode obj fpc}
 program mb;
 begin
@@ -85,7 +188,15 @@ begin
   writeln('delphi');
 {$endif}
 end.
-{------------------------------------------------- 15 front_end__pf20f_constref}
+```
+
+```stdout
+default
+```
+
+## front_end__pf20f_constref
+
+```Pascal
 {$mode delphi}
 function Cmp(constref L, R: Integer): Integer;
 begin
@@ -94,7 +205,15 @@ end;
 begin
   writeln(Cmp(3, 1));
 end.
-{------------------------------------------------- 16 front_end__pf24_integer16}
+```
+
+```stdout
+2
+```
+
+## front_end__pf24_integer16
+
+```Pascal
 {$mode fpc}
 var i: integer; l: longint;
 begin
@@ -104,7 +223,17 @@ begin
   writeln(SizeOf(integer));
   i := 32767; i := i + 1; writeln(i);
 end.
-{------------------------------------- 17 ladder__rung17_reset_missing_uncaught}
+```
+
+```stdout
+-1582
+2
+-32768
+```
+
+## ladder__rung17_reset_missing_uncaught
+
+```Pascal
 {$mode fpc}
 program reset_missing_uncaught;
 uses SysUtils;
@@ -115,7 +244,15 @@ begin
   reset(t);
   writeln('after')
 end.
-{---------------------------------------------- 18 front_end__pf23_signed_store}
+```
+
+```stdout
+start
+```
+
+## front_end__pf23_signed_store
+
+```Pascal
 {$mode objfpc}
 var sh: shortint; sm: smallint; l: longint; i: integer; i64: int64;
 begin
@@ -127,7 +264,21 @@ begin
   sh := i64; writeln(sh);
   sm := l; writeln(sm);
 end.
-{-------------------------------------- 19 ladder__rung05_proc_func_multi_param}
+```
+
+```stdout
+-128
+-32768
+-2147483648
+-2147483648
+705032704
+0
+-3584
+```
+
+## ladder__rung05_proc_func_multi_param
+
+```Pascal
 program rung05procfuncmultiparam;
 
 procedure combo(a, b: integer; c: real);
@@ -139,7 +290,16 @@ end;
 begin
   combo(3, 4, 2.5)
 end.
-{---------------------------------------- 20 ladder__rung17_pending_after_close}
+```
+
+```stdout
+          7
+2.5
+```
+
+## ladder__rung17_pending_after_close
+
+```Pascal
 {$mode objfpc}
 program io_pending_after_close;
 var f: text;
@@ -151,7 +311,15 @@ begin
   {$I+}
   writeln('not printed');
 end.
-{---------------------------------------- 21 ladder__rung17_reset_missing_class}
+```
+
+```stdout
+start
+```
+
+## ladder__rung17_reset_missing_class
+
+```Pascal
 {$mode objfpc}
 program io_reset_missing_class;
 uses SysUtils;
@@ -164,7 +332,15 @@ begin
     on E: EInOutError do writeln('EInOutError: ', E.Message);
   end;
 end.
-{----------------------------- 22 ladder__rung21_string_helper_methods_like_fpc}
+```
+
+```stdout
+EInOutError: File not found
+```
+
+## ladder__rung21_string_helper_methods_like_fpc
+
+```Pascal
 {$mode objfpc}{$H+}
 uses SysUtils;
 var s, t: string; a: TStringArray; i: integer;
@@ -177,7 +353,18 @@ begin
   writeln(s.IndexOf('ab'), ' ', s.Replace('ab', 'XY'));
   writeln(s.Replace('a', 'z', [rfReplaceAll]), ' ', s.ToUpper, ' ', s.Contains('cd'), ' ', s.StartsWith('  a'), ' ', s.Length);
 end.
-{-------------------------- 23 ladder__rung23_extended_literal_keeps_its_digits}
+```
+
+```stdout
+[ab] [cd  ]
+[ab -> cd]
+2   XY -> cd  
+  zb -> cd     AB -> CD   TRUE TRUE 12
+```
+
+## ladder__rung23_extended_literal_keeps_its_digits
+
+```Pascal
 {$mode objfpc}
 var f, g: extended; d: double;
 begin
@@ -190,7 +377,18 @@ begin
   f := 1 / 3;
   writeln(f);
 end.
-{----------------------- 24 ladder__rung00_crt_gotoxy_newline_only_one_row_down}
+```
+
+```stdout
+ 1.00000000000000000001E-0001
+ 1.00000000000000005555E-0002
+ 3.00000000000000000011E-0001
+ 3.33333333333333314830E-0001
+```
+
+## ladder__rung00_crt_gotoxy_newline_only_one_row_down
+
+```Pascal
 program crt_gotoxy_newline_only_one_row_down;
 {$mode objfpc}
 uses crt;
@@ -205,7 +403,16 @@ begin
   clrscr;
   writeln('e ', wherex, ' ', wherey);
 end.
-{--------------------------------------- 25 ladder__rung17_reset_missing_caught}
+```
+
+```stdout
+a
+b 10 2cd 1 1e 1 1
+```
+
+## ladder__rung17_reset_missing_caught
+
+```Pascal
 {$mode objfpc}
 program io_reset_missing_caught;
 uses SysUtils;
@@ -220,7 +427,16 @@ begin
   end;
   writeln('after');
 end.
-{--------------------- 26 ladder__rung23_extended_arithmetic_compare_and_assign}
+```
+
+```stdout
+caught
+after
+```
+
+## ladder__rung23_extended_arithmetic_compare_and_assign
+
+```Pascal
 {$mode objfpc}
 var e, f: extended; d: double; s: single;
 begin
@@ -235,7 +451,19 @@ begin
   e := 3;
   writeln(e - 1, ' ', e / 4, ' ', e * e);
 end.
-{----------------------- 27 ladder__rung23_extended_format_str_and_field_widths}
+```
+
+```stdout
+ 1.10000002384185791016E+0000
+ 1.1000000238418579E+000
+ 2.56666672229766845703E+0000
+FALSE TRUE TRUE TRUE
+ 2.00000000000000000000E+0000  7.50000000000000000000E-0001  9.00000000000000000000E+0000
+```
+
+## ladder__rung23_extended_format_str_and_field_widths
+
+```Pascal
 {$mode objfpc}
 uses SysUtils;
 var e: extended; s: string;
@@ -250,7 +478,20 @@ begin
   writeln(Format('%8.3f|%.2f|%e', [e, e * 1000, e]));
   writeln(FloatToStr(e));
 end.
-{--------------------------------------------- 28 front_end__pf25_stringbuilder}
+```
+
+```stdout
+     0.66667
+0.6666666667
+0.666667
+ 6.66666666666666629659E-0001
+   0.667|666.67|6.6666666666666663E-001
+0.666666666666667
+```
+
+## front_end__pf25_stringbuilder
+
+```Pascal
 {$mode objfpc}
 uses SysUtils;
 var sb: TStringBuilder;
@@ -266,7 +507,16 @@ begin
   writeln('[', sb.ToString(), ']');
   sb.Free();
 end.
-{----------------------------------------------- 29 ladder__rung17_ioresult_off}
+```
+
+```stdout
+   xyy42,
+[]
+```
+
+## ladder__rung17_ioresult_off
+
+```Pascal
 {$mode objfpc}
 program io_ioresult_off;
 var f: text;
@@ -283,7 +533,17 @@ begin
   {$I+}
   writeln(ioresult);
 end.
-{------------------------------------------------- 30 ladder__rung17_error_code}
+```
+
+```stdout
+2
+0
+2
+```
+
+## ladder__rung17_error_code
+
+```Pascal
 {$mode objfpc}
 program io_error_code;
 uses SysUtils;
@@ -302,21 +562,46 @@ begin
     on E: EInOutError do writeln('code ', E.ErrorCode, ' ', E.Message);
   end;
 end.
-{------------------------------------ 31 ladder__rung29_sizeof_of_a_dereference}
+```
+
+```stdout
+code 2 File not found
+code 2 File not found
+```
+
+## ladder__rung29_sizeof_of_a_dereference
+
+```Pascal
 {$mode delphi}
 program rung29sd;
 var c: PChar; p: PInteger; q: PInt64; w: PWord;
 begin
   writeln(sizeof(c^), ' ', sizeof(p^), ' ', sizeof(q^), ' ', sizeof(w^));
 end.
-{-------------------------------------------------------- 32 program_writeln_11}
+```
+
+```stdout
+1 4 8 2
+```
+
+## program_writeln_11
+
+```Pascal
 program m4asg;
 var x : integer;
 begin
   x := 5;
   writeln(x)
 end.
-{------------------------------------------------- 33 ladder__rung01_var_assign}
+```
+
+```stdout
+          5
+```
+
+## ladder__rung01_var_assign
+
+```Pascal
 program rung01var;
 var
   x: integer;
@@ -324,7 +609,15 @@ begin
   x := 7;
   writeln(x)
 end.
-{------------------------------------------- 34 ladder__rung01_var_assign_widen}
+```
+
+```stdout
+          7
+```
+
+## ladder__rung01_var_assign_widen
+
+```Pascal
 program rung01varwiden;
 var
   r: real;
@@ -332,7 +625,15 @@ begin
   r := 5;
   writeln(r:0:1)
 end.
-{-------------------------------------------------------------- 35 stdin__read1}
+```
+
+```stdout
+5.0
+```
+
+## stdin__read1
+
+```Pascal
 program read1(input, output);
 var i, j : integer;
 begin
@@ -340,7 +641,19 @@ begin
   read(j);
   writeln(i + j)
 end.
-{------------------------------------------- 36 ladder__rung02_arithmetic_unary}
+```
+
+```stdin
+3 7
+```
+
+```stdout
+         10
+```
+
+## ladder__rung02_arithmetic_unary
+
+```Pascal
 program rung02arithunary;
 var
   a: integer;
@@ -349,7 +662,16 @@ begin
   writeln(-a);
   writeln(+a)
 end.
-{---------------------------------- 37 ladder__rung05_func_named_main_recursive}
+```
+
+```stdout
+         -5
+          5
+```
+
+## ladder__rung05_func_named_main_recursive
+
+```Pascal
 program m2;
 function Main(n: integer): integer;
 begin
@@ -358,7 +680,15 @@ end;
 begin
   writeln(Main(5));
 end.
-{------------------------------------------- 38 ladder__rung13_ptr_pchar_string}
+```
+
+```stdout
+        120
+```
+
+## ladder__rung13_ptr_pchar_string
+
+```Pascal
 {$mode objfpc}{$H+}
 program ptr_pchar_string;
 var s: string; p: pchar;
@@ -367,7 +697,15 @@ begin
   p := pchar(s);
   writeln(p[1], p^, (p + 4)^, ' ', strlen(p));
 end.
-{--------------------- 39 ladder__rung23_extended_field_width_limits_the_digits}
+```
+
+```stdout
+eho 5
+```
+
+## ladder__rung23_extended_field_width_limits_the_digits
+
+```Pascal
 {$mode objfpc}
 var e: extended; i: integer;
 begin
@@ -376,7 +714,30 @@ begin
   e := -1234.5678e-3;
   for i := 1 to 8 do writeln('[', e:(i*4), ']');
 end.
-{-------------------------------------------------------- 40 program_writeln_15}
+```
+
+```stdout
+[ 3.3E-0001]
+[ 3.3E-0001]
+[ 3.333E-0001]
+[ 3.3333333E-0001]
+[ 3.33333333333E-0001]
+[ 3.333333333333333E-0001]
+[ 3.3333333333333333334E-0001]
+[    3.33333333333333333342E-0001]
+[-1.2E+0000]
+[-1.2E+0000]
+[-1.235E+0000]
+[-1.2345678E+0000]
+[-1.23456780000E+0000]
+[-1.234567800000000E+0000]
+[-1.2345678000000000000E+0000]
+[   -1.23456780000000000002E+0000]
+```
+
+## program_writeln_15
+
+```Pascal
 program boolmix;
 var a, b, c: boolean;
 begin
@@ -385,7 +746,15 @@ begin
   c := not a or b;
   if c then writeln(1) else writeln(0)
 end.
-{--------------------------------------------------------- 41 program_writeln_3}
+```
+
+```stdout
+          0
+```
+
+## program_writeln_3
+
+```Pascal
 program boolmix;
 var a, b, c: boolean;
 begin
@@ -394,7 +763,15 @@ begin
   c := not a or b;
   if c then writeln(1) else writeln(0)
 end.
-{------------------------------------------------------ 42 ladder__rung16_q_str}
+```
+
+```stdout
+          0
+```
+
+## ladder__rung16_q_str
+
+```Pascal
 {$mode objfpc}
 program q_str;
 var h, q: qword; s: string;
@@ -404,7 +781,16 @@ begin
   q := 10000000000000000000;
   str(q, s); writeln(s, ' ', length(s));
 end.
-{--------------------------------------- 43 ladder__rung00_crt_cr_is_column_one}
+```
+
+```stdout
+18446744073709551615
+10000000000000000000 20
+```
+
+## ladder__rung00_crt_cr_is_column_one
+
+```Pascal
 program crt_cr_is_column_one;
 {$mode objfpc}
 uses crt;
@@ -415,7 +801,19 @@ begin
   writeln('two'#13);
   writeln(CrLf, 'three');
 end.
-{------------------------------------- 44 ladder__rung01_var_assign_multi_group}
+```
+
+```stdout
+abcde
+one
+two
+
+three
+```
+
+## ladder__rung01_var_assign_multi_group
+
+```Pascal
 program rung01varmultigroup;
 var
   a: integer;
@@ -426,7 +824,16 @@ begin
   writeln(a);
   writeln(b)
 end.
-{--------------------------------------------------- 45 ladder__rung16_q_relops}
+```
+
+```stdout
+         42
+ true
+```
+
+## ladder__rung16_q_relops
+
+```Pascal
 {$mode objfpc}
 program q_relops;
 var r, q: qword;
@@ -437,7 +844,17 @@ begin
   writeln(r > 5, ' ', q < r, ' ', r >= r, ' ', q <= 4);
   if r > 9223372036854775807 then writeln('past int64') else writeln('wrong');
 end.
-{-------------------------------------------------------- 46 program_writeln_10}
+```
+
+```stdout
+TRUE FALSE TRUE FALSE
+TRUE TRUE TRUE FALSE
+past int64
+```
+
+## program_writeln_10
+
+```Pascal
 program m4arith;
 var x, y : integer;
 begin
@@ -448,7 +865,17 @@ begin
   y := y - x;
   writeln(y)
 end.
-{------------------------------------- 47 ladder__rung01_var_assign_multi_ident}
+```
+
+```stdout
+          5
+         35
+         30
+```
+
+## ladder__rung01_var_assign_multi_ident
+
+```Pascal
 program rung01varmultiident;
 var
   x, y, z: integer;
@@ -460,7 +887,17 @@ begin
   writeln(y);
   writeln(z)
 end.
-{---------------------------------------- 48 ladder__rung03_if_while_if_no_else}
+```
+
+```stdout
+          1
+          2
+          3
+```
+
+## ladder__rung03_if_while_if_no_else
+
+```Pascal
 program rung03ifwhileifnoelse;
 var
   n: integer;
@@ -473,7 +910,16 @@ begin
     writeln('not taken');
   writeln('done')
 end.
-{------------------------------------- 49 ladder__rung03_if_while_dangling_else}
+```
+
+```stdout
+taken
+done
+```
+
+## ladder__rung03_if_while_dangling_else
+
+```Pascal
 program rung03ifwhiledangling;
 var
   a, b: boolean;
@@ -487,7 +933,16 @@ begin
       writeln('inner-false');
   writeln('done')
 end.
-{--------------------------------------- 50 ladder__rung03_if_while_if_compound}
+```
+
+```stdout
+inner-false
+done
+```
+
+## ladder__rung03_if_while_if_compound
+
+```Pascal
 program rung03ifwhileifcompound;
 var
   n: integer;
@@ -501,7 +956,16 @@ begin
     writeln(n)
   end
 end.
-{------------------------------------- 51 ladder__rung05_nested_proc_named_main}
+```
+
+```stdout
+big
+          7
+```
+
+## ladder__rung05_nested_proc_named_main
+
+```Pascal
 program m3;
 procedure Outer(k: integer);
   procedure Main(n: integer);
@@ -515,7 +979,16 @@ end;
 begin
   Outer(3);
 end.
-{------------------------------------------------- 52 ladder__rung16_q_inttostr}
+```
+
+```stdout
+inner           6
+inner           7
+```
+
+## ladder__rung16_q_inttostr
+
+```Pascal
 program q_inttostr;
 {$mode delphi}
 uses sysutils;
@@ -530,7 +1003,18 @@ begin
   i := -42;
   writeln(IntToStr(i), ' ', IntToStr(7));
 end.
-{---------------------- 53 ladder__rung21_class_type_alias_constructs_the_class}
+```
+
+```stdout
+10000000000000000000
+18446744073709551615
+0 1
+-42 7
+```
+
+## ladder__rung21_class_type_alias_constructs_the_class
+
+```Pascal
 {$mode objfpc}
 type
   TB = class
@@ -545,7 +1029,15 @@ begin
   y := TB.Create;
   writeln(x.N, y.N);
 end.
-{-------------------------------------------- 54 ladder__rung05_proc_named_main}
+```
+
+```stdout
+44
+```
+
+## ladder__rung05_proc_named_main
+
+```Pascal
 program m1;
 procedure Show(n: integer);
 begin
@@ -561,7 +1053,19 @@ begin
   Main(100);
   writeln('done');
 end.
-{--------------------------------------------- 55 ladder__rung00_writestr_items}
+```
+
+```stdout
+show          20
+main          10
+show         200
+main         100
+done
+```
+
+## ladder__rung00_writestr_items
+
+```Pascal
 program writestr_items;
 {$mode objfpc}
 var
@@ -580,7 +1084,17 @@ begin
   writestr(s, r);
   writeln('[', s, ']');
 end.
-{--------------------------------------------------------- 56 program_writeln_1}
+```
+
+```stdout
+[i=-42 w=   -42 b=TRUE r=  2.500 c=q s=  ab] 42
+[xxy]
+[ 2.5000000000000000E+000]
+```
+
+## program_writeln_1
+
+```Pascal
 program boolassign;
 var b: boolean; i, j: integer;
 begin
@@ -599,7 +1113,20 @@ begin
   b := i >= j;
   if b then writeln(1) else writeln(0)
 end.
-{-------------------------------------------------------- 57 program_writeln_13}
+```
+
+```stdout
+          1
+          0
+          0
+          1
+          1
+          0
+```
+
+## program_writeln_13
+
+```Pascal
 program boolassign;
 var b: boolean; i, j: integer;
 begin
@@ -618,7 +1145,20 @@ begin
   b := i >= j;
   if b then writeln(1) else writeln(0)
 end.
-{-------------------------------------------------------- 58 program_writeln_16}
+```
+
+```stdout
+          1
+          0
+          0
+          1
+          1
+          0
+```
+
+## program_writeln_16
+
+```Pascal
 program boolnot;
 var a, b, c: boolean; i, j: integer;
 begin
@@ -637,7 +1177,20 @@ begin
   if c then writeln(1) else writeln(0);
   if not c then writeln(1) else writeln(0)
 end.
-{--------------------------------------------------------- 59 program_writeln_4}
+```
+
+```stdout
+          0
+          0
+          1
+          1
+          1
+          0
+```
+
+## program_writeln_4
+
+```Pascal
 program boolnot;
 var a, b, c: boolean; i, j: integer;
 begin
@@ -656,7 +1209,20 @@ begin
   if c then writeln(1) else writeln(0);
   if not c then writeln(1) else writeln(0)
 end.
-{------------------------------------------ 60 ladder__rung17_ok_open_roundtrip}
+```
+
+```stdout
+          0
+          0
+          1
+          1
+          1
+          0
+```
+
+## ladder__rung17_ok_open_roundtrip
+
+```Pascal
 {$mode objfpc}
 program io_ok_open;
 uses SysUtils;
@@ -676,7 +1242,15 @@ begin
     writeln('failed');
   end;
 end.
-{---------------------------------------- 61 ladder__rung16_real_fixed_decimals}
+```
+
+```stdout
+hello
+```
+
+## ladder__rung16_real_fixed_decimals
+
+```Pascal
 {$mode objfpc}
 program real_fixed_decimals;
 var x, y, z, one, three: double; s: string;
@@ -697,7 +1271,23 @@ begin
   str(y:10:2, s);
   writeln('[', s, ']');
 end.
-{-------------------------------------------------------- 62 program_writeln_14}
+```
+
+```stdout
+ 0.13691995878400012
+0.13691995878400012000
+1234.56780000000000000
+0.333333333333333
+0.333333333333333310
+   -0.3333333333333333100
+ 1234567.800
+0.333333333333333310
+[   1234.57]
+```
+
+## program_writeln_14
+
+```Pascal
 program boolchain;
 var a, b, c: boolean; i: integer;
 begin
@@ -721,7 +1311,22 @@ begin
   c := (i > 0) and (i < 2);
   if c then writeln(1) else writeln(0)
 end.
-{--------------------------------------------------------- 63 program_writeln_2}
+```
+
+```stdout
+          0
+          0
+          0
+          1
+          1
+          1
+          1
+          0
+```
+
+## program_writeln_2
+
+```Pascal
 program boolchain;
 var a, b, c: boolean; i: integer;
 begin
@@ -745,19 +1350,50 @@ begin
   c := (i > 0) and (i < 2);
   if c then writeln(1) else writeln(0)
 end.
-{------------------------------------------------ 64 program_function_writeln_3}
+```
+
+```stdout
+          0
+          0
+          0
+          1
+          1
+          1
+          1
+          0
+```
+
+## program_function_writeln_3
+
+```Pascal
 program intparam(output);
 var x: integer;
   function doubled(n: integer): integer;
   begin doubled := n + n end;
 begin x := 7; writeln(doubled(x)) end.
-{------------------------------------------------ 65 program_function_writeln_4}
+```
+
+```stdout
+         14
+```
+
+## program_function_writeln_4
+
+```Pascal
 program realparam(output);
 var r: real;
   function half(x: real): real;
   begin half := x / 2.0 end;
 begin r := 6.0; writeln(half(r):10:1) end.
-{-------------------------------------------------- 66 front_end__pf06_extended}
+```
+
+```stdout
+       3.0
+```
+
+## front_end__pf06_extended
+
+```Pascal
 {$mode objfpc}
 program ex;
 var e: extended; d: double; s: single;
@@ -765,7 +1401,20 @@ begin
   e := 1; e := e / 3; d := 1; d := d / 3; s := 1; s := s / 3;
   writeln(e); writeln(d); writeln(s); writeln(e:0:18); writeln(sqrt(2.0)); writeln(e * 3 = 1);
 end.
-{--------------------------------- 67 front_end__pf34_unit_qualified_type_local}
+```
+
+```stdout
+ 3.33333333333333333342E-0001
+ 3.3333333333333331E-001
+ 3.333333433E-01
+0.333333333333333333
+ 1.41421356237309504876E+0000
+TRUE
+```
+
+## front_end__pf34_unit_qualified_type_local
+
+```Pascal
 {$mode objfpc}
 program qt;
 uses Types;
@@ -773,7 +1422,15 @@ procedure P;
 var tpoint: Types.TPoint;
 begin tpoint.x := 3; tpoint.y := 4; writeln(tpoint.x + tpoint.y) end;
 begin P end.
-{----------------------------------------- 68 ladder__rung02_arithmetic_div_neg}
+```
+
+```stdout
+7
+```
+
+## ladder__rung02_arithmetic_div_neg
+
+```Pascal
 program rung02arithdivneg;
 var
   i: integer;
@@ -781,7 +1438,15 @@ begin
   i := -7;
   writeln(i div 2)
 end.
-{----------------------------------------- 69 ladder__rung02_arithmetic_mod_neg}
+```
+
+```stdout
+         -3
+```
+
+## ladder__rung02_arithmetic_mod_neg
+
+```Pascal
 program rung02arithmodneg;
 var
   i: integer;
@@ -789,7 +1454,15 @@ begin
   i := -7;
   writeln(i mod 2)
 end.
-{---------------------------------------- 70 ladder__rung04_for_repeat_for_zero}
+```
+
+```stdout
+          1
+```
+
+## ladder__rung04_for_repeat_for_zero
+
+```Pascal
 program rung04forrepeatforzero;
 var
   i: integer;
@@ -798,7 +1471,15 @@ begin
     writeln(i);
   writeln('done')
 end.
-{-------------------------------------------------------------- 71 stdin__read2}
+```
+
+```stdout
+done
+```
+
+## stdin__read2
+
+```Pascal
 program read2(input, output);
 var i : integer; c : char;
 begin
@@ -807,7 +1488,21 @@ begin
   writeln(i);
   writeln(c)
 end.
-{------------------------------------- 72 ladder__rung04_for_repeat_repeat_once}
+```
+
+```stdin
+42
+X
+```
+
+```stdout
+         42
+X
+```
+
+## ladder__rung04_for_repeat_repeat_once
+
+```Pascal
 program rung04forrepeatrepeatonce;
 var
   i: integer;
@@ -817,7 +1512,15 @@ begin
     writeln(i)
   until i = 5
 end.
-{------------------------------------------------------ 73 ladder__rung16_q_shr}
+```
+
+```stdout
+          5
+```
+
+## ladder__rung16_q_shr
+
+```Pascal
 {$mode objfpc}
 program q_shr;
 var h: qword; i: integer;
@@ -827,7 +1530,19 @@ begin
   writeln(h shr 63);
   for i := 0 to 2 do writeln(h shr (i * 32));
 end.
-{------------------------ 74 ladder__rung17_div_zero_without_sysutils_stays_200}
+```
+
+```stdout
+15
+1
+18446744073709551615
+4294967295
+18446744073709551615
+```
+
+## ladder__rung17_div_zero_without_sysutils_stays_200
+
+```Pascal
 {$mode objfpc}
 program div_zero_no_sysutils;
 var z, r: integer;
@@ -837,7 +1552,15 @@ begin
   r := 5 div z;
   writeln('after ', r)
 end.
-{----------------------------------------------- 75 ladder__rung16_q_write_expr}
+```
+
+```stdout
+start
+```
+
+## ladder__rung16_q_write_expr
+
+```Pascal
 {$mode objfpc}
 program q_write_expr;
 var h, q: qword;
@@ -848,7 +1571,17 @@ begin
   writeln(h div q * 2);
   writeln((h - 1) div 2 + 1);
 end.
-{------------------------------------ 76 ladder__rung16_real_trunc_out_of_int64}
+```
+
+```stdout
+18446744073709551612
+12297829382473034410
+9223372036854775808
+```
+
+## ladder__rung16_real_trunc_out_of_int64
+
+```Pascal
 {$mode objfpc}
 program real_trunc_out_of_int64;
 var x: double;
@@ -859,7 +1592,15 @@ begin
   writeln(trunc(x));
   writeln('not reached');
 end.
-{-------------------------------------- 77 ladder__rung17_div_zero_math_closure}
+```
+
+```stdout
+9000000000000000000
+```
+
+## ladder__rung17_div_zero_math_closure
+
+```Pascal
 {$mode fpc}
 program div_zero_math_closure;
 uses Math;
@@ -870,7 +1611,15 @@ begin
   r := 5 div z;
   writeln('after ', r)
 end.
-{----------------------------------- 78 ladder__rung17_div_zero_sysutils_no_try}
+```
+
+```stdout
+start
+```
+
+## ladder__rung17_div_zero_sysutils_no_try
+
+```Pascal
 {$mode fpc}
 program div_zero_sysutils_no_try;
 uses SysUtils;
@@ -881,7 +1630,15 @@ begin
   r := 5 div z;
   writeln('after ', r)
 end.
-{------------------------------------------------ 79 program_function_writeln_1}
+```
+
+```stdout
+start
+```
+
+## program_function_writeln_1
+
+```Pascal
 program flatnoarg;
 var g : integer;
   function five : integer;
@@ -892,7 +1649,15 @@ begin
   g := five + five;
   writeln(g)
 end.
-{------------------------------------------------ 80 program_function_writeln_5}
+```
+
+```stdout
+         10
+```
+
+## program_function_writeln_5
+
+```Pascal
 program flatnoarg;
 var g : integer;
   function five : integer;
@@ -903,7 +1668,15 @@ begin
   g := five + five;
   writeln(g)
 end.
-{-------------------------------------------------- 81 program_record_writeln_4}
+```
+
+```stdout
+         10
+```
+
+## program_record_writeln_4
+
+```Pascal
 program rec3;
 var
   p : record x, y : integer end;
@@ -914,7 +1687,16 @@ begin
   writeln(q.x, q.y);
   writeln(p.x + q.x + p.y + q.y)
 end.
-{---------------------------------------- 82 ladder__rung03_if_while_while_zero}
+```
+
+```stdout
+          2          1
+          6
+```
+
+## ladder__rung03_if_while_while_zero
+
+```Pascal
 program rung03ifwhilewhilezero;
 var
   n: integer;
@@ -926,7 +1708,15 @@ begin
   end;
   writeln('after')
 end.
-{------------------------------------ 83 ladder__rung04_for_repeat_for_compound}
+```
+
+```stdout
+after
+```
+
+## ladder__rung04_for_repeat_for_compound
+
+```Pascal
 program rung04forrepeatforcompound;
 var
   i, sum: integer;
@@ -938,7 +1728,17 @@ begin
     writeln(sum)
   end
 end.
-{---------------------------------------------- 84 program_procedure_writeln_10}
+```
+
+```stdout
+          1
+          3
+          6
+```
+
+## program_procedure_writeln_10
+
+```Pascal
 program varparam;
 var k : integer;
   procedure bump(var n : integer);
@@ -950,7 +1750,15 @@ begin
   bump(k);
   writeln(k)
 end.
-{----------------------------------------------- 85 program_procedure_writeln_4}
+```
+
+```stdout
+          7
+```
+
+## program_procedure_writeln_4
+
+```Pascal
 program varparam;
 var k : integer;
   procedure bump(var n : integer);
@@ -962,7 +1770,15 @@ begin
   bump(k);
   writeln(k)
 end.
-{----------------------------------------------- 86 program_procedure_writeln_6}
+```
+
+```stdout
+          7
+```
+
+## program_procedure_writeln_6
+
+```Pascal
 program flat;
 var x : integer;
   procedure p;
@@ -974,7 +1790,15 @@ begin
   p;
   writeln(x)
 end.
-{-------------------------------------------------- 87 program_repeat_writeln_1}
+```
+
+```stdout
+         15
+```
+
+## program_repeat_writeln_1
+
+```Pascal
 program ifnoelse(output);
 var i: integer; flag: boolean;
 begin
@@ -986,7 +1810,15 @@ begin
   until i >= 3;
   writeln('done i=', i:1)
 end.
-{------------------------------------------ 88 ladder__rung05_proc_func_forward}
+```
+
+```stdout
+done i=3
+```
+
+## ladder__rung05_proc_func_forward
+
+```Pascal
 program rung05procfuncforward;
 
 procedure announce(n: integer); forward;
@@ -999,7 +1831,15 @@ end;
 begin
   announce(42)
 end.
-{---------------------------------- 89 ladder__rung05_proc_named_main_no_params}
+```
+
+```stdout
+n=         42
+```
+
+## ladder__rung05_proc_named_main_no_params
+
+```Pascal
 program m5;
 var c: integer;
 procedure Main;
@@ -1012,7 +1852,16 @@ begin
   Main;
   Main;
 end.
-{--------------------------------------- 90 ladder__rung16_lohi_long_int64_expr}
+```
+
+```stdout
+noargs           1
+noargs           2
+```
+
+## ladder__rung16_lohi_long_int64_expr
+
+```Pascal
 {$mode objfpc}
 program lohi_long_int64_expr;
 var i: integer; l: longint; d: dword; q: int64; u: qword; w: word; b: byte;
@@ -1025,7 +1874,18 @@ begin
   l := $40000001;
   writeln(lo(l * 4), ' ', hi(l * 4), ' ', hi(w + 1), ' ', lo(b + b), ' ', hi(b + b));
 end.
-{----------------------------------------------------- 91 program_for_writeln_1}
+```
+
+```stdout
+65534 65535 22136 4660 47768 65244
+4294967294 4294967295 878082202 18
+4464 1 205 171
+4 1 0 400 0
+```
+
+## program_for_writeln_1
+
+```Pascal
 program char2;
 var c : char;
     a, b : char;
@@ -1038,7 +1898,22 @@ begin
   for c := 'A' to 'E' do
     writeln(c)
 end.
-{------------------------------------------------ 92 program_function_writeln_2}
+```
+
+```stdout
+less
+equal
+greater
+A
+B
+C
+D
+E
+```
+
+## program_function_writeln_2
+
+```Pascal
 program boolfn;
 var r : boolean;
 function big(n : integer) : boolean;
@@ -1051,7 +1926,16 @@ begin
   r := big(5);
   if r then writeln(1) else writeln(0)
 end.
-{----------------------------------------------- 93 program_procedure_writeln_1}
+```
+
+```stdout
+          1
+          0
+```
+
+## program_procedure_writeln_1
+
+```Pascal
 program aliastest;
 var a : integer;
   procedure addto(var x, y : integer);
@@ -1064,7 +1948,15 @@ begin
   addto(a, a);
   writeln(a)
 end.
-{----------------------------------------------- 94 program_procedure_writeln_2}
+```
+
+```stdout
+         11
+```
+
+## program_procedure_writeln_2
+
+```Pascal
 program swaptest;
 var a, b : integer;
   procedure swap(var x, y : integer);
@@ -1077,7 +1969,16 @@ begin
   swap(a, b);
   writeln(a); writeln(b)
 end.
-{----------------------------------------------- 95 program_procedure_writeln_3}
+```
+
+```stdout
+          8
+          3
+```
+
+## program_procedure_writeln_3
+
+```Pascal
 program varmix;
 var g : integer;
   procedure inc2(var r : integer; d : integer);
@@ -1090,7 +1991,15 @@ begin
   inc2(g, 5);
   writeln(g)
 end.
-{----------------------------------------------- 96 program_procedure_writeln_7}
+```
+
+```stdout
+          6
+```
+
+## program_procedure_writeln_7
+
+```Pascal
 program aliastest;
 var a : integer;
   procedure addto(var x, y : integer);
@@ -1103,7 +2012,15 @@ begin
   addto(a, a);
   writeln(a)
 end.
-{----------------------------------------------- 97 program_procedure_writeln_8}
+```
+
+```stdout
+         11
+```
+
+## program_procedure_writeln_8
+
+```Pascal
 program swaptest;
 var a, b : integer;
   procedure swap(var x, y : integer);
@@ -1116,7 +2033,16 @@ begin
   swap(a, b);
   writeln(a); writeln(b)
 end.
-{----------------------------------------------- 98 program_procedure_writeln_9}
+```
+
+```stdout
+          8
+          3
+```
+
+## program_procedure_writeln_9
+
+```Pascal
 program varmix;
 var g : integer;
   procedure inc2(var r : integer; d : integer);
@@ -1129,7 +2055,15 @@ begin
   inc2(g, 5);
   writeln(g)
 end.
-{--------------------------------------------------------- 99 program_writeln_6}
+```
+
+```stdout
+          6
+```
+
+## program_writeln_6
+
+```Pascal
 program charlit(output);
 var c : char;
 begin
@@ -1142,7 +2076,21 @@ begin
   writeln(ord('A'));
   writeln(ord('Z') - ord('A'))
 end.
-{--------------------------------------------------- 100 program_writeln_sqrt_1}
+```
+
+```stdout
+A
+Z
+  a
+    0
+Y
+         65
+         25
+```
+
+## program_writeln_sqrt_1
+
+```Pascal
 program realwidth(output);
 var r : real;
 begin
@@ -1155,7 +2103,20 @@ begin
   writeln(r:20);
   writeln(r:15)
 end.
-{-------------------------------------------- 101 front_end__pf21_sstr_high_low}
+```
+
+```stdout
+ 1.414213562373e+000
+ 1.4142136e+000
+ 1.4142e+000
+ 1.41e+000
+ 7.853981633974e-001
+ 7.8539816e-001
+```
+
+## front_end__pf21_sstr_high_low
+
+```Pascal
 {$mode delphi}
 type tErg = string[63];
 var g: string[10];
@@ -1169,7 +2130,17 @@ begin
   writeln(High(g), ' ', Low(g), ' ', Length(g));
   writeln(F);
 end.
-{----------- 102 ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round}
+```
+
+```stdout
+10 0 3
+63 0 1
+x
+```
+
+## ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round
+
+```Pascal
 {$mode objfpc}
 uses SysUtils;
 var e: extended;
@@ -1183,7 +2154,19 @@ begin
   writeln(FloatToStr(e));
   writeln(Frac(1234.5678):0:6, ' ', Trunc(e), ' ', Round(-2.5));
 end.
-{---------------------- 103 ladder__rung23_extended_trunc_round_and_conversions}
+```
+
+```stdout
+1.2345678900000000E+003|1.235E+003|1234.56789|1.23E3| 1234.57|1235
+1.2345600000000000E-004|0.000123456|1.2E-004|    0.000123
+-987654321000000|-9.8765432100000000E+014|-987654321000000.0
+-987654321000000
+0.567800 -987654321000000 -2
+```
+
+## ladder__rung23_extended_trunc_round_and_conversions
+
+```Pascal
 {$mode objfpc}
 var e: extended; i: int64; d: double;
 begin
@@ -1197,7 +2180,19 @@ begin
   writeln(frac(e));
   writeln(int(e));
 end.
-{-------------------------------------- 104 program_procedure_writeln_replace_1}
+```
+
+```stdout
+2 2 4 -2 -2
+123456789987
+ 1.2345678998765433E+008
+ 9.87654320997535251081E-0001
+ 1.23456789000000000000E+0008
+```
+
+## program_procedure_writeln_replace_1
+
+```Pascal
 program boolarg;
 var i, j: integer;
 procedure show(b: boolean);
@@ -1211,7 +2206,17 @@ begin
   show(i > j);
   show(not (i = j))
 end.
-{-------------------------------------- 105 program_procedure_writeln_replace_2}
+```
+
+```stdout
+          1
+          0
+          1
+```
+
+## program_procedure_writeln_replace_2
+
+```Pascal
 program boolarg;
 var i, j: integer;
 procedure show(b: boolean);
@@ -1225,7 +2230,17 @@ begin
   show(i > j);
   show(not (i = j))
 end.
-{------------------------------------ 106 unary_minus__sign_binds_factor_delphi}
+```
+
+```stdout
+          1
+          0
+          1
+```
+
+## unary_minus__sign_binds_factor_delphi
+
+```Pascal
 program sign_binds_factor_delphi;
 {$mode delphi}
 var a, b: integer; g: NativeUInt; t: boolean;
@@ -1239,7 +2254,21 @@ begin
   writeln(-(a + 2) and b);
   writeln(100 - (-ORD(t) and g))
 end.
-{-------------------------------------------------- 107 ladder__rung03_if_while}
+```
+
+```stdout
+1
+-3
+1
+-3
+2
+3
+93
+```
+
+## ladder__rung03_if_while
+
+```Pascal
 program rung03ifwhile;
 var
   n: integer;
@@ -1254,7 +2283,20 @@ begin
     n := n - 1
   end
 end.
-{-------------------------------- 108 front_end__pf20g_record_constructor_value}
+```
+
+```stdout
+big
+          5
+          4
+          3
+          2
+          1
+```
+
+## front_end__pf20g_record_constructor_value
+
+```Pascal
 {$mode delphi}
 type
   TP = record
@@ -1270,7 +2312,15 @@ begin
   p := TP.Make(7);
   writeln(p.X);
 end.
-{-------------------------------------------------------- 109 program_writeln_8}
+```
+
+```stdout
+7
+```
+
+## program_writeln_8
+
+```Pascal
 program constreal(output);
 const
   pi = 3.14159265;
@@ -1286,7 +2336,18 @@ begin
   r := -pi;
   writeln(r)
 end.
-{-------------------------------------- 110 ladder__rung16_real_numb2usa_digits}
+```
+
+```stdout
+ 3.1415926500000002e+000
+ok
+        100
+-3.1415926500000002e+000
+```
+
+## ladder__rung16_real_numb2usa_digits
+
+```Pascal
 {$mode objfpc}{$H+}
 program real_numb2usa_digits;
 uses sysutils, strutils;
@@ -1303,7 +2364,25 @@ begin
     writeln(Numb2USA(IntToStr(n)));
   end;
 end.
-{------------------- 111 ladder__rung23_extended_math_functions_return_extended}
+```
+
+```stdout
+7
+123
+1,000
+22,670
+3,510,491
+37
+1,369
+50,653
+1,874,161
+69,343,957
+2,565,726,409
+```
+
+## ladder__rung23_extended_math_functions_return_extended
+
+```Pascal
 {$mode objfpc}
 uses Math;
 var x: extended;
@@ -1320,7 +2399,24 @@ begin
   writeln(power(2, 10));
   writeln(pi);
 end.
-{--------------------------------------------------- 112 program_writeln_sqrt_2}
+```
+
+```stdout
+ 6.44217687237691053641E-0001
+ 7.64842187284488426264E-0001
+ 6.10725964389208616525E-0001
+-3.56674943938732378929E-0001
+ 2.01375270747047652154E+0000
+ 8.36660026534075547974E-0001
+ 4.89999999999999999982E-0001
+ 4.09963413001697018492E-0001
+ 1.02400000000000000000E+0003
+ 3.14159265358979323851E+0000
+```
+
+## program_writeln_sqrt_2
+
+```Pascal
 program stdlib2(output);
 var r: real;
 begin
@@ -1337,7 +2433,20 @@ begin
   r := arctan(1.0);
   writeln(r:20)
 end.
-{---------------------------------------- 113 ladder__rung18_gmp_mpz_arithmetic}
+```
+
+```stdout
+ 1.414213562373e+000
+ 8.414709848079e-001
+ 1.000000000000e+000
+ 2.718281828459e+000
+ 0.000000000000e+000
+ 7.853981633974e-001
+```
+
+## ladder__rung18_gmp_mpz_arithmetic
+
+```Pascal
 {$mode objfpc}
 uses gmp;
 var a, b, q: mpz_t; i: qword;
@@ -1356,7 +2465,18 @@ begin
   mpz_add_ui(q, q, 18446744073709551615);
   writeln(mpz_get_str(nil, 10, q));
 end.
-{--------------------------------------- 114 ladder__rung20_fgl_list_operations}
+```
+
+```stdout
+265252859812191058636308480000000
+6632058620721219044377743619224001 35 113
+19 449123441 25
+72166419385028799134
+```
+
+## ladder__rung20_fgl_list_operations
+
+```Pascal
 {$mode objfpc}{$H+}
 uses fgl;
 var
@@ -1375,7 +2495,17 @@ begin
   writeln(l.Count, ' ', l[1], ' ', l[2]);
   l.Free;
 end.
-{---------------------------------------------- 115 program_procedure_writeln_5}
+```
+
+```stdout
+6 2 99 2 4
+2 -1
+3 7 99
+```
+
+## program_procedure_writeln_5
+
+```Pascal
 program longcall(output);
 var g: integer;
   procedure bump;
@@ -1904,7 +3034,15 @@ begin
   bump;
   writeln(g)
 end.
-{------------------------------------- 116 ladder__rung04_for_repeat_for_downto}
+```
+
+```stdout
+        520
+```
+
+## ladder__rung04_for_repeat_for_downto
+
+```Pascal
 program rung04forrepeatfordownto;
 var
   i: integer;
@@ -1912,7 +3050,17 @@ begin
   for i := 3 downto 1 do
     writeln(i)
 end.
-{---------------------------------------------------- 117 program_for_writeln_3}
+```
+
+```stdout
+          3
+          2
+          1
+```
+
+## program_for_writeln_3
+
+```Pascal
 program set3;
 var i, n : integer;
 begin
@@ -1920,7 +3068,15 @@ begin
   for i := 0 to 5 do if i in [] then n := n + 1;
   writeln(n)
 end.
-{----------------------------------------------------- 118 program_for_downto_1}
+```
+
+```stdout
+          0
+```
+
+## program_for_downto_1
+
+```Pascal
 program downto1(output);
 var i, s : integer;
 begin
@@ -1929,7 +3085,21 @@ begin
   writeln(s);
   for i := 10 downto 5 do writeln(i)
 end.
-{----------------------------------------------------- 119 program_for_downto_3}
+```
+
+```stdout
+         15
+         10
+          9
+          8
+          7
+          6
+          5
+```
+
+## program_for_downto_3
+
+```Pascal
 program downto1(output);
 var i, s : integer;
 begin
@@ -1938,7 +3108,21 @@ begin
   writeln(s);
   for i := 10 downto 5 do writeln(i)
 end.
-{---------------------------------------------------- 120 program_for_writeln_2}
+```
+
+```stdout
+         15
+         10
+          9
+          8
+          7
+          6
+          5
+```
+
+## program_for_writeln_2
+
+```Pascal
 program set2;
 var i, n : integer;
 begin
@@ -1947,7 +3131,15 @@ begin
     if i in [1, 4, 6, 8] then n := n + 1;
   writeln(n)
 end.
-{-------------------------------- 121 ladder__rung00_crt_row_25_newline_then_cr}
+```
+
+```stdout
+          4
+```
+
+## ladder__rung00_crt_row_25_newline_then_cr
+
+```Pascal
 program crt_row_25_newline_then_cr;
 {$mode objfpc}
 uses crt;
@@ -1957,7 +3149,44 @@ begin
   write('tail');
   writeln;
 end.
-{--------------------------- 122 ladder__rung21_dynamic_array_compared_with_nil}
+```
+
+```stdout
+line 1
+line 2
+line 3
+line 4
+line 5
+line 6
+line 7
+line 8
+line 9
+line 10
+line 11
+line 12
+line 13
+line 14
+line 15
+line 16
+line 17
+line 18
+line 19
+line 20
+line 21
+line 22
+line 23
+line 24
+line 25
+line 26
+line 27
+line 28
+tail
+
+```
+
+## ladder__rung21_dynamic_array_compared_with_nil
+
+```Pascal
 {$mode objfpc}{$H+}
 type TA = array of string; TI = array of integer;
 var a: TA; b: TI;
@@ -1968,7 +3197,17 @@ begin
   a := nil;
   writeln(a = nil, ' ', Length(a));
 end.
-{-------------------------------------------- 123 program_for_writeln_replace_1}
+```
+
+```stdout
+TRUE TRUE
+FALSE TRUE FALSE TRUE
+TRUE 0
+```
+
+## program_for_writeln_replace_1
+
+```Pascal
 program writenl(output);
 var i : integer;
 begin
@@ -1979,7 +3218,16 @@ begin
   write(' ');
   writeln('world')
 end.
-{-------------------------------------------------------- 124 program_writeln_7}
+```
+
+```stdout
+          1          2          3          4          5
+hello world
+```
+
+## program_writeln_7
+
+```Pascal
 program t;
 var c : char; i : integer;
 begin
@@ -1990,7 +3238,18 @@ begin
   i := ord(chr(90));
   writeln(i:1)
 end.
-{----------------------------------------------- 125 ladder__rung18_sha1_digest}
+```
+
+```stdout
+p
+ABC
+XX
+90
+```
+
+## ladder__rung18_sha1_digest
+
+```Pascal
 {$mode objfpc}
 uses sha1;
 var s: string; i: integer;
@@ -2002,7 +3261,18 @@ begin
   writeln(SHA1Print(SHA1String(s)));
   writeln(SHA1Match(SHA1String('a'), SHA1String('a')), ' ', SHA1Match(SHA1String('a'), SHA1String('b')));
 end.
-{------------------------------------- 126 ladder__rung24_rtl_system_lineending}
+```
+
+```stdout
+da39a3ee5e6b4b0d3255bfef95601890afd80709
+a9993e364706816aba3e25717850c26c9cd0d89d
+610e973d05145fd4c3e6c97ff349907fdc8ec4b7
+TRUE FALSE
+```
+
+## ladder__rung24_rtl_system_lineending
+
+```Pascal
 {$mode objfpc}
 program w617;
 var s: string;
@@ -2014,7 +3284,18 @@ begin
   DefaultSystemCodePage := 1252;
   writeln(DefaultSystemCodePage);
 end.
-{----------------------------------------------------- 127 program_for_downto_2}
+```
+
+```stdout
+310
+x
+0
+1252
+```
+
+## program_for_downto_2
+
+```Pascal
 program downto2(output);
 var i, j, s : integer;
 begin
@@ -2026,7 +3307,18 @@ begin
   for i := 4 downto 2 do
     writeln(i)
 end.
-{----------------------------------------------------- 128 program_for_downto_4}
+```
+
+```stdout
+         10
+          4
+          3
+          2
+```
+
+## program_for_downto_4
+
+```Pascal
 program downto2(output);
 var i, j, s : integer;
 begin
@@ -2038,7 +3330,18 @@ begin
   for i := 4 downto 2 do
     writeln(i)
 end.
-{---------------------------------------------- 129 program_procedure_nested_19}
+```
+
+```stdout
+         10
+          4
+          3
+          2
+```
+
+## program_procedure_nested_19
+
+```Pascal
 program t;
 var glob : integer;
 procedure setit(var nxt: integer);
@@ -2050,7 +3353,15 @@ begin
   writeln('seg=', seg:1, ' glob=', glob:1)
 end;
 begin glob := 0; body end.
-{----------------------------------------------- 130 program_procedure_nested_5}
+```
+
+```stdout
+seg=1 glob=1
+```
+
+## program_procedure_nested_5
+
+```Pascal
 program t;
 var glob : integer;
 procedure setit(var nxt: integer);
@@ -2062,7 +3373,15 @@ begin
   writeln('seg=', seg:1, ' glob=', glob:1)
 end;
 begin glob := 0; body end.
-{----------------------------------- 131 front_end__pf20h_generic_function_type}
+```
+
+```stdout
+seg=1 glob=1
+```
+
+## front_end__pf20h_generic_function_type
+
+```Pascal
 {$mode delphi}
 type
   TCmp<T> = function(constref L, R: T): Integer;
@@ -2075,7 +3394,15 @@ begin
   f := C1;
   writeln(f(3, 1));
 end.
-{------------------------------------------------ 132 ladder__rung02_arithmetic}
+```
+
+```stdout
+2
+```
+
+## ladder__rung02_arithmetic
+
+```Pascal
 program rung02arith;
 var
   a, b: integer;
@@ -2088,7 +3415,19 @@ begin
   writeln(a div b);
   writeln(a mod b)
 end.
-{------------------------------------------------ 133 ladder__rung04_for_repeat}
+```
+
+```stdout
+         10
+          2
+         24
+          1
+          2
+```
+
+## ladder__rung04_for_repeat
+
+```Pascal
 program rung04forrepeat;
 var
   i: integer;
@@ -2101,7 +3440,20 @@ begin
     i := i - 1
   until i = 0
 end.
-{--------------------------------------------------- 134 ladder__rung07_records}
+```
+
+```stdout
+          1
+          2
+          3
+          3
+          2
+          1
+```
+
+## ladder__rung07_records
+
+```Pascal
 program rung07records;
 type
   point = record
@@ -2114,7 +3466,15 @@ begin
   p.y := 4;
   writeln(p.x + p.y)
 end.
-{-------------------------------------------- 135 ladder__rung16_lohi_byte_word}
+```
+
+```stdout
+          7
+```
+
+## ladder__rung16_lohi_byte_word
+
+```Pascal
 {$mode objfpc}
 program lohi_byte_word;
 type s1 = 0..20; s2 = -5..5;
@@ -2127,7 +3487,19 @@ begin
   writeln(lo(17), ' ', hi(17), ' ', lo(200), ' ', hi(200), ' ', lo(300), ' ', lo(-200));
   writeln(lo(w) + hi(w) * 2);
 end.
-{------------------------------------ 136 ladder__rung16_real_trunc_round_int64}
+```
+
+```stdout
+11 10 254 255
+52 18 254 255
+1 1 251 255 232 3
+17 0 8 12 44 56
+88
+```
+
+## ladder__rung16_real_trunc_round_int64
+
+```Pascal
 {$mode objfpc}
 program real_trunc_round_int64;
 var x: double; t: int64;
@@ -2140,7 +3512,19 @@ begin
   writeln(round(x * 1000000.0));
   writeln(trunc(5.55e18));
 end.
-{---------------------------------------------------- 137 program_for_writeln_4}
+```
+
+```stdout
+4297114779648
+4297114779648
+-2148557389824
+4297114779648000000
+5550000000000000000
+```
+
+## program_for_writeln_4
+
+```Pascal
 program readnumber(input, output);
 { ISO 7185 6.9.1: read skips spaces and end-of-lines, then takes a signed-integer for an integer variable and a signed-number for a
   real one, and stops at the first character that cannot continue it. }
@@ -2153,7 +3537,32 @@ begin
   readln(i); writeln(i);
   read(j); writeln(j)
 end.
-{---------------------------------------------- 138 program_procedure_nested_13}
+```
+
+```stdin
+   12
+
+ -34 +56
+ 1.5 -2e3 +0.25E+02 7
+42x rest of line
+ 3.14159e0
+ -8
+
+   77
+```
+
+```stdout
+         12         -34          56
+     1.500   -2000.000    25.000     7.000
+         42 [x]
+      3.141590
+         -8
+         77
+```
+
+## program_procedure_nested_13
+
+```Pascal
 program t(output);
 var x: integer;
 procedure noop; begin end;
@@ -2166,7 +3575,15 @@ begin
   x := x + 1;
   writeln(x)
 end.
-{--------------------------------------------------- 139 program_set_subrange_1}
+```
+
+```stdout
+          3
+```
+
+## program_set_subrange_1
+
+```Pascal
 program set8;
 var a, b : set of 0..47; r : integer;
 begin
@@ -2179,7 +3596,15 @@ begin
   if a <> b then r := r + 1000;
   writeln(r)
 end.
-{-------------------------------------------------------- 140 program_writeln_5}
+```
+
+```stdout
+       1111
+```
+
+## program_writeln_5
+
+```Pascal
 program char1;
 var c : char;
     i : integer;
@@ -2192,7 +3617,18 @@ begin
   i := ord(c);
   writeln(i)
 end.
-{------------------------------------------------- 141 program_record_writeln_3}
+```
+
+```stdout
+A
+  A
+B
+         66
+```
+
+## program_record_writeln_3
+
+```Pascal
 program rec1;
 type
   point = record
@@ -2206,7 +3642,15 @@ begin
   p.y := 4;
   writeln(p.x + p.y)
 end.
-{----------------------------------------------- 142 program_with_for_replace_1}
+```
+
+```stdout
+          7
+```
+
+## program_with_for_replace_1
+
+```Pascal
 program realwidth(output);
 { A real written with a TotalWidth: the floating-point form (ISO 7185 6.9.3.4.1) keeps at least one fractional digit, so a width below its minimum
   -- zero included, which 6.9.3.1 calls an error an implementation need not detect -- still writes that minimum; the exponent letter is e. }
@@ -2220,7 +3664,29 @@ begin
   writeln(c:1:0, '|', b:0:1, '|', c:8:2, '|');
   writeln(c, '|', f, '|')
 end.
-{------------------------------------- 143 ladder__rung17_real_div_zero_classes}
+```
+
+```stdout
+ 0| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 1| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 2| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 3| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 4| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 5| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 6| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 7| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 8| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+ 9| 1.0e+000|-2.5e+000| 1.2e+002| 0.0e+000| 1.0e+010|-1.0e-010|
+10| 1.00e+000|-2.50e+000| 1.23e+002| 0.00e+000| 1.00e+010|-1.00e-010|
+11| 1.000e+000|-2.500e+000| 1.235e+002| 0.000e+000| 1.000e+010|-1.000e-010|
+ 1.234560000000e+002| -1.0000000000000000e-010|       1.0000000000000000e+000|
+123|-2.5|  123.46|
+ 1.2345600000000000e+002|-1.0000000000000000e-010|
+```
+
+## ladder__rung17_real_div_zero_classes
+
+```Pascal
 {$mode objfpc}
 program real_div_zero_caught_and_uncaught;
 uses SysUtils;
@@ -2235,7 +3701,19 @@ begin
   x := 3.0 / (y - 8.0);
   writeln('after ', x)
 end.
-{---------------------------- 144 ladder__rung19_generic_delphi_procedural_type}
+```
+
+```stdout
+zd Floating point division by zero
+io Invalid floating point operation
+2.00
+math EZeroDivide
+0.500 1 1
+```
+
+## ladder__rung19_generic_delphi_procedural_type
+
+```Pascal
 {$mode delphi}
 type
   TCb<T> = procedure(x: T);
@@ -2250,7 +3728,16 @@ begin
   ci(5);
   cs('five');
 end.
-{-------------- 145 ladder__rung22_generics_dictionary_integer_keys_and_hashset}
+```
+
+```stdout
+i=5
+s=five
+```
+
+## ladder__rung22_generics_dictionary_integer_keys_and_hashset
+
+```Pascal
 {$mode delphi}
 uses SysUtils, Generics.Collections;
 var d: TDictionary<Integer, string>; q: TPair<Integer, string>; h: THashSet<string>; s: string; i: Integer;
@@ -2265,7 +3752,17 @@ begin
   for s in h do write(' ', s);
   writeln;
 end.
-{------------------------------------------------------- 146 program_case_for_1}
+```
+
+```stdout
+ 10 45 17 52 66 3 101 108 129 94 136 59 115 122 143 31 87 24 80 73 38
+FALSE TRUE FALSE 8
+ node4 node8 node9 node7 node6 node2 node3 node1
+```
+
+## program_case_for_1
+
+```Pascal
 program case1;
 var i, r : integer;
 begin
@@ -2280,7 +3777,19 @@ begin
     writeln(r)
   end
 end.
-{----------------------------------------------------- 147 program_goto_label_1}
+```
+
+```stdout
+         10
+         23
+         23
+         40
+         50
+```
+
+## program_goto_label_1
+
+```Pascal
 program goto1;
 label 1, 2;
 var i: integer;
@@ -2295,7 +3804,16 @@ begin
 2:
   writeln(i + 10)
 end.
-{--------------------------------------------------- 148 program_writeln_sqrt_3}
+```
+
+```stdout
+          5
+         15
+```
+
+## program_writeln_sqrt_3
+
+```Pascal
 program stdlib3(output);
 var r: real; i: integer;
 begin
@@ -2310,7 +3828,19 @@ begin
   i := trunc(sqrt(2.0));
   writeln(i)
 end.
-{---------------------------- 149 ladder__rung19_generic_function_two_instances}
+```
+
+```stdout
+ 1.000000000000e+000
+ 0.000000000000e+000
+ 0.000000000000e+000
+ 5.403023058681e-001
+          1
+```
+
+## ladder__rung19_generic_function_two_instances
+
+```Pascal
 {$mode objfpc}{$H+}
 generic function GMax<T>(a, b: T): T;
 begin
@@ -2326,7 +3856,18 @@ begin
   specialize GShow<string>('abc', 'str');
   specialize GShow<integer>(7, 'again');
 end.
-{--------------------------------- 150 ladder__rung22_generics_list_queue_stack}
+```
+
+```stdout
+9 pear
+int: 42
+str: abc
+again: 7
+```
+
+## ladder__rung22_generics_list_queue_stack
+
+```Pascal
 {$mode delphi}
 uses SysUtils, Generics.Collections;
 var l: TList<string>; q: TQueue<Integer>; st: TStack<Integer>; a: TArray<string>; i: Integer; s: string;
@@ -2342,7 +3883,17 @@ begin
   for i := 1 to 4 do begin q.Enqueue(i * i); st.Push(i * 3); end;
   writeln(q.Dequeue, ' ', q.Peek, ' ', q.Count, ' ', st.Pop, ' ', st.Peek, ' ', st.Count);
 end.
-{------------------------------------------------ 151 program_function_nested_1}
+```
+
+```stdout
+4 czb 3 FALSE
+a z c 3 ac
+1 4 3 12 9 3
+```
+
+## program_function_nested_1
+
+```Pascal
 program nestfunc;
 var g : integer;
   function outer(n : integer) : integer;
@@ -2358,7 +3909,15 @@ var g : integer;
 begin
   writeln(outer(5))
 end.
-{------------------------------------------------ 152 program_function_nested_2}
+```
+
+```stdout
+        213
+```
+
+## program_function_nested_2
+
+```Pascal
 program nestfunc;
 var g : integer;
   function outer(n : integer) : integer;
@@ -2374,7 +3933,15 @@ var g : integer;
 begin
   writeln(outer(5))
 end.
-{---------------------------------------------- 153 program_procedure_nested_22}
+```
+
+```stdout
+        213
+```
+
+## program_procedure_nested_22
+
+```Pascal
 program nestvar;
 var x: integer;
 procedure outer(var a: integer);
@@ -2390,7 +3957,15 @@ begin
   outer(x);
   writeln(x)
 end.
-{----------------------------------------------- 154 program_procedure_nested_8}
+```
+
+```stdout
+         11
+```
+
+## program_procedure_nested_8
+
+```Pascal
 program nestvar;
 var x: integer;
 procedure outer(var a: integer);
@@ -2406,7 +3981,15 @@ begin
   outer(x);
   writeln(x)
 end.
-{------------------------------------------------- 155 program_record_writeln_2}
+```
+
+```stdout
+         11
+```
+
+## program_record_writeln_2
+
+```Pascal
 program nestrec1;
 type
   inner = record a, b: integer end;
@@ -2422,7 +4005,18 @@ begin
   writeln(g.c.b);
   writeln(g.y)
 end.
-{--------------------------------------- 156 ladder__rung05_proc_func_no_params}
+```
+
+```stdout
+          1
+         42
+          7
+         99
+```
+
+## ladder__rung05_proc_func_no_params
+
+```Pascal
 program rung05procfuncnoparams;
 
 procedure hello;
@@ -2439,7 +4033,16 @@ begin
   hello;
   writeln(fortytwo)
 end.
-{---------------------------------------------- 157 program_procedure_nested_11}
+```
+
+```stdout
+hello
+         42
+```
+
+## program_procedure_nested_11
+
+```Pascal
 program varframe;
 var g : integer;
   procedure bump(var n : integer);
@@ -2456,7 +4059,16 @@ begin
   outer(g);
   writeln(g)
 end.
-{---------------------------------------------- 158 program_procedure_nested_12}
+```
+
+```stdout
+        107
+          7
+```
+
+## program_procedure_nested_12
+
+```Pascal
 program vartrans;
 var g : integer;
   procedure inner(var z : integer);
@@ -2473,7 +4085,15 @@ begin
   outer(g);
   writeln(g)
 end.
-{---------------------------------------------- 159 program_procedure_nested_18}
+```
+
+```stdout
+         15
+```
+
+## program_procedure_nested_18
+
+```Pascal
 program nestedtest;
 var g : integer;
   procedure outer;
@@ -2490,7 +4110,15 @@ var g : integer;
 begin
   outer
 end.
-{---------------------------------------------- 160 program_procedure_nested_25}
+```
+
+```stdout
+         15
+```
+
+## program_procedure_nested_25
+
+```Pascal
 program varframe;
 var g : integer;
   procedure bump(var n : integer);
@@ -2507,7 +4135,16 @@ begin
   outer(g);
   writeln(g)
 end.
-{---------------------------------------------- 161 program_procedure_nested_26}
+```
+
+```stdout
+        107
+          7
+```
+
+## program_procedure_nested_26
+
+```Pascal
 program vartrans;
 var g : integer;
   procedure inner(var z : integer);
@@ -2524,7 +4161,15 @@ begin
   outer(g);
   writeln(g)
 end.
-{----------------------------------------------- 162 program_procedure_nested_4}
+```
+
+```stdout
+         15
+```
+
+## program_procedure_nested_4
+
+```Pascal
 program nestedtest;
 var g : integer;
   procedure outer;
@@ -2541,7 +4186,15 @@ var g : integer;
 begin
   outer
 end.
-{------------------------------------------------- 163 program_repeat_writeln_2}
+```
+
+```stdout
+         15
+```
+
+## program_repeat_writeln_2
+
+```Pascal
 program repeat2(output);
 var i, n : integer;
 begin
@@ -2558,7 +4211,16 @@ begin
   until i < 1;
   writeln
 end.
-{----------------------------------------- 164 front_end__pf20c_record_operator}
+```
+
+```stdout
+        120
+         10          7          4          1
+```
+
+## front_end__pf20c_record_operator
+
+```Pascal
 {$mode delphi}
 type
   TV = record
@@ -2576,7 +4238,15 @@ begin
   c := a + b;
   writeln(c.X);
 end.
-{------------------------------- 165 ladder__rung26_mgmt_r1_initialize_a_global}
+```
+
+```stdout
+7
+```
+
+## ladder__rung26_mgmt_r1_initialize_a_global
+
+```Pascal
 {$mode objfpc}{$modeswitch advancedrecords}
 program m1;
 type
@@ -2594,7 +4264,16 @@ var
 begin
   writeln(c.n);
 end.
-{---------------------------------------------- 166 program_procedure_nested_20}
+```
+
+```stdout
+init
+42
+```
+
+## program_procedure_nested_20
+
+```Pascal
 program nestrec;
 var g : integer;
   procedure outer(d : integer);
@@ -2612,7 +4291,17 @@ var g : integer;
 begin
   outer(3)
 end.
-{----------------------------------------------- 167 program_procedure_nested_6}
+```
+
+```stdout
+         11
+         21
+         31
+```
+
+## program_procedure_nested_6
+
+```Pascal
 program nestrec;
 var g : integer;
   procedure outer(d : integer);
@@ -2630,7 +4319,17 @@ var g : integer;
 begin
   outer(3)
 end.
-{---------------------------------------------- 168 program_procedure_nested_17}
+```
+
+```stdout
+         11
+         21
+         31
+```
+
+## program_procedure_nested_17
+
+```Pascal
 program nestcount;
 var g : integer;
   procedure counter;
@@ -2649,7 +4348,15 @@ var g : integer;
 begin
   counter
 end.
-{----------------------------------------------- 169 program_procedure_nested_3}
+```
+
+```stdout
+          3
+```
+
+## program_procedure_nested_3
+
+```Pascal
 program nestcount;
 var g : integer;
   procedure counter;
@@ -2668,7 +4375,15 @@ var g : integer;
 begin
   counter
 end.
-{------------------------------------------------- 170 program_record_writeln_1}
+```
+
+```stdout
+          3
+```
+
+## program_record_writeln_1
+
+```Pascal
 program nestcheck;
 type
   inner = record a, b: integer end;
@@ -2687,7 +4402,18 @@ begin
   writeln(g.c.b);
   writeln(g.y)
 end.
-{---------------------------------------------- 171 program_procedure_nested_23}
+```
+
+```stdout
+         10
+         21
+         32
+         40
+```
+
+## program_procedure_nested_23
+
+```Pascal
 program nestvar2;
 var x: integer;
 procedure outer(var a: integer);
@@ -2707,7 +4433,15 @@ begin
   outer(x);
   writeln(x)
 end.
-{----------------------------------------------- 172 program_procedure_nested_9}
+```
+
+```stdout
+         10
+```
+
+## program_procedure_nested_9
+
+```Pascal
 program nestvar2;
 var x: integer;
 procedure outer(var a: integer);
@@ -2727,7 +4461,15 @@ begin
   outer(x);
   writeln(x)
 end.
-{---------------------------------------- 173 ladder__rung16_real_negative_zero}
+```
+
+```stdout
+         10
+```
+
+## ladder__rung16_real_negative_zero
+
+```Pascal
 {$mode objfpc}
 program real_negative_zero;
 var x, y, one, r: double; k: integer;
@@ -2748,7 +4490,20 @@ begin
   for k := 1 to 3 do r := r - x;
   writeln(r:6:2, -r:6:2);
 end.
-{-- 174 ladder__rung21_class_constructor_overloads_a_set_argument_and_inherited}
+```
+
+```stdout
+  -0.000
+  -0.000
+  -0.000
+   0.000
+   -0.000000
+  0.00 -0.00
+```
+
+## ladder__rung21_class_constructor_overloads_a_set_argument_and_inherited
+
+```Pascal
 {$mode delphi}
 type
   TOwn = (oK, oV);
@@ -2769,7 +4524,15 @@ begin
   a := TA.Create; b := TA.Create(5); c := TA.Create([oV]); d := TB.Create([oK, oV]);
   writeln(a.n, b.n, c.n, ' ', oV in c.o, ' ', d.n, ' ', oK in d.o);
 end.
-{---------------------------------------------- 175 program_procedure_nested_10}
+```
+
+```stdout
+123 TRUE 13 TRUE
+```
+
+## program_procedure_nested_10
+
+```Pascal
 program nestvar3;
 var x, y: integer;
 procedure swapvals(var a, b: integer);
@@ -2790,7 +4553,16 @@ begin
   writeln(x);
   writeln(y)
 end.
-{---------------------------------------------- 176 program_procedure_nested_24}
+```
+
+```stdout
+          7
+          3
+```
+
+## program_procedure_nested_24
+
+```Pascal
 program nestvar3;
 var x, y: integer;
 procedure swapvals(var a, b: integer);
@@ -2811,7 +4583,16 @@ begin
   writeln(x);
   writeln(y)
 end.
-{---------------------------------------------- 177 program_procedure_nested_21}
+```
+
+```stdout
+          7
+          3
+```
+
+## program_procedure_nested_21
+
+```Pascal
 program nestshadow;
 var g : integer;
   procedure outer;
@@ -2835,7 +4616,16 @@ var g : integer;
 begin
   outer
 end.
-{----------------------------------------------- 178 program_procedure_nested_7}
+```
+
+```stdout
+          7
+        101
+```
+
+## program_procedure_nested_7
+
+```Pascal
 program nestshadow;
 var g : integer;
   procedure outer;
@@ -2859,7 +4649,16 @@ var g : integer;
 begin
   outer
 end.
-{---------------------------------------------- 179 program_procedure_nested_16}
+```
+
+```stdout
+          7
+        101
+```
+
+## program_procedure_nested_16
+
+```Pascal
 program nest2;
 var g : integer;
   procedure a;
@@ -2884,7 +4683,16 @@ var g : integer;
 begin
   a
 end.
-{----------------------------------------------- 180 program_procedure_nested_2}
+```
+
+```stdout
+         15
+        101
+```
+
+## program_procedure_nested_2
+
+```Pascal
 program nest2;
 var g : integer;
   procedure a;
@@ -2909,7 +4717,16 @@ var g : integer;
 begin
   a
 end.
-{------------------------------------------- 181 front_end__pf20d_object_parent}
+```
+
+```stdout
+         15
+        101
+```
+
+## front_end__pf20d_object_parent
+
+```Pascal
 type
   TA = object
     i: Integer;
@@ -2935,7 +4752,16 @@ begin
   a.Show;
   b.Show;
 end.
-{----------------------------------------------- 182 program_procedure_nested_1}
+```
+
+```stdout
+A 1
+B 3 4
+```
+
+## program_procedure_nested_1
+
+```Pascal
 program deep5;
 var g: integer;
 procedure p1;
@@ -2979,7 +4805,19 @@ begin
   p1;
   writeln(g)
 end.
-{---------------------------------------------- 183 program_procedure_nested_15}
+```
+
+```stdout
+         44
+         33
+         22
+         11
+        110
+```
+
+## program_procedure_nested_15
+
+```Pascal
 program deep5;
 var g: integer;
 procedure p1;
@@ -3023,7 +4861,19 @@ begin
   p1;
   writeln(g)
 end.
-{---------------------------------------------- 184 program_procedure_nested_14}
+```
+
+```stdout
+         44
+         33
+         22
+         11
+        110
+```
+
+## program_procedure_nested_14
+
+```Pascal
 program manyproc(output);
 var g: integer;
   procedure p1; begin g := g + 1 end;
@@ -3107,21 +4957,45 @@ begin
   p61; p62; p63; p64; p65; p66; p67; p68; p69; p70;
   writeln(g)
 end.
-{---------------------------------------------- 185 program_procedure_record_11}
+```
+
+```stdout
+         70
+```
+
+## program_procedure_record_11
+
+```Pascal
 program t;
 type r = record a, b: integer end;
 var g: r;
 procedure c(var f: r);
 begin f.a := 99 end;
 begin g.a := 5; g.b := 0; c(g); writeln(g.a) end.
-{----------------------------------------------- 186 program_procedure_record_4}
+```
+
+```stdout
+         99
+```
+
+## program_procedure_record_4
+
+```Pascal
 program t;
 type r = record a, b: integer end;
 var g: r;
 procedure c(var f: r);
 begin f.a := 99 end;
 begin g.a := 5; g.b := 0; c(g); writeln(g.a) end.
-{--------------------------------------------------- 187 program_array_setlit_2}
+```
+
+```stdout
+         99
+```
+
+## program_array_setlit_2
+
+```Pascal
 program arr2d3;
 var m: array[0..1, 0..1] of integer;
 begin
@@ -3130,7 +5004,18 @@ begin
   writeln(m[0,0]); writeln(m[0,1]);
   writeln(m[1,0]); writeln(m[1,1])
 end.
-{------------------------------------------------ 188 front_end__pf10_callindex}
+```
+
+```stdout
+          1
+          0
+          0
+          1
+```
+
+## front_end__pf10_callindex
+
+```Pascal
 {$mode objfpc}
 program ci;
 uses SysUtils;
@@ -3140,7 +5025,16 @@ begin
   writeln(nm()[1], nm[2], up('abc')[3], Lowercase(nm())[1], up('xyz')[1]);
   if paramcount >= 1 then writeln(paramstr(1)[1]); writeln(ord(up('a')[1]) > 0, ' ', length(up('abcd')), ' ', up('q')[1]);
 end.
-{------------------------------------------ 189 ladder__rung13_ptr_record_field}
+```
+
+```stdout
+HeChX
+TRUE 4 Q
+```
+
+## ladder__rung13_ptr_record_field
+
+```Pascal
 {$mode objfpc}
 program ptr_record_field;
 type tpt = record x, y: longint end;
@@ -3151,7 +5045,15 @@ begin
   px^ := px^ * 21;
   writeln(r.x, ' ', r.y);
 end.
-{-------------------------------------------- 190 program_record_case_replace_2}
+```
+
+```stdout
+1 42
+```
+
+## program_record_case_replace_2
+
+```Pascal
 program vrec1;
 type valu = record case b: boolean of
       true: (ival: integer);
@@ -3162,7 +5064,15 @@ begin
   v.ival := 42;
   writeln(v.ival)
 end.
-{------------------------------------- 191 ladder__rung00_crt_wrap_at_column_80}
+```
+
+```stdout
+         42
+```
+
+## ladder__rung00_crt_wrap_at_column_80
+
+```Pascal
 program crt_wrap_at_column_80;
 {$mode objfpc}
 uses crt;
@@ -3174,7 +5084,19 @@ begin
   writeln;
   writeln('after');
 end.
-{- 192 ladder__rung24_static_array_of_dynamic_arrays_growth_keeps_contents_and_untouched_elements_are_empty}
+```
+
+```stdout
+12345678901234567890123456789012345678901234567890123456789012345678901234567890
+12345
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+after
+```
+
+## ladder__rung24_static_array_of_dynamic_arrays_growth_keeps_contents_and_untouched_elements_are_empty
+
+```Pascal
 {$mode objfpc}
 type tvec = array of longint;
 var keep : array [1..3] of tvec;
@@ -3186,7 +5108,17 @@ begin
   setlength(keep[2], 0);
   writeln(length(keep[2]), ' ', length(keep[1]));
 end.
-{------------------------------------------------ 193 program_function_record_1}
+```
+
+```stdout
+0 -1
+4 10 11 13
+0 0
+```
+
+## program_function_record_1
+
+```Pascal
 program recparam2;
 type pair = record a: integer; b: integer end;
 var r: pair;
@@ -3198,7 +5130,15 @@ begin
   r.a := 10; r.b := 25;
   writeln(sum(r))
 end.
-{----------------------------------------------- 194 program_procedure_record_7}
+```
+
+```stdout
+         35
+```
+
+## program_procedure_record_7
+
+```Pascal
 program recparam;
 type point = record x: integer; y: integer end;
 var p: point;
@@ -3210,7 +5150,16 @@ begin
   p.x := 3; p.y := 7;
   show(p)
 end.
-{-------------------- 195 ladder__rung17_div_zero_caught_in_callee_and_uncaught}
+```
+
+```stdout
+          3
+          7
+```
+
+## ladder__rung17_div_zero_caught_in_callee_and_uncaught
+
+```Pascal
 {$mode objfpc}
 program div_zero_caught_and_uncaught;
 uses SysUtils;
@@ -3223,7 +5172,16 @@ begin
   r := 5 div z;
   writeln('after ', r)
 end.
-{------------------------------------------------ 196 program_function_record_2}
+```
+
+```stdout
+caught Division by zero
+caught2 EDivByZero Division by zero
+```
+
+## program_function_record_2
+
+```Pascal
 program recparam3;
 type vec2 = record x: integer; y: integer end;
 var u, v: vec2;
@@ -3236,7 +5194,15 @@ begin
   v.x := 3; v.y := 4;
   writeln(dot(u, v))
 end.
-{----------------------------- 197 ladder__rung16_string_index_zero_length_byte}
+```
+
+```stdout
+         11
+```
+
+## ladder__rung16_string_index_zero_length_byte
+
+```Pascal
 {$mode fpc}
 program stringindexzero;
 const alpha = '0123456789AB';
@@ -3250,7 +5216,17 @@ begin
   for i := low(alpha) to high(alpha) do
     if c = alpha[i] then writeln('found at ', i);
 end.
-{---------------------------------------------- 198 program_procedure_record_10}
+```
+
+```stdout
+5 0 5 12
+length byte
+found at 11
+```
+
+## program_procedure_record_10
+
+```Pascal
 program t;
 type r = record a, b: integer end;
 var g: r;
@@ -3264,7 +5240,15 @@ begin
   c(g);
   writeln(g.a)
 end.
-{----------------------------------------------- 199 program_procedure_record_3}
+```
+
+```stdout
+          1
+```
+
+## program_procedure_record_3
+
+```Pascal
 program t;
 type r = record a, b: integer end;
 var g: r;
@@ -3278,7 +5262,15 @@ begin
   c(g);
   writeln(g.a)
 end.
-{--------------------------------------------------- 200 program_array_setlit_1}
+```
+
+```stdout
+          1
+```
+
+## program_array_setlit_1
+
+```Pascal
 program boolidx;
 var a : array[0..3] of boolean;
     i, j : integer;
@@ -3293,7 +5285,18 @@ begin
   if a[2] then writeln(1) else writeln(0);
   if a[3] then writeln(1) else writeln(0)
 end.
-{--------------------------------------------------- 201 program_array_setlit_3}
+```
+
+```stdout
+          1
+          0
+          1
+          0
+```
+
+## program_array_setlit_3
+
+```Pascal
 program boolidx;
 var a : array[0..3] of boolean;
     i, j : integer;
@@ -3308,7 +5311,18 @@ begin
   if a[2] then writeln(1) else writeln(0);
   if a[3] then writeln(1) else writeln(0)
 end.
-{-------------------------------------------- 202 program_record_case_replace_4}
+```
+
+```stdout
+          1
+          0
+          1
+          0
+```
+
+## program_record_case_replace_4
+
+```Pascal
 program vrec4;
 type structure = record
       size: integer;
@@ -3323,7 +5337,15 @@ begin
   s.min := 3;
   writeln(s.min)
 end.
-{----------------------------------------- 203 front_end__pf15_literal_receiver}
+```
+
+```stdout
+          3
+```
+
+## front_end__pf15_literal_receiver
+
+```Pascal
 program pf15_literal_receiver;
 {$mode objfpc}{$h+}
 uses SysUtils;
@@ -3339,7 +5361,19 @@ begin
   t := ('a' + 'b');
   WriteLn(t);
 end.
-{---------------------------------- 204 ladder__rung05_directive_before_forward}
+```
+
+```stdout
+3r
+x|y|w|
+x+y+z
+614
+ab
+```
+
+## ladder__rung05_directive_before_forward
+
+```Pascal
 program w607;
 {$mode objfpc}
 function Add2(a, b: integer): integer; overload; forward;
@@ -3355,7 +5389,16 @@ begin
   Show(Add2(2, 3));
   writeln(Add2('ab', 'cd'));
 end.
-{----------------------------- 205 ladder__rung13_pchar_writes_reach_the_string}
+```
+
+```stdout
+5
+abcd
+```
+
+## ladder__rung13_pchar_writes_reach_the_string
+
+```Pascal
 {$mode objfpc}
 program pcharstrwrite;
 var s: AnsiString; p, q: pAnsiChar; i: integer;
@@ -3371,7 +5414,16 @@ begin
   writeln(ord(p[5]));
   writeln(s, ' ', strlen(p), ' ', q);
 end.
-{-------------------------------------------------- 206 program_function_case_1}
+```
+
+```stdout
+74 101 76 108 111 0
+JeLlo 5 Llo
+```
+
+## program_function_case_1
+
+```Pascal
 program case2;
 var r : integer;
 function grade(n : integer) : integer;
@@ -3387,7 +5439,17 @@ begin
   r := grade(83); writeln(r);
   r := grade(70); writeln(r)
 end.
-{---------------------------------------------- 207 program_procedure_forward_1}
+```
+
+```stdout
+          4
+          3
+          2
+```
+
+## program_procedure_forward_1
+
+```Pascal
 program forward1;
 var x: integer;
 procedure second; forward;
@@ -3403,7 +5465,15 @@ begin
   x := 42;
   first
 end.
-{---------------------------------------------- 208 program_procedure_forward_2}
+```
+
+```stdout
+         42
+```
+
+## program_procedure_forward_2
+
+```Pascal
 program forward1;
 var x: integer;
 procedure second; forward;
@@ -3419,7 +5489,15 @@ begin
   x := 42;
   first
 end.
-{----------------------------------------------- 209 program_procedure_record_1}
+```
+
+```stdout
+         42
+```
+
+## program_procedure_record_1
+
+```Pascal
 program aggloc2(output);
 type rec = record typtr: integer; kind: integer end;
 var gattr: rec; depth: integer;
@@ -3435,7 +5513,17 @@ begin
   gattr.typtr := 4; gattr.kind := 1; depth := 0;
   selector
 end.
-{----------------------------------------------- 210 program_procedure_record_8}
+```
+
+```stdout
+        102
+        101
+          4
+```
+
+## program_procedure_record_8
+
+```Pascal
 program aggloc2(output);
 type rec = record typtr: integer; kind: integer end;
 var gattr: rec; depth: integer;
@@ -3451,7 +5539,17 @@ begin
   gattr.typtr := 4; gattr.kind := 1; depth := 0;
   selector
 end.
-{--- 211 gc_hb_pas_a_three_argument_and_a_nine_argument_call_take_the_det_roads}
+```
+
+```stdout
+        102
+        101
+          4
+```
+
+## gc_hb_pas_a_three_argument_and_a_nine_argument_call_take_the_det_roads
+
+```Pascal
 program detroads;
 var k, t: integer;
 function sum3(a, b, c: integer): integer;
@@ -3468,7 +5566,15 @@ begin
     t := t + sum3(k, k + 1, k + 2) + sum9(k, 1, 2, 3, 4, 5, 6, 7, 8);
   writeln(t:1)
 end.
-{------------------------- 212 ladder__rung04_for_exit_value_is_the_final_value}
+```
+
+```stdout
+7050
+```
+
+## ladder__rung04_for_exit_value_is_the_final_value
+
+```Pascal
 {$mode objfpc}
 program forexitvalue;
 var i, n: integer; c: char; b: byte;
@@ -3485,7 +5591,19 @@ begin
   for i := 1 to 10 do if i = 4 then break;
   writeln(i);
 end.
-{------------------- 213 ladder__rung19_generic_tarray_and_array_literal_result}
+```
+
+```stdout
+5 15
+3 -27
+e 468
+255 1983
+4
+```
+
+## ladder__rung19_generic_tarray_and_array_literal_result
+
+```Pascal
 {$mode objfpc}
 function Pair(a, b: Integer): specialize TArray<Integer>;
 begin
@@ -3502,7 +5620,17 @@ begin
   r := One(1); for i := 0 to High(r) do write(r[i], ' '); writeln;
   r := One(5); writeln(Length(r), ' ', r[2]);
 end.
-{-------------------------------------------------- 214 program_array_writeln_1}
+```
+
+```stdout
+3 4 
+1 
+3 15
+```
+
+## program_array_writeln_1
+
+```Pascal
 program chararr3;
 type chtp = (letter, number, special, other);
 var chartp: array[char] of chtp;
@@ -3519,7 +5647,19 @@ begin
   writeln(ord(chartp['9']));
   writeln(ord(chartp['+']))
 end.
-{-------------------------------------------- 215 program_record_case_replace_3}
+```
+
+```stdout
+          0
+          0
+          1
+          1
+          2
+```
+
+## program_record_case_replace_3
+
+```Pascal
 program vrec2;
 type valu = record case b: boolean of
       true: (ival: integer);
@@ -3536,7 +5676,15 @@ begin
   s.min.ival := 7;
   writeln(s.min.ival)
 end.
-{--------------------------------------- 216 front_end__pf20k_generic_self_name}
+```
+
+```stdout
+          7
+```
+
+## front_end__pf20k_generic_self_name
+
+```Pascal
 {$mode objfpc}
 type
   generic TBox<T> = class
@@ -3554,7 +5702,15 @@ begin
   if b <> nil then
     writeln('ok')
 end.
-{------------------------------------------ 217 front_end__pf20a_record_grammar}
+```
+
+```stdout
+ok
+```
+
+## front_end__pf20a_record_grammar
+
+```Pascal
 {$mode delphi}
 type
   TP = record
@@ -3573,7 +5729,15 @@ end;
 begin
   writeln('ok');
 end.
-{-------------------------- 218 front_end__pf20j_procedural_parameter_passed_on}
+```
+
+```stdout
+ok
+```
+
+## front_end__pf20j_procedural_parameter_passed_on
+
+```Pascal
 {$mode delphi}
 type
   TCmp = function(L, R: Integer): Integer;
@@ -3592,7 +5756,15 @@ end;
 begin
   Outer(C1);
 end.
-{------------------ 219 ladder__rung13_untyped_pointer_order_and_string_address}
+```
+
+```stdout
+2
+```
+
+## ladder__rung13_untyped_pointer_order_and_string_address
+
+```Pascal
 {$mode objfpc}
 program ptrorderuntyped;
 var ds, last: Pointer; dp, de: pByte; s: AnsiString; ip: PChar; n: integer;
@@ -3611,7 +5783,16 @@ begin
   writeln;
   freemem(ds, 4);
 end.
-{-------------------------------------------- 220 program_record_case_replace_1}
+```
+
+```stdout
+6 TRUE FALSE TRUE
+abcd
+```
+
+## program_record_case_replace_1
+
+```Pascal
 program varrec(output);
 type
   shape = (circle, rect);
@@ -3630,7 +5811,17 @@ begin
   writeln(f.width);
   writeln(f.height)
 end.
-{--------------------------------------- 221 front_end__pf20q_iso_formal_nested}
+```
+
+```stdout
+          5
+         10
+          4
+```
+
+## front_end__pf20q_iso_formal_nested
+
+```Pascal
 {$mode iso}
 program nstiso;
 procedure Use(function C(L, R: integer): integer);
@@ -3650,7 +5841,15 @@ end;
 begin
   Outer
 end.
-{------------------------------------------------- 222 ladder__rung05_proc_func}
+```
+
+```stdout
+        105
+```
+
+## ladder__rung05_proc_func
+
+```Pascal
 program rung05procfunc;
 var
   r: integer;
@@ -3670,7 +5869,16 @@ begin
   r := square(6);
   writeln(r)
 end.
-{------------------------------------------------------- 223 benchmark_uplevel3}
+```
+
+```stdout
+n=          9
+         36
+```
+
+## benchmark_uplevel3
+
+```Pascal
 program ub3;
   procedure p1;
   var a, sum : integer;
@@ -3691,7 +5899,15 @@ program ub3;
     writeln(sum)
   end;
 begin p1 end.
-{----------------------------------------- 224 front_end__pf26_shortstring_high}
+```
+
+```stdout
+  240000000
+```
+
+## front_end__pf26_shortstring_high
+
+```Pascal
 {$mode delphi}
 type tErg = string[63];
 var g: string[10]; s: tErg;
@@ -3712,7 +5928,19 @@ begin
   writeln(F);
   P(s);
 end.
-{--------------------------------------------- 225 program_while_goto_replace_1}
+```
+
+```stdout
+10 0 3
+63 0 5
+63 0 1
+x
+63 0 5
+```
+
+## program_while_goto_replace_1
+
+```Pascal
 program goto2;
 label 1, 5;
 var i, n, total: integer;
@@ -3733,7 +5961,17 @@ begin
 5:
   writeln(total * 100 + n)
 end.
-{--------------------------------------------- 226 program_while_goto_replace_2}
+```
+
+```stdout
+          3
+         16
+       1603
+```
+
+## program_while_goto_replace_2
+
+```Pascal
 program goto2;
 label 1, 5;
 var i, n, total: integer;
@@ -3754,7 +5992,17 @@ begin
 5:
   writeln(total * 100 + n)
 end.
-{----------------------- 227 front_end__pf20o_procedural_field_from_a_parameter}
+```
+
+```stdout
+          3
+         16
+       1603
+```
+
+## front_end__pf20o_procedural_field_from_a_parameter
+
+```Pascal
 {$mode objfpc}
 type
   TCmp = function(const L, R: Integer): Integer;
@@ -3776,7 +6024,15 @@ begin
   c := TC.Make(@Cmp);
   writeln(c.FCmp(9, 4))
 end.
-{------------------------------------------------------ 228 ladder__rung11_case}
+```
+
+```stdout
+5
+```
+
+## ladder__rung11_case
+
+```Pascal
 program rung11case;
 var
   i: integer;
@@ -3799,7 +6055,21 @@ begin
     'c': writeln('charlie')
   end
 end.
-{----------------------------------------------------- 229 program_record_for_1}
+```
+
+```stdout
+low
+low
+low
+mid
+high
+high
+bravo
+```
+
+## program_record_for_1
+
+```Pascal
 program rec2;
 type
   rec = record
@@ -3822,7 +6092,16 @@ begin
     writeln(r.a);
   writeln(r.a, r.b, r.c)
 end.
-{------------------------------------------------------- 230 benchmark_uplevel2}
+```
+
+```stdout
+         20
+         10         20         20
+```
+
+## benchmark_uplevel2
+
+```Pascal
 program uplevelbench;
   procedure p1;
   var a, sum : integer;
@@ -3846,7 +6125,15 @@ program uplevelbench;
 begin
   p1
 end.
-{------------------------------------------------ 231 ladder__rung13_ptr_scalar}
+```
+
+```stdout
+  240000000
+```
+
+## ladder__rung13_ptr_scalar
+
+```Pascal
 {$mode objfpc}
 program ptr_scalar;
 var n: longint; p: ^longint;
@@ -3871,7 +6158,16 @@ begin
   writeln(n);
   local_scalar;
 end.
-{------------------------------------ 232 front_end__pf20n_generic_field_access}
+```
+
+```stdout
+11
+45
+```
+
+## front_end__pf20n_generic_field_access
+
+```Pascal
 {$mode objfpc}
 type
   generic TBox<T> = class
@@ -3898,7 +6194,16 @@ begin
   b.SetIt(9);
   writeln(b.V)
 end.
-{------------------------------------------- 233 program_function_for_replace_1}
+```
+
+```stdout
+7
+9
+```
+
+## program_function_for_replace_1
+
+```Pascal
 (*$c+,d+,l-,t-*)
 (* recursion on the p-machine: fact and fib *)
 program recursion(output);
@@ -3925,7 +6230,24 @@ begin
    for k := 1 to 10 do
       writeln(k, fact(k), fib(k))
 end.
-{------------------------------------------- 234 program_function_for_replace_2}
+```
+
+```stdout
+          1          1          1
+          2          2          1
+          3          6          2
+          4         24          3
+          5        120          5
+          6        720          8
+          7       5040         13
+          8      40320         21
+          9     362880         34
+         10    3628800         55
+```
+
+## program_function_for_replace_2
+
+```Pascal
 (*$c+,d+,l-,t-*)
 (* recursion on the p-machine: fact and fib *)
 program recursion(output);
@@ -3952,7 +6274,24 @@ begin
    for k := 1 to 10 do
       writeln(k, fact(k), fib(k))
 end.
-{-------------------------------------------- 235 front_end__pf19_nul_in_string}
+```
+
+```stdout
+          1          1          1
+          2          2          1
+          3          6          2
+          4         24          3
+          5        120          5
+          6        720          8
+          7       5040         13
+          8      40320         21
+          9     362880         34
+         10    3628800         55
+```
+
+## front_end__pf19_nul_in_string
+
+```Pascal
 program pf19_nul_in_string;
 {$mode objfpc}{$h+}
 var s, t: string; i: integer;
@@ -3981,7 +6320,26 @@ begin
   insert(#0, s, 2);
   writeln(length(s), ' ', ord(s[2]), ' ', s[3]);
 end.
-{------------------------------------------------------ 236 program_array_for_4}
+```
+
+```stdout
+4
+4 0 0
+4 0 66 0
+5 0 120
+3 66 0
+5 0 c
+4 TRUE TRUE
+5 0
+zzzzz
+3 0 3
+pq 2
+3 0 q
+```
+
+## program_array_for_4
+
+```Pascal
 program enumarr(output);
 type color = (red, green, blue);
 var a: array[color] of integer;
@@ -3990,7 +6348,17 @@ begin
   a[red] := 10; a[green] := 20; a[blue] := 30;
   for c := red to blue do writeln(a[c])
 end.
-{--------------------------------------------------- 237 program_array_packed_2}
+```
+
+```stdout
+         10
+         20
+         30
+```
+
+## program_array_packed_2
+
+```Pascal
 program aa2;
 var m: array [0..3] of packed array [1..4] of char;
 begin
@@ -3999,7 +6367,16 @@ begin
   writeln(m[0]);
   writeln(m[1])
 end.
-{-------------------------------------------------------- 238 program_set_for_2}
+```
+
+```stdout
+ abi
+ abr
+```
+
+## program_set_for_2
+
+```Pascal
 program set5;
 var s : set of 0..47; i, n : integer;
 begin
@@ -4008,7 +6385,15 @@ begin
   for i := 0 to 10 do if i in s then n := n + 1;
   writeln(n)
 end.
-{-------------------------------------------------------- 239 program_set_for_3}
+```
+
+```stdout
+          3
+```
+
+## program_set_for_3
+
+```Pascal
 program set6;
 var s : set of 0..47; i, n : integer;
 begin
@@ -4017,7 +6402,15 @@ begin
   for i := 0 to 12 do if i in s then n := n + 1;
   writeln(n)
 end.
-{-------------------------------------------------------- 240 program_set_for_4}
+```
+
+```stdout
+          2
+```
+
+## program_set_for_4
+
+```Pascal
 program set7;
 var s : set of 0..47; i, n : integer;
 begin
@@ -4026,7 +6419,15 @@ begin
   for i := 0 to 12 do if i in s then n := n + 1;
   writeln(n)
 end.
-{---------------------------------------------- 241 front_end__pf04_shortstring}
+```
+
+```stdout
+          2
+```
+
+## front_end__pf04_shortstring
+
+```Pascal
 {$mode fpc}
 program ss;
 var s: string[5]; t: string; a: array[1..3] of string[2];
@@ -4036,7 +6437,18 @@ begin
   a[1] := 'hello'; writeln(a[1], ' ', length(a[1]), ' ', sizeof(s), ' ', sizeof(a));
   s[1] := 'Z'; writeln(s, ' ', ord(s[0]));
 end.
-{------------------------------------------------ 242 program_procedure_array_2}
+```
+
+```stdout
+abcde 5
+abcdexyz 8
+he 2 6 9
+Zbcde 5
+```
+
+## program_procedure_array_2
+
+```Pascal
 program vparr(output);
 var a: array[1..3] of integer; i: integer;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
@@ -4046,7 +6458,17 @@ begin
   genlabel(a[i]);
   writeln(a[1]); writeln(a[2]); writeln(a[3])
 end.
-{------------------------------------------------ 243 program_procedure_array_5}
+```
+
+```stdout
+          7
+         42
+          9
+```
+
+## program_procedure_array_5
+
+```Pascal
 program vparr(output);
 var a: array[1..3] of integer; i: integer;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
@@ -4056,7 +6478,17 @@ begin
   genlabel(a[i]);
   writeln(a[1]); writeln(a[2]); writeln(a[3])
 end.
-{----------------------------------------- 244 ladder__rung12_filldword_dynamic}
+```
+
+```stdout
+          7
+         42
+          9
+```
+
+## ladder__rung12_filldword_dynamic
+
+```Pascal
 {$mode objfpc}
 program filldword_dynamic;
 var a: array of longword; i: integer;
@@ -4067,7 +6499,15 @@ begin
   for i := 0 to high(a) do write(a[i], ' ');
   writeln;
 end.
-{------------------------------------------------ 245 program_pointer_writeln_1}
+```
+
+```stdout
+7 7 7 4000000000 4000000000 
+```
+
+## program_pointer_writeln_1
+
+```Pascal
 program ptr1(output);
 type
   ip = ^integer;
@@ -4078,7 +6518,15 @@ begin
   p^ := 42;
   writeln(p^)
 end.
-{------------------------------------------------ 246 program_pointer_writeln_2}
+```
+
+```stdout
+         42
+```
+
+## program_pointer_writeln_2
+
+```Pascal
 program ptr2(output);
 type ip = ^integer;
 var p, q : ip;
@@ -4089,7 +6537,16 @@ begin
   p^ := p^ + 1;
   writeln(p^, q^)
 end.
-{------------------------------------------------ 247 program_pointer_writeln_5}
+```
+
+```stdout
+         30
+         11         20
+```
+
+## program_pointer_writeln_5
+
+```Pascal
 program ptr7(output);
 type ip = ^integer;
 var p, q : ip;
@@ -4100,7 +6557,16 @@ begin
   q := p;
   if p = q then writeln(300) else writeln(400)
 end.
-{------------------------------------------------ 248 program_pointer_writeln_4}
+```
+
+```stdout
+        200
+        300
+```
+
+## program_pointer_writeln_4
+
+```Pascal
 program ptr6(output);
 type ip = ^integer;
 var p, q : ip;
@@ -4112,7 +6578,16 @@ begin
   writeln(p^);
   if p = q then writeln(1) else writeln(0)
 end.
-{----------------------------------------------- 249 ladder__rung13_ptr_compare}
+```
+
+```stdout
+         99
+          1
+```
+
+## ladder__rung13_ptr_compare
+
+```Pascal
 {$mode objfpc}
 program ptr_compare;
 var a: array[0..3] of longint; p, q: plongint;
@@ -4125,7 +6600,17 @@ begin
   inc(p, 2);
   writeln(p = q);
 end.
-{- 250 ladder__rung24_static_array_of_dynamic_arrays_assignment_shares_the_array_and_nil_empties_it}
+```
+
+```stdout
+TRUE FALSE
+FALSE TRUE TRUE
+TRUE
+```
+
+## ladder__rung24_static_array_of_dynamic_arrays_assignment_shares_the_array_and_nil_empties_it
+
+```Pascal
 {$mode objfpc}
 type tvec = array of longint;
 var keep : array [1..3] of tvec;
@@ -4138,7 +6623,17 @@ begin
   keep[3] := nil;
   writeln(length(keep[3]), ' ', length(keep[1]));
 end.
-{-------------------------------------------------------- 251 program_set_for_1}
+```
+
+```stdout
+-1 -1
+-1 55 3
+0 3
+```
+
+## program_set_for_1
+
+```Pascal
 program set1;
 var
   s : set of 0..47;
@@ -4151,7 +6646,15 @@ begin
       n := n + 1;
   writeln(n)
 end.
-{--------------- 252 ladder__rung21_overload_picked_by_a_const_integer_argument}
+```
+
+```stdout
+          4
+```
+
+## ladder__rung21_overload_picked_by_a_const_integer_argument
+
+```Pascal
 {$mode objfpc}{$H+}
 function Hash(const s: string): longword; overload; begin Result := 1000 + length(s); end;
 function Hash(i: longint): longword; overload; begin Result := 2000 + i; end;
@@ -4165,7 +6668,17 @@ begin
   g := TG.Create;
   P1(5); P2(6, w); writeln(w); writeln(g.H(7), ' ', Hash('abc'));
 end.
-{----------------------------------------------- 253 program_procedure_record_2}
+```
+
+```stdout
+2005
+2006
+2007 1003
+```
+
+## program_procedure_record_2
+
+```Pascal
 program rec_local_collision;
 type rec = record f: integer end;
 var g: integer;
@@ -4179,7 +6692,15 @@ begin
   g := 0;
   outer
 end.
-{----------------------------------------------- 254 program_procedure_record_9}
+```
+
+```stdout
+          5
+```
+
+## program_procedure_record_9
+
+```Pascal
 program rec_local_collision;
 type rec = record f: integer end;
 var g: integer;
@@ -4193,7 +6714,15 @@ begin
   g := 0;
   outer
 end.
-{----------------------------------------- 255 ladder__rung01_integer_width_fpc}
+```
+
+```stdout
+          5
+```
+
+## ladder__rung01_integer_width_fpc
+
+```Pascal
 {$mode fpc}
 program wfpc;
 uses sysutils;
@@ -4208,7 +6737,18 @@ begin
   x := src[0]; y := x;
   writeln(x, ' ', y)
 end.
-{-------------------------------------- 256 ladder__rung01_integer_width_objfpc}
+```
+
+```stdout
+2 32767 -32768 32767
+32768
+-32768
+-1582 4294965714
+```
+
+## ladder__rung01_integer_width_objfpc
+
+```Pascal
 {$mode objfpc}
 program wobjfpc;
 uses sysutils;
@@ -4223,7 +6763,18 @@ begin
   x := src[0]; y := x;
   writeln(x, ' ', y)
 end.
-{------------------------------------ 257 ladder__rung13_ptr_empty_dynarray_nil}
+```
+
+```stdout
+4 2147483647 -2147483648 2147483647
+32768
+32768
+545454546 545454546
+```
+
+## ladder__rung13_ptr_empty_dynarray_nil
+
+```Pascal
 {$mode objfpc}
 program ptr_empty_dynarray_nil;
 var a: array of longint; b: array[0..2] of longint; p: plongint;
@@ -4238,7 +6789,18 @@ begin
   p := @b[0]; p := nil;
   writeln(p = nil, ' ', assigned(p));
 end.
-{---------------------------------------- 258 packed_arrays__pa09_setlength_raw}
+```
+
+```stdout
+TRUE FALSE
+TRUE FALSE
+9 FALSE
+TRUE FALSE
+```
+
+## packed_arrays__pa09_setlength_raw
+
+```Pascal
 {$mode delphi}
 program pa09_setlength_raw;
 var a: array of boolean; w: array of longword; i: longint;
@@ -4253,7 +6815,18 @@ begin
   writeln(length(a), ' ', w[0], ' ', w[1], ' ', length(w));
   setlength(a, 0); writeln(length(a));
 end.
-{--------------------------------------- 259 front_end__pf20m_record_field_call}
+```
+
+```stdout
+TRUE FALSE TRUE FALSE 12000000 11999999
+4000000000 7 0 11000000
+TRUE FALSE FALSE 3 0 4000000000 2
+0
+```
+
+## front_end__pf20m_record_field_call
+
+```Pascal
 {$mode objfpc}
 type
   TCmp = function(const L, R: Integer): Integer;
@@ -4269,7 +6842,15 @@ begin
   r.FCmp := @Cmp;
   writeln(r.FCmp(9, 4))
 end.
-{------------------------------------------------------ 260 ladder__rung08_sets}
+```
+
+```stdout
+5
+```
+
+## ladder__rung08_sets
+
+```Pascal
 program rung08sets;
 type
   digset = set of 0..9;
@@ -4286,7 +6867,16 @@ begin
   else
     writeln('no')
 end.
-{-------------------- 261 ladder__rung27_untyped_formal_is_a_view_of_the_actual}
+```
+
+```stdout
+yes
+no
+```
+
+## ladder__rung27_untyped_formal_is_a_view_of_the_actual
+
+```Pascal
 {$mode objfpc}
 program rung27uf;
 var x: char; n: longint; w: word;
@@ -4303,7 +6893,16 @@ begin
   writeln(first(x, 0), ' ', first(n, 0), ' ', first(w, 1), ' ', relay(n));
   put(n, 7); writeln(n);
 end.
-{-------------------- 262 ladder__rung16_ansistring_index_past_length_reads_nul}
+```
+
+```stdout
+65 2 5 102
+263
+```
+
+## ladder__rung16_ansistring_index_past_length_reads_nul
+
+```Pascal
 program w;
 {$mode delphi}
 var s, t: AnsiString; k: integer;
@@ -4321,7 +6920,17 @@ begin
   writeln(tailmatch('xbc', 'bcd'));
   if (s[k] = 'a') and (k <= 3) then writeln('no') else writeln('ok');
 end.
-{---------- 263 ladder__rung05_a_routine_cast_to_a_procedural_type_is_an_actual}
+```
+
+```stdout
+0 0
+4
+ok
+```
+
+## ladder__rung05_a_routine_cast_to_a_procedural_type_is_an_actual
+
+```Pascal
 {$mode objfpc}
 program procparamcast;
 type TCmp = function(a, b: Pointer): integer;
@@ -4340,7 +6949,16 @@ begin
   writeln(Apply(TCmp(@CmpInt), @u, @v));
   writeln(Apply(TCmp(@CmpInt), @v, @u));
 end.
-{---------------------------------------------------- 264 program_record_with_1}
+```
+
+```stdout
+4
+-4
+```
+
+## program_record_with_1
+
+```Pascal
 program with1;
 type
   point = record
@@ -4359,7 +6977,17 @@ begin
   end;
   writeln(p.x)
 end.
-{-------------------------------------- 265 front_end__pf20e_object_new_dispose}
+```
+
+```stdout
+          3
+          4
+         13
+```
+
+## front_end__pf20e_object_new_dispose
+
+```Pascal
 type
   PA = ^TA;
   TA = object
@@ -4381,7 +7009,16 @@ begin
   writeln(p^.i);
   Dispose(p, Done);
 end.
-{---------------------------------------------------- 266 program_record_with_2}
+```
+
+```stdout
+7
+done 7
+```
+
+## program_record_with_2
+
+```Pascal
 program with2;
 type
   point = record x : integer; y : integer end;
@@ -4403,7 +7040,18 @@ begin
     writeln(x)
   end
 end.
-{-------------------------------------- 267 array_of_const__array_of_const_open}
+```
+
+```stdout
+         10
+         20
+         15
+          3
+```
+
+## array_of_const__array_of_const_open
+
+```Pascal
 program array_of_const_open;
 {$mode objfpc}
 uses SysUtils;
@@ -4426,7 +7074,19 @@ begin
   Count([1, 'two', 3.0]);
   Count([])
 end.
-{-------------------------- 268 ladder__rung20_fgl_list_sort_remove_and_strings}
+```
+
+```stdout
+42 cells, ok
+<7 blocks [a b]>
+none
+3
+0
+```
+
+## ladder__rung20_fgl_list_sort_remove_and_strings
+
+```Pascal
 {$mode objfpc}{$H+}
 uses fgl;
 function Cmp(const a, b: Integer): Integer;
@@ -4449,7 +7109,17 @@ begin
   s.Clear;
   writeln(s.Count);
 end.
-{------------------------------------------- 269 front_end__pf20_record_methods}
+```
+
+```stdout
+6 5 4 3 2 1 3 5
+1 pear
+0
+```
+
+## front_end__pf20_record_methods
+
+```Pascal
 {$mode delphi}
 type
   TItem = record
@@ -4473,7 +7143,15 @@ begin
   b.Weight := 5;
   writeln(a.Name, ' ', a.Ratio:0:2, ' ', b.Ratio:0:2);
 end.
-{-------------------------------------------- 270 program_case_repeat_replace_1}
+```
+
+```stdout
+x 5.00 2.00
+```
+
+## program_case_repeat_replace_1
+
+```Pascal
 (* pb40: KNOWN FAIL (session 40) - no .ref on purpose; gate skips it.
    Lowering bug: inside a case arm, an if/else whose ELSE contains a loop,
    followed by a for-loop, wires the for's exit edge to the preceding IR_IF
@@ -4497,7 +7175,15 @@ begin
   end;
   writeln(sy:1)
 end.
-{-------------------------------------------- 271 program_case_repeat_replace_2}
+```
+
+```stdout
+0
+```
+
+## program_case_repeat_replace_2
+
+```Pascal
 (* pb40: KNOWN FAIL (session 40) - no .ref on purpose; gate skips it.
    Lowering bug: inside a case arm, an if/else whose ELSE contains a loop,
    followed by a for-loop, wires the for's exit edge to the preceding IR_IF
@@ -4521,7 +7207,15 @@ begin
   end;
   writeln(sy:1)
 end.
-{--------------------------------------------- 272 front_end__pf20b_record_self}
+```
+
+```stdout
+0
+```
+
+## front_end__pf20b_record_self
+
+```Pascal
 {$mode delphi}
 type
   TP = record
@@ -4546,7 +7240,15 @@ begin
   b.Move(10, 20);
   writeln(a.Sum, ' ', b.Sum);
 end.
-{---------------------------------------------- 273 packed_arrays__pa03_dynamic}
+```
+
+```stdout
+3 33
+```
+
+## packed_arrays__pa03_dynamic
+
+```Pascal
 {$mode fpc}
 program pa03_dynamic;
 type
@@ -4571,7 +7273,19 @@ begin
   setlength(a, 0); writeln(length(a));
   setlength(c, 3); writeln(length(c), ' ', c[0], ' ', c[2])
 end.
-{------------------------------------------------------- 274 program_case_for_2}
+```
+
+```stdout
+7 10 9 0
+42152 20
+1010
+0
+3 200 202
+```
+
+## program_case_for_2
+
+```Pascal
 program enumtest;
 type
   color = (red, green, blue);
@@ -4596,7 +7310,21 @@ begin
     winter: writeln(40)
   end
 end.
-{---------------------------------------- 275 front_end__pf20l_class_field_call}
+```
+
+```stdout
+          1
+          1
+          3
+          0
+          1
+          2
+         30
+```
+
+## front_end__pf20l_class_field_call
+
+```Pascal
 program n1;
 {$mode objfpc}
 type
@@ -4622,7 +7350,17 @@ begin
   writeln(c.FCmp(9, 4));
   writeln(c.Compare(3, 5))
 end.
-{------------------------------------- 276 program_function_procedure_replace_1}
+```
+
+```stdout
+-2
+5
+-2
+```
+
+## program_function_procedure_replace_1
+
+```Pascal
 program procedure_param_1(output);
 var g: integer;
 procedure dummy;
@@ -4703,7 +7441,25 @@ begin
   outer;
   counter
 end.
-{------------------------------------------- 277 ladder__rung12_fillqword_int64}
+```
+
+```stdout
+show n=3
+42
+  9.0000
+g=21
+pick z
+truth  true
+truth false
+leaf sees 2 7
+leaf sees 2 7
+g after leaf 414
+ticks 3
+```
+
+## ladder__rung12_fillqword_int64
+
+```Pascal
 {$mode objfpc}
 program fillqword_int64;
 var q: array[0..3] of int64; i: integer;
@@ -4712,7 +7468,18 @@ begin
   fillqword(q[1], 1, 5);
   for i := 0 to 3 do writeln(q[i]);
 end.
-{------------ 278 ladder__rung24_two_dimensional_static_array_of_dynamic_arrays}
+```
+
+```stdout
+123456789012
+5
+123456789012
+123456789012
+```
+
+## ladder__rung24_two_dimensional_static_array_of_dynamic_arrays
+
+```Pascal
 {$mode objfpc}
 type tvec = array of longint;
 var two : array [0..1, 0..2] of tvec; i, j : longint;
@@ -4721,7 +7488,16 @@ begin
   for i := 0 to 1 do for j := 0 to 2 do begin setlength(two[i, j], i + j + 1); two[i, j][i + j] := i * 10 + j end;
   writeln(length(two[0, 0]), ' ', length(two[1, 2]), ' ', two[1, 2][3], ' ', two[0, 2][2]);
 end.
-{------------------------------------------------------ 279 program_array_for_7}
+```
+
+```stdout
+0
+1 4 12 2
+```
+
+## program_array_for_7
+
+```Pascal
 program subarr(output);
 type range = 1..4;
 var a: array[range] of integer;
@@ -4730,7 +7506,18 @@ begin
   for i := 1 to 4 do a[i] := i * i;
   for i := 1 to 4 do writeln(a[i])
 end.
-{-------------------------------------- 280 front_end__pf16_nested_field_assign}
+```
+
+```stdout
+          1
+          4
+          9
+         16
+```
+
+## front_end__pf16_nested_field_assign
+
+```Pascal
 {$mode iso}
 program w11;
 type tE = record Elem, ElemCount: NativeInt; end; tS = array[0..3] of tE;
@@ -4740,7 +7527,15 @@ begin
   x := R[1][1].ElemCount;
   writeln(x);
 end.
-{- 281 ladder__rung24_static_array_of_dynamic_arrays_setlength_then_two_level_store}
+```
+
+```stdout
+          5
+```
+
+## ladder__rung24_static_array_of_dynamic_arrays_setlength_then_two_level_store
+
+```Pascal
 {$mode fpc}
 type tvec = array of word;
 var keep : array [1..3] of tvec; i, j : longint; s : int64;
@@ -4750,7 +7545,15 @@ begin
   for i := 1 to 3 do s := s + keep[i][2] + length(keep[i]) + high(keep[i]) + low(keep[i]);
   writeln(s, ' ', keep[3][11]);
 end.
-{--------------------------------------------------- 282 program_array_packed_1}
+```
+
+```stdout
+57 14
+```
+
+## program_array_packed_1
+
+```Pascal
 program aa1;
 type alpha = packed array [1..8] of char;
 var a: array [1..3] of alpha;
@@ -4760,7 +7563,16 @@ begin
   writeln(a[1]);
   writeln(a[2])
 end.
-{------------------------------------------------ 283 program_pointer_writeln_3}
+```
+
+```stdout
+ab      
+cd      
+```
+
+## program_pointer_writeln_3
+
+```Pascal
 program ptr3(output);
 type ip = ^integer;
 var p : ip;
@@ -4770,7 +7582,16 @@ begin
   new(p);
   if p <> nil then writeln(2) else writeln(0)
 end.
-{--------------------------------------------------- 284 program_record_array_5}
+```
+
+```stdout
+          1
+          2
+```
+
+## program_record_array_5
+
+```Pascal
 program vrec8;
 type r = record
       a: array [1..4] of integer;
@@ -4781,7 +7602,15 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{--------------------------------------------------- 285 program_record_array_6}
+```
+
+```stdout
+          5
+```
+
+## program_record_array_6
+
+```Pascal
 program vrec9;
 type r = record
       pval: integer;
@@ -4792,7 +7621,15 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{---------------------------------------- 286 front_end__pf16_nested_field_read}
+```
+
+```stdout
+          5
+```
+
+## front_end__pf16_nested_field_read
+
+```Pascal
 {$mode iso}
 program w20;
 type tE = record Elem, ElemCount: integer; end; tS = array[0..3] of tE;
@@ -4804,7 +7641,16 @@ begin
   x := R[1][1].ElemCount + 1;
   writeln(x)
 end.
-{------------------------------------------------ 287 ladder__rung14_row_assign}
+```
+
+```stdout
+          5
+          6
+```
+
+## ladder__rung14_row_assign
+
+```Pascal
 {$mode objfpc}
 program row_assign;
 type trow = array[1..2] of string;
@@ -4816,7 +7662,16 @@ begin
   r := Ex[3];
   writeln(r[2], r[1]);
 end.
-{------------------------------------------------- 288 ladder__rung14_row_store}
+```
+
+```stdout
+cd
+fe
+```
+
+## ladder__rung14_row_store
+
+```Pascal
 {$mode objfpc}
 program row_store;
 var m: array[1..2, 1..3] of integer; ri: array[1..3] of integer; i, j: integer;
@@ -4828,7 +7683,16 @@ begin
   m[1] := ri;
   writeln(m[1, 1], ' ', m[1, 2], ' ', m[2, 2]);
 end.
-{------------------------------------------------- 289 program_record_pointer_1}
+```
+
+```stdout
+21 23
+21 99 22
+```
+
+## program_record_pointer_1
+
+```Pascal
 program boolptr(output);
 type rp = ^rec; rec = record f : boolean end;
 var p : rp; i : integer;
@@ -4840,7 +7704,16 @@ begin
   p^.f := i < 3;
   if p^.f then writeln(1) else writeln(0)
 end.
-{------------------------------------------------ 290 program_record_pointer_11}
+```
+
+```stdout
+          1
+          0
+```
+
+## program_record_pointer_11
+
+```Pascal
 program boolptr(output);
 type rp = ^rec; rec = record f : boolean end;
 var p : rp; i : integer;
@@ -4852,7 +7725,16 @@ begin
   p^.f := i < 3;
   if p^.f then writeln(1) else writeln(0)
 end.
-{---------------------------------------------------- 291 ladder__rung06_arrays}
+```
+
+```stdout
+          1
+          0
+```
+
+## ladder__rung06_arrays
+
+```Pascal
 program rung06arrays;
 var
   a: array[1..5] of integer;
@@ -4865,7 +7747,15 @@ begin
     s := s + a[i];
   writeln(s)
 end.
-{------------------------------------------ 292 ladder__rung14_row_enum_indexed}
+```
+
+```stdout
+         55
+```
+
+## ladder__rung14_row_enum_indexed
+
+```Pascal
 {$mode objfpc}
 program row_enum_indexed;
 type TLang = (en, fr, de);
@@ -4878,7 +7768,16 @@ begin
   r := Map[de];
   writeln(r[2], r[1], r[0]);
 end.
-{------------------------------------------------- 293 program_record_pointer_2}
+```
+
+```stdout
+def
+ihg
+```
+
+## program_record_pointer_2
+
+```Pascal
 program disc(output);
 type
   pp = ^prec;
@@ -4891,7 +7790,16 @@ begin
   writeln(arr^.ael^.f);
   writeln(arr^.inx^.f)
 end.
-{--------------------------------------------------- 294 ladder__rung09_strings}
+```
+
+```stdout
+        111
+        222
+```
+
+## ladder__rung09_strings
+
+```Pascal
 program rung09strings;
 type
   str3 = packed array[1..3] of char;
@@ -4905,7 +7813,16 @@ begin
     writeln('ne');
   writeln(a)
 end.
-{------------------------------------------- 295 program_array_packed_replace_3}
+```
+
+```stdout
+eq
+foo
+```
+
+## program_array_packed_replace_3
+
+```Pascal
 program chararrvv(output);
 type alpha = packed array[1..8] of char;
 var a, b: alpha; n: integer;
@@ -4920,7 +7837,15 @@ begin
   if a <> b then n := n + 20;
   writeln(n)
 end.
-{-------------------------------------------------- 296 program_writeln_trunc_1}
+```
+
+```stdout
+         21
+```
+
+## program_writeln_trunc_1
+
+```Pascal
 program stdlib1(input, output);
 var i : integer;
 begin
@@ -4935,7 +7860,22 @@ begin
   writeln(pred(10));
   writeln(succ(10))
 end.
-{-------------------------------------- 297 ladder__rung16_const_fold_odd_bound}
+```
+
+```stdout
+          7
+          5
+          3
+         -2
+no
+yes
+          9
+         11
+```
+
+## ladder__rung16_const_fold_odd_bound
+
+```Pascal
 program constfoldodd;
 {$mode objfpc}
 const
@@ -4951,7 +7891,17 @@ begin
   writeln(N, ' ', high(c));
   writeln(B, ' ', ord(B));
 end.
-{----------------- 298 ladder__rung19_generic_tarray_of_a_later_declared_record}
+```
+
+```stdout
+9 0 9 10
+2 2
+TRUE 1
+```
+
+## ladder__rung19_generic_tarray_of_a_later_declared_record
+
+```Pascal
 {$mode objfpc}{$H+}
 type TR = record P: string; N: integer; end;
 function Mk(n: integer; out a: specialize TArray<TR>): Boolean;
@@ -4967,7 +7917,18 @@ begin
   writeln(Mk(3, a), ' ', Length(a));
   for i := 0 to High(a) do writeln(a[i].P, a[i].N);
 end.
-{------------------------------------------------------ 299 program_array_for_1}
+```
+
+```stdout
+TRUE 3
+v0
+v2
+v4
+```
+
+## program_array_for_1
+
+```Pascal
 program matmul;
 var a, b, c: array[0..1, 0..1] of integer;
     i, j, k: integer;
@@ -4983,7 +7944,18 @@ begin
   writeln(c[0,0]); writeln(c[0,1]);
   writeln(c[1,0]); writeln(c[1,1])
 end.
-{------------------------------------------------------ 300 program_array_for_8}
+```
+
+```stdout
+         19
+         22
+         43
+         50
+```
+
+## program_array_for_8
+
+```Pascal
 program matmul;
 var a, b, c: array[0..1, 0..1] of integer;
     i, j, k: integer;
@@ -4999,7 +7971,18 @@ begin
   writeln(c[0,0]); writeln(c[0,1]);
   writeln(c[1,0]); writeln(c[1,1])
 end.
-{------------------------------------------------- 301 program_record_pointer_6}
+```
+
+```stdout
+         19
+         22
+         43
+         50
+```
+
+## program_record_pointer_6
+
+```Pascal
 program nestpv;
 type
   cell = record num: integer end;
@@ -5015,7 +7998,16 @@ begin
   writeln(gattr.kind);
   writeln(gattr.cval^.num)
 end.
-{------------------- 302 ladder__rung13_pchar_at_a_string_formal_and_its_length}
+```
+
+```stdout
+          3
+         77
+```
+
+## ladder__rung13_pchar_at_a_string_formal_and_its_length
+
+```Pascal
 {$mode delphi}
 program pcharasstring;
 var s: AnsiString; p: PChar; i: integer;
@@ -5032,7 +8024,17 @@ begin
   show(p, length(p));
   writeln(s[4]);
 end.
-{------------------ 303 ladder__rung30_a_memory_stream_reads_back_what_it_wrote}
+```
+
+```stdout
+[wxyz] 4 4
+[wx] 2 2
+z
+```
+
+## ladder__rung30_a_memory_stream_reads_back_what_it_wrote
+
+```Pascal
 {$mode objfpc}
 program rung30ms;
 uses Classes;
@@ -5049,7 +8051,19 @@ begin
   m.Clear; writeln(m.Size, ' ', m.Position);
   m.Free;
 end.
-{------------------------------------------- 304 program_array_packed_replace_2}
+```
+
+```stdout
+7 7
+3 7 8 9
+1000 7
+8
+0 0
+```
+
+## program_array_packed_replace_2
+
+```Pascal
 program chararrord(output);
 type alpha = packed array[1..8] of char;
 var a, b: alpha; n: integer;
@@ -5066,7 +8080,15 @@ begin
   if 'mmm     ' > a then n := n + 400;
   writeln(n)
 end.
-{------------------------------------------------------------- 305 stdin__read3}
+```
+
+```stdout
+        707
+```
+
+## stdin__read3
+
+```Pascal
 program read3(input, output);
 var i : integer;
     sum : integer;
@@ -5083,7 +8105,19 @@ begin
   end;
   writeln(sum)
 end.
-{------------------------------------------------------ 306 program_array_for_5}
+```
+
+```stdin
+1 2 3 4 5
+```
+
+```stdout
+         15
+```
+
+## program_array_for_5
+
+```Pascal
 program enumsubarr(output);
 type
   season = (spring, summer, fall, winter);
@@ -5101,7 +8135,20 @@ begin
   writeln(counts[1]);
   writeln(counts[12])
 end.
-{------------------------------------------------- 307 program_record_pointer_3}
+```
+
+```stdout
+         91
+         92
+         91
+         90
+          3
+         36
+```
+
+## program_record_pointer_3
+
+```Pascal
 program nestptr1;
 type
   inner = record a, b: integer end;
@@ -5119,7 +8166,18 @@ begin
   writeln(p^.c.b);
   writeln(p^.y)
 end.
-{------------------------------------------------------------- 308 stdin__read4}
+```
+
+```stdout
+          1
+         42
+          7
+         99
+```
+
+## stdin__read4
+
+```Pascal
 program read4(input, output);
 var c : char;
     count : integer;
@@ -5137,7 +8195,20 @@ begin
   end;
   writeln(count)
 end.
-{----------------------------- 309 ladder__rung15_layout_ptr_to_nested_row_copy}
+```
+
+```stdin
+abc
+de
+```
+
+```stdout
+          7
+```
+
+## ladder__rung15_layout_ptr_to_nested_row_copy
+
+```Pascal
 program layoutptrnestedrowcopy;
 {$mode delphi}
 type
@@ -5156,7 +8227,16 @@ begin
   p^[2] := r;
   writeln(a[2, 1]);
 end.
-{------------------------------ 310 ladder__rung21_class_indexed_property_chain}
+```
+
+```stdout
+5 7
+6
+```
+
+## ladder__rung21_class_indexed_property_chain
+
+```Pascal
 {$mode delphi}
 type
   TAdj = class N: integer; constructor Create; end;
@@ -5175,7 +8255,16 @@ begin
   writeln(g.Items['a'].N, ' ', g['a'].N);
   g.Touch;
 end.
-{------------------------------------------------- 311 program_record_pointer_7}
+```
+
+```stdout
+7 7
+7 7
+```
+
+## program_record_pointer_7
+
+```Pascal
 program nestpv2;
 type
   cell = record num: integer end;
@@ -5194,7 +8283,17 @@ begin
   writeln(gattr.cval.ival);
   writeln(gattr.cval.valp^.num)
 end.
-{-------------------------------------- 312 ladder__rung14_row_string_elem_char}
+```
+
+```stdout
+          3
+         42
+         88
+```
+
+## ladder__rung14_row_string_elem_char
+
+```Pascal
 program rowstringelemchar;
 {$mode objfpc}{$H+}
 type
@@ -5214,7 +8313,15 @@ begin
   if g[0][1] = '.' then g[0][1] := g[0][1] + '!';
   writeln(g[1][2], length(g[1][2]), ' ', g[0][1], ' ', g[1][0], ' ', f[1, 2], length(f[1, 2]));
 end.
-{---------------------- 313 ladder__rung15_layout_ptr_to_nested_element_pointer}
+```
+
+```stdout
+k1 .! z A1
+```
+
+## ladder__rung15_layout_ptr_to_nested_element_pointer
+
+```Pascal
 program layoutptrnestedelementpointer;
 {$mode delphi}
 type
@@ -5234,7 +8341,15 @@ begin
   p^ := 9;
   writeln(a[1, 0], ' ', a[2, 0]);
 end.
-{--------------------------------------------------- 314 program_array_packed_5}
+```
+
+```stdout
+7 9
+```
+
+## program_array_packed_5
+
+```Pascal
 program chararrcvc(output);
 type alfa = packed array[1..4] of char;
 var rw: array[1..3] of alfa;
@@ -5255,7 +8370,16 @@ begin
   i := 3; j := 1;
   if rw[i] = rw[j] then writeln('eq') else writeln('ne')
 end.
-{------------------------------------- 315 ladder__rung25_interface_type_parses}
+```
+
+```stdout
+         55
+eq
+```
+
+## ladder__rung25_interface_type_parses
+
+```Pascal
 {$mode objfpc}
 program w601;
 type
@@ -5277,7 +8401,15 @@ begin
   n := 6;
   writeln('interfaces declared, n=', n * 7);
 end.
-{------------------------------- 316 ladder__rung20_generic_class_two_instances}
+```
+
+```stdout
+interfaces declared, n=42
+```
+
+## ladder__rung20_generic_class_two_instances
+
+```Pascal
 {$mode objfpc}{$H+}
 type
   generic TStack<T> = class
@@ -5300,7 +8432,15 @@ begin
   s.Push(1); s.Push(2); t.Push('a'); t.Push('bc');
   writeln(s.Pop, ' ', s.n, ' ', t.Pop, ' ', t.Pop, ' ', t.n);
 end.
-{------------------------------------------------- 317 planner_finish__pf_binop}
+```
+
+```stdout
+2 1 bc a 0
+```
+
+## planner_finish__pf_binop
+
+```Pascal
 { DESIGN-PLAN planner-finish witness: arithmetic over locals, parameters and a global; a var parameter; a parameter read through its coordinate }
 program pf_binop;
 var g, r, s, t: integer;
@@ -5323,7 +8463,17 @@ begin
   writeln(s:1);
   writeln(t:1);
 end.
-{--------------------------------------------- 318 program_function_procedure_5}
+```
+
+```stdout
+7
+10
+2
+```
+
+## program_function_procedure_5
+
+```Pascal
 program goto3;
 var r: integer;
 
@@ -5357,7 +8507,16 @@ begin
   writeln(r);
   writeln(dbl(5))
 end.
-{------------------------------------------- 319 front_end__pf15_string_helpers}
+```
+
+```stdout
+         11
+         15
+```
+
+## front_end__pf15_string_helpers
+
+```Pascal
 program pf15_string_helpers;
 {$mode objfpc}{$h+}
 uses SysUtils;
@@ -5401,7 +8560,31 @@ begin
   i := Length(s.Split([',']));
   WriteLn(i);
 end.
-{------------------------------------------------- 320 front_end__pf17_procvars}
+```
+
+```stdout
+3:[x][y][z]
+4:[one][two][][three]
+3:[one][two][three]
+6:[a][b][c][][d][]
+4:[a][b][c][d]
+4:[a][b;c][][d]
+3:[a][b;c][]
+2:[a][b;c]
+5:[on][ ][  thr][][]
+1:[]
+4:[x][y][z][w]
+p|q|r|
+x-y-z
+a, b, c
+xyz
+one+two+three
+3
+```
+
+## front_end__pf17_procvars
+
+```Pascal
 program pf17_procvars;
 {$mode objfpc}
 type
@@ -5447,7 +8630,23 @@ begin
   p := q;
   p();
 end.
-{------------------------------------------------ 321 front_end__pf17_methodptr}
+```
+
+```stdout
+hi
+bye
+hi
+bye
+8
+7
+assigned
+nil
+bye
+```
+
+## front_end__pf17_methodptr
+
+```Pascal
 program pf17_methodptr;
 {$mode objfpc}
 type
@@ -5509,21 +8708,55 @@ begin
   o2.Free;
   k.Free;
 end.
-{---------------------------------------------- 322 program_procedure_record_12}
+```
+
+```stdout
+go 5
+go 6
+go 7
+go 7
+14
+15
+assigned
+nil
+kid 9
+```
+
+## program_procedure_record_12
+
+```Pascal
 program vpfld(output);
 type rec = record fld: integer; other: integer end; pr = ^rec;
 var p: pr;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
 begin new(p); p^.fld := 7; p^.other := 99; genlabel(p^.fld);
   writeln(p^.fld); writeln(p^.other) end.
-{----------------------------------------------- 323 program_procedure_record_5}
+```
+
+```stdout
+         42
+         99
+```
+
+## program_procedure_record_5
+
+```Pascal
 program vpfld(output);
 type rec = record fld: integer; other: integer end; pr = ^rec;
 var p: pr;
   procedure genlabel(var nxtlab: integer); begin nxtlab := 42 end;
 begin new(p); p^.fld := 7; p^.other := 99; genlabel(p^.fld);
   writeln(p^.fld); writeln(p^.other) end.
-{------------------------------- 324 front_end__pf33_unit_qualified_const_bound}
+```
+
+```stdout
+         42
+         99
+```
+
+## front_end__pf33_unit_qualified_const_bound
+
+```Pascal
 {$mode objfpc}
 program qb;
 uses Dos;
@@ -5531,7 +8764,15 @@ const maxN = 100;
 type A = array [0 .. maxN div Dos.Directory] of integer;
 var x: A;
 begin x[High(A)] := 7; writeln(High(A), ' ', x[6]) end.
-{-------------------------------------------- 325 ladder__rung12_fillbyte_bytes}
+```
+
+```stdout
+6 7
+```
+
+## ladder__rung12_fillbyte_bytes
+
+```Pascal
 {$mode objfpc}
 program fillbyte_bytes;
 var b: array[0..7] of byte; i: integer;
@@ -5541,7 +8782,15 @@ begin
   for i := 0 to 7 do write(b[i], ' ');
   writeln;
 end.
-{-------------------------------------------- 326 ladder__rung12_fillchar_chars}
+```
+
+```stdout
+9 9 200 200 200 9 9 9 
+```
+
+## ladder__rung12_fillchar_chars
+
+```Pascal
 {$mode objfpc}
 program fillchar_chars;
 var c: array[1..5] of char; i: integer;
@@ -5551,7 +8800,15 @@ begin
   for i := 1 to 5 do write(c[i]);
   writeln;
 end.
-{--------------------------------------------- 327 ladder__rung12_fillchar_zero}
+```
+
+```stdout
+x--xx
+```
+
+## ladder__rung12_fillchar_zero
+
+```Pascal
 {$mode objfpc}
 program fillchar_zero;
 var a: array[1..6] of integer; i: integer;
@@ -5561,7 +8818,15 @@ begin
   for i := 1 to 6 do write(a[i], ' ');
   writeln;
 end.
-{-------------------------------------------- 328 ladder__rung12_fillword_words}
+```
+
+```stdout
+0 0 0 0 0 0 
+```
+
+## ladder__rung12_fillword_words
+
+```Pascal
 {$mode objfpc}
 program fillword_words;
 var w: array[1..6] of word; i: integer;
@@ -5571,7 +8836,15 @@ begin
   for i := 1 to 6 do write(w[i], ' ');
   writeln;
 end.
-{--------------------------------------------------- 329 program_record_array_4}
+```
+
+```stdout
+1 1 500 500 1 1 
+```
+
+## program_record_array_4
+
+```Pascal
 program vrec7;
 type constant = record
       rval: packed array [1..8] of char;
@@ -5582,7 +8855,15 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------------- 330 program_record_pointer_5}
+```
+
+```stdout
+          5
+```
+
+## program_record_pointer_5
+
+```Pascal
 program vrecfield;
 type csp=^cc; cc=record slgth:integer end;
      valu=record case b:boolean of true:(ival:integer); false:(valp:csp) end;
@@ -5593,7 +8874,16 @@ begin new(lvp); lvp^.slgth:=99; v.valp:=lvp;
   g.cval := v;
   writeln(g.cval.valp^.slgth)
 end.
-{------------------------------------------------- 331 ladder__rung13_ptr_index}
+```
+
+```stdout
+         99
+         99
+```
+
+## ladder__rung13_ptr_index
+
+```Pascal
 {$mode objfpc}
 program ptr_index;
 var a: array[0..4] of longint; p: plongint; i: integer;
@@ -5605,7 +8895,16 @@ begin
   for i := 0 to 4 do write(a[i], ' ');
   writeln;
 end.
-{------------------------------------------------- 332 ladder__rung14_row_param}
+```
+
+```stdout
+101 103
+100 101 7 103 104 
+```
+
+## ladder__rung14_row_param
+
+```Pascal
 {$mode objfpc}
 program row_param;
 type trow = array[1..2] of string;
@@ -5617,7 +8916,17 @@ begin
   bump(Ex[2]);
   show(Ex[2]);
 end.
-{----------------------------------------------- 333 ladder__rung12_move_arrays}
+```
+
+```stdout
+ba
+zz
+dc
+```
+
+## ladder__rung12_move_arrays
+
+```Pascal
 {$mode objfpc}
 program move_arrays;
 var a, b: array[0..5] of integer; i: integer;
@@ -5630,7 +8939,16 @@ begin
   for i := 0 to 5 do write(a[i], ' ');
   writeln;
 end.
-{---------------------------------- 334 ladder__rung06_arrays_named_string_elem}
+```
+
+```stdout
+1 4 9 -1 -1 -1 
+0 1 0 1 4 9 
+```
+
+## ladder__rung06_arrays_named_string_elem
+
+```Pascal
 {$mode objfpc}
 program arrays_named_string_elem;
 type trow = array[1..2] of string;
@@ -5644,7 +8962,19 @@ begin
   q(w);
   writeln(w[1], w[2]);
 end.
-{------------- 335 ladder__rung24_static_array_with_an_all_negative_index_range}
+```
+
+```stdout
+k
+m
+z
+y
+ky
+```
+
+## ladder__rung24_static_array_with_an_all_negative_index_range
+
+```Pascal
 program negbounds;
 const C: array[-17..-13] of integer = (0, 2, 11, 19, 90);
 var V: array[-5..-1] of integer;
@@ -5658,7 +8988,18 @@ begin
   for i := low(V) to high(V) do write(V[i], ' ');
   writeln
 end.
-{------------------------------------------------------ 336 program_array_for_2}
+```
+
+```stdout
+        -17         -13
+          0          90
+          0
+         25          16           9           4           1 
+```
+
+## program_array_for_2
+
+```Pascal
 program arr2d;
 var a: array[0..1, 0..2] of integer;
     i, j: integer;
@@ -5672,7 +9013,16 @@ begin
     writeln
   end
 end.
-{------------------------------------------------------ 337 program_array_for_3}
+```
+
+```stdout
+          1           2           3 
+          4           5           6 
+```
+
+## program_array_for_3
+
+```Pascal
 program arr2d2;
 var b: array[0..2, 0..2] of integer;
     i, j: integer;
@@ -5687,7 +9037,17 @@ begin
     writeln
   end
 end.
-{------------------------------------------------------ 338 program_array_for_6}
+```
+
+```stdout
+          0           1           2 
+          3           4           5 
+          6           7           8 
+```
+
+## program_array_for_6
+
+```Pascal
 program markrel;
 var mark: array[0..2, 0..2] of integer;
     i, j: integer;
@@ -5702,7 +9062,17 @@ begin
     writeln
   end
 end.
-{------------------------------------------- 339 program_array_packed_replace_1}
+```
+
+```stdout
+          1           0           0 
+          0           1           0 
+          0           0           1 
+```
+
+## program_array_packed_replace_1
+
+```Pascal
 program chararrlit(output);
 type alpha = packed array[1..8] of char;
 var id: alpha;
@@ -5717,7 +9087,15 @@ begin
   if id = 'readln  ' then n := n + 1000;
   writeln(n)
 end.
-{------------------------------------------------ 340 program_procedure_array_1}
+```
+
+```stdout
+        111
+```
+
+## program_procedure_array_1
+
+```Pascal
 program aa6;
 var m: array [0..3] of packed array [1..4] of char;
 procedure outer;
@@ -5732,7 +9110,16 @@ begin
   outer;
   writeln(m[0]); writeln(m[1])
 end.
-{------------------------------------------------ 341 program_procedure_array_4}
+```
+
+```stdout
+ abi
+ abr
+```
+
+## program_procedure_array_4
+
+```Pascal
 program aa6;
 var m: array [0..3] of packed array [1..4] of char;
 procedure outer;
@@ -5747,7 +9134,16 @@ begin
   outer;
   writeln(m[0]); writeln(m[1])
 end.
-{---------------------------------------- 342 packed_arrays__pa10_local_dynamic}
+```
+
+```stdout
+ abi
+ abr
+```
+
+## packed_arrays__pa10_local_dynamic
+
+```Pascal
 {$mode delphi}
 program pa10_local_dynamic;
 procedure p(n: longint);
@@ -5763,7 +9159,17 @@ begin
   setlength(b, 1000000); for i := 0 to 9 do b[i * 100000] := i + 250; q := b[900000] + b[100000];
 end;
 begin p(1000000); p(1000000); writeln(q); end.
-{------------------------------------------------- 343 front_end__pf09_generics}
+```
+
+```stdout
+TRUE FALSE 4000000000 0 1000000 1000000
+TRUE FALSE 4000000000 0 1000000 1000000
+254
+```
+
+## front_end__pf09_generics
+
+```Pascal
 {$mode objfpc}
 program gn;
 uses SysUtils, Generics.Collections;
@@ -5782,7 +9188,20 @@ begin
   l := TIntList.Create; l.Add(5); l.Add(2); l.Add(9); l.Sort; for i := 0 to l.Count - 1 do write(l[i], ' '); writeln(l.Count); l.Free;
   m := TStrIntMap.Create; m.Add('one', 1); m.Add('two', 2); m.AddOrSetValue('one', 11); writeln(m['one'], ' ', m.Count, ' ', m.ContainsKey('two')); for k in m.Keys do write(k, ' '); writeln; m.Free;
 end.
-{-------------------- 344 ladder__rung19_generic_record_array_and_pointer_types}
+```
+
+```stdout
+7
+9 pear
+4 3
+2 5 9 3
+11 2 TRUE
+one two 
+```
+
+## ladder__rung19_generic_record_array_and_pointer_types
+
+```Pascal
 {$mode objfpc}{$H+}
 type
   generic TBox<T> = record v: T; n: integer; end;
@@ -5801,7 +9220,15 @@ begin
   nd.v := 5; nd.next := nil;
   writeln(bi.v, ' ', bs.v, ' ', bs.n, ' ', a[2], ' ', length(a), ' ', nd.v, ' ', nd.next = nil);
 end.
-{--------------------------------------------------- 345 program_record_array_3}
+```
+
+```stdout
+7 seven 2 4 3 5 TRUE
+```
+
+## program_record_array_3
+
+```Pascal
 program recspan_copy(output);
 type
   pt = record x: integer; y: integer end;
@@ -5820,7 +9247,17 @@ begin
   v[2] := v[1];
   writeln(v[2].vi)
 end.
-{------------------------------------------------- 346 program_record_pointer_8}
+```
+
+```stdout
+          3          4
+          3          4
+         42
+```
+
+## program_record_pointer_8
+
+```Pascal
 program ptr4(output);
 type
   link = ^node;
@@ -5840,7 +9277,16 @@ begin
   writeln(head^.val);
   writeln(head^.next^.val)
 end.
-{--------------------------------------------- 347 program_function_procedure_3}
+```
+
+```stdout
+          1
+          2
+```
+
+## program_function_procedure_3
+
+```Pascal
 program char3;
 var c : char;
 procedure printc(x : char);
@@ -5861,7 +9307,17 @@ begin
     'Z': writeln('late')
   end
 end.
-{--------------------------------------------- 348 program_function_procedure_8}
+```
+
+```stdout
+M
+N
+mid
+```
+
+## program_function_procedure_8
+
+```Pascal
 program char3;
 var c : char;
 procedure printc(x : char);
@@ -5882,7 +9338,17 @@ begin
     'Z': writeln('late')
   end
 end.
-{----------------------------------------------- 349 front_end__pf22_sstr_store}
+```
+
+```stdout
+M
+N
+mid
+```
+
+## front_end__pf22_sstr_store
+
+```Pascal
 {$mode delphi}
 type tErg = string[63];
 function F(n: integer): tErg;
@@ -5906,7 +9372,17 @@ begin
   s[0] := #2;
   writeln(s, Length(s));
 end.
-{--------------------------------------------------------- 350 benchmark_towers}
+```
+
+```stdout
+4071
+aXcc3
+aX2
+```
+
+## benchmark_towers
+
+```Pascal
 (* PROVENANCE: Hennessy "Towers" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Towers of Hanoi,
    recursive move count (2^disks-1). P4-faithful transliteration.
@@ -5932,7 +9408,19 @@ begin
   end;
   writeln(movesdone)
 end.
-{---------------------------------------------- 351 program_array_for_replace_1}
+```
+
+```stdin
+1
+```
+
+```stdout
+     262143
+```
+
+## program_array_for_replace_1
+
+```Pascal
 (* PB-37: pcom init simulation - does 256-element init + char-indexed array work? *)
 program pb37(output);
 const
@@ -5962,7 +9450,18 @@ begin
   writeln(chartp[' ']);
   writeln(chartp['x'])
 end.
-{---------------------------------------------- 352 program_array_for_replace_2}
+```
+
+```stdout
+letter
+chperiod
+chspace
+illegal
+```
+
+## program_array_for_replace_2
+
+```Pascal
 (* PB-37: pcom init simulation - does 256-element init + char-indexed array work? *)
 program pb37(output);
 const
@@ -5992,7 +9491,18 @@ begin
   writeln(chartp[' ']);
   writeln(chartp['x'])
 end.
-{--------------------------------------------- 353 program_function_procedure_4}
+```
+
+```stdout
+letter
+chperiod
+chspace
+illegal
+```
+
+## program_function_procedure_4
+
+```Pascal
 program enum2;
 type
   opkind = (lod, str, add, sub, mpi, dvi, ujp, fjp, stp);
@@ -6023,7 +9533,18 @@ begin
   for op := lod to fjp do
     if op = ujp then writeln(ord(op))
 end.
-{--------------------------------------------- 354 program_function_procedure_9}
+```
+
+```stdout
+          2
+          1
+         32
+          6
+```
+
+## program_function_procedure_9
+
+```Pascal
 program enum2;
 type
   opkind = (lod, str, add, sub, mpi, dvi, ujp, fjp, stp);
@@ -6054,7 +9575,18 @@ begin
   for op := lod to fjp do
     if op = ujp then writeln(ord(op))
 end.
-{--------------------------------------------------- 355 program_record_array_2}
+```
+
+```stdout
+          2
+          1
+         32
+          6
+```
+
+## program_record_array_2
+
+```Pascal
 program arrrec2;
 type rec = record a, b: integer end;
 var d: array[0..3] of rec;
@@ -6062,7 +9594,16 @@ begin
   with d[2] do begin a := 7; b := 9 end;
   writeln(d[2].a); writeln(d[2].b)
 end.
-{---------------------------------------------------- 356 front_end__pf05_pchar}
+```
+
+```stdout
+          7
+          9
+```
+
+## front_end__pf05_pchar
+
+```Pascal
 {$mode objfpc}{$H+}
 program pc;
 var s: string; p: PChar; c: array[0..4] of char; q: PChar; i: Integer;
@@ -6071,7 +9612,18 @@ begin
   c := 'abcde'; q := @c[0]; inc(q, 2); writeln(q^); q^ := 'Z'; writeln(c[2]);
   for i := 0 to 4 do write(c[i]); writeln;
 end.
-{------------------------------------------------- 357 ladder__rung14_row_forin}
+```
+
+```stdout
+eho 5
+c
+Z
+abZde
+```
+
+## ladder__rung14_row_forin
+
+```Pascal
 {$mode objfpc}
 program row_forin;
 const Ex: array[1..3, 1..2] of string = (('a', 'b'), ('c', 'd'), ('e', 'f'));
@@ -6080,7 +9632,17 @@ begin
   n := 0;
   for tab in Ex do begin n := n + 1; writeln(n, ' ', tab[1], tab[2]) end;
 end.
-{--------------------------------------------------- 358 program_record_array_1}
+```
+
+```stdout
+1 ab
+2 cd
+3 ef
+```
+
+## program_record_array_1
+
+```Pascal
 program arrrec2;
 type rec = record a, b: integer end;
 var d: array[0..3] of rec;
@@ -6089,7 +9651,18 @@ begin
   for i := 0 to 3 do begin d[i].a := i * 10; d[i].b := i + 100 end;
   for i := 0 to 3 do writeln(d[i].a, d[i].b)
 end.
-{--------------------------------------------------- 359 program_array_packed_3}
+```
+
+```stdout
+          0        100
+         10        101
+         20        102
+         30        103
+```
+
+## program_array_packed_3
+
+```Pascal
 program chararr1;
 var s: packed array [1..8] of char;
     i: integer;
@@ -6099,7 +9672,15 @@ begin
   for i := 1 to 8 do write(s[i]);
   writeln
 end.
-{-------------------------------------- 360 ladder__rung13_ptr_addr_whole_array}
+```
+
+```stdout
+hello   
+```
+
+## ladder__rung13_ptr_addr_whole_array
+
+```Pascal
 {$mode objfpc}
 program ptr_addr_whole_array;
 type tarr = array[1..4] of longint; parr = ^tarr;
@@ -6110,7 +9691,15 @@ begin
   q^[3] := 33;
   writeln(a[3], ' ', q^[1] + q^[4]);
 end.
-{------------------------------------------------- 361 program_function_array_1}
+```
+
+```stdout
+33 5
+```
+
+## program_function_array_1
+
+```Pascal
 program arrparam(output);
 type vec = array[0..4] of integer;
 var v: vec; i: integer;
@@ -6121,7 +9710,15 @@ begin
   for i := 0 to 4 do v[i] := i + 1;
   writeln(sumvec(v))
 end.
-{------------------------------------------------- 362 program_function_array_3}
+```
+
+```stdout
+         15
+```
+
+## program_function_array_3
+
+```Pascal
 program arrparam(output);
 type vec = array[0..4] of integer;
 var v: vec; i: integer;
@@ -6132,7 +9729,15 @@ begin
   for i := 0 to 4 do v[i] := i + 1;
   writeln(sumvec(v))
 end.
-{------------------------------------------- 363 program_record_array_replace_4}
+```
+
+```stdout
+         15
+```
+
+## program_record_array_replace_4
+
+```Pascal
 program vrec6;
 type constant = record case cclass: integer of
         1: (rval: packed array [1..8] of char);
@@ -6143,7 +9748,15 @@ begin
   c.pval := 5;
   writeln(c.pval)
 end.
-{------------------------------------------- 364 program_record_array_replace_3}
+```
+
+```stdout
+          5
+```
+
+## program_record_array_replace_3
+
+```Pascal
 program vrec5;
 type constant = record case cclass: integer of
         1: (rval: packed array [1..8] of char);
@@ -6156,7 +9769,15 @@ begin
   c.slgth := 5;
   writeln(c.slgth)
 end.
-{------------------------------------------- 365 ladder__rung13_ptr_pchar_array}
+```
+
+```stdout
+          5
+```
+
+## ladder__rung13_ptr_pchar_array
+
+```Pascal
 {$mode objfpc}
 program ptr_pchar_array;
 var c: array[0..4] of char; q: pchar; i: integer;
@@ -6170,7 +9791,16 @@ begin
   for i := 0 to 4 do write(c[i]);
   writeln;
 end.
-{---------------------------------------------------- 366 front_end__pf07_names}
+```
+
+```stdout
+c
+abZYe
+```
+
+## front_end__pf07_names
+
+```Pascal
 {$mode objfpc}
 program nm;
 uses SysUtils, Classes;
@@ -6185,7 +9815,20 @@ begin
   al := taLeftJustify; so := TStringSplitOptions.ExcludeEmpty; writeln(ord(al), ' ', ord(so), ' ', faAnyFile);
   if FindFirst('*.nothing', faAnyFile, sr) = 0 then writeln('found') else writeln('none'); FindClose(sr);
 end.
-{------------------------------------------------- 367 program_function_array_2}
+```
+
+```stdout
+0 4 h 5
+1 5 5
+0 3 0
+0 1 511
+none
+to stdout
+```
+
+## program_function_array_2
+
+```Pascal
 program arr2dtype2;
 type row = array[0..2] of integer;
 var r: row; i: integer;
@@ -6200,7 +9843,15 @@ begin
   for i := 0 to 2 do r[i] := i + 1;
   writeln(sumrow(r))
 end.
-{------------------------------------------- 368 ladder__rung13_ptr_punned_view}
+```
+
+```stdout
+          6
+```
+
+## ladder__rung13_ptr_punned_view
+
+```Pascal
 {$mode delphi}
 program punned_view;
 var u: array[0..15] of byte; q: array[0..1] of longint; s: array[0..3] of shortint; c: array[0..3] of char;
@@ -6216,7 +9867,19 @@ begin
   c[0] := 'A'; c[1] := 'B'; c[2] := 'C'; c[3] := 'D'; pc := @c; write(pc^, ' ');
   pc^ := $64636261; writeln(c[0], c[1], c[2], c[3]);
 end.
-{--------------------------------------------- 369 program_function_procedure_2}
+```
+
+```stdout
+0002000001000000 33554432 256
+1 2 3 4 254 255 255 255 67370753
+65534 65535 524286
+-2 -1 -1 -1 -2
+1145258561 abcd
+```
+
+## program_function_procedure_2
+
+```Pascal
 program arr2dtype3;
 type vec = array[0..3] of integer;
 var v: vec; i: integer;
@@ -6232,7 +9895,15 @@ begin
   fill(v);
   writeln(get2(v))
 end.
-{--------------------------------------------- 370 program_function_procedure_7}
+```
+
+```stdout
+         30
+```
+
+## program_function_procedure_7
+
+```Pascal
 program arr2dtype3;
 type vec = array[0..3] of integer;
 var v: vec; i: integer;
@@ -6248,7 +9919,15 @@ begin
   fill(v);
   writeln(get2(v))
 end.
-{------------------------------------------------- 371 program_record_pointer_4}
+```
+
+```stdout
+         30
+```
+
+## program_record_pointer_4
+
+```Pascal
 program nestwith1;
 type
   valu = record ival: integer; rval: integer end;
@@ -6264,7 +9943,17 @@ begin
   writeln(lcp^.values.ival);
   writeln(lcp^.values.rval)
 end.
-{------------------------------ 372 ladder__rung15_layout_ptr_to_nested_chained}
+```
+
+```stdout
+         10
+         55
+         77
+```
+
+## ladder__rung15_layout_ptr_to_nested_chained
+
+```Pascal
 program layoutptrnestedchained;
 {$mode delphi}
 type
@@ -6281,7 +9970,16 @@ begin
   p^[1][1] := 42;
   writeln(a[1][1]);
 end.
-{---------------------------- 373 ladder__rung15_layout_ptr_to_nested_two_index}
+```
+
+```stdout
+4 2
+42
+```
+
+## ladder__rung15_layout_ptr_to_nested_two_index
+
+```Pascal
 program layoutptrnestedtwoindex;
 {$mode delphi}
 type
@@ -6298,7 +9996,16 @@ begin
   p^[1, 1] := 99;
   writeln(a[1, 1]);
 end.
-{----------------------------- 374 ladder__rung15_layout_ptr_to_two_index_array}
+```
+
+```stdout
+23 12
+99
+```
+
+## ladder__rung15_layout_ptr_to_two_index_array
+
+```Pascal
 program layoutptrtwoindexarray;
 {$mode delphi}
 type
@@ -6315,7 +10022,16 @@ begin
   p^[1, 1] := 42;
   writeln(a[1, 1]);
 end.
-{------------ 375 ladder__rung22_generics_dictionary_string_keys_order_like_fpc}
+```
+
+```stdout
+4 2
+42
+```
+
+## ladder__rung22_generics_dictionary_string_keys_order_like_fpc
+
+```Pascal
 {$mode delphi}
 uses SysUtils, Generics.Collections;
 const names: array[0..9] of string = ('dw01', 'dw02', 'ieee', 'std', 'synopsys', 'dware', 'gtech', 'ramlib', 'std_cell_lib', 'des_system_lib');
@@ -6333,7 +10049,18 @@ begin
   for p in d do write(' ', p.Value);
   writeln(d.Count, ' ', d.ContainsKey('std'), ' ', d['gtech']);
 end.
-{------------------------------------------------ 376 packed_arrays__pa01_bytes}
+```
+
+```stdout
+ ieee std dw02 synopsys dw01
+ gtech dw02 synopsys dware dw01 std ieee
+ gtech dw02 synopsys dware dw01 std des_system_lib ramlib std_cell_lib ieee
+ 6 1 4 5 3 9 7 88 TRUE 6
+```
+
+## packed_arrays__pa01_bytes
+
+```Pascal
 {$mode fpc}
 program pa01_bytes;
 const
@@ -6351,7 +10078,16 @@ begin
   writeln(s);
   writeln(a[1], ' ', a[250], ' ', a[251], ' ', a[N])
 end.
-{------------------------------------------------ 377 program_record_pointer_10}
+```
+
+```stdout
+12499992715
+1 250 0 94
+```
+
+## program_record_pointer_10
+
+```Pascal
 program with3;
 type
   rp = ^rec;
@@ -6369,7 +10105,17 @@ begin
   end;
   writeln(p^.x)
 end.
-{-------------------------------- 378 ladder__rung15_layout_nested_is_one_block}
+```
+
+```stdout
+         10
+         20
+         15
+```
+
+## ladder__rung15_layout_nested_is_one_block
+
+```Pascal
 program nestedflatpointer;
 {$mode delphi}
 type
@@ -6388,7 +10134,15 @@ begin
   p := tpSpan(@b[1, 2]);
   writeln(p^[0], ' ', p^[1], ' ', p^[2], ' ', p^[5]);
 end.
-{------------------------------------- 379 ladder__rung16_real_const_fold_bound}
+```
+
+```stdout
+12 13 20 23
+```
+
+## ladder__rung16_real_const_fold_bound
+
+```Pascal
 program constfoldbound;
 {$mode delphi}
 const
@@ -6407,7 +10161,17 @@ begin
   writeln(R, ' ', low(b), ' ', high(b));
   writeln(S, ' ', low(d), ' ', high(d), ' ', length(d));
 end.
-{-------------------------------------- 380 ladder__rung12_move_from_with_field}
+```
+
+```stdout
+9685 9685 7
+2 1 2
+4 4 11 8
+```
+
+## ladder__rung12_move_from_with_field
+
+```Pascal
 {$mode objfpc}
 program mvw;
 type
@@ -6427,7 +10191,15 @@ begin
     with a[i] do begin move(t[1], s[l], length(t)); inc(l, length(t)); end;
   writeln(s);
 end.
-{-------------------------------------- 381 ladder__rung06_arrays_bool_index_2d}
+```
+
+```stdout
+abcde
+```
+
+## ladder__rung06_arrays_bool_index_2d
+
+```Pascal
 program boolindex2d(output);
 var
   a : array[boolean, 0..2] of integer;
@@ -6448,7 +10220,17 @@ begin
   writeln(b[1, false], b[1, true], b[2, false], b[2, t]);
   writeln(a[t, 1] + a[not t, 1])
 end.
-{----------------------------------------- 382 program_record_pointer_replace_1}
+```
+
+```stdout
+          0          2         10         12
+f1f2
+         12
+```
+
+## program_record_pointer_replace_1
+
+```Pascal
 (* PB-38: test new() and pointer dereference - used heavily in pcom init *)
 program pb38(output);
 type
@@ -6470,7 +10252,16 @@ begin
   writeln(q^.val);
   writeln(q^.next^.val)
 end.
-{--------------------------------------- 383 front_end__pf20i_array_helper_sort}
+```
+
+```stdout
+         99
+         42
+```
+
+## front_end__pf20i_array_helper_sort
+
+```Pascal
 {$mode delphi}
 uses Generics.Collections, Generics.Defaults;
 type
@@ -6494,7 +10285,15 @@ begin
     write(a[i].K, ':', a[i].Id, ' ');
   writeln;
 end.
-{------------------------------------------- 384 program_record_array_replace_2}
+```
+
+```stdout
+0:6 0:3 0:0 0:9 1:7 1:10 1:1 1:4 2:11 2:2 2:5 2:8 
+```
+
+## program_record_array_replace_2
+
+```Pascal
 (* PB-36: variant record initialization - same structure as pcom's display[] *)
 program pb36(output);
 type
@@ -6518,7 +10317,16 @@ begin
   writeln(d[0].occur);
   writeln(d[1].occur)
 end.
-{-------------------------------------------------- 385 ladder__rung10_pointers}
+```
+
+```stdout
+blck
+blck
+```
+
+## ladder__rung10_pointers
+
+```Pascal
 program rung10pointers;
 type
   node = ^cell;
@@ -6552,7 +10360,19 @@ begin
   dispose(b);
   dispose(a)
 end.
-{----------------------------------------------------- 386 front_end__pf03_caps}
+```
+
+```stdout
+          1
+          2
+linked
+distinct
+terminated
+```
+
+## front_end__pf03_caps
+
+```Pascal
 {$mode fpc}
 program pf03_caps;
 var
@@ -7164,7 +10984,15 @@ begin
   a480[1] := 480; r480.f := 480; r480.g := odd(480); s480 := 's480'; b480 := r480.g; c480 := chr(65 + 480 mod 26);
   writeln(a0[1], ' ', r480.f, ' ', s480, ' ', b480, ' ', c480, ' ', 600);
 end.
-{---------------- 387 ladder__rung06_arrays_rows_of_an_inline_packed_char_array}
+```
+
+```stdout
+0 480 s480 FALSE M 600
+```
+
+## ladder__rung06_arrays_rows_of_an_inline_packed_char_array
+
+```Pascal
 program rowsofinlinecharrows(output);
 var names:array[1..3] of packed array[1..4] of char;
     i:integer;
@@ -7173,7 +11001,15 @@ for i:=1 to 4 do names[2][i]:=chr(ord('a')+i-1);
 for i:=1 to 4 do names[3][i]:=chr(ord('A')+i-1);
 writeln(names[2],names[3]);
 end.
-{--------------------------------------------------- 388 program_array_packed_4}
+```
+
+```stdout
+abcdABCD
+```
+
+## program_array_packed_4
+
+```Pascal
 program chararr2;
 type alpha = packed array [1..8] of char;
 var id: alpha;
@@ -7184,7 +11020,15 @@ begin
   for i := 1 to 8 do write(id[i]);
   writeln
 end.
-{------------------------------------- 389 ladder__rung15_layout_dense_from_one}
+```
+
+```stdout
+pascal  
+```
+
+## ladder__rung15_layout_dense_from_one
+
+```Pascal
 program layoutdensefromone;
 {$mode delphi}
 var
@@ -7200,7 +11044,16 @@ begin
   for i := 1 to 5 do inc(p);
   writeln(p^);
 end.
-{----------------------------------- 390 ladder__rung13_ptr_array_pointer_index}
+```
+
+```stdout
+4
+6
+```
+
+## ladder__rung13_ptr_array_pointer_index
+
+```Pascal
 {$mode objfpc}
 program ptr_array_pointer_index;
 type tr = record a, b: longint end;
@@ -7217,7 +11070,18 @@ begin
   writeln(pr^[0].a, ' ', pr^[2].b);
   pr^[1].b := 77; writeln(r[2].b);
 end.
-{--------------------------------- 391 ladder__rung13_ptr_row_pointer_var_param}
+```
+
+```stdout
+6 15 27
+100
+1 9
+77
+```
+
+## ladder__rung13_ptr_row_pointer_var_param
+
+```Pascal
 {$mode delphi}
 program ptr_row_pointer_var_param;
 type tCnt = array[0..3] of UInt64; tDg = array[0..3] of tCnt;
@@ -7235,7 +11099,15 @@ begin
   end;
 end;
 begin Calc(G); writeln(G[0][0], ' ', G[1][1], ' ', G[3][2]); end.
-{------------------------------------------------- 392 packed_arrays__pa08_wide}
+```
+
+```stdout
+1 2 5
+```
+
+## packed_arrays__pa08_wide
+
+```Pascal
 {$mode fpc}
 program pa08_wide;
 type
@@ -7253,7 +11125,15 @@ begin
   s := 0; for i := 1 to 50 do s := s + keep[i][3] + length(keep[i]);
   writeln(trunc(a[0] + a[150000000] + a[high(a)]), ' ', length(a), ' ', s)
 end.
-{--------------------------------------------------- 393 program_array_packed_6}
+```
+
+```stdout
+31 300000000 1648925
+```
+
+## program_array_packed_6
+
+```Pascal
 (* pb39: element read of a BULK-assigned packed char array must work.
    Regression for arr_get packed-string fallback: bulk assign stores a plain
    string; arr_get previously FAILed for idx>=1, silently severing continuation
@@ -7271,7 +11151,17 @@ begin
   until ch = '.';
   writeln(n:1)
 end.
-{------------------------------------------ 394 ladder__rung13_ptr_addr_element}
+```
+
+```stdout
+E1ok
+E2ok
+2
+```
+
+## ladder__rung13_ptr_addr_element
+
+```Pascal
 {$mode objfpc}
 program ptr_addr_element;
 type pint = ^longint;
@@ -7290,7 +11180,18 @@ begin
   for i := 0 to 5 do write(a[i], ' ');
   writeln;
 end.
-{-------------------------------------- 395 ladder__rung12_fill_through_pointer}
+```
+
+```stdout
+20
+50
+40
+0 10 21 31 40 50 
+```
+
+## ladder__rung12_fill_through_pointer
+
+```Pascal
 {$mode delphi}
 program fillthroughpointer;
 type tS = array[0..9] of char; pS = ^tS;
@@ -7310,7 +11211,17 @@ begin
   FillDWord(pd[1], n, 7);
   for i := 0 to 5 do write(r[i], ' '); writeln;
 end.
-{---------------------------- 396 ladder__rung15_layout_nested_move_across_rows}
+```
+
+```stdout
+AAAAAAAAAA
+000099
+0 7 7 7 0 0 
+```
+
+## ladder__rung15_layout_nested_move_across_rows
+
+```Pascal
 program nestedmoverows;
 {$mode delphi}
 type
@@ -7330,7 +11241,17 @@ begin
     writeln;
   end;
 end.
-{------------------------------------------------- 397 program_record_pointer_9}
+```
+
+```stdout
+0 1 2 3 
+10 11 0 1 
+2 3 22 23 
+```
+
+## program_record_pointer_9
+
+```Pascal
 program ptr5(output);
 type link = ^node; node = record val : integer; next : link end;
 var head, t, p : link; i : integer;
@@ -7350,7 +11271,17 @@ begin
     p := p^.next
   end
 end.
-{---------------------------------------------- 398 packed_arrays__pa04_pointer}
+```
+
+```stdout
+         30
+         20
+         10
+```
+
+## packed_arrays__pa04_pointer
+
+```Pascal
 {$mode fpc}
 program pa04_pointer;
 type
@@ -7373,7 +11304,19 @@ begin
   pb := @bb[1]; pb^ := 9; inc(pb, 2); writeln(bb[1], ' ', pb^);
   pb := @bb[0]; for i := 0 to 5 do begin write(pb^, ' '); inc(pb) end; writeln
 end.
-{----------------------------------------- 399 program_record_pointer_replace_2}
+```
+
+```stdout
+77
+55 11
+0 11 22 77 44 55 66 77 
+9 253
+250 9 252 253 254 255 
+```
+
+## program_record_pointer_replace_2
+
+```Pascal
 program vrec3;
 type valu = record case b: boolean of
       true: (ival: integer);
@@ -7396,7 +11339,15 @@ begin
   end;
   writeln(fmin)
 end.
-{------------------------------------------------ 400 packed_arrays__pa07_churn}
+```
+
+```stdout
+          9
+```
+
+## packed_arrays__pa07_churn
+
+```Pascal
 {$mode fpc}
 program pa07_churn;
 type
@@ -7421,7 +11372,15 @@ begin
   for i := 1 to 50 do s := s + keep[i][7] + length(keep[i]);
   writeln(s)
 end.
-{---------------------------------------------- 401 front_end__pf12_lvalue_cast}
+```
+
+```stdout
+986326
+```
+
+## front_end__pf12_lvalue_cast
+
+```Pascal
 {$mode objfpc}{$h+}
 program lc;
 uses SysUtils;
@@ -7448,7 +11407,18 @@ begin
   c := 'a'; Byte(c) := 66; writeln(c);
   k := 7; Cardinal(k) := 9; writeln(k);
 end.
-{-------------------------------------------- 402 program_array_while_replace_1}
+```
+
+```stdout
+four three two one 
+4294967295
+B
+9
+```
+
+## program_array_while_replace_1
+
+```Pascal
 (*$c+,d+,l-,t-*)
 (*
   Sieve of Eratosthenes. Displays primes less than 'n'.
@@ -7477,7 +11447,39 @@ begin
         for i := 2 to n do
                 if a[i] then writeln(i);
 end.
-{-------------------------------------------- 403 program_array_while_replace_2}
+```
+
+```stdout
+          2
+          3
+          5
+          7
+         11
+         13
+         17
+         19
+         23
+         29
+         31
+         37
+         41
+         43
+         47
+         53
+         59
+         61
+         67
+         71
+         73
+         79
+         83
+         89
+         97
+```
+
+## program_array_while_replace_2
+
+```Pascal
 (*$c+,d+,l-,t-*)
 (*
   Sieve of Eratosthenes. Displays primes less than 'n'.
@@ -7506,7 +11508,39 @@ begin
         for i := 2 to n do
                 if a[i] then writeln(i);
 end.
-{------------ 404 ladder__rung22_class_derived_from_a_generic_object_dictionary}
+```
+
+```stdout
+          2
+          3
+          5
+          7
+         11
+         13
+         17
+         19
+         23
+         29
+         31
+         37
+         41
+         43
+         47
+         53
+         59
+         61
+         67
+         71
+         73
+         79
+         83
+         89
+         97
+```
+
+## ladder__rung22_class_derived_from_a_generic_object_dictionary
+
+```Pascal
 {$mode delphi}
 uses SysUtils, Generics.Collections;
 type
@@ -7537,7 +11571,15 @@ begin
   for n in g.Keys do write(n, ' ');
   writeln(g.Count, ' ', g.Total, ' ', g['x'].Out.Count);
 end.
-{------------------------------------------ 405 program_procedure_set_replace_1}
+```
+
+```stdout
+x w 2 3 2
+```
+
+## program_procedure_set_replace_1
+
+```Pascal
 (* PB-30: scaled flat stress of setofsys-global repeat/while conditions *)
 (* 20 block-body cycles; procedures reference only params, no globals in nested *)
 program pb30(output);
@@ -7576,7 +11618,17 @@ begin
   writeln(nstmt);
   writeln(ncycles)
 end.
-{------------------------------------------ 406 program_procedure_set_replace_2}
+```
+
+```stdout
+         20
+        120
+         20
+```
+
+## program_procedure_set_replace_2
+
+```Pascal
 (* PB-30: scaled flat stress of setofsys-global repeat/while conditions *)
 (* 20 block-body cycles; procedures reference only params, no globals in nested *)
 program pb30(output);
@@ -7615,7 +11667,17 @@ begin
   writeln(nstmt);
   writeln(ncycles)
 end.
-{--------------------------------------------------------- 407 benchmark_queens}
+```
+
+```stdout
+         20
+        120
+         20
+```
+
+## benchmark_queens
+
+```Pascal
 (* PROVENANCE: Hennessy "Queens" / Wirth 8-queens — Stanford integer benchmark
    suite (John L. Hennessy, Stanford, c.1981; public domain). Backtracking,
    first solution; output = checksum sum(x[i]*i)=162 for [1,5,8,6,3,7,2,4].
@@ -7659,7 +11721,19 @@ begin
   end;
   writeln(cksum)
 end.
-{------------------------------------- 408 program_function_procedure_replace_3}
+```
+
+```stdin
+1
+```
+
+```stdout
+        162
+```
+
+## program_function_procedure_replace_3
+
+```Pascal
 program exits(output);
 { exit leaves the routine it names, or the one it is in: a procedure from inside nested loops, a function with the result it holds or
   the value exit passes, a recursion, and the main program's own statement-part. }
@@ -7718,7 +11792,21 @@ begin
     end;
   writeln('not reached')
 end.
-{--------------------------------------- 409 front_end__pf15_overloaded_methods}
+```
+
+```stdout
+found          23 at           2,          3
+found          42 at           4,          2
+no          99
+firstdiv           7          97           2
+sign          -1           0           1
+depth        4321
+main exits at k=          3 calls=          3
+```
+
+## front_end__pf15_overloaded_methods
+
+```Pascal
 program pf15_overloaded_methods;
 {$mode objfpc}{$h+}
 type
@@ -7786,7 +11874,18 @@ begin
   a.Free;
   b.Free;
 end.
-{----------------------- 410 ladder__rung06_arrays_three_level_inline_char_rows}
+```
+
+```stdout
+100 5
+107
+x;y;
+112 p;q;<x;y;>
+```
+
+## ladder__rung06_arrays_three_level_inline_char_rows
+
+```Pascal
 program threelevelcharrows(output);
 var cube:array[1..2] of array[1..2] of packed array[1..3] of char;
     i,j,k:integer;
@@ -7795,7 +11894,15 @@ for i:=1 to 2 do for j:=1 to 2 do for k:=1 to 3 do cube[i][j][k]:=chr(ord('a')+(
 for i:=1 to 2 do for j:=1 to 2 do begin for k:=1 to 3 do write(cube[i][j][k]); write(' ') end;
 writeln;
 end.
-{- 411 ladder__rung06_arrays_a_named_array_type_whose_rows_are_inline_packed_char}
+```
+
+```stdout
+abc def ghi jkl 
+```
+
+## ladder__rung06_arrays_a_named_array_type_whose_rows_are_inline_packed_char
+
+```Pascal
 program namedtypewithinlinecharrows(output);
 type table=array[1..3] of packed array[1..4] of char;
 var t:table;
@@ -7805,7 +11912,15 @@ for i:=1 to 4 do t[2][i]:=chr(ord('p')+i-1);
 for i:=1 to 4 do t[3][i]:=chr(ord('P')+i-1);
 writeln(t[2],t[3]);
 end.
-{------------------------------------------------- 412 front_end__pf05_pointers}
+```
+
+```stdout
+pqrsPQRS
+```
+
+## front_end__pf05_pointers
+
+```Pascal
 {$mode fpc}
 program pa;
 type pint = ^longint; tarr = array[0..5] of longint; parr = ^tarr;
@@ -7817,7 +11932,18 @@ begin
   pr := @r.y; pr^ := 9; writeln(r.y);
   p := @a[0]; for i := 0 to 5 do begin write(p^, ' '); inc(p) end; writeln;
 end.
-{------------------------------------------- 413 program_record_array_replace_1}
+```
+
+```stdout
+77
+44 10
+9
+0 10 20 77 44 50 
+```
+
+## program_record_array_replace_1
+
+```Pascal
 program t;
 type dt = (ci, cc);
      r = record case dt of
@@ -7830,7 +11956,15 @@ begin
   for i := 0 to 4 do write(s[i].vc);
   writeln
 end.
-{------------------ 414 ladder__rung28_a_pointer_cast_over_an_address_is_a_view}
+```
+
+```stdout
+Hello
+```
+
+## ladder__rung28_a_pointer_cast_over_an_address_is_a_view
+
+```Pascal
 {$mode objfpc}
 program rung28pc;
 type t8 = array[0..7] of byte; PI64 = ^Int64;
@@ -7844,7 +11978,18 @@ begin
   w := 772; writeln(PByte(@w)^, ' ', PByte(@w)[1]);
   K[0] := 9; writeln(low(K));
 end.
-{-------------------- 415 ladder__rung23_extended_parameters_records_and_arrays}
+```
+
+```stdout
+506097522914230528
+2 1 0
+4 3
+265
+```
+
+## ladder__rung23_extended_parameters_records_and_arrays
+
+```Pascal
 {$mode objfpc}
 type TRec = record a: extended; b: double; end;
 var arr: array[1..3] of extended; r: TRec; i: integer; e: extended;
@@ -7860,7 +12005,20 @@ begin
   writeln(e);
   writeln(Half(0.1));
 end.
-{----------------------------------------- 416 front_end__pf32_open_array_slice}
+```
+
+```stdout
+1.500000000000000000
+4.500000000000000000
+0.642857142857142857
+ 2.50000000000000000000E+0000  2.5000000000000000E+000
+ 1.20000000000000000004E+0000
+ 5.00000000000000000007E-0002
+```
+
+## front_end__pf32_open_array_slice
+
+```Pascal
 {$mode fpc}
 type PC = ^Cardinal;
 var p: PC; b: array[0..7] of Cardinal; i: integer;
@@ -7877,7 +12035,17 @@ begin
   PA(p[2..5]);
   PA(b[1..3]);
 end.
-{----------------------------- 417 ladder__rung12_move_through_a_record_pointer}
+```
+
+```stdout
+0 10 20 30 
+20 30 40 50 
+10 20 30 
+```
+
+## ladder__rung12_move_through_a_record_pointer
+
+```Pascal
 {$mode objfpc}
 program moverecptr;
 type tR = record a: longint; b: word; end;
@@ -7897,7 +12065,16 @@ begin
   for i := 0 to 5 do write(arr[i].a, ':', arr[i].b, ' ');
   writeln;
 end.
-{------------------- 418 ladder__rung21_for_in_over_a_class_with_get_enumerator}
+```
+
+```stdout
+0:0 99:9 10:1 20:2 30:3 50:5 
+-1:0 99:9 10:1 20:2 0:0 50:5 
+```
+
+## ladder__rung21_for_in_over_a_class_with_get_enumerator
+
+```Pascal
 {$mode objfpc}
 type
   TEnum = class
@@ -7919,7 +12096,16 @@ begin
   writeln;
   b.Show;
 end.
-{--------------------------------------------- 419 program_function_procedure_1}
+```
+
+```stdout
+10 14 18 
+5 7 9 
+```
+
+## program_function_procedure_1
+
+```Pascal
 program arr2dtype;
 type mat = array[0..1, 0..1] of integer;
 var m: mat; x: integer;
@@ -7941,7 +12127,15 @@ begin
   x := summat(m);
   writeln(x)
 end.
-{--------------------------------------------- 420 program_function_procedure_6}
+```
+
+```stdout
+         10
+```
+
+## program_function_procedure_6
+
+```Pascal
 program arr2dtype;
 type mat = array[0..1, 0..1] of integer;
 var m: mat; x: integer;
@@ -7963,7 +12157,15 @@ begin
   x := summat(m);
   writeln(x)
 end.
-{---------------------------------------------------------- 421 benchmark_sieve}
+```
+
+```stdout
+         10
+```
+
+## benchmark_sieve
+
+```Pascal
 (* PROVENANCE: Sieve of Eratosthenes (Byte-magazine sieve benchmark lineage).
    Public-domain algorithm. Benchmark form: counts primes < limit, repeat knob
    via stdin. SCRIP corpus PAS-BENCH. *)
@@ -7989,7 +12191,19 @@ begin
   end;
   writeln(count)
 end.
-{----------------------------------------------- 422 program_procedure_record_6}
+```
+
+```stdin
+1
+```
+
+```stdout
+       1899
+```
+
+## program_procedure_record_6
+
+```Pascal
 program ptr8(output);
 type link = ^node; node = record val : integer; next : link end;
 var head : link;
@@ -8017,7 +12231,16 @@ begin
   setval(head, 77);
   printlist(head)
 end.
-{---------------------------------- 423 ladder__rung12_fill_param_first_element}
+```
+
+```stdout
+         77
+          2
+```
+
+## ladder__rung12_fill_param_first_element
+
+```Pascal
 {$mode objfpc}
 program fill_param_first_element;
 type
@@ -8050,7 +12273,17 @@ begin
   for i := 1 to 5 do write(s[i], ' ');
   writeln;
 end.
-{------------------------------------- 424 program_function_procedure_replace_2}
+```
+
+```stdout
+0 0 0 0 
+0 6 6 6 
+0 0 0 0 0 
+```
+
+## program_function_procedure_replace_2
+
+```Pascal
 program gotononlocal(output);
 { ISO 7185 6.8.2.4: a goto may leave its routine for a label of an enclosing block; every activation between is terminated. }
 label 9;
@@ -8134,7 +12367,29 @@ begin
   if depth < 9 then begin depth := 9; total := 10 + f(5); writeln('not reached either') end;
   writeln('done hits=', hits)
 end.
-{------------------------------------- 425 ladder__rung13_ptr_with_over_element}
+```
+
+```stdout
+c from the activation with tag          11
+a at 1 lvl=          1 tag=         11
+p1 at 7 s=         42 hits=          6
+p1 at 7 s=         42 hits=         12
+sum          12
+inner fell through           1
+outer after inner           1
+outer at 5, n=          1 mine=        100 total=         55
+outer at 5, n=          2 mine=        200 total=         61
+inner fell through           3
+outer after inner           3
+outer at 5, n=          3 mine=        300 total=        116
+main at 9, depth=          4 total=        119
+main at 9, depth=          9 total=        119
+done hits=         12
+```
+
+## ladder__rung13_ptr_with_over_element
+
+```Pascal
 {$mode objfpc}
 program ptr_with_over_element;
 type tr = record a, b: longint end;
@@ -8146,7 +12401,15 @@ begin
   with pr^[2] do begin a := 42; b := b + 1 end;
   writeln(r[3].a, ' ', r[3].b);
 end.
-{-------------------------------------------- 426 gc_hb_pas_pointers_to_globals}
+```
+
+```stdout
+42 10
+```
+
+## gc_hb_pas_pointers_to_globals
+
+```Pascal
 {$mode objfpc}{$H+}
 program hb_pas_pointers_to_globals;
 type t = array[0..9] of longint; tr = record x, y: longint end;
@@ -8160,7 +12423,15 @@ begin
   p^ := p^ + 1000; pr^ := pr^ * 7;
   writeln(p^, ' ', q^, ' ', a[5], ' ', a[9], ' ', rec.y, ' ', r[3]);
 end.
-{---------------------------------- 427 ladder__rung15_layout_new_ptr_to_nested}
+```
+
+```stdout
+1055 99 1055 99 42 abcEabcE
+```
+
+## ladder__rung15_layout_new_ptr_to_nested
+
+```Pascal
 program layoutnewptrtonested;
 {$mode delphi}
 type
@@ -8175,7 +12446,15 @@ begin
   writeln(p^[2, 3], ' ', p^[3, 3]);
   dispose(p);
 end.
-{--------------------------------------------------- 428 front_end__pf02_scopes}
+```
+
+```stdout
+6 9
+```
+
+## front_end__pf02_scopes
+
+```Pascal
 {$mode fpc}
 program lk;
 uses SysUtils;
@@ -8191,7 +12470,22 @@ begin
   writeln(length(Format('%d-%s', [12, 'ab'])), ' ', Format('%d-%s', [12, 'ab']));
   writeln(chr(65 + v), ' ', char(66), ' ', ord(char(67)));
 end.
-{- 429 ladder__rung06_arrays_inline_char_rows_in_a_local_and_an_enum_indexed_array}
+```
+
+```stdout
+set str
+6 4
+q 113 r
+abcdefgh 8
+ok 1
+2
+5 12-ab
+D B 67
+```
+
+## ladder__rung06_arrays_inline_char_rows_in_a_local_and_an_enum_indexed_array
+
+```Pascal
 program localandenumindexedcharrows(output);
 type colour=(red,green,blue);
 var shade:array[colour] of packed array[1..4] of char;
@@ -8208,7 +12502,16 @@ for k:=1 to 4 do shade[green][k]:=chr(ord('g')+k-1);
 writeln(shade[green]);
 fill;
 end.
-{------------------------------- 430 ladder__rung15_layout_arr_of_ptr_two_index}
+```
+
+```stdout
+ghij
+xyz
+```
+
+## ladder__rung15_layout_arr_of_ptr_two_index
+
+```Pascal
 program arr_ptr_two_index(output);
 type
   PR = ^R;
@@ -8225,7 +12528,15 @@ begin
     end;
   writeln(c[1, 2]^.f, ' ', c[2, 1]^.g, ' ', c[2, 2]^.f);
 end.
-{---------------------------------- 431 gc_hb_pas_pointers_in_a_procedure_frame}
+```
+
+```stdout
+         12         -21          22
+```
+
+## gc_hb_pas_pointers_in_a_procedure_frame
+
+```Pascal
 {$mode objfpc}{$H+}
 program hb_pas_pointers_in_a_procedure_frame;
 type t = array[0..9] of longint;
@@ -8245,7 +12556,16 @@ begin
   work(a, 7);
   writeln(a[5]);
 end.
-{---------------------------------------------------- 432 front_end__pf11_forin}
+```
+
+```stdout
+513 13 513 13
+513
+```
+
+## front_end__pf11_forin
+
+```Pascal
 {$mode objfpc}
 program fi;
 uses Classes, SysUtils;
@@ -8266,7 +12586,22 @@ begin
   for i in [1, 3, 5] do write(i); writeln;
   sl.Free;
 end.
-{--------------------------------------- 433 program_procedure_record_replace_1}
+```
+
+```stdout
+18
+12
+A,B,C,
+amx
+012
+1 2 3 4 
+one3;two3;three5;
+135
+```
+
+## program_procedure_record_replace_1
+
+```Pascal
 program w1;
 type valu = record case b: boolean of
         true: (ival: integer);
@@ -8295,7 +12630,15 @@ begin
   getbounds(p, fmin);
   writeln(fmin)
 end.
-{--------------------------------------- 434 program_procedure_record_replace_2}
+```
+
+```stdout
+         77
+```
+
+## program_procedure_record_replace_2
+
+```Pascal
 program w1;
 type valu = record case b: boolean of
         true: (ival: integer);
@@ -8324,7 +12667,15 @@ begin
   getbounds(p, fmin);
   writeln(fmin)
 end.
-{--------------------------------------------------- 435 front_end__pf08_syntax}
+```
+
+```stdout
+         77
+```
+
+## front_end__pf08_syntax
+
+```Pascal
 {$mode objfpc}
 program sx;
 uses SysUtils;
@@ -8355,7 +12706,19 @@ begin
   Pointer(arr[0]) := Pointer(arr[1]); writeln(PRec(arr[0])^.x);
   writeln(f(3), ' ', f(11));
 end.
-{------------------------------------------------ 436 program_procedure_array_3}
+```
+
+```stdout
+42
+abcdef 6
+go 5
+3
+6 100
+```
+
+## program_procedure_array_3
+
+```Pascal
 program alphacmp(output);
 type alpha = packed array [1..8] of char;
 var rw : array [1..5] of alpha;
@@ -8390,7 +12753,17 @@ begin
   id[5] := ' '; id[6] := ' '; id[7] := ' '; id[8] := ' ';
   lookup(2); writeln(sy);
 end.
-{---------------------------------------------------------- 437 benchmark_intmm}
+```
+
+```stdout
+          2
+          0
+          0
+```
+
+## benchmark_intmm
+
+```Pascal
 (* PROVENANCE: Hennessy "Intmm" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). 40x40 integer
    matrix multiply. Algorithm/constants per llvm-test-suite Stanford C port
@@ -8427,7 +12800,19 @@ begin
   end;
   writeln(cksum)
 end.
-{----------------------------------------------- 438 packed_arrays__pa02_widths}
+```
+
+```stdin
+1
+```
+
+```stdout
+     -73408
+```
+
+## packed_arrays__pa02_widths
+
+```Pascal
 {$mode fpc}
 program pa02_widths;
 type
@@ -8467,7 +12852,29 @@ begin
   for i := 1 to 3 do write(aa[i][1] + aa[i][2], ' '); writeln;
   writeln(low(ab), ' ', high(ab), ' ', sizeof(ab), ' ', sizeof(aw), ' ', sizeof(ali), ' ', sizeof(ai64), ' ', high(asub), ' ', low(asub))
 end.
-{----------------------------------------------- 439 gc_hb_pas_interior_pointer}
+```
+
+```stdout
+0 0 a FALSE 0 0 0 0 0 0
+25 -12 b TRUE 6553 -3276 429496729 -214748364 -900000000000000000 1000000000000000000
+50 -24 c FALSE 13106 -6552 858993458 -429496728 -1800000000000000000 2000000000000000000
+75 -36 d TRUE 19659 -9828 1288490187 -644245092 -2700000000000000000 3000000000000000000
+100 -48 e FALSE 26212 -13104 1717986916 -858993456 -3600000000000000000 4000000000000000000
+125 -60 f TRUE 32765 -16380 2147483645 -1073741820 -4500000000000000000 5000000000000000000
+150 -72 g FALSE 39318 -19656 2576980374 -1288490184 -5400000000000000000 6000000000000000000
+175 -84 h TRUE 45871 -22932 3006477103 -1503238548 -6300000000000000000 7000000000000000000
+200 -96 i FALSE 52424 -26208 3435973832 -1717986912 -7200000000000000000 8000000000000000000
+225 -108 j TRUE 58977 -29484 3865470561 -1932735276 -8100000000000000000 9000000000000000000
+3 2 1 0 
+11 13 15 17 19 
+2430
+3 6 9 
+0 9 10 20 40 80 5 1
+```
+
+## gc_hb_pas_interior_pointer
+
+```Pascal
 {$mode objfpc}{$H+}
 program hb_pas_interior_pointer;
 type pint = ^longint; tdyn = array of longint;
@@ -8515,7 +12922,33 @@ begin
   churn;
   work;
 end.
-{---------------------------------------- 440 program_procedure_array_replace_1}
+```
+
+```stdout
+30 70 400
+80
+31 70 405
+80
+32 70 410
+80
+33 70 415
+80
+34 70 420
+80
+35 70 425
+80
+36 70 430
+80
+37 70 435
+80
+0 10 20 38 56 50 60 70 80 90 
+0 100 200 300 440 500 600 700 800 900 
+77777 77777
+```
+
+## program_procedure_array_replace_1
+
+```Pascal
 { Regression probe for the in-process binary emitter's forward-reference
   patch table (BB_PATCH_MAX). A single procedure with many statements leaves
   one pending forward-ref patch per statement (the chain jumps to the proc's
@@ -8564,7 +12997,15 @@ begin
   write('E');
   writeln
 end.
-{---------------------------------------- 441 program_procedure_array_replace_6}
+```
+
+```stdout
+SABE
+```
+
+## program_procedure_array_replace_6
+
+```Pascal
 { Regression probe for the in-process binary emitter's forward-reference
   patch table (BB_PATCH_MAX). A single procedure with many statements leaves
   one pending forward-ref patch per statement (the chain jumps to the proc's
@@ -8613,7 +13054,15 @@ begin
   write('E');
   writeln
 end.
-{-------------------------- 442 ladder__rung13_new_of_a_pointer_to_a_char_array}
+```
+
+```stdout
+SABE
+```
+
+## ladder__rung13_new_of_a_pointer_to_a_char_array
+
+```Pascal
 {$mode objfpc}
 program nw;
 type tA = array[0..9] of ansichar;
@@ -8627,7 +13076,16 @@ begin
   writeln;
   dispose(p);
 end.
-{-------------------------------- 443 ladder__rung15_layout_arr_of_ptr_varparam}
+```
+
+```stdout
+x
+1111111111
+```
+
+## ladder__rung15_layout_arr_of_ptr_varparam
+
+```Pascal
 program arr_ptr_varparam_direct(output);
 type
   PR = ^R;
@@ -8644,7 +13102,15 @@ begin
   Fill(g, 10);
   writeln(g[1]^.f, ' ', g[3]^.f);
 end.
-{-------------------------- 444 ladder__rung15_layout_arr_of_ptr_alias_varparam}
+```
+
+```stdout
+         11          13
+```
+
+## ladder__rung15_layout_arr_of_ptr_alias_varparam
+
+```Pascal
 program arr_ptr_varparam_alias(output);
 type
   PR = ^R;
@@ -8662,7 +13128,15 @@ begin
   Fill(g, 10);
   writeln(g[1]^.f, ' ', g[3]^.f);
 end.
-{------------------------------ 445 ladder__rung15_layout_arr_of_ptr_valueparam}
+```
+
+```stdout
+         11          13
+```
+
+## ladder__rung15_layout_arr_of_ptr_valueparam
+
+```Pascal
 program arr_ptr_valueparam(output);
 type
   PR = ^R;
@@ -8682,7 +13156,15 @@ begin
   for i := 1 to 3 do begin new(g[i]); g[i]^.f := i * 5; end;
   writeln(Sum(g));
 end.
-{------------------------------------------ 446 program_record_packed_replace_1}
+```
+
+```stdout
+         30
+```
+
+## program_record_packed_replace_1
+
+```Pascal
 program mir3(output);
 type
   sf = (scalar,subrange,pointer,arrays);
@@ -8702,7 +13184,16 @@ begin
   writeln(ord(lsp^.form));
   writeln(lsp^.min.ival)
 end.
-{----------------------------------------------------------- 447 benchmark_perm}
+```
+
+```stdout
+          1
+          7
+```
+
+## benchmark_perm
+
+```Pascal
 (* PROVENANCE: Hennessy "Perm" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Recursive permutation
    generation; output = pctr (call count), correct value 43300 (=5*P(7), P(7)=8660).
@@ -8739,7 +13230,19 @@ begin
   end;
   writeln(pctr)
 end.
-{--------------------------------------------------------- 448 benchmark_bubble}
+```
+
+```stdin
+1
+```
+
+```stdout
+      43300
+```
+
+## benchmark_bubble
+
+```Pascal
 (* PROVENANCE: Hennessy "Bubble" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; long-circulated, public domain).
    Algorithm/constants per llvm-test-suite Stanford C port
@@ -8777,7 +13280,20 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{-------------------------------------------------------------- 449 stdin__pb35}
+```
+
+```stdin
+1
+```
+
+```stdout
+     -50000
+      15505
+```
+
+## stdin__pb35
+
+```Pascal
 (* PB-35: block_sim using actual eof(input) check - exact mirror of pcom block()
    Reads actual stdin. Feed with: echo "begin end." | scrip --run pb35.pas
    Expected: 1 cycle, 0 stmts *)
@@ -8850,7 +13366,20 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 450 program_procedure_array_replace_3}
+```
+
+```stdin
+begin end.
+```
+
+```stdout
+          1
+          5
+```
+
+## program_procedure_array_replace_3
+
+```Pascal
 (* PB-32: minimal programme->block->body chain, no decls
    mirrors pcom token flow for "program x; begin end." 
    token stream: period(progsy-done)->beginsy->endsy->period *)
@@ -8935,7 +13464,16 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 451 program_procedure_array_replace_8}
+```
+
+```stdout
+          1
+          1
+```
+
+## program_procedure_array_replace_8
+
+```Pascal
 (* PB-32: minimal programme->block->body chain, no decls
    mirrors pcom token flow for "program x; begin end." 
    token stream: period(progsy-done)->beginsy->endsy->period *)
@@ -9020,7 +13558,16 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{--------------------------------------- 452 program_procedure_array_replace_10}
+```
+
+```stdout
+          1
+          1
+```
+
+## program_procedure_array_replace_10
+
+```Pascal
 (* PB-34: Test complex repeat-until with eof()-like sentinel
    Simulates block()'s outer repeat: until (sy in statbegsys) or done
    where "done" is an integer boolean flag (like eof check)
@@ -9106,7 +13653,16 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 453 program_procedure_array_replace_5}
+```
+
+```stdout
+          1
+          0
+```
+
+## program_procedure_array_replace_5
+
+```Pascal
 (* PB-34: Test complex repeat-until with eof()-like sentinel
    Simulates block()'s outer repeat: until (sy in statbegsys) or done
    where "done" is an integer boolean flag (like eof check)
@@ -9192,7 +13748,16 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 454 program_procedure_array_replace_4}
+```
+
+```stdout
+          1
+          0
+```
+
+## program_procedure_array_replace_4
+
+```Pascal
 (* PB-33: exact "program x; begin end." chain
    When block_sim is called: sy=beginsy(31)
    insymbol -> sy=endsy(39)
@@ -9283,7 +13848,16 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 455 program_procedure_array_replace_9}
+```
+
+```stdout
+          1
+          0
+```
+
+## program_procedure_array_replace_9
+
+```Pascal
 (* PB-33: exact "program x; begin end." chain
    When block_sim is called: sy=beginsy(31)
    insymbol -> sy=endsy(39)
@@ -9374,7 +13948,16 @@ begin
   writeln(ncycles);
   writeln(nstmts)
 end.
-{---------------------------------------- 456 program_procedure_array_replace_2}
+```
+
+```stdout
+          1
+          0
+```
+
+## program_procedure_array_replace_2
+
+```Pascal
 (* PB-31: full programme->block->body->statement chain simulation
    mirrors pcom token flow for "program hello; begin writeln(...) end." *)
 program pb31(output);
@@ -9471,7 +14054,17 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
-{---------------------------------------- 457 program_procedure_array_replace_7}
+```
+
+```stdout
+          1
+          1
+          2
+```
+
+## program_procedure_array_replace_7
+
+```Pascal
 (* PB-31: full programme->block->body->statement chain simulation
    mirrors pcom token flow for "program hello; begin writeln(...) end." *)
 program pb31(output);
@@ -9568,7 +14161,17 @@ begin
   writeln(nstmts);
   writeln(ndecls)
 end.
-{--------------------------------------------- 458 packed_arrays__pa06_unpacked}
+```
+
+```stdout
+          1
+          1
+          2
+```
+
+## packed_arrays__pa06_unpacked
+
+```Pascal
 {$mode fpc}
 program pa06_unpacked;
 type
@@ -9589,7 +14192,18 @@ begin
   for i := 1 to 3 do writeln(ar[i] : 0 : 2, ' ', ast[i], ' ', arec[i].x + arec[i].y);
   writeln(3 in aset[1], ' ', 3 in aset[2], ' ', ap[1]^ + ap[2]^)
 end.
-{------------------------------- 459 ladder__rung12_fill_with_records_and_procs}
+```
+
+```stdout
+0.25 str1 0
+0.50 str2 0
+0.75 str3 0
+TRUE FALSE 33
+```
+
+## ladder__rung12_fill_with_records_and_procs
+
+```Pascal
 {$mode objfpc}
 program fill_with_records_and_procs;
 type
@@ -9622,7 +14236,18 @@ begin
   g[2] := 0;
   writeln(total, ' ', sum_grid(g));
 end.
-{---------------------------------------------------------- 460 benchmark_quick}
+```
+
+```stdout
+1 10 TRUE
+2 0 FALSE
+3 30 TRUE
+100 75
+```
+
+## benchmark_quick
+
+```Pascal
 (* PROVENANCE: Hennessy "Quick" — Stanford integer benchmark suite
    (John L. Hennessy, Stanford, c.1981; public domain). Hoare quicksort.
    Algorithm/constants per llvm-test-suite Stanford C port. Canonical RNG.
@@ -9663,7 +14288,20 @@ begin
   writeln(sortlist[1]);
   writeln(sortlist[srtelements])
 end.
-{----------------------------------- 461 ladder__rung13_ptr_with_fill_and_procs}
+```
+
+```stdin
+1
+```
+
+```stdout
+     -50000
+      15505
+```
+
+## ladder__rung13_ptr_with_fill_and_procs
+
+```Pascal
 {$mode objfpc}
 program ptr_with_fill_and_procs;
 type
@@ -9703,7 +14341,16 @@ begin
   for i := 1 to 3 do write(cells[i].count, cells[i].mark, ' ');
   writeln;
 end.
-{---------------------------------------------------- 462 front_end__pf01_typer}
+```
+
+```stdout
+6
+1b 4c 9d 
+```
+
+## front_end__pf01_typer
+
+```Pascal
 {$mode fpc}
 program ty;
 type
@@ -9724,7 +14371,24 @@ begin
   g2[1] := 'xyz'; g2[2][2] := 'Q'; writeln(g2[1], g2[2][2]);
   x := 66; q(char(x)); q(chr(x + 1));
 end.
-{----------------------------------------------- 463 packed_arrays__pa05_params}
+```
+
+```stdout
+10 20 30 3
+d in
+inner
+no leak
+abcdefghijk 11
+abc
+def
+xyzQ
+B66
+C67
+```
+
+## packed_arrays__pa05_params
+
+```Pascal
 {$mode fpc}
 program pa05_params;
 type
@@ -9746,7 +14410,19 @@ begin
   r.n := 3; with r do begin v[1] := 10; v[2] := 20; v[3] := 30 end;
   bump(a[3]); showrec(r); writeln(a[3])
 end.
-{--------------------------------------------- 464 program_array_case_replace_1}
+```
+
+```stdout
+7 -986 21 28 35 
+-902 7
+35 1
+3 10 20 30
+-979
+```
+
+## program_array_case_replace_1
+
+```Pascal
 program charcode(output);
 { #n and #$h are character literals of ordinal n, #0 included: in an expression, a constant definition, a subrange bound and a case label. }
 const nul = #0; bell = #7; big = #$41;
@@ -9772,7 +14448,24 @@ begin
     end
   end
 end.
-{----------------------------------------------- 465 front_end__pf18_enum_write}
+```
+
+```stdout
+          0           0           7 A BC
+c = #0
+c = chr(0)
+          0          48          57           0 
+array ok
+k          10          11
+          0 is nul
+          1 is space
+          2 is at
+          3 is grave
+```
+
+## front_end__pf18_enum_write
+
+```Pascal
 program pf18_enum_write;
 {$mode objfpc}
 type
@@ -9810,3 +14503,15 @@ begin
   for c := red to yellow do write(c, ';');
   writeln;
 end.
+```
+
+```stdout
+green
+BLUE green Red
+Red
+Yellow
+BLUE Red
+Red BLUE Yellow 
+Red;green;BLUE;Yellow;
+```
+
