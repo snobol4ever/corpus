@@ -1,2 +1,0 @@
-freeze(A,user:a),freeze(A,user:b),freeze(B,user:c)
-true
