@@ -4,7 +4,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 3,ports/rpi4/repl,ports/rpi4/repl.pl,trealla_more__ports/rpi4/repl,trealla_more,49,0,131072,4096,60,,swi
 4,samples/antbee,samples/antbee.pl,trealla_more__samples/antbee,trealla_more,24,0,131072,4096,60,,swi
 5,samples/blocks,samples/blocks.pl,trealla_more__samples/blocks,trealla_more,63,0,131072,4096,60,,swi
-6,samples/chess,samples/chess.pl,trealla_more__samples/chess,trealla_more,687,0,131072,4096,60,,swi
+6,samples/chess,samples/chess.pl,trealla_more__samples/chess,trealla_more,687,0,131072,1048576,300,,swi
 7,samples/factorial,samples/factorial.pl,trealla_more__samples/factorial,trealla_more,25,0,131072,4096,60,,swi
 8,samples/fft,samples/fft.pl,trealla_more__samples/fft,trealla_more,63,0,131072,4096,60,,swi
 9,samples/fib,samples/fib.pl,trealla_more__samples/fib,trealla_more,28,0,131072,4096,60,,swi
