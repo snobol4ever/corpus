@@ -7623,6 +7623,26 @@ end.
           2
 ```
 
+## front_end__pf36_with_field_shadows_function
+
+```Pascal
+program pf36;
+type rec = record pname : integer; deff : boolean end;
+var r : rec;
+function pname(sym : integer) : integer;
+  begin pname := sym + 100 end;
+begin
+  r.pname := 7; r.deff := false;
+  with r do if pname = 7 then begin deff := true; writeln('field ', pname) end;
+  writeln(pname(1), ' ', r.deff);
+end.
+```
+
+```stdout
+field           7
+        101  true
+```
+
 ## program_record_array_5
 
 ```Pascal
@@ -8238,6 +8258,36 @@ de
 
 ```stdout
           7
+```
+
+## front_end__pf35_local_shadows_function
+
+```Pascal
+program pf35;
+var n : integer;
+function f : integer;
+  begin n := n + 1; if n < 3 then f := f + 10 else f := 1 end;
+function key(a : integer) : integer;
+  begin key := a end;
+function hash(s : string; key : integer) : integer;
+  begin hash := key * 2 + length(s) end;
+function sum(s : string) : integer;
+  var i, key : integer;
+  begin key := 0; for i := 1 to length(s) do inc(key, ord(s[i])); sum := key end;
+procedure outer;
+  var key : integer;
+  procedure inner; begin writeln('inner ', key) end;
+  begin key := 9; inner end;
+begin
+  n := 0; writeln(f); writeln(hash('ab', 4)); writeln(sum('error'), ' ', key(5)); outer;
+end.
+```
+
+```stdout
+10
+10
+554 5
+inner 9
 ```
 
 ## ladder__rung15_layout_ptr_to_nested_row_copy
