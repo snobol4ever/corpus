@@ -1,480 +1,1209 @@
-#--------------------------------------------------------- 1 procedure_write_107
-procedure main(); write(42); end
-#--------------------------------------------------------- 2 procedure_write_108
-procedure main(); write(3.5); end
-#--------------------------------------------------------- 3 procedure_write_109
-procedure main(); write("hi"); end
-#--------------------------------------------------------- 4 procedure_write_110
-procedure main(); write(*'abc'); end
-#--------------------------------------------------------- 5 procedure_write_114
-procedure main(); write(2 + 3 * 4); end
-#--------------------------------------------------------- 6 procedure_write_115
+## procedure_write_115
+
+```Icon
 procedure main(); write(7 / 2); write(7 % 2); end
-#--------------------------------------------------------- 7 procedure_write_116
-procedure main(); write(1 < 2); end
-#--------------------------------------------------------- 8 procedure_write_117
-procedure main(); write("a" || "b"); end
-#--------------------------------------------------------- 9 procedure_write_118
-procedure main(); write(-(3)); end
-#-------------------------------------------------------- 10 procedure_write_119
-procedure main(); write(*"abcd"); end
-#-------------------------------------------------------- 11 procedure_write_122
-procedure main(); if 1 < 2 then write("t") else write("f"); end
-#-------------------------------------------------------- 12 procedure_write_123
-procedure main(); write(if 1 < 2 then "a" else "b"); end
-#-------------------------------------------------------- 13 procedure_write_124
-procedure main(); write(if 2 < 1 then "a" else "b"); end
-#-------------------------------------------------------- 14 procedure_write_125
+```
+
+```stdout
+3
+1
+```
+
+## procedure_write_125
+
+```Icon
 procedure main(); { write("a"); write("b") }; end
-#-------------------------------------------------------- 15 procedure_write_126
-procedure main(); if not (1 = 2) then write("y"); end
-#-------------------------------------------------------- 16 procedure_write_127
-procedure main(); write(reverse("abc")); end
-#-------------------------------------------------------- 17 procedure_write_128
-procedure main(); write("a", "b", "c"); end
-#-------------------------------------------------------- 18 procedure_write_131
-procedure main(); write((1, 2, 3)); end
-#-------------------------------------------------------- 19 procedure_write_136
-procedure main(); if 2 < 1 then write("t") else write("f"); end
-#-------------------------------------------------------- 20 procedure_write_112
+```
+
+```stdout
+a
+b
+```
+
+## procedure_write_112
+
+```Icon
 procedure f(); initial write("init"); write("body"); end
 procedure main(); f(); f(); end
-#-------------------------------------------------------- 21 procedure_write_113
+```
+
+```stdout
+init
+body
+body
+```
+
+## procedure_write_113
+
+```Icon
 invocable all
 procedure main(); write("ok"); end
-#------------------------------------------- 22 ladder_rung18_real_relop_real_ge
+```
+
+```stdout
+ok
+```
+
+## ladder_rung18_real_relop_real_ge
+
+```Icon
 procedure main()
   if 2.5 >= 2.5 then write("ge") else write("lt");
 end
-#------------------------------------------- 23 ladder_rung18_real_relop_real_ne
+```
+
+```stdout
+ge
+```
+
+## ladder_rung18_real_relop_real_ne
+
+```Icon
 procedure main()
   if 2.5 ~= 3.0 then write("ne") else write("eq");
 end
-#-------------------------------------------------- 24 ladder_rung40_strfn_right
+```
+
+```stdout
+ne
+```
+
+## ladder_rung40_strfn_right
+
+```Icon
 procedure main()
   write(right("ab", 5, "0"));
 end
-#--------------------------------------------------------- 25 procedure_write_14
+```
+
+```stdout
+000ab
+```
+
+## procedure_write_14
+
+```Icon
 procedure main()
   write(3.14);
 end
-#-------------------------------------------------------- 26 procedure_write_156
+```
+
+```stdout
+3.14
+```
+
+## procedure_write_156
+
+```Icon
 procedure main()
   write(3.14);
 end
-#-------------------------------------------------------- 27 procedure_write_160
+```
+
+```stdout
+3.14
+```
+
+## procedure_write_160
+
+```Icon
 procedure main()
   write("icon"[2]);
 end
-#-------------------------------------------------------- 28 procedure_write_164
+```
+
+```stdout
+c
+```
+
+## procedure_write_164
+
+```Icon
 procedure main()
   write(real(5));
 end
-#-------------------------------------------------------- 29 procedure_write_165
+```
+
+```stdout
+5.0
+```
+
+## procedure_write_165
+
+```Icon
 procedure main()
   write(2.0 * 3.5);
 end
-#-------------------------------------------------------- 30 procedure_write_169
+```
+
+```stdout
+7.0
+```
+
+## procedure_write_169
+
+```Icon
 procedure main()
   if 1.5 > 2.5 then write("gt") else write("le");
 end
-#-------------------------------------------------------- 31 procedure_write_171
+```
+
+```stdout
+le
+```
+
+## procedure_write_171
+
+```Icon
 procedure main()
   write(2^10);
 end
-#-------------------------------------------------------- 32 procedure_write_172
+```
+
+```stdout
+1024
+```
+
+## procedure_write_172
+
+```Icon
 procedure main()
   write(2.0^0.5);
 end
-#--------------------------------------------------------- 33 procedure_write_18
+```
+
+```stdout
+1.414213562
+```
+
+## procedure_write_18
+
+```Icon
 procedure main()
   write("icon"[2]);
 end
-#-------------------------------------------------------- 34 procedure_write_181
+```
+
+```stdout
+c
+```
+
+## procedure_write_181
+
+```Icon
 procedure main()
   write(2 ^ 2 ^ 3);
 end
-#-------------------------------------------------------- 35 procedure_write_199
+```
+
+```stdout
+256
+```
+
+## procedure_write_199
+
+```Icon
 procedure main()
   if /(1 < 2) then write("yes") else write("no");
 end
-#--------------------------------------------------------- 36 procedure_write_22
+```
+
+```stdout
+no
+```
+
+## procedure_write_22
+
+```Icon
 procedure main()
   write(real(5));
 end
-#--------------------------------------------------------- 37 procedure_write_23
+```
+
+```stdout
+5.0
+```
+
+## procedure_write_23
+
+```Icon
 procedure main()
   write(2.0 * 3.5);
 end
-#--------------------------------------------------------- 38 procedure_write_27
+```
+
+```stdout
+7.0
+```
+
+## procedure_write_27
+
+```Icon
 procedure main()
   if 1.5 > 2.5 then write("gt") else write("le");
 end
-#--------------------------------------------------------- 39 procedure_write_29
+```
+
+```stdout
+le
+```
+
+## procedure_write_29
+
+```Icon
 procedure main()
   write(2^10);
 end
-#--------------------------------------------------------- 40 procedure_write_30
+```
+
+```stdout
+1024
+```
+
+## procedure_write_30
+
+```Icon
 procedure main()
   write(2.0^0.5);
 end
-#--------------------------------------------------------- 41 procedure_write_41
+```
+
+```stdout
+1.414213562
+```
+
+## procedure_write_41
+
+```Icon
 procedure main()
   write(2 ^ 2 ^ 3);
 end
-#--------------------------------------------------------- 42 procedure_write_62
+```
+
+```stdout
+256
+```
+
+## procedure_write_62
+
+```Icon
 procedure main()
   if /(1 < 2) then write("yes") else write("no");
 end
-#--------------------------------------------- 43 ladder_rung39_numbit_dtor_rtod
+```
+
+```stdout
+no
+```
+
+## ladder_rung39_numbit_dtor_rtod
+
+```Icon
 procedure main()
   write(dtor(180.0));
   write(rtod(dtor(180.0)));
 end
-#------------------------------------------------- 44 ladder_rung40_strfn_center
+```
+
+```stdout
+3.141592654
+180.0
+```
+
+## ladder_rung40_strfn_center
+
+```Icon
 procedure main()
   write(center("ab", 6, "*"));
   write(center("abc", 6, "*"));
 end
-#----------------------------------------------------- 45 ladder_rung41_rt_delay
+```
+
+```stdout
+**ab**
+*abc**
+```
+
+## ladder_rung41_rt_delay
+
+```Icon
 procedure main()
   delay(1);
   write("after-delay");
 end
-#---------------------------------------------------- 46 ladder_rung41_rt_runerr
+```
+
+```stdout
+after-delay
+```
+
+## ladder_rung41_rt_runerr
+
+```Icon
 procedure main()
   write("before");
   runerr(205, "bogus");
 end
-#------------------------------------------ 47 ladder_rung41_rt_system_exit_stop
+```
+
+```stdout
+before
+```
+
+## ladder_rung41_rt_system_exit_stop
+
+```Icon
 procedure main()
   write(system("true"));
   exit(42);
 end
-#-------------------------------------------------------- 48 procedure_write_138
+```
+
+```stdout
+0
+```
+
+## procedure_write_138
+
+```Icon
 procedure main()
   if (2 > 3) & 1 then write("y1") else write("n1");
   if 1 & (2 > 3) then write("y2") else write("n2");
 end
-#-------------------------------------------------------- 49 procedure_write_144
+```
+
+```stdout
+n1
+n2
+```
+
+## procedure_write_144
+
+```Icon
 # rung00: hello world -- the ladder's first rung (write() procedure call, no args, no control flow)
 procedure main()
   write("Hello, World!");
 end
-#-------------------------------------------------------- 50 procedure_write_146
+```
+
+```stdout
+Hello, World!
+```
+
+## procedure_write_146
+
+```Icon
 # rung04 t02: string concatenation of two literals
 procedure main()
   write("foo" || "bar");
 end
-#-------------------------------------------------------- 51 procedure_write_149
+```
+
+```stdout
+foobar
+```
+
+## procedure_write_149
+
+```Icon
 # rung04 t01: string literal write
 procedure main()
   write("hello");
 end
-#-------------------------------------------------------- 52 procedure_write_152
+```
+
+```stdout
+hello
+```
+
+## procedure_write_152
+
+```Icon
 # rung07 t01: not E succeeds iff E fails
 procedure main()
   if not (1 > 2) then write(1);
 end
-#-------------------------------------------------------- 53 procedure_write_166
+```
+
+```stdout
+1
+```
+
+## procedure_write_166
+
+```Icon
 procedure main()
   write(string(42));
   write(string(3.14));
 end
-#-------------------------------------------------------- 54 procedure_write_180
+```
+
+```stdout
+42
+3.14
+```
+
+## procedure_write_180
+
+```Icon
 procedure main()
   write(2 ^ 10);
   write(3 ^ 3);
 end
-#-------------------------------------------------------- 55 procedure_write_183
+```
+
+```stdout
+1024
+27
+```
+
+## procedure_write_183
+
+```Icon
 procedure main()
   write(5 ^ 0);
   write(0 ^ 5);
 end
-#-------------------------------------------------------- 56 procedure_write_184
+```
+
+```stdout
+1
+0
+```
+
+## procedure_write_184
+
+```Icon
 procedure main()
   write(4.0 ^ 0.5);
   write(2.0 ^ 8.0);
 end
-#-------------------------------------------------------- 57 procedure_write_203
+```
+
+```stdout
+2.0
+256.0
+```
+
+## procedure_write_203
+
+```Icon
 procedure main()
   if not(1<2) then write("BUG") else write("done1");
   if not(2<1) then write("done2") else write("BUG");
 end
-#-------------------------------------------------------- 58 procedure_write_237
+```
+
+```stdout
+done1
+done2
+```
+
+## procedure_write_237
+
+```Icon
 procedure main()
   write(2^3);
   write(2^(-1));
 end
-#--------------------------------------------------------- 59 procedure_write_24
+```
+
+```stdout
+8
+0
+```
+
+## procedure_write_24
+
+```Icon
 procedure main()
   write(string(42));
   write(string(3.14));
 end
-#---------------------------------------------------------- 60 procedure_write_3
+```
+
+```stdout
+42
+3.14
+```
+
+## procedure_write_3
+
+```Icon
 # rung04 t02: string concatenation of two literals
 procedure main()
   write("foo" || "bar");
 end
-#--------------------------------------------------------- 61 procedure_write_40
+```
+
+```stdout
+foobar
+```
+
+## procedure_write_40
+
+```Icon
 procedure main()
   write(2 ^ 10);
   write(3 ^ 3);
 end
-#--------------------------------------------------------- 62 procedure_write_43
+```
+
+```stdout
+1024
+27
+```
+
+## procedure_write_43
+
+```Icon
 procedure main()
   write(5 ^ 0);
   write(0 ^ 5);
 end
-#--------------------------------------------------------- 63 procedure_write_44
+```
+
+```stdout
+1
+0
+```
+
+## procedure_write_44
+
+```Icon
 procedure main()
   write(4.0 ^ 0.5);
   write(2.0 ^ 8.0);
 end
-#---------------------------------------------------------- 64 procedure_write_6
+```
+
+```stdout
+2.0
+256.0
+```
+
+## procedure_write_6
+
+```Icon
 # rung04 t01: string literal write
 procedure main()
   write("hello");
 end
-#---------------------------------------------------------- 65 procedure_write_9
+```
+
+```stdout
+hello
+```
+
+## procedure_write_9
+
+```Icon
 # rung07 t01: not E succeeds iff E fails
 procedure main()
   if not (1 > 2) then write(1);
 end
-#-------------------------------------------- 66 ladder_rung12_strrelop_size_sgt
+```
+
+```stdout
+1
+```
+
+## ladder_rung12_strrelop_size_sgt
+
+```Icon
 procedure main()
   if ("bcd" >> "abc") then write("gt");
   if ("abc" >> "abc") then write("nope");
   write("done");
 end
-#-------------------------------------------- 67 ladder_rung12_strrelop_size_sle
+```
+
+```stdout
+gt
+done
+```
+
+## ladder_rung12_strrelop_size_sle
+
+```Icon
 procedure main()
   if ("abc" <<= "abc") then write("le");
   if ("bcd" <<= "abc") then write("nope");
   write("done");
 end
-#---------------------------------------- 68 ladder_rung39_numbit_acos_asin_atan
+```
+
+```stdout
+le
+done
+```
+
+## ladder_rung39_numbit_acos_asin_atan
+
+```Icon
 procedure main()
   write(acos(0.5));
   write(asin(0.5));
   write(atan(1.0, 1.0));
 end
-#------------------------------------------- 69 ladder_rung39_numbit_cos_sin_tan
+```
+
+```stdout
+1.047197551
+0.5235987756
+0.7853981634
+```
+
+## ladder_rung39_numbit_cos_sin_tan
+
+```Icon
 procedure main()
   write(cos(0.0));
   write(sin(0.0));
   write(tan(0.0));
 end
-#----------------------------------------- 70 ladder_rung39_numbit_iand_ior_ixor
+```
+
+```stdout
+1.0
+0.0
+0.0
+```
+
+## ladder_rung39_numbit_iand_ior_ixor
+
+```Icon
 procedure main()
   write(iand(12, 10));
   write(ior(12, 10));
   write(ixor(12, 10));
 end
-#------------------------------------------- 71 ladder_rung39_numbit_icom_ishift
+```
+
+```stdout
+8
+14
+6
+```
+
+## ladder_rung39_numbit_icom_ishift
+
+```Icon
 procedure main()
   write(icom(0));
   write(ishift(1, 4));
   write(ishift(16, -4));
 end
-#------------------------------------- 72 ladder_rung40_strfn_ord_char_roundtrip
+```
+
+```stdout
+-1
+16
+1
+```
+
+## ladder_rung40_strfn_ord_char_roundtrip
+
+```Icon
 procedure main()
   write(ord("A"));
   write(char(65));
   write(char(ord("Z")));
 end
-#---------------------------------------------------------- 73 procedure_write_1
+```
+
+```stdout
+65
+A
+Z
+```
+
+## procedure_write_1
+
+```Icon
 # SCRIP DEMO1 -- Hello World (Icon section)
 # Idiom: write() procedure call
 procedure main()
     write("Hello, World!");
 end
-#-------------------------------------------------------- 74 procedure_write_106
+```
+
+```stdout
+Hello, World!
+```
+
+## procedure_write_106
+
+```Icon
 # SCRIP DEMO1 -- Hello World (Icon section)
 # Idiom: write() procedure call
 procedure main()
     write("Hello, World!");
 end
-#--------------------------------------------------------- 75 procedure_write_12
+```
+
+```stdout
+Hello, World!
+```
+
+## procedure_write_12
+
+```Icon
 procedure main()
   if ("abc" << "bcd") then write("less");
   if ("bcd" << "abc") then write("nope");
   write("done");
 end
-#-------------------------------------------------------- 76 procedure_write_155
+```
+
+```stdout
+less
+done
+```
+
+## procedure_write_155
+
+```Icon
 procedure main()
   if ("abc" << "bcd") then write("less");
   if ("bcd" << "abc") then write("nope");
   write("done");
 end
-#-------------------------------------------------------- 77 procedure_write_185
+```
+
+```stdout
+less
+done
+```
+
+## procedure_write_185
+
+```Icon
 procedure main()
   write(char(65));
   write(ord("A"));
   write(char(ord("z")));
 end
-#-------------------------------------------------------- 78 procedure_write_186
+```
+
+```stdout
+A
+65
+z
+```
+
+## procedure_write_186
+
+```Icon
 procedure main()
   write(left("hi", 5));
   write(right("hi", 5));
   write(center("hi", 6));
 end
-#-------------------------------------------------------- 79 procedure_write_187
+```
+
+```stdout
+hi   
+   hi
+  hi  
+```
+
+## procedure_write_187
+
+```Icon
 procedure main()
   write(reverse("hello"));
   write(reverse(""));
   write(reverse("a"));
 end
-#-------------------------------------------------------- 80 procedure_write_191
+```
+
+```stdout
+olleh
+
+a
+```
+
+## procedure_write_191
+
+```Icon
 procedure main()
   write(numeric("42"));
   write(numeric("100"));
   if numeric("abc") then write("yes") else write("no");
 end
-#-------------------------------------------------------- 81 procedure_write_193
+```
+
+```stdout
+42
+100
+no
+```
+
+## procedure_write_193
+
+```Icon
 procedure main()
   write(abs(-5));
   write(abs(3));
   write(abs(0));
 end
-#-------------------------------------------------------- 82 procedure_write_194
+```
+
+```stdout
+5
+3
+0
+```
+
+## procedure_write_194
+
+```Icon
 procedure main()
   write(sqrt(4.0));
   write(sqrt(9.0));
   write(sqrt(2.0));
 end
-#--------------------------------------------------------- 83 procedure_write_46
+```
+
+```stdout
+2.0
+3.0
+1.414213562
+```
+
+## procedure_write_46
+
+```Icon
 procedure main()
   write(char(65));
   write(ord("A"));
   write(char(ord("z")));
 end
-#--------------------------------------------------------- 84 procedure_write_47
+```
+
+```stdout
+A
+65
+z
+```
+
+## procedure_write_47
+
+```Icon
 procedure main()
   write(left("hi", 5));
   write(right("hi", 5));
   write(center("hi", 6));
 end
-#--------------------------------------------------------- 85 procedure_write_48
+```
+
+```stdout
+hi   
+   hi
+  hi  
+```
+
+## procedure_write_48
+
+```Icon
 procedure main()
   write(reverse("hello"));
   write(reverse(""));
   write(reverse("a"));
 end
-#--------------------------------------------------------- 86 procedure_write_52
+```
+
+```stdout
+olleh
+
+a
+```
+
+## procedure_write_52
+
+```Icon
 procedure main()
   write(numeric("42"));
   write(numeric("100"));
   if numeric("abc") then write("yes") else write("no");
 end
-#--------------------------------------------------------- 87 procedure_write_54
+```
+
+```stdout
+42
+100
+no
+```
+
+## procedure_write_54
+
+```Icon
 procedure main()
   write(abs(-5));
   write(abs(3));
   write(abs(0));
 end
-#--------------------------------------------------------- 88 procedure_write_55
+```
+
+```stdout
+5
+3
+0
+```
+
+## procedure_write_55
+
+```Icon
 procedure main()
   write(max(3, 7));
   write(min(3, 7));
   write(max(5, 5));
 end
-#--------------------------------------------------------- 89 procedure_write_56
+```
+
+```stdout
+7
+3
+5
+```
+
+## procedure_write_56
+
+```Icon
 procedure main()
   write(abs(-3.5));
   write(max(1, 5, 3));
   write(min(4, 2, 6));
 end
-#--------------------------------------------------------- 90 procedure_write_57
+```
+
+```stdout
+3.5
+5
+2
+```
+
+## procedure_write_57
+
+```Icon
 procedure main()
   write(sqrt(4.0));
   write(sqrt(9.0));
   write(sqrt(2.0));
 end
-#-------------------------------------------------- 91 procedure_write_replace_1
+```
+
+```stdout
+2.0
+3.0
+1.414213562
+```
+
+## procedure_write_replace_1
+
+```Icon
 # rung07 t04: string equality ==
 procedure main()
   if ("hello" == "hello") then write(1);
   if ("hello" == "world") then write(2);
 end
-#------------------------------------------------- 92 procedure_write_replace_12
+```
+
+```stdout
+1
+```
+
+## procedure_write_replace_12
+
+```Icon
 # rung07 t04: string equality ==
 procedure main()
   if ("hello" == "hello") then write(1);
   if ("hello" == "world") then write(2);
 end
-#------------------------------------------------- 93 procedure_write_replace_13
+```
+
+```stdout
+1
+```
+
+## procedure_write_replace_13
+
+```Icon
 procedure main()
   if ("abc" == "abc") then write("equal");
   if ("abc" == "def") then write("nope");
   write("done");
 end
-#------------------------------------------------- 94 procedure_write_replace_14
+```
+
+```stdout
+equal
+done
+```
+
+## procedure_write_replace_14
+
+```Icon
 procedure main()
   if ("bcd" >>= "abc") then write("ge");
   if ("abc" >>= "bcd") then write("nope");
   write("done");
 end
-#------------------------------------------------- 95 procedure_write_replace_15
+```
+
+```stdout
+ge
+done
+```
+
+## procedure_write_replace_15
+
+```Icon
 procedure main()
   if ("abc" ~== "def") then write("differ");
   if ("abc" ~== "abc") then write("nope");
   write("done");
 end
-#-------------------------------------------------- 96 procedure_write_replace_2
+```
+
+```stdout
+differ
+done
+```
+
+## procedure_write_replace_2
+
+```Icon
 procedure main()
   if ("abc" == "abc") then write("equal");
   if ("abc" == "def") then write("nope");
   write("done");
 end
-#-------------------------------------------------- 97 procedure_write_replace_3
+```
+
+```stdout
+equal
+done
+```
+
+## procedure_write_replace_3
+
+```Icon
 procedure main()
   if ("bcd" >>= "abc") then write("ge");
   if ("abc" >>= "bcd") then write("nope");
   write("done");
 end
-#-------------------------------------------------- 98 procedure_write_replace_4
+```
+
+```stdout
+ge
+done
+```
+
+## procedure_write_replace_4
+
+```Icon
 procedure main()
   if ("abc" ~== "def") then write("differ");
   if ("abc" ~== "abc") then write("nope");
   write("done");
 end
-#------------------------------------------ 99 ladder_rung39_numbit_exp_log_sqrt
+```
+
+```stdout
+differ
+done
+```
+
+## ladder_rung39_numbit_exp_log_sqrt
+
+```Icon
 procedure main()
   write(exp(1.0));
   write(log(8.0, 2.0));
   write(log(2.718281828459045));
   write(sqrt(2.0));
 end
-#------------------------------------------------------- 100 procedure_write_148
+```
+
+```stdout
+2.718281828
+3.0
+1.0
+1.414213562
+```
+
+## procedure_write_148
+
+```Icon
 # rung04 t04: multiple string writes
 procedure main()
   write("one");
   write("two");
   write("three");
 end
-#------------------------------------------------------- 101 procedure_write_208
+```
+
+```stdout
+one
+two
+three
+```
+
+## procedure_write_208
+
+```Icon
 procedure greet()
   write("hi");
 end
 procedure main()
   greet();
 end
-#------------------------------------------------------- 102 procedure_write_246
+```
+
+```stdout
+hi
+```
+
+## procedure_write_246
+
+```Icon
 procedure main()
   if not (1 = 2) then {
     write("a");
     write("b")
   };
 end
-#--------------------------------------------------------- 103 procedure_write_5
+```
+
+```stdout
+a
+b
+```
+
+## procedure_write_5
+
+```Icon
 # rung04 t04: multiple string writes
 procedure main()
   write("one");
   write("two");
   write("three");
 end
-#----------------------------------------------- 104 unicon__uni_pp_macro_spaces
+```
+
+```stdout
+one
+two
+three
+```
+
+## unicon__uni_pp_macro_spaces
+
+```Icon
 $define ZERO() 0
 $define SUM(x,y) x+y
 procedure main()
@@ -483,7 +1212,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------- 105 procedure_write_replace_5
+```
+
+```stdout
+0
+30
+```
+
+## procedure_write_replace_5
+
+```Icon
 # rung37: string relop hello — IJ-8
 procedure main()
    if ("a" << "b") then write("a<<b");
@@ -493,7 +1231,20 @@ procedure main()
    if ("a" <<= "a") then write("a<<=a");
    if ("b" >>= "b") then write("b>>=b");
 end
-#----------------------------------------- 106 unicon__uni_link_unicon_ipl_first
+```
+
+```stdout
+a<<b
+b>>a
+a==a
+a~==b
+a<<=a
+b>>=b
+```
+
+## unicon__uni_link_unicon_ipl_first
+
+```Icon
 link numbers
 procedure main()
   write(digsum(12));
@@ -503,7 +1254,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#--------------------------------------------- 107 unicon__uni_lex_triple_define
+```
+
+```stdout
+3
+18
+1
+forty-seven
+```
+
+## unicon__uni_lex_triple_define
+
+```Icon
 $define SQ(x) ((x) * (x))
 $define SUM(a, b) ((a) + (b))
 procedure main()
@@ -516,7 +1278,19 @@ b""");
 end
 class UniconMarker()
 end
-#-------------------------------------------------------- 108 procedure_write_69
+```
+
+```stdout
+49 20
+line one
+line "two" with quotes
+line three
+3
+```
+
+## procedure_write_69
+
+```Icon
 # rung37: math builtins hello — IJ-4
 # simplest possible check: each builtin produces correct output
 procedure main()
@@ -531,7 +1305,24 @@ procedure main()
    write(ishift(1, 3));
    write(icom(0));
 end
-#-------------------------------------------------------- 109 procedure_write_66
+```
+
+```stdout
+2.0
+0.0
+1.0
+1.0
+0.0
+8
+14
+6
+8
+-1
+```
+
+## procedure_write_66
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -554,7 +1345,32 @@ procedure main()
     write(center("123",9,"<>"));
     write(center("12",9,"<>"));
 end
-#------------------------------------- 110 unicon__uni_pp_unicon_feature_symbols
+```
+
+```stdout
+234
+ 1 
+2
+2
+3
+23
+234
+3
+34
+234
+  123   
+   12   
+   123   
+   12    
+<>123><>
+<><12><>
+<><123><>
+<><12<><>
+```
+
+## unicon__uni_pp_unicon_feature_symbols
+
+```Icon
 procedure main();
 $ifdef _CONCURRENT
    write("_CONCURRENT is defined");
@@ -583,433 +1399,1071 @@ $endif
 end
 class UniconMarker()
 end
-#----------------------------------------------------- 111 procedure_alt_write_3
-procedure main(); write((2 < 1) | "no"); end
-#----------------------------------------------------- 112 procedure_alt_write_4
-procedure main(); write(1 | 2); end
-#--------------------------------------------------- 113 procedure_scan_write_14
-procedure main(); "hello" ? if ="he" then write("m"); end
-#------------------------------------------------------- 114 procedure_write_111
-procedure main(); x := 7; write(x); end
-#------------------------------------------------------- 115 procedure_write_120
-procedure main(); x := 3; x := x + 1; write(x); end
-#------------------------------------------------------- 116 procedure_write_121
-procedure main(); x := 1; if (x <- 2) & (1 = 2) then write("t") else write(x); end
-#------------------------------------------------------- 117 procedure_write_132
+```
+
+```stdout
+_CONCURRENT is defined
+_PATTERNS is defined
+_MESSAGING is defined
+_CO_EXPRESSIONS is defined
+_PATTERNS is gone after its undef
+```
+
+## procedure_write_132
+
+```Icon
 procedure main(); x := [10, 20, 30]; write(x[2]); write(*x); end
-#------------------------------------------------------- 118 procedure_write_133
+```
+
+```stdout
+20
+3
+```
+
+## procedure_write_133
+
+```Icon
 procedure main(); x := [1] ||| [2, 3]; write(*x); write(x[3]); end
-#------------------------------------------------------- 119 procedure_write_134
-procedure main(); x := { 1; 2; 5 }; write(x); end
-#------------------------------------------------------- 120 procedure_write_135
-procedure main(); s := "wxyz"; write(s[3]); end
-#------------------------------------------------- 121 procedure_write_keyword_3
-procedure main(); write(&line); end
-#------------------------- 122 scrip_test_icon_jcon_audit_53_section__53_section
-procedure main(); write("hello"[2:4]); end
-#--------------- 123 scrip_test_icon_jcon_audit_54_section_plus__54_section_plus
-procedure main(); write("hello"[2+:3]); end
-#------------------------------------------------------- 124 procedure_write_130
+```
+
+```stdout
+3
+3
+```
+
+## procedure_write_130
+
+```Icon
 procedure fact(n); if n <= 1 then return 1; return n * fact(n - 1); end
 procedure main(); write(fact(5)); end
-#------------------------------------------------- 125 ladder_rung40_strfn_entab
+```
+
+```stdout
+120
+```
+
+## ladder_rung40_strfn_entab
+
+```Icon
 procedure main()
   write(image(entab("a       b", 8)));
 end
-#------------------------------------------ 126 ladder_rung41_rt_collect_display
+```
+
+```stdout
+"a\t b"
+```
+
+## ladder_rung41_rt_collect_display
+
+```Icon
 procedure main()
   write(type(collect()));
 end
-#--------------------------------------------------- 127 ladder_rung41_rt_serial
+```
+
+```stdout
+null
+```
+
+## ladder_rung41_rt_serial
+
+```Icon
 procedure main()
   write(type(serial([1,2,3])));
 end
-#--------------------------------------------------- 128 procedure_case_write_17
+```
+
+```stdout
+integer
+```
+
+## procedure_case_write_17
+
+```Icon
 procedure main()
   write(case "b" of { "a": 1; "b": 2; "c": 3; default: 0 });
 end
-#---------------------------------------------------- 129 procedure_case_write_6
+```
+
+```stdout
+2
+```
+
+## procedure_case_write_6
+
+```Icon
 procedure main()
   write(case "b" of { "a": 1; "b": 2; "c": 3; default: 0 });
 end
-#--------------------------------------------------- 130 procedure_limit_write_1
+```
+
+```stdout
+2
+```
+
+## procedure_limit_write_1
+
+```Icon
 procedure main()
   if \(1 > 2) then write("yes") else write("no");
 end
-#--------------------------------------------------- 131 procedure_limit_write_8
+```
+
+```stdout
+no
+```
+
+## procedure_limit_write_8
+
+```Icon
 procedure main()
   if \(1 > 2) then write("yes") else write("no");
 end
-#--------------------------------------------------- 132 procedure_write_image_1
+```
+
+```stdout
+no
+```
+
+## procedure_write_image_1
+
+```Icon
 procedure main()
     write(image([1,2,3]));
 end
-#---------------- 133 ladder__rung42_kw_features_symbol_defined_without_a_dollar
+```
+
+```stdout
+list_1(3)
+```
+
+## ladder__rung42_kw_features_symbol_defined_without_a_dollar
+
+```Icon
 procedure main()
    write(image(_UNIX));
    write(image(_ASCII) || " " || image(_VMS));
 end
-#------------------------------------ 134 ladder_rung39_numbit_large_integer_ops
+```
+
+```stdout
+1
+1 &null
+```
+
+## ladder_rung39_numbit_large_integer_ops
+
+```Icon
 procedure main()
   write(2^100);
   write(type(2^100));
 end
-#------------------------------------- 135 ladder_rung40_strfn_map_transliterate
+```
+
+```stdout
+1267650600228229401496703205376
+integer
+```
+
+## ladder_rung40_strfn_map_transliterate
+
+```Icon
 procedure main()
   write(map("hello", "el", "ip"));
   write(map("HELLO"));
 end
-#---------------------------------------------- 136 ladder_rung42_kw_lcase_ucase
+```
+
+```stdout
+hippo
+hello
+```
+
+## ladder_rung42_kw_lcase_ucase
+
+```Icon
 procedure main()
   write(string(&lcase));
   write(string(&ucase));
 end
-#--------------------------------------------------- 137 procedure_case_write_15
+```
+
+```stdout
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+```
+
+## procedure_case_write_15
+
+```Icon
 procedure main()
   write(case 2 of { 1: "one"; 2: "two"; 3: "three"; default: "other" });
   write(case 5 of { 1: "one"; 2: "two"; 3: "three"; default: "other" });
 end
-#---------------------------------------------------- 138 procedure_case_write_4
+```
+
+```stdout
+two
+other
+```
+
+## procedure_case_write_4
+
+```Icon
 procedure main()
   write(case 2 of { 1: "one"; 2: "two"; 3: "three"; default: "other" });
   write(case 5 of { 1: "one"; 2: "two"; 3: "three"; default: "other" });
 end
-#-------------------------------------------------------- 139 procedure_write_11
+```
+
+```stdout
+two
+other
+```
+
+## procedure_write_11
+
+```Icon
 procedure main()
   s := "hello";
   write(*s);
 end
-#-------------------------------------------------------- 140 procedure_write_13
+```
+
+```stdout
+5
+```
+
+## procedure_write_13
+
+```Icon
 procedure main()
   s := "hello" ||| " world";
   write(s);
 end
-#-------------------------------------------------------- 141 procedure_write_15
+```
+
+## procedure_write_15
+
+```Icon
 procedure main()
   x := 2.5;
   write(x);
 end
-#------------------------------------------------------- 142 procedure_write_154
+```
+
+```stdout
+2.5
+```
+
+## procedure_write_154
+
+```Icon
 procedure main()
   s := "hello";
   write(*s);
 end
-#------------------------------------------------------- 143 procedure_write_157
+```
+
+```stdout
+5
+```
+
+## procedure_write_157
+
+```Icon
 procedure main()
   x := 2.5;
   write(x);
 end
-#------------------------------------------------------- 144 procedure_write_159
+```
+
+```stdout
+2.5
+```
+
+## procedure_write_159
+
+```Icon
 procedure main()
   s := "hi";
   if s[5] then write("yes") else write("no");
 end
-#------------------------------------------------------- 145 procedure_write_162
+```
+
+```stdout
+no
+```
+
+## procedure_write_162
+
+```Icon
 procedure main()
   write(integer(3.9));
   write(integer("42"));
 end
-#------------------------------------------------------- 146 procedure_write_167
+```
+
+```stdout
+3
+42
+```
+
+## procedure_write_167
+
+```Icon
 procedure main()
   n := 2;
   if n < 2.5 then write("yes") else write("no");
 end
-#------------------------------------------------------- 147 procedure_write_168
+```
+
+```stdout
+yes
+```
+
+## procedure_write_168
+
+```Icon
 procedure main()
   x := 3.0;
   if x = 3.0 then write("equal") else write("nope");
 end
-#-------------------------------------------------------- 148 procedure_write_17
+```
+
+```stdout
+equal
+```
+
+## procedure_write_17
+
+```Icon
 procedure main()
   s := "hi";
   if s[5] then write("yes") else write("no");
 end
-#------------------------------------------------------- 149 procedure_write_173
+```
+
+```stdout
+no
+```
+
+## procedure_write_173
+
+```Icon
 procedure main()
   x := 3.0;
   write(x^2);
 end
-#------------------------------------------------------- 150 procedure_write_178
+```
+
+```stdout
+9.0
+```
+
+## procedure_write_178
+
+```Icon
 procedure main()
   L := [1, 2, 3];
   write(pull(L));
 end
-#-------------------------------------------------------- 151 procedure_write_20
+```
+
+```stdout
+3
+```
+
+## procedure_write_20
+
+```Icon
 procedure main()
   write(integer(3.9));
   write(integer("42"));
 end
-#------------------------------------------------------- 152 procedure_write_200
+```
+
+```stdout
+3
+42
+```
+
+## procedure_write_200
+
+```Icon
 procedure main()
   x := /(1 > 2);
   write("ok");
 end
-#-------------------------------------------------------- 153 procedure_write_25
+```
+
+```stdout
+ok
+```
+
+## procedure_write_25
+
+```Icon
 procedure main()
   n := 2;
   if n < 2.5 then write("yes") else write("no");
 end
-#-------------------------------------------------------- 154 procedure_write_26
+```
+
+```stdout
+yes
+```
+
+## procedure_write_26
+
+```Icon
 procedure main()
   x := 3.0;
   if x = 3.0 then write("equal") else write("nope");
 end
-#-------------------------------------------------------- 155 procedure_write_31
+```
+
+```stdout
+equal
+```
+
+## procedure_write_31
+
+```Icon
 procedure main()
   x := 3.0;
   write(x^2);
 end
-#-------------------------------------------------------- 156 procedure_write_35
+```
+
+```stdout
+9.0
+```
+
+## procedure_write_35
+
+```Icon
 procedure main()
   x := {1; 2; 3};
   write(x);
 end
-#-------------------------------------------------------- 157 procedure_write_38
+```
+
+```stdout
+3
+```
+
+## procedure_write_38
+
+```Icon
 procedure main()
   L := [1, 2, 3];
   write(pull(L));
 end
-#-------------------------------------------------------- 158 procedure_write_63
+```
+
+```stdout
+3
+```
+
+## procedure_write_63
+
+```Icon
 procedure main()
   x := /(1 > 2);
   write("ok");
 end
-#----- 159 rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_basic
+```
+
+```stdout
+ok
+```
+
+## rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_basic
+
+```Icon
 procedure main()
   x := (1; 2; 3);
   write(x);
 end
-#-------------- 160 ladder__rung42_kw_version_writes_the_implementation_identity
+```
+
+```stdout
+File rung20_section_seqexpr_seqexpr_basic.icn; Line 2 # ";": missing right parenthesis
+```
+
+## ladder__rung42_kw_version_writes_the_implementation_identity
+
+```Icon
 #  version.icn -- report &version keyword
 
 procedure main()
    write(&version);
 end
-#-------------------------------- 161 ladder_rung41_rt_getch_getche_kbhit_on_eof
+```
+
+```stdout
+Icon Version 9.5.25a, September 7, 2025
+```
+
+## ladder_rung41_rt_getch_getche_kbhit_on_eof
+
+```Icon
 procedure main()
   write(if getch() then "got" else "eof-fail");
   write(if getche() then "got" else "eof-fail");
   write(if kbhit() then "avail" else "none");
 end
-#---------------------------------------- 162 ladder_rung41_rt_writes_no_newline
+```
+
+```stdout
+eof-fail
+eof-fail
+avail
+```
+
+## ladder_rung41_rt_writes_no_newline
+
+```Icon
 procedure main()
   writes("a");
   writes("b");
   write("c");
 end
-#------------------------------------------------- 163 ladder_rung42_kw_e_pi_phi
+```
+
+```stdout
+abc
+```
+
+## ladder_rung42_kw_e_pi_phi
+
+```Icon
 procedure main()
   write(&e);
   write(&pi);
   write(&phi);
 end
-#--------------------------------------------------- 164 procedure_case_write_13
+```
+
+```stdout
+2.718281828
+3.141592654
+1.618033989
+```
+
+## procedure_case_write_13
+
+```Icon
 procedure main()
   write(case 1 of { 1: 1*10; 2: 2*20; default: 99*100 });
   write(case 2 of { 1: 1*10; 2: 2*20; default: 99*100 });
   write(case 7 of { 1: 1*10; 2: 2*20; default: 7*100 });
 end
-#---------------------------------------------------- 165 procedure_case_write_2
+```
+
+```stdout
+10
+40
+700
+```
+
+## procedure_case_write_2
+
+```Icon
 procedure main()
   write(case 1 of { 1: 1*10; 2: 2*20; default: 99*100 });
   write(case 2 of { 1: 1*10; 2: 2*20; default: 99*100 });
   write(case 7 of { 1: 1*10; 2: 2*20; default: 7*100 });
 end
-#---------------------------------------------------- 166 procedure_find_write_1
+```
+
+```stdout
+10
+40
+700
+```
+
+## procedure_find_write_1
+
+```Icon
 # rung08 t01: find(s1,s2) — one-shot first match
 procedure main()
   write(find("b","abc"));
   write(find("lo","hello"));
 end
-#---------------------------------------------------- 167 procedure_find_write_2
+```
+
+```stdout
+2
+4
+```
+
+## procedure_find_write_2
+
+```Icon
 # rung08 t01: find(s1,s2) — one-shot first match
 procedure main()
   write(find("b","abc"));
   write(find("lo","hello"));
 end
-#---------------------------------------------------- 168 procedure_repl_write_1
+```
+
+```stdout
+2
+4
+```
+
+## procedure_repl_write_1
+
+```Icon
 procedure main()
   write(repl("ab", 3));
   write(repl("x", 0));
   write(repl("-", 4));
 end
-#---------------------------------------------------- 169 procedure_repl_write_2
+```
+
+```stdout
+ababab
+
+----
+```
+
+## procedure_repl_write_2
+
+```Icon
 procedure main()
   write(repl("ab", 3));
   write(repl("x", 0));
   write(repl("-", 4));
 end
-#------------------------------------------------------- 170 procedure_write_161
+```
+
+```stdout
+ababab
+
+----
+```
+
+## procedure_write_161
+
+```Icon
 procedure main()
   s := "hello";
   write(s[-1]);
   write(s[-2]);
 end
-#------------------------------------------------------- 171 procedure_write_163
+```
+
+```stdout
+o
+l
+```
+
+## procedure_write_163
+
+```Icon
 procedure main()
   x := 1.5;
   y := 2.5;
   write(x + y);
 end
-#------------------------------------------------------- 172 procedure_write_170
+```
+
+```stdout
+4.0
+```
+
+## procedure_write_170
+
+```Icon
 procedure main()
   x := 2.5;
   y := 3.0;
   if x < y then write("yes") else write("no");
 end
-#------------------------------------------------------- 173 procedure_write_189
+```
+
+```stdout
+yes
+```
+
+## procedure_write_189
+
+```Icon
 procedure main()
   write(image(42));
   write(image("hello"));
   write(image(3.14));
 end
-#-------------------------------------------------------- 174 procedure_write_19
+```
+
+```stdout
+42
+"hello"
+3.14
+```
+
+## procedure_write_19
+
+```Icon
 procedure main()
   s := "hello";
   write(s[-1]);
   write(s[-2]);
 end
-#------------------------------------------------------- 175 procedure_write_192
+```
+
+```stdout
+o
+l
+```
+
+## procedure_write_192
+
+```Icon
 procedure main()
   write(type(42));
   write(type("hello"));
   write(type(3.14));
 end
-#-------------------------------------------------------- 176 procedure_write_21
+```
+
+```stdout
+integer
+string
+real
+```
+
+## procedure_write_21
+
+```Icon
 procedure main()
   x := 1.5;
   y := 2.5;
   write(x + y);
 end
-#-------------------------------------------------------- 177 procedure_write_28
+```
+
+```stdout
+4.0
+```
+
+## procedure_write_28
+
+```Icon
 procedure main()
   x := 2.5;
   y := 3.0;
   if x < y then write("yes") else write("no");
 end
-#-------------------------------------------------------- 178 procedure_write_36
+```
+
+```stdout
+yes
+```
+
+## procedure_write_36
+
+```Icon
 procedure main()
   x := 0;
   y := {x := x + 1; x := x + 1; x};
   write(y);
 end
-#-------------------------------------------------------- 179 procedure_write_50
+```
+
+```stdout
+2
+```
+
+## procedure_write_50
+
+```Icon
 procedure main()
   write(image(42));
   write(image("hello"));
   write(image(3.14));
 end
-#-------------------------------------------------------- 180 procedure_write_53
+```
+
+```stdout
+42
+"hello"
+3.14
+```
+
+## procedure_write_53
+
+```Icon
 procedure main()
   write(type(42));
   write(type("hello"));
   write(type(3.14));
 end
-#------ 181 rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_side
+```
+
+```stdout
+integer
+string
+real
+```
+
+## rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_side
+
+```Icon
 procedure main()
   x := 0;
   y := (x := x + 1; x := x + 1; x);
   write(y);
 end
-#---------------- 182 ladder__rung39_numbit_numeric_keeps_a_large_integer_string
+```
+
+```stdout
+File rung20_section_seqexpr_seqexpr_side.icn; Line 3 # ";": missing right parenthesis
+```
+
+## ladder__rung39_numbit_numeric_keeps_a_large_integer_string
+
+```Icon
 procedure main()
    write(numeric("1180591620717411303424"));
    write(numeric("-1180591620717411303424") + 1);
    write(numeric(" 99999999999999999999 "));
    write(type(numeric("99999999999999999999")));
 end
-#----------------------------- 183 ladder__rung42_kw_line_after_a_line_directive
+```
+
+```stdout
+1180591620717411303424
+-1180591620717411303423
+99999999999999999999
+integer
+```
+
+## ladder__rung42_kw_line_after_a_line_directive
+
+```Icon
 procedure main()
    write(&line);
 $line 100
    write(&line);
    write(&line);
 end
-#----------------------------------------------- 184 ladder__rung44_link_strings
+```
+
+```stdout
+2
+101
+102
+```
+
+## ladder__rung44_link_strings
+
+```Icon
 link strings
 procedure main()
    write(replace("a-b-c", "-", "+"));
    write(deletec("hello", 'l'));
    write(ispal("level") | "no", " ", ispal("abc") | "no");
 end
-#--------------------------------------------- 185 ladder_rung41_rt_chdir_getenv
+```
+
+```stdout
+a+b+c
+heo
+level no
+```
+
+## ladder_rung41_rt_chdir_getenv
+
+```Icon
 procedure main()
   write(if chdir("/tmp") then "chdir-ok" else "chdir-fail");
   write(if chdir("/no/such/dir/s05r41") then "chdir-ok" else "chdir-fail");
   write(if getenv("PATH") then "has-path" else "no-path");
   write(if getenv("S05_R41_DEFINITELY_UNSET_XYZ") then "set" else "unset");
 end
-#-------------------------------- 186 ladder_rung42_kw_ascii_cset_letters_digits
+```
+
+```stdout
+chdir-ok
+chdir-fail
+has-path
+unset
+```
+
+## ladder_rung42_kw_ascii_cset_letters_digits
+
+```Icon
 procedure main()
   write(*&ascii);
   write(*&cset);
   write(&letters == (&ucase ++ &lcase));
   write(&digits);
 end
-#------------------------------------------------------- 187 procedure_write_139
+```
+
+```stdout
+128
+256
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+0123456789
+```
+
+## procedure_write_139
+
+```Icon
 procedure main()
   x := [1, 2, 3];
   x[2] := 99;
   write(x[2]);
   write(x[1]);
 end
-#------------------------------------------------------- 188 procedure_write_140
+```
+
+```stdout
+99
+1
+```
+
+## procedure_write_140
+
+```Icon
 procedure main()
   x := [[1,2],[3,4]];
   write(x[2][1]);
   x[1][2] := 55;
   write(x[1][2]);
 end
-#------------------------------------------------------- 189 procedure_write_158
+```
+
+```stdout
+3
+55
+```
+
+## procedure_write_158
+
+```Icon
 procedure main()
   s := "hello";
   write(s[1]);
   write(s[3]);
   write(s[5]);
 end
-#-------------------------------------------------------- 190 procedure_write_16
+```
+
+```stdout
+h
+l
+o
+```
+
+## procedure_write_16
+
+```Icon
 procedure main()
   s := "hello";
   write(s[1]);
   write(s[3]);
   write(s[5]);
 end
-#------------------------------------------------------- 191 procedure_write_195
+```
+
+```stdout
+h
+l
+o
+```
+
+## procedure_write_195
+
+```Icon
 procedure greet(name)
   return "hello " || name;
 end
 procedure main()
   write(greet("world"));
 end
-#-------------------------------------------------------- 192 procedure_write_58
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_58
+
+```Icon
 procedure greet(name)
   return "hello " || name;
 end
 procedure main()
   write(greet("world"));
 end
-#---------------------------------------------------- 193 procedure_write_read_1
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_read_1
+
+```Icon
 procedure main()
   if read() then
     write("got line")
   else
     write("eof");
 end
-#---------------------------------------------------- 194 procedure_write_read_3
+```
+
+```stdin
+```
+
+```stdout
+eof
+```
+
+## procedure_write_read_3
+
+```Icon
 procedure main()
   if read() then
     write("got line")
   else
     write("eof");
 end
-#---------------------------------------------------- 195 unicon__uni_lex_suffix
+```
+
+```stdin
+```
+
+```stdout
+eof
+```
+
+## unicon__uni_lex_suffix
+
+```Icon
 procedure main()
    write(1k, " ", 2K, " ", 1m, " ", 1M, " ", 1g, " ", 1G, " ", -1k);
    write(image(1t), " ", image(1p));
 end
 class UniconMarker()
 end
-#------------------------------------------------------- 196 procedure_write_198
+```
+
+```stdout
+1024 2048 1048576 1048576 1073741824 1073741824 -1024
+1099511627776 1125899906842624
+```
+
+## procedure_write_198
+
+```Icon
 procedure join(a, b)
   return a || "-" || b;
 end
@@ -1017,7 +2471,16 @@ procedure main()
   write(join("foo", "bar"));
   write(join("hello", "world"));
 end
-#------------------------------------------------------- 197 procedure_write_201
+```
+
+```stdout
+foo-bar
+hello-world
+```
+
+## procedure_write_201
+
+```Icon
 procedure main()
   x := 5;
   if x > 3 then {
@@ -1025,7 +2488,16 @@ procedure main()
     write(x)
   };
 end
-#-------------------------------------------------------- 198 procedure_write_61
+```
+
+```stdout
+big
+5
+```
+
+## procedure_write_61
+
+```Icon
 procedure join(a, b)
   return a || "-" || b;
 end
@@ -1033,7 +2505,16 @@ procedure main()
   write(join("foo", "bar"));
   write(join("hello", "world"));
 end
-#-------------------------------------------------------- 199 procedure_write_64
+```
+
+```stdout
+foo-bar
+hello-world
+```
+
+## procedure_write_64
+
+```Icon
 procedure main()
   x := 5;
   if x > 3 then {
@@ -1041,7 +2522,16 @@ procedure main()
     write(x)
   };
 end
-#--------------------------------------------------- 200 procedure_limit_write_3
+```
+
+```stdout
+big
+5
+```
+
+## procedure_limit_write_3
+
+```Icon
 # rung37: detab/entab hello — IJ-5
 procedure main()
    write(detab("\tabc"));
@@ -1050,7 +2540,19 @@ procedure main()
    write(left("hi", 6, "."));
    write(right("hi", 6, "."));
 end
-#--------------------------------------------------- 201 procedure_limit_write_4
+```
+
+```stdout
+        abc
+	x
+  hi  
+hi....
+....hi
+```
+
+## procedure_limit_write_4
+
+```Icon
 # IJ-5: test center/left/right/detab/entab string formatting builtins
 procedure main()
   write(center("hi",6));
@@ -1059,7 +2561,19 @@ procedure main()
   write(detab("\tabc"));
   write(entab("        x"));
 end
-#------------------------------------------------------- 202 procedure_write_207
+```
+
+```stdout
+  hi  
+hi....
+....hi
+        abc
+	x
+```
+
+## procedure_write_207
+
+```Icon
 procedure double(n)
   if n > 0 then return n * 2;
   return 0;
@@ -1068,7 +2582,16 @@ procedure main()
   write(double(5));
   write(double(-1));
 end
-#---------------------------------------------- 203 unicon__uni_thread_ops_parse
+```
+
+```stdout
+10
+0
+```
+
+## unicon__uni_thread_ops_parse
+
+```Icon
 class UniconMarker();
 end
 procedure never(a, b, t);
@@ -1077,7 +2600,15 @@ end
 procedure main();
   write("parsed");
 end
-#------------------------------------- 204 unicon__uni_thread_send_postfix_parse
+```
+
+```stdout
+parsed
+```
+
+## unicon__uni_thread_send_postfix_parse
+
+```Icon
 class UniconMarker();
 end
 procedure never(a, t);
@@ -1086,7 +2617,15 @@ end
 procedure main();
   write("parsed");
 end
-#------------------------------------------------------- 205 procedure_write_145
+```
+
+```stdout
+parsed
+```
+
+## procedure_write_145
+
+```Icon
 # rung03 t03: procedure that fails (no return value)
 procedure positive(n)
   if n > 0 then return n;
@@ -1096,7 +2635,16 @@ procedure main()
   if positive(5) then write(1);
   if positive(0) then write(2) else write(3);
 end
-#--------------------------------------------------------- 206 procedure_write_2
+```
+
+```stdout
+1
+3
+```
+
+## procedure_write_2
+
+```Icon
 # rung03 t03: procedure that fails (no return value)
 procedure positive(n)
   if n > 0 then return n;
@@ -1106,7 +2654,16 @@ procedure main()
   if positive(5) then write(1);
   if positive(0) then write(2) else write(3);
 end
-#------------------------------------------------------- 207 procedure_write_202
+```
+
+```stdout
+1
+3
+```
+
+## procedure_write_202
+
+```Icon
 procedure main()
   x := 2;
   if x > 3 then {
@@ -1116,7 +2673,16 @@ procedure main()
     write(x)
   };
 end
-#-------------------------------------------------------- 208 procedure_write_65
+```
+
+```stdout
+small
+2
+```
+
+## procedure_write_65
+
+```Icon
 procedure main()
   x := 2;
   if x > 3 then {
@@ -1126,7 +2692,16 @@ procedure main()
     write(x)
   };
 end
-#----------------------------------------- 209 unicon__uni_bi_numeric_suffix_big
+```
+
+```stdout
+small
+2
+```
+
+## unicon__uni_bi_numeric_suffix_big
+
+```Icon
 procedure main()
    write(numeric("9007199254740992K") | "none");
    write(numeric("-36028797018963968K") | "none");
@@ -1136,7 +2711,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------------- 210 procedure_write_243
+```
+
+```stdout
+9223372036854775808
+-36893488147419103232
+1208925819614629174706176
+1267650600228229401496703205376
+none 8589934592 none
+```
+
+## procedure_write_243
+
+```Icon
 procedure fact(n)
   if n <= 1 then return 1;
   return n * fact(n - 1);
@@ -1147,7 +2734,15 @@ end
 procedure main()
   write(describe(5));
 end
-#-------------------------------------------- 211 unicon__uni_lex_triple_escaped
+```
+
+```stdout
+fact(5)=120
+```
+
+## unicon__uni_lex_triple_escaped
+
+```Icon
 procedure main()
   write("""escaped triple: \"\"\" inside""");
   write("""a\"b""");
@@ -1158,7 +2753,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------- 212 unicon__uni_lex_triple_verbatim
+```
+
+```stdout
+escaped triple: """ inside
+a\"b
+two \"\" stay
+first
+""" second
+```
+
+## unicon__uni_lex_triple_verbatim
+
+```Icon
 procedure main()
   s := """a\"b
 $ifdef X
@@ -1169,7 +2776,19 @@ c""";
 end
 class UniconMarker()
 end
-#---------------------------------------------- 213 ladder__rung43_fields_method
+```
+
+```stdout
+a\"b
+$ifdef X
+kept
+$endif
+c
+```
+
+## ladder__rung43_fields_method
+
+```Icon
 class Point(x, y)
   method show()
     write("(", x, ",", y, ")");
@@ -1181,7 +2800,16 @@ procedure main()
   q := Point(-1, 7);
   q.show();
 end
-#---------------------------------------------- 214 ladder_rung42_kw_trace_level
+```
+
+```stdout
+(3,4)
+(-1,7)
+```
+
+## ladder_rung42_kw_trace_level
+
+```Icon
 procedure main()
   write(&level);
   a();
@@ -1193,7 +2821,17 @@ end
 procedure b()
   write(&level);
 end
-#--------------------------------------------- 215 unicon__uni_lex_class_default
+```
+
+```stdout
+1
+2
+3
+```
+
+## unicon__uni_lex_class_default
+
+```Icon
 class Point(x:0, y:0, name:"origin")
    method show()
       write(name, " ", x, " ", y);
@@ -1205,7 +2843,16 @@ procedure main()
    Point().show();
    Point(3, 4).show();
 end
-#------------------------------------------------------- 216 procedure_write_196
+```
+
+```stdout
+origin 0 0
+point 3 4
+```
+
+## procedure_write_196
+
+```Icon
 procedure prefix(s)
   return "pre:" || s;
 end
@@ -1218,7 +2865,15 @@ end
 procedure main()
   write(wrap("mid"));
 end
-#-------------------------------------------------------- 217 procedure_write_59
+```
+
+```stdout
+pre:mid:suf
+```
+
+## procedure_write_59
+
+```Icon
 procedure prefix(s)
   return "pre:" || s;
 end
@@ -1231,7 +2886,15 @@ end
 procedure main()
   write(wrap("mid"));
 end
-#--------------------------------------- 218 unicon__uni_class_super_dollar_call
+```
+
+```stdout
+pre:mid:suf
+```
+
+## unicon__uni_class_super_dollar_call
+
+```Icon
 class Base()
    method hello()
       return "base hello";
@@ -1245,7 +2908,15 @@ end
 procedure main()
    write(Kid().hello());
 end
-#------------------------------------------- 219 ladder__rung43_inherit_override
+```
+
+```stdout
+kid then base hello
+```
+
+## ladder__rung43_inherit_override
+
+```Icon
 class Shape(name)
   method describe()
     return "shape " || name;
@@ -1260,7 +2931,16 @@ procedure main()
   write(Shape("s1").describe());
   write(Square("s2", 5).describe());
 end
-#---------------------------------------------- 220 unicon__uni_lex_typed_params
+```
+
+```stdout
+shape s1
+square 5 side s2
+```
+
+## unicon__uni_lex_typed_params
+
+```Icon
 procedure p(m : string : "dflt", n : integer : 3, r : real : 0.5)
    write(image(m), " ", image(n), " ", image(r));
 end
@@ -1276,7 +2956,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------------- 221 procedure_write_142
+```
+
+```stdout
+"dflt" 3 0.5
+"a" 4 2.0
+"5" 6 1.5
+7
+"given"
+```
+
+## procedure_write_142
+
+```Icon
 procedure main()
   s := "hello";
   s[1] := "H";
@@ -1293,7 +2985,22 @@ procedure main()
   write(n);
   write(*n);
 end
-#------------------------------------- 222 unicon__uni_lex_class_inherit_default
+```
+
+```stdout
+Hello
+HeLLlo
+HeLLl!
+e
+E
+HELLl!
+a7c
+3
+```
+
+## unicon__uni_lex_class_inherit_default
+
+```Icon
 class A(x:5)
    method ax()
       return x;
@@ -1310,7 +3017,18 @@ procedure main()
    write(A().ax());
    write(A(2).ax());
 end
-#------------------------------------------------- 223 procedure_write_keyword_1
+```
+
+```stdout
+5 7
+5 1
+5
+2
+```
+
+## procedure_write_keyword_1
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -1342,7 +3060,38 @@ procedure main()
    write(left("stu", 5, "<>"));
    write(left("vwx", 6, "<>"));
 end
-#------------------------------------------------- 224 procedure_write_keyword_2
+```
+
+```stdout
+a
+d
+g
+jk
+mno
+237 
+stu  
+vwx   
+abc
+d
+g
+jk
+mno
+237.
+stu..
+vwx...
+abc
+d
+g
+jk
+mno
+237>
+stu<>
+vwx><>
+```
+
+## procedure_write_keyword_2
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -1374,7 +3123,38 @@ procedure main()
    write(right("stu", 5, "<>"));
    write(right("vwx", 6, "<>"));
 end
-#------------------------------------------------------- 225 procedure_write_277
+```
+
+```stdout
+c
+f
+i
+kl
+mno
+ 237
+  stu
+   vwx
+abc
+f
+i
+kl
+mno
+.237
+..stu
+...vwx
+abc
+f
+i
+kl
+mno
+<237
+<>stu
+<><vwx
+```
+
+## procedure_write_277
+
+```Icon
 #SRC: JCON
 
 #  check return values from args()
@@ -1473,654 +3253,1818 @@ end
 procedure nargs(p, s)
    write(right(args(p),3), " ", s);
 end
-#--------------------------------------------------- 226 procedure_case_write_10
-procedure main(); x := 2; case x of { 1 : write("one"); 2 : write("two"); default : write("d") }; end
-#--------------------------------------------------- 227 procedure_case_write_11
-procedure main(); x := 9; case x of { 1 : write("one"); default : write("d") }; end
-#----------------------------------------------------- 228 procedure_every_to_25
+```
+
+```stdout
+  1 abs
+  1 acos
+  4 any
+  1 args
+  1 asin
+  2 atan
+  6 bal
+  3 center
+  1 char
+  1 close
+  2 collect
+  1 copy
+  1 cos
+  1 cset
+  1 delay
+  2 delete
+ -2 detab
+  2 display
+  1 dtor
+ -2 entab
+  0 errorclear
+  1 exit
+  1 exp
+  4 find
+  1 flush
+  0 function
+  1 get
+  1 getenv
+  2 iand
+  1 icom
+  1 image
+  3 insert
+  1 integer
+  2 ior
+  2 ishift
+  2 ixor
+  1 key
+  3 left
+  2 list
+  2 log
+  4 many
+  3 map
+  4 match
+  2 member
+  1 move
+  1 name
+  1 numeric
+  2 open
+  1 ord
+  1 pop
+  1 pos
+  2 proc
+  1 pull
+ -2 push
+ -2 put
+  1 read
+  2 reads
+  1 real
+  1 remove
+  2 rename
+  2 repl
+  1 reverse
+  3 right
+  1 rtod
+ -2 runerr
+  2 seek
+  2 seq
+  1 serial
+  1 set
+  1 sin
+  2 sort
+  2 sortf
+  1 sqrt
+ -1 stop
+  1 string
+  1 system
+  1 tab
+  1 table
+  1 tan
+  2 trim
+  1 type
+  4 upto
+  1 variable
+  1 where
+ -1 write
+ -1 writes
+```
+
+## procedure_every_to_25
+
+```Icon
 procedure main(); every write(1 to 3); end
-#----------------------------------------------------- 229 procedure_every_to_28
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_to_28
+
+```Icon
 procedure main(); every write(1 to 7 by 2); end
-#--------------------------------------------------- 230 procedure_limit_write_6
-procedure main(); x := 1; if \x then write("nn"); end
-#----------------------------------------------------- 231 procedure_scan_move_3
-procedure main(); "hello" ? write(move(2)); end
-#---------------------------------------------------- 232 procedure_swap_write_3
+```
+
+```stdout
+1
+3
+5
+7
+```
+
+## procedure_swap_write_3
+
+```Icon
 procedure main(); x := 1; y := 2; x :=: y; write(x); write(y); end
-#----------------------------------------------- 233 procedure_write_augassign_8
-procedure main(); x := 2; x +:= 3; write(x); end
-#------------------------------------------------- 234 procedure_write_keyword_4
-procedure main(); x := &null; if /x then write("n"); end
-#------------------------------------------------------ 235 procedure_alt_fail_2
+```
+
+```stdout
+2
+1
+```
+
+## procedure_alt_fail_2
+
+```Icon
 procedure f(); fail; end
 procedure main(); write(f() | "failed"); end
-#-------------------------------------------------- 236 procedure_record_write_5
+```
+
+```stdout
+failed
+```
+
+## procedure_record_write_5
+
+```Icon
 record pt(x, y)
 procedure main(); p := pt(1, 2); write(p.x); write(p.y); end
-#------------------------------------------------- 237 procedure_write_global_11
+```
+
+```stdout
+1
+2
+```
+
+## procedure_write_global_11
+
+```Icon
 global g_count, g_name
 procedure main(); g_count := 0; g_name := "hello"; g_count := g_count + 1; g_count := g_count + 1; write(g_count); write(g_name); end
-#------------------------------------------------- 238 procedure_write_global_12
+```
+
+```stdout
+2
+hello
+```
+
+## procedure_write_global_12
+
+```Icon
 global g
 procedure main(); g := 5; write(g); end
-#------------------------------------------------- 239 procedure_write_global_17
+```
+
+```stdout
+5
+```
+
+## procedure_write_global_17
+
+```Icon
 global counter, message, total
 procedure main(); counter := 0; message := "hello"; total := 42; counter := counter + 1; write(counter); write(message); write(total); end
-#---------------------------- 240 ladder_rung08_strbuiltins_scan_coerce_move_str
+```
+
+```stdout
+1
+hello
+42
+```
+
+## ladder_rung08_strbuiltins_scan_coerce_move_str
+
+```Icon
 procedure main()
   "abc" ? write(move("1"));
 end
-#------------------------------------------------- 241 ladder_rung40_strfn_detab
+```
+
+```stdout
+a
+```
+
+## ladder_rung40_strfn_detab
+
+```Icon
 procedure main()
   write(image(detab("a\tb", 8)));
 end
-#----------------------------------------------------- 242 procedure_every_to_17
+```
+
+```stdout
+"a      b"
+```
+
+## procedure_every_to_17
+
+```Icon
 procedure main()
   every write(3.0 to 1.0 by -1.0);
 end
-#----------------------------------------------------- 243 procedure_every_to_18
+```
+
+```stdout
+3
+2
+1
+```
+
+## procedure_every_to_18
+
+```Icon
 procedure main()
   every write(1.0 to 2.0 by 0.5);
 end
-#----------------------------------------------------- 244 procedure_every_to_31
+```
+
+```stdout
+
+```
+
+## procedure_every_to_31
+
+```Icon
 procedure main()
   every write((1 to 2) & (10 to 11));
 end
-#----------------------------------------------------- 245 procedure_every_to_48
+```
+
+```stdout
+10
+11
+10
+11
+```
+
+## procedure_every_to_48
+
+```Icon
 procedure main()
   every write(3.0 to 1.0 by -1.0);
 end
-#----------------------------------------------------- 246 procedure_every_to_49
+```
+
+```stdout
+3
+2
+1
+```
+
+## procedure_every_to_49
+
+```Icon
 procedure main()
   every write(1.0 to 3.0 by 1.0);
 end
-#------------------------------------------------------- 247 procedure_write_205
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_write_205
+
+```Icon
 procedure main()
   every write((1 to 5) > 3);
 end
-#------------------------------------------------------- 248 procedure_write_206
+```
+
+```stdout
+3
+3
+```
+
+## procedure_write_206
+
+```Icon
 procedure main()
   every write(((1 to 5) > 3) + 10);
 end
-#------------------------------------------------------- 249 procedure_write_228
+```
+
+```stdout
+13
+13
+```
+
+## procedure_write_228
+
+```Icon
 procedure main()
   every write(((1 to 6) > 3) + 0.5);
 end
-#------------------------------------------------------- 250 procedure_write_231
+```
+
+```stdout
+3.5
+3.5
+3.5
+```
+
+## procedure_write_231
+
+```Icon
 procedure main()
   every write((1.0 to 3.0 by 1.0) ^ 2);
 end
-#-------------------------------------------------- 251 ladder_rung40_strfn_repl
+```
+
+```stdout
+1
+4
+9
+```
+
+## ladder_rung40_strfn_repl
+
+```Icon
 procedure main()
   write(repl("ab", 3));
   write(image(repl("x", 0)));
 end
-#--------------------------------------------------- 252 procedure_case_write_16
+```
+
+```stdout
+ababab
+""
+```
+
+## procedure_case_write_16
+
+```Icon
 procedure main()
   x := case 3 of { 1: 10; 2: 20; 3: 30 };
   write(x);
 end
-#---------------------------------------------------- 253 procedure_case_write_5
+```
+
+```stdout
+30
+```
+
+## procedure_case_write_5
+
+```Icon
 procedure main()
   x := case 3 of { 1: 10; 2: 20; 3: 30 };
   write(x);
 end
-#---------------------------------------------------- 254 procedure_every_find_1
+```
+
+```stdout
+30
+```
+
+## procedure_every_find_1
+
+```Icon
 # rung08 t02: find() as generator — every occurrence
 procedure main()
   every write(find("a","banana"));
 end
-#---------------------------------------------------- 255 procedure_every_find_2
+```
+
+```stdout
+2
+4
+6
+```
+
+## procedure_every_find_2
+
+```Icon
 # rung08 t02: find() as generator — every occurrence
 procedure main()
   every write(find("a","banana"));
 end
-#------------------------------------------------------ 256 procedure_every_to_1
+```
+
+```stdout
+2
+4
+6
+```
+
+## procedure_every_to_1
+
+```Icon
 # paper §2 example 5: 3 < ((1 to 3) * (1 to 2)) generates 4,6
 procedure main()
   every write(3 < ((1 to 3) * (1 to 2)));
 end
-#----------------------------------------------------- 257 procedure_every_to_10
+```
+
+```stdout
+4
+6
+```
+
+## procedure_every_to_10
+
+```Icon
 # rung02 t05: Proebsting paper example — 5 > ((1 to 2) * (3 to 4))
 procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
 end
-#----------------------------------------------------- 258 procedure_every_to_11
+```
+
+```stdout
+3
+4
+```
+
+## procedure_every_to_11
+
+```Icon
 # rung02 t01: basic range generator
 procedure main()
   every write(1 to 5);
 end
-#----------------------------------------------------- 259 procedure_every_to_12
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_to_12
+
+```Icon
 # rung02 t02: relational filter — (1 to 6) > 3 yields 3 for each i > 3
 procedure main()
   every write((1 to 6) > 3);
 end
-#----------------------------------------------------- 260 procedure_every_to_14
+```
+
+```stdout
+3
+3
+3
+```
+
+## procedure_every_to_14
+
+```Icon
 # rung07 t03: every (1 to 10 by 3)
 procedure main()
   every write(1 to 10 by 3);
 end
-#------------------------------------------------------ 261 procedure_every_to_2
+```
+
+```stdout
+1
+4
+7
+10
+```
+
+## procedure_every_to_2
+
+```Icon
 # paper §2 example 4: 2 < (1 to 4) generates 3,4
 procedure main()
   every write(2 < (1 to 4));
 end
-#------------------------------------------------------ 262 procedure_every_to_3
+```
+
+```stdout
+3
+4
+```
+
+## procedure_every_to_3
+
+```Icon
 # paper §2 example 2: (1 to 3) * (1 to 2) generates 1,2,2,4,3,6
 procedure main()
   every write((1 to 3) * (1 to 2));
 end
-#----------------------------------------------------- 263 procedure_every_to_32
+```
+
+```stdout
+1
+2
+2
+4
+3
+6
+```
+
+## procedure_every_to_32
+
+```Icon
 # paper §2 example 5: 3 < ((1 to 3) * (1 to 2)) generates 4,6
 procedure main()
   every write(3 < ((1 to 3) * (1 to 2)));
 end
-#----------------------------------------------------- 264 procedure_every_to_33
+```
+
+```stdout
+4
+6
+```
+
+## procedure_every_to_33
+
+```Icon
 # paper §2 example 4: 2 < (1 to 4) generates 3,4
 procedure main()
   every write(2 < (1 to 4));
 end
-#----------------------------------------------------- 265 procedure_every_to_34
+```
+
+```stdout
+3
+4
+```
+
+## procedure_every_to_34
+
+```Icon
 # paper §2 example 2: (1 to 3) * (1 to 2) generates 1,2,2,4,3,6
 procedure main()
   every write((1 to 3) * (1 to 2));
 end
-#----------------------------------------------------- 266 procedure_every_to_35
+```
+
+```stdout
+1
+2
+2
+4
+3
+6
+```
+
+## procedure_every_to_35
+
+```Icon
 # paper §2 example 3: (1 to 2) to (2 to 3) generates 1,2,1,2,3,2,2,3
 procedure main()
   every write((1 to 2) to (2 to 3));
 end
-#----------------------------------------------------- 267 procedure_every_to_37
+```
+
+```stdout
+1
+2
+1
+2
+3
+2
+2
+3
+```
+
+## procedure_every_to_37
+
+```Icon
 # paper §2 example 1: "1 to 5" generates 1,2,3,4,5
 procedure main()
   every write(1 to 5);
 end
-#----------------------------------------------------- 268 procedure_every_to_39
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_to_39
+
+```Icon
 # rung02 t03: nested generators — (1 to 3) + (1 to 3)
 procedure main()
   every write((1 to 3) + (1 to 3));
 end
-#------------------------------------------------------ 269 procedure_every_to_4
+```
+
+```stdout
+2
+3
+4
+3
+4
+5
+4
+5
+6
+```
+
+## procedure_every_to_4
+
+```Icon
 # paper §2 example 3: (1 to 2) to (2 to 3) generates 1,2,1,2,3,2,2,3
 procedure main()
   every write((1 to 2) to (2 to 3));
 end
-#----------------------------------------------------- 270 procedure_every_to_41
+```
+
+```stdout
+1
+2
+1
+2
+3
+2
+2
+3
+```
+
+## procedure_every_to_41
+
+```Icon
 # rung02 t05: Proebsting paper example — 5 > ((1 to 2) * (3 to 4))
 procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
 end
-#----------------------------------------------------- 271 procedure_every_to_42
+```
+
+```stdout
+3
+4
+```
+
+## procedure_every_to_42
+
+```Icon
 # rung02 t01: basic range generator
 procedure main()
   every write(1 to 5);
 end
-#----------------------------------------------------- 272 procedure_every_to_43
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_to_43
+
+```Icon
 # rung02 t02: relational filter — (1 to 6) > 3 yields 3 for each i > 3
 procedure main()
   every write((1 to 6) > 3);
 end
-#----------------------------------------------------- 273 procedure_every_to_45
+```
+
+```stdout
+3
+3
+3
+```
+
+## procedure_every_to_45
+
+```Icon
 # rung07 t03: every (1 to 10 by 3)
 procedure main()
   every write(1 to 10 by 3);
 end
-#------------------------------------------------------ 274 procedure_every_to_6
+```
+
+```stdout
+1
+4
+7
+10
+```
+
+## procedure_every_to_6
+
+```Icon
 # paper §2 example 1: "1 to 5" generates 1,2,3,4,5
 procedure main()
   every write(1 to 5);
 end
-#------------------------------------------------------ 275 procedure_every_to_8
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_to_8
+
+```Icon
 # rung02 t03: nested generators — (1 to 3) + (1 to 3)
 procedure main()
   every write((1 to 3) + (1 to 3));
 end
-#--------------------------------------------------- 276 procedure_limit_write_2
+```
+
+```stdout
+2
+3
+4
+3
+4
+5
+4
+5
+6
+```
+
+## procedure_limit_write_2
+
+```Icon
 procedure main()
   x := \(1 + 2);
   write(x);
 end
-#--------------------------------------------------- 277 procedure_limit_write_9
+```
+
+```stdout
+3
+```
+
+## procedure_limit_write_9
+
+```Icon
 procedure main()
   x := \(1 + 2);
   write(x);
 end
-#----------------------------------------------------- 278 procedure_map_write_1
+```
+
+```stdout
+3
+```
+
+## procedure_map_write_1
+
+```Icon
 procedure main()
   write(trim("  hello  "));
   write(map("Hello World", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"));
 end
-#----------------------------------------------------- 279 procedure_map_write_2
+```
+
+```stdout
+  hello
+hELLO wORLD
+```
+
+## procedure_map_write_2
+
+```Icon
 procedure main()
   write(trim("  hello  "));
   write(map("Hello World", "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"));
 end
-#----------------------------------------------------- 280 procedure_scan_many_2
+```
+
+```stdout
+  hello
+hELLO wORLD
+```
+
+## procedure_scan_many_2
+
+```Icon
 # rung06 t03: many() spans chars in cset
 procedure main()
   "aaabcd" ? write(many('abc'));
 end
-#----------------------------------------------------- 281 procedure_scan_many_3
+```
+
+```stdout
+6
+```
+
+## procedure_scan_many_3
+
+```Icon
 # rung06 t03: many() spans chars in cset
 procedure main()
   "aaabcd" ? write(many('abc'));
 end
-#----------------------------------------------------- 282 procedure_scan_move_1
+```
+
+```stdout
+6
+```
+
+## procedure_scan_move_1
+
+```Icon
 # rung08 t05: move(n) — advance by n
 procedure main()
   "abcdef" ? write(move(3));
 end
-#----------------------------------------------------- 283 procedure_scan_move_5
+```
+
+```stdout
+abc
+```
+
+## procedure_scan_move_5
+
+```Icon
 # rung08 t05: move(n) — advance by n
 procedure main()
   "abcdef" ? write(move(3));
 end
-#--------------------------------------------------- 284 procedure_scan_write_15
+```
+
+```stdout
+abc
+```
+
+## procedure_scan_write_15
+
+```Icon
 # rung05 t04: scan of concat result
 procedure main()
   ("foo" || "bar") ? write(&subject);
 end
-#--------------------------------------------------- 285 procedure_scan_write_18
+```
+
+```stdout
+foobar
+```
+
+## procedure_scan_write_18
+
+```Icon
 # rung05 t01: scan sets &subject; body reads it
 procedure main()
   "hello" ? write(&subject);
 end
-#---------------------------------------------------- 286 procedure_scan_write_4
+```
+
+```stdout
+hello
+```
+
+## procedure_scan_write_4
+
+```Icon
 # rung05 t04: scan of concat result
 procedure main()
   ("foo" || "bar") ? write(&subject);
 end
-#---------------------------------------------------- 287 procedure_scan_write_7
+```
+
+```stdout
+foobar
+```
+
+## procedure_scan_write_7
+
+```Icon
 # rung05 t01: scan sets &subject; body reads it
 procedure main()
   "hello" ? write(&subject);
 end
-#------------------------------------------------------- 288 procedure_write_174
+```
+
+```stdout
+hello
+```
+
+## procedure_write_174
+
+```Icon
 procedure main()
   s := "hello";
   write(s[1:4]);
 end
-#------------------------------------------------------- 289 procedure_write_175
+```
+
+```stdout
+hel
+```
+
+## procedure_write_175
+
+```Icon
 procedure main()
   s := "hello";
   write(s[1:6]);
 end
-#-------------------------------------------------------- 290 procedure_write_32
+```
+
+```stdout
+hello
+```
+
+## procedure_write_32
+
+```Icon
 procedure main()
   s := "hello";
   write(s[1:4]);
 end
-#-------------------------------------------------------- 291 procedure_write_33
+```
+
+```stdout
+hel
+```
+
+## procedure_write_33
+
+```Icon
 procedure main()
   s := "hello";
   write(s[1:6]);
 end
-#---------- 292 ladder__rung41_rt_open_in_a_graphics_mode_fails_without_graphics
+```
+
+```stdout
+hello
+```
+
+## ladder__rung41_rt_open_in_a_graphics_mode_fails_without_graphics
+
+```Icon
 procedure main()
    write(image(open("/dev/null", "g")) | "open g fails");
    write(image(open("/dev/null", "rg")) | "open rg fails");
    write(image(open("/dev/null", "r")) | "open r fails");
 end
-#---------------------------------------------- 293 ladder__rung46_concat_assign
+```
+
+```stdout
+open g fails
+open rg fails
+file(/dev/null)
+```
+
+## ladder__rung46_concat_assign
+
+```Icon
 procedure main()
   s := "abcdef";
   if s ?? ("b" || "c") => x then write("matched ", x);
   if s ?? (Len(2) || Len(2)) -> y then write("len2len2 ", y);
 end
-#----------------------------------------------- 294 ladder_rung01_paper_by_zero
+```
+
+```stdout
+matched bc
+len2len2 abcd
+```
+
+## ladder_rung01_paper_by_zero
+
+```Icon
 procedure main()
   write("before");
   every write(1 to 5 by 0);
   write("after");
 end
-#---------------------------------------- 295 ladder_rung26_pow_pow_negbase_real
+```
+
+```stdout
+before
+```
+
+## ladder_rung26_pow_pow_negbase_real
+
+```Icon
 procedure main()
   &error := 1;
   write((-2.0) ^ 0.5);
   write("num=", &errornumber, " text=", &errortext);
 end
-#----------------------------------------- 296 ladder_rung26_pow_pow_zero_negexp
+```
+
+```stdout
+num=206 text=negative first argument to real exponentiation
+```
+
+## ladder_rung26_pow_pow_zero_negexp
+
+```Icon
 procedure main()
   &error := 1;
   write(0 ^ (-1));
   write("num=", &errornumber, " text=", &errortext);
 end
-#----------------------------------------- 297 ladder_rung41_rt_loadfunc_refusal
+```
+
+```stdout
+num=204 text=real overflow, underflow, or division by zero
+```
+
+## ladder_rung41_rt_loadfunc_refusal
+
+```Icon
 procedure main()
   &error := 1;
   loadfunc("/no/such/lib.so", "nofunc");
   write("num=", &errornumber, " text=", &errortext);
 end
-#------------------------------------ 298 ladder_rung42_kw_host_version_progname
+```
+
+```stdout
+num=216 text=external function not found
+```
+
+## ladder_rung42_kw_host_version_progname
+
+```Icon
 procedure main()
   write(type(&host), " ", (*\&host > 0));
   write(type(&version), " ", (*\&version > 0));
   write(type(&progname), " ", (*\&progname > 0));
 end
-#----------------------------------------------------- 299 procedure_every_to_40
+```
+
+```stdout
+string 0
+string 0
+string 0
+```
+
+## procedure_every_to_40
+
+```Icon
 # rung02 t04: nested generators + relational filter
 # (1 to 3) + (1 to 3) > 4 yields 4 for each sum > 4
 procedure main()
   every write((1 to 3) + (1 to 3) > 4);
 end
-#------------------------------------------------------ 300 procedure_every_to_9
+```
+
+```stdout
+4
+4
+4
+```
+
+## procedure_every_to_9
+
+```Icon
 # rung02 t04: nested generators + relational filter
 # (1 to 3) + (1 to 3) > 4 yields 4 for each sum > 4
 procedure main()
   every write((1 to 3) + (1 to 3) > 4);
 end
-#------------------------------------------------------- 301 procedure_keyword_3
+```
+
+```stdout
+4
+4
+4
+```
+
+## procedure_keyword_3
+
+```Icon
 procedure main();
    local x;
    x := 42;
    display(1, &output);
 end
-#------------------------------------------------------- 302 procedure_write_177
+```
+
+```stdout
+co-expression_1(1)
+
+main local identifiers:
+   x = 42
+
+global identifiers:
+   display = function display
+   main = procedure main
+```
+
+## procedure_write_177
+
+```Icon
 procedure main()
   L := [5, 6, 7];
   write(get(L));
   write(get(L));
 end
-#------------------------------------------------------- 303 procedure_write_182
+```
+
+```stdout
+5
+6
+```
+
+## procedure_write_182
+
+```Icon
 procedure main()
   local x;
   x := 2 ^ 3 + 1;
   write(x);
 end
-#------------------------------------------------------- 304 procedure_write_188
+```
+
+```stdout
+9
+```
+
+## procedure_write_188
+
+```Icon
 procedure main()
   s := copy("hello");
   write(s);
   write(type(s));
 end
-#------------------------------------------------------- 305 procedure_write_210
+```
+
+```stdout
+hello
+string
+```
+
+## procedure_write_210
+
+```Icon
 procedure main()
   local s;
   s := "foo";
   write(s || "bar");
 end
-#------------------------------------------------------- 306 procedure_write_227
+```
+
+```stdout
+foobar
+```
+
+## procedure_write_227
+
+```Icon
 procedure main()
   local s;
   s := "foo" || "bar";
   write(s[4]);
 end
-#------------------------------------------------------- 307 procedure_write_230
+```
+
+```stdout
+b
+```
+
+## procedure_write_230
+
+```Icon
 procedure main()
   local x;
   x := 1.5 + 0.5;
   write(x ^ 2);
 end
-#------------------------------------------------------- 308 procedure_write_239
+```
+
+```stdout
+4.0
+```
+
+## procedure_write_239
+
+```Icon
 procedure main()
   local s;
   s := "foo" || "bar";
   write(reverse(s));
 end
-#------------------------------------------------------- 309 procedure_write_241
+```
+
+```stdout
+raboof
+```
+
+## procedure_write_241
+
+```Icon
 procedure main()
   local x;
   x := 2.0 + 2.0;
   write(sqrt(x));
 end
-#-------------------------------------------------------- 310 procedure_write_37
+```
+
+```stdout
+2.0
+```
+
+## procedure_write_37
+
+```Icon
 procedure main()
   L := [5, 6, 7];
   write(get(L));
   write(get(L));
 end
-#-------------------------------------------------------- 311 procedure_write_42
+```
+
+```stdout
+5
+6
+```
+
+## procedure_write_42
+
+```Icon
 procedure main()
   local x;
   x := 2 ^ 3 + 1;
   write(x);
 end
-#-------------------------------------------------------- 312 procedure_write_49
+```
+
+```stdout
+9
+```
+
+## procedure_write_49
+
+```Icon
 procedure main()
   s := copy("hello");
   write(s);
   write(type(s));
 end
-#---------------------------------------------- 313 procedure_write_augassign_12
+```
+
+```stdout
+hello
+string
+```
+
+## procedure_write_augassign_12
+
+```Icon
 procedure main()
   s := "hello";
   s ||:= " world";
   write(s);
 end
-#----------------------------------------------- 314 procedure_write_augassign_4
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_augassign_4
+
+```Icon
 procedure main()
   s := "hello";
   s ||:= " world";
   write(s);
 end
-#--------------------------------------- 315 procedure_write_augassign_replace_1
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_augassign_replace_1
+
+```Icon
 procedure main()
   x := 3;
   x *:= 4;
   write(x);
 end
-#--------------------------------------- 316 procedure_write_augassign_replace_3
+```
+
+```stdout
+12
+```
+
+## procedure_write_augassign_replace_3
+
+```Icon
 procedure main()
   x := 3;
   x *:= 4;
   write(x);
 end
-#------------------------------------------ 317 procedure_write_global_replace_1
+```
+
+```stdout
+12
+```
+
+## procedure_write_global_replace_1
+
+```Icon
 global SHARED
 procedure main()
    SHARED := 99;
    write(SHARED);
 end
-#--------------------------------------------- 318 unicon__uni_bi_numeric_suffix
+```
+
+```stdout
+99
+```
+
+## unicon__uni_bi_numeric_suffix
+
+```Icon
 procedure main()
    write(image(numeric("3k")), " ", image(numeric("1 k")) | "none", " ", image(numeric("2M")));
 end
 class UniconMarker()
 end
-#-------------------- 319 ladder__rung29_builtins_proc_finds_only_icon_functions
+```
+
+```stdout
+3072 none 2097152
+```
+
+## ladder__rung29_builtins_proc_finds_only_icon_functions
+
+```Icon
 procedure main()
    write(image(proc("max")) | "no max");
    write(image(proc("min", 0)) | "no min");
    write(image(proc("[]", 2)));
    write(proc("[]", 2)([4, 5, 6], 2));
 end
-#------------------------------------------ 320 ladder_rung18_real_relop_real_le
+```
+
+```stdout
+no max
+no min
+function []
+5
+```
+
+## ladder_rung18_real_relop_real_le
+
+```Icon
 procedure main()
   local x, y;
   x := 2.5;
   y := 3.0;
   if x <= y then write("yes") else write("no");
 end
-#-------------------- 321 ladder_rung42_kw_collections_storage_regions_allocated
+```
+
+```stdout
+yes
+```
+
+## ladder_rung42_kw_collections_storage_regions_allocated
+
+```Icon
 procedure main()
   write(type(&collections), " ", (&collections >= 0));
   write(type(&storage), " ", (&storage >= 0));
   write(type(&allocated), " ", (&allocated >= 0));
   write(type(&regions));
 end
-#--------------------------------- 322 ladder_rung42_kw_date_dateline_clock_time
+```
+
+```stdout
+integer 0
+integer 0
+integer 0
+integer
+```
+
+## ladder_rung42_kw_date_dateline_clock_time
+
+```Icon
 procedure main()
   write(*\&date);
   write(*\&clock);
   write(type(&dateline));
   write(type(&time), " ", (&time >= 0));
 end
-#----------------------------------------------------- 323 procedure_alt_write_5
+```
+
+```stdout
+10
+8
+string
+integer 0
+```
+
+## procedure_alt_write_5
+
+```Icon
 procedure main()
   x := [10, 20, 30];
   write(x[2]);
   write(x[-1]);
   write(x[9] | "oob-fails");
 end
-#----------------------------------------------------- 324 procedure_every_to_38
+```
+
+```stdout
+20
+30
+oob-fails
+```
+
+## procedure_every_to_38
+
+```Icon
 # paper §2: "lo to hi by step" step variants
 procedure main()
   every write(1 to 10 by 3);
   every write(10 to 1 by -3);
   every write(2 to 2 by 1);
 end
-#------------------------------------------------------ 325 procedure_every_to_7
+```
+
+```stdout
+1
+4
+7
+10
+10
+7
+4
+1
+2
+```
+
+## procedure_every_to_7
+
+```Icon
 # paper §2: "lo to hi by step" step variants
 procedure main()
   every write(1 to 10 by 3);
   every write(10 to 1 by -3);
   every write(2 to 2 by 1);
 end
-#-------------------------------------------------- 326 procedure_record_write_1
+```
+
+```stdout
+1
+4
+7
+10
+10
+7
+4
+1
+2
+```
+
+## procedure_record_write_1
+
+```Icon
 record point(x, y)
 procedure main()
   p := point(3, 4);
   write(p.x);
   write(p.y);
 end
-#-------------------------------------------------- 327 procedure_record_write_4
+```
+
+```stdout
+3
+4
+```
+
+## procedure_record_write_4
+
+```Icon
 record person(name, age)
 record coord(x, y)
 procedure main()
   c := coord(5, 6);
   write(c.x + c.y);
 end
-#-------------------------------------------------- 328 procedure_record_write_6
+```
+
+```stdout
+11
+```
+
+## procedure_record_write_6
+
+```Icon
 record point(x, y)
 procedure main()
   p := point(3, 4);
   write(p.x);
   write(p.y);
 end
-#-------------------------------------------------- 329 procedure_record_write_9
+```
+
+```stdout
+3
+4
+```
+
+## procedure_record_write_9
+
+```Icon
 record person(name, age)
 record coord(x, y)
 procedure main()
   c := coord(5, 6);
   write(c.x + c.y);
 end
-#--------------------------------------------------- 330 procedure_table_write_9
+```
+
+```stdout
+11
+```
+
+## procedure_table_write_9
+
+```Icon
 procedure main()
   t := table(7);
   write(t["absent"]);
   t["real"] := 1;
   write(t["real"]);
 end
-#-------------------------------------------------------- 331 procedure_write_10
+```
+
+```stdout
+7
+1
+```
+
+## procedure_write_10
+
+```Icon
 # rung07 t05: nested not and alternation
 procedure main()
   local x;
   x := 7;
   if not (x < 5) then write(x);
 end
-#------------------------------------------------------- 332 procedure_write_150
+```
+
+```stdout
+7
+```
+
+## procedure_write_150
+
+```Icon
 # rung04 t03: string variable and concat
 procedure main()
   local s;
   s := "hello";
   write(s || " world");
 end
-#------------------------------------------------------- 333 procedure_write_151
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_151
+
+```Icon
 # rung07 t02: unary minus
 procedure main()
   local x;
   x := 5;
   write(-x);
 end
-#------------------------------------------------------- 334 procedure_write_153
+```
+
+```stdout
+-5
+```
+
+## procedure_write_153
+
+```Icon
 # rung07 t05: nested not and alternation
 procedure main()
   local x;
   x := 7;
   if not (x < 5) then write(x);
 end
-#------------------------------------------------------- 335 procedure_write_176
+```
+
+```stdout
+7
+```
+
+## procedure_write_176
+
+```Icon
 procedure main()
   s := "abcdef";
   i := 2;
   j := 5;
   write(s[i:j]);
 end
-#------------------------------------------------------- 336 procedure_write_179
+```
+
+```stdout
+bcd
+```
+
+## procedure_write_179
+
+```Icon
 procedure main()
   L := [];
   push(L, 10);
   push(L, 20);
   write(*L);
 end
-#------------------------------------------------------- 337 procedure_write_204
+```
+
+```stdout
+2
+```
+
+## procedure_write_204
+
+```Icon
 procedure main()
   local x;
   write(if /x then "isnull-ok" else "BUG");
   x := 5;
   write(if /x then "BUG" else "notnull-ok");
 end
-#------------------------------------------------------- 338 procedure_write_218
+```
+
+```stdout
+isnull-ok
+notnull-ok
+```
+
+## procedure_write_218
+
+```Icon
 procedure main()
   local a, b;
   a := "foo" || "bar";
   b := "foobar";
   if a == b then write(*a);
 end
-#------------------------------------------------------- 339 procedure_write_229
+```
+
+```stdout
+6
+```
+
+## procedure_write_229
+
+```Icon
 procedure main()
   local x, y;
   x := 1.5 + 2.5;
   y := 4.0;
   if x = y then write("equal");
 end
-#-------------------------------------------------------- 340 procedure_write_34
+```
+
+```stdout
+equal
+```
+
+## procedure_write_34
+
+```Icon
 procedure main()
   s := "abcdef";
   i := 2;
   j := 5;
   write(s[i:j]);
 end
-#-------------------------------------------------------- 341 procedure_write_39
+```
+
+```stdout
+bcd
+```
+
+## procedure_write_39
+
+```Icon
 procedure main()
   L := [];
   push(L, 10);
   push(L, 20);
   write(*L);
 end
-#--------------------------------------------------------- 342 procedure_write_7
+```
+
+```stdout
+2
+```
+
+## procedure_write_7
+
+```Icon
 # rung04 t03: string variable and concat
 procedure main()
   local s;
   s := "hello";
   write(s || " world");
 end
-#--------------------------------------------------------- 343 procedure_write_8
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_8
+
+```Icon
 # rung07 t02: unary minus
 procedure main()
   local x;
   x := 5;
   write(-x);
 end
-#----------------------------------------------- 344 procedure_write_augassign_1
+```
+
+```stdout
+-5
+```
+
+## procedure_write_augassign_1
+
+```Icon
 procedure main()
   x := 0;
   x +:= 5;
   x +:= 3;
   write(x);
 end
-#---------------------------------------------- 345 procedure_write_augassign_10
+```
+
+```stdout
+8
+```
+
+## procedure_write_augassign_10
+
+```Icon
 procedure main()
   x := 0;
   x +:= 5;
   x +:= 3;
   write(x);
 end
-#---------------------------------------------- 346 procedure_write_augassign_14
+```
+
+```stdout
+8
+```
+
+## procedure_write_augassign_14
+
+```Icon
 procedure main()
   s := "he";
   s ||:= "ll";
   s ||:= "o";
   write(s);
 end
-#----------------------------------------------- 347 procedure_write_augassign_6
+```
+
+```stdout
+hello
+```
+
+## procedure_write_augassign_6
+
+```Icon
 procedure main()
   s := "he";
   s ||:= "ll";
   s ||:= "o";
   write(s);
 end
-#------------------------------------------------- 348 ladder__rung46_span_break
+```
+
+```stdout
+hello
+```
+
+## ladder__rung46_span_break
+
+```Icon
 procedure main()
   s := "hello, world";
   if s ?? (Break(",") => a || "," || Span(" ") || Rem() => b) then {
@@ -2128,7 +5072,16 @@ procedure main()
     write("[", b, "]");
   };
 end
-#---------------------------------------------- 349 ladder_rung41_rt_remove_file
+```
+
+```stdout
+[hello]
+[world]
+```
+
+## ladder_rung41_rt_remove_file
+
+```Icon
 procedure main()
   local f;
   f := open("/tmp/s05_r41_remove.txt", "wc");
@@ -2136,7 +5089,16 @@ procedure main()
   write(remove("/tmp/s05_r41_remove.txt"));
   write(if open("/tmp/s05_r41_remove.txt", "r") then "still-there" else "gone");
 end
-#------------------------------------------- 350 ladder_rung42_kw_random_keyword
+```
+
+```stdout
+
+gone
+```
+
+## ladder_rung42_kw_random_keyword
+
+```Icon
 procedure main()
   &random := 12345;
   write(?100);
@@ -2144,7 +5106,17 @@ procedure main()
   &random := 12345;
   write(?100);
 end
-#----------------------------------------------------- 351 procedure_every_to_36
+```
+
+```stdout
+87
+7
+87
+```
+
+## procedure_every_to_36
+
+```Icon
 # paper §5 full example: 5 > ((1 to 2) * (3 to 4))
 # 5 > x returns x when 5>x; products 3,4,6,8 → 3 and 4 succeed
 # every loop simply exhausts with no output
@@ -2152,7 +5124,17 @@ procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
   write("done");
 end
-#------------------------------------------------------ 352 procedure_every_to_5
+```
+
+```stdout
+3
+4
+done
+```
+
+## procedure_every_to_5
+
+```Icon
 # paper §5 full example: 5 > ((1 to 2) * (3 to 4))
 # 5 > x returns x when 5>x; products 3,4,6,8 → 3 and 4 succeed
 # every loop simply exhausts with no output
@@ -2160,7 +5142,17 @@ procedure main()
   every write(5 > ((1 to 2) * (3 to 4)));
   write("done");
 end
-#-------------------------------------------------- 353 procedure_record_write_2
+```
+
+```stdout
+3
+4
+done
+```
+
+## procedure_record_write_2
+
+```Icon
 record box(w, h)
 procedure main()
   b := box(10, 20);
@@ -2168,7 +5160,16 @@ procedure main()
   write(b.w);
   write(b.h);
 end
-#-------------------------------------------------- 354 procedure_record_write_7
+```
+
+```stdout
+99
+20
+```
+
+## procedure_record_write_7
+
+```Icon
 record box(w, h)
 procedure main()
   b := box(10, 20);
@@ -2176,7 +5177,16 @@ procedure main()
   write(b.w);
   write(b.h);
 end
-#---------------------------------------------------- 355 procedure_swap_write_1
+```
+
+```stdout
+99
+20
+```
+
+## procedure_swap_write_1
+
+```Icon
 procedure main()
   x := 1;
   y := 2;
@@ -2184,7 +5194,16 @@ procedure main()
   write(x);
   write(y);
 end
-#---------------------------------------------------- 356 procedure_swap_write_2
+```
+
+```stdout
+2
+1
+```
+
+## procedure_swap_write_2
+
+```Icon
 procedure main()
   a := "hello";
   b := "world";
@@ -2192,7 +5211,16 @@ procedure main()
   write(a);
   write(b);
 end
-#---------------------------------------------------- 357 procedure_swap_write_4
+```
+
+```stdout
+world
+hello
+```
+
+## procedure_swap_write_4
+
+```Icon
 procedure main()
   x := 1;
   y := 2;
@@ -2200,7 +5228,16 @@ procedure main()
   write(x);
   write(y);
 end
-#---------------------------------------------------- 358 procedure_swap_write_5
+```
+
+```stdout
+2
+1
+```
+
+## procedure_swap_write_5
+
+```Icon
 procedure main()
   a := "hello";
   b := "world";
@@ -2208,7 +5245,16 @@ procedure main()
   write(a);
   write(b);
 end
-#------------------------------------------------------- 359 procedure_write_137
+```
+
+```stdout
+world
+hello
+```
+
+## procedure_write_137
+
+```Icon
 procedure main()
   local x;
   write(1 & 2);
@@ -2216,7 +5262,17 @@ procedure main()
   write(x);
   write((5 & 6) + 10);
 end
-#---------------------------------------------- 360 procedure_write_augassign_11
+```
+
+```stdout
+2
+4
+16
+```
+
+## procedure_write_augassign_11
+
+```Icon
 procedure main()
   x := 20;
   x -:= 5;
@@ -2224,7 +5280,16 @@ procedure main()
   x %:= 7;
   write(x);
 end
-#---------------------------------------------- 361 procedure_write_augassign_13
+```
+
+```stdout
+15
+1
+```
+
+## procedure_write_augassign_13
+
+```Icon
 procedure main()
   a := "foo";
   b := "bar";
@@ -2232,7 +5297,15 @@ procedure main()
   a ||:= b;
   write(a);
 end
-#----------------------------------------------- 362 procedure_write_augassign_2
+```
+
+```stdout
+foo-bar
+```
+
+## procedure_write_augassign_2
+
+```Icon
 procedure main()
   x := 20;
   x -:= 5;
@@ -2240,7 +5313,16 @@ procedure main()
   x %:= 7;
   write(x);
 end
-#----------------------------------------------- 363 procedure_write_augassign_5
+```
+
+```stdout
+15
+1
+```
+
+## procedure_write_augassign_5
+
+```Icon
 procedure main()
   a := "foo";
   b := "bar";
@@ -2248,7 +5330,15 @@ procedure main()
   a ||:= b;
   write(a);
 end
-#------------------------------ 364 ladder__rung09_loops_repeat_return_dead_tail
+```
+
+```stdout
+foo-bar
+```
+
+## ladder__rung09_loops_repeat_return_dead_tail
+
+```Icon
 procedure f(n)
     if n > 0 then { repeat return n; write("dead") };
     return 0;
@@ -2257,7 +5347,16 @@ procedure main()
     write(f(1));
     write(f(0));
 end
-#------------------------------------------------ 365 ladder__rung48_thread_wait
+```
+
+```stdout
+1
+0
+```
+
+## ladder__rung48_thread_wait
+
+```Icon
 procedure work(n)
   return n * n;
 end
@@ -2266,7 +5365,15 @@ procedure main()
   wait(t);
   write("done");
 end
-#--------------------------------------------------- 366 procedure_every_write_1
+```
+
+```stdout
+done
+```
+
+## procedure_every_write_1
+
+```Icon
 # rung02 t01: procedure add(x,y) — tests param passing
 procedure add(x, y)
   return x + y;
@@ -2275,7 +5382,15 @@ end
 procedure main()
   every write(add(3, 4));
 end
-#--------------------------------------------------- 367 procedure_every_write_7
+```
+
+```stdout
+7
+```
+
+## procedure_every_write_7
+
+```Icon
 # rung02 t01: procedure add(x,y) — tests param passing
 procedure add(x, y)
   return x + y;
@@ -2284,7 +5399,15 @@ end
 procedure main()
   every write(add(3, 4));
 end
-#---------------------------------------------------- 368 procedure_scan_match_1
+```
+
+```stdout
+7
+```
+
+## procedure_scan_match_1
+
+```Icon
 #  Same collision via match() -- a POSITION-RETURNER, not a cursor-mover.  This
 #  falsifies the s231 characterization ("literal preceding a CURSOR-MOVER").
 #  The affected set is exactly {tab, move, match}: the three carve-compensated
@@ -2293,7 +5416,15 @@ end
 procedure main()
    "112 xy" ? { write("A", match("112"), "C") };
 end
-#--------------------------------------------------- 369 procedure_table_write_1
+```
+
+```stdout
+A4C
+```
+
+## procedure_table_write_1
+
+```Icon
 procedure main()
   t := table();
   t["p"] := 7;
@@ -2302,7 +5433,17 @@ procedure main()
   write(t["q"]);
   write(*t);
 end
-#-------------------------------------------------- 370 procedure_table_write_12
+```
+
+```stdout
+7
+8
+2
+```
+
+## procedure_table_write_12
+
+```Icon
 procedure main()
   t := table();
   t["p"] := 7;
@@ -2311,7 +5452,17 @@ procedure main()
   write(t["q"]);
   write(*t);
 end
-#--------------------------------------------------- 371 procedure_table_write_8
+```
+
+```stdout
+7
+8
+2
+```
+
+## procedure_table_write_8
+
+```Icon
 procedure main()
   t := table();
   t["k"] := 5;
@@ -2320,7 +5471,16 @@ procedure main()
   u[3] := 30;
   write(u[3]);
 end
-#------------------------------------------------------- 372 procedure_write_147
+```
+
+```stdout
+5
+30
+```
+
+## procedure_write_147
+
+```Icon
 # rung04 t05: concat chain
 procedure main()
   local a;
@@ -2329,7 +5489,15 @@ procedure main()
   b := "lo";
   write(a || b || "!");
 end
-#------------------------------------------------------- 373 procedure_write_197
+```
+
+```stdout
+hello!
+```
+
+## procedure_write_197
+
+```Icon
 procedure shout(s)
   return s || "!";
 end
@@ -2338,7 +5506,16 @@ procedure main()
   write(r);
   write(shout("bye"));
 end
-#--------------------------------------------------------- 374 procedure_write_4
+```
+
+```stdout
+hi!
+bye!
+```
+
+## procedure_write_4
+
+```Icon
 # rung04 t05: concat chain
 procedure main()
   local a;
@@ -2347,7 +5524,15 @@ procedure main()
   b := "lo";
   write(a || b || "!");
 end
-#-------------------------------------------------------- 375 procedure_write_60
+```
+
+```stdout
+hello!
+```
+
+## procedure_write_60
+
+```Icon
 procedure shout(s)
   return s || "!";
 end
@@ -2356,7 +5541,16 @@ procedure main()
   write(r);
   write(shout("bye"));
 end
-#--------------------------------------------------- 376 procedure_every_write_2
+```
+
+```stdout
+hi!
+bye!
+```
+
+## procedure_every_write_2
+
+```Icon
 # rung02 t02: factorial — tests recursion + return
 procedure fact(n)
   if n = 0 then return 1;
@@ -2366,7 +5560,15 @@ end
 procedure main()
   every write(fact(5));
 end
-#--------------------------------------------------- 377 procedure_every_write_8
+```
+
+```stdout
+120
+```
+
+## procedure_every_write_8
+
+```Icon
 # rung02 t02: factorial — tests recursion + return
 procedure fact(n)
   if n = 0 then return 1;
@@ -2376,7 +5578,15 @@ end
 procedure main()
   every write(fact(5));
 end
-#------------------------------------------------------- 378 procedure_write_141
+```
+
+```stdout
+120
+```
+
+## procedure_write_141
+
+```Icon
 procedure main()
   c := ~'abc';
   if any(c, "d") then write("y1");
@@ -2386,7 +5596,19 @@ procedure main()
   if any(e, "z") then write("y4");
   if any(e, "b") then write("bad") else write("y5");
 end
-#----------------------------------------------- 379 ladder_rung02_proc_variadic
+```
+
+```stdout
+y1
+y2
+3
+y4
+y5
+```
+
+## ladder_rung02_proc_variadic
+
+```Icon
 procedure cat(s1, s2, rest[])
   write(s1 || s2);
   write(*rest);
@@ -2397,7 +5619,20 @@ procedure main()
   cat("a", "b", "c", "d");
   cat("x", "y");
 end
-#-------------------------------------------------------- 380 procedure_write_68
+```
+
+```stdout
+ab
+2
+c
+d
+xy
+0
+```
+
+## procedure_write_68
+
+```Icon
 # rung37: augop power hello — IJ-3b
 procedure main()
    local i;
@@ -2408,7 +5643,16 @@ procedure main()
    i ^:= 9;
    write(i);
 end
-#------------------------------------------------- 381 procedure_write_global_15
+```
+
+```stdout
+8
+1000000000
+```
+
+## procedure_write_global_15
+
+```Icon
 global greeting
 
 procedure setup()
@@ -2419,7 +5663,15 @@ procedure main()
   setup();
   write(greeting);
 end
-#-------------------------------------------------- 382 procedure_write_global_3
+```
+
+```stdout
+hello
+```
+
+## procedure_write_global_3
+
+```Icon
 global greeting
 
 procedure setup()
@@ -2430,7 +5682,15 @@ procedure main()
   setup();
   write(greeting);
 end
-#-------------------------------------------------- 383 procedure_write_global_7
+```
+
+```stdout
+hello
+```
+
+## procedure_write_global_7
+
+```Icon
 global greeting
 
 procedure setup()
@@ -2441,7 +5701,15 @@ procedure main()
   setup();
   write(greeting);
 end
-#------------------------------------------------ 384 unicon__uni_global_qualify
+```
+
+```stdout
+hello
+```
+
+## unicon__uni_global_qualify
+
+```Icon
 class Logger(prefix)
    method write(s)
       ::write(prefix, s);
@@ -2452,7 +5720,16 @@ procedure main()
    l := Logger("log: "); l.write("one");
    ::write("two");
 end
-#----------------------------------------------- 385 ladder__rung43_field_access
+```
+
+```stdout
+log: one
+two
+```
+
+## ladder__rung43_field_access
+
+```Icon
 class Pair(a, b)
   method swap()
     a :=: b;
@@ -2464,7 +5741,16 @@ procedure main()
   p.swap();
   write(p.a, " ", p.b);
 end
-#------------------------------------------------------- 386 procedure_write_244
+```
+
+```stdout
+left right
+right left
+```
+
+## procedure_write_244
+
+```Icon
 procedure classify(n)
   return case n of {
     0: "zero";
@@ -2476,7 +5762,16 @@ procedure main()
   write(classify(1));
   write(classify(9));
 end
-#------------------------------------------------- 387 procedure_write_global_16
+```
+
+```stdout
+one
+many
+```
+
+## procedure_write_global_16
+
+```Icon
 global x, y
 
 procedure setvals()
@@ -2488,7 +5783,15 @@ procedure main()
   setvals();
   write(x + y);
 end
-#-------------------------------------------------- 388 procedure_write_global_4
+```
+
+```stdout
+10
+```
+
+## procedure_write_global_4
+
+```Icon
 global x, y
 
 procedure setvals()
@@ -2500,7 +5803,15 @@ procedure main()
   setvals();
   write(x + y);
 end
-#-------------------------------------------------- 389 procedure_write_global_9
+```
+
+```stdout
+10
+```
+
+## procedure_write_global_9
+
+```Icon
 global x, y
 
 procedure setvals()
@@ -2512,7 +5823,15 @@ procedure main()
   setvals();
   write(x + y);
 end
-#-------------------------------------------------- 390 procedure_write_static_3
+```
+
+```stdout
+10
+```
+
+## procedure_write_static_3
+
+```Icon
 procedure counter()
   static n;
   initial n := 0;
@@ -2524,7 +5843,16 @@ procedure main()
   counter();
   counter();
 end
-#------------------------------------------- 391 ladder__rung44_qualified_global
+```
+
+```stdout
+1
+2
+```
+
+## ladder__rung44_qualified_global
+
+```Icon
 class Logger(prefix)
    method write(s)
       ::write(prefix, s);
@@ -2537,7 +5865,17 @@ procedure main()
    ::write("two");
    write("three");
 end
-#---------------------------------------------------- 392 procedure_case_write_1
+```
+
+```stdout
+log: one
+two
+three
+```
+
+## procedure_case_write_1
+
+```Icon
 procedure main()
     write(f(2));
     write(f(1));
@@ -2550,7 +5888,18 @@ procedure f(x)
     };
     return "c";
 end
-#--------------------------------------------------- 393 procedure_case_write_12
+```
+
+```stdout
+side
+b
+a
+c
+```
+
+## procedure_case_write_12
+
+```Icon
 procedure main()
     write(f(2));
     write(f(1));
@@ -2563,7 +5912,18 @@ procedure f(x)
     };
     return "c";
 end
-#--------------------------------------------------- 394 procedure_case_write_14
+```
+
+```stdout
+side
+b
+a
+c
+```
+
+## procedure_case_write_14
+
+```Icon
 procedure classify(n)
   return case n of {
     1: "one";
@@ -2576,7 +5936,17 @@ procedure main()
   write(classify(2));
   write(classify(9));
 end
-#---------------------------------------------------- 395 procedure_case_write_3
+```
+
+```stdout
+one
+two
+many
+```
+
+## procedure_case_write_3
+
+```Icon
 procedure classify(n)
   return case n of {
     1: "one";
@@ -2589,7 +5959,17 @@ procedure main()
   write(classify(2));
   write(classify(9));
 end
-#------------------------------------------- 396 procedure_table_write_replace_4
+```
+
+```stdout
+one
+two
+many
+```
+
+## procedure_table_write_replace_4
+
+```Icon
 procedure main()
   t := table();
   t["k"] := "abc";
@@ -2602,7 +5982,18 @@ procedure main()
   write(L[1]);
   write(*L[1]);
 end
-#-------------------------------------------------- 397 procedure_write_static_1
+```
+
+```stdout
+aXc
+Zd
+aQQ
+3
+```
+
+## procedure_write_static_1
+
+```Icon
 procedure count()
   static x;
   initial x := 10;
@@ -2615,7 +6006,17 @@ procedure main()
   count();
   count();
 end
-#-------------------------------------------------- 398 procedure_write_static_2
+```
+
+```stdout
+11
+12
+13
+```
+
+## procedure_write_static_2
+
+```Icon
 procedure count()
   static x;
   initial x := 10;
@@ -2628,7 +6029,17 @@ procedure main()
   count();
   count();
 end
-#-------------------------------------------------- 399 procedure_write_static_4
+```
+
+```stdout
+11
+12
+13
+```
+
+## procedure_write_static_4
+
+```Icon
 procedure count()
   static x;
   initial x := 10;
@@ -2641,7 +6052,17 @@ procedure main()
   count();
   count();
 end
-#--------------------------------------- 400 unicon__uni_pattern_image_cset_text
+```
+
+```stdout
+11
+12
+13
+```
+
+## unicon__uni_pattern_image_cset_text
+
+```Icon
 procedure main()
    write(image(Any(1)));
    write(image(Any("this")));
@@ -2654,7 +6075,22 @@ procedure main()
 end
 class UniconMarker()
 end
-#--------------- 401 ladder__rung29_builtins_an_operator_value_pads_to_its_arity
+```
+
+```stdout
+pattern_0(1) = Any('1')
+pattern_1(1) = Any('hist')
+pattern_2(1) = Span(' ghinrst')
+pattern_3(1) = Break('hist')
+pattern_4(3) = Breakx('hist')
+pattern_5(1) = NotAny('ab')
+pattern_6(1) = Any(&letters)
+pattern_7(1) = NotAny(&digits)
+```
+
+## ladder__rung29_builtins_an_operator_value_pads_to_its_arity
+
+```Icon
 procedure main()
    local p, q;
    write(args(proc("+", 2)));
@@ -2668,7 +6104,21 @@ procedure main()
    write(proc("-", 2) ! [10, 3]);
    write(proc("||", 2) ! ["ab", "cd"]);
 end
-#----------------------------------------------------- 402 procedure_alt_write_1
+```
+
+```stdout
+2
+1
+3
+4
+12
+7
+abcd
+```
+
+## procedure_alt_write_1
+
+```Icon
 procedure fs(n)
   if n = 0 then return 1;
   return n * fs(n - 1);
@@ -2682,7 +6132,18 @@ procedure main()
   write(sign(4));
   write(sign(-4));
 end
-#----------------------------------------------------- 403 procedure_alt_write_6
+```
+
+```stdout
+120
+t
+pos
+npos
+```
+
+## procedure_alt_write_6
+
+```Icon
 procedure fs(n)
   if n = 0 then return 1;
   return n * fs(n - 1);
@@ -2696,7 +6157,18 @@ procedure main()
   write(sign(4));
   write(sign(-4));
 end
-#-------------------------------------------------- 404 procedure_write_global_1
+```
+
+```stdout
+120
+t
+pos
+npos
+```
+
+## procedure_write_global_1
+
+```Icon
 global counter
 
 procedure inc()
@@ -2710,7 +6182,15 @@ procedure main()
   inc();
   write(counter);
 end
-#------------------------------------------------- 405 procedure_write_global_13
+```
+
+```stdout
+3
+```
+
+## procedure_write_global_13
+
+```Icon
 global counter
 
 procedure inc()
@@ -2724,7 +6204,15 @@ procedure main()
   inc();
   write(counter);
 end
-#------------------------------------------------- 406 procedure_write_global_14
+```
+
+```stdout
+3
+```
+
+## procedure_write_global_14
+
+```Icon
 global total
 
 procedure add(n)
@@ -2738,7 +6226,15 @@ procedure main()
   add(2);
   write(total);
 end
-#-------------------------------------------------- 407 procedure_write_global_2
+```
+
+```stdout
+10
+```
+
+## procedure_write_global_2
+
+```Icon
 global total
 
 procedure add(n)
@@ -2752,7 +6248,15 @@ procedure main()
   add(2);
   write(total);
 end
-#-------------------------------------------------- 408 procedure_write_global_5
+```
+
+```stdout
+10
+```
+
+## procedure_write_global_5
+
+```Icon
 global counter
 
 procedure inc()
@@ -2766,7 +6270,15 @@ procedure main()
   inc();
   write(counter);
 end
-#-------------------------------------------------- 409 procedure_write_global_6
+```
+
+```stdout
+3
+```
+
+## procedure_write_global_6
+
+```Icon
 global total
 
 procedure add(n)
@@ -2780,7 +6292,15 @@ procedure main()
   add(2);
   write(total);
 end
-#-------------------------------------------------- 410 procedure_activate_map_1
+```
+
+```stdout
+10
+```
+
+## procedure_activate_map_1
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -2795,7 +6315,24 @@ procedure main()
     write(map("", "abcdef", "!@#$%^"));
     write(map("abcdef", "aa", "bc"));
 end
-#------------------------------------------------------ 411 procedure_alt_fail_1
+```
+
+```stdout
+abcdef
+abcdef
+aBcDeF
+AbCdEf
+a2c4e6
+1b3d5f
+!B#D%F
+A@C$E^
+
+cbcdef
+```
+
+## procedure_alt_fail_1
+
+```Icon
 #SRC: IJ-7 operator string invocation
 procedure main()
    call1("+", "3");
@@ -2810,7 +6347,19 @@ end
 procedure call2(o, x, y)
    write(o(x, y) | "fail");
 end
-#------------------------------------------------------- 412 procedure_write_223
+```
+
+```stdout
+3
+-3
+5
+e
+abcd
+```
+
+## procedure_write_223
+
+```Icon
 procedure greet(name)
   return "hi " || name;
 end
@@ -2825,7 +6374,16 @@ procedure main()
   write(classify(1));
   write(classify(3));
 end
-#-------------------------------------------------------- 413 procedure_write_67
+```
+
+```stdout
+hi one
+other
+```
+
+## procedure_write_67
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -2840,7 +6398,24 @@ procedure main()
     write(image(trim("", ' ')));
     write(image(trim("")));
 end
-#-------------------------------------------------- 414 procedure_write_global_8
+```
+
+```stdout
+"abc"
+"abc"
+"abc  "
+""
+"a c"
+"a c"
+""
+""
+""
+""
+```
+
+## procedure_write_global_8
+
+```Icon
 global accum
 
 procedure reset()
@@ -2856,7 +6431,15 @@ procedure main()
   bump(); bump(); bump(); bump(); bump();
   write(accum);
 end
-#- 415 a_generator_frame_appears_in_the_traceback_like_an_ordinary_call__a_generator_frame_appears_in_the_traceback_like_an_ordinary_call
+```
+
+```stdout
+5
+```
+
+## a_generator_frame_appears_in_the_traceback_like_an_ordinary_call__a_generator_frame_appears_in_the_traceback_like_an_ordinary_call
+
+```Icon
 #  A GENERATOR'S FRAME MUST APPEAR IN Traceback: LIKE AN ORDINARY CALL'S.
 #  main -> f -> g, where f drives g under `every` and g SUSPENDS before it faults.
 #  The only difference from a witness that already passes is that g is a generator:
@@ -2873,7 +6456,23 @@ procedure g()
    suspend 1;
    1 / 0;
 end
-#------------------------------------ 416 unicon__uni_class_supers_breadth_first
+```
+
+```stdout
+
+Run-time error 201
+File a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn; Line 15
+division by zero
+Traceback:
+main()
+f() from line 8 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn
+g() from line 11 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn
+{1 / 0} from line 15 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn
+```
+
+## unicon__uni_class_supers_breadth_first
+
+```Icon
 class O()
    method om()
    end
@@ -2900,322 +6499,934 @@ procedure main()
    every writes(" ", fieldnames(oprec(G()))); write();
    every writes(" ", fieldnames(oprec(A()))); write();
 end
-#---------------------------------------------------- 417 procedure_every_alt_25
+```
+
+```stdout
+ dm am om A C O
+ om F O E
+ dm am om D C A O
+ am om O
+```
+
+## procedure_every_alt_25
+
+```Icon
 procedure main(); every write(1 | 2 | 3); end
-#--------------------------------------------------- 418 procedure_every_limit_6
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_6
+
+```Icon
 procedure main(); every write((1 to 5) \ 2); end
-#----------------------------------------------------- 419 procedure_every_to_26
+```
+
+```stdout
+1
+2
+```
+
+## procedure_every_to_26
+
+```Icon
 procedure main(); every x := 3 to 5 do write(x); end
-#----------------------------------------------------- 420 procedure_every_to_27
+```
+
+```stdout
+3
+4
+5
+```
+
+## procedure_every_to_27
+
+```Icon
 procedure main(); every x := 1 to 3 do write(x * 2); end
-#----------------------------------------------------- 421 procedure_every_to_29
+```
+
+```stdout
+2
+4
+6
+```
+
+## procedure_every_to_29
+
+```Icon
 procedure main(); every x := 7 to 9 do write(x); end
-#----------------------------------------------------- 422 procedure_every_to_30
-procedure main(); x := 5; every x := 1 to 3; write(x); end
-#----------------------------------------------------- 423 procedure_scan_move_4
-procedure main(); "abc" ? { move(1); write(&pos) }; end
-#--------------------------------------------------- 424 procedure_until_write_2
-procedure main(); i := 0; until i >= 3 do i +:= 1; write(i); end
-#--------------------------------------------------- 425 procedure_while_write_5
+```
+
+```stdout
+7
+8
+9
+```
+
+## procedure_while_write_5
+
+```Icon
 procedure main(); i := 0; while i < 3 do { i +:= 1; write(i) }; end
-#------------------------------------------------- 426 procedure_every_suspend_6
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_suspend_6
+
+```Icon
 procedure g(); suspend 1; suspend 2; end
 procedure main(); every write(g()); end
-#------------------------------------------------------- 427 procedure_write_129
+```
+
+```stdout
+1
+2
+```
+
+## procedure_write_129
+
+```Icon
 procedure add(a, b); local s; s := a + b; return s; end
 procedure main(); write(add(2, 3)); end
-#---------------------------- 428 ladder_rung08_strbuiltins_scan_coerce_tab_real
+```
+
+```stdout
+5
+```
+
+## ladder_rung08_strbuiltins_scan_coerce_tab_real
+
+```Icon
 procedure main()
   "abc" ? write(tab(2.0));
 end
-#----------------------------- 429 ladder_rung08_strbuiltins_scan_coerce_tab_str
+```
+
+```stdout
+a
+```
+
+## ladder_rung08_strbuiltins_scan_coerce_tab_str
+
+```Icon
 procedure main()
   "abc" ? write(tab("2"));
 end
-#---------------------------------------------------- 430 procedure_every_alt_16
+```
+
+```stdout
+a
+```
+
+## procedure_every_alt_16
+
+```Icon
 procedure main()
   every write(3.0 < (2.5 | 3.5 | 4.5));
 end
-#----------------------------------------------------- 431 procedure_every_alt_2
+```
+
+```stdout
+3.5
+4.5
+```
+
+## procedure_every_alt_2
+
+```Icon
 procedure main()
   every write(1 | 2, ":", 3 | 4);
 end
-#---------------------------------------------------- 432 procedure_every_alt_28
+```
+
+```stdout
+1:3
+1:4
+2:3
+2:4
+```
+
+## procedure_every_alt_28
+
+```Icon
 procedure main()
   every write(1 | 2, ":", 3 | 4);
 end
-#---------------------------------------------------- 433 procedure_every_alt_30
+```
+
+```stdout
+1:3
+1:4
+2:3
+2:4
+```
+
+## procedure_every_alt_30
+
+```Icon
 procedure main()
   every write("a"|"b"|"c");
 end
-#---------------------------------------------------- 434 procedure_every_alt_31
+```
+
+```stdout
+a
+b
+c
+```
+
+## procedure_every_alt_31
+
+```Icon
 procedure main()
   every write(1|2|3);
 end
-#---------------------------------------------------- 435 procedure_every_alt_32
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_alt_32
+
+```Icon
 procedure main()
   every write(("a"|"b") || ("x"|"y"));
 end
-#----------------------------------------------------- 436 procedure_every_alt_4
+```
+
+```stdout
+ax
+ay
+bx
+by
+```
+
+## procedure_every_alt_4
+
+```Icon
 procedure main()
   every write("a"|"b"|"c");
 end
-#---------------------------------------------------- 437 procedure_every_alt_42
+```
+
+```stdout
+a
+b
+c
+```
+
+## procedure_every_alt_42
+
+```Icon
 procedure main()
   every write(3.0 < (2.5 | 3.5 | 4.5));
 end
-#----------------------------------------------------- 438 procedure_every_alt_5
+```
+
+```stdout
+3.5
+4.5
+```
+
+## procedure_every_alt_5
+
+```Icon
 procedure main()
   every write(1|2|3);
 end
-#----------------------------------------------------- 439 procedure_every_alt_6
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_alt_6
+
+```Icon
 procedure main()
   every write(("a"|"b") || ("x"|"y"));
 end
-#--------------------------------------------------- 440 procedure_every_limit_1
+```
+
+```stdout
+ax
+ay
+bx
+by
+```
+
+## procedure_every_limit_1
+
+```Icon
 procedure main()
   every write((1 to 3) \ 10);
 end
-#-------------------------------------------------- 441 procedure_every_limit_11
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_11
+
+```Icon
 procedure main()
   every write(seq(1) \ 3);
 end
-#-------------------------------------------------- 442 procedure_every_limit_12
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_12
+
+```Icon
 procedure main()
   every write(\(1 to 3));
 end
-#--------------------------------------------------- 443 procedure_every_limit_2
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_2
+
+```Icon
 procedure main()
   every write((1 to 10) \ 3);
 end
-#--------------------------------------------------- 444 procedure_every_limit_4
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_4
+
+```Icon
 procedure main()
   every write(seq(1) \ 3);
 end
-#--------------------------------------------------- 445 procedure_every_limit_5
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_5
+
+```Icon
 procedure main()
   every write(\(1 to 3));
 end
-#--------------------------------------------------- 446 procedure_every_limit_8
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_8
+
+```Icon
 procedure main()
   every write((1 to 3) \ 10);
 end
-#--------------------------------------------------- 447 procedure_every_limit_9
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_9
+
+```Icon
 procedure main()
   every write((1 to 10) \ 3);
 end
-#------------------------------------------------------- 448 procedure_write_224
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_write_224
+
+```Icon
 procedure main()
   every write(((1 to 10) > 3) \ 2);
 end
-#------------------------------------------------ 449 procedure_every_elemgen_11
+```
+
+```stdout
+3
+3
+```
+
+## procedure_every_elemgen_11
+
+```Icon
 procedure main()
   s := "abc";
   every write(!s);
 end
-#------------------------------------------------ 450 procedure_every_elemgen_12
+```
+
+```stdout
+a
+b
+c
+```
+
+## procedure_every_elemgen_12
+
+```Icon
 procedure main()
   s := "xyz";
   every write(!s);
 end
-#------------------------------------------------ 451 procedure_every_elemgen_14
+```
+
+```stdout
+x
+y
+z
+```
+
+## procedure_every_elemgen_14
+
+```Icon
 procedure main()
   L := [1, 2, 3];
   every write(!L);
 end
-#------------------------------------------------- 452 procedure_every_elemgen_2
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_elemgen_2
+
+```Icon
 procedure main()
   s := "abc";
   every write(!s);
 end
-#------------------------------------------------- 453 procedure_every_elemgen_3
+```
+
+```stdout
+a
+b
+c
+```
+
+## procedure_every_elemgen_3
+
+```Icon
 procedure main()
   s := "xyz";
   every write(!s);
 end
-#------------------------------------------------- 454 procedure_every_elemgen_4
+```
+
+```stdout
+x
+y
+z
+```
+
+## procedure_every_elemgen_4
+
+```Icon
 procedure main()
   L := [1, 2, 3];
   every write(!L);
 end
-#-------------------------------------------------- 455 procedure_every_limit_10
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_limit_10
+
+```Icon
 procedure main()
   every write((1 to 5) \ 0);
   write("done");
 end
-#--------------------------------------------------- 456 procedure_every_limit_3
+```
+
+```stdout
+done
+```
+
+## procedure_every_limit_3
+
+```Icon
 procedure main()
   every write((1 to 5) \ 0);
   write("done");
 end
-#----------------------------------------------------- 457 procedure_every_to_16
+```
+
+```stdout
+done
+```
+
+## procedure_every_to_16
+
+```Icon
 procedure main()
   s := "abc";
   every write(s[1 to 3]);
 end
-#----------------------------------------------------- 458 procedure_every_to_47
+```
+
+```stdout
+a
+b
+c
+```
+
+## procedure_every_to_47
+
+```Icon
 procedure main()
   s := "abc";
   every write(s[1 to 3]);
 end
-#------------------------------------------------------ 459 procedure_scan_tab_5
+```
+
+```stdout
+a
+b
+c
+```
+
+## procedure_scan_tab_5
+
+```Icon
 # rung08 t04: tab(n) — scanned substring
 procedure main()
   "abcdef" ? write(tab(4));
 end
-#------------------------------------------------------ 460 procedure_scan_tab_9
+```
+
+```stdout
+abc
+```
+
+## procedure_scan_tab_9
+
+```Icon
 # rung08 t04: tab(n) — scanned substring
 procedure main()
   "abcdef" ? write(tab(4));
 end
-#--------------------------------------------------- 461 procedure_scan_write_20
+```
+
+```stdout
+abc
+```
+
+## procedure_scan_write_20
+
+```Icon
 # rung06 t01: any() matches single char in cset; returns new pos (2)
 procedure main()
   "apple" ? write(any('aeiou'));
 end
-#---------------------------------------------------- 462 procedure_scan_write_9
+```
+
+```stdout
+2
+```
+
+## procedure_scan_write_9
+
+```Icon
 # rung06 t01: any() matches single char in cset; returns new pos (2)
 procedure main()
   "apple" ? write(any('aeiou'));
 end
-#------------------------------------------------ 463 ladder_rung36_sets_refusal
+```
+
+```stdout
+2
+```
+
+## ladder_rung36_sets_refusal
+
+```Icon
 procedure main()
   &error := 1;
   insert(3, 1);
   write("num=", &errornumber, " text=", &errortext);
 end
-#------------------------------------------------- 464 ladder_rung37_bal_refusal
+```
+
+```stdout
+num=122 text=set or table expected
+```
+
+## ladder_rung37_bal_refusal
+
+```Icon
 procedure main()
   &error := 1;
   write(bal([1,2,3]));
   write("num=", &errornumber, " text=", &errortext);
 end
-#----------------------------------------------------- 465 ladder_rung42_kw_dump
+```
+
+```stdout
+num=104 text=cset expected
+```
+
+## ladder_rung42_kw_dump
+
+```Icon
 procedure main()
   write(type(&dump));
   &dump := 0;
   write("after-set");
 end
-#------------------------------------------------------ 466 procedure_scan_alt_1
+```
+
+```stdout
+integer
+after-set
+```
+
+## procedure_scan_alt_1
+
+```Icon
 # rung08 t03: match(s) — match at current scan pos
 procedure main()
   "hello" ? write(match("hel"));
   "world" ? write(match("xyz") | 0);
 end
-#------------------------------------------------------ 467 procedure_scan_alt_2
+```
+
+```stdout
+4
+0
+```
+
+## procedure_scan_alt_2
+
+```Icon
 # rung08 t03: match(s) — match at current scan pos
 procedure main()
   "hello" ? write(match("hel"));
   "world" ? write(match("xyz") | 0);
 end
-#------------------------------------------------------- 468 procedure_write_245
+```
+
+```stdout
+4
+0
+```
+
+## procedure_write_245
+
+```Icon
 procedure main()
   local x;
   x := 5;
   if not /x then write("not null: ", \x);
 end
-#-------------------------------------------------------- 469 procedure_write_45
+```
+
+```stdout
+not null: 5
+```
+
+## procedure_write_45
+
+```Icon
 procedure main()
   local s;
   s := reads(5);
   write(s);
 end
-#---------------------------------------------------- 470 procedure_write_read_2
+```
+
+```stdin
+hello world
+```
+
+```stdout
+
+```
+
+## procedure_write_read_2
+
+```Icon
 procedure main()
   local line;
   line := read();
   write(line);
 end
-#---------------------------------------------------- 471 procedure_write_read_4
+```
+
+```stdin
+hello world
+```
+
+```stdout
+hello world
+```
+
+## procedure_write_read_4
+
+```Icon
 procedure main()
   local line;
   line := read();
   write(line);
 end
-#--------------------------------------- 472 unicon__uni_bi_numeric_suffix_space
+```
+
+```stdin
+hello world
+```
+
+```stdout
+hello world
+```
+
+## unicon__uni_bi_numeric_suffix_space
+
+```Icon
 procedure main()
    write(image(numeric("\n1p\t\n\t\r")) | "none", " ", image(numeric("\f2k\v")) | "none", " ", image(numeric("\r3m")) | "none", " ", image(numeric("1\nk")) | "none");
 end
 class UniconMarker()
 end
-#-------------------- 473 ladder__rung08_strbuiltins_trim_with_a_nul_in_its_cset
+```
+
+```stdout
+1125899906842624 2048 3145728 none
+```
+
+## ladder__rung08_strbuiltins_trim_with_a_nul_in_its_cset
+
+```Icon
 procedure main()
    write(image(trim("cd \0\0", ' \0')));
    write(image(trim("abc", cset("c" || char(0)))));
    write(image(trim("a\0b\0")));
    write(image(trim("xyy", 'y', 5)));
 end
-#----------------------------------------------- 474 ladder_rung05_scan_scan_pos
+```
+
+```stdout
+"cd"
+"ab"
+"a\x00b\x00"
+"x"
+```
+
+## ladder_rung05_scan_scan_pos
+
+```Icon
 procedure main()
   "hello" ? {
     move(2);
     write(&pos)
   };
 end
-#----------------------------------------------------- 475 procedure_every_to_19
+```
+
+```stdout
+3
+```
+
+## procedure_every_to_19
+
+```Icon
 procedure main()
   every x := 1 to 3 do {
     y := x * 2;
     write(y)
   };
 end
-#----------------------------------------------------- 476 procedure_every_to_50
+```
+
+```stdout
+2
+4
+6
+```
+
+## procedure_every_to_50
+
+```Icon
 procedure main()
   every x := 1 to 3 do {
     y := x * 2;
     write(y)
   };
 end
-#---------------------------------------------------- 477 procedure_scan_write_3
+```
+
+```stdout
+2
+4
+6
+```
+
+## procedure_scan_write_3
+
+```Icon
 procedure main()
    local s;
    s := ".abc";
    s ? { if ="." & ="9" then write("Y") else write("N") };
    write("done");
 end
-#-------------------------------------------------- 478 procedure_table_write_13
+```
+
+```stdout
+N
+done
+```
+
+## procedure_table_write_13
+
+```Icon
 procedure main()
   local t;
   t := table(0);
   t[1] := 42;
   write(t[1]);
 end
-#--------------------------------------------------- 479 procedure_table_write_2
+```
+
+```stdout
+42
+```
+
+## procedure_table_write_2
+
+```Icon
 procedure main()
   local t;
   t := table(0);
   t[1] := 42;
   write(t[1]);
 end
-#------------------------------------------------------- 480 procedure_write_190
+```
+
+```stdout
+42
+```
+
+## procedure_write_190
+
+```Icon
 procedure main()
   x := 100;
   write(type(x));
   write(image(x));
   write(numeric("7") + 1);
 end
-#------------------------------------------------------- 481 procedure_write_232
+```
+
+```stdout
+integer
+100
+8
+```
+
+## procedure_write_232
+
+```Icon
 procedure main()
   local s;
   s := "hello world";
   write(s[1:6]);
   write(s[7]);
 end
-#------------------------------------------------------- 482 procedure_write_233
+```
+
+```stdout
+hello
+w
+```
+
+## procedure_write_233
+
+```Icon
 global count
 procedure main()
   initial count := 0;
   count +:= 1;
   write(count);
 end
-#-------------------------------------------------------- 483 procedure_write_51
+```
+
+```stdout
+1
+```
+
+## procedure_write_51
+
+```Icon
 procedure main()
   x := 100;
   write(type(x));
   write(image(x));
   write(numeric("7") + 1);
 end
-#------------------ 484 ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
+```
+
+```stdout
+integer
+100
+8
+```
+
+## ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
+
+```Icon
 procedure main()
    writes(char(1), char(2), "\x03");
    write();
@@ -3223,7 +7434,18 @@ procedure main()
    write(char(3), "ln", char(1), "x");
    write(image(char(1) || "z"));
 end
-#----------------------------------------------- 485 ladder_rung41_rt_errorclear
+```
+
+```stdout
+
+ab
+lnx
+"\x01z"
+```
+
+## ladder_rung41_rt_errorclear
+
+```Icon
 procedure main()
   &error := 1;
   1 + "abc";
@@ -3231,7 +7453,16 @@ procedure main()
   errorclear();
   write("num2=", &errornumber | "FAILED");
 end
-#-------------------------------------------------- 486 procedure_table_write_14
+```
+
+```stdout
+num1=102
+num2=FAILED
+```
+
+## procedure_table_write_14
+
+```Icon
 procedure main()
   local t;
   t := table(99);
@@ -3239,7 +7470,16 @@ procedure main()
   write(t[1]);
   write(t[2]);
 end
-#-------------------------------------------------- 487 procedure_table_write_17
+```
+
+```stdout
+7
+99
+```
+
+## procedure_table_write_17
+
+```Icon
 procedure main()
   local t;
   t := table("none");
@@ -3247,7 +7487,16 @@ procedure main()
   write(t[1]);
   write(t[2]);
 end
-#--------------------------------------------------- 488 procedure_table_write_3
+```
+
+```stdout
+yes
+none
+```
+
+## procedure_table_write_3
+
+```Icon
 procedure main()
   local t;
   t := table(99);
@@ -3255,7 +7504,16 @@ procedure main()
   write(t[1]);
   write(t[2]);
 end
-#--------------------------------------------------- 489 procedure_table_write_6
+```
+
+```stdout
+7
+99
+```
+
+## procedure_table_write_6
+
+```Icon
 procedure main()
   local t;
   t := table("none");
@@ -3263,7 +7521,16 @@ procedure main()
   write(t[1]);
   write(t[2]);
 end
-#------------------------------------------- 490 procedure_until_write_replace_1
+```
+
+```stdout
+yes
+none
+```
+
+## procedure_until_write_replace_1
+
+```Icon
 # rung09 t02: until with side-effect in condition
 procedure main()
   local i;
@@ -3271,7 +7538,17 @@ procedure main()
   until (i := i + 1) >= 3 do write(i);
   write(i);
 end
-#------------------------------------------- 491 procedure_until_write_replace_3
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_until_write_replace_3
+
+```Icon
 # rung09 t03: until with assignment as condition
 procedure main()
   local i;
@@ -3279,7 +7556,19 @@ procedure main()
   until (i := i + 1) > 4 do write(i);
   write(i);
 end
-#------------------------------------------- 492 procedure_until_write_replace_4
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_until_write_replace_4
+
+```Icon
 # rung09 t02: until with side-effect in condition
 procedure main()
   local i;
@@ -3287,7 +7576,17 @@ procedure main()
   until (i := i + 1) >= 3 do write(i);
   write(i);
 end
-#------------------------------------------- 493 procedure_until_write_replace_6
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_until_write_replace_6
+
+```Icon
 # rung09 t03: until with assignment as condition
 procedure main()
   local i;
@@ -3295,7 +7594,19 @@ procedure main()
   until (i := i + 1) > 4 do write(i);
   write(i);
 end
-#--------------------------------------------------- 494 procedure_while_write_3
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_while_write_3
+
+```Icon
 procedure main()
   i := 1;
   while i <= 3 do {
@@ -3303,7 +7614,17 @@ procedure main()
     i +:= 1
   };
 end
-#--------------------------------------------------- 495 procedure_while_write_9
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_while_write_9
+
+```Icon
 procedure main()
   i := 1;
   while i <= 3 do {
@@ -3311,7 +7632,17 @@ procedure main()
     i +:= 1
   };
 end
-#------------------------------------------------------- 496 procedure_write_247
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_write_247
+
+```Icon
 procedure main()
   local t;
   t := table("default");
@@ -3319,7 +7650,16 @@ procedure main()
   write(t["a"]);
   write(t["b"]);
 end
-#----------------------------------------------- 497 procedure_write_augassign_3
+```
+
+```stdout
+value
+default
+```
+
+## procedure_write_augassign_3
+
+```Icon
 # rung10 t04: augmented divide
 procedure main()
   local x;
@@ -3327,7 +7667,15 @@ procedure main()
   x /:= 4;
   write(x);
 end
-#----------------------------------------------- 498 procedure_write_augassign_9
+```
+
+```stdout
+25
+```
+
+## procedure_write_augassign_9
+
+```Icon
 # rung10 t04: augmented divide
 procedure main()
   local x;
@@ -3335,7 +7683,15 @@ procedure main()
   x /:= 4;
   write(x);
 end
-#----------------------------------- 499 unicon__uni_pattern_image_cursor_assign
+```
+
+```stdout
+25
+```
+
+## unicon__uni_pattern_image_cursor_assign
+
+```Icon
 procedure main()
    local p, x;
    p := .> x;
@@ -3343,7 +7699,15 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------- 500 ladder__rung08_strbuiltins_reverse_ignores_extra_arguments
+```
+
+```stdout
+pattern_0(1) =  .> x
+```
+
+## ladder__rung08_strbuiltins_reverse_ignores_extra_arguments
+
+```Icon
 procedure main()
    local t;
    t := table();
@@ -3352,7 +7716,17 @@ procedure main()
    write(t["r"]("abc", "ignored", 3));
    write(reverse("x"));
 end
-#---------------------------------------------- 501 ladder__rung47_system_status
+```
+
+```stdout
+4321
+cba
+x
+```
+
+## ladder__rung47_system_status
+
+```Icon
 procedure main()
    local f;
    write(system("exit 3"));
@@ -3361,7 +7735,17 @@ procedure main()
    write(read(f));
    close(f);
 end
-#-------------------------------------------------- 502 procedure_record_write_3
+```
+
+```stdout
+3
+0
+piped
+```
+
+## procedure_record_write_3
+
+```Icon
 record pair(a, b)
 procedure sum(p)
   return p.a + p.b;
@@ -3370,7 +7754,15 @@ procedure main()
   q := pair(7, 8);
   write(sum(q));
 end
-#-------------------------------------------------- 503 procedure_record_write_8
+```
+
+```stdout
+15
+```
+
+## procedure_record_write_8
+
+```Icon
 record pair(a, b)
 procedure sum(p)
   return p.a + p.b;
@@ -3379,7 +7771,15 @@ procedure main()
   q := pair(7, 8);
   write(sum(q));
 end
-#---------------------------------------------- 504 procedure_scan_tab_replace_1
+```
+
+```stdout
+15
+```
+
+## procedure_scan_tab_replace_1
+
+```Icon
 #  Exactly ONE operand is lost per scan-family call (one 16B carve = one 16B slot),
 #  and the damage COMPOUNDS with multiple scan calls in one list.
 #  Line 1 oracle: ABC112D   (only "C", the immediate predecessor, is lost)
@@ -3388,7 +7788,16 @@ procedure main()
    "112 xy" ? { write("A", "B", "C", tab(4), "D") };
    "112 xy" ? { write("A", tab(2), "B", tab(4)) };
 end
-#-------------------------------------------------- 505 procedure_table_write_10
+```
+
+```stdout
+ABC112D
+A1B12
+```
+
+## procedure_table_write_10
+
+```Icon
 procedure main()
   local t;
   t := table(99);
@@ -3397,7 +7806,17 @@ procedure main()
   t["real"] := 1;
   write(*t);
 end
-#------------------------------------------- 506 procedure_table_write_replace_1
+```
+
+```stdout
+99
+0
+1
+```
+
+## procedure_table_write_replace_1
+
+```Icon
 procedure main()
   t := table();
   insert(t, "x", 10);
@@ -3406,7 +7825,17 @@ procedure main()
   write(t["y"]);
   write(*t);
 end
-#------------------------------------------- 507 procedure_table_write_replace_5
+```
+
+```stdout
+10
+20
+2
+```
+
+## procedure_table_write_replace_5
+
+```Icon
 procedure main()
   t := table();
   insert(t, "x", 10);
@@ -3415,7 +7844,17 @@ procedure main()
   write(t["y"]);
   write(*t);
 end
-#------------------------------------------------------- 508 procedure_write_226
+```
+
+```stdout
+10
+20
+2
+```
+
+## procedure_write_226
+
+```Icon
 procedure main()
   local a, b;
   a := "foo" || "1";
@@ -3424,7 +7863,16 @@ procedure main()
   write(a);
   write(b);
 end
-#------------------------------------------------------- 509 procedure_write_260
+```
+
+```stdout
+bar2
+foo1
+```
+
+## procedure_write_260
+
+```Icon
 record message(who,gap,what)
 procedure main()
    write("A:", image(message("hello")));
@@ -3433,7 +7881,20 @@ procedure main()
    write("B:", write ! message("x", "y", "z"));
    write("C:end");
 end
-#---------------------------------------------------- 510 unicon__uni_bi_to_real
+```
+
+```stdout
+A:record message_1(3)
+hello
+hello pop
+xyz
+B:z
+C:end
+```
+
+## unicon__uni_bi_to_real
+
+```Icon
 procedure main()
    every writes(" ", 0.0 to 1.0 by 0.25); write();
    every writes(" ", 1.5 to 3.5 by 0.5); write();
@@ -3442,7 +7903,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------------------------- 511 unicon__uni_pm_restart
+```
+
+```stdout
+ 0.0 0.25 0.5 0.75 1.0
+ 1.5 2.0 2.5 3.0 3.5
+ 1.0 1.5 2.0
+ 3.0 2.0 1.0
+```
+
+## unicon__uni_pm_restart
+
+```Icon
 procedure main()
    every write("[" || ("abcabc" ?? Len(2)) || "]");
    every write("[" || ("xxyxx" ?? "x") || "]");
@@ -3451,7 +7923,33 @@ procedure main()
    every write("[" || ("abc" ?? Rem()) || "]") \ 3;
    every write("[" || ("aXXa" ?? Arb() || "X") || "]");
 end
-#----------------------- 512 ladder__rung29_builtins_proc_of_main_and_arity_zero
+```
+
+```stdout
+[ab]
+[ca]
+[bc]
+[x]
+[x]
+[x]
+[x]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[abc]
+[]
+[]
+[aX]
+[X]
+```
+
+## ladder__rung29_builtins_proc_of_main_and_arity_zero
+
+```Icon
 procedure helper()
    return 1;
 end
@@ -3461,7 +7959,18 @@ procedure main()
    write(image(proc("main", 0)) | "proc main 0 failed");
    write(image(main));
 end
-#------------------------------------------------------ 513 procedure_scan_tab_1
+```
+
+```stdout
+procedure main
+proc helper failed
+proc main 0 failed
+procedure main
+```
+
+## procedure_scan_tab_1
+
+```Icon
 #  The operand immediately preceding a scan-family call in an argument list is
 #  DESTROYED.  Mechanism: the box carves 16B at alpha (sub rsp,16) and then writes
 #  its result at its assigned rsp-relative slot -- post-carve, so the store lands
@@ -3471,7 +7980,15 @@ end
 procedure main()
    "112 xy" ? { write("A", tab(4), "C") };
 end
-#-------------------------------------------------- 514 procedure_table_write_18
+```
+
+```stdout
+A112C
+```
+
+## procedure_table_write_18
+
+```Icon
 procedure main()
   local t;
   t := table("0");
@@ -3481,7 +7998,17 @@ procedure main()
   write(t["bob"]);
   write(t["carol"]);
 end
-#--------------------------------------------------- 515 procedure_table_write_7
+```
+
+```stdout
+1
+1
+0
+```
+
+## procedure_table_write_7
+
+```Icon
 procedure main()
   local t;
   t := table("0");
@@ -3491,7 +8018,17 @@ procedure main()
   write(t["bob"]);
   write(t["carol"]);
 end
-#------------------------------------------- 516 procedure_until_write_replace_2
+```
+
+```stdout
+1
+1
+0
+```
+
+## procedure_until_write_replace_2
+
+```Icon
 # rung09 t04: until with procedure doing the work
 procedure count(n)
   local i;
@@ -3501,7 +8038,17 @@ end
 procedure main()
   count(3);
 end
-#------------------------------------------- 517 procedure_until_write_replace_5
+```
+
+```stdout
+2
+1
+0
+```
+
+## procedure_until_write_replace_5
+
+```Icon
 # rung09 t04: until with procedure doing the work
 procedure count(n)
   local i;
@@ -3511,7 +8058,17 @@ end
 procedure main()
   count(3);
 end
-#------------------------------------------------------- 518 procedure_write_255
+```
+
+```stdout
+2
+1
+0
+```
+
+## procedure_write_255
+
+```Icon
 procedure main()
    every write("A:", "..."(1, 5, 2));
    write("B:", "[:]"("abcdef", 3, 5));
@@ -3521,7 +8078,23 @@ procedure main()
    write("F:", image(proc("^", 2)));
    write("G:end");
 end
-#----------------------------------------------------- 519 unicon__uni_pm_cursor
+```
+
+```stdout
+A:1
+A:3
+A:5
+B:cd
+C:c
+D:function write
+E:7
+F:function ^
+G:end
+```
+
+## unicon__uni_pm_cursor
+
+```Icon
 procedure main();
    local a, b, c, s, p;
    s := "hello world";
@@ -3531,7 +8104,16 @@ procedure main();
    s ?? ("he" || p);
    write(c);
 end
-#- 520 ladder__rung02_proc_an_undeclared_local_passed_as_an_argument_reaches_the_callee
+```
+
+```stdout
+3 6
+6
+```
+
+## ladder__rung02_proc_an_undeclared_local_passed_as_an_argument_reaches_the_callee
+
+```Icon
 procedure show(m, d);
    write(m, " ", d);
 end
@@ -3542,7 +8124,19 @@ procedure main();
    show(x, y);
    every z := 1 to 3 do show(z, x);
 end
-#-------------------- 521 ladder__rung33_case_failing_selector_tries_next_clause
+```
+
+```stdout
+7 5
+5 abc
+1 5
+2 5
+3 5
+```
+
+## ladder__rung33_case_failing_selector_tries_next_clause
+
+```Icon
 procedure f(i, p)
    return case i of { *p > i: "gt"; *p < i: "lt"; default: "eq" };
 end
@@ -3553,7 +8147,19 @@ procedure main()
    write(case 5 of { (4 < 3): "never"; 5: "five" });
    write(case "q" of { find("z", "abc"): "no"; "q": "yes" });
 end
-#-------------------------------------------------- 522 procedure_table_write_11
+```
+
+```stdout
+gt
+lt
+eq
+five
+yes
+```
+
+## procedure_table_write_11
+
+```Icon
 procedure main()
   local a, t;
   a := [[1,2],[3,4]];
@@ -3564,7 +8170,17 @@ procedure main()
   t["k"] := [7,8];
   write(t["k",2]);
 end
-#------------------------------------------------ 523 unicon__uni_pm_immed_local
+```
+
+```stdout
+3
+99
+8
+```
+
+## unicon__uni_pm_immed_local
+
+```Icon
 procedure main();
    local a, b, s, p;
    s := "abcdef";
@@ -3575,7 +8191,17 @@ procedure main();
    s ?? ("b" || p);
    write(b);
 end
-#---------------------------------- 524 unicon__uni_radix_with_no_digits_is_zero
+```
+
+```stdout
+ab cd
+d
+c
+```
+
+## unicon__uni_radix_with_no_digits_is_zero
+
+```Icon
 procedure main()
    write(image(integer("16r")) | "integer fails");
    write(image(numeric("16r")) | "numeric fails");
@@ -3586,7 +8212,20 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------ 525 ladder_rung41_rt_open_close_write_file
+```
+
+```stdout
+0
+0
+"\x00"
+255
+0
+0
+```
+
+## ladder_rung41_rt_open_close_write_file
+
+```Icon
 procedure main()
   local f, g, s;
   f := open("/tmp/s05_r41_openclose.txt", "wc");
@@ -3598,7 +8237,15 @@ procedure main()
   close(g);
   remove("/tmp/s05_r41_openclose.txt");
 end
-#----------------------------------------------- 526 unicon__uni_bi_table_setops
+```
+
+```stdout
+hello file
+```
+
+## unicon__uni_bi_table_setops
+
+```Icon
 procedure main()
    &error := 1;
    [] ++ [];
@@ -3610,7 +8257,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------------- 527 procedure_write_259
+```
+
+```stdout
+120 two csets, two sets, or two tables expected
+120 two csets, two sets, or two tables expected
+0
+```
+
+## procedure_write_259
+
+```Icon
 procedure main()
    local x, y;
    x := "o";
@@ -3623,7 +8280,18 @@ end
 procedure p(a, b, c)
    return a || "/" || b || "/" || c;
 end
-#--------------------------------------- 528 unicon__uni_class_initially_varargs
+```
+
+```stdout
+A:bob
+B:919
+C:5/9/5
+D:end
+```
+
+## unicon__uni_class_initially_varargs
+
+```Icon
 class Bag(items)
    method count()
       return *items;
@@ -3636,7 +8304,15 @@ procedure main()
    b := Bag(1, 2, 3);
    write("count ", b.count());
 end
-#----------------------------------------------- 529 unicon__uni_posix_raw_attrs
+```
+
+```stdout
+count 3
+```
+
+## unicon__uni_posix_raw_attrs
+
+```Icon
 procedure main()
    local f;
    if open("127.0.0.1", "nr") then write("oops: missing proto") else write("missing-proto: ", &errortext, " ", &errornumber);
@@ -3649,7 +8325,21 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------------------- 530 unicon__uni_trace_budget
+```
+
+```stdout
+missing-proto: bad socket attribute 1310
+bad-proto: bad socket attribute
+empty-proto: bad socket attribute
+raw-icmp: Operation not permitted
+raw-89: Operation not permitted
+bad-hdrincl: bad socket attribute
+bogus: bad socket attribute
+```
+
+## unicon__uni_trace_budget
+
+```Icon
 procedure main()
    &trace := 5;
    foo(1);
@@ -3662,7 +8352,16 @@ procedure foo(x)
 end
 class UniconMarker()
 end
-#-------------------------------------------------- 531 ladder__rung43_initially
+```
+
+```stdout
+3
+done
+```
+
+## ladder__rung43_initially
+
+```Icon
 class Counter(n)
   method bump()
     n +:= 1;
@@ -3676,7 +8375,16 @@ procedure main()
   write(c.bump());
   write(c.bump());
 end
-#------------------------------------------------ 532 procedure_write_replace_11
+```
+
+```stdout
+11
+12
+```
+
+## procedure_write_replace_11
+
+```Icon
 procedure main()
    local L, p;
    L := [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
@@ -3690,7 +8398,18 @@ end
 procedure q(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17)
    return a1 + a16 + a17;
 end
-#--------------------------------------------------- 533 unicon__uni_class_hello
+```
+
+```stdout
+17
+1 16 17
+34
+34
+```
+
+## unicon__uni_class_hello
+
+```Icon
 class Point(x, y)
    method dist()
       return sqrt(x * x + y * y);
@@ -3705,7 +8424,17 @@ procedure main()
    write(p.x + p.y);
    p.x := 6; p.show();
 end
-#------------------------------------------------ 534 unicon__uni_pm_defer_param
+```
+
+```stdout
+(3,4) 5.0
+7
+(6,4) 7.211102550927978
+```
+
+## unicon__uni_pm_defer_param
+
+```Icon
 procedure show(k);
    write("show ", k);
    return;
@@ -3720,7 +8449,20 @@ procedure main();
    h(7, "abc");
    h(8, "xyz");
 end
-#- 535 an_ordinary_call_chain_prints_every_frame_in_the_traceback__an_ordinary_call_chain_prints_every_frame_in_the_traceback
+```
+
+```stdout
+show 7
+show abc
+h 7 a
+show 8
+show xyz
+h 8 x
+```
+
+## an_ordinary_call_chain_prints_every_frame_in_the_traceback__an_ordinary_call_chain_prints_every_frame_in_the_traceback
+
+```Icon
 #  THE CONTROL FOR a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.
 #  Same three-deep chain, same fault, but g is an ORDINARY procedure -- no `every`,
 #  no `suspend`. This path recorded its activations before the generator cure and must
@@ -3736,7 +8478,23 @@ end
 procedure g()
    1 / 0;
 end
-#- 536 ladder__rung02_proc_a_variable_operand_is_read_when_the_operation_executes_not_when_the_operand_is_evaluated
+```
+
+```stdout
+
+Run-time error 201
+File an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn; Line 14
+division by zero
+Traceback:
+main()
+f() from line 8 in an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn
+g() from line 11 in an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn
+{1 / 0} from line 14 in an_ordinary_call_chain_prints_every_frame_in_the_traceback.icn
+```
+
+## ladder__rung02_proc_a_variable_operand_is_read_when_the_operation_executes_not_when_the_operand_is_evaluated
+
+```Icon
 procedure inc(x)
    return x + 1;
 end
@@ -3752,7 +8510,23 @@ procedure main()
    i := 1; write(i - (i := 9) - i);
    i := 2; write(i + i + (i := 6));
 end
-#- 537 ladder__rung16_subscript_a_string_list_and_table_subscript_reads_and_assigns
+```
+
+```stdout
+10
+10
+16
+4
+b
+yyy
+26
+-9
+10
+```
+
+## ladder__rung16_subscript_a_string_list_and_table_subscript_reads_and_assigns
+
+```Icon
 procedure main()
     local s, L, t;
     s := "hello";
@@ -3769,7 +8543,21 @@ procedure main()
     t["k"] := "v";
     write(t["k"]);
 end
-#------------------------------------------- 538 procedure_every_table_replace_1
+```
+
+```stdout
+e
+h
+o
+Hello
+20
+99
+v
+```
+
+## procedure_every_table_replace_1
+
+```Icon
 procedure main()
   L := [1,2,3];
   every L[2] <- 9 do write(L[2]);
@@ -3788,7 +8576,25 @@ procedure main()
   write(u["z"]);
   write(*u);
 end
-#---------------------------------------- 539 unicon__icn_return_alt_under_limit
+```
+
+```stdout
+9
+2
+5
+1
+7
+7
+8
+2
+3
+0
+1
+```
+
+## unicon__icn_return_alt_under_limit
+
+```Icon
 procedure t2();
    (return (2 | 3)) \ 1;
 end
@@ -3807,7 +8613,18 @@ procedure main();
    write(t4());
    write(t5());
 end
-#---------------------------------------------------- 540 unicon__uni_posix_trap
+```
+
+```stdout
+2
+2
+2
+4
+```
+
+## unicon__uni_posix_trap
+
+```Icon
 global seen
 procedure main()
    seen := 0;
@@ -3826,7 +8643,18 @@ procedure handler(s)
 end
 class UniconMarker()
 end
-#---------------------------------------------- 541 procedure_to_write_replace_1
+```
+
+```stdout
+Got SIGUSR1
+after delay, seen=1
+Got SIGUSR1
+after child, seen=2
+```
+
+## procedure_to_write_replace_1
+
+```Icon
 #SRC: IJ-8 string relop coercion tests
 # Verify bb_strrel coerces int/real to image string, cset to member string.
 # Uses semicolon separators (no auto-semicolon in this frontend).
@@ -3856,357 +8684,1361 @@ procedure main()
    if s << t then write("empty<<a");
    if t >> s then write("a>>empty");
 end
-#----------------------------------------------------- 542 procedure_coexpr_to_1
+```
+
+```stdout
+a<<b
+b>>a
+a<<=a
+b>>=b
+a==a
+a~==b
+2<<3
+3>>2
+2==2
+ac=='ca'
+ac<<='ca'
+empty<<=empty
+empty<<a
+a>>empty
+```
+
+## procedure_coexpr_to_1
+
+```Icon
 procedure main(); c := create (1 to 2); write(@c); write(@c); end
-#-------------------------------------------------- 543 procedure_repeat_write_2
-procedure main(); i := 0; repeat { i +:= 1; if i >= 3 then break }; write(i); end
-#------------------------------------------------------ 544 procedure_scan_tab_7
-procedure main(); "aaabbb" ? write(tab(many("a"))); end
-#------------------------------------------------------ 545 procedure_scan_tab_8
-procedure main(); "aabbcc" ? write(tab(many('ab'))); end
-#--------------------------------------------------- 546 procedure_while_write_6
+```
+
+```stdout
+1
+2
+```
+
+## procedure_while_write_6
+
+```Icon
 procedure main(); i := 0; while (i +:= 1) <= 4 do { if i = 2 then next; write(i) }; end
-#---------------------------------------------------- 547 procedure_every_alt_10
+```
+
+```stdout
+1
+3
+4
+```
+
+## procedure_every_alt_10
+
+```Icon
 procedure main()
   every write(|"hi" \ 2);
 end
-#---------------------------------------------------- 548 procedure_every_alt_14
+```
+
+```stdout
+hi
+hi
+```
+
+## procedure_every_alt_14
+
+```Icon
 procedure main()
   every write((1|2|3|4|5) \ 2);
 end
-#---------------------------------------------------- 549 procedure_every_alt_15
+```
+
+```stdout
+1
+2
+```
+
+## procedure_every_alt_15
+
+```Icon
 procedure main()
   every write(("a"|"b"|"c") \ 2);
 end
-#---------------------------------------------------- 550 procedure_every_alt_35
+```
+
+```stdout
+a
+b
+```
+
+## procedure_every_alt_35
+
+```Icon
 procedure main()
   every write(|1 \ 3);
 end
-#---------------------------------------------------- 551 procedure_every_alt_36
+```
+
+```stdout
+1
+1
+1
+```
+
+## procedure_every_alt_36
+
+```Icon
 procedure main()
   every write(|"hi" \ 2);
 end
-#---------------------------------------------------- 552 procedure_every_alt_40
+```
+
+```stdout
+hi
+hi
+```
+
+## procedure_every_alt_40
+
+```Icon
 procedure main()
   every write((1|2|3|4|5) \ 2);
 end
-#---------------------------------------------------- 553 procedure_every_alt_41
+```
+
+```stdout
+1
+2
+```
+
+## procedure_every_alt_41
+
+```Icon
 procedure main()
   every write(("a"|"b"|"c") \ 2);
 end
-#----------------------------------------------------- 554 procedure_every_alt_9
+```
+
+```stdout
+a
+b
+```
+
+## procedure_every_alt_9
+
+```Icon
 procedure main()
   every write(|1 \ 3);
 end
-#-------------------------------------------- 555 procedure_every_alt_replace_10
+```
+
+```stdout
+1
+1
+1
+```
+
+## procedure_every_alt_replace_10
+
+```Icon
 procedure main()
   every (x := (1|2|3|4|5)) > 2 & write(x);
 end
-#--------------------------------------------- 556 procedure_every_alt_replace_2
+```
+
+```stdout
+3
+4
+5
+```
+
+## procedure_every_alt_replace_2
+
+```Icon
 procedure main()
   every (x := (1|2|3|4|5)) > 2 & write(x);
 end
-#------------------------------------------------------- 557 procedure_write_219
+```
+
+```stdout
+3
+4
+5
+```
+
+## procedure_write_219
+
+```Icon
 procedure main()
   every write((1 to 3) | (10 to 14 by 2));
 end
-#------------------------------------------------------- 558 procedure_write_221
+```
+
+```stdout
+1
+2
+3
+10
+12
+14
+```
+
+## procedure_write_221
+
+```Icon
 procedure main()
   every write(|(1|2) \ 4);
 end
-#------------------------------------------------ 559 procedure_every_elemgen_16
+```
+
+```stdout
+1
+2
+1
+2
+```
+
+## procedure_every_elemgen_16
+
+```Icon
 procedure main()
   L := [1, 2, 3, 4, 5];
   every write(!sort(L));
 end
-#------------------------------------------------ 560 procedure_every_elemgen_18
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_elemgen_18
+
+```Icon
 procedure main()
   L := [5, 3, 1, 4, 2];
   every write(!sort(L));
 end
-#------------------------------------------------- 561 procedure_every_elemgen_6
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_elemgen_6
+
+```Icon
 procedure main()
   L := [1, 2, 3, 4, 5];
   every write(!sort(L));
 end
-#------------------------------------------------- 562 procedure_every_elemgen_8
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_elemgen_8
+
+```Icon
 procedure main()
   L := [5, 3, 1, 4, 2];
   every write(!sort(L));
 end
-#---------------------------------------------------- 563 procedure_every_scan_1
+```
+
+```stdout
+1
+2
+3
+4
+5
+```
+
+## procedure_every_scan_1
+
+```Icon
 # rung06 t04: upto() generates positions up to chars in cset
 procedure main()
   every ("hello world" ? write(upto(' ')));
 end
-#---------------------------------------------------- 564 procedure_every_scan_3
+```
+
+```stdout
+6
+```
+
+## procedure_every_scan_3
+
+```Icon
 # rung06 t04: upto() generates positions up to chars in cset
 procedure main()
   every ("hello world" ? write(upto(' ')));
 end
-#---------------------------------------- 565 ladder_rung06_cset_scan_refuse_any
+```
+
+```stdout
+6
+```
+
+## ladder_rung06_cset_scan_refuse_any
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? any([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#--------------------------------------- 566 ladder_rung06_cset_scan_refuse_many
+```
+
+```stdout
+num=104 text=cset expected
+```
+
+## ladder_rung06_cset_scan_refuse_many
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? many([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#--------------------------------------- 567 ladder_rung06_cset_scan_refuse_upto
+```
+
+```stdout
+num=104 text=cset expected
+```
+
+## ladder_rung06_cset_scan_refuse_upto
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? upto([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#-------------------------------- 568 ladder_rung08_strbuiltins_scan_refuse_find
+```
+
+```stdout
+num=104 text=cset expected
+```
+
+## ladder_rung08_strbuiltins_scan_refuse_find
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? find([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#------------------------------- 569 ladder_rung08_strbuiltins_scan_refuse_match
+```
+
+```stdout
+num=103 text=string expected
+```
+
+## ladder_rung08_strbuiltins_scan_refuse_match
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? match([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#-------------------------------- 570 ladder_rung08_strbuiltins_scan_refuse_move
+```
+
+```stdout
+num=103 text=string expected
+```
+
+## ladder_rung08_strbuiltins_scan_refuse_move
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? move([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#-------------------------------------- 571 ladder_rung14_limit_limit_refuse_neg
+```
+
+```stdout
+num=101 text=integer expected or out of range
+```
+
+## ladder_rung14_limit_limit_refuse_neg
+
+```Icon
 procedure main()
   &error := 1;
   every write((1 to 5) \ -1);
   write("num=", &errornumber, " text=", &errortext);
 end
-#------------------------------------- 572 ladder_rung14_limit_limit_refuse_type
+```
+
+```stdout
+num=205 text=invalid value
+```
+
+## ladder_rung14_limit_limit_refuse_type
+
+```Icon
 procedure main()
   &error := 1;
   every write((1 to 5) \ "x");
   write("num=", &errornumber, " text=", &errortext);
 end
-#--------------------------------------------- 573 ladder_rung37_bal_scan_refuse
+```
+
+```stdout
+num=101 text=integer expected or out of range
+```
+
+## ladder_rung37_bal_scan_refuse
+
+```Icon
 procedure main()
   &error := 1;
   "a(b)" ? bal([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#------------------------------------------------ 574 procedure_every_elemgen_13
+```
+
+```stdout
+num=104 text=cset expected
+```
+
+## procedure_every_elemgen_13
+
+```Icon
 procedure main()
   local s;
   s := [1, 2] ||| [3, 4];
   every write(!s);
 end
-#------------------------------------------------ 575 procedure_every_elemgen_17
+```
+
+```stdout
+1
+2
+3
+4
+```
+
+## procedure_every_elemgen_17
+
+```Icon
 procedure main()
   L := [3, 1, 2];
   S := sort(L);
   every write(!S);
 end
-#------------------------------------------------- 576 procedure_every_elemgen_7
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_elemgen_7
+
+```Icon
 procedure main()
   L := [3, 1, 2];
   S := sort(L);
   every write(!S);
 end
-#----------------------------------------------------- 577 procedure_every_to_52
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_every_to_52
+
+```Icon
 procedure main()
    write("one");
    every write(1 to 400);
    stop(&output, "three ", 4, " ", 5.5, " ", 'testing stop');
 end
-#--------------------------------------------------- 578 procedure_while_write_2
+```
+
+```stdout
+one
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+three 4 5.5  eginopst
+```
+
+## procedure_while_write_2
+
+```Icon
 procedure main()
   local line;
   while line := read() do
     write(line);
 end
-#--------------------------------------------------- 579 procedure_while_write_8
+```
+
+```stdin
+alpha
+beta
+gamma
+```
+
+```stdout
+alpha
+beta
+gamma
+```
+
+## procedure_while_write_8
+
+```Icon
 procedure main()
   local line;
   while line := read() do
     write(line);
 end
-#------------------------------------------------- 580 procedure_write_keyword_5
+```
+
+```stdin
+alpha
+beta
+gamma
+```
+
+```stdout
+alpha
+beta
+gamma
+```
+
+## procedure_write_keyword_5
+
+```Icon
 procedure main()
   local s;
   s := reads(&input, 5);
   write(s);
 end
-#----------------------------------------------- 581 repro__jcon_lexer_dot_field
+```
+
+```stdin
+hello world
+```
+
+```stdout
+hello
+```
+
+## repro__jcon_lexer_dot_field
+
+```Icon
 procedure f(p)
    local c;
    c := (g(\p.coord) | h("", 0, 0));
    return c;
 end
-#------------------------ 582 rung16_seqexpr_gen_basic__rung16_seqexpr_gen_basic
+```
+
+```stdout
+
+Run-time error 117 in startup code
+missing main procedure
+```
+
+## rung16_seqexpr_gen_basic__rung16_seqexpr_gen_basic
+
+```Icon
 procedure main()
   x := 0;
   every (x := x + 10; "a" | "b" | "c");
   write(x);
 end
-#-------------- 583 ladder__rung13_alt_a_call_with_a_generating_argument_resumes
+```
+
+```stdout
+File rung16_seqexpr_gen_basic.icn; Line 3 # ";": missing right parenthesis
+```
+
+## ladder__rung13_alt_a_call_with_a_generating_argument_resumes
+
+```Icon
 procedure main()
    local a;
    a := [-1, 2, -3];
    every write((abs(!a), 7));
    every write((!a, "x"));
 end
-#----------------------------------------------- 584 ladder_rung38_coexpr_create
+```
+
+```stdout
+7
+7
+7
+x
+x
+x
+```
+
+## ladder_rung38_coexpr_create
+
+```Icon
 procedure main()
   local c;
   c := create write("ran");
   write("created");
   @c;
 end
-#---------------------------------------------------- 585 procedure_every_alt_17
+```
+
+```stdout
+created
+ran
+```
+
+## procedure_every_alt_17
+
+```Icon
 procedure tag(s)
   return "[" || s || "]";
 end
 procedure main()
   every write(tag("a" | "b" | "c"));
 end
-#---------------------------------------------------- 586 procedure_every_alt_43
+```
+
+```stdout
+[a]
+[b]
+[c]
+```
+
+## procedure_every_alt_43
+
+```Icon
 procedure tag(s)
   return "[" || s || "]";
 end
 procedure main()
   every write(tag("a" | "b" | "c"));
 end
-#--------------------------------------------- 587 procedure_every_alt_replace_3
+```
+
+```stdout
+[a]
+[b]
+[c]
+```
+
+## procedure_every_alt_replace_3
+
+```Icon
 # rung16 A5: generative seq-expr (side-effect; alternate) as direct every generator
 procedure main()
   x := 0;
   every {x := x + 10; "a" | "b" | "c"};
   write(x);
 end
-#------------------------------------------------- 588 procedure_every_elemgen_1
+```
+
+```stdout
+10
+```
+
+## procedure_every_elemgen_1
+
+```Icon
 procedure main()
   s := "xy";
   result := "";
   every result ||:= !s;
   write(result);
 end
-#------------------------------------------------ 589 procedure_every_elemgen_10
+```
+
+```stdout
+xy
+```
+
+## procedure_every_elemgen_10
+
+```Icon
 procedure main()
   s := "xy";
   result := "";
   every result ||:= !s;
   write(result);
 end
-#----------------------------------------- 590 procedure_every_elemgen_replace_7
+```
+
+```stdout
+xy
+```
+
+## procedure_every_elemgen_replace_7
+
+```Icon
 procedure main()
   local Q, S, q, a;
   Q := ["x","y"];
   S := [0,1];
   every q := !Q & a := !S do write(q, a);
 end
-#----------------------------------------------------- 591 procedure_every_to_21
+```
+
+```stdout
+x0
+x1
+y0
+y1
+```
+
+## procedure_every_to_21
+
+```Icon
 # rung37: every-do body hello — simplest every i := 1 to 3 do write(i)
 procedure main()
    local i;
    every i := 1 to 3 do write(i);
    write("done");
 end
-#-------------------------------------------------- 592 procedure_record_every_1
+```
+
+```stdout
+1
+2
+3
+done
+```
+
+## procedure_record_every_1
+
+```Icon
 record counter(n)
 procedure main()
   c := counter(0);
   every c.n := 1 to 3 do
     write(c.n);
 end
-#-------------------------------------------------- 593 procedure_record_every_2
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_record_every_2
+
+```Icon
 record point(x, y)
 procedure main()
   L := [point(3, 10), point(1, 20), point(2, 30)];
   S := sortf(L, 1);
   every p := !S do write(p.x);
 end
-#-------------------------------------------------- 594 procedure_record_every_3
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_record_every_3
+
+```Icon
 record point(x, y)
 procedure main()
   L := [point(3, 10), point(1, 30), point(2, 20)];
   S := sortf(L, 2);
   every p := !S do write(p.x);
 end
-#-------------------------------------------------- 595 procedure_record_every_4
+```
+
+```stdout
+3
+2
+1
+```
+
+## procedure_record_every_4
+
+```Icon
 record counter(n)
 procedure main()
   c := counter(0);
   every c.n := 1 to 3 do
     write(c.n);
 end
-#-------------------------------------------------- 596 procedure_record_every_5
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_record_every_5
+
+```Icon
 record point(x, y)
 procedure main()
   L := [point(3, 10), point(1, 20), point(2, 30)];
   S := sortf(L, 1);
   every p := !S do write(p.x);
 end
-#-------------------------------------------------- 597 procedure_record_every_6
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_record_every_6
+
+```Icon
 record point(x, y)
 procedure main()
   L := [point(3, 10), point(1, 30), point(2, 20)];
   S := sortf(L, 2);
   every p := !S do write(p.x);
 end
-#---------------------------------------------------- 598 procedure_scan_write_1
+```
+
+```stdout
+3
+2
+1
+```
+
+## procedure_scan_write_1
+
+```Icon
 procedure main()
    local s;
    s := "-n10";
    s ? { if ="-" then write("blk1 matched") };
    s ? { write("blk2 *subj=", *&subject, " subj=[", &subject, "]") };
 end
-#--------------------------------------------------- 599 procedure_scan_write_11
+```
+
+```stdout
+blk1 matched
+blk2 *subj=4 subj=[-n10]
+```
+
+## procedure_scan_write_11
+
+```Icon
 # rung06 t05: cset stored in variable, used in any()
 procedure main()
   local vowels;
   vowels := 'aeiou';
   "icon" ? write(any(vowels));
 end
-#--------------------------------------------------- 600 procedure_scan_write_19
+```
+
+```stdout
+2
+```
+
+## procedure_scan_write_19
+
+```Icon
 # rung05 t02: scan from variable
 procedure main()
   local s;
   s := "world";
   s ? write(&subject);
 end
-#--------------------------------------------------- 601 procedure_scan_write_22
+```
+
+```stdout
+world
+```
+
+## procedure_scan_write_22
+
+```Icon
 # rung06 t05: cset stored in variable, used in any()
 procedure main()
   local vowels;
   vowels := 'aeiou';
   "icon" ? write(any(vowels));
 end
-#---------------------------------------------------- 602 procedure_scan_write_8
+```
+
+```stdout
+2
+```
+
+## procedure_scan_write_8
+
+```Icon
 # rung05 t02: scan from variable
 procedure main()
   local s;
   s := "world";
   s ? write(&subject);
 end
-#------------------------------------------------------- 603 procedure_write_240
+```
+
+```stdout
+world
+```
+
+## procedure_write_240
+
+```Icon
 record point(x, y)
 procedure main()
   local p;
   p := point(1, 2);
   write(type(p));
 end
-#------------------------------------------------------- 604 procedure_write_268
+```
+
+```stdout
+point
+```
+
+## procedure_write_268
+
+```Icon
 procedure main();
    g();
 end
 procedure g();
    every write(1 to 3 | 7);
 end
-#---------------- 605 ladder__rung14_limit_a_limitation_in_a_conjunction_resumes
+```
+
+```stdout
+1
+2
+3
+1
+2
+3
+4
+5
+6
+7
+```
+
+## ladder__rung14_limit_a_limitation_in_a_conjunction_resumes
+
+```Icon
 procedure main()
    every writes((1 to 3) & 8, " "); write();
    every writes(((1 to 3) \ 3) & 8, " "); write();
@@ -4214,7 +10046,19 @@ procedure main()
    every writes(((1 to 3) \ 2) + 10, " "); write();
    every writes(1 & ((1 to 3) \ 3), " "); write();
 end
-#------------------------------------- 606 ladder_rung38_coexpr_serial_on_coexpr
+```
+
+```stdout
+8 8 8 
+8 8 8 
+1 2 3 
+11 12 
+1 2 3 
+```
+
+## ladder_rung38_coexpr_serial_on_coexpr
+
+```Icon
 procedure main()
   local c1, c2;
   c1 := create 1;
@@ -4222,7 +10066,16 @@ procedure main()
   if serial(c2) > serial(c1) then write("increasing") else write("not-increasing");
   write(serial(5) | "not-serialable");
 end
-#------------------------------------------- 607 ladder_rung42_kw_error_keywords
+```
+
+```stdout
+increasing
+not-serialable
+```
+
+## ladder_rung42_kw_error_keywords
+
+```Icon
 procedure main()
   &error := 1;
   1 + "abc";
@@ -4230,7 +10083,17 @@ procedure main()
   write(type(&errortext) | "text-fails");
   write(type(&errorvalue) | "value-fails");
 end
-#---------------------------------------------------- 608 procedure_every_alt_29
+```
+
+```stdout
+integer
+string
+string
+```
+
+## procedure_every_alt_29
+
+```Icon
 procedure noisy()
   write("[eval]");
   return "X";
@@ -4238,7 +10101,20 @@ end
 procedure main()
   every write(1 | 2, noisy(), 3 | 4);
 end
-#----------------------------------------------------- 609 procedure_every_alt_3
+```
+
+```stdout
+[eval]
+1X3
+1X4
+[eval]
+2X3
+2X4
+```
+
+## procedure_every_alt_3
+
+```Icon
 procedure noisy()
   write("[eval]");
   return "X";
@@ -4246,7 +10122,20 @@ end
 procedure main()
   every write(1 | 2, noisy(), 3 | 4);
 end
-#--------------------------------------------- 610 procedure_every_alt_replace_7
+```
+
+```stdout
+[eval]
+1X3
+1X4
+[eval]
+2X3
+2X4
+```
+
+## procedure_every_alt_replace_7
+
+```Icon
 # rung37: `every EXPR` in EXPRESSION context must FAIL, so the alternation falls through.
 # Distinct from rung37_every_in_arg.icn: there the argument (1|2|3) is RESUMABLE, which takes
 # lower_call's la_res path. Here write("y") is NON-resumable, which takes the degenerate
@@ -4254,7 +10143,16 @@ end
 procedure main()
    write(image(every write("y")) | "none");
 end
-#------------------------------------------------ 611 procedure_every_elemgen_15
+```
+
+```stdout
+y
+none
+```
+
+## procedure_every_elemgen_15
+
+```Icon
 procedure main()
   L := [];
   put(L, 4);
@@ -4262,7 +10160,17 @@ procedure main()
   put(L, 6);
   every write(!L);
 end
-#------------------------------------------------- 612 procedure_every_elemgen_5
+```
+
+```stdout
+4
+5
+6
+```
+
+## procedure_every_elemgen_5
+
+```Icon
 procedure main()
   L := [];
   put(L, 4);
@@ -4270,7 +10178,17 @@ procedure main()
   put(L, 6);
   every write(!L);
 end
-#----------------------------------------------------- 613 procedure_every_to_20
+```
+
+```stdout
+4
+5
+6
+```
+
+## procedure_every_to_20
+
+```Icon
 procedure main()
   total := 0;
   every x := 1 to 3 do {
@@ -4278,7 +10196,15 @@ procedure main()
   };
   write(total);
 end
-#----------------------------------------------------- 614 procedure_every_to_51
+```
+
+```stdout
+6
+```
+
+## procedure_every_to_51
+
+```Icon
 procedure main()
   total := 0;
   every x := 1 to 3 do {
@@ -4286,7 +10212,15 @@ procedure main()
   };
   write(total);
 end
-#--------------------------------------------------- 615 procedure_scan_write_10
+```
+
+```stdout
+6
+```
+
+## procedure_scan_write_10
+
+```Icon
 # rung06 t02: any() fails if first char not in cset; write not called
 procedure main()
   local found;
@@ -4294,7 +10228,15 @@ procedure main()
   "xyz" ? (any('aeiou') & (found := 1));
   write(found);
 end
-#--------------------------------------------------- 616 procedure_scan_write_17
+```
+
+```stdout
+0
+```
+
+## procedure_scan_write_17
+
+```Icon
 # rung05 t03: &subject restored after scan
 procedure main()
   local s;
@@ -4302,7 +10244,16 @@ procedure main()
   s ? write(&subject);
   write(s);
 end
-#--------------------------------------------------- 617 procedure_scan_write_21
+```
+
+```stdout
+outer
+outer
+```
+
+## procedure_scan_write_21
+
+```Icon
 # rung06 t02: any() fails if first char not in cset; write not called
 procedure main()
   local found;
@@ -4310,7 +10261,15 @@ procedure main()
   "xyz" ? (any('aeiou') & (found := 1));
   write(found);
 end
-#---------------------------------------------------- 618 procedure_scan_write_6
+```
+
+```stdout
+0
+```
+
+## procedure_scan_write_6
+
+```Icon
 # rung05 t03: &subject restored after scan
 procedure main()
   local s;
@@ -4318,7 +10277,16 @@ procedure main()
   s ? write(&subject);
   write(s);
 end
-#------------------------------------------- 619 procedure_table_write_replace_3
+```
+
+```stdout
+outer
+outer
+```
+
+## procedure_table_write_replace_3
+
+```Icon
 procedure main()
   t := table();
   insert(t, "a", 42);
@@ -4326,7 +10294,17 @@ procedure main()
   if member(t, "b") then write("bad") else write("absent");
   write(member(t, "a"));
 end
-#------------------------------------------- 620 procedure_table_write_replace_7
+```
+
+```stdout
+found
+absent
+a
+```
+
+## procedure_table_write_replace_7
+
+```Icon
 procedure main()
   t := table();
   insert(t, "a", 42);
@@ -4334,7 +10312,17 @@ procedure main()
   if member(t, "b") then write("bad") else write("absent");
   write(member(t, "a"));
 end
-#--------------------------------------------------- 621 procedure_while_write_1
+```
+
+```stdout
+found
+absent
+a
+```
+
+## procedure_while_write_1
+
+```Icon
 procedure main()
   local n;
   n := 0;
@@ -4342,7 +10330,23 @@ procedure main()
     n := n + 1;
   write(n);
 end
-#--------------------------------------------------- 622 procedure_while_write_7
+```
+
+```stdin
+a
+b
+c
+d
+e
+```
+
+```stdout
+5
+```
+
+## procedure_while_write_7
+
+```Icon
 procedure main()
   local n;
   n := 0;
@@ -4350,7 +10354,23 @@ procedure main()
     n := n + 1;
   write(n);
 end
-#----------------------------------------------- 623 unicon__uni_bi_match_window
+```
+
+```stdin
+a
+b
+c
+d
+e
+```
+
+```stdout
+5
+```
+
+## unicon__uni_bi_match_window
+
+```Icon
 procedure main()
    every writes(" ", match("abc", "xabcabc", 1 to 5, 4 to 8)); write();
    every writes(" ", match("abc", "xabcabc", 1 to 5)); write();
@@ -4358,7 +10378,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#--------------------------------------- 624 unicon__uni_variable_implicit_local
+```
+
+```stdout
+ 5 5 5 5 8
+ 5 8
+ 5 8
+```
+
+## unicon__uni_variable_implicit_local
+
+```Icon
 procedure main()
    p1 := "one"; p2 := "two";
    every i := 1 to 2 do write(image(variable("p" || i)));
@@ -4366,7 +10396,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------- 625 ladder_rung15_real_swap_rev_exchange
+```
+
+```stdout
+"one"
+"two"
+"one"
+```
+
+## ladder_rung15_real_swap_rev_exchange
+
+```Icon
 procedure main()
   local x, y;
   x := 1;
@@ -4375,7 +10415,18 @@ procedure main()
   every (1 to 2) & (x <-> y) & write(x, " ", y);
   write(x, " ", y);
 end
-#------------------------------------------------ 626 procedure_every_suspend_11
+```
+
+```stdout
+1 2
+2 1
+2 1
+1 2
+```
+
+## procedure_every_suspend_11
+
+```Icon
 procedure g()
   suspend 1;
   return 2;
@@ -4384,7 +10435,17 @@ procedure main()
   every write(g());
   write("done");
 end
-#------------------------------------------------- 627 procedure_every_suspend_4
+```
+
+```stdout
+1
+2
+done
+```
+
+## procedure_every_suspend_4
+
+```Icon
 procedure g()
   suspend 1;
   return 2;
@@ -4393,7 +10454,17 @@ procedure main()
   every write(g());
   write("done");
 end
-#--------------------------------------------------- 628 procedure_limit_write_7
+```
+
+```stdout
+1
+2
+done
+```
+
+## procedure_limit_write_7
+
+```Icon
 procedure main()
   local x;
   x := &null;
@@ -4402,7 +10473,17 @@ procedure main()
   if /x then write("c") else write("d");
   if \x then write("e") else write("f");
 end
-#----------------------------------------------------- 629 procedure_table_set_1
+```
+
+```stdout
+b
+d
+e
+```
+
+## procedure_table_set_1
+
+```Icon
 procedure main();
     s := set([1,2,3]);
     write(image(s));
@@ -4411,7 +10492,17 @@ procedure main();
     s2 := set([]);
     write(image(s2));
 end
-#-------------------------------------------------- 630 procedure_table_write_16
+```
+
+```stdout
+set_1(3)
+table_1(0)
+set_2(0)
+```
+
+## procedure_table_write_16
+
+```Icon
 procedure main()
   local t;
   t := table(0);
@@ -4420,7 +10511,16 @@ procedure main()
   if member(t, 9) then write(2);
   write(3);
 end
-#--------------------------------------------------- 631 procedure_table_write_5
+```
+
+```stdout
+1
+3
+```
+
+## procedure_table_write_5
+
+```Icon
 procedure main()
   local t;
   t := table(0);
@@ -4429,7 +10529,16 @@ procedure main()
   if member(t, 9) then write(2);
   write(3);
 end
-#------------------------------------------------------- 632 procedure_write_215
+```
+
+```stdout
+1
+3
+```
+
+## procedure_write_215
+
+```Icon
 procedure main()
   local i;
   i := 0;
@@ -4438,7 +10547,19 @@ procedure main()
     i +:= 1
   };
 end
-#------------------------------------------- 633 unicon__uni_pand_string_pattern
+```
+
+```stdout
+0
+1
+2
+3
+4
+```
+
+## unicon__uni_pand_string_pattern
+
+```Icon
 procedure main()
    local p;
    p := "ab" && "cd";
@@ -4447,7 +10568,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------- 634 ladder__rung24_records_a_long_field_list_declares_every_field
+```
+
+```stdout
+pattern
+pattern_2(2) = "ab" || "cd"
+```
+
+## ladder__rung24_records_a_long_field_list_declares_every_field
+
+```Icon
 record R(field_number_1, field_number_2, field_number_3, field_number_4, field_number_5, field_number_6, field_number_7, field_number_8, field_number_9, field_number_10, field_number_11, field_number_12, field_number_13, field_number_14, field_number_15, field_number_16, field_number_17, field_number_18, field_number_19, field_number_20, field_number_21, field_number_22, field_number_23, field_number_24, field_number_25, field_number_26, field_number_27, field_number_28, field_number_29, field_number_30, field_number_31, field_number_32, field_number_33, field_number_34, field_number_35, field_number_36, field_number_37, field_number_38, field_number_39, field_number_40)
 procedure main()
    local r;
@@ -4457,7 +10587,17 @@ procedure main()
    write(r.field_number_40);
    write(image(r.field_number_1));
 end
-#--------------------------------------------------- 635 procedure_scan_write_16
+```
+
+```stdout
+40
+7
+&null
+```
+
+## procedure_scan_write_16
+
+```Icon
 # rung05 t05: nested scan — inner restores outer subject
 procedure main()
   local a;
@@ -4467,7 +10607,16 @@ procedure main()
   a ? (b ? write(&subject));
   write(&subject);
 end
-#---------------------------------------------------- 636 procedure_scan_write_5
+```
+
+```stdout
+second
+
+```
+
+## procedure_scan_write_5
+
+```Icon
 # rung05 t05: nested scan — inner restores outer subject
 procedure main()
   local a;
@@ -4477,7 +10626,16 @@ procedure main()
   a ? (b ? write(&subject));
   write(&subject);
 end
-#--------------------------------------------------- 637 procedure_while_until_1
+```
+
+```stdout
+second
+
+```
+
+## procedure_while_until_1
+
+```Icon
 # rung09 t01: until E do body — runs while E fails, stops when E succeeds
 procedure countdown(n)
   local i;
@@ -4487,7 +10645,17 @@ end
 procedure main()
   countdown(3);
 end
-#--------------------------------------------------- 638 procedure_while_until_2
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_while_until_2
+
+```Icon
 # rung09 t01: until E do body — runs while E fails, stops when E succeeds
 procedure countdown(n)
   local i;
@@ -4497,7 +10665,17 @@ end
 procedure main()
   countdown(3);
 end
-#------------------------------------------------------- 639 procedure_write_236
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_write_236
+
+```Icon
 record point(x, y)
 procedure makePoint(a, b)
   return point(a, b);
@@ -4507,7 +10685,15 @@ procedure main()
   p := makePoint(3, 4);
   write(p.x + p.y);
 end
-#------------------------------------------------------- 640 procedure_write_254
+```
+
+```stdout
+7
+```
+
+## procedure_write_254
+
+```Icon
 procedure main()
    local f;
    f := loadfunc("/home/resources/icon-master/bin/libcfunc.so", "bitcount");
@@ -4517,7 +10703,19 @@ procedure main()
    write("D:", type(f));
    write("E:end");
 end
-#------------------------------------------- 641 unicon__uni_table_initial_pairs
+```
+
+```stdout
+A:function bitcount
+B:6
+C:9
+D:procedure
+E:end
+```
+
+## unicon__uni_table_initial_pairs
+
+```Icon
 procedure main()
    local t, u;
    t := table("key", "val");
@@ -4527,7 +10725,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#- 642 ladder__rung10_augop_every_over_an_assignment_with_a_do_body_keeps_the_assigned_value
+```
+
+```stdout
+1 val &null
+2 2 2 2
+```
+
+## ladder__rung10_augop_every_over_an_assignment_with_a_do_body_keeps_the_assigned_value
+
+```Icon
 procedure main()
    local n;
    n := 0;
@@ -4538,7 +10745,17 @@ procedure main()
    every n +:= 1 do { 1; };
    write(n);
 end
-#------------ 643 ladder__rung29_builtins_proc_of_an_assignment_operator_assigns
+```
+
+```stdout
+1
+2
+3
+```
+
+## ladder__rung29_builtins_proc_of_an_assignment_operator_assigns
+
+```Icon
 procedure main()
    local x, y, p;
    x := 1; y := 2;
@@ -4549,7 +10766,18 @@ procedure main()
    proc(":=:", 2)(x, y);
    write(x, " ", y);
 end
-#---------------------------------------------- 644 procedure_to_until_replace_1
+```
+
+```stdout
+function :=
+5
+5
+2 5
+```
+
+## procedure_to_until_replace_1
+
+```Icon
 # rung09 t05: until with separate proc to avoid slot collision
 procedure decr(n)
   local x;
@@ -4560,7 +10788,15 @@ end
 procedure main()
   decr(3);
 end
-#---------------------------------------------- 645 procedure_to_until_replace_2
+```
+
+```stdout
+-1
+```
+
+## procedure_to_until_replace_2
+
+```Icon
 # rung09 t05: until with separate proc to avoid slot collision
 procedure decr(n)
   local x;
@@ -4571,7 +10807,15 @@ end
 procedure main()
   decr(3);
 end
-#----------------------------------------------- 646 unicon__uni_bi_set_elements
+```
+
+```stdout
+-1
+```
+
+## unicon__uni_bi_set_elements
+
+```Icon
 procedure main()
    local s;
    s := set(1, 2, "a");
@@ -4582,7 +10826,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------- 647 ladder__rung46_cset_integer_argument
+```
+
+```stdout
+3
+yes
+2
+0
+```
+
+## ladder__rung46_cset_integer_argument
+
+```Icon
 procedure main();
   p := Any(1);
   q := Span(12) || Break(3.5);
@@ -4594,7 +10849,21 @@ procedure main();
   every write("m4 ", "a1b2" ?? p);
   every write("m5 ", "xx12yy" ?? q);
 end
-#------------------------------------------ 648 procedure_record_write_replace_1
+```
+
+```stdout
+pattern pattern pattern
+m1 1
+m2 12
+m3 9
+m3 9
+m3  
+m4 1
+```
+
+## procedure_record_write_replace_1
+
+```Icon
 #  CONTROL (hq_I): the same record built and RETURNED rather than suspended. GREEN pre-cure -- a plain call
 #  frame enters the runtime correctly aligned, so record construction itself is exonerated.
 record one(f)
@@ -4606,7 +10875,15 @@ end
 procedure gen()
    return one("z");
 end
-#------------------------------------------------------- 649 procedure_write_262
+```
+
+```stdout
+z
+```
+
+## procedure_write_262
+
+```Icon
 procedure main()
    local T, L;
    T := table("Defaulted");
@@ -4618,7 +10895,20 @@ procedure main()
    write("E:", L[2]);
    write("F:end");
 end
-#--------------------------------------------- 650 unicon__uni_class_body_record
+```
+
+```stdout
+A:Assigned/Assigned
+B:Reassigned/Reassigned
+C:Defaulted/Defaulted
+D:99/99
+E:99
+F:end
+```
+
+## unicon__uni_class_body_record
+
+```Icon
 class Tally(n)
    record pair(a, b)
    method make()
@@ -4630,7 +10920,15 @@ procedure main()
    p := Tally(4).make();
    write(p.a, " ", p.b);
 end
-#----------------------------------------------------- 651 unicon__uni_pm_values
+```
+
+```stdout
+4 5
+```
+
+## unicon__uni_pm_values
+
+```Icon
 procedure main()
    local p, q, r;
    p := Len(2);
@@ -4642,7 +10940,19 @@ procedure main()
    write(type(Arbno(Len(1)) || Nspan('c') || Fence() || Any('a') || Pos(0) || Rpos(0) || Tab(1) || Rtab(1) || Break('x') || Breakx('x') || NotAny('a') || Rem() || Bal()));
    write(type("abc"));
 end
-#- 652 ladder__rung08_strbuiltins_a_string_section_in_a_main_procedure_reads_its_operands
+```
+
+```stdout
+pattern
+pattern
+pattern
+pattern
+string
+```
+
+## ladder__rung08_strbuiltins_a_string_section_in_a_main_procedure_reads_its_operands
+
+```Icon
 procedure main()
    local s, t, i, j;
    s := "hello";
@@ -4655,7 +10965,18 @@ procedure main()
    t := s[2:4] || s[1:3];
    write(t);
 end
-#--------------------------------------------- 653 procedure_every_alt_replace_9
+```
+
+```stdout
+ello
+ell hel llo ello "" hello 4
+ello ello ello! ""
+elhe
+```
+
+## procedure_every_alt_replace_9
+
+```Icon
 procedure main()
   s := "abc";
   every s[2] <- "XY" do write(s);
@@ -4668,7 +10989,22 @@ procedure main()
   (r[0] := "!") | write("zero-failed");
   write(r);
 end
-#------------------------------------------------ 654 procedure_keyword_global_1
+```
+
+```stdout
+aXYc
+abc
+aZc
+aZc
+oob-failed
+pqr
+zero-failed
+pqr
+```
+
+## procedure_keyword_global_1
+
+```Icon
 procedure f(a, b)
    local x, y;
    x := a + b; y := [1,2];
@@ -4681,7 +11017,41 @@ procedure main()
    g := "G";
    f(2, 3);
 end
-#------------------------------------------------------- 655 procedure_write_257
+```
+
+```stdout
+co-expression_1(1)
+
+f local identifiers:
+   a = 2
+   b = 3
+   x = 5
+   y = list_1 = [1,2]
+
+global identifiers:
+   display = function display
+   f = procedure f
+   g = "G"
+   main = procedure main
+co-expression_1(1)
+
+f local identifiers:
+   a = 2
+   b = 3
+   x = 5
+   y = list_1 = [1,2]
+main local identifiers:
+
+global identifiers:
+   display = function display
+   f = procedure f
+   g = "G"
+   main = procedure main
+```
+
+## procedure_write_257
+
+```Icon
 record array(a,b,c)
 procedure main()
    local x, y;
@@ -4694,7 +11064,19 @@ procedure main()
    write("D:", image(copy));
    write("E:end");
 end
-#---------------------------------------- 656 unicon__uni_pattern_image_deferred
+```
+
+```stdout
+A:record array_1(3)
+B:record array_2(3)
+C:function copy
+D:function copy
+E:end
+```
+
+## unicon__uni_pattern_image_deferred
+
+```Icon
 procedure main()
    local p, q;
    p := "this is a string" || `stringcall("one", "two")`;
@@ -4707,7 +11089,16 @@ procedure stringcall(a, b)
 end
 class UniconMarker()
 end
-#-------------------------------------- 657 unicon__uni_posix_ssh_open_errortext
+```
+
+```stdout
+pattern_2(2) = "this is a string" || `stringcall("one", "two")`
+pattern_4(1) = Any(`stringcall("one")`)
+```
+
+## unicon__uni_posix_ssh_open_errortext
+
+```Icon
 procedure main()
    local f;
    f := open("senior_no_such_host@127.0.0.1", "h", "bogus=1");
@@ -4720,7 +11111,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------- 658 ladder__rung02_proc_a_real_callee_invokes_by_its_integer_part
+```
+
+```stdout
+bad-attribute: yes
+bad-channel: yes
+bad-verifyPeer: yes
+text: No such file or directory
+```
+
+## ladder__rung02_proc_a_real_callee_invokes_by_its_integer_part
+
+```Icon
 procedure f(max)
    local n;
    n := max(5, 0) | "failed";
@@ -4734,7 +11136,18 @@ procedure main()
    write(p("a", "b", "c"));
    write((-1.5)("x", "y") | "neg failed");
 end
-#----------- 659 ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it
+```
+
+```stdout
+failed
+0
+b
+y
+```
+
+## ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it
+
+```Icon
 global log
 procedure mylog(s)
    put(log, s);
@@ -4748,7 +11161,15 @@ procedure main()
    write := old;
    write("direct ", *log, " ", log[1]);
 end
-#----------------------- 660 ladder__rung42_kw_not_of_a_failing_keyword_succeeds
+```
+
+```stdout
+direct 1 captured
+```
+
+## ladder__rung42_kw_not_of_a_failing_keyword_succeeds
+
+```Icon
 procedure main()
    write("1");
    if &fail then write("a1") else write("b1");
@@ -4762,7 +11183,25 @@ procedure main()
    if not &fail then write("a5") else write("b5");
    write("end");
 end
-#----------------------------------------------------- 661 procedure_scan_size_1
+```
+
+```stdout
+1
+b1
+2
+&null
+3
+c3
+4
+a4
+5
+a5
+end
+```
+
+## procedure_scan_size_1
+
+```Icon
 procedure main()
    local s;
    s := "-n10";
@@ -4776,7 +11215,17 @@ procedure main()
       write("second *subj=", *&subject, " subj=[", &subject, "]")
    };
 end
-#-------------------------------------------------- 662 unicon__uni_pm_pos_whole
+```
+
+```stdout
+first *subj=4 subj=[-n10]
+blk1 matched
+second *subj=4 subj=[-n10]
+```
+
+## unicon__uni_pm_pos_whole
+
+```Icon
 procedure main()
    local k;
    every write("[" || ("abc" ?? Pos(1) || Len(1)) || "]");
@@ -4790,7 +11239,28 @@ procedure main()
    every write("[" || ("abcdef" ?? Len(k)) || "]");
    every write("[" || ("xaxbxc" ?? "x" || NotAny("x")) || "]");
 end
-#----------------------------------------- 663 ladder_rung41_rt_flush_seek_where
+```
+
+```stdout
+[a]
+[cd]
+[d]
+[abc]
+[c]
+[hello]
+[world]
+[hello world]
+[ab]
+[cd]
+[ef]
+[xa]
+[xb]
+[xc]
+```
+
+## ladder_rung41_rt_flush_seek_where
+
+```Icon
 procedure main()
   local f;
   f := open("/tmp/s05_r41_seek.txt", "wc");
@@ -4805,7 +11275,16 @@ procedure main()
   close(f);
   remove("/tmp/s05_r41_seek.txt");
 end
-#------------------------------------------------------- 664 procedure_write_275
+```
+
+```stdout
+11
+X123456789
+```
+
+## procedure_write_275
+
+```Icon
 #  name(r[i]) on a record is "type.field", exactly as name(r.field) is.  The
 #  record positional subscript became a variable (cfo, 2026-09-08) but the
 #  cell it made carried no record, so name() found nothing it knew and
@@ -4820,7 +11299,20 @@ procedure main()
    s := 5; write(name(s));
    write(name(&subject));
 end
-#--------------------------------------------- 665 planner_finish__pf_call_mixed
+```
+
+```stdout
+date.weekday
+date.weekday
+date.month
+L[2]
+s
+&subject
+```
+
+## planner_finish__pf_call_mixed
+
+```Icon
 # DESIGN-PLAN planner-finish witness: a procedure called with a literal, a local, a global and a call result; a parameter rebound inside the callee
 global G
 procedure main()
@@ -4837,7 +11329,17 @@ procedure g(v)
     v := v + 1;
     return v;
 end
-#--------------------------------------- 666 unicon__icn_global_beside_procedure
+```
+
+```stdout
+50
+8 7
+49
+```
+
+## unicon__icn_global_beside_procedure
+
+```Icon
 global f, g
 procedure f(x);
     return x + 1;
@@ -4854,7 +11356,20 @@ procedure main();
     write(h());
     write(type(f));
 end
-#- 667 ladder__rung08_strbuiltins_a_numeric_comparison_converts_a_string_of_any_length
+```
+
+```stdout
+procedure f
+&null
+procedure h
+2
+7
+procedure
+```
+
+## ladder__rung08_strbuiltins_a_numeric_comparison_converts_a_string_of_any_length
+
+```Icon
 procedure main()
    local s;
    s := repl(" ", 127) || "42";
@@ -4872,7 +11387,24 @@ procedure main()
    s := repl(" ", 150) || "2.5" || repl(" ", 150);
    write(if s > 2 then "real greater" else "real not greater");
 end
-#--------------------------------------- 668 procedure_write_augassign_replace_2
+```
+
+```stdout
+127-pad equal
+200-pad equal
+less
+unequal
+equal on the right
+43
+42
+14
+at least seven
+real greater
+```
+
+## procedure_write_augassign_replace_2
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -4899,7 +11431,18 @@ procedure p()
    write(c);
 
 end
-#------------------------------------------ 669 procedure_record_limit_replace_1
+```
+
+```stdout
+&null
+1
+1
+2
+```
+
+## procedure_record_limit_replace_1
+
+```Icon
 #SRC: V9GEN
 
 # test various preprocessor features
@@ -5008,173 +11551,471 @@ procedure precheck (v, s, p)
 	 write ("no feature:    ", s)
       };
 end
-#----------------------------------------------------- 670 procedure_coexpr_to_2
+```
+
+```file prepro.dat
+#  prepro.dat -- code fragment $included by prepro.icn
+
+write("prepro.dat here");
+
+$undef abc
+$define abc 321
+$define xyzzy 47
+```
+
+```stdout
+abc,def,ghi,xx,yy: 123 456 987 1 2
+prepro.dat here
+xyzzy: 47
+abc,def,ghi,xx,yy: 321 456 987 1 2
+found feature: ASCII
+no feature:    EBCDIC
+done
+```
+
+## procedure_coexpr_to_2
+
+```Icon
 procedure main(); c := create (1 to 2); while x := @c do write(x); write("done"); end
-#------------------------------------------------------ 671 procedure_scan_tab_6
-procedure main(); "abcdef" ? { tab(upto("c")); write(move(1)) }; end
-#---------------------------------------------------- 672 procedure_every_alt_11
+```
+
+```stdout
+1
+2
+done
+```
+
+## procedure_every_alt_11
+
+```Icon
 procedure main()
   every write(|(1 to 2) \ 5);
 end
-#---------------------------------------------------- 673 procedure_every_alt_12
+```
+
+```stdout
+1
+2
+1
+2
+1
+```
+
+## procedure_every_alt_12
+
+```Icon
 procedure main()
   every write(|(1 to 3) \ 7);
 end
-#---------------------------------------------------- 674 procedure_every_alt_37
+```
+
+```stdout
+1
+2
+3
+1
+2
+3
+1
+```
+
+## procedure_every_alt_37
+
+```Icon
 procedure main()
   every write(|(1 to 2) \ 5);
 end
-#---------------------------------------------------- 675 procedure_every_alt_38
+```
+
+```stdout
+1
+2
+1
+2
+1
+```
+
+## procedure_every_alt_38
+
+```Icon
 procedure main()
   every write(|(1 to 3) \ 7);
 end
-#----------------------------------------------------- 676 scanning_asm__is00_kw
+```
+
+```stdout
+1
+2
+3
+1
+2
+3
+1
+```
+
+## scanning_asm__is00_kw
+
+```Icon
 procedure main();
   "abcdef" ? { move(2); write(&pos); &pos := 4; write(&subject[&pos:0]); };
 end
-#---------------------------------------------------- 677 procedure_every_alt_13
+```
+
+```stdout
+3
+def
+```
+
+## procedure_every_alt_13
+
+```Icon
 procedure main()
   x := 5;
   every write(|x \ 3);
 end
-#---------------------------------------------------- 678 procedure_every_alt_34
+```
+
+```stdout
+5
+5
+5
+```
+
+## procedure_every_alt_34
+
+```Icon
 procedure main()
   every write(|(1 to 0) \ 3);
   write("done");
 end
-#---------------------------------------------------- 679 procedure_every_alt_39
+```
+
+```stdout
+done
+```
+
+## procedure_every_alt_39
+
+```Icon
 procedure main()
   x := 5;
   every write(|x \ 3);
 end
-#----------------------------------------------------- 680 procedure_every_alt_8
+```
+
+```stdout
+5
+5
+5
+```
+
+## procedure_every_alt_8
+
+```Icon
 procedure main()
   every write(|(1 to 0) \ 3);
   write("done");
 end
-#------------------------------------------------ 681 ladder__rung46_alternation
+```
+
+```stdout
+done
+```
+
+## ladder__rung46_alternation
+
+```Icon
 procedure main()
   every s := "cat" | "dog" | "cow" do {
     if s ?? ("d" .| "c") => m then write(s, " starts ", m) else write(s, " no");
   };
 end
-#--------------------------------- 682 ladder_rung08_strbuiltins_scan_refuse_tab
+```
+
+```stdout
+cat starts c
+dog starts d
+cow starts c
+```
+
+## ladder_rung08_strbuiltins_scan_refuse_tab
+
+```Icon
 procedure main()
   &error := 1;
   "abc" ? tab([1,2]);
   write("num=", &errornumber, " text=", &errortext);
 end
-#----------------------------------------------------- 683 procedure_every_alt_1
+```
+
+```stdout
+num=101 text=integer expected or out of range
+```
+
+## procedure_every_alt_1
+
+```Icon
 procedure main()
   s := "";
   every s ||:= ("a"|"b"|"c");
   write(s);
 end
-#---------------------------------------------------- 684 procedure_every_alt_27
+```
+
+```stdout
+abc
+```
+
+## procedure_every_alt_27
+
+```Icon
 procedure main()
   s := "";
   every s ||:= ("a"|"b"|"c");
   write(s);
 end
-#----------------------------------------- 685 procedure_every_elemgen_replace_1
+```
+
+```stdout
+abc
+```
+
+## procedure_every_elemgen_replace_1
+
+```Icon
 procedure main()
   t := table();
   insert(t, "only", 99);
   every v := !t do write(v);
 end
-#---------------------------------------- 686 procedure_every_elemgen_replace_15
+```
+
+```stdout
+99
+```
+
+## procedure_every_elemgen_replace_15
+
+```Icon
 procedure main()
    local L;
    L := [1, 1 to 3, !"ab"];
    every write(!L);
 end
-#----------------------------------------- 687 procedure_every_elemgen_replace_8
+```
+
+```stdout
+1
+1
+a
+```
+
+## procedure_every_elemgen_replace_8
+
+```Icon
 procedure main()
   t := table();
   insert(t, "only", 99);
   every v := !t do write(v);
 end
-#--------------------------------------------------- 688 procedure_every_limit_7
+```
+
+```stdout
+99
+```
+
+## procedure_every_limit_7
+
+```Icon
 procedure main()
   local k;
   k := 2;
   every write((1 to 5) \ k);
 end
-#----------------------------------------------------- 689 procedure_scan_many_1
+```
+
+```stdout
+1
+2
+```
+
+## procedure_scan_many_1
+
+```Icon
 procedure main()
    local s;
    s := ".coord";
    s ? { if (="." & many(&digits)) then write("Y") else write("N") };
 end
-#------------------------------------------------------- 690 procedure_write_211
+```
+
+```stdout
+N
+```
+
+## procedure_write_211
+
+```Icon
 procedure main()
   local s;
   s := "foo" || "bar";
   s ? write(tab(3));
 end
-#------------------------------------------------------- 691 procedure_write_267
+```
+
+```stdout
+fo
+```
+
+## procedure_write_267
+
+```Icon
 procedure main();
    write("before:", image(repeat break));
    write("while:", image(while break));
    write("after:", image(until break));
 end
-#----------- 692 ladder__rung14_limit_a_chained_limitation_applies_left_to_right
+```
+
+```stdout
+before:&null
+while:&null
+after:&null
+```
+
+## ladder__rung14_limit_a_chained_limitation_applies_left_to_right
+
+```Icon
 procedure main()
    every writes(seq(1) \ 6 \ 3, " ");
    write();
    every writes((1 to 10) \ 2 \ 5, " ");
    write();
 end
-#------------------------------------------------------ 693 procedure_scan_tab_2
+```
+
+```stdout
+1 2 3 
+1 2 
+```
+
+## procedure_scan_tab_2
+
+```Icon
 procedure main()
    local s;
    s := "-n10";
    s ? { tab(2) };
    write("s=[", s, "] *s=", *s);
 end
-#---------------------------------------------------- 694 procedure_scan_write_2
+```
+
+```stdout
+s=[-n10] *s=4
+```
+
+## procedure_scan_write_2
+
+```Icon
 procedure main()
    local s;
    s := "-n10";
    s ? { if ="-" then write("A match") };
    s ? { write("B &pos=", &pos, " pos(1)=", if pos(1) then "Y" else "N", " pos(0)=", if pos(0) then "Y" else "N", " pos(5)=", if pos(5) then "Y" else "N") };
 end
-#------------------------------------------------------- 695 procedure_write_209
+```
+
+```stdout
+A match
+B &pos=1 pos(1)=Y pos(0)=N pos(5)=N
+```
+
+## procedure_write_209
+
+```Icon
 procedure gen()
   suspend 1 | 2 | 3;
 end
 procedure main()
   every write(gen());
 end
-#------------------------------------------------------- 696 procedure_write_216
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_write_216
+
+```Icon
 procedure main()
   local sum;
   sum := 0;
   every sum +:= ((1 to 6) > 3);
   write(sum);
 end
-#------------------------------------------------------- 697 procedure_write_235
+```
+
+```stdout
+9
+```
+
+## procedure_write_235
+
+```Icon
 procedure main()
   local t;
   t := table(0);
   t["a"] := 5;
   every write(!t);
 end
-#------------------------------------------------------- 698 procedure_write_238
+```
+
+```stdout
+5
+```
+
+## procedure_write_238
+
+```Icon
 procedure main()
   local n, line;
   n := 0;
   while line := read() do n +:= 1;
   write(n);
 end
-#------------------------------------------------------- 699 procedure_write_266
+```
+
+```stdin
+```
+
+```stdout
+0
+```
+
+## procedure_write_266
+
+```Icon
 procedure main();
    write("until:", image(until break));
    write("repeat:", image(repeat break));
    write("every:", image(every break));
    write("after:", image(until break));
 end
-#---------------------------------------------------- 700 procedure_every_alt_18
+```
+
+```stdout
+until:&null
+repeat:&null
+every:&null
+after:&null
+```
+
+## procedure_every_alt_18
+
+```Icon
 # rung37: every EXPR do BODY in EXPRESSION context, non-resumable inner generator (companion to
 # rung37_every_expr_nonresumable_arg.icn -- same defect shape, WITH a do-clause). every still
 # produces no value in expression context: the do-body's side effects run once, then image(...)
@@ -5182,7 +12023,17 @@ end
 procedure main()
    write(image(every write("y") do write("z")) | "none");
 end
-#----------------------------------------------------- 701 procedure_every_to_15
+```
+
+```stdout
+y
+z
+none
+```
+
+## procedure_every_to_15
+
+```Icon
 # rung10 t03: augmented add accumulator via every
 procedure main()
   local sum;
@@ -5190,7 +12041,15 @@ procedure main()
   every sum +:= (1 to 5);
   write(sum);
 end
-#----------------------------------------------------- 702 procedure_every_to_46
+```
+
+```stdout
+15
+```
+
+## procedure_every_to_46
+
+```Icon
 # rung10 t03: augmented add accumulator via every
 procedure main()
   local sum;
@@ -5198,7 +12057,15 @@ procedure main()
   every sum +:= (1 to 5);
   write(sum);
 end
-#------------------------------------------------------- 703 procedure_write_217
+```
+
+```stdout
+15
+```
+
+## procedure_write_217
+
+```Icon
 procedure main()
   local s, result;
   s := "ab" || "cd";
@@ -5206,7 +12073,15 @@ procedure main()
   every result ||:= !s;
   write(result);
 end
-#------------------------------------------------------- 704 procedure_write_220
+```
+
+```stdout
+abcd
+```
+
+## procedure_write_220
+
+```Icon
 procedure onlyPositive(n)
   n > 0 | fail;
   return n;
@@ -5214,7 +12089,16 @@ end
 procedure main()
   every write(onlyPositive(1|(-2)|3));
 end
-#--------- 705 ladder__rung22_lists_a_subscript_of_a_generated_subscript_resumes
+```
+
+```stdout
+1
+3
+```
+
+## ladder__rung22_lists_a_subscript_of_a_generated_subscript_resumes
+
+```Icon
 procedure main()
    local L;
    L := [[1, 2], [3, 4], [5, 6]];
@@ -5223,7 +12107,16 @@ procedure main()
    every writes(L[2][1 to 2], " ");
    write();
 end
-#------------------------------------------ 706 ladder_rung38_coexpr_activate_at
+```
+
+```stdout
+1 3 5 
+3 4 
+```
+
+## ladder_rung38_coexpr_activate_at
+
+```Icon
 procedure main()
   local articles;
   articles := create ("a" | "an" | "the");
@@ -5232,7 +12125,18 @@ procedure main()
   write(@articles);
   write(@articles | "exhausted");
 end
-#-------------------------------------------------------- 707 procedure_alt_to_2
+```
+
+```stdout
+a
+an
+the
+exhausted
+```
+
+## procedure_alt_to_2
+
+```Icon
 #  THE DISCRIMINATING WITNESS for the lower_while break defect: this does not
 #  merely hang, it prints "body" FOREVER -- a loop running the body that a break
 #  in its own condition had just left.  A bare hang cannot tell a stalled loop
@@ -5241,7 +12145,16 @@ procedure main();
     write(image(while break do write("body")) | "none");
     write("after");
 end
-#----------------------------------------------------- 708 procedure_alt_while_1
+```
+
+```stdout
+&null
+after
+```
+
+## procedure_alt_while_1
+
+```Icon
 #  CONTROL ARM, and it passed before the cure as well as after.  lower_until has
 #  always routed its condition through a dedicated entry node instead of patching
 #  the condition's result, so it never had the defect its while twin had.  The
@@ -5250,7 +12163,16 @@ procedure main();
     write(image(until break) | "none");
     write("after");
 end
-#------------------------------------------------------- 709 procedure_write_213
+```
+
+```stdout
+&null
+after
+```
+
+## procedure_write_213
+
+```Icon
 procedure isEven(x)
   return x % 2 = 0;
 end
@@ -5259,7 +12181,17 @@ procedure main()
   every i := 1 to 6 do
     if not isEven(i) then write(i);
 end
-#------------------------------------------------------- 710 procedure_write_248
+```
+
+```stdout
+1
+3
+5
+```
+
+## procedure_write_248
+
+```Icon
 procedure main()
   local s, t;
   s := set([1, 2, 3]);
@@ -5268,7 +12200,16 @@ procedure main()
   write(t[2]);
   write(t[9]);
 end
-#------------------------------------------------------- 711 procedure_write_272
+```
+
+```stdout
+1
+0
+```
+
+## procedure_write_272
+
+```Icon
 #  Same defect at the `by` bound: `1 to 6 by (1|2|3)` runs by 1, then by 2, then by 3,
 #  and we lose the by-1 run.  Three alternatives for the same reason as the `to` witness;
 #  the control arm is a `by` whose step is an ordinary integer.
@@ -5277,7 +12218,17 @@ procedure main()
    every writes(" ", 1 to 6 by 2); write();
    write("A:end");
 end
-#--------- 712 ladder__rung03_suspend_a_bang_over_a_cset_suspends_each_character
+```
+
+```stdout
+ 1 2 3 4 5 6 1 3 5 1 4
+ 1 3 5
+A:end
+```
+
+## ladder__rung03_suspend_a_bang_over_a_cset_suspends_each_character
+
+```Icon
 procedure g(s)
    suspend !s;
 end
@@ -5287,7 +12238,16 @@ procedure main()
    every writes(g("xyz"), " ");
    write();
 end
-#-------- 713 ladder__rung29_builtins_operator_values_coerce_as_the_operators_do
+```
+
+```stdout
+a b 
+x y z 
+```
+
+## ladder__rung29_builtins_operator_values_coerce_as_the_operators_do
+
+```Icon
 procedure main()
    local x;
    &error := -1;
@@ -5297,7 +12257,19 @@ procedure main()
    write(image(proc("+", 2)("3", " 4")), " ", image(proc("*", 2)(2.5, 2)), " ", image(proc("-", 1)("5")));
    write(image(proc("||", 2)(1, 2.0)), " ", image(proc("||", 2)("a", x)) | "concat failed", " ", &errornumber | "none");
 end
-#---------------------------------------------------- 714 procedure_every_alt_33
+```
+
+```stdout
+failed 102
+1024 3 1 6
+div failed 201
+7 5.0 -5
+"12.0" concat failed 103
+```
+
+## procedure_every_alt_33
+
+```Icon
 procedure absv(n)
   n > 0 | return -n;
   return n;
@@ -5307,7 +12279,20 @@ procedure main()
   write(absv(-7));
   every write((1 to 2) | (8 to 9));
 end
-#----------------------------------------------------- 715 procedure_every_alt_7
+```
+
+```stdout
+5
+7
+1
+2
+8
+9
+```
+
+## procedure_every_alt_7
+
+```Icon
 procedure absv(n)
   n > 0 | return -n;
   return n;
@@ -5317,7 +12302,20 @@ procedure main()
   write(absv(-7));
   every write((1 to 2) | (8 to 9));
 end
-#----------------------------------------------------- 716 procedure_scan_tab_10
+```
+
+```stdout
+5
+7
+1
+2
+8
+9
+```
+
+## procedure_scan_tab_10
+
+```Icon
 procedure main()
     local y, z;
     y := 101559956668416.0;
@@ -5327,7 +12325,18 @@ procedure main()
     write(y);
     write(z);
 end
-#------------------------------------------- 717 procedure_table_write_replace_2
+```
+
+```stdout
+1.015599567e+14
+-1.015599567e+14
+1.015599567e+14
+-1.015599567e+14
+```
+
+## procedure_table_write_replace_2
+
+```Icon
 procedure main()
   t := table();
   insert(t, "k1", 1);
@@ -5337,7 +12346,17 @@ procedure main()
   if member(t, "k1") then write("bad") else write("deleted");
   write(t["k2"]);
 end
-#------------------------------------------- 718 procedure_table_write_replace_6
+```
+
+```stdout
+1
+deleted
+2
+```
+
+## procedure_table_write_replace_6
+
+```Icon
 procedure main()
   t := table();
   insert(t, "k1", 1);
@@ -5347,7 +12366,17 @@ procedure main()
   if member(t, "k1") then write("bad") else write("deleted");
   write(t["k2"]);
 end
-#------------------------------------------------------- 719 procedure_write_234
+```
+
+```stdout
+1
+deleted
+2
+```
+
+## procedure_write_234
+
+```Icon
 procedure makeList()
   return [1, 2, 3];
 end
@@ -5357,7 +12386,15 @@ procedure main()
   push(L, 0);
   write(get(L));
 end
-#------------------------------------------------------- 720 procedure_write_256
+```
+
+```stdout
+0
+```
+
+## procedure_write_256
+
+```Icon
 procedure main()
    &error := -1;
    write("A:", image(seq("a") | "converted"));
@@ -5367,7 +12404,20 @@ procedure main()
    write("E:", &error);
    write("F:end");
 end
-#---------------------------------------------- 721 ladder_rung36_sets_construct
+```
+
+```stdout
+A:"converted"
+B:-2
+C:101 "integer expected or out of range" "a"
+D:1
+E:-2
+F:end
+```
+
+## ladder_rung36_sets_construct
+
+```Icon
 procedure main()
   local s;
   s := set();
@@ -5378,7 +12428,16 @@ procedure main()
   write(*s);
   if member(s, 2) then write("yes");
 end
-#---------------------------------- 722 ladder_rung38_coexpr_main_current_source
+```
+
+```stdout
+3
+yes
+```
+
+## ladder_rung38_coexpr_main_current_source
+
+```Icon
 procedure main()
   local c;
   if &current === &main then write("main-eq-main") else write("main-neq-main");
@@ -5389,7 +12448,17 @@ procedure body()
   if &current === &main then write("body-eq-main") else write("body-neq-main");
   if &source === &main then write("source-eq-main") else write("source-neq-main");
 end
-#--------------------------------------------------- 723 procedure_every_table_1
+```
+
+```stdout
+main-eq-main
+body-neq-main
+source-eq-main
+```
+
+## procedure_every_table_1
+
+```Icon
 procedure main()
   local t, total;
   t := table(0);
@@ -5400,7 +12469,15 @@ procedure main()
   every total +:= t[key(t)];
   write(total);
 end
-#--------------------------------------------------- 724 procedure_every_table_2
+```
+
+```stdout
+60
+```
+
+## procedure_every_table_2
+
+```Icon
 procedure main()
   local t, total;
   t := table(0);
@@ -5411,7 +12488,15 @@ procedure main()
   every total +:= t[key(t)];
   write(total);
 end
-#-------------------------------------------------- 725 procedure_table_write_15
+```
+
+```stdout
+60
+```
+
+## procedure_table_write_15
+
+```Icon
 procedure main()
   local t;
   t := table(0);
@@ -5422,7 +12507,17 @@ procedure main()
   delete(t, 1);
   write(t[1]);
 end
-#--------------------------------------------------- 726 procedure_table_write_4
+```
+
+```stdout
+10
+20
+0
+```
+
+## procedure_table_write_4
+
+```Icon
 procedure main()
   local t;
   t := table(0);
@@ -5433,7 +12528,17 @@ procedure main()
   delete(t, 1);
   write(t[1]);
 end
-#------------------------------------------------------- 727 procedure_write_271
+```
+
+```stdout
+10
+20
+0
+```
+
+## procedure_write_271
+
+```Icon
 #  A `to` expression's BOUND is a generator: `1 to (2|4|6)` runs 1..2, then 1..4, then
 #  1..6.  We lose the FIRST run entirely and start at the second alternative, so the
 #  witness carries THREE alternatives -- with two, first-run-lost and last-only-survives
@@ -5444,7 +12549,17 @@ procedure main()
    every writes(" ", (1|3|5) to 6); write();
    write("A:end");
 end
-#------------------------------------------------- 728 unicon__uni_pattern_image
+```
+
+```stdout
+ 1 2 1 2 3 4 1 2 3 4 5 6
+ 1 2 3 4 5 6 3 4 5 6 5 6
+A:end
+```
+
+## unicon__uni_pattern_image
+
+```Icon
 procedure main()
    local p, q;
    p := Any('a') || "b" || Arbno("c");
@@ -5455,7 +12570,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#------ 729 ladder__rung29_builtins_an_operator_value_with_a_null_operand_raises
+```
+
+```stdout
+pattern_5(4) = Any('a') || "b" || Arbno("c")
+pattern_9(7) = (Any('a') || "b" || Arbno("c") .| Len(2)) || Rpos(0) pattern
+pattern_11(3) = (Span(&digits)) -> n
+```
+
+## ladder__rung29_builtins_an_operator_value_with_a_null_operand_raises
+
+```Icon
 procedure main()
    local x, p;
    &error := -1;
@@ -5467,7 +12592,26 @@ procedure main()
    write(image(proc("||", 2)("a", &null)) | "failed"); write(&errornumber | "no error");
    write(image(proc("<", 2)(1, &null)) | "failed"); write(&errornumber | "no error");
 end
-#-------------- 730 ladder__rung29_builtins_binary_star_with_one_argument_raises
+```
+
+```stdout
+failed
+102
+failed
+102
+failed
+102
+failed
+102
+failed
+103
+failed
+102
+```
+
+## ladder__rung29_builtins_binary_star_with_one_argument_raises
+
+```Icon
 procedure main()
    local p;
    &error := -1;
@@ -5479,7 +12623,20 @@ procedure main()
    write(image(p ! [3]) | "failed");
    write(&errornumber | "no error");
 end
-#----------------------------------------------------- 731 procedure_every_to_13
+```
+
+```stdout
+failed
+102
+failed
+102
+failed
+102
+```
+
+## procedure_every_to_13
+
+```Icon
 # rung02 t03: local vars — tests local frame slots
 procedure sum_to(n)
   local total;
@@ -5491,7 +12648,15 @@ end
 procedure main()
   every write(sum_to(5));
 end
-#----------------------------------------------------- 732 procedure_every_to_44
+```
+
+```stdout
+15
+```
+
+## procedure_every_to_44
+
+```Icon
 # rung02 t03: local vars — tests local frame slots
 procedure sum_to(n)
   local total;
@@ -5503,7 +12668,15 @@ end
 procedure main()
   every write(sum_to(5));
 end
-#------------------------------------------ 733 unicon__uni_pattern_cset_operand
+```
+
+```stdout
+15
+```
+
+## unicon__uni_pattern_cset_operand
+
+```Icon
 class UniconMarker()
 end
 procedure main()
@@ -5515,7 +12688,18 @@ procedure main()
     if find("Any('d')", image(p)) then write("its image names Any('d')") else write("its image does not name Any('d')");
     write("done");
 end
-#--------------------------------------------------- 734 unicon__uni_pm_cond_var
+```
+
+```stdout
+a cset operand matches as Any: yes
+Any('a') || 'd' matches ad
+its image names Any('d')
+done
+```
+
+## unicon__uni_pm_cond_var
+
+```Icon
 global x, y
 procedure main()
    local p, q, s;
@@ -5527,7 +12711,19 @@ procedure main()
    every write("[" || (s ?? q) || "]");
    write("y=", y);
 end
-#------- 735 ladder__rung29_builtins_proc_finds_a_linked_procedure_in_both_modes
+```
+
+```stdout
+[a]
+[b]
+x=b
+[ab]
+y=a
+```
+
+## ladder__rung29_builtins_proc_finds_a_linked_procedure_in_both_modes
+
+```Icon
 procedure helper(x)
    return x + 1;
 end
@@ -5540,7 +12736,19 @@ procedure main()
    write(image(proc("main")) | "no main");
    write(image(proc("write", 0)) | "no write/0");
 end
-#------------------------------------- 736 ladder_rung41_rt_read_reads_from_file
+```
+
+```stdout
+2
+procedure helper 42
+procedure helper
+procedure main
+function write
+```
+
+## ladder_rung41_rt_read_reads_from_file
+
+```Icon
 procedure main()
   local f, g;
   f := open("/tmp/s05_r41_readreads.txt", "wc");
@@ -5553,7 +12761,17 @@ procedure main()
   close(g);
   remove("/tmp/s05_r41_readreads.txt");
 end
-#---------------------------------------------- 737 procedure_every_to_replace_3
+```
+
+```stdout
+abc
+def
+gh
+```
+
+## procedure_every_to_replace_3
+
+```Icon
 #SRC: JCON
 
 # a simple and slow prime number generator
@@ -5566,7 +12784,39 @@ procedure main()
       write(i)
    };
 end
-#------------------------------------------------------- 738 procedure_write_222
+```
+
+```stdout
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+```
+
+## procedure_write_222
+
+```Icon
 procedure makeTable()
   local t;
   t := table();
@@ -5579,7 +12829,15 @@ procedure main()
   t := makeTable();
   write(t["a"] + t["b"]);
 end
-#------------------------------- 739 unicon__uni_pattern_immediate_assign_serial
+```
+
+```stdout
+3
+```
+
+## unicon__uni_pattern_immediate_assign_serial
+
+```Icon
 procedure main()
    p1 := Len(1);
    p2 := Pos(22) => x;
@@ -5592,7 +12850,21 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------------- 740 unicon__uni_posix_udp_loopback
+```
+
+```stdout
+pattern_0(1) = Len(1)
+pattern_2(3) = (Pos(22)) => x
+pattern_3(1) = Rem()
+pattern_5(3) = (Len(1)) -> y
+pattern_6(1) = Rem()
+pattern_8(3) = (Tab(2)) => z
+pattern_9(1) = Rem()
+```
+
+## unicon__uni_posix_udp_loopback
+
+```Icon
 procedure main()
    local port, f, g, r;
    port := 20000 + ?20000;
@@ -5605,7 +12877,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------- 741 unicon__uni_posix_wait_pid_after_threads
+```
+
+```stdout
+got hello, udp
+udp done
+```
+
+## unicon__uni_posix_wait_pid_after_threads
+
+```Icon
 procedure main();
    local c, st, t;
    if (c := fork()) = 0 then exit(3);
@@ -5618,7 +12899,18 @@ procedure main();
    wait(t);
    write("thread waited");
 end
-#---------------------------------------------- 742 procedure_scan_alt_replace_2
+```
+
+```stdout
+string exited:3
+exited:0
+in thread
+thread waited
+```
+
+## procedure_scan_alt_replace_2
+
+```Icon
 procedure main()
    write(2 ^ 70, " ", 2 ^ 70 - 1, " ", (2 ^ 70) / 3, " ", (2 ^ 70) % 1000, " ", -(2 ^ 65));
    write(2 ^ 3 ^ 2, " ", -2 ^ 2, " ", (-2) ^ 2, " ", 7 / 2, " ", -7 / 2, " ", 7 % 3, " ", -7 % 3, " ", 7 % -3);
@@ -5632,7 +12924,26 @@ procedure main()
    write(sqrt(16), " ", exp(0), " ", log(1), " ", log(8, 2), " ", sin(0), " ", atan(1) * 4);
    write(1 <= 2 <= 3, " ", (1 < 2) + 1, " ", 3 > 2 > 1 | "chain fails");
 end
-#---------------------------------------------- 743 unicon__uni_class_type_image
+```
+
+```stdout
+1180591620717411303424 1180591620717411303423 393530540239137101141 424 -36893488147419103232
+512 4 4 3 -3 1 -1 1
+1.0 not identical 3.0 7.0 2.5 1.414213562
+8 14 6 1024 -4 -1 255
+9223372036854775808 -9223372036854775809 9223372037000250000
+5 2.5 0.0
+overflow?
+e204
+1000000000000000000 9999999999999999999999 123456789012345678900
+0.0 0.5 3.0 1e+20
+4.0 1.0 0.0 3.0 0.0 3.141592654
+3 3 1
+```
+
+## unicon__uni_class_type_image
+
+```Icon
 class Point(x, y)
    method sum()
       return x + y;
@@ -5646,7 +12957,17 @@ procedure main()
    write(*membernames(p), " ", image(methodnames(p)[1]));
    write(p.sum(), " ", (p === p), " ", image(copy(p) === p));
 end
-#----------------------------------- 744 unicon__uni_gc_abandoned_generator_link
+```
+
+```stdout
+Point__state procedure Point
+object Point_1(2)
+4 "Point_sum"
+```
+
+## unicon__uni_gc_abandoned_generator_link
+
+```Icon
 procedure d(u)
    suspend *u;
 end
@@ -5660,7 +12981,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------- 745 unicon__uni_gc_stmt_gen_release
+```
+
+```stdout
+ok
+ok again
+```
+
+## unicon__uni_gc_stmt_gen_release
+
+```Icon
 procedure dummy(u, v, x, y, z)
    suspend u | v;
    return x;
@@ -5674,7 +13004,15 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------- 746 unicon__uni_regex_literal
+```
+
+```stdout
+ok
+```
+
+## unicon__uni_regex_literal
+
+```Icon
 procedure main()
    local p, m, r;
    p := <([f]|[c])"at">;
@@ -5688,7 +13026,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------- 747 unicon__uni_thread_self_message
+```
+
+```stdout
+cat| sat
+aabdd
+x
+pattern
+```
+
+## unicon__uni_thread_self_message
+
+```Icon
 class UniconMarker();
 end
 procedure main();
@@ -5702,7 +13051,18 @@ procedure main();
   "three" @> t;
   write(if <@ t then "out" else "t outbox empty");
 end
-#--------------------------------------------- 748 procedure_alt_table_replace_1
+```
+
+```stdout
+one
+two
+empty
+t outbox empty
+```
+
+## procedure_alt_table_replace_1
+
+```Icon
 procedure main()
    &error := 20;
    write(image(&subject := []) | "none", " A ", &errornumber, " ", image(&errorvalue), " ", &errortext);
@@ -5717,7 +13077,24 @@ procedure main()
    &subject := "ab" || char(0) || "c";
    write(*&subject, " J ", image(&subject));
 end
-#----------------------------------------- 749 procedure_every_suspend_replace_6
+```
+
+```stdout
+none A 103 list_1(0) string expected
+"5" B 103 "5"
+none C 103 &null
+none D 103 table_1(0)
+"abc" E "abc" 3
+none F 101 "x" integer expected or out of range
+2 G 2
+none H 2 101
+2 I 2
+4 J "ab\x00c"
+```
+
+## procedure_every_suspend_replace_6
+
+```Icon
 #  WITNESS (hq_B/hq_C): a generator reached through a PROCEDURE VALUE, not called directly --
 #  forces the rt_call_value_gen_h -> rt_call_value_resume_h coroutine protocol. Prior corpus had
 #  procedure-value invocation (rung37_proc_lookup.icn, no suspend) and generators (generators.icn,
@@ -5732,7 +13109,17 @@ procedure main()
    p := g;
    every write(p());
 end
-#------------------------------------------------------- 750 procedure_write_253
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_write_253
+
+```Icon
 procedure main()
    local f, g;
    f := proc("~===", 2);
@@ -5747,7 +13134,20 @@ end
 procedure p1(a)
    return a;
 end
-#---------------------------------------------------- 751 ladder__rung47_file_io
+```
+
+```stdout
+A:&null
+B:2
+C:&null
+D:&null
+E:7
+
+```
+
+## ladder__rung47_file_io
+
+```Icon
 procedure main()
    local f, s;
    f := open("/tmp/uni_rung47_witness.txt", "w");
@@ -5763,7 +13163,19 @@ procedure main()
    write(remove("/tmp/uni_rung47_witness.txt") | "gone");
    write(getenv("NO_SUCH_VAR_XYZ") | "unset");
 end
-#----------------------------------------- 752 procedure_every_elemgen_replace_6
+```
+
+```stdout
+alpha
+beta
+gamma
+
+unset
+```
+
+## procedure_every_elemgen_replace_6
+
+```Icon
 #SRC: IJ-3 focused test: proc() builtin + indirect invocation
 procedure p0()
    write("p0");
@@ -5779,7 +13191,20 @@ procedure main()
    every write((!plist)());
    every write((!plist)(1));
 end
-#------------------------------------------------------- 753 procedure_write_252
+```
+
+```stdout
+function write
+noexist fails
+p0
+p1
+p0
+p11
+```
+
+## procedure_write_252
+
+```Icon
 procedure main()
    local t, k, out;
    t := table();
@@ -5795,7 +13220,15 @@ procedure main()
    every k := key(t) do out := out || k;
    write("keyorder=", out);
 end
-#- 754 ladder__rung29_builtins_an_exchange_through_two_runtime_variable_names_swaps_a_builtin_and_a_procedure
+```
+
+```stdout
+keyorder=@-*$!+%/
+```
+
+## ladder__rung29_builtins_an_exchange_through_two_runtime_variable_names_swaps_a_builtin_and_a_procedure
+
+```Icon
 procedure Abs(i)
    write("Abs called");
    return Abs(i);
@@ -5812,7 +13245,21 @@ procedure main()
    variable(vf) :=: variable(vp);
    write(image(abs), " ", abs(-6));
 end
-#------------------------------------------------ 755 procedure_every_elemgen_19
+```
+
+```stdout
+procedure Abs function abs
+function abs procedure Abs
+procedure Abs function abs
+Abs called
+5
+procedure Abs
+function abs 6
+```
+
+## procedure_every_elemgen_19
+
+```Icon
 procedure main()
   L := [10, 20, 30];
   every v := !L do {
@@ -5830,7 +13277,22 @@ procedure main()
     write(v)
   };
 end
-#------------------------------------------------- 756 procedure_every_elemgen_9
+```
+
+```stdout
+110
+120
+130
+break
+10
+next
+10
+30
+```
+
+## procedure_every_elemgen_9
+
+```Icon
 procedure main()
   L := [10, 20, 30];
   every v := !L do {
@@ -5848,7 +13310,22 @@ procedure main()
     write(v)
   };
 end
-#------------------------------------------ 757 procedure_record_every_replace_8
+```
+
+```stdout
+110
+120
+130
+break
+10
+next
+10
+30
+```
+
+## procedure_record_every_replace_8
+
+```Icon
 record pt(a, b)
 procedure main()
   L := [1, 2, 3];
@@ -5866,7 +13343,21 @@ procedure main()
   every !s := "X";
   write(s);
 end
-#---------------------------------------------- 758 procedure_every_to_replace_5
+```
+
+```stdout
+9
+9
+9
+5
+4
+4
+XXX
+```
+
+## procedure_every_to_replace_5
+
+```Icon
 # SCRIP DEMO6 -- Sieve of Eratosthenes, primes to 50 (Icon section)
 # Idiom: list subscript marks composites; every drives two passes
 procedure main()
@@ -5885,7 +13376,15 @@ procedure main()
         };
     write(out);
 end
-#---------------------------------------------- 759 procedure_every_to_replace_8
+```
+
+```stdout
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
+```
+
+## procedure_every_to_replace_8
+
+```Icon
 # SCRIP DEMO6 -- Sieve of Eratosthenes, primes to 50 (Icon section)
 # Idiom: list subscript marks composites; every drives two passes
 procedure main()
@@ -5904,7 +13403,15 @@ procedure main()
         };
     write(out);
 end
-#--------------------------------- 760 unicon__uni_critical_limit_never_succeeds
+```
+
+```stdout
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
+```
+
+## unicon__uni_critical_limit_never_succeeds
+
+```Icon
 global m
 procedure t1()
    critical m: return 2;
@@ -5923,7 +13430,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#--------------------------------------------- 761 procedure_while_map_replace_1
+```
+
+```stdout
+2
+1
+3
+failed
+```
+
+## procedure_while_map_replace_1
+
+```Icon
 # SCRIP DEMO4 -- Palindrome (Icon section)
 # Idiom: subscript walk inward from both ends
 procedure palindrome(s)
@@ -5943,7 +13461,17 @@ procedure main()
     write(palindrome("hello"));
     write(palindrome("level"));
 end
-#--------------------------------------------- 762 procedure_while_map_replace_2
+```
+
+```stdout
+yes
+no
+yes
+```
+
+## procedure_while_map_replace_2
+
+```Icon
 # SCRIP DEMO4 -- Palindrome (Icon section)
 # Idiom: subscript walk inward from both ends
 procedure palindrome(s)
@@ -5963,7 +13491,17 @@ procedure main()
     write(palindrome("hello"));
     write(palindrome("level"));
 end
-#------------------------------------------------- 763 procedure_write_keyword_7
+```
+
+```stdout
+yes
+no
+yes
+```
+
+## procedure_write_keyword_7
+
+```Icon
 procedure main()
    write(&level);
    foo(3);
@@ -5983,7 +13521,30 @@ procedure bar(n)
    suspend 1 to n do write(&level);
    write(&level);
 end
-#--------------------------------------------- 764 unicon__uni_bi_max_min_values
+```
+
+```stdout
+1
+2
+3
+4
+5
+5
+4
+3
+2
+1
+2
+2
+2
+2
+2
+1
+```
+
+## unicon__uni_bi_max_min_values
+
+```Icon
 procedure keep()
   local max;
   max := 5;
@@ -6003,7 +13564,22 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------- 765 procedure_write_keyword_6
+```
+
+```stdout
+function max
+function min
+9
+1
+function max
+procedure
+5
+2
+```
+
+## procedure_write_keyword_6
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -6025,7 +13601,30 @@ procedure bar(n)
 	suspend 1 to n do write(&level);
 	write(&level);
 end
-#--------------------------------------------- 766 unicon__uni_bi_setop_error120
+```
+
+```stdout
+1
+2
+3
+4
+5
+5
+4
+3
+2
+1
+2
+2
+2
+2
+2
+1
+```
+
+## unicon__uni_bi_setop_error120
+
+```Icon
 procedure show(v)
    write(&errornumber, " ", &errortext, " ", type(v));
 end
@@ -6047,7 +13646,20 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------------- 767 procedure_write_143
+```
+
+```stdout
+120 two csets, two sets, or two tables expected set
+120 two csets, two sets, or two tables expected set
+120 two csets, two sets, or two tables expected list
+120 two csets, two sets, or two tables expected table
+bc
+2
+```
+
+## procedure_write_143
+
+```Icon
 procedure double(n)
   return n * 2;
 end
@@ -6070,7 +13682,26 @@ procedure main()
   p := reverse;
   write(p("abc"));
 end
-#---------------------------------------------- 768 procedure_alt_fail_replace_2
+```
+
+```stdout
+procedure
+procedure
+procedure main
+function push
+0
+1
+"hi"
+42
+10
+20
+30
+cba
+```
+
+## procedure_alt_fail_replace_2
+
+```Icon
 #SRC: JCON
 #OPT: -fe
 
@@ -6096,7 +13727,32 @@ procedure main()
 	write(&errortext | "fail");
 	write(image(&errorvalue) | "fail");
 end
-#------------------------------------------------ 769 unicon__uni_thread_channel
+```
+
+```stdout
+0
+fail
+fail
+fail
+1
+fail
+0
+106
+procedure or integer expected
+&null
+0
+106
+procedure or integer expected
+&null
+0
+fail
+fail
+fail
+```
+
+## unicon__uni_thread_channel
+
+```Icon
 procedure main()
    local a, b, t;
    if not (&features == "concurrent threads") then stop("no threads");
@@ -6122,7 +13778,15 @@ procedure B()
    t := <<@;
    (t || " ==> B") @>>;
 end
-#------------------------------------------- 770 unicon__uni_thread_list_channel
+```
+
+```stdout
+Main ==> A ==> B ==> A ==> Main
+```
+
+## unicon__uni_thread_list_channel
+
+```Icon
 class UniconMarker()
 end
 
@@ -6148,7 +13812,20 @@ procedure main();
    write(*e, " ", image(<@ e) | "empty");
    write(*e);
 end
-#------------------------------------------------- 771 unicon__uni_class_inherit
+```
+
+```stdout
+worker got ping
+worker sent
+main got ping-back
+empty
+1 "one"
+0
+```
+
+## unicon__uni_class_inherit
+
+```Icon
 class Shape(name)
    method area()
       return 0;
@@ -6176,7 +13853,18 @@ end
 procedure main()
    every (Shape("shape") | Rect(2, 3) | Square(4)).show();
 end
-#----- 772 ladder__rung42_kw_line_reads_the_line_of_the_operator_that_follows_it
+```
+
+```stdout
+shape area 0
+rect area 6
+square:
+square area 16
+```
+
+## ladder__rung42_kw_line_reads_the_line_of_the_operator_that_follows_it
+
+```Icon
 procedure main()
    local x, y, L, s;
    x :=
@@ -6229,7 +13917,33 @@ procedure main()
    write("augcat ", s);
    write("same ", &line, " ", 1 + &line);
 end
-#---------------------------------------------- 773 procedure_to_write_replace_2
+```
+
+```stdout
+assign 3
+add 6
+mul 8
+rel 10
+cat 12
+list 14
+list2 19 17
+paren 21
+paren2 24
+neg -27
+pos 29
+aug 32
+swap 6 5
+size 0
+nonnull 41
+dbl 43
+nested 91
+augcat x48
+same 51 52
+```
+
+## procedure_to_write_replace_2
+
+```Icon
 #SRC: V9/201909
 #  radix.icn -- test radix conversion in linker vs runtime
 
@@ -6293,7 +14007,57 @@ procedure try(s, i)
 	else
 		write(image(s), ": got ", j, ", but expected ", i);
 end
-#-------------------------------------------- 774 procedure_record_alt_replace_2
+```
+
+```stdout
+"2r101111": 47
+"3r201": 19
+"4r11213": 359
+"5r1234": 194
+"6r1253": 321
+"7r1253": 479
+"8r1257": 687
+"9r1257": 943
+"10r1257": 1257
+"11r1257": 1635
+"12r1257": 2083
+"13r1257": 2607
+"19r1257": 7683
+"23r1257": 13347
+"29r1257": 26223
+"31r1257": 31875
+"36r1257": 49435
+"8r76054132752": 8333080042
+"9r76054132752": 26758135154
+"10r76054132752": 76054132752
+"11r76054132752": 195814388992
+"12r76054132752": 464571650222
+"13r76054132752": 1028969951622
+"19r76054132752": 44858250416904
+"23r76054132752": 300810118039132
+"29r76054132752": 3032082160319254
+"31r76054132752": 5896176886381092
+"36r76054132752": 26202869414008742
+"2r01001010100010101010": 305322
+"2r111111111111111111111111111111111111111111111111111111111111111": 9223372036854775807
+"2r1111111111111111111111111111111111111111111111111111111111111111": 18446744073709551615
+"2r11111111111111111111111111111111111111111111111111111111111111111": 36893488147419103231
+"8r01234567": 342391
+"8r377777777777777777777": 4611686018427387903
+"16r0123456789ABCDEF": 81985529216486895
+"16r7fffffffffffffff": 9223372036854775807
+"16rffffffffffffffff": 18446744073709551615
+"16r10000000000000000": 18446744073709551616
+"16r123456789ABCDEF01234": 85968058283706962416180
+"36rICON": 856247
+"36rIcon": 856247
+"36r123456789AEIOU": 180468505894476358686
+"36rZYXWVYTSRQPONMLKJIHGFEDCBA9876543210": 106300512295600039567362168178520907819968174883825255684
+```
+
+## procedure_record_alt_replace_2
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -6488,68 +14252,273 @@ procedure main()
    p21();
 end
 
-#---------------------------------------------------- 775 procedure_every_alt_26
-procedure main(); i := 0; every |1 do { i +:= 1; if i >= 3 then break }; write(i); end
-#---------------------------------------------------- 776 procedure_every_alt_19
+```
+
+```stdout
+integer(2) ----> 2
+integer("2") ----> 2
+integer(" 2") ----> 2
+integer("2 ") ----> 2
+integer("+2") ----> 2
+integer("-2") ----> -2
+integer("- 2") ----> none
+integer(" -    2 ") ----> none
+integer("") ----> none
+integer("--2") ----> none
+integer(" ") ----> none
+integer("-") ----> none
+integer("+") ----> none
+integer("7r4") ----> 4
+integer("4r7") ----> none
+integer("4r 7") ----> none
+integer("7r 4") ----> none
+integer("16rff") ----> 255
+integer("36rcat") ----> 15941
+integer("36Rcat") ----> 15941
+integer("36rCAT") ----> 15941
+integer("1r1") ----> none
+integer("2r0") ----> 0
+integer(integer) ----> none
+integer := abs ----> function abs
+numeric(2) ----> 2
+numeric("2") ----> 2
+numeric(" 2") ----> 2
+numeric("2 ") ----> 2
+numeric("+2") ----> 2
+numeric("-2") ----> -2
+numeric("- 2") ----> none
+numeric(" -    2 ") ----> none
+numeric("") ----> none
+numeric("--2") ----> none
+numeric(" ") ----> none
+numeric("-") ----> none
+numeric("+") ----> none
+numeric("7r4") ----> 4
+numeric("4r7") ----> none
+numeric("4r 7") ----> none
+numeric("7r 4") ----> none
+numeric("16rff") ----> 255
+numeric("36rcat") ----> 15941
+numeric("36Rcat") ----> 15941
+numeric("36rCAT") ----> 15941
+numeric("1r1") ----> none
+numeric("2r0") ----> 0
+100 - - 4 ----> 104
+100 --4 ----> '01'
+100- - 4 ----> 104
+100 -- 4 ----> '01'
+100 - -4 ----> 104
+abs(1) ----> 1
+abs(-1) ----> 1
+abs(0) ----> 0
+36 % 7 ----> 1
+-36 % 7 ----> -1
+36 % -7 ----> 1
+-36 % -7 ----> -1
+36 * 9 ----> 324
+-36 * 9 ----> -324
+36 * -9 ----> -324
+-36 * -9 ----> 324
+36 / 9 ----> 4
+-36 / 9 ----> -4
+36 / -9 ----> -4
+-36 / -9 ----> 4
+36 + 9 ----> 45
+-36 + 9 ----> -27
+36 + -9 ----> 27
+-36 + -9 ----> -45
+36 ^ -9 ----> 0
+1 < 1 ----> none
+1 < 2 ----> 2
+1 < 0 ----> none
+-1 < 0 ----> 0
+1 < -2 ----> none
+-1 < -0 ----> 0
+1 > 1 ----> none
+1 > 2 ----> none
+1 > 0 ----> 0
+-1 > 0 ----> none
+1 > -2 ----> -2
+-1 > -0 ----> none
+1 <= 1 ----> 1
+1 <= 2 ----> 2
+1 <= 0 ----> none
+-1 <= 0 ----> 0
+1 <= -2 ----> none
+-1 <= -0 ----> 0
+1 >= 1 ----> 1
+1 >= 2 ----> none
+1 >= 0 ----> 0
+-1 >= 0 ----> none
+1 >= -2 ----> -2
+-1 >= -0 ----> none
+1 = 1 ----> 1
+1 = 2 ----> none
+1 = 0 ----> none
+-1 = 0 ----> none
+1 = -2 ----> none
+-1 = -0 ----> none
+1 ~= 1 ----> none
+1 ~= 2 ----> 2
+1 ~= 0 ----> 0
+-1 ~= 0 ----> 0
+1 ~= -2 ----> -2
+-1 ~= -0 ----> 0
+36 ^ -9 ----> 0
+-36 ^ -9 ----> 0
+```
+
+## procedure_every_alt_19
+
+```Icon
 # rung37: every inside builtin arg — image(every i := 1 to 3)
 procedure main()
    write(image(every 1 | 2 | 3));
    write("done");
 end
-#---------------------------------------- 777 procedure_every_elemgen_replace_11
+```
+
+```stdout
+done
+```
+
+## procedure_every_elemgen_replace_11
+
+```Icon
 procedure main()
    local L;
    L := [7 | 9, 1, 2];
    every write(!L);
 end
-#---------------------------------------- 778 procedure_every_elemgen_replace_13
+```
+
+```stdout
+7
+1
+2
+```
+
+## procedure_every_elemgen_replace_13
+
+```Icon
 procedure main()
    local L;
    L := [1, 7 | 9, 2];
    every write(!L);
 end
-#---------------------------------------- 779 procedure_every_elemgen_replace_14
+```
+
+```stdout
+1
+7
+2
+```
+
+## procedure_every_elemgen_replace_14
+
+```Icon
 procedure main()
    local L;
    L := [1, 2, 7 | 9];
    every write(!L);
 end
-#---------- 780 ladder__rung42_kw_not_of_a_keyword_in_a_condition_takes_a_branch
+```
+
+```stdout
+1
+2
+7
+```
+
+## ladder__rung42_kw_not_of_a_keyword_in_a_condition_takes_a_branch
+
+```Icon
 procedure main()
    if not &meta then write("no meta") else write("meta");
    if (not &fail) & (not (integer("\t") < 0)) then write("keypress branch") else write("other branch");
    write(image(not &x) | "not &x failed");
    write("end");
 end
-#-------------------------------------------------- 781 ladder_rung36_sets_union
+```
+
+```stdout
+no meta
+keypress branch
+&null
+end
+```
+
+## ladder_rung36_sets_union
+
+```Icon
 procedure main()
   local a, b;
   a := set([1, 2, 3]);
   b := set([2, 3, 4]);
   every write(!sort(a ++ b));
 end
-#---------------------------------- 782 ladder_rung38_coexpr_parallel_evaluation
+```
+
+```stdout
+1
+2
+3
+4
+```
+
+## ladder_rung38_coexpr_parallel_evaluation
+
+```Icon
 procedure main()
   local a, b;
   a := create (1 to 3);
   b := create (10 to 30 by 10);
   while write(@a + @b);
 end
-#------------------------------------------------------ 783 procedure_scan_tab_3
+```
+
+```stdout
+11
+22
+33
+```
+
+## procedure_scan_tab_3
+
+```Icon
 procedure main()
    local s;
    s := "-n10";
    s ? { tab(match("-")) };
    write("s=[", s, "] *s=", *s);
 end
-#------------------------------------------------------- 784 procedure_write_242
+```
+
+```stdout
+s=[-n10] *s=4
+```
+
+## procedure_write_242
+
+```Icon
 procedure main()
   local L;
   L := [3, 1, 2];
   push(L, 0);
   every write(!sort(L));
 end
-#------------------------------------- 785 gc_hb_concat_augmented_then_subscript
+```
+
+```stdout
+0
+1
+2
+3
+```
+
+## gc_hb_concat_augmented_then_subscript
+
+```Icon
 procedure main()
    local a, i;
    a := "ab"; a ||:= "cd"; a[2:3] := "XYZ"; write(a);
@@ -6557,7 +14526,17 @@ procedure main()
    write(a);
    a := "p"; a ||:= "q"; a[2:3] := "RS"; write(a, " ", *a);
 end
-#--------------------------------------------------- 786 ladder__rung45_key_list
+```
+
+```stdout
+aXYZcd
+qXYZcd-1-2-3-4-5
+pRS 3
+```
+
+## ladder__rung45_key_list
+
+```Icon
 procedure main()
    local L, k;
    L := ["a", "b", "c"];
@@ -6565,7 +14544,16 @@ procedure main()
    write();
    write(*key(L) | "x");
 end
-#---------------------------------------------- 787 ladder_rung36_sets_interdiff
+```
+
+```stdout
+ 1 2 3
+1
+```
+
+## ladder_rung36_sets_interdiff
+
+```Icon
 procedure main()
   local a, b;
   a := set([1, 2, 3]);
@@ -6573,7 +14561,17 @@ procedure main()
   every write(!sort(a ** b));
   every write(!sort(a -- b));
 end
-#-------------------------------------------------------- 788 procedure_alt_to_3
+```
+
+```stdout
+2
+3
+1
+```
+
+## procedure_alt_to_3
+
+```Icon
 #  break is legal as a while CONDITION, not only in the body: it leaves the loop
 #  at once and the loop yields &null.  SCRIP hung here -- lower_while patched the
 #  condition's own result node, overwriting the break goto's binding to the exit.
@@ -6581,7 +14579,16 @@ procedure main();
     write(image(while break) | "none");
     write("after");
 end
-#---------------------------------------------------- 789 procedure_record_alt_2
+```
+
+```stdout
+&null
+after
+```
+
+## procedure_record_alt_2
+
+```Icon
 record r0()
 procedure main()
     local x;
@@ -6589,7 +14596,16 @@ procedure main()
     write(image(x) | "none");
     write(image(sort(x)) | "none");
 end
-#--------------------------------------------------- 790 scanning_asm__is05_root
+```
+
+```stdout
+record r0_1(0)
+list_1(0)
+```
+
+## scanning_asm__is05_root
+
+```Icon
 procedure main();
   write(image(&subject), " ", &pos);
   &subject := 42; write(image(&subject), " ", &pos);
@@ -6597,7 +14613,23 @@ procedure main();
   "abc" ? { write(&pos); &subject := "wxyz"; write(image(&subject), " ", &pos, " ", move(2)) };
   write(image(&subject), " ", &pos, " ", move(1) | "no move");
 end
-#------------------------------------------------- 791 unicon__uni_pattern_match
+```
+
+```stdout
+"" 1
+"42" 1
+3
+7 fails 3
+3
+2
+1
+"wxyz" 3 wx
+"42" 3 2
+```
+
+## unicon__uni_pattern_match
+
+```Icon
 procedure main()
    local s, p;
    s := "hello wide world";
@@ -6605,7 +14637,18 @@ procedure main()
    if s ?? "xyz" then write("no") else write("none");
    write(image(&errno));
 end
-#----------------------------------------------- 792 unicon__uni_unicon_features
+```
+
+```stdout
+wid
+world
+none
+0
+```
+
+## unicon__uni_unicon_features
+
+```Icon
 procedure main()
    local f;
    every f := "concurrent threads" | "pattern type" | "messaging" | "UNIX" | "co-expressions" do
@@ -6613,7 +14656,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------------------------- 793 procedure_record_set_1
+```
+
+```stdout
+concurrent threads: yes
+pattern type: yes
+messaging: yes
+UNIX: yes
+co-expressions: yes
+```
+
+## procedure_record_set_1
+
+```Icon
 record r1(a)
 record r3(a,b,c)
 procedure main()
@@ -6622,7 +14677,16 @@ procedure main()
     write(image(sortf(data, &null)));
     write(image(sortf(set(data), &null)));
 end
-#------------------------------------------ 794 scanning_asm__is03f_not_a_coexpr
+```
+
+```stdout
+list_3(5)
+list_4(5)
+```
+
+## scanning_asm__is03f_not_a_coexpr
+
+```Icon
 procedure main();
   local x, y;
   &error := 2;
@@ -6631,7 +14695,16 @@ procedure main();
   write("after ", image(y), " ", &errornumber);
   "ab" ? { y := @x; write("in scan ", &subject, " ", &pos, " ", &errornumber) };
 end
-#-- 795 ladder__rung05_scan_a_keyword_ending_a_scan_block_is_read_after_the_scan
+```
+
+```stdout
+after &null 118
+in scan ab 1 118
+```
+
+## ladder__rung05_scan_a_keyword_ending_a_scan_block_is_read_after_the_scan
+
+```Icon
 procedure main()
    "outer" ? { tab(2); write("inner" ? { tab(3); &pos }) };
    "outer" ? { tab(2); write("inner" ? { tab(3); &subject }) };
@@ -6641,7 +14714,21 @@ procedure main()
    "outer" ? { tab(2); write("inner" ? { tab(3); { move(1); &pos } }) };
    write(image("x" ? &pos));
 end
-#------------ 796 ladder__rung24_records_a_field_named_like_a_builtin_is_no_call
+```
+
+```stdout
+2
+outer
+3
+2
+2
+2
+1
+```
+
+## ladder__rung24_records_a_field_named_like_a_builtin_is_no_call
+
+```Icon
 record node(type, string, name)
 procedure main()
    local r;
@@ -6651,7 +14738,18 @@ procedure main()
    write(image(name(r.name)) | "name failed");
    write(r.type);
 end
-#------------------------------------------------- 797 ladder_rung42_kw_features
+```
+
+```stdout
+node
+S
+"node.name"
+T
+```
+
+## ladder_rung42_kw_features
+
+```Icon
 procedure main()
   local n, ok, f;
   n := 0; ok := 1;
@@ -6661,7 +14759,15 @@ procedure main()
   };
   write(n > 0, " ", ok);
 end
-#-------------------------------------------------------- 798 procedure_alt_to_1
+```
+
+```stdout
+0 1
+```
+
+## procedure_alt_to_1
+
+```Icon
 #  break resolves its loop by INDEX into the loop stack, and lower_while pushed
 #  this loop AFTER lowering its own condition -- so a break in the condition of a
 #  nested while indexed one loop too far out and left the OUTER loop.  At top
@@ -6671,7 +14777,16 @@ procedure main();
     while 1 do { write(image(while break) | "none"); break };
     write("after");
 end
-#--------------------------------------------- 799 procedure_alt_write_replace_2
+```
+
+```stdout
+&null
+after
+```
+
+## procedure_alt_write_replace_2
+
+```Icon
 procedure main()
    local c;
    &error := 20; c := 1;
@@ -6681,7 +14796,19 @@ procedure main()
    write(image(main[1]) | "none", " C ", &errornumber, " ", image(&errorvalue));
    write(image(pull[1:2]) | "none", " D ", &errornumber, " ", image(&errorvalue), " ", &errortext);
 end
-#----------------------------------------- 800 procedure_record_every_replace_21
+```
+
+```stdout
+function pull function write procedure main
+none A 114 function pull invalid type to subscript operation
+none B 114 function write
+none C 114 procedure main
+none D 110 function pull string or list expected
+```
+
+## procedure_record_every_replace_21
+
+```Icon
 #  WITNESS (hq_I): suspend a record, then read a field of it.
 record one(f)
 procedure main()
@@ -6691,7 +14818,15 @@ end
 procedure gen()
    suspend one("z");
 end
-#------------------------------------------------------- 801 procedure_write_273
+```
+
+```stdout
+z
+```
+
+## procedure_write_273
+
+```Icon
 #  Same defect at a string section's second bound: "abcdef"[1:(2|4|6)] yields "a", "abc",
 #  "abcde" and we lose the first.  Third position of the same class (bound of a
 #  to-expression, of a by-clause, of a section).  The control arm sections with an
@@ -6701,7 +14836,17 @@ procedure main()
    every writes(" ", "abcdef"[1:4]); write();
    write("A:end");
 end
-#------------------------------------------------- 802 scanning_asm__is04_byname
+```
+
+```stdout
+ a abc abcde
+ abc
+A:end
+```
+
+## scanning_asm__is04_byname
+
+```Icon
 procedure step(f, n);
   return f(n);
 end
@@ -6711,7 +14856,20 @@ procedure main();
   "abcdefgh" ? { p(2); write(&pos); step(q, 5); write(&pos); write(q(r('g'))); write(&pos); write(image(step(p, 1))) };
   "xyz" ? write(image(step(tab, 0)), " ", &pos);
 end
-#----------------------------------------------- 803 unicon__uni_bi_sort_numeric
+```
+
+```stdout
+3
+5
+ef
+7
+"g"
+"xyz" 4
+```
+
+## unicon__uni_bi_sort_numeric
+
+```Icon
 procedure main()
    local p;
    p := [2.5, 1, -0.5, 4, 2];
@@ -6721,7 +14879,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#- 804 ladder__rung29_builtins_function_called_through_a_value_generates_the_function_names
+```
+
+```stdout
+ -0.5 1 2 2.5 4
+-0.5 4 1.5 3
+ 1.5 2 3 a b
+```
+
+## ladder__rung29_builtins_function_called_through_a_value_generates_the_function_names
+
+```Icon
 procedure main()
    local f, n, m;
    f := function;
@@ -6732,7 +14900,21 @@ procedure main()
    write(image(f));
    every write((function)() \ 2);
 end
-#------------ 805 ladder__rung29_builtins_proc_finds_a_linked_record_constructor
+```
+
+```stdout
+abs
+acos
+any
+same count
+function function
+abs
+acos
+```
+
+## ladder__rung29_builtins_proc_finds_a_linked_record_constructor
+
+```Icon
 record point(x, y)
 procedure main()
    local p;
@@ -6743,7 +14925,19 @@ procedure main()
    write((p ! [1, 2]).y);
    write(image(proc("point")) | "no proc point");
 end
-#------------------------------------------------ 806 procedure_every_suspend_10
+```
+
+```stdout
+record constructor point
+procedure
+record constructor point
+2
+record constructor point
+```
+
+## procedure_every_suspend_10
+
+```Icon
 # rung03 t04: generator counting down via suspend
 procedure downto(n)
   local i;
@@ -6754,7 +14948,18 @@ end
 procedure main()
   every write(downto(4));
 end
-#------------------------------------------------- 807 procedure_every_suspend_3
+```
+
+```stdout
+4
+3
+2
+1
+```
+
+## procedure_every_suspend_3
+
+```Icon
 # rung03 t04: generator counting down via suspend
 procedure downto(n)
   local i;
@@ -6765,7 +14970,18 @@ end
 procedure main()
   every write(downto(4));
 end
-#----------------------------------------- 808 procedure_record_every_replace_20
+```
+
+```stdout
+4
+3
+2
+1
+```
+
+## procedure_record_every_replace_20
+
+```Icon
 #  CONTROL (hq_I): identical generator shape suspending a LIST instead of a record. GREEN pre-cure -- the
 #  suspend path is equally misaligned here, but rt_make_list reaches no aligned SSE spill, so nothing faults.
 #  This control is what makes "records are special" a false reading of the class.
@@ -6776,7 +14992,15 @@ end
 procedure gen()
    suspend [ "z" ];
 end
-#----------------------------------------- 809 procedure_record_every_replace_23
+```
+
+```stdout
+ok
+```
+
+## procedure_record_every_replace_23
+
+```Icon
 #  WITNESS (hq_I): more than one suspended record, two fields each -- the shape ipl/progs/parse.icn uses.
 record token(type, string)
 procedure main()
@@ -6787,7 +15011,16 @@ procedure gen()
    suspend token("a", "1");
    suspend token("b", "2");
 end
-#----------------------------------------- 810 procedure_record_every_replace_24
+```
+
+```stdout
+a 1
+b 2
+```
+
+## procedure_record_every_replace_24
+
+```Icon
 #  WITNESS (hq_I): a procedure that SUSPENDS a record. The record is never even inspected -- constructing
 #  one inside a generator frame is enough. See test_gate_icn_suspend_record_stack_alignment.sh.
 record one(f)
@@ -6798,7 +15031,15 @@ end
 procedure gen()
    suspend one("z");
 end
-#-------------------------------------------- 811 procedure_scan_limit_replace_1
+```
+
+```stdout
+ok
+```
+
+## procedure_scan_limit_replace_1
+
+```Icon
 # rung38: a cset/string literal containing an embedded \x00 must keep its true length.
 # SCRIP loses it across four layers (lexer OK; AST tree_t.sval has no length field; lower.c's
 # icn_cset_canon NUL-scans and collapses; codegen bakes CSETVAL's slen=-1 sentinel, deferring to
@@ -6809,7 +15050,16 @@ procedure main()
    write(*skips);
    write(skips ? upto('a'));
 end
-#----------------------------------------- 812 scanning_asm__is02f_window_errors
+```
+
+```stdout
+3
+2
+```
+
+## scanning_asm__is02f_window_errors
+
+```Icon
 procedure main();
   &error := 9;
   write(image(find("a", "banana", "x")), " ", &errornumber);
@@ -6820,7 +15070,16 @@ procedure main();
   write(image(many('a', "aab", 2)), " ", &errornumber);
   write("end");
 end
-#--------------------------------------- 813 unicon__uni_variable_computed_local
+```
+
+```stdout
+3 101
+end
+```
+
+## unicon__uni_variable_computed_local
+
+```Icon
 global g1
 procedure main()
    local p1, p2;
@@ -6831,7 +15090,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------------- 814 ladder_rung38_coexpr_refresh_caret
+```
+
+```stdout
+"one"
+"two"
+"glob"
+"one"
+```
+
+## ladder_rung38_coexpr_refresh_caret
+
+```Icon
 procedure main()
   local i, seq1, seq3;
   i := 1;
@@ -6843,7 +15113,18 @@ procedure main()
   write(@seq3);
   write(@seq3);
 end
-#------------------------------------------------------- 815 procedure_write_264
+```
+
+```stdout
+2
+4
+2
+4
+```
+
+## procedure_write_264
+
+```Icon
 procedure g()
    suspend 1;
    suspend 2;
@@ -6855,7 +15136,15 @@ procedure main()
    &trace := 0;
    write("A:end");
 end
-#------------------------------------------------ 816 unicon__uni_posix_udp_send
+```
+
+```stdout
+A:end
+```
+
+## unicon__uni_posix_udp_send
+
+```Icon
 procedure main()
    local port, f, r;
    port := 20000 + ?20000;
@@ -6867,7 +15156,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------- 817 ladder__rung24_records_a_field_named_like_a_procedure_is_no_call
+```
+
+```stdout
+send: &null
+got "zz"
+send done
+```
+
+## ladder__rung24_records_a_field_named_like_a_procedure_is_no_call
+
+```Icon
 record node(type, f)
 procedure f(x)
    return "proc f";
@@ -6880,7 +15179,18 @@ procedure main()
    write(type(r));
    write(image(proc("type")));
 end
-#---------------------------------------- 818 procedure_coexpr_suspend_replace_2
+```
+
+```stdout
+proc f
+F
+node
+function type
+```
+
+## procedure_coexpr_suspend_replace_2
+
+```Icon
 #  CONTROL (hq_I): a co-expression over a suspending generator of integers. GREEN pre-cure -- co-expressions
 #  are not the class, which is why the row's original "coexpression sigsegv" framing was the incidental half.
 procedure main()
@@ -6893,7 +15203,17 @@ procedure gen()
    suspend 2;
    suspend 3;
 end
-#----------------------------------------- 819 procedure_record_every_replace_22
+```
+
+```stdout
+1
+2
+3
+```
+
+## procedure_record_every_replace_22
+
+```Icon
 #  WITNESS (hq_I): the record is built into a LOCAL first and only then suspended -- pins that the defect is
 #  not the inline constructor expression in the suspend operand.
 record one(f)
@@ -6906,7 +15226,15 @@ procedure gen()
    t := one("z");
    suspend t;
 end
-#------------------------------------------------ 820 unicon__uni_lex_local_init
+```
+
+```stdout
+z
+```
+
+## unicon__uni_lex_local_init
+
+```Icon
 procedure main()
    local x := 10, y, z := x * 2;
    write(x, " ", image(y), " ", z);
@@ -6919,7 +15247,16 @@ procedure count()
 end
 class UniconMarker()
 end
-#-------------------------------------------------- 821 unicon__uni_pm_defer_rec
+```
+
+```stdout
+10 &null 20
+2 2
+```
+
+## unicon__uni_pm_defer_rec
+
+```Icon
 procedure f(n);
    local x, y, s, m;
    s := "abcdefgh";
@@ -6932,7 +15269,19 @@ procedure main();
    f(3);
    f(0);
 end
-#---------------------------------------------- 822 procedure_every_to_replace_9
+```
+
+```stdout
+f0 x=- y=-
+f1 x=ab y=c
+f2 x=ab y=cd
+f3 x=ab y=cde
+f0 x=- y=-
+```
+
+## procedure_every_to_replace_9
+
+```Icon
 procedure main()
    local first, i, c, s;
    first := cset("abc");
@@ -6946,7 +15295,17 @@ procedure main()
    c := first ++ 'z';
    write(image(c), " ", *c);
 end
-#- 823 ladder__rung15_swap_a_keyword_exchange_enters_the_reversible_exchange_after_it_at_its_start
+```
+
+```stdout
+'abc' 3 abc
+55
+'abcz' 4
+```
+
+## ladder__rung15_swap_a_keyword_exchange_enters_the_reversible_exchange_after_it_at_its_start
+
+```Icon
 procedure main()
    local x, r, s, n;
    x := 7; r := 1; s := 2;
@@ -6961,7 +15320,21 @@ procedure main()
    if (&random :=: x) & (r <-> s) & 1 = 2 then write("e wrong") else write("e ", r, " ", s);
    write("f ", &random, " ", x);
 end
-#------------------------------------------ 824 procedure_record_every_replace_9
+```
+
+```stdout
+a 2 1
+a x 0
+b 1 2
+c 2 1 9
+d 1 2 1
+e 2 1
+f 0 7
+```
+
+## procedure_record_every_replace_9
+
+```Icon
 record pt(a, b)
 procedure main()
   L := [1, 2, 3];
@@ -6976,7 +15349,20 @@ procedure main()
   write(P.a);
   write(P.b);
 end
-#-------------------------------------------------- 825 unicon__uni_pm_defer_var
+```
+
+```stdout
+11
+12
+13
+15
+8
+9
+```
+
+## unicon__uni_pm_defer_var
+
+```Icon
 procedure ok(w);
    write("ok ", w);
    return;
@@ -6991,7 +15377,17 @@ procedure main();
    s ?? (Len(1) || `ok(m)` || Len(1)) => x;
    write("[", \x | "none", "]");
 end
-#-------------------------------------- 826 unicon__uni_posix_mcast_join_at_open
+```
+
+```stdout
+[ab]
+ok z
+[ab]
+```
+
+## unicon__uni_posix_mcast_join_at_open
+
+```Icon
 procedure main()
    local f, s, group, port;
    group := "239.42.42.61";
@@ -7006,7 +15402,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------------------- 827 unicon__uni_thread_hello
+```
+
+```stdout
+got hello-join
+join done
+```
+
+## unicon__uni_thread_hello
+
+```Icon
 procedure main()
    local a, b;
    if not (&features == "concurrent threads") then stop("no threads");
@@ -7021,7 +15426,18 @@ end
 procedure greet(n)
    ("hello from thread " || n) @>>;
 end
-#------------------------------------------------- 828 unicon__uni_table_literal
+```
+
+```stdout
+create two threads
+hello from thread 1
+hello from thread 2
+joined
+```
+
+## unicon__uni_table_literal
+
+```Icon
 procedure main()
    local t, u, v;
    t := ["jsonrpc" : "2.0"];
@@ -7037,7 +15453,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#--------------------------------------------- 829 procedure_alt_write_replace_1
+```
+
+```stdout
+table 1 2.0 &null
+3 1 2 three
+1 10 10
+2 15
+6
+```
+
+## procedure_alt_write_replace_1
+
+```Icon
 procedure main()
    local a, x;
    &error := 20;
@@ -7054,7 +15482,21 @@ procedure main()
    write(image(x), " F");
    write(image([1,2,3,4][2:4]), " G");
 end
-#----------- 830 ladder__rung29_builtins_swap_and_reassign_builtins_then_restore
+```
+
+```stdout
+none A 110 &null string or list expected
+none B 114 &null invalid type to subscript operation
+"4" C 114 &null invalid type to subscript operation
+"" D
+"bc" E
+"aZZd" F
+list_2(2) G
+```
+
+## ladder__rung29_builtins_swap_and_reassign_builtins_then_restore
+
+```Icon
 procedure mywrite(s)
    writes("<", s, ">\n");
 end
@@ -7072,7 +15514,19 @@ procedure main()
    right := q;
    write(right("x", 3), "|");
 end
-#--------------------------------------------- 831 procedure_alt_limit_replace_1
+```
+
+```stdout
+<a>
+b
+c
+x  |
+  x|
+```
+
+## procedure_alt_limit_replace_1
+
+```Icon
 procedure main()
    local t, x, L;
    t := table();
@@ -7090,7 +15544,18 @@ procedure main()
    /L[2] := 20 | write("L2-nonnull");
    write(L[1], " ", L[2]);
 end
-#------------------------------------------ 832 procedure_record_table_replace_1
+```
+
+```stdout
+1 1
+5
+7
+10 2
+```
+
+## procedure_record_table_replace_1
+
+```Icon
 record rr(f1, f2)
 procedure main()
    local a, L, s, t;
@@ -7109,7 +15574,18 @@ procedure main()
    t["k"] +:= 7;
    write(t["k"]);
 end
-#----------------------------------------------- 833 unicon__uni_posix_udp_alias
+```
+
+```stdout
+11 6
+105 5
+abcXde
+7
+```
+
+## unicon__uni_posix_udp_alias
+
+```Icon
 procedure main()
    local f, s, r, g, group, port;
    group := "239.42.42.68";
@@ -7128,7 +15604,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#----------------------------------------------- 834 unicon__uni_posix_udp_reply
+```
+
+```stdout
+got hello-alias
+alias done
+```
+
+## unicon__uni_posix_udp_reply
+
+```Icon
 procedure main()
    local port, f, g, r;
    port := "127.0.0.1:" || (20000 + ?20000);
@@ -7147,7 +15632,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------------------- 835 procedure_every_to_replace_1
+```
+
+```stdout
+got pong ping
+reply done
+```
+
+## procedure_every_to_replace_1
+
+```Icon
 # SCRIP DEMO3 -- Roman Numerals (Icon section)
 # Idiom: greedy subtraction loop with parallel vals/syms lists
 procedure roman(n)
@@ -7168,7 +15662,17 @@ procedure main()
     write(roman(42));
     write(roman(9));
 end
-#---------------------------------------------- 836 procedure_every_to_replace_7
+```
+
+```stdout
+MDCCLXXVI
+XLII
+IX
+```
+
+## procedure_every_to_replace_7
+
+```Icon
 # SCRIP DEMO3 -- Roman Numerals (Icon section)
 # Idiom: greedy subtraction loop with parallel vals/syms lists
 procedure roman(n)
@@ -7189,7 +15693,17 @@ procedure main()
     write(roman(42));
     write(roman(9));
 end
-#------------------------------------------------------- 837 procedure_write_274
+```
+
+```stdout
+MDCCLXXVI
+XLII
+IX
+```
+
+## procedure_write_274
+
+```Icon
 #  A node that is ITSELF A GENERATOR, taking another generator in a NON-FIRST
 #  operand, entered that operand at its BETA (resume) port instead of ALPHA, so
 #  the inner generator's FIRST run was lost.  Same cause as the cfo's TT_REVASSIGN
@@ -7213,7 +15727,25 @@ procedure main();
     every writes("idx   :", "abcdef"[(2|4|6)], " "); write();
     every writes("fro   :", (1|3|5) to 6, " "); write();
 end
-#---------------------------------- 838 unicon__uni_user_proc_shadows_unicon_row
+```
+
+```stdout
+to    :1 to    :2 to    :1 to    :2 to    :3 to    :4 to    :1 to    :2 to    :3 to    :4 to    :5 to    :6 
+by    :1 by    :2 by    :3 by    :4 by    :5 by    :6 by    :1 by    :3 by    :5 by    :1 by    :4 
+secTO :a secTO :abc secTO :abcde 
+secFR :abcde secFR :cde secFR :e 
+secBO :abc secBO :abcd secBO :bc secBO :bcd 
+add   :3 add   :5 add   :7 
+cat   :xa cat   :xb cat   :xc 
+cmp   :2 cmp   :4 cmp   :6 
+lst   :2 lst   :4 lst   :6 
+idx   :b idx   :d idx   :f 
+fro   :1 fro   :2 fro   :3 fro   :4 fro   :5 fro   :6 fro   :3 fro   :4 fro   :5 fro   :6 fro   :5 fro   :6 
+```
+
+## unicon__uni_user_proc_shadows_unicon_row
+
+```Icon
 procedure main();
    write(image(diff('abc', 'b')));
    write(image(inter(set([1, 2]), set([2]))));
@@ -7239,7 +15771,20 @@ procedure member(t, k);
 end
 class UniconMarker()
 end
-#------------------------- 839 scrip_test_icon_jcon_audit_88_swap_lv__88_swap_lv
+```
+
+```stdout
+"user diff 'abc' 'b'"
+"user inter 2 1"
+"user union xy"
+"user sort 3"
+"user member 1"
+"user diff 'ab' 'b'"
+```
+
+## scrip_test_icon_jcon_audit_88_swap_lv__88_swap_lv
+
+```Icon
 procedure main()
   local x, y, s, t, L, v;
   x := 1;
@@ -7266,7 +15811,23 @@ procedure main()
   v := (s[1] :=: s[2]);
   write(v, " ", s);
 end
-#---------------- 840 ladder__rung02_proc_every_return_form_returns_its_variable
+```
+
+```stdout
+2 1
+acbd
+aedbcf
+dello worlh
+30
+20
+10
+z wxy20
+q qp
+```
+
+## ladder__rung02_proc_every_return_form_returns_its_variable
+
+```Icon
 global t, u
 procedure main()
   t := "t"; u := "u";
@@ -7295,7 +15856,20 @@ end
 procedure f6()
   return t | u;
 end
-#------------------------------------------- 841 procedure_every_scan_replace_11
+```
+
+```stdout
+1
+2
+3
+43
+5
+6
+```
+
+## procedure_every_scan_replace_11
+
+```Icon
 #SRC: IJ-10 &pos / &subject keyword swap (:=: and <->)
 procedure main()
    local x;
@@ -7349,7 +15923,22 @@ procedure main()
       write("subj_mut x<->&pos: &pos=", &pos, " x=", x)
    };
 end
-#-------------------------------------------- 842 procedure_record_alt_replace_1
+```
+
+```stdout
+kw_lhs swap: &pos=4 x=3
+kw_lhs oob: blocked
+kw_lhs oob state: &pos=3 x=9
+kw_rhs swap: &pos=4 x=3
+kw_rhs oob: &pos=3 x=3
+after rev &pos<->x: &pos=3 x=9
+subj_mut &pos<->x: &pos=1 x=3
+subj_mut x<->&pos: &pos=1 x=2
+```
+
+## procedure_record_alt_replace_1
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -7533,31 +16122,202 @@ procedure main()
 end
 
 global i, s, c, one, two, x
-#---------------------------------------- 843 procedure_every_elemgen_replace_16
+```
+
+```stdout
+i := 10 ----> 10
+i =:= 9 ----> none
+i ----> 10
+i := 10 ----> 10
+i =:= 10 ----> 10
+i ----> 10
+i := 10 ----> 10
+i =:= 11 ----> none
+i ----> 10
+i := 10 ----> 10
+i >=:= 9 ----> 9
+i ----> 9
+i := 10 ----> 10
+i >=:= 10 ----> 10
+i ----> 10
+i := 10 ----> 10
+i >=:= 11 ----> none
+i ----> 10
+i := 10 ----> 10
+i >:= 9 ----> 9
+i ----> 9
+i := 10 ----> 10
+i >:= 10 ----> none
+i ----> 10
+i := 10 ----> 10
+i >:= 11 ----> none
+i ----> 10
+i := 10 ----> 10
+i <=:= 9 ----> none
+i ----> 10
+i := 10 ----> 10
+i <=:= 10 ----> 10
+i ----> 10
+i := 10 ----> 10
+i <=:= 11 ----> 11
+i ----> 11
+i := 10 ----> 10
+i <:= 9 ----> none
+i ----> 10
+i := 10 ----> 10
+i <:= 10 ----> none
+i ----> 10
+i := 10 ----> 10
+i <:= 11 ----> 11
+i ----> 11
+i := 10 ----> 10
+i ~=:= 9 ----> 9
+i ----> 9
+i := 10 ----> 10
+i ~=:= 10 ----> none
+i ----> 10
+i := 10 ----> 10
+i ~=:= 11 ----> 11
+i ----> 11
+i := 10 ----> 10
+i +:= 9 ----> 19
+i ----> 19
+i := 10 ----> 10
+i +:= 10 ----> 20
+i ----> 20
+i := 10 ----> 10
+i +:= 11 ----> 21
+i ----> 21
+i := 10 ----> 10
+i -:= 9 ----> 1
+i ----> 1
+i := 10 ----> 10
+i -:= 10 ----> 0
+i ----> 0
+i := 10 ----> 10
+i -:= 11 ----> -1
+i ----> -1
+i := 10 ----> 10
+i *:= 9 ----> 90
+i ----> 90
+i := 10 ----> 10
+i *:= 10 ----> 100
+i ----> 100
+i := 10 ----> 10
+i *:= 11 ----> 110
+i ----> 110
+i := 10 ----> 10
+i /:= 9 ----> 1
+i ----> 1
+i := 10 ----> 10
+i /:= 10 ----> 1
+i ----> 1
+i := 10 ----> 10
+i /:= 11 ----> 0
+i ----> 0
+i := 10 ----> 10
+i %:= 9 ----> 1
+i ----> 1
+i := 10 ----> 10
+i %:= 10 ----> 0
+i ----> 0
+i := 10 ----> 10
+i %:= 11 ----> 10
+i ----> 10
+i := 10 ----> 10
+i ^:= 9 ----> 1000000000
+i ----> 1000000000
+i := 10 ----> 10
+s := "x" ----> "x"
+s <<:= "x" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s <<:= "xx" ----> "xx"
+s ----> "xx"
+s := "x" ----> "x"
+s <<:= "X" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s <<:= "abc" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ~==:= "x" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ~==:= "xx" ----> "xx"
+s ----> "xx"
+s := "x" ----> "x"
+s ~==:= "X" ----> "X"
+s ----> "X"
+s := "x" ----> "x"
+s ~==:= "abc" ----> "abc"
+s ----> "abc"
+```
+
+## procedure_every_elemgen_replace_16
+
+```Icon
 procedure main()
    local L;
    every L := [7 | 8, 3 | 4] do { every writes(!L); write() };
 end
-#------ 844 ladder__rung05_scan_env_a_coexpr_sees_the_activators_subject_and_pos
+```
+
+```stdout
+73
+74
+83
+84
+```
+
+## ladder__rung05_scan_env_a_coexpr_sees_the_activators_subject_and_pos
+
+```Icon
 procedure main();
   local c;
   c := create write("coexpr sees subject=[", &subject, "] pos=", &pos);
   "hello" ? { move(2); @c; write("after @c pos=", &pos) };
 end
-#------------------------------------------------------- 845 procedure_write_212
+```
+
+```stdout
+coexpr sees subject=[hello] pos=3
+after @c pos=3
+```
+
+## procedure_write_212
+
+```Icon
 procedure main()
   local s;
   s := "abc123";
   s ? (tab(many(&letters)) & write(&pos));
 end
-#------------------------------------------------- 846 ladder_rung37_bal_vs_upto
+```
+
+```stdout
+4
+```
+
+## ladder_rung37_bal_vs_upto
+
+```Icon
 procedure main()
   local s;
   s := "a(b,c),d";
   s ? write(tab(upto(',')));
   s ? write(tab(bal(',')));
 end
-#- 847 ladder__rung05_scan_env_coexprs_share_one_environment_and_a_mid_scan_transfer_leaks_it
+```
+
+```stdout
+a(b
+a(b,c)
+```
+
+## ladder__rung05_scan_env_coexprs_share_one_environment_and_a_mid_scan_transfer_leaks_it
+
+```Icon
 procedure main();
   local c, d;
   c := create (&pos := 4);
@@ -7565,7 +16325,19 @@ procedure main();
   d := create ("zzz" ? { move(1); write("inside coexpr scan pos=", &pos); @&source; write("resumed pos=", &pos, " subj=", &subject) });
   "abcdef" ? { move(3); @d; write("main after @d pos=", &pos, " subj=", &subject); @d; write("main after second @d pos=", &pos, " subj=", &subject) };
 end
-#---- 848 ladder__rung03_suspend_an_exhausted_suspend_backtracks_its_conjunction
+```
+
+```stdout
+after coexpr set pos=4
+inside coexpr scan pos=2
+main after @d pos=2 subj=zzz
+resumed pos=2 subj=zzz
+main after second @d pos=4 subj=abcdef
+```
+
+## ladder__rung03_suspend_an_exhausted_suspend_backtracks_its_conjunction
+
+```Icon
 procedure p()
    local x;
    (x := 1 to 4) & (suspend x);
@@ -7574,7 +16346,15 @@ procedure main()
    every writes(p(), " ");
    write();
 end
-#---------------------------------------------- 849 ladder__rung49_coexp_refresh
+```
+
+```stdout
+1 2 3 4 
+```
+
+## ladder__rung49_coexp_refresh
+
+```Icon
 procedure main()
    local c, d;
    c := create (1 to 3);
@@ -7583,7 +16363,17 @@ procedure main()
    write(@d);
    write(type(c), " ", *c);
 end
-#------------------------------------------- 850 ladder_rung37_bal_custom_delims
+```
+
+```stdout
+1 2 3 done
+1
+co-expression 3
+```
+
+## ladder_rung37_bal_custom_delims
+
+```Icon
 procedure main()
   local s;
   s := "[a,[b,c]],d";
@@ -7593,7 +16383,16 @@ procedure main()
     write(tab(0))
   };
 end
-#--------------------------------------------- 851 procedure_alt_while_replace_1
+```
+
+```stdout
+[a,[b,c]]
+d
+```
+
+## procedure_alt_while_replace_1
+
+```Icon
 procedure main()
   local i;
   i := 0;
@@ -7603,7 +16402,20 @@ procedure main()
   i := 0;
   repeat { i := i + 1; write(|3); if i >= 2 then break };
 end
-#- 852 ladder__rung02_proc_an_if_case_block_or_limitation_is_a_variable_when_its_arm_is
+```
+
+```stdout
+1
+1
+2
+2
+3
+3
+```
+
+## ladder__rung02_proc_an_if_case_block_or_limitation_is_a_variable_when_its_arm_is
+
+```Icon
 global t, u
 procedure main()
   t := "t"; u := "u"; n := 1;
@@ -7614,7 +16426,20 @@ procedure main()
   (t \ 1) := "L"; write(t);
   every ((t | u) \ 2) := "M"; write(t, u);
 end
-#---------------------------------------------------- 853 procedure_every_alt_44
+```
+
+```stdout
+I
+J
+C
+B
+L
+MM
+```
+
+## procedure_every_alt_44
+
+```Icon
 procedure main()
    every writes(" ", ((1|2|3) & 7) \ 5); write();
    every writes(" ", ((1 to 3) & 7) \ 5); write();
@@ -7625,7 +16450,22 @@ procedure main()
    every writes(" ", ((1|2|3) & 7 & 8) \ 5); write();
    every writes(" ", (7 & (1|2|3)) \ 5); write();
 end
-#------------------------------------------------------- 854 procedure_write_265
+```
+
+```stdout
+ 7 7 7
+ 7 7 7
+ 7 7 7 7
+ 1 2 3
+ 8 9 8 9
+ 7 7 7
+ 8 8 8
+ 1 2 3
+```
+
+## procedure_write_265
+
+```Icon
 procedure g(n)
    suspend 1 to n;
 end
@@ -7636,7 +16476,15 @@ procedure main()
    &trace := 0;
    write("A:end");
 end
-#----------- 855 ladder__rung29_builtins_seq_called_through_a_variable_generates
+```
+
+```stdout
+A:end
+```
+
+## ladder__rung29_builtins_seq_called_through_a_variable_generates
+
+```Icon
 procedure main()
    local q;
    q := seq;
@@ -7648,7 +16496,18 @@ procedure main()
    every writes(" ", q() \ 3);
    write(" | seq defaults");
 end
-#---------------------------------------------- 856 planner_finish__gen_backward
+```
+
+```stdout
+ 3 5 7 9 | seq through a variable
+5
+ 10 7 4 | seq by apply
+ 1 2 3 | seq defaults
+```
+
+## planner_finish__gen_backward
+
+```Icon
 procedure evens(n)
     local i;
     every i := 0 to n do if i % 2 = 0 then suspend i;
@@ -7660,7 +16519,18 @@ procedure main()
     write("sum ", s);
     every write("v ", evens(4));
 end
-#----------------------------------------------- 857 planner_finish__gen_forward
+```
+
+```stdout
+sum 12
+v 0
+v 2
+v 4
+```
+
+## planner_finish__gen_forward
+
+```Icon
 procedure main()
     local s;
     s := 0;
@@ -7672,7 +16542,18 @@ procedure evens(n)
     local i;
     every i := 0 to n do if i % 2 = 0 then suspend i;
 end
-#------------------------------------------------- 858 procedure_every_suspend_1
+```
+
+```stdout
+sum 12
+v 0
+v 2
+v 4
+```
+
+## procedure_every_suspend_1
+
+```Icon
 # rung03 t01: user-defined generator via suspend
 # upto(n) generates 1, 2, ..., n using suspend E do body
 procedure upto(n)
@@ -7684,7 +16565,18 @@ end
 procedure main()
   every write(upto(4));
 end
-#------------------------------------------------- 859 procedure_every_suspend_2
+```
+
+```stdout
+1
+2
+3
+4
+```
+
+## procedure_every_suspend_2
+
+```Icon
 # rung03 t05: two independent generators, sequential
 procedure upto(n)
   local i;
@@ -7696,7 +16588,19 @@ procedure main()
   every write(upto(3));
   every write(upto(2));
 end
-#------------------------------------------------- 860 procedure_every_suspend_8
+```
+
+```stdout
+1
+2
+3
+1
+2
+```
+
+## procedure_every_suspend_8
+
+```Icon
 # rung03 t01: user-defined generator via suspend
 # upto(n) generates 1, 2, ..., n using suspend E do body
 procedure upto(n)
@@ -7708,7 +16612,18 @@ end
 procedure main()
   every write(upto(4));
 end
-#------------------------------------------------- 861 procedure_every_suspend_9
+```
+
+```stdout
+1
+2
+3
+4
+```
+
+## procedure_every_suspend_9
+
+```Icon
 # rung03 t05: two independent generators, sequential
 procedure upto(n)
   local i;
@@ -7720,7 +16635,19 @@ procedure main()
   every write(upto(3));
   every write(upto(2));
 end
-#--------------------------------------------------- 862 ladder__rung48_critical
+```
+
+```stdout
+1
+2
+3
+1
+2
+```
+
+## ladder__rung48_critical
+
+```Icon
 global total, mtx
 procedure add(k)
   every 1 to k do critical mtx: total +:= 1;
@@ -7733,7 +16660,15 @@ procedure main()
   every wait(t1 | t2);
   write(total);
 end
-#-------------------------------------------------------- 863 unicon__uni_pm_var
+```
+
+```stdout
+2000
+```
+
+## unicon__uni_pm_var
+
+```Icon
 global gp
 procedure main()
    local p, s, q;
@@ -7746,7 +16681,22 @@ procedure main()
    every write("[" || (s ?? q) || "]");
    every write("[" || (s ?? (Len(1) || p)) || "]");
 end
-#----------------------------------------------- 864 unicon__uni_posix_stat_mode
+```
+
+```stdout
+[ab]
+[cd]
+[bc]
+[a]
+[b]
+[c]
+[d]
+[abc]
+```
+
+## unicon__uni_posix_stat_mode
+
+```Icon
 procedure main()
    local f, p;
    f := open("/tmp/uni_posix_stat_mode.txt", "w") | stop("open");
@@ -7759,7 +16709,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------ 865 gc_hb_concat_after_a_retained_generator_call
+```
+
+```stdout
+---x-wx-wx 6 posix_stat no file
+removed
+```
+
+## gc_hb_concat_after_a_retained_generator_call
+
+```Icon
 # WITNESS for an OPERATION AFTER A RETAINED GENERATOR CALL IN A GENERATOR BODY, with no scan and no call through a value:
 # g calls itself, the callee frame stays below g's cells, and the concatenation allocates after the call returns, so the
 # collection it triggers enters at a site whose static depth missed the retained frame (544 bytes for this shape).
@@ -7773,7 +16732,15 @@ procedure main()
    every g(12) do c +:= 1;
    write("count: ", c);
 end
-#----- 866 ladder__rung22_lists_augmented_assign_to_a_subscript_over_a_generator
+```
+
+```stdout
+count: 1
+```
+
+## ladder__rung22_lists_augmented_assign_to_a_subscript_over_a_generator
+
+```Icon
 procedure main()
    local L, m;
    L := [0];
@@ -7787,7 +16754,17 @@ procedure main()
    every writes(!L, " ");
    write();
 end
-#------- 867 ladder__rung24_records_augmented_assign_to_a_field_over_a_generator
+```
+
+```stdout
+5
+5
+10 20 30 
+```
+
+## ladder__rung24_records_augmented_assign_to_a_field_over_a_generator
+
+```Icon
 record r(f)
 procedure main()
    local v, L;
@@ -7801,7 +16778,17 @@ procedure main()
    every L[1] +:= 1 to 4;
    write(L[1]);
 end
-#------------------------------------------------- 868 ladder_rung37_bal_default
+```
+
+```stdout
+abc
+xyz
+10
+```
+
+## ladder_rung37_bal_default
+
+```Icon
 procedure main()
   local s;
   s := "f(a,b),c";
@@ -7815,7 +16802,17 @@ procedure main()
     if tab(bal(',')) then write("matched") else write("failed")
   };
 end
-#------------------------------------------------- 869 planner_finish__pf_locals
+```
+
+```stdout
+f(a,b)
+c
+failed
+```
+
+## planner_finish__pf_locals
+
+```Icon
 # DESIGN-PLAN planner-finish witness: locals carved on the spine inside nested every loops, and a generator reading its own locals
 procedure main()
     local i, j, t;
@@ -7829,7 +16826,19 @@ procedure pairs(n)
     local a, b;
     every a := 1 to n do every b := a to n do suspend a * 10 + b;
 end
-#------- 870 ladder__rung29_builtins_a_builtin_swapped_with_a_procedure_calls_it
+```
+
+```stdout
+t 25
+p 11
+p 12
+p 22
+last 11
+```
+
+## ladder__rung29_builtins_a_builtin_swapped_with_a_procedure_calls_it
+
+```Icon
 procedure mywrite(s)
    return writes("[", s, "]");
 end
@@ -7844,7 +16853,19 @@ procedure main()
    write :=: p;
    write("restored");
 end
-#---------------------------------------------------- 871 procedure_record_alt_1
+```
+
+```stdout
+[swapped]
+
+ab   |
+
+restored
+```
+
+## procedure_record_alt_1
+
+```Icon
 record rec(a, d)
 procedure main()
    local r, x;
@@ -7859,7 +16880,23 @@ procedure main()
    r := rec(1, 2); r[-1] := 7; write("r[-1] := 7       ", r.a, " ", r.d);
    r := rec(1, 2); write("r[0] reads       ", r[0], " ", r[-2], " ", r[3] | "fails");
 end
-#------------------------------------- 872 ladder_rung38_coexpr_coroutine_switch
+```
+
+```stdout
+r[1] := 5        5 2
+r["a"] := 5      5 2
+r[1] :=: r[2]    2 1
+r[1] :=: x       9 1
+x :=: r[1]       9 1
+r[1] :=: r.d     99 list_1(2)
+r[1] <- 7        7 2
+r[1] +:= 7       8 2
+r[-1] := 7       1 7
+```
+
+## ladder_rung38_coexpr_coroutine_switch
+
+```Icon
 global c1, c2
 procedure main()
   c1 := create note(c2, "C2");
@@ -7875,7 +16912,21 @@ procedure note(c, tag)
     @c
   };
 end
-#---------------------------------------------- 873 procedure_alt_list_replace_1
+```
+
+```stdout
+activation 1 of C2
+activation 1 of C1
+activation 2 of C2
+activation 2 of C1
+activation 3 of C2
+activation 3 of C1
+main done
+```
+
+## procedure_alt_list_replace_1
+
+```Icon
 procedure main()
    local f;
    &error := 30;
@@ -7891,7 +16942,24 @@ procedure main()
    write(image(-36. ^ -9.) | "none", " I ", &errornumber, " ", &errortext);
    write("J ", image(&errorvalue) | "no value");
 end
-#- 874 ladder__rung02_proc_a_match_in_a_scan_inside_a_procedure_leaves_its_four_parameters_in_place
+```
+
+```stdout
+none A 101 list_1(0) integer expected or out of range
+none B 101 "x"
+none C 205 -1 invalid value
+list_2(2) D 205
+none E 205 0 invalid value
+none F 205 -1
+none G 101 "x" integer expected or out of range
+none H 101 list_3(0)
+none I 206 negative first argument to real exponentiation
+J no value
+```
+
+## ladder__rung02_proc_a_match_in_a_scan_inside_a_procedure_leaves_its_four_parameters_in_place
+
+```Icon
 # WITNESS: scan-family FORTH carve shifts live PARAMETER slots (Z-3/Z-4 class).
 # `="-"` desugars to tab(match("-")) = TWO scan-family boxes = two 16B carves.
 # Every later rsp-relative param read is then 32 bytes (2 DESCRs) low:
@@ -7908,7 +16976,16 @@ end
 procedure main()
    t("-n10","AA","BB","CC");
 end
-#----------------------------------------------- 875 procedure_scan_to_replace_1
+```
+
+```stdout
+entry:       p="-n10" q="AA" r="BB" s="CC"
+after match: p="-n10" q="AA" r="BB" s="CC"
+```
+
+## procedure_scan_to_replace_1
+
+```Icon
 # WITNESS: scan-family FORTH carve shifts live PARAMETER slots (Z-3/Z-4 class).
 # `="-"` desugars to tab(match("-")) = TWO scan-family boxes = two 16B carves.
 # Every later rsp-relative param read is then 32 bytes (2 DESCRs) low:
@@ -7925,7 +17002,16 @@ end
 procedure main()
    t("-n10","AA","BB","CC");
 end
-#- 876 ladder__rung13_alt_a_converted_concatenation_error_falls_to_the_alternative
+```
+
+```stdout
+entry:       p="-n10" q="AA" r="BB" s="CC"
+after match: p="-n10" q="AA" r="BB" s="CC"
+```
+
+## ladder__rung13_alt_a_converted_concatenation_error_falls_to_the_alternative
+
+```Icon
 procedure main()
    local L, n, s, i;
    L := [7, 8, 9];
@@ -7944,7 +17030,26 @@ procedure main()
    write(&errornumber);
    write("a" || 1 || 2.5 || "b", " ", *("" || ""));
 end
-#--------------------------------------------- 877 procedure_alt_table_replace_2
+```
+
+```stdout
+c1 list left
+c2 list right
+c3 null left
+c4 null right
+c5 not a list
+alt
+w alt2 tail
+e1alt3
+e2alt3
+e3alt3
+103
+a12.5b 0
+```
+
+## procedure_alt_table_replace_2
+
+```Icon
 procedure main()
    local x;
    &error := 1;
@@ -7963,7 +17068,23 @@ procedure main()
    &error := 1; x := &null.f; write(&errornumber);
    &error := 1; x := "3" + "x" | 7; write(&errornumber, " ", x);
 end
-#------------------------------------------- 878 unicon__uni_posix_attrib_socket
+```
+
+```stdout
+102 numeric expected "a" 0
+102 5
+102 5 "a"
+700  custom
+201
+205
+114
+107
+102 7
+```
+
+## unicon__uni_posix_attrib_socket
+
+```Icon
 procedure main()
    local f, s, group, port;
    group := "239.42.42.64";
@@ -7982,7 +17103,20 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------------- 879 unicon__uni_posix_tcp_loopback
+```
+
+```stdout
+ttl returns 3
+join returns "127.0.0.1"
+loop returns "yes"
+got hello-attrib
+leave returns "127.0.0.1"
+attrib done
+```
+
+## unicon__uni_posix_tcp_loopback
+
+```Icon
 procedure main()
    local port, f, g, line;
    port := "127.0.0.1:" || (20000 + ?20000);
@@ -8001,7 +17135,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#----------------------------------------- 880 procedure_every_suspend_replace_1
+```
+
+```stdout
+ret: dlrow ,olleh
+tcp done
+```
+
+## procedure_every_suspend_replace_1
+
+```Icon
 # ICN-IDX-GEN-ENTRY (2026-07-18): subscripting by a generator-procedure call.
 # The forward first-entry into the index expression must land the generator's
 # alpha, never its beta (beta with no staged activation = jmp through a zeroed
@@ -8022,7 +17165,23 @@ procedure main()
    every l := alist[aseq()] do
       write("l=", l);
 end
-#- 881 the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line__the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line
+```
+
+```stdout
+a2
+a2
+a4
+a3
+a1
+l=a2
+l=a4
+l=a3
+l=a1
+```
+
+## the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line__the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_own_line
+
+```Icon
 global p, q
 
 procedure main()
@@ -8043,7 +17202,29 @@ procedure sink()
    every 1 to 3 do write(@p);
    @&main;
 end
-#--------------------------------------------- 882 unicon__uni_posix_ux_loopback
+```
+
+```stdout
+_own_line.icn:    7  | main; co-expression_1 : &null @ co-expression_3
+_own_line.icn:    6  | sink()
+_own_line.icn:   18  | | sink; co-expression_3 : &null @ co-expression_2
+_own_line.icn:    5  | | feed()
+_own_line.icn:   12  | | | feed; co-expression_2 : 1 @ co-expression_3
+1
+_own_line.icn:   18  | | | sink; co-expression_3 : &null @ co-expression_2
+_own_line.icn:   13  | | | feed; co-expression_2 : 2 @ co-expression_3
+2
+_own_line.icn:   18  | | | sink; co-expression_3 : &null @ co-expression_2
+_own_line.icn:   14  | | | feed; co-expression_2 : 3 @ co-expression_3
+3
+_own_line.icn:   19  | | | sink; co-expression_3 : &null @ co-expression_1
+done
+_own_line.icn:    9  | | main failed
+```
+
+## unicon__uni_posix_ux_loopback
+
+```Icon
 procedure main()
    local path, f, g, line;
    path := "/tmp/uni_ux_" || getpid();
@@ -8064,7 +17245,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------------- 883 procedure_coexpr_suspend_replace_1
+```
+
+```stdout
+ret: xinu ,olleh
+ux done
+```
+
+## procedure_coexpr_suspend_replace_1
+
+```Icon
 #SRC: JCON
 
 #  prime number generation using co-expressions
@@ -8086,7 +17276,39 @@ procedure sieve(x, s)
       if t % x ~= 0 then suspend t
    };
 end
-#------------- 884 ladder__rung29_builtins_display_lists_the_globals_iconx_lists
+```
+
+```stdout
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+```
+
+## ladder__rung29_builtins_display_lists_the_globals_iconx_lists
+
+```Icon
 record pt(x, y)
 global gi, gs, gl, gr, gt, gn1, gn2, gn3
 
@@ -8112,7 +17334,53 @@ procedure main()
    write("--");
    display(0, &output);
 end
-#- 885 ladder__rung42_kw_line_reads_the_line_of_the_instruction_that_follows_it_in_a_multi_line_call
+```
+
+```stdout
+co-expression_1(1)
+
+inner local identifiers:
+   a = 1
+   b = "x"
+   c = list_4 = [1,"x"]
+   d = "inner"
+   st = 42
+main local identifiers:
+   m = 5
+
+global identifiers:
+   display = function display
+   gi = 7
+   gl = list_2 = [3,list_1(2),record pt_1(2)]
+   gr = record pt_2(1,list_3(1))
+   gs = "hello"
+   gt = table_1(1)
+   inner = procedure inner
+   main = procedure main
+   pt = record constructor pt
+   table = function table
+   write = function write
+--
+co-expression_1(1)
+
+
+global identifiers:
+   display = function display
+   gi = 7
+   gl = list_2 = [3,list_1(2),record pt_1(2)]
+   gr = record pt_2(1,list_3(1))
+   gs = "hello"
+   gt = table_1(1)
+   inner = procedure inner
+   main = procedure main
+   pt = record constructor pt
+   table = function table
+   write = function write
+```
+
+## ladder__rung42_kw_line_reads_the_line_of_the_instruction_that_follows_it_in_a_multi_line_call
+
+```Icon
 procedure f(a, b)
    return a || "," || b;
 end
@@ -8143,7 +17411,26 @@ procedure main()
       &line,
       &line));
 end
-#- 886 ladder__rung19_toby_an_explicit_by_generates_as_iconx_from_integer_string_and_real_operands_and_converts_its_errors
+```
+
+```stdout
+6 6
+b 8
+d 10
+f 13,12
+h 15
+h 16
+i 17
+j 18
+l 20
+m 23
+n 25,  25
+o 29,27
+```
+
+## ladder__rung19_toby_an_explicit_by_generates_as_iconx_from_integer_string_and_real_operands_and_converts_its_errors
+
+```Icon
 procedure show(tag, x)
    writes(tag, ":");
    every writes(" ", x);
@@ -8176,7 +17463,54 @@ procedure main()
    show("r", 1 to 3 by "y");
    write("r err ", &errornumber);
 end
-#----------------------------------------- 887 procedure_every_elemgen_replace_5
+```
+
+```stdout
+a: 1
+a: 3
+a: 5
+b: 5
+b: 3
+b: 1
+e: -3
+e: 0
+e: 3
+f: 2
+f: 5
+f: 8
+g: 1
+g: 3
+g: 5
+j: 2
+j: 6
+k 10
+l: 1
+l: 2
+l: 3
+l: 4
+l: 1
+l: 3
+l: 2
+l: 3
+l: 4
+l: 2
+l: 4
+n: 10
+n: 7
+n: 4
+n: 1
+o: 4
+o: 5
+o: 6
+o: 7
+p err 211
+q err 101
+r err 101
+```
+
+## procedure_every_elemgen_replace_5
+
+```Icon
 # rung37_cset_ops.icn -- IJ-15: cset literal, cset() builtin, cset ops, augmented ops
 procedure main()
    local cs, cs2, cs3;
@@ -8210,7 +17544,26 @@ procedure main()
    # cset() from read string
    write(*cset("hello"));
 end
-#---------------------------------------------- 888 procedure_every_to_replace_4
+```
+
+```stdout
+cset
+cset
+cset
+'abcxyz'
+'acyz'
+'acyz'
+'abcd'
+'acd'
+'cd'
+a
+b
+4
+```
+
+## procedure_every_to_replace_4
+
+```Icon
 # rung37_file_io.icn — DT_FH typed file handle tests (IJ-13c)
 # Tests write/writes/read/reads/open/close routing via DT_FH descriptors.
 # scrip Icon requires explicit semicolons after every statement.
@@ -8244,7 +17597,19 @@ procedure main()
 
   write("done");
 end
-#---------------------------------------------- 889 procedure_alt_fail_replace_1
+```
+
+```stdout
+fh-write-ok
+fh-writes-ok
+file-content
+42
+done
+```
+
+## procedure_alt_fail_replace_1
+
+```Icon
 #SRC: IJ-11
 # rung37_keywords.icn -- verify icn_kw_read: type/image/size for cset keywords,
 # math constants, &error r/w, &fail, &null.
@@ -8297,27 +17662,119 @@ end
 procedure if_ok(x)
    return (x & "yes") | "no";
 end
-#------------------------------------------------------- 890 procedure_write_214
+```
+
+```stdout
+cset
+cset
+cset
+cset
+cset
+cset
+&lcase
+&ucase
+&digits
+&letters
+&ascii
+&cset
+26
+26
+10
+52
+128
+256
+yes
+yes
+yes
+null
+null-is-null
+fail-failed
+42
+0
+integer
+integer
+integer
+1
+```
+
+## procedure_write_214
+
+```Icon
 procedure main()
   local s;
   s := "hello world";
   s ? (tab(find("world")) & write(move(5)) & write(&pos));
 end
-#------------ 891 ladder__rung29_builtins_args_of_an_operator_value_is_its_arity
+```
+
+```stdout
+world
+12
+```
+
+## ladder__rung29_builtins_args_of_an_operator_value_is_its_arity
+
+```Icon
 procedure main()
    every s := !["+","-","*","/","\\","=","?","~","!","@","^",".","...","[:]","[]","||","|||","<","===","**","++","--","%"] do {
       every i := 0 to 3 do writes(s, "/", i, "=", (args(proc(s, i)) | "F"), " ");
       write(" dflt=", args(proc(s)) | "F")
    };
 end
-#------------------------------------------------- 892 scanning_asm__is03_coexpr
+```
+
+```stdout
++/0=F +/1=1 +/2=2 +/3=F  dflt=1
+-/0=F -/1=1 -/2=2 -/3=F  dflt=1
+*/0=F */1=1 */2=2 */3=F  dflt=1
+//0=F //1=1 //2=2 //3=F  dflt=1
+\/0=F \/1=1 \/2=F \/3=F  dflt=1
+=/0=F =/1=1 =/2=2 =/3=F  dflt=1
+?/0=F ?/1=1 ?/2=F ?/3=F  dflt=1
+~/0=F ~/1=1 ~/2=F ~/3=F  dflt=1
+!/0=F !/1=1 !/2=F !/3=F  dflt=1
+@/0=F @/1=F @/2=F @/3=F  dflt=F
+^/0=F ^/1=1 ^/2=2 ^/3=F  dflt=1
+./0=F ./1=1 ./2=F ./3=F  dflt=1
+.../0=F .../1=F .../2=F .../3=3  dflt=F
+[:]/0=F [:]/1=F [:]/2=F [:]/3=3  dflt=F
+[]/0=F []/1=F []/2=2 []/3=F  dflt=F
+||/0=F ||/1=F ||/2=2 ||/3=F  dflt=F
+|||/0=F |||/1=F |||/2=2 |||/3=F  dflt=F
+</0=F </1=F </2=2 </3=F  dflt=F
+===/0=F ===/1=F ===/2=2 ===/3=F  dflt=F
+**/0=F **/1=F **/2=2 **/3=F  dflt=F
+++/0=F ++/1=F ++/2=2 ++/3=F  dflt=F
+--/0=F --/1=F --/2=2 --/3=F  dflt=F
+%/0=F %/1=F %/2=2 %/3=F  dflt=F
+```
+
+## scanning_asm__is03_coexpr
+
+```Icon
 procedure main();
   local c;
   c := create { write("co sees ", &subject, " ", &pos); &pos := 4; "inner" ? { write("co inner ", &subject, " ", &pos); @&source; write("co back ", &subject, " ", &pos) }; write("co end ", &subject, " ", &pos) };
   "hello" ? { move(2); write("main ", &subject, " ", &pos); @c; write("main after @c ", &subject, " ", &pos); @c; write("main after second @c ", &subject, " ", &pos); @c; write("main after third @c ", &subject, " ", &pos) };
   write("outside ", image(&subject), " ", &pos);
 end
-#--------- 893 ladder__rung22_lists_a_null_test_of_a_generated_subscript_resumes
+```
+
+```stdout
+main hello 3
+co sees hello 3
+co inner inner 1
+main after @c inner 1
+co back inner 1
+co end hello 4
+main after second @c hello 4
+main after third @c hello 4
+outside "" 1
+```
+
+## ladder__rung22_lists_a_null_test_of_a_generated_subscript_resumes
+
+```Icon
 procedure main()
    local X, i;
    X := [1, &null, 3, &null];
@@ -8325,7 +17782,15 @@ procedure main()
    every writes(image(!X), " ");
    write();
 end
-#-------------------------------- 894 ladder__rung33_case_body_generator_resumes
+```
+
+```stdout
+1 20 3 40 
+```
+
+## ladder__rung33_case_body_generator_resumes
+
+```Icon
 procedure main()
    local x;
    every write(case 1 of { 1: 1 | 2 | 3; 2: 9 });
@@ -8333,7 +17798,22 @@ procedure main()
    write();
    every write((case 1 of { 1: 1 | 2 }) + (case 2 of { 2: 10 | 20 }));
 end
-#---------------------------------------------- 895 procedure_scan_tab_replace_2
+```
+
+```stdout
+1
+2
+3
+x y z 
+11
+21
+12
+22
+```
+
+## procedure_scan_tab_replace_2
+
+```Icon
 procedure main()
    local s, str;
    s := ".coord";
@@ -8341,7 +17821,15 @@ procedure main()
       if (str <- ="." & str ||:= tab(many(&digits))) then write("NUM") else write("pos=", &pos)
       };
 end
-#------------------- 896 ladder__rung05_scan_equals_through_a_value_restores_pos
+```
+
+```stdout
+pos=1
+```
+
+## ladder__rung05_scan_equals_through_a_value_restores_pos
+
+```Icon
 procedure main()
    local p, r;
    p := proc("=", 1);
@@ -8350,7 +17838,20 @@ procedure main()
    "abc" ? { r := []; every (p ! ["a"]) do push(r, &pos); write(*r, " pushed") };
    "abc" ? { (p("a") & ="x") | write("restored ", &pos) };
 end
-#------------------------------------------ 897 ladder_rung36_sets_delete_member
+```
+
+```stdout
+apply pos 2
+after 1
+call pos 2
+after 1
+1 pushed
+restored 1
+```
+
+## ladder_rung36_sets_delete_member
+
+```Icon
 procedure main()
   local s;
   s := set([1, 2, 3]);
@@ -8359,7 +17860,18 @@ procedure main()
   if member(s, 2) then write("bad") else write("absent");
   every write(!sort(s));
 end
-#---------------------------------------- 898 procedure_every_elemgen_replace_12
+```
+
+```stdout
+2
+absent
+1
+3
+```
+
+## procedure_every_elemgen_replace_12
+
+```Icon
 procedure main()
    local L;
    L := [1, pat() | fail];
@@ -8368,7 +17880,16 @@ end
 procedure pat()
    return "p";
 end
-#------------------------------------------------------- 899 procedure_write_225
+```
+
+```stdout
+1
+p
+```
+
+## procedure_write_225
+
+```Icon
 procedure main()
   local s;
   s := "abcdef";
@@ -8377,7 +17898,17 @@ procedure main()
     every write(!tab(0))
   };
 end
-#------------------------------------------------ 900 unicon__uni_bi_match_forms
+```
+
+```stdout
+d
+e
+f
+```
+
+## unicon__uni_bi_match_forms
+
+```Icon
 procedure main()
    write(image(match("abc", "xabcabc", 2)) | "none");
    write(image((7 ? =(1 to 10))) | "none");
@@ -8386,7 +17917,18 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------------ 901 unicon__uni_list_ext
+```
+
+```stdout
+5
+"7"
+"ab"
+none
+```
+
+## unicon__uni_list_ext
+
+```Icon
 procedure main()
    local L;
    L := [1, 2, 3, 4];
@@ -8395,7 +17937,18 @@ procedure main()
    delete(L, 1); every writes(" ", !L); write();
    write(*L, " ", L[-1], " ", image(sortf([[2, "b"], [1, "a"]], 2)[1][2]));
 end
-#--------------- 902 ladder__rung39_numbit_a_large_integer_is_a_scanning_subject
+```
+
+```stdout
+ 1 9 2 3 4
+ 4 3 2 9 1
+ 9 2 3 4
+4 4 "a"
+```
+
+## ladder__rung39_numbit_a_large_integer_is_a_scanning_subject
+
+```Icon
 procedure main()
    local i;
    i := 2 ^ 100;
@@ -8405,7 +17958,19 @@ procedure main()
    write(i[3:6]);
    write(find("26", i));
 end
-#---------------------------------------------------- 903 procedure_every_alt_45
+```
+
+```stdout
+12
+1
+31
+676
+2
+```
+
+## procedure_every_alt_45
+
+```Icon
 #  break as the body of an every yields &null under icont, exactly as it does in
 #  a while body.  SCRIP yields FAILURE instead, so the alternation falls through
 #  to "none".  Found by the ablation sweep for the lower_while condition-break
@@ -8415,7 +17980,16 @@ procedure main();
     write(image(every 1 to 3 do break) | "none");
     write("after");
 end
-#---------------------------- 904 ladder__rung22_lists_lconcat_alternation_right
+```
+
+```stdout
+&null
+after
+```
+
+## ladder__rung22_lists_lconcat_alternation_right
+
+```Icon
 procedure main()
   local x;
   write(*([1] ||| ([2, 5] | [3])));
@@ -8426,7 +18000,23 @@ procedure main()
   write();
   every write(*(([2] | [3, 4]) ||| ([5] | [6, 7, 8])));
 end
-#------------ 905 ladder__rung29_builtins_a_local_named_like_a_builtin_leaves_it
+```
+
+```stdout
+3
+2
+3
+2
+1 2 1 
+2
+4
+3
+5
+```
+
+## ladder__rung29_builtins_a_local_named_like_a_builtin_leaves_it
+
+```Icon
 procedure f()
    local right;
    right := 5;
@@ -8437,7 +18027,17 @@ procedure main()
    write(right("ab", 5), "|");
    "abcdef" ? { tab(3); write(&pos) };
 end
-#---------------------------------------------- 906 procedure_scan_alt_replace_3
+```
+
+```stdout
+5
+   ab|
+3
+```
+
+## procedure_scan_alt_replace_3
+
+```Icon
 procedure main()
    write(*&letters, " ", *&digits, " ", *&ascii, " ", *&cset, " ", *&lcase, " ", &letters[1:4]);
    write(image(&null), " ", image(&fail) | "fail-fails", " ", &level, " ", image(&current)[1:13]);
@@ -8448,7 +18048,21 @@ procedure main()
    write(&null === &null, " ", &fail | "f", " ", image(&errout)[1:6], " ", image(&output)[1:6], " ", image(&input)[1:6]);
    write((&ascii == string(&ascii), "ascii-eq"), " ", *string(&cset), " ", (&cset == cset(string(&cset)), "cset-eq"));
 end
-#------------------------------------------------------- 907 procedure_write_249
+```
+
+```stdout
+52 10 128 256 26 ABC
+&null fail-fails 1 co-expressio
+73 94 32
+1 ""   13579
+2.7 3.141 1.6
+ f &erro &outp &inpu
+ascii-eq 256 cset-eq
+```
+
+## procedure_write_249
+
+```Icon
 procedure main()
   local s;
   s := "f(a,b),rest";
@@ -8459,7 +18073,17 @@ procedure main()
     write(tab(0))
   };
 end
-#-------------------------------------------------- 908 unicon__uni_lex_listcomp
+```
+
+```stdout
+4
+f(a,b)
+rest
+```
+
+## unicon__uni_lex_listcomp
+
+```Icon
 procedure main()
    local L, T;
    L := [: 1 to 5 :];
@@ -8470,7 +18094,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#----------------- 909 ladder__rung41_rt_storage_grows_when_a_block_is_allocated
+```
+
+```stdout
+5 1 5
+ 10 20 30
+2 failed
+```
+
+## ladder__rung41_rt_storage_grows_when_a_block_is_allocated
+
+```Icon
 procedure main()
    local L, a, b, n;
    n := 0;
@@ -8482,7 +18116,17 @@ procedure main()
    write("block region grows: ", if b > a then "yes" else "no");
    write("non-negative: ", if &storage >= 0 then "yes" else "no");
 end
-#------------------------------------------------- 910 unicon__uni_gc_brace_call
+```
+
+```stdout
+values: 3
+block region grows: yes
+non-negative: yes
+```
+
+## unicon__uni_gc_brace_call
+
+```Icon
 procedure main()
    local n, L;
    n := 0;
@@ -8494,7 +18138,15 @@ procedure dummy(L)
 end
 class UniconMarker()
 end
-#---------- 911 ladder__rung22_alt_an_arm_with_a_box_after_its_to_resumes_the_to
+```
+
+```stdout
+12000
+```
+
+## ladder__rung22_alt_an_arm_with_a_box_after_its_to_resumes_the_to
+
+```Icon
 procedure main()
    local x, n;
    n := 3;
@@ -8507,7 +18159,21 @@ procedure main()
    every x := ((1 to 2) + 0) | 5 do writes(x * 10, " ");
    write();
 end
-#------- 912 ladder__rung24_records_a_static_named_like_a_field_leaves_the_field
+```
+
+```stdout
+1 2 3 9 
+1 2 3 9 
+a1 a2 a3 9 
+1 2 9 
+11 21 12 22 15 25 
+1 2 3 7 8 
+10 20 50 
+```
+
+## ladder__rung24_records_a_static_named_like_a_field_leaves_the_field
+
+```Icon
 record th(win, type, ax)
 record fr(win, thumb)
 procedure f(s)
@@ -8520,7 +18186,16 @@ procedure main()
    f(fr(1, th(2, "v", 3)));
    f(fr(1, th(2, &null, 3)));
 end
-#------------------------------------------------------- 913 procedure_write_250
+```
+
+```stdout
+vertical v
+horizontal
+```
+
+## procedure_write_250
+
+```Icon
 procedure main()
   local t, i, k;
   t := table();
@@ -8533,7 +18208,282 @@ procedure main()
   every k := key(t) do write(image(k), " -> ", t[k]);
   every write(!t);
 end
-#- 914 ladder__rung38_coexpr_activating_a_value_that_is_not_a_coexpression_is_error_118
+```
+
+```stdout
+0 -> int
+"" -> empty
+"lab_199" -> 124
+"lab_757" -> 61
+"lab_170" -> 111
+"lab_327" -> 77
+"lab_389" -> 70
+"lab_790" -> 41
+"lab_947" -> 7
+"abcdefghij" -> ten
+"lab_360" -> 57
+"lab_517" -> 23
+"lab_579" -> 16
+"lab_629" -> 108
+1.25 -> real
+"lab_21" -> -79
+"lab_83" -> 72
+"lab_149" -> 32
+"lab_550" -> 3
+"lab_600" -> 95
+"lab_662" -> 88
+"lab_819" -> 54
+"abcdefghijkl" -> twelve
+"lab_182" -> 12
+"lab_232" -> 104
+"lab_294" -> 97
+"lab_852" -> 34
+"lab_902" -> 126
+"lab_964" -> 119
+49480 -> int
+"lab_422" -> 50
+"lab_484" -> 43
+"lab_596" -> 128
+"lab_724" -> 81
+"lab_786" -> 74
+"lab_244" -> 5
+"lab_356" -> 90
+"lab_914" -> -27
+"lab_976" -> 20
+"lab_17" -> 112
+"lab_79" -> -105
+"lab_546" -> 36
+"lab_658" -> 121
+"lab_1005" -> 33
+1.0 -> real
+43295 -> int
+"lab_50" -> -92
+"lab_116" -> 52
+"lab_178" -> 45
+"lab_691" -> 101
+"lab_848" -> 67
+"lab_261" -> 117
+"lab_418" -> 83
+"lab_881" -> 47
+"lab_29" -> 13
+"lab_451" -> 63
+"lab_608" -> 29
+37110 -> int
+"lab_641" -> 9
+"lab_753" -> 94
+"lab_211" -> 25
+"lab_273" -> 18
+"lab_323" -> 110
+"lab_385" -> 103
+"lab_943" -> -40
+0.75 -> real
+"lab_46" -> 125
+"lab_513" -> 56
+"lab_575" -> 49
+30925 -> int
+"lab_145" -> 65
+"lab_703" -> 2
+"lab_815" -> 87
+"lab_877" -> 80
+"lab_290" -> 130
+"lab_335" -> 11
+"lab_397" -> 4
+"lab_447" -> 96
+"lab_58" -> 26
+"lab_480" -> 76
+"lab_637" -> 42
+"lab_699" -> 35
+24740 -> int
+"lab_91" -> 6
+"lab_207" -> 58
+"lab_269" -> 51
+"lab_670" -> 22
+"lab_720" -> 114
+"lab_782" -> 107
+"lab_240" -> 38
+"lab_352" -> 123
+"lab_509" -> 89
+"lab_910" -> 60
+"lab_972" -> -53
+0.5 -> real
+"lab_542" -> 69
+"lab_1001" -> -66
+"lab_112" -> 85
+"lab_174" -> 78
+"lab_732" -> 15
+"lab_794" -> 8
+18555 -> int
+"lab_302" -> 31
+"lab_364" -> 24
+"lab_414" -> 116
+"lab_87" -> 39
+"lab_604" -> 62
+"lab_236" -> 71
+"lab_856" -> -1
+"lab_906" -> 93
+"lab_968" -> 86
+12370 -> int
+"lab_426" -> 17
+"lab_538" -> 102
+0.25 -> real
+"lab_108" -> -118
+"lab_728" -> 48
+"lab_141" -> 98
+"lab_811" -> 120
+"lab_873" -> 113
+6185 -> int
+"lab_331" -> 44
+"lab_443" -> 129
+"lab_54" -> 59
+"lab_633" -> 75
+"lab_695" -> 68
+"lab_265" -> 84
+"lab_823" -> 21
+"lab_885" -> -14
+"lab_935" -> 106
+"lab_997" -> 99
+"lab_455" -> 30
+"lab_505" -> 122
+"lab_567" -> 115
+int
+empty
+124
+61
+111
+77
+70
+41
+7
+ten
+57
+23
+16
+108
+real
+-79
+72
+32
+3
+95
+88
+54
+twelve
+12
+104
+97
+34
+126
+119
+int
+50
+43
+128
+81
+74
+5
+90
+-27
+20
+112
+-105
+36
+121
+33
+real
+int
+-92
+52
+45
+101
+67
+117
+83
+47
+13
+63
+29
+int
+9
+94
+25
+18
+110
+103
+-40
+real
+125
+56
+49
+int
+65
+2
+87
+80
+130
+11
+4
+96
+26
+76
+42
+35
+int
+6
+58
+51
+22
+114
+107
+38
+123
+89
+60
+-53
+real
+69
+-66
+85
+78
+15
+8
+int
+31
+24
+116
+39
+62
+71
+-1
+93
+86
+int
+17
+102
+real
+-118
+48
+98
+120
+113
+int
+44
+129
+59
+75
+68
+84
+21
+-14
+106
+99
+30
+122
+115
+```
+
+## ladder__rung38_coexpr_activating_a_value_that_is_not_a_coexpression_is_error_118
+
+```Icon
 procedure main();
   local x, c;
   &error := 4;
@@ -8547,7 +18497,21 @@ procedure main();
   ([1] @ c) | write("c is exhausted");
   write("errors left: ", &error);
 end
-#------------------------------------------------------ 915 procedure_scan_tab_4
+```
+
+```stdout
+x @ 5 fails: 118 5
+@"abc" fails: 118 "abc"
+@x fails: 118 3
+@&null fails: 118 &null
+1 2
+c is exhausted
+errors left: 0
+```
+
+## procedure_scan_tab_4
+
+```Icon
 procedure main()
    local s, str;
    s := ".abc";
@@ -8561,7 +18525,17 @@ procedure main()
       if ="." & ="9" then write("C REAL") else write("C pos=", &pos)
       };
 end
-#------------------------------------------- 916 unicon__uni_posix_system_nowait
+```
+
+```stdout
+A pos=1
+B pos=1
+C pos=1
+```
+
+## unicon__uni_posix_system_nowait
+
+```Icon
 procedure main()
    local L, pid;
    L := pipe() | stop("pipe: ", &errortext);
@@ -8575,7 +18549,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------------------------------------------ 917 gc_hb_coexpr_refresh
+```
+
+```stdout
+integer
+     1	b
+     2	a
+     3	c
+spawn done
+```
+
+## gc_hb_coexpr_refresh
+
+```Icon
 # WITNESS for ^e REFRESH FROM THE ON-STACK IMAGE: the co-expression body reads the creator's locals as they were at
 # creation; two activations advance it; a refresh restarts from the pristine image while every block has moved.
 procedure main()
@@ -8590,7 +18576,19 @@ procedure main()
    write(@e);
    write(@f);
 end
-#----------------------------------------------------- 918 unicon__uni_pm_commit
+```
+
+```stdout
+BASE-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm-END1
+BASE-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm-END2
+BASE-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm-END1
+BASE-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm-END3
+BASE-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm-END2
+```
+
+## unicon__uni_pm_commit
+
+```Icon
 global a, b
 procedure main()
    local p, s, c;
@@ -8605,7 +18603,22 @@ procedure main()
    every write("[" || (s ?? p) || "]");
    write("c=", \c);
 end
-#----------------------------------- 919 unicon__uni_membernames_of_a_class_name
+```
+
+```stdout
+[bz]
+a=b
+[a]
+[b]
+[z]
+b=z
+[bz]
+c=b
+```
+
+## unicon__uni_membernames_of_a_class_name
+
+```Icon
 class S(d, e, f)
    method m1()
    end
@@ -8621,7 +18634,19 @@ procedure main()
    every writes(" ", !methodnames("S")); write();
    write(image(membernames("NoSuch")) | "fails");
 end
-#------------------------------------------------------ 920 procedure_alt_case_1
+```
+
+```stdout
+ __s __m d e f
+ d e f
+ S_m1 S_m2
+ S_m1 S_m2
+fails
+```
+
+## procedure_alt_case_1
+
+```Icon
 procedure main()
    local pending, symbol, n;
    pending := ["A"];
@@ -8638,7 +18663,17 @@ procedure main()
       };
    write("iters=", n, " (expect 3)");
 end
-#------ 921 ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump
+```
+
+```stdout
+int=1
+int=2
+iters=3 (expect 3)
+```
+
+## ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump
+
+```Icon
 procedure main()
    local r, x;
    &random := 11; r := 99;
@@ -8659,7 +18694,28 @@ procedure main()
    (&error <-> r) & write(&error, " ", r) & &fail;
    write(&error, " ", r);
 end
-#------------------------------------------- 922 procedure_record_scan_replace_1
+```
+
+```stdout
+99 11
+11 99
+99 11
+99 11
+a: 11 5
+a: 11 5
+1: 5 11
+c: 5 7
+c: 5 7
+3: 7 5
+2 0
+0 2
+3 0
+0 3
+```
+
+## procedure_record_scan_replace_1
+
+```Icon
 #  Not write()-specific and not literal-specific: a user-defined procedure loses
 #  its argument, a LIST CONSTRUCTOR loses its element, and a VARIABLE operand is
 #  lost just as a literal is.
@@ -8680,7 +18736,17 @@ procedure main()
    v := "A";
    "112 xy" ? { x := tab(4); write(v, x, "C") };
 end
-#------------------------------------------------------- 923 procedure_write_276
+```
+
+```stdout
+f:A/112/C
+A 112 C
+A112C
+```
+
+## procedure_write_276
+
+```Icon
 global Msg
 procedure main()
   local p;
@@ -8701,7 +18767,20 @@ end
 procedure Error(s[])
   return Msg!s;
 end
-#----------------------------------------------- 924 unicon__uni_class_initially
+```
+
+```stdout
+procedure UnixMsg
+a3b
+xy
+loc
+dir
+A:end
+```
+
+## unicon__uni_class_initially
+
+```Icon
 class Stack(items, n)
    method push(v)
       put(items, v); n +:= 1; return self;
@@ -8722,7 +18801,16 @@ procedure main()
    write(s.n, " ", s.pop(), " ", s.pop(), " ", s.n);
    write(Named("a").name, " ", image(Named("b").name));
 end
-#------------------------------------------ 925 unicon__uni_posix_mcast_implicit
+```
+
+```stdout
+1 3 2 1
+<a> "<b>"
+```
+
+## unicon__uni_posix_mcast_implicit
+
+```Icon
 procedure recv1(label, f, s, msg)
    writes(s, msg);
    if *select(f, 3000) > 0 then write(label, ": got ", receive(f).msg) else write(label, ": timeout");
@@ -8744,7 +18832,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#----------------------------------------- 926 procedure_record_every_replace_10
+```
+
+```stdout
+group bind: got hello-implicit
+source at: got hello-ssm-at
+source attr: got hello-ssm-source
+source without group: bad socket attribute
+implicit done
+```
+
+## procedure_record_every_replace_10
+
+```Icon
 record trip(a, b, c)
 
 procedure main()
@@ -8768,7 +18868,30 @@ procedure main()
   every write(!L);
   write(?"hi");
 end
-#----------------------------------------------- 927 ladder__rung48_thread_forms
+```
+
+```stdout
+22
+42
+10
+99
+30
+40
+50
+abXde
+77
+42 2 3
+11
+99
+30
+40
+50
+i
+```
+
+## ladder__rung48_thread_forms
+
+```Icon
 global mtx, total
 procedure bump(n);
   every 1 to n do critical mtx: total +:= 2;
@@ -8793,7 +18916,23 @@ procedure main();
     write("still in");
   };
 end
-#------------------------------------------------- 928 gc_hb_cv_spine_plain_redo
+```
+
+```stdout
+none
+pair 15
+pair 25
+1
+30
+lock returns the mutex
+unlock returns the mutex
+in the block
+still in
+```
+
+## gc_hb_cv_spine_plain_redo
+
+```Icon
 procedure p1()
    return 1;
 end
@@ -8822,7 +18961,19 @@ procedure main()
    f := p1;
    write("sum ", f() + f());
 end
-#----------------------------------------- 929 procedure_record_every_replace_16
+```
+
+```stdout
+plain every count 1
+gen every count 2
+cmp failed as expected
+repeat count 3
+sum 2
+```
+
+## procedure_record_every_replace_16
+
+```Icon
 #  ORACLE PROBE, minted BEFORE the cure (hq_V 2026-09-09, MODE NONET oracle-probe lane).
 #  ROOT behind TWO icon-master reds: procedure_write_257 and procedure_record_every_replace_14,
 #  both of which diverge on the FIRST copy() of a record and then stay one serial behind for the
@@ -8853,7 +19004,23 @@ procedure main()
    write("H:", image(t));
    write("I:", image(copy(t)));
 end
-#---------------------------------------------- 930 procedure_every_to_replace_2
+```
+
+```stdout
+A:record r_1(1)
+B:record r_2(1)
+C:record r_3(1)
+D:list_1(0)
+E:list_2(0)
+F:set_1(0)
+G:set_2(0)
+H:table_1(0)
+I:table_2(0)
+```
+
+## procedure_every_to_replace_2
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -8886,7 +19053,179 @@ procedure xprint(s1,s2,j,k)
    write(s1);
    every write(right(s2[ k+1 to *s2 ],j));
 end
-#-------------------------------------------- 931 procedure_every_alt_replace_15
+```
+
+```stdin
+elephants:peanuts
+encroachment:roaches
+gaggle:geese
+```
+
+```stdout
+
+
+p
+elephants
+a
+n
+u
+t
+s
+
+  p
+elephants
+  a
+  n
+  u
+  t
+  s
+
+elephants
+   e
+   a
+   n
+   u
+   t
+   s
+
+     p
+     e
+elephants
+     n
+     u
+     t
+     s
+
+      p
+      e
+      a
+elephants
+      u
+      t
+      s
+
+       p
+       e
+       a
+       n
+       u
+elephants
+       s
+
+        p
+        e
+        a
+        n
+        u
+        t
+elephants
+
+
+r
+o
+a
+c
+h
+encroachment
+s
+
+  r
+  o
+  a
+encroachment
+  h
+  e
+  s
+
+encroachment
+   o
+   a
+   c
+   h
+   e
+   s
+
+    r
+encroachment
+    a
+    c
+    h
+    e
+    s
+
+     r
+     o
+encroachment
+     c
+     h
+     e
+     s
+
+      r
+      o
+      a
+encroachment
+      h
+      e
+      s
+
+       r
+       o
+       a
+       c
+encroachment
+       e
+       s
+
+         r
+         o
+         a
+         c
+         h
+encroachment
+         s
+
+
+gaggle
+e
+e
+s
+e
+
+gaggle
+  e
+  e
+  s
+  e
+
+gaggle
+   e
+   e
+   s
+   e
+
+     g
+gaggle
+     e
+     s
+     e
+
+     g
+     e
+gaggle
+     s
+     e
+
+     g
+     e
+     e
+     s
+gaggle
+```
+
+## procedure_every_alt_replace_15
+
+```Icon
 #SRC: V9GEN
 
 procedure main ()
@@ -8925,7 +19264,304 @@ end
 
 procedure foo(x)
 end
-#- 932 ladder__rung02_proc_a_break_out_of_an_inner_every_inside_an_if_leaves_the_procedure_frame_balanced
+```
+
+```stdout
+111111111111111111111 + 111111111111111111111 = 222222222222222222222
+111111111111111111111 + -111111111111111111111 = 0
+111111111111111111111 + 4 = 111111111111111111115
+111111111111111111111 + -4 = 111111111111111111107
+-111111111111111111111 + 111111111111111111111 = 0
+-111111111111111111111 + -111111111111111111111 = -222222222222222222222
+-111111111111111111111 + 4 = -111111111111111111107
+-111111111111111111111 + -4 = -111111111111111111115
+4 + 111111111111111111111 = 111111111111111111115
+4 + -111111111111111111111 = -111111111111111111107
+4 + 4 = 8
+4 + -4 = 0
+-4 + 111111111111111111111 = 111111111111111111107
+-4 + -111111111111111111111 = -111111111111111111115
+-4 + 4 = 0
+-4 + -4 = -8
+111111111111111111111 - 111111111111111111111 = 0
+111111111111111111111 - -111111111111111111111 = 222222222222222222222
+111111111111111111111 - 4 = 111111111111111111107
+111111111111111111111 - -4 = 111111111111111111115
+-111111111111111111111 - 111111111111111111111 = -222222222222222222222
+-111111111111111111111 - -111111111111111111111 = 0
+-111111111111111111111 - 4 = -111111111111111111115
+-111111111111111111111 - -4 = -111111111111111111107
+4 - 111111111111111111111 = -111111111111111111107
+4 - -111111111111111111111 = 111111111111111111115
+4 - 4 = 0
+4 - -4 = 8
+-4 - 111111111111111111111 = -111111111111111111115
+-4 - -111111111111111111111 = 111111111111111111107
+-4 - 4 = -8
+-4 - -4 = 0
+111111111111111111111 * 111111111111111111111 = 12345679012345679012320987654320987654321
+111111111111111111111 * -111111111111111111111 = -12345679012345679012320987654320987654321
+111111111111111111111 * 4 = 444444444444444444444
+111111111111111111111 * -4 = -444444444444444444444
+-111111111111111111111 * 111111111111111111111 = -12345679012345679012320987654320987654321
+-111111111111111111111 * -111111111111111111111 = 12345679012345679012320987654320987654321
+-111111111111111111111 * 4 = -444444444444444444444
+-111111111111111111111 * -4 = 444444444444444444444
+4 * 111111111111111111111 = 444444444444444444444
+4 * -111111111111111111111 = -444444444444444444444
+4 * 4 = 16
+4 * -4 = -16
+-4 * 111111111111111111111 = -444444444444444444444
+-4 * -111111111111111111111 = 444444444444444444444
+-4 * 4 = -16
+-4 * -4 = 16
+111111111111111111111 / 111111111111111111111 = 1
+111111111111111111111 / -111111111111111111111 = -1
+111111111111111111111 / 4 = 27777777777777777777
+111111111111111111111 / -4 = -27777777777777777777
+-111111111111111111111 / 111111111111111111111 = -1
+-111111111111111111111 / -111111111111111111111 = 1
+-111111111111111111111 / 4 = -27777777777777777777
+-111111111111111111111 / -4 = 27777777777777777777
+4 / 111111111111111111111 = 0
+4 / -111111111111111111111 = 0
+4 / 4 = 1
+4 / -4 = -1
+-4 / 111111111111111111111 = 0
+-4 / -111111111111111111111 = 0
+-4 / 4 = -1
+-4 / -4 = 1
+111111111111111111111 % 111111111111111111111 = 0
+111111111111111111111 % -111111111111111111111 = 0
+111111111111111111111 % 4 = 3
+111111111111111111111 % -4 = 3
+-111111111111111111111 % 111111111111111111111 = 0
+-111111111111111111111 % -111111111111111111111 = 0
+-111111111111111111111 % 4 = -3
+-111111111111111111111 % -4 = -3
+4 % 111111111111111111111 = 4
+4 % -111111111111111111111 = 4
+4 % 4 = 0
+4 % -4 = 0
+-4 % 111111111111111111111 = -4
+-4 % -111111111111111111111 = -4
+-4 % 4 = 0
+-4 % -4 = 0
+111111111111111111111 iand 111111111111111111111 = 111111111111111111111
+111111111111111111111 iand -111111111111111111111 = 1
+111111111111111111111 iand 4 = 4
+111111111111111111111 iand -4 = 111111111111111111108
+-111111111111111111111 iand 111111111111111111111 = 1
+-111111111111111111111 iand -111111111111111111111 = -111111111111111111111
+-111111111111111111111 iand 4 = 0
+-111111111111111111111 iand -4 = -111111111111111111112
+4 iand 111111111111111111111 = 4
+4 iand -111111111111111111111 = 0
+4 iand 4 = 4
+4 iand -4 = 4
+-4 iand 111111111111111111111 = 111111111111111111108
+-4 iand -111111111111111111111 = -111111111111111111112
+-4 iand 4 = 4
+-4 iand -4 = -4
+111111111111111111111 ior 111111111111111111111 = 111111111111111111111
+111111111111111111111 ior -111111111111111111111 = -1
+111111111111111111111 ior 4 = 111111111111111111111
+111111111111111111111 ior -4 = -1
+-111111111111111111111 ior 111111111111111111111 = -1
+-111111111111111111111 ior -111111111111111111111 = -111111111111111111111
+-111111111111111111111 ior 4 = -111111111111111111107
+-111111111111111111111 ior -4 = -3
+4 ior 111111111111111111111 = 111111111111111111111
+4 ior -111111111111111111111 = -111111111111111111107
+4 ior 4 = 4
+4 ior -4 = -4
+-4 ior 111111111111111111111 = -1
+-4 ior -111111111111111111111 = -3
+-4 ior 4 = -4
+-4 ior -4 = -4
+111111111111111111111 ixor 111111111111111111111 = 0
+111111111111111111111 ixor -111111111111111111111 = -2
+111111111111111111111 ixor 4 = 111111111111111111107
+111111111111111111111 ixor -4 = -111111111111111111109
+-111111111111111111111 ixor 111111111111111111111 = -2
+-111111111111111111111 ixor -111111111111111111111 = 0
+-111111111111111111111 ixor 4 = -111111111111111111107
+-111111111111111111111 ixor -4 = 111111111111111111109
+4 ixor 111111111111111111111 = 111111111111111111107
+4 ixor -111111111111111111111 = -111111111111111111107
+4 ixor 4 = 0
+4 ixor -4 = -8
+-4 ixor 111111111111111111111 = -111111111111111111109
+-4 ixor -111111111111111111111 = 111111111111111111109
+-4 ixor 4 = -8
+-4 ixor -4 = 0
+111111111111111111111 < 111111111111111111111 = none
+111111111111111111111 < -111111111111111111111 = none
+111111111111111111111 < 4 = none
+111111111111111111111 < -4 = none
+-111111111111111111111 < 111111111111111111111 = 111111111111111111111
+-111111111111111111111 < -111111111111111111111 = none
+-111111111111111111111 < 4 = 4
+-111111111111111111111 < -4 = -4
+4 < 111111111111111111111 = 111111111111111111111
+4 < -111111111111111111111 = none
+4 < 4 = none
+4 < -4 = none
+-4 < 111111111111111111111 = 111111111111111111111
+-4 < -111111111111111111111 = none
+-4 < 4 = 4
+-4 < -4 = none
+111111111111111111111 = 111111111111111111111 = 111111111111111111111
+111111111111111111111 = -111111111111111111111 = none
+111111111111111111111 = 4 = none
+111111111111111111111 = -4 = none
+-111111111111111111111 = 111111111111111111111 = none
+-111111111111111111111 = -111111111111111111111 = -111111111111111111111
+-111111111111111111111 = 4 = none
+-111111111111111111111 = -4 = none
+4 = 111111111111111111111 = none
+4 = -111111111111111111111 = none
+4 = 4 = 4
+4 = -4 = none
+-4 = 111111111111111111111 = none
+-4 = -111111111111111111111 = none
+-4 = 4 = none
+-4 = -4 = -4
+111111111111111111111 + 2222222222 = 111111111113333333333
+111111111111111111111 + 3333333333 = 111111111114444444444
+111111111111111111111 + -3333333333 = 111111111107777777778
+2222222222 + 2222222222 = 4444444444
+2222222222 + 3333333333 = 5555555555
+2222222222 + -3333333333 = -1111111111
+-2222222222 + 2222222222 = 0
+-2222222222 + 3333333333 = 1111111111
+-2222222222 + -3333333333 = -5555555555
+111111111111111111111 - 2222222222 = 111111111108888888889
+111111111111111111111 - 3333333333 = 111111111107777777778
+111111111111111111111 - -3333333333 = 111111111114444444444
+2222222222 - 2222222222 = 0
+2222222222 - 3333333333 = -1111111111
+2222222222 - -3333333333 = 5555555555
+-2222222222 - 2222222222 = -4444444444
+-2222222222 - 3333333333 = -5555555555
+-2222222222 - -3333333333 = 1111111111
+111111111111111111111 * 2222222222 = 246913580222222222221975308642
+111111111111111111111 * 3333333333 = 370370370333333333332962962963
+111111111111111111111 * -3333333333 = -370370370333333333332962962963
+2222222222 * 2222222222 = 4938271603950617284
+2222222222 * 3333333333 = 7407407405925925926
+2222222222 * -3333333333 = -7407407405925925926
+-2222222222 * 2222222222 = -4938271603950617284
+-2222222222 * 3333333333 = -7407407405925925926
+-2222222222 * -3333333333 = 7407407405925925926
+111111111111111111111 / 2222222222 = 50000000005
+111111111111111111111 / 3333333333 = 33333333336
+111111111111111111111 / -3333333333 = -33333333336
+2222222222 / 2222222222 = 1
+2222222222 / 3333333333 = 0
+2222222222 / -3333333333 = 0
+-2222222222 / 2222222222 = -1
+-2222222222 / 3333333333 = 0
+-2222222222 / -3333333333 = 0
+111111111111111111111 % 2222222222 = 1
+111111111111111111111 % 3333333333 = 2222222223
+111111111111111111111 % -3333333333 = 2222222223
+2222222222 % 2222222222 = 0
+2222222222 % 3333333333 = 2222222222
+2222222222 % -3333333333 = 2222222222
+-2222222222 % 2222222222 = 0
+-2222222222 % 3333333333 = -2222222222
+-2222222222 % -3333333333 = -2222222222
+111111111111111111111 iand 2222222222 = 3432838
+111111111111111111111 iand 3333333333 = 11280709
+111111111111111111111 iand -3333333333 = 111111111111099830403
+2222222222 iand 2222222222 = 2222222222
+2222222222 iand 3333333333 = 2216960260
+2222222222 iand -3333333333 = 5261962
+-2222222222 iand 2222222222 = 2
+-2222222222 iand 3333333333 = 1116373072
+-2222222222 iand -3333333333 = -3338595294
+111111111111111111111 ior 2222222222 = 111111111113329900495
+111111111111111111111 ior 3333333333 = 111111111114433163735
+111111111111111111111 ior -3333333333 = -3322052625
+2222222222 ior 2222222222 = 2222222222
+2222222222 ior 3333333333 = 3338595295
+2222222222 ior -3333333333 = -1116373073
+-2222222222 ior 2222222222 = -2
+-2222222222 ior 3333333333 = -5261961
+-2222222222 ior -3333333333 = -2216960261
+111111111111111111111 ixor 2222222222 = 111111111113326467657
+111111111111111111111 ixor 3333333333 = 111111111114421883026
+111111111111111111111 ixor -3333333333 = -111111111114421883028
+2222222222 ixor 2222222222 = 0
+2222222222 ixor 3333333333 = 1121635035
+2222222222 ixor -3333333333 = -1121635035
+-2222222222 ixor 2222222222 = -4
+-2222222222 ixor 3333333333 = -1121635033
+-2222222222 ixor -3333333333 = 1121635033
+111111111111111111111 < 2222222222 = none
+111111111111111111111 < 3333333333 = none
+111111111111111111111 < -3333333333 = none
+2222222222 < 2222222222 = none
+2222222222 < 3333333333 = 3333333333
+2222222222 < -3333333333 = none
+-2222222222 < 2222222222 = 2222222222
+-2222222222 < 3333333333 = 3333333333
+-2222222222 < -3333333333 = none
+111111111111111111111 = 2222222222 = none
+111111111111111111111 = 3333333333 = none
+111111111111111111111 = -3333333333 = none
+2222222222 = 2222222222 = 2222222222
+2222222222 = 3333333333 = none
+2222222222 = -3333333333 = none
+-2222222222 = 2222222222 = none
+-2222222222 = 3333333333 = none
+-2222222222 = -3333333333 = none
+111111111111111111111 ^ 2 = 12345679012345679012320987654320987654321
+111111111111111111111 ^ 5 = 16935087808430286710951921285711866416027536452776507646192145336923571948720554116157767278023336551
+-111111111111111111111 ^ 2 = 12345679012345679012320987654320987654321
+-111111111111111111111 ^ 5 = -16935087808430286710951921285711866416027536452776507646192145336923571948720554116157767278023336551
+4 ^ 2 = 16
+4 ^ 5 = 1024
+-4 ^ 2 = 16
+-4 ^ 5 = -1024
+2 ^ 10 = 1024
+2 ^ 30 = 1073741824
+3 ^ 10 = 59049
+3 ^ 30 = 205891132094649
+111111111111111111111 ishift 1 = 222222222222222222222
+111111111111111111111 ishift 8 = 28444444444444444444416
+111111111111111111111 ishift -1 = 55555555555555555555
+111111111111111111111 ishift -39 = 202109933
+-111111111111111111111 ishift 1 = -222222222222222222222
+-111111111111111111111 ishift 8 = -28444444444444444444416
+-111111111111111111111 ishift -1 = -55555555555555555556
+-111111111111111111111 ishift -39 = -202109934
+2222222222 ishift 1 = 4444444444
+2222222222 ishift 8 = 568888888832
+2222222222 ishift -1 = 1111111111
+2222222222 ishift -39 = 0
+-2222222222 ishift 1 = -4444444444
+-2222222222 ishift 8 = -568888888832
+-2222222222 ishift -1 = -1111111111
+-2222222222 ishift -39 = -1
+4 ishift 1 = 8
+4 ishift 8 = 1024
+4 ishift -1 = 2
+4 ishift -39 = 0
+1024
+1024:1024
+1073741824
+1073741824:1073741824
+1180591620717411303424
+1180591620717411303424:1180591620717411303424
+1267650600228229401496703205376
+1267650600228229401496703205376:integer(~10^30)
+```
+
+## ladder__rung02_proc_a_break_out_of_an_inner_every_inside_an_if_leaves_the_procedure_frame_balanced
+
+```Icon
 global w, h, wr, hr
 procedure do_y(y)
    local bit_num, byte_acc, x, Zr, Zi, Cr, Ci, Tr, Ti, i, rv;
@@ -8971,7 +19607,19 @@ procedure main()
    };
    write(n);
 end
-#---------------------------------------- 933 unicon__uni_lex_typed_params_names
+```
+
+```stdout
+30 8 7 224
+31 8 7 224
+32 8 255 128
+33 8 7 224
+32
+```
+
+## unicon__uni_lex_typed_params_names
+
+```Icon
 record point(x, y)
 procedure r(pt : point);
    write("r ", type(pt));
@@ -9027,13 +19675,53 @@ class Box(w)
 initially(start : integer : 10)
    w := start;
 end
-#--------------------------------- 934 unicon__uni_break_value_under_every_limit
+```
+
+```stdout
+r point
+k &digits
+k "given"
+l list 0
+l list 2
+t 0
+t 1
+c 'abc'
+c 'z'
+n 41
+m 7
+box 11
+box 16
+box 21
+r integer
+r refused: 123 5
+t 1
+t refused: 123 5
+n "zz"
+n refused: 101 "zz"
+n &null
+n refused: 101 &null
+m "q"
+m refused: 102 "q"
+errors left 1
+```
+
+## unicon__uni_break_value_under_every_limit
+
+```Icon
 procedure main();
     local r, i;
     r := every i := 1 to 2 do (break (i * 10 | 5))\1;
     write(image(r));
 end
-#----------------------------------------------- 935 unicon__uni_bi_bang_integer
+```
+
+```stdout
+10
+```
+
+## unicon__uni_bi_bang_integer
+
+```Icon
 procedure main()
    local n, s;
    n := 0; every n +:= !5; write(n);
@@ -9044,7 +19732,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#----------------------------------------- 936 procedure_record_coexpr_replace_4
+```
+
+```stdout
+15
+ 1 2 3
+500500
+ a b
+none
+```
+
+## procedure_record_coexpr_replace_4
+
+```Icon
 #  WITNESS (hq_I): the same record-through-a-generator, reached through a CO-EXPRESSION instead of every.
 record token(type, string)
 procedure main()
@@ -9056,7 +19756,16 @@ procedure gen()
    suspend token("a", "1");
    suspend token("b", "2");
 end
-#-------------------------------------------------- 937 unicon__uni_co_call_args
+```
+
+```stdout
+a 1
+b 2
+```
+
+## unicon__uni_co_call_args
+
+```Icon
 procedure main()
    local s, move5, move4;
    move5 := create |(move(5) \ 1);
@@ -9068,7 +19777,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#-------------------------------------------- 938 procedure_scan_while_replace_2
+```
+
+```stdout
+Now i
+e tim
+r all
+d men
+===
+```
+
+## procedure_scan_while_replace_2
+
+```Icon
 # SCRIP DEMO2 -- Word Count (Icon section)
 # Idiom: string scanning with tab(upto)/tab(many) generator
 procedure main()
@@ -9082,7 +19803,15 @@ procedure main()
     };
     write(count);
 end
-#-------------------------------------------- 939 procedure_scan_while_replace_3
+```
+
+```stdout
+9
+```
+
+## procedure_scan_while_replace_3
+
+```Icon
 # SCRIP DEMO2 -- Word Count (Icon section)
 # Idiom: string scanning with tab(upto)/tab(many) generator
 procedure main()
@@ -9096,7 +19825,15 @@ procedure main()
     };
     write(count);
 end
-#--------------------------------------------- 940 procedure_alt_limit_replace_2
+```
+
+```stdout
+9
+```
+
+## procedure_alt_limit_replace_2
+
+```Icon
 procedure main()
    write(repl("ab", 3), " ", center("x", 7, "-="), " ", left("abc", 6, "."), "|", right("abc", 6, "."), "|");
    write(center("abcdef", 3), " ", left("abc", 2), " ", right("abc", 2));
@@ -9112,7 +19849,25 @@ procedure main()
    write(string(12), string(1.5), string(1e10), " ", 1e10, " ", 0.1 + 0.2, " ", 1.0 / 3);
    write(detab("a\tb\tc"), "|", entab("a       b"), "|", *detab("\t"), " ", *entab("        x"));
 end
-#-------------------------------------------- 941 procedure_every_alt_replace_16
+```
+
+```stdout
+ababab -=-x=-= abc...|...abc|
+cde ab bc
+he001 abc ABC
+abc|xxabc|abc|
+olleh axyz 4
+65 a 255 "\x00" "\n"
+31 5 50.0 12 -7
+fail 1000 1000.0 2 -2
+0 ||0
+121.51e+10 1e+10 0.3 0.3333333333
+a       b       c|a	b|8 2
+```
+
+## procedure_every_alt_replace_16
+
+```Icon
 procedure main()
    local a, b, L, i;
    a := 1; b := 2;
@@ -9129,7 +19884,23 @@ procedure main()
    a := 5; a ^:= 2; a %:= 7; write(a);
    write(a <- 1 | "fails", " ", a);
 end
-#------------------------------------------------------- 942 procedure_write_270
+```
+
+```stdout
+2 1
+2 1
+5
+2
+pq
+22 24 26
+aXYZcd
+4
+1 1
+```
+
+## procedure_write_270
+
+```Icon
 #  |e is a generator whatever e is.  The lowerer's resumability test treated
 #  |e as a plain unary and asked its operand, so |1 was "not resumable" and a
 #  conjunction with |e on its left never resumed it once the right side was
@@ -9146,7 +19917,23 @@ procedure main()
    every writes(" ", |1 \ 3); write();
    every writes(" ", (|1 & 3 & 4) \ 3); write();
 end
-#---------------------------------------------------- 943 gc_hb_big_in_aggregate
+```
+
+```stdout
+ 3 3 3
+ 7 7 7 7
+ 3 3 3
+ 7 7 7
+ 5 6 5 6 5
+ 9 9 9
+ 0 0 0 0 0
+ 1 1 1
+ 4 4 4
+```
+
+## gc_hb_big_in_aggregate
+
+```Icon
 # WITNESS for the DT_BIG arm of gc_visit_one -- a bignum whose ONLY holder is inside a heap aggregate.
 # hb_wsb_bignum.icn holds its BIG_t in a stack local, so the conservative stack sweep finds the block by
 # value and the missing type arm is invisible. Here every bignum lives in a list element or a table value
@@ -9164,7 +19951,26 @@ procedure main();
    every i := 1 to 6 do { s := string(L[i]); write("L", i, " ", *s, " ", s[1:10], " ", s[-10:0]); };
    every i := 1 to 6 do { s := string(T[i]); write("T", i, " ", *s, " ", s[1:10], " ", s[-10:0]); };
 end
-#------------------------------------------------------- 944 procedure_write_261
+```
+
+```stdout
+L1 121 516449975 5494986752
+L2 122 103289995 0989973504
+L3 122 206579990 1979947008
+L4 122 413159980 3959894016
+L5 122 826319960 7919788032
+L6 123 165263992 5839576064
+T1 144 410674437 7323698003
+T2 145 123202331 1971094009
+T3 145 369606993 5913282027
+T4 146 110882098 7739846081
+T5 146 332646294 3219538243
+T6 146 997938882 9658614729
+```
+
+## procedure_write_261
+
+```Icon
 procedure main()
    local L, S, x, out;
    L := [7, 3.5, "bee", '0AZ', 1, "ant", 9.25, 'q', 42, "zoo"];
@@ -9182,7 +19988,19 @@ procedure main()
    write("D:", out);
    write("E:end");
 end
-#---------------------------------------------------- 945 procedure_scan_while_1
+```
+
+```stdout
+A:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
+B:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
+C:10
+D:1 7 42 3.5 9.25 "ant" "bee" "zoo" '0AZ' 'q' 
+E:end
+```
+
+## procedure_scan_while_1
+
+```Icon
 procedure main(args)
    local r;
    r := opt2(["-x"]);
@@ -9201,7 +20019,16 @@ procedure opt2(arg)
          };
    return flist;
 end
-#------------------------------------------------------- 946 procedure_write_263
+```
+
+```stdout
+dash
+flist size=0
+```
+
+## procedure_write_263
+
+```Icon
 procedure main()
    local t, a, i, out;
    t := table();
@@ -9220,7 +20047,17 @@ procedure main()
    write("B:", *a);
    write("C:end");
 end
-#---------------------------------------------------- 947 procedure_every_alt_47
+```
+
+```stdout
+A:integer=int1 integer=int2 real=real string=str cset=cset file=file procedure=proc 
+B:14
+C:end
+```
+
+## procedure_every_alt_47
+
+```Icon
 procedure large(i)
    local mem;
    mem := &allocated;
@@ -9240,7 +20077,24 @@ procedure main()
    n := 0; every k := &allocated do n +:= 1; write(n);
    write(&allocated > -1);
 end
-#--- 948 ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
+```
+
+```stdout
+214748364721474836472147483647
+small
+-214748364721474836472147483647
+small
+small
+small
+int-flat
+big-grew
+4
+-1
+```
+
+## ladder__rung29_builtins_a_builtin_generator_called_as_a_value_generates
+
+```Icon
 procedure g(p, args)
    suspend p ! args;
 end
@@ -9261,7 +20115,20 @@ procedure main()
    every writes(" ", proc("bal", 3) ! ['+', '(', ')', "a+(b+c)+d"]);
    write(" | bal");
 end
-#--------------------------------------- 949 unicon__uni_critical_suspend_nested
+```
+
+```stdout
+ 1 3 5 7 8 | apply
+ 1 3 5 7 8 | call
+ 1 3 5 7 8 | suspend apply
+ 1 3 5 7 8 | suspend apply, function value
+ 2 4 6 | string invocation
+ 2 8 | bal
+```
+
+## unicon__uni_critical_suspend_nested
+
+```Icon
 global M
 procedure lock(m);
    return 0 + (M[m] +:= 1);
@@ -9284,7 +20151,18 @@ procedure main();
    every x := g() do write("got ", x, " a=", M["a"], " b=", M["b"]);
    write("end a=", M["a"], " b=", M["b"]);
 end
-#----------------------------------------- 950 unicon__uni_proc_of_current_level
+```
+
+```stdout
+got 1 a=0 b=0
+got 2 a=1 b=0
+g ends a=2 b=1
+end a=2 b=1
+```
+
+## unicon__uni_proc_of_current_level
+
+```Icon
 class UniconMarker()
 end
 
@@ -9307,7 +20185,29 @@ procedure main()
       write("top ", i, " ", image(proc(&current, i)) | "fail");
    write(image(proc("write", 1)) | "fail", " ", image(proc(main)) | "fail");
 end
-#-------------------------------------- 951 unicon__uni_critical_suspend_unlocks
+```
+
+```stdout
+cur -1 fail
+cur 0 procedure inner
+cur 1 procedure outer
+cur 2 procedure main
+cur 3 fail
+main -1 fail
+main 0 procedure inner
+main 1 procedure outer
+main 2 procedure main
+main 3 fail
+top -1 fail
+top 0 procedure main
+top 1 fail
+top 2 fail
+function write procedure main
+```
+
+## unicon__uni_critical_suspend_unlocks
+
+```Icon
 global M
 procedure lock(m);
    return 0 + (M[m] +:= 1);
@@ -9331,7 +20231,20 @@ procedure main();
    every x := g() do write("got ", x, " a=", M["a"], " b=", M["b"]);
    write("end a=", M["a"], " b=", M["b"]);
 end
-#------ 952 ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
+```
+
+```stdout
+got 1 a=0 b=0
+got 2 a=1 b=0
+  resumed after 2 a=2 b=1
+got 3 a=2 b=1
+  g ends a=3 b=2
+end a=3 b=2
+```
+
+## ladder__rung03_suspend_a_bang_over_a_generator_resumes_the_generator
+
+```Icon
 procedure gen()
    suspend 5 | 6 | 7;
 end
@@ -9358,7 +20271,19 @@ procedure main()
    every writes(d(), " "); write();
    every writes(e(), " "); write();
 end
-#-------------------------------------------- 953 procedure_every_alt_replace_11
+```
+
+```stdout
+5 6 7 
+-5 -6 -7 
+5 6 7 
+5 6 7 
+5 6 7 
+```
+
+## procedure_every_alt_replace_11
+
+```Icon
 #  === and ~=== succeed with their RIGHT operand, whatever its type.  The
 #  result was routed through the numeric relop coercion that = and ~= use,
 #  so a &null result read as the integer 0 and a string "1" as the integer 1.
@@ -9386,7 +20311,31 @@ procedure main()
    write(image(r));
    every write(image(!["1", 2, 2.0, &null] ~=== "1"));
 end
-#--------------------------------------------- 954 procedure_every_alt_replace_6
+```
+
+```stdout
+&null
+&null
+"1"
+"1"
+"3"
+"x"
+failed
+1
+&null
+&null
+"b"
+&null
+null
+&null
+"1"
+"1"
+"1"
+```
+
+## procedure_every_alt_replace_6
+
+```Icon
 #SRC: JCON
 
 #  test math functions including argument coercion
@@ -9423,7 +20372,93 @@ procedure r(v)
    else
       return integer(v * 1000 - 0.5) / 1000.0;
 end
-#---------------------------------------------------- 955 procedure_every_alt_20
+```
+
+```stdout
+function sqrt(0.0) = 0.0
+function sqrt(0.25) = 0.5
+function sqrt(1.0) = 1.0
+function sqrt(2.25) = 1.5
+function sqrt(4.0) = 2.0
+function sqrt(256.0) = 16.0
+function log(0.1) = -2.303
+function log(0.25) = -1.386
+function log(1.0) = 0.0
+function log(2.718) = 1.0
+function log(10.0) = 2.303
+function log(100.0) = 4.605
+function log(1000.0) = 6.908
+function log(0.1, 10.0) = -1.0
+function log(0.25, 10.0) = -0.602
+function log(1.0, 10.0) = 0.0
+function log(2.718, 10.0) = 0.434
+function log(10.0, 10.0) = 1.0
+function log(100.0, 10.0) = 2.0
+function log(1000.0, 10.0) = 3.0
+function exp(-3.0) = 0.05
+function exp(-1.0) = 0.368
+function exp(0.0) = 1.0
+function exp(1.0) = 2.718
+function exp(2.0) = 7.389
+function exp(3.0) = 20.086
+
+function dtor(-1000.0) = -17.453
+function dtor(-360.0) = -6.283
+function dtor(-90.0) = -1.571
+function dtor(0.0) = 0.0
+function dtor(45.0) = 0.785
+function dtor(360.0) = 6.283
+function dtor(1000.0) = 17.453
+function rtod(-9.425) = -540.0
+function rtod(-6.283) = -360.0
+function rtod(-3.142) = -180.0
+function rtod(0.0) = 0.0
+function rtod(1.047) = 60.0
+function rtod(1.571) = 90.0
+function rtod(3.142) = 180.0
+function rtod(6.283) = 360.0
+function sin(-1.047) = -0.866
+function sin(0.0) = 0.0
+function sin(3.142) = 0.0
+function cos(-1.047) = 0.5
+function cos(0.0) = 1.0
+function cos(3.142) = -1.0
+function tan(-1.047) = -1.732
+function tan(0.0) = 0.0
+function tan(3.142) = 0.0
+function asin(-1.0) = -1.571
+function asin(-0.5) = -0.524
+function asin(0.0) = 0.0
+function asin(0.5) = 0.524
+function asin(1.0) = 1.571
+function acos(-1.0) = 3.142
+function acos(-0.5) = 2.094
+function acos(0.0) = 1.571
+function acos(0.5) = 1.047
+function acos(1.0) = 0.0
+function atan(-1000.0) = -1.57
+function atan(-47.0) = -1.55
+function atan(-1.0) = -0.785
+function atan(-0.5) = -0.464
+function atan(0.0) = 0.0
+function atan(0.5) = 0.464
+function atan(1.0) = 0.785
+function atan(47.0) = 1.55
+function atan(1000.0) = 1.57
+function atan(-1.0, -1.0) = -2.356
+function atan(-1.0, 0.0) = -1.571
+function atan(-1.0, 1.0) = -0.785
+function atan(0.0, -1.0) = 3.142
+function atan(0.0, 0.0) = 0.0
+function atan(0.0, 1.0) = 0.0
+function atan(1.0, -1.0) = 2.356
+function atan(1.0, 0.0) = 1.571
+function atan(1.0, 1.0) = 0.785
+```
+
+## procedure_every_alt_20
+
+```Icon
 # rung37_mutual.icn — test TT_MUTUAL (every A & B) cross-product conjunction  IJ-12
 global n_test, qn, qsol
 
@@ -9461,7 +20496,49 @@ procedure q(c)
    initial { up := list(2*qn-1, 0); down := list(2*qn-1, 0); rows := list(qn, 0) };
    every 0 = rows[r := 1 to qn] = up[qn+r-c] = down[r+c-1] & rows[r] <- up[qn+r-c] <- down[r+c-1] <- 1 do { qsol[c] := r; if c = qn then write("sol:", qsol[1], qsol[2], qsol[3], qsol[4]) else q(c + 1) };
 end
-#- 956 ladder__rung03_suspend_a_generator_procedure_after_a_four_operand_procedure_reads_its_own_argument
+```
+
+```stdout
+simple_mutual:
+1,4
+1,5
+2,4
+2,5
+3,4
+3,5
+static_mutual:
+1,2,3
+1,2,4
+1,3,2
+1,3,4
+1,4,2
+1,4,3
+2,1,3
+2,1,4
+2,3,1
+2,3,4
+2,4,1
+2,4,3
+3,1,2
+3,1,4
+3,2,1
+3,2,4
+3,4,1
+3,4,2
+4,1,2
+4,1,3
+4,2,1
+4,2,3
+4,3,1
+4,3,2
+queens_4:
+sol:2413
+sol:3142
+```
+
+## ladder__rung03_suspend_a_generator_procedure_after_a_four_operand_procedure_reads_its_own_argument
+
+```Icon
 procedure sum4(a, b, c, d)
    return a + b + c + d;
 end
@@ -9503,7 +20580,30 @@ procedure main()
    every write(sum4(1, 2, 3, 4) + upto3(2));
    write(sum4(upto3(2), 1, 1, 1));
 end
-#----------------------------------------- 957 procedure_every_elemgen_replace_4
+```
+
+```stdout
+10
+1
+2
+3
+24
+1
+4
+9
+16
+14
+3
+2
+1
+11
+12
+4
+```
+
+## procedure_every_elemgen_replace_4
+
+```Icon
 #SRC: JCON
 
 # string subscripting test
@@ -9569,7 +20669,382 @@ procedure main()
    every s[2:4] := !"456" do { write("Q ", s); s := "klmno" };
    
 end
-#- 958 ladder__rung02_proc_a_procedure_with_a_frame_over_1200_bytes_starts_every_local_null
+```
+
+```stdout
+A. a
+B. a
+B. b
+B. c
+B. d
+B. e
+C 0. --
+C 1. a
+C 2. b
+C 3. c
+C 4. d
+C 5. e
+C 6. --
+D 0. --
+D -1. e
+D -2. d
+D -3. c
+D -4. b
+D -5. a
+D -6. --
+E -10. --
+E -9. --
+E -8. --
+E -7. --
+E -6. --
+E -5. ab
+E -4. b
+E -3. 
+E -2. c
+E -1. cd
+E 0. cde
+E 1. ab
+E 2. b
+E 3. 
+E 4. c
+E 5. cd
+E 6. cde
+E 7. --
+E 8. --
+E 9. --
+E 10. --
+F -10. --
+F -9. --
+F -8. ab
+F -7. b
+F -6. 
+F -5. c
+F -4. cd
+F -3. cde
+F -2. ab
+F -1. b
+F 0. 
+F 1. c
+F 2. cd
+F 3. cde
+F 4. --
+F 5. --
+G -5. --
+G -4. --
+G -3. cde
+G -2. cd
+G -1. c
+G 0. 
+G 1. b
+G 2. ab
+G 3. cde
+G 4. cd
+G 5. c
+G 6. 
+G 7. b
+G 8. ab
+G 9. --
+G 10. --
+H. Xbcde
+I. YYYYY
+J -6. --
+J -5. Abcde
+J -4. aBcde
+J -3. abCde
+J -2. abcDe
+J -1. abcdE
+J 0. --
+J 1. Abcde
+J 2. aBcde
+J 3. abCde
+J 4. abcDe
+J 5. abcdE
+J 6. --
+K 1 1. (*)abcde
+K 1 2. (*)bcde
+K 1 3. (*)cde
+K 1 4. (*)de
+K 1 5. (*)e
+K 1 6. (*)
+K 2 1. (*)bcde
+K 2 2. a(*)bcde
+K 2 3. a(*)cde
+K 2 4. a(*)de
+K 2 5. a(*)e
+K 2 6. a(*)
+K 3 1. (*)cde
+K 3 2. a(*)cde
+K 3 3. ab(*)cde
+K 3 4. ab(*)de
+K 3 5. ab(*)e
+K 3 6. ab(*)
+K 4 1. (*)de
+K 4 2. a(*)de
+K 4 3. ab(*)de
+K 4 4. abc(*)de
+K 4 5. abc(*)e
+K 4 6. abc(*)
+K 5 1. (*)e
+K 5 2. a(*)e
+K 5 3. ab(*)e
+K 5 4. abc(*)e
+K 5 5. abcd(*)e
+K 5 6. abcd(*)
+K 6 1. (*)
+K 6 2. a(*)
+K 6 3. ab(*)
+K 6 4. abc(*)
+K 6 5. abcd(*)
+K 6 6. abcde(*)
+L 1 1 1. abcde [failed]
+L 1 1 2. abcde [failed]
+L 1 1 3. abcde [failed]
+L 1 1 4. abcde [failed]
+L 1 1 5. abcde [failed]
+L 1 1 6. abcde [failed]
+L 1 2 1. (*)bcde
+L 1 2 2. a(*)bcde
+L 1 2 3. abcde [failed]
+L 1 2 4. abcde [failed]
+L 1 2 5. abcde [failed]
+L 1 2 6. abcde [failed]
+L 1 3 1. (*)bcde
+L 1 3 2. a(*)bcde
+L 1 3 3. a(*)cde
+L 1 3 4. abcde [failed]
+L 1 3 5. abcde [failed]
+L 1 3 6. abcde [failed]
+L 1 4 1. (*)bcde
+L 1 4 2. a(*)bcde
+L 1 4 3. a(*)cde
+L 1 4 4. a(*)de
+L 1 4 5. abcde [failed]
+L 1 4 6. abcde [failed]
+L 1 5 1. (*)bcde
+L 1 5 2. a(*)bcde
+L 1 5 3. a(*)cde
+L 1 5 4. a(*)de
+L 1 5 5. a(*)e
+L 1 5 6. abcde [failed]
+L 1 6 1. (*)bcde
+L 1 6 2. a(*)bcde
+L 1 6 3. a(*)cde
+L 1 6 4. a(*)de
+L 1 6 5. a(*)e
+L 1 6 6. a(*)
+L 2 1 1. (*)bcde
+L 2 1 2. a(*)bcde
+L 2 1 3. abcde [failed]
+L 2 1 4. abcde [failed]
+L 2 1 5. abcde [failed]
+L 2 1 6. abcde [failed]
+L 2 2 1. abcde [failed]
+L 2 2 2. abcde [failed]
+L 2 2 3. abcde [failed]
+L 2 2 4. abcde [failed]
+L 2 2 5. abcde [failed]
+L 2 2 6. abcde [failed]
+L 2 3 1. a(*)cde
+L 2 3 2. ab(*)cde
+L 2 3 3. abcde [failed]
+L 2 3 4. abcde [failed]
+L 2 3 5. abcde [failed]
+L 2 3 6. abcde [failed]
+L 2 4 1. a(*)cde
+L 2 4 2. ab(*)cde
+L 2 4 3. ab(*)de
+L 2 4 4. abcde [failed]
+L 2 4 5. abcde [failed]
+L 2 4 6. abcde [failed]
+L 2 5 1. a(*)cde
+L 2 5 2. ab(*)cde
+L 2 5 3. ab(*)de
+L 2 5 4. ab(*)e
+L 2 5 5. abcde [failed]
+L 2 5 6. abcde [failed]
+L 2 6 1. a(*)cde
+L 2 6 2. ab(*)cde
+L 2 6 3. ab(*)de
+L 2 6 4. ab(*)e
+L 2 6 5. ab(*)
+L 2 6 6. abcde [failed]
+L 3 1 1. (*)bcde
+L 3 1 2. a(*)bcde
+L 3 1 3. a(*)cde
+L 3 1 4. abcde [failed]
+L 3 1 5. abcde [failed]
+L 3 1 6. abcde [failed]
+L 3 2 1. a(*)cde
+L 3 2 2. ab(*)cde
+L 3 2 3. abcde [failed]
+L 3 2 4. abcde [failed]
+L 3 2 5. abcde [failed]
+L 3 2 6. abcde [failed]
+L 3 3 1. abcde [failed]
+L 3 3 2. abcde [failed]
+L 3 3 3. abcde [failed]
+L 3 3 4. abcde [failed]
+L 3 3 5. abcde [failed]
+L 3 3 6. abcde [failed]
+L 3 4 1. ab(*)de
+L 3 4 2. abc(*)de
+L 3 4 3. abcde [failed]
+L 3 4 4. abcde [failed]
+L 3 4 5. abcde [failed]
+L 3 4 6. abcde [failed]
+L 3 5 1. ab(*)de
+L 3 5 2. abc(*)de
+L 3 5 3. abc(*)e
+L 3 5 4. abcde [failed]
+L 3 5 5. abcde [failed]
+L 3 5 6. abcde [failed]
+L 3 6 1. ab(*)de
+L 3 6 2. abc(*)de
+L 3 6 3. abc(*)e
+L 3 6 4. abc(*)
+L 3 6 5. abcde [failed]
+L 3 6 6. abcde [failed]
+L 4 1 1. (*)bcde
+L 4 1 2. a(*)bcde
+L 4 1 3. a(*)cde
+L 4 1 4. a(*)de
+L 4 1 5. abcde [failed]
+L 4 1 6. abcde [failed]
+L 4 2 1. a(*)cde
+L 4 2 2. ab(*)cde
+L 4 2 3. ab(*)de
+L 4 2 4. abcde [failed]
+L 4 2 5. abcde [failed]
+L 4 2 6. abcde [failed]
+L 4 3 1. ab(*)de
+L 4 3 2. abc(*)de
+L 4 3 3. abcde [failed]
+L 4 3 4. abcde [failed]
+L 4 3 5. abcde [failed]
+L 4 3 6. abcde [failed]
+L 4 4 1. abcde [failed]
+L 4 4 2. abcde [failed]
+L 4 4 3. abcde [failed]
+L 4 4 4. abcde [failed]
+L 4 4 5. abcde [failed]
+L 4 4 6. abcde [failed]
+L 4 5 1. abc(*)e
+L 4 5 2. abcd(*)e
+L 4 5 3. abcde [failed]
+L 4 5 4. abcde [failed]
+L 4 5 5. abcde [failed]
+L 4 5 6. abcde [failed]
+L 4 6 1. abc(*)e
+L 4 6 2. abcd(*)e
+L 4 6 3. abcd(*)
+L 4 6 4. abcde [failed]
+L 4 6 5. abcde [failed]
+L 4 6 6. abcde [failed]
+L 5 1 1. (*)bcde
+L 5 1 2. a(*)bcde
+L 5 1 3. a(*)cde
+L 5 1 4. a(*)de
+L 5 1 5. a(*)e
+L 5 1 6. abcde [failed]
+L 5 2 1. a(*)cde
+L 5 2 2. ab(*)cde
+L 5 2 3. ab(*)de
+L 5 2 4. ab(*)e
+L 5 2 5. abcde [failed]
+L 5 2 6. abcde [failed]
+L 5 3 1. ab(*)de
+L 5 3 2. abc(*)de
+L 5 3 3. abc(*)e
+L 5 3 4. abcde [failed]
+L 5 3 5. abcde [failed]
+L 5 3 6. abcde [failed]
+L 5 4 1. abc(*)e
+L 5 4 2. abcd(*)e
+L 5 4 3. abcde [failed]
+L 5 4 4. abcde [failed]
+L 5 4 5. abcde [failed]
+L 5 4 6. abcde [failed]
+L 5 5 1. abcde [failed]
+L 5 5 2. abcde [failed]
+L 5 5 3. abcde [failed]
+L 5 5 4. abcde [failed]
+L 5 5 5. abcde [failed]
+L 5 5 6. abcde [failed]
+L 5 6 1. abcd(*)
+L 5 6 2. abcde(*)
+L 5 6 3. abcde [failed]
+L 5 6 4. abcde [failed]
+L 5 6 5. abcde [failed]
+L 5 6 6. abcde [failed]
+L 6 1 1. (*)bcde
+L 6 1 2. a(*)bcde
+L 6 1 3. a(*)cde
+L 6 1 4. a(*)de
+L 6 1 5. a(*)e
+L 6 1 6. a(*)
+L 6 2 1. a(*)cde
+L 6 2 2. ab(*)cde
+L 6 2 3. ab(*)de
+L 6 2 4. ab(*)e
+L 6 2 5. ab(*)
+L 6 2 6. abcde [failed]
+L 6 3 1. ab(*)de
+L 6 3 2. abc(*)de
+L 6 3 3. abc(*)e
+L 6 3 4. abc(*)
+L 6 3 5. abcde [failed]
+L 6 3 6. abcde [failed]
+L 6 4 1. abc(*)e
+L 6 4 2. abcd(*)e
+L 6 4 3. abcd(*)
+L 6 4 4. abcde [failed]
+L 6 4 5. abcde [failed]
+L 6 4 6. abcde [failed]
+L 6 5 1. abcd(*)
+L 6 5 2. abcde(*)
+L 6 5 3. abcde [failed]
+L 6 5 4. abcde [failed]
+L 6 5 5. abcde [failed]
+L 6 5 6. abcde [failed]
+L 6 6 1. abcde [failed]
+L 6 6 2. abcde [failed]
+L 6 6 3. abcde [failed]
+L 6 6 4. abcde [failed]
+L 6 6 5. abcde [failed]
+L 6 6 6. abcde [failed]
+M -bcde
+M a-cde
+M ab-de
+M abc-e
+M abcd-
+N -bcde
+N a-cde
+N ab-de
+N abc-e
+N abcd-
+O --abcde
+O a--bcde
+O ab--cde
+O abc--de
+O abcd--e
+O abcde--
+O --abcde
+O a--bcde
+O ab--cde
+O abc--de
+O abcd--e
+O abcde--
+P a1de
+P a2de
+P a3de
+Q f4ij
+Q k5mno
+Q k6mno
+```
+
+## ladder__rung02_proc_a_procedure_with_a_frame_over_1200_bytes_starts_every_local_null
+
+```Icon
 procedure dirty(a, b, c, d, e, f, g, h)
    local w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15, w16, w17, w18, w19, w20, w21, w22, w23, w24, w25, w26, w27, w28, w29, w30, w31, w32, w33, w34, w35, w36, w37, w38, w39, w40, w41, w42, w43, w44, w45, w46, w47, w48, w49, w50, w51, w52, w53, w54, w55, w56, w57, w58, w59;
    w1 := a; w2 := b; w3 := c; w4 := d; w5 := e; w6 := f; w7 := g; w8 := h;
@@ -9759,14 +21234,78 @@ procedure main()
       write(s)
    };
 end
-#---------- 959 ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
+```
+
+```stdout
+0:1:2:last
+0 3 
+0:2:4:last
+0 5 
+0:3:6:last
+0 7 
+```
+
+## ladder__rung29_builtins_proc_names_assignments_not_augmented_ops
+
+```Icon
 procedure main()
    every s := ![":=",":=:","<-","<->","+:=","-:=","*:=","/:=","%:=","^:=","||:=","|||:=","++:=","--:=","**:=","<:=","=:=","==:=","===:=","~=:=","@:=","?:=","&:=","@","|","&","\\","?","!","to","by","[","{","()","<<:=",">>=:=","~===:=","<=:=",">=:=",">:=","~==:=","<<=:=",">>:=", "..."] do {
       every i := 0 to 3 do writes(s, "/", i, "=", (args(proc(s, i)) | "F"), " ");
       write()
    };
 end
-#------------------------------------------------ 960 scanning_asm__is03b_nested
+```
+
+```stdout
+:=/0=F :=/1=F :=/2=2 :=/3=F 
+:=:/0=F :=:/1=F :=:/2=2 :=:/3=F 
+<-/0=F <-/1=F <-/2=2 <-/3=F 
+<->/0=F <->/1=F <->/2=2 <->/3=F 
++:=/0=F +:=/1=F +:=/2=F +:=/3=F 
+-:=/0=F -:=/1=F -:=/2=F -:=/3=F 
+*:=/0=F *:=/1=F *:=/2=F *:=/3=F 
+/:=/0=F /:=/1=F /:=/2=F /:=/3=F 
+%:=/0=F %:=/1=F %:=/2=F %:=/3=F 
+^:=/0=F ^:=/1=F ^:=/2=F ^:=/3=F 
+||:=/0=F ||:=/1=F ||:=/2=F ||:=/3=F 
+|||:=/0=F |||:=/1=F |||:=/2=F |||:=/3=F 
+++:=/0=F ++:=/1=F ++:=/2=F ++:=/3=F 
+--:=/0=F --:=/1=F --:=/2=F --:=/3=F 
+**:=/0=F **:=/1=F **:=/2=F **:=/3=F 
+<:=/0=F <:=/1=F <:=/2=F <:=/3=F 
+=:=/0=F =:=/1=F =:=/2=F =:=/3=F 
+==:=/0=F ==:=/1=F ==:=/2=F ==:=/3=F 
+===:=/0=F ===:=/1=F ===:=/2=F ===:=/3=F 
+~=:=/0=F ~=:=/1=F ~=:=/2=F ~=:=/3=F 
+@:=/0=F @:=/1=F @:=/2=F @:=/3=F 
+?:=/0=F ?:=/1=F ?:=/2=F ?:=/3=F 
+&:=/0=F &:=/1=F &:=/2=F &:=/3=F 
+@/0=F @/1=F @/2=F @/3=F 
+|/0=F |/1=F |/2=F |/3=F 
+&/0=F &/1=F &/2=F &/3=F 
+\/0=F \/1=1 \/2=F \/3=F 
+?/0=F ?/1=1 ?/2=F ?/3=F 
+!/0=F !/1=1 !/2=F !/3=F 
+to/0=F to/1=F to/2=F to/3=F 
+by/0=F by/1=F by/2=F by/3=F 
+[/0=F [/1=F [/2=F [/3=F 
+{/0=F {/1=F {/2=F {/3=F 
+()/0=F ()/1=F ()/2=F ()/3=F 
+<<:=/0=F <<:=/1=F <<:=/2=F <<:=/3=F 
+>>=:=/0=F >>=:=/1=F >>=:=/2=F >>=:=/3=F 
+~===:=/0=F ~===:=/1=F ~===:=/2=F ~===:=/3=F 
+<=:=/0=F <=:=/1=F <=:=/2=F <=:=/3=F 
+>=:=/0=F >=:=/1=F >=:=/2=F >=:=/3=F 
+>:=/0=F >:=/1=F >:=/2=F >:=/3=F 
+~==:=/0=F ~==:=/1=F ~==:=/2=F ~==:=/3=F 
+<<=:=/0=F <<=:=/1=F <<=:=/2=F <<=:=/3=F 
+>>:=/0=F >>:=/1=F >>:=/2=F >>:=/3=F 
+.../0=F .../1=F .../2=F .../3=3 
+```
+
+## scanning_asm__is03b_nested
+
+```Icon
 procedure main();
   local a, b;
   b := create { write("b sees ", &subject, " ", &pos); &pos := 1; @&source; write("b2 ", &subject, " ", &pos); 2 };
@@ -9774,7 +21313,23 @@ procedure main();
   "main" ? { move(1); write("m ", &subject, " ", &pos); @a; write("m after a ", &subject, " ", &pos); @a; write("m after a2 ", &subject, " ", &pos) };
   write("done ", image(&subject), " ", &pos);
 end
-#----------------------------------------------- 961 scanning_asm__is03c_to_main
+```
+
+```stdout
+m main 2
+a in xyz 1
+b sees xyz 2
+a back xyz 1
+a end xyz 3
+b2 main 2
+m after a main 2
+m after a2 main 2
+done "" 1
+```
+
+## scanning_asm__is03c_to_main
+
+```Icon
 procedure main();
   local a, b;
   b := create { write("b sees ", &subject, " ", &pos); "inB" ? { tab(2); @&main; write("b resumed ", &subject, " ", &pos) }; write("b out ", &subject, " ", &pos); 7 };
@@ -9782,7 +21337,21 @@ procedure main();
   "main" ? { move(2); write("m ", &subject, " ", &pos); @a; write("m got control ", &subject, " ", &pos); @b; write("m after b ", &subject, " ", &pos) };
   write("done ", image(&subject), " ", &pos);
 end
-#-------------------------------------- 962 scanning_asm__is03e_transmit_refresh
+```
+
+```stdout
+m main 3
+b sees A 1
+m got control inB 2
+b resumed inB 2
+b out A 1
+m after b A 1
+done "" 1
+```
+
+## scanning_asm__is03e_transmit_refresh
+
+```Icon
 procedure main();
   local c, d, r;
   c := create { "pq" ? { r := (1 + @&source); write("c got ", r, " ", &subject, " ", &pos); tab(2); 99 } };
@@ -9791,7 +21360,19 @@ procedure main();
   "again" ? { move(3); r := @d; write("refreshed ", image(r), " ", &subject, " ", &pos) };
   write("done ", image(&subject), " ", &pos);
 end
-#-------------- 963 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
+```
+
+```stdout
+main  pq 1
+c got 21 pq 1
+main2 99 host 2
+refreshed &null pq 1
+done "" 1
+```
+
+## ladder__rung05_scan_tab_and_move_through_a_value_restore_pos
+
+```Icon
 procedure main()
    local p, R;
    p := tab;
@@ -9801,7 +21382,18 @@ procedure main()
    "abc" ? { every move ! [1] do put(R, &pos); write("R=", R[1], " pos=", &pos) };
    "abcdef" ? { (proc("move", 1)(2) & proc("move", 1)(9)) | write(&pos) };
 end
-#----------------------------------------------- 964 unicon__uni_posix_fork_pipe
+```
+
+```stdout
+1
+2 3 4 1
+R=2 pos=1
+1
+```
+
+## unicon__uni_posix_fork_pipe
+
+```Icon
 procedure main()
    local L, pid, s;
    L := pipe() | stop("pipe: ", &errortext);
@@ -9813,7 +21405,16 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------- 965 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
+```
+
+```stdout
+from child 0
+ exited:3
+```
+
+## ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos
+
+```Icon
 procedure p(s)
    suspend tab(match(s));
 end
@@ -9826,7 +21427,17 @@ procedure main()
    "abcdef" ? { q() | write(&pos) };
    "abcdef" ? { (move(![1, 2]) & ="q") | write(&pos) };
 end
-#-------------------------------- 966 ladder__rung42_kw_dateline_fields_unpadded
+```
+
+```stdout
+1
+3
+1
+```
+
+## ladder__rung42_kw_dateline_fields_unpadded
+
+```Icon
 procedure main()
   local d, dd, h, m;
   d := &dateline;
@@ -9839,7 +21450,19 @@ procedure main()
     }
   else write("dateline does not have Icon's shape");
 end
-#-------------------------------------------- 967 procedure_every_alt_replace_17
+```
+
+```stdout
+fields: weekday, month day, year  hour:minute meridian
+day unpadded: yes
+hour unpadded: yes
+hour on a 12-hour clock: yes
+minute two digits: yes
+```
+
+## procedure_every_alt_replace_17
+
+```Icon
 procedure main()
    local s, i;
    s := "abcdef";
@@ -9852,7 +21475,24 @@ procedure main()
    i := 2; s := "wxyz"; write(s[i:i+2], " ", s[i+:1], " ", s[-i:0]);
    write(image("abc"[2:9]) | "range9", " ", image("abc"[0:2]) | "range0", " ", image("abc"[4:5]) | "range45", " ", "abc"[4:4], "|");
 end
-#------------------------------------------- 968 unicon__uni_gc_unstarted_coexpr
+```
+
+```stdout
+affa bc bc |||
+aXYZcdef
+<aXYZcdef
+<aXYZcde>
+<Zcde>
+HELLO
+ac  3
+c y c
+xy x yz
+range9 "bc" range45 |
+```
+
+## unicon__uni_gc_unstarted_coexpr
+
+```Icon
 procedure main()
    local a, b;
    a := create work(1);
@@ -9865,7 +21505,16 @@ procedure work(n)
    every i := 1 to n do { if i % 100 = 1 then L := []; put(L, table()); put(L, list(1000)) };
    return n;
 end
-#------------------------------------- 969 unicon__uni_scan_nested_match_literal
+```
+
+```stdout
+3000
+1
+```
+
+## unicon__uni_scan_nested_match_literal
+
+```Icon
 procedure main();
    every write((("aeiou" | "foobaz") ? upto('dracula')) ? =(1 to 10));
    write("after nested: ", &pos, " ", image(&subject));
@@ -9881,7 +21530,28 @@ procedure main();
 end
 class UniconMarker()
 end
-#-------------------------------------- 970 scanning_asm__is05c_keyword_exchange
+```
+
+```stdout
+1
+5
+5
+after nested: 1 ""
+"1"
+1
+1 "1"
+2
+x
+z
+x
+1
+2
+end: 1 "1"
+```
+
+## scanning_asm__is05c_keyword_exchange
+
+```Icon
 procedure main();
   local x, y, r;
   "abcdefgh" ? {
@@ -9898,7 +21568,30 @@ procedure main();
   &subject := "root"; &pos := 2; y := 4; &pos :=: y; write(&pos, " ", y, " ", &subject);
   &pos +:= 1; write(&pos, " ", &subject);
 end
-#------------------------------------------------ 971 procedure_every_elemgen_21
+```
+
+```stdout
+6 1
+7
+4
+2
+2
+2 a
+4 c
+6 e
+2
+3 2
+3 2
+zz abcdefgh 1
+wxyz 1
+wxyz 1
+4 2 root
+5 root
+```
+
+## procedure_every_elemgen_21
+
+```Icon
 procedure main()
    local i, j, x;
    write(1 to 3);
@@ -9918,7 +21611,29 @@ procedure main()
    every writes(!123, " ");
    write();
 end
-#------------------------------------------------------- 972 gc_hb_coexpr_parked
+```
+
+```stdout
+1
+5
+6
+5
+6
+11 12 13 22 23 33 
+ax ay bx by cx cy 
+1
+1
+2
+9
+10 7 4 1 
+10 100 20 200 30 300 
+y fails
+1 2 3 
+```
+
+## gc_hb_coexpr_parked
+
+```Icon
 # WITNESS for a co-expression's PARKED STACK: a heap string held in a suspended frame on the co-expression's own
 # thread stack while the other thread allocates and collects. If the parked segment is not walked, or is walked
 # but its cells are not fixed up when the block slides, the read after resumption returns garbage or 0xDB poison.
@@ -9939,7 +21654,16 @@ procedure main()
    write(@e);
    write(v);
 end
-#---------------------------------------------------- 973 procedure_every_scan_2
+```
+
+```stdout
+HELD-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk-END
+1
+```
+
+## procedure_every_scan_2
+
+```Icon
 #SRC: JCON
 
 # test grouping of various operators
@@ -9961,7 +21685,25 @@ end
 procedure g(x)
 	return x+2;
 end
-#---------- 974 ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
+```
+
+```stdout
+19683
+1
+-2
+4
+2
+1
+2
+3
+2
+3
+xy
+```
+
+## ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
+
+```Icon
 procedure uid()
    static n;
    initial n := 0;
@@ -9987,7 +21729,18 @@ procedure main()
    a := [uid(), uid()];
    write(a[1], " ", a[2]);
 end
-#----------------------------------------- 975 procedure_record_every_replace_11
+```
+
+```stdout
+uids 3 3 3
+local 7 7
+ 1 3 6
+5 5
+```
+
+## procedure_record_every_replace_11
+
+```Icon
 record pt(a, b)
 
 procedure main()
@@ -10014,7 +21767,20 @@ procedure main()
    s[3:5] ||:= "!";
    write(s);
 end
-#--------------------------------------------- 976 procedure_every_alt_replace_5
+```
+
+```stdout
+5 17
+42
+17 42
+103 4 105 60
+7
+aXcd!
+```
+
+## procedure_every_alt_replace_5
+
+```Icon
 #SRC: JCON
 
 # lexical comparison test
@@ -10042,7 +21808,50 @@ procedure wr(s)
    writes(right(image(\s) | "---", 6));
    return;
 end
-#---------------------------------------------------- 977 procedure_every_alt_46
+```
+
+```stdout
+    s1    s2    <<   <<=    ==   ~==   >>=    >>
+    ""    ""   ---    ""    ""   ---    ""   ---
+    ""   "a"   "a"   "a"   ---   "a"   ---   ---
+    ""   "c"   "c"   "c"   ---   "c"   ---   ---
+    ""   'x'   "x"   "x"   ---   "x"   ---   ---
+    ""   '2'   "2"   "2"   ---   "2"   ---   ---
+   "a"    ""   ---   ---   ---    ""    ""    ""
+   "a"   "a"   ---   "a"   "a"   ---   "a"   ---
+   "a"   "c"   "c"   "c"   ---   "c"   ---   ---
+   "a"   'x'   "x"   "x"   ---   "x"   ---   ---
+   "a"   '2'   ---   ---   ---   "2"   "2"   "2"
+   "b"    ""   ---   ---   ---    ""    ""    ""
+   "b"   "a"   ---   ---   ---   "a"   "a"   "a"
+   "b"   "c"   "c"   "c"   ---   "c"   ---   ---
+   "b"   'x'   "x"   "x"   ---   "x"   ---   ---
+   "b"   '2'   ---   ---   ---   "2"   "2"   "2"
+   'c'    ""   ---   ---   ---    ""    ""    ""
+   'c'   "a"   ---   ---   ---   "a"   "a"   "a"
+   'c'   "c"   ---   "c"   "c"   ---   "c"   ---
+   'c'   'x'   "x"   "x"   ---   "x"   ---   ---
+   'c'   '2'   ---   ---   ---   "2"   "2"   "2"
+   "x"    ""   ---   ---   ---    ""    ""    ""
+   "x"   "a"   ---   ---   ---   "a"   "a"   "a"
+   "x"   "c"   ---   ---   ---   "c"   "c"   "c"
+   "x"   'x'   ---   "x"   "x"   ---   "x"   ---
+   "x"   '2'   ---   ---   ---   "2"   "2"   "2"
+     2    ""   ---   ---   ---    ""    ""    ""
+     2   "a"   "a"   "a"   ---   "a"   ---   ---
+     2   "c"   "c"   "c"   ---   "c"   ---   ---
+     2   'x'   "x"   "x"   ---   "x"   ---   ---
+     2   '2'   ---   "2"   "2"   ---   "2"   ---
+    ''    ""   ---    ""    ""   ---    ""   ---
+    ''   "a"   "a"   "a"   ---   "a"   ---   ---
+    ''   "c"   "c"   "c"   ---   "c"   ---   ---
+    ''   'x'   "x"   "x"   ---   "x"   ---   ---
+    ''   '2'   "2"   "2"   ---   "2"   ---   ---
+```
+
+## procedure_every_alt_46
+
+```Icon
 #  x <-> y is Icon's REVERSIBLE exchange: it swaps, and restores both on
 #  backtracking.  SCRIP ABORTED THE EMITTER on it -- IR_REV_SWAP carries its two
 #  variable names as LITERALS on the node (lhs in IR_LIT, rhs on an IR_LIT_STRING
@@ -10071,7 +21880,24 @@ procedure main();
     write("x after :=:        ----> ", image(x) | "none");
     write("y after :=:        ----> ", image(y) | "none");
 end
-#---------------------------------- 978 unicon__uni_critical_return_fail_unlocks
+```
+
+```stdout
+x <-> y            ----> 2
+x                  ----> 2
+y                  ----> 1
+z                  ----> 3
+(x <-> y) & &fail  ----> none
+x restored         ----> 2
+y restored         ----> 1
+x :=: y            ----> 1
+x after :=:        ----> 1
+y after :=:        ----> 2
+```
+
+## unicon__uni_critical_return_fail_unlocks
+
+```Icon
 global M
 procedure lock(m);
    return 0 + (M[m] +:= 1);
@@ -10101,7 +21927,22 @@ procedure main();
       write(n, " ", image(r), " a=", M["a"], " b=", M["b"])
    };
 end
-#----------------------------------------- 979 procedure_every_elemgen_replace_9
+```
+
+```stdout
+1 &null a=0 b=0
+2 &null a=0 b=0
+3 &null a=0 b=0
+4 7 a=0 b=0
+5 7 a=0 b=0
+6 &null a=0 b=0
+7 8 a=0 b=0
+8 9 a=0 b=0
+```
+
+## procedure_every_elemgen_replace_9
+
+```Icon
 #  ORACLE PROBE, minted BEFORE the cure (hq_V 2026-09-09, MODE NONET oracle-probe lane).
 #  ROOT behind TWO icon-master reds: procedure_write_258 (reads A:20 B:20 for a 40-element set,
 #  EXACTLY HALF) and procedure_every_scan_replace_13 (which names the lost elements out loud:
@@ -10132,7 +21973,18 @@ procedure main()
    write("C:", n);
    write("D:", *s);
 end
-#------------------------------------------ 980 procedure_suspend_scan_replace_1
+```
+
+```stdout
+A:10
+B:0
+C:10
+D:10
+```
+
+## procedure_suspend_scan_replace_1
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -10163,7 +22015,33 @@ end
 procedure t()
    suspend (="d" || s() || ="d") | ="e" | ="f";
 end
-#- 981 trace_call_line_prints_every_parameter_and_images_a_list__trace_call_line_prints_every_parameter_and_images_a_list
+```
+
+```stdin
+ac
+acx
+c
+eb
+aadcb
+abc
+cse
+f
+```
+
+```stdout
+accepted
+rejected
+accepted
+accepted
+rejected
+rejected
+rejected
+rejected
+```
+
+## trace_call_line_prints_every_parameter_and_images_a_list__trace_call_line_prints_every_parameter_and_images_a_list
+
+```Icon
 record pt(x, y)
 record e()
 procedure f(a, b, c)
@@ -10202,7 +22080,63 @@ procedure main()
    g(write);
    write(&level);
 end
-#---------------------------------------------------- 982 generators__generators
+```
+
+```stdout
+es_a_list.icn:   13  | f(1,&null,&null)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   14  | f(1,2,&null)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   15  | f("x",2.5,&null)
+2
+es_a_list.icn:    5  | f returned "x"
+es_a_list.icn:   17  | f(1,&null,&null)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   18  | f(1,2,3)
+2
+es_a_list.icn:    5  | f returned 1
+es_a_list.icn:   19  | g(list_3 = [1,list_1(2),"a\"b",record pt_1(2)])
+es_a_list.icn:    8  | g returned list_3 = [1,list_1(2),"a\"b",record pt_1(2)]
+es_a_list.icn:   21  | g(list_4 = [1,2,3,...,28,29,30])
+es_a_list.icn:    8  | g returned list_4 = [1,2,3,...,28,29,30]
+es_a_list.icn:   22  | g(list_5 = [1,2,3,4,5,6])
+es_a_list.icn:    8  | g returned list_5 = [1,2,3,4,5,6]
+es_a_list.icn:   23  | g(list_6 = [1,2,3,...,5,6,7])
+es_a_list.icn:    8  | g returned list_6 = [1,2,3,...,5,6,7]
+es_a_list.icn:   24  | g(list_7 = [])
+es_a_list.icn:    8  | g returned list_7 = []
+es_a_list.icn:   26  | g(table_1(1))
+es_a_list.icn:    8  | g returned table_1(1)
+es_a_list.icn:   27  | g(set_1(1))
+es_a_list.icn:    8  | g returned set_1(1)
+es_a_list.icn:   28  | g(record pt_3(record pt_2(2),list_9(1)))
+es_a_list.icn:    8  | g returned record pt_3(record pt_2(2),list_9(1))
+es_a_list.icn:   29  | g(record pt_4(&null,&null))
+es_a_list.icn:    8  | g returned record pt_4(&null,&null)
+es_a_list.icn:   30  | g(record e_1())
+es_a_list.icn:    8  | g returned record e_1()
+es_a_list.icn:   31  | g(list_11 = [record pt_5(2),record e_2(),list_10 = [],"s",1])
+es_a_list.icn:    8  | g returned list_11 = [record pt_5(2),record e_2(),list_10 = [],"s",1]
+es_a_list.icn:   32  | g(record pt_6(list_12 = [],record e_3()))
+es_a_list.icn:    8  | g returned record pt_6(list_12 = [],record e_3())
+es_a_list.icn:   33  | g('ab')
+es_a_list.icn:    8  | g returned 'ab'
+es_a_list.icn:   34  | g(&null)
+es_a_list.icn:    8  | g returned &null
+es_a_list.icn:   35  | g(procedure main)
+es_a_list.icn:    8  | g returned procedure main
+es_a_list.icn:   36  | g(function write)
+es_a_list.icn:    8  | g returned function write
+1
+es_a_list.icn:   38  main failed
+```
+
+## generators__generators
+
+```Icon
 # generators.icn — Generator composition showcase
 # Icon idiom: suspend, goal-directed evaluation, lazy sequences
 # Shows: user-defined generators, every, alternation, filtering
@@ -10261,14 +22195,42 @@ procedure main()
     );
     write(" " || out[2:0]);
 end
-#----------------------------------------------- 983 scanning_asm__is03d_results
+```
+
+```stdout
+Fibs to 100:
+ 0 1 1 2 3 5 8 13 21 34 55 89
+Perfect numbers to 10000:
+  6
+  28
+  496
+  8128
+Primes to 50 (trial division by generators):
+ 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
+```
+
+## scanning_asm__is03d_results
+
+```Icon
 procedure main();
   local c, v;
   c := create ("abcdef" ? (tab(3) | tab(5) | &pos));
   "zz" ? { while v := @c do write(v, " | ", &subject, " ", &pos); write("end ", &subject, " ", &pos) };
   write("done ", image(&subject), " ", &pos);
 end
-#------------------------------------------------- 984 scanning_asm__is01_substr
+```
+
+```stdout
+ab | zz 1
+abcd | zz 1
+1 | zz 1
+end zz 1
+done "" 1
+```
+
+## scanning_asm__is01_substr
+
+```Icon
 procedure main();
   local s, t, u, big;
   big := repl("abcdefghij", 50);
@@ -10279,7 +22241,17 @@ procedure main();
   "aaa" ? { s := move(1); t := move(1); u := move(1) };
   write(s === t, " ", s == t, " ", image(s));
 end
-#------------------------------------------------- 985 unicon__uni_bi_name_forms
+```
+
+```stdout
+ab cdef 494 ghija hij
+hello|world|10
+a a "a"
+```
+
+## unicon__uni_bi_name_forms
+
+```Icon
 global T, L
 record complex(r, i)
 procedure main(a)
@@ -10291,7 +22263,20 @@ procedure main(a)
 end
 class UniconMarker()
 end
-#----------------------------------------------- 986 planner_finish__pf_activate
+```
+
+```stdout
+"main"
+"T"
+"L"
+"s"
+"a"
+"table_1[\"abc\"]" "list_2[2]" "record complex_1.r"
+```
+
+## planner_finish__pf_activate
+
+```Icon
 # DESIGN-PLAN planner-finish witness: a co-expression created, activated to exhaustion and counted
 procedure main()
     local c, v, n;
@@ -10304,7 +22289,19 @@ procedure main()
     every v := |@c do write("ch ", v);
     write("end");
 end
-#-------------------------------------------- 987 procedure_coexpr_alt_replace_1
+```
+
+```stdout
+sum 10
+count 4
+ch a
+ch b
+end
+```
+
+## procedure_coexpr_alt_replace_1
+
+```Icon
 procedure main()
    write("1" + "2", " ", "3.0" * 2, " ", " 12 " + 1, " ", "1e2" + 0, " ", "+5" + 0, " ", "-.5" + 0);
    write(numeric("0x10") | "nohex", " ", integer("0x10") | "nohex2", " ", "0x10" == "0x10", " ", numeric("16r10"));
@@ -10318,7 +22315,31 @@ procedure main()
    &error := -1; write(string(&null) | "nullstr"); write("e", &errornumber); write("" || &null | "cat-null"); write("e", &errornumber); write(*&null | "size-null"); write("e", &errornumber); write(integer(&null) | "int-null"); write("e", &errornumber); &error := 0;
    write(numeric("1e400") | "range", " ", integer("99999999999999999999") + 1, " ", real(2 ^ 62), " ", 2 ^ 62 * 4.0);
 end
-#---------------------------------------- 988 procedure_every_elemgen_replace_19
+```
+
+```stdout
+3 6.0 13 100.0 5 -0.5
+nohex nohex2 0x10 16
+integerrealstringcsetlisttablesetnullprocedureprocedureco-expression
+1.5 2.0 2.0 100000.0 1e-05 123456789.0 1.23456789e+12 1e-06
+1000000.0 10000000.0 1.23456e+12 0.3333333333 0.6666666667 1e+100 -1e-100
+12 nounder 1.0 0.1 100.0
+ab diff ab 1 1.0
+"a\"b" "\\" "\n\t\e\x01\xff" '\'ab' "" ''
+1 1.5 -0.5 36893488147419103232 procedure function write
+nullstr
+cat-null
+e103
+size-null
+e112
+int-null
+e112
+range 100000000000000000000 4.611686018e+18 1.844674407e+19
+```
+
+## procedure_every_elemgen_replace_19
+
+```Icon
 procedure main()
    local L, s, x;
    write(1 | 2, " ", (1 | 2)[1] | "idx-fails", " ", ((1 | 2) > 1), " ", (1 to 5 > 3));
@@ -10333,7 +22354,30 @@ procedure main()
    write(&null | 1, " ", (&null & 2) | 3, " ", not &null, " ", (not 1) | "not1-fails");
    &error := -1; write(10 > 9 > 8 > 7 | "gt-fails"); write("e", &errornumber); write("b" >> "a" >> "" | "ss-fails"); write("e", &errornumber); write(1 ~= 2 ~= 1 | "ne"); write("e", &errornumber); &error := 0;
 end
-#--- 989 ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
+```
+
+```stdout
+1 1 1 1
+a12.5 1 3
+null-cat
+e103
+list_2(0) 0 3 list_5(3)
+a-b-c-
+1 s  list_8(1)
+3 list_9(2)
+b a 11
+1 a aa a 9
+7
+e103
+
+e103
+1
+e103
+```
+
+## ladder__rung38_coexpr_reads_the_scanning_environment_it_is_activated_in
+
+```Icon
 procedure main()
    local c, d, e, g;
    c := create &subject;
@@ -10350,7 +22394,24 @@ procedure main()
    g := create |tab(upto('b')) | tab(0);
    "aabbcc" ? { write(image(@g)); write(&pos) };
 end
-#------------------------------------------------------- 990 procedure_write_251
+```
+
+```stdout
+"def"
+3
+"xyz"
+2
+3
+"one"
+"two"
+""
+"aa"
+3
+```
+
+## procedure_write_251
+
+```Icon
 record lab(name)
 record other(a, b)
 procedure main()
@@ -10368,7 +22429,97 @@ procedure main()
   every i := 1 to 5 do t[table(i)] := i;
   every k := key(t) do write(image(k), " -> ", t[k]);
 end
-#--------- 991 ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
+```
+
+```stdout
+record lab_5(1) -> l5
+record other_5(2) -> 5
+record lab_26(1) -> l26
+record lab_47(1) -> m19
+record lab_10(1) -> l10
+record lab_31(1) -> l31
+record lab_36(1) -> l36
+record lab_52(1) -> m34
+record lab_15(1) -> l15
+record lab_20(1) -> l20
+record lab_41(1) -> m1
+record lab_4(1) -> l4
+record other_4(2) -> 4
+record lab_25(1) -> l25
+record lab_46(1) -> m16
+record lab_9(1) -> l9
+record lab_30(1) -> l30
+record lab_51(1) -> m31
+record lab_14(1) -> l14
+record lab_19(1) -> l19
+record lab_35(1) -> l35
+record lab_40(1) -> l40
+record lab_3(1) -> l3
+record other_3(2) -> 3
+record lab_24(1) -> l24
+record lab_45(1) -> m13
+record lab_8(1) -> l8
+record lab_29(1) -> l29
+record lab_50(1) -> m28
+record lab_13(1) -> l13
+record lab_18(1) -> l18
+record lab_34(1) -> l34
+record lab_39(1) -> l39
+record lab_2(1) -> l2
+record other_2(2) -> 2
+record lab_23(1) -> l23
+record lab_44(1) -> m10
+record lab_7(1) -> l7
+record other_7(2) -> 7
+record lab_28(1) -> l28
+record lab_49(1) -> m25
+record lab_54(1) -> m40
+record lab_12(1) -> l12
+record lab_33(1) -> l33
+record lab_38(1) -> l38
+record lab_1(1) -> l1
+record other_1(2) -> 1
+record lab_17(1) -> l17
+record lab_22(1) -> l22
+record lab_43(1) -> m7
+record lab_6(1) -> l6
+record other_6(2) -> 6
+record lab_27(1) -> l27
+record lab_48(1) -> m22
+record lab_11(1) -> l11
+record lab_32(1) -> l32
+record lab_37(1) -> l37
+record lab_53(1) -> m37
+record lab_16(1) -> l16
+record lab_21(1) -> l21
+record lab_42(1) -> m4
+list_5(1) -> 4
+set_5(1) -> 5
+table_5(0) -> 3
+list_10(1) -> 9
+list_4(1) -> 3
+set_4(1) -> 4
+table_4(0) -> 2
+list_9(1) -> 8
+list_3(1) -> 2
+set_3(1) -> 3
+table_3(0) -> 1
+list_8(1) -> 7
+list_13(1) -> 12
+list_2(1) -> 1
+set_2(1) -> 2
+list_7(1) -> 6
+table_7(0) -> 5
+list_12(1) -> 11
+set_1(1) -> 1
+list_6(1) -> 5
+table_6(0) -> 4
+list_11(1) -> 10
+```
+
+## ladder__rung29_builtins_a_unary_operator_value_calls_its_operator
+
+```Icon
 procedure main()
    local c, L;
    L := [7, 8];
@@ -10387,7 +22538,27 @@ procedure main()
    "hello" ? { write(proc("=", 1)("he")); write(&pos) };
    "hello" ? (write(proc("=", 1)("x")) | write("= failed"));
 end
-#------------------------------------------------------- 992 procedure_write_258
+```
+
+```stdout
+12
+-5
+2
+&null
+3
+'\x
+list_1(2)
+7
+integer
+1
+he
+3
+= failed
+```
+
+## procedure_write_258
+
+```Icon
 procedure main()
    local s, seen, x, missing, n;
    s := set();
@@ -10408,7 +22579,19 @@ procedure main()
    write("D:", *s);
    write("E:end");
 end
-#--------------------------------------------- 993 unicon__uni_posix_sock_groups
+```
+
+```stdout
+A:40
+B:40
+C:""
+D:0
+E:end
+```
+
+## unicon__uni_posix_sock_groups
+
+```Icon
 procedure main()
    local f, g, k, port;
    port := 20000 + ?20000;
@@ -10430,7 +22613,21 @@ procedure main()
 end
 class UniconMarker()
 end
-#------- 994 ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
+```
+
+```stdout
+before: no groups
+list 2 239.42.42.66 239.42.42.67
+ttl hdrincl iface groups mcastloop reuseaddr reuseport broadcast rcvbuf sndbuf 
+star has groups: yes
+after one leave: 1 239.42.42.67
+after last leave: no groups
+groups done
+```
+
+## ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
+
+```Icon
 procedure show(L)
    every writes(" ", !L); write();
 end
@@ -10455,7 +22652,21 @@ procedure main()
    every t[!["a", "b"]] :=: t["c"];
    every writes(" ", t[!["a", "b", "c"]]); write();
 end
-#-------------------------------------------- 995 procedure_every_alt_replace_13
+```
+
+```stdout
+ 4 1 2 3
+ 4 1 2 3
+ 6 5 3 4
+ 2 1
+ 2 3 1
+ 4 2 3 1
+ 0 1 2
+```
+
+## procedure_every_alt_replace_13
+
+```Icon
 #  x <-> y on a GLOBAL.  SCRIP died at COMPILE time with the TE-4 abort, rc=134,
 #  so nothing ran at all -- not even the writes above the exchange.  The same box
 #  was cured for LOCALS at SCRIP cab8a9469; the global operand was simply never
@@ -10481,7 +22692,21 @@ procedure main();
     every 1 to 2 do { if (ga <-> gb) & &fail then write("unreachable"); write("  recede: ga=", image(ga), " gb=", image(gb)) };
     write("reached the end", "");
 end
-#----------------------------------------------------- 996 gc_hb_dvec_list_slice
+```
+
+```stdout
+global<->local: 2
+  ga=2 y=1
+global<->global: 2
+  ga=2 gb=1
+  recede: ga=2 gb=1
+  recede: ga=2 gb=1
+reached the end
+```
+
+## gc_hb_dvec_list_slice
+
+```Icon
 # WITNESS for pattern_match.c:412 -- the DESCR_t element vector an Icon list SLICE builds.
 # L[5:25] cuts a new element vector out of the source list's frame_elems and hands it to DATCON as the
 # list payload; every one of its rlen elements is written before use, and the slice is held across 500
@@ -10508,7 +22733,18 @@ procedure main();
    write("L=", *L, " A=", *A, " T=", *T);
    write("TAIL=", L[*L], " HEAD=", L[1]);
 end
-#-------------------------------------------- 997 procedure_every_alt_replace_12
+```
+
+```stdout
+SLICE=20:e5-wwwwww|e6-wwwwwww|e7-w|e8-ww|e9-www|e10-wwww|e11-wwwww|e12-wwwwww|e13-wwwwwww|e14-w|e15-ww|e16-www|e17-wwww|e18-wwwww|e19-wwwwww|e20-wwwwwww|e21-w|e22-ww|e23-www|e24-wwww|
+SORT=19:key0=val19|key1=val5|key10=val12|key11=val17|key12=val3|key13=val8|key14=val13|key15=val18|key16=val4|key17=val9|key18=val14|key2=val10|key3=val15|key4=val20|key5=val6|key6=val11|key7=val16|key8=val2|key9=val7|
+L=40 A=30 T=19
+TAIL=e40-wwwwww HEAD=e1-ww
+```
+
+## procedure_every_alt_replace_12
+
+```Icon
 #  RED ON ARRIVAL -- witness for a minted row, not a cure.  Two defects in the
 #  NESTED exchange, both invisible to a witness whose locals are uninitialised
 #  and both downstream-invisible without printing the state after every step.
@@ -10536,7 +22772,21 @@ procedure main();
     st("after <->:=:", x, y, z);
     write("reached the end", "");
 end
-#------------------------------------------------------- 998 procedure_write_269
+```
+
+```stdout
+control image(&fail)|none -> none
+init: x=1 y=2 z=3
+  (x<->y):=:z  -> 3
+after (<->):=:: x=3 y=1 z=2
+  x<->y:=:z    -> 3
+after <->:=:: x=3 y=1 z=2
+reached the end
+```
+
+## procedure_write_269
+
+```Icon
 #  A procedure's name is a global variable; a call through the name reads
 #  the variable.  After `flip := lrev` inside flip itself, `flip(L)` must call
 #  lrev -- SCRIP bound the call to the declaration and recursed until the
@@ -10572,7 +22822,22 @@ procedure main()
    thrice := twice;
    write(thrice("z"));
 end
-#----------------------------------- 999 unicon__uni_critical_break_next_unlocks
+```
+
+```stdout
+ 3 2 1
+ 5 4
+procedure lrev
+abab
+ababab
+procedure thrice
+qqq qqq
+zzz
+```
+
+## unicon__uni_critical_break_next_unlocks
+
+```Icon
 global M
 procedure lock(m);
    return 0 + (M[m] +:= 1);
@@ -10611,7 +22876,26 @@ procedure main();
    };
    write("r=", r, " a=", M["a"]);
 end
-#- 1000 ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail
+```
+
+```stdout
+  i=1 o=1 r=&null a=0 b=0
+  i=1 o=2 r=&null a=0 b=0
+p done i=1 a=0 b=0
+p done i=2 a=0 b=0
+p done i=3 a=0 b=0
+  i=4 o=1 r=7 a=0 b=0
+  i=4 o=2 r=7 a=0 b=0
+p done i=4 a=0 b=0
+  i=5 o=1 r=&null a=0 b=0
+  i=5 o=2 r=&null a=0 b=0
+p done i=5 a=0 b=0
+r=10 a=0
+```
+
+## ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail
+
+```Icon
 procedure main()
    local s;
    &error := -1;
@@ -10626,7 +22910,18 @@ procedure main()
    s ? { write(tab(upto(',')), "|", move(2)); };
    write(image(&subject), " ", &pos);
 end
-#-------- 1001 ladder__rung29_builtins_key_called_by_string_invocation_generates
+```
+
+```stdout
+hel
+"" 1
+hello|, 
+"" 1
+```
+
+## ladder__rung29_builtins_key_called_by_string_invocation_generates
+
+```Icon
 procedure main()
    local T, k, s;
    T := table();
@@ -10642,7 +22937,17 @@ procedure main()
    every insert(s, proc("key", 1) ! [T]);
    write(*s, " keys by apply");
 end
-#-------- 1002 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
+```
+
+```stdout
+ integer string | key by string invocation
+ 1 1 1 | key by apply, first only
+3 keys by apply
+```
+
+## ladder__rung38_coexpr_an_activation_resumes_its_operand_generator
+
+```Icon
 procedure main()
    local L, x;
    L := [create 1 to 3, create write("hi")];
@@ -10658,7 +22963,22 @@ procedure main()
    every writes(7 @ !L, " ");
    write();
 end
-#------- 1003 ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
+```
+
+```stdout
+hi
+"hi"
+hi
+hi
+hi
+1 5 
+4 
+1 8 
+```
+
+## ladder__rung05_scan_a_reversible_keyword_assignment_moves_the_scan
+
+```Icon
 procedure p1()
    (&subject <- "abc123") & (&pos <- 1) & tab(0) & (&subject <- "") & (&pos <- 1) & write("p1 ", &pos);
 end
@@ -10676,7 +22996,27 @@ procedure main()
    "abc" ? { every (&pos <- (2 | 3 | 4)) & write("gen ", &pos, " ", move(1)) };
    "abcdef" ? { tab(3); ((&pos <- 5) & write("then ", &pos)); write("kept ", &pos) };
 end
-#-------- 1004 ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
+```
+
+```stdout
+p1 1
+"" 1
+5
+abc123 2
+in 4
+after 2
+out of range 2
+in wxyz 1
+after abc 1
+gen 3 b
+gen 4 c
+then 5
+kept 5
+```
+
+## ladder__rung29_builtins_upto_through_a_value_defaults_its_subject
+
+```Icon
 procedure main()
    local p, L, i, c;
    p := proc("upto");
@@ -10694,7 +23034,19 @@ procedure main()
    every writes(" ", (proc("find") ! ["an", "banana"]) + 100);
    write(" | apply into an expression");
 end
-#--------------------------------------------------- 1005 gc_hb_coexpr_genp_scan
+```
+
+```stdout
+ 1 3 5 7 8 | the subject defaults in a scan
+ 3 5 7 | bounded
+ 2 4 6 | extra arguments ignored
+ 2 3 4 5 6 | through a co-expression
+ 102 104 | apply into an expression
+```
+
+## gc_hb_coexpr_genp_scan
+
+```Icon
 # WITNESS for a GENERATOR CALLED BY VALUE INSIDE A SCAN (the rt.c generator-thread path, lazily started): the caller
 # scans `text`, hands the scan environment to the generator through the register contract (inherit_scan), and the
 # generator's FIRST yield back to main must leave the caller's &pos where the generator advanced it. The rung-2
@@ -10714,7 +23066,18 @@ procedure main()
    every line := !["ac", "acx", "eb", "xx"] do
       if recogn(s, line) then write("accepted") else write("rejected");
 end
-#------------------------------------------- 1006 procedure_every_scan_replace_1
+```
+
+```stdout
+accepted
+rejected
+accepted
+rejected
+```
+
+## procedure_every_scan_replace_1
+
+```Icon
 # WITNESS: the ROOT BLOCKER of 7 of 8 headline Icon benchmarks, minimized.
 # ipl options() does `x ? { if ="-" ... while c := move(1) ... find(c,optstring) }`.
 # The tab(match) carve corrupts the `optstring` PARAMETER to "" before find()
@@ -10734,7 +23097,15 @@ end
 procedure main()
    opts("-n10","n+");
 end
-#--------------------------------------- 1007 unicon__uni_pat_ctor_not_resumable
+```
+
+```stdout
+c="n" optstring="n+" find=1
+```
+
+## unicon__uni_pat_ctor_not_resumable
+
+```Icon
 procedure main();
    local x;
    "abcdef" ? (tab(2) & =Pos(5) & write("pos5 matched"));
@@ -10754,7 +23125,24 @@ procedure main();
 end
 class UniconMarker()
 end
-#---------------------------------------- 1008 procedure_every_suspend_replace_2
+```
+
+```stdout
+a: past a failed =Pos(5)
+b: past a failed conjunction after Len(2)
+rpos3 at 2 failed
+rpos3 at 4 succeeded
+len resumed its argument
+len resumed its argument
+len resumed its argument
+pattern
+neither
+end
+```
+
+## procedure_every_suspend_replace_2
+
+```Icon
 #  seq() is one of Icon's five function generators (bal find key seq upto).
 #  It was lowered as if it produced one value whenever it was not the
 #  rightmost operand of a conjunction, so the resume goto of an enclosing
@@ -10778,7 +23166,18 @@ procedure s1(); suspend seq(3,2) & 7; end
 procedure s2(); local i; suspend (i := seq(3,2)) & i; end
 procedure s3(); local i; suspend 2 | ((i := seq(3,2)) & i); end
 procedure prime(); local i, k; suspend 2 | ((i := seq(3, 2)) & (not(i = (k := (3 to sqrt(i) by 2)) * (i / k))) & i); end
-#------------------------------------------ 1009 procedure_every_scan_replace_12
+```
+
+```stdout
+suspend seq & const : 7 7 7 7 7 
+suspend (i:=seq) & i: 3 5 7 9 11 
+suspend 2 | (seq & i): 2 3 5 7 9 
+prime               : 2 3 5 7 11 
+```
+
+## procedure_every_scan_replace_12
+
+```Icon
 #SRC: SCRIP-IJ9
 # rung37_scan_alt.icn — IJ-9: scan alternation beta semantics
 # Each subject in (A|B|C)?body gets exactly ONE body alpha tick.
@@ -10804,7 +23203,25 @@ procedure main()
    every write(("abc"|"abcdef") ? move(5));
    write();
 end
-#------------------------------------ 1010 unicon__uni_class_reflection_builtins
+```
+
+```stdout
+a
+c
+e
+
+h
+w
+i
+
+3
+
+abcde
+```
+
+## unicon__uni_class_reflection_builtins
+
+```Icon
 record R(a, b, c)
 class A(x)
    method m1();
@@ -10833,7 +23250,24 @@ procedure main();
    write(image(fieldnames(42)) | ("fieldnames(42) fails with error " || &errornumber));
    write(image(methods(42)) | ("methods(42) fails with error " || &errornumber));
 end
-#----------------------------------------------- 1011 unicon__uni_thread_condvar
+```
+
+```stdout
+ a b c
+ __s __m y x
+B__methods
+ m3 m1 A
+ procedure B_m3
+ procedure A_m1
+1 1
+m3
+fieldnames(42) fails with error 107
+methods(42) fails with error 107
+```
+
+## unicon__uni_thread_condvar
+
+```Icon
 procedure main();
    local cv, ch, m, L, p, c;
    cv := condvar();
@@ -10862,7 +23296,23 @@ procedure consume(L, cv);
       if x := get(L) then { i +:= 1; write("got ", x) }
       };
 end
-#---------------------------------------- 1012 procedure_record_coexpr_replace_5
+```
+
+```stdout
+integer 0
+list 0
+integer 0
+got 1
+got 2
+got 3
+got 4
+got 5
+list and condvar done
+```
+
+## procedure_record_coexpr_replace_5
+
+```Icon
 #SRC: JCON
 
 record rec(a)
@@ -10897,7 +23347,38 @@ end
 
 procedure foo()
 end
-#----------------------------------------------- 1013 unicon__uni_gc_many_coexpr
+```
+
+```stdout
+      null : &null
+   default : 0
+         1 : 1
+   default : 2
+   default : 0.0
+       1.0 : 1.0
+   default : 2.0
+   default : ""
+   default : "0"
+       "1" : "1"
+   default : "2"
+   default : ''
+   default : '0'
+       '1' : '1'
+   default : '2'
+       rec : record constructor rec
+      main : procedure main
+   default : procedure foo
+       rec : record constructor rec
+   default : record rec_2(1)
+         r : record rec_1(1)
+         c : co-expression_2(0)
+   default : list_2(0)
+         L : list_3(24)
+```
+
+## unicon__uni_gc_many_coexpr
+
+```Icon
 global gsum, str, v, w
 procedure main()
    local a, b, c, L;
@@ -10932,7 +23413,15 @@ procedure C()
    every i := 1 to 10000 do { if i % 100 = 1 then L := []; if i % 1000 = 999 then str := "C"; x := "moon"; put(L, x || i); str ||:= x };
    v ||:= str;
 end
-#- 1014 ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
+```
+
+```stdout
+5500 9 16
+```
+
+## ladder__rung29_builtins_variable_by_a_runtime_name_reaches_locals_params_and_statics
+
+```Icon
 global g
 procedure r(d)
    local x, n;
@@ -10972,7 +23461,33 @@ procedure main()
    c := create variable(n);
    write("co-expression ", image(@c));
 end
-#-------------- 1015 ladder__rung21_apply_a_string_naming_an_operator_invokes_it
+```
+
+```stdout
+5
+7
+11
+12
+st
+st2
+3
+fails
+assignment fails
+r3 x=30
+r3 x+1=31
+r2 x=20
+r2 x+1=21
+r1 x=10
+r1 x+1=11
+gen 101
+gen 102
+gen 103
+co-expression "zed"
+```
+
+## ladder__rung21_apply_a_string_naming_an_operator_invokes_it
+
+```Icon
 procedure show(tag, x)
    write(tag, " ", image(x));
    return x;
@@ -11016,7 +23531,46 @@ procedure main()
    show("add bad", "+"("a", 1) | "fail");
    show("err", &errornumber);
 end
-#----------------------------------------- 1016 procedure_record_every_replace_6
+```
+
+```stdout
+size list 3
+size pdco 4
+size empty pdco 0
+size str 3
+size table 1
+size set 2
+size rec 3
+mul 12
+add 3
+neg -5
+pos 7
+sub 4
+cat "ab"
+lcat 3
+cmp 2
+cmp2 "fail"
+compl 253
+deref 5
+subscript 2
+section "bc"
+tab-match "he"
+var size 3
+var mul 10
+by name write
+by name type "list"
+gen 1
+gen 2
+gen 3
+mul bad "fail"
+err 102
+add bad "fail"
+err 102
+```
+
+## procedure_record_every_replace_6
+
+```Icon
 #SRC: JCON
 
 record simple(f)
@@ -11060,7 +23614,29 @@ procedure main()
    every !b +:= 70;
    every writes(" ", !a | !b | "\n");
 end
-#------ 1017 ladder__rung24_records_a_field_is_assigned_through_every_store_form
+```
+
+```stdout
+1 2
+3 4
+5 6
+7 8
+9 10
+11
+12
+13
+14
+15
+3
+7
+3
+7
+ 11 22 73 74 
+```
+
+## ladder__rung24_records_a_field_is_assigned_through_every_store_form
+
+```Icon
 record pt(x, y, z)
 record rec(a, b)
 record other(b, a)
@@ -11108,7 +23684,28 @@ procedure main()
    r.nosuch := 1;
    write(&errornumber);
 end
-#- 1018 ladder__rung41_rt_builtin_argument_errors_and_conversions_match_iconx_under_error_char_ord_bit_ops_map_detab_entab_key
+```
+
+```stdout
+27 7 stail
+every 1
+every 2
+every 3
+5 4
+10 9
+5567
+pt.x rec.b other.b
+1510
+100 202 3
+rev 77
+after 77
+integer integer
+207
+```
+
+## ladder__rung41_rt_builtin_argument_errors_and_conversions_match_iconx_under_error_char_ord_bit_ops_map_detab_entab_key
+
+```Icon
 procedure main()
    local T, s;
    T := table(); T["k"] := 1;
@@ -11169,7 +23766,69 @@ procedure main()
    errorclear(); s := "54:"; every s ||:= " " || image(ixor("x7", 1)); write(s, " E", (&errornumber | "-"));
    errorclear(); s := "55:"; every s ||:= " " || image(iand(12, "1.5e400")); write(s, " E", (&errornumber | "-"));
 end
-#------------------- 1019 ladder__rung02_arith_bignum_operands_and_zero_divisors
+```
+
+```stdout
+1: E205
+2: E205
+3: E101
+4: E101
+5: E205
+6: E205
+7: E103
+8: E205
+9: 53 E-
+10: E205
+11: 97 E-
+12: "A" E-
+13: "A" E-
+14: "A" E-
+15: "B" E-
+16: E101
+17: E101
+18: 8 E-
+19: 15 E-
+20: 0 E-
+21: 8 E-
+22: 3 E-
+23: E101
+24: E101
+25: E101
+26: 8 E-
+27: 4 E-
+28: E101
+29: E101
+30: -6 E-
+31: -2 E-
+32: E208
+33: E208
+34: "xyc" E-
+35: "abc" E-
+36: "abc" E-
+37: E210
+38: E210
+39: E101
+40: "a  b" E-
+41: E210
+42: "a       b" E-
+43: E210
+44: "a\t b" E-
+45: E210
+46: E124
+47: E124
+48: "k" E-
+49: 1 E-
+50: 100 E-
+51: 35 E-
+52: 20 E-
+53: 241 E-
+54: E101
+55: E101
+```
+
+## ladder__rung02_arith_bignum_operands_and_zero_divisors
+
+```Icon
 procedure show(tag, x)
    write(tag, " ", image(x), " ", type(x));
    return x;
@@ -11239,7 +23898,73 @@ procedure main()
    show("bigmod0", a % 0);
    show("err", &errornumber);
 end
-#------------------------------------------- 1020 procedure_every_scan_replace_8
+```
+
+```stdout
+small*big 3541774862152233910272 integer
+big*small 3541774862152233910272 integer
+big*neg -5902958103587056517120 integer
+neg*big 14771563532754168493215 integer
+big*big integer(~10^43) integer
+big*0 0 integer
+0*big 0 integer
+kara integer(~10^169) integer
+kara2 integer(~10^423) integer
+kara-mod 975645475 integer
+0+big 1180591620717411303424 integer
+big+0 1180591620717411303424 integer
+0-big -1180591620717411303424 integer
+big-big0 0 integer
+big+neg -1773721085833422395219 integer
+neg+big -1773721085833422395219 integer
+big-neg 4134904327268245002067 integer
+big/small 168655945816773043346 integer
+big%small 2 integer
+neg/small -422044672364404814091 integer
+neg%small -6 integer
+big/neg -168655945816773043346 integer
+big%neg 2 integer
+big/big integer(~10^63) integer
+big%big 169749149154071419489 integer
+neg%big -593129465116011091795 integer
+small/big 0 integer
+small%big 5 integer
+min*2 -9223372036854775808 integer
+min*2b -18446744073709551616 integer
+min*min integer(~10^38) integer
+max+1 9223372036854775808 integer
+min-1 -9223372036854775809 integer
+str*big 246913578024691357802469135780 integer
+big*str 3541774862152233910272 integer
+real*big 1.770887431e+21 real
+big+real 1.180591621e+21 real
+shl-big 2361183241434822606848 integer
+shl-big33 integer(~10^31) integer
+shl-big64 integer(~10^40) integer
+shl-neg -94538006609626678356576 integer
+shl-small 13835058055282163712 integer
+shl-small2 -27670116110564327424 integer
+shl-zero 1180591620717411303424 integer
+shl-0 0 integer
+shr-big 147573952589676412928 integer
+shr-neg -369289088318854212331 integer
+fact40 integer(~10^48) integer
+sum integer(~10^48) integer
+cmp 1180591620717411303424 integer
+cmp 2954312706550833698643 integer
+cmp integer(~10^85) integer
+cmp 18446744073709551616 integer
+cmp 18446744073709551616 integer
+eq "eq" string
+lt "lt" string
+div0 &null null
+err 201 integer
+err 202 integer
+```
+
+## procedure_every_scan_replace_8
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -11322,7 +24047,76 @@ procedure ws();	# write state of &setpos and &subject
    write("  &pos=", image(&pos), "   &subject=", image(&subject));
    return;
 end
-#------------------------------------------- 1021 procedure_every_alt_replace_14
+```
+
+```stdout
+  &pos=1   &subject=""
+
+s :=      "cat"         &pos=1   &subject="cat"
+p :=         -5 FAILED  &pos=1   &subject="cat"
+p :=         -4 FAILED  &pos=1   &subject="cat"
+p :=         -3         &pos=1   &subject="cat"
+p :=         -2         &pos=2   &subject="cat"
+p :=         -1         &pos=3   &subject="cat"
+p :=          0         &pos=4   &subject="cat"
+p :=          1         &pos=1   &subject="cat"
+p :=          2         &pos=2   &subject="cat"
+p :=          3         &pos=3   &subject="cat"
+p :=          4         &pos=4   &subject="cat"
+p :=          5 FAILED  &pos=4   &subject="cat"
+p :=          6 FAILED  &pos=4   &subject="cat"
+s :=         ""         &pos=1   &subject=""
+p :=         -2 FAILED  &pos=1   &subject=""
+p :=         -1 FAILED  &pos=1   &subject=""
+p :=          0         &pos=1   &subject=""
+p :=          1         &pos=1   &subject=""
+p :=          2 FAILED  &pos=1   &subject=""
+p :=          3 FAILED  &pos=1   &subject=""
+s :=    "donut"         &pos=1   &subject="donut"
+p :=         -7 FAILED  &pos=1   &subject="donut"
+p :=         -6 FAILED  &pos=1   &subject="donut"
+p :=         -5         &pos=1   &subject="donut"
+p :=         -4         &pos=2   &subject="donut"
+p :=         -3         &pos=3   &subject="donut"
+p :=         -2         &pos=4   &subject="donut"
+p :=         -1         &pos=5   &subject="donut"
+p :=          0         &pos=6   &subject="donut"
+p :=          1         &pos=1   &subject="donut"
+p :=          2         &pos=2   &subject="donut"
+p :=          3         &pos=3   &subject="donut"
+p :=          4         &pos=4   &subject="donut"
+p :=          5         &pos=5   &subject="donut"
+p :=          6         &pos=6   &subject="donut"
+p :=          7 FAILED  &pos=6   &subject="donut"
+p :=          8 FAILED  &pos=6   &subject="donut"
+s :=        "x"         &pos=1   &subject="x"
+p :=         -3 FAILED  &pos=1   &subject="x"
+p :=         -2 FAILED  &pos=1   &subject="x"
+p :=         -1         &pos=1   &subject="x"
+p :=          0         &pos=2   &subject="x"
+p :=          1         &pos=1   &subject="x"
+p :=          2         &pos=2   &subject="x"
+p :=          3 FAILED  &pos=2   &subject="x"
+p :=          4 FAILED  &pos=2   &subject="x"
+
+  &pos=1   &subject="outer"
+  &pos=3   &subject="outer"
+  &pos=1   &subject="inner"
+  &pos=2   &subject="inner"
+  &pos=3   &subject="outer"
+&pos=3 x=4
+&pos=4 x=3
+&pos=3 x=9
+&pos=3 x=3
+&pos=3 x=9
+&pos=3 x=3
+&pos=1 x=3
+&pos=1 x=2
+```
+
+## procedure_every_alt_replace_14
+
+```Icon
 #SRC: JCON
 
 # test arithmetic operators and numeric coercion
@@ -11454,7 +24248,163 @@ procedure pow(m, n)
    return;
 end
 
-#------------ 1022 ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
+```
+
+```stdout
+   0    0    0    0    0    0    0  ---  ---    0  ---    0    0  ---    0  --- 
+   0    1    0   -1    1   -1    0    0    0   -1    1    1  ---    1  ---  --- 
+   0   -1    0    1   -1    1    0    0    0    1  ---  ---  ---   -1   -1   -1 
+   1    0    1    0    1    1    0  ---  ---    0  ---  ---  ---    0    0    0 
+   1    1    1   -1    2    0    1    1    0   -1  ---    1    1  ---    1  --- 
+   1    2    1   -2    3   -1    2    0    1   -2    2    2  ---    2  ---  --- 
+   7    3    7   -3   10    4   21    2    1   -3  ---  ---  ---    3    3    3 
+   3    8    3   -8   11   -5   24    0    3   -8    8    8  ---    8  ---  --- 
+ 6.2    4  6.2   -4 10.2  2.2 24.8  1.6  2.2   -4  ---  ---  ---  4.0  4.0  4.0 
+   8  2.5    8 -2.5 10.5  5.5 20.0  3.2  0.5 -2.5  ---  ---  ---  2.5  2.5  2.5 
+ 5.4  1.2  5.4 -1.2  6.6  4.2  6.5  4.5  0.6 -1.2  ---  ---  ---  1.2  1.2  1.2 
+   1  2.5    1 -2.5  3.5 -1.5  2.5  0.4  1.0 -2.5  2.5  2.5  ---  2.5  ---  --- 
+ 3.4  1.7  3.4 -1.7  5.1  1.7  5.8  2.0  0.0 -1.7  ---  ---  ---  1.7  1.7  1.7 
+   5   5     5   -5   10    0   25    1    0   -5  ---    5    5  ---    5  --- 
+   4    7    4   -7   11   -3   28    0    4   -7    7    7  ---    7  ---  --- 
+   3   12    3  -12   15   -9   36    0    3  -12   12   12  ---   12  ---  --- 
+ 0.0  0.0  0.0  0.0  0.0  0.0  0.0  ---  ---  0.0  ---  0.0  0.0  ---  0.0  --- 
+ 0.0  1.0  0.0 -1.0  1.0 -1.0  0.0  0.0  0.0 -1.0  1.0  1.0  ---  1.0  ---  --- 
+ 0.0 -1.0  0.0  1.0 -1.0  1.0  0.0  0.0  0.0  1.0  ---  ---  --- -1.0 -1.0 -1.0 
+   1   -2    1    2   -1    3   -2    0    1    2  ---  ---  ---   -2   -2   -2 
+ 1.0 -2.0  1.0  2.0 -1.0  3.0 -2.0 -0.5  1.0  2.0  ---  ---  --- -2.0 -2.0 -2.0 
+  -3    2    3   -2   -1   -5   -6   -1   -1   -2    2    2  ---    2  ---  --- 
+-3.0  2.   3.0 -2.0 -1.0 -5.0 -6.0 -1.5 -1.0 -2.0  2.0  2.0  ---  2.0  ---  --- 
+  -6   -3    6    3   -9   -3   18    2    0    3   -3   -3  ---   -3  ---  --- 
+-6.0 -3.0  6.0  3.0 -9.0 -3.0 18.0  2.0  0.0  3.0 -3.0 -3.0  --- -3.0  ---  --- 
+
+  -9  -23    8   22  -31   -1   30 
+  -9    0    8   -1    0   -9   -9 
+  -9    9    8  -10    1   -1   -2 
+  -9   61    8  -62   53   -1  -54 
+   0  -23   -1   22    0  -23  -23 
+   0    0   -1   -1    0    0    0 
+   0    9   -1  -10    0    9    9 
+   0   61   -1  -62    0   61   61 
+   5  -23   -6   22    1  -19  -20 
+   5    0   -6   -1    0    5    5 
+   5    9   -6  -10    1   13   12 
+   5   61   -6  -62    5   61   56 
+ 191  -23 -192   22  169   -1 -170 
+ 191    0 -192   -1    0  191  191 
+ 191    9 -192  -10    9  191  182 
+ 191   61 -192  -62   61  191  130 
+
+     18446744073709551616  31414805157527366402048  -4630132762501097455616
+      9223372036854775808  15707402578763683201024  -2315066381250548727808
+                       32                    54496                    -8032
+                       16                    27248                    -4016
+                        8                    13624                    -2008
+                        4                     6812                    -1004
+                        2                     3406                     -502
+                        1                     1703                     -251
+                        0                      851                     -126
+                        0                      425                      -63
+                        0                      212                      -32
+                        0                      106                      -16
+                        0                       53                       -8
+                        0                        0                       -1
+                        0                        0                       -1
+
+   -3 ^ -3   =      0
+   -3 ^ -2   =      0
+   -3 ^ -1   =      0
+   -3 ^ 0    =      1
+   -3 ^ 1    =     -3
+   -3 ^ 2    =      9
+   -3 ^ 3    =    -27
+   -2 ^ -3   =      0
+   -2 ^ -2   =      0
+   -2 ^ -1   =      0
+   -2 ^ 0    =      1
+   -2 ^ 1    =     -2
+   -2 ^ 2    =      4
+   -2 ^ 3    =     -8
+   -1 ^ -3   =     -1
+   -1 ^ -2   =      1
+   -1 ^ -1   =     -1
+   -1 ^ 0    =      1
+   -1 ^ 1    =     -1
+   -1 ^ 2    =      1
+   -1 ^ 3    =     -1
+    0 ^ 1    =      0
+    0 ^ 2    =      0
+    0 ^ 3    =      0
+    1 ^ -3   =      1
+    1 ^ -2   =      1
+    1 ^ -1   =      1
+    1 ^ 0    =      1
+    1 ^ 1    =      1
+    1 ^ 2    =      1
+    1 ^ 3    =      1
+    2 ^ -3   =      0
+    2 ^ -2   =      0
+    2 ^ -1   =      0
+    2 ^ 0    =      1
+    2 ^ 1    =      2
+    2 ^ 2    =      4
+    2 ^ 3    =      8
+    3 ^ -3   =      0
+    3 ^ -2   =      0
+    3 ^ -1   =      0
+    3 ^ 0    =      1
+    3 ^ 1    =      3
+    3 ^ 2    =      9
+    3 ^ 3    =     27
+  0.5 ^ -1.5 =  2.828
+  0.5 ^ -1.0 =    2.0
+  0.5 ^ -0.5 =  1.414
+  0.5 ^ 0.0  =    1.0
+  0.5 ^ 0.5  =  0.707
+  0.5 ^ 1.0  =    0.5
+  0.5 ^ 1.5  =  0.354
+    1 ^ -1.5 =    1.0
+    1 ^ -1.0 =    1.0
+    1 ^ -0.5 =    1.0
+    1 ^ 0.0  =    1.0
+    1 ^ 0.5  =    1.0
+    1 ^ 1.0  =    1.0
+    1 ^ 1.5  =    1.0
+  1.5 ^ -1.5 =  0.544
+  1.5 ^ -1.0 =  0.667
+  1.5 ^ -0.5 =  0.816
+  1.5 ^ 0.0  =    1.0
+  1.5 ^ 0.5  =  1.225
+  1.5 ^ 1.0  =    1.5
+  1.5 ^ 1.5  =  1.837
+ -1.5 ^ -3   = -0.296
+ -1.5 ^ -2   =  0.444
+ -1.5 ^ -1   = -0.667
+ -1.5 ^ 0    =    1.0
+ -1.5 ^ 1    =   -1.5
+ -1.5 ^ 2    =   2.25
+ -1.5 ^ 3    = -3.375
+ -1.0 ^ -3   =   -1.0
+ -1.0 ^ -2   =    1.0
+ -1.0 ^ -1   =   -1.0
+ -1.0 ^ 0    =    1.0
+ -1.0 ^ 1    =   -1.0
+ -1.0 ^ 2    =    1.0
+ -1.0 ^ 3    =   -1.0
+ -0.5 ^ -3   =   -8.0
+ -0.5 ^ -2   =    4.0
+ -0.5 ^ -1   =   -2.0
+ -0.5 ^ 0    =    1.0
+ -0.5 ^ 1    =   -0.5
+ -0.5 ^ 2    =   0.25
+ -0.5 ^ 3    = -0.125
+  0.0 ^ 1    =    0.0
+  0.0 ^ 2    =    0.0
+  0.0 ^ 3    =    0.0
+```
+
+## ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
+
+```Icon
 procedure p(s)
    suspend tab(match(s));
 end
@@ -11471,7 +24421,20 @@ procedure main()
    "abcdef" ? { every p("ab") do write(&pos); write(&pos) };
    "abcdef" ? { every m(1 to 3) do writes(&pos, " "); write(&pos) };
 end
-#--------------------------------------- 1023 procedure_every_suspend_replace_11
+```
+
+```stdout
+1
+1
+1
+3
+1
+2 3 4 1
+```
+
+## procedure_every_suspend_replace_11
+
+```Icon
 procedure two()
    suspend 1 | 2;
 end
@@ -11488,7 +24451,27 @@ procedure main()
    every i := (1 to 2) do every writes((i | -i)); write();
    write(image((a := 1 to 3) & a > 1 & a));
 end
-#- 1024 ladder__rung05_scan_env_a_callee_moves_the_callers_pos_a_generators_scan_restores_the_outer_and_the_keywords_assign
+```
+
+```stdout
+55
+770
+21
+81
+12
+xyy
+121
+1
+2
+1
+2
+1-12-2
+2
+```
+
+## ladder__rung05_scan_env_a_callee_moves_the_callers_pos_a_generators_scan_restores_the_outer_and_the_keywords_assign
+
+```Icon
 procedure p();
   tab(upto(' '));
   move(1);
@@ -11507,7 +24490,25 @@ procedure main();
   "abc" ? { if &pos := 7 then write("pos:=7 ok") else write("pos:=7 fails"); write("pos now ", &pos); &pos := -1; write("pos:=-1 -> ", &pos); &pos := 0; write("pos:=0 -> ", &pos) };
   write("outside any scan subject=[", &subject, "] pos=", &pos);
 end
-#-------------------------------- 1025 unicon__uni_next_in_every_control_is_fail
+```
+
+```stdout
+after callee tab pos=4
+q inside pos=2
+main sees pos=3 subj=hello
+q resumed pos=3 subj=hello
+after every pos=3 subj=hello
+subject:=42 -> [42] pos=1 type=string
+pos:=7 fails
+pos now 1
+pos:=-1 -> 3
+pos:=0 -> 4
+outside any scan subject=[42] pos=1
+```
+
+## unicon__uni_next_in_every_control_is_fail
+
+```Icon
 procedure main()
    local i;
    every !["x1", "no", "x2"] ? { (="x") | next; writes(tab(0), " "); };
@@ -11526,7 +24527,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#------------------- 1026 ladder__rung05_scan_a_value_call_moves_the_callers_pos
+```
+
+```stdout
+1 no 2 
+11 1no 12 | 21 2no 22 | 
+11 1no | 21 2no | 
+```
+
+## ladder__rung05_scan_a_value_call_moves_the_callers_pos
+
+```Icon
 procedure t1(p)
    local results;
    results := [];
@@ -11546,7 +24557,17 @@ procedure main()
    "abc" ? { every t2(p) do writes("t2 pos ", &pos, " "); write() };
    "abc" ? write("t2 & pos ", (t2(p), &pos));
 end
-#--------------------------------------- 1027 procedure_every_suspend_replace_10
+```
+
+```stdout
+t1 1 pos 1
+t2 pos 2 
+t2 & pos 2
+```
+
+## procedure_every_suspend_replace_10
+
+```Icon
 procedure depth(n)
    return if n = 0 then 0 else 1 + depth(n - 1);
 end
@@ -11567,7 +24588,21 @@ procedure main()
    t := table(); every i := 1 to 20000 do t["k" || i] := i; write(*t, " ", t["k19999"], " ", t["k0"] | "none");
    write(*repl("ab", 100000), " ", *reverse(repl("xy", 50000)), " ", left("a", 200000)[200000] == " ");
 end
-#--------------------------------------- 1028 procedure_every_elemgen_replace_10
+```
+
+```stdout
+200
+300
+301
+9 61
+100000 100000 50000
+20000 19999 
+200000 100000  
+```
+
+## procedure_every_elemgen_replace_10
+
+```Icon
 procedure tins(init, limit, n)
    local s, l, e, seen, dup, miss, x;
    s := set(); every insert(s, 1 to init);
@@ -11589,7 +24624,50 @@ procedure main()
    every tins(40 | 103 | 233, 239 | 419 | 503, 3 | 11 | 23);
    every tdel(41 | 619 | 991, 3 | 11 | 23);
 end
-#---------------------------------------- 1029 procedure_every_elemgen_replace_3
+```
+
+```stdout
+init 40 limit 239 n 3 originals missing 0 duplicates 0
+init 40 limit 239 n 11 originals missing 0 duplicates 0
+init 40 limit 239 n 23 originals missing 0 duplicates 0
+init 40 limit 419 n 3 originals missing 0 duplicates 0
+init 40 limit 419 n 11 originals missing 0 duplicates 0
+init 40 limit 419 n 23 originals missing 0 duplicates 0
+init 40 limit 503 n 3 originals missing 0 duplicates 0
+init 40 limit 503 n 11 originals missing 0 duplicates 0
+init 40 limit 503 n 23 originals missing 0 duplicates 0
+init 103 limit 239 n 3 originals missing 0 duplicates 0
+init 103 limit 239 n 11 originals missing 0 duplicates 0
+init 103 limit 239 n 23 originals missing 0 duplicates 0
+init 103 limit 419 n 3 originals missing 0 duplicates 0
+init 103 limit 419 n 11 originals missing 0 duplicates 0
+init 103 limit 419 n 23 originals missing 0 duplicates 0
+init 103 limit 503 n 3 originals missing 0 duplicates 0
+init 103 limit 503 n 11 originals missing 0 duplicates 0
+init 103 limit 503 n 23 originals missing 0 duplicates 0
+init 233 limit 239 n 3 originals missing 0 duplicates 0
+init 233 limit 239 n 11 originals missing 0 duplicates 0
+init 233 limit 239 n 23 originals missing 0 duplicates 0
+init 233 limit 419 n 3 originals missing 0 duplicates 0
+init 233 limit 419 n 11 originals missing 0 duplicates 0
+init 233 limit 419 n 23 originals missing 0 duplicates 0
+init 233 limit 503 n 3 originals missing 0 duplicates 0
+init 233 limit 503 n 11 originals missing 0 duplicates 0
+init 233 limit 503 n 23 originals missing 0 duplicates 0
+delete 41 n 3 duplicates 0 remaining generated 2 of 2
+delete 41 n 11 duplicates 0 remaining generated 0 of 0
+delete 41 n 23 duplicates 0 remaining generated 0 of 0
+delete 619 n 3 duplicates 0 remaining generated 25 of 25
+delete 619 n 11 duplicates 0 remaining generated 0 of 0
+delete 619 n 23 duplicates 0 remaining generated 0 of 0
+delete 991 n 3 duplicates 0 remaining generated 46 of 46
+delete 991 n 11 duplicates 0 remaining generated 1 of 1
+delete 991 n 23 duplicates 0 remaining generated 2 of 2
+```
+
+## procedure_every_elemgen_replace_3
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -11612,7 +24690,19 @@ procedure main(args)
    # write("The primes are:")
    # every write(right(!primes,*limit + 1))
 end
-#------------------------------------------------ 1030 scanning_asm__is04b_forms
+```
+
+```args
+1000
+```
+
+```stdout
+There are 168 primes in the first 1000 integers.
+```
+
+## scanning_asm__is04b_forms
+
+```Icon
 procedure step(f, n);
   return f(n);
 end
@@ -11636,7 +24726,54 @@ procedure main();
   "hello world" ? { write(image(step(q, 3))); "inner" ? { write(image(step(p, 2)), " ", &pos); write(image(step(q, 0)), " ", &pos) }; write(&pos); write(image(step(q, 0))) };
   "12345" ? write(image(r ! ["3"]), " ", image(r ! ["3", "abc3"]), " ", &pos);
 end
-#--------------------------------------- 1031 unicon__uni_bi_list_of_a_structure
+```
+
+```stdout
+"" 1
+"" 1
+"" 1
+2
+5
+8
+1
+3
+6
+9
+1
+"ab"
+3
+"ca"
+5
+5 5
+"abc"
+4
+4
+5
+7
+8
+3 1
+"x" 2
+3
+1
+6 1
+"x" 2
+3
+1
+9 1
+"x" 2
+3
+1
+"he"
+"in" 3
+"ner" 6
+3
+"llo world"
+3 4 1
+```
+
+## unicon__uni_bi_list_of_a_structure
+
+```Icon
 procedure join(x)
    local s;
    s := "";
@@ -11661,7 +24798,19 @@ procedure main()
 end
 class UniconMarker()
 end
-#---------------------------------------- 1032 procedure_record_coexpr_replace_2
+```
+
+```stdout
+copy: 9 2 3 | orig: 1 2 3 | distinct: yes
+set: 6 7 5 
+set10: 6 1 7 2 8 3 9 4 10 5 size 10
+empty: 0 list
+fill: "x" "x" "x" | n: 2
+```
+
+## procedure_record_coexpr_replace_2
+
+```Icon
 #  proc(x,i) takes a PROCEDURE unchanged (arity ignored -- icont accepts
 #  proc(write,99)) or a STRING to resolve by name, and FAILS for every other
 #  type.  SCRIP failed on every procedure-valued argument, which is what blocked
@@ -11693,7 +24842,28 @@ procedure main();
     write("recordctor->", image(proc(pt))         | "none");
     write("builtin  ----> ", image(proc(write))   | "none");
 end
-#---------------------------------------- 1033 procedure_every_suspend_replace_3
+```
+
+```stdout
+string   ----> function write
+integer  ----> none
+real     ----> none
+cset     ----> none
+list     ----> none
+table    ----> none
+set      ----> none
+record   ----> none
+file     ----> none
+coexpr   ----> none
+null     ----> none
+procedure----> procedure u
+recordctor->record constructor pt
+builtin  ----> function write
+```
+
+## procedure_every_suspend_replace_3
+
+```Icon
 procedure starseq(s)
    /s := "";
    suspend "" | (starseq(s) || !s);
@@ -11741,7 +24911,53 @@ procedure main()
    write("inline ", y);
    every write("chain ", grow("a") || !"ab" || "c");
 end
-#-------------------------------------------- 1034 procedure_every_alt_replace_1
+```
+
+```stdout
+starseq 
+starseq a
+starseq b
+starseq aa
+starseq ab
+starseq ba
+starseq bb
+starseq aaa
+starseq aab
+starseq aba
+starseq abb
+starseq baa
+starseq bab
+return aaa
+return aab
+return 2 aa
+local aaa
+local aab
+local 2 aa
+param aaa
+param aab
+param aa
+global aaa
+global aab
+global aa
+static aaa
+static aab
+static aa
+list aaa
+list aab
+list aa
+augment aaxa
+augment aaxb
+augment aax
+inline aaa
+inline aab
+inline aa
+chain aaac
+chain aabc
+```
+
+## procedure_every_alt_replace_1
+
+```Icon
 # queens.icn — N-Queens via recursive backtracking
 # Icon idiom: every-driven search, global constraint arrays
 # Shows: recursive generators, every with if, global state, string mutation
@@ -11793,7 +25009,76 @@ procedure main(args)
     try_col(1);
     write(qcount, " solutions total.");
 end
-#-------------------------------------------- 1035 procedure_every_alt_replace_8
+```
+
+```args
+6
+```
+
+```stdout
+6-Queens:
+solution 1:
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+solution 2:
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+solution 3:
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+solution 4:
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+4 solutions total.
+```
+
+## procedure_every_alt_replace_8
+
+```Icon
 # queens.icn — N-Queens via recursive backtracking
 # Icon idiom: every-driven search, global constraint arrays
 # Shows: recursive generators, every with if, global state, string mutation
@@ -11845,7 +25130,76 @@ procedure main(args)
     try_col(1);
     write(qcount, " solutions total.");
 end
-#------------------------------------------- 1036 procedure_every_scan_replace_7
+```
+
+```args
+6
+```
+
+```stdout
+6-Queens:
+solution 1:
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+solution 2:
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+solution 3:
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+solution 4:
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+4 solutions total.
+```
+
+## procedure_every_scan_replace_7
+
+```Icon
 #SRC: JCON
 
 # string test -- including operations on string *constants*
@@ -11900,7 +25254,51 @@ procedure main()
    write("c5: ", image(3.14 || 159));
    write("c6: ", image('abc' || 'def'));
 end
-#----------------------------------------- 1037 procedure_record_every_replace_5
+```
+
+```stdout
+type string
+*s  5
+s:  abcde
+s:  "abcde"
+!:  abcde
+1:  abcde
+0:  abcde
+-5: abcde
+-7: abcde
+s1: abcde
+s2: abcde
+s3: abcde
+s4: abcde
+s5: abcde
+s6: abcde
+s7: abcde
+s8: bc
+s9: bc
+k1: ABCDE
+k2: ABCDE
+k3: ABCDE
+k4: ABCDE
+k5: ABCDE
+k6: ABCDE
+k7: ABCDE
+k8: BC
+k9: BC
+t:  "abcde"
+?x:  x
+?y:  y
+?z:  nope
+c1: ""
+c2: "a"
+c3: "b"
+c4: "cdef"
+c5: "3.14159"
+c6: "abcdef"
+```
+
+## procedure_record_every_replace_5
+
+```Icon
 #SRC: JCON
 
 #  test of random selection
@@ -11960,7 +25358,79 @@ procedure rtest()
 #   write(right(&random,10), "  T  ", ?T)
    return;
 end
-#------------------------------------------- 1038 procedure_every_scan_replace_2
+```
+
+```stdout
+
+         0  i  2114
+ 453816694  i  4124
+ 885666996  r  3157
+ 678165018  r  5104
+1096161928  s  k
+ 905669982  s  H
+ 656467580  c  c
+ 170957890  c  T
+1583830416  L  6
+ 108920774  L  72
+1539632324  R  2
+ 295778538  R  4
+
+ 721762584  i  5331
+1144737966  i  6208
+1333202828  r  5762
+1237514258  r  7075
+1519504672  s  t
+1583400982  s  G
+ 507287252  c  w
+1824883130  c  I
+ 679975336  L  36
+ 764038654  L  90
+1931954844  R  9
+1814756834  R  1
+
+         0  i  2114
+ 453816694  i  4124
+ 885666996  r  3157
+ 678165018  r  5104
+1096161928  s  k
+ 905669982  s  H
+ 656467580  c  c
+ 170957890  c  T
+1583830416  L  6
+ 108920774  L  72
+1539632324  R  2
+ 295778538  R  4
+
+ 721762584  i  5331
+1144737966  i  6208
+1333202828  r  5762
+1237514258  r  7075
+1519504672  s  t
+1583400982  s  G
+ 507287252  c  w
+1824883130  c  I
+ 679975336  L  36
+ 764038654  L  90
+1931954844  R  9
+1814756834  R  1
+
+     11213  i  1721
+ 369479103  i  7573
+1626308041  r  3422
+ 734952971  r  9053
+1944172069  s  z
+2101642551  s  Q
+1364863969  c  o
+1221979715  c  E
+ 395152893  L  65
+1380138031  L  20
+ 425567097  R  2
+ 407906811  R  2
+```
+
+## procedure_every_scan_replace_2
+
+```Icon
 #SRC: JCON
 
 #  check coercion of operator arguments
@@ -12028,7 +25498,68 @@ procedure binop(o, i, r, c, s)
       right(o(s, c) | "---", 6));
    return;
 end
-#-------------------------------------------------- 1039 ladder__rung45_list_ops
+```
+
+```stdout
++x          1     2     3     9
+-x         -1    -2    -3    -9
+*x          1     1     1     1
+!x          1     2     3     9
+/x        ---   ---   ---   ---
+\x          1     2     3     9
+
+x + y       3     4    10     3     5    11     4     5    12    10    11    12
+x - y      -1    -2    -8     1    -1    -7     2     1    -6     8     7     6
+x * y       2     3     9     2     6    18     3     6    27     9    18    27
+x / y       0     0     0     2     0     0     3     1     0     9     4     3
+x % y       1     1     1     0     2     2     0     1     3     0     1     0
+x ^ y       1     1     1     2     8   512     3     9 19683     9    81   729
+x < y       2     3     9   ---     3     9   ---   ---     9   ---   ---   ---
+x = y     ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---
+x > y     ---   ---   ---     1   ---   ---     1     2   ---     1     2     3
+x << y      2     3     9   ---     3     9   ---   ---     9   ---   ---   ---
+x == y    ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---   ---
+x >> y    ---   ---   ---     1   ---   ---     1     2   ---     1     2     3
+x [] y    ---   ---   ---     2   ---   ---     1     2   ---     6     7   ---
+x ++ y  .0123   12x   12x .0123.0123x .023x   12x.0123x   12x   12x .023x   12x
+x -- y      1     2     1   .03  .023   .03     x    1x     1     x     x     2
+x ** y      2     1     2     2           2     1           x     2     2     x
+
+2.3 to 17.5 by 3.1:      2 5 8 11 14 17
+2.3 to 17.5 by '03':     2 5 8 11 14 17
+2.3 to 17.5 by "3.2":    2 5 8 11 14 17
+2.3 to '17' by 3.1:      2 5 8 11 14 17
+2.3 to '17' by '03':     2 5 8 11 14 17
+2.3 to '17' by "3.2":    2 5 8 11 14 17
+2.3 to "17" by 3.1:      2 5 8 11 14 17
+2.3 to "17" by '03':     2 5 8 11 14 17
+2.3 to "17" by "3.2":    2 5 8 11 14 17
+'02' to 17.5 by 3.1:     2 5 8 11 14 17
+'02' to 17.5 by '03':    2 5 8 11 14 17
+'02' to 17.5 by "3.2":   2 5 8 11 14 17
+'02' to '17' by 3.1:     2 5 8 11 14 17
+'02' to '17' by '03':    2 5 8 11 14 17
+'02' to '17' by "3.2":   2 5 8 11 14 17
+'02' to "17" by 3.1:     2 5 8 11 14 17
+'02' to "17" by '03':    2 5 8 11 14 17
+'02' to "17" by "3.2":   2 5 8 11 14 17
+"2" to 17.5 by 3.1:      2 5 8 11 14 17
+"2" to 17.5 by '03':     2 5 8 11 14 17
+"2" to 17.5 by "3.2":    2 5 8 11 14 17
+"2" to '17' by 3.1:      2 5 8 11 14 17
+"2" to '17' by '03':     2 5 8 11 14 17
+"2" to '17' by "3.2":    2 5 8 11 14 17
+"2" to "17" by 3.1:      2 5 8 11 14 17
+"2" to "17" by '03':     2 5 8 11 14 17
+"2" to "17" by "3.2":    2 5 8 11 14 17
+
+  12578  .13459  ainorz  
+  12345  678.9  cnost  
+```
+
+## ladder__rung45_list_ops
+
+```Icon
 procedure main()
    local L, M;
    L := [3, 1, 2];
@@ -12041,7 +25572,18 @@ procedure main()
    write();
    write(image(L), " ", image(L[2:3]));
 end
-#---------------------------------------- 1040 unicon__uni_scan_nested_match_var
+```
+
+```stdout
+3 5 0 9
+9 0 3
+ 1 2 3 -
+list_1(3) list_4(1)
+```
+
+## unicon__uni_scan_nested_match_var
+
+```Icon
 procedure main();
    local x, c;
    every write(("ab" ? (1 | 2)) ? (x := (1 to 3) & =x));
@@ -12054,7 +25596,23 @@ procedure main();
 end
 class UniconMarker()
 end
-#--------------------------------------------------- 1041 ladder__rung45_set_ops
+```
+
+```stdout
+1
+2
+after var: 1 ""
+1
+5
+5
+after match: 1 ""
+o
+end: 1 ""
+```
+
+## ladder__rung45_set_ops
+
+```Icon
 procedure main()
    local S, i;
    S := set([1, 2, 3]);
@@ -12068,7 +25626,18 @@ procedure main()
    write(i, " ", *S, " ", type(S));
    write(string(2 ^ 10), " ", 17 % 5, " ", 17 / 5, " ", -17 % 5);
 end
-#---------------------------------------------- 1042 unicon__uni_mixed_icon_scan
+```
+
+```stdout
+ 2 3 4
+2 no
+9 3 set
+1024 2 3 -2
+```
+
+## unicon__uni_mixed_icon_scan
+
+```Icon
 class Counter(n)
    method bump()
       n +:= 1; return n;
@@ -12082,7 +25651,19 @@ procedure main()
    };
    every write(c.bump() | c.bump());
 end
-#- 1043 ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
+```
+
+```stdout
+1: one
+2: two
+3: three
+4
+5
+```
+
+## ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover
+
+```Icon
 procedure p()
    suspend (tab(3) & 1) | &fail;
 end
@@ -12097,7 +25678,22 @@ procedure main()
    "abcd" ? { every (p() & ="z"); write("p ", &pos) };
    "abcd" ? { every x := ((tab(2) & "x") | (tab(3) & "y")) do writes(x, &pos, " "); write("C6 ", &pos) };
 end
-#------------------------------------------- 1044 procedure_every_scan_replace_3
+```
+
+```stdout
+C 1
+C1 1
+C2 1
+C3 1
+C4 1
+C5 1
+p 1
+x2 y3 C6 1
+```
+
+## procedure_every_scan_replace_3
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -12114,7 +25710,55 @@ procedure main()
          insert(words,tab(many(&letters)));
    every write(!sort(words));
 end
-#---------------------------------------------- 1045 unicon__uni_posix_sock_peek
+```
+
+```stdin
+procedure main()
+   local limit, s, i
+   limit := 100
+   s := set([])
+   every insert(s,1 to limit)
+   every member(s,i := 2 to limit) do
+      every delete(s,i + i to limit by i)
+   primes := sort(s)
+   write("There are ",*primes," primes in the first ",limit," integers.")
+   write("The primes are:")
+   every write(right(!primes,*limit + 1))
+end
+```
+
+```stdout
+The
+There
+are
+by
+delete
+do
+end
+every
+first
+i
+in
+insert
+integers
+limit
+local
+main
+member
+primes
+procedure
+right
+s
+set
+sort
+the
+to
+write
+```
+
+## unicon__uni_posix_sock_peek
+
+```Icon
 procedure main()
    local f, k, t, port;
    port := 20000 + ?20000;
@@ -12135,7 +25779,23 @@ procedure main()
 end
 class UniconMarker()
 end
-#- 1046 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
+```
+
+```stdout
+fresh ttl=1 iface="0.0.0.0" broadcast=&null
+ttl=5
+iface="127.0.0.1"
+mcastloop=&null
+hdrincl=&null
+ttl hdrincl iface mcastloop reuseaddr reuseport broadcast rcvbuf sndbuf 
+table 9 5 "127.0.0.1"
+image=file(:port)
+peek done
+```
+
+## ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start
+
+```Icon
 procedure s1()
    local r;
    r := 1;
@@ -12157,7 +25817,20 @@ procedure main()
    every writes(s2(), " "); write();
    every writes(s3(), " "); write();
 end
-#----- 1047 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
+```
+
+```stdout
+a r=2
+a r=3
+a r=&null
+
+a a a 
+x x 2 
+```
+
+## ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start
+
+```Icon
 procedure d1()
    local r;
    r := 1;
@@ -12183,7 +25856,20 @@ procedure main()
    every writes(d3(create 1 to 4), " "); write();
    every writes(d4(), " "); write();
 end
-#---------------------------------------- 1048 procedure_every_suspend_replace_9
+```
+
+```stdout
+1 2 3 
+1 5 
+1 2 3 4 
+1 hi
+2 hi
+
+```
+
+## procedure_every_suspend_replace_9
+
+```Icon
 procedure va(a[])
    return *a || ":" || (image(a[1]) | "none");
 end
@@ -12222,7 +25908,27 @@ procedure main()
    p := proc("repl"); write(p("z", 3), " ", image(proc("va", 1)) | "no-proc", " ", image(proc("+", 2)));
    write("repl"("y", 2) | "string-invocation-fails");
 end
-#---------------------------------------- 1049 procedure_record_every_replace_17
+```
+
+```stdout
+0:none 3:1 1:&null
+d given
+4
+1
+resumed
+2
+resumed
+end
+even odd
+via value
+&null -1 0 -1
+zzz procedure va function +
+yy
+```
+
+## procedure_record_every_replace_17
+
+```Icon
 record date2(m,y,f)
 procedure dbl(x)
    return x * 2;
@@ -12295,7 +26001,26 @@ procedure main()
    via_field(date2(9, 1956, 0.97));
    write(reads_it());
 end
-#-------------------------------------------- 1050 procedure_every_alt_replace_4
+```
+
+```stdout
+6
+8
+10
+12
+v
+v
+cba
+  gen 1
+  gen 2
+  gen 3
+  field m
+procedure dbl
+```
+
+## procedure_every_alt_replace_4
+
+```Icon
 #SRC: JCON
 
 #  kwds.icn -- check keywords, as best can do reproducibly
@@ -12380,7 +26105,81 @@ end
 procedure nmap(s)
    return map(s, "0123456789", "nnnnnnnnnn");
 end
-#---------------------------------------- 1051 procedure_every_suspend_replace_8
+```
+
+```stdout
+  &allocated: integer
+  &allocated: integer
+  &allocated: integer
+  &allocated: integer
+      &ascii: &ascii  [size 128]
+      &clock: nn:nn:nn
+        &col: [failed]
+&collections: 0
+&collections: 0
+&collections: 0
+&collections: 0
+    &control: [failed]
+       &cset: &cset  [size 256]
+    &current: co-expression_1(1)
+       &date: nnnn/nn/nn
+   &dateline: ' ,:admy'  [size 7]
+     &digits: &digits  [size 10]
+       &dump: 0
+          &e: 2.718281828
+      &error: 747
+&errornumber: [failed]
+  &errortext: [failed]
+ &errorvalue: [failed]
+     &errout: &errout
+       &fail: [failed]
+   &features: string
+      &input: &input
+   &interval: [failed]
+      &lcase: &lcase  [size 26]
+      &ldrag: -7
+    &letters: &letters  [size 52]
+      &level: 1
+     &lpress: -1
+   &lrelease: -4
+       &main: co-expression_1(1)
+      &mdrag: -8
+       &meta: [failed]
+     &mpress: -2
+   &mrelease: -5
+       &null: &null
+     &output: &output
+        &phi: 1.618033989
+         &pi: 3.141592654
+        &pos: 1
+   &progname: procedure_every_alt_replace_4
+     &random: 0
+      &rdrag: -9
+    &regions: 0
+    &regions: 500000
+    &regions: 500000
+     &resize: -10
+        &row: [failed]
+     &rpress: -3
+   &rrelease: -6
+      &shift: [failed]
+     &source: co-expression_1(1)
+    &storage: integer
+    &storage: integer
+    &storage: integer
+    &subject: 
+       &time: nnnn
+      &trace: 0
+      &ucase: &ucase  [size 26]
+    &version: string
+     &window: [failed]
+          &x: [failed]
+          &y: [failed]
+```
+
+## procedure_every_suspend_replace_8
+
+```Icon
 #SRC: APP
 
 ############################################################################
@@ -12481,7 +26280,74 @@ procedure writeboard ()
    end # procedure writeboard
 
 
-#--------------------------------------------- 1052 procedure_scan_alt_replace_1
+```
+
+```args
+6
+```
+
+```stdout
+-------------
+| | | |Q| | |
+-------------
+|Q| | | | | |
+-------------
+| | | | |Q| |
+-------------
+| |Q| | | | |
+-------------
+| | | | | |Q|
+-------------
+| | |Q| | | |
+-------------
+
+-------------
+| | | | |Q| |
+-------------
+| | |Q| | | |
+-------------
+|Q| | | | | |
+-------------
+| | | | | |Q|
+-------------
+| | | |Q| | |
+-------------
+| |Q| | | | |
+-------------
+
+-------------
+| |Q| | | | |
+-------------
+| | | |Q| | |
+-------------
+| | | | | |Q|
+-------------
+|Q| | | | | |
+-------------
+| | |Q| | | |
+-------------
+| | | | |Q| |
+-------------
+
+-------------
+| | |Q| | | |
+-------------
+| | | | | |Q|
+-------------
+| |Q| | | | |
+-------------
+| | | | |Q| |
+-------------
+|Q| | | | | |
+-------------
+| | | |Q| | |
+-------------
+
+```
+
+## procedure_scan_alt_replace_1
+
+```Icon
 #SRC: V9GEN
 
 procedure main()
@@ -12674,7 +26540,158 @@ procedure Image(x)
          }
       };
 end
-#------------------------------------------------- 1053 ladder__rung49_coexp_gen
+```
+
+```stdout
+This test of floating-point arithmetic is likely to show
+differences from platform to platform because of differences
+in floating-point precision and details of the routines that
+convert floating-point numbers to strings.  If the values
+produced in local tests are approximately the same in magnitude
+as shown in the standard results, there's nothing to worry about.
+In addition, some platforms may show 0.0 as "-0.0".  You can
+ignore this if you wish.
+Image(2.0) ----> "2.0"
+string(2.0) ----> "2.0"
+string(2.7) ----> "2.7"
+string(".") ----> "."
+string(".3") ----> ".3"
+string("0.3") ----> "0.3"
+string(" . 3") ----> " . 3"
+string("e2") ----> "e2"
+string("3e500") ----> "3e500"
+type(1.0) ----> "real"
+cset(2.0) ----> '.02'
+cset(2.7) ----> '.27'
+cset(".") ----> '.'
+cset(".3") ----> '.3'
+cset("0.3") ----> '.03'
+cset(" . 3") ----> ' .3'
+cset("e2") ----> '2e'
+cset("3e500") ----> '035e'
++1.0 ----> 1.0
+-1.0 ----> -1.0
+real(2) ----> 2.0
+real(2.0) ----> 2.0
+real(2.7) ----> 2.7
+real("2") ----> 2.0
+real(" 2") ----> 2.0
+real("2 ") ----> 2.0
+real("+2") ----> 2.0
+real("-2") ----> -2.0
+real("- 2") ----> none
+real(" -    2 ") ----> none
+real("") ----> none
+real("--2") ----> none
+real(" ") ----> none
+real("-") ----> none
+real("+") ----> none
+real(".") ----> none
+real(".3") ----> 0.3
+real("0.3") ----> 0.3
+real(" . 3") ----> none
+real("e2") ----> none
+real("3e500") ----> none
+real("7r4") ----> 4.0
+real("4r7") ----> none
+real("4r 7") ----> none
+real("7r 4") ----> none
+real("16rff") ----> 255.0
+real("36rcat") ----> 15941.0
+real("36Rcat") ----> 15941.0
+real("36rCAT") ----> 15941.0
+real("1r1") ----> none
+integer(2.0) ----> 2
+integer(2.7) ----> 2
+integer(".") ----> none
+integer(".3") ----> 0
+integer("0.3") ----> 0
+integer(" . 3") ----> none
+numeric(2.0) ----> 2.0
+numeric(2.7) ----> 2.7
+numeric(".") ----> none
+numeric(".3") ----> 0.3
+numeric("0.3") ----> 0.3
+numeric(" . 3") ----> none
+real(2.0) ----> 2.0
+real(2.7) ----> 2.7
+real(".") ----> none
+real(".3") ----> 0.3
+real("0.3") ----> 0.3
+real(" . 3") ----> none
+abs(3.0) ----> 3.0
+abs(0.0) ----> 0.0
+abs(-3.0) ----> 3.0
+36. % 7 ----> 1.0
+36 % 7. ----> 1.0
+36. % 7. ----> 1.0
+-36. % 7 ----> -1.0
+36 % -7. ----> 1.0
+-36. % -7. ----> -1.0
+36. * 9 ----> 324.0
+36 * 9. ----> 324.0
+36. * 9. ----> 324.0
+-36. * 9 ----> -324.0
+36 * -9. ----> -324.0
+-36. * -9. ----> 324.0
+36. / 9 ----> 4.0
+36 / 9. ----> 4.0
+36. / 9. ----> 4.0
+-36. / 9 ----> -4.0
+36 / -9. ----> -4.0
+-36. / -9. ----> 4.0
+36. + 9 ----> 45.0
+36 + 9. ----> 45.0
+36. + 9. ----> 45.0
+-36. + 9 ----> -27.0
+36 + -9. ----> 27.0
+-36. + -9. ----> -45.0
+1. < 1 ----> none
+1 < 2. ----> 2.0
+1. < 0. ----> none
+-1 < 0. ----> 0.0
+1. < -2 ----> none
+-1 < -0. ----> 0.0
+1. > 1 ----> none
+1 > 2. ----> none
+1. > 0. ----> 0.0
+-1 > 0. ----> none
+1. > -2 ----> -2.0
+-1 > -0. ----> none
+1. <= 1 ----> 1.0
+1 <= 2. ----> 2.0
+1. <= 0. ----> none
+-1 <= 0. ----> 0.0
+1. <= -2 ----> none
+-1 <= -0. ----> 0.0
+1. >= 1 ----> 1.0
+1 >= 2. ----> none
+1. >= 0. ----> 0.0
+-1 >= 0. ----> none
+1. >= -2 ----> -2.0
+-1 >= -0. ----> none
+1. = 1 ----> 1.0
+1 = 2. ----> none
+1. = 0. ----> none
+-1 = 0. ----> none
+1. = -2 ----> none
+-1 = -0. ----> none
+1. ~= 1 ----> none
+1 ~= 2. ----> 2.0
+1. ~= 0. ----> 0.0
+-1 ~= 0. ----> 0.0
+1. ~= -2 ----> -2.0
+-1 ~= -0. ----> 0.0
+36. ^ 9 ----> 1.015599e+14
+36 ^ 9. ----> 1.015599e+14
+36. ^ 9. ----> 1.015599e+14
+-36. ^ 9 ----> -1.01559e+14
+-36. ^ -9 ----> -9.84640e-15
+```
+
+## ladder__rung49_coexp_gen
+
+```Icon
 procedure acc()
    local total;
    total := 0;
@@ -12689,7 +26706,18 @@ procedure main()
    every 1 to 3 do write(@c);
    write(image(c) ? tab(upto('(')));
 end
-#----------------------------------------------- 1054 procedure_every_elemgen_20
+```
+
+```stdout
+1
+2
+3
+co-expression_2
+```
+
+## procedure_every_elemgen_20
+
+```Icon
 procedure main()
    local n;
    &error := 40;
@@ -12706,7 +26734,26 @@ procedure main()
    write(image(pop("x")) | "none", " J ", &errornumber, " ", image(&errorvalue));
    write(image(*image) | "none", " K ", &errornumber, " ", image(&errorvalue), " ", &errortext);
 end
-#------------------------------------------------- 1055 unicon__uni_thread_mutex
+```
+
+```stdout
+A 116 function image invalid type to element generator
+cset elements 256
+"1" B 116 function image
+C 116 &null invalid type to element generator
+none D 115 &cset structure expected
+none E 115 1
+none F 108 &null list expected
+none G 108 &null
+none H 108 1
+none I 108 1
+none J 108 "x"
+none K 112 function image invalid type to size operation
+```
+
+## unicon__uni_thread_mutex
+
+```Icon
 global que, mtx, total
 procedure main()
    local p, c, i;
@@ -12723,7 +26770,17 @@ procedure produce(start)
    local k;
    every k := start to 200 by 2 do critical mtx: put(que, k);
 end
-#----------------------------------------- 1056 procedure_coexpr_every_replace_1
+```
+
+```stdout
+integer
+200 20100
+45 45 45 45
+```
+
+## procedure_coexpr_every_replace_1
+
+```Icon
 procedure gen()
    suspend 1 to 3;
 end
@@ -12741,7 +26798,21 @@ procedure main()
    write(*e, " ", @e, " ", *e);
    write(image(create 1)[1:13]);
 end
-#---------------------------------------- 1057 procedure_every_elemgen_replace_2
+```
+
+```stdout
+1 
+2
+1 2
+ 8
+co-expression_1(1)
+0 x 1
+co-expressio
+```
+
+## procedure_every_elemgen_replace_2
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -12767,7 +26838,33 @@ procedure roman(n)
       result := map(result,"IVXLCDM","XLCDM**") || equiv[ arabic+1 ];
    if find("*",result) then fail else return result;
 end
-#- 1058 ladder__rung02_proc_a_returned_or_suspended_structure_keeps_its_arms_variable_and_evaluates_its_target_once
+```
+
+```stdin
+13
+4
+6
+0
+-4
+39
+3999
+4000
+```
+
+```stdout
+XIII
+IV
+VI
+cannot convert
+cannot convert
+XXXIX
+MMMCMXCIX
+cannot convert
+```
+
+## ladder__rung02_proc_a_returned_or_suspended_structure_keeps_its_arms_variable_and_evaluates_its_target_once
+
+```Icon
 global t, u, x, cnt
 procedure main()
   t := "t"; u := "u"; x := [10, 20, 30]; cnt := 0;
@@ -12795,7 +26892,29 @@ procedure g5() return case 2 of { 1: u; 2: t }; end
 procedure g6() local z; z := "loc"; return (if 1 = 1 then z else t); end
 procedure g7() suspend if 1 = 1 then (1 to 3) else 4; end
 procedure g8() return 1 & (t := "q") & u; end
-#------------------------------ 1059 unicon__uni_every_body_keeps_generator_link
+```
+
+```stdout
+G1
+6
+T2
+EE
+G2 1
+G3
+G4G4
+G5
+loc
+10930 1
+1
+2
+3
+ba
+qG8
+```
+
+## unicon__uni_every_body_keeps_generator_link
+
+```Icon
 procedure g()
    suspend 1 to 5;
 end
@@ -12823,7 +26942,17 @@ procedure main()
 end
 class UniconMarker()
 end
-#- 1060 ladder__rung02_proc_an_apply_of_a_procedure_to_an_empty_list_passes_no_arguments
+```
+
+```stdout
+1 2 3 4 5 
+1 2 3 4 
+2 3 5 
+```
+
+## ladder__rung02_proc_an_apply_of_a_procedure_to_an_empty_list_passes_no_arguments
+
+```Icon
 record pair(l, r)
 
 procedure none()
@@ -12855,7 +26984,22 @@ procedure main()
    write("none" ! [], " ", va ! [[]]);
    write(*sort(L), " ", *copy(L), " ", *(L ||| L), " ", *set(L), " ", image(L[1]), image(?L));
 end
-#---------------------------------------- 1061 procedure_record_every_replace_26
+```
+
+```stdout
+none
+va0 va2 va0
+&null,&null 1,&null 1,2
+pair &null &null
+1
+2
+null &null
+none va1
+```
+
+## procedure_record_every_replace_26
+
+```Icon
 #SRC: V9GEN
 
 procedure main(a)
@@ -12925,7 +27069,128 @@ procedure recurse(a,b);	# to build up some context for display()
       };
    return;
 end
-#------------------------------------------ 1062 procedure_every_scan_replace_19
+```
+
+```stdout
+&pos &subject: 3 abcde
+&pos &subject: 1 wxyz
+"main"
+"T"
+"L"
+"s"
+"a"
+&null
+"&error"
+"T[\"abc\"]"
+"T[\"abc\"]"
+"L[1]"
+"L[2]"
+"L[3]"
+"L[200]"
+"L[191]"
+"L[1]"
+"L[2]"
+"L[3]"
+"L[200]"
+"L[191]"
+"complex.r"
+
+----------------------------------------------------------------------
+co-expression_1(1)
+
+recurse local identifiers:
+   a = 5
+   b = 14
+   x = 19
+   y = -9
+recurse local identifiers:
+   a = 4
+   b = 10
+   x = 14
+   y = -6
+recurse local identifiers:
+   a = 3
+   b = 7
+   x = 10
+   y = -4
+
+global identifiers:
+   complex = record constructor complex
+   display = function display
+   image = function image
+   list = function list
+   main = procedure main
+   main2 = procedure main2
+   name = function name
+   push = function push
+   recurse = procedure recurse
+   repl = function repl
+   table = function table
+   variable = function variable
+   write = function write
+----------------------------------------------------------------------
+co-expression_1(1)
+
+recurse local identifiers:
+   a = 5
+   b = 14
+   x = 19
+   y = -9
+recurse local identifiers:
+   a = 4
+   b = 10
+   x = 14
+   y = -6
+recurse local identifiers:
+   a = 3
+   b = 7
+   x = 10
+   y = -4
+recurse local identifiers:
+   a = 2
+   b = 5
+   x = 7
+   y = -3
+recurse local identifiers:
+   a = 1
+   b = 4
+   x = 5
+   y = -3
+main local identifiers:
+   a = 1
+   x = 2
+   l0 = list_4 = []
+   l1 = list_5 = ['ABCDEFGHIKLMNOPQ...']
+   l2 = list_6 = ["supercalifragili...","expialidocious"]
+   l3 = list_7 = [1.618033989,2.718281828,3.141592654]
+   l4 = list_8 = [1,2,3,4]
+   l5 = list_9 = [1,2,3,4,5]
+   l6 = list_10 = [1,2,3,4,5,6]
+   l7 = list_11 = [1,2,3,...,5,6,7]
+   l8 = list_12 = [1,2,3,...,6,7,8]
+   l9 = list_13 = [list_4 = [],list_5(1),list_6(2),...,list_10(6),list_11(7),list_12(8)]
+   y = 3
+
+global identifiers:
+   complex = record constructor complex
+   display = function display
+   image = function image
+   list = function list
+   main = procedure main
+   main2 = procedure main2
+   name = function name
+   push = function push
+   recurse = procedure recurse
+   repl = function repl
+   table = function table
+   variable = function variable
+   write = function write
+----------------------------------------------------------------------
+```
+
+## procedure_every_scan_replace_19
+
+```Icon
 procedure main()
    local c;
    write('abc' ++ 'cd', " ", 'abcd' -- 'bd', " ", 'abc' ** 'bcd', " ", *'aab', " ", 'ba' == 'ab', " ", image('ba'));
@@ -12938,7 +27203,26 @@ procedure main()
    every writes(!'cba', ","); write();
    write(type('a'), " ", 'a' || 'b', " ", type('a' || 'b'), " ", *('abc' ** ''), " ", '' == '');
 end
-#--------------------------------------- 1063 procedure_every_elemgen_replace_18
+```
+
+```stdout
+abcd ac bc 2 ab 'ab'
+compl-eq 256 empty 255
+ehlo xyz 123 .15 0
+BCDFGHJKLMNPQRSTVWXYZ ab ab
+csetlt
+e102
+1ab
+e102
+none 6 a a
+'\t\n' 256 255 abc
+a,b,c,
+cset ab string 0 
+```
+
+## procedure_every_elemgen_replace_18
+
+```Icon
 procedure main()
    local L, M, s;
    L := [1, 2, 3, 4, 5];
@@ -12955,7 +27239,27 @@ procedure main()
    write(image([]), " ", image([1]), " ", *list(0));
    L := [3, 1, 2]; M := sort(L); write(L[1], M[1], " ", image(L) == image(M) | "different-lists");
 end
-#------------------------------------------ 1064 procedure_every_scan_replace_17
+```
+
+```stdout
+5 1 oob 2 2 0
+23 3
+016 4
+yxx
+1
+3 3
+hELlo
+ELlo 4
+a abc s4-fail |
+b z a 
+bza
+list_25(0) list_26(1) 0
+31 different-lists
+```
+
+## procedure_every_scan_replace_17
+
+```Icon
 procedure main()
    local s, t;
    s := "alpha beta gamma";
@@ -12972,7 +27276,25 @@ procedure main()
    write("q" ? (move(1) & &pos));
    write(&subject == "q" | "subject reverted");
 end
-#------------------------------------------------------ 1065 gc_hb_coexpr_create
+```
+
+```stdout
+7 beta gamma
+in 6 inner x y
+back 17 beta gamma
+"" 1
+restore 1
+b
+np
+a
+a.b
+1
+subject reverted
+```
+
+## gc_hb_coexpr_create
+
+```Icon
 # WITNESS for the CREATE RECORD's INHERITED SUBJECT: a co-expression created inside a string scan inherits
 # &subject/&pos, which iconx keeps global; collections between the create and the first activation slide the
 # subject block, and the trampoline loads r13/r15 at the body's first entry from the rooted global scan_subj,
@@ -12991,7 +27313,16 @@ procedure main()
    line ? { tab(upto(letters)); e := create tab(many(letters)); G := &null; every i := 1 to 60 do junk := list(3, i); s := @e; write(s) };
    write("done");
 end
-#-------------- 1066 ladder__rung05_scan_nested_procedures_match_through_a_value
+```
+
+```stdout
+alpha
+done
+```
+
+## ladder__rung05_scan_nested_procedures_match_through_a_value
+
+```Icon
 record tk(proc, args)
 global Re__tabmatch
 procedure tokmatch(tok)
@@ -13014,7 +27345,15 @@ procedure main()
    every writes(" ", rematch(pl, "abc"));
    write(" | rematch");
 end
-#-- 1067 ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
+```
+
+```stdout
+ 1 | rematch
+```
+
+## ladder__rung22_lists_a_list_constructor_is_resumed_through_its_elements
+
+```Icon
 procedure n2()
    suspend tab(2);
 end
@@ -13038,7 +27377,23 @@ procedure main()
    "(a++b)" ? { every x := [="(", tab(upto(')')), =")"] & ="!"; write("G ", &pos) };
    "abcd" ? { every x := [1 to 2, tab(2)] do writes(x[1], x[2], &pos, " "); write("H ", &pos) };
 end
-#------------------------------------------------------- 1068 gc_hb_coexpr_sigma
+```
+
+```stdout
+A 1
+B 1
+D 1
+E 1
+F 1
+t6 1
+t7 1
+G 1
+1a2 2a2 H 1
+```
+
+## gc_hb_coexpr_sigma
+
+```Icon
 # WITNESS for the SUBJECT REGISTER ACROSS A CO-EXPRESSION SWITCH (Lon 2026-09-19: r13 for SNOBOL4 and Icon points
 # to the subject string). A co-expression scans a heap string and transmits each word to a second co-expression
 # that allocates and collects while the scanner is parked inside its scan with r13 = the subject base. The two
@@ -13064,7 +27419,28 @@ procedure output()
    while w := @words do { every i := 1 to 40 do junk := list(3, i); write(w) };
    @&main;
 end
-#------------------------------------------ 1069 procedure_every_scan_replace_10
+```
+
+```stdout
+alpha
+beta
+gamma
+alpha
+beta
+gamma
+alpha
+beta
+gamma
+alpha
+beta
+gamma
+omega
+done
+```
+
+## procedure_every_scan_replace_10
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -13091,7 +27467,93 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[ i ],n),x[ i + 1 ]);
 end
-#------------------------------------- 1070 scanning_asm__is02d_explicit_subject
+```
+
+```stdin
+#
+#	W O R D   T A B U L A T I O N
+#
+
+#  This main procedure processes standard input and writes the results
+#  with the words in a column 20 characters wide.
+
+procedure main()
+   wordcount(20)
+end
+
+procedure wordcount(n)
+   local t, line, x, y
+   static letters
+   initial letters := &lcase ++ &ucase
+   t := table(,0)
+   every line := !&input do
+      scan line using
+         while tab(upto(letters)) do
+            t[tab(many(letters))] +:= 1
+   x := sort(t)
+   every y := !x do write(left(y[1],n),y[2])
+end
+```
+
+```stdout
+A                   2
+B                   1
+D                   1
+I                   1
+L                   1
+N                   1
+O                   2
+R                   1
+T                   2
+This                1
+U                   1
+W                   1
+a                   1
+and                 1
+characters          1
+column              1
+do                  3
+end                 2
+every               2
+in                  1
+initial             1
+input               2
+lcase               1
+left                1
+letters             4
+line                3
+local               1
+main                2
+many                1
+n                   2
+procedure           3
+processes           1
+results             1
+scan                1
+sort                1
+standard            1
+static              1
+t                   4
+tab                 2
+table               1
+the                 2
+ucase               1
+upto                1
+using               1
+while               1
+wide                1
+with                1
+wordcount           2
+words               1
+write               1
+writes              1
+x                   3
+y                   4
+```
+
+## scanning_asm__is02d_explicit_subject
+
+```Icon
 procedure main();
   local r, s, c, i, t;
   r := "";
@@ -13121,7 +27583,15 @@ procedure main();
     r ||:= (tab(upto('s')) | "-") || "," || &pos };
   write(r);
 end
-#------------------------------------------- 1071 scanning_asm__is05d_kw_results
+```
+
+```stdout
+3,6,7,14,40,45,-,-,20,14,20,30,45,3,10,8,4,4,-,-,4,10,-,4,-,48,3,1,3,inner ,7
+```
+
+## scanning_asm__is05d_kw_results
+
+```Icon
 procedure r1();
   "xy" ? return &pos;
 end
@@ -13151,7 +27621,31 @@ procedure main();
   "out" ? { move(1); while @c do write("main ", &subject, " ", &pos) };
   write("done ", image(&subject), " ", &pos);
 end
-#------------------------- 1072 coexpr_gc_stack_witness__coexpr_gc_stack_witness
+```
+
+```stdout
+3 3
+hello 3
+3 3
+2 3
+hello 3
+3 3
+3 3
+3 3
+hello 3
+1 1
+co 2 tok 2
+main tok 2
+co 2 tok 2
+main tok 2
+co 2 tok 2
+main tok 2
+done "" 1
+```
+
+## coexpr_gc_stack_witness__coexpr_gc_stack_witness
+
+```Icon
 record node(tag, sub)
 
 procedure findsub(r, f[])
@@ -13185,7 +27679,15 @@ procedure main()
       every x := findsub(root, "T2", "T1", "T0") do count +:= 1;
    write("found=", count);
 end
-#------------------------------------------- 1073 procedure_scan_while_replace_1
+```
+
+```stdout
+found=40
+```
+
+## procedure_scan_while_replace_1
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -13221,7 +27723,23 @@ procedure meander(alpha,n)
        };
    return result;
 end
-#--------------------------------------------------------- 1074 samples__meander
+```
+
+```stdin
+abc:2
+1234:2
+ABC:4
+```
+
+```stdout
+accbcabbaa
+14434241332312211
+AAACCCCBCCCACCBBCCBACCABCCAACBCBCACBBBCBBACBABCBAACACABBCABACAABCAAABBBBABBAABABAAAA
+```
+
+## samples__meander
+
+```Icon
 #SRC: V9SAM
 
 #
@@ -13257,7 +27775,19 @@ procedure meander(alpha,n)
        };
    return result;
 end
-#----------------------------- 1075 ladder__rung33_case_clause_tests_by_identity
+```
+
+```stdin
+abc:3
+```
+
+```stdout
+aacccbccacbbcbacabcaabbbabaaa
+```
+
+## ladder__rung33_case_clause_tests_by_identity
+
+```Icon
 record r(a)
 record pt(x, y)
 procedure side(v)
@@ -13326,7 +27856,66 @@ procedure main()
    write("tbl ", t(table(), table()));
    write("csetv ", t(&digits, &digits));
 end
-#----------------------------------------- 1076 procedure_record_every_replace_4
+```
+
+```stdout
+int
+real
+str
+point
+other
+other
+[3][4]0 high
+1 low
+2 low
+[3]3 mid
+[3][4]4 mid
+[3][4]5 high
+seven
+x-after-default
+10
+11
+12
+substring
+int-one
+null
+empty
+same-list
+big
+cset
+no-str
+nested
+nul-right
+eqv-gen
+neqv-null
+neqv-big
+null-empty nn
+empty-null nn
+null-null YY
+int-real nn
+int-str nn
+str-str YY
+nul-embed nn
+cset-cset YY
+cset-str nn
+list-same YY
+list-other nn
+rec-same YY
+rec-other nn
+proc YY
+proc2 nn
+real YY
+type YY
+bigint YY
+gen Y
+empty-str YY
+tbl nn
+csetv YY
+```
+
+## procedure_record_every_replace_4
+
+```Icon
 #SRC: IPL
 
 ############################################################################
@@ -13425,7 +28014,78 @@ procedure show()
       };
    write();
 end
-#----------- 1077 ladder__rung22_repalt_repeated_alternation_resumes_its_operand
+```
+
+```args
+6
+```
+
+```stdout
+6-Queens:
+solution: 1
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+
+solution: 2
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+
+solution: 3
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+
+solution: 4
+  -------------------------
+  |   |   |   |   | Q |   |
+  -------------------------
+  |   |   | Q |   |   |   |
+  -------------------------
+  | Q |   |   |   |   |   |
+  -------------------------
+  |   |   |   |   |   | Q |
+  -------------------------
+  |   |   |   | Q |   |   |
+  -------------------------
+  |   | Q |   |   |   |   |
+  -------------------------
+```
+
+## ladder__rung22_repalt_repeated_alternation_resumes_its_operand
+
+```Icon
 procedure g(n)
    suspend 1 to n;
 end
@@ -13443,7 +28103,22 @@ procedure main()
    every writes((|&fail) | "none", " "); write();
    every writes((|(1 to 2) || (|"x")) \ 4, " "); write();
 end
-#-------- 1078 ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
+```
+
+```stdout
+1 2 1 2 1 
+1 a 2 b 3 c d 
+1 5 2 6 5 6 5 6 5 
+1 2 3 1 2 3 1 
+4 4 4 
+1 2 3 
+none 
+1x 1x 1x 1x 
+```
+
+## ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning
+
+```Icon
 procedure merge(L)
    local e1, e2, r1, r2;
    e1 := L[1]; e2 := L[2];
@@ -13466,7 +28141,17 @@ procedure main()
    write();
    write(image(&subject), " ", &pos);
 end
-#- 1079 ladder__rung29_builtins_read_returns_each_line_of_a_file_whatever_its_ending_or_length
+```
+
+```stdout
+1 2 3 4 5 
+1 2 3 4 5 
+"" 1
+```
+
+## ladder__rung29_builtins_read_returns_each_line_of_a_file_whatever_its_ending_or_length
+
+```Icon
 procedure mn(a, b)
    if a < b then return a;
    return b;
@@ -13499,7 +28184,28 @@ procedure main()
    close(f);
    remove(w);
 end
-#--------------------------------------------- 1080 procedure_to_while_replace_1
+```
+
+```stdout
+1 5 "alpha" "alpha"
+2 0 "" ""
+3 10 "beta gamma" " gamma"
+4 5 "delta" "delta"
+5 7 "epsilon" "psilon"
+6 8 "zeta\x00eta" "ta\x00eta"
+7 7000 "012345678901234567890123" "456789"
+8 34 "tail 0123456789012345678" "345678"
+9 20 "last line no newline" "ewline"
+"alpha"
+""
+"beta gamma"
+"delt"
+"a"
+```
+
+## procedure_to_while_replace_1
+
+```Icon
 #SRC: V9GEN
 
 procedure main()
@@ -13533,7 +28239,162 @@ procedure main()
       write(left(word,maxword + 2),": ",lines[1:-2])
       };
 end
-#------------------------------------ 1081 scanning_asm__is04c_collect_in_callee
+```
+
+```stdin
+Order, Coleoptera, (Beetles). Many beetles are colored so as
+to resemble the surfaces which they habitually frequent, and they thus
+escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
+with splendid colors, which are often arranged in stripes, spots, crosses,
+and other elegant patterns.  Such colors can hardly serve directly as a protection, except in the case
+of certain flower-feeding species; but they may serve as a warning or means of
+recognition, on the same principle as the
+phosphorescence of the glow-worm.
+As with beetles the colors of the two sexes are generally alike, we have
+no evidence that they have been gained through sexual selection; but this is
+at least possible, for they may have been developed in one sex and then
+transferred to the other; and this view is even in some degree probable
+in those groups which possess other well-marked secondary
+sexual characters. Blind beetles, which cannot, of course, behold each
+other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
+colors, though they often have polished coats; but the explanation of their
+obscurity may be that they generally inhabit caves and other obscure stations.
+```
+
+```stdout
+     1  Order, Coleoptera, (Beetles). Many beetles are colored so as
+     2  to resemble the surfaces which they habitually frequent, and they thus
+     3  escape detection by their enemies. Other species, for instance, diamond-beetles, are ornamented
+     4  with splendid colors, which are often arranged in stripes, spots, crosses,
+     5  and other elegant patterns.  Such colors can hardly serve directly as a protection, except in the case
+     6  of certain flower-feeding species; but they may serve as a warning or means of
+     7  recognition, on the same principle as the
+     8  phosphorescence of the glow-worm.
+     9  As with beetles the colors of the two sexes are generally alike, we have
+    10  no evidence that they have been gained through sexual selection; but this is
+    11  at least possible, for they may have been developed in one sex and then
+    12  transferred to the other; and this view is even in some degree probable
+    13  in those groups which possess other well-marked secondary
+    14  sexual characters. Blind beetles, which cannot, of course, behold each
+    15  other's beauty, never, as I hear from Mr. Waterhouse, Jr., exhibit bright
+    16  colors, though they often have polished coats; but the explanation of their
+    17  obscurity may be that they generally inhabit caves and other obscure stations.
+
+alike            : 9
+and              : 2, 5, 11, 12, 17
+are              : 1, 3, 4, 9
+arranged         : 4
+beauty           : 15
+been             : 10, 11
+beetles          : 1, 3, 9, 14
+behold           : 14
+blind            : 14
+bright           : 15
+but              : 6, 10, 16
+can              : 5
+cannot           : 14
+case             : 5
+caves            : 17
+certain          : 6
+characters       : 14
+coats            : 16
+coleoptera       : 1
+colored          : 1
+colors           : 4, 5, 9, 16
+course           : 14
+crosses          : 4
+degree           : 12
+detection        : 3
+developed        : 11
+diamond          : 3
+directly         : 5
+each             : 14
+elegant          : 5
+enemies          : 3
+escape           : 3
+even             : 12
+evidence         : 10
+except           : 5
+exhibit          : 15
+explanation      : 16
+feeding          : 6
+flower           : 6
+for              : 3, 11
+frequent         : 2
+from             : 15
+gained           : 10
+generally        : 9, 17
+glow             : 8
+groups           : 13
+habitually       : 2
+hardly           : 5
+have             : 9, 10, 11, 16
+hear             : 15
+inhabit          : 17
+instance         : 3
+least            : 11
+many             : 1
+marked           : 13
+may              : 6, 11, 17
+means            : 6
+never            : 15
+obscure          : 17
+obscurity        : 17
+often            : 4, 16
+one              : 11
+order            : 1
+ornamented       : 3
+other            : 3, 5, 12, 13, 17
+other's          : 15
+patterns         : 5
+phosphorescence  : 8
+polished         : 16
+possess          : 13
+possible         : 11
+principle        : 7
+probable         : 12
+protection       : 5
+recognition      : 7
+resemble         : 2
+same             : 7
+secondary        : 13
+selection        : 10
+serve            : 5, 6
+sex              : 11
+sexes            : 9
+sexual           : 10, 14
+some             : 12
+species          : 3, 6
+splendid         : 4
+spots            : 4
+stations         : 17
+stripes          : 4
+such             : 5
+surfaces         : 2
+that             : 10, 17
+the              : 2, 5, 7, 8, 9, 12, 16
+their            : 3, 16
+then             : 11
+they             : 2, 6, 10, 11, 16, 17
+this             : 10, 12
+those            : 13
+though           : 16
+through          : 10
+thus             : 2
+transferred      : 12
+two              : 9
+view             : 12
+warning          : 6
+waterhouse       : 15
+well             : 13
+which            : 2, 4, 13, 14
+with             : 4, 9
+worm             : 8
+```
+
+## scanning_asm__is04c_collect_in_callee
+
+```Icon
 global L, junk
 procedure gen()
   local i, t;
@@ -13567,7 +28428,17 @@ procedure main()
   s := repl("klmnopqrst", 400);
   s ? { x := d(); write(x, " ", &pos, " ", image(tab(7)), " ", &pos, " ", image(move(2)), " ", &pos, " ", image(upto('t'))) };
 end
-#------------------------------------------------ 1082 procedure_every_suspend_7
+```
+
+```stdout
+1 8 "abcd" 8 "efg" 8
+2 8 "efg" 8 "efg" 8
+7 9 "klmnop" 9 "qr" 9 10
+```
+
+## procedure_every_suspend_7
+
+```Icon
 #  x <- e enters e through its alpha port like x := e does.  The lvalue's
 #  success edge was routed to the right side's BETA (resume) port whenever
 #  the right side was a generator, so x <- 2 | 3 skipped the first
@@ -13605,7 +28476,36 @@ procedure main()
    s ? { x <- (tab(many(&digits)) | &null) & pos(0) | write("r19 ", image(x), " ", &pos) };
    x := 1; every write("r20 ", (x <- 2 | 3) + 1); write("r20 ", image(x));
 end
-#--------------------------------------- 1083 procedure_coexpr_suspend_replace_3
+```
+
+```stdout
+r1 2
+r2 2
+r3 2
+r4 2
+r5 &null
+r6 2
+r7 1
+r8 1
+r9 1
+r10 2
+r11 2
+r12 2
+r13 2
+r14 12
+r15 "7" 2
+r16 7 2
+r17 7 2
+r18 "7" 3
+r19 "7" 2
+r20 3
+r20 4
+r20 1
+```
+
+## procedure_coexpr_suspend_replace_3
+
+```Icon
 #  test text and binary I/O in many different lengths from tiny to huge
 
 procedure main()
@@ -13656,7 +28556,21 @@ procedure bingen();		#: generate tougher strings for binary file
    suspend repl("\^@", 1037);
    suspend h;
 end
-#---------------------------------------- 1084 procedure_every_suspend_replace_7
+```
+
+```stdout
+writing file(tmp3)
+reading file(tmp3)
+closing file(tmp3)
+writing file(tmp4)
+reading file(tmp4)
+closing file(tmp4)
+no problems found
+```
+
+## procedure_every_suspend_replace_7
+
+```Icon
 #SRC: V9GEN
 
 procedure main()
@@ -13737,7 +28651,138 @@ procedure permute(s)
       suspend x || permute(t)
       };
 end
-#- 1085 ladder__rung22_lists_bang_follows_the_iconx_block_cursor_under_push_get_put_and_pull
+```
+
+```stdout
+"\xfd\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xff\xfe"
+"\xfd\x01\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xff\x01"
+"\x02\x01\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x00\x01"
+"\x02\xff\xfe\xfd\xfc\xfb\xfa\xf9\xf8\xf7\xf6\xf5\xf4\xf3\xf2\xf1\xf0\xef\xee\xed\xec\xeb\xea\xe9\xe8\xe7\xe6\xe5\xe4\xe3\xe2\xe1\xe0\xdf\xde\xdd\xdc\xdb\xda\xd9\xd8\xd7\xd6\xd5\xd4\xd3\xd2\xd1\xd0\xcf\xce\xcd\xcc\xcb\xca\xc9\xc8\xc7\xc6\xc5\xc4\xc3\xc2\xc1\xc0\xbf\xbe\xbd\xbc\xbb\xba\xb9\xb8\xb7\xb6\xb5\xb4\xb3\xb2\xb1\xb0\xaf\xae\xad\xac\xab\xaa\xa9\xa8\xa7\xa6\xa5\xa4\xa3\xa2\xa1\xa0\x9f\x9e\x9d\x9c\x9b\x9a\x99\x98\x97\x96\x95\x94\x93\x92\x91\x90\x8f\x8e\x8d\x8c\x8b\x8a\x89\x88\x87\x86\x85\x84\x83\x82\x81\x80\d~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?>=<;:9876543210/.-,+*)('&%$#\"! \x1f\x1e\x1d\x1c\e\x1a\x19\x18\x17\x16\x15\x14\x13\x12\x11\x10\x0f\x0e\r\f\v\n\t\b\x07\x06\x05\x04\x03\x00\x01"
+agmor
+agmro
+agomr
+agorm
+agrmo
+agrom
+amgor
+amgro
+amogr
+amorg
+amrgo
+amrog
+aogmr
+aogrm
+aomgr
+aomrg
+aorgm
+aormg
+argmo
+argom
+armgo
+armog
+arogm
+aromg
+gamor
+gamro
+gaomr
+gaorm
+garmo
+garom
+gmaor
+gmaro
+gmoar
+gmora
+gmrao
+gmroa
+goamr
+goarm
+gomar
+gomra
+goram
+gorma
+gramo
+graom
+grmao
+grmoa
+groam
+groma
+magor
+magro
+maogr
+maorg
+margo
+marog
+mgaor
+mgaro
+mgoar
+mgora
+mgrao
+mgroa
+moagr
+moarg
+mogar
+mogra
+morag
+morga
+mrago
+mraog
+mrgao
+mrgoa
+mroag
+mroga
+oagmr
+oagrm
+oamgr
+oamrg
+oargm
+oarmg
+ogamr
+ogarm
+ogmar
+ogmra
+ogram
+ogrma
+omagr
+omarg
+omgar
+omgra
+omrag
+omrga
+oragm
+oramg
+orgam
+orgma
+ormag
+ormga
+ragmo
+ragom
+ramgo
+ramog
+raogm
+raomg
+rgamo
+rgaom
+rgmao
+rgmoa
+rgoam
+rgoma
+rmago
+rmaog
+rmgao
+rmgoa
+rmoag
+rmoga
+roagm
+roamg
+rogam
+rogma
+romag
+romga
+```
+
+## ladder__rung22_lists_bang_follows_the_iconx_block_cursor_under_push_get_put_and_pull
+
+```Icon
 global seed
 procedure show(tag, L)
    local s, y;
@@ -13822,7 +28867,102 @@ procedure main()
       write(s);
    };
 end
-#------------------------------------------------- 1086 scanning_asm__is02_forms
+```
+
+```stdout
+w1 6
+w2 1 2 3 4
+w2L: 0 1 2 3 4 size=5
+w3 1 1 1 1 1 1 1 1
+w3L: 0 0 0 0 0 0 0 0 1 size=9
+w4 1 3 5
+w4L: 4 5 size=2
+w5 1 2 3
+w5L: 1 2 size=2
+w6 1 2 3 11 12 13 21
+w6L: 1 2 3 11 12 13 21 size=7
+w7 1 2 3 4
+w7L: 2 3 4 size=3
+w8 0 1 2 3
+w8L: 9 0 1 2 3 size=5
+w9 1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+w9L: 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 size=15
+w10 1 2 3 4 5 6
+w10L: 3 4 5 6 7 size=5
+w11 2 3 3 4
+w11L: 7 7 2 3 4 size=5
+w12L: 9 9 9 0 0 0 size=6
+w13 1 4 3 4 5 6
+w13L: 9 8 9 8 3 4 5 6 size=8
+w14 0 0 0
+w14L: 5 4 3 0 0 0 size=6
+w15 1 4 5 6
+w15L: 1 4 5 6 size=4
+r1: 9 -1 -1 -1 -1 -1 1 2 4 5 7 8 10 11 17 27 | -1 -1 -1 -1 1 2 4 5 7 8 10 11 17 27
+r2: 76 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 31 33 35 36 37 38 42 43 44 45 46 47 48 49 50 51 52 53 54 58 61 62 63 64 65 66 67 68 69 70 | -1 -1 31 32 33 35 36 37 38 42 43 44 45 46 47 48 49 50 51 52 53 54 58 61 62 63 64 65 66 67 68 69 70 71 84 92 95 97 98 108
+r3: 118 130 115 115 115 111 1 2 114 116 117 121 123 124 125 126 127 128 132 134 137 138 147 | 118 115 113 111 1 2 114 116 117 121 123 124 125 126 127 128 132 134 137
+r4: 209 206 206 157 158 159 160 162 163 166 169 170 171 172 173 174 175 176 181 182 183 184 185 195 197 199 201 202 203 204 234 238 239 242 | 235 233 232 158 159 160 162 163 166 169 170 171 172 173 174 175 176 181 182 183 184 185 195 197 199 201 202 203 204 234 238 239 242
+r5: 282 280 244 245 246 247 248 251 252 254 255 256 257 259 260 261 262 263 265 267 268 270 271 272 273 274 285 286 287 288 290 291 295 296 297 299 303 305 306 315 316 | 248 251 252 254 255 256 257 259 260 261 262 263 265 267 268 270 271 272 273 274 285 286 287 288 290 291 295 296 297 299 303 305 306 315 316 318 319 322
+r6: 364 363 363 328 328 329 330 331 333 334 335 336 338 339 340 341 342 343 344 345 346 347 349 350 351 352 353 354 355 356 357 358 359 360 365 383 386 390 396 397 398 | 410 407 400 363 328 329 330 331 333 334 335 336 338 339 340 341 342 343 344 345 346 347 349 350 351 352 353 354 355 356 357 358 359 360 365 383 386 390 396 397 398 399 401 402 404 405 408 409 412 414
+r7: 415 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 417 419 420 422 424 425 430 432 | 415 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 417 419 420 422 424 425 430
+r8: 477 452 436 437 438 440 441 442 444 445 446 450 453 455 456 457 458 459 460 461 462 465 466 467 468 471 473 474 475 476 479 480 481 482 483 486 487 488 492 506 507 | 533 518 437 438 440 441 442 444 445 446 450 453 455 456 457 458 459 460 461 462 465 466 467 468 471 473 474 475 476 479 480 481 482 483 486 487 488 492 506 507 509 510 511 512 513 517 524 525 531 532
+r9: 538 538 540 542 545 548 549 551 553 555 556 557 558 559 562 563 568 569 575 576 579 580 581 582 585 595 599 602 605 615 616 618 | 548 549 551 553 555 556 557 558 559 562 563 568 569 575 576 579 580 581 582 585 595 599 602 605 615 616 618
+r10: 648 646 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 620 621 623 624 625 626 628 629 630 632 633 634 635 636 643 647 651 653 654 660 663 664 666 669 672 673 | 682 652 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 620 621 623 624 625 626 628 629 630 632 633 634 635 636 643 647 651 653 654 660 663 664 666 669 672 673 674 676 677 678 680 681 683 684
+r11: 729 727 -1 -1 -1 -1 -1 -1 -1 -1 685 686 687 688 689 690 691 692 693 694 698 699 700 701 704 706 707 708 709 710 711 712 713 714 715 716 719 720 721 722 723 | 770 766 -1 -1 -1 -1 -1 -1 685 686 687 688 689 690 691 692 693 694 698 699 700 701 704 706 707 708 709 710 711 712 713 714 715 716 719 720 721 722 723 724 726 728 730 731 732 736 737 738 739 741 742 743 762 764 765 767 768 769
+r12: 794 794 792 785 779 776 -1 -1 -1 774 778 780 789 790 795 797 799 800 801 804 807 808 810 812 813 815 816 | 786 785 779 776 -1 -1 -1 774 778 780 789 790 795 797 799 800 801 804 807 808 810 812 813 815 816
+r13: 820 -1 -1 821 822 823 826 | -1 821 822 823 826
+r14: 863 833 1 2 3 829 830 831 832 836 838 839 840 841 842 845 846 847 848 849 850 851 852 855 856 857 883 | 880 877 872 871 869 868 2 3 829 830 831 832 836 838 839 840 841 842 845 846 847 848 849 850 851 852 855 856 857 883
+r15: 2 884 885 886 887 888 889 890 893 895 897 898 899 900 901 902 906 907 908 914 921 | 924 923 917 3 884 885 886 887 888 889 890 893 895 897 898 899 900 901 902 906 907 908 914 921
+r16: 929 925 926 931 934 937 938 942 943 944 946 949 | 926 930 931 934 937 938 942 943 944 946 949
+r17: 1007 986 950 951 952 953 954 955 956 957 959 960 961 962 964 965 971 972 973 974 975 976 977 978 982 983 984 987 991 992 993 994 995 998 999 1000 1002 1003 1004 1005 1006 | 1026 1024 1022 1019 968 950 951 952 953 954 955 956 957 959 960 961 962 964 965 971 972 973 974 975 976 977 978 982 983 984 987 991 992 993 994 995 998 999 1000 1002 1003 1004 1005 1006 1009 1020 1034 1035 1036 1037
+r18: 1044 1043 1040 | 1043 1040 1045
+r19: 1050 1055 1056 1059 1061 1063 1063 1064 1066 1069 1070 1073 1076 | 1056 1059 1060 1061 1063 1064 1066 1069 1070 1073 1076
+r20: 1082 1079 1080 1083 1084 1085 1088 1091 1092 1093 1094 1095 1096 1097 1100 1101 1102 1103 1104 1105 1106 1107 1108 1109 1110 1111 1112 1113 1114 1115 1117 1118 1121 1122 1123 1124 1125 1127 1128 1129 1130 | 1165 1161 1159 1080 1081 1083 1084 1085 1088 1091 1092 1093 1094 1095 1096 1097 1100 1101 1102 1103 1104 1105 1106 1107 1108 1109 1110 1111 1112 1113 1114 1115 1117 1118 1121 1122 1123 1124 1125 1127 1128 1129 1130 1142 1143 1145 1146 1147 1150 1156 1162 1163 1164
+r21: 1170 1166 1167 1168 1169 1171 1172 1173 1178 1179 1180 1181 1184 1188 1189 1190 1194 1198 1199 1200 1201 1203 1204 1205 1207 1208 1210 1211 1215 1216 1217 1219 1222 1225 1227 1228 1230 1235 | 1234 1233 1232 1220 1218 1166 1167 1168 1169 1171 1172 1173 1178 1179 1180 1181 1184 1188 1189 1190 1194 1198 1199 1200 1201 1203 1204 1205 1207 1208 1210 1211 1215 1216 1217 1219 1222 1225 1227 1228 1230 1235
+r22: 1254 1 2 3 1236 1237 1242 1243 1244 1246 1247 1248 1249 1250 1251 1256 1257 1260 1261 1262 1263 1264 1272 1273 1275 1277 1284 1285 1286 1287 1288 1290 1294 1297 1298 1300 1301 1302 1303 1304 1305 | 1293 1289 1276 1274 1269 1254 1 2 3 1236 1237 1242 1243 1244 1246 1247 1248 1249 1250 1251 1256 1257 1260 1261 1262 1263 1264 1272 1273 1275 1277 1284 1285 1286 1287 1288 1290 1294 1297 1298 1300 1301 1302 1303 1304 1305 1307 1308
+r23: 1321 1312 1313 1314 1315 1316 1318 | 1315 1316 1317 1318
+r24: 1341 1335 1 2 3 1331 1332 1333 1334 1336 1338 1339 1342 1344 1346 1352 1358 1360 1362 | 1363 1353 2 3 1331 1332 1333 1334 1336 1338 1339 1342 1344 1346 1352 1358 1360 1362
+r25: 1367 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 1380 1381 1384 1385 1386 | -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 1380 1381 1384 1385 1386
+r26: 1429 1428 1409 2 3 1397 1398 1400 1402 1405 1406 1407 1408 1410 1411 1418 1419 1420 1421 1422 1423 1424 1425 1426 1427 1430 1431 1432 1433 1441 1442 1444 1454 1455 1456 | 1462 1461 1428 1409 2 3 1397 1398 1400 1402 1405 1406 1407 1408 1410 1411 1418 1419 1420 1421 1422 1423 1424 1425 1426 1427 1430 1431 1432 1433 1441 1442 1444 1454 1455 1456
+r27: 1508 2 3 1463 1468 1470 1471 1472 1473 1478 1479 1480 1481 1482 1483 1484 1485 1486 1487 1489 1490 1492 1493 1494 1495 1496 1499 1500 1501 1502 1503 1504 1505 1506 1507 1509 1530 1533 1534 1538 | 2 3 1463 1468 1470 1471 1472 1473 1478 1479 1480 1481 1482 1483 1484 1485 1486 1487 1489 1490 1492 1493 1494 1495 1496 1499 1500 1501 1502 1503 1504 1505 1506 1507 1509 1530 1533 1534
+r28: 1579 1542 1543 1544 1546 1548 1549 1550 1551 1552 1553 1555 1556 1558 1559 1562 1564 1565 1566 1567 1568 1570 1571 1572 1573 1583 1585 1588 1599 1601 1602 1604 | 1587 1586 1584 1582 1579 1542 1543 1544 1546 1548 1549 1550 1551 1552 1553 1555 1556 1558 1559 1562 1564 1565 1566 1567 1568 1570 1571 1572 1573 1583 1585 1588 1599 1601 1602 1608
+r29: 1632 1613 1615 1616 1617 1618 1619 1622 1623 1624 1626 1626 1627 1629 1630 1634 1645 | 1651 1648 1647 1646 1618 1619 1622 1623 1624 1625 1626 1627 1629 1630 1634 1645
+r30: 1708 1705 1662 1662 1663 1664 1666 1673 1677 1678 1679 1680 1681 1682 1683 1684 1687 1688 1689 1690 1691 1692 1693 1694 1697 1699 1701 1702 1713 1714 1719 1723 1735 1736 1737 | 1743 1738 1727 1722 1721 1711 1707 1705 1662 1663 1664 1666 1673 1677 1678 1679 1680 1681 1682 1683 1684 1687 1688 1689 1690 1691 1692 1693 1694 1697 1699 1701 1702 1713 1714 1719 1723 1735 1736 1737
+r31: 1 3 1744 1745 1746 1747 1748 1749 1750 1751 1752 1753 1754 1755 1756 1768 1769 1775 1778 | 1744 1745 1746 1747 1748 1749 1750 1751 1752 1753 1754 1755 1756 1768 1769 1775
+r32: 1789 1789 1791 | 1794 1789 1790
+r33: 1798 1799 1802 1804 1806 1807 1807 1808 1809 1810 1812 1813 1814 1815 1816 1817 1818 1819 1821 1823 1825 1826 1827 1828 1829 1835 1836 1837 1842 1851 1852 1853 1854 1855 1858 1859 1860 1865 1869 | 1871 1870 1868 1798 1799 1802 1804 1806 1807 1808 1809 1810 1812 1813 1814 1815 1816 1817 1818 1819 1821 1823 1825 1826 1827 1828 1829 1835 1836 1837 1842 1851 1852 1853 1854 1855 1858 1859 1860 1865 1869
+r34: 1878 1880 1881 1883 1885 1886 1888 1894 1895 1896 1897 1898 1899 1902 1904 1905 1906 1907 1908 1909 1911 1913 1914 1915 1917 1918 1919 1922 1937 1938 1940 1941 1942 1944 1948 1950 1951 1955 1956 1959 1961 | 1960 1958 1946 1945 1885 1886 1888 1894 1895 1896 1897 1898 1899 1902 1904 1905 1906 1907 1908 1909 1911 1913 1914 1915 1917 1918 1919 1922 1937 1938 1940 1941 1942 1944 1948 1950 1951 1955 1956 1959 1961 1962 1963
+r35: 1990 1990 1980 1976 -1 -1 -1 1964 1965 1966 1967 1968 1969 1970 1971 1972 1974 1979 1981 1982 1987 1988 1989 1992 1993 1994 1996 1997 1998 2009 2012 2014 2016 2019 2022 2026 2027 2031 2032 2033 2034 | 2040 2025 1990 1980 1976 -1 -1 -1 1964 1965 1966 1967 1968 1969 1970 1971 1972 1974 1979 1981 1982 1987 1988 1989 1992 1993 1994 1996 1997 1998 2009 2012 2014 2016 2019 2022 2026 2027 2031 2032 2033 2034 2035 2036 2037 2038
+r36: 2 2041 2042 | 2052 2041 2042
+r37: 2090 2065 2062 2057 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 2053 2059 2060 2061 2063 2064 2066 2068 2069 2070 2071 2072 2073 2077 2078 2082 2083 2084 2085 2092 2093 2096 | 2130 2128 2105 2103 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 2053 2059 2060 2061 2063 2064 2066 2068 2069 2070 2071 2072 2073 2077 2078 2082 2083 2084 2085 2092 2093 2096 2104 2107 2110 2111 2112 2119 2120 2121 2126 2129
+r38: 2142 2142 2 3 2134 2145 2147 2148 | 2149 2146 2144 2142 2 3 2134 2145 2147 2148
+r39: 2166 2159 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 2154 2155 2156 2157 2160 2163 2164 2165 2167 2170 2171 2172 2175 2178 2179 2181 2183 2189 | 2210 2209 2208 2200 2199 2197 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 2154 2155 2156 2157 2160 2163 2164 2165 2167 2170 2171 2172 2175 2178 2179 2181 2183 2189
+r40: 2266 2239 2237 2232 3 2212 2213 2214 2215 2216 2218 2221 2223 2224 2225 2227 2228 2236 2238 2240 2241 2242 2243 2244 2245 2246 2247 2248 2249 2250 2251 2252 2253 2254 2255 2256 2257 2258 2259 2260 2261 | 2311 2213 2214 2215 2216 2218 2221 2223 2224 2225 2227 2228 2236 2238 2240 2241 2242 2243 2244 2245 2246 2247 2248 2249 2250 2251 2252 2253 2254 2255 2256 2257 2258 2259 2260 2261 2262 2263 2264 2265 2271 2272 2273 2277 2283 2291 2294 2295 2297 2299 2300 2301 2304 2310 2312
+r41: 2325 2314 2315 2315 2319 2320 2327 2330 | 2333 2325 2314 2315 2316 2319 2320 2327 2330
+r42: 2346 2345 2344 -1 -1 -1 -1 -1 -1 -1 -1 2334 2337 2338 2339 2340 2343 2349 2350 2352 2353 2354 2357 | 2372 -1 -1 -1 -1 -1 -1 -1 -1 2334 2337 2338 2339 2340 2343 2349 2350 2352 2353 2354
+r43: |
+r44: 2383 2380 2382 2384 | 2380 2381 2382 2384
+r45: 2394 2394 2390 2392 2393 2398 | 2394 2390 2392 2393 2398 2399
+r46: -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 2401 2402 2403 2404 2405 2408 2409 2411 2412 2413 2414 2415 2416 2417 2420 2423 2424 2425 2426 2428 2430 2458 2460 | 2455 2449 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 2401 2402 2403 2404 2405 2408 2409 2411 2412 2413 2414 2415 2416 2417 2420 2423 2424 2425 2426 2428 2430 2458 2460
+r47: 2467 1 2 3 2463 2464 2465 2473 2474 | 2472 1 2 3 2463 2464 2465 2473 2474
+r48: 2522 2519 2515 2513 2512 2501 2498 2493 2492 -1 -1 -1 2477 2478 2479 2480 2481 2482 2483 2484 2485 2487 2488 2489 2494 2495 2496 2497 2499 2500 2502 2503 2504 2505 2509 2510 2511 2514 2516 2517 2518 | 2570 2565 2564 2492 -1 -1 -1 2477 2478 2479 2480 2481 2482 2483 2484 2485 2487 2488 2489 2494 2495 2496 2497 2499 2500 2502 2503 2504 2505 2509 2510 2511 2514 2516 2517 2518 2520 2521 2524 2527 2529 2530 2531 2532 2534 2536 2537 2539 2540 2561 2562 2563
+r49: 2572 2577 2577 2578 2581 2586 2587 2588 2589 2591 2592 2593 2594 2595 2597 2598 2604 2610 | 2609 2603 2577 2578 2579 2580 2581 2586 2587 2588 2589 2591 2592 2593 2594 2595 2597 2598 2604 2610
+r50: 2646 2639 2630 3 2613 2614 2615 2616 2617 2618 2619 2620 2621 2622 2623 2624 2626 2627 2632 2634 2635 2637 2641 2642 2643 2647 2648 2651 2652 2653 2658 2659 2660 2662 2663 2667 2668 2669 2671 2672 2673 | 2630 3 2613 2614 2615 2616 2617 2618 2619 2620 2621 2622 2623 2624 2626 2627 2632 2634 2635 2637 2641 2642 2643 2647 2648 2651 2652 2653 2658 2659 2660 2662 2663 2667 2668 2669 2671 2672 2673 2675 2676 2677 2680
+r51: 2 3 2687 2688 2689 2691 2692 2693 2695 2697 2698 2699 2700 2701 2702 2706 2708 2709 2710 2711 2721 2722 2723 2724 2725 2726 2727 2728 2729 2730 2731 2732 2733 2734 2735 | 2778 2775 2688 2689 2691 2692 2693 2695 2697 2698 2699 2700 2701 2702 2706 2708 2709 2710 2711 2721 2722 2723 2724 2725 2726 2727 2728 2729 2730 2731 2732 2733 2734 2735
+r52: 2838 2831 2830 2822 2790 2792 2793 2794 2795 2796 2797 2798 2799 2801 2802 2803 2805 2806 2807 2810 2811 2814 2815 2816 2817 2818 2820 2821 2823 2824 2858 | 2868 2866 2864 2862 2854 2831 2830 2822 2790 2792 2793 2794 2795 2796 2797 2798 2799 2801 2802 2803 2805 2806 2807 2810 2811 2814 2815 2816 2817 2818 2820 2821 2823 2824 2858
+r53: 2880 3 2870 2871 2872 2873 2874 2875 2876 2877 2879 2881 2882 2883 2884 2885 2886 2889 2890 2891 2892 | 2908 2900 2899 2880 3 2870 2871 2872 2873 2874 2875 2876 2877 2879 2881 2882 2883 2884 2885 2886 2889 2890 2891 2892
+r54: 2923 2924 2925 2926 2927 2935 2936 2937 2938 2940 2941 2942 2943 2944 2945 2947 2948 2949 2950 2951 2953 2954 2955 2956 2957 2958 2959 2960 2961 2962 2963 2964 2968 2969 2970 2971 | 2934 2935 2936 2937 2938 2940 2941 2942 2943 2944 2945 2947 2948 2949 2950 2951 2953 2954 2955 2956 2957 2958 2959 2960 2961 2962 2963 2964 2968 2969 2970 2971
+r55: 3025 3012 3013 3015 3016 3017 3018 3019 3020 3021 3022 3023 3024 3026 3027 3028 3029 3032 3033 3037 3039 3040 3043 3044 3045 3046 3047 3049 3050 3051 3052 3057 3058 3059 3061 3062 3063 3064 3065 3066 3072 | 3114 3090 3017 3018 3019 3020 3021 3022 3023 3024 3026 3027 3028 3029 3032 3033 3037 3039 3040 3043 3044 3045 3046 3047 3049 3050 3051 3052 3057 3058 3059 3061 3062 3063 3064 3065 3066 3072 3073 3077 3078 3079 3080 3087 3094 3095 3099 3100 3101 3103 3104 3105 3110 3111
+r56: 3138 3135 3135 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3117 3118 3119 3120 3121 3122 3123 3125 3126 3127 3128 3129 3130 3131 3139 3144 3165 | 3166 3163 3161 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3117 3118 3119 3120 3121 3122 3123 3125 3126 3127 3128 3129 3130 3131 3139 3144 3165
+r57: 3234 3196 3184 3182 3182 3179 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3174 3175 3176 3181 3183 3185 3186 3187 3188 3189 3190 3191 3192 3195 3197 3198 3199 3200 3201 3202 3204 3205 3206 | 3274 3273 3272 3259 3234 3196 3184 3182 3179 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3174 3175 3176 3181 3183 3185 3186 3187 3188 3189 3190 3191 3192 3195 3197 3198 3199 3200 3201 3202 3204 3205 3206 3207 3208 3211 3212 3214 3215 3216 3217 3218 3219 3220 3226 3227 3236 3249 3250 3251 3254 3260 3262 3263 3264 3265 3267 3269 3276
+r58: -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 3277 3278 3279 3281 3282 3283 3284 3285 3286 3287 3289 3290 3291 3292 3306 3316 | 3317 3314 -1 -1 -1 -1 -1 -1 -1 3277 3278 3279 3281 3282 3283 3284 3285 3286 3287 3289 3290 3291 3292 3306 3316
+r59: 3351 3351 3350 3344 3344 3342 3339 3326 3322 3323 3324 3327 3328 3329 3330 3331 3332 3336 3337 3340 3345 3346 3347 3348 3349 3353 3354 3365 3366 3369 3371 3376 3378 3379 3380 3381 3382 3384 | 3374 3373 3360 3356 3352 3351 3350 3344 3342 3339 3326 3322 3323 3324 3327 3328 3329 3330 3331 3332 3336 3337 3340 3345 3346 3347 3348 3349 3353 3354 3365 3366 3369 3371 3376 3378 3379 3380 3381
+r60: 1 2 3 3388 3389 3392 3393 3394 3397 3401 | 3403 3402 3399 3396 3395 1 2 3 3388 3389 3392 3393 3394 3397 3401
+```
+
+## scanning_asm__is02_forms
+
+```Icon
 procedure main();
   local c, s, n, i;
   c := cset("aeiou"); s := "the quick brown fox jumps over the lazy dog";
@@ -13835,7 +28975,19 @@ procedure main();
   s ? { write(tab(many(&lcase)), " ", move(1), " ", tab(upto(cset("sx"))), " ", pos(0), " ", &pos) };
   write(any('abc', "b"), " ", any("abc", "c"), " ", (upto("", "x") | "none"));
 end
-#------------------------------------------ 1087 procedure_every_scan_replace_18
+```
+
+```stdout
+3 4 4 17 4 4
+38 18 2 2
+3 6 7 13 18 22 27 29 34 37 42 
+8 nf
+2 2 none
+```
+
+## procedure_every_scan_replace_18
+
+```Icon
 procedure main()
    local s;
    s := "the cat sat on the mat";
@@ -13852,7 +29004,25 @@ procedure main()
    s ? { move(4); write(&subject[1:&pos], "|", tab(many(&letters)), "|", &pos); };
    write("abc" ? (tab(2) || tab(0)), " ", "xyz" ? (move(2), &pos), " ", "q" ? tab(0));
 end
-#---------------------------------------- 1088 scanning_asm__is05b_keyword_forms
+```
+
+```stdout
+6 10 21 
+16 1 1 nox
+3 6 4 2 noany
+4 8 nomatch 3
+6 8 
+cat 22  sat on the ma 22
+the 1 the cat sat on the mat 1
+the |the cat |the cat sat |the cat sat on |the cat sat on the |the cat sat on the mat
+4 3 6
+the |cat|8
+abc 1 q
+```
+
+## scanning_asm__is05b_keyword_forms
+
+```Icon
 procedure show(a, b, c)
   write(image(a), " ", image(b), " ", image(c));
   return;
@@ -13878,7 +29048,31 @@ procedure main();
   write(&pos, " ", image(&subject));
   write(&pos, " ", (&pos := 1), " ", &pos);
 end
-#------------------------------------------ 1089 procedure_every_scan_replace_15
+```
+
+```stdout
+2 a 2
+3 b
+4 bc
+2 0
+4 "bc" 4 "abcdefgh" 
+4 "" 4
+"defgh" "b" "ab"
+a.b.c.d.e.f.g.h.
+8 h 4
+5
+6 5
+2
+2
+9 c defgh 9
+zz abcdefgh 1
+1 ""
+1 1 1
+```
+
+## procedure_every_scan_replace_15
+
+```Icon
 #SRC: V9GEN
 
 procedure main()
@@ -14008,7 +29202,297 @@ procedure Image(x)
          }
       };
 end
-#------------------------------------------------------ 1090 gc_hb_bignum_length
+```
+
+```stdout
+This test of floating-point arithmetic is likely to show
+differences from platform to platform because of differences
+in floating-point precision and details of the routines that
+convert floating-point numbers to strings.  If the values
+produced in local tests are approximately the same in magnitude
+as shown in the standard results, there's nothing to worry about.
+In addition, some platforms may show 0.0 as "-0.0".  You can
+ignore this if you wish.
+0.21132
+0.41242
+0.31579
+0.51044
+0.42173
+0.30569
+0.07960
+0.73752
+0.05072
+0.71694
+every 1 to 10 do write(?0) ----> none
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+2.0
+every i := 1 to 50 do write(real(repl("0",i) || "2.")) ----> none
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+every i := 1 to 30 do write(integer(repl("0",i) || "2")) ----> none
+2.0 ~=== +2.0 ----> none
+abs(3.0) ----> 3.0
+Image(2e13) ----> "2e+13"
+Image(0.0006) ----> "0.0006"
+Image(2.0) ----> "2.0"
+integer(2.0) ----> 2
+integer(2.7) ----> 2
+integer(".") ----> none
+integer(".3") ----> 0
+integer("0.3") ----> 0
+integer(" . 3") ----> none
+integer("e2") ----> none
+integer("3e500") ----> none
+numeric(2.0) ----> 2.0
+numeric(2.7) ----> 2.7
+numeric(".") ----> none
+numeric(".3") ----> 0.3
+numeric("0.3") ----> 0.3
+numeric(" . 3") ----> none
+numeric("e2") ----> none
+numeric("3e500") ----> none
+real(2) ----> 2.0
+real(2.0) ----> 2.0
+real(2.7) ----> 2.7
+real("2") ----> 2.0
+real(" 2") ----> 2.0
+real("2 ") ----> 2.0
+real("+2") ----> 2.0
+real("-2") ----> -2.0
+real("- 2") ----> none
+real(" -    2 ") ----> none
+real("") ----> none
+real("--2") ----> none
+real(" ") ----> none
+real("-") ----> none
+real("+") ----> none
+real(".") ----> none
+real(".3") ----> 0.3
+real("0.3") ----> 0.3
+real(" . 3") ----> none
+real("e2") ----> none
+real("3e500") ----> none
+real("7r4") ----> 4.0
+real("4r7") ----> none
+real("4r 7") ----> none
+real("7r 4") ----> none
+real("16rff") ----> 255.0
+real("36rcat") ----> 15941.0
+real("36Rcat") ----> 15941.0
+real("36rCAT") ----> 15941.0
+real("1r1") ----> none
+real("2r0") ----> 0.0
+real("22222222222222222222222222222") ----> 2.222222e+28
+numeric(2.0) ----> 2.0
+numeric(2.7) ----> 2.7
+numeric(0.3) ----> 0.3
+numeric(e2) ----> none
+36. ^ 9 ----> 1.015599e+14
+36 ^ 9. ----> 1.015599e+14
+36. ^ 9. ----> 1.015599e+14
+-36. ^ 9 ----> -1.01559e+14
+-36. ^ -9 ----> -9.84640e-15
+2.0
+22.0
+222.0
+2222.0
+22222.0
+222222.0
+2.222222e+6
+2.222222e+7
+2.222222e+8
+2.222222e+9
+2.222222e+10
+2.222222e+11
+2.222222e+12
+2.222222e+13
+2.222222e+14
+2.222222e+15
+2.222222e+16
+2.222222e+17
+2.222222e+18
+2.222222e+19
+2.222222e+20
+2.222222e+21
+2.222222e+22
+2.222222e+23
+2.222222e+24
+2.222222e+25
+2.222222e+26
+2.222222e+27
+2.222222e+28
+2.222222e+29
+2.222222e+30
+2.222222e+31
+2.222222e+32
+2.222222e+33
+2.222222e+34
+2.222222e+35
+2.222222e+36
+failed
+2.2
+22.2
+222.2
+2222.2
+22222.2
+222222.2
+2.222222e+6
+2.222222e+7
+2.222222e+8
+2.222222e+9
+2.222222e+10
+2.222222e+11
+2.222222e+12
+2.222222e+13
+2.222222e+14
+2.222222e+15
+2.222222e+16
+2.222222e+17
+2.222222e+18
+2.222222e+19
+2.222222e+20
+2.222222e+21
+2.222222e+22
+2.222222e+23
+2.222222e+24
+2.222222e+25
+2.222222e+26
+2.222222e+27
+2.222222e+28
+2.222222e+29
+2.222222e+30
+2.222222e+31
+2.222222e+32
+2.222222e+33
+2.222222e+34
+2.222222e+35
+2.222222e+36
+failed
+3.2
+23.2
+223.2
+2223.2
+22223.2
+222223.2
+2.222223e+6
+2.222222e+7
+2.222222e+8
+2.222222e+9
+2.222222e+10
+2.222222e+11
+2.222222e+12
+2.222222e+13
+2.222222e+14
+2.222222e+15
+2.222222e+16
+2.222222e+17
+2.222222e+18
+2.222222e+19
+2.222222e+20
+2.222222e+21
+2.222222e+22
+2.222222e+23
+2.222222e+24
+2.222222e+25
+2.222222e+26
+2.222222e+27
+2.222222e+28
+2.222222e+29
+2.222222e+30
+2.222222e+31
+2.222222e+32
+2.222222e+33
+2.222222e+34
+2.222222e+35
+2.222222e+36
+failed
+2.0 === +2.0 ----> 2.0
+?30.0 ----> 5
+copy(1.0) ----> 1.0
+trim(3.14159,58) ----> "3.14159"
+Image(2e13) ----> "2e+13"
+Image(0.0006) ----> "0.0006"
+```
+
+## gc_hb_bignum_length
+
+```Icon
 #SRC: JCON
 #OPT: -fe
 
@@ -14234,7 +29718,427 @@ procedure over();		# old "over.icn" test from Icon v9
    i -:= 2 ^ 30;
    write(i);
 end
-#--------------------------------------- 1091 procedure_every_elemgen_replace_17
+```
+
+```stdout
+
+    a =  1618033988749894848204586834365638117720309
+    b = -2718281828459045235360287471352662497757247
+    c =  3141592653589793238462643383279502884197169
+a + b = -1100247839709150387155700636987024380036938
+b + c =   423310825130748003102355911926840386439922
+c + a =  4759626642339688086667230217645141001917478
+
+minint = -18446744073709551616
+maxint = 18446744073709551615
+-minint = 18446744073709551616
+abs(min) = 18446744073709551616
+minint * -1 = 18446744073709551616
+minint / -1 = 18446744073709551616
+(2^32)^2 = 18446744073709551616
+
+1! = 1
+12! = 479001600
+23! = 25852016738884976640000
+34! = 295232799039604140847618609643520000000
+45! = 119622220865480194561963161495657715064383733760000000000
+
+F(35) = 9227465
+F(69) = 117669030460994
+F(103) = 1500520536206896083277
+F(137) = 19134702400093278081449423917
+F(171) = 244006547798191185585064349218729154
+F(205) = 3111581989804070186099320645726169127737705
+F(239) = 39679027332006820581608740953902289877834488152161
+F(273) = 505988662735923140767969869749836918999964413630219877218
+F(307) = 6452389184720949856740872794933738025334109298792472139250504213
+F(341) = 82281144336295989585340713815384441479925901307982452831610787275979941
+
+M(61) = 2305843009213693951
+M(89) = 618970019642690137449562111
+M(107) = 162259276829213363391578010288127
+M(127) = 170141183460469231731687303715884105727
+
+P(31) = 2305843008139952128
+P(61) = 2658455991569831744654692615953842176
+P(89) = 191561942608236107294793378084303638130997321548169216
+P(107) = 13164036458569648337239753460458722910223472318386943117783728128
+
+11213 ^ 2 = 125731369
+11213 ^ 3 = 1409825840597
+11213 ^ 4 = 15808377150614161
+11213 ^ 5 = 177259332989836587293
+11213 ^ 6 = 1987608900815037653316409
+11213 ^ 7 = 22287058604839017206636894117
+11213 ^ 8 = 249904788136059899938019493733921
+11213 ^ 9 = 2802182389369639658005012583238456173
+11213 ^ 10 = 31420871132001769485210206095852809067849
+11213 ^ 11 = 352322228003135841237662040952797548077790837
+11213 ^ 12 = 3950589142599162187797904465203718906596268655281
+11213 ^ 13 = 44297956055964405611777902768329300099663960431665853
+11213 ^ 14 = 496712981255528880124865623741276442017531988320269209689
+11213 ^ 15 = 5569642658818245332840118239010932744342586185035178648242757
+11213 ^ 16 = 62452403133328984917136245814029588862313418892799458182746034241
+
+3 ^ 60 = 42391158275216203514294433201
+3 ^ 61 = 127173474825648610542883299603
+3 ^ 62 = integer(~10^30)
+3 ^ 63 = integer(~10^30)
+3 ^ 64 = integer(~10^31)
+3 ^ 65 = integer(~10^31)
+3 ^ 66 = integer(~10^31)
+3 ^ 67 = integer(~10^32)
+3 ^ 68 = integer(~10^32)
+3 ^ 69 = integer(~10^33)
+3 ^ 70 = integer(~10^33)
+3 ^ 71 = integer(~10^34)
+3 ^ 72 = integer(~10^34)
+3 ^ 73 = integer(~10^35)
+3 ^ 74 = integer(~10^35)
+3 ^ 75 = integer(~10^36)
+
+ 2 ^ 63 =   9223372036854775808
+ 3 ^ 40 =  12157665459056928801
+ 5 ^ 28 =  37252902984619140625
+ 7 ^ 23 =  27368747340080916343
+11 ^ 19 =  61159090448414546291
+13 ^ 18 = 112455406951957393129
+17 ^ 16 =  48661191875666868481
+19 ^ 15 =  15181127029874798299
+23 ^ 14 =  11592836324538749809
+29 ^ 13 =  10260628712958602189
+31 ^ 13 =  24417546297445042591
+37 ^ 13 = 243569224216081305397
+41 ^ 12 =  22563490300366186081
+43 ^ 12 =  39959630797262576401
+47 ^ 12 = 116191483108948578241
+53 ^ 11 =   9269035929372191597
+59 ^ 11 =  30155888444737842659
+61 ^ 11 =  43513917611435838661
+67 ^ 11 = 122130132904968017083
+71 ^ 11 = 231122292121701565271
+73 ^ 11 = 313726685568359708377
+79 ^ 10 =   9468276082626847201
+83 ^ 10 =  15516041187205853449
+89 ^ 10 =  31181719929966183601
+97 ^ 10 =  73742412689492826049
+
+       v = 3
+  -2 ^ v = -8
+  -1 ^ v = -1
+   0 ^ v = 0
+   1 ^ v = 1
+   2 ^ v = 8
+-1.5 ^ v = -3.375
+-1.0 ^ v = -1.0
+-0.5 ^ v = -0.125
+ 0.0 ^ v = 0.0
+ 0.5 ^ v = 0.125
+ 1.0 ^ v = 1.0
+ 1.5 ^ v = 3.375
+       v = 6
+  -2 ^ v = 64
+  -1 ^ v = 1
+   0 ^ v = 0
+   1 ^ v = 1
+   2 ^ v = 64
+-1.5 ^ v = 11.390625
+-1.0 ^ v = 1.0
+-0.5 ^ v = 0.015625
+ 0.0 ^ v = 0.0
+ 0.5 ^ v = 0.015625
+ 1.0 ^ v = 1.0
+ 1.5 ^ v = 11.390625
+       v = -7
+  -2 ^ v = 0
+  -1 ^ v = -1
+   0 ^ v = error 204
+   1 ^ v = 1
+   2 ^ v = 0
+-1.5 ^ v = -0.05852766347
+-1.0 ^ v = -1.0
+-0.5 ^ v = -128.0
+ 0.0 ^ v = error 204
+ 0.5 ^ v = 128.0
+ 1.0 ^ v = 1.0
+ 1.5 ^ v = 0.05852766347
+
+2 ^ 84 = 19342813113834066795298816
+3 ^ 53 = 19383245667680019896796723
+5 ^ 36 = 14551915228366851806640625
+7 ^ 30 = 22539340290692258087863249
+10 ^ 25 = 10000000000000000000000000
+17 ^ 21 = 69091933913008732880827217
+51 ^ 15 = 41072642160770556400888251
+-3 ^ 54 = 58149737003040059690390169
+-11 ^ 26 = 1191817653772720942460132761
+-43 ^ 16 = 136614025729312093462315201
+
+9 ^ 27 = 58149737003040059690390169
+27 ^ 18 = 58149737003040059690390169
+81 ^ 14 = 523347633027360537213511521
+243 ^ 11 = 174449211009120179071170507
+729 ^ 9 = 58149737003040059690390169
+2187 ^ 8 = 523347633027360537213511521
+6561 ^ 7 = 523347633027360537213511521
+19683 ^ 6 = 58149737003040059690390169
+59049 ^ 6 = 42391158275216203514294433201
+177147 ^ 5 = 174449211009120179071170507
+531441 ^ 5 = 42391158275216203514294433201
+1594323 ^ 5 = 10301051460877537453973547267843
+4782969 ^ 4 = 523347633027360537213511521
+14348907 ^ 4 = 42391158275216203514294433201
+43046721 ^ 4 = 3433683820292512484657849089281
+129140163 ^ 4 = 278128389443693511257285776231761
+387420489 ^ 3 = 58149737003040059690390169
+1162261467 ^ 3 = 1570042899082081611640534563
+3486784401 ^ 3 = 42391158275216203514294433201
+10460353203 ^ 3 = 1144561273430837494885949696427
+31381059609 ^ 3 = 30903154382632612361920641803529
+94143178827 ^ 3 = 834385168331080533771857328695283
+282429536481 ^ 3 = 22528399544939174411840147874772641
+847288609443 ^ 3 = 608266787713357709119683992618861307
+2541865828329 ^ 3 = 16423203268260658146231467800709255289
+7625597484987 ^ 2 = 58149737003040059690390169
+22876792454961 ^ 2 = 523347633027360537213511521
+68630377364883 ^ 2 = 4710128697246244834921603689
+205891132094649 ^ 2 = 42391158275216203514294433201
+617673396283947 ^ 2 = 381520424476945831628649898809
+1853020188851841 ^ 2 = 3433683820292512484657849089281
+5559060566555523 ^ 2 = 30903154382632612361920641803529
+16677181699666569 ^ 2 = 278128389443693511257285776231761
+50031545098999707 ^ 2 = 2503155504993241601315571986085849
+150094635296999121 ^ 2 = 22528399544939174411840147874772641
+450283905890997363 ^ 2 = 202755595904452569706561330872953769
+1350851717672992089 ^ 2 = 1824800363140073127359051977856583921
+4052555153018976267 ^ 2 = 16423203268260658146231467800709255289
+12157665459056928801 ^ 2 = 147808829414345923316083210206383297601
+36472996377170786403 ^ 2 = 1330279464729113309844748891857449678409
+109418989131512359209 ^ 2 = 11972515182562019788602740026717047105681
+328256967394537077627 ^ 2 = 107752636643058178097424660240453423951129
+984770902183611232881 ^ 2 = 969773729787523602876821942164080815560161
+2954312706550833698643 ^ 2 = 8727963568087712425891397479476727340041449
+8862938119652501095929 ^ 2 = 78551672112789411833022577315290546060373041
+26588814358957503287787 ^ 2 = 706965049015104706497203195837614914543357369
+79766443076872509863361 ^ 2 = 6362685441135942358474828762538534230890216321
+239299329230617529590083 ^ 2 = 57264168970223481226273458862846808078011946889
+717897987691852588770249 ^ 2 = 515377520732011331036461129765621272702107522001
+
+conv ok: 787
+conv ok: 619369
+conv ok: 487443403
+conv ok: 383617958161
+conv ok: 301907333072707
+conv ok: 237601071128220409
+conv ok: 186992042977909461883
+conv ok: 147162737823614746501921
+conv ok: 115817074667184805497011827
+conv ok: 91148037763074441926148307849
+conv ok: 71733505719539585795878718277163
+conv ok: 56454269001277654021356551284127281
+conv ok: 44429509704005513714807605860608170147
+conv ok: 34966024137052339293553585812298629905689
+conv ok: 27518260995860191024026672034279021735777243
+conv ok: 21656871403741970335908990890977590106056690241
+conv ok: 17043957794744930654360375831199363413466615219667
+conv ok: 13413594784464260424981615779153899006398226177877929
+conv ok: 10556499095373372954460531618194118518035404001989930123
+conv ok: 8307964788058844515160438383518771273693862949566075006801
+conv ok: 6538368288202310633431265007829272992397070141308501030352387
+conv ok: 5145695842815218468510405561161637845016494201209790310887328569
+conv ok: 4049662628295576934717689176634208984027980936352104974668327583803
+conv ok: 3187084488468619047622821382011122470430020996909106615063973808452961
+conv ok: -5781
+conv ok: 33419961
+conv ok: -193200794541
+conv ok: 1116893793241521
+conv ok: -6456763018729232901
+conv ok: 37326547011273695400681
+conv ok: -215784768272173233111336861
+conv ok: 1247451745381433460616638393441
+conv ok: -7211518540050066835824786552482421
+conv ok: 41689788680029436377903091059900875801
+conv ok: -241008668359250171700657769417286963005581
+conv ok: 1393271111784825242601502565001335933135263761
+conv ok: -8054500297228074727479286328272723029454959802341
+conv ok: 46563066218275499999557754263744611833279122617333321
+conv ok: -269181085807850665497443377398707601008186607850803928701
+conv ok: 1556135857055184697240720164741928641428326779985497511820481
+conv ok: -8996021389636022734748603272373089476097157115096161115834200661
+conv ok: 52005999653485847429581675517588830261317665282370907410637514021241
+
+2R1111111111111111111111111111111111111111111111111111111111111111 = 18446744073709551615
+3R2222222222222222222222222222222222222222 = 12157665459056928800
+4R33333333333333333333333333333333 = 18446744073709551615
+5R4444444444444444444444444444 = 37252902984619140624
+6R5555555555555555555555555 = 28430288029929701375
+7R66666666666666666666666 = 27368747340080916342
+8R7777777777777777777777 = 73786976294838206463
+9R88888888888888888888 = 12157665459056928800
+10R9999999999999999999 = 9999999999999999999
+11Raaaaaaaaaaaaaaaaaaa = 61159090448414546290
+12Rbbbbbbbbbbbbbbbbbb = 26623333280885243903
+13Rcccccccccccccccccc = 112455406951957393128
+14Rddddddddddddddddd = 30491346729331195903
+15Reeeeeeeeeeeeeeeee = 98526125335693359374
+16Rffffffffffffffff = 18446744073709551615
+17Rgggggggggggggggg = 48661191875666868480
+18Rhhhhhhhhhhhhhhhh = 121439531096594251775
+19Riiiiiiiiiiiiiii = 15181127029874798298
+20Rjjjjjjjjjjjjjjj = 32767999999999999999
+21Rkkkkkkkkkkkkkkk = 68122318582951682300
+22Rlllllllllllllll = 136880068015412051967
+23Rmmmmmmmmmmmmmm = 11592836324538749808
+24Rnnnnnnnnnnnnnn = 21035720123168587775
+25Roooooooooooooo = 37252902984619140624
+26Rpppppppppppppp = 64509974703297150975
+27Rqqqqqqqqqqqqqq = 109418989131512359208
+28Rrrrrrrrrrrrrrr = 182059119829942534143
+29Rsssssssssssss = 10260628712958602188
+30Rttttttttttttt = 15943229999999999999
+31Ruuuuuuuuuuuuu = 24417546297445042590
+32Rvvvvvvvvvvvvv = 36893488147419103231
+33Rwwwwwwwwwwwww = 55040353993448503712
+34Rxxxxxxxxxxxxx = 81138303245565435903
+35Ryyyyyyyyyyyyy = 118272717781982421874
+36rZZZZZZZZZZ = 3656158440062975
+36rZZZZZZZZZZZ = 131621703842267135
+36rZZZZZZZZZZZZ = 4738381338321616895
+36rZZZZZZZZZZZZZ = 170581728179578208255
+36rZZZZZZZZZZZZZZ = 6140942214464815497215
+36rZZZZZZZZZZZZZZZ = 221073919720733357899775
+36rZZZZZZZZZZZZZZZZ = 7958661109946400884391935
+36rZZZZZZZZZZZZZZZZZ = 286511799958070431838109695
+36rZZZZZZZZZZZZZZZZZZ = 10314424798490535546171949055
+36rZZZZZZZZZZZZZZZZZZZ = 371319292745659279662190166015
+36rZZZZZZZZZZZZZZZZZZZZ = 13367494538843734067838845976575
+
+110000
+1073851824
+2147703648
+1000000000
+2073741824
+4300405152606846976
+-110000
+-1073851824
+-2147593648
+
+u:  37  -37  -38  ~= > >=
+u:  5.0  -5.0  -6 
+u:  9223372036854775808  -9223372036854775808  -9223372036854775809  ~= > >=
+u:  61159090448414546291  -61159090448414546291  -61159090448414546292  ~= > >=
+u:  37252902984619140625  -37252902984619140625  -37252902984619140626  ~= > >=
+u:  73  -73  -74  ~= > >=
+u:  9.0  -9.0  -10 
+u:  -27368747340080916343  27368747340080916343  27368747340080916342  < <= ~=
+u:  -12157665459056928801  12157665459056928801  12157665459056928800  < <= ~=
+u:  48661191875666868481  -48661191875666868481  -48661191875666868482  ~= > >=
+
+b:  37  73  < <= ~=
+    +-   110  -36
+    */%  2701  0  37
+    &|!  1  109  108
+b:  37  9.0  ~= > >=
+    +-   46.0  28.0
+    */%  333.0  4.111111111  1.0
+    &|!  1  45  44
+b:  37  -27368747340080916343  ~= > >=
+    +-   -27368747340080916306  27368747340080916380
+    */%  -1012643651582993904691  0  37
+    &|!  1  -27368747340080916307  -27368747340080916308
+b:  37  -12157665459056928801  ~= > >=
+    +-   -12157665459056928764  12157665459056928838
+    */%  -449833621985106365637  0  37
+    &|!  5  -12157665459056928769  -12157665459056928774
+b:  37  48661191875666868481  < <= ~=
+    +-   48661191875666868518  -48661191875666868444
+    */%  1800464099399674133797  0  37
+    &|!  1  48661191875666868517  48661191875666868516
+b:  5.0  73 
+    +-   78.0  -68.0
+    */%  365.0  0.06849315068  5.0
+    &|!  1  77  76
+b:  5.0  9.0  < <= ~=
+    +-   14.0  -4.0
+    */%  45.0  0.5555555556  5.0
+    &|!  1  13  12
+b:  5.0  -27368747340080916343 
+    +-   -2.736874734e+19  2.736874734e+19
+    */%  -1.368437367e+20  -1.826901297e-19  5.0
+    &|!  1  -27368747340080916339  -27368747340080916340
+b:  5.0  -12157665459056928801 
+    +-   -1.215766546e+19  1.215766546e+19
+    */%  -6.07883273e+19  -4.11263167e-19  5.0
+    &|!  5  -12157665459056928801  -12157665459056928806
+b:  5.0  48661191875666868481 
+    +-   4.866119188e+19  -4.866119188e+19
+    */%  2.433059594e+20  1.027512851e-19  5.0
+    &|!  1  48661191875666868485  48661191875666868484
+b:  9223372036854775808  73  ~= > >=
+    +-   9223372036854775881  9223372036854775735
+    */%  673306158690398633984  126347562148695559  1
+    &|!  0  9223372036854775881  9223372036854775881
+b:  9223372036854775808  9.0  ~= > >=
+    +-   9.223372037e+18  9.223372037e+18
+    */%  8.301034833e+19  1.024819115e+18  8.0
+    &|!  0  9223372036854775817  9223372036854775817
+b:  9223372036854775808  -27368747340080916343  ~= > >=
+    +-   -18145375303226140535  36592119376935692151
+    */%  -252432138900245848896847100400468230144  0  9223372036854775808
+    &|!  9223372036854775808  -27368747340080916343  -36592119376935692151
+b:  9223372036854775808  -12157665459056928801  ~= > >=
+    +-   -2934293422202152993  21381037495911704609
+    */%  -112134671628500858351345486069873246208  0  9223372036854775808
+    &|!  0  -2934293422202152993  -2934293422202152993
+b:  9223372036854775808  48661191875666868481  < <= ~=
+    +-   57884563912521644289  -39437819838812092673
+    */%  448820276426050593203111380360676507648  0  9223372036854775808
+    &|!  9223372036854775808  48661191875666868481  39437819838812092673
+b:  61159090448414546291  73  ~= > >=
+    +-   61159090448414546364  61159090448414546218
+    */%  4464613602734261879243  837795759567322551  68
+    &|!  65  61159090448414546299  61159090448414546234
+b:  61159090448414546291  9.0  ~= > >=
+    +-   6.115909045e+19  6.115909045e+19
+    */%  5.50431814e+20  6.795454494e+18  5.0
+    &|!  1  61159090448414546299  61159090448414546298
+b:  61159090448414546291  -27368747340080916343  ~= > >=
+    +-   33790343108333629948  88527837788495462634
+    */%  -1673847694031813790959405051173871933813  -2  6421595768252713605
+    &|!  36893677298903685121  -3103334190570055173  -39997011489473740294
+b:  61159090448414546291  -12157665459056928801  ~= > >=
+    +-   49001424989357617490  73316755907471475092
+    */%  -743551761452028064444726055040305627091  -5  370763153129902286
+    &|!  61122863661437686099  -12121438672080068609  -73244302333517754708
+b:  61159090448414546291  48661191875666868481  ~= > >=
+    +-   109820282324081414772  12497898572747677810
+    */%  2976074235251565096354096402968383353971  1  12497898572747677810
+    &|!  36911511549794588929  72908770774286825843  35997259224492236914
+b:  37252902984619140625  73  ~= > >=
+    +-   37252902984619140698  37252902984619140552
+    */%  2719461917877197265625  510313739515330693  36
+    &|!  1  37252902984619140697  37252902984619140696
+b:  37252902984619140625  9.0  ~= > >=
+    +-   3.725290298e+19  3.725290298e+19
+    */%  3.352761269e+20  4.139211443e+18  8.0
+    &|!  1  37252902984619140633  37252902984619140632
+b:  37252902984619140625  -27368747340080916343  ~= > >=
+    +-   9884155644538224282  64621650324700056968
+    */%  -1019565289470587534569203853607177734375  -1  9884155644538224282
+    &|!  37194285120097353729  -27310129475559129447  -64504414595656483176
+b:  37252902984619140625  -12157665459056928801  ~= > >=
+    +-   25095237525562211824  49410568443676069426
+    */%  -452908331865702897347509860992431640625  -3  779906607448354222
+    &|!  37200930984991655441  -12105693459429443617  -49306624444421099058
+b:  37252902984619140625  48661191875666868481  < <= ~=
+    +-   85914094860286009106  -11408288891047727856
+    */%  1812770660060154962576925754547119140625  0  37252902984619140625
+    &|!  36914950757738881025  48999144102547128081  12084193344808247056
+```
+
+## procedure_every_elemgen_replace_17
+
+```Icon
 #SRC: JCON
 #OPT: -fe
 
@@ -14460,7 +30364,427 @@ procedure over();		# old "over.icn" test from Icon v9
    i -:= 2 ^ 30;
    write(i);
 end
-#--------------------------------------------------- 1092 procedure_every_scan_4
+```
+
+```stdout
+
+    a =  1618033988749894848204586834365638117720309
+    b = -2718281828459045235360287471352662497757247
+    c =  3141592653589793238462643383279502884197169
+a + b = -1100247839709150387155700636987024380036938
+b + c =   423310825130748003102355911926840386439922
+c + a =  4759626642339688086667230217645141001917478
+
+minint = -18446744073709551616
+maxint = 18446744073709551615
+-minint = 18446744073709551616
+abs(min) = 18446744073709551616
+minint * -1 = 18446744073709551616
+minint / -1 = 18446744073709551616
+(2^32)^2 = 18446744073709551616
+
+1! = 1
+12! = 479001600
+23! = 25852016738884976640000
+34! = 295232799039604140847618609643520000000
+45! = 119622220865480194561963161495657715064383733760000000000
+
+F(35) = 9227465
+F(69) = 117669030460994
+F(103) = 1500520536206896083277
+F(137) = 19134702400093278081449423917
+F(171) = 244006547798191185585064349218729154
+F(205) = 3111581989804070186099320645726169127737705
+F(239) = 39679027332006820581608740953902289877834488152161
+F(273) = 505988662735923140767969869749836918999964413630219877218
+F(307) = 6452389184720949856740872794933738025334109298792472139250504213
+F(341) = 82281144336295989585340713815384441479925901307982452831610787275979941
+
+M(61) = 2305843009213693951
+M(89) = 618970019642690137449562111
+M(107) = 162259276829213363391578010288127
+M(127) = 170141183460469231731687303715884105727
+
+P(31) = 2305843008139952128
+P(61) = 2658455991569831744654692615953842176
+P(89) = 191561942608236107294793378084303638130997321548169216
+P(107) = 13164036458569648337239753460458722910223472318386943117783728128
+
+11213 ^ 2 = 125731369
+11213 ^ 3 = 1409825840597
+11213 ^ 4 = 15808377150614161
+11213 ^ 5 = 177259332989836587293
+11213 ^ 6 = 1987608900815037653316409
+11213 ^ 7 = 22287058604839017206636894117
+11213 ^ 8 = 249904788136059899938019493733921
+11213 ^ 9 = 2802182389369639658005012583238456173
+11213 ^ 10 = 31420871132001769485210206095852809067849
+11213 ^ 11 = 352322228003135841237662040952797548077790837
+11213 ^ 12 = 3950589142599162187797904465203718906596268655281
+11213 ^ 13 = 44297956055964405611777902768329300099663960431665853
+11213 ^ 14 = 496712981255528880124865623741276442017531988320269209689
+11213 ^ 15 = 5569642658818245332840118239010932744342586185035178648242757
+11213 ^ 16 = 62452403133328984917136245814029588862313418892799458182746034241
+
+3 ^ 60 = 42391158275216203514294433201
+3 ^ 61 = 127173474825648610542883299603
+3 ^ 62 = integer(~10^30)
+3 ^ 63 = integer(~10^30)
+3 ^ 64 = integer(~10^31)
+3 ^ 65 = integer(~10^31)
+3 ^ 66 = integer(~10^31)
+3 ^ 67 = integer(~10^32)
+3 ^ 68 = integer(~10^32)
+3 ^ 69 = integer(~10^33)
+3 ^ 70 = integer(~10^33)
+3 ^ 71 = integer(~10^34)
+3 ^ 72 = integer(~10^34)
+3 ^ 73 = integer(~10^35)
+3 ^ 74 = integer(~10^35)
+3 ^ 75 = integer(~10^36)
+
+ 2 ^ 63 =   9223372036854775808
+ 3 ^ 40 =  12157665459056928801
+ 5 ^ 28 =  37252902984619140625
+ 7 ^ 23 =  27368747340080916343
+11 ^ 19 =  61159090448414546291
+13 ^ 18 = 112455406951957393129
+17 ^ 16 =  48661191875666868481
+19 ^ 15 =  15181127029874798299
+23 ^ 14 =  11592836324538749809
+29 ^ 13 =  10260628712958602189
+31 ^ 13 =  24417546297445042591
+37 ^ 13 = 243569224216081305397
+41 ^ 12 =  22563490300366186081
+43 ^ 12 =  39959630797262576401
+47 ^ 12 = 116191483108948578241
+53 ^ 11 =   9269035929372191597
+59 ^ 11 =  30155888444737842659
+61 ^ 11 =  43513917611435838661
+67 ^ 11 = 122130132904968017083
+71 ^ 11 = 231122292121701565271
+73 ^ 11 = 313726685568359708377
+79 ^ 10 =   9468276082626847201
+83 ^ 10 =  15516041187205853449
+89 ^ 10 =  31181719929966183601
+97 ^ 10 =  73742412689492826049
+
+       v = 3
+  -2 ^ v = -8
+  -1 ^ v = -1
+   0 ^ v = 0
+   1 ^ v = 1
+   2 ^ v = 8
+-1.5 ^ v = -3.375
+-1.0 ^ v = -1.0
+-0.5 ^ v = -0.125
+ 0.0 ^ v = 0.0
+ 0.5 ^ v = 0.125
+ 1.0 ^ v = 1.0
+ 1.5 ^ v = 3.375
+       v = 6
+  -2 ^ v = 64
+  -1 ^ v = 1
+   0 ^ v = 0
+   1 ^ v = 1
+   2 ^ v = 64
+-1.5 ^ v = 11.390625
+-1.0 ^ v = 1.0
+-0.5 ^ v = 0.015625
+ 0.0 ^ v = 0.0
+ 0.5 ^ v = 0.015625
+ 1.0 ^ v = 1.0
+ 1.5 ^ v = 11.390625
+       v = -7
+  -2 ^ v = 0
+  -1 ^ v = -1
+   0 ^ v = error 204
+   1 ^ v = 1
+   2 ^ v = 0
+-1.5 ^ v = -0.05852766347
+-1.0 ^ v = -1.0
+-0.5 ^ v = -128.0
+ 0.0 ^ v = error 204
+ 0.5 ^ v = 128.0
+ 1.0 ^ v = 1.0
+ 1.5 ^ v = 0.05852766347
+
+2 ^ 84 = 19342813113834066795298816
+3 ^ 53 = 19383245667680019896796723
+5 ^ 36 = 14551915228366851806640625
+7 ^ 30 = 22539340290692258087863249
+10 ^ 25 = 10000000000000000000000000
+17 ^ 21 = 69091933913008732880827217
+51 ^ 15 = 41072642160770556400888251
+-3 ^ 54 = 58149737003040059690390169
+-11 ^ 26 = 1191817653772720942460132761
+-43 ^ 16 = 136614025729312093462315201
+
+9 ^ 27 = 58149737003040059690390169
+27 ^ 18 = 58149737003040059690390169
+81 ^ 14 = 523347633027360537213511521
+243 ^ 11 = 174449211009120179071170507
+729 ^ 9 = 58149737003040059690390169
+2187 ^ 8 = 523347633027360537213511521
+6561 ^ 7 = 523347633027360537213511521
+19683 ^ 6 = 58149737003040059690390169
+59049 ^ 6 = 42391158275216203514294433201
+177147 ^ 5 = 174449211009120179071170507
+531441 ^ 5 = 42391158275216203514294433201
+1594323 ^ 5 = 10301051460877537453973547267843
+4782969 ^ 4 = 523347633027360537213511521
+14348907 ^ 4 = 42391158275216203514294433201
+43046721 ^ 4 = 3433683820292512484657849089281
+129140163 ^ 4 = 278128389443693511257285776231761
+387420489 ^ 3 = 58149737003040059690390169
+1162261467 ^ 3 = 1570042899082081611640534563
+3486784401 ^ 3 = 42391158275216203514294433201
+10460353203 ^ 3 = 1144561273430837494885949696427
+31381059609 ^ 3 = 30903154382632612361920641803529
+94143178827 ^ 3 = 834385168331080533771857328695283
+282429536481 ^ 3 = 22528399544939174411840147874772641
+847288609443 ^ 3 = 608266787713357709119683992618861307
+2541865828329 ^ 3 = 16423203268260658146231467800709255289
+7625597484987 ^ 2 = 58149737003040059690390169
+22876792454961 ^ 2 = 523347633027360537213511521
+68630377364883 ^ 2 = 4710128697246244834921603689
+205891132094649 ^ 2 = 42391158275216203514294433201
+617673396283947 ^ 2 = 381520424476945831628649898809
+1853020188851841 ^ 2 = 3433683820292512484657849089281
+5559060566555523 ^ 2 = 30903154382632612361920641803529
+16677181699666569 ^ 2 = 278128389443693511257285776231761
+50031545098999707 ^ 2 = 2503155504993241601315571986085849
+150094635296999121 ^ 2 = 22528399544939174411840147874772641
+450283905890997363 ^ 2 = 202755595904452569706561330872953769
+1350851717672992089 ^ 2 = 1824800363140073127359051977856583921
+4052555153018976267 ^ 2 = 16423203268260658146231467800709255289
+12157665459056928801 ^ 2 = 147808829414345923316083210206383297601
+36472996377170786403 ^ 2 = 1330279464729113309844748891857449678409
+109418989131512359209 ^ 2 = 11972515182562019788602740026717047105681
+328256967394537077627 ^ 2 = 107752636643058178097424660240453423951129
+984770902183611232881 ^ 2 = 969773729787523602876821942164080815560161
+2954312706550833698643 ^ 2 = 8727963568087712425891397479476727340041449
+8862938119652501095929 ^ 2 = 78551672112789411833022577315290546060373041
+26588814358957503287787 ^ 2 = 706965049015104706497203195837614914543357369
+79766443076872509863361 ^ 2 = 6362685441135942358474828762538534230890216321
+239299329230617529590083 ^ 2 = 57264168970223481226273458862846808078011946889
+717897987691852588770249 ^ 2 = 515377520732011331036461129765621272702107522001
+
+conv ok: 787
+conv ok: 619369
+conv ok: 487443403
+conv ok: 383617958161
+conv ok: 301907333072707
+conv ok: 237601071128220409
+conv ok: 186992042977909461883
+conv ok: 147162737823614746501921
+conv ok: 115817074667184805497011827
+conv ok: 91148037763074441926148307849
+conv ok: 71733505719539585795878718277163
+conv ok: 56454269001277654021356551284127281
+conv ok: 44429509704005513714807605860608170147
+conv ok: 34966024137052339293553585812298629905689
+conv ok: 27518260995860191024026672034279021735777243
+conv ok: 21656871403741970335908990890977590106056690241
+conv ok: 17043957794744930654360375831199363413466615219667
+conv ok: 13413594784464260424981615779153899006398226177877929
+conv ok: 10556499095373372954460531618194118518035404001989930123
+conv ok: 8307964788058844515160438383518771273693862949566075006801
+conv ok: 6538368288202310633431265007829272992397070141308501030352387
+conv ok: 5145695842815218468510405561161637845016494201209790310887328569
+conv ok: 4049662628295576934717689176634208984027980936352104974668327583803
+conv ok: 3187084488468619047622821382011122470430020996909106615063973808452961
+conv ok: -5781
+conv ok: 33419961
+conv ok: -193200794541
+conv ok: 1116893793241521
+conv ok: -6456763018729232901
+conv ok: 37326547011273695400681
+conv ok: -215784768272173233111336861
+conv ok: 1247451745381433460616638393441
+conv ok: -7211518540050066835824786552482421
+conv ok: 41689788680029436377903091059900875801
+conv ok: -241008668359250171700657769417286963005581
+conv ok: 1393271111784825242601502565001335933135263761
+conv ok: -8054500297228074727479286328272723029454959802341
+conv ok: 46563066218275499999557754263744611833279122617333321
+conv ok: -269181085807850665497443377398707601008186607850803928701
+conv ok: 1556135857055184697240720164741928641428326779985497511820481
+conv ok: -8996021389636022734748603272373089476097157115096161115834200661
+conv ok: 52005999653485847429581675517588830261317665282370907410637514021241
+
+2R1111111111111111111111111111111111111111111111111111111111111111 = 18446744073709551615
+3R2222222222222222222222222222222222222222 = 12157665459056928800
+4R33333333333333333333333333333333 = 18446744073709551615
+5R4444444444444444444444444444 = 37252902984619140624
+6R5555555555555555555555555 = 28430288029929701375
+7R66666666666666666666666 = 27368747340080916342
+8R7777777777777777777777 = 73786976294838206463
+9R88888888888888888888 = 12157665459056928800
+10R9999999999999999999 = 9999999999999999999
+11Raaaaaaaaaaaaaaaaaaa = 61159090448414546290
+12Rbbbbbbbbbbbbbbbbbb = 26623333280885243903
+13Rcccccccccccccccccc = 112455406951957393128
+14Rddddddddddddddddd = 30491346729331195903
+15Reeeeeeeeeeeeeeeee = 98526125335693359374
+16Rffffffffffffffff = 18446744073709551615
+17Rgggggggggggggggg = 48661191875666868480
+18Rhhhhhhhhhhhhhhhh = 121439531096594251775
+19Riiiiiiiiiiiiiii = 15181127029874798298
+20Rjjjjjjjjjjjjjjj = 32767999999999999999
+21Rkkkkkkkkkkkkkkk = 68122318582951682300
+22Rlllllllllllllll = 136880068015412051967
+23Rmmmmmmmmmmmmmm = 11592836324538749808
+24Rnnnnnnnnnnnnnn = 21035720123168587775
+25Roooooooooooooo = 37252902984619140624
+26Rpppppppppppppp = 64509974703297150975
+27Rqqqqqqqqqqqqqq = 109418989131512359208
+28Rrrrrrrrrrrrrrr = 182059119829942534143
+29Rsssssssssssss = 10260628712958602188
+30Rttttttttttttt = 15943229999999999999
+31Ruuuuuuuuuuuuu = 24417546297445042590
+32Rvvvvvvvvvvvvv = 36893488147419103231
+33Rwwwwwwwwwwwww = 55040353993448503712
+34Rxxxxxxxxxxxxx = 81138303245565435903
+35Ryyyyyyyyyyyyy = 118272717781982421874
+36rZZZZZZZZZZ = 3656158440062975
+36rZZZZZZZZZZZ = 131621703842267135
+36rZZZZZZZZZZZZ = 4738381338321616895
+36rZZZZZZZZZZZZZ = 170581728179578208255
+36rZZZZZZZZZZZZZZ = 6140942214464815497215
+36rZZZZZZZZZZZZZZZ = 221073919720733357899775
+36rZZZZZZZZZZZZZZZZ = 7958661109946400884391935
+36rZZZZZZZZZZZZZZZZZ = 286511799958070431838109695
+36rZZZZZZZZZZZZZZZZZZ = 10314424798490535546171949055
+36rZZZZZZZZZZZZZZZZZZZ = 371319292745659279662190166015
+36rZZZZZZZZZZZZZZZZZZZZ = 13367494538843734067838845976575
+
+110000
+1073851824
+2147703648
+1000000000
+2073741824
+4300405152606846976
+-110000
+-1073851824
+-2147593648
+
+u:  37  -37  -38  ~= > >=
+u:  5.0  -5.0  -6 
+u:  9223372036854775808  -9223372036854775808  -9223372036854775809  ~= > >=
+u:  61159090448414546291  -61159090448414546291  -61159090448414546292  ~= > >=
+u:  37252902984619140625  -37252902984619140625  -37252902984619140626  ~= > >=
+u:  73  -73  -74  ~= > >=
+u:  9.0  -9.0  -10 
+u:  -27368747340080916343  27368747340080916343  27368747340080916342  < <= ~=
+u:  -12157665459056928801  12157665459056928801  12157665459056928800  < <= ~=
+u:  48661191875666868481  -48661191875666868481  -48661191875666868482  ~= > >=
+
+b:  37  73  < <= ~=
+    +-   110  -36
+    */%  2701  0  37
+    &|!  1  109  108
+b:  37  9.0  ~= > >=
+    +-   46.0  28.0
+    */%  333.0  4.111111111  1.0
+    &|!  1  45  44
+b:  37  -27368747340080916343  ~= > >=
+    +-   -27368747340080916306  27368747340080916380
+    */%  -1012643651582993904691  0  37
+    &|!  1  -27368747340080916307  -27368747340080916308
+b:  37  -12157665459056928801  ~= > >=
+    +-   -12157665459056928764  12157665459056928838
+    */%  -449833621985106365637  0  37
+    &|!  5  -12157665459056928769  -12157665459056928774
+b:  37  48661191875666868481  < <= ~=
+    +-   48661191875666868518  -48661191875666868444
+    */%  1800464099399674133797  0  37
+    &|!  1  48661191875666868517  48661191875666868516
+b:  5.0  73 
+    +-   78.0  -68.0
+    */%  365.0  0.06849315068  5.0
+    &|!  1  77  76
+b:  5.0  9.0  < <= ~=
+    +-   14.0  -4.0
+    */%  45.0  0.5555555556  5.0
+    &|!  1  13  12
+b:  5.0  -27368747340080916343 
+    +-   -2.736874734e+19  2.736874734e+19
+    */%  -1.368437367e+20  -1.826901297e-19  5.0
+    &|!  1  -27368747340080916339  -27368747340080916340
+b:  5.0  -12157665459056928801 
+    +-   -1.215766546e+19  1.215766546e+19
+    */%  -6.07883273e+19  -4.11263167e-19  5.0
+    &|!  5  -12157665459056928801  -12157665459056928806
+b:  5.0  48661191875666868481 
+    +-   4.866119188e+19  -4.866119188e+19
+    */%  2.433059594e+20  1.027512851e-19  5.0
+    &|!  1  48661191875666868485  48661191875666868484
+b:  9223372036854775808  73  ~= > >=
+    +-   9223372036854775881  9223372036854775735
+    */%  673306158690398633984  126347562148695559  1
+    &|!  0  9223372036854775881  9223372036854775881
+b:  9223372036854775808  9.0  ~= > >=
+    +-   9.223372037e+18  9.223372037e+18
+    */%  8.301034833e+19  1.024819115e+18  8.0
+    &|!  0  9223372036854775817  9223372036854775817
+b:  9223372036854775808  -27368747340080916343  ~= > >=
+    +-   -18145375303226140535  36592119376935692151
+    */%  -252432138900245848896847100400468230144  0  9223372036854775808
+    &|!  9223372036854775808  -27368747340080916343  -36592119376935692151
+b:  9223372036854775808  -12157665459056928801  ~= > >=
+    +-   -2934293422202152993  21381037495911704609
+    */%  -112134671628500858351345486069873246208  0  9223372036854775808
+    &|!  0  -2934293422202152993  -2934293422202152993
+b:  9223372036854775808  48661191875666868481  < <= ~=
+    +-   57884563912521644289  -39437819838812092673
+    */%  448820276426050593203111380360676507648  0  9223372036854775808
+    &|!  9223372036854775808  48661191875666868481  39437819838812092673
+b:  61159090448414546291  73  ~= > >=
+    +-   61159090448414546364  61159090448414546218
+    */%  4464613602734261879243  837795759567322551  68
+    &|!  65  61159090448414546299  61159090448414546234
+b:  61159090448414546291  9.0  ~= > >=
+    +-   6.115909045e+19  6.115909045e+19
+    */%  5.50431814e+20  6.795454494e+18  5.0
+    &|!  1  61159090448414546299  61159090448414546298
+b:  61159090448414546291  -27368747340080916343  ~= > >=
+    +-   33790343108333629948  88527837788495462634
+    */%  -1673847694031813790959405051173871933813  -2  6421595768252713605
+    &|!  36893677298903685121  -3103334190570055173  -39997011489473740294
+b:  61159090448414546291  -12157665459056928801  ~= > >=
+    +-   49001424989357617490  73316755907471475092
+    */%  -743551761452028064444726055040305627091  -5  370763153129902286
+    &|!  61122863661437686099  -12121438672080068609  -73244302333517754708
+b:  61159090448414546291  48661191875666868481  ~= > >=
+    +-   109820282324081414772  12497898572747677810
+    */%  2976074235251565096354096402968383353971  1  12497898572747677810
+    &|!  36911511549794588929  72908770774286825843  35997259224492236914
+b:  37252902984619140625  73  ~= > >=
+    +-   37252902984619140698  37252902984619140552
+    */%  2719461917877197265625  510313739515330693  36
+    &|!  1  37252902984619140697  37252902984619140696
+b:  37252902984619140625  9.0  ~= > >=
+    +-   3.725290298e+19  3.725290298e+19
+    */%  3.352761269e+20  4.139211443e+18  8.0
+    &|!  1  37252902984619140633  37252902984619140632
+b:  37252902984619140625  -27368747340080916343  ~= > >=
+    +-   9884155644538224282  64621650324700056968
+    */%  -1019565289470587534569203853607177734375  -1  9884155644538224282
+    &|!  37194285120097353729  -27310129475559129447  -64504414595656483176
+b:  37252902984619140625  -12157665459056928801  ~= > >=
+    +-   25095237525562211824  49410568443676069426
+    */%  -452908331865702897347509860992431640625  -3  779906607448354222
+    &|!  37200930984991655441  -12105693459429443617  -49306624444421099058
+b:  37252902984619140625  48661191875666868481  < <= ~=
+    +-   85914094860286009106  -11408288891047727856
+    */%  1812770660060154962576925754547119140625  0  37252902984619140625
+    &|!  36914950757738881025  48999144102547128081  12084193344808247056
+```
+
+## procedure_every_scan_4
+
+```Icon
 procedure main()
    local i, v, n;
    v := every i := 1 to 5 do if i = 3 then break i * 10;
@@ -14479,7 +30803,26 @@ procedure main()
    i := 0; every 1 to 3 do i +:= 1; write(i);
    write(&fail | "fail-alt");
 end
-#------------------------------------------ 1093 procedure_every_scan_replace_14
+```
+
+```stdout
+30
+done5
+"done5" 3
+2
+135
+oddevenodd
+mid
+not-ok
+isnull still null
+nonnull not null
+3
+fail-alt
+```
+
+## procedure_every_scan_replace_14
+
+```Icon
 procedure main()
    local s, c, w, n;
    s := "The quick brown fox, jumps over 13 lazy dogs! tab\there; end";
@@ -14503,7 +30846,29 @@ procedure main()
    every write(!cset("cba"));
    write(string(cset("hello world")));
 end
-#---------------------------------------------- 1094 scanning_asm__is01d_collect
+```
+
+```stdout
+The quick brown fox jumps over lazy dogs tab here end 
+digits 13
+ucase T
+e|ui|o|o|u|o|e|a|o|a|e|e|e|
+blanks 11
+consonant runs 20
+'xyz' 3
+&cset 256 128 52
+T
+'\t !,13;Tabcdefghijklmnopqrstuvwxyz' 34
+33
+a
+b
+c
+ dehlorw
+```
+
+## scanning_asm__is01d_collect
+
+```Icon
 procedure churn(n);
   local i, l, s;
   l := [];
@@ -14529,7 +30894,18 @@ procedure main();
   every i := 1 to 20 do churn(4000);
   write(*x, " ", *y, " ", *z, " ", x[1000], y[37], z[*z]);
 end
-#---------------------------------------- 1095 procedure_every_suspend_replace_4
+```
+
+```stdout
+1000 37 58963 0 2003
+0123456789abcdefghij|0123456789abcdefghij|0123|hij0123456|fghij|""
+01abde0134abde0134abde01
+1000 37 58963 jgj
+```
+
+## procedure_every_suspend_replace_4
+
+```Icon
 procedure bal(s)
    local all, chr, count, POS;
    all := &cset ++ '<' ++ '>';
@@ -14557,7 +30933,22 @@ procedure main()
    write(*s, " ", image(s));
    s ? { tab(13); write(image(&subject), " ", *&subject, " ", image("" ~== tab(bal(&subject[13:0])))) };
 end
-#---------------------------------------- 1096 procedure_every_suspend_replace_5
+```
+
+```stdout
+1 2 2 3 1 2
+"a\x00b" "a\x00"
+3 "\x00" 3 2
+"\x00"
+1 4 
+"<S>"
+16 " <S> <CONJ> <S>\x00"
+" <S> <CONJ> <S>\x00" 16 " <S> <CONJ> "
+```
+
+## procedure_every_suspend_replace_5
+
+```Icon
 procedure bal(s, i, j)
    local all, chr, count, POS;
    all := &cset ++ '<' ++ '>';
@@ -14594,7 +30985,20 @@ procedure main()
    t ? { write(subjlen(), " ", *&subject, " ", subjlen(), " ", *&subject) };
    ("<CONJ>" || char(0)) ? { write(image("" ~== tab(bal()))) };
 end
-#----------------------------------------- 1097 procedure_record_every_replace_2
+```
+
+```stdout
+"<S>"
+"<CONJ>"
+"<S>"
+2 3 4 
+4 4 4 4
+"<CONJ>"
+```
+
+## procedure_record_every_replace_2
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -14670,7 +31074,206 @@ procedure q5()
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#------------------------------------------- 1098 procedure_every_scan_replace_9
+```
+
+```file fncs1.dat
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+```
+
+```stdout
+ ----> &null
+f := open("foo.baz","w") ----> file(foo.baz)
+write(f,"hello world") ----> "hello world"
+close(f) ----> file(foo.baz)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+)(niam erudecorp
+{ od 001 ot 1 yreve   
+)snoitcelloc&(etirw      
+od 001 ot 1 yreve      
+)0001(tsil         
+}      
+)"... gnitcelloc"(etirw   
+)(tcelloc   
+{ od )0001 ot 1,"x"(lper =: s yreve   
+))esacl&(gnirts(tesc      
+)(elbat =: t      
+)]s[(tes      
+]5 : 2[s      
+}      
+dne
+every write(reverse(!F)) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+every write(map(!F)) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+pr-c-d-r- m--n()
+   -v-ry 1 t- 100 d- {
+      wr-t-(&c-ll-ct--ns)
+      -v-ry 1 t- 100 d-
+         l-st(1000)
+      }
+   wr-t-("c-ll-ct-ng ...")
+   c-ll-ct()
+   -v-ry s := r-pl("x",1 t- 1000) d- {
+      cs-t(str-ng(&lc-s-))
+      t := t-bl-()
+      s-t([s])
+      s[2 : 5]
+      }
+-nd
+every write(map(!F,&cset || "aeiou",&cset || "-----")) ----> none
+close(F) ----> file(fncs1.dat)
+F := open("fncs1.dat") ----> file(fncs1.dat)
+procedureumain()
+uuueveryu1utou100udou{
+uuuuuuwrite(&collections)
+uuuuuueveryu1utou100udo
+uuuuuuuuulist(1000)
+uuuuuu}
+uuuwrite("collectingu...")
+uuucollect()
+uuueveryusu:=urepl("x",1utou1000)udou{
+uuuuuucset(string(&lcase))
+uuuuuutu:=utable()
+uuuuuuset([s])
+uuuuuus[2u:u5]
+uuuuuu}
+end
+every write(map(!F,&cset || "     ",&cset || "aeiou")) ----> none
+close(F) ----> file(fncs1.dat)
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while writes(reads(f)) ----> none
+close(f) ----> file(fncs1.dat)
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while writes(reads(f,10)) ----> none
+f := open("fncs1.dat") ----> file(fncs1.dat)
+procedure main()
+   every 1 to 100 do {
+      write(&collections)
+      every 1 to 100 do
+         list(1000)
+      }
+   write("collecting ...")
+   collect()
+   every s := repl("x",1 to 1000) do {
+      cset(string(&lcase))
+      t := table()
+      set([s])
+      s[2 : 5]
+      }
+end
+while write(read(f)) ----> none
+close(f) ----> file(fncs1.dat)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+0.25  1.318 0.252 0.244 0.083 0.968 0.247 0.255 0.5   1.284 -1.38 -1.26 
+0.5   1.047 0.523 0.463 0.165 0.877 0.479 0.546 0.707 1.648 -0.69 -0.63 
+0.75  0.722 0.848 0.643 0.244 0.731 0.681 0.931 0.866 2.117 -0.28 -0.26 
+1.0   0.0   1.570 0.785 0.321 0.540 0.841 1.557 1.0   2.718 0.0   0.0   
+1.25              0.896 0.394 0.315 0.948 3.009 1.118 3.490 0.223 0.203 
+1.5               0.982 0.463 0.070 0.997 14.10 1.224 4.481 0.405 0.369 
+1.75              1.051 0.528 -0.17 0.983 -5.52 1.322 5.754 0.559 0.509 
+2.0               1.107 0.588 -0.41 0.909 -2.18 1.414 7.389 0.693 0.630 
+2.25              1.152 0.643 -0.62 0.778 -1.23 1.5   9.487 0.810 0.738 
+2.5               1.190 0.694 -0.80 0.598 -0.74 1.581 12.18 0.916 0.834 
+2.75              1.222 0.741 -0.92 0.381 -0.41 1.658 15.64 1.011 0.920 
+3.0               1.249 0.785 -0.98 0.141 -0.14 1.732 20.08 1.098 1.0   
+3.25              1.272 0.825 -0.99 -0.10 0.108 1.802 25.79 1.178 1.072 
+3.5               1.292 0.862 -0.93 -0.35 0.374 1.870 33.11 1.252 1.140 
+3.75              1.310 0.896 -0.82 -0.57 0.696 1.936 42.52 1.321 1.203 
+4.0               1.325 0.927 -0.65 -0.75 1.157 2.0   54.59 1.386 1.261 
+4.25              1.339 0.956 -0.44 -0.89 2.006 2.061 70.10 1.446 1.317 
+4.5               1.352 0.982 -0.21 -0.97 4.637 2.121 90.01 1.504 1.369 
+4.75              1.363 1.007 0.037 -0.99 -26.5 2.179 115.5 1.558 1.418 
+5.0               1.373 1.030 0.283 -0.95 -3.38 2.236 148.4 1.609 1.464 
+5.25              1.382 1.051 0.512 -0.85 -1.67 2.291 190.5 1.658 1.509 
+5.5               1.390 1.071 0.708 -0.70 -0.99 2.345 244.6 1.704 1.551 
+5.75              1.398 1.089 0.861 -0.50 -0.59 2.397 314.1 1.749 1.592 
+6.0               1.405 1.107 0.960 -0.27 -0.29 2.449 403.4 1.791 1.630 
+6.25              1.412 1.123 0.999 -0.03 -0.03 2.5   518.0 1.832 1.668 
+```
+
+## procedure_every_scan_replace_9
+
+```Icon
 #SRC: JCON
 
 # table test
@@ -14768,7 +31371,32 @@ procedure tdump(label, T)
    write();
    return;
 end
-#---------------------------------------- 1099 procedure_record_every_replace_13
+```
+
+```stdout
+   initial : 0 :
+ >> 
+ >> 3 3 
+    +2+4+a : 3 : [2]3 [4]7 ["a"]"A"
+     !x=88 : 3 : [2]88 [4]88 ["a"]88
+  [all]=99 : 3 : [2]99 [4]99 ["a"]99
+    x[k]=k : 3 : [2]2 [4]4 ["a"]"a"
+    insert : 6 : [&null]"null" [1]&null [3]&null [5]55 [6]66 [7]77
+    delete : 2 : [5]55 [6]66
+0
+        t0 : 0 :
+       t0i : 6 : [&null]"null" [1]&null [3]&null [5]55 [6]66 [7]77
+       t0d : 2 : [5]55 [6]66
+
+k 3
+v 7
+       30s : 5 : [0]30 [1]31 [2]32 [3]33 [4]34
+       50s : 5 : [0]50 [1]51 [2]52 [3]53 [4]54
+```
+
+## procedure_record_every_replace_13
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -15004,7 +31632,318 @@ procedure main()
    p16();
 end
 
-#----------------------------------------- 1100 procedure_coexpr_every_replace_2
+```
+
+```stdout
+ ----> &null
+2 === +2 ----> 2
+3 === *"abc" ----> 3
+'abc' === ('abc' ++ '') ----> 'abc'
+'a' ----> 'a'
+'ab' ----> 'ab'
+'\xb9' ----> '\xb9'
+'\xb8\xb4' ----> '\xb4\xb8'
+'\^d' ----> '\x04'
+'\^a\^d' ----> '\x01\x04'
+"a" ----> "a"
+"ab" ----> "ab"
+"\xb9" ----> "\xb9"
+"\xb8\xb4" ----> "\xb8\xb4"
+"\^d" ----> "\x04"
+"\^a\^d" ----> "\x01\x04"
+*'a' ----> 1
+*'ab' ----> 2
+*'\xb9' ----> 1
+*'\xb8\xb4' ----> 2
+*'\^d' ----> 1
+*'\^a\^d' ----> 2
+*"a" ----> 1
+*"ab" ----> 2
+*"\xb9" ----> 1
+*"\xb8\xb4" ----> 2
+*"\^d" ----> 1
+"*\^a\^d" ----> "*\x01\x04"
+1
+3
+5
+7
+9
+every write("..."(1,10,2)) ----> none
+function write
+every write("image"(write)) ----> none
+"[:]"("abcdef",3,5) ----> "cd"
+"[]"(&lcase,3) ----> "c"
+image(proc("^",1)) ----> "function ^"
+image(proc("^",2)) ----> "function ^"
+proc("+",2)(3,4) ----> 7
+proc(proc)("write") ----> function write
+proc("+") ----> function +
+?10 ----> 3
+?10 ----> 5
+?10 ----> 4
+?20 ----> 11
+?[1,2,3,4] ----> 2
+?[1,2,3,4] ----> 2
+x := array(1,2,3,4,5,6,7) ----> record array_1(7)
+?x ----> 1
+?x ----> 6
+?x ----> 1
+?x ----> 6
+?x ----> 1
+?x ----> 3
+?x ----> 4
+?x ----> 5
+6
+8
+8
+3
+9
+4
+4
+9
+9
+1
+every 1 to 10 do write(?10) ----> none
+8
+4
+7
+5
+9
+10
+4
+5
+6
+7
+every 1 to 10 do write(?[1,2,3,4,5,6,7,8,9,10]) ----> none
+a
+f
+c
+c
+a
+f
+d
+d
+f
+b
+every 1 to 10 do write(?"abcdef") ----> none
+x := array(1,2,3,4,5,6,7) ----> record array_2(7)
+3
+6
+7
+7
+4
+6
+4
+1
+6
+6
+every 1 to 10 do write(?x) ----> none
+(1,2,3,4,5) ----> 5
+1
+2
+3
+4
+5
+every write((1 to 5)(1,2,3,4,5)) ----> none
+0(1,2) ----> none
+1(1) ----> 1
+2(1) ----> none
+(-1)(1,2,3) ----> 3
+3(1,2,3,&fail) ----> none
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+a
+a
+b
+b
+c
+c
+every write(2(1 to 5,!"abc",1 to 2)) ----> none
+x := 1 ----> 1
+y := 2 ----> 2
+(x := y) & &fail ----> none
+a
+b
+c
+d
+e
+f
+every write(!"abcdef") ----> none
+1
+2
+3
+4
+5
+every write(![1,2,3,4,5]) ----> none
+1
+2
+3
+4
+5
+every write(!![1,2,3,4,5]) ----> none
+1
+a
+b
+1
+2
+3
+3
+4
+every write(!![1,"ab",[1,2,3],34]) ----> none
+1
+a
+b
+1
+2
+3
+3
+4
+every write(!([1,"ab",[1,2,3],34][1 to 4])) ----> none
+x := array(1,2,3,4,5) ----> record array_3(7)
+1
+2
+3
+4
+5
+
+
+every write(!x) ----> none
+x := 1 ----> 1
+y := 2 ----> 2
+x <-> y ----> 2
+y <-> x ----> 2
+(x <-> y) & &fail ----> none
+x ----> 1
+y ----> 2
+*"" ----> 0
+*'' ----> 0
+*[] ----> 0
+*table() ----> 0
+*30 ----> 2
+!"abc" ----> "a"
+![1,2,3] ----> 1
+!&lcase ----> "a"
+!30 ----> "3"
+!table() ----> none
+?"abc" ----> "c"
+?&lcase ----> "f"
+?[1,2,3] ----> 2
+?table() ----> none
+?30 ----> 27
+.x ----> &null
+."abc" ----> "abc"
+.[] ----> list_22(0)
+.main ----> procedure main
+/main ----> none
+/"abc" ----> none
+/&null ----> &null
+/[] ----> none
+/&lcase ----> none
+\main ----> procedure main
+\"abc" ----> "abc"
+\x ----> none
+\[] ----> list_24(0)
+\&null ----> none
+1 | 2 | 3 ----> 1
+|(1 to 10) ----> 1
+||(1 to 10) ----> 1
+|||(1 to 10) ----> 1
+||||(1 to 10) ----> 1
+|||||(1 to 10) ----> 1
+|||||||(1 to 10) ----> 1
+2 \ 2 ----> 2
+while 1 do break ----> &null
+while 1 do break "hello" ----> "hello"
+while break ----> &null
+case 1 of {2:3; "1":4; 1: 4 to 10; default: "whoa"} ----> 4
+not 1 ----> none
+not \&null ----> &null
+repeat break ----> &null
+until 1 do 2 ----> none
+if 1 then 2 else 3 ----> 2
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(if 1 then 1 to 10 else 5) ----> none
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+every write(if 1 = 0 then 1 to 10 else 10 to 1 by -1) ----> none
+if 1 then 2 ----> 2
+if 1 = 0 then 2 ----> none
+x := 1 ----> 1
+y := 2 ----> 2
+z := 3 ----> 3
+x :=: y ----> 2
+y :=: x ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+x :=: y :=: z ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+x := 1 ----> 1
+y := 2 ----> 2
+z := 3 ----> 3
+x <-> y ----> &null
+y <-> x ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+x <-> y :=: z ----> &null
+x ----> &null
+y ----> &null
+z ----> &null
+1 & 2 & 3 & 4 ----> 4
+(1 & 2 & 3 & x) := 3 ----> 3
+x ----> &null
+x := 1 ----> 1
+y := 2 ----> 2
+(x <- y) & &fail ----> none
+x ----> 1
+y ----> 2
+```
+
+## procedure_coexpr_every_replace_2
+
+```Icon
 procedure words(s)
    local L;
    L := [];
@@ -15023,7 +31962,19 @@ procedure main()
    every writes(("p q r" ? words(&subject)), ","); write();
    w := create words("one two"); write(@w, " ", "zz" ? (@w || &subject));
 end
-#---------------------------------------- 1101 procedure_record_every_replace_25
+```
+
+```stdout
+the|quick|brown|fox|
+a|b|c|d|
+in7 ner7 scan
+abp,q,r,
+one twozz
+```
+
+## procedure_record_every_replace_25
+
+```Icon
 record pt(x, y)
 procedure main()
    local p, q, t, s, L, k;
@@ -15042,7 +31993,25 @@ procedure main()
    t := table(); t[1] := "one"; t[2] := "two"; L := sort(t, 3); write(*L, " ", L[1], L[2], L[3], L[4]);
    write(image(p)[1:9], " ", image(t)[1:6], " ", image(s)[1:4]);
 end
-#----------------------------------------- 1102 scanning_asm__is02b_cset_sources
+```
+
+```stdout
+1 9 pt record constructor pt 2
+0 2 2
+dflt dflt
+3 2 nomember
+3
+ 1 3 2.5 a b 
+identity
+k
+0 list
+4 1one2two
+record p table set
+```
+
+## scanning_asm__is02b_cset_sources
+
+```Icon
 procedure try(c, s)
   write(image(c), " ", upto(c, s) | "-", " ", many(c, s) | "-", " ", any(c, s) | "-", " ", bal(c, '(', ')', s) | "-");
   return;
@@ -15063,7 +32032,44 @@ procedure main();
   c := cset(repl("abcdefg", 30));
   try(c, s);
 end
-#----------------------------------------- 1103 procedure_record_every_replace_1
+```
+
+```stdout
+'abc' 19 - - 19
+'aeiou' 2 - - 2
+&letters 1 6 2 1
+&digits 15 - - 15
+&lcase 1 6 2 1
+&ucase 23 - - 23
+&ascii 1 30 2 1
+&cset 1 30 2 1
+'aeiou' 2 - - 2
+'12345' 15 - - 15
+'' - - - -
+'abcxyz' 19 - - 19
+'ABCDEFGHIJKLMNOPQRSTUVWXYZbcdfghjklmnpqrstvwxyz' 1 2 2 1
+'abcxyz' 19 - - 19
+'' - - - -
+'' - - - -
+'\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`defghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff' 1 19 2 1
+'\x00ab' 19 - - 19
+'\x00 ()123XYZabcdehlnorw' 1 30 2 1
+' cehikqtu' 1 3 2 1
+' br' 6 - - 6
+' bfnorwx' 5 - - 5
+'xyz' - - - -
+'ab' 19 - - 19
+'0123456789x' 15 - - 15
+'h' 1 2 2 1
+'qrs' 10 - - -
+&lcase 1 6 2 1
+'\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff' 6 - - 6
+'abcdefg' 2 - - 2
+```
+
+## procedure_record_every_replace_1
+
+```Icon
 global defs, limit, tswitch
 record nonterm(name)
 record charset(chars)
@@ -15115,7 +32121,15 @@ procedure main()
    limit := 1000;
    gener("s");
 end
-#---------------------------------------- 1104 procedure_record_coexpr_replace_1
+```
+
+```stdout
+he runs.
+```
+
+## procedure_record_coexpr_replace_1
+
+```Icon
 #SRC: JCON
 
 #  test image(), serial(), *x, and explicit conversion functions
@@ -15199,7 +32213,69 @@ end
 procedure pad(x)
    return right(image(\x) | "---", 13);
 end
-#---------------------------------------- 1105 procedure_record_every_replace_15
+```
+
+```args
+x
+```
+
+```stdout
+	null : &null
+    *2	integer : 47
+    *7	real : 3.14159
+    *3	cset : '127'
+    *9	string : "asparagus"
+	procedure : procedure main
+	procedure : function write
+#1  *1	list : list_1(1)
+#2  *0	list : list_2(0)
+#3  *5	list : list_3(5)
+#1  *0	set : set_1(0)
+#2  *3	set : set_2(3)
+#1  *0	table : table_1(0)
+#2  *1	table : table_2(1)
+	procedure : record constructor point
+	procedure : record constructor circle
+#1  *2	point : record point_1(2)
+#1  *3	circle : record circle_1(3)
+#2  *2	point : record point_2(2)
+#3  *2	point : record point_3(2)
+#2  *3	circle : record circle_2(3)
+#3  *3	circle : record circle_3(3)
+#2  *0	co-expression : co-expression_2(0)
+#3  *10	co-expression : co-expression_3(10)
+#4  *10	co-expression : co-expression_4(10)
+#5  *0	co-expression : co-expression_5(0)
+
+          x     integer(x)      real(x)   numeric(x)    string(x)      cset(x)
+            0            0          0.0            0          "0"          '0'
+          0.0            0          0.0          0.0        "0.0"         '.0'
+          "0"            0          0.0            0          "0"          '0'
+          '0'            0          0.0            0          "0"          '0'
+            7            7          7.0            7          "7"          '7'
+        7.315            7        7.315        7.315      "7.315"      '.1357'
+      "7.315"            7        7.315        7.315      "7.315"      '.1357'
+      '.1357'            0       0.1357       0.1357      ".1357"      '.1357'
+      "25e-2"            0         0.25         0.25      "25e-2"       '-25e'
+      "25e-1"            2          2.5          2.5      "25e-1"      '-125e'
+     " 4e+3 "         4000       4000.0       4000.0     " 4e+3 "      ' +34e'
+   " 3.8e3  "         3800       3800.0       3800.0   " 3.8e3  "      ' .38e'
+           ""          ---          ---          ---           ""           ''
+          " "          ---          ---          ---          " "          ' '
+       " -3 "           -3         -3.0           -3       " -3 "        ' -3'
+      "  9  "            9          9.0            9      "  9  "         ' 9'
+       " +77"           77         77.0           77       " +77"        ' +7'
+    "  4.7  "            4          4.7          4.7    "  4.7  "       ' .47'
+
+"\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe"
+
+'\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
+
+```
+
+## procedure_record_every_replace_15
+
+```Icon
 #  A case arm's body runs to its end and only then becomes the case value.
 #  The lowering rewired the arm's ENTRY node to the result assignment after
 #  the fact: an arm whose body was `every ... do if ... then fail` lost its
@@ -15315,7 +32391,44 @@ procedure main()
    write(image(equiv([1,[2,3]],[1,[2,4]])) | "equiv failed");
    write(image(equiv(set([1,2]),set([2,1]))) | "equiv failed");
 end
-#----------------------------------------- 1106 procedure_record_every_replace_7
+```
+
+```stdout
+c1 after 0
+"c1 done"
+c1 after 60
+"c1 done"
+five
+c1 after 5
+"c1 done"
+"x y"
+"x y"
+&null
+&null
+"dflt"
+f1 differ
+f1 same
+f1 differ
+f2 differ
+f3 differ
+f4 differ
+f4 body done
+f4 same
+f5 6
+f5 6
+f5 7
+f6 early
+f6 failed
+f6 late
+equiv failed
+list_16(2)
+equiv failed
+set_8(2)
+```
+
+## procedure_record_every_replace_7
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -15447,7 +32560,245 @@ end
 
 global s
 
-#---------------------------------------- 1107 procedure_record_every_replace_14
+```
+
+```stdout
+ ----> &null
+s := "abcd" ----> "abcd"
+s := "x" ----> "x"
+s ||:= "x" ----> "xx"
+s ----> "xx"
+s := "x" ----> "x"
+s ||:= "xx" ----> "xxx"
+s ----> "xxx"
+s := "x" ----> "x"
+s ||:= "X" ----> "xX"
+s ----> "xX"
+s := "x" ----> "x"
+s ||:= "abc" ----> "xabc"
+s ----> "xabc"
+s := "x" ----> "x"
+s ==:= "x" ----> "x"
+s ----> "x"
+s := "x" ----> "x"
+s ==:= "xx" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ==:= "X" ----> none
+s ----> "x"
+s := "x" ----> "x"
+s ==:= "abc" ----> none
+s ----> "x"
+{s[1:2] := "xx";s} ----> "xx"
+{s[-1:0] := "";s} ----> "x"
+{s[1] := "abc";s} ----> "abc"
+{s[1+:2] := "y";s} ----> "yc"
+{s[2] :=: s[3];s} ----> "yc"
+s[6] := "t" ----> none
+s[0-:6] := "u" ----> none
+{s[1:0] :=: s[0:1];s} ----> "yc"
+"x" << "x" ----> none
+"x" << "X" ----> none
+"X" << "x" ----> "x"
+"xx" <<= "xx" ----> "xx"
+"xxx" <<= "xx" ----> none
+"xx" <<= "xxx" ----> "xxx"
+"x" >>= "x" ----> "x"
+"x" >>= "xx" ----> none
+"xx" >>= "x" ----> "x"
+"x" >> "x" ----> none
+"x" >> "X" ----> "X"
+"X" >> "x" ----> none
+"x" == "x" ----> "x"
+"x" == "X" ----> none
+"X" == "x" ----> none
+"x" ~== "x" ----> none
+"x" ~== "X" ----> "X"
+"X" ~== "x" ----> "x"
+2
+22
+222
+2222
+22222
+222222
+2222222
+22222222
+222222222
+every i := 1 to 9 do write(integer(repl("2",i))) ----> none
+3
+23
+223
+2223
+22223
+222223
+2222223
+22222223
+222222223
+every i := 1 to 9 do write(repl("2",i) + 1) ----> none
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+every i := 1 to 30 do write(integer(repl("0",i) || "2")) ----> none
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+every i := 1 to 30 do write((repl("0",i) || "2") + 1) ----> none
+c1 := 'abcde' ----> 'abcde'
+c2 := 'aeuoi' ----> 'aeiou'
+c1 ++ c2 ----> 'abcdeiou'
+c1 -- c2 ----> 'bcd'
+c1 ** c2 ----> 'ae'
+2 ~=== +2 ----> none
+3 ~=== *"abc" ----> none
+'abc' ~=== ('abc' ++ '') ----> none
+any('aeiou',&lcase) ----> 2
+any('aeiou',&ucase) ----> none
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+16
+16
+16
+16
+16
+every write(any('aeiou',&lcase,1 to 15,10 to 20)) ----> none
+match("abc","abcabcabcabc") ----> 4
+match("abc","xabcabcabcabc") ----> none
+5
+5
+5
+5
+5
+5
+5
+8
+8
+8
+5
+5
+5
+8
+5
+8
+5
+8
+every write(match("abc","xabcabcabcabc",1 to 10,1 to 10)) ----> none
+upto('56d&',&lcase) ----> 4
+upto('56d&',&ucase) ----> none
+upto('56d&',&lcase,15) ----> none
+many(&lcase,"this is a Test") ----> 5
+many(&lcase,"this is a Test",5) ----> none
+many(&lcase,"this is a Test",5,9) ----> none
+find("aa","xxaaaaaa") ----> 3
+3
+4
+5
+6
+7
+every write(find("aa","xxaaaaaa")) ----> none
+4
+5
+every write(find("aa","xxaaaaaa",4,7)) ----> none
+bal('-','(',')',"-35") ----> 1
+bal('+','(',')',"((2*x)+3)+(5*y)") ----> 10
+10
+7
+7
+10
+every write(bal('+','(',')',"((2*x)+3)+(5*y)",1 to 10)) ----> none
+bal('+','[','[',"[[2*x[+3[+[5*y[") ----> none
+bal('+','([','])',"([2*x)+3]+(5*y]") ----> 10
+bal(,,,"()+()") ----> 1
+bal(&cset,,,"()+()") ----> 1
+```
+
+## procedure_record_every_replace_14
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -15635,7 +32986,469 @@ end
 procedure wf (v)
     writes(left(v,5)," ");
     end
-#------------------------------------------- 1108 procedure_every_scan_replace_5
+```
+
+```stdout
+ ----> &null
+copy(1) ----> 1
+copy("abc") ----> "abc"
+copy('aabbcc') ----> 'abc'
+copy(main) ----> procedure main
+copy([1,2,3]) ----> list_2(3)
+copy(table(0)) ----> table_2(0)
+copy() ----> &null
+copy(&input) ----> &input
+w := copy(write) ----> function write
+function write
+w(image(w)) ----> "function write"
+copy(array()) ----> record array_2(7)
+copy := copy(copy) ----> function copy
+x := copy(array) ----> record constructor array
+x := x(1,2,3,4,5,6,7) ----> record array_3(7)
+x[-4] ----> 4
+v := copy(c) ----> &null
+x := repl("123",4) ----> "123123123123"
+t := table() ----> table_3(0)
+every i := 1 to 100 do t[i] := i ----> none
+x := sort(t) ----> list_3(100)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+every write((!x)[2]) ----> none
+d
+d
+d
+cd
+cd
+cd
+cde
+cde
+cde
+bcde
+bcde
+bcde
+bcdef
+bcdef
+bcdef
+abcdef
+abcdef
+abcdef
+abcdef 
+abcdef0
+abcdef-
+ abcdef 
+0abcdef0
+=abcdef-
+ abcdef  
+0abcdef00
+=abcdef=-
+  abcdef  
+00abcdef00
+=-abcdef=-
+  abcdef   
+00abcdef000
+=-abcdef-=-
+   abcdef   
+000abcdef000
+=-=abcdef-=-
+   abcdef    
+000abcdef0000
+=-=abcdef=-=-
+    abcdef    
+0000abcdef0000
+=-=-abcdef=-=-
+    abcdef     
+0000abcdef00000
+=-=-abcdef-=-=-
+     abcdef     
+00000abcdef00000
+=-=-=abcdef-=-=-
+     abcdef      
+00000abcdef000000
+=-=-=abcdef=-=-=-
+      abcdef      
+000000abcdef000000
+=-=-=-abcdef=-=-=-
+      abcdef       
+000000abcdef0000000
+=-=-=-abcdef-=-=-=-
+       abcdef       
+0000000abcdef0000000
+=-=-=-=abcdef-=-=-=-
+every write(center("abcdef",1 to 20," " | "0" | "=-")) ----> none
+a
+a
+a
+ab
+ab
+ab
+abc
+abc
+abc
+abcd
+abcd
+abcd
+abcde
+abcde
+abcde
+abcdef
+abcdef
+abcdef
+abcdef 
+abcdef0
+abcdef-
+abcdef  
+abcdef00
+abcdef=-
+abcdef   
+abcdef000
+abcdef-=-
+abcdef    
+abcdef0000
+abcdef=-=-
+abcdef     
+abcdef00000
+abcdef-=-=-
+abcdef      
+abcdef000000
+abcdef=-=-=-
+abcdef       
+abcdef0000000
+abcdef-=-=-=-
+abcdef        
+abcdef00000000
+abcdef=-=-=-=-
+abcdef         
+abcdef000000000
+abcdef-=-=-=-=-
+abcdef          
+abcdef0000000000
+abcdef=-=-=-=-=-
+abcdef           
+abcdef00000000000
+abcdef-=-=-=-=-=-
+abcdef            
+abcdef000000000000
+abcdef=-=-=-=-=-=-
+abcdef             
+abcdef0000000000000
+abcdef-=-=-=-=-=-=-
+abcdef              
+abcdef00000000000000
+abcdef=-=-=-=-=-=-=-
+every write(left("abcdef",1 to 20," " | "0" | "=-")) ----> none
+f
+f
+f
+ef
+ef
+ef
+def
+def
+def
+cdef
+cdef
+cdef
+bcdef
+bcdef
+bcdef
+abcdef
+abcdef
+abcdef
+ abcdef
+0abcdef
+=abcdef
+  abcdef
+00abcdef
+=-abcdef
+   abcdef
+000abcdef
+=-=abcdef
+    abcdef
+0000abcdef
+=-=-abcdef
+     abcdef
+00000abcdef
+=-=-=abcdef
+      abcdef
+000000abcdef
+=-=-=-abcdef
+       abcdef
+0000000abcdef
+=-=-=-=abcdef
+        abcdef
+00000000abcdef
+=-=-=-=-abcdef
+         abcdef
+000000000abcdef
+=-=-=-=-=abcdef
+          abcdef
+0000000000abcdef
+=-=-=-=-=-abcdef
+           abcdef
+00000000000abcdef
+=-=-=-=-=-=abcdef
+            abcdef
+000000000000abcdef
+=-=-=-=-=-=-abcdef
+             abcdef
+0000000000000abcdef
+=-=-=-=-=-=-=abcdef
+              abcdef
+00000000000000abcdef
+=-=-=-=-=-=-=-abcdef
+every write(right("abcdef",1 to 20," " | "0" | "=-")) ----> none
+center("",20,repl("x.",30)) ----> "x.x.x.x.x.x.x.x.x.x."
+left("",20,repl("x.",30)) ----> "x.x.x.x.x.x.x.x.x.x."
+right("",20,repl("x.",30)) ----> "x.x.x.x.x.x.x.x.x.x."
+a
+aa
+aaa
+aaaa
+aaaaa
+ab
+abab
+ababab
+abababab
+ababababab
+ba
+baba
+bababa
+babababa
+bababababa
+every write(repl("a" | "ab" | "ba",1 to 5)) ----> none
+repl("",0) ----> ""
+repl(&cset,0) ----> ""
+trim(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+trim(&lcase,&lcase) ----> ""
+image(2) ----> "2"
+image('cab') ----> "'abc'"
+image(&lcase) ----> "&lcase"
+image('abcdefghijklmnopqrstuvwxyz') ----> "&lcase"
+image(&input) ----> "&input"
+image() ----> "&null"
+image(&null) ----> "&null"
+image([1,2,3]) ----> "list_104(3)"
+image([]) ----> "list_105(0)"
+image([,]) ----> "list_106(2)"
+image(table()) ----> "table_4(0)"
+image(table(3)) ----> "table_5(0)"
+image(list(0)) ----> "list_107(0)"
+image(set()) ----> "set_1(0)"
+image(set([1,2,3,3,3,3,3,4])) ----> "set_2(4)"
+image(repl) ----> "function repl"
+image(main) ----> "procedure main"
+image(repl(&lcase,10)) ----> "\"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\""
+image(array) ----> "record constructor array"
+image(a) ----> "&null"
+image(array) ----> "record constructor array"
+image(image) ----> "function image"
+string(2) ----> "2"
+string("2") ----> "2"
+string(" 2") ----> " 2"
+string("2 ") ----> "2 "
+string("+2") ----> "+2"
+string("-2") ----> "-2"
+string("- 2") ----> "- 2"
+string(" -    2 ") ----> " -    2 "
+string("") ----> ""
+string("--2") ----> "--2"
+string(" ") ----> " "
+string("-") ----> "-"
+string("+") ----> "+"
+string("22222222222222222222222222222222222222222222222222222222222") ----> "22222222222222222222222222222222222222222222222222222222222"
+string("7r4") ----> "7r4"
+string("4r7") ----> "4r7"
+string("4r 7") ----> "4r 7"
+string("7r 4") ----> "7r 4"
+string("16rff") ----> "16rff"
+string("36rcat") ----> "36rcat"
+string("36Rcat") ----> "36Rcat"
+string("36rCAT") ----> "36rCAT"
+string("1r1") ----> "1r1"
+string("2r0") ----> "2r0"
+type(0) ----> "integer"
+type("abc") ----> "string"
+type('aba') ----> "cset"
+type() ----> "null"
+type(&null) ----> "null"
+type([]) ----> "list"
+type(table()) ----> "table"
+type(main) ----> "procedure"
+type(write) ----> "procedure"
+type(array()) ----> "array"
+type(array) ----> "procedure"
+type(f) ----> "null"
+cset(2) ----> '2'
+cset("2") ----> '2'
+cset(" 2") ----> ' 2'
+cset("2 ") ----> ' 2'
+cset("+2") ----> '+2'
+cset("-2") ----> '-2'
+cset("- 2") ----> ' -2'
+cset(" -    2 ") ----> ' -2'
+cset("") ----> ''
+cset("--2") ----> '-2'
+cset(" ") ----> ' '
+cset("-") ----> '-'
+cset("+") ----> '+'
+cset("22222222222222222222222222222222222222222222222222222222222") ----> '2'
+cset("7r4") ----> '47r'
+cset("4r7") ----> '47r'
+cset("4r 7") ----> ' 47r'
+cset("7r 4") ----> ' 47r'
+cset("16rff") ----> '16fr'
+cset("36rcat") ----> '36acrt'
+cset("36Rcat") ----> '36Ract'
+cset("36rCAT") ----> '36ACTr'
+cset("1r1") ----> '1r'
+cset("2r0") ----> '02r'
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(seq()) \ 10 ----> none
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+every write(seq(2)) \ 10 ----> none
+-10
+-9
+-8
+-7
+-6
+-5
+-4
+-3
+-2
+-1
+every write(seq(-10)) \ 10 ----> none
+1
+4
+7
+10
+13
+16
+19
+22
+25
+28
+every write(seq(,3)) \ 10 ----> none
+```
+
+## procedure_every_scan_replace_5
+
+```Icon
 #SRC: JCON
 
 procedure main()
@@ -15725,7 +33538,66 @@ procedure limage(label, lst)
    write();
    return;
 end
-#---------------------- 1109 ladder__rung05_scan_variable_cset_many_upto_any_bal
+```
+
+```stdout
+-2
+-2
+a. [0]
+b. [2] &null &null
+c. [0]
+d. [4] 5 5 5 5
+d. [6] 7 7 7 7 7 7
+e. [0]
+f. [1] &null
+g. [1] 1
+h. [4] 2 3 4 5
+i. [8] 1 2 3 4 5 6 7 8
+A. [4] &null 1 2 3
+B. [5] &null 1 2 3 &null
+	&null
+C. [4] 1 2 3 &null
+	1
+D. [3] 2 3 &null
+	&null
+E. [2] 2 3
+F. [3] 4 2 3
+G. [6] 7 6 5 4 2 3
+H. [10] 11 10 9 8 7 6 5 4 2 3
+I. [11] 11 10 9 8 7 6 5 4 2 3 12
+J. [14] 11 10 9 8 7 6 5 4 2 3 12 13 14 15
+K. [18] 11 10 9 8 7 6 5 4 2 3 12 13 14 15 16 17 18 19
+L. [22] 21 20 11 10 9 8 7 6 5 4 2 3 12 13 14 15 16 17 18 19 22 23
+M. [22] 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+N. [5] 1 2 3 4 5
+O. [5] -5 -4 -3 -2 -1
+	1
+P. [1] 2
+ok failure 0
+ok failure 2
+ok failure -2
+ok failure on get
+ok failure on pop
+ok failure on pull
+p. [9] 1 2 3 4 5 6 7 8 9
+q. [9] 1 2 3 4 5 6 7 8 9
+r. [3] 2 3 4
+s. [2] 5 6
+t. [4] 5 6 7 8
+u. [4] 3 4 5 6
+v. [4] 3 4 5 6
+
+x. [9] 11 12 13 14 15 16 17 18 19
+y. [9] 21 22 23 24 25 26 27 28 29
+z. [18] 11 12 13 14 15 16 17 18 19 21 22 23 24 25 26 27 28 29
+x. [9] 21 22 23 24 25 26 27 28 29
+y. [9] 41 42 43 44 45 46 47 48 49
+z. [18] 61 62 63 64 65 66 67 68 69 71 72 73 74 75 76 77 78 79
+```
+
+## ladder__rung05_scan_variable_cset_many_upto_any_bal
+
+```Icon
 procedure main()
    local c, d, s, t, i, n, L, hi;
    c := &letters ++ '> ';
@@ -15774,7 +33646,75 @@ procedure main()
    write("any arg ", any(c, "xYz", 2) | "fail");
    every c := !['ab', "ba", &digits] do "a1" ? write("loop any ", type(c), " ", any(c) | "fail");
 end
-#---------------------------------------- 1110 procedure_record_every_replace_18
+```
+
+```stdout
+tok [>ONE homo sapiens]
+tok [GATTACA gattaca]
+tok [>TWO]
+tok [ACGT acgt ]
+tok [ xyz]
+upto c 1
+upto c 2
+upto c 3
+upto c 4
+upto c 5
+upto c 6
+upto c 7
+upto c 8
+upto c 9
+upto c 10
+upto c 11
+upto c 12
+upto d 54
+upto d 55
+upto d 56
+upto str 19
+upto str 27
+upto str 42
+upto str 47
+many fail fail
+many str 5
+many all 4
+many empty fail
+upto empty fail
+upto none fail
+arg many 12
+arg upto 4
+arg upto gen 3
+arg upto gen 4
+arg upto gen 5
+arg upto gen 8
+arg upto gen 10
+hi many 3
+hi upto 1
+hi upto 2
+hi upto 4
+hash count 42
+gen count 42 last 294
+after many 7
+loop many cset 7
+loop many string 7
+loop many cset 301
+bal c 2
+bal c 10
+bal d 8
+bal open 2
+bal nest 6
+bal arg 6
+any c 2
+any c2 fail
+any str 2
+any empty fail
+any arg 3
+loop any cset 2
+loop any string 2
+loop any cset fail
+```
+
+## procedure_record_every_replace_18
+
+```Icon
 #SRC: JCON
 
 record message(who,gap,what)
@@ -15903,7 +33843,94 @@ procedure nullsuspend()
    suspend;
    suspend;
 end
-#--------------------------------------- 1111 scanning_asm__is02e_window_corners
+```
+
+```stdout
+2
+3
+b
+c
+e
+f
+g
+h
+ijk
+23skidoo
+bob
+hello!
+mom!
+hello!
+mom!
+hello!
+mom!
+hello!
+mom!
+hello
+hello pop
+i=-4: failed
+i=-3: a
+i=-2: b
+i=-1: c
+i=0: failed
+i=1: a
+i=2: b
+i=3: c
+i=4: failed
+1
+2
+3
+4
+5
+6
+1
+5
+9
+10
+30
+50
+1 11
+2 22
+3 33
+4 44
+5 55
+6 66
+7 77
+8 88
+9 99
+repl: xxxxyzxyzxyzxyz
+reverse: xba54321
+char: @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+proc: 
+   function write
+   function write
+   function write
+   function write
+   procedure args
+   function args
+  >procedure main
+  >0
+   function args
+   function args
+argument evaluation test
+11
+33
+33
+qq
+wqwerty
+33
+77
+88
+&null
+&null
+record constructor recordAsVariable
+3
+OK to get here
+done
+```
+
+## scanning_asm__is02e_window_corners
+
+```Icon
 procedure g(s);
   suspend find("an", s, 1, 0);
 end
@@ -15957,7 +33984,15 @@ procedure main();
   every i := upto('a', s, 5) do r ||:= i || ",";
   write(r);
 end
-#----------------------------------------- 1112 procedure_record_every_replace_3
+```
+
+```stdout
+2,4,9,12,|4,9,12,|4,9,|4,9,|9,12,|12,|---+15,24222,-5445,1476-,----,'a'9,'n'10,|2,4,2,4,|4,5,|2,4,2,4,4,|2/1/outer subject,4/2/outer subject,ter ,7,7,2;4;,2,4,47,5@4,8@4,5@4,5~4,8~4,4,4,7,7,
+```
+
+## procedure_record_every_replace_3
+
+```Icon
 #SRC: V9GEN
 
 ### mindfa -- minimize a DFA
@@ -16174,7 +34209,437 @@ local l,t1,t2;
    if *l = 0 then fail;
    return l;
 end
-#---------------------------------------------- 1113 scanning_asm__is01c_numeric
+```
+
+```stdin
+abcdefgh
+01
+d
+a
+b
+a
+a
+c
+d
+b
+d
+a
+d
+f
+g
+e
+f
+g
+g
+d
+```
+
+```stdout
+Enter states (1 character names): Enter input alphabet: Enter Final states (subset of states): What is the start state? enter delta(a,0) = enter delta(a,1) = enter delta(b,0) = enter delta(b,1) = enter delta(c,0) = enter delta(c,1) = enter delta(d,0) = enter delta(d,1) = enter delta(e,0) = enter delta(e,1) = enter delta(f,0) = enter delta(f,1) = enter delta(g,0) = enter delta(g,1) = enter delta(h,0) = enter delta(h,1) = 
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+
+
+
+Original Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {a,b,c,d,e,f,g,h}
+	S = {0,1}
+	F = {d}
+	Start state is a
+	Delta: 
+	d(a,0) = b	d(a,1) = a
+	d(b,0) = a	d(b,1) = c
+	d(c,0) = d	d(c,1) = b
+	d(d,0) = d	d(d,1) = a
+	d(e,0) = d	d(e,1) = f
+	d(f,0) = g	d(f,1) = e
+	d(g,0) = f	d(g,1) = g
+	d(h,0) = g	d(h,1) = d
+
+
+
+Reduced Deterministic Finite Automaton is:
+
+	(Q,S,delta,q0,F)
+
+where:
+
+	Q = {ag,bf,ce,d}
+	S = {0,1}
+	F = {d}
+	Start state is ag
+	Delta: 
+	d(ag,0) = bf	d(ag,1) = ag
+	d(bf,0) = ag	d(bf,1) = ce
+	d(ce,0) = d	d(ce,1) = bf
+	d(d,0) = d	d(d,1) = ag
+```
+
+## scanning_asm__is01c_numeric
+
+```Icon
 procedure main();
   local d, x, y, z, w, T, S, big, r, q, u, v;
   d := "1234567890123456789012345678901234567890.5e3abcXYZ";
@@ -16205,7 +34670,30 @@ procedure main();
   write(&digits ? (x := tab(4)) ? (y := move(-2)) ? (z := tab(0)), " ", x, " ", y, " ", z, " ", *x, *y, *z);
   write(&digits ? { a1 := tab(4); a2 := tab(2); a3 := tab(8); a4 := move(-3); a5 := tab(0) }, " ", a1, " ", a2, " ", a3, " ", a4, " ", a5, " ", *a2, *a4, " ", a2 || a4);
 end
-#---------------------------------------- 1114 scanning_asm__is02c_operand_kinds
+```
+
+```stdout
+12 345 67 890123456789012345678901234567890 .5e3 abcXYZ
+12 345 67 13 690 66 890123456789012345678901234567890 890123456789012345678901234567890
+!?# 6 !
+7|345|2
+12 67 3 0123456789 12---- ____67 ++345++ 676767 21
+ab 3de 6g 12 67 345
+12345 1267 6712345 7 2125672
+ 12 string "12""67" "345""890123456789012345678901234567890"
+14955 12 67 12 49 4489
+12 67 48 422 -68
+3.464101615 115.0 1.954237321 5.843544417 -0.855519979 1.487655095
+1267 22 12 67 1267
+121212 677 212|6767|34345|
+ABCD AB 012 bcd
+0123|23
+456789 012 12 123456 456 456789 23 12456
+```
+
+## scanning_asm__is02c_operand_kinds
+
+```Icon
 procedure show(label, e)
   writes(label, " ");
   every writes(image(e), " ");
@@ -16236,7 +34724,206 @@ procedure main();
   "aaa" ? { write(find("") | "nf", " ", match("") | "nm", " ", upto("") | "nu", " ", many("") | "ny", " ", any("") | "na") };
   "xyz" ? { c := tab(2); write(match(c) | "-", " ", many(c) | "-", " ", find(c) | "-", " ", upto(c) | "-", " ", any(c) | "-") };
 end
-#------------------------------------------ 1115 procedure_every_scan_replace_13
+```
+
+```stdout
+== "abc"
+upto: 8 12 44 64
+many: - - -
+any: -
+find:
+match: -
+bal: 8
+upto2: 8 12 44 64
+many2: -
+any2: -
+match2: -
+== "aeiou"
+upto: 3 6 7 14 20 28 34 36 44 49 56 59 64 66
+many: - - e
+any: -
+find:
+match: -
+bal: 6
+upto2: 14 20 28 34 36 44 49 56 59 64 66
+many2: -
+any2: -
+match2: -
+== ""
+upto:
+many: - - -
+any: -
+find: 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72
+match: 4
+bal: -
+upto2:
+many2: -
+any2: -
+match2: 5
+== "q"
+upto: 5
+many: - - -
+any: -
+find: 5
+match: -
+bal: 5
+upto2: 5
+many2: 6
+any2: 6
+match2: 6
+== "xy"
+upto: 21 46 71
+many: - - -
+any: -
+find:
+match: -
+bal: 21
+upto2: 21 46 71
+many2: -
+any2: -
+match2: -
+== 'aeiou'
+upto: 3 6 7 14 20 28 34 36 44 49 56 59 64 66
+many: - - e
+any: -
+find:
+match: -
+bal: 6
+upto2: 14 20 28 34 36 44 49 56 59 64 66
+many2: -
+any2: -
+match2: -
+== &digits
+upto: 23 24 25 39 41
+many: - - -
+any: -
+find:
+match: -
+bal: 23
+upto2: 23 24 25 39 41
+many2: -
+any2: -
+match2: -
+== 12
+upto: 23 24
+many: - - -
+any: -
+find: 23
+match: -
+bal: 23
+upto2: 23 24
+many2: -
+any2: -
+match2: -
+== "("
+upto: 11 53 54
+many: - - -
+any: -
+find: 11 53 54
+match: -
+bal: 11
+upto2: 11 53 54
+many2: -
+any2: -
+match2: -
+== ")"
+upto: 17 61 69
+many: - - -
+any: -
+find: 17 61 69
+match: -
+bal: -
+upto2: 17 61 69
+many2: -
+any2: -
+match2: -
+== "the quick"
+upto: 1 2 3 4 5 6 7 8 9 10 18 22 26 28 33 36 38 42 47 52 56 58 59 62 66 70
+many: the quick  - -
+any: -
+find:
+match: -
+bal: -
+upto2: 22 26 28 33 36 38 42 47 52 56 58 59 62 66 70
+many2: -
+any2: -
+match2: -
+== "brown) fox 123 jumps"
+upto: 4 6 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 34 37 38 42 47 49 51 52 55 57 61 62 63 65 67 68 69 70 71
+many: - - -
+any:  
+find: 12
+match: -
+bal: 6
+upto2: 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 33 34 37 38 42 47 49 51 52 55 57 61 62 63 65 67 68 69 70 71
+many2: -
+any2: -
+match2: -
+== "abababababababababababababababababababab"
+upto: 12 44 64
+many: - - -
+any: -
+find:
+match: -
+bal: 44
+upto2: 12 44 64
+many2: -
+any2: -
+match2: -
+== "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxq"
+upto: 5 21 71
+many: - - -
+any: -
+find:
+match: -
+bal: 5
+upto2: 5 21 71
+many2: 6
+any2: 6
+match2: -
+== 'o'
+upto: 14 20 34 49
+many: - - -
+any: -
+find: 14 20 34 49
+match: -
+bal: 20
+upto2: 14 20 34 49
+many2: -
+any2: -
+match2: -
+== "\x00"
+upto:
+many: - - -
+any: -
+find:
+match: -
+bal: -
+upto2:
+many2: -
+any2: -
+match2: -
+== " "
+upto: 4 10 18 22 26 33 38 42 47 52 62 70
+many: - - -
+any:  
+find: 10 18 22 26 33 38 42 47 52 62 70
+match: -
+bal: 10
+upto2: 18 22 26 33 38 42 47 52 62 70
+many2: -
+any2: -
+match2: -
+"abc": 4 7
+"abcabc":
+"ab": 7
+1 1 nu ny na
+- - - - -
+```
+
+## procedure_every_scan_replace_13
+
+```Icon
 #SRC: V9GEN
 
 ##    gener.icn -- test generation in parallel with inserts/deletes
@@ -16378,7 +35065,56 @@ procedure stale()
    write();
    return;
 end
-#------------------------------------------- 1116 procedure_every_scan_replace_6
+```
+
+```stdout
+test delete:    41,    3	[ok]
+test delete:    41,   11	[ok]
+test delete:    41,   23	[ok]
+test delete:   619,    3	[ok]
+test delete:   619,   11	[ok]
+test delete:   619,   23	[ok]
+test delete:   991,    3	[ok]
+test delete:   991,   11	[ok]
+test delete:   991,   23	[ok]
+test insert:    40,  239,  3	[ok]
+test insert:    40,  239, 11	[ok]
+test insert:    40,  239, 23	[ok]
+test insert:    40,  419,  3	[ok]
+test insert:    40,  419, 11	[ok]
+test insert:    40,  419, 23	[ok]
+test insert:    40,  503,  3	[ok]
+test insert:    40,  503, 11	[ok]
+test insert:    40,  503, 23	[ok]
+test insert:   103,  239,  3	[ok]
+test insert:   103,  239, 11	[ok]
+test insert:   103,  239, 23	[ok]
+test insert:   103,  419,  3	[ok]
+test insert:   103,  419, 11	[ok]
+test insert:   103,  419, 23	[ok]
+test insert:   103,  503,  3	[ok]
+test insert:   103,  503, 11	[ok]
+test insert:   103,  503, 23	[ok]
+test insert:   233,  239,  3	[ok]
+test insert:   233,  239, 11	[ok]
+test insert:   233,  239, 23	[ok]
+test insert:   233,  419,  3	[ok]
+test insert:   233,  419, 11	[ok]
+test insert:   233,  419, 23	[ok]
+test insert:   233,  503,  3	[ok]
+test insert:   233,  503, 11	[ok]
+test insert:   233,  503, 23	[ok]
+
+checking !S:
+checking !T:
+checking key(T):
+
+[done]
+```
+
+## procedure_every_scan_replace_6
+
+```Icon
 #SRC: V9GEN
 
 ##  mffsol.icn -- show solution graphically in mff format
@@ -16495,7 +35231,92 @@ procedure newcolor()
 	if lum > 96 then return
     };
     end
-#------------------------------------------- 1117 procedure_every_scan_replace_4
+```
+
+```stdin
+[ constructed by hand ]
+ABCD EFGH IJKL MNOP
+AEIM BFJN CGKO DHLP
+AHKN BGLM CFIP DEJO
+AFLO BEKP CHJM DGIN
+AGJP BHIO CELN DFKM
+```
+
+```stdout
+1 metafile 1250 1000 0 0 0 init
+581 950 (A) text
+751 880 (B) text
+880 751 (C) text
+950 581 (D) text
+950 398 (E) text
+880 228 (F) text
+751 99 (G) text
+581 29 (H) text
+398 29 (I) text
+228 99 (J) text
+99 228 (K) text
+29 398 (L) text
+29 581 (M) text
+99 751 (N) text
+228 880 (O) text
+398 950 (P) text
+250 255 0 color
+1100 960 (1) text
+587 941 begin 750 874 line 874 750 line 941 587 line 587 941 line
+874 750 line stroke 750 874 begin 941 587 line stroke
+941 412 begin 874 249 line 750 125 line 587 58 line 941 412 line
+750 125 line stroke 874 249 begin 587 58 line stroke
+412 58 begin 249 125 line 125 249 line 58 412 line 412 58 line
+125 249 line stroke 249 125 begin 58 412 line stroke
+58 587 begin 125 750 line 249 874 line 412 941 line 58 587 line
+249 874 line stroke 125 750 begin 412 941 line stroke
+97 210 71 color
+1100 920 (2) text
+587 941 begin 941 412 line 412 58 line 58 587 line 587 941 line
+412 58 line stroke 941 412 begin 58 587 line stroke
+750 874 begin 874 249 line 249 125 line 125 750 line 750 874 line
+249 125 line stroke 874 249 begin 125 750 line stroke
+874 750 begin 750 125 line 125 249 line 249 874 line 874 750 line
+125 249 line stroke 750 125 begin 249 874 line stroke
+941 587 begin 587 58 line 58 412 line 412 941 line 941 587 line
+58 412 line stroke 587 58 begin 412 941 line stroke
+200 165 142 color
+1100 880 (3) text
+587 941 begin 587 58 line 125 249 line 125 750 line 587 941 line
+125 249 line stroke 587 58 begin 125 750 line stroke
+750 874 begin 750 125 line 58 412 line 58 587 line 750 874 line
+58 412 line stroke 750 125 begin 58 587 line stroke
+874 750 begin 874 249 line 412 58 line 412 941 line 874 750 line
+412 58 line stroke 874 249 begin 412 941 line stroke
+941 587 begin 941 412 line 249 125 line 249 874 line 941 587 line
+249 125 line stroke 941 412 begin 249 874 line stroke
+47 120 213 color
+1100 840 (4) text
+587 941 begin 874 249 line 58 412 line 249 874 line 587 941 line
+58 412 line stroke 874 249 begin 249 874 line stroke
+750 874 begin 941 412 line 125 249 line 412 941 line 750 874 line
+125 249 line stroke 941 412 begin 412 941 line stroke
+874 750 begin 587 58 line 249 125 line 58 587 line 874 750 line
+249 125 line stroke 587 58 begin 58 587 line stroke
+941 587 begin 750 125 line 412 58 line 125 750 line 941 587 line
+412 58 line stroke 750 125 begin 125 750 line stroke
+253 30 99 color
+1100 800 (5) text
+587 941 begin 750 125 line 249 125 line 412 941 line 587 941 line
+249 125 line stroke 750 125 begin 412 941 line stroke
+750 874 begin 587 58 line 412 58 line 249 874 line 750 874 line
+412 58 line stroke 587 58 begin 249 874 line stroke
+874 750 begin 941 412 line 58 412 line 125 750 line 874 750 line
+58 412 line stroke 941 412 begin 125 750 line stroke
+941 587 begin 874 249 line 125 249 line 58 587 line 941 587 line
+125 249 line stroke 874 249 begin 58 587 line stroke
+255 255 255 color
+0 0 (16 players, 5 rounds, 20 matches) text
+```
+
+## procedure_every_scan_replace_4
+
+```Icon
 #SRC: V9GEN
 #OPT: -fe
 
@@ -16646,7 +35467,286 @@ procedure setup (line);		# interpret and report a column spec line
    write (")");
    return p;
 end
-#---------------------------------------- 1118 procedure_record_every_replace_19
+```
+
+```stdin
+##  test data for entab/detab tester; see driver program's comments for details
+#
+#   Remember that the characters --> "!.$" <-- are metacharacters, and cannot
+#   be used randomly for punctuation;  I got away with it that time by placing
+#   them carefully <stop>
+
+# first try with default parameters (9,17,25,33,etc)
+
+x
+ x
+  x
+   x
+    x
+     x
+      x
+       x
+!.......x
+!....... x
+!.......  x
+!.......   x
+!.......    x
+!.......     x
+!.......      x
+!.......       x
+!.......!.......x
+x!......!.......x
+ x!.....!.......x
+  x!....!.......x
+   x!...!.......x
+    x!..!.......x
+     x!.!.......x
+      x!!.......x	# tab replaces one char as part of longer run
+       x!.......x
+!.......x!......x
+!....... x!.....x
+!.......  x!....x
+!.......   x!...x
+!.......    x!..x
+!.......     x!.x
+!.......      x x	# tab does not replace one-char run
+!.......       xx
+!.......!.......x
+abcde!..x
+abcdef!.x
+abcdefg x
+abcdefg  x
+abcdefg   x
+abcdefg    x
+abcdefg     x
+abcdefg      x
+abcdefg       x
+abcdefg        x
+abcdefg!!.......x
+
+# test some lines with trailing spaces
+$
+ $
+  $
+   $
+    $
+     $
+      $
+       $
+!.......$
+!....... $
+!.......  $
+!.......   $
+!.......    $
+!.......     $
+!.......      $
+!.......       $
+!.......!.......$
+!.......!....... $
+!.......!.......  $
+
+!.......!.......!.......!.......!.......!.......!.......!.......       wxyz
+!.......!.......!.......!.......!.......!.......!.......!.......!.......xyz
+!.......!.......!.......!.......!.......!.......!.......!.......!....... yz
+!.......!.......!.......!.......!.......!.......!.......!.......!.......  z
+
+!.......ENTRY!..SUUO
+!.......ENTRY!..NUUO
+!.......CAI!....1,[BYTE (9)"s","u","u","o","/","n","u","u","o",0]
+SUUO:!..TRZA!...T1,1!...!.......; flag suuo call
+NUUO:!..TRO!....T1,1!...!.......; flag nuuo call
+!.......MOVE!...T0,1-OFF(P)!....; get UUO code
+!.......MOVEM!..T0,UUO!.!.......; save uuo
+!.......MOVE!...T0,2-OFF(P)!....; load register value
+!.......XCT!....UUO!....!.......; issue UUO
+!....... TRZE!..T1,1!...!.......; skip unless non-skip from nuuo call
+!....... TRZE!..T1,1!...!.......; skip unless skip-return from nuuo call
+!....... HRREI!.T0,ERR!.!.......; indicate UUO failure
+!.......MOVE!...T1,T0!..!.......; return result in r1
+!.......POPJ!...P,!.....!.......; return
+
+# now try tabs every 4 columns
+= entab(s,5)
+
+x
+xx
+ xx
+ x x
+  x x
+  x  x
+   x  x
+   x   x
+!...x!..x
+!...x!.. x
+!... x!.  x
+!... x!.   x
+!...  x!!...x
+!...  x!!... x
+!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...xyz
+
+xxxx
+xxx x
+xxx  x
+xxx   x
+xxx    x
+xxx!!...x
+xxx!!... x
+
+xxx$
+xxx $
+xxx  $
+xxx   $
+xxx    $
+xxx!!...$
+xxx!!... $
+
+smatch(s1,s2)
+char *s1, *s2;
+{
+!...while (~((*s1 ^ *s2) & 0137))
+!...!...if (~*s1)
+!...!...!...return 0;
+!...!...else
+!...!...!...s1++, s2++;
+!...return ((*s1 & 0137) - (*s2 & 0137));
+}
+
+# try col 8, then every 4
+= entab(s,8,12)
+!......01!.student-record
+!......!...03!.name pic x(25)
+!......!...03!.home-address
+!......!...!...05!.city pic x(15)
+!......!...!...05!.state pic xx
+!......!...!...05!.big-zip
+!......!...!...!...07!.zip pic 9(5)
+!......!...!...!...07!.plus-4 pic 9(4)
+!......!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...!...xyz
+
+# try irregular columns
+= entab(11,18,30,36)
+!.........entry!.sys=
+ sys2!....xj
+ sys3!....sa1!...a6
+!.........lx1!...59-40
+!.........mi   x1,sys3!......wait until done if RCL bit set
+ sys=!....subr!..=!..........entry / exit
+ sys1!....sa1!...1
+!.........nz   x1,sys1!......wait ra+1 clear
+!.........sa6!...1!..........store request
+!.........eq   sys2
+!.........!.......!..........!.....!.....!.....!.....!.....!.....!.....   xyz
+
+# and now for something completely different
+= entab(s,11,60) 
+# (11,60,61) would need less scratch space on detab but few will know/use this
+
+loop:!....line = input!....................................:f(end)
+!.........output = line!...................................:(loop)
+
+# end cases
+= entab(s,2)
+x
+ x
+!!x
+!!!x
+!!!!x
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!xyz
+
+= entab(s,2,4)
+x
+ x
+  x
+!!.x
+!!. x
+!!.!.x
+!!.!.!.!.!.!.!.!.!.!.xyz
+!!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.xyz
+
+= entab(s,3)
+x
+ x
+!.x
+!. x
+!.!.x
+!.!.!.!.!.!.!.!.!.!.xyz
+!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.!.xyz
+
+= entab(s,3,4)
+x
+ x
+!.x
+!.!x
+!.!!x
+!.!!!x
+!.!!!!x
+!.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!xyz
+
+# now go back to an interval of 4 and test special characters in input
+= entab(s,5)
+
+# first, just tabs in the input
+\t$
+\t $
+\t  $
+\t   $
+\t!...$
+ \t!...$
+  \t!...$
+   \t!...$
+!...\t!...$
+\tx
+\t x
+\t  x
+\t   x
+\t!...x
+ \t!...x
+  \t!...x
+   \t!...x
+!...\t!...x
+abc\tdef\tghi\tjkl
+
+
+smatch(s1,s2)
+char *s1, *s2;
+{
+\twhile (~((*s1 ^ *s2) & 0137))
+\t\tif (~*s1)
+!...!...!...return 0;
+   \t\telse
+!...!...!...s1++, s2++;
+  \treturn ((*s1 & 0137) - (*s2 & 0137));
+}
+
+# now some backspaces
+abc\b!.de\b!..fghij\b!...k
+
+# use irregular stops for testing wierder situations
+= entab(5,7,10)
+!...!.!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..!..
+!...!.!..\b\b\b\b\b\b\b\b\b!...!.!..!..
+!...!.!..\n!...!.!..\r!...!.!..\n\r!...!.!..\r\n!...!.!..
+!...\a!.\a!..\a!..
+!...\b\b\b\b!...\b\a\b\a!.!.!..\n\n\n  \t!.!..\n
+```
+
+```stdout
+testing entab/detab(s)
+testing entab/detab(s,5)
+testing entab/detab(s,8,12)
+testing entab/detab(s,11,18,30,36)
+testing entab/detab(s,11,60)
+testing entab/detab(s,2)
+testing entab/detab(s,2,4)
+testing entab/detab(s,3)
+testing entab/detab(s,3,4)
+testing entab/detab(s,5)
+testing entab/detab(s,5,7,10)
+```
+
+## procedure_record_every_replace_19
+
+```Icon
 #SRC: V9GEN
 
 record array(a,b,c,d,e,f,g)
@@ -16851,7 +35951,373 @@ end
 
 global s, t, x, r
 global a, a1, a2, a3, a4
-#---------------------------------------- 1119 procedure_record_coexpr_replace_3
+```
+
+```stdout
+ ----> &null
+list(0) ----> list_1(0)
+list(0,1) ----> list_2(0)
+list(1,1) ----> list_3(1)
+list(100,"a") ----> list_4(100)
+table() ----> table_1(0)
+table(0) ----> table_2(0)
+a := [] ----> list_5(0)
+every put(a,!&lcase) ----> none
+a1 := sort(a) ----> list_6(26)
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+every write(!a1) ----> none
+sort(a1) ----> list_7(26)
+t := table() ----> table_3(0)
+every t[!&lcase] := 1 ----> none
+sort(t) ----> list_8(26)
+a := sort(t) ----> list_35(26)
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+every write((!a)[1]) ----> none
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+every write((!a)[2]) ----> none
+set([1,0,1,0,1,0,1,0]) ----> set_1(2)
+set([]) ----> set_2(0)
+s := set([1,2,3,4,5,6,7,8,9,10]) ----> set_3(10)
+*s ----> 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every write(!sort(s)) ----> none
+*copy(s) ----> 10
+image(s) ----> "set_3(10)"
+type(s) ----> "set"
+member(s,8) ----> 8
+member(s,"8") ----> none
+s := set([]) ----> set_5(0)
+every insert(s,1 to 100) ----> none
+*s ----> 100
+every delete(s,15 to 30) ----> none
+*s ----> 84
+every s1 := insert(set([]),!&lcase) ----> none
+s2 := set(["a","aa","ab","b",1,2,3,4]) ----> set_7(8)
+s3 := s1 ++ s2 ----> set_8(32)
+s4 := s1 ** s2 ----> set_9(2)
+s5 := s1 -- s2 ----> set_10(24)
+*s3 ----> 32
+*s4 ----> 2
+*s5 ----> 24
+t := table() ----> table_4(0)
+every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100 ----> none
+a := sort(t,3) ----> list_70(16)
+1 22
+2 8
+"hello" 43
+&cset 32
+&output 42
+procedure main 31
+list_69(0) 52
+table_5(0) 74
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+a := sort(t,4) ----> list_71(16)
+2 8
+1 22
+procedure main 31
+&cset 32
+&output 42
+"hello" 43
+list_69(0) 52
+table_5(0) 74
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+t := table() ----> table_6(0)
+every t[1 | &output | &cset | [] | "hello" | main | 2 | table()] := ?100 ----> none
+a := sort(t,3) ----> list_73(16)
+1 6
+2 58
+"hello" 54
+&cset 14
+&output 72
+procedure main 63
+list_72(0) 34
+table_7(0) 71
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+a := sort(t,4) ----> list_74(16)
+1 6
+&cset 14
+list_72(0) 34
+"hello" 54
+2 58
+procedure main 63
+table_7(0) 71
+&output 72
+every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1]) ----> none
+x := [array(),table(),write,[],&input,1,"abc",'aa',&null] ----> list_76(9)
+x := sort(x) ----> list_77(9)
+&null
+1
+"abc"
+'a'
+&input
+function write
+list_75(0)
+table_8(0)
+record array_1(7)
+every write(image(!x)) ----> none
+t := table(table()) ----> table_10(0)
+table_10(1)
+table_10(2)
+table_10(3)
+table_10(4)
+table_10(5)
+table_10(6)
+table_10(7)
+table_10(8)
+table_10(9)
+table_10(10)
+every t[1 to 10] := 1 do write(image(t)) ----> none
+t := table() ----> table_11(0)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every t[1 to 10] := 1 do write(*t) ----> none
+t[] := 6 ----> 6
+t[] ----> 6
+*t ----> 11
+t[&null] := 7 ----> 7
+t[] ----> 7
+*t ----> 11
+x := [] ----> list_78(0)
+*x ----> 0
+every push(x,1 to 10) ----> none
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+every 1 to 10 do write(pop(x)) ----> none
+*x ----> 0
+pop(x) ----> none
+pull(x) ----> none
+get(x) ----> none
+every put(x,1 to 10) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every 1 to 10 do write(get(x)) ----> none
+every push(x,1 to 10) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+every 1 to 10 do write(pull(x)) ----> none
+x := [1,2,3,4,5,6,7,8,9,0] ----> list_79(10)
+list_80(10)
+list_81(9)
+list_82(8)
+list_83(7)
+list_84(6)
+list_85(5)
+list_86(4)
+list_87(3)
+list_88(2)
+list_89(1)
+list_90(0)
+every write(image(x[1:0 to -20 by -1])) ----> none
+a := [1,2,3,4,5,6,7,8] ----> list_91(8)
+a1 := a[2:4] ----> list_92(2)
+a2 := a[7:2] ----> list_93(5)
+a3 := a[2+:3] ----> list_94(3)
+a4 := a[-1-:3] ----> list_95(3)
+a1[1] ----> 2
+a2[1] ----> 2
+a3[1] ----> 2
+a4[1] ----> 5
+a4[1] := a ----> list_91(8)
+a := [1,2,3,4] ----> list_96(4)
+a1 := a[1:2] ----> list_97(1)
+1
+every write(!a1) ----> none
+a2 := a[3:0] ----> list_98(2)
+3
+4
+every write(!a2) ----> none
+a4 := a[2:2] ----> list_99(0)
+every write(!a4) ----> none
+a5 := a[0-:2] ----> list_100(2)
+3
+4
+every write(!a5) ----> none
+a3 := a[0:3] ----> list_101(2)
+3
+4
+every write(!a3) ----> none
+a := "abcd" ----> "abcd"
+a1 := a[1:2] ----> "a"
+a
+every write(!a1) ----> none
+a2 := a[3:0] ----> "cd"
+c
+d
+every write(!a2) ----> none
+a3 := a[0:3] ----> "cd"
+c
+d
+every write(!a3) ----> none
+a4 := a[2:2] ----> ""
+every write(!a4) ----> none
+a5 := a[0-:2] ----> "cd"
+c
+d
+every write(!a5) ----> none
+[] ||| [] ----> list_104(0)
+[1,2,3] ||| [] ----> list_107(3)
+[] ||| [1,2,3] ----> list_110(3)
+r := array(1,2,3,4,5,6,7,8,9) ----> record array_2(7)
+r.a ----> 1
+r.b ----> 2
+r.c ----> 3
+r.d ----> 4
+r.e ----> 5
+r.f ----> 6
+type(r) ----> "array"
+image(r) ----> "record array_2(7)"
+r.a +:= 0 ----> 1
+r.b +:= 0 ----> 2
+r.c +:= 0 ----> 3
+r.d +:= 0 ----> 4
+r.e +:= 0 ----> 5
+r.f +:= 0 ----> 6
+r.a ----> 1
+r.b ----> 2
+r.c ----> 3
+r.d ----> 4
+r.e ----> 5
+r.f ----> 6
+r := array("a",2,array(),r,main) ----> record array_4(7)
+"a"
+2
+3.5
+record array_3(7)
+record array_2(7)
+procedure main
+&null
+every write(image(!r)) ----> none
+r[1] :=: r.d ----> record array_3(7)
+record array_3(7)
+2
+3.5
+"a"
+record array_2(7)
+procedure main
+&null
+every write(image(!r)) ----> none
+ a: -2035912587 847198497 
+```
+
+## procedure_record_coexpr_replace_3
+
+```Icon
 #SRC: JCON
 
 # test sorting and copying
@@ -17086,7 +36552,517 @@ procedure wsortf(L, n)
       };
    return;
 end
-#-------------------------------------------- 1120 scanning_asm__is01b_consumers
+```
+
+```stdout
+0:
+1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:
+23:
+47:
+91:
+
+0:
+0:
+1:  12
+2:   2   5
+5:   1   2   3   7   8
+5:   1   1   3   4   6
+5:   a   d   e   p   t
+5:   a   d   e   p   t
+
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 20 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 20 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 10 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+ 20 0 e 1 t 2 a 3 o 4 i 5 n 6 s 7 h 8 r 9 d 
+ 20 2 a 9 d 0 e 7 h 4 i 5 n 3 o 8 r 6 s 1 t 
+
+ L1: list_164(4) 1 2 3 
+ L2: list_164(4) 1 2 4 
+ S1: 1 2 3 set_57(4) 
+ S2: 1 3 5 set_57(4) 
+ T1: 2 "j" 5 "c" 8 "n" 15 table_3(4) 
+ T2: 2 "j" 8 "n" 11 "t" 15 table_3(4) 
+ R1: record r5_6(5) 1 4 5 7 9 
+ R2: record r5_7(5) 1 3 5 6 9 
+
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_174(2)
+list_175(0)
+list_177(3)
+list_179(152)
+list_181(0)
+list_182(2)
+list_183(0)
+list_184(3)
+list_185(151)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+record r1_2(1)
+record r1_3(1)
+record r1_4(1)
+record r1_5(1)
+record r2_2(2)
+record r2_3(2)
+record r2_4(2)
+record r2_5(2)
+record r5_8(5)
+record r5_9(5)
+record r5_10(5)
+record r5_11(5)
+record r5_12(5)
+record r5_13(5)
+record r5_14(5)
+record r5_15(5)
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_175(0)
+list_181(0)
+list_183(0)
+key=2 list_177(3)
+key=2 list_184(3)
+key=4 list_174(2)
+key=4 list_182(2)
+key='0cs' list_179(152)
+key='0cs' list_185(151)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+record r1_2(1)
+record r1_3(1)
+record r1_4(1)
+record r1_5(1)
+key=2 record r2_3(2)
+key=2 record r2_5(2)
+key=2 record r5_10(5)
+key=2 record r5_14(5)
+key=5 record r5_11(5)
+key=5 record r5_15(5)
+key=6 record r2_2(2)
+key=6 record r2_4(2)
+key=8 record r5_9(5)
+key=8 record r5_13(5)
+key=23 record r5_8(5)
+key=23 record r5_12(5)
+
+&null
+&null
+&null
+&null
+&null
+&null
+-36472996377170786403
+-36472996377170786403
+-27368747340080916343
+-27368747340080916343
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+37252902984619140625
+37252902984619140625
+61159090448414546291
+61159090448414546291
+1.1
+1.1
+2.2
+2.2
+3.3
+3.3
+4.4
+4.4
+5.5
+5.5
+""
+""
+"a"
+"a"
+"alpha"
+"alpha"
+"beta"
+"beta"
+"delta"
+"delta"
+"epsilon"
+"epsilon"
+"epsilons"
+"epsilons"
+"gamma"
+"gamma"
+"gamma"
+"gamma"
+''
+''
+'0cs'
+'0cs'
+'1234cs'
+'1234cs'
+'123cs'
+'123cs'
+'XYZcs'
+'XYZcs'
+&errout
+&errout
+&input
+&input
+&output
+&output
+co-expression_2(0)
+co-expression_2(0)
+co-expression_3(0)
+co-expression_3(0)
+co-expression_4(0)
+co-expression_4(0)
+procedure check
+procedure check
+function image
+function image
+function integer
+function integer
+procedure listtest
+procedure listtest
+procedure main
+procedure main
+procedure messtest
+procedure messtest
+function push
+function push
+record constructor r0
+record constructor r0
+record constructor r1
+record constructor r1
+record constructor r2
+record constructor r2
+record constructor r5
+record constructor r5
+function read
+function read
+function reverse
+function reverse
+function right
+function right
+function serial
+function serial
+function table
+function table
+procedure wlist
+procedure wlist
+function write
+function write
+list_173(0)
+list_175(0)
+list_181(0)
+list_183(0)
+key=3 list_177(3)
+key=3 list_184(3)
+key=3 list_185(151)
+key=4 list_174(2)
+key=4 list_182(2)
+key=list_185(151) list_179(152)
+set_59(0)
+set_60(2)
+set_61(3)
+set_62(0)
+set_63(2)
+set_64(3)
+table_5(0)
+table_6(1)
+table_7(0)
+table_8(0)
+table_9(1)
+table_10(0)
+record r0_4(0)
+record r0_5(0)
+record r0_6(0)
+record r0_7(0)
+key=&null record r5_8(5)
+key=&null record r5_9(5)
+key=&null record r5_10(5)
+key=&null record r5_12(5)
+key=&null record r5_13(5)
+key=&null record r5_14(5)
+key=1 record r1_2(1)
+key=1 record r1_4(1)
+key=2 record r2_3(2)
+key=2 record r2_5(2)
+key=5 record r1_3(1)
+key=5 record r1_5(1)
+key=6 record r2_2(2)
+key=6 record r2_4(2)
+key=8 record r5_11(5)
+key=8 record r5_15(5)
+```
+
+## scanning_asm__is01b_consumers
+
+```Icon
 procedure main();
   local s, a, b, c, d, e, t, L, S, k, n;
   s := "The quick brown fox 12345 jumps over 67.5 lazy dogs";
@@ -17127,7 +37103,42 @@ procedure main();
   write(a ? tab(0), " ", c ? tab(0), "|", c ? move(0), "|");
   every write("<" || (s ? (move(3) || tab(0))) || ">");
 end
-#---------------------------------------- 1121 procedure_record_coexpr_replace_6
+```
+
+```stdout
+[The ][quick][][ brown fox ][12345][ jumps over 67.5 lazy dogs]
+4 5 0 11 5 26
+"The ""quick""""12345"
+The quick||quick!|4
+12346 12345 12345 12345.0 24690 -12345
+ ehT kciuq[] THE  quickquick |
+The .... ...quick *****  brown fox|The|
+The uick|Th|ck
+8411349 T  Teh |5 cikqu
+ 13
+ 18
+ 33
+ 49
+<The ><quick><>< brown fox ><12345>
+=8 12345=11 The =1 quick=12 
+| brown fox |12345
+The |quick|1||0
+The |7
+The |The |
+The |||
+|abcde|xxxxx
+The quick12345
+The 
+The  brown fox 
+15 0
+   |   |   |
+The  ||
+<The quick brown fox 12345 jumps over 67.5 lazy dogs>
+```
+
+## procedure_record_coexpr_replace_6
+
+```Icon
 #SRC: V9GEN
 
 #  This program contains samples of all the basic syntactic
@@ -17289,7 +37300,17 @@ procedure expr4()
    2.5e4;
    4e-10;
 end
-#------------------------------------------ 1122 procedure_every_scan_replace_16
+```
+
+```stdout
+procedure expr1 procedure expr2 procedure expr3 procedure expr4
+record constructor three record constructor zero record constructor one
+three zero one
+```
+
+## procedure_every_scan_replace_16
+
+```Icon
 #SRC: V9GEN
 
 
@@ -17390,7 +37411,223 @@ procedure wordcount(n)
    every i := 1 to *x - 1 by 2 do
       write(left(x[i],n),x[i + 1]);
 end
-#---------------------------------------- 1123 procedure_record_every_replace_12
+```
+
+```stdin
+#
+#	W O R D   T A B U L A T I O N
+#
+
+#  This main procedure processes standard input and writes the results
+#  with the words in a column 20 characters wide.
+
+procedure main()
+   wordcount(20)
+end
+
+procedure wordcount(n)
+   local t, line, x, y
+   static letters
+   initial letters := &lcase ++ &ucase
+   t := table(,0)
+   every line := !&input do
+      scan line using
+         while tab(upto(letters)) do
+            t[tab(many(letters))] +:= 1
+   x := sort(t)
+   every y := !x do write(left(y[1],n),y[2])
+end
+```
+
+```stdout
+1	one
+2	two
+3	three
+4	four
+5	five
+6	six
+7	seven
+8	eight
+9	nine
+10	ten
+11	eleven
+12	twelve
+21	twenty-one
+22	twenty-two
+23	twenty-three
+24	twenty-four
+25	twenty-five
+33	thirty-three
+36	thirty-six
+39	thirty-nine
+42	forty-two
+45	forty-five
+48	forty-eight
+51	fifty-one
+54	fifty-four
+57	fifty-seven
+63	sixty-three
+66	sixty-six
+69	sixty-nine
+72	seventy-two
+75	seventy-five
+78	seventy-eight
+81	eighty-one
+84	eighty-four
+87	eighty-seven
+93	ninety-three
+96	ninety-six
+99	ninety-nine
+102	one hundred and two
+105	one hundred and five
+108	one hundred and eight
+945123342	nine hundred and forty-five million and forty-five million and five million and one hundred and twenty-three thousand and twenty-three thousand and three thousand and three hundred and forty-two
+10000000	ten million
+10000007	ten million and seven
+10000021	ten million and twenty-one
+10000028	ten million and twenty-eight
+10000035	ten million and thirty-five
+10000042	ten million and forty-two
+10000049	ten million and forty-nine
+10000056	ten million and fifty-six
+10000063	ten million and sixty-three
+10000077	ten million and seventy-seven
+10000084	ten million and eighty-four
+10000091	ten million and ninety-one
+10000098	ten million and ninety-eight
+10000105	ten million and one hundred and five
+10000112	ten million and one hundred and twelve
+10000126	ten million and one hundred and twenty-six
+10000133	ten million and one hundred and thirty-three
+10000147	ten million and one hundred and forty-seven
+10000154	ten million and one hundred and fifty-four
+10000161	ten million and one hundred and sixty-one
+10000168	ten million and one hundred and sixty-eight
+10000175	ten million and one hundred and seventy-five
+10000182	ten million and one hundred and eighty-two
+10000189	ten million and one hundred and eighty-nine
+10000196	ten million and one hundred and ninety-six
+10000203	ten million and two hundred and three
+10000210	ten million and two hundred and ten
+10000224	ten million and two hundred and twenty-four
+10000231	ten million and two hundred and thirty-one
+10000238	ten million and two hundred and thirty-eight
+10000245	ten million and two hundred and forty-five
+10000252	ten million and two hundred and fifty-two
+10000259	ten million and two hundred and fifty-nine
+10000266	ten million and two hundred and sixty-six
+10000273	ten million and two hundred and seventy-three
+10000287	ten million and two hundred and eighty-seven
+10000294	ten million and two hundred and ninety-four
+10000301	ten million and three hundred and one
+10000308	ten million and three hundred and eight
+10000322	ten million and three hundred and twenty-two
+10000329	ten million and three hundred and twenty-nine
+10000336	ten million and three hundred and thirty-six
+10000343	ten million and three hundred and forty-three
+10000357	ten million and three hundred and fifty-seven
+10000364	ten million and three hundred and sixty-four
+10000371	ten million and three hundred and seventy-one
+10000378	ten million and three hundred and seventy-eight
+10000385	ten million and three hundred and eighty-five
+10000392	ten million and three hundred and ninety-two
+10000399	ten million and three hundred and ninety-nine
+10000406	ten million and four hundred and six
+10000427	ten million and four hundred and twenty-seven
+10000434	ten million and four hundred and thirty-four
+10000441	ten million and four hundred and forty-one
+10000448	ten million and four hundred and forty-eight
+10000455	ten million and four hundred and fifty-five
+10000462	ten million and four hundred and sixty-two
+10000469	ten million and four hundred and sixty-nine
+10000476	ten million and four hundred and seventy-six
+10000483	ten million and four hundred and eighty-three
+10000497	ten million and four hundred and ninety-seven
+There are 25 primes in the first 100 integers.
+The primes are:
+   2
+   3
+   5
+   7
+  11
+  13
+  17
+  19
+  23
+  29
+  31
+  37
+  41
+  43
+  47
+  53
+  59
+  61
+  67
+  71
+  73
+  79
+  83
+  89
+  97
+A                   2
+B                   1
+D                   1
+I                   1
+L                   1
+N                   1
+O                   2
+R                   1
+T                   2
+This                1
+U                   1
+W                   1
+a                   1
+and                 1
+characters          1
+column              1
+do                  3
+end                 2
+every               2
+in                  1
+initial             1
+input               2
+lcase               1
+left                1
+letters             4
+line                3
+local               1
+main                2
+many                1
+n                   2
+procedure           3
+processes           1
+results             1
+scan                1
+sort                1
+standard            1
+static              1
+t                   4
+tab                 2
+table               1
+the                 2
+ucase               1
+upto                1
+using               1
+while               1
+wide                1
+with                1
+wordcount           2
+words               1
+write               1
+writes              1
+x                   3
+y                   4
+```
+
+## procedure_record_every_replace_12
+
+```Icon
 #SRC: V9GEN
 #OPT: -fe
 
@@ -17596,7 +37833,547 @@ procedure monitor(line)
    write("   &errorvalue = ", image(&errorvalue));
    return line;
 end
-#------------------------------------------ 1124 procedure_record_scan_replace_2
+```
+
+```stdout
+
+error in line 7:
+   &error = -2
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+seq("a") | monitor(&line) ----> 7
+
+error in line 9:
+   &error = -3
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = "|"
+"|"(1,2) | monitor(&line) ----> 9
+
+error in line 11:
+   &error = -4
+   &errornumber = 122
+   &errortext = "set or table expected"
+   &errorvalue = &null
+member(x,x) | monitor(&line) ----> 11
+
+error in line 13:
+   &error = -5
+   &errornumber = 120
+   &errortext = "two csets or two sets expected"
+   &errorvalue = set_1(0)
+(set([]) ++ 'a') | monitor(&line) ----> 13
+
+error in line 15:
+   &error = -6
+   &errornumber = 112
+   &errortext = "invalid type to size operation"
+   &errorvalue = &null
+(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line) ----> 15
+
+error in line 17:
+   &error = -7
+   &errornumber = 112
+   &errortext = "invalid type to size operation"
+   &errorvalue = &null
+(every i := 1 to *a - 1 by 2 do write(image(a[i])," ",a[i + 1])) | monitor(&line) ----> 17
+
+error in line 19:
+   &error = -8
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = &null
+(c |||:= s) | monitor(&line) ----> 19
+
+error in line 21:
+   &error = -9
+   &errornumber = 113
+   &errortext = "invalid type to random operation"
+   &errorvalue = &null
+?&null | monitor(&line) ----> 21
+
+error in line 23:
+   &error = -10
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+c[1] | monitor(&line) ----> 23
+
+error in line 25:
+   &error = -11
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = function image
+(image + image) | monitor(&line) ----> 25
+
+error in line 27:
+   &error = -12
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+.1(s[1],s := &null) | monitor(&line) ----> 27
+
+error in line 32:
+   &error = -13
+   &errornumber = 105
+   &errortext = "file expected"
+   &errorvalue = list_2(0)
+display(,[]) | monitor(&line) ----> 32
+
+error in line 34:
+   &error = -14
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_3(0)
+([] ~== "x") | monitor(&line) ----> 34
+
+error in line 36:
+   &error = -15
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(x + 1) | monitor(&line) ----> 36
+
+error in line 38:
+   &error = -16
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = "a"
+"a"(1,2,3) | monitor(&line) ----> 38
+
+error in line 40:
+   &error = -17
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "o"
+("o" + 0) | monitor(&line) ----> 40
+
+error in line 42:
+   &error = -18
+   &errornumber = 120
+   &errortext = "two csets or two sets expected"
+   &errorvalue = list_4(0)
+(&cset ++ []) | monitor(&line) ----> 42
+
+error in line 44:
+   &error = -19
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+(every 1 to "a") | monitor(&line) ----> 44
+
+error in line 46:
+   &error = -20
+   &errornumber = 116
+   &errortext = "invalid type to element generator"
+   &errorvalue = function image
+!image | monitor(&line) ----> 46
+
+error in line 51:
+   &error = -21
+   &errornumber = 211
+   &errortext = "by value equal to zero"
+   &errorvalue = 0
+(0 to 0 by 0) | monitor(&line) ----> 51
+
+error in line 53:
+   &error = -22
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+repl("b","a") | monitor(&line) ----> 53
+
+error in line 55:
+   &error = -23
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = &null
+t(t) | monitor(&line) ----> 55
+
+error in line 57:
+   &error = -24
+   &errornumber = 115
+   &errortext = "structure expected"
+   &errorvalue = &lcase
+sort(&lcase) | monitor(&line) ----> 57
+
+error in line 59:
+   &error = -25
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = &null
+pull(&null) | monitor(&line) ----> 59
+
+error in line 61:
+   &error = -26
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+c[-4] | monitor(&line) ----> 61
+
+error in line 63:
+   &error = -27
+   &errornumber = 106
+   &errortext = "procedure or integer expected"
+   &errorvalue = "procedure"
+(type(type)(type)) | monitor(&line) ----> 63
+
+error in line 65:
+   &error = -28
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+r[r] | monitor(&line) ----> 65
+
+error in line 67:
+   &error = -29
+   &errornumber = 120
+   &errortext = "two csets or two sets expected"
+   &errorvalue = list_5(0)
+([] ** "abc") | monitor(&line) ----> 67
+
+error in line 69:
+   &error = -30
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = 'abc'
+('abc' ~= ('abc' ++ '')) | monitor(&line) ----> 69
+
+error in line 74:
+   &error = -31
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = function numeric
+(&lcase || numeric) | monitor(&line) ----> 74
+
+error in line 76:
+   &error = -32
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+x["a"] | monitor(&line) ----> 76
+
+error in line 78:
+   &error = -33
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(100-()) | monitor(&line) ----> 78
+
+error in line 80:
+   &error = -34
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 1
+((1 := y) & &fail) | monitor(&line) ----> 80
+
+error in line 82:
+   &error = -35
+   &errornumber = 110
+   &errortext = "string or list expected"
+   &errorvalue = &null
+(a[1:3] := a) | monitor(&line) ----> 82
+
+error in line 84:
+   &error = -36
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+(a[3] :=: a3[&null]) | monitor(&line) ----> 84
+
+error in line 86:
+   &error = -37
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = &null
+a5[a5] | monitor(&line) ----> 86
+
+error in line 88:
+   &error = -38
+   &errornumber = 114
+   &errortext = "invalid type to subscript operation"
+   &errorvalue = function pull
+pull[c] | monitor(&line) ----> 88
+
+error in line 90:
+   &error = -39
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_6(0)
+(&subject := []) | monitor(&line) ----> 90
+
+error in line 92:
+   &error = -40
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_7(0)
+([] ? []) | monitor(&line) ----> 92
+
+error in line 94:
+   &error = -41
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
++"a" | monitor(&line) ----> 94
+
+error in line 99:
+   &error = -42
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(i <= []) | monitor(&line) ----> 99
+
+error in line 101:
+   &error = -43
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = list_9(0)
+([] ^ i) | monitor(&line) ----> 101
+
+error in line 103:
+   &error = -44
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = &null
+(s ?:= &subject[3]) | monitor(&line) ----> 103
+
+error in line 105:
+   &error = -45
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = &null
+(s >>:= 0) | monitor(&line) ----> 105
+
+error in line 107:
+   &error = -46
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(s = 0) | monitor(&line) ----> 107
+
+error in line 109:
+   &error = -47
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = &null
+put(s) | monitor(&line) ----> 109
+
+error in line 111:
+   &error = -48
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = 'abc'
+('abc' = ('abc' ++ '')) | monitor(&line) ----> 111
+
+error in line 113:
+   &error = -49
+   &errornumber = 103
+   &errortext = "string expected"
+   &errorvalue = list_10(0)
+=[] | monitor(&line) ----> 113
+
+error in line 115:
+   &error = -50
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 1
+((1 <-> y) & &fail) | monitor(&line) ----> 115
+
+error in line 117:
+   &error = -51
+   &errornumber = 116
+   &errortext = "invalid type to element generator"
+   &errorvalue = &null
+!&null | monitor(&line) ----> 117
+
+error in line 119:
+   &error = -52
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+(2 \ "a") | monitor(&line) ----> 119
+
+error in line 124:
+   &error = -53
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = ""
+right("","") | monitor(&line) ----> 124
+
+error in line 126:
+   &error = -54
+   &errornumber = 105
+   &errortext = "file expected"
+   &errorvalue = "F"
+close("F") | monitor(&line) ----> 126
+
+error in line 128:
+   &error = -55
+   &errornumber = 104
+   &errortext = "cset expected"
+   &errorvalue = list_11(0)
+trim(&lcase,[]) | monitor(&line) ----> 128
+
+error in line 130:
+   &error = -56
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = list_12(0)
+list([]) | monitor(&line) ----> 130
+
+error in line 132:
+   &error = -57
+   &errornumber = 205
+   &errortext = "invalid value"
+   &errorvalue = 0
+reads(f,0) | monitor(&line) ----> 132
+
+error in line 134:
+   &error = -58
+   &errornumber = 105
+   &errortext = "file expected"
+   &errorvalue = "f"
+read("f") | monitor(&line) ----> 134
+
+error in line 136:
+   &error = -59
+   &errornumber = 104
+   &errortext = "cset expected"
+   &errorvalue = list_13(0)
+bal([],,,"") | monitor(&line) ----> 136
+
+error in line 138:
+   &error = -60
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+pos("a") | monitor(&line) ----> 138
+
+error in line 140:
+   &error = -61
+   &errornumber = 101
+   &errortext = "integer expected or out of range"
+   &errorvalue = "a"
+140
+
+error in line 142:
+   &error = -62
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 % "a") | monitor(&line) ----> 142
+
+error in line 147:
+   &error = -63
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 * "a") | monitor(&line) ----> 147
+
+error in line 149:
+   &error = -64
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 / "a") | monitor(&line) ----> 149
+
+error in line 151:
+   &error = -65
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 + "a") | monitor(&line) ----> 151
+(-36 ^ -9) | monitor(&line) ----> 0
+
+error in line 155:
+   &error = -66
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 < "a") | monitor(&line) ----> 155
+
+error in line 157:
+   &error = -67
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = &null
+(0 > &null) | monitor(&line) ----> 157
+
+error in line 159:
+   &error = -68
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 <= "a") | monitor(&line) ----> 159
+
+error in line 161:
+   &error = -69
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 > "a") | monitor(&line) ----> 161
+
+error in line 163:
+   &error = -70
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 = "a") | monitor(&line) ----> 163
+
+error in line 165:
+   &error = -71
+   &errornumber = 102
+   &errortext = "numeric expected"
+   &errorvalue = "a"
+(2 ~= "a") | monitor(&line) ----> 165
+
+error in line 167:
+   &error = -72
+   &errornumber = 108
+   &errortext = "list expected"
+   &errorvalue = "abc"
+(list(10)) ||| "abc" | monitor(&line) ----> 167
+
+error in line 172:
+   &error = -73
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = "a"
+(x :=: "a") | monitor(&line) ----> 172
+
+error in line 174:
+   &error = -74
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = "b"
+(x <-> "b") | monitor(&line) ----> 174
+
+error in line 176:
+   &error = -75
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 4
+((x & 2 & 3 & 4) := 3) | monitor(&line) ----> 176
+
+error in line 178:
+   &error = -76
+   &errornumber = 111
+   &errortext = "variable expected"
+   &errorvalue = 1
+((1 <- y) & &fail) | monitor(&line) ----> 178
+
+error in line 180:
+   &error = -77
+   &errornumber = 206
+   &errortext = "negative first argument to real exponentiation"
+(-36. ^ -9.) | monitor(&line) ----> 180
+ eginopst
+```
+
+## procedure_record_scan_replace_2
+
+```Icon
 #SRC: IPL
 
 ############################################################################
@@ -17915,3 +38692,158 @@ procedure warn(a[])
    errors +:= 1;
    return;
 end
+```
+
+```stdin
+{html{head
+    {title Off the Beaten Path}
+}{body bgcolor="#EEEEEE"
+    {h1 Off the Beaten Path}
+
+    {p} You already know, probably, about Yahoo and Alta Vista,
+	about Apple and Sun.  But how many of these have you visited?
+    {p}{hr}
+
+    {h2 The Arts}
+    {ul
+	{li} {@http://www.sgi.com/grafica/index.html
+		Grafica Obscura}
+	{li} {@http://www.mcs.net/~sculptor/
+		The Gargoyle Sculptor}
+	{li} {@http://micro.magnet.fsu.edu/chipshot.html
+		Chip Shots}
+	{li}
+{@http://www.iuma.com/IUMA-2.0/ftp/volume1/Nuclear_Whales_Saxophone_Orchestra/
+		Nuclear Whales Saxophone Orchestra}
+	{li} {@http://www.aardman.com/
+		Aardman Animation (Wallace & Gromit)}
+    }
+
+    {h2 Natural Science}
+    {ul
+	{li} {@http://tiger.census.gov/
+		Census Bureau mapmaker}
+	{li} {@http://www.geo.Arizona.EDU/saso/seismograms/current.html
+		On-Line Seismograph}
+	{li} {@http://tycho.usno.navy.mil/time.html
+		The Directorate of Time}
+	{li} {@http://www.fourmilab.ch/hotbits/
+		Truly Random Numbers}
+    }
+
+    {h2 Computer Folklore}
+    {ul
+	{li} {@http://www.inwap.com/pdp10/hbaker/hakmem/hakmem.html
+		The classic HAKMEM}
+	{li} {@http://www.epilogue.com/~sra/alice/
+		Alice's PDP-10}
+		{! WAS: http://www.docs.uu.se/~pem/AlicesPDP10/AlicesPDP10.html}
+	{li} {@http://ecco.bsee.swin.edu.au/unix/uh/unix-haters.html
+		Unix-Haters Handbook}
+	     	{!WAS: http://web.kaleida.com/hopkins/unix-haters.html}
+	{li} {@http://www.research.ibm.com/massive/bump.html
+		Things that go Bump in the Net}
+    }
+
+    {h2 Collections}
+    {ul
+	{li} {@http://www.teleport.com/~dgh/hpmuseum.html
+		Museum of HP Calculators}
+	{li} {@http://www.utm.edu/research/primes/largest.html
+		Largest Known Primes}
+	{li} {@http://www.slip.net/~graphion/museum.html
+		Typography Museum}
+    }
+
+    {h2 Travel, Recreation, and Fine Dining}
+    {ul
+	{li} {@http://www.execpc.com/~aaprco/
+		Private Railroad Cars Available for Charter}
+	{li} {@http://www.ualfltctr.com/docs/simpub.html
+		You Can Fly a 747 Simulator}
+	{li} {@http://ghg.ecn.purdue.edu
+		Barbecuing with Liquid Oxygen}
+    }
+
+   {hr}
+   {address {@http://www.cs.arizona.edu/~gmt Gregg Townsend}}
+}}
+```
+
+```stdout
+<!-- Created by HTPREP -->
+<html><head>
+<title>Off the Beaten Path</title>
+</head><body bgcolor="#EEEEEE">
+<h1>Off the Beaten Path</h1>
+
+<p> You already know, probably, about Yahoo and Alta Vista,
+about Apple and Sun.  But how many of these have you visited?
+<p><hr>
+
+<h2>The Arts</h2>
+<ul>
+<li> <a href="http://www.sgi.com/grafica/index.html">
+Grafica Obscura</a>
+<li> <a href="http://www.mcs.net/~sculptor/">
+The Gargoyle Sculptor</a>
+<li> <a href="http://micro.magnet.fsu.edu/chipshot.html">
+Chip Shots</a>
+<li>
+<a href="http://www.iuma.com/IUMA-2.0/ftp/volume1/Nuclear_Whales_Saxophone_Orchestra/">
+Nuclear Whales Saxophone Orchestra</a>
+<li> <a href="http://www.aardman.com/">
+Aardman Animation (Wallace & Gromit)</a>
+</ul>
+
+<h2>Natural Science</h2>
+<ul>
+<li> <a href="http://tiger.census.gov/">
+Census Bureau mapmaker</a>
+<li> <a href="http://www.geo.Arizona.EDU/saso/seismograms/current.html">
+On-Line Seismograph</a>
+<li> <a href="http://tycho.usno.navy.mil/time.html">
+The Directorate of Time</a>
+<li> <a href="http://www.fourmilab.ch/hotbits/">
+Truly Random Numbers</a>
+</ul>
+
+<h2>Computer Folklore</h2>
+<ul>
+<li> <a href="http://www.inwap.com/pdp10/hbaker/hakmem/hakmem.html">
+The classic HAKMEM</a>
+<li> <a href="http://www.epilogue.com/~sra/alice/">
+Alice's PDP-10</a>
+<!-- WAS: http://www.docs.uu.se/~pem/AlicesPDP10/AlicesPDP10.html-->
+<li> <a href="http://ecco.bsee.swin.edu.au/unix/uh/unix-haters.html">
+Unix-Haters Handbook</a>
+<!--WAS: http://web.kaleida.com/hopkins/unix-haters.html-->
+<li> <a href="http://www.research.ibm.com/massive/bump.html">
+Things that go Bump in the Net</a>
+</ul>
+
+<h2>Collections</h2>
+<ul>
+<li> <a href="http://www.teleport.com/~dgh/hpmuseum.html">
+Museum of HP Calculators</a>
+<li> <a href="http://www.utm.edu/research/primes/largest.html">
+Largest Known Primes</a>
+<li> <a href="http://www.slip.net/~graphion/museum.html">
+Typography Museum</a>
+</ul>
+
+<h2>Travel, Recreation, and Fine Dining</h2>
+<ul>
+<li> <a href="http://www.execpc.com/~aaprco/">
+Private Railroad Cars Available for Charter</a>
+<li> <a href="http://www.ualfltctr.com/docs/simpub.html">
+You Can Fly a 747 Simulator</a>
+<li> <a href="http://ghg.ecn.purdue.edu">
+Barbecuing with Liquid Oxygen</a>
+</ul>
+
+<hr>
+<address><a href="http://www.cs.arizona.edu/~gmt">Gregg Townsend</a></address>
+</body></html>
+```
+

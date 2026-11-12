@@ -1,0 +1,42 @@
+procedure main(); write(42); end
+procedure main(); write(3.5); end
+procedure main(); write("hi"); end
+procedure main(); write(*'abc'); end
+procedure main(); write(2 + 3 * 4); end
+procedure main(); write(1 < 2); end
+procedure main(); write("a" || "b"); end
+procedure main(); write(-(3)); end
+procedure main(); write(*"abcd"); end
+procedure main(); if 1 < 2 then write("t") else write("f"); end
+procedure main(); write(if 1 < 2 then "a" else "b"); end
+procedure main(); write(if 2 < 1 then "a" else "b"); end
+procedure main(); if not (1 = 2) then write("y"); end
+procedure main(); write(reverse("abc")); end
+procedure main(); write("a", "b", "c"); end
+procedure main(); write((1, 2, 3)); end
+procedure main(); if 2 < 1 then write("t") else write("f"); end
+procedure main(); write((2 < 1) | "no"); end
+procedure main(); write(1 | 2); end
+procedure main(); "hello" ? if ="he" then write("m"); end
+procedure main(); x := 7; write(x); end
+procedure main(); x := 3; x := x + 1; write(x); end
+procedure main(); x := 1; if (x <- 2) & (1 = 2) then write("t") else write(x); end
+procedure main(); x := { 1; 2; 5 }; write(x); end
+procedure main(); s := "wxyz"; write(s[3]); end
+procedure main(); write(&line); end
+procedure main(); write("hello"[2:4]); end
+procedure main(); write("hello"[2+:3]); end
+procedure main(); x := 2; case x of { 1 : write("one"); 2 : write("two"); default : write("d") }; end
+procedure main(); x := 9; case x of { 1 : write("one"); default : write("d") }; end
+procedure main(); x := 1; if \x then write("nn"); end
+procedure main(); "hello" ? write(move(2)); end
+procedure main(); x := 2; x +:= 3; write(x); end
+procedure main(); x := &null; if /x then write("n"); end
+procedure main(); x := 5; every x := 1 to 3; write(x); end
+procedure main(); "abc" ? { move(1); write(&pos) }; end
+procedure main(); i := 0; until i >= 3 do i +:= 1; write(i); end
+procedure main(); i := 0; repeat { i +:= 1; if i >= 3 then break }; write(i); end
+procedure main(); "aaabbb" ? write(tab(many("a"))); end
+procedure main(); "aabbcc" ? write(tab(many('ab'))); end
+procedure main(); "abcdef" ? { tab(upto("c")); write(move(1)) }; end
+procedure main(); i := 0; every |1 do { i +:= 1; if i >= 3 then break }; write(i); end
