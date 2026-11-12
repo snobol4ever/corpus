@@ -1,7 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=465 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=49 clusters=43 chunks=5 sizes=100,100,100,100,16
+# shape: entries=466 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=49 clusters=43 chunks=5 sizes=100,100,100,100,17
 entry	part	cluster	shells
+front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -143,7 +144,7 @@ program_procedure_nested_13	chunk:01	feat:nested_proc	nested_proc procedure
 program_set_subrange_1	chunk:02	feat:set	set subrange
 program_writeln_5	chunk:04	feat:chr	chr ord
 program_record_writeln_3	chunk:02	feat:record	record type
-program_with_for_replace_1	chunk:04	feat:with	for with
+program_with_for_replace_1	chunk:05	feat:with	for with
 ladder__rung17_real_div_zero_classes	chunk:03	feat:div	div mod
 ladder__rung19_generic_delphi_procedural_type	chunk:01	feat:nested_proc	nested_proc procedure type
 ladder__rung22_generics_dictionary_integer_keys_and_hashset	chunk:04	feat:in	for in write

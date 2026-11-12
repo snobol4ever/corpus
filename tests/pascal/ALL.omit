@@ -1,8 +1,5 @@
 bubble[benchmarks]	already in the rungs (origin benchmark_pascal_bubble__bubble) -- not re-appended
 fbench[benchmarks]	SCRIP defect: fails fast (~0.13s) with "Run-time error 102 numeric expected" inside the ray-trace computation between the two `readln;` prompts; fpc -Miso runs it correctly with identical input. Bare `readln;` itself is ABLATED OUT as the cause (two-readln minimal repro passes clean with 0/1/2 newlines fed) -- not yet isolated further. ask filed to hq_P proposing row pascal-fbench-numeric-expected-in-trace-computation; see FINDING-2026-09-06-seat02-pascal-fbench-numeric-expected-in-trace-computation.md (seat02 2026-09-06)
-front_end_pf20d_object_parent	KEEPER, declared in front_end/KEEP.md -- never absorbed (deferral contract)
-front_end_pf20e_object_new_dispose	KEEPER, declared in front_end/KEEP.md -- never absorbed (deferral contract)
-front_end_pf30_overload_unit	KEEPER, declared in front_end/KEEP.md -- never absorbed (deferral contract)
 intmm[benchmarks]	already in the rungs (origin benchmark_pascal_intmm__intmm) -- not re-appended
 perm[benchmarks]	already in the rungs (origin benchmark_pascal_perm__perm) -- not re-appended
 queens[benchmarks]	already in the rungs (origin benchmark_pascal_queens__queens) -- not re-appended
