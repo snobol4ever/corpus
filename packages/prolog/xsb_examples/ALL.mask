@@ -1,0 +1,1 @@
+houses	^cputime used: \d+(\.\d+)?(e[-+]?\d+)? sec$	R-409: the printed cputime of go/0 is the engine clock; the XSB 5.0.0 oracle itself printed 0.002 to 0.004 sec over four runs of houses.P then drive.P (senior_08, 2026-11-12), so the line can never match byte for byte; the two house-configuration lines and the calls and ended lines stay graded
