@@ -2893,6 +2893,28 @@ BlueBird
 =S
 ```
 
+## batch_grader__bg01_sno_hello
+
+```SNOBOL4
+	OUTPUT = 'hello'
+END
+```
+
+```stdout
+hello
+```
+
+## batch_grader__bg03_sno_reads_the_same_variable_clean
+
+```SNOBOL4
+	OUTPUT = 'X=<' X '>'
+END
+```
+
+```stdout
+X=<>
+```
+
 ## probe_errpath__probe_loose_errpath_missing_end
 
 ```SNOBOL4
@@ -2992,6 +3014,47 @@ x86-64  Tue Nov 10 09:18:26 2026
 1       OUTPUT = 'HELLO WORLD'
                !
 smoke_hello.sno(1,8) : ERROR 221 -- syntax error: missing operand
+```
+
+## batch_grader__bg02_sno_sets_a_variable
+
+```SNOBOL4
+	X = 'dirty'
+	OUTPUT = 'X=<' X '>'
+END
+```
+
+```stdout
+X=<dirty>
+```
+
+## batch_grader__bg07_sno_reads_stdin
+
+```SNOBOL4
+	L = INPUT
+	OUTPUT = 'read <' L '>'
+END
+```
+
+```stdin
+first line of stdin
+```
+
+```stdout
+read <first line of stdin>
+```
+
+## batch_grader__bg09_sno_two_lines
+
+```SNOBOL4
+	OUTPUT = 'batch rows run in order'
+	OUTPUT = 'second line'
+END
+```
+
+```stdout
+batch rows run in order
+second line
 ```
 
 ## demo_hello
@@ -6280,6 +6343,38 @@ END
 
 ```stdout
 a
+
+```
+
+## batch_grader__bg04_sno_fatal_mid_batch
+
+```SNOBOL4
+	OUTPUT = 'before'
+	Y = 0
+	X = 1 / Y
+	OUTPUT = 'after'
+END
+```
+
+```stdout
+before
+
+
+
+bg04_sno_fatal_mid_batch.sno(3) : ERROR 014 -- division caused integer overflow
+
+
+
+
+
+in file              bg04_sno_fatal_mid_batch.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11472
+memory left (bytes)  1037096
 
 ```
 
@@ -15633,6 +15728,20 @@ END
 hello
 ```
 
+## builtin_table__bt01_sno_loop
+
+```SNOBOL4
+	I = 0
+LOOP	N = SIZE("abcdef") + N
+	I = LT(I, 200000) I + 1 :S(LOOP)
+	OUTPUT = N
+END
+```
+
+```stdout
+1200006
+```
+
 ## capture_alt_branch_2
 
 ```SNOBOL4
@@ -15903,6 +16012,39 @@ END
 REAL
 INTEGER
 REAL
+```
+
+## exceptions__ex04_sno_fatal_exit_code
+
+```SNOBOL4
+* ex04 -- no &ERRLIMIT: the first run-time error is fatal; SPITBOL keeps what was written before it and exits with &CODE (0 unless the program set it), the error report on stderr; a constant 'abc' + 1 is refused at COMPILE time by SPITBOL and SCRIP alike (exit 231 vs 1, a frontend matter), so the operand is a variable (DESIGN-PLAN exceptions, the cto 2026-10-29)
+        OUTPUT = 'before'
+        Y = 'abc'
+        X = Y + 1
+        OUTPUT = 'never'
+END
+```
+
+```stdout
+before
+
+
+
+ex04_sno_fatal_exit_code.sno(4) : ERROR 001 -- addition left operand is not numeric
+
+
+
+
+
+in file              ex04_sno_fatal_exit_code.sno
+in line              4
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11504
+memory left (bytes)  1037064
+
 ```
 
 ## fence_len_branch_3
@@ -21316,6 +21458,34 @@ elem-10-eeeeeeeeee
 elem-20-eeeeeeeeee
 ```
 
+## builtin_table__bt06_sno_arity_pad
+
+```SNOBOL4
+	OUTPUT = SIZE()
+	OUTPUT = "[" DUPL("x") "]"
+	OUTPUT = "[" TRIM() "]"
+	OUTPUT = REVERSE()
+	OUTPUT = LPAD("ab", 5) "|"
+	OUTPUT = RPAD("ab", 5, "*") "|"
+	OUTPUT = SUBSTR("abcdef", 2)
+	OUTPUT = SUBSTR("abcdef", 2, 3)
+	OUTPUT = CHAR(65) CHAR(66)
+	OUTPUT = IDENT() "|" DIFFER()
+END
+```
+
+```stdout
+0
+[]
+[]
+
+   ab|
+ab***|
+bcdef
+bcd
+AB
+```
+
 ## ladder__rung09_a_cursor_capture_target_function_is_called_after_a_pattern_operand_that_is_not_the_first_and_inside_a_group
 
 ```SNOBOL4
@@ -21739,6 +21909,64 @@ END
 
 ```stdout
 PASS
+```
+
+## builtin_table__bt05_sno_apply_and_opsyn
+
+```SNOBOL4
+	OUTPUT = APPLY("SIZE", "abcd")
+	F = "REVERSE"
+	OUTPUT = APPLY(F, "abc")
+	OPSYN("SZ", "SIZE")
+	OUTPUT = SZ("hello")
+	OUTPUT = APPLY("SZ", "xy")
+	OPSYN("REV", "REVERSE")
+	OUTPUT = REV(SZ("abc") "def")
+	DEFINE("TWICE(S)")				:(AFTER)
+TWICE	TWICE = S S				:(RETURN)
+AFTER	OUTPUT = APPLY("TWICE", "ab")
+	OPSYN("DOUBLE", "TWICE")
+	OUTPUT = DOUBLE("cd")
+END
+```
+
+```stdout
+4
+cba
+5
+2
+fed3
+abab
+cdcd
+```
+
+## builtin_table__bt14_sno_data_ctor_and_field
+
+```SNOBOL4
+	DATA("POINT(X,Y)")
+	P = POINT(1, 2)
+	OUTPUT = X(P) "," Y(P)
+	X(P) = 10
+	OUTPUT = X(P) "," Y(P)
+	Q = POINT(X(P) + 1, Y(P) + 1)
+	OUTPUT = X(Q) "," Y(Q)
+	OUTPUT = DATATYPE(P)
+	OUTPUT = APPLY("X", P)
+	DATA("PAIR(LEFT,RIGHT)")
+	R = PAIR("a", "b")
+	OUTPUT = LEFT(R) RIGHT(R)
+	OUTPUT = SIZE(LEFT(R))
+END
+```
+
+```stdout
+1,2
+10,2
+11,3
+POINT
+10
+ab
+1
 ```
 
 ## ladder__rung28_dotnet_continue_after_a_handler_goto_resumes_at_the_innermost_failure_point
@@ -23490,6 +23718,22 @@ END
 MATCHED
 ```
 
+## batch_grader__bg05_sno_fills_the_heap
+
+```SNOBOL4
+	S = DUPL('a', 4000000)
+	T = TABLE(100000)
+	I = 0
+fill	T[I] = S
+	I = LT(I, 50) I + 1	:S(fill)
+	OUTPUT = 'filled ' SIZE(S) ' ' I
+END
+```
+
+```stdout
+filled 4000000 50
+```
+
 ## break_len_rem_replace_branch_1
 
 ```SNOBOL4
@@ -24836,6 +25080,34 @@ END
 matched
 ```
 
+## zeta_layout__zl12_sno_sig_shim_define_code
+
+```SNOBOL4
+	DEFINE("F(CODE)TRIM")				:(M)
+F	TRIM = CODE CODE
+	F = "f" TRIM						:(RETURN)
+M	OUTPUT = F("ab")
+	OUTPUT = F("xy") F("q")
+	DEFINE("G(CODE)")					:(M2)
+G	EQ(CODE, 0)						:S(FRETURN)
+	G = CODE + 1						:(RETURN)
+M2	OUTPUT = G(1) G(G(2))
+	OUTPUT = IDENT(G(0)) "g failed"
+	P = "H(X)CODE"
+	DEFINE(P)							:(M3)
+H	CODE = X X
+	H = CODE CODE						:(RETURN)
+M3	OUTPUT = H("r")
+END
+```
+
+```stdout
+fabab
+fxyxyfqq
+24
+rrrr
+```
+
 ## break_len_array_replace_1
 
 ```SNOBOL4
@@ -25324,6 +25596,40 @@ END
 3 F 21
 4 F 21
 end x
+```
+
+## exceptions__ex02_sno_setexit_handler
+
+```SNOBOL4
+* ex02 -- SETEXIT: the handler is entered from the statement in error, re-arms itself, counts, and CONTINUEs; an error inside a function (DESIGN-PLAN exceptions, the cto 2026-10-29)
+        &ERRLIMIT = 100
+        &ANCHOR = 1
+        DEFINE('F(N)')                               :(START)
+F       F = 'f' N
+        T = N + 'q'
+        F = F 'tail'                                 :(RETURN)
+START   SETEXIT(.HANDLER)
+        ERRS = 0
+        LOG =
+        I = 0
+LOOP    I = LT(I, 30) I + 1                          :F(DONE)
+        R = F(I)
+        LOG = LOG R ','
+        S = I + 'x'
+        LOG = LOG '.'                                :(LOOP)
+HANDLER ERRS = ERRS + 1
+        LAST = &ERRTYPE
+        SETEXIT(.HANDLER)                            :(CONTINUE)
+DONE    OUTPUT = 'errs ' ERRS ' last ' LAST ' errlimit ' &ERRLIMIT
+        OUTPUT = 'log ' SIZE(LOG)
+        OUTPUT = 'head ' SUBSTR(LOG, 1, 12)
+END
+```
+
+```stdout
+errs 60 last 2 errlimit 40
+log 261
+head f1tail,.f2ta
 ```
 
 ## pos_rpos_len_branch_10
@@ -28067,6 +28373,44 @@ END
 5 DIFFER
 ```
 
+## zeta_layout__zl02_sno_setexit_code
+
+```SNOBOL4
+* zl02 -- CODE compiled at run time, a SETEXIT handler that allocates, &ERRLIMIT (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+        &ANCHOR = 1
+        &ERRLIMIT = 200
+        SETEXIT(.HANDLER)
+        ERRS = 0
+        MSG =
+        Y =
+        SRC = 'GEN   Z = Z "q" ;'
+        SRC = SRC ' N = LT(N, 60) N + 1   :S(GEN)F(BACK) ;'
+        SRC = SRC 'BACK  :(RETURN_HERE)'
+        C = CODE(SRC)                                :S(RUN)F(BADCODE)
+RUN     N = 0
+        Z =
+        :<C>
+RETURN_HERE OUTPUT = 'code ' SIZE(Z) ' ' N
+        I = 0
+L1      I = LT(I, 50) I + 1                          :F(L2)
+        X = 'abc' + I
+        Y = Y 'z'                                    :(L1)
+HANDLER ERRS = ERRS + 1
+        MSG = MSG '[' &ERRTYPE ']'
+        SETEXIT(.HANDLER)                            :(CONTINUE)
+L2      OUTPUT = 'errs ' ERRS ' msg ' SIZE(MSG) ' y ' SIZE(Y)
+        OUTPUT = 'last ' &ERRTYPE
+                                                     :(END)
+BADCODE OUTPUT = 'code failed'
+END
+```
+
+```stdout
+code 61 60
+errs 50 msg 150 y 50
+last 1
+```
+
 ## code_eval_arb_len_replace_branch_1
 
 ```SNOBOL4
@@ -28603,6 +28947,20 @@ END
 
 ```stdout
 abba
+```
+
+## zeta_layout__zl15_sno_pattern_graph_abort_entered_at_beta
+
+```SNOBOL4
+         P1 = FENCE TAB(3) | TAB(4)
+         'abcdef' POS(0) *P1 'ef' RPOS(0) :S(OK)F(NO)
+OK       OUTPUT = 'match' :(END)
+NO       OUTPUT = 'nomatch'
+END
+```
+
+```stdout
+nomatch
 ```
 
 ## arb_pos_rpos_replace_branch_1
@@ -31783,6 +32141,21 @@ END
 hello, world
 ```
 
+## zeta_layout__zl16_sno_user_function_fence_tab_branch
+
+```SNOBOL4
+         DEFINE('F1()') :(GO)
+F1       F1 = FENCE TAB(3) | TAB(4) :(RETURN)
+GO       'abcdef' POS(0) *F1() 'ef' RPOS(0) :S(OK)F(NO)
+OK       OUTPUT = 'match' :(END)
+NO       OUTPUT = 'nomatch'
+END
+```
+
+```stdout
+nomatch
+```
+
 ## arbno_arb_rpos_replace_branch_2
 
 ```SNOBOL4
@@ -32731,6 +33104,28 @@ END
 match
 ```
 
+## zeta_layout__zl14_sno_arbno_tail_in_nested_fence
+
+```SNOBOL4
+*  WITNESS for the arm of a FENCE(arg) that ends an ARBNO body (step 2a): the ARBNO's tail operand is the capture box that closes FENCE's argument, so the planner
+*  must put that box in the FENCE's arm, not the ARBNO's, or the FENCE's 16-byte discard lands one box early and the capture reads its saved cursor from a popped
+*  cell (rt_dcap_pump: CORRUPT CAPTURE ENTRY, run-varying garbage). The stored pattern is compiled apart and reaches the pump through a deferred reference; the
+*  inline form carries the same plan and answers by luck. Both forms capture the last character and print it.
+        S = 'abcd'
+        P = POS(0) ARBNO(FENCE(LEN(1) . X) FENCE) RPOS(0)
+        S ? P                                    :F(NO)
+        OUTPUT = X
+        S ? POS(0) ARBNO(FENCE(LEN(1) . Y) FENCE) RPOS(0)  :F(NO)
+        OUTPUT = Y                               :(END)
+NO      OUTPUT = 'nomatch'
+END
+```
+
+```stdout
+d
+d
+```
+
 ## arb_span_break_replace_branch_1
 
 ```SNOBOL4
@@ -32883,6 +33278,28 @@ END
 
 ```stdout
 MATCHED call-concat
+```
+
+## zeta_layout__zl09_sno_blob_frame_span_defer
+
+```SNOBOL4
+*  WITNESS for the R-4(b) blob frame's static layout (ARCH-GC 6.2e): a stored pattern's deferred SPAN(*C) keeps the
+*  string pointer rt_pat_prim_str returned in the blob's leaf pointer slot, and *ALLOC() allocates INSIDE the frame so
+*  a forced collection walks the frame while that word and the DTP word [rbp-24] are live. Nothing dies, so nothing
+*  slides: under SCRIP_GC_BLOB_LAYOUT_PLANT=2 the reporter's raw_in_heap column must count the retagged pointer words.
+        DEFINE('ALLOC()')                        :(START)
+ALLOC   G = DUPL('g', 300)                       :(RETURN)
+START   C = 'ab' 'c'
+        E = DUPL('e', 256)
+        P = SPAN(*C) . X *ALLOC() 'q'
+        'abcq' P                                 :F(NO)
+        OUTPUT = X '-' SIZE(E) '-' SIZE(G)       :(END)
+NO      OUTPUT = 'nomatch'
+END
+```
+
+```stdout
+abc-256-300
 ```
 
 ## arbno_fence_span_replace_branch_7
@@ -33205,6 +33622,41 @@ sum of T[1..500] = 250500
 after 20 rebuilds = 250500
 ```
 
+## exceptions__ex01_sno_errlimit_statement_fails
+
+```SNOBOL4
+* ex01 -- &ERRLIMIT with no handler: the statement in error FAILS and the program goes on with its cells intact (DESIGN-PLAN exceptions, the cto 2026-10-29)
+        &ERRLIMIT = 100
+        &ANCHOR = 1
+        TYPES = TABLE(10)
+        ACC =
+        I = 0
+LOOP    I = LT(I, 40) I + 1                          :F(DONE)
+        ACC = ACC 'a' I
+        X = 'abc' + I                                :S(ODD)F(FAILED)
+ODD     OUTPUT = 'unexpected success'                :(LOOP)
+FAILED  TYPES[&ERRTYPE] = TYPES[&ERRTYPE] + 1
+        Y = UNDEFINED_FN(I)                          :S(LOOP)
+        TYPES[&ERRTYPE] = TYPES[&ERRTYPE] + 1
+        Z = ARRAY('1:3')
+        Z[7] = I                                     :S(LOOP)
+        TYPES[&ERRTYPE] = TYPES[&ERRTYPE] + 1       :(LOOP)
+DONE    OUTPUT = 'acc ' SIZE(ACC) ' errlimit ' &ERRLIMIT ' errtype ' &ERRTYPE
+        TA = CONVERT(TYPES, 'ARRAY')
+        J = 0
+TLOOP   J = J + 1
+        OUTPUT = 'type ' TA[J, 1] ' seen ' TA[J, 2]          :S(TLOOP)
+        OUTPUT = 'array subscript out of range fails: ' (DIFFER(Z[7]) 'no', 'yes')
+END
+```
+
+```stdout
+acc 111 errlimit 20 errtype 22
+type 1 seen 40
+type 22 seen 80
+array subscript out of range fails: yes
+```
+
 ## fence_bal_arb_replace_branch_2
 
 ```SNOBOL4
@@ -33333,6 +33785,49 @@ END
 6 S [alt]
 7 S []
 8 F
+```
+
+## exceptions__ex03_sno_eval_code_pattern_errors
+
+```SNOBOL4
+* ex03 -- errors inside EVAL under &ERRLIMIT: each EVAL fails where it is caught, the keywords read the error, and the pattern machinery is intact after (an error raised DURING a pattern match is fatal in SPITBOL even under &ERRLIMIT, so none is raised here; DESIGN-PLAN exceptions, the cto 2026-10-29)
+        &ERRLIMIT = 100
+        &ANCHOR = 0
+        N = 0
+        M = 0
+        I = 0
+L1      I = LT(I, 20) I + 1                          :F(L2)
+        V = EVAL('I + "q"')                          :S(L1)
+        N = N + 1
+        E1 = &ERRTYPE
+        V = EVAL('I * 2')                            :F(L1)
+        M = M + V
+        P = EVAL('BREAK(" ") . W SPAN(" ")')         :F(L1)
+        S2 = 'word' I ' tail'
+        S2 P =                                       :F(L1)
+        LAST = W                                     :(L1)
+L2      OUTPUT = 'evalfails ' N ' errtype ' E1 ' sum ' M ' errlimit ' &ERRLIMIT
+        OUTPUT = 'last ' LAST
+        S = 'alpha beta gamma'
+        K = 0
+L3      S BREAK(' ') . W SPAN(' ') =                 :F(L4)
+        K = K + 1
+        OUTPUT = 'word ' W                            :(L3)
+L4      OUTPUT = 'rest ' S ' ' K
+        V = EVAL('UNDEFINED_THING(1)')               :S(L5)
+        OUTPUT = 'undefined errtype ' &ERRTYPE
+L5      OUTPUT = 'end ' &ERRLIMIT
+END
+```
+
+```stdout
+evalfails 20 errtype 2 sum 420 errlimit 80
+last word20
+word alpha
+word beta
+rest gamma 2
+undefined errtype 22
+end 79
 ```
 
 ## break_len_table_replace_branch_1
@@ -34721,6 +35216,35 @@ END
 ```stdout
 ERROR 57
 failed
+```
+
+## builtin_table__bt04_sno_eval_and_code_builtins
+
+```SNOBOL4
+	OUTPUT = EVAL("SIZE('abcdef')")
+	E = "REVERSE('abc') DUPL('-', 2)"
+	OUTPUT = EVAL(E)
+	C = CODE(" OUTPUT = SIZE('in code') ;L1 OUTPUT = REPLACE('abc', 'a', 'z') :(DONE)")
+							:<C>
+DONE	OUTPUT = APPLY("TRIM", "ab   ") "|"
+	S = "SIZE"
+	OUTPUT = EVAL(S "('dynamic')")
+	DEFINE("USERF(X)")				:(AFTER)
+USERF	USERF = "u" SIZE(X)				:(RETURN)
+AFTER	OUTPUT = EVAL("USERF('abcd')")
+	OUTPUT = EVAL("SIZE(USERF('x'))")
+END
+```
+
+```stdout
+6
+cba--
+7
+zbc
+ab|
+7
+u4
+2
 ```
 
 ## user_function_pos_len_branch_4
@@ -40395,6 +40919,32 @@ k+q/4+r-c
 matched bytes=32512
 ```
 
+## zeta_layout__zl13_sno_flush_pump
+
+```SNOBOL4
+*  WITNESS for the release pump of the match FLUSH box (IR_MATCH_FENCE0 carrying the literal 3, ARCH-ZETA-LAYOUT 5, step 2a): ARBNO(FENCE(*tf . *Inc()) FLUSH)
+*  runs the deferred-capture pump at every FLUSH, and *Inc() allocates INSIDE the pump (third iteration) so a forced collection walks the frame while the pump's
+*  xfer and dcap records are live. The subject is 12000 characters long: a flush that leaves its 384-byte row carved at gamma makes ARBNO stack a cell per
+*  iteration and exhausts the declared 4 MB stack (error 246). SPITBOL has no FLUSH and reads it as a null variable, so its output is the program's own.
+        DEFINE('Inc()')                          :(START)
+Inc     N = N + 1
+        EQ(N, 3)                                 :F(INC1)
+        G = DUPL('g', 300)
+INC1    Inc = .dummy                             :(NRETURN)
+START   N = 0
+        tf = LEN(1)
+        S = DUPL('a', 12000)
+        P = POS(0) ARBNO(FENCE(*tf . *Inc()) FLUSH) RPOS(0)
+        S ? P                                    :F(NO)
+        OUTPUT = N '-' SIZE(G)                   :(END)
+NO      OUTPUT = 'nomatch'
+END
+```
+
+```stdout
+12000-300
+```
+
 ## benchmark_mixed_workload
 
 ```SNOBOL4
@@ -45029,6 +45579,46 @@ compiled:  Y = .$('a' 'b')
 compiled:  Y = P . $ARB
 compiled:  $ARB = 1
 239:  Y = .$ARB + 1
+```
+
+## zeta_layout__zl01_sno_captures_eval
+
+```SNOBOL4
+* zl01 -- pattern captures, a table, an array, DATA records and EVAL under collection (DESIGN-PLAN zeta-layout, the cto 2026-10-29)
+        &ANCHOR = 1
+        &TRIM = 1
+        DATA('NODE(VAL,NEXT)')
+        T = TABLE(50)
+        A = ARRAY('1:200')
+        WORD = BREAK(' ,') . W SPAN(' ,') | (LEN(1) REM) . W
+        I = 0
+        LIST =
+LOOP    I = LT(I, 200) I + 1                         :F(DONE)
+        S = 'alpha beta gamma delta epsilon ' I ', zeta'
+        N = 0
+SCAN    S WORD =                                     :F(END1)
+        W = DIFFER(W) W                              :F(SCAN)
+        T[W] = T[W] + 1
+        LIST = NODE(W, LIST)
+        N = N + 1                                    :(SCAN)
+END1    A[I] = N
+        X = EVAL('I * I + ' I)                       :(LOOP)
+DONE    L = 0
+        P = LIST
+COUNT   P = DIFFER(P) NEXT(P)                        :F(OUT)
+        L = L + 1                                    :(COUNT)
+OUT     OUTPUT = 'nodes ' L
+        OUTPUT = 'alpha ' T['alpha'] ' zeta ' T['zeta'] ' n200 ' A[200]
+        OUTPUT = 'eval ' X
+        OUTPUT = 'first ' VAL(LIST)
+END
+```
+
+```stdout
+nodes 1400
+alpha 200 zeta 200 n200 7
+eval 40200
+first zeta
 ```
 
 ## code_eval_eval_fence_replace_1
