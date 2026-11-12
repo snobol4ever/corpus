@@ -48,15 +48,6 @@ z          unreferenced
     42      124     sort(1, maxstr); 
     43      129     writeln('Result: ', a); 
     44      141  
-    45      141 end.   *** eof encountered
-   *** eof encountered
+    45      141 end. 
 
-    45   ****     ^6,21
-
-Errors in program: 2
-
-Error numbers in listing:
--------------------------
-  6  Illegal symbol
- 21  '.' expected
-
+Errors in program: 0
