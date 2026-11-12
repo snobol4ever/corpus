@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=461 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=49 clusters=42 chunks=5 sizes=100,100,100,100,12
+# shape: entries=463 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=49 clusters=42 chunks=5 sizes=100,100,100,100,14
 entry	part	cluster	shells
 front_end__pf31_resourcestring	chunk:04	family:front_end	
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
@@ -57,7 +57,7 @@ ladder__rung16_q_inttostr	chunk:01	family:ladder
 ladder__rung21_class_type_alias_constructs_the_class	chunk:05	feat:type	type
 ladder__rung05_proc_named_main	chunk:01	feat:nested_proc	nested_proc procedure
 ladder__rung00_writestr_items	chunk:01	family:ladder	
-program_writeln_1	chunk:04	family:boolassign	
+program_writeln_1	chunk:05	family:boolassign	
 program_writeln_13	chunk:05	family:boolassign	
 program_writeln_16	chunk:05	family:boolnot	
 program_writeln_4	chunk:05	family:boolnot	
@@ -68,6 +68,7 @@ program_writeln_2	chunk:05	family:boolchain
 program_function_writeln_3	chunk:01	feat:function	function
 program_function_writeln_4	chunk:01	feat:function	function
 front_end__pf06_extended	chunk:04	feat:sqrt	sqrt
+front_end__pf34_unit_qualified_type_local	chunk:03	feat:procedure	procedure
 ladder__rung02_arithmetic_div_neg	chunk:03	feat:div	div
 ladder__rung02_arithmetic_mod_neg	chunk:04	feat:mod	mod
 ladder__rung04_for_repeat_for_zero	chunk:04	feat:for	for
@@ -106,7 +107,7 @@ ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round	core	core	round t
 ladder__rung23_extended_trunc_round_and_conversions	core	core	round trunc
 program_procedure_writeln_replace_1	chunk:03	feat:procedure	procedure
 program_procedure_writeln_replace_2	chunk:03	feat:procedure	procedure
-unary_minus__sign_binds_factor_delphi	chunk:03	feat:ord	ord
+unary_minus__sign_binds_factor_delphi	chunk:04	feat:ord	ord
 ladder__rung03_if_while	chunk:04	feat:while	while
 front_end__pf20g_record_constructor_value	chunk:02	feat:record	record type
 program_writeln_8	chunk:02	feat:const	const
@@ -126,7 +127,7 @@ ladder__rung21_dynamic_array_compared_with_nil	chunk:03	feat:nil	array nil type
 program_for_writeln_replace_1	chunk:02	feat:write	for write
 program_writeln_7	chunk:04	feat:chr	chr ord
 ladder__rung18_sha1_digest	chunk:04	feat:mod	chr for mod
-ladder__rung24_rtl_system_lineending	chunk:03	feat:ord	ord write
+ladder__rung24_rtl_system_lineending	chunk:04	feat:ord	ord write
 program_for_downto_2	chunk:04	feat:downto	downto for
 program_for_downto_4	chunk:04	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
@@ -322,6 +323,7 @@ front_end__pf17_procvars	chunk:03	feat:nil	function nested_proc nil procedure ty
 front_end__pf17_methodptr	chunk:03	feat:nil	function nested_proc nil procedure type
 program_procedure_record_12	chunk:03	feat:new	new pointer pointer_with_new procedure record type
 program_procedure_record_5	chunk:03	feat:new	new pointer pointer_with_new procedure record type
+front_end__pf33_unit_qualified_const_bound	chunk:03	feat:div	array const div set_literal subrange type
 ladder__rung12_fillbyte_bytes	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_chars	chunk:02	feat:write	array for for_with_array set_literal subrange write
 ladder__rung12_fillchar_zero	chunk:02	feat:write	array for for_with_array set_literal subrange write
@@ -405,7 +407,7 @@ ladder__rung22_class_derived_from_a_generic_object_dictionary	chunk:04	feat:with
 program_procedure_set_replace_1	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
 program_procedure_set_replace_2	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
 benchmark_queens	chunk:04	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
-program_function_procedure_replace_3	chunk:04	feat:with	for function in mod nested_proc procedure while with
+program_function_procedure_replace_3	chunk:05	feat:with	for function in mod nested_proc procedure while with
 front_end__pf15_overloaded_methods	chunk:02	feat:const	array const for for_with_array function nested_proc procedure type
 ladder__rung06_arrays_three_level_inline_char_rows	chunk:02	feat:packed	array chr for for_with_array ord packed set_literal subrange write
 ladder__rung06_arrays_a_named_array_type_whose_rows_are_inline_packed_char	chunk:02	feat:packed	array chr for for_with_array ord packed set_literal subrange type
