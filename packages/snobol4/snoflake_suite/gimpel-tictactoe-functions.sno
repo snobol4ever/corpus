@@ -10,7 +10,7 @@
 * 1
 * [XXXOO    ]
 * <<<
--INCLUDE "TICTACTO.INC"
+-INCLUDE "tictacto.inc"
 	NEXT_N = 0
 	B = 'X        '
 	C = NEXTBD(B)

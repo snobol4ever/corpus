@@ -6,7 +6,7 @@
 * +:2,A,B,
 * +:2,C,D,
 * <<<
--INCLUDE "TREE.INC"
+-INCLUDE "tree_pattern.inc"
 	S = '+:2,A,B,'
 	S TREE('+',2) . X
 	OUTPUT = X

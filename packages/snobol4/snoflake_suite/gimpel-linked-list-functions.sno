@@ -10,9 +10,9 @@
 * tail
 * changed
 * <<<
--INCLUDE "REVL.INC"
--INCLUDE "LAST.INC"
--INCLUDE "COPYL.INC"
+-INCLUDE "revl.inc"
+-INCLUDE "last.inc"
+-INCLUDE "copyl.inc"
 	L = LINK(LINK(LINK(, 'C'), 'B'), 'A')
 	L = REVL(L)
 RLOOP	IDENT(L)                        :S(LAST_TEST)

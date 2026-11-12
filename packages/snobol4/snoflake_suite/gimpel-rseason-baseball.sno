@@ -26,7 +26,7 @@
 * 1006
 * Mean: 993
 * <<<
--INCLUDE "RSEASON.INC"
+-INCLUDE "rseason.inc"
 	SEASONS = 10
 	GAMES = 154
 	SUM = 0

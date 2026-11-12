@@ -6,7 +6,7 @@
 * A
 * B
 * <<<
--INCLUDE "STATEF.INC"
+-INCLUDE "statef.inc"
 	STATEF('FLIP()', 'FLIP_A')
 	OUTPUT = FLIP()
 	OUTPUT = FLIP()

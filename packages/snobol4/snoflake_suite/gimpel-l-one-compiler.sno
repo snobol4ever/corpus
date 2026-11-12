@@ -17,8 +17,8 @@
 *  LOAD TEMP3
 *  STORE A
 * <<<
--INCLUDE "PUSH.INC"
--INCLUDE "TEMP.INC"
+-INCLUDE "push.inc"
+-INCLUDE "temp.inc"
 	DEFINE('S(NAME)')
 	DEFINE('S_(NAME)T')                 :(S_END)
 S	S = EVAL("NULL . *S_('" NAME "')")  :(RETURN)

@@ -1,0 +1,7 @@
+C This is a comment card
+      X = 1
+      Y = X +
+     *2 +
+     *3
+C Another comment between statements
+      Z = Y

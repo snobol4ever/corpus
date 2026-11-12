@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=79 features=40 ubiquitous=1(package) distinctive=39 core=19 clusters=30 chunks=1 sizes=60
+# shape: entries=122 features=41 ubiquitous=1(package) distinctive=40 core=23 clusters=41 chunks=1 sizes=99
 entry	part	cluster	shells
 alphabet-keyword	core	core	DATATYPE SIZE keyword_ref
 arbno-alternative-backtracking	chunk:01	feat:ARBNO	ARBNO RPOS alternation arbno_with_alt imm_assign keyword_ref
@@ -8,7 +8,7 @@ array-bounds	chunk:01	feat:ARRAY	ARRAY
 arrays-tables-data	chunk:01	feat:ARRAY	ARRAY
 assignment-object-failure	chunk:01	feat:goto_success	goto_success
 basic-patterns	chunk:01	feat:alternation	alternation cond_assign goto_fail goto_success
-beer-countdown	chunk:01	feat:goto_success	arith goto_success
+beer-countdown	chunk:01	feat:arith	arith goto_success
 break-replacement-cycle	chunk:01	feat:REM	BREAK LEN REM cond_assign
 case-fold-disabled	chunk:01	family:case-fold-disabled	
 character-patterns	core	core	ANY BREAK LEN NOTANY SPAN cond_assign
@@ -18,18 +18,18 @@ control-flow	chunk:01	feat:indirect_ref	goto_fail goto_success indirect_ref
 convert-and-datatype	core	core	ARRAY CONVERT DATATYPE TABLE
 csnobol4-extensions	chunk:01	family:csnobol-extensions	
 dump-ordered	chunk:01	feat:keyword_ref	keyword_ref
-dump-variables	core	core	ABORT ARB
+dump-variables	chunk:01	feat:ABORT	ABORT ARB
 eliza-duquet-original	core	core	ANY ARB BREAK CODE EVAL LEN REM REPLACE SIZE SPAN TRIM alternation arith capture_plus_defer cond_assign deferred_eval goto_fail goto_success indirect_ref keyword_ref
 eliza-modernized	core	core	ANY ARB ARRAY BREAK CODE LEN NOTANY POS REM REPLACE RPOS SIZE SPAN TRIM alternation cond_assign goto_fail goto_success indirect_ref keyword_ref
 exhaustive-substring	chunk:01	feat:ARB	ARB LEN imm_assign keyword_ref
-factorial-table	core	core	ARRAY SIZE TABLE arith goto_fail goto_success
+factorial-table	chunk:01	feat:TABLE	ARRAY SIZE TABLE arith goto_fail goto_success
 fail-logical-and-words	chunk:01	feat:BREAK	BREAK TRIM alternation goto_fail imm_assign keyword_ref
 fence-and-abort	core	core	ABORT ARB FENCE alternation goto_success keyword_ref
 fullscan-combinations	chunk:01	feat:ARB	ARB DEFINE LEN deferred_eval imm_assign keyword_ref
 fullscan-overlap	chunk:01	feat:POS	POS RPOS SPAN arith deferred_eval goto_success keyword_ref
 function-arg-local	chunk:01	feat:DEFINE	DEFINE arith
 gimpel-code-function	chunk:01	feat:CODE	CODE goto_success
-hexadecimal-to-decimal	core	core	LEN TABLE TRIM arith cond_assign goto_fail keyword_ref
+hexadecimal-to-decimal	chunk:01	feat:TABLE	LEN TABLE TRIM arith cond_assign goto_fail keyword_ref
 immediate-vs-conditional-assignment	chunk:01	feat:imm_assign	alternation cond_assign goto_success imm_assign
 indirect-integer-and-keyword	core	core	DATATYPE indirect_ref keyword_ref
 indirect-reference	chunk:01	feat:indirect_ref	indirect_ref
@@ -39,10 +39,10 @@ integer-negative-exponent	chunk:01	family:integer-negative-exponent
 kalah-opening-search	core	core	APPLY BREAK CODE CONVERT DEFINE DUPL FENCE LEN POS REM REPLACE RPOS SIZE SPAN TRIM alternation arith deferred_eval fence_guarded_fail goto_fail goto_success imm_assign indirect_ref keyword_ref
 keywords-and-code	chunk:01	feat:CODE	CODE goto_success
 lexical-comparison	core	core	APPLY DATATYPE DEFINE
-lgt-alphabetize	core	core	LEN SIZE arith capture_plus_defer cond_assign deferred_eval goto_success imm_assign keyword_ref
+lgt-alphabetize	chunk:01	feat:capture_plus_defer	LEN SIZE arith capture_plus_defer cond_assign deferred_eval goto_success imm_assign keyword_ref
 linked-list	chunk:01	family:linked-list	
 longest-substring	chunk:01	feat:SPAN	SIZE SPAN deferred_eval imm_assign
-lowercase-indirect-and-apply	core	core	APPLY DEFINE indirect_ref
+lowercase-indirect-and-apply	chunk:01	feat:APPLY	APPLY DEFINE indirect_ref
 n-queens	core	core	ARBNO BREAK DEFINE DUPL LEN SIZE alternation arbno_with_alt arith cond_assign goto_fail goto_success keyword_ref
 name-operator	chunk:01	feat:indirect_ref	DEFINE arith indirect_ref
 named-substring-alternation	chunk:01	feat:alternation	alternation cond_assign
@@ -53,16 +53,16 @@ pattern-assignment-targets	chunk:01	feat:capture_plus_defer	LEN capture_plus_def
 polish-to-infix	core	core	BAL DEFINE LEN RPOS capture_plus_defer cond_assign deferred_eval goto_fail
 predicates	chunk:01	feat:goto_fail	goto_fail goto_success
 primitive-patterns	core	core	ARB LEN POS REM RPOS RTAB TAB cond_assign
-programmer-defined-functions	chunk:01	feat:goto_fail	DEFINE arith goto_fail goto_success
+programmer-defined-functions	chunk:01	feat:DEFINE	DEFINE arith goto_fail goto_success
 punctuation-counter	chunk:01	feat:POS	BREAK LEN POS TRIM arith deferred_eval goto_fail keyword_ref
-real-overflow-recoverable	chunk:01	feat:goto_success	arith goto_success keyword_ref
+real-overflow-recoverable	chunk:01	feat:arith	arith goto_success keyword_ref
 real-to-integer-coercion	chunk:01	feat:DUPL	DUPL TRIM keyword_ref
 recursive-binary-conversion	chunk:01	feat:DEFINE	DEFINE arith
 scanner-behavior	chunk:01	feat:goto_fail	goto_fail goto_success keyword_ref
 special-patterns	core	core	ABORT ARBNO BAL alternation arbno_with_alt goto_fail goto_success
 square-array-pattern	chunk:01	feat:ARRAY	ARRAY DEFINE
 statements	chunk:01	family:statements	
-stlimit-negative-stcount	chunk:01	feat:goto_success	arith goto_success keyword_ref
+stlimit-negative-stcount	chunk:01	feat:arith	arith goto_success keyword_ref
 stop-tracing	chunk:01	feat:indirect_ref	DEFINE arith indirect_ref keyword_ref
 string-functions	chunk:01	feat:REPLACE	DUPL REPLACE SIZE TRIM
 string-pad	chunk:01	family:string-pad	
@@ -74,10 +74,53 @@ tower-of-hanoi	chunk:01	feat:DEFINE	DEFINE arith goto_success
 trace-all-functions	chunk:01	feat:DEFINE	DEFINE arith keyword_ref
 trace-function-calls	chunk:01	feat:DEFINE	DEFINE arith goto_success keyword_ref
 trace-keyword-fnclevel	chunk:01	feat:DEFINE	DEFINE keyword_ref
-trace-label-flow	chunk:01	feat:goto_success	arith goto_success keyword_ref
+trace-label-flow	chunk:01	feat:arith	arith goto_success keyword_ref
 trace-procedure	chunk:01	feat:indirect_ref	DEFINE arith indirect_ref keyword_ref
 trace-value-watch	chunk:01	feat:arith	arith keyword_ref
 unary-plus-minus-conversion	chunk:01	feat:arith	arith
 unevaluated-pair-backreference	chunk:01	feat:capture_plus_defer	LEN capture_plus_defer cond_assign deferred_eval imm_assign
 value-trace-during-match	chunk:01	feat:imm_assign	DEFINE LEN cond_assign imm_assign indirect_ref keyword_ref
 words-of-length	chunk:01	feat:BREAK	BREAK LEN SIZE TRIM cond_assign goto_fail keyword_ref
+gimpel-array-functions	chunk:01	feat:ARRAY	ARRAY
+gimpel-asm360-pli-once	chunk:01	feat:REM	REM alternation cond_assign goto_fail
+gimpel-binary-tree-linearize	chunk:01	feat:goto_success	goto_success
+gimpel-combinatorics	chunk:01	feat:goto_success	goto_success
+gimpel-conversions	chunk:01	family:gimpel-conversions	
+gimpel-day-of-week	chunk:01	family:gimpel-day-of-week	
+gimpel-fortran-blank-removal	chunk:01	family:gimpel-fortran-blank-removal	
+gimpel-hex-conversion	chunk:01	family:gimpel-hex-conversion	
+gimpel-implementation-and-timing	core	core	OPSYN keyword_ref
+gimpel-linked-list-functions	chunk:01	feat:goto_success	goto_success
+gimpel-sorting-functions	chunk:01	feat:ARRAY	ARRAY
+gimpel-stack-field-functions	chunk:01	feat:indirect_ref	indirect_ref
+gimpel-state-functions	chunk:01	family:gimpel-state-functions	
+gimpel-test-pattern-predicate	chunk:01	feat:POS	POS RPOS deferred_eval goto_success
+gimpel-tictactoe-functions	chunk:01	family:gimpel-tictactoe-functions	
+gimpel-tree-pattern	chunk:01	feat:imm_assign	cond_assign imm_assign
+cursor-position-underline	chunk:01	feat:DUPL	DUPL TRIM alternation arith goto_fail keyword_ref
+fixed-column-name-address	core	core	DUPL REM SIZE TAB TRIM arith cond_assign goto_fail keyword_ref
+fullscan-palindrome	core	core	ABORT LEN RTAB SIZE TRIM alternation arith deferred_eval goto_fail imm_assign keyword_ref
+gimpel-bcd-ebcd-conversion	chunk:01	feat:REPLACE	REPLACE goto_success
+gimpel-fortran-statement-reader	chunk:01	feat:goto_fail	goto_fail
+gimpel-l-one-compiler	core	core	ANY DEFINE EVAL POS RPOS SPAN TRIM alternation deferred_eval goto_fail goto_success indirect_ref
+gimpel-paragraph-reader	chunk:01	feat:ANY	ANY POS goto_fail
+gimpel-read-list-functions	chunk:01	feat:POS	POS goto_success
+gimpel-rseason-baseball	chunk:01	feat:arith	arith goto_success
+gimpel-snobol-statement-reader	chunk:01	feat:goto_fail	goto_fail
+gimpel-tree-reader	chunk:01	family:gimpel-tree-reader	
+hoare-quicksort	core	core	APPLY DEFINE DUPL SIZE TABLE TRIM arith goto_fail goto_success keyword_ref
+input-echo	chunk:01	feat:TRIM	TRIM goto_fail
+input-factorial-validation	chunk:01	feat:TRIM	TRIM arith goto_fail keyword_ref
+input-output-streams	chunk:01	feat:TRIM	TRIM keyword_ref
+invalid-assembly-labels	chunk:01	feat:ANY	ANY SPAN alternation deferred_eval goto_fail goto_success keyword_ref
+isogram	core	core	ARRAY BREAK CONVERT DUPL LEN REPLACE RPOS SIZE SPAN TABLE alternation arith cond_assign goto_fail goto_success
+leadering-replacement	chunk:01	feat:DUPL	DUPL TRIM alternation arith capture_plus_defer cond_assign deferred_eval goto_fail goto_success keyword_ref
+letter-count	chunk:01	feat:TABLE	LEN TABLE TRIM arith cond_assign goto_fail keyword_ref
+letter-counter	chunk:01	feat:TABLE	LEN TABLE TRIM arith cond_assign goto_fail keyword_ref
+replacement-substitution-cipher	chunk:01	feat:CODE	CODE REPLACE TRIM goto_fail keyword_ref
+reverse-input-array	chunk:01	feat:ARRAY	ARRAY TRIM arith goto_fail goto_success keyword_ref
+unevaluated-common-characters	chunk:01	feat:capture_plus_defer	BREAK LEN TRIM capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
+unevaluated-common-words	chunk:01	feat:ANY	ANY BREAK SPAN TRIM capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
+wang-theorem-prover	core	core	BAL BREAK DEFINE NOTANY REM TRIM alternation cond_assign goto_fail goto_success indirect_ref keyword_ref
+word-count-table-convert	core	core	ARRAY BREAK CONVERT SPAN TABLE TRIM arith cond_assign goto_fail keyword_ref
+word-ending-analysis	core	core	ANY BREAK DEFINE LEN POS REM REPLACE RPOS TABLE TRIM alternation arith capture_plus_defer cond_assign deferred_eval goto_fail goto_success imm_assign keyword_ref

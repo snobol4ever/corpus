@@ -16,7 +16,7 @@
 * < OUTPUT = W    "continuation";>
 * <END;>
 * <<<
--INCLUDE "SNOREAD.INC"
+-INCLUDE "snoread.inc"
 LOOP	S = SNOREAD()                   :F(DONE)
 	OUTPUT = '<' S '>'              :(LOOP)
 DONE

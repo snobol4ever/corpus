@@ -6,8 +6,8 @@
 * CHARLIE 1
 * DELTA 1
 * <<<
--INCLUDE "INSERT.INC"
--INCLUDE "LINEARIZ.INC"
+-INCLUDE "insert.inc"
+-INCLUDE "lineariz.inc"
 	T = INSERT(T,'DELTA')
 	T = INSERT(T,'ALPHA')
 	T = INSERT(T,'CHARLIE')

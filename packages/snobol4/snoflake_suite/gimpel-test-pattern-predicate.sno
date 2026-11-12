@@ -5,7 +5,7 @@
 * AB NO
 * NULL MATCH
 * <<<
--INCLUDE "TEST.INC"
+-INCLUDE "test.inc"
 	P = TEST(*LGT(A,B))
 	A = 'B'; B = 'A'
 	'' P                            :S(YES1)F(NO1)

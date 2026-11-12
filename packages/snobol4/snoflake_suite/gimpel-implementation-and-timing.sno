@@ -22,11 +22,11 @@
 * TRACE(.STCOUNT,'KEYWORD',...) on the statement-execution
 * counter, which neither snoflake nor stock CSNOBOL4 fire on the
 * executing program, so the profiler arrays never accumulate.
--INCLUDE "LPROG.INC"
--INCLUDE "RESOLUTI.INC"
--INCLUDE "SYSTEM.INC"
--INCLUDE "TIMER.INC"
--INCLUDE "TIMEGC.INC"
+-INCLUDE "lprog.inc"
+-INCLUDE "resoluti.inc"
+-INCLUDE "system.inc"
+-INCLUDE "timer.inc"
+-INCLUDE "timegc.inc"
 	OUTPUT = 'SYSTEM = ' SYSTEM()
 	OUTPUT = 'RESOLUTION POSITIVE = ' (GT(RESOLUTION(),0) 'YES')
 	OUTPUT = 'LPROG_A = ' LPROG()

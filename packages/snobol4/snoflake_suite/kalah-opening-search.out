@@ -1,1 +1,23 @@
 Enter number of stones per pot
+Enter maximum search depth
+          4      4      4      4      4      4
+   0                                                0
+          4      4      4      4      4      4
+Do you want to go first?
+I go.
+Hmmm....
+I pick pot 3.  Value 2
+13 nodes expanded, 10 evaluated
+milliseconds used
+          5      5      5      0      4      4
+   1                                                0
+          4      4      4      4      4      4
+I go again.
+Hmmm....
+I pick pot 6.  Value 0
+12 nodes expanded, 14 evaluated
+milliseconds used
+          0      5      5      0      4      4
+   2                                                0
+          5      5      5      5      4      4
+What's your move?

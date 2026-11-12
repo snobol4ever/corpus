@@ -1,0 +1,4 @@
+<First paragraph starts here.  It has two lines.  This is sentence three.>
+<Second paragraph here.  Continues.>
+skip:    indented should not start a new paragraph attempt
+skip: Final.

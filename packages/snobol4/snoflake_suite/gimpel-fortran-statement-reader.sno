@@ -14,7 +14,7 @@
 * [      Y = X +2 +3]
 * [      Z = Y]
 * <<<
--INCLUDE "FORTREAD.INC"
+-INCLUDE "fortread.inc"
 LOOP	S = FORTREAD()                  :F(DONE)
 	OUTPUT = '[' S ']'              :(LOOP)
 DONE

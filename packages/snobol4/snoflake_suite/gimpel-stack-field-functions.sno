@@ -7,8 +7,8 @@
 * right
 * changed
 * <<<
--INCLUDE "PUSH.INC"
--INCLUDE "FLD.INC"
+-INCLUDE "push.inc"
+-INCLUDE "fld.inc"
 	PUSH('bottom')
 	PUSH('top')
 	N = TOP()

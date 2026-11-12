@@ -14,8 +14,8 @@
 * beta
 * alpha
 * <<<
--INCLUDE "READL.INC"
--INCLUDE "READRL.INC"
+-INCLUDE "readl.inc"
+-INCLUDE "readrl.inc"
 	L = READL(POS(0) 'STOP')
 RL1	IDENT(L)                        :S(RL2)
 	OUTPUT = VALUE(L)

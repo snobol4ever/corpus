@@ -7,12 +7,12 @@
 * 11,22,33,44
 * 3
 * <<<
--INCLUDE "SEQ.INC"
--INCLUDE "AI.INC"
--INCLUDE "AOPA.INC"
--INCLUDE "TRUNC.INC"
--INCLUDE "STRINGOU.INC"
--INCLUDE "FIND.INC"
+-INCLUDE "seq.inc"
+-INCLUDE "ai.inc"
+-INCLUDE "aopa.inc"
+-INCLUDE "trunc.inc"
+-INCLUDE "stringou.inc"
+-INCLUDE "find.inc"
 	A = ARRAY(4)
 	A[1] = 'DOG'; A[2] = 'CAT'; A[3] = 'EEL'; A[4] = 'APE'
 	I = ARRAY(2); I[1] = 4; I[2] = 2

@@ -5,11 +5,11 @@
 * APPLE,DATE,FIG,KIWI,PEAR
 * ,APPLE,DATE,FIG,KIWI,PEAR,
 * <<<
--INCLUDE "SWAP.INC"
--INCLUDE "BSORT.INC"
--INCLUDE "HSORT.INC"
--INCLUDE "SSORT.INC"
--INCLUDE "STRINGOU.INC"
+-INCLUDE "swap.inc"
+-INCLUDE "bsort.inc"
+-INCLUDE "hsort.inc"
+-INCLUDE "ssort.inc"
+-INCLUDE "stringou.inc"
 	A = ARRAY(5)
 	A[1] = 'PEAR'; A[2] = 'FIG'; A[3] = 'APPLE'; A[4] = 'KIWI'; A[5] = 'DATE'
 	BSORT(A,1,5)

@@ -15,9 +15,9 @@
 * ONCE:[B]
 * ONCE-USED:[no match]
 * <<<
--INCLUDE "ASM360.INC"
--INCLUDE "PLI_STMT.INC"
--INCLUDE "ONCE.INC"
+-INCLUDE "asm360.inc"
+-INCLUDE "pli_stmt.inc"
+-INCLUDE "once.inc"
 
 * ASM360 — book example from p. 160. Operand quote-balancing must ignore
 * the apostrophe in L'ABC per the IBM360 assembler manual rule.

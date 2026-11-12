@@ -1,0 +1,6 @@
+<LABEL X = 1;>
+< Y = "STRING; WITH ; SEMIS";>
+< Z = X + Y;>
+< W = Z * 2;>
+< OUTPUT = W    "continuation";>
+<END;>

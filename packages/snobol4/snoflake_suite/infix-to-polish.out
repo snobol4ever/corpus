@@ -1,1 +1,5 @@
  INFIX FORM                          PREFIX FORM
+
+((A*(B+C))-(D/E))                   -(*(A, +(B, C)), /(D, E))
+A-B-C-D-E-F*G                       -(-(-(-(-(A, B), C), D), E), *(F, G))
+((A+(B*G))-(D/P))                   -(+(A, *(B, G)), /(D, P))

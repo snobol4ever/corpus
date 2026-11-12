@@ -16,7 +16,7 @@
 * skip:    indented should not start a new paragraph attempt
 * skip: Final.
 * <<<
--INCLUDE "PARAGRAP.INC"
+-INCLUDE "paragrap.inc"
 LOOP	P = PARAGRAPH(POS(0) ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ'))     :F(NEXT)
 	OUTPUT = '<' P '>'                                          :(LOOP)
 NEXT	LINE = READ()                                               :F(DONE)

@@ -8,7 +8,7 @@
 * FRIDAY
 * MONDAY
 * <<<
--INCLUDE "DAY.INC"
+-INCLUDE "day.inc"
 	OUTPUT = DAY('3/24/71')
 	OUTPUT = D
 	OUTPUT = DAY('3/24/1825')

@@ -11,6 +11,6 @@
 * @expect >>>
 * A,2,B,2,D,,E,,C,1,F,,
 * <<<
--INCLUDE "TREEREAD.INC"
+-INCLUDE "treeread.inc"
 	OUTPUT = TREEREAD(1)
 END
