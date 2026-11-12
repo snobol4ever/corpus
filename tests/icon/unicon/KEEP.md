@@ -1,9 +1,17 @@
-# corpus/tests/icon/unicon -- the witnesses of DESIGN-PLAN: unicon (the cto, 2026-10-31 09:52 CDT, CEO-2072; .github/ARCH-UNICON.md)
+# corpus/tests/icon/unicon -- the six Unicon package witnesses the icon master cannot hold yet (the coo 2026-11-12)
 
-A witness folder, not a suite (CEO-1342): STEPS.tsv is the plan, each `uni_*.icn` a witness of at most 30 lines with its `.ref` cut from the oracle
-(unicon 13.3, /home/resources/unicon/bin/unicon through `unicon_bin()`; `uni_plain_method_ident.ref` from Arizona icont/iconx because unicon refuses
-that program: it is the Icon fallback's witness). `uni_pkg_shapes.icn` is the package file `uni_pkg_import.icn` imports, not a witness of its own.
-Graded by `harness/scripts/test_design_unicon_steps.sh --step N` in both modes from this folder; the UniTests package suite is the population,
-`corpus/packages/icon/unicon_tests/` (hq_icon's row). Outputs never land here: the harness writes under /tmp.
+Every other witness of DESIGN-PLAN unicon is an entry `unicon__<name>` of the icon master; the plan is `harness/designs/unicon/STEPS.tsv`
+(with `AREAS.tsv` and `UNITESTS_MAP.tsv`), graded by `harness/scripts/test_design_unicon_steps.sh --step N`, which reads an entry first and
+this folder second. These six stay because each is a program plus package files, and the unicon oracle answers it only when the package
+files are compiled first (`unicon -c`) and linked: MEASURED 2026-11-12, `util_add_ladder_witness.py --oracle unicon --file <package>` cut
+an EMPTY answer for the first five against their 1 to 4 line refs. They enter when the oracle run and the harness compile a test's
+package files (the cio's item, tests-folder-consolidation-cio (3)), and this file leaves with them.
 
-Steps 6-16 (CTO-513, 2026-11-05): the UniTests-to-100 witnesses uni_posix_* uni_trace_budget uni_lex_* uni_bi_* uni_co_call_args uni_regex_literal uni_pattern_image uni_thread_* uni_gc_*; each ref cut from unicon twice; a witness without a marker ends in `class UniconMarker()` / `end` so the Unicon state applies (the harness passes no --dialect). Design text: skill unicon section 7.
+- `uni_pkg_import.icn` (`import shapes`: `uni_pkg_shapes.icn`)
+- `uni_import_pkg_late.icn` (`import late`: `uni_pkg_late.icn`, which links `uni_pkg_shapes.icn`)
+- `uni_link_markerless_unicon.icn` (`link uni_link_markerless_helper`: `uni_link_markerless_helper.icn`)
+- `uni_pkg_invocable_before_header.icn` (`import pkinv`: `pkinv.icn`, `pkinv_more.icn`)
+- `uni_pkg_two_files.icn` (`import pktwo`: `pktwo.icn`, `pktwo_more.icn`)
+- `pkself/uni_pkg_named_like_the_program.icn` (`import uni_pkg_named_like_the_program`: `pkself/lib/pkself_lib.icn`)
+
+Each ref is cut from unicon 13.3 (`unicon_bin()`, twice, identical); the package files carry no ref, being no program of their own.

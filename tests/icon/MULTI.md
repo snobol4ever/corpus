@@ -12578,6 +12578,27 @@ pattern_9(7) = (Any('a') || "b" || Arbno("c") .| Len(2)) || Rpos(0) pattern
 pattern_11(3) = (Span(&digits)) -> n
 ```
 
+## unicon__uni_plain_method_ident
+
+```Icon
+# a plain Icon program: no class, package, import or method header, so Unicon's eight words are identifiers (IPL progs/when.icn, procs/gdl2.icn)
+procedure main()
+   local method, class, package;
+   method := "none"; class := 3; package := [method, class];
+   every write(!package);
+   write(sortmethod("asc"));
+end
+procedure sortmethod(method)
+   return if method == "asc" then "ascending" else "descending";
+end
+```
+
+```stdout
+none
+3
+ascending
+```
+
 ## ladder__rung29_builtins_an_operator_value_with_a_null_operand_raises
 
 ```Icon
