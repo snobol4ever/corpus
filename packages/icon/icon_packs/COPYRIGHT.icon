@@ -1,0 +1,11 @@
+The files of this folder come from the Icon program library (packs/euler of the Icon distribution, version 9.5.25a), copied as shipped.
+The README of the Icon distribution says:
+
+    This material is in the public domain.  You may use and copy this material
+    freely.  This privilege extends to modifications, although any modified
+    version of this system given to a third party should clearly identify your
+    modifications as well as the original source.
+
+parsell1.icn, readll1.icn and semstk.icn come from T.W. Christopher's TLC parser generator (packs/tcll1, vendored in pack_tcll1 on the
+same footing); parsell1.icn carries its own notice, kept as shipped: "Copyright (C) 1994, T.W. Christopher and G.K. Thiruvathukal. All
+rights reserved. The use of TLC is governed by conditions similar to GNU Copyleft."

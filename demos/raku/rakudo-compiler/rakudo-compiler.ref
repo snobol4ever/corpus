@@ -1,0 +1,97 @@
+TOP: my $total = 0; my $name = "Rakudo"; $total = $total + 3 * (4...
+  lang-version: 
+  statementlist: my $total = 0; my $name = "Rakudo"; $total = $total + 3 * (4...
+    statement: my $total = 0
+      EXPR: my $total = 0
+        scope_declarator: my $total = 0
+          sym: my
+          scoped: $total = 0
+            DECL: $total = 0
+              variable_declarator: $total
+                variable: $total
+                  sigil: $
+                  desigilname: total
+                    longname: total
+                      name: total
+                        identifier: total
+              initializer: = 0
+                sym: =
+                EXPR: 0
+                  value: 0
+                    number: 0
+                      numish: 0
+                        integer: 0
+                          VALUE: 0
+                          decint: 0
+            declarator: $total = 0
+              variable_declarator: $total
+                variable: $total
+                  sigil: $
+                  desigilname: total
+                    longname: total
+                      name: total
+                        identifier: total
+              initializer: = 0
+                sym: =
+                EXPR: 0
+                  value: 0
+                    number: 0
+                      numish: 0
+                        integer: 0
+                          VALUE: 0
+                          decint: 0
+    statement: my $name = "Rakudo"
+      EXPR: my $name = "Rakudo"
+        scope_declarator: my $name = "Rakudo"
+          sym: my
+          scoped: $name = "Rakudo"
+            DECL: $name = "Rakudo"
+              variable_declarator: $name
+                variable: $name
+                  sigil: $
+                  desigilname: name
+                    longname: name
+                      name: name
+                        identifier: name
+              initializer: = "Rakudo"
+                sym: =
+                EXPR: "Rakudo"
+                  value: "Rakudo"
+                    quote: "Rakudo"
+                      nibble: Rakudo
+            declarator: $name = "Rakudo"
+              variable_declarator: $name
+                variable: $name
+                  sigil: $
+                  desigilname: name
+                    longname: name
+                      name: name
+                        identifier: name
+              initializer: = "Rakudo"
+                sym: =
+                EXPR: "Rakudo"
+                  value: "Rakudo"
+                    quote: "Rakudo"
+                      nibble: Rakudo
+    statement: $total = $total + 3 * (4 - 1)
+      EXPR: = $total + 3 * (4 - 1)
+        OPER: =
+          sym: =
+          O: 
+        infix: =
+          sym: =
+          O: 
+    statement: say $name ~ " parses " ~ $total
+      EXPR: say $name ~ " parses " ~ $total
+        longname: say
+          name: say
+            identifier: say
+        args: $name ~ " parses " ~ $total
+          arglist: $name ~ " parses " ~ $total
+            EXPR: ~ $total
+              OPER: ~
+                sym: ~
+                O: 
+              infix: ~
+                sym: ~
+                O: 

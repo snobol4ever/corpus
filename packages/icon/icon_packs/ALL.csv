@@ -1,0 +1,13 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,t0,t0.eul,icon_packs__euler_t0,icon_packs,4,0,131072,4096,60,
+2,t1,t1.eul,icon_packs__euler_t1,icon_packs,5,0,131072,4096,60,
+3,t2,t2.eul,icon_packs__euler_t2,icon_packs,6,0,131072,4096,60,
+4,t3,t3.eul,icon_packs__euler_t3,icon_packs,8,0,131072,4096,60,
+5,t4,t4.eul,icon_packs__euler_t4,icon_packs,8,0,131072,4096,60,
+6,t5,t5.eul,icon_packs__euler_t5,icon_packs,9,0,131072,4096,60,
+7,t6,t6.eul,icon_packs__euler_t6,icon_packs,46,0,131072,4096,60,
+8,t7,t7.eul,icon_packs__euler_t7,icon_packs,12,0,131072,4096,60,
+9,t8,t8.eul,icon_packs__euler_t8,icon_packs,53,0,131072,4096,60,
+10,t9,t9.eul,icon_packs__euler_t9,icon_packs,40,0,131072,4096,60,
+11,t10,t10.eul,icon_packs__euler_t10,icon_packs,16,0,131072,4096,60,
+12,t11,t11.eul,icon_packs__euler_t11,icon_packs,7,0,131072,4096,60,

@@ -1,0 +1,137 @@
+x<-1;
+isn x
+true
+isb x
+false
+isr x
+false
+isl x
+false
+isli x
+false
+isy x
+false
+isp x
+false
+isu x
+false
+x<-true;
+isn x
+false
+isb x
+true
+isr x
+false
+isl x
+false
+isli x
+false
+isy x
+false
+isp x
+false
+isu x
+false
+x<-@i;
+isn x
+false
+isb x
+false
+isr x
+false
+isl x
+false
+isli x
+false
+isy x
+false
+isp x
+false
+isu x
+true
+x<-L;
+isn x
+false
+isb x
+false
+isr x
+false
+isl x
+true
+isli x
+false
+isy x
+false
+isp x
+false
+isu x
+false
+x<-();
+isn x
+false
+isb x
+false
+isr x
+false
+isl x
+false
+isli x
+true
+isy x
+false
+isp x
+false
+isu x
+false
+x<-symbol;
+isn x
+false
+isb x
+false
+isr x
+false
+isl x
+false
+isli x
+false
+isy x
+true
+isp x
+false
+isu x
+false
+x<-'1';
+isn x
+true
+isb x
+false
+isr x
+false
+isl x
+false
+isli x
+false
+isy x
+false
+isp x
+false
+isu x
+false
+x<-undef;
+isn x
+false
+isb x
+false
+isr x
+false
+isl x
+false
+isli x
+false
+isy x
+false
+isp x
+false
+isu x
+true
+done

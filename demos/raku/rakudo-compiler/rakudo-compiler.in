@@ -1,0 +1,4 @@
+my $total = 0;
+my $name = "Rakudo";
+$total = $total + 3 * (4 - 1);
+say $name ~ " parses " ~ $total;
