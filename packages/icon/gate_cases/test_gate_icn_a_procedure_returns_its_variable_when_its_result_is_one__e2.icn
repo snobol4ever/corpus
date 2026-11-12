@@ -1,0 +1,9 @@
+procedure main()
+   floc() := 2;
+   write("not reached");
+end
+procedure floc()
+   local z;
+   z := 1;
+   return z;
+end

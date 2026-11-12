@@ -1,0 +1,5 @@
+        DEFINE('UNCONS(N)')                     :(UE)
+UNCONS  UNCONS = 'u' N                          :(RETURN)
+UE      OPSYN(.POP, .UNCONS)
+        OUTPUT = POP('a') UNCONS('b')
+END

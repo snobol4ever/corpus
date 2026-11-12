@@ -1,0 +1,6 @@
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	N = TABLE()
+	N = TABLE(7,3)
+	OUTPUT = 'trace=' &TRACE
+END

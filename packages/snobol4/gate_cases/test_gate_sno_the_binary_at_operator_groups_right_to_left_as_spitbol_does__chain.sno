@@ -1,0 +1,12 @@
+        DEFINE('F(X,Y)')
+        OPSYN('@','F',2)
+        OUTPUT = 1 @ 2 @ 3
+        OUTPUT = 1 @ 2 @ 3 @ 4
+        OUTPUT = 1 @ 2 + 3 @ 4
+        OUTPUT = (1 @ 2) @ 3
+        OUTPUT = 1 @ (2 @ 3)
+        OUTPUT = 'a' @ 'b' @ 'c' @ 'd' @ 'e'
+        OUTPUT = 'x' 1 @ 2 @ 3 'y'
+        :(END)
+F       F = '(' X ',' Y ')'                     :(RETURN)
+END

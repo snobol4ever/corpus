@@ -1,0 +1,2 @@
+procedure g(); suspend 1 | 2; end
+procedure main(); "abc" ? { every g() do write(&subject); write("scan") }; write("after"); every g() do write("y"); write("end"); end

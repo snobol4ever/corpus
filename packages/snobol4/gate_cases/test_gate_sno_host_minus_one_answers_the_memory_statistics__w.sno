@@ -1,0 +1,19 @@
+        &ERRLIMIT = 10
+        OUTPUT = 'wordsize ' HOST(-1,6)
+        OUTPUT = 'string selector ' HOST(-1,'6')
+        OUTPUT = EQ(HOST(-1),HOST(-1,0)) 'missing selector reads 0'
+        OUTPUT = GT(HOST(-1,0),0) 'increment positive'
+        OUTPUT = GE(HOST(-1,1),HOST(-1,0)) 'cap not below increment'
+        OUTPUT = GT(HOST(-1,2),0) 'base positive'
+        OUTPUT = GE(HOST(-1,3),HOST(-1,2)) 'top not below base'
+        OUTPUT = GT(HOST(-1,4),0) 'stack size positive'
+        OUTPUT = GE(HOST(-1,4),HOST(-1,5)) 'stack in use within size'
+        OUTPUT = GE(HOST(-1,7),HOST(-1,5)) 'high water not below use'
+        HOST(-1,8)                              :S(BAD)
+        OUTPUT = 'selector 8 fails ' &ERRTYPE
+        HOST(-1,-1)                             :S(BAD)
+        OUTPUT = 'selector -1 fails ' &ERRTYPE
+        HOST(-1,'x')                            :S(BAD)
+        OUTPUT = 'selector x fails ' &ERRTYPE   :(END)
+BAD     OUTPUT = 'a bad selector answered'
+END

@@ -1,0 +1,9 @@
+        &ERRLIMIT = 5
+        S = ''
+        SETEXIT('CONTINUE')
+        'abc' ? ANY(*S)                                  :S(Y)F(N)
+Y       OUTPUT = 'matched'                               :(Z)
+N       OUTPUT = 'failed ' &ERRLIMIT ' ' &ERRTYPE
+Z       'abc' ? SPAN(*S) 'q'
+        OUTPUT = 'next ' &ERRLIMIT
+END

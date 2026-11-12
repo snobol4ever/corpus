@@ -1,0 +1,4 @@
+global i
+procedure main()
+i := 9; write(i > (i := 1));
+end

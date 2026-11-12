@@ -1,0 +1,5 @@
+	INPUT(.C, 8, 'companion.txt')
+	OUTPUT(.F, 7, 'made.txt')
+	F = 'written'
+	OUTPUT = 'read: ' C
+END

@@ -1,0 +1,12 @@
+        CODE('PF PF = N S :(RETURN)')
+        DEFINE('PF(N,S)C,V', 'PF')
+        I = 0
+A1      I = I + 1
+        OUTPUT = 'arg ' I ' ' ARG(.PF, I)       :F(A2)
+        LT(I, 3)                                :S(A1)
+A2      I = 0
+L1      I = I + 1
+        OUTPUT = 'local ' I ' ' LOCAL(.PF, I)   :F(L2)
+        LT(I, 3)                                :S(L1)
+L2      OUTPUT = 'end'
+END

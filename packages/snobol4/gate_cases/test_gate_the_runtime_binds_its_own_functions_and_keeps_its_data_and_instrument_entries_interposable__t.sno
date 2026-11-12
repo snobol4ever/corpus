@@ -1,0 +1,4 @@
+	T1 = TIME()
+	T2 = TIME()
+	OUTPUT = 'ok'
+END

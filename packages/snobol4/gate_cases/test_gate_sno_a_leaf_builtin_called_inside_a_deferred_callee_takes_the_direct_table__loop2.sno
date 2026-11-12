@@ -1,0 +1,13 @@
+        DATA('nd(a,b)')
+        DEFINE('lw(x)')                                 :(lw_end)
+lw      lw = REPLACE(x, &UCASE, &LCASE)                 :(RETURN)
+lw_end
+        DEFINE('drv(n)i,c')                             :(drv_end)
+drv     i = 0
+dloop   'Aa' ? LEN(1) . c *lw(c)                        :F(dbad)
+        i = LT(i, n) i + 1                              :S(dloop)
+        drv = 'done ' i                                 :(RETURN)
+dbad    drv = 'failed at ' i                            :(RETURN)
+drv_end t = nd(1, 2)
+        OUTPUT = drv(1000)
+END

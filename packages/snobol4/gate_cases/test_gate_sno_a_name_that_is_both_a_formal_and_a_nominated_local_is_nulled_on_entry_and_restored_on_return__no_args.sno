@@ -1,0 +1,8 @@
+        X = 5
+        DEFINE('F(X)X')
+        F()
+        OUTPUT = 'a ' X
+        :(FIN)
+F       OUTPUT = 'in [' X ']'  :(RETURN)
+FIN
+END

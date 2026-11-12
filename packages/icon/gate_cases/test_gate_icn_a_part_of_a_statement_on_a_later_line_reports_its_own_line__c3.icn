@@ -1,0 +1,6 @@
+procedure main()
+   local x;
+   x := 1;
+   repeat
+      x := x + &null;
+end

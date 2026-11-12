@@ -1,0 +1,5 @@
+procedure main()
+   write(integer("0x10") | "int-fails", " ", real("0x1p4") | "real-fails", " ", numeric("0x10") | "num-fails");
+   write(integer("16r10"), " ", real("16r10"), " ", integer(" 0X1F ") | "upper-fails", " ", integer("0x") | "bare-fails");
+   write("0x10" == "0x10", " ", integer("010"), " ", real("1e1"), " ", integer("-0x1") | "neg-fails", " ", numeric("0b1") | "b-fails");
+end

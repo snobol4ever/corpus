@@ -1,0 +1,6 @@
+    DEFINE('F(A,B)')                                    :(F.end)
+F   F = A B REPLACE(A,'ab','AB')                        :(RETURN)
+F.end
+    OUTPUT = F('abc','def')
+    OUTPUT = SIZE(TRIM('  x  ')) DUPL('z',2)
+END

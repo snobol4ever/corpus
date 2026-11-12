@@ -1,0 +1,18 @@
+        OUTPUT = 'integer: ' CONVERT('1', 'integer')                     :S(A) F(Fa)
+Fa      OUTPUT = 'integer: fails'
+A       OUTPUT = 'real: ' CONVERT('1', 'real')                          :S(B) F(Fb)
+Fb      OUTPUT = 'real: fails'
+B       OUTPUT = 'string: ' CONVERT(1, 'string')                        :S(C) F(Fc)
+Fc      OUTPUT = 'string: fails'
+C       OUTPUT = 'Integer: ' CONVERT('1', 'Integer')                    :S(D) F(Fd)
+Fd      OUTPUT = 'Integer: fails'
+D       t = 'integer'
+        OUTPUT = 'variable: ' CONVERT('1', t)                           :S(E) F(Fe)
+Fe      OUTPUT = 'variable: fails'
+E       OUTPUT = 'INTEGER: ' CONVERT('1', 'INTEGER')                    :S(F) F(Ff)
+Ff      OUTPUT = 'INTEGER: fails'
+F       OUTPUT = 'REAL: ' CONVERT('1', 'REAL')                          :S(G) F(Fg)
+Fg      OUTPUT = 'REAL: fails'
+G       OUTPUT = 'STRING: ' DATATYPE(CONVERT(1, 'STRING'))              :S(END) F(Fh)
+Fh      OUTPUT = 'STRING: fails'
+END

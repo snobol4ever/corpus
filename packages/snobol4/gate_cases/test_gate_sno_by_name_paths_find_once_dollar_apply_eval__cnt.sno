@@ -1,0 +1,18 @@
+        TARGET = 0
+        H = 'TARGET'
+        I = 0
+L1      $H = $H + 1
+        I = LT(I, 999) I + 1                            :S(L1)
+        DEFINE('ADD1(V)')                               :(ADD1_END)
+ADD1    ADD1 = V + 1                                    :(RETURN)
+ADD1_END
+        FN = 'ADD1'
+        J = 0
+L2      S = S + APPLY(FN, J)
+        J = LT(J, 1999) J + 1                           :S(L2)
+        X = 10
+        K = 0
+L3      R = EVAL('X + 1')
+        K = LT(K, 999) K + 1                            :S(L3)
+        OUTPUT = TARGET ' ' S ' ' R
+END

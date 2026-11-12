@@ -1,0 +1,11 @@
+        CODE('F K = "loc";  F = X X :(RETURN)')
+        DEFINE('F(X)K', 'F')
+        DEFINE('TRR()')                         :(TRR.END)
+TRR     OUTPUT = 'ret F=[' F '] X=[' X '] K=[' K ']' :(RETURN)
+TRR.END X = 'outer'
+        K = 'outerk'
+        TRACE('F', 'RETURN', , 'TRR')
+        &TRACE = 100
+        Y = F('ab')
+        OUTPUT = 'after y=' Y ' x=' X ' k=' K
+END

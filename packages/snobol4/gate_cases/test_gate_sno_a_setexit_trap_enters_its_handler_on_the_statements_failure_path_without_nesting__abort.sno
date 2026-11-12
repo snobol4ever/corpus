@@ -1,0 +1,8 @@
+        &ERRLIMIT = 5
+        SETEXIT('H')
+        OUTPUT = 'before'
+        A = 'a'
+        X = 1 + A
+        OUTPUT = 'not reached'                                  :(END)
+H       OUTPUT = 'H ' &ERRTYPE                                  :(ABORT)
+END

@@ -1,0 +1,5 @@
+        DEFINE('RETX(NEXT)')            :(MAIN)
+RETX    RETX  =  .L3                    :(NRETURN)
+MAIN    OUTPUT  =  'a'                   :(RETX('L3'))
+L3      OUTPUT  =  'b'
+END

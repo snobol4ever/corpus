@@ -1,0 +1,6 @@
+procedure main()
+   local f;
+   case 1 of {
+1:
+	f(1)};
+end

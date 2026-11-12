@@ -1,0 +1,13 @@
+procedure main();
+   local f, fset, s;
+   f := open(".") | stop("open(.) failed");
+   write("type=", type(f));
+   fset := set();
+   while insert(fset, read(f)) do {
+      insert(fset, !f);
+      insert(fset, reads(f, 25));
+      };
+   close(f);
+   write("entries=", *fset);
+   every s := !sort(fset) do write("entry: ", s);
+end

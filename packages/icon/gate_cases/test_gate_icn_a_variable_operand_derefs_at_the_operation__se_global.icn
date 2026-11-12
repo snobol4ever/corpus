@@ -1,0 +1,4 @@
+global i
+procedure main()
+i := 1; write(i + (i := 5));
+end

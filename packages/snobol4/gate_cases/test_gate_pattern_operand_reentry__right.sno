@@ -1,0 +1,16 @@
+	DEFINE('F(N)')				:(F_END)
+F	F  =  'a' N
+	GE(N,3)					:S(RETURN)
+	F  =  F  |  F(N + 1)			:(RETURN)
+F_END
+	DEFINE('T(NAME,SUBJ,PAT)')		:(T_END)
+T	SUBJ  POS(0) *PAT RPOS(0)		:F(TF)
+	OUTPUT  =  NAME ' matched'		:(RETURN)
+TF	OUTPUT  =  NAME ' NO-MATCH'		:(RETURN)
+T_END
+	P  =  F(1)
+	T('a1', 'a1', P)
+	T('a2', 'a2', P)
+	T('a3', 'a3', P)
+	T('a4', 'a4', P)
+END

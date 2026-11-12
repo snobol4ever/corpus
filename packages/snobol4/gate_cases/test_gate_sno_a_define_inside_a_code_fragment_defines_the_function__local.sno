@@ -1,0 +1,6 @@
+        CODE('MK DEFINE("SQ(N)T") :(RETURN);SQ T = N * N;  SQ = T :(RETURN)')
+        DEFINE('MK()')
+        MK()
+        T = 'outer'
+        OUTPUT = 'sq ' SQ(7) ' ' T
+END

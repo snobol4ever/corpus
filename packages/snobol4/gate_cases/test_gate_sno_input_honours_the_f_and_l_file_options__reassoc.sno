@@ -1,0 +1,8 @@
+        &ERRLIMIT = 5
+        INPUT(.X, 5, '[-f0]')
+        OUTPUT = 'first ' X
+        INPUT(.Y, 5, '[-f0]')                           :F(F)
+        OUTPUT = 'reassoc ok ' Y                        :(E)
+F       OUTPUT = 'reassoc fails ' &ERRTYPE
+E       OUTPUT = 'end'
+END

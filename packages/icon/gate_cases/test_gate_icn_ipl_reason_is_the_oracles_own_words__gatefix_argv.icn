@@ -1,0 +1,4 @@
+procedure main(a)
+   write("argc=", *a);
+   every write("[", !a, "]");
+end

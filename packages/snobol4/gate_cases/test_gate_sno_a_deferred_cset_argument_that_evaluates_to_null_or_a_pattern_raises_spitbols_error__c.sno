@@ -1,0 +1,5 @@
+        &ERRLIMIT = 1
+        S = ''
+        'abc' ? ANY(*S)
+        OUTPUT = 'after ' &ERRLIMIT ' ' &ERRTYPE
+END

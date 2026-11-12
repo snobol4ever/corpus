@@ -1,0 +1,7 @@
+        DEFINE('MK(S)')                         :(MK_END)
+MK      CODE(S)                                 :(RETURN)
+MK_END  MK('LIST OUTPUT = "in:" &STNO :(RETURN)')
+        DEFINE('LIST()')
+        LIST()
+        OUTPUT = 'top:' &STNO
+END

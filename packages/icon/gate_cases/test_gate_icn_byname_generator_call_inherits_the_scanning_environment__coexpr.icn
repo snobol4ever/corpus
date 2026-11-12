@@ -1,0 +1,8 @@
+procedure main()
+   local e;
+   "hello" ? {
+      e := create (&subject || "|" || &pos);
+      write(@e);
+      write(&subject || "|" || &pos);
+   };
+end

@@ -1,0 +1,10 @@
+        &ANCHOR = 1
+        PAT = (ANY('ABCDEFGHIJKLMNOPQRSTUVWXYZ') (BREAK(' ') | REM)) . LABEL
+        'ABS x' ? PAT
+        OUTPUT = '[' LABEL ']'
+        'ACOS' ? PAT
+        OUTPUT = '[' LABEL ']'
+        P2 = (ANY('AB') (SPAN('C') | REM)) . L2
+        'ACCD' ? P2
+        OUTPUT = '[' L2 ']'
+END

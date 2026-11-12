@@ -1,0 +1,26 @@
+        R = 'A' FENCE
+        'XAB' (*R 'C' | 'B')                    :S(Y1)F(N1)
+Y1      OUTPUT = 'deferred-trailing-fence: yes' :(T2)
+N1      OUTPUT = 'deferred-trailing-fence: no'
+T2      'XAB' (R 'C' | 'B')                     :S(Y2)F(N2)
+Y2      OUTPUT = 'stored-trailing-fence: yes'   :(T3)
+N2      OUTPUT = 'stored-trailing-fence: no'
+T3      'XAYAC' ('A' FENCE | 'Q') 'C'           :S(Y3)F(N3)
+Y3      OUTPUT = 'arm-ending-fence: yes'        :(T4)
+N3      OUTPUT = 'arm-ending-fence: no'
+T4      P = ('B' | ABORT)
+        'SNOBOL' P                              :S(Y4)F(N4)
+Y4      OUTPUT = 'stored-abort: yes'            :(T5)
+N4      OUTPUT = 'stored-abort: no'
+T5      INNER = ('X' | ABORT)
+        OUTER = 'Q' | *INNER
+        'SNOBOL' ('Z' | OUTER)                  :S(Y5)F(N5)
+Y5      OUTPUT = 'nested-thunk-abort: yes'      :(T6)
+N5      OUTPUT = 'nested-thunk-abort: no'
+T6      DEFINE('F(X)')                          :(F_END)
+F       OUTPUT = 'F sees [' X ']'
+        F = ''                                  :(RETURN)
+F_END   PAT = FENCE BREAK(' ') $ Q *F(Q) SPAN(' ') *PAT
+        'AB CD EF ' PAT
+        OUTPUT = 'end'
+END

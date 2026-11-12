@@ -1,0 +1,11 @@
+procedure main()
+   local fnum, onull, f;
+   fnum := loadfunc("$T/plug.so", "file_number");
+   onull := loadfunc("$T/plug.so", "open_null");
+   write("input is stream ", fnum(&input));
+   f := onull();
+   write("returned a ", type(f));
+   write("a line of it: ", read(f) | "failed");
+   write("it is stream ", if fnum(f) > 2 then "above 2" else "not above 2");
+   write("end");
+end

@@ -1,0 +1,5 @@
+            I = 0
+loop        I = I + 1
+            OUTPUT = I
+            LE(I, 3) :S(loop)
+END

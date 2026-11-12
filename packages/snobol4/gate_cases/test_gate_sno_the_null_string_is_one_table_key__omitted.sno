@@ -1,0 +1,8 @@
+        READ_TBL = TABLE()
+        READ_TBL[] = 'stdin-entry'
+        DEFINE('MF(P,U)D')                      :(MF_END)
+MF      D = READ_TBL[U]
+        MF = IDENT(D) 'MISSED'                  :S(RETURN)
+        MF = D                                  :(RETURN)
+MF_END  OUTPUT = MF('x')
+END

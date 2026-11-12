@@ -1,0 +1,8 @@
+        CODE('LIST OUTPUT = "in:" &STNO :(RETURN)')
+        CODE('L2 OUTPUT = "in2:" &STNO ; OUTPUT = "in2b:" &STNO :(RETURN)')
+        DEFINE('LIST()')
+        DEFINE('L2()')
+        LIST()
+        L2()
+        OUTPUT = 'top:' &STNO
+END

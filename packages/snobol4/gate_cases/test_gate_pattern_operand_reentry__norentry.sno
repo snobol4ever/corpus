@@ -1,0 +1,16 @@
+	DEFINE('A(N)')				:(A_END)
+A	NE(N,1)					:S(A_DEEP)
+	A  =  'x1'
+	A  =  A  |  A(2)			:(RETURN)
+A_DEEP	A  =  'x2'				:(RETURN)
+A_END
+	DEFINE('T(NAME,SUBJ,PAT)')		:(T_END)
+T	SUBJ  POS(0) *PAT RPOS(0)		:F(TF)
+	OUTPUT  =  NAME ' matched'		:(RETURN)
+TF	OUTPUT  =  NAME ' NO-MATCH'		:(RETURN)
+T_END
+	P  =  A(1)
+	T('x1', 'x1', P)
+	T('x2', 'x2', P)
+	T('x3', 'x3', P)
+END

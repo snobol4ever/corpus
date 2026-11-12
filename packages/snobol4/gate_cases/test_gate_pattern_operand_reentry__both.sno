@@ -1,0 +1,18 @@
+	DEFINE('G(N)')				:(G_END)
+G	G  =  'b' N
+	GE(N,4)					:S(RETURN)
+	G  =  G(N + 1)  |  G LEN(N)  |  G(N + 1)	:(RETURN)
+G_END
+	DEFINE('T(NAME,SUBJ,PAT)')		:(T_END)
+T	SUBJ  POS(0) *PAT RPOS(0)		:F(TF)
+	OUTPUT  =  NAME ' matched'		:(RETURN)
+TF	OUTPUT  =  NAME ' NO-MATCH'		:(RETURN)
+T_END
+	P  =  G(1)
+	T('b1x', 'b1x', P)
+	T('b2xy', 'b2xy', P)
+	T('b3xyz', 'b3xyz', P)
+	T('b4', 'b4', P)
+	T('b1', 'b1', P)
+	T('b2x', 'b2x', P)
+END

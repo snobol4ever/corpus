@@ -1,0 +1,5 @@
+        DEFINE('R(N)')                    :(REND)
+R       R = EQ(N,0) 0                     :S(RETURN)
+        R = R(N - 1) + 1                  :(RETURN)
+REND    OUTPUT = 'depth=' R(50000)
+END

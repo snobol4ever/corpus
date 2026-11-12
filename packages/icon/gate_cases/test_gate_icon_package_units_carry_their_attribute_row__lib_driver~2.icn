@@ -1,0 +1,10 @@
+link lib
+procedure q(x);
+  return x + 1;
+end
+procedure main();
+  write(libp(1));
+  &trace := -1;
+  write(q(1));
+  &trace := 0;
+end

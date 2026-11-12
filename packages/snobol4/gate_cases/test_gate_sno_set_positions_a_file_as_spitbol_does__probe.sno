@@ -1,0 +1,3 @@
+        INPUT(.IN,1,'x.txt')
+        OUTPUT = SET(1,0,1)
+END

@@ -1,0 +1,15 @@
+say floor(2.5); say ceiling(2.5); say round(2.5); say truncate(2.5); say sign(2.5); say sign(-3); say sign(0);
+say log2(1.5); say log10(1.5);
+say sinh(1.5); say cosh(1.5); say tanh(1.5); say asinh(1.5); say acosh(1.5); say atanh(0.5);
+say (0.5).asin; say (0.5).acos; say (0.5).atan; say (1.5).sec; say (1.5).cosec; say (1.5).cotan;
+say atan2(1, 2); say 1.atan2(2);
+my %h = a => 1;
+say keys(%h); say values(%h);
+my @a = 1, 2, 3;
+say elems(@a); say end(@a);
+say shift(@a); say @a;
+unshift(@a, 0); say @a;
+say pop(@a); say @a;
+say ords("ab"); say "é".ords;
+say map({ $_ * 2 }, 1, 2); say grep({ $_ > 1 }, 1, 2, 3); say first({ $_ > 1 }, 1, 2, 3);
+say 7.is-prime; say 8.is-prime; say 255.base(16); say "ff".parse-base(16); say "5".Int; say 5.Num;

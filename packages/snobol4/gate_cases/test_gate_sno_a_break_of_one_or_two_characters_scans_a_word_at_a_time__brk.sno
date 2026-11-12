@@ -1,0 +1,49 @@
+        sets = ARRAY('6')
+        sets[1] = 'x'
+        sets[2] = ','
+        sets[3] = 'xy'
+        sets[4] = ',;'
+        sets[5] = 'xyz'
+        sets[6] = '  '
+        starts = ARRAY('9')
+        starts[1] = 0
+        starts[2] = 1
+        starts[3] = 2
+        starts[4] = 5
+        starts[5] = 7
+        starts[6] = 8
+        starts[7] = 9
+        starts[8] = 16
+        starts[9] = 30
+        si = 0
+sloop   si = si + 1
+        GT(si, 6)                                       :S(done)
+        set = sets[si]
+        len = -1
+lloop   len = len + 1
+        GT(len, 24)                                     :S(sloop)
+        p = -2
+ploop   p = p + 1
+        GE(p, len)                                      :S(lloop)
+        s =
+        i = 0
+bloop   EQ(i, len)                                      :S(bdone)
+        ch = 'a'
+        ch = EQ(i, p) SUBSTR(set, 1 + REMDR(i, SIZE(set)), 1)
+        ch = EQ(i, p + 3) SUBSTR(set, 1 + REMDR(i + 1, SIZE(set)), 1)
+        s = s ch
+        i = i + 1                                       :(bloop)
+bdone   r =
+        ki = 0
+kloop   ki = ki + 1
+        GT(ki, 9)                                       :S(kdone)
+        k = starts[ki]
+        s POS(k) BREAK(set) @n                          :S(hit)F(miss)
+hit     r = r ' ' n                                     :(kloop)
+miss    r = r ' F'                                      :(kloop)
+kdone   OUTPUT = si ' ' len ' ' p ':' r
+        s POS(0) BREAKX(set) @n                         :S(bx)F(bxf)
+bx      OUTPUT = 'bx ' n                                :(ploop)
+bxf     OUTPUT = 'bx F'                                 :(ploop)
+done
+END

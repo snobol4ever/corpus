@@ -1,0 +1,122 @@
+test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__rec: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_builder_mines_a_snobol4_collection_by_spitbol__input: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_builder_mines_a_snobol4_collection_by_spitbol__quiet: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_builder_mines_a_snobol4_collection_by_spitbol__refused: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_capture_stdin_and_red_exit__ambig: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_capture_stdin_and_red_exit__echo_line: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_cas_island_grows_with_the_declared_stack__cas: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_container_format_2_two_groups_read_back_identical__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_demos_suite_grades_each_demo_in_both_modes__chained: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_demos_suite_grades_each_demo_in_both_modes__echo: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_demos_suite_grades_each_demo_in_both_modes__util: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_emit_dwarf_loc__gatewit: missing corpus dependency: -INCLUDE 'gatehelper.inc' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_end_only_program__end_only: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_errlimit_survival_is_measured_per_code__e038: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_errlimit_survival_is_measured_per_code__e242: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w.defer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_gc_the_spill_record_carries_a_callee_saved_heap_pointer_across_an_allocating_return__d: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_harness_renders_a_spitbol_fatal_into_stdout__fatal_witness: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_harness_renders_a_spitbol_fatal_into_stdout__silent_fatal_witness: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_harness_road_lib_reads_the_per_process_verdict__echo: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_harness_road_lib_reads_the_per_process_verdict__hang: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__s: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_monitor_an_untyped_value_grades_ungraded_never_agree__untyped_table: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_one_runner_admits_a_port_engine_by_lang_at_engine_and_keys_its_rows__ALL: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
+test_gate_oracle_args_sidecar_is_declared_and_reaches_the_oracle__deep: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__Q: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_package_runners_read_each_units_declared_compile_args__ALL: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
+test_gate_probe_suite_grading_path__zzz_gate_suite: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_progress_records_the_configuration_it_exercised__ALL: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
+test_gate_s4e_donewhen_runs_the_whole_criterion__w: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_sc_duplicate_label_is_refused_at_parse__twin: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_scrip_environment_is_scanned_once_not_read_once_per_knob__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_scrip_runs_one_liners_and_multi_liners_from_the_container_files__ONE-LINERS: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
+test_gate_scrip_sizes_the_heap_with_d_and_i__deep: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_scrip_switches_are_spitbols__c: multi-program file: 2 top-level END statements -- not a single valid program (SCRIP correctly refuses a duplicate 'END' label; the oracle instead silently continues past it, so neither engine's output is a meaningful single-program comparison)
+test_gate_scrip_switches_are_spitbols__list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_scrip_switches_are_spitbols__r: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snc_two_nreturn_functions_link_in_m4__t: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_bare_fence_as_an_alternation_arm_matches_null_and_seals_its_backtrack__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_bare_fence_in_a_pattern_thunk_releases_the_cells_to_its_left__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_break_of_one_or_two_characters_scans_a_word_at_a_time__slopeN: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_a_builtin_called_short_or_over_its_arity_pads_with_null_and_drops_extras__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_call_saves_binds_and_restores_an_io_associated_name_without_io__outlocal: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_call_through_an_opsyn_alias_is_the_functions_own_call__tr_tn: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_a_capture_over_an_alternation_whose_arms_each_capture_reads_its_own_save_cell__hdr: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_capture_over_succeed_or_a_bare_fence_reads_its_own_saved_cursor__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_deferred_cset_argument_that_evaluates_to_null_or_a_pattern_raises_spitbols_error__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_define_inside_a_code_fragment_defines_the_function__ctl: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_a_dynamic_function_called_from_a_code_built_function_returns_its_value__ur: missing corpus dependency: -INCLUDE 'SPITCORE.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_sno_a_dynamic_function_called_from_a_code_built_function_returns_its_value__ur2: missing corpus dependency: -INCLUDE 'SPITCORE.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_sno_a_failed_unary_minus_or_plus_takes_its_boxs_failure_exit__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_fence_inside_a_match_keeps_its_state_in_the_match_frame__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_match_inside_eval_that_fails_after_a_backtrack_point_returns_from_its_chain__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_nul_in_a_string_arm_of_an_alternation_is_matched_whole_in_both_modes__b: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_pattern_builtin_numeric_argument_out_of_range_or_not_integer_raises_spitbols_error__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_runtime_error_names_the_source_file_the_line_and_the_statement_of_the_failing_statement__fncall: missing corpus dependency: -INCLUDE 'fn.inc' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_sno_a_runtime_error_names_the_source_file_the_line_and_the_statement_of_the_failing_statement__incl: missing corpus dependency: -INCLUDE 'inc.inc' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_sno_a_setexit_trap_enters_its_handler_on_the_statements_failure_path_without_nesting__many: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_sno_a_unary_and_a_binary_opsyn_of_one_operator_are_two_functions__ctl: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_an_abort_inside_a_pattern_thunk_fails_the_match_without_a_crash__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_an_argument_evaluated_before_a_match_in_a_later_argument_reads_its_own_slot__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_an_array_or_table_as_a_pattern_operand_raises_the_operand_errors_of_spitbol_in_both_modes__b: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_an_error_inside_eval_of_a_string_fails_the_eval_and_counts_against_errlimit__1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_sno_an_operand_pushed_before_a_match_is_read_after_its_frame_is_whacked__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_by_name_paths_find_once_dollar_apply_eval__u: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_captured_substring_compares_by_its_own_length__s: missing corpus dependency: -INCLUDE 'SPELL.INC' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_sno_code_of_text_that_does_not_compile_raises_spitbols_compile_error__cd: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_convert_takes_its_datatype_name_exactly_as_spitbol_does__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_data_protect_mode4__w: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_eval_of_a_string_opens_its_chain_from_the_box_and_lands_with_no_c_frame__s1: oracle timed out -- non-terminating or too slow for the grading timeout
+test_gate_sno_eval_of_text_that_does_not_compile_raises_spitbols_syntax_error__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_every_unused_operator_opsyn_names_calls_its_function__ctl: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_goto_field_call_is_by_name__val: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_goto_with_no_preceding_error__g_abort: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_goto_with_no_preceding_error__g_continue: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_goto_with_no_preceding_error__g_scontinue: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_host_4_fails_when_the_variable_is_not_in_the_environment__e: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_keyword_spelling_is_case_sensitive__read_canon: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_keyword_spelling_is_case_sensitive__read_folded: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_keyword_spelling_is_case_sensitive__read_mixed: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_keyword_spelling_is_case_sensitive__udc_mixed: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_keyword_spelling_is_case_sensitive__write_anchor: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_keyword_spelling_is_case_sensitive__write_folded: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k3: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k4: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k5: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_one_parser_one_dialect_refuses_what_sbl_refuses__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_parser_refuses_at_compile_time_what_spitbol_refuses__s: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_rewind_on_an_unopened_unit_raises_174__d: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_rewind_on_an_unopened_unit_raises_174__w: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_set_positions_a_file_as_spitbol_does__probe: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sno_terminal_read_fails_without_a_tty__w_input: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_terminal_read_fails_without_a_tty__w_loop: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_the_null_string_concatenated_with_an_unevaluated_expression_is_that_expression_in_both_modes__b: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_unary_caret_is_an_undefined_operator_error_29__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_sno_value_is_restored_and_diag1_test1_grade_under_their_mask_rows__va: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_snobol4_list_listing_matches_sbl__inc1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_list_listing_matches_sbl__inc_a: missing corpus dependency: -INCLUDE 'inc_b.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_snobol4_list_listing_matches_sbl__inc_b: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_list_listing_matches_sbl__inc_c: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_list_listing_matches_sbl__inc_d: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_list_listing_matches_sbl__inc_e: missing corpus dependency: -INCLUDE 'inc_d.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_snobol4_list_listing_matches_sbl__p_chain: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_snobol4_list_listing_matches_sbl__p_inc: missing corpus dependency: -INCLUDE 'inc1.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_snobol4_list_listing_matches_sbl__p_inc2: missing corpus dependency: -INCLUDE 'inc_a.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_snobol4_list_listing_matches_sbl__p_inc3: missing corpus dependency: -INCLUDE 'inc_c.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_snobol4_list_listing_matches_sbl__p_inc4: missing corpus dependency: -INCLUDE 'inc_e.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+test_gate_snobol4_list_listing_matches_sbl__p_print: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_snobol4_list_listing_matches_sbl__p_title: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_snobol4_noexecute_matches_sbl__noex_chain: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_noexecute_matches_sbl__noex_first: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_noexecute_matches_sbl__noex_last: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_noexecute_matches_sbl__noex_late: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snobol4_noexecute_matches_sbl__noex_list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_the_default_stack_and_heap_are_spitbols__dd: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against

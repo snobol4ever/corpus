@@ -1,0 +1,59 @@
+        &ANCHOR = 1
+        '0' ? (0.0 | 'q')                                :S(A1)F(B1)
+A1      OUTPUT = 'alt 0.0 on 0 matches'                  :(C1)
+B1      OUTPUT = 'alt 0.0 on 0 fails'
+C1      '2' ? ('q' | 2.0)                                :S(A2)F(B2)
+A2      OUTPUT = 'ralt 2.0 on 2 matches'                 :(C2)
+B2      OUTPUT = 'ralt 2.0 on 2 fails'
+C2      '0.z' ? (0.0 POS(2)) 'z'                         :S(A3)F(B3)
+A3      OUTPUT = 'cat 0.0 POS(2) on 0.z matches'         :(C3)
+B3      OUTPUT = 'cat 0.0 POS(2) on 0.z fails'
+C3      '0.0.' ? ARBNO(0.0) RPOS(0)                      :S(A4)F(B4)
+A4      OUTPUT = 'arbno 0.0 on 0.0. matches'             :(C4)
+B4      OUTPUT = 'arbno 0.0 on 0.0. fails'
+C4      '0' ? FENCE(0.0)                                 :S(A5)F(B5)
+A5      OUTPUT = 'fence 0.0 on 0 matches'                :(C5)
+B5      OUTPUT = 'fence 0.0 on 0 fails'
+C5      '0.' ? (0.0 | 'q') . W                           :S(A6)F(B6)
+A6      OUTPUT = 'capture ' W                            :(C6)
+B6      OUTPUT = 'capture fails'
+C6      '-3.' ? (-3.0 | 'q') . W                         :S(A7)F(B7)
+A7      OUTPUT = 'neg capture ' W                        :(C7)
+B7      OUTPUT = 'neg capture fails'
+C7      S = '' 1.0E20
+        OUTPUT = 'big ' S
+        S ? (1.0E20 | 'q') . W                           :S(A8)F(B8)
+A8      OUTPUT = 'big capture ' W                        :(C8)
+B8      OUTPUT = 'big capture fails'
+C8      S = '' 1.0E-5
+        OUTPUT = 'small ' S
+        S ? (1.0E-5 | 'q') . W                           :S(A9)F(B9)
+A9      OUTPUT = 'small capture ' W                      :(C9)
+B9      OUTPUT = 'small capture fails'
+C9      P = 0.0 | 'q'
+        OUTPUT = 'datatype ' DATATYPE(P)
+        '0' ? P                                          :S(AA)F(BA)
+AA      OUTPUT = 'stored alt on 0 matches'               :(CA)
+BA      OUTPUT = 'stored alt on 0 fails'
+CA      P = EVAL("0.0 | 'q'")
+        '0' ? P                                          :S(AB)F(BB)
+AB      OUTPUT = 'eval alt on 0 matches'                 :(CB)
+BB      OUTPUT = 'eval alt on 0 fails'
+CB      P = EVAL("2.0 LEN(1)")
+        '2.x' ? P . W                                    :S(AC)F(BC)
+AC      OUTPUT = 'eval cat ' W                           :(CC)
+BC      OUTPUT = 'eval cat fails'
+CC      R = 2.0
+        P = R | 'q'
+        '2' ? P                                          :S(AD)F(BD)
+AD      OUTPUT = 'var alt on 2 matches'                  :(CD)
+BD      OUTPUT = 'var alt on 2 fails'
+CD      P = ARBNO(R) RPOS(0)
+        '2.2.' ? P                                       :S(AE)F(BE)
+AE      OUTPUT = 'var arbno matches'                     :(CE)
+BE      OUTPUT = 'var arbno fails'
+CE      X = 'a0b'
+        X 0.0 = 'Z'                                      :S(AF)F(BF)
+AF      OUTPUT = 'replace ' X                            :(END)
+BF      OUTPUT = 'replace fails ' X
+END

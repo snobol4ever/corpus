@@ -1,0 +1,9 @@
+        DEFINE('F(X)K')                         :(F.END)
+F       F = X X                                 :(RETURN)
+F.END   DEFINE('TRC()')                         :(TRC.END)
+TRC     OUTPUT = 'call X=[' X ']'               :(RETURN)
+TRC.END X = 'outer'
+        TRACE('F', 'CALL', , 'TRC')
+        &TRACE = 100
+        Y = F('ab')
+END

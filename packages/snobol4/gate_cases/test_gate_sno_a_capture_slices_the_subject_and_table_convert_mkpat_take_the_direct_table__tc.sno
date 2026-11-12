@@ -1,0 +1,8 @@
+        i = 0
+loop    t = TABLE()
+        t['k'] = i
+        n = CONVERT('12', 'INTEGER') + CONVERT(i, 'INTEGER')
+        s = CONVERT(n, 'STRING')
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = n ' ' DATATYPE(n) ' ' s ' ' DATATYPE(s) ' ' t['k']
+END

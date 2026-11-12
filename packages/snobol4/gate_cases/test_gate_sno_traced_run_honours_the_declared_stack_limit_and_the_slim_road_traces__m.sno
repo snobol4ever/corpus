@@ -1,0 +1,6 @@
+        DEFINE('R(N)')                    :(e)
+R       R = EQ(N,0) 0                      :S(RETURN)
+        R = R(N - 1) + 1                   :(RETURN)
+e       OUTPUT = 'depth=' R(50)
+        OUTPUT = 'twice=' R(3) R(4)
+END

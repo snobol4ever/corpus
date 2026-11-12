@@ -1,0 +1,3 @@
+        OUTPUT = 'three'
+        &CODE = 3
+END

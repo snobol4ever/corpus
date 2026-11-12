@@ -1,0 +1,8 @@
+        N = 0
+        T = 0
+LOOP    N = N + 1
+        E = N ' + ' N ' + 1'
+        T = T + EVAL(E)
+        LT(N, 300)                                  :S(LOOP)
+        OUTPUT = 'sum ' T
+END

@@ -1,0 +1,1 @@
+:- initialization((write(new), nl)).

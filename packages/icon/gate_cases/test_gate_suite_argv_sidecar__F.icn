@@ -1,0 +1,9 @@
+#------------------------------------------------------------ 1 takes_args
+procedure main(args)
+   write("n=", integer(args[1]) | 6);
+   write("also=", args[2] | "none");
+end
+#------------------------------------------------------------ 2 plain
+procedure main()
+   write("control");
+end

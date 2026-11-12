@@ -1,0 +1,12 @@
+procedure main()
+   local x;
+   if x := &null then
+      write("t")
+   else
+      x := 1;
+   x := 1;
+   if x = 2 then
+      write("t")
+   else
+      x := x + &null;
+end

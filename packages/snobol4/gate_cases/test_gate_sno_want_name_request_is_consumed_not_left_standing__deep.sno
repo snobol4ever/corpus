@@ -1,0 +1,15 @@
+        DEFINE('A()')
+        DEFINE('B()')
+        DEFINE('C()')                   :(E)
+A       V = 'AVAL'
+        A = .V                          :(NRETURN)
+B       B = .A()                        :(NRETURN)
+C       C = .B()                        :(NRETURN)
+E
+        OUTPUT = DATATYPE(.A())
+        OUTPUT = DATATYPE(.B())
+        OUTPUT = DATATYPE(.C())
+        OUTPUT = DATATYPE(A())
+        OUTPUT = DATATYPE(B())
+        OUTPUT = DATATYPE(C())
+END

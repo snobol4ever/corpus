@@ -1,0 +1,10 @@
+        DEFINE('f(a)result')
+        r = (EVAL(7), 'fail')
+        OUTPUT = 'n=' r
+        r = (EVAL(.NAME), 'fail')
+        OUTPUT = 'nm=' DATATYPE(r)
+        OUTPUT = f(3)
+        :(END)
+f       result = (EVAL(a), 'fail')
+        f = 'got ' result :(RETURN)
+END

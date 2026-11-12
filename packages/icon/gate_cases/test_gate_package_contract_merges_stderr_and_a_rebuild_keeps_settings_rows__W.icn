@@ -1,0 +1,4 @@
+procedure main();
+   x := 3;
+   write("x=", x);
+end

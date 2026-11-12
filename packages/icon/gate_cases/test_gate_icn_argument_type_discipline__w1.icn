@@ -1,0 +1,24 @@
+procedure main()
+   local c, s, t, i;
+   c := list(2); s := "abc"; t := table(); i := 1;
+   &error := 200;
+   write("01 |||:= ", image(c |||:= s) | ("ERR " || &errornumber));
+   write("02 ~==   ", image([] ~== "x") | ("ERR " || &errornumber));
+   write("03 t(t)  ", image(t(t)) | ("ERR " || &errornumber));
+   write("04 ||    ", image(&lcase || numeric) | ("ERR " || &errornumber));
+   write("05 <=    ", image(i <= []) | ("ERR " || &errornumber));
+   write("06 right ", image(right("","")) | ("ERR " || &errornumber));
+   write("07 close ", image(close("F")) | ("ERR " || &errornumber));
+   write("08 trim  ", image(trim(&lcase,[])) | ("ERR " || &errornumber));
+   write("09 pos   ", image(pos("a")) | ("ERR " || &errornumber));
+   write("10 |||   ", image(list(10) ||| "abc") | ("ERR " || &errornumber));
+   write("11 *null ", image(*&null) | ("ERR " || &errornumber));
+   write("12 *proc ", image(*main) | ("ERR " || &errornumber));
+   write("13 ?null ", image(?&null) | ("ERR " || &errornumber));
+   write("14 sub   ", image(nowhere[1]) | ("ERR " || &errornumber));
+   write("15 call  ", image(nowhere(1)) | ("ERR " || &errornumber));
+   write("16 disp  ", image(display(,[])) | ("ERR " || &errornumber));
+   write("17 bylist ", image("|||"([1,2],[3])) | ("ERR " || &errornumber));
+   write("18 bycat  ", image("||"("a","b")) | ("ERR " || &errornumber));
+   write("19 byplus ", image("+"(1,2)) | ("ERR " || &errornumber));
+end

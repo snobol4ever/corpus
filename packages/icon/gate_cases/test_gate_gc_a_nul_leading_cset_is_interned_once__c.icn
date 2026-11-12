@@ -1,0 +1,17 @@
+procedure main();
+   local c, d, e, i, s, t;
+   c := cset("\^@abc");
+   d := cset("cba\^@");
+   write(*c, " ", *d, " ", image(c === d), " ", image(c == d));
+   e := c ++ 'xyz';
+   write(*e, " ", image(any(c, "\^@zz")), " ", image(any(c, "zz")));
+   write(*(&cset -- c), " ", *(&ascii ** c), " ", *(c -- '\^@'));
+   s := "";
+   every i := 1 to 300 do s ||:= char(i % 7);
+   t := cset(s);
+   write(*t, " ", *cset(s), " ", image(t === cset(s)));
+   every i := 1 to 2000 do c := cset("\^@" || char(65 + i % 26));
+   write(*c, " ", image(c));
+   write(*(cset("\^@\^Aa") ++ cset("\^@\^Bb")));
+   write(image(cset("\^@")), " ", *cset("\^@"), " ", *cset(""));
+end

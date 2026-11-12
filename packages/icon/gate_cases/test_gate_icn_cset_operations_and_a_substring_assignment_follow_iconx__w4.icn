@@ -1,0 +1,15 @@
+procedure main()
+   local s, r;
+   &error := -1;
+   s := 'cab';
+   r := s[2:4];
+   write(image(r));
+   (s[1:2] := "x") | write("fail ", &errornumber);
+   write(image(s));
+   s := "abc";
+   r := (s[2] := 12345678901234567890123);
+   write(image(s), " ", image(r));
+   s := "abc";
+   r := (s[2] := &digits);
+   write(image(s), " ", image(r), " ", type(r));
+end

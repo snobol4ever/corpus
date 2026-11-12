@@ -1,0 +1,6 @@
+procedure main();
+  t := table();
+  t[&null] := 1;
+  t[""] := 2;
+  write(t[&null], " ", t[""], " ", *t);
+end

@@ -1,0 +1,17 @@
+	DEFINE('H(s)')	:(HE)
+H	H = REPLACE(s, &LCASE, &UCASE)	:(RETURN)
+HE
+	DEFINE('G(t)')	:(GE)
+G	'ABS AND ANY APPEND' ? *H(t)	:F(FRETURN)
+	N = N + 1
+	G = .dummy	:(NRETURN)
+GE
+	N = 0
+	G1 = DUPL('x', 200000)
+	S = DUPL('and ', 300)
+	G1 = ''
+	S ? ARBNO(SPAN(&LCASE) $ tx $ *G(tx) ' ') RPOS(0)	:S(Y)F(N)
+Y	OUTPUT = 'S ' tx ' ' N	:(E)
+N	OUTPUT = 'F ' N
+E
+END

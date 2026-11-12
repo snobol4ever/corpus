@@ -1,0 +1,4 @@
+        T = TABLE()
+        T['k'] = 'v'
+        OUTPUT = T<'k'>
+END

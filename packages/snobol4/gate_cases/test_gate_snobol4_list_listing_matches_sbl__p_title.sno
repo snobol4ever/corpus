@@ -1,0 +1,13 @@
+-LIST
+-TITLE A title here
+-STITL a sub title
+ X = 1
+-EJECT
+ Y = 2
+-SPACE 3
+ Z = 3
+-DOUBLE
+ W = 4
+-SINGLE
+ OUTPUT = X + Y
+END

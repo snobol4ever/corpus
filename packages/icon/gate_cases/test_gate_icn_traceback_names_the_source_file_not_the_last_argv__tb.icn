@@ -1,0 +1,5 @@
+procedure main(a);
+   write("file=", &file);
+   write("args=", *a, " last=", a[-1]);
+   write(1 + a[1]);
+end

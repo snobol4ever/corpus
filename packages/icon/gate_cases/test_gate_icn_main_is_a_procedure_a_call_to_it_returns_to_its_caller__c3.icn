@@ -1,0 +1,15 @@
+global n
+procedure main(a)
+   static s;
+   initial { s := 0; write("init") };
+   s +:= 1;
+   write("level ", &level, " s ", s, " a ", image(a));
+   /n := 0;
+   n +:= 1;
+   if n < 4 then f(n);
+   write("back at ", &level);
+end
+procedure f(k)
+   write("f level ", &level);
+   main(k * 10);
+end

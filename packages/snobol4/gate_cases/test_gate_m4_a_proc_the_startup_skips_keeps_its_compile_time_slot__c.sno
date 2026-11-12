@@ -1,0 +1,4 @@
+         DEFINE('g(x)')                 :(g_end)
+g        g = x x                        :(RETURN)
+g_end    OUTPUT = g('ab')
+END

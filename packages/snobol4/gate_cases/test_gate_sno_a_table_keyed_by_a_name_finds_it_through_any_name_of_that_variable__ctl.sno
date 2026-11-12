@@ -1,0 +1,5 @@
+        T = TABLE()
+        T[.ABC] = 'name'
+        T['ABC'] = 'string'
+        OUTPUT = 'string [' T['ABC'] '] name [' T[.ABC] ']'
+END

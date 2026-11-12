@@ -1,0 +1,17 @@
+        N = 3
+        Y = *N
+        W = *(N + 1)
+        V = EVAL('*N')
+        Q = 'abcdef'
+        Q LEN(3) . R
+        OUTPUT = R ' ' EVAL(Y) ' ' EVAL(W) ' ' EVAL(V)
+        DEFINE('F()')
+        T = *F()
+        N = 5
+        OUTPUT = EVAL(Y) ' ' EVAL(T)
+        P = POS(0) LEN(*N) . R2
+        Q P
+        OUTPUT = R2
+        DUMP(1)                                  :(END)
+F       F = N * 10                               :(RETURN)
+END

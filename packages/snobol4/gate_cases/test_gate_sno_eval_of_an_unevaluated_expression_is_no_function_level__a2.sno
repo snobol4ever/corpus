@@ -1,0 +1,8 @@
+        S = *('s' 't')
+        Z = *(0)
+        X = *(&FNCLEVEL)
+        DEFINE('G()')                                  :(GEND)
+G       G = APPLY('EVAL', S) '/' &FNCLEVEL '/' APPLY('EVAL', Z) '/' &FNCLEVEL '/' EVAL(X) '/' &FNCLEVEL :(RETURN)
+GEND    OUTPUT = G()
+        OUTPUT = &FNCLEVEL
+END

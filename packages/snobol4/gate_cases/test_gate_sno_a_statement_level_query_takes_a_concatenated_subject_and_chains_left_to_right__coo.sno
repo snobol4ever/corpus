@@ -1,0 +1,4 @@
+        X = 'a'
+L1      'pq' 'rs' ? LEN(1)
+        OUTPUT = 'ok'
+END

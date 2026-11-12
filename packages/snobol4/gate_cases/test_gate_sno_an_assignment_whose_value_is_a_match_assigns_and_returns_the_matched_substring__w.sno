@@ -1,0 +1,19 @@
+        OUTPUT = (k = 'x' ? 'x')
+        OUTPUT = 'k=' k
+        OUTPUT = (e = 'abc' ? 'b')
+        OUTPUT = 'e=' e
+        OUTPUT = '[' (j = '' ? ARBNO('a')) ']'
+        X = (m = 'x' ? 'x')
+        OUTPUT = 'm=' m ' X=' X
+        OUTPUT = 'a' (n = 'xy' ? 'y') 'b'
+        OUTPUT = 'n=' n
+        p = 'old'
+        OUTPUT = (p = 'abc' ? 'z')
+        OUTPUT = 'p=' p
+        q = ('xy' ? 'y')
+        OUTPUT = 'q=' q
+        OUTPUT = EVAL("(r = 'x' ? 'x')")
+        OUTPUT = 'r=' r
+        OUTPUT = EVAL("(s = 'abc' ? 'b')") s
+        OUTPUT = SIZE(t = 'abcd' ? LEN(3)) t
+END

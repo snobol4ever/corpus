@@ -1,0 +1,8 @@
+procedure main()
+   local f;
+   f := open("w4.icn") | stop("no open");
+   close(f);
+   &error := -1;
+   write(image(read(f)) | "read failed");
+   write(&errornumber, " ", &errortext);
+end

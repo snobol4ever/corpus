@@ -1,0 +1,6 @@
+        DEFINE("F(X)")             :(START)
+F       F = X * 2                   :(RETURN)
+START   OUTPUT = F(21)
+        S = "abc" ; S "b" = "B"
+        OUTPUT = S
+END

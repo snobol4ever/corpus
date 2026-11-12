@@ -1,0 +1,5 @@
+        OUTPUT = "driver start"
+-INCLUDE "fn.inc"
+        BAD()
+        OUTPUT = "driver end"
+END

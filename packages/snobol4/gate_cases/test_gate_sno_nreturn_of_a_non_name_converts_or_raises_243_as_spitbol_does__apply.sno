@@ -1,0 +1,13 @@
+	&ERRLIMIT = 5
+	DEFINE('G()')
+	DEFINE('H()')	:(M)
+G	G = 'ABC'	:(NRETURN)
+H	H = ARRAY(2)	:(NRETURN)
+M	ABC = 'hello'
+	OUTPUT = 'apply G=[' APPLY('G') ']'
+	APPLY('G') = 'via apply'
+	OUTPUT = 'ABC=[' ABC ']'
+	X = APPLY('H')	:F(F)
+	OUTPUT = 'apply H=[' X ']'	:(END)
+F	OUTPUT = 'apply H failed ' &ERRTYPE
+END

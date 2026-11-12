@@ -1,0 +1,4 @@
+procedure main()
+  x := "12";
+  write(2 + x);
+end

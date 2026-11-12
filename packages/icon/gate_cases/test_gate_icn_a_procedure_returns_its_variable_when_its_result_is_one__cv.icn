@@ -1,0 +1,19 @@
+global t
+procedure main()
+   local p, x, q;
+   t := "x";
+   p := f;
+   write(p(), " ", f![], " ", "f"());
+   x := p();
+   write(x);
+   every write(g());
+   every write(q := !(["a", "b"]));
+   write(*p(), " ", p() || "!", " ", image(p()));
+   write("done");
+end
+procedure f()
+   return t;
+end
+procedure g()
+   suspend t | "lit";
+end

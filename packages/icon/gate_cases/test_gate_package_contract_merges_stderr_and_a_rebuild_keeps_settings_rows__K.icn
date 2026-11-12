@@ -1,0 +1,6 @@
+procedure main();
+   write(&clock);
+   write("fixed one");
+   write("fixed two");
+   write("fixed three");
+end

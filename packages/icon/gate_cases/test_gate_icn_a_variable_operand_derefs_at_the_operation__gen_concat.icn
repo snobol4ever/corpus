@@ -1,0 +1,5 @@
+global G
+procedure main()
+local L; L := ["a","b","c"];
+G := ""; every G := G || !L; write(G);
+end

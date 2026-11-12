@@ -1,0 +1,8 @@
+        &TRACE = 100
+        &FTRACE = 100000
+        DEFINE('CB(NAME,TAG)')  :(S)
+CB      OUTPUT = 'cb ' NAME ' ' TAG  :(RETURN)
+S       TRACE('X', 'VALUE', 'tg', .CB)
+        X = 5
+        OUTPUT = 'done'
+END

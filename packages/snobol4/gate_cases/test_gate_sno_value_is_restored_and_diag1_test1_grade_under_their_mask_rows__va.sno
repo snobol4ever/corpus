@@ -1,0 +1,5 @@
+        B = 'bee'
+        OUTPUT = VALUE('B')
+        OUTPUT = IDENT(VALUE('B'),B) 'same'
+        OUTPUT = IDENT(VALUE('NOSUCH')) 'null'
+END

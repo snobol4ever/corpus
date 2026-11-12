@@ -1,0 +1,5 @@
+procedure main()
+  write("before");
+  write((-2.0) ^ 0.5);
+  write("after");
+end

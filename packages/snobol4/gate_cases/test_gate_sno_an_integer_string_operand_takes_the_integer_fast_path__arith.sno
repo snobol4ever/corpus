@@ -1,0 +1,45 @@
+        tab = CHAR(9)
+        a = '12'; b = '3'
+        OUTPUT = a + b
+        a = ' 7 '; b = '2'
+        OUTPUT = a * b
+        a = '-4'; b = '+4'
+        OUTPUT = a - b
+        a = '1.5'
+        OUTPUT = a + 1
+        a = ''
+        OUTPUT = a + 1
+        a = '  '
+        OUTPUT = a + 2
+        a = '7'; b = '2'
+        OUTPUT = a / b
+        b = '-1'
+        OUTPUT = a / b
+        a = '12'
+        OUTPUT = a - 3.0
+        a = '3'
+        OUTPUT = 5 * a
+        a = '0012'; b = '0'
+        OUTPUT = a + b
+        a = '+5'; b = '-5'
+        OUTPUT = a + b
+        a = '3'; b = '4'; c = '2'
+        OUTPUT = (a + b) (c * c)
+        OUTPUT = DATATYPE(a + b)
+        a = '17'; b = '5'
+        OUTPUT = REMDR(a, b) ' ' a * 1.0
+        a = tab '42' tab
+        OUTPUT = a + 0
+        a = '-0'
+        OUTPUT = a + 0 ' ' DATATYPE(a + 0)
+        a = '007'; b = '003'
+        OUTPUT = a + b ' ' a - b ' ' a * b ' ' a / b
+        a = '2147483648'; b = '2147483648'
+        OUTPUT = a * b
+        a = '-9223372036854775807'; b = '1'
+        OUTPUT = a - b
+        n = 0
+loop    s = s + 1
+        n = LT(n, 5) n + 1                              :S(loop)
+        OUTPUT = s ' ' DATATYPE(s)
+END

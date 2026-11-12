@@ -1,0 +1,7 @@
+        DEFINE('F()')                   :(MAIN)
+F       OUTPUT  =  'in F'                 :(SHARED)
+SHARED  OUTPUT  =  'shared'              :(RETURN)
+MAIN    OUTPUT  =  'before'
+        F()
+        OUTPUT  =  'after'
+END

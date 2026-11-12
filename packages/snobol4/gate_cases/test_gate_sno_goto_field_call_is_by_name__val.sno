@@ -1,0 +1,6 @@
+        DEFINE('GOV()')                 :(MAIN)
+GOV     GOV  =  'L3'                    :(RETURN)
+MAIN    OUTPUT  =  'go'                  :(GOV())
+        OUTPUT  =  'NOPE'
+L3      OUTPUT  =  'landed'
+END

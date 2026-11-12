@@ -1,0 +1,8 @@
+        SETEXIT(.ERRTRACE)
+        &ERRLIMIT = 100
+        LBL = 'NOSUCHLABEL'
+        X = 1                                                   :($LBL)
+        OUTPUT = 'unreachable'                                  :(FIN)
+ERRTRACE OUTPUT = 'caught ' &ERRTYPE
+FIN     OUTPUT = 'fin'
+END

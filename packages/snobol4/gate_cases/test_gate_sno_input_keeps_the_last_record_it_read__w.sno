@@ -1,0 +1,5 @@
+         X = INPUT
+         Y = INPUT
+         Z = INPUT        :F(D)
+D        &DUMP = 1
+END

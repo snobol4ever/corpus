@@ -1,0 +1,14 @@
+        X = 'a'
+        Y = 'hello'
+        'pq' ? LEN(1) . OUTPUT
+        Y 'ell' . OUTPUT
+        Y 'ell' 'o' . OUTPUT
+        Y 'l' = 'L'
+        OUTPUT = Y
+        Z = 'ab' 'cd' ? LEN(1)
+        OUTPUT = Z
+        OUTPUT = 'ab' 'cd' ? 'bc'
+        X 'b' | 'a' . OUTPUT
+        Y ? 'L' . OUTPUT
+        OUTPUT = 'end'
+END

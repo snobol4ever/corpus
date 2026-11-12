@@ -1,0 +1,9 @@
+        DEFINE('g()')                                   :(g_end)
+g       g = .gv                                         :(NRETURN)
+g_end
+        s = 'alpha beta gamma'
+        i = 0
+loop    s 'alpha' $ a ' ' $ b 'beta' $ c ' gamma' . *g()
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = a '|' b '|' c '|' gv '|' i
+END

@@ -1,0 +1,11 @@
+procedure main();
+   local f, s, n;
+   f := open(".") | stop("open(.) failed");
+   n := 0;
+   while s := reads(f, 25) do {
+      n := n + 1;
+      if find("\n", s) then write("EMBEDDED NEWLINE in chunk ", n, ": ", image(s));
+      };
+   close(f);
+   write("chunks=", n);
+end

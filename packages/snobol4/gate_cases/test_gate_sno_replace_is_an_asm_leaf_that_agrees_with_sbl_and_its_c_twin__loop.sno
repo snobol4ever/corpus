@@ -1,0 +1,8 @@
+        u = &UCASE
+        l = &LCASE
+        s = 'Hello World'
+        i = 0
+loop    r = REPLACE(s, u, l)
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = 'done ' i ' ' r
+END

@@ -1,0 +1,5 @@
+procedure main()
+   local i, L;
+   every i := 1 to 4000000 do L := [i, i+1, i+2];
+   write("done ", *L);
+end

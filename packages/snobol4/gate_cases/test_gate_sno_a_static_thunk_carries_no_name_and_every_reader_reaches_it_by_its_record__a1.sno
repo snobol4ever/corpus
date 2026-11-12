@@ -1,0 +1,31 @@
+        S = 'abcdefgh'
+        N = 2
+        C = 'de'
+        S LEN(*(N + 1)) . R1
+        OUTPUT = 'LEN ' R1
+        S POS(*(N + 1)) REM . R2
+        OUTPUT = 'POS ' R2
+        S RPOS(*(N + 1)) . R3 REM
+        S TAB(*(N + 2)) . R4
+        OUTPUT = 'TAB ' R4
+        S RTAB(*(N - 1)) . R5
+        OUTPUT = 'RTAB ' R5
+        S BREAK(*(C 'f')) . R6
+        OUTPUT = 'BREAK ' R6
+        S ARB SPAN(*(C 'f')) . R7
+        OUTPUT = 'SPAN ' R7
+        S ANY(*(C 'x')) . R8
+        S ARB ANY(*(C 'x')) . R8
+        OUTPUT = 'ANY ' R8
+        S NOTANY(*(C 'abc')) . R9
+        OUTPUT = 'NOTANY ' R9
+        S BREAKX(*(C 'f')) . R10
+        OUTPUT = 'BREAKX ' R10
+        S LEN(*N) . R11
+        OUTPUT = 'LENV ' R11
+        Y = *LEN(N + 1)
+        P = 'a' Y
+        S P . R12
+        OUTPUT = 'RTPAT ' R12
+        Z = *(N * 2)
+END

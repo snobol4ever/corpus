@@ -1,0 +1,17 @@
+        &ERRLIMIT = 20
+        S = ''
+        SETEXIT('H')
+        'abc' ? ANY(*S)
+        SETEXIT('H')
+        'abc' ? NOTANY(*S)
+        SETEXIT('H')
+        'abc' ? SPAN(*S) . X
+        SETEXIT('H')
+        'abc' ? BREAK(*S)
+        SETEXIT('H')
+        'abc' ? BREAKX(*S)
+        SETEXIT('H')
+        'abc' ? SPAN(*LEN(1))
+        OUTPUT = 'end'                                   :(END)
+H       OUTPUT = 'trap ' &ERRTYPE ' ' &ERRTEXT           :(CONTINUE)
+END

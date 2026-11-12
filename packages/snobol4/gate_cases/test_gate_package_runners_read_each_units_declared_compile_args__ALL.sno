@@ -1,0 +1,2 @@
+ X = 1; Y = 2; OUTPUT = 'count=' &STCOUNT;END;* decl
+ X = 1; Y = 2; OUTPUT = 'count=' &STCOUNT;END;* nodecl

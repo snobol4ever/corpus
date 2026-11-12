@@ -1,0 +1,10 @@
+        T = TABLE()
+        S = 'the quick brown fox jumps over the lazy dog'
+        N = 0
+LOOP    N = LT(N, 40000) N + 1                          :F(DONE)
+        S BREAK(' ') $ W1 ' ' BREAK(' ') $ W2
+        T[W1] = T[W1] + 1
+        X = W1 '-' W2 '-' N
+        S = SUBSTR(S, 2) SUBSTR(S, 1, 1)                :(LOOP)
+DONE    OUTPUT = T['the'] ' ' T['quick'] ' ' SIZE(X) ' ' X
+END

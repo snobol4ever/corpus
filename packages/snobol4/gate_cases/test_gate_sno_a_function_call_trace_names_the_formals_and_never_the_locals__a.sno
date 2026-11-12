@@ -1,0 +1,8 @@
+        &TRACE = 100
+        DEFINE('F(X)T,U')
+        TRACE('F', 'FUNCTION')
+        OUTPUT = F(7)
+        :(END)
+F       T = X + 1
+        F = T * 2 :(RETURN)
+END

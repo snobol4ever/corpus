@@ -1,0 +1,23 @@
+global gen
+procedure walk(n)
+    local i;
+    every i := 1 to n do suspend i * 10;
+end
+procedure batch(n)
+    local k, e, L;
+    /gen := create walk(5);
+    L := [];
+    k := 0;
+    while k < n & e := @gen do { put(L, e); k +:= 1; };
+    if k = 0 then fail;
+    return L;
+end
+procedure main(args)
+    local L, M, i, t, n;
+    n := integer(args[1]) | 60000;
+    t := 0;
+    while L := batch(2) do t +:= *L;
+    M := [];
+    every i := 1 to n do put(M, string(i) || "-" || string(i + 1));
+    write(t, " ", *M, " ", M[*M]);
+end

@@ -1,0 +1,10 @@
+        &ERRLIMIT = 5
+        P = ARB
+        X = EVAL("'abc' ? -ARB ABORT")                   :S(A)
+        OUTPUT = 'eval F ' &ERRTYPE ' ' &ERRLIMIT
+A       X = 'abc' ? -P ABORT                             :S(B)
+        OUTPUT = 'static F ' &ERRTYPE ' ' &ERRLIMIT
+B       X = 'abc' ? +P ABORT                             :S(C)
+        OUTPUT = 'static plus F ' &ERRTYPE ' ' &ERRLIMIT
+C       OUTPUT = 'end'
+END

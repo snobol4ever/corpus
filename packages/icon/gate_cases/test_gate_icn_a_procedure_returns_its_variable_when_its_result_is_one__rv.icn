@@ -1,0 +1,58 @@
+global t, G, S
+record R(a, b)
+procedure main()
+   local r, x, L, y;
+   t := "x";
+   f() := "q";
+   write("return global: ", t);
+   every s() := "w";
+   write("suspend global: ", t);
+   r := R(1, 2);
+   fr(r) := 5;
+   write("return field: ", r.a);
+   x := f();
+   write("rvalue: ", x, " ", f(), " ", *f());
+   G := [10, 20, 30];
+   fg(2) := 99;
+   write("return global element: ", G[2]);
+   L := [1, 2, 3];
+   fl(L) := 7;
+   write("return local-list element: ", L[1]);
+   S := "abcdef";
+   fs() := "Z";
+   write("return global substring: ", S);
+   y := "k";
+   f() :=: y;
+   write("swap: ", t, " ", y);
+   write("local string subscript: ", fsl());
+   write(image(floc()));
+   write("done");
+end
+procedure f()
+   return t;
+end
+procedure s()
+   suspend t;
+end
+procedure fr(r)
+   return r.a;
+end
+procedure fg(i)
+   return G[i];
+end
+procedure fl(L)
+   return L[1];
+end
+procedure fs()
+   return S[3];
+end
+procedure fsl()
+   local z;
+   z := "hello";
+   return z[2];
+end
+procedure floc()
+   local z;
+   z := 1;
+   return z;
+end

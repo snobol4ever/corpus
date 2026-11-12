@@ -1,0 +1,8 @@
+        DEFINE('f(a,b)result')
+        big = 5
+        OUTPUT = f('big', 'big')
+        OUTPUT = f('big', 'big')
+        :(END)
+f       result = (EVAL(a), 'fail')
+        OUTPUT = 'r=' result :(RETURN)
+END

@@ -1,0 +1,7 @@
+        DEFINE('f(x)')   :(fe)
+f       f = 1 / x   :(RETURN)
+fe      Z = 0
+        X = EVAL('1 + 1')
+        X = EVAL('1 + 1')
+        Y = f(Z)
+END

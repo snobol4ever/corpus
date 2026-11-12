@@ -1,0 +1,3 @@
+        N = 'NOSUCH' 'FN'
+        OUTPUT = APPLY(N, 1)
+END

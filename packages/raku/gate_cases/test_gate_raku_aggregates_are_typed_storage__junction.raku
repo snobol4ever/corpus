@@ -1,0 +1,10 @@
+my $j = any(1, 2, 3);
+say $j == 2 ?? "yes" !! "no";
+say (all(1, 2) < 3) ?? "yes" !! "no";
+say (none(1, 2) == 5) ?? "yes" !! "no";
+say (one(1, 2, 3) == 2) ?? "yes" !! "no";
+say any(1, 2, 3);
+say all("a", "b");
+my $n = any(1, any(2, 3));
+say $n == 3 ?? "yes" !! "no";
+say (5 > any(1, 9)) ?? "yes" !! "no";

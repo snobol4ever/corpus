@@ -1,0 +1,9 @@
+        &ERRLIMIT = 5
+        SETEXIT(.H)
+        Z = 0
+        X = EVAL('1 / Z')                   :S(S1)F(F1)
+S1      OUTPUT = 'eval succeeded ' X        :(N1)
+F1      OUTPUT = 'eval failed'
+N1      OUTPUT = 'next ' &ERRLIMIT          :(END)
+H       OUTPUT = 'handler ' &ERRTYPE ' level ' &FNCLEVEL     :(CONTINUE)
+END

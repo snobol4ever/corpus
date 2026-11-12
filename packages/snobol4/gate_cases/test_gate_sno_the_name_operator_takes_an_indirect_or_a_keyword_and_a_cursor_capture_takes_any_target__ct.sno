@@ -1,0 +1,19 @@
+        x = 'a'
+        y = .x
+        OUTPUT = DATATYPE(y)
+        $y = 'set'
+        OUTPUT = a
+        A = ARRAY(2)
+        z = .A[1]
+        $z = 'el'
+        OUTPUT = A[1]
+        'ABCDE' ('BC' @C)
+        OUTPUT = C
+        'hello' LEN(2) . D
+        OUTPUT = D
+        'hello' LEN(3) $ E
+        OUTPUT = E
+        &ANCHOR = 1
+        $('&ANCHOR') = 'HELLO'
+        OUTPUT = $('&ANCHOR') &ANCHOR
+END

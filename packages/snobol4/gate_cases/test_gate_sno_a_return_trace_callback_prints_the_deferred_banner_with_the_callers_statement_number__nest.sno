@@ -1,0 +1,15 @@
+        &TRACE = 100
+        &FTRACE = 100000
+        DEFINE('CB(NAME,TAG)')	:(S)
+CB      OUTPUT = 'cb ' NAME ' ' TAG	:(RETURN)
+S       DEFINE('F(A)')	:(S1)
+F       F = A
+        F = F + 1	:(RETURN)
+S1      DEFINE('G(A)')	:(S2)
+G       G = F(A) + 1	:(RETURN)
+S2      TRACE('F', 'FUNCTION', 'tg', .CB)
+        X = G(1)
+        OUTPUT = X
+        TRACE('F')
+        Y = G(2)
+END

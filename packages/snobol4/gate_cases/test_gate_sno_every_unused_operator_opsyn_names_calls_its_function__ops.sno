@@ -1,0 +1,25 @@
+        DEFINE('U(X)')                          :(U.END)
+U       U = 'u<' X '>'                          :(RETURN)
+U.END   DEFINE('B(X,Y)')                        :(B.END)
+B       B = 'b<' X ',' Y '>'                    :(RETURN)
+B.END   OPSYN('!', .U, 1)
+        OPSYN('%', .U, 1)
+        OPSYN('/', .U, 1)
+        OPSYN('#', .U, 1)
+        OPSYN('|', .U, 1)
+        OUTPUT = 'excl ' !'a'
+        OUTPUT = 'pct ' %'a'
+        OUTPUT = 'slash ' /'a'
+        OUTPUT = 'hash ' #'a'
+        OUTPUT = 'bar ' |'a'
+        OPSYN('&', .B, 2)
+        OPSYN('@', .B, 2)
+        OPSYN('#', .B, 2)
+        OPSYN('%', .B, 2)
+        OPSYN('~', .B, 2)
+        OUTPUT = 'amp ' ('p' & 'q')
+        OUTPUT = 'at ' ('p' @ 'q')
+        OUTPUT = 'hash2 ' ('p' # 'q')
+        OUTPUT = 'pct2 ' ('p' % 'q')
+        OUTPUT = 'tilde2 ' ('p' ~ 'q')
+END

@@ -1,0 +1,13 @@
+procedure main()
+   local s, t, i;
+   &random := 7;
+   s := "abcdefgh";
+   every 1 to 6 do writes(?s);
+   write();
+   t := s;
+   every 1 to 3 do ?t := "Z";
+   write(s, " ", t);
+   i := 0;
+   every 1 to 4 do writes(?string(&lcase));
+   write();
+end

@@ -1,0 +1,13 @@
+procedure main()
+   write(try(g, "abcdef"));
+   write("xy" ? (g2() | "none"));
+end
+procedure try(goal, text)
+   return text ? (goal() || "|" || &pos);
+end
+procedure g()
+   suspend tab(4);
+end
+procedure g2()
+   suspend move(1);
+end

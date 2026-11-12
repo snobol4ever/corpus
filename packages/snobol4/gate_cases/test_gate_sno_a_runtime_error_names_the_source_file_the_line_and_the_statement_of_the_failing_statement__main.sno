@@ -1,0 +1,5 @@
+        Y = 1
+        OUTPUT = "start"
+        X = Y / 0
+        OUTPUT = "after"
+END

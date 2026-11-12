@@ -1,0 +1,19 @@
+	A = ARRAY(' 2 : 4 , 3 ', 'd')
+	A[4,3] = 'x'
+	OUTPUT = A[2,1] A[4,3] '|' PROTOTYPE(A) '|'
+	OUTPUT = DIFFER(A[5,1]) 'oob'	:S(N1)
+	OUTPUT = 'out of bounds fails'
+N1	B = ARRAY(':2')
+	B[0] = 'zero'
+	OUTPUT = B[0] '|' PROTOTYPE(B) '|'
+	C = ARRAY('1.5,2', 7)
+	OUTPUT = C[1,2] '|' PROTOTYPE(C)
+	E = ARRAY(2.9)
+	E[2] = 'two'
+	OUTPUT = E[2] '|' PROTOTYPE(E)
+	F = APPLY('ARRAY', '3:4,2', 'q')
+	OUTPUT = F[4,2] '|' PROTOTYPE(F)
+	G = ARRAY('2,3,4', 0)
+	G[2,3,4] = 9
+	OUTPUT = G[2,3,4] G[1,1,1] '|' PROTOTYPE(G)
+END

@@ -1,0 +1,20 @@
+        A = 'XYZ'
+        A LEN(1) . CH
+        OUTPUT = 'string [' CONVERT(CH, 'STRING') ']'
+        A LEN(2) . C2
+        OUTPUT = 'string2 [' CONVERT(C2, 'STRING') '] size ' SIZE(CONVERT(C2, 'STRING'))
+        B = 'MNOP'
+        B LEN(1) LEN(2) . C3
+        OUTPUT = 'mid [' CONVERT(C3, 'STRING') ']'
+        N = '1234'
+        N LEN(2) . C4
+        OUTPUT = 'int [' CONVERT(C4, 'INTEGER') '] num [' CONVERT(C4, 'NUMERIC') '] real [' CONVERT(C4, 'REAL') ']'
+        V = 'ABCD'
+        V LEN(2) . C5
+        AB = 'ab-value'
+        OUTPUT = 'name [' $CONVERT(C5, 'NAME') ']'
+        P = 'QRST'
+        P LEN(2) . C6
+        'xxQRyy' CONVERT(C6, 'PATTERN') . M
+        OUTPUT = 'pattern [' M ']'
+END

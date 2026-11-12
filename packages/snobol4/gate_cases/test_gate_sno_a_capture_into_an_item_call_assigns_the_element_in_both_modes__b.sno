@@ -1,0 +1,10 @@
+        t = TABLE()
+        a = ARRAY(3)
+        'abc' ? LEN(2) . *ITEM(t, 'c')
+        OUTPUT = 'cond ' t['c']
+        'xyz' ? LEN(1) $ *ITEM(a, 2)
+        OUTPUT = 'imm ' a[2]
+        k = 'dyn'
+        'hello' ? 'h' LEN(3) . *ITEM(t, k) 'o'
+        OUTPUT = 'computed key ' t['dyn']
+END

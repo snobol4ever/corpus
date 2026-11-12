@@ -1,0 +1,17 @@
+        DEFINE('F2(X,Y)')                       :(F2.END)
+F2      IDENT(X, 'bad')                         :S(FRETURN)
+        F2 = X Y                                :(RETURN)
+F2.END  OPSYN('#', .F2, 2)
+        OPSYN('~', .F2, 2)
+        OPSYN('&', .F2, 2)
+        ('bad' # 'z')                           :S(B1)
+        OUTPUT = 'hash failed'                  :(B2)
+B1      OUTPUT = 'hash SUCCEEDED'
+B2      ('bad' ~ 'z')                           :S(B3)
+        OUTPUT = 'tilde failed'                 :(B4)
+B3      OUTPUT = 'tilde SUCCEEDED'
+B4      ('bad' & 'z')                           :S(B5)
+        OUTPUT = 'amp failed'                   :(B6)
+B5      OUTPUT = 'amp SUCCEEDED'
+B6      OUTPUT = 'ok ' ('a' # 'b') ('c' ~ 'd') ('e' & 'f')
+END

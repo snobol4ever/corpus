@@ -1,0 +1,5 @@
+	X =
+	OUTPUT = SIZE(X)
+	OUTPUT = SIZE("abc")
+	OUTPUT = "a" 5
+END

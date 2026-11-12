@@ -1,0 +1,10 @@
+	DEFINE('H(v)')	:(HE)
+H	H = .z	:(NRETURN)
+HE
+	DEFINE('G(v)y')	:(GE)
+G	H(v) = 3
+	G = .dummy	:(NRETURN)
+GE
+	G('q') = 7
+	OUTPUT = 'dummy=' dummy ' z=' z
+END

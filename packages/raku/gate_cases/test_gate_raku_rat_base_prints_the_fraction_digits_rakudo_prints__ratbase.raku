@@ -1,0 +1,17 @@
+say 11.1.base(16);
+say (1/3).base(10, 5);
+say 3.75.base(2);
+say (-2.5).base(16);
+say 0.1.base(3, 4);
+say 255.5.base(16);
+say 2.5.base(10, 0);
+say (-2.5).base(10, 0);
+say 3.5.base(2, 3);
+say 0.99.base(10, 1);
+say (1/7).base(10);
+say (22/7).base(16);
+say (1/1000003).base(10);
+say 0.5.base(36);
+say (-0.0625).base(2);
+say 7.0.base(2);
+say (10/4).base(10, 4);

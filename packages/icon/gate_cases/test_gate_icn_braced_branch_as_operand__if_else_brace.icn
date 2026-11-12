@@ -1,0 +1,6 @@
+procedure f(x)
+  return if x then {1} else {9} + 2;
+end
+procedure main()
+  write(f(1));
+end

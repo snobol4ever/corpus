@@ -1,0 +1,14 @@
+	&DUMP = 1
+	A = ARRAY(3)
+	A[1] = 7
+	T = TABLE()
+	T["k"] = "v"
+	P = "ab" | "cd"
+	E = *(X + 1)
+	S = "str"
+	N = 42
+	R = 1.5
+	DATA("rec(f1,f2)")
+	D = rec(1,2)
+	U = ARRAY("2,2")
+END

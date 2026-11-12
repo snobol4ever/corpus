@@ -1,0 +1,7 @@
+	DATA('PT(A,B)')
+	X = PT(3,4)
+	OUTPUT = A(X)
+	OUTPUT = B(X)
+	A(X) = 9
+	OUTPUT = A(X)
+END

@@ -1,0 +1,7 @@
+        OP = 'A'
+        X = 'abc'
+        X 'a' = ''                      :F(FR)S($('L.' OP))
+FR      OUTPUT = 'nomatch'              :(DONE)
+L.A     OUTPUT = 'ok'
+DONE    OUTPUT = 'after'
+END

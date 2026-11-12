@@ -1,0 +1,3 @@
+        B = &ALPHABET
+        OUTPUT = 'a' SUBSTR(B,12,1) SUBSTR(B,13,1) SUBSTR(B,14,1) 'b' SUBSTR(B,29,1) SUBSTR(B,30,1) SUBSTR(B,31,1) 'c'
+END

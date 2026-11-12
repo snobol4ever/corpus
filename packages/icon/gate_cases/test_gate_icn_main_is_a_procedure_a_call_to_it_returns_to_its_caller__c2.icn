@@ -1,0 +1,15 @@
+global n
+procedure main(a)
+   /n := 0;
+   n +:= 1;
+   if n = 1 then {
+      write(args(main));
+      write(image(proc("main")));
+      "main"(7);
+      proc("main")(8);
+      c := create main(9);
+      write("co ", image(@c));
+      write("done ", n);
+      }
+   else { write("in main ", image(a), " level ", &level); return a };
+end

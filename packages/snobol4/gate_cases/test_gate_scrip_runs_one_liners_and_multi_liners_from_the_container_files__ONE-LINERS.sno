@@ -1,0 +1,3 @@
+ OUTPUT = 'hello';END;* one_hello
+ X = 'set'; OUTPUT = X;END;* one_setx
+ OUTPUT = IDENT(X) 'unset';END;* one_seex

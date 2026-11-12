@@ -1,0 +1,12 @@
+        LINE = 'START LOAD 1,ONE '
+        LINE ? POS(0) BREAK(' ') SPAN(' ') BREAK(' ') . OP SPAN(' ') (BREAK(' ,') . AC ',' | NULL) REM . A
+        OUTPUT = 'cap=' AC
+        OUTPUT = 'size=' SIZE(AC)
+        OUTPUT = 'plus=' AC + 1
+        INTEGER(AC)                             :S(I1)F(I0)
+I1      OUTPUT = 'integer=yes'                  :(R)
+I0      OUTPUT = 'integer=no'
+R       OUTPUT = 'remdr=' REMDR(AC,16)
+        OUTPUT = 'lt=' LT(AC,5) 'yes'
+        OUTPUT = 'eq=' EQ(AC,1) 'yes'
+END

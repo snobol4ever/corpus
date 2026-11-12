@@ -1,0 +1,32 @@
+        DEFINE('CR(RAW)N,D')
+        DEFINE('SH(T,V)')
+        DEFINE('PE(RAW)')
+        DEFINE('LNF()')
+        DEFINE('CRP(RAW,K)N,D,X')                          :(ENDDEFS)
+CR      N = 0
+CR1     RAW LEN(1) . D =                                   :F(CR2)
+        N = ((N * 10) + D)                                 :(CR1)
+CR2     CR = N                                             :(RETURN)
+SH      OUTPUT = 'SH ' T ' ' V
+        SH = .DUMMY                                        :(NRETURN)
+PE      PE = CR(RAW)                                       :(RETURN)
+LNF     LNF = CR('1234567890123456789012345') - 1234567890123456780  :(RETURN)
+CRP     IDENT(K,'Q')                                       :S(CRPQ)
+        IDENT(K,'V')                                       :S(CRPV)
+        IDENT(K,'E')                                       :S(CRPE)
+        IDENT(K,'I')                                       :S(CRPI)
+        IDENT(K,'C')                                       :S(CRPC)
+        IDENT(K,'X')                                       :S(CRPX)F(CRP0)
+CRPQ    'ab' ? *LEN(1)                                     :(CRP0)
+CRPV    'ab' ? *PV                                         :(CRP0)
+CRPE    X = EVAL('1')                                      :(CRP0)
+CRPI    X = EVAL(1)                                        :(CRP0)
+CRPC    X = CODE('ZZ OUTPUT = 1')                          :(CRP0)
+CRPX    X = CONVERT('A + 1','EXPRESSION')                  :(CRP0)
+CRP0    N = 0
+CRP1    RAW LEN(1) . D =                                   :F(CRP2)
+        N = ((N * 10) + D)                                 :(CRP1)
+CRP2    CRP = N                                            :(RETURN)
+ENDDEFS B = '1234567890123456789012345'
+        BIG = 99999999999
+        PV = LEN(1)

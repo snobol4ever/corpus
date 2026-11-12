@@ -1,0 +1,11 @@
+        T = TABLE()
+        K1 = CONVERT('ABC', 'NAME')
+        T[K1] = 'v1'
+        K2 = CONVERT('ABC', 'NAME')
+        OUTPUT = 'ident ' (IDENT(K1, K2) 'same', 'differ')
+        OUTPUT = 'second convert [' T[K2] ']'
+        OUTPUT = 'dot [' T[.ABC] ']'
+        OUTPUT = 'item [' ITEM(T, K2) ']'
+        T[.XYZ] = 'v2'
+        OUTPUT = 'convert of a dot key [' T[CONVERT('XYZ','NAME')] ']'
+END

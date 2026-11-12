@@ -1,0 +1,5 @@
+-INCLUDE "SPITCORE.sno"
+ A = READ('(X Y)')
+ X = UNREAD(A)
+ OUTPUT = DATATYPE(X) ' ' X
+END

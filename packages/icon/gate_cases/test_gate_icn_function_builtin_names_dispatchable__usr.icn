@@ -1,0 +1,6 @@
+procedure function()
+   return "MINE";
+end
+procedure main()
+   write(function());
+end

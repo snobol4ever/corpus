@@ -1,0 +1,4 @@
+test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__c: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+test_gate_sc_duplicate_label_is_refused_at_parse__dup: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snc_a_label_at_end_of_file_is_a_statement__jump: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_snc_two_nreturn_functions_link_in_m4__w: oracle produced EMPTY output -- refusing to mint a vacuous ref

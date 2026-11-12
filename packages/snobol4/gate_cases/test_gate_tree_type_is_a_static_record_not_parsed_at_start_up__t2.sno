@@ -1,0 +1,10 @@
+        DATA('tree(left,right)')
+        T = tree('l', 'r')
+        OUTPUT = left(T) ' ' right(T)
+        OUTPUT = DATATYPE(T)
+        DATA('node(k)')
+        N = node(5)
+        OUTPUT = k(N)
+        left(T) = 'm'
+        OUTPUT = left(T)
+END

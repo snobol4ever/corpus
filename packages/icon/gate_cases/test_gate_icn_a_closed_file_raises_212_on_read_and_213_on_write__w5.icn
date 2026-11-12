@@ -1,0 +1,7 @@
+procedure main()
+   local f;
+   f := open("w5.icn") | stop("no open");
+   write(!f);
+   close(f);
+   every write(!f);
+end

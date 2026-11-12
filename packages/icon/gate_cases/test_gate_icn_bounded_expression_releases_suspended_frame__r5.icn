@@ -1,0 +1,9 @@
+procedure f(); suspend 1; suspend 2; end
+procedure main();
+   local i, n;
+   n := 0;
+   every i := 1 to 1000000 do { f(); n +:= 1 };
+   write(n);
+   every i := 1 to 200000 do { if f() = 1 then n +:= 1 };
+   write(n);
+end

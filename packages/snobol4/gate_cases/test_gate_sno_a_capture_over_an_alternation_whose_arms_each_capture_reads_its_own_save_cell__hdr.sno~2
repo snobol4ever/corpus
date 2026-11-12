@@ -1,0 +1,5 @@
+        D = ( ( '{$' BREAK('}') . B '}' | '(*$' BREAKX('*') . B '*)' ) . T . *F(B, T) )
+        P = POS(0) ARBNO(FENCE(D | ANY('ab'))) RPOS(0)
+        '{$def}' ? P
+        '{$def}a(*$xyz*)' ? P
+END

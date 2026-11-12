@@ -1,0 +1,5 @@
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	'ABCD' 'B' $ N
+	OUTPUT = 'trace=' &TRACE
+END

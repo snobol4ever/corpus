@@ -1,0 +1,12 @@
+        DEFINE('TF(NAME,TAG)')                    :(TFEND)
+TF      OUTPUT = 'trace ' NAME ' tag=' TAG       :(RETURN)
+TFEND   DEFINE('F(A)')                            :(FEND)
+F       F = A + 1                                 :(RETURN)
+FEND    DEFINE('G(A)')                            :(GEND)
+G       G = F(A) + F(A)                           :(RETURN)
+GEND    TRACE('F','CALL','','TF')
+        TRACE('G','CALL','','TF')
+        TRACE('G','RETURN','','TF')
+        &TRACE = 100
+        OUTPUT = G(3)
+END

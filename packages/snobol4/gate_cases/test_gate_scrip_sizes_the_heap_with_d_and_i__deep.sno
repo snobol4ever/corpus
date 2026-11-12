@@ -1,0 +1,5 @@
+        DEFINE('F(N)')                        :(GO)
+F       F = EQ(N, 0) 0                     :S(RETURN)
+        F = F(N - 1) + 1                    :(RETURN)
+GO      OUTPUT = 'depth ' F(1000000)
+END

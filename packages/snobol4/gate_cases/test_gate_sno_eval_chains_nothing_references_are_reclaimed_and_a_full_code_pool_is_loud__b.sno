@@ -1,0 +1,27 @@
+        &TRIM = 1
+        X = 'b'
+        P1 = EVAL("LEN(2) 'x'")
+        P2 = EVAL("'a' *X")
+        P3 = EVAL("LEN(1) . V")
+        Q = EVAL("(P4 = LEN(1) 'z')")
+        E1 = EVAL("*X")
+        A = EVAL("'abc'")
+        T = EVAL("TABLE()")
+        i = 0
+churn   EVAL("'filler" i "' ? LEN(" REMDR(i, 3) ") | 'x'")
+        i = i + 1
+        LT(i, 3000)                                          :S(churn)
+        'abx' P1                                             :F(f1)
+        OUTPUT = 'P1 ok'                                     :(n2)
+f1      OUTPUT = 'P1 fail'
+n2      'ab' P2                                              :F(f2)
+        OUTPUT = 'P2 ok'                                     :(n3)
+f2      OUTPUT = 'P2 fail'
+n3      'k' P3                                               :F(f3)
+        OUTPUT = 'P3 ok ' V                                  :(n4)
+f3      OUTPUT = 'P3 fail'
+n4      'yz' P4                                              :F(f4)
+        OUTPUT = 'P4 ok'                                     :(n5)
+f4      OUTPUT = 'P4 fail'
+n5      OUTPUT = DATATYPE(E1) ' ' EVAL(E1) ' ' A ' ' DATATYPE(T)
+END

@@ -1,0 +1,6 @@
+procedure r(n); return r(n + 1); end
+procedure main();
+   local i;
+   every i := 1 to 50000 do write(i);
+   r(1);
+end

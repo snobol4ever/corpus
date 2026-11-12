@@ -1,0 +1,5 @@
+	DEFINE('f()x')	:(main)
+f	x = DUPL('ab', 50)
+	f = x	:(RETURN)
+main	OUTPUT = SIZE(f())
+END

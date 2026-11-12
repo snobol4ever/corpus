@@ -1,0 +1,6 @@
+procedure inner(x);
+   x ? { "z" ? { return tab(0); }; };
+end
+procedure main();
+   write("AB" ? (inner("zz") || move(1)));
+end

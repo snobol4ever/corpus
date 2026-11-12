@@ -1,0 +1,4 @@
+        OUTPUT = 'before'
+        X = HOST(4,'')
+        OUTPUT = 'after'
+END

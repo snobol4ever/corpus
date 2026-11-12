@@ -1,0 +1,4 @@
+        OUTPUT = 'before'
+        X = SPAN('')
+        OUTPUT = 'after'
+END

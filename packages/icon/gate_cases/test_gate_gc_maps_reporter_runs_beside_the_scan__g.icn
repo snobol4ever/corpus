@@ -1,0 +1,6 @@
+procedure main();
+   local i, t;
+   t := table();
+   every i := 1 to 200 do t[i] := repl("y", 100) || string(i);
+   write(*t);
+end

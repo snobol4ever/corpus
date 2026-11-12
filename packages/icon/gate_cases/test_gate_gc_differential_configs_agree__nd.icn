@@ -1,0 +1,8 @@
+procedure main();
+   local f, s, i, churn;
+   f := open("/proc/uptime", "r");
+   s := read(f);
+   close(f);
+   every i := 1 to 300 do churn := repl("z", 100);
+   write("up=", s);
+end

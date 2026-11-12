@@ -1,0 +1,6 @@
+        &TRACE = 100
+        A = ARRAY('2,3')
+        TRACE(.A[1,2], 'VALUE')
+        A[1,2] = 5
+        OUTPUT = A[1,2]
+END

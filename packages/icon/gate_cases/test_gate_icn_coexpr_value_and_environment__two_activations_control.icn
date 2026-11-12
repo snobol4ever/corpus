@@ -1,0 +1,6 @@
+procedure main()
+  c := create (write("a") & write("b"));
+  @c;
+  @c;
+  write("done");
+end

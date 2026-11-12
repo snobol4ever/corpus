@@ -1,0 +1,24 @@
+	&DUMP = 1
+	A1 = ARRAY(3)
+	A2 = ARRAY("2,3")
+	A3 = ARRAY("-1:1,0:2")
+	A4 = ARRAY("1:3", 5)
+	T1 = TABLE()
+	T2 = TABLE(5)
+	T3 = TABLE(5, 3)
+	T4 = TABLE(100, 10, "x")
+	DATA("point(x,y)")
+	D1 = point(1,2)
+	D2 = point(3,4)
+	C = CODE(" X = 1")
+	E1 = *X
+	P1 = LEN(3)
+	NULLV = ""
+	NEG = -17
+	Q = "its"
+	BIG = 12345678901234
+	RL = 1.0
+	RL2 = -0.000125
+	LONGS = DUPL("abcdefghij", 20)
+	S2 = A1
+END

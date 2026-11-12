@@ -1,0 +1,13 @@
+        DEFINE('NV()')
+        DEFINE('ID(X)')
+        DEFINE('WRAP()')                :(E)
+NV      V = 'BYNAME'
+        NV = .V                         :(NRETURN)
+ID      ID = X                          :(RETURN)
+WRAP    WRAP = .NV()                    :(NRETURN)
+E
+        OUTPUT = DATATYPE(.WRAP())
+        OUTPUT = ID(NV())
+        OUTPUT = DATATYPE(.NV()) ' ' ID('after')
+        OUTPUT = ID(DATATYPE(.NV()))
+END

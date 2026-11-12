@@ -1,0 +1,25 @@
+        t = TABLE()
+        a = ARRAY(3)
+        a2 = ARRAY('2,2', 0)
+        'abc' ? LEN(2) . ITEM(t, 'c')
+        OUTPUT = 'cond ' t['c']
+        'xyz' ? LEN(1) $ ITEM(a, 2)
+        OUTPUT = 'imm ' a[2]
+        'pqrs' ? LEN(2) . ITEM(a2, 2, 1) LEN(1) . ITEM(a2, 1, 2)
+        OUTPUT = 'two-d ' a2[2,1] ' ' a2[1,2]
+        'abc' ? LEN(5) . ITEM(t, 'never')
+        OUTPUT = 'failed match leaves ' DATATYPE(t['never'])
+        k = 'dyn'
+        'hello' ? 'h' LEN(3) . ITEM(t, k) 'o'
+        OUTPUT = 'computed key ' t['dyn']
+        p = LEN(2) . ITEM(t, 'built')
+        'wxyz' ? p
+        OUTPUT = 'built pattern ' t['built']
+        DEFINE('grab(s)')               :(grab_end)
+grab    s ? SPAN('abcdefghijklmnopqrstuvwxyz') . ITEM(t, 'word')  :F(FRETURN)
+        grab = t['word']                :(RETURN)
+grab_end
+        OUTPUT = 'in function ' grab('abc123')
+        'ab' ? ARBNO(LEN(1) $ ITEM(a, 3)) RPOS(0)
+        OUTPUT = 'arbno ' a[3]
+END

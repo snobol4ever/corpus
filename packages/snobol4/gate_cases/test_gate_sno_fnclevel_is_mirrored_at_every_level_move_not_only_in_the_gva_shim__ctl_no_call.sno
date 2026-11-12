@@ -1,0 +1,4 @@
+	OUTPUT = 'top=' &FNCLEVEL
+	N = 5
+	OUTPUT = 'still=' &FNCLEVEL
+END

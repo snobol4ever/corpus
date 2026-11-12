@@ -1,0 +1,12 @@
+        DEFINE('add1(v)')                               :(add1_end)
+add1    add1 = v + 1                                    :(RETURN)
+add1_end fname = 'add1'
+        sum = 0
+        i = 1
+direct  sum = sum + add1(i)
+        i = LT(i, 200) i + 1                            :S(direct)
+        i = 1
+byname  sum = sum + APPLY(fname, i)
+        i = LT(i, 200) i + 1                            :S(byname)
+        OUTPUT = 'sum = ' sum
+END

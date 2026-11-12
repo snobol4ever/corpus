@@ -1,0 +1,5 @@
+loop    line = INPUT                    :F(END)
+        x = EVAL(line)                  :S(ok)
+        OUTPUT = 'FAIL'                 :(loop)
+ok      OUTPUT = DATATYPE(x)            :(loop)
+END

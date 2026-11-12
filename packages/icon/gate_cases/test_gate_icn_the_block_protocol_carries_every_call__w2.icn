@@ -1,0 +1,13 @@
+procedure main()
+   write(g(3, "x"));
+end
+procedure g(n, s)
+   local t;
+   t := n * 2;
+   write(variable("n"), " ", variable("s"), " ", variable("t"));
+   display(1);
+   return h(n, s);
+end
+procedure h(a, b)
+   return a + b;
+end

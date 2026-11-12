@@ -1,0 +1,2 @@
+procedure g(); suspend 1 | 2; end
+procedure main(); every g() do write("x"); end

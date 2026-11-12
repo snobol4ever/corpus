@@ -1,0 +1,1 @@
+say %*ENV<S4E_MINE_CANARY> // %*ENV<HOME>;

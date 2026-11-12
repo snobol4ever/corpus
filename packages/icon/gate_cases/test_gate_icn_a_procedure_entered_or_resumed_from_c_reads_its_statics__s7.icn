@@ -1,0 +1,18 @@
+procedure main()
+   every write(G ! [5]);
+end
+procedure F(a)
+   static s;
+   initial s := proc("abs", 0);
+   return s(-a);
+end
+procedure G(a)
+   static t;
+   initial t := 100;
+   suspend t + a | t - a;
+end
+procedure H(a)
+   local p;
+   p := G;
+   suspend p(a);
+end

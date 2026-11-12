@@ -1,0 +1,9 @@
+        OUTPUT(.V, 7, 'out.txt')
+        V = 'first'
+        DEFINE('F()V')                          :(F_END)
+F       V = 'inside'                            :(RETURN)
+F_END
+        F()
+        V = 'last'
+        ENDFILE(7)
+END

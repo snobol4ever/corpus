@@ -1,0 +1,5 @@
+procedure main()
+  c := create write("in c");
+  @c;
+  write("done");
+end

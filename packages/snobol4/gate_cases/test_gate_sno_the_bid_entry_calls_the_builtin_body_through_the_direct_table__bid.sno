@@ -1,0 +1,19 @@
+        s = 'The Quick Brown Fox'
+        OUTPUT = SIZE(s) ' ' SIZE('') ' ' SIZE(12345) ' ' SUBSTR(s, 5, 5) '|' SUBSTR(s, 17) '|' REPLACE(s, 'oq', 'OQ') '|' TRIM('ab   ') '|' DUPL('ab', 3) '|' LPAD('7', 4, '0') '|' RPAD('x', 3) '|' REVERSE('abc') '|' INTEGER('42') ' ' REMDR(17, 5)
+        a = 'n'; a = IDENT(s, s) 'y'
+        b = 'n'; b = DIFFER(s, 'x') 'y'
+        c = 'n'; c = INTEGER('x') 'y'
+        d = 'n'; d = INTEGER(2.5) 'y'
+        e = 'n'; e = IDENT() 'y'
+        f = 'n'; f = DIFFER(u, v) 'y'
+        OUTPUT = a b c d e f ' ' SIZE(SUBSTR(s, 1, 100)) ' ' (SUBSTR(s, 100, 1) 'ok' | 'fail') ' ' DUPL('-', 0) '|' REVERSE('') '|' TRIM('') '|' LPAD('abc', 2) '|' REMDR(-7, 3) ' ' REMDR(7, -3)
+        DATA('rec(width,other)')
+        r = rec(77, 'o')
+        OUTPUT = width(r) ' ' other(r) ' ' SIZE(other(r))
+        n = 0; t = 0
+loop    n = LT(n, 20000) n + 1                  :F(done)
+        t = t + SIZE(DUPL('a', REMDR(n, 7))) + REMDR(SIZE(SUBSTR(s, REMDR(n, 10) + 1)), 4)   :(loop)
+done    OUTPUT = t
+        &ERRLIMIT = 5
+        OUTPUT = SIZE(s) ' ' SUBSTR(s, 5, 5) ' ' REPLACE('abc', 'b', 'B') ' ' DUPL('xy', 2) ' ' REVERSE('abc') ' ' REMDR(9, 4) ' ' TRIM('q  ') '|'
+END

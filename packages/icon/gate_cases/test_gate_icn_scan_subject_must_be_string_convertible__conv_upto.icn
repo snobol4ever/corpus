@@ -1,0 +1,1 @@
+procedure main();&error := -1;"abc" ? write(image(upto([])) | "none");write("done");end

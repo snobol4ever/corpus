@@ -1,0 +1,9 @@
+procedure main()
+   every write("A:", seq(,4) \ 3);
+   every write("B:", seq(10,) \ 3);
+   every write("C:", seq(,) \ 3);
+   every write("D:", seq(&null, 4) \ 3);
+   every write("E:", seq(3, -2) \ 3);
+   every write("F:", seq() \ 3);
+   every write("G:", seq(4) \ 3);
+end

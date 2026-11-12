@@ -1,0 +1,42 @@
+sub show($x) { $x.pairs.map({ .key ~ "=" ~ .value }).sort.join(",") }
+my $s = set <a b c>;
+my $b = bag <a b a c a>;
+my $mx = (a=>0.5, b=>2).Mix;
+say $s.elems; say $s.total; say $s<a>; say $s<z>; say $s<a>:exists; say $s<z>:exists; say $s.keys.sort.join(",");
+say $b.elems; say $b.total; say $b<a>; say $b<z>; say show($b); say $b.values.sort.join(","); say $b.kv.elems; say $b.antipairs.elems;
+say $mx.total; say $mx<a>; say $mx<b>; say $mx<z>; say show($mx);
+say set().elems; say so set(); say so $s; say so bag(); say ?$b; say (set() ?? "t" !! "f"); say ($s ?? "t" !! "f");
+say set(<a>).gist; say set(<a>).raku; say set(<a>).Str; say bag(<a a>).gist; say bag(<a a>).Str; say bag(<a a>).raku; say mix(<a>).raku; say (a=>0.5).Mix.gist;
+say set(<a>).WHAT; say bag(<a>).WHAT; say mix(<a>).WHAT; say SetHash.new(<a>).WHAT; say BagHash.new(<a>).WHAT; say MixHash.new(<a>).WHAT;
+say $s ~~ Set; say $s ~~ Setty; say $b ~~ Bag; say $b ~~ Baggy; say $b ~~ Set; say $mx ~~ Mix; say $mx ~~ Baggy;
+say $s.Bag.total; say $b.Set.elems; say $b.Mix.total; say $s.Set === $s;
+say show(<a b a>.Bag); say show(<a b a>.Set); say show("abc".Set); say show((a=>3,b=>2).Bag); say show((a=>3,b=>0).Set); say show((a=>3,b=>0).Bag); say show((a=>1.5,b=>2).Mix);
+say show(Set.new(<a b a>)); say show(Bag.new(<a b a>)); say show(Mix.new(<a b a>)); say show(BagHash.new(<a b a>)); say show(SetHash.new(<a b a>));
+say show(set(1,2,2,3)); say show(bag(1,2,2,3)); say set(1,2,3).keys.sort.join(",");
+say show(set(<a b c>) (|) set(<c d>)); say show(set(<a b c>) (&) set(<c d>)); say show(set(<a b c>) (-) set(<c d>)); say show(set(<a b c>) (^) set(<c d>));
+say show(set(<a b c>) ∪ set(<c d>)); say show(set(<a b c>) ∩ set(<c d>)); say show(set(<a b c>) ∖ set(<c d>)); say show(set(<a b c>) ⊖ set(<c d>));
+say show(bag(<a b c c>) (|) bag(<c d c>)); say show(bag(<a b c c>) (&) bag(<c d c>)); say show(bag(<a b c c>) (+) bag(<c d c>)); say show(bag(<a b c c>) (-) bag(<c d c>)); say show(bag(<a b c c>) (.) bag(<c d c>));
+say show(bag(<a b c c>) ⊎ bag(<c d c>)); say show(bag(<a b c c>) ⊍ bag(<c d c>));
+say show(set(<a b c>) (+) set(<c d>)); say show(set(<a b c>) (.) set(<c d>)); say show(set(<a b>) (|) bag(<b b>)); say show(set(<a b>) (+) set(<b>));
+say show((1,2,3) (|) (2,5)); say show((1,2,3) (&) (2,5));
+say set(<a b>) (<=) set(<a b c>); say set(<a b>) (<) set(<a b c>); say set(<a b>) (<) set(<a b>); say set(<a b c>) (>=) set(<a b>); say set(<a b c>) (>) set(<a b c>);
+say set(<a b>) ⊆ set(<a b c>); say set(<a b>) ⊂ set(<a b>); say set(<a b c>) ⊇ set(<a b>); say set(<a b c>) ⊃ set(<a b>); say set(<a b c>) ⊄ set(<a b>); say set(<a b>) ⊈ set(<a b>); say set(<a b>) ⊉ set(<a b c>); say set(<a b>) ⊅ set(<a b>);
+say (1,2,3) (<=) (1,2,3,4); say bag(<a a b>) (<=) bag(<a a b c>); say bag(<a a a>) (<=) bag(<a a b c>); say bag(<a a b c>) (>=) bag(<a a>);
+say "a" (elem) set(<a b>); say "z" ∈ set(<a b>); say "z" ∉ set(<a b>); say set(<a b>) (cont) "a"; say set(<a b>) ∋ "a"; say set(<a b>) ∌ "a";
+say set(<a b>) (==) set(<b a>); say set(<a b>) ≡ set(<b a>); say set(<a b>) ≢ set(<b a>); say set(<a b>) ≡ set(<a>); say bag(<a b>) (==) set(<a b>); say bag(<a a>) (==) bag(<a>);
+say set(<a b>) eqv set(<b a>); say bag(<a b>) eqv set(<b a>); say set(<a b>) === set(<b a>); say set(<a b>) === set(<a>);
+my $sh = SetHash.new(<a b>); $sh<c> = True; $sh<a> = False; say $sh.keys.sort.join(","); $sh<b>:delete; say $sh.elems; say $sh.keys.join(","); say $sh<c>:exists;
+my $bh = BagHash.new(<a b a>); $bh<c> = 5; $bh<a>--; $bh<b>++; $bh<a>:delete; say show($bh); say $bh.total; say $bh.elems;
+my $mh = MixHash.new(<a b>); $mh<a> = 2.5; $mh<z> = -1; say show($mh); say $mh.total; say $mh.elems;
+my $one = set <a>; my $bg = bag <a a a>;
+try { $one<c> = True }; say $!.message;
+try { $bg<a> = 3 }; say $!.message;
+try { $bg<z> = 3 }; say $!.message;
+try { $one.grab }; say $!.message;
+try { $one<a>:delete }; say $!.message;
+say $b.pick(*).sort.join(","); say $b.pick(2).elems; say $b.pick(10).elems; say $b.roll(5).elems; say $s.pick ~~ Str; say $s.pick(*).elems;
+my $g = BagHash.new(<a a b>); my $x = $g.grab; say $g.total; say $g.grab(*).elems; say $g.elems;
+for bag(<a a b>).pairs.sort { .say }
+for $s.keys.sort -> $k { print $k, " " }
+say "";
+say $s.pairs.map({ .value }).join(","); say $b.keys.elems; say $b.sort.map({ .key ~ .value }).join("");

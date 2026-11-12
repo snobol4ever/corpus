@@ -1,0 +1,14 @@
+say (5 R- 2);
+say (5 R/ 10);
+say ("a" R~ "b");
+say (2 R** 3);
+say (1 R< 2);
+say (3 R<=> 4);
+say (7 R% 3);
+say (7 R%% 3);
+say (2 R* 5);
+say (1 R+ 2 R+ 3);
+say (10 R- 1 R- 1);
+say ("abc" Req "abc");
+say (4 Rmin 9);
+say (2 R== 2);

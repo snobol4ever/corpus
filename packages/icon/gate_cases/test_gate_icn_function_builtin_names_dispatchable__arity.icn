@@ -1,0 +1,7 @@
+procedure main()
+   local n, i;
+   every n := function() do {
+      i := args(proc(n, 0));
+      write(n, " ", i)
+      };
+end

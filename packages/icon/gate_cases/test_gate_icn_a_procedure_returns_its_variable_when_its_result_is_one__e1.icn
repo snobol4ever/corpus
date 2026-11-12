@@ -1,0 +1,9 @@
+procedure main()
+   fsl() := "no";
+   write("not reached");
+end
+procedure fsl()
+   local z;
+   z := "hello";
+   return z[2];
+end

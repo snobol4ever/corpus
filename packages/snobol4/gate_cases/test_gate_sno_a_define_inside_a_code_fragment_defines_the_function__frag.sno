@@ -1,0 +1,9 @@
+        CODE('LD DEFINE("H(X)", "HL") :(RETURN);HL H = X X :(RETURN)')
+        DEFINE('LD()')
+        LD()
+        OUTPUT = 'h ' H('ab')
+        CODE('RD DEFINE("RD(Y)", "RD0");RD0 RD = "new " Y :(RETURN)')
+        DEFINE('RD(Y)', 'RD')
+        OUTPUT = 'first ' RD('a')
+        OUTPUT = 'second ' RD('b')
+END

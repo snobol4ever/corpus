@@ -1,0 +1,24 @@
+procedure main()
+   local s, t, r;
+   s := "abcdef";
+   r := (s[2] := 'yx');
+   write(s, " ", image(r));
+   s[1] := "";
+   write(s);
+   r := (s[1:3] := 42);
+   write(s, " ", image(r));
+   r := (s[-1] := 2.5);
+   write(s, " ", image(r));
+   t := "p\x00q";
+   r := (s[2:4] := t);
+   write(image(s), " ", image(r), " ", *r);
+   s := "abcd";
+   every !s :=: ?s;
+   write(*s);
+   s := "abcd";
+   r := (s[1] :=: s[4]);
+   write(s, " ", image(r));
+   s := "abcd";
+   r := (s[1:3] :=: s[2:4]);
+   write(s, " ", image(r));
+end

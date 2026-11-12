@@ -1,0 +1,4 @@
+link helper
+procedure main()
+   write(helped());
+end

@@ -1,0 +1,5 @@
+        DEFINE('F(b,t)')                :(FEND)
+F       F = .DUMMY
+        OUTPUT = 'F [' b '] [' t ']'
+                                        :(NRETURN)
+FEND

@@ -1,0 +1,7 @@
+        OUTPUT(.OUT.)
+        DEFINE('IN(N)')                         :(IN_END)
+IN      $N = 'line one'
+        IN = $N                                 :(RETURN)
+IN_END
+        OUTPUT = 'IN gave [' IN(.OUT.) ']'
+END

@@ -1,0 +1,8 @@
+	&TRACE = 10
+	DEFINE('F(Y)')	:(START)
+F	F = N + Y	:(RETURN)
+START	N = 5
+	TRACE('N', 'ACCESS')
+	X = F(1)
+	OUTPUT = 'x=' X
+END

@@ -1,0 +1,6 @@
+        DEFINE("F()")
+        DEFINE("G()")
+        OUTPUT = F() G()   :(END)
+F       F = 1     :(NRETURN)
+G       G = 2     :(NRETURN)
+END

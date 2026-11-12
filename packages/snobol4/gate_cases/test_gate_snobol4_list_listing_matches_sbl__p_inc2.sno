@@ -1,0 +1,6 @@
+-LIST
+ X = 1
+-INCLUDE 'inc_a.sno'
+ OUTPUT = X
+ OUTPUT = B
+END

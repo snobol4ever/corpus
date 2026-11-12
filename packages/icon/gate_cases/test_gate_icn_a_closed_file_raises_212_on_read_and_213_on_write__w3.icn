@@ -1,0 +1,5 @@
+procedure main()
+   close(&output);
+   write(&errout, "after close");
+   write("to closed output");
+end

@@ -1,0 +1,3 @@
+procedure main()
+   write(1.0e-300 / 1.0e10);
+end

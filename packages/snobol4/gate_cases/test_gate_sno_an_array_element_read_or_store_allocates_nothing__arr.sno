@@ -1,0 +1,41 @@
+        A = ARRAY(5)
+        A[1] = 'one'; A[2] = 2; A[3] = 3.5; A['4'] = 'four'; A[5] = A[2] + A[3]
+        OUTPUT = A[1] ' ' A[2] ' ' A[3] ' ' A[4] ' ' A[5] ' ' A['2']
+        A[6] = 'six'                                    :S(bad1)F(ok1)
+bad1    OUTPUT = 'store past the end succeeded'         :(n1)
+ok1     OUTPUT = 'store past the end failed'
+n1      x = A[0]                                        :S(bad2)F(ok2)
+bad2    OUTPUT = 'read at zero succeeded'               :(n2)
+ok2     OUTPUT = 'read at zero failed'
+n2      x = A[-1]                                       :S(bad3)F(ok3)
+bad3    OUTPUT = 'read at -1 succeeded'                 :(n3)
+ok3     OUTPUT = 'read at -1 failed'
+n3      B = ARRAY('0:3')
+        B[0] = 'zero'; B[3] = 'three'
+        OUTPUT = B[0] ' ' B[3] ' ' (DIFFER(B[1]) 'set' | 'null')
+        M = ARRAY('2,2')
+        M[1,1] = 'a'; M[2,2] = 'd'; M[1,2] = M[1,1] M[2,2]
+        OUTPUT = M[1,1] M[1,2] M[2,2] ' ' PROTOTYPE(M)
+        T = TABLE()
+        T[1] = 'tone'; T['k'] = 'tk'
+        OUTPUT = T[1] ' ' T['k'] ' ' (DIFFER(T[2]) 'set' | 'null')
+        R = ARRAY(2); R[1] = ARRAY(2); R[1][2] = 'nested'
+        OUTPUT = R[1][2] ' ' DATATYPE(R[1])
+        A[1] 'n' . got
+        OUTPUT = got
+        nm = .A[2]
+        $nm = 22
+        OUTPUT = A[2] ' ' COPY(A)[2]
+        hold = 'held'
+        A[3] = .hold
+        q = A[3]
+        OUTPUT = DATATYPE(q) ' ' DATATYPE(A[3]) ' ' $q ' ' (IDENT(A[3], .hold) 'same' | 'other')
+        V = ARRAY(100)
+        I = 0
+fill    I = I + 1
+        V[I] = I * I                                    :S(fill)
+        I = 0; SUM = 0
+read    I = LT(I, 100) I + 1                            :F(done)
+        SUM = SUM + V[I]                                :(read)
+done    OUTPUT = SUM
+END

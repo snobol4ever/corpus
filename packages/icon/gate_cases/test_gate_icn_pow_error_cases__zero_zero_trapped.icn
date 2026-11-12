@@ -1,0 +1,6 @@
+procedure main()
+  &error := 1;
+  write("before");
+  write(0 ^ 0);
+  write("num=", &errornumber);
+end

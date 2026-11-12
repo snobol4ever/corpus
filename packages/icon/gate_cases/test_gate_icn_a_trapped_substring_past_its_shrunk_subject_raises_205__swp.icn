@@ -1,0 +1,7 @@
+procedure main()
+   local s, t;
+   s := "abcdef";
+   t := "x";
+   (s[5] :=: (s := "ab", t)) | write("failed");
+   write(s, " ", t);
+end

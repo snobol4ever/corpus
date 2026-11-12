@@ -1,0 +1,4 @@
+import gui
+procedure main()
+   write("x");
+end

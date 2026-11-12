@@ -1,0 +1,12 @@
+procedure gen(a, b);
+   local i;
+   every i := 1 to 40 do suspend [i, a * i + b];
+end
+procedure main();
+   local p, n;
+   n := 0;
+   every p := gen(2, 3) \ 3 do n +:= 1;
+   write(n);
+   every gen(2, 3) do n +:= 1;
+   write(n);
+end

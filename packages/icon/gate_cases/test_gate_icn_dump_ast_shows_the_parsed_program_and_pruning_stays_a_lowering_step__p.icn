@@ -1,0 +1,6 @@
+procedure unused_one()
+  write("NEVER");
+end
+procedure main()
+  write("hi");
+end

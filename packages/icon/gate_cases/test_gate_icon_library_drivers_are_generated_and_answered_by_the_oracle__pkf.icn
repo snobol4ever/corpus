@@ -1,0 +1,9 @@
+package pk
+procedure inpk(a)
+   return a;
+end
+class PC(v)
+   method m()
+      return v;
+   end
+end

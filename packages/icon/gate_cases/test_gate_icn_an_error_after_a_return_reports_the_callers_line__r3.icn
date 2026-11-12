@@ -1,0 +1,11 @@
+procedure main()
+   local x;
+   x := fact(4);
+   write(x);
+   x := [] + fact(2);
+end
+procedure fact(n)
+   if n <= 1 then
+      return 1;
+   return n * fact(n - 1);
+end

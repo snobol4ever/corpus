@@ -1,0 +1,20 @@
+ DEFINE('ID(A)') :(ID.END)
+ID ID = A :(RETURN)
+ID.END
+ OUTPUT = '1:' 'x' ~DIFFER('a','a')
+ OUTPUT = '2:' SIZE('ab') ~DIFFER('a','a')
+ OUTPUT = '3:' ID('A') ~DIFFER('a','a')
+ OUTPUT = '4:' ID('A') DIFFER('a','b')
+ OUTPUT = '5:' ID('A') ~IDENT('a','b')
+ OUTPUT = '6:' SIZE('ab') ~DIFFER('a','b')
+ OUTPUT = '7:' ~DIFFER('a','a') SIZE('ab')
+ X = 'q'
+ OUTPUT = '8:' X ~DIFFER('a','a')
+ OUTPUT = '9:' (SIZE('ab') 'z') ~DIFFER('a','a')
+ OUTPUT = '10:' SIZE('ab') ~DIFFER('a','a') 'tail'
+ OUTPUT = '11:' SIZE('ab') (~DIFFER('a','a'))
+ OUTPUT = '12:' SIZE('ab') ~SIZE('')
+ OUTPUT = '13:' SIZE('ab') 'm' ~DIFFER('a','a')
+ OUTPUT = '14:' ID('A') ~DIFFER('a','a')
+ OUTPUT = '15:' ID('A') ~DIFFER('a','b')
+END

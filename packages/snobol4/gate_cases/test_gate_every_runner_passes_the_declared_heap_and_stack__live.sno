@@ -1,0 +1,6 @@
+        T = TABLE()
+        I = 0
+L       I = LT(I,30000) I + 1         :F(D)
+        T[I] = DUPL('x',100)          :(L)
+D       OUTPUT = 'built ' I
+END

@@ -1,0 +1,21 @@
+global gi, gs, gl, gt
+record pt(x, y)
+procedure inner(a, b)
+   local s, t;
+   s := a || b;
+   t := [a, b];
+   display(2, &output);
+   return s;
+end
+procedure main()
+   local m, r;
+   gi := 7;
+   gs := "hello";
+   gl := [3, [4, 5], pt(6, 7)];
+   gt := table();
+   gt["k"] := "v";
+   m := 5;
+   r := inner(1, "x");
+   write("--", r, " ", image(variable("gi")));
+   display(0, &output);
+end

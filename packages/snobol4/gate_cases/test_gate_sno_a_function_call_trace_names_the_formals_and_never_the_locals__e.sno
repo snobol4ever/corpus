@@ -1,0 +1,12 @@
+        &TRACE = 100
+        DEFINE('F(X,Y)T,U')
+        DEFINE('H(Z)W')
+        TRACE('F', 'FUNCTION')
+        TRACE('H', 'FUNCTION')
+        OUTPUT = F(1)
+        :(END)
+F       T = H(X)
+        F = T :(RETURN)
+H       W = Z + 1
+        H = W :(RETURN)
+END

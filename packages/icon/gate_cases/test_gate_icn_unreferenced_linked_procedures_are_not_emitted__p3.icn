@@ -1,0 +1,6 @@
+link plib
+invocable all
+procedure main()
+   write(used());
+   write(image(proc("unused")));
+end

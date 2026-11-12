@@ -1,0 +1,11 @@
+        P = 'k' | ('xyz' ? 'y')
+        'zzk' ? P . V
+        OUTPUT = 'alt right ' V
+        OUTPUT = 'dupl ' DUPL('ab', SIZE('xyz' ? 'y'))
+        OUTPUT = 'replace ' REPLACE('abc', ('xyz' ? 'y'), 'Y')
+        R = 'k' | ('xyz' ? 'y') | 'm'
+        'zzm' ? R . U
+        OUTPUT = 'alt3 ' U
+        OUTPUT = 'lpad ' LPAD('ab', SIZE('xyz' ? ('x' | 'y')) + 3, '*')
+        OUTPUT = 'concat ' 'k' ('xyz' ? 'y')
+END

@@ -1,0 +1,10 @@
+procedure main()
+   local x;
+   x := (f(2) | 1) + &null;
+   write(x);
+end
+procedure f(n)
+   local y;
+   y := n;
+   fail;
+end

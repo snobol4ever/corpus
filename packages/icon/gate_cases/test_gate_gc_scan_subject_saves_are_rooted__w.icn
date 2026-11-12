@@ -1,0 +1,9 @@
+procedure main();
+   local i, t, n;
+   n := 0;
+   every i := (repl("hello world ", 40) ? find("o")) do {
+      t := repl("x", 2000);
+      n := n + i + *t;
+      };
+   write("n=", n);
+end

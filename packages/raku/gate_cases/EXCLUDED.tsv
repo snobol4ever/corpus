@@ -1,0 +1,3 @@
+# EXCLUDED.tsv -- gate programs whose answer is the machine's environment (the coo, gates-zero, 2026-11-12). Columns: program<TAB>class<TAB>measurement.
+test_gate_builder_mines_a_collection_in_place__envdump.raku	ENVIRONMENT	prints $HOME (the oracle answered /home/<user>): the answer is the machine, not the language (measured 2026-11-12)
+test_gate_raku_the_dynamic_variables_distro_kernel_vm_raku_and_compiler_objects_and_a_twigil_variable_in_a_string_agree_with_rakudo__w.raku	ENVIRONMENT	prints the compiler executable path (the oracle answered its own install path): the answer is the machine, not the language (measured 2026-11-12)

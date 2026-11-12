@@ -1,0 +1,5 @@
+        A = ARRAY(3)
+        A[1] = 'ABC'
+        A[1] 'A' = 'X'
+        OUTPUT = A[1]
+END

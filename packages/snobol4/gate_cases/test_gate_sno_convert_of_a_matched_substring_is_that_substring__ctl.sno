@@ -1,0 +1,2 @@
+        OUTPUT = CONVERT('whole', 'STRING') ' ' CONVERT('42', 'INTEGER') + 1 ' ' CONVERT(17, 'STRING')
+END

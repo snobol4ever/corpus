@@ -1,0 +1,9 @@
+procedure main()
+   local x;
+   x := 2;
+   case x of {
+      1: write("one");
+      2: if x = 2 then
+            x := x + &null
+      };
+end

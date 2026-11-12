@@ -1,0 +1,5 @@
+procedure main()
+   local f;
+   {write(1);
+	f([])};
+end

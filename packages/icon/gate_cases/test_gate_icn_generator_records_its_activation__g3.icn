@@ -1,0 +1,15 @@
+procedure main()
+   write(f(3));
+end
+procedure f(n)
+   local v;
+   every v := g(n) do
+      write("f ", v);
+   return "end";
+end
+procedure g(m)
+   local w;
+   w := m + 1;
+   suspend w;
+   suspend 1 / 0;
+end

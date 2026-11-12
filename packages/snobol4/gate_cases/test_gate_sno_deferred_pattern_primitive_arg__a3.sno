@@ -1,0 +1,9 @@
+        DEFINE('N()')                                               :(N_END)
+N       N = 7                                                       :(RETURN)
+N_END
+        N = 2
+        X = 'ABCDEFGHIJ'
+        X ? LEN(*N) . Y                                             :F(NO1)
+        OUTPUT = 'COLLIDE ' Y
+NO1     OUTPUT = 'a3 done'
+END

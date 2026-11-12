@@ -1,0 +1,8 @@
+procedure main();
+   local v, x;
+   &error := -1;
+   write("prime=", (0 ^ (-1)) | ("prime=" || &errornumber));
+   every v := (3 ^ 41 | 6 ^ 25) do
+      every x := (-2 | 2) do write(x, " ^ v = ", (x ^ v) | ("num=" || &errornumber));
+   &error := 0;
+end

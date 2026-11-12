@@ -1,0 +1,4 @@
+        DEFINE('F(X)')                          :(F_END)
+F       F = X X                                 :(RETURN)
+F_END   OUTPUT = F('ab')
+END

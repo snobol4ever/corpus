@@ -1,0 +1,19 @@
+procedure main()
+   local x, y, L;
+   x := "a" || "b";
+   y := x;
+   x ||:= "c";
+   write(y, " ", x, " ", *y, " ", *x);
+   L := [];
+   x := "p" || "q";
+   put(L, x);
+   x ||:= "r";
+   write(L[1], " ", x);
+   every write(starseq("ab"));
+end
+procedure starseq(s)
+   local t;
+   t := "";
+   every 1 to 3 do
+      suspend t ||:= s[1];
+end

@@ -1,0 +1,26 @@
+        DATA('REC(F1)')
+        r = REC(1)
+        x = 5
+        c = CODE(' OUTPUT = 1')
+        e = *x
+        n = 0
+nxt     n = n + 1
+        :($('C' n))
+C1      v = CONVERT(ARRAY(2), 'STRING')         :S(y)F(f)
+C2      v = CONVERT(LEN(1), 'STRING')           :S(y)F(f)
+C3      v = CONVERT(TABLE(), 'STRING')          :S(y)F(f)
+C4      v = CONVERT(12, 'STRING')               :S(y)F(f)
+C5      v = CONVERT(1.5, 'STRING')              :S(y)F(f)
+C6      v = CONVERT('ab', 'STRING')             :S(y)F(f)
+C7      v = CONVERT(.x, 'STRING')               :S(y)F(f)
+C8      v = CONVERT(r, 'STRING')                :S(y)F(f)
+C9      v = CONVERT(c, 'STRING')                :S(y)F(f)
+C10     v = CONVERT(e, 'STRING')                :S(y)F(f)
+C11     v = CONVERT(, 'STRING')                 :S(y)F(f)
+C12     v = CONVERT(ARRAY(2), 'INTEGER')        :S(y)F(f)
+C13     v = CONVERT(LEN(1), 'REAL')             :S(y)F(f)
+C14     v = CONVERT(TABLE(), 'ARRAY')           :S(y)F(f)
+C15     :(END)
+y       OUTPUT = n ' S [' v ']'                 :(nxt)
+f       OUTPUT = n ' F'                         :(nxt)
+END

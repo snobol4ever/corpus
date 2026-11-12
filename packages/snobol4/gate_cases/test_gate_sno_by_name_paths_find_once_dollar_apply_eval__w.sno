@@ -1,0 +1,44 @@
+        X = 5
+        H = 'X'
+        $H = $H + 1
+        OUTPUT = X ' ' $H
+        V = 'W1'
+        'hello world' ? BREAK(' ') . $V
+        OUTPUT = W1
+        'abc' ? LEN(2) $ $V
+        OUTPUT = W1
+        DEFINE('F(N)LOC')                               :(FEND)
+F       LOC = 'GLOB'
+        $LOC = N * 2
+        F = $LOC                                        :(RETURN)
+FEND    OUTPUT = F(21) ' ' GLOB
+        T = TABLE()
+        K = 'KEY'
+        KEY = 'kv'
+        T[$K] = 'stored'
+        OUTPUT = T['kv']
+        INPUT(.RD, 5, 'rd.txt')
+        R = 'RD'
+        OUTPUT = $R
+        OUTPUT = $R
+        G = 'OUTPUT'
+        $G = 'to OUTPUT through $'
+        TRACE('X', 'VALUE')
+        &TRACE = 100
+        $H = 7
+        &TRACE = 0
+        STOPTR('X', 'VALUE')
+        A = 'ARB'
+        OUTPUT = DATATYPE($A)
+        NV = 'NEW' 'VAR'
+        $NV = 'fresh'
+        OUTPUT = NEWVAR
+        DEFINE('ADD1(V)')                               :(ADD1_END)
+ADD1    ADD1 = V + 1                                    :(RETURN)
+ADD1_END
+        FN = 'ADD1'
+        OUTPUT = APPLY(FN, 41) ' ' APPLY('SIZE', 'abcd')
+        INF = 'var-inf'
+        N = 'var-n'
+        OUTPUT = EVAL('X + 1') ' ' EVAL('INF') ' ' EVAL('N') ' ' EVAL('-3.5') ' ' EVAL('+7') ' ' EVAL('1e3') ' ' EVAL(' X')
+END

@@ -1,0 +1,22 @@
+        &ERRLIMIT = 20
+        Z = 0.0
+        A = Z ** Z
+        OUTPUT = 'a ' &ERRTYPE
+        B = -2.0
+        A = B ** 1.5
+        OUTPUT = 'b ' &ERRTYPE
+        T = 10.0
+        A = T ** 400
+        OUTPUT = 'c ' &ERRTYPE
+        A = T ** 400.0
+        OUTPUT = 'd ' &ERRTYPE
+        A = B ** 1.0E30
+        OUTPUT = 'e ' &ERRTYPE
+        OUTPUT = B ** 3.0
+        OUTPUT = B ** -3
+        OUTPUT = Z ** -2.5
+        OUTPUT = T ** 0
+        S = &STLIMIT
+        OUTPUT = S ** 1.5
+        OUTPUT = 'end ' &ERRLIMIT
+END

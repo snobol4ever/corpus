@@ -1,0 +1,28 @@
+procedure gen(a, b);
+   local i;
+   every i := 1 to 40 do suspend [i, a * i + b];
+end
+procedure fill(k);
+   local l, i;
+   l := [];
+   every i := 1 to k do put(l, repl("x", i));
+   return *l;
+end
+procedure main();
+   local p, n, s, t;
+   n := 0;
+   every p := gen(2, 3) \ 3 do n +:= 1;
+   write(n);
+   every gen(2, 3) do n +:= 1;
+   write(n);
+   every p := gen(2, 3) \ 2 do { n +:= 10; fill(20) };
+   every p := gen(1, 1) \ 4 do { n +:= 100; fill(30) };
+   write(n);
+   "abcdefghij" ? every s := tab(upto('de') | many(&lcase)) \ 1 do { n +:= 1000; fill(20) };
+   write(n);
+   t := 0;
+   every p := (gen(3, 1) \ 2) & gen(5, 2) do { t +:= 1; fill(10) };
+   write(t);
+   every gen(1, 1) do fill(5);
+   write(fill(3));
+end

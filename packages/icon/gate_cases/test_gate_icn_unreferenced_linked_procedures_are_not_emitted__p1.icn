@@ -1,0 +1,4 @@
+link plib
+procedure main()
+   write(used());
+end

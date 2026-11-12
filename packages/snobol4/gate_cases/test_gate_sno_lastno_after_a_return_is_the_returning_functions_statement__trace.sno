@@ -1,0 +1,17 @@
+        DEFINE('G()')                           :(G.END)
+G       X = 1
+        Y = 2                                   :(RETURN)
+G.END   DEFINE('F(A)')                          :(F.END)
+F       F = A                                   :(RETURN)
+F.END   DEFINE('TRC()')                         :(TRC.END)
+TRC     OUTPUT = 'tr1 ' &LASTNO '/' &STNO
+        G()
+        OUTPUT = 'tr2 ' &LASTNO '/' &STNO
+        Z = G() &LASTNO '/' &STNO
+        OUTPUT = 'tr3 ' Z                       :(RETURN)
+TRC.END TRACE('F', 'CALL', , 'TRC')
+        &TRACE = 100
+        Q = 1
+        R = F(5)
+        OUTPUT = 'after ' &LASTNO '/' &STNO
+END

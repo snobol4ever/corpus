@@ -1,0 +1,31 @@
+global G
+procedure main();
+   local L, c, u;
+   L := [1,2,3];
+   G := [7,8,9];
+   c := 'abc';
+   L[1] := 9;
+   write("CTL localsub ", L[1]);
+   G[2] := 5;
+   write("CTL globalsub ", G[2]);
+   u := [4,5];
+   u[1] := 6;
+   write("CTL implicitsub ", u[1]);
+   L[1+1] := 42;
+   write("CTL exprsub ", L[2]);
+   &error := -1;
+   pull[c];
+   write("SUB n=", &errornumber, " v=", image(&errorvalue));
+   &error := -1;
+   pull[c] := 1;
+   write("SUBASSIGN n=", &errornumber, " v=", image(&errorvalue));
+   &error := -1;
+   ?pull;
+   write("RANDOM n=", &errornumber, " v=", image(&errorvalue));
+   &error := -1;
+   !pull;
+   write("ITERATE n=", &errornumber, " v=", image(&errorvalue));
+   &error := -1;
+   pull[1:2];
+   write("SECTION n=", &errornumber, " v=", image(&errorvalue));
+end

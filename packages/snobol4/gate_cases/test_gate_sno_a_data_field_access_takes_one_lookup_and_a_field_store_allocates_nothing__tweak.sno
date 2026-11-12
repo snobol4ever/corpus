@@ -1,0 +1,19 @@
+        DATA('pair(n,a)')
+        DEFINE('pair__TWEAK(self)')                     :(tw_end)
+pair__TWEAK  fired = fired + 1
+        n(self) = n(self) * 100                         :(RETURN)
+tw_end
+        p = pair(1, 2)
+        q = pair(3, 4)
+        OUTPUT = fired ' ' n(p) ' ' n(q)
+        DATA('cell(v)')
+        c = cell(7)
+        OUTPUT = fired ' ' v(c)
+        DEFINE('cell__TWEAK(self)')                     :(tw2_end)
+cell__TWEAK  fired = fired + 10
+        v(self) = v(self) + 1                           :(RETURN)
+tw2_end
+        d = cell(8)
+        e = cell(9)
+        OUTPUT = fired ' ' v(c) ' ' v(d) ' ' v(e)
+END

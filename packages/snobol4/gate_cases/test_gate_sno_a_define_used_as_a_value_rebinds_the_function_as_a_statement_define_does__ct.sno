@@ -1,0 +1,13 @@
+        DEFINE('g(x)')                          :(go1)
+g       g = 'orig ' x                           :(RETURN)
+go1     OUTPUT = g(1)
+        DEFINE('g(y)','g2')                     :(go2)
+g2      g = 'redef ' y                          :(RETURN)
+go2     OUTPUT = g(2)
+        DEFINE('g(x)','g')
+        OUTPUT = g(3)
+        DEFINE('h(n)')                          :(hend)
+h       h = EQ(n,1) 1                           :S(RETURN)
+        h = n * h(n - 1)                        :(RETURN)
+hend    OUTPUT = h(5)
+END

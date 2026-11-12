@@ -1,0 +1,4 @@
+        OUTPUT = 'before'
+        X = 'abc' ? NOTANY(LEN(1))
+        OUTPUT = 'after'
+END

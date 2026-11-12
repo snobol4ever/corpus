@@ -1,0 +1,7 @@
+        hold = 'held'
+        T = TABLE()
+        T['n'] = .hold
+        r = T['n']
+        OUTPUT = DATATYPE(r) ' ' DATATYPE(T['n']) ' ' $r ' ' (IDENT(T['n'], .hold) 'same' | 'other')
+        U = TABLE(); U['a'] = 1; U['b'] = U['a'] + 1; OUTPUT = U['b'] ' ' DATATYPE(U['zz']) ' ' (DIFFER(U['zz']) 'set' | 'null')
+END

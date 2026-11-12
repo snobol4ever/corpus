@@ -1,0 +1,8 @@
+procedure main()
+   &trace := -1;
+   every h();
+   every h(1,2);
+end
+procedure h(a, b[])
+   return a;
+end

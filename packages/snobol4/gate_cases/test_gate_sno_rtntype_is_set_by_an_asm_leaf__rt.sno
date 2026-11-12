@@ -1,0 +1,15 @@
+        DEFINE('r()'); DEFINE('f()'); DEFINE('n()'); DEFINE('p()')  :(go)
+r       r = 'rv'                        :(RETURN)
+f       f = 'fv'                        :(FRETURN)
+n       n = .nm                         :(NRETURN)
+p       p = .pm                         :(NRETURN)
+go      x = r(); OUTPUT = x ' ' &RTNTYPE
+        x = f()                         :S(bad)F(okf)
+bad     OUTPUT = 'f succeeded'
+okf     OUTPUT = 'after f ' &RTNTYPE
+        n() = 'stored-through-n'
+        OUTPUT = nm ' ' &RTNTYPE
+        'abc' LEN(1) . *p()
+        OUTPUT = pm ' ' &RTNTYPE
+        x = r(); OUTPUT = &RTNTYPE
+END

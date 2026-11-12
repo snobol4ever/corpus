@@ -1,0 +1,14 @@
+        DEFINE('add(x,y)')
+        DEFINE('f(op,a,b)result')
+        big = 5
+        small = 4
+        map = TABLE()
+        map['+'] = 'add'
+        f('+', 'big', 'small')
+        f('+', 'small', 'big')
+        OUTPUT = 'done'
+        :(END)
+add     add = x + y :(RETURN)
+f       result = (APPLY(map[op], EVAL(a), EVAL(b)), 'fail')
+        OUTPUT = EVAL(a) ' ' op ' ' EVAL(b) ' = ' result :(RETURN)
+END

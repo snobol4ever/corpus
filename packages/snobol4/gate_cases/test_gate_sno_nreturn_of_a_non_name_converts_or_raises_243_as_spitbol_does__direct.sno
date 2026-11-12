@@ -1,0 +1,18 @@
+	DEFINE('G()')
+	DEFINE('H()')
+	DEFINE('K()')
+	DEFINE('I()')	:(M)
+G	G = 'ABC'	:(NRETURN)
+H	H = 3.5	:(NRETURN)
+K	K = .ABC	:(NRETURN)
+I	I = 5 + 5	:(NRETURN)
+M	ABC = 'hello'
+	$'3.5' = 'three'
+	OUTPUT = 'G=[' G() ']'
+	G() = 'set'
+	OUTPUT = 'ABC=[' ABC ']'
+	OUTPUT = 'H=[' H() ']'
+	OUTPUT = 'K=[' K() ']'
+	OUTPUT = 'I=[' I() ']'
+	OUTPUT = 'nameof=[' DATATYPE(.G()) ']'
+END

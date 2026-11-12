@@ -1,0 +1,8 @@
+        DEFINE('B(X,Y)')                        :(B.END)
+B       B = 'b<' X ',' Y '>'                    :(RETURN)
+B.END   OPSYN('~', .B, 2)
+        OPSYN('#', .B, 2)
+        OUTPUT = 'before'
+        OUTPUT = #'a'
+        OUTPUT = 'after'
+END

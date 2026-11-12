@@ -1,0 +1,43 @@
+record pt(x,y)
+procedure main()
+   local L, T, C, r;
+   L := [10,20,30,40,50];
+   T := table(); T["q"] := 7; T[3.5] := 8;
+   C := 'abcdef';
+   r := pt(1,2);
+   errorclear(); &error := -1;
+   write("01 str sub    ", image("abcdef"["q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("02 str sub nul", image("abcdef"[&null]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("03 lst sub    ", image(L["q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("04 str sec hi ", image("abcdef"[2:"q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("05 str sec lo ", image("abcdef"["q":3]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("06 lst sec    ", image(L[2:"q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("07 cset sub   ", image(C["q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("08 rec bad nam", image(r["q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("09 rec sub nul", image(r[&null]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("10 str sub oob", image("abcdef"[9]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("11 lst sub oob", image(L[9]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("12 tbl key str", image(T["q"]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("13 tbl key rel", image(T[3.5]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("14 lst sec asg", image(L["q":2]) | ("FAIL n=" || (&errornumber | "-") || " v=" || (image(&errorvalue) | "-")));
+   errorclear(); &error := -1;
+   write("15 str ok     ", image("abcdef"[2]), image("abcdef"[-1]), image("abcdef"["3"]), image("abcdef"[2.0]));
+   write("16 sec ok     ", image("abcdef"[2:4]), image("abcdef"[-2:0]), image("abcdef"["2":"4"]));
+   write("17 lst ok     ", image(L[2]), image(L[-1]), image(L["3"]));
+   write("18 lst sec ok ", image(L[2:4]));
+   write("19 rec ok     ", image(r["x"]), image(r[1]), image(r[2]));
+   write("20 acct clean ", (&errornumber | "none"));
+end

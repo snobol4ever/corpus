@@ -1,0 +1,12 @@
+        DEFINE('probe()')                            :(probe_end)
+probe   SETEXIT(.trapped)
+        &ERRLIMIT = 10
+        divisor = 0
+        result = 1 / divisor
+        OUTPUT = 'noerror'                           :(RETURN)
+trapped OUTPUT = 'trapped'                           :(FRETURN)
+probe_end
+        probe()                                      :S(worked)
+        OUTPUT = 'failed as expected'                :(END)
+worked  OUTPUT = 'returned success'
+END

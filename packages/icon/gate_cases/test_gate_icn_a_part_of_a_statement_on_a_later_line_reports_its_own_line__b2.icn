@@ -1,0 +1,5 @@
+procedure main()
+   local x;
+   if x := 1 then
+      x := x + &null;
+end

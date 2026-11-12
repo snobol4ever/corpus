@@ -1,0 +1,28 @@
+:- initialization(main).
+r(N, G) :- catch((G -> true ; write(false)), error(E, _), writeq(E)), write(' '), write(N), nl.
+main :-
+  r(1, (X1 is ceil(2.5), writeq(X1))),
+  r(2, (X2 is lgamma(3.0), Y2 is round(X2*1000), writeq(Y2))),
+  r(3, (X3 is lgamma(0.0), writeq(X3))),
+  r(4, (X4 is powm(2, 10, 1000), writeq(X4))),
+  r(5, (X5 is powm(3, 200, 1000007), writeq(X5))),
+  r(6, (X6 is powm(12345678901234567890, 3, 1000000007), writeq(X6))),
+  r(7, (X7 is powm(2, -1, 7), writeq(X7))),
+  r(8, (X8 is powm(2, 10, 0), writeq(X8))),
+  r(9, (X9 is powm(2.0, 10, 7), writeq(X9))),
+  r(10, (X10 is 0.0/0.0, writeq(X10))),
+  r(11, (X11 is 1/0.0, writeq(X11))),
+  r(12, (X12 is 10.0**400, writeq(X12))),
+  r(13, (X13 is 2+inf, writeq(X13))),
+  r(14, (X14 is inf, Y14 is nan, Z14 is -inf, writeq(X14), write(' '), print(Y14), write(' '), write(Z14))),
+  r(15, (set_prolog_flag(float_zero_div, infinity), X15 is 1/0.0, writeq(X15))),
+  r(16, (X16 is -1/0.0, writeq(X16))),
+  r(17, (X17 is 1/0, writeq(X17))),
+  r(18, (X18 is 0.0/0.0, writeq(X18))),
+  r(19, (set_prolog_flag(float_undefined, nan), X19 is 0.0/0.0, writeq(X19))),
+  r(20, (X20 is sqrt(-1.0), writeq(X20))),
+  r(21, (X21 is asin(2.0), writeq(X21))),
+  r(22, (set_prolog_flag(float_overflow, infinity), X22 is 10.0**400, writeq(X22))),
+  r(23, (X23 is exp(1000), writeq(X23))),
+  r(24, (current_prolog_flag(float_overflow, V24), current_prolog_flag(float_zero_div, W24), current_prolog_flag(float_undefined, U24), writeq(V24/W24/U24))),
+  halt.

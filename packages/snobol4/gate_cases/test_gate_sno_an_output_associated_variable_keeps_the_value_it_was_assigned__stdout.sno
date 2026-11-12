@@ -1,0 +1,8 @@
+        OUTPUT(.X)
+        X = 'v'
+        OUTPUT = 'read1 ' X
+        'ab' LEN(2) $ X
+        OUTPUT = 'read2 ' X
+        'abc' LEN(3) . X
+        OUTPUT = 'read3 ' X
+END

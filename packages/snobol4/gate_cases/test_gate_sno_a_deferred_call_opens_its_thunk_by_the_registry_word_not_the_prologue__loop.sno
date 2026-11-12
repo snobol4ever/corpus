@@ -1,0 +1,10 @@
+        DEFINE('lw(x)')                                 :(lw_end)
+lw      lw = 'a'                                        :(RETURN)
+lw_end
+        i = 0
+loop    'Aa' ? LEN(1) . c *lw(c)                        :F(bad)
+        i = LT(i, 1000) i + 1                           :S(loop)
+        OUTPUT = 'done ' i                              :(fin)
+bad     OUTPUT = 'failed at ' i
+fin
+END

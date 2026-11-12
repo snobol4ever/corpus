@@ -1,0 +1,4 @@
+link M
+procedure main();
+   write(m());
+end

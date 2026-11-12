@@ -1,0 +1,15 @@
+say π; say τ; say ∞; say -∞;
+say Less; say Same; say More; say (Less == -1) ?? "y" !! "n";
+say Empty.elems; my @a = Empty; say @a.elems;
+say time > 1000000000; say time.WHAT;
+my $t = now; say (now - $t) < 5; say (now - $t) >= 0;
+my $r = rand; say $r >= 0; say $r < 1; say rand < 1;
+say $*PID > 0; say $*PID.WHAT;
+say $*PROGRAM-NAME.chars > 0; say $*PROGRAM.Str.chars > 0;
+say $*CWD.Str.chars > 0; say $*HOME.Str.chars > 0; say $*TMPDIR.Str.chars > 0;
+say %*ENV<HOME>.chars > 0; say %*ENV.elems > 0; say (%*ENV<NOPE_XYZ>:exists);
+say @*ARGS.elems;
+say $*EXECUTABLE.Str.chars > 0;
+say $?LINE; say $?FILE.chars > 0;
+my $rr = try { die; 5 }; say $rr.defined;
+sub ff { die }; try { ff() }; say "caught";

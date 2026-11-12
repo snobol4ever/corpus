@@ -1,0 +1,6 @@
+global g
+procedure main()
+  g := 42;
+  c := create write(g);
+  @c;
+end

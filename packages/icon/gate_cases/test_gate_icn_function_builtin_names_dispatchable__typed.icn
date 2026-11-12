@@ -1,0 +1,12 @@
+procedure main()
+   local prev, n, c;
+   prev := "";
+   c := 0;
+   every n := function() do {
+      if type(n) ~== "string" then write("NOT-STRING ", image(n));
+      if n <<= prev then write("OUT-OF-ORDER ", prev, " then ", n);
+      prev := n;
+      c +:= 1;
+      };
+   write("names=", c);
+end

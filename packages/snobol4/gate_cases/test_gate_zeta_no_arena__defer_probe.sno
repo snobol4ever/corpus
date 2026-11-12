@@ -1,0 +1,5 @@
+    N = 3
+    P = LEN(*N) . V
+    'abcdef' ? P
+    OUTPUT = V
+END

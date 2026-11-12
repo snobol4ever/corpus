@@ -1,0 +1,24 @@
+        &ERRLIMIT = 1000
+        al = &ALPHABET
+        s = 'ab' CHAR(0) 'cd'
+        u = 'ab' CHAR(0) 'zz'
+        t1 = 'ab' CHAR(0) 'cd'
+        n = 0
+nxt     n = n + 1
+        :($('C' n))
+C1      'z' ? (&ALPHABET | 2)           :S(y)F(f)
+C2      'z' ? (&ALPHABET 1 | 2)         :S(y)F(f)
+C3      'z' ? (al | 2)                  :S(y)F(f)
+C4      t1 ? (s | 2)                    :S(y)F(f)
+C5      t1 ? (u | 'x')                  :S(y)F(f)
+C6      t1 ? (u | s)                    :S(y)F(f)
+C7      t1 ? (s)                        :S(y)F(f)
+C8      t1 ? ('x' | s) RPOS(0)          :S(y)F(f)
+C9      t1 ? ('ab' | s) RPOS(0)         :S(y)F(f)
+C10     x = &ALPHABET | 'q'
+        'q' ? x                         :S(y)F(f)
+C11     'z' ? (&UCASE | 2)              :S(y)F(f)
+C12     :(END)
+y       OUTPUT = n ' matched'           :(nxt)
+f       OUTPUT = n ' failed'            :(nxt)
+END

@@ -1,0 +1,3 @@
+procedure main()
+	write(wall_us_absent());
+end

@@ -1,0 +1,9 @@
+        &TRIM = 1
+loop    line = INPUT                                            :F(END)
+        &ERRLIMIT = 1000
+        SETEXIT('errh')
+        c = CODE(line)                                          :S(ok)
+        OUTPUT = 'failed ' &ERRTYPE                             :(loop)
+ok      OUTPUT = 'succeeded'                                    :(loop)
+errh    OUTPUT = 'trapped ' &ERRTYPE ' ' &ERRTEXT               :(CONTINUE)
+END

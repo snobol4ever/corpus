@@ -1,0 +1,7 @@
+        DEFINE('G()')                   :(G_END)
+G       G = 'gg' &STCOUNT               :(RETURN)
+G_END
+        OUTPUT = G()
+        OUTPUT = &STNO
+L1      OUTPUT = 'dot-continued'
+END

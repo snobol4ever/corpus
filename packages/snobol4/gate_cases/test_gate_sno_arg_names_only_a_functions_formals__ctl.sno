@@ -1,0 +1,6 @@
+        DEFINE('PM(N,S)C,V')                    :(PM.END)
+PM      PM = N S                                :(RETURN)
+PM.END  OUTPUT = (ARG(.PM, 0) 'arg0 SUCCEEDED', 'arg0 fails')
+        OUTPUT = (LOCAL(.PM, 3) 'local3 SUCCEEDED', 'local3 fails')
+        OUTPUT = 'arg1 ' ARG(.PM, 1)
+END

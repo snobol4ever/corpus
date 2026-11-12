@@ -1,0 +1,5 @@
+procedure main()
+  x := 1; y := 2;
+  (x := 7) :=: y;
+  write(x,y);
+end

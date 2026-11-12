@@ -1,0 +1,15 @@
+procedure show(a, b, c)
+   write("show ", a, " ", b, " ", c);
+end
+procedure main()
+   local s;
+   s := "abcdefghijklmnopqrstuvwxyz";
+   s ? { tab(7); write("back ", &pos, " ", tab(0)) };
+   s ? { tab(3); write(&subject, " ", &pos, " ", tab(5), " ", &pos) };
+   s ? { tab(4); show(&pos, tab(9), &pos) };
+   s ? { tab(2); write(&subject[&pos:0], " ", &pos, " ", move(3), " ", &pos, " ", &subject) };
+   write("q" ? (move(1) & &pos));
+   write("xyz" ? (move(2), &pos), " ", "q" ? tab(0));
+   s ? { tab(10); "inner" ? { move(2); write("in ", &pos, " ", &subject) }; write("out ", &pos, " ", tab(0)) };
+   write(&pos, " ", image(&subject));
+end

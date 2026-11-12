@@ -1,0 +1,7 @@
+        X = EVAL('1 +')                                         :S(A)
+        OUTPUT = 'zero: the EVAL failed and the run goes on, ERRLIMIT=' &ERRLIMIT
+A       &ERRLIMIT = 5
+        X = EVAL('(1')                                          :S(B)
+        OUTPUT = 'five: failed, counted, ERRLIMIT=' &ERRLIMIT ' ERRTYPE=' &ERRTYPE ' [' &ERRTEXT ']'
+B       OUTPUT = 'end'
+END

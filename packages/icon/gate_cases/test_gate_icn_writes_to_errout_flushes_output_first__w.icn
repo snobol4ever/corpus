@@ -1,0 +1,9 @@
+procedure main()
+   write("line one");
+   writes(&errout, "err part A ");
+   write("line two");
+   write(&errout, "err part B");
+   writes("line three ");
+   writes(&errout, "err part C");
+   write(" end");
+end

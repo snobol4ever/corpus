@@ -1,0 +1,10 @@
+        DEFINE('TF(NAME,TAG)')                    :(TFEND)
+TF      OUTPUT = 'trace ' NAME ' = ' X ' tag=' TAG       :(RETURN)
+TFEND   TRACE('X','VALUE','TAG1','TF')
+        &TRACE = 100
+        X = 1
+        Y = 'plain'
+        X = X + 1
+        X = DUPL('ab', 3)
+        OUTPUT = 'done ' X
+END

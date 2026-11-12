@@ -1,0 +1,5 @@
+* before include
+-LIST
+-INCLUDE 'inc_e.sno'
+ OUTPUT = 1
+END

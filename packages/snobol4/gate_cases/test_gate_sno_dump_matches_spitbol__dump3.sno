@@ -1,0 +1,10 @@
+	&DUMP = 2
+	A = ARRAY(2)
+	A[1] = "x"
+	T = TABLE()
+	T["k"] = 5
+	T["j"] = "v"
+	DATA("point(x,y)")
+	D = point(1,"z")
+	N = 3
+END

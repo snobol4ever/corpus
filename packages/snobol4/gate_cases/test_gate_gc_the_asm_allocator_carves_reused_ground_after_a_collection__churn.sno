@@ -1,0 +1,14 @@
+        &TRIM = 1
+        DEFINE('fill(n)t,i')                            :(fill_end)
+fill    t = TABLE(512)
+        i = 1
+fill_1  t[i] = 'v' i
+        i = LT(i, 500) i + 1                            :S(fill_1)
+        fill = t                                        :(RETURN)
+fill_end
+        k = 0
+loop    t = fill()
+        s = s SIZE(t[7]) '-'
+        k = LT(k, 400) k + 1                            :S(loop)
+        OUTPUT = SIZE(s) ' ' t[250] ' ' k
+END

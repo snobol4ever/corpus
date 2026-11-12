@@ -1,0 +1,5 @@
+procedure main()
+   local i, junk;
+   every i := 1 to 400 do junk := repl("q", 512);
+   write(*&cset, " ", *&ascii, " ", *&lcase);
+end

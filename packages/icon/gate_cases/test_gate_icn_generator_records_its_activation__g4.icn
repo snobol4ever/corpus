@@ -1,0 +1,18 @@
+procedure main()
+   local x;
+   every x := outer(2) do write("main got ", x);
+   write("done");
+end
+procedure outer(n)
+   local a, b;
+   a := n * 10;
+   b := "gen";
+   suspend inner(a);
+   display(3, &output);
+   suspend a + 1;
+end
+procedure inner(k)
+   local q;
+   q := k + 5;
+   suspend q;
+end

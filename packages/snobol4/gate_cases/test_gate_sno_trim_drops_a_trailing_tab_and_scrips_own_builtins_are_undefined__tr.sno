@@ -1,0 +1,14 @@
+        T = 'abc' CHAR(9)
+        OUTPUT = SIZE(TRIM(T)) ' direct tab'
+        OUTPUT = SIZE(APPLY(.TRIM,T)) ' apply tab'
+        OUTPUT = SIZE(TRIM('abc' CHAR(9) CHAR(9))) ' two tabs'
+        OUTPUT = SIZE(TRIM('abc ' CHAR(9) ' ')) ' blank tab blank'
+        OUTPUT = SIZE(TRIM(CHAR(9) 'abc')) ' leading tab kept'
+        OUTPUT = SIZE(TRIM('abc' CHAR(13))) ' cr kept'
+        OUTPUT = SIZE(TRIM('abc' CHAR(10))) ' lf kept'
+        OUTPUT = SIZE(TRIM('abc' CHAR(11))) ' vt kept'
+        OUTPUT = SIZE(TRIM('abc' CHAR(12))) ' ff kept'
+        OUTPUT = SIZE(TRIM('a b' CHAR(9))) ' inner blank kept'
+        F = .TRIM
+        OUTPUT = SIZE(APPLY(F,T)) ' apply via name'
+END

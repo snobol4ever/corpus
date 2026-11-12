@@ -1,0 +1,8 @@
+procedure main()
+   write("a ", Image(every 1 to 3) | "none");
+   write("b ", Image(every i := 1 to 3 do write(i)) | "none");
+   write("c ", Image(2) | "none");
+end
+procedure Image(x)
+   return x;
+end

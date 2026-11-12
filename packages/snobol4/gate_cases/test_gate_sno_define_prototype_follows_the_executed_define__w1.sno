@@ -1,0 +1,11 @@
+	DEFINE('rd(n)')                                 :(rd_end)
+rd	rd = n * 2                                      :(RETURN)
+rd_end
+	OUTPUT = 'first rd(3) = ' rd(3)
+	OUTPUT = 'first rd(5) = ' rd(5)
+	DEFINE('rd(rd)', 'rd2')                         :(rd2_end)
+rd2	rd = NE(rd,1) rd * rd(rd - 1)                   :(RETURN)
+rd2_end
+	OUTPUT = 'after rd(4) = ' rd(4)
+	OUTPUT = 'after rd(5) = ' rd(5)
+END

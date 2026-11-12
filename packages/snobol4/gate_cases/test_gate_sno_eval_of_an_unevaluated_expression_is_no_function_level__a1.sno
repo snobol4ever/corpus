@@ -1,0 +1,3 @@
+        X = *(&FNCLEVEL)
+        OUTPUT = EVAL(X)
+END

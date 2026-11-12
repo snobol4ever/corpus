@@ -1,0 +1,22 @@
+:- initialization(main).
+main :-
+    fd_domain(Z, 1, 5), Z #\=# 3, fd_dom(Z, D), write(dom(D)), nl,
+    fd_domain(W, 1, 9), fd_min(W, Mn), fd_max(W, Mx), fd_size(W, Sz), write(minmax(Mn, Mx, Sz)), nl,
+    fd_max_integer(MI), write(maxint(MI)), nl, fd_vector_max(VM), write(vecmax(VM)), nl,
+    fd_domain([A,B], 0, 1), fd_at_least_one([A,B]), fd_labeling([A,B]), write(alo(A,B)), nl,
+    fd_domain(P, 1, 20), fd_prime(P), fd_dom(P, PD), write(primes(PD)), nl,
+    fd_domain(NP, 1, 20), fd_not_prime(NP), fd_dom(NP, NPD), write(notprime(NPD)), nl,
+    fd_domain([Q,R], 1, 3), fd_atleast(1, [Q,R], 2), fd_labeling([Q,R]), write(atleast(Q,R)), nl,
+    fd_domain(X, 1, 10), fd_minimize(fd_labeling([X]), X), write(min(X)), nl,
+    fd_element(I, [1,3,3], 3), fd_dom(I, ID), write(elem(ID)), nl,
+    fd_reified_in(V, 1, 3, Bv), V = 5, write(reif(Bv)), nl,
+    fd_domain([C1,C2], 0, 5), fd_cardinality([C1 #=# 1, C2 #=# 1], 1), C1 = 1, fd_dom(C2, C2D), write(card(C2D)), nl,
+    fd_domain(Y, 1, 9), ( fd_has_vector(Y) -> write(hv(yes)) ; write(hv(no)) ), nl, Y #\=# 5, ( fd_has_vector(Y) -> write(hv2(yes)) ; write(hv2(no)) ), nl,
+    fd_domain(Zc, 1, 9), ( fd_has_extra_cstr(Zc) -> write(hec(yes)) ; write(hec(no)) ), nl, Zc #># 3, ( fd_has_extra_cstr(Zc) -> write(hec2(yes)) ; write(hec2(no)) ), nl,
+    fd_domain([A2,B2], 1, 3), A2 #<# B2, fd_labeling([A2,B2], [value_method(max)]), write(vmax(A2,B2)), nl,
+    fd_domain([C3,D3], 1, 3), C3 #<# D3, fd_labeling([C3,D3], [variable_method(ff), value_method(middle)]), write(mid(C3,D3)), nl,
+    fd_domain([E1,E2], 1, 3), fd_element_var(J, [E1,E2], 3), E1 = 1, write(ev(J)), nl,
+    fd_domain([F1,F2], 0, 5), fd_cardinality([F1 #=# 1, F2 #=# 1], N), N = 2, write(card(F1,F2)), nl,
+    fd_domain(Gv, [2,4,8]), fd_dom(Gv, GL), write(dom2(GL)), nl,
+    fd_domain(H, 1, 9), fd_labeling(H), write(single(H)), nl,
+    fd_domain([K1,K2], 1, 2), fd_labeling([K1,K2], [backtracks(Bk)]), write(bk(Bk)), nl, halt.

@@ -1,0 +1,1 @@
+say $*IN.lines.elems;

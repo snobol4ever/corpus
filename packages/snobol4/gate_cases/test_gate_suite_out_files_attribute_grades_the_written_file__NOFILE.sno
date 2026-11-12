@@ -1,0 +1,4 @@
+        OUTPUT(.O,2,'side.txt')
+        O = 'ignored'
+        OUTPUT = 'nofile'
+END

@@ -1,0 +1,7 @@
+        DEFINE('R(N)S')                                 :(REND)
+R       S = DUPL('x', 50) N
+        R = LT(N, 3000) R(N + 1)                        :S(RD)
+        R = SIZE(S)                                     :(RETURN)
+RD      R = R + SIZE(S)                                 :(RETURN)
+REND    OUTPUT = R(1)
+END

@@ -1,0 +1,32 @@
+procedure span(c)
+   suspend tab(many(c));
+end
+procedure f()
+   static k;
+   initial k := 3;
+   k +:= 2;
+   write(k);
+end
+global g
+procedure main()
+   local s, n, p, q, t;
+   s := set([1, 2]);
+   f();
+   f();
+   p := write;
+   q := proc("*", 2);
+   /g := 4;
+   t := "ab";
+   t[-1] := "";
+   if *t > 0 then {
+      n := 1;
+      if n > 0 then {
+         n := 2
+         };
+      n := 3
+      };
+   "5H1" ? ((n <- span('0123456789')) || ="H");
+   (&subject <- "xy") & (&pos <- 2) & (n <- 4);
+   n := *s;
+   p(n, " ", *&progname > 0, " ", q(2, 3));
+end

@@ -1,0 +1,37 @@
+        DEFINE('mut(s,p,ch)')                           :(mut_end)
+mut     mut = s
+        mut ? POS(p - 1) LEN(1) = ch                    :(RETURN)
+mut_end
+        abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+        up = 'ZYXWVUTSRQPONMLKJIHGFEDCBAzyxwvutsrqponmlkjihgfedcba9876543210'
+        subj = 'the quick brown fox jumps over the lazy dog 0123456789 THE LAZY DOG'
+        lens = '1 2 3 4 5 7 8 9 15 16 17 23 26 31 32 33 47 62 '
+next    lens ? POS(0) SPAN('0123456789') . fl ' ' =     :F(dups)
+        f = SUBSTR(abc, 1, fl)
+        t = SUBSTR(up, 1, fl)
+        OUTPUT = fl ' ' REPLACE(subj, f, t)
+        OUTPUT = fl ' ' REPLACE(subj, f, t)
+        OUTPUT = fl ' ' REPLACE(subj, f, t)
+        LT(fl, 2)                                       :S(next)
+        p = fl
+vary    f2 = mut(f, p, 'z')
+        t2 = mut(t, p, 'Q')
+        OUTPUT = fl ' f' p ' ' REPLACE(subj, f2, t)
+        OUTPUT = fl ' f' p ' ' REPLACE(subj, f, t)
+        OUTPUT = fl ' t' p ' ' REPLACE(subj, f, t2)
+        OUTPUT = fl ' t' p ' ' REPLACE(subj, f, t)
+        q = fl / 2 + 1
+        EQ(p, q)                                        :S(next)
+        p = q                                           :(vary)
+dups    d1 = 'aab'
+        d2 = 'xyz'
+        OUTPUT = 'dup ' REPLACE(subj, d1, d2)
+        OUTPUT = 'dup ' REPLACE(subj, d1, d2)
+        e1 = ''
+        OUTPUT = 'empty [' REPLACE(e1, f, t) ']'
+        n1 = 123456789
+        n2 = 135
+        n3 = 'abc'
+        OUTPUT = 'num ' REPLACE(n1, n2, n3)
+        OUTPUT = 'done'
+END

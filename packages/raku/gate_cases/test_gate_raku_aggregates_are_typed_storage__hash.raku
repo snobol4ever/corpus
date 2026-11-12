@@ -1,0 +1,28 @@
+my %h = a => 1, b => 2;
+say %h.elems;
+say %h<a>;
+say %h{"b"};
+%h<c> = 3;
+say %h.elems;
+say %h.keys.sort;
+say %h.values.sort;
+say (%h<a>:exists);
+say (%h<z>:exists);
+%h<a>:delete;
+say %h.keys.sort;
+my %g = %h;
+%g<z> = 9;
+say %h.elems;
+say %g.elems;
+sub f(%p) { %p<q> = 5 }
+f(%h);
+say %h<q>;
+my %n = x => [1,2,3], y => {z => 7};
+say %n<x>.elems;
+say %n<x>[1];
+say %n<y><z>;
+my %s = "k\x01v" => "w\x05x";
+say %s.elems;
+say %s{"k\x01v"}.chars;
+my %one = only => 1;
+say %one;

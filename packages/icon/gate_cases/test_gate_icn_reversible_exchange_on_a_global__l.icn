@@ -1,0 +1,6 @@
+procedure main();
+    local a, b;
+    a := 1; b := 2;
+    write(image(a <-> b) | "none");
+    write("a=", image(a), " b=", image(b));
+end

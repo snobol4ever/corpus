@@ -1,0 +1,4 @@
+        A = ARRAY('2,2')
+        OUTPUT = 'before'
+        X = A<1,1>
+END

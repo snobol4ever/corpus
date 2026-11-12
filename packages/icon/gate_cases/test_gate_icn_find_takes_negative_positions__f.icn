@@ -1,0 +1,10 @@
+procedure main()
+   local s;
+   s := "banana";
+   write(find("a", s, -3) | "f1", " ", find("a", s, 1, -2) | "f2", " ", find("a", s, -5, -1) | "f3", " ", find("a", s, 0) | "f4", " ", find("a", s, 5, 2) | "f5");
+   every writes(find("a", s, -4), " "); write();
+   every writes(find("na", s, 1, -1), " "); write();
+   every writes(find("a", s, -1, 3), " "); write();
+   s ? { tab(3); write(find("a") | "f6", " ", find("a", &subject, -2) | "f7", " ", &pos); };
+   write(find("", s, -1) | "f8", " ", find("x", s, -6) | "f9", " ", find("b", s, -6, -5) | "f10");
+end

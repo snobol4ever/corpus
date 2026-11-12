@@ -1,0 +1,4 @@
+        OUTPUT = 'ran'
+-NOEXECUTE
+        OUTPUT = 'ran2'
+END

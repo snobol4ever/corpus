@@ -1,0 +1,10 @@
+procedure main();
+   local i, s, c;
+   c := cset("abcdefgh") ++ cset("ijklmnop");
+   write(*c);
+   c := &null;
+   every i := 1 to 400 do s := repl("z", 200);
+   c := cset("abcdefgh") ++ cset("ijklmnop");
+   write(*c);
+   write(c);
+end

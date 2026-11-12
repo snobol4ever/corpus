@@ -1,0 +1,4 @@
+        D = ( ( 'ab' . B | 'cd' . B ) . T . *F(B, T) )
+        'ab' ? D
+        'cd' ? D
+END

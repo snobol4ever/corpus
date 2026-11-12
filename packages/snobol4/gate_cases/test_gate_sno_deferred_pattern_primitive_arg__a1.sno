@@ -1,0 +1,14 @@
+        DEFINE('F(N)')                                              :(F_END)
+F       F = N + 3                                                   :(RETURN)
+F_END
+        X = 'ABCDEFGHIJ'
+        X ? LEN(*F(0)) . Y                                          :F(NO1)
+        OUTPUT = 'LEN ' Y
+NO1     X ? TAB(*F(1)) . Y                                          :F(NO2)
+        OUTPUT = 'TAB ' Y
+NO2     X ? RTAB(*F(4)) . Y                                         :F(NO3)
+        OUTPUT = 'RTAB ' Y
+NO3     X ? POS(*F(-3)) LEN(2) . Y                                  :F(NO4)
+        OUTPUT = 'POS ' Y
+NO4     OUTPUT = 'a1 done'
+END

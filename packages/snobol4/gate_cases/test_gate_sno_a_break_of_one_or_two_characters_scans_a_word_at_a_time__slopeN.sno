@@ -1,0 +1,8 @@
+        line = 'abcdefghijklmnopqrstuvwxy' CHAR(10)
+        nl = CHAR(10)
+        n = 0
+loop    line BREAK(nl) . piece
+        n = n + 1
+        LT(n, $N)                                       :S(loop)
+        OUTPUT = n ' ' SIZE(piece)
+END

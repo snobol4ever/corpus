@@ -1,0 +1,6 @@
+procedure bare(x);
+   x ? { return; };
+end
+procedure main();
+   write("AB" ? (bare("zz") & move(1)));
+end

@@ -1,0 +1,8 @@
+procedure pick(x);
+   x ? { if pos(0) then return "e"; };
+   return "f";
+end
+procedure main();
+   write("CD" ? (pick("") || move(1)));
+   write("EF" ? (pick("g") || move(1)));
+end

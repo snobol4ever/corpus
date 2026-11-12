@@ -1,0 +1,7 @@
+	SETEXIT(.f)
+	&ERRLIMIT = 4
+	Z = 0
+	X = 1 / Z
+	OUTPUT = 'tail'	:(END)
+f	OUTPUT = 'caught ' &ERRTYPE	:(CONTINUE)
+END

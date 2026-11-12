@@ -1,0 +1,7 @@
+        DEFINE('U(X)')                          :(U.END)
+U       U = '[' X ']'                           :(RETURN)
+U.END   OPSYN('!', .U, 1)
+        AL = 'list'
+        OUTPUT = '     '   !AL
+        OUTPUT = SIZE(!'abc') ' ' !!'n'
+END

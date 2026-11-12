@@ -1,0 +1,8 @@
+        DEFINE('MYFN(X)')
+        UNLOAD('MYFN')
+        &ERRLIMIT = 1
+        MYFN('a')                                               :S(S)F(F)
+S       OUTPUT = 'S'                                            :(END)
+F       OUTPUT = 'F ' &ERRTYPE                                  :(END)
+MYFN    MYFN = X                                                :(RETURN)
+END

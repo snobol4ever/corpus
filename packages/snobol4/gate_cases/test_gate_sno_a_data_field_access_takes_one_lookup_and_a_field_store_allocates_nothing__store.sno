@@ -1,0 +1,8 @@
+        DATA('pair(n,a)')
+        p = pair(0, 0)
+        i = 0
+loop    n(p) = n(p) + 1
+        a(p) = i
+        i = LT(i, 1500) i + 1                           :S(loop)
+        OUTPUT = n(p) ' ' a(p)
+END

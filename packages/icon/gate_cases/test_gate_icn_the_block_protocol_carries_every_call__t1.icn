@@ -1,0 +1,15 @@
+procedure main()
+   &trace := -1;
+   write(f(2, "a"));
+   every write(g(1, 2));
+   write(v(1, 2, 3));
+end
+procedure f(n, s)
+   return n || s;
+end
+procedure g(a, b)
+   suspend a | b;
+end
+procedure v(x, y[])
+   return x + *y;
+end

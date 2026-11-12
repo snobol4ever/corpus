@@ -1,0 +1,19 @@
+:- if(current_prolog_flag(version_data, swi(_,_,_,_))).
+which(swi).
+:- else.
+which(other).
+:- endif.
+ld([]).
+ld([T|Ts]) :- assert(T), ld(Ts).
+drop(T) :- retract(T).
+q(X) :- p(X).
+fx(B, E) :- file_name_extension(B, E, 'a/b.P').
+mk :- assert(r(1)), assert((s(X) :- r(X))).
+:- table t/1.
+t(1).
+t(2).
+res(G, R) :- get_residual(G, R).
+rc(L) :- findall(R, get_returns_for_call(t(_), R), L0), msort(L0, L).
+:- table u/1.
+:- dynamic u/1.
+ua :- assert(u(a)), assert(u(b)).

@@ -1,0 +1,36 @@
+          DEFINE('mark(tag)')                                 :(mark_end)
+mark      log = log tag
+          mark = .dummy                                       :(NRETURN)
+mark_end  p1 = '' . *mark('R')
+          p2 = FENCE('' . *mark('R'))
+          log = ''
+          'abc' ? 'a' . *mark('A') FENCE('b' . *mark('B')) 'c' . *mark('C')
+          OUTPUT = 'kept through [' log ']'
+          log = ''
+          'ab' ? 'a' ARBNO('b') ('' . *mark('R') | '') RPOS(0)
+          OUTPUT = 'plain alt [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') *p1 RPOS(0)
+          OUTPUT = 'deferred plain [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') *p2 RPOS(0)
+          OUTPUT = 'deferred fence [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') p2 RPOS(0)
+          OUTPUT = 'stored fence [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') EVAL("FENCE('' . *mark('R'))") RPOS(0)
+          OUTPUT = 'eval fence [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') ('' . *mark('R') FENCE) RPOS(0)
+          OUTPUT = 'bare fence after [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') ('' . *mark('R') | ABORT) RPOS(0)
+          OUTPUT = 'abort arm [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') ('' . *mark('R') | '' . *mark('S')) RPOS(0)
+          OUTPUT = 'two arms [' log ']'
+          last = ''
+          'abc' ? ARBNO(LEN(1)) . head FENCE(LEN(1) . last) RPOS(0)
+          OUTPUT = 'head [' head '] last [' last ']'
+END

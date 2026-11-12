@@ -1,0 +1,7 @@
+procedure gen()
+    suspend 1 | 2 | 3;
+end
+procedure main()
+    local x;
+    every x := gen() do write(x);
+end

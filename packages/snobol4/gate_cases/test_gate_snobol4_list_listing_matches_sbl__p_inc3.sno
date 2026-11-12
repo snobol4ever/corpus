@@ -1,0 +1,4 @@
+-LIST
+-INCLUDE 'inc_c.sno'
+ OUTPUT = 1
+END

@@ -1,0 +1,22 @@
+        X = 'a'
+        Y = 'hello'
+L1      'pq' 'rs' ? LEN(1)
+        OUTPUT = 'ok1'
+L2      X 'rs' ? LEN(1)
+        OUTPUT = 'ok2'
+        'ab' 'cd' ? 'bc' . OUTPUT
+        'ab' 'cd' 'ef' ? LEN(5) . OUTPUT
+        Y 'x' ? 'hellox' . OUTPUT
+        Y X 'z' ? 'helloaz' . OUTPUT
+        'ab' 'cd' ? 'zz'                  :S(S1)F(F1)
+S1      OUTPUT = 'bad'                    :(N1)
+F1      OUTPUT = 'miss ok'
+N1      'ab' 'cd' ? 'cd' . OUTPUT         :S(S2)
+        OUTPUT = 'bad2'
+S2      'ab' 'cd' ? 'zz'                  :F(F3)S(S3)
+S3      OUTPUT = 'bad3'                   :(N3)
+F3      OUTPUT = 'miss3 ok'
+N3      Y 'x' ? 'h' . OUTPUT ? 'hello' . OUTPUT
+        Y 'x' ? 'h' . OUTPUT ? 'h' . OUTPUT
+        OUTPUT = 'end'
+END

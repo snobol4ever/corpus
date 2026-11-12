@@ -1,0 +1,6 @@
+procedure f(x)
+  return case x of { default: 1 } + 2;
+end
+procedure main()
+  write(f(1));
+end

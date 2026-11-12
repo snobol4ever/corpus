@@ -1,0 +1,12 @@
+        p = LEN(1) FENCE
+        'abc' ? *p 'x'                          :S(Y1)F(N1)
+Y1      OUTPUT = 'len fence: yes'               :(T2)
+N1      OUTPUT = 'len fence: no'
+T2      'ab' ? TAB(0) FENCE 'x'                 :S(Y2)F(N2)
+Y2      OUTPUT = 'statement tab fence x: yes'   :(T3)
+N2      OUTPUT = 'statement tab fence x: no'
+T3      p = TAB(0) FENCE
+        'ab' ? *p                               :S(Y3)F(N3)
+Y3      OUTPUT = 'thunk alone: yes'             :(END)
+N3      OUTPUT = 'thunk alone: no'
+END

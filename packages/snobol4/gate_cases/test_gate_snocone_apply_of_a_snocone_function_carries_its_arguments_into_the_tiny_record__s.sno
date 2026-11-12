@@ -1,0 +1,29 @@
+        DEFINE('ZFN(X)')                                 :(ZFE)
+ZFN     ZFN = X + 1                                      :(RETURN)
+ZFE     DEFINE('TWO(A,B)')                               :(TWE)
+TWO     TWO = A '-' B                                    :(RETURN)
+TWE     DEFINE('FR(X)')                                  :(FRE)
+FR      GT(X, 5)                                         :S(RETURN)F(FRETURN)
+FRE     DEFINE('FACT(N)')                                :(FAE)
+FACT    FACT = LE(N, 1) 1                                :S(RETURN)
+        FACT = N * APPLY('FACT', N - 1)                  :(RETURN)
+FAE     DEFINE('NR(K)')                                  :(NRE)
+NR      NR = .T[K]                                       :(NRETURN)
+NRE     T = TABLE()
+        T[1] = 'one'
+        OUTPUT = 'zfn ' APPLY('ZFN', 41)
+        F = 'ZFN'
+        OUTPUT = 'zfn var ' APPLY(F, 1)
+        OUTPUT = 'two ' APPLY('TWO', 'a', 'b')
+        OUTPUT = 'two short ' APPLY('TWO', 'a')
+        OUTPUT = 'two long ' APPLY('TWO', 'a', 'b', 'c')
+        OUTPUT = 'fr ' (APPLY('FR', 9) 'ok')
+        OUTPUT = 'fr fail ' (APPLY('FR', 1) 'ok')            :S(X1)
+        OUTPUT = 'fr failed'
+X1      OUTPUT = 'fact ' APPLY('FACT', 5)
+        OUTPUT = 'nr ' APPLY('NR', 1)
+        APPLY('NR', 1) = 'uno'
+        OUTPUT = 'nr set ' T[1]
+        OUTPUT = 'eval ' EVAL("APPLY('ZFN', 9)")
+        OUTPUT = 'end'
+END

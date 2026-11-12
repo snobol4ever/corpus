@@ -1,0 +1,30 @@
+procedure main()
+   local text, comments, t2, a, b;
+   text := "\nabc"; comments := "";
+   every text | comments ?:= { move(1); tab(0) };
+   write("A ", image(text), " ", image(comments));
+   t2 := "\nxyz";
+   t2 ?:= { move(1); tab(0) };
+   write("B ", image(t2));
+   text := "\nabc"; comments := "\nc";
+   every (text | comments) ?:= tab(0);
+   write("C ", image(text), " ", image(comments));
+   text := "\nabc"; comments := "\nc";
+   every text | comments ?:= (move(1), tab(0));
+   write("D ", image(text), " ", image(comments));
+   a := 1; b := 10;
+   every (a | b) +:= 1;
+   write("E ", a, " ", b);
+   a := "p"; b := "q";
+   every (a | b) ||:= "x";
+   write("F ", a, " ", b);
+   a := 1; b := 2;
+   every (a | b) := 0;
+   write("G ", a, " ", b);
+   a := "\nm"; b := "\nn";
+   every (a | b) ?:= tab(0);
+   write("H ", image(a), " ", image(b));
+   a := "one two"; b := "three four";
+   every (a | b) ?:= tab(upto(' '));
+   write("I ", image(a), " ", image(b));
+end

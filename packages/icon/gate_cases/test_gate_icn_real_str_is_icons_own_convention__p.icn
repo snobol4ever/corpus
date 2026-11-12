@@ -1,0 +1,15 @@
+procedure main()
+   write(101559956668416.0);
+   write(-101559956668416.0);
+   write(9999999999.6);
+   write(99999.99999999);
+   write(1.0e10);
+   write(1.0e-5);
+   write(0.0001);
+   write(3.14159265358979);
+   write(1.0e100);
+   write(1.0e-100);
+   write(0.0);
+   write(-0.5);
+   write(2.0);
+end

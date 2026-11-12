@@ -1,0 +1,4 @@
+        A = ARRAY(2)
+        A<1> = 5
+        OUTPUT = A<1>
+END

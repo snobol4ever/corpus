@@ -1,0 +1,10 @@
+procedure main()
+   local s, t, c;
+   write((12345 ? tab(3)));
+   s := "abc" || "defgh";
+   c := 'abc';
+   t := (s ? tab(4));
+   write(t);
+   write((s ? (t ? tab(3))));
+   write((s ? many(c)));
+end

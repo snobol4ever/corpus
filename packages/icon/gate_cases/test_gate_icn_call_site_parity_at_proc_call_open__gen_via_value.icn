@@ -1,0 +1,12 @@
+procedure main();
+    every write(h());
+end
+procedure h();
+    local p;
+    p := g;
+    suspend p(1);
+    suspend p(2);
+end
+procedure g(x);
+    suspend x;
+end

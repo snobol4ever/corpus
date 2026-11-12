@@ -1,0 +1,18 @@
+procedure main()
+   outer(7, 8);
+end
+procedure outer(p, q)
+   local a, b, c, d;
+   a := 11; b := 22; c := 33; d := 44;
+   inner(1);
+   return;
+end
+procedure inner(k)
+   local r, s;
+   static t;
+   r := "sixteen chars ok, this one is longer";
+   s := [1, 2, [3, 4]];
+   t := 99;
+   display(3, &output);
+   return;
+end

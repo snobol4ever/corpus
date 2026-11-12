@@ -1,0 +1,11 @@
+        DEFINE('NV()')                  :(E)
+NV      V = 'BYNAME'
+        NV = .V                         :(NRETURN)
+E
+        OUTPUT = DATATYPE(NV())
+        OUTPUT = DATATYPE(.NV())
+        OUTPUT = DATATYPE(NV())
+        OUTPUT = DATATYPE(NV())
+        X = .V
+        OUTPUT = DATATYPE(NV())
+END

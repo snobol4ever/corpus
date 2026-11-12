@@ -1,0 +1,20 @@
+        S = 'ABCDEF'
+        X = 'BDF'
+        P = SPAN(X)
+        S P =
+        OUTPUT = S
+        DEFINE('MK(C)')                    :(MKEND)
+MK      MK = POS(0) SPAN(C) RPOS(0)        :(RETURN)
+MKEND
+        P1 = MK('a')
+        P2 = MK('b')
+        OUTPUT = ('aaa' ? P1) ' P1 keeps its argument'
+        OUTPUT = ('bbb' ? P2) ' P2 keeps its argument'
+        OUTPUT = ('bbb' ? P1) ' P1 must not match bbb'
+        OUTPUT = 'after the failing match'
+        E = SPAN('a') $ V
+        'a+aa' POS(0) *E RPOS(0)           :S(OK)F(NO)
+OK      OUTPUT = 'match ' V                :(DONE)
+NO      OUTPUT = 'nomatch'
+DONE
+END

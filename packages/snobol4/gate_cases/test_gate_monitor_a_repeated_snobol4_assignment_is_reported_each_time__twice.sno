@@ -1,0 +1,4 @@
+        id = SPAN(&LCASE)
+        'struct x' ? (id $ tx 'q' | id $ tx 'z' | id $ tx)
+        OUTPUT = tx
+END

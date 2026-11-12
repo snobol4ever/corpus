@@ -1,0 +1,5 @@
+procedure main()
+   local x;
+   every x := 1 to 3 do
+      x := x + &null;
+end

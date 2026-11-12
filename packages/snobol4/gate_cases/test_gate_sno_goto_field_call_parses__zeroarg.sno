@@ -1,0 +1,5 @@
+        DEFINE('GOF()')                 :(MAIN)
+GOF     GOF  =  .L3                     :(NRETURN)
+MAIN    OUTPUT  =  'a'                   :(GOF())
+L3      OUTPUT  =  'b'
+END

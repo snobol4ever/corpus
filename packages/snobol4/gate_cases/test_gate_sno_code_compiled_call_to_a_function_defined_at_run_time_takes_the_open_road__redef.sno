@@ -1,0 +1,9 @@
+        DEFINE('F(X)','F1')                     :(E1)
+F1      F = 'one-' X                            :(RETURN)
+F2      F = 'two-' X                            :(RETURN)
+E1      OUTPUT = F(1)
+        DEFINE('F(X)','F2')
+        C = CODE('G1 G1 = F(X) :(RETURN)')
+        DEFINE('G1(X)')
+        OUTPUT = G1(5)
+END

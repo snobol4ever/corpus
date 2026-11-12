@@ -1,0 +1,2 @@
+COPY	OUTPUT = INPUT		:s(COPY)
+END

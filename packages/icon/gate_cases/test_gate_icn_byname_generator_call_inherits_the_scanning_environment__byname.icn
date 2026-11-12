@@ -1,0 +1,11 @@
+procedure main()
+   if try(s, "c")
+      then write("accepted")
+      else write("rejected");
+end
+procedure try(goal, text)
+   return text ? (goal() & pos(0));
+end
+procedure s()
+   suspend ="c";
+end

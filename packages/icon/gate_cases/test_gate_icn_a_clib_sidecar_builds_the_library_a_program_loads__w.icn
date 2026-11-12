@@ -1,0 +1,6 @@
+link io
+procedure main()
+   local f;
+   f := pathload("libgt.so", "gtf") | stop("no library");
+   write(f(1, 2));
+end

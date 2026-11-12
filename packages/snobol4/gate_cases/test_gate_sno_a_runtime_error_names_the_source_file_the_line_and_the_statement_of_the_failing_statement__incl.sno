@@ -1,0 +1,4 @@
+        OUTPUT = "driver start"
+-INCLUDE "inc.inc"
+        OUTPUT = "driver end"
+END

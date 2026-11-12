@@ -1,0 +1,7 @@
+	&TRACE = 100
+	DATA('NODE(L,R)')
+	TRACE('N', 'VALUE')
+	N = NODE(1,2)
+	N = NODE(3,4)
+	OUTPUT = 'trace=' &TRACE
+END

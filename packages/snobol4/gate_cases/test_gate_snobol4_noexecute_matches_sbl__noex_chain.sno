@@ -1,0 +1,3 @@
+-NOLIST,NOEXECUTE
+        OUTPUT = 'error'
+END

@@ -1,0 +1,17 @@
+	sites  =  1500
+	count  =  0
+	i  =  0
+LOOP	i  =  LT(i, sites) i + 1	:F(DONE)
+	$('W' i)  =  'b' i
+	pat  =  EVAL("'a' *W" i " . V" i)
+	('ab' i)  pat	:F(BAD)
+	IDENT($('V' i), 'b' i)	:F(BAD)
+	$('W' i)  =  'c' i
+	('ac' i)  pat	:F(BAD)
+	IDENT($('V' i), 'c' i)	:F(BAD)
+	('ab' i)  pat	:S(BAD)
+	junk  =  DUPL('x', 64) i
+	count  =  count + 1	:(LOOP)
+DONE	OUTPUT  =  'ok ' count ' ' V1 ' ' V1024 ' ' V1025 ' ' V1500	:(END)
+BAD	OUTPUT  =  'fail at ' i ' V=' $('V' i)
+END

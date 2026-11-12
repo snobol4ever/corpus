@@ -1,0 +1,13 @@
+procedure main()
+   local lg, pk, up, x;
+   lg := loadfunc("$LIB", "lgconv");
+   pk := loadfunc("$LIB", "pack");
+   up := loadfunc("$LIB", "unpack");
+   every x := 10 ^ 30 | -(2 ^ 100) | 2 ^ 64 | 2 ^ 63 - 1 | -(2 ^ 63) | 12345 do
+      write(image(x), " -> ", lg(x) | "[failed]");
+   write(up("abcdefgh", "b") | "[failed]");
+   write(image(pk(2 ^ 70, "rb", 8)) | "[failed]");
+   write(up(pk(-(10 ^ 30), "rb", 8), "rb") | "[failed]");
+   &error := 1;
+   write(up(2 ^ 70) | (&errornumber || " " || image(&errorvalue)));
+end

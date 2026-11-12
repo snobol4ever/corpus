@@ -1,0 +1,10 @@
+        X = 'a b'
+        OUTPUT = EVAL("'(' X ')'")
+        OUTPUT = EVAL('(3)')
+        OUTPUT = EVAL("'q'")
+        OUTPUT = EVAL('12')
+        OUTPUT = EVAL(' 12')
+        OUTPUT = EVAL('1.5')
+        OUTPUT = EVAL('-7')
+        OUTPUT = EVAL('*X') ' ' DATATYPE(EVAL('*X'))
+END

@@ -1,0 +1,10 @@
+        &TRACE = 100
+        DEFINE('CB(NAME,TAG)')  :(S)
+CB      OUTPUT = 'cb ' NAME ' lvl=' &FNCLEVEL  :(RETURN)
+S       DEFINE('F(A)')  :(S2)
+F       OUTPUT = 'in F lvl=' &FNCLEVEL
+        F = A  :(RETURN)
+S2      TRACE('F', 'CALL', 'tg', .CB)
+        X = F(1)
+        OUTPUT = 'done lvl=' &FNCLEVEL
+END

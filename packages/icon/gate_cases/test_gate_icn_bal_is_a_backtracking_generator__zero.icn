@@ -1,0 +1,5 @@
+procedure main()
+   local s;
+   s := "(AB) ";
+   s ? every write(bal());
+end

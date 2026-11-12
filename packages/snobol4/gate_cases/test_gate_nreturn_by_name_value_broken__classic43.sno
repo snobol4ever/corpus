@@ -1,0 +1,5 @@
+        DEFINE('store()dummy')                    :(main)
+store   store = .dummy                            :(NRETURN)
+main    store() = 43
+        OUTPUT = dummy
+END

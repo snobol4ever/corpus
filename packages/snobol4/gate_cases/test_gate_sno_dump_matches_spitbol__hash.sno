@@ -1,0 +1,19 @@
+	&DUMP = 2
+	T = TABLE(1000)
+	I = 0
+L	T[I] = 1
+	I = I + 1
+	LE(I, 999)	:S(L)
+	T["A"] = 2
+	T["B"] = 2
+	T["C"] = 2
+	T["AB"] = 2
+	T["BA"] = 2
+	T["CAT"] = 2
+	T["DOG"] = 2
+	T["ABC"] = 2
+	T["ABCD"] = 2
+	T["Z"] = 2
+	T["AA"] = 2
+	T["a"] = 2
+END

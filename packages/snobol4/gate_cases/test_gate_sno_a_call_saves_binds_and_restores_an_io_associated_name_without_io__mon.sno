@@ -1,0 +1,6 @@
+        INPUT(.L, 8, 'in.txt')
+        DEFINE('F(X)K')                         :(F_END)
+F       F = X X                                 :(RETURN)
+F_END
+        OUTPUT = F('ab')
+END

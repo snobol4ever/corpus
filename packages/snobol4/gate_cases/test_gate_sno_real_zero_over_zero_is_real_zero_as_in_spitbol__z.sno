@@ -1,0 +1,21 @@
+        &ERRLIMIT = 10
+        Z = 0
+        ZR = 0.0
+        NZ = -0.0
+        X = Z / ZR
+        OUTPUT = 'X=' X ' ' DATATYPE(X)
+        OUTPUT = 'X+1=' (X + 1)
+        OUTPUT = 'EQ(X,0) ' (EQ(X, 0) 'yes', 'no')
+        Y = 1 / X                    :F(F)
+        OUTPUT = 'Y=' Y              :(G)
+F       OUTPUT = 'Y fails ' &ERRTYPE
+G       OUTPUT = 'zr/z: ' (ZR / Z)
+        OUTPUT = 'nz/z: ' (NZ / Z)
+        OUTPUT = 'zr/zr: ' (ZR / ZR)
+        V = 1.5 / ZR                 :F(K)
+        OUTPUT = 'nonzero/zr: ' V    :(J)
+K       OUTPUT = 'nonzero/zr fails ' &ERRTYPE
+J       W = Z / Z                    :F(H)
+        OUTPUT = 'z/z: ' W           :(END)
+H       OUTPUT = 'z/z fails ' &ERRTYPE
+END

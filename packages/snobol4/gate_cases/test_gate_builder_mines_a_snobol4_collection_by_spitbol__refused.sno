@@ -1,0 +1,3 @@
+ OUTPUT = 'before'
+ OUTPUT = NOSUCHFUNCTION(1)
+END

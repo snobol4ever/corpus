@@ -1,0 +1,12 @@
+global ga, gb
+procedure main();
+    local y;
+    ga := 1; y := 2;
+    write("global<->local: ", image(ga <-> y) | "none");
+    write("  ga=", image(ga), " y=", image(y));
+    ga := 1; gb := 2;
+    write("global<->global: ", image(ga <-> gb) | "none");
+    write("  ga=", image(ga), " gb=", image(gb));
+    every 1 to 2 do { if (ga <-> gb) & &fail then write("unreachable"); write("  recede: ga=", image(ga), " gb=", image(gb)); };
+    write("reached the end", "");
+end

@@ -1,0 +1,21 @@
+        T = TABLE()
+        T[] = 'x'
+        OUTPUT = 'unset[' T[NEVERSET] ']'
+        E =
+        OUTPUT = 'empty-asgn[' T[E] ']'
+        OUTPUT = 'lit[' T[''] ']'
+        DEFINE('F(P,U)')                        :(FE)
+F       F = T[U]                                :(RETURN)
+FE      OUTPUT = 'omitted[' F('a') ']'
+        DEFINE('G()')                           :(GE)
+G                                               :(RETURN)
+GE      OUTPUT = 'fn-null[' T[G()] ']'
+        OUTPUT = 'trim[' T[TRIM('  ')] ']'
+        S = 'ab'
+        S LEN(2) =
+        OUTPUT = 'repl[' T[S] ']'
+        T2 = TABLE()
+        T2[NEVERSET2] = 'y'
+        OUTPUT = 'rev-lit[' T2[''] ']'
+        OUTPUT = 'rev-empty[' T2[] ']'
+END

@@ -1,0 +1,3923 @@
+%--------------- 1 test_gate_builder_mines_a_prolog_collection_by_swipl__display
+x
+%------------------ 2 test_gate_builder_mines_a_prolog_collection_by_swipl__held
+held
+%----------------- 3 test_gate_builder_mines_a_prolog_collection_by_swipl__input
+got(end_of_file)
+%----------------- 4 test_gate_builder_mines_a_prolog_collection_by_swipl__plain
+plain
+%--------------------- 5 test_gate_builder_mines_an_xsb_collection_by_xsb__other
+swi
+%- 6 test_gate_frame_reuse_rung3_staged_argv_are_never_addressed_so_never_granted__bt
+3
+%- 7 test_gate_frame_reuse_rung3e_a_single_reader_temp_takes_its_sealed_calls_argv_slot__bt
+3
+%- 8 test_gate_frame_reuse_rung3e_a_single_reader_temp_takes_its_sealed_calls_argv_slot__nest
+4
+28
+u_ok
+v_ok
+u2_ok
+%- 9 test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w
+[1,2,3]
+%- 10 test_gate_gc_a_prolog_box_result_survives_the_cap_raise_tail_under_gc_stress__cap
+caught(resource_error(stack))
+[1,2,3]
+after
+%- 11 test_gate_gc_a_prolog_box_result_survives_the_cap_raise_tail_under_gc_stress__fa
+[1,2,3]
+[a-a,b-b]
+%- 12 test_gate_gc_a_prolog_retained_frame_is_reached_by_its_call_sites_typed_frame_link__w
+2020
+[k5,k6,k7,k8,k9]
+%- 13 test_gate_gc_a_run_time_prolog_fragment_registers_its_frame_map_and_its_site_table__w
+5
+%---------------------------- 14 test_gate_gc_map_table_present_in_both_media__c
+[1,2,3]
+%-- 15 test_gate_gc_the_chain_over_the_maps_finds_every_frame_by_return_pc__cont
+before
+ball1
+after
+ball2
+end
+no_ball0
+no_ball0
+%----- 16 test_gate_gc_the_chain_over_the_maps_finds_every_frame_by_return_pc__w
+2
+4
+%---------- 17 test_gate_gc_the_frame_map_dump_reports_in_mode_4_as_in_mode_3__w
+f(a,[b,c])
+%------------------- 18 test_gate_gc_the_pending_prolog_ball_is_a_rooted_cell__w
+caught_type_error
+%-------------------------- 19 test_gate_gc_the_stack_walk_survives_valgrind__hw
+hello
+%--------------------- 20 test_gate_no_stored_code_address_in_the_prolog_gate__g
+small
+big
+found(1)
+y(1)
+y(2)
+y(3)
+redoarm_done
+cut(2)
+z(a)
+z(b)
+elseredo_done
+pos(1)
+sc(1)
+sc(2)
+sc(3)
+sc1_done
+scelse
+sca
+scb
+sc3_done
+sccut(2)
+ne(3)
+[small(1),big(2),big(3)]
+[got(a),got(b)]
+bt(1)
+bt(2)
+bt(3)
+bt_done
+%----------------------- 21 test_gate_no_unnamed_holes_in_an_activation_frame__w
+ok
+%- 22 test_gate_pl_a_ball_propagates_past_the_remaining_clauses_of_a_dynamic_predicate__ball
+caught(boom)
+caught(qq)
+[a,c]
+%- 23 test_gate_pl_a_ball_propagates_past_the_remaining_clauses_of_a_dynamic_predicate__big
+static_ok
+dyn_ok
+9223372036854775808
+-9223372036854775810
+%- 24 test_gate_pl_a_ball_propagates_past_the_remaining_clauses_of_a_dynamic_predicate__cut
+cut_ok
+cut_ok
+cut_ok
+ok_b
+%- 25 test_gate_pl_a_ball_propagates_past_the_remaining_clauses_of_a_dynamic_predicate__cut2
+[2]
+2
+[b]
+[1-x,2-z]
+[1,2]
+[2]
+w2
+%---- 26 test_gate_pl_a_bar_inside_an_argument_is_the_infix_operator_as_swipl__w
+head-(p-q)
+f((a|b))
+('|')/2
+[a|b]
+['|',a,b]
+[f((a|b)),c]
+dcg-yes
+read(f((a|b)))
+g([x|y],(p|q),{r|s})
+%-- 27 test_gate_pl_a_big_integer_past_the_double_range_raises_float_overflow__w
+evaluation_error(float_overflow)
+evaluation_error(float_overflow)
+evaluation_error(float_overflow)
+evaluation_error(float_overflow)
+8.98846567431158e+307
+evaluation_error(float_overflow)
+evaluation_error(float_overflow)
+1
+1180591620717411303424
+1.2089258196146292e+24
+%----------------- 28 test_gate_pl_a_binary_stream_has_no_encoding_property__orc
+oracle_says=octet
+%------------------ 29 test_gate_pl_a_binary_stream_has_no_encoding_property__sp
+bin_encoding(octet)
+bin_type(binary)
+txt_encoding(utf8)
+txt_type(text)
+plain_encoding(utf8)
+%- 30 test_gate_pl_a_bounded_conditional_runs_assert_2_exists_and_a_huge_length_is_a_resource_error__w
+yes
+no
+yes
+1
+erased
+resource_error(stack)
+%- 31 test_gate_pl_a_call_of_a_dynamic_predicate_with_a_rational_or_bignum_argument_matches_only_an_equal_value_as_swipl__g
+rational_other no
+rational_same yes
+rational_same_value_other_form yes
+rational_vs_integer no
+bigint_plus_one no
+bigint_same_value yes
+bigint_vs_integer no
+rule_rational_other no
+rule_rational_same yes
+rule_bigint_other no
+rule_bigint_same yes
+second_argument_rational_other no
+second_argument_rational_same yes
+lookup_count_rational_other yes
+occurs_check
+rational_other no
+rational_same yes
+rational_same_value_other_form yes
+rational_vs_integer no
+bigint_plus_one no
+bigint_same_value yes
+bigint_vs_integer no
+rule_rational_other no
+rule_rational_same yes
+rule_bigint_other no
+rule_bigint_same yes
+second_argument_rational_other no
+second_argument_rational_same yes
+lookup_count_rational_other yes
+%- 32 test_gate_pl_a_caught_throw_leaves_no_trail_entry_for_a_cell_newer_than_the_choice_point_and_still_undoes_the_older_ones_as_swipl__loop
+done
+%- 33 test_gate_pl_a_caught_throw_leaves_no_trail_entry_for_a_cell_newer_than_the_choice_point_and_still_undoes_the_older_ones_as_swipl__sound
+t1_unbound
+t2(2)
+t3_unbound_after_fail
+t4_w_unboundu(1)
+t5(f(2))
+t6-again
+t7(2)
+t8_no
+%----------- 34 test_gate_pl_a_choice_inside_a_dynamic_clause_body_is_retried__g
+a: a(1)
+b: b(1) b(z)
+c: c(1) c(2) c(3) c(z)
+d: d(1,p) d(1,q) d(2,p) d(2,q) d(z,z)
+e: e(1) e(2) e(z)
+f: f(1) f(z)
+g: g(1) g(2) g(3)
+h: h(1) h(2)
+i: i(2) i(3) i(z)
+k: k(1) k(2) k(z)
+first(1)
+j_alt
+[a,a,b]
+j_alt
+[b]
+m: m(1) m(2) m(3) m(z)
+n: n(1) n(2)
+o: o(p) o(q) o(z)
+%- 35 test_gate_pl_a_clause_built_at_run_time_calls_the_programs_own_print_2_not_the_builtin_in_mode_4__a1
+2-0
+%- 36 test_gate_pl_a_clause_built_at_run_time_calls_the_programs_own_print_2_not_the_builtin_in_mode_4__a2
+2-0
+%----- 37 test_gate_pl_a_clause_lowered_at_run_time_reads_a_live_program_tree__w
+clause($s(_3814),true)
+[1,2,3]
+%----- 38 test_gate_pl_a_clause_retry_reseeds_only_the_frames_own_local_cells__w
+t1(black(black(,_3816,_3818,),1,a,black(,_3816,_3818,)))
+t2(black(black(,_3816,_3818,),1,a,red(black(,_3816,_3818,),2,b,black(,_3816,_3818,))))
+%- 39 test_gate_pl_a_clause_with_a_cut_then_a_disjunction_retries_when_the_program_links_setup_call_cleanup__a0
+g
+i
+done
+%- 40 test_gate_pl_a_clause_with_a_cut_then_a_disjunction_retries_when_the_program_links_setup_call_cleanup__a1
+g
+i
+done
+%- 41 test_gate_pl_a_clause_with_a_cut_then_a_disjunction_retries_when_the_program_links_setup_call_cleanup__a2
+gi
+%- 42 test_gate_pl_a_clpfd_program_compiles_in_seconds_not_minutes_the_bound_spine_decision_is_not_quadratic__c
+4
+%- 43 test_gate_pl_a_consulted_file_loads_at_its_directive_so_its_goals_run_before_the_includers_later_ones_as_swipl__h
+h1
+h_init
+hp(1)
+%- 44 test_gate_pl_a_consulted_file_loads_at_its_directive_so_its_goals_run_before_the_includers_later_ones_as_swipl__m
+m1
+m_init
+%- 45 test_gate_pl_a_cut_inside_a_control_goal_held_in_a_variable_cuts_to_the_call__w
+then_cut([1,2])
+arm_cut([1,2])
+generator_cut([0,1,2])
+else_cut([1])
+1 2 
+negation_keeps_cut_local([1,2,3])
+cut_free_keeps_all([1,2,3,0])
+%----------------------- 46 test_gate_pl_a_cut_redo_reaches_its_own_barrier__cut
+1 no
+1 no
+[1,2]
+[1,2]
+[1,2]
+a no
+%------------------- 47 test_gate_pl_a_cyclic_term_hashes_in_finite_time__w_acyc
+same
+differ
+unbound
+%-------------------- 48 test_gate_pl_a_cyclic_term_hashes_in_finite_time__w_cyc
+a
+b
+ok
+ok2
+ok3
+%------- 49 test_gate_pl_a_directive_name_before_an_infix_operator_is_an_atom__b
+[1,2,3,4,5,6]
+[2,7]
+m1_fails
+foo_gone
+%- 50 test_gate_pl_a_dynamic_clause_with_a_disjunction_then_an_if_then_else_then_fail_retries_the_disjunction__a0
+aend
+%- 51 test_gate_pl_a_dynamic_clause_with_a_disjunction_then_an_if_then_else_then_fail_retries_the_disjunction__a1
+aend
+%- 52 test_gate_pl_a_dynamic_clause_with_a_disjunction_then_an_if_then_else_then_fail_retries_the_disjunction__a2
+aend
+%- 53 test_gate_pl_a_dynamic_predicate_of_ground_facts_asserts_without_a_code_fragment_and_answers_as_swipl__dp
+[t(0,z),t(1,a),t(2,b),t(2,bb)]
+[t(2,b),t(2,bb)]
+[t(2,b)]
+[]
+det_cleanup_1
+after_t2
+det_cleanup_2
+det_cleanup_0
+changed(g(99,2))
+[u(g(1,2)),u([a,b,c]),u(1.5),u(-7),u(A b)]
+1-2
+[u(g(1,2))]
+[u([a,b,c])]
+[u(-7)]
+[u(1.5)]
+[]
+[t(2,b),t(2,bb),t(2,new),t(2,new)]
+r(b)
+r(bb)
+r(new)
+r(new)
+[t(0,z),t(1,a),t(0,new),t(1,new)]
+[w(1,a),w(1,anyv)]
+[w(3,anyv)]
+[w(1,a),w(2,b),w(A,anyv)]
+[e(1),e(2),e(3),e(rule)]
+[e(rule)]
+[e(2)]
+[r2(fromrule)]
+[nd(2),nd(3)]
+[nd(3)]
+[nd(3)]
+[big(30,900)]
+[big(10,100)]
+[]
+[big(31,961)]
+25-true
+30
+woke(1)
+got(1)
+woke(2)
+got(2)
+woke(3)
+got(3)
+[1,3]
+[2,3]
+x(3)
+a-1
+b-2
+a-3
+[b-2,a-3]
+[1,3]
+2
+6
+[a,b]
+no_c
+yes
+w(2)
+z(1)
+[3]
+unreachable
+f(_10126,_10128)
+[1,2,3,4,5]
+cut_ok
+once(1)
+inner
+ok_maplist
+%- 54 test_gate_pl_a_fact_table_that_gains_a_rule_compiles_no_slot_at_the_flip__cnt
+299
+%- 55 test_gate_pl_a_fact_table_that_gains_a_rule_compiles_no_slot_at_the_flip__wit
+42
+yes101
+no103
+ends
+82
+14
+[20-40,40-80]
+[odd]
+[0,3,4]
+[first,second]
+%- 56 test_gate_pl_a_fact_with_a_user_1200_infix_operator_reads_as_swipl_reads_it__z
+a-b
+c-(d,e)
+-(p,====>(q,r))
+done
+%- 57 test_gate_pl_a_float_with_no_fraction_is_a_syntax_error_only_under_the_iso_flag__w
+default
+%- 58 test_gate_pl_a_fresh_variable_after_a_findall_over_a_multi_clause_predicate_keeps_its_cell_when_main_called_setup_call_cleanup__scc
+2
+[x,x]-foo
+[x,x]
+%- 59 test_gate_pl_a_library_arms_the_wakeup_road_only_when_the_program_imports_it__data
+label/1
+%- 60 test_gate_pl_a_library_arms_the_wakeup_road_only_when_the_program_imports_it__pio
+a-no
+empty-yes
+%- 61 test_gate_pl_a_local_definition_overrides_the_weak_import_of_a_module_file_as_swipl__a
+local([1])
+%- 62 test_gate_pl_a_local_definition_overrides_the_weak_import_of_a_module_file_as_swipl__c
+mf([1])
+%- 63 test_gate_pl_a_memory_limit_is_a_catchable_resource_error_for_length_numlist_and_the_trail_arena_answers_as_swipl__t
+bound
+%- 64 test_gate_pl_a_memory_limit_is_a_catchable_resource_error_for_length_numlist_and_the_trail_arena_answers_as_swipl__w
+resource_error(stack)
+resource_error(stack)
+resource_error(stack)
+[a,A,B]
+[1,2,3,4,5]
+[]
+7
+yes
+resource_error(stack)
+10000
+no
+domain_error(not_less_than_zero,-1)
+type_error(integer,a)
+type_error(integer,a)
+type_error(integer,b)
+instantiation_error
+[3]
+%-------- 65 test_gate_pl_a_meta_called_format_reads_its_empty_argument_list__fm
+a
+b
+d 1
+e
+f
+%------------- 66 test_gate_pl_a_module_qualified_goal_runs_its_goal_as_swipl__g
+[1,2]
+1
+[1,2]
+[a,b]
+40
+yes
+no
+yes
+instantiation_error
+yes
+1
+2
+yes
+%- 67 test_gate_pl_a_negative_unbounded_integer_literal_reads_as_its_own_value__ctl
+f(123456789012345678901234567890)
+g(-123456789012345678901234567890)
+h(-42)
+i(-9223372036854775807)
+j(5)
+%- 68 test_gate_pl_a_negative_unbounded_integer_literal_reads_as_its_own_value__neg
+a(-9223372036854775808)
+b(-123456789012345678901234567890)
+c(-246913578024691357802469135780)
+d(yes)
+e(-9223372036854775808)
+%- 69 test_gate_pl_a_number_in_unicode_digits_or_digit_groups_converts_as_swipl__g
+12
+%- 70 test_gate_pl_a_number_in_unicode_digits_or_digit_groups_converts_as_swipl__w
+123456789
+no
+no
+12.34
+-12
+12
+12000.0
+0.0125
+1r3
+12
+no
+12
+no
+no
+12
+12
+12
+1000000
+-10
+no
+no
+no
+123456789
+-1.234567e+90
+-1.234567e-88
+%- 71 test_gate_pl_a_pipe_stream_has_a_position_as_swipl_and_phrase_from_file_reads_standard_input_through_it__pos
+$stream_position(0,1,0,0)
+end_of_file
+$stream_position(0,1,0,0)
+end_of_file
+$stream_position(0,1,0,0)
+%- 72 test_gate_pl_a_predicate_with_more_than_64_clauses_keeps_every_clause__assertz100
+100
+7
+252
+[8,7,6,5,4,3,2,1]
+%---- 73 test_gate_pl_a_predicates_frame_overlays_its_clauses_construct_slots__g
+ok(g(200,[x,y]))
+%-------- 74 test_gate_pl_a_prefix_operator_wins_the_write_over_a_postfix_one__w
+o 1
+o 2
+o 3
+o 9
+9 o
+%----- 75 test_gate_pl_a_prelude_dcg_rule_reaches_the_program_that_calls_it__own
+[own,own]
+%----- 76 test_gate_pl_a_prelude_dcg_rule_reaches_the_program_that_calls_it__pre
+[104,233]
+error(existence_error(procedure,sequence/4),context('$dcg':call_dcg/3,_1018))
+no
+%- 77 test_gate_pl_a_program_that_links_setup_call_cleanup_compiles_and_links_a_predicate_of_three_unit_clauses_in_mode_4__scc
+3
+3
+%- 78 test_gate_pl_a_program_with_more_than_64_dynamic_declarations_keeps_every_one__g300
+0
+299
+150
+%- 79 test_gate_pl_a_program_with_more_than_64_dynamic_declarations_keeps_every_one__r300
+0
+299
+300
+%--------------- 80 test_gate_pl_a_programs_dialect_follows_its_own_markers__gnu
+other
+string
+f('A b',+(1,2),-(x))
+%--------------- 81 test_gate_pl_a_programs_dialect_follows_its_own_markers__swi
+string
+string
+f('A b',+(1,2),-(x))
+abc
+%---------------------- 82 test_gate_pl_a_quoted_atom_doubles_its_apostrophe__rt
+@roundtrip_ok@
+%- 83 test_gate_pl_a_read_before_a_column_stop_carries_the_input_column_on_a_pipe_as_on_a_file__z
+ab      is 1
+ab      is 2
+%- 84 test_gate_pl_a_rule_clause_assert_retract_loop_reuses_the_code_pool_pages_and_leaves_no_stale_site_block__r
+4000
+%- 85 test_gate_pl_a_rule_clause_assert_retract_loop_reuses_the_code_pool_pages_and_leaves_no_stale_site_block__s
+done
+%- 86 test_gate_pl_a_run_time_clause_calling_a_predicate_created_by_assert_sees_every_clause__w
+[a,b,c]
+[a,b,c]
+[a,b,c]
+%--- 87 test_gate_pl_a_shift_outside_the_int64_window_is_computed_not_wrapped__a
+a(2071261215926550121592655012157194240)
+b(123456789012345678901234567890)
+c(-7716049313271604931327160494)
+d(123456789012345678901234567890)
+%--- 88 test_gate_pl_a_shift_outside_the_int64_window_is_computed_not_wrapped__b
+a(18446744073709551616)
+b(9223372036854775808)
+c(13835058055282163712)
+d(-1180591620717411303424)
+%--- 89 test_gate_pl_a_shift_outside_the_int64_window_is_computed_not_wrapped__c
+a(0)
+b(64)
+c(7716049313271604931327160493)
+d(0)
+e(-1)
+%--- 90 test_gate_pl_a_shift_outside_the_int64_window_is_computed_not_wrapped__d
+a(1543)
+b(-1544)
+c(4611686018427387904)
+d(1)
+e(narrow)
+%--- 91 test_gate_pl_a_shift_outside_the_int64_window_is_computed_not_wrapped__e
+a(16)
+b(123456789012345678901234567891)
+c(123456789012345678901234567891)
+d(6)
+e(12345678901234567890123456789)
+%--- 92 test_gate_pl_a_shift_outside_the_int64_window_is_computed_not_wrapped__f
+a(round_trips)
+b(round_trips)
+c(2)
+e(0)
+%---- 93 test_gate_pl_a_syntax_error_costs_its_own_clause_and_not_the_file__body
+no_a1
+q(two)
+r(three)
+%- 94 test_gate_pl_a_table_that_depends_only_on_itself_completes_at_once_instead_of_once_per_leader_round_as_swipl__w
+count(1,[a,b,c])
+mutual([1,2,3],[2,3])
+older([1,12])
+self([a,b,c])
+%- 95 test_gate_pl_a_tabled_subgoal_deeper_than_max_table_subgoal_size_raises_the_tripwire_as_swipl__w
+caught(max_table_subgoal_size,user) p(A)
+within([a,f(a),f(f(a))])
+unset([a,f(a),f(f(a))])
+caught(max_table_answer_size)
+%- 96 test_gate_pl_a_thousand_asserted_clauses_cost_a_thousand_clause_compilations_not_a_million__w_flt
+done1
+done2
+empty
+%- 97 test_gate_pl_a_thousand_asserted_clauses_cost_a_thousand_clause_compilations_not_a_million__w_str
+done1
+done2
+%------------- 98 test_gate_pl_a_thrown_ball_never_redoes_a_builtin_generator__w
+between:
+1
+caught(x)
+repeat:
+r
+caught(x)
+sub_atom:
+0-a
+caught(x)
+clause:
+1
+caught(x)
+atom_concat:
++ab
+caught(x)
+between_throw_in_callee:
+1
+caught(x)
+between_undefined_callee:
+1
+caught(existence_error(procedure,undefined_zz/1))
+between_deep_callee:
+1
+caught(x)
+user_facts:
+1
+caught(x)
+disjunction:
+1
+caught(x)
+member:
+a
+caught(x)
+retract:
+1
+caught(x)
+redo_between:
+1
+2
+3
+redo_repeat:
+1
+2
+3
+redo_sub_atom:
+0-a
+1-b
+2-c
+redo_clause:
+1
+2
+3
+redo_atom_concat:
++ab
+a+b
+ab+
+redo_retract:
+1
+2
+%- 99 test_gate_pl_a_write_to_a_binary_current_output_raises_permission_error__wb
+w1-ok
+w2-ok
+q1-ok
+p1-ok
+c1-ok
+t2-ok
+t3-ok
+n1-ok
+f1-ok
+f2-ok
+mw1-ok
+mq1-ok
+mn0-ok
+mf1-ok
+%--------------- 100 test_gate_pl_a_zero_arity_term_is_the_atom_in_both_modes__z
+no
+yes
+domain_error(compound_non_zero_arity,foo())
+no
+no
+yes
+domain_error(compound_non_zero_arity,foo())
+no
+yes
+no
+yes
+%- 101 test_gate_pl_abolishing_a_table_abolishes_the_tables_whose_conditional_answers_depend_on_it_as_swipl__g
+before-[r0(e),r1(e),p01(a,b),p01(c,d),p11(a,b),p11(c,d),u1(a,b),u1(c,d),undef(a,b),undef(c,d),undef(e,e)]-3
+p11ab-[r0(e),r1(e),p01(c,d),p11(c,d),u1(a,b),u1(c,d),undef(a,b),undef(c,d),undef(e,e)]-3
+q1-[r0(e),r1(e),p01(c,d),p11(c,d),u1(a,b),u1(c,d),undef(a,b),undef(c,d),undef(e,e)]-2
+u1c-[r0(e),r1(e),u1(a,b),undef(a,b),undef(c,d),undef(e,e)]-2
+r1-[u1(a,b),undef(a,b),undef(c,d),undef(e,e)]-2
+domain_error([abolish_tables_transitively,abolish_tables_singly],[bad])
+%- 102 test_gate_pl_an_arithmetic_function_directive_expands_the_later_clauses_with_no_use_module_line_as_swipl__a
+13
+%- 103 test_gate_pl_an_if_directive_condition_reads_as_swipl_reads_it_and_the_reader_stops_at_end_of_file__w
+a(defd_seen)
+b(later_not_yet)
+c(builtin)
+d(nosuch_absent)
+e(swi)
+f(swi_version)
+g(conj)
+h(ite)
+i(assoc)
+j(prelude)
+stopped_at_end_of_file
+%------- 104 test_gate_pl_an_initialization_goal_may_contain_a_variable__control
+x(1)
+tail
+%------- 105 test_gate_pl_an_initialization_goal_may_contain_a_variable__subject
+x(1)
+tail
+%- 106 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__a
+a(9223372036854775808)
+b(9223372036854775808)
+c(9223372036854775808)
+d(9223372036854775808)
+e(9223372036854775808)
+%- 107 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__b
+a(9223372036854775808)
+b(85070591730234615847396907784232501249)
+c(-9223372036854775817)
+d(18446744073709551616)
+%- 108 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__c
+a(9223372036854775808)
+b(9223372036854775808)
+%- 109 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__d
+a(-1)
+b(-9223372036854775807)
+c(yes)
+%- 110 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__e
+a(4)
+b(3)
+c(-3)
+d(-1)
+e(5)
+f(-5)
+g(42)
+h(yes)
+i(4)
+j(7)
+%- 111 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__f
+a(246913578024691357802469135780)
+b(-123456789012345678901234567890)
+c(1)
+%- 112 test_gate_pl_an_int64_overflow_promotes_to_the_bignum_core_instead_of_raising__g
+a(123456789012345678901234567891)
+b(123456789012345678901234567890)
+c(123456789012345678901234567891)
+d(864197532086419753208641975320)
+e(123456789012345678901234567889)
+f(fail)
+%- 113 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__1
+no
+%- 114 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__safety
+cp(8) once(1)
+%------------------- 115 test_gate_pl_an_operator_atom_operand_is_bracketed__wop
+(<)/(>)
+(:-)/2
+- (-)
+1-(-)
+(-)-1
+a=(\+)
+[-,+]
+f(:-,<)
+a+b
+- -a
+a:-b
+%- 116 test_gate_pl_an_unbounded_integer_is_an_integer_to_arg_functor_and_format__w
+no
+domain_error(not_less_than_zero,-1427247692705959881058285969449495136382746624)
+representation_error
+domain_error(not_less_than_zero,-1427247692705959881058285969449495136382746624)
+1427247692705959881058285969449495136382746624yes
+14272476927059598810582859694494951363827466.24yes
+1,427,247,692,705,959,881,058,285,969,449,495,136,382,746,624yes
+-1427247692705959881058285969449495136382746624yes
+3.14yes
+%- 117 test_gate_pl_an_unbounded_integer_is_an_integer_to_arg_functor_and_sub_atom__w
+yes
+err(domain_error(not_less_than_zero,-18446744073709551616000))
+no
+err(domain_error(not_less_than_zero,-18446744073709551616000))
+err(representation_error(size_t))
+err(domain_error(not_less_than_zero,-18446744073709551616000))
+err(representation_error(size_t))
+err(domain_error(not_less_than_zero,-18446744073709551616000))
+no
+%- 118 test_gate_pl_asserting_a_conjunction_of_sixty_thousand_goals_does_not_overflow_the_default_stack_answers_as_swipl__w
+ok
+%- 119 test_gate_pl_autoload_2_and_an_explicit_import_into_a_module_reach_the_library_over_a_user_definition_as_swipl__g
+71
+3
+5
+user_fact
+%---------- 120 test_gate_pl_backslash_c_layout_escape_agrees_with_the_oracle__w
+empty()
+inline(xy)
+across_lines(ab)
+across_tab(pq)
+double_quoted(dq)
+%- 121 test_gate_pl_backtrackable_global_and_setarg_assignments_restore_as_swipl_and_keep_no_trail_in_a_deterministic_loop__bloop
+done
+%- 122 test_gate_pl_backtrackable_global_and_setarg_assignments_restore_as_swipl_and_keep_no_trail_in_a_deterministic_loop__restore
+t1(a)
+t2(b)
+t3(1,y(1))
+t3(2,y(2))
+t3(3,y(3))
+t3_end(a)
+t4in(1,d(1))
+t4in(2,d(2))
+t4mid(b)
+t4end(b)
+t5a(3)
+t5b(1)
+t5c(a)
+t6(a)
+t7([1,2],a)
+t8(a)
+t9(2)
+t9(4)
+t9_end(a)
+t10(1,y(1))
+t10(2,y(2))
+t10(3,y(3))
+t10_end(y(3))
+t11(2,p(2))
+s1(f(a,b))
+s2(f(z))
+s2(f(z))
+s3(f(1))
+s3(f(2))
+s3(f(3))
+s3_end(f(a))
+s4a(g(p,2,3))
+s4b(g(1,2,3))
+s5(h(3))
+s6(k(a))
+s7(k(a))
+s8(m(a,b))
+s9(f(new))
+s9(f(new))
+s10(c(50000))
+s10b(c(50000))
+s11(d(n(1),b))
+s11(d(a,n(2)))
+s11_end(d(a,b))
+s12(e(2))
+s12_end(e(1))
+%- 123 test_gate_pl_backtrackable_global_and_setarg_assignments_restore_as_swipl_and_keep_no_trail_in_a_deterministic_loop__sloop
+done
+%- 124 test_gate_pl_between_through_a_variable_link_ttyflush_and_time_answer_as_swipl__w
+2
+2
+1
+[2,3]
+2
+2
+link_atom-type_error(integer,a)
+link_unbound-instantiation_error
+link_float-type_error(integer,1.5)
+in
+flushed
+[a,b,c]
+failed_through
+7
+x
+done
+%--------- 125 test_gate_pl_big_integer_multiplication_is_exact_at_every_size__w
+1005827757596410841793490458816
+-381520424492196187783052949264
+1300743614456981499317246615413290822230520470724180211981692
+-11790184577738583171520872946190172188700344838478135275843876
+3902230843370944497951739836886838954652297952426242451437096
+-106111661199647248543687856007045628560170304069089452177315344
+273134486247639779105324306399264340330341909375865925320401889282379585178901266841563216960535987229428369628952454977967912021500517447635860865121860205924267606304772820036333662303510516843275590845086584086236743001673178805796055905094680752775656497926229107716476
+-18739277038847939886754019920358123424308469030992781557966909983211910963157763678726120154469030856807730587971859910379069087693119051088519416835327182086610783229931790066468885762988189463324545358128224306145593510627623447126560829811593944609242287931526824209677252554092095716
+29883822318560718453802991718249833728792125477993853755830730006915320919006702465251364669759991905158118751556879450178914537776629215269330386549038157775944066316243593625771318853669967939663026571948157143875340026998045117319524962423468923018170560169092404738726560835758145189823665469966954435060548908621188465038129623794951875977148056260566651222536888574034856999169913141925854789701491323945794754469245298590277779148239715881369327709277450641573947514682972141194148339642400982313399689377863577863220467751030900772759567472622452156433530511613634672073994484189321703113832863889754983337685035288942183819060349321598983133695941214483598414712435299891500784556606186019176728078369788744388600408278996790146224402958695535581860101361655870813527525464954043663783471694692687092570057651448477320501849410084668304601342999589742933502742276774482985781711282003717938654263177358774900017856
+-15491274745137421274303920885223967470289581345999798528862476031467027585266591935942778052890921616447467517569397778550696569136084597290595444186804149937087266842747678521488361697943463238001898012811994196866883856063048134607173404348993852626151572779632598800179288226553854101797624855842039132292916864004415789042761274923453748344764221459023577440299496072718868524355885624361371447405112681387283145326205251211160172854993722021328408088732930828864154737397280430391415941581180371177892226618062722935901481176322308056838559682486448258448933864448959166060065854801058039265830140998263637470521035634767090867275506335433879816281028699735697482298469013433633781571297397048962320565166136905637060362783029559028674141417089182048826072116037673175051167549397939036454689671707509911646642273619512459495493932133173617162109332952276972955997875682151988962909516853612463438492147221889575029791618989555652416321898240801674333658782578289286093584
+51402108857679916177668666729590613929095388411997935534178385644558177516637757183909418516367932646662909713925464658216987761575559907217774007515266735692736679647111295740680334942759159393314015315220312322154252969730247510169534281988047365734784732207969585357304223640710766097135952562046169785615086250889776649679055175221926513719548515220041602623019048621011969177581263097302162760484734104876775449688460474322795832053403166657808577296465569389242094488294267342511904375374556635068318062838469696350778393103418589500180401136207294792802452714153408352112884879842619259603632936868929673265198716595155571498217624916352124193218678090810439307995288131245835857661571335771491438853496166371245052704139246817497827589429394075373029485179073364829066619434620891175231580435878819971295031634432729248532149930308842055215870867286942786128879312626114703361239716426777242498047070765419825649338649335324203520914990175617475215559396124269985366445226073413535739506703722725305700801181003806638076833542969792930634276507981999874653084771783693388611685332225407827311551426737005591698879935533301710457570427026612262449034853589446953894882362866116997266155368658434022009303301564004134714758574528550681486251760704778611353919534166920922423000399675968409653191528863934475521713604034776277957224669695055365797734842040683380367052659525161472904140269250583537605009985569301934901970849368619794869522992589641687245596750361789914024779829507831714562458267537478086935828542769452961930649385765937027769549754808647077983842352481939954471482617399349705441772543265466168889441657045989008024530674663156822990414454230692527789111067256514967798446341662829352095886229274059451179104066592601644245847027665538128662964169773437164015753001990682827473103779523648002164217672119790695533051303718537680891844413340734336375503537714500048121192141989898361042214172631175903269417584694291767236347887422463973487860440216713995237938010037513059793352755732047137311901570551492096297673269178601317395152911426472786466918674948888478641683749989647371963462932430946582916243827132593546882880587701264571308905712643331523422108630636741922063789228007966306878911069827743397741511715384252740476
+-4038997629787155339700863409815084778394498166775976374862318662815021844263163724409589991283112221957087037127264409252982112748591787717033830403441930283161011881290431641966980623569028664868962702914864744551077531848115736772683548758847258321094808160079292956552763171104067984120533836065664635950242364928442451805995078317248461140444139995818842326862989533584638540917303432618956468436267462217689897536939221538008683721591946120333532143917872449136148108372559491267886787639350432567049929505139561975168349141248659914132248759237997505419159471214523173970710571263045668863231323715937900821485506870729657531757026555737371294825429353175800946829026948092511256737220542210787053051595802981233109856012113525552509973235479897937695548807826632854936270847693205577465760839058922819952696676524973128629373786196564822754641929042959146243903855562489356161956878595415082692189276329429991504770124701085279239460876288448740109138574892062762521143251789856063997453896592241444435083741307994418053089747011639244992143617911287606647084965258198883225653388806207929500332230594182854932910480899682575200047468631366224756184671205687777355791309481664752207306850082253601568777120189322854270268905005796001025249190389857600171218328183739650007591216545504161762204477332533237651391872316011866877563455543146630002503020104673913649404689688846356155679355719688133387541920174982664021259648532264182629534987205706574743559327603805400804657226783244402678624894083433059675608646276157279055319633537087649436239432408102822941772601782916759376014634915897527886099790478876757639372260041835498805157511082099052792919676100964994824978450413253357211007568079976043560947377624942700751286626095865885748693227336745916209019268819373005995377010812443742858077460846995574710183194390939210530406179726633947606960057755623381106660702560906612626089184875631756310031693325324260069085404643749114036041149321915254534731032089755721666695503339908453188962828461814123864288280393071914098348877715663755991744333924745100860806667992731833852989201298871306214810733409733089632344334780087748382263899388572596969064530803852966537843363683894513951364327857808143784764863735823860987109947211032668617185246354391263086787253856416861878469855595818945550378192169796712193775981201977566994707432054533363792645202163230933854383023716
+40-ok-ok
+ones(40)-ok-ok
+200-ok-ok
+ones(200)-ok-ok
+1500-ok-ok
+ones(1500)-ok-ok
+9000-ok-ok
+ones(9000)-ok-ok
+30000-ok-ok
+ones(30000)-ok-ok
+%- 126 test_gate_pl_call_n_with_a_variable_closure_and_a_compound_argument_hands_the_later_arguments_over_as_swipl__z
+r5: g | p(1,2) | dd | hh | kk
+r5: g | p(1) | dd | hh | kk
+r4: g | p(1,2) | dd | hh
+r5: g | [1,2] | dd | hh | kk
+r5: g | f(1,2,1) | dd | hh | kk
+r5: g | 1 | dd | hh | kk
+r5: g | p(1,2) | dd | hh | kk
+%- 127 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__bi1
+var(X) depth_limit_exceeded
+nonvar(a) depth_limit_exceeded
+atom(a) depth_limit_exceeded
+integer(1) depth_limit_exceeded
+number(1) depth_limit_exceeded
+atomic(a) depth_limit_exceeded
+compound(f(a)) depth_limit_exceeded
+callable(a) depth_limit_exceeded
+is_list([]) depth_limit_exceeded
+ground(a) depth_limit_exceeded
+X = a 1
+a = a depth_limit_exceeded
+X = Y 1
+f(X) = f(a) depth_limit_exceeded
+a \= b depth_limit_exceeded
+X == X 1
+a == a depth_limit_exceeded
+a \== b depth_limit_exceeded
+a @< b depth_limit_exceeded
+1 < 2 depth_limit_exceeded
+1 =:= 1 depth_limit_exceeded
+X is 1 depth_limit_exceeded
+a =@= a depth_limit_exceeded
+true 1
+fail ; true 1
+\+ fail 1
+(true -> true ; fail) 1
+functor(f(a), _, _) depth_limit_exceeded
+arg(1, f(a), _) depth_limit_exceeded
+X =.. [a] depth_limit_exceeded
+copy_term(a, _) depth_limit_exceeded
+atom_length(a, _) depth_limit_exceeded
+nb_setval(k, 1) depth_limit_exceeded
+writeln(x) depth_limit_exceeded
+nl depth_limit_exceeded
+length([], _) depth_limit_exceeded
+succ(1, _) depth_limit_exceeded
+between(1, 1, _) depth_limit_exceeded
+! 1
+X = 1, X == 1 1
+%- 128 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__bi2
+X \= Y depth_limit_exceeded
+X \== Y 1
+X \== a 1
+X @< Y depth_limit_exceeded
+X == Y failed
+X == a failed
+a == X failed
+X = f(Y) failed
+f(Y) = X failed
+a = X failed
+fail failed
+false depth_limit_exceeded
+X is Y depth_limit_exceeded
+1 =:= X depth_limit_exceeded
+X =@= Y depth_limit_exceeded
+X > 1 depth_limit_exceeded
+X = Y, Y = Z failed
+\+ X = a 1
+\+ a = a 2
+(X = a ; Y = b) failed
+(X = a -> true ; true) 1
+%- 129 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__ctl
+conj/20-1
+conj3/20-1
+disj/20-1
+disj_t/20-1
+ite/20-1
+ite_nc/20-1
+soft/20-1
+notnot/20-1
+conj_p0/20-2
+conj_p1/20-3
+conj_p1b/20-3
+disj_p1/20-3
+ite_p1/20-3
+notnot_p1/20-3
+conj_atom/20-2
+conj_cut/20-1
+cut_conj/20-1
+ite_cut/20-1
+disj_cut/20-1
+conj_cut_mid/20-1
+cut_only/20-1
+nested/20-1
+nested2/20-1
+nested_p0/20-2
+nested_p1/20-3
+r_conj/20-1
+r_disj/20-1
+r_ite/20-1
+r_soft/20-1
+r_notnot/20-1
+r_conj_p0/20-3
+r_conj_atom/20-3
+true/0-depth_limit_exceeded
+conj/0-1
+conj_atom/0-depth_limit_exceeded
+r_conj/0-depth_limit_exceeded
+r_conj_atom/0-depth_limit_exceeded
+notnot/0-1
+ite/0-1
+conj_fail/0-failed
+true/1-1
+conj/1-1
+conj_atom/1-depth_limit_exceeded
+r_conj/1-1
+r_conj_atom/1-depth_limit_exceeded
+notnot/1-1
+ite/1-1
+conj_fail/1-failed
+true/2-1
+conj/2-1
+conj_atom/2-2
+r_conj/2-1
+r_conj_atom/2-depth_limit_exceeded
+notnot/2-1
+ite/2-1
+conj_fail/2-failed
+true/3-1
+conj/3-1
+conj_atom/3-2
+r_conj/3-1
+r_conj_atom/3-3
+notnot/3-1
+ite/3-1
+conj_fail/3-failed
+%- 130 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__goals
+true-1
+fail-failed
+findall_member-8
+findall_true-7
+findall_fact-7
+findall_empty-7
+findall_in_clause-9
+findall_fact_in_clause-8
+findall_true_in_clause-8
+once-3
+not-1
+catch-2
+forall-3
+nth0_0-2
+nth0_1-2
+nth0_long-depth_limit_exceeded
+nth1_3-2
+nth0_var-4
+nth0_none-failed
+last_1-2
+last_3-4
+last_partial-2
+(is)-1
+atom-1
+eq-1
+sort-1
+msort-1
+atom_codes-1
+assertz-1
+
+nl-1
+between-1
+call_atom-2
+call_eq-2
+maplist-4
+exclude-3
+dyn-1
+member-2
+append-2
+%- 131 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__lib
+mem(a,[a,b,c])-2
+mem(b,[a,b,c])-3
+mem(c,[a,b,c])-4
+member(a,[a,b,c])-2
+member(b,[a,b,c])-3
+member(c,[a,b,c])-4
+member(c,[a,b,c])-4
+append([],[a],[a])-1
+append([a],[],[a])-2
+reverse([a,b,c],[c,b,a])-5
+a-2
+b-3
+c-4
+%- 132 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__rec
+t(5)-6
+u(5)-6
+w(5)-6
+x(5)-11
+t(5) L=3 R=depth_limit_exceeded
+t(5) L=4 R=depth_limit_exceeded
+t(5) L=5 R=depth_limit_exceeded
+t(5) L=6 R=6
+t(5) L=7 R=6
+t(5) L=8 R=6
+t(5) L=9 R=6
+t(5) L=10 R=6
+t(5) L=11 R=6
+u(5) L=3 R=depth_limit_exceeded
+u(5) L=4 R=depth_limit_exceeded
+u(5) L=5 R=depth_limit_exceeded
+u(5) L=6 R=6
+u(5) L=7 R=6
+u(5) L=8 R=6
+u(5) L=9 R=6
+u(5) L=10 R=6
+u(5) L=11 R=6
+w(5) L=3 R=depth_limit_exceeded
+w(5) L=4 R=depth_limit_exceeded
+w(5) L=5 R=depth_limit_exceeded
+w(5) L=6 R=6
+w(5) L=7 R=6
+w(5) L=8 R=6
+w(5) L=9 R=6
+w(5) L=10 R=6
+w(5) L=11 R=6
+x(5) L=3 R=depth_limit_exceeded
+x(5) L=4 R=depth_limit_exceeded
+x(5) L=5 R=depth_limit_exceeded
+x(5) L=6 R=depth_limit_exceeded
+x(5) L=7 R=depth_limit_exceeded
+x(5) L=8 R=depth_limit_exceeded
+x(5) L=9 R=depth_limit_exceeded
+x(5) L=10 R=depth_limit_exceeded
+x(5) L=11 R=11
+1
+2
+3
+4
+5
+depth_limit_exceeded
+1
+2
+3
+4
+5
+depth_limit_exceeded
+%- 133 test_gate_pl_call_with_depth_limit_answers_as_swipl_for_recursion_control_constructs_and_the_frame_each_builtin_call_costs__shapes
+[6]
+[depth_limit_exceeded]
+[depth_limit_exceeded]
+[4]
+[1]
+[]
+[depth_limit_exceeded]
+[1,1,1]
+[13]
+[22,1]
+[]
+[2]
+[2]
+[2]
+[1,1]
+[2]
+[1,2]
+[2]
+type_error(integer,a)
+instantiation_error
+existence_error(procedure,undefined_pred_xyz/0)
+%- 134 test_gate_pl_catch_between_sub_atom_and_atom_concat_exit_deterministically_on_their_last_answer_as_swipl__w
+catch-det
+catch_true-det
+atom_concat_ppm-det
+atom_concat_pmp-det
+sub_atom-det
+between_last-det
+atom_concat_mmp-nondet
+between-nondet
+loops-done
+p-[p(1),p(2),p(3)]
+q-[q(1)]
+s-[s(undone)]
+u-[u(undone)]
+v-[v(undone)]
+z-[z(2)]
+sub-[sub_atom(abcab,0,2,3,ab),sub_atom(abcab,3,2,0,ab)]
+acpmp-[]
+acmmp-[atom_concat('',abc,abc),atom_concat(a,bc,abc),atom_concat(ab,c,abc),atom_concat(abc,'',abc)]
+%- 135 test_gate_pl_clause_2_reads_static_code_on_every_road_and_obeys_the_iso_and_protect_flags__body
+perm(access,private_procedure,atom/1)
+perm(access,private_procedure,atom/1)
+perm(access,private_procedure,atom/1)
+yes
+yes
+yes
+yes
+yes
+no
+yes
+%- 136 test_gate_pl_clause_2_returns_a_static_clause_with_its_leading_unifications_moved_to_the_head_and_a_loaded_unit_test_body_runs_in_its_unit_as_swipl__w1
+a1 a1(f(A)):-q(A)
+a2 a2(A):-A=f(B),q(A)
+a3 a3(A,A):-A=f(B)
+a4 a4(A):-A=f(A)
+a5 a5(A):-A=f(B),q([A])
+a6 a6(f(A),A):-A=A
+a7 a7(A,B):-A=h(x),B=g(y),q(A,B)
+a8 a8(a):-A=b
+a9 a9(f(A)):-foo=bar,q(A)
+a10 a10(A):-q(A),A=f(B)
+a11 a11(f(A),B):-A=g(C),q(A)
+a12 a12(j,k):-true
+a13 a13(f(A)):-A=a,q(A)
+a14 a14([A|B]):-A=a,q(B)
+b1 b1(A):-A=a,q(A)
+b2 b2(f(A),A):-q(A)
+b3 b3(A):-A=1,q(A)
+b4 b4(A):-A=[],q(A)
+b5 b5(f(A),A):-A=A
+b6 b6(f(A),A):-A=A,q(B)
+b7 b7(A,B):-A=g(B),B=B,q(A)
+b8 b8(a):-true
+b9 b9(f(A),A):-A=A
+b10 b10(f(A),A):-A=A
+c1 c1(f(A)):-q(A),B=g(C)
+c2 c2(A,B):-q(B),A=f(C)
+c3 c3(A):-A=f(B);q(A)
+c4 c4(A,B):-B=k,q(B),A=j
+c5 c5(f(A)):-true,q(A)
+c6 c6(A):-A=B,q(B)
+c7 c7(f(A),A):-A=a
+c8 c8(A):-A=f(B),!,q(A)
+c9 c9(A):-A=f(B),B=b,q(A)
+c11 c11(A):-A="str",q(A)
+c12 c12(A):-A='A b',q(A)
+d1 d1(A):-A=f(B),q(A)
+%- 137 test_gate_pl_clause_2_returns_a_static_clause_with_its_leading_unifications_moved_to_the_head_and_a_loaded_unit_test_body_runs_in_its_unit_as_swipl__w2
+l1 l1(A):-A=f(B),q(A)
+l2 l2(f(A)):-q(A)
+l3 l3(j,k):-true
+l4 l4(A):-A=f(B),q(A)
+%- 138 test_gate_pl_clause_2_returns_a_static_clause_with_its_leading_unifications_moved_to_the_head_and_a_loaded_unit_test_body_runs_in_its_unit_as_swipl__w3
+T:unqual
+T:conj
+T:neg
+T:once
+T:unif
+%-------------------- 139 test_gate_pl_clause_2_sees_the_clauses_of_its_call__lu
+123
+123
+123
+123
+123999
+empty
+12
+[3,3]
+%-------------- 140 test_gate_pl_clpfd_helpers_called_by_name_answer_as_swipl__w
+[3,2,1]
+1-2
+[0,2,5]
+0-4
+[2,3,4,1]
+[2,1,1]
+[1,2,3,4]
+[0,1,1]
+2-3
+%------------------------- 141 test_gate_pl_compiled_tables_refuse_a_mismatch__w
+f(a,g(b,[1,2]),'Quoted',h(c))
+f
+4
+4
+%--------------------------- 142 test_gate_pl_consult_loads_the_named_file__data
+[a,b]
+%------------------------ 143 test_gate_pl_consult_loads_the_named_file__missing
+alive
+%------------------- 144 test_gate_pl_copy_term_terminates_on_a_rational_tree__g
+self: yes
+self_fresh: no
+mutual: yes
+sharing: yes
+deep: yes
+nested: yes
+findall: yes
+acyclic_after_copy: yes
+ground_cyclic: yes
+%- 145 test_gate_pl_current_op_enumerates_newest_first_over_the_table_of_its_call__w
+quuxbaz
+a1a2a3
+%- 146 test_gate_pl_cyclic_terms_every_walker_terminates_and_writes_as_swipl_does__w_cyc2
+0
+tv2
+g3ng4
+s5ns5bs5c
+3-A-B-C
+0
+lerr8
+32
+kerr10
+merr11
+uerr12
+representation_error(cyclic_term)
+@(S_1,[S_1=f(S_1)])
+@(g(S_1,'A b'),[S_1=f(S_1)])
+@(S_1,[S_1=f(S_1,S_2),S_2=g(S_2)])
+@(S_2,[S_1=g(S_1),S_2=f(S_1,S_2)])
+@([S_1,S_1],[S_1=f(S_1)])
+@(-S_1,[S_1=f(S_1)])
+@(S_1,[S_1= -S_1])
+@(S_1,[S_1=[a|S_1]]) @(S_1,[S_1=[a|S_1]]) @(S_1,[S_1=[a|S_1]])
+19
+ok21
+<[9007199254740992,9007199254740993]
+%- 147 test_gate_pl_cyclic_terms_unify_compare_copy_and_survive_a_collection_as_swipl_does__w_cyc
+eq1
+eq2
+unif3
+unif4
+eq5
+=
+lt7
+lt8neq8
+<
+eq10unif10
+1-2-3
+copyeq12cyc12
+yes13
+yes14
+cyc15
+found16
+caught17eq17
+eq18unif18
+nounif19<
+dageqdagunif=
+survived21
+fresh22cyc22
+f(f(f(...)))
+%------------ 148 test_gate_pl_date_builtins_and_library_date_answer_as_swipl__w
+date(2006,12,8,15,29,44.0,0,'UTC',-)
+sdt_utc-yes
+date(2006,12,8,9,29,44.0,21600,'CST',false)
+sdt_local-yes
+date(1970,1,1,0,0,0.0,0,-,-)
+sdt_off-yes
+date(1969,12,31,23,0,0.0,3600,-,-)
+sdt_off2-yes
+date(1970,1,2,3,46,40.25,0,'UTC',-)
+sdt_frac-yes
+date(1732,2,22,0,0,0.0,0,'UTC',-)
+sdt_neg-yes
+1165591784.0
+dts9-yes
+-3600.0
+dts_tz-yes
+1165557600.0
+dts3-yes
+1171072921.0
+dts_norm-yes
+dts_local-type_error(integer,-)
+1165536001.5
+dts_float-yes
+'1732-02-21'
+ft1-yes
+'2006-12-08T09:29:44-0600 CST Fri Dec  8 342 5 5 09:29:44 123 123456 1165591784'
+ft2-yes
+"900"
+ft3-yes
+'2006-12-08T17:29:44+02:00'
+ft4-yes
+[48,56]
+ft5-yes
+'Friday December AM 09 06 20 2006 49 49 49 12/08/06 09:29 09:29:44 AM Fri 08 Dec 2006 09:29:44 AM CST'
+ft6-yes
+'Wed Dec 31 18:00:00 1969'
+ft7-yes
+'%|\n|\t|18| 6|pm|Dec'
+ft8-yes
+1165591784.0
+pt1-yes
+1165591784.0
+pt2-yes
+1165536000.0
+pt3-yes
+1165536000.0
+pt4-yes
+1164844800.0
+pt5-yes
+1165591784.0
+pt_rfc-yes
+1165591740.0
+pt_any-yes
+5
+dow-yes
+342
+doy-yes
+12
+dtv-yes
+%------------ 149 test_gate_pl_debug_0_and_the_swi_debug_flag_answer_as_swipl__w
+default(false)
+debug0-yes
+after_debug(true)
+nodebug0-yes
+after_nodebug(false)
+set_true-yes
+set_on-yes
+set_false-yes
+%- 150 test_gate_pl_det_declarations_and_the_dollar_guard_report_their_culprit_as_swipl__v1
+p1_det-yes
+p1_nondet-err(determinism_error(p1/1,det,nondet,property),context(p1/1,A))
+p1_fail-err(determinism_error(p1/1,det,fail,property),context(p1/1,A))
+np_nondet-err(determinism_error(np2/1,det,nondet,property),context(np2/1,A))
+np_fail-err(determinism_error(np2/1,det,fail,property),context(np2/1,A))
+np_det-yes
+q-err(determinism_error(q/0,det,nondet,property),context(q/0,A))
+ga-err(determinism_error(nd3/1,det,nondet,guard_in_caller),context(nd3/1,A))
+ga_fail-err(determinism_error(nd3/1,det,fail,guard_in_caller),context(nd3/1,A))
+gb-err(determinism_error(nd3/1,det,nondet,guard_in_caller),context(nd3/1,A))
+gc-err(determinism_error(gc/1,det,nondet,guard),context(gc/1,A))
+ge-err(determinism_error(nd3/1,det,nondet,guard_in_caller),context(nd3/1,A))
+ge_fail-err(determinism_error(nd3/1,det,fail,guard_in_caller),context(nd3/1,A))
+ge_det-yes
+gcall-err(determinism_error(gcall/0,det,nondet,guard),context(gcall/0,A))
+dbg_np-err(determinism_error(np/1,det,nondet,property),context(np2/1,A))
+dbg_ge-err(determinism_error(ge/1,det,nondet,guard_in_caller),context(nd3/1,A))
+dbg_p1-err(determinism_error(p1/1,det,nondet,property),context(p1/1,A))
+%---- 151 test_gate_pl_dict_methods_defined_with_colon_equals_answer_as_swipl__w
+na-1
+aa-2
+a2-9
+plus-7
+other_module-7
+bound_dict-4
+key_not_method-k
+%---------- 152 test_gate_pl_directives_run_in_place_in_source_order_as_swipl__w
+d1
+nb_setval_in_place-1
+before_unit-user
+in_unit-plunit_u
+after_unit-user
+in_unit_with_options-plunit_v
+d2
+init
+%- 153 test_gate_pl_directory_files_agc_file_property_and_max_path_length_answer_as_swipl__w
+dirfiles_missing-existence_error(file,magic_nosuch_dir_9)
+dirfiles_not_a_dir-existence_error(file,'w.pl')
+agc_counts-yes
+pp_file_direct-no
+pp_file_called-no
+pp_order-yes
+fbn_4095-yes
+fbn_4096-representation_error(max_path_length)
+fdn_4096_seg-yes
+fdn_40000_dir-representation_error(max_path_length)
+afn_4095-no
+afn_4096-representation_error(max_path_length)
+fdn_abc-yes
+fbn_slash-yes
+%- 154 test_gate_pl_dynamic_first_argument_index_answers_as_swipl_and_a_keyed_call_costs_the_same_at_either_end_of_the_table__gcs
+400
+%- 155 test_gate_pl_dynamic_first_argument_index_answers_as_swipl_and_a_keyed_call_costs_the_same_at_either_end_of_the_table__ix
+[clause(t(7,49),true)]
+[retract(t(7,49))]
+[]
+[]
+[clause(t(7,a),true),clause(t(7,b),true)]
+[clause(t(8,64),true),clause(t(8,c),true)]
+[clause(t(7,first),true),clause(t(7,a),true),clause(t(7,b),true)]
+[]
+[clause(t(7,first),true),clause(t(1,1),true),clause(t(2,4),true),clause(t(3,9),true),clause(t(4,16),true),clause(t(5,25),true),clause(t(6,36),true),clause(t(8,64),true),clause(t(9,81),true),clause(t(10,100),true),clause(t(11,121),true),clause(t(12,144),true),clause(t(13,169),true),clause(t(14,196),true),clause(t(15,225),true),clause(t(16,256),true),clause(t(17,289),true),clause(t(18,324),true),clause(t(19,361),true),clause(t(20,400),true),clause(t(21,441),true),clause(t(22,484),true),clause(t(23,529),true),clause(t(24,576),true),clause(t(25,625),true),clause(t(26,676),true),clause(t(27,729),true),clause(t(28,784),true),clause(t(29,841),true),clause(t(30,900),true),clause(t(31,961),true),clause(t(32,1024),true),clause(t(33,1089),true),clause(t(34,1156),true),clause(t(35,1225),true),clause(t(36,1296),true),clause(t(37,1369),true),clause(t(38,1444),true),clause(t(39,1521),true),clause(t(40,1600),true),clause(t(7,a),true),clause(t(7,b),true),clause(t(8,c),true)]
+[clause(t(3,9),true),clause(t(3,A),A=body)]
+[retract((t(3,9):-true)),retract((t(3,A):-A=body))]
+[]
+[clause(t(1.5,flt),true)]
+[clause(t(str,s),true)]
+[clause(t(f(1),c1),true)]
+[clause(t(f(1),c1),true)]
+[clause(t(f(1,2),c2),true)]
+[clause(t(f(1,2),c2),true)]
+[clause(t(-5,neg),true)]
+[clause(t(123456789012345678901234567890,big),true)]
+[clause(t(1,atomone),true)]
+[clause(t(1,1),true),clause(t(1,intone),true)]
+[]
+[]
+r(25)
+[clause(t(5,again),true)]
+[retract(t(9,81))]
+[retract(t(1,1)),retract(t(1,intone))]
+[]
+[clause(t(10,100),true),clause(t(10,anyclause),true)]
+[clause(t(f(1),c1),true),clause(t(f(1),anyclause),true)]
+[retract(t(10,100)),retract(t(10,anyclause))]
+[]
+[clause(u(k7),true)]
+[retract(u(k7))]
+[]
+[retract(u(k30))]
+[clause(u(k1),true),clause(u(k2),true),clause(u(k3),true),clause(u(k4),true),clause(u(k5),true),clause(u(k6),true),clause(u(k8),true),clause(u(k9),true),clause(u(k10),true),clause(u(k11),true),clause(u(k12),true),clause(u(k13),true),clause(u(k14),true),clause(u(k15),true),clause(u(k16),true),clause(u(k17),true),clause(u(k18),true),clause(u(k19),true),clause(u(k20),true),clause(u(k21),true),clause(u(k22),true),clause(u(k23),true),clause(u(k24),true),clause(u(k25),true),clause(u(k26),true),clause(u(k27),true),clause(u(k28),true),clause(u(k29),true)]
+[clause(v(0,3),true),clause(v(0,6),true),clause(v(0,9),true),clause(v(0,12),true)]
+[clause(v(1,1),true),clause(v(1,4),true),clause(v(1,7),true),clause(v(1,10),true)]
+[clause(v(2,2),true),clause(v(2,5),true),clause(v(2,8),true),clause(v(2,11),true)]
+[retract(v(1,4))]
+[clause(v(1,1),true),clause(v(1,7),true),clause(v(1,10),true)]
+[retract(v(1,1)),retract(v(1,7)),retract(v(1,10))]
+[]
+[clause(w(0),true)]
+[retract(w(15))]
+[]
+[clause(w(0),true),clause(w(1),true),clause(w(2),true),clause(w(3),true),clause(w(4),true),clause(w(5),true),clause(w(6),true),clause(w(7),true),clause(w(8),true),clause(w(9),true),clause(w(10),true),clause(w(11),true),clause(w(12),true),clause(w(13),true),clause(w(14),true),clause(w(16),true),clause(w(17),true),clause(w(18),true),clause(w(19),true),clause(w(20),true)]
+[]
+[]
+[]
+[]
+[]
+[clause(u(k4),true)]
+[]
+[clause(t(f(1,2),c2),true)]
+[]
+[clause(v(0,6),true),clause(v(0,9),true),clause(v(0,12),true)]
+[]
+[clause(v(2,again),true)]
+%- 156 test_gate_pl_every_choice_leaving_builtin_keeps_its_callers_retaining_as_swipl__nd
+1-[1,2,3]
+2-[1,2,3]
+3-[0-a,1-b,2-c]
+4-[0-a,1-b,2-c]
+5-[1-a,2-b,3-c]
+6-[1,2,3]
+7-[a,b,c]
+8-[200-fy,500-yfx]
+9-[1]
+10-[a,b,c]
+11-[a-[b,c],b-[a,c],c-[a,b]]
+12-[[]+[1,2],[1]+[2],[1,2]+[]]
+13-[''+abc,a+bc,ab+c,abc+'']
+14-[0,1,2]
+15-[a-[1,3],b-[2]]
+16-[a-[1,2],b-[1]]
+17-[x,y,z]
+18-[p,q]
+19-[a,b]
+20-[1,2]
+21-[c]
+22-[s]
+%- 157 test_gate_pl_exists_source_answers_a_library_the_prelude_holds_and_a_file_that_exists_as_swipl__ex
+clpr-yes
+lists-yes
+nosuch-no
+self_with_ext-no
+self_without_ext-no
+missing-no
+unbound-instantiation_error
+%---------- 158 test_gate_pl_findall_4_serves_a_bound_tail_and_an_unbound_one__w
+unbound_tail(1,2,[3])
+bound_tail([1,2,9])
+literal_tail([1,2,3])
+no_solutions([7])
+open_tail([1,2|_4130],_4130)
+static_meta([1,2,3])
+dyn_call([1,2,9])
+dyn_catch([1,2,9])
+dyn_var([1,2,9])
+dyn_unbound([9])
+%- 159 test_gate_pl_first_argument_indexing_survives_the_wake_up_lowering_as_swipl__w
+2
+len([],0)-det
+len([a],1)-det
+len([a,b,c],3)-det
+%------------ 160 test_gate_pl_format_column_fill_is_a_character_not_a_byte__asc
+----------end
+ab        cd
+     right
+a       b       c
+%------------- 161 test_gate_pl_format_column_fill_is_a_character_not_a_byte__fm
+→→→→→→→→
+----------end
+ab        cd
+     right
+a       b       c
+%- 162 test_gate_pl_format_tilde_at_runs_its_goal_inserts_its_output_and_fails_or_throws_as_swipl__w
+a => failed
+a => threw(oops)
+ax => failed
+ax => threw(oops)
+a1b2c => succeeded
+ab               midz => succeeded
+     right => succeeded
+ => succeeded
+pzzq
+ => failed
+ => raised(instantiation_error)
+ => raised(type_error(callable,3))
+1 => succeeded
+
+a => raised(existence_error(procedure,nofunc_here/0))
+1 two 3
+ => succeeded
+in-ner
+ => succeeded
+ => failed
+x1y
+%- 163 test_gate_pl_format_writes_the_text_it_produced_before_an_argument_count_error_as_swipl_and_gprolog__scc
+abc
+caught
+
+--
+axb
+caught
+
+--
+a
+caught
+
+--
+xa
+
+caught
+
+--
+%3.0d
+caught
+
+--
+%- 164 test_gate_pl_gnu_all_solutions_dec10_io_for_and_name_answer_as_gprolog__g
+bagof(A,member(A,[c,a,b,a]),B) => [bagof(C,member(C,[c,a,b,a]),[c,a,b,a])]
+bagof(A,member(A-B,[1-a,2-b,3-a]),C) => [bagof(D,member(D-a,[1-a,2-b,3-a]),[1,3]),bagof(E,member(E-b,[1-a,2-b,3-a]),[2])]
+bagof(A,B^member(A-B,[1-a,2-b,3-a]),C) => [bagof(D,E^member(D-E,[1-a,2-b,3-a]),[1,2,3])]
+setof(A,member(A,[c,a,b,a]),B) => [setof(C,member(C,[c,a,b,a]),[a,b,c])]
+setof(A,member(A-B,[2-a,1-b,3-a,2-a]),C) => [setof(D,member(D-a,[2-a,1-b,3-a,2-a]),[2,3]),setof(E,member(E-b,[2-a,1-b,3-a,2-a]),[1])]
+setof(A,member(A,[f(b),1,a,2.0,B]),C) => [setof(D,member(D,[f(b),1,a,2.0,E]),[E,1,2.0,a,f(b)])]
+bagof(A,true,foo) => []
+bagof(A,B,C) => error(instantiation_error)
+findall(A,member(A,[1,2]),B,C) => [findall(D,member(D,[1,2]),[1,2|E],E)]
+for(x,1,2) => error(existence_error(procedure,for/3))
+for(A,1,B) => error(existence_error(procedure,for/3))
+for(A,a,2) => error(existence_error(procedure,for/3))
+for(A,1,3) => error(existence_error(procedure,for/3))
+name(A,B) => error(instantiation_error)
+name(f(x),A) => error(type_error(atomic,f(x)))
+name(A,"12") => [name(12,"12")]
+<> error(instantiation_error)
+<a> true
+<  > true
+<> error(type_error(evaluable,foo/0))
+<> error(instantiation_error)
+<> error(type_error(integer_expression,2.5))
+<> fail
+<> fail
+<> error(type_error(character,foo))
+<> true
+telling(A) => [telling(user)]
+<> true
+seeing(A) => [seeing(user)]
+tell(A) => error(instantiation_error)
+see(A) => error(instantiation_error)
+no_user_file
+%- 165 test_gate_pl_gnu_consult_reconsults_listing_and_load_answer_as_gprolog__g
+consult(c1),consult('c1.pl'),cq(A) => [(consult(c1),consult('c1.pl'),cq(1)),(consult(c1),consult('c1.pl'),cq(two)),(consult(c1),consult('c1.pl'),cq(three))]
+consult([c1,'c2.pl']),cs(3,A) => [(consult([c1,'c2.pl']),cs(3,9))]
+consult(c0) => error(existence_error(source_sink,c0))
+consult([abc,1]) => [consult([abc,1])]
+consult([]) => [consult([])]
+load(c0) => error(existence_error(procedure,load/1))
+load('c0.wbc') => error(existence_error(procedure,load/1))
+load(A) => error(existence_error(procedure,load/1))
+load(3) => error(existence_error(procedure,load/1))
+:- dynamic cq/1.
+
+cq(1).
+cq(X) :-
+    (   X=two
+    ;   X=three
+    ).
+
+cs(N, M) :-
+    M is N*N.
+
+:- dynamic ld/2.
+
+ld(1, foo).
+
+listing(nosuch/1) => error(existence_error(procedure,nosuch/1))
+listing(3/1) => error(existence_error(procedure,3/1))
+listing(foo/ -1) => error(domain_error(not_less_than_zero,-1))
+listing(f(x)) => error(existence_error(procedure,f(x)))
+%------- 166 test_gate_pl_gnu_expand_term_and_phrase_translate_dcg_as_gprolog__w
+[expand_term((a-->[x],b),[(:-non_terminal(user:a/2)),(a(A,B):-A=[x|C],b(C,B))])]
+[expand_term((a-->b,{c},[d]),[(:-non_terminal(user:a/2)),(a(A,B):-b(A,C),(c,D=C),D=[d|B])])]
+[expand_term((a,[p]-->b),[(:-non_terminal(user:a/2)),(a(A,B):-b(A,C),B=[p|C])])]
+[expand_term((a--> \+b),[(:-non_terminal(user:a/2)),(a(A,B):- \+b(A,C),B=A)])]
+[expand_term((a-->b;[]),[(:-non_terminal(user:a/2)),(a(A,B):-b(A,B);A=B)])]
+[expand_term((a-->[x],!,[y]),[(:-non_terminal(user:a/2)),(a(A,B):-A=[x|C],(!,D=C),D=[y|B])])]
+error(type_error(callable,3))
+[expand_term((a,q-->b),[(:-non_terminal(user:a/2)),(a(A,B):-b(A,C),q(B,C))])]
+error(type_error(callable,3))
+[phrase(([a],[b]),[a,b,c],[c])]
+[phrase((\+[b],[a]),[a],[])]
+%---- 167 test_gate_pl_gnu_get_print_stream_inside_portray_answers_as_gprolog__w
+<[> error(existence_error(procedure,get_print_stream/1))
+<g(> error(existence_error(procedure,get_print_stream/1))
+<> error(existence_error(procedure,get_print_stream/1))
+<> error(existence_error(procedure,get_print_stream/1))
+<f(Z,> error(existence_error(procedure,get_print_stream/1))
+<> error(existence_error(procedure,get_print_stream/1))
+<> error(existence_error(procedure,get_print_stream/1))
+<> error(existence_error(procedure,get_print_stream/1))
+<> error(existence_error(procedure,get_print_stream/1))
+%- 168 test_gate_pl_gnu_global_variables_answer_as_gprolog_and_b_setval_links_as_swipl__b
+a(f(1))
+b(5)
+c(g(3))
+d(0)
+e(2)
+f(1)
+g(6)
+h(7)
+i(8)
+%----- 169 test_gate_pl_gnu_leash_spy_and_the_debugger_mode_answer_as_gprolog__g
+leash([exception,call]) => error(type_error('+|-|?(Flag)',exception))
+debugging => [debugging]
+leash(half) => error(type_error('+|-|?(Flag)',half))
+spy(d_foo/0-3) => error(existence_error(procedure,d_foo/0-3))
+debugging => [debugging]
+spy([d_foo/1,d_bar/2]) => true
+spy(nonesuch) => error(existence_error(procedure,nonesuch))
+spy(nonesuch/1-2) => error(existence_error(procedure,nonesuch/1-2))
+spy(d_bar/9) => error(existence_error(procedure,d_bar/9))
+nospy(d_bar) => true
+nospy([d_foo/2,nonesuch/1]) => error(existence_error(procedure,nonesuch/1))
+debugging => [debugging]
+spypoint_condition(nonesuch(A),call,true) => error(existence_error(procedure,spypoint_condition/3))
+spypoint_condition(3,call,true) => error(existence_error(procedure,spypoint_condition/3))
+spy(d_foo/ -1) => error(domain_error(not_less_than_zero,-1))
+spy(3/1) => error(existence_error(procedure,3/1))
+spy(A/1) => [spy(B/1)]
+spy(d_foo/A) => [spy(d_foo/B)]
+spy(d_foo/A-2) => error(existence_error(procedure,d_foo/B-2))
+debugging => [debugging]
+debugging => [debugging]
+nospyall => true
+nospyall => true
+debugging => [debugging]
+debug => true
+notrace => true
+leash(A) => error(instantiation_error)
+leash([call|bogus]) => error(type_error('+|-|?(Flag)',call))
+spy(dz) => true
+spy([qc/1,qa/1,qb/1]) => true
+debugging => [debugging]
+spy(dz/1-2) => error(existence_error(procedure,dz/1-2))
+%------- 170 test_gate_pl_gnu_linedit_prompt_and_completion_answer_as_gprolog__g
+get_linedit_prompt(A) => error(existence_error(procedure,get_linedit_prompt/1))
+set_linedit_prompt('qzv> ') => error(existence_error(procedure,set_linedit_prompt/1))
+get_linedit_prompt(A) => error(existence_error(procedure,get_linedit_prompt/1))
+get_linedit_prompt(x) => error(existence_error(procedure,get_linedit_prompt/1))
+set_linedit_prompt(A) => error(existence_error(procedure,set_linedit_prompt/1))
+set_linedit_prompt(1) => error(existence_error(procedure,set_linedit_prompt/1))
+get_linedit_prompt(1) => error(existence_error(procedure,get_linedit_prompt/1))
+set_linedit_prompt('') => error(existence_error(procedure,set_linedit_prompt/1))
+get_linedit_prompt(A) => error(existence_error(procedure,get_linedit_prompt/1))
+add_linedit_completion(qzvone) => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion('QzvTwo') => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion(qzv3) => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion('qzv x') => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion('qzv-y') => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion('') => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion(A) => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion(f(x)) => error(existence_error(procedure,add_linedit_completion/1))
+add_linedit_completion(qzvone) => error(existence_error(procedure,add_linedit_completion/1))
+find_linedit_completion(qzv,A) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion('Qzv',A) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(qzvo,A) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(qzvone,qzvone) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(qzvf,A) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(qzvnone,A) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(A,B) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(1,A) => error(existence_error(procedure,find_linedit_completion/2))
+find_linedit_completion(qzv,1) => error(existence_error(procedure,find_linedit_completion/2))
+%----- 171 test_gate_pl_gnu_popen_exec_wait_and_create_pipe_answer_as_gprolog__g
+pr('echo one; echo two',A) => error(existence_error(procedure,popen/3))
+%- 172 test_gate_pl_gnu_predicate_property_and_current_predicate_answer_as_gprolog__g
+current_predicate(ps/2) => [current_predicate(ps/2)]
+current_predicate(4) => error(type_error(predicate_indicator,4))
+predicate_property(ps(A,B),static) => [predicate_property(ps(C,D),static)]
+predicate_property(pd(A),dynamic) => [predicate_property(pd(B),dynamic)]
+predicate_property(ps(A,B),dynamic) => []
+predicate_property(atom_length(A,B),built_in) => [predicate_property(atom_length(C,D),built_in)]
+predicate_property(nosuch(A),dynamic) => []
+predicate_property(4,dynamic) => []
+predicate_property(ps(A,B),user) => []
+predicate_property(ps(A,B),private) => []
+predicate_property(pd(A),public) => []
+predicate_property(pm(A),multifile) => [predicate_property(pm(B),multifile)]
+predicate_property(ps(A,B),monofile) => []
+predicate_property(ps(A,B),prolog_line(C)) => []
+predicate_property(pd(A),prolog_line(B)) => []
+predicate_property(atom_length(A,B),native_code) => []
+predicate_property(atom_length(A,B),static) => [predicate_property(atom_length(C,D),static)]
+predicate_property(append(A,B,C),built_in) => []
+predicate_property(call(A),control_construct) => []
+predicate_property((A,B),control_construct) => []
+predicate_property(ps(A,B),bogus) => []
+predicate_property(ps(A,B),3) => []
+%- 173 test_gate_pl_gnu_predicate_property_and_current_predicate_answer_as_gprolog__s
+current_predicate(ps/2) => [current_predicate(ps/2)]
+current_predicate(foo/bar) => error(type_error(predicate_indicator,foo/bar))
+current_predicate(foo/ -1) => error(domain_error(not_less_than_zero,-1))
+current_predicate(3/1) => error(type_error(predicate_indicator,3/1))
+current_predicate(4) => error(type_error(predicate_indicator,4))
+predicate_property(ps(A,B),static) => [predicate_property(ps(C,D),static)]
+predicate_property(pd(A),dynamic) => [predicate_property(pd(B),dynamic)]
+predicate_property(ps(A,B),dynamic) => []
+predicate_property(atom_length(A,B),built_in) => [predicate_property(atom_length(C,D),built_in)]
+predicate_property(nosuch(A),dynamic) => []
+predicate_property(4,dynamic) => []
+%- 174 test_gate_pl_gnu_read_raises_gprologs_syntax_error_at_gprologs_position_and_recovers_as_gprolog__g
+err(syntax_error(end_of_clause))
+ok(1)
+err(syntax_error(operator_expected))
+ok(2)
+err(syntax_error(operator_expected))
+ok(3)
+err(syntax_error(operator_expected))
+ok(4)
+err(syntax_error(operator_expected))
+ok(5)
+err(syntax_error(operator_expected))
+ok(6)
+err(syntax_error(operator_expected))
+ok(7)
+err(syntax_error(cannot_start_term))
+ok(8)
+err(syntax_error(cannot_start_term))
+ok(9)
+err(syntax_error(operator_balance))
+ok(10)
+(-)=x
+ok(11)
+err(syntax_error(cannot_start_term))
+ok(12)
+err(syntax_error(cannot_start_term))
+ok(13)
+f(-)
+ok(14)
+g(h(1,[2,3|t]),{x,y}):-(a;b)->c,d
+ok(15)
+err(syntax_error(operator_expected))
+ok(16)
+err(syntax_error(list_rest))
+ok(17)
+err(syntax_error(operator_clash))
+ok(18)
+err(syntax_error(operator_balance))
+ok(19)
+err(syntax_error(operator_expected))
+ok(20)
+end_of_file
+err(syntax_error(end_of_file_in_quoted('\'')))
+end_of_file
+%-- 175 test_gate_pl_gnu_read_term_from_text_validates_its_options_as_gprolog__w
+read_term_from_atom('a.',A,[nope]) => error(type_error(option,nope))
+read_term_from_atom('f(X, Y, X).',A,[variable_names(B)]) => [read_term_from_atom('f(X, Y, X).',f(C,D,C),[variable_names(['X'=C,'Y'=D])])]
+read_term_from_chars([h,'(','.'],A,[syntax_error(fail)]) => error(syntax_error(end_of_clause))
+read_term_from_chars([h,'(','.'],A,[syntax_error(bad)]) => error(syntax_error(end_of_clause))
+read_term_from_codes("k(a).",A,foo) => error(type_error(list,foo))
+read_term_from_codes("k(a).",A,[]) => [read_term_from_codes("k(a).",k(a),[])]
+%--------------- 176 test_gate_pl_gnu_read_token_from_text_answers_as_gprolog__w
+'foo(bar)'-err(existence_error(procedure,read_token_from_atom/2))
+'X'-err(existence_error(procedure,read_token_from_atom/2))
+'_'-err(existence_error(procedure,read_token_from_atom/2))
+'_Var'-err(existence_error(procedure,read_token_from_atom/2))
+'123 abc'-err(existence_error(procedure,read_token_from_atom/2))
+'3.25'-err(existence_error(procedure,read_token_from_atom/2))
+'1.0e10'-err(existence_error(procedure,read_token_from_atom/2))
+'0x1F'-err(existence_error(procedure,read_token_from_atom/2))
+'0\'a'-err(existence_error(procedure,read_token_from_atom/2))
+'"str"'-err(existence_error(procedure,read_token_from_atom/2))
+'`bq`'-err(existence_error(procedure,read_token_from_atom/2))
+'\'q a\''-err(existence_error(procedure,read_token_from_atom/2))
+''-err(existence_error(procedure,read_token_from_atom/2))
+'   '-err(existence_error(procedure,read_token_from_atom/2))
+'( x'-err(existence_error(procedure,read_token_from_atom/2))
+')'-err(existence_error(procedure,read_token_from_atom/2))
+'['-err(existence_error(procedure,read_token_from_atom/2))
+']'-err(existence_error(procedure,read_token_from_atom/2))
+'{'-err(existence_error(procedure,read_token_from_atom/2))
+'}'-err(existence_error(procedure,read_token_from_atom/2))
+(',')-err(existence_error(procedure,read_token_from_atom/2))
+('|')-err(existence_error(procedure,read_token_from_atom/2))
+('.')-err(existence_error(procedure,read_token_from_atom/2))
+'a.b'-err(existence_error(procedure,read_token_from_atom/2))
+'+ 1'-err(existence_error(procedure,read_token_from_atom/2))
+(=..)-err(existence_error(procedure,read_token_from_atom/2))
+'- 5'-err(existence_error(procedure,read_token_from_atom/2))
+'-5'-err(existence_error(procedure,read_token_from_atom/2))
+'% c\nx'-err(existence_error(procedure,read_token_from_atom/2))
+'/* c */ y'-err(existence_error(procedure,read_token_from_atom/2))
+'foo bar'-err(existence_error(procedure,read_token_from_atom/2))
+'"a\\nb"'-err(existence_error(procedure,read_token_from_atom/2))
+'1.'-err(existence_error(procedure,read_token_from_atom/2))
+'1.e'-err(existence_error(procedure,read_token_from_atom/2))
+'Abc_1'-err(existence_error(procedure,read_token_from_atom/2))
+existence_error(procedure,read_token_from_atom/2)
+existence_error(procedure,read_token_from_atom/2)
+%- 177 test_gate_pl_gnu_set_bip_name_current_bip_name_and_syntax_error_info_answer_as_gprolog__g
+syntax_error_info(A,B,C,D) => error(existence_error(procedure,syntax_error_info/4))
+set_bip_name(foo,2),current_bip_name(A,B) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(bar,0),current_bip_name(bar,A) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(foo,2),current_bip_name(foo,3) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(wide,300),current_bip_name(A,B) => error(existence_error(procedure,set_bip_name/2))
+(set_bip_name(kept,1),fail;true),current_bip_name(A,B) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(A,1) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(foo,A) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(1,A) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(foo,a) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(foo,2.0) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(foo,2),current_bip_name(1,A) => error(existence_error(procedure,set_bip_name/2))
+set_bip_name(foo,2),current_bip_name(A,a) => error(existence_error(procedure,set_bip_name/2))
+syntax_error_info(3,A,B,C) => error(existence_error(procedure,syntax_error_info/4))
+syntax_error_info(A,a,B,C) => error(existence_error(procedure,syntax_error_info/4))
+syntax_error_info(A,B,b,C) => error(existence_error(procedure,syntax_error_info/4))
+syntax_error_info(A,B,C,4) => error(existence_error(procedure,syntax_error_info/4))
+%----------------------------- 178 test_gate_pl_gnu_sockets_answer_as_gprolog__g
+inet(A,B,C) => error(existence_error(procedure,socket/2))
+unix(A) => error(existence_error(procedure,socket/2))
+socket(1,A) => error(existence_error(procedure,socket/2))
+socket('AF_INET',x) => error(existence_error(procedure,socket/2))
+socket_close(1) => error(existence_error(procedure,socket_close/1))
+socket_close(-4) => error(existence_error(procedure,socket_close/1))
+bind_type_errors => error(existence_error(procedure,socket/2))
+socket_bind(x,'AF_UNIX'(a)) => error(existence_error(procedure,socket_bind/2))
+socket_listen(1,a) => error(existence_error(procedure,socket_listen/2))
+socket_listen(a,1) => error(existence_error(procedure,socket_listen/2))
+socket_accept(A,B,C) => error(existence_error(procedure,socket_accept/3))
+socket_accept(3,a,A) => error(existence_error(procedure,socket_accept/3))
+socket_accept(3,A,b,B) => error(existence_error(procedure,socket_accept/4))
+socket_connect(A,'AF_UNIX'(a),B,C) => error(existence_error(procedure,socket_connect/4))
+socket_connect(3,A,B,C) => error(existence_error(procedure,socket_connect/4))
+socket_connect(3,nonsense,A,B) => error(existence_error(procedure,socket_connect/4))
+socket_connect(3,'AF_UNIX'(a),x,A) => error(existence_error(procedure,socket_connect/4))
+hostname_address(localhost,'127.0.0.1') => error(existence_error(procedure,hostname_address/2))
+hostname_address(localhost,x) => error(existence_error(procedure,hostname_address/2))
+hostname_address(localhost,12) => error(existence_error(procedure,hostname_address/2))
+hostname_address('no-such-host.invalid',A) => error(existence_error(procedure,hostname_address/2))
+%- 179 test_gate_pl_gnu_statistics_stacks_and_format_errors_answer_as_gprolog__w
+ok
+ok
+err(domain_error(statistics_key,trail_stack))
+err(domain_error(statistics_key,cstr_stack))
+<> error(format('not enough arguments'))
+<xy > error(format('not enough arguments'))
+<> error(existence_error(format_character,y))
+<ab> error(existence_error(format_character,y))
+<> error(format_argument_type(c,-1))
+<1> true
+<px> error(existence_error(format_character,'\x0\'))
+%- 180 test_gate_pl_gnu_stream_type_eof_buffering_positions_and_seek_answer_as_gprolog__g
+sp(r,buffering(A)) => error(existence_error(procedure,current_alias/2))
+sp(w,buffering(A)) => error(existence_error(procedure,current_alias/2))
+set_stream_buffering(w,line) => error(existence_error(procedure,set_stream_buffering/2))
+sp(w,buffering(A)) => error(existence_error(procedure,current_alias/2))
+set_stream_buffering(w,x) => error(existence_error(procedure,set_stream_buffering/2))
+set_stream_buffering(w,A) => error(existence_error(procedure,set_stream_buffering/2))
+set_stream_type(t,binary) => error(existence_error(procedure,set_stream_type/2))
+sp(t,type(A)) => error(existence_error(procedure,current_alias/2))
+set_stream_type(t,text) => error(existence_error(procedure,set_stream_type/2))
+set_stream_type(t,foo) => error(existence_error(procedure,set_stream_type/2))
+set_stream_type(t,A) => error(existence_error(procedure,set_stream_type/2))
+get_char(r,A) => [get_char(r,a)]
+set_stream_type(r,binary) => error(existence_error(procedure,set_stream_type/2))
+set_stream_type(r,text) => error(existence_error(procedure,set_stream_type/2))
+set_stream_eof_action(w,error) => error(existence_error(procedure,set_stream_eof_action/2))
+set_stream_eof_action(r,x) => error(existence_error(procedure,set_stream_eof_action/2))
+set_stream_eof_action(r,A) => error(existence_error(procedure,set_stream_eof_action/2))
+set_stream_eof_action(nosuch,error) => error(existence_error(procedure,set_stream_eof_action/2))
+stream_line_column(r,A,B) => error(existence_error(procedure,stream_line_column/3))
+set_stream_line_column(r,2,2) => error(existence_error(procedure,set_stream_line_column/3))
+stream_line_column(r,A,B) => error(existence_error(procedure,stream_line_column/3))
+get_char(r,A) => [get_char(r,b)]
+set_stream_line_column(r,3,5) => error(existence_error(procedure,set_stream_line_column/3))
+stream_line_column(r,A,B) => error(existence_error(procedure,stream_line_column/3))
+set_stream_line_column(r,0,1) => error(existence_error(procedure,set_stream_line_column/3))
+set_stream_line_column(r,a,1) => error(existence_error(procedure,set_stream_line_column/3))
+set_stream_line_column(np,1,1) => error(existence_error(procedure,set_stream_line_column/3))
+set_stream_line_column(b,1,1) => error(existence_error(procedure,set_stream_line_column/3))
+stream_line_column(b,A,B) => error(existence_error(procedure,stream_line_column/3))
+stream_line_column(r,x,A) => error(existence_error(procedure,stream_line_column/3))
+stream_position(r,A),get_char(r,B),set_stream_position(r,A),get_char(r,C) => error(existence_error(procedure,stream_position/2))
+stream_position(r,A),A='$stream_position'(B,C,D,E) => error(existence_error(procedure,stream_position/2))
+stream_position(r,foo) => error(existence_error(procedure,stream_position/2))
+stream_position(r,'$stream_position'(a,1,1,1)) => error(existence_error(procedure,stream_position/2))
+stream_position(np,A),set_stream_position(np,A) => error(existence_error(procedure,stream_position/2))
+seek(b,bof,2,A) => error(type_error(atom,2))
+seek(b,current,1,A),get_byte(b,B) => error(type_error(atom,1))
+seek(b,eof,-1,A) => error(type_error(atom,-1))
+seek(b,bof,1,2) => error(type_error(atom,1))
+seek(b,middle,0,A) => error(type_error(atom,0))
+seek(b,1,0,A) => error(type_error(atom,0))
+seek(b,bof,a,A) => error(domain_error(seek_method,a))
+seek(r,bof,0,A) => error(type_error(atom,0))
+seek(np,bof,0,A) => error(type_error(atom,0))
+seek(b,bof,0,x) => error(type_error(atom,0))
+set_stream_eof_action(r,error) => error(existence_error(procedure,set_stream_eof_action/2))
+%-------------- 181 test_gate_pl_gnu_terms_to_and_from_text_answer_as_gprolog__w
+w_atom-caught(error(existence_error(procedure,write_to_atom/2),context(system: <meta-call> / 1,_4540)))
+q_atom-caught(error(existence_error(procedure,writeq_to_atom/2),context(system: <meta-call> / 1,_4678)))
+c_atom-caught(error(existence_error(procedure,write_canonical_to_atom/2),context(system: <meta-call> / 1,_4816)))
+d_atom-caught(error(existence_error(procedure,display_to_atom/2),context(system: <meta-call> / 1,_4954)))
+p_atom-caught(error(existence_error(procedure,print_to_atom/2),context(system: <meta-call> / 1,_5092)))
+w_codes-failed
+q_chars-caught(error(existence_error(procedure,writeq_to_chars/2),context(system: <meta-call> / 1,_25620)))
+wt_atom-caught(error(existence_error(procedure,write_term_to_atom/3),context(system: <meta-call> / 1,_25782)))
+wt_codes-failed
+f_codes-caught(error(instantiation_error,context(format/3,_26464)))
+f_chars-caught(error(instantiation_error,context(format/3,_29174)))
+r_atom-caught(error(existence_error(procedure,read_from_atom/2),context(system: <meta-call> / 1,_29334)))
+k(1,2)
+z
+numatom1-caught(error(existence_error(procedure,number_atom/2),context(system: <meta-call> / 1,_30098)))
+numatom2-caught(error(existence_error(procedure,number_atom/2),context(system: <meta-call> / 1,_30236)))
+lu1-caught(error(existence_error(procedure,lower_upper/2),context(system: <meta-call> / 1,_30374)))
+lu2-caught(error(existence_error(procedure,lower_upper/2),context(system: <meta-call> / 1,_30512)))
+lu3-caught(error(existence_error(procedure,lower_upper/2),context(system: <meta-call> / 1,_30650)))
+lu4-caught(error(existence_error(procedure,lower_upper/2),context(system: <meta-call> / 1,_30788)))
+newatom-caught(error(existence_error(procedure,new_atom/1),context(system: <meta-call> / 1,_30956)))
+newatom2-caught(error(existence_error(procedure,new_atom/2),context(system: <meta-call> / 1,_31108)))
+%- 182 test_gate_pl_gnu_text_output_and_read_from_text_check_their_arguments_as_gprolog__w
+err(existence_error(procedure,write_to_atom/2))
+err(existence_error(procedure,write_to_atom/2))
+err(existence_error(procedure,writeq_to_atom/2))
+no
+no
+no
+err(existence_error(procedure,format_to_atom/3))
+err(existence_error(procedure,write_term_to_atom/3))
+no
+no
+err(existence_error(procedure,print_to_chars/2))
+err(existence_error(procedure,read_from_atom/2))
+err(existence_error(procedure,read_from_atom/2))
+err(existence_error(procedure,read_from_atom/2))
+read_from_codes([],end_of_file)
+read_from_chars([],end_of_file)
+read_from_codes([],end_of_file)
+read_from_chars('',end_of_file)
+%- 183 test_gate_pl_gnu_unget_get_key_and_the_implicit_stream_culprit_answer_as_gprolog__g
+unget_char(u,z) => error(existence_error(procedure,unget_char/2))
+get_char(u,A),get_char(u,B) => [(get_char(u,a),get_char(u,b))]
+unget_code(u,121) => error(existence_error(procedure,unget_code/2))
+get_code(u,A) => [get_code(u,10)]
+unget_char(u,ab) => error(existence_error(procedure,unget_char/2))
+unget_char(u,end_of_file) => error(existence_error(procedure,unget_char/2))
+unget_char(u,1) => error(existence_error(procedure,unget_char/2))
+unget_char(u,A) => error(existence_error(procedure,unget_char/2))
+unget_code(u,a) => error(existence_error(procedure,unget_code/2))
+unget_code(u,-3) => error(existence_error(procedure,unget_code/2))
+unget_code(u,0) => error(existence_error(procedure,unget_code/2))
+unget_code(u,256) => error(existence_error(procedure,unget_code/2))
+unget_byte(u,1) => error(existence_error(procedure,unget_byte/2))
+get_char(u,A),get_char(u,B),get_char(u,C),get_char(u,D),get_char(u,E) => [(get_char(u,x),get_char(u,y),get_char(u,z),get_char(u,'\n'),get_char(u,q))]
+get_key(u,A) => error(existence_error(procedure,get_key/2))
+get_key_no_echo(u,A) => error(existence_error(procedure,get_key_no_echo/2))
+get_key(u,A) => error(existence_error(procedure,get_key/2))
+peek_code(u,A) => [peek_code(u,114)]
+get_char(u,A) => [get_char(u,r)]
+unget_byte(r,9) => error(existence_error(procedure,unget_byte/2))
+get_byte(r,A),get_byte(r,B) => [(get_byte(r,7),get_byte(r,8))]
+unget_byte(r,256) => error(existence_error(procedure,unget_byte/2))
+unget_byte(r,a) => error(existence_error(procedure,unget_byte/2))
+unget_byte(r,A) => error(existence_error(procedure,unget_byte/2))
+unget_char(r,a) => error(existence_error(procedure,unget_char/2))
+get_char(r,A) => [get_char(r,end_of_file)]
+get_key(r,A) => error(existence_error(procedure,get_key/2))
+get_key(r,a) => error(existence_error(procedure,get_key/2))
+get_char(A) => [get_char(end_of_file)]
+unget_char(a) => error(existence_error(procedure,unget_char/1))
+get_code(A) => [get_code(-1)]
+peek_char(A) => [peek_char(end_of_file)]
+get_key(A) => error(existence_error(procedure,get_key/1))
+get_key_no_echo(A) => error(existence_error(procedure,get_key_no_echo/1))
+get_byte(A) => error(permission_error(input,text_stream,current_input))
+unget_byte(5) => error(existence_error(procedure,unget_byte/1))
+unget_char(A) => error(existence_error(procedure,unget_char/1))
+unget_code(a) => error(existence_error(procedure,unget_code/1))
+get_key(A) => error(existence_error(procedure,get_key/1))
+get_key(a) => error(existence_error(procedure,get_key/1))
+unget_char(q) => error(existence_error(procedure,unget_char/1))
+get_key_no_echo(A) => error(existence_error(procedure,get_key_no_echo/1))
+get_key(A) => error(existence_error(procedure,get_key/1))
+get_key(A) => error(existence_error(procedure,get_key/1))
+get_key(A,B) => error(existence_error(procedure,get_key/2))
+get_key_no_echo(nosuch,A) => error(existence_error(procedure,get_key_no_echo/2))
+get_key(user_output,A) => error(existence_error(procedure,get_key/2))
+unget_char(nosuch,a) => error(existence_error(procedure,unget_char/2))
+unget_code(A,97) => error(existence_error(procedure,unget_code/2))
+%- 184 test_gate_pl_goal_expansion_reaches_meta_arguments_and_asserted_bodies_ending_in_true_answer_as_swipl__w1
+direct_def-yes
+direct_undef-no
+called-yes
+0
+var_arity-yes
+neg-yes
+meta_undef-no
+0
+enumerate-yes
+dyn_mpi-yes
+clausable-yes
+%- 185 test_gate_pl_goal_expansion_reaches_meta_arguments_and_asserted_bodies_ending_in_true_answer_as_swipl__w2
+e_not-no
+foo-yes
+one-[1,2]
+dcg-yes
+da-[1,2]
+db-[1,3,2]
+dc-[1,2]
+%--------------------------------------------------- 186 test_gate_pl_gz5a__neg1
+aa
+%--------------------------------------------------- 187 test_gate_pl_gz5a__neg2
+f(a)
+%--------------------------------------------------- 188 test_gate_pl_gz5b__neg1
+aa
+%--------------------------------------------------- 189 test_gate_pl_gz5b__neg2
+2
+%--------------------------------------------------- 190 test_gate_pl_gz5c__neg1
+a
+%--------------------------------------------------- 191 test_gate_pl_gz5c__neg2
+a
+b
+%--------------------------------------------------- 192 test_gate_pl_gz5c__neg3
+a
+b
+c
+d
+e
+%---------------------------------------------------- 193 test_gate_pl_gz6__neg1
+a
+%---------------------------------------------------- 194 test_gate_pl_gz6__neg2
+a
+%-------------------------------------------------- 195 test_gate_pl_gz6b__bfail
+a
+%--------------------------------------------------- 196 test_gate_pl_gz6b__neg1
+a
+done
+%--------------------------------------------------- 197 test_gate_pl_gz6b__neg2
+start
+a
+%- 198 test_gate_pl_ieee754_float_flags_special_values_and_number_order_answer_as_swipl__w
+default_sign_nan-1.5NaN
+default_log0-err(evaluation_error(float_overflow))
+default_pow_zero_neg-err(evaluation_error(zero_divisor))
+default_acos2-err(evaluation_error(undefined))
+underflow_flag-yes
+rounding_flag-yes
+unknown_flag_fails-yes
+tagged-yes
+float_max-yes
+flags_enumerate-yes
+sign_nan-1.5NaN
+ceiling_inf-1.0Inf
+floor_nan-1.5NaN
+round_ninf- -1.0Inf
+truncate_inf-1.0Inf
+log0- -1.0Inf
+log10_m0- -1.0Inf
+atanh1-1.0Inf
+atan2_00-0.0
+atan2_m0m0- -3.141592653589793
+pow_inf_0-1
+pow_nan_0-1
+pow_0_neg-1.0Inf
+div_int_0-1.0Inf
+div_rat_0- -1.0Inf
+ffp_m0- -0.0
+ffp_inf-0.0
+ffp_minf- -0.0
+copysign_0_nan-0.0
+copysign_nan-1.5NaN
+erf1-0.8427007929497149
+max_m0_0-0
+max_m0_p0-0.0
+min_0_m0- -0.0
+root3_neg- -2.0
+root3_neg_sq-3.9999999999999996
+root_even_neg-1.5NaN
+rt_up-0.33333333333333337
+rt_down-0.3333333333333333
+rt_neg_root_up- -1.259921049894873
+rt_small_root_up-0.058480354764257336
+big_below_overflow_down-1.7976931348623157e+308
+big_overflow_down-1.0Inf
+neg_big_overflow_up- -1.0Inf
+msort-[1.5NaN,-1.0Inf,-1,-0.0,0.0,0,1.0Inf]
+compare-[<,<,<,<,>]
+sort_bound_nan-yes
+sort_bound_zero_sign-no
+float_class-[normal,zero,zero,infinite,nan,infinite,subnormal]
+float_class_int-err(type_error(float,1))
+bounded_ints-yes
+bounded_rat_out-yes
+bounded_int_fill-yes
+bounded_float_fill-yes
+bounded_inf-yes
+bounded_nan-yes
+spacing-(a- -0.0)
+%----- 199 test_gate_pl_ieee_float_flags_and_ceil_lgamma_powm_answer_as_swipl__f
+3 1
+693 2
+evaluation_error(float_overflow) 3
+24 4
+959082 5
+753508595 6
+domain_error(not_less_than_zero,-1) 7
+domain_error(not_less_than_one,0) 8
+2 9
+evaluation_error(undefined) 10
+evaluation_error(zero_divisor) 11
+evaluation_error(float_overflow) 12
+evaluation_error(float_overflow) 13
+1.0Inf 1.5NaN -1.0Inf 14
+1.0Inf 15
+-1.0Inf 16
+1.0Inf 17
+evaluation_error(undefined) 18
+1.5NaN 19
+1.5NaN 20
+1.5NaN 21
+1.0Inf 22
+1.0Inf 23
+infinity/infinity/nan 24
+%- 200 test_gate_pl_if_3_is_no_predicate_in_any_dialect_as_swipl_and_gprolog_answer__own
+ok(u)
+ok(v)
+ok(w)
+%- 201 test_gate_pl_if_3_is_no_predicate_in_any_dialect_as_swipl_and_gprolog_answer__plain
+raised(existence_error(procedure,if/3))
+raised(existence_error(procedure,if/3))
+no_property
+%------- 202 test_gate_pl_integer_division_floors_and_int64_overflow_promotes__w
+[-3,2,-1,-4]
+9223372036854775808
+0
+9223372036854775808
+9223372036854775808
+%- 203 test_gate_pl_ir_delete_all_invalidates_every_bb_idx_and_a_colliding_static_call_answers_as_the_oracle__w
+[20,30]
+[20,30,b]
+p(A),B is A*10
+[a,b]
+[b,9]
+%- 204 test_gate_pl_iso_rung3_current_predicate_generator_and_halt_type_checks__enum
+ops_ok
+statics_ok
+arity_ok
+builtins_leak
+runtime_ok
+retracted_still_current
+abolished_gone
+type_error(predicate_indicator,4)
+type_error(predicate_indicator,0/dog)
+domain_error(not_less_than_zero,-1)
+var_spec_ok
+type_error(integer,a)
+instantiation_error
+%- 205 test_gate_pl_iso_rung3_current_predicate_generator_and_halt_type_checks__ret0
+axb
+%- 206 test_gate_pl_iso_rung4_run_time_meta_call_of_builtins_through_compiled_wrappers__reach
+ok(current_op(700,xfx,is))
+ok(between(1,3,1))
+ok(current_predicate(main/0))
+ok(atom_length(abc,3))
+ok(call(true))
+ok((1=1,1==1))
+ok(findall(_4162,member(_4162,[a,b]),[a,b]))
+[a,b]
+ok(sub_atom(abc,1,1,1,b))
+ok(atom_codes(hi,[104,105]))
+%- 207 test_gate_pl_iso_rung4_run_time_meta_call_of_builtins_through_compiled_wrappers__redo
+[1,2,3]
+[1,2,3]
+a
+b
+[1,2]
+existence_error(procedure,foo/1)
+existence_error(procedure,foo/1)
+cut_true
+[2,3]
+hi
+[700]
+[0-he,1-el,2-ll,3-lo]
+[1,2]
+catch_ok
+
+fail_ok
+forall_ok
+neg_ok
+type_error(callable,3)
+%- 208 test_gate_pl_iso_rung4_run_time_meta_call_of_builtins_through_compiled_wrappers__unk
+unknown_fail_ok
+unknown_fail_ok
+%- 209 test_gate_pl_iso_rung5_body_conversion_of_a_run_time_goal_list_guard_and_declared_empty_predicates__conv
+ok(a)
+ok(b)
+ok(c)
+ok(d)
+ok(e)
+ok(f)
+ok(g)
+ok(h)
+ok(i)
+never
+bad(j,no)
+bad(k,no)
+ok(l)
+[2]
+ok(m)
+ok(n)
+ok(o)
+ok(p)
+%- 210 test_gate_pl_iso_rung7_a_cut_inside_a_findall_bagof_setof_goal_has_its_own_barrier__cut
+a([1])
+b([1])
+c([1,1])
+d([1])
+e([1])
+f([1])
+g([1])
+h([1,2])
+i([1])
+j([2])
+k([1-a])
+outer_alive
+%- 211 test_gate_pl_iso_rung8_an_unbounded_integer_literal_reads_writes_and_computes__big
+a(123456789012345678901234567890)
+b(yes)
+c(123456789012345678901234567891)
+d(370370367037037036703703703670)
+e(123456789012345678901234567890)
+f(-123456789012345678901234567890)
+g(yes)
+h(yes)
+i(yes)
+j(41152263004115226300411522630)
+k(false)
+l(yes)
+m(5)
+%- 212 test_gate_pl_iso_rung9_a_backtrackable_recursion_reaches_the_depth_the_oracle_reaches__cp
+cp_ok
+%- 213 test_gate_pl_iso_rung9_a_backtrackable_recursion_reaches_the_depth_the_oracle_reaches__det
+det_ok
+%- 214 test_gate_pl_iso_rung9_a_backtrackable_recursion_reaches_the_depth_the_oracle_reaches__tak
+tak(7)
+%--------- 215 test_gate_pl_library_record_and_dcg_data_terms_answer_as_swipl__w
+load_module-user
+dcg_data_eq-yes
+dcg_data_eq_in_or-yes
+dcg_head_eq-yes
+make-yes
+make_typed_record_field-yes
+default-yes
+is_unbound_field-no
+untyped-yes
+access-yes
+defaults-yes
+type_error-type_error(integer,foo)
+inst_error-instantiation_error
+unknown_field-no
+rest-yes
+set-yes
+setarg-yes
+data-yes
+current_record-yes
+strip_plain-yes
+strip_nested-yes
+strip_var_module-yes
+%- 216 test_gate_pl_maplist_include_and_exclude_exit_deterministically_and_fast_term_io_round_trips_as_swipl__w
+maplist/2-det
+maplist/3-det
+maplist/4-det
+maplist/5-det
+include/3-det
+exclude/3-det
+serialize-ok
+sequence-ok
+fast_serialize-blob
+%----------------- 217 test_gate_pl_max_arity_is_the_functor_tables_int_bound__w
+flag: unbounded
+enum: max_arity-unbounded
+functor2000: ok
+univ3000: 3000/3000
+functor5000_univ: 5000
+copy_term4000: 4000
+functor_max_plus_1: caught(type_error(evaluable,unbounded/0))
+functor_bignum: caught(representation_error(size_t))
+abolish_max_plus_1: caught(type_error(evaluable,unbounded/0))
+set_flag: caught(permission_error(modify,flag,max_arity))
+abolish2000: caught(representation_error(max_procedure_arity))
+%------------------- 218 test_gate_pl_max_integer_is_not_an_evaluable_functor__w
+control-type_error(foo/0)
+maxi-type_error(max_integer/0)
+mini-type_error(min_integer/0)
+%------ 219 test_gate_pl_max_integer_min_integer_absent_when_bounded_is_false__w
+bounded(false)
+absent(max_integer)
+absent(min_integer)
+%---------------- 220 test_gate_pl_meta_call_reaches_control_constructs__bi_atom
+yes
+%---------------- 221 test_gate_pl_meta_call_reaches_control_constructs__bi_fail
+elsepath
+%--------------- 222 test_gate_pl_meta_call_reaches_control_constructs__bi_write
+bi
+%--- 223 test_gate_pl_moded_tabling_and_the_semi_naive_leader_answer_as_swipl__g
+[t(a,a,2),t(a,b,1),t(b,a,1),t(b,b,2)]
+1
+2
+[ams,lei]
+206
+[1-2]
+[2]
+or_join_ok
+[k-9]
+[k-16]
+[k-2-7]
+[k-z]
+caught(uninstantiation_error(3))
+bas(1001)
+deep_yes
+1
+%------------------------------ 224 test_gate_pl_module_rule_answers_as_swipl__g
+1
+1
+[f(a),f(b)]
+m
+1
+1
+2
+[1]
+cp_yes
+m
+clause_yes
+forall_ok
+%--- 225 test_gate_pl_monitor_dynamic_and_asserted_predicates_are_no_events__dyn
+0
+7
+1
+1==1
+%---------------- 226 test_gate_pl_multifile_initialization_runs_every_file__one
+one_ran
+%---------------- 227 test_gate_pl_multifile_initialization_runs_every_file__two
+two_ran
+%----------------- 228 test_gate_pl_nb_linkarg_links_without_copying_as_swipl__w
+linked(g(1))
+setarg_copied
+survives(v)
+setarg_undone(a)
+zero_no
+bad(type_error(integer,x))
+%-------------------------------------- 229 test_gate_pl_no_synthetic_main__decl
+ran_main
+%------------------- 230 test_gate_pl_numbervars_4_scans_its_options_as_swipl__w
+1
+sing-yes
+1
+impl-yes
+2
+none-yes
+bad42-err(type_error(bool,42))
+badopt-err(type_error(option,f(a,b)))
+badflt-err(type_error(option,1.3))
+inst1-err(instantiation_error)
+inst2-err(instantiation_error)
+tail1-err(type_error(list,1))
+1
+dict-yes
+dict42-err(type_error(bool,42))
+2
+dictno-yes
+attvar_bad-err(domain_error(numbervar_option,[attvar(zzz)]))
+f(v(5))-6
+functor_name-yes
+functor_name_bad-err(type_error(atom,1))
+bool_yes-err(type_error(bool,yes))
+f(A)-1
+bool_on-yes
+2
+false-yes
+0
+false_then_implicit-yes
+2
+true_then_false-yes
+not_a_list-err(type_error(list,foo))
+start_bad-err(type_error(integer,a))
+%--------- 231 test_gate_pl_open_a_file_it_may_not_open_is_a_permission_error__w
+@ noread existence_error(source_sink,nr)
+@ nowrite ok
+@ noappend ok
+@ rootwrite permission_error(open,source_sink,'/no_write_permission')
+@ missing_dir existence_error(source_sink,'no/such/dir/x')
+@ missing_file existence_error(source_sink,nosuchfile)
+%- 232 test_gate_pl_phrase_of_a_non_callable_body_is_a_callable_type_error_as_both_oracles__w
+type_error(callable,27)
+type_error(callable,27)
+type_error(callable,1.5)
+%---------- 233 test_gate_pl_pipe_2_and_open_null_stream_1_answer_as_swipl__null
+is_stream
+write
+output
+existence_error
+%---------- 234 test_gate_pl_pipe_2_and_open_null_stream_1_answer_as_swipl__pipe
+[104,101,108,108,111,10]
+[120,121,-1]
+both_streams
+read
+write
+existence_error
+%------------------------------- 235 test_gate_pl_port_trace_oracle_diff__CANARY
+red
+green
+blue
+%----- 236 test_gate_pl_portray_reaches_every_subterm_of_print_and_write_term__w
+a(foofoo,b(c(foofoo,3)))
+[xx,2]
+f(barbar)
+g(bazbaz,1)
+h(quxqux)
+k(foo)
+dynamic
+multifile
+%------------------------------------- 237 test_gate_pl_prelude_libs_cost__apply
+[k0,k1,k2]
+%------------------------------------ 238 test_gate_pl_prelude_libs_cost__native
+2-3
+%----------------------------------- 239 test_gate_pl_prelude_libs_cost__nothing
+a
+2
+%----- 240 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__fc
+f(xx,g(xx,h(xx)),k(xx,xx),xx)
+g(xx) x f(xx,xx)
+[xx,f(xx),xx]
+3
+%----- 241 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__fn
+f(<ex>,<g(ex,<ex>)>,ex)
+<<ex>>|q(ex)
+%----- 242 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__fp
+[3]
+[foofoo]
+[a(foofoo)]
+[a(foofoo,b(c(foofoo,3)))]
+[[foofoo,3]]
+[1+foofoo]
+%- 243 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__noportray
+42
+foo
+a(b)
+[1,2]
+%- 244 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__ownprint
+mine(foo)
+%- 245 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__portray
+42
+3
+foofoo
+%-- 246 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__slope
+done
+%---- 247 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__thr
+caught_print(portray_fired)
+caught_format(portray_fired)
+%- 248 test_gate_pl_print_1_honours_portray_and_costs_nothing_without_it__yesportray
+42
+foofoo
+a(bb)
+[1,2]
+%----------- 249 test_gate_pl_raising_directive_does_not_abort_the_load__failing
+before
+after
+%------------- 250 test_gate_pl_raising_directive_does_not_abort_the_load__raise
+before
+after
+%----------------------- 251 test_gate_pl_random_permutation_answers_as_swipl__w
+same_elements-yes
+length-yes
+reverse_direction-yes
+empty-yes
+duplicates_kept-yes
+both_unbound-err(instantiation_error)
+not_a_list-err(type_error(list,foo))
+%------ 252 test_gate_pl_readutil_and_the_file_name_builtins_answer_as_swipl__w2
+rs5a-ex existence_error(source_sink,'rs.txt')
+rs3-ex existence_error(source_sink,'rs.txt')
+abs3-ex existence_error(source_sink,'rs.txt')
+abs3_old_order-ex existence_error(source_sink,'rs.txt')
+abs3_ext-ex existence_error(source_sink,rs)
+unknown_ok
+abs3_missing-ex existence_error(source_sink,nosuch)
+abs3_missing_fail-no
+access_file_r-no
+access_file_missing-no
+none_ok
+w_ok
+open_unknown_opt-ex existence_error(source_sink,'rs.txt')
+%------ 253 test_gate_pl_readutil_and_the_file_name_builtins_answer_as_swipl__w3
+'a/b/c.pl' 'c.pl' 'a/b' 
+'c.pl' 'c.pl' '.' 
+'/c' c / 
+/ / / 
+'a/b/' b a 
+'' '' '.' 
+'a//b' b a 
+'.hidden' '.hidden' '.' 
+'a.b/c' c 'a.b' 
+'a/b.pl' 'a/b' pl 
+b b '' 
+'a.b/c' 'a.b/c' '' 
+'x.tar.gz' 'x.tar' gz 
+'.hidden' '' hidden 
+'a/b.' 'a/b' '' 
+'foo.pl' 
+'foo.pl' 
+'foo.pl' 
+foo 
+'a/b.txt' 
+check_yes foo b5_no 
+%- 254 test_gate_pl_retract_body_variable_is_call_and_the_gnu_dialect_raises_as_gprolog__g
+retract((pv(A):-B)) => [retract((pv(C):-call(C)))]
+retract((pw(A):-3)) => []
+retract((ds(A):-true)) => [retract((ds(1):-true)),retract((ds(2):-true))]
+clause(sp(A),B) => [clause(sp(1),true),clause(sp(2),true)]
+clause(ds(A),B) => []
+retract(sp(1)) => error(permission_error(modify,static_procedure,sp/1))
+%- 255 test_gate_pl_retract_logical_view_flags_gensym_and_swi_atom_concat_answer_as_swipl__a
+retract_fact-yes
+retract_fact_as_rule-yes
+retract_open_body-yes
+retract_body_mismatch-yes
+retract_var_module_head-yes
+retract_qualified_clause-yes
+update_view_inner_retract-yes
+update_view_retract_ahead-yes
+retract_var-instantiation_error
+flag_count-yes
+flag_atom_value-yes
+flag_compound_key-yes
+set_flag-yes
+flag_old_mismatch_keeps-yes
+get_flag_unset-yes
+with_mutex_once-yes
+gensym-yes
+reset_gensym_1-yes
+reset_gensym_0-yes
+%- 256 test_gate_pl_retract_logical_view_flags_gensym_and_swi_atom_concat_answer_as_swipl__b
+int_right-yes
+float_left-yes
+called-yes
+split_number-yes
+compound_whole-type_error(atomic,f(x))
+compound_part-type_error(atomic,f(1))
+plain_atoms-yes
+%- 257 test_gate_pl_reverse_ends_on_a_partial_list_and_duplicate_term_copies_a_bound_cell_as_swipl__z
+[[b,a]]
+[[]-[],[A]-[A],[B,C]-[C,B]]
+[[3,2,1]]
+[]
+[]
+[[]]
+no
+direct(v(10))
+call_n(v(10))
+prebuilt_key_set(61)
+distinct(40,39)
+distinct_compound(61)
+%---------------------- 258 test_gate_pl_rungs_is_clean_at_the_tiny_arena__probe
+2000
+%- 259 test_gate_pl_select_dict_the_dict_operators_and_destructive_dict_assignment_answer_as_swipl__w
+get5-yes
+get5_list-yes
+get5_mismatch-no
+select_tag_mismatch-no
+select_var_tag-yes
+select_list-yes
+sub-yes
+sub_missing-no
+join-yes
+join_clash-no
+bset-yes
+bset_undone-yes
+nbset_kept-yes
+bset_missing-err(existence_error(key,k9,a{k1:v1}))
+dict_key-err(type_error('dict-key',"k1"))
+%- 260 test_gate_pl_set_locale_publishes_its_properties_and_the_colon_directives_of_format_group_by_them_as_swipl__w
+[49,50,51,52,53,44,54,55,44,56,57]
+[49,50,51,44,52,53,44,54,55,46,56,57]
+[49,50,44,51,52,53,44,54,55,44,56,57]
+[49,46,50,51,52,46,53,54,55,44,56,57]
+[49,8201,50,51,52,8201,53,54,55,44,56,57]
+[49,46,8201,50,51,52,46,8201,53,54,55,44,56,57]
+[49,8201,50,51,52,8201,53,54,55,44,56,57]
+[49,46,8201,50,51,52,46,8201,53,54,55,44,56,57]
+[45,49,32,50,51,52,32,53,54,55]
+[49,50,51,52,44,53,54,55]
+default
+'1,234,567'
+'1,234,567'
+%- 261 test_gate_pl_set_stream_encodings_pure_input_and_format_s_answer_as_swipl__w1
+alias-yes
+tty-yes
+buffer_size-yes
+buffer-yes
+eof_action-yes
+bad_prop-domain_error(stream_attribute,foo(bar))
+bad_eof-yes
+unbound-instantiation_error
+record_position-yes
+newline-yes
+read_back-yes
+octet-3-([104,233,255]==[104,233,255])
+iso_latin_1-3-([104,233,255]==[104,233,255])
+ascii-2-([104,105]==[104,105])
+wchar_t-8-([104,128512]==[104,128512])
+utf16le-6-([104,128512]==[104,128512])
+utf8-5-([104,128512]==[104,128512])
+switch([65,0,66])
+%- 262 test_gate_pl_set_stream_encodings_pure_input_and_format_s_answer_as_swipl__w2
+héÿ|
+h😀|
+hé😀|
+[104,195,169]
+%- 263 test_gate_pl_set_stream_encodings_pure_input_and_format_s_answer_as_swipl__w3
+ascii-ok-3-104
+octet-ok-3-104
+iso_latin_1-ok-3-104
+utf8-ok-3-104
+utf16be-ok-3-104
+utf16le-ok-3-104
+wchar_t-ok-3-104
+%- 264 test_gate_pl_set_stream_encodings_pure_input_and_format_s_answer_as_swipl__w4
+tmp-yes
+open_read-yes
+97
+lazy-yes
+pff-yes
+pff_fail-no
+%-------------- 265 test_gate_pl_set_stream_position_round_trips_and_refuses__sp
+binary_roundtrip-ball(error(existence_error(source_sink,terms.pl),context(system:open/4,No such file or directory)))
+instantiation-ball(error(existence_error(source_sink,terms.pl),context(system:open/4,No such file or directory)))
+domain-ball(error(existence_error(source_sink,terms.pl),context(system:open/4,No such file or directory)))
+permission-ball(error(existence_error(source_sink,terms.pl),context(system:open/4,No such file or directory)))
+no_such_stream-ball(error(existence_error(stream,no_such_alias),context(system:set_stream_position/2,_4556)))
+%----------------------------------- 266 test_gate_pl_sort_4_answers_as_swipl__g
+yes(sort(0,@>,[a-1,b-2,a-3,c-0],[c-0,b-2,a-3,a-1]))
+yes(sort(1,@>,[a-1,b-2,a-3,c-0],[c-0,b-2,a-1]))
+yes(sort(1,@<,[a-1,b-2,a-3,c-0],[a-1,b-2,c-0]))
+yes(sort(1,@>=,[a-1,b-2,a-3,c-0],[c-0,b-2,a-1,a-3]))
+yes(sort(2,@=<,[a-1,b-2,a-3,c-0],[c-0,a-1,b-2,a-3]))
+yes(sort(0,@<,[],[]))
+error(instantiation_error,context(system:sort/4,_1292))
+error(instantiation_error,context(system:sort/4,_1404))
+error(domain_error(order,foo),context(system:sort/4,_1530))
+error(type_error(compound,a),context(system:sort/4,_1656))
+error(domain_error(not_less_than_one,-1),context(system:sort/4,_1782))
+error(type_error(compound,a),context(system:sort/4,_1908))
+error(existence_error(argument,3,f(a)),context(system:sort/4,_2046))
+error(instantiation_error,context(system:sort/4,_2158))
+error(type_error(list,[a|b]),context(system:sort/4,_2290))
+error(type_error(list,foo),context(system:sort/4,_2410))
+yes(sort(0,@<,[b,a],[a,b]))
+no
+yes(sort(1,@<,[f(_2588),f(_2598),f(_2588)],[f(_2588),f(_2598)]))
+error(type_error(dict,f(x)),context(system:sort/4,_2790))
+error(type_error(sort_key,1.0),context(system:sort/4,_2932))
+yes(sort(0,@<,[],[]))
+yes(sort(a,@<,[],[]))
+error(domain_error(order,foo),context(system:sort/4,_3156))
+error(domain_error(not_less_than_one,-1),context(system:sort/4,_3276))
+error(domain_error(order,foo),context(system:sort/4,_3396))
+error(domain_error(not_less_than_one,-1),context(system:sort/4,_3516))
+error(instantiation_error,context(system:sort/4,_3632))
+error(instantiation_error,context(system:sort/4,_3744))
+no
+no
+yes(sort(1,@<,[f(_3910)],[f(_3910)]))
+error(instantiation_error,context(system:sort/4,_4058))
+yes(sort(0,@=<,[1,1.0,1],[1.0,1,1]))
+yes(sort(0,@<,[1,1.0,1],[1.0,1]))
+yes(sort([1,1],@=<,[c(t(1),x),b(t(2),x),a(t(2),x),a(t(3),x)],[c(t(1),x),b(t(2),x),a(t(2),x),a(t(3),x)]))
+yes(sort([1,2],@<,[a(b(1,2)),a(b(3,0))],[a(b(3,0)),a(b(1,2))]))
+error(type_error(compound,b),context(system:sort/4,_4638))
+error(domain_error(not_less_than_one,0),context(system:sort/4,_4776))
+error(domain_error(not_less_than_one,0),context(system:sort/4,_4928))
+error(type_error(dict,f(b)),context(system:sort/4,_5068))
+error(type_error(compound,b),context(system:sort/4,_5210))
+error(type_error(sort_key,[1|_5346]),context(system:sort/4,_5352))
+error(type_error(sort_key,[1|x]),context(system:sort/4,_5494))
+no
+error(type_error(compound,b),context(system:sort/4,_5704))
+error(existence_error(argument,2,g(b)),context(system:sort/4,_5858))
+error(instantiation_error,context(system:sort/4,_5986))
+error(domain_error(not_less_than_one,-1),context(system:sort/4,_6122))
+error(type_error(sort_key,a(1)),context(system:sort/4,_6256))
+error(type_error(atom,1),context(system:sort/4,_6382))
+error(type_error(atom,f(x)),context(system:sort/4,_6516))
+yes(sort(0,@<,[],[]))
+error(type_error(atom,1),context(system:sort/4,_6688))
+yes(sort([1],@<,[],[]))
+yes(sort([1],@<,[c(1),a(1)],[c(1)]))
+error(instantiation_error,context(system:sort/4,_6952))
+no
+no
+error(type_error(dict,f(b)),context(system:sort/4,_7242))
+error(instantiation_error,context(system:sort/4,_7354))
+no
+no
+error(domain_error(not_less_than_one,0),context(system:sort/4,_7616))
+no
+error(type_error(list,[f(1),f(2)|foo]),context(system:sort/4,_7840))
+yes(sort([2],@>=,[f(1,b),f(2,a),f(3,b)],[f(1,b),f(3,b),f(2,a)]))
+yes(sort(0,@<,[1,2,2,3],[1,2,3]))
+yes(sort(0,@=<,[1,2,2,3],[1,2,2,3]))
+yes(sort(0,@>,[1,2,2,3],[3,2,1]))
+yes(sort(0,@>=,[1,2,2,3],[3,2,2,1]))
+yes(sort(1,@<,[a(1),a(2),a(2),a(3)],[a(1),a(2),a(3)]))
+yes(sort(1,@<,[c(1),a(2),a(2),a(3)],[c(1),a(2),a(3)]))
+yes(sort(1,@=<,[c(1),b(2),a(2),a(3)],[c(1),b(2),a(2),a(3)]))
+yes(sort([1],@=<,[c(1),b(2),a(2),a(3)],[c(1),b(2),a(2),a(3)]))
+yes(sort([1,1],@<,[c(t(1),x),b(t(2),x),a(t(2),x),a(t(3),x)],[c(t(1),x),b(t(2),x),a(t(3),x)]))
+error(type_error(sort_key,a(1)),context(system:sort/4,_9126))
+error(type_error(atom,1),context(system:sort/4,_9270))
+error(existence_error(argument,2,a(1)),context(system:sort/4,_9408))
+error(type_error(dict,a(1)),context(system:sort/4,_9552))
+%--------------------------------- 267 test_gate_pl_ssu_rules_answer_as_swipl__w
+pos(3)
+zero
+neg
+caught(instantiation_error)
+qf(1)
+caught(existence_error(matching_rule,q(_4346)))
+caught(existence_error(matching_rule,q(g)))
+got(1)
+failed(s(a))
+s_other
+s_other
+unbound_after(_4720)
+%--------------------------- 268 test_gate_pl_stream_arg_errors_are_catchable__c
+caught(existence_error(procedure,goal/0))
+alive
+%- 269 test_gate_pl_stream_property_of_a_bound_stream_or_a_named_alias_is_deterministic__s
+position(A)-det
+alias(A)-det
+file_name(A)-det
+mode(A)-det
+output-det
+eof_action(A)-det
+reposition(A)-det
+type(A)-det
+encoding(A)-det
+buffer(A)-det
+input-fail
+mode(read)-fail
+user_output-det
+any-nondet
+unbound_stream-det
+%- 270 test_gate_pl_stream_property_sees_the_standard_streams_before_any_file_operation__sp
+read
+input
+text
+%-- 271 test_gate_pl_sub_atom_with_two_bound_numbers_computes_its_one_slice__big
+a/99999
+%-- 272 test_gate_pl_sub_atom_with_two_bound_numbers_computes_its_one_slice__pat
+[sub_atom(abc,0,0,3,),sub_atom(abc,0,1,2,a),sub_atom(abc,0,2,1,ab),sub_atom(abc,0,3,0,abc),sub_atom(abc,1,0,2,),sub_atom(abc,1,1,1,b),sub_atom(abc,1,2,0,bc),sub_atom(abc,2,0,1,),sub_atom(abc,2,1,0,c),sub_atom(abc,3,0,0,)]
+[sub_atom(abc,1,0,2,),sub_atom(abc,1,1,1,b),sub_atom(abc,1,2,0,bc)]
+[sub_atom(abc,0,2,1,ab),sub_atom(abc,1,2,0,bc)]
+[sub_atom(abc,0,2,1,ab),sub_atom(abc,1,1,1,b),sub_atom(abc,2,0,1,)]
+[sub_atom(abc,1,1,1,b)]
+[sub_atom(abc,0,2,1,ab)]
+[sub_atom(abc,2,1,0,c)]
+[sub_atom(abc,1,1,1,b)]
+[sub_atom(aaa,0,2,1,aa),sub_atom(aaa,1,2,0,aa)]
+[sub_atom(abcab,0,2,3,ab),sub_atom(abcab,3,2,0,ab)]
+[sub_atom(abc,0,0,3,),sub_atom(abc,1,0,2,),sub_atom(abc,2,0,1,),sub_atom(abc,3,0,0,)]
+[sub_atom(abc,2,1,0,c)]
+[]
+[]
+[]
+[]
+[sub_atom(,0,0,0,)]
+[sub_atom(héllo,1,3,1,éll)]
+[sub_atom(héllo,2,2,1,ll)]
+[sub_atom(héllo,3,2,0,lo)]
+[sub_atom(abc,0,3,0,abc)]
+[]
+%- 273 test_gate_pl_swi_a_meta_argument_qualification_collapses_a_chain_as_swipl_does__z
+user:x
+m1:x
+m1:x
+m1:x
+42:x
+42:x
+f(a):x
+f(a):x
+1:2:x
+1:2:x
+1:m3:x
+42:m3:x
+42:x
+[a]:x
+[]:x
+1.5:x
+f(1):m3:x
+open_inner_kept
+one: var qualifier kept
+two: var qualifier kept
+three: var qualifier kept
+%- 274 test_gate_pl_swi_an_unreachable_engine_is_reclaimed_after_a_collection_and_a_held_one_survives_as_swipl__ew
+plain: reclaimed
+parked: reclaimed
+selfref: kept
+held: 1 2
+live_listed
+live_answer: 1 10
+done
+%- 275 test_gate_pl_swi_an_unreachable_engine_is_reclaimed_after_a_collection_and_a_held_one_survives_as_swipl__ewb
+held: 1 2
+held_listed
+later: 3
+done
+%- 276 test_gate_pl_swi_apply_macros_expands_a_loaded_units_phrase_goals_at_lowering_and_a_run_time_phrase_checks_its_lists_as_swipl__w
+a(A,[])
+eg_nt: ok
+a(A,B)
+eg_nt3: ok
+spec(A,[],B,[])
+eg_args: ok
+phrase(A,A)
+eg_var_nt: ok
+phrase(A,A,A)
+eg_var_nt3: ok
+quoniam
+eg_plain_goal: ok
+=(A,[])
+eg_nil: ok
+=(A,[a,b|B])
+eg_list: ok
+=(A,[97,98|B])
+eg_string: ok
+phrase([a|A],B)
+eg_partial: ok
+phrase(','(a,b),A)
+eg_conj: ok
+phrase(;(a,b),A)
+eg_alt: ok
+phrase({x},A)
+eg_curly: ok
+:(m,foo(A,[]))
+eg_qualified: ok
+','(a(A,[]),true)
+eg_inside_conj: ok
+findall(A,a(A,[]),B)
+eg_inside_findall: ok
+:-(p17,b([1],[]))
+et_clause: ok
+:-(alleq(A),','(spec(B,[],A,[]),alleq(B)))
+et_clause2: ok
+:-(p19(A),phrase(','(a,b),A))
+et_control_clause: ok
+s_list: failed
+s_nt_bad: failed
+s_nt_ok: ok
+s_str: failed
+s_terms: ok
+s_terms_bad: failed
+s_conj_bad: raised(type_error(list,a))
+s_conj_ok: ok
+s_alt_bad: raised(type_error(list,a))
+s_alt_ok: ok
+s_ite_bad: raised(type_error(list,a))
+s_curly_bad: raised(type_error(list,a))
+s_curly_ok: ok
+s_cut_bad: raised(type_error(list,a))
+s_conj3_rest_bad: raised(type_error(list,b))
+s_conj3_ok: ok
+dyn_list: raised(type_error(list,a))
+dyn_list3: failed
+dyn_partial: failed
+dyn_rest: failed
+dyn_rest_partial: failed
+dyn_var: failed
+dyn_string: failed
+dyn_nt: failed
+dyn_nt_ok: failed
+dyn_nt_rest_bad: failed
+dyn_control: failed
+dyn_control_ok: failed
+dyn_digits: failed
+dyn_built: failed
+dyn_findall: failed
+dyn_once: failed
+dyn_unbound_rule: raised(type_error(list,a))
+dyn_unbound_rule_ok: raised(instantiation_error)
+dyn_noncallable: raised(type_error(callable,27))
+%- 277 test_gate_pl_swi_builtins_current_op_apply_nth_backcomp_signals_argv_and_a_catcher_that_half_unifies_answer_as_the_oracles__w
+caught(type_error(atom,1))
+caught(type_error(atom,1))
+caught(domain_error(operator_specifier,xxx))
+caught(type_error(integer,x))
+caught(type_error(integer,1.2))
+caught(domain_error(operator_priority,1201))
+caught(domain_error(operator_priority,-1))
+caught(type_error(atom,f(x)))
+caught(type_error(atom,f(x)))
+caught(domain_error(operator_specifier,[]))
+caught(type_error(callable,1))
+caught(existence_error(procedure,foo/0))
+3
+caught(instantiation_error)
+no
+caught(type_error(integer,a))
+caught(type_error(integer,1.0))
+b
+b
+no
+caught(type_error(integer,a))
+no
+[0-a,1-b]
+[1,3]
+det
+det
+nondet
+"a-b"
+"plain"
+default-handler
+h1
+v15
+xy
+yes
+caught
+fine
+[]
+no
+%- 278 test_gate_pl_swi_copy_term_3_projects_freeze_when_and_clpfd_constraints_as_residual_goals_as_swipl__w
+-(f(A,a,B),[])
+no_attvars: ok
+-(A,[freeze(A,:(user,true))])
+freeze_one: ok
+-(A,[freeze(A,:(user,write(x))),freeze(A,:(user,write(y)))])
+freeze_two: ok
+-(f(A,B),[freeze(A,:(user,true)),freeze(B,:(user,true))])
+freeze_two_vars: ok
+-(1,[])
+freeze_bound: ok
+-(A,[when(ground(A),:(user,true))])
+when_ground: ok
+-(A,[when(nonvar(A),:(user,true))])
+when_nonvar: ok
+-(f(A,B),[when(?=(A,B),:(user,true))])
+when_determined: ok
+-(f(A,B),[when(','(nonvar(A),ground(B)),:(user,true))])
+when_conj: ok
+-(f(A,B),[when(;(nonvar(A),ground(B)),:(user,true))])
+when_disj: ok
+-(f(A,B,C),[when(;(ground(A),','(ground(B),ground(C))),:(user,true))])
+when_nested1: ok
+-(f(A,B,C,D),[when(;(ground(A),','(','(ground(B),ground(C)),ground(D))),:(user,true))])
+when_nested2: ok
+-(f(A,B,C,D,E),[when(;(ground(A),','(','(','(ground(B),ground(C)),ground(D)),ground(E))),:(user,true))])
+when_nested3: ok
+-(f(1,A),[when(ground(A),:(user,true))])
+when_partly_bound: ok
+-(1,[])
+when_fired: ok
+-(A,[when(nonvar(A),:(user,true)),when(ground(A),:(user,true))])
+when_twice: ok
+-(f(A,B),[when(ground(A),:(user,q(A,B)))])
+when_with_goal_var: ok
+-(A,[freeze(A,:(user,true)),when(ground(A),:(user,true))])
+freeze_and_when: ok
+-(A,[:(clpfd,in(A,..(4,7)))])
+clpfd_dom: ok
+-(f(A,B,C),[:(clpfd,in(B,..(0,5))),:(clpfd,#=(+(B,C),A)),:(clpfd,in(C,..(0,5))),:(clpfd,in(A,..(0,10)))])
+clpfd_two: ok
+-(f(A,B),[:(clpfd,in(A,..(1,3))),:(clpfd,#\=(A,B))])
+clpfd_neq: ok
+-(A,[put_attr(A,foo,bar)])
+put_attr_plain: ok
+-(A,[put_attr(A,foo,1),put_attr(A,bar,2),freeze(A,:(user,true))])
+two_attr_modules: ok
+-(g(A,A),[freeze(A,:(user,true))])
+var_only_in_goal: ok
+%- 279 test_gate_pl_swi_create_prolog_flag_types_its_flag_and_current_prolog_flag_5_reports_value_access_and_type_as_swipl__w
+new_int: ok
+   f1 [42 write integer open]
+new_atom: ok
+   f2 [abc write atom open]
+new_float: ok
+   f3 [1.5 write float open]
+new_true: ok
+   f4 [true write boolean open]
+new_term: ok
+   f5 [g(x) write term open]
+new_term_declared: ok
+   f6 [g(x) write term open]
+new_int_as_float: ok
+   f7 [1.0 write float open]
+new_on_declared_boolean: ok
+   f8 [true write boolean open]
+new_on_derived: ok
+   f9 [on write boolean open]
+new_off_declared: ok
+   f10 [false write boolean open]
+new_int_declared_term: ok
+   f11 [1 write term open]
+new_string: ok
+   f12 ["str" write term open]
+new_list: ok
+   f13 [[a,b] write term open]
+new_nil: ok
+   f14 [[] write atom open]
+new_read_only: ok
+   f15 [5 read integer open]
+set_read_only: raised(permission_error(modify,flag,f15))
+   f15 [5 read integer open]
+new_read_write: ok
+   f16 [1 write integer open]
+bad_atom_int: raised(type_error(atom,42))
+   f17 [no flag]
+bad_bool_atom: raised(type_error(bool,abc))
+   f18 [no flag]
+bad_int_atom: raised(type_error(integer,abc))
+   f19 [no flag]
+bad_int_float: raised(type_error(integer,1.5))
+   f20 [no flag]
+bad_atom_string: raised(type_error(atom,"str"))
+   f21 [no flag]
+bad_type_name: raised(domain_error(prolog_flag_type,foo))
+   f22 [no flag]
+bad_type_oneof: raised(type_error(atom,oneof([a,b])))
+   f23 [no flag]
+bad_access: raised(domain_error(prolog_flag_access,foo))
+   f24 [no flag]
+bad_keep: raised(type_error(bool,maybe))
+   f25 [no flag]
+unbound_name: raised(instantiation_error)
+unbound_value: raised(instantiation_error)
+   f26 [no flag]
+unbound_options: raised(instantiation_error)
+   f27 [no flag]
+unbound_type: raised(instantiation_error)
+   f28 [no flag]
+compound_name: raised(type_error(atom,g(x)))
+options_not_list: raised(type_error(list,foo))
+   f29 [no flag]
+unknown_option: ok
+   f30 [1 write integer open]
+type_twice: raised(type_error(atom,1))
+   f31 [no flag]
+int_flag: ok
+   g1 [1 write integer open]
+int_flag_set_atom: raised(type_error(integer,abc))
+   g1 [1 write integer open]
+int_flag_set_int: ok
+   g1 [7 write integer open]
+int_flag_set_float: raised(type_error(integer,1.5))
+   g1 [7 write integer open]
+atom_flag: ok
+   g2 [abc write atom open]
+atom_flag_set_int: raised(type_error(atom,3))
+   g2 [abc write atom open]
+atom_flag_set_atom: ok
+   g2 [def write atom open]
+bool_flag: ok
+   g3 [true write boolean open]
+bool_flag_set_off: ok
+   g3 [false write boolean open]
+bool_flag_set_maybe: raised(type_error(bool,maybe))
+   g3 [false write boolean open]
+bool_flag_set_true: ok
+   g3 [true write boolean open]
+float_flag: ok
+   g4 [1.0 write float open]
+float_flag_set_float: ok
+   g4 [2.5 write float open]
+float_flag_set_atom: raised(type_error(float,x))
+   g4 [2.5 write float open]
+term_flag: ok
+   g5 [1 write term open]
+term_flag_set_term: ok
+   g5 [h(y) write term open]
+term_flag_set_atom: ok
+   g5 [z write term open]
+implicit_on: ok
+   h1 [on write boolean open]
+implicit_int: ok
+   h2 [42 write integer open]
+implicit_atom: ok
+   h3 [foo write atom open]
+implicit_term: ok
+   h4 [f(x) write term open]
+implicit_int_set_atom: raised(type_error(integer,abc))
+   h2 [42 write integer open]
+implicit_int_set_int: ok
+   h2 [43 write integer open]
+implicit_bool_set_off: ok
+   h1 [false write boolean open]
+pre_true: ok
+   k1 [true write boolean open]
+keep_true_existing: ok
+   k1 [true write boolean open]
+pre_true2: ok
+   k2 [true write boolean open]
+keep_false_existing: ok
+   k2 [false write boolean open]
+recreate_atom: ok
+   k3 [a write atom open]
+recreate_keep: ok
+   k3 [a write atom open]
+recreate_same: ok
+   k3 [c write atom open]
+recreate_other_type: ok
+   k4 [a write atom open]
+recreate_int: raised(type_error(atom,1))
+   k4 [a write atom open]
+recreate_wrong_default_type: ok
+   k5 [a write atom open]
+recreate_default_int: raised(type_error(atom,5))
+   k5 [a write atom open]
+recreate_int_as_float: ok
+   k6 [1 write integer open]
+recreate_float_over_int: raised(type_error(integer,2.5))
+   k6 [1 write integer open]
+recreate_read_only: ok
+   k7 [1 read integer open]
+recreate_over_read_only: raised(permission_error(modify,flag,k7))
+   k7 [1 read integer open]
+recreate_read_only_keep: ok
+   k7 [1 read integer open]
+pre_atom: ok
+   m1 [aapje write atom open]
+keep_atom_to_int: ok
+   m1 [aapje write atom open]
+pre_int: ok
+   m2 [42 write integer open]
+keep_int_to_atom: ok
+   m2 [42 write integer open]
+pre_bool: ok
+   m3 [true write boolean open]
+keep_bool_to_term: ok
+   m3 [true write boolean open]
+pre_int2: ok
+   m4 [42 write integer open]
+keep_int_to_float: ok
+   m4 [42 write integer open]
+meta_bounded: ok
+   bounded [false read boolean open]
+   occurs_check [false write atom open]
+   unknown [error write atom open]
+   debug [false write boolean open]
+   iso [false write boolean open]
+   prefer_rationals [false write boolean open]
+   no_such_flag_anywhere [no flag]
+meta_nonatom_name: raised(type_error(atom,3))
+%--------------------- 280 test_gate_pl_swi_determinism_marks_answer_as_swipl__w
+yes(a1(1))
+caught(determinism_error(a2/1,det,fail,guard))
+caught(determinism_error(a3/0,det,nondet,guard))
+yes(a4)
+yes(a5)
+caught(determinism_error(a6/0,det,nondet,guard))
+yes(a7)
+ball(mine)
+yes(a9(2))
+caught(determinism_error(q(1),det,nondet,goal))
+ball(mine)
+caught(determinism_error(r,det,fail,goal))
+caught(determinism_error(q(1),det,nondet,goal))
+caught(determinism_error(r,det,fail,goal))
+yes($p)
+yes((2=2,$q(2)))
+yes(rdet(500000))
+$p,($)
+f($,$a,$(a,b),($)-a)
+$ (1+2)
+op(1,fx)
+%- 281 test_gate_pl_swi_dialect_format_s_does_not_pad_and_listing_prints_a_dynamic_predicate_as_swipl__w
+[new]
+[worl]
+[abc]
+[ab     ]
+:- dynamic p/1.
+
+p(1).
+p(2).
+
+:- dynamic q/1.
+
+q(0).
+q(a).
+q("s").
+%---------------- 282 test_gate_pl_swi_file_and_text_builtins_answer_as_swipl__w
+[foo-pl]
+[]
+[foo]
+[foo]
+["abc"]
+["x"]
+["a"]
+["ab"]
+[""]
+caught(type_error(text,12))
+caught(instantiation_error)
+[]
+[x]
+[]
+caught(instantiation_error)
+[ok]
+caught(existence_error(file,'/nonexistent/zz'))
+[ok]
+['/tmp/']
+caught(existence_error(directory,'/nonexistent/zz'))
+[ok]
+['a/b']
+['a/b']
+[b]
+['/b']
+[a-b]
+[b]
+[a]
+[[hello(world),foo,end_of_file]]
+[a]
+[ok]
+[ok]
+%- 283 test_gate_pl_swi_libraries_hashtable_nb_set_solution_sequences_csv_terms_random_answer_as_swipl__w
+r(2,3,[a-3,b-2])
+r(1,0)
+no
+r(1,9)
+r(false,2,[a,b])
+[a,b,c]
+[a,b,c]
+[a-1,b-2]
+[a,b,c]
+[c,b,a]
+[a-2,a-1,b-3,b-1]
+[a,b]
+[c,d]
+[1-a,2-b,3-c]
+b
+[a-[1,3],b-[2]]
+[a,b]
+[row(a,b,c),row(1,2,3)]
+[row(a,'b c',3)]
+[row(a,b),row(1,2)]
+[r(x,'1')]
+[row(a,b)]
+'a,b c\r\n1,"x,y"\r\n'
+f(A,A)-[A=g(a)]
+h(A,A,k)-[]
+yes
+no
+yes
+no
+f(A,b)
+f(2,4,6)
+f(2,g(3),a)
+3
+f/2
+5
+yes
+no
+yes
+no
+z
+a-[]
+[1,2,3]
+[1,2,3]
+f(g(a),A,A)
+f(g(a))-f(g(b))
+foo-0-atom
+f-1-compound
+1-0-atomic
+atomic
+yes
+yes
+no
+no
+no
+no
+f(A,B)
+f
+f(A,B)
+f
+1
+no
+no
+no
+f(A,B)
+caught(instantiation_error)
+1
+caught(type_error(atomic,f(x)))
+caught(instantiation_error)
+caught(type_error(integer,a))
+no
+"s"
+caught(type_error(atom,1))
+0
+0
+0
+3
+3
+4
+9
+3
+5
+9
+0
+6
+5
+3
+3
+3
+4
+4
+13
+%----------------------- 284 test_gate_pl_swi_library_modules_answer_as_swipl__w
+partition(p,[1,2,3],[2,3],[1])
+partition([A,B]>>compare(B,A,2),[1,2,3],[1],[2],[3])
+convlist(c,[1,2,3],[20,30])
+foldl([A,B,C]>>(C is B+A),[1,2,3],0,6)
+foldl([A,B,C,D]>>(D is C+A*B),[1,2],[3,4],0,11)
+foldl(add3,[1,4],[2,5],[3,6],0,21)
+scanl([A,B,C]>>(C is B+A),[1,2,3],0,[0,1,3,6])
+caught(type_error(integer,a))
+caught(type_error(positive_integer,0))
+must_be(nonneg,3)
+caught(type_error(integer,a))
+caught(type_error(oneof([a,b]),c))
+caught(type_error(boolean,x))
+caught(type_error(between(1,3),5))
+must_be(chars,[a,b])
+caught(type_error(text,f(x)))
+must_be(rational,1)
+caught(instantiation_error)
+caught(existence_error(type,no_such_type))
+is_of_type(list(atom),[a,b])
+caught(type_error(integer,a))
+caught(domain_error(positive,-1))
+pairs_keys_values([a-1,b-2],[a,b],[1,2])
+pairs_keys([a-1,b-2],[a,b])
+pairs_values([a-1,b-2],[1,2])
+transpose_pairs([a-1,b-2],[1-a,2-b])
+map_list_to_pairs(atom_length,[ab,c],[2-ab,1-c])
+list_to_heap([3-c,1-a,2-b],heap(t(a,1,[t(b,2,[]),t(c,3,[])]),3)),get_from_heap(heap(t(a,1,[t(b,2,[]),t(c,3,[])]),3),1,a,heap(t(b,2,[t(c,3,[])]),2)),heap_size(heap(t(b,2,[t(c,3,[])]),2),2),heap_to_list(heap(t(b,2,[t(c,3,[])]),2),[2-b,3-c])
+empty_heap(heap(nil,0)),add_to_heap(heap(nil,0),5,x,heap(t(x,5,[]),1)),add_to_heap(heap(t(x,5,[]),1),2,y,heap(t(y,2,[t(x,5,[])]),2)),min_of_heap(heap(t(y,2,[t(x,5,[])]),2),2,y)
+aggregate(count,A^age(A,7),2)
+aggregate(sum(A),B^age(B,A),23)
+aggregate(bag(A),age(A,7),[peter,john])
+aggregate(max(A,B),age(B,A),max(9,mary))
+aggregate(count,A,age(A,7),2)
+aggregate_all(term(count,bag(A)),between(1,3,A),term(3,[1,2,3]))
+aggregate_all(r(max(A)),member(A,[3,9,2]),r(9))
+agg_count(3)
+agg_sum(6)
+agg_max(9)
+agg_bag([c,a,c])
+agg_set([a,c])
+aggregate_all(count,member(A,[a,b]),2)
+aggregate_all(count,A,member(A,[a,b,a]),2)
+string_lines("a\nb\n",["a","b"])
+string_lines("x\ny\n",["x","y"])
+dedent_lines("  a\n   b","a\n b",[])
+indent_lines("> ","a\nb","> a\n> b")
+list_to_rbtree([k1-v1,k2-v2],t(black('',A,B,''),black(black('',A,B,''),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,''))))),rb_insert(t(black('',A,B,''),black(black('',A,B,''),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,'')))),k0,v0,t(black('',A,B,''),black(red(black('',A,B,''),k0,v0,black('',A,B,'')),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,''))))),rb_keys(t(black('',A,B,''),black(red(black('',A,B,''),k0,v0,black('',A,B,'')),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,'')))),[k0,k1,k2]),rb_lookup(k2,v2,t(black('',A,B,''),black(red(black('',A,B,''),k0,v0,black('',A,B,'')),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,''))))),rb_size(t(black('',A,B,''),black(red(black('',A,B,''),k0,v0,black('',A,B,'')),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,'')))),3),rb_visit(t(black('',A,B,''),black(red(black('',A,B,''),k0,v0,black('',A,B,'')),k1,v1,red(black('',A,B,''),k2,v2,black('',A,B,'')))),[k0-v0,k1-v1,k2-v2])
+no
+ord_list_to_rbtree([a-1,b-2,c-3],t(black('',A,B,''),black(red(black('',A,B,''),a,1,black('',A,B,'')),b,2,red(black('',A,B,''),c,3,black('',A,B,''))))),rb_min(t(black('',A,B,''),black(red(black('',A,B,''),a,1,black('',A,B,'')),b,2,red(black('',A,B,''),c,3,black('',A,B,'')))),a,1),rb_max(t(black('',A,B,''),black(red(black('',A,B,''),a,1,black('',A,B,'')),b,2,red(black('',A,B,''),c,3,black('',A,B,'')))),c,3),rb_next(t(black('',A,B,''),black(red(black('',A,B,''),a,1,black('',A,B,'')),b,2,red(black('',A,B,''),c,3,black('',A,B,'')))),a,b,2),rb_fold([C-D,E,F]>>(F is E+D),t(black('',A,B,''),black(red(black('',A,B,''),a,1,black('',A,B,'')),b,2,red(black('',A,B,''),c,3,black('',A,B,'')))),0,6)
+list_to_assoc([a-1,b-2],t(b,2,<,t(a,1,-,t,t),t)),put_assoc(c,t(b,2,<,t(a,1,-,t,t),t),3,t(b,2,-,t(a,1,-,t,t),t(c,3,-,t,t))),assoc_to_list(t(b,2,-,t(a,1,-,t,t),t(c,3,-,t,t)),[a-1,b-2,c-3]),assoc_to_keys(t(b,2,-,t(a,1,-,t,t),t(c,3,-,t,t)),[a,b,c]),get_assoc(b,t(b,2,-,t(a,1,-,t,t),t(c,3,-,t,t)),2),max_assoc(t(b,2,-,t(a,1,-,t,t),t(c,3,-,t,t)),c,3)
+empty_assoc(t),\+get_assoc(x,t,A),pairs_keys_values([z-1,y-2],[z,y],[1,2]),list_to_assoc([z-1,y-2],t(z,1,<,t(y,2,-,t,t),t)),del_assoc(z,t(z,1,<,t(y,2,-,t,t),t),1,t(y,2,-,t,t)),assoc_to_values(t(y,2,-,t,t),[2])
+ord_union([a,c],[b,d],[a,b,c,d])
+ord_subtract([a,b,c],[b],[a,c])
+ord_intersection([a,b,c],[b,c,d],[b,c],[d])
+ord_memberchk(b,[a,b,c])
+ord_subset([a,c],[a,b,c])
+list_to_ord_set([c,a,b,a],[a,b,c])
+ord_union([[a],[c,b],[d]],[a,c,b,d])
+option(depth(3),[depth(3),width(4)])
+option(missing(dflt),[depth(3)],dflt)
+select_option(width(4),[depth(3),width(4)],[depth(3)])
+merge_options([a(1)],[a(2),b(3)],[a(1),b(3)])
+option(a(1),[a=1])
+append([[1],[2,3],[]],[1,2,3])
+select(b,[a,b,c],x,[a,x,c])
+selectchk(a,[a,b,a],[b,a])
+nextto(1,2,[1,2,3])
+nth0(1,[a,b,c],b,[a,c])
+nth1(3,[a,b,c],c,[a,b])
+same_length([1,2],[A,B])
+clumped([a,a,b,a],[a-2,b-1,a-1])
+max_member(4,[3,1,4])
+min_member(1,[3,1,4])
+max_member(@=<,c,[b,c,a])
+is_set([a,b])
+proper_length([a,b],2)
+foreach(member(A,[1,2]),A>0)
+no
+string_code(2,"ab",98)
+caught(type_error(integer,a))
+%- 285 test_gate_pl_swi_program_space_module_property_and_the_limit_errors_as_swipl__z
+too_low: error permission_error(limit,program_space,user)
+too_low: no
+retract: yes
+abolish: yes
+assert: yes
+overflow: error resource_error(program_space)
+overflow: no
+repeat: yes
+called: yes
+user_untouched: yes
+user_assert: yes
+inner_module: yes
+asserta_order: yes
+rule: yes
+retract_binds: yes
+meta_assertz: yes
+meta_dynamic: yes
+meta_retract: yes
+meta_retractall: yes
+meta_abolish: yes
+var_module: yes
+ground_assertz: error resource_error(program_space)
+ground_assertz: no
+ground_asserta: error resource_error(program_space)
+ground_asserta: no
+ground_rule: error resource_error(program_space)
+ground_rule: no
+ground_meta: error resource_error(program_space)
+ground_meta: no
+ground_other_limit: yes
+ground_under_limit: yes
+ground_user: error resource_error(program_space)
+ground_user: no
+%- 286 test_gate_pl_swi_source_text_raw_newlines_unicode_symbols_bang_compound_and_dcg_var_body_answer_as_swipl__w
+"ab\ncd"
+'ef\ngh'
+[105,106,10,107,108]
+"line1\nline2"
+♔
+1
+r(foo,bar)
+r(3)
+!
+ok
+[x]
+r(♔,♕)
+2
+[♔,♕♖,a]
+%- 287 test_gate_pl_swi_statistics_answers_globalused_localused_trailused_and_stack_shifts_as_swipl__w
+globalused_int => true
+localused_int => true
+trailused_int => true
+stack_shifts_three => true
+globalused_grows => false
+globalused_after_gc_shrinks => true
+unbound_key => instantiation_error
+unknown_key => domain_error(statistics_key)
+det_freeze_no_space => true
+throw_gc => true
+runtime_still_pair => true
+global_stack_still_pair => true
+cputime_still_number => true
+%- 288 test_gate_pl_swi_user_display_overrides_the_builtin_difference_list_sinks_and_bagof_of_a_runtime_goal_sorts_its_groups_answer_as_swipl__w
+user([a,b])
+user([c])
+user([d])
+'x-y-z'
+[49,50,45,120,33]-[33]
+['3','4','5',z]
+[97,98,99]
+[a,b,c]
+[49,50]
+[51,52,53,120]
+[0-[7,5],1-[2],2-[8],4-[2],11-[3],12-[7]]
+[0-[7,5],1-[2],2-[8],4-[2],11-[3],12-[7]]
+[0-[5,7],1-[2],2-[8],4-[2],11-[3],12-[7]]
+%-------------------------- 289 test_gate_pl_tabling_phase_1_answers_as_swipl__g
+[a-a,a-b,a-c,a-d,b-a,b-b,b-c,b-d,c-a,c-b,c-c,c-d]
+no
+280571172992510140037611932413038677189525
+832040
+[0,2,4,6,8,10]
+[1,3,5,7,9]
+[1-1,1-2,1-3,2-1,2-2,2-3,3-1,3-2,3-3,4-4]
+[4]
+[1-2,1-3,2-3]
+[2,3]
+3
+z_yes
+caught(oops)
+[p,q]
+[p,q]
+evals(1)
+[p,q]
+evals(2)
+[a-a,a-b,a-c,a-d,b-a,b-b,b-c,b-d,c-a,c-b,c-c,c-d]
+%- 290 test_gate_pl_telling_inside_a_captured_output_returns_the_capture_stream_and_tell_reselects_it_as_swipl__w
+captured(inside1
+inside2
+)
+kind(stream)
+retold(ab)
+outside(user)
+after
+%---------------------- 291 test_gate_pl_text_and_quoted_tokens_read_as_swipl__g
+[233,8364,97,128512]
+[é,€,a]
+[233,98]
+[233,8364]
+65
+yes
+466
+eq
+type_error(evaluable,a/0)
+3
+3
+3
+%- 292 test_gate_pl_the_c_unifier_binds_the_plain_variable_to_the_attributed_one__w
+uwoc_fresh_left-ok
+uwoc_fresh_right-ok
+uwoc_in_compound-ok
+uwoc_compound_right-ok
+subsumes_compound-ok
+subsumes_arg-ok
+subsumes_bare-ok
+ssu_compound-ok
+ssu_bare-ok
+ssu_value-ok
+ssu_repeated-ok
+ssu_guard-ok
+assoc_put_get-ok
+two_attributed-existence_error(procedure,other:attr_unify_hook/2)
+two_attributed-failed
+plain_eq-ok
+%- 293 test_gate_pl_the_clause_reader_leaves_the_body_as_written_and_lower_places_it__w
+acd
+bcd
+abcd
+ad
+ag
+ano
+%----------------------------- 294 test_gate_pl_the_colon_operator_is_600_xfy__w
+op(600,xfy)
+:(a,+(b,c))
+:(a,:(b,c))
+%------------------- 295 test_gate_pl_the_debug_topic_family_answers_as_swipl__g
+a
+no
+yes
+yes
+no
+yes
+yes
+yes
+%- 296 test_gate_pl_the_generator_road_takes_the_emitted_context_from_the_veneer_not_live_registers__w
+3
+f(2,x)
+7-7.9
+%--------- 297 test_gate_pl_the_gnu_file_and_os_builtins_answer_as_gnu_prolog__w
+caught(error(existence_error(procedure,environ/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,environ/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,environ/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,environ/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,environ/2),context($bags:findall_loop/4,A)))
+caught(error(existence_error(procedure,environ/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,environ/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,working_directory/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,working_directory/1),context(system: <meta-call> / 1,A)))
+yes
+caught(error(existence_error(directory,wdir),context(system:make_directory/1,File exists)))
+caught(error(instantiation_error,context(system:make_directory/1,A)))
+caught(error(type_error(text,1),context(system:make_directory/1,A)))
+caught(error(existence_error(procedure,file_exists/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_exists/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_exists/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_exists/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,change_directory/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,change_directory/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,change_directory/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,change_directory/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,change_directory/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,file_property/2),context(system: <meta-call> / 1,A)))
+[.,..] yes
+caught(error(existence_error(file,nosuch),context(system:directory_files/2,A)))
+caught(error(instantiation_error,context(system:directory_files/2,A)))
+caught(error(type_error(text,1),context(system:directory_files/2,A)))
+caught(error(existence_error(file,wdir/f.txt),context(system:delete_file/1,No such file or directory)))
+caught(error(existence_error(procedure,file_exists/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(file,wdir/f.txt),context(system:delete_file/1,No such file or directory)))
+yes
+caught(error(instantiation_error,context(system:delete_file/1,A)))
+a 11531470
+b 6501130
+foo 5716028
+bar 2615526
+f(a) 4080122
+[a] 5843474
+1 7018254
+0 16052505
+-1 13673300
+2.5 16054041
+[] 11527763
+f(foo) 13748007
+g(1,2) 5973081
+[a,b] 56200
+foo(bar) 16582647
+1.5 10415260
+'hello world' 2115458
+yes
+no
+caught(error(existence_error(procedure,prolog_pid/1),context(system: <meta-call> / 1,A)))
+caught(error(existence_error(procedure,prolog_pid/1),context(system: <meta-call> / 1,A)))
+%- 298 test_gate_pl_the_iso_flag_makes_reads_strict_and_integer_division_a_float__w
+2/3.5/2
+read(f((a:-b)))
+true
+2.0/3.5/2
+syntax_error
+syntax_error
+syntax_error
+read(f((a:-b)))
+read((a:-b))
+read(f(a,-))
+2/3.5/2
+%------- 299 test_gate_pl_the_press_and_chat80_dec10_surface_answers_as_swipl__g
+gone
+(x)
+98
+[0,1,2]
+[0,1]
+two
+1.0
+1.0471975511965979
+4.0
+otherwise
+0
+Q: 
+stats_ok
+q
+q
+%----- 300 test_gate_pl_the_query_neck_reads_as_an_atom_and_a_prefix_operator__w
+[?-,:-]
+?-p(1)
+p(1)
+%- 301 test_gate_pl_the_reclaim_report_names_every_erased_fragment_and_its_holders__w1
+200
+%- 302 test_gate_pl_the_reclaim_report_names_every_erased_fragment_and_its_holders__w2
+self(done)
+%- 303 test_gate_pl_the_reclaim_report_names_every_erased_fragment_and_its_holders__w3
+kept(f(1))
+%- 304 test_gate_pl_the_standard_output_streams_report_mode_append_in_the_iso_default_and_write_in_the_swi_dialect__iso
+user_input-read
+user_output-write
+user_error-write
+current_output-write
+%- 305 test_gate_pl_the_swi_list_constructor_is_the_bar_bracket_functor_as_swipl__z
+[1]
+[1]
+'[|]'/2
+a-[b]
+list
+['[|]',a,[b]]
+'[|]'/2
+'[|]'-[a,[b]]
+[1,2,3]
+yes
+2
+a
+[x,y]
+%---------------- 306 test_gate_pl_tries_and_table_inspection_answer_as_swipl__g
+yes
+no
+ex(permission_error,modify)
+no
+yes
+3
+yes
+no
+yes
+fresh_value
+yes
+yes
+yes
+y
+yes
+yes
+no
+6
+[1.0,1,b,[1,2,3],g(h(i(j)),[k|l])]
+yes
+no
+yes
+3
+no
+5
+c
+yes
+yes
+yes
+ex(existence_error,trie)
+no
+ex(existence_error,trie)
+no
+ex(type_error,trie)
+no
+ex(instantiation_error)
+no
+tables(3)
+variants(3)
+complete
+[a(1,2),a(1,3),a(2,3)]
+empty_table(0)
+no
+tables(0)
+[1-2,1-3,2-3]
+%----------------------- 307 test_gate_pl_two_variables_compare_one_way_only__vo
+total
+total
+antisymmetric
+3
+3
+%------------- 308 test_gate_pl_variant_sha1_and_variant_hash_answer_as_swipl__w
+hex40-yes
+renaming-yes
+not_variant-yes
+shared-yes
+float-no
+cyclic-type_error(acyclic_term)
+attvar-(instantiation_error/0-instantiation_error)
+holds_attvar-type_error(free_of_attvar)
+hash_attvar_plain-yes
+%--------------------------- 309 test_gate_pl_wildcard_match_answers_as_swipl__g
+1-pass-true
+2-pass-fail
+3-pass-fail
+4-pass-true
+5-pass-true
+6-pass-true
+7-pass-true
+8-pass-true
+9-pass-true
+10-pass-true
+11-pass-true
+12-pass-true
+13-pass-true
+14-pass-true
+15-pass-true
+16-pass-true
+17-pass-true
+18-pass-true
+19-pass-fail
+20-pass-true
+21-pass-fail
+22-pass-fail
+23-pass-err(type_error(character_code,1114112))
+24-pass-err(syntax_error(Unmatched '{'))
+25-pass-err(syntax_error(Unmatched '{'))
+26-pass-err(syntax_error(Unmatched '{'))
+27-pass-err(syntax_error(Unmatched '['))
+28-pass-err(syntax_error(Unmatched '['))
+29-pass-err(syntax_error(Unmatched '['))
+%- 310 test_gate_pl_write_term_reads_a_bare_boolean_option_atom_as_option_true_in_the_swi_and_xsb_dialects__plain
+'a b'wrote
+'a b'
+%- 311 test_gate_pl_write_term_reads_a_bare_boolean_option_atom_as_option_true_in_the_swi_and_xsb_dialects__swi
+'a b'
+[a,b]
+A
+B1
+f(a,'B c',+(1,2))
+f('A b',g(x))
+a b
+%- 312 test_gate_pl_write_term_reads_a_bare_boolean_option_atom_as_option_true_in_the_swi_and_xsb_dialects__xsb
+'a b'
+A
+%---- 313 test_gate_pl_write_term_variable_names_take_unicode_uppercase_names__w
+f(Γβα)
+f(_x)
+f(Ab)
+ex(domain_error(variable_name,ab))
+f(Ölçü)
+ex(domain_error(variable_name,ǅx))
+%--- 314 test_gate_pl_writef_dcg_basics_and_clpfd_goal_terms_answer_as_swipl__w1
+a x b f(y)
+s=hi
+42| ab|cd |
+plain
+42 007
+3..3
+%--- 315 test_gate_pl_writef_dcg_basics_and_clpfd_goal_terms_answer_as_swipl__w2
+[97,98]-[99,100]
+[97,98]-[]
+[97,98]-[99,100]
+lit
+ok
+255
+%--- 316 test_gate_pl_writef_dcg_basics_and_clpfd_goal_terms_answer_as_swipl__w3
+[ab,cd]
+%- 317 test_gate_pl_writeq_brackets_a_declaration_atom_as_swipl_in_the_iso_default_and_as_gprolog_in_the_gnu_dialect__iso
+((public),4)- - (public)
+((dynamic),4)- - (dynamic)
+((discontiguous),4)- - (discontiguous)
+((initialization),4)- - (initialization)
+(module,4)- -module
+((multifile),4)- - (multifile)
+((meta_predicate),4)- - (meta_predicate)
+((table),4)- - (table)
+(not,4)- -not
+%- 318 test_gate_pl_xsb_builtins_term_size_number_digits_is_acyclic_do_all_answer_as_xsb__s
+4
+2
+6
+2
+f(a,'B c',1+2)
+h
+1+2
+%------------------------- 319 test_gate_prolog_commit_tidy_is_incremental__tidy
+done
+%---------------------- 320 test_gate_prolog_commit_tidy_is_incremental__tidysem
+[1999000,1999000,1999000]
+backtracked
+1575
+2248500
+%---------------------------------- 321 test_gate_prolog_entrypoint_ruling__both
+fromdir
+%-------------------------------- 322 test_gate_prolog_entrypoint_ruling__nomain
+direct
+%------------------------------- 323 test_gate_prolog_entrypoint_ruling__withdir
+hello
+%- 324 test_gate_raku_a_pinned_generator_graph_runs_no_prolog_trail_code_in_its_to_box__c
+[3-f(3),4-f(4)]
+4-f(4)
+%----------------------------- 325 test_gate_regen_demo_refused_marker__compiles
+hello
+%------------------------------ 326 test_gate_regen_demo_refused_marker__refuser
+[1,2]
+%----------------------------- 327 test_gate_regen_demo_refused_marker__refuser2
+ok
+%----- 328 test_gate_scrip_environment_is_scanned_once_not_read_once_per_knob__c
+done
+%----- 329 test_gate_scrip_environment_is_scanned_once_not_read_once_per_knob__s
+done
+%---- 330 test_gate_the_code_pool_refuses_loudly_at_its_cap_never_a_wild_jump__l
+done
+%--- 331 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__cr
+x
+y
+%- 332 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__ft_tests_helper
+driver_ran
+%- 333 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__ft_tests_t_sorted
+c
+a
+b
+%- 334 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__ft_tests_t_stale
+new
+%- 335 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__ft_tests_t_tok
+p06:q
+%- 336 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__ft_tests_t_ws
+p06:p
+%- 337 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__once
+hi

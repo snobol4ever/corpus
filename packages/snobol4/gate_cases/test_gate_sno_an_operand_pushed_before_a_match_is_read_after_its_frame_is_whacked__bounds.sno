@@ -1,0 +1,11 @@
+        X = 'a' (']' ? *']')
+        OUTPUT = 'concat right: [' X ']'
+        X = (']' ? *']') 'a'
+        OUTPUT = 'concat left: [' X ']'
+        Y = SIZE('abc') + SIZE('xyz' ? 'y')
+        OUTPUT = 'arith: [' Y ']'
+        P = ('xyz' ? 'y') | 'k'
+        'zzk' ? P . V                               :F(F2)
+        OUTPUT = 'alt left match: [' V ']'          :(END)
+F2      OUTPUT = 'alt left match: fails'
+END

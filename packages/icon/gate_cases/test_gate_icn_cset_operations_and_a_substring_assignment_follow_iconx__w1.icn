@@ -1,0 +1,22 @@
+procedure main()
+   local s, c;
+   s := "a\x00b";
+   c := s -- ' ';
+   write(*c, " ", image(c));
+   c := s ++ 'z';
+   write(*c, " ", image(c));
+   c := s ** 'ab\x00';
+   write(*c, " ", image(c));
+   c := 'xy' ++ s;
+   write(*c, " ", image(c));
+   c := "hello world" -- ' ';
+   write(*c, " ", image(c));
+   c := 12345678901234567890123 ++ '';
+   write(*c, " ", image(c));
+   c := "+007" ++ '';
+   write(*c, " ", image(c));
+   c := "" -- 'abc';
+   write(*c, " ", image(c));
+   c := 3.5 ++ 'x';
+   write(*c, " ", image(c));
+end

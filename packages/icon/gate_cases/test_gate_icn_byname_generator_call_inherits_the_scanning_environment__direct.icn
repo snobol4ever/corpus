@@ -1,0 +1,8 @@
+procedure main()
+   if "c" ? (s() & pos(0))
+      then write("accepted")
+      else write("rejected");
+end
+procedure s()
+   suspend ="c";
+end

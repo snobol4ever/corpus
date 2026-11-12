@@ -1,0 +1,1 @@
+:- initialization((write(c), nl, write(a), nl, write(b), nl)).

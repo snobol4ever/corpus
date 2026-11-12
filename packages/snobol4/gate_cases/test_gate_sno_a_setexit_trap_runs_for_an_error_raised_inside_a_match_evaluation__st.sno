@@ -1,0 +1,22 @@
+        &ERRLIMIT = 99
+        SETEXIT(.trap)                                          :(go)
+trap    OUTPUT = 'TRAP ' &ERRTYPE                               :(CONTINUE)
+go      X =
+        'abc' SPAN(*$X)                                         :F(a1)
+        OUTPUT = 'span matched'
+a1      SETEXIT(.trap)
+        'abc' ANY(*$X)                                          :F(a2)
+        OUTPUT = 'any matched'
+a2      SETEXIT(.trap)
+        x = *$X
+        '8' ? x                                                 :F(a3)
+        OUTPUT = 'deferred matched'
+a3      SETEXIT(.trap)
+        p = SPAN(*$X)
+        'abc' ? p                                               :F(a4)
+        OUTPUT = 'stored matched'
+a4      SETEXIT(.trap)
+        'abc' LEN(1) . *$X                                      :F(a5)
+        OUTPUT = 'capture matched'
+a5      OUTPUT = 'end ' &ERRTYPE
+END

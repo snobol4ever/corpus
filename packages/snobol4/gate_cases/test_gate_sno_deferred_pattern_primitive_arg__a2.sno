@@ -1,0 +1,7 @@
+        X = 'ABCDEFGHIJ'
+        X ? TAB(*(SIZE(X) - 1)) . Y                                 :F(NO1)
+        OUTPUT = 'TABEXPR ' Y
+NO1     X ? LEN(*(1 + 2)) . Y                                       :F(NO2)
+        OUTPUT = 'LENEXPR ' Y
+NO2     OUTPUT = 'a2 done'
+END

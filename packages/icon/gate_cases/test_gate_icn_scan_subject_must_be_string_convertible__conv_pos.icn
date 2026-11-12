@@ -1,0 +1,1 @@
+procedure main();&error := -1;"abc" ? write(image(pos("a")) | "none");write("done");end

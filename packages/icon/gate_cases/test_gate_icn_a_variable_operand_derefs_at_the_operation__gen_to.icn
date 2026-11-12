@@ -1,0 +1,4 @@
+global G
+procedure main()
+G := 0; every G := G + (1 to 3); write(G);
+end

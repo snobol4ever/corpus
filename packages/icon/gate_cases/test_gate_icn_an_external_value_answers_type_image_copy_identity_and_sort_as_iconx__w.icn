@@ -1,0 +1,15 @@
+record pt(x, y)
+procedure main()
+   local mn, xs, xr, v1, v2, s1, s2, r1, r2, r3, l, x;
+   mn := loadfunc("$LIB", "extxmin");
+   xs := loadfunc("$LIB", "extxstr");
+   xr := loadfunc("$LIB", "extxreal");
+   v1 := mn(); v2 := mn(); s1 := xs("bite"); s2 := xs("tadpole");
+   r1 := xr(2.5); r2 := xr(1.5); r3 := copy(r1);
+   every x := v1 | v2 | copy(v1) | s1 | s2 | r1 | r2 | r3 do write(type(x), " ", image(x));
+   write(if v1 === copy(v1) then "copy is identical" else "copy differs");
+   write(if r1 === r3 then "rcopy is identical" else "rcopy differs");
+   write(if v1 === v2 then "v1 is v2" else "v1 is not v2");
+   l := [r1, s2, pt(1, 2), v2, s1, r2, v1, r3, "str", 3];
+   every write("sorted ", image(!sort(l)));
+end

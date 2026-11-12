@@ -1,0 +1,12 @@
+procedure f(a, b)
+   return a + b;
+end
+procedure g(n)
+   local s, i;
+   s := 0;
+   every i := 1 to n do s := s + f(i, 2);
+   return s;
+end
+procedure main()
+   write(g(5));
+end

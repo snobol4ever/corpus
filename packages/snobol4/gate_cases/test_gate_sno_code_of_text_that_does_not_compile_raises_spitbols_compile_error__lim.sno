@@ -1,0 +1,8 @@
+        &ERRLIMIT = 10
+        c = CODE(' X = (1')                                     :S(A)
+        OUTPUT = 'counted: failed ' &ERRTYPE ' limit ' &ERRLIMIT
+A       &ERRLIMIT = 0
+        c = CODE(' X = 1 +')                                    :S(B)
+        OUTPUT = 'zero: failed ' &ERRTYPE ' and the run goes on'
+B       OUTPUT = 'end'
+END

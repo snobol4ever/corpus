@@ -1,0 +1,8 @@
+        DEFINE('CS()')                                              :(CS_END)
+CS      CS = 'AB'                                                   :(RETURN)
+CS_END
+        X = 'ABABCDEF'
+        X ? NOTANY(*CS()) . Y                                       :F(NO1)
+        OUTPUT = 'NOTANY ' Y
+NO1     OUTPUT = 'a7 done'
+END

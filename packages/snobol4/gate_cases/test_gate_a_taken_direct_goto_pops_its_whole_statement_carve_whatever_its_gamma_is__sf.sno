@@ -1,0 +1,6 @@
+ T1 = CODE(' N = N + 1 :(LOOP)')
+ T2 = CODE(' OUTPUT = "x " X " " N :(END)')
+ X = 0
+LOOP X = X + 1
+ LT(X, 50000) :S<T1>F<T2>
+END

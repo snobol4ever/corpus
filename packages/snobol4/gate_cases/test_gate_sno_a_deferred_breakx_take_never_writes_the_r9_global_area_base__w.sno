@@ -1,0 +1,10 @@
+        'ab' ? BREAKX(*F())
+        V = 'b'
+        OUTPUT = 'next'
+        'ab' ? BREAKX(*F()) 'x'
+        V2 = 'c'
+        OUTPUT = 'again'
+        'ab' ? SPAN(*G())
+        W = 'd'
+        OUTPUT = 'after span ' V V2 W
+END

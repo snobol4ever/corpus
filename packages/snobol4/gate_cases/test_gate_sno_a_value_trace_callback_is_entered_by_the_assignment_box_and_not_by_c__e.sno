@@ -1,0 +1,6 @@
+        TRACE('X','VALUE','','IDENT')
+        &TRACE = 100
+        X = 1
+        X = 'two'
+        OUTPUT = 'done ' X
+END

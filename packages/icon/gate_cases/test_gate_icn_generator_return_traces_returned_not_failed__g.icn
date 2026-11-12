@@ -1,0 +1,8 @@
+procedure gen3();
+  suspend 1;
+  return 3;
+end
+procedure main();
+  &trace := -1;
+  every write(gen3() \ 2);
+end

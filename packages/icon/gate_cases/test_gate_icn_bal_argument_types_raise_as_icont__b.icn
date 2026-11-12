@@ -1,0 +1,22 @@
+procedure main()
+   local x;
+   &error := -1;
+   x := bal([],,,"");
+   write("a ", &errornumber, " ", image(&errorvalue));
+   x := bal("(", [], , "x");
+   write("b ", &errornumber, " ", image(&errorvalue));
+   x := bal("(", , [], "x");
+   write("c ", &errornumber, " ", image(&errorvalue));
+   x := bal("(", "(", ")", []);
+   write("d ", &errornumber, " ", image(&errorvalue));
+   x := bal("(", "(", ")", "(a)", "x");
+   write("e ", &errornumber, " ", image(&errorvalue));
+   every x := bal("a", , , "a(a)a") do write("f ", x);
+   x := bal([]);
+   write("g ", &errornumber, " ", image(&errorvalue));
+   every x := find([], "abc") do write("h ", x);
+   write("i ", &errornumber, " ", image(&errorvalue));
+   every x := upto([], "abc") do write("j ", x);
+   write("k ", &errornumber, " ", image(&errorvalue));
+   write("errors ", -&error);
+end

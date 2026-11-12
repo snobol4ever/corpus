@@ -1,0 +1,7 @@
+	&TRACE = 100
+	A = ARRAY(3)
+	B = A
+	TRACE(.B[2])
+	A[2] = 5
+	OUTPUT = 'end'
+END

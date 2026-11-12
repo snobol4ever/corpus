@@ -1,0 +1,16 @@
+        X = BREAK('a')
+        Y = SPAN('a')
+        Z = 'b'
+        OUTPUT = ('abc' ? ANY(*Z)) ' deferred any'
+        OUTPUT = ('abc' ? BREAK(*Z)) ' deferred break'
+        OUTPUT = ('abc' ? NOTANY(*'a')) ' deferred notany'
+        'abc' ? BREAK('a')
+        OUTPUT = ('xbz' ? ANY(*Z) . W) '|' W
+        V = 'q'
+        OUTPUT = ('abc' ? ANY(*V)) ' no member'                 :S(E)
+        OUTPUT = 'any failed'
+E       OUTPUT = ('' ? NOTANY(*'a')) ' empty'                   :S(F)
+        OUTPUT = 'notany failed at end'
+F       'ab' ? ANY(*U())
+        OUTPUT = 'after undefined'
+END

@@ -1,0 +1,18 @@
+        &ERRLIMIT = 1000
+        A = EVAL('SQRT(-1.0)')                  :F(A1)
+        OUTPUT = 'sqrt=succeeded'               :(B)
+A1      OUTPUT = 'sqrt=failed'
+B       C = EVAL('1 / 0')                       :F(B1)
+        OUTPUT = 'div0=succeeded'               :(D)
+B1      OUTPUT = 'div0=failed'
+D       E = EVAL('SIZE(')                       :F(D1)
+        OUTPUT = 'syntax=succeeded'             :(F)
+D1      OUTPUT = 'syntax=failed'
+F       G = EVAL('2 + 3')                       :F(F1)
+        OUTPUT = 'good=' G                      :(H)
+F1      OUTPUT = 'good=WRONGLY-FAILED'
+H       H2 = EVAL('SQRT(4.0)')                  :F(H1)
+        OUTPUT = 'sqrtok=succeeded'             :(Z)
+H1      OUTPUT = 'sqrtok=WRONGLY-FAILED'
+Z
+END

@@ -1,0 +1,26 @@
+          DEFINE('mark(tag)')                                 :(mark_end)
+mark      log = log tag
+          mark = .dummy                                       :(NRETURN)
+mark_end  p1 = '' . *mark('R')
+          log = ''
+          'ab' ? 'a' ARBNO('b') FENCE('' . *mark('R') | '') RPOS(0)
+          OUTPUT = 'fence alt [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') FENCE('' . *mark('R')) RPOS(0)
+          OUTPUT = 'fence one [' log ']'
+          log = ''
+          'ab' ? '' . *mark('P') 'a' ARBNO('b') FENCE('' . *mark('R')) RPOS(0)
+          OUTPUT = 'before fence [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') FENCE(FENCE('' . *mark('N'))) RPOS(0)
+          OUTPUT = 'nested fence [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') FENCE('' . *mark('R') FENCE('' . *mark('Q'))) RPOS(0)
+          OUTPUT = 'fence in fence [' log ']'
+          log = ''
+          'abb' ? 'a' ARBNO('b') FENCE(*p1) RPOS(0)
+          OUTPUT = 'fence of deferred [' log ']'
+          log = ''
+          '(a,b)' ? '(' ANY('ab') ARBNO(',' '' . *mark('I') ANY('ab')) FENCE('' . *mark('V')) ')'
+          OUTPUT = 'list [' log ']'
+END

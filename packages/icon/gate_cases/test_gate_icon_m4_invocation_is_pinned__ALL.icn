@@ -1,0 +1,4 @@
+#----------------- 1 pinwitness
+procedure main()
+   write("&progname: ",&progname);
+end

@@ -1,0 +1,12 @@
+        N = 0
+        DEFINE('F()')                                    :(FE)
+F       N = N + 1
+        F = 'x'                                          :(RETURN)
+FE      '' ? ANY(*F())
+        OUTPUT = 'count ' N
+        'ab' ? ANY(*F()) ANY(*F())
+        OUTPUT = 'count ' N
+        V = 'b'
+        OUTPUT = ('abc' ? ANY(*V)) ' control'
+        OUTPUT = ('abc' ? NOTANY(*'a')) ' notany control'
+END

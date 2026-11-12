@@ -1,0 +1,1 @@
+procedure main();"abc" ? write(tab(2));end

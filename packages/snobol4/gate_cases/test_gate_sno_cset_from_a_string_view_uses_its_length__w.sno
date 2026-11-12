@@ -1,0 +1,31 @@
+        DEFINE('MEM(P)A,C')                     :(MEM_END)
+MEM     A = 'abcdefgxy,'
+MEM_L   A LEN(1) . C =                          :F(RETURN)
+        C P                                     :F(MEM_L)
+        MEM = MEM C                             :(MEM_L)
+MEM_END
+        D = 'bcd,efg,xy,'
+        D BREAK(',') . U ',' =
+        V1 = ANY(U)
+        D BREAK(',') . U ',' =
+        V2 = ANY(U)
+        D BREAK(',') . U ',' =
+        V3 = ANY(U)
+        OUTPUT = '1 ' MEM(V1)
+        OUTPUT = '2 ' MEM(V2)
+        OUTPUT = '3 ' MEM(V3)
+        T1 = TABLE(30)
+        E = 'bcd,efg,xy,'
+        E BREAK(',') . W ',' =
+        T1['a'] = ANY(W)
+        E BREAK(',') . W ',' =
+        T1['b'] = ANY(W)
+        OUTPUT = 'ta ' MEM(T1['a'])
+        OUTPUT = 'tb ' MEM(T1['b'])
+        F = 'bcd'
+        F BREAK(',') . Z                        :F(FEND)
+        OUTPUT = 'end ' MEM(ANY(Z))             :(FDONE)
+FEND    OUTPUT = 'end ' MEM(ANY(F))
+FDONE
+        OUTPUT = 'sp ' MEM(SPAN(U))
+END

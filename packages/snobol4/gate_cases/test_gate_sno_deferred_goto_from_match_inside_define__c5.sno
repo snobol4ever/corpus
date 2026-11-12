@@ -1,0 +1,9 @@
+        DEFINE('F(X)PHI')               :(E)
+F       OP = 'A'
+        X 'zz' = ''                     :F($('L.' OP))
+        F = 'matched'                   :(RETURN)
+L.A     F = 'ok'                        :(RETURN)
+E
+        OUTPUT = F('abc')
+        OUTPUT = 'after'
+END

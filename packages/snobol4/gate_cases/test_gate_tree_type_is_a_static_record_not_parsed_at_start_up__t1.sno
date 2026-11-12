@@ -1,0 +1,10 @@
+        DATA('tree(t,v,n,c)')
+        T = tree('a', 'b', 'c', 'd')
+        OUTPUT = t(T) v(T) n(T) c(T)
+        DATA('tree(t,v,n,c)')
+        U = tree(1, 2, 3, 4)
+        OUTPUT = t(U) + v(U) + n(U) + c(U)
+        OUTPUT = DATATYPE(T)
+        t(T) = 'z'
+        OUTPUT = t(T) v(T)
+END

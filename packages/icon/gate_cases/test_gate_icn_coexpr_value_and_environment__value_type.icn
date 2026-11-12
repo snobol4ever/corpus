@@ -1,0 +1,4 @@
+procedure main()
+  c := create write("x");
+  write(type(c));
+end

@@ -1,0 +1,10 @@
+procedure gen()
+   return 1;
+end
+procedure main(a)
+   local i, x, p, n;
+   n := integer(a[1]);
+   p := gen;
+   every i := 1 to n do x := p();
+   write(x);
+end

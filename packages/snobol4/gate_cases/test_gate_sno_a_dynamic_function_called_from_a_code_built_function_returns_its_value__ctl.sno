@@ -1,0 +1,9 @@
+        DEFINE('F(X)A')                         :(F.END)
+F       F = X X                                 :(RETURN)
+F.END   DEFINE('J(X,S)')                        :(J.END)
+J       J = X S                                 :(RETURN)
+J.END   CODE('G G = "(" J(F(L), " ") ")" :S(RETURN)F(FRETURN) ;')
+        DEFINE('G(L)')
+        A = 'keep'
+        OUTPUT = G('ab') ' ' A
+END

@@ -1,0 +1,11 @@
+        V = ARRAY(200)
+        K = 0
+outer   K = LT(K, 100) K + 1                            :F(done)
+        I = 0
+fill    I = LT(I, 200) I + 1                            :F(sum)
+        V[I] = I * 2                                    :(fill)
+sum     I = 0; S = 0
+read    I = LT(I, 200) I + 1                            :F(outer)
+        S = S + V[I]                                    :(read)
+done    OUTPUT = S
+END

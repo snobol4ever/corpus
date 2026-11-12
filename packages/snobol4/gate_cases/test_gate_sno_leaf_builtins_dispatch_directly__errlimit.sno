@@ -1,0 +1,8 @@
+        &ERRLIMIT = 2
+        OUTPUT = 'before'
+        x = DUPL('x', 'abc')
+        OUTPUT = 'after: ' &ERRTYPE ' kept ' x
+        y = SUBSTR('abc', 'q', 1)
+        OUTPUT = 'after: ' &ERRTYPE ' kept ' y
+        OUTPUT = 'end'
+END

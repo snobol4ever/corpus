@@ -1,0 +1,9 @@
+        DEFINE('TF(NAME,TAG)')                    :(TFEND)
+TF      T = 'inside ' X
+        OUTPUT = 'access ' NAME ' ' T                  :(FRETURN)
+TFEND   TRACE('X','ACCESS','','TF')
+        &TRACE = 100
+        X = 'v'
+        Y = X
+        OUTPUT = 'y=' Y
+END

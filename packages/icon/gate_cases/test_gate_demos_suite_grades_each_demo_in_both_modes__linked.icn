@@ -1,0 +1,4 @@
+link "../../../packages/gate/mod"
+procedure main();
+   greet();
+end

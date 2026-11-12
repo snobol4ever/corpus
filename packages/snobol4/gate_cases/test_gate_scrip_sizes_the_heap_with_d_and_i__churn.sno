@@ -1,0 +1,6 @@
+        I = 0
+LOOP    I = I + 1
+        S = DUPL('y', 2000)
+        LE(I, 4000)    :S(LOOP)
+        OUTPUT = 'churn ' I
+END

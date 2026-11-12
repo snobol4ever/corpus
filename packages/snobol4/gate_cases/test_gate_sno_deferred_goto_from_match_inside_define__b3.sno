@@ -1,0 +1,9 @@
+        DEFINE('F(X)PHI')               :(E)
+F       OP = 'A'
+        X (BREAK('.') . PHI) '.' = ''   :F(FR)S($('L.' OP))
+FR      F = 'nomatch'                   :(RETURN)
+L.A     F = F(PHI)                      :S(RETURN)F(FRETURN)
+E
+        OUTPUT = F('ab.cd.')
+        OUTPUT = 'after'
+END

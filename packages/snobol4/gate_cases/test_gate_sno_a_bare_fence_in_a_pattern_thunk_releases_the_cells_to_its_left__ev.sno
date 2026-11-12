@@ -1,0 +1,6 @@
+        &TRIM = 1
+loop    line = INPUT                                    :F(END)
+        r = EVAL(line)                                  :S(ok)
+        OUTPUT = 'FAIL'                                 :(loop)
+ok      OUTPUT = DATATYPE(r) ' [' r ']'                 :(loop)
+END

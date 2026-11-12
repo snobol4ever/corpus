@@ -1,0 +1,13 @@
+global g
+procedure main();
+   local s, t, L;
+   (s := "abcde")[2:5] := "x"; write("assign-section: ", s);
+   (s := "hello")[1] := "J"; write("assign-element: ", s);
+   ((s := "ab") ||:= "cd")[1:3] := "Z"; write("augop-chain: ", s);
+   (g := "global")[1+:3] := "GLO"; write("global: ", g);
+   L := ["one", "two", "three"];
+   every (t := !L)[1] := "*" do writes(t, " ");
+   write();
+   if (s := "ab")[5:6] := "q" then write("bad") else write("out-of-range fails: ", s);
+   (s := "xyz")[-1] := "Q"; write("negative: ", s);
+end

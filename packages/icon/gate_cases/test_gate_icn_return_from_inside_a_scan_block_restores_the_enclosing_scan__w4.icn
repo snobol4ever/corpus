@@ -1,0 +1,8 @@
+procedure inner(x);
+   local r;
+   x ? { r := tab(0); };
+   return r;
+end
+procedure main();
+   write("AB" ? (inner("zz") || move(1)));
+end

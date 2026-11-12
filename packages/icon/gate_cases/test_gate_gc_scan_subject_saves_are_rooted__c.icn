@@ -1,0 +1,10 @@
+procedure main();
+   local e, n, k;
+   n := 0;
+   repl("abc ", 50) ? {
+      e := create |(repl("y", 1500), 1);
+      every k := 1 to 20 do n := n + @e;
+      n := n + find("c");
+      };
+   write("n=", n);
+end

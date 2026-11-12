@@ -1,0 +1,1 @@
+procedure main();set() ? write("in");end

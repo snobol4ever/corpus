@@ -1,0 +1,7 @@
+        OUTPUT(.V, 7, 'out.txt')
+        V = 'first'
+        OUTPUT = 'read1 ' V
+        'second' LEN(6) . V
+        OUTPUT = 'read2 ' V
+        ENDFILE(7)
+END

@@ -1,0 +1,12 @@
+ DEFINE('F(X,Y)A')
+ DEFINE('TF(N,T)')  :(TFE)
+TF OUTPUT = 'TF ' N ' F=' F
+ F = IDENT(T,'RET') 'changed-by-tf'  :(RETURN)
+TFE
+ TRACE('F','RETURN','RET','TF')
+ &TRACE = 10000
+ OUTPUT = 'R=' F('abc', 'def')
+ OUTPUT = 'F after=' F    :(END)
+F A = X Y
+ F = A A                            :(RETURN)
+END

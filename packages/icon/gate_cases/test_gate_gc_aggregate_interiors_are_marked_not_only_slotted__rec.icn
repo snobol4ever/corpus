@@ -1,0 +1,7 @@
+record pt(x, y)
+procedure main();
+   local r, i, junk;
+   r := pt("alpha", "beta");
+   every i := 1 to 300000 do junk := [i, i+1, i+2];
+   write(r.x, " ", r.y);
+end

@@ -1,0 +1,10 @@
+procedure main()
+   &trace := -1;
+   every vp();
+   every vp(1);
+   every vp(1,2,3);
+end
+procedure vp(a, b[])
+   if *b = 0 then return a
+   else suspend *b | 0;
+end

@@ -1,0 +1,13 @@
+        &ERRLIMIT = 1000
+        X = EVAL('1.0e300 * 1.0e300')           :F(E1)
+        OUTPUT = 'in-eval=NO-FAIL'              :(N1)
+E1      OUTPUT = 'in-eval=[' &ERRTEXT '] type=' &ERRTYPE
+N1      A = 1.0e300
+        Y = A * A                               :F(E2)
+        OUTPUT = 'direct=NO-FAIL'               :(N2)
+E2      OUTPUT = 'direct=[' &ERRTEXT '] type=' &ERRTYPE
+N2      Z = EVAL('1.0586114708425298e+03 / 1.3244474893716128e-307')  :F(E3)
+        OUTPUT = 'divovf=NO-FAIL'               :(Z9)
+E3      OUTPUT = 'divovf=[' &ERRTEXT '] type=' &ERRTYPE
+Z9
+END

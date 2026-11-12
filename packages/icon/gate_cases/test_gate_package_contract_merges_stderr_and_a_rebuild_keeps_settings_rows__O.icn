@@ -1,0 +1,4 @@
+link options
+procedure main();
+   write("ok");
+end

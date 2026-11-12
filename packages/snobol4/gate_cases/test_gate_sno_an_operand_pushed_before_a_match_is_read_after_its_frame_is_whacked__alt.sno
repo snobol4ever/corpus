@@ -1,0 +1,7 @@
+        P = 'k' | ('xyz' ? 'y')
+        'zzk' ? P . V
+        OUTPUT = 'V=' V
+        Q = ('xyz' ? 'y') | 'k'
+        'zzk' ? Q . W
+        OUTPUT = 'W=' W
+END

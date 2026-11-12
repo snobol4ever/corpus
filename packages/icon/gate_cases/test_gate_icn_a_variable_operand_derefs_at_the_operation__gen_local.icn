@@ -1,0 +1,4 @@
+procedure main()
+local L, G; L := [1,2,3];
+G := 0; every G := G + !L; write(G);
+end

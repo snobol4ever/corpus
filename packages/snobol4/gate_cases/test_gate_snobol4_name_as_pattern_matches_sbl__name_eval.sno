@@ -1,0 +1,18 @@
+        P = .b
+        X = 'q'
+        X = EVAL("'abc' ? .b")
+        OUTPUT = 'a:' X
+        X = 'q'
+        X = EVAL("'abc' ? P")
+        OUTPUT = 'b:' X
+        X = 'q'
+        X = EVAL("'abc' ? (.b)")
+        OUTPUT = 'c:' X
+        X = 'q'
+        X = EVAL("'xyz' ? .b")
+        OUTPUT = 'd:' X
+        X = EVAL("'(matched [things])' ? .i")
+        OUTPUT = 'e:' X
+        X = EVAL("'abc' ? (.b 'c')")
+        OUTPUT = 'f:' X
+END

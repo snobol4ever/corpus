@@ -1,0 +1,8 @@
+        DEFINE('F2(X,Y)')                       :(F2.END)
+F2      IDENT(X, 'bad')                         :S(FRETURN)
+        F2 = X Y                                :(RETURN)
+F2.END  OPSYN('G', 'F2')
+        G('bad', 'q')                           :S(C1)
+        OUTPUT = 'G failed'                     :(END)
+C1      OUTPUT = 'G SUCCEEDED'
+END

@@ -1,0 +1,19 @@
+                DATA('list(n,a)')
+                DATA('pt(x,y)')
+                x = list(0, ARRAY('0:3'))
+                a(x)[1] = 5
+                OUTPUT = a(x)[1]
+                a(x) = ARRAY('0:7')
+                n(x) = n(x) + 2
+                OUTPUT = n(x) ' ' PROTOTYPE(a(x))
+                y = list(3, 'abc')
+                a(y) = a(y) 'def'
+                OUTPUT = a(y) ' ' DATATYPE(y)
+                &ERRLIMIT = 5
+                z = pt(1,2)
+                a(z) = 9
+                OUTPUT = 'wrong-type ' &ERRTYPE
+                a(5) = 9
+                OUTPUT = 'non-record ' &ERRTYPE
+                OUTPUT = x(z) ' ' y(z)
+END

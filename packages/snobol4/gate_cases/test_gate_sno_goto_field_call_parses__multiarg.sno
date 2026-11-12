@@ -1,0 +1,6 @@
+        DEFINE('PR(N,W)')               :(MAIN)
+PR      PR  =  .L3                      :(NRETURN)
+MAIN    W  =  'x'
+        OUTPUT  =  'a'                   :(PR(6,W W))
+L3      OUTPUT  =  'b'
+END

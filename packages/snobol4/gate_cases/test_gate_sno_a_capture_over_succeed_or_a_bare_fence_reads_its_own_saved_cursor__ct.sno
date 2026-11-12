@@ -1,0 +1,18 @@
+        subject = 'abcdefgh'
+        n = 'stale'
+        subject LEN(0) . n
+        OUTPUT = 'len0: [' n ']'
+        n = 'stale'
+        subject ('a' SUCCEED) . n
+        OUTPUT = 'a succeed: [' n ']'
+        n = 'stale'
+        subject (SUCCEED | 'a') . n
+        OUTPUT = 'succeed or a: [' n ']'
+        n = 'stale'
+        subject FENCE . n
+        OUTPUT = 'static fence: [' n ']'
+        n = 'stale'
+        p = (FENCE 'a') . n
+        subject p
+        OUTPUT = 'stored fence a: [' n ']'
+END

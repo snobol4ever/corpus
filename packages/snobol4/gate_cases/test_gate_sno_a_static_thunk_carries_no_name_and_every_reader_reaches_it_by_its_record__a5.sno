@@ -1,0 +1,14 @@
+        DEFINE('G(K)')
+        N = 7
+        P = LEN(2) . *G('PA') LEN(1) $ *G('PB')
+        'ABCDE' P
+        OUTPUT = 'PA=' PA ' PB=' PB
+        Q = BREAK('D') . *$('X' N)
+        'ABCDE' Q
+        OUTPUT = 'X7=' X7
+        R = 'B' LEN(1) . *G('RV')
+        'ABCDE' R
+        OUTPUT = 'RV=' RV
+                                          :(END)
+G       G = .$K                           :(NRETURN)
+END

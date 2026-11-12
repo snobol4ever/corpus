@@ -1,0 +1,4 @@
+        T = TABLE()
+        T[.ABC] = 'dotkey'
+        OUTPUT = 'dot [' T[.ABC] '] other [' T[.ABD] ']'
+END

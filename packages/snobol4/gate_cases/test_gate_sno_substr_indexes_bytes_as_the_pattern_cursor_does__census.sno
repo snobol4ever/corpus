@@ -1,0 +1,36 @@
+          s = 'éé:-x'
+          OUTPUT = 'size ' SIZE(s)
+          OUTPUT = 'substr12 [' SUBSTR(s, 1, 2) ']'
+          OUTPUT = 'substr5 [' SUBSTR(s, 5, 1) ']'
+          s ? 'éé' @c
+          OUTPUT = 'cursor ' c
+          s ? LEN(2) . v
+          OUTPUT = 'len2 [' v ']'
+          s ? TAB(4) . v
+          OUTPUT = 'tab4 [' v ']'
+          s ? RTAB(1) . v
+          OUTPUT = 'rtab1 [' v ']'
+          s ? POS(4) REM . v
+          OUTPUT = 'pos4 [' v ']'
+          s ? RPOS(3) REM . v
+          OUTPUT = 'rpos3 [' v ']'
+          s ? BREAK(':') @c
+          OUTPUT = 'break ' c
+          s ? SPAN('é') . v @c
+          OUTPUT = 'span [' v '] ' c
+          s ? ANY('é') @c
+          OUTPUT = 'any ' c
+          s ? NOTANY(':') @c
+          OUTPUT = 'notany ' c
+          OUTPUT = 'reverse [' REVERSE('aé') ']'
+          OUTPUT = 'lpad [' LPAD('é', 4, '*') ']'
+          OUTPUT = 'rpad [' RPAD('é', 4, '*') ']'
+          OUTPUT = 'dupl ' SIZE(DUPL('é', 3))
+          OUTPUT = 'trim [' TRIM('é  ') ']'
+          OUTPUT = 'replace [' REPLACE('aéb', 'ab', 'xy') ']'
+          OUTPUT = 'lgt ' (LGT('é', 'z') 'yes', 'no')
+          OUTPUT = 'integer ' SIZE(CONVERT(SIZE(s), 'STRING'))
+          t = 'aé'
+          OUTPUT = 'substr22 [' SUBSTR(t, 2, 2) ']'
+          OUTPUT = 'substr21 size ' SIZE(SUBSTR(t, 2, 1))
+END

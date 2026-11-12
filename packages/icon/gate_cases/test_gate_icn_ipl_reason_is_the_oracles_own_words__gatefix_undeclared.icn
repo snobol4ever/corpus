@@ -1,0 +1,4 @@
+procedure main()
+   write("this line runs first");
+   gate_fixture_no_such_procedure();
+end

@@ -1,0 +1,4 @@
+procedure main()
+   every 1 to 3000000 do image("ab\tcd");
+   write("ok");
+end

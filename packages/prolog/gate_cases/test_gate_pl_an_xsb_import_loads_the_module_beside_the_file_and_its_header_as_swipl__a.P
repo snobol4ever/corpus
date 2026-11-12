@@ -1,0 +1,10 @@
+:- import f/1 from b.
+:- import q/1 from c.
+:- import member/2 from basics.
+:- import ord_setproduct/3 from ordsets.
+:- import variant/2 from subsumes.
+g(X) :- f(X).
+k(L) :- findall(X, (member(X, [1,2,3]), f(X)), L).
+r(L) :- findall(X, q(X), L0), msort(L0, L).
+p(P) :- ord_setproduct([a,b], [c,d], P).
+v(R) :- ( variant(t(_, A, A), t(_, B, B)) -> R = yes ; R = no ).

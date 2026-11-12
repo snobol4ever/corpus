@@ -1,0 +1,8 @@
+procedure main()
+   local s, r;
+   s := 'cab';
+   r := s[2];
+   write(image(r));
+   s[1] := "x";
+   write(image(s));
+end

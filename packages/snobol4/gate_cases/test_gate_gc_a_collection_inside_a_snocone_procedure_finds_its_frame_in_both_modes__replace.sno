@@ -1,0 +1,6 @@
+	DEFINE('f()rest')	:(main)
+f	rest = 'ABC'
+	rest LEN(1) = ''
+	f = rest	:(RETURN)
+main	OUTPUT = f()
+END

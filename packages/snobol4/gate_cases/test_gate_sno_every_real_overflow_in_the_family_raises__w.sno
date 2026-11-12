@@ -1,0 +1,25 @@
+        &ERRLIMIT = 1000
+        BIG = 1.0e308
+        A = BIG * BIG                           :F(A1)
+        OUTPUT = 'mul=[' A ']'                  :(B)
+A1      OUTPUT = 'mul=' &ERRTEXT
+B       C = BIG / 1.0e-300                      :F(B1)
+        OUTPUT = 'div=[' C ']'                  :(D)
+B1      OUTPUT = 'div=' &ERRTEXT
+D       E = BIG + BIG                           :F(D1)
+        OUTPUT = 'add=[' E ']'                  :(F)
+D1      OUTPUT = 'add=' &ERRTEXT
+F       G = (0.0 - BIG) - BIG                   :F(F1)
+        OUTPUT = 'sub=[' G ']'                  :(H)
+F1      OUTPUT = 'sub=' &ERRTEXT
+H       I = EVAL('1.2532722125503777 ** 2.6531489453414562e+10')  :F(H1)
+        OUTPUT = 'powpromote=[' I ']'           :(J)
+H1      OUTPUT = 'powpromote=' &ERRTEXT
+J       K = EVAL('1.0e308 ** 2.0')              :F(J1)
+        OUTPUT = 'pow=[' K ']'                  :(L)
+J1      OUTPUT = 'pow=' &ERRTEXT
+L       M = 2.0 * 3.0                           :F(L1)
+        OUTPUT = 'ok=' M                        :(Z)
+L1      OUTPUT = 'ok=WRONGLY-FAILED'
+Z
+END

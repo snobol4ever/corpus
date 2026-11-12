@@ -1,0 +1,18 @@
+        DEFINE('F(X)Y')
+        DEFINE('H(N,T)S,K')
+        TRACE('F','CALL',,'H')
+        TRACE('F','RETURN',,'H')
+        &TRACE = 100000
+                                                 :(MAIN)
+F       Y = X X X
+        F = SIZE(Y)                              :(RETURN)
+H       HN = HN + 1
+        S = DUPL('ab',50) T N
+        K = 0
+H1      K = LT(K,20) K + 1                       :F(RETURN)
+        S = S DUPL('z',K)                        :(H1)
+MAIN    I = 0
+L       I = LT(I,40) I + 1                       :F(DONE)
+        Z = Z F(DUPL('q',I))                     :(L)
+DONE    OUTPUT = SIZE(Z) " " HN
+END

@@ -1,0 +1,8 @@
+procedure tab(n);
+  write("my tab ", n);
+  return;
+end
+procedure main();
+  "abcd" ? { tab(3); write(&pos) };
+  tab(2);
+end

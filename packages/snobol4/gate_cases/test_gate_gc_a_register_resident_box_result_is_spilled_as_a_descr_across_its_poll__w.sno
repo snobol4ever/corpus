@@ -1,0 +1,13 @@
+        DEFINE('inner(c)')
+        DEFINE('outer(cs)')                                   :(both_end)
+inner   stk    = c stk
+        inner  = .stk                                         :(NRETURN)
+outer   outer  = EVAL('LEN(1) . *inner(' cs ')')              :(RETURN)
+both_end
+        stk    = ''
+        s      = 'AB'
+        pat    = outer('c1') outer('c2')
+        s POS(0) pat RPOS(0)                                  :S(YES)F(NO)
+YES     OUTPUT = 'stk=' stk                                   :(END)
+NO      OUTPUT = 'fail'
+END

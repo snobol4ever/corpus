@@ -1,0 +1,6 @@
+* comment
+        before = 'B'
+-INCLUDE 'gatehelper.inc'
+        after = 'A'
+        OUTPUT = before after incval1 incval2
+END

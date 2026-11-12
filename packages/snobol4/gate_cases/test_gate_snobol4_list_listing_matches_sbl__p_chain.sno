@@ -1,0 +1,6 @@
+-LIST,-EJECT
+ A = 1
+-TITLE x,-LIST
+	B = 2
+ OUTPUT = A + B
+END

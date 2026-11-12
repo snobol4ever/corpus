@@ -1,0 +1,13 @@
+procedure lrev(L)
+   local L1, i;
+   L1 := [];
+   every i := *L to 1 by -1 do put(L1, L[i]);
+   return L1;
+end
+procedure flip(L)
+   flip := lrev;
+   return flip(L);
+end
+procedure main()
+   every writes(" ", !flip([1, 2, 3])); write();
+end

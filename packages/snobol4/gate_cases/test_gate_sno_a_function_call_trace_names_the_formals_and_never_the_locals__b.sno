@@ -1,0 +1,8 @@
+        &TRACE = 100
+        DEFINE('F(X,Y)T')
+        TRACE('F', 'FUNCTION')
+        OUTPUT = F(3, 4)
+        :(END)
+F       T = X + Y
+        F = T * 2 :(RETURN)
+END

@@ -1,0 +1,11 @@
+procedure main()
+   local p;
+   p := G;
+   write(p(-5));
+   every write(p(-6));
+end
+procedure G(a1)
+   static f;
+   initial f := proc("abs", 0);
+   suspend f(a1);
+end

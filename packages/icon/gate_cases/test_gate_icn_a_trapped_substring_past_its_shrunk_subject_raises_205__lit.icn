@@ -1,0 +1,6 @@
+procedure main()
+   local s;
+   s := "abc";
+   (s :=: "lit") | write("failed");
+   write(s);
+end

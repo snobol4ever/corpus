@@ -1,0 +1,14 @@
+procedure main()
+   local args;
+   args := [1,2];
+   every write("direct ", g(1,2));
+   every write("apply  ", g ! args);
+   every write("nested ", h ! args);
+   write("outer  ", &level);
+end
+procedure g(a, b[])
+   suspend &level;
+end
+procedure h(a, b[])
+   suspend g(a) | g(a);
+end

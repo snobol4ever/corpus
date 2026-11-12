@@ -1,0 +1,11 @@
+say ?'0'; say ?'00'; say ?''; say so '0'; say '0'.Bool; say ('0' ?? "t" !! "f"); say !'0'; say (not '0'); say not(0); say not(1);
+say lc("ÅÄÖ"); say uc("åäö"); say lc("ABC"); say uc("abc"); say uc("ß");
+my $str = "foobar";
+say substr($str, *-1); say substr($str, *-4, 2); say substr($str, 0, *-2); say substr($str, 2, *-2); say substr($str, *-4, *-1);
+say $str.substr(*-3); say $str.substr(1, 3); say substr($str, 3); say $str;
+say split(",", "a,b,c").join("|"); say comb(2, "abcdef").join("|"); say first({ $_ > 1 }, (1,2,3)); say words("a b  c").join(",");
+say hash(a=>1,b=>2).elems; say hash(a=>1,b=>2){"b"}; say hash((c=>3)).keys;
+say slip(1,2,3).elems;
+say sleep(0); say sleep 0.001;
+say val("3") + 1; say val("abc");
+my $ms = "abbc"; say ($ms ~~ m{a(b+)c}) ?? "brace" !! "no"; say $/[0];

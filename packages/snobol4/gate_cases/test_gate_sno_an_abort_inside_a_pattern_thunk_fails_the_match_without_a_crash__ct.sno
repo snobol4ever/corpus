@@ -1,0 +1,13 @@
+        '1' ? ABORT                             :S(Y1)F(N1)
+Y1      OUTPUT = 'plain abort: yes'             :(T2)
+N1      OUTPUT = 'plain abort: no'
+T2      '1' ? LEN(1) ABORT                      :S(Y2)F(N2)
+Y2      OUTPUT = 'len abort: yes'               :(T3)
+N2      OUTPUT = 'len abort: no'
+T3      '12' ? ('1' ABORT | '12')               :S(Y3)F(N3)
+Y3      OUTPUT = 'abort arm: yes'               :(T4)
+N3      OUTPUT = 'abort arm: no'
+T4      '1' ? *FAIL                             :S(Y4)F(N4)
+Y4      OUTPUT = 'deferred fail: yes'           :(END)
+N4      OUTPUT = 'deferred fail: no'
+END

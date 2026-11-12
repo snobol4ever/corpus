@@ -1,0 +1,8 @@
+        &TRACE = 100
+        A = ARRAY('2,2')
+        TRACE(.A[1,1])
+        A[1,1] = 1
+        STOPTR(.A[1,1])
+        A[1,1] = 2
+        OUTPUT = 'end'
+END

@@ -1,0 +1,9 @@
+        &TRIM = 1
+loop    line = INPUT                                            :F(END)
+        &ERRLIMIT = 1000
+        SETEXIT('errh')
+        r = EVAL(line)                                          :S(ok)
+        OUTPUT = 'FAIL'                                         :(loop)
+ok      OUTPUT = DATATYPE(r) ' ' SIZE(r)                        :(loop)
+errh    OUTPUT = 'ERROR ' &ERRTYPE                              :(loop)
+END

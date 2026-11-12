@@ -1,0 +1,14 @@
+procedure main();
+   &subject := "hello";
+   write("subject: ", &subject, " pos: ", &pos);
+   &pos := 3;
+   write("pos: ", &pos);
+   &random := 42;
+   write("random: ", &random);
+   &trace := 0;
+   write("trace: ", &trace);
+   &error := 5;
+   write("error: ", &error);
+   &subject := "second";
+   write("resubject: ", &subject, " pos: ", &pos);
+end

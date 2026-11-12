@@ -1,0 +1,9 @@
+        &TRACE = 100
+        A = ARRAY('2,2')
+        TRACE(.A[1,1])
+        TRACE(.A[2,2], 'VALUE', 'tg')
+        A[1,1] = 1
+        A[2,2] = 2
+        A[1,2] = 3
+        OUTPUT = 'end'
+END

@@ -1,0 +1,12 @@
+	DEFINE('F(X)')				:(FEND)
+F	OUTPUT = 'E0 ' X
+	DEFINE('F(X)', 'F_1')
+	F = F(X)				:(RETURN)
+F_1	OUTPUT = 'E1 ' X
+	DEFINE('F(X)', 'F_2')
+	F = F(X)				:(RETURN)
+F_2	OUTPUT = 'E2 ' X
+	F = 'done'				:(RETURN)
+FEND
+	OUTPUT = F('v')
+END

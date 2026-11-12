@@ -1,0 +1,9 @@
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	N = 'str'
+	N = 12
+	N = 1.5
+	N = LEN(3)
+	N = .X
+	OUTPUT = 'trace=' &TRACE
+END

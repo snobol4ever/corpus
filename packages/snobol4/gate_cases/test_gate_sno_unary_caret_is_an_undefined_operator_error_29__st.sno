@@ -1,0 +1,15 @@
+        &ERRLIMIT = 10
+        SETEXIT('h')
+        X = ^1
+        OUTPUT = 'not reached ' X                 :(n2)
+h       OUTPUT = 'trapped ' &ERRTYPE
+n2      SETEXIT('h2')
+        Y = 0 ^0
+        OUTPUT = 'not reached ' Y                 :(n3)
+h2      OUTPUT = 'trapped ' &ERRTYPE
+n3      OPSYN('^', 'DUPL', 2)
+        SETEXIT('h3')
+        r = EVAL("^'x'")
+        OUTPUT = 'not trapped ' r                 :(END)
+h3      OUTPUT = 'trapped ' &ERRTYPE
+END

@@ -1,0 +1,11 @@
+	T = TABLE()
+	T['A'] = 1
+	T['B'] = 2
+	T['C'] = 3
+	T['D'] = 4
+	C = CONVERT(T,'ARRAY')
+	I = 1
+L	OUTPUT = C[I,1] '=' C[I,2]		:F(D)
+	I = I + 1				:(L)
+D
+END

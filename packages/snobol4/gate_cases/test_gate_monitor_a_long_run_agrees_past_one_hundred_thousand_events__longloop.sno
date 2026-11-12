@@ -1,0 +1,5 @@
+        I = 0
+LOOP    I = I + 1
+        LT(I, 40000)   :S(LOOP)
+        OUTPUT = I
+END

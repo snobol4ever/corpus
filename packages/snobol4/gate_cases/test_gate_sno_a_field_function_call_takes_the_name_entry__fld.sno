@@ -1,0 +1,24 @@
+        DATA('pair(n,a)')
+        DATA('node(n,kids,size)')
+        DEFINE('total(p)')                      :(START)
+total   total = n(p) + a(p)                     :(RETURN)
+START   p = pair(3, 4)
+        q = node(10, pair(1, 2), 2)
+        OUTPUT = n(p) ' ' a(p) ' ' n(q) ' ' size(q) ' ' n(kids(q)) ' ' a(kids(q))
+        OUTPUT = total(p) ' ' total(kids(q))
+        n(p) = 30
+        a(p) = a(p) + 1
+        OUTPUT = n(p) ' ' a(p) ' ' total(p)
+        s = 'xyz'
+        s LEN(1) . first
+        OUTPUT = first (n(q) . x) x
+        r = .n(p)
+        $r = 99
+        OUTPUT = n(p) ' ' DATATYPE(p) ' ' DATATYPE(q)
+        i = 0
+loop    i = i + 1
+        k = pair(i, i * 2)
+        acc = acc + n(k) + a(k)
+        LT(i, 500)                              :S(loop)
+        OUTPUT = acc
+END

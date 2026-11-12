@@ -1,0 +1,13 @@
+        DEFINE('F()')
+        &ERRLIMIT = 5
+        SETEXIT(.H)
+        OUTPUT = 'F=' F()                   :F(FF)
+        Z = 0
+        Y = 1 / Z
+        OUTPUT = 'after error, errlimit ' &ERRLIMIT   :(END)
+FF      OUTPUT = 'F failed'                 :(END)
+F       Z = 0
+        F = 1 / Z
+        OUTPUT = 'in F after EVAL ' F       :(RETURN)
+H       OUTPUT = 'handler ' &ERRTYPE ' level ' &FNCLEVEL     :(RETURN)
+END

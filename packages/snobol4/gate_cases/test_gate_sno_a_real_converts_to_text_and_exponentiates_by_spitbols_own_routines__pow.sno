@@ -1,0 +1,16 @@
+        I = 0
+LI      I = I + 1
+        GT(I, 20)                                   :S(END)
+        X = (1.0 * I) / 7
+        N = 0
+LN      N = N + 1
+        GT(N, 40)                                   :S(LI)
+        OUTPUT = X ** N
+        OUTPUT = X ** (N / 3.0)
+        OUTPUT = (-X) ** N
+        OUTPUT = (-X) ** (1.0 * N)
+        OUTPUT = I ** (-N)
+        OUTPUT = (-I) ** (-N)
+        OUTPUT = X ** (-N)
+        OUTPUT = I ** (N / 7.0)                     :(LN)
+END

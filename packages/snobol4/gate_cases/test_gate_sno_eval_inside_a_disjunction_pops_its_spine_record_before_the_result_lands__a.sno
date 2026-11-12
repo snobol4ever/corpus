@@ -1,0 +1,8 @@
+        big = 5
+        r = (EVAL('big'), 'fail')
+        OUTPUT = 'r=' r
+        r = (EVAL('big + 1'), EVAL('big'))
+        OUTPUT = 'r2=' r
+        r = (DIFFER(1), EVAL('big * 2'))
+        OUTPUT = 'r3=' r
+END

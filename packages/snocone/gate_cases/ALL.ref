@@ -1,0 +1,132 @@
+/*- 1 test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w */
+42
+/*- 2 test_gate_gc_a_collection_inside_a_snocone_procedure_finds_its_frame_in_both_modes__alloc */
+100
+/*- 3 test_gate_gc_a_collection_inside_a_snocone_procedure_finds_its_frame_in_both_modes__replace */
+BC
+/*------------------------- 4 test_gate_gc_map_table_present_in_both_media__d */
+42
+/*------------- 5 test_gate_gc_snocone_deferred_eval_survives_a_collection__w */
+1
+/*-------------------------- 6 test_gate_nreturn_by_name_value_broken__mk_int */
+43
+/*-------------------------- 7 test_gate_nreturn_by_name_value_broken__mk_str */
+stored
+/*------------------- 8 test_gate_sc_duplicate_label_is_refused_at_parse__ctl */
+fg
+/*--------------- 9 test_gate_snc_a_label_at_end_of_file_is_a_statement__bare */
+one
+two
+/*-------------- 10 test_gate_snc_a_label_at_end_of_file_is_a_statement__twin */
+one
+two
+/*- 11 test_gate_sno_flush_runs_the_recorded_conditional_assignments_then_cuts__s */
+YES 1 ab
+YES 2 stored a
+NO 3 cut
+YES 4 twice abc
+/*- 12 test_gate_sno_the_real_model_is_spitbols_gtnum_reading_and_ftz_daz_arithmetic__sc */
+quot 0.
+lit 0.
+coerce 0.
+/*---------------- 13 test_gate_sno_tracing_does_not_change_a_match_result__p */
+hello world
+7
+/*- 14 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__a */
+ok 2
+ok 4
+ERROR 2
+ERROR 2
+/*- 15 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__b */
+if: trapped 2
+while: trapped 2
+end
+/*- 16 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__cf */
+first 1
+trap 2 2
+after eval 2
+trap 2 3
+after eval 3
+end 3
+first 1
+trap 2 2
+after eval 2
+end 2
+done
+/*- 17 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__cn */
+E2,2,2,E2,E2,6,
+done
+/*- 18 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__ct */
+trap 2 1
+after eval 1
+trap 2 2
+after eval 2
+trap 2 3
+after eval 3
+end
+done
+/*- 19 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__ei */
+first
+second
+ERROR 2
+after
+/*- 20 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__lp */
+2y
+1y
+2y
+1y
+after
+/*- 21 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__nf */
+ERROR 2
+after
+/*- 22 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__nt */
+ERROR 2
+after
+/*- 23 test_gate_snocone_a_setexit_trap_is_taken_from_a_function_body_a_nested_block_and_a_condition__sw */
+one
+other
+ERROR 2
+after
+/*- 24 test_gate_snocone_apply_of_a_snocone_function_carries_its_arguments_into_the_tiny_record__c */
+apply 3
+apply x 4
+two a-b
+two short a-
+two long a-b
+fr 9
+fr failed
+fact 120
+nr one
+outer 8
+eval 5
+end
+/*- 25 test_gate_zd_a_back_edge_leaves_a_blob_run_and_alternation_arms_stay_unplanned__w1 */
+2y
+1y
+0y
+1y
+0y
+after
+/*- 26 test_gate_zd_a_back_edge_leaves_a_blob_run_and_alternation_arms_stay_unplanned__w2 */
+(P
+(A
+)
+(B
+)
+)
+after
+/*- 27 test_gate_zd_a_back_edge_leaves_a_blob_run_and_alternation_arms_stay_unplanned__w3 */
+quoted
+after
+/*- 28 test_gate_zd_a_back_edge_leaves_a_blob_run_and_alternation_arms_stay_unplanned__w4 */
+ident
+ident2
+/*- 29 test_gate_zd_a_back_edge_leaves_a_blob_run_and_alternation_arms_stay_unplanned__w5 */
+hi
+replaced
+after
+/*- 30 test_gate_zd_a_back_edge_leaves_a_blob_run_and_alternation_arms_stay_unplanned__w6 */
+[ab        ]
+[abcdefghijkl ]
+[abcdefghijkl  ]
+done

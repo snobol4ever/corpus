@@ -1,0 +1,27 @@
+        'XAYAC' ('A' FENCE 'C')                 :S(Y1)F(N1)
+Y1      OUTPUT = 'fence-in-sequence: yes'       :(T2)
+N1      OUTPUT = 'fence-in-sequence: no'
+T2      'XAB' (('A' FENCE) 'C' | 'B')           :S(Y2)F(N2)
+Y2      OUTPUT = 'flattened-fence: yes'         :(T3)
+N2      OUTPUT = 'flattened-fence: no'
+T3      P = 'B'
+        'SNOBOL' P                              :S(Y3)F(N3)
+Y3      OUTPUT = 'plain-thunk-retry: yes'       :(T4)
+N3      OUTPUT = 'plain-thunk-retry: no'
+T4      'SNOBOL' ARBNO('S' | ABORT) 'X'         :S(Y4)F(N4)
+Y4      OUTPUT = 'arbno-abort: yes'             :(T5)
+N4      OUTPUT = 'arbno-abort: no'
+T5      'AAB' ARBNO('A' FENCE) 'B'              :S(Y5)F(N5)
+Y5      OUTPUT = 'arbno-fence: yes'             :(T6)
+N5      OUTPUT = 'arbno-fence: no'
+T6      'XAYAB' (FENCE('A') 'B')                :S(Y6)F(N6)
+Y6      OUTPUT = 'fence-function-retry: yes'    :(T7)
+N6      OUTPUT = 'fence-function-retry: no'
+T7      PF = FENCE 'B'
+        'BB' ('X' | *PF)                        :S(Y7)F(N7)
+Y7      OUTPUT = 'leading-fence-deferred: yes'  :(T8)
+N7      OUTPUT = 'leading-fence-deferred: no'
+T8      'SNOBOL' ('B' | ABORT)                  :S(Y8)F(N8)
+Y8      OUTPUT = 'inline-abort: yes'            :(END)
+N8      OUTPUT = 'inline-abort: no'
+END

@@ -1,0 +1,17 @@
+        DEFINE('P(X)')                          :(P.END)
+P       X = 1
+        P = 2                                   :(RETURN)
+P.END   DEFINE('Q(X)')                          :(Q.END)
+Q       Q = 3                                   :(RETURN)
+Q.END   OPSYN('|', .Q, 1)
+        OPSYN('#', .P, 1)
+        A = 1
+        #'z'
+        OUTPUT = 'after-op ' &LASTNO
+        APPLY(.P, 'z')
+        OUTPUT = 'after-apply ' &LASTNO
+        P('z')
+        OUTPUT = 'after-call ' &LASTNO
+        B = |'z' &LASTNO
+        OUTPUT = 'same-stmt-op ' B
+END

@@ -1,0 +1,15 @@
+procedure main();
+   local s, f;
+   s := "a" || char(0) || "b" || char(0) || "c";
+   write("len=", *s);
+   writes(s); write();
+   write(s);
+   writes(&output, s); write();
+   write(&output, s, "|", s);
+   write(&errout, s);
+   f := open("w.out", "w") | stop("cannot open w.out");
+   write(f, s); writes(f, s); close(f);
+   f := open("w.out") | stop("cannot reopen w.out");
+   write(image(reads(f, 100)));
+   write(image(s));
+end

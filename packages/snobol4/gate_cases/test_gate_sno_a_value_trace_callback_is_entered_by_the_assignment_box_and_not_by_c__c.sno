@@ -1,0 +1,8 @@
+        DEFINE('TF(NAME,TAG)')                    :(TFEND)
+TF      OUTPUT = 'trace ' NAME ' = ' X                  :(FRETURN)
+TFEND   TRACE('X','VALUE','','TF')
+        &TRACE = 100
+        X = 1
+        X = 'two'
+        OUTPUT = 'done ' X
+END

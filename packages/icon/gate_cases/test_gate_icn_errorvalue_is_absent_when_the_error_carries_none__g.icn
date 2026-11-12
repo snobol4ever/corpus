@@ -1,0 +1,24 @@
+procedure main();
+   &error := -1;
+   (1 + "q");
+   write("HASVALUE n=", &errornumber, " t=", image(&errortext), " v=", image(&errorvalue)) |
+      write("HASVALUE n=", &errornumber, " VALUE-FAILED");
+   &error := -1;
+   (-36. ^ -9.);
+   write("NOVALUE_206 n=", &errornumber, " t=", image(&errortext), " v=", image(&errorvalue)) |
+      write("NOVALUE_206 n=", &errornumber, " t=", image(&errortext), " VALUE-FAILED");
+   &error := -1;
+   (0 ^ -1);
+   write("NOVALUE_204 n=", &errornumber, " t=", image(&errortext), " v=", image(&errorvalue)) |
+      write("NOVALUE_204 n=", &errornumber, " t=", image(&errortext), " VALUE-FAILED");
+   &error := -1;
+   (1 + "q");
+   &error := -1;
+   (-36. ^ -9.);
+   write("STALE n=", &errornumber, " v=", image(&errorvalue)) |
+      write("STALE n=", &errornumber, " VALUE-FAILED");
+   &error := -1;
+   pull(&null);
+   write("NULLVALUE n=", &errornumber, " v=", image(&errorvalue)) |
+      write("NULLVALUE n=", &errornumber, " VALUE-FAILED");
+end

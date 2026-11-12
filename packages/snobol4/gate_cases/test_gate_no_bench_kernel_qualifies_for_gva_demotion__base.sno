@@ -1,0 +1,7 @@
+         counter = 0
+         total = 0
+loop     counter = counter + 1
+         total = total + counter
+         LT(counter,5)                                        :S(loop)
+         OUTPUT = total
+END

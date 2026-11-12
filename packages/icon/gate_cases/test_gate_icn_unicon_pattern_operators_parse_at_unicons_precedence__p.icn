@@ -1,0 +1,7 @@
+procedure main()
+   p := Span(&digits) => n || Len(`n`) -> f;
+   q := ("be" .| "ge") || Fence();
+   r := a || b .| c;
+   t := s ?? x .| y;
+   u := Pos(1) || .> a;
+end

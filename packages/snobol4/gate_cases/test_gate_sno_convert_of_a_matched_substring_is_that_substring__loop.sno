@@ -1,0 +1,11 @@
+        DATA('PR(HD,TL)')
+        DEFINE('EXPL(A)CH')                     :(EXPL.END)
+EXPL
+EXPL1   A LEN(1) . CH =                         :F(RETURN)
+        EXPL = PR(CH, EXPL)                     :(EXPL1)
+EXPL.END
+        L = EXPL('APPEND')
+LOOP    OUTPUT = CONVERT(HD(L), 'STRING')       :F(END)
+        L = TL(L)
+        IDENT(L)                                :S(END)F(LOOP)
+END

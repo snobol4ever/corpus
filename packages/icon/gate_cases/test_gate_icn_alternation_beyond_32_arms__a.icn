@@ -1,0 +1,7 @@
+procedure main()
+   local g, c, n;
+   every write("plain ", $alts);
+   g := create $alts;
+   n := 0;
+   every c := 1 to 42 do { n +:= 1; write("coex ", n, " ", image(@g) | "failed") };
+end

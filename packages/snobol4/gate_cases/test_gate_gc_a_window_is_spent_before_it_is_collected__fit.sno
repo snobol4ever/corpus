@@ -1,0 +1,5 @@
+        I = 0
+LOOP    S = DUPL('x', 100) I
+        I = LT(I, 3000) I + 1                           :S(LOOP)
+        OUTPUT = SIZE(S) ' ' I
+END

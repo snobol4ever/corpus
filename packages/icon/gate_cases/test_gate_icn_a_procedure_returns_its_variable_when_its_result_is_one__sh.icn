@@ -1,0 +1,10 @@
+global s
+procedure main()
+   s := "g";
+   write(foo("p"));
+   (foo("p") := "x") | write("failed");
+   write(s);
+end
+procedure foo(s)
+   return s;
+end

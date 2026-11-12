@@ -1,0 +1,34 @@
+        rec = 'alpha,beta,gamma,delta,epsilon'
+        pat = BREAK(',') . f1 ',' BREAK(',') . f2 ',' BREAK(',') . f3
+        i = 1
+loop    rec ? pat
+        i = LT(i, 50) i + 1                             :S(loop)
+        OUTPUT = 'fields = ' f1 ' ' f2 ' ' f3
+* empty captures take the slow arm
+        'abc' ? LEN(0) . e1 LEN(1) . e2 LEN(0) . e3
+        OUTPUT = '[' e1 '][' e2 '][' e3 ']'
+* twenty distinct targets: the 16-slot cache collides
+        s = 'abcdefghijklmnopqrst'
+        s ? LEN(1) . a1 LEN(1) . a2 LEN(1) . a3 LEN(1) . a4 LEN(1) . a5 LEN(1) . a6 LEN(1) . a7 LEN(1) . a8 LEN(1) . a9 LEN(1) . a10 LEN(1) . a11 LEN(1) . a12 LEN(1) . a13 LEN(1) . a14 LEN(1) . a15 LEN(1) . a16 LEN(1) . a17 LEN(1) . a18 LEN(1) . a19 LEN(1) . a20
+        OUTPUT = a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20
+* the same variable captured twice in one match
+        'xyz' ? LEN(1) . dup LEN(1) . dup
+        OUTPUT = 'dup=' dup
+* a conditional capture that is later backed out
+        'abab' ? (LEN(1) . back 'x' | 'ab') LEN(2) . after
+        OUTPUT = 'back=' back ' after=' after
+* a deferred (star) capture
+        w = 'mid'
+        'aaa' ? 'a' *IDENT(w, 'mid') . star
+        OUTPUT = 'star=' star
+* the subject is itself a capture target
+        sub = 'hello world'
+        sub ? BREAK(' ') . sub
+        OUTPUT = 'sub=' sub
+* captures keep working after a collection-sized churn
+        j = 0
+churn   big = DUPL('x', 1000) j
+        j = LT(j, 300) j + 1                            :S(churn)
+        'one two' ? BREAK(' ') . q1 ' ' REM . q2
+        OUTPUT = q1 '|' q2
+END

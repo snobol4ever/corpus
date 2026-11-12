@@ -1,0 +1,7 @@
+            &ANCHOR   = 0
+            &FULLSCAN = 1
+            S = 'hello world'
+            S 'world' :S(ok)F(bad)
+ok          OUTPUT = 'matched'                                     :(END)
+bad         OUTPUT = 'no match'
+END

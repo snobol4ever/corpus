@@ -1,0 +1,13 @@
+        Z = CHAR(0) 'Q'
+        'abc' 'b' . $Z
+        OUTPUT = '1 ' $Z
+        'xyz' 'y' $ $Z
+        OUTPUT = '2 ' $Z
+        P = 'k' . $(CHAR(0) 'R')
+        'mkn' P
+        OUTPUT = '3 ' $(CHAR(0) 'R')
+        W = CHAR(1) '0051'
+        $W = 'one'
+        'pqr' 'q' . $W
+        OUTPUT = '4 ' $Z ' ' $W ' [' Q ']'
+END

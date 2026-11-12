@@ -1,0 +1,18 @@
+procedure g(n);
+   suspend 1 to n;
+end
+procedure gen(a, b);
+   local i;
+   every i := 1 to 40 do suspend [i, a * i + b];
+end
+procedure main();
+   local p, t, u;
+   t := 0;
+   every (g(5) \ 2) & (g(5) \ 2) do t +:= 1;
+   write(t);
+   every p := (gen(3, 1) \ 2) & (gen(5, 2) \ 2) do t +:= 1;
+   write(t);
+   u := 0;
+   every p := gen(3, 1) \ 2 do { every (g(4) \ 3) & (g(2) \ 2) do u +:= 1 };
+   write(u);
+end

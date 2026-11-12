@@ -1,0 +1,5 @@
+        DEFINE('S()')                   :(MAIN)
+S       S  =  .L3                       :(NRETURN)
+MAIN    OUTPUT  =  'a'                   :(S())
+L3      OUTPUT  =  'b'
+END

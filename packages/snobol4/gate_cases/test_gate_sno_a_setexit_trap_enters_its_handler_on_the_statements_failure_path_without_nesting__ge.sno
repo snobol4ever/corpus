@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        Y = GE('abc', 0)                                        :S(S)F(F)
+S       OUTPUT = 'S Y=[' Y ']'                                  :(END)
+F       OUTPUT = 'F ' &ERRTYPE ' ERRLIMIT=' &ERRLIMIT
+END

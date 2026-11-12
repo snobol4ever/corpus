@@ -1,0 +1,15 @@
+        DEFINE('outer()')                          :(outer_end)
+outer   SETEXIT(.trap)
+        &ERRLIMIT = 10
+        x = inner()
+        OUTPUT = 'outer continues x=[' x ']'       :(RETURN)
+trap    OUTPUT = 'trapped ' &ERRTEXT ' level=' &FNCLEVEL   :(RETURN)
+outer_end
+        DEFINE('inner()')                          :(inner_end)
+inner   inner = 'unset'
+        y = GE('abc', 0)
+        inner = 'finished'                         :(RETURN)
+inner_end
+        outer()
+        OUTPUT = 'done'
+END

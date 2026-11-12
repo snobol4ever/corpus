@@ -1,0 +1,5 @@
+procedure main()
+   local f;
+   1 &
+	f(1);
+end

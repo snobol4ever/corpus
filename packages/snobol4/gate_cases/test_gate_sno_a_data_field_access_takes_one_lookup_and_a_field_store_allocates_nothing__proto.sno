@@ -1,0 +1,7 @@
+        a = ARRAY('0:3')
+        i = 0
+loop    s = PROTOTYPE(a)
+        b = ARRAY('1:2')
+        i = LT(i, 1500) i + 1                           :S(loop)
+        OUTPUT = s ' ' PROTOTYPE(b)
+END

@@ -1,0 +1,17 @@
+        &ERRLIMIT = $2
+        DEFINE('F()')                                     :(FE)
+F       OUTPUT = 'in F'
+        Z = X / Y
+        OUTPUT = 'F continues'
+        F = 'fv'                                          :(RETURN)
+FE      X = 1
+        Y = 0
+$( if [ "$4" = 1 ]; then printf '        SETEXIT(%s)' "'H'"; else printf '* no SETEXIT in this arm'; fi )
+        R = EVAL($3)                                      :S(S1)F(F1)
+S1      OUTPUT = 'S ' R                                   :(N1)
+F1      OUTPUT = 'F'
+N1      OUTPUT = 'ERRTYPE=' &ERRTYPE ' ERRLIMIT=' &ERRLIMIT
+        R2 = EVAL("X + 1")
+        OUTPUT = 'after ' R2                              :(END)
+H       OUTPUT = 'handler'                                :(SCONTINUE)
+END

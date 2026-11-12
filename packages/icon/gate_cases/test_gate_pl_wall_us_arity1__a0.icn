@@ -1,0 +1,4 @@
+procedure main()
+	a := wall_us(); b := wall_us(); m := wall_ms();
+	if (a > 0) & (b >= a) & (m > 0) & (a > m) then write("ic_arity0_ok") else write("ic_arity0_bad");
+end

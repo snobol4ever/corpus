@@ -1,0 +1,13 @@
+*  an ARRAY allocated above garbage that dies, so the first collection slides its blocks down over dead ground
+          G = DUPL('g',3000)
+          G = DUPL('h',3000)
+          A = ARRAY(8)
+          A[1] = 'ALPHA'
+          A[8] = 'OMEGA'
+          G = ''
+          I = 0
+LOOP      I = I + 1
+          S = DUPL('z',100)
+          GT(300,I) :S(LOOP)
+          OUTPUT = A[1] A[8]
+END

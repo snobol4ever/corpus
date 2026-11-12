@@ -1,0 +1,9 @@
+        DEFINE('F(X)')                              :(F_END)
+F       F = X + 1                                   :(RETURN)
+F_END
+        S = 'hello world'
+        S 'hello' = 'goodbye'                       :F(DONE)
+        OUTPUT = S
+        OUTPUT = F(41)
+DONE
+END

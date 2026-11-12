@@ -1,0 +1,11 @@
+          OUTPUT = 'ident1 ' (IDENT(BAL NULL,BAL) 'yes', 'no')
+          OUTPUT = 'ident2 ' (IDENT(NULL BAL,BAL) 'yes', 'no')
+          OUTPUT = 'ident3 ' (IDENT('' BAL,BAL) 'yes', 'no')
+          OUTPUT = 'ident4 ' (IDENT(BAL '',BAL) 'yes', 'no')
+          OUTPUT = 'ident5 ' (IDENT(ARB NULL,ARB) 'yes', 'no')
+          OUTPUT = 'differ1 ' (DIFFER('X' NULL,'X') 'yes', 'no')
+          s = 'abc' BAL
+          s2 = 'abc'
+          OUTPUT = 'ident6 ' (IDENT(s,s2) 'yes', 'no')
+          OUTPUT = 'ident7 ' (IDENT('ab' 'c' NULL,'ab' 'c') 'yes', 'no')
+END

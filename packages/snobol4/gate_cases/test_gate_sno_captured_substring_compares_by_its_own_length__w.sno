@@ -1,0 +1,13 @@
+	DEFINE('A(N)M')                                 :(AE)
+A	N LEN(1) . M
+	OUTPUT = 'first  M=[' M '] EQ5 ' IDENT(EQ(M,5),) 'T'
+	N LEN(1) LEN(1) . M
+	OUTPUT = 'mid    M=[' M '] EQ1 ' IDENT(EQ(M,1),) 'T'
+	N LEN(2) LEN(1) . M
+	OUTPUT = 'last   M=[' M '] EQ2 ' IDENT(EQ(M,2),) 'T'
+	N LEN(1) . M
+	OUTPUT = 'notGE  M=[' M '] GE100 ' IDENT(GE(M,100),) 'WRONG'
+	A = 'done'                                      :(RETURN)
+AE
+	OUTPUT = A(512)
+END

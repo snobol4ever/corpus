@@ -1,0 +1,4 @@
+        S = 'abcabc'
+        S BREAK('c') . T
+        OUTPUT = T
+END

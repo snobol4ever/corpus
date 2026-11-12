@@ -1,0 +1,3 @@
+program quiet;
+begin
+end.

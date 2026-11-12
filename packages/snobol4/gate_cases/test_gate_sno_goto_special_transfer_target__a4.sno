@@ -1,0 +1,8 @@
+        DEFINE('RET(NEXT)')             
+        DEFINE('G()')                   :(MAIN)
+RET     RET  =  .RETURN                  :(NRETURN)
+G       OUTPUT  =  'in G'                 :(RET('X'))
+MAIN    OUTPUT  =  'before'
+        G()
+        OUTPUT  =  'after'
+END

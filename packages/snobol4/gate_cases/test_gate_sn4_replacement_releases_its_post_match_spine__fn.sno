@@ -1,0 +1,8 @@
+        DEFINE('F()')                       :(FEND)
+F       A[1] 'A' = 'X'                      :(RETURN)
+FEND
+        A = ARRAY(3)
+        A[1] = 'ABC'
+        F()
+        OUTPUT = A[1]
+END

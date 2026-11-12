@@ -1,0 +1,11 @@
+        DEFINE('MYFN(X)')
+        IDENT(MYFN('hello'), 'hello')                           :F(BAD)
+        UNLOAD('MYFN')
+        &ERRLIMIT = 1
+        SETEXIT('OK')
+        MYFN('a')
+        OUTPUT = 'BAD'                                          :(END)
+OK      OUTPUT = 'trapped ' &ERRTYPE                            :(END)
+BAD     OUTPUT = 'BAD'                                          :(END)
+MYFN    MYFN = X                                                :(RETURN)
+END

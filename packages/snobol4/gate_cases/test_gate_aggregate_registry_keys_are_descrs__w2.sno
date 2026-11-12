@@ -1,0 +1,12 @@
+        T = TABLE()
+        T[] = "null key"
+        T["x"] = "x key"
+        A = CONVERT(T, "ARRAY")
+        OUTPUT = "[" A[1,1] "] size=" SIZE(A[1,1]) " val=" A[1,2]
+        OUTPUT = "[" A[2,1] "] size=" SIZE(A[2,1]) " val=" A[2,2]
+        B = SORT(T)
+        OUTPUT = "[" B[1,1] "] size=" SIZE(B[1,1])
+        C = COPY(T)
+        D = CONVERT(C, "ARRAY")
+        OUTPUT = "[" D[1,1] "] size=" SIZE(D[1,1])
+END

@@ -1,0 +1,9 @@
+        &ERRLIMIT = 10
+        SETEXIT('H')
+        N = 'a'
+        'x' ? (*(1 + N) | 'x' $ OUTPUT)                         :S(M)F(F)
+M       OUTPUT = 'MATCHED'                                      :(E)
+F       OUTPUT = 'FAILED'                                       :(E)
+H       OUTPUT = 'TRAP ' &ERRTYPE                               :(CONTINUE)
+E       OUTPUT = 'end'
+END

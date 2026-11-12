@@ -1,0 +1,13 @@
+        DEFINE('G(K)')
+        S = 'hello world'
+        S BREAK(' ') $ *G('A')
+        S BREAK(' ') . *G('B')
+        T = 'HV'
+        S BREAK(' ') $ *$T
+        S ' ' REM . *G('C')
+        OUTPUT = A ' ' B ' ' HV ' ' C
+        S BREAK(' ') $ OUTPUT $ *G('D') FAIL
+        OUTPUT = D
+                                          :(END)
+G       G = .$K                           :(NRETURN)
+END

@@ -1,0 +1,15 @@
+        &ERRLIMIT = 20
+        DEFINE('T(V,K)')                         :(TE)
+T       L = &ERRLIMIT
+        X = CONVERT('1', V)                      :S(TS)
+        OUTPUT = K ' FAIL ' (L - &ERRLIMIT) ' counted'  :(RETURN)
+TS      OUTPUT = K ' OK [' X ']'                 :(RETURN)
+TE      T('', 'null')
+        T(12, 'int')
+        T(LEN(1), 'pattern')
+        T(ARRAY(2), 'array')
+        T('FOO', 'unknown')
+        T(.Q, 'name')
+        T(2.5, 'real')
+        T('INTEGER', 'upper')
+END

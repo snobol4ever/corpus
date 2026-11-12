@@ -1,0 +1,12 @@
+my @a = "a\x01b", "c", "d\x05e";
+say @a.elems;
+say @a[0].chars;
+say @a[2].chars;
+@a.push("f\x01g");
+say @a.elems;
+say @a[3].chars;
+my %h = k => "v\x05w", "x\x01y" => 1;
+say %h.elems;
+say %h<k>.chars;
+say %h{"x\x01y"};
+say @a.join("|").chars;

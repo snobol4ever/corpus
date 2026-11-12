@@ -1,0 +1,30 @@
+        DATA('node(v,nx)')
+        DEFINE('f(x)')
+        DEFINE('g(x,y)t')
+        DEFINE('rec(m)')
+        DEFINE('fails()')
+        cnt = 0
+        p = 'a' *f(1) 'c'
+        'abc' ? p . r                                   :S(o1)F(e1)
+e1      OUTPUT = 'e1'                                   :(o2)
+o1      OUTPUT = 'r=' r
+o2      'xyz' ? *g('x','y') . r2                        :S(o3)F(e3)
+e3      OUTPUT = 'e3'                                   :(o4)
+o3      OUTPUT = 'r2=' r2
+o4      'qqq' ? *fails()                                :S(e5)F(o5)
+e5      OUTPUT = 'e5'
+o5      OUTPUT = 'rec ' rec(3)
+        t1 = node('aa', node('bb'))
+        'aabb' ? *LEN(2) . a1 *LEN(2) . a2
+        OUTPUT = a1 a2
+        OUTPUT = 'cnt=' cnt
+        :(END)
+f       cnt = cnt + 1
+        f = 'b'                                         :(RETURN)
+g       t = x y
+        g = t                                           :(RETURN)
+rec     rec = EQ(m,0) 'z'                               :S(RETURN)
+        'abc' ? 'a' *f(m) 'c'
+        rec = rec(m - 1)                                :(RETURN)
+fails                                                   :(FRETURN)
+END

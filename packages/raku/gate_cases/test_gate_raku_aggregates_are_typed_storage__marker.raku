@@ -1,0 +1,14 @@
+my @a = 1, 2;
+my @b = (3, 4);
+my $l = (5, 6);
+say @a.WHAT;
+say $l.WHAT;
+say (@a, @b).elems;
+say [@a, @b].elems;
+say (1, (2, 3)).raku;
+say [1, [2, 3]].raku;
+my $ll = (1, (2, 3));
+say $ll;
+say [1, [2, 3]];
+say (1, [2, 3]).flat.elems;
+say [1, (2, 3)].flat.elems;

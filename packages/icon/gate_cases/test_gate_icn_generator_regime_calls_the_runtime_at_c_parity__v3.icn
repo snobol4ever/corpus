@@ -1,0 +1,12 @@
+procedure helper(m);
+   return *string(m);
+end
+procedure v3(n);
+   local i, r;
+   every i := 1 to n do { r := helper(i); suspend r };
+end
+procedure main();
+   local x;
+   every x := v3(2) do write("v3 ", x);
+   write("done");
+end

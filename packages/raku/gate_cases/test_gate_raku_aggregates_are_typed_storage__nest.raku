@@ -1,0 +1,13 @@
+my @n = [1, [2, 3]], 4;
+say @n.elems;
+say @n[0].elems;
+say @n[0][1][1];
+say @n[0][1].elems;
+my %h = a => [1, 2, 3], b => { c => 7 };
+say %h<a>.elems;
+say %h<b><c>;
+my @e = [], [];
+say @e.elems;
+say @e[1].elems;
+@n[0][1].push(9);
+say @n[0][1].elems;

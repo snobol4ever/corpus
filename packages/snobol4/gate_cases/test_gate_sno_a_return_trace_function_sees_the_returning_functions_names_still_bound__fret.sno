@@ -1,0 +1,10 @@
+        CODE('G K = "gl";  G = X :(FRETURN)')
+        DEFINE('G(X)K', 'G')
+        DEFINE('TRF()')                         :(TRF.END)
+TRF     OUTPUT = 'fret X=[' X '] K=[' K '] type=' &RTNTYPE :(RETURN)
+TRF.END X = 'outer'
+        TRACE('G', 'RETURN', , 'TRF')
+        &TRACE = 100
+        G('zz')
+        OUTPUT = 'after x=' X
+END

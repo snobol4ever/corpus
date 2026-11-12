@@ -1,0 +1,24 @@
+procedure main()
+   local s, t, c;
+   s := "ab\x00cd\x00" || "ef";
+   write(*s, " ", image(s));
+   write(image(reverse(s)));
+   write(image(repl(s, 2)));
+   write(image(map(s, "\x00", "_")));
+   write(image(trim(s || "  ")));
+   write(image(left(s, 10, "\x00")), " ", image(right(s, 10)), " ", image(center(s, 12, "*")));
+   write(image(s[3]), " ", image(s[2:5]), " ", image(s[-1]));
+   write(*string(s), " ", image(string(s)));
+   c := cset(s);
+   write(*c, " ", image(c));
+   write(image(s ? tab(upto('\x00'))));
+   write(image(s ? { tab(many('ab')) || "|" || tab(0) }));
+   every writes(upto('\x00', s), " "); write();
+   write(image(s == ("ab\x00cd\x00ef")) | "not equal");
+   write(image(s << "ab\x00cd\x01") | "not less");
+   t := table(); t[s] := 1; t["ab"] := 2;
+   write(t[s], " ", *t);
+   write(image(detab("a\x00\tb")));
+   write(image(s || s), " ", *(s || s));
+   write(image(ord(s[3])), " ", image(char(0)));
+end

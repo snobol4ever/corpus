@@ -1,0 +1,11 @@
+        &ERRLIMIT = 20
+        S = ''
+        SETEXIT('H')
+        'abc' ? (ANY(*S) | 'a') . X
+        OUTPUT = 'after1 [' X ']'
+        SETEXIT('H')
+        'abc' ? ('z' | NOTANY(*S) | 'b') . Y
+        OUTPUT = 'after2 [' Y ']'
+        OUTPUT = 'end'                                   :(END)
+H       OUTPUT = 'trap ' &ERRTYPE                        :(CONTINUE)
+END

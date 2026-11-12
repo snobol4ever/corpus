@@ -1,0 +1,3 @@
+procedure main()
+   write("got ", read() | "nothing");
+end

@@ -1,0 +1,9 @@
+        N = 'DYN' 'VAR'
+        $N = 'x'
+        I = 0
+LOOP    I = I + 1
+        $N = $N DUPL('y', 37) I
+        $N = GT(SIZE($N), 3000) 'reset' I
+        LT(I, 3000)                                     :S(LOOP)
+        OUTPUT = SIZE($N) ' ' SIZE(DYNVAR)
+END

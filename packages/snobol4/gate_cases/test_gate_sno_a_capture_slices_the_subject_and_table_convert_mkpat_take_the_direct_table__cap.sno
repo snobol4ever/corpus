@@ -1,0 +1,45 @@
+        &TRIM = 1
+        DEFINE('f()')                                   :(f_end)
+f       s2 = 'inner subject'
+        s2 'inner' $ iw
+        f = .fv                                         :(NRETURN)
+f_end
+        s = 'hello world'
+        s 'hello' $ x ' ' $ sp 'world' . y
+        OUTPUT = x '|' sp '|' y '|' s
+        s = s '!'
+        x = x 'X'
+        y = 'Y' y
+        OUTPUT = x '|' y '|' s
+        s = 'abc'
+        s 'b' $ m
+        s = 'zzz'
+        OUTPUT = m '|' s
+        t = 'the quick brown fox'
+        t 'quick' $ q ' ' 'brown' . *f()
+        OUTPUT = q '|' fv '|' iw '|' t
+        t = t ' jumps'
+        OUTPUT = q '|' fv '|' t
+        u = 'aaa'
+        u '' $ e1 'aaa' . e2
+        OUTPUT = SIZE(e1) '|' e2 '|' IDENT(e1) 'empty'
+        n = 0
+loop    line = INPUT                                    :F(done)
+        line BREAK(' ') $ w1 ' ' REM . w2
+        keep = keep w1 ',' w2 ';'
+        n = n + 1                                       :(loop)
+done    OUTPUT = n '|' keep
+        v = 'p1 p2 p3'
+        v 'p1' $ a1 ' ' 'p2' $ a2 ' ' 'p3' $ a3
+        v = DUPL('-', 20)
+        OUTPUT = a1 a2 a3 '|' v
+        big = DUPL('ab', 6)
+        big 'ab' $ h ARB $ mid 'ab' RPOS(0) . tl
+        big = REVERSE(big)
+        OUTPUT = h '|' mid '|' tl '|' big
+        z = 'k=v'
+        z BREAK('=') . k '=' REM . vv
+        k = k k
+        vv = vv 'x'
+        OUTPUT = k '|' vv '|' z
+END

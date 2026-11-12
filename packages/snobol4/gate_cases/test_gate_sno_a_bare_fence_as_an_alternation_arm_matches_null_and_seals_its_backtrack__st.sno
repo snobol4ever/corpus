@@ -1,0 +1,22 @@
+        'z' ? 'q' | FENCE                       :S(Y1)F(N1)
+Y1      OUTPUT = 'last arm: yes'                :(T2)
+N1      OUTPUT = 'last arm: no'
+T2      'z' ? ('q' | FENCE) 'z'                 :S(Y2)F(N2)
+Y2      OUTPUT = 'arm then z: yes'              :(T3)
+N2      OUTPUT = 'arm then z: no'
+T3      'ab' ? ('x' | FENCE | 'a') 'a'          :S(Y3)F(N3)
+Y3      OUTPUT = 'middle arm: yes'              :(T4)
+N3      OUTPUT = 'middle arm: no'
+T4      'yz' ? ('q' | FENCE) 'z'                :S(Y4)F(N4)
+Y4      OUTPUT = 'sealed backtrack: yes'        :(T5)
+N4      OUTPUT = 'sealed backtrack: no'
+T5      'ab' ? ('x' | FENCE | 'a') 'b'          :S(Y5)F(N5)
+Y5      OUTPUT = 'sealed before a later arm: yes' :(T6)
+N5      OUTPUT = 'sealed before a later arm: no'
+T6      'z' ? ANY('xyz') POS(3) | FENCE         :S(Y6)F(N6)
+Y6      OUTPUT = 'expression 189: yes'          :(T7)
+N6      OUTPUT = 'expression 189: no'
+T7      'abc' ? ('q' | FENCE) . X LEN(1) 'b'    :S(Y7)F(N7)
+Y7      OUTPUT = 'captured arm: [' X ']'        :(END)
+N7      OUTPUT = 'captured arm: no'
+END

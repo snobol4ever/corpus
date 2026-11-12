@@ -1,0 +1,13 @@
+	DEFINE('G(L)T')
+	                                :(GEND)
+G	OUTPUT = 'at-G'
+	DEFINE('G(L)', 'G_1')
+	G = G(L)
+	DEFINE('G(L)T')                 :(RETURN)
+G_1	OUTPUT = 'at-G1'
+	G = 'done'                      :(RETURN)
+GEND
+	OUTPUT = G('x')
+	OUTPUT = 'second call:'
+	OUTPUT = G('y')
+END

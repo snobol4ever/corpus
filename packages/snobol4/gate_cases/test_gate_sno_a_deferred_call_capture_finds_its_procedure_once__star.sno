@@ -1,0 +1,30 @@
+        DEFINE('f(f)')                                  :(f_end)
+f       f = f * 2                                       :(RETURN)
+f_end
+        DEFINE('g(a,b)t')                               :(g_end)
+g       t = a b
+        g = t t                                         :(RETURN)
+g_end
+        DEFINE('h()')                                   :(h_end)
+h       h = .hv                                         :(NRETURN)
+h_end
+        DEFINE('m()')                                   :(m_end)
+m       cnt = cnt + 1
+        m = .mv                                         :(NRETURN)
+m_end
+        OUTPUT = f(21) ' ' g('ab', 'c') ' ' f(f(1))
+        s = 'hello world'
+        s 'hello' . *h()                                :S(ok1)
+        OUTPUT = 'no match'                             :(n1)
+ok1     OUTPUT = 'after star h(): ' hv
+n1      s 'world' . *unreg                              :S(ok2)
+        OUTPUT = 'no match 2'                           :(n2)
+ok2     OUTPUT = 'after star unreg: ' unreg
+n2      s ('hel' 'lo') . *m() ' ' . *h()                :S(ok3)
+        OUTPUT = 'no match 3'                           :(n3)
+ok3     OUTPUT = 'after two stars: ' mv '/' hv '/' cnt
+n3      i = 0
+loop    s 'hello' . *m()
+        i = LT(i, 5000) i + 1                           :S(loop)
+        OUTPUT = 'loop done ' i ' ' mv ' ' cnt
+END

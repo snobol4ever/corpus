@@ -1,0 +1,9 @@
+        L = 'old'
+        DEFINE('K(X)L,L')
+        K(1)
+        OUTPUT = 'a ' L
+        :(FIN)
+K       L = 'set'
+        OUTPUT = 'in [' X '] [' L ']'  :(RETURN)
+FIN
+END

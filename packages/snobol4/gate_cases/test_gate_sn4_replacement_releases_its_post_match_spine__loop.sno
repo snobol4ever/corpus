@@ -1,0 +1,8 @@
+        A = ARRAY(3)
+        I = 0
+L       A[1] = 'ABC'
+        A[1] 'A' = 'X'
+        I = I + 1
+        LT(I,200000) :S(L)
+        OUTPUT = 'done ' A[1] ' ' I
+END

@@ -1,0 +1,15 @@
+        DEFINE('G(K)')
+        N = 2
+        'ABCDE' 'CD' @*$('CUR' N)
+        OUTPUT = 'CUR2=' CUR2
+        'ABCDE' 'B' @*G('CG')
+        OUTPUT = 'CG=' CG
+        P = 'C' @*G('CP')
+        'ABCDE' P
+        OUTPUT = 'CP=' CP
+        Q = LEN(1) @*$('CQ' N)
+        'ABCDE' ARB Q 'E'
+        OUTPUT = 'CQ2=' CQ2
+                                          :(END)
+G       G = .$K                           :(NRETURN)
+END

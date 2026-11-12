@@ -1,0 +1,14 @@
+	&DUMP = 2
+	T = TABLE(10)
+	T["CAT"] = 1
+	T[7] = 2
+	T["DOG"] = 3
+	T[3] = 4
+	T[12] = 5
+	T["A"] = 6
+	U = TABLE(2)
+	U["CAT"] = 1
+	U[7] = 2
+	U["DOG"] = 3
+	U[3] = 4
+END

@@ -1,0 +1,10 @@
+        &TRIM = 1
+        i = 0
+loop    i = LT(i, 300) i + 1                        :F(done)
+        s = DUPL('ab', i) 'z'
+        r = EVAL("'" s "' ? FENCE('a') | ARB")      :F(loop)
+        t = s ? FENCE(LEN(1) 'b') | (ARB 'z')       :F(loop)
+        u = 'z' ? FENCE('a') | ARB                  :F(loop)
+        n = n + 1                                   :(loop)
+done    OUTPUT = 'n=' n
+END

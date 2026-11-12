@@ -1,0 +1,7 @@
+procedure main();
+    &trace := -1;
+    every write(g());
+end
+procedure g();
+    suspend 1;
+end

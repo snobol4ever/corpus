@@ -1,0 +1,19 @@
+procedure main()
+   local d;
+   d := "${T}/plug.so";
+   write("int  :", loadfunc(d,"tf_int")(21));
+   write("real :", loadfunc(d,"tf_real")(7.0));
+   write("str  :", loadfunc(d,"tf_str")("hello"));
+   write("cstr :", loadfunc(d,"tf_cstr")("world"));
+   write("null :", image(loadfunc(d,"tf_null")()));
+   write("fail :", image(loadfunc(d,"tf_fail")()) | "FAILED");
+   write("img  :", image(loadfunc(d,"tf_int")));
+   write("type :", type(loadfunc(d,"tf_int")));
+   write("coerce:", loadfunc(d,"tf_int")("16"));
+   write("clash :", image(loadfunc(d,"tf_int")));
+   write("proc  :", image(tf_int));
+   write("end");
+end
+procedure tf_int(a)
+   return "stub";
+end

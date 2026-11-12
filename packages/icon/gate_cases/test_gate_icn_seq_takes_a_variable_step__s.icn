@@ -1,0 +1,13 @@
+procedure main()
+   local x, i, k;
+   x := 1;
+   every write("vstart ", seq(x, 1) \ 2);
+   every write("vstep ", seq(1, x) \ 2);
+   every i := seq(1, 1) \ 2 do write("lit ", i);
+   every i := seq(x) \ 2 do write("one ", i);
+   k := -3;
+   every write("neg ", seq(10, k) \ 3);
+   k := 4;
+   every write("both ", seq(k, k) \ 3);
+   every write("nostart ", seq(, k) \ 2);
+end

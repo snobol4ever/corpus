@@ -1,0 +1,12 @@
+        &TRIM = 1
+        a = ARRAY(6000, 0)
+        i = 1
+fill    a[i] = i * 3
+        i = LT(i, 6000) i + 1                           :S(fill)
+        k = 0
+loop    s = DUPL('x', 40) k
+        t = TABLE(64)
+        t[k] = s
+        k = LT(k, 3000) k + 1                           :S(loop)
+        OUTPUT = a[1] ' ' a[6000] ' ' SIZE(s) ' ' k
+END

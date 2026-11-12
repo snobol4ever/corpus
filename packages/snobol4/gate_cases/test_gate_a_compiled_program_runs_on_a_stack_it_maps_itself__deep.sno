@@ -1,0 +1,8 @@
+        src = DUPL('ab' CHAR(10), 40000)
+        W = SPAN('ab')
+        X = W | '(' *X ')'
+        C = POS(0) ARBNO(X CHAR(10) FENCE) RPOS(0)
+        src C                                           :F(bad)
+        OUTPUT = 'ok ' SIZE(src)                        :(END)
+bad     OUTPUT = 'Boo!'
+END

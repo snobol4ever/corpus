@@ -1,0 +1,8 @@
+        &TRACE = 100
+        DEFINE('G()T')
+        TRACE('G', 'FUNCTION')
+        OUTPUT = G()
+        :(END)
+G       T = 5
+        G = T :(RETURN)
+END

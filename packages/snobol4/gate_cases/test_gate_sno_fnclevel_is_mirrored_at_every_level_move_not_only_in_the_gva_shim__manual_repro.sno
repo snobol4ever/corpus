@@ -1,0 +1,6 @@
+	DEFINE('F1()')	:(MAIN)
+F1	OUTPUT = 'inside=' &FNCLEVEL	:(RETURN)
+MAIN	OUTPUT = 'top=' &FNCLEVEL
+	F1()
+	OUTPUT = 'after=' &FNCLEVEL
+END

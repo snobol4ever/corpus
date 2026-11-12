@@ -1,0 +1,17 @@
+        DEFINE('U(X)')                          :(U.END)
+U       U = 'u<' X '>'                          :(RETURN)
+U.END   DEFINE('B(X,Y)')                        :(B.END)
+B       B = 'b<' X ',' Y '>'                    :(RETURN)
+B.END   OPSYN('!', .U, 1)
+        OPSYN('%', .U, 1)
+        OPSYN('/', .U, 1)
+        OPSYN('#', .U, 1)
+        OPSYN('|', .U, 1)
+        OPSYN('&', .B, 2)
+        OPSYN('@', .B, 2)
+        OPSYN('#', .B, 2)
+        OPSYN('%', .B, 2)
+        OPSYN('~', .B, 2)
+        OUTPUT = !'a' %'a' /'a' #'a' |'a'
+        OUTPUT = ('p' & 'q') ('p' @ 'q') ('p' # 'q') ('p' % 'q') ('p' ~ 'q')
+END

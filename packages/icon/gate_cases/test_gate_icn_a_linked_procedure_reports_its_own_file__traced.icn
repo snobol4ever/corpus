@@ -1,0 +1,8 @@
+link lib1
+procedure main()
+   &trace := -1;
+   write(p(1));
+   write(&file, " ", &line);
+   &trace := 0;
+   write(q(2));
+end

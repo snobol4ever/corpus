@@ -1,0 +1,5 @@
+procedure main()
+  &error := -1;
+  every 1 to 4 do write(&null + 1 | &errornumber);
+  write("error=", &error);
+end

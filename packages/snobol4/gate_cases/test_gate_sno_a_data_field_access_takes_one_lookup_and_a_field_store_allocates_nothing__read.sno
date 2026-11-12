@@ -1,0 +1,7 @@
+        DATA('pair(n,a)')
+        p = pair(7, 3)
+        i = 0
+loop    s = a(p) + n(p)
+        i = LT(i, 3000) i + 1                           :S(loop)
+        OUTPUT = s
+END

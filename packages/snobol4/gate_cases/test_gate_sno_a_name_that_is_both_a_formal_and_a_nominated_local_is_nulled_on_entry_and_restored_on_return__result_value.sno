@@ -1,0 +1,8 @@
+        DEFINE('V(X)X')
+        Y = V(3)
+        OUTPUT = 'y=[' Y ']'
+        :(FIN)
+V       X = 'r'
+        V = X  :(RETURN)
+FIN
+END

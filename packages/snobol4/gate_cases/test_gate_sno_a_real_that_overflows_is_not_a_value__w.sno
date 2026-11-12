@@ -1,0 +1,18 @@
+        &ERRLIMIT = 1000
+        A = EVAL('1.797693135E+308')            :F(A1)
+        OUTPUT = 'eval-big=[' A ']'             :(B)
+A1      OUTPUT = 'eval-big=failed'
+B       C = CONVERT('1.797693135E+308','REAL')  :F(B1)
+        OUTPUT = 'convert-big=[' C ']'          :(D)
+B1      OUTPUT = 'convert-big=failed'
+D       E = EVAL('-1.797693135E+308')           :F(D1)
+        OUTPUT = 'eval-negbig=[' E ']'          :(F)
+D1      OUTPUT = 'eval-negbig=failed'
+F       G = EVAL('1.5e308')                     :F(F1)
+        OUTPUT = 'eval-ok=' DATATYPE(G)         :(H)
+F1      OUTPUT = 'eval-ok=WRONGLY-FAILED'
+H       I = CONVERT('2.5','REAL')               :F(H1)
+        OUTPUT = 'convert-ok=' I                :(Z)
+H1      OUTPUT = 'convert-ok=WRONGLY-FAILED'
+Z
+END

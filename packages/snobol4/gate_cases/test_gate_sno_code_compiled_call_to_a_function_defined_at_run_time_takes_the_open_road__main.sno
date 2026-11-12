@@ -1,0 +1,9 @@
+        P = 'CAT(A,B)'
+        DEFINE(P)                               :(CATEND)
+CAT     CAT = A '-' B                           :(RETURN)
+CATEND
+        OUTPUT = CAT(7, 8)
+        C = CODE('TW TW = CAT(X, X) :(RETURN)')
+        DEFINE('TW(X)')
+        OUTPUT = TW(7)
+END

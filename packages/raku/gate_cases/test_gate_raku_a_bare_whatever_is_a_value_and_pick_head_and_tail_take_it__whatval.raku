@@ -1,0 +1,15 @@
+my $w = *;
+say $w.WHAT;
+say (a => *).value.WHAT;
+say (1, 2, 3, 4).pick(*).elems;
+say (1, 2, 3, 4).pick(*).sort;
+say (1, 2, 3).pick(2).elems;
+say (1, 2, 3).pick(0).elems;
+say (1 .. 3).pick(9).elems;
+say (1, 2, 3, 4).head(*).elems;
+say (1, 2, 3).tail(*);
+say (1, 2, 3, 4).head(2);
+say (1, 2, 3, 4).tail(2);
+my @a = 1, 2, 3;
+say @a[*];
+say @a[*-1];

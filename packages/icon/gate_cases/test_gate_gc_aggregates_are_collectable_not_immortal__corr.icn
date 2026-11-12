@@ -1,0 +1,7 @@
+procedure main()
+   local i, L, T, R;
+   T := table(0);
+   every i := 1 to 200000 do { L := [i, i+1]; T[i % 7] := L[1] + L[2] };
+   R := 0; every i := 0 to 6 do R +:= T[i];
+   write("sum ", R, " ", *T);
+end

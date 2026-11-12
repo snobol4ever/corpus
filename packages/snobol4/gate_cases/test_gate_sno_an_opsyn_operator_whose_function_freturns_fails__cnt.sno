@@ -1,0 +1,9 @@
+        DEFINE('FN(X)')                         :(FN.END)
+FN      N = N + 1
+        IDENT(X, 'bad')                         :S(FRETURN)
+        FN = X                                  :(RETURN)
+FN.END  OPSYN('#', .FN, 1)
+        N = 0
+        #'bad'
+        OUTPUT = 'runs after one failing #: ' N
+END

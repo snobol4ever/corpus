@@ -1,0 +1,5 @@
+        P = ('' $ *V) FENCE 'q'
+        'xyz' P                         :S(Y)F(N)
+Y       OUTPUT = 'ok'                   :(END)
+N       OUTPUT = 'failed'
+END

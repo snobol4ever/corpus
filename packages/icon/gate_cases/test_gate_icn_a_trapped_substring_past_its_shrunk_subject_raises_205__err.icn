@@ -1,0 +1,10 @@
+procedure main()
+   local s, t;
+   &error := -1;
+   s := "abcdef";
+   (s[5] := (s := "ab", "z")) | write("assign failed ", &errornumber);
+   s := "abcdef";
+   t := "x";
+   (s[5] :=: (s := "ab", t)) | write("swap failed ", &errornumber);
+   write(s, " ", t);
+end

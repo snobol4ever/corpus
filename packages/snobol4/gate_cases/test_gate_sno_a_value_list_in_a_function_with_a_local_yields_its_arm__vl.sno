@@ -1,0 +1,23 @@
+        DEFINE('F(X)K')                         :(F_END)
+F       F = (EQ(X,0) 5, EQ(X,1) 'one', 7)       :(RETURN)
+F_END   OUTPUT = F(0) ' ' F(1) ' ' F(2)
+        DEFINE('G(X)K')                         :(G_END)
+G       K = 'k'
+        G = 'pre-' (EQ(X,0) K, IDENT(X,1) 'a' K, X + 1) '-post' :(RETURN)
+G_END   OUTPUT = G(0) ' ' G(1) ' ' G(5)
+        DEFINE('A(X)K')                         :(A_END)
+A       A = (LT(X,0) 'neg', GT(X,9) 'big')      :S(RETURN)F(FRETURN)
+A_END   OUTPUT = (A(5) 'A succeeded', 'every arm failed')
+        DEFINE('H(N)K')                         :(H_END)
+H       H = (LE(N,1) 1, N * H(N - 1))           :(RETURN)
+H_END   OUTPUT = 'fact ' H(6)
+        DEFINE('V(X)K,L')                       :(V_END)
+V       L = 'l'
+        V = L (EQ(X,1) (EQ(X,2) 'p', LGT('b','a') 'q' L, 'r'), 's') L :(RETURN)
+V_END   OUTPUT = V(1) ' ' V(3)
+        DEFINE('U(X)K')                         :(U_END)
+U       U = ('first', 'never') X                :(RETURN)
+U_END   OUTPUT = U(1)
+        OUTPUT = 'nest ' (IDENT(1,1) (EQ(2,1) 'p', EQ(2,3) 'q', 'r'), 's') '.'
+        OUTPUT = 'nest2 ' (IDENT(1,2) 'x', (EQ(2,1) 'p', 'q'), 's') '.'
+END

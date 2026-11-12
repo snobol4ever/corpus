@@ -1,0 +1,15 @@
+record r(a, b)
+procedure main()
+   local x, n, i, s, L, p;
+   &error := -1;
+   n := &null; x := n.f; write("null ", &errornumber, " ", image(&errorvalue));
+   i := 5; x := i.f; write("int ", &errornumber, " ", image(&errorvalue));
+   s := "s"; x := s.f; write("str ", &errornumber);
+   L := [1]; x := L.f; write("list ", &errornumber);
+   p := r(1, 2); x := p.zz; write("badfield ", &errornumber, " ", image(&errorvalue));
+   p.zz := 3; write("badfield-lv ", &errornumber);
+   write(p.a, " ", p.b, " ", (p.b := 9), " ", p.b);
+   &error := 0;
+   x := n.f;
+   write("unreached");
+end

@@ -1,0 +1,5 @@
+        A = (LEN(1) $ V) FENCE
+        'xyz' A 'q'                     :S(Y)F(N)
+Y       OUTPUT = 'ok'                   :(END)
+N       OUTPUT = 'failed'
+END

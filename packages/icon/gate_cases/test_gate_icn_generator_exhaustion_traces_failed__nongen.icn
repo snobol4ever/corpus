@@ -1,0 +1,7 @@
+procedure main();
+    &trace := -1;
+    write(h());
+end
+procedure h();
+    return 1;
+end

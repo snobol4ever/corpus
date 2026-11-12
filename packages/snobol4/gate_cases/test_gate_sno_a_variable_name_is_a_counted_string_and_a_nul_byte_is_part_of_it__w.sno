@@ -1,0 +1,18 @@
+        Z = CHAR(0) 'X'
+        $Z = 'nulx'
+        $('X' CHAR(0) 'Y') = 'xnuly'
+        X = 'plainx'
+        $(CHAR(0)) = 'justnul'
+        OUTPUT = '1 ' $Z
+        OUTPUT = '2 ' $('X' CHAR(0) 'Y')
+        OUTPUT = '3 ' X
+        OUTPUT = '4 ' $(CHAR(0) 'X')
+        OUTPUT = '5 ' $(CHAR(0))
+        OUTPUT = '6 ' $('X')
+        W = &ALPHABET
+        $W = 'alpha'
+        OUTPUT = '7 ' $&ALPHABET
+        OUTPUT = '8 ' SIZE($Z) ' ' DIFFER($Z, $('X' CHAR(0) 'Y'))
+        $Z = $Z '!'
+        OUTPUT = '9 ' $(CHAR(0) 'X')
+END

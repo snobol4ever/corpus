@@ -1,0 +1,10 @@
+* top of a
+-EJECT
+ A = 'a'
+-INCLUDE 'inc_b.sno'
+ C = A +
++  1
+-TITLE in a
+ D = 1
+
+ E = 2

@@ -1,0 +1,13 @@
+record point(x, y)
+procedure dist(p, q)
+   return abs(p.x - q.x);
+end
+procedure va(a[])
+   return *a;
+end
+class Shape(name)
+   method area()
+      return 0;
+   end
+end
+# procedure hidden()

@@ -1,0 +1,16 @@
+        OUTPUT = ORD('A')
+        OUTPUT = ORD('AB')
+        OUTPUT = ORD(CHAR(0))
+        OUTPUT = ORD(CHAR(255))
+        OUTPUT = ORD(CHAR(128))
+        OUTPUT = ORD(65)
+        OUTPUT = ORD(1.5)
+        OUTPUT = DATATYPE(ORD('z'))
+        X = ORD('')                     :S(BAD)
+        OUTPUT = 'null fails'
+        I = 0
+L       EQ(ORD(CHAR(I)), I)             :F(BAD)
+        I = LT(I, 255) I + 1            :S(L)
+        OUTPUT = 'all 256 round-trip'   :(END)
+BAD     OUTPUT = 'BAD'
+END

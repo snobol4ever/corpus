@@ -1,0 +1,11 @@
+        DEFINE('G()')                           :(G.END)
+G       X = 1
+        Y = 2                                   :(RETURN)
+G.END   DEFINE('H()')                           :(H.END)
+H       X = 1                                   :(FRETURN)
+H.END   A = 1
+        B = G() &LASTNO '/' &STNO '/' &LASTLINE '/' &LINE
+        OUTPUT = 'ret ' B
+        C = (H(), &LASTNO '/' &STNO)
+        OUTPUT = 'fret ' C
+END

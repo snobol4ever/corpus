@@ -1,0 +1,9 @@
+        DATA('CLUNK(VALUE,LSON)')
+        C = CLUNK('hello','left')
+        OUTPUT = VALUE(C) ' ' LSON(C)
+        VALUE(C) = 'changed'
+        OUTPUT = VALUE(C)
+        OUTPUT = LPAD('ab',5,'.') RPAD('cd',5,'.') REVERSE('xyz')
+        OUTPUT = REPLACE('abc','ab','xy') DUPL('-',3)
+        OUTPUT = &UCASE &LCASE
+END

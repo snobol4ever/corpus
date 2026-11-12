@@ -1,0 +1,7 @@
+link gate_icx_lib1
+procedure main()
+   local n;
+   n := twice(21);
+   write(n);
+   write(twice(n));
+end

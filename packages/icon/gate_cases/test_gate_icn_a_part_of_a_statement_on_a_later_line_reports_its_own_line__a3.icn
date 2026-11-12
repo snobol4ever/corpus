@@ -1,0 +1,5 @@
+procedure main()
+   local x;
+   every x := (1 | &null) + 1 do
+      write(x);
+end

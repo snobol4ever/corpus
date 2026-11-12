@@ -1,0 +1,15 @@
+        OUTPUT = 'three-last-succeeds  ' (IDENT('a') 5, IDENT('b') 6, 7)
+        OUTPUT = 'four ' (IDENT('a') 1, IDENT('b') 2, IDENT('c') 3, 4) ' tail'
+        DEFINE('P(X)')                          :(P_END)
+P       EQ(X,0)                                 :S(RETURN)F(FRETURN)
+P_END   OUTPUT = 'calls ' (P(1) 'a', P(2) 'b', P(0) 'c', 'd') '!'
+        DEFINE('Q(X)K')                         :(Q_END)
+Q       Q = 'q:' (P(X) 'zero', 'other')         :(RETURN)
+Q_END   OUTPUT = Q(0) ' ' Q(1)
+        OUTPUT = 'r ' (INPUT 'got', 'eof') '!'
+        OUTPUT = 'match ' ('abc' ? 'x' 'X', 'abc' ? 'b' 'B', 'none') '!'
+        OUTPUT = 'lgt ' (LGT('a','b') 1, LLT('a','b') 2, 3) '!'
+        OUTPUT = 'fails ' (EQ(1,2) 'a', EQ(1,3) 'b', EQ(1,4) 'c')  :S(BAD)
+        OUTPUT = 'all-fail ok'                  :(END)
+BAD     OUTPUT = 'BAD'
+END

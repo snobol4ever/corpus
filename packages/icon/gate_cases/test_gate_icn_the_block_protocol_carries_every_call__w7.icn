@@ -1,0 +1,10 @@
+procedure main()
+   local c;
+   c := mk(5);
+   every write(@c | @c | @c);
+end
+procedure mk(n)
+   local k;
+   k := n * 10;
+   return create n to n + k / 25;
+end

@@ -1,0 +1,9 @@
+        OUTPUT(.V, 7, 'out.txt')
+        V = 'first'
+        DEFINE('F(V)')                          :(F_END)
+F       F = 'got ' V                            :(RETURN)
+F_END
+        OUTPUT = F('arg')
+        V = 'last'
+        ENDFILE(7)
+END

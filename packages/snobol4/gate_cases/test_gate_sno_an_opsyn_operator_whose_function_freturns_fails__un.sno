@@ -1,0 +1,18 @@
+        DEFINE('FN(X)')                         :(FN.END)
+FN      IDENT(X, 'bad')                         :S(FRETURN)
+        FN = X                                  :(RETURN)
+FN.END  OPSYN('%', .FN, 1)
+        %'ok'                                   :F(A1)
+        OUTPUT = 'ok succeeded'
+A1      %'bad'                                  :S(A2)
+        OUTPUT = 'bad failed'                   :(A3)
+A2      OUTPUT = 'bad SUCCEEDED'
+A3      X = (%'bad' 'z')                        :F(A4)
+        OUTPUT = 'concat SUCCEEDED'             :(A5)
+A4      OUTPUT = 'concat failed'
+A5      DEFINE('MQ(A)')                         :(MQ.END)
+MQ      (DIFFER(A) %A)                          :S(RETURN)F(FRETURN)
+MQ.END  MQ('bad')                               :S(A6)
+        OUTPUT = 'MQ failed'                    :(END)
+A6      OUTPUT = 'MQ SUCCEEDED'
+END

@@ -1,0 +1,14 @@
+        DEFINE('TF(NAME,TAG)J')                    :(TFEND)
+TF      J = 0
+TF.L    J = J + 1
+        S = S 'abcdefghij'
+        LT(J, 40)                                 :S(TF.L)
+        OUTPUT = 'access ' NAME ' size ' SIZE(S) ' x=' X       :(RETURN)
+TFEND   TRACE('X','ACCESS','','TF')
+        &TRACE = 100
+        S = ''
+        X = DUPL('pq', 500)
+        Y = X
+        Z = X
+        OUTPUT = 'done ' SIZE(Y) ' ' SIZE(Z) ' ' SIZE(S)
+END

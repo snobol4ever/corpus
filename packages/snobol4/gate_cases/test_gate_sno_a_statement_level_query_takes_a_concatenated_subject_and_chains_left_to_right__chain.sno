@@ -1,0 +1,13 @@
+        'abc' ? 'b' ? ''              :S(A1)F(B1)
+A1      OUTPUT = 'p1 s'               :(N1)
+B1      OUTPUT = 'p1 f'
+N1      'abc' ? 'x' ? ''              :S(A2)F(B2)
+A2      OUTPUT = 'p2 s'               :(N2)
+B2      OUTPUT = 'p2 f'
+N2      'abcd' ? 'bc' . OUTPUT ? 'c' . OUTPUT
+        'abcd' ? LEN(2) . OUTPUT ? LEN(1) . OUTPUT
+L3      'abcd' ? 'b' ? 'c' ? 'd'      :S(A3)F(B3)
+A3      OUTPUT = 'p3 s'               :(N3)
+B3      OUTPUT = 'p3 f'
+N3      OUTPUT = 'end'
+END

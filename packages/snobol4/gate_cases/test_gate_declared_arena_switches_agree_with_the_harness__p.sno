@@ -1,0 +1,2 @@
+        OUTPUT = DUPL("x", 1000)
+END

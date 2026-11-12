@@ -1,0 +1,18 @@
+        &ERRLIMIT = 20
+        n = 0
+        SETEXIT(.trap)
+        r = APPLY('EVAL', '2 / 0')                   :F(f1)
+f1      OUTPUT = 'a ' &ERRLIMIT ' n=' n
+        SETEXIT(.trap)
+        r = APPLY('EVAL', '2 / 0')                   :F(f2)
+f2      OUTPUT = 'b ' &ERRLIMIT ' n=' n
+        OPSYN('MYEVAL', 'EVAL')
+        SETEXIT(.trap)
+        r = MYEVAL('3 / 0')                          :F(f3)
+f3      OUTPUT = 'c ' &ERRLIMIT ' n=' n
+        SETEXIT(.trap)
+        r = EVAL('1 +')                              :F(f4)
+f4      OUTPUT = 'd ' &ERRLIMIT ' n=' n              :(END)
+trap    n = n + 1
+        OUTPUT = 'trap ' n ' ' &ERRTEXT              :(CONTINUE)
+END

@@ -1,0 +1,25 @@
+        t = TABLE()
+        t['k'] = 1
+        t['j'] = 2
+        a = ARRAY(3)
+        b = ARRAY('2,2')
+        OUTPUT = IDENT(.t['k'], .t['k']) 'table-same'
+        OUTPUT = DIFFER(.t['k'], .t['j']) 'table-diff-key'
+        OUTPUT = IDENT(.a[1], .a[1]) 'array-same'
+        OUTPUT = DIFFER(.a[1], .a[2]) 'array-diff-idx'
+        OUTPUT = IDENT(.b[1,2], .b[1,2]) 'two-d-same'
+        OUTPUT = DIFFER(.b[1,2], .b[2,1]) 'two-d-diff'
+        OUTPUT = IDENT(.ITEM(t,'k'), .t['k']) 'item-vs-sub'
+        t2 = TABLE()
+        t2['k'] = 1
+        OUTPUT = DIFFER(.t['k'], .t2['k']) 'table-diff-table'
+        OUTPUT = IDENT(.a[1], .a[1]) 'again'
+        x = 1
+        OUTPUT = IDENT(.x, .x) 'var-same'
+        OUTPUT = DIFFER(.x, .y) 'var-diff'
+        n1 = .t['k']
+        n2 = .t['k']
+        OUTPUT = IDENT(n1, n2) 'held-names-same'
+        OUTPUT = IDENT(.a[1], .t['k']) 'array-vs-table'
+        OUTPUT = 'end'
+END

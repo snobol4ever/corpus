@@ -1,0 +1,5 @@
+procedure main()
+  &error := 1;
+  every write(1 to 5 by 0);
+  write("after=", &errornumber);
+end

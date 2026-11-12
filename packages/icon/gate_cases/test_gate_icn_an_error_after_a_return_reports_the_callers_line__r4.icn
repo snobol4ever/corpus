@@ -1,0 +1,14 @@
+procedure q();
+   return 1;
+end
+procedure r(n);
+   local x;
+   if n = 0 then {
+      x := q() + "a";
+      return x;
+   };
+   return r(n - 1);
+end
+procedure main();
+   write(r(70000));
+end

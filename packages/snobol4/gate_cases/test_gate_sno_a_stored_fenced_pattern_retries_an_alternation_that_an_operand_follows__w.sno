@@ -1,0 +1,74 @@
+        DEFINE('OPT(PATTERN)')                                              :(W1)
+OPT     OPT = NULL | PATTERN                                               :(RETURN)
+W1      G = '(' SPAN('AB') ')'
+        S = ':S(A)F(B)'
+        P1 = ':' FENCE NULL ('S' G | 'S' G 'F' G) NULL
+        S ? POS(0) P1 RPOS(0)                                              :S(Y1)
+        OUTPUT = 'NO  1 stored: FENCE, NULL, alternation, then NULL'       :(W2)
+Y1      OUTPUT = 'YES 1 stored: FENCE, NULL, alternation, then NULL'
+W2      P2 = ':' FENCE ('S' G | 'S' G 'F' G) NULL
+        S ? POS(0) P2 RPOS(0)                                              :S(Y2)
+        OUTPUT = 'NO  2 stored: FENCE, alternation, then NULL'             :(W3)
+Y2      OUTPUT = 'YES 2 stored: FENCE, alternation, then NULL'
+W3      P3 = ':' FENCE NULL ('S' G | 'S' G 'F' G) LEN(0)
+        S ? POS(0) P3 RPOS(0)                                              :S(Y3)
+        OUTPUT = 'NO  3 stored: the trailing operand is LEN(0)'            :(W4)
+Y3      OUTPUT = 'YES 3 stored: the trailing operand is LEN(0)'
+W4      P4 = ':' FENCE NULL ('S' G | 'S' G 'F' G) ''
+        S ? POS(0) P4 RPOS(0)                                              :S(Y4)
+        OUTPUT = 'NO  4 stored: the trailing operand is a null literal'    :(W5)
+Y4      OUTPUT = 'YES 4 stored: the trailing operand is a null literal'
+W5      BLANKS = SPAN(' ')
+        P5 = OPT(BLANKS ':' FENCE OPT(BLANKS) ('S' G | 'F' G | 'S' G OPT(BLANKS) 'F' G) OPT(BLANKS))
+        S5 = ' ' S
+        S5 ? POS(0) P5 RPOS(0)                                             :S(Y5)
+        OUTPUT = 'NO  5 run-time built: SPITBOL test program 4 GOTO_FIELD'  :(W6)
+Y5      OUTPUT = 'YES 5 run-time built: SPITBOL test program 4 GOTO_FIELD'
+W6      S ? POS(0) ':' FENCE NULL ('S' G | 'S' G 'F' G) NULL RPOS(0)       :S(Y6)
+        OUTPUT = 'NO  6 control: the same pattern inline'                  :(W7)
+Y6      OUTPUT = 'YES 6 control: the same pattern inline'
+W7      P7 = ':' NULL ('S' G | 'S' G 'F' G) NULL
+        S ? POS(0) P7 RPOS(0)                                              :S(Y7)
+        OUTPUT = 'NO  7 control: no FENCE'                                 :(W8)
+Y7      OUTPUT = 'YES 7 control: no FENCE'
+W8      P8 = ':' FENCE NULL ('S' G | 'S' G 'F' G) (SPAN(' ') | '')
+        S ? POS(0) P8 RPOS(0)                                              :S(Y8)
+        OUTPUT = 'NO  8 control: the trailing operand is an alternation'   :(W9)
+Y8      OUTPUT = 'YES 8 control: the trailing operand is an alternation'
+W9      P9 = ':' FENCE NULL ('S' G | 'X') NULL
+        S ? POS(0) (P9 | ':' REM) RPOS(0)                                  :S(Y9)
+        OUTPUT = 'NO  9 control: the walk reaches the FENCE and the whole match aborts' :(W10)
+Y9      OUTPUT = 'YES 9 control: the walk reaches the FENCE and the whole match aborts'
+W10     P10 = ':' FENCE NULL ('S' G | 'X') LEN(0)
+        S ? POS(0) (P10 | ':' REM) RPOS(0)                                 :S(Y10)
+        OUTPUT = 'NO  10 control: the same abort through a LEN(0) tail'    :(W11)
+Y10     OUTPUT = 'YES 10 control: the same abort through a LEN(0) tail'
+W11     P11 = ':' NULL ('S' G | 'X') NULL
+        S ? POS(0) (P11 | ':' REM) RPOS(0)                                 :S(Y11)
+        OUTPUT = 'NO  11 control: with no FENCE the outer alternative matches' :(END)
+Y11     OUTPUT = 'YES 11 control: with no FENCE the outer alternative matches'
+W12     P12 = ':' FENCE ('a' | 'ab') (LEN(1) . V)
+        V = ; ':abcd' ? POS(0) P12 'd'                                     :S(Y12)
+        OUTPUT = 'NO  12 the cto control: a conditional capture tail'      :(W13)
+Y12     OUTPUT = '12 the cto control, conditional capture tail: V=' V
+W13     P13 = ':' FENCE ('a' | 'ab') (LEN(1) $ W)
+        W = ; ':abcd' ? POS(0) P13 'd'                                     :S(Y13)
+        OUTPUT = 'NO  13 an immediate capture tail'                        :(W14)
+Y13     OUTPUT = '13 an immediate capture tail: W=' W
+W14     P14 = ':' FENCE ('a' | 'ab') ((LEN(1) | LEN(2)) . X)
+        X = ; ':abcde' ? POS(0) P14 'e'                                    :S(Y14)
+        OUTPUT = 'NO  14 a capture around a generator'                     :(W15)
+Y14     OUTPUT = '14 a capture around a generator: X=' X
+W15     P15 = ':' FENCE ('a' | 'ab') LEN(1) @C
+        C = ; ':abcd' ? POS(0) P15 'd'                                     :S(Y15)
+        OUTPUT = 'NO  15 a cursor capture tail'                            :(W16)
+Y15     OUTPUT = '15 a cursor capture tail: C=' C
+W16     P16 = ':' FENCE ('a' | 'ab') (LEN(1) . Y) (LEN(1) . Z)
+        Y = ; Z = ; ':abcde' ? POS(0) P16 'e'                              :S(Y16)
+        OUTPUT = 'NO  16 two stacked capture tails'                        :(W17)
+Y16     OUTPUT = '16 two stacked capture tails: Y=' Y ' Z=' Z
+W17     P17 = ':' FENCE ('a' | 'x') (LEN(1) . Q)
+        Q = 'unset'; ':abcd' ? POS(0) (P17 'd' | ':' REM . R)              :S(Y17)
+        OUTPUT = 'NO  17 abort through the FENCE with a capture tail'      :(END)
+Y17     OUTPUT = 'YES 17 abort through the FENCE with a capture tail: Q=' Q ' R=' R
+END

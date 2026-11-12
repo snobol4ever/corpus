@@ -1,0 +1,7 @@
+procedure g(a, b);
+  return a || b || repl("z", 2);
+end
+procedure main();
+  write(g("abc", "def"));
+  write(map("ABC", "ABC", "xyz"));
+end

@@ -1,0 +1,20 @@
+        &ERRLIMIT = 99
+        X =
+        'abc' SPAN(*$X)                                         :F(a1)
+        OUTPUT = 'span matched'
+a1      OUTPUT = 'failed with ' &ERRTYPE
+        'abc' ANY(*$X)                                          :F(a2)
+        OUTPUT = 'any matched'
+a2      OUTPUT = 'failed with ' &ERRTYPE
+        x = *$X
+        '8' ? x                                                 :F(a3)
+        OUTPUT = 'deferred matched'
+a3      OUTPUT = 'failed with ' &ERRTYPE
+        p = SPAN(*$X)
+        'abc' ? p                                               :F(a4)
+        OUTPUT = 'stored matched'
+a4      OUTPUT = 'failed with ' &ERRTYPE
+        'abc' LEN(1) . Y                                      :F(a5)
+        OUTPUT = 'capture matched'
+a5      OUTPUT = 'end ' &ERRTYPE
+END

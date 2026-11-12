@@ -1,0 +1,50 @@
+        DATA('nd(a,b)')
+        DEFINE('lw(x)')                                 :(lw_end)
+lw      lw = REPLACE(x, &UCASE, &LCASE)                 :(RETURN)
+lw_end
+        DEFINE('pr(x)')                                 :(pr_end)
+pr      pr = LPAD(DUPL(x, 2), 6, '.')
+        pr = SIZE(pr) REVERSE(TRIM(SUBSTR(pr, 2, 3)))   :(RETURN)
+pr_end
+        DEFINE('bad(x)')                                :(bad_end)
+bad     bad = REPLACE(x, 'ab', 'x')                     :S(RETURN)F(FRETURN)
+bad_end
+        DEFINE('dp(x)')                                 :(dp_end)
+dp      dp = DUPL(x, 'q')                               :S(RETURN)F(FRETURN)
+dp_end
+        DEFINE('drv(n)i,c')                             :(drv_end)
+drv     i = 0
+dloop   'Aa' ? LEN(1) . c *lw(c)                        :F(dbad)
+        i = LT(i, n) i + 1                              :S(dloop)
+        drv = 'done ' i ' ' c                           :(RETURN)
+dbad    drv = 'failed at ' i                            :(RETURN)
+drv_end
+        DEFINE('deep(n)')                               :(deep_end)
+deep    deep = EQ(n, 0) drv(3)                          :S(RETURN)
+        deep = deep(n - 1)                              :(RETURN)
+deep_end
+        DEFINE('errs(x)c')                              :(errs_end)
+errs    'zz' ? LEN(1) . c *bad(c)                       :S(es1)F(ef1)
+es1     errs = 'bad matched ' c                         :(RETURN)
+ef1     errs = 'bad failed ' c ' errlimit ' &ERRLIMIT   :(RETURN)
+errs_end
+        DEFINE('errd(x)c')                              :(errd_end)
+errd    'zz' ? LEN(1) . c *dp(c)                        :S(ds1)F(df1)
+ds1     errd = 'dp matched ' c                          :(RETURN)
+df1     errd = 'dp failed ' c ' errlimit ' &ERRLIMIT    :(RETURN)
+errd_end
+        DEFINE('pri(x)c')                               :(pri_end)
+pri     'k6...' ? LEN(1) . c *pr(c)                     :S(ps1)F(pf1)
+ps1     pri = 'pr matched ' c                           :(RETURN)
+pf1     pri = 'pr failed ' c                            :(RETURN)
+pri_end
+        &ERRLIMIT = 20
+        t = nd(1, 2)
+        OUTPUT = drv(5)
+        OUTPUT = deep(4)
+        OUTPUT = pri(1)
+        OUTPUT = errs(1)
+        OUTPUT = errd(1)
+        OUTPUT = deep(2)
+        OUTPUT = 'done errlimit ' &ERRLIMIT
+END

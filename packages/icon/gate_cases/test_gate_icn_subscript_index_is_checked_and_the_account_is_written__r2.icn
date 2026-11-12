@@ -1,0 +1,6 @@
+procedure main()
+   write(image("abcdef"[2:4]));
+   write("about to fail");
+   write(image("abcdef"["q"]));
+   write("not reached");
+end

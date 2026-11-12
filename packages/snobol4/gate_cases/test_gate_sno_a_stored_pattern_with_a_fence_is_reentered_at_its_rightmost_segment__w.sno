@@ -1,0 +1,40 @@
+        P1 = 'c' FENCE('+' | '') ':' ARBNO('b')
+        '{c:bb}' ? POS(0) '{' ARBNO(P1) '}' RPOS(0)                        :S(Y1)
+        OUTPUT = 'NO  1 ARBNO(P1), P1 = c FENCE(+|) : ARBNO(b)'               :(W2)
+Y1      OUTPUT = 'YES 1 ARBNO(P1), P1 = c FENCE(+|) : ARBNO(b)'
+W2      P2 = 'c' FENCE('') ':' ARBNO('b')
+        '{c:bb}' ? POS(0) '{' ARBNO(P2) '}' RPOS(0)                        :S(Y2)
+        OUTPUT = 'NO  2 ARBNO(P2), P2 = c FENCE() : ARBNO(b)'                 :(W3)
+Y2      OUTPUT = 'YES 2 ARBNO(P2), P2 = c FENCE() : ARBNO(b)'
+W3      P3 = 'c' ':' ARBNO('b')
+        '{c:bb}' ? POS(0) '{' ARBNO(P3) '}' RPOS(0)                        :S(Y3)
+        OUTPUT = 'NO  3 control: no FENCE'                                    :(W4)
+Y3      OUTPUT = 'YES 3 control: no FENCE'
+W4      P4 = 'c' FENCE('') ':' 'b'
+        '{c:bc:b}' ? POS(0) '{' ARBNO(P4) '}' RPOS(0)                      :S(Y4)
+        OUTPUT = 'NO  4 control: rightmost segment all literals'              :(W5)
+Y4      OUTPUT = 'YES 4 control: rightmost segment all literals'
+W5      P5 = 'c' ':' FENCE('b' | 'bb')
+        '{c:bb}' ? POS(0) '{' ARBNO(P5) '}' RPOS(0)                        :S(Y5)
+        OUTPUT = 'NO  5 control: the FENCE is the rightmost element'          :(W6)
+Y5      OUTPUT = 'YES 5 control: the FENCE is the rightmost element'
+W6      P6 = 'c' FENCE('') ':' ARBNO('b') 'x'
+        '{c:bbx}' ? POS(0) '{' ARBNO(P6) '}' RPOS(0)                       :S(Y6)
+        OUTPUT = 'NO  6 control: rightmost segment an ARBNO then a literal'   :(W7)
+Y6      OUTPUT = 'YES 6 control: rightmost segment an ARBNO then a literal'
+W7      G = '(' SPAN('AB') ')'
+        PV = ':' FENCE NULL ('S' G | 'S' G 'F' G)
+        ':S(A)F(B)' ? POS(0) PV RPOS(0)                                    :S(Y7)
+        OUTPUT = 'NO  7 bare FENCE, an operand, an alternation, in a variable' :(W8)
+Y7      OUTPUT = 'YES 7 bare FENCE, an operand, an alternation, in a variable'
+W8      L = 'abcdefghijklmnopqrstuvwxyz'
+        (ID = (ANY(L) FENCE(SPAN(L) | epsilon)))
+        (ARM = ((((ID $ TX) ':') ARBNO('b')) (epsilon . TT)))
+        '{a:bb}' ? POS(0) '{' ARBNO(*ARM) '}' RPOS(0)                      :S(Y8)
+        OUTPUT = 'NO  8 a FENCE nested in an element, an inner ARBNO, a tier-2 tail' :(W9)
+Y8      OUTPUT = 'YES 8 a FENCE nested in an element, an inner ARBNO, a tier-2 tail'
+W9      (ARM9 = ((((ID $ TX) ':') ARBNO('b')) ('')))
+        '{a:bb}' ? POS(0) '{' ARBNO(*ARM9) '}' RPOS(0)                     :S(Y9)
+        OUTPUT = 'NO  9 control: the same arm with a literal tail'            :(END)
+Y9      OUTPUT = 'YES 9 control: the same arm with a literal tail'
+END

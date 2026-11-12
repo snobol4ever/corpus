@@ -1,0 +1,9 @@
+        &ERRLIMIT = 5
+        SETEXIT('H')
+        A = 'a'
+        X = 1 + A                                               :S(S)F(F)
+S       OUTPUT = 'S'                                            :(N)
+F       OUTPUT = 'F'
+N       OUTPUT = 'next ERRLIMIT=' &ERRLIMIT                     :(END)
+H       OUTPUT = 'H ' &ERRTYPE                                  :(CONTINUE)
+END

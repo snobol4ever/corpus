@@ -1,0 +1,13 @@
+	DEFINE('H(v)')	:(HE)
+H	OUTPUT = 'H ' v
+	H = .dummy	:(NRETURN)
+HE
+	DEFINE('G(v)')	:(GE)
+G	H(v)
+	G = .dummy	:(NRETURN)
+GE
+	'ab' ? 'a' . x . *G(x)	:S(Y)F(N)
+Y	OUTPUT = 'S'	:(E)
+N	OUTPUT = 'F'
+E
+END

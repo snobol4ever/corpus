@@ -1,0 +1,5 @@
+procedure main()
+   write(read(&input));
+   close(&input);
+   write(read(&input) | "failed");
+end

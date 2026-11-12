@@ -1,0 +1,9 @@
+procedure main()
+write(p());
+end
+procedure p()
+local L; static S;
+L := [1,2,3]; S := 0;
+every S := S + !L;
+return S;
+end

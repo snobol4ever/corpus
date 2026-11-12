@@ -1,0 +1,16 @@
+procedure main();
+   local s, t, r, n;
+   &trace := -1;
+   s := "abc";
+   every gs(s);
+   t := table(); t["k"] := 7;
+   every gt(t);
+   r := [2,3];
+   every gr(r);
+   n := 5;
+   every gl(n);
+end
+procedure gs(x); suspend !x; end
+procedure gt(x); suspend !x; end
+procedure gr(x); suspend !x; end
+procedure gl(x); suspend x; end

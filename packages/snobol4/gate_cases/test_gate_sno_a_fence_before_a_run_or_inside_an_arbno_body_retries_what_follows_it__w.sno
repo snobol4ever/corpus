@@ -1,0 +1,42 @@
+        'xabc' ? FENCE('x') ('a' | 'ab') 'c'                                  :S(Y1)
+        OUTPUT = 'NO  1 FENCE(x) (a|ab) c'                                     :(W2)
+Y1      OUTPUT = 'YES 1 FENCE(x) (a|ab) c'
+W2      'xab' ? FENCE('x') ('a' | 'ab') RPOS(0)                              :S(Y2)
+        OUTPUT = 'NO  2 FENCE(x) (a|ab) RPOS(0)'                               :(W3)
+Y2      OUTPUT = 'YES 2 FENCE(x) (a|ab) RPOS(0)'
+W3      'xybb' ? FENCE('x') 'y' ARBNO('b') RPOS(0)                            :S(Y3)
+        OUTPUT = 'NO  3 FENCE(x) y ARBNO(b) RPOS(0)'                           :(W4)
+Y3      OUTPUT = 'YES 3 FENCE(x) y ARBNO(b) RPOS(0)'
+W4      'xybb' ? 'x' FENCE('') 'y' ARBNO('b') RPOS(0)                         :S(Y4)
+        OUTPUT = 'NO  4 x FENCE() y ARBNO(b) RPOS(0)'                          :(W5)
+Y4      OUTPUT = 'YES 4 x FENCE() y ARBNO(b) RPOS(0)'
+W5      'xybb' ? FENCE('x') 'y' ARB RPOS(0)                                   :S(Y5)
+        OUTPUT = 'NO  5 FENCE(x) y ARB RPOS(0)'                                :(W6)
+Y5      OUTPUT = 'YES 5 FENCE(x) y ARB RPOS(0)'
+W6      P = FENCE('x') 'y' ARBNO('b') RPOS(0)
+        'xybb' ? P                                                            :S(Y6)
+        OUTPUT = 'NO  6 the same pattern held in a variable'                  :(W7)
+Y6      OUTPUT = 'YES 6 the same pattern held in a variable'
+W7      '{c:bb}' ? POS(0) '{' ARBNO('c' FENCE('') ':' ARBNO('b')) '}' RPOS(0) :S(Y7)
+        OUTPUT = 'NO  7 ARBNO body c FENCE() : ARBNO(b)'                       :(W8)
+Y7      OUTPUT = 'YES 7 ARBNO body c FENCE() : ARBNO(b)'
+W8      'c:bb' ? POS(0) 'c' FENCE('+' | '') ':' ARBNO('b') RPOS(0)            :S(Y8)
+        OUTPUT = 'NO  8 c FENCE(+|) : ARBNO(b) RPOS(0)'                        :(W9)
+Y8      OUTPUT = 'YES 8 c FENCE(+|) : ARBNO(b) RPOS(0)'
+W9      'xab' ? 'x' ('a' | 'ab') RPOS(0)                                      :S(Y9)
+        OUTPUT = 'NO  9 control: no FENCE'                                     :(W10)
+Y9      OUTPUT = 'YES 9 control: no FENCE'
+W10     'abb' ? POS(0) ARBNO('a' ARBNO('b')) RPOS(0)                          :S(Y10)
+        OUTPUT = 'NO  10 control: nested ARBNO, no FENCE'                      :(W11)
+Y10     OUTPUT = 'YES 10 control: nested ARBNO, no FENCE'
+W11     $('F') = FENCE('0')
+        $('T') = F ARBNO('*' F)
+        $('X') = T ARBNO('+' T)
+        '0*0' ? POS(0) X RPOS(0)                                              :S(Y11)
+        OUTPUT = 'NO  11 runtime-built FENCE(0) under nested ARBNO'           :(W12)
+Y11     OUTPUT = 'YES 11 runtime-built FENCE(0) under nested ARBNO'
+W12     '1+2+3' ? POS(0) SPAN('0123456789') . F1 ARBNO(FENCE('+') SPAN('0123456789') . L1) RPOS(0)   :F(N12)
+        IDENT(F1 '/' L1, '1/3')                                               :S(Y12)
+N12     OUTPUT = 'NO  12 ARBNO(FENCE(+) SPAN . L1): the capture ends the body' :(END)
+Y12     OUTPUT = 'YES 12 ARBNO(FENCE(+) SPAN . L1): the capture ends the body'
+END

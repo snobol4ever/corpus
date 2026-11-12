@@ -1,0 +1,6 @@
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	N = 'first'
+	N = 2 + 3
+	OUTPUT = 'trace=' &TRACE
+END

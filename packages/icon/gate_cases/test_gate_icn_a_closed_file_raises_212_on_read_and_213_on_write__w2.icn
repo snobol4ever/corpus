@@ -1,0 +1,8 @@
+procedure main()
+   local f, r;
+   f := open("w2.icn") | stop("no open");
+   write(image(close(f)));
+   write(image(close(f)) | "close again failed");
+   r := reads(f) | "reads failed";
+   write(r);
+end

@@ -1,0 +1,8 @@
+        DEFINE('DEXP(PROTO)NAME,ARGS')          :(DEXP_END)
+DEXP    PROTO BREAK('(') . NAME BAL . ARGS =    :F(FRETURN)
+        CODE(NAME ' ' NAME PROTO ' :S(RETURN)F(FRETURN) ; ') :F(FRETURN)
+        DEFINE(NAME ARGS)                       :(RETURN)
+DEXP_END
+        DEXP('LIST(S1,S2) = S1 S2')
+        OUTPUT = LIST('a','b')
+END

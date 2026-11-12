@@ -1,0 +1,8 @@
+	&TRACE = 10
+	N = 5
+	TRACE('N', 'ACCESS')
+	X = $('N')
+	STOPTR('N', 'ACCESS')
+	Y = $('N')
+	OUTPUT = 'trace=' &TRACE
+END

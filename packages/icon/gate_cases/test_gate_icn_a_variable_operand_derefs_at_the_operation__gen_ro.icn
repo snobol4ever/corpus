@@ -1,0 +1,5 @@
+global G
+procedure main()
+local L, S; L := [1,2,3]; S := 0; G := 10;
+every S := S + G + !L; write(S);
+end

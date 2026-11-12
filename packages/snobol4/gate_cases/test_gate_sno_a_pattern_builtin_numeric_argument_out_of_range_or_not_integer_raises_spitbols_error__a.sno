@@ -1,0 +1,61 @@
+        &ERRLIMIT = 50
+        SETEXIT('H')
+        P = 'unset'
+        N = 'x'
+        SETEXIT('H')
+        P = LEN(N)
+        OUTPUT = 'len-x ' DATATYPE(P)
+        P = 'unset'
+        N = -2
+        SETEXIT('H')
+        P = LEN(N)
+        OUTPUT = 'len-neg ' DATATYPE(P)
+        P = 'unset'
+        SETEXIT('H')
+        P = POS(N)
+        OUTPUT = 'pos-neg ' DATATYPE(P)
+        P = 'unset'
+        SETEXIT('H')
+        P = RPOS(N)
+        OUTPUT = 'rpos-neg ' DATATYPE(P)
+        P = 'unset'
+        SETEXIT('H')
+        P = TAB(N)
+        OUTPUT = 'tab-neg ' DATATYPE(P)
+        P = 'unset'
+        SETEXIT('H')
+        P = RTAB(N)
+        OUTPUT = 'rtab-neg ' DATATYPE(P)
+        P = 'unset'
+        N = 'x'
+        SETEXIT('H')
+        P = POS(N)
+        OUTPUT = 'pos-x ' DATATYPE(P)
+        P = 'unset'
+        SETEXIT('H')
+        P = RPOS(N) 'a'
+        OUTPUT = 'rpos-x ' DATATYPE(P)
+        P = 'unset'
+        N = -2
+        SETEXIT('H')
+        P = ARBNO(LEN(N))
+        OUTPUT = 'arbno-len-neg ' DATATYPE(P)
+        P = 'unset'
+        SETEXIT('H')
+        P = LEN(N + 5) 'a'
+        OUTPUT = 'len-ok ' DATATYPE(P)
+        N = 3.7
+        SETEXIT('H')
+        P = LEN(N)
+        OUTPUT = 'len-real ' DATATYPE(P)
+        N = '4'
+        SETEXIT('H')
+        P = TAB(N)
+        OUTPUT = 'tab-str ' DATATYPE(P)
+        N =
+        SETEXIT('H')
+        P = POS(N)
+        OUTPUT = 'pos-null ' DATATYPE(P)
+        OUTPUT = 'end'                                   :(END)
+H       OUTPUT = 'trap ' &ERRTYPE                        :(CONTINUE)
+END

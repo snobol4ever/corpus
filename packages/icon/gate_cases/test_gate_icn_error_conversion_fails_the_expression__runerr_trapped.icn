@@ -1,0 +1,5 @@
+procedure main()
+  &error := 1;
+  runerr(500);
+  write("caught=", &errornumber);
+end

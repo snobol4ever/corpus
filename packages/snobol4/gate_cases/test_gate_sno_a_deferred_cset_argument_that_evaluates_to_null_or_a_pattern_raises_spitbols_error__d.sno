@@ -1,0 +1,7 @@
+        &ERRLIMIT = 3
+        S = ''
+        'abc' ? (ANY(*S) | 'a') . X                      :S(Y)
+        OUTPUT = 'failed ' &ERRLIMIT ' [' X ']'          :(Z)
+Y       OUTPUT = 'matched [' X ']'
+Z       OUTPUT = 'end'
+END

@@ -1,0 +1,6 @@
+procedure main()
+  local x, y;
+  x := 10;
+  y := 20;
+  write(x + y);
+end

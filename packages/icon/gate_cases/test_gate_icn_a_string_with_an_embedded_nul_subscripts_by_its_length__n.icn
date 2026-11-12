@@ -1,0 +1,8 @@
+procedure main()
+   local s;
+   s := string(&cset);
+   write(*s, " ", image(s[1]), " ", ord(s[2]), " ", image(s[255]) | "f255", " ", image(s[256]) | "f256");
+   write(image(s[254:0]) | "fsect", " ", *s[1:3], " ", image(s[-1]), " ", image(&cset[256]) | "fcset");
+   s := "a" || char(0) || "b";
+   write(*s, " ", image(s[3]) | "f3", " ", image(s[2:0]), " ", image(reverse(s)), " ", image(s[2]));
+end

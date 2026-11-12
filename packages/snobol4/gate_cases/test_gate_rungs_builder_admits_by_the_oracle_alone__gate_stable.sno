@@ -1,0 +1,3 @@
+        OUTPUT = 'stable answer'
+        OUTPUT = 6 * 7
+END

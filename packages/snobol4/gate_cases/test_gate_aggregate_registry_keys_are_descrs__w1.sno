@@ -1,0 +1,15 @@
+        T = TABLE()
+        T[5] = "int five"
+        T[CHAR(1) "i5"] = "string key"
+        T["5"] = "string five"
+        OUTPUT = T[5] " | " T[CHAR(1) "i5"] " | " T["5"]
+        A = CONVERT(T, "ARRAY")
+        OUTPUT = PROTOTYPE(A)
+        T2 = TABLE()
+        T2[10] = 1
+        T2[9] = 1
+        T2["b"] = 1
+        T2["a"] = 1
+        B = SORT(T2)
+        OUTPUT = B[1,1] " " B[2,1] " " B[3,1] " " B[4,1]
+END

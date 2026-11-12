@@ -1,0 +1,9 @@
+        P = (SPAN('a') | LEN(1)) . X ARBNO('b') FENCE(LEN(1)) BREAK('c') . Y
+        Q = ARB . W *Z . V
+        Z = 'abc'
+        'aabbxc' P  :F(NO)
+        OUTPUT = X '-' Y
+        'zzabczz' Q :F(NO)
+        OUTPUT = W '-' V  :(END)
+NO      OUTPUT = 'NO'
+END

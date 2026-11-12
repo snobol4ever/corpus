@@ -1,0 +1,10 @@
+        S = 'AAAAABBBBBCCCCC'
+        N = 3
+        C = 'AB'
+        S LEN(*N) . X1                              :F(D1)
+D1      S ANY(*C) . X2                              :F(D2)
+D2      S SPAN(*C) . X3                             :F(D3)
+D3      S BREAK(*C) . X4                            :F(D4)
+D4      S TAB(*N) . X5                              :F(D5)
+D5
+END

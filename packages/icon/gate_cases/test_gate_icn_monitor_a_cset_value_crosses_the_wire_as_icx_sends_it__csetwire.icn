@@ -1,0 +1,6 @@
+procedure main()
+   local x, n;
+   x := 'a1b2c3';
+   n := *x;
+   write(n);
+end

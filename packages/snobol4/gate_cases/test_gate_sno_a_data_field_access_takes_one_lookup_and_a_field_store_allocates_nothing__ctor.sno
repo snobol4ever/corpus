@@ -1,0 +1,7 @@
+        DATA('pair(n,a)')
+        i = 0
+loop    p = pair(i, i + 1)
+        q = pair()
+        i = LT(i, 1500) i + 1                           :S(loop)
+        OUTPUT = n(p) ' ' a(p) ' ' DATATYPE(q) ' ' IDENT(n(q)) 'null'
+END

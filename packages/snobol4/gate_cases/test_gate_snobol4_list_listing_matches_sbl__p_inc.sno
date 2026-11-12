@@ -1,0 +1,5 @@
+-LIST
+ X = 1
+-INCLUDE 'inc1.sno'
+ OUTPUT = X + Y + Z
+END

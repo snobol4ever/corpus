@@ -1,0 +1,7 @@
+        DEFINE('F(X)', 'LBL')                   :(E)
+LBL     F = 'f' X                               :(RETURN)
+E       &TRACE = 100
+        TRACE('F','CALL')
+        TRACE('F','RETURN')
+        OUTPUT = F('a')
+END

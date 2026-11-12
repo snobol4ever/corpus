@@ -1,0 +1,14 @@
+my $count = 0;
+my $list = gather { for 1 .. 10 -> $a { take $a; $count++ } };
+my $result = $list[2];
+say $count;
+my @f = 1, 1, * + * ... *;
+say @f[0..7];
+say (1 ... *).first(* > 5);
+my @nested = gather { for 1..2 -> $i { take gather { take $i; take $i * 10 } } };
+say @nested[1];
+my $twice = gather { take 7; take 8 };
+say $twice[0];
+say $twice[0];
+say $twice[1];
+say (gather { take 1 }).is-lazy;

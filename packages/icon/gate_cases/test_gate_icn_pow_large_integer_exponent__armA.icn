@@ -1,0 +1,14 @@
+procedure row(v);
+   local x, y;
+   write("v = ", v);
+   every x := (-1 to 1) do write(x, " ^ v = ", (x ^ v) | ("num=" || &errornumber));
+   if v < 0 then every x := (-2 | 2) do write(x, " ^ v = ", (x ^ v) | ("num=" || &errornumber));
+   y := -1.0;
+   write("-1.0 ^ v = ", (y ^ v) | ("num=" || &errornumber));
+   return;
+end
+procedure main();
+   &error := -1;
+   every row(3 ^ 41 | 6 ^ 25 | -(7 ^ 23));
+   &error := 0;
+end

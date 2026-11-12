@@ -1,0 +1,10 @@
+        DEFINE('F(X,Y)')
+        DEFINE('G(N)')
+        OPSYN('@','F',2)
+        OUTPUT = G(1) @ G(2) @ G(3) @ G(4)
+        :(END)
+F       OUTPUT = 'F(' X ',' Y ')'
+        F = '[' X Y ']'                         :(RETURN)
+G       OUTPUT = 'G' N
+        G = N                                   :(RETURN)
+END

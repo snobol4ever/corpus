@@ -1,0 +1,7 @@
+procedure main()
+write(p());
+end
+procedure p()
+static i;
+i := 1; return i + (i := 5);
+end

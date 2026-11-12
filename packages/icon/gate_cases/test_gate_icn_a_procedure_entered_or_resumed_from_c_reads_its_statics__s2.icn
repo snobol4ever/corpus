@@ -1,0 +1,10 @@
+procedure main()
+   abs :=: Abs;
+   write(abs(-5));
+   every write(abs(-6));
+end
+procedure Abs(a1)
+   static f;
+   initial f := proc("abs", 0);
+   suspend f(a1);
+end

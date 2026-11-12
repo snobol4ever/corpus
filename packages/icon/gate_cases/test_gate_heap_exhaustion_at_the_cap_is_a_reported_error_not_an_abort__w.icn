@@ -1,0 +1,4 @@
+procedure main()
+  L := []; every i := 1 to 20000 do put(L, repl("x", 1000));
+  write("done ", *L);
+end

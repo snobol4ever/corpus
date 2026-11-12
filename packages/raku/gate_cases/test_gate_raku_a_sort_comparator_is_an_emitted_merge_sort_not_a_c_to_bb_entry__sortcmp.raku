@@ -1,0 +1,23 @@
+my @a = 5, 3, 9, 1, 7, 3, 8, 2;
+say @a.sort({ $^a <=> $^b });
+say @a.sort({ $^b <=> $^a });
+say @a.sort({ $^a <=> $^b }).join(",");
+say <b a d c e>.sort({ $^a cmp $^b });
+say <b a d c e>.sort({ $^b cmp $^a });
+say <a1 b2 a3 c4 b5 a6>.sort({ $^a.substr(0,1) cmp $^b.substr(0,1) });
+say (3, 1, 2).sort({ $^a <=> $^b });
+say (3, 1, 2).sort({ $^b - $^a });
+say [].sort({ $^a <=> $^b });
+say (7,).sort({ $^a <=> $^b });
+my @big = (1..40).map({ ($_ * 17) % 41 });
+say @big.sort({ $^a <=> $^b }).join(" ");
+say @big.sort({ $^b <=> $^a })[0..4];
+my @s = @a.sort({ $^a <=> $^b }); say @s; say @s.elems;
+sub top3(@x) { return @x.sort({ $^b <=> $^a })[0..2] }
+say top3(@a);
+say @a;
+say @a.sort({ $^a <=> $^b }).map({ $_ * 2 }).join(",");
+say (@a.sort({ $^a <=> $^b }), @a.sort({ $^b <=> $^a })).elems;
+my @words = <pear fig apple kiwi banana>;
+say @words.sort({ $^a.chars <=> $^b.chars });
+say @words.sort({ $^a.chars <=> $^b.chars || $^a cmp $^b });

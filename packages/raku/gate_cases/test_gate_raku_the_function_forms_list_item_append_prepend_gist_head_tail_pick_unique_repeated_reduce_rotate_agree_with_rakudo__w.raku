@@ -1,0 +1,13 @@
+say list(1,2,3);
+my @a = 1,2,3;
+say list(@a); say list(@a).elems; say list(@a,4).elems; say list().elems;
+say item(5); say item("x");
+my @b = 1,2; append(@b,3,4); say @b; prepend(@b,0); say @b;
+append(@b,5); say @b.elems;
+say gist(5); say gist("s"); say gist(2.5);
+say head(2,(1,2,3)); say head(2,@a); say tail(2,@a); say tail(1,@a); say head(1,4,5,6); say tail(2,4,5,6);
+say pick(1,(5,));
+say unique(1,1,2); say unique(@a,@a).elems; say repeated(1,1,2,2);
+say reduce({$^a*$^b},1,2,3,4); say reduce({$^a + $^b},@a);
+say rotate(@a,1); say rotate(@a,-1);
+my $c = list(1,2,3).elems + head(1,(7,8)).elems; say $c;

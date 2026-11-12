@@ -1,0 +1,5 @@
+        S = ''
+        OUTPUT = 'before'
+        'abc' ? SPAN(*S)
+        OUTPUT = 'after'
+END

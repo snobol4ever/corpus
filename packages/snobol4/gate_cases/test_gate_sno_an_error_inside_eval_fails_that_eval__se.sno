@@ -1,0 +1,13 @@
+        &ERRLIMIT = 20
+        N = 0
+        DEFINE('SAY(S)')                            :(SAY_END)
+SAY     OUTPUT = 'arm ran ' S
+        SAY = S                                     :(RETURN)
+SAY_END
+        V = EVAL("(1 / N, SAY('two'))")             :S(Y1)
+        OUTPUT = 'A F ' &ERRTYPE                    :(E1)
+Y1      OUTPUT = 'A S [' V ']'
+E1      V = EVAL("~(1 / N) SAY('after')")           :S(Y2)
+        OUTPUT = 'B F ' &ERRTYPE                    :(END)
+Y2      OUTPUT = 'B S [' V ']'
+END

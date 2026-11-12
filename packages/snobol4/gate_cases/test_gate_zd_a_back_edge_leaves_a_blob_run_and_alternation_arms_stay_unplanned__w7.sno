@@ -1,0 +1,10 @@
+        DEFINE('P(X)')
+        DEFINE('Q(X)')
+        DEFINE('R(N)')                          :(E1)
+P       LT(X,0)                                 :S(RETURN)F(FRETURN)
+Q       (~P(X)  P(X))                           :S(RETURN)F(FRETURN)
+R       R  =  EQ(N,0)  'ok'                     :S(RETURN)
+        Q(1)
+        R  =  N  ','  R(N - 1)                  :(RETURN)
+E1      OUTPUT  =  R(3)
+END

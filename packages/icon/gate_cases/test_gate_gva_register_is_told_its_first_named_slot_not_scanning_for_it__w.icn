@@ -1,0 +1,21 @@
+global g0, g1, g2
+global never
+procedure write(a, b, c, d);
+    return &null;
+end
+procedure show(label, v);
+    return;
+end
+procedure bump(n);
+    g1 +:= n;
+    return g1;
+end
+procedure main();
+    local s;
+    g0 := 7;
+    g1 := 10;
+    g2 := "str";
+    s := bump(5) + g0;
+    every i := 1 to 3 do g1 +:= i;
+    stop(g0, " ", g1, " ", g2, " ", s, " ", image(never), " ", type(g2), " ", *g2);
+end

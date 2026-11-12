@@ -1,0 +1,9 @@
+        INPUT(.EXPRIN, 5, '[-f0 -l1000000]')
+        OUTPUT(.RESOUT, 6, '[-f1 -w]')
+        N = 0
+LOOP    LINE = EXPRIN                                   :F(DONE)
+        N = N + 1
+        RESOUT = N ' ' LINE
+        GT(N, 5)                                        :S(DONE)F(LOOP)
+DONE    OUTPUT = 'read ' N
+END

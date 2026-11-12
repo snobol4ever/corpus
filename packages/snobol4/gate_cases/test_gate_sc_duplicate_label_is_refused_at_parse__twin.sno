@@ -1,0 +1,8 @@
+        DEFINE('f()')   :(f_end)
+f                       :(x)
+x       f = 'f'   :(RETURN)
+f_end   DEFINE('g()')   :(g_end)
+g                       :(x)
+x       g = 'g'   :(RETURN)
+g_end   OUTPUT = f() g()
+END

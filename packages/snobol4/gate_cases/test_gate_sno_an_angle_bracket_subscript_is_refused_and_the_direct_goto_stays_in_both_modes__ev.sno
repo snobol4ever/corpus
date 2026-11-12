@@ -1,0 +1,13 @@
+        &ERRLIMIT = 10
+        A = ARRAY(2)
+        A[1] = 5
+        SETEXIT('E1')
+        OUTPUT = EVAL('A<1>')           :S(E2)
+        OUTPUT = 'eval failed'          :(E2)
+E1      OUTPUT = 'eval refused ' &ERRTYPE
+E2      SETEXIT('E3')
+        C = CODE(' OUTPUT = A<1>')      :S(E4)
+        OUTPUT = 'code failed'          :(E4)
+E3      OUTPUT = 'code refused ' &ERRTYPE
+E4      OUTPUT = EVAL('A[1]')
+END

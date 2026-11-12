@@ -1,0 +1,10 @@
+        DEFINE('UNCONS(N)')                     :(UE)
+UNCONS  UNCONS = 'u' N                          :(RETURN)
+UE      OPSYN(.POP, .UNCONS)
+        &TRACE = 100
+        TRACE('$tn','CALL')
+        TRACE('$tn','RETURN')
+        X = POP('a')
+        Y = UNCONS('b')
+        OUTPUT = X Y
+END

@@ -1,0 +1,9 @@
+global PI, TRACE, ANCHOR, OUTPUT, gp
+procedure main()
+  PI := 10;
+  TRACE := "t";
+  ANCHOR := 3;
+  OUTPUT := 4;
+  gp := 5;
+  write(image(PI), " ", image(TRACE), " ", image(ANCHOR), " ", image(OUTPUT), " ", image(gp));
+end

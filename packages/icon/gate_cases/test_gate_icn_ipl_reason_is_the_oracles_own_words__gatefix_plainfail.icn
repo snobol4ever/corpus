@@ -1,0 +1,3 @@
+procedure main()
+   stop("gate fixture: a refusal with every identifier resolved");
+end

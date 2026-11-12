@@ -1,0 +1,19 @@
+        DEFINE('byvalue()')                     :(byvalue_end)
+byvalue byvalue = 'v'                           :(RETURN)
+byvalue_end
+        DEFINE('byname()')                      :(byname_end)
+byname  byname = .held                          :(NRETURN)
+byname_end
+        DEFINE('failing()')                     :(failing_end)
+failing                                         :(FRETURN)
+failing_end
+        held = 'h'
+        first = byvalue()
+        second = byname()
+        failing()                               :S(odd)
+        third = byvalue()
+        fourth = byname()
+        failing()                               :S(odd)
+        OUTPUT = first second third fourth ' ' &RTNTYPE :(END)
+odd     OUTPUT = 'failing succeeded'
+END

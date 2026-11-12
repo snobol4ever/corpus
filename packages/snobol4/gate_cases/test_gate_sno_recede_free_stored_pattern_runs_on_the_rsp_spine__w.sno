@@ -1,0 +1,15 @@
+        p1 = POS(0) 'ab' SPAN('cd') ANY('xy') LEN(1) BREAK('!') '!' RPOS(0)
+        p2 = 'ab' | SPAN('cd')
+        p3 = ARBNO('a' | 'b') 'c'
+        'abccdxq..!' p1                                 :F(n1)
+        OUTPUT = 'ok1'
+n1      'abccdxq..' p1                                  :S(bad1)
+        OUTPUT = 'no1'
+bad1    'ccd' p2                                        :F(n2)
+        OUTPUT = 'ok2'
+n2      'ababc' p3                                      :F(n3)
+        OUTPUT = 'ok3'
+n3      'abd' p3                                        :S(bad3)
+        OUTPUT = 'no3'
+bad3
+END

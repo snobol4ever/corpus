@@ -1,0 +1,7 @@
+        T = TABLE()
+        T['a'] = 1
+        &TRACE = 10
+        TRACE('T', 'VALUE')
+        T['a'] = T['a'] + 5
+        OUTPUT = 'after ' T['a']
+END

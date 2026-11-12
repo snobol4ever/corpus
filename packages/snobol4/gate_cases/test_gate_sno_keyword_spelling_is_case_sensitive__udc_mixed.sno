@@ -1,0 +1,4 @@
+	&USER_DECLARED_CONSTANTS = 1
+	&Tag = "hello"
+	OUTPUT = "UDC=" &Tag
+END

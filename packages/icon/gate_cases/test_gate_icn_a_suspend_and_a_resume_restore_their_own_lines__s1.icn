@@ -1,0 +1,7 @@
+procedure main()
+   local x;
+   every x := gen(3) do x := x + &null;
+end
+procedure gen(n)
+   suspend n;
+end

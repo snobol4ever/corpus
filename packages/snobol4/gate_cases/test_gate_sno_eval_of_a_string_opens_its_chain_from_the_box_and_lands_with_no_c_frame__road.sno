@@ -1,0 +1,4 @@
+        OUTPUT = EVAL("3 + 4")
+        X = 5
+        OUTPUT = EVAL(*X)
+END

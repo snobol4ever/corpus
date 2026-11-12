@@ -1,0 +1,6 @@
+procedure main()
+   local L;
+   L := ["x"];
+   L[1] +:= 1;
+   write("after ", image(L[1]));
+end

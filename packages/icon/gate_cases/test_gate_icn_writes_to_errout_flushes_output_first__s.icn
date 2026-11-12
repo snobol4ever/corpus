@@ -1,0 +1,6 @@
+procedure main()
+   writes("prompt :");
+   write("line");
+   writes("tail:");
+   stop("Game Over.");
+end

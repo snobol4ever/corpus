@@ -1,0 +1,22 @@
+        R = 0.0
+        T = 2.0
+        X = '0.'
+        X ? R                        :S(A1)F(B1)
+A1      OUTPUT = 'var real pattern matches 0.'  :(C1)
+B1      OUTPUT = 'var real pattern fails on 0.'
+C1      '0' ? R                      :S(A2)F(B2)
+A2      OUTPUT = 'var real pattern matches 0'   :(C2)
+B2      OUTPUT = 'var real pattern fails on 0'
+C2      R ? '0.'                     :S(A3)F(B3)
+A3      OUTPUT = 'real subject matches 0.'      :(C3)
+B3      OUTPUT = 'real subject fails 0.'
+C3      '2.' ? *T                    :S(A4)F(B4)
+A4      OUTPUT = 'deferred real matches 2.'     :(C4)
+B4      OUTPUT = 'deferred real fails 2.'
+C4      '2' ? *T                     :S(A5)F(B5)
+A5      OUTPUT = 'deferred real matches 2'      :(C5)
+B5      OUTPUT = 'deferred real fails 2'
+C5      OUTPUT = 'concat ' R 'z'
+        OUTPUT = 'size ' SIZE(R) ' ' SIZE(2.5) ' ' SIZE(T * 1.0E20)
+        OUTPUT = 'dupl ' DUPL(T, 2)
+END

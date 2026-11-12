@@ -1,0 +1,26 @@
+        DEFINE('h(x)')                  :(h_end)
+h       h = .ITEM(t, x)                 :(NRETURN)
+h_end   t = TABLE()
+        t['b'] = 1
+        h('b') = 5
+        OUTPUT = 'via h ' t['b']
+        h('b') = h('b') + 10
+        OUTPUT = 'bump ' t['b']
+        n = .ITEM(t, 'b')
+        OUTPUT = 'kind ' DATATYPE(n)
+        $n = 6
+        OUTPUT = 'via name ' t['b']
+        $n = $n + 1
+        OUTPUT = 'read-back ' $n ' ' $.ITEM(t, 'b')
+        n = .ITEM(t, 'fresh')
+        $n = 'made'
+        OUTPUT = 'new key ' t['fresh']
+        a = ARRAY(2)
+        m = .ITEM(a, 1)
+        $m = 7
+        OUTPUT = 'array ' a[1]
+        a2 = ARRAY('2,2', 0)
+        m = .ITEM(a2, 2, 1)
+        $m = 9
+        OUTPUT = 'two-d ' a2[2,1] ' ' DATATYPE(m)
+END

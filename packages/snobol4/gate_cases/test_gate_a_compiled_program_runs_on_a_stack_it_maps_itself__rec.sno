@@ -1,0 +1,4 @@
+        DEFINE('R(N)')                                  :(REND)
+R       R = R(N + 1)                                    :(RETURN)
+REND    R(1)
+END

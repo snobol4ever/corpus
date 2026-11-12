@@ -1,0 +1,5 @@
+        INPUT(.INPUT, 5, '[-f0 -l4]')
+L       V = INPUT                                       :F(D)
+        OUTPUT = 'got [' V ']'                          :(L)
+D       OUTPUT = 'eof'
+END

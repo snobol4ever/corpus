@@ -1,0 +1,12 @@
+        DEFINE('TF(NAME,TAG)')                    :(TFEND)
+TF      OUTPUT = 'trace ' NAME ' tag=' TAG ' v=' $NAME   :(RETURN)
+TFEND   DEFINE('G(A)')                            :(GEND)
+G       EQ(A,1)                                   :F(FRETURN)
+        G = 'ok' A                                :(RETURN)
+GEND    TRACE('G','CALL','CT','TF')
+        TRACE('G','RETURN','RT','TF')
+        &TRACE = 100
+        OUTPUT = G(1)
+        OUTPUT = IDENT(G(2)) 'fail-seen'
+        OUTPUT = 'end'
+END

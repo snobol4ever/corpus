@@ -1,0 +1,24 @@
+procedure main();
+   local s, L, T;
+   s := "abcdef";
+   s[2:4] := "XY";
+   write("section-same-length: ", s);
+   s := "abcdef";
+   s[2:4] := "LONGER";
+   write("section-grows: ", s);
+   s := "abcdef";
+   s[3] := "Z";
+   write("element: ", s);
+   L := [1,2,3];
+   every !L := 9;
+   write("every-bang: ", L[1], L[2], L[3]);
+   L := [1,2,3];
+   ?L := 7;
+   write("query-list-sum: ", L[1] + L[2] + L[3]);
+   s := "hello";
+   ?s := "Q";
+   write("query-string-len: ", *s);
+   T := table(0);
+   T["k"] := 5;
+   write("table: ", T["k"]);
+end

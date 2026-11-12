@@ -1,0 +1,14 @@
+        DEFINE('probe(expr)')                        :(probe_end)
+probe   SETEXIT(.trapped)
+        &ERRLIMIT = 100
+        result = EVAL(expr)                          :F(evalfail)
+        OUTPUT = 'value ' result                     :(RETURN)
+evalfail OUTPUT = 'evalfail ' &ERRTEXT               :(RETURN)
+trapped OUTPUT = 'trapped ' &ERRTEXT
+        SETEXIT(.trapped)                            :(RETURN)
+probe_end
+        probe('1 / 0')
+        probe('1 / 0')
+        probe('1 / 0')
+        OUTPUT = 'done'
+END

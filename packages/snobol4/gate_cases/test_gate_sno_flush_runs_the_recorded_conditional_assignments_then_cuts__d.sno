@@ -1,0 +1,11 @@
+        DEFINE('SEE()')                               :(SEE_END)
+SEE     OUTPUT = 'seen X=' X                          :(RETURN)
+SEE_END
+        X = ; Y =
+        'abz' ? 'a' . X FLUSH 'b' . Y 'c'             :S(Y1)F(N1)
+Y1      OUTPUT = 'YES 1'                              :(W2)
+N1      OUTPUT = 'NO  1 X=' X ' Y=' Y
+W2      X = ; 'ab' ? 'a' . X FLUSH *SEE() 'b'         :S(Y2)F(N2)
+Y2      OUTPUT = 'YES 2 X=' X                         :(END)
+N2      OUTPUT = 'NO  2'
+END

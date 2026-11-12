@@ -1,0 +1,12 @@
+procedure main()
+   local L, e;
+   &error := 200;
+   L := [1, 2.5, "5", "s", 'ab', "", [1], table()];
+   write("A ", image(1 || "x"), image(2.5 || "x"), image("s" || "x"), image('ab' || "x"), image("" || "x"));
+   write("B ", image(*""), image(*"abc"), image(*'ab'), image(*[1,2]), image(*table()));
+   write("C ", image("3" <= 5), image(2 <= 2.5), image("a" ~== "b"), image(1 ~== 2));
+   write("D ", image([1] ||| [2]), image([] ||| [1]));
+   write("E ", image(trim("ab ")), image(right("ab")), image(trim("ab ", 5)), image(right("ab", 2.9)));
+   write("F ", image(?"abc"), image(?5), image(L[2]), image(L[-1]));
+   write("G ", &errornumber);
+end

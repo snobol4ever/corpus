@@ -1,0 +1,10 @@
+        DEFINE('bump()')                                      :(BEND)
+bump    G = G 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+        bump = .G                                             :(RETURN)
+BEND
+        N = 0
+LOOP    N = N + 1
+        bump()
+        LT(N,3000)                                            :S(LOOP)
+        OUTPUT = 'size=' SIZE(G)
+END

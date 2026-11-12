@@ -1,0 +1,13 @@
+test_gate_builder_mines_a_collection_in_place__beside: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_builder_mines_a_collection_in_place__differs: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+test_gate_builder_mines_a_collection_in_place__envdump: EXCLUDED.tsv ENVIRONMENT: prints $HOME (the oracle answered /home/<user>): the answer is the machine, not the language (measured 2026-11-12)
+test_gate_builder_mines_a_collection_in_place__fromtop: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_builder_mines_a_collection_in_place__lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_builder_mines_a_collection_in_place__refused: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_gc_map_table_present_in_both_media__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_gc_raku_every_frame_slot_has_a_kind__declared: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_pl_wall_us_arity1__a0: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_raku_a_used_module_keeps_the_file_scope_value_its_subs_read__main: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_raku_builtin_gaps_and_is_run_agree_with_rakudo__isrun: oracle produced EMPTY output -- refusing to mint a vacuous ref
+test_gate_raku_the_dynamic_variables_distro_kernel_vm_raku_and_compiler_objects_and_a_twigil_variable_in_a_string_agree_with_rakudo__w: EXCLUDED.tsv ENVIRONMENT: prints the compiler executable path (the oracle answered its own install path): the answer is the machine, not the language (measured 2026-11-12)

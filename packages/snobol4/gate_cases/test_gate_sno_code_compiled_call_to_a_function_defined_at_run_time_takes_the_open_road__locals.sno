@@ -1,0 +1,9 @@
+        P = 'ADD3(A,B,C)L1,L2'
+        DEFINE(P)                               :(E1)
+ADD3    L1 = A + B ; L2 = L1 + C
+        ADD3 = L2                               :(RETURN)
+E1      C1 = CODE('H1 H1 = ADD3(X, 2, 3) :(RETURN)')
+        DEFINE('H1(X)')
+        OUTPUT = H1(10)
+        OUTPUT = ADD3(1,2,3)
+END

@@ -1,0 +1,12 @@
+        OUTPUT = 'upper integer: ' CONVERT('12', 'INTEGER')
+        OUTPUT = 'upper real: ' CONVERT('12', 'REAL')
+        OUTPUT = 'upper string: ' DATATYPE(CONVERT(12, 'STRING'))
+        a = ARRAY(2, 'x')
+        OUTPUT = 'array: ' DATATYPE(CONVERT(a, 'ARRAY'))
+        tb = TABLE()
+        tb['k'] = 'v'
+        OUTPUT = 'table to array: ' DATATYPE(CONVERT(tb, 'ARRAY'))
+        OUTPUT = 'pattern: ' DATATYPE(CONVERT('abc', 'PATTERN'))
+        OUTPUT = 'unconvertible: ' CONVERT('abc', 'INTEGER')            :S(END) F(Fu)
+Fu      OUTPUT = 'unconvertible: fails'
+END

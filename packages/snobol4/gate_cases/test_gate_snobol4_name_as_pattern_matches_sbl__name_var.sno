@@ -1,0 +1,11 @@
+        P = .b
+        'abc' ? P                       :F(NO)
+        OUTPUT = 'yes'
+NO      X = 'abc' ? P
+        OUTPUT = 'x=' X
+        'abc' ? (.b 'c')                :F(NO2)
+        OUTPUT = 'bc'
+NO2     'abc' ? (.zz | .c)              :F(NO3)
+        OUTPUT = 'alt'
+NO3
+END

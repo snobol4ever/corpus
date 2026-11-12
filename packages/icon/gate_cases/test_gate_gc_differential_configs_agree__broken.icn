@@ -1,0 +1,4 @@
+procedure main();
+   local x;
+   x := := ;;; @@@
+end

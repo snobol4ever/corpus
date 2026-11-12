@@ -1,0 +1,14 @@
+        I = 0
+LI      I = I + 1
+        GT(I, 60)                                   :S(END)
+        J = 0
+LJ      J = J + 1
+        GT(J, 97)                                   :S(LI)
+        X = (1.0 * I) / J
+        OUTPUT = X
+        OUTPUT = X * 1000.0
+        OUTPUT = X * 1.0E13
+        OUTPUT = X / 1.0E7
+        OUTPUT = -X * 3.7
+        OUTPUT = X * X * 1.0E20                      :(LJ)
+END

@@ -1,0 +1,13 @@
+        DEFINE('F()')
+        &ERRLIMIT = 1
+        SETEXIT(.H)
+        OUTPUT = 'F=' F()
+        &ERRLIMIT = 0
+        Z = 0
+        Y = 1 / Z
+        OUTPUT = 'not reached'              :(END)
+F       Z = 0
+        F = EVAL('1 / Z')
+        OUTPUT = 'in F after EVAL'          :(RETURN)
+H       OUTPUT = 'handler ' &ERRTYPE        :(RETURN)
+END

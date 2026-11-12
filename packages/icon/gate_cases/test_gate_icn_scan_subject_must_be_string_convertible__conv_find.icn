@@ -1,0 +1,1 @@
+procedure main();&error := -1;"abc" ? write(image(find([])) | "none");write("done");end

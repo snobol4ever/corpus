@@ -1,0 +1,9 @@
+        N = 0
+        T = 0
+LOOP    N = N + 1
+        S = 'X = ' N ' * 2' 
+        OBJ = CODE(S ';')                           :F(SKIP)
+SKIP    T = T + N
+        LT(N, 60)                                   :S(LOOP)
+        OUTPUT = 'code ' T
+END

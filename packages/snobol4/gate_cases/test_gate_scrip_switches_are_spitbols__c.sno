@@ -1,0 +1,5 @@
+        INPUT(.IN, 1)                          :F(ERR)
+        OUTPUT = 'read: ' IN
+END
+ERR     OUTPUT = 'channel 1 did not open'
+END

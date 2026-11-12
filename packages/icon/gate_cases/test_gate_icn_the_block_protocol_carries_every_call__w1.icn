@@ -1,0 +1,48 @@
+procedure main(args)
+   local p, c, L;
+   write(f2(1), " ", f2(1, 2), " ", f2(1, 2, 3));
+   write(v(1), " ", v(1, 2), " ", v(1, 2, 3, 4));
+   every writes(upto3(1), " "); write();
+   p := upto3; every writes(p(2), " "); write();
+   p := sq; write(p(7));
+   write("sq"(5), " ", proc("sq")(6), " ", sq ! [8]);
+   c := create upto3(1); write(@c, @c, @c);
+   write(six(1, 2, 3, 4, 5, 6));
+   write(ack(2, 3));
+   write(*args);
+   L := [];
+   every put(L, gv(3, 4));
+   write(*L, " ", L[1], " ", L[2]);
+   write(vv ! [1, 2, 3]);
+end
+procedure f2(a, b)
+   return image(a) || "," || image(b);
+end
+procedure v(a, rest[])
+   return a || ":" || *rest;
+end
+procedure vv(a, rest[])
+   return a + rest[1] + rest[2];
+end
+procedure upto3(k)
+   local i;
+   i := k;
+   while i <= 3 do {
+      suspend i;
+      i +:= 1;
+   };
+end
+procedure gv(x, y)
+   suspend x | y;
+end
+procedure sq(x)
+   return x * x;
+end
+procedure six(a, b, c, d, e, f)
+   return a + b + c + d + e + f;
+end
+procedure ack(m, n)
+   if m = 0 then return n + 1;
+   if n = 0 then return ack(m - 1, 1);
+   return ack(m - 1, ack(m, n - 1));
+end

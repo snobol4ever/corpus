@@ -1,0 +1,6 @@
+        DEFINE('r(n)')                                  :(r_end)
+r       r = EQ(n, 0) 0                                  :S(RETURN)
+        r = r(n - 1) + 1                                :(RETURN)
+r_end
+        OUTPUT = r($d)
+END

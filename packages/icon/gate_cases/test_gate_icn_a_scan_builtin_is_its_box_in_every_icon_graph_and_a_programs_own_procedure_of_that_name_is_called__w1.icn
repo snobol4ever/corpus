@@ -1,0 +1,27 @@
+procedure p();
+  move(1);
+  return;
+end
+procedure q();
+  tab(3);
+  return;
+end
+procedure r();
+  tab(upto(' '));
+  return;
+end
+procedure m(n);
+  suspend move(n);
+end
+procedure e(s);
+  suspend =s;
+end
+procedure main();
+  "abcd" ? { p(); write(&pos) };
+  "abcd" ? { q(); write(&pos) };
+  "ab cd" ? { r(); write(&pos) };
+  "abcdef" ? { every m(2) do write(&pos); write(&pos) };
+  "abcdef" ? { (m(2) & &fail) | write(&pos) };
+  "abcdef" ? { (e("ab") & e("x")) | write(&pos) };
+  "abcdef" ? { every write(m(2) | 5, " ", &pos) };
+end

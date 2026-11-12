@@ -1,0 +1,17 @@
+record node(v, sub)
+procedure main()
+   local t;
+   t := node(1, [node(2, []), node(3, [node(4, [])])]);
+   every writes(walk(t).v, " ");
+   write();
+   every write(gsum(1, 2, 3, 4, 5, 6));
+end
+procedure walk(r)
+   suspend r | walk(!r.sub);
+end
+procedure gsum(a, b, c, d, e, f)
+   suspend six(a, b, c, d, e, f) | six(f, e, d, c, b, a) * 2;
+end
+procedure six(a, b, c, d, e, f)
+   return a + b * 10 + c * 100 + d * 1000 + e * 10000 + f * 100000;
+end

@@ -1,0 +1,32 @@
+        x = 'a'
+        n = .$x
+        OUTPUT = DATATYPE(n)
+        $n = 5
+        OUTPUT = a
+        m = .$'b'
+        $m = 'bee'
+        OUTPUT = b
+        K = .&STLIMIT
+        OUTPUT = DATATYPE(K)
+        $K = 777
+        OUTPUT = &STLIMIT
+        OUTPUT = $K
+        K = .&ANCHOR
+        $K = 1
+        OUTPUT = &ANCHOR
+        &ANCHOR = 0
+        V = .P
+        'ABCDE' ('BC' @*V)              :S(YES)F(NO)
+YES     OUTPUT = 'P=' P ' V=' V         :(T)
+NO      OUTPUT = 'NOMATCH'
+T       N = 2
+        'ABCDE' 'CD' @*$('CUR' N)
+        OUTPUT = 'CUR2=' CUR2
+        '12345' LEN(3) $ &STLIMIT
+        OUTPUT = &STLIMIT
+        '54321' LEN(2) . &STLIMIT
+        OUTPUT = &STLIMIT
+        p = 'AB' @*Q
+        'XABY' p
+        OUTPUT = 'Q=' Q
+END

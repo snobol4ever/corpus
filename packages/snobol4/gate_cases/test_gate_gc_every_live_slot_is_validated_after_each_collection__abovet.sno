@@ -1,0 +1,13 @@
+*  a TABLE allocated above garbage that dies, so the first collection slides its table block, bucket vector and buckets down over dead ground
+          G = DUPL('g',3000)
+          G = DUPL('h',3000)
+          T = TABLE()
+          T['a'] = 'ALPHA'
+          T['b'] = 'OMEGA'
+          G = ''
+          I = 0
+LOOP      I = I + 1
+          S = DUPL('z',100)
+          GT(300,I) :S(LOOP)
+          OUTPUT = T['a'] T['b']
+END

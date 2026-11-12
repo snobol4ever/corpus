@@ -1,0 +1,10 @@
+procedure main()
+   every write(gen(2, 5));
+end
+procedure gen(a, b)
+   local i;
+   every i := a to b do {
+      if i = 4 then suspend i + [];
+      suspend i;
+   };
+end

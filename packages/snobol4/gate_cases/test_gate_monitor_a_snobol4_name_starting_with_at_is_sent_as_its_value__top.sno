@@ -1,0 +1,4 @@
+        $'@S' = ''
+        $'@S' = 'abc'
+        OUTPUT = DATATYPE($'@S')
+END

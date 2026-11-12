@@ -1,0 +1,42 @@
+        DATA('pair(n,a)')
+        DATA('node(n,kids,size)')
+        DATA('cell(a)')
+        p = pair(3, 4)
+        q = node(10, pair(1, 2), 2)
+        c = cell('z')
+        OUTPUT = n(p) ' ' a(p) ' ' n(q) ' ' size(q) ' ' n(kids(q)) ' ' a(kids(q)) ' ' a(c)
+        n(p) = 30
+        a(p) = a(p) + 1
+        OUTPUT = n(p) ' ' a(p) ' ' DATATYPE(p) ' ' DATATYPE(q)
+        r = .n(p)
+        $r = 99
+        OUTPUT = n(p) ' ' DATATYPE(r) ' ' $r
+        s = .kids(q)
+        $s = 'replaced'
+        OUTPUT = kids(q) ' ' DATATYPE(kids(q)) ' ' IDENT(kids(q), 'replaced') 'same'
+        kids(q) = pair(7, 8)
+        n(kids(q)) = n(kids(q)) * 10
+        OUTPUT = n(kids(q)) ' ' a(kids(q))
+        arr = ARRAY(3)
+        arr[2] = pair(5, 6)
+        n(arr[2]) = n(arr[2]) + 100
+        OUTPUT = n(arr[2]) ' ' a(arr[2])
+        a(p) = ARRAY('0:2')
+        a(p)[1] = 'in array'
+        OUTPUT = a(p)[1] ' ' PROTOTYPE(a(p))
+        t = TABLE()
+        t['k'] = pair(11, 12)
+        a(t['k']) = a(t['k']) - 2
+        OUTPUT = n(t['k']) ' ' a(t['k'])
+        i = 0
+loop    n(p) = n(p) + 1
+        v = v + n(p)
+        i = LT(i, 2000) i + 1                           :S(loop)
+        OUTPUT = n(p) ' ' v ' ' IDENT(n(p), 2099) 'ident'
+        u = p
+        n(u) = -1
+        OUTPUT = n(p) ' ' IDENT(u, p) 'same-record'
+        w = COPY(p)
+        n(w) = 555
+        OUTPUT = n(p) ' ' n(w) ' ' DIFFER(w, p) 'copies'
+END

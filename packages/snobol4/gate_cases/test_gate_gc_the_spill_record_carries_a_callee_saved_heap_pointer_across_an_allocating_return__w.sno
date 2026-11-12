@@ -1,0 +1,10 @@
+        I = 0
+LP      I = LT(I,400) I + 1                                   :F(DONE)
+        JUNK = DUPL('z',120)                                  :(LP)
+DONE    JUNK =
+        S = DUPL('A',5) DUPL('B',5) DUPL('C',5)
+        N = 3
+        S LEN(*N) . X REM . Y                                 :F(NO)
+        OUTPUT = 'X=' X ' Y=' Y                               :(END)
+NO      OUTPUT = 'fail'
+END

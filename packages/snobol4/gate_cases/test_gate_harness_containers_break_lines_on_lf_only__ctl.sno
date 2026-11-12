@@ -1,0 +1,8 @@
+        CR = SUBSTR(&ALPHABET,14,1)
+        OUTPUT = 'a' CR 'b'
+        OUTPUT = 'v' SUBSTR(&ALPHABET,12,1) 'f' SUBSTR(&ALPHABET,13,1) 'x'
+        OUTPUT = 'fs' SUBSTR(&ALPHABET,29,1) 'gs' SUBSTR(&ALPHABET,30,1) 'rs' SUBSTR(&ALPHABET,31,1)
+        OUTPUT = 'crlf' CR
+        OUTPUT =
+        OUTPUT = 'last'
+END

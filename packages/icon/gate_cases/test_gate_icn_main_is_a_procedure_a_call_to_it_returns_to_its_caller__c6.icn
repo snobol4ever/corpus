@@ -1,0 +1,8 @@
+global n
+procedure main()
+   /n := 0;
+   n +:= 1;
+   write("n ", n);
+   if n = 1 then { main() | write("the inner main failed"); fail };
+   fail;
+end

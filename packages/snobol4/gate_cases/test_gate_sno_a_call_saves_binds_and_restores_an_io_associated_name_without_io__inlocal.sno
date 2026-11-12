@@ -1,0 +1,10 @@
+        INPUT(.L, 8, 'in.txt')
+        DEFINE('G()L')                          :(G_END)
+G       OUTPUT = 'in G: ' L                     :(RETURN)
+G_END
+        OUTPUT = 'top1: ' L
+        G()
+        OUTPUT = 'top2: ' L
+        G()
+        OUTPUT = 'top3: ' L
+END

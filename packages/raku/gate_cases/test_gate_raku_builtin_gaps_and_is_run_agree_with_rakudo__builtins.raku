@@ -1,0 +1,17 @@
+say "hello".comb(2).join("|");
+say "hello".comb(3).join("|");
+say "Hello".samecase("abc");
+say "hello".samecase("AB");
+say 0b101; say 0o17; say 0x1f; say 1_000;
+say "3.7".Num; say "42".Numeric; say "abc".codes;
+say (1,2,3).rotate(1).join(","); say (1,2,3).rotate(-1).join(","); say (1,2,3).rotate(4).join(",");
+say (1,2,3).pairs.join(" "); say (1,2,3).antipairs.join(" ");
+say (1,2,3,4,5).batch(2).join("|");
+say (1,1,2,1).repeated.join(","); say (1,1,2,2,1).squish.join(",");
+say 100.log(10); say 8.log(2);
+say 12345.6789.round(0.01); say 7.round(5); say 2.5.round;
+say 7.polymod(3).join(","); say 100.polymod(10, 10).join(",");
+say "aabb".subst(/a/,"X",:g); say "aabb".subst(/a/,"X"); say "a1b22".subst(/\d+/,"#",:g); say "abc".subst(/x/,"Y");
+say $_.defined;
+say Order::More; say Order::Less == Order::Less;
+say (Bool::True, Bool::False).join(",");

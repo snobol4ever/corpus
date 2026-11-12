@@ -1,0 +1,12 @@
+procedure t(); suspend 1; suspend 2; end
+procedure g(); repeat suspend t() \ 1; end
+procedure main();
+   local n;
+   n := 0; repeat { t() \ 1; if (n +:= 1) >= 200000 then break }; write(n);
+   n := 0; while (n +:= 1) < 200000 do t() \ 1; write(n);
+   n := 0; while t() \ 1 do if (n +:= 1) >= 200000 then break; write(n);
+   n := 0; until (n +:= 1) >= 200000 do t() \ 1; write(n);
+   n := 0; until not (t() \ 1) do if (n +:= 1) >= 200000 then break; write(n);
+   n := 0; repeat { if (n +:= 1) % 2 = 0 then { t() \ 1; next }; if n >= 200000 then break }; write(n);
+   n := 0; every g() \ 200000 do n +:= 1; write(n);
+end

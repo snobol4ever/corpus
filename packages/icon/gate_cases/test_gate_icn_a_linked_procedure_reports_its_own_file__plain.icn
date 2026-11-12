@@ -1,0 +1,6 @@
+link lib1
+procedure main()
+   write(p(1));
+   write(&file, " ", &line);
+   write(q(2));
+end

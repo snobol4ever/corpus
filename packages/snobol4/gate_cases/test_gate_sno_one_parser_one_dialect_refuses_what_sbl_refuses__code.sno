@@ -1,0 +1,11 @@
+        &ERRLIMIT = 10
+        C = CODE(" X = 99999999999999999999")             :S(A1)
+        OUTPUT = 'int refused'                              :(A2)
+A1      OUTPUT = 'int compiled'
+A2      C = CODE(" Y = 'a''b'")                             :S(A3)
+        OUTPUT = 'quote refused'                            :(A4)
+A3      OUTPUT = 'quote compiled'
+A4      C = CODE(" Z = 'a' 'b'")                            :S(A5)
+        OUTPUT = 'legal refused'                            :(END)
+A5      OUTPUT = 'legal compiled'
+END

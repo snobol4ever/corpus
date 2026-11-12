@@ -1,0 +1,6 @@
+        I = 0
+LOOP    I = I + 1
+        X = I * 2
+        LE(I, 20)   :S(LOOP)
+        OUTPUT = "done " I
+END

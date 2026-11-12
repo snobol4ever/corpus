@@ -1,0 +1,10 @@
+        &ERRLIMIT = 1000
+        t = TABLE()
+        a = ARRAY(3)
+loop    line = INPUT                    :F(END)
+        SETEXIT('errh')
+        x = EVAL(line)                  :S(ok)
+        OUTPUT = 'FAIL'                 :(loop)
+ok      OUTPUT = DATATYPE(x)            :(loop)
+errh    OUTPUT = 'ERROR ' &ERRTYPE      :(loop)
+END

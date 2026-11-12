@@ -1,0 +1,7 @@
+procedure q(n)
+  local i;
+  every i := 1 to n do write(i * i);
+end
+procedure main()
+  q(3);
+end

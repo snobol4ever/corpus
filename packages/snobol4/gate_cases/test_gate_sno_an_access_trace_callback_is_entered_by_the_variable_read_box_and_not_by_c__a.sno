@@ -1,0 +1,11 @@
+        DEFINE('TF(NAME,TAG)')                    :(TFEND)
+TF      OUTPUT = 'access ' NAME ' tag=' TAG       :(RETURN)
+TFEND   TRACE('X','ACCESS','AT','TF')
+        &TRACE = 100
+        X = 'one'
+        Y = X
+        OUTPUT = 'y=' Y
+        Y = X X
+        OUTPUT = 'again ' Y
+        OUTPUT = SIZE(X)
+END

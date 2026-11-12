@@ -1,0 +1,27 @@
+        subject = 'abcdefgh'
+        n = 'stale'
+        subject SUCCEED . n
+        OUTPUT = 'static succeed cond: [' n ']'
+        n = 'stale'
+        subject SUCCEED $ n
+        OUTPUT = 'static succeed imm: [' n ']'
+        n = 'stale'
+        subject (SUCCEED 'a') . n
+        OUTPUT = 'static succeed then a: [' n ']'
+        n = 'stale'
+        p = SUCCEED . n
+        subject p
+        OUTPUT = 'stored succeed cond: [' n ']'
+        n = 'stale'
+        p = FENCE . n
+        subject p
+        OUTPUT = 'stored fence cond: [' n ']'
+        n = 'stale'
+        p = ('a' FENCE) . n
+        subject p
+        OUTPUT = 'stored a fence cond: [' n ']'
+        n = 'stale'
+        p = ('ab' FENCE) $ n
+        subject p
+        OUTPUT = 'stored ab fence imm: [' n ']'
+END

@@ -1,0 +1,6 @@
+ D = CODE(' Y = Y + 1 :(LOOP)')
+ C = CODE(' X = X + 1;  LT(X, 20000) :S<D>F(DONE)')
+ X = 0
+LOOP :<C>
+DONE OUTPUT = 'x ' X ' ' Y
+END

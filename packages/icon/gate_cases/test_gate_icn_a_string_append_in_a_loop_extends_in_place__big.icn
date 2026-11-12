@@ -1,0 +1,7 @@
+procedure main()
+   local buf, cs;
+   cs := string(&cset);
+   buf := "";
+   every 1 to 1000000 do buf ||:= ?cs;
+   write(*buf);
+end

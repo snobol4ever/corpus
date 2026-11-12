@@ -1,0 +1,6 @@
+procedure main()
+   local s, t;
+   t := "x";
+   (s := "ab", t) := "q";
+   write(t);
+end

@@ -1,0 +1,6 @@
+        CODE('MK DEFINE("LT(PARAM,L)F", "LT0") :(RETURN);LT0 LT = PARAM :(RETURN)')
+        DEFINE('MK()')
+        OUTPUT = 'before'
+        MK()
+        OUTPUT = 'after'
+END

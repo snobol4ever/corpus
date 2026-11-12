@@ -1,0 +1,6 @@
+ C = CODE(' X = X + 1 :(LOOP)')
+ X = 0
+LOOP LT(X, 200000) :F(DONE)
+ :<C>
+DONE OUTPUT = 'x ' X
+END

@@ -1,0 +1,10 @@
+        &ERRLIMIT = 1
+        SETEXIT(.TRAP)
+        T = TABLE()
+        I = 0
+LOOP    I = I + 1
+        T[I] = DUPL('x', 1000)
+        LE(I, 20000)    :S(LOOP)
+        OUTPUT = 'done ' I               :(END)
+TRAP    OUTPUT = 'trapped ' &ERRTYPE
+END

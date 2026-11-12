@@ -1,0 +1,11 @@
+        &ERRLIMIT = 100
+        SETEXIT('E')
+        X = UCASE('abc')
+        X = LCASE('ABC')
+        X = value('abc')
+        X = ucase('abc')
+        X = lcase('ABC')
+        OUTPUT = 'done'                        :(END)
+E       OUTPUT = 'trapped ' &ERRTYPE ' [' &ERRTEXT ']'
+        SETEXIT('E')                           :(CONTINUE)
+END

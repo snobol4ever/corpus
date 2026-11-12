@@ -1,0 +1,29 @@
+        x = 'stale'
+        'ab' ? TAB(0) FENCE 0                   :S(Y1)F(N1)
+Y1      OUTPUT = 'row witness: yes'             :(T2)
+N1      OUTPUT = 'row witness: no'
+T2      p = TAB(0) FENCE
+        'ab' ? p 'x'                            :S(Y2)F(N2)
+Y2      OUTPUT = 'stored tab fence: yes'        :(T3)
+N2      OUTPUT = 'stored tab fence: no'
+T3      p = SPAN('a') FENCE
+        'abc' ? *p 'x'                          :S(Y3)F(N3)
+Y3      OUTPUT = 'deferred span fence: yes'     :(T4)
+N3      OUTPUT = 'deferred span fence: no'
+T4      p = BREAK('b') FENCE
+        'abc' ? *p 'x'                          :S(Y4)F(N4)
+Y4      OUTPUT = 'deferred break fence: yes'    :(T5)
+N4      OUTPUT = 'deferred break fence: no'
+T5      p = RTAB(1) FENCE
+        'abc' ? *p 'c'                          :S(Y5)F(N5)
+Y5      OUTPUT = 'deferred rtab fence then c: yes' :(T6)
+N5      OUTPUT = 'deferred rtab fence then c: no'
+T6      p = (TAB(1) FENCE) . x
+        'abc' ? *p 'x'                          :S(Y6)F(N6)
+Y6      OUTPUT = 'captured tab fence: yes [' x ']' :(T7)
+N6      OUTPUT = 'captured tab fence: no [' x ']'
+T7      p = REM FENCE
+        'abc' ? *p 'x'                          :S(Y7)F(N7)
+Y7      OUTPUT = 'deferred rem fence: yes'      :(END)
+N7      OUTPUT = 'deferred rem fence: no'
+END

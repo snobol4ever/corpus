@@ -1,0 +1,11 @@
+procedure helper(m);
+   return *string(m);
+end
+procedure v2(g, n);
+   local i, r;
+   every i := 1 to n do { r := g(i); write("v2 ", r) };
+   return;
+end
+procedure main();
+   v2(helper, 2); write("done");
+end

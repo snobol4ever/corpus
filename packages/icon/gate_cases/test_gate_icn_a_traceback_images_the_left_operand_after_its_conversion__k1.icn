@@ -1,0 +1,4 @@
+procedure main()
+   local y;
+   y := 3 || [];
+end

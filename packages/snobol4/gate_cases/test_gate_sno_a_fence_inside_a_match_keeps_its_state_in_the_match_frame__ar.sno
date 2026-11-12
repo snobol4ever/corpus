@@ -1,0 +1,8 @@
+        S = 'abcd'
+        P = POS(0) ARBNO(FENCE(LEN(1) . X) FENCE) RPOS(0)
+        S ? P                                       :F(NO)
+        OUTPUT = X
+        S ? POS(0) ARBNO(FENCE(LEN(1) . Y) FENCE) RPOS(0)   :F(NO)
+        OUTPUT = Y                                  :(END)
+NO      OUTPUT = 'nomatch'
+END

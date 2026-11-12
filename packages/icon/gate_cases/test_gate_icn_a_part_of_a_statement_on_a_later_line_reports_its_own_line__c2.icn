@@ -1,0 +1,6 @@
+procedure main()
+   local x;
+   x := 0;
+   until x > 2 do
+      x := x + &null;
+end

@@ -1,0 +1,3 @@
+procedure main()
+  runerr(500);
+end

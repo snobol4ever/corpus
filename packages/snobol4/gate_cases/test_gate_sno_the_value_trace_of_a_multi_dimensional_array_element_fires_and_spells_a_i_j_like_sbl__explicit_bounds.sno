@@ -1,0 +1,7 @@
+        &TRACE = 100
+        A = ARRAY('0:1,3:5')
+        TRACE(.A[1,4])
+        A[1,4] = 'z'
+        A[0,3] = 'w'
+        OUTPUT = 'end'
+END

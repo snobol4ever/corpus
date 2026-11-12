@@ -1,0 +1,12 @@
+procedure main()
+   local s, x;
+   s := "ab\x00cd\x00" || "ef";
+   write(image(s ? tab(upto('\x00'))) | "upto fails");
+   write(image(s ? { tab(3); tab(many('\x00c')) }) | "many fails");
+   write(image(s ? { tab(3); tab(any('\x00')) }) | "any fails");
+   write(image(s ? { tab(3); tab(any('x\x00')) }) | "any2 fails");
+   s ? every x := upto('d\x00') do writes(x, " ");
+   write();
+   write(image(s ? tab(upto('e'))) | "upto-e fails");
+   write(image(s ? tab(many('ab')) ) | "many-ab fails");
+end

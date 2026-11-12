@@ -1,0 +1,15 @@
+        X = 5
+        DEFINE('F(X)X')
+        F(7)
+        OUTPUT = 'after1 ' X
+        Y = 6
+        DEFINE('G(Y,Z)Y,W')
+        G(8, 9)
+        OUTPUT = 'after2 ' Y
+        G(8)
+        OUTPUT = 'after3 ' Y
+        :(FIN)
+F       OUTPUT = 'in F [' X ']'  :(RETURN)
+G       OUTPUT = 'in G [' Y '] [' Z '] [' W ']'  :(RETURN)
+FIN
+END

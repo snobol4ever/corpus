@@ -1,0 +1,1 @@
+:- write(direct), nl.

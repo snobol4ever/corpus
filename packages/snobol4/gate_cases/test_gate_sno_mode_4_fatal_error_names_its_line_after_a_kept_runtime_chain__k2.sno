@@ -1,0 +1,4 @@
+        Z = 0
+        P = EVAL("LEN(1) | 'q'")
+        Y = 1 / Z
+END

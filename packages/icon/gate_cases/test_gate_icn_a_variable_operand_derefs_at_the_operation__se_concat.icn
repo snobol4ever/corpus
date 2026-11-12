@@ -1,0 +1,4 @@
+global i
+procedure main()
+i := "a"; write(i || (i := "b"));
+end

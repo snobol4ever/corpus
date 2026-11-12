@@ -1,0 +1,8 @@
+procedure libp(x);
+  return x * 2;
+end
+procedure run();
+  &trace := -1;
+  write(libp(1));
+  &trace := 0;
+end

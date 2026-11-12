@@ -1,0 +1,26 @@
+procedure main();
+   local f, L, s;
+   f := open("__IN__", "r") | stop("cannot open the fixture");
+   &error := -1; (1 + "q"); L := list("zz");
+   write("LIST_STR n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); L := list(-7);
+   write("LIST_NEG n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); s := reads(f, "ww");
+   write("READS_STR n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); s := reads(f, 0);
+   write("READS_ZERO n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); s := reads(f, -3);
+   write("READS_NEG n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); L := list("3");
+   write("LIST_CVT n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); L := list(3.7);
+   write("LIST_REAL n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); L := list(0);
+   write("LIST_ZERO n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); L := list();
+   write("LIST_NOARG n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); s := reads(f, "2");
+   write("READS_CVT n=", &errornumber, " s=", image(s));
+   &error := -1; (1 + "q"); s := reads(f);
+   write("READS_PLAIN n=", &errornumber, " s=", image(s));
+end

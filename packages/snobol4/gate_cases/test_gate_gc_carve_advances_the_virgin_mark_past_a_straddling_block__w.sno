@@ -1,0 +1,12 @@
+        T = TABLE()
+        A = ARRAY(50)
+        DATA("R(F)")
+        X = R(1)
+        I = 0
+L       I = I + 1
+        T[I] = DUPL("k", 10)
+        A[1 + REMDR(I, 50)] = I
+        S = DUPL("x", 20000)
+        LT(I, 3000)   :S(L)
+        OUTPUT = T[7] A[8] F(X)
+END

@@ -1,0 +1,24 @@
+procedure main()
+   local keep, t, i, c, n, s, k, total;
+   keep := [];
+   t := table(0);
+   every i := 1 to 120 do {
+      c := cset(string(i * 7919)) ++ cset(char(i % 26 + 97));
+      if i % 20 = 0 then put(keep, c);
+      t[c] +:= 1;
+      n := ~cset(char(i % 256));
+      if *n ~= 255 then write("bad complement size ", i, " ", *n);
+      s := repl("abcxyz0123", 20);
+      total := 0;
+      s ? while tab(upto(c)) do { total +:= 1; move(1) };
+      if i % 37 = 0 then write(i, " ", image(c), " ", *c, " ", total)
+   };
+   every c := !keep do write("kept ", image(c), " ", *c, " ", *(c ** &digits), " ", *(~c));
+   k := 0;
+   every c := key(t) do k +:= t[c];
+   write("table keys ", *t, " sum ", k);
+   n := ~'abc';
+   every i := 1 to 90 do c := cset(string(i));
+   write("complement ", *n, " ", (any(n, char(0)) & "nul") | "no", " ", *(n -- &ascii), " ", image(n ** 'abcdef'));
+   write("done");
+end

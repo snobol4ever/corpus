@@ -1,0 +1,8 @@
+procedure main()
+    local a, b, i;
+    a := [];
+    b := [];
+    write(image(a), " ", image(b));
+    every i := 1 to 300 do put(a, [i]);
+    write(*a, " ", image(a[1]), " ", image(a[300]));
+end

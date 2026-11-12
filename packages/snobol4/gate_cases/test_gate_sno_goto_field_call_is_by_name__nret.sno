@@ -1,0 +1,6 @@
+        DEFINE('GOF()')                 :(MAIN)
+GOF     GOF  =  .L3                     :(NRETURN)
+MAIN    OUTPUT  =  'go'                  :(GOF())
+        OUTPUT  =  'NOPE'
+L3      OUTPUT  =  'landed'
+END

@@ -1,0 +1,7 @@
+procedure main()
+  local m;
+  m := -9223372036854775807 - 1;
+  write(m / -1);
+  write(m % -1);
+  write(-m);
+end

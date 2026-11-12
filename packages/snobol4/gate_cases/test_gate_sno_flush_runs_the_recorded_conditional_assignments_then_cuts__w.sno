@@ -1,0 +1,48 @@
+        DEFINE('NM()')                                :(NM_END)
+NM      NM = .X                                       :(RETURN)
+NM_END
+        X = ; Y = ; Z = ; W =
+        'abc' ? 'a' . X FLUSH 'b' . Y                 :S(Y1)F(N1)
+Y1      OUTPUT = 'YES 1 ' X Y                         :(W2)
+N1      OUTPUT = 'NO  1'
+W2      X = ; 'abc' ? FLUSH 'a' . X 'b'               :S(Y2)F(N2)
+Y2      OUTPUT = 'YES 2 FLUSH first ' X               :(W3)
+N2      OUTPUT = 'NO  2 FLUSH first'
+W3      L = ; D = ; 'a1b2c3' ? POS(0) ARBNO(ANY('abc') . L FLUSH ANY('123') . D) RPOS(0)  :S(Y3)F(N3)
+Y3      OUTPUT = 'YES 3 in an ARBNO body ' L D         :(W4)
+N3      OUTPUT = 'NO  3 in an ARBNO body'
+W4      X = ; 'ab' ? 'a' . *NM() FLUSH 'b'            :S(Y4)F(N4)
+Y4      OUTPUT = 'YES 4 deferred *NM() target ' X     :(W5)
+N4      OUTPUT = 'NO  4 deferred *NM() target'
+W5      'abc' ? ('a' | 'ab') FLUSH 'c'                :S(Y5)F(N5)
+Y5      OUTPUT = 'YES 5 cut'                          :(W6)
+N5      OUTPUT = 'NO  5 cut'
+W6      'abc' ? ('a' | 'ab') 'c'                      :S(Y6)F(N6)
+Y6      OUTPUT = 'YES 6 control: no cut'              :(W7)
+N6      OUTPUT = 'NO  6 control: no cut'
+W7      X = ; P = 'a' . X FLUSH 'b'
+        'ab' ? P                                      :S(Y7)F(N7)
+Y7      OUTPUT = 'YES 7 stored pattern ' X            :(W8)
+N7      OUTPUT = 'NO  7 stored pattern'
+W8      X = ; Y = ; Z = ; W = ; 'abcd' ? 'a' . W FLUSH 'b' . X FLUSH 'c' . Y 'd' . Z  :S(Y8)F(N8)
+Y8      OUTPUT = 'YES 8 flushed twice ' W X Y Z       :(W9)
+N8      OUTPUT = 'NO  8 flushed twice'
+W9      X = ; N = 'X'; 'ab' ? 'a' . $N FLUSH 'b'      :S(Y9)F(N9)
+Y9      OUTPUT = 'YES 9 indirect target ' X           :(W10)
+N9      OUTPUT = 'NO  9 indirect target'
+W10     X = ; 'ab' ? 'a' . X FLUSH                    :S(Y10)F(N10)
+Y10     OUTPUT = 'YES 10 FLUSH last ' X               :(W11)
+N10     OUTPUT = 'NO  10 FLUSH last'
+W11     X = ; Y = ; 'xab' ? 'x' ('a' . X FLUSH 'b' . Y | 'ab' . Y)  :S(Y11)F(N11)
+Y11     OUTPUT = 'YES 11 in an alternative ' X Y      :(W12)
+N11     OUTPUT = 'NO  11 in an alternative'
+W12     X = ; 'ab' ? *P                               :S(Y12)F(N12)
+Y12     OUTPUT = 'YES 12 unevaluated stored pattern ' X   :(W13)
+N12     OUTPUT = 'NO  12 unevaluated stored pattern'
+W13     X = ; Q = P; 'ab' ? Q                         :S(Y13)F(N13)
+Y13     OUTPUT = 'YES 13 copied stored pattern ' X    :(W14)
+N13     OUTPUT = 'NO  13 copied stored pattern'
+W14     F = FLUSH; 'ab' ? 'a' F 'b'                   :S(Y14)F(N14)
+Y14     OUTPUT = 'YES 14 FLUSH held in a variable'    :(END)
+N14     OUTPUT = 'NO  14 FLUSH held in a variable'
+END

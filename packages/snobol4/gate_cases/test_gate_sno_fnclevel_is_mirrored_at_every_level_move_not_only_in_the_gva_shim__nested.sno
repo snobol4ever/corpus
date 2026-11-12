@@ -1,0 +1,10 @@
+	DEFINE('F1()')
+	DEFINE('F2()')	:(MAIN)
+F1	OUTPUT = 'in F1=' &FNCLEVEL
+	F2()
+	OUTPUT = 'back F1=' &FNCLEVEL	:(RETURN)
+F2	OUTPUT = 'in F2=' &FNCLEVEL	:(RETURN)
+MAIN	OUTPUT = 'top=' &FNCLEVEL
+	F1()
+	OUTPUT = 'after=' &FNCLEVEL
+END

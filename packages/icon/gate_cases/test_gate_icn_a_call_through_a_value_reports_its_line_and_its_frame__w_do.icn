@@ -1,0 +1,5 @@
+procedure main()
+   local f, line;
+   every line := !["a"] do
+	write(f(line));
+end

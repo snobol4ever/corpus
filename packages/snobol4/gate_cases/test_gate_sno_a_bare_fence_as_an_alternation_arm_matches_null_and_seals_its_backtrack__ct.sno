@@ -1,0 +1,19 @@
+        'z' ? FENCE                             :S(Y1)F(N1)
+Y1      OUTPUT = 'whole fence: yes'             :(T2)
+N1      OUTPUT = 'whole fence: no'
+T2      'yz' ? 'q' FENCE | 'y'                  :S(Y2)F(N2)
+Y2      OUTPUT = 'fence in a sequence: yes'     :(T3)
+N2      OUTPUT = 'fence in a sequence: no'
+T3      'z' ? 'q' | FENCE('')                   :S(Y3)F(N3)
+Y3      OUTPUT = 'fence of null arm: yes'       :(T4)
+N3      OUTPUT = 'fence of null arm: no'
+T4      'z' ? 'q' | ARB                         :S(Y4)F(N4)
+Y4      OUTPUT = 'arb arm: yes'                 :(T5)
+N4      OUTPUT = 'arb arm: no'
+T5      'z' ? 'q' | ABORT                       :S(Y5)F(N5)
+Y5      OUTPUT = 'abort arm: yes'               :(T6)
+N5      OUTPUT = 'abort arm: no'
+T6      'z' ? ('q' | FLUSH) 'z'                 :S(Y6)F(N6)
+Y6      OUTPUT = 'flush arm: yes'               :(END)
+N6      OUTPUT = 'flush arm: no'
+END

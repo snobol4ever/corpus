@@ -1,0 +1,12 @@
+procedure main();
+   local b, s;
+   b := [1,2,3];
+   every vproc(b) := 0;
+   every write("elem ", !b);
+   write("sum ", vproc(b) + 10);
+   write("cat ", "x" || vproc(b));
+   write("img ", image(vproc(b)));
+   s := vproc(b);
+   write("asn ", s);
+end
+procedure vproc(x); suspend !x; end

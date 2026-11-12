@@ -1,0 +1,8 @@
+        DATA('NODE(VAL,NXT)')
+        P = NODE('alpha','beta')
+        I = 0
+LOOP    I = LT(I,60000) I + 1                     :F(SHOW)
+        X = ARRAY(50)
+        Y = 'junk' I 'more'                       :(LOOP)
+SHOW    OUTPUT = VAL(P) ' ' NXT(P)
+END

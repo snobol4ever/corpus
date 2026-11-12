@@ -1,0 +1,4 @@
+link lib
+procedure main();
+  run();
+end

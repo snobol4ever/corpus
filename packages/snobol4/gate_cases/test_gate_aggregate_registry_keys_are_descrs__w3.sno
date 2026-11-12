@@ -1,0 +1,12 @@
+        T = TABLE()
+        K = ARRAY(12)
+        I = 1
+L1      K[I] = ARRAY(1)
+        T[K[I]] = I
+        I = LT(I, 12) I + 1              :S(L1)
+        B = SORT(T)
+        I = 1
+L2      OUT = OUT B[I,2] " "
+        I = LT(I, 12) I + 1              :S(L2)
+        OUTPUT = OUT
+END

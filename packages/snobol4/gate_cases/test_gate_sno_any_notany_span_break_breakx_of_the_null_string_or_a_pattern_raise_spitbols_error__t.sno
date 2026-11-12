@@ -1,0 +1,26 @@
+        &ERRLIMIT = 20
+        S = ''
+        SETEXIT('H')
+        X = ANY(S)
+        SETEXIT('H')
+        X = NOTANY(S)
+        SETEXIT('H')
+        X = SPAN(S)
+        SETEXIT('H')
+        X = BREAK(S)
+        SETEXIT('H')
+        X = BREAKX(S)
+        SETEXIT('H')
+        'abc' ? NOTANY(S)
+        SETEXIT('H')
+        'abc' ? SPAN(S) . Y
+        SETEXIT('H')
+        X = BREAK(S S)
+        N = 5
+        OUTPUT = ('a5' ? ANY(N)) ' integer'
+        OUTPUT = ('xyz' ? NOTANY('x') . W) W ' constant'
+        V = 'c'
+        OUTPUT = ('abc' ? BREAK(V) . W) W ' variable'
+        OUTPUT = 'end'                                   :(END)
+H       OUTPUT = 'trap ' &ERRTYPE ' ' &ERRTEXT           :(CONTINUE)
+END

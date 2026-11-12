@@ -1,0 +1,17 @@
+        DEFINE('f(x)')                          :(go1)
+f       f = 'orig ' x                           :(RETURN)
+go1     OUTPUT = f(1)
+        T = DEFINE('f(y)','f2')                 :(go2)
+f2      f = 'redef ' y                          :(RETURN)
+go2     OUTPUT = f(2)
+        OUTPUT = IDENT(DEFINE('f(z)w','f3')) 'nested'
+        :(go3)
+f3      w = z ; f = 'third ' w                  :(RETURN)
+go3     OUTPUT = f(3)
+        OUTPUT = SIZE(DEFINE('f(x)')) ' size'
+        OUTPUT = f(4)
+        T = DEFINE('f(y)','f2')
+        OUTPUT = f(5)
+        DEFINE('f(x)','f')
+        OUTPUT = f(6)
+END

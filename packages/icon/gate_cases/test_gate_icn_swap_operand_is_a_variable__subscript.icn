@@ -1,0 +1,5 @@
+procedure main()
+  L := [1,2];
+  L[1] :=: L[2];
+  write(L[1],L[2]);
+end

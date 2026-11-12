@@ -1,0 +1,10 @@
+        &TRIM = 1
+L       LINE = INPUT                                     :F(END)
+        &ERRLIMIT = 1000
+        SETEXIT('H')
+        R = EVAL(LINE)                                   :S(OK)
+        OUTPUT = 'FAIL'                                  :(L)
+OK      OUTPUT = IDENT(DATATYPE(R), 'STRING') 'STRING ' R :S(L)
+        OUTPUT = DATATYPE(R)                             :(L)
+H       OUTPUT = 'ERROR ' &ERRTYPE                       :(L)
+END

@@ -1,0 +1,5 @@
+        OUTPUT = 'hdr'
+        OUTPUT(.O,2,'out.txt')
+        O = 'line one'
+        O = 'line two'
+END

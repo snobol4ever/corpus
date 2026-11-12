@@ -1,0 +1,12 @@
+        DEFINE('G()')                           :(G_END)
+G       IDENT(X, 'no')                          :F(G_1)
+G_1                                             :(RETURN)
+G_END
+        DEFINE('F(L)')                          :(F_END)
+F       EQ(L, 2)                                :S(RETURN)
+        G()
+        F(L + 1)                                :(RETURN)
+F_END
+        F(0)
+        OUTPUT = 'done'
+END

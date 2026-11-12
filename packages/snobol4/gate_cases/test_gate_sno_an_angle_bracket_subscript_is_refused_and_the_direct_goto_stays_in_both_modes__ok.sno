@@ -1,0 +1,14 @@
+        A = ARRAY(3)
+        A[1] = 'one'
+        T = TABLE()
+        T['k'] = 'v'
+        OUTPUT = A[1] ' ' T['k']
+        C1 = CODE(" OUTPUT = 'S direct' :(N1)")
+        C2 = CODE(" OUTPUT = 'F direct' :(N2)")
+        C3 = CODE(" OUTPUT = 'plain direct' :(END)")
+        EQ(1, 1)                        :S<C1>
+        OUTPUT = 'S not taken'
+N1      EQ(1, 2)                        :F<C2>
+        OUTPUT = 'F not taken'
+N2      :<C3>
+END

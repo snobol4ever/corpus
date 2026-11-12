@@ -1,0 +1,3 @@
+# gate_cases (icon)
+
+Every icon test program the retired test_gate_*.sh scripts carried (DESIGN-PLAN gates-zero, CTO-637; Lon 2026-11-12 16:0x CST, verbatim: "It is time to DELETE all those damn scripts. ... We want of course to keep test cases."). Each file is `<gate>__<the file the gate wrote>`, extracted by the coo from the gate's heredocs and its one-line printf or echo writes, and from literal programs piped into scrip. Its answer is cut from the icon oracle by util_build_package_suite.py --twice. A program the oracle cannot answer (a missing companion, an unexpanded shell variable, an oracle error, a hang) stays here as a file and is named in ALL.omit with the builder's reason.

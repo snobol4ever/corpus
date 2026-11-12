@@ -1,0 +1,5 @@
+procedure main();
+   local f;
+   f := open("R.dat") | stop("no R.dat");
+   write(read(f));
+end

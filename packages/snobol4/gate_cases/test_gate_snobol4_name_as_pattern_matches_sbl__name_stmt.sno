@@ -1,0 +1,9 @@
+        X = 'abc' ? .b
+        OUTPUT = 'x=' X
+        'abc' ? .b                      :F(NO)
+        OUTPUT = 'yes'
+NO      'xyz' ? .b                      :S(BAD)
+        OUTPUT = 'no match'             :(DONE)
+BAD     OUTPUT = 'wrong'
+DONE
+END

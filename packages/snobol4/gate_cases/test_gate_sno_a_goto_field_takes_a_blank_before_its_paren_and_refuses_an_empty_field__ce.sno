@@ -1,0 +1,7 @@
+        &ERRLIMIT = 10
+        SETEXIT('h')
+        C = CODE(' X = 1 :')   :S(OK)
+        OUTPUT = 'ran'   :(END)
+OK      OUTPUT = 'fell'  :(END)
+h       OUTPUT = 'trapped ' &ERRTYPE   :(CONTINUE)
+END

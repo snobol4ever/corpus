@@ -1,0 +1,10 @@
+        DEFINE('F()')                       :(FEND)
+F       OUTPUT = 'IN1 ' A[1]
+        A[1] 'A' = 'X'
+        OUTPUT = 'IN2 ' A[1]                :(RETURN)
+FEND
+        A = ARRAY(3)
+        A[1] = 'ABC'
+        F()
+        OUTPUT = 'OUT ' A[1]
+END

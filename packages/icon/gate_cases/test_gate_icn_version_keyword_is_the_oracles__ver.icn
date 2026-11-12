@@ -1,0 +1,5 @@
+procedure main()
+   write(&version);
+   write(*&version);
+   write(left(&version, 16));
+end

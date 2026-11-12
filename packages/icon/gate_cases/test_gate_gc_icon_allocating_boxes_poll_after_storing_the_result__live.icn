@@ -1,0 +1,6 @@
+procedure main()
+   local i, L;
+   L := [];
+   every i := 1 to 2000 do put(L, [i, i+1, i+2]);
+   write("done ", *L);
+end

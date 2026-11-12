@@ -1,0 +1,14 @@
+use Test;
+use Test::Util;
+is_run 'say "hi"', { out => "hi\n", status => 0 }, "plain output";
+is_run 'say "hi"', { out => "no\n" }, "wrong output";
+is_run 'say "hi"', { out => /^hi/ }, "regex output";
+is_run 'die "bad"', { status => 1, err => /bad/ }, "die";
+is_run 'say 1', { out => "1\n" }, "default status";
+is_run 'say 1', { out => "1\n", status => 3 }, "wrong status";
+is_run 'say 1; exit 3', { out => "1\n", status => 3 }, "exit code";
+is_run 'my @a = 1,2,3; say @a.sum', { out => "6\n" }, "program computes";
+is-eqv (1,2), (1,2), "eqv lists";
+is-eqv 1, 1.0, "not eqv";
+is-eqv "a", "a", "eqv strings";
+done-testing;

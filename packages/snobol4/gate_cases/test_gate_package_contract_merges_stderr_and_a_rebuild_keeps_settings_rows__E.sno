@@ -1,0 +1,4 @@
+        OUTPUT = 'out one'
+        TERMINAL = 'err two'
+        OUTPUT = 'out three'
+END

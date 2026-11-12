@@ -1,0 +1,15 @@
+procedure main()
+   local s;
+   s := "(a+b)+c-(d)+e";
+   every writes(bal('+-', '(', ')', s), " "); write();
+   every writes(bal(&cset, '(', ')', s), " "); write();
+   every writes(bal('(', '(', ')', "((a)(b))"), " "); write();
+   every writes(bal(')', '(', ')', "((a)(b))"), " "); write();
+   s ? { every writes(tab(bal('+-')), "|"); write(); };
+   s ? { write(tab(bal('+-')) & tab(0)); };
+   "x(y" ? write(bal() | "nobal");
+   every writes(bal('+', '[', ']', "[a+b]+[c]", 2, -1), " "); write();
+   write(bal('+', '(', ')', "(a)+b", 3, 4) | "f34");
+   s ? { write(tab(bal('+-')) & tab(bal('+-')) & tab(0)); };
+   every writes(bal(&cset, '(', ')', "()a"), " "); write();
+end

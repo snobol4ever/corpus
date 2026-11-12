@@ -1,0 +1,12 @@
+procedure main()
+   local s, c;
+   s := "a\x00b";
+   write(*(~s), " ", *(~'ab'), " ", *(~""), " ", *(~12));
+   c := cset(s);
+   write(*c, " ", image(c));
+   c := "12345678901234567890123" ++ '';
+   write(*c, " ", image(c));
+   c := 'abc' -- 'abc';
+   write(*c, " ", image(c), " ", image(c ++ 'q'));
+   every c := ("xyz" | "\x00\x00" | 'pq') ** ('zq\x00') do write(*c, " ", image(c));
+end

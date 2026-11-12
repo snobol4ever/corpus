@@ -1,0 +1,7 @@
+	&TRACE = 100
+	TRACE('N', 'VALUE')
+	N = ARRAY(3)
+	N = ARRAY('2:4')
+	N = ARRAY('2,3')
+	OUTPUT = 'trace=' &TRACE
+END

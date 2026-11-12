@@ -1,0 +1,13 @@
+-LIST
+ A = 1
+-NOPRINT
+ B = 2
+-PRINT
+ C = 3
+-NOLIST
+ D = 4
+-LIST
+ E = 5
+* a comment
+ OUTPUT = A + C + E
+END

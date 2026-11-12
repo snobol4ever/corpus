@@ -1,0 +1,7 @@
+        I = 0
+L       S = 'ABC'
+        S 'A' = 'X'
+        I = I + 1
+        LT(I,200000) :S(L)
+        OUTPUT = 'var done ' S ' ' I
+END

@@ -1,0 +1,15 @@
+        DEFINE('F()')                                  :(FEND)
+F       N = N + 1
+        F = LT(N,4) 'f' N '(' EVAL(X) ')' N             :S(RETURN)
+        F = 'base'                                      :(RETURN)
+FEND    N = 0
+        X = *(F())
+        OUTPUT = EVAL(X)
+        N = 0
+        P = *(F()) 'z'
+        'xf1(f2(f3(base)4)4)4z' P . V
+        OUTPUT = V
+        D = *(EVAL(X) '+' N)
+        N = 0
+        OUTPUT = EVAL(D)
+END

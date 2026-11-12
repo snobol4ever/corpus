@@ -1,0 +1,19 @@
+record array(a,b,c,d,e,f,g)
+record pt(x,y)
+procedure main()
+   local r, q;
+   &error := 200;
+   write("01 proc a 3   ", image(proc("a",3)) | "fails");
+   write("02 proc a 0   ", image(proc("a",0)) | "fails");
+   write("03 proc a     ", image(proc("a")) | "fails");
+   write("04 proc y 1   ", image(proc("y",1)) | "fails");
+   write("05 proc zz 3  ", image(proc("zz",3)) | "fails");
+   write("06 call a     ", image("a"(1,2,3)) | ("ERR " || &errornumber || " val=" || image(&errorvalue)));
+   write("07 call zz    ", image("zz"(1,2,3)) | ("ERR " || &errornumber || " val=" || image(&errorvalue)));
+   r := array(1,2,3,4,5,6,7); q := pt(8,9);
+   write("08 fields     ", r.a, r.g, q.x, q.y);
+   r.a := 99;
+   write("09 assign     ", r.a);
+   write("10 ctor       ", image(array), " ", image(array(1,2,3,4,5,6,7)));
+   write("11 gen        ", image(!q));
+end
