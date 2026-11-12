@@ -1,7 +1,7 @@
-# ISO_ACCEPTS.tsv -- PAT rejection-named tests (iso7185prt*) that carry NO ISO 7185 violation and that the oracle ACCEPTS, so each is
-# graded as an ACCEPTANCE test: PASS when SCRIP prints fpc -Miso's output in both modes (cut live by test_pascal_pat_suite.sh, like the
-# iso7185pat* population), FAIL otherwise, IN the denominator. Ruled by the ceo, CEO-1269 (2026-09-25), superseding CEO-1231's OUTSIDE
-# ruling for these two; measured by the ceo 15:4x: fpc -Miso accepts both and runs both rc 0.
+# ISO_ACCEPTS.tsv -- PAT rejection-named tests (iso7185prt*) that the oracle ACCEPTS, each graded as an ACCEPTANCE test: PASS when SCRIP
+# prints fpc -Miso's output in both modes (cut live by test_pascal_pat_suite.sh, like the iso7185pat* population), FAIL otherwise, IN the
+# denominator. A row either carries no ISO 7185 violation, or carries an error that ISO 7185 3.2 lets a processor leave undetected: such
+# a row is SCRIP's statement that the error is not reported, and this table is the accompanying document ISO 7185 5.1(f) way (1) requires.
 # Columns: program <TAB> the oracle measurement <TAB> why ISO 7185 does not refuse it
 iso7185prt1834.pas	fpc -Miso rc 0, prints 1 to 10 (one per line, width 11)	label 1 is declared and prefixes exactly one statement (ISO 7185 6.2.1/6.8.1); nothing requires a goto to it
 iso7185prt1850.pas	fpc -Miso rc 0, prints nothing (compile-time note for the unused i)	a declared, never-used variable violates no clause; the test's own header calls it a compiler quality test
