@@ -20333,6 +20333,121 @@ null
 "1"
 ```
 
+## rung36_all__rung36_jcon_every
+
+```Icon
+#SRC: JCON
+
+procedure main()
+   local s;
+
+   every write("a. ");
+   every write("b. ", -3);
+   every write("c. ", 1 to 10);
+   every write("d. ", 1 to 10 by 3);
+   every write("e. ", 1 to 11 by 3);
+   every write("f. ", 1 to 12 by 3);
+   every write("g. ", 1 to 10 by -3);
+   every write("h. ", 10 to 1 by -3);
+   every write("i. ", 11 to 1 by -3);
+   every write("j. ", 12 to 1 by -3);
+   every write("k. ", (7 | 6.5) + (2 | 2.1));
+   every write("l. ", , "hello" | "goodbye", " ", "world" | "mom");
+   every write("m. ", !"");
+   every write("n. ", !"a");
+   every write("o. ", !"abcde");
+   every write("p. ", !-514);
+   every write("q. ", !12.5);
+
+   s := "abcde";
+   every !s := "." do write("r. ", s);
+
+   every write("s. ", (-3|-2|-1|0|1|2|3)(101,102));
+   every write("t. ", (-3|-2|-1|0|1|2|3) ! [201,202]);
+   every write("u. ", f ! [5]);
+end
+
+procedure f(n)
+   suspend n | -n;
+end
+```
+
+```stdout
+a. 
+b. -3
+c. 1
+c. 2
+c. 3
+c. 4
+c. 5
+c. 6
+c. 7
+c. 8
+c. 9
+c. 10
+d. 1
+d. 4
+d. 7
+d. 10
+e. 1
+e. 4
+e. 7
+e. 10
+f. 1
+f. 4
+f. 7
+f. 10
+h. 10
+h. 7
+h. 4
+h. 1
+i. 11
+i. 8
+i. 5
+i. 2
+j. 12
+j. 9
+j. 6
+j. 3
+k. 9
+k. 9.1
+k. 8.5
+k. 8.6
+l. hello world
+l. hello mom
+l. goodbye world
+l. goodbye mom
+n. a
+o. a
+o. b
+o. c
+o. d
+o. e
+p. -
+p. 5
+p. 1
+p. 4
+q. 1
+q. 2
+q. .
+q. 5
+r. .bcde
+r. ..cde
+r. ...de
+r. ....e
+r. .....
+s. 101
+s. 102
+s. 101
+s. 102
+t. 201
+t. 202
+t. 201
+t. 202
+u. 5
+u. -5
+```
+
 ## procedure_every_alt_replace_6
 
 ```Icon
@@ -24114,6 +24229,557 @@ p :=          4 FAILED  &pos=2   &subject="x"
 &pos=1 x=2
 ```
 
+## rung36_all__rung36_jcon_args
+
+```Icon
+#SRC: JCON
+#
+#  test various numbers of args
+
+procedure main()
+   local plist, alist, e;
+
+   plist := [3, -2, "image", proc("~===", 2), 
+      p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
+
+   every write((!plist)());
+   every write((!plist)(1));
+   every write((!plist)(1, 2));
+   every write((!plist)(1, 2, 3));
+   every write((!plist)(1, 2, 3, 4));
+   every write((!plist)(1, 2, 3, 4, 5));
+   every write((!plist)(1, 2, 3, 4, 5, 6));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
+   every write((!plist)(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+
+   alist := [];
+   while *alist < 14 do {
+       every write((!plist) ! alist);
+       put(alist, *alist + 1)
+   };
+end
+
+
+
+#  p0 through p12 do their own output and then fail
+
+procedure p0()
+   note("p0");
+end
+
+procedure p1(a)
+   note("p1", a);
+end
+
+procedure p2(a, b)
+   note("p2", a, b);
+end
+
+procedure p3(a, b, c)
+   note("p3", a, b, c);
+end
+
+procedure p4(a, b, c, d)
+   note("p4", a, b, c, d);
+end
+
+procedure p5(a, b, c, d, e)
+   note("p5", a, b, c, d, e);
+end
+
+procedure p6(a, b, c, d, e, f)
+   note("p6", a, b, c, d, e, f);
+end
+
+procedure p7(a, b, c, d, e, f, g)
+   note("p7", a, b, c, d, e, f, g);
+end
+
+procedure p8(a, b, c, d, e, f, g, h)
+   note("p8", a, b, c, d, e, f, g, h);
+end
+
+procedure p9(a, b, c, d, e, f, g, h, i)
+   note("p9", a, b, c, d, e, f, g, h, i);
+end
+
+procedure p10(a, b, c, d, e, f, g, h, i, j)
+   note("p10", a, b, c, d, e, f, g, h, i, j);
+end
+
+procedure p11(a, b, c, d, e, f, g, h, i, j, k)
+   note("p11", a, b, c, d, e, f, g, h, i, j, k);
+end
+
+procedure p12(a, b, c, d, e, f, g, h, i, j, k, l)
+   note("p12", a, b, c, d, e, f, g, h, i, j, k, l);
+end
+
+
+
+procedure note(a[])
+   local e;
+
+   every e := !a do writes(\e | "~", " ");
+   write();
+   return;
+end
+```
+
+```stdout
+&null
+p0 
+p1 ~ 
+p2 ~ ~ 
+p3 ~ ~ ~ 
+p4 ~ ~ ~ ~ 
+p5 ~ ~ ~ ~ ~ 
+p6 ~ ~ ~ ~ ~ ~ 
+p7 ~ ~ ~ ~ ~ ~ ~ 
+p8 ~ ~ ~ ~ ~ ~ ~ ~ 
+p9 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+
+p0 
+p1 1 
+p2 1 ~ 
+p3 1 ~ ~ 
+p4 1 ~ ~ ~ 
+p5 1 ~ ~ ~ ~ 
+p6 1 ~ ~ ~ ~ ~ 
+p7 1 ~ ~ ~ ~ ~ ~ 
+p8 1 ~ ~ ~ ~ ~ ~ ~ 
+p9 1 ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 ~ 
+p4 1 2 ~ ~ 
+p5 1 2 ~ ~ ~ 
+p6 1 2 ~ ~ ~ ~ 
+p7 1 2 ~ ~ ~ ~ ~ 
+p8 1 2 ~ ~ ~ ~ ~ ~ 
+p9 1 2 ~ ~ ~ ~ ~ ~ ~ 
+p10 1 2 ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+2
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 ~ 
+p5 1 2 3 ~ ~ 
+p6 1 2 3 ~ ~ ~ 
+p7 1 2 3 ~ ~ ~ ~ 
+p8 1 2 3 ~ ~ ~ ~ ~ 
+p9 1 2 3 ~ ~ ~ ~ ~ ~ 
+p10 1 2 3 ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+3
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 ~ 
+p6 1 2 3 4 ~ ~ 
+p7 1 2 3 4 ~ ~ ~ 
+p8 1 2 3 4 ~ ~ ~ ~ 
+p9 1 2 3 4 ~ ~ ~ ~ ~ 
+p10 1 2 3 4 ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+4
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 ~ 
+p7 1 2 3 4 5 ~ ~ 
+p8 1 2 3 4 5 ~ ~ ~ 
+p9 1 2 3 4 5 ~ ~ ~ ~ 
+p10 1 2 3 4 5 ~ ~ ~ ~ ~ 
+p11 1 2 3 4 5 ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 ~ ~ ~ ~ ~ ~ ~ 
+3
+5
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 ~ 
+p8 1 2 3 4 5 6 ~ ~ 
+p9 1 2 3 4 5 6 ~ ~ ~ 
+p10 1 2 3 4 5 6 ~ ~ ~ ~ 
+p11 1 2 3 4 5 6 ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 ~ ~ ~ ~ ~ ~ 
+3
+6
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 ~ 
+p9 1 2 3 4 5 6 7 ~ ~ 
+p10 1 2 3 4 5 6 7 ~ ~ ~ 
+p11 1 2 3 4 5 6 7 ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 7 ~ ~ ~ ~ ~ 
+3
+7
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 ~ 
+p10 1 2 3 4 5 6 7 8 ~ ~ 
+p11 1 2 3 4 5 6 7 8 ~ ~ ~ 
+p12 1 2 3 4 5 6 7 8 ~ ~ ~ ~ 
+3
+8
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 ~ 
+p11 1 2 3 4 5 6 7 8 9 ~ ~ 
+p12 1 2 3 4 5 6 7 8 9 ~ ~ ~ 
+3
+9
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 ~ 
+p12 1 2 3 4 5 6 7 8 9 10 ~ ~ 
+3
+10
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 ~ 
+3
+11
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 12 
+&null
+p0 
+p1 ~ 
+p2 ~ ~ 
+p3 ~ ~ ~ 
+p4 ~ ~ ~ ~ 
+p5 ~ ~ ~ ~ ~ 
+p6 ~ ~ ~ ~ ~ ~ 
+p7 ~ ~ ~ ~ ~ ~ ~ 
+p8 ~ ~ ~ ~ ~ ~ ~ ~ 
+p9 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+
+p0 
+p1 1 
+p2 1 ~ 
+p3 1 ~ ~ 
+p4 1 ~ ~ ~ 
+p5 1 ~ ~ ~ ~ 
+p6 1 ~ ~ ~ ~ ~ 
+p7 1 ~ ~ ~ ~ ~ ~ 
+p8 1 ~ ~ ~ ~ ~ ~ ~ 
+p9 1 ~ ~ ~ ~ ~ ~ ~ ~ 
+p10 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+1
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 ~ 
+p4 1 2 ~ ~ 
+p5 1 2 ~ ~ ~ 
+p6 1 2 ~ ~ ~ ~ 
+p7 1 2 ~ ~ ~ ~ ~ 
+p8 1 2 ~ ~ ~ ~ ~ ~ 
+p9 1 2 ~ ~ ~ ~ ~ ~ ~ 
+p10 1 2 ~ ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+2
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 ~ 
+p5 1 2 3 ~ ~ 
+p6 1 2 3 ~ ~ ~ 
+p7 1 2 3 ~ ~ ~ ~ 
+p8 1 2 3 ~ ~ ~ ~ ~ 
+p9 1 2 3 ~ ~ ~ ~ ~ ~ 
+p10 1 2 3 ~ ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+3
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 ~ 
+p6 1 2 3 4 ~ ~ 
+p7 1 2 3 4 ~ ~ ~ 
+p8 1 2 3 4 ~ ~ ~ ~ 
+p9 1 2 3 4 ~ ~ ~ ~ ~ 
+p10 1 2 3 4 ~ ~ ~ ~ ~ ~ 
+p11 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 ~ ~ ~ ~ ~ ~ ~ ~ 
+3
+4
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 ~ 
+p7 1 2 3 4 5 ~ ~ 
+p8 1 2 3 4 5 ~ ~ ~ 
+p9 1 2 3 4 5 ~ ~ ~ ~ 
+p10 1 2 3 4 5 ~ ~ ~ ~ ~ 
+p11 1 2 3 4 5 ~ ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 ~ ~ ~ ~ ~ ~ ~ 
+3
+5
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 ~ 
+p8 1 2 3 4 5 6 ~ ~ 
+p9 1 2 3 4 5 6 ~ ~ ~ 
+p10 1 2 3 4 5 6 ~ ~ ~ ~ 
+p11 1 2 3 4 5 6 ~ ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 ~ ~ ~ ~ ~ ~ 
+3
+6
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 ~ 
+p9 1 2 3 4 5 6 7 ~ ~ 
+p10 1 2 3 4 5 6 7 ~ ~ ~ 
+p11 1 2 3 4 5 6 7 ~ ~ ~ ~ 
+p12 1 2 3 4 5 6 7 ~ ~ ~ ~ ~ 
+3
+7
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 ~ 
+p10 1 2 3 4 5 6 7 8 ~ ~ 
+p11 1 2 3 4 5 6 7 8 ~ ~ ~ 
+p12 1 2 3 4 5 6 7 8 ~ ~ ~ ~ 
+3
+8
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 ~ 
+p11 1 2 3 4 5 6 7 8 9 ~ ~ 
+p12 1 2 3 4 5 6 7 8 9 ~ ~ ~ 
+3
+9
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 ~ 
+p12 1 2 3 4 5 6 7 8 9 10 ~ ~ 
+3
+10
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 ~ 
+3
+11
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 12 
+3
+12
+1
+2
+p0 
+p1 1 
+p2 1 2 
+p3 1 2 3 
+p4 1 2 3 4 
+p5 1 2 3 4 5 
+p6 1 2 3 4 5 6 
+p7 1 2 3 4 5 6 7 
+p8 1 2 3 4 5 6 7 8 
+p9 1 2 3 4 5 6 7 8 9 
+p10 1 2 3 4 5 6 7 8 9 10 
+p11 1 2 3 4 5 6 7 8 9 10 11 
+p12 1 2 3 4 5 6 7 8 9 10 11 12 
+```
+
 ## procedure_every_alt_replace_14
 
 ```Icon
@@ -25195,6 +25861,110 @@ solution 4:
   |   | Q |   |   |   |   |
   -------------------------
 4 solutions total.
+```
+
+## rung36_all__rung36_jcon_scan2
+
+```Icon
+#SRC: JCON
+
+# test maintenance of scanning environments.
+
+procedure main()
+	write("simple");
+	"fghjkl" ? {
+		write(tab(3));
+		write(&pos);
+		write(tab(5))
+	};
+	write("nested");
+	"123456" ? {
+		write(tab(3));
+		"abcdef" ? {
+			write(tab(3));
+			write(&pos);
+			write(tab(5))
+		};
+		write(&pos);
+		write(tab(5))
+	};
+
+	write("break");
+	every write("98765" ? repeat break upto(&digits));
+
+	write("nested break");
+	every write("12345" ? repeat { "67890" ? { write(move(1)); break upto(&digits)}});
+	
+	write("next");
+	every write("98765" ? { every 1 do { "mnbv" ? next }; write(move(2))});
+
+	write("non-local");
+	"qwerty" ? {
+		every write(foo()) do write(move(1))
+	};
+
+	"abcdef" ? {
+	    write(&pos);
+	    every ="abc" do {
+	        write(&pos)
+	    };
+	    write(&pos)
+	};
+end
+
+procedure foo()
+	suspend move(1);
+	"zxc" ? suspend upto(&lcase);
+	suspend upto(&lcase);
+end
+```
+
+```stdout
+simple
+fg
+3
+hj
+nested
+12
+ab
+3
+cd
+3
+34
+break
+1
+2
+3
+4
+5
+nested break
+6
+1
+2
+3
+4
+5
+next
+98
+98
+non-local
+q
+w
+1
+q
+2
+w
+3
+e
+4
+r
+5
+t
+6
+y
+1
+4
+1
 ```
 
 ## procedure_every_scan_replace_7
@@ -27785,6 +28555,76 @@ abc:3
 aacccbccacbbcbacabcaabbbabaaa
 ```
 
+## rung36_jcon_prefix__rung36_jcon_prefix
+
+```Icon
+#SRC: V9SAM
+
+#
+#          I N F I X - T O - P R E F I X   C O N V E R S I O N
+#
+
+#  This program accepts infix expressions from standard input and
+#  writes the corresponding prefix expressions to standard output.
+
+procedure main()
+   while write(prefix(read()));
+end
+
+procedure prefix(s)
+   s := strip(s);
+   return lassoc(s,'+-' | '*/') | rassoc(s,'^') | s;
+end
+
+procedure strip(s)
+   while s ? (="(" & s <- tab(bal(')')) & pos(-1));
+   return s;
+end
+
+procedure lassoc(s,c)
+   local j;
+   s ? every j := bal(c);
+   return form(s,\j);
+end
+
+procedure rassoc(s,c)
+   local j;
+   return form(s,s ? bal(c));
+end
+
+procedure form(s,k)
+   local a1, a2, op;
+   s ? { 
+      a1 := tab(k);
+      op := move(1);
+      a2 := tab(0)
+       };
+   return op || "(" || prefix(a1) || "," || prefix(a2) || ")";
+end
+```
+
+```stdin
+x
+(((x)))
+x+1
+x-y-z
+3*delta+1
+((x+1))
+2^2^n
+(x^n)/(z+1)
+```
+
+```stdout
+x
+x
++(x,1)
+-(-(x,y),z)
++(*(3,delta),1)
++(x,1)
+^(2,^(2,n))
+/(^(x,n),+(z,1))
+```
+
 ## ladder__rung33_case_clause_tests_by_identity
 
 ```Icon
@@ -28568,6 +29408,208 @@ closing file(tmp4)
 no problems found
 ```
 
+## rung36_all__rung36_jcon_scan
+
+```Icon
+#SRC: V9GEN
+
+record array(a,b,c,d,e,f,g)
+
+procedure p1()
+   write(" ----> ",image() | "none");
+   write("every write((\"badc\" | \"edgf\" | \"x\") ? write(upto(!&lcase))) ----> ",image(every write(("badc" | "edgf" | "x") ? write(upto(!&lcase)))) | "none");
+   write("every write(((\"aeiou\" | \"foobaz\") ? upto('dracula')) ? =(1 to 10)) ----> ",image(every write((("aeiou" | "foobaz") ? upto('dracula')) ? =(1 to 10))) | "none");
+   write("every write((1 to 10) ? move(1)) ----> ",image(every write((1 to 10) ? move(1))) | "none");
+   write("&subject := &pos ----> ",image(&subject := &pos) | "none");
+   write("&pos :=: &subject ----> ",image(&pos :=: &subject) | "none");
+   write("&pos ----> ",image(&pos) | "none");
+   write("&subject ----> ",image(&subject) | "none");
+   write("+1 ----> ",image(+1) | "none");
+   write("-1 ----> ",image(-1) | "none");
+end
+
+procedure p2()
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("?10 ----> ",image(?10) | "none");
+   write("~&cset ----> ",image(~&cset) | "none");
+   write("~&ascii ----> ",image(~&ascii) | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+   write("=\"a\" ----> ",image(="a") | "none");
+   write("=\"b\" ----> ",image(="b") | "none");
+   write("=\"d\" ----> ",image(="d") | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+end
+
+procedure p3()
+   write("while write(move(1)) ----> ",image(while write(move(1))) | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+   write("every write(tab(1 to 10)) ----> ",image(every write(tab(1 to 10))) | "none");
+   write("pos(0) ----> ",image(pos(0)) | "none");
+   write("pos(15) ----> ",image(pos(15)) | "none");
+   write("&subject := string(&lcase) ----> ",image(&subject := string(&lcase)) | "none");
+   write("pos(1) ----> ",image(pos(1)) | "none");
+   write("every write(\"abcdef\" ? tab(1 to 10)) ----> ",image(every write("abcdef" ? tab(1 to 10))) | "none");
+   write("every write(\"abcde\" ? while move(2) ? move(1)) ----> ",image(every write("abcde" ? while move(2) ? move(1))) | "none");
+   write("s := \"abcdef\" ----> ",image(s := "abcdef") | "none");
+   write("s ?:= move(3) ----> ",image(s ?:= move(3)) | "none");
+end
+
+procedure p4()
+   write("s := \"abcdef\" ----> ",image(s := "abcdef") | "none");
+   write("every write(s ?:= upto(&lcase)) ----> ",image(every write(s ?:= upto(&lcase))) | "none");
+   write("s := \"this is the time to work it all out\" ----> ",image(s := "this is the time to work it all out") | "none");
+   write("every write(s ? tab(find(\" \"))) ----> ",image(every write(s ? tab(find(" ")))) | "none");
+   write("s := \"xxxxxx\" ----> ",image(s := "xxxxxx") | "none");
+   write("every s ? write(=(\"a\" | \"x\")) ----> ",image(every s ? write(=("a" | "x"))) | "none");
+   write("\"abcdef\" ? (tab(0) & (while write(move(-1)))) ----> ",image("abcdef" ? (tab(0) & (while write(move(-1))))) | "none");
+end
+
+procedure main()
+   p1();
+   p2();
+   p3();
+   p4();
+end
+
+```
+
+```stdout
+ ----> &null
+2
+2
+1
+1
+4
+4
+3
+3
+2
+2
+1
+1
+4
+4
+3
+3
+1
+1
+every write(("badc" | "edgf" | "x") ? write(upto(!&lcase))) ----> none
+1
+5
+5
+every write((("aeiou" | "foobaz") ? upto('dracula')) ? =(1 to 10)) ----> none
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+every write((1 to 10) ? move(1)) ----> none
+&subject := &pos ----> "1"
+&pos :=: &subject ----> 1
+&pos ----> 1
+&subject ----> "1"
++1 ----> 1
+-1 ----> -1
+?10 ----> 3
+?10 ----> 5
+?10 ----> 4
+~&cset ----> ''
+~&ascii ----> '\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff'
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+="a" ----> "a"
+="b" ----> "b"
+="d" ----> none
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+while write(move(1)) ----> none
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+
+a
+ab
+abc
+abcd
+abcde
+abcdef
+abcdefg
+abcdefgh
+abcdefghi
+every write(tab(1 to 10)) ----> none
+pos(0) ----> none
+pos(15) ----> none
+&subject := string(&lcase) ----> "abcdefghijklmnopqrstuvwxyz"
+pos(1) ----> 1
+
+a
+ab
+abc
+abcd
+abcde
+abcdef
+every write("abcdef" ? tab(1 to 10)) ----> none
+every write("abcde" ? while move(2) ? move(1)) ----> none
+s := "abcdef" ----> "abcdef"
+s ?:= move(3) ----> "abc"
+s := "abcdef" ----> "abcdef"
+1
+2
+3
+4
+5
+6
+every write(s ?:= upto(&lcase)) ----> none
+s := "this is the time to work it all out" ----> "this is the time to work it all out"
+this
+this is
+this is the
+this is the time
+this is the time to
+this is the time to work
+this is the time to work it
+this is the time to work it all
+every write(s ? tab(find(" "))) ----> none
+s := "xxxxxx" ----> "xxxxxx"
+x
+every s ? write(=("a" | "x")) ----> none
+f
+e
+d
+c
+b
+a
+"abcdef" ? (tab(0) & (while write(move(-1)))) ----> none
+```
+
 ## procedure_every_suspend_replace_7
 
 ```Icon
@@ -29068,6 +30110,227 @@ a.b.c.d.e.f.g.h.
 zz abcdefgh 1
 1 ""
 1 1 1
+```
+
+## rung36_jcon_btrees__rung36_jcon_btrees
+
+```Icon
+#SRC: V9SAM
+
+#
+#          B I N A R Y   T R E E S
+#
+
+#  This program accepts string representations of binary trees from
+#  standard input.  It performs a tree walk and lists the leaves of
+#  each tree.
+
+record node(data,ltree,rtree)
+
+procedure main()
+   local line, tree;
+   while line := read() do { 
+      tree := tform(line);
+      write("tree walk");
+      every write(walk(tree));
+      write("leaves");
+      every write(leaves(tree))
+       };
+end
+
+procedure tform(s)
+   local value,left,right;
+   if /s then return;
+   s ? if value := tab(upto('(')) then { 
+      move(1);
+      left := tab(bal(','));
+      move(1);
+      right := tab(bal(')'));
+      return node(value,tform(left),tform(right))
+       }
+      else return node(s);
+end
+
+procedure walk(t)
+   suspend walk(\t.ltree | \t.rtree);
+   return t.data;
+end
+
+procedure leaves(t)
+   if not(\t.ltree | \t.rtree) then return t.data;
+   suspend leaves(\t.ltree | \t.rtree);
+end
+```
+
+```stdin
+a(b,c)
+1(2(3,4),5)
+a(2,8(a,c(d,e)))
+```
+
+```stdout
+tree walk
+b
+c
+a
+leaves
+b
+c
+tree walk
+3
+4
+2
+5
+1
+leaves
+3
+4
+5
+tree walk
+2
+a
+d
+e
+c
+8
+a
+leaves
+2
+a
+d
+e
+```
+
+## rung36_all__rung36_jcon_sets
+
+```Icon
+#SRC: JCON
+
+# set test
+
+procedure main()
+   local x, y, z;
+
+   wset("empty", x := set());
+   write(type(x));
+   write(image(?x));		# should fail
+   write(image(member(x)));	# should fail
+   wset("insert", insert(x));
+   write(image(?x));		# should write &null
+   write(image(member(x)));	# should write &null
+   write(image(member(x,3)));	# should write &null
+   wset("insert", insert(x));
+   wset("delete", delete(x));
+   wset("delete", delete(x));
+   write();
+
+   wset("x", x := set([1,2,4]));
+   wset("y", y := set([1,2,5]));
+   wset("x ++ y", x ++ y);
+   wset("y ++ x", y ++ x);
+   wset("x -- y", x -- y);
+   wset("y -- x", y -- x);
+   wset("x ** y", x ** y);
+   wset("y ** x", y ** x);
+   write();
+
+   wset("empty", x := set(&null));
+   wset("+ 1", insert(x, 1,4,7));	# only inserts 1
+   wset("+ 2", insert(x, 2));
+   wset("+ c", insert(x, "c"));
+   wset("- 3", delete(x, 3));		# deletes nothing
+   wset("- 1", delete(x, 1, 2));		# only deletes 1
+   wset("- 1", delete(x, 1));
+   wset("+ 2", insert(x, 2));
+   wset("+ 1", insert(x, 1));
+   wset("+ 7.0", insert(x, 7.0));
+   wset("+ 7.0", insert(x, 7.0));
+   wset("+ 'cs'", insert(x, 'cs'));
+   wset("+ 'cs'", insert(x, 'cs'));
+   wset("x =", x);
+   write();
+
+   wset("3,a,4", y := set([3,"a",4]));
+   wset("y ++ x", y ++ x);
+   wset("y ** x", y ** x);
+   wset("y -- x", y -- x);
+   wset("x -- y", x -- y);
+   write();
+
+   every insert(z := set(), !y);
+   wset("z from !y", z);
+
+   write();
+   x := set([3,1,4,1,5,9,2,6,5,3,5]);
+   y := copy(x);
+   delete(x, 4);
+   insert(x, 7);
+   insert(y, 0);
+   delete(y, 1);
+   wset("x", x);
+   wset("y", y);
+end
+
+
+
+#  dump a set, assuming it contains nothing other than:
+#	&null, 0 - 9, 0.0 - 9.0, "", "a" - "e", '', 'cs'
+
+procedure wset(label, S)
+   local x;
+
+   writes(right(label, 10), " :", right(*S, 2), " :");
+   every x := &null | (0 to 9) | 0.0+(0 to 9) | "" | !"abcde" | '' | 'cs' do
+      writes(" ", image(member(S, x)));
+   write();
+   return;
+end
+```
+
+```stdout
+     empty : 0 :
+set
+    insert : 1 : &null
+&null
+&null
+    insert : 1 : &null
+    delete : 0 :
+    delete : 0 :
+
+         x : 3 : 1 2 4
+         y : 3 : 1 2 5
+    x ++ y : 4 : 1 2 4 5
+    y ++ x : 4 : 1 2 4 5
+    x -- y : 1 : 4
+    y -- x : 1 : 5
+    x ** y : 2 : 1 2
+    y ** x : 2 : 1 2
+
+     empty : 0 :
+       + 1 : 1 : 1
+       + 2 : 2 : 1 2
+       + c : 3 : 1 2 "c"
+       - 3 : 3 : 1 2 "c"
+       - 1 : 2 : 2 "c"
+       - 1 : 2 : 2 "c"
+       + 2 : 2 : 2 "c"
+       + 1 : 3 : 1 2 "c"
+     + 7.0 : 4 : 1 2 7.0 "c"
+     + 7.0 : 4 : 1 2 7.0 "c"
+    + 'cs' : 5 : 1 2 7.0 "c" 'cs'
+    + 'cs' : 5 : 1 2 7.0 "c" 'cs'
+       x = : 5 : 1 2 7.0 "c" 'cs'
+
+     3,a,4 : 3 : 3 4 "a"
+    y ++ x : 8 : 1 2 3 4 7.0 "a" "c" 'cs'
+    y ** x : 0 :
+    y -- x : 3 : 3 4 "a"
+    x -- y : 5 : 1 2 7.0 "c" 'cs'
+
+ z from !y : 3 : 3 4 "a"
+
+         x : 7 : 1 2 3 5 6 7 9
+         y : 7 : 0 2 3 4 5 6 9
 ```
 
 ## procedure_every_scan_replace_15
@@ -32271,6 +33534,177 @@ x
 
 '\x00\x01\x02\x03\x04\x05\x06\x07\b\t\n\v\f\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\e\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\d\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\xf9\xfa\xfb\xfc\xfd\xfe'
 
+```
+
+## rung36_all__rung36_jcon_scan1
+
+```Icon
+#SRC: JCON
+
+procedure main()
+   local skips, vowels, uppers;
+
+   write(any('ab', "1234ab", 0, 7) | "fail");
+   write(any('ab', "1234ab", 7, 0) | "fail");
+   write(any('ab', "1234ab", 6, 0) | "fail");
+   write(any('ab', "1234ab", 6) | "fail");
+   write(any('ab', "1234ab") | "fail");
+   "1234ab" ? write(any('ab', "1234ab") | "fail");
+   "1234ab" ? write(any('ab') | "fail");
+   "1234ab" ? { &pos := 6 & write(any('ab') | "fail") };
+   write();
+
+   write(many('ab', "ababac") | "fail");
+   write(many('ab', "ababab") | "fail");
+   write(many('ab', "cababab") | "fail");
+   write();
+
+   write(match("ab", "ababab") | "fail");
+   write(match("ab", "bbabab") | "fail");
+   write(match("ab", "ab") | "fail");
+   write(match("ab", "a") | "fail");
+   write();
+
+   every write(find("ab", "ababab"|"ababa"|"ab"|"a"|"") | "done");
+   write();
+
+   every write(upto('ab', "abccab"|"cbabc"|"ab"|"a"|"") | "done");
+   write();
+
+   "123456" ? write(move(1), " ", move(2));
+   "123456" ? { write(move(1)); write(move(2)); write(move(3));
+		write(move(4)); write(move(-4))};
+   write();
+
+   "123456" ? write(tab(1), " ", tab(2));
+   "123456" ? { write(tab(2)); write(tab(4)); write(tab(-1)); write(tab(0)) };
+   "123456" ? { write(tab(4)); write(tab(1)); write(tab(3)) };
+   write();
+
+   every write("-35" ? bal('-'));
+   every write("((2*x)+3)+(5*y)" ? bal('+'));
+   every write("[+,[2,3]],[*,[5,10]]" ? bal(',', '[', ']'));
+   write();
+
+   "12345" ? { write(pos(1)); write(pos(-5)); write(pos(3)|"fail") };
+   write();
+
+   "12345" ? { write(="123" | "fail") };
+   "12345" ? { tab(2); write(="123" | "fail") };
+   "12345" ? { tab(2); write(="23" | "fail") };
+
+   # test upto, including some chars with 8th bit set
+   write();
+   skips := '\x00\x0f\x1e-<KZix\x87\x96\xa5\xb4\xc3\xd2\xe1\xf0\xff';
+   vowels := 'aeoiuAEIOU';
+   uppers := &cset -- &ascii;
+   &ascii ? {
+      every writes(" ", "ascii?skips" | upto(skips) | "\n");
+      every writes(" ", "ascii?vowls" | upto(vowels) | "\n")
+      };
+   &letters ? {
+      every writes(" ", "letts?skips" | upto(skips) | "\n");
+      every writes(" ", "letts?vowls" | upto(vowels) | "\n")
+      };
+   vowels ? {
+      every writes(" ", "vowls?skips" | upto(skips) | "\n");
+      every writes(" ", "vowls?letts" | upto(&letters) | "\n");
+      every writes(" ", "vowls?ascii" | upto(&ascii) | "\n")
+      };
+   skips ? {
+      every writes(" ", "skips?vowls" | upto(vowels) | "\n");
+      every writes(" ", "skips?letts" | upto(&letters) | "\n");
+      every writes(" ", "skips?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "skips?upprs" | upto(uppers) | "\n");
+      every writes(" ", "skips?skips" | upto(skips) | "\n")
+      };
+   uppers ? {
+      every writes(" ", "upprs?ascii" | upto(&ascii) | "\n");
+      every writes(" ", "upprs?skips" | upto(skips) | "\n")
+      };
+end
+```
+
+```stdout
+fail
+fail
+7
+7
+fail
+fail
+fail
+7
+
+6
+7
+fail
+
+3
+fail
+3
+fail
+
+1
+3
+5
+1
+3
+1
+done
+
+1
+2
+5
+6
+2
+3
+4
+1
+2
+1
+done
+
+1 23
+1
+23
+456
+3456
+
+ 1
+1
+23
+45
+6
+123
+123
+12
+
+1
+10
+10
+
+1
+1
+fail
+
+123
+fail
+23
+
+ ascii?skips 1 16 31 46 61 76 91 106 121 
+ ascii?vowls 66 70 74 80 86 98 102 106 112 118 
+ letts?skips 11 26 35 50 
+ letts?vowls 1 5 9 15 21 27 31 35 41 47 
+ vowls?skips 8 
+ vowls?letts 1 2 3 4 5 6 7 8 9 10 
+ vowls?ascii 1 2 3 4 5 6 7 8 9 10 
+ skips?vowls 8 
+ skips?letts 6 7 8 9 
+ skips?ascii 1 2 3 4 5 6 7 8 9 
+ skips?upprs 10 11 12 13 14 15 16 17 18 
+ skips?skips 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+ upprs?ascii 
+ upprs?skips 8 23 38 53 68 83 98 113 128 
 ```
 
 ## procedure_record_every_replace_15
@@ -37060,6 +38494,292 @@ key=8 record r5_11(5)
 key=8 record r5_15(5)
 ```
 
+## rung36_jcon_profsum__rung36_jcon_profsum
+
+```Icon
+#SRC: APP
+
+#  profsum -- read and summarize profiling data from "java -prof"
+#
+#  usage:  profsum [-t] [file]	-- typically: profsum java.prof
+#
+#	-t	sort on total time instead of time in method
+#
+#  3-jul-97/gmt
+#  5-jun-98/gmt
+
+
+
+record method(name, ncalls, tself, tcalled, tlocal)
+record skey(key, orig)
+
+global ptab
+
+
+
+procedure main(args)
+   local f, line, p, l, tlocal, ttotal, pctlocal, pcttotal, sorttotal, keyed;
+
+   if args[1] == "-t" then
+      sorttotal := get(args);
+
+   if *args > 0 then
+      f := open(args[1]) | stop(&progname, ": can't open ", args[1])
+   else
+      f := &input;
+
+   while line := read(f) do line ? {
+      if ="count" then
+          next;
+      if not any(&digits) then
+          break;
+      accumulate()
+      };
+
+   l := [];
+   ttotal := 0;
+   every p := !ptab do {
+      p.tlocal := p.tself - p.tcalled;
+      if p.tlocal > 0 then
+         ttotal +:= p.tlocal;
+      put(l, p)
+   };
+
+   # !ptab's own iteration order is per-implementation hash, not a language guarantee, so sort by an
+   # explicit (chosen numeric field, name) composite key instead of leaning on sortf's tie-break behavior
+   # -- confirmed empirically (2026-09-06, seat06) that a real Icon implementation does NOT preserve a
+   # prior sortf's order as the tie-break for a later sortf on a different field, so chaining two sortf
+   # calls is not a portable way to get a second sort key
+   keyed := [];
+   every p := !l do
+      put(keyed, skey(right(string((if \sorttotal then p.tself else p.tlocal) + 2000000000), 12, "0") || "|" || p.name, p));
+   keyed := sortf(keyed, 1);
+   l := [];
+   every p := !keyed do
+      put(l, p.orig);
+
+   write("  calls  totaltime   inmethod  method");
+
+   while p := pull(l) do {
+      if p.tlocal > 0 then
+	 pctlocal := (100 * p.tlocal + ttotal / 2) / ttotal
+      else
+	 pctlocal := (100 * p.tlocal - ttotal / 2) / ttotal;
+      pcttotal := ((100 * p.tself) + (ttotal / 2)) / ttotal;
+      write(
+	 pad(p.ncalls, 7),
+	 pad(p.tself, 7), " ",
+         pad(pcttotal, 2), "%",
+	 pad(p.tlocal, (if pcttotal = 100 then 6 else 7)), " ",
+         pad(pctlocal, 2), "%",
+	 "  ",
+	 p.name)
+      };
+
+end
+
+
+
+procedure lookup(s)
+   local p;
+   initial ptab := table();
+
+   if p := \ptab[s] then
+      return p
+   else
+      return ptab[s] := method(s, 0, 0, 0);
+end
+
+
+
+procedure accumulate()
+   local count, caller, callee, time, p, q;
+
+   count := integer(tab(many(&digits)));
+   tab(many(' '));
+   callee := tab(upto(' '));
+   tab(many(' '));
+   caller := tab(upto(' '));
+   if caller ||:= =" caller" then
+      caller ||:= tab(upto(' '));
+   tab(many(' '));
+   time := integer(tab(many(&digits)));
+
+   caller := fixname(caller);
+   callee := fixname(callee);
+
+   p := lookup(callee);
+   p.tself +:= time;
+   p.ncalls +:= count;
+
+   q := lookup(caller);
+   q.tcalled +:= time;
+
+   return;
+end
+
+
+
+procedure fixname(s)
+   s ? {
+      # strip "meaningless" prefix
+      ="jcon/" | (="java/" & tab(upto('/') + 1)) | (="p_l$" & tab(upto('$')));
+      return tab(0)
+   };
+end
+
+
+
+#  pad(s, n) -- pad string to length n, never truncating
+
+procedure pad(s, n)
+   if *s < n then
+      return right(s, n)
+   else
+      return s;
+end
+```
+
+```stdin
+count callee caller time
+491 java/lang/String.<init>(II[C)V <unknown caller> 3
+396 java/lang/String.hashCode()I java/util/Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 7
+376 java/util/Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; sun/io/CharacterEncoding.<clinit>()V 25
+70 java/lang/String.getChars(II[CI)V java/lang/String.toCharArray()[C 2
+43 java/lang/String.toCharArray()[C java/util/Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String; 3
+43 java/lang/String.<init>([C)V java/util/Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String; 2
+42 java/lang/String.<init>([C)V <unknown caller> 3
+42 java/util/Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String; java/util/Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V 6
+21 java/util/Locale.toLowerCase(Ljava/lang/String;)Ljava/lang/String; java/util/Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V 3
+21 java/util/Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V java/util/Locale.<clinit>()V 10
+14 java/lang/String.getChars(II[CI)V java/lang/StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer; 12
+10 java/lang/String.hashCode()I java/util/Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object; 1
+8 java/util/Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object; java/util/Properties.getProperty(Ljava/lang/String;)Ljava/lang/String; 2
+6 java/lang/StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer; java/lang/StringBuffer.<init>(Ljava/lang/String;)V 13
+5 java/lang/ThreadGroup.add(Ljava/lang/Thread;)V java/lang/Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V 2
+5 java/lang/ThreadGroup.checkAccess()V java/lang/Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V 1
+4 java/util/Properties.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; 2
+4 java/lang/StringBuffer.<init>(Ljava/lang/String;)V java/lang/Thread.<init>()V 12
+4 java/lang/Integer.toString(II)Ljava/lang/String; java/lang/StringBuffer.append(I)Ljava/lang/StringBuffer; 37
+4 java/lang/String.<init>(Ljava/lang/StringBuffer;)V java/lang/Integer.toString(II)Ljava/lang/String; 2
+4 java/lang/Thread.<init>()V <unknown caller> 79
+4 java/lang/StringBuffer.append(I)Ljava/lang/StringBuffer; java/lang/Thread.<init>()V 52
+4 java/lang/Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V java/lang/Thread.<init>()V 3
+4 java/util/Properties.getProperty(Ljava/lang/String;)Ljava/lang/String; java/util/Properties.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; 2
+3 java/io/BufferedOutputStream.flushBuffer()V java/io/BufferedOutputStream.flush()V 1
+2 java/io/BufferedWriter.<init>(Ljava/io/Writer;I)V java/io/BufferedWriter.<init>(Ljava/io/Writer;)V 3
+2 java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter; 1
+2 java/io/BufferedWriter.<init>(Ljava/io/Writer;)V java/io/PrintStream.<init>(Ljava/io/OutputStream;Z)V 3
+2 java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; java/util/Locale.getDefault()Ljava/util/Locale; 1
+2 java/util/Locale.getDefault()Ljava/util/Locale; sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String; 1
+2 sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter; java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;)V 127
+2 java/io/PrintStream.<init>(Ljava/io/OutputStream;Z)V java/lang/System.initializeSystemClass()V 160
+2 java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;Lsun/io/CharToByteConverter;)V java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;)V 2
+2 sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter; 126
+2 java/lang/StringBuffer.<init>(Ljava/lang/String;)V sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; 1
+2 java/io/BufferedOutputStream.flush()V java/io/PrintStream.write([BII)V 1
+2 java/io/PrintStream.write([BII)V java/io/OutputStreamWriter.flushBuffer()V 1
+2 java/io/OutputStreamWriter.<init>(Ljava/io/OutputStream;)V java/io/PrintStream.<init>(Ljava/io/OutputStream;Z)V 137
+2 java/lang/String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String; sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String; 2
+2 sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String; sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; 25
+2 java/lang/Class.forName(Ljava/lang/String;)Ljava/lang/Class; sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter; 8
+1 java/util/Locale.<clinit>()V <unknown caller> 11
+1 HelloWorldApp.main([Ljava/lang/String;)V <unknown caller> 3
+1 java/util/Properties.<init>(Ljava/util/Properties;)V java/util/Properties.<init>()V 5
+1 java/io/FileDescriptor.<clinit>()V <unknown caller> 1
+1 java/util/Hashtable.<init>()V java/util/Properties.<init>(Ljava/util/Properties;)V 5
+1 java/util/Hashtable.rehash()V java/util/Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; 3
+1 java/util/Hashtable.<init>(IF)V java/util/Hashtable.<init>()V 5
+1 java/io/PrintStream.print(Ljava/lang/String;)V java/io/PrintStream.println(Ljava/lang/String;)V 2
+1 java/lang/System.initProperties(Ljava/util/Properties;)Ljava/util/Properties; java/lang/System.initializeSystemClass()V 1536
+1 java/io/PrintStream.println(Ljava/lang/String;)V HelloWorldApp.main([Ljava/lang/String;)V 3
+1 java/io/PrintStream.write(Ljava/lang/String;)V java/io/PrintStream.print(Ljava/lang/String;)V 2
+1 java/io/BufferedWriter.flushBuffer()V java/io/PrintStream.write(Ljava/lang/String;)V 1
+1 java/lang/System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; <unknown caller> 6
+1 java/util/Properties.<clinit>()V <unknown caller> 1
+1 java/lang/System.initializeSystemClass()V <unknown caller> 1806
+1 java/util/Properties.<init>()V java/lang/System.initializeSystemClass()V 5
+1 java/io/OutputStreamWriter.flushBuffer()V java/io/PrintStream.write(Ljava/lang/String;)V 1
+1 sun/io/CharacterEncoding.<clinit>()V <unknown caller> 76
+1 sun/io/CharToByteConverter.<clinit>()V <unknown caller> 1
+1 java/lang/Compiler.<clinit>()V <unknown caller> 1
+1 java/lang/System.<clinit>()V <unknown caller> 3
+1 java/lang/System.nullInputStream()Ljava/io/InputStream; java/lang/System.<clinit>()V 3
+1 java/lang/Character.<clinit>()V <unknown caller> 8
+1 java/lang/ThreadGroup.<init>()V <unknown caller> 1
+1 java/lang/Integer.<clinit>()V <unknown caller> 1
+handles_used: 1259, handles_free: 26214, heap-used: 102976, heap-free: 735880
+sig  count  bytes  indx
+[C     403	20888     5
+[B       8	26498     8
+[I       1	    8    10
+```
+
+```stdout
+  calls  totaltime   inmethod  method
+      1   1536 77%   1536 77%  System.initProperties(Ljava/util/Properties;)Ljava/util/Properties;
+      1   1806 90%    105  5%  System.initializeSystemClass()V
+      2    126  6%     92  5%  sun/io/CharToByteConverter.getConverter(Ljava/lang/String;)Lsun/io/CharToByteConverter;
+      1     76  4%     51  3%  sun/io/CharacterEncoding.<clinit>()V
+      4     37  2%     35  2%  Integer.toString(II)Ljava/lang/String;
+      2     25  1%     22  1%  sun/io/CharacterEncoding.aliasName(Ljava/lang/String;)Ljava/lang/String;
+      2    160  8%     20  1%  PrintStream.<init>(Ljava/io/OutputStream;Z)V
+      4     52  3%     15  1%  StringBuffer.append(I)Ljava/lang/StringBuffer;
+    376     25  1%     15  1%  Hashtable.put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     84     14  1%     14  1%  String.getChars(II[CI)V
+      4     79  4%     12  1%  Thread.<init>()V
+    406      8  0%      8  0%  String.hashCode()I
+      2    137  7%      8  0%  OutputStreamWriter.<init>(Ljava/io/OutputStream;)V
+      2      8  0%      8  0%  Class.forName(Ljava/lang/String;)Ljava/lang/Class;
+      1      8  0%      8  0%  Character.<clinit>()V
+      5      8  0%      6  0%  System.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     85      5  0%      5  0%  String.<init>([C)V
+      1      5  0%      5  0%  Hashtable.<init>(IF)V
+      1      3  0%      3  0%  System.nullInputStream()Ljava/io/InputStream;
+    491      3  0%      3  0%  String.<init>(II[C)V
+     21      3  0%      3  0%  Locale.toLowerCase(Ljava/lang/String;)Ljava/lang/String;
+      1      3  0%      3  0%  Hashtable.rehash()V
+      2      3  0%      3  0%  BufferedWriter.<init>(Ljava/io/Writer;I)V
+      5      2  0%      2  0%  ThreadGroup.add(Ljava/lang/Thread;)V
+      2      2  0%      2  0%  String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+      4      2  0%      2  0%  String.<init>(Ljava/lang/StringBuffer;)V
+      2      2  0%      2  0%  OutputStreamWriter.<init>(Ljava/io/OutputStream;Lsun/io/CharToByteConverter;)V
+      1      1  0%      1  0%  sun/io/CharToByteConverter.<clinit>()V
+      5      1  0%      1  0%  ThreadGroup.checkAccess()V
+      1      1  0%      1  0%  ThreadGroup.<init>()V
+      6     13  1%      1  0%  StringBuffer.append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     43      3  0%      1  0%  String.toCharArray()[C
+      1      1  0%      1  0%  Properties.<clinit>()V
+      1      3  0%      1  0%  PrintStream.println(Ljava/lang/String;)V
+     42      6  0%      1  0%  Locale.toUpperCase(Ljava/lang/String;)Ljava/lang/String;
+     21     10  0%      1  0%  Locale.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+      1     11  1%      1  0%  Locale.<clinit>()V
+      1      1  0%      1  0%  Integer.<clinit>()V
+      8      2  0%      1  0%  Hashtable.get(Ljava/lang/Object;)Ljava/lang/Object;
+      1      1  0%      1  0%  FileDescriptor.<clinit>()V
+      1      1  0%      1  0%  Compiler.<clinit>()V
+      1      1  0%      1  0%  BufferedWriter.flushBuffer()V
+      3      1  0%      1  0%  BufferedOutputStream.flushBuffer()V
+      2    127  6%      0  0%  sun/io/CharToByteConverter.getDefault()Lsun/io/CharToByteConverter;
+      4      3  0%      0  0%  Thread.init(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V
+      1      3  0%      0  0%  System.<clinit>()V
+      6     13  1%      0  0%  StringBuffer.<init>(Ljava/lang/String;)V
+      4      2  0%      0  0%  Properties.getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      4      2  0%      0  0%  Properties.getProperty(Ljava/lang/String;)Ljava/lang/String;
+      1      5  0%      0  0%  Properties.<init>(Ljava/util/Properties;)V
+      1      5  0%      0  0%  Properties.<init>()V
+      2      1  0%      0  0%  PrintStream.write([BII)V
+      1      2  0%      0  0%  PrintStream.write(Ljava/lang/String;)V
+      1      2  0%      0  0%  PrintStream.print(Ljava/lang/String;)V
+      1      1  0%      0  0%  OutputStreamWriter.flushBuffer()V
+      2      1  0%      0  0%  Locale.getDefault()Ljava/util/Locale;
+      1      3  0%      0  0%  HelloWorldApp.main([Ljava/lang/String;)V
+      1      5  0%      0  0%  Hashtable.<init>()V
+      2      3  0%      0  0%  BufferedWriter.<init>(Ljava/io/Writer;)V
+      2      1  0%      0  0%  BufferedOutputStream.flush()V
+      0      0  0%  -2004 -100%  <unknown caller>
+```
+
 ## scanning_asm__is01b_consumers
 
 ```Icon
@@ -38369,6 +40089,1152 @@ error in line 180:
    &errortext = "negative first argument to real exponentiation"
 (-36. ^ -9.) | monitor(&line) ----> 180
  eginopst
+```
+
+## rung36_jcon_geddump__rung36_jcon_geddump
+
+```Icon
+#SRC: JCON
+
+
+
+#  geddump.icn -- print info from GEDCOM file
+
+record person(n, k, r) # number, sort key, gedrec node
+
+
+global ptab # person number table, indexed by gedrec node
+
+
+procedure main(args)
+   local f, g, i, n, p, r, plist, fam, husb, sp;
+
+   if *args > 0 then
+      f := open(args[1]) | stop("can't open ", args[1])
+   else
+      f := &input;
+
+   g := gedload(f);
+   close(f);
+
+   plist := [];
+   ptab := table();
+   every r := !g.ind do
+      put(plist, ptab[r] := person(0, sortkey(r), r));
+
+   plist := sortf(plist, 2);
+
+   n := 0;
+   every (!plist).n := (n +:= 1);
+
+   every p := !plist do {
+      write();
+      write("[", p.n, "] ", gedlnf(p.r));
+
+      if fam := gedref(p.r, "FAMC") then {
+	 refto("father", gedref(fam, "HUSB"));
+	 refto("mother", gedref(fam, "WIFE"))
+         };
+
+      event("b.", gedsub(p.r, "BIRT"));
+
+      r := &null;
+      every fam := gedref(p.r, "FAMS") do {		# for every family
+         r := event("m.", gedsub(fam, "MARR"));
+         r := refto("  husb", p.r ~=== gedref(fam, "HUSB"));
+         r := refto("  wife", p.r ~=== gedref(fam, "WIFE"));
+	 # if had earlier kids and did not indicate remarriage, do so now
+	 if \r then
+	    write("   m.");
+	 # print children under husband, or under wife if no husband
+	 if (p.r === gedref(fam, "HUSB")) | (not gedref(fam, "HUSB")) then {
+            every r := gedref(fam, "CHIL") do {
+               case (gedval(r, "SEX") | "") of {
+                  "M":		refto("   son", r);
+                  "F":		refto("   dau", r);
+                  default:	refto(" child", r)
+                  }
+	       }
+	    }
+	 };
+
+      event("d.", gedsub(p.r, "DEAT"))
+      };
+end
+
+procedure event(label, r)
+   local date, place;
+
+   date  := ("" ~== geddate(r));
+   place := ("" ~== gedval(r, "PLAC"));
+   if /place then
+      write("   ", label, " ", \date)
+   else
+      write("   ", label, " ", \date | "            ", "  ", place);
+   return;
+end
+
+procedure refto(label, r)
+   write("   ", label, " [", ptab[r].n, "] ", gedfnf(r));
+   return;
+end
+
+procedure sortkey(r)
+   return map(gedlnf(r));
+end
+
+
+
+
+############################################################################
+#
+#	File:     gedcom.icn
+#
+#	Subject:  Procedures for reading GEDCOM files
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     January 1, 1998
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	GEDCOM files are a standard format for exchanging genealogy
+#	information.  These procedures handle "PAF 2.1" format GEDCOM
+#	files (those using FAM instead of FAMI for family records).
+#	Date formatting assumes the English language.
+#
+#	gedload(f) loads GEDCOM data from file f and returns a gedcom
+#	record containing the following fields:
+#	    tree	root of tree of gednode records
+#	    id		table of labeled nodes, indexed by @ID@
+#	    fam		list of FAM nodes
+#	    ind		list of INDI nodes
+#
+############################################################################
+
+record gedcom(
+   tree, 	# tree of data records
+   id,		# table of labeled nodes, indexed by @ID@
+   fam,		# list of FAMI nodes
+   ind		# list of INDI nodes
+)
+
+record gednode(
+   level,	# level
+   id,		# ID (label), including @...@ delimiters
+   tag,		# tag
+   data,	# data
+   lnum,	# line number
+   parent,	# parent node in tree
+   ref,		# referenced node, if any
+   sub		# sub-entry list
+)
+
+$define WHITESPACE ' \t\n\r'
+
+
+
+#  gedload(f) -- load GEDCOM data from file f, returning gedcom record.
+
+procedure gedload(f);		#: load GEDCOM data from file f
+   local line, lnum, r, curr;
+   local root, id, fam, ind;
+
+   lnum := 0;
+   root := curr := gednode(-1, , "ROOT", "", lnum, , , []);
+   id := table();
+   fam := [];
+   ind := [];
+
+   while line := trim(read(f), WHITESPACE) do {
+      lnum +:= 1;
+      if *line = 0 then
+	 next;
+
+      if not (r := gedscan(line)) then {
+         write(&errout, "ERR, line ", lnum, ": ", line);
+         next
+      };
+      r.lnum := lnum;
+      r.sub := [];
+
+      while curr.level >= r.level do
+	 curr := curr.parent;
+      put(curr.sub, r);
+      r.parent := curr;
+      curr := r;
+
+      id[\r.id] := r;
+      case r.tag of {
+	 "FAM":  put(fam, r);
+	 "INDI":  put(ind, r)
+      }
+   };
+
+   every r := gedwalk(root) do
+      r.ref := id[r.data];
+
+   return gedcom(root, id, fam, ind);
+end
+
+
+
+#  gedscan(f) -- scan one line of a GEDCOM record, returning gednode record
+
+procedure gedscan(s);		#: scan GEDCOM line and return record
+   local level, id, tag, data;
+   static alnum;
+   initial alnum := &letters ++ &digits ++ '_';
+
+   s ? {
+      tab(many(WHITESPACE));
+      level := tab(many(&digits)) | fail;
+      tab(many(WHITESPACE));
+      if id := (="@" || tab(upto('@') + 1)) then
+         tab(many(WHITESPACE));
+      tag := tab(many(alnum)) | fail;
+      tab(many(WHITESPACE));
+      data := tab(0);
+      return gednode(level, id, tag, data)
+      };
+end
+
+
+
+#  gedwalk(r) -- walk GEDCOM tree, generating nodes in preorder
+
+procedure gedwalk(r);		#: generate GEDCOM tree nodes in preorder
+   suspend r | gedwalk(!r.sub);
+   fail;
+end
+
+
+
+#  gedsub(r, field...) -- generate subrecords with given tags
+#  gedval(r, field...) -- generate values of subrecords with given tags
+#  gedref(r, field...) -- generate nodes referenced by given tags
+
+procedure gedsub(r, f[]);	#: find subrecords
+   local tag, x;
+
+   tag := get(f) | fail;
+   every x := !r.sub do {
+      if x.tag == tag then
+	 if *f > 0 then
+	    suspend gedsub ! push(f, x)
+	 else
+	    suspend x
+   };
+end
+
+procedure gedval(a[]);		#: find subrecord values
+   suspend (gedsub ! a).data;
+end
+
+procedure gedref(a[]);		#: find referenced nodes
+   suspend \(gedsub ! a).ref;
+end
+
+
+
+#  gedfnf(r) -- get name from individual record, first name first
+
+procedure gedfnf(r);		#: get last name first
+   local first, last, s;
+
+   s := gedval(r, "NAME") | fail;
+   s ? {
+      first := trim(tab(upto('/'))) | return tab(0);
+      ="/";
+      last := tab(upto('/') | 0)
+   };
+   if *first > 0 then
+      s := first || " " || last
+   else
+      s := last;
+   s ||:= " " || gedval(r, "TITL");	# may fail
+   return s;
+end
+
+
+
+#  gedlnf(r) -- get name from individual record, last name first
+
+procedure gedlnf(r);		#: get last name first
+   local first, last, s;
+
+   s := gedval(r, "NAME") | fail;
+   s ? {
+      first := trim(tab(upto('/'))) | return tab(0);
+      ="/";
+      last := tab(upto('/') | 0)
+   };
+   s := last || ", " || first;
+   s ||:= " " || gedval(r, "TITL");	# may fail
+   return s;
+end
+
+
+#  geddate(r) -- get date from record in standard form
+
+procedure geddate(r);		#: get canonical date
+   local s, t, w;
+   static ftab;
+   initial {
+      ftab := table();
+      ftab["JAN"] := "Jan";  ftab["FEB"] := "Feb"; ftab["MAR"] := "Mar";
+      ftab["APR"] := "Apr";  ftab["MAY"] := "May"; ftab["JUN"] := "Jun";
+      ftab["JUL"] := "Jul";  ftab["AUG"] := "Aug"; ftab["SEP"] := "Sep";
+      ftab["OCT"] := "Oct";  ftab["NOV"] := "Nov"; ftab["DEC"] := "Dec";
+      ftab["ABT"] := "abt";  ftab["BEF"] := "bef"; ftab["AFT"] := "aft";
+      ftab["CAL"] := "cal";  ftab["EST"] := "est"
+      };
+
+   s := trim(gedval(r, "DATE"), WHITESPACE) | fail;
+   t := "";
+
+   s ? while not pos(0) do {
+      tab(many(WHITESPACE));
+      w := tab(upto(WHITESPACE) | 0);
+      t ||:= " " || (\ftab[w] | w)
+   };
+
+   if *t > 13 then
+      return t[2:0]
+   else
+      return right(t, 12);
+end
+```
+
+```stdin
+0 HEAD
+1 SOUR PAF 2.31
+2 NAME Personal Ancestral File(R)
+1 DEST PAF
+1 DATE 23 MAR 1998
+1 SUBM @S1@
+1 FILE ANCESTRS.GED
+1 CHAR ANSEL
+0 @S1@ SUBM
+1 NAME Gregg M. Townsend
+1 ADDR gmt@cs.arizona.edu
+2 CONT 2431 W. Placita Mateo
+2 CONT Tucson, AZ  85745
+1 PHON +1 520 622 4180
+0 @I10@ INDI
+1 NAME George Marshall /Townsend/
+1 SEX M
+1 BIRT
+2 DATE 26 FEB 1884
+2 PLAC Ashton,Osceola,IA
+1 DEAT
+2 DATE    MAR 1937
+2 PLAC Sioux City,Woodbury,IA
+1 BURI
+2 PLAC Ashton,Osceola,IA
+1 FAMC @F7@
+0 @I16@ INDI
+1 NAME James Edwin /Townsend/
+1 SEX M
+1 BIRT
+2 DATE 18 FEB 1843
+2 PLAC Lakeville,Oakland,MI
+1 DEAT
+2 DATE  9 APR 1920
+2 PLAC Ashton,Osceola,IA
+1 FAMS @F7@
+1 FAMC @F8@
+0 @I17@ INDI
+1 NAME Emma Caroline /Jones/
+1 SEX F
+1 BIRT
+2 DATE 15 JUL 1848
+2 PLAC Holly,Oakland,MI
+1 DEAT
+2 DATE 29 OCT 1928
+2 PLAC Ashton,Osceola,IA
+1 FAMS @F7@
+0 @I18@ INDI
+1 NAME Elethan  /Townsend/
+1 SEX M
+1 BIRT
+2 DATE  4 MAR 1812
+2 PLAC ,Greene,NY
+1 DEAT
+2 DATE 14 JUL 1883
+2 PLAC Lakeville,Oakland,MI
+1 FAMS @F8@
+1 FAMC @F10@
+0 @I19@ INDI
+1 NAME Laura Eliza /Tedman/
+1 SEX F
+1 BIRT
+2 DATE 17 JAN 1815
+2 PLAC ,,CT
+1 DEAT
+2 DATE 24 MAY 1883
+2 PLAC Lakeville,Oakland,MI
+1 FAMS @F8@
+1 FAMC @F12@
+0 @I22@ INDI
+1 NAME Elihu  /Townsend/
+1 SEX M
+1 BIRT
+2 DATE ABT    1765
+2 PLAC Oyster Bay,Long Island,NY
+1 DEAT
+2 DATE 15 MAY 1834
+2 PLAC Mt. Vernon,Oakland,MI
+1 REFN 14VP-D15
+1 FAMS @F10@
+1 FAMC @F11@
+0 @I23@ INDI
+1 NAME Hester  /Brewer/
+1 SEX F
+1 BIRT
+2 DATE        1771
+2 PLAC <Westchester,New York>
+1 DEAT
+2 DATE 25 JUL 1835
+2 PLAC Mt. Vernon,Oakland,MI
+1 REFN 14VP-D0X
+1 FAMS @F10@
+1 FAMC @F64@
+0 @I24@ INDI
+1 NAME John  /Townsend/
+1 SEX M
+1 FAMS @F11@
+0 @I25@ INDI
+1 NAME James  /Tedman/
+1 SEX M
+1 BIRT
+2 DATE ABT    1785
+2 PLAC ,,of CT
+1 FAMS @F12@
+0 @I47@ INDI
+1 NAME Elizabeth  /Stone/
+1 SEX F
+1 BIRT
+2 DATE 22 JUN 1749
+2 PLAC <Holland>
+1 DEAT
+2 DATE 30 JAN 1828
+2 PLAC Greene,New York
+1 REFN 14VP-7XV
+1 FAMS @F64@
+0 @I58@ INDI
+1 NAME Peter  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE  1 APR 1740
+2 PLAC Holland
+1 DEAT
+2 DATE 22 MAR 1804
+2 PLAC Hunter,Greene,New York
+1 BURI
+2 PLAC Oliver Haines's,Farm,Haines Falls,New York
+1 REFN 14VP-7WN
+1 FAMS @F64@
+0 @I78@ INDI
+1 NAME Clara L /Townsend/
+1 SEX F
+1 BIRT
+2 DATE 28 OCT 1872
+2 PLAC ,,IA
+1 FAMC @F7@
+0 @I79@ INDI
+1 NAME Elethan Burr /Townsend/
+1 SEX M
+1 BIRT
+2 DATE    OCT 1874
+2 PLAC ,Osceola,IA
+1 DEAT
+2 DATE 28 FEB 1950
+1 FAMC @F7@
+0 @I80@ INDI
+1 NAME Francis E /Townsend/
+1 SEX M
+1 BIRT
+2 DATE    AUG 1876
+2 PLAC ,,IA
+1 DEAT
+2 DATE 30 NOV 1948
+1 FAMC @F7@
+0 @I81@ INDI
+1 NAME James Edwin /Townsend/
+1 TITL Jr.
+1 SEX M
+1 BIRT
+2 DATE 26 FEB 1884
+2 PLAC Ashton,Osceola,IA
+1 FAMC @F7@
+0 @I82@ INDI
+1 NAME Robert Ellis /Townsend/
+1 SEX M
+1 BIRT
+2 DATE    APR 1886
+2 PLAC ,,IA
+1 DEAT
+2 DATE 10 JAN 1960
+1 FAMC @F7@
+0 @I108@ INDI
+1 NAME Esther  /Townsend/
+1 SEX F
+1 FAMC @F10@
+0 @I109@ INDI
+1 NAME Peter  /Townsend/
+1 SEX M
+1 FAMC @F10@
+0 @I110@ INDI
+1 NAME Susan  /Townsend/
+1 SEX F
+1 FAMC @F10@
+0 @I111@ INDI
+1 NAME Timothy  /Townsend/
+1 SEX M
+1 FAMC @F10@
+0 @I112@ INDI
+1 NAME Harriet E /Townsend/
+1 SEX F
+1 FAMC @F8@
+0 @I113@ INDI
+1 NAME Lucy A /Townsend/
+1 SEX F
+1 FAMC @F8@
+0 @I114@ INDI
+1 NAME Sherman Sexton /Townsend/
+1 SEX M
+1 FAMC @F8@
+0 @I115@ INDI
+1 NAME Freeling H /Townsend/
+1 SEX M
+1 FAMC @F8@
+0 @I116@ INDI
+1 NAME Rufus H /Townsend/
+1 SEX M
+1 FAMS @F47@
+1 FAMC @F8@
+0 @I117@ INDI
+1 NAME George Lewis /Townsend/
+1 SEX M
+1 FAMC @F8@
+0 @I118@ INDI
+1 NAME Judson  /Townsend/
+1 SEX M
+1 FAMC @F8@
+0 @I119@ INDI
+1 NAME Rosamond Eliza /Townsend/
+1 SEX F
+1 FAMC @F8@
+0 @I132@ INDI
+1 NAME Mrs. James //
+1 SEX F
+1 BIRT
+2 DATE ABT    1785
+1 FAMS @F12@
+0 @I147@ INDI
+1 NAME Emma B /Proper/
+1 SEX F
+1 FAMS @F47@
+0 @I148@ INDI
+1 NAME infant  /Townsend/
+1 FAMC @F47@
+0 @I149@ INDI
+1 NAME Myrle Albert /Townsend/
+1 SEX M
+1 FAMC @F47@
+0 @I178@ INDI
+1 NAME Susannah  /Brewer/
+1 SEX F
+1 BIRT
+2 DATE        1768
+2 PLAC <Westchester,New York>
+1 REFN 14VP-CZR
+1 FAMS @F65@
+1 FAMC @F64@
+0 @I179@ INDI
+1 NAME John  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1769
+2 PLAC <Westchester,New York>
+1 REFN 14VP-808
+1 FAMC @F64@
+0 @I181@ INDI
+1 NAME Hannah  /Brewer/
+1 SEX F
+1 BIRT
+2 DATE        1772
+2 PLAC <Westchester,New York>
+1 REFN 14VP-D3K
+1 FAMS @F67@
+1 FAMC @F64@
+0 @I182@ INDI
+1 NAME William  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1774
+2 PLAC <Westchester,New York>
+1 REFN 14VP-83V
+1 FAMC @F64@
+0 @I183@ INDI
+1 NAME Mariam  /Brewer/
+1 SEX F
+1 BIRT
+2 DATE  8 AUG 1776
+2 PLAC Westchester,New York
+1 DEAT
+2 DATE 16 AUG 1857
+2 PLAC Hunter,Greene,New York
+1 REFN 14VP-843
+1 FAMS @F68@
+1 FAMC @F64@
+0 @I184@ INDI
+1 NAME Samuel  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1778
+2 PLAC Putnam,New York
+1 REFN 14VP-D4R
+1 FAMS @F69@
+1 FAMC @F64@
+0 @I185@ INDI
+1 NAME James  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1780
+2 PLAC <Putnam,New York>
+1 REFN 14VP-86H
+1 FAMC @F64@
+0 @I186@ INDI
+1 NAME Anna  /Brewer/
+1 SEX F
+1 BIRT
+2 DATE        1782
+2 PLAC <Putnam,New York>
+1 REFN 14VP-D7D
+1 FAMS @F70@
+1 FAMC @F64@
+0 @I187@ INDI
+1 NAME Betsey  /Brewer/
+1 SEX F
+1 BIRT
+2 DATE        1784
+2 PLAC <Putnam,New York>
+1 REFN 14VP-D9S
+1 FAMS @F71@
+1 FAMC @F64@
+0 @I188@ INDI
+1 NAME Daniel  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1786
+2 PLAC <Putnam,New York>
+1 REFN 14VP-894
+1 FAMC @F64@
+0 @I189@ INDI
+1 NAME Jacob  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1787
+2 PLAC <Putnam,New York>
+1 DEAT
+2 DATE        1788
+1 REFN 14VP-8CJ
+1 FAMC @F64@
+0 @I190@ INDI
+1 NAME Lad  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1787
+2 PLAC <Putnam,New York>
+1 DEAT
+2 DATE        1788
+1 REFN 14VP-8BB
+1 FAMC @F64@
+0 @I191@ INDI
+1 NAME Aron  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1788
+2 PLAC <Putnam,New York>
+1 REFN 14VP-8DQ
+1 FAMC @F64@
+0 @I192@ INDI
+1 NAME Peter  /Brewer/
+1 TITL Jr.
+1 SEX M
+1 BIRT
+2 DATE        1791
+2 PLAC <Putnam,New York>
+1 REFN 14VP-DB1
+1 FAMS @F72@
+1 FAMC @F64@
+0 @I193@ INDI
+1 NAME Abraham  /Brewer/
+1 SEX M
+1 BIRT
+2 DATE        1793
+2 PLAC <Putnam,New York>
+1 REFN 14VP-DDF
+1 FAMS @F73@
+1 FAMC @F64@
+0 @I194@ INDI
+1 NAME Samuel  /Cypher/
+1 SEX M
+1 REFN 14VP-CXK
+1 FAMS @F65@
+0 @I196@ INDI
+1 NAME Caleb  /Gregory/
+1 SEX M
+1 REFN 14VP-D2C
+1 FAMS @F67@
+0 @I197@ INDI
+1 NAME Edward  /Haines/
+1 SEX M
+1 REFN 14VP-8KR
+1 FAMS @F68@
+0 @I198@ INDI
+1 NAME Charlotte  /Whitney/
+1 SEX F
+1 REFN 14VP-D50
+1 FAMS @F69@
+0 @I199@ INDI
+1 NAME John  /Haines/
+1 TITL Jr.
+1 SEX M
+1 REFN 14VP-D66
+1 FAMS @F70@
+0 @I200@ INDI
+1 NAME Nathaniel  /English/
+1 SEX M
+1 REFN 14VP-D8L
+1 FAMS @F71@
+0 @I201@ INDI
+1 NAME Mary  /Terns/
+1 SEX F
+1 REFN 14VP-DC7
+1 FAMS @F72@
+0 @I202@ INDI
+1 NAME Annie  /Eggleston/
+1 SEX F
+1 REFN 14VP-DFM
+1 FAMS @F73@
+0 @F7@ FAM
+1 HUSB @I16@
+1 WIFE @I17@
+1 CHIL @I78@
+1 CHIL @I79@
+1 CHIL @I80@
+1 CHIL @I10@
+1 CHIL @I81@
+1 CHIL @I82@
+1 MARR
+2 DATE    OCT 1871
+0 @F8@ FAM
+1 HUSB @I18@
+1 WIFE @I19@
+1 CHIL @I112@
+1 CHIL @I113@
+1 CHIL @I114@
+1 CHIL @I16@
+1 CHIL @I115@
+1 CHIL @I116@
+1 CHIL @I117@
+1 CHIL @I118@
+1 CHIL @I119@
+1 MARR
+2 DATE 30 DEC 1835
+0 @F10@ FAM
+1 HUSB @I22@
+1 WIFE @I23@
+1 CHIL @I108@
+1 CHIL @I109@
+1 CHIL @I110@
+1 CHIL @I111@
+1 CHIL @I18@
+0 @F11@ FAM
+1 HUSB @I24@
+1 CHIL @I22@
+0 @F12@ FAM
+1 HUSB @I25@
+1 WIFE @I132@
+1 CHIL @I19@
+0 @F47@ FAM
+1 HUSB @I116@
+1 WIFE @I147@
+1 CHIL @I148@
+1 CHIL @I149@
+1 MARR
+2 DATE    SEP 1880
+0 @F64@ FAM
+1 HUSB @I58@
+1 WIFE @I47@
+1 CHIL @I178@
+1 CHIL @I179@
+1 CHIL @I23@
+1 CHIL @I181@
+1 CHIL @I182@
+1 CHIL @I183@
+1 CHIL @I184@
+1 CHIL @I185@
+1 CHIL @I186@
+1 CHIL @I187@
+1 CHIL @I188@
+1 CHIL @I189@
+1 CHIL @I190@
+1 CHIL @I191@
+1 CHIL @I192@
+1 CHIL @I193@
+1 MARR
+2 DATE  9 AUG 1767
+0 @F65@ FAM
+1 HUSB @I194@
+1 WIFE @I178@
+0 @F67@ FAM
+1 HUSB @I196@
+1 WIFE @I181@
+0 @F68@ FAM
+1 HUSB @I197@
+1 WIFE @I183@
+1 MARR
+2 DATE        1796
+0 @F69@ FAM
+1 HUSB @I184@
+1 WIFE @I198@
+0 @F70@ FAM
+1 HUSB @I199@
+1 WIFE @I186@
+0 @F71@ FAM
+1 HUSB @I200@
+1 WIFE @I187@
+0 @F72@ FAM
+1 HUSB @I192@
+1 WIFE @I201@
+0 @F73@ FAM
+1 HUSB @I193@
+1 WIFE @I202@
+0 TRLR
+```
+
+```stdout
+
+[1] , Mrs. James
+   b.     abt 1785
+     husb [28] James Tedman
+
+[2] Brewer, Abraham
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1793  <Putnam,New York>
+     wife [20] Annie Eggleston
+
+[3] Brewer, Anna
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1782  <Putnam,New York>
+     husb [24] John Haines Jr.
+
+[4] Brewer, Aron
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1788  <Putnam,New York>
+
+[5] Brewer, Betsey
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1784  <Putnam,New York>
+     husb [21] Nathaniel English
+
+[6] Brewer, Daniel
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1786  <Putnam,New York>
+
+[7] Brewer, Hannah
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1772  <Westchester,New York>
+     husb [22] Caleb Gregory
+
+[8] Brewer, Hester
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1771  <Westchester,New York>
+     husb [34] Elihu Townsend
+   d.  25 Jul 1835  Mt. Vernon,Oakland,MI
+
+[9] Brewer, Jacob
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1787  <Putnam,New York>
+   d.         1788
+
+[10] Brewer, James
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1780  <Putnam,New York>
+
+[11] Brewer, John
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1769  <Westchester,New York>
+
+[12] Brewer, Lad
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1787  <Putnam,New York>
+   d.         1788
+
+[13] Brewer, Mariam
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.   8 Aug 1776  Westchester,New York
+   m.         1796
+     husb [23] Edward Haines
+   d.  16 Aug 1857  Hunter,Greene,New York
+
+[14] Brewer, Peter
+   b.   1 Apr 1740  Holland
+   m.   9 Aug 1767
+     wife [27] Elizabeth Stone
+      dau [17] Susannah Brewer
+      son [11] John Brewer
+      dau [8] Hester Brewer
+      dau [7] Hannah Brewer
+      son [18] William Brewer
+      dau [13] Mariam Brewer
+      son [16] Samuel Brewer
+      son [10] James Brewer
+      dau [3] Anna Brewer
+      dau [5] Betsey Brewer
+      son [6] Daniel Brewer
+      son [9] Jacob Brewer
+      son [12] Lad Brewer
+      son [4] Aron Brewer
+      son [15] Peter Brewer Jr.
+      son [2] Abraham Brewer
+   d.  22 Mar 1804  Hunter,Greene,New York
+
+[15] Brewer, Peter Jr.
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1791  <Putnam,New York>
+     wife [30] Mary Terns
+
+[16] Brewer, Samuel
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1778  Putnam,New York
+     wife [55] Charlotte Whitney
+
+[17] Brewer, Susannah
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1768  <Westchester,New York>
+     husb [19] Samuel Cypher
+
+[18] Brewer, William
+   father [14] Peter Brewer
+   mother [27] Elizabeth Stone
+   b.         1774  <Westchester,New York>
+
+[19] Cypher, Samuel
+     wife [17] Susannah Brewer
+
+[20] Eggleston, Annie
+     husb [2] Abraham Brewer
+
+[21] English, Nathaniel
+     wife [5] Betsey Brewer
+
+[22] Gregory, Caleb
+     wife [7] Hannah Brewer
+
+[23] Haines, Edward
+   m.         1796
+     wife [13] Mariam Brewer
+
+[24] Haines, John Jr.
+     wife [3] Anna Brewer
+
+[25] Jones, Emma Caroline
+   b.  15 Jul 1848  Holly,Oakland,MI
+   m.     Oct 1871
+     husb [42] James Edwin Townsend
+   d.  29 Oct 1928  Ashton,Osceola,IA
+
+[26] Proper, Emma B
+   m.     Sep 1880
+     husb [51] Rufus H Townsend
+
+[27] Stone, Elizabeth
+   b.  22 Jun 1749  <Holland>
+   m.   9 Aug 1767
+     husb [14] Peter Brewer
+   d.  30 Jan 1828  Greene,New York
+
+[28] Tedman, James
+   b.     abt 1785  ,,of CT
+     wife [1] Mrs. James 
+      dau [29] Laura Eliza Tedman
+
+[29] Tedman, Laura Eliza
+   father [28] James Tedman
+   mother [1] Mrs. James 
+   b.  17 Jan 1815  ,,CT
+   m.  30 Dec 1835
+     husb [32] Elethan Townsend
+   d.  24 May 1883  Lakeville,Oakland,MI
+
+[30] Terns, Mary
+     husb [15] Peter Brewer Jr.
+
+[31] Townsend, Clara L
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.  28 Oct 1872  ,,IA
+
+[32] Townsend, Elethan
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+   b.   4 Mar 1812  ,Greene,NY
+   m.  30 Dec 1835
+     wife [29] Laura Eliza Tedman
+      dau [40] Harriet E Townsend
+      dau [46] Lucy A Townsend
+      son [52] Sherman Sexton Townsend
+      son [42] James Edwin Townsend
+      son [37] Freeling H Townsend
+      son [51] Rufus H Townsend
+      son [38] George Lewis Townsend
+      son [45] Judson Townsend
+      dau [50] Rosamond Eliza Townsend
+   d.  14 Jul 1883  Lakeville,Oakland,MI
+
+[33] Townsend, Elethan Burr
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.     Oct 1874  ,Osceola,IA
+   d.  28 Feb 1950
+
+[34] Townsend, Elihu
+   father [44] John Townsend
+   b.     abt 1765  Oyster Bay,Long Island,NY
+     wife [8] Hester Brewer
+      dau [35] Esther Townsend
+      son [48] Peter Townsend
+      dau [53] Susan Townsend
+      son [54] Timothy Townsend
+      son [32] Elethan Townsend
+   d.  15 May 1834  Mt. Vernon,Oakland,MI
+
+[35] Townsend, Esther
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[36] Townsend, Francis E
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.     Aug 1876  ,,IA
+   d.  30 Nov 1948
+
+[37] Townsend, Freeling H
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[38] Townsend, George Lewis
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[39] Townsend, George Marshall
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.  26 Feb 1884  Ashton,Osceola,IA
+   d.     Mar 1937  Sioux City,Woodbury,IA
+
+[40] Townsend, Harriet E
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[41] Townsend, infant
+   father [51] Rufus H Townsend
+   mother [26] Emma B Proper
+
+[42] Townsend, James Edwin
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+   b.  18 Feb 1843  Lakeville,Oakland,MI
+   m.     Oct 1871
+     wife [25] Emma Caroline Jones
+      dau [31] Clara L Townsend
+      son [33] Elethan Burr Townsend
+      son [36] Francis E Townsend
+      son [39] George Marshall Townsend
+      son [43] James Edwin Townsend Jr.
+      son [49] Robert Ellis Townsend
+   d.   9 Apr 1920  Ashton,Osceola,IA
+
+[43] Townsend, James Edwin Jr.
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.  26 Feb 1884  Ashton,Osceola,IA
+
+[44] Townsend, John
+      son [34] Elihu Townsend
+
+[45] Townsend, Judson
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[46] Townsend, Lucy A
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[47] Townsend, Myrle Albert
+   father [51] Rufus H Townsend
+   mother [26] Emma B Proper
+
+[48] Townsend, Peter
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[49] Townsend, Robert Ellis
+   father [42] James Edwin Townsend
+   mother [25] Emma Caroline Jones
+   b.     Apr 1886  ,,IA
+   d.  10 Jan 1960
+
+[50] Townsend, Rosamond Eliza
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[51] Townsend, Rufus H
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+   m.     Sep 1880
+     wife [26] Emma B Proper
+    child [41] infant Townsend
+      son [47] Myrle Albert Townsend
+
+[52] Townsend, Sherman Sexton
+   father [32] Elethan Townsend
+   mother [29] Laura Eliza Tedman
+
+[53] Townsend, Susan
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[54] Townsend, Timothy
+   father [34] Elihu Townsend
+   mother [8] Hester Brewer
+
+[55] Whitney, Charlotte
+     husb [16] Samuel Brewer
 ```
 
 ## procedure_record_scan_replace_2
