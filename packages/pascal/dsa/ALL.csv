@@ -1,2 +1,6 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
-1,Recursion/Zadanie4,Recursion/Zadanie4.lpr,dsa__Recursion/Zadanie4,dsa,28,0,131072,4096,60,,objfpc
+1,Recursion/Zadanie1,Recursion/Zadanie1.lpr,dsa__Recursion/Zadanie1,dsa,19,0,131072,4096,60,,fpc
+2,Recursion/Zadanie2,Recursion/Zadanie2.lpr,dsa__Recursion/Zadanie2,dsa,27,0,131072,4096,60,,fpc
+3,Recursion/Zadanie3,Recursion/Zadanie3.lpr,dsa__Recursion/Zadanie3,dsa,19,0,131072,4096,60,,fpc
+4,Recursion/Zadanie5,Recursion/Zadanie5.lpr,dsa__Recursion/Zadanie5,dsa,20,0,131072,4096,60,,fpc
+5,Recursion/Zadanie6,Recursion/Zadanie6.lpr,dsa__Recursion/Zadanie6,dsa,24,0,131072,4096,60,,fpc

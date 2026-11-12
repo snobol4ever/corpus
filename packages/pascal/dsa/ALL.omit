@@ -2,9 +2,5 @@ Binary search tree/zad1.lpr: NEEDS-DISPLAY: the source names uses Crt
 Doubly Linked List/zad1.lpr: NEEDS-DISPLAY: the source names uses Crt
 Doubly Linked List/zad2.lpr: NEEDS-DISPLAY: the source names uses Crt
 Queue using Linked List/Zadanie22.pas: NEEDS-DISPLAY: the source names uses Crt
-Recursion/Zadanie1.lpr: NEEDS-INPUT: its answer changes with what standard input holds
-Recursion/Zadanie2.lpr: NEEDS-INPUT: its answer changes with what standard input holds
-Recursion/Zadanie3.lpr: NEEDS-INPUT: its answer changes with what standard input holds
-Recursion/Zadanie5.lpr: NEEDS-INPUT: its answer changes with what standard input holds
-Recursion/Zadanie6.lpr: NEEDS-INPUT: its answer changes with what standard input holds
+Recursion/Zadanie4.lpr: CLOCK-SEEDED: the source names randomize
 Stack/Zadanie1.lpr: NEEDS-DISPLAY: the source names uses Crt

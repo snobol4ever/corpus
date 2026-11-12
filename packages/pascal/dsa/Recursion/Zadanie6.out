@@ -1,0 +1,29 @@
+Podaj n:
+Przed 3 a: A b: C c: B
+Przed 2 a: A b: B c: C
+Przed 1 a: A b: C c: B
+A -> B
+Srodek 1 a: A b: C c: B
+Po 1 a: A b: C c: B
+A -> C
+Srodek 2 a: A b: B c: C
+Przed 1 a: B b: A c: C
+B -> C
+Srodek 1 a: B b: A c: C
+Po 1 a: B b: A c: C
+Po 2 a: A b: B c: C
+A -> B
+Srodek 3 a: A b: C c: B
+Przed 2 a: C b: A c: B
+Przed 1 a: C b: B c: A
+C -> A
+Srodek 1 a: C b: B c: A
+Po 1 a: C b: B c: A
+C -> B
+Srodek 2 a: C b: A c: B
+Przed 1 a: A b: C c: B
+A -> B
+Srodek 1 a: A b: C c: B
+Po 1 a: A b: C c: B
+Po 2 a: C b: A c: B
+Po 3 a: A b: C c: B
