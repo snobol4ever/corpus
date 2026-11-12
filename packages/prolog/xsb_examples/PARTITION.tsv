@@ -1,9 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=6 features=2 ubiquitous=2(language package) distinctive=0 core=1 clusters=5 chunks=1 sizes=5
+# shape: entries=5 features=2 ubiquitous=2(language package) distinctive=0 core=1 clusters=4 chunks=1 sizes=4
 entry	part	cluster	shells
-XSB_calling_c/fibp	core	core	
-fib	chunk:01	family:fib	
+fib	core	core	
 first	chunk:01	family:first	
 houses	chunk:01	family:houses	
 qsort	chunk:01	family:qsort	

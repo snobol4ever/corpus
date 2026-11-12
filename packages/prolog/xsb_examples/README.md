@@ -15,4 +15,4 @@ THE CENSUS (xsb 5.0.0, 2026-11-11, each program twice in a scratch copy of its f
 `qsort`, `shortest_path`, `XSB_calling_c/fibp`); 69 print nothing (no entry goal of the four names: the socket, thread, subprocess and xmc examples are servers,
 clients and libraries); 6 answer differently twice (`ham`, `lips_mega`, `mandel`, `map`, `nrev`, `queens` print the time they took); 5 run the machine's C compiler; 3
 fetch a page from the network; 1 changes with standard input. An entry is graded on standard output and exit status. Every verdict in `ALL.omit` is a measurement and
-is expected to be re-run. NOT BUILT: a mask for the six that print a time; entry goals under other names.
+is expected to be re-run. 2026-11-12, the cfo: `XSB_calling_c/fibp` left the entries for `EXCLUDED.tsv` as NEEDS_C_LIBRARY (its answer needs XSB's C foreign module `fibr.c`, which calls back into the engine), so 5 entries are graded. NOT BUILT: a mask for the six that print a time; entry goals under other names.
