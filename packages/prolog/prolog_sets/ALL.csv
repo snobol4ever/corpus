@@ -12,7 +12,7 @@ rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout
 11,PrologPuzzles/magic,PrologPuzzles/magic.pro,prolog,prolog_sets__PrologPuzzles/magic,prolog_sets,31,0,131072,4096,60,,swi,
 12,PrologPuzzles/message,PrologPuzzles/message.pro,prolog,prolog_sets__PrologPuzzles/message,prolog_sets,45,0,131072,4096,60,,swi,
 13,PrologPuzzles/sudoku,PrologPuzzles/sudoku.pro,prolog,prolog_sets__PrologPuzzles/sudoku,prolog_sets,67,0,131072,4096,300,,swi,fresh-vars
-14,PrologPuzzles/sudokuSolver,PrologPuzzles/sudokuSolver.pro,prolog,prolog_sets__PrologPuzzles/sudokuSolver,prolog_sets,98,0,131072,4096,60,,swi,
+14,PrologPuzzles/sudokuSolver,PrologPuzzles/sudokuSolver.pro,prolog,prolog_sets__PrologPuzzles/sudokuSolver,prolog_sets,98,0,131072,4096,300,,swi,fresh-vars
 15,PrologPuzzles/words,PrologPuzzles/words.pro,prolog,prolog_sets__PrologPuzzles/words,prolog_sets,51,0,131072,4096,60,,swi,
 16,PrologPuzzles/zebra,PrologPuzzles/zebra.pro,prolog,prolog_sets__PrologPuzzles/zebra,prolog_sets,52,0,131072,4096,60,,swi,
 17,bratko_4th_edition/fig25_12,bratko_4th_edition/fig25_12.pl,,prolog_sets__bratko_4th_edition/fig25_12,prolog_sets,39,0,131072,4096,60,,swi,
