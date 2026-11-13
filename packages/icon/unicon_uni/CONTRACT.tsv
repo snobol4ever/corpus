@@ -1,0 +1,2 @@
+ipath	ipl	the link closure of progs/uget (and later entries): the IPL procedures basename and options, hand-semicoloned copies of /home/resources/unicon/ipl/procs, proved equal to the originals on 27 lines of option and error cases (senior_08, row unicon-uni-red-progs-uget, 2026-11-12 CST)
+not_shipped	ipl	ipl is the converted link closure, none of its files is a test (senior_08, row unicon-uni-red-progs-uget)
