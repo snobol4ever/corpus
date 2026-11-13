@@ -1,3 +1,5 @@
 # gate_cases (prolog)
 
 Every prolog test program the retired test_gate_*.sh scripts carried (DESIGN-PLAN gates-zero, CTO-637; Lon 2026-11-12 16:0x CST, verbatim: "It is time to DELETE all those damn scripts. ... We want of course to keep test cases."). Each file is `<gate>__<the file the gate wrote>`, extracted by the coo from the gate's heredocs and its one-line printf or echo writes, and from literal programs piped into scrip. Its answer is cut from the prolog oracle by util_build_package_suite.py --twice. A program the oracle cannot answer (a missing companion, an unexpanded shell variable, an oracle error, a hang) stays here as a file and is named in ALL.omit with the builder's reason.
+
+The dialect column (the cfo 2026-11-13): an entry whose dialect cell is gnu had its ref cut from GNU Prolog 1.6.0 by gprolog_oracle_run.sh (util_build_package_suite.py reads the cell) and is graded with scrip --dialect=gnu; every other entry is cut from swipl. Eleven entries carry it, the cases whose retired gate expected gprolog's answer.
