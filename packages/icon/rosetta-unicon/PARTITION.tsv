@@ -1,0 +1,18 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=14 features=38 ubiquitous=5(package want_rc write procedure assign) distinctive=33 core=10 clusters=3 chunks=1 sizes=4
+entry	part	cluster	shells
+accumulator-factory	core	core	aug_assign coexpr_activate keyword_ref return while
+arithmetic-complex	chunk:01	family:arithmetic-complex	
+arrays-2	core	core	delete element_gen every insert to_by
+barnsley-fern	core	core	alternation case every gen_with_alternation global keyword_ref limitation local map repeat return to_by
+currency	chunk:01	family:currency	
+queue-definition	core	core	every fail pop push put return to_by
+singly-linked-list-element-definition-1	chunk:01	family:singly-linked-list-element-definition	
+singly-linked-list-element-definition-2	chunk:01	family:singly-linked-list-element-definition	
+singly-linked-list-element-insertion	core	core	insert
+undefined-values	core	core	alternation every gen_with_alternation global keyword_ref local return static
+unix-ls	core	core	alternation element_gen every gen_with_alternation sort
+vector	core	core	next return
+walsh-matrix	core	core	alternation element_gen every gen_with_alternation limitation list return static to_by
+web-scraping	core	core	alternation aug_assign every find gen_with_alternation keyword_ref map read scan scan_with_tab section stop tab to_by

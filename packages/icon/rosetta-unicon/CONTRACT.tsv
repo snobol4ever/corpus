@@ -1,0 +1,3 @@
+oracle	unicon	the refs of this package are cut from the Unicon translator through unicon_bin() (skill unicon R2), as unicon_tests
+unmarked_compile_args	--dialect=unicon	CTO-473: a program of this package with no class, package, import, thread, critical or abstract marker is a Unicon program because the package says so
+stderr	merged	the unicon oracle runs a program with its stderr merged, as unicon_tests (util_build_package_suite.py cuts by unicon only under stderr merged)

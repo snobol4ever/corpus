@@ -1,0 +1,24 @@
+arrays: the oracle's translator refused it: arrays.icn:1: # "L" invalid declaration
+arrays-1: the oracle's translator refused it: arrays-1.icn:1: # "l" invalid declaration
+arrays-3: the oracle's translator refused it: arrays-3.icn:1: # "L" invalid declaration
+average-loop-length: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+circular-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+deceptive-numbers: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+documentation-1: the oracle's translator refused it: error: empty file
+documentation-2: the oracle's translator refused it: documentation-2.icn:7: # "" missing semicolon
+documentation-3: the oracle's translator refused it: documentation-3.icn:8: # "" missing semicolon
+emirp-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+equal-prime-and-composite-sums: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+factorial-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+fermat-numbers: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+hello-world-graphical: the oracle's translator refused it: /home/resources/unicon/uni/gui/guih.icn:9: # "link" Unable to import (1) package "gui"
+http: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pell-numbers: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+repunit-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+simple-windowed-application: the oracle's translator refused it: /home/resources/unicon/uni/gui/guih.icn:9: # "link" Unable to import (1) package "gui"
+sockets: oracle produced EMPTY output -- refusing to mint a vacuous ref
+topological-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ultra-useful-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+wagstaff-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
+walk-a-directory-recursively: the oracle's translator refused it: File walk-a-directory-recursively.icn; Line 32 # "main": inconsistent redeclaration
+window-creation: the oracle's translator refused it: /home/resources/unicon/uni/gui/guih.icn:9: # "link" Unable to import (1) package "gui"

@@ -1,0 +1,249 @@
+#--------------------------------------------------------- 1 accumulator-factory
+procedure main()
+    a := genAcc(3);
+    b := genAcc(5);
+
+    write("        " ,center("a",5),  " ", center("b", 5));
+    write("genAcc: ", right(a(4),5),  " ", right(b(4), 5));
+    write("genAcc: ", right(a(2),5),  " ", right(b(3),5));
+    write("genAcc: ", right(a(4.5),5)," ", right(b(1.3),5));
+end
+
+procedure genAcc(n)   # The generator factory
+    return makeProc { while i := (n@&source)[1] do n +:= i };
+end
+
+procedure makeProc(A) # A Programmer-Defined Control Operation
+    return (@A[1],A[1]);
+end
+#---------------------------------------------------------- 2 arithmetic-complex
+import math
+
+procedure main()
+   write("c1: ",(c1 := Complex(1.5,3)).toString())
+   write("c2: ",(c2 := Complex(1.5,1.5)).toString())
+   write("+: ",(c1+c2).toString())
+   write("-: ",(c1-c2).toString())
+   write("*: ",(c1*c2).toString())
+   write("/: ",(c1/c2).toString())
+   write("additive inverse: ",c1.addInverse().toString())
+   write("multiplicative inverse: ",c1.multInverse().toString())
+   write("conjugate of (4,-3i): ",Complex(4,-3).conjugate().toString())
+end
+#-------------------------------------------------------------------- 3 arrays-2
+procedure main()
+   L := [: 1 to 5:];
+   delete(L,4);
+   insert(L,2,"hello");
+   every write(!L);
+end
+#--------------------------------------------------------------- 4 barnsley-fern
+link graphics
+
+global x, y
+
+procedure main()
+    &window := open("FERN", "g", "size=400,400", "bg=black");
+	
+    x := y := 0;
+	
+    repeat {
+	draw();
+	delay(30);
+	if *Pending() > 0 then {
+	    case Event() of {
+	        "q"|"\e": return
+            }
+	}
+    };
+end
+
+procedure next_point()
+    local nx, ny, r;
+	
+    nx := 0.0;
+    ny := 0.0;
+	
+    r := ?100;
+	
+    if r < 1 then {
+	nx := 0.0;
+	ny := 0.16 * y
+    } else if r < 86 then {
+	nx := 0.85 * x + 0.04 * y;
+	ny := -0.04 * x + 0.85 * y + 1.6
+    } else if r < 93 then {
+	nx := 0.2 * x - 0.26 * y;
+	ny := 0.23 * x + 0.22 * y + 1.6
+    } else {
+	nx := -0.15 * x + 0.28 * y;
+	ny := 0.26 * x + 0.24 * y + 0.44
+    };
+	
+    x := nx;
+    y := ny;
+end
+
+procedure map(v:real, a, b, c, d)
+    return (v - a) / (b - a) * (d - c) + c;
+end
+
+procedure draw_point()
+    local px, py;
+	
+    px := map(x, -2.1820, 2.6558, 0.0, 400.0);
+    py := map(y, 0.0, 9.9983, 400.0, 0.0);
+	
+    Fg("green");
+    DrawPoint(px, py);
+end
+
+procedure draw()
+    every i := 0 to 10000 do {
+	draw_point();
+	next_point()
+    };
+end
+#-------------------------------------------------------------------- 5 currency
+import math
+
+procedure main()
+   n_burgers := 4000000000000000
+   n_shakes := 2
+
+   price := FxPt(5.50) * n_burgers + FxPt(2.86) * n_shakes
+   tax := (price * FxPt(7.65/100)).round(2)
+   total := price + tax
+
+   write(left("Price", 10), "$", right(price.toString(),21))
+   write(left("Tax",   10), "$", right(tax.toString(),21))
+   write(left("Total", 10), "$", right(total.toString(),21))
+end
+#------------------------------------------------------------ 6 queue-definition
+# Use a class to hold a Queue, with a list as the concrete implementation
+class Queue (items)
+  method push (item)
+    put (items, item);
+  end
+
+  # if the queue is empty, this will 'fail' and return nothing
+  method take ()
+    return pop (items);
+  end
+
+  method is_empty ()
+    return *items = 0;
+  end
+
+  initially () # initialises the field on creating an instance
+    items := [];
+end
+
+procedure main ()
+  queue := Queue ();
+
+  every (item := 1 to 5) do
+    queue.push (item);
+
+  every (1 to 6) do {
+    write ("Popped value: " || queue.take ());
+    if queue.is_empty () then write ("empty queue")
+  };
+end
+#------------------------------------- 7 singly-linked-list-element-definition-1
+class Node (value, successor)
+  initially (value, successor)
+    self.value := value;
+    self.successor := successor;
+end
+#------------------------------------- 8 singly-linked-list-element-definition-2
+procedure main ()
+  n := Node(1, Node (2));
+  write (n.value);
+  write (n.successor.value);
+end
+#---------------------------------------- 9 singly-linked-list-element-insertion
+class Node (value, successor)
+
+  method insert (node)
+    node.successor := self.successor;
+    self.successor := node;
+  end
+
+  initially (value, successor)
+    self.value := value;
+    self.successor := successor;
+end
+#----------------------------------------------------------- 10 undefined-values
+global G1
+
+procedure main(arglist)
+local ML1;
+static MS1;
+undeftest();
+end
+
+procedure undeftest(P1)
+static S1;
+local L1,L2;
+every                                                                   #write all local, parameter, static, and global variable names
+   write((localnames|paramnames|staticnames|globalnames)(&current,0));   # ... visible in the current co-expression at this calling level (0)
+return;
+end
+#-------------------------------------------------------------------- 11 unix-ls
+procedure main()
+   every write(!sort([: !(f := open(".")) :])) | close(f);
+end
+#--------------------------------------------------------------------- 12 vector
+procedure main()
+   v1 := vector(5,7);
+   v2 := vector(2,3);
+   write(v1.tostring(),"+",v2.tostring()," = ",(v1 + v2).tostring());
+   write(v1.tostring(),"-",v2.tostring()," = ",(v1 - v2).tostring());
+   write(v1.tostring(),"*123 = ",(v1*123).tostring());
+   write(v1.tostring(),"/0.5 = ",(v1*0.5).tostring());
+end
+
+class vector(x,y)
+   method tostring();return "["||x||","||y||"]"; end
+   method add(v); return vector(x+v.x, y+v.y); end
+   method minus(v); return vector(x-v.x, y-v.y); end
+   method mult(z); return vector(x*z, y*z); end
+   method div(z); return vector(x/z, y/z); end
+   # The next four provide operator overloading, if enabled.
+   method __add__(v); return add(v); end
+   method __minus__(v); return minus(v); end
+   method __mult__(z); return mult(z); end
+   method __div__(z); return div(z); end
+end
+#--------------------------------------------------------------- 13 walsh-matrix
+import util
+
+procedure main(A)
+   n := \A[1] | 1
+   writem(walsh(n))
+end
+
+procedure walsh(n)
+   static w1
+   initial w1 := [[1,1],[1,-1]]
+   if n > 1 then return combine(wa := walsh(n-1),m_negate(wa))
+   return w1
+end
+
+procedure combine(wa,wb)
+   m := list(*wa*2)
+   every r := 1 to *wa do {
+      m[r] := [: !((wa|wa)[r]) :]
+      m[r+*wa] := [: !((wa|wb)[r]) :]
+      }
+   return m
+end
+#--------------------------------------------------------------- 14 web-scraping
+procedure main()
+m := open(url := "http://tycho.usno.navy.mil/cgi-bin/timer.pl","m") | stop("Unable to open ",url);
+every (p := "") ||:= |read(m);                                                    # read the page into a single string
+close(m);
+
+map(p) ? ( tab(find("<br>")), ="<br>", write("UTC time=",p[&pos:find(" utc")]));  # scrape and show
+end

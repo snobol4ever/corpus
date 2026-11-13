@@ -1,0 +1,97 @@
+#--------------------------------------------------------- 1 accumulator-factory
+          a     b  
+genAcc:     7     9
+genAcc:     9    12
+genAcc:  13.5  13.3
+#---------------------------------------------------------- 2 arithmetic-complex
+c1: (1.5,3i)
+c2: (1.5,1.5i)
+
+Run-time error 102
+File arithmetic-complex.icn; Line 6
+numeric expected
+offending value: math__Complex_1
+Traceback:
+   main()
+   {math__Complex_1 + math__Complex_2} from line 6 in arithmetic-complex.icn
+#-------------------------------------------------------------------- 3 arrays-2
+1
+hello
+2
+3
+5
+#--------------------------------------------------------------- 4 barnsley-fern
+
+Run-time error 121
+File barnsley-fern.icn; Line 60
+function not supported
+Traceback:
+   main()
+   draw() from line 11 in barnsley-fern.icn
+   draw_point() from line 66 in barnsley-fern.icn
+   Fg("green") from line 60 in barnsley-fern.icn
+#-------------------------------------------------------------------- 5 currency
+
+Run-time error 102
+File currency.icn; Line 7
+numeric expected
+offending value: math__FxPt_1
+Traceback:
+   main()
+   {math__FxPt_1 * 4000000000000000} from line 7 in currency.icn
+#------------------------------------------------------------ 6 queue-definition
+Popped value: 1
+Popped value: 2
+Popped value: 3
+Popped value: 4
+Popped value: 5
+empty queue
+empty queue
+#------------------------------------- 7 singly-linked-list-element-definition-1
+
+Run-time error 117 in startup code
+missing main procedure
+#------------------------------------- 8 singly-linked-list-element-definition-2
+
+Run-time error 106
+File singly-linked-list-element-definition-2.icn; Line 2
+procedure or integer expected
+offending value: &null
+Traceback:
+   main()
+   &null(2) from line 2 in singly-linked-list-element-definition-2.icn
+#---------------------------------------- 9 singly-linked-list-element-insertion
+
+Run-time error 117 in startup code
+missing main procedure
+#----------------------------------------------------------- 10 undefined-values
+L1
+L2
+P1
+S1
+main
+undeftest
+write
+localnames
+paramnames
+staticnames
+globalnames
+#-------------------------------------------------------------------- 11 unix-ls
+.
+..
+unix-ls
+unix-ls.icn
+#--------------------------------------------------------------------- 12 vector
+
+Run-time error 102
+File vector.icn; Line 4
+numeric expected
+offending value: vector_1
+Traceback:
+   main()
+   {vector_1 + vector_2} from line 4 in vector.icn
+#--------------------------------------------------------------- 13 walsh-matrix
+  1  1
+  1 -1
+#--------------------------------------------------------------- 14 web-scraping
+Unable to open http://tycho.usno.navy.mil/cgi-bin/timer.pl
