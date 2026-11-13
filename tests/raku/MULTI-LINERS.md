@@ -15008,6 +15008,23 @@ ok
 after
 ```
 
+## pair_class__literal_pair_is_immutable_array_pair_writes
+
+```Raku
+my @array = 17, 23, 42;
+for @array.pairs -> $pair { $pair.value += 100 }
+say @array;
+my $lit = a => 1;
+try { $lit.value = 9; CATCH { default { say "RO: ", .message } } }
+say $lit;
+```
+
+```stdout
+[117 123 142]
+RO: Cannot modify an immutable Int (1)
+a => 1
+```
+
 ## roast_causes__rc07_pairs_values_are_the_elements_containers
 
 ```Raku
@@ -15280,6 +15297,45 @@ say @a;
 [12 21 32 42]
 [12 21 64 84]
 [12 21 64 84]
+```
+
+## pair_class__pairs_over_hash_cells_keep_hash_reads
+
+```Raku
+my %h = a => 1, b => 2;
+for %h.pairs -> $p { $p.value += 10 }
+say %h.sort; say %h<a>; say %h<b> + 1; say %h.values.sort; say %h.kv.sort;
+say %h.elems; say %h.keys.sort; say %h{'a'}:exists;
+my %g = %h; say %g.sort;
+say %h.map({ .value * 2 }).sort;
+%h<a> = 100; say %h<a>; %h<c> = 3; say %h.sort;
+for %h.sort { print .key, .value, " " }; say "";
+say %h.Str; say %h.gist; say %h.raku;
+say "a is %h<a>";
+say %h.pairs.sort;
+```
+
+```stdout
+(a => 11 b => 12)
+11
+13
+(11 12)
+(11 12 a b)
+2
+(a b)
+True
+(a => 11 b => 12)
+(22 24)
+100
+(a => 100 b => 12 c => 3)
+a100 b12 c3 
+a	100
+b	12
+c	3
+{a => 100, b => 12, c => 3}
+{:a(100), :b(12), :c(3)}
+a is 100
+(a => 100 b => 12 c => 3)
 ```
 
 ## ladder__rung04_arrays_in_numeric_context_count_their_elements
