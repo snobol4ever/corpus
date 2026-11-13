@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1505 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=57 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,61
+# shape: entries=1507 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=57 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,63
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -301,8 +301,8 @@ say_90	chunk:04	feat:say	say
 simple_assign_46	chunk:03	family:smoke	
 simple_assign_47	chunk:03	family:smoke	
 simple_assign_48	chunk:03	family:smoke	
-sub_26	chunk:07	feat:sub	sub
-sub_30	chunk:07	feat:sub	sub
+sub_26	chunk:08	feat:sub	sub
+sub_30	chunk:08	feat:sub	sub
 ladder__rung16_bool_relops_string	chunk:04	feat:say	say
 ladder__rung17_compare_ops	chunk:04	feat:say	say
 ladder__rung17_compare_ops_cmp	chunk:04	feat:say	say
@@ -675,7 +675,7 @@ array_say_7	chunk:05	feat:sigil_array	say sigil_array
 array_say_8	chunk:05	feat:sigil_array	say sigil_array
 for_2	chunk:07	feat:for_with_say	for for_with_say
 for_3	chunk:07	feat:for_with_say	for for_with_say
-hash_array_1	chunk:08	feat:sigil_hash	sigil_array sigil_hash
+hash_array_1	chunk:09	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung01_variables_an_enum_member_is_the_enclosing_scopes_name_not_a_subs_own_variable	chunk:08	feat:sub	sub
 ladder__rung06_control_a_declaration_with_a_statement_modifier_is_the_enclosing_blocks_variable	chunk:09	feat:if	if
 ladder__rung06_control_an_if_bodys_own_my_variable_is_not_the_enclosing_variable	chunk:09	feat:if	if
@@ -711,7 +711,7 @@ array_37	chunk:11	feat:string_concat	sigil_array string_concat
 array_45	chunk:09	feat:if	if sigil_array
 array_say_9	chunk:05	feat:sigil_array	say sigil_array
 class_method_2	chunk:11	feat:return	method return
-hash_15	chunk:08	feat:sigil_hash	sigil_hash
+hash_15	chunk:09	feat:sigil_hash	sigil_hash
 join_array_1	chunk:09	feat:join	join sigil_array
 join_array_10	chunk:09	feat:join	join sigil_array
 join_array_11	chunk:09	feat:join	join sigil_array
@@ -803,8 +803,8 @@ simple_assign_36	chunk:09	feat:if	if
 simple_assign_37	chunk:14	feat:unless	unless
 simple_assign_60	chunk:09	feat:if	if
 simple_assign_61	chunk:09	feat:if	if
-simple_assign_72	chunk:09	feat:if	if
-simple_assign_81	chunk:09	feat:if	if
+simple_assign_72	chunk:10	feat:if	if
+simple_assign_81	chunk:10	feat:if	if
 simple_assign_82	chunk:10	feat:if	if
 simple_assign_83	chunk:10	feat:if	if
 simple_assign_84	chunk:14	feat:unless	unless
@@ -1084,6 +1084,7 @@ ladder__rung08_for_a_pointy_block_parameter_is_not_the_enclosing_variable_of_the
 smartmatch_say_2	chunk:10	feat:smartmatch	if regex say smartmatch string_concat
 smartmatch_say_3	chunk:10	feat:smartmatch	if regex say smartmatch string_concat
 sub_5	chunk:12	feat:sub_with_return	return sub sub_with_return
+attr_ref__assign_to_bound_attribute_writes_through	chunk:06	feat:has	has method
 class_say_replace_1	chunk:06	feat:has	has say
 class_say_replace_10	chunk:06	feat:has	has say
 class_say_replace_12	chunk:06	feat:has	has say
@@ -1132,7 +1133,7 @@ ladder__rung10_given_when_a_code_topic_smartmatched_against_a_number_is_false	ch
 ladder__rung10_smartmatch_an_array_against_a_hash_is_true_when_any_element_is_a_key	chunk:10	feat:smartmatch	say sigil_hash smartmatch string_concat
 ladder__rung10_smartmatch_two_distinct_objects_do_not_match_each_other_but_an_object_matches_itself	chunk:10	feat:smartmatch	smartmatch string_concat
 ladder__rung13_classes_a_method_invocant_with_a_type_is_checked_against_the_object	chunk:12	feat:try	method say try
-ladder__rung13_classes_a_method_slurpy_array_takes_every_positional_argument	chunk:12	feat:method	method sigil_array string_concat
+ladder__rung13_classes_a_method_slurpy_array_takes_every_positional_argument	chunk:13	feat:method	method sigil_array string_concat
 ladder__rung13_classes_a_multi_method_with_a_slurpy_is_chosen_by_the_leading_argument_types	chunk:11	feat:multi	method multi sigil_array
 ladder__rung13_classes_a_parenthesised_has_declares_each_attribute	chunk:06	feat:has	has method
 ladder__rung15_blocks_next_is_an_assignment_rhs	chunk:07	feat:for_with_say	for for_with_say range_op
@@ -1167,7 +1168,7 @@ class_method_replace_15	chunk:06	feat:has	has method
 class_method_replace_17	chunk:11	feat:return	method return
 class_method_replace_2	chunk:11	feat:return	method return
 class_method_replace_20	chunk:11	feat:return	method return
-class_method_replace_3	chunk:12	feat:method	if method
+class_method_replace_3	chunk:13	feat:method	if method
 class_method_replace_4	chunk:13	feat:method	if method
 class_method_replace_5	chunk:11	feat:return	method return
 class_method_replace_8	chunk:11	feat:return	method return
@@ -1189,6 +1190,7 @@ multi_sub_say_1	chunk:11	feat:multi	multi say string_concat sub
 multi_sub_say_5	chunk:11	feat:multi	multi say string_concat sub
 sub_24	chunk:12	feat:sub_with_return	if return sub sub_with_return
 sub_36	chunk:12	feat:sub_with_return	return sub sub_with_return
+attr_ref__bind_into_attribute_keeps_the_container	chunk:06	feat:has	has method
 class_method_replace_16	chunk:11	feat:return	method return
 class_method_say_replace_35	chunk:13	feat:method	method say
 for_range_say_6	chunk:07	feat:for_with_say	for for_with_say range_op say
@@ -1274,8 +1276,8 @@ ladder__rung06_control_unless_with_else_elsif_or_orwith_is_x_syntax_unlesselse_w
 multi_sub_say_2	chunk:11	feat:multi	multi say string_concat sub
 say_try_die_6	chunk:14	feat:die	die if say try
 sub_array_9	chunk:12	feat:sub_with_return	return sigil_array string_concat sub sub_with_return
-class_method_say_replace_31	chunk:11	feat:return	method return say
-class_method_say_replace_33	chunk:11	feat:return	method return say
+class_method_say_replace_31	chunk:12	feat:return	method return say
+class_method_say_replace_33	chunk:12	feat:return	method return say
 class_method_say_replace_34	chunk:12	feat:return	method return say
 class_method_say_replace_47	chunk:12	feat:return	method return say
 class_method_say_replace_48	chunk:12	feat:return	method return say
@@ -1292,7 +1294,7 @@ rewrite__rr12_concurrency	chunk:13	feat:map	join map range_op sigil_array
 rw_method__method_plain_formal_sees_value	chunk:13	feat:method	method sigil_array sub
 ladder__rung07_subs_a_core_routine_written_without_arguments_is_a_call	chunk:12	feat:try	if smartmatch string_concat try
 roast_causes__rc07_pairs_values_are_the_elements_containers	chunk:09	feat:sigil_hash	for for_with_say sigil_array sigil_hash
-token_say_replace_1	chunk:14	feat:token	if regex say token
+token_say_replace_1	chunk:15	feat:token	if regex say token
 class_method_sort_replace_1	chunk:14	feat:sort	method return sort
 ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots	chunk:14	feat:grep	grep map range_op say
 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it	chunk:07	feat:for_with_say	for for_with_say sigil_array sub
@@ -1391,14 +1393,14 @@ ladder__rung13_classes_a_typed_declaration_with_dot_assign_calls_the_type_and_a_
 sub_for_array_1	chunk:07	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung03_strings_the_q_family_quotes_build_their_text	chunk:09	feat:join	for for_with_say join sigil_array string_concat
 ladder__rung13_classes_a_dollar_bang_or_dollar_dot_attribute_interpolates_in_a_string	chunk:12	feat:try	has method string_concat try
-ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo	chunk:10	feat:smartmatch	if range_op regex smartmatch string_concat
+ladder__rung09_regex_substitution_and_transliteration_agree_with_rakudo	chunk:11	feat:smartmatch	if range_op regex smartmatch string_concat
 ladder__rung13_classes_an_attribute_array_element_is_assigned_in_place_inside_a_method_and_its_loops	chunk:06	feat:has	for for_with_say has method
 ladder__rung01_variables_a_typed_variable_that_a_block_or_closure_changes_is_the_same_variable	chunk:12	feat:try	has method string_concat try
 ladder__rung04_arrays_a_bound_scalar_and_a_bound_element_share_one_container_with_what_they_bind	chunk:07	feat:for_with_say	for for_with_say if say sigil_array
 benchmark_rc-forest-fire-stringify	chunk:07	feat:for_with_say	for for_with_say sigil_array string_concat sub
 class_method_replace_1	chunk:06	feat:has	has method return string_concat
 sub_for_array_replace_1	chunk:07	feat:for_with_say	for for_with_say say sigil_array sub
-ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does	chunk:10	feat:smartmatch	range_op say sigil_array smartmatch string_concat
+ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatches_as_rakudo_does	chunk:11	feat:smartmatch	range_op say sigil_array smartmatch string_concat
 scrip_test_rk_map_grep_sort24	chunk:07	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung13_classes_can_returns_invokable_methods_found_up_the_parents_and_knows_a_builtin_methods_name	chunk:07	feat:for_with_say	for for_with_say method string_concat
 benchmark_point_class_add2	chunk:13	feat:while	for has method while
@@ -1419,21 +1421,21 @@ class_method_for_replace_4	chunk:06	feat:has	for for_with_say has method range_o
 class_method_range_replace_1	chunk:06	feat:has	has method range_op return say
 class_method_range_replace_2	chunk:06	feat:has	has method range_op return say
 class_method_range_replace_3	chunk:06	feat:has	has method range_op return say
-class_method_say_replace_21	chunk:06	feat:has	has method return say string_concat
+class_method_say_replace_21	chunk:07	feat:has	has method return say string_concat
 class_method_multi_replace_5	chunk:11	feat:multi	method multi return say string_concat
 core__rc13_callable_smartmatch	chunk:14	feat:grep	grep map range_op sigil_array smartmatch string_concat
 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized	chunk:09	feat:join	for for_with_say join range_op say sigil_array
 ladder__rung07_subs_an_array_pattern_parameter_binds_its_elements_for_a_sub_and_a_multi	core	core	join multi return sigil_array string_concat sub sub_with_return
 ladder__rung18_two_arg_block_do_for_collects_and_await_is_its_value	chunk:09	feat:join	for for_with_say join range_op say sigil_array
 sub_when_for_replace_1	chunk:15	feat:when	for for_with_say say sigil_array sub when
-ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods	chunk:14	feat:token	has method regex string_concat token
+ladder__rung14_roles_a_role_declares_regexes_and_attributes_beside_methods	chunk:15	feat:token	has method regex string_concat token
 ladder__rung15_blocks_a_closure_in_a_sub_reads_an_enum_value_and_a_constant_that_sub_declares	chunk:14	feat:grep	grep join map say sigil_array sub
 ladder__rung19_block_methcall_sort_by_a_one_arg_key_block_past_64_elements	chunk:14	feat:sort	map range_op say sigil_array sort sub
 sub_for_while_replace_1	chunk:13	feat:loop	for for_with_say loop say sub while
 ladder__rung07_subs_an_infix_multi_on_objects_is_entered_from_the_relop_boxes_in_value_and_condition_context	core	core	feed_op has if multi sub
 sub_for_loop_replace_1	chunk:13	feat:loop	for for_with_say loop say sigil_array sub
 sub_for_range_replace_1	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array sub
-class_method_say_replace_15	chunk:06	feat:has	has method return say string_concat
+class_method_say_replace_15	chunk:07	feat:has	has method return say string_concat
 scrip_test_rk_seq_consumers_arr	chunk:09	feat:join	for for_with_say join say sigil_array sub
 benchmark_rc-9-billion-names	chunk:07	feat:for_with_say	for for_with_say if range_op sigil_array sub
 scrip_test_rk_subs	chunk:11	feat:multi	if multi return say string_concat sub sub_with_return
@@ -1480,8 +1482,8 @@ ladder__rung09_regex_a_failed_match_statement_does_not_end_its_loop_or_sub_body	
 benchmark_insertion-sort	core	core	for for_with_say range_op sigil_array sort sub unless while
 sub_when_junction_replace_1	chunk:14	feat:junction	has if junction return say sub sub_with_return when
 scrip_test_rk_re37	chunk:11	feat:smartmatch	for for_with_say regex say sigil_array smartmatch string_concat sub
-benchmark_rc-mandelbrot	chunk:13	feat:loop	for if loop range_op return sigil_array sub sub_with_return
-benchmark_point_class_add	chunk:13	feat:loop	for has loop method return string_concat while
+benchmark_rc-mandelbrot	chunk:14	feat:loop	for if loop range_op return sigil_array sub sub_with_return
+benchmark_point_class_add	chunk:14	feat:loop	for has loop method return string_concat while
 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo	chunk:15	feat:regex_with_smartmatch	map method regex regex_with_smartmatch smartmatch string_concat token
 benchmark_merge-sort	core	core	for for_with_say if range_op sigil_array sort sub unless
 benchmark_point_class_add1	chunk:14	feat:loop	for has loop method return string_concat while

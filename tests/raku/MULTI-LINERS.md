@@ -11688,6 +11688,19 @@ my $i = 5; for 1..2 -> $i { say $i }; say $i;
 5
 ```
 
+## attr_ref__assign_to_bound_attribute_writes_through
+
+```Raku
+class Q { has $!v; method bind($b is rw) { $!v := $b; self }; method get { $!v }; method set($n) { $!v = $n } }
+my $x = 7; my $q = Q.new.bind($x); $x = 8; say $q.get; $q.set(20); say $x; say $q.get;
+```
+
+```stdout
+8
+20
+20
+```
+
 ## class_say_replace_1
 
 ```Raku
@@ -12896,6 +12909,20 @@ my $x = 1 ?? safe() !! boom(); say $x;
 
 ```stdout
 5
+```
+
+## attr_ref__bind_into_attribute_keeps_the_container
+
+```Raku
+class P { has $!v; method set($b) { $!v = $b; self }; method get { $!v } }
+say P.new.set(5).get;
+class Q { has $!v; method bind($b is rw) { $!v := $b; self }; method get { $!v } }
+my $x = 7; my $q = Q.new.bind($x); $x = 8; say $q.get;
+```
+
+```stdout
+5
+8
 ```
 
 ## class_method_replace_16
