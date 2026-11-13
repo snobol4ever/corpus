@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1519 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=57 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,75
+# shape: entries=1520 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=57 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,76
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -684,7 +684,7 @@ ladder__rung08_for_a_c_style_loop_bodys_own_my_variable_is_not_the_enclosing_var
 ladder__rung08_for_a_pair_pattern_pointy_signature_binds_key_and_value	chunk:07	feat:for_with_say	for for_with_say
 ladder__rung10_given_a_given_bodys_own_my_variable_is_not_the_enclosing_variable	chunk:15	feat:given	given
 ladder__rung15_blocks_a_block_inside_a_sub_has_its_own_my_variable	chunk:08	feat:sub	sub
-ladder__rung19_block_a_whatevercode_argument_to_the_grep_listop	chunk:13	feat:grep	grep join range_op
+ladder__rung19_block_a_whatevercode_argument_to_the_grep_listop	chunk:14	feat:grep	grep join range_op
 ladder__rung19_block_methcall_topic	chunk:13	feat:map	map say
 ladder__rung20_paren_group_chained	chunk:13	feat:map	join map say
 ladder__rung20_paren_group_topic	chunk:13	feat:map	map say
@@ -893,6 +893,7 @@ token_say_1	chunk:15	feat:token	regex say token
 token_say_4	chunk:15	feat:token	regex say token
 while_8	chunk:13	feat:while	while
 benchmark_rc-man-or-boy-test	chunk:08	feat:sub	sub
+builtin_table__repeat_length_bound	chunk:12	feat:try	try
 core__rc04_list_subs	chunk:09	feat:sigil_hash	sigil_array sigil_hash
 ladder__rung04_arrays_num_element_keeps_its_precision	chunk:05	feat:sigil_array	sigil_array
 ladder__rung12_exceptions_specific_type	chunk:15	feat:when	string_concat try when
@@ -978,7 +979,7 @@ ladder__rung12_exceptions_a_unit_scoped_sub_in_an_eval_throws_x_unitscope_invali
 ladder__rung13_classes_a_method_invocant_named_other_than_self_binds_the_object_and_keeps_the_parameters	chunk:12	feat:method	method string_concat
 ladder__rung13_classes_a_method_invocant_named_self_keeps_the_parameters	chunk:12	feat:method	method string_concat
 ladder__rung13_classes_a_parameter_subsignature_reads_an_objects_accessors	chunk:06	feat:has	has sub
-ladder__rung15_blocks_an_anonymous_method_reads_self	chunk:12	feat:method	method string_concat
+ladder__rung15_blocks_an_anonymous_method_reads_self	chunk:13	feat:method	method string_concat
 ladder__rung15_blocks_grep	chunk:14	feat:grep	grep sigil_array
 ladder__rung15_blocks_map	chunk:13	feat:map	map sigil_array
 ladder__rung19_block_a_grep_block_that_is_a_bare_regex_matches_each_element	chunk:14	feat:grep	grep join sigil_array
@@ -1212,7 +1213,7 @@ test_stmt_pfx_LAST	chunk:07	feat:for_with_say	for for_with_say range_op say
 test_stmt_pfx_NEXT	chunk:07	feat:for_with_say	for for_with_say range_op say
 ladder__rung19_block_methcall_on_a_range	chunk:14	feat:grep	grep map range_op say
 pair_class__pair_class_methods	chunk:11	feat:smartmatch	say smartmatch string_concat
-say_try_die_5	chunk:14	feat:die	die say string_concat try
+say_try_die_5	chunk:15	feat:die	die say string_concat try
 test_nested_if_while	chunk:13	feat:while	if say while
 rw_method__method_param_is_rw	chunk:13	feat:method	method sub
 ladder__rung13_classes	chunk:12	feat:return	method return

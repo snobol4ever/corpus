@@ -8619,6 +8619,25 @@ say A(10, {1}, {-1}, {-1}, {1}, {0});
 -67
 ```
 
+## builtin_table__repeat_length_bound
+
+```Raku
+try { my $x = ("a" x 1000000) x 1000000; say "no throw"; CATCH { default { say .^name, ": ", .message } } }
+try { my $y = "ab" x 3000000000; say "no throw"; CATCH { default { say .^name, ": ", .message } } }
+try { my $z = "a" x 5000000000; say "no throw"; CATCH { default { say .^name, ": ", .message } } }
+my $w = "xy" x 3;
+say $w, " ", $w.chars;
+say "after";
+```
+
+```stdout
+X::AdHoc: Can't repeat string, required number of graphemes (1000000 * 1000000) greater than max allowed of 4294967295
+X::AdHoc: Can't repeat string, required number of graphemes (2 * 3000000000) greater than max allowed of 4294967295
+X::AdHoc: Repeat count (5000000000) cannot be greater than max allowed number of graphemes 4294967295
+xyxyxy 6
+after
+```
+
 ## core__rc04_list_subs
 
 ```Raku
