@@ -9336,29 +9336,29 @@ ok
 ```Raku
 # RK-17: Hash full support — keys/values/pairs/exists/delete
 
-my %h = 0;
+my %h;
 %h<x> = 'hello';
 
 # exists / not-exists
-say(exists %h<x>);
-say(exists %h<y>);
+say(%h<x>:exists);
+say(%h<y>:exists);
 
 # keys/values/pairs — single entry, deterministic
-say(hash_keys(%h));
-say(hash_values(%h));
-say(hash_pairs(%h));
+say(%h.keys);
+say(%h.values);
+say(%h.pairs);
 
 # delete then re-check
-delete %h<x>;
-say(exists %h<x>);
+%h<x>:delete;
+say(%h<x>:exists);
 
 # two keys, delete one, check both
 %h<a> = '1';
 %h<b> = '2';
-delete %h<a>;
-say(exists %h<a>);
-say(exists %h<b>);
-say(hash_get(%h, 'b'));
+%h<a>:delete;
+say(%h<a>:exists);
+say(%h<b>:exists);
+say(%h<b>);
 ```
 
 ```stdout
@@ -14365,7 +14365,7 @@ class Stack { has @.items; }
 
 ```Raku
 class Stack { has @.items; }
- my @v = 10, 20, 30; my $t = Stack.new(items => @v); my @i = $t.items; say(@i.elems); say(arr_get(@i, 1)); 
+ my @v = 10, 20, 30; my $t = Stack.new(items => @v); my @i = $t.items; say(@i.elems); say(@i[1]); 
 ```
 
 ```stdout
@@ -14377,7 +14377,7 @@ class Stack { has @.items; }
 
 ```Raku
 class Config { has %.opts; }
- my %seed = ''; hash_set(%seed, 'lang', 'Raku'); my $d = Config.new(opts => %seed); my $h2 = $d.opts; say(hash_get($h2, 'lang')); 
+ my %seed; %seed<lang> = 'Raku'; my $d = Config.new(opts => %seed); my $h2 = $d.opts; say($h2<lang>); 
 ```
 
 ```stdout
