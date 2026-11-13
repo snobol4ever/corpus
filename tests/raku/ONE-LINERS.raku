@@ -231,6 +231,7 @@ my $s = "ab" x 0; say "[" ~ $s ~ "]";
 my @list = (1 ... 10); say @list;
  my @a = (1, 2, 3); say(@a.join("-")); 
 my ($a, @b) = 1, 2, 3; say $a ~ @b.join;
+my $a; multi sub rt() { $a = 1 }; rt; say $a;
  my @a = "a,b,c".split(","); say(elems(@a)); 
  my @a = "x,y,z".split(","); say(@a.join("|")); 
  if ('abc' ~~ /^\d+$/) { say("match"); } else { say("nomatch"); } 
