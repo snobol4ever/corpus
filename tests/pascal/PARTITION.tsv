@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=478 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,33
+# shape: entries=479 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,34
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -111,7 +111,7 @@ ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round	core	core	round t
 ladder__rung23_extended_trunc_round_and_conversions	chunk:05	feat:round	round trunc
 program_procedure_writeln_replace_1	chunk:03	feat:procedure	procedure
 program_procedure_writeln_replace_2	chunk:03	feat:procedure	procedure
-unary_minus__sign_binds_factor_delphi	chunk:03	feat:ord	ord
+unary_minus__sign_binds_factor_delphi	chunk:04	feat:ord	ord
 ladder__rung03_if_while	chunk:04	feat:while	while
 front_end__pf20g_record_constructor_value	chunk:02	feat:record	record type
 program_writeln_8	chunk:02	feat:const	const
@@ -133,7 +133,7 @@ program_writeln_7	chunk:04	feat:chr	chr ord
 ladder__rung18_sha1_digest	chunk:04	feat:mod	chr for mod
 ladder__rung24_rtl_system_lineending	chunk:04	feat:ord	ord write
 program_for_downto_2	chunk:04	feat:downto	downto for
-program_for_downto_4	chunk:04	feat:downto	downto for
+program_for_downto_4	chunk:05	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_5	chunk:01	feat:nested_proc	nested_proc procedure
 front_end__pf20h_generic_function_type	chunk:01	feat:function	function nested_proc type
@@ -248,7 +248,7 @@ program_array_for_4	chunk:04	feat:for_with_array	array for for_with_array type
 program_array_packed_2	chunk:02	feat:packed	array packed set_literal subrange
 program_set_for_2	chunk:02	feat:set	for in set subrange
 program_set_for_3	chunk:02	feat:set	for in set subrange
-program_set_for_4	chunk:02	feat:set	for in set subrange
+program_set_for_4	chunk:03	feat:set	for in set subrange
 front_end__pf04_shortstring	chunk:04	feat:ord	array ord set_literal subrange
 program_procedure_array_2	chunk:04	feat:set_literal	array procedure set_literal subrange
 program_procedure_array_5	chunk:04	feat:set_literal	array procedure set_literal subrange
@@ -285,6 +285,7 @@ packed_arrays__pa03_dynamic	chunk:04	feat:for_with_array	array for for_with_arra
 program_case_for_2	chunk:03	feat:case	case for ord type
 front_end__pf20l_class_field_call	chunk:02	feat:const	const function nested_proc type
 program_function_procedure_replace_1	chunk:01	feat:function	for function nested_proc procedure
+sizeof_high_bitsizeof__every_operand_shape	chunk:02	feat:record	array procedure record set_literal subrange type
 ladder__rung12_fillqword_int64	chunk:04	feat:for_with_array	array for for_with_array set_literal subrange
 ladder__rung24_two_dimensional_static_array_of_dynamic_arrays	chunk:04	feat:for_with_array	array for for_with_array set_literal subrange type
 program_array_for_7	chunk:04	feat:for_with_array	array for for_with_array subrange type

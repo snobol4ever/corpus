@@ -7632,6 +7632,25 @@ g after leaf 414
 ticks 3
 ```
 
+## sizeof_high_bitsizeof__every_operand_shape
+
+```Pascal
+{$mode objfpc}
+program c2; type tproc = procedure; trec = record a: byte; b: array[1..50] of char end; var t: array[0..50] of char; r: trec; km: bitpacked array[0..7] of boolean;
+begin writeln(sizeof(t)); writeln(sizeof(tproc) > 0); writeln(sizeof(trec)); writeln(sizeof(r.b)); writeln(high(ptruint) > 0); writeln(high(sizeint) > 0); writeln(bitsizeof(km[1])); writeln(bitsizeof(byte)) end.
+```
+
+```stdout
+51
+TRUE
+51
+50
+TRUE
+TRUE
+1
+8
+```
+
 ## ladder__rung12_fillqword_int64
 
 ```Pascal
