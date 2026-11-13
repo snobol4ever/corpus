@@ -10849,6 +10849,23 @@ end.
           6
 ```
 
+## ladder__rung21_class_property_element_default_redeclared
+
+```Pascal
+{$mode objfpc}
+program d6;
+type te = (e1, e2); tc = class private fa: array[te] of boolean; fp: longint; function getv(i: longint): longint; procedure setb(b: boolean); public property b: boolean read fa[e1] write setb; property v[i: longint]: longint read getv; default; property p: longint read fp write fp; end;
+  td = class(tc) public property p; end;
+function tc.getv(i: longint): longint; begin result := i * 2 end; procedure tc.setb(b: boolean); begin fa[e1] := b end;
+var c: td; begin c := td.create; c.b := true; writeln(c.b); writeln(c[21]); c.p := 5; writeln(c.p) end.
+```
+
+```stdout
+TRUE
+42
+5
+```
+
 ## program_record_array_2
 
 ```Pascal
