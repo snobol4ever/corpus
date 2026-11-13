@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1507 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=57 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,63
+# shape: entries=1508 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=57 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,64
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -202,7 +202,7 @@ parser__atom_hash	chunk:08	feat:sigil_hash	sigil_hash
 parser__atom_scalar	chunk:14	family:parser	
 parser__bare_ident_arg	chunk:03	feat:say	say
 parser__call_expr	chunk:03	feat:say	say
-parser__print_stderr	core	core	print
+parser__print_stderr	chunk:15	feat:print	print
 parser__say_stdout	chunk:03	feat:say	say
 parser__say_var	chunk:14	family:parser	
 parser__try_catch	chunk:12	feat:try	try
@@ -621,6 +621,7 @@ ladder__rung04_arrays_flatten_past_128_elements	chunk:05	feat:sigil_array	sigil_
 ladder__rung05_hashes_exists_delete	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung10_given_when_default_case	chunk:15	feat:when	given when
 ladder__rung10_given_when_no_match_falls_through	chunk:15	feat:when	given when
+ladder__rung12_exceptions_an_unfound_dynamic_variable_is_one_failure_that_answers_defined_and_throws_when_printed	core	core	print say
 ladder__rung17_compare_ops_in_a_boolean_context	chunk:09	feat:if	if say
 ladder__rung17_compare_ops_variable	chunk:02	family:ladder	
 parse_census__qto_heredoc	chunk:15	family:parse_census	

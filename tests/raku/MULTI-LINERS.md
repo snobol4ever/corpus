@@ -5331,6 +5331,20 @@ say "after";
 after
 ```
 
+## ladder__rung12_exceptions_an_unfound_dynamic_variable_is_one_failure_that_answers_defined_and_throws_when_printed
+
+```Raku
+say $*NOPE.defined;
+say ($*NOPE // "d");
+print($*NOPE-TOO, "x");
+say "after";
+```
+
+```stdout
+False
+d
+```
+
 ## ladder__rung17_compare_ops_in_a_boolean_context
 
 ```Raku
