@@ -694,3 +694,4 @@ xml/xmldocument.icn: LIBRARY: no procedure main
 xml/xmlelement.icn: LIBRARY: no procedure main
 xml/xmlformatter.icn: LIBRARY: no procedure main
 xml/xmlparser.icn: LIBRARY: no procedure main
+progs/heap_demo.icn: ORACLE-DEFECT: unicon's installed lang::invokeFcn calls a null isClass, Run-time error 106 inside the oracle's own library
