@@ -4920,6 +4920,19 @@ say "b=$b c=$c";
 b=True c=False
 ```
 
+## ladder__rung942_kw_supply_list_and_name
+
+```Raku
+my $s = supply { emit 1; emit 2; };
+say $s.list;
+say $s.^name;
+```
+
+```stdout
+(1 2)
+Supply
+```
+
 ## simple_assign_103
 
 ```Raku
@@ -5585,6 +5598,27 @@ if one(1,2,3) == 2 {
 
 ```stdout
 yes
+```
+
+## ladder__rung942_kw_supply_tap_runs_the_block_afresh
+
+```Raku
+my $s = supply { say "run"; emit 1; emit 2; };
+say "made";
+$s.tap(-> $v { say "got $v" });
+$s.tap(-> $v { say "again $v" });
+say "end";
+```
+
+```stdout
+made
+run
+got 1
+got 2
+run
+again 1
+again 2
+end
 ```
 
 ## roast_causes__rc09_a_user_candidate_on_a_builtin_infix_is_dispatched
