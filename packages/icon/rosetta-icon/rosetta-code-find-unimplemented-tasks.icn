@@ -1,0 +1,48 @@
+$define RCPREFIX "https://rosettacode.org/w/api.php?action=query&list=categorymembers&format=xml&cmlimit=5000&cmtitle=Category:"
+$define RCSUFFIX1 "Programming%20Tasks"
+
+procedure main(A)   # simple single threaded read all at once implementation
+    lang := \A[1] | "Unicon"
+    write("Unimplemented tasks for ",lang," as of ",&date)
+    all_tasks := set([: taskNames() :])
+    tasks_for_lang := set([: tasksForLang(lang) :])
+    every write(!sort(all_tasks -- tasks_for_lang))
+end
+
+# Generate task names
+procedure taskNames()
+    continue := ""
+    while \(txt := ReadURL(RCPREFIX||RCSUFFIX1||continue)) do {
+        txt ? {
+            while tab((find("<cm "),find(s :="title=\""))+*s) do
+                suspend tab(find("\""))\1
+            continue := getContinue() | break
+            }
+        }
+end
+
+# Generate all tasks for a language
+procedure tasksForLang(lang)
+   continue := ""
+   while \(txt := ReadURL(RCPREFIX||lang||continue)) do {
+      txt ? {
+          while tab(find(s :="title=\"")+*s) do
+                suspend tab(find("\""))\1
+          continue := getContinue() | break
+          }
+      }
+end
+
+procedure getContinue()
+    gcm := "cmcontinue="
+    return (tab(1),"&"||2(tab(find(gcm)),=gcm,="\"")||tab(upto('"')))
+end
+
+procedure ReadURL(url)                 #: read URL into string
+    page := open(url,"m-") | stop("Unable to open ",url," -> ",&errortext)
+    if page["Status-Code"] < 300 then text := reads(page,-1)
+    else write(&errout,image(url),": ",
+                       page["Status-Code"]," ",page["Reason-Phrase"])
+    close(page)
+    return text
+end
