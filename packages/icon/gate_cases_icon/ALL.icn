@@ -2707,3 +2707,89 @@ end
 procedure main()
    every write(1 to 3);
 end
+#------- 248 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w1
+procedure main()
+   write(read(&input));
+   close(&input);
+   write(read(&input) | "failed");
+end
+#------- 249 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w2
+procedure main()
+   local f, r;
+   f := open("w2.icn") | stop("no open");
+   write(image(close(f)));
+   write(image(close(f)) | "close again failed");
+   r := reads(f) | "reads failed";
+   write(r);
+end
+#------- 250 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w4
+procedure main()
+   local f;
+   f := open("w4.icn") | stop("no open");
+   close(f);
+   &error := -1;
+   write(image(read(f)) | "read failed");
+   write(&errornumber, " ", &errortext);
+end
+#------- 251 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w5
+procedure main()
+   local f;
+   f := open("w5.icn") | stop("no open");
+   write(!f);
+   close(f);
+   every write(!f);
+end
+#--------------------- 252 test_gate_icn_bang_on_a_file_generates_whole_lines__w
+procedure main()
+   local f;
+   f := open("long.txt") | stop("no open");
+   every write(*!f);
+   close(f);
+   f := open("long.txt") | stop("no open");
+   while write(*read(f));
+end
+#--------- 253 test_gate_icn_list_and_reads_size_argument_is_gated_like_iconx__g
+procedure main();
+   local f, L, s;
+   f := open("__IN__", "r") | stop("cannot open the fixture");
+   &error := -1; (1 + "q"); L := list("zz");
+   write("LIST_STR n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); L := list(-7);
+   write("LIST_NEG n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); s := reads(f, "ww");
+   write("READS_STR n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); s := reads(f, 0);
+   write("READS_ZERO n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); s := reads(f, -3);
+   write("READS_NEG n=", &errornumber, " v=", image(&errorvalue), " t=", image(&errortext));
+   &error := -1; (1 + "q"); L := list("3");
+   write("LIST_CVT n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); L := list(3.7);
+   write("LIST_REAL n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); L := list(0);
+   write("LIST_ZERO n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); L := list();
+   write("LIST_NOARG n=", &errornumber, " size=", image(*L));
+   &error := -1; (1 + "q"); s := reads(f, "2");
+   write("READS_CVT n=", &errornumber, " s=", image(s));
+   &error := -1; (1 + "q"); s := reads(f);
+   write("READS_PLAIN n=", &errornumber, " s=", image(s));
+end
+#- 254 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__R
+procedure main();
+   local f;
+   f := open("R.dat") | stop("no R.dat");
+   write(read(f));
+end
+#---------------------- 255 test_gate_icon_loadfunc_passes_and_returns_a_file__w
+procedure main()
+   local fnum, onull, f;
+   fnum := loadfunc("$T/plug.so", "file_number");
+   onull := loadfunc("$T/plug.so", "open_null");
+   write("input is stream ", fnum(&input));
+   f := onull();
+   write("returned a ", type(f));
+   write("a line of it: ", read(f) | "failed");
+   write("it is stream ", if fnum(f) > 2 then "above 2" else "not above 2");
+   write("end");
+end

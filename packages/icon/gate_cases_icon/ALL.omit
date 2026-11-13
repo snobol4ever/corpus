@@ -17,11 +17,7 @@ test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_do: oracl
 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_lastarg: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_then: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_a_clib_sidecar_builds_the_library_a_program_loads__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w4: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w5: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_a_large_integer_crosses_into_a_loaded_c_function__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_a_linked_procedure_reports_its_own_file__lib1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_a_linked_procedure_reports_its_own_file__plain: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -62,7 +58,6 @@ test_gate_icn_apply_invocation_of_a_generator_opens_one_level_not_two__a1: oracl
 test_gate_icn_arith_unconvertible_operand_raises_102__bad_add: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_arith_unconvertible_operand_raises_102__bad_neg: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_augmented_assignment_to_an_element_or_field_applies_its_own_operator__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icn_bang_on_a_file_generates_whole_lines__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_dump_ast_shows_the_parsed_program_and_pruning_stays_a_lowering_step__a1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_dump_ast_shows_the_parsed_program_and_pruning_stays_a_lowering_step__a2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_dump_ast_shows_the_parsed_program_and_pruning_stays_a_lowering_step__a3: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -75,7 +70,6 @@ test_gate_icn_generator_return_ends_the_activation_and_varargs_image_as_the_list
 test_gate_icn_generator_return_ends_the_activation_and_varargs_image_as_the_list__g2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_generator_return_ends_the_activation_and_varargs_image_as_the_list__g3: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_ipl_reason_is_the_oracles_own_words__gatefix_plainfail: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icn_list_and_reads_size_argument_is_gated_like_iconx__g: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_loadfunc_returns_a_callable__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_local_no_nv__global: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib1: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -108,7 +102,6 @@ test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib_driver: or
 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__geo: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__globals: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__pkf: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_icon_loadfunc_passes_and_returns_a_file__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icon_m4_invocation_is_pinned__ALL: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
 test_gate_icon_package_units_carry_their_attribute_row__lib: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icon_package_units_carry_their_attribute_row__lib_driver: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -117,7 +110,6 @@ test_gate_icon_package_units_carry_their_attribute_row__lib~2: oracle produced E
 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__K: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__L: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__M: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__R: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__options: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_pl_wall_us_arity1__a0: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_pl_wall_us_arity1__plant: oracle produced EMPTY output -- refusing to mint a vacuous ref

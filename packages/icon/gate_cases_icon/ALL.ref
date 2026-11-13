@@ -51769,3 +51769,42 @@ hi
 1
 2
 3
+#------- 248 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w1
+a
+#------- 249 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w2
+file(w2.icn)
+file(w2.icn)
+#------- 250 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w4
+read failed
+212 attempt to read file not open for reading
+#------- 251 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w5
+procedure main()
+#--------------------- 252 test_gate_icn_bang_on_a_file_generates_whole_lines__w
+5000
+5
+9000
+5
+5000
+5
+9000
+5
+#--------- 253 test_gate_icn_list_and_reads_size_argument_is_gated_like_iconx__g
+LIST_STR n=101 v="zz" t="integer expected or out of range"
+LIST_NEG n=205 v=-7 t="invalid value"
+READS_STR n=101 v="ww" t="integer expected or out of range"
+READS_ZERO n=205 v=0 t="invalid value"
+READS_NEG n=205 v=-3 t="invalid value"
+LIST_CVT n=102 size=3
+LIST_REAL n=102 size=3
+LIST_ZERO n=102 size=0
+LIST_NOARG n=102 size=0
+READS_CVT n=102 s="so"
+READS_PLAIN n=102 s=" "
+#- 254 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__R
+a data line
+#---------------------- 255 test_gate_icon_loadfunc_passes_and_returns_a_file__w
+input is stream 0
+returned a file
+a line of it: failed
+it is stream above 2
+end
