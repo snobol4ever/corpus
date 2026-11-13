@@ -1,0 +1,8 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,demo/Expressions,demo/Expressions.icn,demos__icon/demo/Expressions,icon-demos,102,0,131072,4096,300,
+2,demo/icon_parser,demo/icon_parser.icn,demos__icon/demo/icon_parser,icon-demos,461,0,131072,4096,300,
+3,demo/icon_recognizer,demo/icon_recognizer.icn,demos__icon/demo/icon_recognizer,icon-demos,591,0,131072,4096,300,
+4,jcon/inputs/hello,jcon/inputs/hello.icn,demos__icon/jcon/inputs/hello,icon-demos,3,0,131072,4096,300,
+5,jcon/interfacegen,jcon/interfacegen.icn,demos__icon/jcon/interfacegen,icon-demos,2,0,131072,4096,300,
+6,jcon/jtran,jcon/jtran.icn,demos__icon/jcon/jtran,icon-demos,21,0,131072,4096,300,
+7,jcon/oplexgen,jcon/oplexgen.icn,demos__icon/jcon/oplexgen,icon-demos,2,0,131072,4096,300,

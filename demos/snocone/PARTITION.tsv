@@ -1,0 +1,27 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=23 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=12 chunks=1 sizes=21
+entry	part	cluster	shells
+beauty/beauty	core	core	
+calculator/calculator-1-match-fence	core	core	
+calculator/calculator-1-match	chunk:01	dir:calculator	
+calculator/calculator-1	chunk:01	dir:calculator	
+calculator/calculator-2-match	chunk:01	dir:calculator	
+claws5/claws5-match-fence	chunk:01	dir:claws5	
+claws5/claws5-match	chunk:01	dir:claws5	
+claws5/claws5	chunk:01	dir:claws5	
+json/json-match-fence	chunk:01	dir:json	
+json/json-match	chunk:01	dir:json	
+json/json	chunk:01	dir:json	
+parser_icon/parser_icon	chunk:01	dir:parser_icon	
+parser_pascal/parser_pascal	chunk:01	dir:parser_pascal	
+parser_prolog/parser_prolog	chunk:01	dir:parser_prolog	
+parser_raku/parser_raku	chunk:01	dir:parser_raku	
+parser_rebus/parser_rebus	chunk:01	dir:parser_rebus	
+parser_snobol4/parser_snobol4	chunk:01	dir:parser_snobol4	
+parser_snocone/parser_snocone	chunk:01	dir:parser_snocone	
+porter/porter	chunk:01	dir:porter	
+treebank/treebank-alloc	chunk:01	dir:treebank	
+treebank/treebank-match-fence	chunk:01	dir:treebank	
+treebank/treebank-match	chunk:01	dir:treebank	
+treebank/treebank	chunk:01	dir:treebank	

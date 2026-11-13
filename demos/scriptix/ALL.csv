@@ -1,0 +1,13 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,fixtures
+1,demo01/hello,demo01/hello.md,demos__scriptix/demo01/hello,scriptix-demos,24,0,131072,4096,300,,
+2,demo02/wordcount,demo02/wordcount.md,demos__scriptix/demo02/wordcount,scriptix-demos,55,0,131072,4096,300,,
+3,demo03/roman,demo03/roman.md,demos__scriptix/demo03/roman,scriptix-demos,67,0,131072,4096,300,,
+4,demo04/palindrome,demo04/palindrome.md,demos__scriptix/demo04/palindrome,scriptix-demos,54,0,131072,4096,300,,
+5,demo05/fib,demo05/fib.md,demos__scriptix/demo05/fib,scriptix-demos,47,0,131072,4096,300,,
+6,demo06/sieve,demo06/sieve.md,demos__scriptix/demo06/sieve,scriptix-demos,71,0,131072,4096,300,,
+7,demo07/caesar,demo07/caesar.md,demos__scriptix/demo07/caesar,scriptix-demos,46,0,131072,4096,300,,
+8,demo08/sort,demo08/sort.md,demos__scriptix/demo08/sort,scriptix-demos,70,0,131072,4096,300,,
+9,demo09/rpn,demo09/rpn.md,demos__scriptix/demo09/rpn,scriptix-demos,92,0,131072,4096,300,,
+10,demo10/anagram,demo10/anagram.md,demos__scriptix/demo10/anagram,scriptix-demos,127,0,131072,4096,300,,
+11,infinite_snobol4/inf_eval,infinite_snobol4/inf_eval.sno,demos__scriptix/infinite_snobol4/inf_eval,scriptix-demos,210,0,131072,4096,300,,
+12,infinite_snobol4/infinite_snobol4,infinite_snobol4/infinite_snobol4.md,demos__scriptix/infinite_snobol4/infinite_snobol4,scriptix-demos,1249,0,131072,4096,300,--stlimit,folder

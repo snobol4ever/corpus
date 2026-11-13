@@ -1,0 +1,28 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=24 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=10 chunks=1 sizes=22
+entry	part	cluster	shells
+arithmetic/arithmetic	core	core	
+beauty/beauty	core	core	
+calculator/calculator-1-match-fence	chunk:01	dir:calculator	
+calculator/calculator-1-match	chunk:01	dir:calculator	
+calculator/calculator-1	chunk:01	dir:calculator	
+calculator/calculator-2-match-fence	chunk:01	dir:calculator	
+calculator/calculator-2-match	chunk:01	dir:calculator	
+calculator/calculator-2	chunk:01	dir:calculator	
+claws5/claws5-match-fence	chunk:01	dir:claws5	
+claws5/claws5-match	chunk:01	dir:claws5	
+claws5/claws5	chunk:01	dir:claws5	
+counter/counter	chunk:01	dir:counter	
+hello/hello	chunk:01	dir:hello	
+json/json-match-fence	chunk:01	dir:json	
+json/json-match	chunk:01	dir:json	
+json/json	chunk:01	dir:json	
+pattern_test/pattern_test	chunk:01	dir:pattern_test	
+porter/porter	chunk:01	dir:porter	
+roman/roman	chunk:01	dir:roman	
+treebank/treebank-alloc	chunk:01	dir:treebank	
+treebank/treebank-match-fence	chunk:01	dir:treebank	
+treebank/treebank-match	chunk:01	dir:treebank	
+treebank/treebank	chunk:01	dir:treebank	
+wordcount/wordcount	chunk:01	dir:wordcount	

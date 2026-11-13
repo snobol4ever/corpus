@@ -1,0 +1,9 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,advent/advent,advent/advent.pl,demos__prolog/advent/advent,prolog-demos,446,0,131072,4096,300,
+2,chat80/chat80,chat80/chat80.pl,demos__prolog/chat80/chat80,prolog-demos,5820,0,131072,4096,300,
+3,eliza/eliza,eliza/eliza.pl,demos__prolog/eliza/eliza,prolog-demos,604,0,131072,16384,300,
+4,leancop/leancop,leancop/leancop.pl,demos__prolog/leancop/leancop,prolog-demos,615,0,131072,8192,300,
+5,pl2wam/pl2wam,pl2wam/pl2wam.pl,demos__prolog/pl2wam/pl2wam,prolog-demos,5431,0,131072,4096,300,
+6,press/press,press/press.pl,demos__prolog/press/press,prolog-demos,11810,0,131072,4096,300,
+7,prolog_parser,prolog_parser.pl,demos__prolog/prolog_parser,prolog-demos,356,0,131072,4096,300,
+8,prolog_recognizer,prolog_recognizer.pl,demos__prolog/prolog_recognizer,prolog-demos,284,0,131072,4096,300,

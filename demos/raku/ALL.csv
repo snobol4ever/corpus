@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,rakudo-compiler/rakudo-compiler,rakudo-compiler/rakudo-compiler.raku,demos__raku/rakudo-compiler/rakudo-compiler,raku-demos,21,0,131072,4096,300,

@@ -1,0 +1,9 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,basics/basics,basics/basics.pas,demos__pascal/basics/basics,pascal-demos,1352,0,131072,16384,300,
+2,p4/int/int,p4/int/int.pas,demos__pascal/p4/int/int,pascal-demos,1548,0,131072,16384,300,
+3,p5/pcom/pcom,p5/pcom/pcom.pas,demos__pascal/p5/pcom/pcom,pascal-demos,6823,0,131072,16384,300,
+4,p5/pint/pint,p5/pint/pint.pas,demos__pascal/p5/pint/pint,pascal-demos,3222,0,327680,16384,300,
+5,pascals/pascals,pascals/pascals.pas,demos__pascal/pascals/pascals,pascal-demos,1966,0,131072,16384,300,
+6,prettyp/prettyp,prettyp/prettyp.pas,demos__pascal/prettyp/prettyp,pascal-demos,1589,0,131072,16384,300,
+7,scheme/scheme,scheme/scheme.pas,demos__pascal/scheme/scheme,pascal-demos,1524,0,262144,16384,300,
+8,startrek/startrek,startrek/startrek.pas,demos__pascal/startrek/startrek,pascal-demos,973,0,131072,16384,300,
