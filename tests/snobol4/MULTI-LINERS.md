@@ -2893,6 +2893,29 @@ BlueBird
 =S
 ```
 
+## compile_diag__p30
+
+```SNOBOL4
+END     X = (
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:06:16 2026
+
+
+
+                                                                                                                page 1
+
+1       END     X = (
+                !
+p30.sno(1,9) : ERROR 215 -- syntax error: undefined or erroneous entry label
+
+```
+
 ## batch_grader__bg01_sno_hello
 
 ```SNOBOL4
@@ -2913,6 +2936,831 @@ END
 
 ```stdout
 X=<>
+```
+
+## compile_diag__p01
+
+```SNOBOL4
+OUTPUT = 'X'
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:47:17 2026
+
+
+
+                                                                                                                page 1
+
+1       OUTPUT = 'X'
+               !
+p01.sno(1,8) : ERROR 221 -- syntax error: missing operand
+
+```
+
+## compile_diag__p04b
+
+```SNOBOL4
+        X = 1 +
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:48:44 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 +
+                      !
+p04b.sno(1,15) : ERROR 221 -- syntax error: missing operand
+
+```
+
+## compile_diag__p05
+
+```SNOBOL4
+        X = 'a''b'
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:50:06 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 'a''b'
+                       !
+p05.sno(1,16) : ERROR 220 -- syntax error: missing operator
+
+```
+
+## compile_diag__p05b
+
+```SNOBOL4
+        X = A(1)B
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:49:42 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A(1)B
+                        !
+p05b.sno(1,17) : ERROR 220 -- syntax error: missing operator
+
+```
+
+## compile_diag__p06
+
+```SNOBOL4
+        X = 1)
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:50:29 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1)
+                     !
+p06.sno(1,14) : ERROR 224 -- syntax error: unbalanced right parenthesis
+
+```
+
+## compile_diag__p07
+
+```SNOBOL4
+        X = (1
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:50:55 2026
+
+
+
+                                                                                                                page 1
+
+1               X = (1
+                     !
+p07.sno(1,14) : ERROR 226 -- syntax error: missing right paren
+
+```
+
+## compile_diag__p08
+
+```SNOBOL4
+        X = A]
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:52:24 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A]
+                     !
+p08.sno(1,14) : ERROR 225 -- syntax error: unbalanced right bracket
+
+```
+
+## compile_diag__p08b
+
+```SNOBOL4
+        X = A[1
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:51:21 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A[1
+                      !
+p08b.sno(1,15) : ERROR 229 -- syntax error: missing right array bracket
+
+```
+
+## compile_diag__p08c
+
+```SNOBOL4
+        X = A<1
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:51:54 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A<1
+                      !
+p08c.sno(1,15) : ERROR 229 -- syntax error: missing right array bracket
+
+```
+
+## compile_diag__p09
+
+```SNOBOL4
+        X = 1,2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:52:53 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1,2
+                     !
+p09.sno(1,14) : ERROR 223 -- syntax error: invalid use of comma
+
+```
+
+## compile_diag__p10
+
+```SNOBOL4
+        X = 1
+        OUTPUT = X
+```
+
+## compile_diag__p11a
+
+```SNOBOL4
+        X = 1 :(
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:53:48 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :(
+                       !
+p11a.sno(1,16) : ERROR 227 -- syntax error: right paren missing from goto
+
+```
+
+## compile_diag__p11d
+
+```SNOBOL4
+        X = 1 :
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:55:00 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :
+                      !
+p11d.sno(1,15) : ERROR 219 -- syntax error: empty goto field
+
+```
+
+## compile_diag__p12
+
+```SNOBOL4
+        X = 1 \\ 2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:57:10 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 \\ 2
+                      !
+p12.sno(1,15) : ERROR 230 -- syntax error: illegal character
+
+```
+
+## compile_diag__p12b
+
+```SNOBOL4
+        X = 1 { 2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:56:46 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 { 2
+                      !
+p12b.sno(1,15) : ERROR 230 -- syntax error: illegal character
+
+```
+
+## compile_diag__p13
+
+```SNOBOL4
+        X = 1.2.3
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:59:01 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1.2.3
+                    !
+p13.sno(1,13) : ERROR 231 -- syntax error: invalid numeric item
+
+```
+
+## compile_diag__p13b
+
+```SNOBOL4
+        X = 1e
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:57:44 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1e
+                    !
+p13b.sno(1,13) : ERROR 231 -- syntax error: invalid numeric item
+
+```
+
+## compile_diag__p13c
+
+```SNOBOL4
+        X = 99999999999999999999999
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:58:18 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 99999999999999999999999
+                    !
+p13c.sno(1,13) : ERROR 231 -- syntax error: invalid numeric item
+
+```
+
+## compile_diag__p14
+
+```SNOBOL4
++       X = 1
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:59:54 2026
+
+
+
+                                                                                                                page 1
+
+1       +       X = 1
+
+p14.sno(1) : ERROR 214 -- bad label or misplaced continuation line
+
+```
+
+## compile_diag__p14b
+
+```SNOBOL4
+1LAB    X = 1
+END
+```
+
+## compile_diag__p18
+
+```SNOBOL4
+        X = =Y
+END
+```
+
+```stdout
+
+
+
+p18.sno(1) : ERROR 029 -- undefined operator referenced
+
+
+
+
+
+in file              p18.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11208
+memory left (bytes)  1037360
+
+```
+
+## compile_diag__p19
+
+```SNOBOL4
+        1 = 2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:02:53 2026
+
+
+
+                                                                                                                page 1
+
+1               1 = 2
+
+p19.sno(1) : ERROR 212 -- syntax error: value used where name is required
+
+```
+
+## compile_diag__p19b
+
+```SNOBOL4
+        'a' = 2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:02:40 2026
+
+
+
+                                                                                                                page 1
+
+1               'a' = 2
+
+p19b.sno(1) : ERROR 212 -- syntax error: value used where name is required
+
+```
+
+## compile_diag__p22
+
+```SNOBOL4
+        X = ) ; Y = ( ; Z = 1 +
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:03:46 2026
+
+
+
+                                                                                                                page 1
+
+1               X = ) ; Y = ( ; Z = 1 +
+                    !
+p22.sno(1,13) : ERROR 224 -- syntax error: unbalanced right parenthesis
+
+
+                              !
+p22.sno(1,23) : ERROR 226 -- syntax error: missing right paren
+
+```
+
+## compile_diag__p24
+
+```SNOBOL4
+        X = Y Z = 2
+END
+```
+
+## compile_diag__p25
+
+```SNOBOL4
+        X Y = 2 = 3
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:04:46 2026
+
+
+
+                                                                                                                page 1
+
+1               X Y = 2 = 3
+
+p25.sno(1) : ERROR 212 -- syntax error: value used where name is required
+
+```
+
+## compile_diag__p27
+
+```SNOBOL4
+        F(1,2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:05:24 2026
+
+
+
+                                                                                                                page 1
+
+1               F(1,2
+                    !
+p27.sno(1,13) : ERROR 226 -- syntax error: missing right paren
+
+```
+
+## compile_diag__p28
+
+```SNOBOL4
+        X = F(1,,)(
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:05:41 2026
+
+
+
+                                                                                                                page 1
+
+1               X = F(1,,)(
+                          !
+p28.sno(1,19) : ERROR 220 -- syntax error: missing operator
+
+```
+
+## compile_diag__p29
+
+```SNOBOL4
+        :(END
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:05:58 2026
+
+
+
+                                                                                                                page 1
+
+1               :(END
+                  !
+p29.sno(1,11) : ERROR 227 -- syntax error: right paren missing from goto
+
+```
+
+## compile_diag__p31
+
+```SNOBOL4
+        X = 1
+END     :(NOWHERE)
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:06:36 2026
+
+
+
+                                                                                                                page 1
+
+2       END     :(NOWHERE)
+                !
+p31.sno(2,9) : ERROR 215 -- syntax error: undefined or erroneous entry label
+
+```
+
+## compile_diag__p32
+
+```SNOBOL4
+        X = 1 :(NOWHERE)
+END
+```
+
+```stdout
+
+
+
+p32.sno(1) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              p32.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11184
+memory left (bytes)  1037384
+
+```
+
+## compile_diag__p34
+
+```SNOBOL4
+        X = ?
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:07:30 2026
+
+
+
+                                                                                                                page 1
+
+1               X = ?
+                    !
+p34.sno(1,13) : ERROR 221 -- syntax error: missing operand
+
+```
+
+## compile_diag__p35
+
+```SNOBOL4
+        X = 1 ? 
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:07:49 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 ?
+                      !
+p35.sno(1,15) : ERROR 221 -- syntax error: missing operand
+
+```
+
+## compile_diag__p36
+
+```SNOBOL4
+        X = "abc
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:08:09 2026
+
+
+
+                                                                                                                page 1
+
+1               X = "abc
+                    !
+p36.sno(1,13) : ERROR 232 -- syntax error: unmatched string quote
+
+```
+
+## compile_diag__p39
+
+```SNOBOL4
+        X = Y[1,2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:09:05 2026
+
+
+
+                                                                                                                page 1
+
+1               X = Y[1,2
+                        !
+p39.sno(1,17) : ERROR 229 -- syntax error: missing right array bracket
+
+```
+
+## compile_diag__p40
+
+```SNOBOL4
+        X = (1,2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:09:21 2026
+
+
+
+                                                                                                                page 1
+
+1               X = (1,2
+                       !
+p40.sno(1,16) : ERROR 226 -- syntax error: missing right paren
+
 ```
 
 ## probe_errpath__probe_loose_errpath_missing_end
@@ -3055,6 +3903,215 @@ END
 ```stdout
 batch rows run in order
 second line
+```
+
+## compile_diag__p11b
+
+```SNOBOL4
+        X = 1 :X(L)
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:54:11 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :X(L)
+                       !
+p11b.sno(1,16) : ERROR 234 -- syntax error: goto field incorrect
+
+```
+
+## compile_diag__p11e
+
+```SNOBOL4
+        X = 1 :(L
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:55:23 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :(L
+                        !
+p11e.sno(1,17) : ERROR 227 -- syntax error: right paren missing from goto
+
+```
+
+## compile_diag__p11g
+
+```SNOBOL4
+        X = 1 :<L
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:56:19 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :<L
+                        !
+p11g.sno(1,17) : ERROR 228 -- syntax error: right bracket missing from goto
+
+```
+
+## compile_diag__p33
+
+```SNOBOL4
+A B\tC = 1
+A
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:07:14 2026
+
+
+
+                                                                                                                page 1
+
+1       A B\tC = 1
+           !
+p33.sno(1,4) : ERROR 230 -- syntax error: illegal character
+
+2       A
+
+p33.sno(2) : ERROR 217 -- syntax error: duplicate label
+
+```
+
+## compile_diag__p37
+
+```SNOBOL4
+-INCLUDE 'p37_inc.sno'
+        OUTPUT = 'after'
+END
+```
+
+```file p37_inc.sno
+        A = 1
+        B = (
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:08:30 2026
+
+
+
+                                                                                                                page 1
+
+2    1          B = (
+                    !
+p37_inc.sno(2,13) : ERROR 226 -- syntax error: missing right paren
+
+```
+
+## compile_diag__p42
+
+```SNOBOL4
+        X = 1 :F<L
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:09:53 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :F<L
+                         !
+p42.sno(1,18) : ERROR 228 -- syntax error: right bracket missing from goto
+
+```
+
+## compile_diag__p43
+
+```SNOBOL4
+        X = 1 : (L) X
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:10:12 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 : (L) X
+                            !
+p43.sno(1,21) : ERROR 234 -- syntax error: goto field incorrect
+
+```
+
+## compile_diag__p45
+
+```SNOBOL4
+        X = 1 :$
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:10:51 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :$
+                       !
+p45.sno(1,16) : ERROR 233 -- syntax error: invalid use of operator
+
 ```
 
 ## demo_hello
@@ -3509,6 +4566,75 @@ END
 ran past the bare statement
 ```
 
+## compile_diag__p15
+
+```SNOBOL4
+        Y = (
+-INCLUDE 'nonexistent_file.inc'
+        Z = )
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:00:19 2026
+
+
+
+                                                                                                                page 1
+
+1               Y = (
+                    !
+p15.sno(1,13) : ERROR 226 -- syntax error: missing right paren
+
+        -INCLUDE 'nonexistent_file.inc'
+                 !
+p15.sno(2,10) : ERROR 285 -- include file cannot be opened
+
+2    1          Z = )
+                    !
+p15.sno(3,13) : ERROR 224 -- syntax error: unbalanced right parenthesis
+
+```
+
+## compile_diag__p21b
+
+```SNOBOL4
+        X = 1 +
++           2 +
++           (
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:03:08 2026
+
+
+
+                                                                                                                page 1
+
+1       +           (
+                    !
+p21b.sno(3,13) : ERROR 226 -- syntax error: missing right paren
+
+```
+
+## compile_diag__p38
+
+```SNOBOL4
+        X = 1 :(L
++        )
+L
+END
+```
+
 ## simple_assign_13
 
 ```SNOBOL4
@@ -3885,6 +5011,99 @@ smoke_multi.sno(2) : ERROR 217 -- syntax error: duplicate label
 3       OUTPUT = 'LINE THREE'
 
 smoke_multi.sno(3) : ERROR 217 -- syntax error: duplicate label
+```
+
+## compile_diag__p02
+
+```SNOBOL4
+A       X = 1
+A       X = 2
+A       X = 3
+        OUTPUT = X
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:47:44 2026
+
+
+
+                                                                                                                page 1
+
+2       A       X = 2
+
+p02.sno(2) : ERROR 217 -- syntax error: duplicate label
+
+3       A       X = 3
+
+p02.sno(3) : ERROR 217 -- syntax error: duplicate label
+
+```
+
+## compile_diag__p03
+
+```SNOBOL4
+        X = 'abc
+        Y = (1
+        OUTPUT = 'ok'
+        Z = 2)
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:48:17 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 'abc
+                    !
+p03.sno(1,13) : ERROR 232 -- syntax error: unmatched string quote
+
+2               Y = (1
+                     !
+p03.sno(2,14) : ERROR 226 -- syntax error: missing right paren
+
+4               Z = 2)
+                     !
+p03.sno(4,14) : ERROR 224 -- syntax error: unbalanced right parenthesis
+
+```
+
+## compile_diag__p21
+
+```SNOBOL4
+        X = 1 +
++           2 +
++           )
+        Y = 3
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:03:29 2026
+
+
+
+                                                                                                                page 1
+
+1       +           )
+                    !
+p21.sno(3,13) : ERROR 221 -- syntax error: missing operand
+
 ```
 
 ## ladder__rung26_reverse
@@ -5577,6 +6796,78 @@ END
 PASS 914_lgt (5/5)
 ```
 
+## compile_diag__p04
+
+```SNOBOL4
+        X = (1 + )
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:49:15 2026
+
+
+
+                                                                                                                page 1
+
+1               X = (1 + )
+                         !
+p04.sno(1,18) : ERROR 221 -- syntax error: missing operand
+
+```
+
+## compile_diag__p16
+
+```SNOBOL4
+        X = (1 + ) + 'abc
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:00:45 2026
+
+
+
+                                                                                                                page 1
+
+1               X = (1 + ) + 'abc
+                         !
+p16.sno(1,18) : ERROR 221 -- syntax error: missing operand
+
+```
+
+## compile_diag__p23
+
+```SNOBOL4
+        X = 1 + * 2
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:04:03 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 + * 2
+                        !
+p23.sno(1,17) : ERROR 221 -- syntax error: missing operand
+
+```
+
 ## dupl_3
 
 ```SNOBOL4
@@ -5620,6 +6911,106 @@ END
 
 ```stdout
 ZZZ
+```
+
+## compile_diag__p11c
+
+```SNOBOL4
+        X = 1 :S(L)S(L)
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:54:36 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :S(L)S(L)
+                              !
+p11c.sno(1,23) : ERROR 218 -- syntax error: duplicated goto field
+
+```
+
+## compile_diag__p11f
+
+```SNOBOL4
+        X = 1 :S(L)F(L)X
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 18:55:50 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :S(L)F(L)X
+                               !
+p11f.sno(1,24) : ERROR 234 -- syntax error: goto field incorrect
+
+```
+
+## compile_diag__p41
+
+```SNOBOL4
+        X = 1 :S(L
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:09:39 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :S(L
+                         !
+p41.sno(1,18) : ERROR 227 -- syntax error: right paren missing from goto
+
+```
+
+## compile_diag__p44
+
+```SNOBOL4
+        X = 1 :S(L)F
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:10:31 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :S(L)F
+                           !
+p44.sno(1,20) : ERROR 234 -- syntax error: goto field incorrect
+
 ```
 
 ## dupl_4
@@ -12090,6 +13481,31 @@ END
 
 ```stdout
 V1= V2=a
+```
+
+## compile_diag__p26
+
+```SNOBOL4
+        X = 1 :S(L) :F(L)
+L
+END
+```
+
+```stdout
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 12 19:05:05 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 :S(L) :F(L)
+                            !
+p26.sno(1,21) : ERROR 234 -- syntax error: goto field incorrect
+
 ```
 
 ## datatype_13
