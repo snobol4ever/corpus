@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=475 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,30
+# shape: entries=476 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,31
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -105,6 +105,7 @@ program_procedure_writeln_9	chunk:03	feat:procedure	procedure
 program_writeln_6	chunk:03	feat:ord	ord
 program_writeln_sqrt_1	chunk:05	feat:sqrt	sqrt
 front_end__pf21_sstr_high_low	chunk:01	feat:function	function type
+helpers__hp01	chunk:02	feat:record	for record type
 ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round	core	core	round trunc
 ladder__rung23_extended_trunc_round_and_conversions	chunk:05	feat:round	round trunc
 program_procedure_writeln_replace_1	chunk:03	feat:procedure	procedure
@@ -136,7 +137,7 @@ program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_5	chunk:01	feat:nested_proc	nested_proc procedure
 front_end__pf20h_generic_function_type	chunk:01	feat:function	function nested_proc type
 ladder__rung02_arithmetic	chunk:03	feat:div	div mod
-ladder__rung04_for_repeat	chunk:04	feat:repeat	for repeat
+ladder__rung04_for_repeat	chunk:05	feat:repeat	for repeat
 ladder__rung07_records	chunk:02	feat:record	record type
 ladder__rung16_lohi_byte_word	chunk:05	feat:subrange	subrange type
 ladder__rung16_real_trunc_round_int64	chunk:05	feat:round	round trunc
@@ -202,7 +203,7 @@ program_function_record_1	chunk:01	feat:function	function record type
 program_procedure_record_7	chunk:02	feat:record	procedure record type
 ladder__rung17_div_zero_caught_in_callee_and_uncaught	chunk:03	feat:div	div function mod
 program_function_record_2	chunk:01	feat:function	function record type
-ladder__rung16_string_index_zero_length_byte	chunk:03	feat:ord	const for ord
+ladder__rung16_string_index_zero_length_byte	chunk:04	feat:ord	const for ord
 program_procedure_record_10	chunk:02	feat:record	procedure record type
 program_procedure_record_3	chunk:02	feat:record	procedure record type
 program_array_setlit_1	chunk:04	feat:set_literal	array set_literal subrange
@@ -414,7 +415,7 @@ front_end__pf12_lvalue_cast	chunk:04	feat:while	array for for_with_array functio
 program_array_while_replace_1	core	core	array const for for_with_array set_literal sqr subrange while
 program_array_while_replace_2	core	core	array const for for_with_array set_literal sqr subrange while
 ladder__rung22_class_derived_from_a_generic_object_dictionary	chunk:05	feat:with	const for function in nested_proc procedure type with write
-program_procedure_set_replace_1	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
+program_procedure_set_replace_1	chunk:03	feat:set	for in nested_proc procedure repeat set subrange while
 program_procedure_set_replace_2	chunk:03	feat:set	for in nested_proc procedure repeat set subrange while
 benchmark_queens	chunk:04	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
 program_function_procedure_replace_3	chunk:05	feat:with	for function in mod nested_proc procedure while with
