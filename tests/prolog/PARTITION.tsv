@@ -1,13 +1,13 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=735 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=72 chunks=7 sizes=100,100,100,100,100,100,97
+# shape: entries=736 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=72 chunks=7 sizes=100,100,100,100,100,100,98
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
 clause_source_record__csr_listing_consulted	chunk:07	family:clause_source_record	
 linker__ancestor	chunk:07	family:linker	
 directive_32	chunk:07	family:rung22_write_canonical	
-format_directive_1	chunk:04	feat:format	format
+format_directive_1	chunk:05	feat:format	format
 format_directive_2	chunk:05	feat:format	format
 format_directive_3	chunk:05	feat:format	format
 format_directive_4	chunk:05	feat:format	format
@@ -161,7 +161,7 @@ directive_64	chunk:07	family:rung26_copy_concat
 directive_65	chunk:07	family:rung26_copy_concat	
 directive_67	chunk:07	family:rung26_copy_concat	
 directive_73	chunk:06	family:rung29	
-directive_77	chunk:06	family:rung29	
+directive_77	chunk:07	family:rung29	
 directive_85	chunk:01	family:ladder	
 directive_86	chunk:01	family:ladder	
 directive_87	chunk:07	family:cut_in_a_disjunction_arm_after_a_guard_then_the_last_call	
@@ -397,7 +397,7 @@ cut_directive_6	chunk:03	feat:cut	cut
 cut_directive_9	chunk:03	feat:cut	cut
 dcg_directive_1	chunk:05	feat:dcg	dcg
 directive_replace_7	chunk:02	feat:unify	unify
-erriso_syntax_error_on_read_1	chunk:03	feat:catch	catch
+erriso_syntax_error_on_read_1	chunk:04	feat:catch	catch
 functor_2	chunk:07	feat:functor	functor
 ite_8	chunk:03	feat:if_then_else	if_then_else
 simple_program_99	chunk:07	feat:arg	arg
@@ -446,6 +446,7 @@ cut_directive_5	chunk:03	feat:cut	cut unify
 rung10_programs_puzzle_09__rung10_programs_puzzle_09	chunk:05	feat:negation	negation unify
 test_rung10_programs_puzzle_03	chunk:02	feat:unify	unify
 test_rung10_programs_puzzle_06	chunk:03	feat:cut	cut unify
+switch_labels__f1500	chunk:03	feat:cut	cut
 abolish_abolish_of_unknown_predicate_1	chunk:06	feat:abolish	abolish catch
 arith_compare_eq_arith_1	chunk:02	feat:unify	if_then_else unify
 arith_compare_mixed_int_float_1	chunk:02	feat:unify	if_then_else unify
@@ -481,7 +482,7 @@ write_family_format_3_atom_sink_1	chunk:06	feat:atom	atom format
 assert_assert_then_call_1	chunk:04	feat:call	assertz call
 assert_assert_unbound_arg_call_1	chunk:05	feat:assertz	assertz if_then_else
 assert_assertz_rule_1	chunk:05	feat:assertz	assertz if_then_else
-assertz_ite_2	chunk:05	feat:assertz	assertz if_then_else
+assertz_ite_2	chunk:06	feat:assertz	assertz if_then_else
 bagof_setof_bagof_fails_on_empty_1	chunk:07	feat:bagof	bagof if_then_else
 between_ite_directive_1	chunk:04	feat:between	between if_then_else
 call_n_call_of_variable_goal_1	chunk:04	feat:call	call unify
