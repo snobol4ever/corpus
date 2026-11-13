@@ -4445,6 +4445,40 @@ end.
          40
 ```
 
+## regexpr_engine__regexpr_forms
+
+```Pascal
+{$mode objfpc}{$H+}
+uses SysUtils, RegExpr;
+procedure T(const re, s: string);
+var r: TRegExpr; i: integer; o: string;
+begin
+  r := TRegExpr.Create(re);
+  if r.Exec(s) then
+  begin
+    o := 'Y';
+    for i := 0 to r.SubExprMatchCount do o := o + ' [' + r.Match[i] + ',' + IntToStr(r.MatchPos[i]) + ']';
+  end else o := 'N';
+  writeln(re, ' ', o);
+end;
+begin
+  T('(I am)|(you are)', 'say you are'); T('a+', 'baaac'); T('a+?', 'baaac'); T('a{2,3}', 'baaaac');
+  T('^[a-c]+x$', 'abcx'); T('(\w+)@(\w+)', 'to bob@site'); T('(?:ab)+(c)?', 'ababab');
+  writeln(ReplaceRegExpr('(\w+) (\w+)', 'hello world', '$2 $1', True), ' ', ReplaceRegExpr('o', 'foo', '0', False));
+end.
+```
+
+```stdout
+(I am)|(you are) Y [you are,5] [,-1] [you are,5]
+a+ Y [aaa,2]
+a+? Y [a,2]
+a{2,3} Y [aaa,2]
+^[a-c]+x$ Y [abcx,1]
+(\w+)@(\w+) Y [bob@site,4] [bob,4] [site,8]
+(?:ab)+(c)? Y [ababab,1] [,-1]
+world hello f00
+```
+
 ## program_procedure_nested_23
 
 ```Pascal
