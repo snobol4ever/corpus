@@ -10335,6 +10335,42 @@ f1f2
          12
 ```
 
+## array_of_const__array_of_const_varrec
+
+```Pascal
+{$mode objfpc}{$h+}
+program aoc;
+uses sysutils;
+procedure show(const a: array of const);
+var i: integer;
+begin
+  for i := 0 to high(a) do
+    case a[i].VType of
+      vtInteger: writeln('int ', a[i].VInteger);
+      vtBoolean: writeln('bool ', a[i].VBoolean);
+      vtExtended: writeln('ext ', a[i].VExtended^);
+      vtAnsiString: writeln('str ', AnsiString(a[i].VAnsiString));
+      vtObject: writeln('obj');
+    else writeln('other ', a[i].VType);
+    end;
+end;
+var x: double;
+begin
+  show([42, True, 3.1416, 'Pierrot', TObject.Create]);
+  x := 3.1416; writeln(FloatToStr(x)); writeln(x);
+end.
+```
+
+```stdout
+int 42
+bool TRUE
+ext  3.14159999999999999996E+0000
+str Pierrot
+obj
+3.1416
+ 3.1415999999999999E+000
+```
+
 ## program_record_pointer_replace_1
 
 ```Pascal
