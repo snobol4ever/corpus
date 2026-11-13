@@ -5771,3 +5771,200 @@ begin
 {$ZEROBASEDSTRINGS OFF}
   writeln(s, ' ', s[1])
 end.
+{--------------- 449 test_gate_builder_mines_a_pascal_collection_by_fpc__modern}
+program modern;
+var s: string;
+begin
+  s := 'hi'; writeln(s)
+end.
+{- 450 test_gate_pas_a_bracket_actual_fills_a_dynamic_array_formal_and_raise_selects_objfpc__bareraise}
+program bareraise;
+uses SysUtils;
+type TIntArray = array of integer;
+procedure Solve(const m1, m2: integer; out r: integer);
+begin
+  if (m1 = 0) or (m2 = 0) then
+    raise SysUtils.Exception.Create('Solve: modulus cannot be 0');
+  r := m1 * 10 + m2
+end;
+function Sum(const a: TIntArray): integer;
+var i: integer;
+begin
+  if Length(a) = 0 then raise Exception.Create('Arrays are empty');
+  Sum := 0;
+  for i := 0 to High(a) do Sum := Sum + a[i]
+end;
+var r: integer;
+begin
+  Solve(3, 4, r); writeln(r, ' ', Sum([1, 2, 3, 4]));
+  try Solve(0, 1, r) except on E: Exception do writeln('caught ', E.Message) end;
+  try writeln(Sum([])) except on E: Exception do writeln('caught ', E.Message) end
+end.
+{- 451 test_gate_pas_an_fpc_dialect_case_with_no_matching_constant_does_nothing__fpccase}
+program fpccase(output);
+var i, n: integer; s: string; c: char;
+begin
+  s := 'x'; n := 0;
+  for i := 0 to 7 do
+  begin
+    case i mod 4 of 1: n := n + 1; 2: n := n + 10 end;
+    case i of 3, 5: write('[', i, ']') end
+  end;
+  c := 'q'; case c of 'a': writeln('a'); 'b'..'d': writeln('bd') end;
+  writeln(n, ' ', s)
+end.
+{----- 452 test_gate_pas_ansistring_and_pchar_flip_to_the_fpc_dialect__ansiflip}
+var s: AnsiString; p: PChar; i: LongInt;
+begin
+  s := 'abc'; i := 7;
+  str(i:4, s); writeln(s, '|', i, '|', length(s));
+  p := nil; writeln(p = nil)
+end.
+{- 453 test_gate_pas_dynamic_and_open_arrays_and_const_and_out_parameters_answer_as_fpc__outp}
+program outp;
+type TIntArray = array of integer;
+var dy: TIntArray; n: integer;
+procedure fill(out a: TIntArray; k: integer); var j: integer; begin setlength(a, k); for j := 0 to k - 1 do a[j] := j * 3 end;
+procedure get(out x: integer); begin x := 42 end;
+begin fill(dy, 3); get(n); writeln(length(dy), ' ', dy[2], ' ', n) end.
+{- 454 test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__c2}
+program c2;
+var k: integer;
+begin
+  for k := 1 to 3 do
+    case k of
+      1: writeln('one ', k);
+      2: writeln('two')
+      otherwise writeln('many ', k)
+    end
+end.
+{- 455 test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__pa}
+program pa;
+var s: string;
+begin
+  s := paramstr(1);
+  writeln(paramcount, ' ', s, ' ', paramstr(2), ' [', paramstr(3), ']')
+end.
+{- 456 test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__rd}
+program rd;
+var f: text; t, u: string;
+begin
+  readln(t); readln(u);
+  writeln('[', t, '] [', u, ']');
+  assign(f, 'zz_out.txt'); rewrite(f); writeln(f, 'line one'); writeln(f, 'line two'); close(f);
+  assign(f, 'zz_out.txt'); reset(f); readln(f, t); readln(f, u); close(f);
+  writeln(t, '|', u)
+end.
+{- 457 test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__s1}
+program s1;
+var s: string[20]; t: string; i: integer;
+begin
+  s := 'abc'; s := s + 'de'; t := concat(s, 'fg', 'h'); i := 42;
+  writeln(i, ' ', length(s), ' ', s, ' ', t, ' ', ord(s[0]), ' ', upcase(s[1]), upcase('q'), ' ', upcase(t));
+  writeln(pos('de', t), ' ', copy(t, 2, 3), '|', copy(t, 7, 10), '|', length(copy(t, 3, 0)), '|', copy(t, 6))
+end.
+{- 458 test_gate_pas_procedural_types_and_reals_written_per_dialect_answer_as_fpc__atflip}
+program pt2b;
+type TFun = function(t: real): real;
+function sq(t: real): real; begin sq := t * t end;
+function apply(f: TFun; x: real): real; begin apply := f(x) end;
+begin writeln(apply(@sq, 3.0):0:2) end.
+{- 459 test_gate_pas_shifts_bounds_case_ranges_headless_programs_string_runs_and_for_in_answer_as_fpc__headless_flip}
+var a: integer;
+begin a := 10; writeln(a shr 1, ' ', true) end.
+{-------------- 460 test_gate_pas_string_element_arrays_read_as_strings__strarr}
+program strarr;
+const names: array [0..3] of string = ('alpha', 'beta', '', 'delta');
+var s: array [1..4] of string; i, n: integer; u: string;
+function Shout(x: string): string; begin Shout := x + '!' end;
+procedure Local;
+var w: array [5..7] of string; k: integer;
+begin
+  for k := 5 to 7 do w[k] := Copy('abcdefg', k - 4, k - 4);
+  for k := low(w) to high(w) do write(w[k], '/', length(w[k]), ' ');
+  writeln(length(w), ' ', w[6] + w[7], ' ', w[7][2])
+end;
+begin
+  for i := 1 to 4 do s[i] := names[i - 1] + 'x';
+  s[2] := s[2] + s[1]; u := s[2];
+  writeln(u, ' ', s[2][3], ' ', length(s[2]), ' ', length(s), ' ', high(s), ' ', low(names));
+  for i := 1 to 4 do writeln(i, ':', s[i], ':', Shout(s[i]), ':', pos('x', s[i]), ':', s[i] = 'deltax', ':', s[i] < 'b');
+  n := 0; for i := 0 to 3 do n := n + length(names[i]); writeln(n, ' ', names[3][1], names[0]);
+  Local
+end.
+{------------- 461 test_gate_pas_string_element_arrays_read_as_strings__strchar}
+program strchar;
+var u: string; c: char;
+begin
+  u := 'alphax'; c := 'b';
+  writeln(u < 'b', ' ', u < c, ' ', 'alphax' < 'b', ' ', u > 'a');
+end.
+{------------- 462 test_gate_pas_string_element_arrays_read_as_strings__strzero}
+program strzero;
+const names: array [0..1] of string = ('alpha', 'beta');
+ n: array [0..1] of integer = (5, 6);
+var i: integer;
+begin
+  i := 0;
+  writeln(names[0], '|', names[i], '|', n[0], '|', n[i]);
+end.
+{- 463 test_gate_pas_var_aggregates_defaults_directives_labels_and_power_answer_as_fpc__defaults_flip}
+program dp3;
+const K = 7;
+type TV = record x, y, z: integer end;
+var a: array [1..3] of integer = (4, 5, 6); v: TV = (x: 3; y: 4; z: 5); m: array [0..1, 0..1] of integer = ((1, 2), (3, 4));
+procedure p(n: integer = 5; s: integer = K * 2); begin writeln(n, ' ', s) end;
+function f(base: integer = 10): integer; inline; begin f := base * 2 end;
+procedure q(); begin writeln('q') end;
+begin p; p(1); p(1, 2); writeln(f, ' ', f(3)); q(); writeln(a[3], v.y, m[1, 0]) end.
+{-------------------------- 464 test_gate_pas_xor_keeps_the_iso_dialect__fpcshl}
+program fpcshl(output);
+var a, b: integer;
+begin
+  a := 10; b := 12;
+  writeln('x', a shl 2, a xor b);
+  writeln(a, b shr 1)
+end.
+{---------------------------- 465 test_gate_pas_uses_and_units_answer_as_fpc__c}
+program c;
+uses crt;
+begin writeln(1) end.
+{---------------------------- 466 test_gate_pas_uses_and_units_answer_as_fpc__p}
+program p;
+uses utop, ubase, sysutils, math;
+begin
+  show(greeting);
+  writeln(twice(5), ' ', thrice(5), ' ', ubase.twice(1));
+  writeln(IntToStr(42) + '-' + UpperCase('ab') + Trim('  x  '), ' ', Max(3, 7), ' ', Power(2, 10):0:0);
+end.
+{---------------------------- 467 test_gate_pas_uses_and_units_answer_as_fpc__q}
+program q;
+uses Shapes;
+var p: Point; c: Color;
+function Value: integer;
+begin
+  Value := -1
+end;
+begin
+  p := MakePoint(3, 4);
+  writeln(p.x + p.y + Origin);
+  Bump; shapes.bump;
+  writeln(Count, ' ', Shapes.Count);
+  writeln(Value, ' ', Shapes.Value);
+  for c := Red to Blue do write(ColorName(c), ' ');
+  writeln;
+  c := Shapes.Green;
+  writeln(ord(c))
+end.
+{---------------------------- 468 test_gate_pas_uses_and_units_answer_as_fpc__r}
+program r;
+uses ua, ub;
+begin
+  writeln(f, ' ', ua.f, ' ', ub.f, ' ', g)
+end.
+{--------------------------- 469 test_gate_pas_uses_and_units_answer_as_fpc__r2}
+program r2;
+uses ub, ua;
+begin
+  writeln(f, ' ', g)
+end.

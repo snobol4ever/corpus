@@ -1,13 +1,11 @@
 test_gate_builder_mines_a_pascal_collection_by_fpc__clock: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_builder_mines_a_pascal_collection_by_fpc__lib: fpc refuses to compile it under -Miso
-test_gate_builder_mines_a_pascal_collection_by_fpc__modern: fpc refuses to compile it under -Miso
 test_gate_builder_mines_a_pascal_collection_by_fpc__quiet: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_builder_mines_a_pascal_collection_by_fpc__refused: fpc refuses to compile it under -Miso
 test_gate_emit_a_shared_omega_leaf_stores_an_rsp_vslot_at_the_depth_its_successor_reads__eolf: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_every_runner_passes_the_declared_heap_and_stack__deep: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_every_runner_passes_the_declared_heap_and_stack__live: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__a: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_pas_a_bracket_actual_fills_a_dynamic_array_formal_and_raise_selects_objfpc__bareraise: fpc refuses to compile it under -Miso
 test_gate_pas_a_character_string_is_assigned_only_to_a_string_type_of_its_length__flong: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_pas_a_character_string_is_assigned_only_to_a_string_type_of_its_length__fshort: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_pas_a_character_string_is_assigned_only_to_a_string_type_of_its_length__fsub: fpc refuses to compile it under -Miso
@@ -41,40 +39,21 @@ test_gate_pas_a_value_formal_parameter_is_not_of_a_file_type_nor_holds_one__ftyp
 test_gate_pas_a_var_actual_has_the_type_of_its_formal__venm: fpc refuses to compile it under -Miso
 test_gate_pas_a_var_actual_has_the_type_of_its_formal__vfml: fpc refuses to compile it under -Miso
 test_gate_pas_a_var_actual_has_the_type_of_its_formal__vint: fpc refuses to compile it under -Miso
-test_gate_pas_an_fpc_dialect_case_with_no_matching_constant_does_nothing__fpccase: fpc refuses to compile it under -Miso
 test_gate_pas_an_ordinal_function_never_takes_a_real__shadow: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_pas_ansistring_and_pchar_flip_to_the_fpc_dialect__ansiflip: fpc refuses to compile it under -Miso
 test_gate_pas_conditional_compilation_and_initialized_vars_answer_as_fpc__u2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_pas_dynamic_and_open_arrays_and_const_and_out_parameters_answer_as_fpc__c603: fpc refuses to compile it under -Miso
 test_gate_pas_dynamic_and_open_arrays_and_const_and_out_parameters_answer_as_fpc__c607: fpc refuses to compile it under -Miso
-test_gate_pas_dynamic_and_open_arrays_and_const_and_out_parameters_answer_as_fpc__outp: fpc refuses to compile it under -Miso
 test_gate_pas_every_identifier_has_a_defining_point__closed: fpc refuses to compile it under -Miso
-test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__c2: fpc refuses to compile it under -Miso
-test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__pa: fpc refuses to compile it under -Miso
-test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__rd: fpc refuses to compile it under -Miso
-test_gate_pas_fpc_dialect_strings_case_else_and_builtins_answer_as_fpc__s1: fpc refuses to compile it under -Miso
 test_gate_pas_fpc_system_and_math_routines_answer_as_fpc_and_stay_refused_in_iso__iso_stringofchar: fpc refuses to compile it under -Miso
 test_gate_pas_mod_in_the_fpc_dialects_keeps_the_dividends_sign_and_takes_a_negative_divisor__p: fpc refuses to compile it under -Miso
-test_gate_pas_procedural_types_and_reals_written_per_dialect_answer_as_fpc__atflip: fpc refuses to compile it under -Miso
 test_gate_pas_readln_and_writeln_require_a_textfile__wl: fpc refuses to compile it under -Miso
-test_gate_pas_shifts_bounds_case_ranges_headless_programs_string_runs_and_for_in_answer_as_fpc__headless_flip: fpc refuses to compile it under -Miso
 test_gate_pas_shifts_bounds_case_ranges_headless_programs_string_runs_and_for_in_answer_as_fpc__idents: fpc refuses to compile it under -Miso
-test_gate_pas_string_element_arrays_read_as_strings__strarr: fpc refuses to compile it under -Miso
-test_gate_pas_string_element_arrays_read_as_strings__strchar: fpc refuses to compile it under -Miso
-test_gate_pas_string_element_arrays_read_as_strings__strzero: fpc refuses to compile it under -Miso
 test_gate_pas_uses_and_units_answer_as_fpc__Shapes: fpc refuses to compile it under -Miso
-test_gate_pas_uses_and_units_answer_as_fpc__c: fpc refuses to compile it under -Miso
 test_gate_pas_uses_and_units_answer_as_fpc__m: fpc refuses to compile it under -Miso
-test_gate_pas_uses_and_units_answer_as_fpc__p: fpc refuses to compile it under -Miso
-test_gate_pas_uses_and_units_answer_as_fpc__q: fpc refuses to compile it under -Miso
-test_gate_pas_uses_and_units_answer_as_fpc__r: fpc refuses to compile it under -Miso
-test_gate_pas_uses_and_units_answer_as_fpc__r2: fpc refuses to compile it under -Miso
 test_gate_pas_uses_and_units_answer_as_fpc__ua: fpc refuses to compile it under -Miso
 test_gate_pas_uses_and_units_answer_as_fpc__ub: fpc refuses to compile it under -Miso
 test_gate_pas_uses_and_units_answer_as_fpc__ubase: fpc refuses to compile it under -Miso
 test_gate_pas_uses_and_units_answer_as_fpc__utop: fpc refuses to compile it under -Miso
-test_gate_pas_var_aggregates_defaults_directives_labels_and_power_answer_as_fpc__defaults_flip: fpc refuses to compile it under -Miso
 test_gate_pas_what_fpc_miso_accepts_beyond_iso_answers_as_fpc__c800: fpc refuses to compile it under -Miso
 test_gate_pas_what_fpc_miso_accepts_beyond_iso_answers_as_fpc__c900: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_pas_xor_keeps_the_iso_dialect__fpcshl: fpc refuses to compile it under -Miso
 test_gate_timeout_under_load_is_could_not_measure_and_retried_once__spin: oracle timed out -- non-terminating or too slow for the grading timeout
