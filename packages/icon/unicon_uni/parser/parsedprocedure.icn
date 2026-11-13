@@ -1,0 +1,54 @@
+#
+# $Id: parsedprocedure.icn,v 1.1 2004-02-12 17:01:53 rparlett Exp $
+#
+# This file is in the public domain.
+#
+# Author: Robert Parlett (parlett@dial.pipex.com)
+#
+#
+# Updated: Bruce Rennie - convert all standard Unicon functions to have "::" prefix
+# Date:    2020-12-28
+# Updated: Bruce Rennie - define all local variables as local, to prevent problems
+#                         when using the Unicon compiler -n option
+# Date:    2021-01-03
+#
+
+$include "ytab_h.icn"
+
+package parser
+
+link ximage
+
+class ParsedProcedure : ParsedFunction()
+   method to_string()
+      return "procedure " || to_string_impl();
+   end
+
+   method init(n)
+      local prochead, arglist, locals_node, x, l, t, tok;
+
+      self.ParsedFunction.init(n);
+      name := n.children[1].s;
+
+      arglist := n.children[2];
+      every x := arglist.children[1 to *arglist.children].children[1] do {
+        ::put(args, x.s)
+      };
+
+      locals_node := n.children[4];
+      every x := (\locals_node.children)[1 to *locals_node.children] do {
+         l := if x.label == "local" then locals else statics;
+         every t := x.children[1 to *x.children] do {
+            every tok := t.children[1 to * t.children] do {
+               ::put(l, tok.children[1].s)
+            }
+         }
+      };
+
+      initial_node := n.children[5];
+      body_node := n.children[6];
+   end
+
+   initially(n, p)
+      self.ParsedFunction.initially(n, p);
+end
