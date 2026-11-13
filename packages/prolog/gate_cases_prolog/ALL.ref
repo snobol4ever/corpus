@@ -1726,7 +1726,18 @@ find_linedit_completion(A,B) => error(existence_error(procedure,find_linedit_com
 find_linedit_completion(1,A) => error(existence_error(procedure,find_linedit_completion/2))
 find_linedit_completion(qzv,1) => error(existence_error(procedure,find_linedit_completion/2))
 %----- 171 test_gate_pl_gnu_popen_exec_wait_and_create_pipe_answer_as_gprolog__g
-pr('echo one; echo two',A) => error(existence_error(procedure,popen/3))
+pr('echo one; echo two',A) => [pr('echo one; echo two','one\ntwo\n')]
+written_through_popen
+ex('tr a-z A-Z; echo oops >&2; exit 3',hello,A,B,C) => [ex('tr a-z A-Z; echo oops >&2; exit 3',hello,'HELLO','oops\n',3)]
+ex('exit 0','',A,B,C) => [ex('exit 0','','','',0)]
+cp(piped,A) => [cp(piped,piped)]
+popen(A,read,B) => error(instantiation_error)
+popen(true,sideways,A) => error(domain_error(io_mode,sideways))
+popen(true,3,A) => error(type_error(atom,3))
+popen(3,read,A) => error(type_error(atom,3))
+exec(A,B,C,D,E) => error(instantiation_error)
+wait(A,B) => error(instantiation_error)
+wait(x,A) => error(type_error(integer,x))
 %- 172 test_gate_pl_gnu_predicate_property_and_current_predicate_answer_as_gprolog__g
 current_predicate(ps/2) => [current_predicate(ps/2)]
 current_predicate(4) => error(type_error(predicate_indicator,4))
