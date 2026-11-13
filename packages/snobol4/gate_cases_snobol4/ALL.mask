@@ -1,0 +1,2 @@
+# ALL.mask -- line masks for gate_cases_snobol4 (FORMAT: entry<TAB>python-regex<TAB>reason), read by corpus_suite_harness.py read_mask_sidecar().
+test_gate_collect_reports_free_storage_and_fails_when_short__f	^RET=[0-9]+$	COLLECT() answers the free bytes of the heap window, a figure of the implementation: SCRIP reports 1043040 at the shipped 1 MB window and 2091616 and 4188768 at 2 and 4 MB (SCRIP_HEAP_KB), SPITBOL its own 129481 (the coo 2026-11-13, on junior_11 and senior_09 measurements); the line stays and its figure is masked, as thread/gc collection count is
