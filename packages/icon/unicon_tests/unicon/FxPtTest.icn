@@ -9,11 +9,11 @@
 
 procedure main(args)
    if not (&features == "concurrent threads") then
-      stop("This program requires concurrent threads.")
+      stop("This program requires concurrent threads.");
    if not(&features == "large integers") then
-      stop("This program requires large integers.")
+      stop("This program requires large integers.");
 
-   runTests(args)
+   runTests(args);
 end
 
 # Turn off operator overloading
