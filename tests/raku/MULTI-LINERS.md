@@ -8452,6 +8452,21 @@ say h("a");
 <s>
 ```
 
+## ladder__rung07_spread_a_capture
+
+```Raku
+multi m(Int $x) { "i" }
+multi m(Str $x) { "s" }
+sub f(|c) { m(|c) }
+say f(1);
+say f("a");
+```
+
+```stdout
+i
+s
+```
+
 ## ladder__rung07_subs_tail_if_false_returns_to_the_caller
 
 ```Raku
@@ -10559,6 +10574,18 @@ say @a.join(",");
 1,2,3,4
 ```
 
+## ladder__rung07_spread_positional_args
+
+```Raku
+sub g($a, $b) { "$a$b" }
+my @x = 1, 2;
+say g(|@x);
+```
+
+```stdout
+12
+```
+
 ## ladder__rung07_subs_optional_params
 
 ```Raku
@@ -10850,6 +10877,21 @@ say t(4);
 4
 ```
 
+## ladder__rung07_spread_a_slurpy_array
+
+```Raku
+multi m(Int $x) { "i" }
+multi m(Str $x) { "s" }
+sub f(*@a) { m(|@a) }
+say f(1);
+say f("a");
+```
+
+```stdout
+i
+s
+```
+
 ## while_say_1
 
 ```Raku
@@ -10864,6 +10906,22 @@ say t(4);
 1
 2
 3
+```
+
+## ladder__rung07_spread_into_a_multi
+
+```Raku
+multi m(Int $x, $y) { "i$y" }
+multi m(Str $x) { "s" }
+my @x = 1, 2;
+say m(|@x);
+my @y = "z";
+say m(|@y);
+```
+
+```stdout
+i2
+s
 ```
 
 ## ladder__rung16_bool_relops_logical_or_in_a_condition
