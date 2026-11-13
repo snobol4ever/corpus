@@ -1,0 +1,4 @@
+# the shim driver of the pack (the junior 2026-11-13, row icn-pack-skeem-red-test): the upstream Makefile compiles all fifteen files, and skeem.icn links only
+# its own closure, which omits skuser.icn (InitUser is defined there and nowhere else). Linking skuser beside skeem gives scrip the Makefile's program; the
+# oracle, icont -us on the fifteen files, answers test.std, and so does scrip on this driver (MEASURED: 26002 bytes, cmp equal).
+link skeem,skuser

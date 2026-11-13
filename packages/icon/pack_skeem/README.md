@@ -19,3 +19,5 @@ THE ANSWER is cut from the oracle: the fleet's `icont -us` on the files (the Mak
 (the Makefile's Test recipe sets that stack size; without it iconx ends with exit 1). FIRST READING, mode 3, the grader's worktree at SCRIP df8a8b31c: 0 of 1: SCRIP ends
 with error 106, procedure or integer expected, at `skfun.icn` line 58, the invocation of an alternation of procedure values, `every (InitBasic | InitControl | ...)()`.
 A finding, not excluded.
+
+THE SHIM DRIVER (the junior 2026-11-13, row icn-pack-skeem-red-test). ALL.launch hands the row to `skdriver.icn`, a one-line shim that links `skeem` and `skuser`. The upstream Makefile compiles all fifteen files, but skeem.icn links only its own closure, which omits skuser.icn; `InitUser` is defined there and nowhere else, so `scrip skeem.icn` reads it as &null and dies with error 106 at skfun.icn line 58. The shim gives scrip the Makefile program: MEASURED mode 3, `scrip skdriver.icn -- test.scm` writes 26,002 bytes equal to test.std (cmp), and the entry reads m3_pass=1 m3_fail=0. The vendored text of skeem.icn is unchanged.
