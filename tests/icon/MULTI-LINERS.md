@@ -2289,6 +2289,28 @@ heo
 level no
 ```
 
+## ladder__rung44_stat_called_only_in_a_linked_file
+
+```Icon
+link lib1
+
+procedure main()
+   write(image(fstat("/etc/passwd")));
+   write("done");
+end
+```
+
+```file lib1.icn
+procedure fstat(n);
+   return stat(n);
+end
+```
+
+```stdout
+record posix_stat_1(14)
+done
+```
+
 ## ladder_rung41_rt_chdir_getenv
 
 ```Icon
