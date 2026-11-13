@@ -1,23 +1,23 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=84 features=46 ubiquitous=5(package program var writeln assign) distinctive=41 core=31 clusters=20 chunks=1 sizes=53
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=84 features=46 ubiquitous=5(package program var writeln assign) distinctive=41 core=31 clusters=20 chunks=2 sizes=27,26
 entry	part	cluster	shells
-bench_shootout_src_hello	chunk:01	family:bench_shootout_src_hello	
+bench_shootout_src_hello	chunk:02	family:bench_shootout_src_hello	
 tbs_tb0012	core	core	abs array file for for_with_array function set_literal subrange type
 tbs_tb0068	core	core	array file function in record set set_literal subrange type with with_record
-tbs_tb0134	chunk:01	feat:file	file write
+tbs_tb0134	chunk:02	feat:file	file write
 tbs_tb0207	core	core	file for function nested_proc procedure want_rc
-tbs_tb0316	chunk:01	feat:in	for function in type
+tbs_tb0316	chunk:02	feat:in	for function in type
 tbs_tb0598	core	core	div write
 test_cg_taddr3	core	core	function nested_proc nil procedure type
-test_cg_tcnvint1	chunk:01	family:test_cg_tcnvint	
+test_cg_tcnvint1	chunk:02	family:test_cg_tcnvint	
 test_cg_tfor	core	core	const downto for forward function in nested_proc procedure type write
 test_cg_tfor2	chunk:01	feat:nested_proc	for nested_proc procedure
 test_opt_treg3	core	core	array dispose for for_with_array new pointer pointer_with_new procedure set_literal subrange type
-test_tcpstr10	chunk:01	family:test_tcpstr	
-test_testlderror	chunk:01	feat:in	in
-test_tismngd2	chunk:01	family:test_tismngd	
-test_tisobuf1	chunk:01	family:test_tisobuf	
+test_tcpstr10	chunk:02	family:test_tcpstr	
+test_testlderror	chunk:02	feat:in	in
+test_tismngd2	chunk:02	family:test_tismngd	
+test_tisobuf1	chunk:02	family:test_tisobuf	
 test_tisobuf2	core	core	array readln set_literal subrange want_rc
 test_tisobuf3	core	core	array file readln set_literal subrange want_rc
 test_tisoread	core	core	in read round trunc
@@ -30,9 +30,9 @@ test_tparray10	core	core	array for for_with_array in ord packed set_literal subr
 test_tprec11	core	core	array packed record set_literal subrange type
 test_tprec12	core	core	case packed procedure record subrange type
 test_tprec5	core	core	in nested_proc packed procedure record subrange type
-test_tpushpop1	chunk:01	feat:type	type
-test_tpushpop2	chunk:01	feat:record	record type
-test_tpushpop3	chunk:01	feat:set	set type
+test_tpushpop1	chunk:02	feat:type	type
+test_tpushpop2	chunk:02	feat:record	record type
+test_tpushpop3	chunk:02	feat:set	set type
 test_units_system_tassert1	core	core	const function nested_proc procedure write
 test_units_system_tassert6	chunk:01	feat:const	const procedure
 test_units_system_trandom	core	core	array const for for_with_array set_literal sqr subrange trunc
@@ -41,27 +41,27 @@ webtbs_tw0802	chunk:01	feat:function	function
 webtbs_tw0876	core	core	div for nested_proc procedure
 webtbs_tw0895	chunk:01	family:webtbs_tw	
 webtbs_tw12233	chunk:01	family:webtbs_tw	
-webtbs_tw14941a	chunk:01	feat:procedure	procedure
+webtbs_tw14941a	chunk:02	feat:procedure	procedure
 webtbs_tw15015	core	core	mod
-webtbs_tw15061	chunk:01	feat:record	array record set_literal subrange type
+webtbs_tw15061	chunk:02	feat:record	array record set_literal subrange type
 webtbs_tw15061a	core	core	array record set_literal subrange type want_rc
 webtbs_tw15203	chunk:01	feat:function	function nested_proc type
-webtbs_tw15750	chunk:01	feat:for	for
-webtbs_tw1681	chunk:01	feat:for	for
+webtbs_tw15750	chunk:02	feat:for	for
+webtbs_tw1681	chunk:02	feat:for	for
 webtbs_tw17604	chunk:01	family:webtbs_tw	
-webtbs_tw19581	chunk:01	feat:subrange	subrange type
+webtbs_tw19581	chunk:02	feat:subrange	subrange type
 webtbs_tw20396	chunk:01	family:webtbs_tw	
 webtbs_tw2072	chunk:01	feat:const	const for
 webtbs_tw22936	chunk:01	family:webtbs_tw	
 webtbs_tw23436	chunk:01	family:webtbs_tw	
-webtbs_tw23486	chunk:01	feat:round	round
+webtbs_tw23486	chunk:02	feat:round	round
 webtbs_tw24318	chunk:01	feat:const	const for procedure subrange type
 webtbs_tw2780	chunk:01	feat:const	const for
-webtbs_tw28718a	chunk:01	family:webtbs_twa	
-webtbs_tw28718d	chunk:01	feat:set	set
-webtbs_tw2897	chunk:01	feat:procedure	for procedure
+webtbs_tw28718a	chunk:02	family:webtbs_twa	
+webtbs_tw28718d	chunk:02	feat:set	set
+webtbs_tw2897	chunk:02	feat:procedure	for procedure
 webtbs_tw29930	core	core	div round while
-webtbs_tw30889	chunk:01	feat:for	for
+webtbs_tw30889	chunk:02	feat:for	for
 webtbs_tw3174	core	core	for pointer procedure
 webtbs_tw3324	core	core	const for in readln subrange type write
 webtbs_tw33635	chunk:01	family:webtbs_tw	
@@ -69,20 +69,20 @@ webtbs_tw35136	core	core	eof pointer set
 webtbs_tw35626	core	core	function in nested_proc round with
 webtbs_tw3572	chunk:01	feat:function	for function
 webtbs_tw35897	core	core	mod procedure
-webtbs_tw36079	chunk:01	feat:procedure	procedure
+webtbs_tw36079	chunk:02	feat:procedure	procedure
 webtbs_tw3683	chunk:01	feat:const	const for type
 webtbs_tw3691	chunk:01	feat:const	const for in type
 webtbs_tw3694	chunk:01	feat:function	function
 webtbs_tw37301	core	core	abs
-webtbs_tw37393	chunk:01	feat:procedure	procedure
+webtbs_tw37393	chunk:02	feat:procedure	procedure
 webtbs_tw37823	core	core	goto label procedure
 webtbs_tw37949	chunk:01	family:webtbs_tw	
 webtbs_tw38717	chunk:01	family:webtbs_tw	
 webtbs_tw40108	chunk:01	feat:const	const
 webtbs_tw4223	core	core	for in set
 webtbs_tw4763	chunk:01	family:webtbs_tw	
-webtbs_tw4898	chunk:01	feat:for	for
-webtbs_tw7440	chunk:01	feat:for_with_array	array for for_with_array set_literal subrange
+webtbs_tw4898	chunk:02	feat:for	for
+webtbs_tw7440	chunk:02	feat:for_with_array	array for for_with_array set_literal subrange
 webtbs_tw8191	chunk:01	feat:function	function
-webtbs_tw8229	chunk:01	feat:procedure	procedure
+webtbs_tw8229	chunk:02	feat:procedure	procedure
 webtbs_tw9059	core	core	goto label

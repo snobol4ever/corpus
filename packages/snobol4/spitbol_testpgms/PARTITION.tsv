@@ -1,5 +1,5 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
 # shape: entries=8 features=39 ubiquitous=7(package DEFINE TRIM cond_assign goto_fail goto_success arith) distinctive=32 core=7 clusters=1 chunks=1 sizes=1
 entry	part	cluster	shells
 test1	core	core	ANY APPLY ARRAY BAL CONVERT DATATYPE DUPL EVAL OPSYN REPLACE SIZE TABLE alternation capture_plus_defer deferred_eval keyword_ref

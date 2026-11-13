@@ -1,5 +1,5 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
 # shape: entries=30 features=15 ubiquitous=1(package) distinctive=14 core=10 clusters=13 chunks=1 sizes=20
 entry	part	cluster	shells
 test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w	chunk:01	family:test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w	

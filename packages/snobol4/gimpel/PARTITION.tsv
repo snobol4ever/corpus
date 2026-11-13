@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=144 features=29 ubiquitous=1(package) distinctive=28 core=35 clusters=58 chunks=2 sizes=100,9
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=144 features=29 ubiquitous=1(package) distinctive=28 core=35 clusters=58 chunks=1 sizes=109
 entry	part	cluster	shells
 agt_driver	chunk:01	feat:goto_success	DEFINE goto_success
 ai_driver	chunk:01	feat:ARRAY	ARRAY
@@ -16,7 +16,7 @@ bcd_ebcd_driver	core	core	REPLACE
 blanks_driver	chunk:01	family:blanks_driver	
 blend_driver	chunk:01	family:blend_driver	
 bnorm_driver	core	core	DEFINE REPLACE
-breakx_driver	chunk:02	feat:cond_assign	DEFINE cond_assign goto_fail
+breakx_driver	chunk:01	feat:cond_assign	DEFINE cond_assign goto_fail
 brkrem_driver	core	core	BREAK LEN REM cond_assign goto_fail
 bsort_driver	core	core	ARRAY DEFINE TRIM goto_fail
 cardpak_driver	chunk:01	feat:goto_success	goto_success
@@ -54,7 +54,7 @@ insulate_driver	core	core	DEFINE OPSYN goto_fail keyword_ref
 ip_driver	core	core	ARRAY DEFINE TRIM goto_fail
 l_one_driver	chunk:01	family:l_one_driver	
 l_two_driver	chunk:01	feat:DEFINE	DEFINE
-last_driver	chunk:02	feat:TRIM	DEFINE TRIM goto_success
+last_driver	chunk:01	feat:TRIM	DEFINE TRIM goto_success
 lexgt_driver	chunk:01	feat:goto_success	DEFINE goto_success
 like_driver	core	core	BREAK LEN POS RPOS cond_assign goto_fail goto_success
 line_driver	core	core	DEFINE alternation goto_fail
@@ -77,7 +77,7 @@ order_driver	chunk:01	family:order_driver
 orsort_driver	core	core	POS RPOS alternation goto_fail
 orvisual_driver	core	core	ANY EVAL POS RPOS goto_fail
 pad_driver	chunk:01	family:pad_driver	
-paragrap_driver	chunk:02	feat:POS	POS goto_fail
+paragrap_driver	chunk:01	feat:POS	POS goto_fail
 peel_driver	core	core	BAL goto_fail
 perm_driver	chunk:01	feat:ARRAY	ARRAY goto_success
 perms_driver	chunk:01	feat:goto_success	goto_success
@@ -129,20 +129,20 @@ statef_driver	chunk:01	family:statef_driver
 stone_driver	chunk:01	family:stone_driver	
 stringou_driver	chunk:01	feat:alternation	ARRAY alternation
 substr_driver	chunk:01	feat:goto_success	goto_success
-swap_driver	chunk:02	family:swap_driver	
-system_driver	chunk:02	family:system_driver	
+swap_driver	chunk:01	family:swap_driver	
+system_driver	chunk:01	family:system_driver	
 temp_driver	core	core	indirect_ref
 test_driver	core	core	DATATYPE LEN POS SPAN capture_plus_defer cond_assign deferred_eval goto_fail
 tictacto_driver	chunk:01	feat:goto_fail	goto_fail
 timegc_driver	chunk:01	feat:DATATYPE	DATATYPE DEFINE
 timer_driver	core	core	CODE DATATYPE goto_success
 tprofile_driver	chunk:01	feat:goto_success	goto_success
-tr_driver	chunk:02	family:tr_driver	
-tree_driver	chunk:02	feat:BREAK	BREAK POS RPOS cond_assign goto_fail
+tr_driver	chunk:01	family:tr_driver	
+tree_driver	chunk:01	feat:BREAK	BREAK POS RPOS cond_assign goto_fail
 treeread_driver	chunk:01	feat:goto_success	goto_success
-trig_driver	chunk:02	family:trig_driver	
+trig_driver	chunk:01	family:trig_driver	
 trunc_driver	chunk:01	feat:ARRAY	ARRAY
 tsort_driver	core	core	ARRAY TABLE
 tuple_driver	chunk:01	feat:DEFINE	DEFINE
-uplo_driver	chunk:02	family:uplo_driver	
+uplo_driver	chunk:01	family:uplo_driver	
 visit_driver	core	core	DATATYPE DEFINE OPSYN
