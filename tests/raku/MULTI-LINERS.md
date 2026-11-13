@@ -70,6 +70,18 @@ require Some::Module;
 use v6;
 ```
 
+## c_site__max_and_min_take_a_by_named_argument
+
+```Raku
+say max(<a bbb cc>, :by(*.chars));
+say min(<a bbb cc>, :by(*.chars));
+```
+
+```stdout
+bbb
+a
+```
+
 ## ladder__rung00_hello_print_no_newline
 
 ```Raku
@@ -1792,6 +1804,18 @@ supply { say("emit"); }
 ```stdout
 True
 True
+```
+
+## c_site__slip_coerces_its_arguments_into_a_slip
+
+```Raku
+say (1, Slip(2, 3), 4).gist;
+say (Slip(2, 3), 4).elems;
+```
+
+```stdout
+(1 2 3 4)
+3
 ```
 
 ## ladder__rung01_variables_no_strict_declares_a_hash_that_is_only_read
@@ -4760,6 +4784,19 @@ say @a[*-2];
 20
 ```
 
+## c_site__run_spawns_a_proc_and_reads_its_out
+
+```Raku
+my $p = run 'echo', 'hi', :out;
+print $p.out.slurp(:close);
+say $p.exitcode;
+```
+
+```stdout
+hi
+0
+```
+
 ## ladder__rung01_variables_multiple_declaration
 
 ```Raku
@@ -5172,6 +5209,20 @@ say "after";
 before
 (Any)
 after
+```
+
+## c_site__an_operator_reference_is_called_as_a_routine
+
+```Raku
+my $x;
+&infix:<=>($x, 3);
+say $x;
+say &infix:<+>(2, 3);
+```
+
+```stdout
+3
+5
 ```
 
 ## exceptions__ex11_rk_numeric_conversion_dies
@@ -10460,6 +10511,33 @@ while $i < 4 { $i = $i + 1; next if $i == 2; say $i }
 4
 ```
 
+## c_site__a_builtin_named_at_run_time_is_called
+
+```Raku
+my $t = "ceiling";
+say &::($t)(1.2);
+for <floor round> -> $n { say &::($n)(2.5) }
+```
+
+```stdout
+2
+2
+3
+```
+
+## c_site__smartmatch_calls_a_routine_on_its_right
+
+```Raku
+sub is_even($x) { $x %% 2 }
+say 4 ~~ &is_even;
+say 3 ~~ &is_even;
+```
+
+```stdout
+True
+False
+```
+
 ## class_method_replace_10
 
 ```Raku
@@ -10718,6 +10796,20 @@ say($i);
 
 ```stdout
 5
+```
+
+## c_site__an_object_with_call_me_is_called
+
+```Raku
+class C { method CALL-ME($x) { "called $x" } }
+my $c = C.new;
+say $c(5);
+say $c.(6);
+```
+
+```stdout
+called 5
+called 6
 ```
 
 ## class_say_replace_22
@@ -14834,6 +14926,20 @@ say a(0,1,2,3) ~ "|" ~ b(0,1,2,3);
 3|3
 ```
 
+## c_site__a_routine_named_through_its_package_is_called
+
+```Raku
+sub not($x) { $x }
+say &SETTING::not(False);
+class R { our method m() { "m of " ~ self.^name } }
+say &R::m(R.new);
+```
+
+```stdout
+True
+m of R
+```
+
 ## class_method_say_replace_31
 
 ```Raku
@@ -16463,6 +16569,21 @@ f("a","b");
 
 ```stdout
 a b
+```
+
+## c_site__sort_calls_its_comparator
+
+```Raku
+my %h = b => 2, a => 1, c => 3;
+for %h.sort(*.key) -> $p { say $p.key }
+say (3, 1, 2).sort({ $^b <=> $^a });
+```
+
+```stdout
+a
+b
+c
+(3 2 1)
 ```
 
 ## class_method_for_replace_1
