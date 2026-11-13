@@ -1,3 +1,5 @@
 # ALL.mask -- R-409 line masks for this container (entry<TAB>L<n>-or-python-regex<TAB>reason); the rows of an entry
 # whose program ships a <stem>.mask are written from it by util_build_package_suite.py under the entry's name.
 thread/gc	^garbage collection =(OK|[0-9]+)$	ampersand-collections is implementation-defined (Icon book, appendix): gc.icn prints OK only inside the oracle collector window 190..210
+unicon/list_test	ENGINE-ONLY:^Array: (Array allocation \(\d\)|Not list allocation \(\d\)|Integer array produced|Real array produced) FAILED$	LON-2026-11-13-MASK: the eight Array checks compare &allocated byte counts, an implementation-defined figure (SCRIP's array element cell is 16 bytes, Unicon 13.3's is 8: list(1000,0) delta 16144 against 8128; officer_01, senior_03, junior_09); every other check matches the oracle
+unicon/list_test	^ +Array: Passed = (44|36) Failed = (0|8)$	LON-2026-11-13-MASK: the Array section's summary counts those same eight implementation-defined checks; only the two states 44/0 (Unicon) and 36/8 (SCRIP) are admitted
