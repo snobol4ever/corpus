@@ -51727,7 +51727,7 @@ global identifiers:
 #- 229 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__prog
 a program
 #------------------------ 230 test_gate_icon_m4_invocation_is_pinned__pinwitness
-&progname: test_gate_icon_m4_invocation_is_pinned__pinwitness.icn
+&progname: test_gate_icon_m4_invocation_is_pinned__pinwitness
 #-------------- 231 test_gate_icon_package_units_carry_their_attribute_row__bare
 bare
 #- 232 test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__i
