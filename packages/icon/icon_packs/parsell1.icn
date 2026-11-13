@@ -4,15 +4,15 @@ record Token(type,body,line,column)
 link readll1
 
 procedure parseLL1(ll1)
-local predictionStack
-local x,y,z,top,cur
- predictionStack:=[ll1.start,ll1.eoi]
- cur := scan()
+local predictionStack;
+local x,y,z,top,cur;
+ predictionStack:=[ll1.start,ll1.eoi];
+ cur := scan();
 repeat {
-	if not(top := pop(predictionStack)) then return
+	if not(top := pop(predictionStack)) then return;
 	if top == cur.type then {
-		outToken(cur)
-		if top == ll1.eoi then break
+		outToken(cur);
+		if top == ll1.eoi then break;
 		cur := scan()
 	} else if member(ll1.actions,top) then {
 		outAction(top)
@@ -22,35 +22,35 @@ repeat {
 		every z:=y[*y to 1 by -1] do push(predictionStack,z)
 	} else {
 		#panic mode error recovery
-		reportParseError(cur)
-		push(predictionStack,top)
+		reportParseError(cur);
+		push(predictionStack,top);
 		repeat {
 		   while not member(ll1.fiducials,cur.type) & 
 		   		cur.type~==ll1.eoi do {
 			 #write("scanning past ",cur.body)
 		   	cur := scan()
-		   }
+		   };
 		   if x:=!predictionStack &
 		   	(x==cur.type) | 
 			   member(\ll1.firstFiducials[x], cur.type)
 		   then break
 		   else cur := scan()
-		}
+		};
 		repeat {
 		   top := pop(predictionStack) | 
-		   	stop("system error in panic mode")
+		   	stop("system error in panic mode");
 		    #write("pruning stack ",top)
 		   if top==cur.type then {
-			push(predictionStack,top)
+			push(predictionStack,top);
 			break
-		   }
+		   };
 		   if member(ll1.actions,top) then {
 		   	outAction(top)
 		   } else if member(ll1.terminals,top) then {
 		   	outError(top)
 		   } else if member(\ll1.firstFiducials[top],cur.type)
 		   		then {
-		   	push(predictionStack,top)
+		   	push(predictionStack,top);
 			break
 		   } else {
 		   	predictionStack := ll1.minLengRHS[top] |||
@@ -58,8 +58,8 @@ repeat {
 		   }
 		}
 	}
-}
-return
+};
+return;
 end
 # 
 #  Copyright (C) 1994,  T.W. Christopher and G.K. Thiruvathukal.

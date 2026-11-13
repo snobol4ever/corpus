@@ -1,0 +1,2 @@
+# the euler pack is built from several files at once (its Makefile: icont -fs euler eulersem eulerint parsell1.u1 readll1.u1 semstk.u1 eulerscn.u1); a launch names one driver file, so this file links them all and euler.icn supplies main
+link euler,eulersem,eulerint,parsell1,readll1,semstk,eulerscn

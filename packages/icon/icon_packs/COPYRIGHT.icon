@@ -1,4 +1,4 @@
-The files of this folder come from the Icon program library (packs/euler of the Icon distribution, version 9.5.25a), copied as shipped.
+The files of this folder come from the Icon program library (packs/euler of the Icon distribution, version 9.5.25a), copied with semicolons added (the MODIFIED paragraph at the end).
 The README of the Icon distribution says:
 
     This material is in the public domain.  You may use and copy this material
@@ -9,3 +9,5 @@ The README of the Icon distribution says:
 parsell1.icn, readll1.icn and semstk.icn come from T.W. Christopher's TLC parser generator (packs/tcll1, vendored in pack_tcll1 on the
 same footing); parsell1.icn carries its own notice, kept as shipped: "Copyright (C) 1994, T.W. Christopher and G.K. Thiruvathukal. All
 rights reserved. The use of TLC is governed by conditions similar to GNU Copyleft."
+
+MODIFIED, as the distribution's terms ask a modified version to say: the ten .icn files of this folder (ebcdic, escape, euler, eulerint, eulerscn, eulersem, parsell1, readll1, semstk, xcode) are the pack's with semicolons added by hand on 2026-11-13 (a seat's own edit) and no other change; the ucode of each is byte-identical to its original's under the distribution's stock icont. eulerrun.icn is not the pack's: it is this package's driver and holds only link lines.

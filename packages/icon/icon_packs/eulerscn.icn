@@ -5,31 +5,31 @@ global keywordSet
 
 procedure initScanner(filename)
 inputFile := open(filename,"r") |
-	stop("unable to open input: ",filename)
-return
+	stop("unable to open input: ",filename);
+return;
 end
 
 procedure fractionPart()
-return ="." || (tab(many(&digits)) | "")
+return ="." || (tab(many(&digits)) | "");
 end
 
 procedure scaleFactor()
-return tab(any('ED')) || (tab(any('+-')) | "") || tab(many(&digits))
+return tab(any('ED')) || (tab(any('+-')) | "") || tab(many(&digits));
 end
 
 procedure scan()
-local t,c,b
-static whiteSpace,initIdChars,idChars,hexdigits,commentDepth,commentLineNo
+local t,c,b;
+static whiteSpace,initIdChars,idChars,hexdigits,commentDepth,commentLineNo;
 initial {
-	/inputFile := &input
-	inputLineNumber := 1
-	inputColumn := 1
-	inputLine := read(inputFile)
-	eoiToken := &null
-	whiteSpace := &ascii[1:34]	#control ++ blank
-	initIdChars := &letters
-	hexdigits := &digits ++ 'ABCDEF'
-	idChars := &letters ++ &digits ++ '$_'
+	/inputFile := &input;
+	inputLineNumber := 1;
+	inputColumn := 1;
+	inputLine := read(inputFile);
+	eoiToken := &null;
+	whiteSpace := &ascii[1:34];	#control ++ blank
+	initIdChars := &letters;
+	hexdigits := &digits ++ 'ABCDEF';
+	idChars := &letters ++ &digits ++ '$_';
 	keywordSet := set([
 		"new",
 		"formal",
@@ -67,12 +67,12 @@ initial {
 		"begin",
 		"end"
 ])
-}
-if \eoiToken then return eoiToken
+};
+if \eoiToken then return eoiToken;
 repeat inputLine ? {
-	tab(inputColumn)
-	tab(many(whiteSpace))
-	c := &pos
+	tab(inputColumn);
+	tab(many(whiteSpace));
+	c := &pos;
 	if b := tab(many(&digits)) then {
 		if b := b || fractionPart() ||
 		    scaleFactor() then {
@@ -87,38 +87,38 @@ repeat inputLine ? {
 		} else {
 			t := Token("integerN",b,
 				inputLineNumber,c)
-		}
-		inputColumn := &pos
+		};
+		inputColumn := &pos;
 		return t
 	} else
 	 if any(initIdChars) then {
 		t := Token("id",tab(many(idChars)),
-			inputLineNumber,c)
-		inputColumn := &pos
+			inputLineNumber,c);
+		inputColumn := &pos;
 		if member(keywordSet,t.body) then
-			t.type := t.body
+			t.type := t.body;
 		return t
 	} else
 	 if b := =("<-" | ">=" | "<=" | "~=" | "**" ) then {
-		inputColumn := &pos
+		inputColumn := &pos;
 		return Token(b,b,inputLineNumber,c)
 	} else
 	 if ="(*" then {
-		inputColumn := &pos
-		commentDepth := 1
-		commentLineNo := inputLineNumber
+		inputColumn := &pos;
+		commentDepth := 1;
+		commentLineNo := inputLineNumber;
 		while commentDepth > 0 do {
-			tab(upto('*(')|0)
+			tab(upto('*(')|0);
 			if pos(0) then {
-			    &pos := 1
-			    inputLineNumber +:= 1
+			    &pos := 1;
+			    inputLineNumber +:= 1;
 			    if not (&subject :=
 					inputLine := read(inputFile))
 				   then {
 				eoiToken := Token("EOI","EOI",
-					inputLineNumber,1)
+					inputLineNumber,1);
 				write("end of input in comment beginning at ",
-					commentLineNo)
+					commentLineNo);
 				return eoiToken
 			    }
 			 } else if ="*)" then {
@@ -128,38 +128,38 @@ repeat inputLine ? {
 			 } else {
 			 	move(1)
 			 }
-		}
+		};
 		inputColumn := &pos
 	} else
 	 if b := tab(any('\',=()[]~+-*/@&;:><.')) then {
-		inputColumn := &pos
+		inputColumn := &pos;
 		return Token(b,b,inputLineNumber,c)
 	} else
 	 if pos(0) then {
-		inputColumn := 1
-		inputLineNumber +:= 1
+		inputColumn := 1;
+		inputLineNumber +:= 1;
 		if not (inputLine := read(inputFile)) then {
 			eoiToken := Token("EOI","EOI",
-					inputLineNumber,1)
+					inputLineNumber,1);
 
 			return eoiToken
 		}
 	} else
 	 if ="\"" then {
-		b := tab(find("\""))
+		b := tab(find("\""));
 		if not( = "\"" ) then {
 			write("unterminated string at ",
 				inputLineNumber," ",c)
-		}
-		t := Token("symbol",b,inputLineNumber,c)
-		inputColumn := &pos
+		};
+		t := Token("symbol",b,inputLineNumber,c);
+		inputColumn := &pos;
 		return t
 	} else
 		{
 		write("unexpected character: ",move(1),
-			" at line ",inputLineNumber," column ",c)
+			" at line ",inputLineNumber," column ",c);
 		inputColumn := &pos
 	}
-}
+};
 end
 
