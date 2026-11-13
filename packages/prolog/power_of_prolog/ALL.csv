@@ -1,0 +1,4 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,prolog/animal_client,prolog/animal_client.pl,power_of_prolog__prolog/animal_client,power_of_prolog,45,0,131072,4096,60,,swi
+2,prolog/showcases/gallery,prolog/showcases/gallery.pl,power_of_prolog__prolog/showcases/gallery,power_of_prolog,93,0,131072,4096,60,,swi
+3,prolog/showcases/menu,prolog/showcases/menu.pl,power_of_prolog__prolog/showcases/menu,power_of_prolog,199,0,131072,4096,60,,swi

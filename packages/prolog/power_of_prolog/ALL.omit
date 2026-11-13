@@ -1,0 +1,42 @@
+alzint/alzint.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: alzint.pl:35:
+bitcoinolog/bitcoinolog.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: bitcoinolog.pl:22:
+bitcoinolog/ecclog.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: ecclog.pl:13:
+clpb/benchmarks/bench.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/benchmarks/langford.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/benchmarks/pigeon.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/benchmarks/queens.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/benchmarks/schur.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/benchmarks/triominoes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/clpb.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: clpb.pl:41:
+clpb/edges.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+clpb/independent.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: independent.pl:6:
+clpb/kernels.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: kernels.pl:2:
+clpb/matchsticks.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: matchsticks.pl:1:
+conn4/conn4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: conn4.pl:31:
+knight/knight.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: knight.pl:15:
+lisprolog/lisprolog.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lisprolog.pl:8:
+presprover/presprover.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: presprover.pl:125:
+presprover/testing.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: testing.pl:1:
+prolog/acomip.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: acomip.pl:16:
+prolog/animal_server.pl: NEEDS-NETWORK: the source names library(http/http_unix_daemon)
+prolog/animals.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: animals.pl:2:
+prolog/hailstone.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: hailstone.pl:1:
+prolog/length.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: length.pl:1:
+prolog/mapcolor.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mapcolor.pl:1:
+prolog/minatotask.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: minatotask.pl:63:
+prolog/pet_tree.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prolog/poly1305aes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: poly1305aes.pl:16:
+prolog/reif.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prolog/sea.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: sea.pl:3:
+prolog/searching.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: searching.pl:1:
+prolog/server.pl: NEEDS-NETWORK: the source names library(http/http_server)
+prolog/showcases/turing.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: turing.pl:80:
+prolog/videos/videos.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: videos.pl:2:
+prolog/zebra.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: zebra.pl:1:
+queens/queens.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: queens.pl:11:
+server.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: server.pl:27:
+sudoku/sudoku.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: sudoku.pl:9:
+tist/interp.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: interp.pl:8:
+tist/jugs.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: jugs.pl:1:
+trs/trs.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: trs.pl:67:
+zurg/zurg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: zurg.pl:22:12: Syntax error: Operator expected

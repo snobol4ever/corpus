@@ -1,0 +1,68 @@
+examples/benchmarks/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/brahme/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/brahme/plbench.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: plbench.pl:52:
+examples/benchmarks/dobry/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/dobry/dobry.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: dobry.pl:59:
+examples/benchmarks/ecrc/bench_1_1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/ecrc/bench_1_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: bench_1_2.pl:114:
+examples/benchmarks/ecrc/bench_1_3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: bench_1_3.pl:18:
+examples/benchmarks/ecrc/bench_1_4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/ecrc/bench_1_5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: bench_1_5.pl:167:
+examples/benchmarks/ecrc/bench_1_6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: bench_1_6.pl:86:
+examples/benchmarks/ecrc/bench_1_7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/ecrc/bench_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: bench_2.pl:37:
+examples/benchmarks/holmer/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/chat_parser.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: chat_parser.pl:203:3: Syntax error: Operator expected
+examples/benchmarks/holmer/divide10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/log10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/meta_qsort.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/mu.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/nreverse.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/ops8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/poly_10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/prover.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/qsort.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/queens_8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/query.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/sdda.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: sdda.pl:27:
+examples/benchmarks/holmer/serialise.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/tak.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/holmer/times10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/minerva/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/minerva/mrp_and_mrs.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: mrp_and_mrs.pl:12:
+examples/benchmarks/pereira/pereira.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: pereira.pl:281:
+examples/benchmarks/portland/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/bintree.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: bintree.pl:23:
+examples/benchmarks/portland/cd.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/genlist.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/hanoi.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/loop.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/memfill.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/nairev.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/polyeval.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/primes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: primes.pl:29:
+examples/benchmarks/portland/snairev.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/portland/sort.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: sort.pl:6:
+examples/benchmarks/quintus/bench.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/src/bench.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/benchmarks/src/path.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: path.pro:70:
+examples/benchmarks/xprolog/bench_util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/java/knight.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: ERROR: Prolog initialisation failed:
+examples/java/peg.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: ERROR: Prolog initialisation failed:
+examples/java/pentomino.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: ERROR: Prolog initialisation failed:
+examples/java/queens.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: ERROR: Prolog initialisation failed:
+examples/prolog/knight.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/prolog/komachi.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/prolog/list.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/prolog/maketen.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: maketen.pl:25:
+examples/prolog/peg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+examples/prolog/pentomino.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: pentomino.pl:55:
+examples/prolog/queens.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+src/builtin/builtins.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: builtins.pl:15:
+src/builtin/cafeteria.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: cafeteria.pl:9:11: Syntax error: Operator expected
+src/builtin/io.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: io.pl:1:11: Syntax error: Operator expected
+src/builtin/system.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: system.pl:3:11: Syntax error: Operator expected
+src/compiler/am2j.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+src/compiler/operators.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+src/compiler/package_fx.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+src/compiler/pl2am.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: pl2am.pl:173:

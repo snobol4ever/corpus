@@ -1,0 +1,160 @@
+99-bottles-of-beer-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+99-bottles-of-beer-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+a+b-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+a+b-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+abbreviations-simple: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+abc-problem: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+ackermann-function: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+anagrams: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+arithmetic-complex: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+arithmetic-integer: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+array-concatenation: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+associative-array-creation: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+associative-array-iteration: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+averages-arithmetic-mean: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+averages-root-mean-square: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+binary-digits: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+call-a-function-in-a-shared-library: missing corpus dependency: -INCLUDE 'ffi.sno' resolves in none of /tmp/s4e/grader/wt-mine/corpus/packages/snobol4/rosetta-snobol4, /tmp/s4e/grader/wt-mine/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+character-codes: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+comments: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compound-data-type: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+conditional-structures: oracle produced EMPTY output -- refusing to mint a vacuous ref
+copy-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
+count-how-many-vowels-and-consonants-occur-in-a-string: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+create-a-file: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+create-a-two-dimensional-array-at-runtime: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+create-an-html-table: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+cusip: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+detect-division-by-zero: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+determine-if-a-string-is-numeric: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+dot-product: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+dynamic-variable-names: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+empty-program: oracle produced EMPTY output -- refusing to mint a vacuous ref
+environment-variables: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+ethiopian-multiplication: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+execute-a-markov-algorithm: multi-program file: 5 top-level END statements -- not a single valid program (SCRIP correctly refuses a duplicate 'END' label; the oracle instead silently continues past it, so neither engine's output is a meaningful single-program comparison)
+extract-file-extension: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+factorial-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+factorial-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+factorial-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+factorial-4: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fibonacci-sequence-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+fibonacci-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-5: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+file-input-output: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+function-definition: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+function-prototype-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+function-prototype-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+function-prototype-3: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+generic-swap: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+greatest-element-of-a-list: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+hash-from-two-arrays: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+hello-world-line-printer-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hello-world-line-printer-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hello-world-standard-error: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hostname: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+http: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+iban: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+include-a-file: missing corpus dependency: -INCLUDE 'path/to/filename.inc' resolves in none of /tmp/s4e/grader/wt-mine/corpus/packages/snobol4/rosetta-snobol4, /tmp/s4e/grader/wt-mine/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+increment-a-numerical-string: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+input-loop: oracle timed out -- non-terminating or too slow for the grading timeout
+integer-comparison: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+jump-anywhere: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+knuth-shuffle: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+leap-year: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+look-and-say-sequence: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-break-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-break-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+loops-continue: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-for-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-for-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-for-3: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-for-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-infinite: oracle timed out -- non-terminating or too slow for the grading timeout
+loops-n-plus-one-half-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+loops-n-plus-one-half-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+luhn-test-of-credit-card-numbers: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+memory-allocation-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-7: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation-8: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metaprogramming-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metaprogramming-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metaprogramming-3: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+metaprogramming-4: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+metaprogramming-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metaprogramming-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multiplication-tables: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+mutual-recursion: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+nim-game: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+palindrome-detection: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+pangram-checker: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+primality-by-trial-division-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+primality-by-trial-division-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+program-termination: oracle produced EMPTY output -- refusing to mint a vacuous ref
+range-expansion: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+range-extraction: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+read-a-file-line-by-line: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+read-entire-file: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+regular-expressions-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+regular-expressions-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+regular-expressions-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+remove-lines-from-a-file: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+rep-string: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+repeat-a-string: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+reverse-a-string: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+roman-numerals-decode-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+roman-numerals-decode-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+roman-numerals-decode-3: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+roman-numerals-encode-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+rosetta-code-rank-languages-by-popularity: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+rot-13: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+run-length-encoding: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+runtime-evaluation-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+runtime-evaluation-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+runtime-evaluation-in-an-environment-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+runtime-evaluation-in-an-environment-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+semordnilap: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+shell-one-liner-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+shell-one-liner-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+short-circuit-evaluation: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+sieve-of-eratosthenes: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-bogosort: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+sorting-algorithms-bubble-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-gnome-sort-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-gnome-sort-2: missing corpus dependency: -INCLUDE 'gnome_sort.sno' resolves in none of /tmp/s4e/grader/wt-mine/corpus/packages/snobol4/rosetta-snobol4, /tmp/s4e/grader/wt-mine/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
+sorting-algorithms-insertion-sort: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+soundex: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+split-a-character-string-based-on-change-of-character: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+string-case-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+string-case-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+string-concatenation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+string-interpolation-included-: oracle produced EMPTY output -- refusing to mint a vacuous ref
+string-length-1: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+string-length-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+string-matching: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+strip-a-set-of-characters-from-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
+strip-block-comments: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+substring: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+substring-top-and-tail: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sum-and-product-of-an-array: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+sum-of-squares: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+sum-of-the-digits-of-n-is-substring-of-n: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+system-time: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+take-notes-on-the-command-line: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+text-between: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+text-processing-2: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+tokenize-a-string: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+tokenize-a-string-with-escaping: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+towers-of-hanoi: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+user-input-text: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+van-eck-sequence: oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against
+variables: oracle produced EMPTY output -- refusing to mint a vacuous ref
+zero-to-the-zero-power: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth

@@ -1,0 +1,24 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=20 features=25 ubiquitous=1(package) distinctive=24 core=10 clusters=8 chunks=1 sizes=10
+entry	part	cluster	shells
+100-doors-1	core	core	ARRAY DEFINE arith goto_fail goto_success
+100-doors-2	chunk:01	feat:ARRAY	ARRAY arith goto_fail goto_success
+array-length	core	core	ARRAY DATATYPE
+arrays	chunk:01	feat:ARRAY	ARRAY arith goto_fail goto_success
+case-sensitivity-of-identifiers	chunk:01	family:case-sensitivity-of-identifiers	
+count-occurrences-of-a-substring	core	core	ARB DEFINE arith goto_fail
+empty-string	chunk:01	feat:goto_success	goto_success
+even-or-odd	chunk:01	feat:DEFINE	DEFINE
+find-the-intersection-of-two-lines	core	core	ARRAY DEFINE arith deferred_eval goto_fail
+fizzbuzz	chunk:01	feat:arith	arith goto_fail goto_success
+hello-world-text	chunk:01	family:hello-world-text	
+loops-downward-for	chunk:01	feat:arith	arith goto_success
+n-queens-problem	core	core	ARBNO BREAK DEFINE DUPL LEN SIZE alternation arbno_with_alt arith cond_assign goto_fail goto_success keyword_ref
+quine	core	core	REPLACE
+roman-numerals-encode-1	core	core	BREAK DEFINE LEN REPLACE RPOS cond_assign goto_fail goto_success
+string-append	chunk:01	family:string-append	
+string-comparison	core	core	REPLACE keyword_ref
+string-prepend	chunk:01	family:string-prepend	
+strip-whitespace-from-a-string-top-and-tail	core	core	ARB POS RPOS RTAB SPAN TAB TRIM cond_assign keyword_ref
+subleq	core	core	ARRAY SIZE arith goto_fail goto_success keyword_ref

@@ -1,0 +1,14 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=10 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=2 chunks=1 sizes=9
+entry	part	cluster	shells
+examples/benchmarks/holmer/boyer	core	core	
+examples/benchmarks/holmer/browse	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/crypt	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/fast_mu	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/flatten	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/reducer	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/simple_analyzer	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/unify	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/holmer/zebra	chunk:01	dir:examples/benchmarks/holmer	
+examples/benchmarks/xprolog/path	chunk:01	dir:examples/benchmarks/xprolog	

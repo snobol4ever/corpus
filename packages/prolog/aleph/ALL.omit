@@ -1,0 +1,26 @@
+pack.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prolog/aleph.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prolog/aleph_test/test_aleph.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: test_aleph.pl:11:
+prolog/examples/abduce.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: abduce.pl:15:
+prolog/examples/animals.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: animals.pl:12:
+prolog/examples/constraints.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: constraints.pl:13:
+prolog/examples/features.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: features.pl:10:
+prolog/examples/gcws.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: gcws.pl:9:
+prolog/examples/good.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: good.pl:10:
+prolog/examples/interactive_animals.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: interactive_animals.pl:16:
+prolog/examples/interactive_mem.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: interactive_mem.pl:28:
+prolog/examples/modes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: modes.pl:15:
+prolog/examples/numbers_guess.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: numbers_guess.pl:11:
+prolog/examples/numbers_ineq.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: numbers_ineq.pl:13:
+prolog/examples/numbers_line.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: numbers_line.pl:14:
+prolog/examples/numbers_miline.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: numbers_miline.pl:14:
+prolog/examples/portray/portray_hypothesis.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: portray_hypothesis.pl:28:
+prolog/examples/portray/portray_literals.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prolog/examples/portray/portray_search.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prolog/examples/portray_train.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: portray_train.pl:11:
+prolog/examples/posonly.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: posonly.pl:16:
+prolog/examples/recursion.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: recursion.pl:8:
+prolog/examples/refine.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: refine.pl:11:
+prolog/examples/train.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: train.pl:16:
+prolog/examples/weather.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: weather.pl:5:
+prolog/examples/wedge.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: wedge.pl:35:

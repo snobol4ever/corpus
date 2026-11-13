@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,prolog/aleph_orig,prolog/aleph_orig.pl,aleph__prolog/aleph_orig,aleph,10429,0,131072,4096,60,,swi

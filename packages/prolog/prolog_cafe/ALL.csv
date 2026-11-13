@@ -1,0 +1,11 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,examples/benchmarks/holmer/boyer,examples/benchmarks/holmer/boyer.pl,prolog_cafe__examples/benchmarks/holmer/boyer,prolog_cafe,391,0,131072,4096,60,,swi
+2,examples/benchmarks/holmer/browse,examples/benchmarks/holmer/browse.pl,prolog_cafe__examples/benchmarks/holmer/browse,prolog_cafe,100,0,131072,4096,60,,swi
+3,examples/benchmarks/holmer/crypt,examples/benchmarks/holmer/crypt.pl,prolog_cafe__examples/benchmarks/holmer/crypt,prolog_cafe,84,0,131072,4096,60,,swi
+4,examples/benchmarks/holmer/fast_mu,examples/benchmarks/holmer/fast_mu.pl,prolog_cafe__examples/benchmarks/holmer/fast_mu,prolog_cafe,100,0,131072,4096,60,,swi
+5,examples/benchmarks/holmer/flatten,examples/benchmarks/holmer/flatten.pl,prolog_cafe__examples/benchmarks/holmer/flatten,prolog_cafe,191,0,131072,4096,60,,swi
+6,examples/benchmarks/holmer/reducer,examples/benchmarks/holmer/reducer.pl,prolog_cafe__examples/benchmarks/holmer/reducer,prolog_cafe,379,0,131072,4096,60,,swi
+7,examples/benchmarks/holmer/simple_analyzer,examples/benchmarks/holmer/simple_analyzer.pl,prolog_cafe__examples/benchmarks/holmer/simple_analyzer,prolog_cafe,481,0,131072,4096,60,,swi
+8,examples/benchmarks/holmer/unify,examples/benchmarks/holmer/unify.pl,prolog_cafe__examples/benchmarks/holmer/unify,prolog_cafe,156,0,131072,4096,60,,swi
+9,examples/benchmarks/holmer/zebra,examples/benchmarks/holmer/zebra.pl,prolog_cafe__examples/benchmarks/holmer/zebra,prolog_cafe,49,0,131072,4096,60,,swi
+10,examples/benchmarks/xprolog/path,examples/benchmarks/xprolog/path.pl,prolog_cafe__examples/benchmarks/xprolog/path,prolog_cafe,82,0,131072,4096,60,,swi

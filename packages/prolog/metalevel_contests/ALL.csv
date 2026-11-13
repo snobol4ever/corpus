@@ -1,0 +1,3 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,iclp2015/fqueens,iclp2015/fqueens.pl,metalevel_contests__iclp2015/fqueens,metalevel_contests,82,0,131072,4096,60,,swi
+2,iclp2015/packing,iclp2015/packing.pl,metalevel_contests__iclp2015/packing,metalevel_contests,152,0,131072,4096,60,,swi

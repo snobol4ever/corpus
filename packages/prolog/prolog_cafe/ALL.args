@@ -1,0 +1,10 @@
+examples/benchmarks/holmer/boyer	main
+examples/benchmarks/holmer/browse	main
+examples/benchmarks/holmer/crypt	main
+examples/benchmarks/holmer/fast_mu	main
+examples/benchmarks/holmer/flatten	main
+examples/benchmarks/holmer/reducer	main
+examples/benchmarks/holmer/simple_analyzer	main
+examples/benchmarks/holmer/unify	main
+examples/benchmarks/holmer/zebra	main
+examples/benchmarks/xprolog/path	main
