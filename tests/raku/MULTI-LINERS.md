@@ -8003,6 +8003,20 @@ say $v;
 99
 ```
 
+## ladder__rung12_exceptions_a_handled_failure_prints_as_handled_with_its_message
+
+```Raku
+my $x = Failure.new("nope");
+say $x.defined;
+print($x, "|\n");
+```
+
+```stdout
+False
+(HANDLED) nope
+|
+```
+
 ## ladder__rung16_bool_relops_numeric_context
 
 ```Raku
@@ -11021,6 +11035,32 @@ say $p.x;
 3
 4
 10
+```
+
+## ladder__rung13_classes_a_class_own_bool_and_defined_answer_every_truth_and_definedness_context
+
+```Raku
+class B { method Bool { False } }
+class D { method defined { False } }
+say so B.new;
+say ?B.new;
+if B.new { say "if-t" } else { say "if-f" }
+say B.new ?? "tern-t" !! "tern-f";
+say D.new.defined;
+say (D.new // "dor");
+with D.new { say "with-t" } else { say "with-f" }
+say D.new.so;
+```
+
+```stdout
+False
+False
+if-f
+tern-f
+False
+dor
+with-f
+False
 ```
 
 ## ladder__rung04_arrays_an_empty_array_is_an_array_a_sub_can_push_onto_and_its_max_is_minus_inf
