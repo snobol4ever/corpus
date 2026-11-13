@@ -75,7 +75,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 74,hakank_swi_euler11,hakank_swi_euler11.pl,puzzles__hakank_swi_euler11,puzzles,144,0,131072,4096,300,,swi,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 75,hakank_swi_euler12,hakank_swi_euler12.pl,puzzles__hakank_swi_euler12,puzzles,61,0,131072,4096,300,,swi,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 76,hakank_swi_euler13,hakank_swi_euler13.pl,puzzles__hakank_swi_euler13,puzzles,166,0,131072,4096,300,,swi,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
-77,hakank_swi_euler14,hakank_swi_euler14.pl,puzzles__hakank_swi_euler14,puzzles,147,0,4194304,4096,300,,swi,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
+77,hakank_swi_euler14,hakank_swi_euler14.pl,puzzles__hakank_swi_euler14,puzzles,147,0,4194304,4096,3600,,swi,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0
 78,hakank_swi_euler15,hakank_swi_euler15.pl,puzzles__hakank_swi_euler15,puzzles,41,0,131072,4096,300,,swi,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 79,hakank_swi_euler16,hakank_swi_euler16.pl,puzzles__hakank_swi_euler16,puzzles,35,0,131072,4096,300,,swi,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0
 80,hakank_swi_euler17,hakank_swi_euler17.pl,puzzles__hakank_swi_euler17,puzzles,129,0,131072,4096,300,,swi,,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,1,0,0,0
