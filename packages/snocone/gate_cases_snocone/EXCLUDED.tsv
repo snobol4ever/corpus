@@ -1,0 +1,6 @@
+# EXCLUDED.tsv -- gate_cases_snocone: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__c	NO_ORACLE_ANSWER	oracle died: graceful fatal report (e.g. undefined function) -- no ground truth to grade against (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+test_gate_sc_duplicate_label_is_refused_at_parse__dup	FAKEABLE_NO_OBSERVABLE	oracle produced EMPTY output -- refusing to mint a vacuous ref (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+test_gate_snc_a_label_at_end_of_file_is_a_statement__jump	FAKEABLE_NO_OBSERVABLE	oracle produced EMPTY output -- refusing to mint a vacuous ref (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+test_gate_snc_two_nreturn_functions_link_in_m4__w	FAKEABLE_NO_OBSERVABLE	oracle produced EMPTY output -- refusing to mint a vacuous ref (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
