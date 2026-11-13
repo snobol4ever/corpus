@@ -1818,12 +1818,12 @@ end_of_file
 err(syntax_error(end_of_file_in_quoted('\'')))
 end_of_file
 %-- 175 test_gate_pl_gnu_read_term_from_text_validates_its_options_as_gprolog__w
-read_term_from_atom('a.',A,[nope]) => error(type_error(option,nope))
+read_term_from_atom('a.',A,[nope]) => error(domain_error(read_option,nope))
 read_term_from_atom('f(X, Y, X).',A,[variable_names(B)]) => [read_term_from_atom('f(X, Y, X).',f(C,D,C),[variable_names(['X'=C,'Y'=D])])]
-read_term_from_chars([h,'(','.'],A,[syntax_error(fail)]) => error(syntax_error(end_of_clause))
-read_term_from_chars([h,'(','.'],A,[syntax_error(bad)]) => error(syntax_error(end_of_clause))
-read_term_from_codes("k(a).",A,foo) => error(type_error(list,foo))
-read_term_from_codes("k(a).",A,[]) => [read_term_from_codes("k(a).",k(a),[])]
+read_term_from_chars([h,'(','.'],A,[syntax_error(fail)]) => []
+read_term_from_chars([h,'(','.'],A,[syntax_error(bad)]) => error(domain_error(read_option,syntax_error(bad)))
+read_term_from_codes([107,40,97,41,46],A,foo) => error(type_error(list,foo))
+read_term_from_codes([107,40,97,41,46],A,[]) => [read_term_from_codes([107,40,97,41,46],k(a),[])]
 %--------------- 176 test_gate_pl_gnu_read_token_from_text_answers_as_gprolog__w
 'foo(bar)'-foo
 'X'-var('X')
