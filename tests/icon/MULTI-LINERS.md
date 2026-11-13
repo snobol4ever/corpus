@@ -13367,6 +13367,33 @@ procedure Abs
 function abs 6
 ```
 
+## ladder__rung43_initially_replaces_the_constructors_self
+
+```Icon
+class A(v)
+initially
+   if v = 0 then variable("self", , 1) := B(42);
+end
+class B(w)
+   method get();
+      return w;
+   end
+end
+procedure main()
+   local x;
+   write(image(A(1)));
+   x := A(0);
+   write(image(x));
+   write(x.get());
+end
+```
+
+```stdout
+object A_1(1)
+object B_1(1)
+42
+```
+
 ## ladder__rung43_method_chain_on_a_failed_receiver_fails
 
 ```Icon
