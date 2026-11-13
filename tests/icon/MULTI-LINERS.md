@@ -13345,6 +13345,35 @@ procedure Abs
 function abs 6
 ```
 
+## ladder__rung43_method_chain_on_a_failed_receiver_fails
+
+```Icon
+class C(v)
+    method M(x)
+        if x > 1 then return C(x) else fail;
+    end
+    method S()
+        return v;
+    end
+end
+procedure mk(n)
+    return C(n);
+end
+procedure main()
+    write(type(oprec(mk(1))));
+    write(image(mk(7).M(5).S()) | "failed");
+    write(image(mk(7).M(0).S()) | "failed");
+    write(image(mk(7).M(0)) | "failed");
+end
+```
+
+```stdout
+C__methods
+5
+failed
+failed
+```
+
 ## procedure_every_elemgen_19
 
 ```Icon
