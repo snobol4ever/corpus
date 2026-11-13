@@ -1,6 +1,6 @@
-rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
-1,fib,fib.P,prolog,xsb_examples__fib,xsb_examples,44,0,131072,4096,60,,xsb
-2,first,first.P,prolog,xsb_examples__first,xsb_examples,86,0,131072,4096,60,,xsb
-3,houses,houses.P,prolog,xsb_examples__houses,xsb_examples,128,0,131072,4096,60,,xsb
-4,qsort,qsort.P,prolog,xsb_examples__qsort,xsb_examples,53,0,131072,4096,60,,xsb
-5,shortest_path,shortest_path.P,prolog,xsb_examples__shortest_path,xsb_examples,65,0,131072,4096,60,,xsb
+rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect,compare
+1,fib,fib.P,prolog,xsb_examples__fib,xsb_examples,44,0,131072,4096,60,,xsb,
+2,first,first.P,prolog,xsb_examples__first,xsb_examples,86,0,131072,4096,60,,xsb,sorted-lines+fresh-vars
+3,houses,houses.P,prolog,xsb_examples__houses,xsb_examples,128,0,131072,4096,60,,xsb,
+4,qsort,qsort.P,prolog,xsb_examples__qsort,xsb_examples,53,0,131072,4096,60,,xsb,
+5,shortest_path,shortest_path.P,prolog,xsb_examples__shortest_path,xsb_examples,65,0,131072,4096,60,,xsb,sorted-lines
