@@ -1,2 +1,3 @@
 calls demo
 Enter N : 
+demo ended raised(type_error(evaluable,end_of_file))

@@ -4,6 +4,9 @@
 % the example defines it, in that order, and prints which it calls and how each ended (yes, no, or the ball it
 % raised). It prints nothing when the example defines none of the four: such an example is no test. No time and no
 % address is printed, and the driver lists no predicate: an engine's own helpers are not the example's.
+% The result is bound only after the call returns, and an error prints its formal alone (the cio 2026-11-12, row
+% xsb-examples-red-fib): XSB 5.0 keeps a clause head's bindings past an error it raises itself, and an error's context
+% carries addresses that move between runs.
 
 xsbx_drive :- xsbx_entries([demo, test, main, go]).
 
@@ -12,11 +15,13 @@ xsbx_entries([G|T]) :- xsbx_entry(G), xsbx_entries(T).
 
 xsbx_entry(G) :- current_predicate(G/0), !,
     write('calls '), write(G), nl,
-    catch(xsbx_run(G, R), E, R = raised(E)),
+    catch(xsbx_run(G, R), E, xsbx_ball(E, R)),
     write(G), write(' ended '), writeq(R), nl.
 xsbx_entry(_).
 
-xsbx_run(G, yes) :- call(G), !.
-xsbx_run(_, no).
+xsbx_run(G, R) :- ( call(G) -> R = yes ; R = no ).
+
+xsbx_ball(error(F, _), raised(F)) :- !.
+xsbx_ball(E, raised(E)).
 
 :- xsbx_drive.
