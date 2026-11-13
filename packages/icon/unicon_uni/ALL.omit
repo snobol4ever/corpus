@@ -481,6 +481,7 @@ parser/ytab_h.icn: LIBRARY: no procedure main
 progs/bored.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 538 and 538 bytes
 progs/cleanup.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/csv.icn: NEEDS-INPUT: its answer changes with what standard input holds
+progs/deen.icn: NEEDS-NETWORK: a graded run starts with no de-en.txt, so its first act is open(URL, "m"), an HTTP GET of a 7.8 MB dictionary from ftp.tu-chemnitz.de
 progs/env.icn: READS-THE-ENVIRONMENT: its answer holds TMPDIR of the process that runs it
 progs/exception_demo.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/gcfreq.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
