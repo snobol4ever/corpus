@@ -14571,6 +14571,24 @@ abs(0) ----> 0
 -36 ^ -9 ----> 0
 ```
 
+## ladder__rung45_trim_side
+
+```Icon
+procedure main();
+    every s := (0 | 1 | -1) do write(image(trim("  ab  ", ' ', s)));
+    write(image(trim("  ab  ")));
+    write(image(trim("xxabxx", 'x', 0)));
+end
+```
+
+```stdout
+"ab"
+"ab  "
+"  ab"
+"  ab"
+"ab"
+```
+
 ## procedure_every_alt_19
 
 ```Icon

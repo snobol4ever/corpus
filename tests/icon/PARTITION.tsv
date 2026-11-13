@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1156 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,35
+# shape: entries=1157 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,36
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -106,9 +106,9 @@ procedure_write_148	chunk:01	family:ladder
 procedure_write_208	chunk:01	family:ladder	
 procedure_write_246	chunk:01	family:ladder	
 procedure_write_5	chunk:11	family:rung04_string	
-unicon__uni_pp_macro_spaces	chunk:10	family:unicon	
+unicon__uni_pp_macro_spaces	chunk:11	family:unicon	
 procedure_write_replace_5	chunk:11	family:rung37_all	
-unicon__uni_link_unicon_ipl_first	chunk:10	family:unicon	
+unicon__uni_link_unicon_ipl_first	chunk:11	family:unicon	
 unicon__uni_lex_triple_define	chunk:11	family:unicon	
 procedure_write_69	chunk:11	family:rung37_all	
 procedure_write_66	chunk:12	family:rung36_all	
@@ -159,7 +159,7 @@ procedure_write_25	chunk:11	family:rung18_real_relop
 procedure_write_26	chunk:11	family:rung18_real_relop	
 procedure_write_31	chunk:11	family:rung19_pow_toby	
 procedure_write_35	chunk:11	family:rung20_section_seqexpr	
-procedure_write_38	chunk:11	family:rung22_lists	
+procedure_write_38	chunk:12	family:rung22_lists	
 procedure_write_63	chunk:11	family:rung34_null_test	
 rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_basic	chunk:11	family:rung20_section_seqexpr_excluded	
 ladder__rung42_kw_version_writes_the_implementation_identity	chunk:07	feat:keyword_ref	keyword_ref
@@ -282,8 +282,8 @@ procedure_every_to_6	chunk:02	feat:to_by	every to_by
 procedure_every_to_8	chunk:02	feat:to_by	every to_by
 procedure_limit_write_2	chunk:02	feat:limitation	limitation
 procedure_limit_write_9	chunk:02	feat:limitation	limitation
-procedure_map_write_1	chunk:11	feat:trim	map trim
-procedure_map_write_2	chunk:11	feat:trim	map trim
+procedure_map_write_1	chunk:10	feat:trim	map trim
+procedure_map_write_2	chunk:10	feat:trim	map trim
 procedure_scan_many_2	chunk:09	feat:many	many scan
 procedure_scan_many_3	chunk:09	feat:many	many scan
 procedure_scan_move_1	chunk:09	feat:move	move scan
@@ -786,6 +786,7 @@ ladder__rung42_kw_line_reads_the_line_of_the_operator_that_follows_it	chunk:04	f
 procedure_to_write_replace_2	chunk:09	feat:integer	image integer local to_by
 procedure_record_alt_replace_2	chunk:09	feat:integer	alternation image integer record
 procedure_every_alt_26	chunk:10	feat:break	alternation aug_assign break every gen_with_alternation
+ladder__rung45_trim_side	chunk:11	feat:trim	alternation every gen_with_alternation image trim
 procedure_every_alt_19	chunk:05	feat:image	alternation every gen_with_alternation image to_by
 procedure_every_elemgen_replace_11	chunk:07	feat:element_gen	alternation element_gen every gen_with_alternation local
 procedure_every_elemgen_replace_13	chunk:07	feat:element_gen	alternation element_gen every gen_with_alternation local
