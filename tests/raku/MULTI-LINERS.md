@@ -13162,6 +13162,23 @@ say [+] (1..999).grep({ $_ % 3 == 0 || $_ % 5 == 0 });
 233168
 ```
 
+## pair_class__pair_class_methods
+
+```Raku
+say (1 => 2).antipair;
+say Pair.new("x", 5);
+my $p = a => 1;
+say $p.key, " ", $p.value, " ", $p.kv;
+say $p ~~ Pair;
+```
+
+```stdout
+2 => 1
+x => 5
+a 1 (a 1)
+True
+```
+
 ## say_try_die_5
 
 ```Raku
