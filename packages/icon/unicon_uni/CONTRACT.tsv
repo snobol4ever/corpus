@@ -3,3 +3,4 @@ not_shipped	ipl	ipl is the converted link closure, none of its files is a test (
 ipath	../unicon_tests/uni_lib	the lang package that progs/genAcc imports, vendored semicolon-ready in the sibling unicon_tests (CTO-544 U6); officer_02 2026-11-12 under Lon 19:4x (skill suites-and-grading section 1)
 ipath	lib	the import closure of progs/complex_ex: package math, lib/complex.icn, a hand-semicoloned copy of /home/resources/unicon/uni/lib/complex.icn (senior_06, row unicon-uni-red-progs-complex-ex, 2026-11-13)
 ipath	parser	the import closure of the UniDoc and ulsp entries: parser/parser.icn, a hand-semicoloned copy of /home/resources/unicon/uni/parser/parser.icn (senior_03, row unicon-uni-closure-parser-parser-icn-and-ipath, 2026-11-13)
+ipath	unidoc	the import closure of the UniDoc entry: unidoc/UniToken.icn and unidoc/UniFile.icn, hand-semicoloned copies of /home/resources/unicon/uni/unidoc (senior_02, row unicon-uni-closure-unidoc-token-and-file-and-ipath, 2026-11-13)
