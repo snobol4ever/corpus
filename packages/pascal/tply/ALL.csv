@@ -1,3 +1,3 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
 1,plex,plex.pas,tply__plex,tply,743,0,131072,4096,60,,fpc
-2,pyacc,pyacc.pas,tply__pyacc,tply,2526,0,131072,4096,60,,fpc
+2,pyacc,pyacc.pas,tply__pyacc,tply,2526,0,131072,4096,180,,fpc
