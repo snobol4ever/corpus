@@ -16918,6 +16918,36 @@ Woof
 I say Woof
 ```
 
+## ladder__rung11_a_junction_on_the_right_of_smartmatch_and_in_grep_threads_over_its_eigenstates
+
+```Raku
+say 2 ~~ 1|2|3;
+my $j = 1|2|3; say 2 ~~ $j;
+say so 4 ~~ 1|2|3;
+say so 2 == 1|2|3;
+say (1,2,3).grep(1|3).elems;
+say (1,2,3).grep(1|3);
+my $k = 1|3; say (1,2,3).grep($k).elems;
+say (1,2,3).grep(* > 1).elems;
+say 5 ~~ 1..10;
+say "abc" ~~ "abc"|"x";
+say so "q" ~~ "abc"|"x";
+```
+
+```stdout
+True
+True
+False
+True
+2
+(1 3)
+2
+2
+True
+True
+False
+```
+
 ## ladder__rung16_bool_bool_pick_and_bool_roll_are_a_coin
 
 ```Raku
