@@ -4876,6 +4876,14 @@ given 5 {
 matched
 ```
 
+## ladder__rung12_exceptions_an_unhandled_failure_given_to_print_throws_before_anything_is_written
+
+```Raku
+sub f { fail "Dynamic variable \$*FOO not found" }
+print(f(), "x");
+say "after";
+```
+
 ## ladder__rung13_classes_an_attributive_named_parameter_binds_the_attribute_in_build
 
 ```Raku
