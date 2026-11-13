@@ -620,6 +620,19 @@ code 2 File not found
 code 2 File not found
 ```
 
+## ladder__rung31_classes_tmemorystream_and_tbits
+
+```Pascal
+{$mode objfpc}
+program c9; uses classes; var m: tmemorystream; b: tbits; begin m := tmemorystream.create; m.writebyte(65); writeln(m.size); b := tbits.create(8); b[3] := true; writeln(b[3]); writeln(b[2]) end.
+```
+
+```stdout
+1
+TRUE
+FALSE
+```
+
 ## ladder__rung29_sizeof_of_a_dereference
 
 ```Pascal
