@@ -12986,6 +12986,20 @@ say area(3, 5);
 15
 ```
 
+## rw_method__assign_through_rw_method
+
+```Raku
+class R { has $!v = 1; method v is rw { $!v } }
+my $r = R.new; $r.v = 9; say $r.v;
+class S { has $.w is rw = 1 }
+my $s = S.new; $s.w = 4; say $s.w;
+```
+
+```stdout
+9
+4
+```
+
 ## sub_say_try_1
 
 ```Raku
@@ -13096,6 +13110,23 @@ say($i);
 3
 ```
 
+## rw_method__method_param_is_rw
+
+```Raku
+sub inc($b is rw) { $b = $b + 1 }
+my $x = 1; inc($x); say $x;
+class T { method m($b is rw) { $b = 50 } }
+my $y = 2; T.new.m($y); say $y;
+sub keep($b is rw) { my $r := $b; $r = 99 }
+my $z = 3; keep($z); say $z;
+```
+
+```stdout
+2
+50
+99
+```
+
 ## ladder__rung13_classes
 
 ```Raku
@@ -13196,6 +13227,27 @@ say $s.greet;
 
 ```stdout
 class hello
+```
+
+## rw_method__compound_assign_through_rw_method
+
+```Raku
+class R { has $!v = 1; method v is rw { $!v } }
+my $r = R.new;
+$r.v = 9; say $r.v;
+$r.v += 5; say $r.v;
+$r.v++; say $r.v;
+$r.v *= 2; say $r.v;
+class S { has $.w is rw = 1; has $!z = 3; method z is rw { $!z } }
+my $s = S.new; $s.w = 4; $s.z = 8; say $s.w, " ", $s.z;
+```
+
+```stdout
+9
+14
+15
+30
+4 8
 ```
 
 ## sub_for_say_1
@@ -14814,6 +14866,30 @@ my @ps = (^3).map({ start { $_ * 2 } }); await Promise.allof(@ps); say @ps.map(*
 w1
 w2
 0,2,4
+```
+
+## rw_method__method_plain_formal_sees_value
+
+```Raku
+class A { method m($b is rw) { $b = 1 } }
+class B { method m($b) { say $b; say $b + 1; my $c = $b; say $c } }
+my $y = 5; B.new.m($y); A.new.m($y); B.new.m($y);
+my @a = 4,5,6; B.new.m(@a[1]); A.new.m(@a[1]); say @a;
+sub f($v) { $v * 2 }; say f($y);
+```
+
+```stdout
+5
+6
+5
+1
+2
+1
+5
+6
+5
+[4 1 6]
+2
 ```
 
 ## ladder__rung07_subs_a_core_routine_written_without_arguments_is_a_call
