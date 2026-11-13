@@ -1,0 +1,260 @@
+
+# -------------------------------------------------------------------------
+# ---------------------- Database Class -----------------------------------
+# -------------------------------------------------------------------------
+#
+# Description:
+#
+#
+#
+
+package ulsp
+
+
+import UniDoc
+link paths
+import logger
+
+
+class LSPDB(
+   package_db,
+   built_in_functions,           # List containing all native function names
+   action_words,                 # List containing the action words (subset of reserved words)
+   declarative_expressions,      # List containing the declarative expressions (subset of reserved words)
+   syntax_reserved_words,        # List containing the syntax reserved words (subset of reserved words)
+   keywords,                     # List containing all keywords
+   preprocessors,                # List containing all preprocessors
+   dir_list,
+   unicon_dir
+   )
+
+
+   method build(lsif_path)
+
+      built_in_functions := table();
+      package_db := table();
+      dir_list := [];
+
+      if \unicon_dir then {
+         build_bnf();
+         if \lsif_path then
+            build_package_db(lsif_path)
+         else
+            build_package_db()
+      }
+      else {
+         write(&errout, "Unable to find Unicon envirionment.")
+      };
+
+      action_words := ["break", "case", "create", "critical", "every", "fail", "if",
+                       "initial", "initially", "next", "not", "repeat", "return",
+                       "suspend", "thread", "to", "until", "while"];
+
+      declarative_expressions := ["abstract", "class", "global", "import", "invocable",
+                                  "link", "local", "method", "package", "procedure",
+                                  "record", "static"];
+      syntax_reserved_words := ["all", "by", "default", "do", "end", "else", "of", "then"];
+
+      keywords := ["&allocated", "&ascii", "&clock", "&col", "&collections", "&column",
+                   "&control", "&cset", "&current", "&date", "&dateline", "&digits", "&dump",
+                   "&e", "&errno", "&error", "&errornumber", "&errortext", "&errorvalue",
+                   "&errout", "&eventcode", "&eventsource", "&eventvalue", "&fail",
+                   "&features", "&file", "&host", "&input", "&interval", "&lcase", "&ldrag",
+                   "&letters", "&level", "&line", "&lpress", "&lrelease", "&main", "&mdrag",
+                   "&meta", "&mpress", "&mreleasee", "&now", "&null", "&output", "&phi", "&pi",
+                   "&pick", "&pos", "&progname", "&random", "&rdrag", "&regions", "&resize",
+                   "&row", "&rpress", "&rrelease", "&shift", "&source", "&storage", "&subject",
+                   "&time", "&trace", "&ucase", "&version", "&window", "&x", "&y"];
+
+      preprocessors := ["$define", "$else", "$endif", "$error", "$ifdef", "$ifndef",
+                                  "$include", "$line", "$undef", "#line"];
+   end
+
+   method build_bnf()
+      local idoc, dirPath, source_table, source_file, _procedure, param_in_procedure, paramName, paramType, paramDef;
+      idoc := UniAll();
+
+      dirPath := unicon_dir;
+
+      dirPath ||:= "uni/ulsp/unicon_built_in_functions.icn";
+
+      idoc.setSourcePath(dirPath);
+      idoc.processFile(dirPath);
+
+      source_file := idoc.getAllFiles()[1];
+
+      every _procedure := source_file.getProcedures().get() do {
+         built_in_functions[_procedure.getName()] := table();
+
+         built_in_functions[_procedure.getName()]["comments"] := makeComment(_procedure);
+
+         built_in_functions[_procedure.getName()]["params"] := [];
+         every param_in_procedure := _procedure.getParams().get() do {
+            paramName := param_in_procedure.getName();
+            paramType := param_in_procedure.getTypeValue() | &null;
+            paramDef := param_in_procedure.getDefValue() | &null;
+            put(built_in_functions[_procedure.getName()]["params"], table(
+               "name", paramName,
+               "type", paramType,
+               "default", paramDef))
+         }
+      };
+   end
+
+   method build_package_db(lsif_path)
+      local dirPath, db_paths := [], dir;
+
+      dirPath := unicon_dir;
+      if (\lsif_path) then {
+         lsif_path := map(lsif_path, "\\", "/");
+         put(dir_list, lsif_path);
+         Logger.debug2_kind("db:path", "Processing ", lsif_path);
+         build_by_path(lsif_path);
+         return
+      };
+      every dir := !ipaths_get() do
+         # remove the current dir, also skip parser due to a unidoc bug
+         if not((dir == ("." | "")) | find("uni/parser"|"uni\\parser", dir))then
+            put(db_paths, dir);
+
+      if \unicon_dir then
+         put(db_paths, unicon_dir || "ipl/procs", unicon_dir || "uni/unidoc");
+
+      Logger.debug1_kind("db", "Looking in unicon paths");
+      every dir := !db_paths do {
+         dir := map(dir, "\\", "/");
+         put(dir_list, dir);
+         Logger.debug2_kind("db:path", "Processing ", dir);
+         build_by_path(dir)
+      };
+      put(dir_list, unicon_dir || "uni/ulsp");
+   end
+
+   method build_by_path(path)
+      local idoc, x, pack, file_in_pack, file_without_ext, import_in_file, procedure_in_file, param_in_procedure,
+         paramName, paramType, paramDef, class_in_file, method_in_class, param_in_method, class_param,
+         class_comment, constructor_param, package_table, file_table, file_wo_ext_table, import_table,
+         procedure_table, procedure_in_file_table, param_table, classes_table, class_in_file_table,
+         constructor_table, method_table, attributes_table, comments_table, superclass_table, src_table,
+         cons_name_table, cons_comments_table, cons_params_table, method_name_table, method_name_comments_table,
+         method_name_params_table;
+
+      idoc := UniAll();
+
+      idoc.setSourcePath(path);
+      idoc.setTargetDir(path);
+      idoc.processFile(path);
+      x := idoc.packages;
+
+      every pack := !x do {
+         Logger.debug3_kind("db:path:package", "Processing ", pack.getName());
+
+         if /package_db[pack.getName()] then {
+            package_db[pack.getName()] := package_table := table();
+            package_table["files"] := file_table := table()
+         };
+         if /package_table then {
+               package_db[pack.getName()] := package_table := table();
+               package_table["files"] := file_table := table();
+               Logger.debug4_kind("db:path:package", "Initialize package table for package ", pack.getName())
+         };
+
+         every file_in_pack := pack.getFiles().get() do {
+            Logger.debug4_kind("db:path:package:file", "Processing ", file_in_pack.getName());
+            file_without_ext := &null;
+            file_in_pack.getName() ? {
+               file_without_ext := tab(upto("."))
+            };
+            file_table[file_without_ext] := table();
+
+            /file_table[file_without_ext]["imports"] := [];
+            import_table := file_table[file_without_ext]["imports"];
+            every import_in_file := file_in_pack.getImports().get() do {
+               put(import_table, import_in_file.getName())
+            };
+
+            if /file_table[file_without_ext]["procedures"] then file_table[file_without_ext]["procedures"] := procedure_table := table();
+            every procedure_in_file := file_in_pack.getProcedures().get() do {
+               procedure_in_file.setSrcFile(idoc.getTargetDir() || file_in_pack.getName());
+               procedure_table[procedure_in_file.getName()] := procedure_in_file_table := table();
+               procedure_in_file_table["comments"] := makeComment(procedure_in_file);
+
+               procedure_in_file_table["params"] := param_table := [];
+               every param_in_procedure := procedure_in_file.getParams().get() do {
+                  paramName := param_in_procedure.getName();
+                  paramType := param_in_procedure.getTypeValue() | &null;
+                  paramDef := param_in_procedure.getDefValue() | &null;
+                  put(param_table, table(
+                     "name", paramName,
+                     "type", paramType,
+                     "default", paramDef))
+               };
+
+               procedure_in_file_table["source"] := procedure_in_file.getSrcFile()
+            };
+
+            if /file_table[file_without_ext]["classes"] then file_table[file_without_ext]["classes"] := classes_table := table();
+            every class_in_file := file_in_pack.getClasses().get() do {
+               class_in_file.setSrcFile(idoc.getTargetDir() || file_in_pack.getName());
+               file_table[file_without_ext]["classes"][class_in_file.getName()] := class_in_file_table := table();
+               class_in_file_table["methods"] := method_table := table();
+               class_in_file_table["attributes"] := attributes_table := [];
+               class_in_file_table["comments"] := comments_table := [];
+               class_in_file_table["superclass"] := superclass_table := [];
+               class_in_file_table["source"] := src_table := class_in_file.getSrcFile();
+               class_in_file_table["constructor"] := constructor_table := table();
+               constructor_table["name"] := cons_name_table := class_in_file.getConstructor().getName();
+               constructor_table["comments"] := cons_comments_table := makeComment(class_in_file);
+               constructor_table["params"] := cons_params_table := [];
+
+               every method_in_class := class_in_file.getMethods().get() do {
+                  method_in_class.setSrcFile(idoc.getTargetDir() || file_in_pack.getName());
+                  method_table[method_in_class.getName()] := method_name_table := table();
+                  method_name_table["comments"] := method_name_comments_table := makeComment(method_in_class);
+
+                  method_name_table["params"] := method_name_params_table := [];
+                  every param_in_method := method_in_class.getParams().get() do {
+                     paramName := param_in_method.getName();
+                     paramType := param_in_method.getTypeValue() | &null;
+                     paramDef := param_in_method.getDefValue() | &null;
+                     put(method_name_params_table, table(
+                        "name", paramName,
+                        "type", paramType,
+                        "default", paramDef))
+                  };
+
+                  method_name_table["source"] := method_in_class.getSrcFile()
+               };
+
+               every class_param := class_in_file.getParams().get() do {
+                  paramName := class_param.getName();
+                  paramType := class_param.getTypeValue() | &null;
+                  paramDef := class_param.getDefValue() | &null;
+                  put(attributes_table, table(
+                     "name", paramName,
+                     "type", paramType,
+                     "default", paramDef))
+               };
+
+               every constructor_param := class_in_file.getConstructor().getParams().get() do {
+                  paramName := constructor_param.getName();
+                  paramType := constructor_param.getTypeValue() | &null;
+                  paramDef := constructor_param.getDefValue() | &null;
+                  put(cons_params_table, table(
+                     "name", paramName,
+                     "type", paramType,
+                     "default", paramDef))
+               };
+
+               every class_comment := class_in_file.getComments().get() do {
+                  put(comments_table, class_comment.get())
+               }
+            }
+         }
+      };
+   end
+
+
+   initially
+      unicon_dir := map(ulibprefix(), "\\", "/");
+end

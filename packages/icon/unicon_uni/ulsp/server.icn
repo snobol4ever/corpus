@@ -1,0 +1,419 @@
+# Date of creation:
+#    12/8/22
+#
+# Author(s):
+#    Mark Stowell,
+#    Jonah Schnettler
+#
+
+package ulsp
+
+link ximage
+link strings
+import json
+import logger
+#import UniDoc
+
+
+class Server(
+   port,                         # Port number acquired from args on start up of server
+   mode,                         # Mode to run in (client | server)
+   sock,                         # Socket connection for communication with client
+   openFiles,                    # File container for open files
+   completionHandler,            # Instance of CompletionHandler class for handling completion requests
+   signatureHandler,
+   hoverHandler,
+   definitionHandler,
+   symbolHandler,
+   foldingRangeHandler,
+   formattingHandler,
+   lsp_database,                  # table containing database of packages (i.e. main, graphics3d, etc.) and their files.
+   jrpc_handler,
+   stoploop,
+   renewSymbols,
+   cacheSymbols
+   )
+
+   method handle_request(msg)
+      local meth, params, id;
+      meth := msg.get_method();
+      params := msg.get_params();
+      id := msg.get_id();
+
+      Logger.info("jrpc:request: ", meth, " id=", id);
+      Logger.debug5_kind("jrpc:request:params ", ximage(params));
+
+      meth ?
+         if ="$/" then {
+            # per LSP spec, this is a protocol implementation dependent request.
+            # We can ignore it. However, we need to still send back a response
+            handle_unsupported(msg);
+            fail
+         };
+
+      # Route each method name to its handler.
+      case meth of {
+         "initialize" : initialize(msg);
+         "textDocument/completion" : completion(msg);
+         "textDocument/signatureHelp" : signatureHelp(msg);
+         "textDocument/hover" : hoverHelp(msg);
+         "textDocument/definition" : definitionHelp(msg);
+         "textDocument/documentSymbol" : symbolHelp(msg);
+         "textDocument/foldingRange" : foldingRangeHelp(msg);
+         "textDocument/formatting" : formattingHelp(msg);
+         "shutdown" : shutdown(msg);
+         default: {
+            handle_unsupported(msg)
+         }
+      };
+   end
+
+   method handle_unsupported(msg)
+      Logger.debug1_kind("jrpc", "Unsupported request: ", image(msg.get_method()));
+      Logger.debug5_kind("jrpc", "Unsupported request: ", image(msg.get_content()));
+      msg.make_error_response(-32601, "Method not found");
+      jrpc_handler.send_msg(msg);
+   end
+
+   # notifications has only  "method" and "params"
+   method handle_notification(msg)
+      local params;
+      Logger.info("jrpc:notification ", msg.get_method());
+      params := msg.get_params();
+      case msg.get_method() of {
+         "textDocument/didOpen" : didOpen(params);
+         "textDocument/didClose" : didClose(params);
+         "textDocument/didChange" : didChange(params);
+         "textDocument/didSave" : renewSymbols := 1;
+         "ulsp/changeLogLevel" : Logger.set_log_level(params["logLevel"]);
+         "exit" : stoploop := 1;
+
+         default:
+            Logger.debug1_kind("jrpc:notification:unsupported", msg.get_method())
+      };
+   end
+
+   method run()
+      local msg;
+      jrpc_handler := JRPC_HTTPSocket(sock);
+      repeat {
+         if msg := jrpc_handler.get_msg() then {
+            #Logger.info("msg= ", image(msg.get_content()))
+            case msg.get_kind() of {
+               "request" : handle_request(msg);
+               "notification" : handle_notification(msg);
+               default:
+                  # we shouldn't get anything else, maybe?
+                   Logger.debug2_kind("lsp:jrpc:msg:" || msg.get_kind(), image(msg.get_content()))
+            }
+         };
+         if \stoploop then {
+            Logger.info("Shutting down ULSP.");
+            break
+         }
+      };
+   end
+
+
+
+#################################################################################
+#                     Response / notification Section                           #
+#################################################################################
+
+# This is the section for processing notifications and handling responses to requests.
+# For future additions (capabilities), add an additional comment/code block similar to what is seen below.
+# In addition to adding a procedure or block of code to process/handle the notification/request, be sure to add to the case statement in the loop.
+
+
+########################################################
+#                     initialize                       #
+########################################################
+
+# As you add more capabilities to the language server (i.e. hover, go to declaration, etc.) add these to the results string below.
+# Follow the LSP specifications on how to add a particular capability to your initialize string.
+
+   method initialize(msg)
+      local capabilitiesTable;
+
+      capabilitiesTable := [
+         "capabilities": [
+            # Trigger completion when user types "." or ":".
+            "completionProvider": [
+               "triggerCharacters": [".", ":"]
+            ];
+            # Full document sync.
+            "textDocumentSync": 1;
+            "signatureHelpProvider": [
+               "contextSupport": "__true__";
+               # Trigger signature help when user types "(".
+               "triggerCharacters": ["("]
+            ];
+            "hoverProvider": "__true__";
+            "definitionProvider": "__true__";
+            "documentSymbolProvider": "__true__";
+            "foldingRangeProvider": "__true__";
+            "documentFormattingProvider": "__true__"
+         ];
+         "processId": getpid()
+      ];
+
+      msg.make_result_response(capabilitiesTable);
+      jrpc_handler.send_msg(msg);
+   end
+
+########################################################
+#                textDocument/didOpen                  #
+########################################################
+
+   method didOpen(request_params)
+      local fname, uri, f, initial_file_contents, filehandler_object;
+      if \(uri := request_params["textDocument"]["uri"]) then {
+         # uri: file://<PATH>
+         uri ? {
+            ="file://" | write(&errout, "unexpected uri:", uri);
+            fname := tab(0)
+         };
+
+         if f := open(fname) then {
+            initial_file_contents := reads(f, -1);
+            close(f)
+         }
+      };
+      # Get rid of root / and change unicode encoded "%3A" back to ":" on Windows machines
+      if &features == ("MS Windows NT") then {
+         fname := replace(fname[2:0], "%3A", ":")
+      };
+      openFiles[\uri] := FileHandler(fname, lsp_database);
+      filehandler_object := openFiles[\uri];
+      filehandler_object.setFile();
+      filehandler_object.updateFileHandler();
+
+   end
+
+########################################################
+#                textDocument/didClose                 #
+########################################################
+
+   method didClose(request_params)
+      local uri;
+      uri := request_params["textDocument"]["uri"];
+      delete(openFiles, \uri);
+   end
+
+########################################################
+#                textDocument/didChange                #
+########################################################
+
+   method didChange(request_params)
+      local fname, uri, f, file_contents, filehandler_object, initial_file_contents;
+      if \(uri := request_params["textDocument"]["uri"]) then {
+         # uri: file://<PATH>
+         uri ? {
+            ="file://" | write(&errout, "unexpected uri:", uri);
+            fname := tab(0)
+         };
+
+         if f := open(fname) then {
+            initial_file_contents := reads(f, -1);
+            close(f)
+         }
+      };
+      # Get rid of root / and change unicode encoded "%3A" back to ":" on Windows machines
+      if &features == ("MS Windows NT") then {
+         fname := replace(fname[2:0], "%3A", ":")
+      };
+      uri := request_params["textDocument"]["uri"];
+      file_contents := request_params["contentChanges"][1]["text"];
+      filehandler_object := openFiles[\uri];
+      # If file handler doesn't exist, create it (file might have been changed before didOpen)
+      if /filehandler_object then {
+         openFiles[\uri] := FileHandler(fname, lsp_database);
+         filehandler_object := openFiles[\uri];
+         filehandler_object.setFile()
+      };
+      filehandler_object.updateUniDoc(fname, file_contents);
+      filehandler_object.updateFileHandler();
+   end
+
+########################################################
+#                textDocument/completion               #
+########################################################
+
+   method completion(msg)
+      local filehandler_object, result;
+      filehandler_object := openFiles[\msg.get_param_uri()];
+      if /filehandler_object then {
+         msg.make_error_response(-32602, "Invalid params", "File not open");
+         jrpc_handler.send_msg(msg);
+         return
+      };
+      completionHandler.setVariables(filehandler_object, msg.get_params());
+      if result := completionHandler.getResult() then {
+         msg.make_result_response(result);
+         jrpc_handler.send_msg(msg)
+      } else {
+         msg.make_error_response(-32602, "Invalid params", "Missing required parameter: position");
+         jrpc_handler.send_msg(msg)
+      };
+   end
+
+########################################################
+#              textDocument/signatureHelp              #
+########################################################
+
+   method signatureHelp(msg)
+      local filehandler_object, result;
+      filehandler_object := openFiles[\msg.get_param_uri()];
+      signatureHandler.setVariables(filehandler_object, msg.get_params());
+      result := signatureHandler.getResult();
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+########################################################
+#              textDocument/hover                      #
+########################################################
+
+   method hoverHelp(msg)
+      local filehandler_object, result;
+      filehandler_object := openFiles[\msg.get_param_uri()];
+      hoverHandler.setVariables(filehandler_object, msg.get_params());
+      result := hoverHandler.getResult();
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+########################################################
+#                textDocument/definition               #
+########################################################
+
+   method definitionHelp(msg)
+      local filehandler_object, result;
+      filehandler_object := openFiles[\msg.get_param_uri()];
+      definitionHandler.setVariables(filehandler_object, msg.get_params());
+      if result := definitionHandler.getResult() then
+         \result["uri"] := replace(result["uri"], "c:/", "/c%3A/");
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+########################################################
+#                textDocument/documentSymbol           #
+########################################################
+
+   method symbolHelp(msg)
+      local filehandler_object, uri, result;
+
+      if \(uri := msg.get_param_uri()) then {
+         filehandler_object := openFiles[uri];
+         symbolHandler.setVariables(filehandler_object);
+         if renewSymbols = 1 then {
+            Logger.debug2_kind("Getting new symbols for " || uri);
+            result := symbolHandler.getResult();
+            cacheSymbols[uri] := result
+         } else {
+            if \cacheSymbols[uri] then {
+               Logger.debug2_kind("Getting cached symbols for " || uri);
+               result := cacheSymbols[uri]
+            } else {
+               Logger.debug2_kind("Getting new symbols for " || uri);
+               result := symbolHandler.getResult();
+               cacheSymbols[uri] := result
+            }
+         }
+      };
+      renewSymbols := 0;
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+
+########################################################
+#                textDocument/foldingRange             #
+########################################################
+
+   method foldingRangeHelp(msg)
+      local filehandler_object, result;
+      filehandler_object := openFiles[\msg.get_param_uri()];
+      foldingRangeHandler.setVariables(filehandler_object);
+      result := foldingRangeHandler.getResult();
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+########################################################
+#                textDocument/formatting               #
+########################################################
+
+   method formattingHelp(msg)
+      local filehandler_object, result;
+      filehandler_object := openFiles[\msg.get_param_uri()];
+      formattingHandler.setVariables(filehandler_object, msg.get_params());
+      result := formattingHandler.getResult();
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+########################################################
+#                shutdown                              #
+########################################################
+
+   method shutdown(msg)
+      local result;
+      msg.make_result_response(result);
+      jrpc_handler.send_msg(msg);
+   end
+
+   method loadDB()
+      openFiles := table();
+      lsp_database := LSPDB();
+      lsp_database.build();
+      completionHandler := CompletionHandler();
+      signatureHandler := SignatureHandler();
+      hoverHandler := HoverHandler();
+      definitionHandler := DefinitionHandler();
+      symbolHandler := SymbolHandler();
+      foldingRangeHandler := FoldingRangeHandler();
+      formattingHandler := FormattingHandler();
+   end
+
+   method connect()
+      local openopt := "n", mstring;
+
+      case mode of {
+         "s" : {
+            # "na" => open network socket as server and accept a client.
+            openopt ||:= "a";
+            mstring := "server"
+         };
+         "c" : {
+            # "n" => open network socket as client and connect out.
+            mstring := "client"
+         };
+         default: { Logger.error("Unknown mode: " || mode) }
+      };
+
+      Logger.info("Starting Unicon LSP in ", mstring, " mode at ", port);
+      # Retry a few times in case client/server starts a little late.
+      every 1 to 5 do {
+         if sock := open(port, openopt) then
+            break
+         else {
+            Logger.error("open(",port,") ERROR: ", \&errortext | "Unknown");
+            delay(1000)
+         }
+      };
+
+      if /sock then {
+         Logger.crit("Failed to establish connection on: ", port);
+         exit(1)
+      };
+   end
+
+   initially
+      renewSymbols := 1;
+      cacheSymbols := table();
+      \Logger | Logger(7); # default to informational
+      Logger.info("Loading Database...");
+      loadDB();
+end
