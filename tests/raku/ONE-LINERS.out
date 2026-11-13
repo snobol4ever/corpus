@@ -26,6 +26,7 @@ ababab
 raku
 ell
 hi
+f => [3 3]
 False
 True
 True
@@ -173,6 +174,7 @@ aa,bb
 (a)
 (2 3)
 (1 2)
+1
 7
 4
 6

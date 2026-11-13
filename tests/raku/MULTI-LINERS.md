@@ -2308,6 +2308,26 @@ try {
 custom message
 ```
 
+## placeholders__placeholder_sigils_forms
+
+```Raku
+say { :$^a }(5);
+say { :%^h }({k => 1});
+say { :@^f }([3,3]);
+say { :@^f, :$^g }([1,2], 9);
+say { @^x.elems }([4,5,6]);
+say { $^b ~ $^a }("x", "y");
+```
+
+```stdout
+a => 5
+h => {k => 1}
+f => [3 3]
+(f => [1 2] g => 9)
+3
+yx
+```
+
 ## ladder__rung025_kw_nan_nan_signed_values
 
 ```Raku
@@ -11449,6 +11469,35 @@ False
 3
 True
 block
+```
+
+## metaops__reversed_assignment_forms
+
+```Raku
+1 R= my $x; say $x;
+my $y = 5;
+7 R= $y;
+say $y;
+my @a;
+(1, 2, 3) R= @a;
+say @a;
+my %h;
+(a => 1, b => 2) R= %h;
+say %h.elems;
+my $z;
+"hi" R= $z;
+say $z;
+5 R= my @b;
+say @b;
+```
+
+```stdout
+1
+7
+[1 2 3]
+2
+hi
+[5]
 ```
 
 ## scrip_test_rk_re32
