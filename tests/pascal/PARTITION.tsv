@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=474 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,29
+# shape: entries=475 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,30
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -17,6 +17,7 @@ ladder__rung09_strings_get_on_the_standard_input	chunk:01	family:ladder
 ladder__rung00_hello_blank	chunk:01	family:ladder	
 ladder__rung00_crt_tab_and_escape	chunk:01	family:ladder	
 front_end__pf13_modeblank	chunk:04	family:front_end	
+array_of_const__system_const_lineending	chunk:02	feat:const	const
 front_end__pf20f_constref	chunk:01	feat:function	function
 front_end__pf24_integer16	chunk:04	family:front_end	
 ladder__rung17_reset_missing_uncaught	chunk:01	family:ladder	
@@ -165,7 +166,7 @@ program_procedure_nested_18	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_25	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_26	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_4	chunk:01	feat:nested_proc	nested_proc procedure
-program_repeat_writeln_2	chunk:04	feat:repeat	repeat write
+program_repeat_writeln_2	chunk:05	feat:repeat	repeat write
 front_end__pf20c_record_operator	chunk:02	feat:const	const record type
 ladder__rung26_mgmt_r1_initialize_a_global	chunk:02	feat:record	record type
 program_procedure_nested_20	chunk:01	feat:nested_proc	nested_proc procedure
@@ -209,7 +210,7 @@ program_array_setlit_3	chunk:04	feat:set_literal	array set_literal subrange
 program_record_case_replace_4	chunk:03	feat:case	case record type
 front_end__pf15_literal_receiver	chunk:04	feat:in	for in write
 ladder__rung05_directive_before_forward	core	core	forward function nested_proc procedure
-ladder__rung13_pchar_writes_reach_the_string	chunk:03	feat:ord	for ord write
+ladder__rung13_pchar_writes_reach_the_string	chunk:04	feat:ord	for ord write
 program_function_case_1	chunk:03	feat:div	case div function
 program_procedure_forward_1	chunk:05	feat:forward	forward nested_proc procedure
 program_procedure_forward_2	chunk:05	feat:forward	forward nested_proc procedure
@@ -414,7 +415,7 @@ program_array_while_replace_1	core	core	array const for for_with_array set_liter
 program_array_while_replace_2	core	core	array const for for_with_array set_literal sqr subrange while
 ladder__rung22_class_derived_from_a_generic_object_dictionary	chunk:05	feat:with	const for function in nested_proc procedure type with write
 program_procedure_set_replace_1	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
-program_procedure_set_replace_2	chunk:02	feat:set	for in nested_proc procedure repeat set subrange while
+program_procedure_set_replace_2	chunk:03	feat:set	for in nested_proc procedure repeat set subrange while
 benchmark_queens	chunk:04	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
 program_function_procedure_replace_3	chunk:05	feat:with	for function in mod nested_proc procedure while with
 front_end__pf15_overloaded_methods	chunk:02	feat:const	array const for for_with_array function nested_proc procedure type

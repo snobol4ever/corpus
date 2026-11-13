@@ -228,6 +228,23 @@ end.
 default
 ```
 
+## array_of_const__system_const_lineending
+
+```Pascal
+{$mode objfpc}{$h+}
+program t;
+uses sysutils;
+const X = 'a' + LineEnding + 'b';
+begin
+  writeln(X);
+end.
+```
+
+```stdout
+a
+b
+```
+
 ## front_end__pf20f_constref
 
 ```Pascal
