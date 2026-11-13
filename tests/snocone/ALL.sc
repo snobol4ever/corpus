@@ -2362,7 +2362,29 @@ if (s ? SPAN("0123456789") . num) {
         OUTPUT = "forty-two";
     }
 }
-/*-------------------------------------------------- 370 table_size_replace_1 */
+/*---------------------------------------- 370 gc_chain__nested_call_collects */
+/* TWIN IS AN EQUIVALENCE, NOT A TRANSLITERATION: the Snocone function bodies, braces and if-statements have no line-for-line SNOBOL4 form; the twin runs the same two functions over the same string the same 20000 times and prints the same one number */
+stem = 'abcdefghij';
+function cons(i) c {
+    c = SUBSTR(stem, i, 1);
+    if (c ? ANY('aeiou')) { freturn; }
+    return;
+}
+function m() i, n {
+    i = 1; n = 0;
+mL:
+    if (GT(i, 10)) { m = n; return; }
+    if (cons(i)) { n = n + 1; }
+    i = i + 1;
+    goto mL;
+}
+k = 0;
+top:
+    k = k + 1;
+    t = t m();
+    if (LT(k, 20000)) { goto top; }
+OUTPUT = SIZE(t);
+/*-------------------------------------------------- 371 table_size_replace_1 */
 // wordcount.sc — word counting (SC-15)
 // Splits on spaces using SUBSTR, counts words into a TABLE
 
@@ -2389,7 +2411,7 @@ OUTPUT = 'cat=' wc['cat'];
 OUTPUT = 'sat=' wc['sat'];
 OUTPUT = 'on='  wc['on'];
 OUTPUT = 'mat=' wc['mat'];
-/*----------------------------------------------- 371 array_keyword_replace_1 */
+/*----------------------------------------------- 372 array_keyword_replace_1 */
 // driver.sc — test driver for tree.sc (Snocone)
 struct tree { t, v, n, c }
 
@@ -2431,7 +2453,7 @@ if (IDENT(t(leaf2),'Label')   IDENT(v(leaf2),'done')) {
 } else {
     OUTPUT = 'FAIL: 4 field update';
 }
-/*------------------------------------------------ 372 trim_keyword_replace_1 */
+/*------------------------------------------------ 373 trim_keyword_replace_1 */
 // A15_lib_math.sc — numeric utility functions: max, min, abs, sign, gcd, lcm
 // Snocone translation of crosscheck/library/test_math.sno + lib/math.sno
 &TRIM = 1;
@@ -2477,7 +2499,7 @@ OUTPUT = sign(-3);
 OUTPUT = gcd(12, 8);
 OUTPUT = gcd(100, 75);
 OUTPUT = lcm(4, 6);
-/*-------------------------------------------- 373 indirect_keyword_replace_1 */
+/*-------------------------------------------- 374 indirect_keyword_replace_1 */
 // driver.sc — test driver for stack.sc (Snocone)
 struct link { next, value }
 xTrace = 0;
@@ -2527,7 +2549,7 @@ InitStack();
 Push('a'); Push('b'); Push('c');
 Pop('v1'); Pop('v2'); Pop('v3');
 if (IDENT(v1,'c')   IDENT(v2,'b')   IDENT(v3,'a')) { OUTPUT = 'PASS: 7 nested pop order a/b/c'; } else { OUTPUT = 'FAIL: 7 pop order'; }
-/*----------------------------------------------- 374 table_keyword_replace_1 */
+/*----------------------------------------------- 375 table_keyword_replace_1 */
 // driver.sc — test driver for arith.sc
 
 function ISqrt(n, i) {
@@ -2591,7 +2613,7 @@ if (IDENT(primes[2],1)   IDENT(primes[3],1)   IDENT(primes[4],0)   IDENT(primes[
 } else { OUTPUT = 'FAIL: 16 Sieve'; }
 if (EQ(ISqrt(15), 3))         { OUTPUT = 'PASS: 17 ISqrt(15)=3'; }       else { OUTPUT = 'FAIL: 17'; }
 if (EQ(ISqrt(16), 4))         { OUTPUT = 'PASS: 18 ISqrt(16)=4'; }       else { OUTPUT = 'FAIL: 18'; }
-/*------------------------------------------------------- 375 scrip__sm_lower */
+/*------------------------------------------------------- 376 scrip__sm_lower */
 // sm_lower.sc — Snocone translation of lower.c / lower_ctx.c
 //
 // Phase 1 (SL-1..SL-9): LabelTable, emit_goto, lower_expr skeleton,
@@ -2782,48 +2804,48 @@ function run_smoke_test(r) {
 }
 
 run_smoke_test();
-/*------------------------------------------------ 376 ladder_prog__pat_abort */
+/*------------------------------------------------ 377 ladder_prog__pat_abort */
 if ('-1B-A-' ? (ANY('AB') | '1' ABORT)) { OUTPUT = 'wrong'; } else { OUTPUT = 'abort-ok'; }
 if ('-AB-1-' ? (ANY('AB') | '1' ABORT)) { OUTPUT = 'abort-nohit-ok'; }
-/*----------------------------------------------------- 377 len_rem_capture_1 */
+/*----------------------------------------------------- 378 len_rem_capture_1 */
 s = 'abcd';
 s ? LEN(2) REM . t;
 OUTPUT = t;
-/*----------------------------------------------------- 378 pos_len_capture_1 */
+/*----------------------------------------------------- 379 pos_len_capture_1 */
 s = 'hello';
 s ? POS(0) LEN(2) . t;
 OUTPUT = t;
-/*---------------------------------------------------- 379 rpos_len_capture_1 */
+/*---------------------------------------------------- 380 rpos_len_capture_1 */
 s = 'hello';
 s ? LEN(3) . t RPOS(2);
 OUTPUT = t;
-/*--------------------------------------------------- 380 break_rem_capture_1 */
+/*--------------------------------------------------- 381 break_rem_capture_1 */
 s = 'key=value';
 s ? BREAK('=') . k '=' REM . v;
 OUTPUT = k;
 OUTPUT = v;
-/*------------------------------------ 381 datatype_replace_keyword_replace_1 */
+/*------------------------------------ 382 datatype_replace_keyword_replace_1 */
 // A08_datatype.sc — DATATYPE returns type name of value
 OUTPUT = REPLACE(DATATYPE('hello'), &LCASE, &UCASE);
 OUTPUT = REPLACE(DATATYPE(42),      &LCASE, &UCASE);
 OUTPUT = REPLACE(DATATYPE(3.14),    &LCASE, &UCASE);
-/*------------ 382 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+/*------------ 383 ladder__rung23_keyword_and_system_variables_maxlngth_query */
 OUTPUT = &MAXLNGTH;
 &MAXLNGTH = 5000;
 OUTPUT = &MAXLNGTH;
 OUTPUT = SIZE(DUPL('a', 4000));
-/*---------------------------------------------- 383 ladder_prog__pat_capture */
+/*---------------------------------------------- 384 ladder_prog__pat_capture */
 s = 'key=value';
 s ? BREAK('=') . k '=' REM . v;
 OUTPUT = k;
 OUTPUT = v;
-/*------------------------------------------------- 384 eval_datatype_defer_1 */
+/*------------------------------------------------- 385 eval_datatype_defer_1 */
 x = 1;
 d = *x;
 OUTPUT = DATATYPE(d);
 x = 99;
 OUTPUT = EVAL(d);
-/*------------------------------------------- 385 break_len_capture_replace_1 */
+/*------------------------------------------- 386 break_len_capture_replace_1 */
 // pattern match inside for loop body
 words = "cat dog fox";
 for (i = 1; LE(i, 3); i = i + 1) {
@@ -2831,7 +2853,7 @@ for (i = 1; LE(i, 3); i = i + 1) {
         OUTPUT = w;
     }
 }
-/*--------------------------------------------- 386 pos_len_capture_replace_1 */
+/*--------------------------------------------- 387 pos_len_capture_replace_1 */
 // A12_pat_pos.sc — POS anchors match at cursor position
 x = 'hello';
 if (x ? POS(0)   LEN(3) . v) {
@@ -2839,7 +2861,7 @@ if (x ? POS(0)   LEN(3) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*-------------------------------------------- 387 rpos_len_capture_replace_1 */
+/*-------------------------------------------- 388 rpos_len_capture_replace_1 */
 // A12_pat_rpos.sc — RPOS anchors match from right
 x = 'hello';
 if (x ? RPOS(2)   LEN(2) . v) {
@@ -2847,7 +2869,7 @@ if (x ? RPOS(2)   LEN(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*--------------------------------------------- 388 tab_len_capture_replace_1 */
+/*--------------------------------------------- 389 tab_len_capture_replace_1 */
 // A12_pat_tab.sc — TAB advances cursor to column position
 x = 'abcdef';
 if (x ? TAB(3)   LEN(2) . v) {
@@ -2855,7 +2877,7 @@ if (x ? TAB(3)   LEN(2) . v) {
 } else {
     OUTPUT = 'fail';
 }
-/*------------------------------------------- 389 trim_size_keyword_replace_1 */
+/*------------------------------------------- 390 trim_size_keyword_replace_1 */
 // A14_arith_loop_fileinfo.sc — count chars and lines from stdin
 // Snocone translation of crosscheck/arith/fileinfo.sno
 // Tests: while (INPUT), SIZE(), integer accumulation, EOF termination
@@ -2867,7 +2889,7 @@ while (line = INPUT) {
     lines = lines + 1;
 }
 OUTPUT = chars   ' characters, '   lines   ' lines read';
-/*-------------------------------------- 390 array_datatype_keyword_replace_1 */
+/*-------------------------------------- 391 array_datatype_keyword_replace_1 */
 // driver.sc — test driver for XDump.sc (Snocone)
 // XDump output goes to OUTPUT — capture and verify
 
@@ -2898,7 +2920,7 @@ XDump('hello', 'y');
 // 3: array
 arr = ARRAY('1:3');
 XDump(arr, 'a');
-/*---------------------------------------- 391 convert_size_keyword_replace_1 */
+/*---------------------------------------- 392 convert_size_keyword_replace_1 */
 // driver.sc — test driver for roman.sc
 function Roman(n, s, i, len, d, place, ones, fives, tens, result) {
     s = CONVERT(n, 'STRING'); len = SIZE(s); result = ''; i = 0;
@@ -2931,7 +2953,7 @@ if (IDENT(Roman(1776), 'MDCCLXXVI')) { OUTPUT = 'PASS: 7 Roman(1776)=MDCCLXXVI';
 if (IDENT(Roman(1999), 'MCMXCIX'))   { OUTPUT = 'PASS: 8 Roman(1999)=MCMXCIX'; } else { OUTPUT = 'FAIL: 8'; }
 if (IDENT(Roman(2024), 'MMXXIV'))    { OUTPUT = 'PASS: 9 Roman(2024)=MMXXIV'; }  else { OUTPUT = 'FAIL: 9'; }
 if (IDENT(Roman(3999), 'MMMCMXCIX')){ OUTPUT = 'PASS: 10 Roman(3999)=MMMCMXCIX'; } else { OUTPUT = 'FAIL: 10'; }
-/*---------------------------------------- 392 trim_replace_keyword_replace_1 */
+/*---------------------------------------- 393 trim_replace_keyword_replace_1 */
 // A15_lib_case.sc — case conversion: lwr, upr, cap, icase pattern
 // Snocone translation of crosscheck/library/test_case.sno + lib/case.sno
 &TRIM = 1;
@@ -2968,7 +2990,7 @@ if (icase('world', 'hello')) {
 } else {
     OUTPUT = 'no match ok';
 }
-/*-------------------------------------- 393 datatype_defer_keyword_replace_1 */
+/*-------------------------------------- 394 datatype_defer_keyword_replace_1 */
 // driver.sc — test driver for semantic.sc (Snocone)
 struct link_counter { next, value }
 xTrace = 0;
@@ -3012,7 +3034,7 @@ if (EQ(nTop(), 0)) { OUTPUT = 'PASS: 7 nested nPush; nTop=0'; } else { OUTPUT = 
 
 v = nTop();
 if (IDENT(DATATYPE(v), 'INTEGER')) { OUTPUT = 'PASS: 8 nTop INTEGER'; } else { OUTPUT = 'FAIL: 8 '   DATATYPE(v); }
-/*------------------------------------------ 394 table_size_keyword_replace_1 */
+/*------------------------------------------ 395 table_size_keyword_replace_1 */
 // driver.sc — test driver for strings.sc
 
 function Reverse(s, i, n, out) {
@@ -3080,7 +3102,7 @@ if (IDENT(t[1],'a')   IDENT(t[2],'b')   IDENT(t[3],'c')   EQ(t[0],3)) { OUTPUT =
 if (IDENT(Join(t, '-'), 'a-b-c'))        { OUTPUT = 'PASS: 14 Join'; }           else { OUTPUT = 'FAIL: 14 Join'; }
 t2 = Split('hello', ',');
 if (EQ(t2[0], 1)   IDENT(t2[1], 'hello')) { OUTPUT = 'PASS: 15 Split no-sep'; } else { OUTPUT = 'FAIL: 15 Split no-sep'; }
-/*-------------------------------------- 395 array_indirect_keyword_replace_1 */
+/*-------------------------------------- 396 array_indirect_keyword_replace_1 */
 // driver.sc — test driver for ShiftReduce.sc (Snocone)
 struct tree { t, v, n, c }
 struct link { next, value }
@@ -3155,28 +3177,28 @@ nd = Top();
 if (IDENT(n(nd),3)   IDENT(t(c(nd)[1]),'A')   IDENT(t(c(nd)[2]),'B')   IDENT(t(c(nd)[3]),'C')) {
     OUTPUT = 'PASS: 5 Reduce 3 children order';
 } else { OUTPUT = 'FAIL: 5'; }
-/*------------------------------------------------ 396 ladder_prog__pat_arbno */
+/*------------------------------------------------ 397 ladder_prog__pat_arbno */
 s = '(1,22,333)';
 if (s ? POS(0) '(' SPAN('0123456789') ARBNO(',' SPAN('0123456789')) ')' RPOS(0)) { OUTPUT = 'list-ok'; }
-/*- 397 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+/*- 398 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
 OUTPUT = DATATYPE(&ANCHOR);
 OUTPUT = DATATYPE(&ALPHABET);
 OUTPUT = DATATYPE(&ABORT);
 OUTPUT = SIZE(&ALPHABET);
-/*----------------------------------------------- 398 break_len_rem_replace_1 */
+/*----------------------------------------------- 399 break_len_rem_replace_1 */
 // A11_capture_multiple.sc — multiple captures in one pattern
 x = 'John Smith';
 if (x ? BREAK(' ') . first   LEN(1)   REM . last) {
     OUTPUT = first   ' / '   last;
 }
-/*---------------------------------------------- 399 ladder_prog__builtin_str */
+/*---------------------------------------------- 400 ladder_prog__builtin_str */
 OUTPUT = SIZE('hello');
 OUTPUT = REPLACE('abc', 'abc', 'xyz');
 OUTPUT = REVERSE('abc');
 OUTPUT = TRIM('  pad  ');
 OUTPUT = SUBSTR('abcdef', 2, 3);
 OUTPUT = DUPL('ab', 3);
-/*------------------------------------------ 400 ladder_prog__integ_wordcount */
+/*------------------------------------------ 401 ladder_prog__integ_wordcount */
 s = 'the cat sat on the mat the end';
 n = 0;
 while (s ? BREAK(' ') . w (' ' | RPOS(0))) {
@@ -3184,7 +3206,7 @@ while (s ? BREAK(' ') . w (' ' | RPOS(0))) {
   n = n + 1;
 }
 OUTPUT = 'words=' n;
-/*------------ 401 ladder__rung22_datatype_function_uppercase_type_name_query */
+/*------------ 402 ladder__rung22_datatype_function_uppercase_type_name_query */
 t = TABLE();
 a = ARRAY('3');
 p = LEN(1);
@@ -3194,7 +3216,7 @@ OUTPUT = DATATYPE(3.14);
 OUTPUT = DATATYPE(p);
 OUTPUT = DATATYPE(t);
 OUTPUT = DATATYPE(a);
-/*---------------------------------------------- 402 trim_dupl_size_replace_1 */
+/*---------------------------------------------- 403 trim_dupl_size_replace_1 */
 // A14_arith_loop_triplet.sc — center input lines, blank line every third
 // Snocone translation of crosscheck/arith/triplet.sno
 // Tests: while (INPUT), DUPL(), REMDR(), SIZE(), &TRIM, arithmetic
@@ -3205,7 +3227,7 @@ while (s = INPUT) {
     n = REMDR(n + 1, 3);
     OUTPUT = EQ(n, 0);
 }
-/*----------------------------------------- 403 table_size_indirect_replace_1 */
+/*----------------------------------------- 404 table_size_indirect_replace_1 */
 // driver.sc — test driver for ReadWrite.sc (Snocone)
 nl = CHAR(10);
 
@@ -3258,7 +3280,7 @@ if (EQ(lm7[0], 1)) { OUTPUT = 'PASS: 7 LineMap single word no-nl'; } else { OUTP
 // 8: LineMap 2-line, second line offset
 LineMap('x'   nl   'y'   nl, 'lm8');
 if (EQ(lm8[SIZE('x') + 1], 2)) { OUTPUT = 'PASS: 8 LineMap 2-line second offset'; } else { OUTPUT = 'FAIL: 8 LineMap 2-line offset got '   lm8[SIZE('x') + 1]; }
-/*------------------------------------------- 404 break_pos_capture_replace_1 */
+/*------------------------------------------- 405 break_pos_capture_replace_1 */
 // driver.sc — test driver for Qize.sc (Snocone)
 // Tests SQize, DQize, SqlSQize subset of Qize.inc
 
@@ -3330,7 +3352,7 @@ else { OUTPUT = 'FAIL: 4 SqlSQize basic got=' SqlSQize('hello'); }
 // 5: SqlSQize doubles single quotes
 if (IDENT(SqlSQize("it's"), "it''s")) { OUTPUT = 'PASS: 5 SqlSQize doubles quote'; }
 else { OUTPUT = 'FAIL: 5 SqlSQize doubles quote got=' SqlSQize("it's"); }
-/*-------------------------------------- 405 eval_datatype_indirect_replace_1 */
+/*-------------------------------------- 406 eval_datatype_indirect_replace_1 */
 // driver.sc — test driver for assign.sc (Snocone)
 // Oracle: compare output to test/beauty/assign/driver.ref (SNOBOL4 golden)
 
@@ -3405,7 +3427,7 @@ if (IDENT(y, 'chain')) {
 } else {
     OUTPUT = 'FAIL: 7 chain assign';
 }
-/*------------------------------------------ 406 pos_table_datatype_replace_1 */
+/*------------------------------------------ 407 pos_table_datatype_replace_1 */
 &STLIMIT = 1000000;
 strOfs = 0; t8Max = 0; t8MaxLine = 0; t8MaxLast = 0; doDebug = 0; t8Map = '';
 
@@ -3490,17 +3512,17 @@ OUTPUT = 'PASS: 8 T8Trace doDebug=2 ?-expand output';
 doDebug = 2; t8Max = 10; t8MaxLine = 621; t8MaxLast = 5; strOfs = 0; t8Map = '';
 T8Trace(1, 'upd', 0);
 if (EQ(t8MaxLast, 10)) { OUTPUT = 'PASS: 9 t8MaxLast updated to t8Max'; } else { OUTPUT = 'FAIL: 9 t8MaxLast='   t8MaxLast; }
-/*--------------------------------------------- 407 ladder_prog__capture_feed */
+/*--------------------------------------------- 408 ladder_prog__capture_feed */
 '3abc' ? LEN(1) $ n LEN(*n) . rest;
 OUTPUT = rest;
-/*-------------------------------------------------- 408 ladder_prog__pat_pos */
+/*-------------------------------------------------- 409 ladder_prog__pat_pos */
 s = 'abcdef';
 if (s ? POS(0) 'abc')  { OUTPUT = 'pos0-ok'; }
 if (s ? 'def' RPOS(0)) { OUTPUT = 'rpos0-ok'; }
 if (s ? TAB(3))        { OUTPUT = 'tab3-ok'; }
 if (s ? RTAB(3))       { OUTPUT = 'rtab3-ok'; }
 if (s ? REM)           { OUTPUT = 'rem-ok'; }
-/*------------------------------------------------ 409 ladder_prog__pat_prims */
+/*------------------------------------------------ 410 ladder_prog__pat_prims */
 s = 'abc123xyz';
 if (s ? SPAN('abc'))    { OUTPUT = 'span-ok'; }
 if (s ? BREAK('123'))   { OUTPUT = 'break-ok'; }
@@ -3508,7 +3530,7 @@ if (s ? LEN(3))         { OUTPUT = 'len-ok'; }
 if (s ? ANY('xyz'))     { OUTPUT = 'any-ok'; }
 if (s ? NOTANY('123'))  { OUTPUT = 'notany-ok'; }
 if (s ? BREAKX('z'))    { OUTPUT = 'breakx-ok'; }
-/*------------------------------------------- 410 fence_len_capture_replace_1 */
+/*------------------------------------------- 411 fence_len_capture_replace_1 */
 // driver.sc — test driver for FENCE (Snocone)
 // FENCE is builtin — no include needed.
 &STLIMIT = 1000000;
@@ -3527,7 +3549,7 @@ if ('x' ? FENCE) {
 } else {
     OUTPUT = 'PASS: FENCE alone fails match';
 }
-/*------------------------------------------ 411 table_convert_size_replace_1 */
+/*------------------------------------------ 412 table_convert_size_replace_1 */
 // driver.sc — test driver for global.sc (Snocone)
 // Oracle: compare output to beauty_global_driver.ref (SNOBOL4 golden)
 
@@ -3594,7 +3616,7 @@ if (IDENT(UTF[CHAR(226)   CHAR(128)   CHAR(148)],'EM_DASH')) { OUTPUT = 'PASS: U
 // Indirect assign spot-checks
 if (IDENT(COPYRIGHT_SIGN, CHAR(194)   CHAR(169)))              { OUTPUT = 'PASS: UTF indirect COPYRIGHT_SIGN'; } else { OUTPUT = 'FAIL: UTF indirect COPYRIGHT_SIGN'; }
 if (IDENT(EM_DASH, CHAR(226)   CHAR(128)   CHAR(148)))        { OUTPUT = 'PASS: UTF indirect EM_DASH';        } else { OUTPUT = 'FAIL: UTF indirect EM_DASH';        }
-/*-------------------------------------- 412 user_function_span_any_replace_1 */
+/*-------------------------------------- 413 user_function_span_any_replace_1 */
 // driver.sc — test driver for match.sc (Snocone)
 // Oracle: compare to beauty_match_driver.ref
 
@@ -3625,7 +3647,7 @@ if (match(wList, tx)) { OUTPUT = 'PASS: 8 word list hit'; } else { OUTPUT = 'FAI
 
 // 9: word-list miss — 'GOTO' is not in wList
 if (notmatch(wList, 'GOTO')) { OUTPUT = 'PASS: 9 word list miss'; } else { OUTPUT = 'FAIL: 9 word list miss'; }
-/*----------------------------------------------- 413 break_len_rem_replace_2 */
+/*----------------------------------------------- 414 break_len_rem_replace_2 */
 // A15_lib_stack.sc — general-purpose stack: push, pop, peek, depth
 // Snocone translation of crosscheck/library/test_stack.sno + lib/stack.sno
 &TRIM = 1;
@@ -3707,12 +3729,12 @@ if (subject ? BREAK(' ') . w1   LEN(1)   REM . w2) {
 } else {
     OUTPUT = 'fail: pattern match failed';
 }
-/*-------------------------------------------- 414 ladder_prog__pat_recursive */
+/*-------------------------------------------- 415 ladder_prog__pat_recursive */
 Item = SPAN('0123456789') | '(' *List ')';
 List = Item ARBNO(',' Item);
 if ('(1,(2,3),4)' ? POS(0) List RPOS(0)) { OUTPUT = 'recursive-ok'; }
 if ('(1,,2)' ? POS(0) List RPOS(0)) { OUTPUT = 'wrong'; } else { OUTPUT = 'reject-ok'; }
-/*---------------------------------------------- 415 arb_span_break_replace_2 */
+/*---------------------------------------------- 416 arb_span_break_replace_2 */
 // test_pattern.sc — SC-9 pattern match gate
 // Tests: subject ? pattern, ARB, SPAN, BREAK, ANY, LEN, alternation, capture
 // .ref generated from equivalent SNOBOL4 under SPITBOL oracle
@@ -3746,7 +3768,7 @@ if (x ? p) { OUTPUT = 'PASS: 8 alternation'; } else { OUTPUT = 'FAIL: 8'; }
 // 9. Conditional capture (.)
 x = 'hello world';
 if (x ? (SPAN('abcdefghijklmnopqrstuvwxyz') . word)) { OUTPUT = 'PASS: 9 capture word=' word; } else { OUTPUT = 'FAIL: 9'; }
-/*--------------------------------------- 416 eval_datatype_replace_replace_1 */
+/*--------------------------------------- 417 eval_datatype_replace_replace_1 */
 // driver.sc — test driver for omega.sc (Snocone)
 // Tests TV/TW/TX/TY/TZ pattern instrumentation routines
 
@@ -3813,7 +3835,7 @@ else { OUTPUT = 'FAIL: 1 TY thin returns null'; }
 p = TZ(1, 'mypat', 'hello');
 if (DIFFER(p)) { OUTPUT = 'PASS: 2 TZ thin returns non-null'; }
 else { OUTPUT = 'FAIL: 2 TZ thin returns null'; }
-/*------------------------------------------------- 417 any_pos_len_replace_1 */
+/*------------------------------------------------- 418 any_pos_len_replace_1 */
 // driver.sc — test driver for case.sc (Snocone)
 // Tests lwr, upr, cap, icase from corpus/programs/snocone/demo/beauty/case.sc
 
@@ -3900,7 +3922,7 @@ else { OUTPUT = 'FAIL: 11 icase matches upper'; }
 // 12: icase pattern matches mixed
 if ('Hi' ? (p)) { OUTPUT = 'PASS: 12 icase matches mixed'; }
 else { OUTPUT = 'FAIL: 12 icase matches mixed'; }
-/*------------------------------------------------ 418 span_any_pos_replace_1 */
+/*------------------------------------------------ 419 span_any_pos_replace_1 */
 // driver.sc — test driver for TDump.sc (Snocone)
 // Tests TLump (single-line) — TDump uses Gen which buffers, harder to verify
 
@@ -3978,7 +4000,7 @@ arr[1] = leaf1;
 node = tree('Add', '', 1, arr);
 if (IDENT(TLump(node, 100), '(Add 42)')) { OUTPUT = 'PASS: 6 TLump tree'; }
 else { OUTPUT = 'FAIL: 6 TLump tree got=' TLump(node, 100); }
-/*---------------------------------------------- 419 arb_span_break_replace_1 */
+/*---------------------------------------------- 420 arb_span_break_replace_1 */
 // pattern_suite.sc -- SC-17 exhaustive ARB/SPAN/BREAK/ANY/LEN tests
 // .ref generated from pattern_suite.sno under SPITBOL oracle
 
@@ -4091,7 +4113,7 @@ if (s ? (ANY('0123456789') . d LEN(2) . rest)) { OUTPUT = 'COMBO-3 d=' d ' rest=
 // COMBO-4: SPAN('a') then SPAN('b')
 s = 'aabbcc';
 if (s ? (SPAN('a') . aa SPAN('b') . bb)) { OUTPUT = 'COMBO-4 aa=' aa ' bb=' bb; }
-/*----------------------------------------------- 420 break_any_pos_replace_1 */
+/*----------------------------------------------- 421 break_any_pos_replace_1 */
 // A15_lib_string.sc — string utilities: pad_left, pad_right, ltrim, rtrim, trimws,
 //                      repeat, contains, startswith, endswith, index
 // Snocone translation of crosscheck/library/test_string.sno + lib/string.sno
@@ -4181,7 +4203,7 @@ if (startswith('foobar', 'bar')) {
 }
 OUTPUT = index('foobar', 'oba');
 OUTPUT = index('foobar', 'xyz');
-/*----------------------------------------------- 421 break_pos_len_replace_1 */
+/*----------------------------------------------- 422 break_pos_len_replace_1 */
 // driver.sc — test driver for Gen.sc (Snocone)
 // Tests IncLevel/DecLevel/SetLevel/GetLevel/Gen/GenTab/GenSetCont
 

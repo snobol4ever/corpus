@@ -1114,18 +1114,20 @@ abcd
 12345
 /*------------------------------------------------ 369 span_capture_replace_3 */
 forty-two
-/*-------------------------------------------------- 370 table_size_replace_1 */
+/*---------------------------------------- 370 gc_chain__nested_call_collects */
+20000
+/*-------------------------------------------------- 371 table_size_replace_1 */
 the=3
 cat=2
 sat=1
 on=1
 mat=1
-/*----------------------------------------------- 371 array_keyword_replace_1 */
+/*----------------------------------------------- 372 array_keyword_replace_1 */
 PASS: 1 MakeLeaf t/v/n
 PASS: 2 MakeNode with children
 PASS: 3 DIFFER guard
 PASS: 4 field update
-/*------------------------------------------------ 372 trim_keyword_replace_1 */
+/*------------------------------------------------ 373 trim_keyword_replace_1 */
 7
 3
 3.5
@@ -1137,7 +1139,7 @@ PASS: 4 field update
 4
 25
 12
-/*-------------------------------------------- 373 indirect_keyword_replace_1 */
+/*-------------------------------------------- 374 indirect_keyword_replace_1 */
 PASS: 1 push/top = 42
 PASS: 2 top of 3 = 30
 PASS: 3 pop restores 20
@@ -1145,7 +1147,7 @@ PASS: 4 Pop(var) = 99
 PASS: 5 empty pop fails
 PASS: 6 empty top fails
 PASS: 7 nested pop order a/b/c
-/*----------------------------------------------- 374 table_keyword_replace_1 */
+/*----------------------------------------------- 375 table_keyword_replace_1 */
 PASS: 1 Fibonacci(10)=55
 PASS: 2 Fibonacci(0)=0
 PASS: 3 Fibonacci(1)=1
@@ -1164,7 +1166,7 @@ PASS: 15 ~IsPrime(100)
 PASS: 16 Sieve(20)
 PASS: 17 ISqrt(15)=3
 PASS: 18 ISqrt(16)=4
-/*------------------------------------------------------- 375 scrip__sm_lower */
+/*------------------------------------------------------- 376 scrip__sm_lower */
 smoke: define LOOP -> 10
 smoke: define DONE -> 20
 smoke: define END -> 99
@@ -1175,49 +1177,49 @@ smoke: patch_later 5 -> DONE
 smoke: patch_later 7 -> LOOP
 smoke: resolve -> 0
 smoke: all ok
-/*------------------------------------------------ 376 ladder_prog__pat_abort */
+/*------------------------------------------------ 377 ladder_prog__pat_abort */
 abort-ok
 abort-nohit-ok
-/*----------------------------------------------------- 377 len_rem_capture_1 */
+/*----------------------------------------------------- 378 len_rem_capture_1 */
 cd
-/*----------------------------------------------------- 378 pos_len_capture_1 */
+/*----------------------------------------------------- 379 pos_len_capture_1 */
 he
-/*---------------------------------------------------- 379 rpos_len_capture_1 */
+/*---------------------------------------------------- 380 rpos_len_capture_1 */
 hel
-/*--------------------------------------------------- 380 break_rem_capture_1 */
+/*--------------------------------------------------- 381 break_rem_capture_1 */
 key
 value
-/*------------------------------------ 381 datatype_replace_keyword_replace_1 */
+/*------------------------------------ 382 datatype_replace_keyword_replace_1 */
 STRING
 INTEGER
 REAL
-/*------------ 382 ladder__rung23_keyword_and_system_variables_maxlngth_query */
+/*------------ 383 ladder__rung23_keyword_and_system_variables_maxlngth_query */
 16777216
 5000
 4000
-/*---------------------------------------------- 383 ladder_prog__pat_capture */
+/*---------------------------------------------- 384 ladder_prog__pat_capture */
 key
 value
-/*------------------------------------------------- 384 eval_datatype_defer_1 */
+/*------------------------------------------------- 385 eval_datatype_defer_1 */
 EXPRESSION
 99
-/*------------------------------------------- 385 break_len_capture_replace_1 */
+/*------------------------------------------- 386 break_len_capture_replace_1 */
 cat
 cat
 cat
-/*--------------------------------------------- 386 pos_len_capture_replace_1 */
+/*--------------------------------------------- 387 pos_len_capture_replace_1 */
 hel
-/*-------------------------------------------- 387 rpos_len_capture_replace_1 */
+/*-------------------------------------------- 388 rpos_len_capture_replace_1 */
 lo
-/*--------------------------------------------- 388 tab_len_capture_replace_1 */
+/*--------------------------------------------- 389 tab_len_capture_replace_1 */
 de
-/*------------------------------------------- 389 trim_size_keyword_replace_1 */
+/*------------------------------------------- 390 trim_size_keyword_replace_1 */
 22 characters, 2 lines read
-/*-------------------------------------- 390 array_datatype_keyword_replace_1 */
+/*-------------------------------------- 391 array_datatype_keyword_replace_1 */
 x = 42
 y = 'hello'
 a = ARRAY['1:3']
-/*---------------------------------------- 391 convert_size_keyword_replace_1 */
+/*---------------------------------------- 392 convert_size_keyword_replace_1 */
 PASS: 1 Roman(1)=I
 PASS: 2 Roman(4)=IV
 PASS: 3 Roman(9)=IX
@@ -1228,7 +1230,7 @@ PASS: 7 Roman(1776)=MDCCLXXVI
 PASS: 8 Roman(1999)=MCMXCIX
 PASS: 9 Roman(2024)=MMXXIV
 PASS: 10 Roman(3999)=MMMCMXCIX
-/*---------------------------------------- 392 trim_replace_keyword_replace_1 */
+/*---------------------------------------- 393 trim_replace_keyword_replace_1 */
 hello world
 HELLO WORLD
 Hello world
@@ -1236,7 +1238,7 @@ ok: icase hello
 ok: icase HELLO
 ok: icase HeLLo
 no match ok
-/*-------------------------------------- 393 datatype_defer_keyword_replace_1 */
+/*-------------------------------------- 394 datatype_defer_keyword_replace_1 */
 PASS: 1 nPush=PATTERN
 PASS: 2 nInc=PATTERN
 PASS: 3 nPop=PATTERN
@@ -1245,7 +1247,7 @@ PASS: 5 nInc match; nTop=1
 PASS: 6 nInc x2; nTop=2
 PASS: 7 nested nPush; nTop=0
 PASS: 8 nTop INTEGER
-/*------------------------------------------ 394 table_size_keyword_replace_1 */
+/*------------------------------------------ 395 table_size_keyword_replace_1 */
 PASS: 1 Reverse
 PASS: 2 Reverse empty
 PASS: 3 TrimLeft
@@ -1261,38 +1263,38 @@ PASS: 12 EndsWith miss
 PASS: 13 Split
 PASS: 14 Join
 PASS: 15 Split no-sep
-/*-------------------------------------- 395 array_indirect_keyword_replace_1 */
+/*-------------------------------------- 396 array_indirect_keyword_replace_1 */
 PASS: 1 Shift leaf
 PASS: 2 Reduce 2 children
 PASS: 3 Reduce 0 children
 PASS: 4 Shift empty value
 PASS: 5 Reduce 3 children order
-/*------------------------------------------------ 396 ladder_prog__pat_arbno */
+/*------------------------------------------------ 397 ladder_prog__pat_arbno */
 list-ok
-/*- 397 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
+/*- 398 ladder__rung23_keyword_and_system_variables_keyword_value_operator_ampersand */
 INTEGER
 STRING
 PATTERN
 256
-/*----------------------------------------------- 398 break_len_rem_replace_1 */
+/*----------------------------------------------- 399 break_len_rem_replace_1 */
 John / Smith
-/*---------------------------------------------- 399 ladder_prog__builtin_str */
+/*---------------------------------------------- 400 ladder_prog__builtin_str */
 5
 xyz
 cba
   pad
 bcd
 ababab
-/*------------------------------------------ 400 ladder_prog__integ_wordcount */
+/*------------------------------------------ 401 ladder_prog__integ_wordcount */
 words=7
-/*------------ 401 ladder__rung22_datatype_function_uppercase_type_name_query */
+/*------------ 402 ladder__rung22_datatype_function_uppercase_type_name_query */
 STRING
 INTEGER
 REAL
 PATTERN
 TABLE
 ARRAY
-/*---------------------------------------------- 402 trim_dupl_size_replace_1 */
+/*---------------------------------------------- 403 trim_dupl_size_replace_1 */
                                      alpha
                                       beta
                                      gamma
@@ -1300,7 +1302,7 @@ ARRAY
                                      delta
                                     epsilon
                                     epsilon
-/*----------------------------------------- 403 table_size_indirect_replace_1 */
+/*----------------------------------------- 404 table_size_indirect_replace_1 */
 PASS: 1 LineMap[0]=1
 PASS: 2 LineMap offset 6 = line 2
 PASS: 3 LineMap offset 11 = line 3
@@ -1309,13 +1311,13 @@ PASS: 5 Write FRETURN on bad path
 PASS: 6 LineMap empty string creates table
 PASS: 7 LineMap single word no-nl
 PASS: 8 LineMap 2-line second offset
-/*------------------------------------------- 404 break_pos_capture_replace_1 */
+/*------------------------------------------- 405 break_pos_capture_replace_1 */
 PASS: 1 SQize basic
 PASS: 2 SQize empty
 PASS: 3 DQize basic
 PASS: 4 SqlSQize basic
 PASS: 5 SqlSQize doubles quote
-/*-------------------------------------- 405 eval_datatype_indirect_replace_1 */
+/*-------------------------------------- 406 eval_datatype_indirect_replace_1 */
 PASS: 1 basic string assign
 PASS: 2 assign integer
 PASS: 3 reassign
@@ -1323,7 +1325,7 @@ PASS: 4 assign returns null
 PASS: 5 assign empty string
 PASS: 6 indirect varname
 PASS: 7 chain assign
-/*------------------------------------------ 406 pos_table_datatype_replace_1 */
+/*------------------------------------------ 407 pos_table_datatype_replace_1 */
 PASS: 1 T8Pos nil map=LPAD
 PASS: 2 T8Pos map line/col
 PASS: 3 T8Pos updates t8Max
@@ -1336,25 +1338,25 @@ PASS: 7 T8Trace t8MaxLine<621 NRETURN
 PASS: 8 T8Trace doDebug=2 ?-expand output
        0  upd
 PASS: 9 t8MaxLast updated to t8Max
-/*--------------------------------------------- 407 ladder_prog__capture_feed */
+/*--------------------------------------------- 408 ladder_prog__capture_feed */
 abc
-/*-------------------------------------------------- 408 ladder_prog__pat_pos */
+/*-------------------------------------------------- 409 ladder_prog__pat_pos */
 pos0-ok
 rpos0-ok
 tab3-ok
 rtab3-ok
 rem-ok
-/*------------------------------------------------ 409 ladder_prog__pat_prims */
+/*------------------------------------------------ 410 ladder_prog__pat_prims */
 span-ok
 break-ok
 len-ok
 any-ok
 notany-ok
 breakx-ok
-/*------------------------------------------- 410 fence_len_capture_replace_1 */
+/*------------------------------------------- 411 fence_len_capture_replace_1 */
 PASS: FENCE alt gamma
 FAIL: FENCE should not succeed as subject match
-/*------------------------------------------ 411 table_convert_size_replace_1 */
+/*------------------------------------------ 412 table_convert_size_replace_1 */
 PASS: nul
 PASS: bs
 PASS: ht
@@ -1375,7 +1377,7 @@ PASS: UTF REGISTERED_SIGN
 PASS: UTF EM_DASH
 PASS: UTF indirect COPYRIGHT_SIGN
 PASS: UTF indirect EM_DASH
-/*-------------------------------------- 412 user_function_span_any_replace_1 */
+/*-------------------------------------- 413 user_function_span_any_replace_1 */
 PASS: 1 match ANY hit
 PASS: 2 match ANY miss
 PASS: 3 notmatch miss
@@ -1385,7 +1387,7 @@ PASS: 6 match LEN(0)
 PASS: 7 match RPOS(0)
 PASS: 8 word list hit
 PASS: 9 word list miss
-/*----------------------------------------------- 413 break_len_rem_replace_2 */
+/*----------------------------------------------- 414 break_len_rem_replace_2 */
 3
 c
 b
@@ -1399,10 +1401,10 @@ x
 99
 world
 hello
-/*-------------------------------------------- 414 ladder_prog__pat_recursive */
+/*-------------------------------------------- 415 ladder_prog__pat_recursive */
 recursive-ok
 reject-ok
-/*---------------------------------------------- 415 arb_span_break_replace_2 */
+/*---------------------------------------------- 416 arb_span_break_replace_2 */
 PASS: 1 literal match
 PASS: 2 non-match
 PASS: 3 ANY
@@ -1412,10 +1414,10 @@ PASS: 6 BREAK
 PASS: 7 ARB
 PASS: 8 alternation
 PASS: 9 capture word=hello
-/*--------------------------------------- 416 eval_datatype_replace_replace_1 */
+/*--------------------------------------- 417 eval_datatype_replace_replace_1 */
 PASS: 1 TY thin returns non-null
 PASS: 2 TZ thin returns non-null
-/*------------------------------------------------- 417 any_pos_len_replace_1 */
+/*------------------------------------------------- 418 any_pos_len_replace_1 */
 PASS: 1 lwr basic
 PASS: 2 lwr mixed
 PASS: 3 lwr already lower
@@ -1428,14 +1430,14 @@ PASS: 9 icase null
 PASS: 10 icase matches lower
 PASS: 11 icase matches upper
 PASS: 12 icase matches mixed
-/*------------------------------------------------ 418 span_any_pos_replace_1 */
+/*------------------------------------------------ 419 span_any_pos_replace_1 */
 PASS: 1 TValue integer
 PASS: 2 TValue string
 PASS: 3 TLump null
 PASS: 4 TLump integer leaf
 PASS: 5 TLump fails on tight len
 PASS: 6 TLump tree
-/*---------------------------------------------- 419 arb_span_break_replace_1 */
+/*---------------------------------------------- 420 arb_span_break_replace_1 */
 ARB-1 cap=
 ARB-2 pre=hello 
 ARB-3 all=end
@@ -1457,7 +1459,7 @@ COMBO-1 k2=key
 COMBO-2 word=abc
 COMBO-3 d=1 rest=ab
 COMBO-4 aa=aa bb=bb
-/*----------------------------------------------- 420 break_any_pos_replace_1 */
+/*----------------------------------------------- 421 break_any_pos_replace_1 */
 ****hi
 hi****
 hello
@@ -1470,7 +1472,7 @@ endswith ok
 no startswith ok
 2
 0
-/*----------------------------------------------- 421 break_pos_len_replace_1 */
+/*----------------------------------------------- 422 break_pos_len_replace_1 */
 PASS: 1 GetLevel initial
 PASS: 2 SetLevel/GetLevel
 PASS: 3 IncLevel default
