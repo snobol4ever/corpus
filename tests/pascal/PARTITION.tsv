@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=477 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,32
+# shape: entries=478 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,33
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -76,7 +76,7 @@ ladder__rung02_arithmetic_div_neg	chunk:03	feat:div	div
 ladder__rung02_arithmetic_mod_neg	chunk:04	feat:mod	mod
 ladder__rung04_for_repeat_for_zero	chunk:04	feat:for	for
 stdin__read2	chunk:04	feat:read	read readln
-ladder__rung04_for_repeat_repeat_once	chunk:04	feat:repeat	repeat
+ladder__rung04_for_repeat_repeat_once	chunk:05	feat:repeat	repeat
 ladder__rung16_q_shr	chunk:04	feat:for	for
 ladder__rung17_div_zero_without_sysutils_stays_200	chunk:03	feat:div	div
 ladder__rung16_q_write_expr	chunk:03	feat:div	div
@@ -131,7 +131,7 @@ ladder__rung21_dynamic_array_compared_with_nil	chunk:03	feat:nil	array nil type
 program_for_writeln_replace_1	chunk:02	feat:write	for write
 program_writeln_7	chunk:04	feat:chr	chr ord
 ladder__rung18_sha1_digest	chunk:04	feat:mod	chr for mod
-ladder__rung24_rtl_system_lineending	chunk:03	feat:ord	ord write
+ladder__rung24_rtl_system_lineending	chunk:04	feat:ord	ord write
 program_for_downto_2	chunk:04	feat:downto	downto for
 program_for_downto_4	chunk:04	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
@@ -190,7 +190,7 @@ program_procedure_nested_16	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_2	chunk:01	feat:nested_proc	nested_proc procedure
 front_end__pf20d_object_parent	chunk:01	feat:nested_proc	nested_proc procedure type
 program_procedure_nested_1	chunk:01	feat:nested_proc	nested_proc procedure
-program_procedure_nested_15	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_15	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_nested_14	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_record_11	chunk:02	feat:record	procedure record type
 program_procedure_record_4	chunk:02	feat:record	procedure record type
@@ -205,6 +205,7 @@ program_procedure_record_7	chunk:02	feat:record	procedure record type
 ladder__rung17_div_zero_caught_in_callee_and_uncaught	chunk:03	feat:div	div function mod
 program_function_record_2	chunk:01	feat:function	function record type
 ladder__rung16_string_index_zero_length_byte	chunk:04	feat:ord	const for ord
+ladder__rung32_a_calling_convention_directive_is_accepted_and_ignored	chunk:01	feat:function	function nested_proc type
 program_procedure_record_10	chunk:02	feat:record	procedure record type
 program_procedure_record_3	chunk:02	feat:record	procedure record type
 program_array_setlit_1	chunk:04	feat:set_literal	array set_literal subrange
@@ -258,7 +259,7 @@ program_pointer_writeln_5	chunk:03	feat:new	new pointer pointer_with_new type
 program_pointer_writeln_4	chunk:03	feat:new	new pointer pointer_with_new type
 ladder__rung13_ptr_compare	chunk:03	feat:nil	array nil set_literal subrange
 ladder__rung24_static_array_of_dynamic_arrays_assignment_shares_the_array_and_nil_empties_it	chunk:03	feat:nil	array nil set_literal subrange type
-program_set_for_1	chunk:02	feat:set	for in set subrange
+program_set_for_1	chunk:03	feat:set	for in set subrange
 ladder__rung21_overload_picked_by_a_const_integer_argument	chunk:02	feat:const	const function nested_proc procedure type
 program_procedure_record_2	chunk:02	feat:record	nested_proc procedure record type
 program_procedure_record_9	chunk:02	feat:record	nested_proc procedure record type

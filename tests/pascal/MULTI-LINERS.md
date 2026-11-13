@@ -5377,6 +5377,28 @@ length byte
 found at 11
 ```
 
+## ladder__rung32_a_calling_convention_directive_is_accepted_and_ignored
+
+```Pascal
+{$mode objfpc}
+program d3;
+function f1(i: longint): longint; cdecl; begin result := i + 1 end;
+function f2(i: longint): longint; stdcall; begin result := i + 2 end;
+function f3(i: longint): longint; register; begin result := i + 3 end;
+function f4(i: longint): longint; pascal; begin result := i + 4 end;
+function f5(i: longint): longint; inline; begin result := i + 5 end;
+function f6(i: longint): longint; ms_abi_default; begin result := i + 6 end;
+function f7(i: longint): longint; vectorcall; begin result := i + 7 end;
+function f8(i: longint): longint; oldfpccall; begin result := i + 8 end;
+function f9(i: longint): longint; far; begin result := i + 9 end;
+type tf = function(i: longint): longint; cdecl;
+var p: tf; begin p := @f1; writeln(p(0), f2(0), f3(0), f4(0), f5(0), f6(0), f7(0), f8(0), f9(0)) end.
+```
+
+```stdout
+123456789
+```
+
 ## program_procedure_record_10
 
 ```Pascal
