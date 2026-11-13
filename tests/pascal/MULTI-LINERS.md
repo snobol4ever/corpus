@@ -4564,6 +4564,38 @@ end.
 123 TRUE 13 TRUE
 ```
 
+## packed_arrays__pa11_raw_view_past_2gib
+
+```Pascal
+program pa11;
+{$mode objfpc}
+var
+  a : array of longword;
+  p, q : ^longword;
+  n : NativeInt;
+begin
+  n := 600000000;
+  setlength(a, n);
+  a[0] := 3; a[n - 1] := 7;
+  p := @a[0];
+  inc(p, n - 1);
+  writeln(p^);
+  q := @a[n - 1];
+  writeln(q^, ' ', q - p);
+  dec(q, n - 1);
+  writeln(q^);
+  p^ := 9;
+  writeln(a[n - 1]);
+end.
+```
+
+```stdout
+7
+7 0
+3
+9
+```
+
 ## program_procedure_nested_10
 
 ```Pascal
