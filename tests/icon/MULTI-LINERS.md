@@ -23651,6 +23651,41 @@ suspend 2 | (seq & i): 2 3 5 7 9
 prime               : 2 3 5 7 11 
 ```
 
+## ladder__rung03_suspend_do_block
+
+```Icon
+procedure g1(s)
+    local c;
+    suspend c := !s do { &null; &null };
+end
+
+procedure g2(s)
+    suspend !s do { writes("<"); writes(">") };
+end
+
+procedure g3(t)
+    local c;
+    t ? {
+        while not pos(0) do {
+            c := move(1);
+            suspend c do { writes("[", &pos); writes("]") }
+        }
+    };
+end
+
+procedure main()
+    every writes(g1("abc")); write();
+    every writes(g2("abc")); write();
+    every writes(g3("abc")); write();
+end
+```
+
+```stdout
+abc
+a<>b<>c<>
+a[2]b[3]c[4]
+```
+
 ## procedure_every_scan_replace_12
 
 ```Icon
