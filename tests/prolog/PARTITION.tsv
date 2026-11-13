@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=730 features=39 ubiquitous=3(write nl directive) distinctive=36 core=41 clusters=72 chunks=7 sizes=100,100,100,100,100,100,89
+# shape: entries=735 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=72 chunks=7 sizes=100,100,100,100,100,100,97
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -190,8 +190,8 @@ directive_68	chunk:06	family:rung27
 directive_69	chunk:06	family:rung27	
 directive_70	chunk:06	family:rung27	
 directive_72	chunk:06	family:rung27	
-directive_75	chunk:06	family:rung29	
-directive_76	chunk:06	family:rung29	
+directive_75	chunk:07	family:rung29	
+directive_76	chunk:07	family:rung29	
 evaluable_exp_log_sqrt_1	chunk:01	family:ladder	
 evaluable_sign_1	chunk:02	family:ladder	
 evaluable_sin_cos_atan_1	chunk:02	family:ladder	
@@ -214,28 +214,28 @@ directive_22	chunk:06	family:rung12_atom_builtins
 directive_23	chunk:06	family:rung12_atom_builtins	
 directive_38	chunk:07	family:rung23_arith_ext	
 directive_71	chunk:06	family:rung27	
-directive_74	chunk:06	family:rung29	
+directive_74	chunk:07	family:rung29	
 directive_84	chunk:02	family:ladder	
 evaluable_bitand_bitor_bitneg_xor_1	chunk:02	family:ladder	
 evaluable_floor_truncate_round_ceiling_1	chunk:02	family:ladder	
 lifo__lifo_retry_fail_loop	chunk:07	family:lifo	
-simple_program_100	chunk:06	family:rung39_atom_iso	
-simple_program_102	chunk:06	family:rung39_atom_iso	
+simple_program_100	chunk:07	family:rung39_atom_iso	
+simple_program_102	chunk:07	family:rung39_atom_iso	
 simple_program_90	chunk:07	family:rung18_succ_plus	
 termio_current_char_conversion_1	chunk:02	family:ladder	
 termio_write_term_numbervars_1	chunk:02	feat:unify	unify
 directive_17	chunk:07	family:rung02_facts_facts	
-simple_program_103	chunk:06	family:rung39_atom_iso	
+simple_program_103	chunk:07	family:rung39_atom_iso	
 simple_program_97	chunk:07	family:rung36_arith_edge	
 clpr_chr__cc03_simpag	chunk:04	feat:findall	findall unify
 directive_19	chunk:06	family:rung12_atom_builtins	
 directive_78	chunk:07	family:rung35_bridge_setup	
-simple_program_101	chunk:06	family:rung39_atom_iso	
+simple_program_101	chunk:07	family:rung39_atom_iso	
 streamio_get_byte_peek_byte_1	chunk:02	family:ladder	
 streamio_get_code_peek_code_1	chunk:02	family:ladder	
 streamio_put_byte_1	chunk:02	family:ladder	
 timelimit__tl06_sequential_limits_and_zero	chunk:03	feat:catch	catch
-simple_program_104	chunk:06	family:rung39_atom_iso	
+simple_program_104	chunk:07	family:rung39_atom_iso	
 simple_program_96	chunk:07	family:rung36_arith_edge	
 simple_program_98	chunk:07	family:rung36_arith_edge	
 termio_char_conversion_1	chunk:02	family:ladder	
@@ -326,7 +326,7 @@ rung50_for_alias__rung50_for_alias	chunk:04	feat:findall	findall
 swi_cause1__c1b01_bound_arm_resumes_current_predicate	chunk:06	feat:atom	atom cut if_then_else
 swi_d1__d1b	chunk:06	feat:copy_term	copy_term writeq
 swi_qq__qq01_string_plain	chunk:05	feat:writeq	unify writeq
-bagof_setof_bagof_basic_1	chunk:06	feat:bagof	bagof
+bagof_setof_bagof_basic_1	chunk:07	feat:bagof	bagof
 clause_choice_no_clause_fails_1	chunk:02	feat:if_then_else	if_then_else
 cut_directive_2	chunk:03	feat:cut	cut
 cut_directive_3	chunk:03	feat:cut	cut
@@ -402,7 +402,7 @@ functor_2	chunk:07	feat:functor	functor
 ite_8	chunk:03	feat:if_then_else	if_then_else
 simple_program_99	chunk:07	feat:arg	arg
 assertz_directive_1	chunk:05	feat:assertz	assertz
-bagof_1	chunk:06	feat:bagof	bagof
+bagof_1	chunk:07	feat:bagof	bagof
 catch_1	chunk:04	feat:catch	catch
 catch_2	chunk:04	feat:catch	catch
 catch_3	chunk:04	feat:catch	catch
@@ -428,7 +428,7 @@ directive_replace_3	chunk:02	feat:unify	unify
 timelimit__tl03_cpu_loops_interrupted	chunk:04	feat:between	between catch
 assertz_directive_4	chunk:05	feat:assertz	assertz
 cut_directive_1	chunk:03	feat:cut	cut
-rung44_setof_group__rung44_setof_group	chunk:06	feat:bagof	bagof
+rung44_setof_group__rung44_setof_group	chunk:07	feat:bagof	bagof
 scrip_test_palindrome	chunk:03	feat:cut	cut
 setof_2	chunk:07	feat:setof	setof
 benchmark_nreverse	chunk:03	feat:list_cons	list_cons
@@ -473,7 +473,7 @@ throw_ite_directive_1	chunk:07	feat:throw	if_then_else throw
 type_test_atom_1	chunk:06	feat:atom	atom if_then_else
 type_test_nonvar_1	core	core	if_then_else nonvar
 type_test_number_1	chunk:07	feat:number	if_then_else number
-type_test_var_1	chunk:07	feat:var	if_then_else var
+type_test_var_1	chunk:06	feat:var	if_then_else var
 unify_atom_atom_differ_1	chunk:02	feat:unify	if_then_else unify
 unify_atom_atom_same_1	chunk:02	feat:unify	if_then_else unify
 unify_compound_arity_differ_1	chunk:02	feat:unify	if_then_else unify
@@ -482,7 +482,7 @@ assert_assert_then_call_1	chunk:04	feat:call	assertz call
 assert_assert_unbound_arg_call_1	chunk:05	feat:assertz	assertz if_then_else
 assert_assertz_rule_1	chunk:05	feat:assertz	assertz if_then_else
 assertz_ite_2	chunk:05	feat:assertz	assertz if_then_else
-bagof_setof_bagof_fails_on_empty_1	chunk:06	feat:bagof	bagof if_then_else
+bagof_setof_bagof_fails_on_empty_1	chunk:07	feat:bagof	bagof if_then_else
 between_ite_directive_1	chunk:04	feat:between	between if_then_else
 call_n_call_of_variable_goal_1	chunk:04	feat:call	call unify
 clause_reflect_reflect_fact_body_true_1	chunk:05	feat:clause	assertz clause
@@ -497,11 +497,11 @@ lifo__lifo_ite_arm_resumes_2	chunk:04	feat:findall	findall unify
 lifo__lifo_ite_retaining_condition	chunk:02	feat:unify	if_then_else unify
 retract_ite_1	chunk:07	feat:retract	if_then_else retract
 rung45_reflect_clause_facts__rung45_reflect_clause_facts	chunk:05	feat:clause	assertz clause
-assertz_ite_1	chunk:05	feat:assertz	assertz if_then_else
+assertz_ite_1	chunk:06	feat:assertz	assertz if_then_else
 cut_directive_11	chunk:03	feat:cut	cut unify
 ite_directive_4	chunk:06	feat:atom	atom if_then_else
 swi_qq__qq02_string_interpolate	chunk:05	feat:writeq	catch unify writeq
-bagof_setof_free_variable_grouping_1	chunk:06	feat:bagof	bagof findall
+bagof_setof_free_variable_grouping_1	chunk:07	feat:bagof	bagof findall
 call_n_call_of_cut_is_local_1	chunk:04	feat:call	call cut
 copy_term_ite_directive_replace_1	chunk:06	feat:copy_term	copy_term if_then_else
 copy_term_ite_directive_replace_2	chunk:06	feat:copy_term	copy_term if_then_else
@@ -517,7 +517,7 @@ setof_bagof_directive_1	chunk:07	feat:setof	bagof setof
 swi_modclause__mc03_clause_info_module_clause	chunk:05	feat:clause	clause if_then_else writeq
 cut_directive_8	chunk:03	feat:cut	cut unify
 dcg_ite_directive_1	chunk:05	feat:dcg	dcg if_then_else
-lifo__lifo_repeat_read_loop_in_setup_call_cleanup	chunk:05	feat:assertz	assertz catch cut if_then_else
+lifo__lifo_repeat_read_loop_in_setup_call_cleanup	chunk:06	feat:assertz	assertz catch cut if_then_else
 univ_3	chunk:07	feat:univ	unify univ
 benchmark_witness_depth_nrev8	chunk:03	feat:list_cons	cut list_cons
 catch_ite_directive_1	chunk:04	feat:catch	catch if_then_else
@@ -583,7 +583,7 @@ neg_negation_of_unification_1	chunk:05	feat:negation	if_then_else negation unify
 writeq_format_directive_3	core	core	format write_canonical writeq
 abolish_call_after_abolish_raises_existence_error_1	chunk:06	feat:abolish	abolish assertz catch
 abolish_pred_1	chunk:06	feat:abolish	abolish assertz catch
-abolish_retractall_vs_abolish_1	chunk:05	feat:assertz	assertz catch findall
+abolish_retractall_vs_abolish_1	chunk:06	feat:assertz	assertz catch findall
 asserta_order_1	core	core	asserta assertz findall
 catch_throw_directive_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 catch_throw_directive_3	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
@@ -635,7 +635,7 @@ findall_directive_replace_4	chunk:06	feat:findall_with_var_goal	findall findall_
 undo__u01_undo_or_branch	core	core	assert if_then_else unify
 undo__u02_undo_clause_alternative	chunk:07	feat:assert	assert if_then_else negation
 ite_naf_directive_replace_1	chunk:05	feat:negation	if_then_else negation unify
-ite_replace_2	chunk:07	feat:var	if_then_else unify var
+ite_replace_2	chunk:06	feat:var	if_then_else unify var
 rung14_retract_retract_basic__rung14_retract_retract_basic	chunk:05	feat:assert_then_retract	assert_then_retract assertz retract
 rung14_retract_retract_mixed__rung14_retract_retract_mixed	chunk:05	feat:assert_then_retract	assert_then_retract assertz retract
 catch_functor_directive_replace_1	chunk:07	feat:functor	catch functor unify
@@ -670,7 +670,7 @@ test_rung10_programs_puzzle_15	chunk:03	feat:list_cons	cut if_then_else list_con
 if_then_else_condition_throws_1	chunk:04	feat:catch_with_throw	catch catch_with_throw if_then_else throw
 typetest_directive_1	core	core	atom nonvar number var
 abolish_abolish_removes_clauses_1	core	core	abolish assertz catch findall
-assertz_clause_call_1	core	core	assertz call clause if_then_else
+assertz_clause_call_1	chunk:05	feat:clause	assertz call clause if_then_else
 assertz_retract_directive_2	chunk:05	feat:assert_then_retract	assert_then_retract assertz findall retract
 retract_backtrack_1	chunk:05	feat:assert_then_retract	assert_then_retract assertz findall retract
 retract_erase_first_match_1	chunk:05	feat:assert_then_retract	assert_then_retract assertz findall retract
@@ -680,21 +680,23 @@ retract_retract_then_findall_1	chunk:05	feat:assert_then_retract	assert_then_ret
 planner_finish__pf_disj	chunk:06	feat:forall	between forall if_then_else unify
 swi_cause1__c1a02_ite_cut_fail_else_then_goal_under_between	core	core	arg between cut forall if_then_else unify
 between_ite_naf_1	chunk:04	feat:between	between if_then_else negation unify
+ladder__rung10_trim_counter_retract_assert_loop	chunk:05	feat:assert_then_retract	assert_then_retract assertz between retract
 planner_finish__pf_assert_call	core	core	assertz forall if_then_else number
 ladder__rung00_include_carries_operators_to_the_includer	core	core	if_then_else unify univ write_canonical
 copy_term_ite_list_replace_1	chunk:06	feat:copy_term	copy_term if_then_else list_cons unify
-timelimit__tl04_nested_limits	chunk:07	feat:var	catch catch_with_throw if_then_else throw var
+ladder__rung10_trim_assert_abolish_rounds	chunk:06	feat:abolish	abolish assertz between cut
+timelimit__tl04_nested_limits	chunk:06	feat:var	catch catch_with_throw if_then_else throw var
 ladder__rung09_call_cleanup_after_a_choice_point_under_findall	chunk:04	feat:catch_with_throw	catch catch_with_throw findall throw unify
-timelimit__tl05_completes_and_cancelled	core	core	between catch if_then_else negation var
+timelimit__tl05_completes_and_cancelled	chunk:06	feat:var	between catch if_then_else negation var
 findall_bagof_setof_1	core	core	bagof findall if_then_else setof
 ite_univ_list_1	chunk:07	feat:univ	if_then_else list_cons unify univ
-dicts__dt01_read_dict_at_run_time	chunk:07	feat:var	catch if_then_else unify var writeq
-forall_catch_assertz_1	core	core	abolish assertz catch forall
+dicts__dt01_read_dict_at_run_time	chunk:06	feat:var	catch if_then_else unify var writeq
+forall_catch_assertz_1	chunk:06	feat:abolish	abolish assertz catch forall
 one_engine__oe7_mono_prefix	chunk:06	feat:forall	assertz findall forall format
 ite_writeq_format_1	chunk:06	feat:atom	atom format if_then_else writeq
 assertz_retract_ite_1	chunk:05	feat:assert_then_retract	assert_then_retract assertz if_then_else retract
-catch_assertz_abolish_1	core	core	abolish assertz catch unify
-catch_ite_directive_replace_2	chunk:07	feat:var	catch if_then_else unify var
+catch_assertz_abolish_1	chunk:06	feat:abolish	abolish assertz catch unify
+catch_ite_directive_replace_2	chunk:06	feat:var	catch if_then_else unify var
 catch_throw_directive_replace_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw unify
 ladder__rung01_rule_ssu_head_matching	chunk:03	feat:list_cons	catch if_then_else list_cons unify
 findall_cut_ite_replace_1	chunk:03	feat:cut	cut findall if_then_else unify
@@ -712,9 +714,10 @@ ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_en
 one_engine__oe5_incr_wfs	chunk:06	feat:forall	assertz forall format if_then_else unify
 termops_directive_1	core	core	arg copy_term functor succ unify univ
 lifo__lifo_ite_throw_arms	chunk:04	feat:catch_with_throw	catch catch_with_throw cut if_then_else throw unify
+ladder__rung10_trim_queue_fill_and_drain	chunk:05	feat:assert_then_retract	assert_then_retract assertz between cut findall retract
 one_engine__oe3_subs_once	core	core	findall forall format if_then_else unify var
 functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
-copy_term_call_cut_replace_1	core	core	call copy_term cut if_then_else unify var
+copy_term_call_cut_replace_1	chunk:06	feat:copy_term	call copy_term cut if_then_else unify var
 sentences__sentences	core	core	dcg findall forall format if_then_else unify
 one_engine__oe6_dyn_variant	core	core	assert_then_retract assertz findall forall format retract unify
 zeta_layout__zl06_pl_catch_throw_arith	core	core	catch catch_with_throw cut if_then_else list_cons throw unify
@@ -728,7 +731,9 @@ gnu_gaps__gg_current_evaluable	chunk:06	feat:findall_with_var_goal	catch copy_te
 gnu_gaps__gg_term_hash_depth	chunk:06	feat:findall_with_var_goal	catch copy_term findall findall_with_var_goal if_then_else negation unify var writeq
 gnu_gaps__gg_set_stream_alias	chunk:06	feat:findall_with_var_goal	catch copy_term findall findall_with_var_goal if_then_else negation unify var writeq
 zeta_layout__zl05_pl_assert_findall	core	core	assert_then_retract assertz between cut findall forall list_cons retract unify
+ladder__rung10_trim_abolish_after_the_store_emptied	core	core	abolish assert_then_retract assertz between catch findall forall if_then_else retract unify
 gnu_gaps__gg_evaluable_property_iso	core	core	catch copy_term findall findall_with_var_goal functor if_then_else negation unify var writeq
+ladder__rung10_trim_walk_keeps_its_view_across_abolish	core	core	abolish assert_then_retract assertz between call clause findall if_then_else retract unify
 gnu_gaps__gg_countall	core	core	catch catch_with_throw copy_term findall findall_with_var_goal if_then_else negation throw unify var writeq
 ladder__rung10_predicate_property_answers_meta_predicate_as_swipl_for_a_head_bound_at_run_time	core	core	assertz bagof call catch findall findall_with_var_goal forall functor if_then_else negation setof unify
 exceptions__ex08_pl_catch_c_builtin_errors	core	core	arg call catch catch_with_throw findall functor if_then_else list_cons negation succ throw unify univ var

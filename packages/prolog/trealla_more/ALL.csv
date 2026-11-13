@@ -21,4 +21,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 20,samples/queens4,samples/queens4.pl,trealla_more__samples/queens4,trealla_more,70,0,131072,4096,60,,swi
 21,samples/sieve,samples/sieve.pl,trealla_more__samples/sieve,trealla_more,41,0,131072,4096,60,,swi
 22,samples/sudoku,samples/sudoku.pl,trealla_more__samples/sudoku,trealla_more,146,0,131072,4096,60,,swi
-23,samples/test_index,samples/test_index.pl,trealla_more__samples/test_index,trealla_more,126,0,131072,4096,60,,swi
+23,samples/test_index,samples/test_index.pl,trealla_more__samples/test_index,trealla_more,126,0,1048576,4096,600,,swi
