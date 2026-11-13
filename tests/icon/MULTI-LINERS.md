@@ -8288,6 +8288,27 @@ end
 0
 ```
 
+## ladder__rung43_method_applied_to_a_list
+
+```Icon
+class C(k)
+   method m(a, b);
+      return k + a + b;
+   end
+end
+procedure main()
+   local o;
+   o := C(10);
+   write(o.m(1, 2));
+   write(o.m ! [1, 2]);
+end
+```
+
+```stdout
+13
+13
+```
+
 ## ladder_rung41_rt_open_close_write_file
 
 ```Icon
