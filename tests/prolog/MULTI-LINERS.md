@@ -7663,7 +7663,7 @@ main :- clause(t7, _, Ref), ( clause_info(Ref, F, _, _) -> file_base_name(F, B),
 ```
 
 ```stdout
-'mc03_clause_info_module_clause.pl'
+'swi_modclause__mc03_clause_info_module_clause.pl'
 ```
 
 ## cut_directive_8
