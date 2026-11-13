@@ -8310,6 +8310,34 @@ say @l.join(",");
 5,4,9
 ```
 
+## ladder__rung07_proto_body_runs_around_the_candidate
+
+```Raku
+proto h($x) { say "pre"; my $r = {*}; say "post"; $r }
+multi h(Int $x) { "i" }
+multi h(Str $x) { "s" }
+say h(1);
+```
+
+```stdout
+pre
+post
+i
+```
+
+## ladder__rung07_proto_redispatches_args_as_passed
+
+```Raku
+proto h($x is copy) { $x = "a"; "<" ~ {*} ~ ">" }
+multi h(Int $x) { "i" }
+multi h(Str $x) { "s" }
+say h(1);
+```
+
+```stdout
+<i>
+```
+
 ## rewrite__rr11_eval
 
 ```Raku
@@ -8379,6 +8407,21 @@ say @b, " ", ^3 .map(* * 2), " ", -5 .abs, " ", 1 + 2 .succ, " ", "ab" .uc, " ",
 
 ```stdout
 [3 2 1] (0 2 4) 5 4 AB 3
+```
+
+## ladder__rung07_proto_wraps_candidates
+
+```Raku
+proto h($x) { "<" ~ {*} ~ ">" }
+multi h(Int $x) { "i" }
+multi h(Str $x) { "s" }
+say h(1);
+say h("a");
+```
+
+```stdout
+<i>
+<s>
 ```
 
 ## ladder__rung07_subs_tail_if_false_returns_to_the_caller
