@@ -12179,6 +12179,38 @@ end.
 -1:0 99:9 10:1 20:2 0:0 50:5 
 ```
 
+## front_end__pf37_move_string_to_string_deref
+
+```Pascal
+program n;
+type StrPtr = ^String;
+     SymRec = record pname : StrPtr; deff : Boolean end;
+var t : array[1..3] of SymRec; p : StrPtr;
+function newStr(str : String) : StrPtr;
+  var strp : StrPtr;
+  begin
+    getmem(strp, succ(length(str)));
+    move(str, strp^, succ(length(str)));
+    newStr := strp;
+  end;
+begin
+  t[1].pname := nil;
+  writeln(t[1].pname = nil);
+  p := newStr('error');
+  writeln(p = nil);
+  writeln(p^);
+  t[2].pname := newStr('abc');
+  writeln(t[2].pname = nil, ' ', t[2].pname^);
+end.
+```
+
+```stdout
+TRUE
+FALSE
+error
+FALSE abc
+```
+
 ## ladder__rung21_for_in_over_a_class_with_get_enumerator
 
 ```Pascal

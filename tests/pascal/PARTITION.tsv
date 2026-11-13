@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=470 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=43 chunks=5 sizes=100,100,100,100,25
+# shape: entries=471 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,26
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -423,6 +423,7 @@ ladder__rung28_a_pointer_cast_over_an_address_is_a_view	chunk:02	feat:const	arra
 ladder__rung23_extended_parameters_records_and_arrays	chunk:01	feat:function	array for for_with_array function nested_proc procedure record set_literal subrange type
 front_end__pf32_open_array_slice	chunk:02	feat:const	array const for for_with_array pointer procedure set_literal subrange type write
 ladder__rung12_move_through_a_record_pointer	chunk:02	feat:write	array for for_with_array pointer record set_literal subrange type write
+front_end__pf37_move_string_to_string_deref	chunk:05	feat:succ	array function nil pointer record set_literal subrange succ type
 ladder__rung21_for_in_over_a_class_with_get_enumerator	core	core	array for for_with_array function in nested_proc procedure read type write
 program_function_procedure_1	chunk:01	feat:function	array for for_with_array function nested_proc procedure set_literal subrange type
 program_function_procedure_6	chunk:01	feat:function	array for for_with_array function nested_proc procedure set_literal subrange type
