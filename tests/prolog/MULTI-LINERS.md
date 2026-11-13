@@ -12132,6 +12132,31 @@ zero
 zero
 ```
 
+## ladder__rung00_include_carries_operators_to_the_includer
+
+```Prolog
+:- include('include_ops.pl').
+:- initialization(main).
+main :-
+    ( a =~= a -> write(yes) ; write(no) ), nl,
+    X = (1 **> 2 **> 3), X =.. [F, A, B], write(F), nl, write(A), nl, write_canonical(B), nl,
+    ( current_op(P, T, =~=) -> write(P-T) ; write(none) ), nl.
+```
+
+```file include_ops.pl
+:- op(700, xfx, =~=).
+:- op(200, xfy, **>).
+=~=(A, B) :- A == B.
+```
+
+```stdout
+yes
+**>
+1
+**>(2,3)
+700-xfx
+```
+
 ## copy_term_ite_list_replace_1
 
 ```Prolog
