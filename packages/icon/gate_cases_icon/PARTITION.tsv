@@ -1,5 +1,5 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
 # shape: entries=255 features=63 ubiquitous=5(package write procedure local assign) distinctive=58 core=44 clusters=60 chunks=4 sizes=60,60,60,31
 entry	part	cluster	shells
 test_gate_a_stack_overflow_exit_flushes_stdout__so	chunk:01	feat:want_rc	every return to_by want_rc
