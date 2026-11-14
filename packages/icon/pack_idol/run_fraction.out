@@ -1,0 +1,71 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	fraction.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c fraction
+cd ..
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\fraction"
+class fraction(n,d)
+method n()
+method d()
+method times(f)
+method asString()
+method asReal()
+initially
+end
+procedure fraction_n(self)
+#line 2 "fraction.iol"
+    return self.n
+  end
+procedure fraction_d(self)
+#line 5 "fraction.iol"
+    return self.d
+  end
+procedure fraction_times(self,f)
+#line 8 "fraction.iol"
+    return fraction(self.n * (__self1 := f).__methods.n(__self1.__state), self.d * (__self2 := f).__methods.d(__self2.__state))
+  end
+procedure fraction_asString(self)
+#line 11 "fraction.iol"
+    return self.n||"/"||self.d
+  end
+procedure fraction_asReal(self)
+#line 14 "fraction.iol"
+    return real(self.n) / self.d
+  end
+record fraction__state(__state,__methods,n,d)
+record fraction__methods(n,d,times,asString,asReal)
+global fraction__oprec
+procedure fraction(n,d)
+local self,clone
+initial {
+  if /fraction__oprec then fractioninitialize()
+  }
+  self := fraction__state(&null,fraction__oprec,n,d)
+  self.__state := self
+  fractioninitially(self)
+  return idol_object(self,fraction__oprec)
+end
+
+procedure fractioninitialize()
+  initial fraction__oprec := fraction__methods(fraction_n,fraction_d,fraction_times,fraction_asString,fraction_asReal)
+end
+procedure fractioninitially(self)
+#line 17 "fraction.iol"
+  if self.d=0 then stop("fraction: denominator=0")
+end
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c fraction
+cd ..

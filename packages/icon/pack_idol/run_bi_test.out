@@ -1,0 +1,45 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	bi_test.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 bi_test
+procedure main()
+#line 4 "bi_test.iol"
+
+  x := Table(1)
+  write("\nTesting class ",(__self1 := x).__methods.class(__self1.__state))
+  write("Fields:")
+  every write("\t", (__self1 := x).__methods.fieldnames(__self1.__state))
+  write("Methods:")
+  every write("\t", (__self1 := x).__methods.methodnames(__self1.__state))
+  write()
+  (__self1 := x).__methods.setElement(__self1.__state,"world","hello")
+  write((__self1 := x).__methods.getElement(__self1.__state,"world"))
+  write((__self1 := x).__methods.getElement(__self1.__state,"hello"))
+
+  x := Deque()
+  write("\nTesting class ",(__self1 := x).__methods.class(__self1.__state))
+  (__self1 := x).__methods.push(__self1.__state,"hello")
+  (__self1 := x).__methods.push(__self1.__state,"world")
+  write("My deque is size ",(__self1 := x).__methods.size(__self1.__state)) 
+  every write("give me a ",(__self1 := x).__methods.foreach(__self1.__state)) 
+  write("A random element is ",(__self1 := x).__methods.random(__self1.__state)) 
+  write("getting ",(__self1 := x).__methods.get(__self1.__state)," popping ",(__self2 := x).__methods.pop(__self2.__state))
+
+  x := List(["Tucson", "Pima", 85721])
+  write("\nTesting class ",(__self1 := x).__methods.class(__self1.__state))
+  every write("give me a ",(__self1 := x).__methods.foreach(__self1.__state)) 
+
+end
+link "idolcode.env\\i_object"
+
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 bi_test

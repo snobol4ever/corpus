@@ -1,0 +1,30 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	consttst.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 consttst
+global barfoo
+procedure baz()
+#line 3 "consttst.iol"
+  barfoo := "OK"
+end
+procedure main()
+#line 6 "consttst.iol"
+  baz()
+  bar1 := "gag!"
+  write(1)
+  write(barfoo)
+  write("foo")
+end
+link "idolcode.env\\i_object"
+
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 consttst

@@ -1,0 +1,24 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	inverse.iol
+Class import/export:
+	idolcode.env\fraction
+class inverse : fraction(d)
+initially
+end
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+procedure main()
+#line 6 "inverse.iol"
+  x := inverse(2)
+  y := fraction(3,4)
+  z := (__self1 := x).__methods.times(__self1.__state,y)
+  write("The decimal equivalent of ",(__self1 := z).__methods.asString(__self1.__state),
+	" is ",trim((__self1 := z).__methods.asReal(__self1.__state),'0'))
+end

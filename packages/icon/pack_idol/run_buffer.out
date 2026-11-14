@@ -1,0 +1,333 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	buffer.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c buffer buftable bibliogr spellChe dictentr dictiona
+cd ..
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\buffer"
+link "idolcode.env\\buftable"
+link "idolcode.env\\bibliogr"
+link "idolcode.env\\spellChe"
+link "idolcode.env\\dictentr"
+link "idolcode.env\\dictiona"
+class bibliography : buftable()
+end
+record bibliography__state(__state,__methods,filename,text,index)
+record bibliography__methods(read,lookup,write,insert,delete,goto,forward,linearize,erase,size,filename,buftable,buffer)
+global bibliography__oprec, buftable__oprec, buffer__oprec
+procedure bibliography(filename,text,index)
+local self,clone
+initial {
+  if /bibliography__oprec then bibliographyinitialize()
+  if /buftable__oprec then buftableinitialize()
+  bibliography__oprec.buftable := buftable__oprec
+  if /buffer__oprec then bufferinitialize()
+  bibliography__oprec.buffer := buffer__oprec
+  }
+  self := bibliography__state(&null,bibliography__oprec,filename,text,index)
+  self.__state := self
+  clone := bibliography__state()
+  clone.__state := clone
+  clone.__methods := bibliography__oprec
+  # inherited initialization from class buffer
+    every i := 2 to *self do clone[i] := self[i]
+    bufferinitially(clone)
+    self.filename := clone.filename
+    self.text := clone.text
+    self.index := clone.index
+  return idol_object(self,bibliography__oprec)
+end
+
+procedure bibliographyinitialize()
+  initial bibliography__oprec := bibliography__methods(buftable_read,buftable_lookup,buffer_write,buffer_insert,buffer_delete,buffer_goto,buffer_forward,buffer_linearize,buffer_erase,buffer_size,buffer_filename)
+end
+class buffer(public filename,text,index)
+method read()
+method write()
+method insert(s)
+method delete()
+method goto(l)
+method forward()
+method linearize()
+method erase()
+method size()
+initially
+end
+procedure buffer_read(self)
+#line 3 "buffer.iol"
+    f := open(self.filename,"r") | fail
+    (__self1 := self).__methods.erase(__self1.__state)
+    every put(self.text,!f)
+    close(f)
+    return
+  end
+procedure buffer_write(self)
+#line 11 "buffer.iol"
+    f := open(self.filename,"w") | fail
+    every write(f,!self.text)
+    close(f)
+  end
+procedure buffer_insert(self,s)
+#line 17 "buffer.iol"
+    if self.index = 1 then {
+      push(self.text,s)
+    } else if self.index > *self.text then {
+      put(self.text,s)
+    } else {
+      self.text := self.text[1:self.index]|||[s]|||self.text[self.index:0]
+    }
+    self.index +:= 1
+    return
+  end
+procedure buffer_delete(self)
+#line 29 "buffer.iol"
+    if self.index > *self.text then fail
+    rv := self.text[self.index]
+    if self.index=1 then pull(self.text)
+    else if self.index = *self.text then pop(self.text)
+    else self.text := self.text[1:self.index]|||self.text[self.index+1:0]
+    return rv
+  end
+procedure buffer_goto(self,l)
+#line 38 "buffer.iol"
+    if (1 <= l) & (l <= *self.text+1) then return self.index := l
+  end
+procedure buffer_forward(self)
+#line 42 "buffer.iol"
+    if self.index > *self.text then fail
+    rv := self.text[self.index]
+    self.index +:= 1
+    return rv
+  end
+procedure buffer_linearize(self)
+#line 49 "buffer.iol"
+    tmp := list(*self.text)
+    every i := 1 to *tmp do tmp[i] := self.text[i]
+    self.text := tmp
+  end
+procedure buffer_erase(self)
+#line 54 "buffer.iol"
+    self.text     := [ ]
+    self.index    := 1
+  end
+procedure buffer_size(self)
+#line 58 "buffer.iol"
+    return *(self.text)
+  end
+record buffer__state(__state,__methods,filename,text,index)
+record buffer__methods(read,write,insert,delete,goto,forward,linearize,erase,size,filename)
+global buffer__oprec
+procedure buffer(filename,text,index)
+local self,clone
+initial {
+  if /buffer__oprec then bufferinitialize()
+  }
+  self := buffer__state(&null,buffer__oprec,filename,text,index)
+  self.__state := self
+  bufferinitially(self)
+  return idol_object(self,buffer__oprec)
+end
+
+procedure bufferinitialize()
+  initial buffer__oprec := buffer__methods(buffer_read,buffer_write,buffer_insert,buffer_delete,buffer_goto,buffer_forward,buffer_linearize,buffer_erase,buffer_size,buffer_filename)
+end
+procedure bufferinitially(self)
+#line 61 "buffer.iol"
+  if \ (self.filename) then {
+    if not (__self1 := self).__methods.read(__self1.__state) then (__self2 := self).__methods.erase(__self2.__state)
+  } else {
+    self.filename := "*scratch*"
+    self.erase()
+  }
+end
+procedure buffer_filename(self)
+  return .(self.filename)
+end
+
+class buftable : buffer()
+method read()
+method lookup(s)
+end
+procedure buftable_read(self)
+#line 72 "buffer.iol"
+    (__self1 := self).__methods.buffer.read(__self1.__state)
+    tmp := table()
+    every line := !self.text do
+      line ? { tmp[tab(many(&ucase++&lcase))] := line | fail }
+    self.text := tmp
+    return
+  end
+procedure buftable_lookup(self,s)
+#line 80 "buffer.iol"
+    return self.text[s]
+  end
+record buftable__state(__state,__methods,filename,text,index)
+record buftable__methods(read,lookup,write,insert,delete,goto,forward,linearize,erase,size,filename,buffer)
+global buftable__oprec, buffer__oprec
+procedure buftable(filename,text,index)
+local self,clone
+initial {
+  if /buftable__oprec then buftableinitialize()
+  if /buffer__oprec then bufferinitialize()
+  buftable__oprec.buffer := buffer__oprec
+  }
+  self := buftable__state(&null,buftable__oprec,filename,text,index)
+  self.__state := self
+  clone := buftable__state()
+  clone.__state := clone
+  clone.__methods := buftable__oprec
+  # inherited initialization from class buffer
+    every i := 2 to *self do clone[i] := self[i]
+    bufferinitially(clone)
+    self.filename := clone.filename
+    self.text := clone.text
+    self.index := clone.index
+  return idol_object(self,buftable__oprec)
+end
+
+procedure buftableinitialize()
+  initial buftable__oprec := buftable__methods(buftable_read,buftable_lookup,buffer_write,buffer_insert,buffer_delete,buffer_goto,buffer_forward,buffer_linearize,buffer_erase,buffer_size,buffer_filename)
+end
+class dictentry(word,pos,etymology,definition)
+method decode(s)
+method encode()
+initially
+end
+procedure dictentry_decode(self,s)
+#line 98 "buffer.iol"
+    s ? {
+      self.word       := tab(upto(';'))
+      move(1)
+      self.pos        := tab(upto(';'))
+      move(1)
+      self.etymology  := tab(upto(';'))
+      move(1)
+      self.definition := tab(0)
+    }
+  end
+procedure dictentry_encode(self)
+#line 109 "buffer.iol"
+    return self.word||";"||self.pos||";"||self.etymology||";"||self.definition
+  end
+record dictentry__state(__state,__methods,word,pos,etymology,definition)
+record dictentry__methods(decode,encode)
+global dictentry__oprec
+procedure dictentry(word,pos,etymology,definition)
+local self,clone
+initial {
+  if /dictentry__oprec then dictentryinitialize()
+  }
+  self := dictentry__state(&null,dictentry__oprec,word,pos,etymology,definition)
+  self.__state := self
+  dictentryinitially(self)
+  return idol_object(self,dictentry__oprec)
+end
+
+procedure dictentryinitialize()
+  initial dictentry__oprec := dictentry__methods(dictentry_decode,dictentry_encode)
+end
+procedure dictentryinitially(self)
+#line 112 "buffer.iol"
+  if /self.pos then {
+
+    (__self1 := self).__methods.decode(__self1.__state,self.word)
+  }
+end
+class dictionary : buftable()
+method read()
+method write()
+end
+procedure dictionary_read(self)
+#line 120 "buffer.iol"
+    (__self1 := self).__methods.buffer.read(__self1.__state)
+    tmp := table()
+    every line := !self.text do
+      line ? { tmp[tab(many(&ucase++&lcase))] := dictentry(line) | fail }
+    self.text := tmp
+  end
+procedure dictionary_write(self)
+#line 127 "buffer.iol"
+    f := open(b.filename,"w") | fail
+    every write(f,(__self1 := (!self.text)).__methods.encode(__self1.__state))
+    close(f)
+  end
+record dictionary__state(__state,__methods,filename,text,index)
+record dictionary__methods(read,write,lookup,insert,delete,goto,forward,linearize,erase,size,filename,buftable,buffer)
+global dictionary__oprec, buftable__oprec, buffer__oprec
+procedure dictionary(filename,text,index)
+local self,clone
+initial {
+  if /dictionary__oprec then dictionaryinitialize()
+  if /buftable__oprec then buftableinitialize()
+  dictionary__oprec.buftable := buftable__oprec
+  if /buffer__oprec then bufferinitialize()
+  dictionary__oprec.buffer := buffer__oprec
+  }
+  self := dictionary__state(&null,dictionary__oprec,filename,text,index)
+  self.__state := self
+  clone := dictionary__state()
+  clone.__state := clone
+  clone.__methods := dictionary__oprec
+  # inherited initialization from class buffer
+    every i := 2 to *self do clone[i] := self[i]
+    bufferinitially(clone)
+    self.filename := clone.filename
+    self.text := clone.text
+    self.index := clone.index
+  return idol_object(self,dictionary__oprec)
+end
+
+procedure dictionaryinitialize()
+  initial dictionary__oprec := dictionary__methods(dictionary_read,dictionary_write,buftable_lookup,buffer_insert,buffer_delete,buffer_goto,buffer_forward,buffer_linearize,buffer_erase,buffer_size,buffer_filename)
+end
+record idol_object(__state,__methods)
+class spellChecker : buftable(parentSpellChecker)
+method spell(s)
+end
+procedure spellChecker_spell(self,s)
+#line 91 "buffer.iol"
+    return \ (self.text[s]) | (__self1 := (\ (self.parentSpellChecker))).__methods.spell(__self1.__state,s)
+  end
+record spellChecker__state(__state,__methods,parentSpellChecker,filename,text,index)
+record spellChecker__methods(spell,read,lookup,write,insert,delete,goto,forward,linearize,erase,size,filename,buftable,buffer)
+global spellChecker__oprec, buftable__oprec, buffer__oprec
+procedure spellChecker(parentSpellChecker,filename,text,index)
+local self,clone
+initial {
+  if /spellChecker__oprec then spellCheckerinitialize()
+  if /buftable__oprec then buftableinitialize()
+  spellChecker__oprec.buftable := buftable__oprec
+  if /buffer__oprec then bufferinitialize()
+  spellChecker__oprec.buffer := buffer__oprec
+  }
+  self := spellChecker__state(&null,spellChecker__oprec,parentSpellChecker,filename,text,index)
+  self.__state := self
+  clone := spellChecker__state()
+  clone.__state := clone
+  clone.__methods := spellChecker__oprec
+  # inherited initialization from class buffer
+    every i := 2 to *self do clone[i] := self[i]
+    bufferinitially(clone)
+    self.filename := clone.filename
+    self.text := clone.text
+    self.index := clone.index
+  return idol_object(self,spellChecker__oprec)
+end
+
+procedure spellCheckerinitialize()
+  initial spellChecker__oprec := spellChecker__methods(spellChecker_spell,buftable_read,buftable_lookup,buffer_write,buffer_insert,buffer_delete,buffer_goto,buffer_forward,buffer_linearize,buffer_erase,buffer_size,buffer_filename)
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c buffer buftable bibliogr spellChe dictentr dictiona
+cd ..

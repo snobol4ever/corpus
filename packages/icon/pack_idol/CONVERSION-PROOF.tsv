@@ -1,0 +1,6 @@
+# CONVERSION-PROOF.tsv -- pack_idol: each Icon file and what the stock Arizona translator (icont 9.5.25a with newline insertion, /home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion) says
+# of the original against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (the grader 2026-11-14; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+idolboot.icn	same-code	486
+msdos.icn	same-code	39
+run_NAME.icn	ours (one line, link idolboot,msdos)	0

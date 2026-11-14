@@ -1,0 +1,22 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	incltest.iol
+	events.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 incltest
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 incltest
+procedure main()
+#line 2 "incltest.iol"
+  write("E_Tick ",".")
+end
+link "idolcode.env\\i_object"
+

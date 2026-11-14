@@ -1,0 +1,82 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	linvktst.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c abang bbang
+cd ..
+icont -Sr500 -SF30 -Si1000 linvktst
+class abang()
+method a(args[])
+end
+procedure abang_a(self,args[])
+#line 7 "linvktst.iol"
+    write("a:")
+    every write (image(!args))
+  end
+record abang__state(__state,__methods)
+record abang__methods(a)
+global abang__oprec
+procedure abang()
+local self,clone
+initial {
+  if /abang__oprec then abanginitialize()
+  }
+  self := abang__state(&null,abang__oprec)
+  self.__state := self
+  return idol_object(self,abang__oprec)
+end
+
+procedure abanginitialize()
+  initial abang__oprec := abang__methods(abang_a)
+end
+class bbang : abang()
+method b(args[])
+end
+procedure bbang_b(self,args[])
+#line 14 "linvktst.iol"
+    write("b:")
+    every write (image(!args))
+    return (__self1 := self).__methods.a!([__self1.__state]|||["yo"]|||args)
+  end
+record bbang__state(__state,__methods)
+record bbang__methods(b,a,abang)
+global bbang__oprec, abang__oprec
+procedure bbang()
+local self,clone
+initial {
+  if /bbang__oprec then bbanginitialize()
+  if /abang__oprec then abanginitialize()
+  bbang__oprec.abang := abang__oprec
+  }
+  self := bbang__state(&null,bbang__oprec)
+  self.__state := self
+  return idol_object(self,bbang__oprec)
+end
+
+procedure bbanginitialize()
+  initial bbang__oprec := bbang__methods(bbang_b,abang_a)
+end
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c abang bbang
+cd ..
+icont -Sr500 -SF30 -Si1000 linvktst
+procedure main()
+#line 21 "linvktst.iol"
+  x := bbang()
+  (__self1 := x).__methods.b(__self1.__state,"yin","yang")
+
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\abang"
+link "idolcode.env\\bbang"

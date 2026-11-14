@@ -1,0 +1,2 @@
+# the Idol translator, linked with the pack's MS-DOS system file, run on labelgen.iol (ALL.args)
+link idolboot,msdos

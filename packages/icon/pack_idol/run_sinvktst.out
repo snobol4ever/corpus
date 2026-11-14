@@ -1,0 +1,30 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	sinvktst.iol
+Class import/export:
+	idolcode.env\strinvok
+record idol_object(__state,__methods)
+class sinvbuffer : strinvokable()
+method forward_char()
+method eval(s,args[])
+end
+procedure sinvbuffer_forward_char(self)
+#line 2 "sinvktst.iol"
+    write("success")
+  end
+procedure sinvbuffer_eval(self,s,args[])
+#line 5 "sinvktst.iol"
+    suspend (__self1 := self).__methods.strinvokable.eval(__self1.__state,map(s,"-","_"))
+  end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+procedure main()
+#line 10 "sinvktst.iol"
+  x := sinvbuffer()
+  (__self1 := x).__methods.eval(__self1.__state,"forward-char")
+end

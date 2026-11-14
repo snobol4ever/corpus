@@ -1,0 +1,22 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	lbltest.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 lbltest
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 lbltest
+procedure main()
+#line 1 "lbltest.iol"
+ label := labelgen("L",":")
+  every i := 1 to 10 do write((__self1 := label).__methods.activate(__self1.__state)) 
+end
+link "idolcode.env\\i_object"
+

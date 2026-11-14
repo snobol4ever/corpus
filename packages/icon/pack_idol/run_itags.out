@@ -1,0 +1,517 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	itags.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c function proc rec program class_ methods
+cd ..
+icont -Sr500 -SF30 -Si1000 itags
+class class_ : functions(public name,lineno,parent,meth,paramtype)
+method myfile()
+method addmethod(methname,lineno)
+method drawthyself(outfile)
+initially
+end
+procedure class__myfile(self)
+#line 260 "itags.iol"
+    return (__self1 := self.parent).__methods.myfile(__self1.__state)
+end
+procedure class__addmethod(self,methname,lineno)
+#line 264 "itags.iol"
+    self.meth|||:= [methods(methname, lineno, self)]
+    return (self.meth[-1])
+end
+procedure class__drawthyself(self,outfile)
+#line 269 "itags.iol"
+    emit(outfile,self.name, "*" , "class", (__self1 := self.parent).__methods.myfile(__self1.__state),self.lineno, self.lastline-self.lineno+1)
+    every (__self1 := (!self.meth)).__methods.drawthyself(__self1.__state,outfile)
+    (__self1 := self).__methods.functions.drawthyself(__self1.__state,outfile)
+end
+record class___state(__state,__methods,name,lineno,parent,meth,paramtype,vars,lastline,params,stat)
+record class___methods(myfile,addmethod,drawthyself,name,myline,addstat,addvar,endline,resetcontext,functions)
+global class___oprec, functions__oprec
+procedure class_(name,lineno,parent,meth,paramtype,vars,lastline,params,stat)
+local self,clone
+initial {
+  if /class___oprec then class_initialize()
+  if /functions__oprec then functionsinitialize()
+  class___oprec.functions := functions__oprec
+  }
+  self := class___state(&null,class___oprec,name,lineno,parent,meth,paramtype,vars,lastline,params,stat)
+  self.__state := self
+  class_initially(self)
+  clone := class___state()
+  clone.__state := clone
+  clone.__methods := class___oprec
+  # inherited initialization from class functions
+    every i := 2 to *self do clone[i] := self[i]
+    functionsinitially(clone)
+    self.vars := clone.vars
+    self.lastline := clone.lastline
+    self.params := clone.params
+    self.stat := clone.stat
+  return idol_object(self,class___oprec)
+end
+
+procedure class_initialize()
+  initial class___oprec := class___methods(class__myfile,class__addmethod,class__drawthyself,class__name,functions_myline,functions_addstat,functions_addvar,functions_endline,functions_resetcontext)
+end
+procedure class_initially(self)
+#line 275 "itags.iol"
+    self.meth := []
+    self.paramtype := "obj_field"
+end
+procedure class__name(self)
+  return .(self.name)
+end
+
+class functions(name,lineno,vars,lastline,parent,params,stat,paramtype)
+method drawthyself(outfile)
+method myline(line,lineno)
+method addstat(varname,lineno)
+method addvar(varname,lineno)
+method endline(lineno)
+method resetcontext()
+initially
+end
+procedure functions_drawthyself(self,outfile)
+local k
+#line 114 "itags.iol"
+    every k := !self.vars do
+      emit(outfile, k[1], self.name, "local", (__self1 := self.parent).__methods.myfile(__self1.__state),k[2])
+    every k := !self.params do
+      emit(outfile, k[1], self.name, self.paramtype, (__self1 := self.parent).__methods.myfile(__self1.__state),k[2])
+    every k := !self.stat do
+      emit(outfile, k[1], self.name, "static", (__self1 := self.parent).__methods.myfile(__self1.__state),k[2])
+end
+procedure functions_myline(self,line,lineno)
+local word
+static ids,  letters
+initial {
+#line 128 "itags.iol"
+    ids := &lcase ++ &ucase ++ &digits ++ '_'
+    letters := &ucase ++ &lcase
+}
+
+line ? while tab(upto(letters)) do  {
+    word := tab(many(ids))
+    self.params|||:= [[word,lineno]]
+}
+
+end
+procedure functions_addstat(self,varname,lineno)
+#line 137 "itags.iol"
+    self.stat|||:=[[varname, lineno]]
+    return
+end
+procedure functions_addvar(self,varname,lineno)
+#line 142 "itags.iol"
+    self.vars|||:=[[varname, lineno]]
+    return
+end
+procedure functions_endline(self,lineno)
+#line 147 "itags.iol"
+   self.lastline := lineno
+end
+procedure functions_resetcontext(self)
+#line 151 "itags.iol"
+    (__self1 := self.parent).__methods.resetcontext(__self1.__state)
+end
+record functions__state(__state,__methods,name,lineno,vars,lastline,parent,params,stat,paramtype)
+record functions__methods(drawthyself,myline,addstat,addvar,endline,resetcontext)
+global functions__oprec
+procedure functions(name,lineno,vars,lastline,parent,params,stat,paramtype)
+local self,clone
+initial {
+  if /functions__oprec then functionsinitialize()
+  }
+  self := functions__state(&null,functions__oprec,name,lineno,vars,lastline,parent,params,stat,paramtype)
+  self.__state := self
+  functionsinitially(self)
+  return idol_object(self,functions__oprec)
+end
+
+procedure functionsinitialize()
+  initial functions__oprec := functions__methods(functions_drawthyself,functions_myline,functions_addstat,functions_addvar,functions_endline,functions_resetcontext)
+end
+procedure functionsinitially(self)
+#line 155 "itags.iol"
+    self.vars := []
+    self.params := []
+    self.stat := []
+    self.paramtype := "param"
+end
+record idol_object(__state,__methods)
+class methods : functions(name,lineno,parent,paramtype)
+method drawthyself(outfile)
+initially
+end
+procedure methods_drawthyself(self,outfile)
+#line 281 "itags.iol"
+        emit(outfile,self.name, (__self1 := self.parent).__methods.name(__self1.__state) , "method", (__self2 := self.parent).__methods.myfile(__self2.__state),self.lineno, self.lastline-self.lineno+1)
+    (__self1 := self).__methods.functions.drawthyself(__self1.__state,outfile)
+end
+record methods__state(__state,__methods,name,lineno,parent,paramtype,vars,lastline,params,stat)
+record methods__methods(drawthyself,myline,addstat,addvar,endline,resetcontext,functions)
+global methods__oprec, functions__oprec
+procedure methods(name,lineno,parent,paramtype,vars,lastline,params,stat)
+local self,clone
+initial {
+  if /methods__oprec then methodsinitialize()
+  if /functions__oprec then functionsinitialize()
+  methods__oprec.functions := functions__oprec
+  }
+  self := methods__state(&null,methods__oprec,name,lineno,parent,paramtype,vars,lastline,params,stat)
+  self.__state := self
+  methodsinitially(self)
+  clone := methods__state()
+  clone.__state := clone
+  clone.__methods := methods__oprec
+  # inherited initialization from class functions
+    every i := 2 to *self do clone[i] := self[i]
+    functionsinitially(clone)
+    self.vars := clone.vars
+    self.lastline := clone.lastline
+    self.params := clone.params
+    self.stat := clone.stat
+  return idol_object(self,methods__oprec)
+end
+
+procedure methodsinitialize()
+  initial methods__oprec := methods__methods(methods_drawthyself,functions_myline,functions_addstat,functions_addvar,functions_endline,functions_resetcontext)
+end
+procedure methodsinitially(self)
+#line 285 "itags.iol"
+    self.paramtype := "param"
+end
+class proc : functions(name,lineno,parent,paramtype)
+method drawthyself(outfile)
+initially
+end
+procedure proc_drawthyself(self,outfile)
+#line 165 "itags.iol"
+    emit(outfile,self.name, "*" , "procedure", (__self1 := self.parent).__methods.myfile(__self1.__state),self.lineno, self.lastline-self.lineno+1)
+    (__self1 := self).__methods.functions.drawthyself(__self1.__state,outfile)
+end
+record proc__state(__state,__methods,name,lineno,parent,paramtype,vars,lastline,params,stat)
+record proc__methods(drawthyself,myline,addstat,addvar,endline,resetcontext,functions)
+global proc__oprec, functions__oprec
+procedure proc(name,lineno,parent,paramtype,vars,lastline,params,stat)
+local self,clone
+initial {
+  if /proc__oprec then procinitialize()
+  if /functions__oprec then functionsinitialize()
+  proc__oprec.functions := functions__oprec
+  }
+  self := proc__state(&null,proc__oprec,name,lineno,parent,paramtype,vars,lastline,params,stat)
+  self.__state := self
+  procinitially(self)
+  clone := proc__state()
+  clone.__state := clone
+  clone.__methods := proc__oprec
+  # inherited initialization from class functions
+    every i := 2 to *self do clone[i] := self[i]
+    functionsinitially(clone)
+    self.vars := clone.vars
+    self.lastline := clone.lastline
+    self.params := clone.params
+    self.stat := clone.stat
+  return idol_object(self,proc__oprec)
+end
+
+procedure procinitialize()
+  initial proc__oprec := proc__methods(proc_drawthyself,functions_myline,functions_addstat,functions_addvar,functions_endline,functions_resetcontext)
+end
+procedure procinitially(self)
+#line 169 "itags.iol"
+ self.paramtype := "param"
+end
+class program(public myfile,vars,proc,records,classes,curcontext,contextsave,globals)
+method endline(lineno)
+method myline(line,lineno)
+method drawthyself(outfile)
+method addmethod(name,lineno)
+method addstat(varname,lineno)
+method addvar(varname,lineno)
+method addproc(procname,lineno)
+method addrec(recname,lineno)
+method addclass(classname,lineno)
+method resetcontext()
+initially
+end
+procedure program_endline(self,lineno)
+#line 188 "itags.iol"
+    (__self1 := self.curcontext).__methods.endline(__self1.__state,lineno )
+    self.curcontext := pop(self.contextsave)
+end
+procedure program_myline(self,line,lineno)
+#line 193 "itags.iol"
+    (__self1 := self.curcontext).__methods.myline(__self1.__state,line,lineno)
+end
+procedure program_drawthyself(self,outfile)
+#line 197 "itags.iol"
+    every k := !self.globals do
+	emit(outfile,k[1], "*", "global", self.myfile,k[2])
+    every (__self1 := (!self.proc)).__methods.drawthyself(__self1.__state,outfile)
+    every (__self1 := (!self.records)).__methods.drawthyself(__self1.__state,outfile)
+    every (__self1 := (!self.classes)).__methods.drawthyself(__self1.__state,outfile)
+end
+procedure program_addmethod(self,name,lineno)
+#line 205 "itags.iol"
+    push(self.contextsave,self.curcontext)
+    self.curcontext := (__self1 := self.curcontext).__methods.addmethod(__self1.__state,name,lineno)
+    return
+end
+procedure program_addstat(self,varname,lineno)
+#line 211 "itags.iol"
+    (__self1 := self.curcontext).__methods.addstat(__self1.__state,varname, lineno)
+end
+procedure program_addvar(self,varname,lineno)
+#line 215 "itags.iol"
+    if self.curcontext === self
+    then  self.globals|||:= [[varname,lineno]]
+    else (__self1 := self.curcontext).__methods.addvar(__self1.__state,varname,lineno)
+    return
+end
+procedure program_addproc(self,procname,lineno)
+#line 222 "itags.iol"
+    push(self.contextsave, self.curcontext)
+    self.curcontext := proc(procname, lineno, self)
+    self.proc|||:= [self.curcontext]
+    return
+end
+procedure program_addrec(self,recname,lineno)
+#line 229 "itags.iol"
+    push(self.contextsave, self.curcontext)
+    self.curcontext := rec(recname, lineno,self)
+    self.records|||:=[self.curcontext]
+    return
+end
+procedure program_addclass(self,classname,lineno)
+#line 236 "itags.iol"
+    push(self.contextsave, self.curcontext)
+    self.curcontext := class_(classname, lineno, self)
+    self.classes|||:=[self.curcontext]
+    return
+end
+procedure program_resetcontext(self)
+#line 243 "itags.iol"
+    self.curcontext := pop(self.contextsave)
+end
+record program__state(__state,__methods,myfile,vars,proc,records,classes,curcontext,contextsave,globals)
+record program__methods(endline,myline,drawthyself,addmethod,addstat,addvar,addproc,addrec,addclass,resetcontext,myfile)
+global program__oprec
+procedure program(myfile,vars,proc,records,classes,curcontext,contextsave,globals)
+local self,clone
+initial {
+  if /program__oprec then programinitialize()
+  }
+  self := program__state(&null,program__oprec,myfile,vars,proc,records,classes,curcontext,contextsave,globals)
+  self.__state := self
+  programinitially(self)
+  return idol_object(self,program__oprec)
+end
+
+procedure programinitialize()
+  initial program__oprec := program__methods(program_endline,program_myline,program_drawthyself,program_addmethod,program_addstat,program_addvar,program_addproc,program_addrec,program_addclass,program_resetcontext,program_myfile)
+end
+procedure programinitially(self)
+#line 247 "itags.iol"
+ self.globals := []
+ self.proc := []
+ self.records := []
+ self.classes := []
+ self.curcontext := self
+ self.contextsave := []
+end
+procedure program_myfile(self)
+  return .(self.myfile)
+end
+
+class rec : functions(name,lineno,parent,line,paramtype)
+method drawthyself(outfile)
+initially
+end
+procedure rec_drawthyself(self,outfile)
+#line 175 "itags.iol"
+    emit(outfile,self.name, "*", "record", (__self1 := self.parent).__methods.myfile(__self1.__state),
+	 self.lineno)
+    (__self1 := self).__methods.functions.drawthyself(__self1.__state,outfile)
+end
+record rec__state(__state,__methods,name,lineno,parent,line,paramtype,vars,lastline,params,stat)
+record rec__methods(drawthyself,myline,addstat,addvar,endline,resetcontext,functions)
+global rec__oprec, functions__oprec
+procedure rec(name,lineno,parent,line,paramtype,vars,lastline,params,stat)
+local self,clone
+initial {
+  if /rec__oprec then recinitialize()
+  if /functions__oprec then functionsinitialize()
+  rec__oprec.functions := functions__oprec
+  }
+  self := rec__state(&null,rec__oprec,name,lineno,parent,line,paramtype,vars,lastline,params,stat)
+  self.__state := self
+  recinitially(self)
+  clone := rec__state()
+  clone.__state := clone
+  clone.__methods := rec__oprec
+  # inherited initialization from class functions
+    every i := 2 to *self do clone[i] := self[i]
+    functionsinitially(clone)
+    self.vars := clone.vars
+    self.lastline := clone.lastline
+    self.params := clone.params
+    self.stat := clone.stat
+  return idol_object(self,rec__oprec)
+end
+
+procedure recinitialize()
+  initial rec__oprec := rec__methods(rec_drawthyself,functions_myline,functions_addstat,functions_addvar,functions_endline,functions_resetcontext)
+end
+procedure recinitially(self)
+#line 180 "itags.iol"
+  self.paramtype := "rec_field"
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c function proc rec program class_ methods
+cd ..
+icont -Sr500 -SF30 -Si1000 itags
+global ibrowseflag
+procedure main(args)
+local line, lineno, fout, i, fin, notvar, objects, actual_file, outlines
+initial {
+#line 19 "itags.iol"
+
+    fout := open("ITAGS", "w") | stop("can't open ITAGS for writing");
+    outlines := [[0,0,0,0,0,0]]
+    i := 1
+    notid := &cset -- &ucase -- &digits -- &lcase -- '_'
+}
+
+if(*args=0) then
+    stop("usage: itags file1 [file2 ...]")
+
+while i <= *args do {
+    if args[i] == "-i" then {
+	ibrowseflag := 1
+	i +:= 1
+	continue
+    }
+    fin := open(args[i],"r") |
+	stop("could not open file ",args[i]," exiting")
+    lineno := 1
+    objects := program( args[i] )
+
+    while line := read(fin) do {
+	line[upto('#',line):0] := ""
+	line ? {
+	    tab(many(' '))
+
+	    if =("global") then {
+		if(any(notid)) then
+		    every (__self1 := objects).__methods.addvar(__self1.__state,getword(), lineno )
+	    }
+
+	    if =("procedure")  then
+		  if(any(notid)) then {
+		    (__self1 := objects).__methods.addproc(__self1.__state,getword(), lineno )
+		    (__self1 := objects).__methods.myline(__self1.__state,tab(0),lineno)
+	    }
+
+
+	    if =("class") then
+		if any(notid) then {
+		    (__self1 := objects).__methods.addclass(__self1.__state,getword(), lineno )
+		    (__self1 := objects).__methods.myline(__self1.__state,tab(0),lineno)
+		}
+
+
+	    if =("method") then {
+		if any(notid) then {
+		    (__self1 := objects).__methods.addmethod(__self1.__state,getword(), lineno )
+		    (__self1 := objects).__methods.myline(__self1.__state,tab(0),lineno)
+		}
+	    }
+
+	    if =("local") then {
+		if any(notid) then
+		    every (__self1 := objects).__methods.addvar(__self1.__state,getword(), lineno )
+	    }
+
+	    if =("static") then {
+		if any(notid) then
+		    every (__self1 := objects).__methods.addstat(__self1.__state,getword(), lineno )
+	    }
+
+	    if =("record") then {
+		if any(notid) then {
+		    (__self1 := objects).__methods.addrec(__self1.__state,getword(), lineno )
+		    (__self1 := objects).__methods.myline(__self1.__state,tab(0),lineno)
+		    (__self1 := objects).__methods.endline(__self1.__state,lineno)
+		}
+	    }
+	    if =("end") then
+		(__self1 := objects).__methods.endline(__self1.__state,lineno)
+	}
+	lineno +:= 1
+    }
+    (__self1 := objects).__methods.drawthyself(__self1.__state,outlines)
+    i +:= 1
+}
+
+every i := 2 to *outlines do {
+    outlines[i] := (
+	left(outlines[i][1],outlines[1][1]+1) ||
+	left(outlines[i][2],outlines[1][2]+1) ||
+	left(outlines[i][3],outlines[1][3]+1) ||
+	left(outlines[i][4],outlines[1][4]+1) ||
+	left(outlines[i][5],outlines[1][5]) ||
+	(if \outlines[i][6] then ":"||outlines[i][6] else ""))
+}
+outlines := outlines[2:0]
+outlines := sort(outlines)
+every write(fout,!outlines)
+end
+procedure emit(outlist,ident,scope,type,filename,line,length)
+#line 289 "itags.iol"
+    outlist[1][1] := outlist[1][1] < *ident
+    outlist[1][2] := outlist[1][2] < *scope
+    outlist[1][3] := outlist[1][3] < *type
+    outlist[1][4] := outlist[1][4] < *filename
+    outlist[1][5] := outlist[1][5] < *line
+    outlist[1][6] := outlist[1][6] < *\length
+    if /ibrowseflag then
+       put( outlist, [ident,scope,type,filename,line,length] )
+    else
+       put( outlist, [ident,scope,type,filename,line,length] )
+end
+procedure getword()
+    local word
+    static ids,letts
+    initial {
+#line 309 "itags.iol"
+	ids := &ucase ++ &lcase ++ &digits ++ '_'
+	letts := &ucase ++ &lcase
+    }
+
+    while tab(upto(letts)) do {
+	word := tab(many(ids))
+	suspend word
+    }
+
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\function"
+link "idolcode.env\\proc"
+link "idolcode.env\\rec"
+link "idolcode.env\\program"
+link "idolcode.env\\class_"
+link "idolcode.env\\methods"

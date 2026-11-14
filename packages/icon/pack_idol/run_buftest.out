@@ -1,0 +1,36 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	buftest.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 buftest
+procedure main(args)
+#line 3 "buftest.iol"
+  if *args=0 then stop("usage: buftest cp file1 file2")
+  every i := 1 to *args do {
+      case args[i] of {
+	  "cp": {
+	      cp(args)
+	  }
+      }
+  }
+end
+procedure cp(args)
+#line 13 "buftest.iol"
+  b1 := buffer(args[2])
+  b2 := buffer(args[3])
+  (__self1 := b2).__methods.erase(__self1.__state)
+  while s:=(__self1 := b1).__methods.forward(__self1.__state) do (__self2 := b2).__methods.insert(__self2.__state,s)
+  (__self1 := b2).__methods.write(__self1.__state)
+end
+link "idolcode.env\\i_object"
+
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 buftest

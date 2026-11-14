@@ -1,0 +1,27 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	main.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 main
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 main
+procedure main()
+#line 1 "main.iol"
+  mydeque := Deque()
+  (__self1 := mydeque).__methods.push(__self1.__state,"hello")
+  (__self1 := mydeque).__methods.push(__self1.__state,"world")
+  write("My deque is size ",(__self1 := mydeque).__methods.size(__self1.__state))
+  every write("give me a ",(__self1 := mydeque).__methods.foreach(__self1.__state))
+  write("A random element is ",(__self1 := mydeque).__methods.random(__self1.__state))
+  write("getting ",(__self1 := mydeque).__methods.get(__self1.__state)," popping ",(__self2 := mydeque).__methods.pop(__self2.__state))
+end
+link "idolcode.env\\i_object"
+

@@ -1,0 +1,501 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	builtins.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c Object Collecti Vector Table Stack Queue Deque List Atom Number Integer Real String
+cd ..
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\Object"
+link "idolcode.env\\Collecti"
+link "idolcode.env\\Vector"
+link "idolcode.env\\Table"
+link "idolcode.env\\Stack"
+link "idolcode.env\\Queue"
+link "idolcode.env\\Deque"
+link "idolcode.env\\List"
+link "idolcode.env\\Atom"
+link "idolcode.env\\Number"
+link "idolcode.env\\Integer"
+link "idolcode.env\\Real"
+link "idolcode.env\\String"
+class Atom : Object(public val)
+method asString()
+method asInteger()
+method asReal()
+end
+procedure Atom_asString(self)
+#line 128 "builtins.iol"
+    return string(self.val)
+  end
+procedure Atom_asInteger(self)
+#line 131 "builtins.iol"
+    return integer(self.val)
+  end
+procedure Atom_asReal(self)
+#line 134 "builtins.iol"
+    return real(self.val)
+  end
+record Atom__state(__state,__methods,val)
+record Atom__methods(asString,asInteger,asReal,val,class,fieldnames,methodnames,Object)
+global Atom__oprec, Object__oprec
+procedure Atom(val)
+local self,clone
+initial {
+  if /Atom__oprec then Atominitialize()
+  if /Object__oprec then Objectinitialize()
+  Atom__oprec.Object := Object__oprec
+  }
+  self := Atom__state(&null,Atom__oprec,val)
+  self.__state := self
+  return idol_object(self,Atom__oprec)
+end
+
+procedure Atominitialize()
+  initial Atom__oprec := Atom__methods(Atom_asString,Atom_asInteger,Atom_asReal,Atom_val,Object_class,Object_fieldnames,Object_methodnames)
+end
+procedure Atom_val(self)
+  return .(self.val)
+end
+
+class Collection : Object(theCollection)
+method size()
+method foreach()
+method random()
+end
+procedure Collection_size(self)
+#line 48 "builtins.iol"
+    return *self.theCollection
+  end
+procedure Collection_foreach(self)
+#line 51 "builtins.iol"
+    suspend !self.theCollection
+  end
+procedure Collection_random(self)
+#line 54 "builtins.iol"
+    return ?self.theCollection
+  end
+record Collection__state(__state,__methods,theCollection)
+record Collection__methods(size,foreach,random,class,fieldnames,methodnames,Object)
+global Collection__oprec, Object__oprec
+procedure Collection(theCollection)
+local self,clone
+initial {
+  if /Collection__oprec then Collectioninitialize()
+  if /Object__oprec then Objectinitialize()
+  Collection__oprec.Object := Object__oprec
+  }
+  self := Collection__state(&null,Collection__oprec,theCollection)
+  self.__state := self
+  return idol_object(self,Collection__oprec)
+end
+
+procedure Collectioninitialize()
+  initial Collection__oprec := Collection__methods(Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+class Deque : Queue:Stack()
+end
+record Deque__state(__state,__methods,theCollection)
+record Deque__methods(get,put,push,pop,size,foreach,random,class,fieldnames,methodnames,Queue,Stack,Collection,Object)
+global Deque__oprec, Queue__oprec, Stack__oprec, Collection__oprec, Object__oprec
+procedure Deque(theCollection)
+local self,clone
+initial {
+  if /Deque__oprec then Dequeinitialize()
+  if /Queue__oprec then Queueinitialize()
+  Deque__oprec.Queue := Queue__oprec
+  if /Stack__oprec then Stackinitialize()
+  Deque__oprec.Stack := Stack__oprec
+  if /Collection__oprec then Collectioninitialize()
+  Deque__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  Deque__oprec.Object := Object__oprec
+  }
+  self := Deque__state(&null,Deque__oprec,theCollection)
+  self.__state := self
+  clone := Deque__state()
+  clone.__state := clone
+  clone.__methods := Deque__oprec
+  # inherited initialization from class Queue
+    every i := 2 to *self do clone[i] := self[i]
+    Queueinitially(clone)
+    self.theCollection := clone.theCollection
+  # inherited initialization from class Stack
+    every i := 2 to *self do clone[i] := self[i]
+    Stackinitially(clone)
+  return idol_object(self,Deque__oprec)
+end
+
+procedure Dequeinitialize()
+  initial Deque__oprec := Deque__methods(Queue_get,Queue_put,Stack_push,Stack_pop,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+class Integer : Number()
+initially
+end
+record Integer__state(__state,__methods,val)
+record Integer__methods(plus,minus,times,divide,asString,asInteger,asReal,val,class,fieldnames,methodnames,Number,Atom,Object)
+global Integer__oprec, Number__oprec, Atom__oprec, Object__oprec
+procedure Integer(val)
+local self,clone
+initial {
+  if /Integer__oprec then Integerinitialize()
+  if /Number__oprec then Numberinitialize()
+  Integer__oprec.Number := Number__oprec
+  if /Atom__oprec then Atominitialize()
+  Integer__oprec.Atom := Atom__oprec
+  if /Object__oprec then Objectinitialize()
+  Integer__oprec.Object := Object__oprec
+  }
+  self := Integer__state(&null,Integer__oprec,val)
+  self.__state := self
+  Integerinitially(self)
+  return idol_object(self,Integer__oprec)
+end
+
+procedure Integerinitialize()
+  initial Integer__oprec := Integer__methods(Number_plus,Number_minus,Number_times,Number_divide,Atom_asString,Atom_asInteger,Atom_asReal,Atom_val,Object_class,Object_fieldnames,Object_methodnames)
+end
+procedure Integerinitially(self)
+#line 155 "builtins.iol"
+  if not (self.val := integer(self.val)) then
+    stop("can't make Integer from ",image(self.val))
+end
+record idol_object(__state,__methods)
+class List : Deque:Vector()
+method concat(l)
+end
+procedure List_concat(self,l)
+#line 122 "builtins.iol"
+    return List(self.theCollection ||| l)
+  end
+record List__state(__state,__methods,theCollection)
+record List__methods(concat,getElement,setElement,get,put,push,pop,size,foreach,random,class,fieldnames,methodnames,Deque,Vector,Queue,Stack,Collection,Object)
+global List__oprec, Deque__oprec, Vector__oprec, Queue__oprec, Stack__oprec, Collection__oprec, Object__oprec
+procedure List(theCollection)
+local self,clone
+initial {
+  if /List__oprec then Listinitialize()
+  if /Deque__oprec then Dequeinitialize()
+  List__oprec.Deque := Deque__oprec
+  if /Vector__oprec then Vectorinitialize()
+  List__oprec.Vector := Vector__oprec
+  if /Queue__oprec then Queueinitialize()
+  List__oprec.Queue := Queue__oprec
+  if /Stack__oprec then Stackinitialize()
+  List__oprec.Stack := Stack__oprec
+  if /Collection__oprec then Collectioninitialize()
+  List__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  List__oprec.Object := Object__oprec
+  }
+  self := List__state(&null,List__oprec,theCollection)
+  self.__state := self
+  clone := List__state()
+  clone.__state := clone
+  clone.__methods := List__oprec
+  # inherited initialization from class Queue
+    every i := 2 to *self do clone[i] := self[i]
+    Queueinitially(clone)
+    self.theCollection := clone.theCollection
+  # inherited initialization from class Stack
+    every i := 2 to *self do clone[i] := self[i]
+    Stackinitially(clone)
+  return idol_object(self,List__oprec)
+end
+
+procedure Listinitialize()
+  initial List__oprec := List__methods(List_concat,Vector_getElement,Vector_setElement,Queue_get,Queue_put,Stack_push,Stack_pop,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+class Number : Atom()
+method plus(n)
+method minus(n)
+method times(n)
+method divide(n)
+end
+procedure Number_plus(self,n)
+#line 140 "builtins.iol"
+    return self.val + (__self1 := n).__methods.val(__self1.__state)
+  end
+procedure Number_minus(self,n)
+#line 143 "builtins.iol"
+    return self.val - (__self1 := n).__methods.val(__self1.__state)
+  end
+procedure Number_times(self,n)
+#line 146 "builtins.iol"
+    return self.val * (__self1 := n).__methods.val(__self1.__state)
+  end
+procedure Number_divide(self,n)
+#line 149 "builtins.iol"
+    return self.val / (__self1 := n).__methods.val(__self1.__state)
+  end
+record Number__state(__state,__methods,val)
+record Number__methods(plus,minus,times,divide,asString,asInteger,asReal,val,class,fieldnames,methodnames,Atom,Object)
+global Number__oprec, Atom__oprec, Object__oprec
+procedure Number(val)
+local self,clone
+initial {
+  if /Number__oprec then Numberinitialize()
+  if /Atom__oprec then Atominitialize()
+  Number__oprec.Atom := Atom__oprec
+  if /Object__oprec then Objectinitialize()
+  Number__oprec.Object := Object__oprec
+  }
+  self := Number__state(&null,Number__oprec,val)
+  self.__state := self
+  return idol_object(self,Number__oprec)
+end
+
+procedure Numberinitialize()
+  initial Number__oprec := Number__methods(Number_plus,Number_minus,Number_times,Number_divide,Atom_asString,Atom_asInteger,Atom_asReal,Atom_val,Object_class,Object_fieldnames,Object_methodnames)
+end
+class Object()
+method class()
+method fieldnames()
+method methodnames()
+end
+procedure Object_class(self)
+#line 27 "builtins.iol"
+    return image(self)[8:find("_",image(self))]
+  end
+procedure Object_fieldnames(self)
+#line 31 "builtins.iol"
+    i := 1
+    every s := name(!(self.__state)) do {
+	if i>2 then s ? { tab(find(".")+1); suspend tab(0) }
+	i +:= 1
+    }
+  end
+procedure Object_methodnames(self)
+#line 39 "builtins.iol"
+    every s := name(!(self.__methods)) do {
+	s ? { tab(find(".")+1); suspend tab(0) }
+    }
+  end
+record Object__state(__state,__methods)
+record Object__methods(class,fieldnames,methodnames)
+global Object__oprec
+procedure Object()
+local self,clone
+initial {
+  if /Object__oprec then Objectinitialize()
+  }
+  self := Object__state(&null,Object__oprec)
+  self.__state := self
+  return idol_object(self,Object__oprec)
+end
+
+procedure Objectinitialize()
+  initial Object__oprec := Object__methods(Object_class,Object_fieldnames,Object_methodnames)
+end
+class Queue : Collection(theCollection)
+method get()
+method put(value)
+initially
+end
+procedure Queue_get(self)
+#line 102 "builtins.iol"
+    return get(self.theCollection)
+  end
+procedure Queue_put(self,value)
+#line 105 "builtins.iol"
+    put(self.theCollection,value)
+  end
+record Queue__state(__state,__methods,theCollection)
+record Queue__methods(get,put,size,foreach,random,class,fieldnames,methodnames,Collection,Object)
+global Queue__oprec, Collection__oprec, Object__oprec
+procedure Queue(theCollection)
+local self,clone
+initial {
+  if /Queue__oprec then Queueinitialize()
+  if /Collection__oprec then Collectioninitialize()
+  Queue__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  Queue__oprec.Object := Object__oprec
+  }
+  self := Queue__state(&null,Queue__oprec,theCollection)
+  self.__state := self
+  Queueinitially(self)
+  return idol_object(self,Queue__oprec)
+end
+
+procedure Queueinitialize()
+  initial Queue__oprec := Queue__methods(Queue_get,Queue_put,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+procedure Queueinitially(self)
+#line 108 "builtins.iol"
+  /self.theCollection := []
+end
+class Real : Number()
+initially
+end
+record Real__state(__state,__methods,val)
+record Real__methods(plus,minus,times,divide,asString,asInteger,asReal,val,class,fieldnames,methodnames,Number,Atom,Object)
+global Real__oprec, Number__oprec, Atom__oprec, Object__oprec
+procedure Real(val)
+local self,clone
+initial {
+  if /Real__oprec then Realinitialize()
+  if /Number__oprec then Numberinitialize()
+  Real__oprec.Number := Number__oprec
+  if /Atom__oprec then Atominitialize()
+  Real__oprec.Atom := Atom__oprec
+  if /Object__oprec then Objectinitialize()
+  Real__oprec.Object := Object__oprec
+  }
+  self := Real__state(&null,Real__oprec,val)
+  self.__state := self
+  Realinitially(self)
+  return idol_object(self,Real__oprec)
+end
+
+procedure Realinitialize()
+  initial Real__oprec := Real__methods(Number_plus,Number_minus,Number_times,Number_divide,Atom_asString,Atom_asInteger,Atom_asReal,Atom_val,Object_class,Object_fieldnames,Object_methodnames)
+end
+procedure Realinitially(self)
+#line 161 "builtins.iol"
+  if not (self.val := real(self.val)) then
+    stop("can't make Real from ",image(self.val))
+end
+class Stack : Collection(theCollection)
+method push(value)
+method pop()
+initially
+end
+procedure Stack_push(self,value)
+#line 91 "builtins.iol"
+    push(self.theCollection,value)
+  end
+procedure Stack_pop(self)
+#line 94 "builtins.iol"
+    return pop(self.theCollection)
+  end
+record Stack__state(__state,__methods,theCollection)
+record Stack__methods(push,pop,size,foreach,random,class,fieldnames,methodnames,Collection,Object)
+global Stack__oprec, Collection__oprec, Object__oprec
+procedure Stack(theCollection)
+local self,clone
+initial {
+  if /Stack__oprec then Stackinitialize()
+  if /Collection__oprec then Collectioninitialize()
+  Stack__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  Stack__oprec.Object := Object__oprec
+  }
+  self := Stack__state(&null,Stack__oprec,theCollection)
+  self.__state := self
+  Stackinitially(self)
+  return idol_object(self,Stack__oprec)
+end
+
+procedure Stackinitialize()
+  initial Stack__oprec := Stack__methods(Stack_push,Stack_pop,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+procedure Stackinitially(self)
+#line 97 "builtins.iol"
+  /self.theCollection := []
+end
+class String : Vector:Atom()
+method concat(s)
+end
+procedure String_concat(self,s)
+#line 167 "builtins.iol"
+    return self.theCollection || s
+  end
+record String__state(__state,__methods,val,theCollection)
+record String__methods(concat,getElement,setElement,asString,asInteger,asReal,val,size,foreach,random,class,fieldnames,methodnames,Vector,Atom,Collection,Object)
+global String__oprec, Vector__oprec, Atom__oprec, Collection__oprec, Object__oprec
+procedure String(val,theCollection)
+local self,clone
+initial {
+  if /String__oprec then Stringinitialize()
+  if /Vector__oprec then Vectorinitialize()
+  String__oprec.Vector := Vector__oprec
+  if /Atom__oprec then Atominitialize()
+  String__oprec.Atom := Atom__oprec
+  if /Collection__oprec then Collectioninitialize()
+  String__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  String__oprec.Object := Object__oprec
+  }
+  self := String__state(&null,String__oprec,val,theCollection)
+  self.__state := self
+  return idol_object(self,String__oprec)
+end
+
+procedure Stringinitialize()
+  initial String__oprec := String__methods(String_concat,Vector_getElement,Vector_setElement,Atom_asString,Atom_asInteger,Atom_asReal,Atom_val,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+class Table : Vector(initialvalue,theCollection)
+initially
+end
+record Table__state(__state,__methods,initialvalue,theCollection)
+record Table__methods(getElement,setElement,size,foreach,random,class,fieldnames,methodnames,Vector,Collection,Object)
+global Table__oprec, Vector__oprec, Collection__oprec, Object__oprec
+procedure Table(initialvalue,theCollection)
+local self,clone
+initial {
+  if /Table__oprec then Tableinitialize()
+  if /Vector__oprec then Vectorinitialize()
+  Table__oprec.Vector := Vector__oprec
+  if /Collection__oprec then Collectioninitialize()
+  Table__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  Table__oprec.Object := Object__oprec
+  }
+  self := Table__state(&null,Table__oprec,initialvalue,theCollection)
+  self.__state := self
+  Tableinitially(self)
+  return idol_object(self,Table__oprec)
+end
+
+procedure Tableinitialize()
+  initial Table__oprec := Table__methods(Vector_getElement,Vector_setElement,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+procedure Tableinitially(self)
+#line 70 "builtins.iol"
+  self.theCollection := table(self.initialvalue)
+end
+class Vector : Collection()
+method getElement(i)
+method setElement(i,v)
+end
+procedure Vector_getElement(self,i)
+#line 61 "builtins.iol"
+    return self.theCollection[i]
+  end
+procedure Vector_setElement(self,i,v)
+#line 64 "builtins.iol"
+    return self.theCollection[i] := v
+  end
+record Vector__state(__state,__methods,theCollection)
+record Vector__methods(getElement,setElement,size,foreach,random,class,fieldnames,methodnames,Collection,Object)
+global Vector__oprec, Collection__oprec, Object__oprec
+procedure Vector(theCollection)
+local self,clone
+initial {
+  if /Vector__oprec then Vectorinitialize()
+  if /Collection__oprec then Collectioninitialize()
+  Vector__oprec.Collection := Collection__oprec
+  if /Object__oprec then Objectinitialize()
+  Vector__oprec.Object := Object__oprec
+  }
+  self := Vector__state(&null,Vector__oprec,theCollection)
+  self.__state := self
+  return idol_object(self,Vector__oprec)
+end
+
+procedure Vectorinitialize()
+  initial Vector__oprec := Vector__methods(Vector_getElement,Vector_setElement,Collection_size,Collection_foreach,Collection_random,Object_class,Object_fieldnames,Object_methodnames)
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c Object Collecti Vector Table Stack Queue Deque List Atom Number Integer Real String
+cd ..

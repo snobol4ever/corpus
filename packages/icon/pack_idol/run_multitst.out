@@ -1,0 +1,71 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	multitst.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c multitst
+cd ..
+icont -Sr500 -SF30 -Si1000 multitst
+record idol_object(__state,__methods)
+class multitst(a,b,c,d,e,f,g,h 		,i,j,k)
+method writemsg(x,y,z)
+method write(plus,other 		,stuff)
+initially
+end
+procedure multitst_writemsg(self,x,y,z)
+#line 4 "multitst.iol"
+    write(x,y,z)
+  end
+procedure multitst_write(self,plus,other 		,stuff)
+#line 9 "multitst.iol"
+    every write(image(!self))
+    write(plus,other,stuff)
+  end
+record multitst__state(__state,__methods,a,b,c,d,e,f,g,h 		,i,j,k)
+record multitst__methods(writemsg,write)
+global multitst__oprec
+procedure multitst(a,b,c,d,e,f,g,h 		,i,j,k)
+local self,clone
+initial {
+  if /multitst__oprec then multitstinitialize()
+  }
+  self := multitst__state(&null,multitst__oprec,a,b,c,d,e,f,g,h 		,i,j,k)
+  self.__state := self
+  multitstinitially(self)
+  return idol_object(self,multitst__oprec)
+end
+
+procedure multitstinitialize()
+  initial multitst__oprec := multitst__methods(multitst_writemsg,multitst_write)
+end
+procedure multitstinitially(self)
+#line 13 "multitst.iol"
+  (__self1 := self).__methods.writemsg(__self1.__state,
+	     "this ",
+	     "is ","not the")
+  (__self1 := self).__methods.writemsg(__self1.__state)
+    ("this is a","classical Icon-style bug","and it isn't printed")
+  (__self1 := self).__methods.writemsg(__self1.__state,"this ",
+	     "is ","almost the")
+  (__self1 := self).__methods.writemsg(__self1.__state)
+  (__self1 := self).__methods.write(__self1.__state,"end","of","test")
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c multitst
+cd ..
+icont -Sr500 -SF30 -Si1000 multitst
+procedure main()
+#line 25 "multitst.iol"
+  multitst("hi","there","this",,"is",1,"test")
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\multitst"

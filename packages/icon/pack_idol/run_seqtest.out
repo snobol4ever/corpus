@@ -1,0 +1,25 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	seqtest.iol
+Class import/export:
+Generating code:
+icont -Sr500 -SF30 -Si1000 seqtest
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+icont -Sr500 -SF30 -Si1000 seqtest
+procedure main()
+#line 1 "seqtest.iol"
+  decimal   := sequence(255)
+  hex       := sequence("0123456789ABCDEF","0123456789ABCDEF")
+  octal     := sequence(3,7,7)
+  character := sequence(string(&cset))
+  while write(right((__self1 := decimal).__methods.activate(__self1.__state),3)," ",(__self2 := hex).__methods.activate(__self2.__state)," ",(__self3 := octal).__methods.activate(__self3.__state)," ",image((__self4 := character).__methods.activate(__self4.__state)))    
+end
+link "idolcode.env\\i_object"
+

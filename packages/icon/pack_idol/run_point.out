@@ -1,0 +1,97 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	point.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c Cartesia Radian
+cd ..
+class Cartesian : Radian(x,y)
+initially
+end
+record Cartesian__state(__state,__methods,x,y,d,r)
+record Cartesian__methods(Radian,Cartesian)
+global Cartesian__oprec, Radian__oprec, Cartesian__oprec
+procedure Cartesian(x,y,d,r)
+local self,clone
+initial {
+  if /Cartesian__oprec then Cartesianinitialize()
+  if /Radian__oprec then Radianinitialize()
+  Cartesian__oprec.Radian := Radian__oprec
+  }
+  self := Cartesian__state(&null,Cartesian__oprec,x,y,d,r)
+  self.__state := self
+  Cartesianinitially(self)
+  clone := Cartesian__state()
+  clone.__state := clone
+  clone.__methods := Cartesian__oprec
+  # inherited initialization from class Radian
+    every i := 2 to *self do clone[i] := self[i]
+    Radianinitially(clone)
+    self.d := clone.d
+    self.r := clone.r
+  return idol_object(self,Cartesian__oprec)
+end
+
+procedure Cartesianinitialize()
+  initial Cartesian__oprec := Cartesian__methods()
+end
+procedure Cartesianinitially(self)
+#line 2 "point.iol"
+  if /(self.r) then {
+    self.r := sqrt(self.x^2+self.y^2)
+    self.d := 0
+  }
+end
+record idol_object(__state,__methods)
+class Radian : Cartesian(d,r)
+initially
+end
+record Radian__state(__state,__methods,d,r,x,y)
+record Radian__methods(Cartesian,Radian)
+global Radian__oprec, Cartesian__oprec, Radian__oprec
+procedure Radian(d,r,x,y)
+local self,clone
+initial {
+  if /Radian__oprec then Radianinitialize()
+  if /Cartesian__oprec then Cartesianinitialize()
+  Radian__oprec.Cartesian := Cartesian__oprec
+  }
+  self := Radian__state(&null,Radian__oprec,d,r,x,y)
+  self.__state := self
+  Radianinitially(self)
+  clone := Radian__state()
+  clone.__state := clone
+  clone.__methods := Radian__oprec
+  # inherited initialization from class Cartesian
+    every i := 2 to *self do clone[i] := self[i]
+    Cartesianinitially(clone)
+    self.x := clone.x
+    self.y := clone.y
+  return idol_object(self,Radian__oprec)
+end
+
+procedure Radianinitialize()
+  initial Radian__oprec := Radian__methods()
+end
+procedure Radianinitially(self)
+#line 9 "point.iol"
+  if /(self.x) then {
+    self.x := 0
+    self.y := 0
+  }
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c Cartesia Radian
+cd ..
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\Cartesia"
+link "idolcode.env\\Radian"

@@ -1,0 +1,62 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	autoparn.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c autotest
+cd ..
+icont -Sr500 -SF30 -Si1000 autoparn
+procedure main()
+#line 12 "autoparn.iol"
+  x := autotest()
+  write((__self1 := x).__methods.foo(__self1.__state,(__self2 := x).__methods.yo(__self2.__state)))
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\autotest"
+class autotest(public yo)
+method foo(x)
+initially
+end
+procedure autotest_foo(self,x)
+#line 5 "autoparn.iol"
+    return x
+  end
+record autotest__state(__state,__methods,yo)
+record autotest__methods(foo,yo)
+global autotest__oprec
+procedure autotest(yo)
+local self,clone
+initial {
+  if /autotest__oprec then autotestinitialize()
+  }
+  self := autotest__state(&null,autotest__oprec,yo)
+  self.__state := self
+  autotestinitially(self)
+  return idol_object(self,autotest__oprec)
+end
+
+procedure autotestinitialize()
+  initial autotest__oprec := autotest__methods(autotest_foo,autotest_yo)
+end
+procedure autotestinitially(self)
+#line 8 "autoparn.iol"
+  self.yo := "yo, bro"
+end
+procedure autotest_yo(self)
+  return .(self.yo)
+end
+
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c autotest
+cd ..
+icont -Sr500 -SF30 -Si1000 autoparn

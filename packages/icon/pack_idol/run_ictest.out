@@ -1,0 +1,53 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	ictest.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c ictester
+cd ..
+icont -Sr500 -SF30 -Si1000 ictest
+procedure main()
+#line 7 "ictest.iol"
+  x := ictester()
+  (__self1 := x).__methods.classmethod(__self1.__state)
+  ictester_classmethod(x)
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\ictester"
+class ictester()
+method classmethod()
+end
+procedure ictester_classmethod(self)
+#line 2 "ictest.iol"
+    write("hello, world")
+  end
+record ictester__state(__state,__methods)
+record ictester__methods(classmethod)
+global ictester__oprec
+procedure ictester()
+local self,clone
+initial {
+  if /ictester__oprec then ictesterinitialize()
+  }
+  self := ictester__state(&null,ictester__oprec)
+  self.__state := self
+  return idol_object(self,ictester__oprec)
+end
+
+procedure ictesterinitialize()
+  initial ictester__oprec := ictester__methods(ictester_classmethod)
+end
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c ictester
+cd ..
+icont -Sr500 -SF30 -Si1000 ictest

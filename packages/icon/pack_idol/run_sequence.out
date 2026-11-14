@@ -1,0 +1,81 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	sequence.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c Sequence
+cd ..
+icont -Sr500 -SF30 -Si1000 sequence
+record idol_object(__state,__methods)
+class Sequence(bounds,indices)
+method max(i)
+method elem(i)
+method activate()
+initially
+end
+procedure Sequence_max(self,i)
+#line 6 "sequence.iol"
+    elem := self.bounds[i]
+    return (type(elem)== "integer",elem) | *elem-1
+  end
+procedure Sequence_elem(self,i)
+#line 10 "sequence.iol"
+    elem := self.bounds[i]
+    return (type(elem)== "integer",self.indices[i]) | elem[self.indices[i]+1]
+  end
+procedure Sequence_activate(self)
+#line 14 "sequence.iol"
+    top := *(self.indices)
+    if self.indices[1] > (__self1 := self).__methods.max(__self1.__state,1) then fail
+    s := ""
+    every i := 1 to top do {
+      s ||:= (__self1 := self).__methods.elem(__self1.__state,i)
+    }
+    repeat {
+       self.indices[top] +:= 1
+       if top=1 | (self.indices[top] <= (__self1 := self).__methods.max(__self1.__state,top)) then break
+       self.indices[top] := 0
+       top -:= 1
+    }
+    return s
+  end
+record Sequence__state(__state,__methods,bounds,indices)
+record Sequence__methods(max,elem,activate)
+global Sequence__oprec
+procedure Sequence(bounds,indices)
+local self,clone
+initial {
+  if /Sequence__oprec then Sequenceinitialize()
+  }
+  self := Sequence__state(&null,Sequence__oprec,bounds,indices)
+  self.__state := self
+  Sequenceinitially(self)
+  return idol_object(self,Sequence__oprec)
+end
+
+procedure Sequenceinitialize()
+  initial Sequence__oprec := Sequence__methods(Sequence_max,Sequence_elem,Sequence_activate)
+end
+procedure Sequenceinitially(self)
+#line 29 "sequence.iol"
+  / (self.indices) := list(*self.bounds,0)
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c Sequence
+cd ..
+icont -Sr500 -SF30 -Si1000 sequence
+procedure sequence(bounds[])
+#line 1 "sequence.iol"
+  return Sequence(bounds)
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\Sequence"

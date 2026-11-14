@@ -1,0 +1,21 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	labelgen.iol
+Class import/export:
+	idolcode.env\Sequence
+record idol_object(__state,__methods)
+class labelgen : Sequence(prefix,postfix)
+method activate()
+initially
+end
+procedure labelgen_activate(self)
+#line 2 "labelgen.iol"
+    return self.prefix||(__self1 := self).__methods.Sequence.activate(__self1.__state)||self.postfix
+  end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..

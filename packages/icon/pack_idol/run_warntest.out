@@ -1,0 +1,61 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	warntest.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c a b
+cd ..
+class a(field)
+end
+record a__state(__state,__methods,field)
+record a__methods()
+global a__oprec
+procedure a(field)
+local self,clone
+initial {
+  if /a__oprec then ainitialize()
+  }
+  self := a__state(&null,a__oprec,field)
+  self.__state := self
+  return idol_object(self,a__oprec)
+end
+
+procedure ainitialize()
+  initial a__oprec := a__methods()
+end
+class b : a(field)
+end
+record b__state(__state,__methods,field)
+record b__methods(a)
+global b__oprec, a__oprec
+procedure b(field)
+local self,clone
+initial {
+  if /b__oprec then binitialize()
+  if /a__oprec then ainitialize()
+  b__oprec.a := a__oprec
+  }
+  self := b__state(&null,b__oprec,field)
+  self.__state := self
+  return idol_object(self,b__oprec)
+end
+
+procedure binitialize()
+  initial b__oprec := b__methods()
+end
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c a b
+cd ..
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\a"
+link "idolcode.env\\b"

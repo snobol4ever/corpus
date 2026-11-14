@@ -1,0 +1,52 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	indextst.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c indextst
+cd ..
+icont -Sr500 -SF30 -Si1000 indextst
+class indextst()
+method index(y)
+end
+procedure indextst_index(self,y)
+#line 2 "indextst.iol"
+    write("index(",y,")")
+  end
+record indextst__state(__state,__methods)
+record indextst__methods(index)
+global indextst__oprec
+procedure indextst()
+local self,clone
+initial {
+  if /indextst__oprec then indextstinitialize()
+  }
+  self := indextst__state(&null,indextst__oprec)
+  self.__state := self
+  return idol_object(self,indextst__oprec)
+end
+
+procedure indextstinitialize()
+  initial indextst__oprec := indextst__methods(indextst_index)
+end
+record idol_object(__state,__methods)
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c indextst
+cd ..
+icont -Sr500 -SF30 -Si1000 indextst
+procedure main()
+#line 7 "indextst.iol"
+  x := indextst()
+  (__self1 := x).__methods.index(__self1.__state,"hello, world" )
+end
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\indextst"

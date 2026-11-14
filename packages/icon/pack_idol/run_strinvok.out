@@ -1,0 +1,53 @@
+Installing idol environment in idolcode.env
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+	strinvok.iol
+Class import/export:
+Generating code:
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c strinvok
+cd ..
+record idol_object(__state,__methods)
+class strinvokable()
+method eval(s,args[])
+end
+procedure strinvokable_eval(self,s,args[])
+#line 7 "strinvok.iol"
+    i := 1
+    every methodname := name(!(self.__methods)) do {
+	methodname[1 : find(".",methodname)+1 ] := ""
+	if s == methodname then {
+	    suspend self.__methods[i] ! ([self]|||args)
+	    fail
+	}
+	i +:= 1
+    }
+  end
+record strinvokable__state(__state,__methods)
+record strinvokable__methods(eval)
+global strinvokable__oprec
+procedure strinvokable()
+local self,clone
+initial {
+  if /strinvokable__oprec then strinvokableinitialize()
+  }
+  self := strinvokable__state(&null,strinvokable__oprec)
+  self.__state := self
+  return idol_object(self,strinvokable__oprec)
+end
+
+procedure strinvokableinitialize()
+  initial strinvokable__oprec := strinvokable__methods(strinvokable_eval)
+end
+mkdir idolcode.env
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c i_object
+cd ..
+cd idolcode.env
+icont -Sr500 -SF30 -Si1000  -c strinvok
+cd ..
+link "idolcode.env\\i_object"
+
+link "idolcode.env\\strinvok"

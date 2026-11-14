@@ -1,0 +1,1 @@
+ipath	.	the Idol translator idolboot.icn and the MS-DOS system file msdos.icn, which every run_NAME.icn links, sit beside the drivers at the package root
