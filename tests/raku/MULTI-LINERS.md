@@ -8667,6 +8667,19 @@ say h(1);
 <i>
 ```
 
+## proto__a_named_argument_reaches_the_candidates
+
+```Raku
+proto h($x, :$k) { "<" ~ {*} ~ ">" }
+multi h(Int $x, :$k) { "i" ~ $k }
+multi h(Str $x, :$k) { "s" ~ $k }
+say h(1, :k(5));
+```
+
+```stdout
+<i5>
+```
+
 ## rewrite__rr11_eval
 
 ```Raku
