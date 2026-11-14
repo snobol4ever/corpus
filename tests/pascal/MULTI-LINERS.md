@@ -1711,6 +1711,18 @@ end.
           0
 ```
 
+## fpc_features__a-string-type-declared-with-a-code-page
+
+```Pascal
+{$mode objfpc}{$H+}
+program cp1; type ts866 = type ansistring(866); var s: ts866; begin s := #97#98#99; writeln(s); writeln(length(s)) end.
+```
+
+```stdout
+abc
+3
+```
+
 ## program_function_writeln_3
 
 ```Pascal
