@@ -17685,6 +17685,45 @@ global identifiers:
    write = function write
 ```
 
+## planner_armjoin__critical_nested_if_keeps_its_join
+
+```Icon
+class probe(id, quiet, banner, mtx, opf)
+   method start(q, testName)
+      local bannerMaker := &null;
+      critical mtx: {
+         quiet := \q;
+         id := \testName;
+         if /banner then {
+            bannerMaker := banner := 1;
+            if quiet < 2 & (*id > 0) then {
+               write(opf, repl("-", 10));
+               write(opf, repl(" ", 4), id, " Start")
+            }
+         }
+      };
+      if \bannerMaker then return;
+   end
+initially
+   quiet := 1;
+   mtx := mutex();
+   opf := &output;
+end
+procedure main()
+   local T;
+   T := probe("P");
+   T.start();
+   write("started");
+   write(image(T.start()));
+end
+```
+
+```stdout
+----------
+    P Start
+started
+```
+
 ## ladder__rung42_kw_line_reads_the_line_of_the_instruction_that_follows_it_in_a_multi_line_call
 
 ```Icon

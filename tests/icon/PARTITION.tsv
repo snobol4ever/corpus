@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1158 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,37
+# shape: entries=1159 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,38
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -23,7 +23,7 @@ procedure_write_131	chunk:12	family:scrip_test_icon_jcon_audit_49_mutual
 procedure_write_136	chunk:12	family:scrip_test_icon_jcon_audit_64_if_stmt_else	
 procedure_write_112	chunk:12	family:scrip_test_icon_jcon_audit_08_initial	
 procedure_write_113	chunk:12	family:scrip_test_icon_jcon_audit_09_invocable	
-batch_grader__bg06_icn_hello	chunk:11	family:batch_grader	
+batch_grader__bg06_icn_hello	chunk:12	family:batch_grader	
 ladder_rung18_real_relop_real_ge	chunk:01	family:ladder	
 ladder_rung18_real_relop_real_ne	chunk:01	family:ladder	
 ladder_rung40_strfn_right	chunk:01	family:ladder	
@@ -282,7 +282,7 @@ procedure_every_to_6	chunk:02	feat:to_by	every to_by
 procedure_every_to_8	chunk:02	feat:to_by	every to_by
 procedure_limit_write_2	chunk:02	feat:limitation	limitation
 procedure_limit_write_9	chunk:02	feat:limitation	limitation
-procedure_map_write_1	chunk:10	feat:trim	map trim
+procedure_map_write_1	chunk:11	feat:trim	map trim
 procedure_map_write_2	chunk:11	feat:trim	map trim
 procedure_scan_many_2	chunk:09	feat:many	many scan
 procedure_scan_many_3	chunk:09	feat:many	many scan
@@ -900,6 +900,7 @@ the_co_expression_activation_trace_event_names_its_enclosing_procedure_and_its_o
 unicon__uni_posix_ux_loopback	chunk:07	feat:stop	alternation keyword_ref local read stop while
 procedure_coexpr_suspend_replace_1	chunk:03	feat:create	coexpr_activate create local suspend to_by while
 ladder__rung29_builtins_display_lists_the_globals_iconx_lists	chunk:08	feat:static	global keyword_ref local record static table
+planner_armjoin__critical_nested_if_keeps_its_join	chunk:10	feat:repl	image keyword_ref limitation local repl return
 ladder__rung42_kw_line_reads_the_line_of_the_instruction_that_follows_it_in_a_multi_line_call	chunk:02	feat:return	every image keyword_ref local return to_by
 ladder__rung19_toby_an_explicit_by_generates_as_iconx_from_integer_string_and_real_operands_and_converts_its_errors	chunk:07	feat:writes	aug_assign every keyword_ref local to_by writes
 procedure_every_elemgen_replace_5	chunk:03	feat:type	aug_assign element_gen every image local type
