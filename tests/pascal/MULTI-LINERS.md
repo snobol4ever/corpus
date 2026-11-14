@@ -3559,6 +3559,19 @@ end.
         520
 ```
 
+## fpc_features__a-type-name-casts-an-ordinal-to-an-ordinal-type
+
+```Pascal
+{$mode objfpc}{$H+}
+program tc1; type tr = 0..9; var d: longword; begin d := dword($12345678) shr 4; writeln(d); writeln(byte(300), ' ', shortint(200), ' ', word(-1)); writeln(tr(7) + 1) end.
+```
+
+```stdout
+19088743
+44 -56 65535
+8
+```
+
 ## ladder__rung04_for_repeat_for_downto
 
 ```Pascal
