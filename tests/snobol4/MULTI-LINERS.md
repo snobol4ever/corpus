@@ -25940,6 +25940,34 @@ Y=C
 Z=ABCD
 ```
 
+## planner_finish__a_negations_continuation_keeps_the_statements_stack
+
+```SNOBOL4
+ A = ARRAY(3)
+ A[2] = 'e2'
+ OUTPUT = 'a:' ~DIFFER('a','a') SIZE('ab')
+ OUTPUT = 'x' ~DIFFER(1,1) A[2] ~DIFFER(1,1) 'n'
+ OUTPUT = 'x' ~DIFFER(1,1) 'm' ~DIFFER(1,1) A[2]
+ OUTPUT = 'x' ~DIFFER(1,1) A[2] ~DIFFER(1,1) A[SIZE('ab')]
+ T = 'hello'
+ T ~IDENT(1,2) BREAK('l') . D ~DIFFER(2,2) LEN(2) . E
+ OUTPUT = D ':' E
+ OUTPUT = ('p' 'q') ~DIFFER(1,1) ('r' ~DIFFER(2,2) 's')
+ OUTPUT = 'n:' ~DIFFER(1,2) 'never'
+ OUTPUT = 'after'
+END
+```
+
+```stdout
+a:2
+xe2n
+xme2
+xe2e2
+he:ll
+pqrs
+after
+```
+
 ## tab_len_size_replace_branch_1
 
 ```SNOBOL4
