@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=517 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=46 chunks=5 sizes=100,100,100,100,71
+# shape: entries=518 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=46 chunks=5 sizes=100,100,100,100,72
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -116,7 +116,7 @@ program_procedure_writeln_1	chunk:03	feat:procedure	procedure
 program_procedure_writeln_2	chunk:03	feat:procedure	procedure
 program_procedure_writeln_3	chunk:03	feat:procedure	procedure
 program_procedure_writeln_7	chunk:03	feat:procedure	procedure
-program_procedure_writeln_8	chunk:03	feat:procedure	procedure
+program_procedure_writeln_8	chunk:04	feat:procedure	procedure
 program_procedure_writeln_9	chunk:04	feat:procedure	procedure
 program_writeln_6	chunk:03	feat:ord	ord
 program_writeln_sqrt_1	chunk:05	feat:sqrt	sqrt
@@ -360,7 +360,7 @@ fpc_units__in02_exception_mask	chunk:04	feat:in	for in ord procedure write
 ladder__rung14_row_string_elem_char	chunk:04	feat:chr	array chr set_literal subrange type
 ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:04	feat:pointer	array pointer set_literal subrange type
 program_array_packed_5	chunk:03	feat:packed	array packed set_literal subrange type
-ladder__rung25_interface_type_parses	chunk:04	feat:read	function nested_proc procedure read type
+ladder__rung25_interface_type_parses	chunk:05	feat:read	function nested_proc procedure read type
 ladder__rung20_generic_class_two_instances	chunk:02	feat:const	array const function nested_proc procedure type
 planner_finish__pf_binop	chunk:05	feat:read	function mod nested_proc procedure read
 program_function_procedure_5	core	core	function goto label nested_proc procedure
