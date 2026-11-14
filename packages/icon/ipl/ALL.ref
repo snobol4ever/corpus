@@ -9843,15 +9843,15 @@ one two three four five	1
 Enter password:    Enter input file:  Enter output file: 
 #--------------------------------------------------------------- 390 progs/csgen
 abc
-aaaabbbbcccc
-aaaabbbbcccc
-aaabbbccc
 abc
-aaaabbbbcccc
 abc
 aabbcc
-aaaaaabbbbbbcccccc
-aabbcc
+aaaabbbbcccc
+abc
+abc
+abc
+abc
+aaaaabbbbbccccc
 #----------------------------------------------------------------- 391 progs/cwd
 pkgsuite_oracle_11hw02yu
 #---------------------------------------------------------------- 392 progs/deal
@@ -11155,7 +11155,7 @@ Unresolved tartans:
 
 Spare-Name & Co
 #---------------------------------------------------------------- 402 progs/farb
-My dog was pent up all day.
+Let's lurch into the next hour of the show.
 #------------------------------------------------------------ 403 progs/filehtml
 <HTML><HEAD>
 <TITLE>File Links</TITLE></HEAD>
@@ -11438,11 +11438,26 @@ yahtz: play yahtzee
 yescr: convert UNIX files to DOS format
 zipsort: sort mailing labels by ZIP code
 #------------------------------------------------------------ 405 progs/filexref
-File Inventory Cross-Reference Report -- Monday, November 9, 2026  3:23 am
+File Inventory Cross-Reference Report -- Sunday, September 9, 2001  1:46 am
 
 Directories Searched (cross-reference number and path):
+   1  []
+   2  [doc]
+   3  [exe]
+   4  [icn]
+   5  [txt]
+Files by Directory:                                                 Page    1
+           
+           12345
+           ----+
+ guide     .@...
+ index     .@...
+ main      ..@@.
+ makefile  @....
+ readme    ....@
+ util      ..@@.
 
-Total files in inventory is  0
+Total files in inventory is  6
 #------------------------------------------------------------ 406 progs/filtskel
 the quick brown fox
 jumps over the lazy dog
@@ -12449,7 +12464,7 @@ one
 #
 #	Author:   Gregg M. Townsend
 #
-#	Date:     November 9, 2026
+#	Date:     September 8, 2001
 #
 ############################################################################
 #  
@@ -12618,18 +12633,33 @@ Enter yes or no:
 Enter Player Names. Enter blank when done.
   Player #1:  Player #2:[2J[H[?25h[2J[HLon, enter your bet. You have $100
 
-1. Programmers Nightmare            odds = 2.1 : 1
-2. Spaghetti Code                     "  = 2.8 : 1
-3. EBCDIC Object                      "  = 1.8 : 1
+1. Mr. Cobol                        odds = 2.3 : 1
+2. Paradigm Shift                     "  = 2.6 : 1
+3. Adricks' Abend                     "  = 3.5 : 1
 
-       (enter 5 on 2 for $5 on Spaghetti Code)
+       (enter 5 on 2 for $5 on Paradigm Shift)
 
-Your decision : Done Entering Wagers. Press RETURN to Continue.[0;1;33;44m[2J[H[1;1f                 WELCOME TO ICON PARK CYBER STEED RACE TRACK[2;1f[3;1f___________________________________________________________________________[4;1f                                                                           \[5;1f`#1#^                                                                       \[6;1f                                                                             \[7;1f`#2#^                                                                         \[8;1f                                                                              |[9;1f`#3#^                                                                         |[10;1f_________________________________________________________________             |[11;1f                                                                 \            |[12;1fCommentator:                                                      |           |[13;1f                                                                  |           |[14;1f_________________________________________________________________/            |[15;1f                                                                              |[16;1f                                                                              |[17;1f                                                                              /[18;1f                                                                             /[19;1f                                                                            /[20;1f                                                                           /[21;1f__________________________________________________________________________/[22;1f1  :[23;1f2  :[24;1f3  :[?25l[5;1f  `#1#^[22;6fProgrammers Nightmare            / 2.1 : 1 / [7;1f  `#2#^[23;6fSpaghetti Code                   / 2.8 : 1 / [9;1f  `#3#^[24;6fEBCDIC Object                    / 1.8 : 1 / [12;14fON YOUR MARK...  GET SET...[12;14fAND THEY'RE OFF!                           [5;1f  `#1#^[7;3f  `#2#^[9;2f  `#3#^[5;3f  `#1#^[7;4f  `#2#^[9;4f  `#3#^[5;3f  `#1#^[7;4f  `#2#^[9;5f  `#3#^[5;3f  `#1#^[7;6f  `#2#^[9;6f  `#3#^[5;3f  `#1#^[7;7f  `#2#^[9;7f  `#3#^[5;4f  `#1#^[7;8f  `#2#^[9;8f  `#3#^[5;4f  `#1#^[7;8f  `#2#^[9;9f  `#3#^[5;5f  `#1#^[7;10f  `#2#^[9;11f  `#3#^[5;6f  `#1#^[7;10f  `#2#^[9;11f  `#3#^[5;6f  `#1#^[7;10f  `#2#^[9;13f  `#3#^[5;8f  `#1#^[7;10f  `#2#^[9;13f  `#3#^[5;9f  `#1#^[7;11f  `#2#^[9;14f  `#3#^[5;9f  `#1#^[7;11f  `#2#^[9;16f  `#3#^[5;11f  `#1#^[7;13f  `#2#^[9;17f  `#3#^[5;13f  `#1#^[7;13f  `#2#^[9;19f  `#3#^[5;13f  `#1#^[7;13f  `#2#^[9;21f  `#3#^[5;14f  `#1#^[7;15f  `#2#^[9;23f  `#3#^[5;16f  `#1#^[7;15f  `#2#^[9;25f  `#3#^[5;16f  `#1#^[7;15f  `#2#^[9;25f  `#3#^[5;17f  `#1#^[7;16f  `#2#^[9;26f  `#3#^[5;17f  `#1#^[7;17f  `#2#^[9;26f  `#3#^[5;18f  `#1#^[7;19f  `#2#^[9;28f  `#3#^[5;18f  `#1#^[7;21f  `#2#^[9;28f  `#3#^[5;20f  `#1#^[7;22f  `#2#^[9;29f  `#3#^[5;21f  `#1#^[7;23f  `#2#^[9;31f  `#3#^[5;21f  `#1#^[7;24f  `#2#^[9;32f  `#3#^[5;22f  `#1#^[7;25f  `#2#^[9;34f  `#3#^[5;23f  `#1#^[7;26f  `#2#^[9;36f  `#3#^[5;24f  `#1#^[7;28f  `#2#^[9;37f  `#3#^[5;24f  `#1#^[7;30f  `#2#^[9;38f  `#3#^[5;26f  `#1#^[7;31f  `#2#^[9;40f  `#3#^[5;26f  `#1#^[7;32f  `#2#^[9;41f  `#3#^[5;28f  `#1#^[7;34f  `#2#^[9;41f  `#3#^[5;28f  `#1#^[7;34f  `#2#^[9;42f  `#3#^[5;29f  `#1#^[7;34f  `#2#^[9;42f  `#3#^[5;30f  `#1#^[7;35f  `#2#^[9;44f  `#3#^[5;30f  `#1#^[7;36f  `#2#^[9;45f  `#3#^[5;31f  `#1#^[7;38f  `#2#^[9;45f  `#3#^[5;31f  `#1#^[7;40f  `#2#^[9;46f  `#3#^[5;33f  `#1#^[7;40f  `#2#^[9;46f  `#3#^[5;35f  `#1#^[7;41f  `#2#^[9;48f  `#3#^[5;37f  `#1#^[7;43f  `#2#^[9;48f  `#3#^[5;39f  `#1#^[7;45f  `#2#^[9;50f  `#3#^[5;41f  `#1#^[7;46f  `#2#^[9;50f  `#3#^[5;42f  `#1#^[7;46f  `#2#^[9;50f  `#3#^[5;43f  `#1#^[7;47f  `#2#^[9;50f  `#3#^[5;45f  `#1#^[7;48f  `#2#^[9;50f  `#3#^[5;45f  `#1#^[7;49f  `#2#^[9;52f  `#3#^[5;46f  `#1#^[7;50f  `#2#^[9;54f  `#3#^[5;46f  `#1#^[7;51f  `#2#^[9;55f  `#3#^[5;47f  `#1#^[7;53f  `#2#^[9;56f  `#3#^[5;48f  `#1#^[7;54f  `#2#^[9;56f  `#3#^[5;50f  `#1#^[7;56f  `#2#^[9;58f  `#3#^[5;50f  `#1#^[7;58f  `#2#^[9;59f  `#3#^[5;51f  `#1#^[7;58f  `#2#^[9;60f  `#3#^[5;52f  `#1#^[7;58f  `#2#^[9;62f  `#3#^[5;54f  `#1#^[7;60f  `#2#^[9;64f  `#3#^[5;54f  `#1#^[7;61f  `#2#^[9;65f  `#3#^[5;56f  `#1#^[7;61f  `#2#^[9;65f  `#3#^[5;57f  `#1#^[7;63f  `#2#^[9;66f  `#3#^[5;57f  `#1#^[7;65f  `#2#^[9;66f  `#3#^[5;57f  `#1#^[7;66f  `#2#^[9;67f  `#3#^[5;59f  `#1#^[7;68f       [7;68f       [9;69f  /  [10;69f  2  [11;69f  V  [9;68f       [9;68f       [11;70f  /  [12;70f  3  [13;70f  V  [5;59f  `#1#^[7;68f       [9;68f       [9;69f  /  [10;69f  2  [11;69f  V  [9;68f       [11;68f       [11;70f  /  [12;70f  3  [13;70f  V  [5;59f  `#1#^[7;68f       [9;68f       [11;69f  /  [12;69f  2  [13;69f  V  [9;68f       [11;68f       [12;70f  /  [13;70f  3  [14;70f  V  [5;61f  `#1#^[7;68f       [11;68f       [11;69f  /  [12;69f  2  [13;69f  V  [9;68f       [12;68f       [13;70f  /  [14;70f  3  [15;70f  V  [5;63f  `#1#^[7;68f       [11;68f       [13;69f  /  [14;69f  2  [15;69f  V  [9;68f       [13;68f       [15;70f  /  [16;70f  3  [17;70f  V  [5;63f  `#1#^[7;68f       [13;68f       [9;68f       [15;68f       [5;63f  `#1#^[7;68f       [15;68f       [9;68f       [16;68f       [5;64f  `#1#^[7;68f       [15;68f       [9;68f       [17;68f       [5;66f  `#1#^[7;68f       [16;68f       [9;68f       [18;68f       [5;68f       [5;68f       [7;68f  /  [8;68f  1  [9;68f  V  [7;68f       [16;68f       [9;68f       [18;68f       [5;68f       [7;68f       [8;68f  /  [9;68f  1  [10;68f  V  [7;68f       [17;68f       [9;68f       [19;68f       [5;68f       [8;68f       [10;68f  /  [11;68f  1  [12;68f  V  [17;68f^#2#'  [19;67f^#3#'  [5;68f       [10;68f       [10;68f  /  [11;68f  1  [12;68f  V  [17;66f^#2#'  [19;67f^#3#'  [5;68f       [10;68f       [11;68f  /  [12;68f  1  [13;68f  V  [17;65f^#2#'  [19;67f^#3#'  [5;68f       [11;68f       [11;68f  /  [12;68f  1  [13;68f  V  [17;64f^#2#'  [19;65f^#3#'  [5;68f       [11;68f       [17;64f^#2#'  [19;65f^#3#'  [5;68f       [13;68f       [17;62f^#2#'  [19;64f^#3#'  [5;68f       [13;68f       [17;61f^#2#'  [19;63f^#3#'  [5;68f       [15;68f       [17;59f^#2#'  [19;61f^#3#'  [5;68f       [15;68f       [17;59f^#2#'  [19;59f^#3#'  [15;68f^#1#'  [17;57f^#2#'  [19;59f^#3#'  [15;66f^#1#'  [17;56f^#2#'  [19;58f^#3#'  [15;66f^#1#'  [17;54f^#2#'  [19;57f^#3#'  [15;64f^#1#'  [17;53f^#2#'  [19;55f^#3#'  [15;63f^#1#'  [17;51f^#2#'  [19;53f^#3#'  [15;63f^#1#'  [17;49f^#2#'  [19;51f^#3#'  [15;62f^#1#'  [17;49f^#2#'  [19;51f^#3#'  [15;61f^#1#'  [17;47f^#2#'  [19;49f^#3#'  [15;59f^#1#'  [17;45f^#2#'  [19;48f^#3#'  [15;57f^#1#'  [17;44f^#2#'  [19;48f^#3#'  [15;57f^#1#'  [17;43f^#2#'  [19;46f^#3#'  [15;55f^#1#'  [17;42f^#2#'  [19;46f^#3#'  [15;55f^#1#'  [17;40f^#2#'  [19;46f^#3#'  [15;53f^#1#'  [17;39f^#2#'  [19;44f^#3#'  [15;52f^#1#'  [17;38f^#2#'  [19;42f^#3#'  [15;51f^#1#'  [17;36f^#2#'  [19;41f^#3#'  [15;50f^#1#'  [17;35f^#2#'  [19;40f^#3#'  [15;49f^#1#'  [17;35f^#2#'  [19;38f^#3#'  [15;49f^#1#'  [17;34f^#2#'  [19;36f^#3#'  [15;47f^#1#'  [17;34f^#2#'  [19;36f^#3#'  [15;45f^#1#'  [17;34f^#2#'  [19;36f^#3#'  [15;43f^#1#'  [17;33f^#2#'  [19;34f^#3#'  [15;42f^#1#'  [17;33f^#2#'  [19;33f^#3#'  [15;41f^#1#'  [17;31f^#2#'  [19;31f^#3#'  [15;40f^#1#'  [17;29f^#2#'  [19;29f^#3#'  [15;40f^#1#'  [17;29f^#2#'  [19;29f^#3#'  [15;39f^#1#'  [17;28f^#2#'  [19;29f^#3#'  [15;39f^#1#'  [17;26f^#2#'  [19;27f^#3#'  [15;38f^#1#'  [17;26f^#2#'  [19;25f^#3#'  [15;36f^#1#'  [17;25f^#2#'  [19;25f^#3#'  [15;34f^#1#'  [17;25f^#2#'  [19;24f^#3#'  [15;32f^#1#'  [17;23f^#2#'  [19;22f^#3#'  [15;31f^#1#'  [17;22f^#2#'  [19;22f^#3#'  [15;29f^#1#'  [17;21f^#2#'  [19;22f^#3#'  [15;29f^#1#'  [17;21f^#2#'  [19;22f^#3#'  [15;29f^#1#'  [17;19f^#2#'  [19;20f^#3#'  [15;28f^#1#'  [17;17f^#2#'  [19;19f^#3#'  [15;26f^#1#'  [17;15f^#2#'  [19;17f^#3#'  [15;25f^#1#'  [17;14f^#2#'  [19;15f^#3#'  [15;24f^#1#'  [17;13f^#2#'  [19;15f^#3#'  [15;22f^#1#'  [17;12f^#2#'  [19;13f^#3#'  [15;20f^#1#'  [17;10f^#2#'  [19;11f^#3#'  [15;19f^#1#'  [17;9f^#2#'  [19;10f^#3#'  [15;18f^#1#'  [17;9f^#2#'  [19;9f^#3#'  [15;17f^#1#'  [17;8f^#2#'  [19;7f^#3#'  [15;16f^#1#'  [17;8f^#2#'  [19;6f^#3#'  [15;16f^#1#'  [17;7f^#2#'  [19;5f^#3#'  [15;16f^#1#'  [17;6f^#2#'  [19;5f^#3#'  [15;15f^#1#'  [17;4f^#2#'  [19;4f^#3#'  [15;14f^#1#'  [17;4f^#2#'  [19;3f^#3#'  [15;14f^#1#'  [17;2f^#2#'  [19;3f^#3#'  [15;12f^#1#'  [17;2f^#2#'  [19;2f^#3#'  [15;10f^#1#'  [17;1f^#2#'  [19;1f^#3#'  [15;8f^#1#'  [17;1f^#2#'  [19;1f^#3#'  [15;8f^#1#'  [17;1f^#2#'  [19;1f^#3#'  [15;8f^#1#'  [17;1f^#2#'  [19;1f^#3#'  [15;7f^#1#'  [17;1f^#2#'  [15;7f^#1#'  [17;1f^#2#'  [15;7f^#1#'  [17;1f^#2#'  [15;7f^#1#'  [17;1f^#2#'  [15;7f^#1#'  [17;1f^#2#'  [15;6f^#1#'  [15;4f^#1#'  [15;3f^#1#'  [15;1f^#1#'  [?25h[12;14fIt was a photo finish![12;14fThe judges are coming to a decision....[12;14fAll bets will be refunded. Sorry.......[13;1fPress RETURN to Continue.[2J[HICON PARK CYBER RACE TRACK BIDS YOU ADIEU
+Your decision : Done Entering Wagers. Press RETURN to Continue.[0;1;33;44m[2J[H[1;1f                 WELCOME TO ICON PARK CYBER STEED RACE TRACK[2;1f[3;1f___________________________________________________________________________[4;1f                                                                           \[5;1f`#1#^                                                                       \[6;1f                                                                             \[7;1f`#2#^                                                                         \[8;1f                                                                              |[9;1f`#3#^                                                                         |[10;1f_________________________________________________________________             |[11;1f                                                                 \            |[12;1fCommentator:                                                      |           |[13;1f                                                                  |           |[14;1f_________________________________________________________________/            |[15;1f                                                                              |[16;1f                                                                              |[17;1f                                                                              /[18;1f                                                                             /[19;1f                                                                            /[20;1f                                                                           /[21;1f__________________________________________________________________________/[22;1f1  :[23;1f2  :[24;1f3  :[?25l[5;1f  `#1#^[22;6fMr. Cobol                        / 2.3 : 1 / [7;1f  `#2#^[23;6fParadigm Shift                   / 2.6 : 1 / [9;1f  `#3#^[24;6fAdricks' Abend                   / 3.5 : 1 / [12;14fON YOUR MARK...  GET SET...[12;14fAND THEY'RE OFF!                           [5;1f  `#1#^[7;1f  `#2#^[9;3f  `#3#^[5;1f  `#1#^[7;3f  `#2#^[9;4f  `#3#^[5;3f  `#1#^[7;4f  `#2#^[9;6f  `#3#^[5;5f  `#1#^[7;5f  `#2#^[9;6f  `#3#^[5;6f  `#1#^[7;6f  `#2#^[9;7f  `#3#^[5;8f  `#1#^[7;6f  `#2#^[9;7f  `#3#^[5;8f  `#1#^[7;6f  `#2#^[9;7f  `#3#^[5;9f  `#1#^[7;6f  `#2#^[9;8f  `#3#^[5;10f  `#1#^[7;7f  `#2#^[9;9f  `#3#^[5;12f  `#1#^[7;9f  `#2#^[9;10f  `#3#^[5;12f  `#1#^[7;9f  `#2#^[9;11f  `#3#^[5;13f  `#1#^[7;10f  `#2#^[9;11f  `#3#^[5;14f  `#1#^[7;11f  `#2#^[9;13f  `#3#^[5;16f  `#1#^[7;13f  `#2#^[9;14f  `#3#^[5;16f  `#1#^[7;13f  `#2#^[9;16f  `#3#^[5;17f  `#1#^[7;13f  `#2#^[9;18f  `#3#^[5;18f  `#1#^[7;15f  `#2#^[9;19f  `#3#^[5;19f  `#1#^[7;17f  `#2#^[9;20f  `#3#^[5;20f  `#1#^[7;18f  `#2#^[9;20f  `#3#^[5;21f  `#1#^[7;20f  `#2#^[9;20f  `#3#^[5;22f  `#1#^[7;21f  `#2#^[9;22f  `#3#^[5;23f  `#1#^[7;23f  `#2#^[9;24f  `#3#^[5;23f  `#1#^[7;24f  `#2#^[9;25f  `#3#^[5;23f  `#1#^[7;24f  `#2#^[9;25f  `#3#^[5;25f  `#1#^[7;26f  `#2#^[9;26f  `#3#^[5;26f  `#1#^[7;26f  `#2#^[9;28f  `#3#^[5;28f  `#1#^[7;27f  `#2#^[9;29f  `#3#^[5;28f  `#1#^[7;29f  `#2#^[9;31f  `#3#^[5;30f  `#1#^[7;30f  `#2#^[9;32f  `#3#^[5;30f  `#1#^[7;30f  `#2#^[9;33f  `#3#^[5;31f  `#1#^[7;30f  `#2#^[9;35f  `#3#^[5;33f  `#1#^[7;32f  `#2#^[9;35f  `#3#^[5;34f  `#1#^[7;33f  `#2#^[9;37f  `#3#^[5;36f  `#1#^[7;34f  `#2#^[9;39f  `#3#^[5;38f  `#1#^[7;36f  `#2#^[9;39f  `#3#^[5;40f  `#1#^[7;38f  `#2#^[9;40f  `#3#^[5;40f  `#1#^[7;39f  `#2#^[9;41f  `#3#^[5;42f  `#1#^[7;39f  `#2#^[9;41f  `#3#^[5;43f  `#1#^[7;41f  `#2#^[9;42f  `#3#^[5;43f  `#1#^[7;43f  `#2#^[9;42f  `#3#^[5;45f  `#1#^[7;43f  `#2#^[9;44f  `#3#^[5;45f  `#1#^[7;45f  `#2#^[9;46f  `#3#^[5;47f  `#1#^[7;46f  `#2#^[9;46f  `#3#^[5;47f  `#1#^[7;48f  `#2#^[9;48f  `#3#^[5;48f  `#1#^[7;49f  `#2#^[9;48f  `#3#^[5;48f  `#1#^[7;50f  `#2#^[9;48f  `#3#^[5;50f  `#1#^[7;50f  `#2#^[9;49f  `#3#^[5;50f  `#1#^[7;50f  `#2#^[9;49f  `#3#^[5;50f  `#1#^[7;52f  `#2#^[9;50f  `#3#^[5;51f  `#1#^[7;54f  `#2#^[9;52f  `#3#^[5;52f  `#1#^[7;55f  `#2#^[9;54f  `#3#^[5;54f  `#1#^[7;57f  `#2#^[9;55f  `#3#^[5;56f  `#1#^[7;58f  `#2#^[9;57f  `#3#^[5;56f  `#1#^[7;58f  `#2#^[9;57f  `#3#^[5;56f  `#1#^[7;60f  `#2#^[9;58f  `#3#^[5;57f  `#1#^[7;62f  `#2#^[9;59f  `#3#^[5;59f  `#1#^[7;63f  `#2#^[9;59f  `#3#^[5;60f  `#1#^[7;64f  `#2#^[9;59f  `#3#^[5;62f  `#1#^[7;65f  `#2#^[9;61f  `#3#^[5;64f  `#1#^[7;67f  `#2#^[9;61f  `#3#^[5;64f  `#1#^[7;67f  `#2#^[9;63f  `#3#^[5;64f  `#1#^[7;67f  `#2#^[9;65f  `#3#^[5;65f  `#1#^[7;68f       [7;68f       [8;69f  /  [9;69f  2  [10;69f  V  [9;65f  `#3#^[5;67f  `#1#^[7;68f       [8;68f       [8;69f  /  [9;69f  2  [10;69f  V  [9;65f  `#3#^[5;68f       [5;68f       [7;68f  /  [8;68f  1  [9;68f  V  [7;68f       [8;68f       [9;69f  /  [10;69f  2  [11;69f  V  [9;67f  `#3#^[5;68f       [7;68f       [7;68f  /  [8;68f  1  [9;68f  V  [7;68f       [9;68f       [9;69f  /  [10;69f  2  [11;69f  V  [9;68f       [9;68f       [11;70f  /  [12;70f  3  [13;70f  V  [5;68f       [7;68f       [8;68f  /  [9;68f  1  [10;68f  V  [7;68f       [9;68f       [10;69f  /  [11;69f  2  [12;69f  V  [9;68f       [11;68f       [11;70f  /  [12;70f  3  [13;70f  V  [5;68f       [8;68f       [9;68f  /  [10;68f  1  [11;68f  V  [7;68f       [10;68f       [10;69f  /  [11;69f  2  [12;69f  V  [9;68f       [11;68f       [11;70f  /  [12;70f  3  [13;70f  V  [5;68f       [9;68f       [9;68f  /  [10;68f  1  [11;68f  V  [7;68f       [10;68f       [10;69f  /  [11;69f  2  [12;69f  V  [9;68f       [11;68f       [12;70f  /  [13;70f  3  [14;70f  V  [5;68f       [9;68f       [9;68f  /  [10;68f  1  [11;68f  V  [7;68f       [10;68f       [11;69f  /  [12;69f  2  [13;69f  V  [9;68f       [12;68f       [14;70f  /  [15;70f  3  [16;70f  V  [5;68f       [9;68f       [11;68f  /  [12;68f  1  [13;68f  V  [7;68f       [11;68f       [13;69f  /  [14;69f  2  [15;69f  V  [9;68f       [14;68f       [5;68f       [11;68f       [7;68f       [13;68f       [9;68f       [16;68f       [5;68f       [13;68f       [7;68f       [15;68f       [9;68f       [18;68f       [5;68f       [14;68f       [17;68f^#2#'  [19;68f^#3#'  [5;68f       [15;68f       [17;68f^#2#'  [19;67f^#3#'  [15;67f^#1#'  [17;66f^#2#'  [19;66f^#3#'  [15;66f^#1#'  [17;65f^#2#'  [19;65f^#3#'  [15;66f^#1#'  [17;63f^#2#'  [19;63f^#3#'  [15;65f^#1#'  [17;62f^#2#'  [19;62f^#3#'  [15;64f^#1#'  [17;62f^#2#'  [19;62f^#3#'  [15;62f^#1#'  [17;61f^#2#'  [19;62f^#3#'  [15;62f^#1#'  [17;60f^#2#'  [19;61f^#3#'  [15;60f^#1#'  [17;60f^#2#'  [19;59f^#3#'  [15;60f^#1#'  [17;58f^#2#'  [19;58f^#3#'  [15;59f^#1#'  [17;57f^#2#'  [19;56f^#3#'  [15;59f^#1#'  [17;56f^#2#'  [19;54f^#3#'  [15;59f^#1#'  [17;56f^#2#'  [19;53f^#3#'  [15;57f^#1#'  [17;56f^#2#'  [19;53f^#3#'  [15;57f^#1#'  [17;56f^#2#'  [19;52f^#3#'  [15;56f^#1#'  [17;55f^#2#'  [19;52f^#3#'  [15;56f^#1#'  [17;53f^#2#'  [19;51f^#3#'  [15;55f^#1#'  [17;53f^#2#'  [19;49f^#3#'  [15;55f^#1#'  [17;52f^#2#'  [19;48f^#3#'  [15;54f^#1#'  [17;52f^#2#'  [19;47f^#3#'  [15;53f^#1#'  [17;51f^#2#'  [19;46f^#3#'  [15;53f^#1#'  [17;49f^#2#'  [19;46f^#3#'  [15;51f^#1#'  [17;47f^#2#'  [19;44f^#3#'  [15;51f^#1#'  [17;46f^#2#'  [19;42f^#3#'  [15;49f^#1#'  [17;44f^#2#'  [19;41f^#3#'  [15;47f^#1#'  [17;44f^#2#'  [19;39f^#3#'  [15;46f^#1#'  [17;42f^#2#'  [19;38f^#3#'  [15;46f^#1#'  [17;41f^#2#'  [19;36f^#3#'  [15;44f^#1#'  [17;41f^#2#'  [19;34f^#3#'  [15;42f^#1#'  [17;41f^#2#'  [19;34f^#3#'  [15;42f^#1#'  [17;41f^#2#'  [19;32f^#3#'  [15;40f^#1#'  [17;39f^#2#'  [19;31f^#3#'  [15;39f^#1#'  [17;38f^#2#'  [19;29f^#3#'  [15;39f^#1#'  [17;36f^#2#'  [19;29f^#3#'  [15;38f^#1#'  [17;35f^#2#'  [19;29f^#3#'  [15;37f^#1#'  [17;35f^#2#'  [19;29f^#3#'  [15;36f^#1#'  [17;33f^#2#'  [19;27f^#3#'  [15;36f^#1#'  [17;31f^#2#'  [19;26f^#3#'  [15;36f^#1#'  [17;29f^#2#'  [19;24f^#3#'  [15;36f^#1#'  [17;28f^#2#'  [19;22f^#3#'  [15;36f^#1#'  [17;26f^#2#'  [19;20f^#3#'  [15;35f^#1#'  [17;25f^#2#'  [19;19f^#3#'  [15;33f^#1#'  [17;24f^#2#'  [19;19f^#3#'  [15;33f^#1#'  [17;24f^#2#'  [19;17f^#3#'  [15;31f^#1#'  [17;24f^#2#'  [19;17f^#3#'  [15;29f^#1#'  [17;22f^#2#'  [19;16f^#3#'  [15;29f^#1#'  [17;21f^#2#'  [19;16f^#3#'  [15;27f^#1#'  [17;20f^#2#'  [19;16f^#3#'  [15;26f^#1#'  [17;19f^#2#'  [19;16f^#3#'  [15;24f^#1#'  [17;19f^#2#'  [19;14f^#3#'  [15;24f^#1#'  [17;18f^#2#'  [19;13f^#3#'  [15;24f^#1#'  [17;16f^#2#'  [19;11f^#3#'  [15;23f^#1#'  [17;14f^#2#'  [19;9f^#3#'  [15;23f^#1#'  [17;12f^#2#'  [19;7f^#3#'  [15;22f^#1#'  [17;11f^#2#'  [19;7f^#3#'  [15;21f^#1#'  [17;9f^#2#'  [19;5f^#3#'  [15;20f^#1#'  [17;9f^#2#'  [19;5f^#3#'  [15;18f^#1#'  [17;7f^#2#'  [19;3f^#3#'  [15;17f^#1#'  [17;7f^#2#'  [19;2f^#3#'  [15;15f^#1#'  [17;5f^#2#'  [19;2f^#3#'  [15;14f^#1#'  [17;4f^#2#'  [19;1f^#3#'  [?25h[12;14fAdricks' Abend   WINS!                              [24;1f[1;5;33;44m3  : Adricks' Abend                  [0;1;33;44m[12;14fAnd now for a closeup of the winner....[5;40f+-----------------------------------+[6;40f|                    \/             |[7;40f|                   \\//|||         |[8;40f|                 \\       /        |[9;40f|               \\\     /  /        |[10;40f|              \\\      O   /       |[11;40f|             \\\            /      |[12;40f|            \\\              /     |[13;40f|           \\\                /    |[14;40f|      ___\\\      \----/     o     |[15;40f|                   \\     /_|/\    |[16;40f|                  \\               |[17;40f|                 \                 |[18;40f|                \                  |[19;40f|                                   |[19;40f+-----------------------------------+[13;1fPress RETURN to Continue.[2J[HICON PARK CYBER RACE TRACK BIDS YOU ADIEU
 
     We all started with $100. And now for the results...
 
-OK Lon, you have $100 left. 
-Looks like you broke even today.
+OK Lon, you have $95 left. Looks like you lost some $ today.
+[2J[H[?25h[2J[HLon, enter your bet. You have $95
+
+1. Floppy Crash                     odds = 2.1 : 1
+2. Recursive Instance                 "  = 1.9 : 1
+3. Mr. Cobol                          "  = 2.5 : 1
+
+       (enter 5 on 2 for $5 on Recursive Instance)
+
+Your decision : [2J[HICON PARK CYBER RACE TRACK BIDS YOU ADIEU
+
+    We all started with $100. And now for the results...
+
+OK Lon, you have $95 left. 
+Looks like you lost some $ today.
+
+Game Over.
 #-------------------------------------------------------------- 422 progs/htprep
 <!-- Created by HTPREP -->
 the quick brown fox
@@ -16034,12 +16064,83 @@ ftp://ftp.example.org/f
 [0;77;1p[0;75;2p[0;72;14p[0;80;21p[0;116;8p[0;115;9p[0;71;4p[0;79;5p[0;83;6p[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
 [4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[7;10H[7maDRESS FILE[0m[7;10HaDRESS FILE[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[10;10H[7mAlPHA[0m[2J[2JREADING...
+ARRANGING DATA IN ALPHABETICAL ORDER...
+WRITING...
+DONE...
+[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[2J[10;1HTYPE WORD TO BE LOOKED FOR:                     [10;29H[10;1HTYPE WORD TO BE LOOKED FOR: b[10;30H[10;1HTYPE WORD TO BE LOOKED FOR: ba[10;31H[10;1HTYPE WORD TO BE LOOKED FOR: ban[10;32H[10;1HTYPE WORD TO BE LOOKED FOR: bana[10;33H[10;1HTYPE WORD TO BE LOOKED FOR: banan[10;34H[10;1HTYPE WORD TO BE LOOKED FOR: banana[10;35H[10;25HERROR: UNKNOWN WORD! PRESS KEY![2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[2J[10;1HTYPE WORD TO BE LOOKED FOR:                     [10;29H[10;1HTYPE WORD TO BE LOOKED FOR: a[10;30H[10;1HTYPE WORD TO BE LOOKED FOR: ap[10;31H[10;1HTYPE WORD TO BE LOOKED FOR: app[10;32H[10;1HTYPE WORD TO BE LOOKED FOR: appl[10;33H[10;1HTYPE WORD TO BE LOOKED FOR: applx[10;34H[10;33H[10;1HTYPE WORD TO BE LOOKED FOR: appl [10;33H[10;1HTYPE WORD TO BE LOOKED FOR: apple[10;34HOK
+[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[2J[10;1HTYPE WORD TO BE LOOKED FOR:                     [10;29H[10;1HTYPE WORD TO BE LOOKED FOR: p[10;30H[10;1HTYPE WORD TO BE LOOKED FOR: pe[10;31H[10;1HTYPE WORD TO BE LOOKED FOR: pea[10;32H[10;1HTYPE WORD TO BE LOOKED FOR: pear[10;33H[10;25HERROR: UNKNOWN WORD! PRESS KEY![2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[7;10H[7maDRESS FILE[0m[7;10HaDRESS FILE[11;10H[7meND[0m[2J
 #------------------------------------------------------------------ 479 progs/ll
 2147483648
 0
 #------------------------------------------------------------- 480 progs/loadmap
 
 prog.o
+
+Text space:   1024   Initialized Data:    320   Uninitialized Data:    512
+
+
+
+
+Absolute locations:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _abs          16   rem
+
+
+
+
+BSS segment symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _buffer      768   256   _scratch    1024   256
+
+
+
+
+Common symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _common       32   rem
+
+
+
+
+Data segment symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _table       512    64   _count       576   256
+
+
+
+
+Text segment symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _main          0    64   _helper       64    96   _util        160   864
+
+
+
+
+Undefined symbols:
+
+   name        addr  size   name        addr  size   name        addr  size
+
+   _printf     ????  ????   _malloc     ????   rem
 #--------------------------------------------------------------- 481 progs/lower
 <<out_files: lower_case.txt was not written>>
 #--------------------------------------------------------------- 482 progs/lssum
@@ -18037,16 +18138,16 @@ line four
 line five
 
 #-------------------------------------------------------------- 494 progs/parens
-begin end begin end 
+begin begin begin end end end 
 begin begin end end 
-begin end begin begin end end 
-begin end 
-begin end 
-begin begin end begin end begin end end 
+begin begin begin end end end 
+begin end begin end begin end 
 begin begin end end begin end 
 begin end 
+begin end begin end begin begin end end 
+begin begin end end 
+begin begin end end 
 begin begin end begin end end 
-begin end begin end begin end 
 #-------------------------------------------------------------- 495 progs/pargen
 link recog
 link matchlib
@@ -18177,22 +18278,6 @@ placing coexpression
 placing coexpression
 placing coexpression
 placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing coexpression
-placing string
-placing string
-placing string
-placing string
-placing string
 placing string
 placing string
 placing string
@@ -18202,53 +18287,53 @@ placing scanning
 
 Now for the puzzle you've been waiting for! (ANSWER)
 
-T B U H H L I M X F N G L C T I T Y A X 
-I T W B W U e H C O A L Z Y Q V E g D F 
-X L H D A n I V K I Q T B G P K J n D L 
-Q I T S o K F R U C Q C Q A S G Y i N B 
-s U C c H N J G M p I B F L Z F F r T T 
-B c o W R U H K M B r B S W J N D t U W 
-H n a B Z Z J F Q X M o K J T J O s V E 
-s H Q n J A Y U D K K M l J A C J D Z G 
-V V V n n A M S S W R U l o I F W H I X 
-F L r S o i N r C A V D o C g E F U Y K 
-I V e B P i n Q o L F Z b A W T D Z Q L 
-K L b R S L s g I t G K o n V Y O S O X 
-Q H u G O L N s X R a A n o O O W O J T 
-p a s c a l N W e U G r s c J R K Y U S 
-Y A Z K R T U Z V r E R e i U X B P L S 
-J R D I R J K I R N p G P n F Q T Z Z S 
-O G T Z O D L K X E H x T T e B D N H N 
-V L D Q K U D S H Y N V e W M g I W J E 
-J U C A D D P Z F W L B Y o U X G E K X 
-T H E E J N W O F H Y F T R c K D G E V 
+V I T W H O I Y N L P M R V E B D Q D L 
+Z K K Y H U L M V P W E O K D W T J E Z 
+Y C R F U M Z Q S E A T O P X I J I N T 
+E S G B Y A R Z U A J D L O V Y C W Z N 
+R X N S e n o c o n s J W A T E J I Q L 
+s L K X r P V Z U E P K Z A Z R Y B W X 
+n G s c o Y C R V B M H p F n o c i C S 
+o Z c o t J X X F S T r S R P H O X X I 
+b X a e a W H O T Q o D B K R G S A H O 
+o Y n x r O S X H l a c s a p M M D E A 
+l K n p e P A O o M D M E C U G C B K Z 
+S T i r n E Z g K T I E g n i r t s J T 
+Z X n e e X D V E G Z T U S W R E X C F 
+E T g s g C Y r e b u s K F D K E U J Y 
+V A I s F Q E F C Q H E W R J T J T P T 
+Z Z W i W Q L M G R A S X S K O X Z Z S 
+U E B o K X N F E B V A Z Y L Y A J Z W 
+J M M n Y A G Q B L V N W B Y B K Z D E 
+P C P N K E P R U A V M Y B G D V V I O 
+N K Q V X H V O I Y U A N M I S V O U R 
 Now for the puzzle you've been waiting for! (PUZZLE)
 
-T B U H H L I M X F N G L C T I T Y A X 
-I T W B W U E H C O A L Z Y Q V E G D F 
-X L H D A N I V K I Q T B G P K J N D L 
-Q I T S O K F R U C Q C Q A S G Y I N B 
-S U C C H N J G M P I B F L Z F F R T T 
-B C O W R U H K M B R B S W J N D T U W 
-H N A B Z Z J F Q X M O K J T J O S V E 
-S H Q N J A Y U D K K M L J A C J D Z G 
-V V V N N A M S S W R U L O I F W H I X 
-F L R S O I N R C A V D O C G E F U Y K 
-I V E B P I N Q O L F Z B A W T D Z Q L 
-K L B R S L S G I T G K O N V Y O S O X 
-Q H U G O L N S X R A A N O O O W O J T 
-P A S C A L N W E U G R S C J R K Y U S 
-Y A Z K R T U Z V R E R E I U X B P L S 
-J R D I R J K I R N P G P N F Q T Z Z S 
-O G T Z O D L K X E H X T T E B D N H N 
-V L D Q K U D S H Y N V E W M G I W J E 
-J U C A D D P Z F W L B Y O U X G E K X 
-T H E E J N W O F H Y F T R C K D G E V 
+V I T W H O I Y N L P M R V E B D Q D L 
+Z K K Y H U L M V P W E O K D W T J E Z 
+Y C R F U M Z Q S E A T O P X I J I N T 
+E S G B Y A R Z U A J D L O V Y C W Z N 
+R X N S E N O C O N S J W A T E J I Q L 
+S L K X R P V Z U E P K Z A Z R Y B W X 
+N G S C O Y C R V B M H P F N O C I C S 
+O Z C O T J X X F S T R S R P H O X X I 
+B X A E A W H O T Q O D B K R G S A H O 
+O Y N X R O S X H L A C S A P M M D E A 
+L K N P E P A O O M D M E C U G C B K Z 
+S T I R N E Z G K T I E G N I R T S J T 
+Z X N E E X D V E G Z T U S W R E X C F 
+E T G S G C Y R E B U S K F D K E U J Y 
+V A I S F Q E F C Q H E W R J T J T P T 
+Z Z W I W Q L M G R A S X S K O X Z Z S 
+U E B O K X N F E B V A Z Y L Y A J Z W 
+J M M N Y A G Q B L V N W B Y B K Z D E 
+P C P N K E P R U A V M Y B G D V V I O 
+N K Q V X H V O I Y U A N M I S V O U R 
 #----------------------------------------------------------------- 504 progs/qei
 Icon Expression Evaluator, Version 1.2, type :? for help
 > > > 
 #------------------------------------------------------------------ 505 progs/qt
-It's just gone twenty-five past three.
+It's just after a quarter to nine.
 #-------------------------------------------------------------- 506 progs/queens
 6-Queens:
 solution: 1
@@ -18377,10 +18462,25 @@ one two three four five
 # 1. Remove everything above the #! /bin/sh line.
 # 2. Save the resulting text in a file.
 # 3. Execute the file with /bin/sh (not csh) to create:
-#	shar
 #	shar_note.txt
-# This archive created: Monday, November 9, 2026  3:26 am
+# This archive created: Saturday, September 8, 2001  8:46 pm
 export PATH; PATH=/bin:/usr/bin:$PATH
+if test -f 'shar_note.txt'
+then
+	echo shar: "will not over-write existing file 'shar_note.txt'"
+else
+cat << \SHAR_EOF > 'shar_note.txt'
+shar packs this file into a shell archive.
+It has three short lines.
+The last one has no trailing surprises.
+SHAR_EOF
+if test 109 -ne "`wc -c < 'shar_note.txt'`"
+then
+	echo shar: "error transmitting 'shar_note.txt'" '(should have been 109 characters)'
+fi
+fi
+exit 0
+#	End of shell archive
 #------------------------------------------------------------ 518 progs/shortest
 12 7 93 7 12
 #------------------------------------------------------------ 519 progs/shuffile
@@ -18394,26 +18494,26 @@ the quick brown fox
 alpha beta gamma
 jumps over the lazy dog
 #------------------------------------------------------------- 520 progs/shuffle
-line 03 of the shuffle input
-line 20 of the shuffle input
+line 18 of the shuffle input
 line 16 of the shuffle input
 line 05 of the shuffle input
-line 06 of the shuffle input
-line 19 of the shuffle input
-line 07 of the shuffle input
-line 15 of the shuffle input
-line 08 of the shuffle input
+line 04 of the shuffle input
+line 20 of the shuffle input
+line 03 of the shuffle input
 line 10 of the shuffle input
-line 17 of the shuffle input
-line 11 of the shuffle input
+line 06 of the shuffle input
+line 12 of the shuffle input
 line 01 of the shuffle input
 line 02 of the shuffle input
+line 07 of the shuffle input
+line 11 of the shuffle input
+line 15 of the shuffle input
+line 19 of the shuffle input
+line 17 of the shuffle input
 line 09 of the shuffle input
-line 04 of the shuffle input
 line 14 of the shuffle input
+line 08 of the shuffle input
 line 13 of the shuffle input
-line 18 of the shuffle input
-line 12 of the shuffle input
 #---------------------------------------------------------------- 521 progs/sing
 
 On the first day of Christmas,

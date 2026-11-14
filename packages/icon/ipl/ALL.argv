@@ -19,10 +19,10 @@ progs/ipsplit	ipsplit	-g	ips_globals.icn
 progs/iseq	iseq	-e	10
 progs/itags	itags	-x	itags.in
 progs/lcn	lcn	LCN_Mixed.TXT
-progs/loadmap	loadmap	-t	-d	-b	-u	-a	-c	prog.o
+progs/loadmap	-t	-d	-b	-u	-a	-c	prog.o
 progs/nocr	nocr	nocr_dos.txt
-progs/parens	parens	-v	-b	4	-l	begin 	-r	end 
-progs/shar	shar	shar_note.txt
+progs/parens	-v	-b	4	-l	begin 	-r	end 
+progs/shar	shar_note.txt
 progs/solit	solit	seed7
 progs/what	what	what_demo.txt
 progs/xtable	xtable	-a
