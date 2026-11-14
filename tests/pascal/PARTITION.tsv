@@ -362,7 +362,7 @@ planner_finish__pf_binop	chunk:04	feat:read	function mod nested_proc procedure r
 program_function_procedure_5	core	core	function goto label nested_proc procedure
 front_end__pf15_string_helpers	chunk:04	feat:in	const for in procedure write
 front_end__pf17_procvars	chunk:02	feat:nil	function nested_proc nil procedure type
-front_end__pf17_methodptr	chunk:02	feat:nil	function nested_proc nil procedure type
+front_end__pf17_methodptr	chunk:03	feat:nil	function nested_proc nil procedure type
 program_procedure_record_12	chunk:03	feat:new	new pointer pointer_with_new procedure record type
 program_procedure_record_5	chunk:03	feat:new	new pointer pointer_with_new procedure record type
 front_end__pf33_unit_qualified_const_bound	chunk:04	feat:div	array const div set_literal subrange type
