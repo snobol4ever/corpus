@@ -378,6 +378,7 @@ exceptions__ex10_pas_runtime_error_exit	chunk:04	feat:div	array div for for_with
 ladder__rung06_arrays_named_string_elem	chunk:02	feat:nested_proc	array nested_proc procedure set_literal subrange type
 ladder__rung24_static_array_with_an_all_negative_index_range	chunk:02	feat:const	array const for for_with_array set_literal write
 program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
+parseforms__parse_a_distinct_type_declaration	chunk:05	feat:dispose	dispose new pointer pointer_with_new record type
 program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_packed_replace_1	chunk:05	feat:readln	array packed readln set_literal subrange type
