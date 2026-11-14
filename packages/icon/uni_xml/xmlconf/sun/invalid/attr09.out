@@ -1,0 +1,5 @@
+validity error: default attribute value 42 must be a valid name
+validity error: name is not a defined attribute for element identifier
+validity error: attribute value 42 must be a valid name
+validity error: an IDREF(S) attribute 42 was used, which does not match any IDs
+<collection>&#10;    <identifier name="i-am-not-a-number" value="42"></identifier>&#10;    <identified id="i-am-not-a-number"></identified>&#10;</collection>

@@ -1,0 +1,9 @@
+validity error: Notation name fruit not declared
+validity error: Notation name vegetable not declared
+validity error: attribute value candy is not one of the declared notations
+<!DOCTYPE root [
+<!NOTATION candy PUBLIC '-//International Grocery Consortium//Edible//Yummy//EN'>
+<!NOTATION fruit PUBLIC '-//International Grocery Consortium//Edible//Healthy//EN'>
+<!NOTATION vegetable PUBLIC '-//International Grocery Consortium//Edible//Yucky//EN'>
+]>
+<root type="candy"></root>

@@ -1,0 +1,3 @@
+validity error: NDATA declaration gif not declared as a NOTATION
+validity error: attribute value ima ge must be a valid name
+<test>&#10;<landscape sun="ima ge"></landscape>&#10;In the attribute decl, values of type ENTITY do not match the Name production&#10;</test>

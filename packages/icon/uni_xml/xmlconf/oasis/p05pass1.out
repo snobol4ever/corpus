@@ -1,0 +1,8 @@
+validity error: A:._-0 is an undeclared element name
+validity error: ::._-0 is an undeclared element name
+validity error: _:._-0 is an undeclared element name
+validity error: A is an undeclared element name
+validity error: _ is an undeclared element name
+validity error: : is an undeclared element name
+validity error: doc is an undeclared element name
+<doc>&#10;<A:._-0></A:._-0>&#10;<::._-0></::._-0>&#10;<_:._-0></_:._-0>&#10;<A></A>&#10;<_></_>&#10;<:></:>&#10;</doc>

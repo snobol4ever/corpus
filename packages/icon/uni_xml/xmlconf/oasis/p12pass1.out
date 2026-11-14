@@ -1,0 +1,7 @@
+<!DOCTYPE doc [
+<!NOTATION not1 PUBLIC 'a b
+cdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'>
+<!NOTATION not2 PUBLIC '0123456789-()+,./:=?;!*#@$_%'>
+<!NOTATION not3 PUBLIC '0123456789-()+,.'/:=?;!*#@$_%'>
+]>
+<doc></doc>

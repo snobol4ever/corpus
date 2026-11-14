@@ -1,0 +1,2 @@
+validity error: An attribute with type ID must have a default declaration of #IMPLIED or #REQUIRED
+<root id2="x23"></root>

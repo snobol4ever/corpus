@@ -1,0 +1,3 @@
+validity error: An attribute with type ID must have a default declaration of #IMPLIED or #REQUIRED
+validity error: root is an undeclared element name
+<root id2="x23"></root>

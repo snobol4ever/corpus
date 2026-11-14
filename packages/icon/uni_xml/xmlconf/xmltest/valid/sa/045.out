@@ -1,0 +1,3 @@
+warning: multiple ATTLIST definitions for element doc
+warning: Multiple attribute defs for attribute a1 in element doc
+<doc a1="v1"></doc>

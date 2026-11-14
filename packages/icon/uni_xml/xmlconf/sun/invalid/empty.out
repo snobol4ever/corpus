@@ -1,0 +1,2 @@
+validity error: foo does not match the declared pattern : a+
+<foo>&#10;&#10;<a></a>&#10; &#10;<a></a>&#10;&#10;<a></a>&#10; &#10;<a></a>&#10;</foo>

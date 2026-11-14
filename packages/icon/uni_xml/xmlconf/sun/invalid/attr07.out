@@ -1,0 +1,2 @@
+validity error: attribute value money is not one of the declared enumerations
+<arbor type="money"></arbor>

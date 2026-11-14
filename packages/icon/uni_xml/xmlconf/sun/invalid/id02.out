@@ -1,0 +1,7 @@
+validity error: duplicated ID attribute value: a42
+<!DOCTYPE root [
+<!NOTATION bar SYSTEM 'file:/dev/tty'>
+<!NOTATION foo PUBLIC '-//public id//foo' 'file:/dev/null'>
+<!NOTATION nonce SYSTEM 'file:/dev/null'>
+]>
+<root>&#10;    <attributes id="a42" token="a"></attributes>&#10;    <attributes id="a42" token="a"></attributes>&#10;</root>

@@ -1,0 +1,2 @@
+validity error: root does not match the declared pattern : (#PCDATA|root)*
+<root>this is ok <exception>this isn't</exception> </root>

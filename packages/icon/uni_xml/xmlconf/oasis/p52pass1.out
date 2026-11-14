@@ -1,0 +1,5 @@
+warning: multiple ATTLIST definitions for element c
+warning: Multiple attribute defs for attribute att in element c
+warning: Multiple attribute defs for attribute att2 in element c
+warning: multiple ATTLIST definitions for element d
+<doc><c att2="second declaration is OK"></c><c att2="test"></c></doc>

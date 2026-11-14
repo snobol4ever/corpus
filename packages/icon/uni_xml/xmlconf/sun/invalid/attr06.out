@@ -1,0 +1,2 @@
+validity error: attribute value now is the time!? must be a valid nmtoken
+<root token="now is the time!?"></root>

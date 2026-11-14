@@ -1,0 +1,2 @@
+validity error: attribute value dev@null must be a valid nmtoken
+<root token="dev@null"></root>

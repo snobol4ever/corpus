@@ -1,0 +1,6 @@
+validity error: Notation name b not declared
+<!DOCTYPE doc [
+<!NOTATION a SYSTEM 'a'>
+<!NOTATION b SYSTEM 'b'>
+]>
+<doc></doc>

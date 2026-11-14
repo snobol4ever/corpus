@@ -1,0 +1,7 @@
+validity error: The document name in the DOCTYPE declaration must match the name of the root element
+<!DOCTYPE attributes [
+<!NOTATION bar SYSTEM 'file:/dev/tty'>
+<!NOTATION foo PUBLIC '-//public id//foo' 'file:/dev/null'>
+<!NOTATION nonce SYSTEM 'file:/dev/null'>
+]>
+<root></root>

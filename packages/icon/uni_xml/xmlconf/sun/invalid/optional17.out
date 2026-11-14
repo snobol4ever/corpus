@@ -1,0 +1,2 @@
+validity error: once-or-more-1c does not match the declared pattern : ((e,e?),e*)
+<root>&#10;    <once-or-more-1c></once-or-more-1c>&#10;</root>

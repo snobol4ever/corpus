@@ -1,0 +1,4 @@
+validity error: default attribute value i-am-not-a-number 42 must be comprised of valid names
+validity error: name is not a defined attribute for element identifier
+validity error: attribute value i-am-not-a-number 42 must be comprised of valid names
+<collection>&#10;    <identifier name="i-am-not-a-number" value="i-am-not-a-number 42"></identifier>&#10;    <identified id="i-am-not-a-number"></identified>&#10;</collection>

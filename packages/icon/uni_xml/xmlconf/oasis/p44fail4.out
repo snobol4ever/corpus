@@ -1,0 +1,3 @@
+validity error: doc has attributes but none were declared
+fatal error: '>' or '/>' expected
+not parsed

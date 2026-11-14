@@ -1,0 +1,2 @@
+validity error: once does not match the declared pattern : e
+<root>&#10;    <once></once>&#10;</root>

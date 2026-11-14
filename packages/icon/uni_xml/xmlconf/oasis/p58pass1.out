@@ -1,0 +1,5 @@
+<!DOCTYPE doc [
+<!NOTATION a SYSTEM 'a'>
+<!NOTATION b SYSTEM 'b'>
+]>
+<doc></doc>

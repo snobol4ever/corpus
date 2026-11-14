@@ -1,0 +1,2 @@
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+<animal color="yellow"></animal>

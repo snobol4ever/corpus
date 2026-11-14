@@ -1,0 +1,2 @@
+validity error: attribute value ONE is not one of the declared enumerations
+<test>&#10;<num value="ONE"></num>&#10;This is a Negative test&#10;The attribute values of type Enumeration does not match any of the Nmtoken tokens in the declaration.&#10;</test>

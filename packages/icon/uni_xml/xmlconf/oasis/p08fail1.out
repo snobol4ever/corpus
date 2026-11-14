@@ -1,0 +1,2 @@
+validity error: attribute value  must be comprised of valid nmtokens
+<doc>&#10;<A att=""></A>&#10;</doc>

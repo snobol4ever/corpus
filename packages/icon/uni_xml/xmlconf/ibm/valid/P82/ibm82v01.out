@@ -1,0 +1,5 @@
+warning: multiple ATTLIST definitions for element root
+<!DOCTYPE root [
+<!NOTATION JPGformat PUBLIC '-//image//notreal'>
+]>
+<root entatt1="unparsed1">test PublicID in P82</root>

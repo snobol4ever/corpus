@@ -1,0 +1,3 @@
+validity error: animal is an undeclared element name
+validity error: The document name in the DOCTYPE declaration must match the name of the root element
+<animal></animal>

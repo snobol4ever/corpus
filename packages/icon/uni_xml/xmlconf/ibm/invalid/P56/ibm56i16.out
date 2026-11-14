@@ -1,0 +1,3 @@
+validity error: attribute val parsedentity1 does not match an external entity
+validity error: attribute val parsedentity2 does not match an external entity
+<test>&#10;<landscape sun="parsedentity1 parsedentity2"></landscape>&#10;In an attribute declaration, values of type ENTITIES match the Name production and the ENTITIES value&#10;matches one or more names of parsed entities declared in the DTD. .&#10;</test>

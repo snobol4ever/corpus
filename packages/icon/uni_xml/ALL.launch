@@ -1,0 +1,4 @@
+# the launch of the package (CIO-83): each row is one document of the W3C XML conformance suite (xmlconf/), handed as the argument to
+# canon.icn, the grader's driver that parses it with the xml package in lib/ and writes its canonical form or the errors the parser reports
+scrip	driver	canon.icn
+oracle	driver	canon.icn

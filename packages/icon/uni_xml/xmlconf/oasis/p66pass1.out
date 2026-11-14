@@ -1,0 +1,2 @@
+validity error: doc is an undeclared element name
+<doc>&#10;A&#9;AOO&#9;&#10;?&#10;&#10;</doc>
