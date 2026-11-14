@@ -117,7 +117,7 @@ program_procedure_writeln_2	chunk:03	feat:procedure	procedure
 program_procedure_writeln_3	chunk:03	feat:procedure	procedure
 program_procedure_writeln_7	chunk:03	feat:procedure	procedure
 program_procedure_writeln_8	chunk:03	feat:procedure	procedure
-program_procedure_writeln_9	chunk:03	feat:procedure	procedure
+program_procedure_writeln_9	chunk:04	feat:procedure	procedure
 program_writeln_6	chunk:03	feat:ord	ord
 program_writeln_sqrt_1	chunk:05	feat:sqrt	sqrt
 front_end__pf21_sstr_high_low	chunk:01	feat:function	function type
@@ -361,7 +361,7 @@ ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:04	feat:pointer	array 
 program_array_packed_5	chunk:03	feat:packed	array packed set_literal subrange type
 ladder__rung25_interface_type_parses	chunk:04	feat:read	function nested_proc procedure read type
 ladder__rung20_generic_class_two_instances	chunk:02	feat:const	array const function nested_proc procedure type
-planner_finish__pf_binop	chunk:04	feat:read	function mod nested_proc procedure read
+planner_finish__pf_binop	chunk:05	feat:read	function mod nested_proc procedure read
 program_function_procedure_5	core	core	function goto label nested_proc procedure
 front_end__pf15_string_helpers	chunk:04	feat:in	const for in procedure write
 front_end__pf17_procvars	chunk:03	feat:nil	function nested_proc nil procedure type
