@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=518 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=46 chunks=5 sizes=100,100,100,100,72
+# shape: entries=524 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=49 chunks=5 sizes=100,100,100,100,78
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -18,6 +18,7 @@ ladder__rung00_hello_width	chunk:01	family:ladder
 ladder__rung09_strings_get_on_the_standard_input	chunk:01	family:ladder	
 fpc_units__in01_initc	chunk:04	family:fpc_units	
 ladder__rung00_hello_blank	chunk:01	family:ladder	
+rtlnames__rest_runerror_halts_with_its_code	chunk:05	family:rtlnames	
 ladder__rung00_crt_tab_and_escape	chunk:01	family:ladder	
 front_end__pf13_modeblank	chunk:05	family:front_end	
 fpc_units__vo01_ifopt	chunk:04	family:fpc_units	
@@ -45,6 +46,7 @@ ladder__rung29_sizeof_of_a_dereference	chunk:04	feat:pointer	pointer
 program_writeln_11	chunk:05	family:crosscheck_misc	
 ladder__rung01_var_assign	chunk:01	family:ladder	
 ladder__rung01_var_assign_widen	chunk:01	family:ladder	
+parseforms__parse_the_c_style_shift_operators	chunk:05	family:parseforms	
 stdin__read1	chunk:04	feat:read	read
 ladder__rung02_arithmetic_unary	chunk:01	family:ladder	
 ladder__rung05_func_named_main_recursive	chunk:01	feat:function	function
@@ -53,12 +55,14 @@ ladder__rung23_extended_field_width_limits_the_digits	chunk:04	feat:for	for
 program_writeln_15	chunk:05	family:boolmix	
 program_writeln_3	chunk:05	family:boolmix	
 ladder__rung16_q_str	chunk:01	family:ladder	
+shifts__shr_of_a_negative_int64_is_logical	chunk:05	family:shifts	
 ladder__rung00_crt_cr_is_column_one	chunk:02	feat:const	const write
 ladder__rung01_var_assign_multi_group	chunk:01	family:ladder	
 ladder__rung16_q_relops	chunk:01	family:ladder	
 program_writeln_10	chunk:05	family:crosscheck_misc	
 ladder__rung01_var_assign_multi_ident	chunk:01	family:ladder	
 ladder__rung03_if_while_if_no_else	chunk:01	family:ladder	
+rtlnames__rest_strutils_and_sysutils_text_routines	chunk:05	family:rtlnames	
 fpc_units__du02_between	chunk:04	family:fpc_units	
 fpc_units__md01_md5	chunk:02	feat:write	write
 fpc_units__va02_variants_routines	chunk:04	family:fpc_units	
@@ -114,12 +118,13 @@ program_for_writeln_1	chunk:04	feat:for	for
 program_function_writeln_2	chunk:01	feat:function	function
 program_procedure_writeln_1	chunk:03	feat:procedure	procedure
 program_procedure_writeln_2	chunk:03	feat:procedure	procedure
-program_procedure_writeln_3	chunk:03	feat:procedure	procedure
-program_procedure_writeln_7	chunk:03	feat:procedure	procedure
+program_procedure_writeln_3	chunk:04	feat:procedure	procedure
+program_procedure_writeln_7	chunk:04	feat:procedure	procedure
 program_procedure_writeln_8	chunk:04	feat:procedure	procedure
 program_procedure_writeln_9	chunk:04	feat:procedure	procedure
 program_writeln_6	chunk:03	feat:ord	ord
 program_writeln_sqrt_1	chunk:05	feat:sqrt	sqrt
+rtlnames__sysvars_math_nan_infinity_roundmode_exceptionmask	chunk:04	feat:in	in
 front_end__pf21_sstr_high_low	chunk:01	feat:function	function type
 helpers__hp01	chunk:02	feat:record	for record type
 ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round	core	core	round trunc
@@ -223,6 +228,7 @@ program_procedure_record_11	chunk:02	feat:record	procedure record type
 program_procedure_record_4	chunk:02	feat:record	procedure record type
 program_array_setlit_2	chunk:05	feat:set_literal	array set_literal subrange
 front_end__pf10_callindex	chunk:03	feat:ord	const function nested_proc ord
+parseforms__parse_a_for_loop_over_a_record_field	chunk:02	feat:record	for record type
 ladder__rung13_ptr_record_field	chunk:04	feat:pointer	pointer record type
 program_record_case_replace_2	chunk:03	feat:case	case record type
 ladder__rung00_crt_wrap_at_column_80	chunk:04	feat:mod	for mod write
@@ -288,7 +294,7 @@ program_pointer_writeln_1	chunk:03	feat:new	new pointer pointer_with_new type
 program_pointer_writeln_2	chunk:03	feat:new	new pointer pointer_with_new type
 program_pointer_writeln_5	chunk:03	feat:new	new pointer pointer_with_new type
 program_pointer_writeln_4	chunk:03	feat:new	new pointer pointer_with_new type
-ladder__rung13_ptr_compare	chunk:02	feat:nil	array nil set_literal subrange
+ladder__rung13_ptr_compare	chunk:03	feat:nil	array nil set_literal subrange
 ladder__rung24_static_array_of_dynamic_arrays_assignment_shares_the_array_and_nil_empties_it	chunk:03	feat:nil	array nil set_literal subrange type
 parseforms__parse_a_default_parameter_value_in_a_procedural_type	chunk:01	feat:function	function nested_proc procedure type
 program_set_for_1	chunk:03	feat:set	for in set subrange
@@ -351,12 +357,12 @@ stdin__read3	core	core	eof eoln read readln while
 program_array_for_5	chunk:04	feat:for_with_array	array for for_with_array subrange type
 program_record_pointer_3	chunk:03	feat:new	new pointer pointer_with_new record type
 stdin__read4	core	core	eof eoln read readln while
-fpc_units__fs01_filestream	chunk:04	feat:read	chr for read while write
+fpc_units__fs01_filestream	chunk:05	feat:read	chr for read while write
 front_end__pf35_local_shadows_function	chunk:03	feat:ord	for function nested_proc ord procedure
 ladder__rung15_layout_ptr_to_nested_row_copy	chunk:04	feat:pointer	array pointer set_literal subrange type
-ladder__rung21_class_indexed_property_chain	chunk:04	feat:read	const function nested_proc procedure read type
+ladder__rung21_class_indexed_property_chain	chunk:05	feat:read	const function nested_proc procedure read type
 program_record_pointer_7	chunk:03	feat:new	new pointer pointer_with_new record type
-fpc_units__in02_exception_mask	chunk:04	feat:in	for in ord procedure write
+fpc_units__in02_exception_mask	chunk:03	feat:ord	for in ord procedure write
 ladder__rung14_row_string_elem_char	chunk:04	feat:chr	array chr set_literal subrange type
 ladder__rung15_layout_ptr_to_nested_element_pointer	chunk:04	feat:pointer	array pointer set_literal subrange type
 program_array_packed_5	chunk:03	feat:packed	array packed set_literal subrange type
