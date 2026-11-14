@@ -322,6 +322,26 @@ end.
 2
 ```
 
+## rtlnames__sysvars_exceptobject_in_an_except_block
+
+```Pascal
+{$mode objfpc}
+program v4;
+uses sysutils;
+begin
+  writeln(ExceptObject = nil);
+  try raise Exception.Create('boom') except writeln(Exception(ExceptObject).Message); writeln(ExceptObject is Exception) end;
+  writeln(ExceptObject = nil);
+end.
+```
+
+```stdout
+TRUE
+boom
+TRUE
+TRUE
+```
+
 ## front_end__pf24_integer16
 
 ```Pascal
