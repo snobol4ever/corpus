@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=507 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,61
+# shape: entries=508 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,62
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -92,7 +92,7 @@ stdin__read2	chunk:04	feat:readln	read readln
 ladder__rung04_for_repeat_repeat_once	chunk:05	feat:repeat	repeat
 ladder__rung16_q_shr	chunk:04	feat:for	for
 ladder__rung17_div_zero_without_sysutils_stays_200	chunk:03	feat:div	div
-ladder__rung16_q_write_expr	chunk:03	feat:div	div
+ladder__rung16_q_write_expr	chunk:04	feat:div	div
 ladder__rung16_real_trunc_out_of_int64	chunk:05	feat:trunc	trunc
 ladder__rung17_div_zero_math_closure	chunk:04	feat:div	div
 ladder__rung17_div_zero_sysutils_no_try	chunk:04	feat:div	div
@@ -387,7 +387,7 @@ program_record_pointer_8	chunk:03	feat:nil	new nil pointer pointer_with_new reco
 program_function_procedure_3	chunk:03	feat:case	case chr function nested_proc ord procedure
 program_function_procedure_8	chunk:03	feat:case	case chr function nested_proc ord procedure
 front_end__pf22_sstr_store	chunk:04	feat:div	chr div function mod ord repeat type
-benchmark_towers	chunk:04	feat:readln	const for pointer procedure readln repeat
+benchmark_towers	chunk:05	feat:readln	const for pointer procedure readln repeat
 program_array_for_replace_1	chunk:04	feat:chr	array chr const for for_with_array type
 program_array_for_replace_2	chunk:04	feat:chr	array chr const for for_with_array type
 program_function_procedure_4	chunk:03	feat:ord	for function nested_proc ord procedure type
