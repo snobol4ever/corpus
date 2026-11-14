@@ -204,6 +204,7 @@ ladder__rung025_kw_nan_nan_comparison	chunk:02	family:ladder
 ladder__rung024_kw_inf_inf_arithmetic	chunk:02	family:ladder	
 ladder__rung02_arithmetic_a_rational_compares_and_calculates_with_a_numeric_string	chunk:02	family:ladder	
 setting__test_module	chunk:16	family:setting	
+exceptions__k4	chunk:12	feat:try	try
 hash_14	chunk:08	feat:sigil_hash	sigil_hash
 hash_3	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung028_quote_qq_guard_literal_sigils	chunk:05	feat:sigil_array	sigil_array
@@ -1477,7 +1478,7 @@ core__rc08_named_flatten	chunk:13	feat:map	map range_op say sigil_hash sub
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:12	feat:multi	method multi return say
 compiler_object__rc2-use-nqp-gives-can	chunk:10	feat:smartmatch	method regex smartmatch string_concat
-core__rc12_sort_reduce_forms	chunk:14	feat:sort	map range_op say sigil_array sort
+core__rc12_sort_reduce_forms	chunk:15	feat:sort	map range_op say sigil_array sort
 ladder__rung04_arrays_cross_zip_flat_and_unpacking	chunk:09	feat:join	for for_with_say join range_op sigil_array
 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	chunk:14	feat:grep	grep join map sigil_array sub
 ladder__rung13_classes_inheritance	chunk:13	feat:return	method range_op return string_concat
