@@ -18,6 +18,7 @@ ladder__rung00_hello_width	chunk:01	family:ladder
 ladder__rung09_strings_get_on_the_standard_input	chunk:01	family:ladder	
 fpc_units__in01_initc	chunk:04	family:fpc_units	
 ladder__rung00_hello_blank	chunk:01	family:ladder	
+rtlnames__rest_runerror_halts_with_its_code	chunk:05	family:rtlnames	
 ladder__rung00_crt_tab_and_escape	chunk:01	family:ladder	
 front_end__pf13_modeblank	chunk:05	family:front_end	
 fpc_units__vo01_ifopt	chunk:04	family:fpc_units	

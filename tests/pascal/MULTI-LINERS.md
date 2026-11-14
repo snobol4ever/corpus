@@ -229,6 +229,21 @@ before
 after
 ```
 
+## rtlnames__rest_runerror_halts_with_its_code
+
+```Pascal
+program r5;
+begin
+  writeln('before');
+  RunError(201);
+  writeln('never');
+end.
+```
+
+```stdout
+before
+```
+
 ## ladder__rung00_crt_tab_and_escape
 
 ```Pascal
