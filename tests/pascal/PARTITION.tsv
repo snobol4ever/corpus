@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=480 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,35
+# shape: entries=481 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=45 chunks=5 sizes=100,100,100,100,36
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -48,6 +48,7 @@ ladder__rung23_extended_field_width_limits_the_digits	chunk:04	feat:for	for
 program_writeln_15	chunk:05	family:boolmix	
 program_writeln_3	chunk:05	family:boolmix	
 ladder__rung16_q_str	chunk:01	family:ladder	
+shifts__shr_of_a_negative_int64_is_logical	chunk:05	family:shifts	
 ladder__rung00_crt_cr_is_column_one	chunk:02	feat:const	const write
 ladder__rung01_var_assign_multi_group	chunk:01	family:ladder	
 ladder__rung16_q_relops	chunk:01	family:ladder	

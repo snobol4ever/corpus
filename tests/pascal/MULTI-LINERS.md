@@ -865,6 +865,27 @@ end.
 10000000000000000000 20
 ```
 
+## shifts__shr_of_a_negative_int64_is_logical
+
+```Pascal
+{$mode objfpc}
+program sh;
+var i: Int64; l: LongInt; s: ShortInt;
+begin
+  i := -8; writeln(i shr 1);
+  l := -8; writeln(l shr 1);
+  s := -8; writeln(s shr 1);
+  i := -1; writeln(i shr 63);
+end.
+```
+
+```stdout
+9223372036854775804
+2147483644
+2147483644
+1
+```
+
 ## ladder__rung00_crt_cr_is_column_one
 
 ```Pascal
