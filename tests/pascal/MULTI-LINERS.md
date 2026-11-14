@@ -7097,6 +7097,20 @@ pq 2
 3 0 q
 ```
 
+## fpc_features__an-enumeration-with-assigned-values
+
+```Pascal
+{$mode objfpc}
+program en; type te = (ea, eb, ec := 10, ed); tf = (fa = 1, fb = 5, fc); ts = set of (z0 := 0, z10 := 10, z20 := 20);
+var s: ts; e: te; begin writeln(ord(ed), ' ', ord(eb), ' ', ord(fb), ' ', ord(fc)); e := ed; writeln(e > ec, ' ', ord(high(te))); s := [z10]; writeln(z10 in s, ' ', z20 in s) end.
+```
+
+```stdout
+11 1 5 6
+TRUE 11
+TRUE FALSE
+```
+
 ## program_array_for_4
 
 ```Pascal
