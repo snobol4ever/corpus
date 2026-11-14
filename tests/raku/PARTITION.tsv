@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1607 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,63
+# shape: entries=1612 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,68
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -269,7 +269,7 @@ say_replace_22	chunk:04	feat:say	say
 simple_program_14	chunk:09	feat:if	if
 simple_program_15	chunk:09	feat:if	if
 simple_program_16	chunk:09	feat:if	if
-simple_program_17	chunk:14	feat:unless	unless
+simple_program_17	chunk:15	feat:unless	unless
 simple_program_2	chunk:09	feat:if	if
 simple_program_21	chunk:09	feat:if	if
 simple_program_3	chunk:10	feat:if	if
@@ -944,7 +944,7 @@ listop__map_and_grep_keep_a_pointy_blocks_signature	chunk:06	feat:sigil_array	si
 proto__a_named_argument_reaches_the_candidates	chunk:11	feat:multi	multi string_concat
 rewrite__rr11_eval	chunk:08	feat:sub	sub
 roast_causes__rc08_a_keyword_followed_by_a_paren_is_a_call	chunk:08	feat:sub	sub
-while_9	chunk:13	feat:while	while
+while_9	chunk:14	feat:while	while
 array_say_5	chunk:06	feat:sigil_array	say sigil_array
 ladder__rung04_arrays_a_method_call_after_whitespace_or_a_newline_applies_to_the_whole_term	chunk:13	feat:map	map sigil_array
 ladder__rung07_proto_wraps_candidates	chunk:11	feat:multi	multi string_concat
@@ -1018,11 +1018,11 @@ loop_replace_3	chunk:14	feat:loop	if loop
 loop_replace_4	chunk:14	feat:loop	if loop
 split_array_say_1	chunk:16	feat:split	say sigil_array split
 class_method_3	chunk:15	feat:unless	method unless
-class_method_say_5	chunk:12	feat:return	method return say
+class_method_say_5	chunk:13	feat:return	method return say
 class_method_say_6	chunk:13	feat:return	method return say
 for_range_6	chunk:07	feat:for_with_say	for for_with_say range_op
 for_say_4	chunk:07	feat:for_with_say	for for_with_say say
-given_replace_1	chunk:15	feat:given	given string_concat
+given_replace_1	chunk:16	feat:given	given string_concat
 join_range_array_2	chunk:09	feat:join	join range_op sigil_array
 join_range_array_3	chunk:09	feat:join	join range_op sigil_array
 join_range_array_4	chunk:09	feat:join	join range_op sigil_array
