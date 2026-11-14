@@ -17841,6 +17841,25 @@ class Handler {
 a dog
 ```
 
+## compiler_object__rc2-use-nqp-gives-can
+
+```Raku
+use nqp;
+class M { method from { 3 } }
+say nqp::can(M.new, 'from');
+say nqp::can(M.new, 'nope');
+say nqp::can(5, 'Str');
+my $m = "abc" ~~ /b/;
+say nqp::can($m, 'from'), ' ', $m.from;
+```
+
+```stdout
+1
+0
+1
+1 1
+```
+
 ## core__rc12_sort_reduce_forms
 
 ```Raku

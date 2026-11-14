@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1597 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,53
+# shape: entries=1598 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,54
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -278,7 +278,7 @@ simple_program_42	chunk:12	feat:string_concat	string_concat
 simple_program_51	chunk:15	feat:sprintf	sprintf
 simple_program_52	chunk:15	feat:sprintf	sprintf
 simple_program_53	chunk:15	feat:sprintf	sprintf
-simple_program_54	chunk:15	feat:sprintf	sprintf
+simple_program_54	chunk:16	feat:sprintf	sprintf
 simple_program_55	chunk:16	feat:sprintf	sprintf
 simple_program_63	chunk:10	feat:regex	regex
 simple_program_64	chunk:10	feat:regex	regex
@@ -548,7 +548,7 @@ say_35	chunk:10	feat:regex	regex say
 say_36	chunk:10	feat:regex	regex say
 say_37	chunk:10	feat:regex	regex say
 say_38	chunk:10	feat:regex	regex say
-say_39	chunk:10	feat:regex	regex say
+say_39	chunk:11	feat:regex	regex say
 say_40	chunk:11	feat:regex	regex say
 say_41	chunk:11	feat:regex	regex say
 say_42	chunk:11	feat:regex	regex say
@@ -1136,7 +1136,7 @@ ladder__rung024_kw_inf_inf_to_int_failure	chunk:12	feat:try	say try
 ladder__rung13_classes_public_attribute	chunk:06	feat:has	has
 promise__then_allof_anyof	chunk:13	feat:map	map sigil_array
 ladder__rung13_classes_a_class_own_bool_and_defined_answer_every_truth_and_definedness_context	chunk:13	feat:method	if method say
-stub__a_stub_term_with_a_message_dies_with_it	chunk:11	feat:multi	multi range_op try
+stub__a_stub_term_with_a_message_dies_with_it	chunk:12	feat:multi	multi range_op try
 ladder__rung04_arrays_an_empty_array_is_an_array_a_sub_can_push_onto_and_its_max_is_minus_inf	chunk:08	feat:sub	sigil_array sub
 ladder__rung07_subs_a_sigilless_parameter_is_assignable_and_writes_back_to_its_argument	chunk:08	feat:sub	sigil_array sub
 ladder__rung16_bool_relops_logical_or_and_answer_an_operand	chunk:14	feat:grep	grep say
@@ -1248,7 +1248,7 @@ class_method_replace_13	chunk:12	feat:return	method return
 class_method_replace_15	chunk:06	feat:has	has method
 class_method_replace_17	chunk:12	feat:return	method return
 class_method_replace_2	chunk:12	feat:return	method return
-class_method_replace_20	chunk:12	feat:return	method return
+class_method_replace_20	chunk:13	feat:return	method return
 class_method_replace_3	chunk:13	feat:method	if method
 class_method_replace_4	chunk:13	feat:method	if method
 class_method_replace_5	chunk:13	feat:return	method return
@@ -1345,7 +1345,7 @@ ladder__rung08_for_redo_with_a_label_restarts_the_labelled_for_body	chunk:07	fea
 class_array_say_replace_2	chunk:06	feat:has	has say sigil_array
 class_method_grep_replace_1	chunk:14	feat:grep	grep method return
 class_method_map_replace_1	chunk:13	feat:map	map method return
-class_method_range_replace_6	chunk:13	feat:method	method range_op say
+class_method_range_replace_6	chunk:14	feat:range_op	method range_op say
 class_method_replace_18	chunk:06	feat:has	has if method
 class_method_replace_19	chunk:06	feat:has	has method return
 class_method_say_replace_20	chunk:06	feat:has	has method say
@@ -1468,7 +1468,8 @@ while_say_try_1	core	core	die if say try while
 core__rc08_named_flatten	chunk:13	feat:map	map range_op say sigil_hash sub
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:12	feat:multi	method multi return say
-core__rc12_sort_reduce_forms	chunk:14	feat:sort	map range_op say sigil_array sort
+compiler_object__rc2-use-nqp-gives-can	chunk:10	feat:smartmatch	method regex smartmatch string_concat
+core__rc12_sort_reduce_forms	chunk:15	feat:sort	map range_op say sigil_array sort
 ladder__rung04_arrays_cross_zip_flat_and_unpacking	chunk:09	feat:join	for for_with_say join range_op sigil_array
 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	chunk:14	feat:grep	grep join map sigil_array sub
 ladder__rung13_classes_inheritance	chunk:13	feat:return	method range_op return string_concat
