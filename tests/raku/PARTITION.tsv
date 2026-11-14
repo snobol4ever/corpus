@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1589 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,45
+# shape: entries=1590 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,46
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -214,7 +214,7 @@ ladder__rung13_classes_the_compile_time_variable_module_names_the_enclosing_modu
 parser__assign_bare	chunk:14	family:parser	
 parser__atom_array	chunk:05	feat:sigil_array	sigil_array
 parser__atom_hash	chunk:08	feat:sigil_hash	sigil_hash
-parser__atom_scalar	chunk:14	family:parser	
+parser__atom_scalar	chunk:15	family:parser	
 parser__bare_ident_arg	chunk:03	feat:say	say
 parser__call_expr	chunk:03	feat:say	say
 parser__print_stderr	chunk:16	feat:print	print
@@ -426,7 +426,7 @@ simple_assign_69	chunk:03	family:smoke
 simple_assign_89	chunk:03	family:smoke	
 simple_assign_98	chunk:03	family:smoke	
 simple_assign_99	chunk:03	family:smoke	
-split_say_1	chunk:15	feat:split	say split
+split_say_1	chunk:16	feat:split	say split
 test_colon_call	chunk:16	family:test_raku_colon_call	
 test_kebab_ident	chunk:16	family:test_raku_kebab_ident	
 test_our_decl	chunk:15	feat:our	our
@@ -1457,6 +1457,7 @@ ladder__rung08_for_next_in_a_for_over_a_range_continues_with_the_next_element	ch
 class_method_multi_replace_2	chunk:11	feat:multi	method multi return say
 class_method_say_replace_16	chunk:12	feat:return	method return say string_concat
 while_say_try_1	core	core	die if say try while
+compiler_object__rc1-cmp-of-two-lists-is-element-by-element	chunk:14	feat:sort	join map say sigil_array sort string_concat
 core__rc08_named_flatten	chunk:13	feat:map	map range_op say sigil_hash sub
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:11	feat:multi	method multi return say
