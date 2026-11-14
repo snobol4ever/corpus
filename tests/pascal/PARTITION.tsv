@@ -39,6 +39,7 @@ ladder__rung23_extended_format_str_and_field_widths	chunk:01	family:ladder
 front_end__pf25_stringbuilder	chunk:05	family:front_end	
 ladder__rung17_ioresult_off	chunk:01	family:ladder	
 ladder__rung17_error_code	chunk:01	family:ladder	
+fpc_features__absolute-over-a-component-of-a-variable	chunk:05	family:fpc_features	
 ladder__rung31_classes_tmemorystream_and_tbits	chunk:01	family:ladder	
 ladder__rung29_sizeof_of_a_dereference	chunk:04	feat:pointer	pointer
 program_writeln_11	chunk:05	family:crosscheck_misc	
