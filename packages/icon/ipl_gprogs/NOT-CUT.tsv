@@ -1,0 +1,3 @@
+# NOT-CUT.tsv -- ipl_gprogs: the census's candidates (a window drawn, the program waiting, the screen the same twice) that did not become a row, and why
+program	why
+vqueens	no still screen: screen unstable
