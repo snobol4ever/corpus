@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=507 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,61
+# shape: entries=508 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,62
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -92,7 +92,7 @@ stdin__read2	chunk:04	feat:readln	read readln
 ladder__rung04_for_repeat_repeat_once	chunk:05	feat:repeat	repeat
 ladder__rung16_q_shr	chunk:04	feat:for	for
 ladder__rung17_div_zero_without_sysutils_stays_200	chunk:03	feat:div	div
-ladder__rung16_q_write_expr	chunk:03	feat:div	div
+ladder__rung16_q_write_expr	chunk:04	feat:div	div
 ladder__rung16_real_trunc_out_of_int64	chunk:05	feat:trunc	trunc
 ladder__rung17_div_zero_math_closure	chunk:04	feat:div	div
 ladder__rung17_div_zero_sysutils_no_try	chunk:04	feat:div	div
@@ -208,10 +208,11 @@ program_procedure_nested_21	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_7	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_16	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_2	chunk:01	feat:nested_proc	nested_proc procedure
-front_end__pf20d_object_parent	chunk:01	feat:nested_proc	nested_proc procedure type
+front_end__pf20d_object_parent	chunk:02	feat:nested_proc	nested_proc procedure type
 program_procedure_nested_1	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_nested_15	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_nested_14	chunk:02	feat:nested_proc	nested_proc procedure
+fpc_features__a-method-is-called-through-an-interface-variable	chunk:01	feat:function	function nested_proc type
 program_procedure_record_11	chunk:02	feat:record	procedure record type
 program_procedure_record_4	chunk:02	feat:record	procedure record type
 program_array_setlit_2	chunk:05	feat:set_literal	array set_literal subrange
@@ -386,7 +387,7 @@ program_record_pointer_8	chunk:03	feat:nil	new nil pointer pointer_with_new reco
 program_function_procedure_3	chunk:03	feat:case	case chr function nested_proc ord procedure
 program_function_procedure_8	chunk:03	feat:case	case chr function nested_proc ord procedure
 front_end__pf22_sstr_store	chunk:04	feat:div	chr div function mod ord repeat type
-benchmark_towers	chunk:04	feat:readln	const for pointer procedure readln repeat
+benchmark_towers	chunk:05	feat:readln	const for pointer procedure readln repeat
 program_array_for_replace_1	chunk:04	feat:chr	array chr const for for_with_array type
 program_array_for_replace_2	chunk:04	feat:chr	array chr const for for_with_array type
 program_function_procedure_4	chunk:03	feat:ord	for function nested_proc ord procedure type
@@ -422,7 +423,7 @@ ladder__rung06_arrays_bool_index_2d	chunk:04	feat:chr	array chr for for_with_arr
 array_of_const__array_of_const_varrec	chunk:03	feat:case	array case const for for_with_array pointer procedure
 program_record_pointer_replace_1	chunk:03	feat:nil	in new nil pointer pointer_with_new record type
 front_end__pf20i_array_helper_sort	chunk:04	feat:mod	array for for_with_array function mod record type write
-program_record_array_replace_2	chunk:02	feat:packed	array case packed record set_literal subrange type
+program_record_array_replace_2	chunk:03	feat:packed	array case packed record set_literal subrange type
 ladder__rung10_pointers	chunk:05	feat:dispose	dispose new nil pointer pointer_with_new record type
 front_end__pf03_caps	core	core	array chr mod odd record set_literal subrange
 ladder__rung06_arrays_rows_of_an_inline_packed_char_array	chunk:03	feat:packed	array chr for for_with_array ord packed set_literal subrange

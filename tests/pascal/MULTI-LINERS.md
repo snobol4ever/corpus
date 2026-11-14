@@ -5658,6 +5658,19 @@ end.
          70
 ```
 
+## fpc_features__a-method-is-called-through-an-interface-variable
+
+```Pascal
+{$mode objfpc}
+program if1; type ii = interface function f: longint; end; t = class(tinterfacedobject, ii) function f: longint; end; function t.f: longint; begin result := 42 end;
+var o: t; i: ii; begin o := t.create; i := o; writeln(i.f); i := t.create; writeln(i.f) end.
+```
+
+```stdout
+42
+42
+```
+
 ## program_procedure_record_11
 
 ```Pascal
