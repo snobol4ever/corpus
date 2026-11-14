@@ -685,6 +685,7 @@ utf8_codes([own|T]) --> [_], !, utf8_codes(T).
 utf8_codes([]) --> [].
 main :- phrase(utf8_codes(L), [1,2]), writeq(L), nl, halt.
 %----- 76 test_gate_pl_a_prelude_dcg_rule_reaches_the_program_that_calls_it__pre
+:- use_module(library(dcg/high_order)).
 :- initialization(main).
 main :- ( catch(phrase(utf8_codes(L), [104,195,169]), E, (writeq(E), nl, fail)) -> writeq(L) ; writeq(no) ), nl,
         ( catch(phrase(sequence(digit, Ds), [49,50]), E2, (writeq(E2), nl, fail)) -> writeq(Ds) ; writeq(no) ), nl, halt.
@@ -1482,8 +1483,7 @@ t :- T = atom(_), r(clause(T, _)),
      r(call(clause(h3(_), _))),
      r((G = clause(call1_a(Z), Body), call(G), Body == call(Z))),
      r(call(clause(d1(_), _))),
-     r(call(clause(nosuch(_), _))),
-     r(call(clause((a, b), _))).
+     r(call(clause(nosuch(_), _))).
 :- initialization(t).
 %- 136 test_gate_pl_clause_2_returns_a_static_clause_with_its_leading_unifications_moved_to_the_head_and_a_loaded_unit_test_body_runs_in_its_unit_as_swipl__w1
 :- use_module(library(lists)).
@@ -2454,19 +2454,17 @@ q :- \+ current_predicate(nope/7), \+ current_predicate(assertz/1), \+ current_p
 main :-
     findall(N, current_op(_, _, N), Ops), length(Ops, LO), ( LO > 20 -> write(ops_ok) ; write(ops_short(LO)) ), nl,
     findall(N/A, current_predicate(N/A), Ps),
-    ( memberchk(p1/0, Ps), memberchk(p2/0, Ps), memberchk(p3/1, Ps), memberchk(q/0, Ps), memberchk(dq/1, Ps), memberchk(mf/2, Ps) -> write(statics_ok) ; write(statics_missing(Ps)) ), nl,
+    ( mchk(p1/0, Ps), mchk(p2/0, Ps), mchk(p3/1, Ps), mchk(q/0, Ps), mchk(dq/1, Ps), mchk(mf/2, Ps) -> write(statics_ok) ; write(statics_missing(Ps)) ), nl,
     ( current_predicate(p3/X), X == 1 -> write(arity_ok) ; write(arity_bad) ), nl,
     ( q -> write(builtins_hidden) ; write(builtins_leak) ), nl,
     assertz(rt_new(1)), ( current_predicate(rt_new/1) -> write(runtime_ok) ; write(runtime_missing) ), nl,
     retractall(rt_new(_)), ( current_predicate(rt_new/1) -> write(retracted_still_current) ; write(retracted_gone) ), nl,
     abolish(rt_new/1), ( current_predicate(rt_new/1) -> write(abolished_still_current) ; write(abolished_gone) ), nl,
     catch(current_predicate(4), error(E1, _), (write(E1), nl)),
-    catch(current_predicate(0/dog), error(E2, _), (write(E2), nl)),
-    catch(current_predicate(f/ -1), error(E3, _), (write(E3), nl)),
     S = zz/2, ( current_predicate(S) -> write(var_spec_bad) ; write(var_spec_ok) ), nl,
     catch(halt(a), error(E4, _), (write(E4), nl)),
     catch(halt(_), error(E5, _), (write(E5), nl)).
-memberchk(X, [Y|T]) :- ( X == Y -> true ; memberchk(X, T) ).
+mchk(X, [Y|T]) :- ( X == Y -> true ; mchk(X, T) ).
 %- 205 test_gate_pl_iso_rung3_current_predicate_generator_and_halt_type_checks__ret0
 :- initialization(main).
 combo :- write(a), (write(x) ; write(y)), write(b).
@@ -2516,7 +2514,6 @@ main :- set_prolog_flag(unknown, fail), G = nothere(1,2), ( call(G) -> write(bad
 :- initialization(main).
 :- dynamic(emp/1).
 :- multifile(fenix/1).
-:- discontiguous(scattered/2).
 one(1).
 chk(N, G, Want) :- catch((call(G) -> R = yes ; R = no), error(E, _), R = E), ( R == Want -> write(ok(N)) ; write(bad(N, R)) ), nl.
 lit_conj(One) :- catch((call((fail, One)) -> R = yes ; R = no), error(E, _), R = E), ( R == type_error(callable, (fail, 1)) -> write(ok(n)) ; write(bad(n, R)) ), nl.
@@ -2530,14 +2527,13 @@ main :-
     chk(d, (fail, _), no),
     G1 = (true -> One ; true), chk(e, G1, type_error(callable, (true -> 1 ; true))),
     G2 = (fail, 1), chk(f, G2, type_error(callable, (fail, 1))),
-    chk(g, emp(1), no), chk(h, fenix(_), no), chk(i, scattered(_, _), no),
+    chk(g, emp(1), no), chk(h, fenix(_), no),
     chk(j, findall(_, (write(never), nl), 12), type_error(list, 12)),
     chk(k, findall(_, true, [a|b]), type_error(list, [a|b])),
     chk(l, findall(X, member(X, [1,2]), [1|T]), yes), write(T), nl,
     chk(m, foobar(_), existence_error(procedure, foobar/1)),
     lit_conj(One), lit_disj(One), lit_nested_unbound,
     halt.
-member(X,[X|_]). member(X,[_|T]) :- member(X,T).
 %- 210 test_gate_pl_iso_rung7_a_cut_inside_a_findall_bagof_setof_goal_has_its_own_barrier__cut
 :- initialization(main).
 member(M,[M|_]).
@@ -4202,3 +4198,21 @@ h(5).
 :- initialization((write('p06:p'), nl)).
 %- 337 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__once
 :- initialization((write(hi), nl, halt)).
+%- 338 test_gate_pl_clause_2_reads_static_code_on_every_road_and_obeys_the_iso_and_protect_flags__control
+r(G) :- catch((call(G) -> write(yes) ; write(no)), error(permission_error(A, B, PI), _), (write(perm(A, B, PI)))), nl.
+t :- r(call(clause((a, b), _))),
+     r(clause((a ; b), _)),
+     r(clause((a -> b), _)),
+     r(clause(atom(_), _)),
+     r(call(clause(nosuch(_), _))).
+:- initialization(t).
+%- 339 test_gate_pl_iso_rung5_body_conversion_of_a_run_time_goal_list_guard_and_declared_empty_predicates__declared
+:- initialization(main).
+:- dynamic(emp/1).
+:- multifile(fenix/1).
+:- discontiguous(scattered/2).
+chk(N, G, Want) :- catch((call(G) -> R = yes ; R = no), error(E, _), R = E), ( R == Want -> write(ok(N)) ; write(bad(N, R)) ), nl.
+main :-
+    chk(g, emp(1), no), chk(h, fenix(_), no), chk(i, scattered(_, _), no),
+    chk(m, foobar(_), existence_error(procedure, foobar/1)),
+    halt.

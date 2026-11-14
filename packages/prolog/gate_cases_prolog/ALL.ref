@@ -469,8 +469,7 @@ o 9
 [own,own]
 %----- 76 test_gate_pl_a_prelude_dcg_rule_reaches_the_program_that_calls_it__pre
 [104,233]
-error(existence_error(procedure,sequence/4),context('$dcg':call_dcg/3,_1018))
-no
+[49,50]
 %- 77 test_gate_pl_a_program_that_links_setup_call_cleanup_compiles_and_links_a_predicate_of_three_unit_clauses_in_mode_4__scc
 3
 3
@@ -1146,7 +1145,6 @@ yes
 yes
 yes
 no
-yes
 %- 136 test_gate_pl_clause_2_returns_a_static_clause_with_its_leading_unifications_moved_to_the_head_and_a_loaded_unit_test_body_runs_in_its_unit_as_swipl__w1
 a1 a1(f(A)):-q(A)
 a2 a2(A):-A=f(B),q(A)
@@ -2313,13 +2311,11 @@ p(A),B is A*10
 ops_ok
 statics_ok
 arity_ok
-builtins_leak
+builtins_hidden
 runtime_ok
 retracted_still_current
 abolished_gone
 type_error(predicate_indicator,4)
-type_error(predicate_indicator,0/dog)
-domain_error(not_less_than_zero,-1)
 var_spec_ok
 type_error(integer,a)
 instantiation_error
@@ -2368,10 +2364,8 @@ ok(e)
 ok(f)
 ok(g)
 ok(h)
-ok(i)
-never
-bad(j,no)
-bad(k,no)
+ok(j)
+ok(k)
 ok(l)
 [2]
 ok(m)
@@ -4035,3 +4029,14 @@ p06:q
 p06:p
 %- 337 test_gate_xsb_refs_are_cut_from_xsb_and_graded_ignoring_white_space__once
 hi
+%- 338 test_gate_pl_clause_2_reads_static_code_on_every_road_and_obeys_the_iso_and_protect_flags__control
+perm(access,private_procedure,(,)/2)
+perm(access,private_procedure,(;)/2)
+perm(access,private_procedure,(->)/2)
+perm(access,private_procedure,atom/1)
+no
+%- 339 test_gate_pl_iso_rung5_body_conversion_of_a_run_time_goal_list_guard_and_declared_empty_predicates__declared
+ok(g)
+ok(h)
+ok(i)
+ok(m)

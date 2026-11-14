@@ -12,6 +12,5 @@ t :- T = atom(_), r(clause(T, _)),
      r(call(clause(h3(_), _))),
      r((G = clause(call1_a(Z), Body), call(G), Body == call(Z))),
      r(call(clause(d1(_), _))),
-     r(call(clause(nosuch(_), _))),
-     r(call(clause((a, b), _))).
+     r(call(clause(nosuch(_), _))).
 :- initialization(t).
