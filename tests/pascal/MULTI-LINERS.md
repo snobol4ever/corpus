@@ -7155,6 +7155,20 @@ pq 2
 3 0 q
 ```
 
+## fpc_features__sizeof-of-a-record-with-subrange-and-boolean-fields
+
+```Pascal
+{$mode objfpc}
+program sz1; type tf = record a: 0..3; b: boolean; c: 0..7 end; tg = record a, b: longint end; tb = bitpacked array[1..6] of 0..1;
+var f: tf; begin writeln(sizeof(tg)); writeln(sizeof(f)); writeln(sizeof(tf)) end.
+```
+
+```stdout
+8
+3
+3
+```
+
 ## program_array_for_4
 
 ```Pascal

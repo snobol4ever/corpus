@@ -91,7 +91,7 @@ ladder__rung04_for_repeat_for_zero	chunk:04	feat:for	for
 stdin__read2	chunk:04	feat:readln	read readln
 ladder__rung04_for_repeat_repeat_once	chunk:05	feat:repeat	repeat
 ladder__rung16_q_shr	chunk:04	feat:for	for
-ladder__rung17_div_zero_without_sysutils_stays_200	chunk:03	feat:div	div
+ladder__rung17_div_zero_without_sysutils_stays_200	chunk:04	feat:div	div
 ladder__rung16_q_write_expr	chunk:04	feat:div	div
 ladder__rung16_real_trunc_out_of_int64	chunk:05	feat:trunc	trunc
 ladder__rung17_div_zero_math_closure	chunk:04	feat:div	div
@@ -268,6 +268,7 @@ front_end__pf20n_generic_field_access	chunk:01	feat:function	function nested_pro
 program_function_for_replace_1	chunk:01	feat:function	for function nested_proc
 program_function_for_replace_2	chunk:01	feat:function	for function nested_proc
 front_end__pf19_nul_in_string	chunk:04	feat:chr	chr for ord
+fpc_features__sizeof-of-a-record-with-subrange-and-boolean-fields	chunk:02	feat:record	array record set_literal subrange type
 program_array_for_4	chunk:04	feat:for_with_array	array for for_with_array type
 program_array_packed_2	chunk:02	feat:packed	array packed set_literal subrange
 program_set_for_2	chunk:03	feat:set	for in set subrange
@@ -377,7 +378,7 @@ ladder__rung24_static_array_with_an_all_negative_index_range	chunk:02	feat:const
 program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
-program_array_packed_replace_1	chunk:04	feat:readln	array packed readln set_literal subrange type
+program_array_packed_replace_1	chunk:05	feat:readln	array packed readln set_literal subrange type
 program_procedure_array_1	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
 program_procedure_array_4	chunk:02	feat:packed	array nested_proc packed procedure set_literal subrange
 packed_arrays__pa10_local_dynamic	chunk:01	feat:function	array for for_with_array function nested_proc procedure
@@ -402,7 +403,7 @@ ladder__rung13_ptr_addr_whole_array	chunk:04	feat:pointer	array for for_with_arr
 program_function_array_1	chunk:01	feat:function	array for for_with_array function set_literal subrange type
 program_function_array_3	chunk:01	feat:function	array for for_with_array function set_literal subrange type
 program_record_array_replace_4	chunk:02	feat:packed	array case packed record set_literal subrange type
-program_record_array_replace_3	chunk:02	feat:packed	array case packed record set_literal subrange type
+program_record_array_replace_3	chunk:03	feat:packed	array case packed record set_literal subrange type
 fpc_units__uc01_category_and_numeric	chunk:03	feat:ord	array const for for_with_array ord set_literal subrange
 ladder__rung13_ptr_pchar_array	chunk:02	feat:write	array for for_with_array pointer set_literal subrange write
 front_end__pf07_names	chunk:03	feat:ord	array const for for_with_array ord set_literal subrange
