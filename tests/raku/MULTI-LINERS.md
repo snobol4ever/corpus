@@ -11934,6 +11934,29 @@ with-f
 False
 ```
 
+## stub__a_stub_term_with_a_message_dies_with_it
+
+```Raku
+multi prefix:<!!!>(Int $a) { -$a }
+try { !!! "boom" };
+say $!.message;
+try { ... "later" };
+say $!.message;
+try { say !!! 3 };
+say $!.message;
+say "end";
+try { ... };
+say $!.message;
+```
+
+```stdout
+boom
+later
+3
+end
+Stub code executed
+```
+
 ## ladder__rung04_arrays_an_empty_array_is_an_array_a_sub_can_push_onto_and_its_max_is_minus_inf
 
 ```Raku
