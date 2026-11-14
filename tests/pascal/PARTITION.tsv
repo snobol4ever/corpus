@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=513 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,67
+# shape: entries=514 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,68
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -123,7 +123,7 @@ front_end__pf21_sstr_high_low	chunk:01	feat:function	function type
 helpers__hp01	chunk:02	feat:record	for record type
 ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round	core	core	round trunc
 ladder__rung23_extended_trunc_round_and_conversions	chunk:05	feat:round	round trunc
-program_procedure_writeln_replace_1	chunk:03	feat:procedure	procedure
+program_procedure_writeln_replace_1	chunk:04	feat:procedure	procedure
 program_procedure_writeln_replace_2	chunk:04	feat:procedure	procedure
 unary_minus__sign_binds_factor_delphi	chunk:03	feat:ord	ord
 fpc_units__du03_inc	chunk:02	feat:const	const
@@ -294,7 +294,7 @@ program_procedure_record_2	chunk:02	feat:record	nested_proc procedure record typ
 program_procedure_record_9	chunk:02	feat:record	nested_proc procedure record type
 ladder__rung01_integer_width_fpc	chunk:02	feat:const	array const set_literal subrange
 ladder__rung01_integer_width_objfpc	chunk:02	feat:const	array const set_literal subrange
-ladder__rung13_ptr_empty_dynarray_nil	chunk:02	feat:nil	array nil set_literal subrange
+ladder__rung13_ptr_empty_dynarray_nil	chunk:03	feat:nil	array nil set_literal subrange
 packed_arrays__pa09_setlength_raw	chunk:02	feat:write	array for for_with_array write
 front_end__pf20m_record_field_call	chunk:02	feat:const	const function nested_proc record type
 ladder__rung08_sets	chunk:03	feat:set	in set subrange type
@@ -439,7 +439,7 @@ ladder__rung15_layout_dense_from_one	chunk:04	feat:div	array div for for_with_ar
 ladder__rung13_ptr_array_pointer_index	chunk:04	feat:pointer	array for for_with_array pointer record set_literal subrange type
 ladder__rung13_ptr_row_pointer_var_param	chunk:04	feat:pointer	array for for_with_array pointer procedure set_literal subrange type
 packed_arrays__pa08_wide	core	core	array for for_with_array mod set_literal subrange trunc type
-program_array_packed_6	chunk:04	feat:read	array for for_with_array packed read repeat set_literal subrange
+program_array_packed_6	chunk:05	feat:read	array for for_with_array packed read repeat set_literal subrange
 ladder__rung13_ptr_addr_element	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 ladder__rung12_fill_through_pointer	chunk:02	feat:write	array for for_with_array pointer set_literal subrange type write
 ladder__rung15_layout_nested_move_across_rows	chunk:04	feat:div	array div for for_with_array set_literal subrange type write
