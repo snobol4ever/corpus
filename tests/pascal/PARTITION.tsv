@@ -138,6 +138,7 @@ ladder__rung18_gmp_mpz_arithmetic	chunk:03	feat:nil	for nil
 ladder__rung20_fgl_list_operations	chunk:04	feat:mod	for mod
 fpc_units__ht01_stringstream	chunk:02	feat:write	write
 program_procedure_writeln_5	chunk:03	feat:procedure	procedure
+fpc_features__class-of-a-type-is-written-inline-in-a-type-position	chunk:02	feat:record	record type
 ladder__rung04_for_repeat_for_downto	core	core	downto for
 program_for_writeln_3	chunk:04	feat:in	for in
 program_for_downto_1	chunk:05	feat:downto	downto for
@@ -422,7 +423,7 @@ ladder__rung06_arrays_bool_index_2d	chunk:04	feat:chr	array chr for for_with_arr
 array_of_const__array_of_const_varrec	chunk:03	feat:case	array case const for for_with_array pointer procedure
 program_record_pointer_replace_1	chunk:03	feat:nil	in new nil pointer pointer_with_new record type
 front_end__pf20i_array_helper_sort	chunk:04	feat:mod	array for for_with_array function mod record type write
-program_record_array_replace_2	chunk:02	feat:packed	array case packed record set_literal subrange type
+program_record_array_replace_2	chunk:03	feat:packed	array case packed record set_literal subrange type
 ladder__rung10_pointers	chunk:05	feat:dispose	dispose new nil pointer pointer_with_new record type
 front_end__pf03_caps	core	core	array chr mod odd record set_literal subrange
 ladder__rung06_arrays_rows_of_an_inline_packed_char_array	chunk:03	feat:packed	array chr for for_with_array ord packed set_literal subrange
