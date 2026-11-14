@@ -44,6 +44,7 @@ ladder__rung29_sizeof_of_a_dereference	chunk:04	feat:pointer	pointer
 program_writeln_11	chunk:05	family:crosscheck_misc	
 ladder__rung01_var_assign	chunk:01	family:ladder	
 ladder__rung01_var_assign_widen	chunk:01	family:ladder	
+parseforms__parse_the_c_style_shift_operators	chunk:05	family:parseforms	
 stdin__read1	chunk:04	feat:read	read
 ladder__rung02_arithmetic_unary	chunk:01	family:ladder	
 ladder__rung05_func_named_main_recursive	chunk:01	feat:function	function
