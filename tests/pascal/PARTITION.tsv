@@ -59,6 +59,7 @@ ladder__rung16_q_relops	chunk:01	family:ladder
 program_writeln_10	chunk:05	family:crosscheck_misc	
 ladder__rung01_var_assign_multi_ident	chunk:01	family:ladder	
 ladder__rung03_if_while_if_no_else	chunk:01	family:ladder	
+rtlnames__rest_strutils_and_sysutils_text_routines	chunk:05	family:rtlnames	
 fpc_units__du02_between	chunk:04	family:fpc_units	
 fpc_units__md01_md5	chunk:02	feat:write	write
 fpc_units__va02_variants_routines	chunk:04	family:fpc_units	

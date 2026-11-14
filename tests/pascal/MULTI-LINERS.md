@@ -1089,6 +1089,32 @@ taken
 done
 ```
 
+## rtlnames__rest_strutils_and_sysutils_text_routines
+
+```Pascal
+{$mode objfpc}{$H+}
+program r1;
+uses sysutils, strutils;
+var s: string; p: PChar;
+begin
+  writeln(AnsiEndsStr('lo', 'hello'), ' ', AnsiEndsStr('he', 'hello'));
+  writeln(AnsiStartsText('HE', 'hello'), ' ', AnsiStartsText('x', 'hello'));
+  writeln(AnsiReplaceText('a-A-a', 'a', 'b'));
+  writeln(DelSpace1('a   b  c'));
+  writeln(WrapText('aaa bbb ccc ddd', '|', [' '], 7));
+  s := '"ab""c"rest'; p := PChar(s); writeln(AnsiExtractQuotedStr(p, '"'));
+end.
+```
+
+```stdout
+TRUE FALSE
+TRUE FALSE
+b-b-b
+a b c
+aaa bbb |ccc ddd
+ab"c
+```
+
 ## fpc_units__du02_between
 
 ```Pascal
