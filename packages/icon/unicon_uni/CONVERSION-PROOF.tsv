@@ -29,3 +29,12 @@ xml/xmlelement.icn	same-code
 xml/xmlformatter.icn	same-code
 lib/url.icn	same-code
 lib/netclient.icn	same-code
+lib/address.icn	same-code
+lib/base64handler.icn	same-code
+lib/contentdisposition.icn	same-code
+lib/contenttype.icn	same-code
+lib/encodinghandler.icn	same-code
+lib/group.icn	same-code
+lib/mailbox.icn	same-code
+lib/rfc822parser.icn	same-code
+lib/rfc822pr.icn	same-code
