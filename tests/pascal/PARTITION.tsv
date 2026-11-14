@@ -5,6 +5,7 @@ entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
+ladder__rung02_arithmetic_the_system_unit_rotate_shift_and_bit_scan_routines_are_declared	chunk:01	family:ladder	
 ladder__rung31_sysutils_format_settings	chunk:01	family:ladder	
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
