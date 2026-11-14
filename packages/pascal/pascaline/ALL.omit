@@ -1,0 +1,3 @@
+Chess05.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: Chess05.pas(10,8) Fatal: illegal character "'"'" ($22)
+basics.pas: DOES-NOT-END: no answer inside 60 s
+startrek.pas: DOES-NOT-END: no answer inside 60 s

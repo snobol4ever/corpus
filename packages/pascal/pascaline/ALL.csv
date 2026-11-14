@@ -1,0 +1,4 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,pascals,pascals.pas,pascaline__pascals,pascaline,1966,0,131072,4096,60,,iso
+2,plzero,plzero.pas,pascaline__plzero,pascaline,457,0,131072,4096,60,,iso
+3,prettyp,prettyp.pas,pascaline__prettyp,pascaline,1589,0,131072,4096,60,,iso

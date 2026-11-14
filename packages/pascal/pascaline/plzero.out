@@ -1,0 +1,392 @@
+    0 const limit = 10;
+    1 var n, f, a, b, t, i, p;
+    1 procedure factorial;
+    1 begin
+    3    f := 1; i := 1;
+    7    while i < n + 1 do
+   13    begin f := f * i; i := i + 1 end
+   21 end;
+    0  jmp  1    0
+    1  jmp  1    2
+    2  int  1    3
+    3  lit  1    1
+    4  sto  1    4
+    5  lit  1    1
+    6  sto  1    8
+    7  lod  1    8
+    8  lod  1    3
+    9  lit  1    1
+   10  opr  1    2
+   11  opr  1   10
+   12  jpc  1   22
+   13  lod  1    4
+   14  lod  1    8
+   15  opr  1    4
+   16  sto  1    4
+   17  lod  1    8
+   18  lit  1    1
+   19  opr  1    2
+   20  sto  1    8
+   21  jmp  1    7
+   22  opr  1    0
+   23 procedure power;
+   23 begin
+   25    p := 1; i := 0;
+   29    while i < n do
+   33    begin p := 2 * p; i := i + 1 end
+   41 end;
+    0  jmp  1    0
+    1  jmp  1    2
+    2  int  1    3
+    3  lit  1    1
+    4  sto  1    4
+    5  lit  1    1
+    6  sto  1    8
+    7  lod  1    8
+    8  lod  1    3
+    9  lit  1    1
+   10  opr  1    2
+   11  opr  1   10
+   12  jpc  1   22
+   13  lod  1    4
+   14  lod  1    8
+   15  opr  1    4
+   16  sto  1    4
+   17  lod  1    8
+   18  lit  1    1
+   19  opr  1    2
+   20  sto  1    8
+   21  jmp  1    7
+   22  opr  1    0
+   23  jmp  1   24
+   24  int  1    3
+   25  lit  1    1
+   26  sto  1    9
+   27  lit  1    0
+   28  sto  1    8
+   29  lod  1    8
+   30  lod  1    3
+   31  opr  1   10
+   32  jpc  1   42
+   33  lit  1    2
+   34  lod  1    9
+   35  opr  1    4
+   36  sto  1    9
+   37  lod  1    8
+   38  lit  1    1
+   39  opr  1    2
+   40  sto  1    8
+   41  jmp  1   29
+   42  opr  1    0
+   43 procedure fibonacci;
+   43 begin
+   45    a := 0; b := 1; i := 0;
+   51    while i < n do
+   55    begin t := a + b; a := b; b := t; i := i + 1 end
+   67 end;
+    0  jmp  1    0
+    1  jmp  1    2
+    2  int  1    3
+    3  lit  1    1
+    4  sto  1    4
+    5  lit  1    1
+    6  sto  1    8
+    7  lod  1    8
+    8  lod  1    3
+    9  lit  1    1
+   10  opr  1    2
+   11  opr  1   10
+   12  jpc  1   22
+   13  lod  1    4
+   14  lod  1    8
+   15  opr  1    4
+   16  sto  1    4
+   17  lod  1    8
+   18  lit  1    1
+   19  opr  1    2
+   20  sto  1    8
+   21  jmp  1    7
+   22  opr  1    0
+   23  jmp  1   24
+   24  int  1    3
+   25  lit  1    1
+   26  sto  1    9
+   27  lit  1    0
+   28  sto  1    8
+   29  lod  1    8
+   30  lod  1    3
+   31  opr  1   10
+   32  jpc  1   42
+   33  lit  1    2
+   34  lod  1    9
+   35  opr  1    4
+   36  sto  1    9
+   37  lod  1    8
+   38  lit  1    1
+   39  opr  1    2
+   40  sto  1    8
+   41  jmp  1   29
+   42  opr  1    0
+   43  jmp  1   44
+   44  int  1    3
+   45  lit  1    0
+   46  sto  1    5
+   47  lit  1    1
+   48  sto  1    6
+   49  lit  1    0
+   50  sto  1    8
+   51  lod  1    8
+   52  lod  1    3
+   53  opr  1   10
+   54  jpc  1   68
+   55  lod  1    5
+   56  lod  1    6
+   57  opr  1    2
+   58  sto  1    7
+   59  lod  1    6
+   60  sto  1    5
+   61  lod  1    7
+   62  sto  1    6
+   63  lod  1    8
+   64  lit  1    1
+   65  opr  1    2
+   66  sto  1    8
+   67  jmp  1   51
+   68  opr  1    0
+   69 begin
+   70    n := limit; call factorial;
+   73    n := 16; call power;
+   76    n := 20; call fibonacci;
+   79    if odd b then t := 0 - b
+   84 end.
+    0  jmp  1   69
+    1  jmp  1    2
+    2  int  1    3
+    3  lit  1    1
+    4  sto  1    4
+    5  lit  1    1
+    6  sto  1    8
+    7  lod  1    8
+    8  lod  1    3
+    9  lit  1    1
+   10  opr  1    2
+   11  opr  1   10
+   12  jpc  1   22
+   13  lod  1    4
+   14  lod  1    8
+   15  opr  1    4
+   16  sto  1    4
+   17  lod  1    8
+   18  lit  1    1
+   19  opr  1    2
+   20  sto  1    8
+   21  jmp  1    7
+   22  opr  1    0
+   23  jmp  1   24
+   24  int  1    3
+   25  lit  1    1
+   26  sto  1    9
+   27  lit  1    0
+   28  sto  1    8
+   29  lod  1    8
+   30  lod  1    3
+   31  opr  1   10
+   32  jpc  1   42
+   33  lit  1    2
+   34  lod  1    9
+   35  opr  1    4
+   36  sto  1    9
+   37  lod  1    8
+   38  lit  1    1
+   39  opr  1    2
+   40  sto  1    8
+   41  jmp  1   29
+   42  opr  1    0
+   43  jmp  1   44
+   44  int  1    3
+   45  lit  1    0
+   46  sto  1    5
+   47  lit  1    1
+   48  sto  1    6
+   49  lit  1    0
+   50  sto  1    8
+   51  lod  1    8
+   52  lod  1    3
+   53  opr  1   10
+   54  jpc  1   68
+   55  lod  1    5
+   56  lod  1    6
+   57  opr  1    2
+   58  sto  1    7
+   59  lod  1    6
+   60  sto  1    5
+   61  lod  1    7
+   62  sto  1    6
+   63  lod  1    8
+   64  lit  1    1
+   65  opr  1    2
+   66  sto  1    8
+   67  jmp  1   51
+   68  opr  1    0
+   69  int  1   10
+   70  lit  1   10
+   71  sto  1    3
+   72  cal  1    2
+   73  lit  1   16
+   74  sto  1    3
+   75  cal  1   24
+   76  lit  1   20
+   77  sto  1    3
+   78  cal  1   44
+   79  lod  1    6
+   80  opr  1    6
+   81  jpc  1   86
+   82  lit  1    0
+   83  lod  1    6
+   84  opr  1    3
+   85  sto  1    7
+   86  opr  1    0
+ start pl/0
+         10
+          1
+          1
+          1
+          2
+          2
+          3
+          6
+          4
+         24
+          5
+        120
+          6
+        720
+          7
+       5040
+          8
+      40320
+          9
+     362880
+         10
+    3628800
+         11
+         16
+          1
+          0
+          2
+          1
+          4
+          2
+          8
+          3
+         16
+          4
+         32
+          5
+         64
+          6
+        128
+          7
+        256
+          8
+        512
+          9
+       1024
+         10
+       2048
+         11
+       4096
+         12
+       8192
+         13
+      16384
+         14
+      32768
+         15
+      65536
+         16
+         20
+          0
+          1
+          0
+          1
+          1
+          1
+          1
+          2
+          1
+          2
+          2
+          3
+          2
+          3
+          3
+          5
+          3
+          5
+          4
+          8
+          5
+          8
+          5
+         13
+          8
+         13
+          6
+         21
+         13
+         21
+          7
+         34
+         21
+         34
+          8
+         55
+         34
+         55
+          9
+         89
+         55
+         89
+         10
+        144
+         89
+        144
+         11
+        233
+        144
+        233
+         12
+        377
+        233
+        377
+         13
+        610
+        377
+        610
+         14
+        987
+        610
+        987
+         15
+       1597
+        987
+       1597
+         16
+       2584
+       1597
+       2584
+         17
+       4181
+       2584
+       4181
+         18
+       6765
+       4181
+       6765
+         19
+      10946
+       6765
+      10946
+         20
+ end pl/0

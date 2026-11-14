@@ -1,0 +1,30 @@
+
+Pascal-S compiler/interpreter
+    0  program sieve(output);
+    0  const max = 60;
+    0  var flags: array [2..max] of boolean;
+    0      i, k, count: integer;
+    0  function gcd(a, b: integer): integer;
+    0  begin
+    0     if b = 0 then gcd := a else gcd := gcd(b, a mod b)
+   14  end;
+   17  begin
+   18     for i := 2 to max do flags[i] := true;
+   28     count := 0;
+   31     for i := 2 to max do
+   35        if flags[i] then begin
+   40           count := count + 1;
+   45           write(i: 4);
+   48           k := i + i;
+   53           while k <= max do begin flags[k] := false; k := k + i end
+   67        end;
+   69     writeln;
+   70     writeln('primes below ', max: 1, ': ', count: 1);
+   81     writeln('gcd(1071, 462) = ', gcd(1071, 462): 1)
+   89  end.
+ (eof) 
+   2   3   5   7  11  13  17  19  23  29  31  37  41  43  47  53  59
+primes below 60: 17
+gcd(1071, 462) = 21
+
+       2266 steps

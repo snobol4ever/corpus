@@ -1,0 +1,3 @@
+# EXCLUDED.tsv -- wirth1976: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+TypeUtils.pas	NOT_A_UNIT_TEST	LIBRARY: the source names unit TypeUtils; (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

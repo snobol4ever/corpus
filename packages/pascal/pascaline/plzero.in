@@ -1,0 +1,26 @@
+const limit = 10;
+var n, f, a, b, t, i, p;
+procedure factorial;
+begin
+   f := 1; i := 1;
+   while i < n + 1 do
+   begin f := f * i; i := i + 1 end
+end;
+procedure power;
+begin
+   p := 1; i := 0;
+   while i < n do
+   begin p := 2 * p; i := i + 1 end
+end;
+procedure fibonacci;
+begin
+   a := 0; b := 1; i := 0;
+   while i < n do
+   begin t := a + b; a := b; b := t; i := i + 1 end
+end;
+begin
+   n := limit; call factorial;
+   n := 16; call power;
+   n := 20; call fibonacci;
+   if odd b then t := 0 - b
+end.

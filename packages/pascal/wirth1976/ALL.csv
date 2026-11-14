@@ -1,0 +1,5 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,heapSort,heapSort.pas,wirth1976__heapSort,wirth1976,153,0,131072,4096,60,,iso
+2,insertionSort,insertionSort.pas,wirth1976__insertionSort,wirth1976,110,0,131072,4096,60,,iso
+3,straightExchangeSort,straightExchangeSort.pas,wirth1976__straightExchangeSort,wirth1976,115,0,131072,4096,60,,iso
+4,straightSelectionSort,straightSelectionSort.pas,wirth1976__straightSelectionSort,wirth1976,110,0,131072,4096,60,,iso

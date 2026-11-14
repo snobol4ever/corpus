@@ -1,0 +1,5 @@
+# EXCLUDED.tsv -- pascaline: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+Chess05.pas	NO_ORACLE_ANSWER	ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: Chess05.pas(10,8) Fatal: illegal character "'"'" ($22) (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+basics.pas	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+startrek.pas	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
