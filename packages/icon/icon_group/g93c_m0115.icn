@@ -1,0 +1,4 @@
+procedure main()
+   L := [1, 2, 3, 4];
+   every e := !L do { pop(L); pop(L); write(e) };
+end

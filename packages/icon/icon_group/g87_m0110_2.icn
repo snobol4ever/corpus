@@ -1,0 +1,7 @@
+global A,B,C
+procedure main()
+	A := create @C & @B & @B & write(@B);
+	B := create @A & @C & @C & @B & @C;
+	C := create @C & @A & @B & @A & "foo"@A;
+	@A;
+end

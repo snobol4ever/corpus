@@ -1,0 +1,30 @@
+# Verify behavior of updated list parameters
+procedure main()
+	local x, y;
+	x := [];
+	y := [];
+
+	write("Before updating:");
+	write("x[1] = >", (x[1] | "empty"), "<");
+	write("y[1] = >", (y[1] | "empty"), "<");
+
+	method1(x);
+	method2(y);
+
+	write("After updating:");
+	write("x[1] = >", (x[1] | "empty"), "<");
+	write("y[1] = >", (y[1] | "empty"), "<");
+	exit();
+end
+
+# method1 - assign a new list value to the parameter
+procedure method1(x)
+	x := [&e];
+	return;
+end
+
+# method2 - put a new value on the existing list
+procedure method2(x)
+	put(x, &pi);
+	return;
+end

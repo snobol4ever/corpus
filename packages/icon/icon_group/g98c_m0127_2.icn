@@ -1,0 +1,21 @@
+   procedure main()
+
+     local numberchars, cnt, l;
+
+     numberchars := (&digits ++ 'e' ++ 'E' ++ '+' ++ '-' ++ '.');
+     cnt := 0;
+
+     while l := read() do
+l ?
+  every tab(past("XMULT:"|"XZERO:"|"YMULT:"|"YZERO:", &subject)) do {
+    write(tab(many(numberchars)));
+    cnt +:= 1
+    };
+
+     write("cnt = ", cnt);
+
+     end # main
+
+   procedure past(s1, s2, i1, i2)
+     suspend find(s1, s2, i1, i2) + *s1;
+     end

@@ -1,0 +1,13 @@
+A    B    (not A) & (not B)    not (A | B)
+------------------------------------------
+T    T            F                 F
+T    F            F                 F
+F    T            F                 F
+F    F            T                 T
+
+A    B    (not A) | (not B)    not (A & B)
+------------------------------------------
+T    T            F                 F
+T    F            T                 T
+F    T            T                 T
+F    F            T                 T

@@ -1,0 +1,11 @@
+procedure main()
+
+count := table(0);
+every n := read() do 
+count[n] +:= 1;
+
+write("value\tn");
+every n := key(count) do
+write(n, "\t", count[n]);
+
+end

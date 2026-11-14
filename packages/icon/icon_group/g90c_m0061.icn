@@ -1,0 +1,13 @@
+procedure main()
+
+	every l :=
+
+	[1 to 3, "Q" | "Z"]
+
+	do {
+		writes("[ ");
+		every writes(!l," ");
+		write("]")
+	};
+
+end

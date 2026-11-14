@@ -1,0 +1,5 @@
+procedure main()
+    ident :=
+	"this is an overlong line that just won't fit above, so I put it here";
+    write(ident);
+end

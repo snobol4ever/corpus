@@ -1,0 +1,6 @@
+     procedure main()
+t := table();
+L := [2,3];
+t[L] := "Hi there";
+write("this is it :",t[L],".");
+     end

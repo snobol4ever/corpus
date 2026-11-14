@@ -1,0 +1,40 @@
+Buy  e    
+a    d    
+b    c    
+
+Buy  d    
+e    c    
+a    b    
+
+Buy  c    
+d    b    
+e    a    
+
+Buy  b    
+c    a    
+d    e    
+
+Buy  a    
+b    e    
+c    d    
+
+a    f    
+b    e    
+c    d    
+
+a    e    
+f    d    
+b    c    
+
+a    d    
+e    c    
+f    b    
+
+a    c    
+d    b    
+e    f    
+
+a    b    
+c    f    
+d    e    
+

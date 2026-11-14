@@ -1,0 +1,15 @@
+procedure main()
+  sstr := "cargo";
+  line := "cargo, dave                  cargo";
+  write(capline(sstr,line));
+end
+
+procedure capline(word,line)
+  line2 := "";
+  line ? {
+    while line2 ||:= tab(find(word))
+    do line2 ||:= map(=word,&lcase,&ucase);
+    line2 ||:= tab(0)
+    };
+  return line2;
+end

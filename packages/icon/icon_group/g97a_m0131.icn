@@ -1,0 +1,9 @@
+procedure main()
+  line := "abc al el abc il ol abc ul";
+  V    := 'aeiou';
+  line ? {
+    while (tab(upto(V)) & a := move(1) & b := ="l" ) do {
+      write("matched = ", a, b)
+    }
+  };
+end

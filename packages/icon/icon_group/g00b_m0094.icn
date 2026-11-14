@@ -1,0 +1,13 @@
+procedure main()
+	wsp := ' ';  # a whitespace cset
+	s_in := "Pretty little maids all in a row.";
+	s_out := "";
+
+	s_in ? {
+		while s_out ||:= tab(upto(wsp)) do
+			tab(many(wsp));
+		s_out ||:= tab(0)
+	};
+	write(s_in, "\n-->", s_out);
+	exit();
+end

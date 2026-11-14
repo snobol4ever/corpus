@@ -1,0 +1,8 @@
+procedure main()
+   # let's say that mytable is a node in a large tree
+   mytable := table([]);
+   # and that the following is in a deep loop 
+   put(mytable["A"], "B");
+   if not write(mytable["A"][1]) then write("FAIL 1");
+   if not write(mytable["C"][1]) then write("FAIL 2");
+end

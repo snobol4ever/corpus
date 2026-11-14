@@ -1,0 +1,23 @@
+global hashcodes,mapvals,maxval
+
+procedure main()
+    hashcodes := table(-1);
+    mapvals := table(-1);
+    maxval := 6;
+    (h("jun"), h("sep"), h("dec"), h("aug"), h("jan"), h("feb"),
+	h("jul"), h("apr"), h("oct"), h("may"), h("mar"), h("nov"));
+    hlist := sort(mapvals);
+    i := 0;
+    while pair := hlist[i +:= 1] do
+	write (pair[1],pair[2]);
+end
+
+procedure h(s)
+    if hashcodes[(hashval := (hashchar(s[2]) + hashchar(s[3])))] = -1
+    then suspend hashcodes[hashval] <- hashval;
+end
+
+procedure hashchar(s)
+    if (mapvals[s] ~= -1) then return mapvals[s];
+    suspend mapvals[s] <- 0 to maxval;
+end

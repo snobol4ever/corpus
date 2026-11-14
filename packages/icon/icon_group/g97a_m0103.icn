@@ -1,0 +1,15 @@
+link ximage
+
+procedure main()
+
+  # The state diagram.
+  sd := table([]);
+  sd[["q0","ok"]] := "q1";
+  sd[["q0","nok"]] := "q0";
+  sd[["q1","nok"]] := "q0";
+  sd[["q1","ok"]] := "q2";
+  # q2 is the final state
+
+  every x := key(sd) do write(ximage(x), ":", sd[x]);
+
+end

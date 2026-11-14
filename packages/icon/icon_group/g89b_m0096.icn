@@ -1,0 +1,9 @@
+procedure main()
+  	local a;
+  	   call(a := []);
+  	   every write(!a);
+end
+
+procedure call(x)
+  	   every put(x,1 to 10);
+end

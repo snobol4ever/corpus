@@ -1,0 +1,14 @@
+procedure main()
+   local string, k;
+   every string := left("abcde", 0 to 5) & k := 0 to 1+*string do {
+      write("Combinations of '", string, "' taken ", k, " at a time:");
+      every write( "   '", comb(string, k), "'" )
+   };
+end
+
+procedure comb( s, k )
+   k < 0 & stop("error in comb argument, need k=", k, " to be >=0");
+   k = 0 & return "";
+   *s < k & fail;
+   suspend (s[1] || comb(s[2:0], k-1)) | comb(s[2:0], k);
+end

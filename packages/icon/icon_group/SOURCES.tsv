@@ -1,0 +1,128 @@
+# SOURCES.tsv -- icon_group: where each program stands in the icon-group archive: the mbox file (groupNNx.txt), the message's number in it, its Date and its Subject
+entry	archive_file	message	date	subject
+g00a_m0014	group00a.txt	14	Thu, 20 Jan 2000 12:02:05 -0800 (PST)	Re: all permutations
+g00a_m0015	group00a.txt	15	20 Jan 2000 20:22:46 GMT	Re: Question
+g00a_m0018	group00a.txt	18	Mon, 31 Jan 2000 13:50:15 -0600	Updating array parameters in Icon (a mini-dissertation)
+g00a_m0019_2	group00a.txt	19	Mon, 31 Jan 2000 21:54:54 -0500	Re: Updating array parameters in Icon (a mini-dissertation)
+g00a_m0052	group00a.txt	52	Sat, 08 Apr 2000 18:16:38 GMT	Reversible assignment really reversible ?
+g00a_m0097	group00a.txt	97	Tue, 16 May 2000 18:42:07 GMT	Re: Reversible assignment really reversible ?
+g00a_m0131	group00a.txt	131	Tue, 30 May 2000 13:40:37 -0700	Re: CODE() and @/2
+g00b_m0094	group00b.txt	94	Mon, 23 Oct 2000 16:20:42 -0500	Re: Icon beginner
+g00b_m0104	group00b.txt	104	Tue, 24 Oct 2000 16:10:26 -0500	Re: How to "declare" a string?
+g00b_m0104_2	group00b.txt	104	Tue, 24 Oct 2000 16:10:26 -0500	Re: How to "declare" a string?
+g00b_m0133	group00b.txt	133	Tue, 31 Oct 2000 09:12:29 -0600	Re: How would the experts handle this...??
+g01b_m0042	group01b.txt	42	Thu, 01 Mar 2001 09:59:23 -0500	Re: New Scientist puzzle
+g01b_m0170	group01b.txt	170	Fri, 09 Nov 2001 10:39:28 -0500	Re: mutual evaluation
+g01b_m0171	group01b.txt	171	Fri, 09 Nov 2001 08:45:33 -0700	Re: mutual evaluation
+g01b_m0176	group01b.txt	176	Thu, 22 Nov 2001 05:40:23 -0600	compact idiom to reference Nth result? e.g., every s := ("a"|"b"|
+g01b_m0176_2	group01b.txt	176	Thu, 22 Nov 2001 05:40:23 -0600	compact idiom to reference Nth result? e.g., every s := ("a"|"b"|
+g02a_m0151	group02a.txt	151	11 Aug 2002 21:28:46 GMT	Re: Icon Wish List
+g02a_m0156	group02a.txt	156	Mon, 12 Aug 2002 10:10:00 -0700	Re: Icon Wish List
+g02b_m0024	group02b.txt	24	Mon, 09 Sep 2002 23:03:24 -0700	Re: Using Procedure Names for Debugging
+g02b_m0078	group02b.txt	78	Fri, 18 Oct 2002 22:33:13 +0100	Re: [Unicon-group] recursive generators
+g02b_m0082	group02b.txt	82	Mon, 21 Oct 2002 07:46:37 -0700	Fun with graphs
+g02b_m0085	group02b.txt	85	Tue, 22 Oct 2002 19:46:01 -0400	The "variable" function and records
+g02b_m0134	group02b.txt	134	21 Nov 2002 06:57:35 -0800	RE: tab in regex
+g02b_m0169	group02b.txt	169	Fri, 27 Dec 2002 11:29:34 +1100	Re: Scanning question
+g02b_m0169_2	group02b.txt	169	Fri, 27 Dec 2002 11:29:34 +1100	Re: Scanning question
+g03a_m0101	group03a.txt	101	Tue, 09 Dec 2003 09:02:22 -0700	Re: Desperately in need of help
+g83_m0013	group83.txt	13		efficiency
+g87_m0020	group87.txt	20		8 queens revisited.
+g87_m0023	group87.txt	23		N Queens
+g87_m0081	group87.txt	81		Suggestions for Icon
+g87_m0081_2	group87.txt	81		Suggestions for Icon
+g87_m0110	group87.txt	110		Re: more co-expression questions...
+g87_m0110_2	group87.txt	110		Re: more co-expression questions...
+g88a_m0025	group88a.txt	25		pointers, structures, confusion
+g88a_m0080	group88a.txt	80	Thu, 24 Mar 88 20:51:47 CST	coexpressions - help!
+g88a_m0080_2	group88a.txt	80	Thu, 24 Mar 88 20:51:47 CST	coexpressions - help!
+g88a_m0088	group88a.txt	88	25 Mar 88 08:52:50 GMT	sets from ranges
+g88a_m0124	group88a.txt	124	Mon, 18 Apr 88 14:03:27 CDT	Still don't understand (thick head?)
+g88a_m0124_2	group88a.txt	124	Mon, 18 Apr 88 14:03:27 CDT	Still don't understand (thick head?)
+g88a_m0130	group88a.txt	130	Mon, 18 Apr 88 18:09:55 MST	Re: Still don't understand (thich head?)
+g88a_m0176_2	group88a.txt	176	Wed, 18 May 88 08:57:16 BST	Re: "call-by-string"
+g88a_m0180	group88a.txt	180	25 May 88 05:52:05 GMT	modeling mutual evaluation
+g88b_m0007	group88b.txt	7	Sun, 5 Jun 88 16:49:57 CDT	coroutines
+g88b_m0019	group88b.txt	19	Sun, 3 Jul 88 18:53 CDT	Tables referenced by lists
+g88b_m0020	group88b.txt	20	Thu, 7 Jul 88 10:18:02 MST	Tables referenced by lists
+g88b_m0058	group88b.txt	58	Mon 22 Aug 1988 16:35 CDT	Re: Logical Expressions
+g89a_m0007	group89a.txt	7	Wed, 4 Jan 89 14:36:47 PST	Re: returning a procedure from a procedure
+g89a_m0007_2	group89a.txt	7	Wed, 4 Jan 89 14:36:47 PST	Re: returning a procedure from a procedure
+g89a_m0063	group89a.txt	63	Tue, 21 Feb 89 07:18:13 MST	Re: tables and &self
+g89a_m0111	group89a.txt	111	31 May 89 10:38:00 CST	Null output for write
+g89b_m0089	group89b.txt	89	15 Sep 89 14:59:00 CST	string range replacement confusion
+g89b_m0090	group89b.txt	90	Fri, 15 Sep 89 19:45:56 CDT	
+g89b_m0096	group89b.txt	96	Thu, 21 Sep 89 10:37:37 MST	Re: Icon additions
+g90a_m0166	group90a.txt	166	1 May 90 15:12:40 GMT	Reversible Assignment Problem
+g90a_m0167	group90a.txt	167	Tue, 1 May 90 21:23:09 CDT	reversible assignment
+g90b_m0044	group90b.txt	44	Fri, 20 Jul 90 23:07:30 EDT	Semantics of break break
+g90c_m0021	group90c.txt	21	Fri, 2 Nov 90 15:03:02 pst	Generating variables
+g90c_m0061	group90c.txt	61	Tue, 27 Nov 90 08:05 CST	Re: help/hint needed
+g90c_m0061_2	group90c.txt	61	Tue, 27 Nov 90 08:05 CST	Re: help/hint needed
+g91a_m0118	group91a.txt	118	Mon, 18 Mar 91 10:58:25 -0500	Re: terrible code (2)
+g91a_m0119	group91a.txt	119	Mon, 18 Mar 91 11:58:07 -0500	Re: terrible code (3)
+g91a_m0127	group91a.txt	127	Tue, 19 Mar 91 06:56:08 -0500	Re: RE: terrible code
+g91b_m0021	group91b.txt	21	Thu, 11 Apr 91 09:25:47 -0400	Re: partial input ...
+g91b_m0039	group91b.txt	39	Mon, 22 Apr 91 22:21:50 EDT	Evaluation rules for !set
+g91c_m0032_2	group91c.txt	32	Sat, 03 Aug 91 01:30:21 -0400	Coexp memory leak in Icon V8 (UNIX, SPARC)?; i^0 bug
+g91c_m0035	group91c.txt	35	5 Aug 91 06:18:59 GMT	A pretty use of co-expressions
+g91c_m0042	group91c.txt	42	Wed, 07 Aug 91 04:06:42 -0400	Re: Coexp memory leak in Icon
+g91c_m0057	group91c.txt	57	Thu, 29 Aug 1991 11:18 CST	Holiday Tidbit
+g91d_m0039	group91d.txt	39	17 Nov 91 17:05:54 GMT	global variables, builtins
+g91d_m0047	group91d.txt	47	21 Nov 91 20:10:20 GMT	Re: Combinatorial generator
+g91d_m0064	group91d.txt	64	Wed, 11 Dec 91 08:53:06 -0500	Re: novice scanning question
+g91d_m0065	group91d.txt	65	10 Dec 91 21:31:19 GMT	String Scanning Question (from novice)
+g91d_m0065_2	group91d.txt	65	10 Dec 91 21:31:19 GMT	String Scanning Question (from novice)
+g92b_m0083	group92b.txt	83	Mon, 13 Jul 92 13:21:48 +0200	Sets
+g92b_m0089	group92b.txt	89	Tue, 14 Jul 1992 11:24:22 -0500 (CDT)	Sets of things
+g92c_m0040	group92c.txt	40	23 Oct 92 18:35:37 GMT	Re: confusing errors
+g92c_m0040_2	group92c.txt	40	23 Oct 92 18:35:37 GMT	Re: confusing errors
+g92c_m0050	group92c.txt	50	28 Oct 92 16:17:55 GMT	Re: confusing errors
+g93b_m0038	group93b.txt	38	Wed, 28 Apr 93 13:10:24 GMT	Re: Help!
+g93b_m0089	group93b.txt	89	Fri, 14 May 93 18:03:46 BST	Re: string stripping
+g93b_m0110	group93b.txt	110	20 May 93 01:22:30 GMT	Re: A bug? Or a feature?
+g93b_m0139	group93b.txt	139	Wed, 16 Jun 93 09:33:24 EDT	Output to &error
+g93c_m0006	group93c.txt	6	Tue, 6 Jul 93 16:43:02 EDT	Transmitting values to co-expressions
+g93c_m0006_2	group93c.txt	6	Tue, 6 Jul 93 16:43:02 EDT	Transmitting values to co-expressions
+g93c_m0013	group93c.txt	13	Tue, 20 Jul 93 11:00:24 EDT	Mystery about "every"
+g93c_m0115	group93c.txt	115	Tue, 14 Dec 93 17:42:10 CST	two language questions
+g93c_m0119	group93c.txt	119	Wed, 15 Dec 93 15:46:59 PST	Re: Need help with (simple?) programming problem.
+g93c_m0124	group93c.txt	124	Wed, 15 Dec 93 20:29:55 pst	Re[2]: Need help with (simple?) programming problem.
+g93c_m0128	group93c.txt	128	14 Dec 93 00:16:09 GMT	Re: Need help with (simple?) programming problem.
+g94a_m0057	group94a.txt	57	Sun, 20 Feb 1994 18:29:49 -0700 (MST)	generating both [lr]values of records
+g94a_m0058	group94a.txt	58	Mon, 21 Feb 94 00:30:21 CST	generating both [lr]values of records
+g94a_m0094	group94a.txt	94	Fri, 22 Apr 1994 13:06:56 +0100	is this a bug?
+g94a_m0099	group94a.txt	99	21 Apr 94 06:30:52 GMT	Re: generate keys of a table?
+g94a_m0103	group94a.txt	103	Tue, 26 Apr 1994 06:35:08 -0600 (CST)	VMS executables
+g94b_m0122	group94b.txt	122	Thu, 24 Nov 1994 02:35:53 GMT	proc() in Icon 9.0 on SGI
+g94c_m0039	group94c.txt	39	Tue, 27 Dec 1994 09:26:09 -0800	Re: DeMorgan's Law doesn't work
+g94c_m0041	group94c.txt	41	Wed, 28 Dec 1994 16:07:53 +0200 (WET)	Truth-Table generator
+g94c_m0043	group94c.txt	43	Wed, 28 Dec 1994 11:15:39 +0700	Re: Truth-Table generator
+g94c_m0046	group94c.txt	46	Wed, 28 Dec 1994 13:33:14 GMT+447	Re: Truth Tables...
+g95a_m0014	group95a.txt	14	17 Jan 1995 12:30:50 GMT	OK so DeMorgan's Law does work after all, hey, I'm from Delphi
+g95b_m0036	group95b.txt	36	Tue, 30 May 1995 16:31:09 GMT	problem with 'key'
+g96a_m0075	group96a.txt	75	Wed, 10 Apr 1996 14:23:35 -0700	Re: How to think about Icon?
+g97a_m0103	group97a.txt	103	Mon, 07 Apr 1997 12:28:36 -0400	Problem with Icon 9.3
+g97a_m0107	group97a.txt	107	Wed, 09 Apr 1997 15:06:07 -0500	Re: Problem with Icon 9.3
+g97a_m0107_2	group97a.txt	107	Wed, 09 Apr 1997 15:06:07 -0500	Re: Problem with Icon 9.3
+g97a_m0131	group97a.txt	131	Tue, 10 Jun 1997 14:00:39 -0500	Re: searching with variables
+g97b_m0095	group97b.txt	95	Fri, 24 Oct 1997 12:58:06 +1000	Re: tabulating values
+g97b_m0095_2	group97b.txt	95	Fri, 24 Oct 1997 12:58:06 +1000	Re: tabulating values
+g97b_m0128	group97b.txt	128	Tue, 25 Nov 1997 20:53:23 -0500	Re: Question - How to extract data from a formatted line.
+g98a_m0017	group98a.txt	17	Fri, 23 Jan 1998 10:36:44 +0100	Interesting feature
+g98a_m0162	group98a.txt	162	Tue, 14 Apr 1998 21:34:57 EDT	Tables of records
+g98b_m0068	group98b.txt	68	Thu, 4 Jun 1998 11:38:20 -0400 (EDT)	jcon question
+g98b_m0160	group98b.txt	160	Fri, 28 Aug 1998 16:59:49 BST	A hood fan is guard to mind.
+g98b_m0163	group98b.txt	163	28 Aug 1998 13:58:54 -0400	A prooner spogram.
+g98b_m0166	group98b.txt	166	Sat, 29 Aug 1998 01:50:56 -0500	Re: A hood fan is guard to mind.
+g98b_m0166_3	group98b.txt	166	Sat, 29 Aug 1998 01:50:56 -0500	Re: A hood fan is guard to mind.
+g98b_m0172	group98b.txt	172	Mon, 31 Aug 1998 09:05:25 -0700	Re: A hood fan is guard to mind.
+g98b_m0173	group98b.txt	173	Mon, 31 Aug 1998 09:11:59 -0700	Re: A hood fan is guard to mind.
+g98b_m0174	group98b.txt	174	Mon, 31 Aug 1998 09:23:41 -0700	Re: A hood fan is guard to mind.
+g98b_m0175	group98b.txt	175	Mon, 31 Aug 1998 10:19:34 -0700	RE: A hood fan is guard to mind.
+g98c_m0127	group98c.txt	127	Thu, 10 Dec 1998 12:43:24 -0500 (EST)	Plus, also, too.
+g98c_m0127_2	group98c.txt	127	Thu, 10 Dec 1998 12:43:24 -0500 (EST)	Plus, also, too.
+g98c_m0128	group98c.txt	128	Thu, 10 Dec 1998 10:44:01 -0700	Re: Formatting Reals
+g99a_m0206	group99a.txt	206	02 Oct 1999 15:23:04 -0700	Re: A small puzzle
+g99a_m0211	group99a.txt	211	Thu, 07 Oct 1999 09:33:25 -0700	Re: A small puzzle
+g99a_m0232	group99a.txt	232	Wed, 17 Nov 1999 17:48:20 -0500	Strange table behavior

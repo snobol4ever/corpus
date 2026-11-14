@@ -1,0 +1,13 @@
+procedure main()
+   mylist := [];
+   terminator := "xxx";
+
+   line := "this isxxxa linexxxof formatted dataxxx";
+
+   line ?  {
+      while put(mylist, tab(find(terminator))) do   # grab the data
+         move(*terminator);                                  # skip length of
+terminator
+      };
+   while write(pop(mylist));
+end

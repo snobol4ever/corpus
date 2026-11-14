@@ -1,0 +1,17 @@
+procedure main()
+    every i := 1 to 5 do
+	{
+	plusi := plusNexp(i);
+	every j := 1 to 5 do
+	    write("(is ",j @ plusi,", check ",i+j,")")
+	};
+end
+
+# Create a coexpression that adds N to the input number
+procedure plusNexp(N)
+    local cexp, T;   		# N and T are copied into coexpression
+
+    cexp := create repeat { T := N+T @ &source };
+    @cexp;	# dummy call to get things going
+    return cexp;
+end

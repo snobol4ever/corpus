@@ -1,0 +1,5 @@
+procedure main()
+    file := [&output, &null];
+    every write(!file, "There it goes!");
+    return;
+end

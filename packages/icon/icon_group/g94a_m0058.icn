@@ -1,0 +1,13 @@
+record r(a,b,c,d)
+
+procedure main()
+   r1 := r();
+   every !r1 := foobar();
+   every write(!r1);
+end
+
+procedure foobar()
+   static i;
+   initial i := 0;
+   return i +:= 1;
+end

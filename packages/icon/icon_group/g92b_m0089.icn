@@ -1,0 +1,49 @@
+# This is an Icon program to test the nature of sets in Icon.
+# It is inspired by a question from Jan Peter de Ruiter.
+
+procedure main()
+
+super1 := set([15,15]);
+write("Try set([15,15])");
+write("The size is ",*super1);
+
+super1 := set( [set([15]), set([15])] );
+write("Try set( [set([15]), set([15])] )");
+write("The size is ",*super1);
+
+super1 := set([[15],[15]]);
+write("Try set([[15],[15]])");
+write("The size is ",*super1);
+
+super1 := set(["one","one"]);
+write("Try set([\"one\",\"one\"])");
+write("The size is ",*super1);
+
+super1 := set([11,12]) ++ set([12]);
+write("Try set([11,12]) ++ set([12])");
+write("The size is ",*super1);
+
+sub1 := set(["one","two"]);
+sub2 := set(["two","one"]);
+
+write(" "); # blank line
+write("sub1 and sub2 are Jan's sets.");
+write("sub1 is ",image(sub1));
+write("sub2 is ",image(sub2));
+super1 := set();
+
+insert(super1,sub1);
+insert(super1,sub2);
+
+write("The size of super1 using inserts is ",*super1);
+write("super1 looks like ",image(super1));
+
+super1 := set();
+
+super1 ++:= sub1;
+super1 ++:= sub2;
+
+write("The size of super1 using set union is ",*super1);
+write("super1 looks like ",image(super1));
+
+end

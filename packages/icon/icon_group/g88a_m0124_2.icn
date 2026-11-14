@@ -1,0 +1,14 @@
+procedure main()
+  S := create WriteString();
+  while write(@S);
+end
+
+procedure WriteString()
+  SS := create WriteString2();
+  while s := @SS
+  do suspend s;
+end
+
+procedure WriteString2()
+  every suspend !"AbCdEfGh";
+end

@@ -1,0 +1,53 @@
+# Generate the pairings for each round of a round-robin tournament.
+#
+# Usage: roundrobin list-of-players...
+#
+procedure main(args)
+    if *args = 0 then args := ["alice", "bonnie", "carole"];
+    doRoundRobin(args);
+end
+
+# Do the scheduling for the tournament.
+#
+#   This implementation produces an 'interesting' final round.  If the
+#   order of the names given on the command line corresponds to the
+#   seeding order for the tournament, then the final round pairs
+#   the top two seeds, the next two, and so on.  This should help
+#   keep the spectators around, allowing you to make more money
+#   on refreshments.  If you don't want this, comment out the line:
+#
+#     names := reorder(names)
+#
+procedure doRoundRobin(names)
+    # force an even number of contestents
+    if *names % 2 = 1 then put(names,"bye");
+
+    names := reorder(names);
+
+    every outPairs(1 to *names-1, names := adjust(names));
+end 
+
+# Adjust the list of players for the next round.
+#
+#   The algorithm is "leave the first alone, rotate the rest one position"
+#
+procedure adjust(playerList)
+    return playerList[1:2] ||| playerList[3:0] ||| playerList[2:3];
+end
+
+# Display the pairings for a single round.
+#
+procedure outPairs(i, names)
+    write("Round ",i);
+    every c := 1 to (*names/2) do {   # pair from edges toward center
+        write("\tCourt ", right(c,2), ": ", names[c], " vs ", names[-c])
+        };
+end
+
+# Reorder the names so the first call to adjust() produces an ordering
+#   that ensures the final round pairs the players in the original order
+#
+procedure reorder(names)
+    every new := put([], names[(1 to *names by 2) | (*names to 2 by -2)]);
+    return new;
+end

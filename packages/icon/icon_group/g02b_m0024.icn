@@ -1,0 +1,10 @@
+invocable all  # declares all procedures as invocable
+
+procedure main(args)
+    if r := args[1]!args[2:0] then  # calls procedure named as first
+                                    # command line argument with following 
+                                    # command line arguments
+        write("Result: ", image(r))
+    else
+        write("Call failed...");
+end

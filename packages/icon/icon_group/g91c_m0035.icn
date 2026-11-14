@@ -1,0 +1,15 @@
+procedure main()
+   every write( Primes()\100 );
+end
+
+procedure Primes()
+   local first, sequence, val;
+
+   sequence := create seq(2);
+   repeat {
+      suspend first := @sequence;
+      sequence := create | if (val := @sequence) % first ~= 0
+			   then val else @sequence
+   };
+
+end

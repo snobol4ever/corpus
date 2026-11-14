@@ -1,0 +1,15 @@
+procedure true()
+   return;
+end
+
+procedure false()
+   fail;
+end
+
+procedure main()
+   local x, y;
+   x := true;
+   y := false;
+   if x() then write("true") else write("false");
+   if y() then write("true") else write("false");
+end

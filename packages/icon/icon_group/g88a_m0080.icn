@@ -1,0 +1,9 @@
+procedure main()
+  C := create GetVal(); 
+  every a|b|c := @C;
+  write(a,b,c);
+end
+
+procedure GetVal()
+  every suspend "6"|"7"|"8";
+end

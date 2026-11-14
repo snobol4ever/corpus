@@ -1,0 +1,22 @@
+procedure main(LArguments)
+
+	local	SColors;
+
+	SColors := set(["red", "green", "blue" ]);
+	every write(image(Permute(SColors)));
+
+
+end
+
+
+procedure Permute(SSet)
+
+	local	sString;
+
+	every sString := !SSet do {
+		every suspend sString || " " || Permute(delete(copy(SSet), sString))
+	};
+
+	return "";
+
+end

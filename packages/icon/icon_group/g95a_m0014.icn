@@ -1,0 +1,68 @@
+############################################################################
+#
+#  File:     DeMorgan.Icn
+#
+#  Subject:  Demonstrate DeMorgan's Law using &null as false and 1 as true
+#
+#  Author:   Ken Walker <kwalker@sirtur.premenos.com>
+#
+#  Date:     June 12, 1991
+#
+############################################################################
+
+record pair(a,b)
+
+procedure main()
+   local x;
+
+   #
+   # Print truth tables.
+   #
+   write("A    B    (not A) & (not B)    not (A | B)");
+   write("------------------------------------------");
+   every x := comb() do {
+      writes(format(x.a), "    ", format(x.b), "            ");
+      if ((not \x.a) & (not \x.b)) then
+         writes("T")
+      else
+         writes("F");
+      writes("                 ");
+      if not (\x.a | \x.b) then
+         write("T")
+      else
+         write("F")
+   };
+
+   write();
+   write("A    B    (not A) | (not B)    not (A & B)");
+   write("------------------------------------------");
+   every x := comb() do {
+      writes(format(x.a), "    ", format(x.b), "            ");
+      if ((not \x.a) | (not \x.b)) then
+         writes("T")
+      else
+         writes("F");
+      writes("                 ");
+      if not (\x.a & \x.b) then
+         write("T")
+      else
+         write("F")
+   };
+end
+
+#
+# comb() - produce all 4 pairs of "logical" values.
+#
+procedure comb()
+   suspend pair(1 | &null, 1 | &null);
+end
+
+#
+# Convert a "logical" value to "T" or "F".
+#
+procedure format(x)
+   if \x then
+      return "T"
+   else
+      return "F";
+end

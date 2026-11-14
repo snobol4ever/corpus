@@ -1,0 +1,12 @@
+procedure main()
+	s1 := "This is a string";
+	write(s1);
+#	s2[2] := s1
+#	write(s2)
+	s3 := "Oh, no, Mr. Bill!  ";
+	s4 := s3 || s1;
+	write(s4);
+	s3[2] := s1;
+	write(s3);
+	exit();
+end

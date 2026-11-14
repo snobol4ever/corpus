@@ -1,0 +1,10 @@
+procedure main()
+gen := create numbers();
+result := "";
+while result ||:= @gen;
+write(result);
+end
+
+procedure numbers()
+   every ((i := 1 to 10) || ",") @ &source;
+end

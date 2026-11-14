@@ -1,0 +1,18 @@
+   link regexp
+
+   procedure main()
+
+     local pat, cnt, l;
+
+     pat := RePat("(XMULT|XZERO|YMULT|YZERO):([0-9]+\.[0-9]*E[-+][0-9]+)");
+     cnt := 0;
+
+     while l := read() do
+every ReFind(pat, l) do {
+  write(Re_ParenGroups[1], " is ", Re_ParenGroups[2]); 
+  cnt +:= 1
+  };
+
+     write("cnt = ", cnt);
+
+     end # main

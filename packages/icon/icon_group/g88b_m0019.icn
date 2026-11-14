@@ -1,0 +1,5 @@
+procedure main()
+  t := table();
+  t[[2,3]] := "Hi there";
+  write("this is it :",t[[2,3]],".");
+end

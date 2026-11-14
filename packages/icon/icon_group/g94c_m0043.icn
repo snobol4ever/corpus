@@ -1,0 +1,29 @@
+procedure main()
+   local t1, t2;
+
+   every (t1 := (0|1)) & (t2 := (0|1)) do {
+      every writes(format ( t1 | t2 |		  # variables
+                           "|" |			  # separator
+                           iand(t1,t2) | ior(t1,t2) |  # functions
+                           ixor(t1,t2)
+                  ));
+      write()
+      };
+
+end
+
+procedure format(t)
+
+   # pretty up things for output, the 'wide' field width (5 characters)
+   #   would let this be used to produce a table header, as in:
+   #
+   #     every writes(format("A" | "B" | "" | "A&B" | "A|B" | "A^B"))
+   #     write()
+   #
+   #   though the above main program doesn't do so...
+   # since this is a one-liner, it could be embedded in place of the call
+   #   above, but that would be ugly!
+
+   return center(map(t, "01", "FT"), 5);
+
+end

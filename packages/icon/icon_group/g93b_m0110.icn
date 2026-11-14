@@ -1,0 +1,23 @@
+global i1, i2
+
+procedure main(switch)
+   i1 := 1;
+   i2 := 2;
+   if *switch > 0 then {
+      write( "pick() +:= 10" );
+      pick() +:= 10
+   } else {
+      write( "pick() := pick() + 10" );
+      pick() := pick() + 10
+   };
+   write( i1, " ", i2 );
+end  # procedure main
+
+procedure pick()
+   static i;
+   initial i := 0;
+   case i +:= 1 of {
+      1 : return i1;
+      2 : return i2
+   };
+end  # procedure pick

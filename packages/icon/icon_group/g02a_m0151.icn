@@ -1,0 +1,20 @@
+# allow string-invocation of procedures
+invocable all
+
+procedure main (args)
+    x := 2;
+    Y := [4, 6, 8];
+    F := ["square", "cube"];
+
+    # Find every (f, y) in F * Y s.t. y = f(x)
+    every (y := !Y) = (f := !F)(x)
+        do write (y, " = ", f, "(2)");
+end
+
+# complicated functions, here
+procedure square (n)
+    return n * n;
+end
+procedure cube (n)
+    return n * n * n;
+end

@@ -1,0 +1,25 @@
+procedure main()
+
+  List := list(4,[""]);
+  List[1] := AlterList(copy(List[1]));
+  WriteList(List);
+
+end
+
+
+procedure AlterList(l)
+
+  l[1] := "hello";
+  return l;
+
+end
+
+
+procedure WriteList(List)
+
+  local i;
+  every i := 1 to *List
+  do write(List[i][1]);
+  return 0;
+
+end

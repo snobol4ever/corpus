@@ -1,0 +1,4 @@
+procedure main()
+	x := set([1,2,3]);
+	every writes(e := !x, " ") do insert(x, e+10);
+end

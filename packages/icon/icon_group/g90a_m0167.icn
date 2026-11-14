@@ -1,0 +1,34 @@
+# Reversible assignments to global variables inside procedures are
+# not being reversed.
+#
+# The program below prints out three.  It should print out one.  Obviously,
+# the reversible assignment to z is not being reversed when test does not 
+# lead to an eventual success.
+#
+# Why does the reversing of the assignment not take place, and what would
+# make it do so?
+#
+# The Icon Programming Language, Chapter 11, section 11.8.2 did not shed
+# any light on these issues.
+
+
+global z
+
+procedure test(i)
+
+  z<-z+1;
+  if i~=3 then fail;
+  if i=3 then return 1;
+
+end
+
+
+
+procedure main()
+
+  z:=0;        # not needed!!!!!
+  every i:= 1 to 10
+  do if test(i)
+     then write("test succeeded ",i," ",z);
+
+end

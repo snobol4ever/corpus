@@ -1,0 +1,28 @@
+procedure main(args)
+	s := "that begins this string";
+	l := ["th","that beg","not close","","tha","begins t","that b","t"];
+	write(longstr(l,s,6,12)) | write("nomatch");
+	l := ["th","that beg","not close","tha","begins t","that b","t"];
+	write(longstr(l,s,6,12)) | write("nomatch");
+end
+
+procedure longstr(l,s,i,j)
+    ##### borrowed #####
+    /s := &subject;
+    if \i then {
+	if i < 1 then
+	    i := *s + (i+1)
+    }
+    else i := \&pos | 1;
+    if \j then {
+	if j < 1 then
+	    j := *s + (j+1)
+    }
+    else j := *s+1;
+    ##### borrowed #####
+
+    m := 0;
+    while m <:= *(p := (s[i:j] ? =!l));
+    if /p then fail
+    else return i + m;
+end

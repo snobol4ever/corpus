@@ -1,0 +1,10 @@
+procedure main()
+  every write(image(gen(["red ", "green ", "blue "])));
+end
+
+procedure gen(strings, s, i)
+  /s := "" & i := 1;
+  if i > *strings then return s
+  else every (t := ("" | !strings)) & (not find(t, "" ~== s)) do
+      suspend gen(strings, s || t, i + 1);
+end

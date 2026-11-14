@@ -1,0 +1,32 @@
+record A (a1, a2, a3)           # some arbitrary record
+
+procedure main ()
+    ar := A (1, 2, 3);
+
+    # Attempt one:  naively assume we can preserve the lvalue
+    every (t := !ar) do
+        t := (.t+1);
+    writes (image (ar), " -- ");
+    every writes (! ar, " ");
+    write ();
+
+    # Attempt two: maybe we can fool it
+    every (t := !ar) := (t+1);
+    writes (image (ar), " -- ");
+    every writes (! ar, " ");
+    write ();
+
+    # Brute force: this works, but it's gotta be inefficient in both
+    # time and space
+    nr := list();
+    every put (nr, !ar + 1);
+    ar := type(ar) ! nr; # -10 points for using arcane features....
+    writes (image (ar), " -- ");
+    every writes (! ar, " ");
+    write ();
+
+    # What I'd like:
+    # every !ar := (&currentgenelt)+1
+    # but for some reason that doesn't work....
+
+    end # main

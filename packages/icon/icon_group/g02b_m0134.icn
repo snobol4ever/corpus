@@ -1,0 +1,10 @@
+link regexp
+
+procedure main(args)
+    pat := RePat("\t");
+    str := "now is the  time    "; 
+    write(image(str));
+    str ? {
+        while write(tab(ReFind(pat))) do move(1)
+        };
+end

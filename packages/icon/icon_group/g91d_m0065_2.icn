@@ -1,0 +1,5 @@
+procedure main()
+  line := "Now and then";
+  line ?:= { move(3) & move(4) };
+  write(line);    # writes " and" as it is supposed to
+end

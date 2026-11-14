@@ -1,0 +1,4 @@
+procedure main()
+    every i := 2(1 to 3, 4 to 6, 7 to 9) do
+        write(i);
+end

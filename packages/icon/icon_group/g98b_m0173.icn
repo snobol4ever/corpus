@@ -1,0 +1,41 @@
+procedure main()
+   local fillers, firstChar, remainingChars;
+
+   #
+   # The sentence is broken into three categories:
+   #   parts not participating in the substitution
+   #   the initial characters of the words involved in substitution
+   #   the tail of the words involved in substitution
+   #
+   fillers :=    ["A ",    " ",  " is ", " to ",    "."];
+   firstChar :=     ["g",    "m",   "h",     "f"];
+   remainingChars := ["ood",  "an",  "ard",    "ind"];
+
+   every write(polyspoonerism(fillers, firstChar, remainingChars, ""));
+end
+
+procedure polyspoonerism(
+  fillers,        # words before each participating word
+  firstChar,      # first characters to use in substitutions
+  remainingChars, # words (w/out 1st char) that are participating
+  sentence)       # sentence so far
+
+  local indx;
+
+  if *remainingChars = 0 then
+     return sentence || (fillers[1] | "");
+
+  #
+  # Use each of the remaining first characters
+  #
+  every indx := 1 to *firstChar  do {
+     #
+     # Add the next set of parts to the sentence then call
+     # the function recursively.
+     #
+     suspend polyspoonerism(fillers[2:0],
+        firstChar[1:indx] ||| firstChar[indx+1:0],
+        remainingChars[2:0],
+        sentence || fillers[1] || firstChar[indx] || remainingChars[1])
+  };
+end

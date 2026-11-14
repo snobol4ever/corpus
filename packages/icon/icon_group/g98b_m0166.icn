@@ -1,0 +1,9 @@
+procedure main()
+  L := ['g','m','h','f'];
+  every write(fit(!L,!L,!L,!L));
+end
+global L
+procedure fit(a,b,c,d)
+  if *(a ++ b ++ c ++ d) < 4 then fail;
+  return "A "|| a ||"ood "|| b ||"an is "|| c ||"ard to "|| d ||"ind.";
+end

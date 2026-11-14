@@ -1,0 +1,526 @@
+# MINED.tsv -- icon_group: every candidate program the miner cut from the archive (a run of whole procedures holding a main, in an unquoted message body) and what became of it;
+# only ABSORBED ones are files of this package. SCREENED: the text names a way out of the process or a keyword whose value is the machine or the clock, so it was never run.
+candidate	verdict	note
+g00a_m0011	SCREENED	remove
+g00a_m0014	ABSORBED	
+g00a_m0015	ABSORBED	
+g00a_m0018	ABSORBED	
+g00a_m0019	EMPTY	prints nothing with no input
+g00a_m0019_2	ABSORBED	
+g00a_m0027	EMPTY	prints nothing with no input
+g00a_m0031	RC	1 Run-time error 111 / File p.icn; Line 8 / variable expected / offending value: 1 / Traceback: / main
+g00a_m0032	SCREENED	open
+g00a_m0038	SCREENED	open
+g00a_m0052	ABSORBED	
+g00a_m0064	NO-TRANSLATE	File p.icn; Line 5 # "end": invalid argument for unary operator
+g00a_m0078	SCREENED	WOpen
+g00a_m0078_2	SCREENED	system
+g00a_m0097	ABSORBED	
+g00a_m0131	ABSORBED	
+g00a_m0158	EMPTY	prints nothing with no input
+g00a_m0160	EMPTY	prints nothing with no input
+g00a_m0161	RC	1 Run-time error 106 / File p.icn; Line 2 / procedure or integer expected / offending value: &null / T
+g00a_m0162	EMPTY	prints nothing with no input
+g00b_m0013	SCREENED	&clock
+g00b_m0029	RC	1 Run-time error 109 / File p.icn; Line 8 / string or file expected / offending value: list_3 = [list_
+g00b_m0075	RC	1 Usage: mapFile string1=string2 ...
+g00b_m0090	EMPTY	prints nothing with no input
+g00b_m0090_2	RC	1 Run-time error 111 / File p.icn; Line 4 / variable expected / offending value: 5 / Traceback: / main
+g00b_m0093	RC	1 Run-time error 111 / File p.icn; Line 4 / variable expected / offending value: 5 / Traceback: / main
+g00b_m0094	ABSORBED	
+g00b_m0102	EMPTY	prints nothing with no input
+g00b_m0104	ABSORBED	
+g00b_m0104_2	ABSORBED	
+g00b_m0107	RC	1 Run-time error 111 / File p.icn; Line 4 / variable expected / offending value: 5 / Traceback: / main
+g00b_m0107_2	EMPTY	prints nothing with no input
+g00b_m0117	NO-TRANSLATE	File p.icn; Line 1 # "zinc.icn": cannot open
+g00b_m0118	NO-TRANSLATE	icont: cannot resolve reference to file 'split.u1'
+g00b_m0131	SCREENED	open
+g00b_m0133	ABSORBED	
+g00b_m0136	EMPTY	prints nothing with no input
+g00b_m0137	EMPTY	prints nothing with no input
+g01b_m0042	ABSORBED	
+g01b_m0068	SCREENED	kbhit
+g01b_m0072	RC	1 Run-time error 103 / File p.icn; Line 11 / string expected / offending value: &null / Traceback: / m
+g01b_m0077	EMPTY	prints nothing with no input
+g01b_m0078	EMPTY	prints nothing with no input
+g01b_m0083	SCREENED	open
+g01b_m0085	SCREENED	open
+g01b_m0090	SCREENED	open
+g01b_m0110	SCREENED	WOpen
+g01b_m0124	SCREENED	open
+g01b_m0125	SCREENED	open
+g01b_m0144	SCREENED	open
+g01b_m0147	SCREENED	open
+g01b_m0164	SCREENED	&date
+g01b_m0164_2	SCREENED	&date
+g01b_m0170	ABSORBED	
+g01b_m0171	ABSORBED	
+g01b_m0176	ABSORBED	
+g01b_m0176_2	ABSORBED	
+g02a_m0030	SCREENED	chdir
+g02a_m0151	ABSORBED	
+g02a_m0156	ABSORBED	
+g02b_m0024	ABSORBED	
+g02b_m0069	SCREENED	open
+g02b_m0078	ABSORBED	
+g02b_m0080	SCREENED	WOpen
+g02b_m0080_2	SCREENED	WOpen
+g02b_m0082	ABSORBED	
+g02b_m0085	ABSORBED	
+g02b_m0089	SCREENED	WOpen
+g02b_m0089_2	SCREENED	WOpen
+g02b_m0097	SCREENED	open
+g02b_m0098	NO-TRANSLATE	File p.icn; Line 2 # "D": missing semicolon or operator
+g02b_m0134	ABSORBED	
+g02b_m0141	RC	1 Run-time error 103 / File p.icn; Line 12 / string expected / offending value: &null / Traceback: / m
+g02b_m0146	RC	1 Run-time error 122 / File p.icn; Line 5 / set or table expected / offending value: list_2 = [1,2,3,.
+g02b_m0161	RC	1 Run-time error 106 / File p.icn; Line 4 / procedure or integer expected / offending value: &null / T
+g02b_m0169	ABSORBED	
+g02b_m0169_2	ABSORBED	
+g03a_m0002	EMPTY	prints nothing with no input
+g03a_m0041	SCREENED	open
+g03a_m0041_2	SCREENED	open
+g03a_m0065	SCREENED	open
+g03a_m0092	EMPTY	prints nothing with no input
+g03a_m0093	SCREENED	&clock
+g03a_m0093_2	SCREENED	&clock
+g03a_m0101	ABSORBED	
+g03a_m0102	RC	1 Run-time error 117 in startup code / missing main procedure
+g83_m0013	ABSORBED	
+g84_m0001	SCREENED	&version
+g84_m0017	HANG	over 20 s with no input
+g84_m0025	HANG	over 20 s with no input
+g85_m0016	RC	1 Run-time error 106 / File p.icn; Line 6 / procedure or integer expected / offending value: &null / T
+g85_m0025	RC	1
+g87_m0020	ABSORBED	
+g87_m0023	ABSORBED	
+g87_m0081	ABSORBED	
+g87_m0081_2	ABSORBED	
+g87_m0102	EMPTY	prints nothing with no input
+g87_m0110	ABSORBED	
+g87_m0110_2	ABSORBED	
+g87_m0133	SCREENED	open
+g87_m0134	SCREENED	open
+g87_m0138	SCREENED	open
+g87_m0181	EMPTY	prints nothing with no input
+g87_m0181_2	EMPTY	prints nothing with no input
+g87_m0187	EMPTY	prints nothing with no input
+g88a_m0003	SCREENED	open
+g88a_m0009	SCREENED	open
+g88a_m0013	SCREENED	remove
+g88a_m0014	SCREENED	open
+g88a_m0019	EMPTY	prints nothing with no input
+g88a_m0025	ABSORBED	
+g88a_m0040	SCREENED	open
+g88a_m0040_2	NO-TRANSLATE	icont: cannot resolve reference to file 'mailio.u1'
+g88a_m0040_3	NO-TRANSLATE	icont: cannot resolve reference to file 'mailio.u1'
+g88a_m0041	SCREENED	&host
+g88a_m0059	SCREENED	remove
+g88a_m0065	RC	1
+g88a_m0065_2	RC	1 no way to schedule!
+g88a_m0074	EMPTY	prints nothing with no input
+g88a_m0080	ABSORBED	
+g88a_m0080_2	ABSORBED	
+g88a_m0081	EMPTY	prints nothing with no input
+g88a_m0087	EMPTY	prints nothing with no input
+g88a_m0088	ABSORBED	
+g88a_m0091	EMPTY	prints nothing with no input
+g88a_m0092	EMPTY	prints nothing with no input
+g88a_m0093	EMPTY	prints nothing with no input
+g88a_m0093_2	NO-TRANSLATE	File p.icn; Line 2 # ",": missing right bracket
+g88a_m0095	RC	1 Run-time error 106 / File p.icn; Line 10 / procedure or integer expected / offending value: &null /
+g88a_m0096	EMPTY	prints nothing with no input
+g88a_m0096_2	EMPTY	prints nothing with no input
+g88a_m0106	RC	-11
+g88a_m0108	SCREENED	open
+g88a_m0110	SCREENED	&version
+g88a_m0112	SCREENED	&collections
+g88a_m0124	ABSORBED	
+g88a_m0124_2	ABSORBED	
+g88a_m0130	ABSORBED	
+g88a_m0173	NO-TRANSLATE	File p.icn; Line 3 # ".": invalid field name
+g88a_m0176	NO-TRANSLATE	File p.icn; Line 3 # ".": invalid field name
+g88a_m0176_2	ABSORBED	
+g88a_m0180	ABSORBED	
+g88b_m0006	RC	1 Run-time error 106 / File p.icn; Line 6 / procedure or integer expected / offending value: &null / T
+g88b_m0007	ABSORBED	
+g88b_m0009	EMPTY	prints nothing with no input
+g88b_m0019	ABSORBED	
+g88b_m0020	ABSORBED	
+g88b_m0058	ABSORBED	
+g88b_m0084	SCREENED	&date
+g88b_m0098	SCREENED	open
+g88b_m0104	SCREENED	open
+g88b_m0106	SCREENED	open
+g88b_m0109	EMPTY	prints nothing with no input
+g88b_m0111	EMPTY	prints nothing with no input
+g88b_m0112	EMPTY	prints nothing with no input
+g89a_m0003	NO-TRANSLATE	File p.icn; Line 23 # "return": missing then
+g89a_m0005	EMPTY	prints nothing with no input
+g89a_m0007	ABSORBED	
+g89a_m0007_2	ABSORBED	
+g89a_m0063	ABSORBED	
+g89a_m0075	NO-TRANSLATE	File p.icn; Line 3 # ":": missing semicolon or operator
+g89a_m0088	EMPTY	prints nothing with no input
+g89a_m0111	ABSORBED	
+g89b_m0003	EMPTY	prints nothing with no input
+g89b_m0025	SCREENED	open
+g89b_m0034	SCREENED	&host
+g89b_m0037	SCREENED	&host
+g89b_m0045	NO-TRANSLATE	icont: cannot resolve reference to file 'DH0:icon/ipl/procs/dt-strutil.u1'
+g89b_m0059	NO-TRANSLATE	File p.icn; Line 1 # "HANDY": invalid declaration
+g89b_m0059_2	SCREENED	&dateline
+g89b_m0066	EMPTY	prints nothing with no input
+g89b_m0071	EMPTY	prints nothing with no input
+g89b_m0089	ABSORBED	
+g89b_m0090	ABSORBED	
+g89b_m0096	ABSORBED	
+g89b_m0122	SCREENED	&time
+g89b_m0123	SCREENED	&time
+g89b_m0126	SCREENED	&time
+g89b_m0129	EMPTY	prints nothing with no input
+g89b_m0129_2	EMPTY	prints nothing with no input
+g90a_m0012	SCREENED	remove
+g90a_m0043	SCREENED	open
+g90a_m0045	SCREENED	open
+g90a_m0046	SCREENED	open
+g90a_m0070	SCREENED	open
+g90a_m0072	SCREENED	open
+g90a_m0073	SCREENED	remove
+g90a_m0075	RC	1 Run-time error 106 / File p.icn; Line 6 / procedure or integer expected / offending value: &null / T
+g90a_m0079	SCREENED	open
+g90a_m0080	SCREENED	open
+g90a_m0120	SCREENED	open
+g90a_m0122	SCREENED	open
+g90a_m0125	SCREENED	open
+g90a_m0126	SCREENED	open
+g90a_m0132	SCREENED	open
+g90a_m0161	EMPTY	prints nothing with no input
+g90a_m0166	ABSORBED	
+g90a_m0167	ABSORBED	
+g90a_m0170	EMPTY	prints nothing with no input
+g90a_m0187	EMPTY	prints nothing with no input
+g90a_m0207	EMPTY	prints nothing with no input
+g90a_m0209	EMPTY	prints nothing with no input
+g90b_m0004	SCREENED	open
+g90b_m0018	SCREENED	open
+g90b_m0044	ABSORBED	
+g90b_m0060	SCREENED	open
+g90b_m0064	EMPTY	prints nothing with no input
+g90b_m0075	EMPTY	prints nothing with no input
+g90b_m0080	EMPTY	prints nothing with no input
+g90b_m0089	SCREENED	open
+g90b_m0089_2	SCREENED	open
+g90b_m0096	SCREENED	open
+g90b_m0097	SCREENED	open
+g90b_m0112	EMPTY	prints nothing with no input
+g90b_m0113	EMPTY	prints nothing with no input
+g90b_m0114	EMPTY	prints nothing with no input
+g90b_m0126	SCREENED	&host
+g90c_m0016	EMPTY	prints nothing with no input
+g90c_m0019	SCREENED	system
+g90c_m0020	RC	1 Run-time error 111 / File p.icn; Line 8 / variable expected / offending value: "9" / Traceback: / ma
+g90c_m0021	ABSORBED	
+g90c_m0027	SCREENED	open
+g90c_m0061	ABSORBED	
+g90c_m0061_2	ABSORBED	
+g90c_m0065	RC	1 Run-time error 106 / File p.icn; Line 3 / procedure or integer expected / offending value: &null / T
+g90c_m0074	SCREENED	kbhit
+g90c_m0078	SCREENED	open
+g90c_m0093	SCREENED	&clock
+g90c_m0099	NO-TRANSLATE	File p.icn; Line 63 # "0": missing colon or ampersand
+g90c_m0103	SCREENED	open
+g90c_m0105	RC	1 Run-time error 106 / File p.icn; Line 11 / procedure or integer expected / offending value: &null /
+g90c_m0116	SCREENED	&clock
+g90c_m0123	SCREENED	&host
+g91a_m0009	SCREENED	&features
+g91a_m0012	SCREENED	open
+g91a_m0018	SCREENED	system
+g91a_m0023	SCREENED	system
+g91a_m0044	SCREENED	open
+g91a_m0084	NO-TRANSLATE	File p.icn; Line 3 # "]": invalid argument for unary operator
+g91a_m0107	RC	1 Run-time error 500 / File p.icn; Line 5 / program malfunction / Traceback: / main() / runerr(500) fr
+g91a_m0109	SCREENED	open
+g91a_m0113	SCREENED	open
+g91a_m0118	ABSORBED	
+g91a_m0119	ABSORBED	
+g91a_m0127	ABSORBED	
+g91b_m0011	SCREENED	&host
+g91b_m0021	ABSORBED	
+g91b_m0030	SCREENED	system
+g91b_m0035	SCREENED	&version
+g91b_m0039	ABSORBED	
+g91b_m0049	EMPTY	prints nothing with no input
+g91b_m0049_2	EMPTY	prints nothing with no input
+g91b_m0050	EMPTY	prints nothing with no input
+g91b_m0053	EMPTY	prints nothing with no input
+g91b_m0061	SCREENED	&clock
+g91b_m0062	SCREENED	&clock
+g91b_m0077	NO-TRANSLATE	File p.icn; Line 5 # invalid character
+g91b_m0087	SCREENED	open
+g91c_m0016	NO-TRANSLATE	File p.icn; Line 9 # "end": invalid argument for unary operator
+g91c_m0017	RC	1 Run-time error 106 / File p.icn; Line 3 / procedure or integer expected / offending value: &null / T
+g91c_m0021	EMPTY	prints nothing with no input
+g91c_m0032	SCREENED	&host
+g91c_m0032_2	ABSORBED	
+g91c_m0034	SCREENED	&host
+g91c_m0035	ABSORBED	
+g91c_m0042	ABSORBED	
+g91c_m0042_2	EMPTY	prints nothing with no input
+g91c_m0057	ABSORBED	
+g91c_m0071	SCREENED	system
+g91c_m0095	NO-TRANSLATE	File p.icn; Line 3 # "In": invalid declaration
+g91c_m0096	EMPTY	prints nothing with no input
+g91c_m0097	EMPTY	prints nothing with no input
+g91c_m0098	EMPTY	prints nothing with no input
+g91c_m0099	NO-TRANSLATE	File p.icn; Line 3 # "or": invalid declaration
+g91c_m0104	EMPTY	prints nothing with no input
+g91c_m0105	NO-TRANSLATE	File p.icn; Line 2 # "local": missing semicolon or operator
+g91c_m0113	RC	1 syntax newsuffixes old new [new . . .]
+g91c_m0113_2	SCREENED	open
+g91d_m0009	SCREENED	open
+g91d_m0021	RC	1 Run-time error 106 / File p.icn; Line 5 / procedure or integer expected / offending value: &null / T
+g91d_m0027	RC	1 Run-time error 106 / File p.icn; Line 2 / procedure or integer expected / offending value: &null / T
+g91d_m0039	ABSORBED	
+g91d_m0047	ABSORBED	
+g91d_m0048	RC	1 No 1st argument
+g91d_m0049	RC	1 No 1st argument
+g91d_m0050	SCREENED	&host
+g91d_m0053	SCREENED	&host
+g91d_m0064	ABSORBED	
+g91d_m0065	ABSORBED	
+g91d_m0065_2	ABSORBED	
+g91d_m0077	SCREENED	&version
+g91d_m0084	SCREENED	&host
+g92a_m0014	EMPTY	prints nothing with no input
+g92a_m0036	SCREENED	&features
+g92a_m0056	SCREENED	&storage
+g92a_m0057	SCREENED	open
+g92a_m0064	SCREENED	&clock
+g92a_m0073	SCREENED	system
+g92a_m0078	SCREENED	system
+g92a_m0081	SCREENED	&time
+g92b_m0009	SCREENED	open
+g92b_m0048	SCREENED	&clock
+g92b_m0053	SCREENED	open
+g92b_m0059	SCREENED	open
+g92b_m0063	RC	1 Run-time error 103 / File p.icn; Line 5 / string expected / offending value: function string / Trace
+g92b_m0077	SCREENED	open
+g92b_m0082	SCREENED	system
+g92b_m0083	ABSORBED	
+g92b_m0089	ABSORBED	
+g92b_m0095	SCREENED	remove
+g92b_m0109	SCREENED	system
+g92b_m0120	EMPTY	prints nothing with no input
+g92b_m0133	EMPTY	prints nothing with no input
+g92b_m0137	SCREENED	open
+g92b_m0141	SCREENED	open
+g92b_m0147	NO-TRANSLATE	File p.icn; Line 14 # "end": invalid argument for unary operator
+g92b_m0152	SCREENED	&clock
+g92c_m0012	SCREENED	remove
+g92c_m0018	RC	1 Run-time error 103 / File p.icn; Line 618 / string expected / offending value: &null / Traceback: /
+g92c_m0025	SCREENED	open
+g92c_m0033	EMPTY	prints nothing with no input
+g92c_m0040	ABSORBED	
+g92c_m0040_2	ABSORBED	
+g92c_m0042	EMPTY	prints nothing with no input
+g92c_m0050	ABSORBED	
+g92c_m0050_2	NO-TRANSLATE	File p.icn; Line 6 # "main": inconsistent redeclaration
+g92c_m0059	SCREENED	open
+g92c_m0074	SCREENED	open
+g92c_m0090	RC	1 Run-time error 106 / File p.icn; Line 8 / procedure or integer expected / offending value: "r" / Tra
+g92c_m0097	SCREENED	&clock
+g92c_m0098	NO-TRANSLATE	File p.icn; Line 8 # "end": invalid then clause
+g92c_m0107	NO-TRANSLATE	File p.icn; Line 6 # "code": missing right brace
+g92c_m0117	SCREENED	delay
+g93a_m0085	EMPTY	prints nothing with no input
+g93a_m0087	SCREENED	open
+g93a_m0089	SCREENED	open
+g93a_m0105	SCREENED	open
+g93a_m0107	EMPTY	prints nothing with no input
+g93a_m0111	EMPTY	prints nothing with no input
+g93a_m0113	RC	1 Run-time error 104 / File p.icn; Line 5 / cset expected / offending value: &null / Traceback: / main
+g93a_m0120	SCREENED	getenv
+g93b_m0025	SCREENED	open
+g93b_m0025_2	SCREENED	open
+g93b_m0029	SCREENED	open
+g93b_m0037	NO-TRANSLATE	File p.icn; Line 2 # "or": missing semicolon
+g93b_m0038	ABSORBED	
+g93b_m0043	NO-TRANSLATE	File p.icn; Line 7 # "main": inconsistent redeclaration
+g93b_m0044	EMPTY	prints nothing with no input
+g93b_m0065	SCREENED	open
+g93b_m0075	SCREENED	open
+g93b_m0089	ABSORBED	
+g93b_m0105	SCREENED	open
+g93b_m0110	ABSORBED	
+g93b_m0118	SCREENED	open
+g93b_m0139	ABSORBED	
+g93c_m0006	ABSORBED	
+g93c_m0006_2	ABSORBED	
+g93c_m0013	ABSORBED	
+g93c_m0024	EMPTY	prints nothing with no input
+g93c_m0048	RC	1 Run-time error 101 / File p.icn; Line 24 / integer expected or out of range / offending value: &null
+g93c_m0062	SCREENED	system
+g93c_m0098	SCREENED	&clock
+g93c_m0115	ABSORBED	
+g93c_m0119	ABSORBED	
+g93c_m0124	ABSORBED	
+g93c_m0126	SCREENED	open
+g93c_m0127	RC	1 Run-time error 106 / File p.icn; Line 2 / procedure or integer expected / offending value: &null / T
+g93c_m0128	ABSORBED	
+g93c_m0130	SCREENED	system
+g94a_m0016	SCREENED	&features
+g94a_m0020	SCREENED	open
+g94a_m0022	SCREENED	open
+g94a_m0023	SCREENED	open
+g94a_m0040	RC	1 Run-time error 103 / File p.icn; Line 9 / string expected / offending value: &null / Traceback: / ma
+g94a_m0041	SCREENED	getch
+g94a_m0057	ABSORBED	
+g94a_m0058	ABSORBED	
+g94a_m0062	SCREENED	getch
+g94a_m0094	ABSORBED	
+g94a_m0097	SCREENED	getenv
+g94a_m0099	ABSORBED	
+g94a_m0103	ABSORBED	
+g94a_m0116	SCREENED	system
+g94a_m0130	SCREENED	open
+g94a_m0139	RC	1
+g94a_m0173	RC	1 Run-time error 111 / File p.icn; Line 5 / variable expected / offending value: "\b-" / Traceback: /
+g94a_m0176	HANG	over 20 s with no input
+g94a_m0177	HANG	over 20 s with no input
+g94a_m0177_2	RC	1 Run-time error 116 / File p.icn; Line 10 / invalid type to element generator / offending value: co-e
+g94a_m0182	EMPTY	prints nothing with no input
+g94a_m0190	SCREENED	&dateline
+g94b_m0001	SCREENED	open
+g94b_m0047	SCREENED	system
+g94b_m0050	SCREENED	system
+g94b_m0103	SCREENED	&allocated
+g94b_m0114	SCREENED	open
+g94b_m0122	ABSORBED	
+g94c_m0024	EMPTY	prints nothing with no input
+g94c_m0024_2	SCREENED	system
+g94c_m0039	ABSORBED	
+g94c_m0041	ABSORBED	
+g94c_m0042	RC	1 I need a 'n'
+g94c_m0043	ABSORBED	
+g94c_m0045	NO-TRANSLATE	File p.icn; Line 4 # ";": missing right parenthesis
+g94c_m0046	ABSORBED	
+g94c_m0047	RC	1 please give a formula on the command line
+g94c_m0051	SCREENED	getche
+g95a_m0014	ABSORBED	
+g95a_m0040	EMPTY	prints nothing with no input
+g95a_m0044	SCREENED	getenv
+g95a_m0046	SCREENED	getenv
+g95b_m0011	RC	1 Usage: filter functionname [arg1 [arg2 ...]] <stdin >stdout
+g95b_m0013	RC	1 Usage: filter functionname [arg1 [arg2 ...]] <stdin >stdout
+g95b_m0036	ABSORBED	
+g95b_m0096	SCREENED	open
+g95b_m0142	SCREENED	open
+g95c_m0079	SCREENED	WOpen
+g96a_m0031	SCREENED	open
+g96a_m0075	ABSORBED	
+g96a_m0191	EMPTY	prints nothing with no input
+g96a_m0194	RC	1 Run-time error 106 / File p.icn; Line 9 / procedure or integer expected / offending value: "xxx" / T
+g96b_m0008	SCREENED	open
+g96b_m0013	EMPTY	prints nothing with no input
+g96b_m0018	EMPTY	prints nothing with no input
+g96b_m0052	EMPTY	prints nothing with no input
+g96b_m0052_2	EMPTY	prints nothing with no input
+g96b_m0053	EMPTY	prints nothing with no input
+g96b_m0054	EMPTY	prints nothing with no input
+g96b_m0057	EMPTY	prints nothing with no input
+g97a_m0001	HANG	over 20 s with no input
+g97a_m0003	EMPTY	prints nothing with no input
+g97a_m0008	EMPTY	prints nothing with no input
+g97a_m0012	EMPTY	prints nothing with no input
+g97a_m0021	NO-TRANSLATE	File p.icn; Line 10 # ".": invalid field name
+g97a_m0057	EMPTY	prints nothing with no input
+g97a_m0064	RC	1 Run-time error 103 / File p.icn; Line 27 / string expected / offending value: &null / Traceback: / m
+g97a_m0065	EMPTY	prints nothing with no input
+g97a_m0076	SCREENED	WOpen
+g97a_m0076_2	SCREENED	WOpen
+g97a_m0091	NO-TRANSLATE	File p.icn; Line 14 # "else": invalid expression
+g97a_m0092	EMPTY	prints nothing with no input
+g97a_m0094	NO-TRANSLATE	File p.icn; Line 10 # "initial": invalid expression
+g97a_m0095	EMPTY	prints nothing with no input
+g97a_m0096	EMPTY	prints nothing with no input
+g97a_m0103	ABSORBED	
+g97a_m0107	ABSORBED	
+g97a_m0107_2	ABSORBED	
+g97a_m0120	SCREENED	open
+g97a_m0121	SCREENED	open
+g97a_m0122	SCREENED	open
+g97a_m0126	NO-TRANSLATE	File p.icn; Line 15 # "invalid": missing right brace
+g97a_m0131	ABSORBED	
+g97a_m0136	EMPTY	prints nothing with no input
+g97b_m0005	DIFFERS	
+g97b_m0005_2	SCREENED	open
+g97b_m0014	SCREENED	system
+g97b_m0015	SCREENED	open
+g97b_m0050	SCREENED	system
+g97b_m0066	NO-TRANSLATE	File p.icn; Line 48 # "end": invalid expression
+g97b_m0077	NO-TRANSLATE	File p.icn; Line 27 # "invalid": missing right brace
+g97b_m0089	EMPTY	prints nothing with no input
+g97b_m0095	ABSORBED	
+g97b_m0095_2	ABSORBED	
+g97b_m0097	EMPTY	prints nothing with no input
+g97b_m0100	EMPTY	prints nothing with no input
+g97b_m0107	RC	1 Run-time error 124 / File p.icn; Line 27 / table expected / offending value: list_1 = [] / Traceback
+g97b_m0109	NO-TRANSLATE	File p.icn; Line 26 # ">>": missing semicolon
+g97b_m0120	EMPTY	prints nothing with no input
+g97b_m0128	ABSORBED	
+g97b_m0134	SCREENED	&version
+g97b_m0136	SCREENED	open
+g98a_m0002	SCREENED	open
+g98a_m0017	ABSORBED	
+g98a_m0019	SCREENED	remove
+g98a_m0019_2	SCREENED	remove
+g98a_m0130	SCREENED	&clock
+g98a_m0140	SCREENED	open
+g98a_m0152	SCREENED	&time
+g98a_m0162	ABSORBED	
+g98b_m0025	SCREENED	&features
+g98b_m0025_2	SCREENED	&features
+g98b_m0048	SCREENED	system
+g98b_m0068	ABSORBED	
+g98b_m0095	SCREENED	getenv
+g98b_m0120	SCREENED	&dateline
+g98b_m0145	NO-TRANSLATE	File p.icn; Line 8 # "into": missing right brace
+g98b_m0146	SCREENED	open
+g98b_m0155	SCREENED	WOpen
+g98b_m0160	ABSORBED	
+g98b_m0163	ABSORBED	
+g98b_m0164	NO-TRANSLATE	File p.icn; Line 12 # unclosed quote
+g98b_m0166	ABSORBED	
+g98b_m0166_2	RC	1 Run-time error 102 / File p.icn; Line 2 / numeric expected / offending value: &null / Traceback: / m
+g98b_m0166_3	ABSORBED	
+g98b_m0170	EMPTY	prints nothing with no input
+g98b_m0172	ABSORBED	
+g98b_m0173	ABSORBED	
+g98b_m0174	ABSORBED	
+g98b_m0175	ABSORBED	
+g98c_m0068	EMPTY	prints nothing with no input
+g98c_m0077	NO-TRANSLATE	File p.icn; Line 29 # "end": invalid argument for unary operator
+g98c_m0078	EMPTY	prints nothing with no input
+g98c_m0121	RC	1 Run-time error 106 / File p.icn; Line 3 / procedure or integer expected / offending value: &null / T
+g98c_m0127	ABSORBED	
+g98c_m0127_2	ABSORBED	
+g98c_m0128	ABSORBED	
+g98c_m0149	RC	1 Invalid input...
+g98c_m0154	SCREENED	open
+g99a_m0027	SCREENED	loadfunc
+g99a_m0053	EMPTY	prints nothing with no input
+g99a_m0069	SCREENED	open
+g99a_m0099	EMPTY	prints nothing with no input
+g99a_m0123	EMPTY	prints nothing with no input
+g99a_m0125	SCREENED	&time
+g99a_m0132	EMPTY	prints nothing with no input
+g99a_m0142	RC	1 Assertion failed on line 2
+g99a_m0160	NO-TRANSLATE	File p.icn; Line 2 # ";": missing right parenthesis
+g99a_m0206	ABSORBED	
+g99a_m0211	ABSORBED	
+g99a_m0211_2	EMPTY	prints nothing with no input
+g99a_m0211_3	EMPTY	prints nothing with no input
+g99a_m0217	RC	1 Run-time error 111 / File p.icn; Line 10 / variable expected / offending value: list_2 = [] / Traceb
+g99a_m0232	ABSORBED	

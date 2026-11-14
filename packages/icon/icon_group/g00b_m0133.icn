@@ -1,0 +1,22 @@
+# connect - what letters connect?
+
+procedure main()
+	l := table('');
+	r := table('');
+	nonletter := &ascii -- &lcase -- '@';
+	every line := !&input | "@@" do
+		every c := map(!line) do {
+			if any(nonletter, c) then
+				next;
+			pred2 := \pred | '@';
+			pred := \this | '@';
+			this := c;
+			l[pred] ++:= pred2;
+			r[pred] ++:= this
+		};
+	every i := key(l) do {
+		every writes(!l[i] | "(" | i | ")" | !r[i]);
+		write()
+	};
+	exit(0);
+end

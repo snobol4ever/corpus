@@ -1,0 +1,8 @@
+link ximage
+procedure main()
+   sd := table([], "object");
+   sd[[1]] := 1;
+   sd[[1]] := 2;
+
+   every write(ximage(sd));
+end

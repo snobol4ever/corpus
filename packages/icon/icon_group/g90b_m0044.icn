@@ -1,0 +1,6 @@
+procedure main()
+	write(
+		every i := 10 to 30 by 10 do every j := 1 to 4 do
+			{write(i+j); if i+j=23 then break break "outer"}
+	);
+end

@@ -1,0 +1,17 @@
+ procedure main()
+
+   every p := perms(set(["g","m","h","f"])) do
+      write("A ", p[1], "ood ", p[2], "an is ", p[3], "ard to ", p[4], "ind.");
+
+   end # main
+
+
+ procedure perms(letters)
+
+   if *letters = 0 then
+     suspend ""
+   else
+     every l := !letters do
+every suspend l || perms(delete(copy(letters), l));
+
+   end # perms

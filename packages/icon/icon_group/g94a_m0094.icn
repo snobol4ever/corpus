@@ -1,0 +1,14 @@
+link ximage
+procedure main()
+	t := table([]); # a table with default element []
+	every put(t[1],generate(1,5)); # fill t[1], which is empty list
+	every put(t[2],generate(6,9)); # fill t[2], which is empty list
+	every(write(!t[1])); # write out all elements of t[1]
+	write();
+	every(write(!t[2])); # write out all elements of t[2]
+	write(ximage(t)); # write out image of t 
+end
+
+procedure generate(a,b)
+	every suspend (a to b);
+end

@@ -1,0 +1,63 @@
+#
+# Truth-Table genertor Ver -1.0
+# 12.1994
+#
+procedure main()
+        n:=2;
+        m:=2; # number of expressions
+
+       # every write(Outl(t:=Truth_Table(n)),"--> ",Expr(t));
+
+        # shows many expr to many truth-table lines
+
+        every {
+                #write(repl("-",2*n-1+1+4*m))#
+                t:=Truth_Table(n)              & #------------------------#            
+                write(" ")                     & #<-force line break when #
+                writes(Outl(t))                & #  backtracking          #
+                every writes(" | ",Expr(t))      #------------------------#
+              };  
+
+end
+
+procedure Truth_Table(n)
+#
+# generates lines (as lists) of the truth table for n variables
+# works, but is ugly
+#
+        tabl:=list(n,0);
+        every i:=0 to 2^n-1 do                   # all lines
+                {
+                    j:=i;                        # convert number to bits
+                    k:=n;
+                    while (j > 0) do
+                        {
+                             tabl[k]:=j % 2;
+                             k:=k-1;
+                             j:=j / 2;
+                         };
+                    suspend tabl                 # return line
+                 };                                
+
+
+end
+
+procedure Expr(vec)                     
+#
+# evaluates a list of bits (the logical expr)
+# when multiple expr are suspended a mechanism in main prints them side by 
+# side
+#
+        suspend (ior(vec[1],vec[2]) |
+        ixor(vec[1],vec[2])); 
+end
+
+procedure Outl(vec)
+#
+# prints a list
+#
+        local s;
+        s:="";
+        every x:=!vec do s:=s||x||" ";
+        return s;
+end

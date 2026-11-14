@@ -1,0 +1,49 @@
+#The following fragment represents part of a program that scans
+#a file of user names and writes out lines that match, uppercasing
+#the part of the line that matched.  Three methods are used to assign
+#capital letters to the output string.  One uppercases the pattern and
+#assigns it to the part of the line that matched.  Two other methods
+#copy characters from an uppercased copy of the line.  So far
+#as I can determine, all three methods should work the same.
+#They don't.  I'm using Icon 7.0 for VMS.  I'm trying to determine
+#if methods 2 and 3(represented by the write(pline2) and write(pline3))
+#are correct but somehow failing to produce the correct results, or if I'm
+#misunderstanding how some of this Icon is supposed to work.
+global sstr
+procedure main()
+    sstr := "cargo";
+    line := "cargo, dave                  cargo";
+    write(line); #added for testing
+    print_line(line,"skyler");
+end
+
+procedure print_line(line, nodename)
+# three copies for the three different methods
+    pline1 := copy(line);
+    pline2 := copy(line);
+    pline3 := copy(line);
+    lower := map(sstr);
+# this is the desired replacement text
+    upper := map(sstr, &lcase, &ucase);
+# this is an altermate source for the replacement text
+    uline := map(line, &lcase, &ucase);
+# the size of the search string
+    starsstr := *sstr;
+ # finding all instances of the search string
+   every i := find(lower, line) do
+        {
+# I think these assignments should replace the same
+# characters in the same places.
+# method 1 explicitly calculates the ranges
+        j := i + *sstr;
+        pline1[i:j] := uline[i:j];
+# method 2 uses the same ranges
+        pline2[i:+starsstr] := uline[i:+starsstr];
+# method three only uses one range, but should have the same text
+        pline3[i:+starsstr] := upper
+        };
+    write(pline1);
+    write(pline2);
+    write(pline3);
+    return;
+end

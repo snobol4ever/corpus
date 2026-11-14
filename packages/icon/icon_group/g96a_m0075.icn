@@ -1,0 +1,6 @@
+procedure main()
+    local s;
+
+    s := "testing name:Jack; name:Jill;";
+    every write(s ? (tab(find("name:")) & tab(upto(';'))));
+end

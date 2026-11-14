@@ -1,0 +1,18 @@
+Try set([15,15])
+The size is 1
+Try set( [set([15]), set([15])] )
+The size is 2
+Try set([[15],[15]])
+The size is 2
+Try set(["one","one"])
+The size is 1
+Try set([11,12]) ++ set([12])
+The size is 2
+ 
+sub1 and sub2 are Jan's sets.
+sub1 is set_10(2)
+sub2 is set_11(2)
+The size of super1 using inserts is 2
+super1 looks like set_12(2)
+The size of super1 using set union is 2
+super1 looks like set_15(2)

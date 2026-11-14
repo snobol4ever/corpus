@@ -1,0 +1,31 @@
+procedure main()
+   p("red", "blue", "green");
+end
+
+procedure p(words[])
+   every write(permute ! (subsets ! words));
+end
+
+procedure subsets(words[])
+   local i, w, tail;
+
+   suspend [];
+   every i := 1 to *words do {
+      w := words[i : i + 1];
+      tail := words[i + 1 : 0];
+      suspend w ||| (subsets ! tail)
+      };
+end
+
+procedure permute(words[])
+   local i, head, w, tail;
+
+   if *words = 0 then
+     return "";
+   every i := 1 to *words do {
+      head := words[1 : i]; 
+      w := words[i]; 
+      tail := words[i + 1 : 0];
+      suspend w || " " || (permute ! (head ||| tail))
+      };
+end

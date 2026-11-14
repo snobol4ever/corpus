@@ -1,0 +1,23 @@
+global Filter2, Filter3
+procedure main()
+  Filter1 := create filterit1(create trim(!&input),Filter2);
+  Filter2 := create filterit2(Filter1,Filter3);
+  Filter3 := create filterit3(Filter2,&main);
+  while write(@Filter3);
+end
+
+procedure filterit1(in,out)
+  while ( @in @ out );
+end
+
+procedure filterit2(in,out)
+  while line := @in do {
+    if match("end",line) then fail;
+    line @ out 
+    };
+end
+
+procedure filterit3(in,out)
+  while ( @in @ out );
+  "EOF" @ out;
+end

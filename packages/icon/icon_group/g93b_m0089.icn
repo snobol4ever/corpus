@@ -1,0 +1,13 @@
+procedure main()
+
+full := "abc-def.ghi";
+bare := "";
+badchars := '-.';
+
+full ? {
+	while bare ||:= tab(many(~badchars)) do
+		tab(many(badchars))
+};
+write(bare);
+
+end

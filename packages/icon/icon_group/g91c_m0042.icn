@@ -1,0 +1,8 @@
+global drive, coexp
+
+procedure main()
+   coexp := create ("OK" @ &source);
+   drive := create @coexp;
+   write( @drive | "failed?" );
+   collect();
+end

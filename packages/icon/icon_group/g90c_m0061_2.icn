@@ -1,0 +1,19 @@
+procedure main()
+
+	every l :=
+
+	f( [1 to 3, "Q" | "Z"] )
+
+	do {
+		writes("[ ");
+		every writes(!l," ");
+		write("]")
+	};
+
+end
+
+procedure f(lg)
+
+	suspend lg;
+
+end

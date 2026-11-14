@@ -1,0 +1,8 @@
+procedure main()
+   local retval, c, s;
+   s := "123";
+   retval := 0;
+   every  c := !s do
+      retval :=  8 * retval + ord(c) - ord("0");
+   write("Octal output is ", retval);
+end

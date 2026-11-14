@@ -1,0 +1,4 @@
+procedure main()
+  every *((a := 'gmhf') ++ (b := 'mf') ++ (c := 'gh') ++ (d := 'mhf')) = 4 do
+   write("A "|| a ||"ood "|| b ||"an is "|| c ||"ard to "|| d ||"ind.");
+end

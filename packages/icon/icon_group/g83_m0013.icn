@@ -1,0 +1,9 @@
+procedure main()
+    t := table();
+    t[1] := "abc";
+    t[2] := "def";
+    t[3] := "ghi";
+
+    every write(!t[1] || !t[2] || !t[3]);	#line A
+    every write(!t[1],!t[2],!t[3]);		#line B
+end

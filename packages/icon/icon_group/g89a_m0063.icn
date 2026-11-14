@@ -1,0 +1,13 @@
+procedure main()
+
+	t := selftbl(&ascii);
+	every p := !sort(t) do
+		write("table[",p[1],"] = '",p[2],"'");
+end
+
+procedure selftbl(self)
+
+	tbl := table();
+	every tbl[s := !self] := s;
+	return tbl;
+end

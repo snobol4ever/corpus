@@ -1,0 +1,20 @@
+procedure main()
+ every gameset := turnament(["a","b","c","d","e"])
+  do every write((left((pair := !gameset)[1], 5) || left(pair[2], 5)) | "");
+ every gameset := turnament(["a","b","c","d","e","f"])
+  do every write((left((pair := !gameset)[1], 5) || left(pair[2], 5)) | "");
+end
+
+procedure turnament(people)
+ local i;
+ local stationary_player, gameset;
+
+ stationary_player := (*people % 2 = 0 & get(people)) | "Buy";
+ every 1 to *people do {
+   gameset := [ [ stationary_player, people[*people] ] ];
+   every gameset |||:= [[people[ i := 1 to (*people - 1) / 2 ], people[-i-1]]];
+   suspend gameset;
+   push(people, pull(people));
+ };
+ fail;
+end

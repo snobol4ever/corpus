@@ -1,0 +1,16 @@
+procedure main()
+  L := ["g","m","h","f"];
+  every h:=1 to 4 do {
+    every i:=1 to 4 do {
+      every j:=1 to 4 do {
+        every k:=1 to 4 do {
+          write(fit(h,i,j,k))
+  }}}};
+end
+
+global L,h,i,j,k
+
+procedure fit(a,b,c,d)
+  if a=b|a=c|a=d|b=c|b=d|c=d then fail;
+  return "A "||L[a]||"ood "||L[b]||"an is "||L[c]||"ard to "||L[d]||"ind.";
+end

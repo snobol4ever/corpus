@@ -1,0 +1,11 @@
+procedure main()
+    nextLabel := create "L" || (1 to 10) || "foo";
+
+    write("Label 1 is ", @nextLabel);
+    write("Label 2 is ", @nextLabel);
+    write("Label 3 is ", @nextLabel);
+    write("Label 4 is ", @nextLabel);
+    write("Label 5 is ", @nextLabel);
+
+    every write("Label ",6 to 10," is ",@nextLabel);
+end

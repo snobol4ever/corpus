@@ -1,0 +1,49 @@
+procedure main(args)
+
+	s := "that begins this string";
+
+	l := ["th","that beg","not close","","tha","begins t","that b","t"];
+
+	write(longstr(l,s)) | write("nomatch");
+	write(longstr(l,s,6)) | write("nomatch");
+	write(longstr(l,s,6,12)) | write("nomatch");
+
+	l := ["th","that beg","not close","tha","begins t","that b","t"];
+
+	write(longstr(l,s)) | write("nomatch");
+	write(longstr(l,s,6)) | write("nomatch");
+	write(longstr(l,s,6,12)) | write("nomatch");
+
+end
+
+procedure longstr(l,s,i,j)
+    ##### borrowed #####
+    /s := &subject;
+    if \i then {
+	if i < 1 then
+	    i := *s + (i+1)
+    }
+    else i := \&pos | 1;
+    if \j then {
+	if j < 1 then
+	    j := *s + (j+1)
+    }
+    else j := *s+1;
+    ##### borrowed #####
+
+    # initialize the match length
+    m := 0;
+
+    # while there is a pattern 'p' in list 'l' that matches string 's[i:j]'
+    # and that pattern 'p' is longer than the current match length 'm' reset
+    # the match length 'm' to the length of pattern 'p' -- goal directed
+    # evaluation in the 'while' expression is the key here
+    while *(p := (s[i:j] ? =!l)) > m do m := *p;
+
+    # if no pattern matched fail
+    if /p then fail
+
+    # if a pattern matched return the position in 's' past the pattern
+    else return i + m;
+
+end

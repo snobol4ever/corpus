@@ -1,0 +1,16 @@
+procedure main()
+
+nevin := create liber();
+write(@nevin);
+write(@nevin);
+
+end
+
+
+procedure liber()
+
+x := 1;
+x := suspend 3;
+return x;
+
+end

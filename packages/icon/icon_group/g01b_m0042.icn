@@ -1,0 +1,57 @@
+procedure main(args)
+    local pat1, pat2, pats;
+    local t1, t2, solutions;
+    local num1, num2, nums;
+    local soln;
+
+    # Get patterns from the command line
+
+    pat1 := args[1] | "VIER";
+    pat2 := args[2] | "NEUN";
+    pats := pat1 || pat2;
+
+    # Initialize cross-reference tables
+    # and list of solutions
+
+    t1 := table(0);      # t1[n] counts solutions of form (n,x)
+    t2 := table(0);      # t2[n] counts solutions of form (x,n)
+    solutions := [];
+
+    # Generate all possible solutions and check against patterns
+
+    every num1 := gen_squares(*pat1) &
+            num2 := gen_squares(*pat2) do {
+        nums := num1 || num2;
+        if map(pats, pats, nums) == nums &
+                map(nums, nums, pats) == pats then {
+            t1[num1] +:= 1;
+            t2[num2] +:= 1;
+            put(solutions, [num1, num2])
+            }
+        };
+
+    # Look for solutions where each number
+    # uniquely determines the other
+
+    while soln := get(solutions) do
+        if t1[soln[1]] = t2[soln[2]] = 1 then
+            write(soln[1], " ", soln[2]);
+
+end
+
+
+# Generate squares of given length
+
+procedure gen_squares(len)
+    local n, inc;
+
+    n := 1;
+    inc := 3;
+    repeat {
+        if *n > len then fail;
+        if *n = len then suspend string(n);
+        n +:= inc;
+        inc +:= 2
+        };
+
+end

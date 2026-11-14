@@ -1,0 +1,49 @@
+#
+# SOUNDEX.ICN          8/28/91          TENAGLIA
+#
+# THIS ICON PROGRAM IMPLEMENTS A SOUNDEX CATALOGUING
+# KEY COMPRESSOR.
+#
+procedure main()
+  while map(line := input("Str:")) ~== "quit" do write(soundex(line));
+  end
+
+#
+# STR IS A STRING (USUALLY A LAST NAME) PHONETICALLY SPELLED.
+# NUMBER IS RETURNED WHICH IS A CATALOGUE LOOK UP KEY MADE FROM IT.
+# THE STEPS ARE AS FOLLOWS :
+#          1. SAVE THE FIRST CHARACTER FOR LATER USE
+#          2. REMOVE W AND H                                 
+#          3. REMOVE ALL VOWELS EXCEPT WHEN IN FIRST POSITION
+#          4. MAP LEFTOVER STRING WITH A NUMBER TABLE
+#          5. DELETE DUPLICATE ADJACENT DIGITS
+#          6. MAKE NUMBER 6 CHARACTERS LONG (TRUNCATE OR PAD WITH 0S)
+#          7. REPLACE FIRST DIGIT WITH SAVED FIRST CHARACTER
+#
+procedure soundex(str)
+  static vowels, tbl;
+  initial
+    {
+    vowels := 'aeiouy';
+    tbl    := "0123012 02245501262301 202"
+    };
+  str := map(str);
+  first := str[1] ; tmp := first ; tmp2 := "";
+  while i := find("w"|"h",str) do str[i] := "";
+  every i := 2 to *str do tmp ||:= if any(vowels,str,i) then "" else str[i];
+  str2 := map(tmp,&lcase,tbl) || "?";
+  every i := 1 to *str2-1 do
+    if str2[i] ~== str2[i+1] then tmp2 ||:= str2[i];
+  number := if *tmp2 < 6 then left(tmp2,6,"0") else tmp2[1+:6];
+  number[1] := first;
+  return number;
+  end
+
+#
+# GET A STRING OF INPUT FROM THE KEYBOARD
+#
+
+procedure input(prompt)
+  writes(prompt);
+  return read();
+  end

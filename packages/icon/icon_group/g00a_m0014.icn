@@ -1,0 +1,57 @@
+# procedure to find the next (lexicographically) permutation of a string
+
+# Algorithm : to generate one string from the previous,
+#  i)  scan left from the end of the string till you find a char smaller
+#      than the one to its right;
+# ii)  find the smallest letter in the substring to its right; interchange
+#      them;
+# iii) sort the substring on the right
+# and repeat.
+#       This is a permutation since letters are only interchanged. This is
+# the next higher one by inspection. (Very long and careful inspection!)
+
+procedure next_perm(s)
+
+   i := *s - 1;
+
+   while i > 0 & ord(s[i]) >= ord(s[i+1]) do
+      i -:= 1;
+   if i = 0 then fail;
+
+   j := i;
+   min := i + 1;
+   while j <= *s do {
+      if ord(s[j]) > ord(s[i]) & ord(s[j]) < ord(s[min]) then
+         min := j;
+      j +:= 1
+   };
+   s[min] :=: s[i];
+   s[i+1:0] := ssort(s[i+1:0]);
+
+   return s;
+end
+
+
+procedure main(args)
+
+   s := args[1] | "abcde";
+
+   write(i:=1, " ", s);
+   while s := next_perm(s) do
+      write(i+:=1, " ", s);
+
+end
+
+procedure ssort(s)
+
+# The straightforward approach doesn't work if the string contains duplicates
+   return string(cset(s));
+
+   ret := "";
+   T := table(0);
+
+   every c := !s do T[c] +:= 1;
+   every c := !cset(s) do
+      ret ||:= repl(c, T[c]);
+   return ret;
+end

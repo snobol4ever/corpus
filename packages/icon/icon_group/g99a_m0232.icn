@@ -1,0 +1,7 @@
+procedure main()
+  local T;
+  T := table([]);
+  put(T[1], "A");
+  write("*T = ", *T);
+  write(T[1][1]);
+end

@@ -1,0 +1,48 @@
+#
+# Generate paths through a directed acyclic graph.
+#
+global rootNode
+
+procedure main(args)
+
+    aString := "[main],a,b,c,d,[a],a1,[b],b1,b2," ||
+               "[c],c1,c2,c3,[d],1,2,3,[a1],a11,a12,a13," ||
+               "[b1],b11,b12,b13,b14,[b2],b21,b22,b23,b24,"||
+               "[a11],x,y,z";
+
+    if *args > 0 then aString := args[1];
+
+    every write(trim(showPaths(parseGraph(aString), rootNode), ','));
+
+end
+
+procedure parseGraph(s)
+
+    nodeTab := table();
+    (s ||",") ? {               # force uniform node representation
+        while getNode(nodeTab)
+        };
+
+    return nodeTab;
+end
+
+procedure getNode(nodeTab)
+
+    value := 2( ="[", tab(upto(']')), ="]," ) | fail;
+    /rootNode := value;
+    childrenStr := tab(upto('[')|0);
+
+    if *childrenStr > 0 then {
+        childrenStr ? {
+            /nodeTab[value] := [];       # allows repeated nodes!
+            while put(nodeTab[value], tab(upto(','))) do move(1)
+            }
+        };
+
+    return;
+end
+
+procedure showPaths(t, s)               # finds paths to leaf nodes
+    if /t[s] then return s;
+    suspend s || "," || showPaths(t, !t[s], seen);
+end

@@ -1,0 +1,8 @@
+global mywrite#, write
+procedure main()
+    write :=: mywrite;
+    write("hello");
+end
+procedure mywrite(a[])
+    return mywrite!a;
+end

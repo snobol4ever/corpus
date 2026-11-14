@@ -1,0 +1,6 @@
+procedure main()
+   local L, t;
+   L := "gmhf";
+   every t := !L || !L || !L || !L & *cset(t)=4 do
+      write(map("A good man is hard to find", L, t));
+end

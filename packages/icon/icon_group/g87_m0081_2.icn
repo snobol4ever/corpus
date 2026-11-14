@@ -1,0 +1,11 @@
+global true, false
+
+procedure main()
+   local x, y;
+   true := create |&null;
+   false := create &fail;
+   x := true;
+   y := false;
+   if @x then write("true") else write("false");
+   if @y then write("true") else write("false");
+end

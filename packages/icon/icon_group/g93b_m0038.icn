@@ -1,0 +1,16 @@
+procedure main()
+    addem(l := [],t := table());
+    every write(!l | t[1 to 3] | !retem());
+end
+
+procedure addem(l,t)
+    every put(l,"new"|"list"|"items");
+    t[1] := "and";
+    t[2] := "table";
+    t[3] := "values";
+end
+
+procedure retem()
+    every put(l := [],"and"|"more"|"list"|"items");
+    return l;
+end

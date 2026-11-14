@@ -1,0 +1,13 @@
+procedure user_func(a)
+    return a-7;
+end
+
+procedure main()
+    if p := proc("user_func") then {
+        write("found it");
+        t := p(7);
+        write("result value: ", t)
+    } else {
+        write("didn't find it")
+    };
+end

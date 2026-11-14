@@ -1,0 +1,11 @@
+#!/usr/bin/env icon
+
+record r1(a,b,c,d)
+
+procedure main()
+local x1;
+x1:=r1("one","two","three","four");
+variable(name(x1.a)):="pete";
+write(name(x1.a),":",image(x1.a),":",x1.a);
+
+end

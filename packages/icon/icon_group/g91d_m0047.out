@@ -1,0 +1,90 @@
+Combinations of '' taken 0 at a time:
+   ''
+Combinations of '' taken 1 at a time:
+Combinations of 'a' taken 0 at a time:
+   ''
+Combinations of 'a' taken 1 at a time:
+   'a'
+Combinations of 'a' taken 2 at a time:
+Combinations of 'ab' taken 0 at a time:
+   ''
+Combinations of 'ab' taken 1 at a time:
+   'a'
+   'b'
+Combinations of 'ab' taken 2 at a time:
+   'ab'
+Combinations of 'ab' taken 3 at a time:
+Combinations of 'abc' taken 0 at a time:
+   ''
+Combinations of 'abc' taken 1 at a time:
+   'a'
+   'b'
+   'c'
+Combinations of 'abc' taken 2 at a time:
+   'ab'
+   'ac'
+   'bc'
+Combinations of 'abc' taken 3 at a time:
+   'abc'
+Combinations of 'abc' taken 4 at a time:
+Combinations of 'abcd' taken 0 at a time:
+   ''
+Combinations of 'abcd' taken 1 at a time:
+   'a'
+   'b'
+   'c'
+   'd'
+Combinations of 'abcd' taken 2 at a time:
+   'ab'
+   'ac'
+   'ad'
+   'bc'
+   'bd'
+   'cd'
+Combinations of 'abcd' taken 3 at a time:
+   'abc'
+   'abd'
+   'acd'
+   'bcd'
+Combinations of 'abcd' taken 4 at a time:
+   'abcd'
+Combinations of 'abcd' taken 5 at a time:
+Combinations of 'abcde' taken 0 at a time:
+   ''
+Combinations of 'abcde' taken 1 at a time:
+   'a'
+   'b'
+   'c'
+   'd'
+   'e'
+Combinations of 'abcde' taken 2 at a time:
+   'ab'
+   'ac'
+   'ad'
+   'ae'
+   'bc'
+   'bd'
+   'be'
+   'cd'
+   'ce'
+   'de'
+Combinations of 'abcde' taken 3 at a time:
+   'abc'
+   'abd'
+   'abe'
+   'acd'
+   'ace'
+   'ade'
+   'bcd'
+   'bce'
+   'bde'
+   'cde'
+Combinations of 'abcde' taken 4 at a time:
+   'abcd'
+   'abce'
+   'abde'
+   'acde'
+   'bcde'
+Combinations of 'abcde' taken 5 at a time:
+   'abcde'
+Combinations of 'abcde' taken 6 at a time:

@@ -1,0 +1,30 @@
+procedure main(args)
+
+	l := ["th","that ","not close","tha","that b","t"];
+	s := "that begins this string";
+
+	#write(anystr(l,s))
+	write(longstr(l,s));
+
+end
+
+procedure longstr(l,s,i,j)
+
+    ##### borrowed #####
+    /s := &subject;
+    if \i then {
+	if i < 1 then
+	    i := *s + (i+1)
+    }
+    else i := \&pos | 1;
+    if \j then {
+	if j < 1 then
+	    j := *s + (j+1)
+    }
+    else j := *s+1;
+    ##### borrowed #####
+
+    m := 0;
+    while *(p := (s ? =!l)) > m do m := *p;
+    return m + 1;
+end

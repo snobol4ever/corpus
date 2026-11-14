@@ -1,0 +1,12 @@
+procedure main()
+  i := 0;
+  every s := ("a"|"b"|"c"|"d") do {
+    write ("s = "||s);
+    i +:= 1;
+    if i = 3 then {
+      write ("i = "||i);
+      write(s);
+      break
+    }
+  };
+end

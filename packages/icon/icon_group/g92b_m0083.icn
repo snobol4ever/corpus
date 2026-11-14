@@ -1,0 +1,12 @@
+procedure main()
+	a := set();
+	b := set();
+	superset := set();
+	insert(a,"one");
+	insert(a,"two");
+	insert(b,"two");
+	insert(b,"one");
+	insert(superset, a);
+	insert(superset, b);
+	write(*superset);
+end

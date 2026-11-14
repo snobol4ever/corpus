@@ -1,0 +1,5 @@
+procedure main()
+y := x := [1,2,3];
+y[2] := 5;
+if x[2] = 5 then write("Changed") else write("Unchanged");
+end

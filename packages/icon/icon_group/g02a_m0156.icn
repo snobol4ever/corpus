@@ -1,0 +1,12 @@
+procedure main()
+    s := set([cube,square]);
+    every write(image(!s));
+end
+
+procedure cube(n)
+   return n*square(n);
+end
+
+procedure square(n)
+   return n*n;
+end

@@ -1,0 +1,15 @@
+procedure permute(l, i)
+   if i >= *l then
+      return l
+   else
+      suspend l[i to *l] <-> l[i] & permute(l, i+1);
+end
+
+procedure write_list(l)
+   every writes(!l, " ");
+   write();
+end
+
+procedure main()
+   every write_list(permute(["a", "b", "c"], 1));
+end

@@ -1,0 +1,8 @@
+procedure main()
+numbers();
+write();
+end
+
+procedure numbers()
+   every writes((i := 1 to 10)  || ",");
+end

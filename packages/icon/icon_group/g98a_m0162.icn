@@ -1,0 +1,13 @@
+record node(value,lchild,rchild)
+
+procedure main(arg)
+
+   tree:=table();
+   tree[1]:=node(2,3,"Hello");
+   tree[2]:=node(5,6,"World");
+   tree[3]:=node(0,1,"Oops");
+
+   every i:=key(tree)do
+    write(i,":",tree[i].rchild);
+
+end

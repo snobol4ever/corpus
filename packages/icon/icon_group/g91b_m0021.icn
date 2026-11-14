@@ -1,0 +1,55 @@
+procedure main()
+
+	l := ["idaho","ohio","utah","indiana","illinois","texas","iowa"];
+
+	write("\nProgrammer does the work:");
+	every write("\t",complete("i",l));
+
+	write("\nIcon does the work:");
+	every write("\t",terscomp("i",l));
+end
+
+procedure terscomp(s,st)
+	suspend match(s,p := !st) & p;
+end
+
+procedure complete(s,st)
+
+    local dfstn, c, l, old_char, newtbl, str, strset;
+    static t;
+    initial t := table();
+
+    if /s & /st then {
+	t := table();
+	collect();
+	fail
+    };
+    type(st) == ("list"|"set") |
+	stop("error (complete):  list or set expected for arg2");
+
+    /t[st] := table();
+
+    dfstn := t[st];
+
+    every c := !s do {
+
+	if /dfstn[st] then {
+
+	    l := sort(st);
+	    newtbl := table();
+	    old_chr := "";
+	    every str := !l do {
+		str ?:= (chr := move(1), tab(0)) | next;
+		if old_chr ~==:= chr then
+		    strset := set();
+		insert(newtbl, chr, insert(strset, str))
+	    };
+	    insert(dfstn, st, newtbl)
+	};
+
+	st := \(\dfstn[st])[c] | fail
+    };
+
+    suspend s || !st;
+
+end

@@ -1,0 +1,11 @@
+global z
+procedure test(i)
+z<-z+1;
+if i~=3 then fail;
+if i=3 then return 1;
+end
+
+procedure main()
+z:=0;
+every i:=(1 to 10) do if test(i) then write("test succeeded ",i," ",z);
+end

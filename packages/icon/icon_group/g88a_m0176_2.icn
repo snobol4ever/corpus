@@ -1,0 +1,12 @@
+procedure  main(a)
+        Output := ( if a[1] == "a" then Fullout else Partialout );
+        Output(a);
+end
+
+procedure Fullout(x)
+        every write(!x);
+end
+
+procedure Partialout(x)
+        write(*x," arguments");
+end

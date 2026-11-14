@@ -1,0 +1,14 @@
+#-------------------------------------------------------------------------
+procedure main()
+write(a:=gen1(),b:=gen2(),9<(a+b));
+end
+
+procedure gen1()
+local p; p:=0;
+while (p<5) do {p +:=1;write("p=",p);suspend p};
+end
+
+procedure gen2()
+local q; q:=4;
+while (q<8) do {q +:=1;write("q=",q);suspend q};
+end

@@ -1,0 +1,7 @@
+procedure main()
+	st := "a";
+	en := "z";
+	al := &ascii;
+	ran := al[upto(st,al):upto(en,al)];
+	every write(!ran);
+end

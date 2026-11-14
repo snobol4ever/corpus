@@ -1,0 +1,19 @@
+procedure main()
+	sum1 := texp("first"); sum2 := texp("second");
+	every i := 1 to 3 do
+	    {
+	    i @ sum1; 
+	    i @ sum2
+	    };
+end
+
+# shows that Z is shared
+procedure texp(N)
+    local cexp;   		# Z is copied into coexpression
+    static Z;
+    initial Z := 1;
+
+    cexp := create repeat { write("exp ",N," ",Z +:= Z @ &source) };
+    @cexp;	# dummy call to get things going
+    return cexp;
+end

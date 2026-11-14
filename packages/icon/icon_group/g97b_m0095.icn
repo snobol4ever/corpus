@@ -1,0 +1,8 @@
+procedure main()
+
+t := table(0);
+while t[!read()] +:= 1;
+write("value    n");
+every i := !sort(t) do write(left(i[1], 9), left(i[2], 4));
+
+end

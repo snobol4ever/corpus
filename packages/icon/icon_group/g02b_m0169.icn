@@ -1,0 +1,9 @@
+procedure main()
+    j := 1;
+    every i := 1 to 10 do
+    {
+        write(i, " ", j);
+        if i % 2 = 1 then next;
+        j +:= 1
+    };
+end

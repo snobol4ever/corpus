@@ -1,0 +1,23 @@
+##########################################################################
+
+record voter(rep,dem,lib,con,name,j2,j3)
+
+procedure main()
+
+	l1 := [];
+	put(l1,voter("yes","no","maybe","maybe","Lynn","?","?"));
+	put(l1,voter("no","no","maybe","maybe","Rose","?","?"));
+	put(l1,voter("no","no","no","yes","John","?","?"));
+	put(l1,voter("maybe","maybe","maybe","maybe","Joe","?","?"));
+	put(l1,voter("no","yes","yes","no","Sue","?","?"));
+	put(l1,voter("yes","no","no","yes","Hank","?","?"));
+
+	if v := !l1 &
+	   v.rep == "maybe" &
+	   v.dem == "maybe" &
+	   v.lib == "maybe" &
+	   v.con == "maybe" then
+		write("It looks like ",v.name," is undecided.")
+	else
+		write("It looks like nobody is undecided.");
+end

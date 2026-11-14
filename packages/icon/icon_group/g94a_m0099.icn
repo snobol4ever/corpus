@@ -1,0 +1,9 @@
+procedure main()
+   local t, i;
+   t := table();
+   every i := 1 to 10 do t[i] := "abcdefghij"[i];
+   every writes( right(!t, 3) );
+   write();
+   every writes( right(key(t), 3) );
+   write();
+end

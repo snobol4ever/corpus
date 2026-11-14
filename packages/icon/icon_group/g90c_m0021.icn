@@ -1,0 +1,15 @@
+procedure main ()
+   l := [1,2,3,4];
+   every writes(!l, " ");
+   write(); # writes 1 2 3 4
+   every !l := 9;
+   every writes(!l, " ");
+   write(); # writes 9 9 9 9
+   every p1(l) := 7;          # no extra bang operator here
+   every writes(!l, " ");
+   write();
+end
+
+procedure p1(z)
+   suspend !z;
+end 

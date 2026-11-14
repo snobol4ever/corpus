@@ -1,0 +1,13 @@
+procedure main()
+  E := create ("a"|"b"|"c"|"d");
+  i := 0;
+  while s := ! @E do {
+    write ("s = "||s);
+    i +:= 1;
+    if i = 3 then {
+      write ("i = "||i);
+      write(s);
+      break
+    }
+  };
+end

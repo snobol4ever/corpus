@@ -1,0 +1,4 @@
+procedure main()
+  xff := char(255);  # or \377 or \xff or string(&cset)[-1]
+  write(xff);
+  end

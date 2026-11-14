@@ -1,0 +1,68 @@
+procedure main(args)
+   local n, t;
+
+   n := integer(args[1]) | 2;
+
+   every t := gen_truths(n) do {
+      every writes(format( !t |				  # values
+                           "|" |			  # separator
+                           s_and(t) | s_or(t) | s_xor(t)  # functions
+                         ));
+      write()
+      };
+
+end
+
+procedure format(s)
+   return center(s, 5);
+end
+
+# Generate all permutations of a n-wide boolean variable set
+procedure gen_truths(n)
+   if n > 0 then suspend ("F"|"T") || gen_truths(n-1)
+            else return "";
+end
+
+# AND of an arbitrary number of values
+procedure s_and(t)
+   return if upto('F',t) then "F" else "T";
+end
+
+# OR of an arbitrary number of values
+procedure s_or(t)
+   return if upto('T',t) then "T" else "F";
+end
+
+# XOR of an arbitrary number of values
+#
+# This raises an interesting point, just *what is* the definition
+#   of 'xor' with more than 2 arguments?  This solution assumes
+#   definition is 'exactly one TRUE', which is different than
+#   an answer build up through iterative (or recursive) applications
+#   of xor on two values at a time.  I chose this definition
+#   because with the other, xor isn't associative.  Consider:
+#
+#   Case 1: XOR(v1,v2,v3) <- (v1 xor v2) xor v3
+#   Case 2: XOR(v1,v2,v3) <- v1 xor (v2 xor v3)
+#   Case 3: XOR(v1,v2,v3) <- s_xor(v1||v2||v3)    {used here}
+#
+#   with the call XOR(T,F,F)
+#
+#      Case 1: produces T
+#      Case 2: produces F
+#      Case 3: produces T
+#
+#   Cases 1 and 2 become stranger as the number of arguments increase.
+#   One can produce a solution using Case 3 to mimic either Case 1 or
+#   Case 2, anyway, e.g:
+#
+#       s_xor(s_xor(v1||v2)||v3)
+#
+#   What do real mathematicians use?   What happens in 'J'?
+#
+procedure s_xor(t)
+   return if i := upto('T',t) then {
+             if upto('T',t,i+1) then "F" else "T"
+             }
+          else "F";
+end

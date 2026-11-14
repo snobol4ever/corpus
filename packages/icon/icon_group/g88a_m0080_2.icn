@@ -1,0 +1,4 @@
+procedure main()
+  every a|b|c := "6"|"7"|"8";
+  write(a,b,c);
+end
