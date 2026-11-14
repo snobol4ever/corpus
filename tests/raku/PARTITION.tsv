@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1533 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,89
+# shape: entries=1534 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,90
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -359,6 +359,7 @@ hash_9	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung01_variables_a_list_declaration_in_a_block_is_that_blocks_variables	chunk:02	family:ladder	
 ladder__rung01_variables_is_default_gives_a_scalar_its_initial_value	chunk:02	family:ladder	
 ladder__rung022_quote_q_no_interpolation	chunk:02	family:ladder	
+ladder__rung10_given_when_a_pointy_block_on_given_binds_its_parameter_to_the_topic	chunk:15	feat:given	given
 ladder__rung15_blocks_a_bare_blocks_own_my_variable_is_not_the_enclosing_variable	chunk:02	family:ladder	
 ladder__rung15_blocks_a_builtin_routine_reference_is_the_argument_of_map	chunk:13	feat:map	join map
 ladder__rung15_blocks_a_string_eval_reads_the_blocks_own_variable	chunk:02	family:ladder	
@@ -513,7 +514,7 @@ ladder__rung19_block_the_grep_listop_takes_a_type_name_as_its_matcher	chunk:05	f
 ladder__rung20_paren_group	chunk:08	feat:sub	sub
 ladder__rung20_paren_group_stmt	chunk:02	family:ladder	
 multi_3	chunk:11	feat:multi	multi
-parser_coverage__stmt_pfx_sink	chunk:14	family:parser_coverage	
+parser_coverage__stmt_pfx_sink	chunk:15	family:parser_coverage	
 say_29	chunk:10	feat:regex	regex say
 say_30	chunk:10	feat:regex	regex say
 say_31	chunk:10	feat:regex	regex say
@@ -1129,7 +1130,7 @@ for_range_10	chunk:07	feat:for_with_say	for for_with_say range_op
 for_range_say_5	chunk:07	feat:for_with_say	for for_with_say range_op say
 junction_say_5	chunk:14	feat:junction	if junction say
 ladder__rung06_control_a_parenthesized_if_or_unless_is_the_value_of_the_branch_taken_or_empty	chunk:14	feat:unless	if say sigil_array unless
-ladder__rung06_control_a_placeholder_block_with_a_statement_modifier_gets_the_condition_value	chunk:15	feat:given	given if unless
+ladder__rung06_control_a_placeholder_block_with_a_statement_modifier_gets_the_condition_value	chunk:14	feat:unless	given if unless
 ladder__rung06_control_a_ternary_branch_that_is_a_block_ending_in_return_leaves_the_sub	chunk:12	feat:sub_with_return	return sub sub_with_return
 ladder__rung06_control_an_eager_prefix_on_a_gather_runs_it_to_the_end	chunk:07	feat:for_with_say	for for_with_say range_op
 ladder__rung06_control_an_if_modifier_inside_parentheses_yields_empty_when_false	chunk:14	feat:unless	if sigil_array unless

@@ -167,6 +167,7 @@ my %h = (x => 10, y => 20); say %h<y>;
 my %h = a => 1, b => 2; say %h<b>;
 my $x is default(5); say $x;
 my $x = 5; say q{a$xb {$x}};
+given "abc" -> $test { say $test }
 say <a b C>.map(&uc).join(",");
 say map(* x 2, <a b>).join(",");
 say ("a","b").map({ $^a.uc });
