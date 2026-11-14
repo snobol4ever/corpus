@@ -7570,6 +7570,29 @@ end.
 0 3
 ```
 
+## parseforms__parse_a_default_parameter_value_in_a_procedural_type
+
+```Pascal
+{$mode objfpc}
+program p4;
+type
+  TMyFunc = procedure(I: Integer = 10);
+  TF2 = function(a: Integer; b: Integer = 0): Integer;
+procedure Show(I: Integer = 10); begin writeln(I) end;
+function Add(a: Integer; b: Integer = 0): Integer; begin Add := a + b end;
+var f: TMyFunc; g: TF2;
+begin
+  f := @Show; f(); f(3);
+  g := @Add; writeln(g(4), ' ', g(4, 5));
+end.
+```
+
+```stdout
+10
+3
+4 9
+```
+
 ## program_set_for_1
 
 ```Pascal

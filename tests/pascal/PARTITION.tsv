@@ -290,6 +290,7 @@ program_pointer_writeln_5	chunk:03	feat:new	new pointer pointer_with_new type
 program_pointer_writeln_4	chunk:03	feat:new	new pointer pointer_with_new type
 ladder__rung13_ptr_compare	chunk:02	feat:nil	array nil set_literal subrange
 ladder__rung24_static_array_of_dynamic_arrays_assignment_shares_the_array_and_nil_empties_it	chunk:02	feat:nil	array nil set_literal subrange type
+parseforms__parse_a_default_parameter_value_in_a_procedural_type	chunk:01	feat:function	function nested_proc procedure type
 program_set_for_1	chunk:03	feat:set	for in set subrange
 ladder__rung21_overload_picked_by_a_const_integer_argument	chunk:02	feat:const	const function nested_proc procedure type
 program_procedure_record_2	chunk:02	feat:record	nested_proc procedure record type
