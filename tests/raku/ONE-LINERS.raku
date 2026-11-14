@@ -184,6 +184,7 @@ say (1,2).map({ $^a.Str.chars });
 say ("a","b").grep({ $^a.uc eq "A" });
 say (1,2,3).grep({ ($^a) > 1 });
 say (1,2).map({ ($^a).Str });
+say (map -> $e { map -> $g { $[ [|@$e], |@$g ] }, ([3],[4]) }, ([1],[2])).elems;
 1 R= my $x; say $x;
 my $i = 7; say $i++;
 my $i = 5; my $j = --$i; say $j;

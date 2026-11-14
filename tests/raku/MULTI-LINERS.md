@@ -573,6 +573,18 @@ True False True True
 ok 1 - cmp-ok takes =:=
 ```
 
+## numlit__the_mathematical_italic_e_is_e
+
+```Raku
+say 𝑒 == e;
+say 𝑒 > 2.7;
+```
+
+```stdout
+True
+True
+```
+
 ## simple_assign_44
 
 ```Raku
@@ -890,6 +902,19 @@ say so(1 == 1);
 True
 False
 True
+```
+
+## package__a_nested_package_declares_its_prefix
+
+```Raku
+package AlsoEmpty::Nested {}
+say AlsoEmpty.gist;
+say AlsoEmpty::Nested.^name;
+```
+
+```stdout
+(AlsoEmpty)
+AlsoEmpty::Nested
 ```
 
 ## revisions__rv03_class_ver_under_v6e
@@ -1223,6 +1248,24 @@ is-approx(3.1e0, 3.2e0, 0.2e0, "an explicit absolute tolerance");
 ok 1 - pi to eight places
 ok 2 - near zero uses an absolute tolerance
 ok 3 - an explicit absolute tolerance
+```
+
+## numlit__a_unicode_numeric_character_is_a_number_literal
+
+```Raku
+say ½;
+say ½ + 1;
+say ༳;
+say ⅓.^name;
+say Ⅻ;
+```
+
+```stdout
+0.5
+1.5
+-0.5
+Rat
+12
 ```
 
 ## ladder__rung025_kw_nan_nan_coercion_args
@@ -2176,6 +2219,20 @@ True
 True
 ```
 
+## numify__str_numeric_raises_x_str_numeric
+
+```Raku
+try { say "abc".Numeric; CATCH { default { say .^name } } }
+say "3".Numeric + 1;
+say " 7 ".Numeric;
+```
+
+```stdout
+X::Str::Numeric
+4
+7
+```
+
 ## simple_assign_49
 
 ```Raku
@@ -2249,6 +2306,22 @@ False
 False
 ```
 
+## numify__division_and_modulo_of_a_non_numeric_string_raise
+
+```Raku
+try { say "abc" / 2; CATCH { default { say .^name } } }
+try { say "abc" % 2; CATCH { default { say .^name } } }
+say "6" / 4;
+say "7" % 4;
+```
+
+```stdout
+X::Str::Numeric
+X::Str::Numeric
+1.5
+3
+```
+
 ## revisions__rv08_a_class_answers_its_ver
 
 ```Raku
@@ -2292,6 +2365,24 @@ if 1|2|3 == 2 {
 
 ```stdout
 yes
+```
+
+## numify__arithmetic_on_a_non_numeric_string_raises
+
+```Raku
+try { say +"abc"; CATCH { default { say .^name } } }
+try { say "abc" - 1; CATCH { default { say .^name } } }
+try { say "abc" * 2; CATCH { default { say .^name } } }
+try { say "abc" ** 2; CATCH { default { say .^name } } }
+say "3" + 1;
+```
+
+```stdout
+X::Str::Numeric
+X::Str::Numeric
+X::Str::Numeric
+X::Str::Numeric
+4
 ```
 
 ## ladder__rung024_kw_inf_inf_negative_zero
@@ -2771,6 +2862,19 @@ False
 0.000977
 ```
 
+## interp__a_declaration_inside_an_interpolated_code_form
+
+```Raku
+my $y = "foo$(my $x = 42)bar"; say $y; say $x; say "a $( my $z = 3 + 4; "b" ) c"; say $z;
+```
+
+```stdout
+foo42bar
+42
+a b c
+7
+```
+
 ## ladder__rung01_variables_a_list_declaration_in_a_block_is_that_blocks_variables
 
 ```Raku
@@ -2888,6 +2992,17 @@ before
 ```stdout
 2
 1
+```
+
+## unspace__an_unspace_follows_a_declared_variable
+
+```Raku
+my @arr2\  .[2] = "foo"; say @arr2.elems; say @arr2[2];
+```
+
+```stdout
+3
+foo
 ```
 
 ## array_12
@@ -4739,6 +4854,17 @@ f(z => 4, w => 5);
 4
 ```
 
+## sub_sig__a_nested_sub_signature_on_a_named_value
+
+```Raku
+sub f(Pair ( Int:D :key($p), Pair :value(( Str:D :key($d), :value(&t) )) )) { say "$p $d {t()}" }
+f((2 => "g" => { 7 }));
+```
+
+```stdout
+2 g 7
+```
+
 ## test_interp_leading_var
 
 ```Raku
@@ -5368,6 +5494,21 @@ say 'never';
 before
 ```
 
+## interp__dollar_paren_interpolates_an_expression
+
+```Raku
+my $n = 1;
+say "x $($n + 1) y";
+say "a $(1 + 2) b";
+say "c $($n) d";
+```
+
+```stdout
+x 2 y
+a 3 b
+c 1 d
+```
+
 ## junction_say_6
 
 ```Raku
@@ -5661,6 +5802,20 @@ say "end";
 3
 7
 end
+```
+
+## sub_sig__a_typed_anonymous_parameter_destructures
+
+```Raku
+sub f(Pair (:key($k), :value($v))) { say "$k $v" }
+f((a => 1));
+sub g(Pair (Str:D :key($k), Int :value($v))) { say "$k $v" }
+g((b => 2));
+```
+
+```stdout
+a 1
+b 2
 ```
 
 ## channel__closed_is_a_promise_kept_at_close
@@ -6732,6 +6887,17 @@ False
  my $b = { return 3; }; say $b() + $b(); 
 ```
 
+## where__a_multi_reads_its_parameter_in_its_where_block
+
+```Raku
+multi sub vo(Int $odd where {$odd % 2}) { True }; multi sub vo(Int $odd) { False }; say vo(1); say vo(2);
+```
+
+```stdout
+True
+False
+```
+
 ## array_37
 
 ```Raku
@@ -6774,6 +6940,18 @@ say C.new.go;
 
 ```stdout
 42
+```
+
+## curry__a_smartmatch_chain_with_a_star_curries_as_one
+
+```Raku
+say (5 ~~ * > 3)(5);
+say (5 ~~ * > 3)(4);
+```
+
+```stdout
+True
+False
 ```
 
 ## hash_15
@@ -8070,6 +8248,20 @@ sub f(Int $x) { say($x); }
  f(7); f("x"); say("after"); 
 ```
 
+## sub_sig__a_for_blocks_anonymous_parameter_destructures
+
+```Raku
+for ([1, 2], [3, 4]) -> [$a, $b] { say "$a $b" }
+for ((a => 1), (b => 2)) -> (:$key, :$value) { say "$key $value" }
+```
+
+```stdout
+1 2
+3 4
+a 1
+b 2
+```
+
 ## test_lines_file
 
 ```Raku
@@ -8178,6 +8370,20 @@ say $b.arity, " ", $p.arity, " ", $w.arity, " ", &g.arity, " ", $p.count;
 ```stdout
 g &g
 0 2 1 0 2
+```
+
+## curry__a_star_on_the_right_of_a_smartmatch_curries
+
+```Raku
+say (5 ~~ *)(5);
+say (5 ~~ *)(6);
+say (* ~~ 5)(5);
+```
+
+```stdout
+True
+False
+True
 ```
 
 ## given_1
@@ -8313,6 +8519,19 @@ my $y = 6;
 
 ```stdout
 5-6
+```
+
+## match_var__a_match_variable_written_in_non_ascii_digits
+
+```Raku
+"a b" ~~ /(\w) \s (\w)/;
+say $١;
+say $٠;
+```
+
+```stdout
+｢b｣
+｢a｣
 ```
 
 ## multi_1
@@ -8665,6 +8884,21 @@ say h(1);
 
 ```stdout
 <i>
+```
+
+## listop__map_and_grep_keep_a_pointy_blocks_signature
+
+```Raku
+say map -> $e { $e * 2 }, (1, 2);
+say grep -> $e { $e > 1 }, (1, 2, 3);
+my @r = map -> $e { my $x = $e; $x + 1 }, (1, 2);
+say @r;
+```
+
+```stdout
+(2 4)
+(2 3)
+[2 3]
 ```
 
 ## proto__a_named_argument_reaches_the_candidates
@@ -11423,6 +11657,23 @@ f
 3
 5
 9
+```
+
+## sub_sig__an_anonymous_parameter_destructures_by_named_keys
+
+```Raku
+sub f((:$key, :$value)) { say "$key $value" }
+f((a => 1));
+multi g((:$key, :$value)) { say "m $key $value" }
+g((b => 2));
+my &h = -> (:$key, :$value) { say "p $key $value" };
+h((c => 3));
+```
+
+```stdout
+a 1
+m b 2
+p c 3
 ```
 
 ## while_6
