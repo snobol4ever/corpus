@@ -38,3 +38,6 @@ lib/group.icn	same-code
 lib/mailbox.icn	same-code
 lib/rfc822parser.icn	same-code
 lib/rfc822pr.icn	same-code
+lib/httpclient.icn	same-code
+lib/httprequest.icn	same-code
+lib/httpresponse.icn	same-code
