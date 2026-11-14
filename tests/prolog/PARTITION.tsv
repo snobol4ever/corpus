@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=738 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=72 chunks=7 sizes=100,100,100,100,100,100,100
+# shape: entries=740 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,2
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -235,6 +235,7 @@ streamio_get_byte_peek_byte_1	chunk:02	family:ladder
 streamio_get_code_peek_code_1	chunk:02	family:ladder	
 streamio_put_byte_1	chunk:02	family:ladder	
 timelimit__tl06_sequential_limits_and_zero	chunk:03	feat:catch	catch
+xsb_update_view__retractall_keeps	chunk:07	family:xsb_update_view	
 simple_program_104	chunk:07	family:rung39_atom_iso	
 simple_program_96	chunk:07	family:rung36_arith_edge	
 simple_program_98	chunk:07	family:rung36_arith_edge	
@@ -470,7 +471,7 @@ term_construction_copy_term_1	chunk:06	feat:copy_term	copy_term if_then_else
 term_construction_functor_construct_1	chunk:07	feat:functor	functor unify
 term_construction_univ_construct_1	chunk:07	feat:univ	unify univ
 term_construction_univ_decompose_1	chunk:07	feat:univ	unify univ
-throw_ite_directive_1	chunk:07	feat:throw	if_then_else throw
+throw_ite_directive_1	chunk:08	feat:throw	if_then_else throw
 type_test_atom_1	chunk:06	feat:atom	atom if_then_else
 type_test_nonvar_1	core	core	if_then_else nonvar
 type_test_number_1	chunk:07	feat:number	if_then_else number
@@ -624,6 +625,7 @@ module_import_table__mit_meta_call	chunk:05	feat:call	call findall unify writeq
 op_ite_format_1	core	core	format if_then_else op
 resource__r03_string_overflow_caught	chunk:05	feat:format	catch format list_cons
 writeq_format_directive_2	chunk:05	feat:format	format unify writeq
+xsb_update_view__retract_hides	chunk:07	feat:retract	if_then_else retract unify
 call_ite_directive_replace_1	chunk:05	feat:call	call if_then_else unify
 findall_directive_replace_2	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 resource__r02_deep_unify_caught	chunk:03	feat:cut	catch cut unify
@@ -635,7 +637,7 @@ catch_throw_2	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 cut_ite_directive_2	chunk:03	feat:cut	cut if_then_else unify
 findall_directive_replace_4	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 undo__u01_undo_or_branch	core	core	assert if_then_else unify
-undo__u02_undo_clause_alternative	chunk:07	feat:assert	assert if_then_else negation
+undo__u02_undo_clause_alternative	chunk:08	feat:assert	assert if_then_else negation
 ite_naf_directive_replace_1	chunk:04	feat:negation	if_then_else negation unify
 ite_replace_2	chunk:06	feat:var	if_then_else unify var
 rung14_retract_retract_basic__rung14_retract_retract_basic	chunk:05	feat:assert_then_retract	assert_then_retract assertz retract

@@ -3150,6 +3150,25 @@ time_limit_exceeded
 end
 ```
 
+## xsb_update_view__retractall_keeps
+
+```Prolog
+:- dynamic p/1.
+p(1).
+p(2).
+p(3).
+walk :- p(X), retractall(p(_)), write(X), nl, fail.
+walk.
+main :- walk.
+:- main.
+```
+
+```stdout
+1
+2
+3
+```
+
 ## simple_program_104
 
 ```Prolog
@@ -11821,6 +11840,24 @@ main :-
 x=42
 foo(bar)
 done
+```
+
+## xsb_update_view__retract_hides
+
+```Prolog
+:- dynamic p/1.
+p(1).
+p(2).
+p(3).
+walk :- p(X), ( X =:= 1 -> retract(p(2)) ; true ), write(X), nl, fail.
+walk.
+main :- walk.
+:- main.
+```
+
+```stdout
+1
+3
 ```
 
 ## call_ite_directive_replace_1
