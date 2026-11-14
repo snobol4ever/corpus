@@ -803,6 +803,24 @@ end.
 5.0
 ```
 
+## parseforms__parse_the_c_style_shift_operators
+
+```Pascal
+{$mode objfpc}
+program p7;
+var a, b: LongInt;
+begin
+  a := 3; b := (a and 255) << 16; writeln(b);
+  writeln(b >> 8); writeln((1 << 4) or (a << 1));
+end.
+```
+
+```stdout
+196608
+768
+22
+```
+
 ## stdin__read1
 
 ```Pascal
