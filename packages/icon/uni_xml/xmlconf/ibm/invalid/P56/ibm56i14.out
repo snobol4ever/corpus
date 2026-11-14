@@ -1,0 +1,4 @@
+validity error: NDATA declaration gif not declared as a NOTATION
+validity error: NDATA declaration gif not declared as a NOTATION
+validity error: attribute value #image1 @image must be comprised of valid names
+<test>&#10;<landscape sun="#image1 @image"></landscape>&#10;In an attribute declaration, values of type ENTITIES do not match the Name production.&#10;</test>

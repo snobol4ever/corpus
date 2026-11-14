@@ -1,0 +1,10 @@
+warning: multiple ATTLIST definitions for element two
+warning: Multiple attribute defs for attribute attr in element two
+warning: multiple ATTLIST definitions for element two
+warning: Multiple attribute defs for attribute attr in element two
+warning: multiple ATTLIST definitions for element two
+warning: Multiple attribute defs for attribute attr in element two
+warning: multiple ATTLIST definitions for element two
+validity error: Duplicated token in enumeration declaration: two
+warning: Multiple attribute defs for attribute attr in element two
+<test>&#10;This is a Positive test&#10;</test>

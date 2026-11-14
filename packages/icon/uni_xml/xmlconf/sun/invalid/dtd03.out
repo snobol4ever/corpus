@@ -1,0 +1,2 @@
+validity error: violation does not match the declared pattern : (a,a,a,b)
+<violation>&#10;    <a></a>&#10;    <a></a>&#10;    <b></b>&#10;</violation>

@@ -1,0 +1,5 @@
+validity error: attribute val food does not match an external entity
+<!DOCTYPE root [
+<!NOTATION fruit PUBLIC '-//International Grocery Consortium//Edible//Healthy//EN'>
+]>
+<root affiliated="apple apple food"></root>

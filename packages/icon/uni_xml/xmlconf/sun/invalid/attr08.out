@@ -1,0 +1,2 @@
+validity error: attribute value http://over.the.rainbow.com/somewhere doesn't match the defined FIXED value http://java.sun.com/historical
+<palimpest xmlns="http://over.the.rainbow.com/somewhere"></palimpest>

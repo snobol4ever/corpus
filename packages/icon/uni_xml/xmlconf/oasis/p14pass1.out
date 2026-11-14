@@ -1,0 +1,2 @@
+validity error: doc is an undeclared element name
+<doc>a%b%&lt;/doc&gt;&lt;/doc&gt;]]&lt;&amp;</doc>

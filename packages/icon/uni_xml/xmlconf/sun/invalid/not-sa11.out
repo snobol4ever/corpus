@@ -1,0 +1,13 @@
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+validity error: cannot use a default from an attribute declared externally, in a standalone document
+<!DOCTYPE attributes [
+<!NOTATION bar SYSTEM 'file:/dev/tty'>
+<!NOTATION foo PUBLIC '-//public id//foo' 'file:/dev/null'>
+<!NOTATION nonce SYSTEM 'file:/dev/null'>
+]>
+<attributes id="date28" idrefs="date28 date28 date28" token="b"></attributes>

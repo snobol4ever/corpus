@@ -1,0 +1,5 @@
+validity error: defaul tattribute value brittannica 2orldbook must be comprised of valid names
+<!DOCTYPE references [
+<!NOTATION encyclopaedia PUBLIC '-//fooCorp Inc//NOTATION something//EN'>
+]>
+<references value="brittannica"></references>

@@ -1,0 +1,3 @@
+validity error: attribute value @456 must be a valid name
+validity error: an IDREF(S) attribute @456 was used, which does not match any IDs
+<test>&#10;<id UniqueName="AC456"></id>&#10;<idref reference="@456"></idref>&#10;Negative test for validity constraint of IDREF.&#10;In an attribute decl, values of type IDREF does not match the name production&#10;</test>

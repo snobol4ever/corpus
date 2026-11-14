@@ -1,0 +1,2 @@
+validity error: once-or-twice-d does not match the declared pattern : (e,e?)
+<root>&#10;    <once-or-twice-d></once-or-twice-d>&#10;</root>

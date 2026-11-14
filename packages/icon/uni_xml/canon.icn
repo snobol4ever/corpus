@@ -1,0 +1,37 @@
+#  canon.icn -- the grader's driver for the W3C XML conformance documents (2026-11-14): parse the document named by the argument with the
+#  package's XmlParser, as the distribution's testvalid does, in the document's folder, and write its canonical form, or every error and
+#  warning the parser reports.
+import xml
+
+class ShowErrors : ErrorHandler()
+   method fatal_error(msg, stack)
+      write("fatal error: ", msg);
+   end
+   method validity_error(msg, stack)
+      write("validity error: ", msg);
+   end
+   method warning(msg, stack)
+      write("warning: ", msg);
+   end
+end
+
+procedure main(a)
+   local p, f, s, d, k, last, name;
+   *a > 0 | stop("usage: canon document.xml");
+   # run in the document's own folder, as the distribution's dotests.sh does, so a relative SYSTEM identifier resolves beside it
+   every k := upto('/', a[1]) do last := k;
+   if \last then {
+      chdir(a[1][1:last]) | stop("cannot enter ", a[1][1:last]);
+      name := a[1][last + 1:0]
+      }
+   else name := a[1];
+   p := XmlParser();
+   p.set_error_handler(ShowErrors());
+   p.set_preserve_insignificant_whitespace();
+   p.clear_do_namespaces();
+   f := open(name) | stop("cannot open ", name);
+   s := "";
+   every s ||:= !f || "\n";
+   close(f);
+   if d := p.parse(s) then writes(CanonicalXmlFormatter().format(d)) else write("not parsed");
+end

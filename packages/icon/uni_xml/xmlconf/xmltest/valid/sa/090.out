@@ -1,0 +1,5 @@
+validity error: Notation name n not declared
+<!DOCTYPE doc [
+<!NOTATION n PUBLIC 'whatever'>
+]>
+<doc></doc>

@@ -1,0 +1,5 @@
+validity error: c is an undeclared element name
+validity error: b is an undeclared element name
+validity error: a is an undeclared element name
+validity error: doc is an undeclared element name
+<doc>&#10;<a><b><c></c></b></a>&#10;</doc><?PI after document element?><?PI after document element?><?PI after document element?>

@@ -1,0 +1,1 @@
+<elem>&#10;CharData &#10;&#10;&#10;&lt;elem&gt;&#10;CharData&amp;#32;&#10;&lt;!--comment--&gt;&#10;&lt;?pi?&gt;&amp;ent;&amp;quot;&#10;CharData&#10;&lt;/elem&gt;&#10;&#10;&#10;&lt;elem&gt;&#10;CharData&amp;#32;&#10;&lt;!--comment--&gt;&#10;&lt;?pi?&gt;&amp;ent;&amp;quot;&#10;CharData&#10;&lt;/elem&gt;&#10;&#10;<?pi ?><elem>CharData</elem>&quot;&#10;CharData&#10;</elem>

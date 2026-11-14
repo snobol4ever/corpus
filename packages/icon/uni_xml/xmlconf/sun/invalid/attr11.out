@@ -1,0 +1,5 @@
+validity error: default attribute value 2orldbook must be a valid name
+<!DOCTYPE reference [
+<!NOTATION encyclopaedia PUBLIC '-//fooCorp Inc//NOTATION something//EN'>
+]>
+<reference value="brittannica"></reference>

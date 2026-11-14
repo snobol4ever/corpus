@@ -1,0 +1,8 @@
+warning: multiple ATTLIST definitions for element attributes
+validity error: Multiple ID declarations for this element type
+<!DOCTYPE root [
+<!NOTATION bar SYSTEM 'file:/dev/tty'>
+<!NOTATION foo PUBLIC '-//public id//foo' 'file:/dev/null'>
+<!NOTATION nonce SYSTEM 'file:/dev/null'>
+]>
+<root></root>

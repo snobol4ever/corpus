@@ -1,0 +1,2 @@
+validity error: twice does not match the declared pattern : (e,e)
+<root>&#10;    <twice><e></e><e></e><e></e></twice>&#10;</root>

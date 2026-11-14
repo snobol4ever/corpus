@@ -1,0 +1,2 @@
+validity error: an IDREF(S) attribute ee38 was used, which does not match any IDs
+<root idrefs="d36 ee38">&#10;    <root id="d36"></root>&#10;</root>

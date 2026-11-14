@@ -1,0 +1,3 @@
+validity error: attribute value 36d must be a valid name
+validity error: an IDREF(S) attribute 36d was used, which does not match any IDs
+<root idref="36d">&#10;</root>

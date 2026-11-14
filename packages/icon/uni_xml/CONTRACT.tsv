@@ -1,0 +1,4 @@
+oracle	unicon	the answers are cut from the Unicon translator through unicon_bin() (skill unicon R2): canon built by unicon 13.3 against its own installed xml package, whose sources lib/ copies
+unmarked_compile_args	--dialect=unicon	CTO-473: the xml package and canon.icn are Unicon
+ipath	lib	the xml package that canon.icn imports (package xml), its 32 files semicoloned and proved (CONVERSION-PROOF.tsv)
+ipath	../unicon_uni/lib	the util and lang packages the xml package imports, vendored semicolon-ready in the sibling unicon_uni (its ulsp closure)

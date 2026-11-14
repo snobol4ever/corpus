@@ -1,0 +1,4 @@
+warning: multiple ATTLIST definitions for element b
+warning: multiple ATTLIST definitions for element b
+validity error: attribute value shoudbefixed doesn't match the defined FIXED value fixed
+<root>&#10;  <b attr1="value1" attr2="abc" attr3="shoudbefixed">attr3 value not fixed</b>&#10;</root>

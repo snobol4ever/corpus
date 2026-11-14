@@ -1,0 +1,35 @@
+# CONVERSION-PROOF.tsv -- uni_xml: each Unicon file and what unicon -s -c says of the original against the converted text: the .u, the uid line aside and the
+# proof folder path normalized, compared byte for byte; the package files compiled together (the grader 2026-11-14; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+lib/attlist.icn	same-code	8
+lib/attributedef.icn	same-code	12
+lib/canonicalxmlformatter.icn	same-code	26
+lib/cdata.icn	same-code	6
+lib/comment.icn	same-code	6
+lib/contentspec.icn	same-code	49
+lib/defaulterrorhandler.icn	same-code	16
+lib/defaultresolver.icn	same-code	30
+lib/doctype.icn	same-code	9
+lib/document.icn	same-code	4
+lib/element.icn	same-code	33
+lib/elementdecl.icn	same-code	2
+lib/entitydef.icn	same-code	8
+lib/errorhandler.icn	unchanged	0
+lib/externalid.icn	same-code	5
+lib/formatter.icn	same-code	20
+lib/globalname.icn	same-code	4
+lib/htmldocument.icn	same-code	1
+lib/htmlelement.icn	same-code	4
+lib/htmlformatter.icn	same-code	19
+lib/htmlparser.icn	same-code	115
+lib/node.icn	same-code	47
+lib/notationdecl.icn	same-code	4
+lib/parser.icn	unchanged	0
+lib/processinginstruction.icn	same-code	7
+lib/resolver.icn	unchanged	0
+lib/xmldecl.icn	same-code	9
+lib/xmldocument.icn	same-code	49
+lib/xmlelement.icn	same-code	32
+lib/xmlformatter.icn	same-code	47
+lib/xmlparser.icn	same-code	716
+canon.icn	same-code	17

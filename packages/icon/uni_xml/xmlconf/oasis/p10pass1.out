@@ -1,0 +1,6 @@
+validity error: A has attributes but none were declared
+validity error: A is an undeclared element name
+validity error: A has attributes but none were declared
+validity error: A is an undeclared element name
+validity error: doc is an undeclared element name
+<doc>&#10;<A a="asdf&gt;'&quot;&gt; asdf ?&gt;%"></A>&#10;<A a="&quot;&quot;&gt;'&quot;"></A>&#10;</doc>

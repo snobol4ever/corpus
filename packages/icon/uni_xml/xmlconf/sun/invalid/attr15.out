@@ -1,0 +1,8 @@
+validity error: Notation name brittannica not declared
+validity error: Notation name worldbook not declared
+validity error: default attribute value encarta is not one of the declared notations
+<!DOCTYPE reference [
+<!NOTATION brittannica SYSTEM 'http://www.eb.com/'>
+<!NOTATION worldbook SYSTEM 'http://www.worldbook.com'>
+]>
+<reference source="brittannica"></reference>
