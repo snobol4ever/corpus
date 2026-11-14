@@ -1,0 +1,17 @@
+mprogs/mtutils: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/dd2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/detex: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/headicon: oracle timed out -- non-terminating or too slow for the grading timeout
+progs/hebeng: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/hr: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+progs/htget: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/isd2disd: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/isd2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/isize: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/lcfile: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/lcn: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/literat: source is not valid UTF-8 (genuine 8-bit content, e.g. accented bytes) -- h.write_suite's writer has no encoding param and would re-encode it as UTF-8, silently changing the byte-oriented source's own byte count/content versus what the ref was cut from; excluded rather than absorbed-but-wrong until write_suite itself grows byte-faithful output (shared machinery, out of this tool's lane)
+progs/newicon: oracle timed out -- non-terminating or too slow for the grading timeout
+progs/parens: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+progs/snake: oracle produced EMPTY output -- refusing to mint a vacuous ref
+progs/weblinks: oracle produced EMPTY output -- refusing to mint a vacuous ref

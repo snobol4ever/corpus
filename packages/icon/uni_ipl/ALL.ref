@@ -1,0 +1,181 @@
+#----------------------------------------------------------------- 1 progs/chars
+" "
+"a"
+"b"
+"c"
+"d"
+"e"
+"f"
+"g"
+"h"
+"i"
+"j"
+"k"
+"l"
+"m"
+"n"
+"o"
+"p"
+"q"
+"r"
+"s"
+"t"
+"u"
+"v"
+"w"
+"x"
+"y"
+"z"
+#-------------------------------------------------------------- 2 progs/dd2draft
+Drawdown:
+
+
+Treadling:
+#---------------------------------------------------------------- 3 progs/dd2res
+treadles needed: 0
+shafts needed: 0
+#--------------------------------------------------------------- 4 progs/ddfdump
+
+ddfdump.ddf:
+
+0000: <0000;&> <SAMPLE SPATIAL FILE> <>
+0001: <0100;&> <DDF RECORD IDENTIFIER> <(I(6))>
+   <RCID>
+SITE: <1600;&> <SITE DATA> <(A,I(3),R(6),B(16))>
+   <NAME>
+   <CODE>
+   <ELEV>
+   <FLAGS>
+PNTS: <2600;&> <POINT COORDINATES> <(I(4),I(4))>
+   <X>
+   <Y>
+
+0001: 1
+SITE: <ALPHA> 42 3.141 258
+PNTS: 10 20 30 40
+
+0001: 2
+SITE: <BRAVO> 117 -12.5 -2
+PNTS: 5 6 7 8 9 10
+#--------------------------------------------------------------- 5 progs/diffsum
+     2      -1	 
+#-------------------------------------------------------------- 6 progs/filesect
+bravo
+charlie
+delta
+echo
+#--------------------------------------------------------------- 7 progs/findstr
+"alpha"
+"bravo charlie"
+"delta"
+#---------------------------------------------------------------- 8 progs/format
+the quick brown fox jumps over the lazy dog the quick brown fox alpha
+beta gamma 12 7 93 7 12 Mixed Case Words Here delta epsilon zeta alpha
+beta gamma one two three four five
+#---------------------------------------------------------------- 9 progs/getcol
+the
+jumps
+the
+alpha
+12
+Mixed
+delta
+alpha
+one
+#------------------------------------------------------------- 10 progs/getlines
+alpha
+charlie
+echo
+#-------------------------------------------------------------- 11 progs/grpsort
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 12 progs/iplweb
+lib/gprogs/drawit.icn
+lib/gprogs/paint.icn
+lib/gprocs/boxes.icn
+lib/progs/hello.icn
+lib/progs/wc.icn
+lib/procs/strings.icn
+#------------------------------------------------------------------ 13 progs/ipp
+#line 0 "stdin"
+the quick brown fox
+jumps over the lazy dog
+the quick brown fox
+alpha beta gamma
+12 7 93 7 12
+Mixed Case Words Here
+delta epsilon zeta
+alpha beta gamma
+one two three four five
+#--------------------------------------------------------------- 14 progs/iprint
+procedure main()
+   write("hello")
+end
+#------------------------------------------------------------- 15 progs/itrbksum
+
+	.
+	.
+	.
+
+
+at level 0
+#-------------------------------------------------------------- 16 progs/lindsys
+F+F--F+F+F+F--F+F--F+F--F+F+F+F--F+F
+#----------------------------------------------------------------- 17 progs/lisp
+> A
+> 
+#------------------------------------------------------------------ 18 progs/qei
+Icon Expression Evaluator, Version 1.2, type :? for help
+> > > 
+#------------------------------------------------------------------ 19 progs/rsg
+*** erroneous line:  the quick brown fox
+*** erroneous line:  jumps over the lazy dog
+*** erroneous line:  the quick brown fox
+*** erroneous line:  alpha beta gamma
+*** erroneous line:  12 7 93 7 12
+*** erroneous line:  Mixed Case Words Here
+*** erroneous line:  delta epsilon zeta
+*** erroneous line:  alpha beta gamma
+*** erroneous line:  one two three four five
+#------------------------------------------------------------- 20 progs/strimlen
+5
+3
+4
+3
+10
+#--------------------------------------------------------------- 21 progs/unclog
+
+file: src/main.c
+date: 2007/07/20 16:00;  author: ralph;
+branches:  1.1.1;
+Initial revision
+
+
+file: README
+file: src/util.c
+date: 2007/07/21 10:30;  author: ralph;
+*** empty log message ***
+
+
+file: src/main.c
+file: src/util.c
+date: 2007/08/01 09:15;  author: gmt;
+add option parsing
+and a usage message
+
+
+file: src/main.c
+date: 2007/08/10 14:22;  author: gmt;
+fix buffer overflow in option scanner
+#----------------------------------------------------------------- 22 progs/what
+what_demo.txt:
+	widget.c (1.4) - demo module
+	-- Identify the demo module.
+[Time: 0.0 seconds.]

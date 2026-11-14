@@ -1,0 +1,20 @@
+############################################################################
+#
+#	File:     drawit.icn
+#
+#	Subject:  Program to draw a box
+#
+#	Author:   Ann Artist
+#
+#	Date:     May 1, 1999
+#
+############################################################################
+#
+#  Draws a box in a window.
+#  Second line of description.
+#
+############################################################################
+
+procedure main()
+   write("drawit");
+end

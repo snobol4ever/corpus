@@ -1,0 +1,4506 @@
+#----------------------------------------------------------------- 1 progs/chars
+############################################################################
+#
+#	File:     chars.icn
+#
+#	Subject:  Program to list the different characters in a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     September 18, 1998
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program lists all the different characters in a file.  image()
+#  is used to show printable prepresentations.
+#
+############################################################################
+
+procedure main()
+   local chars;
+
+   chars := '';
+
+   while chars ++:= read();
+
+   every write(image(!chars));
+
+end
+#-------------------------------------------------------------- 2 progs/dd2draft
+############################################################################
+#
+#	File:     dd2draft.icn
+#
+#	Subject:  Program to create draft information from drawdown
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     April 17, 2000
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program reads a drawdown in terms of rows of zeros and ones from
+#  standard input and outputs draft information in textual form.
+#
+############################################################################
+
+record analysis(rows, sequence, patterns)
+
+procedure main()
+
+   local threading, treadling, rows, columns,  pattern, i;
+   local symbols, symbol, tieup;
+
+   rows := [];		# list for rows of the drawdown
+
+   while put(rows, read());	# read rows of the drawdown
+
+   write("Drawdown:");
+   write();
+   every write(!rows);
+   write();
+
+   treadling := analyze(rows);
+   write("Treadling:");
+   write();
+   every writes(!treadling.sequence, ", ");
+   write();
+   write();
+
+   columns := rotate(rows);	# rotate 90 degrees
+
+   threading := analyze(columns);
+   write("Threading:");
+   write();
+   every writes(!threading.sequence, ", ");
+   write();
+   write();
+
+   # Now do the tie-up.
+
+   symbols := table("");
+
+   every pattern := !treadling.patterns do {
+      symbol := treadling.rows[pattern];
+      symbols[symbol] := repl("0", *threading.rows);
+      pattern ? {
+         every i := upto('1') do
+            symbols[symbol][threading.sequence[i]] := "1"
+         }
+      };
+
+   symbols := sort(symbols, 3);
+   tieup := [];
+
+   while get(symbols) do
+      put(tieup, get(symbols));
+
+   write("Tie-up:");
+   write();
+   every write(!tieup);
+
+end
+
+procedure analyze(drawdown)
+   local sequence, rows, row, count, patterns;
+
+   sequence := [];
+   patterns := [];
+
+   rows := table();
+
+   count := 0;
+
+   every row := !drawdown do {
+      if /rows[row] then {
+         rows[row] := count +:= 1;
+         put(patterns, row)
+         };
+      put(sequence, rows[row])
+      };
+
+   return analysis(rows, sequence, patterns);
+
+end
+
+procedure rotate(rows)
+   local columns, row, grid, i;
+
+   columns := list(*rows[1], "");
+
+   every row := !rows do {
+      i := 0;
+      every grid := !row do
+         columns[i +:= 1] := grid || columns[i]
+      };
+
+   return columns;
+
+end
+#---------------------------------------------------------------- 3 progs/dd2res
+############################################################################
+#
+#	File:     dd2res.icn
+#
+#	Subject:  Program to compute loom resources needed from drawdown
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     April 17, 2000
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program reads a drawdown from standard input in the for of
+#  rows of zeros and ones, in which ones indicate places where the
+#  warp thread is on top and zeros where the weft thread is on top.
+#
+#  The number of shafts and treadles required is written to standard
+#  output.
+#
+############################################################################
+
+procedure main()
+   local rows, cols;
+
+   rows := [];
+
+   while put(rows, read());
+
+   write("treadles needed: ", *set(rows));
+
+   cols := rotate(rows);
+
+   write("shafts needed: ", *set(cols));
+
+end
+
+procedure rotate(rows)
+   local cols, row, grid, i;
+
+   cols := list(*rows[1], "");
+
+   every row := !rows do {
+      i := 0;
+      every grid := !row do
+         cols[i +:= 1] := grid || cols[i]
+      };
+
+   return cols;
+
+end
+#--------------------------------------------------------------- 4 progs/ddfdump
+############################################################################
+#
+#	File:     ddfdump.icn
+#
+#	Subject:  Program to print the contents of an ISO 8211 DDF file
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     June 7, 2000
+#
+############################################################################
+#
+#	This file is in the public domain.
+#
+############################################################################
+#
+#	Usage:  ddfdump [file...]
+#
+#	Ddfdump prints the contents of Data Descriptive Files (DDF).
+#	DDF is an incredibly complex file format enshrined by the
+#	ISO 8211 standard and used by the United States Geological
+#	Survey (USGS) for digital data.
+#
+############################################################################
+#
+#  Links:  ddfread
+#
+############################################################################
+
+link ddfread
+
+
+$define RecSep "\x1E"		# ASCII Record Separator
+$define UnitSep "\x1F"		# ASCII Unit Separator
+$define ShowRecSep "\xB6"	# show record separator as paragraph mark
+$define ShowUnitSep "\xA7"	# show unit separator as section mark
+
+
+
+procedure main(args)
+   local f, nbytes;
+
+   if *args > 0 then
+      every dofile(!args)
+   else
+      dofile();
+
+end
+
+procedure dofile(fname)
+   local f, dda, d, e, s;
+
+   write("\n", \fname, ":");
+   f := ddfopen(fname) | stop("can't open ", fname);
+   write();
+
+   dda := ddfdda(f);
+   every e := !dda do {
+      write(e.tag, ": ", img(e.control), " ", img(e.name), " ", img(e.format));
+      every write("   ", img(!e.labels))
+      };
+
+   while d := ddfread(f) do {
+      write();
+      every e := !d do {
+         writes(get(e), ":");
+         while s := get(e) do
+            if type(s) == "string" then
+               writes(" ", img(s))
+            else
+               writes(" ", image(s));
+         write()
+         }
+      };
+
+   ddfclose(f);
+end
+
+procedure img(s, n)
+   static s1, s2;
+   initial {
+      s1 := s2 := string(&cset);
+      every !s2[1+:32] := ".";		# show unprintables as "."
+      every !s2[128+:33] := ".";
+      s2[1+ord(RecSep)] := ShowRecSep;	# show record sep (1E) as section mark
+      s2[1+ord(UnitSep)] := ShowUnitSep	# show unit sep (1F) as paragraph mark
+   };
+   if *s > \n then
+      s := s[1+:n];
+   return "<" || map(s, s1, s2) || ">";
+end
+#--------------------------------------------------------------- 5 progs/diffsum
+############################################################################
+#
+#	File:     diffsum.icn
+#
+#	Subject:  Program to count lines affected by a diff
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     May 31, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Usage:  diffsum [file]
+#
+#  Diffsum reads a file containing output from a run of the Unix "diff"
+#  utility.  Diffsum handles either normal diffs or context diffs.  For
+#  each pair of files compared, diffsum reports two numbers:
+#	1. the number of lines added or changed
+#	2. the net change in file size
+#  The first of these indicates the magnitude of the changes and the
+#  second the net effect on file size.
+#
+############################################################################
+
+global oldname, newname
+global added, deleted, chgadd, chgdel
+
+procedure main(args)
+   local f, line;
+
+   if *args > 0 then
+      f := open(args[1]) | stop("can't open ", args[1])
+   else
+      f := &input;
+
+   added := deleted := 0;
+   oldname := newname := "";
+   chgadd := chgdel := 0;
+
+   while line := read(f) do line ? {
+      if =" " then
+         next
+      else if ="***" then {
+         chgadd := 0;
+         chgdel := +1
+         }
+      else if ="---" then {		# n.b. must precede tests below
+         chgadd := +1;
+         chgdel := 0
+         }
+      else if any('+>') then
+         added +:= 1
+      else if any('-<') then
+         deleted +:= 1
+      else if ="!" then {
+         added +:= chgadd;
+         deleted +:= chgdel
+         }
+      else if ="diff" then {
+         report();
+         while =" -" do tab(upto(' '));
+         tab(many(' '));
+         oldname := tab(upto(' ')) | "???";
+         tab(many(' '));
+         newname := tab(0)
+         }
+      else if ="Only " then
+         only()
+      };
+   report();
+end
+
+procedure report()
+   local net;
+
+   if added > 0 | deleted > 0 then {
+      net := string(added - deleted);
+      if net > 0 then
+         net := "+" || net;
+      write(right(added, 6) || right(net, 8), "\t", oldname, " ", newname)
+      };
+   added := deleted := 0;
+   chgadd := chgdel := 0;
+   return;
+end
+
+procedure only()
+   report();
+   if tab(-2) & ="." & any('oa') then
+      return;
+   tab(1);
+   write("#\t", tab(0));
+end
+#-------------------------------------------------------------- 6 progs/filesect
+############################################################################
+#
+#	File:     filesect.icn
+#
+#	Subject:  Program to produce section of a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     November 30, 1992
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program writes the section of the input file starting at a
+#  specified line number and extending a specified number of lines.
+#
+#  The specifications are given as integer command-line arguments; the
+#  first is the starting line, the second is the number of lines.  For
+#  example,
+#
+#	filesect 20 100 <input >output
+#
+#  copies 100 lines from input to output, starting at line 20 of input.
+#
+#  If the specifications are out of range, the file written is truncated
+#  without commment.
+#
+#
+############################################################################
+
+procedure main(argl)
+   local start, count;
+
+   start := argl[1] | stop("*** starting value missing");
+   count := argl[2] | stop("*** count missing");
+
+   if not (start := integer(start) & start > 0) then
+      stop("starting value not positive integer");
+   if not (count := integer(count) & count >= 0) then
+      stop("starting value not non-negative integer");
+
+   every 1 to start - 1 do
+      read() | exit();
+
+   every 1 to count do
+      write(read()) | exit();
+
+end
+#--------------------------------------------------------------- 7 progs/findstr
+############################################################################
+#
+#	File:     findstr.icn
+#
+#	Subject:  Program to find embedded character strings
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     January 3, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Utility filter to list character strings imbedded in data files (e.g.
+#  object files).
+#
+#	findstr -options file...
+#
+#	-l length	minimum string size to be printed (default 3)
+#	-c chars	a string of characters (besides the standard ASCII
+#			printable characters) to be considered part of a
+#			string
+#
+#  Icon string escape sequences can be used to specify the -c option.
+#
+#  Multiple files can be specified as arguments, and will be processed
+#  in sequence.
+#
+
+link options,escape
+
+procedure main(arg)
+   local c, f, fn, header, min_string_size, okchars, opt, s, istring;
+   #
+   #  Process command line options and file names.
+   #
+   opt := options(arg,"l+c:");
+   if *arg = 0 then stop("Usage: findstr -options file..._
+      \n_
+      \n-l length\tminimum string size to be printed (default 3)_
+      \n-c chars\ta string of characters (besides the standard ASCII_
+      \n\t\tprintable characters) to be considered part of a string_
+      \n");
+   #
+   #  Define minimum string size to print.
+   #
+   min_string_size := \opt["l"] | 3;	# default min string size = 3
+   #
+   #  Define characters that can be in strings.
+   #
+   okchars := cset(&ascii[33:-1])	;# normal ASCII printable characters
+   okchars ++:= istring(\opt["c"]);	# additional chars supplied by user
+   #
+   #  Loop to process files.
+   #
+   every fn := !arg do {
+      f := open(fn,"u") | stop("Can't open input file \"",fn,"\"");
+      #
+      #  Now find and print the strings.
+      #
+      header := if *arg > 1 then fn || ": " else "";
+      s := "";
+      while c := reads(f) do {
+	 if any(okchars,c) then s ||:= c
+	 else {
+	    if *s >=  min_string_size then write(header,image(s));
+	    s := ""
+	    }
+	 };
+      #
+      #  Close this file.
+      #
+      close(f)
+      };
+end
+#---------------------------------------------------------------- 8 progs/format
+############################################################################
+#
+#	File:     format.icn
+#
+#	Subject:  Program to word wrap a range of text
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     September 18, 1990
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Filter to word wrap a range of text.
+#
+#  A number of options are available, including full  justification (see
+#  usage text,  below).  All lines that have the same indentation as the
+#  first  line (or same  comment leading character format if  -c option)
+#  are wrapped.  Other lines are left as is.
+#
+#  This  program  is useful in conjunction with editors  that can invoke
+#  filters on a range of selected text.
+#
+#  The -c option attemps to establish the form of a comment based on the
+#  first  line, then does its best to deal  properly  with the following
+#  lines.   The  types of  comment lines that  are handled  are those in
+#  which  each  line starts with a "comment" character string  (possibly
+#  preceded  by  spaces).  While formatting  comment  lines, text  lines
+#  following the prototype line that don't match the  prototype  but are
+#  flush with  the  left margin are also  formatted  as  comments.  This
+#  feature simplifies  initially entering  lengthy  comments  or  making
+#  major modifications, since  new  text can  be entered without concern
+#  for comment formatting, which will be done automatically later.
+#
+############################################################################
+#
+#  Links: options
+#
+############################################################################
+
+link options
+
+procedure main(arg)
+   local usage, opts, tabs, comment, format, just1, space, nspace, wchar, Entab;
+   local line, pre, empty, outline, spaces, word, len, width, xspace, Detab;
+   local outpre;
+   #
+   #  Process the options.
+   #
+   usage := 
+	 "usage: format [-options]\n_
+			\t-w N\tspecify line width (default 72)\n_
+			\t-t N\tspecify tab width (default 8)\n_
+			\t-j\tfully justify lines\n_
+			\t-J\tfully justify last line, too\n_
+			\t-c\tattempt to format program comments\n_
+			\t-n\tdon't put extra spaces after sentences\n_
+			\t-h\tprint help message";
+   opts := options(arg,"ht+w+cjJn");
+   if \opts["h"] then stop(usage);
+   width := integer(\opts["w"]) | 72;
+   tabs := (integer(\opts["t"]) | 8) + 1;
+   if tabs >= 2 then {
+      Detab := detab;
+      Entab := entab
+      }
+   else Entab := Detab := 1;
+   comment := opts["c"];
+   format := if \just1 | \opts["j"] then justify else 1;
+   just1 := opts["J"];
+   xspace := if \opts["s"] then '' else '.?:!';
+   #
+   #  Initialize variables.
+   #
+   space := ' \t';
+   nspace := ~space;
+   wchar := nspace;
+   #
+   #  Read the first line to establish a prototype of comment format
+   #  if -c option, or of leading spaces if normal formatting.
+   #
+   line := Detab(read(),tabs) | exit();
+   line ?
+      pre := (tab(many(space)) | "") ||
+	 if \comment then
+	    tab(many(nspace)) || tab(many(space)) |
+			stop("### Can't establish comment pattern")
+	 else
+	    "";
+   width -:= *pre;
+   empty := trim(pre);
+   outpre := Entab(pre,tabs);
+   outline := spaces := "";
+   repeat {
+      line ? {
+	 #
+	 #  If this line indicates a formatting break...
+	 #
+	 if (=empty & pos(0)) | (=pre & any(space) | pos(0)) |
+			(/comment & not match(pre)) then {
+	    write(outpre,"" ~== outline);
+	    outline := spaces := "";
+	    write(line)
+	    }
+	 #
+	 #  Otherwise continue formatting.
+	 #
+	 else {
+	    =pre;
+	    tab(0) ? {
+	       tab(many(space));
+	       while word := tab(many(wchar)) & (tab(many(space)) | "") do {
+		  if *outline + *spaces + *word > width then {
+		     write(outpre,"" ~== format(outline,width));
+		     outline := spaces := ""
+		     };
+		  outline ||:= spaces || word;
+		  spaces := if any(xspace,word[-1]) then "  " else " "
+		  }
+	       }
+	    }
+	 };
+      line := Detab(read(),tabs) | break
+      };
+   write(outpre,"" ~== (if \just1 then justify else 1)(outline,width));
+end
+
+
+#
+#  justify(s,width) -- Inserts extra spaces between words of "s" so that
+#  "s" will  be exactly  "width" characters  long.   "s" is  trimmed  of
+#  spaces  on the right  and left ends.  If  "s" contains fewer than two
+#  words, or if the trimmed version is longer than "width", the  trimmed
+#  version  of "s" is returned unchanged.  Where some gaps between words
+#  are  required  to  be   wider  than  others,  the  extra  spaces  are
+#  distributed randomly to minimize "rivering" in justified paragraphs.
+#
+procedure justify(s,width)
+   local wlist,wset,t,r;
+   static space,nspace;
+   initial {
+      space := ' ';
+      nspace := &cset -- space
+      };
+   s := trim(s[many(space,s) | 1:0]);
+   wlist := [];
+   s ? while put(wlist,[tab(many(nspace)),*tab(many(space)) | 0]);
+   if *s >= width | *wlist < 2 then return s;
+   wset := set(wlist[1:-1]);
+   t := (width - *s) / *wset;
+   every (!wset)[2] +:= t;
+   every 1 to (width - *s) % *wset do {
+      (t := ?wset)[2] +:= 1;
+      delete(wset,t)
+      };
+   r := "";
+   every t := !wlist do r ||:= t[1] || repl(" ",t[2]);
+   return r;
+end
+#---------------------------------------------------------------- 9 progs/getcol
+############################################################################
+#
+#	File:     getcol.icn
+#
+#	Subject:  Program to extract column from data
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     December 21, 1998
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#   This program extracts a column from multi-column data.
+#
+#   The supported options are:
+#
+#	-n i	column number, default 1
+#	-c s	column-spearation characters, default ' \t'
+#
+############################################################################
+#
+#  Links:  options
+#
+############################################################################
+
+link options
+
+procedure main(args)
+   local i, chars, col, line, opts;
+
+   opts := options(args, "n+c:");
+
+   i := \opts["n"] | 1;
+   if i < 1 then stop("*** invalid column specifications");
+
+   chars := cset(\opts["c"]) | ' \t';
+   if *chars = 0 then stop("*** invalid character-separation specification");
+
+   while line := read() do {
+      line ? {
+         every 1 to i - 1 do {
+            tab(upto(chars)) | stop("*** column missing");
+            tab(many(chars))
+            };
+         write(tab(upto(chars) | 0))
+         }
+      };
+            
+end
+#------------------------------------------------------------- 10 progs/getlines
+############################################################################
+#
+#	File:     getlines.icn
+#
+#	Subject:  Program to extract lines from a file
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     December 28, 1996
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program is designed to extract a few specified lines from a file.
+#  The line numbers are given on the command line, the file is read from
+#  standard input and the exptracted lines are written to standard output
+#  as in
+#
+#	getlines 46 23 119 <infile >outfile
+#
+#  which writes lines 23, 46, and 119 of infile (if it contains that many
+#  lines) to outfile.
+#
+#  Line numbers do not have to be given in order.  Numbers less than 1 are
+#  ignored, but a nonnumerical argument is treated as an error.
+#
+############################################################################
+
+procedure main(lines)
+   local i, line;
+
+   if *lines = 0 then stop("*** no lines specified");
+
+   every i := 1 to *lines do
+      lines[i] := integer(lines[i]) |
+         stop("*** nonnumeric argument: ", image(lines[i]));
+
+   lines := set(lines);			# inefficient method but easy
+
+   i := 0;
+
+   while line := read() do {
+      i +:= 1;
+      if member(lines, i) then {
+         write(line);
+         delete(lines, i);		# so process can be stopped before end
+         if *lines = 0 then exit()
+         }
+      };
+
+end
+#-------------------------------------------------------------- 11 progs/grpsort
+############################################################################
+#
+#	File:     grpsort.icn
+#
+#	Subject:  Program to sort groups of lines
+#
+#	Author:   Thomas R. Hicks
+#
+#	Date:     June 10, 1988
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     This program sorts input containing ``records'' defined to be
+#  groups of consecutive lines. Output is written to standard out-
+#  put.  Each input record is separated by one or more repetitions
+#  of a demarcation line (a line beginning with the separator
+#  string).  The first line of each record is used as the key.
+#  
+#     If no separator string is specified on the command line, the
+#  default is the empty string. Because all input lines are trimmed
+#  of whitespace (blanks and tabs), empty lines are default demarca-
+#  tion lines. The separator string specified can be an initial sub-
+#  string of the string used to demarcate lines, in which case the
+#  resulting partition of the input file may be different from a
+#  partition created using the entire demarcation string.
+#  
+#     The -o option sorts the input file but does not produce the
+#  sorted records.  Instead it lists the keys (in sorted order) and
+#  line numbers defining the extent of the record associated with
+#  each key.
+#  
+#     The use of grpsort is illustrated by the following examples.
+#  The command
+#  
+#          grpsort "catscats" <x >y
+#  
+#  sorts the file x, whose records are separated by lines containing
+#  the string "catscats", into the file y placing a single line of
+#  "catscats" between each output record. Similarly, the command
+#  
+#          grpsort "cats" <x >y
+#  
+#  sorts the file x as before but assumes that any line beginning
+#  with the string "cats" delimits a new record. This may or may not
+#  divide the lines of the input file into a number of records dif-
+#  ferent from the previous example.  In any case, the output
+#  records will be separated by a single line of "cats".  Another
+#  example is
+#  
+#          grpsort -o <bibliography >bibkeys
+#  
+#  which sorts the file bibliography and produces a sorted list of
+#  the keys and the extents of the associated records in bibkeys.
+#  Each output key line is of the form:
+#  
+#          [s-e] key
+#  
+#  where
+#  
+#          s     is the line number of the key line
+#          e     is the line number of the last line
+#          key   is the actual key of the record
+#  
+#  
+############################################################################
+#
+#  Links: usage
+#
+############################################################################
+
+link usage
+
+global lcount, linelst, ordflag
+
+procedure main(args)
+   local division, keytable, keylist, line, info, nexthdr, null;
+   linelst := [];
+   keytable := table();
+   lcount := 0;
+
+   if *args = 2 then
+      if args[1] == "-o" then
+          ordflag := pop(args)
+      else
+          Usage("groupsort [-o] [separator string] <file >sortedfile");
+
+   if *args = 1 then {
+      if args[1] == "?" then
+          Usage("groupsort [-o] [separator string] <file >sortedfile");
+      if args[1] == "-o" then
+          ordflag := pop(args)
+      else
+          division := args[1]
+      };
+
+   if *args = 0 then
+      division := "";
+
+   nexthdr := lmany(division) | fail;	# find at least one record or quit
+   info := [nexthdr,[lcount]];
+
+   # gather all data lines for this group/record
+   while line := getline() do {
+      if eorec(division,line) then {	# at end of this record
+          # enter record info into sort key table
+          put(info[2],lcount-1);
+          enter(info,keytable);
+          # look for header of next record
+          if nexthdr := lmany(division) then
+      	info := [nexthdr,[lcount]] # begin next group/record
+          else
+      	info := null
+          }
+      };
+   # enter last line info into sort key table
+   if \info then {
+      put(info[2],lcount);
+      enter(info,keytable)
+      };
+
+   keylist := sort(keytable,1);		# sort by record headers
+   if \ordflag then
+      printord(keylist)		# list sorted order of records
+   else
+      printrecs(keylist,division);	# print records in order
+end
+
+# enter - enter the group info into the sort key table
+procedure enter(info,tbl)
+   if /tbl[info[1]] then		# new key value
+      tbl[info[1]] := [info[2]]
+   else
+      put(tbl[info[1]],info[2]);	# add occurrence info
+end
+
+# eorec - succeed if a delimiter string has been found, fail otherwise
+procedure eorec(div,str)
+   if div == "" then			# If delimiter string is empty,
+      if str == div then return	# then make exact match
+      else
+          fail;
+   if match(div,str) then return	# Otherwise match initial string.
+   else
+      fail;
+end
+
+# getline - get the next line (or fail), trim off trailing tabs and blanks.
+procedure getline()
+   local line;
+   static trimset;
+   initial trimset := ' \t';
+   if line := trim(read(),trimset) then {
+      if /ordflag then	# save only if going to print later
+          put(linelst,line);
+      lcount +:= 1;
+      return line
+      };
+end
+
+# lmany - skip over many lines matching string div.
+procedure lmany(div)
+   local line;
+   while line := getline() do {
+      if eorec(div,line) then next;	#skip over multiple dividing lines
+      return line
+      };
+end
+
+# printord - print only the selection order of the records.
+procedure printord(slist)
+   local x, y;
+   every x := !slist do
+      every y := !x[2] do
+          write(y[1],"-",y[2],"\t",x[1]);
+end
+
+# printrecs - write the records in sorted order, separated by div string.
+procedure printrecs(slist,div)
+   local x, y, z;
+   every x := !slist do 
+      every y := !x[2] do {
+          every z := y[1] to y[2] do
+      	write(linelst[z]);
+          write(div)
+          };
+end
+#--------------------------------------------------------------- 12 progs/iplweb
+###############################################################################
+#
+#	File:     iplweb.icn
+#
+#	Subject:  Program to generate web pages from IPL header comments
+#
+#	Author:   Justin Kolb
+#
+#	Date:     August 19, 1996
+#
+###############################################################################
+#
+#   This file is in the public domain.
+#
+###############################################################################
+#
+#  iplweb [-ipl source] [dest]
+#
+#  Uses an enviroment variable IPL which is a path to the Icon Program Library
+#  as a default if -ipl is not specified, dest is the current directory if not
+#  specified.
+#
+#  Generates HTML directory in dest and makes an index to gprogs, gprocs,
+#  procs, and progs directories under HTML.  In each of these directories
+#  is a .html file for each of the .icn files in the referenced directory.
+#  A index to all of these files is also generated.  Each of the .html files
+#  contains the IPL standard comment header info inside.
+#
+###############################################################################
+
+link options
+
+procedure main(arglist)
+   local opts, source, dest;
+
+   if opts := options(arglist, "-ipl:", errorproc) then {
+      source := opts["ipl"];
+      /source := getenv("IPL");
+      if /source then errorproc()
+      }
+   else errorproc();
+
+   if *arglist > 0 then {
+      dest := arglist[1] || "/HTML"
+      }
+   else {
+      dest := "HTML"
+      };
+
+   Build_HTML_Files(source, dest);
+end
+
+procedure errorproc()
+   stop("Set IPL enviroment variable or use\n",
+	"iplweb [-ipl source] [destination]");
+end
+
+procedure Build_HTML_Files(source_dir, dest)
+   local directory, dir_index_file, dir, dirlist, file_index_file,
+       prev_dir, full_path, file, file_info_file, source_file;
+
+   directory := ["/gprogs", "/gprocs", "/progs", "/procs"];
+
+   system("mkdir " || dest);
+
+   dir_index_file := open(dest || "/dirindex.html", "w");
+
+   Init_Dir_Index(dir_index_file);
+
+   every dir := !directory do {
+      dirlist := open("ls " || source_dir || dir || "/*.icn", "p");
+
+      file_index_file := &null;
+      prev_dir := "";
+
+      while full_path := read(dirlist) do {
+	 write(full_path);
+
+	 file := strip_file(full_path);
+
+	 if not (dir == prev_dir) then {
+            #Prev Dir
+	    if not /file_index_file then {
+	       Close_File_Index(file_index_file);
+
+	       close(file_index_file)
+	       };
+
+	    # Next Dir
+	    Index_Dir(dir_index_file, dir);
+
+	    system("mkdir " || dest || dir);
+
+	    file_index_file := open(dest || dir || "/fileindex.html", "w");
+
+	    Init_File_Index(file_index_file, dir)
+	    };
+
+	 Index_File(file_index_file, file);
+
+	 file_info_file := open(dest || dir || file || ".html", "w");
+
+	 source_file := open(full_path);
+
+	 ProcessFileInfo(file_info_file, source_file);
+
+	 close(source_file);
+
+	 close(file_info_file);
+
+	 prev_dir := dir
+         };
+
+      close(file_index_file)
+      };
+   Close_Dir_Index(dir_index_file);
+   close(dir_index_file);
+end
+
+procedure Init_Dir_Index(file)
+   write(file, "<TITLE>IPL: The Icon Program Library Comment Documentaion</TITLE>");
+   write(file, "<H1>The Icon Program Library</H1><P>");
+   write(file, "<H2>Source Directorys</H2><P>");
+   write(file, "<UL>");
+end
+
+procedure Index_Dir(file, dir)
+   write(file, "<LI><A HREF=\"" || dir[2:0] || "/fileindex.html\">" || dir[2:0] || "</A></LI>");
+end
+
+procedure Close_Dir_Index(file)
+   write(file, "</UL>");
+end
+
+procedure Init_File_Index(file, dir)
+   write(file, "<TITLE>IPL: The Icon Program Library Comment Documentation</TITLE>");
+   write(file, "<H1>The Icon Program Library</H1><P>");
+   write(file, "<H2>The " || dir[2:0] || " directory listing</H2><P>");
+   write(file, "<UL>");
+end
+
+procedure Index_File(index, file)
+   write(index, "<LI><A HREF=\"" || file[2:0] || ".html\">" || file[2:0] || ".icn</A></LI>");
+end
+
+procedure Close_File_Index(file)
+   write(file, "</UL>");
+end
+
+procedure ProcessFileInfo(file, source)
+   local line, keywd, text;
+
+   write(file, "<TITLE>IPL: The Icon Program Library Comment Domumentaion</TITLE>");
+
+   write(file, "<H1>The Icon Program Libary</H1><P>");
+
+   while line := read(source) do line ? {
+      if not pos(0) then {
+	 if tab(many('# \t')) &
+	     (keywd := =("File:" | "Subject:" | "Author:" | "Date:" | "Authors:")\1) &
+	     tab(many(' \t')) &
+	     text := tab(0)
+	 then {
+	    case keywd of {
+	       "File:"    : write(file, "<H2>" || text || "</H2><P>");
+	       "Subject:" : write(file, "<H3>" || text || "</H3><P>");
+	       "Author:"  : write(file, "<H3>" || text || "</H3><P>");
+	       "Authors:" : write(file, "<H3>" || text || "</H3><P>"); 
+	       "Date:"    : write(file, "<H3>" || text || "</H3><P>")
+	       }
+	    }
+	 else if tab(many('#'))\1 & tab(many(' \t')) & text := tab(0) then
+	     write(file, "<PRE>" || text || "</PRE>")
+	 }
+      };
+end
+
+procedure strip_file(path)
+   local local_dir;
+
+   path ? {
+      every local_dir := tab(upto('/'));
+      return path[*local_dir + 1 : -4]
+      };
+end
+#------------------------------------------------------------------ 13 progs/ipp
+############################################################################
+#
+#	File:     ipp.icn
+#
+#	Subject:  Program to preprocess Icon programs
+#
+#	Author:   Robert C. Wieland, revised by Frank J. Lhota
+#
+#	Date:     May 2, 2001
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     Ipp is a preprocessor for the Icon language.  Ipp has many operations and
+#  features that are unique to the Icon environment and should not be used as
+#  a generic preprocessor (such as m4).  Ipp produces output which when written
+#  to a file is designed to be the source for icont, the command processor for
+#  Icon programs.
+#
+############################################################################
+#  
+#  Ipp may be invoked from the command line as:
+#
+#    ipp [option  ...] [ifile [ofile]]
+#  
+#     Two file names may be specified as arguments.  'ifile' and 'ofile' are 
+#  respectively the input and output files for the preprocessor.  By default
+#  these are standard input and standard output.  If the output file is to be
+#  specified while the input file should remain standard input a dash ('-')
+#  should be given as 'ifile'.  For example, 'ipp - test' makes test the output
+#  file while retaining standard input as the input file.
+#  
+#     The following special names are predefined by ipp and may not be
+#  redefined #  or undefined.  The name _LINE_ is defined as the line number
+#  (as an integer) of the line of the source file currently processed.  The
+#  name _FILE_ is defined as the name of the current source file
+#  (as a string).  If the source is standard input then it has the value
+#  'stdin'.
+#
+#     Ipp will also set _LINE_ and _FILE_ from the "#line" directives it
+#  encounters, and will insert line directives to indicate source origins.
+#  
+#     Also predefined are names corresponding to the features supported by the
+#  implementation of Icon at the location the preprocessor is run.  This allows
+#  conditional translations using the 'if' commands, depending on what features
+#  are available.  Given below is a list of the features on a 4.nbsd UNIX 
+#  implementation and the corresponding predefined names:
+#  
+#  	Feature				Name
+#  	-----------------------------------------------------
+#  	UNIX				UNIX
+#  	co-expressions			co_expressions
+#  	overflow checking		overflow_checking
+#  	direct execution		direct_execution
+#  	environment variables		environment_variables
+#  	error traceback			error_traceback
+#  	executable images		executable_images
+#  	string invocation		string_invocation
+#  	expandable regions		expandable_regions
+#  
+#  
+#  Command-Line Options:
+#  ---------------------
+#  
+#    The following options to ipp are recognized:
+#  
+#   -C		By default ipp strips Icon-style comments.  If this option
+# 		is specified all comments are passed along except those
+# 		found on ipp command lines (lines starting with  a '$' 
+# 		command).
+# 
+#   -D name	
+#   -D name=def	Allows the user to define a name on the command line instead
+# 		of using a $define command in a source file.  In the first
+# 		form the name is defined as '1'.  In the second form name is
+# 		defined as the text following the equal sign.  This is less
+# 		powerful than the $define command line since def can not
+# 		contain any white space (spaces or tabs).
+# 
+#   -d depth	By default ipp allows include files to be nested to a depth
+# 		of ten.  This allows the preprocessor to detect infinitely
+# 		recursive include sequences.  If a different limit for the
+# 		nesting depth is needed it may changed by using this option
+# 		with an integer argument greater than zero. Also, if a file
+# 		is found to already be in a nested include sequence an
+# 		error message is written regardless of the limit.
+# 
+#   -I dir	The following algorithm is normally used in searching for
+# 		$include files.  On a UNIX system names enclosed in "" are
+# 		searched for by trying in order the directories specified by the
+# 		PATH environment variable, and names enclosed in <> are always
+# 		expected to be in the /usr/icon/src directory.  On other systems
+# 		names enclosed in <> are searched for by trying in order the
+# 		directories specified by the IPATH environment variable; names
+# 		in "" are searched for in a similar fashion, except that the
+# 		current directory is tried first.  If the -I option is given the
+# 		directory specified is searched before the 'standard'
+#  		directories.  If this option is specified more than once the
+#  		directories specified are tried in the order that they appear on
+#  		the command line, then followed by the 'standard' directories.
+#  
+#  Preprocessor commands:
+#  ----------------------
+#  
+#     All ipp commands start with a line that has '$' as its first non-space
+#  chararcher.  The name of the command must follow the '$'.  White space
+#  (any number of spaces or tabs) may be used to separate the '$' and the
+#  command name.  Any line beginning with a '$' and not followed by a valid
+#  name will cause an error message to be sent to standard error and
+#  termination of the preprocessor.  If the command requires an argument then
+#  it must be separated from the command name by white space otherwise the
+#  argument will be considered part of the name and the result will likely
+#  produce an error.  In processing the $ commands ipp responds to exceptional
+#  conditions in one of two ways.  It may produce a warning and continue
+#  processing or produce an error message and terminate.  In both cases the
+#  message is sent to standard error.  With the exception of error conditions
+#  encountered during the processing of the command line, the messages normally
+#  include the name and line number of the source file at the point the
+#  condition was encountered.  Ipp was designed so that most exception
+#  conditions encountered will produce errors and terminate.  This protects the
+#  user since warnings could simply be overlooked or misinterpreted.
+#
+#     Many ipp command require names as arguments.  Names must begin with a
+#  letter or an underscore, which may be followed by any number of letters,
+#  underscores, and digits.  Icon-style comments may appear on ipp command
+#  lines, however they must be separated from the normal end of the command by
+#  white_space.  If any extraneous characters appear on a command line a
+#  warning is issued.  This occurs when characters other than white-space or a
+#  comment follow the normal end of a command.
+#  
+#     The following commands are implemented:
+#  
+#    $define:  This command may be used in one of two forms.  The first form
+#   	    only allows simple textual substitution.  It would be invoked as
+#  	    '$define name text'.  Subsequent occurrences of name are replaced 
+#  	    with text.  Name and text must be separated by one white space
+#  	    character which is not considered to be part of the replacement
+#  	    text.  Normally the replacement text ends at the end of the line.
+#  	    The text however may be continued on the next line if the backslash
+#  	    character '\' is the last character on the line.  If name occurs
+#  	    in the replacement text an error message (recursive textual substi-
+#  	    tution) is written.
+#  
+#  	    The second form is '$define name(arg,...,arg) text' which defines
+#  	    a macro with arguments.  There may be no white space between the 
+#  	    name and the '('.  Each occurrence of arg in the replacement text
+#  	    is replaced by the formal arg specified when the macro is 
+#  	    encountered.   When a macro with arguments is expanded the arguments
+#  	    are placed into the expanded replacement text unchanged.  After the
+#  	    entire replacement text is expanded, ipp restarts its scan for names
+#  	    to expand at the beginning of the newly formed replacement text.  
+#  	    As with the first form above, the replacement text may be continued
+#  	    on following lines.  The replacement text starts immediately after
+#  	    the ')'. 
+#  	    The names of arguments must comply with the convention for regular 
+#  	    names.  See the section below on Macro processing for more 
+#  	    information on the replacement process.
+#  
+#    $undef:   Invoked as '$undef name'.   Removes the definition of name.  If
+#  	    name is not a valid name or if name is one of the reserved names
+#  	    _FILE_ or _LINE_ a message is issued.
+#  
+#    $include: Invoked as '$include <filename>' or '$include "filename"'.  This
+#  	    causes the preprocessor to make filename the new source until
+#  	    end of file is reached upon which input is again taken from the
+#  	    original source.  See the -I option above for more detail.
+#  
+#    $dump:    This command, which has no arguments, causes the preprocessor to 
+#  	    write to standard error all names which are currently defined.
+#  	    See '$ifdef' below for a definition of 'defined'.
+#  
+#    $warning:
+#	       This command issues a warning, with the text coming from the
+#	    argument field of the command.
+#  
+#    $error:   This command issues a error, with the text coming from the
+#	    argument field of the command.  As with all errors, processing
+#	    is terminated.
+#  
+#    $ifdef:   Invoked as 'ifdef name'.  The lines following this command appear
+#  	    in the output only if the name given is defined.  'Defined' means
+#  	      1.  The name is a predefined name and was not undefined using
+#  		  $undef, or
+#  	      2.  The name was defined using $define and has not been undefined
+#  		  by an intervening $undef.
+#  
+#    $ifndef:  Invoked as 'ifndef name'.  The lines following this command do 
+#           not appear in the output if the name is not defined.
+#  
+#    $if:      Invoked as 'if constant-expression'.  Lines following this
+#           command are processed only if the constant-expression produces a
+#           result. The following arithmetic operators may be applied to
+#           integer arguments: + - * / % ^
+#
+#  	    If an argument to one of the above operators is not an integer an
+#  	    error is produced.
+#  
+#  	       The following functions are provided: def(name), ndef(name)
+#  	    This allows the utility of $ifdef and $ifndef in a $if command.
+#  	    def produces a result if name is defined and ndef produces a
+#  	    result if name is not defined.  
+#  	    
+#  	       The following comparison operators may be used on integer
+#           operands:
+#
+#  	    > >= = < <= ~=
+#
+#              Also provided are alternation (|), conjunction (&), and
+#           negation (not).  The following table lists all operators with
+#           regard to decreasing precedence:
+#  
+#		not + - (unary)
+#  		^ (associates right to left)
+#  		* / %
+#  		+ - (binary)
+#               > >= = < <= ~=
+#  		|
+#  		&
+#  
+#  	    The precedence of '|' and '&' are the same as the corresponding
+#  	    Icon counterparts.  Parentheses may be used for grouping.
+#  	    Backtracking is performed, so that the expression
+#
+#  		FOO = (1|2)
+#
+#  	    will produce a result precisely when FOO is either 1 or 2.
+#
+#    $elif:    Invoked as 'elif constant-expression'.  If the lines preceding
+#  	    this command were processed, this command and the lines following
+#           it up to the matching $endif command are ignored.  Otherwise,
+#           the constant-expression is evaluated, and the lines following this
+#  	    command are processed only if it produces a result.
+#  
+#    $else:    This command has no arguments and reverses the notion of the
+#           test command which matches this directive.  If the lines preceding
+#           this command where ignored the lines following are processed, and
+#           vice versa.
+#  
+#    $endif:   This command has no arguments and ends the section of lines
+#           begun by a test command ($ifdef, $ifndef, or $if).  Each test
+#           command must have a matching $endif.
+#  
+#  Macro Processing and Textual Substitution
+#  -----------------------------------------
+#     No substitution is performed on text inside single quotes (cset literals)
+#  and double quotes (strings) when a line is processed.   The preprocessor
+#  will #  detect unclosed cset literals or strings on a line and issue an
+#  error message unless the underscore character is the last character on the
+#  line.  The output from 
+#  
+#  	$define foo bar
+#  	write("foo")
+#  
+#  is
+#
+#       write("foo")
+#  
+#     Unless the -C option is specified comments are stripped from the source.
+#  Even if the option is given the text after the '#' is never expanded.
+#  
+#     Macro formal parameters are recognized in $define bodies even inside cset 
+#  constants and strings.  The output from
+#  
+#  	$define test(a)		"a"
+#  	test(processed)
+#  
+#  is the following sequence of characters: "processed".
+#  
+#     Macros are not expanded while processing a $define or $undef.  Thus:
+#  
+#  	$define off invalid
+#  	$define bar off
+#  	$undef off
+#  	bar
+#  
+#  produces off.  The name argument to $ifdef or $ifndef is also not expanded.
+#  
+#     Mismatches between the number of formal and actual parameters in a macro
+#  call are caught by ipp.  If the number of actual parameters is greater than
+#  the number of formal parameters is error is produced.  If the number of
+#  actual parameters is less than the number of formal parameters a warning is
+#  issued and the missing actual parameters are turned into null strings.
+#  
+############################################################################
+#
+#    The records and global variables used by ipp are described below:
+#
+#  Src_desc:		Record which holds the 'file descriptor' and name
+#			of the corresponding file.  Used in a stack to keep
+#	        	track of the source files when $includes are used.
+#  Opt_rec 		Record returned by the get_args() routine which returns
+#			the options and arguments on the command line.  options
+#			is a cset containing options that have no arguments.
+#			pairs is a list of [option,  argument] pairs. ifile and
+#			ofile are set if the input or output files have been
+#			specified.
+#  Defs_rec		Record stored in a table keyed by names.  Holds the
+#			names of formal arguments, if any, and the replacement
+#			text for that name.
+#  Expr_node		Node of a parse tree for $if / $elif expressions.
+#			Holds the operator, or a string representing the
+#			control strcture.  Also, holds a list of the args for
+#			the operation / control structure, which are either
+#			scalars or other Expr_node records.
+#  Chars		Cset of all characters that may appear in the input.
+#  Defs			The table holding the definition data for each name.
+#  Depth		The maximum depth of the input source stack.
+#  Ifile		Descriptor for the input file.
+#  Ifile_name		Name of the input file.
+#  Init_name_char 	Cset of valid initial characters for names.
+#  Line_no		The current line number.
+#  Name_char		Cset of valid characters for names.
+#  Non_name_char	The complement of the above cset.
+#  Ofile		The descriptor of the output file.
+#  Options		Cset of no-argument options specified on the command
+#			line.
+#  Path_list		List of directories to search in for "" include files.
+#  Src_stack		The stack of input source records.
+#  Std_include_paths	List of directories to search in for <> include files.
+#  White_space		Cset for white-space characters.
+#  TRUE			Defined as 1.
+#
+############################################################################
+
+record Src_desc(fd, fname, line)
+record Opt_rec(options, pairs, ifile, ofile)
+record Defs_rec(arg_list, text)
+record Expr_node(op, arg)
+
+global Chars, Defs, Depth, Ifile, Ifile_name, Init_name_char, 
+  Line_no, Name_char, Non_name_char, Ofile, Options, Path_list, 
+  Src_stack, Std_include_paths, White_space, TRUE, DIR_SEP
+
+procedure main(arg_list)
+  local line, source;
+
+  init(arg_list);
+
+  repeat {
+    while line := get_line(Ifile) do
+      line ? process_cmd(get_cmd());
+
+    # Get new source
+    close(Ifile);
+    if source := pop(Src_stack) then {
+      Ifile := source.fd;
+      Ifile_name := source.fname;
+      Line_no := source.line
+      }
+    else  break
+  };
+end
+
+procedure conditional(expr)
+
+  return if eval(expr) then
+      true_cond()
+    else
+      false_cond();
+end
+
+#
+# In order to simplify the parsing the four operators that are longer
+# than one character (<= ~= >= not) are replaced by one character
+# 'aliases'.  Also, all white space is removed.
+#
+
+procedure const_expr(expr)
+  local new;
+
+  static White_space_plus;
+
+  initial White_space_plus := White_space ++ '<>~n';
+
+  new := "";
+  expr ? {
+    while new ||:= tab(upto(White_space_plus)) ||
+      if any(White_space) then {
+        tab(many(White_space));
+ 	""
+	}
+      else if =">=" then "\x01"
+      else if ="<=" then "\x02"
+      else if ="~=" then "\x03"
+      else if not any(Name_char, ,&pos - 1) &
+              ="not" &
+              not any(Name_char) then "\x04"
+      else move (1);
+    new ||:= tab(0)
+    };
+  #
+  # Now recursively parse the transformed string.
+  #
+  return parse(new);
+
+end
+
+procedure decoded(op)
+  return case op of {
+    "\x01": 	">=";
+    "\x02": 	"<=";
+    "\x03": 	"~=";
+    "\x04": 	"not";
+    default: 	op
+    };
+end
+
+procedure def_opt(s)
+  local name, text;
+
+  s ? {
+    name := tab(find("=")) | tab(0);
+    text := (move(1) & tab(0)) | "1"
+    };
+  if name == ("_LINE_" | "_FILE_") then
+    error(name, " is a reserved name and can not be redefined by the -D option");
+  if not name ? (get_name() & pos(0)) then
+    error(name, " :  Illegal name argument to -D option");
+  if member(Defs, name) then
+    warning(name, " : redefined by -D option");
+  insert(Defs, name, Defs_rec(, text));
+end
+
+procedure define()
+  local args, name, text;
+
+  get_opt_ws();
+  if name := get_name() & (any(White_space ++ '(') | pos(0)) then {
+    if name == ("_LINE_" | "_FILE_") then
+      error(name, " is a reserved name and can not be redefined");
+
+    if match("(") then	 		# A macro
+      args := get_formals();
+    text := get_text(args);
+
+    if member(Defs,name) then
+      warning(name, " redefined");
+    insert(Defs, name, Defs_rec(args, text))
+    }  
+  else
+    error("Illegal or missing name in define");
+end
+
+procedure dump()
+  if not pos(0) then
+    warning("Extraneous characters after dump command");
+  every write(&errout, (!sort(Defs))[1]);
+end
+
+procedure error(s1, s2)
+  s1 ||:= \s2;
+  stop(Ifile_name, ":  ", Line_no, ":  ", "Error  ", s1);
+end
+
+procedure eval(node)
+  suspend case type(node) of {
+    "Expr_node": {
+      case node.op of {
+	"|"     : eval(node.arg[1]) | eval(node.arg[2]);
+	"&"     : eval(node.arg[1]) & eval(node.arg[2]);
+	"not"   : not eval(node.arg[1]);
+	"def"   : member(Defs, node.arg[1]);
+	"ndef"  : not member(Defs, node.arg[1]);
+	default :
+	  case *node.arg of {
+	    1 : node.op(eval(node.arg[1]));
+	    2 : node.op(eval(node.arg[1]), eval(node.arg[2]))
+	    }
+	 }
+       };
+    default: node
+    };       
+end
+
+procedure false_cond()
+  local cmd, line;
+
+  # Skip to next $else / $elif branch, or $endif
+  cmd := skip_to("elif", "else", "endif");
+  case cmd of {
+    "elif" : return if_cond(cmd);
+    "else" : {
+       while line := get_line(Ifile) do
+	  line ? {
+	    cmd := get_cmd();
+	    case cmd of {
+	      "elif"  :
+		error("'elif' encountered after 'else'");
+	      "else"  :
+		error("multiple 'else' sections");
+	      "endif" : return;
+	      default : process_cmd(cmd)
+	      }
+	    };
+       error("'endif' not encountered before end of file")
+       };
+    "endif": return
+    };
+end
+	
+procedure find_file(fname, path_list)
+  local ifile, ifname, path; 
+
+  every path := !path_list do {
+    ifname :=
+      if path == ("" | ".") then
+	fname
+      else
+	path || DIR_SEP || fname;
+
+
+    if ifile := open(ifname) then {
+      if *Src_stack >= Depth then {
+	close(ifile);
+	error("Possibly infinitely recursive file inclusion")
+	};
+      if ifname == (Ifile_name | (!Src_stack).fname) then
+	error("Infinitely recursive file inclusion");
+      push(Src_stack, Src_desc(Ifile, Ifile_name, Line_no));
+      Ifile := ifile;
+      Ifile_name := ifname;
+      Line_no := 0;
+      return
+      }
+    };
+  error("Can not open include file ", fname);
+end
+
+procedure func(expr)
+  local op, arg;
+
+  expr ? {
+    if op  := tab(find("(")) & move(1) &
+       arg := get_name() & =")" & pos(0) then {
+      if op == ("def" | "ndef") then
+	return Expr_node(op, [arg])
+      else	
+        error("Invalid function name") 
+      }
+    };
+end
+
+procedure get_args(arg_list, simple_opts, arg_opts)
+  local arg, ch, get_ofile, i, opts, queue;
+  opts := Opt_rec('', []);
+  queue := [];
+
+  every arg := arg_list[i := 1 to *arg_list] do
+    if arg == "-" then 		# Next argument should be output file
+      get_ofile := (i = *arg_list - 1) | 
+	stop("Invalid position of '-' argument")
+    else if arg[1] == "-" then 	# Get options
+      every ch := !arg[2: 0] do
+	if any(simple_opts, ch) then
+	  opts.options ++:= ch
+	else if any(arg_opts, ch) then
+	  put(queue, ch)
+	else
+	  stop("Invalid option - ", ch)
+    else if ch := pop(queue) then	 # Get argument for option
+      push(opts.pairs, [ch, arg])
+    else if \get_ofile then { 	# Get output file
+      opts.ofile := arg;
+      get_ofile := &null
+      }
+    else {			# Get input file
+      opts.ifile := arg;
+      get_ofile := (i < *arg_list)
+      };
+
+  if \get_ofile | *queue ~= 0 then
+    stop("Invalid number of arguments");
+
+  return opts;
+end
+
+procedure get_cmd()
+  local cmd;
+  static  no_arg_cmds;
+  initial no_arg_cmds := set(["dump", "else", "endif"]);
+
+  if ="#" & cmd := ="line" then
+    get_opt_ws()
+  else if (get_opt_ws()) & ="$" then {
+    get_opt_ws();
+    (cmd := tab(many(Chars))) | error("Missing command");
+    get_opt_ws();
+    if not pos(0) & member(no_arg_cmds, cmd) then
+      warning("Extraneous characters after argument to '" || cmd || "'")
+    }
+  else
+    tab (1);
+  return cmd;
+end
+
+procedure get_formals()
+  local formal, arglist, ch;
+
+  arglist := [];
+  ="(";
+  get_opt_ws();
+  if not =")" then 
+    repeat {
+      if (formal := get_name()) & get_opt_ws() & any(',)') then
+	put(arglist, formal)
+      else	
+	error("Invalid formal argument in macro definition");
+      if =")" then break;
+      =",";
+      get_opt_ws()
+      };
+  get_opt_ws();
+  return arglist;
+end
+
+procedure get_line(Ifile)
+  return 1(read(Ifile), Line_no +:= 1);
+end
+
+procedure get_name()
+  return tab(any(Init_name_char)) || (tab(many(Name_char)) | "");
+end
+
+procedure get_opt_ws()
+  return (tab(many(White_space)) | "") || (="#" || tab(0) | "");
+end
+
+procedure get_text(is_macro)
+  local text;
+
+  if \is_macro then
+    text := tab(0)
+  else
+    text := (tab(any(White_space)) & tab(0)) | "";
+  while (text[-1] == "\\") do
+    (text := text[1:-1] || get_line(Ifile)) |
+      error("Continuation line not found before end of file");
+  return text;
+end
+
+# if_cond is the procedure for $if or $elif.  
+#
+# Procedure true_cond is invoked if the evaluation of a previous $if, $ifdef, or
+# $ifndef causes subsequent lines to be processed.  Lines will be processed
+# upto an $elif, $else, or $endif.  If $elif or $else is encountered, lines
+# are skipped until the matching $endif is encountered.
+#
+# Procedure false_cond is invoked if the evaluation of a previous $if, $ifdef, 
+# or $ifndef causes subsequent lines to be skipped.  Lines will be skipped 
+# upto an $elif, $else, or, $endif.  If $else is encountered, lines are
+# processed until the $endif matching the $else is encountered.
+
+procedure if_cond(cmd)
+  if pos(0) then
+    error("Constant expression argument to '" || cmd || "' missing")
+  else
+    return conditional(const_expr(tab(0)));
+end
+
+procedure ifdef()
+  local name;
+
+  if name := get_name() then
+    {
+    get_opt_ws();
+    if not pos(0) then
+      warning("Extraneous characters after argument to 'ifdef'");
+    return conditional(Expr_node("def", [name]))
+    }
+  else
+    error("Argument to 'ifdef' is not a valid name");
+end
+  
+procedure ifndef()
+  local name;
+
+  if name := get_name() then {
+    get_opt_ws();
+    if not pos(0) then
+      warning("Extraneous characters after argument to 'ifndef'");
+    return conditional(Expr_node("ndef", [name]))
+    }
+  else
+    error("Argument to 'ifndef' is not a valid name");
+end
+
+procedure in_text(name, text)
+  return text ? 
+    tab(find(name)) &
+    (if move(-1) then tab(any(Non_name_char)) else "") &
+    move(*name) &
+    (tab(any(Non_name_char)) | pos(0));
+end
+
+procedure include()
+  local ch, fname; 
+  static fname_chars, stopper;
+
+  initial {
+    fname_chars := Chars -- '<>"';
+    stopper := table();
+    insert(stopper, "\"", "\"");
+    insert(stopper, "<",  ">")
+    };
+
+  if (ch    := tab(any('"<'))) &
+     (fname := tab(many(fname_chars))) &
+      =stopper[ch] then {
+    get_opt_ws();
+    if not pos(0) then
+      warning("Extraneous characters after include file name");
+    find_file(fname,
+      case ch of {
+	"\"" : Path_list;
+	"<"  : Std_include_paths
+	}
+      )
+    }
+  else
+    error("Missing or invalid include file name");
+end
+
+procedure pathsep()
+   return getenv("PATHSEP") | ";";
+end
+
+procedure init(arg_list)
+  local s, sep;
+
+  TRUE := 1;
+  Defs := table();
+  Init_name_char := &letters ++ '_';
+  Name_char := Init_name_char ++ &digits;
+  Non_name_char := ~Name_char;
+  White_space := ' \t\b';
+  Chars := &ascii -- White_space;
+  Line_no := 0;
+  Depth := 10;
+
+  # Predefine features
+  every s := &features do {
+    s := map(s, " -/", "___");
+    insert(Defs, s, Defs_rec(, "1"))
+    };
+
+  # Set path list for $include files given in "", <>
+  if member(Defs, "UNIX") then {
+    Path_list := [];
+    getenv("PATH") ? while put(Path_list, 1(tab(find(":")), move(1)));
+    Std_include_paths := ["/usr/icon/src"]
+    }
+  else {
+    Std_include_paths := [];
+    sep := pathsep();
+    (getenv("IPATH") || sep) ?
+       while put(Std_include_paths, tab(find(sep))) do move(1);
+    Path_list := [""] ||| Std_include_paths
+    };
+
+  process_options(arg_list);
+end
+
+procedure lassoc(expr, op)
+  local j, arg1, arg2;
+
+  expr ? {
+    every j := bal(op);
+    # Succeeds if op found.
+    if arg1 := tab(\j) & op := decoded(move(1)) & arg2 := tab(0) then {
+      op := proc(op, 2);		# Fails for control structures
+      return Expr_node(op, [parse(arg1), parse(arg2)])
+      }
+    };
+end
+
+#
+# Programmer's note: Ifile_name and Line_no should not be assigned new
+# values until the very end, so that if there is an error, the error
+# message will include the file/line no of the current line directive,
+# instead of the file/line of the text that follows the directive.
+#
+procedure line()
+  local new_line, new_file;
+
+  new_line := tab(many(&digits)) | error("No line number in line directive");
+  get_opt_ws();
+  if ="\"" then {
+    new_file := "";
+    #
+    # Get escaped chars.  We assume that the only escaped chars
+    # appearing in a file name would be \\ or \", where the actual
+    # character to be used is simply the character following the slash.
+    # In the unlikely event that other escape sequences are encountered,
+    # this section would have to revised.
+    #
+    while new_file ||:= tab(find("\\")) || (move(1) & move(1));
+    new_file ||:= tab(find("\"")) |
+      error("Invalid file name in line directive")
+    };
+
+  Line_no    := integer(new_line);
+  Ifile_name := \new_file;
+  return;
+end
+
+procedure macro_call(entry, args)
+  local i, value, result, token;
+
+  value := table();
+  every i := 1 to *entry.arg_list do
+    insert(value, entry.arg_list[i], args[i] | "");
+
+  entry.text ? {
+    result := tab(upto(Name_char) | 0);
+    while token := tab(many(Name_char)) do {
+      result ||:= \value[token] | token;
+      result ||:= tab(many(Non_name_char))
+      }
+    };
+  return result;
+end
+
+procedure no_endif_error()
+  error("'endif' not encountered before end of file");
+end
+
+procedure parse(expr)
+  # strip surrounding parens.
+  while expr ?:= 2(="(", tab(bal (')')), pos(-1));
+
+  return lassoc(expr, '&' | '|') |
+    lassoc(expr, '<=>\x01\x02\x03' | '+-' | '*/%') |
+    rassoc(expr, '^') | 
+    unary(expr, '+-\x04') |
+    func(expr) |
+    integer(process_text(expr)) |
+    error(expr, " :  Integer expected");
+end
+
+procedure process_cmd(cmd)
+  static last_cmd;
+  initial last_cmd := "";
+
+  case cmd of {
+    "dump"    : dump();
+    "define"  : define();
+    "undef"   : undefine();
+    "include" :	include();
+    "line"    : line();
+    "error"   :	error(tab(0));
+    "warning" :	warning(tab(0));
+    "if"      : if_cond( last_cmd := cmd );
+    "ifdef"   : ifdef(   last_cmd := cmd );
+    "ifndef"  : ifndef(  last_cmd := cmd );
+    "elif"   |
+    "else"   |
+    "endif"   :	error("No previous 'if' expression");
+    &null     : {
+      if \last_cmd then
+	put_linedir(Ofile, Line_no, Ifile_name);
+      write(Ofile, process_text(tab(0)))
+      };
+    default   :	error("Undefined command")
+    };
+  last_cmd := cmd;
+  return;
+end
+
+procedure process_macro(name, entry, s)
+  local arg, args, new_entry, news, token;
+
+  s ? {
+    args := [];
+    if ="(" then {
+      #
+      # Get args if list is not empty.
+      #
+      get_opt_ws ();
+      if not =")" then
+	repeat {
+	  arg := get_opt_ws();
+	  if token := tab(many(Chars -- '(,)')) then {
+	    if /(new_entry := Defs[token]) then
+	      arg ||:= token
+	    else if /new_entry.arg_list then
+	      arg ||:= new_entry.text
+	    else {  # Macro with arguments
+	      if news := tab(bal(White_space ++ ',)')) then
+		arg ||:= process_macro(token, new_entry, news)
+	      else
+		error(token, ":  Error in arguments to macro call")
+	      } # if
+	    } # if
+	  else if not any(',)') then
+	    error(name, ":  Incomplete macro call");
+	  arg ||:= tab(many(White_space));
+	  put(args, arg);
+	  if match(")") then
+	    break;
+	  move(1)
+	}; # repeat 
+      if *args > *entry.arg_list then
+	error(name, ":  Too many arguments in macro call")
+      else if *args < *entry.arg_list then
+	warning(name, ":  Missing arguments in macro call");
+      return macro_call(entry, args)
+      } # if
+    };
+end
+
+procedure process_options(arg_list)
+  local args, arg_opts, pair, simple_opts, tmp_list, value;
+
+  simple_opts := 'C';
+  arg_opts := 'dDI';
+  Src_stack := [];
+
+  args := get_args(arg_list, simple_opts, arg_opts);
+  if \args.ifile then {
+    (Ifile := open(args.ifile)) | stop("Can not open input file ", args.ifile);
+    Ifile_name := args.ifile
+    }
+  else {
+    Ifile := &input;
+    Ifile_name := "stdin"
+    };
+  if \args.ofile then 
+    (Ofile := open(args.ofile, "w")) | stop("Can not open output file",
+      args.ofile)
+  else 
+    Ofile := &output;
+
+  Options := args.options; 
+  tmp_list := [];
+  every pair := !args.pairs do
+    case pair[1] of {
+      "D":	def_opt(pair[2]);
+      "d":	if (value := integer(pair[2])) > 0 then
+		  Depth := value
+		else
+		  stop("Invalid argument for depth");
+      "I":	push(tmp_list, pair[2])
+    };
+  Path_list := tmp_list ||| Path_list;
+end
+
+procedure process_text(line)
+  local add, entry, new, position, s, token;
+  static in_string, in_cset;
+
+  new :=  "";
+  while *line > 0 do {
+    add := "";
+    line ?:= {
+      if \in_string then {
+	# Ignore escaped chars
+	while new ||:= tab(find("\\")) || move(2);
+	if new ||:= tab(find("\"")) || move(1) then
+	  in_string := &null
+	else {
+	  new ||:= tab(0);
+	  if line[-1] ~== "_" then {
+	    in_string := &null;
+	    warning("Unclosed double quote")
+	    }
+	  }
+	}	    
+      else if \in_cset then {
+	# Ignore escaped chars.
+	while new ||:= tab(find("\\")) || move(2);
+	if new ||:= (tab(find("'")) || move(1)) then
+	  in_cset := &null
+	else {
+	  new ||:= tab(0);
+	  if line[-1] ~== "_" then {
+	    in_cset := &null;
+	    warning("Unclosed single quote")
+	    }
+	  }
+	};   
+
+      new ||:= tab(many(White_space));
+      case token := tab(many(Name_char) | any(Non_name_char)) of {
+	"\"": {
+	  new ||:= "\"";
+	  if \in_string then 
+	    in_string := &null
+	  else if not pos(0) then {
+	    in_string := TRUE 
+	    }
+	  else {
+	    warning("Unclosed double quote")
+	    };
+	  add ||:= tab(0)
+	    };
+	"'": {
+	  new ||:= "'";
+	  if \in_cset then 
+	    in_cset := &null
+	  else if not pos(0) then {
+	    in_cset := TRUE 
+	    }
+	  else {
+	    warning("Unclosed double quote")
+	    };
+	  add ||:= tab(0)
+	    };
+	"#": {
+	    new ||:= if any(Options, 'C') then token || tab(0)
+		else tab(0) & token ? tab(find("#"))
+	    };
+	"__LINE__":
+	  new ||:= Line_no;
+	"__FILE__":
+	  new ||:= Ifile_name;
+	default: {
+	  if /(entry := Defs[token]) then
+	    new ||:= token
+	  else if /entry.arg_list then
+	    if in_text(token, entry.text) then
+		error("Recursive textual substitution")
+	    else
+		add := entry.text
+	  else {  # Macro with arguments
+	    s := tab(bal(White_space) | 0);
+	    if not any('(', s) then
+		error(token, ":  Incomplete macro call");
+	    add := process_macro(token, entry, s)
+	    }
+	  } # default
+	}; # case
+      add || tab(0)
+      } # ?:=
+    }; # while
+  return new;
+end
+
+procedure put_linedir(Ofile, Line_no, Ifile_name)
+  static last_filename;
+  initial last_filename := "";
+
+  writes(Ofile, "#line ", Line_no - 1);
+  #
+  # Output file name part only if the
+  # filename differs from the last one used.
+  #
+  if last_filename ~==:= Ifile_name then
+    writes(Ofile, " ", image(last_filename));
+  write(Ofile);
+  return;
+end
+
+procedure rassoc(expr, op)
+  local arg1, arg2;
+
+
+  # Succeeds if op found.
+  expr ? if arg1 := tab(bal(op)) & op := move(1) & arg2 := tab(0) then {
+      op := decoded(op);
+      op := proc(op, 2);		# Fails for control structures
+      return Expr_node(op, [parse(arg1), parse(arg2)])
+      };
+end
+
+#
+# skip_to is used to skip over parts of the an '$if' structure. targets
+# are the $if - related commands to skip to, and should always include
+# "endif".
+#
+# We do not, of course, wish to skip to a command in an $if structure
+# that is embedded in the current one; also, we want to make sure that
+# embedded $if structures, even in skipped lines, are well formed.  We
+# therefore maintain a stack, if_sects, of the currently applicable $if
+# structure commands encountered in the skipped lines.  For example, if
+# we have skipped over the commands
+#
+#    $ifdef ...
+#       $if ...
+#       $elif ...
+#           $if ...
+#           $else
+#
+# if_sect would be ["else", "elif", "ifdef"].
+#
+procedure skip_to(targets[])
+  local cmd, if_sects, line, argpos;
+
+  if_sects := [];
+  while line := get_line(Ifile) | no_endif_error () do
+    line ? {
+      cmd := get_cmd();
+      if *if_sects = 0 & \cmd == !targets then {
+	argpos := &pos;
+	break
+	};
+
+      case cmd of {
+	"if"    |
+	"ifdef" |
+	"ifndef" : {
+	  if pos(0) then
+	    error("Argument to '" || cmd || "' missing");
+	  push(if_sects, cmd)
+	  };
+	"elif"   : {
+	  if pos(0) then
+	    error("Argument to '" || cmd || "' missing");
+	  if if_sects[1] == "else" then
+	    error("'elif' encountered after 'else'")
+	  else
+	    if_sects[1] := cmd
+	  };
+	"else"   : {
+	  if if_sects[1] == "else" then
+	    error("multiple 'else' sections")
+	  else
+	    if_sects[1] := cmd
+	  };
+	"endif"  : pop(if_sects)
+	}
+      };
+
+  #
+  # Now reset the &subject to the current line, and &pos to the argument
+  # field of the current line, so that if we skipped to a line which will
+  # require further processing (such as $elif), the scanning functions can
+  # be used.
+  #
+  &subject := line;
+  &pos     := argpos;
+  return cmd;
+
+end
+
+procedure true_cond()
+  local cmd, line;
+
+  while line := get_line(Ifile) | no_endif_error () do
+    line ? {
+      case cmd := get_cmd() of {
+	"elif" |
+	"else"  : return skip_to("endif");
+	"endif" : return cmd;
+	default : process_cmd(cmd)
+	}
+      };
+     
+end
+
+procedure unary(expr, op)
+  local arg1;
+
+
+  # Succeeds if op found.
+  expr ?
+    if op := decoded(tab(any(op))) & arg1 := tab(0) then {
+      op := proc(op, 1);		# fails for control structures
+      return Expr_node(op, [parse(arg1)])
+      };
+end
+
+procedure undefine()
+  local name;
+
+  if name := get_name() then {
+    get_opt_ws();
+    if not pos(0) then
+      warning("Extraneous characters after argument to undef");
+    if name == ("_LINE_" | "_FILE_") then
+      error(name, " is a reserved name that can not be undefined");
+    delete(Defs, name)
+    }
+  else
+    error("Name missing in undefine");
+end
+
+procedure warning(s1, s2)
+  s1 ||:= \s2;
+  write(&errout, Ifile_name, ":  ", Line_no, ":  ", "Warning  " || s1);
+end
+#--------------------------------------------------------------- 14 progs/iprint
+############################################################################
+#
+#	File:     iprint.icn
+#
+#	Subject:  Program to print Icon program
+#
+#	Author:   Robert J. Alexander
+#
+#	Date:     August 14, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     The defaults are set up for printing of Icon programs, but
+#  through command line options it can be set up to print programs
+#  in other languages, too (such as C). This program has several
+#  features:
+#  
+#     If a program is written in a consistent style, this program
+#  will attempt to keep whole procedures on the same page. The
+#  default is to identify the end of a print group (i.e. a pro-
+#  cedure) by looking for the string "end" at the beginning of a
+#  line. Through the -g option, alternative strings can be used to
+#  signal end of a group. Using "end" as the group delimiter
+#  (inclusive), comments and declarations prior to the procedure are
+#  grouped with the procedure. Specifying a null group delimiter
+#  string (-g '') suppresses grouping.
+#  
+#     Page creases are skipped over, and form-feeds (^L) imbedded in
+#  the file are handled properly. (Form-feeds are treated as spaces
+#  by many C compilers, and signal page ejects in a listing). Page
+#  headings (file name, date, time, page number) are normally
+#  printed unless suppressed by the -h option.
+#  
+#     Options:
+#  
+#       -n   number lines.
+#  
+#       -pN  page length: number of lines per page (default: 60
+#            lines).
+#  
+#       -tN   tab stop spacing (default: 8).
+#  
+#       -h   suppress page headings.
+#  
+#       -l   add three lines at top of each page for laser printer.
+#  
+#       -gS  end of group string (default: "end").
+#  
+#       -cS  start of comment string (default: "#").
+#  
+#       -xS  end of comment string (default: none).
+#  
+#       -i   ignore FF at start of line.
+#  
+#     Any number of file names specified will be printed, each
+#  starting on a new page.
+#  
+#     For example, to print C source files such as the Icon source
+#  code, use the following options:
+#  
+#     iprint -g ' }' -c '/*' -x '*/' file ...
+#  
+#     Control lines:
+#  
+#     Control lines are special character strings that occur at the
+#  beginnings of lines that signal special action. Control lines
+#  begin with the start of comment string (see options). The control
+#  lines currently recognized are:
+#  
+#     <comment string>eject -- page eject (line containing "eject"
+#  does not print).
+#  
+#     <comment string>title -- define a title line to print at top
+#  of each page. Title text is separated from the <comment
+#  string>title control string by one space and is terminated by
+#  <end of comment string> or end of line, whichever comes first.
+#  
+#     <comment string>subtitle -- define a sub-title line to print
+#  at top of each page. Format is parallel to the "title" control
+#  line, above.
+#  
+#     If a page eject is forced by maximum lines per page being
+#  exceeded (rather than intentional eject via control line, ff, or
+#  grouping), printing of blank lines at the top of the new page is
+#  suppressed. Line numbers will still be printed correctly.
+#  
+############################################################################
+
+global pagelines,tabsize,lines,page,datetime,title,subtitle,pagestatus,blanks,
+	group,numbers,noheaders,hstuff,gpat,comment,comment_end,laser,
+	ignore_ff
+
+procedure main(arg)
+  local files,x;
+  &dateline ? {tab(find(",")) ; move(2) ; datetime := tab(0)};
+  files := [];
+  pagelines := 60;
+  tabsize := 8;
+  gpat := "end";
+  comment := "#";
+
+  while x := get(arg) do {
+    if match("-",x) then {	# Arg is an option
+      case x[2] of {
+	"n": numbers := "yes";
+	"p": {
+	  pagelines := ("" ~== x[3:0]) | get(arg);
+	  if not (pagelines := integer(pagelines)) then
+		stop("Invalid -p parameter: ",pagelines)
+	};
+	"t": {
+	  tabsize := ("" ~== x[3:0]) | get(arg);
+	  if not (tabsize := integer(tabsize)) then
+		stop("Invalid -t parameter: ",tabsize)
+	};
+	"h": noheaders := "yes";
+	"l": laser := "yes";
+	"g": {
+	  gpat := ("" ~== x[3:0]) | get(arg)
+	};
+	"c": {
+	  comment := ("" ~== x[3:0]) | get(arg)
+	};
+	"x": {
+	  comment_end := ("" ~== x[3:0]) | get(arg)
+	};
+	"i": ignore_ff := "yes";
+	default: stop("Invalid option ",x)
+      }
+    }
+    else put(files,x)
+  };
+  if *files = 0 then stop("usage: iprint -options file ...\n_
+	options:\n_
+	\t-n\tnumber the lines\n_
+	\t-p N\tspecify lines per page (default 60)\n_
+	\t-t N\tspecify tab width (default 8)\n_
+	\t-h\tsuppress page headers\n_
+	\t-l\tadd 3 blank lines at top of each page\n_
+	\t-g S\tpattern for last line in group\n_
+	\t-c S\t'start of comment' string\n_
+	\t-x S\t'end of comment' string\n_
+	\t-i\tignore FF");
+  every x := !files do expand(x);
+end
+
+procedure expand(fn)
+  local f,line,cmd,linenbr,fname;
+  f := open(fn) | stop("Can't open ",fn);
+  fn ? {
+    while tab(find("/")) & move(1);
+    fname := tab(0)
+  };
+  hstuff := fname || "  " || datetime || "  page ";
+  title := subtitle := &null;
+  lines := pagelines;
+  page := 0 ; linenbr := 0;
+  group := [];
+  while line := trim(read(f)) do {
+    if \ignore_ff then while match("\f",line) do line[1] := "";
+    linenbr +:= 1;
+    if match("\f",line) then {
+      dumpgroup();
+      lines := pagelines;
+      repeat {
+	line[1] := "";
+	if not match("\f",line) then break
+      }
+    };
+    line ? {
+      if =comment & cmd := =("eject" | "title" | "subtitle") then {
+	dumpgroup();
+	case cmd of {		# Command line
+	  "title": (move(1) & title := trim(tab(find(comment_end)))) |
+		(title := &null);
+	  "subtitle": (move(1) & subtitle := trim(tab(find(comment_end)))) |
+		(subtitle := &null)
+	};
+	lines := pagelines
+      }
+      else {	# Ordinary (non-command) line
+	if not (*group = 0 & *line = 0) then {
+	  put(group,line);
+	  if \numbers then put(group,linenbr)
+	};
+	if endgroup(line) then dumpgroup()
+      }
+    }
+  };
+  dumpgroup();
+  close(f);
+  lines := pagelines;
+end
+
+procedure dumpgroup()
+  local line,linenbr;
+  if *group > 0 then {
+    if lines + *group / ((\numbers & 2) | 1) + 2 >= pagelines then
+	lines := pagelines
+    else {write("\n") ; lines +:= 2};
+    while line := get(group) do {
+      if \numbers then linenbr := get(group);
+      if lines >= pagelines then {
+	printhead()
+      };
+      if *line = 0 then {
+	if pagestatus ~== "empty" then {blanks +:= 1 ; lines +:= 1};
+	next
+      };
+      every 1 to blanks do write();
+      blanks := 0;
+      pagestatus := "not empty";
+      if \numbers then writes(right(linenbr,5)," ");
+      write(detab(line));
+      lines +:= 1
+    }
+  };
+  return;
+end
+
+procedure endgroup(s)
+  return match("" ~== gpat,s);
+end
+
+procedure printhead()
+  static ff,pg;
+  writes(ff) ; ff := "\f";
+  lines := 0;
+  pg := string(page +:= 1);
+  if /noheaders then {
+    if \laser then write("\n\n");
+    write(left(\title | "",79 - *hstuff - *pg),hstuff,pg);
+    lines +:= 2;
+    write(\subtitle) & lines +:= 1;
+    write()
+  };
+  pagestatus := "empty";
+  blanks := 0;
+  return;
+end
+
+procedure detab(s)
+  local t;
+  t := "";
+  s ? {
+    while t ||:= tab(find("\t")) do {
+      t ||:= repl(" ",tabsize - *t % tabsize);
+      move(1)
+    };
+    t ||:= tab(0)
+  };
+  return t;
+end
+
+#------------------------------------------------------------- 15 progs/itrbksum
+############################################################################
+#
+#	File:     itrbksum.icn
+#
+#	Subject:  Program to give summary of traceback
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     July 14, 1997
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program summarizes traceback information produced on error
+#  termination by filtering out the bulk of the procedure tracebak
+#  information.
+#
+#  Expect various options in future versions.
+#
+############################################################################
+
+$define CountWidth 10
+
+procedure main()
+   local line, count;
+
+   while line := read() do {
+      if line ? =("Trace back:" | "Traceback") then break
+      else write(line)
+      };
+
+   write();
+   write(read());
+
+   count := 0;
+   while line := read() do
+      count +:= 1;
+
+   every 1 to 3 do
+      write("\t.");
+
+   write(line);
+
+   write();
+
+   write("at level ", count);
+
+end
+#-------------------------------------------------------------- 16 progs/lindsys
+############################################################################
+#
+#	File:     lindsys.icn
+#
+#	Subject:  Program to generate sentences in 0L-systems
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     October 23, 1998
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program reads in a 0L-system (Lindenmayer system) consisting of
+#  rewriting rules in which a string is rewritten with every character
+#  replaced simultaneously (conceptually) by a specified string of
+#  symbols.
+#
+#  Rules have the form
+#
+#	S->SSS...
+#
+#  where S is a character.
+#
+#  In addition to rules, there are keywords that describe attributes of the
+#  system.  These include the "axiom", the string on which rewriting is
+#  started and "gener", the number of generations.
+#
+#  The keyword "name" may be used to identify different L-systems in
+#  a file.  If a name is given, it must be the first line of the L-system.
+#
+#  If the keyword "end" is present, it is taken as the termination of
+#  the grammar.  Otherwise, the end of the file serves this purpose.
+#
+#  Other keywords may be present, but are ignored.  For example,
+#
+#	comment:This produces a great tree.
+#
+#  is ignored.
+#
+#  Keywords are followed by a colon.
+#
+#    An example 0L-system is:
+#
+#	name:dragon
+#	X->-FX++FY-
+#	Y->+FX--FY+
+#	F->
+#	-->-
+#	+->+
+#	axiom:FX
+#
+#  Here, the initial string is "FX".
+#
+#  Note that "-" is a legal character in a 0L-system -- context determines
+#  whether it's 0L character or part of the "->" that stands for "is
+#  replaced by".
+#
+#  If no rule is provided for a character, the character is not changed
+#  by rewriting. Thus, the example above can be expressed more concisely
+#  as
+#
+#	name:dragon
+#	X->-FX++FY-
+#	Y->+FX--FY+
+#	F->
+#	axiom:FX
+#
+#  The file containing the 0L-system is read from standard input.
+#
+#  The command-line options are:
+#
+#	-g i	number of generations if not given, default 3
+#	-a s	axiom (overrides axiom given in the grammar)
+#	-A	generate all intermediate results, not just the last
+#
+#  Note:  An earlier version of this program had the ability to
+#  extract an L-System specification by name from a file with
+#  multiple specifications.  This version does not -- the former
+#  functionality was deemed to cumbersome.
+#
+#  References:
+#
+#     Formal Languages, Arto Salomaa, Academic Press, 1973. pp. 234-252.
+#
+#     The Algorithmic Beauty of Plants, Przemyslaw Prusinkiewicz and
+#     Aristid Lindenmayer, Springer Verlag, 1990.
+#
+#     Lindenmayer Systems, Fractals, and Plants, Przemyslaw Prusinkiewicz
+#     and James Hanan, Springer Verlag, 1989.
+#
+############################################################################
+#
+#  See linden.dat for an example of input data.
+#
+#  See also linden.icn for a graphics version.
+#
+############################################################################
+#
+#  Links: lindgen, makelsys, options
+#
+############################################################################
+
+link lindgen
+link makelsys
+link options
+
+procedure main(args)
+   local line, gener, axiom, opts, i, s, c, symbol, rewrite;
+   local low, lsys, lst;
+
+   opts := options(args,"n:g+a:A");
+
+   lst := [];
+
+   while put(lst, read());
+
+   lsys := makelsys(lst);
+
+   axiom := lsys.axiom;
+   gener := lsys.gener;
+   rewrite := lsys.productions;
+
+   axiom := \opts["a"];
+   gener := \opts["g"];
+   /gener := 3;
+
+   if /axiom then stop("*** no axiom");
+
+   #  The following approach is inefficient if low is not gener.
+
+   low := if /opts["A"] then gener else 1; 
+
+   every i := low to gener do {
+      every writes(lindgen(!axiom, rewrite, i));
+      write()
+      };
+
+end
+#----------------------------------------------------------------- 17 progs/lisp
+############################################################################
+#
+#	File:     lisp.icn
+#
+#	Subject:  Program to interpret LISP programs
+#
+#	Author:   Stephen B. Wampler, modified by Phillip Lee Thomas and
+#		  Clinton Jeffery
+#
+#	Date:     February 4, 1991; version 1.3:  June 17, 2012
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     This program is a simple interpreter for pure Lisp. It takes the
+#  name of a Lisp program as an optional command-line argument.
+#
+#     The syntax and semantics are based on EV-LISP, as described in
+#  Laurent Siklossy's "Let's Talk LISP" (Prentice-Hall, 1976, ISBN
+#  0-13-532762-8).  Functions that have been predefined match those
+#  described in Chapters 1-5 of the book.
+#
+#     No attempt at improving efficiency has been made, this is
+#  rather an example of how a simple LISP interpreter might be
+#  implemented in Icon.
+#
+#     The language implemented is case-insensitive.
+#
+#     It only reads enough input lines at one time to produce at least
+#  one LISP-expression, but continues to read input until a valid
+#  LISP-expression is found.
+#
+#     It first reads in files listed on command line, switches
+#  to reading standard input, and terminates with the first (exit)
+#  instruction.
+#
+#  Errors:
+#
+#     Fails with error message if current input cannot be made into
+#  a valid LISP-expression (i.e. more right than left parens).
+#
+#  See HELP function at end of file for syntax summary/examples.
+#
+############################################################################
+link ximage
+
+global words,     # table of variable atoms
+       T, NIL,    # universal constants
+       infile     # command line library files
+
+global trace_set  # set of currently traced functions
+
+record prop(v,f)  # abbreviated property list
+
+$ifndef NOMAIN
+procedure main(argv)
+   lisp(argv);
+end
+$endif
+
+### main interpretive loop
+#
+procedure lisp(f) 
+local sexpr, source;
+   /f := [];
+   initialize();
+   preload();
+   if f[1] == ("-C" | "/C") then pop(f)  # run-command-then-terminate mode
+   else if not (!f=="-") then put(f, "-");   # append "-" by default
+   while source := pop(f) do {
+      if not (infile := (if source == "-" then &input else open(source))) then
+	 stop("wtLisp can't open ", image(source));
+      if source ~== "-" then write("Reading: ", image(source));
+      writes("> ");
+      every sexpr := bstol(getbs()) do  {
+	 PRINT([EVAL([sexpr])]);
+	 writes("> ")
+	 }
+      };
+end
+
+## (READ) - read an s-expr under program control.
+#
+# This is obviously inadequate, the whole input subsystem needs re-thinking.
+#
+procedure READ()
+local tmp;
+   tmp := ("" ~== |Map(read())) || " ";
+   while not checkbal(tmp) do {
+      if more(')','(',tmp) then break;
+      tmp ||:= (("" ~== |Map(read())) || " ") | break
+      };
+   return bstol(balstr(tmp));
+end
+
+## (EVAL e) - the actual LISP interpreter
+#
+procedure EVAL(l)
+local fn, arglist, arg;
+
+   l := l[1];
+   if T === ATOM([l]) then {			# it's an atom
+      if T === l then return .T;
+      if EQ([NIL,l]) === T then return .NIL;
+      if numeric(l) then return l;		# numbers eval to themselves
+      return .((\words[l]).v | NIL)
+      };
+   if glist(l) then {				# it's a list
+      if T === ATOM([l[1]]) then
+         case l[1] of {
+         "QUOTE" : return .(l[2] | NIL);
+	 "FUNCTION": return FUNCTION([l[2]]) | NIL;
+         "COND"  : return COND(l[2:0]);
+         "SETQ"  : return SET([l[2]]|||evlis(l[3:0]));
+         "ITRACEON"  : return (&trace := -1,T);
+         "ITRACEOFF" : return (&trace := 0,NIL);
+	 "HELP"      : return (HELP(l[2:0]),NIL);
+         "EXIT"      : exit(0);
+         default : return apply([l[1]]|||evlis(l[2:0])) | NIL
+         };
+      return apply([EVAL([l[1]])]|||evlis(l[2:0])) | NIL
+      };
+   return .NIL;
+end
+
+## apply(fn,args) - evaluate the function
+
+procedure apply(l)
+local fn, arglist, arg, value, fcn;
+   fn := l[1];
+   if member(trace_set, string(fn)) then {
+      write("Arguments of ",fn);
+      PRINT(l[2:0])
+      };
+   if value := case string(fn) of {
+      "CAR"     : CAR([l[2]]) | NIL;
+      "CDR"     : CDR([l[2]]) | NIL;
+      "CONS"    : CONS(l[2:0]) | NIL;
+      "ATOM"    : ATOM([l[2]]) | NIL;
+      "NULL"    : NULL([l[2]]) | NIL;
+      "EQ"      : EQ([l[2],l[3]]) | NIL;
+      "NUMBERP" : NUMBERP([l[2]]) | NIL;
+      "ADD1"    : ADD1([l[2]]) | NIL;
+      "PLUS"    : PLUS(l[2:0]) | NIL;
+      "TIMES"   : TIMES(l[2:0]) | NIL;
+      "MIN"     : MIN(l[2:0]) | NIL;
+      "MAX"     : MAX(l[2:0]) | NIL;
+      "RECIP"   : RECIP([l[2]]) | NIL;
+      "SUB1"    : SUB1([l[2]]) | NIL;
+      "DIFFERENCE": DIFFERENCE([l[2], l[3]]) | NIL;
+      "EXPT"    : EXPT([l[2], l[3]]) | NIL;
+      "QUOTIENT": QUOTIENT([l[2], l[3]]) | NIL;
+      "REMAINDER": REMAINDER([l[2], l[3]]) | NIL;
+      "ZEROP"   : ZEROP([l[2]]) | NIL;
+      "ONEP"    : ONEP([l[2]]) | NIL;
+      "MINUSP"  : MINUSP([l[2]]) | NIL;
+      "LESSP"   : LESSP([l[2],l[3]]) | NIL;
+      "GREATERP": GREATERP([l[2],l[3]]) | NIL;
+      "EQUAL"   : EQUAL([l[2],l[3]]) | NIL;
+      "PRINT"   : PRINT([l[2]]) | NIL;
+      "EVAL"    : EVAL([l[2]]) | NIL;
+      "READ"    : READ([]) | NIL;
+      "DEFINE"  : DEFINE(l[2]) | NIL;
+      "LIST"    : LIST(l[2:0]) | NIL;
+      "LENGTH"  : LENGTH(l[2]) | NIL;
+      "APPEND"  : APPEND([l[2],l[3]]) | NIL;
+      "REVERSE" : REVERSE(l[2]) | NIL;
+      "LAST"    : LAST(l[2]) | NIL;
+      "TRACE"   : TRACE(l[2]) | NIL;
+      "UNTRACE" : UNTRACE(l[2]) | NIL
+      } then {
+         if member(trace_set, string(fn)) then {
+            write("value of ",fn);
+            PRINT(value)
+            };
+         return value
+         };
+   fcn := (\words[fn]).f | return NIL;
+   if type(fcn) == "list" then {
+      if fcn[1] == "LAMBDA" then {
+         value :=  lambda(l[2:0],fcn[2],fcn[3]);
+         if member(trace_set, string(fn)) then {
+            write("value of ",fn);
+            PRINT(value)
+            };
+         return value
+         }
+      else
+         return EVAL([fn])
+      }
+   else if type(fcn) == "procedure" then {
+      return fcn(l[2:0])
+   };
+   return NIL;
+end
+
+## evlis(l) - evaluate everything in a list
+#
+procedure evlis(l)
+local arglist, arg;
+   arglist := [];
+   every arg := !l do
+      put(arglist,EVAL([arg])) | fail;
+   return arglist;
+end
+
+
+### Initializations
+
+## initialize() - set up global values
+#
+procedure initialize()
+local func;
+   words := table();
+
+   every func := (
+      ADD1 | APPEND | ATOM | CAR | CDR | COND | CONS |
+      DEFINE | DIFFERENCE |
+      EQ | EQUAL | EVAL | EXPT | FUNCTION | GREATERP | HELP |
+      LAST | LENGTH | LESSP | LIST |
+      MAX | MIN | MINUSP | NULL | NUMBERP |
+      ONEP | PLUS | PRINT | QUOTIENT |
+      RECIP | REMAINDER | REVERSE |
+      SET | SUB1 | TIMES | TRACE | UNTRACE | ZEROP ) do {
+	 words[image(func)[11:0]] := prop(, func)
+	 };
+
+   trace_set := set();
+   T     := "T";
+   NIL   := [];
+end
+
+### Primitive Functions
+
+#
+# (ATOM a)
+#
+procedure ATOM(l)
+   if type(l[1]) == "list" then
+      return (*l[1] = 0 & .T) | .NIL;
+   return .T;
+end
+
+## (CAR l)
+#
+procedure CAR(l)
+   return glist(l[1])[1] | NIL;
+end
+
+## (CDR l)
+#
+procedure CDR(l)
+   return glist(l[1])[2:0] | NIL;
+end
+
+## (CONS l)
+#
+procedure CONS(l)
+   return ([l[1]]|||glist(l[2])) | NIL;
+end
+
+## (FUNCTION f) - special form, look up function value in symbol table
+#
+procedure FUNCTION(l)
+   if \((\words[l[1]]).f) then {
+      return words[l[1]].f
+      };
+end
+
+## (SET a l)
+#
+procedure SET(l)
+   (T === ATOM([l[1]])& l[2]) | return NIL;
+   /words[l[1]] := prop();
+   if type(l[2]) == "prop" then
+      return .(words[l[1]].v := l[2].v)
+   else
+      return .(words[l[1]].v := l[2]);
+end
+
+## (NULL l)
+#
+procedure NULL(l)
+   return EQ([NIL,l[1]]);
+end
+
+## (NUMBERP l)
+#
+procedure NUMBERP(l)
+   return if numeric(l[1]) then .T else .NIL;
+end
+
+## (ZEROP l)
+#
+procedure ZEROP(l)
+   return if numeric(l[1]) & l[1] = 0 then .T else .NIL;
+end
+
+## (ONEP l)
+#
+procedure ONEP(l)
+   return if numeric(l[1]) & l[1] = 1 then .T else .NIL;
+end
+
+## (MINUSP l)
+#
+procedure MINUSP(l)
+   return if numeric(l[1]) & l[1] < 0 then .T else .NIL;
+end
+
+## (LESSP l)
+#
+procedure LESSP(l)
+   return if numeric(l[1]) & numeric(l[2]) & l[1] < l[2] then .T else .NIL;
+end
+
+## (GREATERP l)
+#
+procedure GREATERP(l)
+   return if numeric(l[1]) & numeric(l[2]) & l[1] > l[2] then .T else .NIL;
+end
+
+## (EQUAL l) - close enough to a full Lisp EQUAL
+#
+procedure EQUAL(l)
+local i;
+   if l[1] === l[2] then return .T;
+   if type(l[1]) ~== type(l[2]) then return .NIL;
+   if numeric(l[1]) & numeric(l[2]) then
+      return if l[1] = l[2] then .T else .NIL;
+   if type(l[1]) == "list" then {
+      if *l[1] ~= *l[2] then return .NIL;
+      every i := 1 to *l[1] do {
+	 if EQUAL([l[1][i], l[2][i]]) === .NIL then {
+	    return .NIL
+	    }
+	 };
+      return .T
+   };
+   return if l[1] === l[2] then .T else .NIL;
+end
+
+## (ADD1 l)
+#
+procedure ADD1(l)
+   return if numeric(l[1]) then l[1]+1 else .NIL;
+end
+
+## (PLUS l)
+#
+procedure PLUS(l)
+local sum, x;
+   sum := 0;
+   every x := !l do
+      if numeric(x) then sum +:= x else return .NIL;
+   return sum;
+end
+
+## (TIMES l)
+#
+procedure TIMES(l)
+local product, x;
+   product := 1;
+   every x := !l do
+      if numeric(x) then product *:= x else return .NIL;
+   return product;
+end
+
+## (MIN l)
+#
+procedure MIN(l)
+local m, x;
+   m := l[1];
+   every x := !l do
+      if numeric(x) then m >:= x else return .NIL;
+   return m;
+end
+
+## (MAX l)
+#
+procedure MAX(l)
+local m, x;
+   m := l[1];
+   every x := !l do
+      if numeric(x) then m <:= x else return .NIL;
+   return m;
+end
+
+## (LIST l)
+#
+procedure LIST(l)
+   return l;
+end
+
+## (LENGTH l)
+#
+procedure LENGTH(l)
+   if type(l) == "list" then return *l;
+end
+
+## (APPEND l)
+#
+procedure APPEND(l)
+   if type(l[1]) == "list" & type(l[2]) == "list" then
+      return l[1] ||| l[2];
+end
+
+## (REVERSE l)
+#
+procedure REVERSE(l)
+   if type(l) == "list" then return reverse(l);
+end
+
+## (LAST l)
+#
+procedure LAST(l)
+   if type(l) == "list" then return l[-1];
+end
+
+## (RECIP l)
+#
+procedure RECIP(l)
+   return if numeric(l[1]) then 1.0 / l[1] else .NIL;
+end
+
+## (SUB1 l)
+#
+procedure SUB1(l)
+   return if numeric(l[1]) then l[1]-1 else .NIL;
+end
+
+## (DIFFERENCE a1 a2)
+#
+procedure DIFFERENCE(l)
+   return if numeric(l[1]) & numeric(l[2]) then l[1] - l[2] else .NIL;
+end
+
+## (EXPT a1 a2)
+#
+procedure EXPT(l)
+   return if numeric(l[1]) & numeric(l[2]) then l[1] ^ l[2] else .NIL;
+end
+
+## (QUOTIENT a1 a2)
+#
+procedure QUOTIENT(l)
+   return if numeric(l[1]) & numeric(l[2]) then l[1] / l[2] else .NIL;
+end
+
+## (REMAINDER a1 a2)
+#
+procedure REMAINDER(l)
+   return if numeric(l[1]) & numeric(l[2]) then l[1] % l[2] else .NIL;
+end
+
+## (EQ a1 a2)
+#
+procedure EQ(l)
+   if type(l[1]) == type(l[2]) == "list" then
+      return (0 = *l[1] = *l[2] & T) | NIL;
+   return (l[1] === l[2] & T) | NIL;
+end
+
+## (PRINT l)
+#
+procedure PRINT(l)
+   PRIN1(l);
+   TERPRI();
+end
+
+## (PRIN1 l) - print without carriage return
+#
+procedure PRIN1(l)
+   if type(l[1]) == "prop" then
+      return PRIN1([l[1].v]);
+   return writes(strip(ltos(l)));
+end
+
+## (TERPRI l) - terminate a print by printing a carriage return
+#
+procedure TERPRI()
+    write();
+end
+
+## COND(l) - support routine to eval
+#                 (for COND)
+procedure COND(l)
+local pair;
+   every pair := !l do {
+      if type(pair) ~== "list" |
+              *pair ~= 2 then {
+         write(&errout,"COND: ill-formed pair list");
+         return NIL
+         };
+      if T === EVAL([pair[1]]) then
+         return EVAL([pair[2]])
+      };
+   return NIL;
+end
+
+## (TRACE l)
+#
+procedure TRACE(l)
+   every insert(trace_set, !l);
+   return NIL;
+end
+
+## (UNTRACE l)
+#
+procedure UNTRACE(l)
+   every delete(trace_set, !l);
+   return NIL;
+end
+
+## glist(l) - verify that l is a list
+#
+procedure glist(l)
+   if type(l) == "list" then return l;
+end
+
+## (DEFINE fname definition)
+#
+# This has been considerably rewritten (and made more difficult to use!)
+#  in order to match EV-LISP syntax.
+procedure DEFINE(l)
+   local fn_list;
+   fn_list := [];
+   every put(fn_list, define_fn(!l));
+   return fn_list;
+end
+
+## Define a single function (called by 'DEFINE')
+#
+procedure define_fn(fn_def)
+   /words[fn_def[1]] := prop(NIL);
+   words[fn_def[1]].f := fn_def[2];
+   return fn_def[1];
+end
+
+## lambda(actuals,formals,def)
+#
+procedure lambda(actuals, formals, def)
+local save, act, form, pair, result, arg, i;
+   save := table();
+   every arg := !formals do
+      save[arg] := \words[arg] | prop(NIL);
+   i := 0;
+   every act := !formals do {
+      words[act] := (prop(actuals[i+:=1]|NIL)\1);
+      if type(words[act].v) == "procedure" then words[act].f := words[act].v
+   };
+   result := EVAL([def]);
+   every pair := !sort(save) do
+      words[pair[1]] := pair[2];
+   return result;
+end
+
+#  Date: June 10, 1988
+#
+procedure getbs()
+static tmp;
+   initial tmp := ("" ~== |Map(read(infile))) || " ";
+
+   repeat {
+      while not checkbal(tmp) do {
+         if more(')','(',tmp) then break;
+         tmp ||:= (("" ~== |Map(read(infile))) || " ") | break
+         };
+      suspend balstr(tmp);
+      tmp := (("" ~== |Map(read(infile))) || " ") | fail
+      };
+end
+
+## checkbal(s) - quick check to see if s is
+#       balanced w.r.t. parentheses
+#
+procedure checkbal(s)
+   return (s ? 1(tab(bal()),pos(-1)));
+end
+
+## more(c1,c2,s) - succeeds if any prefix of
+#       s has more characters in c1 than
+#       characters in c2, fails otherwise
+#
+procedure more(c1,c2,s)
+local cnt;
+   cnt := 0;
+   s ? while (cnt <= 0) & not pos(0) do {
+         (any(c1) & cnt +:= 1) |
+         (any(c2) & cnt -:= 1);
+         move(1)
+         };
+   return cnt >= 0;
+end
+
+## balstr(s) - generate the balanced disjoint substrings
+#               in s, with blanks or tabs separating words
+#
+#       errors:
+#          fails when next substring cannot be balanced
+#
+#
+procedure balstr(s)
+static blanks;
+   initial blanks := ' \t';
+   (s||" ") ? repeat {
+          tab(many(blanks));
+          if pos(0) then break;
+          suspend (tab(bal(blanks))\1 |
+                  {write(&errout,"ill-formed expression");
+                    fail}
+                  ) \ 1
+          };
+end
+
+#
+# bstol(s) - convert a balanced string into equivalent list representation.
+#
+procedure bstol(s)
+static blanks;
+local l;
+   initial blanks := ' \t';
+   (s||" ") ? {tab(many(blanks));
+               l := if not ="(" then s else []
+              };
+   if not string(l) then
+      every put(l,bstol(balstr(strip(s))));
+   return l;
+end
+
+## ltos(l) - convert a list back into a string
+#
+#
+procedure ltos(l)
+   local tmp, elem;
+
+   if type(l) ~== "list" then return l;
+   if *l = 0 then return "NIL";
+   tmp := "(";
+   every elem := !l do {
+      if string(elem)|(type(elem)=="list") then tmp ||:= ltos(elem)
+      else tmp ||:= ximage(elem);
+      tmp ||:= " "
+      };
+   tmp[-1] := ")";
+   return tmp;
+end
+
+procedure strip(s)
+   s ?:= 2(="(", tab(bal()), =")", pos(0));
+   return s;
+end
+
+procedure Map(s)
+   return map(s, &lcase, &ucase);
+end
+
+# pre-load the Lisp interpreter with some "built-ins" written in Lisp.
+procedure preload()
+local l, s;
+
+   every s := ("(define (quote ((cadr (lambda (l) (car (cdr l)))))))" |
+	       "(define (quote ((memq (lambda (sex lis) _
+		   (cond ((null lis) nil) _
+		      ((eq sex (car lis)) lis) _
+		      (t (memq sex (cdr lis)))))))))" |
+	       "(define (quote ((member (lambda (sex lis) _
+		   (cond ((null lis) nil) _
+		      ((equal sex (car lis)) lis) _
+		      (t (member sex (cdr lis)))))))))" |
+	       "(define (quote ((mapcar (lambda (lis fun) _
+		   (cond ((null lis) nil) _
+		      (t (cons (fun (car lis)) (mapcar (cdr lis) fun)))))))))"
+	       ) do
+      every l := bstol(Map(s)) do {
+	 EVAL([ l ])
+	 };
+end
+
+procedure HELP(cmd)
+   static Execution, Basics, Arithmetic, Tracing, Programs;
+   initial {
+      Execution := "\n" ||
+         "Execution:\n" ||
+         "  lisp -C file1 ... filen   ==> [Load and run files, then exit.]\n" ||
+         "  lisp file1 ... filen      ==> [Load and run files, then enter\n" ||
+         "                                  interactive mode until (exit).]\n" ||
+         "  (exit)                    ==> [Exit gracefully from lisp.]";
+      # "***** Syntax *****\n",
+      Basics := "\n" ||
+         "Basic functions:\n" ||
+         "  (quote (a b c))           ==> (A B C)\n" ||
+         "  (setq a (quote (a b c)))  ==> (A B C)\n" ||
+         "  (setq b (quote (x y z)))  ==> (X Y Z)\n" ||
+         "  (setq c (quote (a b c)))  ==> (A B C)\n" ||
+         "  (car a)                   ==> A\n" ||
+         "  (cadr a)                  ==> B\n" ||
+         "  (last a)                  ==> C\n" ||
+         "  (cdr a)                   ==> (B C)\n" ||
+         "  (append a b)              ==> (A B C X Y Z)\n" ||
+         "  (cons (quote d) a)        ==> (D A B C)\n" ||
+         "  (eval (quote a))          ==> (A B C)\n" ||
+         "  (list (quote x) a)        ==> (X (A B C))\n" ||
+         "  (reverse a)               ==> (C B A)\n" ||
+         "  (atom (quote ()))         ==> T\n" ||
+         "  (atom a)                  ==> NIL\n" ||
+         "  (eq (car a) (car a))      ==> T\n" ||
+         "  (eq a c)                  ==> NIL\n" ||
+         "  (equal a c)               ==> T\n" ||
+         "  (function cadr)           ==> (LAMBDA (L) (CAR (CDR L)))\n" ||
+         "  (memq (quote a) a)        ==> (A B C)\n" ||
+         "  (memq (quote (what is)) (quote (you (what is) your name)))\n" ||
+         "                            ==> NIL\n"  ||
+         "  (member (quote (what is)) (quote (you (what is) your name)))\n" ||
+         "                            ==> ((WHAT IS) YOUR NAME)\n" ||
+         "  (null (car (car a)))      ==> T\n" ||
+         "  (print a)                 ==> (A B C)";
+      
+      Arithmetic := "\n" ||
+         "Arithmetic functions:\n" ||
+         "  (numberp 4)               ==> T\n" ||
+         "  (length a)                ==> 3\n" ||
+         "  (add1 3)                  ==> 4\n" ||
+         "  (plus 2 3 4)              ==> 9\n" ||
+         "  (times 2 3 6)             ==> 36\n" ||
+         "  (min 13 4 8)              ==> 4\n" ||
+         "  (max 18 21 4)             ==> 21\n" ||
+         "  (recip 8)                 ==> 0.125\n" ||
+         "  (sub1 4)                  ==> 3\n" ||
+         "  (difference 4 20)         ==> -16\n" ||
+         "  (expt 2 5)                ==> 32\n" ||
+         "  (quotient 21 4)           ==> 5\n" ||
+         "  (remainder 21 4)          ==> 1\n" ||
+         "  (zerop 0)                 ==> T\n" ||
+         "  (onep 1)                  ==> T\n" ||
+         "  (minusp -5)               ==> T\n" ||
+         "  (lessp 1 5)               ==> T\n" ||
+         "  (equal 3 3)               ==> T\n" ||
+         "  (greaterp 5 1)            ==> T\n" ||
+         "  (mapcar (quote (1 2 3)) (function add1))\n" ||
+         "                            ==> (2 3 4)";
+      Tracing := "\n" ||
+         "Tracing and help:\n" ||
+         "  (trace (quote (car)))     ==> NIL\n" ||
+         "  (untrace (quote (car)))   ==> NIL\n" ||
+         "  (itraceon)                ==> T   [Turn on icon tracing.]\n" ||
+         "  (itraceoff)               ==> NIL [Turn off icon tracing.]\n" ||
+         "  (help)                    ==> NIL [Print help message.]";
+      Programs := "\n" ||
+         "***** Programming Examples *****\n" ||
+         "  (zerop (sub1 (add1 0)))   ==> T\n" ||
+         "  (onep (sub1 (add1 1)))    ==> T\n" ||
+         "\n" ||
+         "Defining functions: cadr and cddr:\n" ||
+         "  (define (quote (\n" ||
+         "     (caddr (lambda (l) (car (cdr (cdr l)))))\n" ||
+         "     (cddr (lambda (l) (cdr (cdr l))))\n" ||
+         "     )))                    ==> (CADDR CDDR)\n" ||
+         "  (caddr a)                 ==> C\n" ||
+         "  (cddr a)                  ==> (C)\n" ||
+         "  (trace (quote (cadr)))    ==> NIL\n" ||
+         "  (cadr a)                  ==> B\n" ||
+         "  (untrace (quote (cadr)))  ==> NIL\n" ||
+         "\n" ||
+         "Is an atom in a list? Using cond and recursion:\n" ||
+         "  (define (quote (\n" ||
+         "    (has (lambda (atm lis)\n" ||
+         "      (cond ((null lis) nil)\n" ||
+         "        ((eq atm (car lis)) t)\n" ||
+         "        (t (has atm (cdr lis))))\n" ||
+         "  )) )))                    ==> (HAS)\n" ||
+         "  (has (quote y) b)         ==> T\n" ||
+         "\n" ||
+         "Make '+' and '-' aliases of plus and difference:\n" ||
+         "  (define (quote (\n" ||
+         "    (+ (lambda (m n) (plus m n)))\n" ||
+         "    (- (lambda (m n) (difference m n)))\n" ||
+         "  )))"
+      };
+   
+   if *cmd = 0 then {
+      write(Execution);
+      write(Basics);
+      write(Arithmetic);
+      write(Tracing);
+      write(Programs)
+      }
+   else every n := 1 to *cmd do {
+      case cmd[n][1] of {
+         "E" : write(Execution);
+         "B" : write(Basics);
+         "A" : write(Arithmetic);
+         "T" : write(Tracing);
+         "P" : write(Programs);
+         default : write("For brief help, enter: (help E[xecution] | B[asics] |\n" ||
+            "  A[rithmetic] | T[racing] | P[rogram examples])")
+         }
+      };
+   return;
+end
+#------------------------------------------------------------------ 18 progs/qei
+############################################################################
+#
+#	File:     qei.icn
+#
+#	Subject:  Program to evaluate Icon expressions interactively
+#
+#	Authors:  William H. Mitchell and Ralph E. Griswold
+#
+#	Date:     November 4, 1999
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program takes expressions entered at the command line and
+#  evaluates them.
+#
+#  A semicolon is required to complete an expression.  If one is not
+#  provided, the subsequent line is added to what already has been
+#  entered.
+#
+#  It is important to know that qei accumulates expressions and evaluates
+#  all previously entered expressions before it evaluates a new one.
+#
+#  A line beginning with a colon is a command.  The commands are:
+#
+#
+#	:clear		clear the accumulated expressions.
+#
+#	:every		generate all the results from the expression;
+#			otherwive, at most one is produced.
+#
+#	:exit		terminate the session
+#	:quit		terminate the session
+#
+#	:list		list the accumulated expressions.
+#
+#	:type		toggle switch that displays the type of the
+#			result; the program starts with this switch on.
+#
+############################################################################
+#
+#  "qei" is derived from the Latin "quod erat inveniendum" -- "which was
+#  to be found out".
+#
+############################################################################
+#
+#  Requires:  co-expressions and system()
+#
+############################################################################
+
+procedure main()
+   local a, tag, header, incfiles, prog, extras, showtype;
+   local uselines, line, inline, src, files, w, f, Generate, sfile;
+   local curexp, t, rc, sc;
+
+   write("Icon Expression Evaluator, Version 1.2, type :? for help");
+   
+   if not(&features == "co-expressions") | not(&features == "system function")
+   then stop("*** This program requires co-expressions ***");
+
+   tag := create "r" || seq() || "_";
+
+   header := [
+      "global showtype, showimage, showImage",
+      "procedure main()", "hwrite := -1; write :=: hwrite",
+      "hwrites := -1; writes :=: hwrites",
+      "hread := -1; read :=: hread"
+      ];
+
+   incfiles := [];
+   prog := [];
+   extras := ["write := hwrite", "read := hread", "writes := hwrites"];
+   showtype := 1;
+   uselines := [];
+
+   repeat {
+     line := "";
+     repeat {
+        if *uselines ~= 0 then {
+           inline := get(uselines)
+           }
+        else {
+           writes(if *line = 0 then "> " else "... ");
+           inline := (read() | shut_down())
+           };
+      
+        inline := trim(inline, ' \t');
+        case inline of {
+           ":type": {
+              (/showtype := 1) | (showtype := &null);
+              write("Will ",(/showtype & "not ")|"","display types");
+              next
+              };
+           ":exit" | ":quit": shut_down();
+           ":clear": {
+              prog := [];
+              tag := ^tag;		# reset variable numbering
+              next
+              };
+           ":list": {
+              every(write(!prog));
+              next
+              };
+           ":help" | ":?": {
+              Help();
+              next
+              }
+            };
+         inline ? {
+           if =":edit" then {
+              src := prog[-1][1:-1];
+              src := replace(src, "\n#", "\n");
+              src ? {
+                 tab(upto('(') + 1) &
+                 line := atos(Edit([tab(0)]), "\n") &
+                 break
+                 }
+              }
+           else if =":edit all" then {
+              prog := Edit(prog);
+              next
+              }
+           else if =":link" then {
+              push(header, inline[2:0] ? tab(upto(';') | 0));
+              next
+              }
+           else if =":include" then {
+              inline := replace(inline, ";", "");
+              inline ? (tab(upto(' \t') + 1) & files := tab(0));
+              files := split(files, ', \t');
+              incfiles |||:= files;
+              next
+              }
+           else if =":load" then {
+              w := split(inline, ' ,\t\'\";');
+              if f := open(w[2]) then {
+                 while put(uselines, read(f));
+                 close(f);
+                 next
+                 }
+              else {
+                 write("*** cannot open ", image(w[2]));
+                 next
+                 }
+              }
+            };
+
+      line ||:= inline || "\n";
+         if line[-2:0] == ";\n" then {
+            line[-2:0] := "";
+            break
+            }
+          };
+
+   if \showtype then    
+        put(extras, "showtype := 1");
+
+   if line ?:= (=":every " & tab(0)) then Generate := 1;
+    
+   sfile := open("qei_.icn","w");
+
+   every write(sfile, !(header | prog | extras));
+   
+   curexp := (t :=@tag) || " := (" || line || ")";
+   
+   if \Generate then {
+       write(sfile, "every WR(\"\",", curexp, ")")
+       }
+       else {
+          write(sfile, "if (", curexp, ") then WR(\"", t, " := \",", t, ")");
+          write(sfile, "else write(\"Failure\")")
+          };
+   
+      write(sfile, "end");
+
+      WriteWR(sfile);
+
+      close(sfile);
+
+$ifdef _MS_WINDOWS
+      sc :=  system("wicont -s qei_.icn " || atos(incfiles, " "))
+$else
+      sc :=  system("icont -s qei_.icn " || atos(incfiles, " "));
+$endif
+      if sc = 0 then rc := system("qei_");
+
+      if sc = 0 & rc = 0 then
+         put(prog, curexp)
+      else
+         put(prog, "#" || replace(curexp, "\n", "\n#"));
+
+      extras := ["write := hwrite", "read := hread", "writes := hwrites"];
+
+      Generate := &null
+
+      };
+
+end
+
+procedure WriteWR(f)
+   write(f, "procedure WR(tag, e)");
+   write(f, "writes(\"   \",tag, image(e))");
+   write(f, "\twrite(if \\showtype then \"  (\"|| type(e)|| \")\" else \"\")");
+   write(f, "end");
+
+end
+
+procedure Help()
+
+   write("Enter any Icon expression to evaluate it");
+   write();
+   write(":edit -- edit last expression");
+   write(":edit all -- edit the list of expressions");
+   write(":every <expression> -- show generated results for expresion");
+   write(":exit or :quit -- exit qei");
+   write(":help or :? -- print this message");
+   write(":include <files>, e.g. :include \"x.icn\" -- include Icon files");
+   write(":limit <n> -- limit results of :every to <n>");
+   write(":link <files>, e.g. link image -- link ucode files");
+   write(":list -- list expressions");
+   write(":load <file>, e.g. :load x -- load expressions from the file x");
+   write(":type -- toggle display of type");
+
+   return;
+
+end
+
+procedure Edit(p)
+   local f;
+
+   f := open("qei_.icn", "w") | stop("*** cannot open program file");
+
+   every write(f, !p);
+
+   close(f);
+    
+   system("$EDITOR qei_.icn");
+
+   f := open("qei_.icn") | stop("*** cannot re-open program file");
+
+   p := [];
+
+   while put(p, read(f));
+
+   return p;
+
+end
+    
+procedure atos(a,delim)
+   local e, s;
+
+   s := "";
+   /delim := ",";
+
+   every e := !a do
+      (/s := e) | (s ||:= delim || e);
+
+   return s;
+
+end
+
+#
+#  replace string (from the IPL)
+#
+procedure replace(s1,s2,s3)
+   local result, i;
+
+   result := "";
+   i := *s2;
+
+   s1 ? {
+      while result ||:= tab(find(s2)) do {
+         result ||:= s3;
+         move(i)
+         };
+      return result || tab(0)
+      };
+
+end
+
+procedure split(line,dlms)
+   local w;
+
+   /dlms := ' \t';
+   w := [];
+
+   line ? repeat {
+      tab(upto(~dlms));
+      put(w, tab(many(~dlms))) | break
+      };
+
+   return w;
+
+end
+
+procedure shut_down()
+
+   remove("qei_");
+   remove("qei_.icn");
+
+   exit();
+
+end
+#------------------------------------------------------------------ 19 progs/rsg
+############################################################################
+#
+#	File:     rsg.icn
+#
+#	Subject:  Program to generate randomly selected sentences
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     August 14, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+#     This program generates randomly selected strings (``sen-
+#  tences'') from a grammar specified by the user.  Grammars are
+#  basically context-free and resemble BNF in form, although there
+#  are a number of extensions.
+#
+############################################################################
+#  
+#     The program works interactively, allowing the user to build,
+#  test, modify, and save grammars. Input to rsg consists of various
+#  kinds of specifications, which can be intermixed:
+#  
+#     Productions define nonterminal symbols in a syntax similar to
+#  the rewriting rules of BNF with various alternatives consisting
+#  of the concatenation of nonterminal and terminal symbols.  Gen-
+#  eration specifications cause the generation of a specified number
+#  of sentences from the language defined by a given nonterminal
+#  symbol.  Grammar output specifications cause the definition of a
+#  specified nonterminal or the entire current grammar to be written
+#  to a given file.  Source specifications cause subsequent input to
+#  be read from a specified file.
+#  
+#     In addition, any line beginning with # is considered to be a
+#  comment, while any line beginning with = causes the rest of that
+#  line to be used subsequently as a prompt to the user whenever rsg
+#  is ready for input (there normally is no prompt). A line consist-
+#  ing of a single = stops prompting.
+#  
+#  Productions: Examples of productions are:
+#  
+#          <expr>::=<term>|<term>+<expr>
+#          <term>::=<elem>|<elem>*<term>
+#          <elem>::=x|y|z|(<expr>)
+#  
+#  Productions may occur in any order. The definition for a nonter-
+#  minal symbol can be changed by specifying a new production for
+#  it.
+#  
+#     There are a number of special devices to facilitate the defin-
+#  ition of grammars, including eight predefined, built-in nontermi-
+#  nal symbols:
+#     symbol   definition
+#     <lb>     <
+#     <rb>     >
+#     <vb>     |
+#     <nl>     newline
+#     <>       empty string
+#     <&lcase> any single lowercase letter
+#     <&ucase> any single uppercase letter
+#     <&digit> any single digit
+#  
+#  In addition, if the string between a < and a > begins and ends
+#  with a single quotation mark, it stands for any single character
+#  between the quotation marks. For example,
+#  
+#          <'xyz'>
+#  
+#  is equivalent to
+#  
+#          x|y|z
+#  
+#  Generation Specifications: A generation specification consists of
+#  a nonterminal symbol followed by a nonnegative integer. An exam-
+#  ple is
+#  
+#          <expr>10
+#  
+#  which specifies the generation of 10 <expr>s. If the integer is
+#  omitted, it is assumed to be 1. Generated sentences are written
+#  to standard output.
+#  
+#  Grammar Output Specifications: A grammar output specification
+#  consists of a nonterminal symbol, followed by ->, followed by a
+#  file name. Such a specification causes the current definition of
+#  the nonterminal symbol to be written to the given file. If the
+#  file is omitted, standard output is assumed. If the nonterminal
+#  symbol is omitted, the entire grammar is written out. Thus,
+#  
+#          ->
+#  
+#  causes the entire grammar to be written to standard output.
+#  
+#  Source Specifications: A source specification consists of @ fol-
+#  lowed by a file name.  Subsequent input is read from that file.
+#  When an end of file is encountered, input reverts to the previous
+#  file. Input files can be nested.
+#  
+#  Options: The following options are available:
+#  
+#       -s n Set the seed for random generation to n.
+#  
+#	-r   In the absense of -s, set the seed to 0 for repeatable
+#	     results.  Otherwise the seed is set to a different value
+#	     for each run (as far as this is possible). -r is equivalent
+#	     to -s 0.
+#
+#       -l n Terminate generation if the number of symbols remaining
+#            to be processed exceeds n. The default is limit is 1000.
+#  
+#       -t   Trace the generation of sentences. Trace output goes to
+#            standard error output.
+#  
+#  Diagnostics: Syntactically erroneous input lines are noted but
+#  are otherwise ignored.  Specifications for a file that cannot be
+#  opened are noted and treated as erroneous.
+#  
+#     If an undefined nonterminal symbol is encountered during gen-
+#  eration, an error message that identifies the undefined symbol is
+#  produced, followed by the partial sentence generated to that
+#  point. Exceeding the limit of symbols remaining to be generated
+#  as specified by the -l option is handled similarly.
+#  
+#  Caveats: Generation may fail to terminate because of a loop in
+#  the rewriting rules or, more seriously, because of the progres-
+#  sive accumulation of nonterminal symbols. The latter problem can
+#  be identified by using the -t option and controlled by using the
+#  -l option. The problem often can be circumvented by duplicating
+#  alternatives that lead to fewer rather than more nonterminal sym-
+#  bols. For example, changing
+#  
+#          <term>::=<elem>|<elem>*<term>
+#  
+#  to
+#  
+#          <term>::=<elem>|<elem>|<elem>*<term>
+#  
+#  increases the probability of selecting <elem> from 1/2 to 2/3.
+#  
+#     There are many possible extensions to the program. One of the
+#  most useful would be a way to specify the probability of select-
+#  ing an alternative.
+#  
+############################################################################
+#
+#  Links: options, random
+#
+############################################################################
+
+link options
+link random
+
+global defs, ifile, in, limit, prompt, tswitch
+
+record nonterm(name)
+record charset(chars)
+
+procedure main(args)
+   local line, plist, s, opts;
+					# procedures to try on input lines
+   plist := [define,generate,grammar,source,comment,prompter,error];
+   defs := table();			# table of definitions
+   defs["lb"] := [["<"]];		# built-in definitions
+   defs["rb"] := [[">"]];
+   defs["vb"] := [["|"]];
+   defs["nl"] := [["\n"]];
+   defs[""] := [[""]];
+   defs["&lcase"] := [[charset(&lcase)]];
+   defs["&ucase"] := [[charset(&ucase)]];
+   defs["&digit"] := [[charset(&digits)]];
+
+   opts := options(args,"tl+s+r");
+   limit := \opts["l"] | 1000;
+   tswitch := \opts["t"];
+   &random := \opts["s"];
+   if /opts["s"] & /opts["r"] then randomize();
+
+   ifile := [&input];			# stack of input files
+   prompt := "";
+   while in := pop(ifile) do {		# process all files
+      repeat {
+         if *prompt ~= 0 then writes(prompt);
+         line := read(in) | break;
+         while line[-1] == "\\" do line := line[1:-1] || read(in) | break;
+         (!plist)(line)
+         };
+      close(in)
+      };
+end
+
+#  process alternatives
+#
+procedure alts(defn)
+   local alist;
+   alist := [];
+   defn ? while put(alist,syms(tab(upto('|') | 0))) do move(1) | break;
+   return alist;
+end
+
+#  look for comment
+#
+procedure comment(line)
+   if line[1] == "#" then return;
+end
+
+#  look for definition
+#
+procedure define(line)
+   return line ?
+      defs[(="<",tab(find(">::=")))] := (move(4),alts(tab(0)));
+end
+
+#  define nonterminal
+#
+procedure defnon(sym)
+   local chars, name;
+   if sym ? {
+      ="'" &
+      chars := cset(tab(-1)) &
+      ="'"
+      }
+   then return charset(chars)
+   else return nonterm(sym);
+end
+
+#  note erroneous input line
+#
+procedure error(line)
+   write("*** erroneous line:  ",line);
+   return;
+end
+
+#  generate sentences
+#
+procedure gener(goal)
+   local pending, symbol;
+   pending := [nonterm(goal)];
+   while symbol := get(pending) do {
+      if \tswitch then
+         write(&errout,symimage(symbol),listimage(pending));
+      case type(symbol) of {
+         "string":   writes(symbol);
+         "charset":  writes(?symbol.chars);
+         "nonterm":  {
+            pending := ?\defs[symbol.name] ||| pending | {
+               write(&errout,"*** undefined nonterminal:  <",symbol.name,">");
+               break 
+               };
+            if *pending > \limit then {
+               write(&errout,"*** excessive symbols remaining");
+               break 
+               }
+            }
+         }
+      };
+   write();
+end
+
+#  look for generation specification
+#
+procedure generate(line)
+   local goal, count;
+   if line ? {
+      ="<" &
+      goal := tab(upto('>')) \ 1 &
+      move(1) &
+      count := (pos(0) & 1) | integer(tab(0))
+      }
+   then {
+      every 1 to count do
+         gener(goal);
+      return
+      }
+   else fail;
+end
+
+#  get right hand side of production
+#
+procedure getrhs(a)
+   local rhs;
+   rhs := "";
+   every rhs ||:= listimage(!a) || "|";
+   return rhs[1:-1];
+end
+
+#  look for request to write out grammar
+#
+procedure grammar(line)
+   local file, out, name;
+   if line ? {
+      name := tab(find("->")) &
+      move(2) &
+      file := tab(0) &
+      out := if *file = 0 then &output else {
+         open(file,"w") | {
+            write(&errout,"*** cannot open ",file);
+            fail
+            }
+         }
+      }
+   then {
+      (*name = 0) | (name[1] == "<" & name[-1] == ">") | fail;
+      pwrite(name,out);
+      if *file ~= 0 then close(out);
+      return
+      }
+   else fail;
+end
+
+#  produce image of list of grammar symbols
+#
+procedure listimage(a)
+   local s, x;
+   s := "";
+   every x := !a do
+      s ||:= symimage(x);
+   return s;
+end
+
+#  look for new prompt symbol
+#
+procedure prompter(line)
+   if line[1] == "=" then {
+      prompt := line[2:0];
+      return
+      };
+end
+
+#  write out grammar
+#
+procedure pwrite(name,ofile)
+   local nt, a;
+   static builtin;
+   initial builtin := ["lb","rb","vb","nl","","&lcase","&ucase","&digit"];
+   if *name = 0 then {
+      a := sort(defs,3);
+      while nt := get(a) do {
+         if nt == !builtin then {
+            get(a);
+            next
+            };
+         write(ofile,"<",nt,">::=",getrhs(get(a)))
+         }
+      }
+   else write(ofile,name,"::=",getrhs(\defs[name[2:-1]])) |
+      write("*** undefined nonterminal:  ",name);
+end
+
+#  look for file with input
+#
+procedure source(line)
+   local file, new;
+
+   return line ? {
+      if ="@" then {
+         new := open(file := tab(0)) | {
+            write(&errout,"*** cannot open ",file);
+            fail
+            };
+         push(ifile,in) &
+         in := new;
+         return
+         }
+      };
+end
+
+#  produce string image of grammar symbol
+#
+procedure symimage(x)
+   return case type(x) of {
+      "string":   x;
+      "nonterm":  "<" || x.name || ">";
+      "charset":  "<'" || x.chars || "'>"
+      };
+end
+
+#  process the symbols in an alternative
+#
+procedure syms(alt)
+   local slist;
+   static nonbrack;
+   initial nonbrack := ~'<';
+   slist := [];
+   alt ? while put(slist,tab(many(nonbrack)) |
+      defnon(2(="<",tab(upto('>')),move(1))));
+   return slist;
+end
+#------------------------------------------------------------- 20 progs/strimlen
+############################################################################
+#
+#	File:     strimlen.icn
+#
+#	Subject:  Program produce lengths of string images
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     May 5, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program is a filter that reads images of Icon strings from standard
+#  input and writes the lengths of the strings to standard output.
+#
+############################################################################
+#
+#  Links:  ivalue
+#
+############################################################################
+
+link ivalue
+
+procedure main()
+
+   while write(*ivalue(read()));
+
+end
+#--------------------------------------------------------------- 21 progs/unclog
+############################################################################
+#
+#	File:     unclog.icn
+#
+#	Subject:  Program to reformat CVS log output
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     May 1, 2001
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  Usage:  unclog [-n nnn] [file]
+#
+#	-n nnn	maximum number of files to be listed individually
+#		(default is 50)
+#
+#  Unclog reads the output of "cvs log", as run without arguments in
+#  a directory maintained by CVS, and reformats it to correlate CVS
+#  changes that affected multiple files.  The log entries are produced
+#  in chronological order.  Portions crossing a one-minute clock boundary
+#  are not combined.
+#
+############################################################################
+
+link options
+
+$define MAXFILES 50
+
+procedure main(args)
+   local opts, maxfiles, f, line, mods, fname, files, text, s;
+
+   opts := options(args, "n+");
+   maxfiles := \opts["n"] | MAXFILES;
+
+   if *args = 0 then
+      f := &input
+   else
+      f := open(args[1]) | stop("cannot open ", args[1]);
+
+   mods := table();
+
+   while line := read(f) do line ? {
+
+      # look for "date:" line
+      if ="Working file: " then		# save working file name
+         fname := tab(0);
+      ="date: "			| next;
+      tab(find("author: ") + 8)	| next;
+      tab(upto(';') + 1)	| next;
+
+      # this is the "date:" line
+      # save as first part of description
+      s := tab(1);
+      s[23+:3] := "";			# remove seconds from clock reading
+
+      # read description of modification
+      while line := read(f) do {
+         if line ? =("-----------" | "===========") then break;
+         s ||:= "\n" || line
+         };
+
+      # have reached end of this entry
+      # add to table, indexed by text
+      files := mods[s];
+      if /files then
+         files := mods[s] := [];
+      put(files, fname)
+      };
+
+   # sort mods by timestamp, which is first part of text
+   mods := sort(mods, 3);
+
+   # output the mods in order, giving affected files first
+   while text := get(mods) do {
+      write();
+      files := get(mods);
+      if *files >= maxfiles then
+         write("file: [", *files, " files]")
+      else
+         every write("file: ", !sort(files));
+      write(text);
+      write()
+      };
+end
+#----------------------------------------------------------------- 22 progs/what
+############################################################################
+#
+#	File:     what.icn "@(#)$Id: what.icn,v 1.3 2007-07-13 06:35:16 jeffery Exp $"
+#
+#	Subject:  Program to identify source-code information
+#
+#	Author:   Phillip Lee Thomas
+#
+#	Date:     May 2, 2001
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+# Writes all strings beginning with "@" followed by "(#)"
+#     and ending with null, newline, quotes, greater-than
+#     or backslash. Follows UNIX what conventions.
+#
+############################################################################
+#
+#  Requires:  Tested with DOS, AIX UNIX
+#
+############################################################################
+#
+#  Links:    basename
+#
+############################################################################
+
+link basename
+
+procedure main(args)
+   local ID, line, terminator, key, f, fin, here;
+
+   ID := "@(#)what.icn (1.0) - plt - 2 May, 96";
+   ID := "@(#)-- Identify source code information.";
+
+   line := "";
+   terminator := '\0\n\">\\'; # ++ char(10)
+   key := "@" || "(#)";
+
+   if *args = 0 then  {
+      write("Usage: ", basename(&progname, ".EXE"),
+         " file1 [file2 [file3]]");
+      exit(1)
+      };
+
+   while f := pop(args) do  {
+      fin := open(f, "ru") | next;
+      write(f, ":");
+
+      while line ||:= reads(fin, 32768)  do {
+         line ? {
+            here := 1;
+            every (tab(here := upto('@')) | next) do {
+               if match(key) then  {
+                  move(4);
+                  write('\t', tab(here := upto(terminator)))
+                  }
+               };
+            line := line[here:0]
+            }  # line
+         }; # while
+      close(fin)
+      };  # while files
+   write("[Time: ", &time / 1000.0, " seconds.]");
+   exit(0);
+end

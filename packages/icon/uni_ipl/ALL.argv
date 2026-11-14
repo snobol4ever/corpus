@@ -1,0 +1,7 @@
+progs/ddfdump	ddfdump.ddf
+progs/filesect	2	4
+progs/findstr	findstr.in
+progs/getlines	1	3	5
+progs/iplweb	-ipl	lib
+progs/iprint	-h	iprint.in
+progs/what	what_demo.txt

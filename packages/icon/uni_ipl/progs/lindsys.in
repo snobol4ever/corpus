@@ -1,0 +1,5 @@
+name:koch
+axiom:F
+F->F+F--F+F
+gener:2
+end

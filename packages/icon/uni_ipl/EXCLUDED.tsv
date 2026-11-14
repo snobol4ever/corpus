@@ -1,0 +1,6 @@
+# EXCLUDED.tsv -- uni_ipl: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+progs/headicon	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+progs/hr	NO_ORACLE_ANSWER	the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+progs/newicon	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+progs/parens	NO_ORACLE_ANSWER	the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

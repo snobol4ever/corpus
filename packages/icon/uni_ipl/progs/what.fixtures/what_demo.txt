@@ -1,0 +1,5 @@
+plain text before the markers
+@(#)widget.c (1.4) - demo module
+a line with an at sign @ that is not a marker
+@(#)-- Identify the demo module.
+plain text after the markers

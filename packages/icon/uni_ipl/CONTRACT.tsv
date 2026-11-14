@@ -1,0 +1,5 @@
+oracle	unicon	the refs of this package are cut from the Unicon translator through unicon_bin() (skill unicon R2): these are Unicon's own IPL programs
+unmarked_compile_args	--dialect=unicon	CTO-473: a program of this package with no class, package, import, thread, critical or abstract marker is a Unicon program because the package says so
+ipath	procs	the link closure's files that differ from Arizona's, vendored and converted beside the programs; searched before both IPL folders
+ipath	mprocs	the monitor library's files the mprogs link, vendored and converted the same way
+not_shipped	procs mprocs	the vendored link closure, none is a test

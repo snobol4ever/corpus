@@ -1,0 +1,5 @@
+root	/home/resources/unicon/ipl
+origin	https://github.com/uniconproject/unicon.git
+version	d784f580b3003c50b0afffb3f1991364912c435f (2026-09-06)
+licence	public domain, as each file's header states ("This file is in the public domain.")
+selection	ipl/progs and ipl/mprogs files that differ from Arizona Icon's ipl (Arizona's are the ipl package); graphics programs left upstream

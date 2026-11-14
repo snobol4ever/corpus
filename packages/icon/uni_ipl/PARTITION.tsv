@@ -1,0 +1,26 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=22 features=65 ubiquitous=18(package write read stop every return while procedure local scan alternation element_gen limitation to_by assign aug_assign keyword_ref gen_with_alternation) distinctive=47 core=14 clusters=8 chunks=1 sizes=8
+entry	part	cluster	shells
+progs/chars	chunk:01	feat:image	image
+progs/dd2draft	core	core	create get list put record repl sort table upto want_rc writes
+progs/dd2res	core	core	list put set
+progs/ddfdump	core	core	fixtures get image map record section static type writes
+progs/diffsum	chunk:01	feat:any	any global many next scan_with_tab tab upto
+progs/filesect	chunk:01	feat:integer	integer
+progs/findstr	core	core	any image reads section
+progs/format	core	core	any break delete integer many match pos put repeat repl scan_with_tab section set static tab trim
+progs/getcol	chunk:01	feat:many	many scan_with_tab tab upto
+progs/getlines	core	core	delete image integer member set
+progs/grpsort	core	core	case fail global match next pop put record sort static table trim
+progs/iplweb	core	core	case fixtures many pos scan_with_tab section tab upto
+progs/ipp	core	core	any bal break case delete every_with_suspend find global image insert integer many map match member move next pop pos push put record repeat scan_with_tab section set sort static suspend tab table type until upto writes
+progs/iprint	core	core	break case find get global integer match move next put repeat repl scan_with_tab section static tab trim writes
+progs/itrbksum	chunk:01	feat:break	break
+progs/lindsys	chunk:01	feat:writes	put writes
+progs/lisp	core	core	any bal break case delete every_with_suspend fail global image insert list many map member move next pop pos put record repeat scan_with_tab section set sort static suspend tab table type until writes
+progs/qei	core	core	break case coexpr_activate create find get global image many move next push put repeat scan_with_tab section seq swap tab trim type upto writes
+progs/rsg	core	core	break case coexpr_activate fail find get global integer many move next pop pos push put record repeat scan_with_tab section sort static tab table type upto writes
+progs/strimlen	chunk:01	dir:progs	
+progs/unclog	chunk:01	feat:find	break find get next put scan_with_tab section sort tab table upto
+progs/what	core	core	coexpr_activate fixtures match move next pop reads scan_with_tab section tab upto
