@@ -3527,6 +3527,20 @@ end.
         520
 ```
 
+## fpc_features__class-of-a-type-is-written-inline-in-a-type-position
+
+```Pascal
+{$mode objfpc}
+program cr3; type TA = class end; TB = class(TA) end; TR = record k: class of TA end;
+var c: class of TA; r: TR; begin c := TA; if c = TA then writeln('same'); r.k := TB; if r.k = TB then writeln('TB'); c := r.k; if c <> TA then writeln('other') end.
+```
+
+```stdout
+same
+TB
+other
+```
+
 ## ladder__rung04_for_repeat_for_downto
 
 ```Pascal
