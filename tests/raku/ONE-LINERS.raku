@@ -213,6 +213,7 @@ my $n = 4; my @c = "yo" xx $n; say @c.elems;
  my @a = (1, 2, 3); say(@a.join); 
 my %h; %h<k> = 5; my @w = <a b c>; say %h<k>;
 enum Color <red green>; sub f { my $red = 5; $red + +green }; say f();
+my class R1 { method Str { $.^name } }; say R1.Str;
 say grep(* > 1, 1..3).join(",");
 say ("foo","bar").map({ $_.substr(1,1) });
 say (1,2).map({ ($^a).Str }).join(",");

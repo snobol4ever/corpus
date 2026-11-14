@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1535 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,91
+# shape: entries=1536 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,92
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -210,7 +210,7 @@ parser__say_var	chunk:14	family:parser
 parser__try_catch	chunk:12	feat:try	try
 parser__try_catch_lower	chunk:12	feat:try	try
 parser_coverage__stmt_ctrl_whenever	chunk:14	family:parser_coverage	
-parser_coverage__stmt_ctrl_without	chunk:14	family:parser_coverage	
+parser_coverage__stmt_ctrl_without	chunk:15	family:parser_coverage	
 parser_coverage__stmt_pfx_CLOSE	chunk:03	feat:say	say
 parser_coverage__stmt_pfx_eager	chunk:05	feat:sigil_array	sigil_array
 parser_coverage__stmt_pfx_hyper	chunk:05	feat:sigil_array	sigil_array
@@ -692,6 +692,7 @@ ladder__rung06_control_an_if_bodys_own_my_variable_is_not_the_enclosing_variable
 ladder__rung08_for_a_c_style_loop_bodys_own_my_variable_is_not_the_enclosing_variable	chunk:14	feat:loop	loop
 ladder__rung08_for_a_pair_pattern_pointy_signature_binds_key_and_value	chunk:07	feat:for_with_say	for for_with_say
 ladder__rung10_given_a_given_bodys_own_my_variable_is_not_the_enclosing_variable	chunk:15	feat:given	given
+ladder__rung13_classes_a_meta_method_called_on_self_by_the_dollar_dot_form	chunk:13	feat:method	method
 ladder__rung15_blocks_a_block_inside_a_sub_has_its_own_my_variable	chunk:08	feat:sub	sub
 ladder__rung19_block_a_whatevercode_argument_to_the_grep_listop	chunk:14	feat:grep	grep join range_op
 ladder__rung19_block_methcall_topic	chunk:13	feat:map	map say
@@ -1259,7 +1260,7 @@ ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:10	feat:smartmatch	say smartmatch string_concat
 ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	chunk:15	feat:our	our string_concat sub
 ladder__rung14_roles_a_role_body_lexical_and_a_type_capture_as_the_target_of_new_are_read_by_its_methods	chunk:13	feat:method	method string_concat
-sub_range_say_replace_1	chunk:13	feat:range_op	range_op say sub
+sub_range_say_replace_1	chunk:14	feat:range_op	range_op say sub
 ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:14	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:07	feat:for_with_say	for for_with_say range_op
 ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:11	feat:multi	multi say sub try
