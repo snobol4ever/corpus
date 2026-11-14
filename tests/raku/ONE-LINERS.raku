@@ -80,6 +80,7 @@ print "world\n";
 say 5;
 say "hi";
 use v6.e.PREVIEW; say "hi";
+try "no-such-file-k4".IO.move("k4-dest"); say $!.^name;
 printf("%d-%d\n", 1, 2);
 say 255.fmt("%x");
 say qq/50% me@example.com a & b a % b/;
