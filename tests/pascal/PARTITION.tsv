@@ -222,6 +222,7 @@ program_procedure_record_11	chunk:02	feat:record	procedure record type
 program_procedure_record_4	chunk:02	feat:record	procedure record type
 program_array_setlit_2	chunk:05	feat:set_literal	array set_literal subrange
 front_end__pf10_callindex	chunk:03	feat:ord	const function nested_proc ord
+parseforms__parse_a_for_loop_over_a_record_field	chunk:02	feat:record	for record type
 ladder__rung13_ptr_record_field	chunk:04	feat:pointer	pointer record type
 program_record_case_replace_2	chunk:03	feat:case	case record type
 ladder__rung00_crt_wrap_at_column_80	chunk:04	feat:mod	for mod write
