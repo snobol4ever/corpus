@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=511 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,65
+# shape: entries=512 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,66
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -89,7 +89,7 @@ front_end__pf34_unit_qualified_type_local	chunk:03	feat:procedure	procedure
 ladder__rung02_arithmetic_div_neg	chunk:04	feat:div	div
 ladder__rung02_arithmetic_mod_neg	chunk:04	feat:mod	mod
 ladder__rung04_for_repeat_for_zero	chunk:04	feat:for	for
-stdin__read2	chunk:04	feat:readln	read readln
+stdin__read2	chunk:05	feat:readln	read readln
 ladder__rung04_for_repeat_repeat_once	chunk:05	feat:repeat	repeat
 ladder__rung16_q_shr	chunk:04	feat:for	for
 ladder__rung17_div_zero_without_sysutils_stays_200	chunk:04	feat:div	div
@@ -138,7 +138,7 @@ program_writeln_sqrt_2	chunk:05	feat:sqrt	sqrt
 ladder__rung18_gmp_mpz_arithmetic	chunk:03	feat:nil	for nil
 ladder__rung20_fgl_list_operations	chunk:04	feat:mod	for mod
 fpc_units__ht01_stringstream	chunk:02	feat:write	write
-program_procedure_writeln_5	chunk:03	feat:procedure	procedure
+program_procedure_writeln_5	chunk:04	feat:procedure	procedure
 fpc_features__a-type-name-casts-an-ordinal-to-an-ordinal-type	chunk:05	feat:subrange	subrange type
 ladder__rung04_for_repeat_for_downto	core	core	downto for
 program_for_writeln_3	chunk:04	feat:in	for in
@@ -400,7 +400,7 @@ program_record_array_2	chunk:04	feat:with_record	array record set_literal subran
 front_end__pf05_pchar	chunk:02	feat:write	array for for_with_array pointer set_literal subrange write
 ladder__rung14_row_forin	chunk:04	feat:in	array const for for_with_array in set_literal subrange
 program_record_array_1	chunk:02	feat:record	array for for_with_array record set_literal subrange type
-program_array_packed_3	chunk:02	feat:packed	array for for_with_array packed set_literal subrange write
+program_array_packed_3	chunk:03	feat:packed	array for for_with_array packed set_literal subrange write
 ladder__rung13_ptr_addr_whole_array	chunk:04	feat:pointer	array for for_with_array pointer set_literal subrange type
 program_function_array_1	chunk:01	feat:function	array for for_with_array function set_literal subrange type
 program_function_array_3	chunk:01	feat:function	array for for_with_array function set_literal subrange type
