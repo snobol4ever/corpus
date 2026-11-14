@@ -1478,7 +1478,7 @@ core__rc08_named_flatten	chunk:13	feat:map	map range_op say sigil_hash sub
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:12	feat:multi	method multi return say
 compiler_object__rc2-use-nqp-gives-can	chunk:10	feat:smartmatch	method regex smartmatch string_concat
-core__rc12_sort_reduce_forms	chunk:15	feat:sort	map range_op say sigil_array sort
+core__rc12_sort_reduce_forms	chunk:14	feat:sort	map range_op say sigil_array sort
 ladder__rung04_arrays_cross_zip_flat_and_unpacking	chunk:09	feat:join	for for_with_say join range_op sigil_array
 ladder__rung15_blocks_map_grep_first_named_sub_and_n_arity_blocks	chunk:14	feat:grep	grep join map sigil_array sub
 ladder__rung13_classes_inheritance	chunk:13	feat:return	method range_op return string_concat
