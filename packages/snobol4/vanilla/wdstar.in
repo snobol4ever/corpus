@@ -1,0 +1,6 @@
+Plain ASCII text passes unchanged.
+UTF-8 bytes carry the high bit: café, naïve, Über
+WordStar marks a word end with the high bit
+trailing blanks are trimmed      
+
+a final line

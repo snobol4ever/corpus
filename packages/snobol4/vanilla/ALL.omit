@@ -8,4 +8,3 @@ gentran.sno: ORACLE-REFUSES: SPITBOL ends it with an error: gentran.sno(108) : E
 labcent.sno: ORACLE-REFUSES: SPITBOL ends it with an error: labcent.sno(35) : ERROR 251 -- keyword operand is not name of defined keyword
 rpoem.sno: ORACLE-REFUSES: SPITBOL ends it with an error: rpoem.sno(25) : ERROR 116 -- inappropriate file specification for input
 vinside.sno: ORACLE-REFUSES: SPITBOL ends it with an error: vinside.sno(20) : ERROR 251 -- keyword operand is not name of defined keyword
-wdstar.sno: NO-OUTPUT: with the input we supply (our own text on standard input): nothing on standard output, exit 0

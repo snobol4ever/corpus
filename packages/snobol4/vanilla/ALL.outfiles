@@ -1,0 +1,3 @@
+# ALL.outfiles -- the files a mined program writes its answer to, read by util_build_package_suite.py --mine (_mine_outfiles): entry<TAB>its out_files cell.
+# wdstar: Vanilla's OUTPUT(.OUTPUT,6,5000) gives a record length; SPITBOL reads 5000 as the file name and writes the whole answer there (the cio 2026-11-12, measured again by officer_06 2026-11-13).
+wdstar	5000
