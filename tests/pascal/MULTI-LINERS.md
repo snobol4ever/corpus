@@ -3948,6 +3948,28 @@ begin glob := 0; body end.
 seg=1 glob=1
 ```
 
+## rtlnames__sysvars_asserterrorproc_receives_a_failed_assert
+
+```Pascal
+{$mode objfpc}{$assertions on}
+program v5;
+procedure MyAssert(const msg, fname: shortstring; lineno: longint; erroraddr: pointer);
+begin writeln('caught ', msg, ' line ', lineno); end;
+begin
+  writeln(AssertErrorProc <> nil);
+  AssertErrorProc := @MyAssert;
+  Assert(False, 'first');
+  Assert(1 = 1, 'never');
+  writeln('after');
+end.
+```
+
+```stdout
+TRUE
+caught first line 8
+after
+```
+
 ## front_end__pf20h_generic_function_type
 
 ```Pascal
