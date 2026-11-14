@@ -2191,6 +2191,32 @@ end.
  7.8539816e-001
 ```
 
+## rtlnames__sysvars_math_nan_infinity_roundmode_exceptionmask
+
+```Pascal
+{$mode objfpc}
+program v2;
+uses math;
+var d: double;
+begin
+  d := infinity; writeln(d > 1e300);
+  d := neginfinity; writeln(d < -1e300);
+  d := nan; writeln(isnan(d));
+  writeln(getroundmode = rmnearest);
+  writeln(exInvalidOp in getexceptionmask);
+  writeln(exPrecision in getexceptionmask);
+end.
+```
+
+```stdout
+TRUE
+TRUE
+TRUE
+TRUE
+FALSE
+TRUE
+```
+
 ## front_end__pf21_sstr_high_low
 
 ```Pascal

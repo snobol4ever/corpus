@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=480 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,35
+# shape: entries=481 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,36
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -106,6 +106,7 @@ program_procedure_writeln_8	chunk:03	feat:procedure	procedure
 program_procedure_writeln_9	chunk:03	feat:procedure	procedure
 program_writeln_6	chunk:04	feat:ord	ord
 program_writeln_sqrt_1	chunk:05	feat:sqrt	sqrt
+rtlnames__sysvars_math_nan_infinity_roundmode_exceptionmask	chunk:04	feat:in	in
 front_end__pf21_sstr_high_low	chunk:01	feat:function	function type
 helpers__hp01	chunk:02	feat:record	for record type
 ladder__rung23_extended_format_e_g_floattostr_frac_trunc_round	core	core	round trunc
@@ -125,7 +126,7 @@ program_procedure_writeln_5	chunk:03	feat:procedure	procedure
 ladder__rung04_for_repeat_for_downto	core	core	downto for
 program_for_writeln_3	chunk:04	feat:in	for in
 program_for_downto_1	chunk:04	feat:downto	downto for
-program_for_downto_3	chunk:04	feat:downto	downto for
+program_for_downto_3	chunk:05	feat:downto	downto for
 program_for_writeln_2	chunk:04	feat:in	for in
 ladder__rung00_crt_row_25_newline_then_cr	chunk:02	feat:write	for write
 ladder__rung21_dynamic_array_compared_with_nil	chunk:03	feat:nil	array nil type
