@@ -3948,12 +3948,13 @@ main :- assertz((p(X) :- retract((p(_) :- _)), Y = done, X = Y)), p(A), write(se
 r(X) :- q(X).
 main :- assertz((s(X) :- member(X, [1, 2, 3]), X > 0)), assertz((q(X) :- s(Y), X = f(Y))), r(B), B == f(1), retract((s(_) :- _)), write(kept(B)), nl, halt.
 %- 304 test_gate_pl_the_standard_output_streams_report_mode_append_in_the_iso_default_and_write_in_the_swi_dialect__iso
+:- use_module(library(lists)).
 :- initialization(main).
 main :-
     forall(member(A, [user_input, user_output, user_error]),
            ( stream_property(S, alias(A)), stream_property(S, mode(M)), write(A-M), nl )),
     current_output(C), stream_property(C, mode(CM)), write(current_output-CM), nl,
-    open('$d/appended.txt', append, F), stream_property(F, mode(FM)), write(file-FM), nl, close(F),
+    open('appended.txt', append, F), stream_property(F, mode(FM)), write(file-FM), nl, close(F),
     halt.
 %- 305 test_gate_pl_the_swi_list_constructor_is_the_bar_bracket_functor_as_swipl__z
 :- use_module(library(lists)).

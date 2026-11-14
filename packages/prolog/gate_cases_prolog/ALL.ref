@@ -3728,6 +3728,7 @@ user_input-read
 user_output-write
 user_error-write
 current_output-write
+file-append
 %- 305 test_gate_pl_the_swi_list_constructor_is_the_bar_bracket_functor_as_swipl__z
 [1]
 [1]
