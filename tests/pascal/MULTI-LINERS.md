@@ -47,6 +47,19 @@ end.
 Invalid at line 3
 ```
 
+## ladder__rung31_sysutils_format_settings
+
+```Pascal
+{$mode objfpc}{$H+}
+program c5; uses sysutils; begin writeln(decimalseparator); writeln(defaultformatsettings.thousandseparator); writeln(formatsettings.decimalseparator) end.
+```
+
+```stdout
+.
+,
+.
+```
+
 ## ladder__rung00_hello
 
 ```Pascal

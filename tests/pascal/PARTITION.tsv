@@ -1,10 +1,11 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=479 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,34
+# shape: entries=480 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,35
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
 ladder__rung17_reset_of_the_standard_input_does_not_open_a_file	chunk:01	family:ladder	
+ladder__rung31_sysutils_format_settings	chunk:01	family:ladder	
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multi	chunk:01	family:ladder	
 ladder__rung00_hello_paramlist	chunk:01	family:ladder	
@@ -103,7 +104,7 @@ program_procedure_writeln_3	chunk:03	feat:procedure	procedure
 program_procedure_writeln_7	chunk:03	feat:procedure	procedure
 program_procedure_writeln_8	chunk:03	feat:procedure	procedure
 program_procedure_writeln_9	chunk:03	feat:procedure	procedure
-program_writeln_6	chunk:03	feat:ord	ord
+program_writeln_6	chunk:04	feat:ord	ord
 program_writeln_sqrt_1	chunk:05	feat:sqrt	sqrt
 front_end__pf21_sstr_high_low	chunk:01	feat:function	function type
 helpers__hp01	chunk:02	feat:record	for record type
@@ -132,7 +133,7 @@ program_for_writeln_replace_1	chunk:02	feat:write	for write
 program_writeln_7	chunk:04	feat:chr	chr ord
 ladder__rung18_sha1_digest	chunk:04	feat:mod	chr for mod
 ladder__rung24_rtl_system_lineending	chunk:04	feat:ord	ord write
-program_for_downto_2	chunk:04	feat:downto	downto for
+program_for_downto_2	chunk:05	feat:downto	downto for
 program_for_downto_4	chunk:05	feat:downto	downto for
 program_procedure_nested_19	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_5	chunk:01	feat:nested_proc	nested_proc procedure
@@ -189,7 +190,7 @@ program_procedure_nested_7	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_16	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_2	chunk:01	feat:nested_proc	nested_proc procedure
 front_end__pf20d_object_parent	chunk:01	feat:nested_proc	nested_proc procedure type
-program_procedure_nested_1	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_1	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_nested_15	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_nested_14	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_record_11	chunk:02	feat:record	procedure record type
@@ -247,7 +248,7 @@ front_end__pf19_nul_in_string	chunk:04	feat:chr	chr for ord
 program_array_for_4	chunk:04	feat:for_with_array	array for for_with_array type
 program_array_packed_2	chunk:02	feat:packed	array packed set_literal subrange
 program_set_for_2	chunk:02	feat:set	for in set subrange
-program_set_for_3	chunk:02	feat:set	for in set subrange
+program_set_for_3	chunk:03	feat:set	for in set subrange
 program_set_for_4	chunk:03	feat:set	for in set subrange
 front_end__pf04_shortstring	chunk:04	feat:ord	array ord set_literal subrange
 program_procedure_array_2	chunk:04	feat:set_literal	array procedure set_literal subrange
