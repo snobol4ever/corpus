@@ -1,0 +1,17 @@
+# CONVERSION-PROOF.tsv -- pcl: each Icon file and what the stock Arizona translator (icont 9.5.25a with newline insertion, /home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion) says
+# of the original against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (the grader 2026-11-14; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+abbrev.icn	same-code	7
+icon_formatters.icn	same-code	46
+icon_lexer.icn	same-code	41
+integer_division.icn	same-code	18
+json.icn	same-code	58
+logger.icn	same-code	17
+maths.icn	same-code	45
+options_parser.icn	same-code	28
+pcl_test.icn	same-code	290
+simulated_annealing.icn	same-code	12
+sort_libraries.icn	same-code	46
+statistics.icn	same-code	10
+testing.icn	same-code	22
+test_GROUP.icn	ours (a main of one call over a section of pcl_test.icn as converted)	1

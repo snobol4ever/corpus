@@ -1,0 +1,154 @@
+#> Integer Division provides a set of integral division and remainder procedures.
+#>
+#> The library is based on Scheme's SRFI 141, and provides the same six integer
+#> division operations, albeit with a different API.
+#>
+#> There are six kinds of division supported: floor, ceiling, truncate, round,
+#> Euclidean and balanced. Each is supported by one procedure, which returns 
+#> a `divide_result` instance containing the quotient and remainder.
+#>
+#> It is an error if both parameters are not integers, or the denominator is zero.
+
+link maths
+
+# Holds the quotient and remainder result of a divide operation.
+record divide_result(quotient, remainder)
+
+# Returns q = floor(n/d), r = n - q.d
+#
+# For example:
+#
+#   divide_floor(7,3).quotient => 2
+#   divide_floor(7,3).remainder => 1
+#   divide_floor(-7,2).quotient => -4
+#   divide_floor(-7,2).remainder => 1
+#
+# Parameters:
+# [numerator] integer valued dividend 
+# [denominator] integer valued, non-zero divisor
+procedure divide_floor(numerator, denominator)
+  return divide_with_procedure(numerator, denominator, floor);
+end
+
+# Returns q = ceiling(n/d), r = n - q.d
+#
+# For example:
+#
+#   divide_ceiling(7,3).quotient => 3
+#   divide_ceiling(7,3).remainder => -2
+#   divide_ceiling(-7,2).quotient => -3
+#   divide_ceiling(-7,2).remainder => -1
+#
+# Parameters:
+# [numerator] integer valued dividend 
+# [denominator] integer valued, non-zero divisor
+procedure divide_ceiling(numerator, denominator)
+  return divide_with_procedure(numerator, denominator, ceiling);
+end
+
+# Returns q = maths_truncate(n/d), r = n - q.d
+#
+# For example:
+#
+#   divide_truncate(7,3).quotient => 2
+#   divide_truncate(7,3).remainder => 1
+#   divide_truncate(-7,2).quotient => -3
+#   divide_truncate(-7,2).remainder => -1
+#
+# Parameters:
+# [numerator] integer valued dividend 
+# [denominator] integer valued, non-zero divisor
+procedure divide_truncate(numerator, denominator)
+  return divide_with_procedure(numerator, denominator, maths_truncate);
+end
+
+# Returns q = round(n/d), r = n - q.d
+#
+# For example:
+#
+#   divide_round(7,3).quotient => 2
+#   divide_round(7,3).remainder => 1
+#   divide_round(-7,2).quotient => -4
+#   divide_round(-7,2).remainder => 1
+#
+# Parameters:
+# [numerator] integer valued dividend 
+# [denominator] integer valued, non-zero divisor
+procedure divide_round(numerator, denominator)
+  return divide_with_procedure(numerator, denominator, round);
+end
+
+# If denominator > 0 returns divide_floor, else returns divide_ceiling.
+#
+# This ensures 0 <= r < |d|
+#
+# For example:
+#
+#   divide_euclidean(7,3).quotient => 2
+#   divide_euclidean(7,3).remainder => 1
+#   divide_euclidean(-7,3).quotient => -3
+#   divide_euclidean(-7,3).remainder => 2
+#   divide_euclidean(7,-3).quotient => -2
+#   divide_euclidean(7,-3).remainder => 1
+#
+# Parameters:
+# [numerator] integer valued dividend 
+# [denominator] integer valued, non-zero divisor
+procedure divide_euclidean(numerator, denominator)
+  if denominator > 0 then
+    return divide_floor(numerator, denominator)
+  else
+    return divide_ceiling(numerator, denominator);
+end
+
+# Balances the remainder to ensure:
+#
+# -|d/2| <= r < |d/2|
+#
+# For example:
+#
+#   divide_balanced(7,3).quotient => 2
+#   divide_balanced(7,3).remainder => 1
+#   divide_balanced(8,3).quotient => 3
+#   divide_balanced(8,3).remainder => -1
+#   divide_balanced(9,3).quotient => 3
+#   divide_balanced(9,3).remainder => 0
+#   divide_balanced(10,3).quotient => 3
+#   divide_balanced(10,3).remainder => 1
+#
+# Parameters:
+# [numerator] integer valued dividend 
+# [denominator] integer valued, non-zero divisor
+procedure divide_balanced(numerator, denominator)
+  local quotient, remainder;
+
+  divide_error_check(numerator, denominator);
+
+  euclidean := divide_euclidean(numerator, denominator);
+  if euclidean.remainder < abs(real(denominator)/2) then
+    return euclidean
+  else if denominator > 0 then
+    return divide_result(euclidean.quotient+1, numerator-(euclidean.quotient+1)*denominator)
+  else
+    return divide_result(euclidean.quotient-1, numerator-(euclidean.quotient-1)*denominator);
+end
+
+# NODOC
+procedure divide_error_check(numerator, denominator)
+  if type(numerator) ~== "integer" then runerr(101, numerator);
+  if type(denominator) ~== "integer" then runerr(101, denominator);
+  if denominator = 0 then runerr(201, denominator);
+  return;
+end
+
+# NODOC
+procedure divide_with_procedure(numerator, denominator, divider)
+  local quotient, remainder;
+
+  divide_error_check(numerator, denominator);
+  
+  quotient := divider(real(numerator)/denominator);
+  remainder := numerator - quotient * denominator;
+
+  return divide_result(quotient, remainder);
+end

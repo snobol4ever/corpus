@@ -1,0 +1,1 @@
+ipath	.	the nine library files every test program links (abbrev, icon_formatters, icon_lexer, integer_division, json, maths, sort_libraries, statistics, testing) sit beside the test programs at the package root

@@ -1,0 +1,754 @@
+# Run tests for all relevant files in "pcl" library
+#
+link abbrev, icon_formatters, icon_lexer, integer_division, json, maths, sort_libraries, statistics, testing
+
+procedure main()
+  test_abbrev();
+  test_icon_formatter();
+  test_icon_lexer();
+  test_integer_division();
+  test_json();
+  test_maths();
+  test_sort_libraries();
+  test_statistics();
+end
+
+# ------------------------------------------------------------------------
+# Abbrev Tests
+
+procedure test_abbrev() 
+  test_start("Abbrev");
+  do_abbrev_tests_1();
+  do_abbrev_tests_2();
+  do_abbrev_tests_3();
+  test_finish();
+end
+
+procedure do_abbrev_tests_1 ()
+  local t;
+
+  t := abbrev (["car", "cat"]);
+  test_equals(2, *t);
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "cat") & t["cat"] == "cat");
+end
+
+procedure do_abbrev_tests_2 ()
+  local t;
+
+  t := abbrev(["car", "cone"]);
+  test_equals(5, *t);
+  test_succeeds(create member(t, "ca") & t["ca"] == "car");
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "co") & t["co"] == "cone");
+  test_succeeds(create member(t, "con") & t["con"] == "cone");
+  test_succeeds(create member(t, "cone") & t["cone"] == "cone");
+end
+
+procedure do_abbrev_tests_3 ()
+  local t;
+
+  t := abbrev(["car", "cat", "dog"], "c");
+  test_equals(2, *t);
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "cat") & t["cat"] == "cat");
+end
+
+# ------------------------------------------------------------------------
+# Icon Formatter Tests
+
+procedure test_icon_formatter()
+  local html_styles, result;
+
+  # create some html styles to simplify comparisons
+  html_styles := table("blank");
+  html_styles["identifier"] := "id";
+  html_styles["operator"] := "op";
+  html_styles["punctuation"] := "pn";
+  html_styles["number"] := "nm";
+  html_styles["string"] := "st";
+
+  test_start("Icon Formatter");
+
+  result := icon_html_format("write(2, \"string\")", html_styles);
+  test_equals(1, *result);
+  test_equals("<span style=\"id\">write</span><span style=\"pn\">(</span><span style=\"nm\">2</span><span style=\"pn\">,</span><span style=\"blank\"> </span><span style=\"st\">\"string\"</span><span style=\"pn\">)</span>", result[1]);
+ 
+  test_finish();
+end
+
+
+# ------------------------------------------------------------------------
+# Icon Lexer Tests
+
+procedure test_icon_lexer()
+  test_start("Icon Lexer");
+
+  test_keywords();
+  test_identifiers();
+  test_integer_literals();
+  test_real_literals();
+  test_string_literals();
+  test_cset_literals();
+  test_operators();
+  test_reserved_words();
+  test_preprocessor();
+
+  test_multi_tokens();
+  test_multi_lines();
+  test_include_comments();
+
+  test_finish();
+end
+
+procedure test_keywords()
+  test_lexer_cases([
+    ["&digits", [lexer_token("KEYWORD", "&digits")]]
+  ]);
+end
+
+procedure test_identifiers()
+  test_lexer_cases([
+    ["_", [lexer_token("IDENT", "_")]],
+    ["a", [lexer_token("IDENT", "a")]],
+    ["_X_a", [lexer_token("IDENT", "_X_a")]],
+    ["xy", [lexer_token("IDENT", "xy")]]
+  ]);
+end
+
+procedure test_integer_literals()
+  test_lexer_cases([
+    ["1", [lexer_token("INT_LIT", "1")]],
+    ["1234", [lexer_token("INT_LIT", "1234")]],
+    ["2r0100", [lexer_token("INT_LIT", "2r0100")]],
+    ["2R0100", [lexer_token("INT_LIT", "2R0100")]], 
+    ["16rfe", [lexer_token("INT_LIT", "16rfe")]],
+    ["16RfE", [lexer_token("INT_LIT", "16RfE")]],
+    ["36rcat", [lexer_token("INT_LIT", "36rcat")]]
+  ]);
+end
+
+procedure test_real_literals()
+  test_lexer_cases([
+    ["1.2", [lexer_token("REAL_LIT", "1.2")]],
+    ["1.2e2", [lexer_token("REAL_LIT", "1.2e2")]],
+    ["1.2E2", [lexer_token("REAL_LIT", "1.2e2")]],
+    ["1e-2", [lexer_token("REAL_LIT", "1e-2")]],
+    ["16.", [lexer_token("REAL_LIT", "16.")]]
+  ]);
+end
+
+procedure test_string_literals()
+  test_lexer_cases([
+    ["\"abc\"", [lexer_token("STRING_LIT", "abc")]],
+    ["\"ab\\\"c\"", [lexer_token("STRING_LIT", "ab\"c")]],
+    ["\"\"", [lexer_token("STRING_LIT", "")]]
+  ]);
+end
+
+procedure test_cset_literals()
+  test_lexer_cases([
+    ["'abc'", [lexer_token("CSET_LIT", "abc")]],
+    ["'ab\\'c'", [lexer_token("CSET_LIT", "ab'c")]]
+  ]);
+end
+
+procedure test_operators()
+  test_lexer_cases([
+    ["(", [lexer_token("LPAREN", "(")]],
+    [")", [lexer_token("RPAREN", ")")]],
+    ["+:", [lexer_token("PCOLON", "+:")]],
+    [",", [lexer_token("COMMA", ",")]],
+    ["-:", [lexer_token("MCOLON", "-:")]],
+    [":", [lexer_token("COLON", ":")]],
+    [";", [lexer_token("SEMICOL", ";")]],
+    ["[", [lexer_token("LBRACK", "[")]],
+    ["]", [lexer_token("RBRACK", "]")]],
+    ["{", [lexer_token("LBRACE", "{")]],
+    ["}", [lexer_token("RBRACE", "}")]],
+    ["$(", [lexer_token("LBRACE", "$(")]],
+    ["$)", [lexer_token("RBRACE", "$)")]],
+    ["$<", [lexer_token("LBRACK", "$<")]],
+    ["$>", [lexer_token("RBRACK", "$>")]],
+    [":=", [lexer_token("ASSIGN", ":=")]],
+    [":=:", [lexer_token("SWAP", ":=:")]],
+    ["<-", [lexer_token("REVASSIGN", "<-")]],
+    ["<->", [lexer_token("REVSWAP", "<->")]],
+    ["&", [lexer_token("AND", "&")]],
+    ["&:=", [lexer_token("AUG_AND", "&:=")]],
+    ["@", [lexer_token("AT", "@")]],
+    ["@:=", [lexer_token("AUG_AT", "@:=")]],
+    ["^", [lexer_token("CARET", "^")]],
+    ["^:=", [lexer_token("AUG_CARET", "^:=")]],
+    ["||", [lexer_token("CONCAT", "||")]],
+    ["||:=", [lexer_token("AUG_CONCAT", "||:=")]],
+    ["--", [lexer_token("DIFF", "--")]],
+    ["--:=", [lexer_token("AUG_DIFF", "--:=")]],
+    ["===", [lexer_token("EQUIV", "===")]],
+    ["===:=", [lexer_token("AUG_EQUIV", "===:=")]],
+    ["**", [lexer_token("INTER", "**")]],
+    ["**:=", [lexer_token("AUG_INTER", "**:=")]],
+    ["|||", [lexer_token("LCONCAT", "|||")]],
+    ["|||:=", [lexer_token("AUG_LCONCAT", "|||:=")]],
+    ["-", [lexer_token("MINUS", "-")]],
+    ["-:=", [lexer_token("AUG_MINUS", "-:=")]],
+    ["%", [lexer_token("MOD", "%")]],
+    ["%:=", [lexer_token("AUG_MOD", "%:=")]],
+    ["~===", [lexer_token("NEQUIV", "~===")]],
+    ["~===:=", [lexer_token("AUG_NEQUIV", "~===:=")]],
+    ["=", [lexer_token("NMEQ", "=")]],
+    ["=:=", [lexer_token("AUG_NMEQ", "=:=")]],
+    [">=", [lexer_token("NMGE", ">=")]],
+    [">=:=", [lexer_token("AUG_NMGE", ">=:=")]],
+    [">", [lexer_token("NMGT", ">")]],
+    [">:=", [lexer_token("AUG_NMGT", ">:=")]],
+    ["<=", [lexer_token("NMLE", "<=")]],
+    ["<=:=", [lexer_token("AUG_NMLE", "<=:=")]],
+    ["<", [lexer_token("NMLT", "<")]],
+    ["<:=", [lexer_token("AUG_NMLT", "<:=")]],
+    ["~=", [lexer_token("NMNE", "~=")]],
+    ["~=:=", [lexer_token("AUG_NMNE", "~=:=")]],
+    ["+", [lexer_token("PLUS", "+")]],
+    ["+:=", [lexer_token("AUG_PLUS", "+:=")]],
+    ["?", [lexer_token("QMARK", "?")]],
+    ["?:=", [lexer_token("AUG_QMARK", "?:=")]],
+    ["==", [lexer_token("SEQ", "==")]],
+    ["==:=", [lexer_token("AUG_SEQ", "==:=")]],
+    [">>=", [lexer_token("SGE", ">>=")]],
+    [">>=:=", [lexer_token("AUG_SGE", ">>=:=")]],
+    [">>", [lexer_token("SGT", ">>")]],
+    [">>:=", [lexer_token("AUG_SGT", ">>:=")]],
+    ["<<=", [lexer_token("SLE", "<<=")]],
+    ["<<=:=", [lexer_token("AUG_SLE", "<<=:=")]],
+    ["<<", [lexer_token("SLT", "<<")]],
+    ["<<:=", [lexer_token("AUG_SLT", "<<:=")]],
+    ["~==", [lexer_token("SNE", "~==")]],
+    ["~==:=", [lexer_token("AUG_SNE", "~==:=")]],
+    ["/", [lexer_token("SLASH", "/")]],
+    ["/:=", [lexer_token("AUG_SLASH", "/:=")]],
+    ["*", [lexer_token("STAR", "*")]],
+    ["*:=", [lexer_token("AUG_STAR", "*:=")]],
+    ["++", [lexer_token("UNION", "++")]],
+    ["++:=", [lexer_token("AUG_UNION", "++:=")]],
+    ["\\", [lexer_token("BACKSLASH", "\\")]],
+    ["|", [lexer_token("BAR", "|")]],
+    ["!", [lexer_token("BANG", "!")]],
+    [".", [lexer_token("DOT", ".")]],
+    ["~", [lexer_token("TILDE", "~")]]
+  
+  ]);
+end
+
+procedure test_reserved_words()
+  test_lexer_cases([
+    ["break", [lexer_token("BREAK", "break")]],
+    ["by", [lexer_token("BY", "by")]],
+    ["case", [lexer_token("CASE", "case")]],
+    ["create", [lexer_token("CREATE", "create")]],
+    ["default", [lexer_token("DEFAULT", "default")]],
+    ["do", [lexer_token("DO", "do")]],
+    ["else", [lexer_token("ELSE", "else")]],
+    ["end", [lexer_token("END", "end")]],
+    ["every", [lexer_token("EVERY", "every")]],
+    ["fail", [lexer_token("FAIL", "fail")]],
+    ["global", [lexer_token("GLOBAL", "global")]],
+    ["if", [lexer_token("IF", "if")]],
+    ["initial", [lexer_token("INITIAL", "initial")]],
+    ["invocable", [lexer_token("INVOCABLE", "invocable")]],
+    ["link", [lexer_token("LINK", "link")]],
+    ["local", [lexer_token("LOCAL", "local")]],
+    ["next", [lexer_token("NEXT", "next")]],
+    ["not", [lexer_token("NOT", "not")]],
+    ["of", [lexer_token("OF", "of")]],
+    ["procedure", [lexer_token("PROCEDURE", "procedure")]],
+    ["record", [lexer_token("RECORD", "record")]],
+    ["repeat", [lexer_token("REPEAT", "repeat")]],
+    ["return", [lexer_token("RETURN", "return")]],
+    ["static", [lexer_token("STATIC", "static")]],
+    ["suspend", [lexer_token("SUSPEND", "suspend")]],
+    ["then", [lexer_token("THEN", "then")]],
+    ["to", [lexer_token("TO", "to")]],
+    ["until", [lexer_token("UNTIL", "until")]],
+    ["while", [lexer_token("WHILE", "while")]]
+  ]);
+end
+
+procedure test_preprocessor()
+  test_lexer_cases([
+    ["$define", [lexer_token("PREPROCESSING", "$define")]],
+    ["$define x 2", [lexer_token("PREPROCESSING", "$define"), lexer_token("IDENT", "x"), lexer_token("INT_LIT", "2")]]
+  ]);
+end
+
+procedure test_multi_tokens()
+  test_lexer_cases([
+    ["3 + 2", [lexer_token("INT_LIT", "3"), lexer_token("PLUS", "+"), lexer_token("INT_LIT", "2")]],
+    ["3.3+2", [lexer_token("REAL_LIT", "3.3"), lexer_token("PLUS", "+"), lexer_token("INT_LIT", "2")]]
+  ]);
+end
+
+procedure test_multi_lines()
+  test_lexer_cases([
+    [["3 + 2", "write()"], 
+     [lexer_token("INT_LIT", "3", 1, 1), lexer_token("PLUS", "+", 1, 3), lexer_token("INT_LIT", "2", 1, 5),
+      lexer_token("SEMICOL"), lexer_token("IDENT", "write", 2, 1), lexer_token("LPAREN", "(", 2, 6), lexer_token("RPAREN", ")", 2, 7)]
+     ],
+    [["3 +", "2", "2"],
+    [lexer_token("INT_LIT", "3"), lexer_token("PLUS", "+"), # no semi colon, as not an ender
+     lexer_token("INT_LIT", "2"), 
+     lexer_token("SEMICOL"), # inserted semicolon, between ender/beginner
+     lexer_token("INT_LIT", "2")]
+    ],
+   [["procedure main(inputs)","  write(\"hello\")","end"],
+    [lexer_token("PROCEDURE", "procedure", 1, 1), lexer_token("IDENT", "main", 1, 11), lexer_token("LPAREN", "(", 1, 15), lexer_token("IDENT", "inputs", 1, 16), lexer_token("RPAREN", ")", 1, 22),
+    lexer_token("SEMICOL"),
+    lexer_token("IDENT", "write", 2, 3), lexer_token("LPAREN", "(", 2, 8), lexer_token("STRING_LIT", "hello", 2, 9), lexer_token("RPAREN", ")", 2, 16),
+    lexer_token("SEMICOL"),
+    lexer_token("END", "end", 3, 1)
+    ]
+   ],
+   [["link file", "", "procedure main(inputs)","  write(\"hello\")","end"],
+    [lexer_token("LINK", "link", 1, 1), lexer_token("IDENT", "file", 1, 6), 
+    lexer_token("PROCEDURE", "procedure", 3, 1), lexer_token("IDENT", "main", 3, 11), lexer_token("LPAREN", "(", 3, 15), lexer_token("IDENT", "inputs", 3, 16), lexer_token("RPAREN", ")", 3, 22),
+    lexer_token("SEMICOL"),
+    lexer_token("IDENT", "write", 4, 3), lexer_token("LPAREN", "(", 4, 8), lexer_token("STRING_LIT", "hello", 4, 9), lexer_token("RPAREN", ")", 4, 16),
+    lexer_token("SEMICOL"),
+    lexer_token("END", "end", 5, 1)
+    ]
+   ],
+   [["procedure main(inputs)"," # write(\"hello\")","end"],
+    [lexer_token("PROCEDURE", "procedure"), lexer_token("IDENT", "main"), lexer_token("LPAREN", "("), lexer_token("IDENT", "inputs"), lexer_token("RPAREN", ")"),
+    lexer_token("SEMICOL"),
+    lexer_token("END", "end")
+    ]
+   ],
+   [["procedure main()", "*filename", "end"],
+    [lexer_token("PROCEDURE", "procedure"), lexer_token("IDENT", "main"), lexer_token("LPAREN", "("), lexer_token("RPAREN", ")"), lexer_token("SEMICOL"),
+    lexer_token("STAR", "*"), lexer_token("IDENT", "filename"), lexer_token("SEMICOL"),
+    lexer_token("END", "end")
+    ]
+   ]
+  ]);
+end
+
+procedure test_include_comments()
+  test_lexer_cases([
+   [["procedure main(inputs)"," # write(\"hello\")","end"],
+    [lexer_token("PROCEDURE", "procedure", 1, 1), lexer_token("IDENT", "main", 1, 11), lexer_token("LPAREN", "(", 1, 15), lexer_token("IDENT", "inputs", 1, 16), lexer_token("RPAREN", ")", 1, 22),
+    lexer_token("SEMICOL"),
+    lexer_token("comment", "# write(\"hello\")", 2, 2),
+    lexer_token("END", "end", 3, 1)
+    ]
+   ]
+  ], "include comments");
+end
+
+procedure test_lexer_cases(test_cases, include_comments)
+  local test_case;
+
+  every test_case := !test_cases do
+    test_lexer(test_case[1], test_case[2], include_comments);
+end
+
+procedure test_lexer(str_generator, expected, include_comments)
+  local actual, i;
+
+  # ensure we have a list of strings
+  if type(str_generator) ~== "list" then str_generator := [str_generator];
+  every put(actual := list(), icon_lexer(str_generator, include_comments));
+
+  test_equals(*expected+1, *actual, "token count");
+  every i := 1 to *expected do {
+    test_equals(expected[i].kind, actual[i].kind, "token kind");
+    test_equals(expected[i].text, actual[i].text, "token value");
+    # test positions if given
+    if \expected[i].line_number then
+      test_equals(expected[i].line_number, actual[i].line_number, "token line number");
+    if \expected[i].line_column then
+      test_equals(expected[i].line_column, actual[i].line_column, "token line column")
+  };
+  # finish with EOFX
+  test_equals(actual[*actual].kind, "EOFX");
+end
+
+# ------------------------------------------------------------------------
+# Integer Division Tests
+
+procedure test_integer_division()
+  test_start("Integer Division");
+
+  # divide_floor
+  test_equals(2, divide_floor(7, 3).quotient);
+  test_equals(1, divide_floor(7, 3).remainder);
+  test_equals(-4, divide_floor(-7, 2).quotient);
+  test_equals(1, divide_floor(-7, 2).remainder);
+  # divide_ceiling
+  test_equals(3, divide_ceiling(7, 3).quotient);
+  test_equals(-2, divide_ceiling(7, 3).remainder);
+  test_equals(-3, divide_ceiling(-7, 2).quotient);
+  test_equals(-1, divide_ceiling(-7, 2).remainder);
+  # divide_truncate
+  test_equals(2, divide_truncate(7, 3).quotient);
+  test_equals(1, divide_truncate(7, 3).remainder);
+  test_equals(-3, divide_truncate(-7, 2).quotient);
+  test_equals(-1, divide_truncate(-7, 2).remainder);
+  # divide_round
+  test_equals(2, divide_round(7, 3).quotient);
+  test_equals(1, divide_round(7, 3).remainder);
+  test_equals(-4, divide_round(-7, 2).quotient);
+  test_equals(1, divide_round(-7, 2).remainder);
+  # divide_euclidean
+  test_equals(2, divide_euclidean(7, 3).quotient);
+  test_equals(1, divide_euclidean(7, 3).remainder);
+  test_equals(-3, divide_euclidean(-7, 3).quotient);
+  test_equals(2, divide_euclidean(-7, 3).remainder);
+  test_equals(-2, divide_euclidean(7, -3).quotient);
+  test_equals(1, divide_euclidean(7, -3).remainder);
+  # divide_balanced
+  test_equals(2, divide_balanced(7, 3).quotient);
+  test_equals(1, divide_balanced(7, 3).remainder);
+  test_equals(3, divide_balanced(8, 3).quotient);
+  test_equals(-1, divide_balanced(8, 3).remainder);
+  test_equals(3, divide_balanced(9, 3).quotient);
+  test_equals(0, divide_balanced(9, 3).remainder);
+  test_equals(3, divide_balanced(10, 3).quotient);
+  test_equals(1, divide_balanced(10, 3).remainder);
+  test_equals(-2, divide_balanced(-7, 3).quotient);
+  test_equals(-1, divide_balanced(-7, 3).remainder);
+  test_equals(-3, divide_balanced(-8, 3).quotient);
+  test_equals(1, divide_balanced(-8, 3).remainder);
+  test_equals(-3, divide_balanced(-9, 3).quotient);
+  test_equals(0, divide_balanced(-9, 3).remainder);
+  test_equals(-3, divide_balanced(-10, 3).quotient);
+  test_equals(-1, divide_balanced(-10, 3).remainder);
+
+  test_finish();
+end
+
+# ------------------------------------------------------------------------
+# JSON Tests
+
+procedure test_json()
+  local eg;
+
+  test_start("JSON");
+
+  # - booleans
+  test_equals("TRUE", json_from_lines("true"));
+  test_equals("FALSE", json_from_lines("false"));
+  # - lists
+  test_equals([], json_from_lines("[]"), "empty json list", equal_lists);
+  test_equals([2], json_from_lines("[2]"), "single json list", equal_lists);
+  test_equals([1, "TRUE", &null], json_from_lines("[1, true, null]"), "multiple json list", equal_lists);
+  # - null
+  test_equals(&null, json_from_lines("null"));
+  # - numbers
+  test_equals(0, json_from_lines("0"));
+  test_equals(123, json_from_lines("123"));
+  test_equals(12300.0, json_from_lines("123e2"));
+  test_equals(12.3, json_from_lines("12.3"));
+  test_equals(-123, json_from_lines("-123"));
+  # - tables
+  eg := json_from_lines("{}");
+  test_equals("table", type(eg));
+  test_equals(0, *eg);
+  eg := json_from_lines("{\"a\" : 3}");
+  test_equals("table", type(eg));
+  test_equals(1, *eg);
+  test_equals(3, eg["a"]);
+  # - strings
+  test_equals("", json_from_lines("\"\""));
+  test_equals("abc", json_from_lines("\"abc\""));
+  test_equals("a\"b\"c", json_from_lines("\"a\\\"b\\\"c\""));
+
+  test_finish();
+end
+
+# ------------------------------------------------------------------------
+# Maths Tests
+
+procedure test_maths()
+  local num_keys, primes;
+
+  test_start("Maths");
+  # - ceiling
+  test_equals(2, ceiling(2));
+  test_equals(3, ceiling(2.5));
+  test_equals(0, ceiling(0));
+  test_equals(-2, ceiling(-2));
+  test_equals(-2, ceiling(-2.5));
+  # - clamp
+  test_equals(5, clamp(3, 5, 10));
+  test_equals(10, clamp(12, 5, 10));
+  test_equals(7, clamp(7, 5, 10));
+  # - floor
+  test_equals(2, floor(2));
+  test_equals(2, floor(2.5));
+  test_equals(0, floor(0));
+  test_equals(-2, floor(-2));
+  test_equals(-3, floor(-2.5));
+  # - round
+  test_equals(2, round(2));
+  test_equals(4, round(3.5));
+  test_equals(2, round(2.5));
+  test_equals(0, round(0));
+  test_equals(-2, round(-2));
+  test_equals(-2, round(-2.5));
+  test_equals(-4, round(-3.5));
+  # - truncate
+  test_equals(2, maths_truncate(2));
+  test_equals(3, maths_truncate(3.5));
+  test_equals(2, maths_truncate(2.5));
+  test_equals(0, maths_truncate(0));
+  test_equals(-2, maths_truncate(-2));
+  test_equals(-2, maths_truncate(-2.5));
+  test_equals(-3, maths_truncate(-3.5));
+  # - generate_primes
+  every put(primes := list(), primes_generator(10));
+  test_equals(4, *primes);
+  test_equals(2, primes[1]);
+  test_equals(3, primes[2]);
+  test_equals(5, primes[3]);
+  test_equals(7, primes[4]);
+  # - prime_factors
+  primes := prime_factors(360);
+  num_keys := 0;
+  every key(primes) do num_keys +:= 1;
+  test_equals(3, num_keys);
+  test_equals(3, primes[2]);
+  test_equals(2, primes[3]);
+  test_equals(1, primes[5]);
+  primes := prime_factors(17);
+  num_keys := 0;
+  every key(primes) do num_keys +:= 1;
+  test_equals(1, num_keys);
+  test_equals(1, primes[17]);
+  primes := prime_factors(20);
+  num_keys := 0;
+  every key(primes) do num_keys +:= 1;
+  test_equals(2, num_keys);
+  test_equals(2, primes[2]);
+  test_equals(1, primes[5]);
+  # - number theory procedures
+  test_equals(3, extended_euclidean_algorithm(321, 843)[1]);
+  test_equals(-21, extended_euclidean_algorithm(321, 843)[2]);
+  test_equals(8, extended_euclidean_algorithm(321, 843)[3]);
+  test_equals(3, gcd(321, 843));
+  test_equals(90201, lcm(321, 843));
+  test_equals(8, euler_totient(20));
+
+  test_finish();
+end
+
+# ------------------------------------------------------------------------
+# Sort Library Tests
+
+procedure test_sort_libraries()
+  test_start("Sort Libraries");
+  test_is_sorted();
+  test_number_lists();
+  test_record_lists();
+  test_merge_lists();
+  test_delete_neighbours();
+  test_find_median();
+  test_select();
+  test_separate();
+  test_search();
+  test_finish();
+end
+
+procedure test_is_sorted()
+  local lst;
+
+  every lst := ![[], [1], [1,1,1], [1,2,3], [-3,1,1,10]] do
+    test_succeeds(create list_is_sorted("<", lst));
+  every lst := ![[2,1], [2,2,3,2]] do
+    test_fails(create list_is_sorted("<", lst));
+  every lst := ![[], [posn(1,1)], [posn(1,1), posn(2,1), posn(2,2)]] do
+    test_succeeds(create list_is_sorted(posn_lt, lst));
+  every lst := ![[posn(1,1), posn(0,1)], [posn(1,3), posn(1,1)]] do
+    test_fails(create list_is_sorted(posn_lt, lst));
+end
+
+procedure test_number_lists()
+  local test_case, test_cases;
+  local result;
+
+  test_cases := [
+    [[], []],
+    [[1], [1]],
+    [[1,2,3], [3,1,2]],
+    [[1,1,2,2,3], [2,1,2,3,1]],
+    [[1,2,3,4,5,6,7,8], [8,7,6,5,4,3,2,1]]
+  ];
+
+  every test_case := !test_cases do {
+    result := copy(test_case[2]);
+    list_sort("<", result);
+    test_equals(test_case[1], result, "test-number-lists", equal_lists)
+  };
+end
+
+procedure test_record_lists()
+  local test_case, test_cases;
+  local result;
+
+  test_cases := [
+    [[], []],
+    [[posn(1,1)], [posn(1,1)]],
+    [[posn(1,1), posn(1,2), posn(2,1)], [posn(2,1), posn(1,1), posn(1,2)]],
+    [[posn(1,1), posn(1,2), posn(1,4), posn(1,5)], [posn(1,5), posn(1,2), posn(1,1), posn(1,4)]]
+  ];
+
+  every test_case := !test_cases do {
+    result := copy(test_case[2]);
+    list_sort(posn_lt, result);
+    test_equals(test_case[1], result, "test-record-lists", equal_posn_lists)
+  };
+end
+
+procedure test_merge_lists()
+  local test_case, test_cases;
+
+  test_cases := [
+    [[], [], []],
+    [[1], [], [1]],
+    [[1], [1], []],
+    [[1,1], [1], [1]],
+    [[1,1,2,3,5], [1,2], [1,3,5]]
+  ];
+
+  every test_case := !test_cases do
+    test_equals(test_case[1], list_merge("<", test_case[2], test_case[3]), "merge-lists", equal_lists);
+end
+
+procedure test_delete_neighbours()
+  local test_case, test_cases, result;
+
+  test_cases := [
+    [[], []],
+    [[1], [1]],
+    [[1], [1,1,1,1,1]],
+    [[1,2,3], [1,1,2,2,3,3,3,3]]
+  ];
+
+  every test_case := !test_cases do {
+    result := list_delete_neighbour_dups("=", test_case[2]);
+    test_equals(test_case[1], result, "delete-neighbours", equal_lists)
+  };
+
+  test_cases := [
+    [[], []],
+    [[posn(1,1)], [posn(1,1)]],
+    [[posn(1,1), posn(1,2), posn(2,1)], [posn(1,1), posn(1,1), posn(1,2), posn(1,2), posn(1,2), posn(2,1)]]
+  ];
+
+  every test_case := !test_cases do {
+    result := list_delete_neighbour_dups(posn_equal, test_case[2]);
+    test_equals(test_case[1], result, "delete-neighbours", equal_posn_lists)
+  };
+end
+
+procedure test_find_median()
+  local test_case, test_cases, result;
+
+  test_cases := [
+    [0, []],
+    [1, [1]],
+    [1, [1,1,1,1,1]],
+    [2.5, [1,2,3,4]]
+  ];
+
+  every test_case := !test_cases do {
+    result := list_find_median("<", test_case[2], 0);
+    test_approx_equals(test_case[1], result, "find-median")
+  };
+
+  test_cases := [
+    [posn(0,0), []],
+    [posn(1,1), [posn(1,1)]],
+    [posn(1,3), [posn(1,5), posn(1,2), posn(1,1), posn(1,4)]]
+  ];
+
+  every test_case := !test_cases do {
+    result := list_find_median(posn_lt, test_case[2], posn(0, 0), posn_mean);
+    test_approx_equals(test_case[1].x, result.x, "find-median-posn-x");
+    test_approx_equals(test_case[1].y, result.y, "find-median-posn-y")
+  };
+end
+
+procedure test_select()
+  test_fails(create list_select("<", [], 2));
+  test_fails(create list_select("<", [1], 2));
+  test_equals(3, list_select("<", [1,3], 2));
+  test_equals(4, list_select("<", [5,3,4,1], 3));
+end
+
+procedure test_separate()
+  local lst;
+
+  lst := [];
+  list_separate("<", lst, 3);
+  test_equals([], lst, "separate 1", equal_lists);
+  lst := [3,1,2];
+  list_separate("<", lst, 3);
+  test_equals([3,1,2], lst, "separate 2", equal_lists);
+  lst := [3,4,1,2];
+  list_separate("<", lst, 3);
+  test_equals([1,2,3,4], lst, "separate 3", equal_lists);
+  lst := [5,4,3,2,1];
+  list_separate("<", lst, 2);
+  test_equals([1,2], lst[1+:2], "separate 4", equal_lists);
+end
+
+procedure test_search()
+  test_fails(create list_binary_search("<", "=", [], 3));
+  test_fails(create list_binary_search("<", "=", [1,2,4], 3));
+  test_equals(2, list_binary_search("<", "=", [1,2,4], 2));
+end
+
+record posn(x, y)
+procedure posn_lt(posn1, posn2)
+  return if posn1.x = posn2.x then posn1.y < posn2.y else posn1.x < posn2.x;
+end
+procedure posn_equal(posn1, posn2)
+  return posn1.x = posn2.x & posn1.y = posn2.y;
+end
+procedure posn_mean(posn1, posn2)
+  return posn(arithmetic_mean([posn1.x, posn2.x]), arithmetic_mean([posn1.y, posn2.y]));
+end
+
+procedure equal_lists(lst1, lst2)
+  local i;
+
+  if (0 = *lst1) & (0 = *lst2) then return;
+  if *lst1 ~= *lst2 then fail;
+  every i := 1 to *lst1 do {
+    if lst1[i] ~=== lst2[i] then fail
+  };
+  return;
+end
+
+procedure equal_posn_lists(lst1, lst2)
+  local i;
+
+  if *lst1 ~= *lst2 then fail;
+  every i := 1 to *lst1 do {
+    if not posn_equal(lst1[i], lst2[i]) then fail
+  };
+  return;
+end
+
+# --------------------------------------------------------------------------------
+# Statistics Tests
+
+procedure test_statistics() 
+  test_start ("Statistics");
+  test_approx_equals (0, arithmetic_mean([]));
+  test_approx_equals (2.0, arithmetic_mean([1,2,3]));
+  test_approx_equals (3.5, mean([1,2,3,4,5,6]));
+  test_approx_equals (2.605, geometric_mean([1,2,3,4,5]));
+  test_approx_equals (300.0/137, harmonic_mean([1,2,3,4,5]));
+  test_finish ();
+end

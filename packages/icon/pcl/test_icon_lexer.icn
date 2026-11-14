@@ -1,0 +1,299 @@
+# test_icon_lexer.icn -- the "Icon Lexer Tests" of pcl_test.icn (its lines 82 to 373, as they stand there) under a main of ours that runs this one group
+link abbrev, icon_formatters, icon_lexer, integer_division, json, maths, sort_libraries, statistics, testing
+
+procedure main()
+  test_icon_lexer();
+end
+
+# ------------------------------------------------------------------------
+# Icon Lexer Tests
+
+procedure test_icon_lexer()
+  test_start("Icon Lexer");
+
+  test_keywords();
+  test_identifiers();
+  test_integer_literals();
+  test_real_literals();
+  test_string_literals();
+  test_cset_literals();
+  test_operators();
+  test_reserved_words();
+  test_preprocessor();
+
+  test_multi_tokens();
+  test_multi_lines();
+  test_include_comments();
+
+  test_finish();
+end
+
+procedure test_keywords()
+  test_lexer_cases([
+    ["&digits", [lexer_token("KEYWORD", "&digits")]]
+  ]);
+end
+
+procedure test_identifiers()
+  test_lexer_cases([
+    ["_", [lexer_token("IDENT", "_")]],
+    ["a", [lexer_token("IDENT", "a")]],
+    ["_X_a", [lexer_token("IDENT", "_X_a")]],
+    ["xy", [lexer_token("IDENT", "xy")]]
+  ]);
+end
+
+procedure test_integer_literals()
+  test_lexer_cases([
+    ["1", [lexer_token("INT_LIT", "1")]],
+    ["1234", [lexer_token("INT_LIT", "1234")]],
+    ["2r0100", [lexer_token("INT_LIT", "2r0100")]],
+    ["2R0100", [lexer_token("INT_LIT", "2R0100")]], 
+    ["16rfe", [lexer_token("INT_LIT", "16rfe")]],
+    ["16RfE", [lexer_token("INT_LIT", "16RfE")]],
+    ["36rcat", [lexer_token("INT_LIT", "36rcat")]]
+  ]);
+end
+
+procedure test_real_literals()
+  test_lexer_cases([
+    ["1.2", [lexer_token("REAL_LIT", "1.2")]],
+    ["1.2e2", [lexer_token("REAL_LIT", "1.2e2")]],
+    ["1.2E2", [lexer_token("REAL_LIT", "1.2e2")]],
+    ["1e-2", [lexer_token("REAL_LIT", "1e-2")]],
+    ["16.", [lexer_token("REAL_LIT", "16.")]]
+  ]);
+end
+
+procedure test_string_literals()
+  test_lexer_cases([
+    ["\"abc\"", [lexer_token("STRING_LIT", "abc")]],
+    ["\"ab\\\"c\"", [lexer_token("STRING_LIT", "ab\"c")]],
+    ["\"\"", [lexer_token("STRING_LIT", "")]]
+  ]);
+end
+
+procedure test_cset_literals()
+  test_lexer_cases([
+    ["'abc'", [lexer_token("CSET_LIT", "abc")]],
+    ["'ab\\'c'", [lexer_token("CSET_LIT", "ab'c")]]
+  ]);
+end
+
+procedure test_operators()
+  test_lexer_cases([
+    ["(", [lexer_token("LPAREN", "(")]],
+    [")", [lexer_token("RPAREN", ")")]],
+    ["+:", [lexer_token("PCOLON", "+:")]],
+    [",", [lexer_token("COMMA", ",")]],
+    ["-:", [lexer_token("MCOLON", "-:")]],
+    [":", [lexer_token("COLON", ":")]],
+    [";", [lexer_token("SEMICOL", ";")]],
+    ["[", [lexer_token("LBRACK", "[")]],
+    ["]", [lexer_token("RBRACK", "]")]],
+    ["{", [lexer_token("LBRACE", "{")]],
+    ["}", [lexer_token("RBRACE", "}")]],
+    ["$(", [lexer_token("LBRACE", "$(")]],
+    ["$)", [lexer_token("RBRACE", "$)")]],
+    ["$<", [lexer_token("LBRACK", "$<")]],
+    ["$>", [lexer_token("RBRACK", "$>")]],
+    [":=", [lexer_token("ASSIGN", ":=")]],
+    [":=:", [lexer_token("SWAP", ":=:")]],
+    ["<-", [lexer_token("REVASSIGN", "<-")]],
+    ["<->", [lexer_token("REVSWAP", "<->")]],
+    ["&", [lexer_token("AND", "&")]],
+    ["&:=", [lexer_token("AUG_AND", "&:=")]],
+    ["@", [lexer_token("AT", "@")]],
+    ["@:=", [lexer_token("AUG_AT", "@:=")]],
+    ["^", [lexer_token("CARET", "^")]],
+    ["^:=", [lexer_token("AUG_CARET", "^:=")]],
+    ["||", [lexer_token("CONCAT", "||")]],
+    ["||:=", [lexer_token("AUG_CONCAT", "||:=")]],
+    ["--", [lexer_token("DIFF", "--")]],
+    ["--:=", [lexer_token("AUG_DIFF", "--:=")]],
+    ["===", [lexer_token("EQUIV", "===")]],
+    ["===:=", [lexer_token("AUG_EQUIV", "===:=")]],
+    ["**", [lexer_token("INTER", "**")]],
+    ["**:=", [lexer_token("AUG_INTER", "**:=")]],
+    ["|||", [lexer_token("LCONCAT", "|||")]],
+    ["|||:=", [lexer_token("AUG_LCONCAT", "|||:=")]],
+    ["-", [lexer_token("MINUS", "-")]],
+    ["-:=", [lexer_token("AUG_MINUS", "-:=")]],
+    ["%", [lexer_token("MOD", "%")]],
+    ["%:=", [lexer_token("AUG_MOD", "%:=")]],
+    ["~===", [lexer_token("NEQUIV", "~===")]],
+    ["~===:=", [lexer_token("AUG_NEQUIV", "~===:=")]],
+    ["=", [lexer_token("NMEQ", "=")]],
+    ["=:=", [lexer_token("AUG_NMEQ", "=:=")]],
+    [">=", [lexer_token("NMGE", ">=")]],
+    [">=:=", [lexer_token("AUG_NMGE", ">=:=")]],
+    [">", [lexer_token("NMGT", ">")]],
+    [">:=", [lexer_token("AUG_NMGT", ">:=")]],
+    ["<=", [lexer_token("NMLE", "<=")]],
+    ["<=:=", [lexer_token("AUG_NMLE", "<=:=")]],
+    ["<", [lexer_token("NMLT", "<")]],
+    ["<:=", [lexer_token("AUG_NMLT", "<:=")]],
+    ["~=", [lexer_token("NMNE", "~=")]],
+    ["~=:=", [lexer_token("AUG_NMNE", "~=:=")]],
+    ["+", [lexer_token("PLUS", "+")]],
+    ["+:=", [lexer_token("AUG_PLUS", "+:=")]],
+    ["?", [lexer_token("QMARK", "?")]],
+    ["?:=", [lexer_token("AUG_QMARK", "?:=")]],
+    ["==", [lexer_token("SEQ", "==")]],
+    ["==:=", [lexer_token("AUG_SEQ", "==:=")]],
+    [">>=", [lexer_token("SGE", ">>=")]],
+    [">>=:=", [lexer_token("AUG_SGE", ">>=:=")]],
+    [">>", [lexer_token("SGT", ">>")]],
+    [">>:=", [lexer_token("AUG_SGT", ">>:=")]],
+    ["<<=", [lexer_token("SLE", "<<=")]],
+    ["<<=:=", [lexer_token("AUG_SLE", "<<=:=")]],
+    ["<<", [lexer_token("SLT", "<<")]],
+    ["<<:=", [lexer_token("AUG_SLT", "<<:=")]],
+    ["~==", [lexer_token("SNE", "~==")]],
+    ["~==:=", [lexer_token("AUG_SNE", "~==:=")]],
+    ["/", [lexer_token("SLASH", "/")]],
+    ["/:=", [lexer_token("AUG_SLASH", "/:=")]],
+    ["*", [lexer_token("STAR", "*")]],
+    ["*:=", [lexer_token("AUG_STAR", "*:=")]],
+    ["++", [lexer_token("UNION", "++")]],
+    ["++:=", [lexer_token("AUG_UNION", "++:=")]],
+    ["\\", [lexer_token("BACKSLASH", "\\")]],
+    ["|", [lexer_token("BAR", "|")]],
+    ["!", [lexer_token("BANG", "!")]],
+    [".", [lexer_token("DOT", ".")]],
+    ["~", [lexer_token("TILDE", "~")]]
+  
+  ]);
+end
+
+procedure test_reserved_words()
+  test_lexer_cases([
+    ["break", [lexer_token("BREAK", "break")]],
+    ["by", [lexer_token("BY", "by")]],
+    ["case", [lexer_token("CASE", "case")]],
+    ["create", [lexer_token("CREATE", "create")]],
+    ["default", [lexer_token("DEFAULT", "default")]],
+    ["do", [lexer_token("DO", "do")]],
+    ["else", [lexer_token("ELSE", "else")]],
+    ["end", [lexer_token("END", "end")]],
+    ["every", [lexer_token("EVERY", "every")]],
+    ["fail", [lexer_token("FAIL", "fail")]],
+    ["global", [lexer_token("GLOBAL", "global")]],
+    ["if", [lexer_token("IF", "if")]],
+    ["initial", [lexer_token("INITIAL", "initial")]],
+    ["invocable", [lexer_token("INVOCABLE", "invocable")]],
+    ["link", [lexer_token("LINK", "link")]],
+    ["local", [lexer_token("LOCAL", "local")]],
+    ["next", [lexer_token("NEXT", "next")]],
+    ["not", [lexer_token("NOT", "not")]],
+    ["of", [lexer_token("OF", "of")]],
+    ["procedure", [lexer_token("PROCEDURE", "procedure")]],
+    ["record", [lexer_token("RECORD", "record")]],
+    ["repeat", [lexer_token("REPEAT", "repeat")]],
+    ["return", [lexer_token("RETURN", "return")]],
+    ["static", [lexer_token("STATIC", "static")]],
+    ["suspend", [lexer_token("SUSPEND", "suspend")]],
+    ["then", [lexer_token("THEN", "then")]],
+    ["to", [lexer_token("TO", "to")]],
+    ["until", [lexer_token("UNTIL", "until")]],
+    ["while", [lexer_token("WHILE", "while")]]
+  ]);
+end
+
+procedure test_preprocessor()
+  test_lexer_cases([
+    ["$define", [lexer_token("PREPROCESSING", "$define")]],
+    ["$define x 2", [lexer_token("PREPROCESSING", "$define"), lexer_token("IDENT", "x"), lexer_token("INT_LIT", "2")]]
+  ]);
+end
+
+procedure test_multi_tokens()
+  test_lexer_cases([
+    ["3 + 2", [lexer_token("INT_LIT", "3"), lexer_token("PLUS", "+"), lexer_token("INT_LIT", "2")]],
+    ["3.3+2", [lexer_token("REAL_LIT", "3.3"), lexer_token("PLUS", "+"), lexer_token("INT_LIT", "2")]]
+  ]);
+end
+
+procedure test_multi_lines()
+  test_lexer_cases([
+    [["3 + 2", "write()"], 
+     [lexer_token("INT_LIT", "3", 1, 1), lexer_token("PLUS", "+", 1, 3), lexer_token("INT_LIT", "2", 1, 5),
+      lexer_token("SEMICOL"), lexer_token("IDENT", "write", 2, 1), lexer_token("LPAREN", "(", 2, 6), lexer_token("RPAREN", ")", 2, 7)]
+     ],
+    [["3 +", "2", "2"],
+    [lexer_token("INT_LIT", "3"), lexer_token("PLUS", "+"), # no semi colon, as not an ender
+     lexer_token("INT_LIT", "2"), 
+     lexer_token("SEMICOL"), # inserted semicolon, between ender/beginner
+     lexer_token("INT_LIT", "2")]
+    ],
+   [["procedure main(inputs)","  write(\"hello\")","end"],
+    [lexer_token("PROCEDURE", "procedure", 1, 1), lexer_token("IDENT", "main", 1, 11), lexer_token("LPAREN", "(", 1, 15), lexer_token("IDENT", "inputs", 1, 16), lexer_token("RPAREN", ")", 1, 22),
+    lexer_token("SEMICOL"),
+    lexer_token("IDENT", "write", 2, 3), lexer_token("LPAREN", "(", 2, 8), lexer_token("STRING_LIT", "hello", 2, 9), lexer_token("RPAREN", ")", 2, 16),
+    lexer_token("SEMICOL"),
+    lexer_token("END", "end", 3, 1)
+    ]
+   ],
+   [["link file", "", "procedure main(inputs)","  write(\"hello\")","end"],
+    [lexer_token("LINK", "link", 1, 1), lexer_token("IDENT", "file", 1, 6), 
+    lexer_token("PROCEDURE", "procedure", 3, 1), lexer_token("IDENT", "main", 3, 11), lexer_token("LPAREN", "(", 3, 15), lexer_token("IDENT", "inputs", 3, 16), lexer_token("RPAREN", ")", 3, 22),
+    lexer_token("SEMICOL"),
+    lexer_token("IDENT", "write", 4, 3), lexer_token("LPAREN", "(", 4, 8), lexer_token("STRING_LIT", "hello", 4, 9), lexer_token("RPAREN", ")", 4, 16),
+    lexer_token("SEMICOL"),
+    lexer_token("END", "end", 5, 1)
+    ]
+   ],
+   [["procedure main(inputs)"," # write(\"hello\")","end"],
+    [lexer_token("PROCEDURE", "procedure"), lexer_token("IDENT", "main"), lexer_token("LPAREN", "("), lexer_token("IDENT", "inputs"), lexer_token("RPAREN", ")"),
+    lexer_token("SEMICOL"),
+    lexer_token("END", "end")
+    ]
+   ],
+   [["procedure main()", "*filename", "end"],
+    [lexer_token("PROCEDURE", "procedure"), lexer_token("IDENT", "main"), lexer_token("LPAREN", "("), lexer_token("RPAREN", ")"), lexer_token("SEMICOL"),
+    lexer_token("STAR", "*"), lexer_token("IDENT", "filename"), lexer_token("SEMICOL"),
+    lexer_token("END", "end")
+    ]
+   ]
+  ]);
+end
+
+procedure test_include_comments()
+  test_lexer_cases([
+   [["procedure main(inputs)"," # write(\"hello\")","end"],
+    [lexer_token("PROCEDURE", "procedure", 1, 1), lexer_token("IDENT", "main", 1, 11), lexer_token("LPAREN", "(", 1, 15), lexer_token("IDENT", "inputs", 1, 16), lexer_token("RPAREN", ")", 1, 22),
+    lexer_token("SEMICOL"),
+    lexer_token("comment", "# write(\"hello\")", 2, 2),
+    lexer_token("END", "end", 3, 1)
+    ]
+   ]
+  ], "include comments");
+end
+
+procedure test_lexer_cases(test_cases, include_comments)
+  local test_case;
+
+  every test_case := !test_cases do
+    test_lexer(test_case[1], test_case[2], include_comments);
+end
+
+procedure test_lexer(str_generator, expected, include_comments)
+  local actual, i;
+
+  # ensure we have a list of strings
+  if type(str_generator) ~== "list" then str_generator := [str_generator];
+  every put(actual := list(), icon_lexer(str_generator, include_comments));
+
+  test_equals(*expected+1, *actual, "token count");
+  every i := 1 to *expected do {
+    test_equals(expected[i].kind, actual[i].kind, "token kind");
+    test_equals(expected[i].text, actual[i].text, "token value");
+    # test positions if given
+    if \expected[i].line_number then
+      test_equals(expected[i].line_number, actual[i].line_number, "token line number");
+    if \expected[i].line_column then
+      test_equals(expected[i].line_column, actual[i].line_column, "token line column")
+  };
+  # finish with EOFX
+  test_equals(actual[*actual].kind, "EOFX");
+end

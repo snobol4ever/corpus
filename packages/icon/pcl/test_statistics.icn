@@ -1,0 +1,19 @@
+# test_statistics.icn -- the "Statistics Tests" of pcl_test.icn (its lines 743 to 754, as they stand there) under a main of ours that runs this one group
+link abbrev, icon_formatters, icon_lexer, integer_division, json, maths, sort_libraries, statistics, testing
+
+procedure main()
+  test_statistics();
+end
+
+# --------------------------------------------------------------------------------
+# Statistics Tests
+
+procedure test_statistics() 
+  test_start ("Statistics");
+  test_approx_equals (0, arithmetic_mean([]));
+  test_approx_equals (2.0, arithmetic_mean([1,2,3]));
+  test_approx_equals (3.5, mean([1,2,3,4,5,6]));
+  test_approx_equals (2.605, geometric_mean([1,2,3,4,5]));
+  test_approx_equals (300.0/137, harmonic_mean([1,2,3,4,5]));
+  test_finish ();
+end

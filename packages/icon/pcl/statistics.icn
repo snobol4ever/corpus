@@ -1,0 +1,61 @@
+#> Statistics provides procedures for computing quantitative statistics on collections.
+#>
+
+# Computes the arithmetic mean of a given list of numbers.
+# This is the familiar "add up all the numbers, divide by the total" average.
+#
+#   arithmetic_mean([1,2,3,4]) => 2.5
+#
+# Parameters:
+# [lst] a list (or collection iterable using !) of numbers
+procedure arithmetic_mean (lst)
+  sum := 0;
+  every sum +:= !lst;
+
+  if *lst=0 then 
+    return 0
+  else
+    return 1.0*sum/*lst;
+end
+
+# Same as arithmetic_mean
+#
+# Parameters:
+# [lst] a list (or collection iterable using !) of numbers
+procedure mean (lst) 
+  return arithmetic_mean(lst);
+end
+
+# Computes the geometric mean of a given list of numbers. 
+# The geometric mean takes the nth root of the 
+# product of the numbers, where n is the size of the data.  
+# This yields the central number within a geometric progression.
+#
+#   geometric_mean([1,2,3,4,5]) => 2.6052
+#
+# Parameters:
+# [lst] a list (or collection iterable using !) of numbers
+procedure geometric_mean (lst)
+  prod := 1;
+  every prod *:= !lst;
+
+  if *lst=0 then
+    return 0
+  else 
+    return exp(log (prod) * (1.0/*lst));
+end
+
+# Computes the harmonic mean of a given list of numbers.
+# The harmonic mean is the reciprocal of the arithmetic 
+# mean of the reciprocals.
+#
+#   harmonic_mean([1,2,3,4,5]) => 2.1898
+#
+# Parameters:
+# [lst] a list (or collection iterable using !) of numbers
+procedure harmonic_mean (lst)
+  sum := 0.0;
+  every val := !lst do sum +:= 1.0/val;
+  return if *lst=0 then 0 else *lst/sum;
+end
+

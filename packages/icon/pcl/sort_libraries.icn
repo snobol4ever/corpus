@@ -1,0 +1,232 @@
+#> Sort Libraries is a library of sort-related procedures for working on lists.
+#> 
+#> The library is inspired by Scheme's SRFI 132, and uses the same procedure 
+#> API. The library provides procedures to sort, merge and work with sorted
+#> lists, and is useful particularly in cases where records or other structures 
+#> must be ordered with custom comparison procedures.
+
+link statistics
+
+# Succeeds if the given list is sorted.
+#
+#   list_is_sorted("<", [1,2,2,3])  # => succeeds
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [lst] a list of items
+procedure list_is_sorted(is_lt, lst)
+  local i;
+
+  if *lst < 2 then return;
+  every i := 2 to *lst do {
+    if is_lt(lst[i], lst[i-1]) then fail
+  };
+  return;
+end
+
+# Destructively sorts the given list.
+#
+#   list_sort(">", [3,1,2]) # list changed to => [3,2,1]
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [lst] a list of items
+procedure list_sort(is_lt, lst)
+  list_merge_sort(is_lt, lst);
+end
+
+# Returns a new ordered list consisting of the items in the two given lists.
+#
+#   list_merge("<", [1,3,5], [2,4]) # => [1,2,3,4,5]
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [lst1] a list of items
+# [lst2] a list of items
+procedure list_merge(is_lt, lst1, lst2)
+  local result; 
+
+  result := list();
+  while (0 < *lst1) | (0 < *lst2) do {
+    if 0 = *lst1 then 
+      every put(result, pop(lst2))
+    else if 0 = *lst2 then
+      every put(result, pop(lst1))
+    else if is_lt(lst1[1], lst2[1]) then
+      put(result, pop(lst1))
+    else
+      put(result, pop(lst2))
+  };
+  return result;
+end
+
+# Returns a new list without duplicate items from the given (sorted) list.
+#
+#   list_delete_neighbour_dups("=", [1,1,2,2,3]) # => [1,2,3]
+#
+# Parameters:
+# [is_equal] a procedure of two arguments, succeeding if the first is "equal to" the second
+# [lst] a list of items
+procedure list_delete_neighbour_dups(is_equal, lst)
+  local item, result;
+
+  result := list();
+
+  if *lst > 0 then {
+    put(result, pop(lst));
+    while *lst > 0 do {
+      item := pop(lst);
+      if not is_equal(result[*result], item) then
+        put(result, item)
+    }
+  };
+  
+  return result;
+end
+
+# Returns the median element from given list.
+#
+# * If the list is empty, returns the `nil` value.
+# * If the list has an odd number of elements, returns its middle element.
+# * Otherwise, returns the result of applying the `compute_mean` procedure to its two middle elements.
+#
+#   list_find_median("<", [1,2,3,4,5], 0) # => 3
+#   list_find_median("<", [1,2,3,4], 0)   # => 2.5
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [lst] a list of items
+# [nil] value to return for an empty list
+# [compute_mean] optional procedure for computing mean of two middle elements, defaults to using `arithmetic_mean` from statistics.
+procedure list_find_median(is_lt, lst, nil, compute_mean)
+  /compute_mean := list_default_mean;
+
+  if *lst = 0 then
+    return nil
+  else if *lst % 2 = 1 then
+    return list_select(is_lt, lst, *lst/2 + 1)
+  else 
+    return compute_mean(list_select(is_lt, lst, *lst/2), list_select(is_lt, lst, *lst/2 + 1));
+end
+
+# Returns the kth smallest element.
+# Fails if the list is smaller than k elements.
+#
+#   list_select("<", [4,1,2,5], 3) # => 4
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [lst] a list of items
+# [k] order index of element to return
+procedure list_select(is_lt, lst, k)
+  if k <= *lst then {
+    list_separate(is_lt, lst, k);
+    return lst[k]
+  } else {
+    fail
+  };
+end
+
+# Destructively modifies the list to place the smallest k items at the front.
+#
+#   list_separate("<", [4,1,2,5], 2) # list changed to => [1,2,5,4]
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [lst] a list of items
+# [k] number of elements to move
+procedure list_separate(is_lt, lst, k)
+  local i, j;
+
+  if *lst <= k then return;
+
+  # sort the first k items
+  list_merge_sort(is_lt, lst, 1, k);
+  # move along the list swapping in smaller items
+  every i := k+1 to *lst do {
+    if is_lt(lst[i], lst[k]) then { # add to smallest k
+      lst[i] :=: lst[k];
+      every j := k to 2 by -1 do {
+        if is_lt(lst[j], lst[j-1]) then
+          lst[j] :=: lst[j-1]
+      }
+    }
+  };
+
+  return;
+end
+
+# Returns the index of given item in list, or fails if item is not in list.
+#
+#   list_binary_search("<", "=", [1,1,2,3], 2) # => 3
+#
+# Parameters:
+# [is_lt] a procedure of two arguments, succeeding if the first is "less than" the second
+# [is_equal] a procedure of two arguments, succeeding if the first is "equal to" the second
+# [lst] a list of items
+# [item] to find in list
+# [start_index] optional start index to search from (defaults to 1)
+# [end_index] optional end index to search to (defaults to length of list)
+procedure list_binary_search(is_lt, is_equal, lst, item, start_index, end_index)
+  local mid;
+
+  /start_index := 1;
+  /end_index := *lst;
+
+  if start_index <= end_index then {
+    mid := start_index + (end_index - start_index)/2;
+    if is_equal(lst[mid], item) then
+      return mid
+    else if is_lt(lst[mid], item) then
+      return list_binary_search(is_lt, is_equal, lst, item, mid+1, end_index)
+    else
+      return list_binary_search(is_lt, is_equal, lst, item, start_index, mid-1)
+  } else {
+    fail
+  };
+end
+
+# -------------------------------------------------------
+# Internals
+
+# NODOC
+procedure list_merge_sort(is_lt, items, start_index, end_index)
+  local mid_point;
+
+  /start_index := 1;
+  /end_index := *items;
+
+  if start_index < end_index then {
+    mid_point := start_index + (end_index-start_index)/2;
+    list_merge_sort(is_lt, items, start_index, mid_point);
+    list_merge_sort(is_lt, items, mid_point+1, end_index);
+    list_merge_inplace(is_lt, items, start_index, mid_point, end_index)
+  };
+end
+
+# NODOC
+procedure list_merge_inplace(is_lt, items, start_index, mid_point, end_index)
+  local tmp_list, i, j, k;
+
+  i := start_index;
+  j := mid_point + 1;
+  tmp_list := list(*items, 0);
+  every k := start_index to end_index do {
+    if i <= mid_point & (j > end_index | not is_lt(items[j], items[i])) then {
+      tmp_list[k] := items[i];
+      i +:= 1
+    } else {
+      tmp_list[k] := items[j];
+      j +:= 1
+    }
+  };
+
+  every k := start_index to end_index do
+    items[k] := tmp_list[k];
+end
+
+# NODOC
+procedure list_default_mean(arg1, arg2)
+  return arithmetic_mean([arg1, arg2]);
+end
+

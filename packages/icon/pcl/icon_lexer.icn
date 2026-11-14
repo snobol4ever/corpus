@@ -1,0 +1,281 @@
+#> Lexer for Icon: 
+#> converts a sequence of lines containing Icon code into a sequence of tokens,
+#> preserving location and source contents.
+#>
+#> Limitations:
+#>
+#> * does not handle multi-line strings
+#> * poor error-handling
+
+# Generates tokens from a given line generator.
+#
+#   > every token := icon_lexer(["2 + 3"]) do write(token.kind, " ", token.text)
+#   INT_LIT 2
+#   PLUS +
+#   INT_LIT 3
+#   EOFX
+#
+# [line_generator] A line generator (list or file) to process. A string will be converted to a one-element list containing that string.
+# [include_comments] optional non-null value to include a token for comments
+procedure icon_lexer(line_generator, include_comments)
+  local base, got_operator, i, item, line, line_number, line_column, last_token, this_token;
+
+  static beginners, enders, integer_cset, operators, reserved_words;
+  initial {
+    beginners := set([
+      "comment",
+      "IDENT", "INT_LIT", "REAL_LIT", "STRING_LIT", "CSET_LIT",
+      "BREAK", "CASE", "CREATE", "DEFAULT", "END", "EVERY", "FAIL",
+      "IF", "INITIAL", "LOCAL", "NEXT", "NOT", "REPEAT", "RETURN", 
+      "STATIC", "SUSPEND", "UNTIL", "WHILE",
+      "LPAREN", "LBRACK", "LBRACE",
+      "ASSIGN", "SWAP", "REVASSIGN", "REVSWAP", "AND", "AT", "CARET",
+      "CONCAT", "DIFF", "EQUIV", "INTER", "LCONCAT", "MINUS", "MOD",
+      "NEQUIV", "NMEQ", "NMGE", "NMGT", "NMLE", "NMLT", "NMNE", "PLUS",
+      "QMARK", "SEQ", "SGE", "SGT", "SLE", "SLT", "SNE", "SLASH", "STAR",
+      "UNION", "BACKSLASH", "BAR", "BANG", "DOT"
+    ]);
+    
+    enders := set([
+      "IDENT", "INT_LIT", "REAL_LIT", "STRING_LIT", "CSET_LIT",
+      "BREAK", "FAIL", "NEXT", "RETURN", "SUSPEND",
+      "RPAREN", "RBRACK", "RBRACE"
+    ]);
+
+    integer_cset := table();
+    every i := 2 to 10 do 
+      integer_cset[string(i)] := cset("0123456789"[1+:i]);
+    every i := 11 to 36 do 
+      integer_cset[string(i)] := cset("0123456789" || "abcdefghijklmnopqrstuvwxyz"[1+:(i-10)] || "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[1+:(i-10)]);
+
+    operators := [
+      ["~===:=", "AUG_NEQUIV"],
+      
+      ["===:=", "AUG_EQUIV"],
+      ["|||:=", "AUG_LCONCAT"],
+      ["~==:=", "AUG_SNE"],
+      [">>=:=", "AUG_SGE"],
+      ["<<=:=", "AUG_SLE"],
+      
+      ["||:=", "AUG_CONCAT"],
+      ["--:=", "AUG_DIFF"],
+      ["**:=", "AUG_INTER"],
+      ["<=:=", "AUG_NMLE"],
+      ["~===", "NEQUIV"],
+      [">=:=", "AUG_NMGE"],
+      ["~=:=", "AUG_NMNE"],
+      ["==:=", "AUG_SEQ"],
+      [">>:=", "AUG_SGT"],
+      ["<<:=", "AUG_SLT"],
+      ["++:=", "AUG_UNION"],
+      
+      [":=:", "SWAP"],
+      ["<->", "REVSWAP"],
+      ["&:=", "AUG_AND"],
+      ["@:=", "AUG_AT"],
+      ["^:=", "AUG_CARET"],
+      ["===", "EQUIV"],
+      ["|||", "LCONCAT"],
+      ["-:=", "AUG_MINUS"],
+      ["%:=", "AUG_MOD"],
+      ["=:=", "AUG_NMEQ"],
+      ["<:=", "AUG_NMLT"],
+      [">:=", "AUG_NMGT"],
+      ["+:=", "AUG_PLUS"],
+      ["?:=", "AUG_QMARK"],
+      [">>=", "SGE"],
+      ["<<=", "SLE"],
+      ["~==", "SNE"],
+      ["/:=", "AUG_SLASH"],
+      ["*:=", "AUG_STAR"],
+      
+      [":=", "ASSIGN"],
+      ["<-", "REVASSIGN"],
+      ["||", "CONCAT"],
+      ["**", "INTER"],
+      ["--", "DIFF"],
+      [">=", "NMGE"],
+      ["<=", "NMLE"],
+      ["~=", "NMNE"],
+      ["==", "SEQ"],
+      [">>", "SGT"],
+      ["<<", "SLT"],
+      ["++", "UNION"],
+      ["+:", "PCOLON"],
+      ["-:", "MCOLON"],
+      ["$(", "LBRACE"],
+      ["$)", "RBRACE"],
+      ["$<", "LBRACK"],
+      ["$>", "RBRACK"],
+      
+      ["%", "MOD"],
+      ["&", "AND"],
+      ["@", "AT"],
+      ["^", "CARET"],
+      ["-", "MINUS"],
+      ["=", "NMEQ"],
+      [">", "NMGT"],
+      ["<", "NMLT"],
+      ["*", "STAR"],
+      ["+", "PLUS"],
+      ["?", "QMARK"],
+      ["/", "SLASH"],
+      ["\\", "BACKSLASH"],
+      ["|", "BAR"],
+      ["!", "BANG"],
+      [".", "DOT"],
+      ["~", "TILDE"],  
+      ["(", "LPAREN"],
+      [")", "RPAREN"],
+      [",", "COMMA"],
+      [":", "COLON"],
+      [";", "SEMICOL"],
+      ["[", "LBRACK"],
+      ["]", "RBRACK"],
+      ["{", "LBRACE"],
+      ["}", "RBRACE"]
+    ];
+
+    reserved_words := set([
+      "break", "by", "case", "create", "default", "do", "else", "end", "every",
+      "fail", "global", "if", "initial", "invocable", "link", "local", "next",
+      "not", "of", "procedure", "record", "repeat", "return", "static",
+      "suspend", "then", "to", "until", "while"
+    ])
+  };
+
+  # convert string to a list containing string
+  # - catches typical mistake
+  if type(line_generator) == "string" then
+    line_generator := [line_generator];
+
+  line_number := 0;
+  every line := !line_generator do {
+    line_number +:= 1;
+
+    line ? {
+      repeat {
+        # skip whitespace
+        tab(many(' \t'));
+        line_column := &pos;
+  
+        # preprocessing commands must start line
+        if 1 = &pos & ="$" & *(item := tab(many(&lcase))) ~= 0 then {
+          this_token := lexer_token("PREPROCESSING", "$" || item, line_number, line_column)
+        }
+        # process comments to end of line
+        else if ="#" then {
+          if /include_comments then 
+            break # ignore comments if include_comments is null
+          else 
+            this_token := lexer_token("comment", "#" || tab(0), line_number, line_column)
+        }
+        
+        # keywords
+        else if ="&" & *(item := tab(many(&lcase))) ~= 0 then
+          this_token := lexer_token("KEYWORD", "&" || item, line_number, line_column)
+    
+        # numbers - integer-literal / real-literal
+        else if *(item := tab(many(&digits))) ~= 0 then {
+          if item ||:= (="r" | ="R") then { # integer with explicit radix
+            base := item;
+            item := tab(many(integer_cset[base[1:-1]]));
+            this_token := lexer_token("INT_LIT", base || item, line_number, line_column)
+          } else {
+            if ="." then { # might have a "."
+              item ||:= "."; 
+              item ||:= tab(many(&digits)) 
+            };
+            if ="e+"|="E+" then item ||:= "e+" || tab(many(&digits)) # might have a "e"
+            else if ="e-"|="E-" then item ||:= "e-" || tab(many(&digits))
+            else if ="e"|="E" then item ||:= "e" || tab(many(&digits));
+            # do we have an int or a real?
+            if find("." | "e", item) then 
+              this_token := lexer_token("REAL_LIT", item, line_number, line_column)
+            else
+              this_token := lexer_token("INT_LIT", item, line_number, line_column)         
+          }
+        }
+   
+        # string-literal
+        # TODO: this does not handle multi-line strings
+        else if ="\"" then {
+          item := tab(upto('"')); # find next "
+          while line[&pos-1] == "\\" do { # if it is escaped
+            item[*item] := "\""; # replace escape with a "
+            ="\""; # skip over the "
+            item ||:= tab(upto('"')) # collect string to the next "
+          };
+          this_token := lexer_token("STRING_LIT", item, line_number, line_column);
+          ="\""
+        }
+    
+        # cset-literal
+        else if ="'" then {
+          item := tab(upto('\''));
+          while line[&pos-1] == "\\" do {
+            item[*item] := "'";
+            ="'";
+            item ||:= tab(upto('\''))
+          };
+          this_token := lexer_token("CSET_LIT", item, line_number, line_column);
+          ="'"
+        }
+    
+        # identifiers
+        else if any(&letters++'_', line[&pos]) then {
+          item := tab(many(&letters++&digits++'_'));
+          # is this a reserved word or new identifier?
+          if member(reserved_words, item) then # reserved word
+            this_token := lexer_token(uppercase(item), item, line_number, line_column)
+          else # identifier-literal
+            this_token := lexer_token("IDENT", item, line_number, line_column)
+        }
+    
+        # operators
+        else {
+          got_operator := 0;
+          every item := !operators do { 
+            if =item[1] then {
+              this_token := lexer_token(item[2], item[1], line_number, line_column);
+              got_operator := 1;
+              break this_token
+            }
+          };
+          if got_operator = 0 then break # abort line scanning, as no matching token
+        };
+
+        # semi-colon insertion at end of line
+        if \last_token & 
+          last_token.line_number < this_token.line_number &
+          member(enders, last_token.kind) & 
+          member(beginners, this_token.kind) then {
+          suspend lexer_token("SEMICOL")
+        }; 
+        last_token := &null;
+
+        suspend this_token
+      }
+    };
+    last_token := this_token
+  };
+
+  suspend lexer_token("EOFX");
+end
+
+# Tokens represent individual elements in an Icon program, such as number literals, 
+# keywords or operators. The token record holds information about each token, 
+# including its type and position in the source file.
+# 
+# [kind] is the Icon type, such as "BREAK" or "INT_LIT"
+# [text] is the raw text, as appearing in the source code
+# [line_number] is the number of the line this token is on
+# [line_column] is the column number of the start of this token
+record lexer_token(kind, text, line_number, line_column)
+
+# NODOC
+# Convert given string to uppercase
+procedure uppercase(str)
+  return map(str, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"); 
+end
+

@@ -1,0 +1,55 @@
+= pcl library title page
+
+This is a collection of programs/library files I have created for use in Icon /
+Unicon programs. The documentation has been generated using link:/IconDoc.html[icondoc].
+
+* Download and unzip the https://codeberg.org/peterlane/icon-libs/releases[latest release] - the library itself is in the folder "pcl".
+
+Individual files can be extracted and used in programs, or the whole collection installed for use with `link`.
+
+Install as library:
+
+* For Windows, there is an "install.bat" script: alter the pathnames at the top of the file and run to compile and install.
+* Alternatively, compile into .u* files:
+----
+> cd pcl
+> icont -c *.icn
+> cd ..
+----
+* Place the "pcl" folder of compiled code onto your IPATH
+* Optionally test the libraries by compiling and running "pcl_test.icn"
+
+Use:
+
+----
+link statistics
+
+procedure main()
+  lst := [1,2,3,4,5,6]
+  avg := arithmetic_mean(lst)
+  write ("Average of list is: ", avg)
+end
+----
+
+== MIT Licence ==
+
+Copyright (c) 2019-23, Peter Lane
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+

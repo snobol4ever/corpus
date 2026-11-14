@@ -1,0 +1,36 @@
+#> Abbrev provides a procedure for calculating the set of unique abbreviations 
+#> for a given set of words. (Borrowed from Ruby's Abbrev.)
+#>
+#>   shortcuts := abbrev(["lisp", "scheme", "scala"])
+#>   shortcuts["l"] => "lisp"
+#>   shortcuts["sca"] => "scala"
+#>
+
+# Given a list of strings, returns a table with all 
+# unambiguous abbrev->string mappings. 
+#
+# The optional prefix specifies a required prefix for all 
+# abbreviations.
+#
+procedure abbrev(strings, prefix)
+  /prefix := "";
+  abbrevs := table();
+  seen := set();
+
+  every word := !strings do {
+    if *prefix == 0 | word[1+:*prefix] == prefix then {
+      every idx := 2 to *word do {
+        new_abbrev := word[1:idx+1];
+        if member(seen, new_abbrev) then { # if seen abbrev before
+          delete(abbrevs, new_abbrev) # delete it from result
+        } else {
+          abbrevs[new_abbrev] := word; # not seen before, so add new abbreviation
+          insert(seen, new_abbrev)
+        }
+      }
+    }
+  };
+
+  return abbrevs;
+end
+

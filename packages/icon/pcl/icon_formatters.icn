@@ -1,0 +1,92 @@
+#> Icon Formatters contains procedures useful in formatting Icon code.
+#>
+#> Currently, only source highlighting is supported.
+
+link icon_lexer
+
+# Returns a string or list of strings of HTML formatted code.
+#
+# [str] a single string or generator of strings (such as a list or file)
+# [html_styles] optional table mapping token type to HTML style. Available styles are:
+# * blank (must be present, default style)
+# * comment
+# * cset
+# * identifier
+# * keyword
+# * number
+# * operator
+# * preprocessing
+# * punctuation
+# * reserved
+# * string
+procedure icon_html_format(str, html_styles)
+  local current_line_num, current_line_col, result;
+
+  if /html_styles then { # provide a default set of styles
+    html_styles := table("");
+    html_styles["blank"] := "";
+    html_styles["comment"] := "color: #888888; font-style: italic";
+    html_styles["cset"] := "color: #dd2200;background-color: #fff0f0";
+    html_styles["identifier"] := "";
+    html_styles["keyword"] := "color: #003388";
+    html_styles["number"] := "color: #0000dd;font-weight: bold";
+    html_styles["operator"] := "color: #0066bb;font-weight: bold";
+    html_styles["preprocessing"] := "color: #fbb117;font-style: italic";
+    html_styles["punctuation"] := "";
+    html_styles["reserved"] := "color: #008800;font-weight: bold";
+    html_styles["string"] := "color: #dd2200;background-color: #fff0f0"
+  };
+
+  # ensure we have a list of strings
+  if type(str) == "string" then str := [str];
+
+  result := [""];
+  current_line_num := 1;
+  current_line_col := 1;
+  every token := icon_lexer(str, "with comments") do {
+    if /token.line_number then next;
+ 
+    while current_line_num < token.line_number do {
+      put(result, "");
+      current_line_num +:= 1;
+      current_line_col := 1
+    };
+    if current_line_col < token.line_column then {
+      result[*result] ||:= "<span style=\"" || html_format_style("blank", html_styles) || "\">";
+      while current_line_col < token.line_column do {
+        result[*result] ||:= " ";
+        current_line_col +:= 1
+      };
+      result[*result] ||:= "</span>"
+    };
+    result[*result] ||:= "<span style=\"" || html_format_style(token.kind, html_styles) || "\">";
+    if token.kind == "CSET_LIT" then result[*result] ||:= "\'";
+    if token.kind == "STRING_LIT" then result[*result] ||:= "\"";
+    result[*result] ||:= token.text;
+    if token.kind == "CSET_LIT" then result[*result] ||:= "\'";
+    if token.kind == "STRING_LIT" then result[*result] ||:= "\"";
+    result[*result] ||:= "</span>";
+    current_line_col +:= *token.text;
+    if token.kind == ("CSET_LIT" | "STRING_LIT") then current_line_col +:= 2
+  };
+  return result;
+end
+
+# NODOC
+# Returns the appropriate html style for token kind
+procedure html_format_style(kind, html_styles)
+  return case kind of {
+    "comment": html_styles["comment"];
+    "IDENT": html_styles["identifier"];
+    "KEYWORD": html_styles["keyword"];
+    "AUG_NEQUIV"|"AUG_EQUIV"|"AUG_LCONCAT"|"AUG_SNE"|"AUG_SGE"|"AUG_SLE"|"AUG_CONCAT"|"AUG_DIFF"|"AUG_INTER"|"AUG_NMLE"|"NEQUIV"|"AUG_NMGE"|"AUG_NMNE"|"AUG_SEQ"|"AUG_SGT"|"AUG_SLT"|"AUG_UNION"|"SWAP"|"REVSWAP"|"AUG_AND"|"AUG_AT"|"AUG_CARET"|"EQUIV"|"LCONCAT"|"AUG_MINUS"|"AUG_MOD"|"AUG_NMEQ"|"AUG_NMLT"|"AUG_NMGT"|"AUG_PLUS"|"AUG_QMARK"|"SGE"|"SLE"|"SNE"|"AUG_SLASH"|"AUG_STAR"|"ASSIGN"|"REVASSIGN"|"CONCAT"|"INTER"|"DIFF"|"NMGE"|"NMLE"|"NMNE"|"SEQ"|"SGT"|"SLT"|"UNION"|"PCOLON"|"MCOLON"|"LBRACE"|"RBRACE"|"LBRACK"|"RBRACK"|"MOD"|"AND"|"AT"|"CARET"|"MINUS"|"NMEQ"|"NMGT"|"NMLT"|"STAR"|"PLUS"|"QMARK"|"SLASH"|"BACKSLASH"|"BAR"|"BANG"|"DOT"|"TILDE"|"COLON": html_styles["operator"];
+    "LPAREN"|"RPAREN"|"COMMA"|"SEMICOL"|"LBRACK"|"RBRACK"|"LBRACE"|"RBRACE": html_styles["punctuation"];
+    "BREAK"|"BY"|"CASE"|"CREATE"|"DEFAULT"|"DO"|"ELSE"|"END"|"EVERY"|"FAIL"|"GLOBAL"|"IF"|"INITIAL"|"INVOCABLE"|"LINK"|"LOCAL"|"NEXT"|"NOT"|"OF"|"PROCEDURE"|"RECORD"|"REPEAT"|"RETURN"|"STATIC"|"SUSPEND"|"THEN"|"TO"|"UNTIL"|"WHILE": html_styles["reserved"];
+    "INT_LIT" | "REAL_LIT": html_styles["number"];
+    "CSET_LIT": html_styles["cset"];
+    "STRING_LIT": html_styles["string"];
+    "PREPROCESSING": html_styles["preprocessing"];
+    default: html_styles["blank"]
+  };
+end
+

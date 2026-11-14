@@ -1,0 +1,60 @@
+# test_integer_division.icn -- the "Integer Division Tests" of pcl_test.icn (its lines 375 to 427, as they stand there) under a main of ours that runs this one group
+link abbrev, icon_formatters, icon_lexer, integer_division, json, maths, sort_libraries, statistics, testing
+
+procedure main()
+  test_integer_division();
+end
+
+# ------------------------------------------------------------------------
+# Integer Division Tests
+
+procedure test_integer_division()
+  test_start("Integer Division");
+
+  # divide_floor
+  test_equals(2, divide_floor(7, 3).quotient);
+  test_equals(1, divide_floor(7, 3).remainder);
+  test_equals(-4, divide_floor(-7, 2).quotient);
+  test_equals(1, divide_floor(-7, 2).remainder);
+  # divide_ceiling
+  test_equals(3, divide_ceiling(7, 3).quotient);
+  test_equals(-2, divide_ceiling(7, 3).remainder);
+  test_equals(-3, divide_ceiling(-7, 2).quotient);
+  test_equals(-1, divide_ceiling(-7, 2).remainder);
+  # divide_truncate
+  test_equals(2, divide_truncate(7, 3).quotient);
+  test_equals(1, divide_truncate(7, 3).remainder);
+  test_equals(-3, divide_truncate(-7, 2).quotient);
+  test_equals(-1, divide_truncate(-7, 2).remainder);
+  # divide_round
+  test_equals(2, divide_round(7, 3).quotient);
+  test_equals(1, divide_round(7, 3).remainder);
+  test_equals(-4, divide_round(-7, 2).quotient);
+  test_equals(1, divide_round(-7, 2).remainder);
+  # divide_euclidean
+  test_equals(2, divide_euclidean(7, 3).quotient);
+  test_equals(1, divide_euclidean(7, 3).remainder);
+  test_equals(-3, divide_euclidean(-7, 3).quotient);
+  test_equals(2, divide_euclidean(-7, 3).remainder);
+  test_equals(-2, divide_euclidean(7, -3).quotient);
+  test_equals(1, divide_euclidean(7, -3).remainder);
+  # divide_balanced
+  test_equals(2, divide_balanced(7, 3).quotient);
+  test_equals(1, divide_balanced(7, 3).remainder);
+  test_equals(3, divide_balanced(8, 3).quotient);
+  test_equals(-1, divide_balanced(8, 3).remainder);
+  test_equals(3, divide_balanced(9, 3).quotient);
+  test_equals(0, divide_balanced(9, 3).remainder);
+  test_equals(3, divide_balanced(10, 3).quotient);
+  test_equals(1, divide_balanced(10, 3).remainder);
+  test_equals(-2, divide_balanced(-7, 3).quotient);
+  test_equals(-1, divide_balanced(-7, 3).remainder);
+  test_equals(-3, divide_balanced(-8, 3).quotient);
+  test_equals(1, divide_balanced(-8, 3).remainder);
+  test_equals(-3, divide_balanced(-9, 3).quotient);
+  test_equals(0, divide_balanced(-9, 3).remainder);
+  test_equals(-3, divide_balanced(-10, 3).quotient);
+  test_equals(-1, divide_balanced(-10, 3).remainder);
+
+  test_finish();
+end

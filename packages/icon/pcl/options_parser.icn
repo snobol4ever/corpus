@@ -1,0 +1,148 @@
+#> Options Parser is used to parse options provided to command-line programs.
+#>
+#> e.g. to parse a version flag and an output argument:
+#>
+#>   # set up an options parser
+#>   options := options_parser_new()
+#>   options_title(options, "testproc: a fancy CLI program")
+#>   options_add(options, ["-v", "--version"], "", "show version")
+#>   options_add(options, ["-o", "--output"] , "filename", "set output filename")
+#>   # parse some input, e.g. arglist could be arguments passed to main
+#>   options_parse(options, arglist)
+#>   if options_has(options, "-v") then write_version()
+#>   if options_has(options, "-h") then options_write_help(options)
+#>   if options_has(options, "-o") then output_file := options_value(options, "-o")
+#>
+#> Note that `options_has` and `options_value` always use the first of the two options as their key,
+#> irrespective of the option used by the caller.
+
+# NODOC
+record option(short_form, long_form, value, help_string)
+# NODOC
+record options(option_list, options_found, option_values, title, remainder)
+
+# Returns a new record ready to store option definitions.
+#
+# * -h/--help option is included on creation.
+procedure options_parser_new()
+  object := options([], set(), table(), "", "");
+  options_add(object, ["-h", "--help"], "", "displays help message");
+  return object;
+end
+
+# Adds a new option definition to current options object.
+#
+# Parameters:
+# [object] the options object to add the definition to.
+# [forms] the short and optional long form of the option, presented as either a single string, like "-v", or a pair ["-v", "--version"].
+# [value] the optional value for the option: use "" for no value.
+# [help_string] the string to use for this option when writing the help message.
+procedure options_add(object, forms, value, help_string)
+  new_option := case type(forms) of {
+    "list": option(forms[1], forms[2], value, help_string);
+    default: option(forms, forms, value, help_string)
+  };
+  put(object.option_list, new_option);
+end
+
+# Adds a title string to the current options object.
+#
+# Parameters:
+# [object] the options object to add the title to.
+# [title] the string to write first when writing the help message.
+procedure options_title(object, title)
+  object.title := title;
+end
+
+# Parses the given list of input arguments.
+#
+# Parameters:
+# [object] the options object containing the definitions to use.
+# [arglist] list of string arguments to process.
+procedure options_parse(object, arglist)
+  if *arglist = 0 then return;
+  next_option := options_find(object, arglist[1]); 
+  if \next_option then {
+    form := pop(arglist); # get the form
+    if next_option.value ~== "" then {
+      if *arglist > 0 then {
+        value := pop(arglist); # get the argument
+        insert(object.options_found, next_option.short_form);
+        insert(object.option_values, next_option.short_form, value);
+        options_parse(object, arglist) # parse rest of arglist
+      } else { # error in parsing, leave everything in remainder
+        object.remainder := [form] ||| arglist
+      }
+    } else { # parse argument-less option
+      insert(object.options_found, next_option.short_form);
+      options_parse(object, arglist) # parse rest of arglist
+    }
+  } else { # nothing more to parse, so store remaining arglist
+    object.remainder := arglist
+  };
+end
+
+# NODOC
+# Internal procedure to retrieve an option given its identifier form
+procedure options_find(object, form)
+  every option := !object.option_list do {
+    if form === option.short_form | form === option.long_form then
+      return option
+  };
+  return &null;
+end
+
+# Succeeds if form was used in parsed input.
+#
+# Parameters:
+# [object] the options object containing the definitions to use.
+# [form] the argument short form, as a string.
+procedure options_has(object, form)
+  return member(object.options_found, form);
+end
+
+# Returns value of form from parsed input, or fails if form not found.
+#
+# Parameters:
+# [object] the options object containing the definitions to use.
+# [form] the argument short form, as a string.
+procedure options_value(object, form)
+  return object.option_values[form];
+end
+
+# Writes the help message.
+#
+# Parameters:
+# [object] the options object containing the definitions to use.
+procedure options_write_help(object)
+  write(object.title);
+  
+  # collect all the descriptions into a list
+  option_descriptions := list();
+  every option := !object.option_list do {
+    lhs := option.short_form || " ";
+    if option.short_form ~== option.long_form then 
+      lhs ||:= option.long_form || " ";
+    lhs ||:= option.value;
+    put(option_descriptions, [lhs, option.help_string])
+  };
+
+  # find the maximum length of the description flags
+  max_width := 20;
+  every description := !option_descriptions do 
+    if *description[1] > max_width then
+      max_width := *description[1];
+
+  # write out every description
+  every description := !option_descriptions do
+    write(left(description[1], max_width, " "), " : ", description[2]);
+end
+
+# Returns the remaining elements of the parsed string, after any options.
+#
+# Parameters:
+# [object] the options object containing the definitions to use.
+procedure options_arguments(object)
+  return object.remainder;
+end
+

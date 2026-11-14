@@ -1,0 +1,220 @@
+#> JSON parser:
+#> converts a sequence of lines containing JSON formatted data into 
+#> an Icon List/Table/value. 
+#> Note that strings preserve escaped characters.
+#>
+#> Limitations:
+#>
+#> * poor error-handling
+
+# NODOC
+global json_parser_token_source, json_parser_next_token
+
+# Generates an Icon value from JSON formatted data.
+#
+#    > json_from_lines("{\"name\": [\"Peter\", \"Lane\"]}"
+#
+#    T1 := table(&null)
+#       T1["name"] := L2 := list(2)
+#          L2[1] := "Peter"
+#          L2[2] := "Lane"
+#
+# [line_generator] A line generator (list or file) to process. A string will be converted to a one-element list containing that string.
+procedure json_from_lines(line_generator)
+  json_parser_token_source := create json_lexer(line_generator);
+  return json_parse();
+end
+
+# NODOC
+# Generates tokens from a given line generator.
+#
+#   > every token := json_lexer(["{"name": ["Peter", "Lane"]}"]) do 
+#         write(token.kind, " ", token.text)
+#   OPEN_BRACE {
+#   STRING name
+#   COLON :
+#   OPEN_BRACKET [
+#   STRING Peter
+#   COMMA ,
+#   STRING Lane
+#   CLOSE_BRACKET ]
+#   CLOSE_BRACE }
+#
+# [line_generator] A line generator (list or file) to process. A string will be converted to a one-element list containing that string.
+procedure json_lexer(line_generator)
+  local line, number_sign;
+
+  # convert string to a list containing string
+  if type(line_generator) == "string" then
+    line_generator := [line_generator];
+
+  every line := !line_generator do {
+    line ? {
+      until pos(0) do {
+        # skip whitespace
+        tab(many(' \t\r\n'));
+        number_sign := if ="-" then -1 else +1;
+
+        if ="null" then {
+          suspend json_token("NULL", &null)
+        } else if ="true" then {
+          suspend json_token("BOOLEAN", "TRUE")
+        } else if ="false" then {
+          suspend json_token("BOOLEAN", "FALSE")
+        } else if ="[" then {
+          suspend json_token("OPEN_BRACKET", "[")
+        } else if ="]" then {
+          suspend json_token("CLOSE_BRACKET", "]")
+        } else if ="{" then {
+          suspend json_token("OPEN_BRACE", "{")
+        } else if ="}" then {
+          suspend json_token("CLOSE_BRACE", "}")
+        } else if =":" then {
+          suspend json_token("COLON", ":")
+        } else if ="," then {
+          suspend json_token("COMMA", ",")
+        }
+        # number value
+        else if *(item := tab(many(&digits))) ~= 0 then {
+          if ="." then { # might have a "."
+            item ||:= "."; 
+            item ||:= tab(many(&digits)) 
+          };
+          if ="e+"|="E+" then item ||:= "e+" || tab(many(&digits)) # might have a "e"
+          else if ="e-"|="E-" then item ||:= "e-" || tab(many(&digits))
+          else if ="e"|="E" then item ||:= "e" || tab(many(&digits));
+          suspend json_token(
+            "NUMBER", 
+            number_sign * if find("."|"e", item) then real(item) else integer(item)
+          )
+        }
+        # string value
+        else if ="\"" then { 
+          item := tab(upto('"')); # find next "
+          while line[&pos-1] == "\\" do { # if it is escaped
+            item[*item] := "\""; # replace escape with a "
+            ="\""; # skip over the "
+            item ||:= tab(upto('"')) # collect string to the next "
+          };
+          suspend json_token("STRING", item);
+          ="\""
+        }
+        # anything else is an error
+        else
+          stop("Error in reading JSON")
+      }
+    }
+  };
+  
+  suspend json_token("EOF");
+end
+
+# NODOC
+# Tokens represent individual elements in JSON-formatted data.
+#
+# [kind] is the JSON type, such as "OPEN_BRACE" or "STRING"
+# [value] is the stored value for this token
+record json_token(kind, value)
+
+# NODOC
+procedure json_parse(token_generator)
+  local value;
+
+  value := json_read_object();
+  json_parser_match_token("EOF");
+
+  return value;
+end
+
+# NODOC
+procedure json_parser_peek_token()
+  /json_parser_next_token := @json_parser_token_source;
+  return json_parser_next_token;
+end
+
+# NODOC
+procedure json_parser_match_token(kind)
+  local tok;
+
+  tok := json_parser_peek_token();
+  if \kind & tok.kind ~== kind then error("Unexpected token: found " || tok.kind || " instead of " || kind); # || " at line: " || tok.line_number || " column: " || tok.line_column)
+  json_parser_next_token := &null;
+  return tok;
+end
+
+# NODOC
+procedure json_read_object()
+  return if json_parser_peek_token().kind == "EOF" then
+           &null
+         else 
+           case json_parser_peek_token().kind of {
+             "BOOLEAN": json_read_boolean();
+             "NULL": json_read_null();
+             "NUMBER": json_read_number();
+             "OPEN_BRACKET": json_read_list();
+             "OPEN_BRACE": json_read_table();
+             "STRING": json_read_string();
+             default: stop("Error: unknown token type")
+           };
+end
+
+# NODOC
+procedure json_read_boolean()
+  return json_parser_match_token("BOOLEAN").value;
+end
+
+# NODOC
+procedure json_read_null()
+  return json_parser_match_token("NULL").value;
+end
+
+# NODOC
+procedure json_read_number()
+  return json_parser_match_token("NUMBER").value;
+end
+
+# NODOC
+procedure json_read_list()
+  local result;
+
+  result := [];
+  json_parser_match_token("OPEN_BRACKET");
+  if json_parser_peek_token().kind ~== "CLOSE_BRACKET" then {
+    put(result, json_read_object());
+    while json_parser_peek_token().kind == "COMMA" do {
+      json_parser_match_token("COMMA");
+      put(result, json_read_object())
+    }
+  };
+  json_parser_match_token("CLOSE_BRACKET");
+
+  return result;
+end
+
+# NODOC
+procedure json_read_table()
+  local name_key, result;
+
+  result := table();
+  json_parser_match_token("OPEN_BRACE");
+  if json_parser_peek_token().kind ~== "CLOSE_BRACE" then {
+    name_key := json_read_string();
+    json_parser_match_token("COLON");
+    result[name_key] := json_read_object();
+    while json_parser_peek_token().kind == "COMMA" do {
+      json_parser_match_token("COMMA");
+      name_key := json_read_string();
+      json_parser_match_token("COLON");
+      result[name_key] := json_read_object()
+    }
+  };
+  json_parser_match_token("CLOSE_BRACE");
+
+  return result;
+end
+
+# NODOC
+procedure json_read_string()
+  return json_parser_match_token("STRING").value;
+end
+

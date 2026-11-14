@@ -1,0 +1,92 @@
+#> Logger provides some rudimentary logging capabilities.
+#>
+#> The Logger is used to output messages to STDERR or a named file.
+#> Each message is assigned a level, and only messages above or equal to 
+#> a set level will be output. This allows the developer to control the 
+#> level of detail output by the program. This implementation uses the same
+#> levels as Ruby's Logger class:
+#>
+#> . unknown: An unknown message that should always be logged.
+#> . fatal: An unhandleable error that results in a program crash.
+#> . error: A handleable error condition.
+#> . warn: A warning.
+#> . info: Generic (useful) information about system operation.
+#> . debug: Low-level information for developers.
+#>
+
+# NODOC
+record logstruct(port, level, do_close)
+# NODOC
+global levels 
+
+# Creates a new logger object. It accepts one optional argument, which is the 
+# name of a file to save the log to. If no filename is provided, the logger
+# will output to STDERR.
+procedure logger_new (filename)
+  /filename := "";
+  port := &errout;
+  do_close := 0;
+
+  levels := table();
+  insert(levels, "unknown", 1, "fatal", 2, "error", 3, "warn", 4, "info", 5, "debug", 6);
+
+  if *filename > 0 then {
+    port := open(filename, "w");
+    do_close := 1
+  };
+
+  return logstruct(port, "debug", do_close);
+end
+
+# Closes the logger. 
+# It is important to call this if the logger is using a file output, as 
+# then the file will be closed.
+procedure logger_close (l)
+  if l.do_close = 1 then close (l.port);
+end
+
+# Sets a new log level. The new level should be the string name of one of 
+# the log levels, as given above.
+procedure log_level (l, new_level)
+  if member(levels, new_level) then
+    l.level := new_level;
+end
+
+# NODOC
+# Not for direct use: tries to write a given message to the log, if the 
+# given level is accepted.
+procedure log_add (l, message, level)
+  if levels[level] <= levels[l.level] then
+    write(l.port, &clock, " ", level, ": ", message);
+end
+
+# Log a message, at level "unknown"
+procedure log_unknown (l, message)
+  log_add (l, message, "unknown");
+end
+
+# Log a message, at level "fatal"
+procedure log_fatal (l, message)
+  log_add (l, message, "fatal");
+end
+
+# Log a message, at level "error"
+procedure log_error (l, message)
+  log_add (l, message, "error");
+end
+
+# Log a message, at level "warn"
+procedure log_warn (l, message)
+  log_add (l, message, "warn");
+end
+
+# Log a message, at level "info"
+procedure log_info (l, message)
+  log_add (l, message, "info");
+end
+
+# Log a message, at level "debug"
+procedure log_debug (l, message)
+  log_add (l, message, "debug");
+end
+

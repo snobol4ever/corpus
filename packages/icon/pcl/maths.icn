@@ -1,0 +1,244 @@
+#> Maths provides some definitions of common mathematical procedures.
+#>
+#> Note that "maths" should not be used with "numbers" from IPL, as the 
+#> definitions of various procedures differ.
+
+# Ceiling returns the smallest integer value not smaller than n.
+#
+# For example:
+#
+#   ceiling(2.5) => 3
+#   ceiling(-3.5) => -3
+#
+# [n] a numeric value
+procedure ceiling(n)
+  local result;
+
+  result := integer(n); # drops the fractional part
+  if result = n | result < 0 then
+    return result
+  else 
+    return result + 1;
+end
+
+# Clamp ensures number is in range [min_value, max_value], returning
+# min_value if number < min_value or max_value if number > max_value.
+#
+# For example:
+#
+#   clamp(3, 5, 10) => 5
+#   clamp(12, 5, 10) => 10
+#   clamp(7, 5, 10) => 7
+#
+# [n] a number to clamp within specified range
+# [min_value] a number representing the lower limit of range
+# [max_vaue] a number representing the upper limit of range
+procedure clamp(n, min_value, max_value)
+  if n < min_value then
+    return min_value
+  else if n > max_value then
+    return max_value
+  else
+    return n;
+end
+
+# Floor returns the largest integer value not larger than n.
+#
+# For example:
+#
+#   floor(2.5) => 2
+#   floor(-3.5) => -4
+#
+# [n] a numeric value
+procedure floor(n)
+  local result;
+
+  result := integer(n); # drops the fractional part
+  if result = n | result > 0 then
+    return result
+  else 
+    return result - 1;
+end
+
+# Round returns the closest integer to n, rounding to even where n is half-way
+# between two integers.
+#
+# For example:
+#
+#   round(2.5) => 2
+#   round(-3.5) => -4
+#
+# [n] a numeric value
+procedure round(n)
+  local a, b, a_delta, b_delta;
+
+  a := ceiling(n);
+  b := floor(n);
+  a_delta := abs(n-a);
+  b_delta := abs(n-b);
+
+  if abs(a_delta - b_delta) < 0.00001 then {
+    if a % 2 = 0 then 
+      return a
+    else
+      return b
+  } else if a_delta < b_delta then {
+    return a
+  } else {
+    return b
+  };
+end
+
+# Truncate returns the integer value closest to n whose absolute value is 
+# no larger than n.
+#
+# Note, name to avoid conflict with Unicon's 'truncate' procedure.
+#
+# For example:
+#
+#   maths_truncate(2.5) => 2
+#   maths_truncate(-3.5) => -3
+#
+# [n] a numeric value
+procedure maths_truncate(n)
+  return integer(n);
+end
+
+# ------------------------------------------------------------------------
+# General number theory routines
+
+# Returns a triple [gcd, m, n] where:
+# * gcd is the greatest-common divisor of a and b
+# * gcd = m.a + n.b
+#
+# For example:
+#
+#   extended_euclidean_algorithm(321, 843) # => [3, -21, 8]
+#
+# [a] an integer value
+# [b] an integer value
+procedure extended_euclidean_algorithm(a, b)
+  local quot, rem, r1, r2;
+
+  r1 := [a, 1, 0];
+  r2 := [b, 0, 1];
+
+  while r2[1] ~= 0 do {
+    quot := r1[1] / r2[1];
+    rem := r1[1] % r2[1];
+    r2 :=: r1;
+    r2[1] := rem;
+    r2[2] := r2[2] - quot*r1[2];
+    r2[3] := r2[3] - quot*r1[3]
+  };
+
+  return r1;
+end
+
+# Returns the greatest common divisor of a and b.
+#
+# For example:
+#
+#   gcd(321, 843) # => 3
+#
+# [a] an integer value
+# [b] an integer value
+procedure gcd(a, b)
+  while a ~= b do {
+    if a > b then
+      a := a-b
+    else
+      b := b-a
+  };
+
+  return a;
+end
+
+# Returns the least common multiple of a and b.
+#
+# For example:
+#
+#   lcm(321, 843) # => 90201
+#
+# [a] an integer value
+# [b] an integer value
+procedure lcm(a, b)
+  return a*b/gcd(a,b);
+end
+
+# Euler's totient function computes the number of positive integers coprime to n.
+# It is computed using the prime factorisation of n.
+#
+# For example:
+#
+#   euler_totient(20) # => 8
+#
+# [n] an integer value
+procedure euler_totient(n)
+  local factor, factorisation, result;
+
+  factorisation := prime_factors(n);
+  result := 1;
+  every factor := key(factorisation) do {
+    result *:= factor^(factorisation[factor]-1);
+    result *:= (factor-1)
+  };
+
+  return result;
+end
+
+# ------------------------------------------------------------------------
+# Prime Number routines
+
+# Generates all primes up to and including the given number, using 
+# the Sieve of Eratosthenes algorithm. (Very large n may fail to out 
+# of memory errors.)
+#
+# For example:
+#
+#   every writes(primes_generator(10), " ") # => 2 3 5 7
+#
+# [n] an integer value
+procedure primes_generator(n)
+  local i, j, primes, sieve;
+
+  sieve := list(n, 1);
+  sieve[1] := 0;
+  every i := 2 to n do {
+    if sieve[i] = 1 then {
+      suspend i;
+      every j := i+i to n by i do {
+        sieve[j] := 0
+      }
+    }
+  };
+end
+
+# Returns the prime factors for a given number in a table, where 
+# the keys are the prime factors and the values are the respective powers.
+# 
+# For example:
+#
+#   sort(prime_factors(360), 1) # => [[2, 3], [3, 2], [5, 1]]
+#
+# [n] an integer value
+procedure prime_factors(n)
+  local prime, primes, result;
+
+  primes := create primes_generator(n);
+
+  result := table(0);
+  prime := @primes;
+  while n ~= 1 do {
+    if n % prime = 0 then {
+      result[prime] +:= 1;
+      n /:= prime
+    } else {
+      prime := @primes
+    }
+  };
+
+  return result;
+end
+
+

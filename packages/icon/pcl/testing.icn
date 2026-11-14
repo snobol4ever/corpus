@@ -1,0 +1,121 @@
+#> Testing is a collection of procedures for unit testing icon code.
+#> 
+#> For example, to test a procedure that squares a number, 
+#> you might run tests:
+#>
+#>   test_start ("Testing square procedure")
+#>   test_approx_equals (4.0, square (2.0))
+#>   test_approx_equals (9.0, square (-3))
+#>   test_finish ()
+#>
+#> For an output like:
+#>
+#>   Test: Testing square procedure
+#>         Total: 2 Passed: 2 Failed: 0
+#>   
+#>
+link ximage
+
+# NODOC
+# Hold information about current test suite and numbers of pass/fail tests.
+record test_results(title, total_tests, num_passed, num_failed)
+
+# NODOC
+# Store information about the current set of tests.
+global test_suite
+
+# Initialises a new suite of test results. 
+# Must be called before running any tests.
+#
+# Parameters:
+# [title] names the test suite.
+procedure test_start (title)
+  test_suite := test_results(title, 0, 0, 0);
+  write ("Test: ", test_suite.title);
+end
+
+# Finishes a suite of test results, and reports results.
+procedure test_finish ()
+  write ("      Total: ", test_suite.total_tests, " Passed: ", test_suite.num_passed, " Failed: ", test_suite.num_failed);
+  if (test_suite.num_failed > 0) then
+    write (" *** Tests for ", test_suite.title, " failed ***");
+end
+
+# Used to test if two numbers are within an agreed tolerance.
+#
+# Parameters:
+# [expected] the expected value
+# [actual] the actual computed value
+# [message] optional message to display on failure of test
+# [eps] maximum allowed difference between expected and actual
+#
+procedure test_approx_equals (expected, actual, message, eps)
+  /message := "--";
+  /eps := 0.001;
+  test_suite.total_tests +:= 1;
+  if (abs(expected - actual) < eps) then {
+    test_suite.num_passed +:= 1
+  } else {
+    test_suite.num_failed +:= 1;
+      write ("* Failed test ", test_suite.total_tests, ": ", message, ": expected ", expected, " got ", actual)
+  };
+end
+
+# Used to test if two objects are equal. 
+#
+# Parameters:
+# [expected] the expected value
+# [actual] the actual computed value
+# [message] optional message to display on failure of test
+# [comparator] optional comparator method, succeeds if two arguments are same. Defaults to `===`.
+#
+procedure test_equals (expected, actual, message, comparator)
+  /message := "--";
+  /comparator := "===";
+  test_suite.total_tests +:= 1;
+  if comparator(expected, actual) then {
+    test_suite.num_passed +:= 1
+  } else {
+    test_suite.num_failed +:= 1;
+    write ("* Failed test ", test_suite.total_tests, ": ", message, ": expected ", ximage(expected), " got ", ximage(actual))
+  };
+end
+
+# Tests if the given coexp fails. i.e. if
+#
+#   @coexp => fails
+#
+# Parameters:
+# [coexp] co-expression to test. 
+# [message] optional message to display on failure of test
+#
+procedure test_fails (coexp, message)
+  /message := "--";
+  test_suite.total_tests +:= 1;
+  if (@coexp) then {
+    test_suite.num_failed +:= 1;
+      write ("* Failed test ", test_suite.total_tests, ": ", message)
+  } else {
+    test_suite.num_passed +:= 1
+  };
+end
+
+# Tests if the given coexp succeeds. i.e. if
+#
+#   @coexp => succeeds
+#
+# Parameters:
+# [coexp] co-expression to test. 
+# [message] optional message to display on failure of test
+#
+procedure test_succeeds (coexp, message)
+  message := "--"; 
+  test_suite.total_tests +:= 1;
+  if (@coexp) then {
+    test_suite.num_passed +:= 1
+  } else {
+    test_suite.num_failed +:= 1;
+      write ("* Failed test ", test_suite.total_tests, ": ", message)
+  };
+end
+

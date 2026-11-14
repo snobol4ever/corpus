@@ -1,0 +1,48 @@
+# test_abbrev.icn -- the "Abbrev Tests" of pcl_test.icn (its lines 16 to 56, as they stand there) under a main of ours that runs this one group
+link abbrev, icon_formatters, icon_lexer, integer_division, json, maths, sort_libraries, statistics, testing
+
+procedure main()
+  test_abbrev();
+end
+
+# ------------------------------------------------------------------------
+# Abbrev Tests
+
+procedure test_abbrev() 
+  test_start("Abbrev");
+  do_abbrev_tests_1();
+  do_abbrev_tests_2();
+  do_abbrev_tests_3();
+  test_finish();
+end
+
+procedure do_abbrev_tests_1 ()
+  local t;
+
+  t := abbrev (["car", "cat"]);
+  test_equals(2, *t);
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "cat") & t["cat"] == "cat");
+end
+
+procedure do_abbrev_tests_2 ()
+  local t;
+
+  t := abbrev(["car", "cone"]);
+  test_equals(5, *t);
+  test_succeeds(create member(t, "ca") & t["ca"] == "car");
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "co") & t["co"] == "cone");
+  test_succeeds(create member(t, "con") & t["con"] == "cone");
+  test_succeeds(create member(t, "cone") & t["cone"] == "cone");
+end
+
+procedure do_abbrev_tests_3 ()
+  local t;
+
+  t := abbrev(["car", "cat", "dog"], "c");
+  test_equals(2, *t);
+  test_succeeds(create member(t, "car") & t["car"] == "car");
+  test_succeeds(create member(t, "cat") & t["cat"] == "cat");
+end

@@ -1,0 +1,16 @@
+Test: Abbrev
+      Total: 13 Passed: 13 Failed: 0
+Test: Icon Formatter
+      Total: 2 Passed: 2 Failed: 0
+Test: Icon Lexer
+      Total: 760 Passed: 760 Failed: 0
+Test: Integer Division
+      Total: 38 Passed: 38 Failed: 0
+Test: JSON
+      Total: 19 Passed: 19 Failed: 0
+Test: Maths
+      Total: 47 Passed: 47 Failed: 0
+Test: Sort Libraries
+      Total: 54 Passed: 54 Failed: 0
+Test: Statistics
+      Total: 5 Passed: 5 Failed: 0

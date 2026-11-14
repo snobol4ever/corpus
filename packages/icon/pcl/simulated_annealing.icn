@@ -1,0 +1,68 @@
+#> Simulated annealing is a stochastic optimisation procedure.
+#>
+#> * Metropolis, N., Rosenbluth, A.W., Rosenbluth, M.N., Teller, A.H., & Teller, E. (1953). "Equation of state calculations by fast computing machines." Journal of Chemical Physics, 21, 1087-1092.
+#> 
+#> Example: Find value for x so that x^2 - 7x + 10 = 0, with x in range [0,10].
+#>
+#> make_instance:
+#>
+#>   procedure make_instance(x)
+#>     if /x then {
+#>       return 10 * ?0 # random number [0.0,10.0)
+#>     } else {
+#>       new_x := x + 0.02 * ?0 - 0.01
+#>       if new_x < 0 then new_x := 0
+#>       if new_x > 10 then new_x := 10
+#>       return new_x
+#>     }
+#>   end
+#>
+#> evaluation:
+#>
+#>   procedure evaluation(x)
+#>     y := x * x - 7 * x + 10
+#>     return y * y  # returns positive number, 0 is best result
+#>   end
+#>
+#> run:
+#>
+#>   result := simulated_annealing(make_instance, evaluation, 1000)
+#>   write("Final value of x: ", result)
+#>
+
+# Returns the best instance found after performing simulated-annealing stochastic search.
+# [instance_maker] procedure accepting 0 or 1 arguments, returns a new instance: the neighbour of a given instance, or a random instance.
+# [evaluate_instance] procedure taking an instance and returning a positive number indicating quality of solution, with 0 being perfect.
+# [num_iterations] the number of iterations to perform.
+# [can_stop] an optional procedure taking the current evaluation and iteration number, succeeds if the algorithm should stop.
+procedure simulated_annealing(instance_maker, evaluate_instance, num_iterations, can_stop)
+  local current_instance, current_performance, n, new_instance, new_performance, temp;
+
+  current_instance := instance_maker();
+  current_performance := evaluate_instance(current_instance);
+  n := 0;
+  until n >= num_iterations | (\can_stop & can_stop(current_performance, n)) do {
+    temp := 1.0 - real(n) / real(num_iterations);
+    new_instance := instance_maker(current_instance);
+    new_performance := evaluate_instance(new_instance);
+    if metropolis_acceptance_criterion(current_performance, new_performance, temp) >= ?0 then {
+      current_instance := new_instance;
+      current_performance := new_performance
+    };
+    n +:= 1
+  };
+  return current_instance;
+end
+
+# Computes the Metropolis acceptance criterion.
+#
+# [es] current instance evaluation
+# [en] new/candidate instance evaluation
+# [temp] temperature value
+procedure metropolis_acceptance_criterion(es, en, temp)
+  if en < es then
+    return 1.0
+  else
+    return (es - en) / temp;
+end
+

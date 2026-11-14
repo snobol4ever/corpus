@@ -1,0 +1,10 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,pcl_test,pcl_test.icn,pcl__pcl_test,pcl,754,0,131072,4096,120,
+2,test_abbrev,test_abbrev.icn,pcl__test_abbrev,pcl,48,0,131072,4096,120,
+3,test_icon_formatter,test_icon_formatter.icn,pcl__test_icon_formatter,pcl,29,0,131072,4096,120,
+4,test_icon_lexer,test_icon_lexer.icn,pcl__test_icon_lexer,pcl,299,0,131072,4096,120,
+5,test_integer_division,test_integer_division.icn,pcl__test_integer_division,pcl,60,0,131072,4096,120,
+6,test_json,test_json.icn,pcl__test_json,pcl,57,0,131072,4096,120,
+7,test_maths,test_maths.icn,pcl__test_maths,pcl,82,0,131072,4096,120,
+8,test_sort_libraries,test_sort_libraries.icn,pcl__test_sort_libraries,pcl,205,0,131072,4096,120,
+9,test_statistics,test_statistics.icn,pcl__test_statistics,pcl,19,0,131072,4096,120,
