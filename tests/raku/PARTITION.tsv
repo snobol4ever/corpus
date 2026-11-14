@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1596 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,52
+# shape: entries=1597 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,53
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -279,7 +279,7 @@ simple_program_51	chunk:15	feat:sprintf	sprintf
 simple_program_52	chunk:15	feat:sprintf	sprintf
 simple_program_53	chunk:15	feat:sprintf	sprintf
 simple_program_54	chunk:15	feat:sprintf	sprintf
-simple_program_55	chunk:15	feat:sprintf	sprintf
+simple_program_55	chunk:16	feat:sprintf	sprintf
 simple_program_63	chunk:10	feat:regex	regex
 simple_program_64	chunk:10	feat:regex	regex
 simple_program_65	chunk:10	feat:regex	regex
@@ -1319,7 +1319,7 @@ ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_chec
 ladder__rung07_subs_a_sub_declared_in_a_module_is_called_and_referenced_by_its_qualified_name_and_through_our	chunk:15	feat:our	our string_concat sub
 ladder__rung14_roles_a_role_body_lexical_and_a_type_capture_as_the_target_of_new_are_read_by_its_methods	chunk:13	feat:method	method string_concat
 sub_range_say_replace_1	chunk:14	feat:range_op	range_op say sub
-ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:14	feat:unless	if try unless
+ladder__rung12_exceptions_a_die_in_the_condition_of_if_or_unless_aborts_the_statement	chunk:15	feat:unless	if try unless
 benchmark_rc-dragon-curve	chunk:07	feat:for_with_say	for for_with_say range_op
 ladder__rung07_subs_a_multi_family_constrained_by_subsets_and_where_clauses_dispatches	chunk:12	feat:multi	multi say sub try
 sub_array_say_replace_1	chunk:08	feat:sub	say sigil_array sub
@@ -1430,7 +1430,7 @@ class_method_say_replace_57	chunk:06	feat:has	has method return say
 class_method_say_replace_8	chunk:06	feat:has	has method return say
 for_range_say_8	core	core	die for for_with_say range_op say try
 ladder__rung02_arithmetic_div_and_modulo_by_zero_return_a_failure	chunk:12	feat:try	for for_with_say range_op sigil_array try
-ladder__rung06_control_a_bare_block_with_a_statement_modifier_is_run_by_it	chunk:14	feat:unless	for for_with_say if range_op unless
+ladder__rung06_control_a_bare_block_with_a_statement_modifier_is_run_by_it	chunk:15	feat:unless	for for_with_say if range_op unless
 ladder__rung10_given_when_a_dot_call_on_the_topic_is_a_call_of_the_topic	chunk:15	feat:given	given say smartmatch string_concat sub
 sub_for_array_2	chunk:07	feat:for_with_say	for for_with_say sigil_array string_concat sub
 c_site__sort_calls_its_comparator	chunk:14	feat:sort	for for_with_say say sigil_hash sort
@@ -1464,6 +1464,7 @@ ladder__rung08_for_next_in_a_for_over_a_range_continues_with_the_next_element	ch
 class_method_multi_replace_2	chunk:12	feat:multi	method multi return say
 class_method_say_replace_16	chunk:13	feat:return	method return say string_concat
 while_say_try_1	core	core	die if say try while
+compiler_object__rc1-cmp-of-two-lists-is-element-by-element	chunk:14	feat:sort	join map say sigil_array sort string_concat
 core__rc08_named_flatten	chunk:13	feat:map	map range_op say sigil_hash sub
 ladder__rung19_block_methcall_grep_and_map_listops	chunk:07	feat:for_with_say	for for_with_say range_op say sigil_array
 class_method_multi_replace_4	chunk:12	feat:multi	method multi return say
@@ -1493,7 +1494,7 @@ ladder__rung04_arrays_a_caret_range_keeps_its_endpoints_numifies_and_smartmatche
 scrip_test_rk_map_grep_sort24	chunk:07	feat:for_with_say	for for_with_say say sigil_array sub
 ladder__rung13_classes_can_returns_invokable_methods_found_up_the_parents_and_knows_a_builtin_methods_name	chunk:07	feat:for_with_say	for for_with_say method string_concat
 benchmark_point_class_add2	chunk:14	feat:while	for has method while
-benchmark_send-more-money-loops	chunk:14	feat:unless	if loop string_concat unless while
+benchmark_send-more-money-loops	chunk:15	feat:unless	if loop string_concat unless while
 smartmatch_say_4	chunk:10	feat:smartmatch	if range_op regex say smartmatch string_concat
 class_method_array_replace_1	chunk:06	feat:has	has method return say sigil_array
 class_method_say_replace_22	chunk:06	feat:has	has method return say string_concat
@@ -1541,8 +1542,8 @@ class_multi_sub_replace_5	chunk:11	feat:sub_with_return	has multi return say sub
 class_multi_sub_replace_4	chunk:11	feat:sub_with_return	has multi return say sub sub_with_return
 class_multi_sub_replace_6	chunk:11	feat:sub_with_return	has multi return say sub sub_with_return
 class_multi_sub_replace_7	chunk:11	feat:sub_with_return	has multi return say sub sub_with_return
-core__rc09_named_forms	chunk:15	feat:sort	has map method range_op sigil_array sort
-core__rc11_nested_sort_reduce	chunk:15	feat:sort	join map range_op say sigil_array sort sub
+core__rc09_named_forms	chunk:14	feat:sort	has map method range_op sigil_array sort
+core__rc11_nested_sort_reduce	chunk:14	feat:sort	join map range_op say sigil_array sort sub
 roast_causes__rc01_lone_interpolation_is_str	chunk:12	feat:try	regex say sigil_array sigil_hash smartmatch string_concat try
 ladder__rung09_regex_match_methods_agree_with_rakudo	core	core	join map regex regex_with_smartmatch smartmatch string_concat token
 benchmark_rc-perfect-shuffle	chunk:14	feat:loop	if loop range_op return sigil_array sub sub_with_return
