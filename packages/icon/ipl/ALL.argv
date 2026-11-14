@@ -6,7 +6,7 @@ progs/adlfiltr	adlfiltr	-s	ab
 progs/comfiles	comfiles	apple.txt banana.txt cherry.txt date.txt fig.txt	banana.txt date.txt elder.txt fig.txt grape.txt
 progs/crypt	crypt	Icon	plain.txt	/dev/stdout
 progs/duplproc	duplproc	.
-progs/gcomp	gcomp	beta.icn
+progs/gcomp	beta.icn
 progs/headicon	headicon	hdr_demo	Ada Lovelace
 progs/idxtext	idxtext	idxt_base.txt
 progs/iheader	iheader	sample.icn
