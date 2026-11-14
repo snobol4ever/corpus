@@ -7652,6 +7652,17 @@ say @w.sort({ $^a.chars <=> $^b.chars });
 (b aa ccc)
 ```
 
+## mixin__but_with_an_anonymous_role
+
+```Raku
+my $v = 5 but role { method tag { "tagged" } };
+say $v.tag;
+```
+
+```stdout
+tagged
+```
+
 ## multi_2
 
 ```Raku
@@ -9268,6 +9279,36 @@ say D.new.r;
 ```stdout
 3
 r
+```
+
+## mixin__but_with_a_named_role_answers_the_roles_method
+
+```Raku
+role R { method tag { "tagged" } }
+my $a = 5;
+my $b = $a but R;
+say $b.tag;
+say $a.^can("tag").elems;
+```
+
+```stdout
+tagged
+0
+```
+
+## mixin__does_mixes_a_role_into_a_variables_value
+
+```Raku
+role H { method hi { "hi" } }
+my $w = "x";
+$w does H;
+say $w.hi;
+say $w;
+```
+
+```stdout
+hi
+x
 ```
 
 ## token_say_1
@@ -11699,6 +11740,23 @@ say f("a");
 ```stdout
 i
 s
+```
+
+## role__a_parametric_role_gives_each_composer_its_own_lexicals
+
+```Raku
+role Cnt2[::T] { my $m = 0; method inc2 { ++$m } }
+my class C does Cnt2[Int] { }
+my class D does Cnt2[Str] { }
+my class E does Cnt2[Int] { }
+say C.inc2; say C.inc2; say D.inc2; say E.inc2;
+```
+
+```stdout
+1
+2
+1
+1
 ```
 
 ## user_op__a_prefix_operator_takes_the_same_rule
@@ -14355,6 +14413,28 @@ say $s.greet;
 
 ```stdout
 class hello
+```
+
+## mixin__a_mixed_in_value_answers_its_boxed_value
+
+```Raku
+role R { method tag { "t" } }
+my $v = 5 but R;
+say $v + 1;
+say "$v";
+say $v.succ;
+say so $v;
+say $v.WHAT ~~ Int;
+say $v.tag;
+```
+
+```stdout
+6
+5
+6
+True
+True
+t
 ```
 
 ## rw_method__compound_assign_through_rw_method
