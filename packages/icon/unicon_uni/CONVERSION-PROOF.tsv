@@ -1,0 +1,4 @@
+# CONVERSION-PROOF.tsv -- each vendored file of unicon_uni and what unicon -c says of the upstream original against the converted text (its ucode, the uid line aside)
+# (util_icon_semicolons.py --compile-args=--dialect=unicon, officer_07 row unicon-uni-closure-xml-xmlparser, 2026-11-14): same-code and unchanged are kept; convert-refused, differs-code, one-refused, both-refused and closure-left-out are left upstream
+file	verdict
+xml/xmlparser.icn	same-code
