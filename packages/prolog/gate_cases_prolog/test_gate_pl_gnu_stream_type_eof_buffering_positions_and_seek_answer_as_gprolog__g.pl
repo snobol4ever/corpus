@@ -9,9 +9,9 @@ main :- open('a.txt', write, W), write(W, 'abcd\nxy\nz\n'), close(W), open('b.bi
   t(set_stream_eof_action(w, error)), t(set_stream_eof_action(r, x)), t(set_stream_eof_action(r, _)), t(set_stream_eof_action(nosuch, error)),
   t(stream_line_column(r, _, _)), t(set_stream_line_column(r, 2, 2)), t(stream_line_column(r, _, _)), t(get_char(r, _)), t(set_stream_line_column(r, 3, 5)), t(stream_line_column(r, _, _)),
   t(set_stream_line_column(r, 0, 1)), t(set_stream_line_column(r, a, 1)), t(set_stream_line_column(np, 1, 1)), t(set_stream_line_column(b, 1, 1)), t(stream_line_column(b, _, _)), t(stream_line_column(r, x, _)),
-  t((stream_position(r, P), get_char(r, C1), set_stream_position(r, P), get_char(r, C2))), t((stream_position(r, P2), P2 = '$stream_position'(_, _, _, _))), t(stream_position(r, foo)), t(stream_position(r, '$stream_position'(a, 1, 1, 1))),
+  t((stream_position(r, P), get_char(r, _C1), set_stream_position(r, P), get_char(r, _C2))), t((stream_position(r, P2), P2 = '$stream_position'(_, _, _, _))), t(stream_position(r, foo)), t(stream_position(r, '$stream_position'(a, 1, 1, 1))),
   t((stream_position(np, P3), set_stream_position(np, P3))),
-  t(seek(b, bof, 2, _)), t((seek(b, current, 1, N1), get_byte(b, Y1))), t(seek(b, eof, -1, _)), t(seek(b, bof, 1, 2)), t(seek(b, middle, 0, _)), t(seek(b, 1, 0, _)), t(seek(b, bof, a, _)), t(seek(r, bof, 0, _)),
+  t(seek(b, bof, 2, _)), t((seek(b, current, 1, _N1), get_byte(b, _Y1))), t(seek(b, eof, -1, _)), t(seek(b, bof, 1, 2)), t(seek(b, middle, 0, _)), t(seek(b, 1, 0, _)), t(seek(b, bof, a, _)), t(seek(r, bof, 0, _)),
   t(seek(np, bof, 0, _)), t(seek(b, bof, 0, x)),
-  t(set_stream_eof_action(r, error)), set_stream_line_column(r, 3, 1), t((get_char(r, Z1), get_char(r, Z2))), t(at_end_of_stream(r)), t(sp(r, end_of_stream(_))), t(get_char(r, _)), t(get_char(r, _)),
+  t(set_stream_eof_action(r, error)), set_stream_line_column(r, 3, 1), t((get_char(r, _Z1), get_char(r, _Z2))), t(at_end_of_stream(r)), t(sp(r, end_of_stream(_))), t(get_char(r, _)), t(get_char(r, _)),
   t(open('a.txt', read, _, [buffering(huge)])).
