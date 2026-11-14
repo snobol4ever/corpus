@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1606 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,62
+# shape: entries=1607 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,63
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -430,7 +430,7 @@ simple_assign_99	chunk:03	family:smoke
 split_say_1	chunk:16	feat:split	say split
 test_colon_call	chunk:16	family:test_raku_colon_call	
 test_kebab_ident	chunk:16	family:test_raku_kebab_ident	
-test_our_decl	chunk:15	feat:our	our
+test_our_decl	chunk:16	feat:our	our
 test_qualified_term	chunk:16	family:test_raku_qualified_term	
 unspace__an_unspace_follows_a_declared_variable	chunk:05	feat:sigil_array	sigil_array
 array_12	chunk:05	feat:sigil_array	sigil_array
@@ -855,7 +855,7 @@ simple_assign_33	chunk:10	feat:if	if
 simple_assign_34	chunk:10	feat:if	if
 simple_assign_35	chunk:10	feat:if	if
 simple_assign_36	chunk:10	feat:if	if
-simple_assign_37	chunk:14	feat:unless	unless
+simple_assign_37	chunk:15	feat:unless	unless
 simple_assign_60	chunk:10	feat:if	if
 simple_assign_61	chunk:10	feat:if	if
 simple_assign_72	chunk:10	feat:if	if
@@ -1085,7 +1085,7 @@ sub_say_8	chunk:08	feat:sub	say sub
 test_if_basic	chunk:10	feat:if	if say
 test_if_cmp_eq	chunk:10	feat:if	if say
 test_if_else	chunk:10	feat:if	if say
-test_while_basic	chunk:13	feat:while	say while
+test_while_basic	chunk:14	feat:while	say while
 while_1	chunk:14	feat:while	if while
 while_2	chunk:14	feat:while	if while
 while_3	chunk:14	feat:while	if while
@@ -1252,7 +1252,7 @@ c_site__an_our_routine_named_through_its_class	chunk:16	feat:our	method our stri
 class_method_replace_12	chunk:06	feat:has	has method
 class_method_replace_13	chunk:12	feat:return	method return
 class_method_replace_15	chunk:06	feat:has	has method
-class_method_replace_17	chunk:12	feat:return	method return
+class_method_replace_17	chunk:13	feat:return	method return
 class_method_replace_2	chunk:13	feat:return	method return
 class_method_replace_20	chunk:13	feat:return	method return
 class_method_replace_3	chunk:13	feat:method	if method
