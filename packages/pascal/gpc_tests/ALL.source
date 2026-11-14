@@ -1,0 +1,4 @@
+root	/home/resources/pascal-demos/gpc-hebisch/p/test
+origin	https://github.com/hebisch/gpc
+version	21ec0ceb (2024-09-01)
+licence	GPL (the GNU Pascal test suite, p/test of the GPC source tree; COPYING beside it in the clone)

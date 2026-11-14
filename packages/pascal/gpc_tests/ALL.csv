@@ -1,0 +1,4 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,adam3i,adam3i.pas,gpc_tests__adam3i,gpc_tests,19,0,131072,4096,60,,iso
+2,fjf167a,fjf167a.pas,gpc_tests__fjf167a,gpc_tests,5,0,131072,4096,60,,iso
+3,fjf426v,fjf426v.pas,gpc_tests__fjf426v,gpc_tests,11,0,131072,4096,60,,iso

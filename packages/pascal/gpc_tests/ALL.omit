@@ -1,0 +1,2 @@
+writereal.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: writereal.pas(16,14) Fatal: Syntax error, ";" expected but "(" found
+mir004.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: mir004.pas(10,34) Fatal: Syntax error, ";" expected but "identifier VALUE" found
