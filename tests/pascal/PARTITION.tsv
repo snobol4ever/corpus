@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=505 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,59
+# shape: entries=506 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=45 chunks=5 sizes=100,100,100,100,60
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -92,7 +92,7 @@ ladder__rung16_q_shr	chunk:04	feat:for	for
 ladder__rung17_div_zero_without_sysutils_stays_200	chunk:03	feat:div	div
 ladder__rung16_q_write_expr	chunk:03	feat:div	div
 ladder__rung16_real_trunc_out_of_int64	chunk:05	feat:trunc	trunc
-ladder__rung17_div_zero_math_closure	chunk:03	feat:div	div
+ladder__rung17_div_zero_math_closure	chunk:04	feat:div	div
 ladder__rung17_div_zero_sysutils_no_try	chunk:04	feat:div	div
 program_function_writeln_1	chunk:01	feat:function	function
 program_function_writeln_5	chunk:01	feat:function	function
@@ -264,6 +264,7 @@ front_end__pf20n_generic_field_access	chunk:01	feat:function	function nested_pro
 program_function_for_replace_1	chunk:01	feat:function	for function nested_proc
 program_function_for_replace_2	chunk:01	feat:function	for function nested_proc
 front_end__pf19_nul_in_string	chunk:04	feat:chr	chr for ord
+fpc_features__sizeof-of-a-record-with-subrange-and-boolean-fields	chunk:02	feat:record	array record set_literal subrange type
 program_array_for_4	chunk:04	feat:for_with_array	array for for_with_array type
 program_array_packed_2	chunk:02	feat:packed	array packed set_literal subrange
 program_set_for_2	chunk:03	feat:set	for in set subrange
@@ -420,7 +421,7 @@ ladder__rung06_arrays_bool_index_2d	chunk:04	feat:chr	array chr for for_with_arr
 array_of_const__array_of_const_varrec	chunk:03	feat:case	array case const for for_with_array pointer procedure
 program_record_pointer_replace_1	chunk:03	feat:nil	in new nil pointer pointer_with_new record type
 front_end__pf20i_array_helper_sort	chunk:04	feat:mod	array for for_with_array function mod record type write
-program_record_array_replace_2	chunk:02	feat:packed	array case packed record set_literal subrange type
+program_record_array_replace_2	chunk:03	feat:packed	array case packed record set_literal subrange type
 ladder__rung10_pointers	chunk:05	feat:dispose	dispose new nil pointer pointer_with_new record type
 front_end__pf03_caps	core	core	array chr mod odd record set_literal subrange
 ladder__rung06_arrays_rows_of_an_inline_packed_char_array	chunk:03	feat:packed	array chr for for_with_array ord packed set_literal subrange
@@ -445,7 +446,7 @@ program_array_while_replace_2	core	core	array const for for_with_array set_liter
 ladder__rung22_class_derived_from_a_generic_object_dictionary	chunk:05	feat:with	const for function in nested_proc procedure type with write
 program_procedure_set_replace_1	chunk:03	feat:set	for in nested_proc procedure repeat set subrange while
 program_procedure_set_replace_2	chunk:03	feat:set	for in nested_proc procedure repeat set subrange while
-benchmark_queens	chunk:04	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
+benchmark_queens	chunk:05	feat:readln	array for for_with_array procedure readln repeat set_literal subrange
 program_function_procedure_replace_3	chunk:05	feat:with	for function in mod nested_proc procedure while with
 front_end__pf15_overloaded_methods	chunk:02	feat:const	array const for for_with_array function nested_proc procedure type
 ladder__rung06_arrays_three_level_inline_char_rows	chunk:03	feat:packed	array chr for for_with_array ord packed set_literal subrange write
