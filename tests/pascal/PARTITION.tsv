@@ -273,6 +273,7 @@ front_end__pf20n_generic_field_access	chunk:01	feat:function	function nested_pro
 program_function_for_replace_1	chunk:01	feat:function	for function nested_proc
 program_function_for_replace_2	chunk:01	feat:function	for function nested_proc
 front_end__pf19_nul_in_string	chunk:04	feat:chr	chr for ord
+fpc_features__an-enumeration-with-assigned-values	chunk:03	feat:set	in ord set type
 fpc_features__sizeof-of-a-record-with-subrange-and-boolean-fields	chunk:02	feat:record	array record set_literal subrange type
 program_array_for_4	chunk:04	feat:for_with_array	array for for_with_array type
 program_array_packed_2	chunk:03	feat:packed	array packed set_literal subrange
