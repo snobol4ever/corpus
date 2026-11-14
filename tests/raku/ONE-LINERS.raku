@@ -165,6 +165,7 @@ my %h = a => 1, b => 2, c => 3; say %h.elems;
 my %h = a => 1, b => 2; say %h<a>;
 my %h = (x => 10, y => 20); say %h<y>;
 my %h = a => 1, b => 2; say %h<b>;
+our $v = 42; say $::("v");
 my $x is default(5); say $x;
 my $x = 5; say q{a$xb {$x}};
 given "abc" -> $test { say $test }

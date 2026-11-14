@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1534 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,90
+# shape: entries=1535 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,91
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -357,6 +357,7 @@ hash_7	chunk:08	feat:sigil_hash	sigil_hash
 hash_8	chunk:08	feat:sigil_hash	sigil_hash
 hash_9	chunk:08	feat:sigil_hash	sigil_hash
 ladder__rung01_variables_a_list_declaration_in_a_block_is_that_blocks_variables	chunk:02	family:ladder	
+ladder__rung01_variables_a_symbolic_dereference_of_a_package_variable_is_read_by_its_name	chunk:15	feat:our	our
 ladder__rung01_variables_is_default_gives_a_scalar_its_initial_value	chunk:02	family:ladder	
 ladder__rung022_quote_q_no_interpolation	chunk:02	family:ladder	
 ladder__rung10_given_when_a_pointy_block_on_given_binds_its_parameter_to_the_topic	chunk:15	feat:given	given
