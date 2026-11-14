@@ -1,0 +1,7 @@
+# run_concord.icn -- concord of Unicon's benchmark suite as its run-test.icn runs it: run_concord on concord.test (ALL.args), the output on standard output
+link "concord"
+global output
+procedure main(argv)
+   output := &output;
+   run_concord(argv);
+end

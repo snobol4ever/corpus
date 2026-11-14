@@ -1,0 +1,7 @@
+# run_meteor-contest.icn -- meteor-contest of Unicon's benchmark suite as its run-test.icn runs it: run_meteorcontest on 1 (ALL.args), the output on standard output
+link "meteor-contest"
+global output
+procedure main(argv)
+   output := &output;
+   run_meteorcontest(argv);
+end

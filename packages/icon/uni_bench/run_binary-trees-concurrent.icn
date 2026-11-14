@@ -1,0 +1,7 @@
+# run_binary-trees-concurrent.icn -- binary-trees-concurrent of Unicon's benchmark suite as its run-test.icn runs it: run_binarytrees_concurrent on 10 (ALL.args), the output on standard output
+link "binary-trees"
+global output
+procedure main(argv)
+   output := &output;
+   run_binarytrees_concurrent(argv);
+end

@@ -1,0 +1,23 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
+# shape: entries=19 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=18 chunks=1 sizes=18
+entry	part	cluster	shells
+concord	core	core	
+deal	chunk:01	family:deal	
+ipxref	chunk:01	family:ipxref	
+queens	chunk:01	family:queens	
+rsg	chunk:01	family:rsg	
+binary-trees	chunk:01	family:binary-trees	
+binary-trees-concurrent	chunk:01	family:binary-trees-concurrent	
+fannkuch	chunk:01	family:fannkuch	
+fasta	chunk:01	family:fasta	
+k-nucleotide	chunk:01	family:k-nucleotide	
+mandelbrot	chunk:01	family:mandelbrot	
+mandelbrot-concurrent	chunk:01	family:mandelbrot-concurrent	
+meteor-contest	chunk:01	family:meteor-contest	
+n-body	chunk:01	family:n-body	
+pidigits	chunk:01	family:pidigits	
+regex-dna	chunk:01	family:regex-dna	
+regex-dna-concurrent	chunk:01	family:regex-dna-concurrent	
+reverse-complement	chunk:01	family:reverse-complement	
+spectral-norm	chunk:01	family:spectral-norm	

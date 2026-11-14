@@ -1,0 +1,7 @@
+# run_fasta.icn -- fasta of Unicon's benchmark suite as its run-test.icn runs it: run_fasta on 1000 (ALL.args), the output on standard output
+link "fasta"
+global output
+procedure main(argv)
+   output := &output;
+   run_fasta(argv);
+end

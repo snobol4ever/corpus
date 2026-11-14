@@ -1,0 +1,7 @@
+# run_spectral-norm.icn -- spectral-norm of Unicon's benchmark suite as its run-test.icn runs it: run_spectralnorm on 100 (ALL.args), the output on standard output
+link "spectral-norm"
+global output
+procedure main(argv)
+   output := &output;
+   run_spectralnorm(argv);
+end

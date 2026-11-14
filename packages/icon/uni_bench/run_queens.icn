@@ -1,0 +1,7 @@
+# run_queens.icn -- queens of Unicon's benchmark suite as its run-test.icn runs it: run_queens on 9 (ALL.args), the output on standard output
+link "queens"
+global output
+procedure main(argv)
+   output := &output;
+   run_queens(argv);
+end

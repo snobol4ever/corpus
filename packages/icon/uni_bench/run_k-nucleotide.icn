@@ -1,0 +1,7 @@
+# run_k-nucleotide.icn -- k-nucleotide of Unicon's benchmark suite as its run-test.icn runs it: run_knucleotide on 25-thou.dat (ALL.args), the output on standard output
+link "k-nucleotide"
+global output
+procedure main(argv)
+   output := &output;
+   run_knucleotide(argv);
+end

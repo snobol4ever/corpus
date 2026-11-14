@@ -1,0 +1,7 @@
+# run_binary-trees.icn -- binary-trees of Unicon's benchmark suite as its run-test.icn runs it: run_binarytrees_sequential on 10 (ALL.args), the output on standard output
+link "binary-trees"
+global output
+procedure main(argv)
+   output := &output;
+   run_binarytrees_sequential(argv);
+end

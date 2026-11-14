@@ -1,0 +1,7 @@
+# run_mandelbrot.icn -- mandelbrot of Unicon's benchmark suite as its run-test.icn runs it: run_mandelbrot_sequential on 200 (ALL.args), the output on standard output
+link "mandelbrot"
+global output
+procedure main(argv)
+   output := &output;
+   run_mandelbrot_sequential(argv);
+end

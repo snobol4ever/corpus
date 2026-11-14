@@ -1,0 +1,7 @@
+# run_ipxref.icn -- ipxref of Unicon's benchmark suite as its run-test.icn runs it: run_ipxref on ipxref.test (ALL.args), the output on standard output
+link "ipxref"
+global output
+procedure main(argv)
+   output := &output;
+   run_ipxref(argv);
+end

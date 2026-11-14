@@ -1,0 +1,7 @@
+# run_regex-dna-concurrent.icn -- regex-dna-concurrent of Unicon's benchmark suite as its run-test.icn runs it: run_regexdna_concurrent on 10-thou.dat (ALL.args), the output on standard output
+link "regex-dna"
+global output
+procedure main(argv)
+   output := &output;
+   run_regexdna_concurrent(argv);
+end

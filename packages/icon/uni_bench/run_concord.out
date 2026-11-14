@@ -1,0 +1,800 @@
+     1  
+     2  
+     3  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+     4  
+     5  
+     6  NAME
+     7       icont - process Icon programs
+     8  
+     9  SYNOPSIS
+    10       icont [ option ... ] file ... [ -x arg ... ]
+    11  
+    12  DESCRIPTION
+    13       The program icont is a command processor for running Version
+    14       8 Icon programs.  Used in its simplest form, it produces a
+    15       file suitable for interpretation by the Icon interpreter.
+    16       Processing consists of two phases: translation and linking.
+    17       During translation, each Icon source file is translated into
+    18       an intermediate language called ucode; during linking, the
+    19       one or more ucode files are combined and a single icode file
+    20       is produced.  Unless the -o option is specified, the name of
+    21       the resulting icode file is formed by deleting the suffix of
+    22       the first input file named on the command line.  If the -x
+    23       argument is used, the file is automatically executed by the
+    24       interpreter and any arguments following the -x are passed as
+    25       execution arguments to the Icon program itself.
+    26  
+    27       Files whose names end in .icn are assumed to be Icon source
+    28       programs.  The .icn suffix may be omitted; it will be sup-
+    29       plied automatically.  These programs are translated, and the
+    30       intermediate code is left in two ucode files of the same
+    31       name with .u1 and .u2 substituted for .icn.  The ucode files
+    32       normally are deleted when icont completes.  Files whose
+    33       names end in .u1 are assumed to refer to ucode files from a
+    34       previous translation; these files and the corresponding .u2
+    35       files are included in the linking phase after any .icn files
+    36       have been translated.  The suffix .u can be used in place of
+    37       .u1; in this case the 1 is supplied automatically.  A .u1 or
+    38       .u2 file that is explicitly named is not deleted.  Icon
+    39       source programs may be read from standard input.  The argu-
+    40       ment - signifies the use of standard input as a source file.
+    41       In this case, the ucode files are named stdin.u1 and
+    42       stdin.u2 and the icode file is named stdin.
+    43  
+    44       The following options are recognized by icont:
+    45  
+    46       -c  Suppress the linking phase.  The ucode code files are
+    47           not deleted.
+    48  
+    49       -m  Preprocess each .icn source file with the m4(1) macro
+    50           processor before translation.
+    51  
+    52       -o output
+    53           Name the icode file output.
+    54  
+    55       -s  Suppress informative messages from the translator and
+    56           linker.  Normally, both informative messages and error
+    57           messages are sent to standard error output.
+    58  
+    59       -t  Arrange for &trace to have an initial value of -1 when
+    60  
+    61  
+    62  Printed 12/29/89Icon Project - 1/1/1990 - IPD109                1
+    63  
+    64  
+    65  
+    66  
+    67  
+    68  
+    69  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+    70  
+    71  
+    72           the program is executed.  Normally, &trace has an ini-
+    73           tial value of 0.
+    74  
+    75       -u  Issue warning messages for undeclared identifiers in the
+    76           program.  The warnings are issued during the linking
+    77           phase.
+    78  
+    79       Icon has several tables related to the translation and link-
+    80       ing of programs.  These tables are large enough for most
+    81       programs, but their sizes can be changed, if necessary, by
+    82       the -S option. This option has the form -S[cfgilnrstCFL]n,
+    83       where the letter following the S specifies the table and n
+    84       is the number of storage units to allocate for the table.
+    85       The tables and their default sizes are:
+    86  
+    87            c   constant table             100
+    88            f   field table                100
+    89            g   global symbol table        200
+    90            i   identifier table           500
+    91            l   local symbol table         100
+    92            n   line number space         1000
+    93            r   field table for records    100
+    94            s   string space             20000
+    95            t   tree space               15000
+    96            C   code buffer              15000
+    97            F   file names                  10
+    98            L   labels                     500
+    99  
+   100       The units depend on the table involved, but the default
+   101       values can be used as a general guide for appropriate set-
+   102       tings of -S options without knowing the units.
+   103  
+   104       The environment variable IPATH controls the location of
+   105       files specified in link directives. The value of IPATH
+   106       should be a blank-separated string of the form p1 p2 ...  pn
+   107       where the pi name directories.  Each directory is searched
+   108       in turn to locate files named in link directives. The
+   109       default value for IPATH is . , that is, the current direc-
+   110       tory.  The current path is always searched first, regardless
+   111       of the value of IPATH.
+   112  
+   113       The icode file produced by the Icon linker is executable.
+   114       For example, the command
+   115  
+   116            icont hello.icn
+   117  
+   118       produces a file named hello that can be run by the command
+   119  
+   120            hello
+   121  
+   122  
+   123       Arguments can be passed to the Icon program by following the
+   124       program name with the arguments.  Any such arguments are
+   125       passed to the main procedure as a list of strings.
+   126  
+   127  
+   128  Printed 12/29/89Icon Project - 1/1/1990 - IPD109                2
+   129  
+   130  
+   131  
+   132  
+   133  
+   134  
+   135  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+   136  
+   137  
+   138       The location of iconx, the executor for icode files, is
+   139       built into an icode file when it is produced. This location
+   140       can be overridden by setting the environment variable ICONX
+   141       as described below.  If ICONX is not set and iconx is not
+   142       found on the built-in path, PATH is searched for it.
+   143  
+   144       When an Icon program is executed, several environment vari-
+   145       ables are examined to determine certain execution parame-
+   146       ters.  Expect for ICONX, NOERRBUF, and ICONCORE, the values
+   147       assigned to these variables should be numbers.  The vari-
+   148       ables that affect execution and the interpretations of their
+   149       values follow. Numbers in parentheses are the default
+   150       values.
+   151  
+   152       ICONX
+   153           If this environment variable is set, it specifies the
+   154           location of iconx to use to execute an icode file.
+   155  
+   156       TRACE
+   157           Initialize the value of &trace.  If this variable has a
+   158           value, it overrides the translation-time -t option.
+   159  
+   160       NOERRBUF
+   161           By default, &errout is buffered.  If this variable is
+   162           set, &errout is not buffered.
+   163  
+   164       ICONCORE
+   165           If set, a core dump is produced for error termination.
+   166  
+   167       STRSIZE (65000)
+   168           The initial size of the string space, in bytes.  The
+   169           string space grows if necessary, but it never shrinks.
+   170  
+   171       HEAPSIZE (65000)
+   172           The initial size of the allocated block region, in
+   173           bytes.  The block region grows if necessary, but it
+   174           never shrinks.
+   175  
+   176       COEXPSIZE (2000)
+   177           The size, in words, of each co-expression block.
+   178  
+   179       MSTKSIZE (10000)
+   180           The size, in words, of the main interpreter stack.
+   181  
+   182       STATSIZE (20480)
+   183           The size, in bytes, of the static region in which co-
+   184           expression blocks are allocated. If co-expressions are
+   185           not implemented, the default size is 1024.
+   186  
+   187       STATINCR
+   188           The size of the increment used when the static region is
+   189           expanded.  The default increment is one-fourth of the
+   190           initial size of the static region.
+   191  
+   192  
+   193  
+   194  Printed 12/29/89Icon Project - 1/1/1990 - IPD109                3
+   195  
+   196  
+   197  
+   198  
+   199  
+   200  
+   201  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+   202  
+   203  
+   204       QLSIZE (5000)
+   205           The size, in bytes, of the region used for pointers to
+   206           strings during garbage collection (fixed-regions imple-
+   207           mentations only).
+   208  
+   209       MEMMON
+   210           The name of the output file for memory monitoring.
+   211  
+   212  FILES
+   213       icont     Icon command processor
+   214       iconx     Icon executor
+   215  
+   216  SEE ALSO
+   217       The Icon Programming Language, Ralph E. Griswold and Madge
+   218       T. Griswold, Prentice-Hall Inc., Englewood Cliffs, New Jer-
+   219       sey, 1983.
+   220  
+   221       Version 8 of Icon, Ralph E. Griswold, TR 90-1, Department of
+   222       Computer Science, The University of Arizona, 1990.
+   223  
+   224       m4(1), iconpi(1), iconvt(1)
+   225  
+   226  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+   227  
+   228  
+   229  NAME
+   230       icont - process Icon programs
+   231  
+   232  SYNOPSIS
+   233       icont [ option ... ] file ... [ -x arg ... ]
+   234  
+   235  DESCRIPTION
+   236       The program icont is a command processor for running Version
+   237       8 Icon programs.  Used in its simplest form, it produces a
+   238       file suitable for interpretation by the Icon interpreter.
+   239       Processing consists of two phases: translation and linking.
+   240       During translation, each Icon source file is translated into
+   241       an intermediate language called ucode; during linking, the
+   242       one or more ucode files are combined and a single icode file
+   243       is produced.  Unless the -o option is specified, the name of
+   244       the resulting icode file is formed by deleting the suffix of
+   245       the first input file named on the command line.  If the -x
+   246       argument is used, the file is automatically executed by the
+   247       interpreter and any arguments following the -x are passed as
+   248       execution arguments to the Icon program itself.
+   249  
+   250       Files whose names end in .icn are assumed to be Icon source
+   251       programs.  The .icn suffix may be omitted; it will be sup-
+   252       plied automatically.  These programs are translated, and the
+   253       intermediate code is left in two ucode files of the same
+   254       name with .u1 and .u2 substituted for .icn.  The ucode files
+   255       normally are deleted when icont completes.  Files whose
+   256       names end in .u1 are assumed to refer to ucode files from a
+   257       previous translation; these files and the corresponding .u2
+   258       files are included in the linking phase after any .icn files
+   259       have been translated.  The suffix .u can be used in place of
+   260       .u1; in this case the 1 is supplied automatically.  A .u1 or
+   261       .u2 file that is explicitly named is not deleted.  Icon
+   262       source programs may be read from standard input.  The argu-
+   263       ment - signifies the use of standard input as a source file.
+   264       In this case, the ucode files are named stdin.u1 and
+   265       stdin.u2 and the icode file is named stdin.
+   266  
+   267       The following options are recognized by icont:
+   268  
+   269       -c  Suppress the linking phase.  The ucode code files are
+   270           not deleted.
+   271  
+   272       -m  Preprocess each .icn source file with the m4(1) macro
+   273           processor before translation.
+   274  
+   275       -o output
+   276           Name the icode file output.
+   277  
+   278       -s  Suppress informative messages from the translator and
+   279           linker.  Normally, both informative messages and error
+   280           messages are sent to standard error output.
+   281  
+   282       -t  Arrange for &trace to have an initial value of -1 when
+   283  
+   284  
+   285  Printed 12/29/89Icon Project - 1/1/1990 - IPD109                1
+   286  
+   287  
+   288  
+   289  
+   290  
+   291  
+   292  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+   293  
+   294  
+   295           the program is executed.  Normally, &trace has an ini-
+   296           tial value of 0.
+   297  
+   298       -u  Issue warning messages for undeclared identifiers in the
+   299           program.  The warnings are issued during the linking
+   300           phase.
+   301  
+   302       Icon has several tables related to the translation and link-
+   303       ing of programs.  These tables are large enough for most
+   304       programs, but their sizes can be changed, if necessary, by
+   305       the -S option. This option has the form -S[cfgilnrstCFL]n,
+   306       where the letter following the S specifies the table and n
+   307       is the number of storage units to allocate for the table.
+   308       The tables and their default sizes are:
+   309  
+   310            c   constant table             100
+   311            f   field table                100
+   312            g   global symbol table        200
+   313            i   identifier table           500
+   314            l   local symbol table         100
+   315            n   line number space         1000
+   316            r   field table for records    100
+   317            s   string space             20000
+   318            t   tree space               15000
+   319            C   code buffer              15000
+   320            F   file names                  10
+   321            L   labels                     500
+   322  
+   323       The units depend on the table involved, but the default
+   324       values can be used as a general guide for appropriate set-
+   325       tings of -S options without knowing the units.
+   326  
+   327       The environment variable IPATH controls the location of
+   328       files specified in link directives. The value of IPATH
+   329       should be a blank-separated string of the form p1 p2 ...  pn
+   330       where the pi name directories.  Each directory is searched
+   331       in turn to locate files named in link directives. The
+   332       default value for IPATH is . , that is, the current direc-
+   333       tory.  The current path is always searched first, regardless
+   334       of the value of IPATH.
+   335  
+   336       The icode file produced by the Icon linker is executable.
+   337       For example, the command
+   338  
+   339            icont hello.icn
+   340  
+   341       produces a file named hello that can be run by the command
+   342  
+   343            hello
+   344  
+   345  
+   346       Arguments can be passed to the Icon program by following the
+   347       program name with the arguments.  Any such arguments are
+   348       passed to the main procedure as a list of strings.
+   349  
+   350  
+   351  Printed 12/29/89Icon Project - 1/1/1990 - IPD109                2
+   352  
+   353  
+   354  
+   355  
+   356  
+   357  
+   358  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+   359  
+   360  
+   361       The location of iconx, the executor for icode files, is
+   362       built into an icode file when it is produced. This location
+   363       can be overridden by setting the environment variable ICONX
+   364       as described below.  If ICONX is not set and iconx is not
+   365       found on the built-in path, PATH is searched for it.
+   366  
+   367       When an Icon program is executed, several environment vari-
+   368       ables are examined to determine certain execution parame-
+   369       ters.  Expect for ICONX, NOERRBUF, and ICONCORE, the values
+   370       assigned to these variables should be numbers.  The vari-
+   371       ables that affect execution and the interpretations of their
+   372       values follow. Numbers in parentheses are the default
+   373       values.
+   374  
+   375       ICONX
+   376           If this environment variable is set, it specifies the
+   377           location of iconx to use to execute an icode file.
+   378  
+   379       TRACE
+   380           Initialize the value of &trace.  If this variable has a
+   381           value, it overrides the translation-time -t option.
+   382  
+   383       NOERRBUF
+   384           By default, &errout is buffered.  If this variable is
+   385           set, &errout is not buffered.
+   386  
+   387       ICONCORE
+   388           If set, a core dump is produced for error termination.
+   389  
+   390       STRSIZE (65000)
+   391           The initial size of the string space, in bytes.  The
+   392           string space grows if necessary, but it never shrinks.
+   393  
+   394       HEAPSIZE (65000)
+   395           The initial size of the allocated block region, in
+   396           bytes.  The block region grows if necessary, but it
+   397           never shrinks.
+   398  
+   399       COEXPSIZE (2000)
+   400           The size, in words, of each co-expression block.
+   401  
+   402       MSTKSIZE (10000)
+   403           The size, in words, of the main interpreter stack.
+   404  
+   405       STATSIZE (20480)
+   406           The size, in bytes, of the static region in which co-
+   407           expression blocks are allocated. If co-expressions are
+   408           not implemented, the default size is 1024.
+   409  
+   410       STATINCR
+   411           The size of the increment used when the static region is
+   412           expanded.  The default increment is one-fourth of the
+   413           initial size of the static region.
+   414  
+   415  
+   416  
+   417  Printed 12/29/89Icon Project - 1/1/1990 - IPD109                3
+   418  
+   419  
+   420  
+   421  
+   422  
+   423  
+   424  ICONT(1)            UNIX Programmer's Manual             ICONT(1)
+   425  
+   426  
+   427       QLSIZE (5000)
+   428           The size, in bytes, of the region used for pointers to
+   429           strings during garbage collection (fixed-regions imple-
+   430           mentations only).
+   431  
+   432       MEMMON
+   433           The name of the output file for memory monitoring.
+   434  
+   435  FILES
+   436       icont     Icon command processor
+   437       iconx     Icon executor
+   438  
+   439  SEE ALSO
+   440       The Icon Programming Language, Ralph E. Griswold and Madge
+   441       T. Griswold, Prentice-Hall Inc., Englewood Cliffs, New Jer-
+   442       sey, 1983.
+   443  
+   444       Version 8 of Icon, Ralph E. Griswold, TR 90-1, Department of
+   445       Computer Science, The University of Arizona, 1990.
+   446  
+   447       m4(1), iconpi(1), iconvt(1)
+ables          145, 148, 368, 371
+affect         148, 371
+after          35, 258
+allocate       84, 307
+allocated      172, 184, 395, 407
+also           216, 439
+always         110, 333
+and            16, 19, 24, 29, 31, 34, 41, 42, 55, 56, 79, 83, 85, 141,
+               146, 148, 217, 239, 242, 247, 252, 254, 257, 264, 265,
+               278, 279, 302, 306, 308, 364, 369, 371, 440
+any            24, 35, 124, 247, 258, 347
+appropriate    101, 324
+are            19, 24, 27, 29, 32, 33, 35, 41, 44, 46, 57, 76, 80, 85,
+               124, 145, 149, 184(2), 242, 247, 250, 252, 255, 256, 258,
+               264, 267, 269, 280, 299, 303, 308, 347, 368, 372, 407(2)
+arg            10, 233
+argu           39, 262
+argument       23, 246
+arguments      24, 25, 123, 124(2), 247, 248, 346, 347(2)
+arizona        222, 445
+arrange        59, 282
+assigned       147, 370
+assumed        27, 33, 250, 256
+automatically  23, 29, 37, 246, 252, 260
+been           36, 259
+before         50, 273
+below          141, 364
+blank          106, 329
+block          172, 173, 177, 395, 396, 400
+blocks         184, 407
+both           56, 279
+buffer         96, 319
+buffered       161, 162, 384, 385
+built          139, 142, 362, 365
+but            81, 100, 169, 173, 304, 323, 392, 396
+bytes          168, 173, 183, 205, 391, 396, 406, 428
+called         18, 241
+can            36, 81, 101, 118, 123, 140, 259, 304, 324, 341, 346, 363
+case           37, 41, 260, 264
+certain        145, 368
+cfgilnrstcfl   82, 305
+changed        81, 304
+cliffs         218, 441
+code           30, 46, 96, 253, 269, 319
+coexpsize      176, 399
+collection     206, 429
+combined       19, 242
+command        13, 22, 114, 118, 213, 236, 245, 337, 341, 436
+completes      32, 255
+computer       222, 445
+consists       16, 239
+constant       87, 310
+controls       104, 327
+core           165, 388
+corresponding  34, 257
+current        109, 110, 332, 333
+default        85, 100, 109, 149, 161, 185, 189, 308, 323, 332, 372,
+               384, 408, 412
+deleted        32, 38, 47, 255, 261, 270
+deleting       21, 244
+department     221, 444
+depend         100, 323
+described      141, 364
+description    12, 235
+determine      145, 368
+direc          109, 332
+directives     105, 108, 328, 331
+directories    107, 330
+directory      107, 330
+dump           165, 388
+during         17, 18, 76, 206, 240, 241, 299, 429
+each           17, 49, 107, 177, 240, 272, 330, 400
+end            27, 33, 250, 256
+englewood      218, 441
+enough         80, 303
+environment    104, 140, 144, 153, 327, 363, 367, 376
+error          56, 57, 165, 279, 280, 388
+errout         161, 162, 384, 385
+examined       145, 368
+example        114, 337
+executable     113, 336
+execute        154, 377
+executed       23, 72, 144, 246, 295, 367
+execution      25, 145, 148, 248, 368, 371
+executor       138, 214, 361, 437
+expanded       189, 412
+expect         146, 369
+explicitly     38, 261
+expression     177, 184, 400, 407
+expressions    184, 407
+field          88, 93, 311, 316
+file           10, 15, 17, 19, 21, 22, 23, 38, 40, 42, 49, 53, 97, 113,
+               118, 139, 154, 210, 233, 238, 240, 242, 244, 245, 246,
+               261, 263, 265, 272, 276, 320, 336, 341, 362, 377, 433
+files          19, 27, 30, 31, 32, 33, 34, 35(2), 41, 46, 105, 108, 138,
+               212, 242, 250, 253, 254, 255, 256, 257, 258(2), 264, 269,
+               328, 331, 361, 435
+first          22, 110, 245, 333
+fixed          206, 429
+follow         149, 372
+following      24, 44, 83, 123, 247, 267, 306, 346
+for            13, 15, 31, 59, 75, 80, 84, 93, 101, 109, 114, 138, 142,
+               146, 165, 205, 210, 236, 238, 254, 282, 298, 303, 307,
+               316, 324, 332, 337, 361, 365, 369, 388, 428, 433
+form           14, 82, 106, 237, 305, 329
+formed         21, 244
+found          142, 365
+fourth         189, 412
+from           33, 39, 55, 256, 262, 278
+garbage        206, 429
+general        101, 324
+global         89, 312
+griswold       217, 218, 221, 440, 441, 444
+grows          169, 173, 392, 396
+guide          101, 324
+hall           218, 441
+has            72, 79, 82, 157, 295, 302, 305, 380
+have           36, 59, 259, 282
+heapsize       171, 394
+hello          116, 118, 120, 339, 341, 343
+icn            27, 28, 31, 35, 49, 116, 250, 251, 254, 258, 272, 339
+icode          19, 21, 42, 53, 113, 138, 139, 154, 242, 244, 265, 276,
+               336, 361, 362, 377
+icon           7, 14, 15, 17, 25, 27, 38, 62, 79, 113, 123, 128, 144,
+               194, 213, 214, 217, 221, 230, 237, 238, 240, 248, 250,
+               261, 285, 302, 336, 346, 351, 367, 417, 436, 437, 440,
+               444
+iconcore       146, 164, 369, 387
+iconpi         224, 447
+icont          3(2), 7, 10, 13, 32, 44, 69(2), 116, 135(2), 201(2), 213,
+               226(2), 230, 233, 236, 255, 267, 292(2), 339, 358(2),
+               424(2), 436
+iconvt         224, 447
+iconx          138, 140, 141(2), 146, 152, 154, 214, 361, 363, 364(2),
+               369, 375, 377, 437
+identifier     90, 313
+identifiers    75, 298
+imple          206, 429
+implemented    185, 408
+inc            218, 441
+included       35, 258
+increment      188, 189, 411, 412
+informative    55, 56, 278, 279
+ing            80, 303
+ini            72, 295
+initial        59, 168, 172, 190, 282, 391, 395, 413
+initialize     157, 380
+input          22, 39, 40, 245, 262, 263
+intermediate   18, 30, 241, 253
+interpretation 15, 238
+interpretations148, 371
+interpreter    15, 24, 180, 238, 247, 403
+into           17, 139, 240, 362
+involved       100, 323
+ipath          104, 105, 109, 111, 327, 328, 332, 334
+ipd            62, 128, 194, 285, 351, 417
+issue          75, 298
+issued         76, 299
+its            14, 237
+itself         25, 248
+jer            218, 441
+knowing        102, 325
+labels         98, 321
+language       18, 217, 241, 440
+large          80, 303
+left           30, 253
+letter         83, 306
+line           22, 92, 245, 315
+link           79, 105, 108, 302, 328, 331
+linker         56, 113, 279, 336
+linking        16, 18, 35, 46, 76, 239, 241, 258, 269, 299
+list           125, 348
+local          91, 314
+locate         108, 331
+location       104, 138, 139, 154, 327, 361, 362, 377
+macro          49, 272
+madge          217, 440
+main           125, 180, 348, 403
+manual         3, 69, 135, 201, 226, 292, 358, 424
+may            28, 39, 251, 262
+memmon         209, 432
+memory         210, 433
+ment           40, 263
+mentations     207, 430
+messages       55, 56, 57, 75, 278, 279, 280, 298
+monitoring     210, 433
+more           19, 242
+most           80, 303
+mstksize       179, 402
+name           6, 20, 31, 53, 107, 124, 210, 229, 243, 254, 276, 330,
+               347, 433
+named          22, 38, 41, 42, 108, 118, 245, 261, 264, 265, 331, 341
+names          27, 33, 97, 250, 256, 320
+necessary      81, 169, 173, 304, 392, 396
+never          169, 174, 392, 397
+new            218, 441
+noerrbuf       146, 160, 369, 383
+normally       32, 56, 72, 255, 279, 295
+not            38, 47, 141(2), 162, 185, 261, 270, 364(2), 385, 408
+number         84, 92, 307, 315
+numbers        147, 149, 370, 372
+omitted        28, 251
+one            19, 189, 242, 412
+only           207, 430
+option         10, 20, 82(2), 158, 233, 243, 305(2), 381
+options        44, 102, 267, 325
+output         52, 53, 57, 210, 275, 276, 280, 433
+overridden     140, 363
+overrides      158, 381
+parame         145, 368
+parentheses    149, 372
+passed         24, 123, 125, 247, 346, 348
+path           110, 142(2), 333, 365(2)
+phase          35, 46, 77, 258, 269, 300
+phases         16, 239
+place          36, 259
+plied          29, 252
+pointers       205, 428
+prentice       218, 441
+preprocess     49, 272
+previous       34, 257
+printed        62, 128, 194, 285, 351, 417
+procedure      125, 348
+process        7, 230
+processing     16, 239
+processor      13, 50, 213, 236, 273, 436
+produced       20, 113, 139, 165, 243, 336, 362, 388
+produces       14, 118, 237, 341
+program        13, 25, 72, 76, 123, 124, 144, 236, 248, 295, 299, 346,
+               347, 367
+programmer     3, 69, 135, 201, 226, 292, 358, 424
+programming    217, 440
+programs       7, 14, 28, 29, 39, 80, 81, 230, 237, 251, 252, 262, 303,
+               304
+project        62, 128, 194, 285, 351, 417
+qlsize         204, 427
+ralph          217, 221, 440, 444
+read           39, 262
+recognized     44, 267
+records        93, 316
+refer          33, 256
+regardless     110, 333
+region         172, 173, 183, 188, 190, 205, 395, 396, 406, 411, 413,
+               428
+regions        206, 429
+related        79, 302
+resulting      21, 244
+run            118, 341
+running        13, 236
+same           30, 253
+science        222, 445
+searched       107, 110, 142, 330, 333, 365
+see            216, 439
+sent           57, 280
+separated      106, 329
+set            101, 141, 153, 162, 165, 324, 364, 376, 385, 388
+setting        140, 363
+several        79, 144, 302, 367
+sey            219, 442
+should         106, 147, 329, 370
+shrinks        169, 174, 392, 397
+signifies      40, 263
+simplest       14, 237
+single         19, 242
+size           168, 172, 177, 180, 183, 185, 188, 190, 205, 391, 395,
+               400, 403, 406, 408, 411, 413, 428
+sizes          81, 85, 304, 308
+source         17, 27, 39, 40, 49, 240, 250, 262, 263, 272
+space          92, 94, 95, 168, 169, 315, 317, 318, 391, 392
+specified      20, 105, 243, 328
+specifies      83, 153, 306, 376
+stack          180, 403
+standard       39, 40, 57, 262, 263, 280
+static         183, 188, 190, 406, 411, 413
+statincr       187, 410
+statsize       182, 405
+stdin          41, 42(2), 264, 265(2)
+storage        84, 307
+string         94, 106, 168, 169, 317, 329, 391, 392
+strings        125, 206, 348, 429
+strsize        167, 390
+substituted    31, 254
+such           124, 347
+suffix         21, 28, 36, 244, 251, 259
+suitable       15, 238
+sup            28, 251
+supplied       37, 260
+suppress       46, 55, 269, 278
+symbol         89, 91, 312, 314
+synopsis       9, 232
+table          83, 84, 87, 88, 89, 90, 91, 93, 100, 306, 307, 310, 311,
+               312, 313, 314, 316, 323
+tables         79, 80, 85, 302, 303, 308
+termination    165, 388
+ters           146, 369
+that           38, 109, 118, 148, 261, 332, 341, 371
+the            13, 15, 18, 20(2), 21(2), 22(2), 22, 23(2), 24, 25, 28,
+               29, 30, 31, 34, 35, 36, 37, 39, 40, 41, 42, 44, 46(2),
+               49, 53, 55, 72, 75, 76(2), 79, 82(2), 83(2), 83, 84(2),
+               85, 100(2), 100, 102, 104(2), 105, 106, 107, 108, 109,
+               110, 111, 113(2), 114, 118, 123(2), 124, 125, 138(2),
+               140, 142, 146, 147, 148, 149, 153, 157, 158, 168(2), 168,
+               172(2), 173, 177, 180(2), 183(2), 185, 188(2), 188,
+               189(2), 190, 205(2), 210(2), 217, 222, 236, 238, 241,
+               243(2), 244(2), 245(2), 245, 246(2), 247, 248, 251, 252,
+               253, 254, 257, 258, 259, 260, 262, 263, 264, 265, 267,
+               269(2), 272, 276, 278, 295, 298, 299(2), 302, 305(2),
+               306(2), 306, 307(2), 308, 323(2), 323, 325, 327(2), 328,
+               329, 330, 331, 332, 333, 334, 336(2), 337, 341, 346(2),
+               347, 348, 361(2), 363, 365, 369, 370, 371, 372, 376, 380,
+               381, 391(2), 391, 395(2), 396, 400, 403(2), 406(2), 408,
+               411(2), 411, 412(2), 413, 428(2), 433(2), 440, 445
+their          81, 85, 148, 304, 308, 371
+these          29, 34, 80, 147, 252, 257, 303, 370
+this           37, 41, 82, 139, 153, 157, 161, 260, 264, 305, 362, 376,
+               380, 384
+tial           73, 296
+time           158, 381
+tings          102, 325
+tory           110, 333
+trace          59, 72, 156, 157, 282, 295, 379, 380
+translated     17, 29, 36, 240, 252, 259
+translation    16, 17, 34, 50, 79, 158, 239, 240, 257, 273, 302, 381
+translator     55, 278
+tree           95, 318
+turn           108, 331
+two            16, 30, 239, 253
+ucode          18, 19, 30, 31, 33, 41, 46, 241, 242, 253, 254, 256, 264,
+               269
+undeclared     75, 298
+units          84, 100, 102, 307, 323, 325
+university     222, 445
+unix           3, 69, 135, 201, 226, 292, 358, 424
+unless         20, 243
+use            40, 154, 263, 377
+used           14, 23, 36, 101, 188, 205, 237, 246, 259, 324, 411, 428
+value          59, 73, 105, 109, 111, 157, 158, 282, 296, 328, 332, 334,
+               380, 381
+values         101, 146, 149, 150, 324, 369, 372, 373
+vari           144, 147, 367, 370
+variable       104, 140, 153, 157, 161, 327, 363, 376, 380, 384
+variables      147, 370
+version        13, 221, 236, 444
+warning        75, 298
+warnings       76, 299
+when           32, 59, 139, 144, 188, 255, 282, 362, 367, 411
+where          83, 107, 306, 330
+which          183, 406
+whose          27, 32, 250, 255
+will           28, 251
+with           31, 49, 124, 254, 272, 347
+without        102, 325
+words          177, 180, 400, 403

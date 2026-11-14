@@ -1,0 +1,7 @@
+# run_fannkuch.icn -- fannkuch of Unicon's benchmark suite as its run-test.icn runs it: run_fannkuch on 7 (ALL.args), the output on standard output
+link "fannkuch"
+global output
+procedure main(argv)
+   output := &output;
+   run_fannkuch(argv);
+end

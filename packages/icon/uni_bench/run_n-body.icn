@@ -1,0 +1,7 @@
+# run_n-body.icn -- n-body of Unicon's benchmark suite as its run-test.icn runs it: run_nbody on 1000 (ALL.args), the output on standard output
+link "n-body"
+global output
+procedure main(argv)
+   output := &output;
+   run_nbody(argv);
+end

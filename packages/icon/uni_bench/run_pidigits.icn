@@ -1,0 +1,7 @@
+# run_pidigits.icn -- pidigits of Unicon's benchmark suite as its run-test.icn runs it: run_pidigits on 500 (ALL.args), the output on standard output
+link "pidigits"
+global output
+procedure main(argv)
+   output := &output;
+   run_pidigits(argv);
+end

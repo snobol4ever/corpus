@@ -1,0 +1,5 @@
+oracle	unicon	the answers are cut from the Unicon translator through unicon_bin() (skill unicon R2): each module compiled by unicon -s -c and each driver built against them, as the distribution's Makefile builds its run-test
+unmarked_compile_args	--dialect=unicon	CTO-473: the benchmarks are Unicon programs (pool.icn carries classes, the others are Unicon because the package says so)
+ipath	.	the twenty modules the drivers link (the eighteen benchmarks, pool and shuffle) sit beside the drivers at the package root
+ipath	../uni_ipl/procs	printf, which n-body, pidigits and k-nucleotide link: Unicon's own copy, semicolon-ready in the sibling uni_ipl, searched before Arizona's
+ipath	../ipl/procs	sort and findre, which k-nucleotide and regex-dna link, semicolon-ready in the sibling ipl

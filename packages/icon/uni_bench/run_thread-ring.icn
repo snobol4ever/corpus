@@ -1,0 +1,7 @@
+# run_thread-ring.icn -- thread-ring of Unicon's benchmark suite as its run-test.icn runs it: run_threadring on 1000 (ALL.args), the output on standard output
+link "thread-ring"
+global output
+procedure main(argv)
+   output := &output;
+   run_threadring(argv);
+end

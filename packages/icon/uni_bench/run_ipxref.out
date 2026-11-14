@@ -1,0 +1,251 @@
+variable	procedure		line numbers
+
+Bg *            about_sesrit            494 
+Bg *            buttons                 428 445 463 479 
+Bg *            game_loop               184 
+Bg *            game_over               364 378 
+Bg *            pause                   400 
+CenterString *  about_sesrit            499 500 501 502 503 504 
+CenterString *  pause                   413 
+Clone *         init                     80  82 
+DrawRectangle * buttons                 431 466 482 
+DrawRectangle * drawcell                126 
+DrawRectangle * init                     95 110 
+DrawRectangle * refresh_screen          524 
+DrawString *    buttons                 434 449 469 484 
+DrawString *    drawstat                130 131 132 133 
+DrawString *    init                     90  98 100 
+DrawString *    pause                   404 
+EraseArea *     about_sesrit            496 
+EraseArea *     buttons                 429 446 464 480 
+EraseArea *     game_loop               183 186 
+EraseArea *     game_over               363 366 
+EraseArea *     init                     89 
+EraseArea *     pause                   401 408 
+EraseArea *     place_piece             250 
+Event *         about_sesrit            506 
+Event *         buttons                 424 
+Event *         game_loop               140 
+Fg *            buttons                 433 448 468 
+Fg *            game_loop               172 176 
+Fg *            game_over               371 379 
+Fg *            init                     97  99 107 
+Fg *            pause                   403 411 
+Fg *            scanrows                322 329 
+FillRectangle * about_sesrit            497 
+FillRectangle * drawcell                125 
+FillRectangle * game_over               375 
+FillRectangle * init                    108 
+FillRectangle * pause                   405 
+FillRectangle * place_piece             252 
+FillRectangle * refresh_screen          522 
+Font *          buttons                 432 435 447 467 470 
+Font *          game_over               389 
+Font *          pause                   402 412 
+GotoXY *        init                     92 
+Key_Down        game_loop               143 
+Key_Left        game_loop               141 
+Key_Right       game_loop               142 
+Key_Up          game_loop               144 
+L               global                   57 113 114 119 181 254 257 273 278 
+					316 343 348 351 355 522 523 
+Pending *       about_sesrit            508 
+Pending *       buttons                 423 
+Pending *       game_loop               139 170 
+TextDialog *    game_over               390 
+WAttrib *       buttons                 430 465 476 477 481 483 
+WAttrib *       init                     88  91  94 101 109 
+WClose *        about_sesrit            509 
+WOpen *         about_sesrit            491 
+WOpen *         init                     76 
+WSync *         deleterows              359 
+WSync *         game_loop               194 
+WSync *         place_piece             262 
+WWrites *       init                     93 
+about           about_sesrit            491 499 500 501 502 503 504 506 509 
+about_sesrit *  buttons                 439 452 
+about_sesrit *  game_loop               147 156 
+activecellcolor global                   57 117 119 179 181 187 257 258 260 
+					284 296 519 
+activecells     global                   57 116 118 165 178 180 185 242 251 
+					263 274 286 289 294 312 518 
+basesize        deleterows              348 350 
+button_status   global                   59  87 398 450 454 458 462 
+buttons *       main                     65 
+buttons *       pause                   414 
+c               init                     78  80  80 
+cell            about_sesrit            495 496 496 
+cell            game_loop               185 186 186 187 189 190 191 
+cell            game_over               365 366 367 
+cell            move_piece              242 243 243 
+cell            pause                   407 408 408 
+cell            place_piece             251 253 253 254 254 256 257 257 258 
+					258 260 
+cell            refresh_screen          515 516 516 518 519 
+cell            rotate_piece            294 295 
+cells           collision               270 271 
+centerpoint     rotate_piece            286 290 290 302 303 
+collision *     place_piece             248 
+color           drawcell                124 125 
+colors          global                   58  77  80  81  81 125 126 252 375 
+					405 497 522 524 
+copy *          game_loop               178 179 
+copy *          init                    116 117 
+copy *          newobject               206 
+copy *          rotate_piece            286 295 
+current_row     deleterows              338 342 344 347 350 356 
+delay *         game_loop               195 
+delaytime       global                   58 112 195 328 
+deleterows *    scanrows                331 
+differencelist  rotate_piece            288 291 302 303 
+dlg_text        game_over               381 383 384 386 387 390 
+drawcell *      game_loop               187 190 
+drawcell *      game_over               372 
+drawcell *      place_piece             258 260 
+drawcell *      refresh_screen          516 519 
+drawstat *      game_loop               173 177 
+drawstat *      init                    105 
+drawstat *      scanrows                323 330 
+e               buttons                 424 426 427 
+exit *          buttons                 438 442 
+exit *          game_loop               146 161 
+exit *          game_over               391 
+foo             collision               271 272 272 273 273 275 275 278 278 
+foo             rotate_piece            300 301 302 303 
+game_loop *     main                     68 
+game_over *     game_loop               166 
+game_status     global                   59  86 137 148 399 418 426 427 510 
+get *           about_sesrit            508 
+get *           game_loop               170 
+highscore *     game_over               382 
+horiz           place_piece             247 249 259 
+i               newobject               218 219 220 221 
+include         global                   55 
+init *          main                     63  69 
+insert *        deleterows              341 
+integer *       scanrows                325 
+ldrag           buttons                 456 
+level           global                   58 102 129 132 323 325 328 330 
+list *          deleterows              351 
+list *          init                    113 114 
+list *          rotate_piece            285 288 
+lpress          buttons                 441 
+lpress          game_loop               151 
+lrelease        buttons                 460 
+lrelease        game_loop               159 
+main *          buttons                 440 453 
+maxx            newobject               213 217 220 
+maxy            newobject               212 216 219 
+member *        deleterows              350 
+meta            buttons                 426 427 438 439 440 
+meta            game_loop               146 147 148 149 
+minx            newobject               213 215 220 223 
+miny            newobject               212 214 219 222 222 
+move_piece *    game_loop               141 142 145 164 
+mult1           rotate_piece            283 297 302 
+mult2           rotate_piece            283 297 303 
+newactivecells  move_piece              241 243 244 
+newactivecells  place_piece             247 248 256 263 
+newactivecells  rotate_piece            285 295 300 301 305 
+newobject *     game_loop               182 
+newobject *     init                    115 120 
+newobject *     newobject               224 225 
+nextcolor       global                   57 117 179 191 203 227 517 
+nextpiece       global                   57 116 178 189 204 206 209 210 212 
+					213 214 215 216 217 218 219 220 221 
+					221 222 223 224 225 229 230 231 232 
+					233 234 235 365 407 495 515 
+numrows         global                   58 102 323 324 325 330 
+pause *         game_loop               148 153 
+pieceposition   global                   58 201 297 297 298 
+place_piece *   move_piece              244 
+place_piece *   rotate_piece            305 
+point           game_loop               180 181 181 
+point           init                    118 119 119 
+point           rotate_piece            289 290 290 
+point           scanrows                312 313 314 316 319 
+point2          collision               274 275 275 
+pop *           deleterows              352 355 
+pull *          deleterows              343 
+push *          deleterows              343 351 
+put *           deleterows              355 
+put *           game_over               383 384 386 387 
+put *           move_piece              243 
+put *           newobject               210 
+put *           rotate_piece            291 295 
+put *           scanrows                319 
+px              buttons                 476 
+py              buttons                 477 
+randomize *     init                     83 
+refresh_screen *about_sesrit            510 
+refresh_screen *deleterows              358 
+refresh_screen *pause                   417 
+rotate_piece *  game_loop               143 144 
+row_set         deleterows              340 341 350 
+rows            drawstat                129 131 
+rows_to_delete  deleterows              336 339 339 341 342 
+rows_to_delete  scanrows                311 319 321 324 326 327 331 
+scanned_rows    scanrows                310 313 314 
+scanrows *      game_loop               171 
+score           global                   58 102 129 130 173 174 177 323 326 
+					330 382 
+scores          game_over               382 384 
+set *           deleterows              340 
+sort *          deleterows              339 
+table *         init                     77 
+table *         scanrows                310 
+temp            deleterows              337 343 346 349 352 355 
+temp            game_over               369 371 372 
+temp            rotate_piece            290 291 
+temp_size       deleterows              346 
+text1           buttons                 422 445 449 449 449 483 484 484 484 
+text1           pause                   396 414 
+text2           buttons                 422 433 434 434 434 468 469 469 469 
+text2           pause                   397 414 
+tot_score       global                   59 103 105 173 175 177 323 327 330 
+total           drawstat                129 133 
+version         about_sesrit            503 
+window          game_over               390 
+window          init                     76  77  82 
+x               buttons                 442 443 457 461 478 
+x               drawcell                124 125 126 
+x               game_loop               152 160 
+x               game_over               368 372 374 376 
+x               move_piece              240 243 244 
+x               newobject               206 207 208 209 209 210 
+x               refresh_screen          521 522 522 523 525 
+x               scanrows                315 316 
+x1              buttons                 422 443 446 457 461 464 466 478 480 
+					482 
+x2              buttons                 422 443 457 461 478 
+y               buttons                 442 444 452 453 457 461 478 
+y               drawcell                124 125 126 
+y               game_loop               153 154 155 160 
+y               game_over               368 372 374 375 
+y               move_piece              240 243 
+y               newobject               209 209 
+y               refresh_screen          521 522 522 523 524 
+y1              buttons                 422 444 446 457 461 464 466 478 480 
+					482 
+y2              buttons                 422 444 457 461 478 
+
+
+procedures:	lines:
+
+about_sesrit    490-511
+buttons         422-487
+collision       270-281
+deleterows      336-360
+drawcell        124-127
+drawstat        129-134
+game_loop       136-197
+game_over       362-393
+init            74-121
+main            62-71
+move_piece      240-245
+newobject       200-237
+pause           395-419
+place_piece     247-265
+refresh_screen  514-527
+rotate_piece    283-306
+scanrows        309-333

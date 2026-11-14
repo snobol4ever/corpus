@@ -1,0 +1,7 @@
+# run_reverse-complement.icn -- reverse-complement of Unicon's benchmark suite as its run-test.icn runs it: run_reversecomplement on 150-thou.dat (ALL.args), the output on standard output
+link "reverse-complement"
+global output
+procedure main(argv)
+   output := &output;
+   run_reversecomplement(argv);
+end

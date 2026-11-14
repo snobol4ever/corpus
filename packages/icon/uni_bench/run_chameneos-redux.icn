@@ -1,0 +1,7 @@
+# run_chameneos-redux.icn -- chameneos-redux of Unicon's benchmark suite as its run-test.icn runs it: run_chameneos on 600 (ALL.args), the output on standard output
+link "chameneos-redux"
+global output
+procedure main(argv)
+   output := &output;
+   run_chameneos(argv);
+end

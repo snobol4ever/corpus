@@ -1,0 +1,24 @@
+# CONVERSION-PROOF.tsv -- uni_bench: each module and what unicon 13.3 (unicon -s -c) says of the original against the converted text, the ucode compared byte for byte with the uid line aside,
+# once as the drivers link it and once with -DMAIN, so the main each module keeps under $ifdef MAIN is proved too (the grader 2026-11-14; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+pool.icn	same-code	17
+shuffle.icn	same-code	3
+binary-trees.icn	same-code	49
+chameneos-redux.icn	same-code	65
+fannkuch.icn	same-code	33
+fasta.icn	same-code	44
+k-nucleotide.icn	same-code	38
+mandelbrot.icn	same-code	45
+meteor-contest.icn	same-code	98
+n-body.icn	same-code	64
+pidigits.icn	same-code	24
+regex-dna.icn	same-code	120
+reverse-complement.icn	same-code	27
+spectral-norm.icn	same-code	24
+thread-ring.icn	same-code	43
+concord.icn	same-code	33
+deal.icn	same-code	32
+ipxref.icn	same-code	79
+queens.icn	same-code	24
+rsg.icn	same-code	80
+run_NAME.icn	ours (a main that calls one entry procedure, as run-test.icn does)	2 or 3

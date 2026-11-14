@@ -1,0 +1,8 @@
+# run_deal.icn -- deal of Unicon's benchmark suite as its run-test.icn runs it: run_deal on 500 (ALL.args), the output on standard output
+link "deal"
+global output
+procedure main(argv)
+   &random := 0;
+   output := &output;
+   run_deal(argv);
+end

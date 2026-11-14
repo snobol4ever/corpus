@@ -1,0 +1,7 @@
+# run_mandelbrot-concurrent.icn -- mandelbrot-concurrent of Unicon's benchmark suite as its run-test.icn runs it: run_mandelbrot_concurrent on 200 (ALL.args), the output on standard output
+link "mandelbrot", pool
+global output
+procedure main(argv)
+   output := &output;
+   run_mandelbrot_concurrent(argv);
+end
