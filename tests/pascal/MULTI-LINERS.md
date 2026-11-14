@@ -180,6 +180,21 @@ end.
 after get
 ```
 
+## fpc_units__in01_initc
+
+```Pascal
+{$mode delphi}
+program in01_initc;
+uses initc, SysUtils;
+begin
+  writeln('initc ok');
+end.
+```
+
+```stdout
+initc ok
+```
+
 ## ladder__rung00_hello_blank
 
 ```Pascal
@@ -239,6 +254,38 @@ end.
 
 ```stdout
 default
+```
+
+## fpc_units__vo01_ifopt
+
+```Pascal
+{$mode fpc}
+program vo01_ifopt;
+begin
+{$ifopt R+}
+  writeln('R+ at start');
+{$else}
+  writeln('R- at start');
+{$endif}
+{$R+}
+{$ifopt R+}
+  writeln('R+ after $R+');
+{$endif}
+{$R-}
+{$ifopt R-}
+  writeln('R- after $R-');
+{$endif}
+{$ifopt I+}
+  writeln('I+ at start');
+{$endif}
+end.
+```
+
+```stdout
+R- at start
+R+ after $R+
+R- after $R-
+I+ at start
 ```
 
 ## array_of_const__system_const_lineending
@@ -994,6 +1041,86 @@ taken
 done
 ```
 
+## fpc_units__du02_between
+
+```Pascal
+{$mode objfpc}{$H+}
+program du02_between;
+uses SysUtils, DateUtils;
+var a, b: TDateTime;
+begin
+  a := EncodeDateTime(2000, 1, 1, 0, 0, 0, 0);
+  b := EncodeDateTime(2003, 7, 15, 13, 45, 30, 500);
+  writeln(YearsBetween(a, b), ' ', MonthsBetween(a, b), ' ', WeeksBetween(a, b), ' ', DaysBetween(a, b));
+  writeln(HoursBetween(a, b), ' ', MinutesBetween(a, b), ' ', SecondsBetween(a, b), ' ', MilliSecondsBetween(a, b));
+  writeln(DaysBetween(b, a), ' ', HoursBetween(b, a));
+  writeln(DaysBetween(1.0, -1.0), ' ', DaysBetween(-1.0, 1.0), ' ', DaysBetween(-1.25, -0.5));
+  writeln(HoursBetween(-0.5, 0.5), ' ', MinutesBetween(EncodeDateTime(2001, 1, 1, 0, 0, 0, 0), EncodeDateTime(2001, 1, 1, 0, 0, 59, 999)));
+end.
+```
+
+```stdout
+3 42 184 1291
+30997 1859865 111591930 111591930500
+1291 30997
+1 1 0
+24 0
+```
+
+## fpc_units__md01_md5
+
+```Pascal
+{$mode objfpc}{$H+}
+program md01_md5;
+uses md5;
+var t: Text;
+begin
+  writeln(MD5Print(MD5String('')));
+  writeln(MD5Print(MD5String('abc')));
+  writeln(MD5Print(MD5String('The quick brown fox jumps over the lazy dog')));
+  Assign(t, 'md01.tmp'); Rewrite(t); write(t, 'abc'); Close(t);
+  writeln(MD5Print(MD5File('md01.tmp', MDDefBufSize)));
+  Erase(t);
+  writeln(MDDefBufSize);
+end.
+```
+
+```stdout
+d41d8cd98f00b204e9800998ecf8427e
+900150983cd24fb0d6963f7d28e17f72
+9e107d9d372bb6826bd81d3542a419d6
+900150983cd24fb0d6963f7d28e17f72
+1024
+```
+
+## fpc_units__va02_variants_routines
+
+```Pascal
+{$mode objfpc}{$H+}
+program va02_variants_routines;
+uses variants, sysutils;
+var v: Variant; s: string;
+begin
+  writeln(VarIsEmpty(v), ' ', VarIsNull(v), ' ', VarType(v));
+  v := 1; writeln('[', VarToStr(v), '] ', VarType(v));
+  v := 'abc'; writeln('[', VarToStr(v), '] ', VarIsEmpty(v));
+  v := 2.5; s := v; writeln('[', s, '] [', VarToStr(v), '] ', VarType(v));
+  v := True; s := v; writeln('[', s, '] [', VarToStr(v), '] ', VarType(v));
+  v := Null; writeln(VarIsNull(v), ' [', VarToStr(v), '] ', VarType(v));
+  v := Unassigned; writeln(VarIsEmpty(v), ' ', VarType(v));
+end.
+```
+
+```stdout
+TRUE FALSE 0
+[1] 16
+[abc] FALSE
+[2.5] [2.5] 5
+[True] [True] 11
+TRUE [] 1
+TRUE 0
+```
+
 ## ladder__rung03_if_while_dangling_else
 
 ```Pascal
@@ -1063,6 +1190,32 @@ inner           6
 inner           7
 ```
 
+## fpc_units__va01_bool_keeps_its_kind
+
+```Pascal
+{$mode fpc}
+program va01_bool_keeps_its_kind;
+uses variants;
+var v: Variant; i: longint; c: cardinal; b: byte; q: int64; t: boolean;
+begin
+  v := True;
+  i := v; c := v; b := v; q := v;
+  writeln(i, ' ', c, ' ', b, ' ', q);
+  t := v; writeln(t);
+  v := False;
+  i := v; c := v; t := v;
+  writeln(i, ' ', c, ' ', t);
+  v := 7; t := v; writeln(t);
+end.
+```
+
+```stdout
+-1 4294967295 255 -1
+TRUE
+0 0 FALSE
+TRUE
+```
+
 ## ladder__rung16_q_inttostr
 
 ```Pascal
@@ -1110,6 +1263,89 @@ end.
 
 ```stdout
 44
+```
+
+## fpc_units__du01_encode_and_unix
+
+```Pascal
+{$mode objfpc}{$H+}
+program du01_encode_and_unix;
+uses SysUtils, DateUtils;
+var d: TDateTime; y, mo, da, h, mi, s, ms: Word; u: Int64;
+begin
+  d := EncodeDateTime(1989, 9, 16, 12, 30, 45, 250);
+  writeln(FormatDateTime('yyyy-mm-dd hh:nn:ss.zzz', d));
+  DecodeDateTime(d, y, mo, da, h, mi, s, ms);
+  writeln(y, ' ', mo, ' ', da, ' ', h, ' ', mi, ' ', s, ' ', ms);
+  u := DateTimeToUnix(EncodeDateTime(1989, 9, 16, 12, 0, 0, 0));
+  writeln(u);
+  writeln(FormatDateTime('yyyy-mm-dd hh:nn:ss', UnixToDateTime(u + 61)));
+  writeln(DateTimeToUnix(EncodeDateTime(1899, 12, 30, 0, 0, 0, 0)));
+  writeln(FormatDateTime('yyyy-mm-dd hh:nn:ss', UnixToDateTime(0)));
+end.
+```
+
+```stdout
+1989-09-16 12:30:45.250
+1989 9 16 12 30 45 250
+621950400
+1989-09-16 12:01:01
+-2209161600
+1970-01-01 00:00:00
+```
+
+## fpc_units__du05_iso8601
+
+```Pascal
+{$mode objfpc}{$H+}
+program du05_iso8601;
+uses SysUtils, DateUtils;
+const F = 'yyyy-mm-dd hh:nn:ss.zzz';
+procedure T(const s: string; utc: Boolean);
+begin
+  writeln(s, ' -> ', FormatDateTime(F, ISO8601ToDate(s, utc)));
+end;
+begin
+  T('2021-05-22T13:57:49.191Z', True);
+  T('2021-05-22T13:57:49Z', True);
+  T('2021-05-22T13:57:49+02:00', True);
+  T('2021-05-22T13:57', True);
+  T('20210522T135749Z', True);
+end.
+```
+
+```stdout
+2021-05-22T13:57:49.191Z -> 2021-05-22 13:57:49.191
+2021-05-22T13:57:49Z -> 2021-05-22 13:57:49.000
+2021-05-22T13:57:49+02:00 -> 2021-05-22 11:57:49.000
+2021-05-22T13:57 -> 2021-05-22 13:57:00.000
+20210522T135749Z -> 2021-05-22 13:57:49.000
+```
+
+## fpc_units__ur01_encodeuri
+
+```Pascal
+{$mode objfpc}{$H+}
+program ur01_encodeuri;
+uses uriparser;
+var U: TURI;
+begin
+  U.Protocol := 'http'; U.Username := 'user'; U.Password := 'pass';
+  U.Host := 'localhost'; U.Port := 8080; U.Path := '/test/dir';
+  U.Document := 'some index.html'; U.Params := 'a=1&b=2'; U.Bookmark := 'top';
+  U.HasAuthority := True;
+  writeln(EncodeURI(U));
+  U.Username := ''; U.Password := ''; U.Port := 0; U.Bookmark := ''; U.Params := '';
+  writeln(EncodeURI(U));
+  U.Protocol := 'mailto'; U.HasAuthority := False; U.Host := ''; U.Path := ''; U.Document := 'x@y.org';
+  writeln(EncodeURI(U));
+end.
+```
+
+```stdout
+http://user:pass@localhost:8080/test/dir/some%20index.html?a=1&b=2#top
+http://localhost/test/dir/some%20index.html
+mailto:x@y.org
 ```
 
 ## ladder__rung05_proc_named_main
@@ -1360,6 +1596,41 @@ end.
  1234567.800
 0.333333333333333310
 [   1234.57]
+```
+
+## fpc_units__in03_exp_overflow
+
+```Pascal
+{$mode delphi}
+program in03_exp_overflow;
+uses SysUtils, math;
+var A: Double;
+begin
+  A := 1e200;
+  try
+    writeln(Exp(A));
+  except
+    on E: Exception do writeln('raised ', E.ClassName);
+  end;
+  writeln(Exp(1.0):0:6);
+  SetExceptionMask([exDenormalized, exOverflow, exUnderflow, exPrecision]);
+  writeln(Exp(A));
+  writeln(Exp(-A));
+  SetExceptionMask([exDenormalized, exUnderflow, exPrecision]);
+  try
+    writeln(Exp(A));
+  except
+    on E: EOverflow do writeln('raised again');
+  end;
+end.
+```
+
+```stdout
+raised EOverflow
+2.718282
+                         +Inf
+ 0.00000000000000000000E+0000
+raised again
 ```
 
 ## program_writeln_14
@@ -2366,6 +2637,33 @@ end.
 93
 ```
 
+## fpc_units__du03_inc
+
+```Pascal
+{$mode objfpc}{$H+}
+program du03_inc;
+uses SysUtils, DateUtils;
+const F = 'yyyy-mm-dd hh:nn:ss.zzz';
+var d: TDateTime;
+begin
+  d := EncodeDateTime(1899, 12, 31, 0, 0, 0, 0);
+  writeln(FormatDateTime(F, IncWeek(d, 1)), ' ', FormatDateTime(F, IncWeek(d, -52)));
+  writeln(FormatDateTime(F, IncDay(d, -3)), ' ', FormatDateTime(F, IncHour(d, -25)));
+  writeln(FormatDateTime(F, IncMinute(d, 90)), ' ', FormatDateTime(F, IncSecond(d, -1)));
+  writeln(FormatDateTime(F, IncMilliSecond(d, 1500)), ' ', FormatDateTime(F, IncMilliSecond(d, -1)));
+  d := EncodeDateTime(2020, 2, 28, 23, 59, 59, 999);
+  writeln(FormatDateTime(F, IncMilliSecond(d, 1)), ' ', FormatDateTime(F, IncDay(d, 1)));
+end.
+```
+
+```stdout
+1900-01-07 00:00:00.000 1899-01-01 00:00:00.000
+1899-12-28 00:00:00.000 1899-12-29 23:00:00.000
+1899-12-31 01:30:00.000 1899-12-30 23:59:59.000
+1899-12-31 00:00:01.500 1899-12-30 23:59:59.999
+2020-02-29 00:00:00.000 2020-02-29 23:59:59.999
+```
+
 ## ladder__rung03_if_while
 
 ```Pascal
@@ -2392,6 +2690,35 @@ big
           3
           2
           1
+```
+
+## fpc_units__uc04_surrogates
+
+```Pascal
+{$mode objfpc}{$H+}
+program uc04_surrogates;
+uses unicodedata, character;
+var u: UnicodeString; i: Integer; cp: UCS4Char;
+begin
+  u := TCharacter.ConvertFromUtf32($1F600);
+  writeln(Length(u), ' ', Ord(u[1]), ' ', Ord(u[2]));
+  writeln(TCharacter.IsHighSurrogate(u[1]), ' ', TCharacter.IsLowSurrogate(u[2]), ' ', TCharacter.IsSurrogate(u[1]), ' ', TCharacter.IsSurrogate('a'));
+  writeln(TCharacter.IsSurrogatePair(u[1], u[2]), ' ', TCharacter.IsSurrogatePair(u, 1), ' ', TCharacter.IsSurrogatePair(u[2], u[1]));
+  writeln(TCharacter.ConvertToUtf32(u, 1), ' ', TCharacter.ConvertToUtf32(u[1], u[2]));
+  u := 'a' + TCharacter.ConvertFromUtf32($10400) + 'b';
+  writeln(Length(u), ' ', Ord(TCharacter.GetUnicodeCategory(u, 2)), ' ', Ord(TCharacter.GetUnicodeCategory(u, 4)));
+  cp := TCharacter.ConvertToUtf32(u, 2);
+  writeln(cp, ' ', Length(TCharacter.ConvertFromUtf32($41)));
+end.
+```
+
+```stdout
+2 55357 56832
+TRUE TRUE TRUE FALSE
+TRUE TRUE FALSE
+128512 128512
+4 0 1
+66560 1
 ```
 
 ## front_end__pf20g_record_constructor_value
@@ -2443,6 +2770,35 @@ end.
 ok
         100
 -3.1415926500000002e+000
+```
+
+## fpc_units__du04_scan
+
+```Pascal
+{$mode objfpc}{$H+}
+program du04_scan;
+uses SysUtils, DateUtils;
+const F = 'yyyy-mm-dd hh:nn:ss.zzz';
+var d: TDateTime;
+begin
+  d := ScanDateTime('yyyy-mm-dd hh:nn:ss', '2014-04-02 13:05:09');
+  writeln(FormatDateTime(F, d));
+  d := ScanDateTime('mmmm d"nd", yyyy, hh:nn am/pm', 'April 2nd, 2014, 12:00 am');
+  writeln(FormatDateTime(F, d));
+  d := ScanDateTime('mmmm d"nd", yyyy, hh:nn am/pm', 'April 2nd, 2014, 01:30 pm');
+  writeln(FormatDateTime(F, d));
+  d := ScanDateTime('hh:nn a/p', '11:15 p');
+  writeln(FormatDateTime(F, d));
+  writeln(SameDateTime(d, EncodeDateTime(1899, 12, 30, 23, 15, 0, 0)), ' ', SameDateTime(d, d + 1));
+end.
+```
+
+```stdout
+2014-04-02 13:05:09.000
+2014-04-02 12:00:00.000
+2014-04-02 13:30:00.000
+1899-12-30 23:15:00.000
+TRUE FALSE
 ```
 
 ## ladder__rung16_real_numb2usa_digits
@@ -2601,6 +2957,37 @@ end.
 6 2 99 2 4
 2 -1
 3 7 99
+```
+
+## fpc_units__ht01_stringstream
+
+```Pascal
+{$mode objfpc}{$H+}
+program ht01_stringstream;
+uses Classes;
+var S: TStringStream; c: Char; t: string;
+begin
+  S := TStringStream.Create('ab');
+  writeln(S.DataString, ' ', S.Size, ' ', S.Position);
+  S.Seek(0, soEnd);
+  S.WriteString('cd');
+  c := 'e'; S.Write(c, 1);
+  writeln(S.DataString, ' ', S.Size, ' ', S.Position);
+  S.Seek(1, soBeginning);
+  t := S.ReadString(3);
+  writeln(t, ' ', S.Position);
+  S.Free;
+  S := TStringStream.Create('');
+  writeln(S.Size, ' [', S.DataString, ']');
+  S.Free;
+end.
+```
+
+```stdout
+ab 2 0
+abcde 5 5
+bcd 4
+0 []
 ```
 
 ## program_procedure_writeln_5
@@ -3347,6 +3734,26 @@ XX
 90
 ```
 
+## fpc_units__gq01_queue_grows
+
+```Pascal
+{$mode objfpc}
+program gq01_queue_grows;
+uses generics.collections;
+type TIntQueue = specialize TQueue<Integer>;
+var q: TIntQueue; i, c: Integer;
+begin
+  q := TIntQueue.Create; c := 0;
+  for i := 0 to 300000 do begin q.Enqueue(c); inc(c); q.Enqueue(c); inc(c); q.Dequeue; end;
+  writeln(q.Count, ' ', q.Peek, ' ', q.Dequeue, ' ', q.Count);
+  q.Free;
+end.
+```
+
+```stdout
+300001 300001 300001 300000
+```
+
 ## ladder__rung18_sha1_digest
 
 ```Pascal
@@ -3936,6 +4343,53 @@ end.
  0.000000000000e+000
  5.403023058681e-001
           1
+```
+
+## fpc_units__ur03_resolve
+
+```Pascal
+{$mode objfpc}{$H+}
+program ur03_resolve;
+uses uriparser;
+procedure R(const rel: string);
+var s: string;
+begin
+  ResolveRelativeURI('http://a/b/c/d;p?q', rel, s);
+  writeln('[', rel, '] -> ', s);
+end;
+begin
+  R('g'); R('./g'); R('g/'); R('/g'); R('//g'); R('?y'); R('#s'); R(';x');
+  R(''); R('.'); R('..'); R('../g'); R('../../g'); R('../../../g');
+  R('/./g'); R('/../g'); R('g.'); R('..g'); R('./g/.'); R('g/../h');
+  R('g;x=1/../y'); R('g?y/../x'); R('g#s/./x'); R('g:h');
+end.
+```
+
+```stdout
+[g] -> http://a/b/c/g
+[./g] -> http://a/b/c/g
+[g/] -> http://a/b/c/g/
+[/g] -> http://a/g
+[//g] -> http://g
+[?y] -> http://a/b/c/d;p?y
+[#s] -> http://a/b/c/d;p?q#s
+[;x] -> http://a/b/c/;x
+[] -> http://a/b/c/d;p?q
+[.] -> http://a/b/c/
+[..] -> http://a/b/
+[../g] -> http://a/b/g
+[../../g] -> http://a/g
+[../../../g] -> http://a/g
+[/./g] -> http://a/g
+[/../g] -> http://a/g
+[g.] -> http://a/b/c/g.
+[..g] -> http://a/b/c/..g
+[./g/.] -> http://a/b/c/g/
+[g/../h] -> http://a/b/c/h
+[g;x=1/../y] -> http://a/b/c/y
+[g?y/../x] -> http://a/b/c/g?y/../x
+[g#s/./x] -> http://a/b/c/g#s/./x
+[g:h] -> g:h
 ```
 
 ## ladder__rung19_generic_function_two_instances
@@ -4754,6 +5208,49 @@ end.
 ```stdout
           7
           3
+```
+
+## fpc_units__ht03_htmlelements
+
+```Pascal
+{$mode objfpc}{$H+}
+program ht03_htmlelements;
+uses Classes, SysUtils, htmldefs, htmlelements;
+var D: THTMLDocument; H, B, P, T: THTMLCustomElement;
+begin
+  D := THTMLDocument.Create;
+  H := THTML_html.Create(D);
+  D.AppendChild(H);
+  B := THTML_body.Create(D);
+  H.AppendChild(B);
+  P := THTML_p.Create(D);
+  T := THTML_text.Create(D); T.NodeValue := 'one'; P.AppendChild(T);
+  B.AppendChild(P);
+  P := THTML_p.Create(D);
+  T := THTML_text.Create(D); T.NodeValue := 'a<b'; P.AppendChild(T);
+  B.AppendChild(P);
+  write(D.Asstring);
+  write(P.AsString);
+  writeln(H.TagName, ' ', Ord(H.ElementTag) > 0);
+  D.Free;
+end.
+```
+
+```stdout
+<html>
+<body>
+<p>
+one
+</p>
+<p>
+a<b
+</p>
+</body>
+</html>
+<p>
+a<b
+</p>
+html TRUE
 ```
 
 ## program_procedure_nested_21
@@ -5870,6 +6367,43 @@ end.
           7
 ```
 
+## fpc_units__ur02_parseuri
+
+```Pascal
+{$mode objfpc}{$H+}
+program ur02_parseuri;
+uses uriparser;
+procedure Show(const s: string);
+var U: TURI;
+begin
+  U := ParseURI(s);
+  writeln(s);
+  writeln('  [', U.Protocol, '] [', U.Username, '] [', U.Password, '] [', U.Host, '] ', U.Port, ' ', U.HasAuthority);
+  writeln('  [', U.Path, '] [', U.Document, '] [', U.Params, '] [', U.Bookmark, ']');
+end;
+begin
+  Show('http://www.lazarus.freepascal.org/main.php');
+  Show('ftp://me:secret@host.org:2121/pub/dir/file%20name.txt?x=1#frag');
+  Show('mailto:x@y.org');
+  Show('/only/a/path');
+end.
+```
+
+```stdout
+http://www.lazarus.freepascal.org/main.php
+  [http] [] [] [www.lazarus.freepascal.org] 0 TRUE
+  [/] [main.php] [] []
+ftp://me:secret@host.org:2121/pub/dir/file%20name.txt?x=1#frag
+  [ftp] [me] [secret] [host.org] 2121 TRUE
+  [/pub/dir/] [file name.txt] [x=1] [frag]
+mailto:x@y.org
+  [mailto] [] [] [] 0 FALSE
+  [] [x@y.org] [] []
+/only/a/path
+  [] [] [] [] 0 FALSE
+  [/only/a/] [path] [] []
+```
+
 ## front_end__pf20k_generic_self_name
 
 ```Pascal
@@ -6317,6 +6851,44 @@ end.
 
 ```stdout
   240000000
+```
+
+## fpc_units__ht02_dom
+
+```Pascal
+{$mode objfpc}{$H+}
+program ht02_dom;
+uses DOM;
+procedure Walk(n: TDOMNode; depth: Integer);
+var c: TDOMNode;
+begin
+  writeln(StringOfChar(' ', 2 * depth), n.NodeName, ' ', n.NodeType, ' [', n.NodeValue, ']');
+  c := n.FirstChild;
+  while c <> nil do begin Walk(c, depth + 1); c := c.NextSibling end;
+end;
+var D: TXMLDocument; R, E: TDOMElement;
+begin
+  D := TXMLDocument.Create;
+  R := D.CreateElement('root');
+  D.AppendChild(R);
+  E := D.CreateElement('item');
+  E.SetAttribute('id', '7');
+  E.AppendChild(D.CreateTextNode('hello'));
+  R.AppendChild(E);
+  R.AppendChild(D.CreateElement('empty'));
+  Walk(D, 0);
+  writeln(E.GetAttribute('id'), ' ', R.ChildNodes.Count, ' ', D.DocumentElement.TagName);
+  D.Free;
+end.
+```
+
+```stdout
+#document 9 []
+  root 1 []
+    item 1 []
+      #text 3 [hello]
+    empty 1 []
+7 2 root
 ```
 
 ## ladder__rung13_ptr_scalar
@@ -8433,6 +9005,37 @@ de
           7
 ```
 
+## fpc_units__fs01_filestream
+
+```Pascal
+{$mode objfpc}{$H+}
+program fs01_filestream;
+uses Classes, SysUtils;
+var F: TFileStream; b: Byte; i: Integer; s: string;
+begin
+  F := TFileStream.Create('fs01.tmp', fmCreate);
+  for i := 1 to 5 do begin b := 64 + i; F.Write(b, 1) end;
+  writeln(F.Size, ' ', F.Position);
+  F.Free;
+  F := TFileStream.Create('fs01.tmp', fmOpenRead);
+  writeln(F.Size, ' ', F.Position);
+  writeln(F.Seek(2, soBeginning));
+  s := '';
+  while F.Read(b, 1) = 1 do s := s + Chr(b);
+  writeln(s, ' ', F.Position);
+  F.Free;
+  writeln(FileExists('fs01.tmp'), ' ', DeleteFile('fs01.tmp'), ' ', FileExists('fs01.tmp'));
+end.
+```
+
+```stdout
+5 5
+5 0
+2
+CDE 5
+TRUE TRUE FALSE
+```
+
 ## front_end__pf35_local_shadows_function
 
 ```Pascal
@@ -8546,6 +9149,37 @@ end.
           3
          42
          88
+```
+
+## fpc_units__in02_exception_mask
+
+```Pascal
+{$mode delphi}
+program in02_exception_mask;
+uses SysUtils, math;
+procedure Show(m: TFPUExceptionMask);
+var e: TFPUException;
+begin
+  for e := Low(TFPUException) to High(TFPUException) do
+    if e in m then write(Ord(e), ' ');
+  writeln('|');
+end;
+var old: TFPUExceptionMask;
+begin
+  Show(GetExceptionMask);
+  old := SetExceptionMask([]);
+  Show(old);
+  Show(GetExceptionMask);
+  SetExceptionMask([exOverflow, exPrecision]);
+  Show(GetExceptionMask);
+end.
+```
+
+```stdout
+1 4 5 |
+1 4 5 |
+|
+3 5 |
 ```
 
 ## ladder__rung14_row_string_elem_char
@@ -10055,6 +10689,42 @@ end.
           5
 ```
 
+## fpc_units__uc01_category_and_numeric
+
+```Pascal
+{$mode objfpc}{$H+}
+program uc01_category_and_numeric;
+uses unicodedata, character;
+const P: array[0..11] of Word = ($41, $61, $37, $20, $7, $2D, $24, $3A3, $3C3, $660, $2155, $A7AE);
+var i: Integer; u: UnicodeString;
+begin
+  writeln(HIGH_SURROGATE_BEGIN, ' ', HIGH_SURROGATE_END, ' ', LOW_SURROGATE_BEGIN, ' ', LOW_SURROGATE_END);
+  writeln(Ord(High(TUnicodeCategory)), ' ', Ord(TUnicodeCategory.ucDecimalNumber), ' ', Ord(TUnicodeCategory.ucSurrogate));
+  for i := 0 to High(P) do
+    writeln(P[i], ' ', Ord(TCharacter.GetUnicodeCategory(UnicodeChar(P[i]))), ' ', TCharacter.GetNumericValue(UnicodeChar(P[i])):0:4);
+  u := 'a7' + UnicodeChar($2155);
+  writeln(Ord(TCharacter.GetUnicodeCategory(u, 2)), ' ', TCharacter.GetNumericValue(u, 3):0:4);
+end.
+```
+
+```stdout
+55296 56319 56320 57343
+29 8 27
+65 0 0.0000
+97 1 0.0000
+55 8 7.0000
+32 22 0.0000
+7 25 0.0000
+45 12 0.0000
+36 19 0.0000
+931 0 0.0000
+963 1 0.0000
+1632 8 0.0000
+8533 10 0.2000
+42926 0 0.0000
+8 0.2000
+```
+
 ## ladder__rung13_ptr_pchar_array
 
 ```Pascal
@@ -11342,6 +12012,39 @@ end.
 pascal  
 ```
 
+## fpc_units__uc03_case
+
+```Pascal
+{$mode objfpc}{$H+}
+program uc03_case;
+uses character;
+const P: array[0..7] of Word = ($41, $61, $30, $3A3, $3C3, $DF, $130, $1E9E);
+var i: Integer; u: UnicodeString;
+begin
+  for i := 0 to High(P) do
+    writeln(P[i], ' ', Ord(TCharacter.ToLower(UnicodeChar(P[i]))), ' ', Ord(TCharacter.ToUpper(UnicodeChar(P[i]))));
+  u := TCharacter.ToUpper(UnicodeString('abc' + UnicodeChar($3C3)));
+  for i := 1 to Length(u) do write(Ord(u[i]), ' ');
+  writeln;
+  u := TCharacter.ToLower(UnicodeString('ABC' + UnicodeChar($3A3)));
+  for i := 1 to Length(u) do write(Ord(u[i]), ' ');
+  writeln;
+end.
+```
+
+```stdout
+65 97 65
+97 97 65
+48 48 48
+931 963 931
+963 963 931
+223 223 223
+304 105 304
+7838 223 7838
+65 66 67 931 
+97 98 99 963 
+```
+
 ## ladder__rung15_layout_dense_from_one
 
 ```Pascal
@@ -11593,6 +12296,47 @@ end.
          30
          20
          10
+```
+
+## fpc_units__uc02_is_family
+
+```Pascal
+{$mode objfpc}{$H+}
+program uc02_is_family;
+uses character;
+const P: array[0..11] of Word = ($41, $61, $30, $20, $7, $2D, $24, $2B, $3A3, $660, $A0, $2028);
+procedure B(x: Boolean); begin if x then write('1') else write('0') end;
+var i: Integer; c: UnicodeChar; u: UnicodeString;
+begin
+  for i := 0 to High(P) do begin
+    c := UnicodeChar(P[i]);
+    write(P[i], ' ');
+    B(TCharacter.IsControl(c)); B(TCharacter.IsDigit(c)); B(TCharacter.IsLetter(c));
+    B(TCharacter.IsLetterOrDigit(c)); B(TCharacter.IsLower(c)); B(TCharacter.IsUpper(c));
+    B(TCharacter.IsNumber(c)); B(TCharacter.IsPunctuation(c)); B(TCharacter.IsSeparator(c));
+    B(TCharacter.IsSymbol(c)); B(TCharacter.IsWhiteSpace(c));
+    writeln;
+  end;
+  u := 'x9 ';
+  B(TCharacter.IsLetter(u, 1)); B(TCharacter.IsDigit(u, 2)); B(TCharacter.IsWhiteSpace(u, 3));
+  writeln;
+end.
+```
+
+```stdout
+65 00110100000
+97 00111000000
+48 01010010000
+32 00000000101
+7 10000000000
+45 00000001000
+36 00000000010
+43 00000000010
+931 00110100000
+1632 01010010000
+160 00000000101
+8232 00000000101
+111
 ```
 
 ## packed_arrays__pa04_pointer
@@ -12418,6 +13162,39 @@ TRUE
 FALSE
 error
 FALSE abc
+```
+
+## fpc_units__bz01_decompress
+
+```Pascal
+{$mode objfpc}{$H+}
+program bz01_decompress;
+uses Classes, bzip2stream;
+const Z: array[0..85] of Byte = (
+66,90,104,57,49,65,89,38,83,89,235,34,100,220,0,0,17,221,128,0,16,64,5,0,
+16,16,0,63,36,156,96,32,0,84,87,234,128,6,141,13,8,253,85,50,104,104,52,196,
+77,85,20,68,120,179,9,48,225,234,206,161,133,218,50,156,46,146,172,166,83,195,21,46,
+80,82,3,31,23,114,69,56,80,144,235,34,100,220);
+var M: TMemoryStream; D: TDecompressBzip2Stream; c: Char; s: string; i: Integer;
+begin
+  M := TMemoryStream.Create;
+  for i := 0 to High(Z) do M.Write(Z[i], 1);
+  M.Seek(0, soBeginning);
+  D := TDecompressBzip2Stream.Create(M);
+  s := '';
+  while D.Read(c, 1) = 1 do s := s + c;
+  write(s);
+  writeln(Length(s));
+  D.Free;
+  M.Free;
+end.
+```
+
+```stdout
+Byrd boxes: call, exit, redo, fail.
+Byrd boxes: call, exit, redo, fail.
+Byrd boxes: call, exit, redo, fail.
+108
 ```
 
 ## ladder__rung21_for_in_over_a_class_with_get_enumerator
