@@ -17787,6 +17787,25 @@ B>C>A
 after
 ```
 
+## compiler_object__rc1-cmp-of-two-lists-is-element-by-element
+
+```Raku
+say (1, 'b') cmp (1, 'a');
+say (1, 2) cmp (1, 2, 3);
+say (2, 'a') cmp (1, 'z');
+say (1, 'a') cmp (1, 'a');
+my @k = [3, 'b'], [1, 'z'], [3, 'a'], [1, 'y'];
+say @k.sort({ (.[0], .[1]) }).map({ .[0] ~ .[1] }).join(' ');
+```
+
+```stdout
+More
+Less
+More
+Same
+1y 1z 3a 3b
+```
+
 ## core__rc08_named_flatten
 
 ```Raku
