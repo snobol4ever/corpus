@@ -210,7 +210,7 @@ fpc_units__ht03_htmlelements	chunk:03	feat:ord	ord write
 program_procedure_nested_21	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_7	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_16	chunk:01	feat:nested_proc	nested_proc procedure
-program_procedure_nested_2	chunk:01	feat:nested_proc	nested_proc procedure
+program_procedure_nested_2	chunk:02	feat:nested_proc	nested_proc procedure
 front_end__pf20d_object_parent	chunk:02	feat:nested_proc	nested_proc procedure type
 program_procedure_nested_1	chunk:02	feat:nested_proc	nested_proc procedure
 program_procedure_nested_15	chunk:02	feat:nested_proc	nested_proc procedure
