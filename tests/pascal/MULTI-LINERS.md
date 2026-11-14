@@ -9300,6 +9300,31 @@ end.
           4           5           6 
 ```
 
+## parseforms__parse_a_distinct_type_declaration
+
+```Pascal
+{$mode objfpc}
+program p2;
+type
+  Twice = type Integer;
+  TFoo = record a: Integer end;
+  TBar = type TFoo;
+  PFoo = ^TFoo;
+  PFooTyped = type PFoo;
+var t: Twice; b: TBar; p: PFooTyped;
+begin
+  t := 21; writeln(t * 2);
+  b.a := 3; writeln(b.a);
+  new(p); p^.a := 4; writeln(p^.a); dispose(p);
+end.
+```
+
+```stdout
+42
+3
+4
+```
+
 ## program_array_for_3
 
 ```Pascal

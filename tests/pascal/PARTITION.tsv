@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=480 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,35
+# shape: entries=481 features=49 ubiquitous=4(program var writeln assign) distinctive=45 core=45 clusters=44 chunks=5 sizes=100,100,100,100,36
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:04	family:front_end	
 front_end__pf31_resourcestring	chunk:04	family:front_end	
@@ -350,6 +350,7 @@ exceptions__ex10_pas_runtime_error_exit	chunk:03	feat:div	array div for for_with
 ladder__rung06_arrays_named_string_elem	chunk:02	feat:nested_proc	array nested_proc procedure set_literal subrange type
 ladder__rung24_static_array_with_an_all_negative_index_range	chunk:02	feat:const	array const for for_with_array set_literal write
 program_array_for_2	chunk:02	feat:write	array for for_with_array set_literal subrange write
+parseforms__parse_a_distinct_type_declaration	chunk:05	feat:dispose	dispose new pointer pointer_with_new record type
 program_array_for_3	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_for_6	chunk:02	feat:write	array for for_with_array set_literal subrange write
 program_array_packed_replace_1	chunk:04	feat:readln	array packed readln set_literal subrange type
