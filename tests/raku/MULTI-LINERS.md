@@ -2862,6 +2862,17 @@ False
 0.000977
 ```
 
+## a_list_of_odd_length_refuses_map_and_a_list_of_pairs_is_a_map
+
+```Raku
+try (1,2,3).Map; say $!.^name; say (a => 1, b => 2).Map.elems;
+```
+
+```stdout
+X::Hash::Store::OddNumber
+2
+```
+
 ## interp__a_declaration_inside_an_interpolated_code_form
 
 ```Raku

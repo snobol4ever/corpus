@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1612 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,68
+# shape: entries=1613 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=68 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,69
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -353,6 +353,7 @@ ladder__rung025_kw_nan_nan_is_nan	chunk:04	feat:say	say
 rewrite__rr02_pod	chunk:08	feat:sub	sub
 ladder__rung03_strings_trans_takes_several_pairs_tr_style_strings_with_ranges_and_the_c_d_s_adverbs	chunk:14	feat:range_op	range_op
 ladder__rung02_arithmetic_rat_exact_with_big_numerators_and_the_64_bit_denominator_limit	chunk:04	feat:say	say
+a_list_of_odd_length_refuses_map_and_a_list_of_pairs_is_a_map	chunk:12	feat:try	say try
 array_30	chunk:05	feat:sigil_array	sigil_array
 array_31	chunk:05	feat:sigil_array	sigil_array
 array_39	chunk:05	feat:sigil_array	sigil_array
@@ -764,7 +765,7 @@ where__a_multi_reads_its_parameter_in_its_where_block	chunk:11	feat:multi	multi 
 array_37	chunk:12	feat:string_concat	sigil_array string_concat
 array_45	chunk:10	feat:if	if sigil_array
 array_say_9	chunk:05	feat:sigil_array	say sigil_array
-class_method_2	chunk:12	feat:return	method return
+class_method_2	chunk:13	feat:return	method return
 curry__a_smartmatch_chain_with_a_star_curries_as_one	chunk:10	feat:smartmatch	say smartmatch string_concat
 hash_15	chunk:09	feat:sigil_hash	sigil_hash
 join_array_1	chunk:09	feat:join	join sigil_array
@@ -898,7 +899,7 @@ array_replace_2	chunk:05	feat:sigil_array	sigil_array
 array_say_replace_2	chunk:05	feat:sigil_array	say sigil_array
 code_class__name_arity_count_and_gist	chunk:08	feat:sub	sub
 curry__a_star_on_the_right_of_a_smartmatch_curries	chunk:10	feat:smartmatch	say smartmatch string_concat
-given_1	chunk:15	feat:given	given
+given_1	chunk:16	feat:given	given
 join_array_16	chunk:09	feat:join	join sigil_array
 join_array_4	chunk:09	feat:join	join sigil_array
 join_array_5	chunk:09	feat:join	join sigil_array
@@ -930,7 +931,7 @@ test_stmt_pfx_POST	chunk:04	feat:say	say
 test_stmt_pfx_PRE	chunk:04	feat:say	say
 test_stmt_pfx_TEMP	chunk:04	feat:say	say
 test_stmt_pfx_UNDO	chunk:04	feat:say	say
-while_5	chunk:13	feat:while	while
+while_5	chunk:14	feat:while	while
 array_say_3	chunk:05	feat:sigil_array	say sigil_array
 array_say_6	chunk:05	feat:sigil_array	say sigil_array
 code_class__the_mro_of_a_declared_class	chunk:13	feat:map	join map
@@ -1558,7 +1559,7 @@ class_multi_sub_replace_4	chunk:11	feat:sub_with_return	has multi return say sub
 class_multi_sub_replace_6	chunk:11	feat:sub_with_return	has multi return say sub sub_with_return
 class_multi_sub_replace_7	chunk:11	feat:sub_with_return	has multi return say sub sub_with_return
 core__rc09_named_forms	chunk:14	feat:sort	has map method range_op sigil_array sort
-core__rc11_nested_sort_reduce	chunk:14	feat:sort	join map range_op say sigil_array sort sub
+core__rc11_nested_sort_reduce	chunk:15	feat:sort	join map range_op say sigil_array sort sub
 roast_causes__rc01_lone_interpolation_is_str	chunk:12	feat:try	regex say sigil_array sigil_hash smartmatch string_concat try
 ladder__rung09_regex_match_methods_agree_with_rakudo	core	core	join map regex regex_with_smartmatch smartmatch string_concat token
 benchmark_rc-perfect-shuffle	chunk:14	feat:loop	if loop range_op return sigil_array sub sub_with_return
