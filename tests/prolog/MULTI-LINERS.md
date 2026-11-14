@@ -9244,6 +9244,22 @@ bar(1,2)
 [42]
 ```
 
+## xsb_update_view__immediate
+
+```Prolog
+:- dynamic p/1.
+p(1).
+p(10).
+grow :- p(X), X < 4, Y is X + 1, assertz(p(Y)), fail.
+grow.
+main :- grow, findall(X, p(X), L), write(L), nl.
+:- main.
+```
+
+```stdout
+[1,10,2,3]
+```
+
 ## benchmark_witness_depth_nrev8
 
 ```Prolog
