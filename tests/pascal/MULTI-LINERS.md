@@ -47,6 +47,23 @@ end.
 Invalid at line 3
 ```
 
+## ladder__rung02_arithmetic_the_system_unit_rotate_shift_and_bit_scan_routines_are_declared
+
+```Pascal
+{$mode objfpc}
+program c3; begin writeln(rorbyte(1, 1)); writeln(rolword(1, 3)); writeln(sarint64(-8, 1)); writeln(sarshortint(-8, 1)); writeln(bsfbyte(4)); writeln(bsrbyte(4)); writeln(popcnt(byte(7))) end.
+```
+
+```stdout
+128
+8
+-4
+-4
+2
+2
+3
+```
+
 ## ladder__rung31_sysutils_format_settings
 
 ```Pascal
