@@ -235,7 +235,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 234,sha-1,sha-1.pas,rosetta-pascal__sha-1,rosetta-pascal,9,0,131072,4096,300,,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 235,sieve-of-pritchard,sieve-of-pritchard.pas,rosetta-pascal__sieve-of-pritchard,rosetta-pascal,88,0,131072,4096,300,,1,0,1,1,1,0,0,1,0,0,0,0,0,1,0,1,1,1,1,0,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,1,1,0,0
 236,smallest-multiple-1,smallest-multiple-1.pas,rosetta-pascal__smallest-multiple-1,rosetta-pascal,36,0,131072,4096,300,,0,0,1,1,1,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0
-237,smallest-multiple-2,smallest-multiple-2.pas,rosetta-pascal__smallest-multiple-2,rosetta-pascal,249,0,131072,4096,300,,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,1,1,1,0,0
+237,smallest-multiple-2,smallest-multiple-2.pas,rosetta-pascal__smallest-multiple-2,rosetta-pascal,249,0,131072,4096,900,,0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,1,1,1,0,0,0,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,1,1,1,0,0
 238,smith-numbers,smith-numbers.pas,rosetta-pascal__smith-numbers,rosetta-pascal,282,0,262144,4096,3600,,1,1,1,1,1,1,1,1,0,0,0,0,0,1,0,1,1,1,1,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0
 239,sockets-1,sockets-1.pas,rosetta-pascal__sockets-1,rosetta-pascal,55,1,131072,4096,300,,1,0,1,1,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0
 240,sort-disjoint-sublist,sort-disjoint-sublist.pas,rosetta-pascal__sort-disjoint-sublist,rosetta-pascal,45,0,131072,4096,300,,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,0,0
