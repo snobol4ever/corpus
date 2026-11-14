@@ -1,0 +1,40 @@
+############################################################################
+#
+#       File:           tabl_values.icn
+#       Subject:        program written to do number count
+#       Author:         Steven Wampler (w/ modifications by Stuart Robinson)
+#       Date:           25 October 1997
+#
+############################################################################
+#
+#               The main revision consists of the if clause in the procedure 
+#       countnums(), which now looks for lines with O's that had no 
+#       referential index and therefore have no lookback value.
+#
+############################################################################
+procedure main()
+
+        counts := sort( countnums(), 1 ); # HEREIN LIES THE PROBLEM!!!
+
+        every i := *counts to 1 by -1 do
+                {
+                write( counts[i][1] || "\t" || counts[i][2] )
+                };
+end
+
+procedure countnums()
+
+        numcount := table(0);
+
+        while line := read() do
+                line ?
+                        {
+                        if find( "no ref index" )
+                                then numcount[ "NA" ] +:= 1
+                        else
+                                while tab( upto( &digits ) ) do
+                                        numcount[ tab( many( &digits ) ) ] +:= 1
+                        };
+
+        return numcount;
+end

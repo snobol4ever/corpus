@@ -1,0 +1,83 @@
+# Procedure to compute A^B
+# Written by Paul Abrahams    November 10, 1987
+
+procedure main()
+    local a, b, bbits, prod;
+    every line := !&input do {
+        (a := integer(line[1:6]), b:= integer(line[6:11]),
+            a > 0, b > 0 ) |
+            {write("Invalid input line ", image(line)); next};
+        write("A = ", right(a, 5, "0"), "\nB = ", right(b, 5, "0"), "\n");
+        bbits := binrep(b);
+        if prod := power(a,bbits) then
+            print_it(prod)
+        else
+            write("Too many digits in the result!\n\n")
+        };
+end
+
+procedure binrep(n)
+# Compute the binary representation of n (as a string)
+    local retval;
+    retval := "";
+    while n > 0 do {
+        retval := n % 2 || retval;
+        n /:= 2
+        };
+    return retval;
+end
+
+procedure power(a, bbits)
+# Compute a to the power bbits, where bbits is a bit string.
+# The result is a list of coefficients for the polynomial a(i)*k^i,
+# least significant values first, with k=10000 and zero trailing coefficient
+# deleted.
+    local b, m1, retval;
+    m1 := (if a >= 10000 then [a % 10000, a / 10000] else [a]);
+    retval := [1];
+    every b := !bbits do {
+        (retval := product(retval, retval)) | fail;
+        if b == "1" then
+            (retval := product(retval, m1)) | fail
+        };
+    return retval;
+end
+
+procedure product(a,b)
+# Compute a*b as a polynomial in the same form as for power.
+# a and b are also polynomials in this form.
+    local i, j, k, retval, x;
+    if *a + *b > 5001 then
+        fail;
+    retval := list(*a + *hv);
+    every i := 1 to *a do
+        every j := 1 to *b do {
+            k := i + j - 1;
+            retval[k] +:= a[i] * b[j];
+            while (x := retval[k]) >= 10000 do {
+                retval[k + 1] +:= x / 10000;
+                retval[k] %:= 10000;
+                k +:= 1
+            }   };
+    every i := *retval to 1 by -1 do
+        if retval[i] > 0 then
+            break;
+    return retval[1+:i];
+end
+
+procedure print_it(n)
+    local ds, i, j, k;
+    ds := "";
+    every k := *n to 1 by -1 do
+        ds ||:= right(n[k], 4, "0");
+    ds ?:= (tab(many("0")), tab(0));
+    ds := repl("0", 4 - (*ds - 1) % 5) || ds;
+
+    every i := 1 to *ds by 50 do {
+        k := *ds > i + 45 | *ds;
+        every j := i to k by 5 do
+            writes(ds[j+:5], " ");
+        write()
+        };
+    writes("\n\n");
+end

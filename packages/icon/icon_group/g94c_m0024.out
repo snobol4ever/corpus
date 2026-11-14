@@ -1,0 +1,8 @@
+dir := tab(upto('\\')) || tab(0) || (move(-1) ~== "\\" | "")\)|(
+dir := tab(upto('\\')) || tab(0) || (move(-1) ~== "\\" | "")\((
+dir := tab(upto('\\')) || tab(0) || (move(-1) ~== "\\" | "")\(
+tab(many(' ')), tab(many(~' \\')), pos(0)\)|(
+tab(many(' ')), tab(many(~' \\')), pos(0)\))
+tab(many(' ')), tab(many(~' \\')), pos(0)\)
+tab(many(' ')), tab(many(~' \\')), pos(0)\))
+tab(many(' ')), tab(many(~' \\')), pos(0)\)|1;

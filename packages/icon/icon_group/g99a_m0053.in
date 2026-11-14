@@ -1,0 +1,5 @@
+# Filename: y2k.icn
+
+procedure main()
+   while write(map(read(), 'y', 'k'));
+end

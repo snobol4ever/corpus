@@ -1,0 +1,16 @@
+procedure main()
+	while write(strip(read()));
+end
+
+procedure strip(s)
+	s ? {							# scan
+string;
+		tab(many(' '));				# tab past spaces
+		if tab(many('>')) then {		# tab past >'s
+			return tab(0)			# return remainder
+		} else {
+			return s;			# no >'s, so return
+s
+		}
+	};
+end

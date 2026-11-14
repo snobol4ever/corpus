@@ -1,0 +1,38 @@
+x = procedure main()
+y = procedure main()
+x = 
+y = 
+x =     every line := !&input do {
+y =     every line := !&input do {
+x =         line ? {
+y =         line ? {
+x = 	    x := get_real() | write(&errout, "Bad real: ",&subject);
+y = 	    x := get_real() | write(&errout, "Bad real: ",&subject);
+x = 	    y := get_real() | write(&errout, "Bad real: ",&subject)
+y = 	    y := get_real() | write(&errout, "Bad real: ",&subject)
+x =             };
+y =             };
+x = 	write("x = ", x);
+y = 	write("x = ", x);
+x = 	write("y = ", y)
+y = 	write("y = ", y)
+x =         };
+y =         };
+x = 
+y = 
+x = end
+y = end
+x = 
+y = 
+x = procedure get_real()
+y = procedure get_real()
+x =     static digitseq;
+y =     static digitseq;
+x =     initial digitseq := '+-.' ++ &digits;
+y =     initial digitseq := '+-.' ++ &digits;
+x = 
+y = 
+x =     suspend real( (tab(upto(digitseq)), tab(many(digitseq))) );
+y =     suspend real( (tab(upto(digitseq)), tab(many(digitseq))) );
+x = end
+y = end

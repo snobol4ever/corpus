@@ -1,0 +1,9 @@
+procedure	main()
+	local	l, s;
+
+	s := set();	
+	while(l := read()) do
+		insert(s, l);
+	every l := !s do
+		write(l);
+end

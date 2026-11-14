@@ -1,0 +1,12 @@
+procedure main()
+  port := table(''); starboard := table('');
+  while line := read() do {
+    reverse(line) ? while port[move(1)] ++:= move(1) do move(-1);
+    line ? while starboard[move(1)] ++:= move(1) do move(-1)
+  };
+  every ch := !&cset do {
+    pchars := port[ch]; schars := starboard[ch];
+    if *(pchars ++ schars) > 0 then
+      write(image(ch), ":\t", image(pchars), ", ",  image(schars))
+  };
+end

@@ -1,0 +1,19 @@
+procedure main()
+while line := nocomm(&input) do
+write(line);
+exit(0);
+end
+procedure nocomm(f)
+static line;
+while line := read(f) do {
+line ? {
+ws();
+if ="
+return trim(tab(upto('
+}
+};
+fail;
+end
+procedure ws()
+tab(many(' \t'));
+end

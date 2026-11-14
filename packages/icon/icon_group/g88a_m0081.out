@@ -1,0 +1,10 @@
+procedure | main() | 
+ | while | line | := | read() | do | { | 
+ | every | writes((trim(line) | ? | parse()), | " | | | "); | 
+ | write() | 
+ | }; | 
+end | 
+ | 
+procedure | parse() | 
+ | suspend | tab(upto(' | ')|0) | \ | 1 | | | (tab(many(' | ')), | parse()); | 
+end | 

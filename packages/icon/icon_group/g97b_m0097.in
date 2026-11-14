@@ -1,0 +1,22 @@
+procedure main()
+
+    counts := table(0);
+
+    every counts[genNum()] +:= 1;
+
+    counts := sort(counts,2);
+    every i := *counts to 1 by -1 do {
+        write(counts[i][1],"\t",counts[i][2])
+        };
+
+end
+
+procedure genNum()
+
+    every line := !&input do
+        line ? {
+            while tab(upto(&digits)) do
+                suspend tab(many(&digits)) \ 1
+            };
+
+end

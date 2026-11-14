@@ -1,0 +1,42 @@
+procedure main()
+
+   master := table();
+   bad_set := set([]);
+   number := 0;
+
+   while (line := read()) do 
+   {
+       # I imagined this code to assign to sentence and number
+       number +:= 1;
+       sentence := line;
+
+       if bad_word := get_bad_word(line) then
+       {
+	   if not member(bad_set,bad_word) then 
+ 		master[bad_word] := table() & insert(bad_set,bad_word);
+	   master[bad_word][number] := sentence
+       }
+   };
+
+   # added this to test
+   every bw := !bad_set do {
+	write("Bad Word: ",bw);
+	every s := !sort(master[bw]) do
+		write("  sentence ",right(s[1],3)," = '",s[2],"'")
+   };
+
+end
+
+# added this to test
+procedure get_bad_word(l)
+
+	static	words;
+	initial	words := &ucase ++ &lcase ++ &digits;
+
+	l ? {
+		tab(upto(words));
+		w := tab(many(words))
+	};
+
+	return \w;
+end

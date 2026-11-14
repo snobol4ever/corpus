@@ -1,0 +1,10 @@
+procedure main()
+
+local	line;
+
+while line := read() do
+	line ? while write(tab(upto('
+
+') | 0)) & move(1);
+
+end

@@ -1,0 +1,95 @@
+# It has been asked of me that I clarify what I mean by implementing
+# indexed grammars like Prolog's in Icon.  What follows here is a
+# very simple example.  Note how Prolog has the advantage of either
+# producing or recognizing.  Icon, however, has the advantage of
+# providing an immediate interface with the outside world (no need
+# for tokenizing or for giving input like :- s([the husband...],[])).
+# Please don't anyone gripe about how incomplete the grammars are,
+# or about the fact that the Prolog and Icon code are not exactly
+# equivalent!  Maybe someone will kindly offer us a DCG -> Icon con-
+# verter.
+#
+# Naturally, the Prolog is much shorter.  This is the sort of thing
+# it was designed to do.
+#
+#   s --> np(Number), vp(Number).
+#   np(Number) --> det, n(Number).
+#   vp(Number) --> v(Number), np(_).
+# 
+# % I get so tired of "man and wife"; let's try "woman and husband" :-)
+#
+#   n(singular) --> [woman].
+#   n(plural) --> [husbands].
+#   n(plural) --> [women].
+#   n(singular) --> [husband].
+#   v(singular) --> [loves].
+#   v(singular) --> [hates].
+#   v(plural) --> [hate].
+#   v(plural) --> [love].
+#   det --> [the].
+
+procedure main()
+    while input_line := trim(map(!&input),',.?!')
+    do write(input_line ? S());
+end
+
+procedure S()
+    NP() == VP() &
+    pos(0) &
+    (return "yes");
+    return "no";
+end
+
+procedure NP()
+    DET() &
+    tag := N() &
+    (suspend tag);
+end
+
+procedure VP()
+    tag := V() &
+    NP() | &null &
+    (suspend tag);
+end
+
+procedure DET()
+    ="the" &
+    =" " | &null &
+    suspend;
+end
+
+procedure N()
+    suspend Nsing() | Nplur();
+end
+
+procedure Nsing()
+    wordlst := ["husband","woman"];
+    =!wordlst &
+    =" " | &null &
+    (suspend "singular");
+end
+
+procedure Nplur()
+    wordlst := ["husbands","women"];
+    =!wordlst &
+    =" " | &null &
+    (suspend "plural");
+end
+
+procedure V()
+    suspend Vsing() | Vplur();
+end
+
+procedure Vsing()
+    wordlst := ["loves","hates"];
+    =!wordlst &
+    =" " | &null &
+    (suspend "singular");
+end
+
+procedure Vplur()
+    wordlst := ["love","hate"];
+    =!wordlst &
+    =" " | &null &
+    (suspend "plural");
+end

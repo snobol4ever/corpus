@@ -1,0 +1,36 @@
+global Filter2, Filter3
+procedure main()
+  Filter1 := create filterit1(create !&input,Filter2);
+  Filter2 := create filterit2(Filter1,Filter3);
+  Filter3 := create filterit3(Filter2,&main);
+  while write(@Filter3);
+end
+
+procedure filterit1(in,out)
+  every ( GetLines(in) @ out );
+end
+
+procedure GetLines(in)
+  while line := @in
+  do suspend line;
+end
+
+procedure filterit2(in,out)
+  while line := @in do {
+   CheckIfEnd(line) | fail;
+   writeout(line,out)
+   };
+end
+
+procedure CheckIfEnd(s)
+  s == "end" & fail;
+  return;
+end
+
+procedure filterit3(in,out)
+  while ( @in @ out );
+end
+
+procedure writeout(line,out)
+  line @ out;
+end

@@ -1,0 +1,178 @@
+     1  ##### ORIGINAL CODE
+original
+code
+     2  
+     3  procedure item()
+procedure
+item
+     4     local i, word, line;
+local
+i
+word
+line
+     5     static char1, sasvar, sas;
+static
+char1
+sasvar
+sas
+     6  
+     7     initial {
+initial
+     8        char1 := '&%_' ++ &letters;
+char1
+&%_
+&letters
+     9        sasvar := char1 ++ &digits
+sasvar
+char1
+&digits
+    10        };
+    11  
+    12     while line := read() do {
+line
+read
+    13        lineno +:= 1;
+lineno
+    14        write(right(lineno, 6), "  ", line);
+write
+right
+lineno
+line
+    15        line := map(stripcom(line));                    # fold to lowercase
+line
+map
+stripcom
+line
+fold
+to
+lowercase
+    16        i := 1;
+i
+    17        line ? {
+line
+    18           while tab(upto(sasvar)) do {
+tab
+upto
+sasvar
+    19              word := tab(many(sasvar));
+word
+tab
+many
+sasvar
+    20              if member(keywords, word) then next;      # skip reserved words
+member
+keywords
+word
+then
+next
+skip
+reserved
+words
+    21              if word ? any(char1) then suspend word   # skip numbers
+word
+any
+char1
+then
+suspend
+word
+skip
+numbers
+    22              }
+    23           }
+    24        };
+    25  end
+end
+    26  
+    27  ##### NEW CODE
+new
+code
+    28  
+    29  procedure stripcom(old)
+procedure
+stripcom
+old
+    30  
+    31  	local	new;
+local
+new
+    32  	static	incom, begcom, endcom;
+static
+incom
+begcom
+endcom
+    33  	initial	{ incom := &null ; begcom := "/*" ; endcom := "*/" };
+initial
+incom
+&null
+begcom
+    34  
+    35  	new := "";
+new
+    36  
+    37  	old ? while not pos(0) do {
+old
+not
+pos
+    38  		\incom & ((tab(find(endcom)) & incom := &null) | tab(0));
+incom
+&
+tab
+find
+endcom
+&
+incom
+&null
+tab
+    39  
+    40  		while new ||:= tab(find(begcom)) do {
+new
+tab
+find
+begcom
+    41  			move(2);
+move
+    42  			(tab(find(endcom)) & move(2) & incom := &null) |
+tab
+find
+endcom
+&
+move
+&
+incom
+&null
+    43  			(tab(0) & incom := 1)
+tab
+&
+incom
+    44  		};
+    45  
+    46  		new ||:= tab(0)
+new
+tab
+    47  	};
+    48  
+    49  	return new;
+new
+    50  end
+end
+    51  
+    52  global lineno, keywords
+global
+lineno
+keywords
+    53  
+    54  procedure main()
+procedure
+main
+    55  	lineno := 0;
+lineno
+    56  	keywords:= set(["break","case","continue","do","else",
+keywords
+set
+    57  			"for","if","return","switch","while"]);
+    58  	every write(item());
+every
+write
+item
+    59  end
+end

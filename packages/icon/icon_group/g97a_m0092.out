@@ -1,0 +1,10 @@
+procedure main()
+	while line := read() do
+			if find("{Q", line) then
+				{
+			write("\t"||line);
+			write("\t"||read())
+			}
+		else
+			write(line);
+end

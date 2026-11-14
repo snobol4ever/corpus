@@ -1,0 +1,6 @@
+global Filter2, Filter3
+procedure main()
+  Filter1 := create filterit1(create !&input,Filter2);
+  Filter2 := create filterit2(Filter1,Filter3);
+  Filter3 := create filterit3(Filter2,&main);
+  while write(@Filter3);

@@ -1,0 +1,39 @@
+procedure main()
+     every write(strip_comments(!&input));
+end
+
+
+
+procedure strip_comments(s)
+
+    # Commented-out portions of Icon code - strip 'em.
+
+    local i, j, c, looking_for;
+
+    s ?:= (tab(many(' \t')), tab(0));
+    s ? {
+	match("#") & fail;
+	(s2 <- tab(find("#"))) ? {
+	    i := j := 0;
+	    looking_for := "\"\'";
+	    while c := move(1) do {
+		case c of {
+		    "\\"    : {
+			move(1); next
+		    };
+		    "\""    : {
+			if find(c,looking_for) & i +:= 1
+			then looking_for := (looking_for ~== "\"") | "\"\'"
+		    };
+		    "\'"    : {
+			if find(c,looking_for) & j +:= 1
+			then looking_for := (looking_for ~== "\'") | "\"\'"
+		    }
+		}
+	    };
+	    i % 2 = 0 & j % 2 = 0
+	};
+	return "" ~== trim((\s2 | .&subject) \ 1, ' \t')
+    };
+
+end

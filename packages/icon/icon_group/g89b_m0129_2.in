@@ -1,0 +1,31 @@
+procedure main()
+  count := 0; extrabit := "";
+  while line := !&input do {
+    if line == "" ~== extrabit then {
+      write(string(count+:=1),":  ",extrabit);
+      extrabit := "";
+      next
+      }
+    else line := extrabit || line;
+    line ? {
+      while sentence := TabSentence()
+      do write(string(count+:=1),":  ",sentence);
+      extrabit := tab(0);
+      if extrabit[-1] ~== "-"
+      then extrabit ||:= " "
+      }
+    };
+end
+
+procedure TabSentence()
+  return {
+    End2Front() ||
+    tab(upto('!.?')+1) ||
+    (tab(many('\'"()[]')) | &null, "") ||
+    ((pos(0), "") | ="  ")
+    };
+end
+
+procedure End2Front()
+  suspend &subject[.&pos:&pos <- *&subject+1 to &pos by -1];
+end

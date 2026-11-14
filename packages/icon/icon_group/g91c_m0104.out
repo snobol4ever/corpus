@@ -1,0 +1,50 @@
+#
+#  Filter to facilitate execution of Icon expressions and programs from
+#  within command shells and editors.
+#
+#  The program checks whether its input stream is an Icon *program*;
+#  i.e.  the first token is "procedure" | "link" | "record" | "global".
+#
+#  If it is a program, it is passed unchanged.  If it is not a program,
+#  it is assumed to be an expression, and is encapsulated within the
+#  following program skeleton:
+#
+#       procedure main()
+#          every write(image({
+#             --- your expression ---
+#             }))
+#       end
+#
+#  The following UNIX shell script (Bourne shell) accepts Icon text from
+#  standard input and executes it as a program or an expression as
+#  appropriate.
+#  
+#
+#       #!/bin/sh
+#       #
+#       #  Run Icon program or expression from standard input
+#       #
+#       f=/tmp/Icon$$
+#       iconprog | icont -s -o $f $* - -x 2>&1
+#       rm -f $f
+#
+
+procedure main()
+   local space,line,trailer;
+   space := ' \t\v\n\r\f';
+   while line := "." ~== read() do line ? {
+      tab(many(space));
+      if ="#" | pos(0) then write(line)
+      else {
+	 if not (=("procedure" | "link" | "record" | "global") &
+	       any(space) | pos(0)) then {
+	    writes("procedure main(); every write(image({");
+	    trailer := "})); end"
+	    };
+	 write(line);
+	 break
+	 }
+      };
+   while write("." ~== read());
+   write(\trailer);
+end

@@ -1,0 +1,243 @@
+procedure main
+Perform a
+simple test
+of GetNextWord
+and GetWord
+local word
+Write all
+input words
+two per
+line while
+word GetNextWord
+do writes
+word if
+word GetNextWord
+then writes
+word write
+Write all
+input words
+one per
+line every
+write GetWord
+end procedure
+GetNextWord static
+coexpr The
+coexpression initial
+coexpr create
+GetWord Create
+coexpression on
+first call
+return coexpr
+Return next
+value of
+coexpression end
+procedure GetWord
+static l
+list of
+words read
+local word
+the word
+just read
+initial l
+suspend l
+Return any
+words read
+previously while
+word ReadWord
+do Read
+the next
+word of
+input put
+l word
+Remember word
+for subsequent
+calls suspend
+word Pass
+word back
+to caller
+end procedure
+ReadWord static
+line loc
+wordset eofflag
+local start
+initial wordset
+lcase ucase
+if eofflag
+then fail
+while do
+if line
+then line
+read break
+loc if
+start upto
+wordset line
+loc then
+loc many
+wordset line
+start return
+line start
+loc line
+null eofflag
+fail end
+procedure
+main
+Perform
+a
+simple
+test
+of
+GetNextWord
+and
+GetWord
+local
+word
+Write
+all
+input
+words
+two
+per
+line
+while
+word
+GetNextWord
+do
+writes
+word
+if
+word
+GetNextWord
+then
+writes
+word
+write
+Write
+all
+input
+words
+one
+per
+line
+every
+write
+GetWord
+end
+procedure
+GetNextWord
+static
+coexpr
+The
+coexpression
+initial
+coexpr
+create
+GetWord
+Create
+coexpression
+on
+first
+call
+return
+coexpr
+Return
+next
+value
+of
+coexpression
+end
+procedure
+GetWord
+static
+l
+list
+of
+words
+read
+local
+word
+the
+word
+just
+read
+initial
+l
+suspend
+l
+Return
+any
+words
+read
+previously
+while
+word
+ReadWord
+do
+Read
+the
+next
+word
+of
+input
+put
+l
+word
+Remember
+word
+for
+subsequent
+calls
+suspend
+word
+Pass
+word
+back
+to
+caller
+end
+procedure
+ReadWord
+static
+line
+loc
+wordset
+eofflag
+local
+start
+initial
+wordset
+lcase
+ucase
+if
+eofflag
+then
+fail
+while
+do
+if
+line
+then
+line
+read
+break
+loc
+if
+start
+upto
+wordset
+line
+loc
+then
+loc
+many
+wordset
+line
+start
+return
+line
+start
+loc
+line
+null
+eofflag
+fail
+end

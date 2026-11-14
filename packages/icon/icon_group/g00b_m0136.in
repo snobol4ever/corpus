@@ -1,0 +1,24 @@
+procedure main()
+	while line := nocomm(&input) do
+		write(line);
+	exit(0);
+end
+
+# nocomm - implement a basic comment convention
+procedure nocomm(f)
+	static line;
+
+	while line := read(f) do {
+		line ? {
+			ws();
+			if ="#" | pos(0) then next;
+			return trim(tab(upto('#') | 0))
+		}
+	};
+	fail;
+end
+
+# ws - skip white space (blanks and tabs)
+procedure ws()
+     tab(many(' \t'));
+end

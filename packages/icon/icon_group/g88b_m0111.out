@@ -1,0 +1,45 @@
+Bad Word: if
+  sentence  13 = '       if bad_word := get_bad_word(line) then'
+  sentence  15 = '	   if not member(bad_set,bad_word) then '
+Bad Word: procedure
+  sentence   1 = 'procedure main()'
+  sentence  31 = 'procedure get_bad_word(l)'
+Bad Word: added
+  sentence  21 = '   # added this to test'
+  sentence  30 = '# added this to test'
+Bad Word: w
+  sentence  38 = '		w := tab(many(words))'
+Bad Word: every
+  sentence  22 = '   every bw := !bad_set do {'
+  sentence  24 = '	every s := !sort(master[bw]) do'
+Bad Word: initial
+  sentence  34 = '	initial	words := &ucase ++ &lcase ++ &digits;'
+Bad Word: end
+  sentence  28 = 'end'
+  sentence  42 = 'end'
+Bad Word: bad
+  sentence   4 = '   bad_set := set([]);'
+Bad Word: tab
+  sentence  37 = '		tab(upto(words));'
+Bad Word: while
+  sentence   7 = '   while (line := read()) do '
+Bad Word: static
+  sentence  33 = '	static	words;'
+Bad Word: number
+  sentence   5 = '   number := 0;'
+  sentence  10 = '       number +:= 1;'
+Bad Word: write
+  sentence  23 = '	write("Bad Word: ",bw);'
+  sentence  25 = '		write("  sentence ",right(s[1],3)," = '",s[2],"'")'
+Bad Word: l
+  sentence  36 = '	l ? {'
+Bad Word: sentence
+  sentence  11 = '       sentence := line;'
+Bad Word: I
+  sentence   9 = '       # I imagined this code to assign to sentence and number'
+Bad Word: master
+  sentence   3 = '   master := table();'
+  sentence  16 = ' 		master[bad_word] := table() & insert(bad_set,bad_word);'
+  sentence  17 = '	   master[bad_word][number] := sentence'
+Bad Word: return
+  sentence  41 = '	return \w;'

@@ -1,0 +1,21 @@
+#
+# file : padsent.icn
+# desc : add extra space to end of each sentence
+# use : padsent <infile >outfile
+#
+procedure main()
+
+    while line := read() do
+        {
+        work := reverse(line);
+        text   := "";
+        every i := 1 to *work do
+     {
+                text ||:= work[i];
+     if (work[i] == " ") & (work[i+1] == ".") then text ||:= " ";
+                if (work[i] == " ") & (work[i+1] == "?") then text ||:= " ";
+                if (work[i] == " ") & (work[i+1] == "!") then text ||:= " "
+     };
+        write(reverse(text))
+        };
+  end

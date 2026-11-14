@@ -1,0 +1,7 @@
+procedure main()
+    every s := !&input do 
+    {
+	 while  s ?:= 1(tab(find("m"|"m"|"m",s)) , move(2)) || "m" || tab(0);
+	 write(s)
+     };
+end

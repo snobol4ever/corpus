@@ -1,0 +1,41 @@
+#
+# file : usermult.icn
+# desc : looks for multiple occurences of Novell user logins to see
+#        where they're all coming from
+# use  : userlist/a | iconx usermult
+#
+# update       by          what
+# 2-feb-1995   tenaglia    initial write
+#
+procedure main()
+  count := table(0);
+  where := table("");
+  while line := read() do
+    {
+    if match("\r",line) then line[1:53] := "";
+    ident := parse(line,' ')[2];
+    count[ident] +:= 1;
+    where[ident] ||:= parse(line,' []')[3] || "::" ||
+                      parse(line,' []')[4] || "  "
+    };
+  results := sort(count,1);
+  every pair := !results do
+    {
+    if pair[2] > 1 then
+      {
+      write(pair[1]," occurs ",pair[2]," times at ");
+      write("       ",where[pair[1]])
+      }
+    };
+  end
+
+#
+# parse a string into a list with respect to a delimiter
+#
+procedure parse(line,delims)
+  static chars;
+  chars  := &cset -- delims;
+  tokens := [];
+  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)));
+  return tokens;
+  end

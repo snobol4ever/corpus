@@ -1,0 +1,14 @@
+procedure main()
+
+	while line := read() do {
+
+		line ? {
+			dir := [];
+			while put(dir,tab(upto('\\'))) do tab(many('\\'));
+			cmd := tab(0)
+		};
+
+		every writes(!dir,"\\");
+		write(cmd)
+	};
+end

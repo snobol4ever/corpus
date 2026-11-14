@@ -1,0 +1,59 @@
+##### ORIGINAL CODE
+
+procedure item()
+   local i, word, line;
+   static char1, sasvar, sas;
+
+   initial {
+      char1 := '&%_' ++ &letters;
+      sasvar := char1 ++ &digits
+      };
+
+   while line := read() do {
+      lineno +:= 1;
+      write(right(lineno, 6), "  ", line);
+      line := map(stripcom(line));                    # fold to lowercase
+      i := 1;
+      line ? {
+         while tab(upto(sasvar)) do {
+            word := tab(many(sasvar));
+            if member(keywords, word) then next;      # skip reserved words
+            if word ? any(char1) then suspend word   # skip numbers
+            }
+         }
+      };
+end
+
+##### NEW CODE
+
+procedure stripcom(old)
+
+	local	new;
+	static	incom, begcom, endcom;
+	initial	{ incom := &null ; begcom := "/*" ; endcom := "*/" };
+
+	new := "";
+
+	old ? while not pos(0) do {
+		\incom & ((tab(find(endcom)) & incom := &null) | tab(0));
+
+		while new ||:= tab(find(begcom)) do {
+			move(2);
+			(tab(find(endcom)) & move(2) & incom := &null) |
+			(tab(0) & incom := 1)
+		};
+
+		new ||:= tab(0)
+	};
+
+	return new;
+end
+
+global lineno, keywords
+
+procedure main()
+	lineno := 0;
+	keywords:= set(["break","case","continue","do","else",
+			"for","if","return","switch","while"]);
+	every write(item());
+end

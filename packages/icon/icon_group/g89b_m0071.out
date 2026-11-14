@@ -1,0 +1,61 @@
+1     procedure main()                        
+2     	words:=table();                        
+3     	line_no:=0;                            
+4     	while line:=read() do {                
+5     		line_no +:=1;                         
+6     		write(left(line_no,6),left(line,40)); 
+7     		line:=map(line);                      
+8     		i:=1;                                 
+9     		while j:=upto(&lcase,line,i) do {     
+10    		i:=many(&lcase,line,j);               
+11    		if *line[i:j] >= 3                    
+12                         #                  
+13                         #                  
+14    		then {if   \words[line[i:j]]       #li
+15    	              then insert(words[line[i:
+16    		      else {words[line[i:j]]:=set();  
+17    		            insert(words[line[i:j]], l
+18    			  }                                  
+19                         # Try instead:     
+20                         #                  
+21                         # /words[line[i:j]]
+22                         # insert(words[line
+23                         }                  
+24    		}                                     
+25            };                              
+26                                            
+27      	words:=sort(words);                  
+28    	i:=0;                                  
+29    	while pair:=words[i +:=1] do  {        
+30    	   writes(left(pair[1],10),":");       
+31    	   s:=!pair[2];                        
+32    	   pair[2]:=delete(pair[2],!pair[2]);  
+33               every s ||:= ", " ||!pair[2];
+34    	   write(s)                            
+35    	   };                                  
+36    	end                                    
+delete    :32
+else      :16
+end       :36
+every     :33
+insert    :15, 17, 22
+instead   :19
+lcase     :10, 9
+left      :30, 6
+line      :5, 10, 15, 4, 9, 14, 3, 7, 17, 22, 6, 11, 16, 21
+main      :1
+many      :10
+map       :7
+pair      :31, 30, 29, 33, 32
+procedure :1
+read      :4
+set       :16, 21
+sort      :27
+table     :2
+then      :15, 14
+try       :19
+upto      :9
+while     :4, 9, 29
+words     :15, 14, 29, 2, 17, 22, 27, 16, 21
+write     :34, 6
+writes    :30

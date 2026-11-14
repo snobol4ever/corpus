@@ -1,0 +1,9 @@
+procedure main()
+  count := table(0);
+  while line := read() do
+    every byte := !line do 
+      if any(&letters,byte) then 
+	count[byte] +:= 1;
+  every byte := !&letters do 
+    (count[byte] = 0) | write(byte," ",count[byte]);
+  end

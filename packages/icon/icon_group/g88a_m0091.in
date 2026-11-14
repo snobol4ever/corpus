@@ -1,0 +1,12 @@
+procedure main()
+  every s := !&input do {
+    s2 := "";
+    s ? {
+      # while s2 ||:= tab(WhichFirst(["35","75","95"]))
+      while s2 ||:= tab(find("35" | "75" | "95"))
+      do s2 ||:= "m" & move(2);
+      s2 ||:= tab(0)
+      };
+    write(s2)
+    };
+end

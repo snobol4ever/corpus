@@ -1,0 +1,23 @@
+procedure main()
+	chgcase := 1;
+	tmp := &null;
+
+	while inline := read() do {
+		outline := "";
+		inline ? {
+			while part := tab(upto('"')) do {
+				if \chgcase then
+					outline ||:= map(part,&lcase,&ucase)
+				else	outline ||:= part;
+
+				outline ||:= move(1);
+
+				chgcase :=: temp
+			};
+			if \chgcase then
+				outline ||:= map(tab(0),&lcase,&ucase)
+			else	outline ||:= tab(0)
+		};
+		write(outline)
+	};
+end

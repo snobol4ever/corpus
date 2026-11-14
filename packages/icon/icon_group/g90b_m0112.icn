@@ -1,0 +1,26 @@
+procedure main()
+  while line := read() do {
+    line[ 1(x<-find("#",line),notquote(line[1:x])) : 0] := "";
+    write(trim(line))
+  };
+end
+#
+# tell whether the character *following* s is within a quote or not
+#
+procedure notquote(s)
+  outs := "";
+  #
+  # eliminate escaped quotes.
+  # this is a bug for people who write code like \"hello"...
+  s ? {
+    while outs ||:= tab(find("\\")+1) do move(1);
+    outs ||:= tab(0)
+  };
+  # see if every quote has a matching endquote
+  outs ? {
+    while s := tab(find("\""|"'")+1) do {
+	if not tab(find(s[-1])+1) then fail
+    }
+  };
+  return;
+end

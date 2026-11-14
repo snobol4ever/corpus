@@ -1,0 +1,30 @@
+prcuerdoe main()
+  eevry !&ipunt ? {
+    wihle not pos(0) do {
+      wteris(netxiecpe());
+      wetris(sdmneanlcrbiras(nteepxcie()))
+      };
+    write()
+    };
+end
+
+#
+# Srclbame itaernnl letetrs of a stinrg wtih rlcpeamenet.  Whoiutt seemed
+# hard.  Note that pettry mcuh any ltteer-pnrivreesg foucintn wulod work,
+# if you didn't care aoubt rmoeandnss.
+#
+poruredce siclrembnrdanas(word)
+  eevry !wrod[2:*word] :=: ?word[2:*word];
+  rtuern wrod;
+end
+
+#
+# Satte mchanie sitacmens for rvreentiig the word and non-word ptars
+# of a txet.  Fsirt reeretivs a non-wrod, tehn a wrod, etc.  Would be
+# mroe efiefinct with a swap rahter than a cmpnemoelt.
+#
+prrcdeuoe nxecpitee()
+  satitc cruenrt;
+  itiianl cnrerut := &uacse ++ &lcsae;   # lteerts
+  rteurn tab(mnay(crenrut := ~cruenrt));
+end

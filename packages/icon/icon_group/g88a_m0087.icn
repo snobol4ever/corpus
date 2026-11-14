@@ -1,0 +1,17 @@
+procedure main()
+  s2 := "";
+  every s := !&input do {
+    s ? {
+      while s2 ||:= tab(WhichFirst(["35","75","95"]))
+      do s2 ||:= "m" & move(2);
+      s2 ||:= tab(0)
+      };
+    write(s2)
+    };
+end
+
+procedure WhichFirst(l)
+  t := (u := *&subject + 1);
+  every t := t > upto(!l);
+  return (u ~= t) | fail;
+end

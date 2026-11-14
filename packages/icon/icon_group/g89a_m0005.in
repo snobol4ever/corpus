@@ -1,0 +1,23 @@
+procedure main()
+  choose(!&input)();  # choose(x) returns a procedure;
+                     # choose(x)() returns a procedure, then invokes it
+end
+
+procedure choose(x)
+  case x of {
+    "this" : return foo;
+    "that" : return bar;
+    ""     : fail;
+    default : return baz
+    };
+end
+
+procedure foo()
+  write("FOO");
+end
+procedure bar()
+  write("BAR");
+end
+procedure baz()
+  write("BAZ");
+end

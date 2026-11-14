@@ -1,0 +1,15 @@
+record	rec(a,b)
+
+procedure	main()
+	local	l, s;
+
+	s := set();	
+	while(l := read()) do {
+		a := l[1];
+		b := l[2:0];
+
+		insert(s, rec(a,b))
+	};
+	every l := !s do
+		write(l.a, " ", l.b);
+end

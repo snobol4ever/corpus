@@ -1,0 +1,3 @@
+procedure main()
+  		while line:=read() do write(map(line," ","\l"));
+end 

@@ -1,0 +1,25 @@
+procedure main()
+
+	while line := read() do {
+		words := parse(line);
+		every writes(!words," ");
+		write()
+	};
+
+end
+
+procedure parse(t)
+
+	static	WS;
+	initial	WS := ' \t';
+
+	w := [];
+
+	trim(t,WS) ? until pos(0) do {
+		tab(many(WS));
+		put(w,tab(upto(WS) | 0))
+	};
+
+	return w;
+
+end

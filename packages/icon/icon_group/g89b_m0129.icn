@@ -1,0 +1,13 @@
+procedure main()
+  while line := !&input do {
+    if IsSentenceEnd(line)
+    then write("yes")
+    else write("no")
+    };
+end
+procedure IsSentenceEnd(str)
+  punctuation := '\'"()[]?!.';
+  shortstr := trim(str,punctuation);
+  if upto('?!.',str,*shortstr+1)
+  then return;
+end

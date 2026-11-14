@@ -1,0 +1,23 @@
+PROCEDURE MAIN()
+	CHGCASE := 1;
+	TMP := &NULL;
+
+	WHILE INLINE := READ() DO {
+		OUTLINE := "";
+		INLINE ? {
+			WHILE PART := TAB(UPTO('"')) do {
+				if \chgcase then
+					outline ||:= map(part,&lcase,&ucase)
+				else	outline ||:= part;
+
+				outline ||:= move(1);
+
+				chgcase :=: temp
+			};
+			if \chgcase then
+				outline ||:= map(tab(0),&lcase,&ucase)
+			else	outline ||:= tab(0)
+		};
+		write(outline)
+	};
+end

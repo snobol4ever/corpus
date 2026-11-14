@@ -1,0 +1,19 @@
+procedure main()
+
+    every line := !&input do {
+        line ? {
+	    x := get_real() | write(&errout, "Bad real: ",&subject);
+	    y := get_real() | write(&errout, "Bad real: ",&subject)
+            };
+	write("x = ", x);
+	write("y = ", y)
+        };
+
+end
+
+procedure get_real()
+    static digitseq;
+    initial digitseq := '+-.' ++ &digits;
+
+    suspend real( (tab(upto(digitseq)), tab(many(digitseq))) );
+end

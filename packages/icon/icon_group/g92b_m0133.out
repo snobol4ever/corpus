@@ -1,0 +1,5 @@
+        every write((!sort(t))[2]);
+        t := table();
+        while s := read() do t[map(s)] := s;
+end
+procedure main()

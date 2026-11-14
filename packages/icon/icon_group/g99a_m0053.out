@@ -1,0 +1,5 @@
+# Filename: k2k.icn
+
+procedure main()
+   while write(map(read(), 'k', 'k'));
+end

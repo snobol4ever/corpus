@@ -1,0 +1,36 @@
+procedure main()
+	words:=table();
+	line_no:=0;
+	while line:=read() do {
+		line_no +:=1;
+		write(left(line_no,6),left(line,40));
+		line:=map(line);
+		i:=1;
+		while j:=upto(&lcase,line,i) do {
+		i:=many(&lcase,line,j);
+		if *line[i:j] >= 3
+                     #
+                     #
+		then {if   \words[line[i:j]]       #line 14
+	              then insert(words[line[i:j]],line_no)    #line 15
+		      else {words[line[i:j]]:=set();    #line 16
+		            insert(words[line[i:j]], line_no)   #line 17 
+			  }
+                     # Try instead:
+                     #
+                     # /words[line[i:j]] := set()
+                     # insert(words[line[i:j]],line_no)
+                     }
+		}
+        };
+
+  	words:=sort(words);
+	i:=0;
+	while pair:=words[i +:=1] do  {
+	   writes(left(pair[1],10),":");
+	   s:=!pair[2];
+	   pair[2]:=delete(pair[2],!pair[2]);
+           every s ||:= ", " ||!pair[2];
+	   write(s)
+	   };
+	end

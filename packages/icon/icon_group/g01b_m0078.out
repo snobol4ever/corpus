@@ -1,0 +1,20 @@
+# Danger, Will Robinson - untested code follows!
+
+procedure main()
+    every write(repair(!&input));
+end
+
+procedure repair(line, sentenceEnders)
+    # setup default sentence-ending punctuation if 2nd argument is missing
+    /sentenceEnders := '.?!';
+
+    s := "";
+    line ?  {
+        while s ||:= tab(upto(sentenceEnders)) || move(1) do {
+            # Don't add a second blank if it's already there
+            s ||:= =" " || (=" " | " ")
+            };
+        s ||:= tab(0)
+        };
+    return s;
+end

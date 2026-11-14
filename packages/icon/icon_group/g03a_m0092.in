@@ -1,0 +1,30 @@
+procedure main()
+  every !&input ? {
+    while not pos(0) do {
+      writes(nextpiece());
+      writes(scrambleinnards(nextpiece()))
+      };
+    write()
+    };
+end
+
+#
+# Scramble internal letters of a string with replacement.  Without seemed
+# hard.  Note that pretty much any letter-preserving function would work,
+# if you didn't care about randomness.
+#
+procedure scrambleinnards(word)
+  every !word[2:*word] :=: ?word[2:*word];
+  return word;
+end
+
+#
+# State machine semantics for retrieving the word and non-word parts
+# of a text.  First retrieves a non-word, then a word, etc.  Would be
+# more efficient with a swap rather than a complement.
+#
+procedure nextpiece()
+  static current;
+  initial current := &ucase ++ &lcase;   # letters
+  return tab(many(current := ~current));
+end

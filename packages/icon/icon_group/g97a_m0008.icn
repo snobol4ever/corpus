@@ -1,0 +1,10 @@
+procedure main()
+
+while line := reverse(read()) do
+line ?
+
+{
+write(reverse(tab(upto(" "))))
+};
+
+end

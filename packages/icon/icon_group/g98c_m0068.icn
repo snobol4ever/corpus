@@ -1,0 +1,16 @@
+# Please RTFM, "String Scanning and Pattern Matching" chapter
+# in the Icon book, or scanning in one of the many online reference
+# documents.
+# Also, start by reading http://www.cs.arizona.edu/icon/intro.htm
+
+procedure main()
+   while line := read() ? {
+      tab(upto(&letters));
+      word := tab(many(&letters));
+
+      tab(upto(&digits));
+      num := integer(tab(many(&digits)));
+
+      write("number: ", num, " word: ", word)
+    };
+end

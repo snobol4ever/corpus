@@ -1,0 +1,15 @@
+	 local	l, s;
+	 	b := l[2:0];
+e nd
+	 local	l, s;
+	 	b := l[2:0];
+	 	write(l.a, " ", l.b);
+p rocedure	main()
+	 	a := l[1];
+	 every l := !s do
+r ecord	rec(a,b)
+	 while(l := read()) do {
+	 };
+r ecord	rec(a,b)
+	 s := set();	
+	 	insert(s, rec(a,b))

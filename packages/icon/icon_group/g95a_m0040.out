@@ -1,0 +1,20 @@
+",where[pair[1]]) occurs 6 times at 
+       pair::1  
+2-feb-1995 occurs 2 times at 
+       tenaglia::initial  
+:= occurs 6 times at 
+       parse(line,'::')  &cset::--  
+[]')[4] occurs 2 times at 
+       4::||  
+line occurs 2 times at 
+       :=::read()  
+pair occurs 2 times at 
+       :=::!results  
+pair[2] occurs 2 times at 
+       2::>  
+parse occurs 2 times at 
+       a::string  
+tokens; occurs 2 times at 
+       
+use occurs 2 times at 
+       :::userlist/a  

@@ -1,0 +1,7 @@
+procedure main(args)
+  if *args = 0 then args := ["35","75","95"];
+  every s := !&input do {
+    while s ?:= 1(tab(find(p := !args)) , =p) || "m" || tab(0);
+    write(s)
+  };
+end

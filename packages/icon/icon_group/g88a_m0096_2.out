@@ -1,0 +1,12 @@
+procedure main(args)
+  if *args = 0 then args := ["m","75","95"];
+  every s := !&input do {
+    s1 := s;
+    c1 := *s;
+    p1 := &null;
+    while s ?:= 1(tab(c := find(p := !args)) , =p) || "m" || tab(0) do
+      if c < c1 then c1 := c & p1 := p;
+    s1 ?:= 1(tab(find(\p1)) , =p1) || "m" || tab(0);
+    write(s1)
+  };
+end

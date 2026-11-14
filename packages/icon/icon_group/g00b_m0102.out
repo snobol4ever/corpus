@@ -1,0 +1,9 @@
+	while line := read() do { 1
+	}; 1
+end 1
+		write(line, " ", t[line]); 1
+	t := table(0); 1
+	exit(); 1
+	every line := key(t) do 1
+		t[line] +:= 1 1
+procedure main() 1

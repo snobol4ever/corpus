@@ -1,0 +1,14 @@
+procedure main(a)
+
+    separators := \a[1] | ',":<>,._+-=)(*&^%$#!@~`\'?/|\\][} {\t;';
+
+    while read(&input) ? {
+        tab(many(separators));
+	if not pos(0) then {
+            while write(tab(upto(separators))) do
+	        tab(many(separators))
+        };
+	pos(0) | write(tab(0))
+    };
+
+end

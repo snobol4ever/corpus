@@ -1,0 +1,22 @@
+procedure main()
+  count := table(0);
+  while line := map(read()) do
+    {
+    words := parse(line,' ,.;:!?');
+    every count[!words] +:= 1
+    };
+  result := sort(count);
+  every pair := !result do write(pair[1]," : ",pair[2]);
+  end
+
+
+#
+# parse a string into a list with respect to a delimiter
+#
+procedure parse(line,delims)
+  static chars;
+  chars  := &cset -- delims;
+  tokens := [];
+  line ? while tab(upto(chars)) do put(tokens,tab(many(chars)));
+  return tokens;
+  end

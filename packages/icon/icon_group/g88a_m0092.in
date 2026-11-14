@@ -1,0 +1,14 @@
+procedure main()
+  every s := !&input do {
+    s2 := "";
+    s ? {
+      while s2 ||:= tab(upto('379')) do
+        if =("35" | "75" | "95") then
+           s2 ||:= "m"
+        else
+           s2 ||:= move(1);
+      s2 ||:= tab(0)
+      };
+    write(s2)
+    };
+end

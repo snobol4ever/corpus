@@ -1,0 +1,2 @@
+procedure main()  while line := read() do    {	    line := if find("{Q",line) then "\t" || line || "\n\t" else line;
+	    writes(line)    };  end

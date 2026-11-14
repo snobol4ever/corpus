@@ -1,0 +1,16 @@
+procedure main()
+  lineNbr := 0;
+  while line := read() do line ? {
+    lineNbr +:= 1;
+    (nbr := tab(many(&digits)) &
+        tab(many(' \t')) &
+        letter1 := move(1) &
+        tab(many(' \t')) &
+        letter2 := move(1) &
+        pos(0)) | write("*** Line ",lineNbr," is invalid");
+    if nbr === lastNbr then
+      write(lineNbr - 1,"-",lineNbr,"   ",
+        lastLetter1,letter1,"    ",lastLetter2,letter2);
+    lastNbr := nbr; lastLetter1 := letter1; lastLetter2 := letter2
+  };
+end
