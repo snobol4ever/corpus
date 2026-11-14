@@ -27,6 +27,12 @@ say "RAKU".lc;
 say "Hello".substr(1,3);
 say "  hi  ".trim;
 say { :@^f }([3,3]);
+use v6.c; print +CORE-SETTING-REV
+use v6.d; print +CORE-SETTING-REV
+use v6.e.PREVIEW; print +CORE-SETTING-REV
+use v6.d.TEST; print +CORE-SETTING-REV
+use v6.d.TESTDEPR; print +CORE-SETTING-REV
+print +CORE-SETTING-REV
 say 7 %% 3;
 say 6 %% 3;
 say 0 %% 5;

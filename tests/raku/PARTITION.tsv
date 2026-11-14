@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1537 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=60 chunks=15 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,93
+# shape: entries=1545 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=61 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,1
 entry	part	cluster	shells
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
@@ -43,6 +43,14 @@ parser_coverage__stmt_ctrl_no	chunk:14	family:parser_coverage
 parser_coverage__stmt_ctrl_require	chunk:14	family:parser_coverage	
 parser_coverage__stmt_ctrl_use	chunk:14	family:parser_coverage	
 placeholders__placeholder_array_twigil_colonpair	chunk:15	family:placeholders	
+revisions__rv01_setting_rev	chunk:15	family:revisions	
+revisions__rv01b_setting_rev_d	chunk:15	family:revisions	
+revisions__rv01c_setting_rev_e_preview	chunk:15	family:revisions	
+revisions__rv02_modifiers	chunk:15	family:revisions	
+revisions__rv04_e_needs_preview	chunk:15	family:revisions	
+revisions__rv05_unknown_modifier	chunk:15	family:revisions	
+revisions__rv06_testdepr_warns	chunk:15	family:revisions	
+revisions__rv07_no_use_is_d	chunk:15	family:revisions	
 simple_program_18	chunk:02	family:smoke	
 simple_program_19	chunk:02	family:smoke	
 simple_program_20	chunk:02	family:smoke	
@@ -1514,7 +1522,7 @@ sub_when_junction_replace_1	chunk:14	feat:junction	has if junction return say su
 scrip_test_rk_re37	chunk:11	feat:smartmatch	for for_with_say regex say sigil_array smartmatch string_concat sub
 benchmark_rc-mandelbrot	chunk:14	feat:loop	for if loop range_op return sigil_array sub sub_with_return
 benchmark_point_class_add	chunk:14	feat:loop	for has loop method return string_concat while
-ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo	chunk:15	feat:regex_with_smartmatch	map method regex regex_with_smartmatch smartmatch string_concat token
+ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo	chunk:16	feat:regex_with_smartmatch	map method regex regex_with_smartmatch smartmatch string_concat token
 benchmark_merge-sort	core	core	for for_with_say if range_op sigil_array sort sub unless
 benchmark_point_class_add1	chunk:14	feat:loop	for has loop method return string_concat while
 ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo	core	core	join range_op say sigil_array sigil_hash smartmatch split string_concat

@@ -70,6 +70,18 @@ require Some::Module;
 use v6;
 ```
 
+## revisions__rv04_e_needs_preview
+
+```Raku
+use v6.e; print +CORE-SETTING-REV
+```
+
+## revisions__rv05_unknown_modifier
+
+```Raku
+use v6.d.NOMOD; print +CORE-SETTING-REV
+```
+
 ## c_site__max_and_min_take_a_by_named_argument
 
 ```Raku
