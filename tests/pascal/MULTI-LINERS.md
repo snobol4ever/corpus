@@ -8377,6 +8377,21 @@ TRUE
 8
 ```
 
+## fpc_features__an-object-type-has-virtual-abstract-and-static-members
+
+```Pascal
+program d1;
+type po = ^to1; to1 = object x: longint; constructor init; procedure v; virtual; function w: longint; virtual; abstract; destructor done; virtual; end;
+  to2 = object(to1) function w: longint; virtual; end;
+constructor to1.init; begin x := 1 end; procedure to1.v; begin writeln(w + x) end; destructor to1.done; begin end;
+function to2.w: longint; begin w := 41 end;
+var o: to2; begin o.init; o.v; o.done end.
+```
+
+```stdout
+42
+```
+
 ## ladder__rung12_fillqword_int64
 
 ```Pascal
