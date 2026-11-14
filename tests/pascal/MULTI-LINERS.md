@@ -5893,6 +5893,24 @@ HeChX
 TRUE 4 Q
 ```
 
+## parseforms__parse_a_for_loop_over_a_record_field
+
+```Pascal
+{$mode tp}
+program p9;
+type R = record x: Integer end;
+var i: R; s: Integer;
+begin
+  s := 0;
+  for i.x := 1 to 10 do s := s + i.x;
+  writeln(s);
+end.
+```
+
+```stdout
+55
+```
+
 ## ladder__rung13_ptr_record_field
 
 ```Pascal
