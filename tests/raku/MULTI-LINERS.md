@@ -5196,6 +5196,34 @@ say $p.exitcode;
 0
 ```
 
+## roast_hang__flat_of_a_lazy_list
+
+```Raku
+say flat((1, 2), 3..*)[^5];
+say (1..*).flat[^3];
+say (1..*).flat.is-lazy;
+```
+
+```stdout
+(1 2 3 4 5)
+(1 2 3)
+True
+```
+
+## roast_hang__power_overflow
+
+```Raku
+say (try EVAL '2**10000000000') // $!.^name;
+say (try EVAL '2**-10000000000') // $!.^name;
+say (2**100).chars;
+```
+
+```stdout
+X::Numeric::Overflow
+X::Numeric::Underflow
+31
+```
+
 ## simple_assign_103
 
 ```Raku
@@ -8652,6 +8680,45 @@ f(7);
 
 ```stdout
 int
+```
+
+## roast_hang__lazy_index_list
+
+```Raku
+my @a = <a b c>;
+my @i := (0...*).cache;
+say @a[@i];
+```
+
+```stdout
+(a b c)
+```
+
+## roast_hang__sequence_to_a_range
+
+```Raku
+say (-5 ... ^5).elems;
+say (-2 ... ^3);
+say (one((-5 ... ^5).flat) == 0).so;
+```
+
+```stdout
+10
+(-2 -1 0 1 2)
+True
+```
+
+## roast_hang__splice_of_a_lazy_array
+
+```Raku
+my @a = (1..Inf);
+say @a.splice(2, 3);
+say @a[0..3];
+```
+
+```stdout
+[3 4 5]
+(1 2 6 7)
 ```
 
 ## say_54
@@ -15696,6 +15763,19 @@ defined int: 42
 other
 ```
 
+## roast_hang__die_in_loop_condition
+
+```Raku
+sub s(&b) { try { b() }; say "after ", $!.message }
+s({ Nil until die("x") });
+s({ my $n = 0; $n++ while die("y") });
+```
+
+```stdout
+after x
+after y
+```
+
 ## say_try_die_6
 
 ```Raku
@@ -15973,6 +16053,23 @@ my @ps = (^3).map({ start { $_ * 2 } }); await Promise.allof(@ps); say @ps.map(*
 w1
 w2
 0,2,4
+```
+
+## roast_hang__iterator_role_methods
+
+```Raku
+my $i = (1..5).iterator; my @a;
+Nil until $i.push-exactly(@a, 2) =:= IterationEnd; say @a;
+$i = (1..5).iterator; my @b; say $i.push-all(@b) =:= IterationEnd, " ", @b;
+$i = (1..5).iterator; my $seen = 0; $seen++ while $i.skip-one; say $seen;
+$i = (1..5).iterator; say $i.skip-at-least(4), " ", $i.pull-one, " ", $i.sink-all =:= IterationEnd;
+```
+
+```stdout
+[1 2 3 4 5]
+True [1 2 3 4 5]
+5
+1 5 True
 ```
 
 ## rw_method__method_plain_formal_sees_value
