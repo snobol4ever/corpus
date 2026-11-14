@@ -27,3 +27,5 @@ xml/xmldecl.icn	same-code
 xml/xmldocument.icn	same-code
 xml/xmlelement.icn	same-code
 xml/xmlformatter.icn	same-code
+lib/url.icn	same-code
+lib/netclient.icn	same-code
