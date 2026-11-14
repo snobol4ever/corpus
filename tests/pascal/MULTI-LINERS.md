@@ -5740,6 +5740,19 @@ end.
          70
 ```
 
+## fpc_features__a-method-declared-with-a-message-directive
+
+```Pascal
+{$mode objfpc}
+program ms1; type tc = class procedure a(var m); message 1; end; procedure tc.a(var m); begin writeln(1) end;
+var c: tc; begin c := tc.create; c.a(c); writeln('ok') end.
+```
+
+```stdout
+1
+ok
+```
+
 ## fpc_features__a-method-is-called-through-an-interface-variable
 
 ```Pascal
