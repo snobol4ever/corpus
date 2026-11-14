@@ -8203,6 +8203,38 @@ end.
 0
 ```
 
+## fpc_features__an-indexed-property-of-class-type-reads-through-its-getter
+
+```Pascal
+program an_indexed_property_of_class_type;
+{$mode objfpc}{$h+}
+type
+  TN = class
+    v: Integer;
+    function GetIt(i: Integer): TN;
+    property Items[i: Integer]: TN read GetIt; default;
+  end;
+function TN.GetIt(i: Integer): TN;
+begin
+  Result := TN.Create;
+  Result.v := i * 10;
+end;
+function Show(n: TN): Integer;
+begin
+  Result := n.v;
+end;
+var c: TN; I: Integer;
+begin
+  c := TN.Create;
+  I := 4;
+  writeln(Show(c.Items[I]));
+end.
+```
+
+```stdout
+40
+```
+
 ## front_end__pf20_record_methods
 
 ```Pascal

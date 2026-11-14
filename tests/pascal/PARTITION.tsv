@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=526 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=49 chunks=5 sizes=100,100,100,100,80
+# shape: entries=527 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=49 chunks=5 sizes=100,100,100,100,81
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -315,6 +315,7 @@ front_end__pf20e_object_new_dispose	chunk:05	feat:dispose	dispose new pointer po
 program_record_with_2	chunk:04	feat:with_record	record type with with_record
 array_of_const__array_of_const_open	chunk:02	feat:const	array const function nested_proc procedure
 ladder__rung20_fgl_list_sort_remove_and_strings	chunk:04	feat:mod	const for function mod write
+fpc_features__an-indexed-property-of-class-type-reads-through-its-getter	chunk:04	feat:read	function nested_proc read type
 front_end__pf20_record_methods	chunk:02	feat:const	const function nested_proc record type
 program_case_repeat_replace_1	chunk:03	feat:case	case for in repeat
 program_case_repeat_replace_2	chunk:03	feat:case	case for in repeat
@@ -437,7 +438,7 @@ program_record_pointer_10	chunk:04	feat:with_record	new pointer pointer_with_new
 ladder__rung15_layout_nested_is_one_block	chunk:04	feat:pointer	array for for_with_array pointer set_literal subrange type
 ladder__rung16_real_const_fold_bound	core	core	array const round set_literal sqrt subrange trunc
 ladder__rung12_move_from_with_field	chunk:04	feat:with_record	array for for_with_array record type with with_record
-ladder__rung06_arrays_bool_index_2d	chunk:04	feat:chr	array chr for for_with_array ord set_literal subrange
+ladder__rung06_arrays_bool_index_2d	chunk:05	feat:chr	array chr for for_with_array ord set_literal subrange
 array_of_const__array_of_const_varrec	chunk:03	feat:case	array case const for for_with_array pointer procedure
 program_record_pointer_replace_1	chunk:03	feat:nil	in new nil pointer pointer_with_new record type
 front_end__pf20i_array_helper_sort	chunk:04	feat:mod	array for for_with_array function mod record type write
