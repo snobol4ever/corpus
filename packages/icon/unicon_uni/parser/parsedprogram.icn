@@ -1,0 +1,163 @@
+#
+# $Id: parsedprogram.icn,v 1.1 2004-02-12 17:01:53 rparlett Exp $
+#
+# This file is in the public domain.
+#
+# Author: Robert Parlett (parlett@dial.pipex.com)
+#
+#
+# Updated: Bruce Rennie - convert all standard Unicon functions to have "::" prefix
+# Date:    2020-12-28
+# Updated: Bruce Rennie - define all local variables as local, to prevent problems
+#                         when using the Unicon compiler -n option
+# Date:    2021-01-03
+#
+
+package parser
+
+link ximage
+
+$include "ytab_h.icn"
+
+class ParsedProgram : ParsedObject(records,
+                                   globals,
+                                   links,
+                                   imports,
+                                   package_name,
+                                   invocables,
+                                   classes,
+                                   procedures)
+
+   method set_package_from_node(n)
+      local t;
+
+      t := n.children[1];
+      if t.label == "lnkfile" then {
+         t := t.children[1];
+         if t.tok = STRINGLIT then {
+            #
+            # strip the quotes from the value
+            #
+            package_name := t.s[2:-1]
+         } else if t.tok = IDENT then {
+            #
+            # we just used the value of the identifier
+            #
+            package_name := t.s
+         } else {
+            parsing_error(t)
+         }
+      } else {
+         parsing_error(t)
+      };
+   end
+
+   method add_record(n)
+      ::put(records, ParsedRecord(n, self));
+   end
+
+   # Still to be done and tested
+   method add_global(n)
+      local x;
+
+      every x := n.children[1 to *n.children] do {
+         ::put(globals, x.s)
+      };
+   end
+
+   method add_link(n)
+      list_common(n, links);
+   end
+
+   method add_import(n)
+      list_common(n, imports);
+   end
+
+   method list_common(n, l)
+      local t;
+
+      every t := n.children[1 to *n.children] do {
+         if t.children[1].tok = STRINGLIT then   # STRINGLIT - strip quotes
+            ::put(l, t.children[1].s[2:-1])
+         else
+            ::put(l, t.children[1].s)
+      };
+   end
+
+   method add_class(n)
+      ::put(classes, ParsedClass(n, self));
+   end
+
+   method add_invocable(n)
+      local x;
+
+      every x := n.children[1 to *n.children] do {
+         if x.children[1].tok = STRINGLIT then   # STRINGLIT - strip quotes
+            ::put(invocables, x.children[1].s[2:-1])
+         else
+            ::put(invocables, x.children[1].s)
+      };
+   end
+
+   method add_proc(n)
+      ::put(procedures, ParsedProcedure(n, self));
+   end
+
+   method to_string()
+      local s;
+
+      s := "";
+      s ||:= "package " || \package_name || "\n";
+      s ||:= do_list("globals", globals);
+      s ||:= do_list("links", links);
+      s ||:= do_list("imports", imports);
+      if *invocables > 0 then
+         s ||:= "invocables: " || *invocables || "\n";
+      every s ||:= (!records).to_string() || "\n";
+      every s ||:= (!procedures).to_string() || "\n";
+      every s ||:= (!classes).to_string() || "\n";
+      return s;
+   end
+
+   method do_list(start, l)
+      local s;
+
+      if *l = 0 then
+         return "";
+
+      s := start || " ";
+      every s ||:= !l || ",";
+      s[-1] := "\n";
+
+      return s;
+   end
+
+   method init(n)
+      local decl;
+
+      records := [];
+      globals := [];
+      links := [];
+      imports := [];
+      package_name := &null;
+      invocables := [];
+      classes := [];
+      procedures := [];
+
+      every decl := n.children[1 to *n.children] do {
+         case decl.label of {
+            "record" : add_record(decl);
+            "class" : add_class(decl);
+            "procedure" : add_proc(decl);
+            "global" : add_global(decl);
+            "link" : add_link(decl);
+            "import" : add_import(decl);
+            "package" : set_package_from_node(decl);
+            "invocable" : add_invocable(decl)
+         }
+      };
+   end
+
+   initially(n, p)
+      self.ParsedObject.initially(n, p);
+end
