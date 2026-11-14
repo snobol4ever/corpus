@@ -717,6 +717,17 @@ code 2 File not found
 code 2 File not found
 ```
 
+## fpc_features__absolute-over-a-component-of-a-variable
+
+```Pascal
+{$mode objfpc}
+program ab3; var s: shortstring; c: char absolute s[1]; begin s := 'xy'; writeln(c) end.
+```
+
+```stdout
+x
+```
+
 ## ladder__rung31_classes_tmemorystream_and_tbits
 
 ```Pascal
