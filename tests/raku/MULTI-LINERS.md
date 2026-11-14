@@ -5392,6 +5392,19 @@ print $a + $b;
 3
 ```
 
+## user_op__a_plain_sub_on_a_builtin_infix_replaces_it
+
+```Raku
+sub infix:<->($a, $b) { "MINE" }
+say 5 - 2;
+say 1.5 - 1;
+```
+
+```stdout
+MINE
+MINE
+```
+
 ## array_32
 
 ```Raku
@@ -5818,6 +5831,20 @@ a 1
 b 2
 ```
 
+## user_op__an_operator_is_one_name_however_its_symbol_is_quoted
+
+```Raku
+multi infix:<< +-+ >>(Int $a, Int $b) { "spaced" }
+multi infix:«+-+»(Str $a, Str $b) { "french" }
+say 3 +-+ 4;
+say "a" +-+ "b";
+```
+
+```stdout
+spaced
+french
+```
+
 ## channel__closed_is_a_promise_kept_at_close
 
 ```Raku
@@ -6047,6 +6074,21 @@ say $i;
 2
 ```
 
+## user_op__an_operator_multi_holds_in_its_own_block
+
+```Raku
+{
+    multi infix:<->(Str $a, Str $b) { "in:$a$b" }
+    say "p" - "q";
+}
+say 7 - 2;
+```
+
+```stdout
+in:pq
+5
+```
+
 ## ladder__rung023_kw_nil_nil_in_array
 
 ```Raku
@@ -6157,6 +6199,40 @@ ABC
 Just another Raku hacker
 ```
 
+## user_op__a_literal_in_a_multi_signature_is_a_value_constraint
+
+```Raku
+multi f(0) { "zero" }
+multi f("a") { "lit-a" }
+multi f($x) { "other" }
+say f(0);
+say f("a");
+say f(5);
+```
+
+```stdout
+zero
+lit-a
+other
+```
+
+## user_op__an_enum_value_in_a_multi_signature_is_a_value_constraint
+
+```Raku
+enum A <e1 e2>;
+multi f(e1, e2) { "AWW" }
+multi f($a, $b) { "other" }
+say f(e1, e2);
+say f(e2, e1);
+say f(1, 2);
+```
+
+```stdout
+AWW
+other
+other
+```
+
 ## core__rc01_core_subs
 
 ```Raku
@@ -6196,6 +6272,26 @@ say $p * 2;
 -9223372036854775809
 9223372036854775808
 18446744073709551614
+```
+
+## user_op__a_multi_on_a_builtin_infix_adds_candidates_before_the_builtin
+
+```Raku
+multi infix:<->(Str $a, Str $b) { "S:$a$b" }
+multi infix:<+>(Str $a, Str $b) { "cat:$a$b" }
+say "p" - "q";
+say 5 - 2;
+say "x" + "y";
+say 2 + 3;
+say 1.5 - 1;
+```
+
+```stdout
+S:pq
+3
+cat:xy
+5
+0.5
 ```
 
 ## ladder__rung023_kw_nil_fresh_scalar_compare
@@ -11535,6 +11631,22 @@ say f("a");
 
 ```stdout
 i
+s
+```
+
+## user_op__a_prefix_operator_takes_the_same_rule
+
+```Raku
+sub prefix:<->($x) { "NEG" }
+multi prefix:<~>(Int $x) { "TILDE" }
+say -5;
+say ~5;
+say ~"s";
+```
+
+```stdout
+NEG
+TILDE
 s
 ```
 
