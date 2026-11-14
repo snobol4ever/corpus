@@ -12337,6 +12337,39 @@ cyclic(no)
 done
 ```
 
+## lifo__lifo_cleanup_failure_exit_restores_to_its_continuations_depth
+
+```Prolog
+:- initialization(main).
+a(G) :- G1 = G, call_cleanup(G1, true), !.
+a(_) :- \+ \+ writeq(next_clause_after_cut), nl.
+b(G) :- G1 = G, call_cleanup(G1, true).
+b(_) :- \+ \+ writeq(next_clause), nl.
+c(G) :- ( G1 = G, call_cleanup(G1, true) ; \+ \+ writeq(else_arm), nl ).
+d(G) :- G1 = G, G2 = G1, setup_call_cleanup(true, G2, true).
+d(G) :- X = f(G), \+ \+ ( writeq(X), nl ), fail.
+d(_) :- \+ \+ writeq(third_clause), nl.
+e(G) :- member(X, [1, 2]), G1 = G, call_cleanup(G1, true), X > 5.
+e(_) :- \+ \+ writeq(after_a_retry), nl.
+f(G) :- G1 = G, call_cleanup(G1, writeq(c)), writeq(got), nl, fail.
+f(_) :- \+ \+ writeq(after_solutions), nl.
+main :- a(fail), b(fail), c(fail), d(fail), e(fail), f(member(_, [1, 2])), f(true).
+```
+
+```stdout
+next_clause_after_cut
+next_clause
+else_arm
+f(fail)
+third_clause
+after_a_retry
+got
+cgot
+after_solutions
+cgot
+after_solutions
+```
+
 ## ite_naf_directive_replace_2
 
 ```Prolog
