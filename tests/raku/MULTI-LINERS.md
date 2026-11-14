@@ -892,6 +892,19 @@ False
 True
 ```
 
+## revisions__rv03_class_ver_under_v6e
+
+```Raku
+use v6.e.PREVIEW;
+say PseudoStash.^ver;
+say Int.^ver;
+```
+
+```stdout
+6.e
+6.c
+```
+
 ## simple_program_10
 
 ```Raku
@@ -2013,6 +2026,19 @@ True
 False
 ```
 
+## react__whenever_over_an_on_demand_supply
+
+```Raku
+react { whenever supply { emit "x"; emit "y" } { say $_ } }
+say "after";
+```
+
+```stdout
+x
+y
+after
+```
+
 ## say_90
 
 ```Raku
@@ -2221,6 +2247,21 @@ True
 True
 False
 False
+```
+
+## revisions__rv08_a_class_answers_its_ver
+
+```Raku
+say Int.^ver;
+say Str.^ver;
+class C:ver<1.2> {}
+say C.^ver;
+```
+
+```stdout
+6.c
+6.c
+v1.2
 ```
 
 ## say_63
@@ -4829,6 +4870,20 @@ hi
 0
 ```
 
+## code_class__the_code_types_and_their_parents
+
+```Raku
+say Sub.isa(Routine), " ", Routine.isa(Block), " ", Block.isa(Code);
+say Method.isa(Routine), " ", WhateverCode.isa(Code), " ", WhateverCode.isa(Block);
+say Sub ~~ Callable, " ", Code ~~ Callable;
+```
+
+```stdout
+True True True
+True True False
+True True
+```
+
 ## ladder__rung01_variables_multiple_declaration
 
 ```Raku
@@ -5000,6 +5055,19 @@ say $s.^name;
 ```stdout
 (1 2)
 Supply
+```
+
+## proc__run_captures_out
+
+```Raku
+my $p = run :out, $*EXECUTABLE, "-e", "say 1";
+print $p.out.slurp;
+say $p.exitcode;
+```
+
+```stdout
+1
+0
 ```
 
 ## simple_assign_103
@@ -5241,6 +5309,36 @@ say "after";
 before
 (Any)
 after
+```
+
+## c_site__a_routine_accepts_its_topic
+
+```Raku
+sub is_even($x) { $x %% 2 }
+say &is_even.ACCEPTS(4);
+say &is_even.ACCEPTS(3);
+say { $_ > 1 }.ACCEPTS(2);
+```
+
+```stdout
+True
+False
+True
+```
+
+## c_site__a_setting_routine_named_through_setting_or_core
+
+```Raku
+sub not($x) { $x }
+say &SETTING::not(False);
+say &CORE::not(False);
+say not(False);
+```
+
+```stdout
+True
+True
+False
 ```
 
 ## c_site__an_operator_reference_is_called_as_a_routine
@@ -5565,6 +5663,21 @@ say "end";
 end
 ```
 
+## channel__closed_is_a_promise_kept_at_close
+
+```Raku
+my $c = Channel.new;
+say $c.closed.^name;
+$c.close;
+await $c.closed;
+say $c.closed.status;
+```
+
+```stdout
+Promise
+Kept
+```
+
 ## core__rc03_string_subs
 
 ```Raku
@@ -5853,6 +5966,23 @@ say $a % $b;
 1
 ```
 
+## proc__run_feeds_in_and_reads_out_and_err
+
+```Raku
+my $p = run :in, :out, :err, $*EXECUTABLE, "-e", 'my $l = $*IN.get; say $l.uc; note "e"; exit 3';
+$p.in.print: "abc\n";
+$ = $p.in.close;
+print $p.out.slurp(:close);
+print $p.err.slurp(:close);
+say $p.exitcode;
+```
+
+```stdout
+ABC
+e
+3
+```
+
 ## roast_causes__rc06_samecase_reads_the_case_of_each_pattern_char
 
 ```Raku
@@ -6044,6 +6174,53 @@ hello world
 8
 12
 42
+```
+
+## channel__send_receive_poll_close_list
+
+```Raku
+my $c = Channel.new;
+say $c.^name;
+$c.send(7);
+say $c.receive;
+$c.send(1);
+$c.send(2);
+say $c.poll;
+$c.close;
+say $c.list;
+say $c.poll;
+```
+
+```stdout
+Channel
+7
+1
+(2)
+Nil
+```
+
+## promise__new_keep_break_status_result_cause
+
+```Raku
+my $q = Promise.new;
+say $q.^name;
+say $q.status;
+$q.keep(5);
+say $q.status;
+say $q.result;
+my $r = Promise.new;
+$r.break("no");
+say $r.status;
+say $r.cause.message;
+```
+
+```stdout
+Promise
+Planned
+Kept
+5
+Broken
+no
 ```
 
 ## token_1
@@ -7990,6 +8167,19 @@ say ([+] @a) + ([+] @b);
 30
 ```
 
+## code_class__name_arity_count_and_gist
+
+```Raku
+sub g { 1 }; my $b = { 1 }; my $p = -> $x, $y { $x }; my $w = * + 1;
+say &g.name, " ", &g.gist;
+say $b.arity, " ", $p.arity, " ", $w.arity, " ", &g.arity, " ", $p.count;
+```
+
+```stdout
+g &g
+0 2 1 0 2
+```
+
 ## given_1
 
 ```Raku
@@ -8236,6 +8426,20 @@ f(@a);
 3
 ```
 
+## supply__from_list_is_an_on_demand_supply
+
+```Raku
+my @got; Supply.from-list(1, 2, 3).tap({ @got.push($_) }); say @got;
+say Supply.from-list(4, 5).list;
+my $s = Supply.from-list("a", "b"); $s.tap({ print $_ }); $s.tap({ print $_.uc }); say "";
+```
+
+```stdout
+[1 2 3]
+(4 5)
+abAB
+```
+
 ## test_stmt_pfx_ENTER
 
 ```Raku
@@ -8362,6 +8566,20 @@ say $i;
 
 ```stdout
 1
+3
+```
+
+## code_class__the_mro_of_a_declared_class
+
+```Raku
+class A {}
+class B is A {}
+say B.^mro.map(*.^name).join(" ");
+say A.^mro.elems;
+```
+
+```stdout
+B A Any Mu
 3
 ```
 
@@ -8860,6 +9078,44 @@ e a b c d
 d e a b c
 b c d e a
 c d e a b
+```
+
+## promise__await_returns_the_result_or_rethrows_the_cause
+
+```Raku
+my $q = Promise.new;
+$q.keep(5);
+say await $q;
+my $b = Promise.new;
+$b.break("boom");
+try { await $b; CATCH { default { say "caught ", .message } } }
+say "after";
+```
+
+```stdout
+5
+caught boom
+after
+```
+
+## promise__start_runs_its_block_at_creation
+
+```Raku
+my $p = start { 42 };
+say $p.^name;
+say $p.result;
+say $p.status;
+my $b = start { die "boom" };
+try { $b.result; CATCH { default { say "caught ", .message } } }
+say $b.status;
+```
+
+```stdout
+Promise
+42
+Kept
+caught boom
+Broken
 ```
 
 ## token_say_2
@@ -11084,6 +11340,24 @@ miss
 2
 ```
 
+## proc__shell_runs_through_sh
+
+```Raku
+say so run "true";
+say run("false").exitcode;
+my $s = shell "echo hi", :out;
+print $s.out.slurp;
+my @w = $*EXECUTABLE, "-e", 'say @*ARGS.join(",")', "a", "b";
+print run(:out, |@w).out.slurp;
+```
+
+```stdout
+True
+1
+hi
+a,b
+```
+
 ## roast_causes__rc04_paren_semilist_keeps_every_statement
 
 ```Raku
@@ -11236,6 +11510,26 @@ say $p.x;
 3
 4
 10
+```
+
+## promise__then_allof_anyof
+
+```Raku
+my $p = Promise.new;
+my $t = $p.then({ .result * 2 });
+$p.keep(21);
+say $t.result;
+my @ps = (^3).map({ my $q = Promise.new; $q.keep($_); $q });
+my $all = Promise.allof(@ps);
+await $all;
+say $all.status;
+say Promise.anyof(@ps).^name;
+```
+
+```stdout
+42
+Kept
+Promise
 ```
 
 ## ladder__rung13_classes_a_class_own_bool_and_defined_answer_every_truth_and_definedness_context
@@ -12852,6 +13146,31 @@ say $n;
 1200000
 ```
 
+## c_site__a_routine_named_through_a_run_time_package
+
+```Raku
+class R { our sub s() { "s" } }
+my $s = "R";
+say &::($s)::s();
+```
+
+```stdout
+s
+```
+
+## c_site__an_our_routine_named_through_its_class
+
+```Raku
+class R { our sub s() { "s" }; our method m() { "m of " ~ self.^name } }
+say &R::s();
+say &R::m(R.new);
+```
+
+```stdout
+s
+m of R
+```
+
 ## class_method_replace_12
 
 ```Raku
@@ -13236,6 +13555,21 @@ class C is B { method TWEAK() { say("C"); } }
 A
 B
 C
+```
+
+## code_class__a_code_value_knows_its_class
+
+```Raku
+my $w = * + 1; sub g { 1 }; my $b = { 1 }; my $p = -> $x { $x };
+say $w.^name, " ", $b.^name, " ", &g.^name, " ", $p.^name;
+say $w ~~ Callable, " ", &g ~~ Routine, " ", $b ~~ Code, " ", $w ~~ Block;
+say $w.isa(Code), " ", &g.isa(Block), " ", $w.does(Callable);
+```
+
+```stdout
+WhateverCode Block Sub Block
+True True True False
+True True True
 ```
 
 ## for_range_say_6
@@ -14987,6 +15321,23 @@ say a(0,1,2,3) ~ "|" ~ b(0,1,2,3);
 3|3
 ```
 
+## c_site__a_hash_sorts_by_a_key_or_a_comparator_block
+
+```Raku
+my %h = b => 2, a => 1, c => 3;
+say %h.sort(*.value);
+say %h.sort({ $^b.value <=> $^a.value });
+for %h.sort(*.key) -> $p { say $p.key }
+```
+
+```stdout
+(a => 1 b => 2 c => 3)
+(c => 3 b => 2 a => 1)
+a
+b
+c
+```
+
 ## c_site__a_routine_named_through_its_package_is_called
 
 ```Raku
@@ -14999,6 +15350,21 @@ say &R::m(R.new);
 ```stdout
 True
 m of R
+```
+
+## c_site__a_routine_reference_on_the_right_of_a_smartmatch_or_when
+
+```Raku
+sub is_even($x) { $x %% 2 }
+say 4 ~~ &is_even;
+say so 3 ~~ &is_even;
+given 4 { when &is_even { say "even" } }
+```
+
+```stdout
+True
+False
+even
 ```
 
 ## class_method_say_replace_31
