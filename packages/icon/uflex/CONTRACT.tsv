@@ -1,0 +1,3 @@
+oracle	unicon	the answers are cut from the Unicon translator through unicon_bin() (skill unicon R2): uflex built by unicon from the original sources, as the distribution's Makefile builds it
+unmarked_compile_args	--dialect=unicon	CTO-473: uflex is a Unicon program
+ipath	.	the modules every run_NAME.icn links (flexgram, main, uflex-lex, ulexskel, uflexskel, automata, tree, convert, automatadfa, ulpp) sit beside the drivers

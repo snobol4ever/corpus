@@ -1,0 +1,518 @@
+uflex 0.9 invoked on numbers.l
+NFA states: 20 (4 accepting); DFA may take a bit
+DFA states: 10 (4 accepting)
+No errors
+#
+# uflex skeleton.
+# do not edit by hand, this file is machine-generated
+#
+
+record edge(symbol, destinations)
+record anode(label, rulenum, edges, epsilon, dot)
+record automata(start, states, accepting)
+
+global yychar, yytext, yyin, yyleng
+
+#
+# yyulex reads from a specified input file or string and calls the
+# simulate function repeatedly on larger and larger pieces of the
+# input until it fails to find a match. It reports the (largest) parts
+# of the input that it could parse.
+#
+
+global stringseq
+global dfatable
+global accepttable
+
+procedure yysetyyin(in)
+   stringseq := &null
+   return yyin := in
+end
+
+procedure yyulex(aut)
+local rulenum, readfrom, position, less, currstring, getln
+local maxrule, maxleng
+static stringinput
+
+initial {  do_create(); stringseq:= &null}
+
+   if /stringseq then {
+      /yyin := &input
+      if type(yyin) == "string" then {
+         stringinput := stringseq := yyin
+      } else {
+         readfrom := yyin
+         stringseq := read(readfrom) || "\n"
+
+         while getln := read(readfrom) do
+            stringseq ||:= getln || "\n"
+
+         close(readfrom)
+      }
+   }
+
+   repeat {
+      maxrule := &null
+      if stringseq == "" then {
+         yychar := -1
+         fail
+         }
+
+      leng := 1
+      while i := simulate(aut, stringseq[1:leng+1]) do {
+         if i > 0 then {
+            maxrule := i
+            maxleng := leng
+         }
+         leng +:= 1
+      }
+      if \maxrule then {
+         yytext := stringseq[1 : maxleng+1]; yyleng := maxleng
+         stringseq := stringseq[maxleng+1:0]
+         if yychar := (semantic_action)[maxrule] () then return yychar
+      } else {
+         writes(stringseq[1]) # copy to stdout
+         stringseq := stringseq[2:0]
+      }
+   }
+end
+
+#
+# simulate(automata, word) determines whether or not the word
+# would be accepted by the given automata. It starts at state 1
+# and continues through the automata with each symbol of the string
+# until it cannot find a state for that symbol. The last reached state
+# is checked to see if it is a member of accepting states.If it is an
+# an accepting state, the rule number is returned.
+#
+procedure simulate(myaut, word)
+local currstates, currsymbol, rv, value2
+   currstates := list(0) # should be set()
+   start :=  anode(1, 0, [], [], [])
+   put(currstates, start)
+   currsymbol := word
+
+   while *currsymbol > 0 do {
+      currstates := getdestination(currstates, currsymbol)
+      if *currstates = 0 then
+         fail
+      currsymbol := currsymbol[2:0]
+      }
+
+   if *currstates = 1 then {
+      value2 := currstates[1]
+      if member(accepttable,integer(value2.label)) then 
+         rv := accepttable[integer(value2.label)]
+   }
+   if \yydebug>0 then write("simulate() returns ", image(\rv)|0)
+   return \rv | -(currstates[1].label)
+end
+
+#
+# getdestination uses the current list containing a state
+# simulates one step of automata computation on the given
+# string and returns the resulting set of destination
+#
+procedure getdestination(currstates, currsymbol)
+local reached
+   reached := list(0)
+   if *currstates = 1 then {
+      reached := reach(currstates[1], currsymbol)
+   }
+   return reached
+end
+
+#
+# reach returns the state that can be reached
+# on character symbol from the previous state.
+#
+procedure reach(state, symbol)
+local j, new, dest
+
+   dest := list(0)
+   j := state.label
+   key2 :=  j || ":" || symbol[1]
+   if member(dfatable,key2) then {  
+      new :=  anode(dfatable[key2], 0, [], [], [])
+      put(dest,new)
+   }
+   else {
+      key2 := ""
+      if (symbol[1] == "\n") then
+         key2 :=  j || ":" || "\\n"
+      else if (symbol[1] == "\t") then
+         key2 :=  j || ":" || "\\t"
+      else if (symbol[1] == "\r") then
+         key2 :=  j || ":" || "\\r"
+      else if (symbol[1] == "\f") then
+         key2 :=  j || ":" || "\\f"
+      else if (symbol[1] == "\\") then
+         key2 :=  j || ":" || "\\\\" 
+      if key2 ~== "" then {
+         if member(dfatable,key2) then {  
+            new :=  anode(dfatable[key2], 0, [], [], [])
+            put(dest,new)
+         }
+      }
+   }
+
+   return dest
+end
+
+# "hexVal" == "hexadecimal value"
+procedure hexVal(ch)
+   if any(&digits, ch) then return ord(ch)-ord("0")
+   return case ch of {
+      "a"|"A": 10
+      "b"|"B": 11
+      "c"|"C": 12
+      "d"|"D": 13
+      "e"|"E": 14
+      "f"|"F": 15
+   }
+end
+
+procedure print_statestable(myaut,dfatable)
+local lst, stateset, state, key2, input, nextstate
+   lst := list()
+   stateset := set()
+   nextstate := 0
+   input := ""
+   key2 :=  ""
+
+   lst := sort(dfatable)
+   write("printstates size ", *lst)
+
+   every j := 1 to *lst do {
+      key2 := lst[j][1]
+      nextstate := lst[j][2]
+      p1 := upto(":",key2)
+      input := key2[p1+1:0]
+      state := key2[1:p1]
+
+      if not member(stateset, state) then {
+         insert(stateset,state)
+         write()
+         write(" state: "||state)
+      }
+      writes(image(input)||" -> "||nextstate||",")
+   }
+   write()
+   lst := sort(accepttable)
+   write(" Number of Accepting States "||*lst)
+   every j := 1 to *lst do
+      write("Accepting State:"||lst[j][1]||" rule:"||lst[j][2])
+   write()
+   write("Automata Number of states "||*stateset)
+   write("Accepting: ")
+   every j := 1 to *(myaut.accepting) do
+      write(myaut.accepting[j].label||" rule: "||myaut.accepting[j].rulenum)
+end
+# "recset" == "regular expression cset"
+procedure csetfromrecset(recset)
+local rv, lastchar, origcset := recset
+   if not (recset[1]=="[" & recset[-1]=="]") then
+      stop("malformed recset ", image(recset))
+   recset := recset[2:-1]
+
+   if recset[1]=="^" then { # not in this cset, subtract from &cset
+      rv := &cset -- csetfromrecset("["||recset[2:0]||"]")
+      return rv
+      }
+   # positive cset construction
+   rv := ''
+   while *recset>0 do {
+
+      if recset[1] == "-" & \lastchar & *recset>1 then
+         genrangefrom := lastchar
+      else {
+         # did not trigger a new range. Process one char
+
+         if recset[1] == "\\" then { # escape
+            recset := recset[2:0]
+            case recset[1] of {
+               "n":  recset[1] := "\n"
+               "t":  recset[1] := "\t"
+               "r":  recset[1] := "\r"
+               "v":  recset[1] := "\v"
+               "-":  recset[1] := "\-"
+               "+":  recset[1] := "\+"
+               "f":  recset[1] := "\f"
+               "'":  recset[1] := "\'"
+               "\"":  recset[1] := "\""
+               "\\": recset[1] := "\\"
+               "0": {
+                  if any('01234567', recset[2]) then {
+                     if any('01234567', recset[3]) then {
+                        o := char(recset[1]*64+recset[2]*8+recset[3])
+                        recset := o || recset[4:0]
+                     }
+                     else stop("argh2 ", image(recset))
+                     }
+                  else recset[1] := "\0"
+               }
+               "x": {
+                  if any('0123456789abcdefABCDEF', recset[2]) then {
+                     if any('0123456789abcdefABCDEF', recset[3]) then {
+                        o := char(hexVal(recset[2])*16+hexVal(recset[3]))
+                        recset := o || recset[4:0]
+                     }
+                     else stop("arghx ", image(recset))
+                     }
+                  else stop("arghX ", image(recset))
+               }
+               # should handle all escapes here, and error on bogus ones
+               default: stop("unrecognized escape ", image(recset[1]))
+               }
+            }
+
+         rv ++:= recset[1]
+
+         if \genrangefrom then { #if we have a pending range
+            ord1 := ord(genrangefrom)
+             ord2 := ord(recset[1])
+             while ord1 < ord2 do {
+               rv ++:= char(ord1)
+               ord1 +:= 1
+               }
+            genrangefrom := &null
+            }
+         lastchar := recset[1]
+          }
+       recset := recset[2:0]
+       }
+
+   return rv
+end
+
+procedure printautomaton(a)
+   write("Automaton:")
+   write("start: ", image(a.start.label),
+         " for rulenum ", image(a.start.rulenum))
+   write("states:")
+   every printstate(!a.states)
+   writes("accepting: ")
+   every writes((!a.accepting).label, " ")
+   write()
+end
+
+procedure printstate(state)
+   write("state ", state.label, " is for rule #", state.rulenum)
+   if (*state.edges)>0 then {
+      writes("\tedges: "); every printedge(!state.edges); write()
+      }
+   if *state.epsilon>0 then {
+      writes("\tepsilon: ")
+      every writes((!state.epsilon).label, " "); write()
+      }
+   if (*state.dot)>0 then {
+      writes("\tdot: ")
+      every writes((!state.dot).label, " "); write()
+      }
+end
+
+procedure printedge(edge)
+   writes(image(edge.symbol), " -> ")
+   every writes((!edge.destinations).label)
+   writes("; ")
+end
+
+procedure printstates(states)
+local statecopy, current
+
+   write("printstates size ", *states, " in entity ", image(states))
+   statecopy := copy(states)
+
+   while *statecopy > 1 do {
+      current := pop(statecopy)
+      write(current.label, ", ")
+      }
+
+   if *statecopy > 0 then {
+      current := pop(statecopy)
+      write(current.label)
+      }
+    else write("state list is empty")
+end
+
+#
+# Lexical specification for numbers.
+#
+
+procedure create_dfa()
+dfatable := table()
+
+   insert(dfatable, "1:7", "3")
+   insert(dfatable, "2:8", "3")
+   insert(dfatable, "7:9", "7")
+   insert(dfatable, "8:+", "9")
+   insert(dfatable, "1:4", "3")
+   insert(dfatable, "3:.", "6")
+   insert(dfatable, "1:5", "3")
+   insert(dfatable, "1:\n", "4")
+   insert(dfatable, "2:5", "3")
+   insert(dfatable, "3:0", "3")
+   insert(dfatable, "6:1", "7")
+   insert(dfatable, "7:4", "7")
+   insert(dfatable, "9:3", "10")
+   insert(dfatable, "2:4", "3")
+   insert(dfatable, "3:1", "3")
+   insert(dfatable, "6:0", "7")
+   insert(dfatable, "7:E", "8")
+   insert(dfatable, "7:e", "8")
+   insert(dfatable, "7:5", "7")
+   insert(dfatable, "9:2", "10")
+   insert(dfatable, "10:0", "10")
+   insert(dfatable, "1:8", "3")
+   insert(dfatable, "2:7", "3")
+   insert(dfatable, "3:2", "3")
+   insert(dfatable, "6:3", "7")
+   insert(dfatable, "7:6", "7")
+   insert(dfatable, "9:1", "10")
+   insert(dfatable, "10:1", "10")
+   insert(dfatable, "1:9", "3")
+   insert(dfatable, "2:6", "3")
+   insert(dfatable, "3:3", "3")
+   insert(dfatable, "6:2", "7")
+   insert(dfatable, "7:7", "7")
+   insert(dfatable, "9:0", "10")
+   insert(dfatable, "10:2", "10")
+   insert(dfatable, "1:\\t", "5")
+   insert(dfatable, "2:1", "3")
+   insert(dfatable, "3:4", "3")
+   insert(dfatable, "6:5", "7")
+   insert(dfatable, "7:0", "7")
+   insert(dfatable, "9:7", "10")
+   insert(dfatable, "10:3", "10")
+   insert(dfatable, "2:0", "3")
+   insert(dfatable, "3:5", "3")
+   insert(dfatable, "6:4", "7")
+   insert(dfatable, "7:1", "7")
+   insert(dfatable, "9:6", "10")
+   insert(dfatable, "10:4", "10")
+   insert(dfatable, "2:3", "3")
+   insert(dfatable, "3:6", "3")
+   insert(dfatable, "6:7", "7")
+   insert(dfatable, "7:2", "7")
+   insert(dfatable, "9:5", "10")
+   insert(dfatable, "10:5", "10")
+   insert(dfatable, "1:-", "2")
+   insert(dfatable, "2:2", "3")
+   insert(dfatable, "3:7", "3")
+   insert(dfatable, "6:6", "7")
+   insert(dfatable, "7:3", "7")
+   insert(dfatable, "9:4", "10")
+   insert(dfatable, "10:6", "10")
+   insert(dfatable, "1:2", "3")
+   insert(dfatable, "3:8", "3")
+   insert(dfatable, "6:9", "7")
+   insert(dfatable, "10:7", "10")
+   insert(dfatable, "1:3", "3")
+   insert(dfatable, "3:9", "3")
+   insert(dfatable, "6:8", "7")
+   insert(dfatable, "10:8", "10")
+   insert(dfatable, "1:0", "3")
+   insert(dfatable, "9:9", "10")
+   insert(dfatable, "10:9", "10")
+   insert(dfatable, "1:1", "3")
+   insert(dfatable, "8:-", "9")
+   insert(dfatable, "9:8", "10")
+   insert(dfatable, "1:6", "3")
+   insert(dfatable, "2:9", "3")
+   insert(dfatable, "7:8", "7")
+end
+
+procedure do_create()
+   create_dfa()
+end
+
+procedure yylexaccepting(myautomata)
+local currstate
+accepttable := table()
+
+   put(myautomata.states, currstate := anode(1, 0, [], [], []))
+   myautomata.start := currstate
+
+   put(myautomata.states, currstate := anode(2, 0, [], [], []))
+
+   put(myautomata.states, currstate := anode(3, 0, [], [], []))
+
+   put(myautomata.states, currstate := anode(4, 2, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 4, 2)
+
+   put(myautomata.states, currstate := anode(5, 3, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 5, 3)
+
+   put(myautomata.states, currstate := anode(6, 0, [], [], []))
+
+   put(myautomata.states, currstate := anode(7, 1, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 7, 1)
+
+   put(myautomata.states, currstate := anode(8, 0, [], [], []))
+
+   put(myautomata.states, currstate := anode(9, 0, [], [], []))
+
+   put(myautomata.states, currstate := anode(10, 1, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 10, 1)
+
+end
+
+global semantic_action
+
+procedure yylex()
+static myautomata
+initial {
+   myautomata := automata()
+
+   myautomata.states := []
+   myautomata.accepting := []
+   yylexaccepting(myautomata)
+   init_semantic_actions()
+
+}
+
+   return yyulex(myautomata)
+
+end
+
+procedure init_semantic_actions()
+
+   semantic_action := table()
+   semantic_action[1] := semantic_action_1
+   semantic_action[2] := semantic_action_2
+   semantic_action[3] := semantic_action_3
+
+end
+
+procedure semantic_action_2()
+   { 
+write("accepted by rule 2: ", yytext)
+return 64
+}
+end
+
+procedure semantic_action_3()
+   { 
+ write("accepted by rule 3: ", yytext) 
+}
+end
+
+procedure semantic_action_1()
+   { 
+ write("accepted by rule 1: ", yytext) 
+}
+end
+
+
+$line 19 "numbers.l"
+
+
+procedure add(Num1, Num2)
+
+return Num1 + Num2
+
+end

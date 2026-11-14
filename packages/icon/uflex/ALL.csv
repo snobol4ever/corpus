@@ -1,0 +1,16 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files
+1,120lex,run_120lex.icn,uflex__120lex,uflex,229,0,262144,8192,600,,120lex.icn
+2,calcscan,run_calcscan.icn,uflex__calcscan,uflex,22,0,262144,8192,600,,calcscan.icn
+3,clex,run_clex.icn,uflex__clex,uflex,170,0,262144,8192,600,,clex.icn
+4,go,run_go.icn,uflex__go,uflex,137,0,262144,8192,600,,go.icn
+5,javalex,run_javalex.icn,uflex__javalex,uflex,58,0,262144,8192,600,,javalex.icn
+6,k0lex,run_k0lex.icn,uflex__k0lex,uflex,62,0,262144,8192,600,,k0lex.icn
+7,nnws,run_nnws.icn,uflex__nnws,uflex,8,0,262144,8192,600,,nnws.icn
+8,numbers,run_numbers.icn,uflex__numbers,uflex,25,0,262144,8192,600,,numbers.icn
+9,punylex,run_punylex.icn,uflex__punylex,uflex,194,0,262144,8192,600,,punylex.icn
+10,rustlex,run_rustlex.icn,uflex__rustlex,uflex,167,0,262144,8192,600,,rustlex.icn
+11,toy,run_toy.icn,uflex__toy,uflex,24,0,262144,8192,600,,toy.icn
+12,ubug,run_ubug.icn,uflex__ubug,uflex,71,0,262144,8192,600,,ubug.icn
+13,uniflex,run_uniflex.icn,uflex__uniflex,uflex,258,0,262144,8192,600,,uniflex.icn
+14,wc,run_wc.icn,uflex__wc,uflex,15,0,262144,8192,600,,wc.icn
+15,wcs,run_wcs.icn,uflex__wcs,uflex,26,0,262144,8192,600,,wcs.icn

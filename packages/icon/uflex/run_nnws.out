@@ -1,0 +1,829 @@
+uflex 0.9 invoked on nnws.l
+NFA states: 11 (4 accepting); DFA may take a bit
+DFA states: 8 (7 accepting)
+No errors
+#
+# uflex skeleton.
+# do not edit by hand, this file is machine-generated
+#
+
+record edge(symbol, destinations)
+record anode(label, rulenum, edges, epsilon, dot)
+record automata(start, states, accepting)
+
+global yychar, yytext, yyin, yyleng
+
+#
+# yyulex reads from a specified input file or string and calls the
+# simulate function repeatedly on larger and larger pieces of the
+# input until it fails to find a match. It reports the (largest) parts
+# of the input that it could parse.
+#
+
+global stringseq
+global dfatable
+global accepttable
+
+procedure yysetyyin(in)
+   stringseq := &null
+   return yyin := in
+end
+
+procedure yyulex(aut)
+local rulenum, readfrom, position, less, currstring, getln
+local maxrule, maxleng
+static stringinput
+
+initial {  do_create(); stringseq:= &null}
+
+   if /stringseq then {
+      /yyin := &input
+      if type(yyin) == "string" then {
+         stringinput := stringseq := yyin
+      } else {
+         readfrom := yyin
+         stringseq := read(readfrom) || "\n"
+
+         while getln := read(readfrom) do
+            stringseq ||:= getln || "\n"
+
+         close(readfrom)
+      }
+   }
+
+   repeat {
+      maxrule := &null
+      if stringseq == "" then {
+         yychar := -1
+         fail
+         }
+
+      leng := 1
+      while i := simulate(aut, stringseq[1:leng+1]) do {
+         if i > 0 then {
+            maxrule := i
+            maxleng := leng
+         }
+         leng +:= 1
+      }
+      if \maxrule then {
+         yytext := stringseq[1 : maxleng+1]; yyleng := maxleng
+         stringseq := stringseq[maxleng+1:0]
+         if yychar := (semantic_action)[maxrule] () then return yychar
+      } else {
+         writes(stringseq[1]) # copy to stdout
+         stringseq := stringseq[2:0]
+      }
+   }
+end
+
+#
+# simulate(automata, word) determines whether or not the word
+# would be accepted by the given automata. It starts at state 1
+# and continues through the automata with each symbol of the string
+# until it cannot find a state for that symbol. The last reached state
+# is checked to see if it is a member of accepting states.If it is an
+# an accepting state, the rule number is returned.
+#
+procedure simulate(myaut, word)
+local currstates, currsymbol, rv, value2
+   currstates := list(0) # should be set()
+   start :=  anode(1, 0, [], [], [])
+   put(currstates, start)
+   currsymbol := word
+
+   while *currsymbol > 0 do {
+      currstates := getdestination(currstates, currsymbol)
+      if *currstates = 0 then
+         fail
+      currsymbol := currsymbol[2:0]
+      }
+
+   if *currstates = 1 then {
+      value2 := currstates[1]
+      if member(accepttable,integer(value2.label)) then 
+         rv := accepttable[integer(value2.label)]
+   }
+   if \yydebug>0 then write("simulate() returns ", image(\rv)|0)
+   return \rv | -(currstates[1].label)
+end
+
+#
+# getdestination uses the current list containing a state
+# simulates one step of automata computation on the given
+# string and returns the resulting set of destination
+#
+procedure getdestination(currstates, currsymbol)
+local reached
+   reached := list(0)
+   if *currstates = 1 then {
+      reached := reach(currstates[1], currsymbol)
+   }
+   return reached
+end
+
+#
+# reach returns the state that can be reached
+# on character symbol from the previous state.
+#
+procedure reach(state, symbol)
+local j, new, dest
+
+   dest := list(0)
+   j := state.label
+   key2 :=  j || ":" || symbol[1]
+   if member(dfatable,key2) then {  
+      new :=  anode(dfatable[key2], 0, [], [], [])
+      put(dest,new)
+   }
+   else {
+      key2 := ""
+      if (symbol[1] == "\n") then
+         key2 :=  j || ":" || "\\n"
+      else if (symbol[1] == "\t") then
+         key2 :=  j || ":" || "\\t"
+      else if (symbol[1] == "\r") then
+         key2 :=  j || ":" || "\\r"
+      else if (symbol[1] == "\f") then
+         key2 :=  j || ":" || "\\f"
+      else if (symbol[1] == "\\") then
+         key2 :=  j || ":" || "\\\\" 
+      if key2 ~== "" then {
+         if member(dfatable,key2) then {  
+            new :=  anode(dfatable[key2], 0, [], [], [])
+            put(dest,new)
+         }
+      }
+   }
+
+   return dest
+end
+
+# "hexVal" == "hexadecimal value"
+procedure hexVal(ch)
+   if any(&digits, ch) then return ord(ch)-ord("0")
+   return case ch of {
+      "a"|"A": 10
+      "b"|"B": 11
+      "c"|"C": 12
+      "d"|"D": 13
+      "e"|"E": 14
+      "f"|"F": 15
+   }
+end
+
+procedure print_statestable(myaut,dfatable)
+local lst, stateset, state, key2, input, nextstate
+   lst := list()
+   stateset := set()
+   nextstate := 0
+   input := ""
+   key2 :=  ""
+
+   lst := sort(dfatable)
+   write("printstates size ", *lst)
+
+   every j := 1 to *lst do {
+      key2 := lst[j][1]
+      nextstate := lst[j][2]
+      p1 := upto(":",key2)
+      input := key2[p1+1:0]
+      state := key2[1:p1]
+
+      if not member(stateset, state) then {
+         insert(stateset,state)
+         write()
+         write(" state: "||state)
+      }
+      writes(image(input)||" -> "||nextstate||",")
+   }
+   write()
+   lst := sort(accepttable)
+   write(" Number of Accepting States "||*lst)
+   every j := 1 to *lst do
+      write("Accepting State:"||lst[j][1]||" rule:"||lst[j][2])
+   write()
+   write("Automata Number of states "||*stateset)
+   write("Accepting: ")
+   every j := 1 to *(myaut.accepting) do
+      write(myaut.accepting[j].label||" rule: "||myaut.accepting[j].rulenum)
+end
+# "recset" == "regular expression cset"
+procedure csetfromrecset(recset)
+local rv, lastchar, origcset := recset
+   if not (recset[1]=="[" & recset[-1]=="]") then
+      stop("malformed recset ", image(recset))
+   recset := recset[2:-1]
+
+   if recset[1]=="^" then { # not in this cset, subtract from &cset
+      rv := &cset -- csetfromrecset("["||recset[2:0]||"]")
+      return rv
+      }
+   # positive cset construction
+   rv := ''
+   while *recset>0 do {
+
+      if recset[1] == "-" & \lastchar & *recset>1 then
+         genrangefrom := lastchar
+      else {
+         # did not trigger a new range. Process one char
+
+         if recset[1] == "\\" then { # escape
+            recset := recset[2:0]
+            case recset[1] of {
+               "n":  recset[1] := "\n"
+               "t":  recset[1] := "\t"
+               "r":  recset[1] := "\r"
+               "v":  recset[1] := "\v"
+               "-":  recset[1] := "\-"
+               "+":  recset[1] := "\+"
+               "f":  recset[1] := "\f"
+               "'":  recset[1] := "\'"
+               "\"":  recset[1] := "\""
+               "\\": recset[1] := "\\"
+               "0": {
+                  if any('01234567', recset[2]) then {
+                     if any('01234567', recset[3]) then {
+                        o := char(recset[1]*64+recset[2]*8+recset[3])
+                        recset := o || recset[4:0]
+                     }
+                     else stop("argh2 ", image(recset))
+                     }
+                  else recset[1] := "\0"
+               }
+               "x": {
+                  if any('0123456789abcdefABCDEF', recset[2]) then {
+                     if any('0123456789abcdefABCDEF', recset[3]) then {
+                        o := char(hexVal(recset[2])*16+hexVal(recset[3]))
+                        recset := o || recset[4:0]
+                     }
+                     else stop("arghx ", image(recset))
+                     }
+                  else stop("arghX ", image(recset))
+               }
+               # should handle all escapes here, and error on bogus ones
+               default: stop("unrecognized escape ", image(recset[1]))
+               }
+            }
+
+         rv ++:= recset[1]
+
+         if \genrangefrom then { #if we have a pending range
+            ord1 := ord(genrangefrom)
+             ord2 := ord(recset[1])
+             while ord1 < ord2 do {
+               rv ++:= char(ord1)
+               ord1 +:= 1
+               }
+            genrangefrom := &null
+            }
+         lastchar := recset[1]
+          }
+       recset := recset[2:0]
+       }
+
+   return rv
+end
+
+procedure printautomaton(a)
+   write("Automaton:")
+   write("start: ", image(a.start.label),
+         " for rulenum ", image(a.start.rulenum))
+   write("states:")
+   every printstate(!a.states)
+   writes("accepting: ")
+   every writes((!a.accepting).label, " ")
+   write()
+end
+
+procedure printstate(state)
+   write("state ", state.label, " is for rule #", state.rulenum)
+   if (*state.edges)>0 then {
+      writes("\tedges: "); every printedge(!state.edges); write()
+      }
+   if *state.epsilon>0 then {
+      writes("\tepsilon: ")
+      every writes((!state.epsilon).label, " "); write()
+      }
+   if (*state.dot)>0 then {
+      writes("\tdot: ")
+      every writes((!state.dot).label, " "); write()
+      }
+end
+
+procedure printedge(edge)
+   writes(image(edge.symbol), " -> ")
+   every writes((!edge.destinations).label)
+   writes("; ")
+end
+
+procedure printstates(states)
+local statecopy, current
+
+   write("printstates size ", *states, " in entity ", image(states))
+   statecopy := copy(states)
+
+   while *statecopy > 1 do {
+      current := pop(statecopy)
+      write(current.label, ", ")
+      }
+
+   if *statecopy > 0 then {
+      current := pop(statecopy)
+      write(current.label)
+      }
+    else write("state list is empty")
+end
+procedure create_dfa()
+dfatable := table()
+
+   insert(dfatable, "1:7", "5")
+   insert(dfatable, "1:\\x9f", "3")
+   insert(dfatable, "1:\\xd9", "3")
+   insert(dfatable, "1:\\xe8", "3")
+   insert(dfatable, "1:4", "5")
+   insert(dfatable, "1:\\x8f", "3")
+   insert(dfatable, "1:\\xd8", "3")
+   insert(dfatable, "1:\\xe9", "3")
+   insert(dfatable, "1:5", "5")
+   insert(dfatable, "1:\\x8a", "3")
+   insert(dfatable, "1:\\xb9", "3")
+   insert(dfatable, "1:\\xc8", "3")
+   insert(dfatable, "1:J", "6")
+   insert(dfatable, "6:Q", "8")
+   insert(dfatable, "8:f", "8")
+   insert(dfatable, "1:\\x9a", "3")
+   insert(dfatable, "1:\\xb8", "3")
+   insert(dfatable, "1:\\xc9", "3")
+   insert(dfatable, "1:K", "6")
+   insert(dfatable, "6:P", "8")
+   insert(dfatable, "8:g", "8")
+   insert(dfatable, "1:\\x8c", "3")
+   insert(dfatable, "1:\\x9b", "3")
+   insert(dfatable, "1:\\xa8", "3")
+   insert(dfatable, "1:H", "6")
+   insert(dfatable, "6:S", "8")
+   insert(dfatable, "8:d", "8")
+   insert(dfatable, "1:\\x8b", "3")
+   insert(dfatable, "1:\\x9c", "3")
+   insert(dfatable, "1:\\xa9", "3")
+   insert(dfatable, "1:I", "6")
+   insert(dfatable, "6:R", "8")
+   insert(dfatable, "8:e", "8")
+   insert(dfatable, "1:N", "6")
+   insert(dfatable, "6:U", "8")
+   insert(dfatable, "8:b", "8")
+   insert(dfatable, "1:O", "6")
+   insert(dfatable, "6:T", "8")
+   insert(dfatable, "8:c", "8")
+   insert(dfatable, "1:L", "6")
+   insert(dfatable, "6:W", "8")
+   insert(dfatable, "1:M", "6")
+   insert(dfatable, "6:V", "8")
+   insert(dfatable, "8:a", "8")
+   insert(dfatable, "1:B", "6")
+   insert(dfatable, "6:Y", "8")
+   insert(dfatable, "8:n", "8")
+   insert(dfatable, "1:C", "6")
+   insert(dfatable, "6:X", "8")
+   insert(dfatable, "8:o", "8")
+   insert(dfatable, "1:@", "3")
+   insert(dfatable, "8:l", "8")
+   insert(dfatable, "1:A", "6")
+   insert(dfatable, "6:Z", "8")
+   insert(dfatable, "8:m", "8")
+   insert(dfatable, "1:F", "6")
+   insert(dfatable, "8:j", "8")
+   insert(dfatable, "1:G", "6")
+   insert(dfatable, "8:k", "8")
+   insert(dfatable, "1:D", "6")
+   insert(dfatable, "8:h", "8")
+   insert(dfatable, "1:E", "6")
+   insert(dfatable, "8:i", "8")
+   insert(dfatable, "1:Z", "6")
+   insert(dfatable, "6:A", "8")
+   insert(dfatable, "8:v", "8")
+   insert(dfatable, "2:\\n", "2")
+   insert(dfatable, "1:[", "3")
+   insert(dfatable, "8:w", "8")
+   insert(dfatable, "1:X", "6")
+   insert(dfatable, "6:C", "8")
+   insert(dfatable, "8:t", "8")
+   insert(dfatable, "1:Y", "6")
+   insert(dfatable, "6:B", "8")
+   insert(dfatable, "8:u", "8")
+   insert(dfatable, "1:^", "3")
+   insert(dfatable, "6:E", "8")
+   insert(dfatable, "8:r", "8")
+   insert(dfatable, "1:_", "3")
+   insert(dfatable, "6:D", "8")
+   insert(dfatable, "8:s", "8")
+   insert(dfatable, "6:G", "8")
+   insert(dfatable, "8:p", "8")
+   insert(dfatable, "2:\\t", "2")
+   insert(dfatable, "1:]", "3")
+   insert(dfatable, "6:F", "8")
+   insert(dfatable, "8:q", "8")
+   insert(dfatable, "1:R", "6")
+   insert(dfatable, "6:I", "8")
+   insert(dfatable, "1:S", "6")
+   insert(dfatable, "6:H", "8")
+   insert(dfatable, "1:P", "6")
+   insert(dfatable, "6:K", "8")
+   insert(dfatable, "1:Q", "6")
+   insert(dfatable, "6:J", "8")
+   insert(dfatable, "1:V", "6")
+   insert(dfatable, "6:M", "8")
+   insert(dfatable, "8:z", "8")
+   insert(dfatable, "1:W", "6")
+end
+
+procedure create_dfa100()
+
+   insert(dfatable, "6:L", "8")
+   insert(dfatable, "1:T", "6")
+   insert(dfatable, "6:O", "8")
+   insert(dfatable, "8:x", "8")
+   insert(dfatable, "1:U", "6")
+   insert(dfatable, "6:N", "8")
+   insert(dfatable, "8:y", "8")
+   insert(dfatable, "1:j", "6")
+   insert(dfatable, "6:q", "8")
+   insert(dfatable, "8:F", "8")
+   insert(dfatable, "1:k", "6")
+   insert(dfatable, "6:p", "8")
+   insert(dfatable, "8:G", "8")
+   insert(dfatable, "1:h", "6")
+   insert(dfatable, "6:s", "8")
+   insert(dfatable, "8:D", "8")
+   insert(dfatable, "4:\\n", "2")
+   insert(dfatable, "1:i", "6")
+   insert(dfatable, "6:r", "8")
+   insert(dfatable, "8:E", "8")
+   insert(dfatable, "1:\\x05", "3")
+   insert(dfatable, "1:\\x14", "3")
+   insert(dfatable, "1:\\xaf", "3")
+   insert(dfatable, "1:\\xbe", "3")
+   insert(dfatable, "1:\\xcd", "3")
+   insert(dfatable, "1:\\xdc", "3")
+   insert(dfatable, "1:\\xeb", "3")
+   insert(dfatable, "1:\\xfa", "3")
+   insert(dfatable, "1:n", "6")
+   insert(dfatable, "6:u", "8")
+   insert(dfatable, "8:B", "8")
+   insert(dfatable, "1:\\x04", "3")
+   insert(dfatable, "1:\\x15", "3")
+   insert(dfatable, "1:\\xbd", "3")
+   insert(dfatable, "1:\\xce", "3")
+   insert(dfatable, "1:\\xdb", "3")
+   insert(dfatable, "1:\\xec", "3")
+   insert(dfatable, "1:o", "6")
+   insert(dfatable, "6:t", "8")
+   insert(dfatable, "8:C", "8")
+   insert(dfatable, "1:\\x07", "3")
+   insert(dfatable, "1:\\x16", "3")
+   insert(dfatable, "1:\\xad", "3")
+   insert(dfatable, "1:\\xcf", "3")
+   insert(dfatable, "1:\\xda", "3")
+   insert(dfatable, "1:\\xfc", "3")
+   insert(dfatable, "1:l", "6")
+   insert(dfatable, "6:w", "8")
+   insert(dfatable, "1:\\x06", "3")
+   insert(dfatable, "1:\\x17", "3")
+   insert(dfatable, "1:\\xae", "3")
+   insert(dfatable, "1:\\xbf", "3")
+   insert(dfatable, "1:\\xea", "3")
+   insert(dfatable, "1:\\xfb", "3")
+   insert(dfatable, "1:m", "6")
+   insert(dfatable, "6:v", "8")
+   insert(dfatable, "8:A", "8")
+   insert(dfatable, "1:\\x01", "3")
+   insert(dfatable, "1:\\x10", "3")
+   insert(dfatable, "1:\\x89", "3")
+   insert(dfatable, "1:\\x98", "3")
+   insert(dfatable, "1:\\xab", "3")
+   insert(dfatable, "1:\\xba", "3")
+   insert(dfatable, "1:\\xef", "3")
+   insert(dfatable, "1:\\xfe", "3")
+   insert(dfatable, "1:b", "6")
+   insert(dfatable, "6:y", "8")
+   insert(dfatable, "8:N", "8")
+   insert(dfatable, "1:\\x00", "3")
+   insert(dfatable, "1:\\x11", "3")
+   insert(dfatable, "1:\\x88", "3")
+   insert(dfatable, "1:\\x99", "3")
+   insert(dfatable, "1:\\xac", "3")
+   insert(dfatable, "1:\\xca", "3")
+   insert(dfatable, "1:\\xdf", "3")
+   insert(dfatable, "1:\\xfd", "3")
+   insert(dfatable, "1:c", "6")
+   insert(dfatable, "6:x", "8")
+   insert(dfatable, "8:O", "8")
+   insert(dfatable, "1:\\x03", "3")
+   insert(dfatable, "1:\\x12", "3")
+   insert(dfatable, "1:\\xbc", "3")
+   insert(dfatable, "1:\\xcb", "3")
+   insert(dfatable, "1:\\xde", "3")
+   insert(dfatable, "1:\\xed", "3")
+   insert(dfatable, "1:`", "3")
+   insert(dfatable, "8:L", "8")
+   insert(dfatable, "1:\\x02", "3")
+   insert(dfatable, "1:\\x13", "3")
+   insert(dfatable, "1:\\xaa", "3")
+   insert(dfatable, "1:\\xbb", "3")
+   insert(dfatable, "1:\\xcc", "3")
+   insert(dfatable, "1:\\xdd", "3")
+   insert(dfatable, "1:\\xee", "3")
+   insert(dfatable, "1:\\xff", "3")
+   insert(dfatable, "1:a", "6")
+   insert(dfatable, "6:z", "8")
+   insert(dfatable, "8:M", "8")
+   insert(dfatable, "1:\\x85", "3")
+   insert(dfatable, "1:\\x94", "3")
+end
+
+procedure create_dfa200()
+
+   insert(dfatable, "1:f", "6")
+   insert(dfatable, "8:J", "8")
+   insert(dfatable, "1:\\x84", "3")
+   insert(dfatable, "1:\\x95", "3")
+   insert(dfatable, "1:g", "6")
+   insert(dfatable, "8:K", "8")
+   insert(dfatable, "1:\\x87", "3")
+   insert(dfatable, "1:\\x96", "3")
+   insert(dfatable, "1:d", "6")
+   insert(dfatable, "8:H", "8")
+   insert(dfatable, "1:\\x86", "3")
+   insert(dfatable, "1:\\x97", "3")
+   insert(dfatable, "1:e", "6")
+   insert(dfatable, "8:I", "8")
+   insert(dfatable, "1:\\x18", "3")
+   insert(dfatable, "1:\\x81", "3")
+   insert(dfatable, "1:\\x90", "3")
+   insert(dfatable, "1:z", "6")
+   insert(dfatable, "6:a", "8")
+   insert(dfatable, "8:V", "8")
+   insert(dfatable, "1:\\x19", "3")
+   insert(dfatable, "1:\\x80", "3")
+   insert(dfatable, "1:\\x91", "3")
+   insert(dfatable, "1:{", "3")
+   insert(dfatable, "8:W", "8")
+   insert(dfatable, "1:\\x83", "3")
+   insert(dfatable, "1:\\x92", "3")
+   insert(dfatable, "1:x", "6")
+   insert(dfatable, "6:c", "8")
+   insert(dfatable, "8:T", "8")
+   insert(dfatable, "1:\\x82", "3")
+   insert(dfatable, "1:\\x93", "3")
+   insert(dfatable, "1:y", "6")
+   insert(dfatable, "6:b", "8")
+   insert(dfatable, "8:U", "8")
+   insert(dfatable, "1:~", "3")
+   insert(dfatable, "6:e", "8")
+   insert(dfatable, "8:R", "8")
+   insert(dfatable, "6:d", "8")
+   insert(dfatable, "8:S", "8")
+   insert(dfatable, "1:|", "3")
+   insert(dfatable, "6:g", "8")
+   insert(dfatable, "8:P", "8")
+   insert(dfatable, "1:}", "3")
+   insert(dfatable, "6:f", "8")
+   insert(dfatable, "8:Q", "8")
+   insert(dfatable, "1:r", "6")
+   insert(dfatable, "6:i", "8")
+   insert(dfatable, "1:s", "6")
+   insert(dfatable, "6:h", "8")
+   insert(dfatable, "1:p", "6")
+   insert(dfatable, "6:k", "8")
+   insert(dfatable, "1:q", "6")
+   insert(dfatable, "6:j", "8")
+   insert(dfatable, "1:v", "6")
+   insert(dfatable, "6:m", "8")
+   insert(dfatable, "8:Z", "8")
+   insert(dfatable, "4:\\t", "2")
+   insert(dfatable, "1:w", "6")
+   insert(dfatable, "6:l", "8")
+   insert(dfatable, "1:t", "6")
+   insert(dfatable, "6:o", "8")
+   insert(dfatable, "8:X", "8")
+   insert(dfatable, "1:u", "6")
+   insert(dfatable, "6:n", "8")
+   insert(dfatable, "8:Y", "8")
+   insert(dfatable, "1:\\v", "3")
+   insert(dfatable, "1:\\t", "4")
+   insert(dfatable, "1:\\r", "3")
+   insert(dfatable, "1:\\f", "3")
+   insert(dfatable, "1:\\d", "3")
+   insert(dfatable, "1:\\e", "3")
+   insert(dfatable, "1:\\b", "3")
+   insert(dfatable, "1:\\n", "2")
+   insert(dfatable, "1:*", "3")
+   insert(dfatable, "7:4", "7")
+   insert(dfatable, "1:+", "3")
+   insert(dfatable, "7:5", "7")
+   insert(dfatable, "1:(", "3")
+   insert(dfatable, "7:6", "7")
+   insert(dfatable, "1:)", "3")
+   insert(dfatable, "7:7", "7")
+   insert(dfatable, "1:.", "3")
+   insert(dfatable, "7:0", "7")
+   insert(dfatable, "1:/", "3")
+   insert(dfatable, "2: ", "2")
+   insert(dfatable, "7:1", "7")
+   insert(dfatable, "1:,", "3")
+   insert(dfatable, "5:8", "7")
+   insert(dfatable, "7:2", "7")
+   insert(dfatable, "1:-", "3")
+   insert(dfatable, "5:9", "7")
+   insert(dfatable, "7:3", "7")
+   insert(dfatable, "1:\"", "3")
+   insert(dfatable, "5:6", "7")
+   insert(dfatable, "1:#", "3")
+   insert(dfatable, "5:7", "7")
+   insert(dfatable, "1: ", "4")
+   insert(dfatable, "5:4", "7")
+   insert(dfatable, "1:!", "3")
+end
+
+procedure create_dfa300()
+
+   insert(dfatable, "5:5", "7")
+   insert(dfatable, "1:\\\\", "3")
+   insert(dfatable, "1:&", "3")
+   insert(dfatable, "5:2", "7")
+   insert(dfatable, "7:8", "7")
+   insert(dfatable, "1:'", "3")
+   insert(dfatable, "5:3", "7")
+   insert(dfatable, "7:9", "7")
+   insert(dfatable, "1:$", "3")
+   insert(dfatable, "5:0", "7")
+   insert(dfatable, "1:%", "3")
+   insert(dfatable, "5:1", "7")
+   insert(dfatable, "1::", "3")
+   insert(dfatable, "1:;", "3")
+   insert(dfatable, "1:8", "5")
+   insert(dfatable, "1:9", "5")
+   insert(dfatable, "1:\\x0e", "3")
+   insert(dfatable, "1:\\x1d", "3")
+   insert(dfatable, "1:\\xa6", "3")
+   insert(dfatable, "1:\\xb5", "3")
+   insert(dfatable, "1:\\xc4", "3")
+   insert(dfatable, "1:\\xd3", "3")
+   insert(dfatable, "1:\\xe2", "3")
+   insert(dfatable, "1:\\xf1", "3")
+   insert(dfatable, "1:>", "3")
+   insert(dfatable, "1:\\x1e", "3")
+   insert(dfatable, "1:\\xa7", "3")
+   insert(dfatable, "1:\\xb4", "3")
+   insert(dfatable, "1:\\xc5", "3")
+   insert(dfatable, "1:\\xd2", "3")
+   insert(dfatable, "1:\\xe3", "3")
+   insert(dfatable, "1:\\xf0", "3")
+   insert(dfatable, "1:?", "3")
+   insert(dfatable, "1:\\x1f", "3")
+   insert(dfatable, "1:\\xa4", "3")
+   insert(dfatable, "1:\\xb7", "3")
+   insert(dfatable, "1:\\xc6", "3")
+   insert(dfatable, "1:\\xd1", "3")
+   insert(dfatable, "1:\\xe0", "3")
+   insert(dfatable, "1:\\xf3", "3")
+   insert(dfatable, "1:<", "3")
+   insert(dfatable, "1:\\x0f", "3")
+   insert(dfatable, "1:\\xa5", "3")
+   insert(dfatable, "1:\\xb6", "3")
+   insert(dfatable, "1:\\xc7", "3")
+   insert(dfatable, "1:\\xd0", "3")
+   insert(dfatable, "1:\\xe1", "3")
+   insert(dfatable, "1:\\xf2", "3")
+   insert(dfatable, "1:=", "3")
+   insert(dfatable, "1:\\xa2", "3")
+   insert(dfatable, "1:\\xb1", "3")
+   insert(dfatable, "1:\\xc0", "3")
+   insert(dfatable, "1:\\xd7", "3")
+   insert(dfatable, "1:\\xe6", "3")
+   insert(dfatable, "1:\\xf5", "3")
+   insert(dfatable, "1:2", "5")
+   insert(dfatable, "1:\\x1a", "3")
+   insert(dfatable, "1:\\xa3", "3")
+   insert(dfatable, "1:\\xb0", "3")
+   insert(dfatable, "1:\\xc1", "3")
+   insert(dfatable, "1:\\xd6", "3")
+   insert(dfatable, "1:\\xe7", "3")
+   insert(dfatable, "1:\\xf4", "3")
+   insert(dfatable, "1:3", "5")
+   insert(dfatable, "1:\\xa0", "3")
+   insert(dfatable, "1:\\xb3", "3")
+   insert(dfatable, "1:\\xc2", "3")
+   insert(dfatable, "1:\\xd5", "3")
+   insert(dfatable, "1:\\xe4", "3")
+   insert(dfatable, "1:\\xf7", "3")
+   insert(dfatable, "1:0", "5")
+   insert(dfatable, "1:\\x1c", "3")
+   insert(dfatable, "1:\\xa1", "3")
+   insert(dfatable, "1:\\xb2", "3")
+   insert(dfatable, "1:\\xc3", "3")
+   insert(dfatable, "1:\\xd4", "3")
+   insert(dfatable, "1:\\xe5", "3")
+   insert(dfatable, "1:\\xf6", "3")
+   insert(dfatable, "1:1", "5")
+   insert(dfatable, "4: ", "2")
+   insert(dfatable, "1:\\x8e", "3")
+   insert(dfatable, "1:\\x9d", "3")
+   insert(dfatable, "1:\\xf9", "3")
+   insert(dfatable, "1:6", "5")
+   insert(dfatable, "1:\\x8d", "3")
+   insert(dfatable, "1:\\x9e", "3")
+   insert(dfatable, "1:\\xf8", "3")
+end
+
+procedure do_create()
+   create_dfa()
+   create_dfa100()
+   create_dfa200()
+   create_dfa300()
+end
+
+procedure yylexaccepting(myautomata)
+local currstate
+accepttable := table()
+
+   put(myautomata.states, currstate := anode(1, 0, [], [], []))
+   myautomata.start := currstate
+
+   put(myautomata.states, currstate := anode(2, 3, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 2, 3)
+
+   put(myautomata.states, currstate := anode(3, 4, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 3, 4)
+
+   put(myautomata.states, currstate := anode(4, 3, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 4, 3)
+
+   put(myautomata.states, currstate := anode(5, 2, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 5, 2)
+
+   put(myautomata.states, currstate := anode(6, 1, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 6, 1)
+
+   put(myautomata.states, currstate := anode(7, 2, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 7, 2)
+
+   put(myautomata.states, currstate := anode(8, 1, [], [], []))
+   put(myautomata.accepting, currstate)
+   insert(accepttable, 8, 1)
+
+end
+
+global semantic_action
+
+procedure yylex()
+static myautomata
+initial {
+   myautomata := automata()
+
+   myautomata.states := []
+   myautomata.accepting := []
+   yylexaccepting(myautomata)
+   init_semantic_actions()
+
+}
+
+   return yyulex(myautomata)
+
+end
+
+procedure init_semantic_actions()
+
+   semantic_action := table()
+   semantic_action[1] := semantic_action_1
+   semantic_action[2] := semantic_action_2
+   semantic_action[3] := semantic_action_3
+   semantic_action[4] := semantic_action_4
+
+end
+
+procedure semantic_action_3()
+   { }
+end
+
+procedure semantic_action_4()
+   { fprintf(stderr, "unrecognized character %d yyleng %d\n",
+               yytext[0], yyleng);
+              exit(1); }
+end
+
+procedure semantic_action_2()
+   { return 2; }
+end
+
+procedure semantic_action_1()
+   { return 1; }
+end
+

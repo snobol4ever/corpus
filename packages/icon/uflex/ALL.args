@@ -1,0 +1,15 @@
+120lex	120lex.l
+calcscan	calcscan.l
+clex	clex.l
+go	go.l
+javalex	javalex.l
+k0lex	k0lex.l
+nnws	nnws.l
+numbers	numbers.l
+punylex	punylex.l
+rustlex	rustlex.l
+toy	toy.l
+ubug	ubug.l
+uniflex	uniflex.l
+wc	wc.l
+wcs	wcs.l

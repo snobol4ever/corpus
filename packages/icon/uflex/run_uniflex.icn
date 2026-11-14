@@ -1,0 +1,2 @@
+# uflex, the lexer generator of Unicon, run on uniflex.l (ALL.args)
+link flexgram, main, "uflex-lex", ulexskel, uflexskel, automata, tree, convert, automatadfa, ulpp

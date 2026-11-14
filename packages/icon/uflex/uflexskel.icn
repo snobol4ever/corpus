@@ -1,0 +1,343 @@
+procedure uflexskel(f)
+
+fprintf(f, "%s",
+  "#\n_
+   # uflex skeleton.\n_
+   # do not edit by hand, this file is machine-generated\n_
+   #\n_
+    \n_
+   record edge(symbol, destinations)\n_
+   record anode(label, rulenum, edges, epsilon, dot)\n_
+   record automata(start, states, accepting)\n_
+   \n_
+   global yychar, yytext, yyin, yyleng\n_
+   \n_
+   #\n_
+   # yyulex reads from a specified input file or string and calls the\n_
+   # simulate function repeatedly on larger and larger pieces of the\n_
+   # input until it fails to find a match. It reports the (largest) parts\n_
+   # of the input that it could parse.\n_
+   #\n_
+   \n_
+   global stringseq\n_
+   global dfatable\n_
+   global accepttable\n\n");
+
+fprintf(f, "%s",
+  "procedure yysetyyin(in)\n_
+   \   stringseq := &null\n_
+   \   return yyin := in\n_
+   end\n_
+   \n_
+   procedure yyulex(aut)\n_
+   local rulenum, readfrom, position, less, currstring, getln\n_
+   local maxrule, maxleng\n_
+   static stringinput\n_
+   \n_
+   initial {  do_create(); stringseq:= &null}\n_
+   \n_
+   \   if /stringseq then {\n_  
+   \      /yyin := &input\n_
+   \      if type(yyin) == \"string\" then {\n_
+   \         stringinput := stringseq := yyin\n_
+   \      } else {\n_
+   \         readfrom := yyin\n_
+   \         stringseq := read(readfrom) || \"\\n\"\n_
+   \n_
+   \         while getln := read(readfrom) do\n_
+   \            stringseq ||:= getln || \"\\n\"\n_
+   \n_
+   \         close(readfrom)\n_
+   \      }\n_
+   \   }\n_
+   \n_
+   \   repeat {\n_
+   \      maxrule := &null\n_
+   \      if stringseq == \"\" then {\n_
+   \         yychar := -1\n_
+   \         fail\n_
+   \         }\n\n_
+   \      leng := 1\n_
+   \      while i := simulate(aut, stringseq[1:leng+1]) do {\n_
+   \         if i > 0 then {\n_
+   \            maxrule := i\n_
+   \            maxleng := leng\n_
+   \         }\n_
+   \         leng +:= 1\n_
+   \      }\n_
+   \      if \\maxrule then {\n_
+   \         yytext := stringseq[1 : maxleng+1]; yyleng := maxleng\n_
+   \         stringseq := stringseq[maxleng+1:0]\n_
+   \         if yychar := (\semantic_action)[maxrule] () then return yychar\n_
+   \      } else {\n_
+   \         writes(stringseq[1]) # copy to stdout\n_
+   \         stringseq := stringseq[2:0]\n_
+   \      }\n_
+   \   }\n_
+   end\n\n");
+
+fprintf(f, "%s",
+   "#\n_
+   # simulate(automata, word) determines whether or not the word\n_
+   # would be accepted by the given automata. It starts at state 1\n_
+   # and continues through the automata with each symbol of the string\n_
+   # until it cannot find a state for that symbol. The last reached state\n_
+   # is checked to see if it is a member of accepting states.If it is an\n_
+   # an accepting state, the rule number is returned.\n_
+   #\n_
+   procedure simulate(myaut, word)\n_
+   local currstates, currsymbol, rv, value2\n_
+   \   currstates := list(0) # should be set()\n_
+   \   start :=  anode(1, 0, [], [], [])\n_
+   \   put(currstates, start)\n_
+   \   currsymbol := word\n_
+   \n_
+   \   while *currsymbol > 0 do {\n_
+   \      currstates := getdestination(currstates, currsymbol)\n_
+   \      if *currstates = 0 then\n_
+   \         fail\n_
+   \      currsymbol := currsymbol[2:0]\n_
+   \      }\n_
+   \n_
+   \   if *currstates = 1 then {\n_
+   \      value2 := currstates[1]\n_
+   \      if member(accepttable,integer(value2.label)) then \n_
+   \         rv := accepttable[integer(value2.label)]\n_
+   \   }\n_
+   \   if \\yydebug>0 then write(\"simulate() returns \", image(\\rv)|0)\n_
+   \   return \\rv | -(currstates[1].label)\n_
+   end\n\n");
+
+fprintf(f, "%s",
+
+  "#\n_
+   # getdestination uses the current list containing a state\n_
+   # simulates one step of automata computation on the given\n_
+   # string and returns the resulting set of destination\n_
+   #\n_
+   procedure getdestination(currstates, currsymbol)\n_
+   local reached\n_
+   \   reached := list(0)\n_
+   \   if *currstates = 1 then {\n_
+   \      reached := reach(currstates[1], currsymbol)\n_
+   \   }\n_
+   \   return reached\n_
+   end\n\n");
+
+fprintf(f, "%s",
+  "#\n_
+   # reach returns the state that can be reached\n_
+   # on character symbol from the previous state.\n_
+   #\n_
+   procedure reach(state, symbol)\n_
+   local j, new, dest\n_
+   \n_
+   \   dest := list(0)\n_
+   \   j := state.label\n_
+   \   key2 :=  j || \":\" || symbol[1]\n_
+   \   if member(dfatable,key2) then {  \n_
+   \      new :=  anode(dfatable[key2], 0, [], [], [])\n_
+   \      put(dest,new)\n_
+   \   }\n_
+   \   else {\n_
+   \      key2 := \"\"\n_
+   \      if (symbol[1] == \"\\n\") then\n_
+   \         key2 :=  j || \":\" || \"\\\\n\"\n_
+   \      else if (symbol[1] == \"\\t\") then\n_
+   \         key2 :=  j || \":\" || \"\\\\t\"\n_
+   \      else if (symbol[1] == \"\\r\") then\n_
+   \         key2 :=  j || \":\" || \"\\\\r\"\n_
+   \      else if (symbol[1] == \"\\f\") then\n_
+   \         key2 :=  j || \":\" || \"\\\\f\"\n_
+   \      else if (symbol[1] == \"\\\\\") then\n_
+   \         key2 :=  j || \":\" || \"\\\\\\\\\" \n_
+   \      if key2 ~== \"\" then {\n_
+   \         if member(dfatable,key2) then {  \n_
+   \            new :=  anode(dfatable[key2], 0, [], [], [])\n_
+   \            put(dest,new)\n_
+   \         }\n_
+   \      }\n_
+   \   }\n_
+   \n_
+   \   return dest\n_
+   end\n\n");
+
+fprintf(f, "%s",
+   "# \"hexVal\" == \"hexadecimal value\"\n_
+    procedure hexVal(ch)\n_
+   \   if any(&digits, ch) then return ord(ch)-ord(\"0\")\n_
+   \   return case ch of {\n_
+   \      \"a\"|\"A\": 10\n_
+   \      \"b\"|\"B\": 11\n_
+   \      \"c\"|\"C\": 12\n_
+   \      \"d\"|\"D\": 13\n_
+   \      \"e\"|\"E\": 14\n_
+   \      \"f\"|\"F\": 15\n_
+   \   }\n_
+    end\n\n");
+
+fprintf(f, "%s",
+   "procedure print_statestable(myaut,dfatable)\n_
+   local lst, stateset, state, key2, input, nextstate\n_
+   \   lst := list()\n_
+   \   stateset := set()\n_
+   \   nextstate := 0\n_
+   \   input := \"\"\n_
+   \   key2 :=  \"\"\n_
+   \n_
+   \   lst := sort(dfatable)\n_
+   \   write(\"printstates size \", *lst)\n_
+   \n_
+   \   every j := 1 to *lst do {\n_
+   \      key2 := lst[j][1]\n_
+   \      nextstate := lst[j][2]\n_
+   \      p1 := upto(\":\",key2)\n_
+   \      input := key2[p1+1:0]\n_
+   \      state := key2[1:p1]\n_
+   \n_
+   \      if not member(stateset, state) then {\n_
+   \         insert(stateset,state)\n_
+   \         write()\n_
+   \         write(\" state: \"||state)\n_
+   \      }\n_
+   \      writes(image(input)||\" -> \"||nextstate||\",\")\n_
+   \   }\n_
+   \   write()\n_
+   \   lst := sort(accepttable)\n_
+   \   write(\" Number of Accepting States \"||*lst)\n_
+   \   every j := 1 to *lst do\n_
+   \      write(\"Accepting State:\"||lst[j][1]||\" rule:\"||lst[j][2])\n_
+   \   write()\n_
+   \   write(\"Automata Number of states \"||*stateset)\n_
+   \   write(\"Accepting: \")\n_
+   \   every j := 1 to *(myaut.accepting) do\n_
+   \      write(myaut.accepting[j].label||\" rule: \"||myaut.accepting[j].rulenum)\n_
+   end\n");
+
+fprintf(f, "%s",
+   "# \"recset\" == \"regular expression cset\"\n_
+    procedure csetfromrecset(recset)\n_
+    local rv, lastchar, origcset := recset\n_
+   \   if not (recset[1]==\"[\" & recset[-1]==\"]\") then\n_
+   \      stop(\"malformed recset \", image(recset))\n_
+   \   recset := recset[2:-1]\n\n_
+   \   if recset[1]==\"^\" then { # not in this cset, subtract from &cset\n_
+   \      rv := &cset -- csetfromrecset(\"[\"||recset[2:0]||\"]\")\n_
+   \      return rv\n_
+   \      }\n_
+   \   # positive cset construction\n_
+   \   rv := ''\n_
+   \   while *recset>0 do {\n\n_
+   \      if recset[1] == \"-\" & \\lastchar & *recset>1 then\n_
+   \         genrangefrom := lastchar\n_
+   \      else {\n_
+   \         # did not trigger a new range. Process one char\n\n_
+   \         if recset[1] == \"\\\\\" then { # escape\n_
+   \            recset := recset[2:0]\n_
+   \            case recset[1] of {\n_
+   \               \"n\":  recset[1] := \"\\n\"\n_
+   \               \"t\":  recset[1] := \"\\t\"\n_
+   \               \"r\":  recset[1] := \"\\r\"\n_
+   \               \"v\":  recset[1] := \"\\v\"\n_
+   \               \"-\":  recset[1] := \"\\-\"\n_
+   \               \"+\":  recset[1] := \"\\+\"\n_
+   \               \"f\":  recset[1] := \"\\f\"\n_
+   \               \"'\":  recset[1] := \"\\'\"\n_
+   \               \"\\\"\":  recset[1] := \"\\\"\"\n_
+   \               \"\\\\\": recset[1] := \"\\\\\"\n_
+   \               \"0\": {\n_
+   \                  if any('01234567', recset[2]) then {\n_
+   \                     if any('01234567', recset[3]) then {\n_
+   \                        o := char(recset[1]*64+recset[2]*8+recset[3])\n_
+   \                        recset := o || recset[4:0]\n_
+   \                     }\n_
+   \                     else stop(\"argh2 \", image(recset))\n_
+   \                     }\n_
+   \                  else recset[1] := \"\\0\"\n_
+   \               }\n_
+   \               \"x\": {\n_
+   \                  if any('0123456789abcdefABCDEF', recset[2]) then {\n_
+   \                     if any('0123456789abcdefABCDEF', recset[3]) then {\n_
+   \                        o := char(hexVal(recset[2])*16+hexVal(recset[3]))\n_
+   \                        recset := o || recset[4:0]\n_
+   \                     }\n_
+   \                     else stop(\"arghx \", image(recset))\n_
+   \                     }\n_
+   \                  else stop(\"arghX \", image(recset))\n_
+   \               }\n_
+   \               # should handle all escapes here, and error on bogus ones\n_
+   \               default: stop(\"unrecognized escape \", image(recset[1]))\n_
+   \               }\n_
+   \            }\n\n_
+   \         rv ++:= recset[1]\n\n_
+   \         if \\genrangefrom then { #if we have a pending range\n_
+   \            ord1 := ord(genrangefrom)\n_
+   \             ord2 := ord(recset[1])\n_
+   \             while ord1 < ord2 do {\n_
+   \               rv ++:= char(ord1)\n_
+   \               ord1 +:= 1\n_
+   \               }\n_
+   \            genrangefrom := &null\n_
+   \            }\n_
+   \         lastchar := recset[1]\n_
+   \          }\n_
+   \       recset := recset[2:0]\n_
+   \       }\n\n_
+   \   return rv\n_
+    end\n\n");
+
+
+fprintf(f, "%s",
+   "procedure printautomaton(a)\n_
+   \   write(\"Automaton:\")\n_
+   \   write(\"start: \", image(a.start.label),\n_
+   \         \" for rulenum \", image(a.start.rulenum))\n_
+   \   write(\"states:\")\n_
+   \   every printstate(!a.states)\n_
+   \   writes(\"accepting: \")\n_
+   \   every writes((!a.accepting).label, \" \")\n_
+   \   write()\n_
+   end\n\n");
+
+fprintf(f, "%s",
+   "procedure printstate(state)\n_
+   \   write(\"state \", state.label, \" is for rule #\", state.rulenum)\n_
+   \   if (*state.edges)>0 then {\n_
+   \      writes(\"\\tedges: \"); every printedge(!state.edges); write()\n_
+   \      }\n_
+   \   if *state.epsilon>0 then {\n_
+   \      writes(\"\\tepsilon: \")\n_
+   \      every writes((!state.epsilon).label, \" \"); write()\n_
+   \      }\n_
+   \   if (*state.dot)>0 then {\n_
+   \      writes(\"\\tdot: \")\n_
+   \      every writes((!state.dot).label, \" \"); write()\n_
+   \      }\n_
+   end\n\n");
+
+fprintf(f, "%s",
+   "procedure printedge(edge)\n_
+   \   writes(image(edge.symbol), \" -> \")\n_
+   \   every writes((!edge.destinations).label)\n_
+   \   writes(\"; \")\n_
+   end\n\n");
+
+fprintf(f, "%s",
+   "procedure printstates(states)\n_
+   local statecopy, current\n_
+   \n_
+   \   write(\"printstates size \", *states, \" in entity \", image(states))\n_
+   \   statecopy := copy(states)\n_
+   \n_
+   \   while *statecopy > 1 do {\n_
+   \      current := pop(statecopy)\n_
+   \      write(current.label, \", \")\n_
+   \      }\n_
+   \n_
+   \   if *statecopy > 0 then {\n_
+   \      current := pop(statecopy)\n_
+   \      write(current.label)\n_
+   \      }\n_
+   \    else write(\"state list is empty\")\n_
+   end\n");
+end

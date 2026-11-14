@@ -1,0 +1,16 @@
+# CONVERSION-PROOF.tsv -- uflex: each Unicon file and what the Unicon translator (unicon 13.3, unicon_bin) says of the original against the converted
+# text: the .u of unicon -s -c, the uid line aside, compared byte for byte (the grader 2026-11-14; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+flexgram.icn	same-code	119
+flexgram_tab.icn	unchanged	0
+main.icn	same-code	85
+uflex-lex.icn	same-code	56
+ulexskel.icn	same-code	5
+uflexskel.icn	same-code	6
+automata.icn	same-code	87
+tree.icn	same-code	45
+convert.icn	same-code	281
+ulpp.icn	same-code	14
+dfadebug.icn	same-code	104
+run_NAME.icn	ours (one line, the link of the ten modules)	0
+automatadfa.icn	same-code	200
