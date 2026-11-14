@@ -140,6 +140,7 @@ ladder__rung20_fgl_list_operations	chunk:04	feat:mod	for mod
 fpc_units__ht01_stringstream	chunk:02	feat:write	write
 program_procedure_writeln_5	chunk:04	feat:procedure	procedure
 fpc_features__a-type-name-casts-an-ordinal-to-an-ordinal-type	chunk:05	feat:subrange	subrange type
+fpc_features__class-of-a-type-is-written-inline-in-a-type-position	chunk:02	feat:record	record type
 ladder__rung04_for_repeat_for_downto	core	core	downto for
 program_for_writeln_3	chunk:04	feat:in	for in
 program_for_downto_1	chunk:05	feat:downto	downto for
