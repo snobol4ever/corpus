@@ -189,6 +189,7 @@ program_procedure_nested_25	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_26	chunk:01	feat:nested_proc	nested_proc procedure
 program_procedure_nested_4	chunk:01	feat:nested_proc	nested_proc procedure
 program_repeat_writeln_2	chunk:05	feat:repeat	repeat write
+fpc_units__fo01_real_overflow	chunk:02	feat:const	const procedure
 front_end__pf20c_record_operator	chunk:02	feat:const	const record type
 ladder__rung26_mgmt_r1_initialize_a_global	chunk:02	feat:record	record type
 program_procedure_nested_20	chunk:01	feat:nested_proc	nested_proc procedure

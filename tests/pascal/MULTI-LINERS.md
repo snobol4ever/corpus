@@ -4817,6 +4817,36 @@ end.
          10          7          4          1
 ```
 
+## fpc_units__fo01_real_overflow
+
+```Pascal
+{$mode objfpc}{$H+}
+program fo01_real_overflow;
+uses SysUtils, math;
+var A, B: Double;
+procedure T(const what: string; x: Double);
+begin
+  writeln(what, ' ', x);
+end;
+begin
+  A := 1e300; B := 1.7e308;
+  try T('mul', A * A); except on E: Exception do writeln('mul raised ', E.ClassName) end;
+  try T('add', B + B); except on E: Exception do writeln('add raised ', E.ClassName) end;
+  try T('sub', -B - B); except on E: Exception do writeln('sub raised ', E.ClassName) end;
+  T('fine', A * 2);
+  SetExceptionMask([exDenormalized, exOverflow, exUnderflow, exPrecision]);
+  T('masked', A * A);
+end.
+```
+
+```stdout
+mul raised EOverflow
+add raised EOverflow
+sub raised EOverflow
+fine  2.0000000000000001E+300
+masked                     +Inf
+```
+
 ## front_end__pf20c_record_operator
 
 ```Pascal
