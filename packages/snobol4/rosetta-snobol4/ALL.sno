@@ -2,9 +2,9 @@
 		DEFINE('PASS(A,I),O')		:(PASS.END)
 PASS		O = 0
 PASS.LOOP	O = O + I
-		EQ(A<O>,1)			:S(PASS.1)F(PASS.0)
-PASS.0		A<O> = 1			:S(PASS.LOOP)F(RETURN)
-PASS.1		A<O> = 0			:S(PASS.LOOP)F(RETURN)
+		EQ(A[O],1)			:S(PASS.1)F(PASS.0)
+PASS.0		A[O] = 1			:S(PASS.LOOP)F(RETURN)
+PASS.1		A[O] = 0			:S(PASS.LOOP)F(RETURN)
 PASS.END
 
 MAIN		D = ARRAY(100,0)
@@ -14,7 +14,7 @@ MAIN.LOOP	I = LE(I,100) I + 1		:F(OUTPUT)
 		PASS(D,I)			:(MAIN.LOOP)
 
 OUTPUT		I = 1 ; OPEN = 'Opened doors are: '
-OUTPUT.LOOP	OPEN = OPEN EQ(D<I>,1) " " I
+OUTPUT.LOOP	OPEN = OPEN EQ(D[I],1) " " I
 		I = LE(I,100) I + 1		:S(OUTPUT.LOOP)F(OUTPUT.WRITE)
 OUTPUT.WRITE	OUTPUT = OPEN
 
@@ -34,21 +34,21 @@ OUTPUT.WRITE	OUTPUT = O
 END
 *---------------------------------------------------------------- 3 array-length
     ar = ARRAY('2,2')
-    ar<1,1> = 'apple'
-    ar<1,2> = 'first'
-    ar<2,1> = 'orange'
-    ar<2,2> = 'second'
+    ar[1,1] = 'apple'
+    ar[1,2] = 'first'
+    ar[2,1] = 'orange'
+    ar[2,2] = 'second'
     OUTPUT = IDENT(DATATYPE(ar), 'ARRAY') PROTOTYPE(ar)
-end
+END
 *---------------------------------------------------------------------- 4 arrays
       ar = ARRAY("3,2")      ;* 3 rows, 2 columns
 fill  i = LT(i, 3) i + 1     :F(display)
-      ar<i,1> = i
-      ar<i,2> = i "-count"   :(fill)
+      ar[i,1] = i
+      ar[i,2] = i "-count"   :(fill)
 
 display                      ;* fail on end of array
       j = j + 1
-      OUTPUT = "Row " ar<j,1> ": " ar<j,2>
+      OUTPUT = "Row " ar[j,1] ": " ar[j,2]
 +                            :S(display)
 END
 *--------------------------------------------- 5 case-sensitivity-of-identifiers
@@ -251,38 +251,38 @@ END
 END
 *--------------------------------------------------------------------- 20 subleq
         MEM = ARRAY('32')
-        MEM<1> = 15
-        MEM<2> = 17
-        MEM<3> = -1
-        MEM<4> = 17
-        MEM<5> = -1
-        MEM<6> = -1
-        MEM<7> = 16
-        MEM<8> = 1
-        MEM<9> = -1
-        MEM<10> = 16
-        MEM<11> = 3
-        MEM<12> = -1
-        MEM<13> = 15
-        MEM<14> = 15
-        MEM<15> = 0
-        MEM<16> = 0
-        MEM<17> = -1
-        MEM<18> = 72
-        MEM<19> = 101
-        MEM<20> = 108
-        MEM<21> = 108
-        MEM<22> = 111
-        MEM<23> = 44
-        MEM<24> = 32
-        MEM<25> = 119
-        MEM<26> = 111
-        MEM<27> = 114
-        MEM<28> = 108
-        MEM<29> = 100
-        MEM<30> = 33
-        MEM<31> = 10
-        MEM<32> = 0
+        MEM[1] = 15
+        MEM[2] = 17
+        MEM[3] = -1
+        MEM[4] = 17
+        MEM[5] = -1
+        MEM[6] = -1
+        MEM[7] = 16
+        MEM[8] = 1
+        MEM[9] = -1
+        MEM[10] = 16
+        MEM[11] = 3
+        MEM[12] = -1
+        MEM[13] = 15
+        MEM[14] = 15
+        MEM[15] = 0
+        MEM[16] = 0
+        MEM[17] = -1
+        MEM[18] = 72
+        MEM[19] = 101
+        MEM[20] = 108
+        MEM[21] = 108
+        MEM[22] = 111
+        MEM[23] = 44
+        MEM[24] = 32
+        MEM[25] = 119
+        MEM[26] = 111
+        MEM[27] = 114
+        MEM[28] = 108
+        MEM[29] = 100
+        MEM[30] = 33
+        MEM[31] = 10
+        MEM[32] = 0
 
         INBUF =
         OUTBUF =
@@ -290,9 +290,9 @@ END
         IP = 0
 
 LOOP    GE(IP, 0)                             :F(DONE)
-        A = MEM<IP + 1>
-        B = MEM<IP + 2>
-        C = MEM<IP + 3>
+        A = MEM[IP + 1]
+        B = MEM[IP + 2]
+        C = MEM[IP + 3]
         IP = IP + 3
         GE(A, 0)                              :S(NOIN)
 
@@ -301,19 +301,19 @@ LOOP    GE(IP, 0)                             :F(DONE)
         BP = 1
 
 GETCH   &ALPHABET @N SUBSTR(INBUF,BP,1)
-        MEM<B + 1> = N
+        MEM[B + 1] = N
         BP = BP + 1                           :(LOOP)
 
 NOIN    GE(B, 0)                              :S(NOOUT)
 
-        EQ(MEM<A + 1>, 10)                    :F(PUTCH)
+        EQ(MEM[A + 1], 10)                    :F(PUTCH)
         OUTPUT = OUTBUF
         OUTBUF =                              :(LOOP)
 
-PUTCH   OUTBUF = OUTBUF CHAR(MEM<A + 1>)      :(LOOP)
+PUTCH   OUTBUF = OUTBUF CHAR(MEM[A + 1])      :(LOOP)
 
-NOOUT   MEM<B + 1> = MEM<B + 1> - MEM<A + 1>
-        LE(MEM<B + 1>, 0)                     :F(LOOP)
+NOOUT   MEM[B + 1] = MEM[B + 1] - MEM[A + 1]
+        LE(MEM[B + 1], 0)                     :F(LOOP)
         IP = C                                :(LOOP)
 
 DONE    EQ(SIZE(OUTBUF),0)                    :S(END)
