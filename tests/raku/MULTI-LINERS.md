@@ -1741,6 +1741,17 @@ not ok 13 - throws-like on code that lives
 ok 14 - did we throws-like X::AdHoc?
 ```
 
+## complex__a_complex_with_an_imaginary_part_refuses_real_only_methods
+
+```Raku
+try <2+5i>.is-prime; say $!.^name; try sign(<2+5i>); say $!.^name;
+```
+
+```stdout
+X::Numeric::Real
+X::Numeric::Real
+```
+
 ## gather_regime__gather_body_runs_once_on_pull
 
 ```Raku
@@ -12118,6 +12129,25 @@ True True False True True
 -21+20i -1+0i -2-5i 1+6i 7+3i
 ```
 
+## complex__the_parts_of_a_complex_and_its_real
+
+```Raku
+my $z = 2 + 5*i;
+say $z.re, " ", $z.im, " ", $z.conj, " ", $z.abs, " ", $z.re.WHAT, $z.im.WHAT;
+say (3 + 0*i).Real, " ", (3 + 0*i).Real.WHAT, " ", (3.5 + 0*i).Num;
+say (try $z.Real) // $!.^name; say (try $z.Real) // $!.message;
+say (try $z.Int) // $!.^name; say (try $z.Num) // $!.^name;
+```
+
+```stdout
+2 5 2-5i 5.385164807134504 (Num)(Num)
+3 (Num) 3.5
+X::Numeric::Real
+Cannot convert 2+5i to Real: imaginary part not zero
+X::Numeric::Real
+X::Numeric::Real
+```
+
 ## ladder__rung07_spread_a_slurpy_array
 
 ```Raku
@@ -12928,6 +12958,73 @@ False
 Raku
 6
 Raku
+```
+
+## complex__a_complex_truth_coercions_sign_and_is_prime_in_more_forms
+
+```Raku
+my $z = 2 + 5i; my $r = 3 + 0i;
+say $z.reals;
+say $z.polar;
+say $z.isNaN;
+say $r.conj;
+say $z.conj.conj == $z;
+say $z.Bool;
+say (0+0i).Bool;
+say ?$z;
+say !$z;
+say !(0+0i);
+say $z ?? "t" !! "f";
+say $r.Int;
+say $r.Rat;
+say $r.Real.WHAT;
+say (try { $z.Int }) // $!.^name;
+say (try { $z.Num }) // $!.message;
+say 3.Complex;
+say 2.5.Complex;
+say "2+5i".Complex;
+say (1/2).Complex;
+say $r.sign;
+say sign(-3+0i);
+say (0+0i).sign;
+say $r.sign.WHAT;
+say (try { sign($z) }) // $!.message;
+say $r.is-prime;
+say is-prime(4+0i);
+say (try { is-prime($z) }) // $!.^name;
+say (try { "2+5i".is-prime }) // $!.^name;
+```
+
+```stdout
+(2 5)
+(5.385164807134504 1.1902899496825317)
+False
+3-0i
+True
+True
+False
+True
+False
+True
+t
+3
+3
+(Num)
+X::Numeric::Real
+Cannot convert 2+5i to Num: imaginary part not zero
+3+0i
+2.5+0i
+2+5i
+0.5+0i
+1
+-1
+0
+(Int)
+Cannot convert 2+5i to Real: imaginary part not zero
+True
+False
+X::Numeric::Real
+X::Numeric::Real
 ```
 
 ## ladder__rung07_subs_a_multi_sub_is_chosen_by_its_named_parameters_and_a_nullary_loses_to_an_optional_named
