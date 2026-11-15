@@ -30583,6 +30583,146 @@ a
 "abcdef" ? (tab(0) & (while write(move(-1)))) ----> none
 ```
 
+## ladder__rung38_coexpr_a_return_or_a_failure_pops_the_activator_stack
+
+```Icon
+global A, B, C, D, F
+procedure main()
+  t1();
+  t2();
+  t3();
+  t4();
+  t5();
+  t6();
+end
+procedure t1()
+  local c;
+  c := create (1 @ &source, 2);
+  write("t1 ", @c | "fail");
+  write("t1 ", @c | "fail");
+  write("t1 ", @c | "fail");
+  write("t1 ", @c | "fail");
+end
+procedure pinger(n)
+  local i;
+  every i := 1 to n do write("t2 ping got ", (i @ B) | "nothing");
+  write("t2 ping done");
+end
+procedure ponger()
+  local v;
+  v := @A;
+  repeat { write("t2 pong ", v); if v >= 2 then fail; v := (v * 10) @ A; };
+end
+procedure t2()
+  A := create pinger(4);
+  B := create ponger();
+  write("t2 main ", @B | "fail");
+  write("t2 main ", @B | "fail");
+  write("t2 main ", @A | "fail");
+end
+procedure t3()
+  A := create (write("t3 c source ", image(&source), " main ", image(&main), " current ", image(&current)), write("t3 c got ", @B | "fail"), write("t3 c again"), 7);
+  B := create (write("t3 d source ", image(&source)), 5);
+  write("t3 ", @A | "fail");
+  write("t3 ", @A | "fail");
+  write("t3 ", @B | "fail");
+end
+procedure t4()
+  D := create dproc();
+  C := create cproc();
+  F := create fproc();
+  write("t4 main ", @D | "fail");
+  write("t4 main ", @D | "fail");
+  write("t4 main ", @C | "fail");
+  write("t4 main ", @F | "fail");
+end
+procedure dproc()
+  write("t4 d got ", @C | "fail");
+  write("t4 d ends");
+end
+procedure cproc()
+  write("t4 c got ", @F | "fail");
+  write("t4 c returns u");
+  suspend "u";
+  write("t4 c resumed");
+end
+procedure fproc()
+  write("t4 f sends v to d");
+  write("t4 f got ", ("v" @ D) | "fail");
+  suspend "w";
+  write("t4 f resumed");
+end
+procedure t5()
+  local g, n;
+  g := create (1 to 3);
+  n := 0;
+  while write("t5 ", @g) do n +:= 1;
+  write("t5 n ", n, " ", @g | "fail", " size ", *g);
+end
+procedure t6()
+  A := create |write("t6 a got ", ("a" @ B) | "fail");
+  B := create (write("t6 b got ", @A | "fail"), write("t6 b got ", @A | "fail"), 9);
+  write("t6 ", @B | "fail");
+  write("t6 ", @B | "fail");
+  write("t6 ", @A | "fail");
+end
+```
+
+```stdout
+t1 1
+t1 2
+t1 fail
+t1 fail
+t2 pong 1
+t2 ping got 10
+t2 pong 2
+t2 ping got nothing
+t2 ping got nothing
+t2 ping got nothing
+t2 ping done
+t2 main fail
+t2 main fail
+t2 main fail
+t3 c source co-expression_1(1) main co-expression_1(1) current co-expression_5(0)
+t3 d source co-expression_5(0)
+t3 c got 5
+t3 c again
+t3 7
+t3 c got fail
+t3 c again
+t3 7
+t3 fail
+t4 f sends v to d
+t4 d got v
+t4 d ends
+t4 f got fail
+t4 c got w
+t4 c returns u
+t4 main fail
+t4 main fail
+t4 c resumed
+t4 main fail
+t4 f resumed
+t4 main fail
+t5 1
+t5 2
+t5 3
+t5 n 3 fail size 3
+t6 b got a
+t6 a got 
+t6 b got 
+t6 a got fail
+t6 b got fail
+t6 9
+t6 b got fail
+t6 b got a
+t6 a got 9
+t6 b got fail
+t6 9
+t6 a got fail
+t6 fail
+```
+
 ## procedure_every_suspend_replace_7
 
 ```Icon

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1165 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,44
+# shape: entries=1166 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,45
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -183,7 +183,7 @@ procedure_write_28	chunk:11	family:rung18_real_relop
 procedure_write_36	chunk:11	family:rung20_section_seqexpr	
 procedure_write_50	chunk:07	feat:image	image
 procedure_write_53	chunk:03	feat:type	type
-rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_side	chunk:11	family:rung20_section_seqexpr_excluded	
+rung20_section_seqexpr_excluded__rung20_section_seqexpr_seqexpr_side	chunk:12	family:rung20_section_seqexpr_excluded	
 ladder__rung39_numbit_numeric_keeps_a_large_integer_string	chunk:03	feat:type	type
 ladder__rung42_kw_line_after_a_line_directive	chunk:07	feat:keyword_ref	keyword_ref
 ladder__rung44_link_strings	chunk:11	feat:alternation	alternation
@@ -718,7 +718,7 @@ ladder_rung38_coexpr_activate_at	chunk:03	feat:create	alternation coexpr_activat
 procedure_alt_to_2	chunk:10	feat:break	alternation break image to_by while
 procedure_alt_while_1	chunk:08	feat:until	alternation break image until while
 procedure_write_213	chunk:02	feat:return	every local return to_by
-procedure_write_248	chunk:10	feat:set	every local set table
+procedure_write_248	chunk:11	feat:set	every local set table
 procedure_write_272	chunk:07	feat:writes	alternation every gen_with_alternation to_by writes
 ladder__rung03_suspend_a_bang_over_a_cset_suspends_each_character	chunk:06	feat:every_with_suspend	element_gen every every_with_suspend suspend writes
 ladder__rung29_builtins_operator_values_coerce_as_the_operators_do	chunk:07	feat:image	alternation image keyword_ref local
@@ -1119,6 +1119,7 @@ scanning_asm__is04c_collect_in_callee	chunk:10	feat:repl	every every_with_suspen
 procedure_every_suspend_7	chunk:08	feat:pos	alternation every every_with_suspend fail gen_with_alternation image integer keyword_ref local many pos scan scan_with_tab suspend tab to_by
 procedure_coexpr_suspend_replace_3	chunk:07	feat:stop	alternation aug_assign coexpr_activate create element_gen gen_with_alternation image keyword_ref limitation local repl section stop suspend to_by while
 rung36_all__rung36_jcon_scan	chunk:08	feat:pos	alternation every find gen_with_alternation image keyword_ref move pos record scan scan_with_tab swap tab to_by upto while
+ladder__rung38_coexpr_a_return_or_a_failure_pops_the_activator_stack	chunk:10	feat:repeat	alternation aug_assign coexpr_activate create every every_with_suspend fail gen_with_alternation global image keyword_ref local repeat suspend to_by while
 procedure_every_suspend_replace_7	chunk:10	feat:map	element_gen every every_with_suspend image insert keyword_ref local map repl return section set sort static suspend to_by
 ladder__rung22_lists_bang_follows_the_iconx_block_cursor_under_push_get_put_and_pull	chunk:10	feat:push	alternation aug_assign break case element_gen every gen_with_alternation get global image list local push put return to_by
 scanning_asm__is02_forms	chunk:08	feat:pos	alternation any bal every find gen_with_alternation keyword_ref local many match move pos scan scan_with_tab tab upto writes
