@@ -22149,6 +22149,35 @@ end
 1
 ```
 
+## sweep__to_by_called_as_a_procedure_stops_at_a_zero_step
+
+```Icon
+procedure main()
+   local r, L, a;
+   r := proc("...", 3);
+   &error := 20;
+   every a := [2, 2, 0] | [0, 0, 0] | [-2, 2, 0] | [2, 2, 1] | [2, 2, -1] | [1, 3, 1] do {
+      L := [];
+      every put(L, r ! a);
+      writes(a[1], " to ", a[2], " by ", a[3], ": ", *L, " result(s)");
+      every writes(" ", !L);
+      write(" error ", &errornumber | "none");
+      errorclear();
+      };
+   write("end");
+end
+```
+
+```stdout
+2 to 2 by 0: 0 result(s) error 211
+0 to 0 by 0: 0 result(s) error 211
+-2 to 2 by 0: 0 result(s) error 211
+2 to 2 by 1: 1 result(s) 2 error none
+2 to 2 by -1: 1 result(s) 2 error none
+1 to 3 by 1: 3 result(s) 1 2 3 error none
+end
+```
+
 ## unicon__uni_scan_nested_match_literal
 
 ```Icon

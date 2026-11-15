@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1169 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,48
+# shape: entries=1171 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,50
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -93,7 +93,7 @@ procedure_write_54	chunk:11	family:rung30_builtins_misc
 procedure_write_55	chunk:11	family:rung30_builtins_misc	
 procedure_write_56	chunk:11	family:rung30_builtins_misc	
 procedure_write_57	chunk:11	family:rung30_builtins_misc	
-procedure_write_replace_1	chunk:11	family:rung07_control	
+procedure_write_replace_1	chunk:12	family:rung07_control	
 procedure_write_replace_12	chunk:01	family:ladder	
 procedure_write_replace_13	chunk:01	family:ladder	
 procedure_write_replace_14	chunk:01	family:ladder	
@@ -992,6 +992,7 @@ ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos	chunk:09	feat:matc
 ladder__rung42_kw_dateline_fields_unpadded	chunk:08	feat:pos	alternation integer keyword_ref local many pos scan scan_with_tab tab
 procedure_every_alt_replace_17	chunk:10	feat:map	alternation every gen_with_alternation image keyword_ref local map section to_by
 unicon__uni_gc_unstarted_coexpr	chunk:09	feat:list	coexpr_activate create every list local put return table to_by
+sweep__to_by_called_as_a_procedure_stops_at_a_zero_step	chunk:10	feat:put	alternation element_gen every gen_with_alternation keyword_ref local put writes
 unicon__uni_scan_nested_match_literal	chunk:04	feat:swap	alternation every gen_with_alternation image keyword_ref scan swap to_by upto
 scanning_asm__is05c_keyword_exchange	chunk:04	feat:swap	alternation aug_assign every gen_with_alternation keyword_ref local move scan swap
 procedure_every_elemgen_21	chunk:09	feat:seq	alternation element_gen every gen_with_alternation limitation local seq to_by writes
@@ -1116,7 +1117,7 @@ rung36_jcon_prefix__rung36_jcon_prefix	chunk:08	feat:pos	alternation bal every g
 ladder__rung33_case_clause_tests_by_identity	chunk:06	feat:case	alternation case every fail gen_with_alternation keyword_ref limitation local record return section table to_by type writes
 procedure_record_every_replace_4	chunk:09	feat:next	alternation aug_assign element_gen every gen_with_alternation global integer list local next record repl static stop to_by
 ladder__rung22_repalt_repeated_alternation_resumes_its_operand	chunk:11	feat:get	alternation aug_assign coexpr_activate create element_gen every every_with_suspend fail gen_with_alternation get keyword_ref limitation local suspend to_by writes
-ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning	chunk:10	feat:coexpr_activate	alternation coexpr_activate every every_with_suspend gen_with_alternation image keyword_ref limitation local scan scan_with_tab suspend tab upto while writes
+ladder__rung38_coexpr_a_merge_of_two_coexpressions_under_scanning	chunk:11	feat:coexpr_activate	alternation coexpr_activate every every_with_suspend gen_with_alternation image keyword_ref limitation local scan scan_with_tab suspend tab upto while writes
 ladder__rung29_builtins_read_returns_each_line_of_a_file_whatever_its_ending_or_length	chunk:11	feat:reads	alternation aug_assign every gen_with_alternation image limitation local read reads repl return section stop to_by while writes
 procedure_to_while_replace_1	chunk:09	feat:next	aug_assign get insert keyword_ref local many map next read section set sort table to_by upto while
 scanning_asm__is04c_collect_in_callee	chunk:10	feat:repl	every every_with_suspend global image keyword_ref local move put repl return scan scan_with_tab suspend tab to_by upto
