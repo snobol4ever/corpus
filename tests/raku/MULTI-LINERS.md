@@ -19930,6 +19930,32 @@ nnnyyy
 True
 ```
 
+## exceptions__a_coercion_parameter_refuses_an_uncoercible_argument
+
+```Raku
+sub f(Str(Int) $x) { $x }; say f(5).raku; say f("s").raku; say f(True).raku;
+try f([1, 2]); say $!.^name; say $!.message; say $! ~~ X::TypeCheck::Binding;
+sub i(Int(Str) $x) { $x }; say i("42"); try i(1.5); say $!.message;
+class C { method foo(Str(Int) $x) { $x } }; try C.new.foo([1, 2]); say $!.^name;
+sub a(Int() $x) { $x }; say a("7") + a(1.9);
+sub g(Int $x) { $x + 1 }; my $t = True; say g($t); my $s = "s"; try g($s); say $!.message;
+```
+
+```stdout
+"5"
+"s"
+"True"
+X::TypeCheck::Binding::Parameter
+Type check failed in binding to parameter '$x'; expected Str(Int) but got Array ([1, 2])
+True
+42
+Type check failed in binding to parameter '$x'; expected Int(Str) but got Rat (1.5)
+X::TypeCheck::Binding::Parameter
+8
+2
+Type check failed in binding to parameter '$x'; expected Int but got Str ("s")
+```
+
 ## ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
 
 ```Raku
