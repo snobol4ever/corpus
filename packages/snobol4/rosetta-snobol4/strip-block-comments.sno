@@ -14,45 +14,45 @@
 * the END statement below. Parameter bcom is the beginning comment
 * string and parameter ecom is the ending comment string.
 *
-	define('strip_block_comments(bcom,ecom)break_chars,c,newc,pre,pc,b')
-		pat1 = breakx(*break_chars) . pre (*bcom | *gt(b,0) *ecom) . pc
+	DEFINE('strip_block_comments(bcom,ecom)break_chars,c,newc,pre,pc,b')
+		pat1 = BREAKX(*break_chars) . pre (*bcom | *GT(b,0) *ecom) . pc
 	:(strip_block_comments_end)
 strip_block_comments
-	break_chars = substr(bcom,1,1) substr(ecom,1,1)
+	break_chars = SUBSTR(bcom,1,1) SUBSTR(ecom,1,1)
 	newc = ""
 	b = 0
 in1
-	c = input :f(p60)
+	c = INPUT :F(p60)
 
 p10
-	c ? pat1 = "" :f(p20)
+	c ? pat1 = "" :F(p20)
 
 * matches
-	le(b,0) :s(leb)f(gtb)
+	LE(b,0) :S(leb)F(gtb)
 leb
-	b = leq(pc,bcom) b + 1 :f(leb2)
+	b = LEQ(pc,bcom) b + 1 :F(leb2)
 	newc = newc pre :(p10)
 leb2
-	b = leq(pc,ecom) b - 1 :f(error)
+	b = LEQ(pc,ecom) b - 1 :F(error)
 	:(p10)
 gtb
-	b = leq(pc,bcom) b + 1
-	b = leq(pc,ecom) b - 1
+	b = LEQ(pc,bcom) b + 1
+	b = LEQ(pc,ecom) b - 1
 	:(p10)
 
 * nomatches
 p20
-	newc = lt(b,1) newc c
-	ident(newc) :s(in1)
+	newc = LT(b,1) newc c
+	IDENT(newc) :S(in1)
 	:(p50)
 
 p50
-	output = newc
+	OUTPUT = newc
 	newc = "" :(in1)
 
 p60
-	output = differ(newc) newc
-	:(return)
+	OUTPUT = DIFFER(newc) newc
+	:(RETURN)
 strip_block_comments_end
 
 

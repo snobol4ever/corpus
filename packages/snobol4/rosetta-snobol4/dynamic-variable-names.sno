@@ -1,11 +1,11 @@
 *       # Get var name from user
-        output = 'Enter variable name:'
-        invar = trim(input)
+        OUTPUT = 'Enter variable name:'
+        invar = TRIM(INPUT)
 
 *       # Get value from user, assign
-        output = 'Enter value:'
-        $invar = trim(input)
+        OUTPUT = 'Enter value:'
+        $invar = TRIM(INPUT)
 
 *       Display
-        output = invar ' == ' $invar
-end
+        OUTPUT = invar ' == ' $invar
+END

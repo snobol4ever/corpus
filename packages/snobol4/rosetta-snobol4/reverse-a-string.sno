@@ -1,2 +1,2 @@
-	output = reverse(reverse("reverse"))
-end
+	OUTPUT = REVERSE(REVERSE("reverse"))
+END

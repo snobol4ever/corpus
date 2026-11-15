@@ -1,0 +1,62 @@
+
+The mysterious game of Nim!
+Whoever takes the last token of twelve wins.
+
+There are 12 tokens remaining.  How many do you want to take?
+
+
+
+nim-game.sno(48) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              nim-game.sno
+in line              48
+in statement         27
+stmts executed       13
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16680
+memory left (bytes)  1031888
+
+
+
+
+dump of natural variables
+
+OUTPUT = 'There are 12 tokens remaining.  How many do you want to take?'
+tokens = 12
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'undefined function called'
+&ERRTYPE = 22
+&FILE = 'nim-game.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'nim-game.sno'
+&LASTLINE = 43
+&LASTNO = 25
+&LINE = 48
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 13
+&STLIMIT = 2147483647
+&STNO = 27
+&TRACE = 0
+&TRIM = 1
+
+
+

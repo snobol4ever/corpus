@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 15:14:03 2026
+
+
+
+                                                                                                                page 1
+
+1       snobol4 -b [[['a output = "Hello, World!";end'
+                    !
+shell-one-liner-2.sno(1,13) : ERROR 222 -- syntax error: invalid use of left bracket
+

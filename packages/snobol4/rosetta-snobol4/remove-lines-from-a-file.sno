@@ -1,57 +1,57 @@
 * Remove lines from a file
 
 * Function to remove a chunk of lines from a file, will go backward, too, if numlines < 0
-    define("remlines(filename,startline,numlines)row,rowcount,lastline,swap")
+    DEFINE("remlines(filename,startline,numlines)row,rowcount,lastline,swap")
     :(remlines_end)
 remlines
-	input(.inp1,1,filename)		:f(freturn)
-	output(.tmp1,2,"/tmp/Removem")	:f(freturn)
+	INPUT(.inp1,1,filename)		:F(FRETURN)
+	OUTPUT(.tmp1,2,"/tmp/Removem")	:F(FRETURN)
 	rowcount = 0
-	lastline = (ge(numlines,0) startline + numlines - 1, startline + numlines + 1)
-	ge(numlines,0) :s(remlines2)
+	lastline = (GE(numlines,0) startline + numlines - 1, startline + numlines + 1)
+	GE(numlines,0) :S(remlines2)
 	swap = lastline
 	lastline = startline
 	startline = swap
 remlines2
-	row = inp1			:f(remlines3)
+	row = inp1			:F(remlines3)
 	rowcount = rowcount + 1
-	ge(rowcount,startline) le(rowcount,lastline)	:s(remlines2)
+	GE(rowcount,startline) LE(rowcount,lastline)	:S(remlines2)
 	tmp1 = row
 	:(remlines2)
 remlines3
-	endfile(1)
-	endfile(2)
-	input(.rmv1,2,"/tmp/Removem")	:f(freturn)
-	output(.fnout1,1,filename)	:f(freturn)
+	ENDFILE(1)
+	ENDFILE(2)
+	INPUT(.rmv1,2,"/tmp/Removem")	:F(FRETURN)
+	OUTPUT(.fnout1,1,filename)	:F(FRETURN)
 remlines4
-	fnout1 = rmv1			:s(remlines4)
-	endfile(1)
-	endfile(2)
-	:(return)
+	fnout1 = rmv1			:S(remlines4)
+	ENDFILE(1)
+	ENDFILE(2)
+	:(RETURN)
 remlines_end
 
 	testfile = "/tmp/foobar.txt"
 
 * Populate test file with 5 rows, 1, 2, 3, 4, and 5
-	output(.testout,60,testfile) :f(failed)
+	OUTPUT(.testout,60,testfile) :F(failed)
 	i = 1
 pop1
 	testout = i
-	i = lt(i,5) i + 1 :s(pop1)
-	endfile(60)
+	i = LT(i,5) i + 1 :S(pop1)
+	ENDFILE(60)
 
 
 * Now remove lines 2, 3, and 4 from test file
-	remlines(testfile,2,3) :f(failed)
+	remlines(testfile,2,3) :F(failed)
 
 
 * Print revised file
-	input(.testprt,70,testfile) :f(failed)
+	INPUT(.testprt,70,testfile) :F(failed)
 print1
-	output = testprt :s(print1)
-	:(end)
+	OUTPUT = testprt :S(print1)
+	:(END)
 
 failed
-	output = "Either the main file or the temporary file failed to open"
-end
+	OUTPUT = "Either the main file or the temporary file failed to open"
+END
 

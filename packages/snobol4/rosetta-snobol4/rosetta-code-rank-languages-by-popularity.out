@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 15:13:59 2026
+
+
+
+                                                                                                                page 1
+
+15              langtable[syntaxhighlight lang="text"] = langtable[syntaxhighlight lang="text"] + count   :(get)
+                                              !
+rosetta-code-rank-languages-by-popularity.sno(20,39) : ERROR 233 -- syntax error: invalid use of operator
+

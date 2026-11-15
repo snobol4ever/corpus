@@ -1,14 +1,14 @@
-        define('chr(n)') :(chr_end)
-chr     &alphabet tab(n) len(1) . chr :s(return)f(freturn)
+        DEFINE('chr(n)') :(chr_end)
+chr     &ALPHABET TAB(n) LEN(1) . chr :S(RETURN)F(FRETURN)
 chr_end
 
-        define('asc(str)c') :(asc_end)
-asc     str len(1) . c
-        &alphabet break(c) @asc :s(return)f(freturn)
+        DEFINE('asc(str)c') :(asc_end)
+asc     str LEN(1) . c
+        &ALPHABET BREAK(c) @asc :S(RETURN)F(FRETURN)
 asc_end
 
 *       # Test and display
-        output = char(65) ;* Built-in
-        output = chr(65)
-        output = asc('A')
-end
+        OUTPUT = CHAR(65) ;* Built-in
+        OUTPUT = chr(65)
+        OUTPUT = asc('A')
+END

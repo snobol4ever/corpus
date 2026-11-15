@@ -1,6 +1,6 @@
-        define('ifib(n)f1,f2') :(ifib_end)
-ifib    ifib = le(n,2) 1 :s(return)
+        DEFINE('ifib(n)f1,f2') :(ifib_end)
+ifib    ifib = LE(n,2) 1 :S(RETURN)
         f1 = 1; f2 = 1
-if1     ifib = gt(n,2) f1 + f2 :f(return)
+if1     ifib = GT(n,2) f1 + f2 :F(RETURN)
         f1 = f2; f2 = ifib; n = n - 1 :(if1)
 ifib_end

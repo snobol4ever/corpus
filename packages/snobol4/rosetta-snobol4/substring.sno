@@ -4,13 +4,13 @@
 	known_char = "q"
 	known_str = "pq"
 *  starting from n characters in and of m length;
-	string len(n - 1) len(m) . output	
+	string LEN(n - 1) LEN(m) . OUTPUT	
 * starting from n characters in, up to the end of the string;
-	string len(n - 1) rem . output
+	string LEN(n - 1) REM . OUTPUT
 * whole string minus last character;
-	string rtab(1) . output
+	string RTAB(1) . OUTPUT
 * starting from a known character within the string and of m length;
-	string break(known_char) len(m) . output
+	string BREAK(known_char) LEN(m) . OUTPUT
 * starting from a known substring <= m within the string and of m length.
-	string (known_str len(m - size(known_str))) . output
-end
+	string (known_str LEN(m - SIZE(known_str))) . OUTPUT
+END

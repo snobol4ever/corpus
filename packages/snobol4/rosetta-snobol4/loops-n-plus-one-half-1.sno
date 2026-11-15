@@ -1,4 +1,4 @@
-loop    str = str lt(i,10) (i = i + 1) :f(out)
-        str = str ne(i,10) ',' :s(loop)
-out     output = str
-end
+loop    str = str LT(i,10) (i = i + 1) :F(out)
+        str = str NE(i,10) ',' :S(loop)
+out     OUTPUT = str
+END

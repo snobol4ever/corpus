@@ -1,0 +1,14 @@
+      can_make_word("A"): False
+
+   can_make_word("bark"): False
+
+   can_make_word("BOOK"): False
+
+  can_make_word("TrEAT"): False
+
+ can_make_word("COMMON"): False
+
+  can_make_word("SQUAD"): False
+
+can_make_word("CONFUSE"): False
+

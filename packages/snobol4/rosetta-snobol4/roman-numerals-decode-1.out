@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 15:13:57 2026
+
+
+
+                                                                                                                page 1
+
+12              tstr = 'MMX MCMXCIX MCDXCII MLXVI CDLXXVI "
+                       !
+roman-numerals-decode-1.sno(13,16) : ERROR 232 -- syntax error: unmatched string quote
+

@@ -1,14 +1,14 @@
 	A = "true"
 * "if-then-else"
-if	A "true"			:s(goTrue)f(goFalse)
-goTrue	output = "A is TRUE"		:(fi)
-goFalse	output = "A is not TRUE"	:(fi)
+if	A "true"			:S(goTrue)F(goFalse)
+goTrue	OUTPUT = "A is TRUE"		:(fi)
+goFalse	OUTPUT = "A is not TRUE"	:(fi)
 fi
 
 * "switch"
 switch		A ("true" | "false") . switch	:s($("case" switch))f(default)
-casetrue	output = "A is TRUE"	:(esac)
-casefalse	output = "A is FALSE"	:(esac)
-default		output = "A is neither FALSE nor TRUE"
+casetrue	OUTPUT = "A is TRUE"	:(esac)
+casefalse	OUTPUT = "A is FALSE"	:(esac)
+default		OUTPUT = "A is neither FALSE nor TRUE"
 esac
-end
+END

@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 15:13:14 2026
+
+
+
+                                                                                                                page 1
+
+        -INCLUDE "path/to/filename.inc"
+                 !
+include-a-file.sno(1,10) : ERROR 285 -- include file cannot be opened
+

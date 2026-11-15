@@ -1,6 +1,6 @@
-     output = "Enter a string:"
-     str = trim(input)
-     output = "Enter an integer:"
-     int = trim(input)
-     output = "String: " str " Integer: " int
-end
+     OUTPUT = "Enter a string:"
+     str = TRIM(INPUT)
+     OUTPUT = "Enter an integer:"
+     int = TRIM(INPUT)
+     OUTPUT = "String: " str " Integer: " int
+END

@@ -15,24 +15,24 @@
 * g, HHH, 5, YY, ++, ///, \
 * Comment: Tested using the Spitbol for Linux version of SNOBOL4
 
-	lf = substr(&alphabet,11,1) ;* New line or line feed
+	lf = SUBSTR(&ALPHABET,11,1) ;* New line or line feed
 
 * Function split_cc will split a string on a change of character.
-	define('split_cc(s)tchar,target,post')
+	DEFINE('split_cc(s)tchar,target,post')
 	:(split_cc_end)
 split_cc
-	tchar = substr(s,1,1) :f(freturn)
-	split_cc_pat = span(*tchar) . target (rpos(0) | len(1) . tchar rem) . post
+	tchar = SUBSTR(s,1,1) :F(FRETURN)
+	split_cc_pat = SPAN(*tchar) . target (RPOS(0) | LEN(1) . tchar REM) . post
 split_cc2
-	s ? split_cc_pat = post :f(split_cc3)
-	split_cc = (ident(split_cc) target, split_cc ', ' target) :s(split_cc2)
+	s ? split_cc_pat = post :F(split_cc3)
+	split_cc = (IDENT(split_cc) target, split_cc ', ' target) :S(split_cc2)
 split_cc3
-	:(return)
+	:(RETURN)
 split_cc_end
 
 	test_string = "gHHH5YY++///\"
-	output = test_string lf
+	OUTPUT = test_string lf
 	split_string = split_cc(test_string)
-	output = split_string
+	OUTPUT = split_string
 
 END

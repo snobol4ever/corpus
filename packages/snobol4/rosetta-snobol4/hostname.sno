@@ -1,2 +1,2 @@
-      output = host(4,"HOSTNAME")
-end
+      OUTPUT = HOST(4,"HOSTNAME")
+END

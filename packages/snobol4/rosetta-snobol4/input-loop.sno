@@ -1,2 +1,2 @@
-loop  output = input :s(loop)
-end
+loop  OUTPUT = INPUT :S(loop)
+END

@@ -1,44 +1,44 @@
-#!/usr/local/bin/snobol4 -r
+*!/usr/local/bin/snobol4 -r
 *  cusip.sno
 *   -- Committee on Uniform Security Identification Procedures
 *  -r : read data placed after the end label.
 *  Verify check digit and size of cusip code.
 
-     define("cusipt()i")                  :(cusipt_end)
+     DEFINE("cusipt()i")                  :(cusipt_end)
 cusipt
-     chars = &digits &ucase "*@#"
-     cusipt = table()
+     chars = &digits &UCASE "*@#"
+     cusipt = TABLE()
      i = 0
 cusipt_1
-     chars pos(i) len(1) . c              :f(return)
+     chars POS(i) LEN(1) . c              :F(RETURN)
      cusipt[c] = i
      i = i + 1                            :(cusipt_1)
 cusipt_end
 
-     define("check_cusip(line)c,i")       :(check_cusip_end)
+     DEFINE("check_cusip(line)c,i")       :(check_cusip_end)
 check_cusip
-     eq(size(line), 9)                    :f(freturn)
+     EQ(SIZE(line), 9)                    :F(FRETURN)
      check_cusip = 0
      i = 0
 check_cusip_1
-     line pos(i) len(1) . c
+     line POS(i) LEN(1) . c
      value = t[c]
-     value = eq(remdr(i, 2), 1) t[c] * 2
-     check_cusip = check_cusip + (value / 10) + remdr(value, 10)
-     i = lt(i, 7) i + 1                   :s(check_cusip_1)
-     check_cusip = remdr(10 - remdr(check_cusip, 10), 10)
-     eq(substr(line, 9, 1), check_cusip)  :s(return)f(freturn)
+     value = EQ(REMDR(i, 2), 1) t[c] * 2
+     check_cusip = check_cusip + (value / 10) + REMDR(value, 10)
+     i = LT(i, 7) i + 1                   :S(check_cusip_1)
+     check_cusip = REMDR(10 - REMDR(check_cusip, 10), 10)
+     EQ(SUBSTR(line, 9, 1), check_cusip)  :S(RETURN)F(FRETURN)
 check_cusip_end
 
 *** main ***
      t = cusipt()
 
-read line = input                         :f(end)
-     check_cusip(line)                    :f(bad_cusip)
-     output = line " valid."              :(read)
+read line = INPUT                         :F(END)
+     check_cusip(line)                    :F(bad_cusip)
+     OUTPUT = line " valid."              :(read)
 bad_cusip
-     output =  line " not valid."         :(read)
-end
+     OUTPUT =  line " not valid."         :(read)
+END
 037833100
 17275R102
 38259P508

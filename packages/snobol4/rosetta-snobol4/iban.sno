@@ -14,13 +14,13 @@ ibantable
 +        'DZ24AO25BJ28FB27BI16CM27CV25IR26CI28MG27'
 +        'ML28MZ25SN28UA29'
       allcodes = ibancodes nordeacodes
-iban1 allcodes LEN(2) . country LEN(2) . length =     :F(return)
-      ibantable<country> = length                     :(iban1)
+iban1 allcodes LEN(2) . country LEN(2) . length =     :F(RETURN)
+      ibantable[country] = length                     :(iban1)
 iban_table_end
 
       DEFINE('tonumbers(tonumbers)letter,p')          :(tonumbers_end)
 tonumbers
-      tonumbers ANY(&UCASE) . letter                  :f(RETURN)
+      tonumbers ANY(&UCASE) . letter                  :F(RETURN)
       &UCASE @p letter
       tonumbers letter = p + 10                       :(tonumbers)
 tonumbers_end
@@ -28,9 +28,9 @@ tonumbers_end
 * modulo for long integers
 *
       DEFINE('mod(m,n)')                              :(mod_end)
-mod   m LEN(9) . r =                                  :f(modresult)
+mod   m LEN(9) . r =                                  :F(modresult)
       mod = REMDR(CONVERT(r,"INTEGER"), n)
-mod0  m LEN(7) . r =                                  :f(modresult)
+mod0  m LEN(7) . r =                                  :F(modresult)
       mod = mod r
       mod = REMDR(mod, n)                             :(mod0)
 modresult
@@ -47,25 +47,25 @@ invalid_end
       FREEZE(ibant)
 
       INPUT(.INPUT, 28,,'iban.dat')
-read  line   = INPUT                                  :f(END)
+read  line   = INPUT                                  :F(END)
       country = checkdigits = line2 =
 **    GB82 WEST 1234 5698 7654 32
 **    Uppercase line2 and remove spaces.
       line2 = REPLACE(line, &LCASE, &UCASE)
-space line2 ANY(" ") =                                :s(space)
+space line2 ANY(" ") =                                :S(space)
 
 **    GB82WEST12345698765432
 **    Capture country code and checkdigits.
       line2 LEN(2) . country LEN(2) . checkdigits
 
 **    1. Is the country code known?
-      IDENT(ibant<country>)
-+       invalid(line, "unlisted country: " country)   :s(read)
+      IDENT(ibant[country])
++       invalid(line, "unlisted country: " country)   :S(read)
 
 **    2. Is the length correct for the country?
-      NE(SIZE(line2), ibant<country>)
+      NE(SIZE(line2), ibant[country])
 +       invalid(line, "length: " SIZE(line2)
-+       " not " ibant<country>)                       :s(read)
++       " not " ibant[country])                       :S(read)
 
 **    3. Move first four chars to end of line.
 **    Convert line2 letters to numbers.
@@ -75,7 +75,7 @@ space line2 ANY(" ") =                                :s(space)
 **    Mod_97 of line2 = 1?
       modsum  = mod(line2, 97)
       NE(modsum, 1)
-+       invalid(line, "mod_97 " modsum " not = 1")    :s(read)
++       invalid(line, "mod_97 " modsum " not = 1")    :S(read)
 
       OUTPUT = "valid IBAN: " line                    :(read)
 END

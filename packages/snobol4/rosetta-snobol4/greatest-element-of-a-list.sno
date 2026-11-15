@@ -1,4 +1,4 @@
-while   a = trim(input)     :f(stop)
-        max = gt(a,max) a   :(while)
-stop    output = max
-end
+while   a = TRIM(INPUT)     :F(stop)
+        max = GT(a,max) a   :(while)
+stop    OUTPUT = max
+END

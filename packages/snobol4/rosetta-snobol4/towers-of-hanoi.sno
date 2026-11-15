@@ -1,13 +1,13 @@
 *       # Note: count is global
 
-        define('hanoi(n,src,trg,tmp)') :(hanoi_end)
-hanoi   hanoi = eq(n,0) 1 :s(return)
+        DEFINE('hanoi(n,src,trg,tmp)') :(hanoi_end)
+hanoi   hanoi = EQ(n,0) 1 :S(RETURN)
         hanoi(n - 1, src, tmp, trg)
         count  = count + 1
-        output = count ': Move disc from ' src ' to ' trg
-        hanoi(n - 1, tmp, trg, src) :(return)
+        OUTPUT = count ': Move disc from ' src ' to ' trg
+        hanoi(n - 1, tmp, trg, src) :(RETURN)
 hanoi_end
 
 *       # Test with 4 discs
         hanoi(4,'A','C','B')
-end
+END

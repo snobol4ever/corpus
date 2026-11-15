@@ -1,6 +1,6 @@
-      input(.inbin,21,"filename.txt [-r524288]")     :f(end)
-rdlp  buf = inbin                                    :s(rdlp)
+      INPUT(.inbin,21,"filename.txt [-r524288]")     :F(END)
+rdlp  buf = inbin                                    :S(rdlp)
 *
 *  now process the 'buf' containing the file
 *
-end
+END

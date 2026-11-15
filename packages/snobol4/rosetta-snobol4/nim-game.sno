@@ -6,20 +6,20 @@
 ********************************************************************************
 * GETCOUNT() - Get the count of tokens to take.
 ********************************************************************************
-  define('GETCOUNT()I')
+  DEFINE('GETCOUNT()I')
   :(GETCOUNT.END)
 GETCOUNT         OUTPUT = 'Enter a number between 1 and 3, blank line to exit.'
 ****************************************
 * Data input and integrity check loop.
 ****************************************
 GETCOUNT.LOOP    PROMPT = '> '
-                 i = trim(INPUT)
+                 i = TRIM(INPUT)
 *                Abort on nil entry.
-                 eq(size(i), 0)                                                 :S(EXIT)
+                 EQ(SIZE(i), 0)                                                 :S(EXIT)
 *                Check range.
-                 integer(i)                                                     :F(GETCOUNT.INVALID)
-                 lt(i, 4)                                                       :F(GETCOUNT.INVALID)
-                 gt(i, 0)                                                       :F(GETCOUNT.INVALID)
+                 INTEGER(i)                                                     :F(GETCOUNT.INVALID)
+                 LT(i, 4)                                                       :F(GETCOUNT.INVALID)
+                 GT(i, 0)                                                       :F(GETCOUNT.INVALID)
 *                It all checked out.
                  GETCOUNT = i                                                   :(RETURN)
 ****************************************
@@ -48,9 +48,9 @@ MAIN.LOOP OUTPUT =
 MAIN.P    ptake = getcount()
           tokens = tokens - ptake
           OUTPUT = 'You selected ' ptake ' tokens leaving ' tokens '.'
-          lt(tokens, 0)                                                :S(ERROR)
-          gt(tokens, 12)                                               :S(ERROR)
-          eq(tokens, 0)                                                :S(MAIN.PWIN)
+          LT(tokens, 0)                                                :S(ERROR)
+          GT(tokens, 12)                                               :S(ERROR)
+          EQ(tokens, 0)                                                :S(MAIN.PWIN)
 
 ********************
 * Computer turn.
@@ -58,9 +58,9 @@ MAIN.P    ptake = getcount()
 MAIN.C    ctake = 4 - ptake
           tokens = tokens - ctake
           OUTPUT = 'Computer selects ' ctake ' tokens leaving ' tokens '.'
-          lt(tokens, 0)                                                    :S(ERROR)
-          gt(tokens, 12)                                                   :S(ERROR)
-          eq(tokens, 0)                                                    :S(MAIN.CWIN)
+          LT(tokens, 0)                                                    :S(ERROR)
+          GT(tokens, 12)                                                   :S(ERROR)
+          EQ(tokens, 0)                                                    :S(MAIN.CWIN)
 
           :(MAIN.LOOP)
 

@@ -1,0 +1,19 @@
+1: 5 4 3 2 1 
+
+
+
+sorting-algorithms-bogosort.sno(18) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              sorting-algorithms-bogosort.sno
+in line              18
+in statement         14
+stmts executed       34
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16656
+memory left (bytes)  1031912
+

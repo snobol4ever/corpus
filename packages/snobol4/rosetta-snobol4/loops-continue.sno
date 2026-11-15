@@ -1,8 +1,8 @@
           line =
           i = 1
-LOOP      le(i, 10)          :F(LOOP.END)
+LOOP      LE(i, 10)          :F(LOOP.END)
           line = line i
-          eq(remdr(i, 5), 0) :S(LOOP.OUT)
+          EQ(REMDR(i, 5), 0) :S(LOOP.OUT)
           line = line ', '   :(LOOP.INC)
 LOOP.OUT  OUTPUT = line
           line =

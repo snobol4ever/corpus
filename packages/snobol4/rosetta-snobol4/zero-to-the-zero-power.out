@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 15:14:18 2026
+
+
+
+                                                                                                                page 1
+
+1           OUTPUT = (0 ** 0)
+
+zero-to-the-zero-power.sno(1) : ERROR 018 -- exponentiation result is undefined
+

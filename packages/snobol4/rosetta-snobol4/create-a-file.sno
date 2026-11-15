@@ -1,8 +1,8 @@
-        output(.file,1,'output.txt');  endfile(1)  ;* Macro Spitbol
+        OUTPUT(.file,1,'output.txt');  ENDFILE(1)  ;* Macro Spitbol
 *       output(.file,1,,'output.txt'); endfile(1)  ;* CSnobol
-        host(1,'mkdir docs')
+        HOST(1,'mkdir docs')
 
-        output(.file,1,'/output.txt');  endfile(1) ;* Macro Spitbol
+        OUTPUT(.file,1,'/output.txt');  ENDFILE(1) ;* Macro Spitbol
 *       output(.file,1,,'/output.txt'); endfile(1) ;* CSnobol
-        host(1,'mkdir /docs')
-end
+        HOST(1,'mkdir /docs')
+END

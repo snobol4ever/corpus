@@ -1,0 +1,10 @@
+  Input: one^|uno||three^^^^|four^^^|^cuatro|
+
+Output1: one|uno,,three^^,four^|cuatro,
+
+Output2: 
+'one|uno'
+''
+'three^^'
+'four^|cuatro'
+''

@@ -1,9 +1,9 @@
-define('isprime(n)i,max') :(isprime_end)
+DEFINE('isprime(n)i,max') :(isprime_end)
 isprime isprime = n
-        le(n,1) :s(freturn)
-        eq(n,2) :s(return)
-        eq(remdr(n,2),0) :s(freturn)
-        max = sqrt(n); i = 1
-isp1    i = le(i + 2,max) i + 2 :f(return)
-        eq(remdr(n,i),0) :s(freturn)f(isp1)
+        LE(n,1) :S(FRETURN)
+        EQ(n,2) :S(RETURN)
+        EQ(REMDR(n,2),0) :S(FRETURN)
+        max = SQRT(n); i = 1
+isp1    i = LE(i + 2,max) i + 2 :F(RETURN)
+        EQ(REMDR(n,i),0) :S(FRETURN)F(isp1)
 isprime_end

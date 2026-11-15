@@ -1,8 +1,8 @@
-  define("fib(a)")  :(fib_end)
-fib   fib = lt(a,2) a   :s(return)
-   fib = fib(a - 1) + fib(a - 2) :(return)
+  DEFINE("fib(a)")  :(fib_end)
+fib   fib = LT(a,2) a   :S(RETURN)
+   fib = fib(a - 1) + fib(a - 2) :(RETURN)
 fib_end
 
-while a = trim(input)   :f(end)
-   output = a " " fib(a)   :(while)
-end
+while a = TRIM(INPUT)   :F(END)
+   OUTPUT = a " " fib(a)   :(while)
+END

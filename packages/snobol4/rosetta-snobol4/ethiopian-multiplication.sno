@@ -1,21 +1,21 @@
-    define('halve(num)')    :(halve_end)
-halve   eq(num,1)   :s(freturn)
-    halve = num / 2 :(return)
+    DEFINE('halve(num)')    :(halve_end)
+halve   EQ(num,1)   :S(FRETURN)
+    halve = num / 2 :(RETURN)
 halve_end
 
-    define('double(num)')   :(double_end)
-double  double = num * 2    :(return)
+    DEFINE('double(num)')   :(double_end)
+double  double = num * 2    :(RETURN)
 double_end
 
-    define('odd(num)')  :(odd_end)
-odd eq(num,1)   :s(return)
-    eq(num,double(halve(num)))  :s(freturn)f(return)
+    DEFINE('odd(num)')  :(odd_end)
+odd EQ(num,1)   :S(RETURN)
+    EQ(num,double(halve(num)))  :S(FRETURN)F(RETURN)
 
-odd_end l = trim(input)
-    r = trim(input)
+odd_end l = TRIM(INPUT)
+    r = TRIM(INPUT)
     s = 0
 next    s = odd(l) s + r
     r = double(r)
-    l = halve(l)    :s(next)
-stop    output = s
-end
+    l = halve(l)    :S(next)
+stop    OUTPUT = s
+END

@@ -1,6 +1,6 @@
-        output('out',1,'-[-r1]')
-loop    i = lt(i,10) i + 1 :f(end)
+        OUTPUT('out',1,'-[-r1]')
+loop    i = LT(i,10) i + 1 :F(END)
         out = i
-        eq(i,10) :s(end)
+        EQ(i,10) :S(END)
         out = ',' :(loop)
-end
+END

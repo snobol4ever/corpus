@@ -1,0 +1,18 @@
+
+
+
+cusip.sno(9) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              cusip.sno
+in line              9
+in statement         4
+stmts executed       7
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14328
+memory left (bytes)  1034240
+

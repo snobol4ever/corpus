@@ -1,11 +1,11 @@
-        output = "Enter first integer:"
-  	first = input
-	output = "Enter second integer:"
-	second = input
-	output = "sum  = " first + second
-	output = "diff = " first - second
-	output = "prod = " first * second
-	output = "quot = " (qout = first / second)
-	output = "rem  = " first - (qout * second)
-	output = "expo  = " first ** second
-end
+        OUTPUT = "Enter first integer:"
+  	first = INPUT
+	OUTPUT = "Enter second integer:"
+	second = INPUT
+	OUTPUT = "sum  = " first + second
+	OUTPUT = "diff = " first - second
+	OUTPUT = "prod = " first * second
+	OUTPUT = "quot = " (qout = first / second)
+	OUTPUT = "rem  = " first - (qout * second)
+	OUTPUT = "expo  = " first ** second
+END

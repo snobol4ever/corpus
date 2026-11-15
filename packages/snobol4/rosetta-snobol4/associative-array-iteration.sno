@@ -1,16 +1,16 @@
 *       # Create sample table
-        t = table()
-        t<'cat'> = 'meow'
-        t<'dog'> = 'woof'
-        t<'pig'> = 'oink'
+        t = TABLE()
+        t['cat'] = 'meow'
+        t['dog'] = 'woof'
+        t['pig'] = 'oink'
 
 *       # Convert table to key/value array
-        a = convert(t,'array')
+        a = CONVERT(t,'array')
 
 *       # Iterate pairs
-ploop   i = i + 1; output = a<i,1> ' -> ' a<i,2> :s(ploop)
+ploop   i = i + 1; OUTPUT = a[i,1] ' -> ' a[i,2] :S(ploop)
 *       # Iterate keys
-kloop   j = j + 1; output = a<j,1> :s(kloop)
+kloop   j = j + 1; OUTPUT = a[j,1] :S(kloop)
 *       # Iterate vals
-vloop   k = k + 1; output = a<k,2> :s(vloop)
-end
+vloop   k = k + 1; OUTPUT = a[k,2] :S(vloop)
+END

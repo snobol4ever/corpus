@@ -1,0 +1,19 @@
+
+
+
+
+short-circuit-evaluation.sno(15) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              short-circuit-evaluation.sno
+in line              15
+in statement         14
+stmts executed       16
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  17600
+memory left (bytes)  1030968
+

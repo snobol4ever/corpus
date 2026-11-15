@@ -1,1 +1,1 @@
-        &code = condition errlevel :s(end)
+        &CODE = condition errlevel :S(END)

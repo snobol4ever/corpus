@@ -4,45 +4,45 @@
 
 * Read in blocks to construct the blocks string
 in1
-   line = replace(input,&lcase,&ucase) :f(in1end)
-   line ? breakx(' ') . pre ' ' rem . post :f(in1end)
+   line = REPLACE(INPUT,&LCASE,&UCASE) :F(in1end)
+   line ? BREAKX(' ') . pre ' ' REM . post :F(in1end)
    blocks = blocks "," pre post
    :(in1)
 in1end
 
 * Function to determine if a word can be constructed with the given blocks
-   define('abc(blocks,word)s,i,let')
-      abcpat = (breakx(',') ',') . pre (*let len(1) | len(1) *let) rem . post
+   DEFINE('abc(blocks,word)s,i,let')
+      abcpat = (BREAKX(',') ',') . pre (*let LEN(1) | LEN(1) *let) REM . post
    :(abc_end)
 abc
-   eq(size(word),0) :s(abc3)
-   s = replace(word,&lcase,&ucase)
+   EQ(SIZE(word),0) :S(abc3)
+   s = REPLACE(word,&LCASE,&UCASE)
    i = 0
 abc2
-   i = lt(i,size(s)) i + 1 :f(abc4)
-   let = substr(s,i,1)
-   blocks ? abcpat = pre post :f(abc3)
+   i = LT(i,SIZE(s)) i + 1 :F(abc4)
+   let = SUBSTR(s,i,1)
+   blocks ? abcpat = pre post :F(abc3)
    :(abc2)
 abc3
    abc = 'False' :(abc5)
 abc4
    abc = 'True'  :(abc5)
 abc5
-   output = lpad('can_make_word("' word '"): ',26) abc
+   OUTPUT = LPAD('can_make_word("' word '"): ',26) abc
    abc = ""
-   :(return)
+   :(RETURN)
 abc_end
 
 * Check words
 *  output = abc(blocks,"")
 *  output = abc(blocks," ")
-   output = abc(blocks,'A')
-   output = abc(blocks,'bark')
-   output = abc(blocks,'BOOK')
-   output = abc(blocks,'TrEAT')
-   output = abc(blocks,'COMMON')
-   output = abc(blocks,'SQUAD')
-   output = abc(blocks,'CONFUSE')
+   OUTPUT = abc(blocks,'A')
+   OUTPUT = abc(blocks,'bark')
+   OUTPUT = abc(blocks,'BOOK')
+   OUTPUT = abc(blocks,'TrEAT')
+   OUTPUT = abc(blocks,'COMMON')
+   OUTPUT = abc(blocks,'SQUAD')
+   OUTPUT = abc(blocks,'CONFUSE')
 
 * The blocks are entered below, after the following END label
 END

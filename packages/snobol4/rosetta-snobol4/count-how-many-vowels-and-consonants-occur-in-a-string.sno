@@ -10,24 +10,24 @@
 * If it is 0, then the characters in c will be removed.
 * Parameter kr defaults to 1. So if it is null or not 0 or 1,
 * then it becomes 1.
-    define('squeeze(s,c,kr)pre')
+    DEFINE('squeeze(s,c,kr)pre')
     :(squeeze_end)
 squeeze
-    kr = (eq(size(kr),0) 1,kr)
-    kr = (eq(kr,1) kr, eq(kr,0) kr, 1)
-    eq(kr,1) :s(kr1)
+    kr = (EQ(SIZE(kr),0) 1,kr)
+    kr = (EQ(kr,1) kr, EQ(kr,0) kr, 1)
+    EQ(kr,1) :S(kr1)
 kr0
 * Exclude character set
-    s ? breakx(c) . pre span(c) = :f(kr2)
+    s ? BREAKX(c) . pre SPAN(c) = :F(kr2)
     squeeze = squeeze pre
     :(kr0)
 kr1
 * Include character set
-    s ? breakx(c) span(c) . pre = :f(kr2)
+    s ? BREAKX(c) SPAN(c) . pre = :F(kr2)
     squeeze = squeeze pre
     :(kr1)
 kr2
-    :(return)
+    :(RETURN)
 squeeze_end
 
 
@@ -37,53 +37,53 @@ squeeze_end
 * upper and lower case letters and then replaces
 * upper case letters with lower case letters.
 * It returns t converted to an array.
-    define('popt(string,t)s,c') :(popt_end)
+    DEFINE('popt(string,t)s,c') :(popt_end)
 popt
-    s = squeeze(string,&lcase &ucase)
-    s = replace(s,&ucase,&lcase)
+    s = squeeze(string,&LCASE &UCASE)
+    s = REPLACE(s,&UCASE,&LCASE)
 popt1
-    s ? len(1) . c = ?(t[c] = t[c] + 1) :s(popt1)
-    popt = convert(t,'ARRAY') :s(return)f(freturn)
+    s ? LEN(1) . c = ?(t[c] = t[c] + 1) :S(popt1)
+    popt = CONVERT(t,'ARRAY') :S(RETURN)F(FRETURN)
 popt_end
 
 
 * Function OUTPUTARRAY will output array as well as return the number
 * of unique array elements and the sum of their counts,
 * separated by the |.
-    define('outputarray(a)i,sum,n') :(outputarray_end)
+    DEFINE('outputarray(a)i,sum,n') :(outputarray_end)
 outputarray
     i = i + 1
-    output = a[i,1] ', ' a[i,2] :f(outputarray2)
+    OUTPUT = a[i,1] ', ' a[i,2] :F(outputarray2)
     sum = sum + a[i,2]
     n = i
     :(outputarray)
 outputarray2
     outputarray = n "|" sum
-    :(return)
+    :(RETURN)
 outputarray_end
 
 
-    alphabet = &lcase &ucase
+    alphabet = &LCASE &UCASE
     vowels = 'aeiouAEIOU'
     consonants = squeeze(alphabet,vowels,0)  ;* Remove vowels
 
-    v = table()
-    c = table()
+    v = TABLE()
+    c = TABLE()
 
     s = "Now is the time for all good men to come to the aid of their country."
 
-	output = s
+	OUTPUT = s
 
     vs = squeeze(s,vowels,1)      ;* Remove all characters if not a vowel
     va = popt(vs,v)               ;* Put unique characters into array with counts
-    ret = outputarray(va)         ;* Output character array
-    ret ? breakx("|") . n len(1) rem . sum
-    output = "Number of unique vowels is " n ', total=' sum
+    ret = outputarray(va)         ;* OUTPUT character array
+    ret ? BREAKX("|") . n LEN(1) REM . sum
+    OUTPUT = "Number of unique vowels is " n ', total=' sum
 
     cs = squeeze(s,consonants,1)  ;* Remove all characters if not a consonant
     vc = popt(cs,c)               ;* Put unique characters into array with counts
-    ret = outputarray(vc)         ;* Output character array
-    ret ? breakx("|") . n len(1) rem . sum
-    output = "Number of unique consonants is " n ', total=' sum
+    ret = outputarray(vc)         ;* OUTPUT character array
+    ret ? BREAKX("|") . n LEN(1) REM . sum
+    OUTPUT = "Number of unique consonants is " n ', total=' sum
 
 END

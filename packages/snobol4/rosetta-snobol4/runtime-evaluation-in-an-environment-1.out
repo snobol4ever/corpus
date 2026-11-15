@@ -1,0 +1,18 @@
+
+
+
+runtime-evaluation-in-an-environment-1.sno(7) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              runtime-evaluation-in-an-environment-1.sno
+in line              7
+in statement         7
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16016
+memory left (bytes)  1032552
+

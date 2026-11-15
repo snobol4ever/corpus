@@ -7,24 +7,24 @@
 +          "gcmtitle=Category:Programming%20Languages&"
 +          "gcmlimit=500&prop=categoryinfo"
 
-        languagepat = arb "<page" arb 'title="Category:'
-+          break('"') . lang arb 'pages="' break('"') . count
+        languagepat = ARB "<page" ARB 'title="Category:'
++          BREAK('"') . lang ARB 'pages="' BREAK('"') . count
 
-        langtable = table(500, 20)
+        langtable = TABLE(500, 20)
 
-        url.open(.fin, rclangs, http.recl)          :s(read)
-        output = "Cannot open rosettacode site."    :(end)
+        url.open(.fin, rclangs, http.recl)          :S(read)
+        OUTPUT = "Cannot open rosettacode site."    :(END)
 
-read    line = line fin                             :f(done)
-get     line languagepat =                          :f(read)
-        langtable<syntaxhighlight lang="text"> = langtable<syntaxhighlight lang="text"> + count   :(get)
+read    line = line fin                             :F(done)
+get     line languagepat =                          :F(read)
+        langtable[syntaxhighlight lang="text"] = langtable[syntaxhighlight lang="text"] + count   :(get)
 
-done    langarray = rsort(langtable,2)              :s(write)
-        output = "No languages found."              :(end)
+done    langarray = RSORT(langtable,2)              :S(write)
+        OUTPUT = "No languages found."              :(END)
 
 write   n = n + 1
-        output = lpad(n ". ", 5) lpad(langarray<n, 2>, 4)
-+          " - " langarray<n,1>                     :s(write)
+        OUTPUT = LPAD(n ". ", 5) LPAD(langarray[n, 2], 4)
++          " - " langarray[n,1]                     :S(write)
 
         url.close(.fin)
-end
+END

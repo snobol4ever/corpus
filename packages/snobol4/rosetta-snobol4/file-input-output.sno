@@ -1,4 +1,4 @@
-        input(.input,5,,'input.txt')
-        output(.output,6,,'output.txt')
-while   output = input                   :s(while)
-end
+        INPUT(.input,5,,'input.txt')
+        OUTPUT(.output,6,,'output.txt')
+while   OUTPUT = INPUT                   :S(while)
+END

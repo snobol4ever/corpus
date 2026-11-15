@@ -1,0 +1,6 @@
+Original: > 	Hello, people of earth!  	<
+With trim() >Hello, people of earth!<
+Original: > 	Hello, people of earth!  	†<
+Leading: >Hello, people of earth!  	<
+Trailing: > 	Hello, people of earth!<
+Full trim: >Hello, people of earth!<

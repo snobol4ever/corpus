@@ -1,44 +1,44 @@
-#!/bin/sh
+*!/bin/sh
          exec "snobol4" "-r" "$0" "$@"
 *
 * http://rosettacode.org/wiki/Execute_a_Markov_algorithm
 *
-         define('repl(s1,s2,s3)c,t,findc') :(repl_end)
-repl     s2 len(1) . c = :f(freturn)
-         findc = break(c) . t len(1)
-         s2 = pos(0) s2
-repl_1   s1 findc = :f(repl_2)
-         s1 s2 = :f(repl_3)
+         DEFINE('repl(s1,s2,s3)c,t,findc') :(repl_end)
+repl     s2 LEN(1) . c = :F(FRETURN)
+         findc = BREAK(c) . t LEN(1)
+         s2 = POS(0) s2
+repl_1   s1 findc = :F(repl_2)
+         s1 s2 = :F(repl_3)
          repl = repl t s3 :(repl_1)
 repl_3   repl = repl t c :(repl_1)
-repl_2   repl = repl s1 :(return)
+repl_2   repl = repl s1 :(RETURN)
 repl_end
 *
-         define('quote(s)q,qq') :(quote_end)
+         DEFINE('quote(s)q,qq') :(quote_end)
 quote    q = "'"; qq = '"'
-         quote = q repl(s, q, q ' ' qq q qq ' ' q) q :(return)
+         quote = q repl(s, q, q ' ' qq q qq ' ' q) q :(RETURN)
 quote_end
 *
-         whitespace = span(' ' char(9))
+         whitespace = SPAN(' ' CHAR(9))
 top      r = 0
-read     s = input :f(end)
-         s pos(0) 'ENDRULE' rpos(0) :s(interp)
-         s pos(0) '#' :s(read)
+read     s = INPUT :F(END)
+         s POS(0) 'ENDRULE' RPOS(0) :S(interp)
+         s POS(0) '#' :S(read)
          pattern =; replacement =; term =
-         s arb . pattern whitespace '->' whitespace
-+           ('.' | '') . term arb . replacement rpos(0) :f(syntax)
+         s ARB . pattern whitespace '->' whitespace
++           ('.' | '') . term ARB . replacement RPOS(0) :F(syntax)
          r = r + 1
-         f = ident(term, '.') ' :(done)'
-         f = ident(term) ' :f(rule' r + 1 ')s(rule1)'
+         f = IDENT(term, '.') ' :(done)'
+         f = IDENT(term) ' :f(rule' r + 1 ')s(rule1)'
          c = 'rule' r ' s ' quote(pattern) ' = ' quote(replacement) f
-         code(c) :s(read)
-         output = 'rule: ' s ' generates code ' c ' in error' :(end)
-syntax   output = 'rule: ' s ' in error' :(read)
-interp   code('rule' r + 1 ' :(done)')
-go       s = input :f(end)
-         s pos(0) 'END' rpos(0) :s(top)f(rule1)
-done     output = s :(go)
-end
+         CODE(c) :S(read)
+         OUTPUT = 'rule: ' s ' generates code ' c ' in error' :(END)
+syntax   OUTPUT = 'rule: ' s ' in error' :(read)
+interp   CODE('rule' r + 1 ' :(done)')
+go       s = INPUT :F(END)
+         s POS(0) 'END' RPOS(0) :S(top)F(rule1)
+done     OUTPUT = s :(go)
+END
 # This rules file is extracted from Wikipedia:
 # http://en.wikipedia.org/wiki/Markov_Algorithm
 A -> apple

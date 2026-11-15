@@ -1,0 +1,4 @@
+root	/home/corpus/packages/snobol4/rosetta-snobol4
+origin	RosettaCodeData (https://github.com/acmeism/RosettaCodeData), Task/*/SNOBOL4/: every SNOBOL4 solution of Rosetta Code, 180 programs, hosted in this folder; converted IN PLACE 2026-11-15 by sno_upcase_edition.py (Lon: a simple regex, the spacing identical): built-in names, keywords and goto letters in upper case and angle-bracket subscripts in square brackets, one character for one
+version	1d475861d (2026-07-16)
+licence	GFDL 1.2 (Rosetta Code content); corpus is test data and never ships

@@ -1,7 +1,7 @@
 -include "tcp.sno"
-	tcp.open(.conn,'www.rosettacode.org','http')	:s(cont1)
-	terminal = "cannot open"	:(end)
-cont1	conn = "GET http://rosettacode.org/wiki/Main_Page HTTP/1.0" char(10) char(10)
-while	output = conn	:s(while)
+	tcp.open(.conn,'www.rosettacode.org','http')	:S(cont1)
+	TERMINAL = "cannot open"	:(END)
+cont1	conn = "GET http://rosettacode.org/wiki/Main_Page HTTP/1.0" CHAR(10) CHAR(10)
+while	OUTPUT = conn	:S(while)
 	tcp.close(.conn)
-end
+END

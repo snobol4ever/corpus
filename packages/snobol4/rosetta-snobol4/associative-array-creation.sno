@@ -1,9 +1,9 @@
-    t = table()
-    t<"red"> = "#ff0000"
-    t<"green"> = "#00ff00"
-    t<"blue"> = "#0000ff"
+    t = TABLE()
+    t["red"] = "#ff0000"
+    t["green"] = "#00ff00"
+    t["blue"] = "#0000ff"
 
-    output = t<"red">
-    output = t<"blue">
-    output = t<"green">
-end
+    OUTPUT = t["red"]
+    OUTPUT = t["blue"]
+    OUTPUT = t["green"]
+END

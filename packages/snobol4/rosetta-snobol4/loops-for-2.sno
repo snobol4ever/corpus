@@ -1,4 +1,4 @@
-outer	b = a = ?lt(a,5) a + 1	:f(end)
-inner	t = t ?(b = (gt(b,0) b - 1)) "*"	:s(inner)
-	t span("*") . terminal = 	:(outer)
-end
+outer	b = a = ?LT(a,5) a + 1	:F(END)
+inner	t = t ?(b = (GT(b,0) b - 1)) "*"	:S(inner)
+	t SPAN("*") . TERMINAL = 	:(outer)
+END

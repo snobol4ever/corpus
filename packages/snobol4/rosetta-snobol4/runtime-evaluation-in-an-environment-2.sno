@@ -1,6 +1,6 @@
-     compiled = code(' define("triple()") :(a);triple triple = 3 * x :(return)')  :<compiled>
+     compiled = CODE(' define("triple()") :(a);triple triple = 3 * x :(return)')  :[compiled]
 a    x = 1
      first = triple(x)
      x = 3
-     output = triple(x) - first
-end
+     OUTPUT = triple(x) - first
+END

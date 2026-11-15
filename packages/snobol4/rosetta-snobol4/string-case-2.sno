@@ -1,18 +1,18 @@
-        define('UC(STR)')
-        define('LC(STR)')
-        define('UCFIRST(STR)')
-        define('SWAPC(STR)')                               :(CASES.END)
-UC      uc = replace(str,&lcase,&ucase)                    :(RETURN)
-LC      lc = replace(str,&ucase,&lcase)                    :(RETURN)
-UCFIRST str len(1) . ch = uc(ch) ; ucfirst = str           :(RETURN)
-SWAPC   swapc = replace(str, &ucase &lcase, &lcase &ucase) :(RETURN)
+        DEFINE('UC(STR)')
+        DEFINE('LC(STR)')
+        DEFINE('UCFIRST(STR)')
+        DEFINE('SWAPC(STR)')                               :(CASES.END)
+UC      uc = REPLACE(str,&LCASE,&UCASE)                    :(RETURN)
+LC      lc = REPLACE(str,&UCASE,&LCASE)                    :(RETURN)
+UCFIRST str LEN(1) . ch = uc(ch) ; ucfirst = str           :(RETURN)
+SWAPC   swapc = REPLACE(str, &UCASE &LCASE, &LCASE &UCASE) :(RETURN)
 CASES.END
 
 *       # Test and display
         str = 'alphaBETA'
-        output = str
-        output = lc(str)
-        output = uc(str)
-        output = ucfirst(str)
-        output = swapc(str)
+        OUTPUT = str
+        OUTPUT = lc(str)
+        OUTPUT = uc(str)
+        OUTPUT = ucfirst(str)
+        OUTPUT = swapc(str)
 END

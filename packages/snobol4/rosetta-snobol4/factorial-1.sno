@@ -1,4 +1,4 @@
-        define('rfact(n)') :(rfact_end)
-rfact   rfact = le(n,0) 1 :s(return)
-        rfact = n * rfact(n - 1) :(return)
+        DEFINE('rfact(n)') :(rfact_end)
+rfact   rfact = LE(n,0) 1 :S(RETURN)
+        rfact = n * rfact(n - 1) :(RETURN)
 rfact_end

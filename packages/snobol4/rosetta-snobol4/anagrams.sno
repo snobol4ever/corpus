@@ -1,23 +1,23 @@
 *       # Sort letters of word
-        define('sortw(str)a,i,j') :(sortw_end)
-sortw   a = array(size(str))
-sw1     i = i + 1; str len(1) . a<i> = :s(sw1)
-        a = sort(a)
-sw2     j = j + 1; sortw = sortw a<j> :s(sw2)f(return)
+        DEFINE('sortw(str)a,i,j') :(sortw_end)
+sortw   a = ARRAY(SIZE(str))
+sw1     i = i + 1; str LEN(1) . a[i] = :S(sw1)
+        a = SORT(a)
+sw2     j = j + 1; sortw = sortw a[j] :S(sw2)F(RETURN)
 sortw_end
 
 *       # Count words in string
-        define('countw(str)') :(countw_end)
-countw  str break(' ') span(' ') = :f(return)
+        DEFINE('countw(str)') :(countw_end)
+countw  str BREAK(' ') SPAN(' ') = :F(RETURN)
         countw = countw + 1 :(countw)
 countw_end
 
-        ana = table()
-L1      wrd = input :f(L2) ;* unixdict.txt from stdin
-        sw = sortw(wrd); ana<sw> = ana<sw> wrd ' '
-        cw = countw(ana<sw>); max = gt(cw,max) cw
-        i = i + 1; terminal = eq(remdr(i,1000),0) wrd :(L1)
-L2      kv = convert(ana,'array')
-L3      j = j + 1; key = kv<j,1>; val = kv<j,2> :f(end)
-        output = eq(countw(val),max) key ': ' val :(L3)
-end
+        ana = TABLE()
+L1      wrd = INPUT :f(L2) ;* unixdict.txt from stdin
+        sw = sortw(wrd); ana[sw] = ana[sw] wrd ' '
+        cw = countw(ana[sw]); max = GT(cw,max) cw
+        i = i + 1; TERMINAL = EQ(REMDR(i,1000),0) wrd :(L1)
+L2      kv = CONVERT(ana,'array')
+L3      j = j + 1; key = kv[j,1]; val = kv[j,2] :F(END)
+        OUTPUT = EQ(countw(val),max) key ': ' val :(L3)
+END

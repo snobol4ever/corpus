@@ -6,31 +6,31 @@
 * will not be unset, and will not be the empty string.
 * Comment: Tested using the Spitbol for Linux version of SNOBOL4
 
-	lf = substr(&alphabet,11,1) ;* New line or line feed
+	lf = SUBSTR(&ALPHABET,11,1) ;* New line or line feed
 
 
 * Function text_between will return the text between start and end delimiters,
 * where start can be the word 'start' for the beginning of the text,
 * and end can be the word 'end' for the end of the text.
-	define('text_between(text,start,end)sb,eb')
+	DEFINE('text_between(text,start,end)sb,eb')
 	:(text_between_end)
 text_between
-	sb = (ident(start,'start') pos(0), breakx(substr(start,1,1)) start)
-	eb = (ident(end,'end') rem . text_between, (arb . text_between end) | (rem . text_between) )
+	sb = (IDENT(start,'start') POS(0), BREAKX(SUBSTR(start,1,1)) start)
+	eb = (IDENT(end,'end') REM . text_between, (ARB . text_between end) | (REM . text_between) )
 	text ? sb eb
-	:(return)
+	:(RETURN)
 text_between_end
 
 
 * Read text lines after the END statement
 in1
-	line = input :f(in1end)
-	line ? break('|') . text '|' break('|') . start '|' rem . end
-	output = lf 'Text:   "' text '"'
-	output = 'Start:  "' start '"'
-	output = 'End:    "' end '"'
+	line = INPUT :F(in1end)
+	line ? BREAK('|') . text '|' BREAK('|') . start '|' REM . end
+	OUTPUT = lf 'Text:   "' text '"'
+	OUTPUT = 'Start:  "' start '"'
+	OUTPUT = 'End:    "' end '"'
 	text_between = text_between(text,start,end)
-	output = 'Output: "' text_between '"'
+	OUTPUT = 'Output: "' text_between '"'
 	:(in1)
 in1end
 

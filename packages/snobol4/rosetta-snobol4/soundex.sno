@@ -2,25 +2,25 @@
 *       # ABCDEFGHIJKLMNOPQRSTUVWXYZ
 *       # 01230127022455012623017202
 
-        define('soundex(str)init,ch') :(soundex_end)
+        DEFINE('soundex(str)init,ch') :(soundex_end)
 soundex sdxmap = '01230127022455012623017202'
-        str = replace(str,&lcase,&ucase)
-sdx1    str notany(&ucase) = :s(sdx1)
-        init = substr(str,1,1)
-        str = replace(str,&ucase,sdxmap)
-sdx2    str len(1) $ ch span(*ch) = ch :s(sdx2)
+        str = REPLACE(str,&LCASE,&UCASE)
+sdx1    str NOTANY(&UCASE) = :S(sdx1)
+        init = SUBSTR(str,1,1)
+        str = REPLACE(str,&UCASE,sdxmap)
+sdx2    str LEN(1) $ ch SPAN(*ch) = ch :S(sdx2)
 *       # Omit next line for Knuth's simple Soundex
-sdx3    str len(1) $ ch ('7' *ch) = ch :s(sdx3)
-        str len(1) = init
-sdx4    str any('07') = :s(sdx4)
-        str = substr(str,1,4)
-        str = lt(size(str),4) str dupl('0',4 - size(str))
-        soundex = str :(return)
+sdx3    str LEN(1) $ ch ('7' *ch) = ch :S(sdx3)
+        str LEN(1) = init
+sdx4    str ANY('07') = :S(sdx4)
+        str = SUBSTR(str,1,4)
+        str = LT(SIZE(str),4) str DUPL('0',4 - SIZE(str))
+        soundex = str :(RETURN)
 soundex_end
 
 *       # Test and display
         test = " Washington Lee Gutierrez Pfister Jackson Tymczak"
 +              " Ashcroft Swhgler O'Connor Rhys-Davies"
-loop    test span(' ') break(' ') . name = :f(end)
-        output = soundex(name) ' ' name :(loop)
-end
+loop    test SPAN(' ') BREAK(' ') . name = :F(END)
+        OUTPUT = soundex(name) ' ' name :(loop)
+END

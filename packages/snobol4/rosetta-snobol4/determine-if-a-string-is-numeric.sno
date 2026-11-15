@@ -1,20 +1,20 @@
-        define('nchk(str)') :(nchk_end)
-nchk    convert(str,'real') :s(return)f(freturn)
+        DEFINE('nchk(str)') :(nchk_end)
+nchk    CONVERT(str,'real') :S(RETURN)F(FRETURN)
 nchk_end
 
 *       # Wrapper for testing
-        define('isnum(str)') :(isnum_end)
+        DEFINE('isnum(str)') :(isnum_end)
 isnum   isnum = 'F'; isnum = nchk(str) 'T'
-        isnum = isnum ': ' str :(return)
+        isnum = isnum ': ' str :(RETURN)
 isnum_end
 
 *       # Test and display
-        output = isnum('123')
-        output = isnum('123.0')
-        output = isnum('123.')
-        output = isnum('-123')
-        output = isnum('3.14159')
-        output = isnum('1.2.3')
-        output = isnum('abc')
-        output = isnum('A440')
-end
+        OUTPUT = isnum('123')
+        OUTPUT = isnum('123.0')
+        OUTPUT = isnum('123.')
+        OUTPUT = isnum('-123')
+        OUTPUT = isnum('3.14159')
+        OUTPUT = isnum('1.2.3')
+        OUTPUT = isnum('abc')
+        OUTPUT = isnum('A440')
+END

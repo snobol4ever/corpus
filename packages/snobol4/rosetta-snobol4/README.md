@@ -1,3 +1,16 @@
-# rosetta-snobol4
+# rosetta-snobol4 (Snobol4Rosetta)
 
-Every SNOBOL4 solution of Rosetta Code, from RosettaCodeData (https://github.com/acmeism/RosettaCodeData) at 1d475861d 2026-07-16, Task/*/SNOBOL4/: 180 programs, each copied unchanged under its own file name (a -N for a second solution of a name). Rosetta Code's content is licensed GFDL 1.2; corpus is test data and never ships. TASKS.tsv maps each entry to its task. Every ref is cut from the language's oracle by util_build_package_suite.py --lang snobol4 --twice (the grader 2026-11-13).
+Every SNOBOL4 solution of Rosetta Code, from RosettaCodeData (https://github.com/acmeism/RosettaCodeData) at 1d475861d 2026-07-16, Task/*/SNOBOL4/: 180 programs, each under its own file name (a -N for a second solution of a name). TASKS.tsv maps each entry to its task. Rosetta Code's content is licensed GFDL 1.2; corpus is test data and never ships.
+
+## What was changed (2026-11-15, the grader)
+
+The programs are hosted here and CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "Just do a simple regex conversion instead. Keep the spacing identical."): built-in function names, keywords, predefined names and goto letters are written in upper case, and an angle-bracket subscript in square brackets, one character for one; a user's own names, labels and string literals are left as written. 181 files, 1054 lines changed; the originals are at the origin above. Most Rosetta solutions are written for a case-folding SNOBOL4, and `sbl -bf`, the oracle, is case-sensitive.
+
+## How it is cut
+
+The package is cut by the read-in-place road (`util_build_package_suite.py --lang snobol4 --mine CENSUS --mine-silent-rc --twice`), `ALL.source` naming this folder: one answer file `NAME.out` a program, cut from `sbl -bf` twice. Under Lon's rules of 2026-11-15:
+
+- an error from the oracle is an answer (`CONTRACT.tsv` fatal gradable): its answer is what sbl printed, the error block included, and want_rc its exit status;
+- a silent program is graded by its exit status alone: 30 programs are fragments with no END statement, which sbl refuses on standard error alone and ends 1.
+
+152 of the 180 are entries (want_rc 0: 113, 1: 34, 231: 5). Out of the denominator: 18 read standard input and ship none (`NEEDS-INPUT`, owed), 6 answer differently on two runs, 2 never end, 1 reads the environment (`EXCLUDED.tsv`), and execute-a-markov-algorithm is five programs in one file (held by name). Before this cut the package graded 20.

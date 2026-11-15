@@ -1,2 +1,2 @@
-	output = dupl("ha",5)
-end
+	OUTPUT = DUPL("ha",5)
+END

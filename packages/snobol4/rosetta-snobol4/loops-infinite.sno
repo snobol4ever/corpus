@@ -1,2 +1,2 @@
-loop output = "SPAM" :(loop)
-end
+loop OUTPUT = "SPAM" :(loop)
+END

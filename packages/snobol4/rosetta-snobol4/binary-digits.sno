@@ -1,9 +1,9 @@
-        define('bin(n,r)') :(bin_end)
-bin   	bin = le(n,0) r :s(return)
-	bin = bin(n / 2, REMDR(n,2) r) :(return)
+        DEFINE('bin(n,r)') :(bin_end)
+bin   	bin = LE(n,0) r :S(RETURN)
+	bin = bin(n / 2, REMDR(n,2) r) :(RETURN)
 bin_end
 
-	output = bin(5)
-	output = bin(50)
-	output = bin(9000)
-end
+	OUTPUT = bin(5)
+	OUTPUT = bin(50)
+	OUTPUT = bin(9000)
+END

@@ -1,24 +1,156 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=20 features=25 ubiquitous=1(package) distinctive=24 core=10 clusters=8 chunks=1 sizes=10
+# shape: entries=152 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=100 chunks=3 sizes=62,71,16
 entry	part	cluster	shells
-100-doors-1	core	core	ARRAY DEFINE arith goto_fail goto_success
-100-doors-2	chunk:01	feat:ARRAY	ARRAY arith goto_fail goto_success
-array-length	core	core	ARRAY DATATYPE
-arrays	chunk:01	feat:ARRAY	ARRAY arith goto_fail goto_success
-case-sensitivity-of-identifiers	chunk:01	family:case-sensitivity-of-identifiers	
-count-occurrences-of-a-substring	core	core	ARB DEFINE arith goto_fail
-empty-string	chunk:01	feat:goto_success	goto_success
-even-or-odd	chunk:01	feat:DEFINE	DEFINE
-find-the-intersection-of-two-lines	core	core	ARRAY DEFINE arith deferred_eval goto_fail
-fizzbuzz	chunk:01	feat:arith	arith goto_fail goto_success
-hello-world-text	chunk:01	family:hello-world-text	
-loops-downward-for	chunk:01	feat:arith	arith goto_success
-n-queens-problem	core	core	ARBNO BREAK DEFINE DUPL LEN SIZE alternation arbno_with_alt arith cond_assign goto_fail goto_success keyword_ref
-quine	core	core	REPLACE
-roman-numerals-encode-1	core	core	BREAK DEFINE LEN REPLACE RPOS cond_assign goto_fail goto_success
-string-append	chunk:01	family:string-append	
-string-comparison	core	core	REPLACE keyword_ref
-string-prepend	chunk:01	family:string-prepend	
-strip-whitespace-from-a-string-top-and-tail	core	core	ARB POS RPOS RTAB SPAN TAB TRIM cond_assign keyword_ref
-subleq	core	core	ARRAY SIZE arith goto_fail goto_success keyword_ref
+100-doors-1	chunk:01	family:-doors	
+100-doors-2	chunk:01	family:-doors	
+99-bottles-of-beer-1	chunk:01	family:-bottles-of-beer	
+99-bottles-of-beer-2	chunk:01	family:-bottles-of-beer	
+a+b-1	chunk:01	family:a+b	
+a+b-2	chunk:01	family:a+b	
+abbreviations-simple	chunk:01	family:abbreviations-simple	
+abc-problem	chunk:02	family:abc-problem	
+ackermann-function	chunk:02	family:ackermann-function	
+arithmetic-complex	chunk:02	family:arithmetic-complex	
+array-concatenation	chunk:02	family:array-concatenation	
+array-length	chunk:02	family:array-length	
+arrays	chunk:02	family:arrays	
+associative-array-creation	chunk:02	family:associative-array-creation	
+associative-array-iteration	chunk:02	family:associative-array-iteration	
+averages-arithmetic-mean	chunk:02	family:averages-arithmetic-mean	
+averages-root-mean-square	chunk:02	family:averages-root-mean-square	
+binary-digits	chunk:02	family:binary-digits	
+call-a-function-in-a-shared-library	core	core	want_rc
+case-sensitivity-of-identifiers	chunk:02	family:case-sensitivity-of-identifiers	
+character-codes	chunk:02	family:character-codes	
+comments	chunk:02	family:comments	
+compound-data-type	chunk:02	family:compound-data-type	
+conditional-structures	chunk:02	family:conditional-structures	
+copy-a-string	chunk:02	family:copy-a-string	
+count-how-many-vowels-and-consonants-occur-in-a-string	chunk:02	family:count-how-many-vowels-and-consonants-occur-in-a-string	
+count-occurrences-of-a-substring	chunk:02	family:count-occurrences-of-a-substring	
+create-an-html-table	chunk:02	family:create-an-html-table	
+cusip	chunk:02	family:cusip	
+detect-division-by-zero	chunk:02	family:detect-division-by-zero	
+determine-if-a-string-is-numeric	chunk:02	family:determine-if-a-string-is-numeric	
+dot-product	chunk:02	family:dot-product	
+empty-program	chunk:02	family:empty-program	
+empty-string	chunk:02	family:empty-string	
+even-or-odd	chunk:02	family:even-or-odd	
+extract-file-extension	chunk:02	family:extract-file-extension	
+factorial-1	core	core	want_rc
+factorial-2	core	core	want_rc
+factorial-3	chunk:01	feat:want_rc	want_rc
+fibonacci-sequence-2	chunk:01	feat:want_rc	want_rc
+fibonacci-sequence-3	chunk:01	feat:want_rc	want_rc
+fibonacci-sequence-4	chunk:01	feat:want_rc	want_rc
+fibonacci-sequence-5	chunk:02	family:fibonacci-sequence	
+file-input-output	chunk:02	family:file-input-output	
+find-the-intersection-of-two-lines	chunk:02	family:find-the-intersection-of-two-lines	
+fizzbuzz	chunk:02	family:fizzbuzz	
+function-definition	chunk:02	family:function-definition	
+function-prototype-1	chunk:01	family:function-prototype	
+function-prototype-2	chunk:01	family:function-prototype	
+function-prototype-3	chunk:01	family:function-prototype	
+generic-swap	chunk:01	feat:want_rc	want_rc
+greatest-common-divisor	chunk:02	family:greatest-common-divisor	
+hash-from-two-arrays	chunk:02	family:hash-from-two-arrays	
+hello-world-line-printer-1	chunk:01	feat:want_rc	want_rc
+hello-world-line-printer-2	chunk:01	feat:want_rc	want_rc
+hello-world-standard-error	chunk:02	family:hello-world-standard-error	
+hello-world-text	chunk:02	family:hello-world-text	
+hostname	chunk:02	family:hostname	
+http	chunk:02	family:http	
+iban	chunk:02	family:iban	
+include-a-file	chunk:01	feat:want_rc	want_rc
+integer-comparison	chunk:02	family:integer-comparison	
+jump-anywhere	chunk:02	family:jump-anywhere	
+knuth-shuffle	chunk:02	family:knuth-shuffle	
+leap-year	chunk:02	family:leap-year	
+look-and-say-sequence	chunk:02	family:look-and-say-sequence	
+loops-break-2	chunk:01	feat:want_rc	want_rc
+loops-continue	chunk:02	family:loops-continue	
+loops-downward-for	chunk:02	family:loops-downward-for	
+loops-for-1	chunk:01	family:loops-for	
+loops-for-2	chunk:01	family:loops-for	
+loops-for-3	chunk:01	family:loops-for	
+loops-for-4	chunk:01	family:loops-for	
+loops-n-plus-one-half-1	chunk:01	family:loops-n-plus-one-half	
+loops-n-plus-one-half-2	chunk:01	family:loops-n-plus-one-half	
+luhn-test-of-credit-card-numbers	chunk:02	family:luhn-test-of-credit-card-numbers	
+memory-allocation-1	chunk:01	feat:want_rc	want_rc
+memory-allocation-2	chunk:01	feat:want_rc	want_rc
+memory-allocation-3	chunk:01	feat:want_rc	want_rc
+memory-allocation-4	chunk:01	feat:want_rc	want_rc
+memory-allocation-5	chunk:01	feat:want_rc	want_rc
+memory-allocation-6	chunk:01	feat:want_rc	want_rc
+memory-allocation-7	chunk:01	feat:want_rc	want_rc
+memory-allocation-8	chunk:01	feat:want_rc	want_rc
+metaprogramming-1	chunk:01	feat:want_rc	want_rc
+metaprogramming-2	chunk:01	feat:want_rc	want_rc
+metaprogramming-5	chunk:01	feat:want_rc	want_rc
+metaprogramming-6	chunk:01	feat:want_rc	want_rc
+multiplication-tables	chunk:02	family:multiplication-tables	
+mutual-recursion	chunk:02	family:mutual-recursion	
+n-queens-problem	chunk:02	family:n-queens-problem	
+nim-game	chunk:02	family:nim-game	
+palindrome-detection	chunk:02	family:palindrome-detection	
+pangram-checker	chunk:02	family:pangram-checker	
+primality-by-trial-division-1	chunk:01	feat:want_rc	want_rc
+primality-by-trial-division-2	chunk:02	family:primality-by-trial-division	
+program-termination	chunk:01	feat:want_rc	want_rc
+quine	chunk:02	family:quine	
+range-expansion	chunk:02	family:range-expansion	
+range-extraction	chunk:02	family:range-extraction	
+read-a-file-line-by-line	chunk:02	family:read-a-file-line-by-line	
+read-entire-file	chunk:02	family:read-entire-file	
+regular-expressions-1	chunk:01	feat:want_rc	want_rc
+regular-expressions-2	chunk:01	feat:want_rc	want_rc
+regular-expressions-3	chunk:01	feat:want_rc	want_rc
+remove-lines-from-a-file	chunk:02	family:remove-lines-from-a-file	
+rep-string	chunk:02	family:rep-string	
+repeat-a-string	chunk:02	family:repeat-a-string	
+reverse-a-string	chunk:02	family:reverse-a-string	
+roman-numerals-decode-1	chunk:01	feat:want_rc	want_rc
+roman-numerals-decode-2	chunk:01	family:roman-numerals-decode	
+roman-numerals-decode-3	chunk:01	family:roman-numerals-decode	
+roman-numerals-encode-1	chunk:01	family:roman-numerals-encode	
+roman-numerals-encode-2	chunk:01	family:roman-numerals-encode	
+rosetta-code-rank-languages-by-popularity	chunk:01	feat:want_rc	want_rc
+rot-13	chunk:02	family:rot	
+run-length-encoding	chunk:02	family:run-length-encoding	
+runtime-evaluation-1	chunk:01	family:runtime-evaluation	
+runtime-evaluation-2	chunk:01	family:runtime-evaluation	
+runtime-evaluation-in-an-environment-1	chunk:01	family:runtime-evaluation-in-an-environment	
+runtime-evaluation-in-an-environment-2	chunk:01	family:runtime-evaluation-in-an-environment	
+semordnilap	chunk:02	family:semordnilap	
+shell-one-liner-1	chunk:01	feat:want_rc	want_rc
+shell-one-liner-2	chunk:01	feat:want_rc	want_rc
+short-circuit-evaluation	chunk:02	family:short-circuit-evaluation	
+sorting-algorithms-bogosort	chunk:02	family:sorting-algorithms-bogosort	
+sorting-algorithms-bubble-sort	chunk:02	family:sorting-algorithms-bubble-sort	
+sorting-algorithms-gnome-sort-1	chunk:01	feat:want_rc	want_rc
+sorting-algorithms-gnome-sort-2	chunk:01	feat:want_rc	want_rc
+soundex	chunk:02	family:soundex	
+split-a-character-string-based-on-change-of-character	chunk:03	family:split-a-character-string-based-on-change-of-character	
+string-append	chunk:03	family:string-append	
+string-case-1	chunk:01	family:string-case	
+string-case-2	chunk:01	family:string-case	
+string-comparison	chunk:03	family:string-comparison	
+string-concatenation	chunk:03	family:string-concatenation	
+string-interpolation-included-	chunk:03	family:string-interpolation-included	
+string-matching	chunk:01	feat:want_rc	want_rc
+string-prepend	chunk:03	family:string-prepend	
+strip-whitespace-from-a-string-top-and-tail	chunk:03	family:strip-whitespace-from-a-string-top-and-tail	
+subleq	chunk:03	family:subleq	
+substring-top-and-tail	chunk:01	feat:want_rc	want_rc
+substring	chunk:03	family:substring	
+sum-of-squares	chunk:03	family:sum-of-squares	
+sum-of-the-digits-of-n-is-substring-of-n	chunk:03	family:sum-of-the-digits-of-n-is-substring-of-n	
+take-notes-on-the-command-line	chunk:03	family:take-notes-on-the-command-line	
+tokenize-a-string-with-escaping	chunk:03	family:tokenize-a-string-with-escaping	
+tokenize-a-string	chunk:03	family:tokenize-a-string	
+towers-of-hanoi	chunk:03	family:towers-of-hanoi	
+van-eck-sequence	chunk:03	family:van-eck-sequence	
+variables	chunk:01	feat:want_rc	want_rc
+zero-to-the-zero-power	chunk:01	feat:want_rc	want_rc

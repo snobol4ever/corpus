@@ -13,49 +13,49 @@
 +   "refresh renum 3 repeat 3 replace 1 Creplace 2 reset 3 restore 4 rgtLEFT right 2 left "
 +   "2  save  set  shift 2  si  sort  sos  stack 3 status 4 top  transfer 3  type 1  up 1 "
 
-  commands = replace(commands,&lcase,&ucase)
+  commands = REPLACE(commands,&LCASE,&UCASE)
   numerals = '0123456789'
 
 
 * Function filltable will fill the command abbreviations table
-  define("filltable(s,n)slen,i")
-    ct = table(300, ,"*error*") :f(errr);* command abbreviations table
+  DEFINE("filltable(s,n)slen,i")
+    ct = TABLE(300, ,"*error*") :f(errr);* command abbreviations table
   :(filltable_end)
 filltable
-  slen = size(s)
+  slen = SIZE(s)
   ct[s] = s
-  eq(n,slen) :s(filltable3)
+  EQ(n,slen) :S(filltable3)
   i = n - 1
 filltable2
-  i = lt(i,slen - 1) i + 1 :f(filltable3)
-  ct[substr(s,1,i)] = s
+  i = LT(i,slen - 1) i + 1 :F(filltable3)
+  ct[SUBSTR(s,1,i)] = s
   :(filltable2)
 filltable3
   filltable = ""
-  :(return)
+  :(RETURN)
 filltable_end
 
 
 x0
 * Populate command abbreviations table
-  commands ? (span(' ') | "") breakx(&ucase) span(&ucase) . c
-+   span(' ') (span(numerals) | "") . ablen = "" :f(x1)
-  ablen = ident(ablen) size(c)
+  commands ? (SPAN(' ') | "") BREAKX(&UCASE) SPAN(&UCASE) . c
++   SPAN(' ') (SPAN(numerals) | "") . ablen = "" :F(x1)
+  ablen = IDENT(ablen) SIZE(c)
   ret = filltable(c,ablen)
     :(x0)
 x1
 * Process user string
   userstring = "riG   rePEAT copies  put mo   rest    types   fup.    6       poweRin"
-  output = "Original user string:"
-  output = userstring
-  userstring = replace(userstring,&lcase,&ucase)
+  OUTPUT = "Original user string:"
+  OUTPUT = userstring
+  userstring = REPLACE(userstring,&LCASE,&UCASE)
 x2
-  userstring ? (span(' ') | "") (break(' ') | (len(1) rem)) . c = "" :f(x3)
-  user_commands = (gt(size(user_commands),0) user_commands ' ' ct[c], ct[c])
+  userstring ? (SPAN(' ') | "") (BREAK(' ') | (LEN(1) REM)) . c = "" :F(x3)
+  user_commands = (GT(SIZE(user_commands),0) user_commands ' ' ct[c], ct[c])
   :(x2)
 x3
-  output = ""
-  output = "User string with abbreviations expanded:"
-  output = user_commands
+  OUTPUT = ""
+  OUTPUT = "User string with abbreviations expanded:"
+  OUTPUT = user_commands
 
 END

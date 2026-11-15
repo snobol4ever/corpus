@@ -1,2 +1,2 @@
-         output = host(4,'PATH')
-end
+         OUTPUT = HOST(4,'PATH')
+END

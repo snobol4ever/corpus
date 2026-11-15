@@ -1,0 +1,23 @@
+Case sensitive comparisons:
+mnopqrs and mnopqrs are equal (LEQ).
+mnopqrs and mnopqrs are equal (IDENT).
+
+mnopqrs and mnopqr are not equal (LNE).
+mnopqrs and mnopqr are not equal (~LEQ).
+mnopqrs and mnopqr are not equal (DIFFER).
+
+mnopqrs is greater than or equal to mnopqr (LGE).
+mnopqr is less than or equal to mnopqrs (LLE).
+
+nop is greater than mnopqrs (LGT).
+mnopqrs is less than nop (LLT).
+
+Case insensitive comparison:
+nop and nOp are equal.
+
+String and numeric conversions and comparisons:
+"1234" and 1234 are equal (coerce to integer).
+"1234" and 1234 are equal (coerce to string).
+
+"1234" is greater than 1233 (numeric comparison).
+"1233" is less than 1234 (numeric comparison).

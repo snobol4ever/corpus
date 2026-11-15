@@ -1,0 +1,18 @@
+
+
+
+iban.sno(47) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              iban.sno
+in line              47
+in statement         34
+stmts executed       172
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  39576
+memory left (bytes)  1008992
+

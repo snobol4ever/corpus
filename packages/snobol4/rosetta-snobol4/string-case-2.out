@@ -1,0 +1,19 @@
+alphaBETA
+
+
+
+string-case-2.sno(14) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              string-case-2.sno
+in line              14
+in statement         14
+stmts executed       8
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13224
+memory left (bytes)  1035344
+

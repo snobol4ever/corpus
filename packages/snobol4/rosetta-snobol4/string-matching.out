@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 15:14:11 2026
+
+
+
+                                                                                                                page 1
+
+5             OUTPUT = ?(s1 ? POS(0) s3)  "1. " s3 " begins " s1  ;# fails
+
+string-matching.sno(5) : ERROR 214 -- bad label or misplaced continuation line
+

@@ -1,0 +1,20 @@
+1/1     = 1
+1.0/1.0 = 1.
+
+
+
+detect-division-by-zero.sno(4) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              detect-division-by-zero.sno
+in line              4
+in statement         5
+stmts executed       15
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13096
+memory left (bytes)  1035472
+

@@ -8,27 +8,27 @@
 * SWAP(A,B)   -- swaps the values of two variables (named with .var).
 * VECTOR(V)   -- succeeds iff V is a vector.
 ********************************************************************************
-  define('GNOME(V)I,J,K,L,H,T')
+  DEFINE('GNOME(V)I,J,K,L,H,T')
 *
-  define('IDXMAX(V)')
-  define('IDXMIN(V)')
-  define('NUMBER(V)')
-  define('NUMBERS(V)I,M')
-  define('SWAP(SWAP_PARAMETER_VAR_A,SWAP_PARAMETER_VAR_B)')
-  define('VECTOR(V)')
+  DEFINE('IDXMAX(V)')
+  DEFINE('IDXMIN(V)')
+  DEFINE('NUMBER(V)')
+  DEFINE('NUMBERS(V)I,M')
+  DEFINE('SWAP(SWAP_PARAMETER_VAR_A,SWAP_PARAMETER_VAR_B)')
+  DEFINE('VECTOR(V)')
   :(GNOME.END)
 
 ****************************************
 * GNOME FUNCTION                       *
 ****************************************
 GNOME         numbers(v)                                  :F(FRETURN)
-              gnome = copy(v)
+              gnome = COPY(v)
               l = idxmin(v) ; h = idxmax(v) ; i = l + 1
 GNOME.LOOP    j = i - 1
-              le(i, l)                                    :S(GNOME.FORWARD)
-              gt(i,h)                                     :S(RETURN)
-              le(gnome<j>, gnome<i>)                      :S(GNOME.FORWARD)
-              swap(.gnome<j>, .gnome<i>)
+              LE(i, l)                                    :S(GNOME.FORWARD)
+              GT(i,h)                                     :S(RETURN)
+              LE(gnome[j], gnome[i])                      :S(GNOME.FORWARD)
+              swap(.gnome[j], .gnome[i])
               i = i - 1                                   :(GNOME.LOOP)
 GNOME.FORWARD i = i + 1                                   :(GNOME.LOOP)
 
@@ -36,20 +36,20 @@ GNOME.FORWARD i = i + 1                                   :(GNOME.LOOP)
 * HELPER FUNCTIONS                     *
 ****************************************
 IDXMAX        vector(v)                                   :F(FRETURN)
-              prototype(v) ':' span('-' &digits) . idxmax :S(RETURN)F(IDXMAX.NORM)
-IDXMAX.NORM   idxmax = prototype(v)                       :(RETURN)
+              PROTOTYPE(v) ':' SPAN('-' &digits) . idxmax :S(RETURN)F(IDXMAX.NORM)
+IDXMAX.NORM   idxmax = PROTOTYPE(v)                       :(RETURN)
 ****************************************
 IDXMIN        vector(v)                                   :F(FRETURN)
-              prototype(v) span('-' &digits) . idxmin ':' :S(RETURN)F(IDXMIN.NORM)
+              PROTOTYPE(v) SPAN('-' &digits) . idxmin ':' :S(RETURN)F(IDXMIN.NORM)
 IDXMIN.NORM   idxmin = 1                                  :(RETURN)
 ****************************************
-NUMBER      ident(datatype(v), 'INTEGER')                 :S(RETURN)
-            ident(datatype(v), 'REAL')                    :S(RETURN)F(FRETURN)
+NUMBER      IDENT(DATATYPE(v), 'INTEGER')                 :S(RETURN)
+            IDENT(DATATYPE(v), 'REAL')                    :S(RETURN)F(FRETURN)
 ****************************************
 NUMBERS       vector(v)                                   :F(FRETURN)
               i = idxmin(v) ; m = idxmax(v)
-NUMBERS.LOOP  le(i,m)                                     :F(RETURN)
-              number(v<i>)                                :F(FRETURN)
+NUMBERS.LOOP  LE(i,m)                                     :F(RETURN)
+              number(v[i])                                :F(FRETURN)
               i = i + 1                                   :(NUMBERS.LOOP)
 ****************************************
 SWAP        SWAP = $SWAP_PARAMETER_VAR_A
@@ -57,7 +57,7 @@ SWAP        SWAP = $SWAP_PARAMETER_VAR_A
             $SWAP_PARAMETER_VAR_B = SWAP
             SWAP =                                        :(RETURN)
 ****************************************
-VECTOR        ident(v)                                    :S(FRETURN)
-              prototype(v) ','                            :S(FRETURN)F(RETURN)
+VECTOR        IDENT(v)                                    :S(FRETURN)
+              PROTOTYPE(v) ','                            :S(FRETURN)F(RETURN)
 ****************************************
 GNOME.END

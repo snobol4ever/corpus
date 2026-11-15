@@ -1,5 +1,5 @@
 * rand(n) -> real x | 0 <= x < n
 -include 'random.sno'
 
-loop    ne(output = convert(rand(20)'integer'),10) :s(loop)
-end
+loop    NE(OUTPUT = CONVERT(rand(20)'integer'),10) :S(loop)
+END

@@ -1,12 +1,12 @@
-#! /usr/local/bin/snobol4 -b
+*! /usr/local/bin/snobol4 -b
 	a = 2 ;* skip '-b' parameter
 	notefile = "notes.txt"
-while 	args = args host(2,a = a + 1) " "		:s(while)
-	ident(args)	:f(append)
-noparms	input(.notes,io_findunit(),,notefile)		:s(display)f(end)
-display	output = notes					:s(display)
-	endfile(notes)					:(end)
-append	output(.notes,io_findunit(),"A",notefile)	:f(end)
-	notes = date()
-	notes = char(9) args
-end
+while 	args = args HOST(2,a = a + 1) " "		:S(while)
+	IDENT(args)	:F(append)
+noparms	INPUT(.notes,io_findunit(),,notefile)		:S(display)F(END)
+display	OUTPUT = notes					:S(display)
+	ENDFILE(notes)					:(END)
+append	OUTPUT(.notes,io_findunit(),"A",notefile)	:F(END)
+	notes = DATE()
+	notes = CHAR(9) args
+END

@@ -1,0 +1,18 @@
+
+
+
+fibonacci-sequence-5.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              fibonacci-sequence-5.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12096
+memory left (bytes)  1036472
+
