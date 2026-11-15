@@ -24385,6 +24385,59 @@ gen 103
 co-expression "zed"
 ```
 
+## ladder__rung38_transmission_resumes_and_binds
+
+```Icon
+procedure a()
+   every (1 to 3) @ &source;
+end
+procedure b()
+   local i;
+   every i := 1 to 3 do i @ &source;
+end
+procedure d()
+   every ((1 to 3) || ",") @ &source;
+end
+procedure e()
+   local s;
+   s := &source;
+   every (1 to 3) @ s;
+end
+procedure run(p, tag)
+   local g, r;
+   g := create p();
+   r := tag || ":";
+   while r ||:= " " || @g;
+   write(r);
+end
+procedure plus(n)
+   local c, t;
+   c := create repeat { t := n + t @ &source };
+   @c;
+   return c;
+end
+procedure main()
+   local c, r, p;
+   run(a, "a");
+   run(b, "b");
+   run(d, "d");
+   run(e, "e");
+   c := create repeat { r := 10 + 1 @ &source };
+   write(image(@c), " ", image(5 @ c), " ", image(7 @ c));
+   p := plus(100);
+   write(1 @ p, " ", 2 @ p, " ", 3 @ p);
+end
+```
+
+```stdout
+a: 1 2 3
+b: 1 2 3
+d: 1, 2, 3,
+e: 1 2 3
+1 1 1
+101 102 103
+```
+
 ## ladder__rung21_apply_a_string_naming_an_operator_invokes_it
 
 ```Icon
@@ -29080,6 +29133,52 @@ end
 106 procedure or integer expected "nosuch"
 code 102 50
 code 106 50
+```
+
+## ladder__rung23_table_default_and_cset_keys
+
+```Icon
+procedure main()
+   local t, d, s, L, k;
+   t := table(0);
+   t['@'] +:= 1;
+   t["@"] +:= 10;
+   t[1] +:= 100;
+   t["1"] +:= 1000;
+   t[1.0] +:= 10000;
+   write(*t, " ", t['@'], " ", t["@"], " ", t[1], " ", t["1"], " ", t[1.0]);
+   L := [];
+   every k := key(t) do put(L, type(k) || " " || image(k));
+   every write(!sort(L));
+   t := table();
+   t['ab'] := 1;
+   t['ba'] := 2;
+   t["ab"] := 3;
+   write(*t, " ", t['ab'], " ", t["ab"]);
+   d := table([], "object");
+   write(*d, " ", image(d[5]), " ", type(d["nokey"]));
+   d := table(7, 8, 9);
+   write(*d, " ", d["x"]);
+   s := set(['@', "@"]);
+   write(*s, " ", *set(['ab', 'ba', "ab"]));
+   write(image(member(set(['x']), "x")) | "a cset member is not its string");
+   write(image('@' === "@") | "a cset is not identical to its string");
+end
+```
+
+```stdout
+5 1 10 100 1000 10000
+cset '@'
+integer 1
+real 1.0
+string "1"
+string "@"
+2 2 3
+0 list_3(0) list
+0 7
+2 2
+a cset member is not its string
+a cset is not identical to its string
 ```
 
 ## procedure_every_scan_replace_10
