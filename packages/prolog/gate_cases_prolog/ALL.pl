@@ -1084,8 +1084,8 @@ q(1).
 q(2).
 r(_).
 p(0) :- !.
-p(N) :- N > 0, $2, N1 is N - 1, p(N1).
-main :- ( p($N) -> write(ok) ; write(no) ), nl.
+p(N) :- N > 0, once(q(_)), N1 is N - 1, p(N1).
+main :- ( p(50000) -> write(ok) ; write(no) ), nl.
 %- 114 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__safety
 :- initialization(main).
 q(1).
@@ -4216,3 +4216,35 @@ main :-
     chk(g, emp(1), no), chk(h, fenix(_), no), chk(i, scattered(_, _), no),
     chk(m, foobar(_), existence_error(procedure, foobar/1)),
     halt.
+%- 340 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__forall_2
+:- initialization(main).
+q(1).
+q(2).
+r(_).
+p(0) :- !.
+p(N) :- N > 0, forall(q(X), r(X)), N1 is N - 1, p(N1).
+main :- ( p(50000) -> write(ok) ; write(no) ), nl.
+%- 341 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__if_then
+:- initialization(main).
+q(1).
+q(2).
+r(_).
+p(0) :- !.
+p(N) :- N > 0, ( q(_) -> true ; true ), N1 is N - 1, p(N1).
+main :- ( p(50000) -> write(ok) ; write(no) ), nl.
+%- 342 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__negation
+:- initialization(main).
+q(1).
+q(2).
+r(_).
+p(0) :- !.
+p(N) :- N > 0, \+ (q(_), fail), N1 is N - 1, p(N1).
+main :- ( p(50000) -> write(ok) ; write(no) ), nl.
+%- 343 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__once_gen
+:- initialization(main).
+q(1).
+q(2).
+r(_).
+p(0) :- !.
+p(N) :- N > 0, once(between(1,2,X)), N1 is N - 1, p(N1).
+main :- ( p(50000) -> write(ok) ; write(no) ), nl.

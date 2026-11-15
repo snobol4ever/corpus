@@ -712,7 +712,7 @@ d(864197532086419753208641975320)
 e(123456789012345678901234567889)
 f(fail)
 %- 113 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__1
-no
+ok
 %- 114 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__safety
 cp(8) once(1)
 %------------------- 115 test_gate_pl_an_operator_atom_operand_is_bracketed__wop
@@ -4040,3 +4040,11 @@ ok(g)
 ok(h)
 ok(i)
 ok(m)
+%- 340 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__forall_2
+ok
+%- 341 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__if_then
+ok
+%- 342 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__negation
+ok
+%- 343 test_gate_pl_an_opaque_goal_barrier_releases_the_frame_its_goal_carved__once_gen
+ok
