@@ -4489,6 +4489,18 @@ ok
 after
 ```
 
+## sigilless__a_declared_sigilless_name_wins_over_the_constant
+
+```Raku
+sub f(\i) { i + 1 }; say f(2);
+my \e = 2; say e + 1;
+```
+
+```stdout
+3
+3
+```
+
 ## simple_assign_101
 
 ```Raku
