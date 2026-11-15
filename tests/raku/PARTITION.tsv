@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1689 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,43
+# shape: entries=1690 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,44
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -222,12 +222,12 @@ ladder__rung13_classes_the_compile_time_variable_module_names_the_enclosing_modu
 parser__assign_bare	chunk:15	family:parser	
 parser__atom_array	chunk:05	feat:sigil_array	sigil_array
 parser__atom_hash	chunk:09	feat:sigil_hash	sigil_hash
-parser__atom_scalar	chunk:15	family:parser	
+parser__atom_scalar	chunk:16	family:parser	
 parser__bare_ident_arg	chunk:03	feat:say	say
 parser__call_expr	chunk:03	feat:say	say
 parser__print_stderr	chunk:17	feat:print	print
 parser__say_stdout	chunk:03	feat:say	say
-parser__say_var	chunk:15	family:parser	
+parser__say_var	chunk:16	family:parser	
 parser__try_catch	chunk:10	feat:try	try
 parser__try_catch_lower	chunk:10	feat:try	try
 parser_coverage__stmt_ctrl_whenever	chunk:16	family:parser_coverage	
@@ -372,7 +372,7 @@ array_54	chunk:05	feat:sigil_array	sigil_array
 array_55	chunk:05	feat:sigil_array	sigil_array
 array_57	chunk:05	feat:sigil_array	sigil_array
 array_58	chunk:05	feat:sigil_array	sigil_array
-emitter_refusal__a_lexical_named_value_is_shared_by_two_closures	chunk:16	family:emitter_refusal	
+emitter_refusal__a_lexical_named_value_is_shared_by_two_closures	chunk:17	family:emitter_refusal	
 emitter_refusal__a_nested_declarator_group_binds_every_level	chunk:04	feat:say	say
 exceptions__a_sigil_fused_with_a_combining_mark_is_malformed	chunk:10	feat:try	try
 for_1	chunk:17	feat:for	for
@@ -1485,7 +1485,7 @@ sub_junction_say_replace_1	chunk:15	feat:junction	if junction say sub
 ladder__rung03_strings_the_method_assign_form_inside_an_expression_stores_and_yields_the_new_value	chunk:13	feat:string_concat	say sigil_array string_concat sub
 ladder__rung04_arrays_push_unshift_append_prepend_splice_shift_and_pop_on_a_number_die_and_push_of_an_array_literal_lives	chunk:11	feat:try	for for_with_say sigil_array try
 ladder__rung01_variables_a_coercion_type_on_a_variable_or_a_parameter_converts_the_value_it_is_given	chunk:10	feat:smartmatch	regex smartmatch string_concat sub
-when_while_replace_1	chunk:16	feat:when	if unless when while
+when_while_replace_1	chunk:15	feat:unless	if unless when while
 ladder__rung02_arithmetic_power_assigned_and_compound_assigned	chunk:13	feat:sub_with_return	return sigil_array sub sub_with_return
 sub_for_say_replace_1	chunk:07	feat:for_with_say	for for_with_say say sub
 ladder__rung13_classes_an_rw_accessor_takes_compound_assignment_and_increment_and_a_readonly_one_dies	chunk:11	feat:try	has string_concat try
@@ -1649,6 +1649,7 @@ core__rc10_named_multi	core	core	has join map method multi range_op say sub
 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string	chunk:14	feat:map	for for_with_say join map range_op sigil_array smartmatch string_concat
 rewrite__rr05_seq	core	core	for for_with_say grep loop map range_op say sub
 ladder__rung11_junctions_a_junction_in_boolean_context_collapses_and_star_smartmatch_against_a_type_is_a_whatevercode	core	core	grep if junction map say sigil_array smartmatch string_concat
+smartmatch_complex__a_complex_on_either_side_of_smartmatch_compares_as_a_number	chunk:15	feat:junction	given grep junction range_op say smartmatch string_concat when
 benchmark_rc-self-describing-numbers	chunk:13	feat:sub_with_return	for for_with_say if range_op return sigil_array sub sub_with_return
 ladder__rung09_regex_a_match_statement_in_a_sub_returns_to_its_caller	core	core	for for_with_say loop range_op regex smartmatch string_concat sub
 ladder__rung08_for_a_for_loop_over_the_topic_restores_the_outer_topic_when_it_ends_by_exhaustion_last_or_return	chunk:13	feat:sub_with_return	for for_with_say if range_op return sigil_array sub sub_with_return

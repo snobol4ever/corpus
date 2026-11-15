@@ -21987,6 +21987,70 @@ yes
 False
 ```
 
+## smartmatch_complex__a_complex_on_either_side_of_smartmatch_compares_as_a_number
+
+```Raku
+say 3 ~~ (3 + 0i); say 2 ~~ (3 + 0i); say 3 ~~ (3 + 1i); say 3 !~~ (3 + 0i); say 3 !~~ (3 + 1i);
+say (3+0i) ~~ 3; say (3+1i) ~~ 3; say (3+0i) ~~ 3.0; say (3+0i) ~~ 3e0; say (3+0i) !~~ 3;
+say 3.0 ~~ (3 + 0i); say 3e0 ~~ (3 + 0i); say (1/2) ~~ (0.5 + 0i); say (10 ** 20) ~~ (1e20 + 0i);
+say (1+2i) ~~ (1+2i); say (1+2i) ~~ (1+1i); say (1+2i) !~~ (2+2i);
+say "3" ~~ (3+0i); say "3+0i" ~~ (3+0i); say "1+2i" ~~ (1+2i); say "abc" ~~ (3+0i); say "" ~~ (0+0i);
+say (3+0i) ~~ "3"; say (1+2i) ~~ "1+2i";
+say NaN ~~ (NaN+0i); say (NaN+0i) ~~ NaN; say (NaN+1i) ~~ (NaN+2i); say 1 ~~ (NaN+0i);
+say True ~~ (1+0i); say (1,2,3) ~~ (3+0i); say Int ~~ (3+0i);
+say (3+0i) ~~ Complex; say (3+0i) ~~ Numeric; say (3+0i) ~~ Real; say (3+0i) ~~ 1..5;
+my $c = 3 + 0i; say 3 ~~ $c; say $c ~~ 3; say 3 ~~ any($c, 4);
+given 3+0i { when 3 { say "w3" }; default { say "d" } }
+given 3 { when 3+0i { say "wc" }; default { say "d" } }
+say (1,2,3).grep(2+0i);
+say "end";
+```
+
+```stdout
+True
+False
+False
+False
+True
+True
+False
+True
+True
+False
+True
+True
+True
+True
+True
+False
+True
+True
+True
+True
+False
+True
+False
+True
+True
+True
+True
+False
+True
+True
+False
+True
+True
+False
+True
+True
+True
+True
+w3
+wc
+(2)
+end
+```
+
 ## benchmark_rc-self-describing-numbers
 
 ```Raku
