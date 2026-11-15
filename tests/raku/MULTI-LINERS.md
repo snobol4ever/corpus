@@ -21173,6 +21173,28 @@ y!y
 10 5
 ```
 
+## topic__a_block_argument_reads_the_loops_topic
+
+```Raku
+sub run(&c) { c() }
+for <a b> { run { say .uc } }
+for <a b> { run { say "t: {.uc}" } }
+given 42 { run { say $_ + 1 } }
+for 1..2 { my @r = (10, 20).map({ $_ + 1 }); say @r; run { say $_ } }
+```
+
+```stdout
+A
+B
+t: A
+t: B
+43
+[11 21]
+1
+[11 21]
+2
+```
+
 ## core__rc11_nested_sort_reduce
 
 ```Raku
@@ -24403,6 +24425,56 @@ M 0 1 <\n>
 M 0 1 <a>
 M 0 1 <a>
 M 0 1 <a>
+```
+
+## topic__a_block_argument_called_with_and_without_an_argument
+
+```Raku
+sub run(&c) { c() }
+sub run1(&c) { c(99) }
+for <a b> { run { say .uc } }
+for <a b> { run1 { say $_ } }
+my @t = <p q>; for @t { run { run { say $_ } } }
+sub f { for 1..2 { run { say $_ * 10 } } }; f();
+given "g" { run { say "$_!" } }
+for 1..2 { my @m = (1, 2).map({ $_ * 2 }); say @m; say (1..3).grep({ $_ > 1 }); }
+for 1..2 -> $x { run { say $x } }
+for <k> { my $b = { .uc }; say $b(); say $b("z") }
+my $blk = { $_ // "none" }; say $blk(); say $blk(5);
+for <w> { run { for <i j> { say "$_" } ; say $_ } }
+say (1..3).map({ run { 7 } }).join(",");
+for <d e> { say run({ .uc ~ .uc }) }
+class C { method m { for <u v> { run { say $_ } } } }; C.new.m;
+```
+
+```stdout
+A
+B
+99
+99
+p
+q
+10
+20
+g!
+[2 4]
+(2 3)
+[2 4]
+(2 3)
+1
+2
+K
+Z
+none
+5
+i
+j
+w
+7,7,7
+DD
+EE
+u
+v
 ```
 
 ## scrip_test_rk_combinator

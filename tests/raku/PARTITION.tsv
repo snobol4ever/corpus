@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1682 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,36
+# shape: entries=1684 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,38
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -172,7 +172,7 @@ simple_program_10	chunk:03	family:smoke
 simple_program_13	chunk:03	family:smoke	
 simple_program_36	chunk:03	family:smoke	
 catch__a_catch_at_file_level_catches_what_its_mainline_throws	chunk:17	family:catch	
-core__rc02_numeric_subs	chunk:16	family:core	
+core__rc02_numeric_subs	chunk:17	family:core	
 ladder__rung025_kw_nan_nan_eqv	chunk:01	family:ladder	
 ladder__rung026_lit_radix_arithmetic	chunk:01	family:ladder	
 ladder__rung026_lit_radix_call_fraction	chunk:01	family:ladder	
@@ -412,7 +412,7 @@ parser__arith_prec	chunk:15	family:parser
 parser__decl_array	chunk:05	feat:sigil_array	sigil_array
 parser__decl_hash	chunk:09	feat:sigil_hash	sigil_hash
 parser__decl_scalar_int	chunk:15	family:parser	
-parser__decl_scalar_str	chunk:15	family:parser	
+parser__decl_scalar_str	chunk:16	family:parser	
 parser_coverage__stmt_ctrl_foreach	chunk:05	feat:sigil_array	sigil_array
 say_die_1	chunk:16	feat:die	die say
 simple_assign_100	chunk:03	family:smoke	
@@ -691,7 +691,7 @@ simple_assign_86	chunk:03	family:smoke
 sub_sig__a_typed_anonymous_parameter_destructures	chunk:08	feat:sub	sub
 user_op__an_operator_is_one_name_however_its_symbol_is_quoted	chunk:12	feat:multi	multi
 channel__closed_is_a_promise_kept_at_close	chunk:16	family:channel	
-core__rc03_string_subs	chunk:16	family:core	
+core__rc03_string_subs	chunk:17	family:core	
 ladder__rung023_kw_nil_nil_hash_element_reset	chunk:09	feat:sigil_hash	sigil_hash
 ladder__rung03_strings_a_heredoc_terminator_indent_counts_tab_stops_of_eight_columns	chunk:02	family:ladder	
 ladder__rung04_arrays_push_pop	chunk:05	feat:sigil_array	sigil_array
@@ -1019,7 +1019,7 @@ say_19	chunk:05	feat:say	say
 ladder__rung02_arithmetic_rat_counts_and_tolerances_in_the_test_module_plan_skip_is_approx	chunk:14	feat:range_op	range_op sigil_array
 scrip_test_rk_stdio39	core	core	print say sub
 complex__a_complex_power_equality_and_text_in_more_forms	chunk:05	feat:say	say
-ladder__rung04_arrays_a_collection_type_object_called_with_one_argument_coerces_it	chunk:14	feat:range_op	range_op
+ladder__rung04_arrays_a_collection_type_object_called_with_one_argument_coerces_it	chunk:15	feat:range_op	range_op
 benchmark_string-escape	chunk:13	feat:string_concat	string_concat
 ladder__rung023_kw_nil_fresh_scalar_numeric	chunk:13	feat:string_concat	string_concat
 ladder__rung03_strings_the_method_assign_form_with_no_space_stores_the_result_back_in_the_variable	chunk:06	feat:sigil_array	sigil_array
@@ -1624,6 +1624,7 @@ class_multi_sub_replace_6	chunk:13	feat:sub_with_return	has multi return say sub
 class_multi_sub_replace_7	chunk:13	feat:sub_with_return	has multi return say sub sub_with_return
 core__rc09_named_forms	chunk:15	feat:sort	has map method range_op sigil_array sort
 method_lexical__a_closure_in_a_method_a_for_block_and_a_role	chunk:08	feat:for_with_say	for for_with_say method range_op string_concat sub
+topic__a_block_argument_reads_the_loops_topic	chunk:16	feat:given	for for_with_say given map range_op sigil_array sub
 core__rc11_nested_sort_reduce	chunk:15	feat:sort	join map range_op say sigil_array sort sub
 roast_causes__rc01_lone_interpolation_is_str	chunk:11	feat:try	regex say sigil_array sigil_hash smartmatch string_concat try
 ladder__rung09_regex_match_methods_agree_with_rakudo	core	core	join map regex regex_with_smartmatch smartmatch string_concat token
@@ -1638,7 +1639,7 @@ ladder__rung08_for_last_and_next_with_a_label_leave_or_continue_the_labelled_loo
 sub_regex_smartmatch_replace_1	core	core	if regex regex_with_smartmatch say smartmatch string_concat sub
 ladder__rung13_classes_a_class_body_runs_where_it_is_declared_and_its_lexicals_are_each_class_own_and_seen_by_its_methods	core	core	has join method our sigil_array sigil_hash
 class_method_multi_replace_3	core	core	method multi return say string_concat sub sub_with_return
-core__rc07_dot_parens	core	core	has map method sigil_array sigil_hash string_concat sub
+core__rc07_dot_parens	chunk:14	feat:map	has map method sigil_array sigil_hash string_concat sub
 core__rc10_named_multi	core	core	has join map method multi range_op say sub
 ladder__rung03_strings_a_method_call_with_parentheses_interpolates_in_a_double_quoted_string	chunk:14	feat:map	for for_with_say join map range_op sigil_array smartmatch string_concat
 rewrite__rr05_seq	core	core	for for_with_say grep loop map range_op say sub
@@ -1682,5 +1683,6 @@ ladder__rung09_regex_engine_basics_1_agree_with_rakudo	chunk:14	feat:map	for for
 ladder__rung09_regex_engine_basics_2_agree_with_rakudo	chunk:14	feat:map	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
 ladder__rung09_regex_engine_basics_3_agree_with_rakudo	chunk:14	feat:map	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
 ladder__rung09_regex_engine_classes_1_agree_with_rakudo	chunk:14	feat:map	for for_with_say if join map range_op regex sigil_array sigil_hash smartmatch string_concat sub
+topic__a_block_argument_called_with_and_without_an_argument	core	core	for for_with_say given grep join map method range_op say sigil_array string_concat sub
 scrip_test_rk_combinator	core	core	for for_with_say has if range_op regex return say string_concat sub sub_with_return token try while
 rewrite__rr13_integration	core	core	for for_with_say has if join map regex say sigil_array sigil_hash sort string_concat sub token
