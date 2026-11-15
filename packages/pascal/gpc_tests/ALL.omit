@@ -51,7 +51,6 @@ az19c.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last sa
 baby.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: baby.pas(3,24) Fatal: Syntax error, ";" expected but "(" found
 babyuni2.pas: LIBRARY: the source names unit babyuni2;
 babyunit.pas: LIBRARY: the source names unit babyunit;
-basic.pas: NEEDS-INPUT: its answer changes with what standard input holds
 berend1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: berend1.pas(3,7) Fatal: Syntax error, "BEGIN" expected but "identifier IMPORT" found
 berend1a.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: berend1a.pas(3,7) Fatal: Syntax error, "BEGIN" expected but "identifier IMPORT" found
 berend1m.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: berend1m.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
@@ -213,7 +212,6 @@ chuck3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last s
 chuck5.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: chuck5.pas(5,6) Fatal: Can't find unit GPC used by misctests
 chuck7.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: chuck7.pas(6,13) Fatal: Syntax error, ";" expected but "(" found
 ciriaco1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ciriaco1.pas(7,8) Error: Identifier not found "bindable"
-cntchars.pas: NEEDS-INPUT: its answer changes with what standard input holds
 comments.pas: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 complex1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: complex1.pas(4,6) Error: Identifier not found "Complex"
 complex2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: complex2.pas(4,6) Error: Identifier not found "Complex"
@@ -360,7 +358,6 @@ esven2u.pas: LIBRARY: the source names unit esven2u;
 exitpr1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: exitpr2.pas(6,21) Fatal: Syntax error, ";" expected but "identifier VALUE" found
 exitpr2.pas: LIBRARY: the source names Unit ExitPr2;
 expon.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: expon.pas(11,16) Error: Operator is not overloaded: "ShortInt" ** "Extended"
-expotst.pas: NEEDS-INPUT: its answer changes with what standard input holds
 fieldw.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fieldw.pas(6,16) Fatal: Syntax error, ";" expected but "=" found
 filehand.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: filehand.pas(3,6) Fatal: Can't find unit GPC used by FileHandle
 files.pas: LIBRARY: the source names unit Files;
@@ -889,9 +886,6 @@ fjf302.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last s
 fjf302u.pas: LIBRARY: the source names unit fjf302u;
 fjf303.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fjf303.pas(3,9) Error: Identifier not found "complex"
 fjf306.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fjf306.pas(4,14) Fatal: Syntax error, ";" expected but "(" found
-fjf307a.pas: NEEDS-INPUT: its answer changes with what standard input holds
-fjf307b.pas: NEEDS-INPUT: its answer changes with what standard input holds
-fjf307c.pas: NEEDS-INPUT: its answer changes with what standard input holds
 fjf308a.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fjf308a.pas(3,23) Fatal: Syntax error, ";" expected but "(" found
 fjf308b.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fjf308b.pas(3,9) Fatal: Syntax error, "BEGIN" expected but "identifier OPERATOR" found
 fjf308c.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fjf308c.pas(3,9) Fatal: Syntax error, "BEGIN" expected but "identifier OPERATOR" found
@@ -2115,7 +2109,6 @@ hanoi.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last sa
 heapmo2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: heapmo2.pas(5,6) Fatal: Can't find unit GPC used by HeapMonTest2
 heapmontest.pas: CLOCK-SEEDED: the source names Randomize
 highlow5.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: highlow5.pas(6,28) Fatal: Syntax error, "OF" expected but "[" found
-hugereal.pas: NEEDS-INPUT: its answer changes with what standard input holds
 ian1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ian1.pas(5,1) Error: Illegal char constant
 ian2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ian2.pas(3,1) Error: Illegal char constant
 ian3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ian3.pas(10,35) Fatal: Syntax error, ":" expected but "identifier NAME" found
@@ -2129,7 +2122,6 @@ ian6.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last say
 ian7.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ian7.pas(4,13) Fatal: Syntax error, ";" expected but "(" found
 ifopt.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: ifopt.pas(5,8) Fatal: Syntax error, "BEGIN" expected but "identifier BAEH" found
 igor2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: igor2.pas(30,39) Error: Identifier not found "ShortWord"
-index.pas: NEEDS-INPUT: its answer changes with what standard input holds
 inipak1a.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: inipak1a.pas(9,20) Fatal: Syntax error, "]" expected but ":" found
 inipak1b.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: inipak1b.pas(10,16) Fatal: Syntax error, "]" expected but ":" found
 inipak1c.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: inipak1c.pas(3,18) Fatal: Syntax error, "]" expected but ":" found
@@ -2212,8 +2204,6 @@ kevin3b.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last 
 kevin4.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: kevin4.pas(4,26) Fatal: Syntax error, ";" expected but "[" found
 kevin5.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: kevin5.pas(3,7) Fatal: Syntax error, "BEGIN" expected but "identifier IMPORT" found
 kevin5f.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: kevin5f.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
-kevin6.pas: NEEDS-INPUT: its answer changes with what standard input holds
-kevin7.pas: NEEDS-INPUT: its answer changes with what standard input holds
 kevin8.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: kevin8.pas(3,32) Fatal: Syntax error, ";" expected but "identifier VALUE" found
 kohl.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: kohl.pas(11,9) Fatal: Syntax error, "BEGIN" expected but "identifier OPERATOR" found
 kurzw1u.pas: LIBRARY: the source names unit kurzw1u;
@@ -2586,7 +2576,6 @@ pcerrorp.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last
 pcerrorq.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pcerrorq.pas(3,7) Fatal: Syntax error, "BEGIN" expected but "identifier IMPORT" found
 pcextn.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pcextn.pas(3,6) Fatal: Can't find unit GPC used by t
 pd2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: pd2.pas(7,23) Fatal: Syntax error, "OF" expected but "[" found
-peter.pas: NEEDS-INPUT: its answer changes with what standard input holds
 peter3.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: peter3.pas(5,20) Fatal: Syntax error, ";" expected but "identifier ATTRIBUTE" found
 peter5a.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: peter5a.pas(17,51) Error: OVERRIDE cannot be used in objects
 peter5b.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: peter5b.pas(17,51) Error: OVERRIDE cannot be used in objects
@@ -2606,7 +2595,7 @@ pmodtest.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last
 powtest.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: powtest.pas(9,15) Fatal: Syntax error, ")" expected but "identifier POW" found
 predef.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: predef.pas(9,1) Error: Error while linking
 prep2p.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: prep2p.inc(1,1) Error: Illegal char constant
-pretty.pas: NEEDS-INPUT: its answer changes with what standard input holds
+pretty.pas: NEEDS-INPUT: its answer changes with what standard input holds; fed the collection's pretty.in it answers differently on two runs
 proc2a.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: proc2a.pas(6,8) Fatal: Syntax error, "=" expected but "(" found
 proc2b.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: proc2b.pas(6,8) Fatal: Syntax error, "=" expected but "(" found
 procs.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: procs.pas(15,5) Error: Identifier not found "timestamp"
@@ -2618,8 +2607,6 @@ random.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last s
 range2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: range2.pas(3,7) Fatal: Syntax error, "BEGIN" expected but "identifier IMPORT" found
 rdcstr1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: rdcstr1.pas(7,7) Error: Identifier not found "CString"
 rdcstr2.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: rdcstr2.pas(7,7) Error: Identifier not found "CString"
-rdpal.pas: NEEDS-INPUT: its answer changes with what standard input holds
-rdwt.pas: NEEDS-INPUT: its answer changes with what standard input holds
 readb01.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: read1.inc(1,6) Fatal: Can't find unit GPC used by readb1
 readb02.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: read1.inc(1,6) Fatal: Can't find unit GPC used by readb2
 readb03.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: read1.inc(1,6) Fatal: Can't find unit GPC used by readb3
@@ -2805,7 +2792,6 @@ sven5.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last sa
 sven9.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: sven9.pas(10,20) Fatal: Syntax error, ";" expected but "(" found
 switches.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: switches.pas(4,13) Fatal: Syntax error, ";" expected but "(" found
 systemtest.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: systemtest.pas(8,12) Error: Duplicate identifier "SYSTEM"
-t16.pas: NEEDS-INPUT: its answer changes with what standard input holds
 t19.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: t19.pas(7,14) Error: Operation not implemented for sets
 tagnew4.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: tagnew4.pas(20,15) Error: Pointer to object expected
 takashi1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: takashi1.pas(52,42) Error: Incompatible types: got "str2" expected "str"
@@ -3023,3 +3009,8 @@ todo/daj14b.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso does not give the test's ow
 todo/delphi5.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Mobjfpc does not give the test's own answer (OK): rc 217
 todo/fjf221.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Mfpc does not give the test's own answer (OK): first line 'Failed: 1, 2147483648'
 todo/kevin2.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso does not give the test's own answer (OK): first line 'failed:           1'
+basic.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso, fed the collection's basic.in, does not give the test's own answer (basic.out): first line '         1723' where the test's is '1723'
+cntchars.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso, fed the collection's cntchars.in, does not give the test's own answer (cntchars.out): line 24 '         23 lines', the integers in fpc's default width
+hugereal.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso, fed the collection's hugereal.in, does not give the test's own answer (hugereal.out): first line 'errno =           0' where the test's is 'errno = 0'
+index.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso, fed the collection's index.in, does not give the test's own answer (index.out): line 2 'main:         10         20' in fpc's default width
+t16.pas: NOT-ITS-OWN-ANSWER: fpc 3.2.2 -Miso, fed the collection's t16.in, does not give the test's own answer (t16.out): 34 lines of NUL bytes where the test's has 21 lines of text

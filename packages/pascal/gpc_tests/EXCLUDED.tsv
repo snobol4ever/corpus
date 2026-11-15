@@ -3009,3 +3009,9 @@ todo/daj14b.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso does not give the test's own an
 todo/delphi5.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Mobjfpc does not give the test's own answer (OK): rc 217
 todo/fjf221.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Mfpc does not give the test's own answer (OK): first line 'Failed: 1, 2147483648'
 todo/kevin2.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso does not give the test's own answer (OK): first line 'failed:           1'
+basic.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso, fed the collection's basic.in, does not give the test's own answer (basic.out): first line '         1723' where the test's is '1723'
+cntchars.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso, fed the collection's cntchars.in, does not give the test's own answer (cntchars.out): line 24 '         23 lines', the integers in fpc's default width
+hugereal.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso, fed the collection's hugereal.in, does not give the test's own answer (hugereal.out): first line 'errno =           0' where the test's is 'errno = 0'
+index.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso, fed the collection's index.in, does not give the test's own answer (index.out): line 2 'main:         10         20' in fpc's default width
+t16.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso, fed the collection's t16.in, does not give the test's own answer (t16.out): 34 lines of NUL bytes where the test's has 21 lines of text
+pretty.pas	NO_ORACLE_ANSWER	fpc 3.2.2 -Miso, fed the collection's pretty.in, answers differently on two runs (exit 0 and 0, 1317 and 1317 bytes; util_build_package_suite.py --mine-add, 2026-11-15)
