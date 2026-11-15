@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1688 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,42
+# shape: entries=1689 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,43
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -225,7 +225,7 @@ parser__atom_hash	chunk:09	feat:sigil_hash	sigil_hash
 parser__atom_scalar	chunk:15	family:parser	
 parser__bare_ident_arg	chunk:03	feat:say	say
 parser__call_expr	chunk:03	feat:say	say
-parser__print_stderr	chunk:16	feat:print	print
+parser__print_stderr	chunk:17	feat:print	print
 parser__say_stdout	chunk:03	feat:say	say
 parser__say_var	chunk:15	family:parser	
 parser__try_catch	chunk:10	feat:try	try
@@ -405,7 +405,7 @@ ladder__rung20_paren_group_grep	chunk:15	feat:grep	grep say
 ladder__rung20_paren_group_placeholder	chunk:14	feat:map	map say
 listop__a_slip_of_a_dereferenced_pointy_parameter_in_a_nested_pointy_block	chunk:04	feat:say	say
 metaops__reversed_assignment_declaration	chunk:17	family:metaops	
-parser__arith_add	chunk:15	family:parser	
+parser__arith_add	chunk:16	family:parser	
 parser__arith_chain	chunk:16	family:parser	
 parser__arith_mul	chunk:16	family:parser	
 parser__arith_prec	chunk:16	family:parser	
@@ -857,7 +857,7 @@ range_array_5	chunk:14	feat:range_op	range_op sigil_array
 range_array_6	chunk:14	feat:range_op	range_op sigil_array
 range_array_7	chunk:14	feat:range_op	range_op sigil_array
 range_array_8	chunk:14	feat:range_op	range_op sigil_array
-range_array_9	chunk:14	feat:range_op	range_op sigil_array
+range_array_9	chunk:15	feat:range_op	range_op sigil_array
 range_array_replace_1	chunk:15	feat:range_op	range_op sigil_array
 rx_group__a_plus_over_an_alternation_takes_every_iteration	chunk:09	feat:smartmatch	regex smartmatch string_concat
 say_13	chunk:04	feat:say	say
@@ -1328,7 +1328,7 @@ multi_sub_say_5	chunk:12	feat:multi	multi say string_concat sub
 sub_24	chunk:13	feat:sub_with_return	if return sub sub_with_return
 sub_36	chunk:13	feat:sub_with_return	return sub sub_with_return
 attr_ref__bind_into_attribute_keeps_the_container	chunk:06	feat:has	has method
-class_method_replace_16	chunk:13	feat:return	method return
+class_method_replace_16	chunk:14	feat:return	method return
 class_method_say_replace_35	chunk:12	feat:method	method say
 code_class__a_code_value_knows_its_class	chunk:09	feat:smartmatch	smartmatch string_concat sub
 for_range_say_6	chunk:07	feat:for_with_say	for for_with_say range_op say
@@ -1608,6 +1608,7 @@ sub_for_while_replace_1	chunk:15	feat:loop	for for_with_say loop say sub while
 ladder__rung07_subs_an_infix_multi_on_objects_is_entered_from_the_relop_boxes_in_value_and_condition_context	core	core	feed_op has if multi sub
 sub_for_loop_replace_1	chunk:15	feat:loop	for for_with_say loop say sigil_array sub
 sub_for_range_replace_1	chunk:08	feat:for_with_say	for for_with_say range_op say sigil_array sub
+sigilless__a-sigilless-name-the-scope-declares-wins-over-a-routine-of-its-spelling	chunk:13	feat:multi	for for_with_say multi range_op sigil_array sub
 class_method_say_replace_15	chunk:07	feat:has	has method return say string_concat
 scrip_test_rk_seq_consumers_arr	chunk:10	feat:join	for for_with_say join say sigil_array sub
 benchmark_rc-9-billion-names	chunk:08	feat:for_with_say	for for_with_say if range_op sigil_array sub

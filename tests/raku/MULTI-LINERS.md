@@ -20610,6 +20610,43 @@ main();
 42
 ```
 
+## sigilless__a-sigilless-name-the-scope-declares-wins-over-a-routine-of-its-spelling
+
+```Raku
+sub foo($x) { 99 }
+sub u(\foo) { foo.elems }
+say u((3, 1, 2, 1));
+say foo(1);
+multi sub bar($x) { 98 }
+sub v(+bar) { bar.elems }
+say v(3, 1, 2, 1);
+say bar(2);
+sub zed() { 7 }
+sub g() { my \zed = 3; zed + 1 }
+say g();
+say zed;
+for 1..2 -> \zed { say zed }
+my @a = 3, 1, 2, 1;
+say unique(@a);
+sub h(\values) { values.elems }
+say h((5, 6));
+say values({ a => 1 });
+```
+
+```stdout
+4
+99
+4
+98
+4
+7
+1
+2
+(3 1 2)
+2
+(1)
+```
+
 ## class_method_say_replace_15
 
 ```Raku
