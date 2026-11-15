@@ -41,3 +41,7 @@ lib/rfc822pr.icn	same-code
 lib/httpclient.icn	same-code
 lib/httprequest.icn	same-code
 lib/httpresponse.icn	same-code
+xml/createdemo.icn	same-code
+xml/globaldemo.icn	same-code
+xml/testpatterns.icn	same-code
+xml/testxml.icn	same-code
