@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=488 features=42 ubiquitous=1(package) distinctive=41 core=23 clusters=80 chunks=2 sizes=374,91
+# shape: entries=487 features=42 ubiquitous=1(package) distinctive=41 core=23 clusters=80 chunks=2 sizes=373,91
 entry	part	cluster	shells
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__deep	core	core	ARBNO DUPL FENCE POS RPOS SIZE SPAN alternation arbno_with_alt deferred_eval fence_guarded_fail goto_fail
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__gcdeep	chunk:01	feat:DUPL	DEFINE DUPL SIZE arith goto_success
@@ -268,7 +268,6 @@ test_gate_sno_an_abort_inside_a_pattern_thunk_fails_the_match_without_a_crash__s
 test_gate_sno_an_access_trace_callback_is_entered_by_the_variable_read_box_and_not_by_c__a	chunk:01	feat:SIZE	DEFINE SIZE keyword_ref
 test_gate_sno_an_access_trace_callback_is_entered_by_the_variable_read_box_and_not_by_c__c	chunk:01	feat:DUPL	DEFINE DUPL SIZE arith goto_success keyword_ref
 test_gate_sno_an_access_trace_callback_is_entered_by_the_variable_read_box_and_not_by_c__d	chunk:01	feat:keyword_ref	DEFINE keyword_ref
-test_gate_sno_an_angle_bracket_subscript_is_refused_and_the_direct_goto_stays_in_both_modes__ev	chunk:01	feat:CODE	ARRAY CODE EVAL goto_success keyword_ref
 test_gate_sno_an_angle_bracket_subscript_is_refused_and_the_direct_goto_stays_in_both_modes__ok	chunk:01	feat:CODE	ARRAY CODE TABLE
 test_gate_sno_an_argument_evaluated_before_a_match_in_a_later_argument_reads_its_own_slot__w	chunk:01	feat:REPLACE	DUPL REPLACE SIZE alternation arith cond_assign
 test_gate_sno_an_array_element_read_or_store_allocates_nothing__arr	chunk:01	feat:DATATYPE	ARRAY DATATYPE TABLE alternation arith cond_assign goto_fail goto_success indirect_ref
