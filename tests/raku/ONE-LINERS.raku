@@ -162,6 +162,7 @@ my @a = "x" xx 3; say @a;
 my @a = "x" xx 3; say @a;
 my @d = "z" xx 0; say @d.elems;
 my @b = 0 xx 5; say @b;
+my $value = 1; my &f = -> { $value }; my &s = -> { $value = 7 }; s(); say f();
 for <a b c> -> $c { print $c }
 say $_ given 42;
 my %h = "k1" => 5, "k2" => 6; say %h<k2>;
@@ -222,6 +223,7 @@ my $n = 4; my @c = "yo" xx $n; say @c.elems;
  my @a = "a b c".words; say(elems(@a)); 
  my @a = (10, 20, 30); say(@a.elems); 
  my @a = (1, 2, 3); say(@a.join); 
+sub g(&b) { b() }; my $c = 5; g({ say $c });
 my %h; %h<k> = 5; my @w = <a b c>; say %h<k>;
 enum Color <red green>; sub f { my $red = 5; $red + +green }; say f();
 my class R1 { method Str { $.^name } }; say R1.Str;

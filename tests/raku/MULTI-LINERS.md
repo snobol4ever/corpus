@@ -8557,6 +8557,30 @@ False
 True
 ```
 
+## emitter_refusal__a_lexical_is_read_in_a_closure_beside_a_role_that_binds_its_name_as_a_parameter
+
+```Raku
+role A[:$a = 1] { method foo { $a } }
+my $a = 0;
+say { $a + 1 }();
+```
+
+```stdout
+1
+```
+
+## emitter_refusal__a_routine_reads_an_outer_lexical_another_routine_binds_as_a_parameter
+
+```Raku
+my $p = 7;
+sub g(\p) { p }
+sub f() { $p }; say f();
+```
+
+```stdout
+7
+```
+
 ## given_1
 
 ```Raku
