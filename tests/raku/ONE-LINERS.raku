@@ -35,6 +35,7 @@ use v6.d.TEST; print +CORE-SETTING-REV
 say PseudoStash.^ver;
 use v6.d.TESTDEPR; print +CORE-SETTING-REV
 print +CORE-SETTING-REV
+use MONKEY-SEE-NO-EVAL; say "1 + 2".EVAL;
 say 7 %% 3;
 say 6 %% 3;
 say 0 %% 5;

@@ -9711,6 +9711,23 @@ grammar G {
  word => ｢hello｣
 ```
 
+## warn__warn_goes_on
+
+```Raku
+warn "careful";
+say 1;
+my $v = warn "again";
+say $v;
+sub f { warn "in f"; 42 }
+say f();
+```
+
+```stdout
+1
+0
+42
+```
+
 ## hash_say_5
 
 ```Raku
@@ -12194,6 +12211,28 @@ repeat {
 1
 3
 4
+```
+
+## setting_method__str_eval_wider
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+say "1 + 2".EVAL;
+my $s = "'a' x 3"; say $s.EVAL;
+say "21 * 2".EVAL + 1;
+say (try { "1 +".EVAL }) // "died";
+say "say 'hi'; 7".EVAL;
+say 42.EVAL;
+```
+
+```stdout
+3
+aaa
+43
+died
+hi
+7
+42
 ```
 
 ## ladder__rung024_kw_inf_inf_smartmatch
