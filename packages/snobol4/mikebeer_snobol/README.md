@@ -15,3 +15,5 @@ MEASURED 2026-11-15, the oracle's answer against the collection's own `NAME.out`
 `bench/tables`, `tests/fold`, whose own answer was cut under the interpreter's folding flag), 3 ship none. The answer graded is the
 oracle's. No SCRIP reading was taken at the cut (Lon 2026-11-14); the cycle grades it. Built by
 `util_build_package_suite.py corpus/packages/snobol4/mikebeer_snobol --lang snobol4 --mine CENSUS.tsv --twice` (the grader 2026-11-15).
+
+CHANGED IN PLACE (skill snobol4 section 7, Lon 2026-11-14: an angle-bracket subscript is rewritten with square brackets where the package lives; the cqo 2026-11-15, row snobol4-beer-tables-patterns-and-two-sieves-spell-their-subscripts-with-square-brackets): bench/tables.sno (11 lines), examples/sieve.sno (3), tests/patterns.sno (5) and tests/sieve.sno (3) spell `NAME<...>` as `NAME[...]`, one character for one, outside string literals and comment lines, since SCRIP refuses the angle form by the ruling of 2026-10-02. `sbl -bf` answers each the same bytes as before, cut twice and equal to its `NAME.out`, so no answer moved.

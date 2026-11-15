@@ -15,3 +15,5 @@ MEASURED 2026-11-15 on the first 45 rows, the oracle's answer against the collec
 (`examples/parens_expr`), 25 ship none. The answer graded is the oracle's. No SCRIP reading was taken at the cut (Lon 2026-11-14);
 the cycle grades it. Built by `util_build_package_suite.py corpus/packages/snobol4/sw_cor24_snobol4 --lang snobol4 --mine CENSUS.tsv
 --twice`, then `--mine-add --mine-under` for the two fed programs (the grader 2026-11-15).
+
+CHANGED IN PLACE (skill snobol4 section 7, Lon 2026-11-14: an angle-bracket subscript is rewritten with square brackets where the package lives; the cqo 2026-11-15, row snobol4-cor24-nqueens-sieve-and-array-spell-their-subscripts-with-square-brackets): demos/nqueens.sno (28 lines), demos/sieve.sno (5) and examples/array.sno (6) spell `NAME<...>` as `NAME[...]`, one character for one, outside string literals and comment lines, since SCRIP refuses the angle form by the ruling of 2026-10-02. `sbl -bf` answers each the same bytes as before, cut twice and equal to its `NAME.out`, so no answer moved.
