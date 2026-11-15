@@ -16577,6 +16577,25 @@ sub describe(Animal $a) { say($a.n); }
 5
 ```
 
+## complex__a_complex_value_names_its_type
+
+```Raku
+my $z = 2 + 5*i;
+say $z.WHAT; say $z.^name; say $z ~~ Complex; say $z ~~ Numeric; say $z ~~ Real; say $z ~~ Int;
+multi sub f(Complex $c) { "complex" }; multi sub f(Real $r) { "real" };
+say f($z), " ", f(3), " ", f(2.5);
+```
+
+```stdout
+(Complex)
+Complex
+True
+True
+False
+False
+complex real real
+```
+
 ## core__rc05_value_call_returned_closure
 
 ```Raku
@@ -22532,6 +22551,39 @@ True
 True
 True
 2
+```
+
+## complex__a_complex_value_is_numeric_and_no_real_wherever_a_type_is_asked
+
+```Raku
+my $z = 2 + 5*i;
+say $z.WHAT.^name; say $z.isa(Complex); say $z ~~ Cool; say $z ~~ Any; say $z ~~ Str; say $z ~~ Stringy;
+say i.^name; say (i * i).^name; say (3 + 0*i) ~~ Complex;
+sub g(Numeric $n) { "numeric " ~ $n.^name }; say g($z); say g(3);
+sub h(Complex:D $c) { "defined complex" }; say h($z);
+say (try { sub r(Real $x) { 1 }; r($z) }) // "refused";
+given $z { when Int { say "int" }; when Complex { say "is complex" }; default { say "other" } }
+my Complex $t = $z; say $t.^name;
+say [1, $z, "a"].map(*.^name).join(",");
+```
+
+```stdout
+Complex
+True
+True
+True
+False
+False
+Complex
+Complex
+True
+numeric Complex
+numeric Int
+defined complex
+refused
+is complex
+Complex
+Int,Complex,Str
 ```
 
 ## ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block
