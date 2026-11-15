@@ -17279,6 +17279,31 @@ say row(3)[1][59];
 cell-3-59
 ```
 
+## private_call__a_postfix_on_a_declaration_and_an_unqualified_private_call
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+try { EVAL 'my $f!ao = "beh";' }; say $!.^name;
+try { EVAL 'my $g; $g!zz' }; say $!.^name;
+class A { method !p { 7 }; method m { self!p }; method n($o) { $o!p } }
+say A.new.m; say A.new.n(A.new);
+my $h.say;
+my $s.defined.say;
+my @a.push(3); say @a;
+say "end";
+```
+
+```stdout
+X::Method::Private::Unqualified
+X::Method::Private::Unqualified
+7
+7
+(Any)
+False
+[3]
+end
+```
+
 ## rewrite__rr03_containers
 
 ```Raku
