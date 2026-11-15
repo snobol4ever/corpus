@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1669 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=45 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,24
+# shape: entries=1670 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=45 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,25
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -1364,7 +1364,7 @@ sub_say_replace_1	chunk:11	feat:if	if say sub
 ladder__rung04_arrays_a_non_literal_left_of_xx_is_a_thunk_evaluated_once_per_repetition	chunk:08	feat:sub	say sigil_array sub
 ladder__rung19_block_methcall_sort_by_a_two_arg_comparator_block_past_64_elements	chunk:15	feat:sort	range_op say sigil_array sort
 sub_say_5	chunk:13	feat:string_concat	say string_concat sub
-benchmark_spinner	chunk:16	feat:for	for sigil_array sub
+benchmark_spinner	chunk:17	feat:for	for sigil_array sub
 ladder__rung15_blocks_a_my_declaration_without_a_value_keeps_what_a_begin_check_init_or_enter_phaser_stored	chunk:09	feat:sigil_hash	sigil_array sigil_hash string_concat
 ladder__rung07_subs_a_literal_passed_to_an_is_rw_parameter_throws_x_parameter_rw	chunk:12	feat:try	sigil_array sub try
 ladder__rung02_arithmetic_rat_smartmatch_truthiness_function_forms_and_type_checks	chunk:10	feat:smartmatch	say smartmatch string_concat
@@ -1604,6 +1604,7 @@ ladder__rung12_exceptions_fail_returns_a_failure_that_is_undefined_handled_by_it
 ladder__rung01_variables_a_package_variable_is_declared_with_our_and_read_by_its_qualified_name	core	core	method our sigil_array sigil_hash sub
 multi_sub_smartmatch_replace_1	core	core	if multi range_op regex say smartmatch string_concat sub
 ladder__rung04_arrays_binding_an_array_to_an_element_aliases_it_and_pop_shift_a_zen_slice_and_an_element_store_value_agree_with_rakudo	chunk:08	feat:for_with_say	for for_with_say if range_op sigil_array sub
+exceptions__a_write_to_a_topic_bound_to_a_literal_dies	chunk:16	feat:given	for for_with_say given regex sigil_array string_concat try
 class_multi_sub_replace_2	chunk:12	feat:sub_with_return	has multi return say sub sub_with_return
 class_multi_sub_replace_3	chunk:12	feat:sub_with_return	has multi return say sub sub_with_return
 class_multi_sub_replace_5	chunk:12	feat:sub_with_return	has multi return say sub sub_with_return

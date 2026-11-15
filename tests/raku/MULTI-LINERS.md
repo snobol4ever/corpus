@@ -20757,6 +20757,26 @@ say [+] nextrow(8)[];
 22
 ```
 
+## exceptions__a_write_to_a_topic_bound_to_a_literal_dies
+
+```Raku
+try { given "meows" { s/e/E/ } }; say $!.^name; say $!.message; try { given 5 { $_ = 6 } }; say $!.^name; say $!.message; try { for "ab", "cd" { tr/a/A/ } }; say $!.message; my @a = "ab", "cd"; for @a { tr/a/A/ }; say @a; try { given "lit" { $_ ~= "x" } }; say $!.message; given "lit" { say .uc; for 1, 2 { say $_ } }; with "w" -> $v { say $v }
+```
+
+```stdout
+X::Assignment::RO
+Cannot modify an immutable Str (meows)
+X::AdHoc
+Cannot assign to an immutable value
+Cannot modify an immutable Str (ab)
+[Ab cd]
+Cannot modify an immutable Str (lit)
+LIT
+1
+2
+w
+```
+
 ## class_multi_sub_replace_2
 
 ```Raku
