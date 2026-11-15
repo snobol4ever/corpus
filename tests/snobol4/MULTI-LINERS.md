@@ -19765,6 +19765,34 @@ LEQ 123
 LNE 132
 ```
 
+## sweep__a_direct_goto_in_square_brackets_is_a_direct_goto
+
+```SNOBOL4
+         C = CODE(' OUTPUT = 1 :(L1)')
+         N = N + 1                              :[C]
+L1       D = CODE(' OUTPUT = 2 :(L2)')
+         EQ(1,1)                                :S[D]
+L2       C3 = CODE(' OUTPUT = 3 :(L3)')
+         D3 = CODE(' OUTPUT = 4 :(L3)')
+         EQ(1,2)                                :S[C3]F[D3]
+L3       A = ARRAY(2)
+         A[1] = CODE(' OUTPUT = 5 :(L4)')
+                                                :[A[1]]
+L4       E = CODE(' OUTPUT = 6 :(L5)')
+         EQ(1,2)                                :F[E]S(L5)
+L5       OUTPUT = 'end'
+END
+```
+
+```stdout
+1
+2
+4
+5
+6
+end
+```
+
 ## table_array_datatype_1
 
 ```SNOBOL4
@@ -29636,6 +29664,37 @@ END
 212:  Y = A . (X ? 'a')
 212:  Y = A $ (X ? 'a')
 212:  Y = 1 :(X ? 'L')
+```
+
+## sweep__size_of_a_value_that_is_no_string_is_error_189
+
+```SNOBOL4
+        &ERRLIMIT = 10
+        SETEXIT('H')
+        T = TABLE()
+        A = ARRAY(3)
+        DATA('nd(v)')
+        OUTPUT = SIZE('abc') ' ' SIZE(123) ' ' SIZE(1.5) ' ' SIZE() ' ' SIZE(.X)
+        OUTPUT = 't:' SIZE(T)
+        OUTPUT = 'a:' SIZE(A)
+        OUTPUT = 'c:' SIZE(CODE(' X = 1'))
+        OUTPUT = 'd:' SIZE(nd(1))
+        P = LEN(1)
+        OUTPUT = 'p:' SIZE(P)
+        OUTPUT = 'end'       :(END)
+H       OUTPUT = 'error ' &ERRTYPE
+        SETEXIT('H')         :(CONTINUE)
+END
+```
+
+```stdout
+3 3 3 0 1
+error 189
+error 189
+error 189
+error 189
+error 189
+end
 ```
 
 ## ladder__rung13_dotnet_an_expression_converts_to_a_pattern
