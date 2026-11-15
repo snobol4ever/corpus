@@ -8275,6 +8275,31 @@ end
 8
 ```
 
+## sweep__a_call_of_a_name_that_is_only_another_languages_builtin_is_error_106
+
+```Icon
+procedure main()
+   &error := 10;
+   if not min(3, 1, 2) then write("min: error ", &errornumber);
+   if not max(3, 1, 2) then write("max: error ", &errornumber);
+   if not printf("%d", 5) then write("printf: error ", &errornumber);
+   if not sprintf("%d", 5) then write("sprintf: error ", &errornumber);
+   if not nosuch(1) then write("nosuch: error ", &errornumber);
+   write(abs(-3), " ", iand(6, 3), " ", image(min), " ", image(abs));
+   write("end");
+end
+```
+
+```stdout
+min: error 106
+max: error 106
+printf: error 106
+sprintf: error 106
+nosuch: error 106
+3 2 &null function abs
+end
+```
+
 ## unicon__uni_pm_immed_local
 
 ```Icon
