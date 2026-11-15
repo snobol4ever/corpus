@@ -1,0 +1,9 @@
+DEFINE tutorial
+ 
+1) SQR(7) = 49
+ 
+2) SHOUT('hi there') = ** hi there **
+ 
+3) SAFEDIV demo
+   40/8 = 5
+   0 case failed (good -- :F fired)

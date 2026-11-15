@@ -1,0 +1,4 @@
+root	/home/resources/collections/snobol4/mikebeer-snobol
+origin	https://github.com/mikebeer/snobol (the tests, examples and benchmarks of a CREXX and C SNOBOL4 interpreter)
+version	c726b2b (2026-10-19)
+licence	none stated (no licence file; no program of it is stored in the corpus)

@@ -1,0 +1,9 @@
+I/O tutorial -- echoing lines until EOF
+(Ctrl-D in interactive mode, end of file in batch.)
+ 
+line 1: first line
+line 2: second line
+line 3: third
+line 4: last
+ 
+read 4 lines.

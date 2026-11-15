@@ -1,0 +1,11 @@
+Palindrome check
+ 
+input: RACECAR
+  -> palindrome
+ 
+input: HELLO
+  -> not a palindrome
+ 
+input: ABCBA
+  -> palindrome
+ 

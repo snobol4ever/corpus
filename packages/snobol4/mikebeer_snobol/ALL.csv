@@ -1,0 +1,12 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,bench/loops,bench/loops.sno,mikebeer_snobol__bench/loops,mikebeer_snobol,56,0,131072,4096,60,
+2,bench/strings,bench/strings.sno,mikebeer_snobol__bench/strings,mikebeer_snobol,47,0,131072,4096,60,
+3,bench/tables,bench/tables.sno,mikebeer_snobol__bench/tables,mikebeer_snobol,50,0,131072,4096,60,
+4,examples/hello,examples/hello.sno,mikebeer_snobol__examples/hello,mikebeer_snobol,3,0,131072,4096,60,
+5,examples/roman,examples/roman.sno,mikebeer_snobol__examples/roman,mikebeer_snobol,17,0,131072,4096,60,
+6,examples/sieve,examples/sieve.sno,mikebeer_snobol__examples/sieve,mikebeer_snobol,16,0,131072,4096,60,
+7,tests/fold,tests/fold.sno,mikebeer_snobol__tests/fold,mikebeer_snobol,5,0,131072,4096,60,
+8,tests/hello,tests/hello.sno,mikebeer_snobol__tests/hello,mikebeer_snobol,3,0,131072,4096,60,
+9,tests/patterns,tests/patterns.sno,mikebeer_snobol__tests/patterns,mikebeer_snobol,45,0,131072,4096,60,
+10,tests/roman,tests/roman.sno,mikebeer_snobol__tests/roman,mikebeer_snobol,17,0,131072,4096,60,
+11,tests/sieve,tests/sieve.sno,mikebeer_snobol__tests/sieve,mikebeer_snobol,16,0,131072,4096,60,

@@ -1,0 +1,7 @@
+String reversal demo
+ 
+input:  HELLO WORLD
+output: DLROW OLLEH
+ 
+input:  SNOBOL4
+output: 4LOBONS

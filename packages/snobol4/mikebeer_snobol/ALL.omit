@@ -1,0 +1,8 @@
+bench/recursion.sno: ORACLE-REFUSES: SPITBOL ends it with an error: recursion.sno(30) : ERROR 205 -- string length exceeds value of maxlngth keyword
+examples/calc.sno: NEEDS-INPUT: its answer changes with what standard input holds
+examples/wordfreq.sno: ORACLE-REFUSES: SPITBOL ends it with an error: wordfreq.sno(12) : ERROR 235 -- subscripted operand is not table or array
+tests/calc.sno: NEEDS-INPUT: its answer changes with what standard input holds
+tests/errors.sno: DIFFERS-BETWEEN-RUNS: exit 231 and 231, 440 and 440 bytes
+tests/features.sno: ORACLE-REFUSES: SPITBOL ends it with an error: features.sno(43) : ERROR 063 -- arg first argument is not program function name
+tests/functions.sno: NEEDS-INPUT: its answer changes with what standard input holds
+tests/wordfreq.sno: ORACLE-REFUSES: SPITBOL ends it with an error: wordfreq.sno(12) : ERROR 235 -- subscripted operand is not table or array

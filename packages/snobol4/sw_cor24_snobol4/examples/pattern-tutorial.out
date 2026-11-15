@@ -1,0 +1,27 @@
+SNOBOL4 pattern tutorial
+ 
+1) literal match
+   subject:   I MISS MY MOTHER
+   matched MOTHER
+ 
+2) SPAN(digits) capture
+   subject:   price 4250 dollars
+   number:    4250
+ 
+3) BREAK to delimiter
+   subject:   NAME=ALICE
+   key:       NAME
+ 
+4) literal + REM capture
+   subject:   I FEEL HAPPY
+   tail:      HAPPY
+ 
+5) LEN with literal and variable
+   subject:   HELLO WORLD
+   first 5:   HELLO
+   char[6]:   W
+ 
+6) split key=value
+   subject:   COLOR=BLUE
+   key:       COLOR
+   value:     BLUE

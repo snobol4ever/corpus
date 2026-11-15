@@ -1,0 +1,4 @@
+root	/home/resources/collections/snobol4/mdhender-sil/internal/programs/sno
+origin	https://github.com/mdhender/sil (the test programs of a SIL interpreter in Go, internal/programs/sno)
+version	398c46e (2026-08-17)
+licence	BSD 2-Clause (LICENSE: Copyright (c) 2021, Michael D Henderson)

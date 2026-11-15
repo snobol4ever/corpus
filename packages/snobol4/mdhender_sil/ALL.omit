@@ -1,0 +1,9 @@
+badgoto.sno: ORACLE-REFUSES: SPITBOL ends it with an error: badgoto.sno(7) : ERROR 038 -- goto undefined label
+badsyntax.sno: DIFFERS-BETWEEN-RUNS: exit 231 and 231, 347 and 347 bytes
+charcode.sno: ORACLE-REFUSES: SPITBOL ends it with an error: charcode.sno(17) : ERROR 248 -- attempted redefinition of system function
+noend.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
+overflow.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 324 and 324 bytes
+reverse.sno: ORACLE-REFUSES: SPITBOL ends it with an error: reverse.sno(9) : ERROR 248 -- attempted redefinition of system function
+stackover.sno: ORACLE-REFUSES: SPITBOL ends it with an error: stackover.sno(18) : ERROR 246 -- stack overflow
+stlimit.sno: ORACLE-REFUSES: SPITBOL ends it with an error: stlimit.sno(11) : ERROR 244 -- statement count exceeds value of stlimit keyword
+undefined.sno: ORACLE-REFUSES: SPITBOL ends it with an error: undefined.sno(11) : ERROR 022 -- undefined function called

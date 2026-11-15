@@ -1,0 +1,7 @@
+GCD demo (Euclid)
+ 
+gcd(48, 18):
+  result = 6
+ 
+gcd(1071, 462):
+  result = 21
