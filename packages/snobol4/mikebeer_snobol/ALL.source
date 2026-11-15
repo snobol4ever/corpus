@@ -1,4 +1,4 @@
 root	/home/resources/collections/snobol4/mikebeer-snobol
 origin	https://github.com/mikebeer/snobol (the tests, examples and benchmarks of a CREXX and C SNOBOL4 interpreter)
-version	c726b2b (2026-10-19); CHANGED IN PLACE 2026-11-15 by the cqo: bench/tables.sno (11 lines), examples/sieve.sno (3), tests/patterns.sno (5) and tests/sieve.sno (3) spell an angle-bracket subscript with square brackets, one character for one; the originals are at the origin and in /home/resources/saved-scratch/cqo/angle/orig/mikebeer-snobol
+version	c726b2b (2026-10-19); CHANGED IN PLACE 2026-11-15 by the cqo: bench/tables.sno (11 lines), examples/sieve.sno (3), tests/patterns.sno (5) and tests/sieve.sno (3) spell an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
 licence	none stated (no licence file; no program of it is stored in the corpus)
