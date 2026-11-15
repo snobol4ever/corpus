@@ -1,0 +1,1 @@
+# &time is printed in the last line ([Time: N seconds.]): pin the clock for both participants; SCRIP counts the CPU clock from the start of the process, so in mode 3 its &time holds the compile (0.053 where unicon answers 0.0)

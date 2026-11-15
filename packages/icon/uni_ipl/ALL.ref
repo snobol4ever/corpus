@@ -33,7 +33,7 @@ Drawdown:
 Treadling:
 #---------------------------------------------------------------- 3 progs/dd2res
 treadles needed: 0
-shafts needed: 0
+shafts needed: 1
 #--------------------------------------------------------------- 4 progs/ddfdump
 
 ddfdump.ddf:
