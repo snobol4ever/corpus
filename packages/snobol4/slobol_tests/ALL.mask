@@ -1,0 +1,2 @@
+# ALL.mask -- line masks for slobol_tests (FORMAT: entry<TAB>python-regex<TAB>reason), read by corpus_suite_harness.py read_mask_sidecar().
+lex	^ +[0-9]+  free bytes$	lex.sbl ends by printing COLLECT() * 5, the free bytes of the heap window times five: a figure of the implementation (skill snobol4 section 7, the COLLECT ruling of 2026-11-13: never faked, masked in both streams). MEASURED 2026-11-15 on SCRIP 8102d126c at the declared sizes: SCRIP prints 842080, sbl -bf 418495; every other line of the report, the statement count included, is graded exactly.

@@ -1,7 +1,7 @@
 rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
-1,asm,asm.sbl,snobol4,slobol_tests__asm,slobol_tests,3426,0,131072,4096,60,
+1,asm,asm.sbl,snobol4,slobol_tests__asm,slobol_tests,3426,0,131072,4096,60,--stlimit
 2,hi,hi.sbl,snobol4,slobol_tests__hi,slobol_tests,2,0,131072,4096,60,
-3,lex,lex.sbl,snobol4,slobol_tests__lex,slobol_tests,1010,0,131072,4096,60,
+3,lex,lex.sbl,snobol4,slobol_tests__lex,slobol_tests,1010,0,131072,4096,60,--stlimit
 4,test/float,test/float.sbl,snobol4,slobol_tests__test/float,slobol_tests,19,0,131072,4096,60,
 5,test/hello,test/hello.sbl,snobol4,slobol_tests__test/hello,slobol_tests,2,0,131072,4096,60,
 6,test/host,test/host.sbl,snobol4,slobol_tests__test/host,slobol_tests,3,0,131072,4096,60,
