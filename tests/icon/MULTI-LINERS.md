@@ -8492,6 +8492,35 @@ end
 12
 ```
 
+## ladder__rung45_proc_function
+
+```Icon
+procedure main()
+   local m, n;
+   m := proc("max", 0);
+   write(image(m));
+   write(m(3, 7));
+   n := proc("min", 0);
+   write(image(n));
+   write(n(3, 7));
+   write(image(proc("max")));
+   write(image(proc("max", 2)));
+   write(image(proc("write", 0)));
+   write(image(proc("main", 1)));
+end
+```
+
+```stdout
+function max
+7
+function min
+3
+function max
+function max
+function write
+procedure main
+```
+
 ## procedure_write_replace_11
 
 ```Icon
