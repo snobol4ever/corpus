@@ -1727,6 +1727,17 @@ not ok 13 - throws-like on code that lives
 ok 14 - did we throws-like X::AdHoc?
 ```
 
+## gather_regime__gather_body_runs_once_on_pull
+
+```Raku
+say ([+] gather { say 1 });
+```
+
+```stdout
+1
+0
+```
+
 ## parser__assign_bare
 
 ```Raku
@@ -5019,6 +5030,20 @@ say Sub ~~ Callable, " ", Code ~~ Callable;
 True True True
 True True False
 True True
+```
+
+## gather_regime__gather_body_runs_at_the_first_pull
+
+```Raku
+my $s = gather { say 1 };
+say "before";
+say $s.elems;
+```
+
+```stdout
+before
+1
+0
 ```
 
 ## ladder__rung01_variables_multiple_declaration

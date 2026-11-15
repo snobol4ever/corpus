@@ -81,6 +81,7 @@ world
 hi
 hi
 X::IO::Move
+0
 1-2
 ff
 50% me@example.com a & b a % b
