@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:40:51 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               A = 8000000
+2               OUTPUT = A + A
+3               OUTPUT = A + A + A
+4       END
+16000000
+24000000

@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- the run contract of snobol4hs_examples, read by util_build_package_suite.py: key<TAB>value<TAB>evidence.
+fatal	gradable	Lon 2026-11-15 13:3x CST, in the grader's window, verbatim: "You do realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?"; CEO-1344. A program SPITBOL ends with an error is an entry: its answer is what it printed, the fatal block included, and its want_rc the exit status.

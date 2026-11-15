@@ -1,0 +1,18 @@
+
+
+
+label.sbl(17) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              label.sbl
+in line              17
+in statement         12
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15136
+memory left (bytes)  1033432
+

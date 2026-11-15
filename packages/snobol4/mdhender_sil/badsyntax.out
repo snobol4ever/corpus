@@ -1,0 +1,16 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:40:47 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               OUTPUT = (1 + 2
+                              !
+badsyntax.sno(15,23) : ERROR 226 -- syntax error: missing right paren
+
+2       END

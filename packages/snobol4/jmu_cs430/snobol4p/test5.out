@@ -1,0 +1,26 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:39:42 2026
+
+
+
+                                                                                                                page 1
+
+44      inner  i = 1loop2  LGT(anArray[i], anarray[i+1]       	:F(more)
+                   !
+test5.sno(64,12) : ERROR 231 -- syntax error: invalid numeric item
+
+46             anArray[i] = anArray[i+1]
+                                    !
+test5.sno(66,29) : ERROR 233 -- syntax error: invalid use of operator
+
+47             anArray[i+1] = temp
+                       !
+test5.sno(67,16) : ERROR 233 -- syntax error: invalid use of operator
+
+48      more   i = i+1
+                   !
+test5.sno(68,12) : ERROR 233 -- syntax error: invalid use of operator
+

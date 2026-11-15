@@ -1,0 +1,18 @@
+
+
+
+TPROFILE.lss(22) : ERROR 210 -- keyword value assigned is negative or too large
+
+
+
+
+
+in file              TPROFILE.lss
+in line              22
+in statement         17
+stmts executed       12
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  20072
+memory left (bytes)  1028496
+

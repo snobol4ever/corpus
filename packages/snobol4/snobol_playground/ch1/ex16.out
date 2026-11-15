@@ -1,0 +1,18 @@
+
+
+
+ex16.sno(11) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              ex16.sno
+in line              11
+in statement         21
+stmts executed       20
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15248
+memory left (bytes)  1033320
+

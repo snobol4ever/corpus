@@ -1,0 +1,18 @@
+
+
+
+diff.sno(39) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              diff.sno
+in line              39
+in statement         20
+stmts executed       12
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  25368
+memory left (bytes)  1023200
+

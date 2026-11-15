@@ -1,0 +1,33 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:40:47 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               OUTPUT = 'this line runs'               :(NOWHERE)
+2               OUTPUT = 'this line does not'
+3       END
+this line runs
+
+
+
+badgoto.sno(7) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              badgoto.sno
+in line              7
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11224
+memory left (bytes)  1037344
+

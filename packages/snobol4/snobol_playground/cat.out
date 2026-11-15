@@ -1,0 +1,19 @@
+Reading: -
+
+
+
+cat.sno(9) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              cat.sno
+in line              9
+in statement         7
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11960
+memory left (bytes)  1036608
+

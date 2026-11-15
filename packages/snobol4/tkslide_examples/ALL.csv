@@ -6,3 +6,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 5,multiplication_tables,multiplication_tables.sno,tkslide_examples__multiplication_tables,tkslide_examples,7,0,131072,4096,60,
 6,pad_comment,pad_comment.sno,tkslide_examples__pad_comment,tkslide_examples,10,0,131072,4096,60,
 7,substrings,substrings.sno,tkslide_examples__substrings,tkslide_examples,16,0,131072,4096,60,
+8,take_note,take_note.sno,tkslide_examples__take_note,tkslide_examples,12,0,131072,4096,60,

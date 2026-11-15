@@ -1,41 +1,6 @@
-practice/acronym/lib/cmprep.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/acronym/lib/inhale.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/acronym/lib/listtests.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/acronym/lib/nextword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/acronym/lib/whereami.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/acronym/test.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test.sno(10) : ERROR 022 -- undefined function called
-practice/hello-world/hello-world.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-practice/hello-world/lib/cmprep.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/hello-world/lib/inhale.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/hello-world/lib/listtests.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/hello-world/lib/nextword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/hello-world/lib/whereami.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/hello-world/test.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test.sno(10) : ERROR 022 -- undefined function called
-practice/isogram/isogram.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-practice/isogram/lib/cmprep.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/isogram/lib/inhale.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/isogram/lib/listtests.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/isogram/lib/nextword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/isogram/lib/whereami.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/isogram/test.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test.sno(10) : ERROR 022 -- undefined function called
-practice/leap/leap.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-practice/leap/lib/cmprep.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/leap/lib/inhale.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/leap/lib/listtests.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/leap/lib/nextword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/leap/lib/whereami.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/leap/test.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test.sno(10) : ERROR 022 -- undefined function called
-practice/pangram/lib/cmprep.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/pangram/lib/inhale.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/pangram/lib/listtests.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/pangram/lib/nextword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/pangram/lib/whereami.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/pangram/pangram.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-practice/pangram/test.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test.sno(10) : ERROR 022 -- undefined function called
-practice/raindrops/lib/cmprep.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/raindrops/lib/inhale.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/raindrops/lib/listtests.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/raindrops/lib/nextword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/raindrops/lib/whereami.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-practice/raindrops/raindrops.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-practice/raindrops/test.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test.sno(10) : ERROR 022 -- undefined function called
+practice/acronym/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
+practice/hello-world/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
+practice/isogram/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
+practice/leap/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
+practice/pangram/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 335 bytes
+practice/raindrops/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes

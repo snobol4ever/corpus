@@ -17,3 +17,14 @@ comment mark written `*`. One character for one; every string literal and user n
 
 No SCRIP reading was taken at the cut (Lon 2026-11-14: host the container with the oracle's answers, the grading comes later); the cycle grades it.
 Built by `util_build_package_suite.py corpus/packages/snobol4/exercism_snobol4 --lang snobol4 --mine CENSUS.tsv --twice` (the grader 2026-11-15).
+
+## RE-CUT 2026-11-15: AN ERROR FROM THE ORACLE IS AN ANSWER
+
+Lon, 2026-11-15 13:3x CST, in the grader's window, verbatim: "go scrutinize all excluded SNOBOL4 programs. SNOBOL4 should be rock solid." / "You do
+realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?" So `CONTRACT.tsv` says `fatal gradable`
+and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. THE COUNTS ABOVE THIS SECTION ARE THE FIRST CUT'S; THESE STAND:
+
+| | |
+|---|---|
+| rows | 36: 1 print an answer; 35 print nothing and are graded by exit status |
+| declared out | 6 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 6 answer differently on two runs |

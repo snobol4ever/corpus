@@ -1,2 +1,12 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
-1,fact,fact.sno,decus_vax84a__fact,decus_vax84a,52,0,131072,4096,60,
+1,ali,ali.sno,decus_vax84a__ali,decus_vax84a,83,0,131072,4096,60,
+2,atn,atn.sno,decus_vax84a__atn,decus_vax84a,276,231,131072,4096,60,
+3,christmas,christmas.sno,decus_vax84a__christmas,decus_vax84a,41,0,131072,4096,60,
+4,deal,deal.sno,decus_vax84a__deal,decus_vax84a,134,0,131072,4096,60,
+5,diag1,diag1.sno,decus_vax84a__diag1,decus_vax84a,356,0,131072,4096,60,
+6,diag2,diag2.sno,decus_vax84a__diag2,decus_vax84a,254,231,131072,4096,60,
+7,fact,fact.sno,decus_vax84a__fact,decus_vax84a,52,0,131072,4096,60,
+8,palin,palin.sno,decus_vax84a__palin,decus_vax84a,19,231,131072,4096,60,
+9,symbol,symbol.sno,decus_vax84a__symbol,decus_vax84a,203,0,131072,4096,60,
+10,synt,synt.sno,decus_vax84a__synt,decus_vax84a,115,231,131072,4096,60,
+11,treesort,treesort.sno,decus_vax84a__treesort,decus_vax84a,102,0,131072,4096,60,

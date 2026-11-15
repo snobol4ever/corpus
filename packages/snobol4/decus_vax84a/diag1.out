@@ -1,0 +1,78 @@
+************************************************
+****	s n o b o l	 d i a g n o s t i c s ****
+****		 p h a s e    o	n e	       ****
+************************************************
+****	 any trace output indicates an error   ****
+************************************************
+****19******  test = '	error detected		***'
+****20******  test = '	error detected		***'
+****21******  test = '	error detected		***'
+****22******  test = '	error detected		***'
+
+
+
+diag1.sno(136) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              diag1.sno
+in line              136
+in statement         93
+stmts executed       120
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  44376
+memory left (bytes)  1004192
+
+
+
+
+dump of natural variables
+
+BAL = PATTERN
+OUTPUT = '************************************************'
+a = 26
+aa = 'a'
+b = 'y'
+bb = 'b'
+c = 'z'
+cc = 'c'
+d = 'd'
+e = 'e'
+f = 'f'
+stars = '	error detected		***'
+test = '	error detected		***'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 2
+&ERRLIMIT = 0
+&ERRTEXT = 'undefined function called'
+&ERRTYPE = 22
+&FILE = 'diag1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'diag1.sno'
+&LASTLINE = 135
+&LASTNO = 92
+&LINE = 136
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'FRETURN'
+&STCOUNT = 120
+&STLIMIT = 2147483647
+&STNO = 93
+&TRACE = 999996
+&TRIM = 1
+
+
+

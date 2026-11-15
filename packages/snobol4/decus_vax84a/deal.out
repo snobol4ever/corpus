@@ -1,0 +1,18 @@
+
+
+
+deal.sno(3) : ERROR 198 -- trace first argument is not appropriate name
+
+
+
+
+
+in file              deal.sno
+in line              3
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  23456
+memory left (bytes)  1025112
+

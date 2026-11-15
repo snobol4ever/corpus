@@ -1,0 +1,18 @@
+
+
+
+vinside.sno(20) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              vinside.sno
+in line              20
+in statement         3
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  45648
+memory left (bytes)  1002920
+

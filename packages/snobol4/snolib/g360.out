@@ -1,0 +1,148 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:50:13 2026
+
+
+
+                                                                                                                page 1
+
+1                exec "snobol4" "-b" "$0" "$@"
+                                              !
+g360.spt(2,39) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+G360                                                                                                           page 2
+
+
+3                DEFINE('REPL(S1,S2,S3)C,T,FINDC')                   :(REPL_END)
+                                                                                !
+g360.spt(7,73) : ERROR 230 -- syntax error: illegal character
+
+4       REPL     S2 LEN(1) . C =                                     :F(FRETURN)
+                                                                                !
+g360.spt(9,73) : ERROR 230 -- syntax error: illegal character
+
+5                FINDC = BREAK(C) . T LEN(1)
+                                            !
+g360.spt(10,37) : ERROR 230 -- syntax error: illegal character
+
+6                S2 = POS(0) S2
+                               !
+g360.spt(11,24) : ERROR 230 -- syntax error: illegal character
+
+7       REPL_1   S1 FINDC =                                           :F(REPL_2)
+                                                                                !
+g360.spt(12,73) : ERROR 230 -- syntax error: illegal character
+
+8                S1 S2 =                                              :F(REPL_3)
+                                                                                !
+g360.spt(13,73) : ERROR 230 -- syntax error: illegal character
+
+9                REPL = REPL T S3                                      :(REPL_1)
+                                                                                !
+g360.spt(14,73) : ERROR 230 -- syntax error: illegal character
+
+10      REPL_3   REPL = REPL T C                                       :(REPL_1)
+                                                                                !
+g360.spt(15,73) : ERROR 230 -- syntax error: illegal character
+
+11      REPL_2   REPL = REPL S1                                        :(RETURN)
+                                                                                !
+g360.spt(16,73) : ERROR 230 -- syntax error: illegal character
+
+13               TERMINAL = 'G360 (SUN FEB  9 18:44:54 EST 2014)'
+                                                                 !
+g360.spt(37,58) : ERROR 230 -- syntax error: illegal character
+
+14               DEFINE('G360(S)')
+                                  !
+g360.spt(38,27) : ERROR 230 -- syntax error: illegal character
+
+15               Q = "'"
+                        !
+g360.spt(39,17) : ERROR 230 -- syntax error: illegal character
+
+16               QQ = '"'
+                         !
+g360.spt(40,18) : ERROR 230 -- syntax error: illegal character
+
+17      TOP      R = INPUT                                               :F(END)
+                                                                                !
+g360.spt(42,73) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+G360                                                                                                           page 3
+
+
+18               S = ''
+                       !
+g360.spt(44,16) : ERROR 230 -- syntax error: illegal character
+
+19               R FENCE ANY('*#;|!')                                   :S(CMNT)
+                                                                                !
+g360.spt(45,73) : ERROR 230 -- syntax error: illegal character
+
+20      LOOP     R ARB . L (Q | QQ) $ DELIM ARB . M *DELIM REM . R      :F(DONE)
+                                                                                !
+g360.spt(46,73) : ERROR 230 -- syntax error: illegal character
+
+21               S = S G360(L) DELIM M DELIM                             :(LOOP)
+                                                                                !
+g360.spt(47,73) : ERROR 230 -- syntax error: illegal character
+
+22      DONE     S = S G360(R)
+                              !
+g360.spt(48,23) : ERROR 230 -- syntax error: illegal character
+
+23               OUTPUT = S                                               :(TOP)
+                                                                                !
+g360.spt(50,73) : ERROR 230 -- syntax error: illegal character
+
+24      CMNT     OUTPUT = R                                               :(TOP)
+                                                                                !
+g360.spt(51,73) : ERROR 230 -- syntax error: illegal character
+
+25      G360     S = REPL(S, '┌', '*')
+                                        !
+g360.spt(53,33) : ERROR 230 -- syntax error: illegal character
+
+26               S = REPL(S, '│', '*')
+                                        !
+g360.spt(54,33) : ERROR 230 -- syntax error: illegal character
+
+27               S = REPL(S, '└', '*')
+                                        !
+g360.spt(55,33) : ERROR 230 -- syntax error: illegal character
+
+28               S = REPL(S, '←', '=')
+                                        !
+g360.spt(56,33) : ERROR 230 -- syntax error: illegal character
+
+29               S = REPL(S, '¬', '~')
+                                       !
+g360.spt(57,32) : ERROR 230 -- syntax error: illegal character
+
+30               S = REPL(S, '↑', '^')
+                                        !
+g360.spt(58,33) : ERROR 230 -- syntax error: illegal character
+
+31               G360 = S                                              :(RETURN)
+                                                                                !
+g360.spt(59,73) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+G360                                                                                                           page 4
+
+
+32      END START
+            !
+g360.spt(61,5) : ERROR 215 -- syntax error: undefined or erroneous entry label
+

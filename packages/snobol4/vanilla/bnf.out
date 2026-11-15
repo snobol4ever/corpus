@@ -1,0 +1,18 @@
+
+
+
+bnf.sno(31) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              bnf.sno
+in line              31
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15104
+memory left (bytes)  1033464
+

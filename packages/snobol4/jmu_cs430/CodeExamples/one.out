@@ -1,0 +1,20 @@
+star trek
+test succeeded
+
+
+
+one.sno(7) : ERROR 001 -- addition left operand is not numeric
+
+
+
+
+
+in file              one.sno
+in line              7
+in statement         6
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11728
+memory left (bytes)  1036840
+

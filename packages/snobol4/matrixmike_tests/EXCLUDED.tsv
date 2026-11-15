@@ -1,7 +1,5 @@
 # EXCLUDED.tsv -- matrixmike_tests: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
 # the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-digits.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: digits.sno(6) : ERROR 251 -- keyword operand is not name of defined keyword (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-reading.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: reading.sno(3) : ERROR 116 -- inappropriate file specification for input (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+digits.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 387 and 315 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 test3.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 58 and 58 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 timing.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 1 and 1, 778 and 778 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-url.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: url.sno(6) : ERROR 116 -- inappropriate file specification for input (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

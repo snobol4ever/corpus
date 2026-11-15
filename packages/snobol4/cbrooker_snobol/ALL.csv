@@ -1,3 +1,9 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
 1,base,base.sno,cbrooker_snobol__base,cbrooker_snobol,10,0,131072,4096,60,
-2,wordsize,wordsize.sno,cbrooker_snobol__wordsize,cbrooker_snobol,57,0,131072,4096,60,
+2,demo,demo.sno,cbrooker_snobol__demo,cbrooker_snobol,74,0,131072,4096,60,
+3,diff,diff.sno,cbrooker_snobol__diff,cbrooker_snobol,139,0,131072,4096,60,
+4,smartvow,smartvow.sno,cbrooker_snobol__smartvow,cbrooker_snobol,52,0,131072,4096,60,
+5,vinside,vinside.sno,cbrooker_snobol__vinside,cbrooker_snobol,338,0,131072,4096,60,
+6,vowels,vowels.sno,cbrooker_snobol__vowels,cbrooker_snobol,40,0,131072,4096,60,
+7,wdstar,wdstar.sno,cbrooker_snobol__wdstar,cbrooker_snobol,24,0,131072,4096,60,
+8,wordsize,wordsize.sno,cbrooker_snobol__wordsize,cbrooker_snobol,57,0,131072,4096,60,

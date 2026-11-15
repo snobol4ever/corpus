@@ -1,0 +1,30 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:37:57 2026
+
+
+
+                                                                                                                page 1
+
+12      	 binary	  =   ANY('-+.$*!/@*#' '~|/!^')	! '**'
+
+synt.sno(27) : ERROR 015 -- exponentiation right operand is not numeric
+
+20      .		       ! '(' *expression ')' ! *arrayref)
+
+synt.sno(36) : ERROR 015 -- exponentiation right operand is not numeric
+
+21      	 operation   =	 *element binaryop (*element ! *expression)
+
+synt.sno(37) : ERROR 015 -- exponentiation right operand is not numeric
+
+26      	 label	 =   ANY(alphanumerics)	(BREAK(' ;') ! REM)
+
+synt.sno(43) : ERROR 015 -- exponentiation right operand is not numeric
+
+31      	 eos   =   RPOS(0) ! ';'
+
+synt.sno(53) : ERROR 015 -- exponentiation right operand is not numeric
+

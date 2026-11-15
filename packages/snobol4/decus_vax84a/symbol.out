@@ -1,0 +1,18 @@
+
+
+
+symbol.sno(10) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              symbol.sno
+in line              10
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  21344
+memory left (bytes)  1027224
+

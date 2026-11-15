@@ -1,0 +1,18 @@
+
+
+
+unused.sbl(20) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              unused.sbl
+in line              20
+in statement         13
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  55776
+memory left (bytes)  992792
+

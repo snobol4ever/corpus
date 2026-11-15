@@ -1,0 +1,19 @@
+part1
+
+
+
+url.sno(6) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              url.sno
+in line              6
+in statement         6
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12832
+memory left (bytes)  1035736
+

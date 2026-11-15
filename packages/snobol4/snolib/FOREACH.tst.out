@@ -1,0 +1,18 @@
+
+
+
+FOREACH.lss(63) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              FOREACH.lss
+in line              63
+in statement         73
+stmts executed       55
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  25920
+memory left (bytes)  1022648
+

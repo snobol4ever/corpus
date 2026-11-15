@@ -1,11 +1,8 @@
 # EXCLUDED.tsv -- strange_code_book: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
 # the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-chapter_05/classifier/classify.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: classify.sno(33) : ERROR 116 -- inappropriate file specification for input (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-chapter_05/classifier/nearest_centroid.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: nearest_centroid.sno(15) : ERROR 116 -- inappropriate file specification for input (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/copy.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/hello2.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/input.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-chapter_05/menu.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: menu.sno(9) : ERROR 038 -- goto undefined label (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/temperature.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/uppercase.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_10/bf.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

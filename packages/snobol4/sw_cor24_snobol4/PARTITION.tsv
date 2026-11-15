@@ -1,16 +1,17 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=47 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=45
+# shape: entries=52 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=3 chunks=1 sizes=49
 entry	part	cluster	shells
-demos/factorial	core	core	
+demos/factorial	chunk:01	dir:demos	
 demos/fibonacci	chunk:01	dir:demos	
 demos/gcd	chunk:01	dir:demos	
 demos/nqueens	chunk:01	dir:demos	
 demos/palindrome	chunk:01	dir:demos	
 demos/reverse	chunk:01	dir:demos	
 demos/sieve	chunk:01	dir:demos	
-examples/any_pattern	core	core	
+examples/any_pattern	chunk:01	dir:examples	
 examples/array	chunk:01	dir:examples	
+examples/branches	core	core	want_rc
 examples/break	chunk:01	dir:examples	
 examples/bug11min	chunk:01	dir:examples	
 examples/builtin_arg_expr	chunk:01	dir:examples	
@@ -21,6 +22,7 @@ examples/concat_builtin	chunk:01	dir:examples
 examples/concat_chain	chunk:01	dir:examples	
 examples/continuation	chunk:01	dir:examples	
 examples/count	chunk:01	dir:examples	
+examples/dating	core	core	want_rc
 examples/define-tutorial	chunk:01	dir:examples	
 examples/factorial	chunk:01	dir:examples	
 examples/fizzbuzz	chunk:01	dir:examples	
@@ -38,6 +40,7 @@ examples/multiply	chunk:01	dir:examples
 examples/negative_output	chunk:01	dir:examples	
 examples/parens_expr	chunk:01	dir:examples	
 examples/pattern-tutorial	chunk:01	dir:examples	
+examples/pattern	chunk:01	dir:examples	
 examples/pattern_captures	chunk:01	dir:examples	
 examples/remdr	chunk:01	dir:examples	
 examples/replace	chunk:01	dir:examples	
@@ -47,5 +50,7 @@ examples/span	chunk:01	dir:examples
 examples/span_fail	chunk:01	dir:examples	
 examples/strarith	chunk:01	dir:examples	
 examples/stress	chunk:01	dir:examples	
+examples/test_builtins	core	core	want_rc
+examples/test_limits	chunk:01	feat:want_rc	want_rc
 examples/two_str	chunk:01	dir:examples	
 examples/underscore_labels	chunk:01	dir:examples	

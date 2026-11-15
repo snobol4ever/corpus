@@ -1,6 +1,0 @@
-# EXCLUDED.tsv -- spitbol_88: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
-# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-DEMOS/GOTOS.spt	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: GOTOS.spt(48) : ERROR 244 -- statement count exceeds value of stlimit keyword (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-DEMOS/KWIC2.spt	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: KWIC2.spt(108) : ERROR 237 -- table referenced with more than one subscript (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-DEMOS/TREESORT.spt	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 1 and 1, 4939 and 4939 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-SANDLP/BNF.spt	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: BNF.spt(26) : ERROR 251 -- keyword operand is not name of defined keyword (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

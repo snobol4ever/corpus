@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:37:56 2026
+
+
+
+                                                                                                                page 1
+
+3       .		  *RTAB(x) @y @z (*h @z ! *EQ(y,z) ABORT) FAIL)
+
+palin.sno(5) : ERROR 015 -- exponentiation right operand is not numeric
+

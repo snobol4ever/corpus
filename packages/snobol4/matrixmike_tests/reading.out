@@ -1,0 +1,18 @@
+
+
+
+reading.sno(3) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              reading.sno
+in line              3
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11872
+memory left (bytes)  1036696
+

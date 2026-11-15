@@ -1,0 +1,34 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:40:53 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               OUTPUT = 'before'
+2               OUTPUT = NOSUCH(1)
+3               OUTPUT = 'after'
+4       END
+before
+
+
+
+undefined.sno(11) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              undefined.sno
+in line              11
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11392
+memory left (bytes)  1037176
+

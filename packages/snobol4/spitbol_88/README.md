@@ -20,3 +20,14 @@ STILL TO DO: the 26 functions of `SANDLP` are a library with no program that cal
 The demos are older texts of programs the package `spitbol_x64_tests` already grades. No SCRIP reading was taken at the cut (Lon
 2026-11-14); the cycle grades it. Built by `util_build_package_suite.py corpus/packages/snobol4/spitbol_88 --lang snobol4 --mine
 CENSUS.tsv --twice` (the grader 2026-11-15).
+
+## RE-CUT 2026-11-15: AN ERROR FROM THE ORACLE IS AN ANSWER
+
+Lon, 2026-11-15 13:3x CST, in the grader's window, verbatim: "go scrutinize all excluded SNOBOL4 programs. SNOBOL4 should be rock solid." / "You do
+realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?" So `CONTRACT.tsv` says `fatal gradable`
+and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. THE COUNTS ABOVE THIS SECTION ARE THE FIRST CUT'S; THESE STAND:
+
+| | |
+|---|---|
+| rows | 9: 3 print an answer; 2 end with SPITBOL's run-time error and are graded on its text and exit status; 4 print nothing and are graded by exit status |
+| owed | 6 read standard input and the collection ships no input for them |

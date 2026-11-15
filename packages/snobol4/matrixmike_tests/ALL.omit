@@ -1,12 +1,8 @@
-cross.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-digits.sno: ORACLE-REFUSES: SPITBOL ends it with an error: digits.sno(6) : ERROR 251 -- keyword operand is not name of defined keyword
+digits.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 387 and 315 bytes
 fcounts.sno: NEEDS-INPUT: its answer changes with what standard input holds
-initialv.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-reading.sno: ORACLE-REFUSES: SPITBOL ends it with an error: reading.sno(3) : ERROR 116 -- inappropriate file specification for input
 sudoku.sno: NEEDS-INPUT: its answer changes with what standard input holds
 test2.sno: NEEDS-INPUT: its answer changes with what standard input holds
 test3.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 58 and 58 bytes
 test4.sno: NEEDS-INPUT: its answer changes with what standard input holds
 timing.sno: DIFFERS-BETWEEN-RUNS: exit 1 and 1, 778 and 778 bytes
-url.sno: ORACLE-REFUSES: SPITBOL ends it with an error: url.sno(6) : ERROR 116 -- inappropriate file specification for input
 url2.sno: NEEDS-INPUT: its answer changes with what standard input holds

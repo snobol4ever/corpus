@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=63 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=62 chunks=2 sizes=60,2
+# shape: entries=68 features=3 ubiquitous=1(package) distinctive=2 core=3 clusters=65 chunks=2 sizes=60,5
 entry	part	cluster	shells
 AGT.tst	chunk:01	family:AGT	
 AI.tst	chunk:01	family:AI	
@@ -24,9 +24,12 @@ DDTCARD.tst	chunk:01	family:DDTCARD
 DEXP.tst	chunk:01	family:DEXP	
 ENDCARD.tst	chunk:01	family:ENDCARD	
 FASTBAL.tst	chunk:01	family:FASTBAL	
+FENCE.tst	chunk:01	family:FENCE	
 FIND.tst	chunk:01	family:FIND	
 FLOOR.tst	chunk:01	family:FLOOR	
+FOREACH.tst	core	core	want_rc
 GCD.tst	chunk:01	family:GCD	
+GOTOS.tst	chunk:01	family:GOTOS	
 HEX.tst	chunk:01	family:HEX	
 HOST.tst	chunk:01	family:HOST	
 HTMLESC.tst	chunk:01	family:HTMLESC	
@@ -60,8 +63,10 @@ STACK.tst	chunk:01	family:STACK
 STROUT.tst	chunk:01	family:STROUT	
 SWAP.tst	chunk:01	family:SWAP	
 TEST.tst	chunk:01	family:TEST	
-TRIMB.tst	chunk:01	family:TRIMB	
-TRUNC.tst	chunk:01	family:TRUNC	
-UNIQUE.tst	chunk:01	family:UNIQUE	
+TPROFILE.tst	chunk:01	family:TPROFILE	
+TRIMB.tst	chunk:02	family:TRIMB	
+TRUNC.tst	chunk:02	family:TRUNC	
+UNIQUE.tst	chunk:02	family:UNIQUE	
 UTF8.tst	chunk:02	family:UTF	
 WRAPPER.tst	chunk:02	family:WRAPPER	
+g360	core	core	language want_rc

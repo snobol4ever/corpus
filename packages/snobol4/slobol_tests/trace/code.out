@@ -1,0 +1,18 @@
+
+
+
+code.sbl(11) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              code.sbl
+in line              11
+in statement         8
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  53656
+memory left (bytes)  994912
+

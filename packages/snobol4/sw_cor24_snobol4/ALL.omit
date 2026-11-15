@@ -1,11 +1,6 @@
 demos/eliza.sno: NEEDS-INPUT: its answer changes with what standard input holds
-examples/branches.sno: DIFFERS-BETWEEN-RUNS: exit 1 and 1, 2510 and 2510 bytes
-examples/dating.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
 examples/fti_smoke.sno: DOES-NOT-END: no answer inside 60 s
 examples/issue11.sno: DOES-NOT-END: no answer inside 60 s
 examples/issue14.sno: DOES-NOT-END: no answer inside 60 s
-examples/pattern.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 examples/rawinput.sno: DOES-NOT-END: no answer inside 60 s
 examples/rawinput_lines.sno: DOES-NOT-END: no answer inside 60 s
-examples/test_builtins.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
-examples/test_limits.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).

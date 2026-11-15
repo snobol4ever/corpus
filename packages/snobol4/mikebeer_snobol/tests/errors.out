@@ -1,0 +1,18 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:40:58 2026
+
+
+
+                                                                                                                page 1
+
+2               X = 1 / 0                         :S(BAD)F(OK1)
+
+errors.sno(3) : ERROR 014 -- division caused integer overflow
+
+5       OK2     X = 'abc' + 1                     :F(OK3)
+
+errors.sno(6) : ERROR 001 -- addition left operand is not numeric
+

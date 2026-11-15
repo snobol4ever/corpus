@@ -1,0 +1,18 @@
+
+
+
+UNIQUE.lss(40) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              UNIQUE.lss
+in line              40
+in statement         23
+stmts executed       63
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  29696
+memory left (bytes)  1018872
+

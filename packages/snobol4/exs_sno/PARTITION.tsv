@@ -1,16 +1,28 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=12 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=2 chunks=1 sizes=11
+# shape: entries=24 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=22
 entry	part	cluster	shells
 forte1967/pe01	core	core	
 forte1967/pe02	chunk:01	dir:forte1967	
 forte1967/pe03-v1	chunk:01	dir:forte1967	
 forte1967/pe03-v2	chunk:01	dir:forte1967	
 forte1967/pe04	chunk:01	dir:forte1967	
+forte1967/pe05	chunk:01	dir:forte1967	
 forte1967/pe06	chunk:01	dir:forte1967	
 forte1967/pe07	chunk:01	dir:forte1967	
+forte1967/pe08	chunk:01	dir:forte1967	
 forte1967/pe09	chunk:01	dir:forte1967	
+forte1967/qs04	chunk:01	dir:forte1967	
+forte1967/qs05	chunk:01	dir:forte1967	
+forte1967/qs07	chunk:01	dir:forte1967	
+forte1967/qs08	chunk:01	dir:forte1967	
+forte1967/qs09	chunk:01	dir:forte1967	
+forte1967/qs10	chunk:01	dir:forte1967	
 forte1967/qs18	chunk:01	dir:forte1967	
-griswold-poage-polonsky1971/01-03	chunk:01	dir:griswold-poage-polonsky1971	
+forte1967/qs19	chunk:01	dir:forte1967	
+forte1967/qs20	chunk:01	dir:forte1967	
+griswold-poage-polonsky1971/01-03	core	core	
+griswold-poage-polonsky1971/01-04	chunk:01	dir:griswold-poage-polonsky1971	
 griswold-poage-polonsky1971/01-05	chunk:01	dir:griswold-poage-polonsky1971	
+griswold-poage-polonsky1971/01-06	chunk:01	dir:griswold-poage-polonsky1971	
 griswold-poage-polonsky1971/01-07	chunk:01	dir:griswold-poage-polonsky1971	

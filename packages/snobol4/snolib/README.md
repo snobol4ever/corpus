@@ -29,3 +29,14 @@ No SCRIP reading was taken at the cut (Lon 2026-11-14); the cycle grades it. Bui
 corpus/packages/snobol4/snolib --lang snobol4 --mine CENSUS.tsv --mine-silent-rc --twice` (the grader 2026-11-15).
 
 CHANGED IN PLACE (skill snobol4 section 7, Lon 2026-11-14: an angle-bracket subscript is rewritten with square brackets where the package lives; the cqo 2026-11-15, row snobol4-lib-ai-aopa-and-cata-spell-their-code-strings-subscripts-with-square-brackets): the code strings that `AI.INC` (line 32), `CATA.INC` (lines 32 and 33) and `AOPA.INC` (lines 33, 34, 36 and 39) hand to `SEQ`, which compiles them with `CODE`, spell `NAME<...>` as `NAME[...]`, one character for one. The collection's conversion leaves a string literal alone, and these strings are program text that SCRIP's `CODE` refuses in the angle form by the ruling of 2026-10-02. `sbl -bf` ends `AI.tst`, `AOPA.tst` and `CATA.tst` rc 0 with no output for both spellings, each run twice, so no answer moved. The other includes that hand `SEQ` an angle-bracket code string (ATOL, APPENDA, CGI, DEDUPA, JSON, KEYST, MERGET, PRUNET, PSQL, TPROFILE, TRUNC) are as they were: the store read the package 59 of 63 with only AI, AOPA, CATA and LPROG red, so no graded test fails at those lines today (an inference from the reading; the lines were not traced).
+
+## RE-CUT 2026-11-15: AN ERROR FROM THE ORACLE IS AN ANSWER
+
+Lon, 2026-11-15 13:3x CST, in the grader's window, verbatim: "go scrutinize all excluded SNOBOL4 programs. SNOBOL4 should be rock solid." / "You do
+realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?" So `CONTRACT.tsv` says `fatal gradable`
+and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. THE COUNTS ABOVE THIS SECTION ARE THE FIRST CUT'S; THESE STAND:
+
+| | |
+|---|---|
+| rows | 68: 2 print an answer; 4 end with SPITBOL's run-time error and are graded on its text and exit status; 1 are refused at compile time (exit 231) and are graded on the line and code of each diagnostic; 61 print nothing and are graded by exit status |
+| declared out | 1 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 1 answer differently on two runs |

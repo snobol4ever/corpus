@@ -18,3 +18,14 @@ made LF; one character for one, every string literal and user name left as writt
 
 No SCRIP reading was taken at the cut (Lon 2026-11-14); the cycle grades it. Built by
 `util_build_package_suite.py corpus/packages/snobol4/decus_vax84a --lang snobol4 --mine CENSUS.tsv --twice` (the grader 2026-11-15).
+
+## RE-CUT 2026-11-15: AN ERROR FROM THE ORACLE IS AN ANSWER
+
+Lon, 2026-11-15 13:3x CST, in the grader's window, verbatim: "go scrutinize all excluded SNOBOL4 programs. SNOBOL4 should be rock solid." / "You do
+realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?" So `CONTRACT.tsv` says `fatal gradable`
+and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. THE COUNTS ABOVE THIS SECTION ARE THE FIRST CUT'S; THESE STAND:
+
+| | |
+|---|---|
+| rows | 11: 1 print an answer; 6 end with SPITBOL's run-time error and are graded on its text and exit status; 4 are refused at compile time (exit 231) and are graded on the line and code of each diagnostic |
+| declared out | 2 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 2 answer differently on two runs |

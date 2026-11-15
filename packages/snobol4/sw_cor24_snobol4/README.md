@@ -17,3 +17,15 @@ the cycle grades it. Built by `util_build_package_suite.py corpus/packages/snobo
 --twice`, then `--mine-add --mine-under` for the two fed programs (the grader 2026-11-15).
 
 CHANGED IN PLACE (skill snobol4 section 7, Lon 2026-11-14: an angle-bracket subscript is rewritten with square brackets where the package lives; the cqo 2026-11-15, row snobol4-cor24-nqueens-sieve-and-array-spell-their-subscripts-with-square-brackets): demos/nqueens.sno (28 lines), demos/sieve.sno (5) and examples/array.sno (6) spell `NAME<...>` as `NAME[...]`, one character for one, outside string literals and comment lines, since SCRIP refuses the angle form by the ruling of 2026-10-02. `sbl -bf` answers each the same bytes as before, cut twice and equal to its `NAME.out`, so no answer moved.
+
+## RE-CUT 2026-11-15: AN ERROR FROM THE ORACLE IS AN ANSWER
+
+Lon, 2026-11-15 13:3x CST, in the grader's window, verbatim: "go scrutinize all excluded SNOBOL4 programs. SNOBOL4 should be rock solid." / "You do
+realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?" So `CONTRACT.tsv` says `fatal gradable`
+and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. THE COUNTS ABOVE THIS SECTION ARE THE FIRST CUT'S; THESE STAND:
+
+| | |
+|---|---|
+| rows | 52: 48 print an answer; 4 print nothing and are graded by exit status |
+| declared out | 5 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 5 give no answer inside 60 s |
+| owed | 1 read standard input and the collection ships no input for them |

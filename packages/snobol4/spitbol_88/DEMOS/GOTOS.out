@@ -1,0 +1,61 @@
+
+
+
+GOTOS.spt(48) : ERROR 244 -- statement count exceeds value of stlimit keyword
+
+
+
+
+
+in file              GOTOS.spt
+in line              48
+in statement         21
+stmts executed       200
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  38984
+memory left (bytes)  1009584
+
+
+
+
+dump of natural variables
+
+GOTOS_LAST = 22
+GOTOS_LENGTH = 119
+GOTOS_NO = 22
+GOTOS_PAT = PATTERN
+GOTOS_QUEUE = '20>22;23>20;21>23;22>21;20>22;23>20;21>23;22>21;20>22;23>20;21>23;22>21;20>22;23>20;21>23;22>21;20>22;23>
+20;21>23;22>21'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'statement count exceeds value of stlimit keyword'
+&ERRTYPE = 244
+&FILE = 'GOTOS.spt'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'GOTOS.spt'
+&LASTLINE = 2
+&LASTNO = 22
+&LINE = 48
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 200
+&STLIMIT = 210
+&STNO = 21
+&TRACE = 16777184
+&TRIM = 1
+
+
+

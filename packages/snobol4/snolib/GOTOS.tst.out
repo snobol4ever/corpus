@@ -1,0 +1,18 @@
+
+
+
+GOTOS.lss(40) : ERROR 210 -- keyword value assigned is negative or too large
+
+
+
+
+
+in file              GOTOS.lss
+in line              40
+in statement         7
+stmts executed       7
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13480
+memory left (bytes)  1035088
+

@@ -1,5 +1,3 @@
 # EXCLUDED.tsv -- tkslide_examples: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
 # the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
 ethiopian_multiplication.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-resistance.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: resistance.sno(7) : ERROR 262 -- division caused real overflow (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-take_note.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: take_note.sno(5) : ERROR 022 -- undefined function called (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

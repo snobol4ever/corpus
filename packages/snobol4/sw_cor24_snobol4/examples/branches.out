@@ -1,0 +1,54 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 15 13:45:01 2026
+
+
+
+                                                                                                                page 1
+
+18              IDENT('A', 'B')                          :S(T4S):F(T4F)
+                                                                !
+branches.sno(28,57) : ERROR 234 -- syntax error: goto field incorrect
+
+24              IDENT('A', 'A')                          :S(T5S):F(T5F)
+                                                                !
+branches.sno(35,57) : ERROR 234 -- syntax error: goto field incorrect
+
+36              IDENT('A', 'A')                          :F(T7F):S(T7S)
+                                                                !
+branches.sno(49,57) : ERROR 234 -- syntax error: goto field incorrect
+
+42              IDENT('A', 'B')                          :F(T8F):S(T8S)
+                                                                !
+branches.sno(56,57) : ERROR 234 -- syntax error: goto field incorrect
+
+53              IDENT('A', 'A')                          :S(T10A):S(T10B)
+                                                                 !
+branches.sno(69,58) : ERROR 234 -- syntax error: goto field incorrect
+
+59              IDENT('A', 'B')                          :F(T11A):F(T11B)
+                                                                 !
+branches.sno(76,58) : ERROR 234 -- syntax error: goto field incorrect
+
+65              IDENT('A', 'A')                          :S(T12A):S(T12B):F(T12C)
+                                                                 !
+branches.sno(83,58) : ERROR 234 -- syntax error: goto field incorrect
+
+72              IDENT(SUBSTR('CAB', 1, 1), 'C')         :S(T13S):F(T13F)
+                                                                !
+branches.sno(91,57) : ERROR 234 -- syntax error: goto field incorrect
+
+78              IDENT(SUBSTR('XYZ', 1, 1), 'C')         :S(T14S):F(T14F)
+                                                                !
+branches.sno(98,57) : ERROR 234 -- syntax error: goto field incorrect
+
+84              IDENT('C', SUBSTR('CAB', 1, 1))         :S(T15S):F(T15F)
+                                                                !
+branches.sno(105,57) : ERROR 234 -- syntax error: goto field incorrect
+
+90              EQ(SIZE('hello'), 5)                     :S(T16S):F(T16F)
+                                                                 !
+branches.sno(112,58) : ERROR 234 -- syntax error: goto field incorrect
+
