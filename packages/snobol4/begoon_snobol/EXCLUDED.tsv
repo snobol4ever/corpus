@@ -1,0 +1,3 @@
+# EXCLUDED.tsv -- begoon_snobol: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+balanced.sno	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: balanced.sno(5) : ERROR 042 -- attempt to change value of protected variable (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

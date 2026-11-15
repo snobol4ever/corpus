@@ -1,0 +1,41 @@
+t-stringtes
+
+
+
+dump of natural variables
+
+OUTPUT = 't-stringtes'
+REM = PATTERN
+SHIFT_PAT = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'functions1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'functions1.sno'
+&LASTLINE = 8
+&LASTNO = 8
+&LINE = 9
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 8
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1
+
+
+

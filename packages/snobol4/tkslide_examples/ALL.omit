@@ -1,0 +1,8 @@
+ethiopian_multiplication.sno: DOES-NOT-END: no answer inside 60 s
+example01.sno: NEEDS-INPUT: its answer changes with what standard input holds
+example03.sno: NEEDS-INPUT: its answer changes with what standard input holds
+example04.sno: NEEDS-INPUT: its answer changes with what standard input holds
+insert_sort_draft.sno: NEEDS-INPUT: its answer changes with what standard input holds
+price_fraction01.sno: NEEDS-INPUT: its answer changes with what standard input holds
+resistance.sno: ORACLE-REFUSES: SPITBOL ends it with an error: resistance.sno(7) : ERROR 262 -- division caused real overflow
+take_note.sno: ORACLE-REFUSES: SPITBOL ends it with an error: take_note.sno(5) : ERROR 022 -- undefined function called

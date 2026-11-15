@@ -1,0 +1,47 @@
+1
+4
+11
+24
+45
+76
+
+
+
+dump of natural variables
+
+OUTPUT = 76
+a = 6
+sq = 36
+upper = 6
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'loop1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'loop1.sno'
+&LASTLINE = 9
+&LASTNO = 6
+&LINE = 10
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 7
+&TRACE = 0
+&TRIM = 1
+
+
+

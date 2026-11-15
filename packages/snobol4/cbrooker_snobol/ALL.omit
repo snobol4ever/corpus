@@ -1,0 +1,20 @@
+bitzer.sno: ORACLE-REFUSES: SPITBOL ends it with an error: bitzer.sno(132) : ERROR 248 -- attempted redefinition of system function
+bnf.sno: ORACLE-REFUSES: SPITBOL ends it with an error: bnf.sno(53) : ERROR 116 -- inappropriate file specification for input
+budget.sno: NEEDS-INPUT: its answer changes with what standard input holds
+capital.sno: ORACLE-REFUSES: SPITBOL ends it with an error: capital.sno(7) : ERROR 116 -- inappropriate file specification for input
+code.sno: DOES-NOT-END: no answer inside 60 s
+cross.sno: NEEDS-INPUT: its answer changes with what standard input holds
+demo.sno: ORACLE-REFUSES: SPITBOL ends it with an error: demo.sno(8) : ERROR 251 -- keyword operand is not name of defined keyword
+diff.sno: ORACLE-REFUSES: SPITBOL ends it with an error: diff.sno(39) : ERROR 248 -- attempted redefinition of system function
+fcounts.sno: NEEDS-INPUT: its answer changes with what standard input holds
+gentran.sno: ORACLE-REFUSES: SPITBOL ends it with an error: gentran.sno(108) : ERROR 116 -- inappropriate file specification for input
+labcent.sno: NEEDS-INPUT: its answer changes with what standard input holds
+length.sno: NEEDS-INPUT: its answer changes with what standard input holds
+rpoem.sno: ORACLE-REFUSES: SPITBOL ends it with an error: rpoem.sno(25) : ERROR 116 -- inappropriate file specification for input
+smartvow.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tictac.sno: NEEDS-INPUT: its answer changes with what standard input holds
+triplet.sno: NEEDS-INPUT: its answer changes with what standard input holds
+vinside.sno: ORACLE-REFUSES: SPITBOL ends it with an error: vinside.sno(294) : ERROR 022 -- undefined function called
+vowels.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+wdstar.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+words.sno: NEEDS-INPUT: its answer changes with what standard input holds

@@ -1,0 +1,8 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,compound_type,compound_type.sno,tkslide_examples__compound_type,tkslide_examples,6,0,131072,4096,60,
+2,example05,example05.sno,tkslide_examples__example05,tkslide_examples,6,0,131072,4096,60,
+3,if_else_switch,if_else_switch.sno,tkslide_examples__if_else_switch,tkslide_examples,15,0,131072,4096,60,
+4,loop_for,loop_for.sno,tkslide_examples__loop_for,tkslide_examples,6,0,131072,4096,60,
+5,multiplication_tables,multiplication_tables.sno,tkslide_examples__multiplication_tables,tkslide_examples,7,0,131072,4096,60,
+6,pad_comment,pad_comment.sno,tkslide_examples__pad_comment,tkslide_examples,10,0,131072,4096,60,
+7,substrings,substrings.sno,tkslide_examples__substrings,tkslide_examples,16,0,131072,4096,60,

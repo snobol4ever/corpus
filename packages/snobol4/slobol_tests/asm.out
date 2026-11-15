@@ -1,0 +1,14 @@
+mem.ara.size 25508
+osi.count |36|
+ENTER MAIN
+fatal error: cannot open input file sbl.lex
+end to translation not normal
+FATAL FINISH
+         sbl.lex lines read
+         memory.go lines
+         riscal go lines
+         slobol go lines
+         source go lines
+         trace/info.txt lines
+         number of n-type procedures
+    1919 spitbol statements executed

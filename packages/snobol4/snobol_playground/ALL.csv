@@ -1,0 +1,10 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,ch1/ex13,ch1/ex13.sno,snobol_playground__ch1/ex13,snobol_playground,18,0,131072,4096,60,
+2,ch1/ex17,ch1/ex17.sno,snobol_playground__ch1/ex17,snobol_playground,34,0,131072,4096,60,
+3,ch2/bal,ch2/bal.sno,snobol_playground__ch2/bal,snobol_playground,9,0,131072,4096,60,
+4,ch2/bigp,ch2/bigp.sno,snobol_playground__ch2/bigp,snobol_playground,20,0,131072,4096,60,
+5,ch2/ex21,ch2/ex21.sno,snobol_playground__ch2/ex21,snobol_playground,18,0,131072,4096,60,
+6,ch2/ex22,ch2/ex22.sno,snobol_playground__ch2/ex22,snobol_playground,13,0,131072,4096,60,
+7,ch2/fail,ch2/fail.sno,snobol_playground__ch2/fail,snobol_playground,25,0,131072,4096,60,
+8,ch2/pair,ch2/pair.sno,snobol_playground__ch2/pair,snobol_playground,11,0,131072,4096,60,
+9,ch2/scans,ch2/scans.sno,snobol_playground__ch2/scans,snobol_playground,13,0,131072,4096,60,

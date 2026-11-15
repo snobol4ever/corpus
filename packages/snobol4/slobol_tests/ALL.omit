@@ -1,0 +1,11 @@
+test/arith.sbl: DIFFERS-BETWEEN-RUNS: exit 231 and 231, 301 and 301 bytes
+test/cfreq.sbl: NEEDS-INPUT: its answer changes with what standard input holds
+test/def.sbl: NEEDS-INPUT: its answer changes with what standard input holds
+test/lower.sbl: NEEDS-INPUT: its answer changes with what standard input holds
+test/module.sbl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+test/trim.sbl: NEEDS-INPUT: its answer changes with what standard input holds
+trace/code.sbl: ORACLE-REFUSES: SPITBOL ends it with an error: code.sbl(11) : ERROR 022 -- undefined function called
+trace/label.sbl: ORACLE-REFUSES: SPITBOL ends it with an error: label.sbl(17) : ERROR 022 -- undefined function called
+trace/oops.sbl: NEEDS-INPUT: its answer changes with what standard input holds
+trace/op.sbl: ORACLE-REFUSES: SPITBOL ends it with an error: op.sbl(6) : ERROR 022 -- undefined function called
+trace/unused.sbl: ORACLE-REFUSES: SPITBOL ends it with an error: unused.sbl(20) : ERROR 022 -- undefined function called

@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,practice/acronym/acronym,practice/acronym/acronym.sno,exercism_snobol4__practice/acronym/acronym,exercism_snobol4,5,0,131072,4096,60,

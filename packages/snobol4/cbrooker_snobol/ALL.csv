@@ -1,0 +1,3 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,base,base.sno,cbrooker_snobol__base,cbrooker_snobol,10,0,131072,4096,60,
+2,wordsize,wordsize.sno,cbrooker_snobol__wordsize,cbrooker_snobol,57,0,131072,4096,60,

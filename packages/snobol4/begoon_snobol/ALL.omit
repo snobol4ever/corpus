@@ -1,0 +1,2 @@
+balanced.sno: ORACLE-REFUSES: SPITBOL ends it with an error: balanced.sno(5) : ERROR 042 -- attempt to change value of protected variable
+echo.sno: NEEDS-INPUT: its answer changes with what standard input holds

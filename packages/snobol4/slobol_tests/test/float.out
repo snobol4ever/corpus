@@ -1,0 +1,6 @@
+5.              expect 5.0
+-1.             expect -1.0
+6.              expect 6.0
+0.666666666666667expect .666..
+-2.             expect -2.0
+1.4142135623731 expect sqrt(2)

@@ -1,0 +1,13 @@
+chapter_05/alice.sno: NEEDS-INPUT: its answer changes with what standard input holds
+chapter_05/big.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+chapter_05/classifier/classify.sno: ORACLE-REFUSES: SPITBOL ends it with an error: classify.sno(33) : ERROR 116 -- inappropriate file specification for input
+chapter_05/classifier/nearest_centroid.sno: ORACLE-REFUSES: SPITBOL ends it with an error: nearest_centroid.sno(15) : ERROR 116 -- inappropriate file specification for input
+chapter_05/copy.sno: DOES-NOT-END: no answer inside 60 s
+chapter_05/dates.sno: NEEDS-INPUT: its answer changes with what standard input holds
+chapter_05/dates2.sno: NEEDS-INPUT: its answer changes with what standard input holds
+chapter_05/hello2.sno: DOES-NOT-END: no answer inside 60 s
+chapter_05/input.sno: DOES-NOT-END: no answer inside 60 s
+chapter_05/menu.sno: ORACLE-REFUSES: SPITBOL ends it with an error: menu.sno(9) : ERROR 038 -- goto undefined label
+chapter_05/temperature.sno: DOES-NOT-END: no answer inside 60 s
+chapter_05/uppercase.sno: DOES-NOT-END: no answer inside 60 s
+chapter_10/bf.sno: DOES-NOT-END: no answer inside 60 s

@@ -1,0 +1,10 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,countdown,countdown.sno,begoon_snobol__countdown,begoon_snobol,6,0,131072,4096,60,
+2,factorial,factorial.sno,begoon_snobol__factorial,begoon_snobol,7,0,131072,4096,60,
+3,fib,fib.sno,begoon_snobol__fib,begoon_snobol,19,0,131072,4096,60,
+4,fizzbuzz,fizzbuzz.sno,begoon_snobol__fizzbuzz,begoon_snobol,22,0,131072,4096,60,
+5,hello,hello.sno,begoon_snobol__hello,begoon_snobol,3,0,131072,4096,60,
+6,kv,kv.sno,begoon_snobol__kv,begoon_snobol,8,0,131072,4096,60,
+7,replace,replace.sno,begoon_snobol__replace,begoon_snobol,5,0,131072,4096,60,
+8,rule110,rule110.sno,begoon_snobol__rule110,begoon_snobol,31,0,131072,4096,60,
+9,sieve,sieve.sno,begoon_snobol__sieve,begoon_snobol,30,0,131072,4096,60,

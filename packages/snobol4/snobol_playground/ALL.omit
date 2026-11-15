@@ -1,0 +1,17 @@
+cat.sno: ORACLE-REFUSES: SPITBOL ends it with an error: cat.sno(9) : ERROR 116 -- inappropriate file specification for input
+ch1/ex11.sno: ORACLE-REFUSES: SPITBOL ends it with an error: ex11.sno(11) : ERROR 116 -- inappropriate file specification for input
+ch1/ex12.sno: ORACLE-REFUSES: SPITBOL ends it with an error: ex12.sno(10) : ERROR 116 -- inappropriate file specification for input
+ch1/ex14.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch1/ex15.sno: ORACLE-REFUSES: SPITBOL ends it with an error: ex15.sno(7) : ERROR 235 -- subscripted operand is not table or array
+ch1/ex16.sno: ORACLE-REFUSES: SPITBOL ends it with an error: ex16.sno(11) : ERROR 248 -- attempted redefinition of system function
+ch2/break-and-span.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/cursor.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/len.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/pos-and-rpos.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/recursive.sno: ORACLE-REFUSES: SPITBOL ends it with an error: recursive.sno(7) : ERROR 246 -- stack overflow
+ch2/recursive1.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/recursive2.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/tab-rtab-rem.sno: NEEDS-INPUT: its answer changes with what standard input holds
+ch2/uneval.sno: ORACLE-REFUSES: SPITBOL ends it with an error: uneval.sno(8) : ERROR 038 -- goto undefined label
+ch2/uneval1.sno: ORACLE-REFUSES: SPITBOL ends it with an error: uneval1.sno(8) : ERROR 038 -- goto undefined label
+first.sno: NEEDS-INPUT: its answer changes with what standard input holds

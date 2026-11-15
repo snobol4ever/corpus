@@ -1,0 +1,13 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,forte1967/pe01,forte1967/pe01.sno,exs_sno__forte1967/pe01,exs_sno,30,0,131072,4096,60,
+2,forte1967/pe02,forte1967/pe02.sno,exs_sno__forte1967/pe02,exs_sno,14,0,131072,4096,60,
+3,forte1967/pe03-v1,forte1967/pe03-v1.sno,exs_sno__forte1967/pe03-v1,exs_sno,24,0,131072,4096,60,
+4,forte1967/pe03-v2,forte1967/pe03-v2.sno,exs_sno__forte1967/pe03-v2,exs_sno,33,0,131072,4096,60,
+5,forte1967/pe04,forte1967/pe04.sno,exs_sno__forte1967/pe04,exs_sno,53,0,131072,4096,60,
+6,forte1967/pe06,forte1967/pe06.sno,exs_sno__forte1967/pe06,exs_sno,47,0,131072,4096,60,
+7,forte1967/pe07,forte1967/pe07.sno,exs_sno__forte1967/pe07,exs_sno,76,0,131072,4096,60,
+8,forte1967/pe09,forte1967/pe09.sno,exs_sno__forte1967/pe09,exs_sno,28,0,131072,4096,60,
+9,forte1967/qs18,forte1967/qs18.sno,exs_sno__forte1967/qs18,exs_sno,17,0,131072,4096,60,
+10,griswold-poage-polonsky1971/01-03,griswold-poage-polonsky1971/01-03.sno,exs_sno__griswold-poage-polonsky1971/01-03,exs_sno,34,0,131072,4096,60,
+11,griswold-poage-polonsky1971/01-05,griswold-poage-polonsky1971/01-05.sno,exs_sno__griswold-poage-polonsky1971/01-05,exs_sno,31,0,131072,4096,60,
+12,griswold-poage-polonsky1971/01-07,griswold-poage-polonsky1971/01-07.sno,exs_sno__griswold-poage-polonsky1971/01-07,exs_sno,38,0,131072,4096,60,

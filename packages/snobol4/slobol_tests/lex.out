@@ -1,0 +1,9 @@
+input file:    sbl.min
+output file:   sbl.lex
+     28181  sbl.min lines read
+     21881  sbl.lex lines written
+      9279  minimal text lines written
+     11444  statements processed
+   1428300  spitbol statements executed
+         0  errors detected
+    418495  free bytes

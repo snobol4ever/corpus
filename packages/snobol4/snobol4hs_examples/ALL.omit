@@ -1,0 +1,7 @@
+adding.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
+array.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
+basic.sno: NEEDS-INPUT: its answer changes with what standard input holds
+copier.sno: NEEDS-INPUT: its answer changes with what standard input holds
+keyword.sno: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No END statement found in source file(s).
+lettercount.sno: NEEDS-INPUT: its answer changes with what standard input holds
+unevaluated.sno: ORACLE-REFUSES: SPITBOL ends it with an error: unevaluated.sno(3) : ERROR 038 -- goto undefined label

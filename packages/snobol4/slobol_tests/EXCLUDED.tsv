@@ -1,0 +1,7 @@
+# EXCLUDED.tsv -- slobol_tests: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+test/arith.sbl	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 231 and 231, 301 and 301 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+trace/code.sbl	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: code.sbl(11) : ERROR 022 -- undefined function called (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+trace/label.sbl	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: label.sbl(17) : ERROR 022 -- undefined function called (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+trace/op.sbl	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: op.sbl(6) : ERROR 022 -- undefined function called (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+trace/unused.sbl	NO_ORACLE_ANSWER	ORACLE-REFUSES: SPITBOL ends it with an error: unused.sbl(20) : ERROR 022 -- undefined function called (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
