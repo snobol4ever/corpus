@@ -14453,6 +14453,57 @@ main :- cycle(1000), findall(X, q(X), L), write(left(L)), nl.
 left([])
 ```
 
+## ladder__rung09_swi_arg_atomic_concat_functor_formal_terms
+
+```Prolog
+:- use_module(library(lists)).
+:- initialization(main, main).
+t(G) :- catch(G, error(F, _), true), !, ( var(F) -> write(no_error) ; print(F) ), nl.
+t(_) :- write(failed), nl.
+main :- t(arg(a, b, _)), t(arg(_, b, _)), t(arg(1, b, _)), t(arg(a, f(x), _)), t(arg(a, _, _)), t(arg(1.5, b, _)), t(arg(-1, b, _)),
+        t(arg(0, f(x), _)), t(arg(2, f(x), _)), t(arg(1, [a], _)), t(arg(a, "s", _)), t(arg(1, 1.5, _)),
+        t(atomic_concat(a, b, f(x))), t(atomic_concat(a, b, 12)), t(atomic_concat(a, b, ab)), t(atomic_concat(f(x), b, _)), t(atomic_concat(a, _, f(x))),
+        t(atomic_concat(f(x), _, _)), t(atomic_concat(_, f(x), _)), t(atomic_concat(a, b, [x])), t(atomic_concat(1, 2, _)), t(atomic_concat(_, _, abc)),
+        t(functor(_, "s", 1)), t(functor(_, "s", 0)), t(functor(_, "s", 2)), t(functor(_, 1, 1)), t(functor(_, foo, 0)), t(functor(_, "s", -1)), t(functor(_, "s", a)),
+        t(functor(_, "s", 1.5)), t(functor(_, f(x), 0)), t(functor(_, [], 2)), t(functor(_, 3, 0)).
+```
+
+```stdout
+type_error(compound,b)
+type_error(compound,b)
+type_error(compound,b)
+type_error(integer,a)
+instantiation_error
+type_error(compound,b)
+type_error(compound,b)
+failed
+failed
+no_error
+type_error(compound,"s")
+type_error(compound,1.5)
+type_error(atomic,f(x))
+failed
+no_error
+type_error(atomic,f(x))
+instantiation_error
+type_error(atomic,f(x))
+instantiation_error
+type_error(atomic,[x])
+no_error
+instantiation_error
+type_error(atom,"s")
+no_error
+type_error(atom,"s")
+type_error(atom,1)
+no_error
+domain_error(not_less_than_zero,-1)
+type_error(integer,a)
+type_error(integer,1.5)
+type_error(atomic,f(x))
+no_error
+no_error
+```
+
 ## one_engine__oe3_subs_once
 
 ```Prolog
