@@ -14809,6 +14809,62 @@ caught(instantiation_error)
 unbound_ref_failed
 ```
 
+## ladder__rung09_swi_text_builtin_error_context
+
+```Prolog
+:- use_module(library(lists)).
+:- initialization(main, main).
+t(G) :- catch(G, error(F, C), true), !, ( nonvar(C), C = context(W, _) -> print(F-W) ; print(F-none) ), nl.
+t(_) :- write(failed), nl.
+main :- t(atom_length(_, _)), t(atom_length(f(x), _)), t(atom_length(a, b)),
+        t(atom_chars(_, _)), t(atom_chars(f(x), _)), t(atom_chars(_, [a|_])), t(atom_chars(_, [f(x)])),
+        t(atom_codes(_, _)), t(atom_codes(f(x), _)),
+        t(char_code(_, _)), t(char_code(ab, _)), t(char_code(_, a)),
+        t(number_chars(_, _)), t(number_chars(a, _)), t(number_chars(_, [a|_])),
+        t(number_codes(_, _)), t(number_codes(a, _)),
+        t(number_string(_, _)), t(number_string(a, _)),
+        t(atom_concat(_, _, _)), t(atom_concat(f(x), a, _)),
+        t(atomic_list_concat(_, _)), t(atomic_list_concat([a, f(x)], _)),
+        t(atomic_list_concat(_, _, _)), t(atomic_list_concat(_, f(x), abc)),
+        t(arg(a, f(x), _)), t(arg(1, _, _)), t(arg(1, a, _)),
+        t(functor(_, _, _)), t(functor(_, foo, a)), t(functor(_, foo(a), 1)), t(functor(_, foo, -1)).
+```
+
+```stdout
+instantiation_error-(system:atom_length/2)
+type_error(text,f(x))-(system:atom_length/2)
+type_error(integer,b)-(system:atom_length/2)
+instantiation_error-(system:atom_chars/2)
+type_error(atom,f(x))-atom_chars/2
+instantiation_error-(system:atom_chars/2)
+type_error(character_code,f(x))-(system:atom_chars/2)
+instantiation_error-(system:atom_codes/2)
+type_error(atom,f(x))-atom_codes/2
+instantiation_error-(system:char_code/2)
+type_error(character,ab)-(system:char_code/2)
+type_error(integer,a)-(system:char_code/2)
+instantiation_error-(system:number_chars/2)
+type_error(number,a)-number_chars/2
+instantiation_error-(system:number_chars/2)
+instantiation_error-(system:number_codes/2)
+type_error(number,a)-number_codes/2
+instantiation_error-(system:number_string/2)
+type_error(number,a)-number_string/2
+instantiation_error-(system:atom_concat/3)
+type_error(atomic,f(x))-(system:atom_concat/3)
+instantiation_error-(system:atomic_list_concat/2)
+type_error(text,f(x))-(system:atomic_list_concat/2)
+instantiation_error-(system:atomic_list_concat/3)
+type_error(text,f(x))-(system:atomic_list_concat/3)
+type_error(integer,a)-(system:arg/3)
+instantiation_error-arg/3
+type_error(compound,a)-arg/3
+instantiation_error-(system:functor/3)
+type_error(integer,a)-(system:functor/3)
+type_error(atomic,foo(a))-(system:functor/3)
+domain_error(not_less_than_zero,-1)-(system:functor/3)
+```
+
 ## lifo__lifo_catch_retaining_goal
 
 ```Prolog

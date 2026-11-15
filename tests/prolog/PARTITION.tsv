@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=737 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=72 chunks=7 sizes=100,100,100,100,100,100,99
+# shape: entries=738 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,1
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -213,7 +213,7 @@ directive_21	chunk:06	family:rung12_atom_builtins
 directive_22	chunk:06	family:rung12_atom_builtins	
 directive_23	chunk:06	family:rung12_atom_builtins	
 directive_38	chunk:07	family:rung23_arith_ext	
-directive_71	chunk:06	family:rung27	
+directive_71	chunk:07	family:rung27	
 directive_74	chunk:07	family:rung29	
 directive_84	chunk:02	family:ladder	
 evaluable_bitand_bitor_bitneg_xor_1	chunk:02	family:ladder	
@@ -470,9 +470,9 @@ term_construction_copy_term_1	chunk:06	feat:copy_term	copy_term if_then_else
 term_construction_functor_construct_1	chunk:07	feat:functor	functor unify
 term_construction_univ_construct_1	chunk:07	feat:univ	unify univ
 term_construction_univ_decompose_1	chunk:07	feat:univ	unify univ
-throw_ite_directive_1	chunk:07	feat:throw	if_then_else throw
+throw_ite_directive_1	chunk:08	feat:throw	if_then_else throw
 type_test_atom_1	chunk:06	feat:atom	atom if_then_else
-type_test_nonvar_1	core	core	if_then_else nonvar
+type_test_nonvar_1	chunk:07	feat:nonvar	if_then_else nonvar
 type_test_number_1	chunk:07	feat:number	if_then_else number
 type_test_var_1	chunk:06	feat:var	if_then_else var
 unify_atom_atom_differ_1	chunk:02	feat:unify	if_then_else unify
@@ -480,7 +480,7 @@ unify_atom_atom_same_1	chunk:02	feat:unify	if_then_else unify
 unify_compound_arity_differ_1	chunk:02	feat:unify	if_then_else unify
 write_family_format_3_atom_sink_1	chunk:06	feat:atom	atom format
 assert_assert_then_call_1	chunk:05	feat:call	assertz call
-assert_assert_unbound_arg_call_1	chunk:05	feat:assertz	assertz if_then_else
+assert_assert_unbound_arg_call_1	chunk:06	feat:assertz	assertz if_then_else
 assert_assertz_rule_1	chunk:06	feat:assertz	assertz if_then_else
 assertz_ite_2	chunk:06	feat:assertz	assertz if_then_else
 bagof_setof_bagof_fails_on_empty_1	chunk:07	feat:bagof	bagof if_then_else
@@ -667,7 +667,7 @@ scrip_test_coverage_pl_nodes	chunk:05	feat:call	call cut unify
 test_coverage_pl_nodes	chunk:05	feat:call	call cut unify
 test_rung10_programs_puzzle_16	chunk:04	feat:negation	cut list_cons negation unify
 rung10_programs_puzzle_19__rung10_programs_puzzle_19	chunk:04	feat:between	between cut list_cons unify
-test_rung10_programs_puzzle_18	chunk:04	feat:negation	cut list_cons negation unify
+test_rung10_programs_puzzle_18	chunk:05	feat:negation	cut list_cons negation unify
 test_rung10_programs_puzzle_15	chunk:03	feat:list_cons	cut if_then_else list_cons unify
 if_then_else_condition_throws_1	chunk:04	feat:catch_with_throw	catch catch_with_throw if_then_else throw
 typetest_directive_1	core	core	atom nonvar number var
@@ -722,8 +722,9 @@ functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
 copy_term_call_cut_replace_1	chunk:06	feat:copy_term	call copy_term cut if_then_else unify var
 sentences__sentences	core	core	dcg findall forall format if_then_else unify
 one_engine__oe6_dyn_variant	core	core	assert_then_retract assertz findall forall format retract unify
-zeta_layout__zl06_pl_catch_throw_arith	core	core	catch catch_with_throw cut if_then_else list_cons throw unify
+zeta_layout__zl06_pl_catch_throw_arith	chunk:04	feat:catch_with_throw	catch catch_with_throw cut if_then_else list_cons throw unify
 clause_source_record__csr_static_clause_property	core	core	assert_then_retract assertz catch clause forall if_then_else retract
+ladder__rung09_swi_text_builtin_error_context	core	core	arg catch cut functor if_then_else list_cons nonvar unify
 lifo__lifo_catch_retaining_goal	core	core	catch catch_with_throw clause findall functor if_then_else throw unify var
 benchmark_meta_qsort	core	core	cut if_then_else list_cons negation nonvar number unify var
 gnu_gaps__gg_stream_helper_context	core	core	catch copy_term findall findall_with_var_goal if_then_else negation unify var writeq
