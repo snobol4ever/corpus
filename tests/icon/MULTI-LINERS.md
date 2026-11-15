@@ -14115,6 +14115,53 @@ square:
 square area 16
 ```
 
+## ladder__rung43_inherited_initially
+
+```Icon
+class A(x, log)
+   method show()
+      write("x=", image(x), " log=", image(log));
+   end
+initially
+   log := "A.initially ran";
+end
+class B : A(y)
+end
+class C(p, q)
+initially(a, b)
+   p := a;
+   q := \b | "defaulted";
+end
+class D : C(r)
+   method show()
+      write("p=", image(p), " q=", image(q), " r=", image(r));
+   end
+end
+class E : A(z)
+initially
+   z := "E.initially ran";
+end
+procedure main()
+   local b, d, e;
+   b := B(1, 2, 3);
+   b.show();
+   write("b.y=", image(b.y));
+   d := D(7, 8, 9);
+   d.show();
+   e := E(1, 2, 3);
+   e.show();
+   write("e.z=", image(e.z));
+end
+```
+
+```stdout
+x=2 log="A.initially ran"
+b.y=1
+p=7 q=8 r=&null
+x=2 log=3
+e.z="E.initially ran"
+```
+
 ## ladder__rung42_kw_line_reads_the_line_of_the_operator_that_follows_it
 
 ```Icon
