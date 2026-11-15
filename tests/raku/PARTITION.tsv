@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1664 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=45 clusters=71 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,19
+# shape: entries=1665 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=45 clusters=71 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,20
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -165,7 +165,7 @@ ladder__rung03_strings_a_q_to_heredoc_is_its_lines_with_the_terminators_indent_r
 ladder__rung03_strings_a_qq_to_heredoc_interpolates_a_closure	chunk:01	family:ladder	
 ladder__rung06_control_a_vertical_tab_form_feed_next_line_or_line_separator_ends_a_block_statement	chunk:01	family:ladder	
 ladder__rung16_bool_relops_so	chunk:01	family:ladder	
-package__a_nested_package_declares_its_prefix	chunk:16	family:package	
+package__a_nested_package_declares_its_prefix	chunk:17	family:package	
 revisions__rv03_class_ver_under_v6e	chunk:16	family:revisions	
 simple_program_10	chunk:03	family:smoke	
 simple_program_13	chunk:03	family:smoke	
@@ -1642,9 +1642,10 @@ benchmark_point_class_add	chunk:15	feat:loop	for has loop method return string_c
 ladder__rung09_regex_grammars_protos_actions_and_lexical_regexes_agree_with_rakudo	chunk:17	feat:regex_with_smartmatch	map method regex regex_with_smartmatch smartmatch string_concat token
 benchmark_merge-sort	core	core	for for_with_say if range_op sigil_array sort sub unless
 benchmark_point_class_add1	chunk:15	feat:loop	for has loop method return string_concat while
-ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo	core	core	join range_op say sigil_array sigil_hash smartmatch split string_concat
+ladder__rung02_arithmetic_rat_as_an_argument_a_receiver_and_a_container_element_agrees_with_rakudo	chunk:16	feat:split	join range_op say sigil_array sigil_hash smartmatch split string_concat
 ladder__rung07_subs_a_subset_is_a_type_and_a_where_clause_checks_a_parameter	chunk:13	feat:try	has method say smartmatch string_concat sub try
 scrip_test_rk_given18	chunk:16	feat:when	for for_with_say given loop say sigil_array sub when
+exceptions__an_assignment_to_a_read_only_parameter_dies	core	core	for for_with_say regex sigil_array smartmatch split string_concat sub try
 rewrite__rr09_smartmatch	core	core	given grep junction range_op regex say sigil_array smartmatch string_concat when
 ladder__rung10_given_a_when_arm_is_its_own_node_a_given_binds_the_topic_and_a_matched_when_leaves_the_block	core	core	for for_with_say given range_op return sub sub_with_return try when
 ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_iterated_and_a_range_value_where_it_is_held	chunk:14	feat:map	for for_with_say if map range_op say sigil_array smartmatch string_concat

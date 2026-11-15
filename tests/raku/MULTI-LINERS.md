@@ -22399,6 +22399,28 @@ got-other
 got-other
 ```
 
+## exceptions__an_assignment_to_a_read_only_parameter_dies
+
+```Raku
+try { for "a b".split(/\s/) -> $f { $f = $f } }; say $! ~~ Exception;
+sub g($x) { try { $x = 5 }; say $!.^name; say $!.message }; g(1);
+my &b = -> $y { $y ~= "z" }; try { b("a") }; say $!.message;
+for 1, 2 -> $f is copy { $f = 5; say $f }
+my @a = 1, 2; for @a -> $f is rw { $f = 9 }; say @a;
+sub d($m, $o = 3) { $o }; say d(1);
+```
+
+```stdout
+True
+X::AdHoc
+Cannot assign to a readonly variable or a value
+Cannot assign to a readonly variable or a value
+5
+5
+[9 9]
+3
+```
+
 ## rewrite__rr09_smartmatch
 
 ```Raku
