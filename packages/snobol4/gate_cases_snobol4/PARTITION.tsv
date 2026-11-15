@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=487 features=42 ubiquitous=1(package) distinctive=41 core=23 clusters=80 chunks=2 sizes=373,91
+# shape: entries=488 features=42 ubiquitous=1(package) distinctive=41 core=23 clusters=80 chunks=2 sizes=374,91
 entry	part	cluster	shells
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__deep	core	core	ARBNO DUPL FENCE POS RPOS SIZE SPAN alternation arbno_with_alt deferred_eval fence_guarded_fail goto_fail
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__gcdeep	chunk:01	feat:DUPL	DEFINE DUPL SIZE arith goto_success
@@ -44,6 +44,7 @@ test_gate_frame_reuse_rung1_straight_temps_share_a_pool__w	chunk:01	feat:BREAK	B
 test_gate_frame_reuse_rung2_det_leaf_argv_share_one_pool__w	chunk:01	feat:BREAK	BREAK cond_assign
 test_gate_frame_reuse_rung3_staged_argv_are_never_addressed_so_never_granted__w	chunk:01	feat:BREAK	BREAK cond_assign
 test_gate_frame_reuse_rung3e_a_single_reader_temp_takes_its_sealed_calls_argv_slot__w	chunk:01	feat:BREAK	BREAK cond_assign
+test_gate_gc_a_callee_saved_register_at_an_allocating_return_is_named_not_assumed__w	chunk:01	feat:goto_fail	DEFINE arith goto_fail
 test_gate_gc_a_collection_inside_a_snocone_procedure_finds_its_frame_in_both_modes__alloc	chunk:01	feat:DUPL	DEFINE DUPL SIZE
 test_gate_gc_a_collection_inside_a_snocone_procedure_finds_its_frame_in_both_modes__replace	chunk:01	feat:LEN	DEFINE LEN
 test_gate_gc_a_nested_match_restores_a_moved_outer_subject__w	core	core	ANY ARBNO DEFINE DUPL REPLACE RPOS SPAN arith deferred_eval goto_fail goto_success imm_assign keyword_ref
