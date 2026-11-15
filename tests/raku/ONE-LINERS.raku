@@ -80,6 +80,7 @@ print "world\n";
 say 5;
 say "hi";
 use v6.e.PREVIEW; say "hi";
+my (\d, (\e, (\f, (\g, \h)))) = 1, (2, (3, (4, 5))); say g;
 try "no-such-file-k4".IO.move("k4-dest"); say $!.^name;
 say ([+] gather {});
 printf("%d-%d\n", 1, 2);
@@ -163,6 +164,7 @@ my @a = "x" xx 3; say @a;
 my @d = "z" xx 0; say @d.elems;
 my @b = 0 xx 5; say @b;
 my $value = 1; my &f = -> { $value }; my &s = -> { $value = 7 }; s(); say f();
+my (\d, (\x, (\f, (\g, \h)))) := 1, (2, (3, (4, 5))); say (d, x, f, g, h);
 for <a b c> -> $c { print $c }
 say $_ given 42;
 my %h = "k1" => 5, "k2" => 6; say %h<k2>;
