@@ -7034,6 +7034,25 @@ f
 -0.5
 ```
 
+## exceptions__splice_refuses_an_array_where_its_size_belongs
+
+```Raku
+my @f = 1, 2, 3; say @f.splice(1, 1, 7, 8); say @f; say splice(@f, 0, 1); try [].splice: 0, []; say $!.^name; my @g = 1, 2; try splice(@g, 0, [5]); say $!.^name; say @g; my @h = 1, 2, 3; @h.splice(1, 0, (4, 5)); say @h; my @i = 1, 2, 3; say @i.splice(0, 2); say @i.splice; say @i;
+```
+
+```stdout
+[2]
+[1 7 8 3]
+[1]
+X::Multi::NoMatch
+X::Multi::NoMatch
+[1 2]
+[1 4 5 2 3]
+[1 2]
+[3]
+[]
+```
+
 ## for_2
 
 ```Raku
