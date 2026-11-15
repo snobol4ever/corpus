@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=55 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=53
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=45 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=2 chunks=1 sizes=43
 entry	part	cluster	shells
 BipsPl/all_solut	core	core	
 BipsPl/arith_inl	chunk:01	dir:BipsPl	
@@ -18,13 +18,10 @@ BipsPl/dec10io	chunk:01	dir:BipsPl
 BipsPl/expand	chunk:01	dir:BipsPl	
 BipsPl/file	chunk:01	dir:BipsPl	
 BipsPl/flag	chunk:01	dir:BipsPl	
-BipsPl/foreign	chunk:01	dir:BipsPl	
 BipsPl/format	chunk:01	dir:BipsPl	
 BipsPl/g_var_inl	chunk:01	dir:BipsPl	
 BipsPl/le_interf	chunk:01	dir:BipsPl	
 BipsPl/list	chunk:01	dir:BipsPl	
-BipsPl/no_le_interf	chunk:01	dir:BipsPl	
-BipsPl/no_sockets	chunk:01	dir:BipsPl	
 BipsPl/oper	chunk:01	dir:BipsPl	
 BipsPl/os_interf	chunk:01	dir:BipsPl	
 BipsPl/pl_error	chunk:01	dir:BipsPl	
@@ -41,19 +38,12 @@ BipsPl/stream	chunk:01	dir:BipsPl
 BipsPl/t	chunk:01	dir:BipsPl	
 BipsPl/term_inl	chunk:01	dir:BipsPl	
 BipsPl/throw	chunk:01	dir:BipsPl	
-BipsPl/top_level	chunk:01	dir:BipsPl	
 BipsPl/type_inl	chunk:01	dir:BipsPl	
 BipsPl/unify	chunk:01	dir:BipsPl	
 BipsPl/utils	chunk:01	dir:BipsPl	
 BipsPl/write	chunk:01	dir:BipsPl	
 Pl2Wam/all	core	core	
-Pl2Wam/ciaolib	chunk:01	dir:Pl2Wam	
-Pl2Wam/compat	chunk:01	dir:Pl2Wam	
 Pl2Wam/first_arg	chunk:01	dir:Pl2Wam	
 Pl2Wam/indexing	chunk:01	dir:Pl2Wam	
 Pl2Wam/inst_codif	chunk:01	dir:Pl2Wam	
 Pl2Wam/reg_alloc	chunk:01	dir:Pl2Wam	
-Pl2Wam/sicslib	chunk:01	dir:Pl2Wam	
-Pl2Wam/swilib	chunk:01	dir:Pl2Wam	
-Pl2Wam/whole	chunk:01	dir:Pl2Wam	
-Pl2Wam/yaplib	chunk:01	dir:Pl2Wam	

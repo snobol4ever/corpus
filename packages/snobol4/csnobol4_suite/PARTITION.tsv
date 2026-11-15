@@ -1,11 +1,10 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=79 features=37 ubiquitous=1(package) distinctive=36 core=20 clusters=32 chunks=1 sizes=59
+# shape: entries=72 features=34 ubiquitous=1(package) distinctive=33 core=17 clusters=30 chunks=1 sizes=55
 entry	part	cluster	shells
 100func	chunk:01	feat:DEFINE	DEFINE
 8bit	core	core	BREAK DEFINE LEN POS TAB cond_assign keyword_ref
 a	chunk:01	feat:keyword_ref	keyword_ref
-alis	core	core	DEFINE DUPL OPSYN REM RTAB SIZE cond_assign goto_fail goto_success keyword_ref want_rc
 alph	chunk:01	feat:SIZE	SIZE keyword_ref
 alt1	core	core	BREAK POS RPOS SPAN TRIM alternation deferred_eval goto_fail imm_assign keyword_ref
 alt2	chunk:01	feat:alternation	SPAN alternation goto_fail imm_assign
@@ -20,7 +19,6 @@ collect2	chunk:01	family:collect
 comment	core	core	DEFINE POS RPOS SPAN alternation goto_fail indirect_ref
 contin	chunk:01	feat:keyword_ref	keyword_ref
 convert	core	core	ARRAY CONVERT DATATYPE TABLE goto_fail
-crlf	chunk:01	feat:want_rc	want_rc
 diag2	core	core	alternation capture_plus_defer cond_assign deferred_eval imm_assign want_rc
 dump	chunk:01	feat:keyword_ref	keyword_ref
 err	chunk:01	feat:keyword_ref	keyword_ref
@@ -33,8 +31,7 @@ fun2	chunk:01	feat:DEFINE	DEFINE
 hello	chunk:01	family:hello	
 include	chunk:01	feat:keyword_ref	keyword_ref
 ind	core	core	indirect_ref
-intval	chunk:01	feat:DUPL	DUPL TRIM keyword_ref
-keytrace	chunk:01	feat:want_rc	DEFINE LEN goto_success keyword_ref want_rc
+intval	core	core	DUPL TRIM keyword_ref
 lexcmp	core	core	APPLY DATATYPE DEFINE
 lgt	chunk:01	family:lgt	
 line	chunk:01	feat:keyword_ref	keyword_ref
@@ -50,11 +47,7 @@ pad	chunk:01	family:pad
 pow	chunk:01	feat:goto_success	DEFINE goto_success
 reverse	chunk:01	feat:keyword_ref	keyword_ref
 roman	core	core	BREAK DEFINE LEN REPLACE RPOS cond_assign goto_fail goto_success
-scanerr	core	core	ANY LEN REM TAB capture_plus_defer cond_assign deferred_eval goto_success imm_assign keyword_ref want_rc
-setexit	core	core	ABORT keyword_ref want_rc
 setexit3	chunk:01	family:setexit	
-setexit5	chunk:01	feat:want_rc	keyword_ref want_rc
-setexit6	core	core	ABORT DEFINE keyword_ref want_rc
 spit	core	core	CONVERT DATATYPE DEFINE TABLE cond_assign imm_assign keyword_ref
 str	chunk:01	family:str	
 substr	chunk:01	feat:SIZE	SIZE goto_success

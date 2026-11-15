@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=401 features=47 ubiquitous=4(package program var assign) distinctive=43 core=60 clusters=31 chunks=1 sizes=341
+# shape: entries=399 features=47 ubiquitous=4(package program var assign) distinctive=43 core=61 clusters=31 chunks=1 sizes=338
 entry	part	cluster	shells
 iso7185prt0001	chunk:01	family:isoprt	
 iso7185prt0002	chunk:01	family:isoprt	
@@ -123,7 +123,7 @@ iso7185prt0204	chunk:01	feat:record	record type
 iso7185prt0205	chunk:01	feat:record	record
 iso7185prt0206	chunk:01	feat:case	case record
 iso7185prt0207	chunk:01	feat:case	case for record
-iso7185prt0208	chunk:01	feat:with_record	case record type with with_record
+iso7185prt0208	core	core	case record type with with_record
 iso7185prt0209	chunk:01	feat:case	case record type
 iso7185prt0210	chunk:01	feat:case	case record
 iso7185prt0211	chunk:01	feat:case	case record
@@ -269,10 +269,9 @@ iso7185prt1621	chunk:01	family:isoprt
 iso7185prt1701	core	core	array for for_with_array set_literal subrange type with
 iso7185prt1702A	core	core	case for read record with with_record write
 iso7185prt1702b	core	core	case for procedure read record with with_record write
-iso7185prt1702d	core	core	case for procedure read record with with_record write writeln
 iso7185prt1703	chunk:01	feat:nil	nil pointer
 iso7185prt1704	chunk:01	feat:pointer	pointer
-iso7185prt1705	chunk:01	feat:dispose	dispose new pointer pointer_with_new procedure type
+iso7185prt1705	core	core	dispose new pointer pointer_with_new procedure type
 iso7185prt1706a	chunk:01	feat:pointer	file pointer procedure
 iso7185prt1706b	chunk:01	feat:pointer	file pointer procedure
 iso7185prt1707a	chunk:01	feat:with	procedure type with
@@ -370,7 +369,6 @@ iso7185prt1843	chunk:01	feat:case	case procedure record
 iso7185prt1844	chunk:01	feat:packed	packed procedure record
 iso7185prt1845	core	core	for goto in label procedure writeln
 iso7185prt1846	chunk:01	feat:write	write
-iso7185prt1847	chunk:01	feat:write	write
 iso7185prt1848	chunk:01	feat:with_record	packed procedure record with with_record
 iso7185prt1849	chunk:01	feat:packed	packed procedure record type
 iso7185prt1853	chunk:01	feat:record	record type
