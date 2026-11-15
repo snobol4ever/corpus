@@ -5032,6 +5032,18 @@ True True False
 True True
 ```
 
+## emitter_refusal__a_name_bound_by_a_sub_signature_is_read_in_a_closure
+
+```Raku
+sub f(&b) { b() }
+sub t(Pair $ (:key($d), :value($v))) { f { say $v } }
+t "x" => 42;
+```
+
+```stdout
+42
+```
+
 ## gather_regime__gather_body_runs_at_the_first_pull
 
 ```Raku
@@ -10508,6 +10520,17 @@ say C.new.say;
 
 ```stdout
 7
+```
+
+## emitter_refusal__a_destructured_parameter_is_read_in_a_closure
+
+```Raku
+sub f([$p]) { say (1,2,3).grep({ $_ > $p }) }
+f([1]);
+```
+
+```stdout
+(2 3)
 ```
 
 ## for_range_6
