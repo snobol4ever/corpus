@@ -1,0 +1,9 @@
+?- phrase(noun_phrase,[the,lazy,rapid,turtle]).
+yes
+?- phrase(noun_phrase,L).
+L = [the,turtle]
+;
+L = [the,lazy,turtle]
+;
+L = [the,lazy,lazy,turtle]
+...

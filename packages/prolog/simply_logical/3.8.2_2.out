@@ -1,0 +1,4 @@
+?- prove_p(student_of(S,T)).
+no
+?- prove_p(is_bird(X)).
+no

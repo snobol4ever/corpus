@@ -1,0 +1,2 @@
+q('refute_bf((false:-bachelor(X))).', 3).
+refute_bf((false:-bachelor(X))).

@@ -1,0 +1,4 @@
+q('prooftree(student_of(S,T),PT).', 3).
+prooftree(student_of(S,T),PT).
+q('prooftree(is_bird(X),PT).', 3).
+prooftree(is_bird(X),PT).

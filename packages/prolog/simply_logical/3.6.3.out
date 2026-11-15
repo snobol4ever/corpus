@@ -1,0 +1,8 @@
+?- reverse([a,b,c],R).
+R = [c,b,a]
+?- reverse([a,b,c],[],R).
+R = [c,b,a]
+?- reverse([b,c],[a],R).
+R = [c,b,a]
+?- reverse([c],[b,a],R).
+R = [c,b,a]

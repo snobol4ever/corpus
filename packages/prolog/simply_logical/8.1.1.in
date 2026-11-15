@@ -1,0 +1,4 @@
+q('explain(flies(X),E).', 3).
+explain(flies(X),E).
+q('explain(not flies(X),E).', 3).
+explain(not flies(X),E).

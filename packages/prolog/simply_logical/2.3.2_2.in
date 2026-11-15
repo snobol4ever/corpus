@@ -1,0 +1,4 @@
+q('reachable(X,Y,R).', 3).
+reachable(X,Y,R).
+q('connected(X,Y,L).', 3).
+connected(X,Y,L).

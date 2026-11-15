@@ -1,0 +1,10 @@
+q('X=[a,b,c].', 3).
+X=[a,b,c].
+q('X=[a,b,c|Y].', 3).
+X=[a,b,c|Y].
+q('X=route(tottenham_court_road,route(leicester_square,noroute)).', 3).
+X=route(tottenham_court_road,route(leicester_square,noroute)).
+q('X=s(np(art(the),n(turtle)),vp(iv(sleeps))).', 3).
+X=s(np(art(the),n(turtle)),vp(iv(sleeps))).
+q('X=(2*2=2+2).', 3).
+X=(2*2=2+2).

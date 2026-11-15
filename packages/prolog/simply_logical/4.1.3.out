@@ -1,0 +1,2 @@
+?- term_write(n1(n2(n4,n5(n7),n6),n3(n8,n9(n10)))).
+raised(existence_error(procedure,term_tree/3))

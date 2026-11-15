@@ -1,0 +1,2 @@
+q('nqueens(8,Columns).', 3).
+nqueens(8,Columns).

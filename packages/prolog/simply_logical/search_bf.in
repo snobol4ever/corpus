@@ -1,0 +1,2 @@
+q('search_bf([[a,d,a,m]],Goal).', 3).
+search_bf([[a,d,a,m]],Goal).

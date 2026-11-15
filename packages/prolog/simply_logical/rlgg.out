@@ -1,0 +1,2 @@
+?- rlgg( append([1,2],[3,4],[1,2,3,4]), append([a],[],[a]), [append([1,2],[3,4],[1,2,3,4]), append([a],[],[a]), append([],[],[]),              append([2],[3,4],[2,3,4])], C).
+raised(existence_error(procedure,anti_unify/7))

@@ -1,0 +1,2 @@
+?- tiles(M,C).
+raised(existence_error(procedure,tiles/2))

@@ -1,0 +1,2 @@
+q('diagnosis(adder(a,0,0,1,0,1),D).', 3).
+diagnosis(adder(a,0,0,1,0,1),D).

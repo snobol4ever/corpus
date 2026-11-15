@@ -1,0 +1,4 @@
+?- mul(0,X,0).
+X = A
+?- mul(s(s(0)),s(s(s(0))),Z).
+raised(existence_error(procedure,add/3))

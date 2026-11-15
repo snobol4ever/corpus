@@ -1,0 +1,8 @@
+# ORACLE.tsv -- what swipl 9.0.4 answered for each entry, all three streams (pkg_oracle_telemetry.py; NOT graded: the grade is NAME.out and want_rc):
+# entry, exit status, stdout bytes, stdout against NAME.out, stderr bytes, stderr lines, stderr's first line
+p1_lists	0	1752	same	0	0	
+p2_arithmetic	0	482	same	0	0	
+p3_logic_and_codes	0	483	same	0	0	
+p4_binary_trees	0	742	same	0	0	
+p5_multiway_trees	0	178	same	0	0	
+p7_miscellaneous	0	94	same	0	0	

@@ -1,0 +1,4 @@
+?- bachelor(fred).
+no
+?- bachelor(peter).
+yes

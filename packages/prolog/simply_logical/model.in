@@ -1,0 +1,2 @@
+q('model(M).', 3).
+model(M).

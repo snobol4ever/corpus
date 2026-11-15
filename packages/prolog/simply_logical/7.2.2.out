@@ -1,0 +1,2 @@
+?- phrase(numeral(N),[nine,thousand,nine,hundred,ninety,nine]).
+N = 9999

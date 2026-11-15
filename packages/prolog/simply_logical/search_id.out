@@ -1,0 +1,2 @@
+?- search_id([a,d,a,m],Goal).
+raised(existence_error(procedure,search_id/2))

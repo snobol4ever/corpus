@@ -1,0 +1,3 @@
+?- material(flute,M).
+M = metal
+raised(existence_error(procedure,woodwind/1))

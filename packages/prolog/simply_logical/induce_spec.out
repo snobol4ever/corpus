@@ -1,0 +1,6 @@
+?- induce_spec([+element(a,[a,b]), -element(x,[a,b]), +element(b,[b]), +element(b,[a,b]) ],Clauses).
+raised(existence_error(procedure,covers_d/2))
+?- induce_spec([+append([],[b,c],[b,c]), -append([],[a,b],[c,d]), -append([a,b],[c,d],[c,d]), -append([a],[b,c],[d,b,c]), -append([a],[b,c],[a,d,e]), +append([a],[b,c],[a,b,c]) ],Clauses).
+raised(existence_error(procedure,covers_d/2))
+?- induce_spec([+listnum([],[]), -listnum([one],[one]), -listnum([1,two],[one,two]), +listnum([1],[one]), -listnum([five,two],[5,two]), +listnum([five],[5]) ],Clauses).
+raised(existence_error(procedure,covers_d/2))

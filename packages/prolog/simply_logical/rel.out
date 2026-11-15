@@ -1,0 +1,20 @@
+?- herbrand_universe(U).
+raised(existence_error(procedure,herbrand_universe/1))
+?- herbrand_base(B).
+raised(existence_error(procedure,herbrand_base/1))
+?- herbrand_interpretation(I).
+raised(existence_error(procedure,herbrand_interpretation/1))
+?- C=(likes(X,Y):-student_of(Y,X)),ground_clause(C).
+raised(existence_error(procedure,ground_clause/1))
+?- herbrand_interpretation(I),true_clause((likes(X,Y):-student_of(Y,X)),I).
+raised(existence_error(procedure,herbrand_interpretation/1))
+?- herbrand_interpretation(I),false_clause((likes(X,Y):-student_of(Y,X)),I).
+raised(existence_error(procedure,herbrand_interpretation/1))
+?- herbrand_interpretation(I),true_program([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).
+raised(existence_error(procedure,herbrand_interpretation/1))
+?- herbrand_model([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).
+raised(existence_error(procedure,herbrand_model/2))
+?- logical_consequence((false:-student_of(Z,Z)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).
+raised(existence_error(procedure,logical_consequence/3))
+?- logical_consequence((false:-student_of(Z,B)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).
+raised(existence_error(procedure,logical_consequence/3))

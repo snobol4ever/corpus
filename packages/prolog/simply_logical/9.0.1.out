@@ -1,0 +1,4 @@
+?- induce(flies(tweety),H).
+raised(existence_error(procedure,element/2))
+?- induce(flies(polly),H).
+raised(existence_error(procedure,element/2))

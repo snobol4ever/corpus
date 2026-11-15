@@ -1,0 +1,7 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,p1_lists,p1_lists.pl,p99_constable__p1_lists,p99_constable,397,0,131072,4096,60,,swi
+2,p2_arithmetic,p2_arithmetic.pl,p99_constable__p2_arithmetic,p99_constable,210,0,131072,4096,60,,swi
+3,p3_logic_and_codes,p3_logic_and_codes.pl,p99_constable__p3_logic_and_codes,p99_constable,172,0,131072,4096,60,,swi
+4,p4_binary_trees,p4_binary_trees.pl,p99_constable__p4_binary_trees,p99_constable,514,0,131072,4096,60,,swi
+5,p5_multiway_trees,p5_multiway_trees.pl,p99_constable__p5_multiway_trees,p99_constable,123,0,131072,4096,60,,swi
+6,p7_miscellaneous,p7_miscellaneous.pl,p99_constable__p7_miscellaneous,p99_constable,570,0,131072,4096,60,,swi

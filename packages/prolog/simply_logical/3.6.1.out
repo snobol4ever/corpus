@@ -1,0 +1,6 @@
+?- length_acc([a,b,c],N).
+N = 3
+?- length_acc([a,b,c],0,N).
+N = 3
+?- length_acc([a,b,c],3,N).
+N = 6

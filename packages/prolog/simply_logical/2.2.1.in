@@ -1,0 +1,6 @@
+q('likes(peter,S).', 3).
+likes(peter,S).
+q('likes(T,maria).', 3).
+likes(T,maria).
+q('likes(T,S).', 3).
+likes(T,S).

@@ -1,0 +1,2 @@
+?- diagnosis(adder(a,0,0,1,0,1),D).
+raised(existence_error(procedure,abduce/2))

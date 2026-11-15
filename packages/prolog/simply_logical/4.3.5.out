@@ -1,0 +1,4 @@
+?- properties_fr(saxophone,P).
+raised(existence_error(procedure,instance/3))
+?- properties_fr(I,[function=musical,material=metal,A]).
+raised(existence_error(procedure,instance/3))

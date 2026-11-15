@@ -1,0 +1,12 @@
+?- phrase(sentence(C),S).
+C = [(human(A):-human(A))]
+S = [every,human,is,a,human]
+;
+C = [(living_being(A):-human(A))]
+S = [every,human,is,a,living,being]
+;
+C = [(mortal(A):-human(A))]
+S = [every,human,is,mortal]
+...
+?- phrase(sentence([(mortal(socrates):-true)]),Answer).
+Answer = [socrates,is,mortal]

@@ -1,0 +1,20 @@
+?- is_prime(7).
+yes
+?- prime_factors(315, L).
+L = [3,3,5,7]
+?- prime_factors_mult(315, L).
+L = [[3,2],[5,1],[7,1]]
+?- goldbach(28, L).
+raised(existence_error(procedure,prime_sieve/2))
+?- goldbach_list(9,20).
+raised(existence_error(procedure,prime_sieve/2))
+?- goldbach_list(1,2000,50).
+raised(existence_error(procedure,prime_sieve/2))
+?- gcd(36, 63, G).
+G = 9
+?- G is gcd(36, 63).
+G = 9
+?- coprime(35, 64).
+yes
+?- Phi is totient_phi(10).
+raised(type_error(evaluable,totient_phi/1))

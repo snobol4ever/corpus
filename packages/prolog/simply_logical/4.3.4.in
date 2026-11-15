@@ -1,0 +1,2 @@
+q('properties_sn(saxophone,P).', 3).
+properties_sn(saxophone,P).

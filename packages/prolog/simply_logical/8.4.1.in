@@ -1,0 +1,4 @@
+q('abduce(flies(X),E).', 3).
+abduce(flies(X),E).
+q('abduce(notflies(X),E).', 3).
+abduce(notflies(X),E).

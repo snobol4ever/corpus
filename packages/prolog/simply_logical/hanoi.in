@@ -1,0 +1,2 @@
+q('hanoi(3,left,middle,right,M).', 1).
+hanoi(3,left,middle,right,M).

@@ -1,0 +1,4 @@
+q('bachelor(fred).', 3).
+bachelor(fred).
+q('bachelor(peter).', 3).
+bachelor(peter).

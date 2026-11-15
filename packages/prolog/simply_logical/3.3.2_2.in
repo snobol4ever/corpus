@@ -1,0 +1,4 @@
+q('not(true).', 3).
+not(true).
+q('not(false).', 3).
+not(false).

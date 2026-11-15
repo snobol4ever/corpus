@@ -1,0 +1,4 @@
+q('prove_p(student_of(S,T)).', 3).
+prove_p(student_of(S,T)).
+q('prove_p(is_bird(X)).', 3).
+prove_p(is_bird(X)).

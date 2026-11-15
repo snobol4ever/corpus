@@ -1,0 +1,6 @@
+q('reachable(bond_street,Y).', 3).
+reachable(bond_street,Y).
+q('reachable(X,green_park).', 3).
+reachable(X,green_park).
+q('reachable(X,Y).', 3).
+reachable(X,Y).

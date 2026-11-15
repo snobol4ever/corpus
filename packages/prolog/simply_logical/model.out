@@ -1,0 +1,4 @@
+?- model(M).
+M = [has_wife(paul),married(paul),adult(paul),man(paul)]
+;
+M = [bachelor(paul),adult(paul),man(paul)]

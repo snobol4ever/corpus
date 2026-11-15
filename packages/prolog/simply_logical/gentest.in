@@ -1,0 +1,2 @@
+q('sum1(Sum).', 3).
+sum1(Sum).

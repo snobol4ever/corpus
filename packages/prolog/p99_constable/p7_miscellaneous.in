@@ -1,0 +1,2 @@
+q('group_by_length([[a], [a, b, c], [d, e], [f]], G).', 3).
+group_by_length([[a], [a, b, c], [d, e], [f]], G).

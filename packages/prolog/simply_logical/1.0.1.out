@@ -1,0 +1,34 @@
+?- connected(bond_street,Y,L).
+Y = oxford_circus
+L = central
+;
+Y = green_park
+L = jubilee
+?- connected(X,piccadilly_circus,L).
+X = green_park
+L = piccadilly
+;
+X = oxford_circus
+L = bakerloo
+?- connected(X,Y,piccadilly).
+X = green_park
+Y = piccadilly_circus
+;
+X = piccadilly_circus
+Y = leicester_square
+?- connected(X,Y,L),connected(Y,Z,L).
+X = bond_street
+Y = oxford_circus
+L = central
+Z = tottenham_court_road
+;
+X = bond_street
+Y = green_park
+L = jubilee
+Z = charing_cross
+;
+X = green_park
+Y = piccadilly_circus
+L = piccadilly
+Z = leicester_square
+...

@@ -1,0 +1,4 @@
+q('phrase(noun_phrase,[the,lazy,rapid,turtle]).', 3).
+phrase(noun_phrase,[the,lazy,rapid,turtle]).
+q('phrase(noun_phrase,L).', 3).
+phrase(noun_phrase,L).

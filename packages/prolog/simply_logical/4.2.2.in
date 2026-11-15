@@ -1,0 +1,4 @@
+q('path_leaf(n1,Path).', 3).
+path_leaf(n1,Path).
+q('path_leaf(Node,[N1,N2,N3]).', 3).
+path_leaf(Node,[N1,N2,N3]).

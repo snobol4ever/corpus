@@ -1,0 +1,4 @@
+?- path_leaf(n1,Path).
+raised(existence_error(procedure,arc/2))
+?- path_leaf(Node,[N1,N2,N3]).
+raised(existence_error(procedure,arc/2))

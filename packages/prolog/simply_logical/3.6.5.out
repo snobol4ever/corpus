@@ -1,0 +1,9 @@
+?- append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-Z0).
+X = [d,e|A]
+Y = A
+Z = [a,b,c,d,e|A]
+Z0 = A
+?- append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-[]).
+X = [d,e]
+Y = []
+Z = [a,b,c,d,e]

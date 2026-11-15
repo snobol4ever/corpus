@@ -1,0 +1,4 @@
+?- abduce(likes(peter,paul),Explanation).
+raised(existence_error(procedure,cl/2))
+?- abduce(flies(tweety),Explanation).
+raised(existence_error(procedure,cl/2))

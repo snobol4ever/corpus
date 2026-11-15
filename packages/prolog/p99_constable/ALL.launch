@@ -1,0 +1,4 @@
+# the launch of the ProP99c suite (CIO-83): each solution file is consulted and then the driver, ours, which reads from standard input the queries
+# the file itself states in its comments (the lines % ?- GOAL., NAME.in, cut by sl_cut.py --form comment) and answers each as a toplevel would
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl

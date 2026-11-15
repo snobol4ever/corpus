@@ -1,0 +1,7 @@
+?- likes(peter,S).
+S = maria
+?- likes(T,maria).
+T = peter
+?- likes(T,S).
+T = peter
+S = maria

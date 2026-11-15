@@ -1,0 +1,55 @@
+# file, the query's number in its examples block, verdict, the query as the file states it (sl_cut.py; swipl 9.0.4 answers)
+p1_lists.pl	1	ASK3	my_last(X, [a, b, c, d]).
+p1_lists.pl	2	ASK3	last_but_one(X, [a, b, c, d]).
+p1_lists.pl	3	ASK3	element_at(X, [a, b, c, d], 3).
+p1_lists.pl	4	OUT-HANG	my_length(X, [a, b, c]).
+p1_lists.pl	5	ASK3	reverse([a, b, c, d], X).
+p1_lists.pl	6	ASK3	is_palindrome([x, a, m, a, x]).
+p1_lists.pl	7	ASK3	my_flatten([a, [b, [c, d], e]], X).
+p1_lists.pl	8	ASK3	compress([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+p1_lists.pl	9	ASK3	pack([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+p1_lists.pl	10	ASK3	encode([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+p1_lists.pl	11	ASK3	encode_modified([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+p1_lists.pl	12	ASK1	decode([[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]], X).
+p1_lists.pl	13	ASK3	encode_direct([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+p1_lists.pl	14	ASK3	dupli([a, b, c, c, d], X).
+p1_lists.pl	15	ASK1	dupli([a, b, c], 3, X).
+p1_lists.pl	16	ASK3	drop_every([a, b, c, d, e, f, g, h, i, k], 3, X).
+p1_lists.pl	17	ASK3	rotate([a, b, c, d, e, f, g, h], 3, X).
+p1_lists.pl	18	ASK3	rotate([a, b, c, d, e, f, g, h], -2, X).
+p1_lists.pl	19	ASK3	remove_at(X, [a, b, c, d], 2, R).
+p1_lists.pl	20	ASK3	insert_at(alfa,[a,b,c,d],2,L).
+p1_lists.pl	21	ASK3	range(4, 9, L).
+p1_lists.pl	22	OUT-RANDOM	rnd_select([a,b,c,d,e,f,g,h],3,L).
+p1_lists.pl	23	OUT-RANDOM	lotto(6,49,L).
+p1_lists.pl	24	OUT-RANDOM	rnd_permu([a,b,c,d,e,f],L).
+p1_lists.pl	25	ASK3	combination(3,[a,b,c,d,e,f],L).
+p1_lists.pl	26	ASK3	group3([aldo,beat,carla,david,evi,flip,gary,hugo,ida],G1,G2,G3).
+p1_lists.pl	27	ASK3	group([aldo,beat,carla,david,evi,flip,gary,hugo,ida],[2,2,5],Gs).
+p1_lists.pl	28	ASK3	lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+p1_lists.pl	29	ASK3	lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+p2_arithmetic.pl	1	ASK3	is_prime(7).
+p2_arithmetic.pl	2	ASK3	prime_factors(315, L).
+p2_arithmetic.pl	3	ASK3	prime_factors_mult(315, L).
+p2_arithmetic.pl	4	ASK3	goldbach(28, L).
+p2_arithmetic.pl	5	ASK3	goldbach_list(9,20).
+p2_arithmetic.pl	6	ASK3	goldbach_list(1,2000,50).
+p2_arithmetic.pl	7	ASK3	gcd(36, 63, G).
+p2_arithmetic.pl	8	ASK3	G is gcd(36, 63).
+p2_arithmetic.pl	9	ASK3	coprime(35, 64).
+p2_arithmetic.pl	10	ASK3	Phi is totient_phi(10).
+p3_logic_and_codes.pl	1	ASK3	table(A, B, and(A, or(A, B))).
+p3_logic_and_codes.pl	2	ASK3	table(A, B, A and (A or not B)).
+p3_logic_and_codes.pl	3	ASK3	table2([A,B,C], A and (B or C) equ A and B or A and C).
+p4_binary_trees.pl	1	ASK3	istree(t(a,t(b,nil,nil),nil)).
+p4_binary_trees.pl	2	ASK3	istree(t(a,t(b,nil,nil))).
+p4_binary_trees.pl	3	ASK3	cbal_tree(4,T).
+p4_binary_trees.pl	4	ASK3	construct([3,2,5,7,1],T).
+p4_binary_trees.pl	5	ASK3	test_symmetric([5,3,18,1,4,12,21]).
+p4_binary_trees.pl	6	ASK3	test_symmetric([3,2,5,7,4]).
+p4_binary_trees.pl	7	ASK3	sym_cbal_trees(5,Ts).
+p4_binary_trees.pl	8	ASK3	hbal_tree(3,T).
+p5_multiway_trees.pl	1	ASK3	istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])).
+p5_multiway_trees.pl	2	ASK3	nnodes(t(a,[t(f,[])]),N).
+p5_multiway_trees.pl	3	ASK3	tree_ltl(t(a, [t(b, [t(c, [])])]), LTL).
+p7_miscellaneous.pl	1	ASK3	group_by_length([[a], [a, b, c], [d, e], [f]], G).

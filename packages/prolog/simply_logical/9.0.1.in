@@ -1,0 +1,4 @@
+q('induce(flies(tweety),H).', 3).
+induce(flies(tweety),H).
+q('induce(flies(polly),H).', 3).
+induce(flies(polly),H).

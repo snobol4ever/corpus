@@ -1,0 +1,4 @@
+?- phrase(sentence,[achilles,beats,the,lazy,turtle]).
+yes
+?- phrase(sentence,L),reverse(L,L).
+L = [achilles,beats,achilles]

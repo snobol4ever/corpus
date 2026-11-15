@@ -1,0 +1,8 @@
+q('abduce(flies(tweety),Explanation).', 3).
+abduce(flies(tweety),Explanation).
+q('abduce(not(abnormal(tweety)),[penguin(tweety)],[penguin(tweety)]).', 3).
+abduce(not(abnormal(tweety)),[penguin(tweety)],[penguin(tweety)]).
+q('abduce(not(abnormal(tweety)),[],[]).', 3).
+abduce(not(abnormal(tweety)),[],[]).
+q('abduce(flies1(tweety),Explanation).', 3).
+abduce(flies1(tweety),Explanation).

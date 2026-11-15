@@ -1,0 +1,2 @@
+?- explain(flies(dracula),E).
+E = [isa(flies(dracula),'is a compound term with arity ~D'-[1])]

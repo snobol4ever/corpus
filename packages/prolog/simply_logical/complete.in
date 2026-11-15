@@ -1,0 +1,2 @@
+q('complete([ ([likes(peter,S)]:-[student_of(S,peter)]), ([student_of(paul,peter)]:-[]) ], F), transform(F,CP).', 3).
+complete([ ([likes(peter,S)]:-[student_of(S,peter)]), ([student_of(paul,peter)]:-[]) ], F), transform(F,CP).

@@ -1,0 +1,6 @@
+q('reachable(oxford_circus,charing_cross,R).', 3).
+reachable(oxford_circus,charing_cross,R).
+q('reachable(X,charing_cross,[A,B,C,D]).', 3).
+reachable(X,charing_cross,[A,B,C,D]).
+q('reachable(bond_street,piccadilly_circus,[A,B|L]).', 3).
+reachable(bond_street,piccadilly_circus,[A,B|L]).

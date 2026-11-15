@@ -1,0 +1,2 @@
+q('reachable(oxford_circus,charing_cross,R).', 3).
+reachable(oxford_circus,charing_cross,R).

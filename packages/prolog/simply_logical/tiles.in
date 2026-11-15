@@ -1,0 +1,2 @@
+q('tiles(M,C).', 3).
+tiles(M,C).

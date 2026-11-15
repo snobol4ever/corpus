@@ -1,0 +1,26 @@
+?- istree(t(a,t(b,nil,nil),nil)).
+yes
+?- istree(t(a,t(b,nil,nil))).
+no
+?- cbal_tree(4,T).
+T = t(x,t(x,t(x,nil,nil),nil),t(x,nil,nil))
+;
+T = t(x,t(x,nil,t(x,nil,nil)),t(x,nil,nil))
+;
+T = t(x,t(x,nil,nil),t(x,t(x,nil,nil),nil))
+...
+?- construct([3,2,5,7,1],T).
+T = t(3,t(2,t(1,nil,nil),nil),t(5,nil,t(7,nil,nil)))
+?- test_symmetric([5,3,18,1,4,12,21]).
+yes
+?- test_symmetric([3,2,5,7,4]).
+no
+?- sym_cbal_trees(5,Ts).
+Ts = [t(x,t(x,nil,t(x,nil,nil)),t(x,t(x,nil,nil),nil)),t(x,t(x,t(x,nil,nil),nil),t(x,nil,t(x,nil,nil)))]
+?- hbal_tree(3,T).
+T = t(x,t(x,t(x,nil,nil),t(x,nil,nil)),t(x,t(x,nil,nil),t(x,nil,nil)))
+;
+T = t(x,t(x,t(x,nil,nil),t(x,nil,nil)),t(x,t(x,nil,nil),nil))
+;
+T = t(x,t(x,t(x,nil,nil),t(x,nil,nil)),t(x,nil,t(x,nil,nil)))
+...

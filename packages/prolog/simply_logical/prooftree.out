@@ -1,0 +1,11 @@
+?- prooftree(student_of(S,T),PT).
+S = maria
+T = peter
+PT = digraph([node([shape=none,fontname='Courier']),(student_of(maria,peter)->teaches(peter,cs),follows(maria,cs)),((student_of(A,B):-teaches(B,C),follows(A,C))->teaches(peter,cs),follows(maria,cs)),(teaches(peter,cs),follows(maria,cs)->follows(maria,cs)),((teaches(peter,cs):-true)->follows(maria,cs)),(follows(maria,cs)->true),((follows(maria,cs):-true)->true)])
+;
+S = paul
+T = peter
+PT = digraph([node([shape=none,fontname='Courier']),(student_of(paul,peter)->teaches(peter,ai),follows(paul,ai)),((student_of(A,B):-teaches(B,C),follows(A,C))->teaches(peter,ai),follows(paul,ai)),(teaches(peter,ai),follows(paul,ai)->follows(paul,ai)),((teaches(peter,ai):-true)->follows(paul,ai)),(follows(paul,ai)->true),((follows(paul,ai):-true)->true)])
+?- prooftree(is_bird(X),PT).
+X = tweety
+PT = digraph([node([shape=none,fontname='Courier']),(is_bird(tweety)->has_feathers(tweety),lays_eggs(tweety)),((is_bird(A):-has_feathers(A),lays_eggs(A))->has_feathers(tweety),lays_eggs(tweety)),(has_feathers(tweety),lays_eggs(tweety)->lays_eggs(tweety)),((has_feathers(tweety):-true)->lays_eggs(tweety)),(lays_eggs(tweety)->true),((lays_eggs(tweety):-true)->true)])

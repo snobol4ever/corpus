@@ -1,0 +1,7 @@
+?- phrase(sentence,L).
+L = [a,turtle,sleeps]
+;
+L = [the,turtle,sleeps]
+;
+L = [the,turtles,sleep]
+...

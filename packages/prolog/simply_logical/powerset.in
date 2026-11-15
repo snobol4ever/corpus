@@ -1,0 +1,12 @@
+q('powerset([a,b,c,d,e],PS).', 3).
+powerset([a,b,c,d,e],PS).
+q('powerset1([a,b,c,d,e],PS).', 1).
+powerset1([a,b,c,d,e],PS).
+q('powerset2([a,b,c,d,e],PS).', 3).
+powerset2([a,b,c,d,e],PS).
+q('biglist(1,20,S),powerset(S,PS).', 3).
+biglist(1,20,S),powerset(S,PS).
+q('biglist(1,20,S),powerset1(S,PS).', 3).
+biglist(1,20,S),powerset1(S,PS).
+q('biglist(1,20,S),powerset2(S,PS).', 3).
+biglist(1,20,S),powerset2(S,PS).

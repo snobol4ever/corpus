@@ -1,0 +1,4 @@
+q('abduce(likes(peter,paul),Explanation).', 3).
+abduce(likes(peter,paul),Explanation).
+q('abduce(flies(tweety),Explanation).', 3).
+abduce(flies(tweety),Explanation).

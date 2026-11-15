@@ -1,0 +1,34 @@
+?- nearby(bond_street,Y).
+Y = oxford_circus
+;
+Y = tottenham_court_road
+;
+Y = green_park
+...
+?- nearby(X,piccadilly_circus).
+X = green_park
+;
+X = oxford_circus
+?- nearby(X,Y).
+X = bond_street
+Y = oxford_circus
+;
+X = oxford_circus
+Y = tottenham_court_road
+;
+X = bond_street
+Y = tottenham_court_road
+...
+?- nearby(X,Y),nearby(Y,Z).
+X = bond_street
+Y = oxford_circus
+Z = tottenham_court_road
+;
+X = bond_street
+Y = oxford_circus
+Z = piccadilly_circus
+;
+X = bond_street
+Y = oxford_circus
+Z = charing_cross
+...

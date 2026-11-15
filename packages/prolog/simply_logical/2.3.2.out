@@ -1,0 +1,14 @@
+?- listlength([0,0,0],N).
+N = s(s(s(0)))
+?- listlength(L,s(s(0))).
+L = [A,B]
+?- listlength(L,N).
+L = []
+N = 0
+;
+L = [A]
+N = s(0)
+;
+L = [A,B]
+N = s(s(0))
+...

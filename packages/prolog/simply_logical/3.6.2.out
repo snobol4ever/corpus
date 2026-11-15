@@ -1,0 +1,2 @@
+?- naive_reverse([a,b,c],R).
+R = [c,b,a]

@@ -1,0 +1,6 @@
+?- insert(4,[2,3,5,7],Inserted).
+Inserted = [2,3,4,5,7]
+?- insert(1,[2,3,5,7],Inserted).
+Inserted = [1,2,3,5,7]
+?- insert(8,[2,3,5,7],Inserted).
+Inserted = [2,3,5,7,8]

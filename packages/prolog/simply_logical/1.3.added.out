@@ -1,0 +1,11 @@
+?- X=[a,b,c].
+X = [a,b,c]
+?- X=[a,b,c|Y].
+X = [a,b,c|A]
+Y = A
+?- X=route(tottenham_court_road,route(leicester_square,noroute)).
+X = route(tottenham_court_road,route(leicester_square,noroute))
+?- X=s(np(art(the),n(turtle)),vp(iv(sleeps))).
+X = s(np(art(the),n(turtle)),vp(iv(sleeps)))
+?- X=(2*2=2+2).
+X = 2*2=2+2

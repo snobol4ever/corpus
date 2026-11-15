@@ -1,0 +1,4 @@
+q('append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-Z0).', 3).
+append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-Z0).
+q('append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-[]).', 3).
+append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-[]).

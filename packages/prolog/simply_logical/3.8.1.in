@@ -1,0 +1,4 @@
+q('if tweety then C.', 3).
+if tweety then C.
+q('if A and lays_eggs then is_bird.', 3).
+if A and lays_eggs then is_bird.

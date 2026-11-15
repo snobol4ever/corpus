@@ -1,0 +1,20 @@
+q('herbrand_universe(U).', 3).
+herbrand_universe(U).
+q('herbrand_base(B).', 3).
+herbrand_base(B).
+q('herbrand_interpretation(I).', 3).
+herbrand_interpretation(I).
+q('C=(likes(X,Y):-student_of(Y,X)),ground_clause(C).', 3).
+C=(likes(X,Y):-student_of(Y,X)),ground_clause(C).
+q('herbrand_interpretation(I),true_clause((likes(X,Y):-student_of(Y,X)),I).', 3).
+herbrand_interpretation(I),true_clause((likes(X,Y):-student_of(Y,X)),I).
+q('herbrand_interpretation(I),false_clause((likes(X,Y):-student_of(Y,X)),I).', 3).
+herbrand_interpretation(I),false_clause((likes(X,Y):-student_of(Y,X)),I).
+q('herbrand_interpretation(I),true_program([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).', 3).
+herbrand_interpretation(I),true_program([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).
+q('herbrand_model([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).', 3).
+herbrand_model([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).
+q('logical_consequence((false:-student_of(Z,Z)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).', 3).
+logical_consequence((false:-student_of(Z,Z)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).
+q('logical_consequence((false:-student_of(Z,B)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).', 3).
+logical_consequence((false:-student_of(Z,B)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).

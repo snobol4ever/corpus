@@ -1,0 +1,4 @@
+q('phrase(question(mortal(L)),Question).', 3).
+phrase(question(mortal(L)),Question).
+q('phrase(question(Query),Question).', 3).
+phrase(question(Query),Question).

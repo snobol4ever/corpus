@@ -1,0 +1,12 @@
+?- reachable(X,Y,R).
+X = oxford
+Y = charing_cross
+R = piccadilly
+;
+X = bond_street
+Y = charing_cross
+R = route(oxford,piccadilly)
+?- connected(X,Y,L).
+X = bond_street
+Y = oxford
+L = central

@@ -1,0 +1,2 @@
+?- model_d(4,M).
+raised(existence_error(procedure,is_violated/2))

@@ -1,0 +1,4 @@
+?- abduce(flies(X),E).
+raised(existence_error(procedure,abduce/2))
+?- abduce(notflies(X),E).
+raised(existence_error(procedure,abduce/2))

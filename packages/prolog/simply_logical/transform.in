@@ -1,0 +1,2 @@
+q('transform( forall(X,exists(Y,mouse(X) => tail_of(Y,X))),CL).', 3).
+transform( forall(X,exists(Y,mouse(X) => tail_of(Y,X))),CL).

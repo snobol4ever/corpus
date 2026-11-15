@@ -1,0 +1,4 @@
+q('path([n1|Path]).', 3).
+path([n1|Path]).
+q('path([n1,Node2]).', 3).
+path([n1,Node2]).

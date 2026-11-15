@@ -1,0 +1,4 @@
+q('phrase(sentence,[achilles,beats,the,lazy,turtle]).', 3).
+phrase(sentence,[achilles,beats,the,lazy,turtle]).
+q('phrase(sentence,L),reverse(L,L).', 3).
+phrase(sentence,L),reverse(L,L).

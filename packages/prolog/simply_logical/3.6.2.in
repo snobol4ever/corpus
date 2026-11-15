@@ -1,0 +1,2 @@
+q('naive_reverse([a,b,c],R).', 3).
+naive_reverse([a,b,c],R).

@@ -1,0 +1,8 @@
+q('connected(bond_street,Y,L).', 3).
+connected(bond_street,Y,L).
+q('connected(X,piccadilly_circus,L).', 3).
+connected(X,piccadilly_circus,L).
+q('connected(X,Y,piccadilly).', 3).
+connected(X,Y,piccadilly).
+q('connected(X,Y,L),connected(Y,Z,L).', 3).
+connected(X,Y,L),connected(Y,Z,L).

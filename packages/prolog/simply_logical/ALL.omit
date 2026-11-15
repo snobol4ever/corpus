@@ -1,0 +1,54 @@
+1.0.added.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+2.2.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+2.3.2_3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.1.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.1.3_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.1.4_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.2.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.2.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.2.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.2.ex3.3_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.3.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.3.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.7.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.7.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+3.8.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 3.8.2.pl:2:10: Syntax error: Operator expected
+3.8.2_2-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+4.1.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+4.2.1-2-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+4.3.4-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+4.3.5-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+7.1.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+7.3.2-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+7.3.2-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+7.3.5-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+8.1.1-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 8.1.1-end.pl:2:10: Syntax error: Operator expected
+8.1.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 8.1.2.pl:1:13: Syntax error: Operator expected
+8.1.4-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 8.1.4-end.pl:2:33: Syntax error: Operator expected
+8.1.4-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+8.3.1-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+8.3.1_2-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+8.3.2_2-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+8.3.2_3-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+8.4.1-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 8.4.1-end.pl:1:30: Syntax error: Operator expected
+8.x.x-1-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+9.0.1-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+complete-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: complete-end.pl:6:29: Syntax error: Operator expected
+graphviz.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: graphviz.pl:1:
+gv_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+herbrand.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+induce_rlgg-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+induce_spec-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+model_d-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+op_not.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+powerset-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+prove_bf-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+refute_bf-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+rlgg-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+rlgg-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+search_bf-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+search_df-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+search_id-start.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tiles-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+transform-all.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+transform-end.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

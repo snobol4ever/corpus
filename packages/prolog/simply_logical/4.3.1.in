@@ -1,0 +1,4 @@
+q('instrument(X).', 3).
+instrument(X).
+q('plucked(keyboard).', 3).
+plucked(keyboard).

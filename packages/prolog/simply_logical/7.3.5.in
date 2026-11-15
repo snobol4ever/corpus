@@ -1,0 +1,2 @@
+q('nl_shell([]).', 3).
+nl_shell([]).

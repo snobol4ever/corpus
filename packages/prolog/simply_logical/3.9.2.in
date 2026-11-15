@@ -1,0 +1,4 @@
+q('mySort([3,6,2,8,1],Sorted).', 3).
+mySort([3,6,2,8,1],Sorted).
+q('mySort([6,5,4,3,2,1],Sorted).', 3).
+mySort([6,5,4,3,2,1],Sorted).

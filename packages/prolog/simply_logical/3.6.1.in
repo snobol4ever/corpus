@@ -1,0 +1,6 @@
+q('length_acc([a,b,c],N).', 3).
+length_acc([a,b,c],N).
+q('length_acc([a,b,c],0,N).', 3).
+length_acc([a,b,c],0,N).
+q('length_acc([a,b,c],3,N).', 3).
+length_acc([a,b,c],3,N).

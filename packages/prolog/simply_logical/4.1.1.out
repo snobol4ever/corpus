@@ -1,0 +1,5 @@
+?- term_tree(n1(n2(n4,n5(n7),n6),n3(n8,n9(n10))),Root,Subtree).
+Root = n1
+Subtree = [n2(n4,n5(n7),n6),n3(n8,n9(n10))]
+?- term_tree(T,n1,[n2(n3),n4]).
+T = n1(n2(n3),n4)

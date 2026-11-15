@@ -1,0 +1,2 @@
+?- refute_bf((false:-bachelor(X))).
+raised(existence_error(procedure,cl/1))

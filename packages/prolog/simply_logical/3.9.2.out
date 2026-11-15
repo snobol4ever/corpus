@@ -1,0 +1,4 @@
+?- mySort([3,6,2,8,1],Sorted).
+raised(existence_error(procedure,insert/3))
+?- mySort([6,5,4,3,2,1],Sorted).
+raised(existence_error(procedure,insert/3))

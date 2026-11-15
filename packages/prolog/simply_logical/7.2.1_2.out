@@ -1,0 +1,4 @@
+?- phrase(sentence(T),[achilles,beats,the,lazy,turtle]).
+T = s(np(pn(achilles)),vp(tv(beats),np(art(the),adj(lazy),n(turtle))))
+?- phrase(sentence(s(np(pn(achilles)), vp(tv(beats),np(art(the),adj(lazy),n(turtle))) )), L).
+L = [achilles,beats,the,lazy,turtle]

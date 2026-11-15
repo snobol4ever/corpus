@@ -1,0 +1,4 @@
+?- phrase(roman(1984),R).
+R = [m,c,m,l,x,x,x,i,v]
+?- phrase(roman(Y),[m,c,m,l,x,x,x,i,v]).
+Y = 1984

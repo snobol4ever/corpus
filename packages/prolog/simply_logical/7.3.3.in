@@ -1,0 +1,4 @@
+q('phrase(sentence(C),S).', 3).
+phrase(sentence(C),S).
+q('phrase(sentence([(mortal(socrates):-true)]),Answer).', 3).
+phrase(sentence([(mortal(socrates):-true)]),Answer).

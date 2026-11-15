@@ -1,0 +1,2 @@
+q('min_diagnosis(adder(a,0,0,1,0,1),D).', 3).
+min_diagnosis(adder(a,0,0,1,0,1),D).

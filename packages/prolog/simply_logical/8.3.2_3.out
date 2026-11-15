@@ -1,0 +1,2 @@
+?- min_diagnosis(adder(a,0,0,1,0,1),D).
+raised(existence_error(procedure,diagnosis/2))

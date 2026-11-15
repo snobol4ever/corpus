@@ -1,0 +1,2 @@
+?- reachable(oxford_circus,charing_cross,R).
+raised(existence_error(procedure,connected/3))

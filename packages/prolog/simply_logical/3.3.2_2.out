@@ -1,0 +1,4 @@
+?- not(true).
+no
+?- not(false).
+yes

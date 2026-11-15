@@ -1,0 +1,4 @@
+q('phrase(roman(1984),R).', 3).
+phrase(roman(1984),R).
+q('phrase(roman(Y),[m,c,m,l,x,x,x,i,v]).', 3).
+phrase(roman(Y),[m,c,m,l,x,x,x,i,v]).

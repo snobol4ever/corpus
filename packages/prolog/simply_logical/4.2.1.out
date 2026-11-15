@@ -1,0 +1,4 @@
+?- path([n1|Path]).
+raised(existence_error(procedure,arc/2))
+?- path([n1,Node2]).
+raised(existence_error(procedure,arc/2))

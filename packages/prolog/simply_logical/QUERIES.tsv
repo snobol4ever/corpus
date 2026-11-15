@@ -1,0 +1,214 @@
+# file, the query's number in its examples block, verdict, the query as the file states it (sl_cut.py; swipl 9.0.4 answers)
+1.0.1.pl	1	ASK3	connected(bond_street,Y,L).
+1.0.1.pl	2	ASK3	connected(X,piccadilly_circus,L).
+1.0.1.pl	3	ASK3	connected(X,Y,piccadilly).
+1.0.1.pl	4	ASK3	connected(X,Y,L),connected(Y,Z,L).
+1.0.2.pl	1	ASK3	nearby(bond_street,Y).
+1.0.2.pl	2	ASK3	nearby(X,piccadilly_circus).
+1.0.2.pl	3	ASK3	nearby(X,Y).
+1.0.2.pl	4	ASK3	nearby(X,Y),nearby(Y,Z).
+1.0.3.pl	1	ASK3	nearby(tottenham_court_road,leicester_square).
+1.0.3.pl	2	ASK3	nearby(tottenham_court_road,W).
+1.0.3.pl	3	ASK3	nearby(X,leicester_square).
+1.0.4.pl	1	ASK3	not_too_far(X,Y).
+1.1.1.pl	1	ASK3	reachable(bond_street,Y).
+1.1.1.pl	2	ASK3	reachable(X,green_park).
+1.1.1.pl	3	ASK3	reachable(X,Y).
+1.1.2.pl	1	ASK3	reachable(bond_street,Y).
+1.1.2.pl	2	ASK3	reachable(X,green_park).
+1.1.2.pl	3	ASK3	reachable(X,Y).
+1.2.1.pl	1	ASK3	reachable(oxford_circus,charing_cross,R).
+1.2.2.pl	1	ASK3	reachable(oxford_circus,charing_cross,R).
+1.2.2_2.pl	1	ASK3	reachable(oxford_circus,charing_cross,R).
+1.2.3.pl	1	ASK3	reachable(oxford_circus,charing_cross,R).
+1.2.3.pl	2	ASK3	reachable(X,charing_cross,[A,B,C,D]).
+1.2.3.pl	3	ASK3	reachable(bond_street,piccadilly_circus,[A,B|L]).
+1.3.added.pl	1	ASK3	X=[a,b,c].
+1.3.added.pl	2	ASK3	X=[a,b,c|Y].
+1.3.added.pl	3	ASK3	X=route(tottenham_court_road,route(leicester_square,noroute)).
+1.3.added.pl	4	ASK3	X=s(np(art(the),n(turtle)),vp(iv(sleeps))).
+1.3.added.pl	5	ASK3	X=(2*2=2+2).
+2.2.1.pl	1	ASK3	likes(peter,S).
+2.2.1.pl	2	ASK3	likes(T,maria).
+2.2.1.pl	3	ASK3	likes(T,S).
+2.2.7.pl	1	ASK3	likes(peter,N).
+2.2.7.pl	2	ASK3	student_of(N,peter).
+2.2.7.pl	3	ASK3	follows(N,C),teaches(peter,C).
+2.2.7.pl	4	ASK3	teaches(peter,ai_techniques).
+2.3.1.pl	1	ASK3	plus(s(0),s(s(0)),Z).
+2.3.1.pl	2	ASK3	plus(s(0),Y,s(s(s(0)))).
+2.3.1.pl	3	ASK3	plus(X,s(s(0)),s(s(s(0)))).
+2.3.1.pl	4	ASK3	plus(X,Y,Z).
+2.3.2.pl	1	ASK3	listlength([0,0,0],N).
+2.3.2.pl	2	ASK3	listlength(L,s(s(0))).
+2.3.2.pl	3	ASK3	listlength(L,N).
+2.3.2_2.pl	1	ASK3	reachable(X,Y,R).
+2.3.2_2.pl	2	ASK3	connected(X,Y,L).
+3.3.2_2.pl	1	ASK3	not(true).
+3.3.2_2.pl	2	ASK3	not(false).
+3.3.3.pl	1	ASK3	bachelor(fred).
+3.3.3.pl	2	ASK3	bachelor(peter).
+3.3.3a.pl	1	ASK3	bachelor(X).
+3.5.0.pl	1	ASK3	nat(s(s(0))).
+3.5.1.pl	1	ASK3	add(s(s(0)),Y,s(s(s(0)))).
+3.5.2.pl	1	ASK3	mul(0,X,0).
+3.5.2.pl	2	ASK3	mul(s(s(0)),s(s(s(0))),Z).
+3.5.added.pl	1	ASK3	X is 5+7-3.
+3.5.added.pl	2	ASK3	9 is 5+7-3.
+3.5.added.pl	3	ASK3	9 is X+7-3.
+3.5.added.pl	4	ASK3	X is 5*3+7/2.
+3.5.added2.pl	1	ASK3	X = 5+7-3.
+3.5.added2.pl	2	ASK3	9 = 5+7-3.
+3.5.added2.pl	3	ASK3	9 = X+7-3.
+3.5.added2.pl	4	ASK3	X = Y+7-3.
+3.5.added2.pl	5	ASK3	X = f(X).
+3.6.0.pl	1	ASK3	naive_length([a,b,c],N).
+3.6.1.pl	1	ASK3	length_acc([a,b,c],N).
+3.6.1.pl	2	ASK3	length_acc([a,b,c],0,N).
+3.6.1.pl	3	ASK3	length_acc([a,b,c],3,N).
+3.6.2.pl	1	ASK3	naive_reverse([a,b,c],R).
+3.6.3.pl	1	ASK3	reverse([a,b,c],R).
+3.6.3.pl	2	ASK3	reverse([a,b,c],[],R).
+3.6.3.pl	3	ASK3	reverse([b,c],[a],R).
+3.6.3.pl	4	ASK3	reverse([c],[b,a],R).
+3.6.4.pl	1	ASK3	reverse_dl([a,b,c],R).
+3.6.4.pl	2	ASK3	reverse([a,b,c],R-[]).
+3.6.4.pl	3	ASK3	reverse([b,c],R-[a]).
+3.6.4.pl	4	ASK3	reverse([c],R-[b,a]).
+3.6.5.pl	1	ASK3	append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-Z0).
+3.6.5.pl	2	ASK3	append_dl([a,b,c|X]-X,[d,e|Y]-Y,Z-[]).
+3.8.1.pl	1	ASK3	if tweety then C.
+3.8.1.pl	2	ASK3	if A and lays_eggs then is_bird.
+3.8.2.pl	1	OUT-SYNTAX	derive(if tweety then is_bird).
+3.8.2.pl	2	OUT-SYNTAX	derive(if tweety then C).
+3.8.2.pl	3	OUT-SYNTAX	derive(if A then is_bird).
+3.8.2_2.pl	1	ASK3	prove_p(student_of(S,T)).
+3.8.2_2.pl	2	ASK3	prove_p(is_bird(X)).
+3.9.1.pl	1	ASK3	partition([1,9,6,3,5],5,Littles,Bigs).
+3.9.1.pl	2	ASK3	partition([11,7,5],5,Littles,Bigs).
+3.9.2.pl	1	ASK3	mySort([3,6,2,8,1],Sorted).
+3.9.2.pl	2	ASK3	mySort([6,5,4,3,2,1],Sorted).
+3.9.3.pl	1	ASK3	insert(4,[2,3,5,7],Inserted).
+3.9.3.pl	2	ASK3	insert(1,[2,3,5,7],Inserted).
+3.9.3.pl	3	ASK3	insert(8,[2,3,5,7],Inserted).
+4.1.1.pl	1	ASK3	term_tree(n1(n2(n4,n5(n7),n6),n3(n8,n9(n10))),Root,Subtree).
+4.1.1.pl	2	ASK3	term_tree(T,n1,[n2(n3),n4]).
+4.1.3.pl	1	ASK3	term_write(n1(n2(n4,n5(n7),n6),n3(n8,n9(n10)))).
+4.2.1.pl	1	ASK3	path([n1|Path]).
+4.2.1.pl	2	ASK3	path([n1,Node2]).
+4.2.2.pl	1	ASK3	path_leaf(n1,Path).
+4.2.2.pl	2	ASK3	path_leaf(Node,[N1,N2,N3]).
+4.2.3.pl	1	ASK3	arc([br(paul,B)],N).
+4.3.1.pl	1	ASK3	instrument(X).
+4.3.1.pl	2	ASK3	plucked(keyboard).
+4.3.2.pl	1	ASK3	material(flute,M).
+4.3.3.pl	1	ASK3	properties(saxophone,P).
+4.3.4.pl	1	ASK3	properties_sn(saxophone,P).
+4.3.5.pl	1	ASK3	properties_fr(saxophone,P).
+4.3.5.pl	2	ASK3	properties_fr(I,[function=musical,material=metal,A]).
+7.1.1.pl	1	ASK3	phrase(sentence,[achilles,beats,the,lazy,turtle]).
+7.1.1.pl	2	ASK3	phrase(sentence,L),reverse(L,L).
+7.1.2.pl	1	ASK3	phrase(noun_phrase,[the,lazy,rapid,turtle]).
+7.1.2.pl	2	ASK3	phrase(noun_phrase,L).
+7.2.1.pl	1	ASK3	phrase(sentence,L).
+7.2.1_2.pl	1	ASK3	phrase(sentence(T),[achilles,beats,the,lazy,turtle]).
+7.2.1_2.pl	2	ASK3	phrase(sentence(s(np(pn(achilles)), vp(tv(beats),np(art(the),adj(lazy),n(turtle))) )), L).
+7.2.2.pl	1	ASK3	phrase(numeral(N),[nine,thousand,nine,hundred,ninety,nine]).
+7.3.1.pl	1	ASK3	phrase(sentence,L).
+7.3.2.pl	1	ASK3	phrase(sentence(C),S).
+7.3.2.pl	2	ASK3	phrase(noun(M),N).
+7.3.2.pl	3	ASK3	phrase(verb_phrase(M),VP).
+7.3.3.pl	1	ASK3	phrase(sentence(C),S).
+7.3.3.pl	2	ASK3	phrase(sentence([(mortal(socrates):-true)]),Answer).
+7.3.4.pl	1	ASK3	phrase(question(mortal(L)),Question).
+7.3.4.pl	2	ASK3	phrase(question(Query),Question).
+7.3.5.pl	1	ASK3	nl_shell([]).
+8.1.1.pl	1	ASK3	explain(flies(X),E).
+8.1.1.pl	2	ASK3	explain(not flies(X),E).
+8.1.2.pl	1	OUT-PATH	explain(flies(dracula),E).
+8.1.2.pl	2	OUT-SYNTAX	explain(not flies(dracula),E).
+8.1.4.pl	1	ASK3	explain(flies(dracula),E).
+8.1.4.pl	2	OUT-SYNTAX	explain(not flies(dracula),E).
+8.3.1.pl	1	ASK3	abduce(likes(peter,paul),Explanation).
+8.3.1.pl	2	ASK3	abduce(flies(tweety),Explanation).
+8.3.1_2.pl	1	ASK3	abduce(flies(tweety),Explanation).
+8.3.1_2.pl	2	ASK3	abduce(not(abnormal(tweety)),[penguin(tweety)],[penguin(tweety)]).
+8.3.1_2.pl	3	ASK3	abduce(not(abnormal(tweety)),[],[]).
+8.3.1_2.pl	4	ASK3	abduce(flies1(tweety),Explanation).
+8.3.2.pl	1	ASK3	abduce(flies(tweety),Explanation).
+8.3.2.pl	2	ASK3	abduce(flies1(tweety),Explanation).
+8.3.2_2.pl	1	ASK3	diagnosis(adder(a,0,0,1,0,1),D).
+8.3.2_3.pl	1	ASK3	min_diagnosis(adder(a,0,0,1,0,1),D).
+8.4.1.pl	1	ASK3	abduce(flies(X),E).
+8.4.1.pl	2	ASK3	abduce(notflies(X),E).
+9.0.1.pl	1	ASK3	induce(flies(tweety),H).
+9.0.1.pl	2	ASK3	induce(flies(polly),H).
+9.1.1.pl	1	ASK3	anti_unify(2*2=2+2,2*3=3+3,T).
+9.1.1.pl	2	ASK3	anti_unify(2*2=2+2,2*3=3+3,T,[],S1,[],S2).
+9.1.1.pl	3	ASK3	anti_unify(2*(1/3)=2/3,3*(1/2)=3/2,T,[],S1,[],S2).
+9.1.2.pl	1	ASK3	theta_lgg((element(c,[b,c]):-[element(c,[c])]), (element(d,[b,c,d]):-[element(d,[c,d]),element(d,[d])]), C).
+9.1.2.pl	2	ASK3	theta_lgg((reverse([2,1],[3],[1,2,3]):-[reverse([1],[2,3],[1,2,3])]), (reverse([a],[],[a]):-[reverse([],[a],[a])]), C).
+biglist.pl	1	ASK3	biglist(1,15,L).
+complete.pl	1	OUT-SYNTAX	complete([ ([bird(tweety)]:-[]), ([flies(X)]:-[bird(X),not abnormal(X)]) ], F), transform(F,CP).
+complete.pl	2	ASK3	complete([ ([likes(peter,S)]:-[student_of(S,peter)]), ([student_of(paul,peter)]:-[]) ], F), transform(F,CP).
+fib.pl	1	ASK3	fib(10,F).
+fib.pl	2	ASK3	fib(20,F).
+fib.pl	3	OUT-RESOURCE	fib(30,F).
+fib.pl	4	ASK3	fibn(30,F).
+fib.pl	5	ASK3	fibn(50,F).
+fib.pl	6	ASK3	fibn(100,F).
+gentest.pl	1	ASK3	sum1(Sum).
+gentest.pl	2	OUT-HANG	sum2(Sum).
+get_tile.pl	1	ASK3	get_tile([b,b,b,e,w,w,w],N,T).
+get_tile.pl	2	ASK3	replace([b,b,b,e,w,w,w],3,e,Pos).
+hanoi.pl	1	ASK1	hanoi(3,left,middle,right,M).
+induce_rlgg.pl	1	ASK3	induce_rlgg([+element(b,[b]), +element(2,[2,3]), +element(3,[1,2,3]), +element(b,[a,b]), +element(3,[2,3]), +element(3,[3]), -element(3,[a,b]), -element(a,[]) ],Clauses).
+induce_rlgg.pl	2	ASK3	induce_rlgg([+append([1,2],[3,4],[1,2,3,4]), +append([a],[],[a]), +append([],[],[]), +append([],[1,2,3],[1,2,3]), +append([2],[3,4],[2,3,4]), +append([],[3,4],[3,4]), -append([a],[b],[b]), -append([c],[b],[c,a]), -append([1,2],[],[1,3]) ],Clauses).
+induce_spec.pl	1	ASK3	induce_spec([+element(a,[a,b]), -element(x,[a,b]), +element(b,[b]), +element(b,[a,b]) ],Clauses).
+induce_spec.pl	2	ASK3	induce_spec([+append([],[b,c],[b,c]), -append([],[a,b],[c,d]), -append([a,b],[c,d],[c,d]), -append([a],[b,c],[d,b,c]), -append([a],[b,c],[a,d,e]), +append([a],[b,c],[a,b,c]) ],Clauses).
+induce_spec.pl	3	ASK3	induce_spec([+listnum([],[]), -listnum([one],[one]), -listnum([1,two],[one,two]), +listnum([1],[one]), -listnum([five,two],[5,two]), +listnum([five],[5]) ],Clauses).
+model.pl	1	ASK3	model(M).
+model_d.pl	1	ASK3	model_d(4,M).
+nqueens.pl	1	ASK3	nqueens(8,Columns).
+plist.pl	1	ASK3	plist(L).
+powerset.pl	1	ASK3	powerset([a,b,c,d,e],PS).
+powerset.pl	2	ASK1	powerset1([a,b,c,d,e],PS).
+powerset.pl	3	ASK3	powerset2([a,b,c,d,e],PS).
+powerset.pl	4	ASK3	biglist(1,20,S),powerset(S,PS).
+powerset.pl	5	ASK3	biglist(1,20,S),powerset1(S,PS).
+powerset.pl	6	ASK3	biglist(1,20,S),powerset2(S,PS).
+prooftree.pl	1	ASK3	prooftree(student_of(S,T),PT).
+prooftree.pl	2	ASK3	prooftree(is_bird(X),PT).
+prop.pl	1	ASK3	herbrand_base(B).
+prop.pl	2	ASK3	herbrand_interpretation(I).
+prop.pl	3	ASK3	ground_clause(C).
+prop.pl	4	ASK3	herbrand_interpretation(I),true_clause((married;bachelor:-man,adult),I).
+prop.pl	5	ASK3	herbrand_interpretation(I),false_clause((married;bachelor:-man,adult),I).
+prop.pl	6	OUT-SYNTAX	herbrand_interpretation(I),true_program([(man:-true),(false:-bachelor)),(married;bachelor:-man,adult)],I).
+prop.pl	7	OUT-SYNTAX	herbrand_model([(man:-true),(false:-bachelor)),(married;bachelor:-man,adult)],I).
+prop.pl	8	OUT-SYNTAX	logical_consequence((married:-adult),[(man:-true),(false:-bachelor)),(married;bachelor:-man,adult)],I).
+prop.pl	9	OUT-SYNTAX	logical_consequence((married:-true),[(man:-true),(false:-bachelor)),(married;bachelor:-man,adult)],I).
+prove_bf.pl	1	ASK3	prove_bf(brother(peter,paul)).
+prove_bf.pl	2	ASK3	prove_bf(brother(peter,Y)).
+refute_bf.pl	1	ASK3	refute_bf((false:-bachelor(X))).
+rel.pl	1	ASK3	herbrand_universe(U).
+rel.pl	2	ASK3	herbrand_base(B).
+rel.pl	3	ASK3	herbrand_interpretation(I).
+rel.pl	4	ASK3	C=(likes(X,Y):-student_of(Y,X)),ground_clause(C).
+rel.pl	5	ASK3	herbrand_interpretation(I),true_clause((likes(X,Y):-student_of(Y,X)),I).
+rel.pl	6	ASK3	herbrand_interpretation(I),false_clause((likes(X,Y):-student_of(Y,X)),I).
+rel.pl	7	ASK3	herbrand_interpretation(I),true_program([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).
+rel.pl	8	ASK3	herbrand_model([(likes(X,X):-true),(likes(X,Y):-student_of(Y,X))],I).
+rel.pl	9	ASK3	logical_consequence((false:-student_of(Z,Z)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).
+rel.pl	10	ASK3	logical_consequence((false:-student_of(Z,B)),[(false:-likes(A,A)),(likes(X,Y):-student_of(Y,X))],I).
+rlgg.pl	1	ASK3	rlgg( append([1,2],[3,4],[1,2,3,4]), append([a],[],[a]), [append([1,2],[3,4],[1,2,3,4]), append([a],[],[a]), append([],[],[]),              append([2],[3,4],[2,3,4])], C).
+roman.pl	1	ASK3	phrase(roman(1984),R).
+roman.pl	2	ASK3	phrase(roman(Y),[m,c,m,l,x,x,x,i,v]).
+search_bf.pl	1	ASK3	search_bf([[a,d,a,m]],Goal).
+search_df.pl	1	ASK3	search_df([[a,d,a,m]],Goal).
+search_id.pl	1	ASK3	search_id([a,d,a,m],Goal).
+tiles.pl	1	ASK3	tiles(M,C).
+transform.pl	1	OUT-SYNTAX	transform( forall(Y,exists(X,mother_of(X,Y))) & -forall(Z,exists(W,woman(Z) => mother_of(Z,W))), CL).
+transform.pl	2	ASK3	transform( forall(X,exists(Y,mouse(X) => tail_of(Y,X))),CL).
+transform.pl	3	OUT-SYNTAX	transform( forall(X,exists(Y,loves(X,Y)) & forall(Z,loves(Y,Z))),CL).
+transform.pl	4	OUT-SYNTAX	transform( forall(X,forall(Y,exists(Z,number(X) & number(Y) => maximum(Z,X,Y)))),CL).

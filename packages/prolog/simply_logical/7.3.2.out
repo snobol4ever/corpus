@@ -1,0 +1,6 @@
+?- phrase(sentence(C),S).
+raised(existence_error(procedure,noun/3))
+?- phrase(noun(M),N).
+raised(existence_error(procedure,noun/3))
+?- phrase(verb_phrase(M),VP).
+raised(existence_error(procedure,verb_phrase/3))

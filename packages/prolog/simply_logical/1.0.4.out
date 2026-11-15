@@ -1,0 +1,6 @@
+?- not_too_far(X,Y).
+X = A
+Y = B
+;
+X = A
+Y = B

@@ -1,0 +1,6 @@
+q('table(A, B, and(A, or(A, B))).', 3).
+table(A, B, and(A, or(A, B))).
+q('table(A, B, A and (A or not B)).', 3).
+table(A, B, A and (A or not B)).
+q('table2([A,B,C], A and (B or C) equ A and B or A and C).', 3).
+table2([A,B,C], A and (B or C) equ A and B or A and C).

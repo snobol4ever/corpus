@@ -1,0 +1,6 @@
+?- if tweety then C.
+C = has_feathers
+;
+C = lays_eggs
+?- if A and lays_eggs then is_bird.
+A = has_feathers

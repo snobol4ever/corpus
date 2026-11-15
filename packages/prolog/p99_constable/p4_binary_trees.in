@@ -1,0 +1,16 @@
+q('istree(t(a,t(b,nil,nil),nil)).', 3).
+istree(t(a,t(b,nil,nil),nil)).
+q('istree(t(a,t(b,nil,nil))).', 3).
+istree(t(a,t(b,nil,nil))).
+q('cbal_tree(4,T).', 3).
+cbal_tree(4,T).
+q('construct([3,2,5,7,1],T).', 3).
+construct([3,2,5,7,1],T).
+q('test_symmetric([5,3,18,1,4,12,21]).', 3).
+test_symmetric([5,3,18,1,4,12,21]).
+q('test_symmetric([3,2,5,7,4]).', 3).
+test_symmetric([3,2,5,7,4]).
+q('sym_cbal_trees(5,Ts).', 3).
+sym_cbal_trees(5,Ts).
+q('hbal_tree(3,T).', 3).
+hbal_tree(3,T).

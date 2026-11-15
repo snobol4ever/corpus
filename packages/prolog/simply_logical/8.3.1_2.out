@@ -1,0 +1,8 @@
+?- abduce(flies(tweety),Explanation).
+raised(existence_error(procedure,abduce/2))
+?- abduce(not(abnormal(tweety)),[penguin(tweety)],[penguin(tweety)]).
+raised(existence_error(procedure,abduce/3))
+?- abduce(not(abnormal(tweety)),[],[]).
+raised(existence_error(procedure,abduce/3))
+?- abduce(flies1(tweety),Explanation).
+raised(existence_error(procedure,abduce/2))

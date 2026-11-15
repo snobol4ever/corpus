@@ -1,0 +1,2 @@
+?- transform( forall(X,exists(Y,mouse(X) => tail_of(Y,X))),CL).
+raised(existence_error(procedure,rewrite_implications/2))

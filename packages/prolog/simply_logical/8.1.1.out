@@ -1,0 +1,4 @@
+?- explain(flies(X),E).
+raised(existence_error(procedure,rule/1))
+?- explain(not flies(X),E).
+raised(existence_error(procedure,rule/1))

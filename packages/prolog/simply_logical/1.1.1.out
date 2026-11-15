@@ -1,0 +1,19 @@
+?- reachable(bond_street,Y).
+Y = charing_cross
+;
+Y = green_park
+;
+Y = leicester_square
+...
+?- reachable(X,green_park).
+X = bond_street
+?- reachable(X,Y).
+X = bond_street
+Y = charing_cross
+;
+X = bond_street
+Y = green_park
+;
+X = bond_street
+Y = leicester_square
+...

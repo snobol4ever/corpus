@@ -1,0 +1,2 @@
+q('phrase(numeral(N),[nine,thousand,nine,hundred,ninety,nine]).', 3).
+phrase(numeral(N),[nine,thousand,nine,hundred,ninety,nine]).

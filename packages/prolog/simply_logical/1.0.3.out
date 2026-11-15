@@ -1,0 +1,6 @@
+?- nearby(tottenham_court_road,leicester_square).
+raised(existence_error(procedure,connected/3))
+?- nearby(tottenham_court_road,W).
+raised(existence_error(procedure,connected/3))
+?- nearby(X,leicester_square).
+raised(existence_error(procedure,connected/3))

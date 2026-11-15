@@ -1,0 +1,6 @@
+q('listlength([0,0,0],N).', 3).
+listlength([0,0,0],N).
+q('listlength(L,s(s(0))).', 3).
+listlength(L,s(s(0))).
+q('listlength(L,N).', 3).
+listlength(L,N).

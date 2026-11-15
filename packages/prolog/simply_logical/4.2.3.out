@@ -1,0 +1,6 @@
+?- arc([br(paul,B)],N).
+B = A
+N = [br(paul,B),br(B,A)]
+;
+B = peter
+N = []

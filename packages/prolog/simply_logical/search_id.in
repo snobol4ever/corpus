@@ -1,0 +1,2 @@
+q('search_id([a,d,a,m],Goal).', 3).
+search_id([a,d,a,m],Goal).

@@ -1,0 +1,6 @@
+q('phrase(sentence(C),S).', 3).
+phrase(sentence(C),S).
+q('phrase(noun(M),N).', 3).
+phrase(noun(M),N).
+q('phrase(verb_phrase(M),VP).', 3).
+phrase(verb_phrase(M),VP).

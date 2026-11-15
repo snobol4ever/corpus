@@ -1,0 +1,20 @@
+q('is_prime(7).', 3).
+is_prime(7).
+q('prime_factors(315, L).', 3).
+prime_factors(315, L).
+q('prime_factors_mult(315, L).', 3).
+prime_factors_mult(315, L).
+q('goldbach(28, L).', 3).
+goldbach(28, L).
+q('goldbach_list(9,20).', 3).
+goldbach_list(9,20).
+q('goldbach_list(1,2000,50).', 3).
+goldbach_list(1,2000,50).
+q('gcd(36, 63, G).', 3).
+gcd(36, 63, G).
+q('G is gcd(36, 63).', 3).
+G is gcd(36, 63).
+q('coprime(35, 64).', 3).
+coprime(35, 64).
+q('Phi is totient_phi(10).', 3).
+Phi is totient_phi(10).

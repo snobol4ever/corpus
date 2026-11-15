@@ -1,0 +1,4 @@
+q('prove_bf(brother(peter,paul)).', 3).
+prove_bf(brother(peter,paul)).
+q('prove_bf(brother(peter,Y)).', 3).
+prove_bf(brother(peter,Y)).

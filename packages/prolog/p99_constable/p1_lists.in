@@ -1,0 +1,50 @@
+q('my_last(X, [a, b, c, d]).', 3).
+my_last(X, [a, b, c, d]).
+q('last_but_one(X, [a, b, c, d]).', 3).
+last_but_one(X, [a, b, c, d]).
+q('element_at(X, [a, b, c, d], 3).', 3).
+element_at(X, [a, b, c, d], 3).
+q('reverse([a, b, c, d], X).', 3).
+reverse([a, b, c, d], X).
+q('is_palindrome([x, a, m, a, x]).', 3).
+is_palindrome([x, a, m, a, x]).
+q('my_flatten([a, [b, [c, d], e]], X).', 3).
+my_flatten([a, [b, [c, d], e]], X).
+q('compress([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).', 3).
+compress([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+q('pack([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).', 3).
+pack([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+q('encode([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).', 3).
+encode([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+q('encode_modified([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).', 3).
+encode_modified([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+q('decode([[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]], X).', 1).
+decode([[4, a], [1, b], [2, c], [2, a], [1, d], [4, e]], X).
+q('encode_direct([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).', 3).
+encode_direct([a, a, a, a, b, c, c, a, a, d, e, e, e, e], X).
+q('dupli([a, b, c, c, d], X).', 3).
+dupli([a, b, c, c, d], X).
+q('dupli([a, b, c], 3, X).', 1).
+dupli([a, b, c], 3, X).
+q('drop_every([a, b, c, d, e, f, g, h, i, k], 3, X).', 3).
+drop_every([a, b, c, d, e, f, g, h, i, k], 3, X).
+q('rotate([a, b, c, d, e, f, g, h], 3, X).', 3).
+rotate([a, b, c, d, e, f, g, h], 3, X).
+q('rotate([a, b, c, d, e, f, g, h], -2, X).', 3).
+rotate([a, b, c, d, e, f, g, h], -2, X).
+q('remove_at(X, [a, b, c, d], 2, R).', 3).
+remove_at(X, [a, b, c, d], 2, R).
+q('insert_at(alfa,[a,b,c,d],2,L).', 3).
+insert_at(alfa,[a,b,c,d],2,L).
+q('range(4, 9, L).', 3).
+range(4, 9, L).
+q('combination(3,[a,b,c,d,e,f],L).', 3).
+combination(3,[a,b,c,d,e,f],L).
+q('group3([aldo,beat,carla,david,evi,flip,gary,hugo,ida],G1,G2,G3).', 3).
+group3([aldo,beat,carla,david,evi,flip,gary,hugo,ida],G1,G2,G3).
+q('group([aldo,beat,carla,david,evi,flip,gary,hugo,ida],[2,2,5],Gs).', 3).
+group([aldo,beat,carla,david,evi,flip,gary,hugo,ida],[2,2,5],Gs).
+q('lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).', 3).
+lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+q('lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).', 3).
+lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).

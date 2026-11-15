@@ -1,0 +1,8 @@
+q('reverse_dl([a,b,c],R).', 3).
+reverse_dl([a,b,c],R).
+q('reverse([a,b,c],R-[]).', 3).
+reverse([a,b,c],R-[]).
+q('reverse([b,c],R-[a]).', 3).
+reverse([b,c],R-[a]).
+q('reverse([c],R-[b,a]).', 3).
+reverse([c],R-[b,a]).

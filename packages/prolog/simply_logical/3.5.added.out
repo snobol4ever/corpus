@@ -1,0 +1,8 @@
+?- X is 5+7-3.
+X = 9
+?- 9 is 5+7-3.
+yes
+?- 9 is X+7-3.
+raised(instantiation_error)
+?- X is 5*3+7/2.
+X = 18.5

@@ -1,0 +1,2 @@
+q('explain(flies(dracula),E).', 3).
+explain(flies(dracula),E).

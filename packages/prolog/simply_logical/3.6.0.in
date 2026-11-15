@@ -1,0 +1,2 @@
+q('naive_length([a,b,c],N).', 3).
+naive_length([a,b,c],N).

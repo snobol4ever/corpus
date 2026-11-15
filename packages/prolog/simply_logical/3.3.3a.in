@@ -1,0 +1,2 @@
+q('bachelor(X).', 3).
+bachelor(X).

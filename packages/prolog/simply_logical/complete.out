@@ -1,0 +1,2 @@
+?- complete([ ([likes(peter,S)]:-[student_of(S,peter)]), ([student_of(paul,peter)]:-[]) ], F), transform(F,CP).
+raised(existence_error(procedure,same_predicate/2))

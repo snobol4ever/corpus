@@ -1,0 +1,6 @@
+q('nearby(tottenham_court_road,leicester_square).', 3).
+nearby(tottenham_court_road,leicester_square).
+q('nearby(tottenham_court_road,W).', 3).
+nearby(tottenham_court_road,W).
+q('nearby(X,leicester_square).', 3).
+nearby(X,leicester_square).

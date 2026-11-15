@@ -1,0 +1,8 @@
+q('likes(peter,N).', 3).
+likes(peter,N).
+q('student_of(N,peter).', 3).
+student_of(N,peter).
+q('follows(N,C),teaches(peter,C).', 3).
+follows(N,C),teaches(peter,C).
+q('teaches(peter,ai_techniques).', 3).
+teaches(peter,ai_techniques).

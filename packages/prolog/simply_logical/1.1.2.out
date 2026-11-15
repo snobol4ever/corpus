@@ -1,0 +1,6 @@
+?- reachable(bond_street,Y).
+raised(existence_error(procedure,connected/3))
+?- reachable(X,green_park).
+raised(existence_error(procedure,connected/3))
+?- reachable(X,Y).
+raised(existence_error(procedure,connected/3))

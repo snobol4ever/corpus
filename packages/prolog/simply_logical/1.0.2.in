@@ -1,0 +1,8 @@
+q('nearby(bond_street,Y).', 3).
+nearby(bond_street,Y).
+q('nearby(X,piccadilly_circus).', 3).
+nearby(X,piccadilly_circus).
+q('nearby(X,Y).', 3).
+nearby(X,Y).
+q('nearby(X,Y),nearby(Y,Z).', 3).
+nearby(X,Y),nearby(Y,Z).

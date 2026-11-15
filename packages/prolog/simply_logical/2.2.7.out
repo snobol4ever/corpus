@@ -1,0 +1,9 @@
+?- likes(peter,N).
+N = maria
+?- student_of(N,peter).
+N = maria
+?- follows(N,C),teaches(peter,C).
+N = maria
+C = ai_techniques
+?- teaches(peter,ai_techniques).
+yes

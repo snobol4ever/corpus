@@ -1,0 +1,6 @@
+?- istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])).
+yes
+?- nnodes(t(a,[t(f,[])]),N).
+N = 2
+?- tree_ltl(t(a, [t(b, [t(c, [])])]), LTL).
+LTL = ['(',a,'(',b,c,')',')']

@@ -1,0 +1,8 @@
+?- reverse_dl([a,b,c],R).
+R = [c,b,a]
+?- reverse([a,b,c],R-[]).
+R = [c,b,a]
+?- reverse([b,c],R-[a]).
+R = [c,b,a]
+?- reverse([c],R-[b,a]).
+R = [c,b,a]

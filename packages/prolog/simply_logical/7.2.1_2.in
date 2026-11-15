@@ -1,0 +1,4 @@
+q('phrase(sentence(T),[achilles,beats,the,lazy,turtle]).', 3).
+phrase(sentence(T),[achilles,beats,the,lazy,turtle]).
+q('phrase(sentence(s(np(pn(achilles)), vp(tv(beats),np(art(the),adj(lazy),n(turtle))) )), L).', 3).
+phrase(sentence(s(np(pn(achilles)), vp(tv(beats),np(art(the),adj(lazy),n(turtle))) )), L).

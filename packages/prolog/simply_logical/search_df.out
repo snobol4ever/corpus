@@ -1,0 +1,2 @@
+?- search_df([[a,d,a,m]],Goal).
+raised(existence_error(procedure,search_df/2))

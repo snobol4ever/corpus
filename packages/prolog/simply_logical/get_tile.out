@@ -1,0 +1,12 @@
+?- get_tile([b,b,b,e,w,w,w],N,T).
+N = 1
+T = b
+;
+N = 2
+T = b
+;
+N = 3
+T = b
+...
+?- replace([b,b,b,e,w,w,w],3,e,Pos).
+Pos = [b,b,e,e,w,w,w]

@@ -1,0 +1,4 @@
+?- prove_bf(brother(peter,paul)).
+raised(existence_error(procedure,cl/2))
+?- prove_bf(brother(peter,Y)).
+raised(existence_error(procedure,cl/2))

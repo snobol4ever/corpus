@@ -1,0 +1,4 @@
+q('get_tile([b,b,b,e,w,w,w],N,T).', 3).
+get_tile([b,b,b,e,w,w,w],N,T).
+q('replace([b,b,b,e,w,w,w],3,e,Pos).', 3).
+replace([b,b,b,e,w,w,w],3,e,Pos).

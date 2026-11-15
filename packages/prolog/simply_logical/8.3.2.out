@@ -1,0 +1,4 @@
+?- abduce(flies(tweety),Explanation).
+raised(existence_error(procedure,abduce/2))
+?- abduce(flies1(tweety),Explanation).
+raised(existence_error(procedure,abduce/2))

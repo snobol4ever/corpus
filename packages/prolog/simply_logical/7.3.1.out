@@ -1,0 +1,7 @@
+?- phrase(sentence,L).
+L = [socrates,is,a,human]
+;
+L = [socrates,is,mortal]
+;
+L = [every,human,is,a,human]
+...

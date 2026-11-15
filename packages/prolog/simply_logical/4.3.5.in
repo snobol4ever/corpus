@@ -1,0 +1,4 @@
+q('properties_fr(saxophone,P).', 3).
+properties_fr(saxophone,P).
+q('properties_fr(I,[function=musical,material=metal,A]).', 3).
+properties_fr(I,[function=musical,material=metal,A]).

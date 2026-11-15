@@ -1,0 +1,9 @@
+?- instrument(X).
+X = recorder
+;
+X = flute
+;
+X = oboe
+...
+?- plucked(keyboard).
+no

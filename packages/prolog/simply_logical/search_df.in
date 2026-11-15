@@ -1,0 +1,2 @@
+q('search_df([[a,d,a,m]],Goal).', 3).
+search_df([[a,d,a,m]],Goal).

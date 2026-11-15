@@ -1,0 +1,4 @@
+?- phrase(question(mortal(L)),Question).
+raised(existence_error(procedure,property/4))
+?- phrase(question(Query),Question).
+raised(existence_error(procedure,property/4))

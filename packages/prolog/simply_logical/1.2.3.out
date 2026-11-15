@@ -1,0 +1,6 @@
+?- reachable(oxford_circus,charing_cross,R).
+raised(existence_error(procedure,connected/3))
+?- reachable(X,charing_cross,[A,B,C,D]).
+raised(existence_error(procedure,connected/3))
+?- reachable(bond_street,piccadilly_circus,[A,B|L]).
+raised(existence_error(procedure,connected/3))

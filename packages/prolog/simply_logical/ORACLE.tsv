@@ -1,0 +1,93 @@
+# ORACLE.tsv -- what swipl 9.0.4 answered for each entry, all three streams (pkg_oracle_telemetry.py; NOT graded: the grade is NAME.out and want_rc):
+# entry, exit status, stdout bytes, stdout against NAME.out, stderr bytes, stderr lines, stderr's first line
+1.0.1	0	553	same	0	0	
+1.0.2	0	504	same	0	0	
+1.0.3	0	257	same	0	0	
+1.0.4	0	47	same	120	4	Warning: 1.0.4.pl:1:
+1.1.1	0	264	same	0	0	
+1.1.2	0	217	same	58	2	Warning: 1.1.2.pl:2:
+1.2.1	0	92	same	0	0	
+1.2.2	0	92	same	0	0	
+1.2.2_2	0	92	same	0	0	
+1.2.3	0	280	same	0	0	
+1.3.added	0	312	same	167	4	ERROR: 1.3.added.pl:1:
+2.2.1	0	93	same	0	0	
+2.2.7	0	162	same	0	0	
+2.3.1	0	216	same	0	0	
+2.3.2	0	157	same	0	0	
+2.3.2_2	0	190	same	0	0	
+3.3.2_2	0	36	same	0	0	
+3.3.3	0	46	same	0	0	
+3.3.3a	0	26	same	0	0	
+3.5.0	0	21	same	0	0	
+3.5.1	0	39	same	0	0	
+3.5.2	0	92	same	0	0	
+3.5.added	0	109	same	0	0	
+3.5.added2	0	125	same	0	0	
+3.6.0	0	34	same	0	0	
+3.6.1	0	100	same	0	0	
+3.6.2	0	41	same	0	0	
+3.6.3	0	147	same	0	0	
+3.6.4	0	150	same	0	0	
+3.6.5	0	160	same	0	0	
+3.8.1	0	107	same	0	0	
+3.8.2_2	0	59	same	0	0	
+3.9.1	0	141	same	0	0	
+3.9.2	0	152	same	0	0	
+3.9.3	0	168	same	0	0	
+4.1.1	0	168	same	0	0	
+4.1.3	0	99	same	0	0	
+4.2.1	0	123	same	0	0	
+4.2.2	0	136	same	0	0	
+4.2.3	0	74	same	0	0	
+4.3.1	0	83	same	0	0	
+4.3.2	0	78	same	0	0	
+4.3.3	0	74	same	0	0	
+4.3.4	0	82	same	0	0	
+4.3.5	0	180	same	0	0	
+7.1.1	0	124	same	0	0	
+7.1.2	0	152	same	0	0	
+7.2.1	0	101	same	0	0	
+7.2.1_2	0	259	same	0	0	
+7.2.2	0	73	same	0	0	
+7.3.1	0	111	same	0	0	
+7.3.2	0	211	same	0	0	
+7.3.3	0	302	same	0	0	
+7.3.4	0	170	same	0	0	
+7.3.5	0	56	same	0	0	
+8.1.1	0	136	same	0	0	
+8.1.4	0	95	same	53	1	ERROR: 8.1.4.pl:4:7: Syntax error: Operator expected
+8.3.1	0	160	same	108	2	ERROR: 8.3.1.pl:18:7: Syntax error: Operator expected
+8.3.1_2	0	363	same	55	1	ERROR: 8.3.1_2.pl:3:7: Syntax error: Operator expected
+8.3.2	0	165	same	0	0	
+8.3.2_2	0	80	same	0	0	
+8.3.2_3	0	87	same	0	0	
+8.4.1	0	137	same	0	0	
+9.0.1	0	145	same	54	1	ERROR: 9.0.1.pl:17:7: Syntax error: Operator expected
+9.1.1	0	232	same	0	0	
+9.1.2	0	331	same	0	0	
+biglist	0	62	same	0	0	
+complete	0	164	same	57	1	ERROR: complete.pl:16:7: Syntax error: Operator expected
+fib	0	143	same	0	0	
+gentest	0	136	same	0	0	
+get_tile	0	137	same	0	0	
+hanoi	0	147	same	0	0	
+induce_rlgg	0	518	same	0	0	
+induce_spec	0	597	same	0	0	
+model	0	115	same	0	0	
+model_d	0	66	same	0	0	
+nqueens	0	115	same	0	0	
+plist	0	46	same	0	0	
+powerset	0	1031	same	0	0	
+prooftree	0	1204	same	168	4	ERROR: prooftree.pl:2:
+prop	0	511	same	0	0	
+prove_bf	0	145	same	0	0	
+refute_bf	0	76	same	0	0	
+rel	0	1229	same	0	0	
+rlgg	0	223	same	0	0	
+roman	0	100	same	0	0	
+search_bf	0	79	same	0	0	
+search_df	0	79	same	0	0	
+search_id	0	77	same	0	0	
+tiles	0	58	same	0	0	
+transform	0	122	same	0	0	
