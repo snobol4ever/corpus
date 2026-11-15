@@ -1,0 +1,4 @@
+q('reverse([a,b,c],R).', 3).
+reverse([a,b,c],R).
+q('reverse([],R).', 3).
+reverse([],R).

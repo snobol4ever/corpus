@@ -1,0 +1,6 @@
+?- isotree(tree(a,tree(b,void,void),void),tree(a,void,tree(b,void,void))).
+yes
+;
+yes
+?- isotree(tree(a,void,void),tree(b,void,void)).
+no

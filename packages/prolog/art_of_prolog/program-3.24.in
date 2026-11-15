@@ -1,0 +1,4 @@
+q('tree_member(X,tree(a,tree(b,void,void),tree(c,void,void))).', 3).
+tree_member(X,tree(a,tree(b,void,void),tree(c,void,void))).
+q('tree_member(d,tree(a,tree(b,void,void),tree(c,void,void))).', 3).
+tree_member(d,tree(a,tree(b,void,void),tree(c,void,void))).

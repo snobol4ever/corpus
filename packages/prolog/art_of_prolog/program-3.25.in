@@ -1,0 +1,4 @@
+q('isotree(tree(a,tree(b,void,void),void),tree(a,void,tree(b,void,void))).', 3).
+isotree(tree(a,tree(b,void,void),void),tree(a,void,tree(b,void,void))).
+q('isotree(tree(a,void,void),tree(b,void,void)).', 3).
+isotree(tree(a,void,void),tree(b,void,void)).

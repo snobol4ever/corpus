@@ -1,0 +1,4 @@
+?- factorial(s(s(s(0))),F).
+F = s(s(s(s(s(s(0))))))
+?- factorial(0,F).
+F = s(0)

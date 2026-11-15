@@ -1,0 +1,4 @@
+q('factorial(s(s(s(0))),F).', 3).
+factorial(s(s(s(0))),F).
+q('factorial(0,F).', 3).
+factorial(0,F).

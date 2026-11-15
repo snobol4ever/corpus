@@ -1,0 +1,6 @@
+q('binary_tree(tree(a,tree(b,void,void),tree(c,void,void))).', 3).
+binary_tree(tree(a,tree(b,void,void),tree(c,void,void))).
+q('binary_tree(void).', 3).
+binary_tree(void).
+q('binary_tree(tree(a,b,void)).', 3).
+binary_tree(tree(a,b,void)).

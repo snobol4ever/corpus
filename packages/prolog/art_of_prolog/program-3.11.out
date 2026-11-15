@@ -1,0 +1,6 @@
+?- list([a,b,c]).
+yes
+?- list(a).
+no
+?- list([a|b]).
+no

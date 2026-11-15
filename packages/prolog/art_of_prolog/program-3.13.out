@@ -1,0 +1,16 @@
+?- prefix(P,[a,b,c]).
+P = []
+;
+P = [a]
+;
+P = [a,b]
+...
+?- suffix(S,[a,b,c]).
+S = [a,b,c]
+;
+S = [b,c]
+;
+S = [c]
+...
+?- prefix([a,c],[a,b,c]).
+no

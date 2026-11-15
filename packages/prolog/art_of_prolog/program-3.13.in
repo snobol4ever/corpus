@@ -1,0 +1,6 @@
+q('prefix(P,[a,b,c]).', 3).
+prefix(P,[a,b,c]).
+q('suffix(S,[a,b,c]).', 3).
+suffix(S,[a,b,c]).
+q('prefix([a,c],[a,b,c]).', 3).
+prefix([a,c],[a,b,c]).

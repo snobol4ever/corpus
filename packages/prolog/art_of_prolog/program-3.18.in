@@ -1,0 +1,4 @@
+q('delete([a,b,a,c],a,X).', 3).
+delete([a,b,a,c],a,X).
+q('delete([a,b,c],d,X).', 3).
+delete([a,b,c],d,X).

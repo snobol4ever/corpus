@@ -1,0 +1,6 @@
+q('preorder(tree(a,tree(b,void,void),tree(c,void,void)),X).', 3).
+preorder(tree(a,tree(b,void,void),tree(c,void,void)),X).
+q('inorder(tree(a,tree(b,void,void),tree(c,void,void)),X).', 3).
+inorder(tree(a,tree(b,void,void),tree(c,void,void)),X).
+q('postorder(tree(a,tree(b,void,void),tree(c,void,void)),X).', 3).
+postorder(tree(a,tree(b,void,void),tree(c,void,void)),X).

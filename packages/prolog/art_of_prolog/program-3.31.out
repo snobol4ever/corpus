@@ -1,0 +1,4 @@
+?- hanoi(s(s(0)),a,b,c,M).
+M = [a to c,a to b,c to b]
+?- hanoi(s(s(s(0))),a,b,c,M).
+M = [a to b,a to c,b to c,a to b,c to a,c to b,a to b]

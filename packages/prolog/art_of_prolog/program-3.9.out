@@ -1,0 +1,4 @@
+?- ackermann(s(s(0)),s(0),V).
+V = s(s(s(s(s(0)))))
+?- ackermann(0,0,V).
+V = s(0)

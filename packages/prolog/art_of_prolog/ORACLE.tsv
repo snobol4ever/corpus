@@ -1,0 +1,26 @@
+# ORACLE.tsv -- what swipl 9.0.4 answered for each entry, all three streams (pkg_oracle_telemetry.py; NOT graded: the grade is NAME.out and want_rc):
+# entry, exit status, stdout bytes, stdout against NAME.out, stderr bytes, stderr lines, stderr's first line
+program-3.1	0	114	same	0	0	
+program-3.11	0	56	same	65	2	Warning: program-3.11.pl:6:
+program-3.12	0	99	same	131	4	Warning: program-3.12.pl:5:
+program-3.13	0	144	same	132	4	Warning: program-3.13.pl:5:
+program-3.15	0	163	same	0	0	
+program-3.16	0	101	same	0	0	
+program-3.18	0	72	same	65	2	Warning: program-3.18.pl:9:
+program-3.19	0	107	same	0	0	
+program-3.20	0	120	same	152	4	ERROR: program-3.20.pl:6:
+program-3.21	0	68	same	172	4	ERROR: program-3.21.pl:6:
+program-3.22	0	139	same	66	2	Warning: program-3.22.pl:14:
+program-3.23	0	126	same	71	2	Warning: program-3.23.pl:5:
+program-3.24	0	155	same	215	6	Warning: program-3.24.pl:5:
+program-3.25	0	137	same	0	0	
+program-3.26	0	114	same	133	4	Warning: program-3.26.pl:7:
+program-3.27	0	216	same	0	0	
+program-3.28	0	136	same	134	4	Warning: program-3.28.pl:20:
+program-3.3	0	146	same	0	0	
+program-3.30	0	159	same	0	0	
+program-3.31	0	139	same	65	2	Warning: program-3.31.pl:9:
+program-3.4	0	82	same	64	2	Warning: program-3.4.pl:7:
+program-3.5	0	87	same	193	6	Warning: program-3.5.pl:7:
+program-3.6	0	80	same	64	2	Warning: program-3.6.pl:8:
+program-3.9	0	81	same	0	0	

@@ -1,0 +1,4 @@
+q('heapify(tree(1,tree(3,void,void),tree(2,void,void)),H).', 3).
+heapify(tree(1,tree(3,void,void),tree(2,void,void)),H).
+q('heapify(void,H).', 3).
+heapify(void,H).

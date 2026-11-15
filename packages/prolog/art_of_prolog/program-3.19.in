@@ -1,0 +1,4 @@
+q('select(X,[a,b,c],Y).', 3).
+select(X,[a,b,c],Y).
+q('select(d,[a,b,c],Y).', 3).
+select(d,[a,b,c],Y).

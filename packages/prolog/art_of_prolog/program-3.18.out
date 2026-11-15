@@ -1,0 +1,4 @@
+?- delete([a,b,a,c],a,X).
+X = [b,c]
+?- delete([a,b,c],d,X).
+X = [a,b,c]

@@ -1,0 +1,11 @@
+?- member(X,[a,b,c]).
+X = a
+;
+X = b
+;
+X = c
+...
+?- member(b,[a,b,c]).
+yes
+?- member(d,[a,b,c]).
+no

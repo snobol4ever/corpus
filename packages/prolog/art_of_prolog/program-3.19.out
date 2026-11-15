@@ -1,0 +1,12 @@
+?- select(X,[a,b,c],Y).
+X = a
+Y = [b,c]
+;
+X = b
+Y = [a,c]
+;
+X = c
+Y = [a,b]
+...
+?- select(d,[a,b,c],Y).
+no

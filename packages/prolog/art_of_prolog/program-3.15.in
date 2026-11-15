@@ -1,0 +1,6 @@
+q('append([a,b],[c,d],Z).', 3).
+append([a,b],[c,d],Z).
+q('append(X,Y,[a,b,c]).', 3).
+append(X,Y,[a,b,c]).
+q('append(X,[c],[a,b,c]).', 3).
+append(X,[c],[a,b,c]).

@@ -1,0 +1,14 @@
+?- append([a,b],[c,d],Z).
+Z = [a,b,c,d]
+?- append(X,Y,[a,b,c]).
+X = []
+Y = [a,b,c]
+;
+X = [a]
+Y = [b,c]
+;
+X = [a,b]
+Y = [c]
+...
+?- append(X,[c],[a,b,c]).
+X = [a,b]

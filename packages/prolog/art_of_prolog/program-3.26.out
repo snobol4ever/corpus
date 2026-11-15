@@ -1,0 +1,2 @@
+?- substitute(a,z,tree(a,tree(b,void,void),tree(a,void,void)),X).
+X = tree(z,tree(b,void,void),tree(z,void,void))

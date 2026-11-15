@@ -1,0 +1,6 @@
+?- preorder(tree(a,tree(b,void,void),tree(c,void,void)),X).
+X = [a,b,c]
+?- inorder(tree(a,tree(b,void,void),tree(c,void,void)),X).
+X = [b,a,c]
+?- postorder(tree(a,tree(b,void,void),tree(c,void,void)),X).
+X = [b,c,a]

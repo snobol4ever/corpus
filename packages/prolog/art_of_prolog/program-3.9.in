@@ -1,0 +1,4 @@
+q('ackermann(s(s(0)),s(0),V).', 3).
+ackermann(s(s(0)),s(0),V).
+q('ackermann(0,0,V).', 3).
+ackermann(0,0,V).

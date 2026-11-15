@@ -1,0 +1,4 @@
+?- heapify(tree(1,tree(3,void,void),tree(2,void,void)),H).
+H = tree(3,tree(1,void,void),tree(2,void,void))
+?- heapify(void,H).
+H = void

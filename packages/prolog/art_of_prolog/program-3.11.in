@@ -1,0 +1,6 @@
+q('list([a,b,c]).', 3).
+list([a,b,c]).
+q('list(a).', 3).
+list(a).
+q('list([a|b]).', 3).
+list([a|b]).

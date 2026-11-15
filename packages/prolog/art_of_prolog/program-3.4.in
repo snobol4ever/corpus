@@ -1,0 +1,4 @@
+q('times(s(s(0)),s(s(s(0))),X).', 3).
+times(s(s(0)),s(s(s(0))),X).
+q('times(0,s(0),X).', 3).
+times(0,s(0),X).

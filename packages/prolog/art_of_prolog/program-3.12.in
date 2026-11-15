@@ -1,0 +1,6 @@
+q('member(X,[a,b,c]).', 3).
+member(X,[a,b,c]).
+q('member(b,[a,b,c]).', 3).
+member(b,[a,b,c]).
+q('member(d,[a,b,c]).', 3).
+member(d,[a,b,c]).

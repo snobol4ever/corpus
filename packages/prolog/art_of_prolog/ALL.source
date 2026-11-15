@@ -1,0 +1,4 @@
+root	/home/resources/prolog-demos/cmu-aop/pl
+origin	the CMU AI Repository, lang/prolog/bookcode/aop (aop.tgz; its 0.doc names the origin ftp.cwru.edu:/ArtOfProlog/): the programs of Sterling and Shapiro, The Art of Prolog, 2nd edition, MIT Press 1994, as unpacked to /home/resources/prolog-demos/cmu-aop/ArtOfProlog; the folder pl beside it holds the same 206 files, each copied unchanged under its name with .pl added
+version	as held in /home/resources/prolog-demos/cmu-prolog-bookcode/aop/aop.tgz (0.doc states no version)
+licence	none stated (0.doc: Copying is blank; no notice in any file); no program of it is stored in the corpus

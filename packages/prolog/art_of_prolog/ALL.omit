@@ -1,0 +1,182 @@
+program-1.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-1.1.pl:3:
+program-1.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-1.2.pl:3:
+program-10.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-10.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-10.2.pl:4:
+program-10.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-10.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-10.4.pl:4:
+program-10.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-10.5.pl:21:
+program-10.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-10.6.pl:17:
+program-10.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-10.7.pl:11:
+program-10.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-10.8.pl:6:
+program-10.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-10.9.pl:8:
+program-11.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-11.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-11.10.pl:4:
+program-11.11a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-11.11b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-11.11b.pl:7:
+program-11.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-11.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-11.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-11.4.pl:7:
+program-11.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-11.5.pl:5:
+program-11.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-11.6.pl:7:
+program-11.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-11.7.pl:9:28: Syntax error: Operator expected
+program-11.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-11.8.pl:6:
+program-11.9a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-11.9a.pl:6:
+program-11.9b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-11.9b.pl:7:
+program-12.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-12.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-12.2.pl:28:12: Syntax error: Operator expected
+program-12.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-12.3.pl:10:
+program-12.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-12.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-12.5.pl:17:
+program-12.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-12.6.pl:12:
+program-12.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-12.7.pl:7:
+program-12.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-12.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-12.9.pl:8:68: Syntax error: Illegal start of term
+program-13.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-13.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-13.2.pl:7:
+program-13.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.10.pl:8:
+program-14.11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.11.pl:9:
+program-14.12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.15.pl:35:
+program-14.16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.16.pl:20:
+program-14.17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.17.pl:6:
+program-14.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-14.2.pl:12:35: Syntax error: Operator expected
+program-14.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-14.3.pl:10:12: Syntax error: Operator expected
+program-14.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.4.pl:12:
+program-14.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.5.pl:20:
+program-14.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-14.7.pl:9:
+program-14.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-14.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-15.10.pl:5:
+program-15.11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-15.11.pl:14:
+program-15.12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-15.12.pl:18:
+program-15.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-15.4.pl:20:
+program-15.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-15.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-15.8.pl:8:
+program-15.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-15.9.pl:8:
+program-16.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-16.1.pl:7:
+program-16.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-16.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-16.3.pl:9:
+program-16.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-16.4.pl:10:
+program-16.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-16.5.pl:9:
+program-16.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-16.6.pl:18:
+program-16.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-16.7.pl:17:11: Syntax error: Operator expected
+program-16.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-16.8.pl:8:
+program-17.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.10.pl:5:
+program-17.11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.11.pl:7:
+program-17.12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.14.pl:28:
+program-17.15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.15.pl:17:
+program-17.16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-17.16.pl:9:14: Syntax error: Operator expected
+program-17.17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.18.pl:7:
+program-17.19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.19.pl:8:
+program-17.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.20.pl:7:
+program-17.21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.21.pl:15:
+program-17.22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-17.22.pl:9:20: Syntax error: Operator expected
+program-17.23.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.23.pl:16:
+program-17.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.4.pl:5:
+program-17.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-17.7.pl:10:
+program-17.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-17.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-18.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-18.1.pl:10:
+program-18.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-18.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-18.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-18.4.pl:1:
+program-18.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-18.5.pl:5:
+program-18.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-18.6.pl:14:31: Syntax error: Operator expected
+program-18.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-18.7.pl:5:
+program-18.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-18.8.pl:1:12: Syntax error: Operator expected
+program-18.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-18.9.pl:17:29: Syntax error: Operator expected
+program-19.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-19.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-19.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-19.3.pl:36:18: Syntax error: Operator expected
+program-19.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-19.4.pl:7:26: Syntax error: Operator priority clash
+program-19.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-19.5.pl:7:28: Syntax error: Operator priority clash
+program-19.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-19.6.pl:17:7: Syntax error: Operator expected
+program-19.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-19.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-19.8.pl:13:
+program-19.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-19.9.pl:4:
+program-2.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-2.1.pl:5:
+program-2.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-2.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-2.3.pl:31:
+program-2.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-2.4.pl:1:
+program-2.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-2.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-2.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-20.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.1.pl:7:
+program-20.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.10.pl:9:
+program-20.11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.11.pl:8:
+program-20.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.2.pl:11:
+program-20.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.3.pl:5:
+program-20.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.4.pl:8:
+program-20.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.5.pl:5:
+program-20.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.6.pl:9:
+program-20.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.7.pl:7:
+program-20.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.8.pl:4:
+program-20.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-20.9.pl:11:
+program-21.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-21.1.pl:4:
+program-21.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-21.2.pl:4:
+program-21.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-21.3.pl:4:
+program-22.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-22.1.pl:37:
+program-22.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-23.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-23.1.pl:46:
+program-23.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-24.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-24.1.pl:24:
+program-24.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-3.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-3.14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-3.14.pl:13:
+program-3.17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-3.17.pl:5:
+program-3.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-3.2.pl:9:
+program-3.29.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-3.29.pl:6:
+program-3.32.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-3.32.pl:6:24: Syntax error: double_bar_outside_quasiquotation
+program-3.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program-3.7.pl:9:
+program-3.8a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-3.8a.pl:6:
+program-3.8b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-5.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-7.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-7.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-7.10.pl:15:
+program-7.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-7.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-7.3.pl:4:
+program-7.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-7.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-7.5.pl:5:
+program-7.6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-7.6.pl:5:
+program-7.7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-7.7.pl:5:
+program-7.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-7.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-7.9.pl:14:
+program-8.1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-8.10.pl:4:
+program-8.11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-8.11.pl:4:
+program-8.12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.6a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.6b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.7a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.7b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-8.8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-8.8.pl:7:
+program-8.9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-9.1a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+program-9.1b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-9.1b.pl:14:
+program-9.2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-9.2.pl:5:
+program-9.3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-9.3.pl:6:
+program-9.4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-9.4.pl:5:
+program-9.5a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-9.5a.pl:10:
+program-9.5b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: program-9.5b.pl:12:

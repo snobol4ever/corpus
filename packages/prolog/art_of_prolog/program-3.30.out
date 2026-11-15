@@ -1,0 +1,6 @@
+?- derivative(x^s(s(0)),x,D).
+D = s(s(0))*x^s(0)
+?- derivative(sin(x)*cos(x),x,D).
+D = sin(x)* -sin(x)+cos(x)*cos(x)
+?- derivative(log(x)+x,x,D).
+D = 1/x+s(0)

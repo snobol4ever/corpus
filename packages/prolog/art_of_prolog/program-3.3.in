@@ -1,0 +1,6 @@
+q('plus(s(0),s(s(0)),X).', 3).
+plus(s(0),s(s(0)),X).
+q('plus(X,Y,s(s(0))).', 3).
+plus(X,Y,s(s(0))).
+q('plus(s(0),a,X).', 3).
+plus(s(0),a,X).

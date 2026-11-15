@@ -1,0 +1,4 @@
+q('hanoi(s(s(0)),a,b,c,M).', 3).
+hanoi(s(s(0)),a,b,c,M).
+q('hanoi(s(s(s(0))),a,b,c,M).', 3).
+hanoi(s(s(s(0))),a,b,c,M).

@@ -1,0 +1,6 @@
+?- binary_tree(tree(a,tree(b,void,void),tree(c,void,void))).
+yes
+?- binary_tree(void).
+yes
+?- binary_tree(tree(a,b,void)).
+no

@@ -1,0 +1,6 @@
+q('derivative(x^s(s(0)),x,D).', 3).
+derivative(x^s(s(0)),x,D).
+q('derivative(sin(x)*cos(x),x,D).', 3).
+derivative(sin(x)*cos(x),x,D).
+q('derivative(log(x)+x,x,D).', 3).
+derivative(log(x)+x,x,D).

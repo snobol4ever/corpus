@@ -1,0 +1,6 @@
+q('natural_number(s(s(0))).', 3).
+natural_number(s(s(0))).
+q('natural_number(a).', 3).
+natural_number(a).
+q('natural_number(X).', 3).
+natural_number(X).
