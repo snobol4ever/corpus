@@ -10332,6 +10332,27 @@ END
 PASS
 ```
 
+## sweep__a_define_entry_label_with_a_hyphen_or_a_dot_is_found
+
+```SNOBOL4
+          DEFINE('F(X)', 'F1-S')            :(BGN)
+F1-S      F = X X                           :(RETURN)
+BGN       OUTPUT = F('a')
+          DEFINE('G(X)', 'G.IN')            :(B2)
+G.IN      G = X '!'                         :(RETURN)
+B2        OUTPUT = G('b')
+          DEFINE('H(X)', 'H_IN')            :(B3)
+H_IN      H = X '?'                         :(RETURN)
+B3        OUTPUT = H('c')
+END
+```
+
+```stdout
+aa
+b!
+c?
+```
+
 ## user_function_45
 
 ```SNOBOL4
@@ -19822,6 +19843,37 @@ rtntype after return RETURN
 rtntype after freturn FRETURN
 ```
 
+## sweep__an_array_or_a_table_written_to_output_prints_its_datatype_name
+
+```SNOBOL4
+        A = ARRAY(10)
+        OUTPUT = A
+        B = ARRAY('0:2,3')
+        OUTPUT = B
+        T = TABLE(7)
+        OUTPUT = T
+        A[1] = ARRAY(2)
+        A[2] = TABLE()
+        OUTPUT = A[1]
+        OUTPUT = A[2]
+        DATA('node(v)')
+        OUTPUT = node(1)
+        OUTPUT = LEN(1)
+        OUTPUT = PROTOTYPE(A) ' ' PROTOTYPE(B)
+END
+```
+
+```stdout
+ARRAY
+ARRAY
+TABLE
+ARRAY
+TABLE
+node
+PATTERN
+10 0:2,3
+```
+
 ## capture_alt_branch_7
 
 ```SNOBOL4
@@ -22854,6 +22906,27 @@ END
 
 ```stdout
 PASS 1015_opsyn (2/2)
+```
+
+## sweep__a_double_quoted_string_in_a_goto_field_is_read
+
+```SNOBOL4
+	V = "false"
+	A = 'false'
+	A ("true" | "false") . W	:S($("case" W))F(DFLT)
+casetrue	OUTPUT = 'T'	:(NEXT)
+DFLT	OUTPUT = 'D'	:(NEXT)
+casefalse	OUTPUT = 'F'	:(NEXT)
+NEXT	:($("L" "2"))
+L2	OUTPUT = "two"	:($('L' "3"))
+L3	OUTPUT = 'three'
+END
+```
+
+```stdout
+F
+two
+three
 ```
 
 ## user_function_defer_branch_3
