@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=487 features=42 ubiquitous=1(package) distinctive=41 core=23 clusters=80 chunks=2 sizes=373,91
+# shape: entries=485 features=42 ubiquitous=1(package) distinctive=41 core=23 clusters=80 chunks=2 sizes=372,90
 entry	part	cluster	shells
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__deep	core	core	ARBNO DUPL FENCE POS RPOS SIZE SPAN alternation arbno_with_alt deferred_eval fence_guarded_fail goto_fail
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__gcdeep	chunk:01	feat:DUPL	DEFINE DUPL SIZE arith goto_success
@@ -374,9 +374,7 @@ test_gate_sno_eval_of_text_that_does_not_compile_raises_spitbols_syntax_error__l
 test_gate_sno_every_real_overflow_in_the_family_raises__w	chunk:01	feat:EVAL	EVAL arith goto_fail keyword_ref
 test_gate_sno_every_unused_operator_opsyn_names_calls_its_function__bang	chunk:01	feat:OPSYN	DEFINE OPSYN SIZE
 test_gate_sno_every_unused_operator_opsyn_names_calls_its_function__ops	chunk:01	feat:OPSYN	DEFINE OPSYN alternation
-test_gate_sno_flush_runs_the_recorded_conditional_assignments_then_cuts__d	chunk:01	feat:capture_plus_defer	DEFINE capture_plus_defer cond_assign deferred_eval goto_success
 test_gate_sno_flush_runs_the_recorded_conditional_assignments_then_cuts__u	chunk:01	feat:keyword_ref	keyword_ref
-test_gate_sno_flush_runs_the_recorded_conditional_assignments_then_cuts__w	chunk:02	feat:arbno_with_alt	ANY ARBNO DEFINE POS RPOS alternation arbno_with_alt capture_plus_defer cond_assign deferred_eval goto_success indirect_ref
 test_gate_sno_fnclevel_is_mirrored_at_every_level_move_not_only_in_the_gva_shim__banner_depth	chunk:01	feat:arith	DEFINE arith keyword_ref
 test_gate_sno_fnclevel_is_mirrored_at_every_level_move_not_only_in_the_gva_shim__ctl_no_call	chunk:01	feat:keyword_ref	keyword_ref
 test_gate_sno_fnclevel_is_mirrored_at_every_level_move_not_only_in_the_gva_shim__manual_repro	chunk:01	feat:keyword_ref	DEFINE keyword_ref
