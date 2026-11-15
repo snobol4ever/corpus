@@ -17081,6 +17081,29 @@ custom-sort
 custom-rev
 ```
 
+## exceptions__an_eval_of_a_class_with_an_unknown_parent_or_a_second_declaration_is_refused
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+try EVAL 'class B is C { }'; say $! ~~ X::Inheritance::UnknownParent; say $!.message;
+class A { }; try EVAL 'class A { }'; say $!.^name; say $!.message;
+try EVAL 'class Z { }; class Z { }'; say $!.^name;
+class P { }; try EVAL 'class Q is P { }; say Q.new.^name';
+try EVAL 'class E2 is Exception { }; say E2.^name';
+class S { ... }; class S { method m { 1 } }; say S.m;
+```
+
+```stdout
+True
+'B' cannot inherit from 'C' because it is unknown.
+X::Redeclaration
+Redeclaration of symbol 'A'.
+X::Redeclaration
+Q
+E2
+1
+```
+
 ## ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots
 
 ```Raku
