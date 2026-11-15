@@ -1,0 +1,6 @@
+FENCE.tst.sno: ORACLE-REFUSES: SPITBOL ends it with an error: UNIQUE.lss(40) : ERROR 248 -- attempted redefinition of system function
+FOREACH.tst.sno: ORACLE-REFUSES: SPITBOL ends it with an error: FOREACH.lss(63) : ERROR 022 -- undefined function called
+GOTOS.tst.sno: ORACLE-REFUSES: SPITBOL ends it with an error: GOTOS.lss(40) : ERROR 210 -- keyword value assigned is negative or too large
+RESOL.tst.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 10 and 10 bytes
+TPROFILE.tst.sno: ORACLE-REFUSES: SPITBOL ends it with an error: TPROFILE.lss(22) : ERROR 210 -- keyword value assigned is negative or too large
+g360.spt: DIFFERS-BETWEEN-RUNS: exit 231 and 231, 6002 and 6002 bytes

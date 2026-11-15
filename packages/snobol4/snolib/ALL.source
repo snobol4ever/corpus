@@ -1,0 +1,4 @@
+root	/home/resources/collections/snobol4/snolib
+origin	https://github.com/ratboy666/snolib (Fred Weigel's SNOBOL4 library for CSNOBOL4: modules NAME.SNO, their include form NAME.INC and a self-checking test NAME.tst each); converted IN PLACE (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): each test that reaches no external load, host call, shell or socket through its includes is renamed NAME.tst.sno, the name the miner reads, its first line #! written as a comment, and the .INC files converted; the 51 tests that do reach one keep the name .tst and are never run; the originals are at the origin
+version	fc11c07 (2021-07-25)
+licence	MIT (LICENSE: Copyright (c) 2021 Fred Weigel)

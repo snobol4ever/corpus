@@ -1,0 +1,67 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
+# shape: entries=63 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=62 chunks=2 sizes=60,2
+entry	part	cluster	shells
+AGT.tst	chunk:01	family:AGT	
+AI.tst	chunk:01	family:AI	
+AOPA.tst	chunk:01	family:AOPA	
+ATOL.tst	chunk:01	family:ATOL	
+BALREV.tst	chunk:01	family:BALREV	
+BALX.tst	chunk:01	family:BALX	
+BLEND.tst	chunk:01	family:BLEND	
+BRKREM.tst	chunk:01	family:BRKREM	
+CATA.tst	chunk:01	family:CATA	
+CH.tst	chunk:01	family:CH	
+CHARS.tst	chunk:01	family:CHARS	
+COMB.tst	chunk:01	family:COMB	
+COMPLEX.tst	chunk:01	family:COMPLEX	
+COPYL.tst	chunk:01	family:COPYL	
+COPYT.tst	chunk:01	family:COPYT	
+COUNT.tst	chunk:01	family:COUNT	
+CRACK.tst	chunk:01	family:CRACK	
+DAY.tst	chunk:01	family:DAY	
+DDTCARD.tst	chunk:01	family:DDTCARD	
+DEXP.tst	chunk:01	family:DEXP	
+ENDCARD.tst	chunk:01	family:ENDCARD	
+FASTBAL.tst	chunk:01	family:FASTBAL	
+FIND.tst	chunk:01	family:FIND	
+FLOOR.tst	chunk:01	family:FLOOR	
+GCD.tst	chunk:01	family:GCD	
+HEX.tst	chunk:01	family:HEX	
+HOST.tst	chunk:01	family:HOST	
+HTMLESC.tst	chunk:01	family:HTMLESC	
+INFINIP.tst	chunk:01	family:INFINIP	
+LAST.tst	chunk:01	family:LAST	
+LIKE.tst	chunk:01	family:LIKE	
+LINK.tst	chunk:01	family:LINK	
+LOG.tst	core	core	want_rc
+LPROG.tst	chunk:01	family:LPROG	
+MAX.tst	chunk:01	family:MAX	
+MDY.tst	chunk:01	family:MDY	
+MERGET.tst	chunk:01	family:MERGET	
+NOTP.tst	chunk:01	family:NOTP	
+ONCE.tst	chunk:01	family:ONCE	
+ORDER.tst	chunk:01	family:ORDER	
+QUOTE.tst	chunk:01	family:QUOTE	
+READL.tst	chunk:01	family:READL	
+REDEFINE.tst	chunk:01	family:REDEFINE	
+REPL.tst	chunk:01	family:REPL	
+REVL.tst	chunk:01	family:REVL	
+ROMAN.tst	chunk:01	family:ROMAN	
+ROTATER.tst	chunk:01	family:ROTATER	
+ROUTING.tst	chunk:01	family:ROUTING	
+SDIFF.tst	chunk:01	family:SDIFF	
+SEQ.tst	chunk:01	family:SEQ	
+SIZEL.tst	chunk:01	family:SIZEL	
+SKIM.tst	chunk:01	family:SKIM	
+SOUNDEX.tst	chunk:01	family:SOUNDEX	
+SPELL.tst	chunk:01	family:SPELL	
+STACK.tst	chunk:01	family:STACK	
+STROUT.tst	chunk:01	family:STROUT	
+SWAP.tst	chunk:01	family:SWAP	
+TEST.tst	chunk:01	family:TEST	
+TRIMB.tst	chunk:01	family:TRIMB	
+TRUNC.tst	chunk:01	family:TRUNC	
+UNIQUE.tst	chunk:01	family:UNIQUE	
+UTF8.tst	chunk:02	family:UTF	
+WRAPPER.tst	chunk:02	family:WRAPPER	
