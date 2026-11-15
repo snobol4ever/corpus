@@ -15134,6 +15134,30 @@ out:outer
 after
 ```
 
+## eval_redefines__a_sub_an_eval_redefines_fails_its_call_without_a_crash
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+sub foo { "outer" }
+try { EVAL 'sub foo(Str $s) { "inner $s" }; my $v = 42; say foo($v);' }; say $!.^name;
+try { EVAL 'sub foo(Str $s) { "inner $s" }; say foo("a"); my $w = 7; say foo($w)' }; say $!.^name;
+sub bar(Int $n) { $n + 1 }
+try { EVAL 'sub bar(Str $s) { $s ~ "!" }; say bar("b"); my $x = 1; bar($x)' }; say $!.^name;
+say foo(); say bar(1);
+say "end";
+```
+
+```stdout
+X::TypeCheck::Binding::Parameter
+inner a
+X::TypeCheck::Binding::Parameter
+b!
+X::TypeCheck::Binding::Parameter
+outer
+2
+end
+```
+
 ## ladder__rung14_roles
 
 ```Raku

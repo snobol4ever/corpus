@@ -1,8 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1691 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,45
+# shape: entries=1692 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,46
 entry	part	cluster	shells
-emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
+emitter_refusal__unicode_e_is_the_constant_e	chunk:17	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
 ladder__rung00_hello_multiple_args	chunk:01	family:ladder	
 ladder__rung00_hello_numeric_literal	chunk:01	family:ladder	
@@ -34,7 +34,7 @@ ladder__rung09_string_methods_trim_method	chunk:01	family:ladder
 parse_census__bare_module	chunk:17	family:parse_census	
 parser__atom_int	chunk:15	family:parser	
 parser__atom_str	chunk:15	family:parser	
-parser__spurt_file	chunk:15	family:parser	
+parser__spurt_file	chunk:16	family:parser	
 parser_coverage__stmt_ctrl_CATCH_free	chunk:16	family:parser_coverage	
 parser_coverage__stmt_ctrl_CONTROL	chunk:16	family:parser_coverage	
 parser_coverage__stmt_ctrl_QUIT	chunk:16	family:parser_coverage	
@@ -856,7 +856,7 @@ range_array_3	chunk:14	feat:range_op	range_op sigil_array
 range_array_4	chunk:14	feat:range_op	range_op sigil_array
 range_array_5	chunk:14	feat:range_op	range_op sigil_array
 range_array_6	chunk:14	feat:range_op	range_op sigil_array
-range_array_7	chunk:14	feat:range_op	range_op sigil_array
+range_array_7	chunk:15	feat:range_op	range_op sigil_array
 range_array_8	chunk:15	feat:range_op	range_op sigil_array
 range_array_9	chunk:15	feat:range_op	range_op sigil_array
 range_array_replace_1	chunk:15	feat:range_op	range_op sigil_array
@@ -1272,7 +1272,7 @@ ladder__rung15_blocks_return_is_an_assignment_rhs	chunk:13	feat:sub_with_return	
 ladder__rung19_block_a_for_over_a_parenthesised_map_of_a_sort	chunk:07	feat:for_with_say	for for_with_say sigil_array
 ladder__rung19_block_a_sub_called_in_a_for_reads_its_own_topic	chunk:07	feat:for_with_say	for for_with_say range_op sub
 ladder__rung19_block_the_grep_listop_takes_a_regex_as_its_matcher	chunk:15	feat:grep	grep join say sigil_array
-method_lexical__a_block_that_declares_the_name_keeps_its_own	chunk:11	feat:method	method sub
+method_lexical__a_block_that_declares_the_name_keeps_its_own	chunk:12	feat:method	method sub
 method_lexical__a_class_body_lexical_is_set_at_each_entry	chunk:12	feat:method	method sub
 method_lexical__a_closure_and_a_method_share_the_routines_counter	chunk:12	feat:method	method sub
 method_lexical__a_method_writes_and_the_variable_outlives_the_return	chunk:12	feat:method	method sub
@@ -1309,7 +1309,7 @@ class_method_replace_20	chunk:13	feat:return	method return
 class_method_replace_3	chunk:11	feat:if	if method
 class_method_replace_4	chunk:11	feat:if	if method
 class_method_replace_5	chunk:13	feat:return	method return
-class_method_replace_8	chunk:13	feat:return	method return
+class_method_replace_8	chunk:14	feat:return	method return
 class_method_replace_9	chunk:14	feat:return	method return
 class_method_say_replace_18	chunk:12	feat:method	method say
 class_say_replace_15	chunk:06	feat:has	has say
@@ -1354,6 +1354,7 @@ ladder__rung13_classes	chunk:14	feat:return	method return
 ladder__rung13_classes_named_arg_constructor	chunk:06	feat:has	has method
 ladder__rung14_roles_smartmatch	chunk:10	feat:smartmatch	smartmatch string_concat
 say_try_die_7	chunk:16	feat:die	die say string_concat try
+eval_redefines__a_sub_an_eval_redefines_fails_its_call_without_a_crash	chunk:11	feat:try	string_concat sub try
 ladder__rung14_roles	chunk:14	feat:return	method return
 ladder__rung14_roles_override	chunk:14	feat:return	method return
 mixin__a_mixed_in_value_answers_its_boxed_value	chunk:10	feat:smartmatch	method smartmatch string_concat
@@ -1531,7 +1532,7 @@ class_method_say_replace_6	chunk:06	feat:has	has method return say
 class_method_say_replace_7	chunk:06	feat:has	has method return say
 class_method_sub_replace_1	chunk:06	feat:has	has method say sub
 multi_sub_array_1	chunk:13	feat:sub_with_return	multi return sigil_array string_concat sub sub_with_return
-multi_sub_say_3	chunk:12	feat:multi	has multi say string_concat sub
+multi_sub_say_3	chunk:13	feat:multi	has multi say string_concat sub
 class_method_range_replace_5	chunk:14	feat:return	method range_op return say
 class_method_say_replace_12	chunk:14	feat:return	method return say string_concat
 class_method_say_replace_24	chunk:06	feat:has	has method return say
