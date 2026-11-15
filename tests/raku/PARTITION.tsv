@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1641 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=70 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,97
+# shape: entries=1642 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=70 chunks=16 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,98
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
