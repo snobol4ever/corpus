@@ -3574,7 +3574,7 @@ UTF[CHAR(194)   CHAR(169)] = 'COPYRIGHT_SIGN';
 UTF[CHAR(194)   CHAR(174)] = 'REGISTERED_SIGN';
 UTF[CHAR(226)   CHAR(128)   CHAR(148)] = 'EM_DASH';
 UTF_Array = SORT(UTF);
-utf_n_ = SIZE(UTF_Array);
+PROTOTYPE(UTF_Array) ? (BREAK(',') . utf_n_);
 i = 0;
 while (1) {
     i = i + 1;
