@@ -7114,6 +7114,18 @@ True
 False
 ```
 
+## emitter_refusal__a_sub_inside_a_closure_argument_reads_its_lexical
+
+```Raku
+sub t(&c) { c() }
+t { my $x = 42; say $x; sub f { $x }; say f(); }
+```
+
+```stdout
+42
+42
+```
+
 ## hash_15
 
 ```Raku
