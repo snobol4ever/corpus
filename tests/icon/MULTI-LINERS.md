@@ -22281,6 +22281,46 @@ end
 xy
 ```
 
+## ladder__rung29_builtins_a_read_or_write_of_a_file_not_open_for_it_is_error_212_or_213
+
+```Icon
+procedure main()
+   local f, g;
+   f := open("/dev/null") | stop("no file");
+   write("eof ", image(read(f)) | "fails");
+   close(f);
+   g := open("/dev/null", "w") | stop("no file");
+   &error := 1;
+   write("a read of a write-only file: ", image(read(g)) | "fails", " ", &errornumber | "none");
+   &error := 1;
+   write("b bang of a write-only file: ", image(!g) | "fails", " ", &errornumber | "none");
+   &error := 1;
+   write("c read of a closed file: ", image(read(f)) | "fails", " ", &errornumber | "none");
+   &error := 1;
+   write("d bang of a closed file: ", image(!f) | "fails", " ", &errornumber | "none");
+   &error := 1;
+   write("e reads of a write-only file: ", image(reads(g, 1)) | "fails", " ", &errornumber | "none");
+   close(g);
+   &error := 1;
+   write("f write to a closed file: ", image(write(g, "x")) | "fails", " ", &errornumber | "none");
+   g := open("/dev/null") | stop("no file");
+   &error := 1;
+   write("g write to a read-only file: ", image(write(g, "x")) | "fails", " ", &errornumber | "none");
+   write("h the closed file still reads closed: ", image(read(f)) | "fails", " ", &errornumber | "none");
+end
+```
+
+```stdout
+eof fails
+a read of a write-only file: fails 212
+b bang of a write-only file: fails 212
+c read of a closed file: fails 212
+d bang of a closed file: fails 212
+e reads of a write-only file: fails 212
+f write to a closed file: fails 213
+g write to a read-only file: fails 213
+```
+
 ## ladder__rung02_proc_a_returned_variable_derefs_at_the_invocation
 
 ```Icon
@@ -26067,6 +26107,53 @@ end
 t1 1 pos 1
 t2 pos 2 
 t2 & pos 2
+```
+
+## ladder__rung29_builtins_the_bang_of_a_file_ends_a_line_as_read_does
+
+```Icon
+procedure main()
+   local f, name;
+   name := "bang_line_ends.tmp";
+   f := open(name, "wu") | stop("cannot write ", name);
+   writes(f, "a\r\nb\r\r\nc\rd\n\rlast");
+   close(f);
+   f := open(name) | stop("no file");
+   while write("read ", image(read(f)));
+   close(f);
+   f := open(name) | stop("no file");
+   every write("bang ", image(!f));
+   close(f);
+   f := open(name, "ru") | stop("no file");
+   every write("bang untranslated ", image(!f));
+   close(f);
+   f := open(name) | stop("no file");
+   write("reads ", image(reads(f, 100)));
+   close(f);
+   remove(name);
+end
+```
+
+```stdout
+read "a"
+read "b"
+read ""
+read "c"
+read "d"
+read ""
+read "last"
+bang "a"
+bang "b"
+bang ""
+bang "c"
+bang "d"
+bang ""
+bang "last"
+bang untranslated "a\r"
+bang untranslated "b\r\r"
+bang untranslated "c\rd"
+bang untranslated "\rlast"
+reads "a\r\nb\r\r\nc\rd\n\rlast"
 ```
 
 ## procedure_every_suspend_replace_10
