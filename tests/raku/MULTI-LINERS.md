@@ -13209,6 +13209,17 @@ class Point { has Int $.x; has Int $.y; }
 3
 ```
 
+## emitter_refusal__a_method_of_a_class_inside_a_closure_argument_reads_its_lexical
+
+```Raku
+sub t(&c) { c() }
+t { my $msg = "hello"; my class Foo { method Str { $msg } }; say Foo.new.Str; }
+```
+
+```stdout
+hello
+```
+
 ## for_range_10
 
 ```Raku
@@ -14438,6 +14449,25 @@ say [+] (1..999).grep({ $_ % 3 == 0 || $_ % 5 == 0 });
 4
 6
 233168
+```
+
+## method_lexical__methods_read_the_routines_latest_entry
+
+```Raku
+sub t($msg) { my class Foo { method Str { $msg } }; Foo.new }
+my $a = t("one"); my $b = t("two");
+say $a.Str; say $b.Str;
+sub u($msg) { my class Bar { method m { $msg } }; Bar }
+my \A = u("one"); say A.m; my \B = u("two"); say A.m; say B.m; say A === B;
+```
+
+```stdout
+two
+two
+one
+two
+two
+True
 ```
 
 ## pair_class__pair_class_methods
@@ -15884,6 +15914,19 @@ say $r;
 
 ```stdout
 3
+```
+
+## method_lexical__recursion_keeps_each_entrys_own_variable
+
+```Raku
+sub t($msg, $depth) { my class Foo { method m { $msg } }; my $o = Foo.new; t("inner", $depth - 1) if $depth > 0; say "depth $depth msg $msg m ", $o.m; $o }
+my $x = t("outer", 1); say "after ", $x.m;
+```
+
+```stdout
+depth 0 msg inner m inner
+depth 1 msg outer m inner
+after inner
 ```
 
 ## class_array_say_replace_2
@@ -17790,6 +17833,17 @@ Bool::True Bool::False
 8
 ```
 
+## method_lexical__a_while_bodys_lexical
+
+```Raku
+sub t { my $i = 0; my @o; while $i < 2 { my $k = $i * 10; my class Foo { method m { $k } }; @o.push(Foo.new); $i++ }; say @o[0].m, " ", @o[1].m }
+t();
+```
+
+```stdout
+10 10
+```
+
 ## sub_for_array_2
 
 ```Raku
@@ -18144,6 +18198,22 @@ my $u = ""; for 1..4 { last if $_ == 3; $u ~= $_ }; say $u;
 xxx
 6
 12
+```
+
+## method_lexical__an_attribute_default_a_where_clause_and_two_classes_of_one_role
+
+```Raku
+sub t($d) { my class Foo { has $.x = $d * 2; method m(Int $a where * < $d) { $a + $d } }; my $o = Foo.new; say $o.x, " ", $o.m(1) }
+t(5); t(7);
+sub r($w) { my role R { method r { $w } }; my class C does R { }; my class D does R { method d { $w ~ "d" } }; say C.new.r, " ", D.new.r, " ", D.new.d }
+r("a"); r("b");
+```
+
+```stdout
+10 6
+14 8
+a a ad
+b b bd
 ```
 
 ## rx_code__from_roman_sums_the_takes_of_a_quantified_group
@@ -20424,6 +20494,25 @@ say @ps.sort({ $^b.scaled(:by(2)) <=> $^a.scaled(:by(2)) }).map(*.x);
 ```stdout
 (10 20 30)
 (3 2 1)
+```
+
+## method_lexical__a_closure_in_a_method_a_for_block_and_a_role
+
+```Raku
+sub t($msg) { my class Foo { method m { my $f = { $msg ~ "!" }; $f() } ; method n { self.m ~ $msg } }; say Foo.new.n }
+t("x"); t("y");
+for 1..2 -> $i { my class Bar { method m { $i * 10 } }; say Bar.new.m }
+sub u($v) { my $w = $v * 2; my role R { method r { $w } }; my class C does R { method c { $v } }; my $o = C.new; say $o.r, " ", $o.c }
+u(1); u(5);
+```
+
+```stdout
+x!x
+y!y
+10
+20
+2 1
+10 5
 ```
 
 ## core__rc11_nested_sort_reduce
