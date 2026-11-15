@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1660 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=44 clusters=70 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,16
+# shape: entries=1662 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=45 clusters=70 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,17
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -48,7 +48,7 @@ revisions__rv01_setting_rev	chunk:15	family:revisions
 revisions__rv01b_setting_rev_d	chunk:15	family:revisions	
 revisions__rv01c_setting_rev_e_preview	chunk:15	family:revisions	
 revisions__rv02_modifiers	chunk:15	family:revisions	
-revisions__rv03b_class_ver_default	chunk:15	family:revisions	
+revisions__rv03b_class_ver_default	chunk:16	family:revisions	
 revisions__rv04_e_needs_preview	chunk:16	family:revisions	
 revisions__rv05_unknown_modifier	chunk:16	family:revisions	
 revisions__rv06_testdepr_warns	chunk:16	family:revisions	
@@ -318,7 +318,7 @@ ladder__rung10_given_empty_is_undefined_so_orelse_and_the_dor_operator_skip_it_a
 ladder__rung15_blocks_a_builtin_routine_reference_is_passed_to_a_code_parameter	chunk:08	feat:sub	sub
 ladder__rung16_bool_relops_a_chained_numeric_relop_counts_a_list_returning_method_call	chunk:14	feat:grep	grep
 ladder__rung16_bool_relops_a_list_returning_method_call_is_counted_in_a_numeric_relop	chunk:14	feat:grep	grep
-react__whenever_over_an_on_demand_supply	chunk:16	family:react	
+react__whenever_over_an_on_demand_supply	chunk:17	family:react	
 say_90	chunk:04	feat:say	say
 simple_assign_46	chunk:03	family:smoke	
 simple_assign_47	chunk:03	family:smoke	
@@ -1649,7 +1649,9 @@ ladder__rung04_arrays_an_infinite_or_whatever_ended_range_is_lazy_where_it_is_it
 builtin_table__bt11_raku_methods_by_type	core	core	join range_op return say sigil_hash split string_concat sub sub_with_return
 ladder__rung05_hashes_a_hash_slice_reads_assigns_tests_and_deletes_several_keys	chunk:14	feat:map	for for_with_say join map range_op say sigil_array sigil_hash string_concat
 ladder__rung02_arithmetic_rat_in_the_builtins_index_range_x_floor_abs_sqrt_sprintf_int_and_caret	core	core	for for_with_say range_op say sigil_array sigil_hash smartmatch sprintf string_concat
+compiler_object__rc3-the-compiler-object-parses-an-expression-statement	core	core	for for_with_say grep if regex sigil_array smartmatch sort string_concat sub
 exceptions__ex09_rk_try_catch_die	core	core	for for_with_say if join range_op sigil_array string_concat sub try when
+compiler_object__rc3b-the-statement-walk-over-thirteen-more-inputs	chunk:15	feat:sort	for for_with_say grep if regex sigil_array smartmatch sort string_concat sub
 rewrite__rr07_exceptions	core	core	for for_with_say if range_op return smartmatch string_concat sub sub_with_return try when
 ladder__rung09_regex_engine_captures_1_agree_with_rakudo	chunk:14	feat:map	for for_with_say if join map regex sigil_array sigil_hash smartmatch string_concat sub
 zeta_layout__zl08_rk_lists_hashes	core	core	for for_with_say grep join map range_op sigil_array sigil_hash sort split string_concat sub

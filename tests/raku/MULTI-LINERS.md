@@ -22798,6 +22798,62 @@ True
 99.999999
 ```
 
+## compiler_object__rc3-the-compiler-object-parses-an-expression-statement
+
+```Raku
+use nqp;
+sub kids(Mu \m) {
+    my @out;
+    for m.hash.kv -> $k, Mu \v {
+        if v ~~ Positional { @out.push: [$k, $_] for v.list }
+        else { @out.push: [$k, v] }
+    }
+    @out.grep({ nqp::can(.[1], 'from') }).sort({ (.[1].from, .[0]) })
+}
+sub walk(Mu \m, Str $name, Int $depth) {
+    my @k = kids(m);
+    my $text = m.Str.subst(/\s+/, ' ', :g).trim;
+    say '  ' x $depth ~ $name ~ ': ' ~ $text ~ ' [' ~ m.from ~ ',' ~ m.to ~ ']';
+    walk(.[1], .[0], $depth + 1) for @k;
+}
+my $compiler := nqp::getcomp('Raku');
+walk($compiler.parse('1 + 2 * 3;'), 'TOP', 0);
+walk($compiler.parse('4 - 1; 2 ** 3;'), 'TOP', 0);
+```
+
+```stdout
+TOP: 1 + 2 * 3; [0,10]
+  lang-version:  [0,0]
+  statementlist: 1 + 2 * 3; [0,10]
+    statement: 1 + 2 * 3 [0,9]
+      EXPR: + 2 * 3 [2,9]
+        OPER: + [2,3]
+          sym: + [2,3]
+          O:  [3,3]
+        infix: + [2,3]
+          sym: + [2,3]
+          O:  [3,3]
+TOP: 4 - 1; 2 ** 3; [0,14]
+  lang-version:  [0,0]
+  statementlist: 4 - 1; 2 ** 3; [0,14]
+    statement: 4 - 1 [0,5]
+      EXPR: - 1 [2,5]
+        OPER: - [2,3]
+          sym: - [2,3]
+          O:  [3,3]
+        infix: - [2,3]
+          sym: - [2,3]
+          O:  [3,3]
+    statement: 2 ** 3 [7,13]
+      EXPR: ** 3 [9,13]
+        OPER: ** [9,11]
+          sym: ** [9,11]
+          O:  [11,11]
+        infix: ** [9,11]
+          sym: ** [9,11]
+          O:  [11,11]
+```
+
 ## exceptions__ex09_rk_try_catch_die
 
 ```Raku
@@ -22833,6 +22889,227 @@ X::Numeric::DivideByZero
 inner caught: inner
 outer caught: inner
 before the end
+```
+
+## compiler_object__rc3b-the-statement-walk-over-thirteen-more-inputs
+
+```Raku
+use nqp;
+sub kids(Mu \m) {
+    my @out;
+    for m.hash.kv -> $k, Mu \v {
+        if v ~~ Positional { @out.push: [$k, $_] for v.list }
+        else { @out.push: [$k, v] }
+    }
+    @out.grep({ nqp::can(.[1], 'from') }).sort({ (.[1].from, .[0]) })
+}
+sub walk(Mu \m, Str $name, Int $depth) {
+    my @k = kids(m);
+    my $text = m.Str.subst(/\s+/, ' ', :g).trim;
+    say '  ' x $depth ~ $name ~ ': ' ~ $text ~ ' [' ~ m.from ~ ',' ~ m.to ~ ']';
+    walk(.[1], .[0], $depth + 1) for @k;
+}
+my $compiler := nqp::getcomp('Raku');
+walk($compiler.parse('1 + 2 ;'), 'TOP', 0);
+walk($compiler.parse(' 3 * 4;  5 - 6 '), 'TOP', 0);
+walk($compiler.parse('2 ** 3 ** 4;'), 'TOP', 0);
+walk($compiler.parse('1, 2, 3;'), 'TOP', 0);
+walk($compiler.parse('1 + 2 + 3;'), 'TOP', 0);
+walk($compiler.parse('use v6; 1 + 2;'), 'TOP', 0);
+walk($compiler.parse('1 < 2 < 3;'), 'TOP', 0);
+walk($compiler.parse('1 ~ 2 x 3;'), 'TOP', 0);
+walk($compiler.parse(';;1 + 1;'), 'TOP', 0);
+walk($compiler.parse('  use v6.d;1 - 2'), 'TOP', 0);
+walk($compiler.parse('use v6.e.PREVIEW; 1 + 1;'), 'TOP', 0);
+walk($compiler.parse("1 +\n 2;\n# c\n3 - 1\n"), 'TOP', 0);
+walk($compiler.parse('1 = 2 = 3; 1 or 2 and 3'), 'TOP', 0);
+```
+
+```stdout
+TOP: 1 + 2 ; [0,7]
+  lang-version:  [0,0]
+  statementlist: 1 + 2 ; [0,7]
+    statement: 1 + 2 [0,6]
+      EXPR: + 2 [2,6]
+        OPER: + [2,3]
+          sym: + [2,3]
+          O:  [3,3]
+        infix: + [2,3]
+          sym: + [2,3]
+          O:  [3,3]
+TOP: 3 * 4; 5 - 6 [0,15]
+  lang-version:  [0,1]
+  statementlist: 3 * 4; 5 - 6 [1,15]
+    statement: 3 * 4 [1,6]
+      EXPR: * 4 [3,6]
+        OPER: * [3,4]
+          sym: * [3,4]
+          O:  [4,4]
+        infix: * [3,4]
+          sym: * [3,4]
+          O:  [4,4]
+    statement: 5 - 6 [9,15]
+      EXPR: - 6 [11,15]
+        OPER: - [11,12]
+          sym: - [11,12]
+          O:  [12,12]
+        infix: - [11,12]
+          sym: - [11,12]
+          O:  [12,12]
+TOP: 2 ** 3 ** 4; [0,12]
+  lang-version:  [0,0]
+  statementlist: 2 ** 3 ** 4; [0,12]
+    statement: 2 ** 3 ** 4 [0,11]
+      EXPR: ** 3 ** 4 [2,11]
+        OPER: ** [2,4]
+          sym: ** [2,4]
+          O:  [4,4]
+        infix: ** [2,4]
+          sym: ** [2,4]
+          O:  [4,4]
+TOP: 1, 2, 3; [0,8]
+  lang-version:  [0,0]
+  statementlist: 1, 2, 3; [0,8]
+    statement: 1, 2, 3 [0,7]
+      EXPR: , 3 [4,7]
+        OPER: , [4,5]
+          sym: , [4,5]
+          O:  [5,5]
+        infix: , [4,5]
+          sym: , [4,5]
+          O:  [5,5]
+TOP: 1 + 2 + 3; [0,10]
+  lang-version:  [0,0]
+  statementlist: 1 + 2 + 3; [0,10]
+    statement: 1 + 2 + 3 [0,9]
+      EXPR: + 3 [6,9]
+        OPER: + [6,7]
+          sym: + [6,7]
+          O:  [7,7]
+        infix: + [6,7]
+          sym: + [6,7]
+          O:  [7,7]
+TOP: use v6; 1 + 2; [0,14]
+  lang-version: use v6 [0,6]
+    version: v6 [4,6]
+      vnum: 6 [5,6]
+      vstr: 6 [5,6]
+  statementlist: ; 1 + 2; [6,14]
+    statement:  [6,6]
+    statement: 1 + 2 [8,13]
+      EXPR: + 2 [10,13]
+        OPER: + [10,11]
+          sym: + [10,11]
+          O:  [11,11]
+        infix: + [10,11]
+          sym: + [10,11]
+          O:  [11,11]
+TOP: 1 < 2 < 3; [0,10]
+  lang-version:  [0,0]
+  statementlist: 1 < 2 < 3; [0,10]
+    statement: 1 < 2 < 3 [0,9]
+      EXPR: < 3 [6,9]
+        OPER: < [6,7]
+          sym: < [6,7]
+          O:  [7,7]
+        infix: < [6,7]
+          sym: < [6,7]
+          O:  [7,7]
+TOP: 1 ~ 2 x 3; [0,10]
+  lang-version:  [0,0]
+  statementlist: 1 ~ 2 x 3; [0,10]
+    statement: 1 ~ 2 x 3 [0,9]
+      EXPR: ~ 2 x 3 [2,9]
+        OPER: ~ [2,3]
+          sym: ~ [2,3]
+          O:  [3,3]
+        infix: ~ [2,3]
+          sym: ~ [2,3]
+          O:  [3,3]
+TOP: ;;1 + 1; [0,8]
+  lang-version:  [0,0]
+  statementlist: ;;1 + 1; [0,8]
+    statement:  [0,0]
+    statement:  [1,1]
+    statement: 1 + 1 [2,7]
+      EXPR: + 1 [4,7]
+        OPER: + [4,5]
+          sym: + [4,5]
+          O:  [5,5]
+        infix: + [4,5]
+          sym: + [4,5]
+          O:  [5,5]
+TOP: use v6.d;1 - 2 [0,16]
+  lang-version: use v6.d [0,10]
+    version: v6.d [6,10]
+      vnum: 6 [7,8]
+      vstr: 6.d [7,10]
+      vnum: d [9,10]
+  statementlist: ;1 - 2 [10,16]
+    statement:  [10,10]
+    statement: 1 - 2 [11,16]
+      EXPR: - 2 [13,16]
+        OPER: - [13,14]
+          sym: - [13,14]
+          O:  [14,14]
+        infix: - [13,14]
+          sym: - [13,14]
+          O:  [14,14]
+TOP: use v6.e.PREVIEW; 1 + 1; [0,24]
+  lang-version: use v6.e.PREVIEW [0,16]
+    version: v6.e.PREVIEW [4,16]
+      vnum: 6 [5,6]
+      vstr: 6.e.PREVIEW [5,16]
+      vnum: e [7,8]
+      vnum: PREVIEW [9,16]
+  statementlist: ; 1 + 1; [16,24]
+    statement:  [16,16]
+    statement: 1 + 1 [18,23]
+      EXPR: + 1 [20,23]
+        OPER: + [20,21]
+          sym: + [20,21]
+          O:  [21,21]
+        infix: + [20,21]
+          sym: + [20,21]
+          O:  [21,21]
+TOP: 1 + 2; # c 3 - 1 [0,18]
+  lang-version:  [0,0]
+  statementlist: 1 + 2; # c 3 - 1 [0,18]
+    statement: 1 + 2 [0,6]
+      EXPR: + 2 [2,6]
+        OPER: + [2,3]
+          sym: + [2,3]
+          O:  [3,3]
+        infix: + [2,3]
+          sym: + [2,3]
+          O:  [3,3]
+    statement: 3 - 1 [12,18]
+      EXPR: - 1 [14,18]
+        OPER: - [14,15]
+          sym: - [14,15]
+          O:  [15,15]
+        infix: - [14,15]
+          sym: - [14,15]
+          O:  [15,15]
+TOP: 1 = 2 = 3; 1 or 2 and 3 [0,23]
+  lang-version:  [0,0]
+  statementlist: 1 = 2 = 3; 1 or 2 and 3 [0,23]
+    statement: 1 = 2 = 3 [0,9]
+      EXPR: = 2 = 3 [2,9]
+        OPER: = [2,3]
+          sym: = [2,3]
+          O:  [3,3]
+        infix: = [2,3]
+          sym: = [2,3]
+          O:  [3,3]
+    statement: 1 or 2 and 3 [11,23]
+      EXPR: or 2 and 3 [13,23]
+        OPER: or [13,15]
+          sym: or [13,15]
+          O:  [15,15]
+        infix: or [13,15]
+          sym: or [13,15]
+          O:  [15,15]
 ```
 
 ## rewrite__rr07_exceptions
