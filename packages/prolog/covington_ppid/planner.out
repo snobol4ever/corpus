@@ -1,0 +1,51 @@
+?- itinerary(boston,los_angeles).
+[atlanta,boston]
+[new_orleans,atlanta,boston]
+[cincinnati,new_orleans,atlanta,boston]
+[los_angeles,cincinnati,new_orleans,atlanta,boston]
+yes
+[washington,cincinnati,new_orleans,atlanta,boston]
+[cincinnati,atlanta,boston]
+[los_angeles,cincinnati,atlanta,boston]
+;
+yes
+[new_orleans,cincinnati,atlanta,boston]
+[washington,cincinnati,atlanta,boston]
+[washington,atlanta,boston]
+[cincinnati,washington,atlanta,boston]
+[los_angeles,cincinnati,washington,atlanta,boston]
+;
+yes
+...
+?- itinerary(new_orleans,boston).
+[cincinnati,new_orleans]
+[washington,cincinnati,new_orleans]
+[atlanta,washington,cincinnati,new_orleans]
+[boston,atlanta,washington,cincinnati,new_orleans]
+yes
+[atlanta,cincinnati,new_orleans]
+[boston,atlanta,cincinnati,new_orleans]
+;
+yes
+[washington,atlanta,cincinnati,new_orleans]
+[los_angeles,cincinnati,new_orleans]
+[atlanta,new_orleans]
+[boston,atlanta,new_orleans]
+;
+yes
+...
+?- distance(atlanta,boston,N).
+N = 1108
+?- distance(washington,cincinnati,N).
+N = 481
+?- connection(atlanta,X).
+X = boston
+;
+X = cincinnati
+;
+X = new_orleans
+...
+?- closest(los_angeles,[boston,cincinnati,washington],C).
+C = cincinnati
+?- remove(b,[a,b,c,b],L).
+L = [a,c,b]

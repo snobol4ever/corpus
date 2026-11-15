@@ -1,0 +1,20 @@
+?- for_all(dog(X),animal(X)).
+X = fido
+?- for_all(animal(X),dog(X)).
+no
+?- for_all(bulldog(X),dog(X)).
+X = bucephalus
+?- dog(X).
+X = fido
+;
+X = rover
+;
+X = bucephalus
+...
+?- animal(X).
+X = fido
+;
+X = rover
+;
+X = bucephalus
+...

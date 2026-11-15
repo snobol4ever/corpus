@@ -1,0 +1,10 @@
+q('fact(supports(X,Y)).', 3).
+fact(supports(X,Y)).
+q('goal(G).', 3).
+goal(G).
+q('fact(supports(floor,X)).', 3).
+fact(supports(floor,X)).
+q('rule(1).', 3).
+rule(1).
+q('rule(4).', 3).
+rule(4).

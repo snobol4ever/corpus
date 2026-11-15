@@ -1,0 +1,10 @@
+q('map.', 3).
+map.
+q('borders(peru,X).', 3).
+borders(peru,X).
+q('prohibited(peru,red,[[chile,red]]).', 3).
+prohibited(peru,red,[[chile,red]]).
+q('color(X).', 3).
+color(X).
+q('remaining(C,[[antilles,red]]).', 3).
+remaining(C,[[antilles,red]]).

@@ -1,0 +1,10 @@
+q('atom_codes(\'Hello, World! 42\',S), tokenize(S,L).', 3).
+atom_codes('Hello, World! 42',S), tokenize(S,L).
+q('atom_codes(\'The quick  brown fox.\',S), tokenize(S,L).', 3).
+atom_codes('The quick  brown fox.',S), tokenize(S,L).
+q('lower_case(65,X).', 3).
+lower_case(65,X).
+q('punctuation_mark(33).', 3).
+punctuation_mark(33).
+q('grab_word([104,105,32,97],C,R).', 3).
+grab_word([104,105,32,97],C,R).

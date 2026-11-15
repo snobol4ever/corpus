@@ -1,0 +1,20 @@
+?- fact(supports(X,Y)).
+X = floor
+Y = a
+;
+X = floor
+Y = b
+;
+X = b
+Y = c
+...
+?- goal(G).
+G = stack([a,b,c,d])
+?- fact(supports(floor,X)).
+X = a
+;
+X = b
+?- rule(1).
+no
+?- rule(4).
+raised(existence_error(procedure,then/0))

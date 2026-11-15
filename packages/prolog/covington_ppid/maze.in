@@ -1,0 +1,8 @@
+q('solve_maze.', 3).
+solve_maze.
+q('path([start],S).', 3).
+path([start],S).
+q('connected_to(X,finish).', 3).
+connected_to(X,finish).
+q('connected_to(start,X).', 3).
+connected_to(start,X).

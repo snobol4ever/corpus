@@ -1,0 +1,8 @@
+q('grandparent(X,cathy).', 3).
+grandparent(X,cathy).
+q('only_child(cathy).', 3).
+only_child(cathy).
+q('only_child(michael).', 3).
+only_child(michael).
+q('parent(X,cathy) & parent(Y,X).', 3).
+parent(X,cathy) & parent(Y,X).

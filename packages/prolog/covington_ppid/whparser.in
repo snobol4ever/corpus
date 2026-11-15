@@ -1,0 +1,10 @@
+q('demo1.', 3).
+demo1.
+q('demo2.', 3).
+demo2.
+q('phrase(sentence([],[],S),[the,boy,saw,the,cat]).', 3).
+phrase(sentence([],[],S),[the,boy,saw,the,cat]).
+q('phrase(sentence([],[],S),[what,did,the,dog,chase]).', 3).
+phrase(sentence([],[],S),[what,did,the,dog,chase]).
+q('phrase(sentence([],[],S),[who,did,the,girl,say,the,boy,saw]).', 3).
+phrase(sentence([],[],S),[who,did,the,girl,say,the,boy,saw]).

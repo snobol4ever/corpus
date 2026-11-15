@@ -1,0 +1,8 @@
+?- solve_maze.
+[finish,32,33,34,28,27,26,20,14,15,21,22,16,10,4,3,9,8,2,start]yes
+?- path([start],S).
+S = [finish,32,33,34,28,27,26,20,14,15,21,22,16,10,4,3,9,8,2,start]
+?- connected_to(X,finish).
+X = 32
+?- connected_to(start,X).
+X = 2

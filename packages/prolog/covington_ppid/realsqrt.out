@@ -1,0 +1,12 @@
+?- real_square_root(9.0,Y).
+Y = 3.0
+;
+Y = -3.0
+?- real_square_root(X,3.0).
+X = 9.0
+?- real_square_root(-4,Y).
+Y = nonexistent
+?- real_square_root(16,4).
+yes
+?- close_enough(1.0,1.00001).
+yes

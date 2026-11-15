@@ -1,0 +1,8 @@
+q('capital_of(georgia,X).', 3).
+capital_of(georgia,X).
+q('capital_of(X,austin).', 3).
+capital_of(X,austin).
+q('capital_of(ohio,X).', 3).
+capital_of(ohio,X).
+q('capital_of(X,Y).', 3).
+capital_of(X,Y).

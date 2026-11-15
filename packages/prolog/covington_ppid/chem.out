@@ -1,0 +1,54 @@
+?- demo1.
+Searching for a methyl group...
+Found one centered on atom: c3
+yes
+Found one centered on atom: c3
+;
+yes
+Found one centered on atom: c3
+;
+yes
+...
+?- demo2.
+Searching for a six-membered carbon ring...
+Found one containing atoms: [c1,c2,c5,c7,c6,c4]
+yes
+Found one containing atoms: [c1,c4,c6,c7,c5,c2]
+;
+yes
+Found one containing atoms: [c2,c1,c4,c6,c7,c5]
+;
+yes
+...
+?- methyl(X).
+X = c3
+;
+X = c3
+;
+X = c3
+...
+?- six_membered_carbon_ring(R).
+R = [c1,c2,c5,c7,c6,c4]
+;
+R = [c1,c4,c6,c7,c5,c2]
+;
+R = [c2,c1,c4,c6,c7,c5]
+...
+?- meth_carbon_ring(L).
+L = [c3,c1,c2,c5,c7,c6,c4]
+;
+L = [c3,c1,c2,c5,c7,c6,c4]
+;
+L = [c3,c1,c2,c5,c7,c6,c4]
+...
+?- hydroxide(O).
+no
+?- bonded(c1,X).
+X = c2
+;
+X = c4
+;
+X = h1
+...
+?- element(ch,E).
+E = chlorine

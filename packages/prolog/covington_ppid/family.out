@@ -1,0 +1,24 @@
+?- father(X,cathy).
+X = michael
+?- mother(X,stephanie).
+X = crystal
+?- parent(X,melody).
+X = jim
+;
+X = eleanor
+?- parent(jim,X).
+X = melody
+;
+X = crystal
+?- parent(P,cathy), parent(G,P).
+P = michael
+G = charles_gordon
+;
+P = michael
+G = hazel
+;
+P = melody
+G = jim
+...
+?- father(X,X).
+no

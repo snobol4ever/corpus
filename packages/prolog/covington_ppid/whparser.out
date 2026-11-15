@@ -1,0 +1,12 @@
+?- demo1.
+sentence(noun_phrase(determiner(the),noun(boy)),verb_phrase(verb(believed),sentence(noun_phrase(determiner(the),noun(girl)),verb_phrase(verb(saw),noun_phrase(who)))))
+yes
+?- demo2.
+sentence(noun_phrase(determiner(the),noun(boy)),verb_phrase(verb(believed),sentence(noun_phrase(who),verb_phrase(verb(saw),noun_phrase(determiner(the),noun(girl))))))
+yes
+?- phrase(sentence([],[],S),[the,boy,saw,the,cat]).
+S = sentence(noun_phrase(determiner(the),noun(boy)),verb_phrase(verb(saw),noun_phrase(determiner(the),noun(cat))))
+?- phrase(sentence([],[],S),[what,did,the,dog,chase]).
+S = sentence(noun_phrase(determiner(the),noun(dog)),verb_phrase(verb(chased),noun_phrase(what)))
+?- phrase(sentence([],[],S),[who,did,the,girl,say,the,boy,saw]).
+S = sentence(noun_phrase(determiner(the),noun(girl)),verb_phrase(verb(said),sentence(noun_phrase(determiner(the),noun(boy)),verb_phrase(verb(saw),noun_phrase(who)))))

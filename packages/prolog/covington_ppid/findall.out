@@ -1,0 +1,10 @@
+?- find_all(X,member(X,[a,b,c]),L).
+X = A
+L = [a,b,c]
+?- find_all(X-Y,(member(X,[1,2]),member(Y,[p,q])),L).
+X = A
+Y = B
+L = [1-p,1-q,2-p,2-q]
+?- find_all(X,fail,L).
+X = A
+L = []

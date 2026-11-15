@@ -1,0 +1,8 @@
+q('phrase(sentence,[the,dog,chased,the,cat]).', 3).
+phrase(sentence,[the,dog,chased,the,cat]).
+q('phrase(sentence,[dog,the,chased]).', 3).
+phrase(sentence,[dog,the,chased]).
+q('phrase(noun_phrase,[a,boy]).', 3).
+phrase(noun_phrase,[a,boy]).
+q('phrase(sentence,S).', 3).
+phrase(sentence,S).

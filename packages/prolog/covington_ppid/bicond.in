@@ -1,0 +1,8 @@
+q('prove(dog(X)).', 3).
+prove(dog(X)).
+q('prove(canine(X)).', 3).
+prove(canine(X)).
+q('prove(canine(fido)).', 3).
+prove(canine(fido)).
+q('prove(dog(felix)).', 3).
+prove(dog(felix)).

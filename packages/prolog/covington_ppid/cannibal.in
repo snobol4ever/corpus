@@ -1,0 +1,10 @@
+q('missionaries_and_cannibals.', 3).
+missionaries_and_cannibals.
+q('safe_trip([3,3,l,0,0],X).', 3).
+safe_trip([3,3,l,0,0],X).
+q('not_overpowered(1,2).', 3).
+not_overpowered(1,2).
+q('fast_reverse([a,b,c],X).', 3).
+fast_reverse([a,b,c],X).
+q('ferry([[3,3,l,0,0]],S), length(S,N).', 3).
+ferry([[3,3,l,0,0]],S), length(S,N).

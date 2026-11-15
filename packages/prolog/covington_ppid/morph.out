@@ -1,0 +1,13 @@
+?- phrase(sentence,[the,dog,chases,the,cats]).
+no
+?- phrase(sentence,[the,children,see,a,dog]).
+yes
+?- phrase(sentence,[the,dog,chase,a,cat]).
+no
+?- morph(noun(plural),X).
+X = children
+raised(instantiation_error)
+?- remove_s(dogs,X).
+no
+?- morph(verb(singular),believes).
+no

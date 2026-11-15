@@ -1,0 +1,12 @@
+q('phrase(sentence,[the,dog,chases,the,cat]).', 3).
+phrase(sentence,[the,dog,chases,the,cat]).
+q('phrase(sentence,[the,dogs,chases,the,cat]).', 3).
+phrase(sentence,[the,dogs,chases,the,cat]).
+q('phrase(sentence,[dogs,chase,cats]).', 3).
+phrase(sentence,[dogs,chase,cats]).
+q('phrase(sentence,[the,boy,says,the,girls,see,a,cat]).', 3).
+phrase(sentence,[the,boy,says,the,girls,see,a,cat]).
+q('phrase(noun_phrase(N),[the,girls]).', 3).
+phrase(noun_phrase(N),[the,girls]).
+q('phrase(verb_phrase(N),[believes,a,dog]).', 3).
+phrase(verb_phrase(N),[believes,a,dog]).

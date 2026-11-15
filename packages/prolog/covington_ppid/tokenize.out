@@ -1,0 +1,13 @@
+?- atom_codes('Hello, World! 42',S), tokenize(S,L).
+S = [72,101,108,108,111,44,32,87,111,114,108,100,33,32,52,50]
+L = [hello,world,42]
+?- atom_codes('The quick  brown fox.',S), tokenize(S,L).
+S = [84,104,101,32,113,117,105,99,107,32,32,98,114,111,119,110,32,102,111,120,46]
+L = [the,quick,'',brown,fox]
+?- lower_case(65,X).
+X = 97
+?- punctuation_mark(33).
+yes
+?- grab_word([104,105,32,97],C,R).
+C = [104,105]
+R = [97]

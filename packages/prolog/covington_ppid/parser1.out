@@ -1,0 +1,15 @@
+?- sentence([the,dog,chased,the,cat],[]).
+yes
+?- sentence([the,dog,chased],[]).
+no
+?- sentence([the,boy,said,the,girl,saw,a,cat],[]).
+yes
+?- noun_phrase([a,girl,believed],R).
+R = [believed]
+?- sentence(S,[]).
+S = [the,dog,chased,the,dog]
+;
+S = [the,dog,chased,the,cat]
+;
+S = [the,dog,chased,the,boy]
+...

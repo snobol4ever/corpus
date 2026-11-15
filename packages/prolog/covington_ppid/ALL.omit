@@ -1,0 +1,25 @@
+birds.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: birds.pl:27:4: Syntax error: Operator expected
+car.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: car.pl:145:0: Syntax error: Unexpected end of file
+cichlid.pl: DOES-NOT-END: no answer inside 60 s
+conman.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: conman.pl:29:
+dreason.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: dreason.pl:20:
+election.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: election.pl:22:8: Syntax error: Operator expected
+fchain.pl: DOES-NOT-END: no answer inside 60 s
+learner.pl: DOES-NOT-END: no answer inside 60 s
+mathmenu.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
+mdc.pl: DOES-NOT-END: no answer inside 60 s
+menu.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: menu.pl:82:0: Syntax error: Unexpected end of file
+menudemo.pl: DOES-NOT-END: no answer inside 60 s
+menusyst.pl: DOES-NOT-END: no answer inside 60 s
+nlu.pl: DOES-NOT-END: no answer inside 60 s
+nlusntax.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: nlusntax.pl:46:0: Syntax error: Unexpected end of file
+phrase.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: phrase.pl:11:0: Syntax error: Unexpected end of file
+readint.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
+readnum.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
+readstr.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
+readstr1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr1.pl:47:0: Syntax error: Unexpected end of file
+scholar.pl: NEEDS-INPUT: its answer changes with what standard input holds
+screen.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: screen.pl:113:0: Syntax error: Unexpected end of file
+template.pl: NEEDS-INPUT: its answer changes with what standard input holds
+xshell.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
+yes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: yes.pl:45:0: Syntax error: Unexpected end of file

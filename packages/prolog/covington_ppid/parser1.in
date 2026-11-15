@@ -1,0 +1,10 @@
+q('sentence([the,dog,chased,the,cat],[]).', 3).
+sentence([the,dog,chased,the,cat],[]).
+q('sentence([the,dog,chased],[]).', 3).
+sentence([the,dog,chased],[]).
+q('sentence([the,boy,said,the,girl,saw,a,cat],[]).', 3).
+sentence([the,boy,said,the,girl,saw,a,cat],[]).
+q('noun_phrase([a,girl,believed],R).', 3).
+noun_phrase([a,girl,believed],R).
+q('sentence(S,[]).', 3).
+sentence(S,[]).

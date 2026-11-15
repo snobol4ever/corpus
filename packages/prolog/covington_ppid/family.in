@@ -1,0 +1,12 @@
+q('father(X,cathy).', 3).
+father(X,cathy).
+q('mother(X,stephanie).', 3).
+mother(X,stephanie).
+q('parent(X,melody).', 3).
+parent(X,melody).
+q('parent(jim,X).', 3).
+parent(jim,X).
+q('parent(P,cathy), parent(G,P).', 3).
+parent(P,cathy), parent(G,P).
+q('father(X,X).', 3).
+father(X,X).

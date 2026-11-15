@@ -1,0 +1,10 @@
+q('treesort([4,2,9,1,7,2],L).', 3).
+treesort([4,2,9,1,7,2],L).
+q('list_to_tree([2,1,3],T).', 3).
+list_to_tree([2,1,3],T).
+q('tree_to_list(tree(5,tree(3,empty,empty),tree(8,empty,empty)),L).', 3).
+tree_to_list(tree(5,tree(3,empty,empty),tree(8,empty,empty)),L).
+q('insert(4,tree(5,empty,empty),T).', 3).
+insert(4,tree(5,empty,empty),T).
+q('treesort([],L).', 3).
+treesort([],L).

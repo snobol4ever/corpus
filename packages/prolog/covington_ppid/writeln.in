@@ -1,0 +1,6 @@
+q('writeln([a,b,c]).', 3).
+writeln([a,b,c]).
+q('writeln(hello).', 3).
+writeln(hello).
+q('writeln([]).', 3).
+writeln([]).

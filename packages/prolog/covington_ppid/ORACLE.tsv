@@ -1,0 +1,33 @@
+# ORACLE.tsv -- what swipl 9.0.4 answered for each entry, all three streams (pkg_oracle_telemetry.py; NOT graded: the grade is NAME.out and want_rc):
+# entry, exit status, stdout bytes, stdout against NAME.out, stderr bytes, stderr lines, stderr's first line
+agreemnt	0	310	same	62	1	ERROR: agreemnt.pl:36:0: Syntax error: Unexpected end of file
+ampers	0	250	same	60	1	ERROR: ampers.pl:31:0: Syntax error: Unexpected end of file
+bicond	0	132	same	60	1	ERROR: bicond.pl:33:0: Syntax error: Unexpected end of file
+cannibal	0	759	same	255	3	ERROR: cannibal.pl:105:9: Syntax error: Unknown character escape in quoted atom or string: `\('
+capitals	0	203	same	214	3	Warning: capitals.pl:28:
+cartons	0	220	same	61	1	ERROR: cartons.pl:74:0: Syntax error: Unexpected end of file
+chem	0	738	same	58	1	ERROR: chem.pl:93:0: Syntax error: Unexpected end of file
+family	0	286	same	60	1	ERROR: family.pl:33:0: Syntax error: Unexpected end of file
+findall	0	178	same	61	1	ERROR: findall.pl:43:0: Syntax error: Unexpected end of file
+forall	0	227	same	60	1	ERROR: forall.pl:34:0: Syntax error: Unexpected end of file
+geo	0	323	same	57	1	ERROR: geo.pl:23:0: Syntax error: Unexpected end of file
+isort	0	188	same	59	1	ERROR: isort.pl:38:0: Syntax error: Unexpected end of file
+kb	0	208	same	56	1	ERROR: kb.pl:13:1: Syntax error: Unexpected end of file
+map	0	1066	same	264	5	ERROR: map.pl:10:
+maze	0	236	same	58	1	ERROR: maze.pl:49:0: Syntax error: Unexpected end of file
+morph	0	275	same	59	1	ERROR: morph.pl:83:0: Syntax error: Unexpected end of file
+object	0	133	same	307	7	ERROR: object.pl:17:
+parser1	0	304	same	61	1	ERROR: parser1.pl:37:0: Syntax error: Unexpected end of file
+parser2	0	245	same	61	1	ERROR: parser2.pl:32:0: Syntax error: Unexpected end of file
+planner	0	1196	same	122	2	ERROR: findall.pl:43:0: Syntax error: Unexpected end of file
+precedes	0	172	same	62	1	ERROR: precedes.pl:35:0: Syntax error: Unexpected end of file
+printabl	0	454	same	62	1	ERROR: printabl.pl:46:0: Syntax error: Unexpected end of file
+qsort	0	300	same	59	1	ERROR: qsort.pl:76:0: Syntax error: Unexpected end of file
+realsqrt	0	191	same	244	5	ERROR: realsqrt.pl:18:
+structur	0	527	same	62	1	ERROR: structur.pl:39:0: Syntax error: Unexpected end of file
+tokenize	0	418	same	62	1	ERROR: tokenize.pl:77:0: Syntax error: Unexpected end of file
+toplevel	0	15	same	166	4	
+treesort	0	308	same	62	1	ERROR: treesort.pl:62:0: Syntax error: Unexpected end of file
+triangle	0	3495	same	63	1	ERROR: triangle.pl:163:0: Syntax error: Unexpected end of file
+whparser	0	913	same	62	1	ERROR: whparser.pl:83:0: Syntax error: Unexpected end of file
+writeln	0	80	same	61	1	ERROR: writeln.pl:18:0: Syntax error: Unexpected end of file

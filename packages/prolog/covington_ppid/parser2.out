@@ -1,0 +1,13 @@
+?- phrase(sentence,[the,dog,chased,the,cat]).
+yes
+?- phrase(sentence,[dog,the,chased]).
+no
+?- phrase(noun_phrase,[a,boy]).
+yes
+?- phrase(sentence,S).
+S = [the,dog,chased,the,dog]
+;
+S = [the,dog,chased,the,cat]
+;
+S = [the,dog,chased,the,boy]
+...

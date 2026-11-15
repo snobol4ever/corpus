@@ -1,0 +1,8 @@
+?- phrase(sentence(T),[the,dog,chased,the,cat]).
+T = sentence(noun_phrase(determiner(the),noun(dog)),verb_phrase(verb(chased),noun_phrase(determiner(the),noun(cat))))
+?- phrase(sentence(T),[the,boy,said,the,girl,saw,a,cat]).
+T = sentence(noun_phrase(determiner(the),noun(boy)),verb_phrase(verb(said),sentence(noun_phrase(determiner(the),noun(girl)),verb_phrase(verb(saw),noun_phrase(determiner(a),noun(cat))))))
+?- phrase(noun_phrase(T),[a,girl]).
+T = noun_phrase(determiner(a),noun(girl))
+?- phrase(sentence(T),[the,dog]).
+no

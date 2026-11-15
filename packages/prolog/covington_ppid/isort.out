@@ -1,0 +1,10 @@
+?- isort([4,2,9,1,7],L).
+L = [1,2,4,7,9]
+?- isort([],L).
+L = []
+?- isort([3,3,1],L).
+L = [1,3,3]
+?- insert(5,[1,4,8],L).
+L = [1,4,5,8]
+?- isort([b,a],L).
+raised(type_error(evaluable,b/0))

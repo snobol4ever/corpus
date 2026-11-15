@@ -1,0 +1,16 @@
+?- capital_of(georgia,X).
+X = atlanta
+?- capital_of(X,austin).
+X = texas
+?- capital_of(ohio,X).
+no
+?- capital_of(X,Y).
+X = florida
+Y = talahassee
+;
+X = georgia
+Y = atlanta
+;
+X = california
+Y = sacramento
+...

@@ -1,0 +1,12 @@
+q('located_in(atlanta,usa).', 3).
+located_in(atlanta,usa).
+q('located_in(toronto,north_america).', 3).
+located_in(toronto,north_america).
+q('located_in(houston,canada).', 3).
+located_in(houston,canada).
+q('located_in(X,usa).', 3).
+located_in(X,usa).
+q('located_in(X,north_america).', 3).
+located_in(X,north_america).
+q('located_in(toronto,X).', 3).
+located_in(toronto,X).

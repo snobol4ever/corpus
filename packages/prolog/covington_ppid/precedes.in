@@ -1,0 +1,10 @@
+q('atom_precedes(apple,banana).', 3).
+atom_precedes(apple,banana).
+q('atom_precedes(pear,peach).', 3).
+atom_precedes(pear,peach).
+q('atom_precedes(a,a).', 3).
+atom_precedes(a,a).
+q('atom_precedes(cat,catalog).', 3).
+atom_precedes(cat,catalog).
+q('string_precedes([97,98],[97,99]).', 3).
+string_precedes([97,98],[97,99]).

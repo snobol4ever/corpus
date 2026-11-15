@@ -1,0 +1,27 @@
+?- located_in(atlanta,usa).
+yes
+?- located_in(toronto,north_america).
+yes
+?- located_in(houston,canada).
+no
+?- located_in(X,usa).
+X = atlanta
+;
+X = houston
+;
+X = austin
+...
+?- located_in(X,north_america).
+X = atlanta
+;
+X = houston
+;
+X = austin
+...
+?- located_in(toronto,X).
+X = ontario
+;
+X = canada
+;
+X = north_america
+...

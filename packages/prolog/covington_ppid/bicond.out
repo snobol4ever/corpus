@@ -1,0 +1,12 @@
+?- prove(dog(X)).
+X = fido
+;
+X = rolf
+?- prove(canine(X)).
+X = rolf
+;
+X = fido
+?- prove(canine(fido)).
+yes
+?- prove(dog(felix)).
+no

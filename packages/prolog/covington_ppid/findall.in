@@ -1,0 +1,6 @@
+q('find_all(X,member(X,[a,b,c]),L).', 3).
+find_all(X,member(X,[a,b,c]),L).
+q('find_all(X-Y,(member(X,[1,2]),member(Y,[p,q])),L).', 3).
+find_all(X-Y,(member(X,[1,2]),member(Y,[p,q])),L).
+q('find_all(X,fail,L).', 3).
+find_all(X,fail,L).

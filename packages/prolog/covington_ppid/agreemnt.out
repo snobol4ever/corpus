@@ -1,0 +1,12 @@
+?- phrase(sentence,[the,dog,chases,the,cat]).
+yes
+?- phrase(sentence,[the,dogs,chases,the,cat]).
+no
+?- phrase(sentence,[dogs,chase,cats]).
+yes
+?- phrase(sentence,[the,boy,says,the,girls,see,a,cat]).
+yes
+?- phrase(noun_phrase(N),[the,girls]).
+N = plural
+?- phrase(verb_phrase(N),[believes,a,dog]).
+N = singular

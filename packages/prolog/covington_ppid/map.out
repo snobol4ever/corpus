@@ -1,0 +1,50 @@
+?- map.
+antilles
+argentina
+bolivia
+brazil
+columbia
+chile
+ecuador
+french_guiana
+guyana
+paraguay
+peru
+surinam
+uruguay
+venezuela
+[[venezuela,blue],[uruguay,blue],[surinam,blue],[peru,yellow],[paraguay,yellow],[guyana,red],[french_guiana,red],[ecuador,blue],[chile,green],[columbia,red],[brazil,green],[bolivia,blue],[argentina,red],[antilles,red]]
+yes
+venezuela
+[[venezuela,yellow],[uruguay,blue],[surinam,blue],[peru,yellow],[paraguay,yellow],[guyana,red],[french_guiana,red],[ecuador,blue],[chile,green],[columbia,red],[brazil,green],[bolivia,blue],[argentina,red],[antilles,red]]
+;
+yes
+uruguay
+venezuela
+[[venezuela,blue],[uruguay,yellow],[surinam,blue],[peru,yellow],[paraguay,yellow],[guyana,red],[french_guiana,red],[ecuador,blue],[chile,green],[columbia,red],[brazil,green],[bolivia,blue],[argentina,red],[antilles,red]]
+;
+yes
+...
+?- borders(peru,X).
+X = bolivia
+;
+X = brazil
+;
+X = chile
+...
+?- prohibited(peru,red,[[chile,red]]).
+yes
+?- color(X).
+X = red
+;
+X = blue
+;
+X = green
+...
+?- remaining(C,[[antilles,red]]).
+C = argentina
+;
+C = bolivia
+;
+C = brazil
+...

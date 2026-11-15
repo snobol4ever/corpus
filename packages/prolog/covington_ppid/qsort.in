@@ -1,0 +1,12 @@
+q('quicksort([4,2,9,1,7,2],L).', 3).
+quicksort([4,2,9,1,7,2],L).
+q('dlqsort([4,2,9,1,7,2],L).', 3).
+dlqsort([4,2,9,1,7,2],L).
+q('iqsort([4,2,9,1,7,2],L).', 3).
+iqsort([4,2,9,1,7,2],L).
+q('partition([5,1,8,3],4,B,A).', 3).
+partition([5,1,8,3],4,B,A).
+q('quicksort([],L).', 3).
+quicksort([],L).
+q('append(X,Y,[a,b]).', 3).
+append(X,Y,[a,b]).

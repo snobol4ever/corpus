@@ -1,0 +1,12 @@
+q('phrase(sentence,[the,dog,chases,the,cats]).', 3).
+phrase(sentence,[the,dog,chases,the,cats]).
+q('phrase(sentence,[the,children,see,a,dog]).', 3).
+phrase(sentence,[the,children,see,a,dog]).
+q('phrase(sentence,[the,dog,chase,a,cat]).', 3).
+phrase(sentence,[the,dog,chase,a,cat]).
+q('morph(noun(plural),X).', 3).
+morph(noun(plural),X).
+q('remove_s(dogs,X).', 3).
+remove_s(dogs,X).
+q('morph(verb(singular),believes).', 3).
+morph(verb(singular),believes).

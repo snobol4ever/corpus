@@ -1,0 +1,25 @@
+?- grandparent(X,cathy).
+X = charles_gordon
+;
+X = hazel
+;
+X = jim
+...
+?- only_child(cathy).
+yes
+;
+yes
+?- only_child(michael).
+yes
+;
+yes
+?- parent(X,cathy) & parent(Y,X).
+X = michael
+Y = charles_gordon
+;
+X = michael
+Y = hazel
+;
+X = melody
+Y = jim
+...

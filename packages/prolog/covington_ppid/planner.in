@@ -1,0 +1,14 @@
+q('itinerary(boston,los_angeles).', 3).
+itinerary(boston,los_angeles).
+q('itinerary(new_orleans,boston).', 3).
+itinerary(new_orleans,boston).
+q('distance(atlanta,boston,N).', 3).
+distance(atlanta,boston,N).
+q('distance(washington,cincinnati,N).', 3).
+distance(washington,cincinnati,N).
+q('connection(atlanta,X).', 3).
+connection(atlanta,X).
+q('closest(los_angeles,[boston,cincinnati,washington],C).', 3).
+closest(los_angeles,[boston,cincinnati,washington],C).
+q('remove(b,[a,b,c,b],L).', 3).
+remove(b,[a,b,c,b],L).

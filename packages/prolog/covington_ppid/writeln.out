@@ -1,0 +1,10 @@
+?- writeln([a,b,c]).
+a
+b
+c
+yes
+?- writeln(hello).
+hello
+yes
+?- writeln([]).
+yes

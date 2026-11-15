@@ -1,0 +1,10 @@
+?- atom_precedes(apple,banana).
+yes
+?- atom_precedes(pear,peach).
+no
+?- atom_precedes(a,a).
+yes
+?- atom_precedes(cat,catalog).
+yes
+?- string_precedes([97,98],[97,99]).
+yes

@@ -1,0 +1,10 @@
+q('real_square_root(9.0,Y).', 3).
+real_square_root(9.0,Y).
+q('real_square_root(X,3.0).', 3).
+real_square_root(X,3.0).
+q('real_square_root(-4,Y).', 3).
+real_square_root(-4,Y).
+q('real_square_root(16,4).', 3).
+real_square_root(16,4).
+q('close_enough(1.0,1.00001).', 3).
+close_enough(1.0,1.00001).

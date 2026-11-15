@@ -1,0 +1,16 @@
+q('demo1.', 3).
+demo1.
+q('demo2.', 3).
+demo2.
+q('methyl(X).', 3).
+methyl(X).
+q('six_membered_carbon_ring(R).', 3).
+six_membered_carbon_ring(R).
+q('meth_carbon_ring(L).', 3).
+meth_carbon_ring(L).
+q('hydroxide(O).', 3).
+hydroxide(O).
+q('bonded(c1,X).', 3).
+bonded(c1,X).
+q('element(ch,E).', 3).
+element(ch,E).

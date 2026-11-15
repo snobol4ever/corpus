@@ -1,0 +1,10 @@
+q('for_all(dog(X),animal(X)).', 3).
+for_all(dog(X),animal(X)).
+q('for_all(animal(X),dog(X)).', 3).
+for_all(animal(X),dog(X)).
+q('for_all(bulldog(X),dog(X)).', 3).
+for_all(bulldog(X),dog(X)).
+q('dog(X).', 3).
+dog(X).
+q('animal(X).', 3).
+animal(X).
