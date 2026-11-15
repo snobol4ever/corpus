@@ -1,3 +1,4 @@
+say 𝑒;
 say "Hello, world!";
 say "a", "b", "c";
 say 42;
