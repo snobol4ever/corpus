@@ -1,0 +1,4 @@
+root	/home/resources/prolog-demos/swi-bench-git/programs
+origin	https://github.com/SWI-Prolog/bench (the SWI-Prolog benchmark suite: the van Roy benchmarks and the ones added to them; each program is one file that defines top/0)
+version	d7109d7 (2026-11-05)
+licence	no licence file in the repository; several programs say public domain in their header; no program of it is stored in the corpus

@@ -1,0 +1,4 @@
+# the launch of the PrologSwiBench suite (CIO-83): the program, then the driver, ours, which reads from standard input the one query we put to each program,
+# top., the entry point every program of the suite defines (NAME.in, cut by sl_cut.py --form table from OUR-QUERIES.tsv)
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl

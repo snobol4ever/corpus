@@ -1,0 +1,37 @@
+# ORACLE.tsv -- what swipl 9.0.4 answered for each entry, all three streams (pkg_oracle_telemetry.py; NOT graded: the grade is NAME.out and want_rc):
+# entry, exit status, stdout bytes, stdout against NAME.out, stderr bytes, stderr lines, stderr's first line
+boyer	0	12	same	0	0	
+browse	0	12	same	0	0	
+chat_parser	0	12	same	4982	148	Warning: chat_parser.pl:140:
+crypt	0	12	same	0	0	
+derive	0	12	same	0	0	
+det	0	18	same	0	0	
+divide10	0	12	same	0	0	
+eval	0	12	same	0	0	
+fast_mu	0	28	same	0	0	
+fib	0	12	same	0	0	
+flatten	0	18	same	126	4	Warning: flatten.pl:8:
+log10	0	12	same	0	0	
+meta_qsort	0	28	same	0	0	
+moded_path	0	12	same	0	0	
+mu	0	12	same	0	0	
+nand	0	12	same	0	0	
+nreverse	0	12	same	0	0	
+ops8	0	12	same	0	0	
+perfect	0	12	same	0	0	
+pingpong	0	12	same	0	0	
+poly_10	0	12	same	0	0	
+prover	0	12	same	0	0	
+qsort	0	12	same	0	0	
+queens_8	0	12	same	63	2	Warning: queens_8.pl:35:
+queens_clpfd	0	12	same	0	0	
+query	0	12	same	0	0	
+reducer	0	12	same	1903	49	Warning: reducer.pl:92:
+sendmore	0	12	same	0	0	
+serialise	0	12	same	0	0	
+sieve	0	12	same	0	0	
+simple_analyzer	0	28	same	1154	32	Warning: simple_analyzer.pl:17:
+tak	0	12	same	0	0	
+times10	0	12	same	0	0	
+unify	0	12	same	0	0	
+zebra	0	12	same	0	0	
