@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1168 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=112 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,47
+# shape: entries=1169 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,48
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -111,6 +111,7 @@ procedure_write_replace_5	chunk:12	family:rung37_all
 unicon__uni_link_unicon_ipl_first	chunk:11	family:unicon	
 unicon__uni_lex_triple_define	chunk:11	family:unicon	
 procedure_write_69	chunk:12	family:rung37_all	
+lexer__a_string_continued_with_an_underscore_may_carry_blanks_after_it	chunk:12	family:lexer	
 procedure_write_66	chunk:12	family:rung36_all	
 unicon__uni_pp_unicon_feature_symbols	chunk:11	family:unicon	
 procedure_alt_write_3	chunk:11	feat:alternation	alternation

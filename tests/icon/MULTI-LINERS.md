@@ -1332,6 +1332,38 @@ end
 -1
 ```
 
+## lexer__a_string_continued_with_an_underscore_may_carry_blanks_after_it
+
+```Icon
+procedure main()
+  write("ab_
+     cd");
+  write("ef_  
+     gh");
+  write("ij_	
+		kl");
+  write("m_n");
+  write("o_ p");
+  write("q_
+
+   r");
+  write("s_ 	 
+ 
+	
+   t");
+end
+```
+
+```stdout
+abcd
+efgh
+ijkl
+m_n
+o_ p
+qr
+st
+```
+
 ## procedure_write_66
 
 ```Icon
