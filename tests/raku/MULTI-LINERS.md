@@ -10220,6 +10220,41 @@ sub main() {
 main();
 ```
 
+## complex__a_complex_power_equality_and_text_in_more_forms
+
+```Raku
+my $z = 2 + 5*i; my $w = 1 - i;
+say $z.gist;
+say $z.raku;
+say 3 == (3 + 0*i);
+say $z ** -1;
+say $z ** 0;
+say $z ** 0.5;
+say i ** i;
+say $z ne "a";
+say $z == 2.5;
+say (0.5 + 0*i) == 1/2;
+say $z lt "3";
+say "a{$z}b";
+say ($z / $w) * $w == $z;
+```
+
+```stdout
+2+5i
+<2+5i>
+True
+0.06896551724137931-0.1724137931034483i
+1+0i
+1.9216093264675969+1.3009928530039092i
+0.20787957635076193+0i
+True
+False
+True
+True
+a2+5ib
+True
+```
+
 ## ladder__rung04_arrays_a_collection_type_object_called_with_one_argument_coerces_it
 
 ```Raku
@@ -11992,6 +12027,23 @@ say t(4);
 ```stdout
 6
 4
+```
+
+## complex__a_complex_value_in_the_operators
+
+```Raku
+my $z = 2 + 5*i; my $w = 1 - i;
+say $z.gist, " ", $z.Str, " ", $z ~ "x", " ", "[$z]";
+say $z eq "2+5i", " ", $z == $z, " ", $z == $w, " ", $z != $w, " ", (3 + 0*i) == 3;
+say (1 + i) / $w, " ", $z / 2, " ", 10 / (1 + i);
+say $z ** 2, " ", i ** 2, " ", -$z, " ", $z - $w, " ", $z * $w;
+```
+
+```stdout
+2+5i 2+5i 2+5ix [2+5i]
+True True False True True
+0+1i 1+2.5i 5-5i
+-21+20i -1+0i -2-5i 1+6i 7+3i
 ```
 
 ## ladder__rung07_spread_a_slurpy_array
