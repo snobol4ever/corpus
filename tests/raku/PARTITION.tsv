@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1692 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,46
+# shape: entries=1693 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,47
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:17	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -33,7 +33,7 @@ ladder__rung09_string_methods_substr_method	chunk:01	family:ladder
 ladder__rung09_string_methods_trim_method	chunk:01	family:ladder	
 parse_census__bare_module	chunk:17	family:parse_census	
 parser__atom_int	chunk:15	family:parser	
-parser__atom_str	chunk:15	family:parser	
+parser__atom_str	chunk:16	family:parser	
 parser__spurt_file	chunk:16	family:parser	
 parser_coverage__stmt_ctrl_CATCH_free	chunk:16	family:parser_coverage	
 parser_coverage__stmt_ctrl_CONTROL	chunk:16	family:parser_coverage	
@@ -664,7 +664,7 @@ array_replace_3	chunk:05	feat:sigil_array	sigil_array
 array_replace_4	chunk:05	feat:sigil_array	sigil_array
 c_site__a_routine_accepts_its_topic	chunk:08	feat:sub	sub
 c_site__a_setting_routine_named_through_setting_or_core	chunk:08	feat:sub	sub
-c_site__an_operator_reference_is_called_as_a_routine	chunk:16	family:c_site	
+c_site__an_operator_reference_is_called_as_a_routine	chunk:17	family:c_site	
 exceptions__ex11_rk_numeric_conversion_dies	chunk:07	feat:for_with_say	for for_with_say
 interp__dollar_paren_interpolates_an_expression	chunk:17	family:interp	
 junction_say_6	chunk:15	feat:junction	junction say
@@ -855,7 +855,7 @@ range_array_2	chunk:14	feat:range_op	range_op sigil_array
 range_array_3	chunk:14	feat:range_op	range_op sigil_array
 range_array_4	chunk:14	feat:range_op	range_op sigil_array
 range_array_5	chunk:14	feat:range_op	range_op sigil_array
-range_array_6	chunk:14	feat:range_op	range_op sigil_array
+range_array_6	chunk:15	feat:range_op	range_op sigil_array
 range_array_7	chunk:15	feat:range_op	range_op sigil_array
 range_array_8	chunk:15	feat:range_op	range_op sigil_array
 range_array_9	chunk:15	feat:range_op	range_op sigil_array
@@ -1462,6 +1462,7 @@ ladder__rung04_arrays_a_seq_over_an_infinite_range_is_lazy_and_says_dots	chunk:1
 ladder__rung04_arrays_an_array_is_one_mutable_object_an_element_store_writes_it_in_place_for_every_name_that_holds_it	chunk:07	feat:for_with_say	for for_with_say sigil_array sub
 ladder__rung024_kw_inf_inf_range	chunk:07	feat:for_with_say	for for_with_say if range_op say
 ladder__rung13_classes_a_class_literal_written_with_leading_colons_is_the_class_type_object	chunk:10	feat:smartmatch	say smartmatch string_concat
+sub_sig__a-call-through-a-code-value-binds-a-slurpy-that-is-not-last	chunk:14	feat:map	map say sigil_array sub
 core__rc06_value_call_forms	chunk:13	feat:string_concat	say sigil_array string_concat sub
 ladder__rung15_blocks_a_list_holding_a_lazy_gather_renders_after_its_seq_is_reified_not_during	chunk:07	feat:for_with_say	for for_with_say string_concat sub
 private_call__a_postfix_on_a_declaration_and_an_unqualified_private_call	chunk:11	feat:try	method sigil_array try

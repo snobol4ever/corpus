@@ -17284,6 +17284,26 @@ True
 Foo
 ```
 
+## sub_sig__a-call-through-a-code-value-binds-a-slurpy-that-is-not-last
+
+```Raku
+sub a(*@v, :$n) { @v.elems }
+my &f = &a;
+say f(1, 2, 3);
+say &a(1, 2, 3);
+sub b(*@v, |c) { @v.elems }
+my &g = &b;
+say g(1, 2, 3);
+say (1, 2).map(&b);
+```
+
+```stdout
+3
+3
+3
+(1 1)
+```
+
 ## core__rc06_value_call_forms
 
 ```Raku
