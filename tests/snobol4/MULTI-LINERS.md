@@ -4126,6 +4126,43 @@ END
 hello
 ```
 
+## end_lower__a_goto_to_END_reaches_a_line_spelled_end
+
+```SNOBOL4
+    OUTPUT = 1 :(END)
+    OUTPUT = 2
+end
+```
+
+```stdout
+1
+```
+
+## end_lower__a_goto_to_end_reaches_a_line_spelled_END
+
+```SNOBOL4
+    OUTPUT = 1 :(end)
+    OUTPUT = 2
+END
+```
+
+```stdout
+1
+```
+
+## end_lower__end_with_an_entry_label_starts_there
+
+```SNOBOL4
+start    OUTPUT = 1
+    OUTPUT = 2
+end start
+```
+
+```stdout
+1
+2
+```
+
 ## gc_hb_deferexpr_a_substr
 
 ```SNOBOL4
@@ -4635,6 +4672,32 @@ L
 END
 ```
 
+## end_lower__a_line_after_end_is_not_compiled
+
+```SNOBOL4
+    OUTPUT = 1
+end
+    OUTPUT = 2
+END
+```
+
+```stdout
+1
+```
+
+## end_lower__a_syntax_error_after_end_is_not_read
+
+```SNOBOL4
+    OUTPUT = 1  :(end)
+    OUTPUT = 2
+end
+    junk )(
+```
+
+```stdout
+1
+```
+
 ## simple_assign_13
 
 ```SNOBOL4
@@ -5104,6 +5167,22 @@ x86-64  Thu Nov 12 19:03:29 2026
                     !
 p21.sno(3,13) : ERROR 221 -- syntax error: missing operand
 
+```
+
+## end_lower__a_variable_named_end_and_a_label_End_are_untouched
+
+```SNOBOL4
+    end = 5
+    OUTPUT = end
+    OUTPUT = 6 :(End)
+End OUTPUT = 7
+end
+```
+
+```stdout
+5
+6
+7
 ```
 
 ## ladder__rung26_reverse
