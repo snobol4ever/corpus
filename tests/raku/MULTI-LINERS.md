@@ -2174,6 +2174,32 @@ say greet();
 hi
 ```
 
+## complex__the_literal_forms_of_a_complex
+
+```Raku
+say 5i; say 2+5i; say 2-5i; say 1.5+2.5i; say 2e0+3e0i; say -3i; say (2+5i).WHAT;
+say <2+5i>.WHAT; say <2+5i>; say Complex.new(2, 5); say Complex.new(1.5, -2).WHAT;
+say "2+5i".Numeric; say "2+5i".Numeric.WHAT; say +"3-4i"; say 2+5i == Complex.new(2, 5);
+```
+
+```stdout
+0+5i
+2+5i
+2-5i
+1.5+2.5i
+2+3i
+0-3i
+(Complex)
+(Complex)
+2+5i
+2+5i
+(Complex)
+2+5i
+(Complex)
+3-4i
+True
+```
+
 ## ladder__rung16_bool_relops_string
 
 ```Raku
@@ -6744,6 +6770,52 @@ x x a a
 a a x a
 x x x x
 A B c d
+```
+
+## complex__a_complex_literal_in_more_forms_and_its_signed_zeros
+
+```Raku
+say 2.5i;
+say 1e2i;
+say 2 + 5\i;
+say (1+2i)i;
+say <-1-1i>;
+say <2+5i> == 2+5i;
+say "5i".Numeric;
+say " 1.5e1-2.5i ".Numeric;
+say "3-4i" + 1;
+say (try { "xi".Numeric }) // "died";
+say Complex.new(1/2, 3);
+say Complex.new(2, -0e0);
+say -3i;
+say -(2+0i);
+say -i;
+say <hi>;
+say <1 2i>;
+say (5i).WHAT;
+say i.WHAT;
+```
+
+```stdout
+0+2.5i
+0+100i
+2+5i
+-2+1i
+-1-1i
+True
+0+5i
+15-2.5i
+4-4i
+died
+0.5+3i
+2-0i
+0-3i
+-2-0i
+0-1i
+hi
+(1 2i)
+(Complex)
+(Complex)
 ```
 
 ## scrip_test_rk_grammar_subrule
