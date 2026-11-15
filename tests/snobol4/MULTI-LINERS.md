@@ -14750,6 +14750,43 @@ Variable N read N
 trace=9
 ```
 
+## ladder__rung23_trace_element
+
+```SNOBOL4
+	&TRACE = 10
+	A = ARRAY(3)
+	TRACE(.A[2], 'VALUE')
+	A[2] = 'x'
+	A[1] = 'y'
+	A[2] = 'z'
+	OUTPUT = 'a2=' A[2] ' trace=' &TRACE
+END
+```
+
+```stdout
+****4*******  A<2> = 'x'
+****6*******  A<2> = 'z'
+a2=z trace=8
+```
+
+## ladder__rung23_trace_element_two_dimensional
+
+```SNOBOL4
+	&TRACE = 10
+	A = ARRAY('3,6')
+	TRACE(.A[2,5], 'VALUE')
+	A[2,5] = 7
+	A[2,4] = 8
+	A[3,5] = 9
+	OUTPUT = 'a25=' A[2,5] ' trace=' &TRACE
+END
+```
+
+```stdout
+****4*******  A<2,5> = 7
+a25=7 trace=9
+```
+
 ## ladder__rung32_setexit_handler
 
 ```SNOBOL4
