@@ -970,6 +970,20 @@ say -7/2;
 -3.5
 ```
 
+## catch__a_catch_at_file_level_catches_what_its_mainline_throws
+
+```Raku
+say "a";
+die "x";
+say "not reached";
+CATCH { default { say "caught: ", .message } }
+```
+
+```stdout
+a
+caught: x
+```
+
 ## core__rc02_numeric_subs
 
 ```Raku
@@ -12293,6 +12307,28 @@ False
 dor
 with-f
 False
+```
+
+## strand__a_concat_with_a_strand_is_a_strand_and_refuses_past_the_bound
+
+```Raku
+my $a = "ab" x 2**26;
+my $c = $a ~ "xyz";
+say $c.chars;
+my $d = $c ~ $a;
+say $d.chars;
+say ("<" ~ $a ~ ">").chars;
+my $g = "a" x 2**31;
+my $e = $g ~ $g;
+say "not reached";
+CATCH { default { say .message } }
+```
+
+```stdout
+134217731
+268435459
+134217730
+Can't concatenate strings, required number of graphemes 4294967296 > max allowed of 4294967295
 ```
 
 ## stub__a_stub_term_with_a_message_dies_with_it
