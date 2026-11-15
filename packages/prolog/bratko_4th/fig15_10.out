@@ -1,0 +1,8 @@
+?- assertz(given(hall_wet,1)), assertz(given(bathroom_dry,1)), assertz(given(kitchen_dry,0)), assertz(given(no_rain,0.8)), assertz(given(window_closed,0)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen : 0.9)), assertz((if window_closed or no_rain then no_water_from_outside : 1)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen : 0.8)).
+yes
+?- certainty(leak_in_kitchen,C).
+C = 0.6400000000000001
+?- certainty(hall_wet and no_rain,C).
+C = 0.8
+?- certainty(window_closed or no_rain,C).
+C = 0.8

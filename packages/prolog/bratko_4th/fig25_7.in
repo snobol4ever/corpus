@@ -1,0 +1,12 @@
+q('consult(\'fig25_6.pl\').', 3).
+consult('fig25_6.pl').
+q('ebg(gives(john, john, chocolate), gives(X, Y, Z), Cond).', 3).
+ebg(gives(john, john, chocolate), gives(X, Y, Z), Cond).
+q('ebg(gives(john, annie, tennis_racket), gives(X, Y, Z), Cond).', 3).
+ebg(gives(john, annie, tennis_racket), gives(X, Y, Z), Cond).
+q('go(3, 6, Moves), ebg(go(3, 6, Moves), go(L1, L2, GenMoves), Cond).', 3).
+go(3, 6, Moves), ebg(go(3, 6, Moves), go(L1, L2, GenMoves), Cond).
+q('and(true, a, C).', 3).
+and(true, a, C).
+q('and(a, b, C).', 3).
+and(a, b, C).

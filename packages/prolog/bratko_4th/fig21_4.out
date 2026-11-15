@@ -1,0 +1,50 @@
+?- consult('fig21_3.pl').
+yes
+?- consult('fig21_1.pl').
+yes
+?- induce(H).
+MaxD = 0
+MaxD = 1
+MaxD = 2
+MaxD = 3
+MaxD = 4
+H = [[has_daughter(A),parent(A,B),female(B)]/[A,B]]
+;
+H = [[has_daughter(A),parent(A,B),female(B)]/[A,B]]
+;
+H = [[has_daughter(A),parent(A,B),female(B)]/[A,B]]
+...
+?- start_hyp(H0), complete(H0).
+H0 = [[has_daughter(A)]/[A]]
+?- start_hyp(H0), consistent(H0).
+no
+?- refine([has_daughter(X)], [X], C, Vs).
+X = A
+C = [has_daughter(A),parent(B,C)]
+Vs = [A,B,C]
+;
+X = A
+C = [has_daughter(A),male(B)]
+Vs = [A,B]
+;
+X = A
+C = [has_daughter(A),female(B)]
+Vs = [A,B]
+...
+?- start_hyp(H0), refine_hyp(H0, H1), complete(H1).
+H0 = [[has_daughter(A)]/[A]]
+H1 = [[has_daughter(A),parent(B,C)]/[A,B,C]]
+;
+H0 = [[has_daughter(A)]/[A]]
+H1 = [[has_daughter(A),male(B)]/[A,B]]
+;
+H0 = [[has_daughter(A)]/[A]]
+H1 = [[has_daughter(A),female(B)]/[A,B]]
+...
+?- consistent([[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]]).
+X = A
+Y = B
+?- depth_first([[has_daughter(X)]/[X]], H, 2).
+no
+?- max_clause_length(N).
+N = 3

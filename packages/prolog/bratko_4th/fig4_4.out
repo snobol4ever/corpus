@@ -1,0 +1,22 @@
+?- action(state(door,corner2,floor(middle)),A,S).
+A = go(door,A)
+S = state(A,corner2,floor(middle))
+?- action(state(middle,corner2,floor(middle)),A,S).
+A = pickup
+S = state(middle,corner2,held)
+;
+A = go(middle,A)
+S = state(A,corner2,floor(middle))
+?- plan(state(a,b,held),state(a,b,held),P).
+P = []
+...
+?- length(Plan,N), plan(state(door,corner2,floor(middle)),state(_,corner2,in_basket),Plan).
+Plan = [go(door,middle),pickup,go(middle,corner2),drop]
+N = 4
+;
+Plan = [go(door,middle),pickup,go(middle,corner2),drop,push(corner2,corner2)]
+N = 5
+;
+Plan = [go(door,middle),pickup,go(middle,corner2),drop,go(corner2,A)]
+N = 5
+...

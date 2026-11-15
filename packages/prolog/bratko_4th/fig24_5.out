@@ -1,0 +1,23 @@
+?- consult('fig24_2.pl').
+yes
+?- alphabeta(a, -100, 100, Good, Val).
+Good = b
+Val = 4
+?- alphabeta(b, -100, 100, Good, Val).
+Good = d
+Val = 4
+?- alphabeta(c, 4, 100, Good, Val).
+Good = f
+Val = 1
+?- alphabeta(a, 5, 100, Good, Val).
+Good = b
+Val = 4
+?- newbounds(-100, 100, d, 4, A, B).
+A = -100
+B = 4
+?- newbounds(-100, 100, b, 4, A, B).
+A = 4
+B = 100
+?- boundedbest([d, e], -100, 100, Good, Val).
+Good = d
+Val = 4

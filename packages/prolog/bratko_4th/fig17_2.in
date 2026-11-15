@@ -1,0 +1,10 @@
+q('can(move(B,F,T),C).', 3).
+can(move(B,F,T),C).
+q('adds(move(c,a,2),A).', 3).
+adds(move(c,a,2),A).
+q('deletes(move(a,1,b),D).', 3).
+deletes(move(a,1,b),D).
+q('object(X).', 3).
+object(X).
+q('state1(S).', 3).
+state1(S).

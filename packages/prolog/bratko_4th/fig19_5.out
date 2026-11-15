@@ -1,0 +1,23 @@
+?- use_module(library(clpr)).
+yes
+?- consult('fig19_4.pl').
+yes
+?- circuit_a(5, 5, (V, I)).
+V = 5.0
+I = 1.0
+?- circuit_a(10, 30, (V, I)).
+V = 7.5
+I = 0.25
+?- circuit_a(R, 30, (7.5, _)).
+R = 10.0
+?- findall(MilliVolts/MicroAmps, (circuit_b(10, _, _, _, _, (V,I), _), MilliVolts is round(V*1000), MicroAmps is round(I*1000000)), L).
+MilliVolts = A
+MicroAmps = B
+V = C
+I = D
+L = [7340/42553]
+?- findall(MilliVolts, (circuit_b(U, _, _, _, _, (_,I), _), {I = 0.02}, MilliVolts is round(U*1000)), L).
+MilliVolts = A
+U = B
+I = C
+L = [4700]

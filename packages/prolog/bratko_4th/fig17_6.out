@@ -1,0 +1,26 @@
+?- consult('fig17_2.pl').
+yes
+?- assertz(impossible(on(X,X),_)), assertz((impossible(on(X,Y),Goals) :- (member(clear(Y),Goals) ; member(on(X,Y1),Goals), Y1 \== Y ; member(on(X1,Y),Goals), X1 \== X))), assertz((impossible(clear(X),Goals) :- member(on(_,X),Goals))).
+X = A
+Y = B
+Goals = C
+Y1 = D
+X1 = E
+?- satisfied([on(a,1),clear(b)],[on(a,1)]).
+yes
+?- preserves(move(c,a,2),[on(a,1)]).
+yes
+?- preserves(move(a,1,2),[on(a,1)]).
+no
+?- regress([on(a,b)],move(a,1,b),R).
+R = [clear(a),clear(b),on(a,1)]
+?- state1(S), plan(S,[on(a,b)],Plan).
+S = [clear(2),clear(4),clear(b),clear(c),on(a,1),on(b,3),on(c,a)]
+Plan = [move(c,a,2),move(a,1,b)]
+;
+S = [clear(2),clear(4),clear(b),clear(c),on(a,1),on(b,3),on(c,a)]
+Plan = [move(c,a,4),move(a,1,b)]
+;
+S = [clear(2),clear(4),clear(b),clear(c),on(a,1),on(b,3),on(c,a)]
+Plan = [move(b,3,2),move(c,a,3),move(a,1,b)]
+...

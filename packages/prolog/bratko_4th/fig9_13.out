@@ -1,0 +1,14 @@
+?- assertz((gt(X,Y) :- X > Y)).
+X = A
+Y = B
+?- del(t(t(nil,3,nil),5,t(nil,8,nil)),5,T).
+T = t(t(nil,3,nil),8,nil)
+?- del(t(t(nil,3,nil),5,t(nil,8,nil)),3,T).
+T = t(nil,5,t(nil,8,nil))
+;
+T = t(nil,5,t(nil,8,nil))
+?- delmin(t(t(nil,1,nil),2,nil),Y,T).
+Y = 1
+T = t(nil,2,nil)
+?- del(t(nil,5,nil),9,T).
+no

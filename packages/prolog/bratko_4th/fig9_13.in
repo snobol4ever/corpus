@@ -1,0 +1,10 @@
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('del(t(t(nil,3,nil),5,t(nil,8,nil)),5,T).', 3).
+del(t(t(nil,3,nil),5,t(nil,8,nil)),5,T).
+q('del(t(t(nil,3,nil),5,t(nil,8,nil)),3,T).', 3).
+del(t(t(nil,3,nil),5,t(nil,8,nil)),3,T).
+q('delmin(t(t(nil,1,nil),2,nil),Y,T).', 3).
+delmin(t(t(nil,1,nil),2,nil),Y,T).
+q('del(t(nil,5,nil),9,T).', 3).
+del(t(nil,5,nil),9,T).

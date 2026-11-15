@@ -1,0 +1,26 @@
+q('consult(\'fig20_9.pl\').', 3).
+consult('fig20_9.pl').
+q('learn(nut).', 3).
+learn(nut).
+q('bagof(example(C, O), example(C, O), Es), learn(Es, key, D).', 3).
+bagof(example(C, O), example(C, O), Es), learn(Es, key, D).
+q('bagof(example(C, O), example(C, O), Es), learn(Es, scissors, D).', 3).
+bagof(example(C, O), example(C, O), Es), learn(Es, scissors, D).
+q('bagof(example(C, O), example(C, O), Es), learn(Es, pen, D).', 3).
+bagof(example(C, O), example(C, O), Es), learn(Es, pen, D).
+q('learn(screw), screw <== D.', 3).
+learn(screw), screw <== D.
+q('satisfy([size = small, holes = 1], [holes = 1]).', 3).
+satisfy([size = small, holes = 1], [holes = 1]).
+q('satisfy([size = small, holes = 1], [holes = 2]).', 3).
+satisfy([size = small, holes = 1], [holes = 2]).
+q('bagof(example(C, O), example(C, O), Es), score(Es, nut, AV, S).', 3).
+bagof(example(C, O), example(C, O), Es), score(Es, nut, AV, S).
+q('bagof(example(C, O), example(C, O), Es), choose_cond(Es, scissors, AV).', 3).
+bagof(example(C, O), example(C, O), Es), choose_cond(Es, scissors, AV).
+q('bagof(example(C, O), example(C, O), Es), count_pos(Es, key, N).', 3).
+bagof(example(C, O), example(C, O), Es), count_pos(Es, key, N).
+q('best([a/1, b/3, c/2], X).', 3).
+best([a/1, b/3, c/2], X).
+q('remove([example(k, [s = 1]), example(n, [s = 2])], [s = 1], R).', 3).
+remove([example(k, [s = 1]), example(n, [s = 2])], [s = 1], R).

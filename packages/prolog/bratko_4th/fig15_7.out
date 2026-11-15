@@ -1,0 +1,16 @@
+?- assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).
+yes
+?- forward.
+Derived: problem_in_kitchen
+Derived: no_water_from_outside
+Derived: leak_in_kitchen
+No more factsyes
+?- fact(X).
+X = hall_wet
+;
+X = bathroom_dry
+;
+X = window_closed
+...
+?- composed_fact(hall_wet and bathroom_dry).
+yes

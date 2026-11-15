@@ -1,0 +1,14 @@
+q('can(go(a,1,B),C).', 3).
+can(go(a,1,B),C).
+q('effects(go(a,1,4),E).', 3).
+effects(go(a,1,4),E).
+q('adjacent(2,X).', 3).
+adjacent(2,X).
+q('inconsistent(at(a,1),at(a,2)).', 3).
+inconsistent(at(a,1),at(a,2)).
+q('inconsistent(clear(1),at(b,1)).', 3).
+inconsistent(clear(1),at(b,1)).
+q('inconsistent(at(a,1),clear(2)).', 3).
+inconsistent(at(a,1),clear(2)).
+q('state0(S).', 3).
+state0(S).

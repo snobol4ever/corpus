@@ -1,0 +1,98 @@
+?- qdir(D, Sign).
+D = dec
+Sign = neg
+;
+D = std
+Sign = zero
+;
+D = inc
+Sign = pos
+...
+?- qsum(neg, pos, X).
+X = pos
+;
+X = zero
+;
+X = neg
+...
+?- qdirsum(inc, dec, D).
+D = dec
+;
+D = std
+;
+D = inc
+...
+?- qdirsum(inc, std, D).
+D = inc
+?- compare_lands(zero, top, [zero, top, inf], Sign).
+Sign = neg
+?- compare_lands(inf, top, [zero, top, inf], Sign).
+Sign = pos
+?- once(consult('fig22_9.pl')), qmag(level:Q).
+Q = zero
+;
+Q = top
+;
+Q = zero..top
+...
+?- once(consult('fig22_9.pl')), relative_qmag(level:zero..top, level:top, Sign).
+Sign = neg
+?- once(consult('fig22_9.pl')), relative_qmag(level:top, level:zero, Sign).
+Sign = pos
+?- once(consult('fig22_9.pl')), transition(level:zero/inc, V).
+V = level:zero..top/inc
+?- once(consult('fig22_9.pl')), transition(level:zero..top/inc, V).
+V = level:zero..top/inc
+;
+V = level:zero..top/std
+;
+V = level:top/inc
+...
+?- once(consult('fig22_9.pl')), initial(S), legalstate(S).
+S = [level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec]
+?- once(consult('fig22_9.pl')), initial(S), legal_trans(S, S2).
+S = [level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec]
+S2 = [level:zero..top/inc,amount:zero..full/inc,flow:zero..inflow/inc,flow:zero..inflow/dec]
+?- once(consult('fig22_9.pl')), initial(S), simulate(S, B, 10), length(B, N).
+S = [level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec]
+B = [[level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec],[level:zero..top/inc,amount:zero..full/inc,flow:zero..inflow/inc,flow:zero..inflow/dec],[level:zero..top/std,amount:zero..full/std,flow:inflow/std,flow:zero/std]]
+N = 3
+;
+S = [level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec]
+B = [[level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec],[level:zero..top/inc,amount:zero..full/inc,flow:zero..inflow/inc,flow:zero..inflow/dec],[level:top/inc,amount:full/inc,flow:zero..inflow/inc,flow:zero..inflow/dec]]
+N = 3
+;
+S = [level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec]
+B = [[level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec],[level:zero..top/inc,amount:zero..full/inc,flow:zero..inflow/inc,flow:zero..inflow/dec],[level:top/std,amount:full/std,flow:inflow/std,flow:zero/std]]
+N = 3
+...
+?- once(consult('fig22_9.pl')), initial(S), findall(N, (simulate(S, B, 10), length(B, N)), Ns).
+S = [level:zero/inc,amount:zero/inc,flow:zero/inc,flow:inflow/dec]
+N = A
+B = B
+Ns = [3,3,3]
+?- once(consult('fig22_9.pl')), sum(flow:zero/inc, flow:N, flow:inflow/std).
+N = inflow/dec
+?- once(consult('fig22_9.pl')), mplus(amount:zero/inc, level:L).
+L = zero/inc
+?- once(consult('fig22_9.pl')), deriv(amount:zero..full/D, flow:zero..inflow/dec).
+D = inc
+?- once(consult('fig22_11.pl')), initial(S), simulate(S, B, 6), length(B, N).
+S = [volt:v0/dec,volt:zero/inc,voltR:v0/dec,current:zero..inf/dec]
+B = [[volt:v0/dec,volt:zero/inc,voltR:v0/dec,current:zero..inf/dec],[volt:zero..v0/dec,volt:zero..v0/inc,voltR:zero..v0/dec,current:zero..inf/dec],[volt:zero..v0/std,volt:zero..v0/std,voltR:zero/std,current:zero/std]]
+N = 3
+?- once(consult('fig22_11.pl')), initial(S), findall(N, (simulate(S, B, 6), length(B, N)), Ns).
+S = [volt:v0/dec,volt:zero/inc,voltR:v0/dec,current:zero..inf/dec]
+N = A
+B = B
+Ns = [3]
+?- once(consult('fig22_13.pl')), initial(S), simulate(S, B, 8), length(B, N).
+S = [x:zero/inc,v:v0/std,a:zero/dec]
+B = [[x:zero/inc,v:v0/std,a:zero/dec],[x:zero..inf/inc,v:zero..v0/dec,a:minf..zero/dec],[x:zero..inf/std,v:zero/dec,a:minf..zero/std],[x:zero..inf/dec,v:minf..zero/dec,a:minf..zero/inc],[x:zero/dec,v:minf..zero/std,a:zero/inc],[x:minf..zero/dec,v:minf..zero/inc,a:zero..inf/inc],[x:minf..zero/std,v:zero/inc,a:zero..inf/std],[x:minf..zero/inc,v:zero..v0/inc,a:zero..inf/dec]]
+N = 8
+?- once(consult('fig22_13.pl')), initial(S), findall(N, (simulate(S, B, 5), length(B, N)), Ns), length(Ns, Count).
+S = [x:zero/inc,v:v0/std,a:zero/dec]
+N = A
+B = B
+Ns = [5]
+Count = 1

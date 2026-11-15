@@ -1,0 +1,2 @@
+?- getsentence(W).
+W = ['\nMary',was,pleased,to,see,the,robot,fail]

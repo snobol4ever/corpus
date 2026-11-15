@@ -1,0 +1,37 @@
+?- backliteral(L, Vars).
+L = parent(A,B)
+Vars = [A,B]
+;
+L = male(A)
+Vars = [A]
+;
+L = female(A)
+Vars = [A]
+...
+?- ex(E).
+E = has_daughter(tom)
+;
+E = has_daughter(bob)
+;
+E = has_daughter(pat)
+...
+?- nex(E).
+E = has_daughter(pam)
+;
+E = has_daughter(jim)
+?- start_hyp(H).
+H = [[has_daughter(A)]/[A]]
+?- parent(X, bob).
+X = pam
+;
+X = tom
+?- parent(P, C), female(C), male(P).
+P = tom
+C = liz
+;
+P = bob
+C = ann
+;
+P = bob
+C = pat
+...

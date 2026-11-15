@@ -1,0 +1,10 @@
+?- show(t(t(nil,1,nil),2,t(nil,3,nil))).
+  3
+2
+  1
+yes
+?- show(nil).
+yes
+?- show2(t(nil,a,nil),4).
+    a
+yes

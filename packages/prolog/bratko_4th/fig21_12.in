@@ -1,0 +1,16 @@
+q('consult(\'fig21_3.pl\').', 3).
+consult('fig21_3.pl').
+q('consult(\'fig21_7.pl\').', 3).
+consult('fig21_7.pl').
+q('assertz((term(_, _, _) :- fail)).', 3).
+assertz((term(_, _, _) :- fail)).
+q('induce(H), show_hyp(H).', 3).
+induce(H), show_hyp(H).
+q('isa(c4, X).', 3).
+isa(c4, X).
+q('findall(X, isa(X, rectangle), L).', 3).
+findall(X, isa(X, rectangle), L).
+q('support(X, c3).', 3).
+support(X, c3).
+q('backliteral(isa(X, Y), In, Out).', 3).
+backliteral(isa(X, Y), In, Out).

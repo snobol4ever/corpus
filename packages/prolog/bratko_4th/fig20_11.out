@@ -1,0 +1,64 @@
+?- consult('fig20_9.pl').
+yes
+?- learn(nut).
+
+nut  <== 
+  [shape=compact,holes=1]
+yes
+?- bagof(example(C, O), example(C, O), Es), learn(Es, key, D).
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+D = [[shape=other,size=small],[holes=1,shape=long]]
+?- bagof(example(C, O), example(C, O), Es), learn(Es, scissors, D).
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+D = [[holes=2,size=large]]
+?- bagof(example(C, O), example(C, O), Es), learn(Es, pen, D).
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+D = [[holes=none,size=large]]
+?- learn(screw), screw <== D.
+
+screw  <== 
+  [holes=none,size=small]
+D = [[holes=none,size=small]]
+?- satisfy([size = small, holes = 1], [holes = 1]).
+yes
+?- satisfy([size = small, holes = 1], [holes = 2]).
+no
+?- bagof(example(C, O), example(C, O), Es), score(Es, nut, AV, S).
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+AV = size=small
+S = 0.4444444444444444
+;
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+AV = shape=compact
+S = 0.6666666666666666
+;
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+AV = holes=1
+S = 0.5714285714285714
+...
+?- bagof(example(C, O), example(C, O), Es), choose_cond(Es, scissors, AV).
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+AV = holes=2
+?- bagof(example(C, O), example(C, O), Es), count_pos(Es, key, N).
+C = A
+O = B
+Es = [example(nut,[size=small,shape=compact,holes=1]),example(screw,[size=small,shape=long,holes=none]),example(key,[size=small,shape=long,holes=1]),example(nut,[size=small,shape=compact,holes=1]),example(key,[size=large,shape=long,holes=1]),example(screw,[size=small,shape=compact,holes=none]),example(nut,[size=small,shape=compact,holes=1]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=long,holes=2]),example(pen,[size=large,shape=long,holes=none]),example(scissors,[size=large,shape=other,holes=2]),example(key,[size=small,shape=other,holes=2])]
+N = 3
+?- best([a/1, b/3, c/2], X).
+X = b
+?- remove([example(k, [s = 1]), example(n, [s = 2])], [s = 1], R).
+R = [example(n,[s=2])]

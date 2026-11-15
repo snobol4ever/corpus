@@ -1,0 +1,8 @@
+q('schedule(Ta,A1,A2,Tb,B1,B2,Td,D1,D2).', 3).
+schedule(Ta,A1,A2,Tb,B1,B2,Td,D1,D2).
+q('session(morning,databases,P1,P2).', 3).
+session(morning,databases,P1,P2).
+q('no_conflict(morning,adam,ann,morning,adam,danny).', 3).
+no_conflict(morning,adam,ann,morning,adam,danny).
+q('no_conflict(morning,adam,ann,afternoon,adam,danny).', 3).
+no_conflict(morning,adam,ann,afternoon,adam,danny).

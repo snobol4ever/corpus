@@ -1,0 +1,8 @@
+q('consult(\'fig9_2.pl\').', 3).
+consult('fig9_2.pl').
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('quicksort2([5,3,7,8,1,4,7,6],S-[]).', 3).
+quicksort2([5,3,7,8,1,4,7,6],S-[]).
+q('quicksort2([],S-[]).', 3).
+quicksort2([],S-[]).

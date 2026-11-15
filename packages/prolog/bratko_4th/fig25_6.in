@@ -1,0 +1,12 @@
+q('gives(john, annie, Gift).', 3).
+gives(john, annie, Gift).
+q('gives(Who, Whom, chocolate).', 3).
+gives(Who, Whom, chocolate).
+q('feels_sorry_for(X, Y).', 3).
+feels_sorry_for(X, Y).
+q('go(3, 6, Moves).', 3).
+go(3, 6, Moves).
+q('move_list(M, D).', 3).
+move_list(M, D).
+q('findall(G, operational(G), L).', 3).
+findall(G, operational(G), L).

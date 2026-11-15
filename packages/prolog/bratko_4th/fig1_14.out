@@ -1,0 +1,41 @@
+?- schedule(Ta,A1,A2,Tb,B1,B2,Td,D1,D2).
+Ta = morning
+A1 = adam
+A2 = ann
+Tb = morning
+B1 = barbara
+B2 = ben
+Td = afternoon
+D1 = adam
+D2 = danny
+;
+Ta = morning
+A1 = adam
+A2 = ann
+Tb = morning
+B1 = barbara
+B2 = ben
+Td = afternoon
+D1 = danny
+D2 = adam
+;
+Ta = morning
+A1 = adam
+A2 = ann
+Tb = morning
+B1 = ben
+B2 = barbara
+Td = afternoon
+D1 = adam
+D2 = danny
+...
+?- session(morning,databases,P1,P2).
+P1 = adam
+P2 = danny
+;
+P1 = danny
+P2 = adam
+?- no_conflict(morning,adam,ann,morning,adam,danny).
+no
+?- no_conflict(morning,adam,ann,afternoon,adam,danny).
+yes

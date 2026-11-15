@@ -1,0 +1,27 @@
+?- consult('fig1_8.pl').
+yes
+?- anc1(X,jim).
+X = pat
+;
+X = pam
+;
+X = tom
+...
+?- anc2(X,jim).
+X = pam
+;
+X = tom
+;
+X = bob
+...
+?- anc3(X,jim).
+X = pat
+;
+X = bob
+;
+X = pam
+...
+?- anc1(tom,pat).
+yes
+?- anc2(liz,jim).
+no

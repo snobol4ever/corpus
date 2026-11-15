@@ -1,0 +1,16 @@
+q('consult(\'fig21_1.pl\').', 3).
+consult('fig21_1.pl').
+q('assertz(max_proof_length(6)).', 3).
+assertz(max_proof_length(6)).
+q('prove(has_daughter(tom), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).', 3).
+prove(has_daughter(tom), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).
+q('prove(has_daughter(pam), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).', 3).
+prove(has_daughter(pam), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).
+q('prove(has_daughter(W), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], yes).', 3).
+prove(has_daughter(W), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], yes).
+q('prove(p(a), [[p(X), p(X)]/[X]], A).', 3).
+prove(p(a), [[p(X), p(X)]/[X]], A).
+q('prove([parent(tom, X), female(X)], [], 6, D).', 3).
+prove([parent(tom, X), female(X)], [], 6, D).
+q('prove(has_daughter(tom), [[has_daughter(X)]/[X]], A).', 3).
+prove(has_daughter(tom), [[has_daughter(X)]/[X]], A).

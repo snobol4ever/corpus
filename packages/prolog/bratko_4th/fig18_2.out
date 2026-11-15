@@ -1,0 +1,23 @@
+?- can(go(a,1,B),C).
+B = 2
+C = [at(a,1),clear(2)]
+;
+B = 4
+C = [at(a,1),clear(4)]
+?- effects(go(a,1,4),E).
+E = [at(a,4),clear(1),~at(a,1),~clear(4)]
+?- adjacent(2,X).
+X = 3
+;
+X = 5
+;
+X = 1
+...
+?- inconsistent(at(a,1),at(a,2)).
+yes
+?- inconsistent(clear(1),at(b,1)).
+yes
+?- inconsistent(at(a,1),clear(2)).
+no
+?- state0(S).
+S = [at(a,1),at(b,2),at(c,3),clear(4),clear(5),clear(6)]

@@ -1,0 +1,8 @@
+q('consult(\'fig25_12.pl\').', 3).
+consult('fig25_12.pl').
+q('findall(X, num(X), L).', 3).
+findall(X, num(X), L).
+q('run.', 3).
+run.
+q('run, findall(X, num(X), L).', 3).
+run, findall(X, num(X), L).

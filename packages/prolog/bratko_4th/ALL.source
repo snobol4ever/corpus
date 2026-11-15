@@ -1,0 +1,4 @@
+root	/home/resources/prolog-demos/bratko_4th_edition
+origin	https://github.com/adamcrussell/bratko_4th_edition.git (the programs of I. Bratko, Prolog Programming for Artificial Intelligence, 4th edition, Pearson 2012, as the author distributed them)
+version	6728caae1a2811334728ec6c8ed33ee0527bfba4
+licence	no licence file in the collection; the readme says the files were intended for distribution by the author (corpus is test data and never ships, skill suites-and-grading 1)

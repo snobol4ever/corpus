@@ -1,0 +1,8 @@
+q('assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).', 3).
+assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+q('assertz(goal(j)), assertz(goal(f)).', 3).
+assertz(goal(j)), assertz(goal(f)).
+q('assertz((extend([Node|Path],NewPaths) :- findall([NewNode,Node|Path],(s(Node,NewNode), \\+ member(NewNode,[Node|Path])),NewPaths))).', 3).
+assertz((extend([Node|Path],NewPaths) :- findall([NewNode,Node|Path],(s(Node,NewNode), \+ member(NewNode,[Node|Path])),NewPaths))).
+q('solve(a,S).', 3).
+solve(a,S).

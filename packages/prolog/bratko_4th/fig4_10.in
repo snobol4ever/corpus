@@ -1,0 +1,8 @@
+q('template(S), solution(S).', 3).
+template(S), solution(S).
+q('noattack(1/1,[2/3,3/5]).', 3).
+noattack(1/1,[2/3,3/5]).
+q('noattack(1/1,[2/2]).', 3).
+noattack(1/1,[2/2]).
+q('member(X,[a,b,c]).', 3).
+member(X,[a,b,c]).

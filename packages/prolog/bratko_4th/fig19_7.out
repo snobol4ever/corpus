@@ -1,0 +1,38 @@
+?- use_module(library(clpr)).
+yes
+?- time_step(DT).
+DT = 0.1
+?- round3(3.14159, Y).
+Y = 3.142
+?- round3(abc, Y).
+Y = abc
+?- show_state([1.23456, abc, 2.0]).
+1.235	abc	2	
+yes
+?- show_behaviour([[0.0, 1.5], [0.1, 1.61234]]).
+0	1.5	
+0.1	1.612	
+yes
+?- forall(transition([0.0, 0.0, 0.0, 1.0], [T, X, V | _]), show_state([T, X, V])).
+0.1	0.005	0.1	
+T = A
+X = B
+V = C
+?- forall(transition([0.0, 1.0, 0.0, 0.0], [T, X, V | _]), show_state([T, X, V])).
+0.1	0.995	-0.1	
+T = A
+X = B
+V = C
+?- findall(N/T10/X1000, (state0(S), once(simulate(S, B)), length(B, N), last(B, [T, X | _]), T10 is round(T*10), X1000 is round(X*1000)), L).
+N = A
+T10 = B
+X1000 = C
+S = D
+B = E
+T = F
+X = G
+L = [49/48/3082]
+?- stop([21, 0, 0, 0]).
+yes
+?- stop([1, 0, 0, 0]).
+no

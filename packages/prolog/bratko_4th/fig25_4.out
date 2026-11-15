@@ -1,0 +1,37 @@
+?- abduce(not_working(light1), Delta).
+Delta = [blown(A),bulb_in(light1,A)]
+;
+Delta = [broken(switch1),connected(light1,switch1)]
+;
+Delta = [broken(switch2),connected(light1,switch2)]
+...
+?- abduce(no_current(heater), Delta).
+Delta = [broken(switch1),connected(heater,switch1)]
+;
+Delta = [broken(switch2),connected(heater,switch2)]
+;
+Delta = [melted(fuse1),connected(heater,fuse1)]
+...
+?- abduce((not_working(l1), not_working(l2)), Delta), length(Delta, N).
+Delta = [blown(B),bulb_in(l2,B),blown(A),bulb_in(l1,A)]
+N = 4
+;
+Delta = [broken(switch1),connected(l2,switch1),blown(A),bulb_in(l1,A)]
+N = 4
+;
+Delta = [broken(switch2),connected(l2,switch2),blown(A),bulb_in(l1,A)]
+N = 4
+...
+?- abducible(G).
+G = broken(A)
+;
+G = melted(A)
+;
+G = blown(A)
+...
+?- abduce(switch(S), D).
+S = switch1
+D = []
+;
+S = switch2
+D = []

@@ -1,0 +1,20 @@
+?- consult('fig24_2.pl').
+yes
+?- minimax(a, Best, Val).
+Best = b
+Val = 4
+?- minimax(b, Best, Val).
+Best = d
+Val = 4
+?- minimax(c, Best, Val).
+Best = g
+Val = 1
+?- minimax(i, Best, Val).
+Best = A
+Val = 1
+?- best([d, e], Best, Val).
+Best = d
+Val = 4
+?- betterof(d, 4, e, 6, P, V).
+P = d
+V = 4

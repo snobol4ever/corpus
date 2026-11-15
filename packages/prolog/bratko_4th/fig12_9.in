@@ -1,0 +1,20 @@
+q('consult(\'fig12_3.pl\').', 3).
+consult('fig12_3.pl').
+q('start(S), s(S,N,C).', 3).
+start(S), s(S,N,C).
+q('before(t1,t5).', 3).
+before(t1,t5).
+q('before(t4,t1).', 3).
+before(t4,t1).
+q('insert(a/3,[b/5],L,0,F).', 3).
+insert(a/3,[b/5],L,0,F).
+q('insertidle(1,[x/4],L).', 3).
+insertidle(1,[x/4],L).
+q('totaltime([a/2,b/3],T).', 3).
+totaltime([a/2,b/3],T).
+q('sumnum([a/1,b/2],F,N).', 3).
+sumnum([a/1,b/2],F,N).
+q('start(S), h(S,H).', 3).
+start(S), h(S,H).
+q('start(S), bestfirst(S,Sol), Sol = [G|_].', 3).
+start(S), bestfirst(S,Sol), Sol = [G|_].

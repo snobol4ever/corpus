@@ -1,0 +1,10 @@
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('in(5,t(t(nil,3,nil),5,t(nil,8,nil))).', 3).
+in(5,t(t(nil,3,nil),5,t(nil,8,nil))).
+q('in(8,t(t(nil,3,nil),5,t(nil,8,nil))).', 3).
+in(8,t(t(nil,3,nil),5,t(nil,8,nil))).
+q('in(4,t(t(nil,3,nil),5,t(nil,8,nil))).', 3).
+in(4,t(t(nil,3,nil),5,t(nil,8,nil))).
+q('in(X,t(nil,5,nil)).', 3).
+in(X,t(nil,5,nil)).

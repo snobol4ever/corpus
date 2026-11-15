@@ -1,0 +1,20 @@
+q('consult(\'fig21_3.pl\').', 3).
+consult('fig21_3.pl').
+q('consult(\'fig21_1.pl\').', 3).
+consult('fig21_1.pl').
+q('induce(H).', 3).
+induce(H).
+q('start_hyp(H0), complete(H0).', 3).
+start_hyp(H0), complete(H0).
+q('start_hyp(H0), consistent(H0).', 3).
+start_hyp(H0), consistent(H0).
+q('refine([has_daughter(X)], [X], C, Vs).', 3).
+refine([has_daughter(X)], [X], C, Vs).
+q('start_hyp(H0), refine_hyp(H0, H1), complete(H1).', 3).
+start_hyp(H0), refine_hyp(H0, H1), complete(H1).
+q('consistent([[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]]).', 3).
+consistent([[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]]).
+q('depth_first([[has_daughter(X)]/[X]], H, 2).', 3).
+depth_first([[has_daughter(X)]/[X]], H, 2).
+q('max_clause_length(N).', 3).
+max_clause_length(N).

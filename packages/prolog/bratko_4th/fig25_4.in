@@ -1,0 +1,10 @@
+q('abduce(not_working(light1), Delta).', 3).
+abduce(not_working(light1), Delta).
+q('abduce(no_current(heater), Delta).', 3).
+abduce(no_current(heater), Delta).
+q('abduce((not_working(l1), not_working(l2)), Delta), length(Delta, N).', 3).
+abduce((not_working(l1), not_working(l2)), Delta), length(Delta, N).
+q('abducible(G).', 3).
+abducible(G).
+q('abduce(switch(S), D).', 3).
+abduce(switch(S), D).

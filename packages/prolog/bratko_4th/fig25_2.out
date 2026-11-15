@@ -1,0 +1,33 @@
+?- consult('fig1_8.pl').
+yes
+?- trace(parent(pam, X), 0).
+Call: parent(pam,_9316)
+Exit: parent(pam,bob)
+X = bob
+Redo: parent(pam,bob)
+Fail: parent(pam,_9316)
+?- trace(predecessor(tom, pat), 0).
+Call: predecessor(tom,pat)
+Fail: predecessor(tom,pat)
+no
+?- trace((parent(X, bob), female(X)), 0).
+Call: parent(_9466,bob)
+Exit: parent(pam,bob)
+Call: female(pam)
+Exit: female(pam)
+X = pam
+Redo: female(pam)
+Fail: female(pam)
+Redo: parent(pam,bob)
+Exit: parent(tom,bob)
+Call: female(tom)
+Fail: female(tom)
+Redo: parent(tom,bob)
+Fail: parent(_9466,bob)
+?- trace(parent(jim, X), 0).
+Call: parent(jim,_9560)
+Fail: parent(jim,_9560)
+no
+?- display('Call: ', p(a), 3).
+   Call: p(a)
+yes

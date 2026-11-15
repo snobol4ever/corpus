@@ -1,0 +1,21 @@
+?- sail(riva at 8:00,X).
+X = limone at 8:35
+?- before(8:35,9:10).
+yes
+?- before(9:10,8:35).
+no
+?- time_diff(8:00,9:25,D).
+D = 85
+?- schedule(riva at 8:00,malcesine at 8:55,S).
+S = [depart(riva at 8:0),arrive(limone at 8:35),arrive(malcesine at 8:55)]
+...
+?- schedule(riva at 9:10,riva at T,S).
+T = 10:5
+S = [depart(riva at 9:10),arrive(torbole at 9:25),stay(torbole,9:25,9:50),depart(torbole at 9:50),arrive(riva at 10:5)]
+;
+T = 11:35
+S = [depart(riva at 9:10),arrive(torbole at 9:25),stay(torbole,9:25,11:20),depart(torbole at 11:20),arrive(riva at 11:35)]
+;
+T = 17:35
+S = [depart(riva at 9:10),arrive(torbole at 9:25),stay(torbole,9:25,17:20),depart(torbole at 17:20),arrive(riva at 17:35)]
+...

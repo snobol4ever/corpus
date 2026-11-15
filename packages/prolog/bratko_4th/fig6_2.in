@@ -1,0 +1,8 @@
+q('puzzle1(N1,N2,N), sum(N1,N2,N).', 3).
+puzzle1(N1,N2,N), sum(N1,N2,N).
+q('puzzle2(N1,N2,N), sum(N1,N2,N).', 3).
+puzzle2(N1,N2,N), sum(N1,N2,N).
+q('del_var(X,[1,2,3],L).', 3).
+del_var(X,[1,2,3],L).
+q('del_var(2,[1,2,3],L).', 3).
+del_var(2,[1,2,3],L).

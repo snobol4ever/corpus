@@ -1,0 +1,24 @@
+q('consult(\'fig25_12.pl\').', 3).
+consult('fig25_12.pl').
+q('consult(\'fig25_14.pl\').', 3).
+consult('fig25_14.pl').
+q('transform(~(~a), X).', 3).
+transform(~(~a), X).
+q('transform(a => b, X).', 3).
+transform(a => b, X).
+q('transform(~(a & b), X).', 3).
+transform(~(a & b), X).
+q('transform(a & b v c, X).', 3).
+transform(a & b v c, X).
+q('retractall(clause(_)), translate(~(a => b) v c), findall(C, clause(C), L).', 3).
+retractall(clause(_)), translate(~(a => b) v c), findall(C, clause(C), L).
+q('retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & ~(a => c)), run.', 3).
+retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & ~(a => c)), run.
+q('retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & (a => c)), run.', 3).
+retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & (a => c)), run.
+q('retractall(clause(_)), retractall(done(_, _, _)), translate(~((a => b) & (b => c) => (a => c))), findall(C, clause(C), L).', 3).
+retractall(clause(_)), retractall(done(_, _, _)), translate(~((a => b) & (b => c) => (a => c))), findall(C, clause(C), L).
+q('delete(b, a v b v c, R).', 3).
+delete(b, a v b v c, R).
+q('in(b, a v b v c).', 3).
+in(b, a v b v c).

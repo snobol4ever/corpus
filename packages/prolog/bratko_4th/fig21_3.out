@@ -1,0 +1,41 @@
+?- consult('fig21_1.pl').
+yes
+?- assertz(max_proof_length(6)).
+yes
+?- prove(has_daughter(tom), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).
+X = A
+Y = B
+A = yes
+;
+X = A
+Y = B
+A = no
+?- prove(has_daughter(pam), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).
+X = A
+Y = B
+A = no
+?- prove(has_daughter(W), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], yes).
+W = tom
+X = A
+Y = B
+;
+W = bob
+X = A
+Y = B
+;
+W = bob
+X = A
+Y = B
+...
+?- prove(p(a), [[p(X), p(X)]/[X]], A).
+X = A
+A = maybe
+?- prove([parent(tom, X), female(X)], [], 6, D).
+X = liz
+D = 6
+?- prove(has_daughter(tom), [[has_daughter(X)]/[X]], A).
+X = A
+A = yes
+;
+X = A
+A = no

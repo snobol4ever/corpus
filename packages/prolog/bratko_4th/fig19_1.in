@@ -1,0 +1,4 @@
+q('use_module(library(clpr)).', 3).
+use_module(library(clpr)).
+q('schedule(_, T).', 3).
+schedule(_, T).

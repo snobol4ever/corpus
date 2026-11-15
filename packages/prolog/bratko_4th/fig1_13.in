@@ -1,0 +1,4 @@
+q('colors(IT,SI,HR,CH,AT,HU,DE,SK,CZ,PL,SEA).', 3).
+colors(IT,SI,HR,CH,AT,HU,DE,SK,CZ,PL,SEA).
+q('n(red,X).', 3).
+n(red,X).

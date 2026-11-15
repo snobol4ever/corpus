@@ -1,0 +1,12 @@
+q('backliteral(L, Vars).', 3).
+backliteral(L, Vars).
+q('ex(E).', 3).
+ex(E).
+q('nex(E).', 3).
+nex(E).
+q('start_hyp(H).', 3).
+start_hyp(H).
+q('parent(X, bob).', 3).
+parent(X, bob).
+q('parent(P, C), female(C), male(P).', 3).
+parent(P, C), female(C), male(P).

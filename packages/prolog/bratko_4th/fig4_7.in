@@ -1,0 +1,12 @@
+q('sail(riva at 8:00,X).', 3).
+sail(riva at 8:00,X).
+q('before(8:35,9:10).', 3).
+before(8:35,9:10).
+q('before(9:10,8:35).', 3).
+before(9:10,8:35).
+q('time_diff(8:00,9:25,D).', 3).
+time_diff(8:00,9:25,D).
+q('schedule(riva at 8:00,malcesine at 8:55,S).', 1).
+schedule(riva at 8:00,malcesine at 8:55,S).
+q('schedule(riva at 9:10,riva at T,S).', 3).
+schedule(riva at 9:10,riva at T,S).

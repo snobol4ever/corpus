@@ -1,0 +1,8 @@
+q('assertz(given(hall_wet,1)), assertz(given(bathroom_dry,1)), assertz(given(kitchen_dry,0)), assertz(given(no_rain,0.8)), assertz(given(window_closed,0)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen : 0.9)), assertz((if window_closed or no_rain then no_water_from_outside : 1)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen : 0.8)).', 3).
+assertz(given(hall_wet,1)), assertz(given(bathroom_dry,1)), assertz(given(kitchen_dry,0)), assertz(given(no_rain,0.8)), assertz(given(window_closed,0)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen : 0.9)), assertz((if window_closed or no_rain then no_water_from_outside : 1)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen : 0.8)).
+q('certainty(leak_in_kitchen,C).', 3).
+certainty(leak_in_kitchen,C).
+q('certainty(hall_wet and no_rain,C).', 3).
+certainty(hall_wet and no_rain,C).
+q('certainty(window_closed or no_rain,C).', 3).
+certainty(window_closed or no_rain,C).

@@ -1,0 +1,438 @@
+?- consult('fig21_3.pl').
+yes
+?- consult('fig21_7.pl').
+yes
+?- induce(H), show_hyp(H).
+
+Hypotheses generated: 5
+Hypotheses refined:   0
+To be refined:        4
+Refining hypo with cost 93:
+
+path(A,B,C).
+
+
+Hypotheses generated: 12
+Hypotheses refined:   1
+To be refined:        4
+Refining hypo with cost 84:
+
+path(A,B,[C|D]).
+
+
+Hypotheses generated: 23
+Hypotheses refined:   2
+To be refined:        4
+Refining hypo with cost 63:
+
+path(B,A,[B|C]).
+
+
+Hypotheses generated: 30
+Hypotheses refined:   3
+To be refined:        3
+Refining hypo with cost 106:
+
+path(A,B,C).
+path(A,B,C).
+
+
+Hypotheses generated: 37
+Hypotheses refined:   4
+To be refined:        7
+Refining hypo with cost 105:
+
+path(A,B,[]).
+path(A,B,C).
+
+
+Hypotheses generated: 42
+Hypotheses refined:   5
+To be refined:        11
+Refining hypo with cost 104:
+
+path(A,A,[]).
+path(A,B,C).
+
+
+Hypotheses generated: 44
+Hypotheses refined:   6
+To be refined:        12
+Refining hypo with cost 105:
+
+path(A,A,B).
+path(A,B,C).
+
+
+Hypotheses generated: 48
+Hypotheses refined:   7
+To be refined:        14
+Refining hypo with cost 104:
+
+path(A,A,[]).
+path(A,B,C).
+
+
+Hypotheses generated: 50
+Hypotheses refined:   8
+To be refined:        15
+Refining hypo with cost 106:
+
+path(A,A,[B|C]).
+path(A,B,C).
+
+
+Hypotheses generated: 57
+Hypotheses refined:   9
+To be refined:        19
+Refining hypo with cost 105:
+
+path(A,A,[B]).
+path(A,B,C).
+
+
+Hypotheses generated: 62
+Hypotheses refined:   10
+To be refined:        21
+Refining hypo with cost 104:
+
+path(A,A,[A]).
+path(A,B,C).
+
+
+Hypotheses generated: 69
+Hypotheses refined:   11
+To be refined:        24
+Refining hypo with cost 95:
+
+path(A,A,[A]).
+path(A,B,[C|D]).
+
+
+Hypotheses generated: 80
+Hypotheses refined:   12
+To be refined:        30
+Refining hypo with cost 74:
+
+path(A,A,[A]).
+path(B,A,[B|C]).
+
+
+Hypotheses generated: 87
+Hypotheses refined:   13
+To be refined:        33
+Refining hypo with cost 65:
+
+path(A,A,[A]).
+path(B,A,[B,C|D]).
+
+
+Hypotheses generated: 98
+Hypotheses refined:   14
+To be refined:        36
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,C|D]):-
+  link(B,E).
+
+
+
+Hypotheses generated: 113
+Hypotheses refined:   15
+To be refined:        42
+Refining hypo with cost 55:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D).
+
+
+
+Hypotheses generated: 123
+Hypotheses refined:   16
+To be refined:        45
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  link(B,E).
+
+
+
+Hypotheses generated: 136
+Hypotheses refined:   17
+To be refined:        50
+Refining hypo with cost 67:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,E,F).
+
+
+
+Hypotheses generated: 154
+Hypotheses refined:   18
+To be refined:        57
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,D,E).
+
+
+
+Hypotheses generated: 168
+Hypotheses refined:   19
+To be refined:        61
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(A,D,[A,C|B]):-
+  link(A,C),
+  path(C,D,E).
+
+
+
+Hypotheses generated: 181
+Hypotheses refined:   20
+To be refined:        62
+Refining hypo with cost 67:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(B,E,F).
+
+
+
+Hypotheses generated: 200
+Hypotheses refined:   21
+To be refined:        69
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(D,A,[D,C|B]):-
+  link(D,C),
+  path(D,D,E).
+
+
+
+Hypotheses generated: 214
+Hypotheses refined:   22
+To be refined:        73
+Refining hypo with cost 67:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(A,E,F).
+
+
+
+Hypotheses generated: 233
+Hypotheses refined:   23
+To be refined:        79
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(A,D,[A,C|B]):-
+  link(A,C),
+  path(D,D,E).
+
+
+
+Hypotheses generated: 247
+Hypotheses refined:   24
+To be refined:        83
+Refining hypo with cost 67:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,D,[E|F]).
+
+
+
+Hypotheses generated: 265
+Hypotheses refined:   25
+To be refined:        90
+Refining hypo with cost 56:
+
+path(A,A,[A]).
+path(B,A,[B,C|E]):-
+  link(B,C),
+  path(C,C,[D|E]).
+
+
+
+Hypotheses generated: 280
+Hypotheses refined:   26
+To be refined:        91
+Refining hypo with cost 55:
+
+path(A,A,[A]).
+path(B,A,[B,C|D]):-
+  link(B,C),
+  path(C,C,[C|D]).
+
+
+
+Hypotheses generated: 291
+Hypotheses refined:   27
+To be refined:        91
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,D,[E]).
+
+
+
+Hypotheses generated: 307
+Hypotheses refined:   28
+To be refined:        96
+Refining hypo with cost 65:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,D,[D]).
+
+
+
+Hypotheses generated: 319
+Hypotheses refined:   29
+To be refined:        99
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,D,[D|E]).
+
+
+
+Hypotheses generated: 333
+Hypotheses refined:   30
+To be refined:        104
+Refining hypo with cost 55:
+
+path(A,A,[A]).
+path(B,A,[B,C|D]):-
+  link(B,C),
+  path(C,C,[C|D]).
+
+
+
+Hypotheses generated: 344
+Hypotheses refined:   31
+To be refined:        104
+Refining hypo with cost 65:
+
+path(A,A,[A]).
+path(B,A,[B,D|C]):-
+  link(B,D),
+  path(D,D,[D]).
+
+
+
+Hypotheses generated: 356
+Hypotheses refined:   32
+To be refined:        107
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,C|D]):-
+  link(B,C),
+  path(C,C,[C|D]),
+  link(B,E).
+
+
+
+Hypotheses generated: 370
+Hypotheses refined:   33
+To be refined:        107
+Refining hypo with cost 66:
+
+path(A,A,[A]).
+path(B,A,[B,C|D]):-
+  link(B,C),
+  path(C,C,[C|D]),
+  link(B,E).
+
+
+
+Hypotheses generated: 384
+Hypotheses refined:   34
+To be refined:        107
+Refining hypo with cost 67:
+
+path(A,A,[A]).
+path(A,D,[A,C|B]):-
+  link(A,C),
+  path(C,D,[E|F]).
+
+
+
+Hypotheses generated: 401
+Hypotheses refined:   35
+To be refined:        109
+
+path(A,A,[A]).
+path(A,C,[A,B|E]):-
+  link(A,B),
+  path(B,C,[D|E]).
+
+H = [[path(A,A,[A])]/[A:item],[path(B,C,[B,D|E]),link(B,D),path(D,C,[F|E])]/[B:item,D:item,C:item,F:item,E:list]]
+Refining hypo with cost 0:
+
+path(A,A,[A]).
+path(A,C,[A,B|E]):-
+  link(A,B),
+  path(B,C,[D|E]).
+
+
+
+Hypotheses generated: 415
+Hypotheses refined:   36
+To be refined:        110
+
+path(A,A,[A]).
+path(A,C,[A,B|E]):-
+  link(A,B),
+  path(B,C,[D|E]),
+  link(A,F).
+
+;
+H = [[path(A,A,[A])]/[A:item],[path(B,C,[B,D|E]),link(B,D),path(D,C,[F|E]),link(B,G)]/[B:item,D:item,C:item,F:item,E:list,G:item]]
+Refining hypo with cost 0:
+
+path(A,A,[A]).
+path(A,C,[A,B|E]):-
+  link(A,B),
+  path(B,C,[D|E]),
+  link(A,F).
+
+
+
+Hypotheses generated: 433
+Hypotheses refined:   37
+To be refined:        112
+
+path(A,A,[A]).
+path(A,B,[A,C|D]):-
+  link(A,C),
+  path(C,B,[C|D]).
+
+;
+H = [[path(A,A,[A])]/[A:item],[path(B,C,[B,D|E]),link(B,D),path(D,C,[D|E])]/[B:item,C:item,D:item,E:list]]
+...
+?- link(a, X).
+X = b
+;
+X = c

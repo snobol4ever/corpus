@@ -1,0 +1,12 @@
+?- assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+yes
+?- assertz(goal(j)), assertz(goal(f)).
+yes
+?- solve(a,S).
+S = [f,c,a]
+;
+S = [j,e,b,a]
+?- extend([a],P).
+P = [[b,a],[c,a]]
+?- solve(k,S).
+no

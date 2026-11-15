@@ -1,0 +1,33 @@
+?- consult('fig25_12.pl').
+yes
+?- consult('fig25_14.pl').
+yes
+?- transform(~(~a), X).
+X = a
+?- transform(a => b, X).
+X = ~a v b
+?- transform(~(a & b), X).
+X = ~a v ~b
+?- transform(a & b v c, X).
+X = (a v c)&(b v c)
+?- retractall(clause(_)), translate(~(a => b) v c), findall(C, clause(C), L).
+C = A
+L = [a v c,~b v c]
+?- retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & ~(a => c)), run.
+Contradiction foundyes
+Contradiction found;
+yes
+Contradiction found;
+yes
+...
+?- retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & (a => c)), run.
+Not contradictionyes
+Not contradiction;
+yes
+?- retractall(clause(_)), retractall(done(_, _, _)), translate(~((a => b) & (b => c) => (a => c))), findall(C, clause(C), L).
+C = A
+L = [~a v b,~b v c,a,~c]
+?- delete(b, a v b v c, R).
+R = a v c
+?- in(b, a v b v c).
+yes

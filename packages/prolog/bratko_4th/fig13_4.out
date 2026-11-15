@@ -1,0 +1,16 @@
+?- assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+yes
+?- assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+yes
+?- assertz(goal(t)).
+yes
+?- bestfirst(s,Sol).
+Sol = [t,g,f,e,s]
+;
+Sol = [t,d,c,b,a,s]
+?- inherit(3,5,F).
+F = 5
+?- inherit(5,3,F).
+F = 0
+?- bestff([],F).
+F = 99999

@@ -1,0 +1,4 @@
+?- consult('fig18_2.pl').
+yes
+?- state0(S), plan(S,[at(a,4)],Plan).
+no

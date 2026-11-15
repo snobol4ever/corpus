@@ -1,0 +1,16 @@
+?- test([1 < 2, atom(a)]).
+yes
+?- test([1 < 2, atom(1)]).
+no
+?- execute([write(hello), nl, stop]).
+hello
+yes
+?- assertz(counter(1)), replace(counter(1), counter(2)), counter(X).
+X = 2
+?- once(consult('fig25_11.pl')), run.
+5yes
+5;
+yes
+5;
+yes
+...

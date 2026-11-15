@@ -1,0 +1,22 @@
+q('test1(M).', 3).
+test1(M).
+q('test2(M).', 3).
+test2(M).
+q('test3(M).', 3).
+test3(M).
+q('test4(M).', 3).
+test4(M).
+q('test5(M).', 3).
+test5(M).
+q('sentence(M, [annie, likes, a, man], []).', 3).
+sentence(M, [annie, likes, a, man], []).
+q('sentence(M, [john, paints, monet], []).', 3).
+sentence(M, [john, paints, monet], []).
+q('phrase(noun_phrase(X, P, S), [every, woman]).', 3).
+phrase(noun_phrase(X, P, S), [every, woman]).
+q('phrase(verb_phrase(john, P), [admires, a, woman, that, paints]).', 3).
+phrase(verb_phrase(john, P), [admires, a, woman, that, paints]).
+q('sentence(exists(X, man(X) and paints(X)), Words, []).', 3).
+sentence(exists(X, man(X) and paints(X)), Words, []).
+q('phrase(rel_clause(X, man(X), P), [that, likes, annie]).', 3).
+phrase(rel_clause(X, man(X), P), [that, likes, annie]).

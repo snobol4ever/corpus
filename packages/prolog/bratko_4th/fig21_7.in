@@ -1,0 +1,30 @@
+q('consult(\'fig21_3.pl\').', 3).
+consult('fig21_3.pl').
+q('consult(\'fig21_5.pl\').', 3).
+consult('fig21_5.pl').
+q('induce(H).', 3).
+induce(H).
+q('max_clauses(N), max_clause_length(L), max_proof_length(P).', 3).
+max_clauses(N), max_clause_length(L), max_proof_length(P).
+q('start_hyps(Hs), length(Hs, N).', 3).
+start_hyps(Hs), length(Hs, N).
+q('size([[member(X, L)]/[X:item, L:list]], S).', 3).
+size([[member(X, L)]/[X:item, L:list]], S).
+q('mergesort([3:c, 1:a, 2:b], S).', 3).
+mergesort([3:c, 1:a, 2:b], S).
+q('merge([1:a, 3:c], [2:b], M).', 3).
+merge([1:a, 3:c], [2:b], M).
+q('split([a, b, c, d, e], L1, L2).', 3).
+split([a, b, c, d, e], L1, L2).
+q('non_redundant([p(X), q(X), q(X)]).', 3).
+non_redundant([p(X), q(X), q(X)]).
+q('non_redundant([p(X), q(X), q(Y)]).', 3).
+non_redundant([p(X), q(X), q(Y)]).
+q('literal_member(q(X), [p(X), q(X)]).', 3).
+literal_member(q(X), [p(X), q(X)]).
+q('show_hyp([[member(X, [X | L])]/[X:item, L:list]]).', 3).
+show_hyp([[member(X, [X | L])]/[X:item, L:list]]).
+q('covers_neg([[member(X, L)]/[X:item, L:list]], N).', 3).
+covers_neg([[member(X, L)]/[X:item, L:list]], N).
+q('complete([[member(X, [X | L])]/[X:item, L:list]]).', 3).
+complete([[member(X, [X | L])]/[X:item, L:list]]).

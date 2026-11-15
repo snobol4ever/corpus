@@ -1,0 +1,8 @@
+q('block(b1,D).', 3).
+block(b1,D).
+q('rotate(rect(p,dim(1,2)),R).', 3).
+rotate(rect(p,dim(1,2)),R).
+q('block_rectangle(b3,R).', 3).
+block_rectangle(b3,R).
+q('fit(box1,B1,B2,B3,B4).', 3).
+fit(box1,B1,B2,B3,B4).

@@ -1,0 +1,18 @@
+?- assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+yes
+?- assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+yes
+?- assertz(goal(t)).
+yes
+?- bestfirst(s,Sol).
+Sol = [t,g,f,e,s]
+;
+Sol = [t,d,c,b,a,s]
+?- min(3,5,M).
+M = 3
+?- bestf([l(a,7/2)],F).
+F = 7
+?- f(t(n,9/3,[]),F).
+F = 9
+?- insert(l(x,3/1),[l(y,5/1)],T).
+T = [l(x,3/1),l(y,5/1)]

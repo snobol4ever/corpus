@@ -1,0 +1,17 @@
+?- consult('fig1_8.pl').
+yes
+?- prove(parent(pam, X)).
+X = bob
+raised(permission_error(access,private_procedure,true/0))
+?- once(prove((parent(X, Y), female(Y)))).
+raised(permission_error(access,private_procedure,true/0))
+?- prove(true).
+yes
+raised(permission_error(access,private_procedure,true/0))
+?- prove(mother(X, bob)).
+X = pam
+raised(permission_error(access,private_procedure,true/0))
+?- findall(X-Y, once(prove(grandparent(X, Y))), L).
+X = A
+Y = B
+L = [pam-ann]

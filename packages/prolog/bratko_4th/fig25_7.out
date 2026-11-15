@@ -1,0 +1,35 @@
+?- consult('fig25_6.pl').
+yes
+?- ebg(gives(john, john, chocolate), gives(X, Y, Z), Cond).
+X = A
+Y = A
+Z = B
+Cond = sad(A),likes(A,B)
+?- ebg(gives(john, annie, tennis_racket), gives(X, Y, Z), Cond).
+X = A
+Y = B
+Z = C
+Cond = likes(A,B),needs(B,C)
+?- go(3, 6, Moves), ebg(go(3, 6, Moves), go(L1, L2, GenMoves), Cond).
+Moves = [up,up,up]
+L1 = A
+L2 = B
+GenMoves = [up,up,up]
+Cond = 0+1+1+1=:=B-A
+;
+Moves = [down,up,up,up,up]
+L1 = A
+L2 = B
+GenMoves = [down,up,up,up,up]
+Cond = 0+1+1+1+1+ -1=:=B-A
+;
+Moves = [up,down,up,up,up]
+L1 = A
+L2 = B
+GenMoves = [up,down,up,up,up]
+Cond = 0+1+1+1+ -1+1=:=B-A
+...
+?- and(true, a, C).
+C = a
+?- and(a, b, C).
+C = a,b

@@ -1,0 +1,16 @@
+?- bird(X,Y).
+X = a_kind_of
+Y = animal
+;
+X = moving_method
+Y = fly
+;
+X = active_at
+Y = daylight
+...
+?- albert(instance_of,X).
+X = albatross
+?- kiwi(size,S).
+S = 40
+?- animal(relative_size,X).
+X = execute(relative_size(A,B),A,B)

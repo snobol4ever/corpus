@@ -1,0 +1,15 @@
+?- moves(a, L).
+L = [b,c]
+?- staticval(P, 1).
+P = i
+;
+P = n
+;
+P = o
+...
+?- findall(P, max_to_move(P), L).
+P = A
+L = [a,d,e,f,g]
+?- moves(P, L), member(k, L).
+P = e
+L = [k,l]

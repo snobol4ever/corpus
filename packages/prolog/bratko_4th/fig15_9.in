@@ -1,0 +1,11 @@
+q('assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).', 3).
+assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).
+q('assertz(askable(kitchen_dry)).', 3).
+assertz(askable(kitchen_dry)).
+q('is_true(leak_in_kitchen,Proof).', 3).
+is_true(leak_in_kitchen,Proof).
+q('is_true(leak_in_bathroom,P).', 3).
+is_true(leak_in_bathroom,P).
+yes.
+q('display_rule_chain([if a then b],0).', 3).
+display_rule_chain([if a then b],0).

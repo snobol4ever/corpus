@@ -1,0 +1,7 @@
+?- mentioned(x,[rel(r,x,y)]).
+yes
+?- mentioned(z,[rel(r,x,y)]).
+no
+?- s_path(dog,dog,P).
+P = []
+raised(existence_error(procedure,hyp/2))

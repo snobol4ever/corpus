@@ -1,0 +1,3205 @@
+?- consult('fig21_3.pl').
+yes
+?- consult('fig21_7.pl').
+yes
+?- induce(H), show_hyp(H).
+
+Hypotheses generated: 5
+Hypotheses refined:   0
+To be refined:        4
+Refining hypo with cost 72:
+
+sort(A,B).
+
+
+Hypotheses generated: 12
+Hypotheses refined:   1
+To be refined:        3
+Refining hypo with cost 84:
+
+sort(A,B).
+sort(A,B).
+
+
+Hypotheses generated: 19
+Hypotheses refined:   2
+To be refined:        7
+Refining hypo with cost 83:
+
+sort(A,[]).
+sort(A,B).
+
+
+Hypotheses generated: 26
+Hypotheses refined:   3
+To be refined:        10
+Refining hypo with cost 64:
+
+sort(A,[]).
+sort([B|C],A).
+
+
+Hypotheses generated: 33
+Hypotheses refined:   4
+To be refined:        12
+Refining hypo with cost 65:
+
+sort(A,[]).
+sort([A|B],[C|D]).
+
+
+Hypotheses generated: 41
+Hypotheses refined:   5
+To be refined:        13
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 59
+Hypotheses refined:   6
+To be refined:        21
+Refining hypo with cost 74:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,[]).
+
+
+
+Hypotheses generated: 71
+Hypotheses refined:   7
+To be refined:        25
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]).
+
+
+
+Hypotheses generated: 80
+Hypotheses refined:   8
+To be refined:        25
+Refining hypo with cost 74:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,C).
+
+
+
+Hypotheses generated: 92
+Hypotheses refined:   9
+To be refined:        27
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C).
+
+
+
+Hypotheses generated: 101
+Hypotheses refined:   10
+To be refined:        28
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 116
+Hypotheses refined:   11
+To be refined:        31
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]).
+
+
+
+Hypotheses generated: 125
+Hypotheses refined:   12
+To be refined:        31
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C).
+
+
+
+Hypotheses generated: 134
+Hypotheses refined:   13
+To be refined:        32
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 146
+Hypotheses refined:   14
+To be refined:        32
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 158
+Hypotheses refined:   15
+To be refined:        32
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(A,D).
+
+
+
+Hypotheses generated: 176
+Hypotheses refined:   16
+To be refined:        39
+Refining hypo with cost 74:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(A,[]).
+
+
+
+Hypotheses generated: 186
+Hypotheses refined:   17
+To be refined:        42
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]).
+
+
+
+Hypotheses generated: 192
+Hypotheses refined:   18
+To be refined:        41
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D).
+
+
+
+Hypotheses generated: 207
+Hypotheses refined:   19
+To be refined:        42
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]).
+
+
+
+Hypotheses generated: 213
+Hypotheses refined:   20
+To be refined:        41
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,[]).
+
+
+
+Hypotheses generated: 224
+Hypotheses refined:   21
+To be refined:        42
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 239
+Hypotheses refined:   22
+To be refined:        43
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 251
+Hypotheses refined:   23
+To be refined:        43
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort([C|D],[]).
+
+
+
+Hypotheses generated: 262
+Hypotheses refined:   24
+To be refined:        44
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,C).
+
+
+
+Hypotheses generated: 281
+Hypotheses refined:   25
+To be refined:        46
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 293
+Hypotheses refined:   26
+To be refined:        46
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 305
+Hypotheses refined:   27
+To be refined:        46
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 322
+Hypotheses refined:   28
+To be refined:        48
+Refining hypo with cost 76:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 344
+Hypotheses refined:   29
+To be refined:        56
+Refining hypo with cost 65:
+
+sort(A,[]).
+sort([A|D],[B|C]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 359
+Hypotheses refined:   30
+To be refined:        56
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 371
+Hypotheses refined:   31
+To be refined:        55
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(D,[]).
+
+
+
+Hypotheses generated: 382
+Hypotheses refined:   32
+To be refined:        56
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 397
+Hypotheses refined:   33
+To be refined:        56
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 409
+Hypotheses refined:   34
+To be refined:        55
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 428
+Hypotheses refined:   35
+To be refined:        56
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 440
+Hypotheses refined:   36
+To be refined:        55
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 452
+Hypotheses refined:   37
+To be refined:        54
+Refining hypo with cost 76:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 474
+Hypotheses refined:   38
+To be refined:        62
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,[]).
+
+
+
+Hypotheses generated: 485
+Hypotheses refined:   39
+To be refined:        63
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 500
+Hypotheses refined:   40
+To be refined:        64
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 512
+Hypotheses refined:   41
+To be refined:        64
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|D],[B|C]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 527
+Hypotheses refined:   42
+To be refined:        65
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 539
+Hypotheses refined:   43
+To be refined:        65
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 558
+Hypotheses refined:   44
+To be refined:        67
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 570
+Hypotheses refined:   45
+To be refined:        67
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 582
+Hypotheses refined:   46
+To be refined:        67
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 599
+Hypotheses refined:   47
+To be refined:        69
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 616
+Hypotheses refined:   48
+To be refined:        71
+Refining hypo with cost 76:
+
+sort(A,[]).
+sort([A|B],[D|E]):-
+  sort(B,C).
+
+
+
+Hypotheses generated: 638
+Hypotheses refined:   49
+To be refined:        79
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,[]).
+
+
+
+Hypotheses generated: 649
+Hypotheses refined:   50
+To be refined:        80
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 664
+Hypotheses refined:   51
+To be refined:        81
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 676
+Hypotheses refined:   52
+To be refined:        81
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 691
+Hypotheses refined:   53
+To be refined:        82
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 703
+Hypotheses refined:   54
+To be refined:        82
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,C).
+
+
+
+Hypotheses generated: 722
+Hypotheses refined:   55
+To be refined:        84
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 734
+Hypotheses refined:   56
+To be refined:        84
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 746
+Hypotheses refined:   57
+To be refined:        84
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 763
+Hypotheses refined:   58
+To be refined:        86
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 780
+Hypotheses refined:   59
+To be refined:        88
+Refining hypo with cost 76:
+
+sort(A,[]).
+sort([A|B],[D|E]):-
+  sort([D|E],C).
+
+
+
+Hypotheses generated: 802
+Hypotheses refined:   60
+To be refined:        94
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort([C|D],[]).
+
+
+
+Hypotheses generated: 813
+Hypotheses refined:   61
+To be refined:        95
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort([C|D],D).
+
+
+
+Hypotheses generated: 828
+Hypotheses refined:   62
+To be refined:        94
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 850
+Hypotheses refined:   63
+To be refined:        97
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 872
+Hypotheses refined:   64
+To be refined:        100
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 894
+Hypotheses refined:   65
+To be refined:        103
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 916
+Hypotheses refined:   66
+To be refined:        106
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 938
+Hypotheses refined:   67
+To be refined:        109
+Refining hypo with cost 83:
+
+sort(A,A).
+sort(A,B).
+
+
+Hypotheses generated: 941
+Hypotheses refined:   68
+To be refined:        110
+Refining hypo with cost 82:
+
+sort([],[]).
+sort(A,B).
+
+
+Hypotheses generated: 948
+Hypotheses refined:   69
+To be refined:        112
+Refining hypo with cost 63:
+
+sort([],[]).
+sort([B|C],A).
+
+
+Hypotheses generated: 955
+Hypotheses refined:   70
+To be refined:        114
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]).
+
+
+Hypotheses generated: 963
+Hypotheses refined:   71
+To be refined:        115
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 978
+Hypotheses refined:   72
+To be refined:        118
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]).
+
+
+
+Hypotheses generated: 987
+Hypotheses refined:   73
+To be refined:        118
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C).
+
+
+
+Hypotheses generated: 996
+Hypotheses refined:   74
+To be refined:        119
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D).
+
+
+
+Hypotheses generated: 1011
+Hypotheses refined:   75
+To be refined:        120
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]).
+
+
+
+Hypotheses generated: 1017
+Hypotheses refined:   76
+To be refined:        119
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 1029
+Hypotheses refined:   77
+To be refined:        119
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 1048
+Hypotheses refined:   78
+To be refined:        120
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1060
+Hypotheses refined:   79
+To be refined:        119
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1072
+Hypotheses refined:   80
+To be refined:        118
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 1091
+Hypotheses refined:   81
+To be refined:        120
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 1103
+Hypotheses refined:   82
+To be refined:        120
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1115
+Hypotheses refined:   83
+To be refined:        120
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,C).
+
+
+
+Hypotheses generated: 1134
+Hypotheses refined:   84
+To be refined:        122
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 1146
+Hypotheses refined:   85
+To be refined:        122
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 1158
+Hypotheses refined:   86
+To be refined:        122
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 1175
+Hypotheses refined:   87
+To be refined:        124
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 1192
+Hypotheses refined:   88
+To be refined:        126
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 1214
+Hypotheses refined:   89
+To be refined:        129
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 1236
+Hypotheses refined:   90
+To be refined:        132
+Refining hypo with cost 83:
+
+sort([],A).
+sort(A,B).
+
+
+Hypotheses generated: 1239
+Hypotheses refined:   91
+To be refined:        133
+Refining hypo with cost 82:
+
+sort([],[]).
+sort(A,B).
+
+
+Hypotheses generated: 1246
+Hypotheses refined:   92
+To be refined:        135
+Refining hypo with cost 63:
+
+sort([],[]).
+sort([B|C],A).
+
+
+Hypotheses generated: 1253
+Hypotheses refined:   93
+To be refined:        137
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]).
+
+
+Hypotheses generated: 1261
+Hypotheses refined:   94
+To be refined:        138
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1276
+Hypotheses refined:   95
+To be refined:        141
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]).
+
+
+
+Hypotheses generated: 1285
+Hypotheses refined:   96
+To be refined:        141
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C).
+
+
+
+Hypotheses generated: 1294
+Hypotheses refined:   97
+To be refined:        142
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D).
+
+
+
+Hypotheses generated: 1309
+Hypotheses refined:   98
+To be refined:        143
+Refining hypo with cost 73:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]).
+
+
+
+Hypotheses generated: 1315
+Hypotheses refined:   99
+To be refined:        142
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 1327
+Hypotheses refined:   100
+To be refined:        142
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 1346
+Hypotheses refined:   101
+To be refined:        143
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1358
+Hypotheses refined:   102
+To be refined:        142
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1370
+Hypotheses refined:   103
+To be refined:        141
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 1389
+Hypotheses refined:   104
+To be refined:        143
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 1401
+Hypotheses refined:   105
+To be refined:        143
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1413
+Hypotheses refined:   106
+To be refined:        143
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,C).
+
+
+
+Hypotheses generated: 1432
+Hypotheses refined:   107
+To be refined:        145
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 1444
+Hypotheses refined:   108
+To be refined:        145
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B).
+
+
+
+Hypotheses generated: 1456
+Hypotheses refined:   109
+To be refined:        145
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 1473
+Hypotheses refined:   110
+To be refined:        147
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 1490
+Hypotheses refined:   111
+To be refined:        149
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 1512
+Hypotheses refined:   112
+To be refined:        152
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,D),
+  insert_sorted(A,B,[E|F]).
+
+
+
+Hypotheses generated: 1534
+Hypotheses refined:   113
+To be refined:        155
+Refining hypo with cost 83:
+
+sort([],[]).
+sort(A,[B|C]).
+
+
+Hypotheses generated: 1541
+Hypotheses refined:   114
+To be refined:        156
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([C|D],[A|B]).
+
+
+Hypotheses generated: 1549
+Hypotheses refined:   115
+To be refined:        157
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 1568
+Hypotheses refined:   116
+To be refined:        159
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1580
+Hypotheses refined:   117
+To be refined:        159
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1592
+Hypotheses refined:   118
+To be refined:        159
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 1611
+Hypotheses refined:   119
+To be refined:        160
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 1623
+Hypotheses refined:   120
+To be refined:        159
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1635
+Hypotheses refined:   121
+To be refined:        158
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 1652
+Hypotheses refined:   122
+To be refined:        160
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,[E|F]).
+
+
+
+Hypotheses generated: 1674
+Hypotheses refined:   123
+To be refined:        163
+Refining hypo with cost 83:
+
+sort([],[]).
+sort(A,[B|C]).
+
+
+Hypotheses generated: 1681
+Hypotheses refined:   124
+To be refined:        164
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([C|D],[A|B]).
+
+
+Hypotheses generated: 1689
+Hypotheses refined:   125
+To be refined:        165
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 1708
+Hypotheses refined:   126
+To be refined:        167
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1720
+Hypotheses refined:   127
+To be refined:        167
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1732
+Hypotheses refined:   128
+To be refined:        167
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 1751
+Hypotheses refined:   129
+To be refined:        168
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 1763
+Hypotheses refined:   130
+To be refined:        167
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1775
+Hypotheses refined:   131
+To be refined:        166
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 1792
+Hypotheses refined:   132
+To be refined:        168
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,[E|F]).
+
+
+
+Hypotheses generated: 1814
+Hypotheses refined:   133
+To be refined:        171
+Refining hypo with cost 84:
+
+sort(A,[]).
+sort(A,[B|C]).
+
+
+Hypotheses generated: 1821
+Hypotheses refined:   134
+To be refined:        173
+Refining hypo with cost 65:
+
+sort(A,[]).
+sort([C|D],[A|B]).
+
+
+Hypotheses generated: 1829
+Hypotheses refined:   135
+To be refined:        174
+Refining hypo with cost 76:
+
+sort(A,[]).
+sort([C|D],[A|B]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 1851
+Hypotheses refined:   136
+To be refined:        182
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([C|D],[A|B]):-
+  sort(D,[]).
+
+
+
+Hypotheses generated: 1862
+Hypotheses refined:   137
+To be refined:        183
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([C|D],[A|B]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1877
+Hypotheses refined:   138
+To be refined:        184
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1889
+Hypotheses refined:   139
+To be refined:        184
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([B|C],[A|D]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1904
+Hypotheses refined:   140
+To be refined:        185
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1916
+Hypotheses refined:   141
+To be refined:        185
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,E).
+
+
+
+Hypotheses generated: 1935
+Hypotheses refined:   142
+To be refined:        187
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D).
+
+
+
+Hypotheses generated: 1947
+Hypotheses refined:   143
+To be refined:        187
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 1959
+Hypotheses refined:   144
+To be refined:        187
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 1976
+Hypotheses refined:   145
+To be refined:        189
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 1993
+Hypotheses refined:   146
+To be refined:        191
+Refining hypo with cost 76:
+
+sort(A,[]).
+sort([C|D],[A|B]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 2015
+Hypotheses refined:   147
+To be refined:        199
+Refining hypo with cost 65:
+
+sort(A,[]).
+sort([C|D],[A|B]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 2030
+Hypotheses refined:   148
+To be refined:        199
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 2042
+Hypotheses refined:   149
+To be refined:        198
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([C|D],[A|B]):-
+  sort(B,[]).
+
+
+
+Hypotheses generated: 2053
+Hypotheses refined:   150
+To be refined:        199
+Refining hypo with cost 75:
+
+sort(A,[]).
+sort([B|C],[A|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 2068
+Hypotheses refined:   151
+To be refined:        199
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 2080
+Hypotheses refined:   152
+To be refined:        198
+Refining hypo with cost 75:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,E).
+
+
+
+Hypotheses generated: 2099
+Hypotheses refined:   153
+To be refined:        199
+Refining hypo with cost 64:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(B,D).
+
+
+
+Hypotheses generated: 2111
+Hypotheses refined:   154
+To be refined:        198
+Refining hypo with cost 74:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(D,D).
+
+
+
+Hypotheses generated: 2123
+Hypotheses refined:   155
+To be refined:        197
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,[E|F]).
+
+
+
+Hypotheses generated: 2145
+Hypotheses refined:   156
+To be refined:        200
+Refining hypo with cost 76:
+
+sort([],[]).
+sort([B|C],[A|D]):-
+  sort(C,D),
+  insert_sorted(B,C,[E|F]).
+
+
+
+Hypotheses generated: 2167
+Hypotheses refined:   157
+To be refined:        203
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2179
+Hypotheses refined:   158
+To be refined:        205
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2192
+Hypotheses refined:   159
+To be refined:        208
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2204
+Hypotheses refined:   160
+To be refined:        210
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2217
+Hypotheses refined:   161
+To be refined:        213
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2229
+Hypotheses refined:   162
+To be refined:        215
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2242
+Hypotheses refined:   163
+To be refined:        218
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2254
+Hypotheses refined:   164
+To be refined:        220
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2267
+Hypotheses refined:   165
+To be refined:        223
+Refining hypo with cost 84:
+
+sort([],[A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 2270
+Hypotheses refined:   166
+To be refined:        225
+Refining hypo with cost 83:
+
+sort([],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 2270
+Hypotheses refined:   167
+To be refined:        224
+Refining hypo with cost 84:
+
+sort([A|B],[A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 2273
+Hypotheses refined:   168
+To be refined:        226
+Refining hypo with cost 83:
+
+sort([A],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 2280
+Hypotheses refined:   169
+To be refined:        226
+Refining hypo with cost 85:
+
+sort(A,[B|C]).
+sort(A,B).
+
+
+Hypotheses generated: 2287
+Hypotheses refined:   170
+To be refined:        230
+Refining hypo with cost 84:
+
+sort(A,[B]).
+sort(A,B).
+
+
+Hypotheses generated: 2290
+Hypotheses refined:   171
+To be refined:        231
+Refining hypo with cost 83:
+
+sort([],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 2290
+Hypotheses refined:   172
+To be refined:        230
+Refining hypo with cost 84:
+
+sort(B,[A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 2293
+Hypotheses refined:   173
+To be refined:        231
+Refining hypo with cost 83:
+
+sort([],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 2293
+Hypotheses refined:   174
+To be refined:        230
+Refining hypo with cost 84:
+
+sort([],[A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 2296
+Hypotheses refined:   175
+To be refined:        232
+Refining hypo with cost 83:
+
+sort([],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 2296
+Hypotheses refined:   176
+To be refined:        231
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2311
+Hypotheses refined:   177
+To be refined:        237
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2323
+Hypotheses refined:   178
+To be refined:        239
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,[]),
+  sort(C,D).
+
+
+
+Hypotheses generated: 2340
+Hypotheses refined:   179
+To be refined:        244
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,[]),
+  sort(A,D).
+
+
+
+Hypotheses generated: 2358
+Hypotheses refined:   180
+To be refined:        250
+Refining hypo with cost 84:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,[]),
+  sort(A,[]).
+
+
+
+Hypotheses generated: 2369
+Hypotheses refined:   181
+To be refined:        253
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2385
+Hypotheses refined:   182
+To be refined:        257
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2398
+Hypotheses refined:   183
+To be refined:        260
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort(C,D).
+
+
+
+Hypotheses generated: 2416
+Hypotheses refined:   184
+To be refined:        266
+Refining hypo with cost 84:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort(C,[]).
+
+
+
+Hypotheses generated: 2427
+Hypotheses refined:   185
+To be refined:        269
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort(A,D).
+
+
+
+Hypotheses generated: 2444
+Hypotheses refined:   186
+To be refined:        274
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort(B,[]),
+  sort([C|D],[]).
+
+
+
+Hypotheses generated: 2455
+Hypotheses refined:   187
+To be refined:        275
+Refining hypo with cost 85:
+
+sort(A,[]).
+sort([A|B],[C|D]):-
+  sort([C|D],[]),
+  sort(B,[]).
+
+
+
+Hypotheses generated: 2466
+Hypotheses refined:   188
+To be refined:        276
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 2487
+Hypotheses refined:   189
+To be refined:        281
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2499
+Hypotheses refined:   190
+To be refined:        283
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2512
+Hypotheses refined:   191
+To be refined:        286
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2529
+Hypotheses refined:   192
+To be refined:        288
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2546
+Hypotheses refined:   193
+To be refined:        290
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,E).
+
+
+
+Hypotheses generated: 2568
+Hypotheses refined:   194
+To be refined:        292
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,[]).
+
+
+
+Hypotheses generated: 2583
+Hypotheses refined:   195
+To be refined:        292
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2588
+Hypotheses refined:   196
+To be refined:        291
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],D).
+
+
+
+Hypotheses generated: 2598
+Hypotheses refined:   197
+To be refined:        291
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2603
+Hypotheses refined:   198
+To be refined:        290
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,D).
+
+
+
+Hypotheses generated: 2617
+Hypotheses refined:   199
+To be refined:        290
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2622
+Hypotheses refined:   200
+To be refined:        289
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2639
+Hypotheses refined:   201
+To be refined:        291
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2656
+Hypotheses refined:   202
+To be refined:        293
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D),
+  insert_sorted(A,D,E).
+
+
+
+Hypotheses generated: 2673
+Hypotheses refined:   203
+To be refined:        295
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D),
+  insert_sorted(A,D,E).
+
+
+
+Hypotheses generated: 2690
+Hypotheses refined:   204
+To be refined:        297
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2707
+Hypotheses refined:   205
+To be refined:        299
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2724
+Hypotheses refined:   206
+To be refined:        301
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 2745
+Hypotheses refined:   207
+To be refined:        306
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2757
+Hypotheses refined:   208
+To be refined:        308
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2770
+Hypotheses refined:   209
+To be refined:        311
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,E).
+
+
+
+Hypotheses generated: 2792
+Hypotheses refined:   210
+To be refined:        313
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,[]).
+
+
+
+Hypotheses generated: 2807
+Hypotheses refined:   211
+To be refined:        313
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2812
+Hypotheses refined:   212
+To be refined:        312
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],D).
+
+
+
+Hypotheses generated: 2822
+Hypotheses refined:   213
+To be refined:        312
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2827
+Hypotheses refined:   214
+To be refined:        311
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,D).
+
+
+
+Hypotheses generated: 2841
+Hypotheses refined:   215
+To be refined:        311
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2846
+Hypotheses refined:   216
+To be refined:        310
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2863
+Hypotheses refined:   217
+To be refined:        312
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D),
+  insert_sorted(A,D,E).
+
+
+
+Hypotheses generated: 2880
+Hypotheses refined:   218
+To be refined:        314
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 2897
+Hypotheses refined:   219
+To be refined:        316
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,D),
+  insert_sorted(B,C,E).
+
+
+
+Hypotheses generated: 2918
+Hypotheses refined:   220
+To be refined:        321
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2930
+Hypotheses refined:   221
+To be refined:        323
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,D).
+
+
+
+Hypotheses generated: 2943
+Hypotheses refined:   222
+To be refined:        326
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,E).
+
+
+
+Hypotheses generated: 2965
+Hypotheses refined:   223
+To be refined:        328
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,[]).
+
+
+
+Hypotheses generated: 2980
+Hypotheses refined:   224
+To be refined:        328
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 2985
+Hypotheses refined:   225
+To be refined:        327
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],D).
+
+
+
+Hypotheses generated: 2995
+Hypotheses refined:   226
+To be refined:        327
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 3000
+Hypotheses refined:   227
+To be refined:        326
+Refining hypo with cost 84:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,D),
+  sort(D,D).
+
+
+
+Hypotheses generated: 3014
+Hypotheses refined:   228
+To be refined:        326
+Refining hypo with cost 83:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(A,[]),
+  sort([],[]).
+
+
+
+Hypotheses generated: 3019
+Hypotheses refined:   229
+To be refined:        325
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 3036
+Hypotheses refined:   230
+To be refined:        327
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|D],[B|C]):-
+  sort(D,D),
+  insert_sorted(A,D,E).
+
+
+
+Hypotheses generated: 3053
+Hypotheses refined:   231
+To be refined:        329
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[C|D]):-
+  sort(B,B),
+  insert_sorted(A,B,E).
+
+
+
+Hypotheses generated: 3070
+Hypotheses refined:   232
+To be refined:        331
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D),
+  insert_sorted(C,D,E).
+
+
+
+Hypotheses generated: 3087
+Hypotheses refined:   233
+To be refined:        333
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D),
+  insert_sorted(C,D,E).
+
+
+
+Hypotheses generated: 3104
+Hypotheses refined:   234
+To be refined:        335
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D),
+  insert_sorted(C,D,E).
+
+
+
+Hypotheses generated: 3121
+Hypotheses refined:   235
+To be refined:        337
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([C|D],[A|B]):-
+  sort(D,D),
+  insert_sorted(C,D,E).
+
+
+
+Hypotheses generated: 3138
+Hypotheses refined:   236
+To be refined:        339
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3154
+Hypotheses refined:   237
+To be refined:        342
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3171
+Hypotheses refined:   238
+To be refined:        346
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3188
+Hypotheses refined:   239
+To be refined:        348
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3204
+Hypotheses refined:   240
+To be refined:        351
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3221
+Hypotheses refined:   241
+To be refined:        355
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3238
+Hypotheses refined:   242
+To be refined:        357
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3254
+Hypotheses refined:   243
+To be refined:        360
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3271
+Hypotheses refined:   244
+To be refined:        364
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3288
+Hypotheses refined:   245
+To be refined:        366
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3304
+Hypotheses refined:   246
+To be refined:        369
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3321
+Hypotheses refined:   247
+To be refined:        373
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3338
+Hypotheses refined:   248
+To be refined:        375
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3354
+Hypotheses refined:   249
+To be refined:        378
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3371
+Hypotheses refined:   250
+To be refined:        382
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3388
+Hypotheses refined:   251
+To be refined:        384
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3404
+Hypotheses refined:   252
+To be refined:        387
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3421
+Hypotheses refined:   253
+To be refined:        391
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3438
+Hypotheses refined:   254
+To be refined:        393
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3454
+Hypotheses refined:   255
+To be refined:        396
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3471
+Hypotheses refined:   256
+To be refined:        400
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3488
+Hypotheses refined:   257
+To be refined:        402
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,[]),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3504
+Hypotheses refined:   258
+To be refined:        405
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([B|C],A):-
+  sort(C,C),
+  insert_sorted(B,C,[D|E]).
+
+
+
+Hypotheses generated: 3521
+Hypotheses refined:   259
+To be refined:        409
+Refining hypo with cost 85:
+
+sort([],[]).
+sort([A|B],[D|E]):-
+  sort(B,B),
+  insert_sorted(A,B,C).
+
+
+
+Hypotheses generated: 3538
+Hypotheses refined:   260
+To be refined:        411
+Refining hypo with cost 85:
+
+sort([],[A,B|C]).
+sort(A,B).
+
+
+Hypotheses generated: 3542
+Hypotheses refined:   261
+To be refined:        414
+Refining hypo with cost 84:
+
+sort([],[A,B]).
+sort(A,B).
+
+
+Hypotheses generated: 3549
+Hypotheses refined:   262
+To be refined:        414
+Refining hypo with cost 84:
+
+sort([],[A,A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 3556
+Hypotheses refined:   263
+To be refined:        414
+Refining hypo with cost 85:
+
+sort([],[A,B|C]).
+sort(A,B).
+
+
+Hypotheses generated: 3560
+Hypotheses refined:   264
+To be refined:        417
+Refining hypo with cost 84:
+
+sort([],[A,B]).
+sort(A,B).
+
+
+Hypotheses generated: 3567
+Hypotheses refined:   265
+To be refined:        417
+Refining hypo with cost 84:
+
+sort([],[A,A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 3574
+Hypotheses refined:   266
+To be refined:        417
+Refining hypo with cost 85:
+
+sort([B|C],A).
+sort(A,B).
+
+
+Hypotheses generated: 3581
+Hypotheses refined:   267
+To be refined:        422
+Refining hypo with cost 84:
+
+sort([B],A).
+sort(A,B).
+
+
+Hypotheses generated: 3588
+Hypotheses refined:   268
+To be refined:        422
+Refining hypo with cost 84:
+
+sort([A|B],[]).
+sort(A,B).
+
+
+Hypotheses generated: 3595
+Hypotheses refined:   269
+To be refined:        422
+Refining hypo with cost 84:
+
+sort([A|B],B).
+sort(A,B).
+
+
+Hypotheses generated: 3602
+Hypotheses refined:   270
+To be refined:        422
+Refining hypo with cost 85:
+
+sort([A,B|C],[A,B|C]).
+sort(A,B).
+
+
+Hypotheses generated: 3606
+Hypotheses refined:   271
+To be refined:        425
+Refining hypo with cost 84:
+
+sort([A,B],[A,B]).
+sort(A,B).
+
+
+Hypotheses generated: 3613
+Hypotheses refined:   272
+To be refined:        425
+Refining hypo with cost 84:
+
+sort([A,A|B],[A,A|B]).
+sort(A,B).
+
+
+Hypotheses generated: 3620
+Hypotheses refined:   273
+To be refined:        425
+Refining hypo with cost 85:
+
+sort([B|C],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3624
+Hypotheses refined:   274
+To be refined:        428
+Refining hypo with cost 84:
+
+sort([B],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3631
+Hypotheses refined:   275
+To be refined:        428
+Refining hypo with cost 84:
+
+sort([A|B],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3634
+Hypotheses refined:   276
+To be refined:        430
+Refining hypo with cost 83:
+
+sort([A],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3641
+Hypotheses refined:   277
+To be refined:        430
+Refining hypo with cost 85:
+
+sort([B|C],[A,B|C]).
+sort(A,B).
+
+
+Hypotheses generated: 3648
+Hypotheses refined:   278
+To be refined:        430
+Refining hypo with cost 85:
+
+sort([A,B|C],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3652
+Hypotheses refined:   279
+To be refined:        433
+Refining hypo with cost 84:
+
+sort([A,B],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3653
+Hypotheses refined:   280
+To be refined:        433
+Refining hypo with cost 83:
+
+sort([A,A],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3660
+Hypotheses refined:   281
+To be refined:        433
+Refining hypo with cost 84:
+
+sort([A,A|B],[A]).
+sort(A,B).
+
+
+Hypotheses generated: 3667
+Hypotheses refined:   282
+To be refined:        433
+Refining hypo with cost 86:
+
+sort(A,[]).
+sort([B|C],A):-
+  sort(C,D),
+  insert_sorted(B,D,E).
+
+
+
+Hypotheses generated: 3691
+Hypotheses refined:   283
+To be refined:        444
+Refining hypo with cost 55:
+
+sort(A,[]).
+sort([A|B],D):-
+  sort(B,C),
+  insert_sorted(A,C,D).
+
+
+
+Hypotheses generated: 3708
+Hypotheses refined:   284
+To be refined:        448
+
+sort([],[]).
+sort([A|B],D):-
+  sort(B,C),
+  insert_sorted(A,C,D).
+
+H = [[sort([],[])]/[],[sort([A|B],C),sort(B,D),insert_sorted(A,D,C)]/[A:item,B:list,D:list,C:list]]
+Refining hypo with cost 0:
+
+sort([],[]).
+sort([A|B],D):-
+  sort(B,C),
+  insert_sorted(A,C,D).
+
+
+
+Hypotheses generated: 3722
+Hypotheses refined:   285
+To be refined:        451
+
+sort([],[]).
+sort([A|B],D):-
+  sort(B,C),
+  insert_sorted(A,C,D),
+  insert_sorted(A,D,E).
+
+;
+H = [[sort([],[])]/[],[sort([A|B],C),sort(B,D),insert_sorted(A,D,C),insert_sorted(A,C,E)]/[A:item,B:list,D:list,C:list,E:list]]
+Refining hypo with cost 0:
+
+sort([],[]).
+sort([A|B],D):-
+  sort(B,C),
+  insert_sorted(A,C,D),
+  insert_sorted(A,D,E).
+
+
+
+Hypotheses generated: 3743
+Hypotheses refined:   286
+To be refined:        456
+
+sort([],[]).
+sort([A|B],D):-
+  sort(B,C),
+  insert_sorted(A,C,D),
+  insert_sorted(A,C,E).
+
+;
+H = [[sort([],[])]/[],[sort([A|B],C),sort(B,D),insert_sorted(A,D,C),insert_sorted(A,D,E)]/[A:item,B:list,D:list,C:list,E:list]]
+...
+?- insert_sorted(c, [a, b, d], L).
+L = [a,b,c,d]
+?- insert_sorted(X, [a], L).
+no
+?- insert_sorted(a, [], L).
+L = [a]

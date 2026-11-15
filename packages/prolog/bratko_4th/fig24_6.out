@@ -1,0 +1,9 @@
+?- consult('fig24_7.pl').
+yes
+?- consult('fig24_10.pl').
+yes
+?- findall(A, advice(A, _), L).
+A = A
+L = [mate_in_2,squeeze,approach,keeproom,divide_in_2,divide_in_3]
+?- mate(b..2:3..8:1..1:1..1).
+yes

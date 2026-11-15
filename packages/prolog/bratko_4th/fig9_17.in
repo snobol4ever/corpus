@@ -1,0 +1,6 @@
+q('show(t(t(nil,1,nil),2,t(nil,3,nil))).', 3).
+show(t(t(nil,1,nil),2,t(nil,3,nil))).
+q('show(nil).', 3).
+show(nil).
+q('show2(t(nil,a,nil),4).', 3).
+show2(t(nil,a,nil),4).

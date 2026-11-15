@@ -1,0 +1,4 @@
+?- use_module(library(clpr)).
+yes
+?- schedule(_, T).
+T = 22.0

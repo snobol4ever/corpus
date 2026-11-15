@@ -1,0 +1,4 @@
+q('assertz((a ---> or:[b/1,c/3])), assertz((b ---> and:[d/1,e/1])), assertz((c ---> and:[f/2,g/1])), assertz((e ---> or:[h/6])), assertz((f ---> or:[h/2,i/3])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)), assertz(h(_,0)).', 3).
+assertz((a ---> or:[b/1,c/3])), assertz((b ---> and:[d/1,e/1])), assertz((c ---> and:[f/2,g/1])), assertz((e ---> or:[h/6])), assertz((f ---> or:[h/2,i/3])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)), assertz(h(_,0)).
+q('andor(a,T).', 3).
+andor(a,T).

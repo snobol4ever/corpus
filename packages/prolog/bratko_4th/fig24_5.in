@@ -1,0 +1,16 @@
+q('consult(\'fig24_2.pl\').', 3).
+consult('fig24_2.pl').
+q('alphabeta(a, -100, 100, Good, Val).', 3).
+alphabeta(a, -100, 100, Good, Val).
+q('alphabeta(b, -100, 100, Good, Val).', 3).
+alphabeta(b, -100, 100, Good, Val).
+q('alphabeta(c, 4, 100, Good, Val).', 3).
+alphabeta(c, 4, 100, Good, Val).
+q('alphabeta(a, 5, 100, Good, Val).', 3).
+alphabeta(a, 5, 100, Good, Val).
+q('newbounds(-100, 100, d, 4, A, B).', 3).
+newbounds(-100, 100, d, 4, A, B).
+q('newbounds(-100, 100, b, 4, A, B).', 3).
+newbounds(-100, 100, b, 4, A, B).
+q('boundedbest([d, e], -100, 100, Good, Val).', 3).
+boundedbest([d, e], -100, 100, Good, Val).

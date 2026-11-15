@@ -1,0 +1,28 @@
+?- prove_qu(length([a, b, c], N)).
+N = 3
+?- chain(a, a, C).
+C = [a]
+?- askable(G).
+G = supervised(A,B)
+?- prove_qu(supervised(tom, bob)).
+
+Known facts about supervised(tom,bob):
+    None so far
+
+Any (other) solution?
+Answer with 'no' or instantiated goal supervised(tom,bob)
+yes
+
+Known facts about supervised(tom,bob):
+    supervised(tom,bob)
+
+Any (other) solution?
+Answer with 'no' or instantiated goal supervised(tom,bob)
+?- prove_qu(supervised(ann, pat)).
+
+Known facts about supervised(ann,pat):
+    None so far
+
+Any (other) solution?
+Answer with 'no' or instantiated goal supervised(ann,pat)
+no

@@ -1,0 +1,8 @@
+q('consult(\'fig21_3.pl\').', 3).
+consult('fig21_3.pl').
+q('consult(\'fig21_7.pl\').', 3).
+consult('fig21_7.pl').
+q('induce(H), show_hyp(H).', 3).
+induce(H), show_hyp(H).
+q('link(a, X).', 3).
+link(a, X).

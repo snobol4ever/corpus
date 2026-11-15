@@ -1,0 +1,27 @@
+?- attribute(A, Values).
+A = size
+Values = [small,large]
+;
+A = shape
+Values = [long,compact,other]
+;
+A = holes
+Values = [none,1,2,3,many]
+...
+?- example(key, Object).
+Object = [size=small,shape=long,holes=1]
+;
+Object = [size=large,shape=long,holes=1]
+;
+Object = [size=small,shape=other,holes=2]
+...
+?- findall(C, example(C, _), L), sort(L, Classes).
+C = A
+L = [nut,screw,key,nut,key,screw,nut,pen,scissors,pen,scissors,key]
+Classes = [key,nut,pen,scissors,screw]
+?- findall(C, (example(C, O), member(holes = 2, O)), L).
+C = A
+O = B
+L = [scissors,scissors,key]
+?- aggregate_all(count, example(_, _), N).
+N = 12

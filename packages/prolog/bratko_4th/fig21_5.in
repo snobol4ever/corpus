@@ -1,0 +1,10 @@
+q('consult(\'fig21_3.pl\').', 3).
+consult('fig21_3.pl').
+q('consult(\'fig21_7.pl\').', 3).
+consult('fig21_7.pl').
+q('induce(H), show_hyp(H).', 3).
+induce(H), show_hyp(H).
+q('term(list, T, Vs).', 3).
+term(list, T, Vs).
+q('findall(E, ex(E), L).', 3).
+findall(E, ex(E), L).

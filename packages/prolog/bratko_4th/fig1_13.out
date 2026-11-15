@@ -1,0 +1,44 @@
+?- colors(IT,SI,HR,CH,AT,HU,DE,SK,CZ,PL,SEA).
+IT = red
+SI = green
+HR = red
+CH = green
+AT = blue
+HU = yellow
+DE = red
+SK = green
+CZ = yellow
+PL = blue
+SEA = blue
+;
+IT = red
+SI = green
+HR = red
+CH = green
+AT = blue
+HU = yellow
+DE = yellow
+SK = red
+CZ = green
+PL = blue
+SEA = blue
+;
+IT = red
+SI = green
+HR = red
+CH = green
+AT = blue
+HU = yellow
+DE = yellow
+SK = green
+CZ = red
+PL = blue
+SEA = blue
+...
+?- n(red,X).
+X = green
+;
+X = blue
+;
+X = yellow
+...

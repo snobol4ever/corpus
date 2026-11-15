@@ -1,0 +1,10 @@
+q('assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).', 3).
+assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+q('assertz(goal(j)), assertz(goal(f)).', 3).
+assertz(goal(j)), assertz(goal(f)).
+q('assertz(f(a,3)), assertz(f(b,2)), assertz(f(c,2)), assertz(f(d,5)), assertz(f(e,1)), assertz(f(f,0)), assertz(f(g,3)), assertz(f(h,9)), assertz(f(i,9)), assertz(f(j,0)), assertz(f(k,9)).', 3).
+assertz(f(a,3)), assertz(f(b,2)), assertz(f(c,2)), assertz(f(d,5)), assertz(f(e,1)), assertz(f(f,0)), assertz(f(g,3)), assertz(f(h,9)), assertz(f(i,9)), assertz(f(j,0)), assertz(f(k,9)).
+q('idastar(a,S).', 3).
+idastar(a,S).
+q('update_next_bound(5).', 3).
+update_next_bound(5).

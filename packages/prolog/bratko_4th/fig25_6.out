@@ -1,0 +1,34 @@
+?- gives(john, annie, Gift).
+Gift = tennis_racket
+?- gives(Who, Whom, chocolate).
+Who = annie
+Whom = john
+;
+Who = john
+Whom = john
+?- feels_sorry_for(X, Y).
+X = annie
+Y = john
+;
+X = john
+Y = john
+?- go(3, 6, Moves).
+Moves = [up,up,up]
+;
+Moves = [down,up,up,up,up]
+;
+Moves = [up,down,up,up,up]
+...
+?- move_list(M, D).
+M = []
+D = 0
+;
+M = [up]
+D = 0+1
+;
+M = [down]
+D = 0+ -1
+...
+?- findall(G, operational(G), L).
+G = A
+L = [likes(B,C),needs(D,E),sad(F),G=:=H]

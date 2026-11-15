@@ -1,0 +1,14 @@
+?- assertz((adjacent(X,Y,C,G) :- (member(e(X,Y,C),G) ; member(e(Y,X,C),G)))).
+X = A
+Y = B
+C = C
+G = D
+?- path(a,d,[e(a,b,1),e(b,c,2),e(b,d,5),e(c,d,1)],P,C).
+P = [a,b,d]
+C = 6
+;
+P = [a,b,c,d]
+C = 4
+?- path(a,a,[e(a,b,1)],P,C).
+P = [a]
+C = 0

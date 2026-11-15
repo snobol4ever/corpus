@@ -1,0 +1,26 @@
+?- test1(M).
+M = paints(john)
+?- test2(M).
+M = exists(A,man(A)and paints(A))
+?- test3(M).
+M = all(A,man(A)and paints(A)=>admires(A,monet))
+?- test4(M).
+M = all(A,man(A)and paints(A)=>admires(annie,A))
+?- test5(M).
+M = all(A,woman(A)and exists(B,(man(B)and paints(B))and admires(A,B))=>likes(A,monet))
+?- sentence(M, [annie, likes, a, man], []).
+M = exists(A,man(A)and likes(annie,A))
+?- sentence(M, [john, paints, monet], []).
+no
+?- phrase(noun_phrase(X, P, S), [every, woman]).
+X = A
+P = B
+S = all(A,woman(A)=>B)
+?- phrase(verb_phrase(john, P), [admires, a, woman, that, paints]).
+P = exists(A,(woman(A)and paints(A))and admires(john,A))
+?- sentence(exists(X, man(X) and paints(X)), Words, []).
+X = A
+Words = [a,man,paints]
+?- phrase(rel_clause(X, man(X), P), [that, likes, annie]).
+X = A
+P = man(A)and likes(A,annie)

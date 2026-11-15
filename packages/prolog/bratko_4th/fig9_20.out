@@ -1,0 +1,10 @@
+?- consult('fig9_22.pl').
+yes
+?- path(a,d,[a-b,b-c,b-d,c-d],P).
+P = [a,b,d]
+;
+P = [a,b,c,d]
+?- path(a,a,[a-b],P).
+P = [a]
+?- path(a,z,[a-b,b-c],P).
+no

@@ -1,0 +1,8 @@
+q('moves(a, L).', 3).
+moves(a, L).
+q('staticval(P, 1).', 3).
+staticval(P, 1).
+q('findall(P, max_to_move(P), L).', 3).
+findall(P, max_to_move(P), L).
+q('moves(P, L), member(k, L).', 3).
+moves(P, L), member(k, L).

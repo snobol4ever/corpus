@@ -1,0 +1,8 @@
+q('bird(X,Y).', 3).
+bird(X,Y).
+q('albert(instance_of,X).', 3).
+albert(instance_of,X).
+q('kiwi(size,S).', 3).
+kiwi(size,S).
+q('animal(relative_size,X).', 3).
+animal(relative_size,X).

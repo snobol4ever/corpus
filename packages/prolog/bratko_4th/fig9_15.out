@@ -1,0 +1,11 @@
+?- assertz((gt(X,Y) :- X > Y)).
+X = A
+Y = B
+?- add(nil,5,T).
+T = t(nil,5,nil)
+?- add(t(nil,5,nil),3,T).
+T = t(nil,3,t(nil,5,nil))
+;
+T = t(t(nil,3,nil),5,nil)
+?- addroot(t(t(nil,3,nil),5,nil),4,T).
+T = t(t(nil,3,nil),4,t(nil,5,nil))

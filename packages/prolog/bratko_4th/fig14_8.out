@@ -1,0 +1,18 @@
+?- assertz((a ---> or:[b,c])), assertz((b ---> and:[d,e])), assertz((c ---> and:[f,g])), assertz((e ---> or:[h])), assertz((f ---> or:[h,i])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)).
+yes
+?- solve(a,T).
+T = a--->(b--->and:[d,e--->h])
+;
+T = a--->(c--->and:[f--->h,g])
+?- solve(a,T), show(T).
+a ---> b ---> d
+              e ---> h
+T = a--->(b--->and:[d,e--->h])
+a ---> c ---> f ---> h
+              g
+;
+T = a--->(c--->and:[f--->h,g])
+?- solve(d,T).
+T = d
+?- solve(i,T).
+no

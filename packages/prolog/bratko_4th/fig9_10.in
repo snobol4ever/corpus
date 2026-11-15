@@ -1,0 +1,10 @@
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('addleaf(nil,5,T).', 3).
+addleaf(nil,5,T).
+q('addleaf(t(nil,5,nil),3,T).', 3).
+addleaf(t(nil,5,nil),3,T).
+q('addleaf(t(t(nil,3,nil),5,nil),4,T).', 3).
+addleaf(t(t(nil,3,nil),5,nil),4,T).
+q('addleaf(t(nil,5,nil),5,T).', 3).
+addleaf(t(nil,5,nil),5,T).

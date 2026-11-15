@@ -1,0 +1,10 @@
+q('attribute(A, Values).', 3).
+attribute(A, Values).
+q('example(key, Object).', 3).
+example(key, Object).
+q('findall(C, example(C, _), L), sort(L, Classes).', 3).
+findall(C, example(C, _), L), sort(L, Classes).
+q('findall(C, (example(C, O), member(holes = 2, O)), L).', 3).
+findall(C, (example(C, O), member(holes = 2, O)), L).
+q('aggregate_all(count, example(_, _), N).', 3).
+aggregate_all(count, example(_, _), N).

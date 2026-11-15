@@ -1,0 +1,8 @@
+q('stree([a-b,b-c,b-d,c-d],T).', 3).
+stree([a-b,b-c,b-d,c-d],T).
+q('adjacent(b,X,[a-b,b-c]).', 3).
+adjacent(b,X,[a-b,b-c]).
+q('node(X,[a-b]).', 3).
+node(X,[a-b]).
+q('addedge([a-b],T,[a-b,b-c,b-d,c-d]).', 3).
+addedge([a-b],T,[a-b,b-c,b-d,c-d]).

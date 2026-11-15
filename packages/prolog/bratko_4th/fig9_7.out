@@ -1,0 +1,12 @@
+?- assertz((gt(X,Y) :- X > Y)).
+X = A
+Y = B
+?- in(5,t(t(nil,3,nil),5,t(nil,8,nil))).
+yes
+?- in(8,t(t(nil,3,nil),5,t(nil,8,nil))).
+yes
+?- in(4,t(t(nil,3,nil),5,t(nil,8,nil))).
+no
+?- in(X,t(nil,5,nil)).
+X = 5
+raised(instantiation_error)

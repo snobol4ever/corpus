@@ -1,0 +1,14 @@
+q('consult(\'fig24_2.pl\').', 3).
+consult('fig24_2.pl').
+q('minimax(a, Best, Val).', 3).
+minimax(a, Best, Val).
+q('minimax(b, Best, Val).', 3).
+minimax(b, Best, Val).
+q('minimax(c, Best, Val).', 3).
+minimax(c, Best, Val).
+q('minimax(i, Best, Val).', 3).
+minimax(i, Best, Val).
+q('best([d, e], Best, Val).', 3).
+best([d, e], Best, Val).
+q('betterof(d, 4, e, 6, P, V).', 3).
+betterof(d, 4, e, 6, P, V).

@@ -1,0 +1,4 @@
+# the launch of the ProBratko suite (CIO-83): pre.pl, ours, consults the collection's frequent.pl as its readme asks; then the figure file; then the driver, ours, which
+# reads from standard input the queries we wrote for that program (NAME.in, cut by sl_cut.py --form table from OUR-QUERIES.tsv) and answers each as a toplevel would
+scrip	around	pre.pl	drive.pl
+oracle	around	pre.pl	drive.pl

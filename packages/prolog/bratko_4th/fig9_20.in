@@ -1,0 +1,8 @@
+q('consult(\'fig9_22.pl\').', 3).
+consult('fig9_22.pl').
+q('path(a,d,[a-b,b-c,b-d,c-d],P).', 3).
+path(a,d,[a-b,b-c,b-d,c-d],P).
+q('path(a,a,[a-b],P).', 3).
+path(a,a,[a-b],P).
+q('path(a,z,[a-b,b-c],P).', 3).
+path(a,z,[a-b,b-c],P).

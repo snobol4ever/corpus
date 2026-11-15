@@ -1,0 +1,18 @@
+q('parent(X,bob).', 3).
+parent(X,bob).
+q('parent(bob,pat).', 3).
+parent(bob,pat).
+q('parent(liz,pat).', 3).
+parent(liz,pat).
+q('mother(X,bob).', 3).
+mother(X,bob).
+q('grandparent(X,jim).', 3).
+grandparent(X,jim).
+q('sister(X,pat).', 3).
+sister(X,pat).
+q('sister(liz,X).', 3).
+sister(liz,X).
+q('ancestor(X,jim).', 3).
+ancestor(X,jim).
+q('ancestor(pam,X).', 3).
+ancestor(pam,X).

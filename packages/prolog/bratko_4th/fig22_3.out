@@ -1,0 +1,61 @@
+?- circuit1(on, ok, Lightness).
+Lightness = light
+?- circuit1(off, Bulb, Lightness).
+Bulb = blown
+Lightness = dark
+;
+Bulb = blown
+Lightness = dark
+;
+Bulb = blown
+Lightness = dark
+...
+?- circuit1(Switch, Bulb, dark).
+Switch = on
+Bulb = blown
+;
+Switch = off
+Bulb = blown
+;
+Switch = off
+Bulb = blown
+...
+?- circuit2(on, on, on, ok, ok, ok, L1, L2, L3).
+L1 = light
+L2 = dark
+L3 = dark
+?- circuit2(on, on, off, ok, ok, ok, L1, L2, L3).
+L1 = light
+L2 = light
+L3 = light
+?- circuit2(on, off, off, ok, ok, B3, L1, L2, L3).
+B3 = ok
+L1 = light
+L2 = dark
+L3 = light
+;
+B3 = blown
+L1 = dark
+L2 = dark
+L3 = dark
+?- findall(B1/B2/B3, circuit2(on, on, on, B1, B2, B3, light, dark, dark), L).
+B1 = A
+B2 = B
+B3 = C
+L = [ok/blown/blown,ok/blown/ok,ok/ok/blown,ok/ok/ok]
+?- qsum(pos, neg, X).
+X = pos
+;
+X = zero
+;
+X = neg
+...
+?- findall(X-Y, qsum(X, Y, zero), L).
+X = A
+Y = B
+L = [pos-neg,zero-zero,neg-pos]
+?- switch(off, V, C), bulb(State, Light, pos, C).
+V = A
+C = zero
+State = blown
+Light = dark

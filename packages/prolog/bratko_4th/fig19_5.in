@@ -1,0 +1,14 @@
+q('use_module(library(clpr)).', 3).
+use_module(library(clpr)).
+q('consult(\'fig19_4.pl\').', 3).
+consult('fig19_4.pl').
+q('circuit_a(5, 5, (V, I)).', 3).
+circuit_a(5, 5, (V, I)).
+q('circuit_a(10, 30, (V, I)).', 3).
+circuit_a(10, 30, (V, I)).
+q('circuit_a(R, 30, (7.5, _)).', 3).
+circuit_a(R, 30, (7.5, _)).
+q('findall(MilliVolts/MicroAmps, (circuit_b(10, _, _, _, _, (V,I), _), MilliVolts is round(V*1000), MicroAmps is round(I*1000000)), L).', 3).
+findall(MilliVolts/MicroAmps, (circuit_b(10, _, _, _, _, (V,I), _), MilliVolts is round(V*1000), MicroAmps is round(I*1000000)), L).
+q('findall(MilliVolts, (circuit_b(U, _, _, _, _, (_,I), _), {I = 0.02}, MilliVolts is round(U*1000)), L).', 3).
+findall(MilliVolts, (circuit_b(U, _, _, _, _, (_,I), _), {I = 0.02}, MilliVolts is round(U*1000)), L).

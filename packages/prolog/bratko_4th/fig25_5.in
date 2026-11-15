@@ -1,0 +1,12 @@
+q('prove_qu(length([a, b, c], N)).', 3).
+prove_qu(length([a, b, c], N)).
+q('chain(a, a, C).', 3).
+chain(a, a, C).
+q('askable(G).', 3).
+askable(G).
+q('prove_qu(supervised(tom, bob)).', 3).
+prove_qu(supervised(tom, bob)).
+supervised(tom, bob). no.
+q('prove_qu(supervised(ann, pat)).', 3).
+prove_qu(supervised(ann, pat)).
+no.

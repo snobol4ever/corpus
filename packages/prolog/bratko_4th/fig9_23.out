@@ -1,0 +1,27 @@
+?- consult('fig9_20.pl').
+yes
+?- consult('fig9_22.pl').
+yes
+?- G = [a-b,b-c,b-d,c-d], subset(G,T), tree(T), covers(T,G).
+G = [a-b,b-c,b-d,c-d]
+T = [a-b,b-d,c-d]
+;
+G = [a-b,b-c,b-d,c-d]
+T = [a-b,b-c,c-d]
+;
+G = [a-b,b-c,b-d,c-d]
+T = [a-b,b-c,b-d]
+...
+?- tree([a-b,b-c]).
+yes
+?- hasacycle([a-b,b-c,c-a]).
+yes
+;
+yes
+;
+yes
+...
+?- connected([a-b,c-d]).
+no
+?- covers([a-b],[a-b,b-c]).
+no

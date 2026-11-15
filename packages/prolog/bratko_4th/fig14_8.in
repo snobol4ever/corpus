@@ -1,0 +1,10 @@
+q('assertz((a ---> or:[b,c])), assertz((b ---> and:[d,e])), assertz((c ---> and:[f,g])), assertz((e ---> or:[h])), assertz((f ---> or:[h,i])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)).', 3).
+assertz((a ---> or:[b,c])), assertz((b ---> and:[d,e])), assertz((c ---> and:[f,g])), assertz((e ---> or:[h])), assertz((f ---> or:[h,i])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)).
+q('solve(a,T).', 3).
+solve(a,T).
+q('solve(a,T), show(T).', 3).
+solve(a,T), show(T).
+q('solve(d,T).', 3).
+solve(d,T).
+q('solve(i,T).', 3).
+solve(i,T).

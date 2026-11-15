@@ -1,0 +1,6 @@
+q('assertz((adjacent(X,Y,C,G) :- (member(e(X,Y,C),G) ; member(e(Y,X,C),G)))).', 3).
+assertz((adjacent(X,Y,C,G) :- (member(e(X,Y,C),G) ; member(e(Y,X,C),G)))).
+q('path(a,d,[e(a,b,1),e(b,c,2),e(b,d,5),e(c,d,1)],P,C).', 3).
+path(a,d,[e(a,b,1),e(b,c,2),e(b,d,5),e(c,d,1)],P,C).
+q('path(a,a,[e(a,b,1)],P,C).', 3).
+path(a,a,[e(a,b,1)],P,C).

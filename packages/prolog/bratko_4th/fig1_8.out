@@ -1,0 +1,30 @@
+?- parent(X,bob).
+X = pam
+;
+X = tom
+?- parent(bob,pat).
+yes
+?- parent(liz,pat).
+no
+?- mother(X,bob).
+X = pam
+?- grandparent(X,jim).
+X = bob
+?- sister(X,pat).
+X = ann
+?- sister(liz,X).
+X = bob
+?- ancestor(X,jim).
+X = pat
+;
+X = pam
+;
+X = tom
+...
+?- ancestor(pam,X).
+X = bob
+;
+X = ann
+;
+X = pat
+...

@@ -1,0 +1,462 @@
+?- consult('fig21_3.pl').
+yes
+?- consult('fig21_7.pl').
+yes
+?- induce(H), show_hyp(H).
+
+Hypotheses generated: 5
+Hypotheses refined:   0
+To be refined:        4
+Refining hypo with cost 42:
+
+member(A,B).
+
+
+Hypotheses generated: 8
+Hypotheses refined:   1
+To be refined:        4
+Refining hypo with cost 43:
+
+member(A,[B|C]).
+
+
+Hypotheses generated: 12
+Hypotheses refined:   2
+To be refined:        3
+Refining hypo with cost 54:
+
+member(A,B).
+member(A,B).
+
+
+Hypotheses generated: 15
+Hypotheses refined:   3
+To be refined:        4
+Refining hypo with cost 53:
+
+member(A,[]).
+member(A,B).
+
+
+Hypotheses generated: 18
+Hypotheses refined:   4
+To be refined:        4
+Refining hypo with cost 54:
+
+member(A,[]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 22
+Hypotheses refined:   5
+To be refined:        4
+Refining hypo with cost 55:
+
+member(A,[B|C]).
+member(A,B).
+
+
+Hypotheses generated: 26
+Hypotheses refined:   6
+To be refined:        7
+Refining hypo with cost 54:
+
+member(A,[B]).
+member(A,B).
+
+
+Hypotheses generated: 27
+Hypotheses refined:   7
+To be refined:        7
+Refining hypo with cost 53:
+
+member(A,[A]).
+member(A,B).
+
+
+Hypotheses generated: 30
+Hypotheses refined:   8
+To be refined:        7
+Refining hypo with cost 54:
+
+member(A,[A|B]).
+member(A,B).
+
+
+Hypotheses generated: 33
+Hypotheses refined:   9
+To be refined:        8
+Refining hypo with cost 54:
+
+member(A,[A]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 37
+Hypotheses refined:   10
+To be refined:        9
+Refining hypo with cost 45:
+
+member(A,[A]).
+member(A,[B,C|D]).
+
+
+Hypotheses generated: 43
+Hypotheses refined:   11
+To be refined:        8
+Refining hypo with cost 55:
+
+member(A,[A|B]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 47
+Hypotheses refined:   12
+To be refined:        9
+Refining hypo with cost 46:
+
+member(A,[A|B]).
+member(A,[B,C|D]).
+
+
+Hypotheses generated: 53
+Hypotheses refined:   13
+To be refined:        8
+Refining hypo with cost 55:
+
+member(A,[A]).
+member(A,[B|C]):-
+  member(D,C).
+
+
+
+Hypotheses generated: 58
+Hypotheses refined:   14
+To be refined:        8
+Refining hypo with cost 56:
+
+member(A,[B,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 64
+Hypotheses refined:   15
+To be refined:        13
+Refining hypo with cost 55:
+
+member(A,[B,C]).
+member(A,B).
+
+
+Hypotheses generated: 67
+Hypotheses refined:   16
+To be refined:        15
+Refining hypo with cost 54:
+
+member(A,[B,B]).
+member(A,B).
+
+
+Hypotheses generated: 70
+Hypotheses refined:   17
+To be refined:        15
+Refining hypo with cost 54:
+
+member(B,[A,B]).
+member(A,B).
+
+
+Hypotheses generated: 73
+Hypotheses refined:   18
+To be refined:        15
+Refining hypo with cost 54:
+
+member(A,[A,B]).
+member(A,B).
+
+
+Hypotheses generated: 76
+Hypotheses refined:   19
+To be refined:        15
+Refining hypo with cost 55:
+
+member(A,[B,B|C]).
+member(A,B).
+
+
+Hypotheses generated: 79
+Hypotheses refined:   20
+To be refined:        15
+Refining hypo with cost 55:
+
+member(B,[A,B|C]).
+member(A,B).
+
+
+Hypotheses generated: 82
+Hypotheses refined:   21
+To be refined:        15
+Refining hypo with cost 55:
+
+member(A,[A,B|C]).
+member(A,B).
+
+
+Hypotheses generated: 85
+Hypotheses refined:   22
+To be refined:        15
+Refining hypo with cost 55:
+
+member(A,[B,B]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 89
+Hypotheses refined:   23
+To be refined:        14
+Refining hypo with cost 55:
+
+member(B,[A,B]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 93
+Hypotheses refined:   24
+To be refined:        13
+Refining hypo with cost 55:
+
+member(A,[A,B]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 97
+Hypotheses refined:   25
+To be refined:        12
+Refining hypo with cost 56:
+
+member(A,[A|B]).
+member(A,[B|C]):-
+  member(D,C).
+
+
+
+Hypotheses generated: 105
+Hypotheses refined:   26
+To be refined:        15
+
+member(A,[A|B]).
+member(C,[A|B]):-
+  member(C,B).
+
+H = [[member(A,[A|B])]/[A:item,B:list],[member(C,[D|E]),member(C,E)]/[D:item,E:list,C:item]]
+Refining hypo with cost 0:
+
+member(A,[A|B]).
+member(C,[A|B]):-
+  member(C,B).
+
+
+
+Hypotheses generated: 111
+Hypotheses refined:   27
+To be refined:        15
+
+member(A,[A|B]).
+member(B,[A,C|D]):-
+  member(B,[C|D]).
+
+;
+H = [[member(A,[A|B])]/[A:item,B:list],[member(C,[D,E|F]),member(C,[E|F])]/[D:item,C:item,E:item,F:list]]
+Refining hypo with cost 0:
+
+member(A,[A|B]).
+member(B,[A,C|D]):-
+  member(B,[C|D]).
+
+
+
+Hypotheses generated: 120
+Hypotheses refined:   28
+To be refined:        14
+Refining hypo with cost 55:
+
+member(A,[A]).
+member(A,[B|C]):-
+  member(D,C).
+
+
+
+Hypotheses generated: 125
+Hypotheses refined:   29
+To be refined:        14
+Refining hypo with cost 56:
+
+member(A,[A]).
+member(A,[B,D|E]):-
+  member(C,[D|E]).
+
+
+
+Hypotheses generated: 134
+Hypotheses refined:   30
+To be refined:        14
+Refining hypo with cost 55:
+
+member(A,[A]).
+member(A,[B,C|D]):-
+  member(C,[C|D]).
+
+
+
+Hypotheses generated: 140
+Hypotheses refined:   31
+To be refined:        13
+Refining hypo with cost 56:
+
+member(A,[B,B|C]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 144
+Hypotheses refined:   32
+To be refined:        12
+Refining hypo with cost 56:
+
+member(B,[A,B|C]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 148
+Hypotheses refined:   33
+To be refined:        11
+Refining hypo with cost 56:
+
+member(A,[A,B|C]).
+member(A,[B|C]).
+
+
+Hypotheses generated: 152
+Hypotheses refined:   34
+To be refined:        10
+Refining hypo with cost 56:
+
+member(A,[A]).
+member(A,[B,D|E]):-
+  member(C,[D|E]).
+
+
+
+Hypotheses generated: 161
+Hypotheses refined:   35
+To be refined:        10
+Refining hypo with cost 55:
+
+member(A,[A]).
+member(A,[B,C|D]):-
+  member(C,[C|D]).
+
+
+
+Hypotheses generated: 167
+Hypotheses refined:   36
+To be refined:        9
+Refining hypo with cost 57:
+
+member(A,[B,C,D|E]).
+member(A,B).
+
+
+Hypotheses generated: 176
+Hypotheses refined:   37
+To be refined:        17
+Refining hypo with cost 56:
+
+member(A,[B,C,D]).
+member(A,B).
+
+
+Hypotheses generated: 179
+Hypotheses refined:   38
+To be refined:        17
+Refining hypo with cost 56:
+
+member(A,[B,C,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 182
+Hypotheses refined:   39
+To be refined:        17
+Refining hypo with cost 56:
+
+member(A,[C,B,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 185
+Hypotheses refined:   40
+To be refined:        17
+Refining hypo with cost 56:
+
+member(A,[B,B,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 188
+Hypotheses refined:   41
+To be refined:        17
+Refining hypo with cost 56:
+
+member(C,[A,B,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 191
+Hypotheses refined:   42
+To be refined:        17
+Refining hypo with cost 56:
+
+member(B,[A,B,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 194
+Hypotheses refined:   43
+To be refined:        17
+Refining hypo with cost 56:
+
+member(A,[A,B,C|D]).
+member(A,B).
+
+
+Hypotheses generated: 197
+Hypotheses refined:   44
+To be refined:        17
+Refining hypo with cost 57:
+
+member(A,[A|B]).
+member(A,[B,D|E]):-
+  member(C,[D|E]).
+
+
+
+Hypotheses generated: 209
+Hypotheses refined:   45
+To be refined:        19
+
+member(A,[A|B]).
+member(B,[A,C|D]):-
+  member(B,[C|D]).
+
+;
+H = [[member(A,[A|B])]/[A:item,B:list],[member(C,[D,E|F]),member(C,[E|F])]/[D:item,C:item,E:item,F:list]]
+...
+?- term(list, T, Vs).
+T = [A|B]
+Vs = [A:item,B:list]
+;
+T = []
+Vs = []
+?- findall(E, ex(E), L).
+E = A
+L = [member(a,[a]),member(b,[a,b]),member(d,[a,b,c,d,e])]

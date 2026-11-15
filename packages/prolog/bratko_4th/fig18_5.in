@@ -1,0 +1,8 @@
+q('consult(\'fig18_2.pl\').', 3).
+consult('fig18_2.pl').
+q('add_times(3,[p,q],L).', 3).
+add_times(3,[p,q],L).
+q('no_conflict(p:1/2,[]).', 3).
+no_conflict(p:1/2,[]).
+q('findall(As, once((state0(S0), plan(S0,[at(a,4)],pop(Acts,_,_,_)), findall(A,member(A:_,Acts),As))), L).', 3).
+findall(As, once((state0(S0), plan(S0,[at(a,4)],pop(Acts,_,_,_)), findall(A,member(A:_,Acts),As))), L).

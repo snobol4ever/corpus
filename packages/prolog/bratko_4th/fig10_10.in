@@ -1,0 +1,10 @@
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('addavl(nil/0,5,T).', 3).
+addavl(nil/0,5,T).
+q('addavl(t(nil/0,5,nil/0)/1,3,T).', 3).
+addavl(t(nil/0,5,nil/0)/1,3,T).
+q('addavl(nil/0,1,T1), addavl(T1,2,T2), addavl(T2,3,T3).', 3).
+addavl(nil/0,1,T1), addavl(T1,2,T2), addavl(T2,3,T3).
+q('max1(2,5,M).', 3).
+max1(2,5,M).

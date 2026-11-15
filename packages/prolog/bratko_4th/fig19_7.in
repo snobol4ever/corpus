@@ -1,0 +1,22 @@
+q('use_module(library(clpr)).', 3).
+use_module(library(clpr)).
+q('time_step(DT).', 3).
+time_step(DT).
+q('round3(3.14159, Y).', 3).
+round3(3.14159, Y).
+q('round3(abc, Y).', 3).
+round3(abc, Y).
+q('show_state([1.23456, abc, 2.0]).', 3).
+show_state([1.23456, abc, 2.0]).
+q('show_behaviour([[0.0, 1.5], [0.1, 1.61234]]).', 3).
+show_behaviour([[0.0, 1.5], [0.1, 1.61234]]).
+q('forall(transition([0.0, 0.0, 0.0, 1.0], [T, X, V | _]), show_state([T, X, V])).', 3).
+forall(transition([0.0, 0.0, 0.0, 1.0], [T, X, V | _]), show_state([T, X, V])).
+q('forall(transition([0.0, 1.0, 0.0, 0.0], [T, X, V | _]), show_state([T, X, V])).', 3).
+forall(transition([0.0, 1.0, 0.0, 0.0], [T, X, V | _]), show_state([T, X, V])).
+q('findall(N/T10/X1000, (state0(S), once(simulate(S, B)), length(B, N), last(B, [T, X | _]), T10 is round(T*10), X1000 is round(X*1000)), L).', 3).
+findall(N/T10/X1000, (state0(S), once(simulate(S, B)), length(B, N), last(B, [T, X | _]), T10 is round(T*10), X1000 is round(X*1000)), L).
+q('stop([21, 0, 0, 0]).', 3).
+stop([21, 0, 0, 0]).
+q('stop([1, 0, 0, 0]).', 3).
+stop([1, 0, 0, 0]).

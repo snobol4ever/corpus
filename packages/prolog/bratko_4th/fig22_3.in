@@ -1,0 +1,20 @@
+q('circuit1(on, ok, Lightness).', 3).
+circuit1(on, ok, Lightness).
+q('circuit1(off, Bulb, Lightness).', 3).
+circuit1(off, Bulb, Lightness).
+q('circuit1(Switch, Bulb, dark).', 3).
+circuit1(Switch, Bulb, dark).
+q('circuit2(on, on, on, ok, ok, ok, L1, L2, L3).', 3).
+circuit2(on, on, on, ok, ok, ok, L1, L2, L3).
+q('circuit2(on, on, off, ok, ok, ok, L1, L2, L3).', 3).
+circuit2(on, on, off, ok, ok, ok, L1, L2, L3).
+q('circuit2(on, off, off, ok, ok, B3, L1, L2, L3).', 3).
+circuit2(on, off, off, ok, ok, B3, L1, L2, L3).
+q('findall(B1/B2/B3, circuit2(on, on, on, B1, B2, B3, light, dark, dark), L).', 3).
+findall(B1/B2/B3, circuit2(on, on, on, B1, B2, B3, light, dark, dark), L).
+q('qsum(pos, neg, X).', 3).
+qsum(pos, neg, X).
+q('findall(X-Y, qsum(X, Y, zero), L).', 3).
+findall(X-Y, qsum(X, Y, zero), L).
+q('switch(off, V, C), bulb(State, Light, pos, C).', 3).
+switch(off, V, C), bulb(State, Light, pos, C).

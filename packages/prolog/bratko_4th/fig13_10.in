@@ -1,0 +1,8 @@
+q('assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).', 3).
+assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+q('assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).', 3).
+assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+q('assertz(goal(t)).', 3).
+assertz(goal(t)).
+q('rta(s,Path).', 3).
+rta(s,Path).

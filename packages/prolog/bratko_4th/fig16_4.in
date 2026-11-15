@@ -1,0 +1,8 @@
+q('consult(\'fig16_5.pl\').', 3).
+consult('fig16_5.pl').
+q('prob(burglary,[call],P).', 3).
+prob(burglary,[call],P).
+q('prob(call,[],P).', 3).
+prob(call,[],P).
+q('prob(not alarm,[sensor],P).', 3).
+prob(not alarm,[sensor],P).

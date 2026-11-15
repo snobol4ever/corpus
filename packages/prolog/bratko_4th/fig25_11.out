@@ -1,0 +1,22 @@
+?- consult('fig25_12.pl').
+yes
+?- findall(X, num(X), L).
+X = A
+L = [25,10,15,30]
+?- run.
+5yes
+5;
+yes
+5;
+yes
+...
+?- run, findall(X, num(X), L).
+5X = A
+L = [5,5,5,5]
+5;
+X = A
+L = [5,5,5,5]
+5;
+X = A
+L = [5,5,5,5]
+...

@@ -1,0 +1,4 @@
+q('findall(X,member(X,[a,b]),L).', 3).
+findall(X,member(X,[a,b]),L).
+q('assertz(queue(1)), assertz(queue(bottom)), collect(L).', 3).
+assertz(queue(1)), assertz(queue(bottom)), collect(L).

@@ -1,0 +1,10 @@
+?- substitute(sin(x),2*sin(x)*f(sin(x)),t,F).
+F = 2*t*f(t)
+?- substitute(a+b,f(a,A+B),v,F).
+A = a
+B = b
+F = f(a,v)
+?- substitute(x,x,y,T).
+T = y
+?- substitute(q,f(a,g(b)),r,T).
+T = f(a,g(b))

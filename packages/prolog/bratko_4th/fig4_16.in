@@ -1,0 +1,6 @@
+q('mentioned(x,[rel(r,x,y)]).', 3).
+mentioned(x,[rel(r,x,y)]).
+q('mentioned(z,[rel(r,x,y)]).', 3).
+mentioned(z,[rel(r,x,y)]).
+q('s_path(dog,dog,P).', 3).
+s_path(dog,dog,P).

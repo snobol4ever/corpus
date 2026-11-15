@@ -1,0 +1,8 @@
+q('action(state(door,corner2,floor(middle)),A,S).', 3).
+action(state(door,corner2,floor(middle)),A,S).
+q('action(state(middle,corner2,floor(middle)),A,S).', 3).
+action(state(middle,corner2,floor(middle)),A,S).
+q('plan(state(a,b,held),state(a,b,held),P).', 1).
+plan(state(a,b,held),state(a,b,held),P).
+q('length(Plan,N), plan(state(door,corner2,floor(middle)),state(_,corner2,in_basket),Plan).', 3).
+length(Plan,N), plan(state(door,corner2,floor(middle)),state(_,corner2,in_basket),Plan).

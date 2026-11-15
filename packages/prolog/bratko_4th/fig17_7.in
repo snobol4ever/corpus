@@ -1,0 +1,16 @@
+q('consult(\'fig17_2.pl\').', 3).
+consult('fig17_2.pl').
+q('consult(\'fig17_6.pl\').', 3).
+consult('fig17_6.pl').
+q('consult(\'fig12_3.pl\').', 3).
+consult('fig12_3.pl').
+q('assertz(start([clear(2),clear(4),clear(b),clear(c),on(a,1),on(b,3),on(c,a)])).', 3).
+assertz(start([clear(2),clear(4),clear(b),clear(c),on(a,1),on(b,3),on(c,a)])).
+q('assertz(impossible(on(X,X),_)), assertz((impossible(on(X,Y),Goals) :- (member(clear(Y),Goals) ; member(on(X,Y1),Goals), Y1 \\== Y ; member(on(X1,Y),Goals), X1 \\== X))), assertz((impossible(clear(X),Goals) :- member(on(_,X),Goals))).', 3).
+assertz(impossible(on(X,X),_)), assertz((impossible(on(X,Y),Goals) :- (member(clear(Y),Goals) ; member(on(X,Y1),Goals), Y1 \== Y ; member(on(X1,Y),Goals), X1 \== X))), assertz((impossible(clear(X),Goals) :- member(on(_,X),Goals))).
+q('goal([on(a,1),clear(b)] -> stop).', 3).
+goal([on(a,1),clear(b)] -> stop).
+q('h([on(a,b),on(b,c)] -> stop,H).', 3).
+h([on(a,b),on(b,c)] -> stop,H).
+q('bestfirst([on(a,b)] -> stop,Plan).', 3).
+bestfirst([on(a,b)] -> stop,Plan).

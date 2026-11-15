@@ -1,0 +1,16 @@
+q('assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).', 3).
+assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+q('assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).', 3).
+assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+q('assertz(goal(t)).', 3).
+assertz(goal(t)).
+q('bestfirst(s,Sol).', 3).
+bestfirst(s,Sol).
+q('min(3,5,M).', 3).
+min(3,5,M).
+q('bestf([l(a,7/2)],F).', 3).
+bestf([l(a,7/2)],F).
+q('f(t(n,9/3,[]),F).', 3).
+f(t(n,9/3,[]),F).
+q('insert(l(x,3/1),[l(y,5/1)],T).', 3).
+insert(l(x,3/1),[l(y,5/1)],T).

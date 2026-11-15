@@ -1,0 +1,14 @@
+q('consult(\'fig9_20.pl\').', 3).
+consult('fig9_20.pl').
+q('consult(\'fig9_22.pl\').', 3).
+consult('fig9_22.pl').
+q('G = [a-b,b-c,b-d,c-d], subset(G,T), tree(T), covers(T,G).', 3).
+G = [a-b,b-c,b-d,c-d], subset(G,T), tree(T), covers(T,G).
+q('tree([a-b,b-c]).', 3).
+tree([a-b,b-c]).
+q('hasacycle([a-b,b-c,c-a]).', 3).
+hasacycle([a-b,b-c,c-a]).
+q('connected([a-b,c-d]).', 3).
+connected([a-b,c-d]).
+q('covers([a-b],[a-b,b-c]).', 3).
+covers([a-b],[a-b,b-c]).

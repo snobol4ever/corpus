@@ -1,0 +1,12 @@
+?- consult('fig18_2.pl').
+yes
+?- add_times(3,[p,q],L).
+L = [p:3,q:3]
+?- no_conflict(p:1/2,[]).
+yes
+?- findall(As, once((state0(S0), plan(S0,[at(a,4)],pop(Acts,_,_,_)), findall(A,member(A:_,Acts),As))), L).
+As = A
+S0 = B
+Acts = C
+A = D
+L = [[go(a,1,4)]]

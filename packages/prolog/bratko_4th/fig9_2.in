@@ -1,0 +1,8 @@
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('quicksort([5,3,7,8,1,4,7,6],S).', 3).
+quicksort([5,3,7,8,1,4,7,6],S).
+q('split(4,[1,7,3,9],S,B).', 3).
+split(4,[1,7,3,9],S,B).
+q('quicksort([],S).', 3).
+quicksort([],S).

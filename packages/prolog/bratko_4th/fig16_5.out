@@ -1,0 +1,12 @@
+?- consult('fig16_4.pl').
+yes
+?- parent(X,sensor).
+X = burglary
+;
+X = lightning
+?- p(burglary,P).
+P = 0.001
+?- prob(alarm,[burglary],P).
+P = 0.8551
+?- prob(sensor,[],P).
+P = 0.00387702

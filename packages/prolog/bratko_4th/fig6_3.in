@@ -1,0 +1,8 @@
+q('substitute(sin(x),2*sin(x)*f(sin(x)),t,F).', 3).
+substitute(sin(x),2*sin(x)*f(sin(x)),t,F).
+q('substitute(a+b,f(a,A+B),v,F).', 3).
+substitute(a+b,f(a,A+B),v,F).
+q('substitute(x,x,y,T).', 3).
+substitute(x,x,y,T).
+q('substitute(q,f(a,g(b)),r,T).', 3).
+substitute(q,f(a,g(b)),r,T).

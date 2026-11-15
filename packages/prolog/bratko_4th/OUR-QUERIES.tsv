@@ -1,0 +1,528 @@
+# OUR-QUERIES.tsv -- the queries of the ProBratko suite, OURS (the grader 2026-11-14): the figure files state none, so each was written from a reading of its
+# file: file, a tab, the goal. sl_cut.py --form table asks each of the oracle alone and writes NAME.in and QUERIES.tsv from it.
+fig1_8.pl	parent(X,bob).
+fig1_8.pl	parent(bob,pat).
+fig1_8.pl	parent(liz,pat).
+fig1_8.pl	mother(X,bob).
+fig1_8.pl	grandparent(X,jim).
+fig1_8.pl	sister(X,pat).
+fig1_8.pl	sister(liz,X).
+fig1_8.pl	ancestor(X,jim).
+fig1_8.pl	ancestor(pam,X).
+fig1_12.pl	solution(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16).
+fig1_12.pl	word(X,o,Y).
+fig1_13.pl	colors(IT,SI,HR,CH,AT,HU,DE,SK,CZ,PL,SEA).
+fig1_13.pl	n(red,X).
+fig1_14.pl	schedule(Ta,A1,A2,Tb,B1,B2,Td,D1,D2).
+fig1_14.pl	session(morning,databases,P1,P2).
+fig1_14.pl	no_conflict(morning,adam,ann,morning,adam,danny).
+fig1_14.pl	no_conflict(morning,adam,ann,afternoon,adam,danny).
+fig2_12.pl	consult('fig1_8.pl').
+fig2_12.pl	anc1(X,jim).
+fig2_12.pl	anc2(X,jim).
+fig2_12.pl	anc3(X,jim).
+fig2_12.pl	anc1(tom,pat).
+fig2_12.pl	anc2(liz,jim).
+fig4_4.pl	action(state(door,corner2,floor(middle)),A,S).
+fig4_4.pl	action(state(middle,corner2,floor(middle)),A,S).
+fig4_4.pl	plan(state(a,b,held),state(a,b,held),P).
+fig4_4.pl	length(Plan,N), plan(state(door,corner2,floor(middle)),state(_,corner2,in_basket),Plan).
+fig4_7.pl	sail(riva at 8:00,X).
+fig4_7.pl	before(8:35,9:10).
+fig4_7.pl	before(9:10,8:35).
+fig4_7.pl	time_diff(8:00,9:25,D).
+fig4_7.pl	schedule(riva at 8:00,malcesine at 8:55,S).
+fig4_7.pl	schedule(riva at 9:10,riva at T,S).
+fig4_8.pl	assign([1,2,3],[X,Y]).
+fig4_10.pl	template(S), solution(S).
+fig4_10.pl	noattack(1/1,[2/3,3/5]).
+fig4_10.pl	noattack(1/1,[2/2]).
+fig4_10.pl	member(X,[a,b,c]).
+fig4_12.pl	solution(Q).
+fig4_12.pl	safe([1,3,5]).
+fig4_12.pl	safe([1,2]).
+fig4_12.pl	permutation([1,2,3],P).
+fig4_12.pl	noattack(1,[3,5],1).
+fig4_14.pl	solution(Y).
+fig4_14.pl	del(X,[a,b,c],L).
+fig4_14.pl	sol([Y],[1],[1,2],[-1,0],[2,3]).
+fig4_16.pl	mentioned(x,[rel(r,x,y)]).
+fig4_16.pl	mentioned(z,[rel(r,x,y)]).
+fig4_16.pl	s_path(dog,dog,P).
+fig5_4.pl	solution([1/Y1,2/Y2,3/Y3,4/Y4,5/Y5,6/Y6,7/Y7,8/Y8]).
+fig5_4.pl	attacks(1/1,[2/2]).
+fig5_4.pl	attacks(1/1,[2/3]).
+fig6_2.pl	puzzle1(N1,N2,N), sum(N1,N2,N).
+fig6_2.pl	puzzle2(N1,N2,N), sum(N1,N2,N).
+fig6_2.pl	del_var(X,[1,2,3],L).
+fig6_2.pl	del_var(2,[1,2,3],L).
+fig6_3.pl	substitute(sin(x),2*sin(x)*f(sin(x)),t,F).
+fig6_3.pl	substitute(a+b,f(a,A+B),v,F).
+fig6_3.pl	substitute(x,x,y,T).
+fig6_3.pl	substitute(q,f(a,g(b)),r,T).
+fig6_4.pl	findall(X,member(X,[a,b]),L).
+fig6_4.pl	assertz(queue(1)), assertz(queue(bottom)), collect(L).
+fig6_6.pl	getsentence(W).	Mary was pleased to see the robot fail.
+fig7_4.pl	block(b1,D).
+fig7_4.pl	rotate(rect(p,dim(1,2)),R).
+fig7_4.pl	block_rectangle(b3,R).
+fig7_4.pl	fit(box1,B1,B2,B3,B4).
+fig9_2.pl	assertz((gt(X,Y) :- X > Y)).
+fig9_2.pl	quicksort([5,3,7,8,1,4,7,6],S).
+fig9_2.pl	split(4,[1,7,3,9],S,B).
+fig9_2.pl	quicksort([],S).
+fig9_3.pl	consult('fig9_2.pl').
+fig9_3.pl	assertz((gt(X,Y) :- X > Y)).
+fig9_3.pl	quicksort2([5,3,7,8,1,4,7,6],S-[]).
+fig9_3.pl	quicksort2([],S-[]).
+fig9_7.pl	assertz((gt(X,Y) :- X > Y)).
+fig9_7.pl	in(5,t(t(nil,3,nil),5,t(nil,8,nil))).
+fig9_7.pl	in(8,t(t(nil,3,nil),5,t(nil,8,nil))).
+fig9_7.pl	in(4,t(t(nil,3,nil),5,t(nil,8,nil))).
+fig9_7.pl	in(X,t(nil,5,nil)).
+fig9_10.pl	assertz((gt(X,Y) :- X > Y)).
+fig9_10.pl	addleaf(nil,5,T).
+fig9_10.pl	addleaf(t(nil,5,nil),3,T).
+fig9_10.pl	addleaf(t(t(nil,3,nil),5,nil),4,T).
+fig9_10.pl	addleaf(t(nil,5,nil),5,T).
+fig9_13.pl	assertz((gt(X,Y) :- X > Y)).
+fig9_13.pl	del(t(t(nil,3,nil),5,t(nil,8,nil)),5,T).
+fig9_13.pl	del(t(t(nil,3,nil),5,t(nil,8,nil)),3,T).
+fig9_13.pl	delmin(t(t(nil,1,nil),2,nil),Y,T).
+fig9_13.pl	del(t(nil,5,nil),9,T).
+fig9_15.pl	assertz((gt(X,Y) :- X > Y)).
+fig9_15.pl	add(nil,5,T).
+fig9_15.pl	add(t(nil,5,nil),3,T).
+fig9_15.pl	addroot(t(t(nil,3,nil),5,nil),4,T).
+fig9_17.pl	show(t(t(nil,1,nil),2,t(nil,3,nil))).
+fig9_17.pl	show(nil).
+fig9_17.pl	show2(t(nil,a,nil),4).
+fig9_20.pl	consult('fig9_22.pl').
+fig9_20.pl	path(a,d,[a-b,b-c,b-d,c-d],P).
+fig9_20.pl	path(a,a,[a-b],P).
+fig9_20.pl	path(a,z,[a-b,b-c],P).
+fig9_21.pl	assertz((adjacent(X,Y,C,G) :- (member(e(X,Y,C),G) ; member(e(Y,X,C),G)))).
+fig9_21.pl	path(a,d,[e(a,b,1),e(b,c,2),e(b,d,5),e(c,d,1)],P,C).
+fig9_21.pl	path(a,a,[e(a,b,1)],P,C).
+fig9_22.pl	stree([a-b,b-c,b-d,c-d],T).
+fig9_22.pl	adjacent(b,X,[a-b,b-c]).
+fig9_22.pl	node(X,[a-b]).
+fig9_22.pl	addedge([a-b],T,[a-b,b-c,b-d,c-d]).
+fig9_23.pl	consult('fig9_20.pl').
+fig9_23.pl	consult('fig9_22.pl').
+fig9_23.pl	G = [a-b,b-c,b-d,c-d], subset(G,T), tree(T), covers(T,G).
+fig9_23.pl	tree([a-b,b-c]).
+fig9_23.pl	hasacycle([a-b,b-c,c-a]).
+fig9_23.pl	connected([a-b,c-d]).
+fig9_23.pl	covers([a-b],[a-b,b-c]).
+fig10_6.pl	assertz((gt(X,Y) :- X > Y)).
+fig10_6.pl	add23(nil,5,T).
+fig10_6.pl	add23(l(5),3,T).
+fig10_6.pl	add23(n2(l(3),5,l(5)),4,T).
+fig10_6.pl	add23(n2(l(3),5,l(5)),7,T).
+fig10_7.pl	show(n2(l(1),2,l(2))).
+fig10_7.pl	show(n3(l(1),2,l(2),3,l(3))).
+fig10_7.pl	show(nil).
+fig10_10.pl	assertz((gt(X,Y) :- X > Y)).
+fig10_10.pl	addavl(nil/0,5,T).
+fig10_10.pl	addavl(t(nil/0,5,nil/0)/1,3,T).
+fig10_10.pl	addavl(nil/0,1,T1), addavl(T1,2,T2), addavl(T2,3,T3).
+fig10_10.pl	max1(2,5,M).
+fig11_7.pl	assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+fig11_7.pl	assertz(goal(j)), assertz(goal(f)).
+fig11_7.pl	solve(a,S).
+fig11_7.pl	depthfirst([],c,S).
+fig11_7.pl	solve(k,S).
+fig11_8.pl	assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+fig11_8.pl	assertz(goal(j)), assertz(goal(f)).
+fig11_8.pl	depthfirst2(a,S,2).
+fig11_8.pl	depthfirst2(a,S,3).
+fig11_8.pl	depthfirst2(a,S,1).
+fig11_10.pl	assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+fig11_10.pl	assertz(goal(j)), assertz(goal(f)).
+fig11_10.pl	solve(a,S).
+fig11_10.pl	extend([a],P).
+fig11_10.pl	solve(k,S).
+fig11_11.pl	assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+fig11_11.pl	assertz(goal(j)), assertz(goal(f)).
+fig11_11.pl	assertz((extend([Node|Path],NewPaths) :- findall([NewNode,Node|Path],(s(Node,NewNode), \+ member(NewNode,[Node|Path])),NewPaths))).
+fig11_11.pl	solve(a,S).
+fig12_3.pl	assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+fig12_3.pl	assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+fig12_3.pl	assertz(goal(t)).
+fig12_3.pl	bestfirst(s,Sol).
+fig12_3.pl	min(3,5,M).
+fig12_3.pl	bestf([l(a,7/2)],F).
+fig12_3.pl	f(t(n,9/3,[]),F).
+fig12_3.pl	insert(l(x,3/1),[l(y,5/1)],T).
+fig12_6.pl	consult('fig12_3.pl').
+fig12_6.pl	mandist(1/1,3/2,D).
+fig12_6.pl	dif(2,5,D).
+fig12_6.pl	goal(G).
+fig12_6.pl	start1(P), s(P,Q,C).
+fig12_6.pl	score(1/3,2/3,S).
+fig12_6.pl	score(1/1,3/3,S).
+fig12_6.pl	totdist([1/1],[2/2],D).
+fig12_6.pl	start1(P), showpos(P).
+fig12_6.pl	start1(P), h(P,H).
+fig12_6.pl	start1(P), bestfirst(P,Sol), length(Sol,N).
+fig12_9.pl	consult('fig12_3.pl').
+fig12_9.pl	start(S), s(S,N,C).
+fig12_9.pl	before(t1,t5).
+fig12_9.pl	before(t4,t1).
+fig12_9.pl	insert(a/3,[b/5],L,0,F).
+fig12_9.pl	insertidle(1,[x/4],L).
+fig12_9.pl	totaltime([a/2,b/3],T).
+fig12_9.pl	sumnum([a/1,b/2],F,N).
+fig12_9.pl	start(S), h(S,H).
+fig12_9.pl	start(S), bestfirst(S,Sol), Sol = [G|_].
+fig13_1.pl	assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+fig13_1.pl	assertz(goal(j)), assertz(goal(f)).
+fig13_1.pl	assertz(f(a,3)), assertz(f(b,2)), assertz(f(c,2)), assertz(f(d,5)), assertz(f(e,1)), assertz(f(f,0)), assertz(f(g,3)), assertz(f(h,9)), assertz(f(i,9)), assertz(f(j,0)), assertz(f(k,9)).
+fig13_1.pl	idastar(a,S).
+fig13_1.pl	update_next_bound(5).
+fig13_4.pl	assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+fig13_4.pl	assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+fig13_4.pl	assertz(goal(t)).
+fig13_4.pl	bestfirst(s,Sol).
+fig13_4.pl	inherit(3,5,F).
+fig13_4.pl	inherit(5,3,F).
+fig13_4.pl	bestff([],F).
+fig13_10.pl	assertz(s(s,a,2)), assertz(s(s,e,2)), assertz(s(a,b,2)), assertz(s(b,c,2)), assertz(s(c,d,3)), assertz(s(d,t,3)), assertz(s(e,f,5)), assertz(s(f,g,2)), assertz(s(g,t,2)).
+fig13_10.pl	assertz(h(s,0)), assertz(h(a,5)), assertz(h(b,4)), assertz(h(c,4)), assertz(h(d,3)), assertz(h(e,7)), assertz(h(f,4)), assertz(h(g,2)), assertz(h(t,0)).
+fig13_10.pl	assertz(goal(t)).
+fig13_10.pl	rta(s,Path).
+fig14_8.pl	assertz((a ---> or:[b,c])), assertz((b ---> and:[d,e])), assertz((c ---> and:[f,g])), assertz((e ---> or:[h])), assertz((f ---> or:[h,i])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)).
+fig14_8.pl	solve(a,T).
+fig14_8.pl	solve(a,T), show(T).
+fig14_8.pl	solve(d,T).
+fig14_8.pl	solve(i,T).
+fig14_12.pl	assertz((a ---> or:[b/1,c/3])), assertz((b ---> and:[d/1,e/1])), assertz((c ---> and:[f/2,g/1])), assertz((e ---> or:[h/6])), assertz((f ---> or:[h/2,i/3])), assertz(goal(d)), assertz(goal(g)), assertz(goal(h)), assertz(h(_,0)).
+fig14_12.pl	andor(a,T).
+fig15_6.pl	assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).
+fig15_6.pl	is_true(leak_in_kitchen).
+fig15_6.pl	is_true(leak_in_bathroom).
+fig15_6.pl	is_true(X).
+fig15_6.pl	is_true(hall_wet and window_closed).
+fig15_7.pl	assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).
+fig15_7.pl	forward.
+fig15_7.pl	fact(X).
+fig15_7.pl	composed_fact(hall_wet and bathroom_dry).
+fig15_8.pl	assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).
+fig15_8.pl	is_true(leak_in_kitchen,Proof).
+fig15_8.pl	is_true(hall_wet,P).
+fig15_8.pl	is_true(leak_in_bathroom,P).
+fig15_9.pl	assertz((if hall_wet and kitchen_dry then leak_in_bathroom)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen)), assertz((if window_closed or no_rain then no_water_from_outside)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen)), assertz(fact(hall_wet)), assertz(fact(bathroom_dry)), assertz(fact(window_closed)).
+fig15_9.pl	assertz(askable(kitchen_dry)).
+fig15_9.pl	is_true(leak_in_kitchen,Proof).
+fig15_9.pl	is_true(leak_in_bathroom,P).	yes.
+fig15_9.pl	display_rule_chain([if a then b],0).
+fig15_10.pl	assertz(given(hall_wet,1)), assertz(given(bathroom_dry,1)), assertz(given(kitchen_dry,0)), assertz(given(no_rain,0.8)), assertz(given(window_closed,0)), assertz((if hall_wet and bathroom_dry then problem_in_kitchen : 0.9)), assertz((if window_closed or no_rain then no_water_from_outside : 1)), assertz((if problem_in_kitchen and no_water_from_outside then leak_in_kitchen : 0.8)).
+fig15_10.pl	certainty(leak_in_kitchen,C).
+fig15_10.pl	certainty(hall_wet and no_rain,C).
+fig15_10.pl	certainty(window_closed or no_rain,C).
+fig15_12.pl	bird(X,Y).
+fig15_12.pl	albert(instance_of,X).
+fig15_12.pl	kiwi(size,S).
+fig15_12.pl	animal(relative_size,X).
+fig16_4.pl	consult('fig16_5.pl').
+fig16_4.pl	prob(burglary,[call],P).
+fig16_4.pl	prob(call,[],P).
+fig16_4.pl	prob(not alarm,[sensor],P).
+fig16_4.pl	predecessor(burglary,X).
+fig16_5.pl	consult('fig16_4.pl').
+fig16_5.pl	parent(X,sensor).
+fig16_5.pl	p(burglary,P).
+fig16_5.pl	prob(alarm,[burglary],P).
+fig16_5.pl	prob(sensor,[],P).
+fig17_2.pl	can(move(B,F,T),C).
+fig17_2.pl	adds(move(c,a,2),A).
+fig17_2.pl	deletes(move(a,1,b),D).
+fig17_2.pl	object(X).
+fig17_2.pl	state1(S).
+fig17_4.pl	consult('fig17_2.pl').
+fig17_4.pl	satisfied([on(a,1),clear(b)],[on(a,1)]).
+fig17_4.pl	state1(S), apply(S,move(c,a,2),N).
+fig17_4.pl	delete_all([a,b,c],[b],D).
+fig17_4.pl	state1(S), select(S,[on(c,a),on(a,b)],G).
+fig17_4.pl	state1(S), plan(S,[on(a,b)],Plan,_).
+fig17_6.pl	consult('fig17_2.pl').
+fig17_6.pl	assertz(impossible(on(X,X),_)), assertz((impossible(on(X,Y),Goals) :- (member(clear(Y),Goals) ; member(on(X,Y1),Goals), Y1 \== Y ; member(on(X1,Y),Goals), X1 \== X))), assertz((impossible(clear(X),Goals) :- member(on(_,X),Goals))).
+fig17_6.pl	satisfied([on(a,1),clear(b)],[on(a,1)]).
+fig17_6.pl	preserves(move(c,a,2),[on(a,1)]).
+fig17_6.pl	preserves(move(a,1,2),[on(a,1)]).
+fig17_6.pl	regress([on(a,b)],move(a,1,b),R).
+fig17_6.pl	state1(S), plan(S,[on(a,b)],Plan).
+fig17_7.pl	consult('fig17_2.pl').
+fig17_7.pl	consult('fig17_6.pl').
+fig17_7.pl	consult('fig12_3.pl').
+fig17_7.pl	assertz(start([clear(2),clear(4),clear(b),clear(c),on(a,1),on(b,3),on(c,a)])).
+fig17_7.pl	assertz(impossible(on(X,X),_)), assertz((impossible(on(X,Y),Goals) :- (member(clear(Y),Goals) ; member(on(X,Y1),Goals), Y1 \== Y ; member(on(X1,Y),Goals), X1 \== X))), assertz((impossible(clear(X),Goals) :- member(on(_,X),Goals))).
+fig17_7.pl	goal([on(a,1),clear(b)] -> stop).
+fig17_7.pl	h([on(a,b),on(b,c)] -> stop,H).
+fig17_7.pl	bestfirst([on(a,b)] -> stop,Plan).
+fig18_2.pl	can(go(a,1,B),C).
+fig18_2.pl	effects(go(a,1,4),E).
+fig18_2.pl	adjacent(2,X).
+fig18_2.pl	inconsistent(at(a,1),at(a,2)).
+fig18_2.pl	inconsistent(clear(1),at(b,1)).
+fig18_2.pl	inconsistent(at(a,1),clear(2)).
+fig18_2.pl	state0(S).
+fig18_5.pl	consult('fig18_2.pl').
+fig18_5.pl	add_times(3,[p,q],L).
+fig18_5.pl	no_conflict(p:1/2,[]).
+fig18_5.pl	findall(As, once((state0(S0), plan(S0,[at(a,4)],pop(Acts,_,_,_)), findall(A,member(A:_,Acts),As))), L).
+fig18_8.pl	consult('fig18_2.pl').
+fig18_8.pl	state0(S), plan(S,[at(a,4)],Plan).
+fig19_1.pl	use_module(library(clpr)).
+fig19_1.pl	schedule(_, T).
+fig19_4.pl	use_module(library(clpr)).
+fig19_4.pl	resistor((10,I1), (0,I2), 5).
+fig19_4.pl	resistor((V1,2), (0,_), 100).
+fig19_4.pl	battery((V1,1), (0,I2), 10).
+fig19_4.pl	diode((5,I1), (V2,I2)), {I1 = 2}.
+fig19_4.pl	diode((5,I1), (8,I2)).
+fig19_4.pl	diode((5,I1), (3,I2)).
+fig19_4.pl	conn([(V1,1), (V2,2), (V3,I3)]), {V1 = 7}.
+fig19_5.pl	use_module(library(clpr)).
+fig19_5.pl	consult('fig19_4.pl').
+fig19_5.pl	circuit_a(5, 5, (V, I)).
+fig19_5.pl	circuit_a(10, 30, (V, I)).
+fig19_5.pl	circuit_a(R, 30, (7.5, _)).
+fig19_5.pl	findall(MilliVolts/MicroAmps, (circuit_b(10, _, _, _, _, (V,I), _), MilliVolts is round(V*1000), MicroAmps is round(I*1000000)), L).
+fig19_5.pl	findall(MilliVolts, (circuit_b(U, _, _, _, _, (_,I), _), {I = 0.02}, MilliVolts is round(U*1000)), L).
+fig19_2.pl	use_module(library(clpr)).
+fig19_2.pl	schedule(S, T).
+fig19_2.pl	schedule(_, T).
+fig19_7.pl	use_module(library(clpr)).
+fig19_7.pl	time_step(DT).
+fig19_7.pl	round3(3.14159, Y).
+fig19_7.pl	round3(abc, Y).
+fig19_7.pl	show_state([1.23456, abc, 2.0]).
+fig19_7.pl	show_behaviour([[0.0, 1.5], [0.1, 1.61234]]).
+fig19_7.pl	forall(transition([0.0, 0.0, 0.0, 1.0], [T, X, V | _]), show_state([T, X, V])).
+fig19_7.pl	forall(transition([0.0, 1.0, 0.0, 0.0], [T, X, V | _]), show_state([T, X, V])).
+fig19_7.pl	findall(N/T10/X1000, (state0(S), once(simulate(S, B)), length(B, N), last(B, [T, X | _]), T10 is round(T*10), X1000 is round(X*1000)), L).
+fig19_7.pl	stop([21, 0, 0, 0]).
+fig19_7.pl	stop([1, 0, 0, 0]).
+fig20_9.pl	attribute(A, Values).
+fig20_9.pl	example(key, Object).
+fig20_9.pl	findall(C, example(C, _), L), sort(L, Classes).
+fig20_9.pl	findall(C, (example(C, O), member(holes = 2, O)), L).
+fig20_9.pl	aggregate_all(count, example(_, _), N).
+fig20_11.pl	consult('fig20_9.pl').
+fig20_11.pl	learn(nut).
+fig20_11.pl	bagof(example(C, O), example(C, O), Es), learn(Es, key, D).
+fig20_11.pl	bagof(example(C, O), example(C, O), Es), learn(Es, scissors, D).
+fig20_11.pl	bagof(example(C, O), example(C, O), Es), learn(Es, pen, D).
+fig20_11.pl	learn(screw), screw <== D.
+fig20_11.pl	satisfy([size = small, holes = 1], [holes = 1]).
+fig20_11.pl	satisfy([size = small, holes = 1], [holes = 2]).
+fig20_11.pl	bagof(example(C, O), example(C, O), Es), score(Es, nut, AV, S).
+fig20_11.pl	bagof(example(C, O), example(C, O), Es), choose_cond(Es, scissors, AV).
+fig20_11.pl	bagof(example(C, O), example(C, O), Es), count_pos(Es, key, N).
+fig20_11.pl	best([a/1, b/3, c/2], X).
+fig20_11.pl	remove([example(k, [s = 1]), example(n, [s = 2])], [s = 1], R).
+fig21_1.pl	backliteral(L, Vars).
+fig21_1.pl	ex(E).
+fig21_1.pl	nex(E).
+fig21_1.pl	start_hyp(H).
+fig21_1.pl	parent(X, bob).
+fig21_1.pl	parent(P, C), female(C), male(P).
+fig21_3.pl	consult('fig21_1.pl').
+fig21_3.pl	assertz(max_proof_length(6)).
+fig21_3.pl	prove(has_daughter(tom), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).
+fig21_3.pl	prove(has_daughter(pam), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], A).
+fig21_3.pl	prove(has_daughter(W), [[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]], yes).
+fig21_3.pl	prove(p(a), [[p(X), p(X)]/[X]], A).
+fig21_3.pl	prove([parent(tom, X), female(X)], [], 6, D).
+fig21_3.pl	prove(has_daughter(tom), [[has_daughter(X)]/[X]], A).
+fig21_4.pl	consult('fig21_3.pl').
+fig21_4.pl	consult('fig21_1.pl').
+fig21_4.pl	induce(H).
+fig21_4.pl	start_hyp(H0), complete(H0).
+fig21_4.pl	start_hyp(H0), consistent(H0).
+fig21_4.pl	refine([has_daughter(X)], [X], C, Vs).
+fig21_4.pl	start_hyp(H0), refine_hyp(H0, H1), complete(H1).
+fig21_4.pl	consistent([[has_daughter(X), parent(X, Y), female(Y)]/[X, Y]]).
+fig21_4.pl	depth_first([[has_daughter(X)]/[X]], H, 2).
+fig21_4.pl	max_clause_length(N).
+fig21_7.pl	consult('fig21_3.pl').
+fig21_7.pl	consult('fig21_5.pl').
+fig21_7.pl	induce(H).
+fig21_7.pl	max_clauses(N), max_clause_length(L), max_proof_length(P).
+fig21_7.pl	start_hyps(Hs), length(Hs, N).
+fig21_7.pl	size([[member(X, L)]/[X:item, L:list]], S).
+fig21_7.pl	mergesort([3:c, 1:a, 2:b], S).
+fig21_7.pl	merge([1:a, 3:c], [2:b], M).
+fig21_7.pl	split([a, b, c, d, e], L1, L2).
+fig21_7.pl	non_redundant([p(X), q(X), q(X)]).
+fig21_7.pl	non_redundant([p(X), q(X), q(Y)]).
+fig21_7.pl	literal_member(q(X), [p(X), q(X)]).
+fig21_7.pl	show_hyp([[member(X, [X | L])]/[X:item, L:list]]).
+fig21_7.pl	covers_neg([[member(X, L)]/[X:item, L:list]], N).
+fig21_7.pl	complete([[member(X, [X | L])]/[X:item, L:list]]).
+fig21_5.pl	consult('fig21_3.pl').
+fig21_5.pl	consult('fig21_7.pl').
+fig21_5.pl	induce(H), show_hyp(H).
+fig21_5.pl	term(list, T, Vs).
+fig21_5.pl	findall(E, ex(E), L).
+fig21_8.pl	consult('fig21_3.pl').
+fig21_8.pl	consult('fig21_7.pl').
+fig21_8.pl	induce(H), show_hyp(H).
+fig21_8.pl	findall(E, nex(E), L).
+fig21_9.pl	consult('fig21_3.pl').
+fig21_9.pl	consult('fig21_7.pl').
+fig21_9.pl	induce(H), show_hyp(H).
+fig21_9.pl	link(a, X).
+fig21_10.pl	consult('fig21_3.pl').
+fig21_10.pl	consult('fig21_7.pl').
+fig21_10.pl	induce(H), show_hyp(H).
+fig21_10.pl	insert_sorted(c, [a, b, d], L).
+fig21_10.pl	insert_sorted(X, [a], L).
+fig21_10.pl	insert_sorted(a, [], L).
+fig21_12.pl	consult('fig21_3.pl').
+fig21_12.pl	consult('fig21_7.pl').
+fig21_12.pl	assertz((term(_, _, _) :- fail)).
+fig21_12.pl	induce(H), show_hyp(H).
+fig21_12.pl	isa(c4, X).
+fig21_12.pl	findall(X, isa(X, rectangle), L).
+fig21_12.pl	support(X, c3).
+fig21_12.pl	backliteral(isa(X, Y), In, Out).
+fig22_3.pl	circuit1(on, ok, Lightness).
+fig22_3.pl	circuit1(off, Bulb, Lightness).
+fig22_3.pl	circuit1(Switch, Bulb, dark).
+fig22_3.pl	circuit2(on, on, on, ok, ok, ok, L1, L2, L3).
+fig22_3.pl	circuit2(on, on, off, ok, ok, ok, L1, L2, L3).
+fig22_3.pl	circuit2(on, off, off, ok, ok, B3, L1, L2, L3).
+fig22_3.pl	findall(B1/B2/B3, circuit2(on, on, on, B1, B2, B3, light, dark, dark), L).
+fig22_3.pl	qsum(pos, neg, X).
+fig22_3.pl	findall(X-Y, qsum(X, Y, zero), L).
+fig22_3.pl	switch(off, V, C), bulb(State, Light, pos, C).
+fig22_8.pl	qdir(D, Sign).
+fig22_8.pl	qsum(neg, pos, X).
+fig22_8.pl	qdirsum(inc, dec, D).
+fig22_8.pl	qdirsum(inc, std, D).
+fig22_8.pl	compare_lands(zero, top, [zero, top, inf], Sign).
+fig22_8.pl	compare_lands(inf, top, [zero, top, inf], Sign).
+fig22_8.pl	once(consult('fig22_9.pl')), qmag(level:Q).
+fig22_8.pl	once(consult('fig22_9.pl')), relative_qmag(level:zero..top, level:top, Sign).
+fig22_8.pl	once(consult('fig22_9.pl')), relative_qmag(level:top, level:zero, Sign).
+fig22_8.pl	once(consult('fig22_9.pl')), transition(level:zero/inc, V).
+fig22_8.pl	once(consult('fig22_9.pl')), transition(level:zero..top/inc, V).
+fig22_8.pl	once(consult('fig22_9.pl')), initial(S), legalstate(S).
+fig22_8.pl	once(consult('fig22_9.pl')), initial(S), legal_trans(S, S2).
+fig22_8.pl	once(consult('fig22_9.pl')), initial(S), simulate(S, B, 10), length(B, N).
+fig22_8.pl	once(consult('fig22_9.pl')), initial(S), findall(N, (simulate(S, B, 10), length(B, N)), Ns).
+fig22_8.pl	once(consult('fig22_9.pl')), sum(flow:zero/inc, flow:N, flow:inflow/std).
+fig22_8.pl	once(consult('fig22_9.pl')), mplus(amount:zero/inc, level:L).
+fig22_8.pl	once(consult('fig22_9.pl')), deriv(amount:zero..full/D, flow:zero..inflow/dec).
+fig22_8.pl	once(consult('fig22_11.pl')), initial(S), simulate(S, B, 6), length(B, N).
+fig22_8.pl	once(consult('fig22_11.pl')), initial(S), findall(N, (simulate(S, B, 6), length(B, N)), Ns).
+fig22_8.pl	once(consult('fig22_13.pl')), initial(S), simulate(S, B, 8), length(B, N).
+fig22_8.pl	once(consult('fig22_13.pl')), initial(S), findall(N, (simulate(S, B, 5), length(B, N)), Ns), length(Ns, Count).
+fig23_6.pl	test1(M).
+fig23_6.pl	test2(M).
+fig23_6.pl	test3(M).
+fig23_6.pl	test4(M).
+fig23_6.pl	test5(M).
+fig23_6.pl	sentence(M, [annie, likes, a, man], []).
+fig23_6.pl	sentence(M, [john, paints, monet], []).
+fig23_6.pl	phrase(noun_phrase(X, P, S), [every, woman]).
+fig23_6.pl	phrase(verb_phrase(john, P), [admires, a, woman, that, paints]).
+fig23_6.pl	sentence(exists(X, man(X) and paints(X)), Words, []).
+fig23_6.pl	phrase(rel_clause(X, man(X), P), [that, likes, annie]).
+fig24_2.pl	moves(a, L).
+fig24_2.pl	staticval(P, 1).
+fig24_2.pl	findall(P, max_to_move(P), L).
+fig24_2.pl	moves(P, L), member(k, L).
+fig24_3.pl	consult('fig24_2.pl').
+fig24_3.pl	minimax(a, Best, Val).
+fig24_3.pl	minimax(b, Best, Val).
+fig24_3.pl	minimax(c, Best, Val).
+fig24_3.pl	minimax(i, Best, Val).
+fig24_3.pl	best([d, e], Best, Val).
+fig24_3.pl	betterof(d, 4, e, 6, P, V).
+fig24_5.pl	consult('fig24_2.pl').
+fig24_5.pl	alphabeta(a, -100, 100, Good, Val).
+fig24_5.pl	alphabeta(b, -100, 100, Good, Val).
+fig24_5.pl	alphabeta(c, 4, 100, Good, Val).
+fig24_5.pl	alphabeta(a, 5, 100, Good, Val).
+fig24_5.pl	newbounds(-100, 100, d, 4, A, B).
+fig24_5.pl	newbounds(-100, 100, b, 4, A, B).
+fig24_5.pl	boundedbest([d, e], -100, 100, Good, Val).
+fig24_6_7_10_chess.pl	pos6(P), show(P).
+fig24_6_7_10_chess.pl	pos6(P), side(P, S), wk(P, WK), wr(P, WR), bk(P, BK), depth(P, D).
+fig24_6_7_10_chess.pl	pos6(P), findall(M, legalmove(P, M, _), Ms), length(Ms, N).
+fig24_6_7_10_chess.pl	pos4(P), legalmove(P, M, P1).
+fig24_6_7_10_chess.pl	mate(b..2:3..8:1..1:1..1).
+fig24_6_7_10_chess.pl	mate(b..4:4..8:1..1:1..1).
+fig24_6_7_10_chess.pl	stalemate(b..1:3..2:8..1:1..1).
+fig24_6_7_10_chess.pl	check(b..2:3..8:1..1:1..1).
+fig24_6_7_10_chess.pl	pos6(P), room(P, Room).
+fig24_6_7_10_chess.pl	pos6(P), cs(P, C).
+fig24_6_7_10_chess.pl	manhdist(1:1, 4:5, D).
+fig24_6_7_10_chess.pl	findall(S, ngb(1:1, S), L).
+fig24_6_7_10_chess.pl	pos6(P), strategy(P, Move.._).
+fig24_6_7_10_chess.pl	pos1(P), strategy(P, Move.._).
+fig24_6_7_10_chess.pl	findall(A, advice(A, _), L).
+fig24_6.pl	consult('fig24_7.pl').
+fig24_6.pl	consult('fig24_10.pl').
+fig24_6.pl	findall(A, advice(A, _), L).
+fig24_6.pl	mate(b..2:3..8:1..1:1..1).
+fig25_1.pl	consult('fig1_8.pl').
+fig25_1.pl	prove(parent(pam, X)).
+fig25_1.pl	once(prove((parent(X, Y), female(Y)))).
+fig25_1.pl	prove(true).
+fig25_2.pl	consult('fig1_8.pl').
+fig25_2.pl	trace(parent(pam, X), 0).
+fig25_2.pl	trace(predecessor(tom, pat), 0).
+fig25_2.pl	trace((parent(X, bob), female(X)), 0).
+fig25_2.pl	trace(parent(jim, X), 0).
+fig25_2.pl	display('Call: ', p(a), 3).
+fig25_4.pl	abduce(not_working(light1), Delta).
+fig25_4.pl	abduce(no_current(heater), Delta).
+fig25_4.pl	abduce((not_working(l1), not_working(l2)), Delta), length(Delta, N).
+fig25_4.pl	abducible(G).
+fig25_4.pl	abduce(switch(S), D).
+fig25_5.pl	prove_qu(length([a, b, c], N)).
+fig25_5.pl	chain(a, a, C).
+fig25_5.pl	askable(G).
+fig25_6.pl	gives(john, annie, Gift).
+fig25_6.pl	gives(Who, Whom, chocolate).
+fig25_6.pl	feels_sorry_for(X, Y).
+fig25_6.pl	go(3, 6, Moves).
+fig25_6.pl	move_list(M, D).
+fig25_6.pl	findall(G, operational(G), L).
+fig25_7.pl	consult('fig25_6.pl').
+fig25_7.pl	ebg(gives(john, john, chocolate), gives(X, Y, Z), Cond).
+fig25_7.pl	ebg(gives(john, annie, tennis_racket), gives(X, Y, Z), Cond).
+fig25_7.pl	go(3, 6, Moves), ebg(go(3, 6, Moves), go(L1, L2, GenMoves), Cond).
+fig25_7.pl	and(true, a, C).
+fig25_7.pl	and(a, b, C).
+fig25_12.pl	test([1 < 2, atom(a)]).
+fig25_12.pl	test([1 < 2, atom(1)]).
+fig25_12.pl	execute([write(hello), nl, stop]).
+fig25_12.pl	assertz(counter(1)), replace(counter(1), counter(2)), counter(X).
+fig25_12.pl	once(consult('fig25_11.pl')), run.
+fig25_15.pl	consult('fig25_12.pl').
+fig25_15.pl	consult('fig25_14.pl').
+fig25_15.pl	transform(~(~a), X).
+fig25_15.pl	transform(a => b, X).
+fig25_15.pl	transform(~(a & b), X).
+fig25_15.pl	transform(a & b v c, X).
+fig25_15.pl	retractall(clause(_)), translate(~(a => b) v c), findall(C, clause(C), L).
+fig25_15.pl	retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & ~(a => c)), run.
+fig25_15.pl	retractall(clause(_)), retractall(done(_, _, _)), translate((a => b) & (b => c) & (a => c)), run.
+fig25_15.pl	retractall(clause(_)), retractall(done(_, _, _)), translate(~((a => b) & (b => c) => (a => c))), findall(C, clause(C), L).
+fig25_15.pl	delete(b, a v b v c, R).
+fig25_15.pl	in(b, a v b v c).
+fig25_5.pl	prove_qu(supervised(tom, bob)).	supervised(tom, bob). no.
+fig25_5.pl	prove_qu(supervised(ann, pat)).	no.
+fig25_11.pl	consult('fig25_12.pl').
+fig25_11.pl	findall(X, num(X), L).
+fig25_11.pl	run.
+fig25_11.pl	run, findall(X, num(X), L).
+fig25_1.pl	prove(mother(X, bob)).
+fig25_1.pl	findall(X-Y, once(prove(grandparent(X, Y))), L).
+fig25_1.pl	once(prove(sister(X, pat))).

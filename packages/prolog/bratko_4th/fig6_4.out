@@ -1,0 +1,5 @@
+?- findall(X,member(X,[a,b]),L).
+X = A
+L = [a,b]
+?- assertz(queue(1)), assertz(queue(bottom)), collect(L).
+L = [1]

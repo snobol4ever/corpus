@@ -1,0 +1,16 @@
+q('use_module(library(clpr)).', 3).
+use_module(library(clpr)).
+q('resistor((10,I1), (0,I2), 5).', 3).
+resistor((10,I1), (0,I2), 5).
+q('resistor((V1,2), (0,_), 100).', 3).
+resistor((V1,2), (0,_), 100).
+q('battery((V1,1), (0,I2), 10).', 3).
+battery((V1,1), (0,I2), 10).
+q('diode((5,I1), (V2,I2)), {I1 = 2}.', 3).
+diode((5,I1), (V2,I2)), {I1 = 2}.
+q('diode((5,I1), (8,I2)).', 3).
+diode((5,I1), (8,I2)).
+q('diode((5,I1), (3,I2)).', 3).
+diode((5,I1), (3,I2)).
+q('conn([(V1,1), (V2,2), (V3,I3)]), {V1 = 7}.', 3).
+conn([(V1,1), (V2,2), (V3,I3)]), {V1 = 7}.

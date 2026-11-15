@@ -1,0 +1,24 @@
+?- assertz((gt(X,Y) :- X > Y)).
+X = A
+Y = B
+?- addavl(nil/0,5,T).
+T = t(nil/0,5,nil/0)/1
+?- addavl(t(nil/0,5,nil/0)/1,3,T).
+T = t(nil/0,3,t(nil/0,5,nil/0)/1)/2
+;
+T = t(t(nil/0,3,nil/0)/1,5,nil/0)/2
+?- addavl(nil/0,1,T1), addavl(T1,2,T2), addavl(T2,3,T3).
+T1 = t(nil/0,1,nil/0)/1
+T2 = t(nil/0,1,t(nil/0,2,nil/0)/1)/2
+T3 = t(t(nil/0,1,nil/0)/1,2,t(nil/0,3,nil/0)/1)/2
+;
+T1 = t(nil/0,1,nil/0)/1
+T2 = t(nil/0,1,t(nil/0,2,nil/0)/1)/2
+T3 = t(t(nil/0,1,nil/0)/1,2,t(nil/0,3,nil/0)/1)/2
+;
+T1 = t(nil/0,1,nil/0)/1
+T2 = t(t(nil/0,1,nil/0)/1,2,nil/0)/2
+T3 = t(t(nil/0,1,nil/0)/1,2,t(nil/0,3,nil/0)/1)/2
+...
+?- max1(2,5,M).
+M = 6

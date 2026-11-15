@@ -1,0 +1,12 @@
+q('consult(\'fig1_8.pl\').', 3).
+consult('fig1_8.pl').
+q('prove(parent(pam, X)).', 3).
+prove(parent(pam, X)).
+q('once(prove((parent(X, Y), female(Y)))).', 3).
+once(prove((parent(X, Y), female(Y)))).
+q('prove(true).', 3).
+prove(true).
+q('prove(mother(X, bob)).', 3).
+prove(mother(X, bob)).
+q('findall(X-Y, once(prove(grandparent(X, Y))), L).', 3).
+findall(X-Y, once(prove(grandparent(X, Y))), L).

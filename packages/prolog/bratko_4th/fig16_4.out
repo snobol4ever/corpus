@@ -1,0 +1,8 @@
+?- consult('fig16_5.pl').
+yes
+?- prob(burglary,[call],P).
+P = 0.23213705371651422
+?- prob(call,[],P).
+P = 0.0034893180000000004
+?- prob(not alarm,[sensor],P).
+P = 0.050000000000000044

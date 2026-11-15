@@ -1,0 +1,3 @@
+q('getsentence(W).', 3).
+getsentence(W).
+Mary was pleased to see the robot fail.

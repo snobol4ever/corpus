@@ -1,0 +1,8 @@
+q('assertz((gt(X,Y) :- X > Y)).', 3).
+assertz((gt(X,Y) :- X > Y)).
+q('add(nil,5,T).', 3).
+add(nil,5,T).
+q('add(t(nil,5,nil),3,T).', 3).
+add(t(nil,5,nil),3,T).
+q('addroot(t(t(nil,3,nil),5,nil),4,T).', 3).
+addroot(t(t(nil,3,nil),5,nil),4,T).

@@ -1,0 +1,10 @@
+q('solution(Q).', 3).
+solution(Q).
+q('safe([1,3,5]).', 3).
+safe([1,3,5]).
+q('safe([1,2]).', 3).
+safe([1,2]).
+q('permutation([1,2,3],P).', 3).
+permutation([1,2,3],P).
+q('noattack(1,[3,5],1).', 3).
+noattack(1,[3,5],1).

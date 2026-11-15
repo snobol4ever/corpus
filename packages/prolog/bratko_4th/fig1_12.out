@@ -1,0 +1,23 @@
+?- solution(L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16).
+L1 = f
+L2 = o
+L3 = r
+L4 = u
+L5 = m
+L6 = i
+L7 = u
+L8 = e
+L9 = v
+L10 = a
+L11 = n
+L12 = i
+L13 = s
+L14 = h
+L15 = e
+L16 = s
+?- word(X,o,Y).
+X = d
+Y = g
+;
+X = t
+Y = p

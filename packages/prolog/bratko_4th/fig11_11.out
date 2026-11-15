@@ -1,0 +1,13 @@
+?- assertz(s(a,b)), assertz(s(a,c)), assertz(s(b,d)), assertz(s(b,e)), assertz(s(d,h)), assertz(s(e,i)), assertz(s(e,j)), assertz(s(c,f)), assertz(s(c,g)), assertz(s(f,k)).
+yes
+?- assertz(goal(j)), assertz(goal(f)).
+yes
+?- assertz((extend([Node|Path],NewPaths) :- findall([NewNode,Node|Path],(s(Node,NewNode), \+ member(NewNode,[Node|Path])),NewPaths))).
+Node = A
+Path = B
+NewPaths = C
+NewNode = D
+?- solve(a,S).
+S = [f,c,a]
+;
+S = [j,e,b,a]

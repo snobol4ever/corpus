@@ -1,0 +1,12 @@
+q('consult(\'fig1_8.pl\').', 3).
+consult('fig1_8.pl').
+q('trace(parent(pam, X), 0).', 3).
+trace(parent(pam, X), 0).
+q('trace(predecessor(tom, pat), 0).', 3).
+trace(predecessor(tom, pat), 0).
+q('trace((parent(X, bob), female(X)), 0).', 3).
+trace((parent(X, bob), female(X)), 0).
+q('trace(parent(jim, X), 0).', 3).
+trace(parent(jim, X), 0).
+q('display(\'Call: \', p(a), 3).', 3).
+display('Call: ', p(a), 3).

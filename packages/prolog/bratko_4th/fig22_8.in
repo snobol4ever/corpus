@@ -1,0 +1,44 @@
+q('qdir(D, Sign).', 3).
+qdir(D, Sign).
+q('qsum(neg, pos, X).', 3).
+qsum(neg, pos, X).
+q('qdirsum(inc, dec, D).', 3).
+qdirsum(inc, dec, D).
+q('qdirsum(inc, std, D).', 3).
+qdirsum(inc, std, D).
+q('compare_lands(zero, top, [zero, top, inf], Sign).', 3).
+compare_lands(zero, top, [zero, top, inf], Sign).
+q('compare_lands(inf, top, [zero, top, inf], Sign).', 3).
+compare_lands(inf, top, [zero, top, inf], Sign).
+q('once(consult(\'fig22_9.pl\')), qmag(level:Q).', 3).
+once(consult('fig22_9.pl')), qmag(level:Q).
+q('once(consult(\'fig22_9.pl\')), relative_qmag(level:zero..top, level:top, Sign).', 3).
+once(consult('fig22_9.pl')), relative_qmag(level:zero..top, level:top, Sign).
+q('once(consult(\'fig22_9.pl\')), relative_qmag(level:top, level:zero, Sign).', 3).
+once(consult('fig22_9.pl')), relative_qmag(level:top, level:zero, Sign).
+q('once(consult(\'fig22_9.pl\')), transition(level:zero/inc, V).', 3).
+once(consult('fig22_9.pl')), transition(level:zero/inc, V).
+q('once(consult(\'fig22_9.pl\')), transition(level:zero..top/inc, V).', 3).
+once(consult('fig22_9.pl')), transition(level:zero..top/inc, V).
+q('once(consult(\'fig22_9.pl\')), initial(S), legalstate(S).', 3).
+once(consult('fig22_9.pl')), initial(S), legalstate(S).
+q('once(consult(\'fig22_9.pl\')), initial(S), legal_trans(S, S2).', 3).
+once(consult('fig22_9.pl')), initial(S), legal_trans(S, S2).
+q('once(consult(\'fig22_9.pl\')), initial(S), simulate(S, B, 10), length(B, N).', 3).
+once(consult('fig22_9.pl')), initial(S), simulate(S, B, 10), length(B, N).
+q('once(consult(\'fig22_9.pl\')), initial(S), findall(N, (simulate(S, B, 10), length(B, N)), Ns).', 3).
+once(consult('fig22_9.pl')), initial(S), findall(N, (simulate(S, B, 10), length(B, N)), Ns).
+q('once(consult(\'fig22_9.pl\')), sum(flow:zero/inc, flow:N, flow:inflow/std).', 3).
+once(consult('fig22_9.pl')), sum(flow:zero/inc, flow:N, flow:inflow/std).
+q('once(consult(\'fig22_9.pl\')), mplus(amount:zero/inc, level:L).', 3).
+once(consult('fig22_9.pl')), mplus(amount:zero/inc, level:L).
+q('once(consult(\'fig22_9.pl\')), deriv(amount:zero..full/D, flow:zero..inflow/dec).', 3).
+once(consult('fig22_9.pl')), deriv(amount:zero..full/D, flow:zero..inflow/dec).
+q('once(consult(\'fig22_11.pl\')), initial(S), simulate(S, B, 6), length(B, N).', 3).
+once(consult('fig22_11.pl')), initial(S), simulate(S, B, 6), length(B, N).
+q('once(consult(\'fig22_11.pl\')), initial(S), findall(N, (simulate(S, B, 6), length(B, N)), Ns).', 3).
+once(consult('fig22_11.pl')), initial(S), findall(N, (simulate(S, B, 6), length(B, N)), Ns).
+q('once(consult(\'fig22_13.pl\')), initial(S), simulate(S, B, 8), length(B, N).', 3).
+once(consult('fig22_13.pl')), initial(S), simulate(S, B, 8), length(B, N).
+q('once(consult(\'fig22_13.pl\')), initial(S), findall(N, (simulate(S, B, 5), length(B, N)), Ns), length(Ns, Count).', 3).
+once(consult('fig22_13.pl')), initial(S), findall(N, (simulate(S, B, 5), length(B, N)), Ns), length(Ns, Count).

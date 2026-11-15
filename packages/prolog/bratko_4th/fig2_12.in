@@ -1,0 +1,12 @@
+q('consult(\'fig1_8.pl\').', 3).
+consult('fig1_8.pl').
+q('anc1(X,jim).', 3).
+anc1(X,jim).
+q('anc2(X,jim).', 3).
+anc2(X,jim).
+q('anc3(X,jim).', 3).
+anc3(X,jim).
+q('anc1(tom,pat).', 3).
+anc1(tom,pat).
+q('anc2(liz,jim).', 3).
+anc2(liz,jim).

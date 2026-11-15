@@ -1,0 +1,12 @@
+?- block(b1,D).
+D = dim(5.0,3.0)
+?- rotate(rect(p,dim(1,2)),R).
+R = rect(p,dim(1,2))
+;
+R = rect(p,dim(2,1))
+?- block_rectangle(b3,R).
+R = rect(A,dim(1.0,2.4))
+;
+R = rect(A,dim(2.4,1.0))
+?- fit(box1,B1,B2,B3,B4).
+raised(existence_error(procedure,{}/1))

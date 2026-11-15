@@ -1,0 +1,10 @@
+q('consult(\'fig16_4.pl\').', 3).
+consult('fig16_4.pl').
+q('parent(X,sensor).', 3).
+parent(X,sensor).
+q('p(burglary,P).', 3).
+p(burglary,P).
+q('prob(alarm,[burglary],P).', 3).
+prob(alarm,[burglary],P).
+q('prob(sensor,[],P).', 3).
+prob(sensor,[],P).

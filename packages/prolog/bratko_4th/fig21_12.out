@@ -1,0 +1,224 @@
+?- consult('fig21_3.pl').
+yes
+?- consult('fig21_7.pl').
+yes
+?- assertz((term(_, _, _) :- fail)).
+yes
+?- induce(H), show_hyp(H).
+
+Hypotheses generated: 5
+Hypotheses refined:   0
+To be refined:        4
+Refining hypo with cost 63:
+
+arch(A,B,C).
+
+
+Hypotheses generated: 47
+Hypotheses refined:   1
+To be refined:        22
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C).
+
+
+
+Hypotheses generated: 86
+Hypotheses refined:   2
+To be refined:        48
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(A,C).
+
+
+
+Hypotheses generated: 125
+Hypotheses refined:   3
+To be refined:        74
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B).
+
+
+
+Hypotheses generated: 162
+Hypotheses refined:   4
+To be refined:        99
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C),
+  support(A,C).
+
+
+
+Hypotheses generated: 195
+Hypotheses refined:   5
+To be refined:        125
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C),
+  isa(C,stable_poly).
+
+
+
+Hypotheses generated: 231
+Hypotheses refined:   6
+To be refined:        150
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(A,C),
+  \+touch(A,B).
+
+
+
+Hypotheses generated: 268
+Hypotheses refined:   7
+To be refined:        175
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(A,C),
+  support(B,C).
+
+
+
+Hypotheses generated: 301
+Hypotheses refined:   8
+To be refined:        201
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(A,C),
+  isa(C,stable_poly).
+
+
+
+Hypotheses generated: 337
+Hypotheses refined:   9
+To be refined:        226
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B),
+  support(A,C).
+
+
+
+Hypotheses generated: 368
+Hypotheses refined:   10
+To be refined:        251
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B),
+  support(A,C),
+  isa(C,stable_poly).
+
+H = [[arch(A,B,C),support(B,C),\+touch(A,B),support(A,C),isa(C,stable_poly)]/[A:object,B:object,C:object]]
+Refining hypo with cost 0:
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B),
+  support(A,C),
+  isa(C,stable_poly).
+
+
+
+Hypotheses generated: 368
+Hypotheses refined:   11
+To be refined:        250
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B),
+  isa(C,stable_poly).
+
+
+
+Hypotheses generated: 402
+Hypotheses refined:   12
+To be refined:        274
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B),
+  isa(C,stable_poly),
+  support(A,C).
+
+;
+H = [[arch(A,B,C),support(B,C),\+touch(A,B),isa(C,stable_poly),support(A,C)]/[A:object,B:object,C:object]]
+Refining hypo with cost 0:
+
+arch(A,B,C):-
+  support(B,C),
+  \+touch(A,B),
+  isa(C,stable_poly),
+  support(A,C).
+
+
+
+Hypotheses generated: 402
+Hypotheses refined:   13
+To be refined:        273
+Refining hypo with cost 53:
+
+arch(A,B,C):-
+  support(B,C),
+  support(A,C),
+  \+touch(A,B).
+
+
+
+Hypotheses generated: 433
+Hypotheses refined:   14
+To be refined:        298
+
+arch(A,B,C):-
+  support(B,C),
+  support(A,C),
+  \+touch(A,B),
+  isa(C,stable_poly).
+
+;
+H = [[arch(A,B,C),support(B,C),support(A,C),\+touch(A,B),isa(C,stable_poly)]/[A:object,B:object,C:object]]
+...
+?- isa(c4, X).
+X = triangle
+;
+X = stable_poly
+;
+X = convex_poly
+...
+?- findall(X, isa(X, rectangle), L).
+X = A
+L = [a1,a2,a3,a4,a5,b1,b2,b3,b4,b5,c1,c2,c3]
+?- support(X, c3).
+X = a3
+;
+X = b3
+?- backliteral(isa(X, Y), In, Out).
+X = A
+Y = polygon
+In = [A:object]
+Out = []
+;
+X = A
+Y = convex_poly
+In = [A:object]
+Out = []
+;
+X = A
+Y = stable_poly
+In = [A:object]
+Out = []
+...

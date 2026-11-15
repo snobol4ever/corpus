@@ -1,0 +1,19 @@
+?- stree([a-b,b-c,b-d,c-d],T).
+T = [b-d,b-c,a-b]
+;
+T = [b-d,b-c,a-b]
+;
+T = [c-d,b-c,a-b]
+...
+?- adjacent(b,X,[a-b,b-c]).
+X = c
+;
+X = a
+?- node(X,[a-b]).
+X = a
+;
+X = b
+?- addedge([a-b],T,[a-b,b-c,b-d,c-d]).
+T = [b-c,a-b]
+;
+T = [b-d,a-b]
