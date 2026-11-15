@@ -9434,6 +9434,28 @@ repeat {
 1
 ```
 
+## block_default__a_block_parameter_keeps_its_default
+
+```Raku
+my $g = -> $a, $b = $a { say "$a $b" }; $g(3); $g(3, 4);
+my $h = -> $x = 5 { say $x }; $h(); $h(6);
+my $k = sub ($a, $b = 7) { say "$a $b" }; $k(1); $k(1, 2);
+sub w(&c) { c(1) }; w(-> $a, $b = "z" { say "$a $b" });
+my $o = -> $a, :$n = 9 { say "$a $n" }; $o(1); $o(1, :n(2));
+```
+
+```stdout
+3 3
+3 4
+5
+6
+1 7
+1 2
+1 z
+1 9
+1 2
+```
+
 ## ladder__rung04_arrays_a_method_call_after_whitespace_or_a_newline_applies_to_the_whole_term
 
 ```Raku
@@ -19000,6 +19022,37 @@ say ((1, 2), (3, 4)).map({ .reduce({ $^a + $^b }) });
 (rpea pplea igf)
 120 -13
 (3 7)
+```
+
+## block_default__a_block_parameter_default_in_more_forms
+
+```Raku
+my $pre = "p";
+my $a = -> Int $n = 3, Str $s = "s" { "$n$s" }; say $a(); say $a(4); say $a(4, "t");
+my $b = -> $x = $pre ~ "!" { $x }; say $b(); say $b("q");
+say (1, 2).map(-> $v, $w = 10 { $v + $w });
+my &c = sub ($z = 1) { $z * 2 }; say c(); say c(5);
+my $d = -> $m, *@rest { "$m:{@rest.elems}" }; say $d(1); say $d(1, 2, 3);
+my $e = -> :$k = "dk" { $k }; say $e(); say $e(:k<kk>);
+sub apply(&f) { f() }; say apply(-> $q = "dq" { $q });
+my $f = { $^a + ($^b // 0) }; say $f(1, 2);
+```
+
+```stdout
+3s
+4s
+4t
+p!
+q
+(3)
+2
+10
+1:0
+1:2
+dk
+kk
+dq
+3
 ```
 
 ## ladder__rung04_arrays_cross_zip_flat_and_unpacking
