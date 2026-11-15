@@ -45,3 +45,9 @@ xml/createdemo.icn	same-code
 xml/globaldemo.icn	same-code
 xml/testpatterns.icn	same-code
 xml/testxml.icn	same-code
+unidoc/UniDoc.icn	same-code
+unidoc/UniHTML.icn	same-code
+unidoc/UniForm.icn	same-code
+parser/preproce.icn	same-code
+parser/unigram.icn	same-code
+parser/unigram.action.icn	same-code
