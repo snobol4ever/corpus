@@ -6566,6 +6566,29 @@ hello world
 42
 ```
 
+## sub_sig__a-slurpy-before-a-capture-parameter-takes-every-positional
+
+```Raku
+sub a(+vals, |c) { vals.elems }
+say a(1, 1, 2);
+sub b(*@vals, |c) { @vals.elems }
+say b(1, 1, 2);
+sub d(+@vals, |c) { @vals.elems }
+say d(1, 1, 2);
+sub e(+vals, |c) { say vals; say c.elems }
+e(1, 1, 2);
+say squish(1, 1, 2);
+```
+
+```stdout
+3
+3
+3
+(1 1 2)
+0
+(1 2)
+```
+
 ## channel__send_receive_poll_close_list
 
 ```Raku
