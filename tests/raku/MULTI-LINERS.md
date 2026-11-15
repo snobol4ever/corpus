@@ -19930,6 +19930,27 @@ int:42
 str:hi
 ```
 
+## exceptions__a_multi_call_two_candidates_tie_for_is_ambiguous
+
+```Raku
+multi sub s(Int $a) { 1 }; multi sub s(Int $b) { 2 }; try s(1); say $!.^name;
+multi f(Int $a, Str $b) { 1 }; multi f(Int $a, Any $b) { 2 }; say f(1, "x"); say f(1, 2);
+multi g(Any $a, Int $b) { 1 }; multi g(Int $a, Any $b) { 2 }; try g(1, 2); say $!.^name; say $! ~~ Exception;
+multi k(Int $a) { "i" }; multi k(Int $a where * > 5) { "big" }; say k(1); say k(9);
+class A { multi method m(Int $a) { 1 }; multi method m(Int $b) { 2 } }; try A.new.m(1); say $!.^name;
+```
+
+```stdout
+X::Multi::Ambiguous
+1
+2
+X::Multi::Ambiguous
+True
+i
+big
+X::Multi::Ambiguous
+```
+
 ## core__rc13_callable_smartmatch
 
 ```Raku

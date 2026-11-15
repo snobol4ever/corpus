@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1672 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,26
+# shape: entries=1673 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,27
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -230,7 +230,7 @@ parser__say_var	chunk:15	family:parser
 parser__try_catch	chunk:12	feat:try	try
 parser__try_catch_lower	chunk:12	feat:try	try
 parser_coverage__stmt_ctrl_whenever	chunk:15	family:parser_coverage	
-parser_coverage__stmt_ctrl_without	chunk:15	family:parser_coverage	
+parser_coverage__stmt_ctrl_without	chunk:16	family:parser_coverage	
 parser_coverage__stmt_pfx_CLOSE	chunk:03	feat:say	say
 parser_coverage__stmt_pfx_eager	chunk:05	feat:sigil_array	sigil_array
 parser_coverage__stmt_pfx_hyper	chunk:05	feat:sigil_array	sigil_array
@@ -342,7 +342,7 @@ numify__division_and_modulo_of_a_non_numeric_string_raise	chunk:12	feat:try	try
 revisions__rv08_a_class_answers_its_ver	chunk:16	family:revisions	
 say_63	chunk:04	feat:say	say
 ladder__rung11_junctions_operator	chunk:10	feat:if	if
-numify__arithmetic_on_a_non_numeric_string_raises	chunk:12	feat:try	try
+numify__arithmetic_on_a_non_numeric_string_raises	chunk:13	feat:try	try
 ladder__rung024_kw_inf_inf_negative_zero	chunk:04	feat:say	say
 ladder__rung07_subs_lowercase_main_is_an_ordinary_sub	chunk:08	feat:sub	sub
 ladder__rung12_exceptions	chunk:13	feat:try	try
@@ -537,7 +537,7 @@ ladder__rung15_blocks_first	chunk:05	feat:sigil_array	sigil_array
 ladder__rung15_blocks_placeholders	chunk:02	family:ladder	
 ladder__rung15_blocks_pointy	chunk:02	family:ladder	
 ladder__rung15_blocks_topic	chunk:02	family:ladder	
-ladder__rung16_bool_relops_numeric_equality_counts_a_list_returning_method_call	chunk:14	feat:grep	grep say
+ladder__rung16_bool_relops_numeric_equality_counts_a_list_returning_method_call	chunk:15	feat:grep	grep say
 ladder__rung18_two_arg_block_reduce_add	chunk:05	feat:sigil_array	sigil_array
 ladder__rung18_two_arg_block_reduce_mul	chunk:05	feat:sigil_array	sigil_array
 ladder__rung19_block_a_sub_reads_its_own_topic	chunk:08	feat:sub	sub
@@ -708,7 +708,7 @@ ladder__rung025_kw_nan_nan_identity	chunk:02	family:ladder
 ladder__rung027_quote_q_adverb_long_names	chunk:02	family:ladder	
 ladder__rung02_arithmetic	chunk:02	family:ladder	
 proc__run_feeds_in_and_reads_out_and_err	chunk:16	family:proc	
-roast_causes__rc06_samecase_reads_the_case_of_each_pattern_char	chunk:16	family:roast_causes	
+roast_causes__rc06_samecase_reads_the_case_of_each_pattern_char	chunk:17	family:roast_causes	
 user_op__a_literal_in_a_multi_signature_is_a_value_constraint	chunk:12	feat:multi	multi
 user_op__an_enum_value_in_a_multi_signature_is_a_value_constraint	chunk:12	feat:multi	multi
 core__rc01_core_subs	chunk:05	feat:sigil_array	sigil_array
@@ -1426,7 +1426,7 @@ class_method_say_replace_34	chunk:13	feat:return	method return say
 class_method_say_replace_47	chunk:13	feat:return	method return say
 class_method_say_replace_48	chunk:13	feat:return	method return say
 class_method_say_replace_49	chunk:13	feat:return	method return say
-class_method_say_replace_52	chunk:13	feat:return	method return say
+class_method_say_replace_52	chunk:14	feat:return	method return say
 class_sub_say_replace_1	chunk:06	feat:has	has say sub
 complex__a_complex_value_names_its_type	chunk:12	feat:multi	multi smartmatch string_concat sub
 core__rc05_value_call_returned_closure	chunk:14	feat:map	map range_op sigil_array sub
@@ -1581,6 +1581,7 @@ class_method_range_replace_2	chunk:07	feat:has	has method range_op return say
 class_method_range_replace_3	chunk:07	feat:has	has method range_op return say
 class_method_say_replace_21	chunk:07	feat:has	has method return say string_concat
 class_method_multi_replace_5	chunk:12	feat:multi	method multi return say string_concat
+exceptions__a_multi_call_two_candidates_tie_for_is_ambiguous	chunk:12	feat:multi	method multi smartmatch string_concat sub try
 core__rc13_callable_smartmatch	chunk:15	feat:grep	grep map range_op sigil_array smartmatch string_concat
 exceptions__a_coercion_parameter_refuses_an_uncoercible_argument	chunk:13	feat:try	method smartmatch string_concat sub try
 ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized	chunk:10	feat:join	for for_with_say join range_op say sigil_array
