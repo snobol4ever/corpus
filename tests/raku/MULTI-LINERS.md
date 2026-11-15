@@ -17104,6 +17104,30 @@ ok
 after
 ```
 
+## lazy_capture__a_capture_of_a_lazy_list_throws_x_cannot_lazy
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+try { (1..*).list.Capture }; say $!.^name; say $!.message; say $!.action; say $!.what;
+my $s = (1..*).map(* + 1); try { $s.Capture }; say $!.^name; say $!.action;
+try EVAL ｢(1..*).list.Capture｣; say $!.^name;
+say (1..*).list.is-lazy; say (1, 2, 3).Capture.elems;
+say "end";
+```
+
+```stdout
+X::Cannot::Lazy
+Cannot create a Capture from a lazy list onto a List
+create a Capture from
+List
+X::Cannot::Lazy
+create a Capture from
+X::Cannot::Lazy
+True
+3
+end
+```
+
 ## pair_class__literal_pair_is_immutable_array_pair_writes
 
 ```Raku
