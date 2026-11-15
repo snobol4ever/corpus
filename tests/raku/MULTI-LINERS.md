@@ -9631,6 +9631,23 @@ try {
 adhoc: typed
 ```
 
+## method_lexical__a_file_scope_lexical_a_closure_argument_writes_and_a_sub_reads
+
+```Raku
+sub t2(&c) { c() }
+my $m = "init";
+sub show { say $m }
+show();
+t2 { $m = "hello"; say $m }
+show();
+```
+
+```stdout
+init
+hello
+hello
+```
+
 ## simple_assign_92
 
 ```Raku
@@ -14601,6 +14618,23 @@ say($i);
 3
 ```
 
+## method_lexical__a_file_scope_lexical_a_closure_argument_writes_and_a_method_reads
+
+```Raku
+sub t2(&c) { c() }
+my $m2 = "init";
+class Foo2 { method Str { $m2 } }
+say Foo2.new.Str;
+t2 { $m2 = "hello"; say $m2 }
+say Foo2.new.Str;
+```
+
+```stdout
+init
+hello
+hello
+```
+
 ## rw_method__method_param_is_rw
 
 ```Raku
@@ -18520,6 +18554,22 @@ say (map { $_ * 10 }, @a).elems;
 [2 4 6 8]
 (4 6)
 3
+```
+
+## method_lexical__a_file_scope_counter_a_map_block_writes_and_a_sub_reads
+
+```Raku
+my $count = 0;
+sub report { say $count }
+(1, 2, 3).map({ $count++ });
+report();
+for 1..2 { $count += 10 }
+report();
+```
+
+```stdout
+3
+23
 ```
 
 ## class_method_multi_replace_4
