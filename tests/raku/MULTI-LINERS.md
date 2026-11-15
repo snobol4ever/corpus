@@ -20428,6 +20428,28 @@ X::TypeCheck::Binding::Parameter
 Type check failed in binding to parameter '$x'; expected Int but got Str ("s")
 ```
 
+## c_site__a-generator-inside-an-eval-is-planned-as-a-generator
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+EVAL q[my @a = 2, 4, 8 ... *; say @a[1]];
+EVAL q[my $s = gather { take 1; take 2 }; say $s[1]];
+EVAL q[say (gather { take 3; take 4 })[1]];
+EVAL q[sub g() { gather { take 5; take 6 } }; say g()[1]];
+for 1..2 { EVAL q[my @b = gather { take 7 }; say @b[0]] }
+say "after";
+```
+
+```stdout
+4
+2
+4
+6
+7
+7
+after
+```
+
 ## ladder__rung04_arrays_join_flattens_its_list_arguments_as_a_slurpy_and_keeps_array_elements_itemized
 
 ```Raku
