@@ -9853,7 +9853,7 @@ abc
 abc
 aaaaabbbbbccccc
 #----------------------------------------------------------------- 391 progs/cwd
-pkgsuite_oracle_11hw02yu
+progs
 #---------------------------------------------------------------- 392 progs/deal
 
           S: 3
@@ -9875,829 +9875,2501 @@ C: T82              C: A653
 #------------------------------------------------------------ 393 progs/declchck
 adlcheck
    locals
-cannot open .u1 file for "adlcheck.icn"
+	main
+		potential local conflict: args
+   globals
+
 adlcount
    locals
-cannot open .u1 file for "adlcount.icn"
+	main
+   globals
+
 adlfiltr
    locals
-cannot open .u1 file for "adlfiltr.icn"
+	main
+		potential local conflict: args
+   globals
+
 adlfirst
    locals
-cannot open .u1 file for "adlfirst.icn"
+	main
+   globals
+
 adllist
    locals
-cannot open .u1 file for "adllist.icn"
+	main
+		potential local conflict: args
+   globals
+
 adlsort
    locals
-cannot open .u1 file for "adlsort.icn"
+	main
+		potential local conflict: args
+   globals
+
 animal
    locals
-cannot open .u1 file for "animal.icn"
+	main
+	Game
+	Confirm
+	Ask
+	Article
+	Save
+	Output
+	Get
+	Input
+	List
+	Show
+   globals
+
 applyfnc
    locals
-cannot open .u1 file for "applyfnc.icn"
+	main
+		potential local conflict: args
+   globals
+
 banner
    locals
-cannot open .u1 file for "banner.icn"
+	main
+	banner
+   globals
+
 based
    locals
-cannot open .u1 file for "based.icn"
+	main
+	quit
+	load
+	save
+	resave
+	basread
+	baswrite
+	merge
+	dir
+	del
+	new
+	search
+	compile
+	build
+	run
+	print
+	proc_list
+	renum
+	help
+	entry
+	shell
+	parse
+	last
+   globals
+		potential global conflict: name
+
 bfd
    locals
-cannot open .u1 file for "bfd.icn"
+	main
+		potential local conflict: args
+	bestfit
+   globals
+
 bj
    locals
-cannot open .u1 file for "bj.icn"
+	main
+	first
+	second
+	display_score
+	value
+	display_user
+	display_host
+	display
+	xshuffle
+	parse
+	input
+	screen
+	at
+   globals
+
 blnk2tab
    locals
-cannot open .u1 file for "blnk2tab.icn"
+	main
+		potential local conflict: args
+   globals
+
 c2icn
    locals
-cannot open .u1 file for "c2icn.icn"
+	main
+	Out
+   globals
+
 calc
    locals
-cannot open .u1 file for "calc.icn"
+	main
+	command
+	operation
+	value
+   globals
+
 catlines
    locals
-cannot open .u1 file for "catlines.icn"
+	main
+   globals
+
 chars
    locals
-cannot open .u1 file for "chars.icn"
+	main
+   globals
+
 chkhtml
    locals
-cannot open .u1 file for "chkhtml.icn"
+	Usage
+	Init
+	main
+	CheckHTML
+	CheckHRefs
+	CheckStack
+	ProcessTag
+	ProcessATag
+	CheckTag
+	ScanAttrs
+	CheckContext
+	ProcessEscape
+	GiveAdvice
+	SetMsg
+	UnixMsg
+	MPWMsg
+	Error
+	Space
+	Up
+   globals
+
 choose
    locals
-cannot open .u1 file for "choose.icn"
+	main
+		potential local conflict: args
+	dofile
+   globals
+
 chop
    locals
-cannot open .u1 file for "chop.icn"
+	main
+		potential local conflict: args
+   globals
+
 colm
    locals
-cannot open .u1 file for "colm.icn"
+	main
+   globals
+
 comfiles
    locals
-cannot open .u1 file for "comfiles.icn"
+	main
+		potential local conflict: args
+   globals
+
 compare
    locals
-cannot open .u1 file for "compare.icn"
+	main
+		potential local conflict: args
+   globals
+
 comply83
    locals
-cannot open .u1 file for "comply83.icn"
+	main
+   globals
+
 concord
    locals
-cannot open .u1 file for "concord.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+	tabulate
+		potential local conflict: name
+	format
+	item
+   globals
+
 conman
    locals
-cannot open .u1 file for "conman.icn"
+	main
+		potential local conflict: args
+	windup
+	process
+	parse
+	conman
+	isare
+	stack
+	eval
+	init
+	prompt
+	load
+	save
+	zlist
+	first
+	second
+	butfirst
+	singular
+   globals
+
 countlst
    locals
-cannot open .u1 file for "countlst.icn"
+	main
+		potential local conflict: args
+   globals
+
 cross
    locals
-cannot open .u1 file for "cross.icn"
+	main
+	kross
+	fit
+		potential local conflict: where
+	tstv
+	tsth
+	gen
+	putvert
+	puthoriz
+		potential local conflict: left
+		potential local conflict: right
+	Print
+   globals
+
 crypt
    locals
-cannot open .u1 file for "crypt.icn"
+	main
+		potential local conflict: args
+   globals
+
 csgen
    locals
-cannot open .u1 file for "csgen.icn"
+	main
+		potential local conflict: args
+	subst
+	xpairs
+   globals
+
 cstrings
    locals
-cannot open .u1 file for "cstrings.icn"
+	main
+   globals
+
 cwd
    locals
-cannot open .u1 file for "cwd.icn"
+	main
+   globals
+
 datmerge
    locals
-cannot open .u1 file for "datmerge.icn"
+	main
+		potential local conflict: args
+	merge
+	minimum
+	maximum
+	mean
+	median
+	nsubset
+   globals
+
 daystil
    locals
-cannot open .u1 file for "daystil.icn"
+	NumberOfDays
+	CaselessMatch
+	Usage
+	main
+   globals
+
 ddfdump
    locals
-cannot open .u1 file for "ddfdump.icn"
+	main
+		potential local conflict: args
+	dofile
+	img
+   globals
+
 deal
    locals
-cannot open .u1 file for "deal.icn"
+	main
+		potential local conflict: args
+	disphand
+	show
+	arrange
+   globals
+
 declchck
    locals
-cannot open .u1 file for "declchck.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+		potential local conflict: proc
+   globals
+
 delamc
    locals
-cannot open .u1 file for "delamc.icn"
+	main
+	delamrc
+	doutfyls
+	llu
+   globals
+
 delam
    locals
-cannot open .u1 file for "delam.icn"
+	main
+	delamr
+	doutfyls
+	fldecode
+	llu
+	str2lst
+   globals
+
 dellines
    locals
-cannot open .u1 file for "dellines.icn"
+	main
+   globals
+
 delta
    locals
-cannot open .u1 file for "delta.icn"
+	main
+   globals
+
 diffn
    locals
-cannot open .u1 file for "diffn.icn"
+	main
+	listrange
+	myread
+   globals
+
 diffsort
    locals
-cannot open .u1 file for "diffsort.icn"
+	main
+		potential local conflict: args
+	dofile
+   globals
+
 diffsum
    locals
-cannot open .u1 file for "diffsum.icn"
+	main
+		potential local conflict: args
+	report
+	only
+   globals
+
 diffu
    locals
-cannot open .u1 file for "diffu.icn"
+	main
+	zot
+   globals
+
 diffword
    locals
-cannot open .u1 file for "diffword.icn"
+	main
+   globals
+
 digcol
    locals
-cannot open .u1 file for "digcol.icn"
+	main
+		potential local conflict: args
+   globals
+
 diskpack
    locals
-cannot open .u1 file for "diskpack.icn"
+	main
+   globals
+
 duplfile
    locals
-cannot open .u1 file for "duplfile.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+	fix
+   globals
+
 duplproc
    locals
-cannot open .u1 file for "duplproc.icn"
+	main
+	getlibpaths
+	fixup_path
+	get_procedures
+	take_out_comments
+	get_icn_filenames
+	set_getdir_by_os
+	msdos_get_dir
+	get_dos_tempname
+	unix_get_dir
+   globals
+
 edscript
    locals
-cannot open .u1 file for "edscript.icn"
+	main
+		potential local conflict: image
+		potential local conflict: char
+	insert
+	error
+	xform
+   globals
+
 empg
    locals
-cannot open .u1 file for "empg.icn"
+	main
+		potential local conflict: args
+	declare
+	evaluate
+	timeloop
+   globals
+
 envelope
    locals
-cannot open .u1 file for "envelope.icn"
+	main
+	address
+	barcode
+	clean
+   globals
+
 evaluate
    locals
-cannot open .u1 file for "evaluate.icn"
+	main
+		potential local conflict: args
+   globals
+
 extweave
    locals
-cannot open .u1 file for "extweave.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+	decol
+   globals
+
 farb2
    locals
-cannot open .u1 file for "farb2.icn"
+	main
+   globals
+
 farb
    locals
-cannot open .u1 file for "farb.icn"
+	main
+   globals
+
 filecnvt
    locals
-cannot open .u1 file for "filecnvt.icn"
+	main
+		potential local conflict: args
+	eoln
+   globals
+
 filehtml
    locals
-cannot open .u1 file for "filehtml.icn"
+	main
+		potential local conflict: args
+   globals
+
 fileprep
    locals
-cannot open .u1 file for "fileprep.icn"
+	main
+   globals
+
 fileprnt
    locals
-cannot open .u1 file for "fileprnt.icn"
+	main
+   globals
+
 filerepl
    locals
-cannot open .u1 file for "filerepl.icn"
+	main
+		potential local conflict: args
+   globals
+
 filesect
    locals
-cannot open .u1 file for "filesect.icn"
+	main
+   globals
+
 filexref
    locals
-cannot open .u1 file for "filexref.icn"
+	main
+   globals
+
 filtskel
    locals
-cannot open .u1 file for "filtskel.icn"
+	main
+   globals
+
 findstr
    locals
-cannot open .u1 file for "findstr.icn"
+	main
+   globals
+
 findtext
    locals
-cannot open .u1 file for "findtext.icn"
+	main
+		potential local conflict: args
+   globals
+
 fixhqx
    locals
-cannot open .u1 file for "fixhqx.icn"
+	main
+   globals
+
 fixpath
    locals
-cannot open .u1 file for "fixpath.icn"
+	main
+		potential local conflict: args
+   globals
+
 fnctab
    locals
-cannot open .u1 file for "fnctab.icn"
+	main
+		potential local conflict: name
+   globals
+
 fnctmpl
    locals
-cannot open .u1 file for "fnctmpl.icn"
+	main
+		potential local conflict: name
+   globals
+
 format
    locals
-cannot open .u1 file for "format.icn"
+	main
+	justify
+   globals
+
 former
    locals
-cannot open .u1 file for "former.icn"
+	main
+		potential local conflict: args
+   globals
+
 fract
    locals
-cannot open .u1 file for "fract.icn"
+	main
+		potential local conflict: args
+   globals
+
 fset
    locals
-cannot open .u1 file for "fset.icn"
+	main
+		potential local conflict: args
+	Exp
+	Factor
+	Name
+	Non
+	Op
+	Term
+	bldfset
+	exec
+	exec2
+	mkfset
+	parse
+	sdiff
+	setops
+	sinter
+	str2set
+	sunion
+   globals
+
 fuzz
    locals
-cannot open .u1 file for "fuzz.icn"
+	main
+	rank
+	fuzz_value_1
+	fuzz_match_1
+	fuzz_value_2
+	fuzz_match_2
+	fuzz_value_3
+	fuzz_match_3
+	fuzz_self_3
+   globals
+
 gcomp
    locals
-cannot open .u1 file for "gcomp.icn"
+	main
+		potential local conflict: args
+   globals
+
 geddump
    locals
-cannot open .u1 file for "geddump.icn"
+	main
+		potential local conflict: args
+	event
+	refto
+	sortkey
+   globals
+
 gediff
    locals
-cannot open .u1 file for "gediff.icn"
+	Options
+	main
+   globals
+
 gener
    locals
-cannot open .u1 file for "gener.icn"
+	main
+		potential local conflict: args
+   globals
+
 genfile
    locals
-cannot open .u1 file for "genfile.icn"
+	main
+		potential local conflict: args
+   globals
+
 genqueen
    locals
-cannot open .u1 file for "genqueen.icn"
+	main
+		potential local conflict: args
+	placequeen
+	solvequeen
+	writeboard
+   globals
+
 getcol
    locals
-cannot open .u1 file for "getcol.icn"
+	main
+		potential local conflict: args
+   globals
+
 getlines
    locals
-cannot open .u1 file for "getlines.icn"
+	main
+   globals
+
 gftrace
    locals
-cannot open .u1 file for "gftrace.icn"
+	main
+	header
+   globals
+
 graphdem
    locals
-cannot open .u1 file for "graphdem.icn"
+	main
+	countdemo
+	frequ_count
+	fibodemo
+	fibo
+	graph
+   globals
+
 grpsort
    locals
-cannot open .u1 file for "grpsort.icn"
+	main
+		potential local conflict: args
+	enter
+	eorec
+	getline
+	lmany
+	printord
+	printrecs
+   globals
+
 hcal4unx
    locals
-cannot open .u1 file for "hcal4unx.icn"
+	main
+	display_startup_screen
+	banner
+	get_paths
+	instructions
+	clear
+	initialize_list
+	initialize_variables
+	initialize
+	get_current_year
+	cleanup
+	Strip
+	checkstr
+	process
+	how_many_can_fit
+	cyr_augment
+	header
+	write_a_month
+	status_line
+	boldface
+	normal
+	make_a_line
+	mth_table
+	d_augment
+	augment
+	is_31
+	isleap
+	j_augment
+	always_29
+	jyr_augment
+	establish_jyr
+	isin1
+	isin2
+	isin3
+	isin4
+	isin5
+	isin6
+	no_lunar_yr
+	get_rh
+   globals
+
 headicon
    locals
-cannot open .u1 file for "headicon.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 hebcalen
    locals
-cannot open .u1 file for "hebcalen.icn"
+	main
+	banner
+	instructions
+	clear
+	initialize_list
+	initialize_variables
+	initialize
+	cleanup
+	checkstr
+	process
+	cyr_augment
+	header
+	write_a_month
+	status_line
+	make_a_line
+	mth_table
+	d_augment
+	augment
+	is_31
+	isleap
+	j_augment
+	always_29
+	jyr_augment
+	establish_jyr
+	isin1
+	isin2
+	isin3
+	isin4
+	isin5
+	isin6
+	no_lunar_yr
+	get_rh
+   globals
+
 hebeng
    locals
-cannot open .u1 file for "hebeng.icn"
+	main
+   globals
+
 hotedit
    locals
-cannot open .u1 file for "hotedit.icn"
+	main
+   globals
+
 hr
    locals
-cannot open .u1 file for "hr.icn"
+	main
+	ready
+	get_players
+	get_horse
+	get_bet
+	pay
+	race
+	display
+	accident
+	draw_track
+	mktrack
+	done
+	pick1
+	pick2
+	pick3
+	pick4
+	pick5
+	pick6
+	banner
+	at
+	wait
+	input
+	parse
+   globals
+
 htget
    locals
-cannot open .u1 file for "htget.icn"
+	main
+		potential local conflict: args
+   globals
+
 htprep
    locals
-cannot open .u1 file for "htprep.icn"
+	main
+		potential local conflict: args
+	braces
+	newtag
+	attrib
+	attval
+	aquote
+	docommand
+	in
+	divert
+	out
+	lwarn
+	warn
+   globals
+
 huffstuf
    locals
-cannot open .u1 file for "huffstuf.icn"
+	main
+	count_chars_in_s
+	initialize_heap
+	reshuffle_heap
+	heap_2_tree
+	hash_codes
+	collect_bits
+	put_tree
+	get_tree
+	encode_string
+	decode_rest_of_file
+	quitprog
+   globals
+
 hufftab
    locals
-cannot open .u1 file for "hufftab.icn"
+	main
+	bit
+	out
+   globals
+
 ibar
    locals
-cannot open .u1 file for "ibar.icn"
+	main
+   globals
+
 ibrow
    locals
-cannot open .u1 file for "ibrow.icn"
+	main
+	help
+   globals
+
 icalc
    locals
-cannot open .u1 file for "icalc.icn"
+	main
+	getbs
+	checkbal
+	more
+	parse
+	Statement
+	Compound
+	Statement_list
+	If
+	While
+	Expr
+	R
+	X
+	T
+	F
+	E
+	L
+	Func
+	Arglist
+	Id
+	Const
+	digitseq
+	String
+	litmat
+	keymat
+		potential local conflict: key
+	ws
+	binary
+	samelop
+	save
+	restore
+	process
+   globals
+
 icalls
    locals
-cannot open .u1 file for "icalls.icn"
+	main
+		potential local conflict: name
+		potential local conflict: args
+   globals
+
 icn2c
    locals
-cannot open .u1 file for "icn2c.icn"
+	main
+	Out
+   globals
+
 icontent
    locals
-cannot open .u1 file for "icontent.icn"
+	main
+   globals
+
 icvt
    locals
-cannot open .u1 file for "icvt.icn"
+	main
+		potential local conflict: args
+	standard
+	inquote
+   globals
+
 idepth
    locals
-cannot open .u1 file for "idepth.icn"
+	main
+   globals
+
 idxtext
    locals
-cannot open .u1 file for "idxtext.icn"
+	main
+	write_index
+   globals
+
 ifilter
    locals
-cannot open .u1 file for "ifilter.icn"
+	main
+		potential local conflict: args
+   globals
+
 ifncsgen
    locals
-cannot open .u1 file for "ifncsgen.icn"
+	main
+		potential local conflict: name
+		potential local conflict: args
+	arglist
+		potential local conflict: name
+   globals
+
 igrep
    locals
-cannot open .u1 file for "igrep.icn"
+	Usage
+	main
+	Options
+	GetPattern
+	ScanFiles
+	istring
+	istring_radix
+   globals
+
 iheader
    locals
-cannot open .u1 file for "iheader.icn"
+	main
+		potential local conflict: args
+   globals
+
 ihelp
    locals
-cannot open .u1 file for "ihelp.icn"
+	main
+   globals
+
 iidecode
    locals
-cannot open .u1 file for "iidecode.icn"
+	main
+	decode
+	repack
+   globals
+
 iiencode
    locals
-cannot open .u1 file for "iiencode.icn"
+	main
+	Usage
+	encode
+	unpack
+   globals
+
 ilnkxref
    locals
-cannot open .u1 file for "ilnkxref.icn"
+	main
+	popproc
+   globals
+
 ilump
    locals
-cannot open .u1 file for "ilump.icn"
+	main
+		potential local conflict: args
+	newfile
+	dofile
+   globals
+
 imagetyp
    locals
-cannot open .u1 file for "imagetyp.icn"
+	main
+	imagetyp
+		potential local conflict: type
+   globals
+
 indxcomp
    locals
-cannot open .u1 file for "indxcomp.icn"
+	main
+   globals
+
 ineeds
    locals
-cannot open .u1 file for "ineeds.icn"
+	main
+	PathDirs
+   globals
+
 inter
    locals
-cannot open .u1 file for "inter.icn"
+	main
+		potential local conflict: args
+   globals
+
 interpe
    locals
-cannot open .u1 file for "interpe.icn"
+	main
+		potential local conflict: args
+   globals
+
 interpp
    locals
-cannot open .u1 file for "interpp.icn"
+	main
+	execprog
+	seqprog
+	readprog
+	writeprog
+	delprog
+	listprog
+	helpprog
+	quitprog
+   globals
+
 ipatch
    locals
-cannot open .u1 file for "ipatch.icn"
+	main
+		potential local conflict: args
+   globals
+
 ipldoc
    locals
-cannot open .u1 file for "ipldoc.icn"
+	main
+		potential local conflict: args
+   globals
+
 iplindex
    locals
-cannot open .u1 file for "iplindex.icn"
+	main
+		potential local conflict: args
+	indexer
+	lcword
+		potential local conflict: name
+	filter
+   globals
+
 iplkwic
    locals
-cannot open .u1 file for "iplkwic.icn"
+	main
+		potential local conflict: args
+	kwic
+	lcword
+		potential local conflict: name
+	position
+	filter
+   globals
+
 iplweb
    locals
-cannot open .u1 file for "iplweb.icn"
+	main
+	errorproc
+	Build_HTML_Files
+	Init_Dir_Index
+	Index_Dir
+	Close_Dir_Index
+	Init_File_Index
+	Index_File
+	Close_File_Index
+	ProcessFileInfo
+	strip_file
+   globals
+
 ipower
    locals
-cannot open .u1 file for "ipower.icn"
+	main
+		potential local conflict: args
+		potential local conflict: stop
+   globals
+
 ipp
    locals
-cannot open .u1 file for "ipp.icn"
+	main
+	conditional
+	const_expr
+	decoded
+	def_opt
+		potential local conflict: name
+	define
+		potential local conflict: args
+		potential local conflict: name
+	dump
+	error
+	eval
+	false_cond
+	find_file
+	func
+	get_args
+	get_cmd
+	get_formals
+	get_line
+	get_name
+	get_opt_ws
+	get_text
+	if_cond
+	ifdef
+		potential local conflict: name
+	ifndef
+		potential local conflict: name
+	in_text
+		potential local conflict: name
+	include
+	init
+	lassoc
+	line
+	macro_call
+		potential local conflict: args
+	no_endif_error
+	parse
+	process_cmd
+	process_macro
+		potential local conflict: name
+		potential local conflict: args
+	process_options
+		potential local conflict: args
+	process_text
+	put_linedir
+	rassoc
+	skip_to
+	true_cond
+	unary
+	undefine
+		potential local conflict: name
+	warning
+   globals
+
 iprint
    locals
-cannot open .u1 file for "iprint.icn"
+	main
+	expand
+	dumpgroup
+	endgroup
+	printhead
+	detab
+   globals
+
 iprofile
    locals
-cannot open .u1 file for "iprofile.icn"
+	main
+	display_stats
+	sort_table
+	write_list
+	setup_screen
+	goodbye
+	stop_profile
+   globals
+
 iprofl
    locals
-cannot open .u1 file for "iprofl.icn"
+	main
+		potential local conflict: args
+	parse
+	nofile
+	listfile
+	showline
+   globals
+
 ipsort
    locals
-cannot open .u1 file for "ipsort.icn"
+	main
+		potential local conflict: args
+   globals
+
 ipsplit
    locals
-cannot open .u1 file for "ipsplit.icn"
+	main
+		potential local conflict: args
+   globals
+
 ipxref
    locals
-cannot open .u1 file for "ipxref.icn"
+	main
+		potential local conflict: args
+	addword
+		potential local conflict: proc
+	getword
+	format
+   globals
+
 irsort
    locals
-cannot open .u1 file for "irsort.icn"
+	main
+		potential local conflict: args
+   globals
+
 irunerr
    locals
-cannot open .u1 file for "irunerr.icn"
+	main
+   globals
+
 iseq
    locals
-cannot open .u1 file for "iseq.icn"
+	main
+		potential local conflict: args
+		potential local conflict: stop
+   globals
+
 isize
    locals
-cannot open .u1 file for "isize.icn"
+	main
+		potential local conflict: args
+   globals
+
 isrcline
    locals
-cannot open .u1 file for "isrcline.icn"
+	main
+   globals
+
 istrip
    locals
-cannot open .u1 file for "istrip.icn"
+	main
+   globals
+
 itab
    locals
-cannot open .u1 file for "itab.icn"
+	main
+	itab
+	readx
+   globals
+
 itags
    locals
-cannot open .u1 file for "itags.icn"
+	main
+	Tags
+	Index
+	VGrind
+   globals
+
 itrbksum
    locals
-cannot open .u1 file for "itrbksum.icn"
+	main
+   globals
+
 itrcfltr
    locals
-cannot open .u1 file for "itrcfltr.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 itrcsum
    locals
-cannot open .u1 file for "itrcsum.icn"
+	main
+   globals
+
 iundecl
    locals
-cannot open .u1 file for "iundecl.icn"
+	main
+   globals
+
 iversion
    locals
-cannot open .u1 file for "iversion.icn"
+	main
+		potential local conflict: name
+   globals
+
 iwriter
    locals
-cannot open .u1 file for "iwriter.icn"
+	main
+   globals
+
 knapsack
    locals
-cannot open .u1 file for "knapsack.icn"
+	main
+		potential local conflict: args
+	trynext
+   globals
+
 krieg
    locals
-cannot open .u1 file for "krieg.icn"
+	automov
+	chksqrs
+	fr2s
+	gamend
+	init
+	kstop
+	logboard
+	main
+	movgen
+	movlegal
+	movmake
+	movtry
+	myany
+	myboard
+	myend
+	myhelp
+	mymessage
+	myremind
+	mytry
+	p2c
+	pc2p
+	s2f
+	s2r
+	s2sn
+	saycheck
+	sn2s
+	sqratks
+	sqrcap
+	tokens
+	yrany
+	yrend
+	yrmessage
+	yrtry
+   globals
+
 kross
    locals
-cannot open .u1 file for "kross.icn"
+	main
+	kross
+	xprint
+   globals
+
 kwic
    locals
-cannot open .u1 file for "kwic.icn"
+	main
+		potential local conflict: args
+	kwic
+	lcword
+	position
+   globals
+
 kwicprep
    locals
-cannot open .u1 file for "kwicprep.icn"
+	main
+   globals
+
 labels
    locals
-cannot open .u1 file for "labels.icn"
+	main
+		potential local conflict: args
+	nextlbl
+	format
+	error
+		potential local conflict: name
+		potential local conflict: type
+	nonneg
+   globals
+
 la
    locals
-cannot open .u1 file for "la.icn"
+	main
+   globals
+
 lam
    locals
-cannot open .u1 file for "lam.icn"
+	main
+	lamr
+		potential local conflict: args
+   globals
+
 latexidx
    locals
-cannot open .u1 file for "latexidx.icn"
+	main
+		potential local conflict: key
+	reform
+   globals
+
 lcfile
    locals
-cannot open .u1 file for "lcfile.icn"
+	main
+		potential local conflict: name
+   globals
+
 lc
    locals
-cannot open .u1 file for "lc.icn"
+	main
+   globals
+
 lcn
    locals
-cannot open .u1 file for "lcn.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 limitf
    locals
-cannot open .u1 file for "limitf.icn"
+	main
+		potential local conflict: args
+   globals
+
 lindcode
    locals
-cannot open .u1 file for "lindcode.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 lindsys
    locals
-cannot open .u1 file for "lindsys.icn"
+	main
+		potential local conflict: args
+   globals
+
 lineseq
    locals
-cannot open .u1 file for "lineseq.icn"
+	main
+		potential local conflict: args
+   globals
+
 link2url
    locals
-cannot open .u1 file for "link2url.icn"
+	main
+   globals
+
 lisp
    locals
-cannot open .u1 file for "lisp.icn"
+	main
+	EVAL
+	apply
+	evlis
+	initialize
+	CAR
+	CDR
+	CONS
+	SET
+	ATOM
+	NULL
+	EQ
+	PRINT
+	COND
+	TRACE
+	UNTRACE
+	glist
+	DEFINE
+	define_fn
+	lambda
+	getbs
+	checkbal
+	more
+	balstr
+	bstol
+	ltos
+	strip
+	Map
+	HELP
+   globals
+
 lister
    locals
-cannot open .u1 file for "lister.icn"
+	main
+	righe
+	dainome
+	lpag
+	margs
+	numriga
+	compresso
+	trasforma
+	sceglinumero
+	cambiadir
+	copiafile
+	stampa
+	dimmelo
+	cerca
+	faivedere
+   globals
+
 listhtml
    locals
-cannot open .u1 file for "listhtml.icn"
+	main
+   globals
+
 listviz
    locals
-cannot open .u1 file for "listviz.icn"
+	main
+	righe
+	dainome
+	lpag
+	margs
+	numriga
+	compresso
+	trasforma
+	sceglinumero
+	cambiadir
+	copiafile
+	stampa
+	dimmelo
+	cerca
+	faivedere
+   globals
+
 literat
    locals
-cannot open .u1 file for "literat.icn"
+	newkey
+	locate
+	last
+		potential local conflict: string
+	remword
+		potential local conflict: string
+	stat_line
+	line
+	edit_field
+		potential local conflict: string
+	show_field
+		potential local conflict: string
+	edit_item
+	brightwrite
+		potential local conflict: string
+	findlist
+	menue
+	in_itemm
+	turn_over
+	del
+	alpha
+	m_adress
+	query
+	main
+   globals
+
 ll
    locals
-cannot open .u1 file for "ll.icn"
+	main
+   globals
+
 loadmap
    locals
-cannot open .u1 file for "loadmap.icn"
+	main
+		potential local conflict: args
+	show
+	area
+   globals
+
 longest
    locals
-cannot open .u1 file for "longest.icn"
+	main
+   globals
+
 lower
    locals
-cannot open .u1 file for "lower.icn"
+	main
+   globals
+
 lssum
    locals
-cannot open .u1 file for "lssum.icn"
+	main
+   globals
+
 lsysmap
    locals
-cannot open .u1 file for "lsysmap.icn"
+	main
+		potential local conflict: args
+   globals
+
 maccvt
    locals
-cannot open .u1 file for "maccvt.icn"
+	main
+   globals
+
 makepuzz
    locals
-cannot open .u1 file for "makepuzz.icn"
+	main
+	sort_words
+	blind_luck_insert
+	brute_force_insert
+	insert_word
+   globals
+
 mapcolrs
    locals
-cannot open .u1 file for "mapcolrs.icn"
+	main
+		potential local conflict: args
+		potential local conflict: map
+   globals
+
 midisig
    locals
-cannot open .u1 file for "midisig.icn"
+	main
+	get_time
+   globals
+
 missile
    locals
-cannot open .u1 file for "missile.icn"
+	main
+	infrastructure
+	draw_base
+	enemy_launch
+	friendly_fire
+	animate
+	sense_status
+	banner
+	at
+	wait
+	parse
+	input
+   globals
+
 miu
    locals
-cannot open .u1 file for "miu.icn"
+	main
+	show
+	nextgen
+	apply
+   globals
+
 mkpasswd
    locals
-cannot open .u1 file for "mkpasswd.icn"
+	main
+	genpasswd
+   globals
+
 monkeys
    locals
-cannot open .u1 file for "monkeys.icn"
+	main
+		potential local conflict: args
+   globals
+
 morse
    locals
-cannot open .u1 file for "morse.icn"
+	main
+	morse
+	unmorse
+   globals
+
 mr
    locals
-cannot open .u1 file for "mr.icn"
+	main
+	readin
+	headers
+	quit
+	save
+		potential local conflict: where
+	pipeto
+	print
+	reply
+	send
+		potential local conflict: where
+	forward
+	newmail
+	showart
+	help
+	query
+	inc
+	more
+	clear_line
+   globals
+
 mszip
    locals
-cannot open .u1 file for "mszip.icn"
+	main
+		potential local conflict: args
+	popen
+	census
+	msname
+	isoname
+	inspect
+	ftype
+	count
+	report
+	summary
+	r5
+   globals
+
 mtf3
    locals
-cannot open .u1 file for "mtf3.icn"
+	main
+	open_input_file
+	readin_old_map_report
+	make_table_of_filenames
+	output_mapped_headers_and_texts
+	trim_str
+	tab_nxt_hdr
+	fixpath
+	mappiece
+	readtarhdr
+	map_filenams
+	exbase10
+	get_checksum
+	write_report
+   globals
+
 newicon
    locals
-cannot open .u1 file for "newicon.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 newsrc
    locals
-cannot open .u1 file for "newsrc.icn"
+	main
+	process
+	ask
+   globals
+
 nim
    locals
-cannot open .u1 file for "nim.icn"
+	main
+		potential local conflict: args
+	theirturn
+		potential local conflict: args
+	myturn
+		potential local conflict: args
+	dispile
+	algorpick
+	thinkpick
+	learn
+	comp
+	quit
+		potential local conflict: args
+   globals
+
 nocr
    locals
-cannot open .u1 file for "nocr.icn"
+	main
+	er_out
+	basename
+	pathname
+   globals
+
 noise
    locals
-cannot open .u1 file for "noise.icn"
+	main
+   globals
+
 normalize
    locals
-cannot open .u1 file for "normalize.icn"
+	main
+   globals
+
 oldicon
    locals
-cannot open .u1 file for "oldicon.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 pack
    locals
-cannot open .u1 file for "pack.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 paginate
    locals
-cannot open .u1 file for "paginate.icn"
+	main
+   globals
+
 papply
    locals
-cannot open .u1 file for "papply.icn"
+	main
+		potential local conflict: args
+   globals
+
 parens
    locals
-cannot open .u1 file for "parens.icn"
+	main
+		potential local conflict: args
+		potential local conflict: string
+	Open
+	Close
+	probClose
+   globals
+
 pargen
    locals
-cannot open .u1 file for "pargen.icn"
+	main
+		potential local conflict: args
+	transprod
+	transalts
+	transseq
+	transsym
+	error
+   globals
+
 parse
    locals
-cannot open .u1 file for "parse.icn"
+	main
+	get_tok
+	prog
+	stmt
+	expr
+	term
+	factor
+	err
+   globals
+
 parsex
    locals
-cannot open .u1 file for "parsex.icn"
+	main
+	parse
+		potential local conflict: exp
+	expr
+		potential local conflict: exp
+	term
+	fact
+	part
+	const
+   globals
+
 patchu
    locals
-cannot open .u1 file for "patchu.icn"
+	main
+	get_diff
+	get_edit
+	zot
+   globals
+
 pbkdump
    locals
-cannot open .u1 file for "pbkdump.icn"
+	main
+		potential local conflict: args
+   globals
+
 pdecomp
    locals
-cannot open .u1 file for "pdecomp.icn"
+	main
+   globals
+
 polydemo
    locals
-cannot open .u1 file for "polydemo.icn"
+	main
+	SetUpDisplay
+	ShowHelp
+	ShowInUse
+	is_lower
+	choice
+	PRead
+	PWrite
+	PCalc
+	PEval
+	PClear
+   globals
+
 post
    locals
-cannot open .u1 file for "post.icn"
+	main
+	reply_headers
+	req_headers
+	tempname
+	pipe
+	lookup
+	query
+	validate
+		potential local conflict: where
+   globals
+
 press
    locals
-cannot open .u1 file for "press.icn"
+	Usage
+	MoreHelp
+	main
+	Options
+	Archive
+	Extract
+	List
+	Delete
+	OpenReadArchive
+	FilesNotFound
+	Stats
+	FinalStats
+	WriteInteger
+	ReadInteger
+	WriteString
+	ReadString
+	CopyFile
+	Percent
+	R
+	W
+	Tail
+	Root
+	DefaultSuffix
+	Compress
+	Compress_output
+	Decompress
+	Decompress_read_code
+	whole_wild_match
+	not_wild_match
+   globals
+
 pretrim
    locals
-cannot open .u1 file for "pretrim.icn"
+	main
+		potential local conflict: args
+   globals
+
 procprep
    locals
-cannot open .u1 file for "procprep.icn"
+	main
+   globals
+
 procwrap
    locals
-cannot open .u1 file for "procwrap.icn"
+	main
+   globals
+
 proto
    locals
-cannot open .u1 file for "proto.icn"
+	main
+	expr1
+	expr2
+	expr3
+	expr4
+	expr5
+   globals
+
 psrsplit
    locals
-cannot open .u1 file for "psrsplit.icn"
+	main
+		potential local conflict: args
+   globals
+
 pt
    locals
-cannot open .u1 file for "pt.icn"
+	main
+	get_productions
+	get_firsts
+	fill_firsts
+	buildgraph
+	closure
+	addnode
+	closed_loop
+	finish_firsts
+	state0
+	item_num
+	prod_equal
+	state_closure
+	new_item
+	all_firsts
+	gotos
+	moved_item
+	exists_I_Set
+	set_equal
+	write_item
+	write_state
+	write_tbl_list
+	write_prods
+	write_NTs
+	write_Ts
+	write_firsts
+	write_needs
+	p_table
+	outline
+	border
+	outstate
+   globals
+
 puzz
    locals
-cannot open .u1 file for "puzz.icn"
+	main
+	place
+	parse
+   globals
+
 qei
    locals
-cannot open .u1 file for "qei.icn"
+	main
+	WriteWR
+	Help
+	Edit
+	atos
+	replace
+	split
+	shut_down
+   globals
+
 qt
    locals
-cannot open .u1 file for "qt.icn"
+	main
+   globals
+
 queens
    locals
-cannot open .u1 file for "queens.icn"
+	main
+		potential local conflict: args
+	q
+	show
+   globals
+
 ranstars
    locals
-cannot open .u1 file for "ranstars.icn"
+	main
+		potential local conflict: args
+	clear
+	home
+	place
+   globals
+
 rcat
    locals
-cannot open .u1 file for "rcat.icn"
+	main
+		potential local conflict: args
+   globals
+
 recgen
    locals
-cannot open .u1 file for "recgen.icn"
+	main
+	transprod
+	transalts
+	transseq
+	transsym
+	error
+   globals
+
 repeats
    locals
-cannot open .u1 file for "repeats.icn"
+	main
+		potential local conflict: args
+   globals
+
 reply
    locals
-cannot open .u1 file for "reply.icn"
+	main
+   globals
+
 repro
    locals
-cannot open .u1 file for "repro.icn"
+	main
+   globals
+
 revfile
    locals
-cannot open .u1 file for "revfile.icn"
+	main
+   globals
+
 revsort
    locals
-cannot open .u1 file for "revsort.icn"
+	main
+   globals
+
 roffcmds
    locals
-cannot open .u1 file for "roffcmds.icn"
+	main
+   globals
+
 rsg
    locals
-cannot open .u1 file for "rsg.icn"
+	main
+		potential local conflict: args
+	alts
+	comment
+	define
+	defnon
+		potential local conflict: name
+	error
+	gener
+	generate
+	getrhs
+	grammar
+		potential local conflict: name
+	listimage
+	prompter
+	pwrite
+		potential local conflict: name
+	source
+	symimage
+	syms
+   globals
+
 ruler
    locals
-cannot open .u1 file for "ruler.icn"
+	main
+   globals
+
 sample
    locals
-cannot open .u1 file for "sample.icn"
+	main
+		potential local conflict: args
+   globals
+
 scale
    locals
-cannot open .u1 file for "scale.icn"
+	main
+		potential local conflict: args
+   globals
+
 scramble
    locals
-cannot open .u1 file for "scramble.icn"
+	main
+	parse
+	input
+   globals
+
 setmerge
    locals
-cannot open .u1 file for "setmerge.icn"
+	main
+		potential local conflict: args
+   globals
+
 shar
    locals
-cannot open .u1 file for "shar.icn"
+	main
+   globals
+
 shortest
    locals
-cannot open .u1 file for "shortest.icn"
+	main
+   globals
+
 shuffile
    locals
-cannot open .u1 file for "shuffile.icn"
+	main
+		potential local conflict: args
+   globals
+
 shuffle
    locals
-cannot open .u1 file for "shuffle.icn"
+	main
+		potential local conflict: args
+   globals
+
 sing
    locals
-cannot open .u1 file for "sing.icn"
+	sing
+	main
+   globals
+
 slice
    locals
-cannot open .u1 file for "slice.icn"
+	main
+		potential local conflict: args
+   globals
+
 snake
    locals
-cannot open .u1 file for "snake.icn"
+	main
+	findnext
+	different
+	Null
+	display
+	makenew
+	the_same
+	done_yet
+	Kludge
+   globals
+
 solit
    locals
-cannot open .u1 file for "solit.icn"
+	main
+		potential local conflict: args
+	movecard
+	deck2run
+	deck2ace
+	run2ace
+	run2run
+	chk2run
+	finish
+	autopilot
+	display
+	plural
+	thumb
+	shuffle
+	face
+	getvalue
+	getsuite
+	getcolor
+	cardsleft
+	movecursor
+	whoops
+	disphelp
+	disprules
+   globals
+
 sortname
    locals
-cannot open .u1 file for "sortname.icn"
+	main
+   globals
+
 splitlit
    locals
-cannot open .u1 file for "splitlit.icn"
+	main
+		potential local conflict: args
+   globals
+
 spread
    locals
-cannot open .u1 file for "spread.icn"
+	main
+		potential local conflict: args
+   globals
+
 streamer
    locals
-cannot open .u1 file for "streamer.icn"
+	main
+		potential local conflict: args
+   globals
+
 strimlen
    locals
-cannot open .u1 file for "strimlen.icn"
+	main
+   globals
+
 strpsgml
    locals
-cannot open .u1 file for "strpsgml.icn"
+	main
+   globals
+
 tabexten
    locals
-cannot open .u1 file for "tabexten.icn"
+	main
+   globals
+
 tablc
    locals
-cannot open .u1 file for "tablc.icn"
+	main
+		potential local conflict: args
+   globals
+
 tablw
    locals
-cannot open .u1 file for "tablw.icn"
+	main
+		potential local conflict: args
+	words
+   globals
+
 tabulate
    locals
-cannot open .u1 file for "tabulate.icn"
+	main
+		potential local conflict: args
+   globals
+
 textcnt
    locals
-cannot open .u1 file for "textcnt.icn"
+	main
+		potential local conflict: name
+   globals
+
 textcvt
    locals
-cannot open .u1 file for "textcvt.icn"
+	Usage
+	Options
+	main
+	ConvertText
+   globals
+
 toktab
    locals
-cannot open .u1 file for "toktab.icn"
+	main
+		potential local conflict: args
+	index
+   globals
+
 trim
    locals
-cannot open .u1 file for "trim.icn"
+	main
+		potential local conflict: args
+   globals
+
 ttt
    locals
-cannot open .u1 file for "ttt.icn"
+	main
+	display
+	get_your_move
+	done_yet
+	input
+	at
+	graf
+	uhalf
+	lhalf
+	high
+	normal
+	dim
+	under
+	blink
+	cls
+	chop
+	beep
+	init
+   globals
+
 turing
    locals
-cannot open .u1 file for "turing.icn"
+	main
+		potential local conflict: args
+	dumptape
+	transit
+	rdmach
+	mkact
+	warn
+   globals
+
 unclog
    locals
-cannot open .u1 file for "unclog.icn"
+	main
+		potential local conflict: args
+	same
+   globals
+
 unique
    locals
-cannot open .u1 file for "unique.icn"
+	main
+   globals
+
 unpack
    locals
-cannot open .u1 file for "unpack.icn"
+	main
+   globals
+
 upper
    locals
-cannot open .u1 file for "upper.icn"
+	main
+   globals
+
 url2link
    locals
-cannot open .u1 file for "url2link.icn"
+	main
+   globals
+
 utrim
    locals
-cannot open .u1 file for "utrim.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+	scan1
+		potential local conflict: name
+	dependencies
+	report
+		potential local conflict: name
+	filter1
+	filter2
+		potential local conflict: name
+		potential local conflict: args
+   globals
+
 verse
    locals
-cannot open .u1 file for "verse.icn"
+	main
+	aoran
+	clrvdu
+	gerund
+	title
+	form1
+	form2
+	form3
+	form4
+	form5
+	form6
+	form7
+	form8
+	form9
+	form10
+	form11
+	form12
+	form13
+	form14
+	form15
+	form16
+	form17
+	form18
+	form19
+	parse
+	loadrest
+   globals
+		potential global conflict: name
+
 versum
    locals
-cannot open .u1 file for "versum.icn"
+	main
+		potential local conflict: args
+		potential local conflict: name
+   globals
+
 vnq
    locals
-cannot open .u1 file for "vnq.icn"
+	main
+		potential local conflict: args
+	q
+	show
+	helpmesg
+	movexy
+	clearscreen
+	clearline
+   globals
+
 vrepl
    locals
-cannot open .u1 file for "vrepl.icn"
+	main
+		potential local conflict: args
+   globals
+
 weblinks
    locals
-cannot open .u1 file for "weblinks.icn"
+	main
+		potential local conflict: args
+	setroot
+	sethome
+	setprune
+	setbounds
+	setfrom
+	wheader
+	try
+	check
+	report
+	addref
+	register
+	pad
+   globals
+
 what
    locals
-cannot open .u1 file for "what.icn"
+	main
+		potential local conflict: args
+		potential local conflict: key
+   globals
+
 when
    locals
-cannot open .u1 file for "when.icn"
+	main
+	show_age
+	before
+	since
+	calc_today
+	directory
+	hhmm
+	parse
+   globals
+
 wshfdemo
    locals
-cannot open .u1 file for "wshfdemo.icn"
+	main
+	DisplayList
+   globals
+
 xtable
    locals
-cannot open .u1 file for "xtable.icn"
+	main
+	help
+	init
+	ASCII
+	ASCIICtrl
+	EBCDIC
+	convert
+	octstring
+   globals
+
 yahtz
    locals
-cannot open .u1 file for "yahtz.icn"
+	main
+	paint
+	summarize
+	assign_players
+	play
+		potential local conflict: name
+	depict
+	tally
+		potential local conflict: name
+	obtain
+	score
+		potential local conflict: name
+	cls
+	chop
+	uhalf
+	lhalf
+	clip
+	high
+	inverse
+	under
+	blink
+	norm
+	graf
+	nograf
+	at
+	parse
+	input
+   globals
+
 yescr
    locals
-cannot open .u1 file for "yescr.icn"
+	main
+	er_out
+	basename
+	pathname
+   globals
+
 zipsort
    locals
-cannot open .u1 file for "zipsort.icn"
+	main
+		potential local conflict: args
+   globals
 #--------------------------------------------------------------- 394 progs/delta
 3
 5
@@ -10723,407 +12395,15 @@ date
 elderberry
 fig
 #------------------------------------------------------------ 398 progs/duplproc
-"value" is defined in 2 places:
-     ./calc.icn, line 111
-     ./bj.icn, line 172
-"Options" is defined in 4 places:
-     ./gediff.icn, line 39
-     ./igrep.icn, line 70
-     ./press.icn, line 161
-     ./textcvt.icn, line 52
-"cleanup" is defined in 2 places:
-     ./hcal4unx.icn, line 340
-     ./hebcalen.icn, line 203
-"isin4" is defined in 2 places:
-     ./hcal4unx.icn, line 835
-     ./hebcalen.icn, line 500
-"wait" is defined in 2 places:
-     ./missile.icn, line 291
-     ./hr.icn, line 771
-"del" is defined in 2 places:
-     ./based.icn, line 231
-     ./literat.icn, line 882
-"input" is defined in 6 places:
-     ./scramble.icn, line 90
-     ./hr.icn, line 787
-     ./bj.icn, line 302
-     ./yahtz.icn, line 572
-     ./ttt.icn, line 241
-     ./missile.icn, line 328
-"mth_table" is defined in 2 places:
-     ./hcal4unx.icn, line 705
-     ./hebcalen.icn, line 370
-"second" is defined in 2 places:
-     ./bj.icn, line 137
-     ./conman.icn, line 390
-"define" is defined in 2 places:
-     ./ipp.icn, line 427
-     ./rsg.icn, line 212
-"init" is defined in 5 places:
-     ./xtable.icn, line 54
-     ./ttt.icn, line 302
-     ./ipp.icn, line 726
-     ./conman.icn, line 304
-     ./krieg.icn, line 234
-"position" is defined in 2 places:
-     ./iplkwic.icn, line 124
-     ./kwic.icn, line 90
-"expr" is defined in 2 places:
-     ./parse.icn, line 88
-     ./parsex.icn, line 83
-"jyr_augment" is defined in 2 places:
-     ./hebcalen.icn, line 452
-     ./hcal4unx.icn, line 787
-"display" is defined in 5 places:
-     ./bj.icn, line 235
-     ./hr.icn, line 439
-     ./snake.icn, line 145
-     ./ttt.icn, line 152
-     ./solit.icn, line 635
-"always_29" is defined in 2 places:
-     ./hcal4unx.icn, line 782
-     ./hebcalen.icn, line 447
-"lcword" is defined in 3 places:
-     ./iplkwic.icn, line 99
-     ./iplindex.icn, line 101
-     ./kwic.icn, line 82
-"Usage" is defined in 6 places:
-     ./textcvt.icn, line 39
-     ./iiencode.icn, line 126
-     ./chkhtml.icn, line 36
-     ./daystil.icn, line 175
-     ./igrep.icn, line 34
-     ./press.icn, line 38
-"last" is defined in 2 places:
-     ./literat.icn, line 176
-     ./based.icn, line 536
-"line" is defined in 2 places:
-     ./ipp.icn, line 780
-     ./literat.icn, line 299
-"print" is defined in 2 places:
-     ./based.icn, line 399
-     ./mr.icn, line 210
-"isin5" is defined in 2 places:
-     ./hcal4unx.icn, line 839
-     ./hebcalen.icn, line 504
-"cambiadir" is defined in 2 places:
-     ./lister.icn, line 226
-     ./listviz.icn, line 226
-"stampa" is defined in 2 places:
-     ./lister.icn, line 309
-     ./listviz.icn, line 309
-"basename" is defined in 2 places:
-     ./nocr.icn, line 119
-     ./yescr.icn, line 125
-"initialize" is defined in 3 places:
-     ./hebcalen.icn, line 179
-     ./lisp.icn, line 162
-     ./hcal4unx.icn, line 277
-"report" is defined in 4 places:
-     ./mszip.icn, line 314
-     ./diffsum.icn, line 82
-     ./utrim.icn, line 125
-     ./weblinks.icn, line 345
-"initialize_list" is defined in 2 places:
-     ./hcal4unx.icn, line 224
-     ./hebcalen.icn, line 141
-"make_a_line" is defined in 2 places:
-     ./hcal4unx.icn, line 663
-     ./hebcalen.icn, line 330
-"initialize_variables" is defined in 2 places:
-     ./hcal4unx.icn, line 243
-     ./hebcalen.icn, line 154
-"out" is defined in 2 places:
-     ./htprep.icn, line 291
-     ./hufftab.icn, line 84
-"instructions" is defined in 2 places:
-     ./hcal4unx.icn, line 174
-     ./hebcalen.icn, line 103
-"kwic" is defined in 2 places:
-     ./kwic.icn, line 56
-     ./iplkwic.icn, line 73
-"eval" is defined in 2 places:
-     ./ipp.icn, line 458
-     ./conman.icn, line 273
-"sceglinumero" is defined in 2 places:
-     ./listviz.icn, line 208
-     ./lister.icn, line 208
-"uhalf" is defined in 2 places:
-     ./ttt.icn, line 256
-     ./yahtz.icn, line 364
-"warn" is defined in 2 places:
-     ./htprep.icn, line 321
-     ./turing.icn, line 171
-"cerca" is defined in 2 places:
-     ./listviz.icn, line 367
-     ./lister.icn, line 367
-"augment" is defined in 2 places:
-     ./hebcalen.icn, line 389
-     ./hcal4unx.icn, line 724
-"q" is defined in 2 places:
-     ./queens.icn, line 71
-     ./vnq.icn, line 64
-"isin6" is defined in 2 places:
-     ./hcal4unx.icn, line 843
-     ./hebcalen.icn, line 508
-"transprod" is defined in 2 places:
-     ./pargen.icn, line 117
-     ./recgen.icn, line 94
-"format" is defined in 3 places:
-     ./labels.icn, line 135
-     ./concord.icn, line 91
-     ./ipxref.icn, line 210
-"righe" is defined in 2 places:
-     ./lister.icn, line 76
-     ./listviz.icn, line 76
-"high" is defined in 2 places:
-     ./yahtz.icn, line 418
-     ./ttt.icn, line 266
-"trasforma" is defined in 2 places:
-     ./listviz.icn, line 166
-     ./lister.icn, line 166
-"transseq" is defined in 2 places:
-     ./pargen.icn, line 158
-     ./recgen.icn, line 134
-"clear" is defined in 3 places:
-     ./hcal4unx.icn, line 204
-     ./hebcalen.icn, line 136
-     ./ranstars.icn, line 78
-"is_31" is defined in 2 places:
-     ./hcal4unx.icn, line 754
-     ./hebcalen.icn, line 419
-"at" is defined in 5 places:
-     ./yahtz.icn, line 534
-     ./bj.icn, line 359
-     ./missile.icn, line 284
-     ./ttt.icn, line 248
-     ./hr.icn, line 764
-"query" is defined in 3 places:
-     ./post.icn, line 335
-     ./mr.icn, line 382
-     ./literat.icn, line 1005
-"normal" is defined in 2 places:
-     ./ttt.icn, line 270
-     ./hcal4unx.icn, line 640
-"dainome" is defined in 2 places:
-     ./listviz.icn, line 89
-     ./lister.icn, line 89
-"parse" is defined in 15 places:
-     ./iprofl.icn, line 94
-     ./missile.icn, line 313
-     ./hr.icn, line 795
-     ./scramble.icn, line 75
-     ./ipp.icn, line 825
-     ./verse.icn, line 418
-     ./when.icn, line 291
-     ./conman.icn, line 186
-     ./fset.icn, line 175
-     ./puzz.icn, line 139
-     ./icalc.icn, line 192
-     ./bj.icn, line 289
-     ./parsex.icn, line 79
-     ./yahtz.icn, line 543
-     ./based.icn, line 529
-"cyr_augment" is defined in 2 places:
-     ./hebcalen.icn, line 272
-     ./hcal4unx.icn, line 493
-"write_a_month" is defined in 2 places:
-     ./hcal4unx.icn, line 572
-     ./hebcalen.icn, line 306
-"process" is defined in 6 places:
-     ./hcal4unx.icn, line 393
-     ./hebeng.icn, line 134
-     ./newsrc.icn, line 32
-     ./hebcalen.icn, line 222
-     ./icalc.icn, line 408
-     ./conman.icn, line 172
-"quitprog" is defined in 2 places:
-     ./huffstuf.icn, line 380
-     ./interpp.icn, line 368
-"blink" is defined in 2 places:
-     ./ttt.icn, line 282
-     ./yahtz.icn, line 463
-"doutfyls" is defined in 2 places:
-     ./delamc.icn, line 90
-     ./delam.icn, line 101
-"isin1" is defined in 2 places:
-     ./hcal4unx.icn, line 822
-     ./hebcalen.icn, line 487
-"merge" is defined in 2 places:
-     ./datmerge.icn, line 80
-     ./based.icn, line 195
-"getbs" is defined in 2 places:
-     ./icalc.icn, line 111
-     ./lisp.icn, line 314
-"place" is defined in 2 places:
-     ./ranstars.icn, line 88
-     ./puzz.icn, line 88
-"dimmelo" is defined in 2 places:
-     ./listviz.icn, line 353
-     ./lister.icn, line 353
-"save" is defined in 4 places:
-     ./mr.icn, line 182
-     ./conman.icn, line 349
-     ./icalc.icn, line 380
-     ./based.icn, line 117
-"cls" is defined in 2 places:
-     ./yahtz.icn, line 337
-     ./ttt.icn, line 286
-"Out" is defined in 2 places:
-     ./c2icn.icn, line 82
-     ./icn2c.icn, line 92
-"checkbal" is defined in 2 places:
-     ./icalc.icn, line 128
-     ./lisp.icn, line 331
-"quit" is defined in 3 places:
-     ./mr.icn, line 164
-     ./nim.icn, line 302
-     ./based.icn, line 88
-"copiafile" is defined in 2 places:
-     ./lister.icn, line 239
-     ./listviz.icn, line 239
-"status_line" is defined in 2 places:
-     ./hcal4unx.icn, line 596
-     ./hebcalen.icn, line 317
-"more" is defined in 3 places:
-     ./lisp.icn, line 339
-     ./icalc.icn, line 136
-     ./mr.icn, line 401
-"zot" is defined in 2 places:
-     ./patchu.icn, line 150
-     ./diffu.icn, line 85
-"load" is defined in 2 places:
-     ./conman.icn, line 332
-     ./based.icn, line 99
-"llu" is defined in 2 places:
-     ./delamc.icn, line 111
-     ./delam.icn, line 156
-"dofile" is defined in 4 places:
-     ./ilump.icn, line 76
-     ./ddfdump.icn, line 50
-     ./diffsort.icn, line 50
-     ./choose.icn, line 61
-"done_yet" is defined in 2 places:
-     ./snake.icn, line 198
-     ./ttt.icn, line 202
-"compresso" is defined in 2 places:
-     ./lister.icn, line 149
-     ./listviz.icn, line 149
-"justify" is defined in 2 places:
-     ./format.icn, line 141
-     ./hebeng.icn, line 155
-"isin2" is defined in 2 places:
-     ./hcal4unx.icn, line 827
-     ./hebcalen.icn, line 492
-"chop" is defined in 2 places:
-     ./yahtz.icn, line 351
-     ./ttt.icn, line 291
-"banner" is defined in 5 places:
-     ./hr.icn, line 738
-     ./hebcalen.icn, line 78
-     ./hcal4unx.icn, line 109
-     ./missile.icn, line 259
-     ./banner.icn, line 69
-"d_augment" is defined in 2 places:
-     ./hcal4unx.icn, line 717
-     ./hebcalen.icn, line 382
-"pathname" is defined in 2 places:
-     ./yescr.icn, line 133
-     ./nocr.icn, line 127
-"kross" is defined in 2 places:
-     ./cross.icn, line 67
-     ./kross.icn, line 30
-"term" is defined in 2 places:
-     ./parse.icn, line 100
-     ./parsex.icn, line 96
-"get_rh" is defined in 2 places:
-     ./hcal4unx.icn, line 852
-     ./hebcalen.icn, line 517
-"checkstr" is defined in 2 places:
-     ./hcal4unx.icn, line 377
-     ./hebcalen.icn, line 211
-"lhalf" is defined in 2 places:
-     ./yahtz.icn, line 386
-     ./ttt.icn, line 261
-"transsym" is defined in 2 places:
-     ./pargen.icn, line 173
-     ./recgen.icn, line 147
-"no_lunar_yr" is defined in 2 places:
-     ./hcal4unx.icn, line 847
-     ./hebcalen.icn, line 512
-"under" is defined in 2 places:
-     ./yahtz.icn, line 448
-     ./ttt.icn, line 278
-"help" is defined in 4 places:
-     ./xtable.icn, line 44
-     ./based.icn, line 469
-     ./ibrow.icn, line 173
-     ./mr.icn, line 339
-"show" is defined in 5 places:
-     ./loadmap.icn, line 123
-     ./deal.icn, line 101
-     ./miu.icn, line 44
-     ./queens.icn, line 89
-     ./vnq.icn, line 95
-"R" is defined in 2 places:
-     ./icalc.icn, line 228
-     ./press.icn, line 594
-"error" is defined in 6 places:
-     ./labels.icn, line 146
-     ./pargen.icn, line 200
-     ./recgen.icn, line 165
-     ./rsg.icn, line 232
-     ./edscript.icn, line 76
-     ./ipp.icn, line 453
-"graf" is defined in 2 places:
-     ./ttt.icn, line 252
-     ./yahtz.icn, line 492
-"faivedere" is defined in 2 places:
-     ./lister.icn, line 405
-     ./listviz.icn, line 405
-"margs" is defined in 2 places:
-     ./lister.icn, line 118
-     ./listviz.icn, line 118
-"er_out" is defined in 2 places:
-     ./nocr.icn, line 113
-     ./yescr.icn, line 119
-"filter" is defined in 2 places:
-     ./iplindex.icn, line 126
-     ./iplkwic.icn, line 134
-"apply" is defined in 2 places:
-     ./lisp.icn, line 106
-     ./miu.icn, line 65
-"first" is defined in 2 places:
-     ./bj.icn, line 113
-     ./conman.icn, line 380
-"isin3" is defined in 2 places:
-     ./hcal4unx.icn, line 831
-     ./hebcalen.icn, line 496
-"j_augment" is defined in 2 places:
-     ./hcal4unx.icn, line 766
-     ./hebcalen.icn, line 431
-"isleap" is defined in 2 places:
-     ./hcal4unx.icn, line 759
-     ./hebcalen.icn, line 424
-"header" is defined in 3 places:
-     ./hebcalen.icn, line 297
-     ./hcal4unx.icn, line 528
-     ./gftrace.icn, line 47
-"List" is defined in 2 places:
-     ./animal.icn, line 198
-     ./press.icn, line 353
-"numriga" is defined in 2 places:
-     ./lister.icn, line 133
-     ./listviz.icn, line 133
-"transalts" is defined in 2 places:
-     ./pargen.icn, line 139
-     ./recgen.icn, line 114
-"establish_jyr" is defined in 2 places:
-     ./hcal4unx.icn, line 813
-     ./hebcalen.icn, line 478
-"lpag" is defined in 2 places:
-     ./lister.icn, line 103
-     ./listviz.icn, line 103
+"helper" is defined in 2 places:
+     ./beta.icn, line 1
+     ./alpha.icn, line 9
+"report" is defined in 2 places:
+     ./beta.icn, line 4
+     ./gamma.icn, line 2
+"trim_all" is defined in 2 places:
+     ./gamma.icn, line 5
+     ./alpha.icn, line 2
 #------------------------------------------------------------ 399 progs/edscript
 w
 q
@@ -15245,22 +16525,57 @@ ftp://ftp.example.org/f
 #------------------------------------------------------------- 478 progs/literat
 [0;77;1p[0;75;2p[0;72;14p[0;80;21p[0;116;8p[0;115;9p[0;71;4p[0;79;5p[0;83;6p[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
-[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[7;10H[7maDRESS FILE[0m[7;10HaDRESS FILE[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[10;10H[7mAlPHA[0m[2J[2JREADING...
-ARRANGING DATA IN ALPHABETICAL ORDER...
-WRITING...
-DONE...
-[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[7;10H[7maDRESS FILE[0m[7;10HaDRESS FILE[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[10;10H[7mAlPHA[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
 [4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
-[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[2J[10;1HTYPE WORD TO BE LOOKED FOR:                     [10;29H[10;1HTYPE WORD TO BE LOOKED FOR: b[10;30H[10;1HTYPE WORD TO BE LOOKED FOR: ba[10;31H[10;1HTYPE WORD TO BE LOOKED FOR: ban[10;32H[10;1HTYPE WORD TO BE LOOKED FOR: bana[10;33H[10;1HTYPE WORD TO BE LOOKED FOR: banan[10;34H[10;1HTYPE WORD TO BE LOOKED FOR: banana[10;35H[10;25HERROR: UNKNOWN WORD! PRESS KEY![2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
-[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[2J[10;1HTYPE WORD TO BE LOOKED FOR:                     [10;29H[10;1HTYPE WORD TO BE LOOKED FOR: a[10;30H[10;1HTYPE WORD TO BE LOOKED FOR: ap[10;31H[10;1HTYPE WORD TO BE LOOKED FOR: app[10;32H[10;1HTYPE WORD TO BE LOOKED FOR: appl[10;33H[10;1HTYPE WORD TO BE LOOKED FOR: applx[10;34H[10;33H[10;1HTYPE WORD TO BE LOOKED FOR: appl [10;33H[10;1HTYPE WORD TO BE LOOKED FOR: apple[10;34HOK
-[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
-[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[2J[10;1HTYPE WORD TO BE LOOKED FOR:                     [10;29H[10;1HTYPE WORD TO BE LOOKED FOR: p[10;30H[10;1HTYPE WORD TO BE LOOKED FOR: pe[10;31H[10;1HTYPE WORD TO BE LOOKED FOR: pea[10;32H[10;1HTYPE WORD TO BE LOOKED FOR: pear[10;33H[10;25HERROR: UNKNOWN WORD! PRESS KEY![2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[7;10H[7maDRESS FILE[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
 [2;10HWRITTEN BY: MATTHIAS HEESCH 1992
-[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[7;10H[7maDRESS FILE[0m[7;10HaDRESS FILE[11;10H[7meND[0m[2J
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[7;10H[7maDRESS FILE[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[7;10H[7maDRESS FILE[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[7;10H[7maDRESS FILE[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[10;10H[7mAlPHA[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[11;10H[7meND[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[8;10H[7mqUERY[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[11;10H[7meND[0m[11;10HeND[7;10H[7maDRESS FILE[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m[5;10HiNPUT[6;10H[7mtURN OVER ITEMS[0m[6;10HtURN OVER ITEMS[7;10H[7maDRESS FILE[0m[7;10HaDRESS FILE[11;10H[7meND[0m[2J[1;10HLITERAT:    EASY DATABASE SYSTEM
+[2;10HWRITTEN BY: MATTHIAS HEESCH 1992
+[4;10HMENUE[5;10HiNPUT[6;10HtURN OVER ITEMS[7;10HaDRESS FILE[8;10HqUERY[9;10HdEL[10;10HAlPHA[11;10HeND[5;10H[7miNPUT[0m
+Run-time error 103
+File literat.icn; Line 826
+string expected
+offending value: &null
+Traceback:
+main()
+menue("MENUE",list_2 = ["iNPUT","tURN OVER ITEMS","aDRESS FILE",...,"dEL","AlPHA","eND"],list_3 = ["i","t","a",...,"d","l","e"]) from line 1070 in literat.icn
+{&null == "\r"} from line 826 in literat.icn
 #------------------------------------------------------------------ 479 progs/ll
 2147483648
 0
@@ -18905,11 +20220,13 @@ PNTS: 10 20 30 40
 SITE: <BRAVO> 117 -12.5 -2
 PNTS: 5 6 7 8 9 10
 #------------------------------------------------------------- 620 progs/genfile
-
-Run-time error 212
-File genfile.icn; Line 45
-attempt to read file not open for reading
-offending value: file(genf_expr.txt)
-Traceback:
-main(list_1 = ["genf_expr.txt"])
-{!(variable = file(genf_expr.txt))} from line 45 in genfile.icn
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55

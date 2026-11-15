@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=620 features=65 ubiquitous=10(package write every procedure local alternation to_by assign keyword_ref gen_with_alternation) distinctive=55 core=16 clusters=54 chunks=7 sizes=60,64,65,85,113,149,68
+# shape: entries=620 features=65 ubiquitous=10(package write every procedure local alternation to_by assign keyword_ref gen_with_alternation) distinctive=55 core=17 clusters=54 chunks=7 sizes=60,64,65,89,118,153,54
 entry	part	cluster	shells
 gprocs/autopost_driver	chunk:01	feat:type	image read stop type
 gprocs/barchart_driver	chunk:04	feat:list	aug_assign element_gen image list
@@ -73,7 +73,7 @@ gprocs/spirals_driver	chunk:03	feat:record	aug_assign image record
 gprocs/spokes_driver	chunk:03	feat:record	aug_assign record
 gprocs/strpchrt_driver	chunk:04	feat:list	case image list record writes
 gprocs/subturtl_driver	chunk:02	feat:image	image
-gprocs/symrand_driver	chunk:07	feat:aug_assign	aug_assign
+gprocs/symrand_driver	chunk:06	feat:aug_assign	aug_assign
 gprocs/tieedit_driver	chunk:03	feat:coexpr_activate	coexpr_activate element_gen image limitation next record return table type writes
 gprocs/tieutils_driver	chunk:04	feat:list	element_gen image list record writes
 gprocs/turtle_driver	chunk:01	feat:writes	element_gen return writes
@@ -108,9 +108,9 @@ gprocs/xform_driver	chunk:04	feat:every_with_suspend	aug_assign coexpr_activate 
 gprocs/xgtrace_driver	chunk:02	feat:fail	fail image return
 gprocs/xio_driver	chunk:01	feat:type	element_gen image sort stop table type writes
 gprocs/xputpixl_driver	chunk:04	feat:set	aug_assign element_gen image limitation set sort
-gprocs/xqueue_driver	chunk:07	feat:repeat	break image repeat return
+gprocs/xqueue_driver	chunk:06	feat:repeat	break image repeat return
 gprogs/blp2rows	chunk:05	feat:read	element_gen read
-gprogs/cquilts	chunk:07	feat:repeat	aug_assign create global integer limitation repeat
+gprogs/cquilts	chunk:06	feat:repeat	aug_assign create global integer limitation repeat
 gprogs/dd2draft	chunk:06	feat:repl	aug_assign create element_gen get put read record repl return scan sort stop table upto while writes
 gprogs/dd2res	chunk:04	feat:set	set
 gprogs/dd2unit	chunk:04	feat:list	aug_assign element_gen global list put read repeat return
@@ -123,14 +123,14 @@ gprogs/lindcomp	chunk:06	feat:find	case element_gen find global integer limitati
 gprogs/rows2blp	chunk:06	feat:put	put read while
 gprogs/rows2isd	chunk:04	feat:list	aug_assign element_gen list put read repl return scan section stop table upto while
 gprogs/uix	chunk:06	feat:match	aug_assign break case create element_gen fail get image limitation match move next put read record return scan section stop table while writes
-gprogs/unitgenr	chunk:07	feat:repeat	break element_gen fail global next put read repeat return section while
+gprogs/unitgenr	chunk:06	feat:repeat	break element_gen fail global next put read repeat return section while
 gprogs/webimage	chunk:02	feat:fail	element_gen fail image limitation next record return
 gprogs/wif2isd	chunk:04	feat:global	global limitation
 procs/abkform_driver	chunk:03	feat:record	image record
-procs/adjuncts_driver	chunk:06	feat:case	case image
+procs/adjuncts_driver	chunk:05	feat:case	case image
 procs/adlutils_driver	chunk:03	feat:limitation	element_gen image limitation
 procs/allof_driver	chunk:06	feat:pos	element_gen global image move pos return scan
-procs/allpat_driver	chunk:07	feat:aug_assign	aug_assign image
+procs/allpat_driver	chunk:06	feat:aug_assign	aug_assign image
 procs/apply_driver	chunk:04	feat:every_with_suspend	every_with_suspend image integer return suspend
 procs/argparse_driver	chunk:01	feat:writes	element_gen image limitation writes
 procs/array_driver	chunk:01	feat:writes	image writes
@@ -172,22 +172,22 @@ procs/digitcnt_driver	chunk:01	feat:writes	element_gen writes
 procs/dijkstra_driver	chunk:05	feat:until	aug_assign global return static until writes
 procs/divide_driver	chunk:07	feat:break	break image
 procs/ebcdic_driver	chunk:03	feat:coexpr_activate	coexpr_activate image limitation return section type writes
-procs/echo_driver	chunk:05	feat:global	global image scan
+procs/echo_driver	chunk:04	feat:global	global image scan
 procs/empgsup_driver	chunk:01	feat:type	type
 procs/emptygen_driver	chunk:07	feat:suspend	fail return suspend
 procs/equiv_driver	chunk:05	feat:until	put record set table type until
 procs/escape_driver	chunk:03	feat:coexpr_activate	coexpr_activate image limitation
 procs/escapesq_driver	chunk:07	feat:scan_with_tab	image limitation scan scan_with_tab tab
 procs/eval_driver	chunk:06	feat:repl	find image map repl return type upto
-procs/evallist_driver	chunk:06	feat:case	case element_gen image writes
+procs/evallist_driver	chunk:05	feat:case	case element_gen image writes
 procs/eventgen_driver	chunk:04	dir:procs	
 procs/everycat_driver	chunk:04	feat:set	aug_assign element_gen limitation set sort writes
 procs/expander_driver	chunk:02	feat:image	image
-procs/exprfile_driver	chunk:05	feat:global	element_gen global image limitation writes
+procs/exprfile_driver	chunk:04	feat:global	element_gen global image limitation writes
 procs/factors_driver	chunk:01	feat:writes	element_gen image limitation writes
 procs/fastfncs_driver	chunk:01	feat:writes	writes
 procs/feval_driver	chunk:06	feat:repl	find image map repl return type upto
-procs/filedim_driver	chunk:06	feat:case	case record stop type
+procs/filedim_driver	chunk:05	feat:case	case record stop type
 procs/filenseq_driver	chunk:07	feat:next	next
 procs/filesize_driver	chunk:02	feat:image	image
 procs/findre_driver	chunk:06	feat:pos	break element_gen find global image limitation pos put scan scan_with_tab tab while writes
@@ -204,7 +204,7 @@ procs/geodat_driver	chunk:05	feat:integer	aug_assign element_gen image integer r
 procs/getkeys_driver	chunk:02	feat:stop	aug_assign image stop
 procs/getmail_driver	chunk:03	feat:coexpr_activate	aug_assign coexpr_activate element_gen image scan scan_with_tab stop tab
 procs/getpaths_driver	chunk:03	feat:limitation	image limitation
-procs/gettext_driver	chunk:07	feat:repeat	image next repeat stop
+procs/gettext_driver	chunk:06	feat:repeat	image next repeat stop
 procs/gobject_driver	chunk:01	feat:type	element_gen image type writes
 procs/graphpak_driver	chunk:06	feat:insert	element_gen insert list put record return set sort table writes
 procs/hetero_driver	chunk:04	feat:set	element_gen record set stop table type writes
@@ -256,9 +256,9 @@ procs/matrix2_driver	chunk:02	feat:writes	element_gen image return writes
 procs/matrix_driver	chunk:05	feat:create	create image stop
 procs/memlog_driver	chunk:05	feat:until	list stop type until writes
 procs/memrfncs_driver	chunk:02	feat:writes	writes
-procs/mixsort_driver	chunk:06	feat:case	case element_gen image table writes
+procs/mixsort_driver	chunk:05	feat:case	case element_gen image table writes
 procs/models_driver	chunk:06	feat:map	image map scan scan_with_tab tab upto writes
-procs/morse_driver	chunk:06	feat:case	case image scan
+procs/morse_driver	chunk:05	feat:case	case image scan
 procs/mset_driver	chunk:04	feat:set	aug_assign case element_gen image put record return set sort table type
 procs/namepfx_driver	chunk:02	feat:image	image
 procs/nestlist_driver	chunk:01	feat:type	type
@@ -282,7 +282,7 @@ procs/pbkform_driver	chunk:03	feat:record	image limitation record stop writes
 procs/pdco_driver	chunk:07	feat:seq	element_gen fail limitation return seq stop writes
 procs/periodic_driver	chunk:02	feat:writes	image return writes
 procs/permutat_driver	chunk:05	feat:trim	aug_assign element_gen put repeat return sort trim
-procs/phoname_driver	chunk:07	feat:aug_assign	aug_assign image limitation
+procs/phoname_driver	chunk:06	feat:aug_assign	aug_assign image limitation
 procs/plural_driver	chunk:02	feat:image	image
 procs/polynom_driver	chunk:05	feat:sort	element_gen image sort writes
 procs/polyseq_driver	chunk:07	feat:seq	aug_assign element_gen image limitation scan seq sort
@@ -296,15 +296,15 @@ procs/procname_driver	chunk:03	feat:record	image record
 procs/progary_driver	chunk:01	feat:type	aug_assign image return stop type
 procs/pscript_driver	chunk:03	feat:limitation	image limitation
 procs/ptutils_driver	chunk:01	feat:type	image record type
-procs/random_driver	chunk:05	feat:global	aug_assign global image limitation scan
+procs/random_driver	chunk:04	feat:global	aug_assign global image limitation scan
 procs/rational_driver	chunk:02	feat:image	image
 procs/readcpt_driver	chunk:07	feat:break	aug_assign break element_gen image next read return stop while
 procs/readtbl_driver	chunk:05	feat:sort	element_gen image limitation scan sort
 procs/reassign_driver	chunk:03	feat:coexpr_activate	coexpr_activate limitation
 procs/rec2tab_driver	chunk:03	feat:record	limitation record
-procs/recog_driver	chunk:05	feat:global	global return
+procs/recog_driver	chunk:04	feat:global	global return
 procs/records_driver	chunk:03	feat:record	image record
-procs/recrfncs_driver	chunk:07	feat:aug_assign	aug_assign
+procs/recrfncs_driver	chunk:06	feat:aug_assign	aug_assign
 procs/recurmap_driver	chunk:04	dir:procs	
 procs/reduce_driver	chunk:02	feat:stop	image return stop
 procs/regexp_driver	chunk:03	feat:coexpr_activate	aug_assign case coexpr_activate create image limitation return scan scan_with_tab tab while
@@ -394,18 +394,18 @@ progs/crypt	chunk:06	feat:want_rc	aug_assign element_gen get put read reads want
 progs/csgen	chunk:05	feat:until	break element_gen every_with_suspend find global integer limitation move next put read repeat return scan scan_with_tab stop suspend tab until upto while
 progs/cwd	chunk:07	feat:upto	read scan scan_with_tab tab upto
 progs/deal	chunk:06	feat:push	element_gen global limitation map push repl return section static
-progs/declchck	chunk:06	feat:member	break global image insert limitation many member move next read scan scan_with_tab set tab upto while
+progs/declchck	chunk:06	feat:member	break fixtures global image insert limitation many member move next read scan scan_with_tab set tab upto while
 progs/delta	chunk:05	feat:read	read while
 progs/diffsort	chunk:06	feat:any	any element_gen global limitation put repl return scan sort stop
 progs/diffsum	chunk:03	feat:coexpr_activate	any aug_assign coexpr_activate global limitation many next read return scan scan_with_tab stop tab upto while
 progs/diffword	chunk:06	feat:insert	element_gen insert many read scan scan_with_tab set sort tab upto while
-progs/duplproc	chunk:06	feat:match	aug_assign break case element_gen fail find insert limitation list many map match move next pos put read record return scan scan_with_tab set sort static stop tab table trim upto while
+progs/duplproc	core	core	aug_assign break case element_gen fail find fixtures insert limitation list many map match move next pos put read record return scan scan_with_tab set sort static stop tab table trim upto while
 progs/edscript	chunk:06	feat:insert	find global insert limitation move next read return scan scan_with_tab static suspend tab upto while
 progs/empg	chunk:07	feat:next	element_gen global image limitation next put read record return scan scan_with_tab tab while
 progs/extweave	chunk:05	feat:reads	aug_assign break element_gen find get limitation list many map move put reads repeat return scan scan_with_tab stop tab upto while
 progs/farb	chunk:05	feat:until	break case integer limitation next scan until while
 progs/filehtml	chunk:05	feat:create	create element_gen
-progs/fileprep	chunk:06	feat:find	find next read scan scan_with_tab tab while
+progs/fileprep	chunk:04	feat:fixtures	find fixtures next read scan scan_with_tab tab while
 progs/filexref	chunk:06	feat:member	aug_assign coexpr_activate create element_gen insert integer limitation map member put read repl scan scan_with_tab section set sort stop tab table trim upto while writes
 progs/filtskel	chunk:02	feat:stop	element_gen limitation read scan stop while
 progs/fnctab	chunk:06	feat:delete	aug_assign break delete insert many member read scan scan_with_tab set sort static stop tab table trim upto while
@@ -414,7 +414,7 @@ progs/format	chunk:06	feat:delete	any aug_assign break delete element_gen intege
 progs/former	chunk:06	feat:pos	integer move pos read scan scan_with_tab stop tab while
 progs/fract	chunk:04	feat:list	integer limitation list scan
 progs/fuzz	chunk:07	feat:swap	any aug_assign case element_gen find global limitation list many map put read record return scan scan_with_tab stop swap tab upto want_rc while writes
-progs/gcomp	chunk:06	feat:delete	break delete element_gen insert move read scan scan_with_tab set sort tab upto while
+progs/gcomp	chunk:06	feat:delete	break delete element_gen fixtures insert move read scan scan_with_tab set sort tab upto while
 progs/gener	chunk:05	feat:read	read while
 progs/genqueen	chunk:04	feat:every_with_suspend	every_with_suspend fail global integer list next repl return suspend
 progs/getcol	chunk:07	feat:many	limitation many read scan scan_with_tab stop tab upto while
@@ -426,7 +426,7 @@ progs/hr	core	core	aug_assign break case element_gen global integer limitation l
 progs/htprep	core	core	any aug_assign bal coexpr_activate element_gen fail get global limitation many map move next pop push put read record return scan scan_with_tab section static stop tab table trim upto while writes
 progs/hufftab	chunk:06	feat:pos	aug_assign element_gen global integer limitation list many next pos put read return scan scan_with_tab section tab type while writes
 progs/ibar	chunk:06	feat:repl	read repl scan upto while
-progs/ibrow	chunk:06	feat:member	any aug_assign break case element_gen find global insert integer limitation many member next pos put read record repeat return scan scan_with_tab section set sort stop tab table until upto while writes
+progs/ibrow	core	core	any aug_assign break case element_gen find fixtures global insert integer limitation many member next pos put read record repeat return scan scan_with_tab section set sort stop tab table until upto while writes
 progs/icalc	chunk:07	feat:bal	any aug_assign bal break case element_gen every_with_suspend fail global limitation many move pos put read record repeat return scan scan_with_tab static suspend tab table trim type until upto while
 progs/icalls	chunk:06	feat:find	aug_assign find get move scan scan_with_tab sort tab table upto while
 progs/icn2c	chunk:05	feat:until	any aug_assign break case coexpr_activate find limitation many move pos read repeat return scan scan_with_tab section stop tab trim until upto while
@@ -436,7 +436,7 @@ progs/idxtext	chunk:06	feat:pop	aug_assign element_gen find global limitation ne
 progs/ifncsgen	chunk:04	feat:every_with_suspend	aug_assign element_gen every_with_suspend image map move return scan scan_with_tab section static suspend tab
 progs/iheader	chunk:06	feat:repl	break element_gen global limitation next read repl while
 progs/iidecode	chunk:06	feat:match	aug_assign break case coexpr_activate element_gen global limitation many map match move read return scan scan_with_tab tab upto while writes
-progs/ilnkxref	chunk:06	feat:match	create element_gen find get limitation many match pos put read repl return scan scan_with_tab section sort stop tab table until upto while
+progs/ilnkxref	chunk:06	feat:match	create element_gen find fixtures get limitation many match pos put read repl return scan scan_with_tab section sort stop tab table until upto while
 progs/ilump	chunk:06	feat:member	any break element_gen fail get global insert limitation many member pos put read repeat return scan scan_with_tab set static tab upto while
 progs/imagetyp	chunk:05	feat:reads	fail find limitation move read reads return scan scan_with_tab tab while writes
 progs/indxcomp	chunk:06	feat:insert	case create fail get insert integer many map next put read scan scan_with_tab set sort tab table type while writes
@@ -467,21 +467,21 @@ progs/iversion	chunk:05	feat:reads	any limitation next read reads scan scan_with
 progs/iwriter	chunk:05	feat:read	image read while
 progs/kross	chunk:07	feat:upto	read upto while
 progs/kwic	chunk:06	feat:member	element_gen every_with_suspend get global insert integer limitation many map member put repl return scan scan_with_tab section set sort static suspend tab table upto while
-progs/kwicprep	chunk:06	feat:find	find next read scan scan_with_tab tab while
+progs/kwicprep	chunk:04	feat:fixtures	find fixtures next read scan scan_with_tab tab while
 progs/la	chunk:05	feat:read	read while
 progs/labels	chunk:06	feat:any	any break case element_gen fail global integer limitation list next put repl return scan static stop upto while
 progs/latexidx	chunk:06	feat:match	aug_assign case create get integer limitation map match read return section set sort table upto while
 progs/lc	chunk:05	feat:reads	aug_assign limitation reads scan upto while
 progs/lcn	chunk:06	feat:map	element_gen map
 progs/limitf	chunk:03	feat:limitation	limitation
-progs/lindcode	chunk:07	feat:repeat	aug_assign break case element_gen image integer limitation move read repeat scan scan_with_tab tab table upto while
+progs/lindcode	chunk:06	feat:repeat	aug_assign break case element_gen image integer limitation move read repeat scan scan_with_tab tab table upto while
 progs/lindsys	chunk:06	feat:put	element_gen limitation put read stop while writes
 progs/link2url	chunk:06	feat:find	find read scan scan_with_tab tab upto while
 progs/lisp	core	core	any aug_assign bal break case delete element_gen every_with_suspend fail global image insert limitation many map member move next pop pos put read record repeat return scan scan_with_tab section set sort static stop suspend tab table type until while writes
 progs/listhtml	chunk:05	feat:create	create
-progs/literat	core	core	aug_assign break case create fail find get global list member move next pop put read reads record repeat repl return scan scan_with_tab section set sort swap tab trim type until upto want_rc while writes
+progs/literat	core	core	aug_assign break case create fail find fixtures get global list member move next pop put read reads record repeat repl return scan scan_with_tab section set sort swap tab trim type until upto want_rc while writes
 progs/ll	chunk:05	feat:read	read while
-progs/loadmap	chunk:06	feat:repl	aug_assign element_gen find integer limitation many map move put record repl return scan scan_with_tab section static stop tab table upto writes
+progs/loadmap	chunk:04	feat:fixtures	aug_assign element_gen find fixtures integer limitation many map move put record repl return scan scan_with_tab section static stop tab table upto writes
 progs/lower	chunk:06	feat:map	map read while
 progs/lssum	chunk:07	feat:many	aug_assign many move next read scan scan_with_tab tab upto while
 progs/lsysmap	chunk:06	feat:find	aug_assign element_gen find limitation map move put read scan scan_with_tab stop tab while
@@ -518,7 +518,7 @@ progs/ruler	chunk:07	feat:section	limitation section writes
 progs/sample	chunk:05	feat:integer	integer read while
 progs/scale	chunk:07	feat:upto	limitation read scan scan_with_tab tab upto while
 progs/scramble	chunk:07	feat:static	aug_assign global many next put read return scan scan_with_tab static tab table upto while writes
-progs/shar	chunk:06	feat:want_rc	aug_assign create element_gen limitation read stop want_rc while
+progs/shar	chunk:04	feat:fixtures	aug_assign create element_gen fixtures limitation read stop while
 progs/shortest	chunk:05	feat:read	aug_assign limitation read
 progs/shuffile	chunk:06	feat:put	element_gen limitation put
 progs/shuffle	chunk:06	feat:put	element_gen put read stop while
@@ -549,12 +549,12 @@ progs/what	chunk:06	feat:pop	aug_assign coexpr_activate limitation match move ne
 progs/wshfdemo	chunk:04	feat:list	break element_gen integer limitation list put read repeat scan writes
 progs/xtable	chunk:06	feat:match	any aug_assign case coexpr_activate create element_gen fail global image integer limitation match next put repl return section while
 progs/yescr	chunk:06	feat:pop	aug_assign break element_gen find limitation map move next pop reads repl return scan scan_with_tab static stop tab while writes
-progs/zipsort	chunk:07	feat:repeat	aug_assign break case get integer limitation many read repeat scan scan_with_tab sort tab table upto while writes
+progs/zipsort	chunk:06	feat:repeat	aug_assign break case get integer limitation many read repeat scan scan_with_tab sort tab table upto while writes
 gprogs/autotile	chunk:04	feat:fixtures	aug_assign fixtures global limitation list put repl stop
 gprogs/dd2wif	chunk:06	feat:want_rc	aug_assign coexpr_activate element_gen limitation list put repl return scan section stop table upto want_rc
 gprogs/painterc	chunk:06	feat:pos	element_gen find limitation many map next pos read scan scan_with_tab tab upto while writes
-gprogs/patfetch	chunk:04	feat:fixtures	break element_gen fixtures insert integer many move pos put read scan scan_with_tab set sort stop tab until upto while
-gprogs/pextract	chunk:04	feat:fixtures	break element_gen fixtures insert integer limitation many move next pos put read scan scan_with_tab set sort stop tab upto while
+gprogs/patfetch	chunk:05	feat:until	break element_gen fixtures insert integer many move pos put read scan scan_with_tab set sort stop tab until upto while
+gprogs/pextract	chunk:06	feat:insert	break element_gen fixtures insert integer limitation many move next pos put read scan scan_with_tab set sort stop tab upto while
 gprogs/pgmtoims	core	core	any aug_assign fixtures image limitation many map move pos reads return scan scan_with_tab section seq stop tab upto while
 gprogs/xbm2pat	chunk:04	feat:fixtures	fixtures put stop
 progs/applyfnc	chunk:02	feat:stop	element_gen read stop while
@@ -564,17 +564,17 @@ progs/catlines	chunk:05	feat:read	aug_assign read while
 progs/chkhtml	core	core	aug_assign break case coexpr_activate delete element_gen every_with_suspend fail find get global image insert limitation many map match member move pop pos push put read record repeat return scan scan_with_tab section set static stop suspend tab table type until upto while writes
 progs/choose	chunk:05	feat:get	aug_assign element_gen get global integer put read record return scan stop while
 progs/chop	chunk:07	feat:upto	limitation read scan scan_with_tab tab upto while
-progs/colm	chunk:07	feat:repeat	break create get limitation put read repeat stop while
+progs/colm	chunk:06	feat:repeat	break create get limitation put read repeat stop while
 progs/compare	chunk:04	feat:fixtures	element_gen fixtures get image integer many move put read scan scan_with_tab sort stop tab table while
 progs/conman	chunk:06	feat:push	aug_assign case element_gen fail find global limitation many map move next pop push read return scan scan_with_tab section sort tab table until upto while
 progs/cstrings	chunk:06	feat:find	aug_assign break case element_gen find move read scan scan_with_tab stop tab upto while
-progs/datmerge	chunk:07	feat:repeat	break case element_gen fail get put read repeat return sort stop while writes
+progs/datmerge	chunk:06	feat:repeat	break case element_gen fail get put read repeat return sort stop while writes
 progs/ddfdump	chunk:04	feat:fixtures	element_gen fixtures get image limitation map record return section static stop type while writes
 progs/delam	chunk:06	feat:any	any aug_assign create element_gen integer limitation move read return scan scan_with_tab section stop tab upto while
 progs/delamc	chunk:06	feat:pop	aug_assign limitation match move pop read return scan scan_with_tab section stop tab upto while
 progs/dellines	chunk:06	feat:delete	aug_assign break delete image integer member read set stop while
 progs/diffn	chunk:04	feat:list	aug_assign element_gen global list read record return stop
-progs/diffu	chunk:07	feat:aug_assign	aug_assign element_gen
+progs/diffu	chunk:06	feat:aug_assign	aug_assign element_gen
 progs/digcol	chunk:05	feat:integer	integer many read scan scan_with_tab stop tab upto while
 progs/diskpack	chunk:06	feat:delete	aug_assign break delete element_gen integer limitation many next put scan scan_with_tab sort stop tab table upto while
 progs/duplfile	chunk:04	feat:fixtures	element_gen fixtures get image limitation next put read return scan scan_with_tab sort tab table while
@@ -589,25 +589,25 @@ progs/findstr	chunk:05	feat:reads	any aug_assign element_gen image limitation re
 progs/findtext	chunk:04	feat:fixtures	aug_assign fixtures limitation read while writes
 progs/fixhqx	chunk:07	feat:break	break read scan while
 progs/fixpath	chunk:05	feat:reads	aug_assign find limitation move reads scan scan_with_tab stop tab while writes
-progs/fset	chunk:04	feat:fixtures	any aug_assign case element_gen every_with_suspend fail find fixtures insert list many move pos read return scan scan_with_tab set sort static stop suspend tab type upto while
+progs/fset	chunk:04	feat:every_with_suspend	any aug_assign case element_gen every_with_suspend fail find fixtures insert list many move pos read return scan scan_with_tab set sort static stop suspend tab type upto while
 progs/geddump	chunk:06	feat:map	aug_assign case element_gen global limitation map put record return stop table writes
 progs/gediff	chunk:06	feat:want_rc	any aug_assign element_gen fixtures global limitation many match move put read return scan scan_with_tab section tab upto want_rc while
-progs/genfile	chunk:06	feat:want_rc	element_gen fixtures limitation read stop want_rc
+progs/genfile	chunk:04	feat:fixtures	element_gen fixtures limitation read stop
 progs/getlines	chunk:06	feat:delete	aug_assign delete image integer member read set stop while
 progs/icvt	chunk:06	feat:match	any aug_assign case global limitation map match move pos read return scan scan_with_tab stop tab upto while writes
 progs/ifilter	chunk:06	feat:pop	element_gen limitation pop read section stop while
 progs/igrep	chunk:06	feat:delete	any aug_assign break case delete element_gen find get global image limitation map move next read return scan scan_with_tab section stop tab upto while
-progs/ihelp	chunk:04	feat:fixtures	break case element_gen find fixtures limitation map read section stop until while
+progs/ihelp	chunk:05	feat:until	break case element_gen find fixtures limitation map read section stop until while
 progs/iiencode	chunk:05	feat:reads	aug_assign case coexpr_activate fixtures limitation map move next reads return scan scan_with_tab static tab while
-progs/inter	chunk:04	feat:fixtures	element_gen fixtures insert set sort stop
+progs/inter	chunk:06	feat:insert	element_gen fixtures insert set sort stop
 progs/iprint	chunk:06	feat:match	aug_assign break case element_gen find get global integer limitation match move next put read repeat repl return scan scan_with_tab section static stop tab trim while writes
 progs/knapsack	chunk:04	feat:every_with_suspend	case element_gen every_with_suspend global integer list put return stop suspend while
 progs/lam	chunk:06	feat:match	element_gen global limitation list match put read scan section stop while writes
 progs/lcfile	chunk:06	feat:map	map read while
 progs/lineseq	chunk:02	feat:writes	limitation writes
-progs/longest	chunk:07	feat:aug_assign	aug_assign limitation
+progs/longest	chunk:06	feat:aug_assign	aug_assign limitation
 progs/mapcolrs	chunk:04	feat:fixtures	aug_assign fixtures put read sort stop table while
-progs/mszip	core	core	aug_assign coexpr_activate create element_gen fail fixtures get global integer limitation many move pos put read reads return scan scan_with_tab section sort static stop tab table upto while
+progs/mszip	chunk:05	feat:reads	aug_assign coexpr_activate create element_gen fail fixtures get global integer limitation many move pos put read reads return scan scan_with_tab section sort static stop tab table upto while
 progs/mtf3	core	core	any aug_assign break case element_gen every_with_suspend fail find fixtures global insert integer limitation list many match member move next pop pos put read reads record repeat repl return scan scan_with_tab section set sort static stop suspend tab table trim until upto while writes
 progs/newsrc	chunk:04	feat:fixtures	aug_assign create element_gen find fixtures integer put read return scan scan_with_tab sort stop tab while writes
 progs/pack	chunk:04	feat:fixtures	element_gen fixtures limitation read stop while
@@ -621,4 +621,4 @@ progs/setmerge	chunk:06	feat:delete	any case delete element_gen fixtures insert 
 progs/streamer	chunk:07	feat:break	aug_assign break limitation read while writes
 progs/strpsgml	chunk:06	feat:want_rc	get limitation pop stop want_rc while
 progs/textcvt	chunk:06	feat:match	aug_assign element_gen global limitation match move next reads return scan scan_with_tab stop tab upto while writes
-progs/utrim	chunk:04	feat:fixtures	aug_assign break element_gen fixtures get global insert limitation many next put read record return scan scan_with_tab set sort stop tab table until upto while writes
+progs/utrim	chunk:05	feat:until	aug_assign break element_gen fixtures get global insert limitation many next put read record return scan scan_with_tab set sort stop tab table until upto while writes
