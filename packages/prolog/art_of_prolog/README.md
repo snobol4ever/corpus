@@ -2,8 +2,8 @@
 
 ProArt: the programs of Sterling and Shapiro, The Art of Prolog, 2nd edition (MIT Press 1994), from the CMU AI Repository
 (`lang/prolog/bookcode/aop`, `aop.tgz`; its `0.doc` names the origin `ftp.cwru.edu:/ArtOfProlog/` and states no licence), read IN PLACE
-from `/home/resources/prolog-demos/cmu-aop/pl` (`ALL.source`): the 206 files of the archive, each copied unchanged under its own name
-with `.pl` added (the archive names them `program-3.1`, with no extension). No program of it is stored here.
+from `/home/resources/prolog-demos/cmu-aop/pl` (`ALL.source`), the one copy on this box: the 206 files of the archive, each unchanged
+under its own name with `.pl` added (the archive names them `program-3.1`, with no extension, in a folder a chapter). No program of it is stored here.
 
 The book's programs define predicates and run nothing, and they state no query: the book does, and the book is not in the
 collection. So THE QUERIES ARE OURS, written from a reading of each file (`OUR-QUERIES.tsv`: file, goal): the calls each program was

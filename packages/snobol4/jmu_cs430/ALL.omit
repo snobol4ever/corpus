@@ -1,0 +1,22 @@
+CodeExamples/CODE.sno: ORACLE-REFUSES: SPITBOL ends it with an error: CODE.sno(58) : ERROR 022 -- undefined function called
+CodeExamples/DEMO.sno: ORACLE-REFUSES: SPITBOL ends it with an error: DEMO.sno(9) : ERROR 251 -- keyword operand is not name of defined keyword
+CodeExamples/EXAMPLE.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/FINAL.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/FINAL2.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/FINAL3.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/SECOND.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/areplace2.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/myTry.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/myplace.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/one.sno: ORACLE-REFUSES: SPITBOL ends it with an error: one.sno(7) : ERROR 001 -- addition left operand is not numeric
+CodeExamples/vowels.sno: NEEDS-INPUT: its answer changes with what standard input holds
+CodeExamples/vowels2.sno: NEEDS-INPUT: its answer changes with what standard input holds
+snobol4p/CODE.sno: ORACLE-REFUSES: SPITBOL ends it with an error: CODE.sno(58) : ERROR 022 -- undefined function called
+snobol4p/DEMO.sno: ORACLE-REFUSES: SPITBOL ends it with an error: DEMO.sno(9) : ERROR 251 -- keyword operand is not name of defined keyword
+snobol4p/fowler.sno: DOES-NOT-END: no answer inside 60 s
+snobol4p/quest1.sno: DOES-NOT-END: no answer inside 60 s
+snobol4p/richter.sno: ORACLE-REFUSES: SPITBOL ends it with an error: richter.sno(5) : ERROR 038 -- goto undefined label
+snobol4p/test.sno: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+snobol4p/test3.sno: DOES-NOT-END: no answer inside 60 s
+snobol4p/test4.sno: ORACLE-REFUSES: SPITBOL ends it with an error: test4.sno(10) : ERROR 235 -- subscripted operand is not table or array
+snobol4p/test5.sno: DIFFERS-BETWEEN-RUNS: exit 231 and 231, 743 and 743 bytes

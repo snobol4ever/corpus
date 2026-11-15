@@ -1,0 +1,13 @@
+DEMOS/ATN.spt: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+DEMOS/GOTOS.spt: ORACLE-REFUSES: SPITBOL ends it with an error: GOTOS.spt(48) : ERROR 244 -- statement count exceeds value of stlimit keyword
+DEMOS/KALAH.spt: NEEDS-INPUT: its answer changes with what standard input holds
+DEMOS/KEYWORD.spt: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Missing input file "Keywords"
+DEMOS/KWIC1.spt: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+DEMOS/KWIC2.spt: ORACLE-REFUSES: SPITBOL ends it with an error: KWIC2.spt(108) : ERROR 237 -- table referenced with more than one subscript
+DEMOS/SENTENC.spt: NEEDS-INPUT: its answer changes with what standard input holds
+DEMOS/TREESORT.spt: DIFFERS-BETWEEN-RUNS: exit 1 and 1, 4939 and 4939 bytes
+SANDLP/BNF.spt: ORACLE-REFUSES: SPITBOL ends it with an error: BNF.spt(26) : ERROR 251 -- keyword operand is not name of defined keyword
+SANDLP/CONCORD.spt: NEEDS-INPUT: its answer changes with what standard input holds
+SANDLP/TICTAC.spt: NEEDS-INPUT: its answer changes with what standard input holds
+TEST.spt: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Test SPITBOL installation
+TICTAC.spt: NEEDS-INPUT: its answer changes with what standard input holds

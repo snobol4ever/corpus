@@ -1,0 +1,22 @@
+# spitbol_88
+
+Sno88: the programs of Catspaw's SPITBOL-88 distribution (https://github.com/spitbol/88-binary at 1b8a7a6; BSD 2-clause, (c) Copyright
+1985, 1994 Catspaw, Incorporated): `DEMOS` (9), `SANDLP` (4, with the function library of Griswold's String and List Processing in
+SNOBOL4 as 26 include files) and the root's `TEST` and `TICTAC`, read IN PLACE from
+`/home/resources/collections/snobol4/spitbol-88-binary` (`ALL.source`). No program of it is stored here.
+
+Changed in place in the clone: those 15 programs have their `.SPT` extension written `.spt` and their DOS line ends made LF (SPITBOL
+refuses a CR as an illegal character); nothing else. NEVER RUN: `CODE.SPT` (it runs shell commands through HOST) and the 14 programs
+of `EXTERNAL` (they load external function libraries); they keep the name `.SPT`, which the miner does not read.
+
+| | |
+|---|---|
+| programs read | 15 |
+| rows | 2, `DEMOS/ELIZA` and `SANDLP/PROPERTY`, each answer cut twice from `sbl -bf` |
+| declared out | 4 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: `GOTOS`, `KWIC2` and `BNF` the oracle ends with an error, `TREESORT` ends with an error whose text differs between two runs (with or without its `TREESORT.IN`) |
+| owed | 9: `KALAH`, `SENTENC`, `CONCORD` and the two `TICTAC` read standard input the collection ships none for; `ATN`, `KWIC1`, `KEYWORD` and `TEST` print nothing as they are run (`KEYWORD` opens `keywords` and `keytext`, which the folder holds in upper case) |
+
+STILL TO DO: the 26 functions of `SANDLP` are a library with no program that calls them; each needs a driver of ours, as Gimpel's did.
+The demos are older texts of programs the package `spitbol_x64_tests` already grades. No SCRIP reading was taken at the cut (Lon
+2026-11-14); the cycle grades it. Built by `util_build_package_suite.py corpus/packages/snobol4/spitbol_88 --lang snobol4 --mine
+CENSUS.tsv --twice` (the grader 2026-11-15).

@@ -1,0 +1,3 @@
+rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,DEMOS/ELIZA,DEMOS/ELIZA.spt,snobol4,spitbol_88__DEMOS/ELIZA,spitbol_88,256,0,131072,4096,60,
+2,SANDLP/PROPERTY,SANDLP/PROPERTY.spt,snobol4,spitbol_88__SANDLP/PROPERTY,spitbol_88,59,0,131072,4096,60,
