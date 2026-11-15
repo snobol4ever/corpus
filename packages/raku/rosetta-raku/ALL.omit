@@ -1,0 +1,842 @@
+100-prisoners: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+15-puzzle-solver: oracle timed out -- non-terminating or too slow for the grading timeout
+16-puzzle-game: oracle timed out -- non-terminating or too slow for the grading timeout
+21-game: oracle timed out -- non-terminating or too slow for the grading timeout
+24-game: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+4-rings-or-4-squares-puzzle: oracle timed out -- non-terminating or too slow for the grading timeout
+abbreviations-automatic: oracle produced EMPTY output -- refusing to mint a vacuous ref
+abc-correlation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+abc-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+abelian-sandpile-model-identity: oracle produced EMPTY output -- refusing to mint a vacuous ref
+achilles-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ackermann-function-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ackermann-function-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+active-directory-connect: oracle produced EMPTY output -- refusing to mint a vacuous ref
+addition-chain-exponentiation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+addition-chains: oracle timed out -- non-terminating or too slow for the grading timeout
+address-of-a-variable: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+adfgvx-cipher: oracle produced EMPTY output -- refusing to mint a vacuous ref
+algebraic-data-types: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+align-columns-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+almkvist-giullera-formula-for-pi: oracle produced EMPTY output -- refusing to mint a vacuous ref
+alternade-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+anadromes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+anagrams-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+anagrams-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+anagrams-deranged-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
+anaprimes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+animate-a-pendulum: oracle produced EMPTY output -- refusing to mint a vacuous ref
+archimedean-spiral: oracle produced EMPTY output -- refusing to mint a vacuous ref
+arithmetic-derivative: oracle produced EMPTY output -- refusing to mint a vacuous ref
+arithmetic-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+arithmetic-rational-1: oracle timed out -- non-terminating or too slow for the grading timeout
+ascending-primes: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+ascii-art-diagram-converter: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+assertions: oracle produced EMPTY output -- refusing to mint a vacuous ref
+assertions-in-design-by-contract: oracle produced EMPTY output -- refusing to mint a vacuous ref
+associative-array-iteration: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+atomic-updates: oracle timed out -- non-terminating or too slow for the grading timeout
+attractive-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+autogram-checker: oracle produced EMPTY output -- refusing to mint a vacuous ref
+average-loop-length: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+averages-arithmetic-mean: oracle produced EMPTY output -- refusing to mint a vacuous ref
+averages-median-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+averages-median-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+averages-mode-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+averages-mode-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+averages-root-mean-square-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+avl-tree: oracle produced EMPTY output -- refusing to mint a vacuous ref
+b-spline: oracle produced EMPTY output -- refusing to mint a vacuous ref
+babylonian-spiral-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+babylonian-spiral-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+barnsley-fern: oracle produced EMPTY output -- refusing to mint a vacuous ref
+base-16-numbers-needing-a-to-f-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+base-16-numbers-needing-a-to-f-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+base-16-numbers-needing-a-to-f-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+base64-decode-data: oracle produced EMPTY output -- refusing to mint a vacuous ref
+base64-encode-data: oracle produced EMPTY output -- refusing to mint a vacuous ref
+best-shuffle: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+bifid-cipher: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+binary-search-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+binary-search-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+binary-search-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bioinformatics-global-alignment: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+bioinformatics-sequence-mutation: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+bioinformatics-subsequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+birthday-problem: oracle timed out -- non-terminating or too slow for the grading timeout
+bitmap-bresenhams-line-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bitmap-flood-fill: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bitmap-histogram: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bitmap-read-a-ppm-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+blum-integer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+boolean-values: oracle produced EMPTY output -- refusing to mint a vacuous ref
+brilliant-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+brownian-tree: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+bulls-and-cows-player: oracle timed out -- non-terminating or too slow for the grading timeout
+call-a-function-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-10: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-11: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-7: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-8: oracle produced EMPTY output -- refusing to mint a vacuous ref
+call-a-function-9: oracle produced EMPTY output -- refusing to mint a vacuous ref
+calmo-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+calmosoft-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+canny-edge-detector-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+canonicalize-cidr-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+card-shuffles: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+carmichael-lambda-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
+catalan-numbers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+change-e-letters-to-i-in-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+changeable-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+chaos-game: oracle produced EMPTY output -- refusing to mint a vacuous ref
+checkpoint-synchronization: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+checksumcolor: oracle produced EMPTY output -- refusing to mint a vacuous ref
+circular-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cistercian-numerals: oracle produced EMPTY output -- refusing to mint a vacuous ref
+closest-pair-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+closures-value-capture-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+closures-value-capture-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+collections-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+collections-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+collections-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+collections-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+color-quantization: oracle produced EMPTY output -- refusing to mint a vacuous ref
+color-wheel: oracle produced EMPTY output -- refusing to mint a vacuous ref
+colour-bars-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
+colour-pinstripe-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
+command-line-arguments: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+comments-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+common-list-elements: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+compare-a-list-of-strings: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compare-sorting-algorithms-performance: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+compiler-code-generator: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compiler-lexical-analyzer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compiler-verifying-syntax: oracle produced EMPTY output -- refusing to mint a vacuous ref
+composite-numbers-k-with-no-single-digit-factors-whose-factors-are-all-substrings-of-k: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compound-data-type-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compound-data-type-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+compound-data-type-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+concurrent-computing: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+conditional-structures-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+conditional-structures-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+constrained-genericity-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+constrained-random-points-on-a-circle-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+constrained-random-points-on-a-circle-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+continued-fraction-arithmetic-construct-from-rational-number-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+copy-a-string-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+copy-stdin-to-stdout-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+copy-stdin-to-stdout-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+count-in-factors-1: oracle timed out -- non-terminating or too slow for the grading timeout
+count-in-factors-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+count-in-octal: oracle timed out -- non-terminating or too slow for the grading timeout
+count-the-coins-0-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+countdown: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+create-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+create-a-file-on-magnetic-tape: oracle produced EMPTY output -- refusing to mint a vacuous ref
+create-a-two-dimensional-array-at-runtime-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+create-a-two-dimensional-array-at-runtime-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+create-an-html-table: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+create-your-own-text-control-codes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+csv-data-manipulation-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+csv-data-manipulation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+csv-to-html-translation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cuban-primes-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cullen-and-woodall-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
+curve-that-touches-three-points: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cyclops-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+cyclotomic-polynomial: oracle produced EMPTY output -- refusing to mint a vacuous ref
+date-format-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+dating-agency: oracle produced EMPTY output -- refusing to mint a vacuous ref
+day-of-the-week-of-christmas-and-new-year: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+de-bruijn-sequences: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+de-polignac-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+decision-tables: oracle timed out -- non-terminating or too slow for the grading timeout
+decorate-sort-undecorate-idiom: oracle produced EMPTY output -- refusing to mint a vacuous ref
+define-a-primitive-data-type-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+define-a-primitive-data-type-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+determine-if-a-string-has-all-unique-characters: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+determine-sentence-type: oracle produced EMPTY output -- refusing to mint a vacuous ref
+digit-fifth-powers: oracle timed out -- non-terminating or too slow for the grading timeout
+digital-root-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+distance-and-bearing: oracle produced EMPTY output -- refusing to mint a vacuous ref
+distinct-palindromes-within-decimal-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+distribution-of-0-digits-in-factorial-series: oracle timed out -- non-terminating or too slow for the grading timeout
+dividuus-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+dns-query: oracle produced EMPTY output -- refusing to mint a vacuous ref
+doubly-linked-list-element-definition: oracle produced EMPTY output -- refusing to mint a vacuous ref
+doubly-linked-list-traversal: oracle produced EMPTY output -- refusing to mint a vacuous ref
+dragon-curve: oracle produced EMPTY output -- refusing to mint a vacuous ref
+draw-a-clock-3: oracle timed out -- non-terminating or too slow for the grading timeout
+draw-a-rotating-cube: oracle produced EMPTY output -- refusing to mint a vacuous ref
+draw-a-sphere-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+draw-a-sphere-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+duffinian-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+dutch-national-flag-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+earliest-difference-between-prime-gaps: oracle produced EMPTY output -- refusing to mint a vacuous ref
+eban-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+elementary-cellular-automaton-infinite-length: oracle timed out -- non-terminating or too slow for the grading timeout
+elliptic-curve-digital-signature-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
+emirp-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+empty-directory: oracle produced EMPTY output -- refusing to mint a vacuous ref
+empty-program-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+empty-program-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+empty-program-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+enforced-immutability-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+enforced-immutability-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+enforced-immutability-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+enforced-immutability-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+english-cardinal-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
+entropy-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+enumerations: oracle produced EMPTY output -- refusing to mint a vacuous ref
+equal-prime-and-composite-sums: oracle produced EMPTY output -- refusing to mint a vacuous ref
+equilibrium-index-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+equilibrium-index-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+equilibrium-index-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+erd-s-nicolas-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+erd-s-primes-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+erd-s-primes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+erd-s-selfridge-categorization-of-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+esthetic-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+euclid-mullin-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+evaluate-binomial-coefficients-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+evaluate-binomial-coefficients-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+events: oracle produced EMPTY output -- refusing to mint a vacuous ref
+evolutionary-algorithm: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+executable-library-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+executable-library-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+exponential-digital-sums: oracle timed out -- non-terminating or too slow for the grading timeout
+external-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
+extract-file-extension-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+extreme-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+factorial-base-numbers-indexing-permutations-of-a-collection: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+factors-of-an-integer-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+factors-of-an-integer-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fast-fourier-transform-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fast-fourier-transform-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fermat-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fermat-pseudoprimes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fibonacci-sequence-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+file-input-output-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+file-input-output-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+file-size-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+file-size-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+filter-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+filter-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+filter-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-adjacent-primes-which-differ-by-a-square-integer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-duplicate-files: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-largest-left-truncatable-prime-in-a-given-base: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-limit-of-recursion: oracle timed out -- non-terminating or too slow for the grading timeout
+find-the-intersection-of-a-line-with-a-plane-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-the-intersection-of-two-lines-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-uri-in-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-words-which-contain-all-the-vowels: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-words-which-contains-more-than-3-e-vowels-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-words-which-contains-more-than-3-e-vowels-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-words-whose-first-and-last-three-letters-are-equal: oracle produced EMPTY output -- refusing to mint a vacuous ref
+find-words-with-alternating-vowels-and-consonants: oracle produced EMPTY output -- refusing to mint a vacuous ref
+first-perfect-square-in-base-n-with-n-unique-digits: oracle timed out -- non-terminating or too slow for the grading timeout
+first-power-of-2-that-has-leading-decimal-digits-of-12: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fixed-length-records: oracle produced EMPTY output -- refusing to mint a vacuous ref
+flow-control-structures: oracle produced EMPTY output -- refusing to mint a vacuous ref
+forbidden-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+forward-difference: oracle produced EMPTY output -- refusing to mint a vacuous ref
+four-is-magic: oracle produced EMPTY output -- refusing to mint a vacuous ref
+four-is-the-number-of-letters-in-the-...: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fraction-reduction: oracle timed out -- non-terminating or too slow for the grading timeout
+fractran-2: oracle timed out -- non-terminating or too slow for the grading timeout
+ftp: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-7: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-8: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition-9: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-10: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-7: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-8: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-prototype-9: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gapful-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gaussian-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+generate-chess960-starting-position-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+generate-chess960-starting-position-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+generate-chess960-starting-position-4: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+generate-chess960-starting-position-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+generate-random-chess-position: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+generate-random-numbers-without-repeating-a-value-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+generate-random-numbers-without-repeating-a-value-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+generic-swap: oracle produced EMPTY output -- refusing to mint a vacuous ref
+geohash-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+getting-the-number-of-decimal-places: oracle produced EMPTY output -- refusing to mint a vacuous ref
+globally-replace-text-in-several-files: oracle produced EMPTY output -- refusing to mint a vacuous ref
+goldbachs-comet: oracle produced EMPTY output -- refusing to mint a vacuous ref
+grayscale-image: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-common-divisor-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-element-of-a-list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+greatest-prime-dividing-the-n-th-cubefree-number: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greatest-subsequential-sum-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greed: oracle timed out -- non-terminating or too slow for the grading timeout
+greyscale-bars-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
+gstrans-string-conversion: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+guess-the-number: oracle timed out -- non-terminating or too slow for the grading timeout
+guess-the-number-with-feedback: oracle timed out -- non-terminating or too slow for the grading timeout
+guess-the-number-with-feedback-player-: oracle timed out -- non-terminating or too slow for the grading timeout
+gui-maximum-window-dimensions: oracle produced EMPTY output -- refusing to mint a vacuous ref
+halt-and-catch-fire-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+halt-and-catch-fire-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+happy-primes: oracle timed out -- non-terminating or too slow for the grading timeout
+harmonic-series: oracle produced EMPTY output -- refusing to mint a vacuous ref
+harriss-spiral: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hash-from-two-arrays: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hello-world-line-printer-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hello-world-line-printer-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hello-world-standard-error: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hex-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hilbert-curve-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+hilbert-curve-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+history-variables: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+home-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+horse-racing: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hough-transform: oracle produced EMPTY output -- refusing to mint a vacuous ref
+https-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+huffman-coding-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+huffman-coding-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+humble-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
+i-before-e-except-after-c-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+i-before-e-except-after-c-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+identity-matrix-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+identity-matrix-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+im-a-software-engineer-get-me-out-of-here: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+image-convolution-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+image-convolution-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+imaginary-base-numbers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+include-a-file-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+include-a-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+include-a-file-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+include-a-file-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+increasing-gaps-between-consecutive-niven-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+index-finite-lists-of-positive-integers-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+index-finite-lists-of-positive-integers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+infinity: oracle produced EMPTY output -- refusing to mint a vacuous ref
+input-loop-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+input-loop-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+input-loop-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+input-output-for-lines-of-text-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+input-output-for-lines-of-text-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+input-output-for-pairs-of-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+integer-comparison-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+integer-sequence: oracle timed out -- non-terminating or too slow for the grading timeout
+interactive-programming-repl-: oracle produced EMPTY output -- refusing to mint a vacuous ref
+introspection: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+inventory-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+inverted-syntax-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+inverted-syntax-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+inverted-syntax-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+inverted-syntax-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+inverted-syntax-6: oracle timed out -- non-terminating or too slow for the grading timeout
+inverted-syntax-7: oracle timed out -- non-terminating or too slow for the grading timeout
+inverted-syntax-8: oracle timed out -- non-terminating or too slow for the grading timeout
+isograms-and-heterograms: oracle produced EMPTY output -- refusing to mint a vacuous ref
+isqrt-integer-square-root-of-x: oracle produced EMPTY output -- refusing to mint a vacuous ref
+iterated-digits-squaring-2: oracle timed out -- non-terminating or too slow for the grading timeout
+iterators: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+jaro-winkler-distance: oracle produced EMPTY output -- refusing to mint a vacuous ref
+jortsort-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+jortsort-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+json: oracle produced EMPTY output -- refusing to mint a vacuous ref
+json-pointer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+juggler-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+julia-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
+jump-anywhere-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+jump-anywhere-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+k-d-tree: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+k-means++-clustering: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+kaprekar-numbers-2: oracle timed out -- non-terminating or too slow for the grading timeout
+kaprekar-numbers-3: oracle timed out -- non-terminating or too slow for the grading timeout
+kempner-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+keyboard-input-flush-the-keyboard-buffer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+keyboard-input-keypress-check: oracle produced EMPTY output -- refusing to mint a vacuous ref
+klarner-rado-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+knapsack-problem-bounded-1: oracle timed out -- non-terminating or too slow for the grading timeout
+knights-tour-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+knights-tour-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+knuth-shuffle-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+knuth-shuffle-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+knuths-algorithm-s: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+knuths-power-tree: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+koch-curve-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+koch-curve-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+kronecker-product-based-fractals: oracle produced EMPTY output -- refusing to mint a vacuous ref
+langtons-ant: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+largest-difference-between-adjacent-primes-1: oracle timed out -- non-terminating or too slow for the grading timeout
+largest-difference-between-adjacent-primes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+largest-five-adjacent-number: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+largest-proper-divisor-of-n: oracle produced EMPTY output -- refusing to mint a vacuous ref
+last-friday-of-each-month-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+last-friday-of-each-month-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+latin-squares-in-reduced-form: oracle timed out -- non-terminating or too slow for the grading timeout
+law-of-cosines---triples: oracle produced EMPTY output -- refusing to mint a vacuous ref
+leap-year-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+leap-year-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+least-m-such-that-n-+-m-is-prime: oracle timed out -- non-terminating or too slow for the grading timeout
+legendre-prime-counting-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
+letter-frequency: oracle produced EMPTY output -- refusing to mint a vacuous ref
+list-rooted-trees: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+literals-floating-point: oracle produced EMPTY output -- refusing to mint a vacuous ref
+literals-string-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+literals-string-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+long-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+long-stairs: oracle timed out -- non-terminating or too slow for the grading timeout
+longest-common-substring-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+longest-string-challenge: oracle produced EMPTY output -- refusing to mint a vacuous ref
+longest-substrings-without-repeating-characters: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loop-over-multiple-arrays-simultaneously-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loop-over-multiple-arrays-simultaneously-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-break: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+loops-for-with-a-specified-step-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+loops-foreach-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-foreach-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-foreach-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-foreach-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+loops-infinite-1: oracle timed out -- non-terminating or too slow for the grading timeout
+loops-infinite-2: oracle timed out -- non-terminating or too slow for the grading timeout
+loops-nested: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+lucas-lehmer-test-1: oracle timed out -- non-terminating or too slow for the grading timeout
+lucas-lehmer-test-2: oracle timed out -- non-terminating or too slow for the grading timeout
+lucky-and-even-lucky-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+lychrel-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+m-bius-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
+machine-code-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+mad-libs: oracle produced EMPTY output -- refusing to mint a vacuous ref
+magic-constant: oracle produced EMPTY output -- refusing to mint a vacuous ref
+make-directory-path-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+make-directory-path-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+mandelbrot-set-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+markov-chain-text-generator: oracle produced EMPTY output -- refusing to mint a vacuous ref
+matrix-multiplication-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+matrix-multiplication-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+matrix-multiplication-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+maximum-difference-between-adjacent-elements-of-list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+mayan-numerals-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+maze-generation: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+maze-solving: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+md5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+median-filter: oracle produced EMPTY output -- refusing to mint a vacuous ref
+memory-allocation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+menu: oracle timed out -- non-terminating or too slow for the grading timeout
+mertens-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metallic-ratios: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metaprogramming-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+metered-concurrency: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+metronome: oracle timed out -- non-terminating or too slow for the grading timeout
+mind-boggling-card-trick: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+minimal-steps-down-to-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+minimum-multiple-of-m-where-digital-sum-equals-m: oracle timed out -- non-terminating or too slow for the grading timeout
+modified-random-distribution: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+modular-arithmetic: oracle produced EMPTY output -- refusing to mint a vacuous ref
+modular-inverse: oracle produced EMPTY output -- refusing to mint a vacuous ref
+modulinos: oracle produced EMPTY output -- refusing to mint a vacuous ref
+monte-carlo-methods-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+monte-carlo-methods-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+monty-hall-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+morpion-solitaire: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+motzkin-numbers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+motzkin-numbers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+mouse-position-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+mouse-position-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multi-base-primes-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multi-base-primes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multidimensional-newton-raphson-method: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multiple-distinct-objects: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multiple-regression: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multiplicative-order: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multiplicatively-perfect-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+multiton: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+munching-squares-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+munching-squares-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+mutex: oracle produced EMPTY output -- refusing to mint a vacuous ref
+n-grams: oracle produced EMPTY output -- refusing to mint a vacuous ref
+named-parameters-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+named-parameters-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+narcissist: oracle produced EMPTY output -- refusing to mint a vacuous ref
+narcissistic-decimal-number-1: oracle timed out -- non-terminating or too slow for the grading timeout
+narcissistic-decimal-number-2: oracle timed out -- non-terminating or too slow for the grading timeout
+native-shebang: oracle produced EMPTY output -- refusing to mint a vacuous ref
+natural-sorting: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+nautical-bell: oracle timed out -- non-terminating or too slow for the grading timeout
+negative-base-numbers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+next-highest-int-from-digits: oracle produced EMPTY output -- refusing to mint a vacuous ref
+no-prime-sums: oracle timed out -- non-terminating or too slow for the grading timeout
+non-decimal-radices-convert: oracle produced EMPTY output -- refusing to mint a vacuous ref
+non-transitive-dice: oracle timed out -- non-terminating or too slow for the grading timeout
+nonogram-solver-1: oracle timed out -- non-terminating or too slow for the grading timeout
+nonogram-solver-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+number-names-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+number-reversal-game: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+numbers-k-whose-divisor-sum-is-equal-to-the-divisor-sum-of-k-+-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+numbers-which-are-the-cube-roots-of-the-product-of-their-proper-divisors: oracle produced EMPTY output -- refusing to mint a vacuous ref
+numbers-whose-count-of-divisors-is-prime: oracle produced EMPTY output -- refusing to mint a vacuous ref
+numbers-with-equal-rises-and-falls: oracle produced EMPTY output -- refusing to mint a vacuous ref
+numerical-and-alphabetical-suffixes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+numerical-integration: oracle timed out -- non-terminating or too slow for the grading timeout
+object-serialization: oracle produced EMPTY output -- refusing to mint a vacuous ref
+odd-word-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
+odd-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+one-of-n-lines-in-a-file: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+one-time-pad-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+one-two-primes-1: oracle timed out -- non-terminating or too slow for the grading timeout
+optional-parameters-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+optional-parameters-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+orbital-elements: oracle produced EMPTY output -- refusing to mint a vacuous ref
+order-two-numerical-lists: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+ordered-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ormiston-pairs: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ormiston-triples: oracle produced EMPTY output -- refusing to mint a vacuous ref
+overloaded-operators-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+own-digits-power-sum-1: oracle timed out -- non-terminating or too slow for the grading timeout
+pairs-with-common-factors: oracle produced EMPTY output -- refusing to mint a vacuous ref
+palindromic-gapful-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pan-base-non-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pancake-numbers-2: oracle timed out -- non-terminating or too slow for the grading timeout
+parallel-brute-force-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+parallel-brute-force-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+parallel-calculations: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+parameterized-sql-statement: oracle produced EMPTY output -- refusing to mint a vacuous ref
+particle-swarm-optimization: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+partition-function-p: oracle produced EMPTY output -- refusing to mint a vacuous ref
+passphrase-generator: oracle produced EMPTY output -- refusing to mint a vacuous ref
+password-generator-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+peano-curve: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pells-equation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+penholodigital-squares: oracle produced EMPTY output -- refusing to mint a vacuous ref
+penneys-game: oracle timed out -- non-terminating or too slow for the grading timeout
+penrose-tiling: oracle produced EMPTY output -- refusing to mint a vacuous ref
+penta-power-prime-seeds: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pentagram: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pentomino-tiling: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+percentage-difference-between-images: oracle produced EMPTY output -- refusing to mint a vacuous ref
+perceptron: oracle produced EMPTY output -- refusing to mint a vacuous ref
+percolation-bond-percolation: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+percolation-mean-cluster-density: oracle timed out -- non-terminating or too slow for the grading timeout
+percolation-mean-run-density: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+percolation-site-percolation: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+perfect-totient-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+peripheral-drift-illusion: oracle produced EMPTY output -- refusing to mint a vacuous ref
+permutations-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+permutations-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pi: oracle timed out -- non-terminating or too slow for the grading timeout
+pi-to-1-million-digits: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pick-random-element-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pick-random-element-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pick-random-element-3: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pick-random-element-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pick-random-element-5: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pierpont-primes-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pig-the-dice-game: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pig-the-dice-game-player: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+pinstripe-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pisano-period: oracle produced EMPTY output -- refusing to mint a vacuous ref
+plasma-effect: oracle produced EMPTY output -- refusing to mint a vacuous ref
+play-recorded-sounds: oracle produced EMPTY output -- refusing to mint a vacuous ref
+playing-cards: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+plot-coordinate-pairs: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pollards-rho-algorithm: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+polymorphism-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+polymorphism-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+polynomial-derivative: oracle produced EMPTY output -- refusing to mint a vacuous ref
+polynomial-regression: oracle produced EMPTY output -- refusing to mint a vacuous ref
+polyspiral-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+polyspiral-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+population-count-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+posit-numbers-decoding: oracle produced EMPTY output -- refusing to mint a vacuous ref
+practical-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pragmatic-directives: oracle produced EMPTY output -- refusing to mint a vacuous ref
+price-list-behind-api: oracle timed out -- non-terminating or too slow for the grading timeout
+primality-by-trial-division-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+prime-conspiracy: oracle produced EMPTY output -- refusing to mint a vacuous ref
+prime-decomposition-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+prime-numbers-of-measurement: oracle timed out -- non-terminating or too slow for the grading timeout
+prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime: oracle produced EMPTY output -- refusing to mint a vacuous ref
+prime-triangle: oracle timed out -- non-terminating or too slow for the grading timeout
+prime-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+primorial-numbers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+primorial-numbers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+print-itself-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+probabilistic-choice: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+process-smil-directives-in-xml-data: oracle produced EMPTY output -- refusing to mint a vacuous ref
+product-of-divisors: oracle produced EMPTY output -- refusing to mint a vacuous ref
+product-of-min-and-max-prime-factors: oracle produced EMPTY output -- refusing to mint a vacuous ref
+program-termination: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pseudorandom-number-generator-image: oracle produced EMPTY output -- refusing to mint a vacuous ref
+pythagorean-triples-3: oracle timed out -- non-terminating or too slow for the grading timeout
+quad-power-prime-seeds: oracle produced EMPTY output -- refusing to mint a vacuous ref
+queue-usage-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+radical-of-an-integer: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rainbow: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ramanujan-primes-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ramanujan-primes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ramanujan-primes-twins: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ramanujans-constant-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ramanujans-constant-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+random-latin-squares: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-number-generator-device-: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-sentence-from-book: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rare-numbers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rare-numbers-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+raster-bars: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rate-counter: oracle timed out -- non-terminating or too slow for the grading timeout
+read-a-configuration-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-a-file-character-by-character-utf8-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-a-file-character-by-character-utf8-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-a-file-line-by-line-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-a-file-line-by-line-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-a-specific-line-from-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-entire-file-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-entire-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+read-entire-file-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+reflection-list-properties: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+remove-duplicate-elements-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+remove-duplicate-elements-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+repeat: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+repunit-primes: oracle timed out -- non-terminating or too slow for the grading timeout
+return-multiple-values: oracle produced EMPTY output -- refusing to mint a vacuous ref
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+reverse-words-in-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rhonda-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+riordan-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+robots: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rock-paper-scissors-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rosetta-code-fix-code-tags-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rosetta-code-fix-code-tags-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rot-13-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rot-13-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rpg-attributes-generator: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+runtime-evaluation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ruth-aaron-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+safe-addition: oracle produced EMPTY output -- refusing to mint a vacuous ref
+safe-primes-and-unsafe-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sattolo-cycle: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+scope-modifiers-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+search-in-paragraphs-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
+selection-bias-in-clinical-sciences: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+selective-file-copy: oracle produced EMPTY output -- refusing to mint a vacuous ref
+selectively-replace-multiple-instances-of-a-character-within-a-string: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+self-describing-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
+self-hosting-compiler: oracle produced EMPTY output -- refusing to mint a vacuous ref
+semiprime-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+semiprime-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+semordnilap: oracle produced EMPTY output -- refusing to mint a vacuous ref
+send-+-more-=-money-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+separate-the-house-number-from-the-street-name: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sequence-of-primorial-primes-2: oracle timed out -- non-terminating or too slow for the grading timeout
+set-puzzle: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+set-the-card-game: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+seven-sided-dice-from-five-sided-dice: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sexy-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sha-1-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sha-256-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sha-256-merkle-tree: oracle produced EMPTY output -- refusing to mint a vacuous ref
+shell-one-liner: oracle produced EMPTY output -- refusing to mint a vacuous ref
+shuffle-groups: oracle timed out -- non-terminating or too slow for the grading timeout
+sierpinski-arrowhead-curve: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sierpinski-curve: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sierpinski-pentagon: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sierpinski-square-curve: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sierpinski-triangle-graphical: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sieve-of-eratosthenes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sieve-of-eratosthenes-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sieve-of-eratosthenes-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+simple-turtle-graphics: oracle produced EMPTY output -- refusing to mint a vacuous ref
+simulate-input-mouse: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singleton: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-element-definition-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-element-definition-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-element-insertion: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-element-removal-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-element-removal-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-traversal-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singly-linked-list-traversal-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+singular-value-decomposition: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sisyphus-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sleeping-beauty-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smallest-power-of-6-whose-decimal-expansion-contains-n: oracle produced EMPTY output -- refusing to mint a vacuous ref
+smarandache-prime-digital-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+smarandache-wellin-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+smith-waterman-algorithm: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+snake: oracle produced EMPTY output -- refusing to mint a vacuous ref
+snake-and-ladder: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+soap: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorensen-dice-coefficient: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sort-a-list-of-object-identifiers-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sort-a-list-of-object-identifiers-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sort-an-integer-array-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sort-an-integer-array-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sort-the-letters-of-string-in-alphabetical-order-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-bubble-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-circle-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-counting-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-merge-sort-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-merge-sort-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-merge-sort-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-merge-sort-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-merge-sort-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-merge-sort-6: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-quicksort-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-quicksort-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-quicksort-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-quicksort-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-radix-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-selection-sort-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sorting-algorithms-strand-sort: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+special-divisors: oracle produced EMPTY output -- refusing to mint a vacuous ref
+special-variables-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+special-variables-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+special-variables-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+specific-characters: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+spelling-of-ordinal-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sphenic-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+spiral-matrix-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+spoof-game: oracle timed out -- non-terminating or too slow for the grading timeout
+sql-based-authentication: oracle produced EMPTY output -- refusing to mint a vacuous ref
+square-form-factorization-1: oracle timed out -- non-terminating or too slow for the grading timeout
+square-root-by-hand: oracle timed out -- non-terminating or too slow for the grading timeout
+stable-marriage-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+stack: oracle produced EMPTY output -- refusing to mint a vacuous ref
+stair-climbing-puzzle: oracle produced EMPTY output -- refusing to mint a vacuous ref
+statistics-basic: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+statistics-chi-squared-distribution: oracle produced EMPTY output -- refusing to mint a vacuous ref
+statistics-normal-distribution: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+strassens-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
+string-matching: oracle produced EMPTY output -- refusing to mint a vacuous ref
+strip-comments-from-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
+strip-control-codes-and-extended-characters-from-a-string: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+strong-and-weak-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sturmian-word: oracle produced EMPTY output -- refusing to mint a vacuous ref
+successive-prime-differences-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+successive-prime-differences-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sudoku-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sum-of-a-series-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sum-of-divisors: oracle produced EMPTY output -- refusing to mint a vacuous ref
+summarize-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+summation-of-primes-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sunflower-fractal: oracle produced EMPTY output -- refusing to mint a vacuous ref
+super-poulet-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+superellipse: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sutherland-hodgman-polygon-clipping: oracle produced EMPTY output -- refusing to mint a vacuous ref
+sync-subtitles-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+synchronous-concurrency: oracle produced EMPTY output -- refusing to mint a vacuous ref
+system-time: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+szyma-skis-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
+table-creation-postal-addresses: oracle produced EMPTY output -- refusing to mint a vacuous ref
+take-notes-on-the-command-line: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tau-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
+tau-number: oracle produced EMPTY output -- refusing to mint a vacuous ref
+teacup-rim-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
+terminal-control-coloured-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
+terminal-control-positional-read: oracle produced EMPTY output -- refusing to mint a vacuous ref
+text-completion-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+text-completion-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+text-to-html: oracle produced EMPTY output -- refusing to mint a vacuous ref
+textonyms: oracle produced EMPTY output -- refusing to mint a vacuous ref
+three-word-location-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+tic-tac-toe: oracle timed out -- non-terminating or too slow for the grading timeout
+time-a-function: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+time-based-one-time-password-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
+topswops-1: oracle timed out -- non-terminating or too slow for the grading timeout
+total-circles-area: oracle timed out -- non-terminating or too slow for the grading timeout
+totient-function: oracle produced EMPTY output -- refusing to mint a vacuous ref
+towers-of-hanoi: oracle produced EMPTY output -- refusing to mint a vacuous ref
+trabb-pardo-knuth-algorithm: oracle timed out -- non-terminating or too slow for the grading timeout
+tree-datastructures: oracle produced EMPTY output -- refusing to mint a vacuous ref
+triangular-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+triplet-of-three-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+truncate-a-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+truth-table: oracle produced EMPTY output -- refusing to mint a vacuous ref
+twin-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+twin-primes-whose-sum-is-square-number: oracle produced EMPTY output -- refusing to mint a vacuous ref
+two-bullet-roulette: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+twos-complement: oracle produced EMPTY output -- refusing to mint a vacuous ref
+type-detection: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+unbias-a-random-generator: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+undefined-values-5: oracle produced EMPTY output -- refusing to mint a vacuous ref
+unprimeable-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+untouchable-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
+update-a-configuration-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+upside-down-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+url-parser: oracle produced EMPTY output -- refusing to mint a vacuous ref
+useless-instructions-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+user-defined-pipe-and-redirection-operators: oracle produced EMPTY output -- refusing to mint a vacuous ref
+vampire-number: oracle produced EMPTY output -- refusing to mint a vacuous ref
+van-der-corput-sequence-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
+variable-declaration-reset-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+variable-declaration-reset-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+variadic-function-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+variadic-function-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+variadic-function-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+verify-distribution-uniformity-naive: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+vibrating-rectangles-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+voronoi-diagram: oracle produced EMPTY output -- refusing to mint a vacuous ref
+wagstaff-primes: oracle timed out -- non-terminating or too slow for the grading timeout
+walk-a-directory-non-recursively: oracle produced EMPTY output -- refusing to mint a vacuous ref
+walk-a-directory-recursively-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+walk-a-directory-recursively-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+walsh-matrix: oracle produced EMPTY output -- refusing to mint a vacuous ref
+wasteful-equidigital-and-frugal-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+wave-function-collapse: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+waveform-analysis-doh-ray-me: oracle produced EMPTY output -- refusing to mint a vacuous ref
+window-management: oracle produced EMPTY output -- refusing to mint a vacuous ref
+wolstenholme-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+word-frequency: oracle produced EMPTY output -- refusing to mint a vacuous ref
+word-ladder: oracle produced EMPTY output -- refusing to mint a vacuous ref
+word-search: oracle produced EMPTY output -- refusing to mint a vacuous ref
+word-wheel-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+word-wheel-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+word-wheel-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
+words-containing-the-substring: oracle produced EMPTY output -- refusing to mint a vacuous ref
+words-from-neighbour-ones: oracle produced EMPTY output -- refusing to mint a vacuous ref
+write-entire-file-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+write-entire-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+write-float-arrays-to-a-text-file-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+write-float-arrays-to-a-text-file-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+write-language-name-in-3d-ascii: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+xml-dom-serialization-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xml-dom-serialization-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xml-input: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xml-output-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xml-output-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xml-validation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+xml-xpath: oracle produced EMPTY output -- refusing to mint a vacuous ref
+yahoo-search-interface-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+yellowstone-sequence: oracle produced EMPTY output -- refusing to mint a vacuous ref
+zsigmondy-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
+zumkeller-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref

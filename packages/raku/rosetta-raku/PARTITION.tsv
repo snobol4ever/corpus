@@ -1,0 +1,1165 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
+# shape: entries=1161 features=39 ubiquitous=7(package sub my for sigil_scalar sigil_array for_with_say) distinctive=32 core=25 clusters=178 chunks=19 sizes=60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,56
+entry	part	cluster	shells
+100-doors-1	chunk:01	feat:range_op	range_op
+100-doors-2	chunk:01	feat:range_op	range_op
+100-doors-3	chunk:01	feat:range_op	range_op
+100-doors-4	chunk:01	feat:range_op	range_op
+100-doors-5	chunk:01	feat:range_op	range_op
+100-doors-6	chunk:08	feat:if	if range_op
+10001th-prime	chunk:04	feat:say	grep say
+24-game-solve-1	chunk:14	feat:want_rc	given if range_op sigil_hash string_concat want_rc while
+9-billion-names-of-god-the-integer	chunk:08	feat:if	if range_op
+99-bottles-of-beer-1	chunk:10	feat:while	if while
+99-bottles-of-beer-2	chunk:01	feat:range_op	range_op
+99-bottles-of-beer-3	chunk:01	feat:range_op	range_op
+a+b-1	chunk:17	family:a+b	
+a+b-2	chunk:17	family:a+b	
+a+b-3	chunk:15	feat:split	split
+a-search-algorithm	chunk:15	feat:elsif	elsif has if method return sigil_hash smartmatch string_concat sub_with_return while
+abbreviations-easy	chunk:06	feat:smartmatch	range_op regex sigil_hash smartmatch string_concat
+abbreviations-simple	chunk:06	feat:smartmatch	range_op regex sigil_hash smartmatch string_concat
+abc-incremental-counts	chunk:14	feat:want_rc	grep join want_rc
+abc-problem	chunk:17	feat:regex_with_smartmatch	if map multi regex regex_with_smartmatch return smartmatch string_concat unless
+abstract-type	chunk:08	feat:method	method range_op
+abundant-deficient-and-perfect-number-classifications	chunk:12	feat:unless	if range_op unless
+abundant-odd-numbers	chunk:12	feat:unless	if range_op string_concat unless
+accumulator-factory	chunk:17	family:accumulator-factory	
+ackermann-function-3	chunk:03	feat:multi	given multi range_op
+add-a-variable-to-a-class-instance-at-runtime-1	chunk:16	feat:has	has
+add-a-variable-to-a-class-instance-at-runtime-2	chunk:16	feat:has	has
+add-a-variable-to-a-class-instance-at-runtime-3	chunk:08	feat:method	method
+additive-primes	chunk:10	feat:join	join string_concat
+aho-corasick-algorithm	chunk:08	feat:method	has if method range_op unless while
+air-mass	chunk:10	feat:while	range_op while
+aks-test-for-primes	chunk:12	feat:unless	if range_op string_concat unless
+align-columns-1	chunk:15	feat:split	given split string_concat when
+aliquot-sequence-classifications	chunk:03	feat:multi	if multi range_op return sigil_hash sub_with_return unless
+almost-prime-1	chunk:05	feat:loop	given loop range_op string_concat while
+almost-prime-2	chunk:03	feat:multi	if multi range_op while
+amb-1	chunk:12	feat:unless	if return sub_with_return unless
+amb-2	chunk:06	feat:smartmatch	join regex smartmatch string_concat
+amicable-pairs	chunk:12	feat:unless	if range_op unless
+anagram-generator	chunk:14	feat:want_rc	if loop sigil_hash string_concat unless want_rc
+angle-difference-between-two-bearings	chunk:17	family:angle-difference-between-two-bearings	
+angles-geometric-normalization-and-conversion-1	chunk:05	feat:sigil_hash	if sigil_hash
+angles-geometric-normalization-and-conversion-2	chunk:17	family:angles-geometric-normalization-and-conversion	
+anonymous-recursion-1	chunk:11	feat:sub_with_return	if return sub_with_return
+anonymous-recursion-2	chunk:01	feat:range_op	range_op
+anti-primes	chunk:12	feat:unless	if range_op unless
+ap-rys-constant	chunk:04	feat:say	map range_op say
+append-numbers-at-same-position-in-strings	chunk:07	feat:string_concat	range_op string_concat
+apply-a-callback-to-an-array	chunk:05	feat:loop	loop map method range_op
+approximate-equality-1	chunk:17	family:approximate-equality	
+approximate-equality-2	chunk:17	family:approximate-equality	
+arbitrary-precision-integers-included-	chunk:12	feat:given	given has sigil_hash
+arithmetic-coding-as-a-generalized-change-of-radix	chunk:15	feat:elsif	elsif if loop return sigil_hash string_concat sub_with_return
+arithmetic-complex	chunk:17	family:arithmetic-complex	
+arithmetic-evaluation	chunk:15	feat:token	regex string_concat token
+arithmetic-geometric-mean-1	chunk:11	feat:sub_with_return	return sub_with_return
+arithmetic-geometric-mean-2	chunk:12	feat:given	given
+arithmetic-geometric-mean-3	chunk:01	feat:range_op	range_op
+arithmetic-geometric-mean-calculate-pi	chunk:04	feat:say	given multi range_op return say
+arithmetic-integer	chunk:14	feat:want_rc	want_rc
+arithmetic-rational-2	chunk:01	feat:range_op	range_op
+array-concatenation	chunk:08	feat:method	if method
+array-length-1	chunk:17	family:array-length	
+array-length-2	chunk:14	feat:want_rc	range_op want_rc
+arrays	chunk:17	family:arrays	
+ascii-control-characters	chunk:06	feat:smartmatch	map regex sigil_hash smartmatch string_concat
+associative-array-creation	chunk:06	feat:sigil_hash	range_op sigil_hash
+associative-array-merging	chunk:13	feat:sort	join sigil_hash sort
+averages-mean-angle	chunk:11	feat:sub_with_return	if return sub_with_return
+averages-mean-time-of-day	chunk:17	family:averages-mean-time-of-day	
+averages-pythagorean-means	chunk:01	feat:range_op	range_op
+averages-root-mean-square-1	chunk:01	feat:range_op	range_op
+averages-simple-moving-average	chunk:17	family:averages-simple-moving-average	
+b-zier-curves-intersections	chunk:15	feat:elsif	elsif given has if return sub_with_return unless while
+babbage-problem-1	chunk:08	feat:if	if range_op
+babbage-problem-2	chunk:08	feat:if	if
+bacon-cipher-1	chunk:10	feat:join	has if join range_op regex sigil_hash string_concat
+bacon-cipher-2	chunk:06	feat:smartmatch	grep if map range_op regex sigil_hash smartmatch string_concat
+balanced-brackets-1	chunk:14	feat:want_rc	if return sub_with_return want_rc when
+balanced-brackets-2	chunk:14	feat:want_rc	given want_rc
+balanced-brackets-3	chunk:14	feat:regex	regex while
+balanced-brackets-4	chunk:15	feat:token	regex token want_rc
+balanced-ternary	chunk:03	feat:multi	has loop method multi range_op sigil_hash string_concat while
+bankers-algorithm	chunk:12	feat:unless	if return string_concat sub_with_return unless while
+base-16-numbers-needing-a-to-f-2	chunk:09	feat:grep	grep string_concat
+base58check-encoding	chunk:11	feat:sub_with_return	return sub_with_return
+bell-numbers-1	chunk:06	feat:sigil_hash	range_op sigil_hash
+bell-numbers-2	chunk:01	feat:range_op	range_op
+bell-numbers-3	chunk:17	family:bell-numbers	
+benfords-law	chunk:03	feat:multi	multi range_op sigil_hash
+berlekamp-massey-algorithm	chunk:04	feat:say	if map range_op return say sub_with_return unless while
+bernoulli-numbers-1	chunk:06	feat:sigil_hash	range_op return sigil_hash sub_with_return
+bernoulli-numbers-2	chunk:06	feat:sigil_hash	if range_op sigil_hash
+bernoulli-numbers-3	chunk:06	feat:sigil_hash	range_op sigil_hash
+bernoullis-triangle	chunk:17	family:bernoullis-triangle	
+bernstein-basis-polynomials	chunk:14	feat:regex	range_op regex return sub_with_return while
+bin-given-limits	chunk:06	feat:smartmatch	grep range_op return sigil_hash smartmatch string_concat sub_with_return
+binary-coded-decimal	chunk:03	feat:multi	has multi
+binary-digits-1	chunk:06	feat:sigil_hash	sigil_hash
+binary-digits-2	chunk:18	family:binary-digits	
+binary-strings	core	core	has method multi our range_op sigil_hash string_concat
+binomial-transform	chunk:13	feat:map	map range_op
+bioinformatics-base-count	chunk:13	feat:sort	map sigil_hash sort string_concat
+bitmap-b-zier-curves-cubic	chunk:08	feat:method	has if method range_op sigil_hash string_concat
+bitmap-b-zier-curves-quadratic	chunk:09	feat:method	has if method range_op return sigil_hash string_concat sub_with_return
+bitmap-midpoint-circle-algorithm	chunk:09	feat:method	has if method while
+bitmap-write-a-ppm-file	chunk:09	feat:method	has method string_concat
+bitmap	chunk:09	feat:method	has method
+bitwise-io	chunk:10	feat:while	return string_concat sub_with_return while
+bitwise-operations	chunk:03	feat:multi	multi string_concat
+blossom-algorithm	chunk:15	feat:elsif	elsif if loop return sub_with_return unless while
+bor-vka-algorithm	chunk:02	feat:when	grep has if loop map method return sub_with_return when while
+boustrophedon-transform	chunk:07	feat:string_concat	range_op string_concat
+box-the-compass	chunk:15	feat:elsif	elsif if range_op sigil_hash
+boyer-moore-string-search	chunk:04	feat:say	if loop range_op return say sigil_hash sub_with_return while
+brace-expansion-using-ranges	core	core	elsif if junction multi range_op regex return say sigil_hash smartmatch sprintf string_concat sub_with_return try while
+brazilian-numbers	chunk:03	feat:multi	grep if loop map multi return
+break-oo-privacy	chunk:16	feat:has	has
+bron-kerbosch-algorithm	chunk:15	feat:split	if join map return split sub_with_return
+brzozowski-algebraic-method	core	core	elsif given has if method range_op return say smartmatch string_concat sub_with_return when
+bulls-and-cows	chunk:16	feat:try	if junction loop range_op try when
+burrows-wheeler-transform	chunk:13	feat:map	if map range_op string_concat
+caesar-cipher	chunk:14	feat:junction	if junction range_op
+calculating-the-value-of-e	chunk:09	feat:method	if method range_op
+calendar---for-real-programmers	chunk:14	feat:want_rc	range_op string_concat want_rc
+calendar	chunk:10	feat:join	given if join range_op string_concat while
+calkin-wilf-sequence	chunk:06	feat:smartmatch	if loop range_op return smartmatch string_concat sub_with_return unless
+call-an-object-method-1	chunk:03	feat:multi	given method multi
+call-an-object-method-2	chunk:18	family:call-an-object-method	
+call-an-object-method-3	chunk:09	feat:method	method return
+camel-case-and-snake-case	chunk:16	feat:feed_op	feed_op if return sigil_hash string_concat sub_with_return
+canonicalize-cidr-3	chunk:15	feat:split	join map range_op sigil_hash split
+cantor-set	chunk:11	feat:sub_with_return	range_op return sub_with_return
+carmichael-3-strong-pseudoprimes	chunk:12	feat:unless	if range_op unless
+cartesian-product-of-two-or-more-lists	chunk:04	feat:say	say
+case-sensitivity-of-identifiers-1	chunk:17	family:case-sensitivity-of-identifiers	
+case-sensitivity-of-identifiers-2	chunk:17	family:case-sensitivity-of-identifiers	
+casting-out-nines	chunk:05	feat:loop	if loop range_op
+catalan-numbers-2	chunk:01	feat:range_op	range_op
+catalan-numbers-pascals-triangle	chunk:01	feat:range_op	range_op
+catamorphism-1	chunk:07	feat:string_concat	range_op string_concat
+catamorphism-2	chunk:07	feat:string_concat	range_op string_concat
+centre-and-radius-of-a-circle-passing-through-3-points-in-a-plane	chunk:18	family:centre-and-radius-of-a-circle-passing-through--points-in-a-plane	
+centroid-of-a-set-of-n-dimensional-points	chunk:18	family:centroid-of-a-set-of-n-dimensional-points	
+chaocipher	chunk:01	feat:range_op	range_op
+character-codes	chunk:10	feat:join	join sigil_hash
+chebyshev-coefficients	chunk:18	family:chebyshev-coefficients	
+check-if-a-polygon-overlaps-with-a-rectangle	chunk:04	feat:say	given has method return say sub_with_return unless when
+check-if-two-polygons-overlap	chunk:04	feat:say	given has method return say sub_with_return unless when
+check-input-device-is-a-terminal	chunk:18	family:check-input-device-is-a-terminal	
+check-machin-like-formulas	chunk:10	feat:join	if join range_op return sigil_hash sub_with_return
+chemical-calculator	chunk:16	feat:token	has method regex return sigil_hash string_concat sub_with_return token
+cheryls-birthday	chunk:14	feat:junction	grep junction
+chinese-remainder-theorem	chunk:10	feat:while	if return sub_with_return while
+chinese-zodiac	chunk:06	feat:sigil_hash	sigil_hash string_concat
+cholesky-decomposition	chunk:01	feat:range_op	range_op
+chowla-numbers	chunk:09	feat:grep	grep if join range_op sigil_hash unless
+christofides-algorithm	chunk:13	feat:sort	elsif has if join map method range_op return sigil_hash sort sub_with_return unless while
+chronological-order	chunk:14	feat:regex	map regex unless
+church-numerals-1	chunk:03	feat:multi	multi return sub_with_return
+church-numerals-2	chunk:18	family:church-numerals	
+cipollas-algorithm	chunk:02	feat:when	given has if loop multi range_op return sub_with_return when
+circles-of-given-radius-through-two-points-1	chunk:03	feat:multi	if join multi return sub_with_return
+circles-of-given-radius-through-two-points-2	chunk:03	feat:multi	if join multi return sub_with_return
+classes-1	chunk:09	feat:method	has method
+classes-2	chunk:04	feat:say	has method say
+cocke-younger-kasami-cyk-algorithm	chunk:15	feat:elsif	elsif if loop range_op return sigil_hash string_concat sub_with_return unless
+code-golf-1	chunk:17	family:code-golf	
+code-golf-2	chunk:17	family:code-golf	
+code-golf-3	chunk:17	family:code-golf	
+code-golf-4	chunk:17	family:code-golf	
+collect-and-sort-square-numbers-in-ascending-order-from-three-lists	chunk:13	feat:sort	sort string_concat
+color-difference-cie-e2000	chunk:10	feat:while	if range_op return string_concat sub_with_return while
+colorful-numbers	chunk:09	feat:grep	grep if range_op return sigil_hash string_concat sub_with_return
+combinations-1	chunk:18	family:combinations	
+combinations-2	chunk:05	feat:loop	if loop return sub_with_return unless while
+combinations-and-permutations	chunk:03	feat:multi	method multi range_op
+combinations-with-repetitions-1	chunk:18	family:combinations-with-repetitions	
+combinations-with-repetitions-2	chunk:03	feat:multi	map multi range_op
+combinations-with-repetitions-square-digit-chain	chunk:05	feat:loop	if loop range_op return sub_with_return while
+comma-quibbling	chunk:10	feat:join	join range_op
+commatizing-numbers	chunk:10	feat:join	has join range_op regex
+common-sorted-list	chunk:07	feat:string_concat	string_concat
+compare-length-of-two-strings	chunk:18	family:compare-length-of-two-strings	
+compile-time-calculation-1	chunk:01	feat:range_op	range_op
+compile-time-calculation-2	chunk:01	feat:range_op	range_op
+compiler-simple-file-inclusion-pre-processor-2	chunk:18	family:compiler-simple-file-inclusion-pre-processor	
+compiler-virtual-machine-interpreter	chunk:06	feat:smartmatch	loop range_op regex sigil_hash smartmatch string_concat unless
+compound-data-type-4	chunk:18	family:compound-data-type	
+concatenate-two-primes-is-also-prime	chunk:13	feat:sort	grep sort string_concat
+conditional-structures-2	chunk:02	feat:when	given return when
+conjugate-a-latin-verb	chunk:06	feat:smartmatch	regex smartmatch string_concat
+conjugate-transpose	chunk:18	family:conjugate-transpose	
+consistent-overhead-byte-stuffing	chunk:06	feat:sigil_hash	if range_op return sigil_hash sub_with_return
+constrained-genericity-1	chunk:09	feat:method	has method range_op
+continued-fraction-1	chunk:01	feat:range_op	range_op
+continued-fraction-2	chunk:01	feat:range_op	range_op
+continued-fraction-arithmetic-construct-from-rational-number-1	chunk:05	feat:loop	loop unless
+continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n-	chunk:05	feat:loop	has if join loop method range_op regex unless
+continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n1-continued-fraction-n2-	chunk:03	feat:multi	has if join loop method multi range_op regex return sigil_hash sub_with_return unless while
+continued-fraction-convergents	chunk:10	feat:join	join range_op return string_concat sub_with_return
+convert-csv-records-to-tsv	chunk:16	feat:token	join method regex token unless
+convert-day-count-to-ordinal-date	chunk:12	feat:given	given
+convert-decimal-number-to-rational-1	chunk:10	feat:join	join
+convert-decimal-number-to-rational-2	chunk:06	feat:smartmatch	if join map regex return smartmatch string_concat sub_with_return
+convert-seconds-to-compound-duration	chunk:09	feat:grep	grep join
+convex-hull	chunk:13	feat:sort	has if map method return sort string_concat sub_with_return
+conways-game-of-life	chunk:03	feat:multi	given has method multi range_op regex
+coprime-triplets	chunk:06	feat:sigil_hash	if range_op sigil_hash
+coprimes	chunk:18	family:coprimes	
+copy-a-string-1	chunk:17	family:copy-a-string	
+copy-a-string-2	chunk:17	family:copy-a-string	
+cordic	chunk:10	feat:while	range_op return string_concat sub_with_return while
+count-how-many-vowels-and-consonants-occur-in-a-string	chunk:18	family:count-how-many-vowels-and-consonants-occur-in-a-string	
+count-in-factors-2	chunk:05	feat:loop	loop range_op unless while
+count-occurrences-of-a-substring	chunk:18	family:count-occurrences-of-a-substring	
+count-the-coins	chunk:13	feat:sort	multi range_op sort
+count-the-occurrence-of-each-digit-in-e	chunk:01	feat:range_op	range_op
+cousin-primes-1	chunk:01	feat:range_op	range_op
+cousin-primes-2	chunk:08	feat:if	if
+cramers-rule	chunk:10	feat:join	if join range_op return sub_with_return
+crc-32-2	chunk:08	feat:if	if range_op
+create-a-two-dimensional-array-at-runtime-1	chunk:18	family:create-a-two-dimensional-array-at-runtime	
+create-a-two-dimensional-array-at-runtime-3	chunk:14	feat:want_rc	want_rc
+create-an-object-native-demonstration-1	chunk:14	feat:want_rc	has method want_rc
+create-an-object-native-demonstration-2	chunk:14	feat:want_rc	has method multi want_rc
+csv-to-html-translation-1	core	core	feed_op has if join map sigil_hash split string_concat
+cuban-primes-2	chunk:10	feat:join	if join map range_op
+cuban-primes-3	chunk:10	feat:join	join map range_op
+cubic-special-primes	chunk:12	feat:given	given if range_op
+cumulative-standard-deviation-1	chunk:13	feat:map	map return sub_with_return
+cumulative-standard-deviation-2	chunk:12	feat:given	given
+currency	chunk:15	feat:split	regex split
+currying	chunk:18	family:currying	
+curzon-numbers	chunk:10	feat:join	if join range_op string_concat
+cusip	chunk:06	feat:sigil_hash	range_op sigil_hash
+cut-a-rectangle	chunk:15	feat:elsif	elsif if range_op return string_concat sub_with_return unless
+cycle-detection	chunk:04	feat:say	if range_op return say sub_with_return while
+cycles-of-a-permutation	chunk:13	feat:map	map range_op sigil_hash while
+damm-algorithm	chunk:18	family:damm-algorithm	
+data-encryption-standard	chunk:05	feat:loop	if loop range_op return sigil_hash string_concat sub_with_return unless
+date-format-2	chunk:18	family:date-format	
+date-format-3	chunk:16	feat:our	our
+date-manipulation	chunk:16	feat:token	if range_op regex sigil_hash token
+day-of-the-week	chunk:01	feat:range_op	range_op
+days-between-dates	chunk:18	family:days-between-dates	
+deal-cards-for-freecell	chunk:09	feat:method	method range_op while
+death-star	chunk:16	feat:has	has if range_op return sub_with_return
+deceptive-numbers	chunk:09	feat:grep	grep range_op
+decimal-floating-point-number-to-binary	chunk:12	feat:given	given
+deconvolution-1d	chunk:12	feat:unless	if return string_concat sub_with_return unless while
+deconvolution-2d+	core	core	if print return smartmatch string_concat sub_with_return unless while
+decreasing-contiguous-subsequences	chunk:08	feat:if	if range_op
+deepcopy-1	chunk:06	feat:sigil_hash	sigil_hash
+deepcopy-2	chunk:06	feat:sigil_hash	sigil_hash
+delegates	chunk:09	feat:method	has method return string_concat
+demings-funnel	chunk:18	family:demings-funnel	
+department-numbers	chunk:09	feat:grep	grep range_op
+descending-primes	chunk:07	feat:string_concat	range_op string_concat
+detect-division-by-zero-1	chunk:16	feat:try	return sub_with_return try
+detect-division-by-zero-2	chunk:03	feat:multi	multi return
+determinant-and-permanent	chunk:06	feat:smartmatch	if map multi range_op return smartmatch string_concat sub_with_return unless
+determine-if-a-string-has-all-the-same-characters	chunk:13	feat:sort	has if sigil_hash sort string_concat
+determine-if-a-string-is-collapsible	chunk:06	feat:sigil_hash	if range_op sigil_hash
+determine-if-a-string-is-numeric	chunk:06	feat:smartmatch	regex smartmatch string_concat
+determine-if-a-string-is-squeezable	chunk:06	feat:smartmatch	range_op regex sigil_hash smartmatch string_concat
+determine-if-two-triangles-overlap	chunk:12	feat:given	given if return sub_with_return unless
+dice-game-probabilities	chunk:12	feat:given	given if range_op return sub_with_return
+digital-root-1	chunk:13	feat:map	map sigil_hash while
+digital-root-multiplicative-digital-root	chunk:12	feat:given	given range_op return sub_with_return
+dijkstras-algorithm	chunk:15	feat:elsif	elsif has if method range_op return sigil_hash string_concat while
+dinesmans-multiple-dwelling-problem-1	chunk:16	feat:token	if map range_op regex sigil_hash string_concat token
+dinesmans-multiple-dwelling-problem-2	chunk:08	feat:if	if range_op
+disarium-numbers	chunk:08	feat:if	if range_op
+discordian-date	chunk:11	feat:sub_with_return	if return string_concat sub_with_return
+discrete-fourier-transform	chunk:12	feat:unless	return sub_with_return unless
+display-a-linear-combination	chunk:09	feat:grep	grep join map range_op regex string_concat
+display-an-outline-as-a-nested-table	chunk:13	feat:sort	given grep map multi range_op regex smartmatch sort string_concat unless when
+distinct-power-numbers	chunk:01	feat:range_op	range_op
+diversity-prediction-theorem	chunk:11	feat:sub_with_return	return string_concat sub_with_return
+divide-a-rectangle-into-a-number-of-unequal-triangles	chunk:05	feat:loop	if loop range_op string_concat
+documentation	chunk:09	feat:method	method range_op
+dominoes	chunk:02	feat:when	given if range_op return string_concat sub_with_return unless when
+doomsday-rule	chunk:09	feat:method	method range_op sigil_hash
+dot-product	chunk:04	feat:say	say
+double-twin-primes	chunk:18	family:double-twin-primes	
+doubly-linked-list-definition	chunk:09	feat:method	has method range_op unless
+doubly-linked-list-element-insertion	chunk:09	feat:method	has method range_op unless
+draw-a-cuboid	chunk:06	feat:sigil_hash	if range_op sigil_hash
+dynamic-variable-names	chunk:16	feat:our	our
+eertree	chunk:07	feat:string_concat	if range_op string_concat
+egyptian-division-1	chunk:06	feat:sigil_hash	if sigil_hash
+egyptian-division-2	chunk:13	feat:map	if map sigil_hash string_concat
+eisenstein-primes	chunk:10	feat:join	given if join map range_op string_concat
+ekg-sequence-convergence	chunk:13	feat:map	map range_op return sub_with_return
+element-wise-operations	chunk:10	feat:join	join map
+elementary-cellular-automaton-random-number-generator	chunk:09	feat:method	has map method
+elementary-cellular-automaton	chunk:09	feat:method	has map method
+elliptic-curve-arithmetic	core	core	given has if method multi our return smartmatch string_concat
+empty-string	chunk:12	feat:unless	if unless
+engel-expansion	chunk:10	feat:while	string_concat while
+entropy-2	chunk:09	feat:method	method
+entropy-narcissist	chunk:12	feat:given	given
+equilibrium-index-1	chunk:09	feat:grep	grep if
+equilibrium-index-5	chunk:06	feat:sigil_hash	return sigil_hash sub_with_return
+erd-s-woods-numbers	chunk:06	feat:sigil_hash	if range_op return sigil_hash sub_with_return
+ethiopian-multiplication-1	chunk:11	feat:while	return sub_with_return while
+ethiopian-multiplication-2	chunk:05	feat:loop	loop return sub_with_return
+ethiopian-multiplication-3	chunk:01	feat:range_op	range_op
+euclidean-rhythm	chunk:11	feat:while	return string_concat sub_with_return while
+euler-method	chunk:01	feat:range_op	range_op
+eulers-constant-0.5772...	chunk:11	feat:sub_with_return	range_op return sub_with_return
+eulers-identity	chunk:18	family:eulers-identity	
+eulers-sum-of-powers-conjecture	chunk:04	feat:say	if join range_op say sigil_hash string_concat
+evaluate-binomial-coefficients-1	chunk:18	family:evaluate-binomial-coefficients	
+evaluate-binomial-coefficients-2	chunk:01	feat:range_op	range_op
+even-numbers-which-cannot-be-expressed-as-the-sum-of-two-twin-primes	chunk:09	feat:grep	grep if map range_op string_concat
+even-or-odd	chunk:06	feat:smartmatch	smartmatch string_concat
+exactly-three-adjacent-3-in-lists	chunk:01	feat:range_op	range_op
+exceptions-1	chunk:16	feat:try	try when
+exceptions-2	chunk:02	feat:when	has when
+exceptions-catch-an-exception-thrown-in-a-nested-call	chunk:14	feat:want_rc	range_op want_rc when
+executable-library-1	chunk:16	feat:our	given our range_op
+execute-computer-zero	chunk:02	feat:when	given if loop string_concat unless when
+exponentiation-operator	chunk:03	feat:multi	multi
+exponentiation-order	chunk:18	family:exponentiation-order	
+exponentiation-with-infix-operators-in-or-operating-on-the-base	chunk:06	feat:sigil_hash	sigil_hash string_concat
+extend-your-language	chunk:08	feat:if	if
+extended-straddling-checkerboard	core	core	elsif grep if map multi range_op regex return sigil_hash smartmatch string_concat sub_with_return try unless while
+extensible-prime-generator	chunk:06	feat:sigil_hash	if range_op sigil_hash
+extra-primes	chunk:07	feat:string_concat	range_op string_concat
+extreme-floating-point-values	chunk:18	family:extreme-floating-point-values	
+faces-from-a-mesh	core	core	elsif feed_op if return sub_with_return unless while
+factor-perfect-numbers	core	core	given if range_op return say sigil_hash string_concat sub_with_return unless while
+factorial-1	chunk:01	feat:range_op	range_op
+factorial-2	chunk:01	feat:range_op	range_op
+factorial-primes	chunk:06	feat:sigil_hash	if range_op sigil_hash string_concat
+factorions	chunk:07	feat:string_concat	if range_op string_concat
+factorize-string-into-lyndon-words	chunk:12	feat:unless	return string_concat sub_with_return unless while
+factors-of-a-mersenne-number	chunk:05	feat:loop	if loop range_op unless
+fairshare-between-two-and-more	chunk:09	feat:method	map method string_concat
+farey-sequence	chunk:10	feat:join	has join range_op string_concat
+fast-fourier-transform-1	chunk:11	feat:sub_with_return	if range_op return sub_with_return
+fasta-format	chunk:16	feat:token	regex string_concat token
+faulhabers-formula	chunk:09	feat:grep	grep if join range_op return string_concat sub_with_return
+faulhabers-triangle	chunk:10	feat:join	join range_op
+feigenbaum-constant-calculation	chunk:01	feat:range_op	range_op
+fibonacci-heap	chunk:15	feat:elsif	elsif has if loop method multi return sigil_hash smartmatch string_concat sub_with_return unless while
+fibonacci-n-step-number-sequences-1	chunk:01	feat:range_op	range_op
+fibonacci-n-step-number-sequences-2	chunk:05	feat:loop	if loop range_op
+fibonacci-word-1	chunk:06	feat:sigil_hash	range_op sigil_hash string_concat
+fibonacci-word-2	chunk:03	feat:multi	multi range_op sigil_hash string_concat
+fibonacci-word-fractal	chunk:02	feat:when	if range_op sigil_hash string_concat when
+file-extension-is-in-extensions-list	chunk:06	feat:smartmatch	range_op regex smartmatch string_concat
+file-size-distribution	chunk:16	feat:sprintf	if range_op sigil_hash sprintf string_concat while
+find-chess960-starting-position-identifier	chunk:07	feat:smartmatch	grep map regex return sigil_hash smartmatch string_concat sub_with_return unless
+find-first-and-last-set-bit-of-a-long-integer	chunk:01	feat:range_op	range_op
+find-first-missing-positive	chunk:16	feat:feed_op	feed_op range_op
+find-if-a-point-is-within-a-triangle	chunk:14	feat:junction	has junction method string_concat
+find-minimum-number-of-coins-that-make-a-given-value	chunk:06	feat:sigil_hash	sigil_hash
+find-palindromic-numbers-in-both-binary-and-ternary-bases	chunk:12	feat:unless	if range_op sigil_hash string_concat unless
+find-prime-n-such-that-reversed-n-is-also-prime	chunk:10	feat:join	join string_concat
+find-prime-numbers-of-the-form-n-n-n+2	chunk:04	feat:say	say
+find-square-difference	chunk:18	family:find-square-difference	
+find-squares-n-where-n+1-is-prime-1	chunk:04	feat:say	say
+find-squares-n-where-n+1-is-prime-2	chunk:09	feat:grep	grep map
+find-the-intersection-of-a-line-with-a-plane-1	chunk:16	feat:has	has if return sub_with_return
+find-the-intersection-of-two-lines-1	chunk:11	feat:sub_with_return	if return sub_with_return
+find-the-last-sunday-of-each-month	chunk:01	feat:range_op	range_op
+find-the-missing-permutation-1	chunk:14	feat:junction	junction when
+find-the-missing-permutation-2	chunk:07	feat:string_concat	string_concat
+find-words-which-contain-the-most-consonants	chunk:14	feat:junction	grep junction range_op regex sort want_rc
+first-9-prime-fibonacci-number	chunk:09	feat:grep	grep string_concat
+first-class-environments	chunk:14	feat:junction	if junction range_op return sigil_hash string_concat sub_with_return while
+first-class-functions-1	chunk:17	family:first-class-functions	
+first-class-functions-2	chunk:17	family:first-class-functions	
+first-class-functions-use-numbers-analogously	chunk:11	feat:sub_with_return	return sub_with_return
+five-weekends	chunk:02	feat:when	has map range_op string_concat when
+fivenum	chunk:13	feat:sort	return sort sub_with_return
+fizzbuzz-1	chunk:02	feat:when	range_op when
+fizzbuzz-2	chunk:03	feat:multi	multi range_op
+fizzbuzz-3	chunk:13	feat:map	map range_op string_concat
+fizzbuzz-4	chunk:07	feat:string_concat	range_op string_concat
+fizzbuzz-5	chunk:07	feat:string_concat	range_op string_concat
+fizzbuzz-6	chunk:07	feat:string_concat	range_op string_concat
+flatten-a-list	chunk:12	feat:given	given map
+floyd-warshall-algorithm	chunk:10	feat:join	if join map sigil_hash
+floyds-triangle	chunk:01	feat:range_op	range_op
+formal-power-series	chunk:02	feat:when	has method multi range_op string_concat when
+formatted-numeric-output	chunk:18	family:formatted-numeric-output	
+fortunate-numbers	chunk:07	feat:string_concat	range_op string_concat
+four-bit-adder	chunk:11	feat:sub_with_return	return sub_with_return
+four-sides-of-square	chunk:13	feat:map	map range_op
+fractal-tree	chunk:03	feat:multi	multi
+fractran-1	chunk:13	feat:map	map range_op
+free-polyominoes-enumeration	core	core	given has if join junction map method range_op return sigil_hash sort split string_concat sub_with_return unless while
+french-republican-calendar	chunk:16	feat:token	if loop range_op regex return sigil_hash string_concat sub_with_return token
+frobenius-numbers	chunk:09	feat:grep	given grep map
+function-composition	chunk:18	family:function-composition	
+functional-coverage-tree	chunk:07	feat:smartmatch	given if regex return smartmatch string_concat sub_with_return while
+fusc-sequence-1	chunk:10	feat:join	given join map range_op sigil_hash string_concat
+fusc-sequence-2	chunk:03	feat:multi	multi range_op
+gabows-algorithm	core	core	given has if loop method return sprintf string_concat unless while
+gamma-function	chunk:01	feat:range_op	range_op
+gauss-jordan-matrix-inversion	chunk:15	feat:split	if map multi range_op return smartmatch split string_concat sub_with_return unless
+gaussian-elimination	chunk:07	feat:smartmatch	if return smartmatch string_concat sub_with_return unless
+general-fizzbuzz-1	chunk:09	feat:method	has if method range_op return string_concat sub_with_return unless
+general-fizzbuzz-2	chunk:07	feat:string_concat	range_op string_concat
+generalised-floating-point-addition	chunk:12	feat:given	given range_op sigil_hash string_concat
+generalised-floating-point-multiplication	core	core	elsif given has if loop map method multi range_op regex return string_concat sub_with_return when while
+generate-chess960-starting-position-3	chunk:09	feat:grep	grep range_op regex
+generate-lower-case-ascii-alphabet	chunk:01	feat:range_op	range_op
+generator-exponential	chunk:04	feat:say	if join range_op say while
+geohash-2	chunk:10	feat:join	join map sigil_hash string_concat while
+geometric-algebra	core	core	feed_op map method multi our return smartmatch string_concat sub_with_return
+giuga-numbers	chunk:08	feat:if	if range_op
+golden-ratio-convergence	chunk:01	feat:range_op	range_op
+goodstein-sequence	chunk:05	feat:loop	if loop range_op return sub_with_return while
+gospers-hack	chunk:01	feat:range_op	range_op
+gotchas-1	chunk:07	feat:string_concat	string_concat
+gotchas-2	chunk:16	family:gotchas	
+gotchas-3	chunk:16	family:gotchas	
+gotchas-4	chunk:16	family:gotchas	
+gotchas-5	chunk:16	family:gotchas	
+gotchas-6	chunk:16	family:gotchas	
+gotchas-7	chunk:16	family:gotchas	
+gradient-descent	chunk:09	feat:method	method while
+graph-colouring	chunk:11	feat:while	if return sigil_hash sub_with_return while
+gray-code	chunk:11	feat:while	if return sub_with_return while
+greatest-subsequential-sum-2	chunk:11	feat:while	return sub_with_return while
+greedy-algorithm-for-egyptian-fractions-1	chunk:10	feat:join	given has if join method range_op while
+greedy-algorithm-for-egyptian-fractions-2	chunk:09	feat:method	if method range_op unless
+hailstone-sequence	chunk:07	feat:string_concat	range_op string_concat
+halt-and-catch-fire-3	chunk:14	feat:want_rc	want_rc
+hamiltonian-cycle-via-chv-tal-closure	chunk:10	feat:join	has if join range_op return sub_with_return while
+hamming-numbers-1	chunk:18	family:hamming-numbers	
+hamming-numbers-2	chunk:05	feat:loop	if loop sigil_hash
+happy-numbers-1	chunk:05	feat:loop	grep if loop range_op return sigil_hash sub_with_return
+happy-numbers-2	chunk:06	feat:sigil_hash	if range_op sigil_hash string_concat
+happy-numbers-3	chunk:04	feat:say	range_op say
+harshad-or-niven-series	chunk:01	feat:range_op	range_op
+hash-join	chunk:10	feat:join	join sigil_hash
+hashtron-inference	chunk:16	feat:sprintf	if range_op return sprintf string_concat sub_with_return unless
+haversine-formula	chunk:09	feat:method	has method return
+held-karp-algorithm	chunk:12	feat:given	given has if return sub_with_return while
+hello-world-newline-omission	chunk:06	feat:sigil_hash	sigil_hash
+hello-world-text-1	chunk:18	family:hello-world-text	
+hello-world-text-2	chunk:04	feat:say	say
+here-document-1	chunk:17	family:here-document	
+here-document-2	chunk:08	feat:if	if
+here-document-3	chunk:17	family:here-document	
+heronian-triangles	chunk:02	feat:when	given if range_op when
+hex-dump	chunk:15	feat:regex	regex sigil_hash string_concat
+hexapawn	core	core	elsif given grep has if join loop range_op return sigil_hash sub_with_return try unless want_rc when while
+hickerson-series-of-almost-integers	chunk:14	feat:want_rc	range_op regex want_rc
+hierholzers-algorithm	chunk:11	feat:while	while
+higher-order-functions	chunk:18	family:higher-order-functions	
+hofstadter-conway-$10-000-sequence	chunk:08	feat:if	if range_op
+hofstadter-figure-figure-sequences	chunk:14	feat:junction	if junction range_op sigil_hash
+hofstadter-q-sequence-1	chunk:09	feat:method	has if method return
+hofstadter-q-sequence-2	chunk:01	feat:range_op	range_op
+holidays-related-to-easter	chunk:11	feat:sub_with_return	range_op return sub_with_return
+honaker-primes	chunk:09	feat:grep	grep map string_concat
+hopcroft-karp-algorithm	chunk:16	feat:try	has if method range_op return sub_with_return try while
+horizontal-sundial-calculations	chunk:06	feat:sigil_hash	range_op sigil_hash
+horners-rule-for-polynomial-evaluation-1	chunk:17	family:horners-rule-for-polynomial-evaluation	
+horners-rule-for-polynomial-evaluation-2	chunk:03	feat:multi	multi
+horners-rule-for-polynomial-evaluation-3	chunk:17	family:horners-rule-for-polynomial-evaluation	
+horners-rule-for-polynomial-evaluation-4	chunk:01	feat:range_op	range_op
+host-introspection-2	chunk:17	family:host-introspection	
+host-introspection-3	chunk:17	family:host-introspection	
+hourglass-puzzle	chunk:12	feat:unless	if range_op sigil_hash string_concat unless
+iban	chunk:07	feat:smartmatch	if regex return smartmatch string_concat sub_with_return
+iccanobif-primes	chunk:04	feat:say	range_op say string_concat
+identity-matrix-1	chunk:18	family:identity-matrix	
+idiomatically-determine-all-the-characters-that-can-be-used-for-symbols-1	chunk:17	family:idiomatically-determine-all-the-characters-that-can-be-used-for-symbols	
+idiomatically-determine-all-the-characters-that-can-be-used-for-symbols-2	chunk:17	family:idiomatically-determine-all-the-characters-that-can-be-used-for-symbols	
+idiomatically-determine-all-the-characters-that-can-be-used-for-symbols-3	chunk:08	feat:if	if range_op
+idiomatically-determine-all-the-lowercase-and-uppercase-letters	chunk:12	feat:given	given range_op
+idoneal-numbers	chunk:09	feat:grep	grep if range_op
+imaginary-base-numbers-1	chunk:03	feat:multi	if multi regex return sigil_hash string_concat sub_with_return unless while
+implicit-type-conversion-1	chunk:01	feat:range_op	range_op
+implicit-type-conversion-2	chunk:07	feat:string_concat	string_concat
+implicit-type-conversion-3	chunk:07	feat:string_concat	string_concat
+implicit-type-conversion-4	chunk:18	family:implicit-type-conversion	
+inconsummate-numbers-in-base-10	chunk:13	feat:map	map range_op string_concat
+increment-a-numerical-string	chunk:18	family:increment-a-numerical-string	
+inheritance-multiple	chunk:18	family:inheritance-multiple	
+inheritance-single	chunk:18	family:inheritance-single	
+inner-classes	chunk:09	feat:method	given has method
+integer-comparison-1	chunk:15	feat:elsif	elsif if
+integer-comparison-3	chunk:18	family:integer-comparison	
+integer-long-division	chunk:10	feat:join	given join sigil_hash string_concat
+integer-overflow	chunk:18	family:integer-overflow	
+integer-roots	chunk:01	feat:range_op	range_op
+intersecting-number-wheels	chunk:16	feat:feed_op	feed_op given loop map when
+inverted-index	chunk:11	feat:while	sigil_hash while
+inverted-syntax-3	chunk:18	family:inverted-syntax	
+isbn13-check-digit	chunk:01	feat:range_op	range_op
+iterated-digits-squaring-1	chunk:14	feat:junction	if junction range_op
+iterated-digits-squaring-3	chunk:05	feat:loop	if loop range_op return sub_with_return while
+jaccard-index	chunk:06	feat:sigil_hash	sigil_hash
+jacobi-symbol	chunk:17	feat:print	if print range_op while
+jacobsthal-numbers	chunk:04	feat:say	grep map say
+jaro-similarity	chunk:12	feat:unless	if range_op return sub_with_return unless
+jensens-device	chunk:05	feat:loop	loop return sub_with_return
+jewels-and-stones	chunk:06	feat:sigil_hash	return sigil_hash sub_with_return
+johnsons-algorithm	chunk:13	feat:sort	elsif has if return sigil_hash smartmatch sort string_concat sub_with_return unless while
+jordan-p-lya-numbers	chunk:15	feat:elsif	elsif if loop range_op return string_concat sub_with_return while
+josephus-problem	chunk:18	family:josephus-problem	
+jump-anywhere-2	chunk:08	feat:if	if
+jump-anywhere-4	chunk:14	feat:want_rc	if unless want_rc
+jump-anywhere-5	chunk:14	feat:want_rc	if regex smartmatch string_concat want_rc when
+just-in-time-processing-on-a-character-stream	chunk:07	feat:smartmatch	if range_op regex smartmatch string_concat
+kahan-summation	chunk:18	family:kahan-summation	
+kaprekar-numbers-1	chunk:11	feat:sub_with_return	if range_op return sub_with_return
+kernighans-large-earthquake-problem	chunk:08	feat:if	if
+knapsack-problem-0-1-1	chunk:03	feat:multi	has if multi return sigil_hash string_concat sub_with_return
+knapsack-problem-0-1-2	chunk:13	feat:sort	if join regex return smartmatch sort string_concat sub_with_return
+knapsack-problem-bounded-2	chunk:15	feat:split	if range_op return sigil_hash split string_concat sub_with_return
+knapsack-problem-continuous	chunk:16	feat:feed_op	feed_op has if map method return
+knapsack-problem-unbounded	chunk:02	feat:when	given has if join method range_op sigil_hash when
+knuth-morris-pratt-string-search	chunk:04	feat:say	if loop return say sub_with_return while
+kolakoski-sequence	chunk:15	feat:regex	regex
+kosaraju	chunk:12	feat:unless	if sigil_hash unless
+kronecker-product	chunk:11	feat:sub_with_return	return sub_with_return
+l-system	chunk:09	feat:method	has map method
+lagrange-interpolation	chunk:02	feat:when	given has if join return string_concat sub_with_return when
+lah-numbers	chunk:04	feat:say	if map range_op return say sub_with_return
+largest-int-from-concatenated-ints	chunk:07	feat:string_concat	string_concat
+largest-number-divisible-by-its-digits-1	chunk:07	feat:smartmatch	if range_op regex sigil_hash smartmatch string_concat
+largest-number-divisible-by-its-digits-2	chunk:06	feat:sigil_hash	range_op sigil_hash
+largest-product-in-a-grid	chunk:07	feat:string_concat	string_concat
+last-friday-of-each-month-1	chunk:08	feat:if	if range_op
+last-list-item	chunk:11	feat:while	while
+least-common-multiple	chunk:07	feat:string_concat	range_op string_concat
+left-factorials-1	chunk:16	feat:has	has range_op sigil_hash
+left-factorials-2	chunk:16	feat:has	has range_op sigil_hash
+lempel-ziv-complexity	chunk:07	feat:smartmatch	if join regex sigil_hash smartmatch string_concat while
+length-of-an-arc-between-two-angles	chunk:13	feat:map	map sigil_hash
+leonardo-numbers	chunk:01	feat:range_op	range_op
+levenshtein-distance-alignment	chunk:11	feat:sub_with_return	if range_op return string_concat sub_with_return
+levenshtein-distance	chunk:02	feat:when	range_op when
+line-circle-intersection	chunk:11	feat:sub_with_return	if return sub_with_return
+linear-congruential-generator	chunk:01	feat:range_op	range_op
+list-comprehensions	chunk:08	feat:if	if range_op
+list-division	chunk:08	feat:if	if range_op
+literals-integer	chunk:18	family:literals-integer	
+literals-string-2	chunk:18	family:literals-string	
+logical-operations	chunk:07	feat:string_concat	string_concat
+logistic-curve-fitting-in-epidemiology	chunk:11	feat:while	while
+long-literals-with-continuations	chunk:13	feat:sort	grep sigil_hash smartmatch sort string_concat
+long-multiplication	chunk:11	feat:sub_with_return	if range_op return string_concat sub_with_return
+long-year	chunk:01	feat:range_op	range_op
+longest-common-prefix	chunk:03	feat:multi	multi string_concat
+longest-common-subsequence-1	chunk:12	feat:unless	return string_concat sub_with_return unless
+longest-common-subsequence-2	chunk:15	feat:elsif	elsif if range_op return string_concat sub_with_return while
+longest-common-subsequence-3	chunk:12	feat:unless	range_op sigil_hash string_concat unless while
+longest-common-substring-2	chunk:13	feat:sort	given range_op sort
+longest-common-suffix	chunk:12	feat:unless	if range_op return sub_with_return unless
+longest-increasing-subsequence-1	chunk:11	feat:sub_with_return	if range_op return sub_with_return
+longest-increasing-subsequence-2	chunk:01	feat:range_op	range_op
+look-and-say-sequence	chunk:15	feat:regex	range_op regex string_concat
+loop-over-multiple-arrays-simultaneously-1	chunk:18	family:loop-over-multiple-arrays-simultaneously	
+loop-over-multiple-arrays-simultaneously-2	chunk:07	feat:string_concat	string_concat
+loop-over-multiple-arrays-simultaneously-3	chunk:07	feat:string_concat	string_concat
+loop-over-multiple-arrays-simultaneously-4	chunk:07	feat:string_concat	string_concat
+loop-over-multiple-arrays-simultaneously-7	chunk:01	feat:range_op	range_op
+loops-continue-1	chunk:08	feat:if	if range_op
+loops-continue-2	chunk:10	feat:join	join range_op
+loops-do-while-1	chunk:11	feat:while	while
+loops-do-while-2	chunk:18	family:loops-do-while	
+loops-do-while-3	chunk:11	feat:while	while
+loops-downward-for	chunk:01	feat:range_op	range_op
+loops-for-1	chunk:01	feat:range_op	range_op
+loops-for-2	chunk:01	feat:range_op	range_op
+loops-for-3	chunk:10	feat:join	join string_concat
+loops-for-with-a-specified-step-1	chunk:01	feat:range_op	range_op
+loops-for-with-a-specified-step-3	chunk:18	family:loops-for-with-a-specified-step	
+loops-increment-loop-index-within-loop-body	chunk:04	feat:say	join say
+loops-n-plus-one-half	chunk:02	feat:when	range_op when
+loops-while-1	chunk:11	feat:while	while
+loops-while-2	chunk:05	feat:loop	loop
+loops-while-3	chunk:01	feat:range_op	range_op
+loops-with-multiple-ranges	chunk:10	feat:join	join method range_op string_concat
+loops-wrong-ranges	chunk:02	feat:when	when
+lu-decomposition	chunk:07	feat:smartmatch	if range_op return smartmatch string_concat sub_with_return unless
+lucas-carmichael-numbers	chunk:05	feat:loop	if loop range_op return sigil_hash sub_with_return while
+ludic-numbers	chunk:05	feat:loop	if loop range_op
+luhn-test-of-credit-card-numbers	chunk:13	feat:map	map range_op return sub_with_return
+lunar-arithmetic	chunk:13	feat:map	map range_op string_concat
+lyndon-word	chunk:12	feat:unless	if return sub_with_return unless while
+lzw-compression	chunk:15	feat:elsif	elsif if sigil_hash string_concat
+magic-8-ball	chunk:16	feat:try	try while
+magic-numbers	chunk:09	feat:grep	grep if range_op string_concat
+magnanimous-numbers	chunk:12	feat:unless	if map range_op unless
+main-step-of-gost-28147-89	chunk:01	feat:range_op	range_op
+man-or-boy-test	chunk:18	family:man-or-boy-test	
+mandelbrot-set-1	chunk:11	feat:sub_with_return	if range_op return sub_with_return
+map-range	chunk:11	feat:sub_with_return	range_op return sub_with_return
+marching-squares	chunk:02	feat:when	given if return sigil_hash string_concat sub_with_return when
+matrix-chain-multiplication	chunk:16	feat:has	has if range_op return string_concat sub_with_return
+matrix-exponentiation-operator	chunk:14	feat:junction	if junction loop map multi range_op unless
+matrix-multiplication-1	chunk:18	family:matrix-multiplication	
+matrix-transposition	chunk:18	family:matrix-transposition	
+matrix-with-two-diagonals	chunk:18	family:matrix-with-two-diagonals	
+maximum-triangle-path-sum	chunk:16	feat:our	our range_op while
+mayan-calendar	chunk:10	feat:join	given if join sigil_hash string_concat
+mayan-numerals-1	chunk:07	feat:string_concat	if string_concat
+mcnaughton-yamada-thompson-algorithm-1	chunk:02	feat:when	given has if method regex return sigil_hash string_concat when while
+mcnaughton-yamada-thompson-algorithm-2	core	core	elsif given has if method range_op regex return string_concat token unless when while
+mcnuggets-problem	chunk:05	feat:loop	grep if join loop return sub_with_return unless
+md4	chunk:05	feat:loop	loop
+md5-implementation	chunk:03	feat:multi	multi range_op
+meissel-mertens-constant	chunk:01	feat:range_op	range_op
+merge-and-aggregate-datasets	chunk:13	feat:sort	if map sigil_hash sort
+metaprogramming-1	chunk:01	feat:range_op	range_op
+metaprogramming-2	chunk:15	feat:regex	method regex string_concat
+mian-chowla-sequence	chunk:06	feat:sigil_hash	if range_op sigil_hash
+middle-three-digits-1	chunk:02	feat:when	given has when
+middle-three-digits-2	chunk:15	feat:regex	if regex string_concat
+miller-rabin-primality-test	chunk:04	feat:say	grep if join multi range_op return say sub_with_return while
+minesweeper-game	core	core	elsif given has if loop method range_op regex return smartmatch string_concat sub_with_return unless when
+minimum-number-of-cells-after-before-above-and-below-nxn-squares	chunk:18	family:minimum-number-of-cells-after-before-above-and-below-nxn-squares	
+minimum-numbers-of-three-lists	chunk:18	family:minimum-numbers-of-three-lists	
+minimum-positive-multiple-in-base-10-using-only-0-and-1-1	chunk:13	feat:map	map range_op
+minimum-positive-multiple-in-base-10-using-only-0-and-1-2	chunk:11	feat:while	if range_op return sigil_hash string_concat sub_with_return while
+minimum-primes	chunk:04	feat:say	range_op say
+minkowski-question-mark-function	chunk:05	feat:loop	if loop return sub_with_return
+modular-exponentiation	chunk:11	feat:while	if while
+monads-list-monad	chunk:03	feat:multi	if multi range_op
+monads-maybe-monad-1	chunk:07	feat:smartmatch	smartmatch string_concat
+monads-maybe-monad-2	chunk:03	feat:multi	method multi return string_concat sub_with_return
+monads-writer-monad	chunk:16	feat:has	has string_concat
+montgomery-reduction	chunk:08	feat:if	if range_op
+morse-code	chunk:15	feat:regex	range_op regex sigil_hash string_concat
+mosaic-matrix	chunk:18	family:mosaic-matrix	
+mosers-circle-problem	chunk:13	feat:map	map range_op
+most-frequent-k-chars-distance	chunk:16	feat:try	map sigil_hash sort try
+move-to-front-algorithm	chunk:07	feat:string_concat	if range_op string_concat
+multi-dimensional-array	chunk:02	feat:when	has multi range_op string_concat when
+multifactorial	chunk:01	feat:range_op	range_op
+multiplication-tables	chunk:12	feat:given	given range_op string_concat
+multisplit	chunk:18	family:multisplit	
+munchausen-numbers	chunk:08	feat:if	if range_op
+mutual-recursion	chunk:03	feat:multi	multi
+n-body-problem	chunk:03	feat:multi	loop multi range_op return sigil_hash sub_with_return
+n-queens-minimum-and-knights-and-bishops	chunk:02	feat:when	given if loop range_op return sigil_hash string_concat sub_with_return unless when
+n-queens-problem	chunk:14	feat:junction	if junction range_op return sub_with_return unless
+n-smooth-numbers	chunk:05	feat:loop	if loop range_op sigil_hash string_concat
+names-to-numbers	core	core	if join range_op regex regex_with_smartmatch sigil_hash smartmatch split string_concat token
+negative-base-numbers-1	chunk:03	feat:multi	if multi return sigil_hash string_concat sub_with_return unless while
+neighbour-primes	chunk:09	feat:grep	grep map
+nested-function	chunk:18	family:nested-function	
+nested-templated-data	chunk:07	feat:string_concat	string_concat
+next-special-primes	chunk:11	feat:while	range_op return sub_with_return while
+nice-primes-1	chunk:09	feat:grep	given grep range_op
+nice-primes-2	chunk:04	feat:say	grep range_op say
+nim-game	chunk:16	feat:try	if loop try unless want_rc
+nimber-arithmetic	chunk:12	feat:unless	if return sub_with_return unless
+nktglaw	chunk:06	feat:sigil_hash	sigil_hash string_concat
+non-continuous-subsequences	chunk:14	feat:junction	junction range_op
+non-decimal-radices-input-1	chunk:17	family:non-decimal-radices-input	
+non-decimal-radices-input-2	chunk:17	family:non-decimal-radices-input	
+non-decimal-radices-output-1	chunk:18	family:non-decimal-radices-output	
+non-decimal-radices-output-2	chunk:02	feat:range_op	range_op
+nonoblock	chunk:07	feat:smartmatch	if regex smartmatch string_concat while
+nth-1	chunk:06	feat:sigil_hash	range_op sigil_hash string_concat
+nth-2	chunk:06	feat:sigil_hash	range_op sigil_hash string_concat
+nth-root	chunk:12	feat:given	given range_op
+null-object-1	chunk:17	family:null-object	
+null-object-2	chunk:17	family:null-object	
+null-object-3	chunk:14	feat:want_rc	want_rc
+number-names-1	chunk:11	feat:while	if range_op return string_concat sub_with_return while
+numbers-divisible-by-their-individual-digits-but-not-by-the-product-of-their-digits	chunk:12	feat:given	given map
+numbers-in-base-10-that-are-palindromic-in-bases-2-4-and-16	chunk:14	feat:junction	given join junction
+numbers-in-base-16-representation-that-cannot-be-written-with-decimal-digits-1	chunk:09	feat:grep	given grep join range_op
+numbers-in-base-16-representation-that-cannot-be-written-with-decimal-digits-2	chunk:09	feat:grep	given grep join map range_op string_concat
+numbers-k-such-that-the-last-letter-of-k-is-the-same-as-the-first-letter-of-k+1	chunk:15	feat:elsif	elsif if range_op return say string_concat sub_with_return while
+numbers-whose-binary-and-ternary-digit-sums-are-prime	chunk:14	feat:junction	grep junction map say
+numbers-with-prime-digits-whose-sum-is-13	chunk:09	feat:grep	grep map
+numbers-with-same-digit-set-in-base-10-and-base-16	chunk:02	feat:when	grep map sigil_hash string_concat when
+numeric-error-propagation	chunk:04	feat:multi	has if map method multi sigil_hash
+numeric-separator-syntax	chunk:18	family:numeric-separator-syntax	
+numerical-integration-adaptive-simpsons-method	chunk:11	feat:sub_with_return	return sub_with_return
+numerical-integration-gauss-legendre-quadrature	chunk:04	feat:multi	if multi range_op while
+numerical-integration-romberg-integration	chunk:13	feat:map	map range_op return sub_with_return
+numerical-integration-tanh-sinh-quadrature	chunk:05	feat:loop	if loop range_op return sub_with_return
+nysiis	chunk:15	feat:regex	given if range_op regex return sigil_hash sub_with_return
+odd-and-square-numbers	chunk:12	feat:given	given range_op
+odd-squarefree-semiprimes	chunk:04	feat:say	grep if map range_op say
+ohalloran-numbers	chunk:09	feat:grep	grep if range_op string_concat
+old-lady-swallowed-a-fly	chunk:02	feat:when	if range_op regex smartmatch string_concat when
+old-russian-measure-of-length	chunk:12	feat:unless	sigil_hash unless
+one-dimensional-cellular-automata	chunk:15	feat:regex	has map method regex
+one-time-pad-2	chunk:14	feat:want_rc	if range_op sigil_hash string_concat want_rc while
+one-two-primes-2	chunk:15	feat:regex	if range_op regex return sigil_hash string_concat sub_with_return unless
+openwebnet-password	chunk:02	feat:when	given when
+order-by-pair-comparisons	chunk:14	feat:want_rc	if loop return say sigil_hash sub_with_return want_rc
+order-disjoint-list-items	chunk:16	feat:feed_op	feed_op map
+ordered-partitions	chunk:12	feat:unless	return sub_with_return unless
+overloaded-operators-2	chunk:04	feat:say	say
+overloaded-operators-3	chunk:04	feat:say	say string_concat
+overloaded-operators-4	chunk:12	feat:unless	if return sub_with_return unless
+overloaded-operators-5	chunk:04	feat:multi	has multi
+own-digits-power-sum-2	chunk:04	feat:multi	given if map multi range_op
+p-value-correction	chunk:13	feat:sort	if join map multi range_op sort string_concat
+padovan-n-step-number-sequences	chunk:07	feat:string_concat	range_op string_concat
+padovan-sequence	chunk:06	feat:sigil_hash	if sigil_hash
+palindrome-dates	chunk:16	feat:try	if range_op string_concat try
+palindrome-detection	chunk:07	feat:smartmatch	given has smartmatch string_concat
+palindromic-primes-in-base-16	chunk:12	feat:given	given
+palindromic-primes	chunk:12	feat:given	given
+pancake-numbers-1	chunk:04	feat:say	loop range_op return say sub_with_return
+pandigital-prime	chunk:04	feat:say	range_op say
+pangram-checker	chunk:16	feat:has	has range_op
+paraffins	chunk:08	feat:if	if range_op
+parametric-polymorphism	chunk:14	feat:junction	has if junction method
+parse-an-ip-address	chunk:16	feat:token	elsif if map regex string_concat token
+parse-command-line-arguments	chunk:18	family:parse-command-line-arguments	
+parsing-rpn-to-infix-conversion	chunk:02	feat:when	join string_concat when
+parsing-shunting-yard-algorithm	chunk:02	feat:when	given if sigil_hash string_concat when while
+partial-function-application	chunk:02	feat:range_op	range_op
+partition-an-integer-x-into-n-primes	chunk:04	feat:say	if multi return say
+pascal-matrix-generation	chunk:08	feat:if	if range_op
+pascals-triangle-1	chunk:02	feat:range_op	range_op
+pascals-triangle-2	chunk:02	feat:range_op	range_op
+pascals-triangle-3	chunk:04	feat:multi	multi range_op
+pascals-triangle-4	chunk:13	feat:map	map range_op
+pascals-triangle-puzzle	chunk:08	feat:if	if range_op
+pathological-floating-point-problems	chunk:06	feat:sigil_hash	range_op sigil_hash
+peaceful-chess-queen-armies	core	core	if join range_op regex regex_with_smartmatch return sigil_hash smartmatch string_concat sub_with_return while
+pell-numbers	chunk:09	feat:grep	given grep map range_op sigil_hash string_concat
+perfect-numbers-1	chunk:02	feat:range_op	range_op
+perfect-numbers-2	chunk:08	feat:if	if
+perfect-shuffle	chunk:19	family:perfect-shuffle	
+periodic-table	chunk:19	family:periodic-table	
+perlin-noise	chunk:12	feat:given	given
+permutation-test	chunk:19	family:permutation-test	
+permutations-1	chunk:17	family:permutations	
+permutations-2	chunk:11	feat:while	if range_op return sub_with_return while
+permutations-3	chunk:02	feat:range_op	range_op
+permutations-4	chunk:17	family:permutations	
+permutations-by-swapping	chunk:04	feat:multi	map multi range_op
+permutations-derangements-1	chunk:14	feat:junction	grep junction range_op
+permutations-derangements-2	chunk:19	family:permutations-derangements	
+permutations-rank-of-a-permutation	chunk:14	feat:want_rc	grep method range_op want_rc
+permutations-with-repetitions-1	chunk:17	family:permutations-with-repetitions	
+permutations-with-repetitions-2	chunk:17	family:permutations-with-repetitions	
+permutations-with-repetitions-3	chunk:17	family:permutations-with-repetitions	
+permutations-with-some-identical-elements	chunk:13	feat:map	map
+permuted-multiples	chunk:12	feat:unless	map range_op string_concat unless
+pernicious-numbers	chunk:04	feat:say	range_op say
+pfaffian-and-hfaffian	chunk:16	feat:sprintf	grep if join map range_op return sprintf sub_with_return unless
+phrase-reversals	chunk:19	family:phrase-reversals	
+pierpont-primes-2	chunk:05	feat:loop	grep if loop map sigil_hash
+pig-latin	chunk:16	feat:token	given if regex return say string_concat sub_with_return token
+piprimes	chunk:02	feat:range_op	range_op
+playfair-cipher	chunk:15	feat:regex	if range_op regex return sigil_hash string_concat sub_with_return
+pointers-and-references	chunk:14	feat:want_rc	method want_rc
+poker-hand-analyser	chunk:16	feat:token	if method multi range_op regex return sigil_hash string_concat sub_with_return token
+polymorphic-copy	chunk:09	feat:method	method
+polynomial-long-division	chunk:11	feat:while	if return sigil_hash string_concat sub_with_return while
+polynomial-synthetic-division	chunk:06	feat:sigil_hash	range_op sigil_hash
+population-count-1	chunk:02	feat:range_op	range_op
+posit-numbers-encoding	chunk:11	feat:while	if return sub_with_return while
+positive-decimal-integers-with-the-digit-1-occurring-exactly-twice	chunk:08	feat:string_concat	string_concat
+power-set-1	chunk:13	feat:map	map
+power-set-2	chunk:19	family:power-set	
+powerful-numbers	chunk:10	feat:join	if join range_op return sigil_hash sub_with_return unless
+price-fraction-1	chunk:02	feat:when	range_op when while
+price-fraction-2	chunk:11	feat:while	range_op while
+price-fraction-3	chunk:11	feat:while	range_op while
+primality-by-trial-division-2	chunk:02	feat:range_op	range_op
+primality-by-wilsons-theorem	chunk:14	feat:want_rc	range_op sigil_hash want_rc
+prime-groups-counting	chunk:14	feat:want_rc	has if loop map range_op unless want_rc
+prime-groups	chunk:08	feat:if	if
+prime-numbers-which-contain-123	chunk:08	feat:string_concat	string_concat
+prime-numbers-whose-neighboring-pairs-are-tetraprimes	chunk:15	feat:elsif	elsif if range_op return say string_concat sub_with_return while
+prime-reciprocal-sum	chunk:09	feat:grep	grep range_op sigil_hash string_concat
+prime-triplets-1	chunk:02	feat:range_op	range_op
+prime-triplets-2	chunk:13	feat:given	given if
+primes---allocate-descendants-to-their-ancestors	chunk:14	feat:junction	if junction map range_op return sigil_hash sort sub_with_return
+primes-which-contain-only-one-odd-digit	chunk:08	feat:string_concat	string_concat
+primes-whose-first-and-last-number-is-3	chunk:08	feat:string_concat	string_concat
+primes-whose-sum-of-digits-is-25	chunk:10	feat:join	join string_concat
+primes-with-digits-in-nondecreasing-order	chunk:10	feat:grep	given grep join map range_op
+primes:-n-2^m+1	chunk:06	feat:sigil_hash	if range_op sigil_hash
+print-debugging-statement	chunk:02	feat:when	if sigil_hash when
+print-itself-1	chunk:17	family:print-itself	
+print-itself-3	chunk:17	family:print-itself	
+priority-queue	chunk:09	feat:method	has method
+problem-of-apollonius	chunk:04	feat:say	has method say sigil_hash
+program-name	chunk:19	family:program-name	
+proof	chunk:07	feat:smartmatch	if return smartmatch string_concat sub_with_return
+proper-divisors	chunk:05	feat:loop	if loop range_op unless
+pseudo-random-numbers-combined-recursive-generator-mrg32k3a	chunk:04	feat:say	has method say
+pseudo-random-numbers-middle-square-method	chunk:19	family:pseudo-random-numbers-middle-square-method	
+pseudo-random-numbers-pcg32	chunk:04	feat:say	has method say
+pseudo-random-numbers-splitmix64	chunk:04	feat:say	has method say
+pseudo-random-numbers-xorshift-star	chunk:04	feat:say	has method say
+punched-cards	chunk:06	feat:sigil_hash	sigil_hash string_concat
+pythagoras-tree	chunk:10	feat:join	has if join method return sub_with_return
+pythagorean-quadruples	chunk:07	feat:smartmatch	grep if range_op smartmatch string_concat
+pythagorean-triples-1	chunk:08	feat:if	if
+pythagorean-triples-2	chunk:08	feat:string_concat	if range_op string_concat
+pythagorean-triples-4	chunk:11	feat:sub_with_return	if return sub_with_return
+qr-decomposition	chunk:04	feat:multi	multi range_op return sub_with_return
+quadrat-special-primes	chunk:13	feat:given	given if range_op
+quaternion	chunk:04	feat:multi	has method multi return sub_with_return
+queue-definition	chunk:09	feat:method	if method return
+queue-usage-2	chunk:19	family:queue-usage	
+quickhull	chunk:14	feat:junction	elsif has if junction loop method range_op return sub_with_return unless while
+quickselect-algorithm	chunk:03	feat:when	given if loop range_op return sub_with_return when
+quine-1	chunk:19	family:quine	
+quine-2	chunk:06	feat:sigil_hash	sigil_hash
+quine-mccluskey-algorithm	chunk:14	feat:junction	elsif grep if junction map return string_concat sub_with_return unless while
+ramer-douglas-peucker-line-simplification	chunk:14	feat:junction	if junction range_op return sub_with_return
+ramseys-theorem	chunk:12	feat:unless	unless
+range-consolidation	chunk:13	feat:sort	grep if multi sort
+range-expansion-1	chunk:16	feat:token	join map range_op regex split token
+range-expansion-2	chunk:16	feat:token	join map range_op regex token
+range-extraction	chunk:08	feat:if	if
+range-modifications	chunk:15	feat:elsif	elsif if join multi range_op sigil_hash unless
+ranking-methods	chunk:02	feat:range_op	range_op
+rare-numbers-1	chunk:03	feat:when	given has if loop range_op sigil_hash smartmatch string_concat when
+rational-calculator	chunk:16	feat:sprintf	sigil_hash sprintf while
+ray-casting-algorithm	chunk:13	feat:sort	elsif if sigil_hash sort
+real-constants-and-functions	chunk:04	feat:say	if say
+recamans-sequence	chunk:05	feat:loop	if loop range_op sigil_hash unless
+reduced-row-echelon-form-1	chunk:07	feat:smartmatch	if return smartmatch string_concat sub_with_return unless
+reduced-row-echelon-form-2	chunk:08	feat:if	if
+reduced-row-echelon-form-3	chunk:09	feat:method	if method return
+reflection-get-source	chunk:19	family:reflection-get-source	
+reflection-list-methods	chunk:09	feat:method	method
+regular-expressions	chunk:07	feat:smartmatch	has if regex smartmatch string_concat
+remove-vowels-from-a-string	chunk:07	feat:smartmatch	if range_op regex smartmatch string_concat
+rendezvous	chunk:17	feat:print	elsif has if method print when
+rep-string-1	chunk:08	feat:if	if
+rep-string-2	chunk:11	feat:sub_with_return	if range_op return sub_with_return
+repeat-a-string	chunk:19	family:repeat-a-string	
+resistance-calculator	chunk:03	feat:when	given has if method multi return sub_with_return when
+resistance-network-calculator	chunk:15	feat:split	given if range_op return split string_concat sub_with_return
+resistor-mesh	chunk:05	feat:loop	if loop string_concat unless
+respond-to-an-unknown-method-call-1	chunk:09	feat:method	method
+respond-to-an-unknown-method-call-2	chunk:16	feat:our	method our
+reverse-a-string	chunk:19	family:reverse-a-string	
+reverse-the-gender-of-a-string	chunk:13	feat:given	given
+rice-coding	chunk:16	feat:our	our range_op while
+ripemd-160	chunk:04	feat:multi	given multi range_op
+rock-paper-scissors-1	core	core	grep join map print regex sigil_hash smartmatch string_concat try unless while
+rodrigues-rotation-formula-1	chunk:19	family:rodrigues-rotation-formula	
+rodrigues-rotation-formula-2	chunk:03	feat:when	map range_op when
+roman-numerals-decode-1	chunk:07	feat:smartmatch	regex smartmatch string_concat
+roman-numerals-decode-2	chunk:07	feat:smartmatch	regex return smartmatch string_concat sub_with_return
+roman-numerals-encode	chunk:04	feat:multi	multi range_op return sigil_hash string_concat sub_with_return
+roots-of-a-cubic-polynomial	chunk:15	feat:elsif	elsif if map method return string_concat sub_with_return
+roots-of-a-function	chunk:03	feat:when	given range_op when
+roots-of-a-quadratic-function	chunk:13	feat:given	given sigil_hash
+roots-of-unity-1	chunk:17	family:roots-of-unity	
+roots-of-unity-2	chunk:17	family:roots-of-unity	
+rosetta-code-find-bare-lang-tags	chunk:03	feat:when	if sigil_hash when
+round-robin-tournament-schedule	chunk:05	feat:loop	given if loop range_op sigil_hash
+routh-hurwitz-stability-criterion	core	core	elsif given has if map method range_op return sigil_hash smartmatch sprintf string_concat sub_with_return try unless
+rsa-code	chunk:05	feat:loop	has if loop method range_op sigil_hash
+run-length-encoding	chunk:15	feat:regex	regex string_concat
+runge-kutta-method	chunk:05	feat:loop	if loop return sigil_hash sub_with_return
+runtime-evaluation-in-an-environment	chunk:19	family:runtime-evaluation-in-an-environment	
+s-expressions	core	core	if join map method multi regex regex_with_smartmatch return smartmatch string_concat token unless
+safe-and-sophie-germain-primes	chunk:19	family:safe-and-sophie-germain-primes	
+sailors-coconuts-and-a-monkey-problem	chunk:04	feat:multi	if multi range_op return sub_with_return unless
+same-fringe	chunk:04	feat:multi	multi
+scope-function-names-and-labels	chunk:14	feat:want_rc	has want_rc
+scope-modifiers-2	chunk:19	family:scope-modifiers	
+sealed-classes-and-methods	chunk:09	feat:method	has method
+search-a-list-1	chunk:19	family:search-a-list	
+search-a-list-2	chunk:08	feat:if	if
+search-a-list-3	chunk:06	feat:sigil_hash	sigil_hash
+search-a-list-of-records	chunk:15	feat:regex	regex
+sedols	chunk:07	feat:smartmatch	if range_op regex return sigil_hash smartmatch string_concat sub_with_return
+segmentation-fault-protection	chunk:19	family:segmentation-fault-protection	
+self-contained-numbers	chunk:04	feat:say	if map return say sub_with_return while
+self-numbers	chunk:05	feat:loop	if loop while
+send-+-more-=-money-1	chunk:11	feat:sub_with_return	range_op return sub_with_return
+send-an-unknown-method-call	chunk:09	feat:method	method
+sequence-of-non-squares	chunk:05	feat:say	if range_op say
+sequence-of-primes-by-trial-division	chunk:14	feat:junction	junction range_op
+sequence-of-primorial-primes-1	chunk:14	feat:junction	if junction range_op string_concat
+sequence:-nth-number-with-exactly-n-divisors	chunk:12	feat:unless	if range_op return sub_with_return unless
+sequence:-smallest-number-greater-than-previous-term-with-exactly-n-divisors	chunk:12	feat:unless	if range_op return sub_with_return unless
+sequence:-smallest-number-with-exactly-n-divisors	chunk:12	feat:unless	if map range_op return sub_with_return unless
+set-consolidation	chunk:16	feat:feed_op	feed_op if multi
+set-of-real-numbers	core	core	grep has if map method multi range_op return smartmatch sort string_concat sub_with_return unless while
+set-right-adjacent-bits	chunk:08	feat:string_concat	string_concat
+set	chunk:08	feat:if	if
+sha-1-1	chunk:13	feat:map	map range_op
+sha-256-1	chunk:16	feat:our	grep multi our range_op return sub_with_return
+shape-machine-1	chunk:05	feat:say	if loop say
+shape-machine-2	chunk:05	feat:say	say
+shift-list-elements-to-left-by-3	chunk:02	feat:range_op	range_op
+shoelace-formula-for-polygonal-area-1	chunk:13	feat:map	map
+shoelace-formula-for-polygonal-area-2	chunk:11	feat:sub_with_return	return sub_with_return
+short-circuit-evaluation	chunk:19	family:short-circuit-evaluation	
+shortest-common-supersequence	chunk:17	feat:regex_with_smartmatch	join regex regex_with_smartmatch return sigil_hash smartmatch string_concat sub_with_return unless
+show-ascii-table	chunk:03	feat:when	regex sigil_hash string_concat when
+show-the-decimal-value-of-a-number-of-1s-appended-with-a-3-then-squared	chunk:10	feat:grep	grep map string_concat
+show-the-epoch	chunk:19	family:show-the-epoch	
+sierpinski-carpet	chunk:10	feat:join	join map range_op string_concat
+sierpinski-triangle	chunk:11	feat:sub_with_return	return sub_with_return
+sieve-of-eratosthenes-1	chunk:05	feat:loop	if join loop
+sieve-of-eratosthenes-5	chunk:05	feat:loop	grep if loop range_op unless
+sieve-of-pritchard-1	chunk:11	feat:while	if while
+sieve-of-pritchard-2	chunk:13	feat:sort	grep has if method sort while
+sign-of-an-integer-signum-	chunk:19	family:sign-of-an-integer-signum	
+singly-linked-list-reversal	chunk:09	feat:method	has method return sub_with_return while
+singly-linked-list-traversal-1	chunk:05	feat:loop	loop
+singly-linked-list-traversal-2	chunk:05	feat:loop	loop method range_op string_concat
+sleep	chunk:02	feat:range_op	range_op
+smallest-enclosing-circle-problem	chunk:03	feat:when	given has if method return string_concat sub_with_return when
+smallest-multiple	chunk:02	feat:range_op	range_op
+smallest-number-k-such-that-k+2^m-is-composite-for-all-m-less-than-k	chunk:10	feat:grep	grep map range_op
+smallest-numbers	chunk:13	feat:map	map range_op return sub_with_return
+smallest-square-that-begins-with-n-1	chunk:08	feat:if	if range_op
+smallest-square-that-begins-with-n-2	chunk:13	feat:map	map range_op
+smith-numbers	chunk:04	feat:multi	if multi range_op while
+sokoban	chunk:03	feat:when	given has if method regex return sigil_hash smartmatch string_concat sub_with_return unless when while
+soloways-recurring-rainfall	core	core	if loop sigil_hash smartmatch string_concat try want_rc when
+solve-a-hidato-puzzle	chunk:03	feat:when	grep if range_op return sub_with_return when
+solve-a-holy-knights-tour	chunk:03	feat:when	grep if return sub_with_return when
+solve-a-hopido-puzzle	chunk:03	feat:when	grep if return sub_with_return when
+solve-a-numbrix-puzzle	chunk:03	feat:when	grep if return sub_with_return when
+solve-a-rubiks-cube	chunk:07	feat:smartmatch	if range_op regex return smartmatch string_concat sub_with_return
+solve-equations-with-substitution-method	chunk:11	feat:sub_with_return	return sub_with_return
+solve-hanging-lantern-problem-1	chunk:02	feat:range_op	range_op
+solve-hanging-lantern-problem-2	chunk:10	feat:join	if join map
+solve-hanging-lantern-problem-3	chunk:15	feat:split	if join map range_op regex smartmatch split string_concat
+solve-the-no-connection-puzzle	chunk:03	feat:when	grep if range_op return sub_with_return when
+solve-triangle-solitaire-puzzle	chunk:16	feat:sprintf	given if range_op return sigil_hash sprintf string_concat sub_with_return when
+sort-a-list-of-object-identifiers-1	chunk:19	family:sort-a-list-of-object-identifiers	
+sort-an-array-of-composite-structures	chunk:13	feat:sort	has join sort
+sort-an-outline-at-every-level	core	core	given grep if map multi print regex return smartmatch sort split string_concat sub_with_return try unless when
+sort-disjoint-sublist-1	chunk:19	family:sort-disjoint-sublist	
+sort-disjoint-sublist-2	chunk:12	feat:sub_with_return	return sub_with_return
+sort-numbers-lexicographically	chunk:08	feat:string_concat	string_concat
+sort-primes-from-list-to-a-list-1	chunk:10	feat:grep	grep
+sort-primes-from-list-to-a-list-2	chunk:10	feat:grep	grep string_concat
+sort-stability	chunk:19	family:sort-stability	
+sort-the-letters-of-string-in-alphabetical-order-1	chunk:15	feat:regex	if range_op regex return sub_with_return
+sort-three-variables	chunk:13	feat:sort	join say sort string_concat
+sort-using-a-custom-comparator	chunk:19	family:sort-using-a-custom-comparator	
+sorting-algorithms-bead-sort-1	chunk:07	feat:smartmatch	if map smartmatch string_concat unless while
+sorting-algorithms-bead-sort-2	chunk:19	family:sorting-algorithms-bead-sort	
+sorting-algorithms-bogosort	chunk:12	feat:sub_with_return	return sub_with_return
+sorting-algorithms-cocktail-sort-with-shifting-bounds	chunk:03	feat:when	given if loop range_op when
+sorting-algorithms-cocktail-sort	chunk:05	feat:loop	if loop range_op return sub_with_return
+sorting-algorithms-comb-sort	chunk:11	feat:while	if return sub_with_return while
+sorting-algorithms-cycle-sort	chunk:11	feat:while	if range_op return sub_with_return while
+sorting-algorithms-gnome-sort	chunk:07	feat:smartmatch	if range_op smartmatch string_concat while
+sorting-algorithms-heapsort	chunk:11	feat:while	if range_op return string_concat sub_with_return while
+sorting-algorithms-insertion-sort	chunk:05	feat:loop	loop range_op return string_concat sub_with_return
+sorting-algorithms-pancake-sort-1	chunk:11	feat:while	if range_op return string_concat sub_with_return while
+sorting-algorithms-pancake-sort-2	chunk:14	feat:sort	if range_op return sort string_concat sub_with_return
+sorting-algorithms-patience-sort	chunk:04	feat:multi	given multi string_concat while
+sorting-algorithms-permutation-sort	chunk:11	feat:while	if range_op return string_concat sub_with_return while
+sorting-algorithms-selection-sort-1	chunk:12	feat:sub_with_return	if range_op return string_concat sub_with_return
+sorting-algorithms-shell-sort	chunk:05	feat:loop	if loop range_op return string_concat sub_with_return
+sorting-algorithms-sleep-sort-1	chunk:19	family:sorting-algorithms-sleep-sort	
+sorting-algorithms-stooge-sort	chunk:12	feat:sub_with_return	if return sub_with_return
+sorting-algorithms-tree-sort-on-a-linked-list	chunk:15	feat:elsif	elsif has if method return say sigil_hash sub_with_return unless
+soundex	chunk:07	feat:smartmatch	if regex smartmatch string_concat
+sparkline-in-unicode	chunk:11	feat:while	range_op while
+special-factorials	chunk:13	feat:given	given has range_op
+special-neighbor-primes	chunk:08	feat:if	if range_op
+special-pythagorean-triplet	chunk:08	feat:if	if range_op
+spinning-rod-animation-text	chunk:05	feat:loop	has if loop method range_op string_concat
+spiral-matrix-3	chunk:12	feat:sub_with_return	return sub_with_return
+split-a-character-string-based-on-change-of-character	chunk:10	feat:join	join
+square-but-not-cube	chunk:10	feat:grep	grep map range_op
+square-free-integers	chunk:10	feat:grep	grep if join range_op return sub_with_return unless while
+stack-traces	chunk:19	family:stack-traces	
+state-name-puzzle	chunk:10	feat:join	if join range_op regex string_concat
+steady-squares	chunk:10	feat:grep	grep range_op
+steffensens-method	chunk:11	feat:while	if return sigil_hash sub_with_return while
+stem-and-leaf-plot	chunk:06	feat:sigil_hash	sigil_hash string_concat
+stern-brocot-sequence	chunk:13	feat:given	given range_op
+stirling-numbers-of-the-first-kind	chunk:05	feat:say	map range_op return say sigil_hash sub_with_return unless
+stirling-numbers-of-the-second-kind	chunk:05	feat:say	map range_op say
+straddling-checkerboard	chunk:15	feat:regex	has if map method range_op regex sigil_hash string_concat
+strange-numbers	chunk:08	feat:if	if range_op
+strange-plus-numbers	chunk:13	feat:given	given range_op
+strange-unique-prime-triplets	chunk:10	feat:grep	given grep range_op
+stream-merge	chunk:10	feat:grep	grep map return sub_with_return while
+string-append	chunk:08	feat:string_concat	string_concat
+string-case	chunk:09	feat:method	method
+string-comparison-1	chunk:07	feat:smartmatch	if smartmatch string_concat
+string-comparison-2	chunk:05	feat:say	say
+string-concatenation	chunk:08	feat:string_concat	string_concat
+string-interpolation-included-	chunk:06	feat:sigil_hash	sigil_hash
+string-length-1	chunk:17	family:string-length	
+string-length-2	chunk:17	family:string-length	
+string-length-3	chunk:17	family:string-length	
+string-prepend	chunk:15	feat:regex	regex string_concat
+strip-a-set-of-characters-from-a-string	chunk:12	feat:sub_with_return	return sub_with_return
+strip-block-comments	chunk:15	feat:split	split
+strip-whitespace-from-a-string-top-and-tail	chunk:19	family:strip-whitespace-from-a-string-top-and-tail	
+sub-unit-squares	chunk:05	feat:loop	if loop map range_op
+subset-sum-problem	chunk:03	feat:when	given range_op sigil_hash when
+substitution-cipher	chunk:07	feat:smartmatch	if join range_op sigil_hash smartmatch string_concat unless
+substring-primes-1	chunk:11	feat:while	string_concat while
+substring-primes-2	chunk:12	feat:unless	return string_concat sub_with_return unless while
+substring-top-and-tail	chunk:19	family:substring-top-and-tail	
+substring	chunk:19	family:substring	
+subtractive-generator	chunk:02	feat:range_op	range_op
+sudan-function	chunk:05	feat:say	multi say string_concat
+sudoku-1	chunk:14	feat:junction	if junction range_op return sub_with_return
+suffix-tree	chunk:03	feat:when	if multi string_concat when
+sum-and-product-of-an-array	chunk:19	family:sum-and-product-of-an-array	
+sum-and-product-puzzle	chunk:14	feat:junction	grep junction map range_op sigil_hash string_concat
+sum-digits-of-an-integer	chunk:19	family:sum-digits-of-an-integer	
+sum-multiples-of-3-and-5-1	chunk:19	family:sum-multiples-of--and	
+sum-multiples-of-3-and-5-2	chunk:02	feat:range_op	range_op
+sum-of-a-series-2	chunk:02	feat:range_op	range_op
+sum-of-a-series-3	chunk:02	feat:range_op	range_op
+sum-of-a-series-4	chunk:02	feat:range_op	range_op
+sum-of-a-series-5	chunk:02	feat:range_op	range_op
+sum-of-a-series-6	chunk:02	feat:range_op	range_op
+sum-of-a-series-7	chunk:02	feat:range_op	range_op
+sum-of-a-series-8	chunk:02	feat:range_op	range_op
+sum-of-elements-below-main-diagonal-of-matrix	chunk:13	feat:map	map range_op
+sum-of-first-n-cubes	chunk:19	family:sum-of-first-n-cubes	
+sum-of-primes-in-odd-positions-is-prime	chunk:02	feat:range_op	range_op
+sum-of-square-and-cube-digits-of-an-integer-are-primes	chunk:19	family:sum-of-square-and-cube-digits-of-an-integer-are-primes	
+sum-of-squares-1	chunk:17	family:sum-of-squares	
+sum-of-squares-2	chunk:17	family:sum-of-squares	
+sum-of-the-digits-of-n-is-substring-of-n	chunk:13	feat:given	given
+sum-of-two-adjacent-numbers-are-primes	chunk:19	family:sum-of-two-adjacent-numbers-are-primes	
+sum-to-100	chunk:14	feat:sort	given map range_op regex sigil_hash sort string_concat
+summarize-and-say-sequence	chunk:15	feat:elsif	elsif grep if range_op regex return sigil_hash smartmatch string_concat sub_with_return unless
+summation-of-primes-1	chunk:19	family:summation-of-primes	
+superpermutation-minimisation	chunk:10	feat:join	join range_op string_concat unless
+sylvesters-sequence	chunk:19	family:sylvesters-sequence	
+symmetric-difference	chunk:05	feat:say	say
+sync-subtitles-1	chunk:16	feat:sprintf	given if regex return say smartmatch split sprintf string_concat sub_with_return
+tamagotchi-emulator	core	core	given has if join junction range_op return smartmatch split string_concat sub_with_return unless want_rc when while
+tarjan	chunk:15	feat:elsif	elsif if sigil_hash unless while
+taxicab-numbers	chunk:14	feat:sort	grep if map range_op sigil_hash sort
+temperature-conversion-1	chunk:06	feat:sigil_hash	if sigil_hash
+temperature-conversion-2	chunk:03	feat:when	given regex when while
+terminal-control-cursor-positioning	chunk:19	family:terminal-control-cursor-positioning	
+terminal-control-display-an-extended-character	chunk:19	family:terminal-control-display-an-extended-character	
+terminal-control-preserve-screen	chunk:02	feat:range_op	range_op
+terminal-control-ringing-the-terminal-bell	chunk:19	family:terminal-control-ringing-the-terminal-bell	
+ternary-logic	chunk:08	feat:string_concat	range_op string_concat
+test-a-function	chunk:16	feat:has	has
+test-integerness	chunk:07	feat:smartmatch	multi smartmatch string_concat
+text-between	chunk:03	feat:when	if regex return smartmatch string_concat sub_with_return when
+text-processing-1	chunk:14	feat:sort	if sort
+text-processing-2	chunk:06	feat:sigil_hash	if sigil_hash
+text-processing-max-licenses-in-use	chunk:15	feat:elsif	elsif if sigil_hash string_concat
+the-isaac-cipher	chunk:03	feat:when	given if join map multi range_op return string_concat sub_with_return when
+the-name-game	chunk:07	feat:smartmatch	regex smartmatch string_concat
+the-sieve-of-sundaram	chunk:13	feat:map	if map range_op while
+the-twelve-days-of-christmas	chunk:15	feat:regex	range_op regex
+thieles-interpolation-formula	chunk:04	feat:multi	multi range_op return sigil_hash sub_with_return
+three-word-location-2	chunk:13	feat:map	map sigil_hash string_concat
+thue-morse	chunk:08	feat:string_concat	range_op string_concat
+time-conventions-and-conversions	chunk:03	feat:when	given if range_op return sigil_hash sub_with_return when
+tokenize-a-string-1	chunk:15	feat:split	join split
+tokenize-a-string-2	chunk:19	family:tokenize-a-string	
+tokenize-a-string-with-escaping	chunk:15	feat:regex	map regex return sub_with_return
+tonelli-shanks-algorithm	chunk:16	feat:try	given if range_op return sub_with_return try when while
+top-rank-per-group	chunk:15	feat:split	if split
+topic-variable	chunk:19	family:topic-variable	
+topological-sort-extracted-top-item	chunk:10	feat:grep	grep if sigil_hash string_concat unless while
+topological-sort	chunk:10	feat:grep	grep if sigil_hash string_concat while
+topswops-2	chunk:11	feat:while	range_op string_concat while
+transliterate-english-text-using-the-greek-alphabet	chunk:03	feat:when	given map regex sigil_hash string_concat when
+transportation-problem	chunk:14	feat:sort	grep if sigil_hash sort while
+tree-from-nesting-levels-1	chunk:11	feat:while	return sub_with_return while
+tree-from-nesting-levels-2	chunk:03	feat:when	given return sub_with_return when while
+tree-from-nesting-levels-3	chunk:10	feat:join	join map regex return string_concat sub_with_return
+tree-traversal	chunk:10	feat:join	has if join method while
+trigonometric-functions	chunk:19	family:trigonometric-functions	
+tropical-algebra-overloading	chunk:19	family:tropical-algebra-overloading	
+truncatable-primes	chunk:08	feat:string_concat	if range_op string_concat
+tuppers-self-referential-formula	chunk:08	feat:string_concat	range_op string_concat
+twelve-statements	chunk:14	feat:junction	given grep if junction map range_op string_concat when
+two-identical-strings	chunk:13	feat:given	given map range_op sigil_hash string_concat
+two-sum-1	chunk:03	feat:when	given return sub_with_return unless when while
+two-sum-2	chunk:15	feat:split	grep join split
+ulam-numbers	chunk:02	feat:range_op	range_op
+ulam-spiral-for-primes-	chunk:13	feat:map	if map range_op sigil_hash while
+ultra-useful-primes	chunk:02	feat:range_op	range_op
+undefined-values-1	chunk:17	family:undefined-values	
+undefined-values-2	chunk:07	feat:smartmatch	smartmatch string_concat
+undefined-values-3	chunk:17	family:undefined-values	
+undefined-values-4	chunk:04	feat:multi	has if multi range_op
+undulating-numbers	chunk:05	feat:loop	if loop range_op unless
+unescape-a-string	chunk:16	feat:token	map method regex string_concat token unless
+unicode-polynomial-equation	chunk:15	feat:split	elsif if map regex return sigil_hash split string_concat sub_with_return unless
+unicode-strings	chunk:19	family:unicode-strings	
+unicode-variable-names-1	chunk:17	family:unicode-variable-names	
+unicode-variable-names-2	chunk:17	family:unicode-variable-names	
+unique-characters-in-each-string	chunk:19	family:unique-characters-in-each-string	
+unique-characters	chunk:14	feat:sort	grep map sort
+universal-turing-machine	chunk:17	feat:regex_with_smartmatch	given if loop regex_with_smartmatch smartmatch string_concat unless when
+unix-ls	chunk:08	feat:string_concat	string_concat
+upc	chunk:07	feat:smartmatch	return sigil_hash smartmatch string_concat sub_with_return unless
+url-decoding	chunk:15	feat:regex	regex sigil_hash string_concat
+url-encoding	chunk:15	feat:regex	regex
+useless-instructions-2	chunk:08	feat:if	if range_op
+useless-instructions-3	chunk:05	feat:say	say
+user-input-text	chunk:19	family:user-input-text	
+utf-8-encode-and-decode	chunk:16	feat:sprintf	join sigil_hash sprintf string_concat
+validate-international-securities-identification-number	chunk:15	feat:regex	map range_op regex return sub_with_return
+van-der-corput-sequence-1	chunk:08	feat:string_concat	string_concat
+van-der-corput-sequence-2	chunk:19	family:van-der-corput-sequence	
+van-der-corput-sequence-3	chunk:05	feat:say	join range_op say while
+van-eck-sequence	chunk:06	feat:sigil_hash	range_op sigil_hash
+variable-declaration-reset-3	chunk:16	feat:our	if loop our
+variable-declaration-reset-4	chunk:05	feat:loop	if loop
+variable-declaration-reset-5	chunk:05	feat:loop	if loop
+variable-length-quantity	chunk:15	feat:split	split while
+variable-size-get	chunk:02	feat:range_op	range_op
+variables-1	chunk:08	feat:if	if
+variables-2	chunk:02	feat:range_op	range_op
+variadic-fixed-point-combinator	chunk:06	feat:sigil_hash	range_op sigil_hash
+vector-products	chunk:05	feat:say	say
+vector	chunk:04	feat:multi	has method multi
+verhoeff-algorithm	chunk:13	feat:map	if map range_op sigil_hash string_concat
+verify-distribution-uniformity-chi-squared-test	chunk:03	feat:when	given range_op return sigil_hash sub_with_return when
+vigen-re-cipher-cryptanalysis	chunk:16	feat:try	given grep if loop range_op regex return sigil_hash smartmatch sort string_concat sub_with_return try while
+vigen-re-cipher	chunk:02	feat:range_op	range_op
+vile-and-dopey-numbers	chunk:02	feat:range_op	range_op
+visitor-pattern	chunk:04	feat:multi	has method multi range_op
+visualize-a-tree	chunk:03	feat:when	join map string_concat when
+vlist	chunk:15	feat:elsif	elsif has if loop method range_op return string_concat unless
+vogels-approximation-method	chunk:14	feat:sort	grep if sigil_hash sort while
+water-collected-between-towers	chunk:10	feat:grep	grep if return sub_with_return
+wavelet-matrix	chunk:05	feat:loop	given has if loop method range_op return sub_with_return while
+weird-numbers	chunk:14	feat:sort	if range_op sort unless
+welchs-t-test-1	chunk:12	feat:unless	if map range_op return sub_with_return unless
+wieferich-primes	chunk:19	family:wieferich-primes	
+wilson-primes-of-order-n	chunk:10	feat:grep	grep range_op sigil_hash
+word-break-problem	chunk:17	feat:regex_with_smartmatch	join regex regex_with_smartmatch smartmatch string_concat
+word-wrap	chunk:03	feat:when	has range_op regex smartmatch string_concat when
+wordle-comparison	chunk:12	feat:sub_with_return	if return string_concat sub_with_return
+world-cup-group-stage	chunk:19	family:world-cup-group-stage	
+worthwhile-task-shaving	chunk:03	feat:when	given string_concat when
+xiaolin-wus-line-algorithm	chunk:05	feat:loop	if loop range_op unless
+xxxx-redacted	chunk:04	feat:multi	given multi regex sigil_hash while
+y-combinator-1	chunk:19	family:y-combinator	
+y-combinator-2	chunk:13	feat:given	given
+yin-and-yang-1	chunk:08	feat:if	if
+yin-and-yang-2	chunk:19	family:yin-and-yang	
+zebra-puzzle	chunk:04	feat:multi	given grep has if join map multi range_op sigil_hash
+zeckendorf-arithmetic	chunk:07	feat:smartmatch	if range_op regex return sigil_hash smartmatch string_concat sub_with_return while
+zeckendorf-number-representation	chunk:04	feat:multi	if multi range_op string_concat
+zero-to-the-zero-power	chunk:19	family:zero-to-the-zero-power	
+zhang-suen-thinning-algorithm	chunk:15	feat:split	if range_op split while
+zigzag-numbers	chunk:14	feat:junction	if junction range_op sigil_hash

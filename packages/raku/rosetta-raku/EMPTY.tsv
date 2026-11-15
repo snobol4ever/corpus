@@ -1,0 +1,628 @@
+# EMPTY.tsv -- why each program the builder read EMPTY prints nothing under rakudo, run once more alone with no input (rak_empty_telemetry.py; NOT graded):
+# entry, exit status, stdout bytes, stderr bytes, class, stderr's first telling line
+# RE-MEASURED 2026-11-15: the six rows the telemetry read ANSWERS shared its run folder with three other jobs; run twice each alone in a folder of its own, five print nothing and end rc 1 (their rows below are those runs) and video-display-modes was screened out (QX of xrandr, SCREENED.tsv).
+abbreviations-automatic	1	0	116	NEEDS-FILE	Failed to open file DoWAKA.txt: No such file or directory
+abc-correlation	1	0	113	NEEDS-FILE	Failed to open file words_alpha.txt: No such file or directory
+abc-words	1	0	104	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+abelian-sandpile-model-identity	1	0	409	NEEDS-MODULE	Could not find Terminal::Boxer:ver<0.2+> in:
+achilles-numbers	1	0	366	NEEDS-MODULE	Could not find Prime::Factor in:
+ackermann-function-1	0	0	0	SILENT	
+ackermann-function-2	0	0	0	SILENT	
+active-directory-connect	1	0	376	NEEDS-MODULE	Could not find LMDB in:
+addition-chain-exponentiation	1	0	394	NEEDS-MODULE	Could not find Math::Matrix in:
+adfgvx-cipher	1	0	363	NEEDS-MODULE	Could not find Terminal::Boxer in:
+align-columns-2	2	0	49	DIES	Usage:
+almkvist-giullera-formula-for-pi	1	0	395	NEEDS-MODULE	Could not find BigRoot in:
+alternade-words	1	0	155	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+anadromes	1	0	101	NEEDS-FILE	Failed to open file words.txt: No such file or directory
+anagrams-1	1	0	105	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+anagrams-2	1	0	105	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+anagrams-deranged-anagrams	1	0	121	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+anaprimes	1	0	361	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+animate-a-pendulum	1	0	366	NEEDS-MODULE	Could not find SDL2::Raw in:
+archimedean-spiral	1	0	380	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+arithmetic-derivative	1	0	376	NEEDS-MODULE	Could not find Prime::Factor in:
+arithmetic-numbers	1	0	370	NEEDS-MODULE	Could not find Prime::Factor in:
+assertions	1	0	57	DIES	$a ain't 42
+assertions-in-design-by-contract	1	0	661	COMPILE-REFUSED	===SORRY!===
+attractive-numbers	1	0	376	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+autogram-checker	1	0	367	NEEDS-MODULE	Could not find Text::Wrap in:
+averages-arithmetic-mean	0	0	0	SILENT	
+averages-median-1	0	0	0	SILENT	
+averages-median-2	0	0	0	SILENT	
+averages-root-mean-square-2	0	0	0	SILENT	
+avl-tree	0	0	0	SILENT	
+b-spline	1	0	345	NEEDS-MODULE	Could not find Cairo in:
+babylonian-spiral-1	1	0	366	NEEDS-MODULE	Could not find SVG in:
+babylonian-spiral-2	1	0	366	NEEDS-MODULE	Could not find SVG in:
+barnsley-fern	1	0	367	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+base-16-numbers-needing-a-to-f-1	1	0	397	NEEDS-MODULE	Could not find Base::Any in:
+base-16-numbers-needing-a-to-f-3	1	0	397	NEEDS-MODULE	Could not find Base::Any in:
+base-16-numbers-needing-a-to-f-4	1	0	404	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+base64-decode-data	1	0	372	NEEDS-MODULE	Could not find Base64::Native in:
+base64-encode-data	1	0	160	NEEDS-FILE	Failed to open file favicon.ico: No such file or directory
+binary-search-1	1	0	110	COMPILE-REFUSED	Undeclared routine:
+binary-search-2	0	0	0	SILENT	
+binary-search-3	0	0	0	SILENT	
+bioinformatics-subsequence	1	0	402	NEEDS-MODULE	Could not find String::Splice:ver<0.0.3+> in:
+bitmap-bresenhams-line-algorithm	0	0	0	SILENT	
+bitmap-flood-fill	1	0	297	NEEDS-FILE	Failed to open file Unfilled-Circle.ppm: No such file or directory
+bitmap-histogram	1	0	333	NEEDS-FILE	Failed to open file Lenna.ppm: No such file or directory
+bitmap-read-a-ppm-file	1	0	309	NEEDS-FILE	Failed to open file camelia.ppm: No such file or directory
+blum-integer	1	0	359	NEEDS-MODULE	Could not find List::Divvy in:
+boolean-values	0	0	0	SILENT	
+brilliant-numbers	1	0	377	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+call-a-function-1	1	0	293	COMPILE-REFUSED	Confused
+call-a-function-10	1	0	108	COMPILE-REFUSED	Undeclared routine:
+call-a-function-11	1	0	125	COMPILE-REFUSED	Missing block
+call-a-function-2	1	0	298	COMPILE-REFUSED	Confused
+call-a-function-3	1	0	298	COMPILE-REFUSED	Confused
+call-a-function-4	1	0	244	COMPILE-REFUSED	Variable '@args' is not declared.  Perhaps you forgot a 'sub' if this
+call-a-function-5	1	0	102	COMPILE-REFUSED	Undeclared routine:
+call-a-function-6	1	0	352	COMPILE-REFUSED	Two terms in a row across lines (missing semicolon or comma?)
+call-a-function-7	1	0	1186	DIES	Cannot resolve caller infix:<+>(Int:D, Int:D, :b(Int), :d(Str), :!c, :a); none of these signatures matches:
+call-a-function-8	1	0	198	COMPILE-REFUSED	Undeclared routines:
+call-a-function-9	1	0	110	COMPILE-REFUSED	Undeclared routine:
+calmo-numbers	1	0	360	NEEDS-MODULE	Could not find Prime::Factor in:
+calmosoft-primes	1	0	375	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+canny-edge-detector-1	1	0	286	COMPILE-REFUSED	Two terms in a row
+canonicalize-cidr-1	1	0	370	NEEDS-MODULE	Could not find IP::Addr in:
+carmichael-lambda-function	1	0	386	NEEDS-MODULE	Could not find Prime::Factor in:
+catalan-numbers-1	0	0	0	SILENT	
+change-e-letters-to-i-in-words	1	0	125	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+changeable-words	1	0	373	NEEDS-MODULE	Could not find Text::Levenshtein in:
+chaos-game	1	0	364	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+checksumcolor	0	0	0	SILENT	
+circular-primes	1	0	133	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+cistercian-numerals	0	0	0	SILENT	
+collections-1	0	0	0	SILENT	
+collections-2	0	0	0	SILENT	
+collections-3	0	0	0	SILENT	
+collections-4	0	0	0	SILENT	
+color-quantization	1	0	367	NEEDS-MODULE	Could not find MagickWand in:
+color-wheel	1	0	366	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+colour-bars-display	0	0	0	SILENT	
+colour-pinstripe-display	0	0	0	SILENT	
+command-line-arguments	1	0	307	COMPILE-REFUSED	Two terms in a row
+comments-1	0	0	0	SILENT	
+comments-2	0	0	0	SILENT	
+comments-3	0	0	0	SILENT	
+comments-4	0	0	0	SILENT	
+comments-5	0	0	0	SILENT	
+comments-6	0	0	0	SILENT	
+compare-a-list-of-strings	1	0	202	COMPILE-REFUSED	Variable '@strings' is not declared.  Did you mean 'Stringy'?
+compiler-code-generator	1	0	114	NEEDS-FILE	Failed to open file ast.txt: No such file or directory
+compiler-lexical-analyzer	1	0	129	DIES	No such method 'IO' for invocant of type 'Any'.  Did you mean 'so'?
+compiler-verifying-syntax	1	0	384	NEEDS-MODULE	Could not find Grammar::ABNF in:
+composite-numbers-k-with-no-single-digit-factors-whose-factors-are-all-substrings-of-k	1	0	509	NEEDS-MODULE	Could not find Prime::Factor in:
+compound-data-type-1	0	0	166	SILENT-STDERR	Potential difficulties:
+compound-data-type-2	0	0	166	SILENT-STDERR	Potential difficulties:
+compound-data-type-3	0	0	0	SILENT	
+conditional-structures-1	1	0	109	COMPILE-REFUSED	Undeclared routine:
+conditional-structures-3	1	0	273	COMPILE-REFUSED	Variable '$expression' is not declared.  Perhaps you forgot a 'sub' if
+constrained-genericity-2	1	0	108	COMPILE-REFUSED	Undeclared name:
+continued-fraction-arithmetic-construct-from-rational-number-2	0	0	0	SILENT	
+copy-a-string-3	1	0	248	COMPILE-REFUSED	Variable '$bound-ro' is not declared.  Perhaps you forgot a 'sub' if
+copy-stdin-to-stdout-1	1	0	298	COMPILE-REFUSED	Two terms in a row
+copy-stdin-to-stdout-2	0	0	0	SILENT	
+count-in-factors-3	1	0	373	NEEDS-MODULE	Could not find Prime::Factor in:
+create-a-file	1	0	137	DIES	Failed to create directory '/docs' with mode '0o777': Failed to mkdir: Permission denied
+create-a-file-on-magnetic-tape	1	0	304	DIES	Use of uninitialized value element of type Any in string context.
+create-a-two-dimensional-array-at-runtime-2	1	0	319	COMPILE-REFUSED	Bogus postfix
+create-a-two-dimensional-array-at-runtime-4	1	0	321	COMPILE-REFUSED	Bogus postfix
+create-your-own-text-control-codes	1	0	408	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+csv-data-manipulation-1	1	0	196	NEEDS-FILE	Failed to open file whatever.csv: No such file or directory
+csv-data-manipulation-2	1	0	379	NEEDS-MODULE	Could not find Text::CSV in:
+csv-to-html-translation-2	1	0	208	COMPILE-REFUSED	Bogus statement
+cuban-primes-1	1	0	371	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+curve-that-touches-three-points	1	0	403	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+cyclops-numbers	1	0	373	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+cyclotomic-polynomial	1	0	144	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+date-format-1	1	0	363	NEEDS-MODULE	Could not find DateTime::Format in:
+dating-agency	1	0	370	NEEDS-MODULE	Could not find Digest::SHA1::Native in:
+de-polignac-numbers	1	0	373	NEEDS-MODULE	Could not find List::Divvy in:
+decorate-sort-undecorate-idiom	0	0	148	SILENT-STDERR	("a", "is", "Code", "site", "Rosetta", "programming", "chrestomathy").Seq
+define-a-primitive-data-type-1	1	0	139	DIES	Type check failed in assignment to $n; expected OneToTen but got Int (11)
+define-a-primitive-data-type-2	0	0	0	SILENT	
+determine-sentence-type	1	0	387	NEEDS-MODULE	Could not find Lingua::EN::Sentence in:
+digital-root-2	0	0	0	SILENT	
+distance-and-bearing	1	0	370	NEEDS-MODULE	Could not find Text::CSV in:
+distinct-palindromes-within-decimal-numbers	1	0	425	NEEDS-MODULE	Could not find Sort::Naturally in:
+dividuus-numbers	1	0	375	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+dns-query	1	0	350	NEEDS-MODULE	Could not find Net::DNS in:
+doubly-linked-list-element-definition	0	0	0	SILENT	
+doubly-linked-list-traversal	1	0	243	COMPILE-REFUSED	Variable '$dll' is not declared.  Perhaps you forgot a 'sub' if this
+dragon-curve	1	0	351	NEEDS-MODULE	Could not find SVG in:
+draw-a-rotating-cube	1	0	375	NEEDS-MODULE	Could not find Terminal::Caca in:
+draw-a-sphere-1	0	0	0	SILENT	
+draw-a-sphere-2	1	0	356	NEEDS-MODULE	Could not find Cairo in:
+duffinian-numbers	1	0	371	NEEDS-MODULE	Could not find Prime::Factor in:
+earliest-difference-between-prime-gaps	1	0	413	NEEDS-MODULE	Could not find Math::Primesieve in:
+eban-numbers	1	0	364	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+elliptic-curve-digital-signature-algorithm	1	0	416	NEEDS-MODULE	Could not find FiniteField in:
+emirp-primes	1	0	364	NEEDS-MODULE	Could not find Math::Primesieve in:
+empty-directory	0	0	0	SILENT	
+empty-program-1	0	0	0	SILENT	
+empty-program-2	0	0	0	SILENT	
+empty-program-3	0	0	0	SILENT	
+enforced-immutability-1	0	0	0	SILENT	
+enforced-immutability-2	0	0	0	SILENT	
+enforced-immutability-3	0	0	0	SILENT	
+enforced-immutability-4	1	0	191	COMPILE-REFUSED	Redeclaration of routine 'sum'.  Did you mean to declare a multi-sub?
+english-cardinal-anagrams	1	0	390	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+enumerations	0	0	0	SILENT	
+equal-prime-and-composite-sums	1	0	415	NEEDS-MODULE	Could not find Lingua::EN::Numbers:ver<2.8.2+> in:
+equilibrium-index-2	0	0	0	SILENT	
+equilibrium-index-3	1	0	305	COMPILE-REFUSED	Two terms in a row
+equilibrium-index-4	0	0	0	SILENT	
+erd-s-nicolas-numbers	1	0	376	NEEDS-MODULE	Could not find Prime::Factor in:
+erd-s-primes-1	1	0	371	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+erd-s-primes-2	1	0	368	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+erd-s-selfridge-categorization-of-primes	1	0	417	NEEDS-MODULE	Could not find Prime::Factor in:
+esthetic-numbers	1	0	375	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+euclid-mullin-sequence	1	0	381	NEEDS-MODULE	Could not find Prime::Factor in:
+evaluate-binomial-coefficients-3	0	0	0	SILENT	
+evaluate-binomial-coefficients-4	0	0	0	SILENT	
+events	0	0	228	SILENT-STDERR	Instant:1794753853.285346288 program start
+executable-library-2	1	0	286	COMPILE-REFUSED	Two terms in a row
+executable-library-3	1	0	373	NEEDS-MODULE	Could not find Hailstone in:
+external-sort	1	0	357	NEEDS-MODULE	Could not find File::Temp in:
+extract-file-extension-1	1	0	245	COMPILE-REFUSED	Variable '$path' is not declared.  Perhaps you forgot a 'sub' if this
+extreme-primes	1	0	371	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+factors-of-an-integer-1	0	0	0	SILENT	
+factors-of-an-integer-2	1	0	380	NEEDS-MODULE	Could not find Prime::Factor in:
+fast-fourier-transform-2	0	0	0	SILENT	
+fast-fourier-transform-3	1	0	375	NEEDS-MODULE	Could not find TrigPi in:
+fermat-numbers	1	0	130	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+fermat-pseudoprimes	1	0	373	NEEDS-MODULE	Could not find List::Divvy in:
+fibonacci-sequence-1	0	0	0	SILENT	
+fibonacci-sequence-2	1	0	238	COMPILE-REFUSED	Variable '@fib' is not declared.  Perhaps you forgot a 'sub' if this
+fibonacci-sequence-3	1	0	266	COMPILE-REFUSED	Variable '@fib' is not declared.  Perhaps you forgot a 'sub' if this
+fibonacci-sequence-4	0	0	0	SILENT	
+fibonacci-sequence-5	0	0	0	SILENT	
+file-input-output-1	1	0	111	NEEDS-FILE	Failed to open file input.txt: No such file or directory
+file-input-output-2	1	0	185	NEEDS-FILE	Failed to open file input.txt: No such file or directory
+file-size-1	1	0	97	DIES	Failed to find 'input.txt' while trying to do '.s'
+file-size-2	1	0	98	DIES	Failed to find '/input.txt' while trying to do '.s'
+filter-1	0	0	0	SILENT	
+filter-2	0	0	0	SILENT	
+filter-3	0	0	0	SILENT	
+find-adjacent-primes-which-differ-by-a-square-integer	1	0	449	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+find-duplicate-files	1	0	383	NEEDS-MODULE	Could not find Digest::SHA256::Native in:
+find-largest-left-truncatable-prime-in-a-given-base	1	0	204	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+find-the-intersection-of-a-line-with-a-plane-2	1	0	432	NEEDS-MODULE	Could not find Clifford:ver<6.2.1> in:
+find-the-intersection-of-two-lines-2	1	0	401	NEEDS-MODULE	Could not find Clifford in:
+find-uri-in-text	1	0	378	NEEDS-MODULE	Could not find IETF::RFC_Grammar::URI in:
+find-words-which-contain-all-the-vowels	1	0	134	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+find-words-which-contains-more-than-3-e-vowels-1	1	0	143	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+find-words-which-contains-more-than-3-e-vowels-2	1	0	221	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+find-words-whose-first-and-last-three-letters-are-equal	1	0	150	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+find-words-with-alternating-vowels-and-consonants	1	0	144	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+first-power-of-2-that-has-leading-decimal-digits-of-12	1	0	451	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+fixed-length-records	0	0	0	SILENT	
+flow-control-structures	1	0	99	DIES	Label.goto() not yet implemented. Sorry.
+forbidden-numbers	1	0	377	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+forward-difference	0	0	0	SILENT	
+four-is-magic	1	0	369	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+four-is-the-number-of-letters-in-the-...	1	0	423	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+ftp	1	0	335	NEEDS-MODULE	Could not find Net::FTP in:
+function-definition-1	0	0	0	SILENT	
+function-definition-2	0	0	0	SILENT	
+function-definition-3	0	0	0	SILENT	
+function-definition-4	0	0	0	SILENT	
+function-definition-5	0	0	0	SILENT	
+function-definition-6	0	0	0	SILENT	
+function-definition-7	0	0	0	SILENT	
+function-definition-8	1	0	248	COMPILE-REFUSED	Variable '@list' is not declared.  Did you mean any of these: '&list',
+function-definition-9	1	0	248	COMPILE-REFUSED	Variable '@list' is not declared.  Did you mean any of these: '&list',
+function-prototype-1	0	0	0	SILENT	
+function-prototype-10	0	0	0	SILENT	
+function-prototype-2	0	0	0	SILENT	
+function-prototype-3	0	0	0	SILENT	
+function-prototype-4	0	0	0	SILENT	
+function-prototype-5	0	0	0	SILENT	
+function-prototype-6	0	0	0	SILENT	
+function-prototype-7	0	0	0	SILENT	
+function-prototype-8	0	0	0	SILENT	
+function-prototype-9	0	0	0	SILENT	
+gapful-numbers	1	0	368	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+gaussian-primes	1	0	362	NEEDS-MODULE	Could not find List::Divvy in:
+generate-chess960-starting-position-5	1	0	197	DIES	No such method 'polymod' for invocant of type 'Any'
+generic-swap	1	0	215	COMPILE-REFUSED	Variable '$x' is not declared.  Perhaps you forgot a 'sub' if this was
+geohash-1	1	0	348	NEEDS-MODULE	Could not find Geo::Hash in:
+getting-the-number-of-decimal-places	1	0	408	NEEDS-MODULE	Could not find Rat::Precise in:
+globally-replace-text-in-several-files	1	0	126	NEEDS-FILE	Failed to open file a.txt: No such file or directory
+goldbachs-comet	1	0	357	NEEDS-MODULE	Could not find SVG in:
+grayscale-image	1	0	154	NEEDS-FILE	Failed to open file default.ppm: No such file or directory
+greatest-common-divisor-1	0	0	0	SILENT	
+greatest-common-divisor-2	0	0	0	SILENT	
+greatest-common-divisor-3	1	0	119	DIES	Too few positionals passed; expected 2 arguments but got 0
+greatest-common-divisor-4	0	0	0	SILENT	
+greatest-common-divisor-5	1	0	241	COMPILE-REFUSED	Variable '$a' is not declared.  Perhaps you forgot a 'sub' if this was
+greatest-common-divisor-6	1	0	249	COMPILE-REFUSED	Variable '@list' is not declared.  Did you mean any of these: '&list',
+greatest-prime-dividing-the-n-th-cubefree-number	1	0	433	NEEDS-MODULE	Could not find Prime::Factor in:
+greatest-subsequential-sum-1	0	0	0	SILENT	
+greyscale-bars-display	0	0	0	SILENT	
+gui-maximum-window-dimensions	1	0	390	NEEDS-MODULE	Could not find X11::libxdo in:
+halt-and-catch-fire-1	1	0	432	DIES	Cannot resolve caller prefix:<++>(Int:D); the following candidates
+halt-and-catch-fire-2	1	0	61	DIES	Died
+harmonic-series	1	0	373	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+harriss-spiral	1	0	354	NEEDS-MODULE	Could not find Cairo in:
+hash-from-two-arrays	0	0	0	SILENT	
+hello-world-line-printer-1	1	0	310	NEEDS-FILE	Earlier failures:
+hello-world-line-printer-2	1	0	310	NEEDS-FILE	Earlier failures:
+hello-world-standard-error	0	0	16	SILENT-STDERR	Goodbye, World!
+hex-words	1	0	104	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+hilbert-curve-1	1	0	357	NEEDS-MODULE	Could not find SVG in:
+hilbert-curve-2	1	0	354	NEEDS-MODULE	Could not find SVG in:
+home-primes	1	0	356	NEEDS-MODULE	Could not find Prime::Factor in:
+hough-transform	1	0	353	NEEDS-MODULE	Could not find GD in:
+https-1	1	0	338	NEEDS-MODULE	Could not find WWW in:
+huffman-coding-1	0	0	0	SILENT	
+i-before-e-except-after-c-1	1	0	123	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+i-before-e-except-after-c-2	1	0	210	NEEDS-FILE	Failed to open file 1_2_all_freq.txt: No such file or directory
+identity-matrix-2	0	0	0	SILENT	
+identity-matrix-3	0	0	0	SILENT	
+image-convolution-1	1	0	140	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+image-convolution-2	1	0	372	NEEDS-MODULE	Could not find MagickWand in:
+imaginary-base-numbers-2	1	0	378	NEEDS-MODULE	Could not find Base::Any in:
+include-a-file-1	1	0	364	NEEDS-MODULE	Could not find MyModule in:
+include-a-file-2	1	0	329	NEEDS-MODULE	Could not find myfile.p6 in:
+include-a-file-3	1	0	493	NEEDS-MODULE	An exception occurred while evaluating a BEGIN
+include-a-file-4	1	0	206	COMPILE-REFUSED	Use of macros is experimental; please 'use experimental :macros'
+increasing-gaps-between-consecutive-niven-numbers	1	0	441	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+infinity	0	0	0	SILENT	
+input-loop-1	1	0	107	NEEDS-FILE	Failed to open file filename.txt: No such file or directory
+input-loop-2	0	0	0	SILENT	
+input-loop-5	1	0	107	NEEDS-FILE	Failed to open file filename.txt: No such file or directory
+input-output-for-lines-of-text-1	0	0	96	SILENT-STDERR	Use of Nil in numeric context
+input-output-for-lines-of-text-2	0	0	96	SILENT-STDERR	Use of Nil in numeric context
+input-output-for-pairs-of-numbers	0	0	97	SILENT-STDERR	Use of Nil in numeric context
+integer-comparison-2	1	0	253	COMPILE-REFUSED	Variable '$a' is not declared.  Perhaps you forgot a 'sub' if this was
+interactive-programming-repl-	1	0	294	COMPILE-REFUSED	Two terms in a row
+inventory-sequence	1	0	379	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+inverted-syntax-1	1	0	252	COMPILE-REFUSED	Variable '$guess' is not declared.  Perhaps you forgot a 'sub' if this
+inverted-syntax-2	1	0	222	COMPILE-REFUSED	Variable '$i' is not declared.  Perhaps you forgot a 'sub' if this was
+inverted-syntax-4	0	0	123	SILENT-STDERR	Potential difficulties:
+inverted-syntax-5	0	0	122	SILENT-STDERR	Potential difficulties:
+isograms-and-heterograms	1	0	119	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+isqrt-integer-square-root-of-x	1	0	403	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+jaro-winkler-distance	1	0	117	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+jortsort-1	0	0	0	SILENT	
+jortsort-2	0	0	0	SILENT	
+json	1	0	342	NEEDS-MODULE	Could not find JSON::Tiny in:
+json-pointer	1	0	355	NEEDS-MODULE	Could not find JSON::Fast in:
+juggler-sequence	1	0	375	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+julia-set	1	0	359	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+jump-anywhere-3	1	0	87	DIES	This is a generic, untyped exception
+kempner-numbers	1	0	364	NEEDS-MODULE	Could not find Prime::Factor in:
+keyboard-input-flush-the-keyboard-buffer	1	0	414	NEEDS-MODULE	Could not find Term::termios in:
+keyboard-input-keypress-check	1	0	392	NEEDS-MODULE	Could not find Term::ReadKey in:
+klarner-rado-sequence	1	0	383	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+knights-tour-2	1	0	282	COMPILE-REFUSED	Two terms in a row
+knuth-shuffle-1	0	0	0	SILENT	
+knuth-shuffle-2	1	0	231	COMPILE-REFUSED	Variable '@cards' is not declared.  Perhaps you forgot a 'sub' if this
+koch-curve-1	1	0	351	NEEDS-MODULE	Could not find SVG in:
+koch-curve-2	1	0	351	NEEDS-MODULE	Could not find SVG in:
+kronecker-product-based-fractals	1	0	408	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+largest-difference-between-adjacent-primes-2	1	0	428	NEEDS-MODULE	Could not find Math::Primesieve in:
+largest-proper-divisor-of-n	1	0	391	NEEDS-MODULE	Could not find Prime::Factor in:
+law-of-cosines---triples	1	0	385	NEEDS-MODULE	Could not find Sort::Naturally in:
+leap-year-1	1	0	241	COMPILE-REFUSED	Variable '$year' is not declared.  Perhaps you forgot a 'sub' if this
+leap-year-2	1	0	167	COMPILE-REFUSED	Cannot understand $!year in this context
+legendre-prime-counting-function	1	0	401	NEEDS-MODULE	Could not find Math::Primesieve in:
+letter-frequency	0	0	0	SILENT	
+literals-floating-point	1	0	301	COMPILE-REFUSED	Confused
+literals-string-1	0	0	0	SILENT	
+literals-string-3	1	0	264	COMPILE-REFUSED	Confused
+long-primes	1	0	359	NEEDS-MODULE	Could not find Math::Primesieve in:
+longest-common-substring-1	2	0	58	DIES	Usage:
+longest-string-challenge	0	0	0	SILENT	
+longest-substrings-without-repeating-characters	1	0	167	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+loop-over-multiple-arrays-simultaneously-5	1	0	96	DIES	Stub code executed
+loop-over-multiple-arrays-simultaneously-6	1	0	96	DIES	Stub code executed
+loops-foreach-1	1	0	184	COMPILE-REFUSED	Variable '@collection' is not declared.  Did you mean 'Collation'?
+loops-foreach-2	1	0	205	COMPILE-REFUSED	Variable '@collection' is not declared.  Did you mean 'Collation'?
+loops-foreach-3	1	0	182	COMPILE-REFUSED	Variable '@collection' is not declared.  Did you mean 'Collation'?
+loops-foreach-4	1	0	184	COMPILE-REFUSED	Variable '@collection' is not declared.  Did you mean 'Collation'?
+lucky-and-even-lucky-numbers	2	0	235	DIES	Usage:
+lychrel-numbers	1	0	139	DIES	Index out of range. Is: 1, should be in 0..0
+m-bius-function	1	0	367	NEEDS-MODULE	Could not find Prime::Factor in:
+machine-code-1	1	0	227	COMPILE-REFUSED	Preceding context expects a term, but found infix = instead.
+mad-libs	0	0	0	SILENT	
+magic-constant	1	0	381	NEEDS-MODULE	Could not find Lingua::EN::Numbers:ver<2.8+> in:
+make-directory-path-1	0	0	0	SILENT	
+make-directory-path-2	0	0	0	SILENT	
+mandelbrot-set-2	1	0	376	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+markov-chain-text-generator	0	1	99	SILENT-STDERR	Use of Nil.words coerced to empty string
+matrix-multiplication-2	0	0	0	SILENT	
+matrix-multiplication-3	0	0	0	SILENT	
+matrix-multiplication-4	0	0	0	SILENT	
+mayan-numerals-2	1	0	371	NEEDS-MODULE	Could not find Terminal::Boxer in:
+md5	1	0	341	NEEDS-MODULE	Could not find Digest::MD5 in:
+median-filter	1	0	128	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+memory-allocation	0	0	0	SILENT	
+mertens-function	1	0	369	NEEDS-MODULE	Could not find Prime::Factor in:
+metallic-ratios	1	0	366	NEEDS-MODULE	Could not find Rat::Precise in:
+metaprogramming-3	1	0	250	COMPILE-REFUSED	Variable '$foo' is not declared.  Perhaps you forgot a 'sub' if this
+minimal-steps-down-to-1	1	0	389	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+modular-arithmetic	1	0	371	NEEDS-MODULE	Could not find FiniteField in:
+modular-inverse	1	0	346	COMPILE-REFUSED	Two terms in a row across lines (missing semicolon or comma?)
+modulinos	2	0	54	DIES	Usage:
+motzkin-numbers-1	1	0	374	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+motzkin-numbers-2	1	0	374	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+mouse-position-1	1	0	384	NEEDS-MODULE	Could not find java::awt::MouseInfo:from<java> in:
+mouse-position-2	1	0	367	NEEDS-MODULE	Could not find X11::libxdo in:
+multi-base-primes-1	1	0	378	NEEDS-MODULE	Could not find Math::Primesieve in:
+multi-base-primes-2	1	0	375	NEEDS-MODULE	Could not find Math::Primesieve in:
+multidimensional-newton-raphson-method	1	0	413	NEEDS-MODULE	Could not find Math::Matrix in:
+multiple-distinct-objects	1	0	243	COMPILE-REFUSED	Variable '$n' is not declared.  Perhaps you forgot a 'sub' if this was
+multiple-regression	1	0	370	NEEDS-MODULE	Could not find Clifford in:
+multiplicative-order	1	0	377	NEEDS-MODULE	Could not find Prime::Factor in:
+multiplicatively-perfect-numbers	1	0	396	NEEDS-MODULE	Could not find List::Divvy in:
+munching-squares-1	0	0	0	SILENT	
+munching-squares-2	0	0	0	SILENT	
+mutex	1	0	99	COMPILE-REFUSED	Undeclared routine:
+n-grams	0	0	225	SILENT-STDERR	("ET"=>1," A"=>1,"IV"=>2,"LE"=>1," L"=>2,"VE"=>2,"ND"=>1,"T "=>1,"LI"=>2,"D "=>1,"E "=>1,"AN"=>1).Bag
+named-parameters-1	0	0	0	SILENT	
+narcissist	1	0	298	COMPILE-REFUSED	EVAL is a very dangerous function!!! (use the MONKEY-SEE-NO-EVAL pragma
+native-shebang	0	1	0	SILENT	
+negative-base-numbers-2	1	0	379	NEEDS-MODULE	Could not find Base::Any in:
+next-highest-int-from-digits	1	0	399	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+non-decimal-radices-convert	0	0	0	SILENT	
+nonogram-solver-2	1	0	121	NEEDS-FILE	Failed to open file nonogram_problems.txt: No such file or directory
+number-names-2	1	0	368	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+numbers-k-whose-divisor-sum-is-equal-to-the-divisor-sum-of-k-+-1	1	0	465	NEEDS-MODULE	Could not find Prime::Factor in:
+numbers-which-are-the-cube-roots-of-the-product-of-their-proper-divisors	1	0	481	NEEDS-MODULE	Could not find Prime::Factor in:
+numbers-whose-count-of-divisors-is-prime	1	0	414	NEEDS-MODULE	Could not find Prime::Factor in:
+numbers-with-equal-rises-and-falls	1	0	411	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+numerical-and-alphabetical-suffixes	1	0	403	NEEDS-MODULE	Could not find Rat::Precise in:
+object-serialization	1	0	381	NEEDS-MODULE	Could not find PerlStore::FileStore in:
+odd-word-problem	0	0	0	SILENT	
+odd-words	1	0	104	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+one-time-pad-1	1	0	363	NEEDS-MODULE	Could not find Crypt::Random in:
+optional-parameters-1	0	0	219	SILENT-STDERR	Potential difficulties:
+optional-parameters-2	0	0	223	SILENT-STDERR	Potential difficulties:
+orbital-elements	1	0	361	NEEDS-MODULE	Could not find Clifford in:
+ordered-words	1	0	123	DIES	No such method 'value' for invocant of type 'Num'.  Did you mean
+ormiston-pairs	1	0	368	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+ormiston-triples	1	0	375	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+overloaded-operators-1	1	0	215	DIES	Potential difficulties:
+pairs-with-common-factors	1	0	384	NEEDS-MODULE	Could not find Prime::Factor in:
+pan-base-non-primes	1	0	371	NEEDS-MODULE	Could not find Base::Any in:
+parallel-brute-force-1	1	0	387	NEEDS-MODULE	Could not find Digest::SHA256::Native in:
+parallel-brute-force-2	1	0	222	COMPILE-REFUSED	Redeclaration of symbol '@alpha2'.
+parameterized-sql-statement	1	0	384	NEEDS-MODULE	Could not find DBIish in:
+partition-function-p	1	0	151	DIES	Index out of range. Is: -1, should be in 0..^Inf
+passphrase-generator	1	0	165	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+peano-curve	1	0	346	NEEDS-MODULE	Could not find SVG in:
+pells-equation	1	0	371	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+penholodigital-squares	1	0	381	NEEDS-MODULE	Could not find Prime::Factor in:
+penrose-tiling	1	0	355	NEEDS-MODULE	Could not find SVG in:
+penta-power-prime-seeds	1	0	386	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+pentagram	1	0	342	NEEDS-MODULE	Could not find SVG in:
+percentage-difference-between-images	1	0	403	NEEDS-MODULE	Could not find GD::Raw in:
+perceptron	1	0	354	NEEDS-MODULE	Could not find MagickWand in:
+perfect-totient-numbers	1	0	383	NEEDS-MODULE	Could not find Prime::Factor in:
+peripheral-drift-illusion	1	0	374	NEEDS-MODULE	Could not find SVG in:
+permutations-5	1	0	310	COMPILE-REFUSED	Two terms in a row across lines (missing semicolon or comma?)
+permutations-6	1	0	354	COMPILE-REFUSED	Two terms in a row across lines (missing semicolon or comma?)
+pi-to-1-million-digits	1	0	146	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+pick-random-element-4	1	0	208	COMPILE-REFUSED	Variable '@array' is not declared.  Did you mean any of these: 'Array',
+pierpont-primes-1	1	0	136	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+pinstripe-display	0	0	0	SILENT	
+pisano-period	1	0	360	NEEDS-MODULE	Could not find Prime::Factor in:
+plasma-effect	1	0	367	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+play-recorded-sounds	1	0	375	NEEDS-MODULE	Could not find Audio::Sndfile in:
+plot-coordinate-pairs	1	0	366	NEEDS-MODULE	Could not find SVG in:
+polymorphism-2	1	0	183	COMPILE-REFUSED	Invalid typename 'Point' in parameter declaration.
+polynomial-derivative	1	0	395	NEEDS-MODULE	Could not find Lingua::EN::Numbers:ver<2.8+> in:
+polynomial-regression	1	0	374	NEEDS-MODULE	Could not find MultiVector in:
+polyspiral-1	1	0	348	NEEDS-MODULE	Could not find SVG in:
+polyspiral-2	1	0	357	NEEDS-MODULE	Could not find SDL2::Raw in:
+population-count-2	0	0	0	SILENT	
+posit-numbers-decoding	0	0	27	SILENT-STDERR	FatRat.new(477, 134217728)
+practical-numbers	1	0	380	NEEDS-MODULE	Could not find Prime::Factor:ver<0.3.0+> in:
+pragmatic-directives	0	0	0	SILENT	
+primality-by-trial-division-1	0	0	0	SILENT	
+prime-conspiracy	1	0	372	NEEDS-MODULE	Could not find Math::Primesieve in:
+prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime	1	0	495	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+prime-words	1	0	368	NEEDS-MODULE	Could not find Base::Any:ver<0.1.2+> in:
+primorial-numbers-1	1	0	378	NEEDS-MODULE	Could not find Math::Primesieve in:
+primorial-numbers-2	1	0	381	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+print-itself-2	0	0	0	SILENT	
+process-smil-directives-in-xml-data	1	0	404	NEEDS-MODULE	Could not find XML::XPath in:
+product-of-divisors	1	0	387	NEEDS-MODULE	Could not find Prime::Factor:ver<0.3.0+> in:
+product-of-min-and-max-prime-factors	1	0	409	NEEDS-MODULE	Could not find Prime::Factor in:
+program-termination	1	0	247	COMPILE-REFUSED	Variable '$problem' is not declared.  Perhaps you forgot a 'sub' if
+pseudorandom-number-generator-image	1	0	414	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+quad-power-prime-seeds	1	0	384	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+queue-usage-1	1	0	219	COMPILE-REFUSED	Variable '@list' is not declared.  Did you mean any of these: '&list',
+radical-of-an-integer	1	0	379	NEEDS-MODULE	Could not find Prime::Factor in:
+rainbow	1	0	357	NEEDS-MODULE	Could not find Color::Names:api<2> in:
+ramanujan-primes-1	1	0	376	NEEDS-MODULE	Could not find Math::Primesieve in:
+ramanujan-primes-2	1	0	138	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+ramanujan-primes-twins	1	0	146	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+ramanujans-constant-1	1	0	378	NEEDS-MODULE	Could not find Rat::Precise in:
+ramanujans-constant-2	1	0	378	NEEDS-MODULE	Could not find Rat::Precise in:
+random-sentence-from-book	1	0	116	NEEDS-FILE	Failed to open file 36-0.txt: No such file or directory
+rare-numbers-2	1	0	281	COMPILE-REFUSED	Prefix ~ requires an argument, but no valid term found.
+rare-numbers-4	1	0	372	NEEDS-MODULE	Could not find itertools::Itertools in:
+raster-bars	1	0	356	NEEDS-MODULE	Could not find SDL2::Raw in:
+read-a-configuration-file	1	0	117	NEEDS-FILE	Failed to open file file.cfg: No such file or directory
+read-a-file-character-by-character-utf8-1	0	0	0	SILENT	
+read-a-file-character-by-character-utf8-2	1	0	132	NEEDS-FILE	Failed to open file whatever: No such file or directory
+read-a-file-line-by-line-1	1	0	117	NEEDS-FILE	Failed to open file test.txt: No such file or directory
+read-a-file-line-by-line-2	1	0	117	NEEDS-FILE	Failed to open file test.txt: No such file or directory
+read-a-specific-line-from-a-file	1	0	78	DIES	Short file
+read-entire-file-1	0	0	0	SILENT	
+read-entire-file-2	0	0	0	SILENT	
+read-entire-file-3	0	0	0	SILENT	
+remove-duplicate-elements-1	0	0	0	SILENT	
+remove-duplicate-elements-2	0	0	0	SILENT	
+return-multiple-values	0	0	0	SILENT	
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line-1	0	0	0	SILENT	
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line-2	1	0	317	NEEDS-FILE	Failed to open file nul.txt: No such file or directory
+reverse-words-in-a-string	0	0	0	SILENT	
+rhonda-numbers	1	0	365	NEEDS-MODULE	Could not find Prime::Factor in:
+riordan-numbers	1	0	370	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+robots	1	0	346	NEEDS-MODULE	Could not find Term::termios in:
+rock-paper-scissors-2	0	0	0	SILENT	
+rosetta-code-fix-code-tags-1	0	1	0	SILENT	
+rosetta-code-fix-code-tags-2	0	0	0	SILENT	
+rot-13-1	0	0	0	SILENT	
+rot-13-2	1	0	280	COMPILE-REFUSED	Two terms in a row
+runtime-evaluation	0	0	0	SILENT	
+ruth-aaron-numbers	1	0	373	NEEDS-MODULE	Could not find Prime::Factor in:
+safe-addition	1	0	363	NEEDS-MODULE	Could not find Rat::Precise in:
+safe-primes-and-unsafe-primes	1	0	395	NEEDS-MODULE	Could not find Math::Primesieve in:
+scope-modifiers-1	1	0	254	COMPILE-REFUSED	You cannot declare attribute '$.public-attribute' here; maybe you'd like a class or a role?
+search-in-paragraphs-text	1	0	1231	DIES	Cannot resolve caller contains(Str:D: Any:U); none of these signatures matches:
+selective-file-copy	1	0	185	NEEDS-FILE	Failed to open file sfc.dat: No such file or directory
+self-hosting-compiler	0	0	0	SILENT	
+semordnilap	1	0	106	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+separate-the-house-number-from-the-street-name	0	0	0	SILENT	
+sexy-primes	1	0	359	NEEDS-MODULE	Could not find Math::Primesieve in:
+sha-1-2	1	0	355	NEEDS-MODULE	Could not find Digest::SHA1::Native in:
+sha-256-2	1	0	364	NEEDS-MODULE	Could not find Digest::SHA256::Native in:
+sha-256-merkle-tree	1	0	384	NEEDS-MODULE	Could not find Digest::SHA256::Native in:
+shell-one-liner	1	0	283	COMPILE-REFUSED	Two terms in a row
+sierpinski-arrowhead-curve	1	0	379	NEEDS-MODULE	Could not find SVG in:
+sierpinski-curve	1	0	356	NEEDS-MODULE	Could not find SVG in:
+sierpinski-pentagon	0	0	0	SILENT	
+sierpinski-square-curve	1	0	370	NEEDS-MODULE	Could not find SVG in:
+sierpinski-triangle-graphical	0	0	0	SILENT	
+sieve-of-eratosthenes-2	0	0	0	SILENT	
+sieve-of-eratosthenes-3	0	0	0	SILENT	
+sieve-of-eratosthenes-4	1	0	110	COMPILE-REFUSED	Undeclared routine:
+simple-turtle-graphics	1	0	370	NEEDS-MODULE	Could not find Cairo in:
+simulate-input-mouse	1	0	375	NEEDS-MODULE	Could not find X11::libxdo in:
+singleton	0	0	0	SILENT	
+singly-linked-list-element-definition-1	1	0	283	COMPILE-REFUSED	Variable '$nextelem' is not declared.  Perhaps you forgot a 'sub' if
+singly-linked-list-element-definition-2	0	0	0	SILENT	
+singly-linked-list-element-insertion	1	0	275	COMPILE-REFUSED	Undeclared name:
+singly-linked-list-element-removal-1	1	0	201	COMPILE-REFUSED	Type 'Cell' is not declared
+singly-linked-list-element-removal-2	1	0	143	COMPILE-REFUSED	Undeclared routine:
+singly-linked-list-traversal-3	0	0	192	SILENT-STDERR	Potential difficulties:
+singly-linked-list-traversal-4	1	0	137	COMPILE-REFUSED	Undeclared routine:
+singular-value-decomposition	1	0	400	NEEDS-MODULE	Could not find Math::Libgsl::Matrix in:
+sisyphus-sequence	1	0	374	NEEDS-MODULE	Could not find Math::Primesieve in:
+smallest-power-of-6-whose-decimal-expansion-contains-n	1	0	448	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+smarandache-prime-digital-sequence	1	0	411	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+smarandache-wellin-primes	1	0	393	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+snake	1	0	343	NEEDS-MODULE	Could not find SDL2::Raw in:
+soap	1	0	341	NEEDS-MODULE	Could not find SOAP::Client in:
+sorensen-dice-coefficient	1	0	388	NEEDS-MODULE	Could not find Text::Sorensen in:
+sort-a-list-of-object-identifiers-2	1	0	172	DIES	Ambiguous call to 'sort(WhateverCode, Str)'; these signatures all match:
+sort-a-list-of-object-identifiers-3	1	0	409	NEEDS-MODULE	Could not find Sort::Naturally in:
+sort-an-integer-array-1	1	0	238	COMPILE-REFUSED	Variable '@a' is not declared.  Perhaps you forgot a 'sub' if this was
+sort-an-integer-array-2	1	0	233	COMPILE-REFUSED	Variable '@a' is not declared.  Perhaps you forgot a 'sub' if this was
+sorting-algorithms-bubble-sort	0	0	0	SILENT	
+sorting-algorithms-merge-sort-1	0	0	0	SILENT	
+sorting-algorithms-merge-sort-2	1	0	123	COMPILE-REFUSED	Undeclared routine:
+sorting-algorithms-merge-sort-3	0	0	0	SILENT	
+sorting-algorithms-merge-sort-4	0	0	0	SILENT	
+sorting-algorithms-merge-sort-5	1	0	205	COMPILE-REFUSED	Undeclared routines:
+sorting-algorithms-merge-sort-6	1	0	392	NEEDS-MODULE	Could not find Benchmark in:
+sorting-algorithms-quicksort-1	0	0	0	SILENT	
+sorting-algorithms-quicksort-2	0	0	0	SILENT	
+sorting-algorithms-quicksort-3	0	0	0	SILENT	
+sorting-algorithms-quicksort-4	1	0	204	COMPILE-REFUSED	Undeclared routines:
+sorting-algorithms-selection-sort-2	0	0	0	SILENT	
+special-divisors	1	0	381	NEEDS-MODULE	Could not find Prime::Factor:ver<0.3.0+> in:
+special-variables-1	1	0	234	COMPILE-REFUSED	Variable '$foo' is not declared.  Perhaps you forgot a 'sub' if this
+special-variables-2	1	0	250	COMPILE-REFUSED	Variable '$foo' is not declared.  Perhaps you forgot a 'sub' if this
+special-variables-4	0	0	0	SILENT	
+spelling-of-ordinal-numbers	1	0	394	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+sphenic-numbers	1	0	367	NEEDS-MODULE	Could not find Prime::Factor in:
+spiral-matrix-2	1	0	100	COMPILE-REFUSED	Undeclared name:
+sql-based-authentication	1	0	378	NEEDS-MODULE	Could not find DBIish in:
+stack	1	0	184	COMPILE-REFUSED	Variable '$elem' is not declared.  Did you mean '&elems'?
+stair-climbing-puzzle	1	0	107	COMPILE-REFUSED	Undeclared routine:
+statistics-chi-squared-distribution	1	0	410	NEEDS-MODULE	Could not find Graphics::PLplot in:
+strassens-algorithm	1	0	385	NEEDS-MODULE	Could not find Math::Libgsl::Constants in:
+string-matching	1	0	268	COMPILE-REFUSED	Variable '$needle' is not declared.  Perhaps you forgot a 'sub' if this
+strip-comments-from-a-string	0	0	0	SILENT	
+strong-and-weak-primes	1	0	384	NEEDS-MODULE	Could not find Math::Primesieve in:
+sturmian-word	1	0	115	COMPILE-REFUSED	Missing block
+successive-prime-differences-1	1	0	400	NEEDS-MODULE	Could not find Math::Primesieve in:
+successive-prime-differences-2	1	0	400	NEEDS-MODULE	Could not find Math::Primesieve in:
+sudoku-2	124	0	0	HANG	
+sum-of-a-series-1	1	0	224	COMPILE-REFUSED	Variable '$n' is not declared.  Perhaps you forgot a 'sub' if this was
+sum-of-divisors	1	0	379	NEEDS-MODULE	Could not find Prime::Factor:ver<0.3.0+> in:
+summarize-primes	1	0	375	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+summation-of-primes-2	1	0	382	NEEDS-MODULE	Could not find Math::Primesieve in:
+sunflower-fractal	1	0	358	NEEDS-MODULE	Could not find SVG in:
+super-poulet-numbers	1	0	377	NEEDS-MODULE	Could not find Prime::Factor in:
+superellipse	0	0	0	SILENT	
+sutherland-hodgman-polygon-clipping	1	0	395	NEEDS-MODULE	Could not find SVG in:
+sync-subtitles-2	1	0	166	DIES	No such method 'made' for invocant of type 'Any'.  Did you mean any of
+synchronous-concurrency	2	0	47	DIES	Usage:
+szyma-skis-algorithm	1	0	376	NEEDS-MODULE	Could not find OO::Monitors in:
+table-creation-postal-addresses	1	0	392	NEEDS-MODULE	Could not find DBIish in:
+take-notes-on-the-command-line	1	0	182	NEEDS-FILE	Failed to open file notes.txt: No such file or directory
+tau-function	1	0	370	NEEDS-MODULE	Could not find Prime::Factor:ver<0.3.0+> in:
+tau-number	1	0	369	NEEDS-MODULE	Could not find Prime::Factor:ver<0.3.0+> in:
+teacup-rim-text	1	0	155	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+terminal-control-coloured-text	1	0	403	NEEDS-MODULE	Could not find Terminal::ANSIColor in:
+terminal-control-positional-read	1	0	395	NEEDS-MODULE	Could not find NCurses in:
+text-completion-1	1	0	156	NEEDS-FILE	Failed to open file words.txt: No such file or directory
+text-completion-2	1	0	112	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+text-to-html	1	0	361	NEEDS-MODULE	Could not find Pod::To::HTML in:
+textonyms	1	0	104	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+time-based-one-time-password-algorithm	1	0	412	NEEDS-MODULE	Could not find Digest::HMAC in:
+totient-function	1	0	369	NEEDS-MODULE	Could not find Prime::Factor in:
+towers-of-hanoi	0	0	0	SILENT	
+tree-datastructures	1	0	373	NEEDS-MODULE	Could not find JSON::Fast in:
+triangular-numbers	1	0	381	NEEDS-MODULE	Could not find Math::Root:ver<0.0.4> in:
+truncate-a-file-2	1	0	246	COMPILE-REFUSED	Variable '$file' is not declared.  Perhaps you forgot a 'sub' if this
+truth-table	2	0	30	DIES	Usage:
+twin-primes	1	0	365	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+twin-primes-whose-sum-is-square-number	1	0	408	NEEDS-MODULE	Could not find List::Divvy in:
+twos-complement	1	0	362	NEEDS-MODULE	Could not find FixedInt in:
+undefined-values-5	0	0	22	SILENT-STDERR	Bool $s = Bool::False
+unprimeable-numbers	1	0	140	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
+update-a-configuration-file	1	0	388	NEEDS-MODULE	Could not find File::Temp in:
+upside-down-numbers	1	0	381	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+url-parser	1	0	347	NEEDS-MODULE	Could not find URI in:
+useless-instructions-1	0	0	0	SILENT	
+user-defined-pipe-and-redirection-operators	1	0	307	NEEDS-FILE	Failed to open file List_of_computer_scientists.lst: No such file or directory
+vampire-number	1	0	362	NEEDS-MODULE	Could not find Prime::Factor in:
+van-der-corput-sequence-4	0	0	0	SILENT	
+variable-declaration-reset-1	0	0	600	SILENT-STDERR	Use of uninitialized value of type Any in numeric context
+variable-declaration-reset-2	0	0	0	SILENT	
+variadic-function-2	0	0	0	SILENT	
+variadic-function-3	1	0	228	COMPILE-REFUSED	Variable '@ary' is not declared.  Perhaps you forgot a 'sub' if this
+vibrating-rectangles-2	1	0	374	NEEDS-MODULE	Could not find SDL2::Raw in:
+voronoi-diagram	1	0	371	NEEDS-MODULE	Could not find Image::PNG::Portable in:
+walk-a-directory-non-recursively	0	0	0	SILENT	
+walk-a-directory-recursively-1	1	0	391	NEEDS-MODULE	Could not find File::Find in:
+walk-a-directory-recursively-2	0	0	0	SILENT	
+walsh-matrix	1	0	351	NEEDS-MODULE	Could not find SVG in:
+wasteful-equidigital-and-frugal-numbers	1	0	412	NEEDS-MODULE	Could not find Prime::Factor in:
+waveform-analysis-doh-ray-me	1	0	121	NEEDS-FILE	Failed to open file notes.wav: No such file or directory
+window-management	1	0	369	NEEDS-MODULE	Could not find X11::libxdo in:
+wolstenholme-numbers	1	0	380	NEEDS-MODULE	Could not find Lingua::EN::Numbers in:
+word-frequency	2	0	48	DIES	Usage:
+word-ladder	1	0	247	NEEDS-FILE	An exception occurred while evaluating a constant
+word-search	1	0	107	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+word-wheel-1	1	0	360	NEEDS-MODULE	Could not find Terminal::Boxer in:
+word-wheel-2	1	0	129	COMPILE-REFUSED	Undeclared routines:
+word-wheel-3	1	0	150	COMPILE-REFUSED	Malformed postfix call
+words-containing-the-substring	1	0	125	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+words-from-neighbour-ones	1	0	120	NEEDS-FILE	Failed to open file unixdict.txt: No such file or directory
+write-entire-file-1	1	0	250	COMPILE-REFUSED	Variable '$file-data' is not declared.  Perhaps you forgot a 'sub' if
+write-entire-file-2	1	0	253	COMPILE-REFUSED	Variable '$file-data' is not declared.  Perhaps you forgot a 'sub' if
+write-float-arrays-to-a-text-file-1	0	0	0	SILENT	
+write-float-arrays-to-a-text-file-2	0	0	0	SILENT	
+xml-dom-serialization-1	1	0	373	NEEDS-MODULE	Could not find XML in:
+xml-dom-serialization-2	1	0	234	COMPILE-REFUSED	Bogus statement
+xml-input	1	0	342	NEEDS-MODULE	Could not find XML in:
+xml-output-1	1	0	356	NEEDS-MODULE	Could not find XML::Writer in:
+xml-output-2	1	0	326	COMPILE-REFUSED	Two terms in a row
+xml-validation	1	0	355	NEEDS-MODULE	Could not find LibXML in:
+xml-xpath	1	0	349	NEEDS-MODULE	Could not find XML::XPath in:
+yahoo-search-interface-2	1	0	185	COMPILE-REFUSED	Preceding context expects a term, but found infix === instead.
+yellowstone-sequence	1	0	368	NEEDS-MODULE	Could not find SVG in:
+zsigmondy-numbers	1	0	368	NEEDS-MODULE	Could not find Prime::Factor in:
+zumkeller-numbers	1	0	136	COMPILE-REFUSED	Please install Inline::Perl5 for Perl 5 support.
