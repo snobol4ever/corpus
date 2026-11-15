@@ -197,6 +197,34 @@ end.
 after get
 ```
 
+## fpc_features__a-unit-reads-a-system-constant-its-program-does-not-name
+
+```Pascal
+program w;
+{$mode objfpc}{$h+}
+uses UnitSysConst;
+begin
+  writeln(EolLen);
+end.
+```
+
+```file unitsysconst.pas
+{$mode objfpc}{$H+}
+unit UnitSysConst;
+interface
+function EolLen: Integer;
+implementation
+function EolLen: Integer;
+begin
+  Result := Length(LineEnding);
+end;
+end.
+```
+
+```stdout
+1
+```
+
 ## fpc_units__in01_initc
 
 ```Pascal
@@ -784,6 +812,22 @@ end.
 
 ```stdout
           5
+```
+
+## fpc_features__a-top-level-call-with-an-array-of-const-literal-compiles
+
+```Pascal
+program w;
+{$mode objfpc}{$h+}
+uses FpJson;
+var A, B: TJsonData; R: TJSONArray;
+begin
+  R := CreateJSONArray([5]); writeln(R.Count);
+end.
+```
+
+```stdout
+1
 ```
 
 ## ladder__rung01_var_assign
@@ -3738,6 +3782,23 @@ end.
 
 ```stdout
           0
+```
+
+## fpc_features__length-of-a-char-is-one
+
+```Pascal
+program w;
+{$mode objfpc}{$h+}
+const E = #10;
+var c: char; s: string;
+begin
+  c := 'A'; s := 'xy';
+  writeln(Length(c), ' ', Length(#200), ' ', Length('x'), ' ', Length(chr(66)), ' ', Length(E), ' ', Length(LineEnding), ' ', Length(s));
+end.
+```
+
+```stdout
+1 1 1 1 1 1 2
 ```
 
 ## program_for_downto_1

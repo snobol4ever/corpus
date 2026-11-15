@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=527 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=49 chunks=5 sizes=100,100,100,100,81
+# shape: entries=530 features=50 ubiquitous=4(program var writeln assign) distinctive=46 core=46 clusters=49 chunks=5 sizes=100,100,100,100,84
 entry	part	cluster	shells
 front_end__pf30_overload_unit	chunk:05	family:front_end	
 front_end__pf31_resourcestring	chunk:05	family:front_end	
@@ -16,6 +16,7 @@ program_writeln_12	chunk:05	family:crosscheck_misc
 program_writeln_9	chunk:05	family:crosscheck_misc	
 ladder__rung00_hello_width	chunk:01	family:ladder	
 ladder__rung09_strings_get_on_the_standard_input	chunk:01	family:ladder	
+fpc_features__a-unit-reads-a-system-constant-its-program-does-not-name	chunk:05	family:fpc_features	
 fpc_units__in01_initc	chunk:04	family:fpc_units	
 ladder__rung00_hello_blank	chunk:01	family:ladder	
 rtlnames__rest_runerror_halts_with_its_code	chunk:05	family:rtlnames	
@@ -44,6 +45,7 @@ fpc_features__absolute-over-a-component-of-a-variable	chunk:05	family:fpc_featur
 ladder__rung31_classes_tmemorystream_and_tbits	chunk:01	family:ladder	
 ladder__rung29_sizeof_of_a_dereference	chunk:03	feat:pointer	pointer
 program_writeln_11	chunk:05	family:crosscheck_misc	
+fpc_features__a-top-level-call-with-an-array-of-const-literal-compiles	chunk:05	family:fpc_features	
 ladder__rung01_var_assign	chunk:01	family:ladder	
 ladder__rung01_var_assign_widen	chunk:01	family:ladder	
 parseforms__parse_the_c_style_shift_operators	chunk:05	family:parseforms	
@@ -74,7 +76,7 @@ ladder__rung16_q_inttostr	chunk:01	family:ladder
 ladder__rung21_class_type_alias_constructs_the_class	chunk:05	feat:type	type
 fpc_units__du01_encode_and_unix	chunk:04	family:fpc_units	
 fpc_units__du05_iso8601	chunk:02	feat:const	const procedure
-fpc_units__ur01_encodeuri	chunk:04	family:fpc_units	
+fpc_units__ur01_encodeuri	chunk:05	family:fpc_units	
 ladder__rung05_proc_named_main	chunk:01	feat:nested_proc	nested_proc procedure
 ladder__rung00_writestr_items	chunk:01	family:ladder	
 program_writeln_1	chunk:05	family:boolassign	
@@ -83,7 +85,7 @@ program_writeln_16	chunk:05	family:boolnot
 program_writeln_4	chunk:05	family:boolnot	
 ladder__rung17_ok_open_roundtrip	chunk:05	feat:readln	readln
 ladder__rung16_real_fixed_decimals	chunk:01	family:ladder	
-fpc_units__in03_exp_overflow	chunk:04	family:fpc_units	
+fpc_units__in03_exp_overflow	chunk:05	family:fpc_units	
 program_writeln_14	chunk:05	family:boolchain	
 program_writeln_2	chunk:05	family:boolchain	
 fpc_features__a-string-type-declared-with-a-code-page	chunk:05	feat:type	type
@@ -148,6 +150,7 @@ program_procedure_writeln_5	chunk:04	feat:procedure	procedure
 fpc_features__a-type-name-casts-an-ordinal-to-an-ordinal-type	chunk:05	feat:subrange	subrange type
 ladder__rung04_for_repeat_for_downto	core	core	downto for
 program_for_writeln_3	chunk:04	feat:in	for in
+fpc_features__length-of-a-char-is-one	chunk:04	feat:chr	chr const
 program_for_downto_1	chunk:05	feat:downto	downto for
 program_for_downto_3	chunk:05	feat:downto	downto for
 program_for_writeln_2	chunk:04	feat:in	for in
@@ -438,7 +441,7 @@ program_record_pointer_10	chunk:04	feat:with_record	new pointer pointer_with_new
 ladder__rung15_layout_nested_is_one_block	chunk:04	feat:pointer	array for for_with_array pointer set_literal subrange type
 ladder__rung16_real_const_fold_bound	core	core	array const round set_literal sqrt subrange trunc
 ladder__rung12_move_from_with_field	chunk:04	feat:with_record	array for for_with_array record type with with_record
-ladder__rung06_arrays_bool_index_2d	chunk:05	feat:chr	array chr for for_with_array ord set_literal subrange
+ladder__rung06_arrays_bool_index_2d	chunk:04	feat:chr	array chr for for_with_array ord set_literal subrange
 array_of_const__array_of_const_varrec	chunk:03	feat:case	array case const for for_with_array pointer procedure
 program_record_pointer_replace_1	chunk:03	feat:nil	in new nil pointer pointer_with_new record type
 front_end__pf20i_array_helper_sort	chunk:04	feat:mod	array for for_with_array function mod record type write
