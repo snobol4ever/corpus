@@ -167,6 +167,7 @@ b
 [0 0 0 0 0]
 7
 (1 2 3 4 5)
+X::Syntax::Malformed
 abc
 42
 6

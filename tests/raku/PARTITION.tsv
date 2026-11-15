@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1675 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,29
+# shape: entries=1676 features=38 ubiquitous=2(my sigil_scalar) distinctive=36 core=46 clusters=72 chunks=17 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,30
 entry	part	cluster	shells
 emitter_refusal__unicode_e_is_the_constant_e	chunk:16	family:emitter_refusal	
 ladder__rung00_hello	chunk:01	family:ladder	
@@ -41,7 +41,7 @@ parser_coverage__stmt_ctrl_QUIT	chunk:15	family:parser_coverage
 parser_coverage__stmt_ctrl_import	chunk:15	family:parser_coverage	
 parser_coverage__stmt_ctrl_need	chunk:15	family:parser_coverage	
 parser_coverage__stmt_ctrl_no	chunk:15	family:parser_coverage	
-parser_coverage__stmt_ctrl_require	chunk:15	family:parser_coverage	
+parser_coverage__stmt_ctrl_require	chunk:16	family:parser_coverage	
 parser_coverage__stmt_ctrl_use	chunk:16	family:parser_coverage	
 placeholders__placeholder_array_twigil_colonpair	chunk:17	family:placeholders	
 revisions__rv01_setting_rev	chunk:16	family:revisions	
@@ -372,6 +372,7 @@ array_57	chunk:05	feat:sigil_array	sigil_array
 array_58	chunk:05	feat:sigil_array	sigil_array
 emitter_refusal__a_lexical_named_value_is_shared_by_two_closures	chunk:16	family:emitter_refusal	
 emitter_refusal__a_nested_declarator_group_binds_every_level	chunk:04	feat:say	say
+exceptions__a_sigil_fused_with_a_combining_mark_is_malformed	chunk:13	feat:try	try
 for_1	chunk:17	feat:for	for
 given_3	chunk:16	feat:given	given
 hash_10	chunk:09	feat:sigil_hash	sigil_hash
@@ -397,7 +398,7 @@ ladder__rung15_blocks_a_string_eval_reads_the_blocks_own_variable	chunk:02	famil
 ladder__rung19_block_a_whatevercode_argument_to_the_map_listop	chunk:14	feat:map	join map
 ladder__rung19_block_methcall	chunk:14	feat:map	map say
 ladder__rung19_block_methcall_chained	chunk:14	feat:map	map say
-ladder__rung19_block_methcall_grep	chunk:14	feat:grep	grep say
+ladder__rung19_block_methcall_grep	chunk:15	feat:grep	grep say
 ladder__rung20_paren_group_grep	chunk:15	feat:grep	grep say
 ladder__rung20_paren_group_placeholder	chunk:14	feat:map	map say
 listop__a_slip_of_a_dereferenced_pointy_parameter_in_a_nested_pointy_block	chunk:04	feat:say	say
@@ -636,7 +637,7 @@ ladder__rung13_classes_an_attributive_named_parameter_binds_the_attribute_in_bui
 ladder__rung14_roles_the_compile_time_variable_role_names_the_enclosing_role	chunk:11	feat:method	method
 ladder__rung16_bool_relops_interpolated	chunk:02	family:ladder	
 ladder__rung942_kw_supply_list_and_name	chunk:02	family:ladder	
-proc__run_captures_out	chunk:16	family:proc	
+proc__run_captures_out	chunk:17	family:proc	
 roast_hang__flat_of_a_lazy_list	chunk:14	feat:range_op	range_op say
 roast_hang__power_overflow	chunk:13	feat:try	say try
 simple_assign_103	chunk:03	family:smoke	
@@ -1425,7 +1426,7 @@ c_site__a_routine_reference_on_the_right_of_a_smartmatch_or_when	chunk:16	feat:w
 class_method_say_replace_31	chunk:13	feat:return	method return say
 class_method_say_replace_33	chunk:13	feat:return	method return say
 class_method_say_replace_34	chunk:13	feat:return	method return say
-class_method_say_replace_47	chunk:13	feat:return	method return say
+class_method_say_replace_47	chunk:14	feat:return	method return say
 class_method_say_replace_48	chunk:14	feat:return	method return say
 class_method_say_replace_49	chunk:14	feat:return	method return say
 class_method_say_replace_52	chunk:14	feat:return	method return say

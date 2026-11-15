@@ -167,6 +167,7 @@ my @d = "z" xx 0; say @d.elems;
 my @b = 0 xx 5; say @b;
 my $value = 1; my &f = -> { $value }; my &s = -> { $value = 7 }; s(); say f();
 my (\d, (\x, (\f, (\g, \h)))) := 1, (2, (3, (4, 5))); say (d, x, f, g, h);
+use MONKEY-SEE-NO-EVAL; try EVAL "my \$\x[308]a;"; say $!.^name;
 for <a b c> -> $c { print $c }
 say $_ given 42;
 my %h = "k1" => 5, "k2" => 6; say %h<k2>;
