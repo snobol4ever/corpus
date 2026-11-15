@@ -9502,6 +9502,23 @@ xaax
 a
 ```
 
+## strand__a_repeat_of_two_to_the_27_bytes_is_a_strand
+
+```Raku
+my $a = "ab" x 2**27;
+say $a.chars;
+say ("b" x 2**27).chars;
+say chars("xyz" x 2**26);
+say so $a;
+```
+
+```stdout
+268435456
+134217728
+201326592
+True
+```
+
 ## token_say_1
 
 ```Raku
