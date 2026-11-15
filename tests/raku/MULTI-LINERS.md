@@ -13651,6 +13651,17 @@ xyz
 0
 ```
 
+## method_lexical__a_block_that_declares_the_name_keeps_its_own
+
+```Raku
+sub t($v) { my $f = { my $v = "inner"; my class C { method m { $v } }; C.m }; my $g = { my class D { method m { $v } }; D.m }; say $f(), " ", $g() }
+t("outer");
+```
+
+```stdout
+inner outer
+```
+
 ## method_lexical__a_class_body_lexical_is_set_at_each_entry
 
 ```Raku
@@ -16016,6 +16027,22 @@ t(); t();
 122
 ```
 
+## method_lexical__a_method_writes_a_copied_parameter_through_a_closure_block
+
+```Raku
+sub t($n is copy) { my @b; @b.push: { my class C { method up { $n++ } ; method get { $n } }; C.up; C.get }; say @b[0](); say @b[0](); say $n }
+t(5); t(10);
+```
+
+```stdout
+6
+7
+7
+11
+12
+12
+```
+
 ## method_lexical__recursion_keeps_each_entrys_own_variable
 
 ```Raku
@@ -16198,6 +16225,32 @@ say "";
 
 ```stdout
 X::Syntax::UnlessElse:else X::Syntax::UnlessElse:elsif X::Syntax::UnlessElse:orwith 
+```
+
+## method_lexical__a_method_pushes_to_the_routines_array_through_a_closure_block
+
+```Raku
+sub w(&c) { c() }
+sub t { my @log; w { my class L { method add($x) { @log.push($x) } }; L.add(1); L.add(2) }; say @log }
+t(); t();
+```
+
+```stdout
+[1 2]
+[1 2]
+```
+
+## method_lexical__a_method_reads_through_two_closure_blocks
+
+```Raku
+sub w(&c) { c() }
+sub t($a) { my $b = $a ~ "!"; w { w { my class C { method m { "$a $b" } }; say C.m } } }
+t("x"); t("y");
+```
+
+```stdout
+x x!
+y y!
 ```
 
 ## multi_sub_say_2
@@ -16423,6 +16476,21 @@ say($s);
 
 ```stdout
 6
+```
+
+## method_lexical__a_closure_between_rebinds_at_its_own_entry
+
+```Raku
+my @blk;
+sub t($msg) { @blk.push: { my class Foo { method m { $msg } }; Foo.new.m } }
+t("one"); t("two");
+say @blk[0](); say @blk[1](); say @blk[0]();
+```
+
+```stdout
+one
+two
+one
 ```
 
 ## class_method_say_replace_17
