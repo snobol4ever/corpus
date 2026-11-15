@@ -7929,6 +7929,18 @@ say @a.sum;
 10
 ```
 
+## rx_group__a_plus_over_an_alternation_takes_every_iteration
+
+```Raku
+say ~("MMXV" ~~ / ^ [ M | CM | X | V ]+ $ /);
+say so ("MMZ" ~~ / ^ [ M | CM | X | V ]+ $ /);
+```
+
+```stdout
+MMXV
+False
+```
+
 ## say_13
 
 ```Raku
@@ -8816,6 +8828,48 @@ say @a[0..3];
 (1 2 6 7)
 ```
 
+## rx_group__a_group_gives_iterations_back
+
+```Raku
+say ~("abab" ~~ / ^ [ a | b ]+ ab $ /);
+say ~("abcabcab" ~~ / [ abc | ab ]+ /);
+say ~("aaa" ~~ / ^ [ aa | a ]+ $ /);
+```
+
+```stdout
+abab
+abcabcab
+aaa
+```
+
+## rx_group__a_star_over_a_group_matches_zero_iterations
+
+```Raku
+say ~("xyzzy" ~~ / x [ y | z ]* /);
+say ~("x" ~~ / x [ y | z ]* /);
+say so ("x" ~~ / x [ y | z ]+ /);
+```
+
+```stdout
+xyzzy
+x
+False
+```
+
+## rx_group__an_optional_group_and_a_nested_group
+
+```Raku
+say ~("ac" ~~ / a [ b | x ]? c /);
+say ~("abc" ~~ / a [ b | x ]? c /);
+say ~("abcd" ~~ / [ a [ b | c ]+ ]+ d /);
+```
+
+```stdout
+ac
+abc
+abcd
+```
+
 ## say_54
 
 ```Raku
@@ -9200,6 +9254,29 @@ say my($x);
 22
 ```
 
+## rx_code__a_code_block_runs_inline_where_it_stands
+
+```Raku
+"MM" ~~ / ^ M { say "a" } M { say "b" } $ /;
+say ~("aab" ~~ / [ a { say "x" } ]+ ab /);
+say ~("abab" ~~ / ^ [ a { say 1 } | b { say 2 } ]+ ab $ /);
+say "end";
+```
+
+```stdout
+a
+b
+x
+x
+aab
+1
+2
+1
+2
+abab
+end
+```
+
 ## while_9
 
 ```Raku
@@ -9393,6 +9470,24 @@ say $w;
 ```stdout
 hi
 x
+```
+
+## rx_group__the_longest_literal_arm_is_tried_first
+
+```Raku
+say ~("ab" ~~ / a | ab /);
+say ~("abab" ~~ / [ a | ab ]+ /);
+say ~("abcab" ~~ / ^ [ ab | abc | a ]+ $ /);
+say ~("xaax" ~~ / x [ a | aa ] x /);
+say ~("ab" ~~ / a || ab /);
+```
+
+```stdout
+ab
+abab
+abcab
+xaax
+a
 ```
 
 ## token_say_1
@@ -14408,6 +14503,43 @@ my $z = 3; keep($z); say $z;
 99
 ```
 
+## rx_code__a_gather_pumped_after_a_group_reads_its_locals
+
+```Raku
+say ~("aab" ~~ / [ a | x ]+ ab /);
+my @g = gather { take 1 };
+say @g;
+say ~("aab" ~~ / [ a { say "x" } ]+ ab /);
+my @h = gather { "q" ~~ / q { take 2 } / };
+say @h;
+```
+
+```stdout
+aab
+[1]
+x
+x
+aab
+[2]
+```
+
+## rx_code__a_take_in_a_code_block_reaches_the_gather
+
+```Raku
+my @g = gather { "M" ~~ / ^ M { take 7 } $ / };
+say @g;
+my @h = gather "abab" ~~ / ^ [ a { take 1 } | b { take 2 } ]+ ab $ /;
+say @h;
+my @k = gather { "xyx" ~~ / ^ [ x { take "x" } | y { take "y" } ]* /; take "end" };
+say @k;
+```
+
+```stdout
+[7]
+[1 2 1 2]
+[x y x end]
+```
+
 ## ladder__rung13_classes
 
 ```Raku
@@ -18012,6 +18144,24 @@ my $u = ""; for 1..4 { last if $_ == 3; $u ~= $_ }; say $u;
 xxx
 6
 12
+```
+
+## rx_code__from_roman_sums_the_takes_of_a_quantified_group
+
+```Raku
+sub from-roman($r) {
+    [+] gather $r.uc ~~ / ^ [ | M { take 1000 } | CM { take 900 } | D { take 500 } | CD { take 400 } | C { take 100 } | XC { take 90 } | L { take 50 } | XL { take 40 } | X { take 10 } | IX { take 9 } | V { take 5 } | IV { take 4 } | I { take 1 } ]+ $ /;
+}
+say from-roman($_) for <MMXV MCMXCIV iv XLII mmmcmxcix IX>;
+```
+
+```stdout
+2015
+1994
+4
+42
+3999
+9
 ```
 
 ## class_method_multi_replace_2
