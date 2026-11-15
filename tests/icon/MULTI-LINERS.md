@@ -22742,6 +22742,123 @@ Primes to 50 (trial division by generators):
  2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
 ```
 
+## planner_armjoin__an_omega_hung_runs_failure_lands_at_the_alternations_failure_entry
+
+```Icon
+record K__state(__s, __m, kind)
+record K__methods(get_type)
+procedure K_get_type(self)
+   return self.kind;
+end
+procedure main()
+   local e, n, L, m;
+   m := K__methods(K_get_type);
+   L := [K__state(, m, "x"), K__state(, m, "c"), K__state(, m, "c"), K__state(, m, "d"), K__state(, m, "c"), K__state(, m, "e")];
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & ((if type(e)[-7:0] == "__state" then e.__m.get_type(e) else e.get_type()) == "d") then {
+         write("A hit at visit ", n);
+         break;
+      };
+   };
+   write("A visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & ((if type(e)[-7:0] == "__state" then e.__m.get_type(e) else 3) == "d") then {
+         write("A1 hit at visit ", n);
+         break;
+      };
+   };
+   write("A1 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if (if type(e)[-7:0] == "__state" then e.__m.get_type(e) else e.get_type()) == "d" then {
+         write("A2 hit at visit ", n);
+         break;
+      };
+   };
+   write("A2 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & ((if type(e)[-7:0] == "__state" then K_get_type(e) else e.get_type()) == "d") then {
+         write("A3 hit at visit ", n);
+         break;
+      };
+   };
+   write("A3 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if (1 = 1) & ((if type(e)[-7:0] == "__state" then e.__m.get_type(e) else e.get_type()) == "d") then {
+         write("A4 hit at visit ", n);
+         break;
+      };
+   };
+   write("A4 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & (e.__m.get_type(e) == "d") then {
+         write("A5 hit at visit ", n);
+         break;
+      };
+   };
+   write("A5 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & ((if type(e)[-7:0] == "__state" then e.__m.get_type(e) else e.kind) == "d") then {
+         write("A6 hit at visit ", n);
+         break;
+      };
+   };
+   write("A6 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & ((if 1 = 1 then e.kind else e.kind) == "d") then {
+         write("A7 hit at visit ", n);
+         break;
+      };
+   };
+   write("A7 visits=", n);
+   n := 0;
+   every e := !L do {
+      n +:= 1;
+      if not(string(e)) & ((if 1 = 1 then K_get_type(e) else K_get_type(e)) == "d") then {
+         write("A8 hit at visit ", n);
+         break;
+      };
+   };
+   write("A8 visits=", n);
+end
+```
+
+```stdout
+A hit at visit 4
+A visits=4
+A1 hit at visit 4
+A1 visits=4
+A2 hit at visit 4
+A2 visits=4
+A3 hit at visit 4
+A3 visits=4
+A4 hit at visit 4
+A4 visits=4
+A5 hit at visit 4
+A5 visits=4
+A6 hit at visit 4
+A6 visits=4
+A7 hit at visit 4
+A7 visits=4
+A8 hit at visit 4
+A8 visits=4
+```
+
 ## scanning_asm__is03d_results
 
 ```Icon
