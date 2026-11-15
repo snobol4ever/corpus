@@ -13651,6 +13651,68 @@ xyz
 0
 ```
 
+## method_lexical__a_class_body_lexical_is_set_at_each_entry
+
+```Raku
+sub t($k) { my class D { my $n = $k * 10; method m { ++$n } }; say D.m; say D.m }
+t(1); t(2);
+```
+
+```stdout
+11
+12
+21
+22
+```
+
+## method_lexical__a_closure_and_a_method_share_the_routines_counter
+
+```Raku
+sub t { my $n = 0; my $inc = { $n++ }; my class C { method get { $n } ; method bump { $n += 10 } }; $inc(); $inc(); say C.get; C.bump; $inc(); say $n; say C.get }
+t(); t();
+```
+
+```stdout
+2
+13
+13
+2
+13
+13
+```
+
+## method_lexical__a_method_writes_and_the_variable_outlives_the_return
+
+```Raku
+sub t($msg) { my $n = 0; my class Foo { method bump { $n++; "$msg $n" } }; my $o = Foo.new; say $o.bump; say $o.bump; say "n=$n"; $o }
+my $a = t("a"); my $b = t("b"); say $a.bump; say $b.bump;
+```
+
+```stdout
+a 1
+a 2
+n=2
+b 1
+b 2
+n=2
+b 3
+b 4
+```
+
+## method_lexical__the_routine_writes_after_the_class_is_declared
+
+```Raku
+sub u { my $v = 1; my class Bar { method m { $v } }; my $o = Bar.new; $v = 2; say $o.m; $v++; say $o.m }
+u(); u();
+```
+
+```stdout
+2
+3
+2
+3
+```
+
 ## method_say_replace_1
 
 ```Raku
@@ -15926,6 +15988,32 @@ say $r;
 
 ```stdout
 3
+```
+
+## method_lexical__a_method_pushes_to_the_routines_array
+
+```Raku
+sub t { my @log; my class L { method add($x) { @log.push($x); self } }; L.new.add(1).add(2); say @log; say @log.elems }
+t(); t();
+```
+
+```stdout
+[1 2]
+2
+[1 2]
+2
+```
+
+## method_lexical__a_method_stores_into_the_routines_hash
+
+```Raku
+sub t { my %h; my class H { method set($k, $v) { %h{$k} = $v } }; H.new.set("a", 1); H.set("b", 2); say %h<a>, %h<b>, %h.elems }
+t(); t();
+```
+
+```stdout
+122
+122
 ```
 
 ## method_lexical__recursion_keeps_each_entrys_own_variable
