@@ -1,0 +1,9 @@
+?- range(4,9,L).
+L = [4,5,6,7,8,9]
+?- table(A,B,and(A,or(A,B))).
+raised(instantiation_error)
+?- table(A,B, A and (A or not B)).
+raised(instantiation_error)
+?- table([A,B,C], A and (B or C) equ A and B or A and C).
+raised(instantiation_error)
+

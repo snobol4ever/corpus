@@ -1,0 +1,5 @@
+?- prime_factors(315, L).
+L = [3,3,5,7]
+?- prime_factors_mult(315, L).
+L = [[3,2],[5,1],[7,1]]
+

@@ -1,0 +1,9 @@
+?- element_at(X,[a,b,c,d,e],3).
+raised(type_error([],[a,b,c,d,e]))
+?- construct([3,2,5,7,1],T).
+T = t(3,t(2,t(1,nil,nil),nil),t(5,nil,t(7,nil,nil)))
+?- test_symmetric([5,3,18,1,4,12,21]).
+yes
+?- test_symmetric([3,2,5,7,4]).
+no
+

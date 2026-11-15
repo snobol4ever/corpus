@@ -1,0 +1,3 @@
+?- element_at(X,[a,b,c,d,e],3).
+X = c
+

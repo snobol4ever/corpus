@@ -1,0 +1,57 @@
+# ORACLE.tsv -- what swipl 9.0.4 answered for each entry, all three streams (pkg_oracle_telemetry.py; NOT graded: the grade is NAME.out and want_rc):
+# entry, exit status, stdout bytes, stdout against NAME.out, stderr bytes, stderr lines, stderr's first line
+p01	0	32	same	0	0	
+p03	0	39	same	0	0	
+p07	0	56	same	0	0	
+p08	0	65	same	0	0	
+p09	0	89	same	0	0	
+p10	0	175	same	0	0	
+p11	0	262	same	0	0	
+p13	0	86	same	0	0	
+p14	0	52	same	0	0	
+p15	0	79	same	0	0	
+p16	0	57	same	0	0	
+p17	0	76	same	0	0	
+p18	0	56	same	0	0	
+p19	0	170	same	0	0	
+p20	0	50	same	0	0	
+p21	0	103	same	0	0	
+p22	0	36	same	0	0	
+p23	0	50	same	0	0	
+p24	0	85	same	0	0	
+p25	0	50	same	0	0	
+p26	0	48	same	0	0	
+p27	0	262	same	0	0	
+p28	0	281	same	0	0	
+p31	0	21	same	0	0	
+p32	0	26	same	0	0	
+p33	0	50	same	0	0	
+p34	0	50	same	0	0	
+p35	0	41	same	0	0	
+p36	0	96	same	0	0	
+p37	0	96	same	0	0	
+p38	0	145	same	0	0	
+p39	0	21	same	0	0	
+p40	0	52	same	0	0	
+p41	0	249	same	0	0	
+p46	0	208	same	0	0	
+p47	0	208	same	0	0	
+p48	0	453	same	0	0	
+p54A	0	140	same	0	0	
+p55	0	64	same	0	0	
+p57	0	161	same	0	0	
+p58	0	194	same	0	0	
+p59	0	91	same	0	0	
+p60	0	91	same	0	0	
+p61A	0	33	same	0	0	
+p63	0	228	same	0	0	
+p64	0	161	same	0	0	
+p65	0	161	same	0	0	
+p66	0	161	same	0	0	
+p70B	0	140	same	0	0	
+p70C	0	36	same	0	0	
+p73	0	64	same	0	0	
+p90	0	36	same	0	0	
+p92	0	36	same	119	3	Warning: p83.prolog:46:
+p94	0	243	same	0	0	
+p99	0	137	same	340	8	ERROR: p99.prolog:23:

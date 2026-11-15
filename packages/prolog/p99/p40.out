@@ -1,0 +1,5 @@
+?- is_prime(7).
+yes
+?- goldbach(28, L).
+L = [5,23]
+

@@ -1,0 +1,7 @@
+?- istree(t(a,t(b,nil,nil),nil)).
+no
+?- istree(t(a,t(b,nil,nil))).
+no
+?- istree(t(a,[t(f,[t(g,[])]),t(c,[]),t(b,[t(d,[]),t(e,[])])])).
+yes
+

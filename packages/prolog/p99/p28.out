@@ -1,0 +1,7 @@
+?- pack([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).
+no
+?- lsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+L = [[o],[d,e],[d,e],[m,n],[a,b,c],[f,g,h],[i,j,k,l]]
+?- lfsort([[a,b,c],[d,e],[f,g,h],[d,e],[i,j,k,l],[m,n],[o]],L).
+L = [[i,j,k,l],[o],[a,b,c],[f,g,h],[d,e],[d,e],[m,n]]
+

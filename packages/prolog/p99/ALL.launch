@@ -1,0 +1,3 @@
+# the launch of the ProP99 suite (CIO-83): each solution is consulted and then the driver, ours, which runs the problem page's own example queries
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl
