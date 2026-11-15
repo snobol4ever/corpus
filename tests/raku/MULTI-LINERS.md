@@ -16467,6 +16467,24 @@ class D is B is C { }
 XY
 ```
 
+## emitter_refusal__a_pointy_condition_binds_its_sub_signature
+
+```Raku
+with (4, 5) -> ($v, $w) { say $v + $w }
+if (4, 5) -> ($v, $w) { say $v * $w }
+given (1, 2) -> ($a, $b) { say $a - $b }
+my $m = (7, 8); while $m -> ($a, $b) { say $a + $b; $m = Nil }
+sub g((Int() $v)) { say $v.^name }; g(("42",));
+```
+
+```stdout
+9
+20
+-1
+15
+Int
+```
+
 ## for_range_array_replace_1
 
 ```Raku

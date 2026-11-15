@@ -254,6 +254,7 @@ my @list = (1 ... 10); say @list;
 my ($a, @b) = 1, 2, 3; say $a ~ @b.join;
 my $a; multi sub rt() { $a = 1 }; rt; say $a;
  my @a = "a,b,c".split(","); say(elems(@a)); 
+sub f($a is copy) { }; with ("a:v42" ~~ /":v"(\d+)/).list -> (Int() $version is copy) { say $version }
 for (a => (1, 2),) -> (:key($k), :value(@v)) { my &f = { say $k }; f() }
  my @a = "x,y,z".split(","); say(@a.join("|")); 
  if ('abc' ~~ /^\d+$/) { say("match"); } else { say("nomatch"); } 
