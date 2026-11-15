@@ -22714,6 +22714,75 @@ es_a_list.icn:    8  | g returned function write
 es_a_list.icn:   38  main failed
 ```
 
+## ladder__rung45_string_invokes_function
+
+```Icon
+record R(f, g)
+procedure dbl(x)
+   return 2 * x;
+end
+procedure gen(x)
+   suspend x | x + 1;
+end
+class C(k)
+   method m(x)
+      return k + x;
+   end
+end
+procedure main()
+   local p, i, r, s, o, L;
+   p := dbl;
+   write(p(4));
+   p := "dbl";
+   write(p(5));
+   i := 2;
+   write(i("a", "b", "c"));
+   write(2("a", "b", "c"));
+   r := R(dbl, "max");
+   write(r.f(6));
+   write(r.g(1, 9) | "record field holding a string name fails");
+   every write((dbl | "abs" | "max")(-3));
+   every write(gen(10));
+   p := gen;
+   every write(p(20));
+   s := "write";
+   s("via string write");
+   o := C(100);
+   write(o.m(1));
+   p := proc("max", 0);
+   write(p(1, 2, 3));
+   L := [1, 2, 3];
+   write(("*")(L));
+   write(("+")(2, 3));
+   s := "min";
+   write(s(4, 2));
+   write(image(s));
+end
+```
+
+```stdout
+8
+10
+b
+b
+12
+9
+-6
+3
+-3
+10
+11
+20
+21
+via string write
+101
+3
+3
+5
+2
+"min"
+```
+
 ## generators__generators
 
 ```Icon
