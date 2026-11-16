@@ -1,0 +1,18 @@
+# gamma: a scroll bar sets the window's gamma correction on a log scale from 0.1 to 100 and shows the value; set opens a dialog with the
+# current value, reset returns to the display's own. The trough is clicked right of the thumb and the thumb dragged left; set's dialog
+# is closed by its Okay (keys typed into it reach nothing, as in cw: MEASURED, the field kept its value); reset; meta q quits. Load and
+# save need an image file beside the program, which the package does not stage, and are left out.
+click 1 250 70
+wait
+drag 1 210 70 60 70
+wait
+click 1 29 169
+wait
+click 1 135 139
+wait
+click 1 75 169
+wait
+move 200 150
+keydown Alt_L
+key q
+keyup Alt_L

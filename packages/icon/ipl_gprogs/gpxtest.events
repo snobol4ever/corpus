@@ -1,0 +1,4 @@
+# gpxtest: its work is the graphics tests it draws, one to a cell, before it waits; the Quit button ends it, rc 0. Left out: the Dialog
+# button and the d key, whose dialog test window opens black on the oracle's display (MEASURED: the window stands
+# unpainted on two runs), so its buttons, checkbox, slider and text cannot be seen or driven.
+click 1 373 349

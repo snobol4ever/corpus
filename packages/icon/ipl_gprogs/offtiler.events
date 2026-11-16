@@ -1,0 +1,11 @@
+# offtiler: makes an offset tile of an image it opens (File, open, a file dialog), the offset set by its Parameters menu. The package
+# stages no image beside it, and with no image the parameters cannot be checked (they read the image's size), so the script reaches what
+# needs none: the tile button answers its notice No subject image, Okay closes it, meta q quits. Left out: open, save, direction, factor.
+click 1 29 46
+wait
+click 1 100 104
+wait
+move 100 120
+keydown Alt_L
+key q
+keyup Alt_L

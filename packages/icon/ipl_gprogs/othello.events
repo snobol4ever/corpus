@@ -1,0 +1,20 @@
+# othello: the board takes a click as the player's move and the computer answers, choosing at random among its equal best moves after
+# randomize(), so the script plays only control-clicks, which move and freeze the computer: a black move that flips one piece, a white
+# answer that flips one, H shows the hints for the side to move, E evaluates the moves, U undoes the last move, Q quits.
+move 600 500
+wait
+keydown Control_L
+click 1 360 280
+keyup Control_L
+wait
+keydown Control_L
+click 1 360 360
+keyup Control_L
+wait
+key H
+wait
+key E
+wait
+key U
+wait
+key Q

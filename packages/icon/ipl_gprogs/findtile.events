@@ -1,0 +1,22 @@
+# findtile, the tile finder: its work is on an image it opens (File, open), and the package stages none beside it. The script reaches the
+# open road: the File menu's open, the dialog's Okay with no name (keys typed into it reach nothing, as in cw: MEASURED, the field stayed
+# empty), the notice Can't open, its Okay, the dialog again and its Cancel, then the File menu's quit, rc 0. Left out: refresh and mirror
+# with no image, which stop on the program's own error (&null . x, findtile.icn line 428, MEASURED on the oracle), and every
+# marquee, size and location item, which need an image.
+move 28 21
+press 1
+wait
+move 30 41
+release 1
+wait
+click 1 166 165
+wait
+click 1 190 152
+wait
+click 1 233 165
+wait
+move 28 21
+press 1
+wait
+move 30 86
+release 1

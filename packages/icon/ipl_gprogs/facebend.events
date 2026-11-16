@@ -1,0 +1,12 @@
+# facebend, the caricature generator: it draws its guide face and asks for an image to bend; with no image it ends. The package stages
+# no image beside it, so the script reaches the load dialog's own road: a name typed (the pointer inside the dialog) and Return, the
+# notice Can't open nosuch.gif, its Okay, the dialog again, and Cancel, which ends the program by itself, rc 0. Left out: the point
+# picking, the display menu and the distortion slider, which need a loaded image.
+move 320 230
+type nosuch.gif
+wait
+key Return
+wait
+click 1 320 261
+wait
+click 1 348 274

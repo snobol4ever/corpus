@@ -1,0 +1,23 @@
+# symdraw: drawing in the square pane is mirrored eight ways. A left drag inside the restricted wedge draws free-hand (the handler moves
+# &x and &y into the pane's coordinates by -:=), a middle drag draws a straight line, the restrict button lifts the wedge so a drag
+# elsewhere draws too, clear erases the pane, meta q quits. The pane's corner stands at 107 47; the wedge is x >= y, both under 200.
+drag 1 257 97 297 167
+wait
+move 287 77
+press 2
+move 300 100
+move 297 140
+release 2
+wait
+click 1 52 175
+wait
+drag 1 400 380 450 300
+wait
+click 1 52 55
+wait
+drag 1 250 80 290 120
+wait
+move 300 300
+keydown Alt_L
+key q
+keyup Alt_L
