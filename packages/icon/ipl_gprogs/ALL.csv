@@ -77,3 +77,13 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 76,imstogif,imstogif.icn,ipl_gprogs__imstogif,ipl_gprogs,66,0,131072,4096,120,,t.gif
 77,zoomtile,zoomtile.icn,ipl_gprogs__zoomtile,ipl_gprogs,70,0,131072,4096,120,,t_zoom.gif
 78,striper,striper.icn,ipl_gprogs__striper,ipl_gprogs,87,0,131072,4096,120,,stripes_001.gif stripes_002.gif
+79,gif2rows,gif2rows.icn,ipl_gprogs__gif2rows,ipl_gprogs,48,0,131072,4096,120,,,staged
+80,giftopat,giftopat.icn,ipl_gprogs__giftopat,ipl_gprogs,46,0,131072,4096,120,,,staged
+81,poller,poller.icn,ipl_gprogs__poller,ipl_gprogs,80,0,131072,4096,120,,,staged
+82,rectile,rectile.icn,ipl_gprogs__rectile,ipl_gprogs,63,0,131072,4096,120,,rect_tiny.gif,staged
+83,seamcut,seamcut.icn,ipl_gprogs__seamcut,ipl_gprogs,70,0,131072,4096,120,,tiny_s.gif,staged
+84,ims2pat,ims2pat.icn,ipl_gprogs__ims2pat,ipl_gprogs,42,0,131072,4096,120,,,
+85,xpmtoims,xpmtoims.icn,ipl_gprogs__xpmtoims,ipl_gprogs,102,0,131072,4096,120,,,
+86,trycolor,trycolor.icn,ipl_gprogs__trycolor,ipl_gprogs,96,0,131072,4096,120,,,
+87,imgpaper,imgpaper.icn,ipl_gprogs__imgpaper,ipl_gprogs,163,0,131072,4096,120,,paper000.gif,staged
+88,fstarlab,fstarlab.icn,ipl_gprogs__fstarlab,ipl_gprogs,70,0,131072,4096,300,,screen.dump,
