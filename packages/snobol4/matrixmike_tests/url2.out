@@ -1,0 +1,46 @@
+
+
+
+dump of natural variables
+
+APATH = PATTERN
+ARB = PATTERN
+DIGIT = '0123456789'
+INPUT = 'no link here'
+LCASE = 'abcdefghijlkmnopqrstuvwxyz'
+LINE = 'no link here'
+UCASE = 'ABCDEFGHIJLKMNOPQRSTUVWXYZ'
+USERNAMECHAR = '0123456789abcdefghijlkmnopqrstuvwxyzABCDEFGHIJLKMNOPQRSTUVWXYZ'
+USERNAMEPAT = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'url2.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'url2.sno'
+&LASTLINE = 16
+&LASTNO = 16
+&LINE = 17
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 15
+&STLIMIT = 2147483647
+&STNO = 17
+&TRACE = 0
+&TRIM = 1
+
+
+

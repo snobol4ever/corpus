@@ -1,0 +1,26 @@
+fib(23) = 28657
+ack(2,3) = 9
+ack(3,3) = 61
+hanoi(15) moves: 32767
+sumto(1500) = 1125750
+
+
+
+recursion.sno(30) : ERROR 205 -- string length exceeds value of maxlngth keyword
+
+
+
+
+
+in file              recursion.sno
+in line              30
+in statement         29
+stmts executed       311011
+execution time msec  43
+stmt / microsec      7
+stmt / millisec      7232
+stmt / second        7232000
+REGENERATIONS        18
+memory used (bytes)  50348504
+memory left (bytes)  1031712
+

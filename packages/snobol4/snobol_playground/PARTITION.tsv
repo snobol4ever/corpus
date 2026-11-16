@@ -1,16 +1,30 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=12 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=2 chunks=1 sizes=11
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=26 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=3 chunks=1 sizes=24
 entry	part	cluster	shells
 cat	core	core	
-ch1/ex11	chunk:01	dir:ch1	
+ch1/ex11	core	core	
+ch1/ex12	chunk:01	dir:ch1	
 ch1/ex13	chunk:01	dir:ch1	
+ch1/ex14	chunk:01	dir:ch1	
+ch1/ex15	chunk:01	dir:ch1	
 ch1/ex16	chunk:01	dir:ch1	
 ch1/ex17	chunk:01	dir:ch1	
 ch2/bal	chunk:01	dir:ch2	
 ch2/bigp	chunk:01	dir:ch2	
+ch2/break-and-span	chunk:01	dir:ch2	
+ch2/cursor	chunk:01	dir:ch2	
 ch2/ex21	chunk:01	dir:ch2	
 ch2/ex22	chunk:01	dir:ch2	
 ch2/fail	chunk:01	dir:ch2	
+ch2/len	chunk:01	dir:ch2	
 ch2/pair	chunk:01	dir:ch2	
+ch2/pos-and-rpos	chunk:01	dir:ch2	
+ch2/recursive	chunk:01	dir:ch2	
+ch2/recursive1	chunk:01	dir:ch2	
+ch2/recursive2	chunk:01	dir:ch2	
 ch2/scans	chunk:01	dir:ch2	
+ch2/tab-rtab-rem	chunk:01	dir:ch2	
+ch2/uneval	chunk:01	dir:ch2	
+ch2/uneval1	chunk:01	dir:ch2	
+first	chunk:01	family:first	

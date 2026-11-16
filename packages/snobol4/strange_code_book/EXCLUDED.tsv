@@ -4,5 +4,5 @@ chapter_05/copy.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the bu
 chapter_05/hello2.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/input.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_05/temperature.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-chapter_05/uppercase.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
+chapter_05/uppercase.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 390 and 390 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 chapter_10/bf.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

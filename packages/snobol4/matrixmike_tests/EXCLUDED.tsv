@@ -1,5 +1,4 @@
 # EXCLUDED.tsv -- matrixmike_tests: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
 # the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-digits.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 387 and 315 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 test3.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 58 and 58 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 timing.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 1 and 1, 778 and 778 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

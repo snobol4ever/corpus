@@ -1,7 +1,0 @@
-bench/recursion.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 475 and 475 bytes
-examples/calc.sno: NEEDS-INPUT: its answer changes with what standard input holds
-examples/wordfreq.sno: NEEDS-INPUT: its answer changes with what standard input holds
-tests/calc.sno: NEEDS-INPUT: its answer changes with what standard input holds
-tests/features.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 553 and 553 bytes
-tests/functions.sno: NEEDS-INPUT: its answer changes with what standard input holds
-tests/wordfreq.sno: NEEDS-INPUT: its answer changes with what standard input holds

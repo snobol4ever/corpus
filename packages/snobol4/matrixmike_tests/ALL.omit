@@ -1,8 +1,2 @@
-digits.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 387 and 315 bytes
-fcounts.sno: NEEDS-INPUT: its answer changes with what standard input holds
-sudoku.sno: NEEDS-INPUT: its answer changes with what standard input holds
-test2.sno: NEEDS-INPUT: its answer changes with what standard input holds
 test3.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 58 and 58 bytes
-test4.sno: NEEDS-INPUT: its answer changes with what standard input holds
 timing.sno: DIFFERS-BETWEEN-RUNS: exit 1 and 1, 778 and 778 bytes
-url2.sno: NEEDS-INPUT: its answer changes with what standard input holds

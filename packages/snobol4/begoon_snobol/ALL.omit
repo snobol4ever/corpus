@@ -1,2 +1,0 @@
-balanced.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 291 and 363 bytes
-echo.sno: NEEDS-INPUT: its answer changes with what standard input holds

@@ -1,0 +1,31 @@
+Listing of text
+
+1 The quick brown fox jumps over the lazy dog.
+2 Pack my box with five dozen liquor jugs!
+3 SNOBOL4 patterns: BREAK, SPAN, ARB and BAL, 1969.
+
+Concordance
+
+AND : 3,
+ARB : 3,
+BAL : 3,
+BOX : 2,
+BREAK : 3,
+BROWN : 1,
+DOG : 1,
+DOZEN : 2,
+FIVE : 2,
+FOX : 1,
+JUGS : 2,
+JUMPS : 1,
+LAZY : 1,
+LIQUOR : 2,
+MY : 2,
+OVER : 1,
+PACK : 2,
+PATTERNS : 3,
+QUICK : 1,
+SNOBOL : 3,
+SPAN : 3,
+THE : 1,1,
+WITH : 2,

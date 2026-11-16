@@ -1,8 +1,3 @@
-# EXCLUDED.tsv -- jmu_cs430: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
-# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-CodeExamples/CODE.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 347 and 348 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-snobol4p/CODE.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 348 and 348 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 snobol4p/fowler.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 snobol4p/quest1.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-snobol4p/richter.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 296 and 368 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 snobol4p/test3.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

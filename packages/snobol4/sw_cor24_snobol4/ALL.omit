@@ -1,6 +1,5 @@
-demos/eliza.sno: NEEDS-INPUT: its answer changes with what standard input holds
 examples/fti_smoke.sno: DOES-NOT-END: no answer inside 60 s
+examples/rawinput.sno: DOES-NOT-END: no answer inside 60 s
 examples/issue11.sno: DOES-NOT-END: no answer inside 60 s
 examples/issue14.sno: DOES-NOT-END: no answer inside 60 s
-examples/rawinput.sno: DOES-NOT-END: no answer inside 60 s
 examples/rawinput_lines.sno: DOES-NOT-END: no answer inside 60 s

@@ -1,0 +1,19 @@
+Reading: -
+
+
+
+ex12.sno(10) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              ex12.sno
+in line              10
+in statement         8
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12088
+memory left (bytes)  1036480
+

@@ -1,14 +1,1 @@
-bitzer.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 289 and 361 bytes
-bnf.sno: NEEDS-INPUT: its answer changes with what standard input holds
-budget.sno: NEEDS-INPUT: its answer changes with what standard input holds
-capital.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 358 and 286 bytes
 code.sno: DOES-NOT-END: no answer inside 60 s
-cross.sno: NEEDS-INPUT: its answer changes with what standard input holds
-fcounts.sno: NEEDS-INPUT: its answer changes with what standard input holds
-gentran.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 364 and 292 bytes
-labcent.sno: NEEDS-INPUT: its answer changes with what standard input holds
-length.sno: NEEDS-INPUT: its answer changes with what standard input holds
-rpoem.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 284 and 353 bytes
-tictac.sno: NEEDS-INPUT: its answer changes with what standard input holds
-triplet.sno: NEEDS-INPUT: its answer changes with what standard input holds
-words.sno: NEEDS-INPUT: its answer changes with what standard input holds

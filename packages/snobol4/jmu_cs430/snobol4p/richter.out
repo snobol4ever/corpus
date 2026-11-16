@@ -1,0 +1,36 @@
+ enter  string <ctrl> z to quit
+ quick brown fox jumps over the lazy dog.
+ick brown fox jumps over the lazy dog.
+ck brown fox jumps over the lazy dog.
+wn fox jumps over the lazy dog.
+x jumps over the lazy dog.
+mps over the lazy dog.
+ver the lazy dog.
+r the lazy dog.
+ lazy dog.
+zy dog.
+g.
+ there are 11 vowels.
+
+ there are 0 vowels.
+
+
+ there is 1 vowel.
+
+
+
+richter.sno(5) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              richter.sno
+in line              5
+in statement         5
+stmts executed       59
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15568
+memory left (bytes)  1033000
+

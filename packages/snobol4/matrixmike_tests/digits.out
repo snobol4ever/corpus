@@ -1,0 +1,19 @@
+abcdefghijklmnopqrstuvwxyz
+
+
+
+digits.sno(6) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              digits.sno
+in line              6
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11520
+memory left (bytes)  1037048
+

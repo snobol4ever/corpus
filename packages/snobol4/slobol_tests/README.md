@@ -29,3 +29,9 @@ and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. TH
 | rows | 13: 8 print an answer; 3 end with SPITBOL's run-time error and are graded on its text and exit status; 1 are refused at compile time (exit 231) and are graded on the line and code of each diagnostic; 1 print nothing and are graded by exit status |
 | declared out | 1 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 1 answer differently on two runs |
 | owed | 5 read standard input and the collection ships no input for them |
+
+## The inputs (2026-11-16 00:xx CST, on Lon's word of 2026-11-15 23:1x: "Write inputs of ours")
+
+5 program(s) of this package read standard input and none ships with it; each is fed `NAME.in`, beside its path in this folder, and every answer is still the oracle's (`sbl -bf`).
+THE PROGRAM'S OWN DATA (the lines after its END, which `sbl -r` reads as input and the oracle's `-bf` run does not): `test/def.sbl`.
+OURS, written by the grader to exercise the program as its code reads (a few lines of text, numbers, a name, moves of a game, statements to run): `test/cfreq.sbl`, `test/lower.sbl`, `test/trim.sbl`, `trace/oops.sbl`.

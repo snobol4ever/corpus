@@ -1,6 +1,0 @@
-test/cfreq.sbl: NEEDS-INPUT: its answer changes with what standard input holds
-test/def.sbl: NEEDS-INPUT: its answer changes with what standard input holds
-test/lower.sbl: NEEDS-INPUT: its answer changes with what standard input holds
-test/trim.sbl: NEEDS-INPUT: its answer changes with what standard input holds
-trace/oops.sbl: NEEDS-INPUT: its answer changes with what standard input holds
-trace/op.sbl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 259 and 331 bytes

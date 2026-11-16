@@ -1,0 +1,10 @@
+This program will ask you for personal names
+until you press <Return> without giving one.
+Please give me name 1
+Name 1: Alice
+Please give me name 2
+Name 2: Bob
+Please give me name 3
+Name 3: Carol
+Please give me name 4
+Finished. 3 names requested.

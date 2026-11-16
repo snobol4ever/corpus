@@ -1,0 +1,12 @@
+
+ Please enter string to be encoded 
+ Please enter two strings
+ The first is the characters to be replaced
+ The second is their replacements 
+ Line them up and hit enter inbetween
+
+ Enter first string and hit enter
+ Enter second string and hit enter
+
+Original string is MAGIC CHEMICAL ELEPHANT
+Encoded string is  MAGIC CHEMICAL ELEPHANT

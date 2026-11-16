@@ -1,29 +1,43 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=25 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=2 chunks=1 sizes=24
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=39 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=2 chunks=1 sizes=38
 entry	part	cluster	shells
+CodeExamples/CODE	chunk:01	dir:CodeExamples	
 CodeExamples/DEMO	chunk:01	dir:CodeExamples	
 CodeExamples/EIGHT	chunk:01	dir:CodeExamples	
+CodeExamples/EXAMPLE	chunk:01	dir:CodeExamples	
+CodeExamples/FINAL	chunk:01	dir:CodeExamples	
+CodeExamples/FINAL2	chunk:01	dir:CodeExamples	
+CodeExamples/FINAL3	chunk:01	dir:CodeExamples	
 CodeExamples/FIVE	chunk:01	dir:CodeExamples	
 CodeExamples/FOUR	chunk:01	dir:CodeExamples	
 CodeExamples/FOURA	chunk:01	dir:CodeExamples	
 CodeExamples/Oct19	chunk:01	dir:CodeExamples	
+CodeExamples/SECOND	chunk:01	dir:CodeExamples	
 CodeExamples/SEVEN	chunk:01	dir:CodeExamples	
 CodeExamples/SEVENa	chunk:01	dir:CodeExamples	
 CodeExamples/SIX	chunk:01	dir:CodeExamples	
 CodeExamples/SIXa	chunk:01	dir:CodeExamples	
 CodeExamples/SevenB	chunk:01	dir:CodeExamples	
 CodeExamples/THREEA	chunk:01	dir:CodeExamples	
+CodeExamples/areplace2	chunk:01	dir:CodeExamples	
 CodeExamples/first	chunk:01	dir:CodeExamples	
+CodeExamples/myTry	chunk:01	dir:CodeExamples	
+CodeExamples/myplace	chunk:01	dir:CodeExamples	
 CodeExamples/oct17	chunk:01	dir:CodeExamples	
 CodeExamples/oct19a	chunk:01	dir:CodeExamples	
 CodeExamples/one	chunk:01	dir:CodeExamples	
 CodeExamples/range	chunk:01	dir:CodeExamples	
 CodeExamples/range2	chunk:01	dir:CodeExamples	
 CodeExamples/three	chunk:01	dir:CodeExamples	
+CodeExamples/vowels	chunk:01	dir:CodeExamples	
+CodeExamples/vowels2	chunk:01	dir:CodeExamples	
+snobol4p/CODE	chunk:01	dir:snobol4p	
 snobol4p/DEMO	chunk:01	dir:snobol4p	
 snobol4p/briDill	chunk:01	dir:snobol4p	
 snobol4p/index	chunk:01	dir:snobol4p	
+snobol4p/richter	chunk:01	dir:snobol4p	
 snobol4p/test	chunk:01	dir:snobol4p	
 snobol4p/test2	chunk:01	dir:snobol4p	
+snobol4p/test4	chunk:01	dir:snobol4p	
 snobol4p/test5	core	core	want_rc

@@ -1,0 +1,4 @@
+OUTPUT = 'hello'
+OUTPUT = 2 + 3 * 4
+X = 'abc' 'def'
+OUTPUT = SIZE(X)

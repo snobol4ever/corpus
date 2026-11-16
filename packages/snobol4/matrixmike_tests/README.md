@@ -31,3 +31,9 @@ and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. TH
 | declared out | 3 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 3 answer differently on two runs |
 | owed | 5 read standard input and the collection ships no input for them |
 | never run | 1, screened out before the census (a network connection, a shell command, the host) |
+
+## The inputs (2026-11-16 00:xx CST, on Lon's word of 2026-11-15 23:1x: "Write inputs of ours")
+
+5 program(s) of this package read standard input and none ships with it; each is fed `NAME.in`, beside its path in this folder, and every answer is still the oracle's (`sbl -bf`).
+THE PROGRAM'S OWN DATA (the lines after its END, which `sbl -r` reads as input and the oracle's `-bf` run does not): `sudoku.sno`.
+OURS, written by the grader to exercise the program as its code reads (a few lines of text, numbers, a name, moves of a game, statements to run): `fcounts.sno`, `test2.sno`, `test4.sno`, `url2.sno`.

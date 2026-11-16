@@ -1,0 +1,18 @@
+
+
+
+balanced.sno(5) : ERROR 042 -- attempt to change value of protected variable
+
+
+
+
+
+in file              balanced.sno
+in line              5
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12440
+memory left (bytes)  1036128
+

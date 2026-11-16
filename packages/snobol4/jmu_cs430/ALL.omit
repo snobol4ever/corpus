@@ -1,17 +1,3 @@
-CodeExamples/CODE.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 347 and 348 bytes
-CodeExamples/EXAMPLE.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/FINAL.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/FINAL2.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/FINAL3.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/SECOND.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/areplace2.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/myTry.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/myplace.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/vowels.sno: NEEDS-INPUT: its answer changes with what standard input holds
-CodeExamples/vowels2.sno: NEEDS-INPUT: its answer changes with what standard input holds
-snobol4p/CODE.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 348 and 348 bytes
 snobol4p/fowler.sno: DOES-NOT-END: no answer inside 60 s
 snobol4p/quest1.sno: DOES-NOT-END: no answer inside 60 s
-snobol4p/richter.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 296 and 368 bytes
 snobol4p/test3.sno: DOES-NOT-END: no answer inside 60 s
-snobol4p/test4.sno: NEEDS-INPUT: its answer changes with what standard input holds

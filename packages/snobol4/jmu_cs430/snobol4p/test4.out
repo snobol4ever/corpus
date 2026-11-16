@@ -1,0 +1,42 @@
+1 the
+2 quick
+3 brown
+4 fox
+5 jumps
+6 over
+7 the
+8 lazy
+9 dog
+i  is now 10
+9
+
+ unsorted array follows
+1 the
+2 quick
+3 brown
+4 fox
+5 jumps
+6 over
+7 the
+8 lazy
+9 dog
+
+ sorted array follows 
+
+
+
+test4.sno(10) : ERROR 235 -- subscripted operand is not table or array
+
+
+
+
+
+in file              test4.sno
+in line              10
+in statement         8
+stmts executed       95
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  21136
+memory left (bytes)  1027432
+

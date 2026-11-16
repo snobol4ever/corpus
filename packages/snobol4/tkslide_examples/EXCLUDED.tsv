@@ -1,3 +1,0 @@
-# EXCLUDED.tsv -- tkslide_examples: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
-# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-ethiopian_multiplication.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 60 s (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

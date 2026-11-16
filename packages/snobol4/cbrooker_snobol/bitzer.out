@@ -1,0 +1,18 @@
+
+
+
+bitzer.sno(132) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              bitzer.sno
+in line              132
+in statement         38
+stmts executed       15
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  25880
+memory left (bytes)  1022688
+

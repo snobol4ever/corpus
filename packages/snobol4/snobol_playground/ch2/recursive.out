@@ -1,0 +1,21 @@
+
+
+
+recursive.sno(7) : ERROR 246 -- stack overflow
+
+
+
+
+
+in file              recursive.sno
+in line              7
+in statement         4
+stmts executed       3
+execution time msec  3
+stmt / microsec      0
+stmt / millisec      1
+stmt / second        1000
+REGENERATIONS        0
+memory used (bytes)  12032
+memory left (bytes)  1036536
+

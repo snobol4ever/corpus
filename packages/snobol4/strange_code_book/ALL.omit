@@ -1,10 +1,6 @@
-chapter_05/alice.sno: NEEDS-INPUT: its answer changes with what standard input holds
 chapter_05/copy.sno: DOES-NOT-END: no answer inside 60 s
-chapter_05/dates.sno: NEEDS-INPUT: its answer changes with what standard input holds
-chapter_05/dates2.sno: NEEDS-INPUT: its answer changes with what standard input holds
 chapter_05/hello2.sno: DOES-NOT-END: no answer inside 60 s
 chapter_05/input.sno: DOES-NOT-END: no answer inside 60 s
-chapter_05/menu.sno: NEEDS-INPUT: its answer changes with what standard input holds
 chapter_05/temperature.sno: DOES-NOT-END: no answer inside 60 s
-chapter_05/uppercase.sno: DOES-NOT-END: no answer inside 60 s
+chapter_05/uppercase.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 390 and 390 bytes
 chapter_10/bf.sno: DOES-NOT-END: no answer inside 60 s

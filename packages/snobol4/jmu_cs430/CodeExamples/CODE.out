@@ -1,0 +1,21 @@
+
+
+
+CODE.sno(58) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              CODE.sno
+in line              58
+in statement         28
+stmts executed       10024
+execution time msec  2
+stmt / microsec      5
+stmt / millisec      5012
+stmt / second        5012000
+REGENERATIONS        4
+memory used (bytes)  405464
+memory left (bytes)  643104
+
