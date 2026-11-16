@@ -2,4 +2,3 @@ root	/home/resources/packages/pascal/wirth1976
 origin	https://github.com/bonthron/wirth1976
 version	02cb139 (2020-11-14)
 licence	no licence file in the collection
-moved	/home/resources/pascal-demos/wirth1976 (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

@@ -4,4 +4,3 @@ version	026ff5d5e2a572fd05e4313792a177dab6682660
 licence	MIT
 copy	root
 cwd	root
-moved	/home/resources/prolog-demos/PRESS (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

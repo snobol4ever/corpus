@@ -4,4 +4,3 @@ version	the master archive on this box (no git record)
 licence	Artistic License 2.0
 copy	root
 cwd	root
-moved	/home/resources/roast-master (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

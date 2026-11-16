@@ -2,4 +2,3 @@ root	/home/resources/packages/pascal/dsa
 origin	https://github.com/toczak/DSA
 version	54982e8 (2018-05-23)
 licence	no licence file in the collection
-moved	/home/resources/pascal-demos/DSA (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

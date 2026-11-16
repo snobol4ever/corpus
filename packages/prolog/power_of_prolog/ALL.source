@@ -2,4 +2,3 @@ root	/home/resources/packages/prolog/power_of_prolog
 origin	https://github.com/triska/the-power-of-prolog
 version	1db31842c7065b3e72029f48cd0ac321f3cb9215 (2026-10-12)
 licence	none stated in the distribution (corpus is test data and never ships, skill suites-and-grading 1)
-moved	/home/resources/prolog-demos/the-power-of-prolog (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

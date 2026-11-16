@@ -2,4 +2,3 @@ root	/home/resources/packages/snobol4/spitbol_88
 origin	https://github.com/spitbol/88-binary (Catspaw's SPITBOL-88 distribution); in the clone the programs of DEMOS, SANDLP and the root's TEST and TICTAC have their .SPT extension written .spt and their DOS line ends made LF, nothing else changed; CODE.SPT (it runs shell commands) and EXTERNAL (programs that load external functions) keep the name .SPT, which the miner does not read, and are never run
 version	1b8a7a6 (2015-06-29)
 licence	BSD 2-clause, (c) Copyright 1985, 1994 Catspaw, Incorporated (LICENSE)
-moved	/home/resources/collections/snobol4/spitbol-88-binary (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

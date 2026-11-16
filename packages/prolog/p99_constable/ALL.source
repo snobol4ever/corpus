@@ -2,4 +2,3 @@ root	/home/resources/packages/prolog/p99_constable
 origin	https://github.com/jamesconstable/99-prolog-problems (James Constable, solutions to P-99: Ninety-Nine Prolog Problems, grouped by topic)
 version	30a72622a155a88f75bf0952505cb45d61f3d33e (2021-03-15)
 licence	MIT (LICENSE at the top of the collection)
-moved	/home/resources/prolog-demos/99-prolog-problems (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

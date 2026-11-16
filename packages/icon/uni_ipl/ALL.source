@@ -3,4 +3,3 @@ origin	https://github.com/uniconproject/unicon.git
 version	d784f580b3003c50b0afffb3f1991364912c435f (2026-09-06)
 licence	public domain, as each file's header states ("This file is in the public domain.")
 selection	ipl/progs and ipl/mprogs files that differ from Arizona Icon's ipl (Arizona's are the ipl package); graphics programs left upstream
-moved	/home/resources/unicon/ipl (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

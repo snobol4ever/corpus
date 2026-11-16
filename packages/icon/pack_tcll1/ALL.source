@@ -2,4 +2,3 @@ root	/home/resources/packages/icon/icon-master/ipl/packs/tcll1
 origin	the Icon program library, packs/tcll1 (Arizona Icon 9.5.25a, https://github.com/gtownsend/icon)
 version	9.5.25a
 licence	public domain (the README of the Icon distribution)
-moved	/home/resources/icon-master/ipl/packs/tcll1 (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

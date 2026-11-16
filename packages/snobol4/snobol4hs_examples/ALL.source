@@ -2,4 +2,3 @@ root	/home/resources/packages/snobol4/snobol4hs_examples/examples
 origin	https://github.com/meln5674/snobol4hs, the folder examples (the sample programs of a Haskell SNOBOL4), each .snobol4 extension written .sno; converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN in upper case, an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
 version	c378692 (2016-11-05)
 licence	MIT-style (LICENSE: Copyright (c) 2016 Andrew Melnick)
-moved	/home/resources/collections/snobol4/snobol4hs/examples (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)
