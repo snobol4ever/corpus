@@ -20,8 +20,10 @@ program, and the outputs saved in the notebook are what the oracle (SPITBOL, `sb
 | `SNOBOL4_Green_Book.ipynb` | `SNOBOL4_Green_Book_in_Python.ipynb` | 25 |
 | `A_SNOBOL4_Tutorial.ipynb` | `A_SNOBOL4_Tutorial_in_Python.ipynb` | 36 |
 | `Snocone_in_SCRIP.ipynb` | master entries | 11 |
+| `Rebus_in_SCRIP.ipynb` | master entries | 12 |
 
 In `Snocone_in_SCRIP.ipynb` each `%%snocone` cell is one whole Snocone program, an entry of the Snocone master, and its saved output is that entry's ref.
+In `Rebus_in_SCRIP.ipynb` each `%%rebus` cell is one whole Rebus program, an entry of the Rebus master, and its saved output is that entry's ref.
 
 Notes for a reader:
 
