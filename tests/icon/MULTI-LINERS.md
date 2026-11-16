@@ -14824,15 +14824,15 @@ end
 
 ```Icon
 procedure main()
-   if not &meta then write("no meta") else write("meta");
+   if not \&window then write("no window") else write("window");
    if (not &fail) & (not (integer("\t") < 0)) then write("keypress branch") else write("other branch");
-   write(image(not &x) | "not &x failed");
+   write(image(not \&window) | "not failed");
    write("end");
 end
 ```
 
 ```stdout
-no meta
+no window
 keypress branch
 &null
 end
@@ -18202,7 +18202,6 @@ fail-failed
 integer
 integer
 integer
-1
 ```
 
 ## procedure_write_214
@@ -28009,10 +28008,10 @@ end
      &digits: &digits  [size 10]
        &dump: 0
           &e: 2.718281828
-      &error: 747
-&errornumber: [failed]
-  &errortext: [failed]
- &errorvalue: [failed]
+      &error: 745
+&errornumber: 140
+  &errortext: window expected
+ &errorvalue: &null
      &errout: &errout
        &fail: [failed]
    &features: string
@@ -28054,7 +28053,7 @@ end
       &trace: 0
       &ucase: &ucase  [size 26]
     &version: string
-     &window: [failed]
+     &window: &null
           &x: [failed]
           &y: [failed]
 ```
