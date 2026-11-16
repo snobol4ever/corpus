@@ -57,3 +57,4 @@ lib/sem.icn	same-code
 lib/msg.icn	same-code
 lib/shm.icn	same-code
 lib/undoableedit.icn	unchanged
+gui/dispatcher.icn	same-code

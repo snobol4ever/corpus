@@ -37,28 +37,28 @@ class Dispatcher : Object(
    #
    # @p
    method compute_idle_sleep()
-      local n
+      local n;
       if *tickers = 0 then 
          idle_sleep := idle_sleep_max
       else {
          #
          # Get minimum ticker rate
          #
-         idle_sleep := &null
+         idle_sleep := &null;
          every n := (!tickers).ticker_rate do
-            (/idle_sleep := n) | (idle_sleep >:= n)
+            (/idle_sleep := n) | (idle_sleep >:= n);
          #
          # Divide by number of tickers so that tickers with same tick
          # rate are still scheduled correctly.
          #
-         idle_sleep /:= *tickers
+         idle_sleep /:= *tickers;
          #
          # Make between 10 and 50; not too quick to give a busy wait, not
          # too slow that events are not processed promptly.
          #
-         idle_sleep <:= idle_sleep_min
+         idle_sleep <:= idle_sleep_min;
          idle_sleep >:= idle_sleep_max
-      }
+      };
    end
 
    #
@@ -66,9 +66,9 @@ class Dispatcher : Object(
    #
    # @p
    method curr_time_of_day()
-      local t
-      t := gettimeofday()
-      return t[1] * 1000 + t[2] / 1000
+      local t;
+      t := gettimeofday();
+      return t[1] * 1000 + t[2] / 1000;
    end
 
    #
@@ -77,10 +77,10 @@ class Dispatcher : Object(
    # @p
    method stop_ticker(t)
       if \t.ticker_rate then {
-         delete(tickers, t)
-         t.ticker_count := t.next_tick_time := t.ticker_rate := &null
+         delete(tickers, t);
+         t.ticker_count := t.next_tick_time := t.ticker_rate := &null;
          compute_idle_sleep()
-      }
+      };
    end
 
    #
@@ -88,15 +88,15 @@ class Dispatcher : Object(
    # 
    # @p
    method start_ticker(t, n, d, c)
-      insert(tickers, t)
-      /n := 0
-      t.ticker_rate := n
+      insert(tickers, t);
+      /n := 0;
+      t.ticker_rate := n;
       if /d then
          t.next_tick_time := 0
       else
-         t.next_tick_time := curr_time_of_day() + d
-      t.ticker_count := c
-      compute_idle_sleep()
+         t.next_tick_time := curr_time_of_day() + d;
+      t.ticker_count := c;
+      compute_idle_sleep();
    end
 
    #
@@ -106,10 +106,10 @@ class Dispatcher : Object(
    # @p
    method retime_ticker(t, n)
       if \t.ticker_rate then {
-         /n := 0
-         t.ticker_rate := n
+         /n := 0;
+         t.ticker_rate := n;
          compute_idle_sleep()
-      }
+      };
    end
 
    #
@@ -117,7 +117,7 @@ class Dispatcher : Object(
    #
    # @p
    method add(d)
-      insert(dialogs, d)
+      insert(dialogs, d);
    end
 
    #
@@ -125,7 +125,7 @@ class Dispatcher : Object(
    #
    # @p
    method del(d)
-      delete(dialogs, d)
+      delete(dialogs, d);
    end
 
    #
@@ -140,12 +140,12 @@ class Dispatcher : Object(
       } else {
          while \r.is_open do
             do_event() | do_validate() | do_ticker() | delay(idle_sleep)
-      }
+      };
    end
 
    method do_event()
-      local d, bag, e
-      bag := []
+      local d, bag, e;
+      bag := [];
       every d := !dialogs do {
          if *Pending(d.win) > 0 then {
             if /d.is_blocked_flag then
@@ -155,56 +155,56 @@ class Dispatcher : Object(
                   #
                   # Discard the event and beep in the window.
                   # 
-                  e := ::Event(d.win)
+                  e := ::Event(d.win);
                   if not(e === (-12 | &lrelease | &rrelease | &mrelease | &ldrag | &rdrag | &mdrag)) then
                      Alert(d.win)
                }
             }
          }
-      }
+      };
       if d := ?bag then {
-         d.process_event(::Event(d.win))
+         d.process_event(::Event(d.win));
          return
-      }
+      };
    end
 
    method do_validate()
-      local d, bag
-      bag := []
+      local d, bag;
+      bag := [];
       every d := !dialogs do {
          # check if dialog supports validation, for backward compatibility
          if d["all_valid"] & d.needs_validate() then
             put(bag, d)
-      }
+      };
       if d := ?bag then {
-         d.invoke_validate()
+         d.invoke_validate();
          return
-      }
+      };
    end
 
    method do_ticker()
-      local curr_time, d, bag
+      local curr_time, d, bag;
 
-      curr_time := curr_time_of_day()
-      bag := []
+      curr_time := curr_time_of_day();
+      bag := [];
       every d := !tickers do {
          if curr_time >= d.next_tick_time then
             put(bag, d)
-      }
+      };
       if d := ?bag then {
-         d.tick()
+         d.tick();
          if \d.ticker_count then {
-            d.ticker_count -:= 1
+            d.ticker_count -:= 1;
             if d.ticker_count <= 0 then
                stop_ticker(d)
-         }
+         };
          #
          # We have to take into account the fact that d.tick() may
          # delete itself as a ticker.
          #
-         d.next_tick_time := \d.ticker_rate + curr_time_of_day()
+         d.next_tick_time := \d.ticker_rate + curr_time_of_day();
          return
-      }
+      };
    end
 
    #
@@ -212,14 +212,14 @@ class Dispatcher : Object(
    #
    # @p
    method list_unblocked()
-      local d, res
+      local d, res;
 
-      res := []
+      res := [];
       every d := !dialogs do
          if /d.is_blocked_flag then
-            put(res, d)
+            put(res, d);
 
-      return res
+      return res;
    end
 
    #
@@ -228,18 +228,18 @@ class Dispatcher : Object(
    # dialogs are generated.
    #
    method find_dialog(class_name)
-      local d
+      local d;
       every d := !dialogs do {
          if /d.is_blocked_flag & 
             (/class_name | lang::is_instance(d, class_name)) then
              suspend d
-      }
+      };
    end
 
    initially
-      dialogs := set([])
-      tickers := set([])
-      idle_sleep_min := 10
-      idle_sleep_max := 50
-      compute_idle_sleep()
+      dialogs := set([]);
+      tickers := set([]);
+      idle_sleep_min := 10;
+      idle_sleep_max := 50;
+      compute_idle_sleep();
 end
