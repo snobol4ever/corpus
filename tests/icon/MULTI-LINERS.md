@@ -10953,6 +10953,24 @@ end
 "one"
 ```
 
+## ladder__rung29_builtins_open_by_name_takes_attribute_arguments_past_two
+
+```Icon
+procedure main()
+   local p, f;
+   p := "open";
+   f := p("/dev/null", "r", "size=10,10");
+   write(type(f), " ", args(proc(p, 0)), " ", image(proc(p, 0)));
+   f := proc(p, 0)("/dev/null", "r", "size=10,10", "label=x");
+   write(type(f));
+end
+```
+
+```stdout
+file -3 function open
+file
+```
+
 ## ladder_rung15_real_swap_rev_exchange
 
 ```Icon
