@@ -1,0 +1,19 @@
+# colormap: shows the colours of a colour list file as a row of swatches in a window of its own. meta l opens its file dialog; the name
+# typed is -, which colrlist reads as standard input (colormap.in, sixteen colour names and one hex value); Return loads it, the swatch
+# window opens at 0 0 and the interface is raised over it; meta q quits. The pointer is moved into the dialog before the name is typed.
+# Left out: snapshot (meta s), which asks a file name and writes an image; reload, which does nothing in this program.
+move 100 150
+wait
+keydown Alt_L
+key l
+keyup Alt_L
+wait
+move 200 134
+type -
+wait
+key Return
+wait
+move 100 150
+keydown Alt_L
+key q
+keyup Alt_L

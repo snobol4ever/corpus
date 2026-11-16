@@ -1,0 +1,29 @@
+# cw, the colour-way editor (colorway.icn of the library; two windows: the vib interface at 10 10 and the colour way below it, black and
+# white to start). Ways menu, delete: its toggle dialog takes the toggles of black and white and Okay, so the colour way is empty; the
+# edit button turns edit mode on and q in the colour way window turns it off; File menu, quit, ends the program, rc 0.
+# Every step is a click: a key typed into a dialog reaches nothing, since the program's expose() holds the keyboard on its interface
+# window (MEASURED: a name typed into the add dialog with the pointer inside it never showed); the add path's colour dialog does not take
+# its Okay at depth 24 on the oracle (MEASURED twice), so add is left out; one toggle alone is left out too, since an unset toggle is
+# &null and delete_way compares it with 1, the run-time error 103 the library's own NOTE names (MEASURED on the oracle).
+move 68 22
+press 1
+wait
+move 75 57
+release 1
+wait
+click 1 37 74
+wait
+click 1 37 100
+wait
+click 1 51 142
+wait
+click 1 50 58
+wait
+move 60 240
+key q
+wait
+move 28 22
+press 1
+wait
+move 30 117
+release 1

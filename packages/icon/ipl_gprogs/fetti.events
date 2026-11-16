@@ -1,0 +1,15 @@
+# fetti: a field of confetti squares, each colour drawn at random (Icon's fixed seed: the program never calls randomize) inside the hue,
+# saturation and value ranges of its text fields. The hue buttons set the range and render (r, g, the all button), RENDER renders again
+# with the same range, space renders from the keyboard with the pointer inside the window, and quit ends the program.
+click 1 252 226
+wait
+click 1 294 226
+wait
+click 1 273 243
+wait
+click 1 300 335
+wait
+move 300 300
+key space
+wait
+click 1 299 453

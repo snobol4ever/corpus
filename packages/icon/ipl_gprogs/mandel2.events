@@ -1,0 +1,4 @@
+# mandel2: plots the Mandelbrot set point by point in a random order (randomize(); a left press while it draws stops the plot), then
+# waits for one event. The road waits for the finished picture before the first step, so the plot is whole; the click is the closing
+# event and the program ends by itself, rc 0. The order of the plot is the clock's and no screen shows it; the finished picture is one.
+click 1 120 120

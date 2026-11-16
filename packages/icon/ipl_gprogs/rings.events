@@ -1,0 +1,18 @@
+# rings: each key draws on a tile replicated across the window. c drops ten circles, r five rings (at ?-random places from Icon's fixed
+# seed: the program never calls randomize), R reverses the window, E erases it, q quits. The pointer goes in first. F (fill) is left
+# out: a window filled black on the black root is no picture the road can tell from none (MEASURED: screen unstable).
+move 200 200
+wait
+key c
+wait
+key r
+wait
+key c
+wait
+key R
+wait
+key E
+wait
+key r
+wait
+key q

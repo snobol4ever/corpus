@@ -1,0 +1,17 @@
+# chernoff: a Chernoff face drawn by five scroll bars (eyes, pupils, nose, smile, face; the vidget library), each redrawing its feature and
+# writing its value as it moves; q stops the program (stop(), rc 1). The eyes' thumb dragged right, the pupils' right arrow clicked three
+# times, the nose's thumb dragged, the smile's thumb dragged left, the face's trough clicked left of its thumb, then q with the pointer inside.
+drag 1 21 58 55 58
+wait
+click 1 84 108
+click 1 84 108
+click 1 84 108
+wait
+drag 1 21 158 60 158
+wait
+drag 1 70 208 30 208
+wait
+click 1 50 258
+wait
+move 200 300
+key q

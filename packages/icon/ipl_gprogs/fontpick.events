@@ -1,0 +1,15 @@
+# fontpick: shows the 256 characters of a font in a 16 by 16 grid, its name above. A font name typed into the text field at the foot and
+# Return shows that font (the window takes the keys with the pointer inside it); the QUIT button ends the program. Three fonts: fixed,
+# a sans bold 18, a name the server has none of (the subtitle says it cannot find the font); then QUIT.
+move 250 626
+wait
+type fixed
+key Return
+wait
+type sans,bold,18
+key Return
+wait
+type nosuchfont
+key Return
+wait
+click 1 488 625

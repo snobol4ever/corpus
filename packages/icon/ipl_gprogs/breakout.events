@@ -1,0 +1,13 @@
+# breakout: the digit keys lay out the blocks of a level, a left or right press launches the ball (up-left or up-right) from the pad, which
+# follows the pointer while the ball flies; the ball breaks blocks until it falls past the pad. The program has no quit: the road ends it at
+# the last still picture. Pointer into the window, level 2, level 5, then a left launch with the pad held still at x 140 until the ball
+# falls, a right launch from x 60 the same way.
+move 140 200
+wait
+key 2
+wait
+key 5
+wait
+click 1 140 200
+wait
+click 3 60 200

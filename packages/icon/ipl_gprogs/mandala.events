@@ -1,0 +1,11 @@
+# mandala: draws a mandala of ?50 points joined pair by pair (Icon's fixed seed: no randomize) and waits; n erases it and draws the next
+# after a second, q quits. The pointer goes in first; three more mandalas, then q.
+move 128 128
+wait
+key n
+wait
+key n
+wait
+key n
+wait
+key q

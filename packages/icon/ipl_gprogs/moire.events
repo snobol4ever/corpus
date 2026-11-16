@@ -1,0 +1,9 @@
+# moire: fills its square with an eightfold-symmetric field of points coloured from the c2 palette (?ncolors from Icon's fixed seed),
+# the step k growing by one each time, and waits; n draws the next field, q quits. The pointer goes in first; two more fields, then q.
+move 128 128
+wait
+key n
+wait
+key n
+wait
+key q
