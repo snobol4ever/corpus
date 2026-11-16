@@ -1,0 +1,9 @@
+Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag
+Diel Dilun Dimarzh Dimerc'her Diriaou Digwener Disadorn
+Domingo Lunes Martes Miércoles Jueves Viernes Sábado
+Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag
+dimanche lundi mardi mercredi jeudi vendredi samedi
+zondag maandag dinsdag woensdag donderdag vrijdag zaterdag
+
+Dies_Solis Dies_Lunae Dies_Martis Dies_Mercurii Dies_Iovis Dies_Veneris Dies_Saturni

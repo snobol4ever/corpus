@@ -45683,3 +45683,502 @@ Permutations for N = 5:
 28  1252259641403629865468285
 29  23119184187809597841473536
 30  441543893249023104553682821
+#---------------------------------------------------------------- 1162 abc-words
+57 matching:
+abacus       abdicated    abdication   abduct       abductee     abduction    abductor     abjectly     abscesses    abscissa     abscond     
+absconding   absences     abstract     abstractedly abstractions abstractness abundances   adiabatic    aerobics     albacore     algebraically
+alphabetical ambiances    ambience     ambivalence  ambulance    amoebic      antibiotics  diabetics    diabolical   drawback     fabricate   
+fabricating  fabrications flashback    halfbacks    hardbacks    iambics      lampblack    parabolic    polysyllabic prefabricates prefabrication
+quarterbacking rambunctious roadblock    roadblocks   sabbatical   superabundance swashbuckler swashbuckling swaybacked   syllabication tabernacles 
+tablecloth   transphobic 
+#-------------------------------------------------- 1163 abbreviations-automatic
+1) 2  Sunday Monday Tuesday Wednesday Thursday Friday Saturday
+2) 2  Sondag Maandag Dinsdag Woensdag Donderdag Vrydag Saterdag
+3) 4  Diel Dilun Dimarzh Dimerc'her Diriaou Digwener Disadorn
+4) 2  Domingo Lunes Martes Miércoles Jueves Viernes Sábado
+5) 2  Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag
+6) 2  dimanche lundi mardi mercredi jeudi vendredi samedi
+7) 2  zondag maandag dinsdag woensdag donderdag vrijdag zaterdag
+8) Nil  
+9) 7  Dies_Solis Dies_Lunae Dies_Martis Dies_Mercurii Dies_Iovis Dies_Veneris Dies_Saturni
+#---------------------------------------------------------- 1164 alternade-words
+5 alternades longer than 5 characters found in unixdict.txt:
+ambient => [abet min]
+annoys => [any nos]
+foiled => [fie old]
+sheath => [set hah]
+xxxiii => [xxi xii]
+#--------------------------------------------------------------- 1165 anagrams-1
+drapes padres parsed rasped spared spread
+#--------------------------------------------------------------- 1166 anagrams-2
+drapes padres parsed rasped spared spread
+#----------------------------------------------- 1167 anagrams-deranged-anagrams
+imperfections   perfectionism
+#------------------------------------------------------- 1168 base64-encode-data
+AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/wABAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR4fICEiIyQlJicoKSorLC0uLzAxMjM0NTY3ODk6Ozw9Pj9AQUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVpbXF1eX2BhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ent8fX5/gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v8=
+#------------------------------------------- 1169 change-e-letters-to-i-in-words
+artefact => artifact   belling => billing     chiles => chilis       dealings => dialings  
+encrustations => incrustations encrusting => incrusting inequity => iniquity   inflect => inflict    
+inflecting => inflicting pecking => picking     petting => pitting     quells => quills      
+shells => shills       smidgens => smidgins   wetting => witting    
+#---------------------------------- 1170 find-words-which-contain-all-the-vowels
+45 words found:
+cauliflower   communicable  communicates  commutative   consultancies
+countenancing crematoriums  encouraging   encrustations expurgations 
+facetiously   fluoridated   glamourizes   graciousness  grandiloquent
+gregariously  groundbreaking hallucinogen  hallucinogens housewarmings
+intravenous   intravenously malfunctioned milquetoast   mousetrapping
+nefariously   outdistance   outreaching   outspreading  permutation  
+perturbations popularized   purgatories   putrefaction  regulations  
+reputations   resuscitators somersaulting speculation   subordinated 
+tambourines   uncomplicated undercoating  unsportsmanlike warehousing  
+#------------------------- 1171 find-words-which-contains-more-than-3-e-vowels-1
+beseeches
+cheerlessness
+decremented
+deference
+dependence
+effervesced
+effervesces
+elsewhere
+enfeeble
+evergreen
+exceeded
+freebees
+peewees
+persevered
+precedence
+preferences
+redeemed
+redeemers
+reemerged
+reentered
+refereed
+reference
+references
+relentlessness
+reprehended
+resplendence
+reverence
+seventeen
+seventeenth
+sweetened
+sweeteners
+teepee
+tenderfeet
+vehemence
+veneered
+#------------------------- 1172 find-words-which-contains-more-than-3-e-vowels-2
+beseeches
+cheerlessness
+decremented
+deference
+dependence
+effervesced
+effervesces
+elsewhere
+enfeeble
+evergreen
+exceeded
+freebees
+peewees
+persevered
+precedence
+preferences
+redeemed
+redeemers
+reemerged
+reentered
+refereed
+reference
+references
+relentlessness
+reprehended
+resplendence
+reverence
+seventeen
+seventeenth
+sweetened
+sweeteners
+teepee
+tenderfeet
+vehemence
+veneered
+#------------------ 1173 find-words-whose-first-and-last-three-letters-are-equal
+antidepressant
+antiperspirant
+cancan
+entanglement
+enthronement
+entrapment
+hotshot
+ingesting
+ingraining
+ingratiating
+ionization
+mesdames
+pawpaw
+tartar
+testes
+tormentor
+underground
+#------------------------ 1174 find-words-with-alternating-vowels-and-consonants
+abominates      academical      apologized      camerawomen     capitalized     capitulated    
+caricature      categorical     categorize      coloratura      coronaviruses   cumulative     
+debilitated     decapitate      decapitates     decelerated     decolonized     definitive     
+degenerate      degenerative    dehumanized     deleveraged     deliberated     deliberates    
+demilitarize    demilitarizes   demobilize      demoralize      demoralizes     denominates    
+denominator     depoliticized   depopulate      depopulates     deregulates     derivative     
+desalinate      desalinates     dilapidated     diminutives     economical      economized     
+ejaculates      elaborated      elaborates      eliminated      elucidates      enumerates     
+epitomized      exonerates      facilitated     generalize      homogenized     inamoratas     
+inoculated      inoperative     italicized      judicature      legitimizes     liberalized    
+manipulated     manipulative    meditative      megalopolises   melanomata      metabolized    
+militarized     monopolized     naturalize      oratorical      originates      paradoxical    
+pejorative      policewomen     politicized     popularized     puritanical     recapitulate   
+recapitulates   recuperates     redecorate      redecorates     rededicated     regenerated    
+regularized     rehabilitated   rejuvenate      remunerated     remunerative    repetitive     
+revitalize      rigamaroles     secularized     semiretired     uneconomical    uneducated     
+unicameral      varicolored     vegetative      vituperated     vociferate      vociferates    
+#---------------------------------------------------------------- 1175 hex-words
+10 hex words longer than 3 characters found in unixdict.txt:
+decade ➡ 14600926 ➡ 1
+ added ➡   712173 ➡ 3
+deeded ➡ 14609901 ➡ 3
+ ebbed ➡   965613 ➡ 3
+cabbed ➡ 13286381 ➡ 5
+effaced ➡ 251636973 ➡ 6
+  dead ➡    57005 ➡ 8
+ faded ➡  1027565 ➡ 8
+accede ➡ 11325150 ➡ 9
+beaded ➡ 12496365 ➡ 9
+
+Of which 6 contain at least four distinct characters:
+effaced ➡ 251636973 ➡ 6
+decade ➡ 14600926 ➡ 1
+cabbed ➡ 13286381 ➡ 5
+beaded ➡ 12496365 ➡ 9
+accede ➡ 11325150 ➡ 9
+ faded ➡  1027565 ➡ 8
+#---------------------------------------------- 1176 i-before-e-except-after-c-1
+I before E when not preceded by C: NOT PLAUSIBLE (0  vs. 0 ✘)
+E before I when preceded by C: NOT PLAUSIBLE (0  vs. 0 ✘)
+I before E except after C: NOT PLAUSIBLE
+#---------------------------------------------- 1177 i-before-e-except-after-c-2
+I before E when not preceded by C: NOT PLAUSIBLE (0  vs. 0 ✘)
+E before I when preceded by C: NOT PLAUSIBLE (0  vs. 0 ✘)
+I before E except after C: NOT PLAUSIBLE
+#------------------------------------------------- 1178 isograms-and-heterograms
+
+(3) 3-isograms:
+deeded
+xxxiii
+iii
+
+(10) 2-isograms:
+beriberi
+teammate
+cancan
+pawpaw
+redder
+tartar
+testes
+dodo
+meme
+tutu
+
+(57) heterograms with more than 10 characters:
+bankruptcies
+bluestocking
+demographics
+demonstrably
+expurgations
+lexicography
+outspreading
+recognizably
+abridgments
+atmospheric
+backgrounds
+blameworthy
+campgrounds
+chlorinated
+comradeship
+copyrighted
+countryside
+customarily
+demographic
+disgraceful
+dumbwaiters
+facetiously
+formulating
+fractiously
+glamourizes
+inexcusably
+inscrutably
+lumberjacks
+misanthrope
+misanthropy
+motherlands
+nefariously
+obfuscating
+outreaching
+overstaying
+patronymics
+personality
+platforming
+profligates
+promulgated
+prosecuting
+proselyting
+readjusting
+regulations
+republicans
+schmaltzier
+semaphoring
+speculation
+stenography
+switchblade
+switchboard
+sympathizer
+tambourines
+transphobic
+vibraphones
+warehousing
+workmanship
+#---------------------------------------------------- 1179 jaro-winkler-distance
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from accomodate:
+    accommodate : 0.0182
+  accommodating : 0.0815
+ accommodations : 0.0914
+       accolade : 0.1136
+     accordance : 0.1200
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from definately:
+      defiantly : 0.0422
+       definite : 0.0850
+      definable : 0.0872
+         deftly : 0.0933
+        defined : 0.1086
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from goverment:
+     government : 0.0533
+    governments : 0.0697
+      governess : 0.1175
+     governance : 0.1330
+       coverlet : 0.1361
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from occured:
+          occur : 0.0571
+         occurs : 0.0905
+       accursed : 0.0917
+        occlude : 0.1056
+     occurrence : 0.1086
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from publically:
+         public : 0.0800
+   subliminally : 0.1244
+    publication : 0.1327
+           pull : 0.1400
+   prolifically : 0.1422
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from recieve:
+       received : 0.0625
+          reeve : 0.0762
+      recessive : 0.0852
+         recite : 0.0905
+       relieved : 0.0917
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from seperate:
+      desperate : 0.0708
+       sewerage : 0.1167
+       repartee : 0.1238
+         severe : 0.1264
+     asseverate : 0.1275
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from untill:
+        anthill : 0.1206
+       unfilled : 0.1264
+      uninstall : 0.1333
+         untidy : 0.1333
+         untied : 0.1333
+
+Closest 5 dictionary words with a Jaro-Winkler distance < .15 from wich:
+          witch : 0.0533
+          which : 0.0600
+         twitch : 0.1111
+        winched : 0.1143
+        witched : 0.1143
+#-------------------------- 1180 longest-substrings-without-repeating-characters
+
+Original string: xyzyabcybdfd
+Longest substring(s) chars: 5 => [zyabc cybdf]
+
+Original string: xyzyab
+Longest substring(s) chars: 4 => [zyab]
+
+Original string: zzzzz
+Longest substring(s) chars: 1 => [z z z z z]
+
+Original string: a
+Longest substring(s) chars: 1 => [a]
+
+Original string: 
+Longest substring(s) chars: 0 => []
+
+Original string: 👒🎩🎓👩‍👩‍👦‍👦🧢🎓👨‍👧‍👧👒👩‍👩‍👦‍👦🎩🎓👒🧢
+Longest substring(s) chars: 6 => [🧢🎓👨‍👧‍👧👒👩‍👩‍👦‍👦🎩]
+
+Original string: α⊆϶α϶
+Longest substring(s) chars: 3 => [α⊆϶ ⊆϶α]
+
+Original string: (abbreviated)
+aardvarks
+abacus
+abaft
+abandon
+aban ... sts
+zoomed
+zooms
+zucchini
+zwieback
+
+Longest substring(s) chars: 15 => [roven
+disputabl graphy
+lexicons ying
+obfuscated gly
+paintbrushe]
+#---------------------------------------------------------------- 1181 odd-words
+Odd words > 4:
+ablutions	altos
+ballooned	blond
+barbarian	brain
+bargained	brand
+blackberry	baker
+blondness	bodes
+broadness	bodes
+crassness	cases
+falseness	flees
+gradients	gains
+perkiness	pries
+smoulders	soles
+superseded	spree
+supervene	spree
+swiftness	sites
+thickness	tikes
+transitted	taste
+wrinklies	wikis
+
+Even words > 4:
+appraisers	pries
+camcorders	acres
+scroungers	cones
+#------------------------------------------------ 1182 read-a-configuration-file
+fullname: Foo Barber
+favouritefruit: banana
+needspeeling: True
+seedsremoved: False
+otherfamily: ["Rhu Barber", "Harry Barber"]
+#-------------------------------- 1183 read-a-file-character-by-character-utf8-2
+Grüße aus München: ein Œuvre für 10 € — naïve café.
+Καλημέρα κόσμε; こんにちは世界.
+#----------------------------------------------- 1184 read-a-file-line-by-line-1
+The quick brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs!
+How vexingly quick daft zebras jump;
+Sphinx of black quartz, judge my vow.
+#----------------------------------------------- 1185 read-a-file-line-by-line-2
+The quick brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs!
+How vexingly quick daft zebras jump;
+Sphinx of black quartz, judge my vow.
+#- 1186 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line-2
+The quick brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs!
+How vexingly quick daft zebras jump;
+Sphinx of black quartz, judge my vow.
+#------------------------------------------------------ 1187 selective-file-copy
+Input data as read from ./sfc.dat:
+${"field a" => "alpha", "field b" => "BRAVO", "field c" => 808465458, "field d" => "X", "field e" => "charl"}
+${"field a" => "delta", "field b" => "ECHO ", "field c" => 825833271, "field d" => "Y", "field e" => "foxtr"}
+${"field a" => "golfH", "field b" => "OTEL2", "field c" => 808597082, "field d" => "i", "field e" => "ndia "}
+
+Output:
+alphaX30303432xxxxx
+deltaY31393737xxxxx
+golfHi3032365axxxxx
+#------------------------------------------- 1188 take-notes-on-the-command-line
+Notes of ours, one a line:
+buy milk
+call the grader
+#-------------------------------------------------------- 1189 text-completion-1
+80.00% compaction
+#-------------------------------------------------------- 1190 text-completion-2
+
+complition:
+[0.8 complication]
+[0.737 competition]
+[0.7 compositions]
+[0.667 coalitions]
+[0.667 compaction]
+[0.632 computation]
+[0.632 implication]
+[0.625 complied]
+[0.625 volition]
+[0.6 compilations]
+
+inconsqual:
+[0.609 inconsequential]
+[0.588 squalling]
+[0.556 concealing]
+[0.556 inconstant]
+
+Sørenson:
+[0.615 reasons]
+[0.6 sons]
+#------------------------------ 1191 user-defined-pipe-and-redirection-operators
+Pioneer: 
+#-------------------------------------------------------------- 1192 word-ladder
+boy into man cannot be done
+girl into lady cannot be done
+john into jane cannot be done
+child into adult cannot be done
+#------------------------------------------- 1193 words-containing-the-substring
+51 words:
+  amphitheaters     anaesthetist      anaesthetized     anaesthetizing    anesthesiologists anesthetists      anesthetized      antithetical     
+  atherosclerosis   authenticate      authenticating    authentications   brotherhoods      calisthenics      chrysanthemum     featherbedding   
+  featherweights    foregathered      forgathering      grandfathers      hotheadedness     housemothers      hypothesizes      hypothetically   
+  leathernecks      lighthearted      mathematician     motherfuckers     northeastern      northeastward     otherworldly      parenthesizes    
+  parthenogenesis   photosynthesis    physiotherapists  plainclothes      psychotherapists  radiotherapist    radiotherapy      southeastern     
+  southernmost      strengthening     synthesizers      synthesizing      thematically      theoretically     therapeutically   thermonuclear    
+  weatherizing      weatherproof      weatherproofing  
+#------------------------------------------------ 1194 words-from-neighbour-ones
+accustoms
+astronomy
+authorize
+catalogue
+computers
+construct
+converses
+determine
+discourse
+disinters
+electrons
+enthusing
+foreclose
+humanizes
+intensive
+interlink
+interpose
+interpret
+overrides
+parallels
+professor
+rationals
+represent
+repressed
+retaliate
+revolving
+strangles
+transfixt
+transport

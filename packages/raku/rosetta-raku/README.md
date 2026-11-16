@@ -14,3 +14,17 @@ Every Raku solution of Rosetta Code, from RosettaCodeData (https://github.com/ac
 
 video-display-modes was screened out on 2026-11-15 after it ran: it calls `QX('xrandr -s ...')`, which the screen missed (the words it met in the 195 are `run`, `shell`, `qx`, `qqx` and others, never `QX`), and it set this box's display to 640x350 for nine seconds each run. No other program of the package names QX.
 
+
+## The data files of ours (2026-11-16, the grader; Lon 2026-11-15: "Write inputs of ours")
+
+48 of the programs owed opened a file the folder lacked. Each now finds a file of OURS beside it, staged where it runs as every companion its
+text names is staged: `unixdict.txt`, `words.txt` and `words_alpha.txt` are one word list of ours drawn from SCOWL's american-english (its
+notice and how the list was drawn in `WORDLIST-OURS.txt`), standing in for Rosetta Code's `unixdict.txt`, which this box does not hold;
+`test.txt`, `filename.txt`, `nul.txt` and `input.txt` four lines of text; `whatever` two lines of UTF-8; `DoWAKA.txt` the days of the week in
+nine languages; `file.cfg` a configuration file in the task's format; `1_2_all_freq.txt` a word-frequency table; `List_of_computer_scientists.lst`
+ten lines; `sfc.dat` three fixed-length records; the four `.ppm` files one 16x16 image of ours; `favicon.ico` 512 bytes. Every answer is still
+rakudo's, cut twice by the splice road (`--twice --only`): 33 programs enter (abc-words and 32 more), 4 answer differently on two runs
+(passphrase-generator, semordnilap, textonyms, word-search, declared NO_ORACLE_ANSWER), and 11 still print nothing (three find nothing in our
+list; two write their answer to a file; two stop with their error on stderr alone; the rest are owed as before). 37 programs stay owed.
+
+The first SCRIP reading of the 33 (mode 3, SCRIP 38179ce886, on the landing's worktree): 4 of 33.

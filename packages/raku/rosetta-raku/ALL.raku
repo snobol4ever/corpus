@@ -29805,3 +29805,645 @@ say "\n M  zigzag number\n--  -------------";
 sub bt (@seq) { map *.tail, (@seq[0], {[[\+] flat @seq[++$ ], .reverse]}…*) }
 
 printf("%2d  %d\n", ++$, $_) for (flat 1, 0 xx *).&bt[1..30]
+#---------------------------------------------------------------- 1162 abc-words
+put display 'unixdict.txt'.IO.words».fc.grep({ (.index('a')//next) < (.index('b')//next) < (.index('c')//next) }),
+     :11cols, :fmt('%-12s');
+
+sub display ($list, :$cols = 10, :$fmt = '%6d', :$title = "{+$list} matching:\n" )   {
+    cache $list;
+    $title ~ $list.batch($cols)».fmt($fmt).join: "\n"
+}
+#-------------------------------------------------- 1163 abbreviations-automatic
+sub auto-abbreviate ( Str $string ) {
+    return Nil unless my @words = $string.words;
+    return $_ if @words».substr(0, $_).Set == @words for 1 .. @words».chars.max;
+    return '∞';
+}
+
+# Testing
+ say ++$, ') ', .&auto-abbreviate, '  ', $_ for './DoWAKA.txt'.IO.lines;
+#---------------------------------------------------------- 1164 alternade-words
+unit sub MAIN ($file = 'unixdict.txt', :$min = 6);
+
+my %words = $file.IO.slurp.words.map: * => 1;
+
+my @alternades;
+
+for %words {
+    next if .key.chars < $min;
+    my @letters = .key.comb;
+    my @alts = @letters[0,2 … *].join, @letters[1,3 … *].join;
+    @alternades.push(.key => @alts) if %words{@alts[0]} && %words{@alts[1]};
+}
+
+@alternades.=sort;
+
+say "{+@alternades} alternades longer than {$min-1} characters found in $file:";
+
+.say for @alternades > 10
+  ?? (flat @alternades.head(5), '...', @alternades.tail(5))
+  !! @alternades;
+#--------------------------------------------------------------- 1165 anagrams-1
+my @anagrams = 'unixdict.txt'.IO.words.classify(*.comb.sort.join).values;
+
+my $max = @anagrams».elems.max;
+
+.put for @anagrams.grep(*.elems == $max);
+#--------------------------------------------------------------- 1166 anagrams-2
+.put for                         # print each element of the array made this way:
+    'unixdict.txt'.IO.words      # load words from file
+    .classify(*.comb.sort.join)  # group by common anagram
+    .classify(*.value.elems)     # group by number of anagrams in a group
+    .max(*.key).value            # get the group with highest number of anagrams
+    .map(*.value)                # get all groups of anagrams in the group just selected
+#----------------------------------------------- 1167 anagrams-deranged-anagrams
+my @anagrams = 'unixdict.txt'.IO.words
+    .map(*.comb.cache)             # explode words into lists of characters
+    .classify(*.sort.join).values  # group words with the same characters
+    .grep(* > 1)                   # only take groups with more than one word
+    .sort(-*[0])                   # sort by length of the first word
+;
+
+for @anagrams -> @group {
+    for @group.combinations(2) -> [@a, @b] {
+        if none @a Zeq @b {
+            say "{@a.join}   {@b.join}";
+            exit;
+        }
+    }
+}
+#------------------------------------------------------- 1168 base64-encode-data
+sub MAIN {
+    my $buf = slurp("./favicon.ico", :bin);
+    say buf-to-Base64($buf);
+}
+
+my @base64map = flat 'A' .. 'Z', 'a' .. 'z', ^10, '+', '/';
+
+sub buf-to-Base64($buf) {
+    join '', gather for $buf.list -> $a, $b = [], $c = [] {
+        my $triplet = ($a +< 16) +| ($b +< 8) +| $c;
+        take @base64map[($triplet +> (6 * 3)) +& 0x3F];
+        take @base64map[($triplet +> (6 * 2)) +& 0x3F];
+        if $c.elems {
+            take @base64map[($triplet +> (6 * 1)) +& 0x3F];
+            take @base64map[($triplet +> (6 * 0)) +& 0x3F];
+        }
+        elsif $b.elems {
+            take @base64map[($triplet +> (6 * 1)) +& 0x3F];
+            take '=';
+        }
+        else { take '==' }
+    }
+}
+#------------------------------------------- 1169 change-e-letters-to-i-in-words
+my %ei = 'unixdict.txt'.IO.words.grep({ .chars > 5 and /<[ie]>/ }).map: { $_ => .subst('e', 'i', :g) };
+put %ei.grep( *.key.contains: 'e' ).grep({ %ei{.value}:exists }).sort.batch(4)».gist».fmt('%-22s').join: "\n";
+#---------------------------------- 1170 find-words-which-contain-all-the-vowels
+put +.words, " words found:\n", $_ with 'unixdict.txt'.IO.words\
+  .grep({ .chars > 10 and all(.comb.Bag<a e i o u>) == 1 })\
+  .batch(5)».fmt('%-13s').join: "\n";
+#------------------------- 1171 find-words-which-contains-more-than-3-e-vowels-1
+.say for "unixdict.txt".IO.lines.grep: { !/<[aiou]>/ and /e.*e.*e.*e/ };
+#------------------------- 1172 find-words-which-contains-more-than-3-e-vowels-2
+unit sub MAIN ($vowel = 'e', $min = 4, $file = 'unixdict.txt');
+.say for squish sort
+  ( $file.IO.slurp.words.grep: { ((my $b = .lc.samemark(' ').comb.Bag){$vowel} >= $min) && $b<a e i o u>.sum == $b{$vowel} } )\
+  ».subst(/<[":;,.?!_\[\]]>/, '', :g);
+#------------------ 1173 find-words-whose-first-and-last-three-letters-are-equal
+# 20210210 Raku programming solution
+
+my ( \L, \N, \IN ) = 5, 3, 'unixdict.txt';
+
+for IN.IO.lines { .say if .chars > L and .substr(0,N) eq .substr(*-N,*) }
+#------------------------ 1174 find-words-with-alternating-vowels-and-consonants
+grammar VOWCON {
+    token       TOP { <|w> <vowel>? ( <consonant> <vowel> )* <consonant>? <|w> }
+    token     vowel { <[aeiou]> }
+    token consonant { <[a..z] - [aeiou]> }
+}
+
+say ( grep { VOWCON.parse: .lc }, grep { .chars > 9 }, 'unixdict.txt'.IO.words ).batch(6)».fmt('%-15s').join: "\n";
+#---------------------------------------------------------------- 1175 hex-words
+sub dr (Int $_ is copy) { $_ = .comb.sum while .chars > 1; $_ }
+
+my %hex = './unixdict.txt'.IO.slurp.words.grep( *.chars > 3 )\
+  .grep({ not / <-[abcdef]> / }).map: { $_ => dr :16($_).comb.sum }
+
+say "{+%hex} hex words longer than 3 characters found in unixdict.txt:";
+printf "%6s ➡ %8d ➡ %d\n", .key, :16(.key), .value for %hex.sort: { .value, .key }
+
+my %many = %hex.grep: +*.key.comb.Set > 3;
+
+say "\nOf which {+%many} contain at least four distinct characters:";
+printf "%6s ➡ %8d ➡ %d\n", .key, :16(.key), .value for %many.sort: { -:16(.key) }
+#---------------------------------------------- 1176 i-before-e-except-after-c-1
+grammar CollectWords {
+    token TOP {
+        [^^ <word> $$ \n?]+
+    }
+
+    token word {
+        [ <with_c> | <no_c> | \N ]+
+    }
+
+    token with_c {
+        c <ie_part>
+    }
+
+    token no_c {
+        <ie_part>
+    }
+
+    token ie_part {
+        ie | ei | eie # a couple words in the list have "eie"
+    }
+}
+
+class CollectWords::Actions {
+    method TOP($/) {
+        make $<word>».ast.flat.Bag;
+    }
+
+    method word($/) {
+        if $<with_c> + $<no_c> {
+            make flat $<with_c>».ast, $<no_c>».ast;
+        } else {
+            make ();
+        }
+    }
+
+    method with_c($/) {
+        make "c" X~ $<ie_part>.ast;
+    }
+
+    method no_c($/) {
+        make "!c" X~ $<ie_part>.ast;
+    }
+
+    method ie_part($/) {
+        if ~$/ eq 'eie' {
+            make ('ei', 'ie');
+        } else {
+            make ~$/;
+        }
+    }
+}
+
+sub plausible($good, $bad, $msg) {
+    if $good > 2*$bad {
+        say "$msg: PLAUSIBLE ($good  vs. $bad ✘)";
+        return True;
+    } else {
+        say "$msg: NOT PLAUSIBLE ($good  vs. $bad ✘)";
+        return False;
+    }
+}
+
+my $results = CollectWords.parsefile("unixdict.txt", :actions(CollectWords::Actions)).ast;
+
+my $phrasetest = [&] plausible($results<!cie>, $results<!cei>, "I before E when not preceded by C"),
+                     plausible($results<cei>, $results<cie>, "E before I when preceded by C");
+
+say "I before E except after C: ", $phrasetest ?? "PLAUSIBLE" !! "NOT PLAUSIBLE";
+#---------------------------------------------- 1177 i-before-e-except-after-c-2
+grammar CollectWords {
+    token TOP {
+        ^^ \t Word \t PoS \t Freq $$ \n
+        [^^ <word> $$ \n?]+
+    }
+
+    token word {
+        \t+
+        [ <with_c> | <no_c> | \T ]+ \t+
+        \T+ \t+ # PoS doesn't matter to us, so ignore it
+        $<freq>=[<.digit>+] \h*
+    }
+
+    token with_c {
+        c <ie_part>
+    }
+
+    token no_c {
+        <ie_part>
+    }
+
+    token ie_part {
+        ie | ei
+    }
+}
+
+class CollectWords::Actions {
+    method TOP($/) {
+        make $<word>».ast.flat.Bag;
+    }
+
+    method word($/) {
+        if $<with_c> + $<no_c> {
+            make flat $<with_c>».ast xx +$<freq>, $<no_c>».ast xx +$<freq>;
+        } else {
+            make ();
+        }
+    }
+
+    method with_c($/) {
+        make "c" ~ $<ie_part>;
+    }
+
+    method no_c($/) {
+        make "!c" ~ $<ie_part>;
+    }
+}
+
+sub plausible($good, $bad, $msg) {
+    if $good > 2*$bad {
+        say "$msg: PLAUSIBLE ($good  vs. $bad ✘)";
+        return True;
+    } else {
+        say "$msg: NOT PLAUSIBLE ($good  vs. $bad ✘)";
+        return False;
+    }
+}
+
+# can't use .parsefile like before due to the non-Unicode £ in this file.
+my $file = slurp("1_2_all_freq.txt", :enc<iso-8859-1>);
+my $results = CollectWords.parse($file, :actions(CollectWords::Actions)).ast;
+
+my $phrasetest = [&] plausible($results<!cie>, $results<!cei>, "I before E when not preceded by C"),
+                     plausible($results<cei>, $results<cie>, "E before I when preceded by C");
+
+say "I before E except after C: ", $phrasetest ?? "PLAUSIBLE" !! "NOT PLAUSIBLE";
+#------------------------------------------------- 1178 isograms-and-heterograms
+my $file = 'unixdict.txt';
+
+my @words = $file.IO.slurp.words.race.map: { $_ => .comb.Bag };
+
+.say for (6...2).map: -> $n {
+    next unless my @iso = @words.race.grep({.value.values.all == $n})».key;
+    "\n({+@iso}) {$n}-isograms:\n" ~ @iso.sort({[-.chars, ~$_]}).join: "\n";
+}
+
+my $minchars = 10;
+
+say "\n({+$_}) heterograms with more than $minchars characters:\n" ~
+  .sort({[-.chars, ~$_]}).join: "\n" given
+  @words.race.grep({.key.chars >$minchars && .value.values.max == 1})».key;
+#---------------------------------------------------- 1179 jaro-winkler-distance
+sub jaro-winkler ($s, $t) {
+
+    return 0 if $s eq $t;
+
+    my $s_len = + my @s = $s.comb;
+    my $t_len = + my @t = $t.comb;
+
+    my $match_distance = ($s_len max $t_len) div 2 - 1;
+
+    my @s_matches;
+    my @t_matches;
+    my $matches = 0;
+
+    for ^@s -> $i {
+
+        my $start = 0 max $i - $match_distance;
+        my $end = $i + $match_distance min ($t_len - 1);
+
+        for $start .. $end -> $j {
+            @t_matches[$j] and next;
+            @s[$i] eq @t[$j] or next;
+            @s_matches[$i] = 1;
+            @t_matches[$j] = 1;
+            $matches++;
+            last;
+        }
+    }
+
+    return 1 if $matches == 0;
+
+    my $k              = 0;
+    my $transpositions = 0;
+
+    for ^@s -> $i {
+        @s_matches[$i] or next;
+        until @t_matches[$k] { ++$k }
+        @s[$i] eq @t[$k] or ++$transpositions;
+        ++$k;
+    }
+
+    my $prefix = 0;
+
+    ++$prefix if @s[$_] eq @t[$_] for ^(min 4, $s_len, $t_len);
+
+    my $jaro = ($matches / $s_len + $matches / $t_len +
+        (($matches - $transpositions / 2) / $matches)) / 3;
+
+    1 - ($jaro + $prefix * .1 * ( 1 - $jaro) )
+}
+
+
+my @words =  './unixdict.txt'.IO.slurp.words;
+
+for <accomodate definately goverment occured publically recieve seperate untill wich>
+   -> $word {
+
+   my %result = @words.race.map: { $_ => jaro-winkler($word, $_) };
+
+   say "\nClosest 5 dictionary words with a Jaro-Winkler distance < .15 from $word:";
+
+   printf "%15s : %0.4f\n", .key, .value for %result.grep({ .value < .15 }).sort({+.value, ~.key}).head(5);
+}
+#-------------------------- 1180 longest-substrings-without-repeating-characters
+sub abbreviate ($_) { .chars > 80 ?? "(abbreviated)\n" ~ .substr(0,35) ~ ' ... ' ~ .substr(*-35) !! $_ }
+
+sub longest ($string) {
+   return 0 => [] unless $string.chars;
+   my ($start, $end, @substr) = 0, 0;
+   while ++$end < $string.chars {
+       my $sub = $string.substr($start, $end - $start);
+       if $sub.contains: my $next = $string.substr: $end, 1 {
+           @substr[$end - $start].push($sub) if $end - $start >= @substr.end;
+           $start += 1 + $sub.index($next);
+       }
+   }
+   @substr[$end - $start].push: $string.substr($start);
+   @substr.pairs.tail
+}
+
+# Testing
+say "\nOriginal string: {abbreviate $_}\nLongest substring(s) chars: ", .&longest
+
+# Standard tests
+for flat qww< xyzyabcybdfd xyzyab zzzzz a '' >,
+
+# multibyte Unicode
+< 👒🎩🎓👩‍👩‍👦‍👦🧢🎓👨‍👧‍👧👒👩‍👩‍👦‍👦🎩🎓👒🧢 α⊆϶α϶ >,
+
+# check a file
+slurp 'unixdict.txt';
+#---------------------------------------------------------------- 1181 odd-words
+my %words = 'unixdict.txt'.IO.slurp.words.map: * => 1;
+
+my (@odds, @evens);
+
+for %words {
+    next if .key.chars < 9;
+    my $odd  = .key.comb[0,2 … *].join;
+    @odds.push(.key => $odd) if %words{$odd} and $odd.chars > 4;
+    my $even = .key.comb[1,3 … *].join;
+    @evens.push(.key => $even) if %words{$even} and $even.chars > 4;
+}
+
+.put for flat 'Odd words > 4:', @odds.sort;
+
+.put for flat "\nEven words > 4:", @evens.sort;
+#------------------------------------------------ 1182 read-a-configuration-file
+my $fullname;
+my $favouritefruit;
+my $needspeeling = False;
+my $seedsremoved = False;
+my @otherfamily;
+
+grammar ConfFile {
+    token TOP {
+	:my $*linenum = 0;
+	^ <fullline>* [$ || (\N*) { die "Parse failed at $0" } ]
+    }
+
+    token fullline {
+	<?before .>
+	{ ++$*linenum }
+	<line>
+	[ \n || { die "Parse failed at line $*linenum" } ]
+    }
+
+    proto token line() {*}
+
+    token line:misc  { {} (\S+) { die "Unrecognized word: $0" } }
+
+    token line:sym<comment> { ^^ [ ';' | '#' ] \N* }
+    token line:sym<blank>   { ^^ \h* $$ }
+
+    token line:sym<fullname>       {:i fullname»       <rest> { $fullname = $<rest>.trim } }
+    token line:sym<favouritefruit> {:i favouritefruit» <rest> { $favouritefruit = $<rest>.trim } }
+    token line:sym<needspeeling>   {:i needspeeling»    <yes> { $needspeeling = defined $<yes> } }
+    token rest { \h* '='? (\N*) }
+    token yes { :i \h* '='? \h*
+    	[
+	    || ([yes|true|1])
+	    || [no|false|0]
+	    || (<?>)
+	] \h*
+    }
+}
+
+grammar MyConfFile is ConfFile {
+    token line:sym<otherfamily>    {:i otherfamily»    <rest> { @otherfamily = $<rest>.split(',')».trim } }
+}
+
+MyConfFile.parsefile('file.cfg');
+
+say "fullname: $fullname";
+say "favouritefruit: $favouritefruit";
+say "needspeeling: $needspeeling";
+say "seedsremoved: $seedsremoved";
+print "otherfamily: "; say @otherfamily.raku;
+#-------------------------------- 1183 read-a-file-character-by-character-utf8-2
+my $filename = 'whatever';
+
+my $in = open( $filename, :r ) orelse .die;
+
+print $_ while defined $_ = $in.getc;
+#----------------------------------------------- 1184 read-a-file-line-by-line-1
+for open('test.txt').lines
+{
+  .say
+}
+#----------------------------------------------- 1185 read-a-file-line-by-line-2
+my $f = open 'test.txt';
+while my $line = $f.get {
+    say $line;
+}
+#- 1186 reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line-2
+my $input-record-separator = "\x00\x00";
+
+my $fh = open("nul.txt".IO, :r, :bin);
+$fh.seek(0, SeekFromEnd); # start at the end of the file
+
+my $bytes = 5 min $fh.tell - 1; # read in file 5 bytes at a time (or whatever)
+
+$fh.seek(-$bytes, SeekFromCurrent);
+
+my $buffer = $fh.read($bytes).decode('Latin1'); # assume Latin1 for reduced complexity
+
+loop {
+    my $seek = ($fh.tell < $bytes * 2) ?? -$fh.tell !! -$bytes * 2;
+    $fh.seek($seek, SeekFromCurrent);
+    $buffer = $buffer R~ $fh.read((-$seek - $bytes) max 0).decode('Latin1');
+    if $buffer.contains: $input-record-separator {
+        my @rest;
+        ($buffer, @rest) = $buffer.split: $input-record-separator;
+        .say for reverse @rest; # emit any full records that have been processed
+    }
+    last if $fh.tell < $bytes;
+}
+
+say $buffer; # emit any remaining record
+#------------------------------------------------------ 1187 selective-file-copy
+my @format = ( # arbitrary and made up record format
+    'field a' => { offset => 0,  length => 5, type => 'Str' },
+    'field b' => { offset => 5,  length => 5, type => 'Str' },
+    'field c' => { offset => 10, length => 4, type => 'Int' },
+    'field d' => { offset => 14, length => 1, type => 'Str' },
+    'field e' => { offset => 15, length => 5, type => 'Str' }
+);
+
+my $record-length = @format[*]».value».<length>.sum;
+
+my $in = './sfc.dat'.IO.open :r :bin;
+
+say "Input data as read from $in:";
+my @records;
+@records.push: get-record($in, $record-length) until $in.eof;
+.perl.say for @records;
+
+# not going to bother to actually write out to a file, if you really want to,
+# supply a file handle to a local file
+say "\nOutput:";
+my $outfile = $*OUT; # or some other filename, whatever.
+
+for @records -> $r {
+    $outfile.printf( "%-5s%s%08x%5s\n", flat $r.{'field a','field d','field c'}, 'xxxxx' );
+}
+
+sub get-record($fh, $bytes) {
+    my $record = $fh.read($bytes);
+    return ().Slip unless $record.elems == $bytes;
+    my %r = @format.map: {
+        .key => do given $_.value.<type> -> $type
+        {
+            when $type eq 'Str' { $record.subbuf($_.value.<offset>, $_.value.<length>).decode }
+            when $type eq 'Int' { sum $record.subbuf($_.value.<offset>, $_.value.<length>) Z+< (24,16,8,0) }
+            default             { $record.subbuf($_.value.<offset>, $_.value.<length>) } # Buf
+        }
+    }
+}
+#------------------------------------------- 1188 take-notes-on-the-command-line
+my $file = 'notes.txt';
+
+multi MAIN() {
+    print slurp($file);
+}
+
+multi MAIN(*@note) {
+    my $fh = open($file, :a);
+    $fh.say: DateTime.now, "\n\t", @note;
+    $fh.close;
+}
+#-------------------------------------------------------- 1189 text-completion-1
+sub MAIN ( Str $user_word = 'complition', Str $filename = 'words.txt' ) {
+    my @s1 = $user_word.comb;
+    my @listed = gather for $filename.IO.lines -> $line {
+        my @s2 = $line.comb;
+
+        my $correct = 100 * sum( @s1 Zeq @s2)
+                          / max(+@s1,   +@s2);
+
+        my $score = ( $correct >= 100            and @s1[0] eq @s2[0] ) ?? 100
+                 !! ( $correct >=  80            and @s1[0] eq @s2[0] ) ?? $correct
+                 !! ( $line.contains($user_word) and @s1 * 2 > @s2    ) ?? 80
+                 !!                                                        0;
+        take [$score, $line] if $score;
+    }
+
+    @listed = @listed[$_] with @listed.first: :k, { .[0] == 100 };
+
+    say "{.[0].fmt('%.2f')}% {.[1]}" for @listed;
+}
+#-------------------------------------------------------- 1190 text-completion-2
+sub sorenson ($phrase, %hash) {
+    my $match = bigram $phrase;
+    %hash.race.map: { [(2 * ($match ∩ .value) / ($match + .value)).round(.001), .key] }
+}
+
+sub bigram (\these) { Bag.new( flat these.fc.words.map: { .comb.rotor(2 => -1)».join } ) }
+
+# Load the dictionary
+my %hash = './unixdict.txt'.IO.slurp.words.race.map: { $_ => .&bigram };
+
+# Testing
+for <complition inconsqual Sørenson> -> $w {
+    say "\n$w:";
+    .say for sorenson($w, %hash).grep(*.[0] >= .55).sort({-.[0],~.[1]}).head(10);
+}
+#------------------------------ 1191 user-defined-pipe-and-redirection-operators
+sub cat ($fname) { lazy $fname.IO.lines };
+sub head ($count, @positional) { @positional.head($count) }
+sub redirect ($fname) { cat($fname) }
+sub tail (Int $count, Str $fname) { $fname.IO.lines.tail($count) }
+sub infix:<tee> ($stream, $fname) {
+    # need to reify the lazy list to write to a file
+    my @values = @$stream[^Inf].grep: *.defined;
+    # meh. not really going to write the files
+    # $fname.IO.put @values.join("\n")
+    # just pass the reified values along
+    @values.List
+}
+
+my $aa = ((
+    (head 4, redirect 'List_of_computer_scientists.lst'),
+    cat('List_of_computer_scientists.lst') .grep( /'ALGOL'/ ) tee 'ALGOL_pioneers.lst',
+    tail 4, 'List_of_computer_scientists.lst'
+).flat .sort .unique tee 'the_important_scientists.lst') .grep: /'aa'/;
+
+say "Pioneer: $aa";
+#-------------------------------------------------------------- 1192 word-ladder
+constant %dict = 'unixdict.txt'.IO.lines
+                               .classify(*.chars)
+                               .map({ .key => .value.Set });
+
+sub word_ladder ( Str $from, Str $to ) {
+    die if $from.chars != $to.chars;
+
+    my $sized_dict = %dict{$from.chars};
+
+    my @workqueue = (($from,),);
+    my $used = ($from => True).SetHash;
+    while @workqueue {
+        my @new_q;
+        for @workqueue -> @words {
+            my $last_word = @words.tail;
+            my @new_tails = gather for 'a' .. 'z' -> $replacement_letter {
+                for ^$last_word.chars -> $i {
+                    my $new_word = $last_word;
+                    $new_word.substr-rw($i, 1) = $replacement_letter;
+
+                    next unless $new_word ∈ $sized_dict
+                        and not $new_word ∈ $used;
+                    take $new_word;
+                    $used{$new_word} = True;
+
+                    return |@words, $new_word if $new_word eq $to;
+                }
+            }
+            push @new_q, ( |@words, $_ ) for @new_tails;
+        }
+        @workqueue = @new_q;
+    }
+}
+for <boy man>, <girl lady>, <john jane>, <child adult> -> ($from, $to) {
+    say word_ladder($from, $to)
+        // "$from into $to cannot be done";
+}
+#------------------------------------------- 1193 words-containing-the-substring
+put 'unixdict.txt'.IO.words».fc.grep({ (.chars > 11) && (.contains: 'the') })\
+    .&{"{+$_} words:\n  " ~ .batch(8)».fmt('%-17s').join: "\n  "};
+#------------------------------------------------ 1194 words-from-neighbour-ones
+my @words_ge_9 = 'unixdict.txt'.IO.lines.grep( *.chars >= 9 );
+my %words_eq_9  = @words_ge_9           .grep( *.chars == 9 ).Set;
+
+my @new_words = gather for @words_ge_9.rotor( 9 => -8 ) -> @nine_words {
+    my $new_word = [~] map { @nine_words[$_].substr($_, 1) }, ^9;
+
+    take $new_word if %words_eq_9{$new_word};
+}
+
+.say for unique @new_words;
