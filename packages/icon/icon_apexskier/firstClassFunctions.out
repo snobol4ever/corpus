@@ -1,0 +1,5 @@
+Testing first class procedures.
+Enter an integer:
+Assigned passMe to proc1 and called with your integer: 42
+Passed proc1 to passTo and passTo called it: 42
+Returned passMe from retFrom and called it: 42

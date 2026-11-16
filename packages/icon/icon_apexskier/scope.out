@@ -1,0 +1,5 @@
+in main, var1 is test1
+in proc1, var1 is test2
+var1 is still test1
+in proc2, var1 is test3
+var1 is now test3
