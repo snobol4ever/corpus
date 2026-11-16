@@ -1,0 +1,3 @@
+# rolypoly: draws ten random points (the library's fixed seed, no -r) as a filled polygon and a curve, then holds for one event (Event());
+# a click inside the window is that event and the program ends by itself, rc 0
+click 1 150 150

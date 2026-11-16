@@ -1,0 +1,2 @@
+# lsys: draws its fractal (the default order), then waits for one event (Event(win)); a click inside the window is that event and it closes the window and ends, rc 0
+click 1 350 350
