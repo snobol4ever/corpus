@@ -1,0 +1,6 @@
+drag 1 307 20 307 150
+wait
+drag 1 20 307 140 307
+wait
+move 100 100
+key q

@@ -24,3 +24,13 @@ xpmtoims	-g16
 trycolor	-W	64	-H	64
 imgpaper	-w	64	-h	48	-i	-a	0	tiny.gif
 fstarlab	200
+xformpat	center	16	16
+pat2gif	p8.blp
+gif2blp	gpxtest.gif
+fileimag	note.txt
+ca21	-H
+img2grid	-s	1	brennan.gif
+spectra	brennan.gif
+repeater	-h	2	-v	2	brennan.gif
+picktile	-f	-w	8	gpxtest.gif
+scroll	-f	brennan.gif

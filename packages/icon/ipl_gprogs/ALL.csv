@@ -104,3 +104,13 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 103,trycolor,trycolor.icn,ipl_gprogs__trycolor,ipl_gprogs,96,0,131072,4096,120,,,
 104,imgpaper,imgpaper.icn,ipl_gprogs__imgpaper,ipl_gprogs,163,0,131072,4096,120,,paper000.gif,staged
 105,fstarlab,fstarlab.icn,ipl_gprogs__fstarlab,ipl_gprogs,70,0,131072,4096,300,,screen.dump,
+106,xformpat,xformpat.icn,ipl_gprogs__xformpat,ipl_gprogs,52,0,131072,4096,300,,,
+107,pat2gif,pat2gif.icn,ipl_gprogs__pat2gif,ipl_gprogs,48,0,131072,4096,300,,p8.gif,
+108,gif2blp,gif2blp.icn,ipl_gprogs__gif2blp,ipl_gprogs,53,0,131072,4096,300,,,
+109,fileimag,fileimag.icn,ipl_gprogs__fileimag,ipl_gprogs,62,0,131072,4096,300,,untitled.gif,
+110,ca21,ca21.icn,ipl_gprogs__ca21,ipl_gprogs,122,0,131072,4096,300,,ca21.gif,
+111,img2grid,img2grid.icn,ipl_gprogs__img2grid,ipl_gprogs,65,0,131072,4096,300,,img2grid.gif,
+112,spectra,spectra.icn,ipl_gprogs__spectra,ipl_gprogs,59,0,131072,4096,300,,brennan.spc,
+113,repeater,repeater.icn,ipl_gprogs__repeater,ipl_gprogs,92,0,131072,4096,300,,rep_brennan.gif,
+114,picktile,picktile.icn,ipl_gprogs__picktile,ipl_gprogs,164,0,131072,4096,300,,screen.dump,
+115,scroll,scroll.icn,ipl_gprogs__scroll,ipl_gprogs,105,1,131072,4096,300,,screen.dump,

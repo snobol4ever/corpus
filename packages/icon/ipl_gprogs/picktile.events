@@ -1,0 +1,8 @@
+click 1 395 40
+wait
+click 1 40 130
+wait
+click 1 495 40
+wait
+move 50 50
+key q

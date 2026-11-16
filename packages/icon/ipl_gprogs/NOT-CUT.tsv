@@ -24,3 +24,8 @@ floats	never touches the window facility: no window function in its own source, 
 pextract	never touches the window facility: no window function in its own source, and ipl's measured test (its link closure) left it in ipl's denominator; it is graded there as the plain entry gprogs/pextract (officer_04 2026-11-16, list E1)
 rows2isd	never touches the window facility: no window function in its own source, and ipl's measured test (its link closure) left it in ipl's denominator; it is graded there as the plain entry gprogs/rows2isd (officer_04 2026-11-16, list E1)
 wifs2pdb	never touches the window facility: no window function in its own source, and ipl's measured test (its link closure) left it in ipl's denominator; it is graded there as the plain entry gprogs/wifs2pdb (officer_04 2026-11-16, list E1)
+dd2res	plain program graded in ipl as gprogs/dd2res (the cto 2026-11-16 12:53, PLAIN.list)
+fmap2pdb	plain program graded in ipl as gprogs/fmap2pdb (the cto 2026-11-16 12:53, PLAIN.list)
+gifs2pdb	plain program graded in ipl as gprogs/gifs2pdb (the cto 2026-11-16 12:53, PLAIN.list)
+imlreduc	plain program graded in ipl as gprogs/imlreduc (the cto 2026-11-16 12:53, PLAIN.list)
+uix	plain program graded in ipl as gprogs/uix (the cto 2026-11-16 12:53, PLAIN.list)
