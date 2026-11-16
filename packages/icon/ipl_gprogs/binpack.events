@@ -1,0 +1,6 @@
+# binpack: Best Fit into the first display, First Fit into the second, then the quit button (officer_07, list E2)
+click 1 30 189
+wait
+click 1 30 402
+wait
+click 1 90 118

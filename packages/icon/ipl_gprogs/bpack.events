@@ -1,0 +1,15 @@
+# bpack: Pack > First Fit, then Pack > Best Fit, each a held press on the menu released on its item, then File > Quit (officer_07, list E2)
+move 110 10
+press 1
+move 120 30
+release 1
+wait
+move 110 10
+press 1
+move 120 75
+release 1
+wait
+move 18 10
+press 1
+move 30 60
+release 1

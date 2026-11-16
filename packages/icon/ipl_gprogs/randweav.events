@@ -1,0 +1,7 @@
+# randweav: two new patterns by the space bar over the pattern, then the quit button (officer_07, list E2)
+move 200 250
+key space
+wait
+key space
+wait
+click 1 330 472
