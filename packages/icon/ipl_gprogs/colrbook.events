@@ -1,0 +1,12 @@
+# colrbook, the colour book in its 500 by 350 window (margin 10): a press on the hue strip at the left (10 to 42 across, 10 to 340 down)
+# chooses a hue and fills the grid of its lightness and saturation variants, its name in the footer; a drag down the strip chooses another;
+# the QUIT button (from 52 across, 10 down, 20 high) ends the program by itself
+move 30 40
+press 1
+release 1
+wait
+drag 1 30 120 30 260
+wait
+move 80 20
+press 1
+release 1

@@ -1,0 +1,4 @@
+# showtile: reads tile patterns from standard input (showtile.in, five bi-level patterns: checkers two ways, a frame, a diamond and a
+# filled octagon) and shows each in its cell of a page; the input ends before the page fills, so it waits in WDone for a quit key: q
+move 200 200
+key q

@@ -1,0 +1,16 @@
+# keypunch: types onto an 80-column card (holes punched a column a key); a tab moves to the next tab stop, Return feeds a new card,
+# Backspace steps back a column, Control-D ends the program by itself. Letters are typed in lower case: the program shows them as capitals,
+# and a shifted letter is the keypunch's digit shift (shift turns UIOJKLM<> into 123456789). The pointer stands inside the window so the keys reach it.
+move 300 100
+type hello icon
+key Tab
+type 1966
+wait
+key Return
+type ab
+key BackSpace
+type c
+wait
+keydown Control_L
+key d
+keyup Control_L

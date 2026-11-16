@@ -1,0 +1,5 @@
+# procater: plots each number of standard input (procater.in, 120 values of a sine, every tenth prefixed a, drawn gray) as a line of that height
+# in its strip, scrolling left; at the end of the data it shows the notice End of data., and Return (Okay) ends the program by itself
+move 238 127
+wait
+key Return

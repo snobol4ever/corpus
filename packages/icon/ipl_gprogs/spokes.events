@@ -1,0 +1,12 @@
+# spokes: draws a spokes pattern in its 256 by 256 window (Icon's random sequence, the same every run) and waits; n draws the next pattern
+# (after the program's own one-second pause), s opens the library's snapshot dialog (it stands under the pointer), a typed name and Return
+# (Okay) write the image file spokes1.gif (part of the answer), and q ends the program by itself
+move 128 128
+key n
+wait
+key s
+wait
+type spokes1.gif
+key Return
+wait
+key q
