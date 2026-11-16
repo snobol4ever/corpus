@@ -1,0 +1,2 @@
+?- part1(X).
+raised(existence_error(procedure,input/1))

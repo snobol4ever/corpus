@@ -1,0 +1,4 @@
+# the launch of the PrologAoc2015 suite (CIO-83): the program, then the driver, ours, which reads from standard input the queries we put to each day,
+# part1(X). and part2(X). (NAME.in, cut by sl_cut.py --form table from OUR-QUERIES.tsv)
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl

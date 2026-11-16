@@ -1,0 +1,4 @@
+q('part1(X).', 3).
+part1(X).
+q('part2(X).', 3).
+part2(X).

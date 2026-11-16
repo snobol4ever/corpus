@@ -1,0 +1,10 @@
+# EXCLUDED.tsv -- aoc2015_prolog: the days this package does not grade, one row a day: name<TAB>CLASS<TAB>evidence (the grader 2026-11-15)
+day6	NO_ORACLE_ANSWER	every query, part1(X) and part2(X), ends in a resource error under swipl 9.0.4 (sl_cut.py QUERIES.tsv OUT-RESOURCE: the limit of one implementation)
+day10	NO_ORACLE_ANSWER	every query, part1(X) and part2(X), ends in a resource error under swipl 9.0.4 (sl_cut.py QUERIES.tsv OUT-RESOURCE: the limit of one implementation)
+day18	NO_ORACLE_ANSWER	every query, part1(X) and part2(X), ends in a resource error under swipl 9.0.4 (sl_cut.py QUERIES.tsv OUT-RESOURCE: the limit of one implementation)
+day9	NO_ORACLE_ANSWER	every query, part1(X) and part2(X), runs past the 60 s cap under swipl 9.0.4 (sl_cut.py QUERIES.tsv OUT-HANG)
+day24	NO_ORACLE_ANSWER	every query, part1(X) and part2(X), runs past the 60 s cap under swipl 9.0.4 (sl_cut.py QUERIES.tsv OUT-HANG)
+day4	NOT_A_UNIT_TEST	it defines no part1/1 or part2/1 query of the form the README asks, so no query of ours is put to it
+day11	NOT_A_UNIT_TEST	it defines no part1/1 or part2/1 query of the form the README asks, so no query of ours is put to it
+day15	NOT_A_UNIT_TEST	it defines no part1/1 or part2/1 query of the form the README asks, so no query of ours is put to it
+day12	NOT_A_UNIT_TEST	held: it loads library(http/json) to parse its JSON input, which the census rule NEEDS-NETWORK reads as network use (a false positive of the rule, named here; the program opens no connection)

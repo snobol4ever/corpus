@@ -1,0 +1,17 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,day1,day1.pl,aoc2015_prolog__day1,aoc2015_prolog,18,0,131072,4096,120,,swi
+2,day13,day13.pl,aoc2015_prolog__day13,aoc2015_prolog,62,0,131072,4096,120,,swi
+3,day14,day14.pl,aoc2015_prolog__day14,aoc2015_prolog,99,0,131072,4096,120,,swi
+4,day16,day16.pl,aoc2015_prolog__day16,aoc2015_prolog,45,0,131072,4096,120,,swi
+5,day17,day17.pl,aoc2015_prolog__day17,aoc2015_prolog,62,0,131072,4096,120,,swi
+6,day19,day19.pl,aoc2015_prolog__day19,aoc2015_prolog,49,0,131072,4096,120,,swi
+7,day2,day2.pl,aoc2015_prolog__day2,aoc2015_prolog,21,0,131072,4096,120,,swi
+8,day20,day20.pl,aoc2015_prolog__day20,aoc2015_prolog,45,0,131072,4096,120,,swi
+9,day21,day21.pl,aoc2015_prolog__day21,aoc2015_prolog,71,0,131072,4096,120,,swi
+10,day22,day22.pl,aoc2015_prolog__day22,aoc2015_prolog,154,0,131072,4096,120,,swi
+11,day23,day23.pl,aoc2015_prolog__day23,aoc2015_prolog,89,0,131072,4096,120,,swi
+12,day25,day25.pl,aoc2015_prolog__day25,aoc2015_prolog,21,0,131072,4096,120,,swi
+13,day3,day3.pl,aoc2015_prolog__day3,aoc2015_prolog,25,0,131072,4096,120,,swi
+14,day5,day5.pl,aoc2015_prolog__day5,aoc2015_prolog,51,0,131072,4096,120,,swi
+15,day7,day7.pl,aoc2015_prolog__day7,aoc2015_prolog,54,0,131072,4096,120,,swi
+16,day8,day8.pl,aoc2015_prolog__day8,aoc2015_prolog,41,0,131072,4096,120,,swi
