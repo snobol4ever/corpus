@@ -2,7 +2,6 @@
 *  SCRIP DEMO3 -- Roman Numerals (SNOBOL4 section)
 *  Idiom: recursive digit-strip with table lookup; REPLACE shifts place value
 *  Ref: Gimpel ROMAN.inc
-        &CASE  = 1
         &TRIM  = 1
         DEFINE('roman(n)t')                 :(roman_end)
 roman   n   RPOS(1)  LEN(1) . t  =         :F(RETURN)

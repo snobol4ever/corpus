@@ -2,7 +2,6 @@
 *  SCRIP DEMO9 -- RPN calculator (SNOBOL4 section)
 *  Idiom: POS(0)-anchored patterns; Gimpel PUSH/POP linked-list stack
 *  Expression: '5 1 2 + 4 * + 3 -'  =>  5 + ((1+2)*4) - 3 = 14
-        &CASE  = 1
         &TRIM  = 1
         DATA('link(lnk_next,lnk_val)')
         DEFINE('push(x)')

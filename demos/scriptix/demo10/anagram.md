@@ -2,7 +2,6 @@
 *  SCRIP DEMO10 -- Detect anagrams (SNOBOL4 section)
 *  Idiom: b_sort char-ARRAY -> canonical key; TABLE groups words;
 *         BREAK/SPAN word scan; CONVERT(T,'ARRAY') iterates entries
-        &CASE  = 1
         &TRIM  = 1
         DEFINE('b_sort(a,lo,hi)j,k,v')      :(b_sort_end)
 b_sort  j      = lo

@@ -1,7 +1,6 @@
 ```SNOBOL4
 *  SCRIP DEMO8 -- Sort 8 integers (SNOBOL4 section)
 *  Idiom: Gimpel BSORT insertion sort on ARRAY; LGT drives shifts
-        &CASE  = 1
         &TRIM  = 1
         DEFINE('b_sort(a,lo,hi)j,k,v')      :(b_sort_end)
 b_sort  j      = lo

@@ -2,7 +2,6 @@
 *  SCRIP DEMO4 -- Palindrome (SNOBOL4 section)
 *  Idiom: IDENT(s, REVERSE(s)) -- one comparison, no loop
 *  Ref: Gimpel/dotnet palin.sno idiom
-        &CASE  = 1
         &TRIM  = 1
         DEFINE('check(s)')                  :(check_end)
 check   s      = REPLACE(s, &LCASE, &UCASE)
