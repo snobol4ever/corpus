@@ -28,7 +28,6 @@ cint/test1.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
 cint/test3.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
 cint/test4.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
 gprogs/abook.icn: ORACLE-REFUSES: unicon does not translate it: abook.icn:51: # "global" Unable to import (1) package "guiwidgets"
-gprogs/kaleid.icn: NEEDS-DISPLAY: the source names import gui
 gprogs/qmazer.icn: NEEDS-DISPLAY: the source names &window
 gui/addressgui.icn: LIBRARY: no procedure main
 gui/border.icn: LIBRARY: no procedure main
@@ -53,40 +52,15 @@ gui/editspin.icn: LIBRARY: no procedure main
 gui/filedialog.icn: LIBRARY: no procedure main
 gui/font_dlg.icn: LIBRARY: no procedure main
 gui/gui_utils.icn: LIBRARY: no procedure main
-gui/guidemos/componentscrollareatest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/demo.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/dndtest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/dyncomps.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/editlisttest.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/editor.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/empty.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/explorer.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/filedialogtest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/fillpanel.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/getweb.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/imageview.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/leak.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/lines.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/listtest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/menudemo.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/multi.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/palette.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/pointers.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/redundant.icn: LIBRARY: no procedure main
-gui/guidemos/secondtest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/sieve.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/sliders.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/spinners.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/tabletest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/tabs.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/testdialog.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/textsize.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/texttest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/themedemo.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/tickdemo.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/ticks.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/toolbar.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/ttexplorer.icn: NEEDS-DISPLAY: the source names import gui
 gui/guih.icn: LIBRARY: no procedure main
 gui/guiprocs.icn: LIBRARY: no procedure main
 gui/icon.icn: LIBRARY: no procedure main

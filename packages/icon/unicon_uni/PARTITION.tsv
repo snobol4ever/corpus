@@ -1,7 +1,33 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=13 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=6 chunks=1 sizes=10
+# shape: entries=39 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=8 chunks=1 sizes=36
 entry	part	cluster	shells
+gprogs/kaleid	chunk:01	dir:gprogs	
+gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
+gui/guidemos/demo	chunk:01	dir:gui/guidemos	
+gui/guidemos/dndtest	chunk:01	dir:gui/guidemos	
+gui/guidemos/dyncomps	chunk:01	dir:gui/guidemos	
+gui/guidemos/explorer	chunk:01	dir:gui/guidemos	
+gui/guidemos/fillpanel	chunk:01	dir:gui/guidemos	
+gui/guidemos/getweb	chunk:01	dir:gui/guidemos	
+gui/guidemos/leak	chunk:01	dir:gui/guidemos	
+gui/guidemos/lines	chunk:01	dir:gui/guidemos	
+gui/guidemos/listtest	chunk:01	dir:gui/guidemos	
+gui/guidemos/menudemo	chunk:01	dir:gui/guidemos	
+gui/guidemos/palette	chunk:01	dir:gui/guidemos	
+gui/guidemos/pointers	chunk:01	dir:gui/guidemos	
+gui/guidemos/secondtest	chunk:01	dir:gui/guidemos	
+gui/guidemos/sieve	chunk:01	dir:gui/guidemos	
+gui/guidemos/sliders	chunk:01	dir:gui/guidemos	
+gui/guidemos/spinners	chunk:01	dir:gui/guidemos	
+gui/guidemos/tabletest	chunk:01	dir:gui/guidemos	
+gui/guidemos/tabs	chunk:01	dir:gui/guidemos	
+gui/guidemos/testdialog	chunk:01	dir:gui/guidemos	
+gui/guidemos/texttest	chunk:01	dir:gui/guidemos	
+gui/guidemos/themedemo	chunk:01	dir:gui/guidemos	
+gui/guidemos/ticks	chunk:01	dir:gui/guidemos	
+gui/guidemos/toolbar	chunk:01	dir:gui/guidemos	
+gui/guidemos/ttexplorer	chunk:01	dir:gui/guidemos	
 lib/attr	chunk:01	dir:lib	
 progs/complex_ex	core	core	want_rc
 progs/genAcc	chunk:01	dir:progs	

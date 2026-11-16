@@ -1,0 +1,163 @@
+#<p>
+# YesNoDialog.icn -- provide a dialog box for a yes/no response.
+#</p>
+#<p>
+# Resizes the dialog box appropriately.
+#</p>
+#<p>
+# <b>Author:</b> Steve Wampler (<i>sbw@tapestry.tucson.az.us</i>)
+#</p>
+#<p>
+#  This file is in the <i>public domain</i>.
+#</p>
+
+package guiwidgets
+
+import gui
+import util
+$include "guih.icn"
+
+#<p>
+#  Provide a simple dialog box that allows you to ask a question and get
+#  a Yes/No response.
+#</p>
+class YesNoDialog : Dialog(yesButton, noButton, messageArea, mesg, mFont, minArea, maxArea, value)
+
+   #<p>
+   # <i>Internal use only!</i>
+   #</p>
+   method handle_yesButton(ev)
+       value := "yes";
+       dispose();
+   end
+
+   #<p>
+   # <i>Internal use only!</i>
+   #</p>
+   method handle_noButton(ev)
+       value := "no";
+       dispose();
+   end
+
+   #<p>
+   # <i>Internal use only!</i>
+   # <b>Should be improved!!</b>
+   #</p>
+   method final_setup()
+       self.Dialog.final_setup(self);
+   end
+
+   #<p>
+   # <i>Internal use only!</i>
+   #</p>
+   method end_dialog()
+   end
+
+   #<p>
+   # <i>Internal use only!</i>
+   #</p>
+   method setup()
+
+       messageArea := TextList();
+       messageArea.attrib(\mFont);
+       messageArea.set_pos("15", "10");
+       messageArea.set_contents(mesg);
+       self.add(messageArea);
+
+       yesButton := Gui().mkButton("Yes");
+       yesButton.set_internal_alignment("c");
+       yesButton.connect(self, "handle_yesButton", BUTTON_RELEASE_EVENT);
+       self.add(yesButton);
+
+       noButton := Gui().mkButton("No");
+       noButton.set_internal_alignment("c");
+       noButton.connect(self, "handle_noButton", BUTTON_RELEASE_EVENT);
+       self.add(noButton);
+
+   end
+
+   #<p>
+   # <i>Internal use only!</i>
+   #</p>
+   method component_setup()
+       local win, sizeMInfo, sizeDInfo;
+
+       /minArea := displayAreaSize(50,20);
+       /maxArea := displayAreaSize(500,500);
+
+       self.setup();
+       win := (WOpen ! (["canvas=hidden"] ||| self.attribs |||
+                        ([\mFont] | []))) |
+               fatal("Component setup: couldn't open hidden window");
+       sizeMInfo := textAreaSize(win, mesg);
+       WClose(win);
+
+       sizeMInfo := forceAreaSize(sizeMInfo, minArea, maxArea);
+       sizeDInfo := displayAreaSize(sizeMInfo.width+30, sizeMInfo.height+40);
+
+       messageArea.set_size(sizeMInfo.width, sizeMInfo.height);
+       yesButton.set_pos(sizeDInfo.width-72, sizeDInfo.height-25);
+       noButton.set_pos(sizeDInfo.width-32, sizeDInfo.height-25);
+
+       self.set_attribs("size="||sizeDInfo.width||","||sizeDInfo.height);
+   end
+
+   #<p>
+   #   Set the font for the message area.
+   #</p>
+   method setFont(font)
+       mFont := "font="||font;
+   end
+
+   #<p>
+   #   Change the minimum allowable size for the message area.
+   #   (<i>Default is 100x100.</i>)
+   #</p>
+   method setMinSize(width:100, height:100)
+       minArea := displayAreaSize(width, height);
+   end
+
+   #<p>
+   #   Change the maxium allowable size for the message area.
+   #   (<i>Default is 500x500.</i>)
+   #</p>
+   method setMaxSize(width:500, height:500)
+       maxArea := displayAreaSize(width, height);
+   end
+
+   #<p>
+   #   Succeed if the "Yes" button was pressed.
+   #</p>
+   method isYes()
+       return \value == "yes";
+   end
+
+   #<p>
+   #   Succeed if the "No" button was pressed.
+   #</p>
+   method isNo()
+       return \value == "no";
+   end
+
+   #<p>
+   #   Produce the response ("yes" or "no")
+   #</p>
+   method getResponse()
+       return \value;
+   end
+
+   #<p>
+   #   If message is a string, split it vertically on embedded newlines.
+   #   Otherwise, message should be a list of lines forming the question.
+   #</p>
+   initially (message)
+      self.Dialog.initially();
+      /message := "Yes or No?";
+      if type(message) == "string" then {
+          mesg := stringToList(message)
+          }
+      else {
+          if *message = 0 then message := ["Yes or No?"];
+          mesg := message
+          };
+end
