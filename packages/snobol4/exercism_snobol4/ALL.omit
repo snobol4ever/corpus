@@ -1,6 +1,0 @@
-practice/acronym/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
-practice/hello-world/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
-practice/isogram/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
-practice/leap/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes
-practice/pangram/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 335 bytes
-practice/raindrops/test.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes

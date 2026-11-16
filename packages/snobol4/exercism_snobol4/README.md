@@ -28,3 +28,7 @@ and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. TH
 |---|---|
 | rows | 36: 1 print an answer; 35 print nothing and are graded by exit status |
 | declared out | 6 `NO_ORACLE_ANSWER` in `EXCLUDED.tsv`: 6 answer differently on two runs |
+
+## Re-cut 2026-11-16 01:xx CST (the grader)
+
+Entries added: `practice/acronym/test`, `practice/hello-world/test`, `practice/isogram/test`, `practice/leap/test`, `practice/pangram/test`, `practice/raindrops/test`. Each ends with SPITBOL's error and had read DIFFERS-BETWEEN-RUNS only because SPITBOL prints its three throughput lines (`stmt / microsec`, `millisec`, `second`) when a run takes 1 ms or more; those lines are its clock and are not graded (harness 71a90580f, skill snobol4 7). Every landed answer is byte-identical.

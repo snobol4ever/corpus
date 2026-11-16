@@ -1,0 +1,56 @@
+
+
+
+toposort.sno(20) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              toposort.sno
+in line              20
+in statement         8
+stmts executed       8
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  18528
+memory left (bytes)  1030040
+
+
+
+
+dump of natural variables
+
+pair = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 2
+&ERRLIMIT = 0
+&ERRTEXT = 'inappropriate file specification for input'
+&ERRTYPE = 116
+&FILE = 'toposort.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'toposort.sno'
+&LASTLINE = 19
+&LASTNO = 7
+&LINE = 20
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 8
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1
+
+
+

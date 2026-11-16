@@ -1,0 +1,18 @@
+
+
+
+stream.sno(16) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              stream.sno
+in line              16
+in statement         4
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  34272
+memory left (bytes)  1014296
+

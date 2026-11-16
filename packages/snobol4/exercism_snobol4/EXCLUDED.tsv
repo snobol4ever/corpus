@@ -1,8 +1,0 @@
-# EXCLUDED.tsv -- exercism_snobol4: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
-# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-practice/acronym/test.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-practice/hello-world/test.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-practice/isogram/test.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-practice/leap/test.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-practice/pangram/test.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 335 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-practice/raindrops/test.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 265 and 337 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

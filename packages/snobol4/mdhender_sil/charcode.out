@@ -1,0 +1,18 @@
+
+
+
+charcode.sno(17) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              charcode.sno
+in line              17
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12736
+memory left (bytes)  1035832
+

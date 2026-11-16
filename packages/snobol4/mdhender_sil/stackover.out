@@ -1,0 +1,39 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Mon Nov 16 01:04:38 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               DEFINE('DOWN(N)')                        :(DOWN.END)
+2       DOWN    DOWN = DOWN(N + 1)                       :(RETURN)
+3       DOWN.END
+4               OUTPUT = 'going down'
+5               OUTPUT = DOWN(1)
+6       END
+going down
+
+
+
+stackover.sno(18) : ERROR 246 -- stack overflow
+
+
+
+
+
+in file              stackover.sno
+in line              18
+in statement         2
+stmts executed       58213
+execution time msec  3
+stmt / microsec      19
+stmt / millisec      19404
+stmt / second        19404000
+REGENERATIONS        0
+memory used (bytes)  942992
+memory left (bytes)  105576
+

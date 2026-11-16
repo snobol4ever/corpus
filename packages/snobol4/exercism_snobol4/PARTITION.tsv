@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=36 features=2 ubiquitous=2(package want_rc) distinctive=0 core=3 clusters=10 chunks=1 sizes=33
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=42 features=2 ubiquitous=2(package want_rc) distinctive=0 core=4 clusters=12 chunks=1 sizes=38
 entry	part	cluster	shells
 practice/acronym/acronym	core	core	
 practice/acronym/lib/cmprep	core	core	
@@ -8,33 +8,39 @@ practice/acronym/lib/inhale	chunk:01	dir:practice/acronym/lib
 practice/acronym/lib/listtests	chunk:01	dir:practice/acronym/lib	
 practice/acronym/lib/nextword	chunk:01	dir:practice/acronym/lib	
 practice/acronym/lib/whereami	chunk:01	dir:practice/acronym/lib	
+practice/acronym/test	chunk:01	dir:practice/acronym	
 practice/hello-world/hello-world	core	core	
-practice/hello-world/lib/cmprep	chunk:01	dir:practice/hello-world/lib	
+practice/hello-world/lib/cmprep	core	core	
 practice/hello-world/lib/inhale	chunk:01	dir:practice/hello-world/lib	
 practice/hello-world/lib/listtests	chunk:01	dir:practice/hello-world/lib	
 practice/hello-world/lib/nextword	chunk:01	dir:practice/hello-world/lib	
 practice/hello-world/lib/whereami	chunk:01	dir:practice/hello-world/lib	
+practice/hello-world/test	chunk:01	dir:practice/hello-world	
 practice/isogram/isogram	chunk:01	dir:practice/isogram	
 practice/isogram/lib/cmprep	chunk:01	dir:practice/isogram/lib	
 practice/isogram/lib/inhale	chunk:01	dir:practice/isogram/lib	
 practice/isogram/lib/listtests	chunk:01	dir:practice/isogram/lib	
 practice/isogram/lib/nextword	chunk:01	dir:practice/isogram/lib	
 practice/isogram/lib/whereami	chunk:01	dir:practice/isogram/lib	
+practice/isogram/test	chunk:01	dir:practice/isogram	
 practice/leap/leap	chunk:01	dir:practice/leap	
 practice/leap/lib/cmprep	chunk:01	dir:practice/leap/lib	
 practice/leap/lib/inhale	chunk:01	dir:practice/leap/lib	
 practice/leap/lib/listtests	chunk:01	dir:practice/leap/lib	
 practice/leap/lib/nextword	chunk:01	dir:practice/leap/lib	
 practice/leap/lib/whereami	chunk:01	dir:practice/leap/lib	
+practice/leap/test	chunk:01	dir:practice/leap	
 practice/pangram/lib/cmprep	chunk:01	dir:practice/pangram/lib	
 practice/pangram/lib/inhale	chunk:01	dir:practice/pangram/lib	
 practice/pangram/lib/listtests	chunk:01	dir:practice/pangram/lib	
 practice/pangram/lib/nextword	chunk:01	dir:practice/pangram/lib	
 practice/pangram/lib/whereami	chunk:01	dir:practice/pangram/lib	
 practice/pangram/pangram	chunk:01	dir:practice/pangram	
+practice/pangram/test	chunk:01	dir:practice/pangram	
 practice/raindrops/lib/cmprep	chunk:01	dir:practice/raindrops/lib	
 practice/raindrops/lib/inhale	chunk:01	dir:practice/raindrops/lib	
 practice/raindrops/lib/listtests	chunk:01	dir:practice/raindrops/lib	
 practice/raindrops/lib/nextword	chunk:01	dir:practice/raindrops/lib	
 practice/raindrops/lib/whereami	chunk:01	dir:practice/raindrops/lib	
 practice/raindrops/raindrops	chunk:01	dir:practice/raindrops	
+practice/raindrops/test	chunk:01	dir:practice/raindrops	

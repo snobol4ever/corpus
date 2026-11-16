@@ -1,4 +1,0 @@
-# EXCLUDED.tsv -- decus_vax84a: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
-# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-stream.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 286 and 358 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
-toposort.sno	NO_ORACLE_ANSWER	DIFFERS-BETWEEN-RUNS: exit 0 and 0, 756 and 828 bytes (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

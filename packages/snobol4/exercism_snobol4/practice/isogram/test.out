@@ -1,0 +1,18 @@
+
+
+
+test.sno(10) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              test.sno
+in line              10
+in statement         4
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  21472
+memory left (bytes)  1027096
+
