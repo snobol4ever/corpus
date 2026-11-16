@@ -18,8 +18,7 @@ readint.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would e
 readnum.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
 readstr.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
 readstr1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr1.pl:47:0: Syntax error: Unexpected end of file
-scholar.pl: NEEDS-INPUT: its answer changes with what standard input holds
 screen.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: screen.pl:113:0: Syntax error: Unexpected end of file
-template.pl: NEEDS-INPUT: its answer changes with what standard input holds
 xshell.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: readstr.pl:60:0: Syntax error: Unexpected end of file
 yes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: yes.pl:45:0: Syntax error: Unexpected end of file
+template.pl: DOES-NOT-END by design: its start/0 runs repeat, go, fail until Ctrl-C; with sentences of ours it answers each, then at the end of input readstring_aux recurses on -1 until swipl's 1 GB stack limit ends it (MEASURED 2026-11-16: Stack limit (1.0Gb) exceeded at depth 17,506,018), the limit of one implementation and no answer

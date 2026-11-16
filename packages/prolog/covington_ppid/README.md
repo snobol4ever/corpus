@@ -19,7 +19,7 @@ an error. Three more programs print by themselves at their load and need no quer
 | programs in the collection | 56 |
 | rows | 31: 28 answering our 135 queries (`QUERIES.tsv`: all asked for three answers), 3 that print at their load |
 | declared out | 23 in `EXCLUDED.tsv`: 16 `FAKEABLE_NO_OBSERVABLE` (libraries and menu or screen routines we wrote no query for: reading the keyboard, ANSI screen codes, the defeasible reasoner and its two knowledge bases, which swipl cannot read as written), 7 `NO_ORACLE_ANSWER` (interactive programs that wait at a prompt for ever with no input) |
-| owed | 2, `scholar.pl` and `template.pl`: each answers from what standard input holds and enters when it has a scripted session of ours |
+| owed | 0: `scholar.pl` is an entry with a scripted session of ours (2026-11-16) and `template.pl` is out (`EXCLUDED.tsv`) |
 
 THE ANSWERS ARE swipl's, on a 1988 Quintus text: every file ends with a DOS end-of-file character swipl reports as a syntax error after
 the last clause; `"s"` is a string to swipl 9 and not a list of codes, so `morph.pl`'s plural rule never fires; `cannibal.pl`'s two
@@ -33,3 +33,12 @@ This folder holds our index (`ALL.csv`, dialect `swi`), each answer `NAME.out` c
 `harness/scripts/util_build_package_suite.py corpus/packages/prolog/covington_ppid --lang prolog --mine CENSUS.tsv --twice` (the grader
 2026-11-14). No SCRIP reading was taken at the cut (Lon 2026-11-14: host the container with the oracle's answers now, the grading comes
 later); the cycle grades it.
+
+## The session of ours (2026-11-16 03:xx CST, the grader)
+
+`scholar.pl`, the XSHELL expert system for scholarship eligibility, asks its questions as it loads. `scholar.in` is a session of OURS, one
+answer a question in the order it asks them: a minimum support of 1000, a grade average of 3.5, yes to a career in computer services (so the
+ADAPSO Program is found), Return, freshman, then no to the four questions that follow and no to another consultation. Cut from swipl 9.0.4
+twice a second apart by the mine road, identical. `template.pl` is out: it reads sentences until Ctrl-C, and at the end of input its
+`readstring_aux` recurses until swipl's 1 GB stack limit ends the run, the limit of one implementation.
+
