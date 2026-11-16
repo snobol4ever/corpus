@@ -15250,6 +15250,52 @@ main :-
 4800 300 ab300
 ```
 
+## clause_qualified__clause_qualified_head
+
+```Prolog
+:- dynamic foo/1, bar/2.
+foo(1). foo(2).
+bar(a, b) :- foo(1).
+t(N, G) :- write(N), write(': '), ( catch(G, E, (print(caught(E)), nl, fail)) -> write(yes) ; write(no) ), nl.
+body_bound(H, B) :- clause(H, B).
+body_qualified(M, X, B) :- clause(M:foo(X), B).
+main :-
+    G1 = clause(user:foo(1), B1), t(meta_fact, (G1, B1 == true)),
+    G2 = clause(user:nonexist_zz(_), _), t(meta_no_such_predicate, G2),
+    G3 = clause(user:bar(a, X3), B3), t(meta_rule, (G3, X3 == b, B3 == foo(1))),
+    M = user, G4 = clause(M:foo(2), true), t(meta_module_bound_late, G4),
+    G5 = clause(foo(2), true), t(meta_plain, G5),
+    G6 = clause(user:(user:foo(1)), true), t(meta_nested, G6),
+    G7 = (clause(user:foo(X7), true), X7 > 1), t(meta_backtracks, (G7, X7 == 2)),
+    t(call_3, call(clause, user:foo(1), true)),
+    H9 = user:foo(1), t(body_head_bound_at_run_time, (body_bound(H9, B9), B9 == true)),
+    t(body_no_such_predicate, body_bound(user:nonexist_zz(_), _)),
+    t(body_module_variable, (body_qualified(user, 2, B11), B11 == true)),
+    findall(X, clause(user:foo(X), true), L12), write(findall(L12)), nl,
+    G13 = assertz(user:foo(3)), t(meta_assertz, G13),
+    G14 = retract(user:foo(3)), t(meta_retract, G14),
+    findall(X, foo(X), L15), write(after(L15)), nl.
+:- initialization(main).
+```
+
+```stdout
+meta_fact: yes
+meta_no_such_predicate: no
+meta_rule: yes
+meta_module_bound_late: yes
+meta_plain: yes
+meta_nested: yes
+meta_backtracks: yes
+call_3: yes
+body_head_bound_at_run_time: yes
+body_no_such_predicate: no
+body_module_variable: yes
+findall([1,2])
+meta_assertz: yes
+meta_retract: yes
+after([1,2])
+```
+
 ## ladder__rung10_trim_abolish_after_the_store_emptied
 
 ```Prolog

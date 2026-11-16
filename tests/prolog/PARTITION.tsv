@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=739 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,2
+# shape: entries=740 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,3
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -189,7 +189,7 @@ directive_59	chunk:07	family:rung25_term_string
 directive_68	chunk:06	family:rung27	
 directive_69	chunk:06	family:rung27	
 directive_70	chunk:06	family:rung27	
-directive_72	chunk:06	family:rung27	
+directive_72	chunk:07	family:rung27	
 directive_75	chunk:07	family:rung29	
 directive_76	chunk:07	family:rung29	
 evaluable_exp_log_sqrt_1	chunk:01	family:ladder	
@@ -426,7 +426,7 @@ clause_source_record__csr_consult_static	chunk:03	feat:if_then_else	if_then_else
 dicts__dt02_dict_subterm_positions	chunk:05	feat:writeq	unify writeq
 directive_replace_3	chunk:02	feat:unify	unify
 timelimit__tl03_cpu_loops_interrupted	chunk:04	feat:between	between catch
-assertz_directive_4	chunk:05	feat:assertz	assertz
+assertz_directive_4	chunk:06	feat:assertz	assertz
 cut_directive_1	chunk:03	feat:cut	cut
 rung44_setof_group__rung44_setof_group	chunk:07	feat:bagof	bagof
 scrip_test_palindrome	chunk:03	feat:cut	cut
@@ -634,7 +634,7 @@ catch_throw_2	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 cut_ite_directive_2	chunk:03	feat:cut	cut if_then_else unify
 findall_directive_replace_4	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 undo__u01_undo_or_branch	core	core	assert if_then_else unify
-undo__u02_undo_clause_alternative	chunk:07	feat:assert	assert if_then_else negation
+undo__u02_undo_clause_alternative	chunk:08	feat:assert	assert if_then_else negation
 ite_naf_directive_replace_1	chunk:04	feat:negation	if_then_else negation unify
 ite_replace_2	chunk:06	feat:var	if_then_else unify var
 rung14_retract_retract_basic__rung14_retract_retract_basic	chunk:05	feat:assert_then_retract	assert_then_retract assertz retract
@@ -724,7 +724,7 @@ copy_term_call_cut_replace_1	chunk:06	feat:copy_term	call copy_term cut if_then_
 sentences__sentences	core	core	dcg findall forall format if_then_else unify
 one_engine__oe6_dyn_variant	core	core	assert_then_retract assertz findall forall format retract unify
 zeta_layout__zl06_pl_catch_throw_arith	chunk:04	feat:catch_with_throw	catch catch_with_throw cut if_then_else list_cons throw unify
-clause_source_record__csr_static_clause_property	core	core	assert_then_retract assertz catch clause forall if_then_else retract
+clause_source_record__csr_static_clause_property	chunk:05	feat:assert_then_retract	assert_then_retract assertz catch clause forall if_then_else retract
 ladder__rung09_swi_text_builtin_error_context	core	core	arg catch cut functor if_then_else list_cons nonvar unify
 lifo__lifo_catch_retaining_goal	core	core	catch catch_with_throw clause findall functor if_then_else throw unify var
 benchmark_meta_qsort	core	core	cut if_then_else list_cons negation nonvar number unify var
@@ -735,6 +735,7 @@ gnu_gaps__gg_current_evaluable	chunk:06	feat:findall_with_var_goal	catch copy_te
 gnu_gaps__gg_term_hash_depth	chunk:06	feat:findall_with_var_goal	catch copy_term findall findall_with_var_goal if_then_else negation unify var writeq
 gnu_gaps__gg_set_stream_alias	chunk:06	feat:findall_with_var_goal	catch copy_term findall findall_with_var_goal if_then_else negation unify var writeq
 zeta_layout__zl05_pl_assert_findall	core	core	assert_then_retract assertz between cut findall forall list_cons retract unify
+clause_qualified__clause_qualified_head	core	core	assert_then_retract assertz call catch clause findall if_then_else retract unify
 ladder__rung10_trim_abolish_after_the_store_emptied	core	core	abolish assert_then_retract assertz between catch findall forall if_then_else retract unify
 gnu_gaps__gg_evaluable_property_iso	core	core	catch copy_term findall findall_with_var_goal functor if_then_else negation unify var writeq
 ladder__rung10_trim_walk_keeps_its_view_across_abolish	core	core	abolish assert_then_retract assertz between call clause findall if_then_else retract unify
