@@ -1,0 +1,26 @@
+# CONVERSION-PROOF.tsv -- pl_icon_examples: each Icon file and what the stock Arizona translator (icont 9.5.25a with newline insertion, /home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion) says
+# of the original against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (the grader 2026-11-15; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+algorithms/chapter-1.icn	same-code	58
+algorithms/chapter-2.icn	same-code	150
+algorithms/chapter-3.icn	same-code	22
+algorithms/chapter-6.icn	same-code	94
+examples/binary-repetition-code.icn	same-code	28
+examples/chip8.icn	same-code	122
+examples/diff.icn	same-code	33
+examples/markov-chain.icn	same-code	27
+graphs/floyd-warshall.icn	same-code	10
+id3/id3.icn	same-code	96
+vidgets/barchart-eg.icn	same-code	10
+vidgets/button.icn	same-code	18
+vidgets/hello.icn	same-code	7
+vidgets/lines.icn	same-code	9
+vidgets/list.icn	same-code	10
+vidgets/menu.icn	same-code	9
+vidgets/message.icn	same-code	5
+vidgets/pane.icn	same-code	12
+vidgets/radio.icn	same-code	8
+vidgets/randweav-2.icn	same-code	0
+vidgets/slider.icn	same-code	7
+vidgets/temperature.icn	same-code	17
+vidgets/text.icn	same-code	7

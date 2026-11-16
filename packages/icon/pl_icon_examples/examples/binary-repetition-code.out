@@ -1,0 +1,15 @@
+Size           = 1
+N              = 1000000
+Number correct = 990068
+Perr(C)        = 0.009932
+
+Size           = 3
+N              = 1000000
+Number correct = 999707
+Perr(C)        = 0.000293
+
+Size           = 5
+N              = 1000000
+Number correct = 999997
+Perr(C)        = 3e-06
+

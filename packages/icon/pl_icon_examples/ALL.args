@@ -1,0 +1,2 @@
+examples/diff	diff-a.txt	diff-b.txt
+examples/markov-chain	markov-chain.icn

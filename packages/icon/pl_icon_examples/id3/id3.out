@@ -1,0 +1,887 @@
+Output of ID3 algorithm.
+
+Sample List:
+   - [Anchovies,1,0,1,1,0,M,0,Anchovies]
+   - [Barracudas,0,1,0,0,0,M,0,Barracudas]
+   - [Bonefishes,0,2,0,1,0,R,1,Bonefishes]
+   - [Bullhead-Catfishes,1,1,2,1,1,R,2,Bullhead-Catfishes]
+   - [Cardinal fishes,1,2,1,2,1,R,2,Cardinal]
+   - [Carpet sharks,1,0,0,1,1,R,1,Carpet sharks]
+   - [Carps and Minnows,1,1,2,1,1,M,2,Carps and Minnows]
+   - [Cat Sharks,1,0,0,0,1,R,0,Cat Sharks]
+   - [Cave fishes,1,1,1,2,2,M,2,Cave fishes]
+   - [Characins,1,0,2,2,1,R,2,Characins]
+   - [Cod fishes,1,0,0,0,0,R,0,Cod fishes]
+   - [Cow sharks,1,0,0,0,0,M,0,Cow sharks]
+   - [Dogfish Sharks,0,1,2,1,0,M,2,Dogfish Sharks]
+   - [Gars,1,0,2,2,2,R,1,Gars]
+   - [Goat fishes,0,0,0,0,0,M,1,Goat fishes]
+   - [Herrings,1,0,1,2,0,M,0,Herrings]
+   - [Killifishes 1,2,2,2,2,1,R,2,Killifishes 1]
+   - [Killifishes 2,2,2,2,2,2,R,0,Killifishes 2]
+   - [Livebearers 1,2,2,1,2,1,R,2,Livebearers 1]
+   - [Livebearers 2,2,2,1,2,2,R,2,Livebearers 2]
+   - [Lizard fishes,0,1,0,0,0,M,1,Lizard fishes]
+   - [Mackerel sharks,1,0,1,1,0,R,2,Mackerel sharks]
+   - [Mooneyes,0,1,2,2,1,R,1,Mooneyes]
+   - [Mudminnows,2,1,1,2,2,R,0,Mudminnows]
+   - [Mullets,1,2,2,1,0,M,1,Mullets]
+   - [Perches,2,1,2,2,1,M,0,Perches]
+   - [Pikes,2,0,1,2,1,R,1,Pikes]
+   - [Pirate Perches,2,0,1,2,2,R,0,Pirate Perches]
+   - [Porcupine fishes,1,2,2,2,1,M,2,Porcupine fishes]
+   - [Puffers,1,2,1,1,1,M,2,Puffers]
+   - [Requiem Sharks,0,0,0,0,0,M,0,Requiem Sharks]
+   - [Sand Tigers,0,1,0,0,1,R,1,Sand Tigers]
+   - [Sea Catfishes,1,0,2,1,1,R,2,Sea Catfishes]
+   - [Silversides,2,0,1,1,0,M,0,Silversides]
+   - [Sleepers,2,2,2,2,2,R,1,Sleepers]
+   - [Smelts,0,1,1,1,0,R,1,Smelts]
+   - [Snooks,0,2,0,1,0,L,2,Snooks]
+   - [Sword fishes,0,0,0,0,1,R,2,Sword fishes]
+   - [Suckers,0,0,2,1,0,R,2,Suckers]
+   - [Thresher Sharks,0,1,0,0,0,M,2,Thresher Sharks]
+   - [Trout Perches,1,2,1,1,0,M,2,Trout Perches]
+   - [Trouts,0,2,2,1,0,M,1,Trouts]
+   - [Whale Sharks,1,2,0,0,0,L,1,Whale Sharks]
+
+Property List:
+   - [top curvature,1,0,1,2]
+   - [leading angle,2,0,1,2]
+   - [notch angle,3,0,1,2]
+   - [notch shape,4,0,1,2]
+   - [leaning,5,0,1,2]
+   - [top rel base,6,L,M,R]
+   - [height:max width,7,0,1,2]
+
+==============================
+
+For samples: 
+   - Anchovies
+   - Barracudas
+   - Bonefishes
+   - Bullhead-Catfishes
+   - Cardinal fishes
+   - Carpet sharks
+   - Carps and Minnows
+   - Cat Sharks
+   - Cave fishes
+   - Characins
+   - Cod fishes
+   - Cow sharks
+   - Dogfish Sharks
+   - Gars
+   - Goat fishes
+   - Herrings
+   - Killifishes 1
+   - Killifishes 2
+   - Livebearers 1
+   - Livebearers 2
+   - Lizard fishes
+   - Mackerel sharks
+   - Mooneyes
+   - Mudminnows
+   - Mullets
+   - Perches
+   - Pikes
+   - Pirate Perches
+   - Porcupine fishes
+   - Puffers
+   - Requiem Sharks
+   - Sand Tigers
+   - Sea Catfishes
+   - Silversides
+   - Sleepers
+   - Smelts
+   - Snooks
+   - Sword fishes
+   - Suckers
+   - Thresher Sharks
+   - Trout Perches
+   - Trouts
+   - Whale Sharks
+
+Do test: notch angle
+------------------------------
+
+== 0
+
+   For samples: 
+      - Barracudas
+      - Bonefishes
+      - Carpet sharks
+      - Cat Sharks
+      - Cod fishes
+      - Cow sharks
+      - Goat fishes
+      - Lizard fishes
+      - Requiem Sharks
+      - Sand Tigers
+      - Snooks
+      - Sword fishes
+      - Thresher Sharks
+      - Whale Sharks
+
+   Do test: height:max width
+   ------------------------------
+
+   == 0
+
+      For samples: 
+         - Barracudas
+         - Cat Sharks
+         - Cod fishes
+         - Cow sharks
+         - Requiem Sharks
+
+      Do test: top curvature
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Barracudas
+            - Requiem Sharks
+
+         Do test: leading angle
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Requiem Sharks
+
+            Class: Requiem Sharks
+            -----------------------------
+
+         == 1
+
+            For samples: 
+               - Barracudas
+
+            Class: Barracudas
+            -----------------------------
+
+         == 2
+
+            No samples.
+            ------------------------------
+
+      == 1
+
+         For samples: 
+            - Cat Sharks
+            - Cod fishes
+            - Cow sharks
+
+         Do test: top rel base
+         ------------------------------
+
+         == L
+
+            No samples.
+            ------------------------------
+
+         == M
+
+            For samples: 
+               - Cow sharks
+
+            Class: Cow sharks
+            -----------------------------
+
+         == R
+
+            For samples: 
+               - Cat Sharks
+               - Cod fishes
+
+            Do test: leaning
+            ------------------------------
+
+            == 0
+
+               For samples: 
+                  - Cod fishes
+
+               Class: Cod fishes
+               -----------------------------
+
+            == 1
+
+               For samples: 
+                  - Cat Sharks
+
+               Class: Cat Sharks
+               -----------------------------
+
+            == 2
+
+               No samples.
+               ------------------------------
+
+      == 2
+
+         No samples.
+         ------------------------------
+
+   == 1
+
+      For samples: 
+         - Bonefishes
+         - Carpet sharks
+         - Goat fishes
+         - Lizard fishes
+         - Sand Tigers
+         - Whale Sharks
+
+      Do test: leading angle
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Carpet sharks
+            - Goat fishes
+
+         Do test: notch shape
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Goat fishes
+
+            Class: Goat fishes
+            -----------------------------
+
+         == 1
+
+            For samples: 
+               - Carpet sharks
+
+            Class: Carpet sharks
+            -----------------------------
+
+         == 2
+
+            No samples.
+            ------------------------------
+
+      == 1
+
+         For samples: 
+            - Lizard fishes
+            - Sand Tigers
+
+         Do test: leaning
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Lizard fishes
+
+            Class: Lizard fishes
+            -----------------------------
+
+         == 1
+
+            For samples: 
+               - Sand Tigers
+
+            Class: Sand Tigers
+            -----------------------------
+
+         == 2
+
+            No samples.
+            ------------------------------
+
+      == 2
+
+         For samples: 
+            - Bonefishes
+            - Whale Sharks
+
+         Do test: top curvature
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Bonefishes
+
+            Class: Bonefishes
+            -----------------------------
+
+         == 1
+
+            For samples: 
+               - Whale Sharks
+
+            Class: Whale Sharks
+            -----------------------------
+
+         == 2
+
+            No samples.
+            ------------------------------
+
+   == 2
+
+      For samples: 
+         - Snooks
+         - Sword fishes
+         - Thresher Sharks
+
+      Do test: leading angle
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Sword fishes
+
+         Class: Sword fishes
+         -----------------------------
+
+      == 1
+
+         For samples: 
+            - Thresher Sharks
+
+         Class: Thresher Sharks
+         -----------------------------
+
+      == 2
+
+         For samples: 
+            - Snooks
+
+         Class: Snooks
+         -----------------------------
+
+== 1
+
+   For samples: 
+      - Anchovies
+      - Cardinal fishes
+      - Cave fishes
+      - Herrings
+      - Livebearers 1
+      - Livebearers 2
+      - Mackerel sharks
+      - Mudminnows
+      - Pikes
+      - Pirate Perches
+      - Puffers
+      - Silversides
+      - Smelts
+      - Trout Perches
+
+   Do test: leaning
+   ------------------------------
+
+   == 0
+
+      For samples: 
+         - Anchovies
+         - Herrings
+         - Mackerel sharks
+         - Silversides
+         - Smelts
+         - Trout Perches
+
+      Do test: height:max width
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Anchovies
+            - Herrings
+            - Silversides
+
+         Do test: top curvature
+         ------------------------------
+
+         == 0
+
+            No samples.
+            ------------------------------
+
+         == 1
+
+            For samples: 
+               - Anchovies
+               - Herrings
+
+            Do test: notch shape
+            ------------------------------
+
+            == 0
+
+               No samples.
+               ------------------------------
+
+            == 1
+
+               For samples: 
+                  - Anchovies
+
+               Class: Anchovies
+               -----------------------------
+
+            == 2
+
+               For samples: 
+                  - Herrings
+
+               Class: Herrings
+               -----------------------------
+
+         == 2
+
+            For samples: 
+               - Silversides
+
+            Class: Silversides
+            -----------------------------
+
+      == 1
+
+         For samples: 
+            - Smelts
+
+         Class: Smelts
+         -----------------------------
+
+      == 2
+
+         For samples: 
+            - Mackerel sharks
+            - Trout Perches
+
+         Do test: leading angle
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Mackerel sharks
+
+            Class: Mackerel sharks
+            -----------------------------
+
+         == 1
+
+            No samples.
+            ------------------------------
+
+         == 2
+
+            For samples: 
+               - Trout Perches
+
+            Class: Trout Perches
+            -----------------------------
+
+   == 1
+
+      For samples: 
+         - Cardinal fishes
+         - Livebearers 1
+         - Pikes
+         - Puffers
+
+      Do test: top curvature
+      ------------------------------
+
+      == 0
+
+         No samples.
+         ------------------------------
+
+      == 1
+
+         For samples: 
+            - Cardinal fishes
+            - Puffers
+
+         Do test: notch shape
+         ------------------------------
+
+         == 0
+
+            No samples.
+            ------------------------------
+
+         == 1
+
+            For samples: 
+               - Puffers
+
+            Class: Puffers
+            -----------------------------
+
+         == 2
+
+            For samples: 
+               - Cardinal fishes
+
+            Class: Cardinal
+            -----------------------------
+
+      == 2
+
+         For samples: 
+            - Livebearers 1
+            - Pikes
+
+         Do test: leading angle
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Pikes
+
+            Class: Pikes
+            -----------------------------
+
+         == 1
+
+            No samples.
+            ------------------------------
+
+         == 2
+
+            For samples: 
+               - Livebearers 1
+
+            Class: Livebearers 1
+            -----------------------------
+
+   == 2
+
+      For samples: 
+         - Cave fishes
+         - Livebearers 2
+         - Mudminnows
+         - Pirate Perches
+
+      Do test: leading angle
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Pirate Perches
+
+         Class: Pirate Perches
+         -----------------------------
+
+      == 1
+
+         For samples: 
+            - Cave fishes
+            - Mudminnows
+
+         Do test: top rel base
+         ------------------------------
+
+         == L
+
+            No samples.
+            ------------------------------
+
+         == M
+
+            For samples: 
+               - Cave fishes
+
+            Class: Cave fishes
+            -----------------------------
+
+         == R
+
+            For samples: 
+               - Mudminnows
+
+            Class: Mudminnows
+            -----------------------------
+
+      == 2
+
+         For samples: 
+            - Livebearers 2
+
+         Class: Livebearers 2
+         -----------------------------
+
+== 2
+
+   For samples: 
+      - Bullhead-Catfishes
+      - Carps and Minnows
+      - Characins
+      - Dogfish Sharks
+      - Gars
+      - Killifishes 1
+      - Killifishes 2
+      - Mooneyes
+      - Mullets
+      - Perches
+      - Porcupine fishes
+      - Sea Catfishes
+      - Sleepers
+      - Suckers
+      - Trouts
+
+   Do test: leading angle
+   ------------------------------
+
+   == 0
+
+      For samples: 
+         - Characins
+         - Gars
+         - Sea Catfishes
+         - Suckers
+
+      Do test: leaning
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Suckers
+
+         Class: Suckers
+         -----------------------------
+
+      == 1
+
+         For samples: 
+            - Characins
+            - Sea Catfishes
+
+         Do test: notch shape
+         ------------------------------
+
+         == 0
+
+            No samples.
+            ------------------------------
+
+         == 1
+
+            For samples: 
+               - Sea Catfishes
+
+            Class: Sea Catfishes
+            -----------------------------
+
+         == 2
+
+            For samples: 
+               - Characins
+
+            Class: Characins
+            -----------------------------
+
+      == 2
+
+         For samples: 
+            - Gars
+
+         Class: Gars
+         -----------------------------
+
+   == 1
+
+      For samples: 
+         - Bullhead-Catfishes
+         - Carps and Minnows
+         - Dogfish Sharks
+         - Mooneyes
+         - Perches
+
+      Do test: top curvature
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Dogfish Sharks
+            - Mooneyes
+
+         Do test: notch shape
+         ------------------------------
+
+         == 0
+
+            No samples.
+            ------------------------------
+
+         == 1
+
+            For samples: 
+               - Dogfish Sharks
+
+            Class: Dogfish Sharks
+            -----------------------------
+
+         == 2
+
+            For samples: 
+               - Mooneyes
+
+            Class: Mooneyes
+            -----------------------------
+
+      == 1
+
+         For samples: 
+            - Bullhead-Catfishes
+            - Carps and Minnows
+
+         Do test: top rel base
+         ------------------------------
+
+         == L
+
+            No samples.
+            ------------------------------
+
+         == M
+
+            For samples: 
+               - Carps and Minnows
+
+            Class: Carps and Minnows
+            -----------------------------
+
+         == R
+
+            For samples: 
+               - Bullhead-Catfishes
+
+            Class: Bullhead-Catfishes
+            -----------------------------
+
+      == 2
+
+         For samples: 
+            - Perches
+
+         Class: Perches
+         -----------------------------
+
+   == 2
+
+      For samples: 
+         - Killifishes 1
+         - Killifishes 2
+         - Mullets
+         - Porcupine fishes
+         - Sleepers
+         - Trouts
+
+      Do test: leaning
+      ------------------------------
+
+      == 0
+
+         For samples: 
+            - Mullets
+            - Trouts
+
+         Do test: top curvature
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Trouts
+
+            Class: Trouts
+            -----------------------------
+
+         == 1
+
+            For samples: 
+               - Mullets
+
+            Class: Mullets
+            -----------------------------
+
+         == 2
+
+            No samples.
+            ------------------------------
+
+      == 1
+
+         For samples: 
+            - Killifishes 1
+            - Porcupine fishes
+
+         Do test: top curvature
+         ------------------------------
+
+         == 0
+
+            No samples.
+            ------------------------------
+
+         == 1
+
+            For samples: 
+               - Porcupine fishes
+
+            Class: Porcupine fishes
+            -----------------------------
+
+         == 2
+
+            For samples: 
+               - Killifishes 1
+
+            Class: Killifishes 1
+            -----------------------------
+
+      == 2
+
+         For samples: 
+            - Killifishes 2
+            - Sleepers
+
+         Do test: height:max width
+         ------------------------------
+
+         == 0
+
+            For samples: 
+               - Killifishes 2
+
+            Class: Killifishes 2
+            -----------------------------
+
+         == 1
+
+            For samples: 
+               - Sleepers
+
+            Class: Sleepers
+            -----------------------------
+
+         == 2
+
+            No samples.
+            ------------------------------
+
+
+**** end output ****
+

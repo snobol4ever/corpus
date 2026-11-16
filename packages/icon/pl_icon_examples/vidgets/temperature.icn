@@ -1,0 +1,40 @@
+link vidgets
+
+global input_number, result, root
+
+procedure main()
+  local win;
+
+  win := Window("label=Temperature Conversion", "size=300,150");
+  root := Vroot_frame(win);
+
+  input_number := Vtext(win, "Fahrenheit: ", , , 6);
+  VInsert(root, input_number, 50, 20);
+  VInsert(root, Vmessage(win, "in Celsius is:"), 30, 50, 100, 20);
+  result := Vmessage(win, "------");
+  VInsert(root, result, 150, 50);
+
+  VInsert(root, 
+    Vbutton(win, "Convert", convert_temperature, , , 100, 20),
+    130,
+    80);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure exit_program()
+  exit();
+end
+
+procedure convert_temperature()
+  local temperature;
+
+  temperature := integer(input_number.data) | 0;
+  result.s := fahrenheit_to_celsius(temperature);
+  VResize(root);
+end
+
+procedure fahrenheit_to_celsius(temperature)
+  return (temperature - 32) * 5.0 / 9;
+end

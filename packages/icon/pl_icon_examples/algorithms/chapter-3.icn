@@ -1,0 +1,86 @@
+#> Beginning Java Data Structures and Applications
+#> Chapter 3: Hash Tables and Binary Search Trees
+
+link testing
+
+procedure main()
+  run_tests();
+end
+
+# ----------------------------------------------------------------------------
+# Binary Search Trees
+# - for simplicity, we assume all keys are integer
+
+record bst_node(the_key, value, left_child, right_child)
+
+# Places a new bst_node with (new_key, value) into the given bst node,
+# modifying the given bst node.
+procedure bst_insert(node, new_key, value)
+  if new_key = node.the_key then {
+    node.value = value
+  } else if new_key < node.the_key then {
+    if \node.left_child then
+      bst_insert(node.left_child, new_key, value)
+    else
+      node.left_child := bst_node(new_key, value)
+  } else { # new_key > node.the_key
+    if \node.right_child then
+      bst_insert(node.right_child, new_key, value)
+    else
+      node.right_child := bst_node(new_key, value)
+  };
+end
+
+# Searches the given bst node for the given search_key, either failing 
+# if the search_key was not found, or returning the value of the node
+# with the search_key.
+procedure bst_search(node, search_key)
+  if search_key = node.the_key then
+    return node.value
+  else if search_key < node.the_key then
+    return bst_search(\node.left_child, search_key)
+  else # search_key > node.the_key
+    return bst_search(\node.right_child, search_key);
+end
+
+# Return the maximum value key in given bst
+procedure bst_maximum_key(node)
+  return bst_maximum_key(\node.right_child) | node.the_key;
+end
+
+# Return the minimum value key in given bst
+procedure bst_minimum_key(node)
+  return bst_minimum_key(\node.left_child) | node.the_key;
+end
+
+# TODO
+# Breadth-First / Depth-First / Inorder Traversals
+# Rotate-Left / Rotate-Right
+
+# ----------------------------------------------------------------------------
+# Tests
+
+procedure run_tests()
+  local bst;
+
+  test_start("Binary Search Trees");
+  bst := bst_node(1, "a");
+  test_equals(1, bst_maximum_key(bst));
+  test_equals(1, bst_minimum_key(bst));
+  test_equals("a", bst_search(bst, 1));
+
+  bst := bst_node(1, "a");
+  bst_insert(bst, 2, "b");
+  bst_insert(bst, -1, "c");
+  test_equals(2, bst_maximum_key(bst));
+  test_equals(-1, bst_minimum_key(bst));
+  test_equals("a", bst_search(bst, 1));
+  test_equals("b", bst_search(bst, 2));
+  test_equals("c", bst_search(bst, -1));
+  test_succeeds(create bst_search(bst, 1));
+  test_fails(create bst_search(bst, 3));
+
+  test_finish();
+
+end
+

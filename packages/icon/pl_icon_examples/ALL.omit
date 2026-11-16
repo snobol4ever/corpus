@@ -1,0 +1,14 @@
+examples/chip8.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/barchart-eg.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/button.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/hello.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/lines.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/list.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/menu.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/message.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/pane.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/radio.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/randweav-2.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/slider.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/temperature.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP
+vidgets/text.icn: NEEDS_GRAPHICS_FACILITY (owed): it opens a window (link graphics and vidgets); its answer is a screen, owed to the screen road and a graphics build of SCRIP

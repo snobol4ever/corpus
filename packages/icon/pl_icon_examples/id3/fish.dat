@@ -1,0 +1,52 @@
+sample
+Anchovies,1,0,1,1,0,M,0,Anchovies
+Barracudas,0,1,0,0,0,M,0,Barracudas
+Bonefishes,0,2,0,1,0,R,1,Bonefishes
+Bullhead-Catfishes,1,1,2,1,1,R,2,Bullhead-Catfishes
+Cardinal fishes,1,2,1,2,1,R,2,Cardinal
+Carpet sharks,1,0,0,1,1,R,1,Carpet sharks
+Carps and Minnows,1,1,2,1,1,M,2,Carps and Minnows
+Cat Sharks,1,0,0,0,1,R,0,Cat Sharks
+Cave fishes,1,1,1,2,2,M,2,Cave fishes
+Characins,1,0,2,2,1,R,2,Characins
+Cod fishes,1,0,0,0,0,R,0,Cod fishes
+Cow sharks,1,0,0,0,0,M,0,Cow sharks
+Dogfish Sharks,0,1,2,1,0,M,2,Dogfish Sharks
+Gars,1,0,2,2,2,R,1,Gars
+Goat fishes,0,0,0,0,0,M,1,Goat fishes
+Herrings,1,0,1,2,0,M,0,Herrings
+Killifishes 1,2,2,2,2,1,R,2,Killifishes 1
+Killifishes 2,2,2,2,2,2,R,0,Killifishes 2
+Livebearers 1,2,2,1,2,1,R,2,Livebearers 1
+Livebearers 2,2,2,1,2,2,R,2,Livebearers 2
+Lizard fishes,0,1,0,0,0,M,1,Lizard fishes
+Mackerel sharks,1,0,1,1,0,R,2,Mackerel sharks
+Mooneyes,0,1,2,2,1,R,1,Mooneyes
+Mudminnows,2,1,1,2,2,R,0,Mudminnows
+Mullets,1,2,2,1,0,M,1,Mullets
+Perches,2,1,2,2,1,M,0,Perches
+Pikes,2,0,1,2,1,R,1,Pikes
+Pirate Perches,2,0,1,2,2,R,0,Pirate Perches
+Porcupine fishes,1,2,2,2,1,M,2,Porcupine fishes
+Puffers,1,2,1,1,1,M,2,Puffers
+Requiem Sharks,0,0,0,0,0,M,0,Requiem Sharks
+Sand Tigers,0,1,0,0,1,R,1,Sand Tigers
+Sea Catfishes,1,0,2,1,1,R,2,Sea Catfishes
+Silversides,2,0,1,1,0,M,0,Silversides
+Sleepers,2,2,2,2,2,R,1,Sleepers
+Smelts,0,1,1,1,0,R,1,Smelts
+Snooks,0,2,0,1,0,L,2,Snooks
+Sword fishes,0,0,0,0,1,R,2,Sword fishes
+Suckers,0,0,2,1,0,R,2,Suckers
+Thresher Sharks,0,1,0,0,0,M,2,Thresher Sharks
+Trout Perches,1,2,1,1,0,M,2,Trout Perches
+Trouts,0,2,2,1,0,M,1,Trouts
+Whale Sharks,1,2,0,0,0,L,1,Whale Sharks
+property
+top curvature,1,0,1,2
+leading angle,2,0,1,2
+notch angle,3,0,1,2
+notch shape,4,0,1,2
+leaning,5,0,1,2
+top rel base,6,L,M,R
+height:max width,7,0,1,2

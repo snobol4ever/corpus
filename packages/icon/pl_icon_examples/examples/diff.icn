@@ -1,0 +1,112 @@
+# Implementation of diff tool
+# - following https://florian.github.io/diffing/ 
+# - and Python code in https://github.com/florian/diff-tool
+
+procedure main(args)
+  local diff_result;
+  local file1, file2;
+  local lines1, lines2;
+
+  if *args = 2 then {
+    file1 := open(args[1]) | stop("Could not open file 1: ", args[1]);
+    file2 := open(args[2]) | stop("Could not open file 2: ", args[2]);
+
+    every put((lines1 := []), !file1);
+    every put((lines2 := []), !file2);
+
+    every diff_result := !diff(lines1, lines2) do {
+      case type(diff_result) of {
+        "addition": {
+          write("+ ", diff_result.line)
+        };
+        "removal": {
+          write("- ", diff_result.line)
+        };
+        "unchanged": {
+          write("  ", diff_result.line)
+        }
+      }
+    };
+
+    close(file1);
+    close(file2)
+  } else {
+    write("diff file1 file2")
+  };
+end
+
+record addition(line)
+record removal(line)
+record unchanged(line)
+
+# Compute the diff of two lists of lines.
+# Returns a list of addition, removal, unchanged record instances.
+procedure diff(lines1, lines2)
+  local i, j, lcs, result;
+  result := list();
+  
+  lcs := compute_longest_common_subsequence(lines1, lines2);
+  i := *lines1 + 1;
+  j := *lines2 + 1;
+
+  while (i > 1) | (j > 1) do {
+    # if at end of either sets of lines, then just add them
+    if i = 1 then {
+      push(result, addition(lines2[j-1]));
+      j := j-1
+    } else if j = 1 then {
+      push(result, removal(lines1[i-1]));
+      i := i-1
+    }
+    # otherwise, part of each set still left
+    # first check for an unchanged part
+    else if lines1[i-1] == lines2[j-1] then {
+      push(result, unchanged(lines1[i-1]));
+      i := i-1;
+      j := j-1
+    }
+    # in remaining cases, use lcs to decide whether to add or remove
+    else if lcs[i-1][j] <= lcs[i][j-1] then {
+      push(result, addition(lines2[j-1]));
+      j := j-1
+    } else {
+      push(result, removal(lines1[i-1]));
+      i := i-1
+    }
+  };
+  
+  return result;
+end
+
+# Finds Longest Common Subsequence
+# Result is a table where cell[i][j] is size of lcs of lines1[1:i] and lines2[1:j]
+procedure compute_longest_common_subsequence(lines1, lines2)
+  local i, j, lcs, m, n;
+
+  n := *lines1 + 1;
+  m := *lines2 + 1;
+  lcs := list();
+  every i := 1 to n+1 do {
+    put(lcs, list(m+1, 0))
+  };
+
+  every i := 1 to n do {
+    every j := 1 to m do {
+      if i = 1 | j = 1 then 
+        lcs[i][j] := 0
+      else if lines1[i-1] == lines2[j-1] then
+        lcs[i][j] := 1 + lcs[i-1][j-1]
+      else 
+        lcs[i][j] := max(lcs[i-1][j], lcs[i][j-1])
+    }
+  };
+
+  return lcs;
+end
+
+procedure max(a, b)
+  if a > b then
+    return a
+  else
+    return b;
+end

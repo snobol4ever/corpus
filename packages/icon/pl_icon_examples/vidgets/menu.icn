@@ -1,0 +1,33 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Menu", "size=500,300");
+  root := Vroot_frame(win);
+
+  VInsert(root, 
+    Vmenu_bar(win,
+      "Program", Vsub_menu(win, "About", about_cb, "Exit", exit_program),
+      "File", Vsub_menu(win, "Open", open_cb, "Save", save_cb)
+    ),
+    0, 0);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure exit_program()
+  exit();
+end
+
+procedure about_cb()
+  write("About");
+end
+
+procedure open_cb()
+  write("Open file menu");
+end
+
+procedure save_cb()
+  write("Save file menu");
+end
+

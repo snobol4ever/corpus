@@ -1,0 +1,97 @@
+# Implementation of a Binary Repetition Code 
+# see https://peterlane.codeberg.page/RepetitionCodes.html
+
+# Weight of a list is the number of 1s that it contains
+procedure weight (lst)
+  total := 0;
+  every total +:= !lst;
+  return total;
+end
+
+# Procedure to test if two lists are equal to each other
+procedure equal_lists (lst1, lst2)
+  if *lst1 === *lst2 then {
+    every i := 1 to *lst1 do {
+      if lst1[i] ~=== lst2[i] then fail()
+    }
+  } else
+    fail();
+
+  return;
+end
+
+# Generate a repetition codeword for given value and size
+procedure encode (val, size)
+  result := [];
+
+  every 1 to size do {
+    result := push(result, val)
+  };
+
+  return result;
+end
+
+# The input value here is a list, and the list is decoded to 
+# either a 1 or a 0, depending on its weight
+procedure decode (val, size)
+  return if weight(val) <= size/2 then
+    0
+  else
+    1;
+end
+
+# Convert a complete message using the repetition encoding
+procedure encode_msg (msg, size)
+  result := [];
+
+  every bit := !msg do {
+    result := result ||| encode (bit, size)
+  };
+
+  return result;
+end
+
+# Decode a complete message by dividing it into the appropriately
+# sized blocks, and decoding each block.
+procedure decode_msg (msg, size)
+  result := [];
+
+  every i:= 1 to *msg by size do {
+    result := put (result, decode (msg[i+:size], size))
+  };
+
+  return result;
+end
+
+# Simulate the transmission of a message in a noisy environment
+procedure transmit (msg)
+  p := 0.01; # symbol error probability
+
+  every i := 1 to *msg do {
+    if ?0 < p then msg[i] := 1-msg[i] # add noise
+  };
+
+  return msg;
+end
+
+# The main procedure simulates various code sizes and reports results
+procedure main (arglist)
+  N := 1000000; # number of iterations
+
+  every size := ![1,3,5] do {
+    correct := 0;
+
+    every 1 to N do {
+      msg := [ ?[0, 1] ];  # msg is a single bit
+      received := decode_msg (transmit (encode_msg (msg, size)), size);
+      if equal_lists(msg, received) then correct +:= 1
+    };
+
+    write ("Size           = ", size);
+    write ("N              = ", N);
+    write ("Number correct = ", correct);
+    write ("Perr(C)        = ", 1-real(correct)/N);
+    write ()
+  };
+end
+

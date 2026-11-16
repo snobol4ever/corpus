@@ -1,0 +1,242 @@
+# ID3 classification algorithm, input/output use stdin/stdout
+# written by Peter Lane, 1995
+
+# To use:
+# > icont id3.icn
+# > ./id3 < fish.dat
+# Output appears on STDOUT
+
+procedure main()
+
+  examples := set();
+  property_list := [];
+
+  if not(read() == "sample") then 
+  {
+    write("Invalid input : not initial sample.");
+      fail
+  };
+  while not((line:=read())=="property") do 
+  {
+    if (alist:=parselist(line)) then
+      insert(examples,alist)
+    else {
+      write("Invalid input : ", line, " not a list.");
+        fail
+    }
+  };
+  while (line:=read()) do {
+    if (alist:=parselist(line)) then
+      push(property_list,alist)
+    else
+    {
+      write("Invalid input : ", line, " not a list.");
+        fail
+    }
+  };
+
+  property_list := reverse_list(property_list);
+
+  write("Output of ID3 algorithm.");
+  write();
+  write("Sample List:");
+  every write("   - ", list2str(!sort(examples)));
+  write();
+  write("Property List:");
+  every write("   - ", list2str(!property_list));
+  write();
+  write("==============================");
+  write();
+
+  return_test(examples, "", property_list);
+
+  write();
+  write("**** end output ****");
+  write();
+
+end
+
+procedure return_test(samples, tabstr, property)
+
+  if (*samples = 0) then 
+  {
+    write(tabstr, "No samples.");
+    write(tabstr, "------------------------------");
+    write()
+  }
+  else if (issame(samples)) then
+  {
+    write(tabstr, "For samples: ");
+    every write(tabstr, "   - ", (!sort(samples))[1]);
+    write();
+    item:=?samples;
+    write(tabstr, "Class: ", item[*item]);
+    write(tabstr, "-----------------------------");
+    write()
+  }
+  else if (*property = 0) then
+  {
+    write(tabstr, "For samples: ");
+    ilist:=set();
+    every item:=!sort(samples) do
+    {
+      insert(ilist,item[*item]);
+      write(tabstr, "   - ", item[1])
+    };
+    write();
+    write(tabstr, "Classes: ", set2str(ilist));
+    write();
+    write(tabstr, "No Distinguishing Property.");
+    write(tabstr, "------------------------------");
+    write()
+  }
+  else
+  {
+  test:=get_test(samples, property);
+  write(tabstr, "For samples: ");
+  every write(tabstr, "   - ", (!sort(samples))[1]);
+  write();
+  write(tabstr, "Do test: ", property[test][1]);
+  write(tabstr, "------------------------------");
+  write();
+  every(return_test(split(samples, property, test, tabstr),
+        tabstr||"   ", remove(property, test)))
+  };
+
+end
+
+procedure split(samples, property, attribute, tabstr)
+
+  values := property[attribute];
+  every branch:=values[3 to *values] do
+  {
+  newset:=set();
+  every do_sample:=!samples do
+    if do_sample[1+values[2]] == branch then insert(newset,do_sample);
+    write(tabstr, "== ", branch);
+    write();
+    suspend newset
+  };
+
+end
+
+procedure get_test(samples, property)
+
+  results:=set();
+  every i:= 1 to *property do
+  insert(results,[i,disorder(samples,property,i)]);
+
+  choice := ?results;
+  every item:=!results do
+  if item[2] < choice[2] then choice:=item;
+
+  return choice[1];
+
+end
+
+procedure disorder(samples, property, attribute)
+
+  values:=property[attribute];
+  chaos:=0.0;
+  every branch:=values[3 to *values] do
+  {
+    branch_set:=set();
+    every do_sample:=!samples do
+      if do_sample[1+values[2]] == branch
+      then insert(branch_set,do_sample);
+
+      if not(*branch_set=0) then
+      {
+        classes := table(0.0);
+        every class := !branch_set do
+          classes[class[*class]] +:= 1.0;
+          sum := 0.0;
+          classlist := sort(classes,2);
+          while frcypair := pop(classlist) do
+          {
+            frcy:=frcypair[2];
+            if not(frcy=0.0) then
+            sum := sum-(frcy/*branch_set)*log((frcy/*branch_set),2)
+          };
+          chaos:=chaos+((1.0*(*branch_set)/*samples)*sum)
+        }
+
+  };
+
+  return chaos;
+
+end
+
+procedure list2str(somelist)
+
+  string:="[";
+  every string:=string||!somelist||",";
+  string:=string[1:*string]||"]";
+
+  return string;
+
+end
+
+procedure set2str(someset)
+
+  string:="[";
+  every string:=string||!sort(someset)||",";
+  string:=string[1:*string]||"]";
+  
+  return string;
+
+end
+
+procedure remove(somelist, number)
+
+  newlist:=[];
+  every i:=1 to *somelist do
+  if not(i=number) then
+  push(newlist, somelist[i]);
+
+  return reverse_list(newlist);
+
+end
+
+procedure issame(samples)
+
+  test:=[];
+  every item:=!samples do
+    push(test,item[*item]);
+
+  every check:=!test do
+    if not(check==test[1]) then return 1=2;
+  return 1=1;
+
+end
+
+procedure reverse_list(alist)
+  newlist:=[];
+  while push(newlist, pop(alist));
+  return newlist;
+end
+
+procedure parselist(somelist)
+  alist:=[];
+  if i:=find("[",somelist)+1
+  then
+  {
+    if j:=find("]",somelist) then
+      newlist:=somelist[i:j]||","
+    else
+      fail
+   }
+  else
+    newlist:=somelist||",";
+
+  newlist ? while push(alist,nospace((tab(find(",")))))
+            do move(1);
+  return reverse_list(alist);
+end
+
+procedure nospace(string)
+  i:=1;
+  while (string[i]==" ") do
+    i+:=1;
+  return string[i:*string+1];
+end

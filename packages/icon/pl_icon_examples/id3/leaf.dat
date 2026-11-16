@@ -1,0 +1,21 @@
+sample
+Downy Birch,2,2,T,Downy Birch
+Common Laburnum,2,3,L,Common Laburnum
+Pedunculate Oak,3,2,R,Pedunculate Oak
+Hop Tree,2,2,L,Hop Tree
+Cockspur Hawthorn,1,1,S,Cockspur Hawthorn
+Golden Rain Tree,2,1,R,Golden Rain Tree
+Judas Tree,2,3,S,Judas Tree
+Horse Chestnut,1,3,L,Horse Chestnut
+Sycamore,1,1,I,Sycamore
+Foxglove Tree,3,3,S,Foxglove Tree
+Field Maple,1,1,I,Field Maple
+Hybrid Catalpa,1,1,C,Hybrid Catalpa
+Downy Japanese Maple,1,1,R,Downy Japanese Maple
+Olive,4,2,S,Olive
+Common Lime,2,2,S,Common Lime
+Ribbon Gum,4,3,S,Ribbon Gum
+property
+MAX LEN/MAX WIDTH,1,1,2,3,4
+MAX LEN/POSN OF MAX WIDTH,2,1,2,3
+SIDE SHAPE,3,T,L,R,S,I,C

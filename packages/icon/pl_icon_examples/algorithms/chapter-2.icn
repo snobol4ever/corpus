@@ -1,0 +1,368 @@
+#> Beginning Java Data Structures and Applications
+#> Chapter 2: Sorting Algorithms and Fundamental Data Structures
+
+link testing
+
+procedure main()
+  run_tests();
+end
+
+# ----------------------------------------------------------------------------
+# Sorting Algorithms
+
+procedure bubble_sort(numbers)
+  local j, k;
+
+  every k := 2 to *numbers do {
+    every j := 1 to *numbers-1 do {
+      if numbers[j] > numbers[j+1] then
+        numbers[j] :=: numbers[j+1]
+    }
+  };
+end
+
+procedure bubble_sort_2(numbers)
+  local i, j, swap_occurred;
+
+  i := 0;
+  swap_occurred := 1;
+  while swap_occurred = 1 do {
+    swap_occurred := 0;
+    i +:= 1;
+    every j := 1 to *numbers-i do {
+      if numbers[j] > numbers[j+1] then {
+        numbers[j] :=: numbers[j+1];
+        swap_occurred := 1
+      }
+    }
+  };
+end
+
+procedure selection_sort(numbers)
+  local i, j;
+
+  every i := 1 to *numbers do {
+    every j := i to *numbers do {
+      if numbers[j] < numbers[i] then
+        numbers[j] :=: numbers[i]
+    }
+  };
+end
+
+procedure quick_sort(numbers, start_index, end_index)
+  local pivot;
+
+  /start_index := 1;
+  /end_index := *numbers;
+
+  if start_index < end_index then {
+    pivot := partition(numbers, start_index, end_index);
+    quick_sort(numbers, start_index, pivot-1);
+    quick_sort(numbers, pivot+1, end_index)
+  };
+end
+
+# Lomuto Partitioning
+procedure partition(numbers, start_index, end_index)
+  local i, pivot, x;
+
+  pivot := numbers[end_index];
+  x := start_index - 1;
+  every i := start_index to end_index-1 do {
+    if numbers[i] < pivot then {
+      x +:= 1;
+      numbers[i] :=: numbers[x]
+    }
+  };
+  numbers[x+1] :=: numbers[end_index];
+
+  return x+1;
+end
+
+procedure binary_search(item, numbers, start_index, end_index)
+  local mid;
+
+  /start_index := 1;
+  /end_index := *numbers;
+
+  if start_index <= end_index then {
+    mid := start_index + (end_index - start_index)/2;
+    if numbers[mid] == item then
+      return mid
+    else if numbers[mid] < item then
+      return binary_search(item, numbers, mid+1, end_index)
+    else
+      return binary_search(item, numbers, start_index, mid-1)
+  } else {
+    fail
+  };
+end
+
+procedure merge_sort(numbers, start_index, end_index)
+  local mid_point;
+
+  /start_index := 1;
+  /end_index := *numbers;
+
+  if start_index < end_index then {
+    mid_point := start_index + (end_index-start_index)/2;
+    merge_sort(numbers, start_index, mid_point);
+    merge_sort(numbers, mid_point+1, end_index);
+    merge(numbers, start_index, mid_point, end_index)
+  };
+end
+
+procedure merge(numbers, start_index, mid_point, end_index)
+  local tmp_list, i, j, k;
+
+  i := start_index;
+  j := mid_point + 1;
+  tmp_list := list(*numbers, 0);
+  every k := start_index to end_index do {
+    if i <= mid_point & (j > end_index | numbers[i] <= numbers[j]) then {
+      tmp_list[k] := numbers[i];
+      i +:= 1
+    } else {
+      tmp_list[k] := numbers[j];
+      j +:= 1
+    }
+  };
+
+  every k := start_index to end_index do
+    numbers[k] := tmp_list[k];
+end
+
+# ----------------------------------------------------------------------------
+# Data Structures
+
+# -- Linked List
+
+record linked_list_node(value, next_node)
+record linked_list(head_node)
+
+procedure linked_list_add_front(llist, value)
+  llist.head_node := linked_list_node(value, llist.head_node);
+end
+
+procedure linked_list_delete_front(llist)
+  \llist.head_node := llist.head_node.next_node; 
+end
+
+procedure linked_list_find(llist, value)
+  local current_node;
+
+  current_node := llist.head_node;
+  while \current_node do {
+    if current_node.value === value then
+      suspend current_node;
+    current_node := current_node.next_node
+  };
+  fail;
+end
+
+procedure linked_list_add_after(node, value)
+  node.next_node := linked_list_node(value, node.next_node);
+end
+
+procedure linked_list_to_string(llist)
+  local current_node, str;
+
+  str := "[";
+  current_node := llist.head_node;
+  while \current_node do {
+    str ||:= current_node.value;
+    current_node := current_node.next_node;
+    if \current_node then
+      str ||:= ", "
+  };
+
+  str ||:= "]";
+
+  return str;
+end
+
+# -- Queue
+
+record double_linked_list_node(value, next_node, previous_node)
+record queue(head, tail)
+
+procedure enqueue(queue, value)
+  local node;
+
+  node := double_linked_list_node(value);
+  node.previous_node := queue.tail;
+  if \queue.tail then 
+    queue.tail.next_node := node;
+  /(queue.head) := node;
+  queue.tail := node;
+end
+
+procedure dequeue(queue)
+  local result;
+
+  result := queue.head;
+  if \result then {
+    queue.head := queue.head.next_node;
+    if \queue.head then
+      queue.head.previous_node := &null;
+    return result.value
+  } else {
+    fail
+  };
+end
+
+# -- Stack
+
+record stack(head_node)
+
+procedure stack_push(stack, value)
+  stack.head_node := linked_list_node(value, stack.head_node);
+end
+
+procedure stack_pop(stack)
+  local result;
+
+  result := stack.head_node;
+  if \result then {
+    stack.head_node := stack.head_node.next_node;
+    return result.value
+  } else {
+    fail
+  };
+end
+
+procedure reverse_string(str)
+  local c, s, result;
+
+  s := stack();
+  every stack_push(s, !str);
+  
+  result := "";
+  while c := stack_pop(s) do
+    result ||:= c;
+  return result;
+end
+
+procedure postfix_evaluate(str)
+  local x, y, item, values;
+
+  values := stack();
+
+  str ? {
+    while item := tab(many(&digits ++ '+-*/')) do {
+      if integer(item) then {
+        stack_push(values, integer(item))
+      } else {
+        x := stack_pop(values);
+        y := stack_pop(values);
+        stack_push(values, item(x, y))
+      };
+      =" "
+    }
+  };
+  return stack_pop(values);
+end
+
+# ----------------------------------------------------------------------------
+# Tests
+
+procedure run_tests()
+  local algorithm, algorithms, test_case, test_cases;
+  local result;
+
+  # each algorithm should correctly sort each array
+  algorithms := [bubble_sort, bubble_sort_2, selection_sort, quick_sort, merge_sort];
+  test_cases := [
+    [[], []],
+    [[1], [1]],
+    [[1,2,3], [3,1,2]],
+    [[1,2,3,4,5,6,7,8], [8,7,6,5,4,3,2,1]]
+  ];
+
+  test_start("Sorting algorithms");
+  every algorithm := !algorithms do {
+    every test_case := !test_cases do {
+      result := copy(test_case[2]);
+      algorithm(result);
+      test_equals(test_case[1], result, image(algorithm), equal_lists)
+    }
+  };
+
+  # check binary search
+  test_fails(create binary_search(3, []));
+  test_fails(create binary_search(3, [1,2,4,5,6]));
+  test_succeeds(create binary_search(3, [3]));
+  test_succeeds(create binary_search(3, [1,2,3,4,5,6]));
+  test_equals(1, binary_search(3, [3]));
+  test_equals(3, binary_search(3, [1,2,3,4,5,6]));
+
+  test_linked_list();
+  test_queue();
+  test_stack();
+
+  test_finish();
+
+end
+
+procedure test_linked_list()
+  local current, llist, node;
+
+  llist := linked_list();
+  test_equals("[]", linked_list_to_string(llist));
+  linked_list_add_front(llist, 1);
+  test_equals("[1]", linked_list_to_string(llist));
+  linked_list_add_front(llist, 2);
+  test_equals("[2, 1]", linked_list_to_string(llist));
+  linked_list_delete_front(llist);
+  test_equals("[1]", linked_list_to_string(llist));
+  linked_list_delete_front(llist);
+  test_equals("[]", linked_list_to_string(llist));
+  every linked_list_add_front(llist, 1 to 5);
+  test_equals("[5, 4, 3, 2, 1]", linked_list_to_string(llist));
+  node := linked_list_find(llist, 3);
+  test_equals(3, node.value);
+  linked_list_add_after(node, 7);
+  test_equals("[5, 4, 3, 7, 2, 1]", linked_list_to_string(llist));
+end
+
+procedure test_queue()
+  local q;
+
+  q := queue();
+  enqueue(q, 1);
+  enqueue(q, 2);
+  test_equals(1, dequeue(q));
+  test_equals(2, dequeue(q));
+  test_fails(create dequeue(q));
+end
+
+procedure test_stack()
+  local s;
+
+  s := stack();
+  stack_push(s, 1);
+  stack_push(s, 2);
+  test_equals(2, stack_pop(s));
+  test_equals(1, stack_pop(s));
+  test_fails(create stack_pop(s));
+
+  test_equals("", reverse_string(""));
+  test_equals("a", reverse_string("a"));
+  test_equals("dcba", reverse_string("abcd"));
+
+  test_equals(1, postfix_evaluate("1"));
+  test_equals(3, postfix_evaluate("1 2 +"));
+  test_equals(1, postfix_evaluate("1 2 -"));
+  test_equals(20, postfix_evaluate("4 2 3 + *"));
+end
+
+procedure equal_lists(lst1, lst2)
+  local i;
+
+  if *lst1 ~= *lst2 then fail;
+  every i := 1 to *lst1 do {
+    if lst1[i] ~= lst2[i] then fail
+  };
+  return;
+end
+

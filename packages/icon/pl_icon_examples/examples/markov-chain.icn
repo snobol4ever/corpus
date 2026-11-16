@@ -1,0 +1,57 @@
+# Markov Chain random text producer
+# Icon version of https://benhoyt.com/writings/markov-chain/
+
+link wrap
+
+procedure main(arglist)
+  local file, line, possibles, w1, w2, word, wordset;
+
+  if *arglist = 2 then {
+    file := open(arglist[1]) | stop("Failed to open ", arglist[1]);
+    possibles := table();
+    w1 := w2 := "";
+    every line := !file do {
+      line ? while tab(upto(~' ')) do {
+        word := tab(many(~' '));
+        if not member(possibles, w1) then
+          possibles[w1] := table();
+        if not member(possibles[w1], w2) then
+          possibles[w1][w2] := list();
+        put(possibles[w1][w2], word);
+        w1 := w2;
+        w2 := word
+      }
+    };
+
+    # avoid empty possibles lists at end of input
+    possibles[w1][w2] := [""];
+    if not member(possibles, w2) then
+      possibles[w2] := table();
+    possibles[w2][""] := [""];
+
+    close(file);
+
+    # -- output some text
+    wordset := []; # first word is uppercase
+    every word := key(possibles) do {
+      if member(&ucase, word[1]) then put(wordset, word)
+    };
+    w1 := ?wordset;
+    every put(wordset := [], key(possibles[w1]));
+    w2 := ?wordset;
+    wrap();
+    write(wrap(w1 || " ", 80));
+    write(wrap(w2 || " ", 80));
+    every 1 to integer(arglist[2]) do {
+      word := ?possibles[w1][w2];
+      write(wrap(word || " ", 80));
+      w1 := w2;
+      w2 := word
+    };
+    write(wrap())
+
+  } else {
+    write("Error: provide a filename of text and output word count")
+  };
+end
+

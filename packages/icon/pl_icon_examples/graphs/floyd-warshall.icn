@@ -1,0 +1,67 @@
+# Implementation of Floyd-Warshall Algorithm
+#
+# This follows https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/
+#
+# Floyd-Warshall is used to find shortest-paths between all pairs of nodes in a graph.
+
+# Floyd-Warshall takes a square-array of distances between nodes
+# - use &null to represent unconnected nodes
+procedure floyd_warshall(distances)
+  local i, j, k;
+
+  # add all vertices one-by-one to the set of intermediate vertices
+  # -> before start of an iteration
+  #    we have shortest distance between all pairs of vertices such that only
+  #    vertices in set {1 .. k-1} are considered as intermediate vertices
+  # -> after end of iteration
+  #    vertex k is added to set of considered intermediate vertices
+  every k := 1 to *distances do {
+    # pick all vertices as source, one-by-one
+    every i := 1 to *distances do {
+      # pick all vertices as destination for above source
+      every j := 1 to *distances do {
+        # if vertex k is on shortest path from i to j, then update distances[i][j]
+        if (\distances[i][k] & \distances[k][j]) & (/distances[i][j] | (distances[i][j] > (distances[i][k] + distances[k][j]))) then
+          distances[i][j] := distances[i][k] + distances[k][j]
+      }
+    }
+  };
+end
+
+procedure print_solution(distances)
+  local i, j;
+
+  write("The following matrix shows the shortest distance between every pair of vertices");
+  every i := 1 to *distances do {
+    every j := 1 to * distances do {
+      if /distances[i][j] then 
+        writes(right(" - ", 5, " "))
+      else 
+        writes(right(string(distances[i][j]), 5, " "))
+    };
+    write()
+  };
+end
+
+procedure main()
+  local distances;
+
+#  distances := [
+#    [0, 5, &null, 10],
+#    [&null, 0, 3, &null],
+#    [&null, &null, 0, 1],
+#    [&null, &null, &null, 0]
+#  ]
+
+  distances := [
+    [0, 4, &null, 5, &null],
+    [&null, 0, 1, &null, 6],
+    [2, &null, 0, 3, &null],
+    [&null, &null, 1, 0, 2],
+    [1, &null, &null, 4, 0]
+  ];
+
+  floyd_warshall(distances);
+  print_solution(distances);
+end
+

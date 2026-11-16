@@ -1,0 +1,14 @@
+BFS output: 
+Vertex 5 <= 2
+Vertex 4 <= 1
+Vertex 3 <= 5
+Vertex 2 <= 1
+Vertex 6 <= 3
+DFS output: 
+Vertex 5 <= 2
+Vertex 4 <= 1
+Vertex 3 <= 5
+Vertex 2 <= 1
+Vertex 6 <= 3
+Maze output: 
+Path: [1 5] <= [2 5] <= [2 4] <= [3 4] <= [4 4] <= [4 5] <= [4 6] <= [3 6]

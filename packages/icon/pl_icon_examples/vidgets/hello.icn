@@ -1,0 +1,16 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Hello", "size=500,300");
+  root := Vroot_frame(win);
+
+  button := Vbutton(win, "Click to close", exit_program, , , 120, 20);
+  VInsert(root, button, 20, 20);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure exit_program()
+  exit();
+end
