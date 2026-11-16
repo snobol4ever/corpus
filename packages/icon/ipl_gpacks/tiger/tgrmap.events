@@ -1,0 +1,49 @@
+# tgrmap, the TIGER map viewer of ipl_gpacks (tiger), on town.lch, a small synthetic map in its line chain format (beside it, made by
+# officer_06's make_town_lch.py): opened through its own dialog, zoomed by a sweep, reset, zoomed and shifted by keys, a line identified
+# with the right button, a street found by name, the layers asked for (at 24 bits it has no mutable colours and says so), the displayed part
+# saved as t.lch, quit with q. Each dialog stands in the middle of the 870 by 870 window and takes keys with the pointer inside it.
+# the opening dialog: the map file's name
+move 435 437
+type town.lch
+key Return
+wait
+# a left sweep zooms onto the park
+drag 1 300 250 600 450
+wait
+# 1 resets the whole map; + zooms by two; the left arrow shifts the centre
+key 1
+wait
+key plus
+wait
+key Left
+wait
+key 1
+wait
+# the right button on Interstate 80 pops up the names under the pointer; r closes it and redraws
+click 3 300 436
+wait
+move 435 437
+key r
+wait
+# F finds a feature by name: Main St is drawn over in yellow
+key F
+wait
+move 435 437
+type main
+key Return
+wait
+# L asks for the layers dialog; with no mutable colour it gives a notice, closed with Return
+key L
+wait
+move 435 437
+key Return
+wait
+# S saves the displayed portion through a file dialog
+key S
+wait
+move 435 437
+type t.lch
+key Return
+wait
+# q quits
+key q

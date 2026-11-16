@@ -53,6 +53,16 @@ the library alone; the pack's five other tools are batch filters with no window)
 screen.dump). Converted by officer_06 2026-11-16 by the stock translator's newline rule (the converter put a `;` after the macro `EPSILON` inside
 parentheses at lines 562 and 563), SAME-CODE. MEASURED: built by `/home/resources/icon-master-x` it shows the stock build's picture twice, md5 54c2790f.
 
+tgrmap IS GRADED DOING ITS OWN WORK (officer_06, 2026-11-16, row icon-graphics-every-gui-pack-is-an-entry-of-ipl-gpacks-graded-as-an-application):
+`tiger/tgrmap.events` plays its work on `tiger/town.lch`, a small synthetic map of twelve chains in its line chain format (a county line, a
+creek, a railroad, a power line, five streets, a park, a state route and an interstate; made by `make_town_lch.py` beside it, since the pack
+ships no TIGER data): the file named in its own opening dialog, a left sweep that zooms, the keys 1, +, the left arrow and 1 again, the right
+button on the interstate (its popup names `A1 Interstate 80`, closed by r), F finding `main` (Main St drawn over in yellow), L (at 24 bits it has
+no mutable colour and its notice says so), S saving the displayed part as `t.lch` through its file dialog, and q. The answer is the 15 screen
+lines then `t.lch` (`out_files` screen.dump t.lch; 900 bytes, the map with the park cut in two by the window's edge), byte equal on two runs
+of `/home/resources/icon-master-x`. LEFT OUT: P writes PostScript stamped with `&dateline`, and M a PPM of 2 MB. The dialogs stand black on the
+oracle's display, as in the opening picture.
+
 NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
 it waits on the road passing an entry's env to the program alone); carpets and drawtree follow, one corpus patch a pack; the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
