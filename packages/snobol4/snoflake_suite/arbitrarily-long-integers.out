@@ -1,0 +1,17 @@
+
+
+
+arbitrarily-long-integers.sno(12) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+in file              arbitrarily-long-integers.sno
+in line              12
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16552
+memory left (bytes)  1032016

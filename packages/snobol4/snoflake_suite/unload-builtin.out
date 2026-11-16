@@ -1,0 +1,18 @@
+SIZE OF CAT IS 3
+
+
+
+unload-builtin.sno(10) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              unload-builtin.sno
+in line              10
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11512
+memory left (bytes)  1037056

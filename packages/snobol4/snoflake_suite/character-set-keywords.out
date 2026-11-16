@@ -1,0 +1,19 @@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+
+
+
+character-set-keywords.sno(10) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              character-set-keywords.sno
+in line              10
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11376
+memory left (bytes)  1037192

@@ -1,0 +1,17 @@
+
+
+
+numeric-keywords.sno(9) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              numeric-keywords.sno
+in line              9
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11976
+memory left (bytes)  1036592

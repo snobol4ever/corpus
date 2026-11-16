@@ -1,0 +1,17 @@
+
+
+
+output-format-ignored.sno(7) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+in file              output-format-ignored.sno
+in line              7
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11744
+memory left (bytes)  1036824

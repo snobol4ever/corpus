@@ -1,0 +1,53 @@
+
+
+
+topological-sort.sno(20) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              topological-sort.sno
+in line              20
+in statement         5
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  17248
+memory left (bytes)  1031320
+
+
+
+
+dump of natural variables
+
+PAIR = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'attempted redefinition of system function'
+&ERRTYPE = 248
+&FILE = 'topological-sort.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'topological-sort.sno'
+&LASTLINE = 19
+&LASTNO = 4
+&LINE = 20
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 5
+&STLIMIT = 2147483647
+&STNO = 5
+&TRACE = 0
+&TRIM = 1

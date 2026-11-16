@@ -1,0 +1,17 @@
+
+
+
+stlimit-nonnegative.sno(6) : ERROR 244 -- statement count exceeds value of stlimit keyword
+
+
+
+
+
+in file              stlimit-nonnegative.sno
+in line              6
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11408
+memory left (bytes)  1037160

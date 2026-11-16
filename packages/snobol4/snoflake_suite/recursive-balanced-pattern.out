@@ -1,0 +1,17 @@
+
+
+
+recursive-balanced-pattern.sno(39) : ERROR 042 -- attempt to change value of protected variable
+
+
+
+
+
+in file              recursive-balanced-pattern.sno
+in line              39
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14240
+memory left (bytes)  1034328

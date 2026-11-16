@@ -1,0 +1,17 @@
+
+
+
+complex-multiplication-opsyn.sno(12) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+in file              complex-multiplication-opsyn.sno
+in line              12
+in statement         4
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14280
+memory left (bytes)  1034288

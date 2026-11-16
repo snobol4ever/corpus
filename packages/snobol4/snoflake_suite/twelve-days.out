@@ -1,0 +1,17 @@
+
+
+
+twelve-days.sno(23) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+in file              twelve-days.sno
+in line              23
+in statement         7
+stmts executed       9
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14616
+memory left (bytes)  1033952

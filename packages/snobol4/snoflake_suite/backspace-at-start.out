@@ -1,0 +1,17 @@
+
+
+
+backspace-at-start.sno(6) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+in file              backspace-at-start.sno
+in line              6
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11888
+memory left (bytes)  1036680

@@ -1,0 +1,17 @@
+
+
+
+eval-apply-opsyn.sno(9) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+in file              eval-apply-opsyn.sno
+in line              9
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11888
+memory left (bytes)  1036680

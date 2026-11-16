@@ -1,0 +1,17 @@
+
+
+
+opsyn-case-fold.sno(6) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+in file              opsyn-case-fold.sno
+in line              6
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11768
+memory left (bytes)  1036800

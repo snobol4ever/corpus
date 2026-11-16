@@ -1,0 +1,17 @@
+
+
+
+load-failure-graceful.sno(11) : ERROR 142 -- load function does not exist
+
+
+
+
+
+in file              load-failure-graceful.sno
+in line              11
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12160
+memory left (bytes)  1036408

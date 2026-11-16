@@ -1,0 +1,17 @@
+
+
+
+bubble-sort.sno(40) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              bubble-sort.sno
+in line              40
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13328
+memory left (bytes)  1035240

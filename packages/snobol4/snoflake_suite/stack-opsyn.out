@@ -1,0 +1,17 @@
+
+
+
+stack-opsyn.sno(13) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+in file              stack-opsyn.sno
+in line              13
+in statement         6
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13584
+memory left (bytes)  1034984
