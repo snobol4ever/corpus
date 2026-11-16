@@ -43614,3 +43614,48 @@ Barbecuing with Liquid Oxygen</a>
 </body></html>
 ```
 
+## call_value__procedure_value_called_in_every
+
+```Icon
+procedure main()
+   local p, k, s;
+   every 1 to 3 do dot();
+   write();
+   runit(dot, 4);
+   runit(plus, 2);
+   write();
+   every p := dot | plus | dot do p();
+   write();
+   every k := 1 to 3 do every s := upto3(k) do writes(s, " ");
+   write();
+   p := upto3;
+   every k := 1 to 2 do every writes(p(k + 1), ",");
+   write();
+   p := write;
+   every k := 1 to 3 do p("w", k);
+   every 1 to 2 do (p := (if p === dot then plus else dot))();
+   write();
+end
+procedure runit(p, n)
+   every 1 to n do p();
+end
+procedure dot(); writes("."); end
+procedure plus(); writes("+"); end
+procedure upto3(n)
+   local i;
+   every i := 1 to n do suspend i;
+end
+```
+
+```stdout
+...
+....++
+.+.
+1 1 2 1 2 3 
+1,2,1,2,3,
+w1
+w2
+w3
+.+
+```
+
