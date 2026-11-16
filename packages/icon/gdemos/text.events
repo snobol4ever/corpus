@@ -1,0 +1,14 @@
+# text: a name typed and entered, then the location field taken and added to and entered
+move 150 31
+wait
+click 1 150 31
+wait
+type Peter
+key Return
+wait
+move 200 61
+wait
+click 1 200 61
+wait
+type  UK
+key Return

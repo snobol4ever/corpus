@@ -1,0 +1,6 @@
+# pane: the grooved pane, the raised pane and the sunken pane clicked
+click 1 50 50
+wait
+click 1 110 50
+wait
+click 1 110 80

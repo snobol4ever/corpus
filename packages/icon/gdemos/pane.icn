@@ -1,0 +1,39 @@
+link vidgets
+link ximage
+
+procedure main()
+  win := Window("label=Pane", "size=500,300");
+  root := Vroot_frame(win);
+
+  VInsert(root,
+    Vpane(win, pane1_cb, "left_pane", "grooved"),
+    10, 10, 90, 90);
+  VInsert(root,
+    Vpane(win, pane2_cb, "hidden_pane", "invisible"),
+    100, 10, 20, 20);
+  VInsert(root,
+    Vpane(win, pane3_cb, "middle_pane", "raised"),
+    100, 40, 20, 20);
+  VInsert(root,
+    Vpane(win, pane4_cb, , "sunken"),
+    100, 70, 20, 20);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure pane1_cb(vidget, e, x, y)
+  write("Clicked on pane 1 ", vidget.id, " at ", x, ", ", y, " - ", ximage(e));
+end
+
+procedure pane2_cb(vidget, e, x, y)
+  write("Clicked on pane 2 ", vidget.id, " at ", x, ", ", y, " - ", ximage(e));
+end
+
+procedure pane3_cb(vidget, e, x, y)
+  write("Clicked on pane 3 ", vidget.id, " at ", x, ", ", y, " - ", ximage(e));
+end
+
+procedure pane4_cb(vidget, e, x, y)
+  write("Clicked on pane 4 ", vidget.id, " at ", x, ", ", y, " - ", ximage(e));
+end

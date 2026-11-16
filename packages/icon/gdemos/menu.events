@@ -1,0 +1,8 @@
+# menu: the Program menu pulled down and About taken, the File menu pulled down and Open then Save taken, then Program pulled down again and Exit taken, which ends the program
+drag 1 24 10 20 31
+wait
+drag 1 65 10 70 31
+wait
+drag 1 65 10 70 46
+wait
+drag 1 24 10 20 46

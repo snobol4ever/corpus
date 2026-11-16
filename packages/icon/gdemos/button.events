@@ -1,0 +1,12 @@
+# button: each kind of button on the left pressed in turn, the plain button, the toggle, the check, the circle, the diamond and the box
+click 1 57 30
+wait
+click 1 57 60
+wait
+click 1 57 90
+wait
+click 1 57 120
+wait
+click 1 57 150
+wait
+click 1 30 180

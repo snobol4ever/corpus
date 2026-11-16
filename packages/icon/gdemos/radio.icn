@@ -1,0 +1,26 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Radio", "size=500,300");
+  root := Vroot_frame(win);
+
+  # Plain radio buttons
+  VInsert(root, 
+    Vradio_buttons(win, ["icon", "java", "ruby", "scheme"], radio_cb, "language"), 
+    20, 20);
+  # Use check-box style button style
+  VInsert(root, 
+    Vradio_buttons(win, ["apple", "banana", "pear"], radio_cb, "fruit", V_CHECK_NO), 
+    150, 20);
+  # Horizontal buttons
+  VInsert(root,
+    Vhoriz_radio_buttons(win, ["Amiga", "Atari ST", "ZX Spectrum"], radio_cb, "computer", V_DIAMOND),
+    20, 140);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure radio_cb(vidget, e, x, y)
+  write("Selected ", vidget.id, " is ", vidget.data);
+end

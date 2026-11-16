@@ -1,0 +1,56 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Button", "size=500,300");
+  root := Vroot_frame(win);
+
+  # Simple button
+  VInsert(root, 
+    Vbutton(win, "Button", button_cb, "simple-button", "regular", 75, 20),
+    20, 20);
+  VInsert(root, 
+    Vbutton(win, "Button", button_cb, "simple-button", "regularno", 75, 20),
+    120, 20);
+  # Toggle button
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "regular", 75, 20),
+    20, 50);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "regularno", 75, 20),
+    120, 50);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "check", 75, 20),
+    20, 80);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "checkno", 75, 20),
+    120, 80);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "circle", 75, 20),
+    20, 110);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "circleno", 75, 20),
+    120, 110);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "diamond", 75, 20),
+    20, 140);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "diamondno", 75, 20),
+    120, 140);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "xbox", 20, 20),
+    20, 170);
+  VInsert(root, 
+    Vtoggle(win, "Toggle", button_cb, "toggle-button", "xboxno", 20, 20),
+    120, 170);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure button_cb(vidget, e, x, y)
+  case vidget.id of {
+    "simple-button": write("You clicked a simple button");
+    "toggle-button": if 1 = \VGetState(vidget) then write("Toggle is enabled")
+    else write("Toggle is disabled")
+  };
+end

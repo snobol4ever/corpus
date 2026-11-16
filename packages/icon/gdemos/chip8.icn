@@ -1,0 +1,371 @@
+# CHIP-8 Interpreter
+# written by Peter Lane, 2025
+
+# A CHIP 8 interpreter makes an interesting demonstration program.
+# My version follows the description in 
+# https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
+# 
+# Tested on ROMS taken from 
+# https://github.com/cbreezier/rchip8/blob/master/roms/
+#
+# Issues:
+# - key recognition is not very good, so the games are not really playable
+# - rate limiting to 700Hz only works on "UNIX" computers
+# - no sound
+
+link graphics
+link vidgets
+
+global ON_UNIX
+
+procedure main(args)
+  local win, root, program;
+
+  ON_UNIX := if &features == "UNIX" then { 1 } else { 0 };
+
+  if *args < 1 then {
+    write("Usage: chip8 filename.ch8");
+      return
+  };
+
+win := Window("label=CHIP 8 :: " || args[1], "size=550,350");
+root := Vroot_frame(win);
+
+  program := read_program(args[1]);
+run_program(root, program);
+
+  VResize(root);
+GetEvents(root);
+  end
+
+# read a binary program
+procedure read_program(filename)
+  local file, program, bytes;
+
+  file := open(filename, "r") | stop("cannot open program");
+  program := "";
+  while bytes := reads(file, 1024) do {
+    program ||:= bytes
+  };
+close(file);
+
+  return program;
+  end
+
+# top-level running of CHIP 8 program
+procedure run_program(root, program)
+  local chip, b1, b2, b3, b4;
+  local row, col, n, mask, i, x, y;
+  local num_cycles, start_time, time_expected, time_taken;
+
+  chip := new_chip8(program);
+clear_screen(chip);
+
+  num_cycles := 0;
+  start_time := current_time();
+
+  while chip.pc < *chip.memory do {
+b1 := chip.memory[chip.pc] / 16;
+      b2 := chip.memory[chip.pc] % 16;
+      b3 := chip.memory[chip.pc+1] / 16;
+      b4 := chip.memory[chip.pc+1] % 16;
+      chip.pc +:= 2;
+
+      if chip.delay_timer > 0 then {
+        chip.delay_timer -:= 1
+      };
+    if chip.sound_timer > 0 then {
+      chip.sound_timer -:= 1
+    };
+
+    case b1 of {
+0: { # execute machine language instruction
+     if b2 = 0 & b3 = 14 & b4 = 0 then { # clear screen
+       clear_screen(chip)
+     } else if b2 = 0 & b3 = 14 & b4 = 14 then { # return from subroutine
+       chip.pc := pop(chip.stack)
+     } else {
+       invalid_instruction(chip);
+         return
+     }
+   };
+1: { # jump
+     chip.pc := b2 * 256 + b3 * 16 + b4
+   };
+2: { # call subroutine
+     push(chip.stack, chip.pc);
+       chip.pc := b2 * 256 + b3 * 16 + b4
+   };
+3: { # skip if x/nn equal
+     if chip.registers[b2+1] = b3 * 16 + b4 then {
+       chip.pc +:= 2
+     }
+   };
+4: { # skip if x/nn not equal
+     if chip.registers[b2+1] = b3 * 16 + b4 then {
+     } else {
+       chip.pc +:= 2
+     }
+   };
+5: { # skip if x/y equal
+     if chip.registers[b2+1] = chip.registers[b3+1] then {
+       chip.pc +:= 2
+     }
+   };
+6: { # set 6xnn
+     chip.registers[b2+1] := 16 * b3 + b4
+   };
+7: { # add 7xnn
+     chip.registers[b2+1] := (chip.registers[b2+1] + 16 * b3 + b4) % 256
+   };
+8: {
+x := chip.registers[b2+1];
+     y := chip.registers[b3+1];
+     chip.registers[b2+1] := case b4 of {
+0: y;
+     1: ior(x, y);
+     2: iand(x, y);
+     3: ixor(x, y);
+     4: {
+       chip.registers[16] := if x + y > 255 then { 1 } else { 0 };
+       (x + y) % 256
+     };
+5: {
+     if x > y then {
+       chip.registers[16] := 1;
+         x - y
+     } else {
+       chip.registers[16] := 0;
+         iand(x - y, 255)
+     }
+   };
+6: {
+# NB: using 'new' form, ignoring VY
+     chip.registers[16] := x % 2;
+       chip.registers[b2+1] := ishift(x, -1)
+   };
+7: {
+     if y > x then {
+       chip.registers[16] := 1;
+         y - x
+     } else {
+       chip.registers[16] := 0;
+         iand(y - x, 255)
+     }
+   };
+14: { 
+# NB: using 'new' form, ignoring VY
+      chip.registers[16] := if x >= 128 then { 1 } else { 0 };
+      chip.registers[b2+1] := iand(ishift(x, 1), 255)
+    }
+     }
+   };
+9: { # skip if x/y not equal
+     if chip.registers[b2+1] = chip.registers[b3+1] then {
+     } else {
+       chip.pc +:= 2
+     }
+   };
+10: { # set index annn
+      chip.index_register := 256 * b2 + 16 * b3 + b4
+    };
+11: { # jump with offset
+      chip.pc := chip.registers[0 + 1] + 256 * b2 + 16 * b3 + b4 
+    };
+12: { # random
+      chip.registers[b2+1] := iand(16*b3 + b4, ?256)
+    };
+13: { # dxyn
+      row := (chip.registers[b3+1] % 32) + 1;
+        chip.registers[16] := 0;
+        every n := 1 to b4 do { # n pixels tall
+          col := (chip.registers[b2+1] % 64) + 1;
+            if row <= 32 then {
+mask := 128;
+        every i := 1 to 8 do {
+          if iand(mask, chip.memory[chip.index_register + n - 1]) > 0 then { # if sprite bit is 1
+            if chip.screen[row][col] = 0 then {
+              chip.screen[row][col] := 1;
+                draw_cell(row, col);
+                chip.registers[16] := 1
+            } else {
+              chip.screen[row][col] := 0;
+                clear_cell(row, col)
+            }
+          };
+mask /:= 2;
+         col +:= 1
+        }
+            };
+          row +:= 1
+        }
+    };
+14: { # skip if key
+      x := chip.registers[b2 + 1]; # key to check
+        if b3 = 9 & b4 = 14 then {
+          if *Pending() > 0 & get_char() = x then {
+            chip.pc +:= 2
+          }
+        } else if b3 = 10 & b4 = 1 then {
+          if *Pending() > 0 & get_char() = x then {
+          } else {
+            chip.pc +:= 2
+          }
+        }
+    };
+15: { # various operations
+      if b3 = 0 & b4 = 7 then { # timers
+        chip.registers[b2 + 1] := chip.delay_timer
+      } else if b3 = 1 & b4 = 5 then {
+        chip.delay_timer := chip.registers[b2 + 1]
+      } else if b3 = 1 & b4 = 8 then {
+        chip.sound_timer := chip.registers[b2 + 1]
+      } else if b3 = 1 & b4 = 14 then { # add to index
+        chip.index_register := (chip.index_register + chip.registers[b2 + 1]) % 65536
+      } else if b3 = 0 & b4 = 10 then { # get key
+        if *Pending() > 0 then { # if key is input, put value into x
+          chip.registers[b2 + 1] := get_char()
+        } else { # otherwise wait
+          chip.pc -:= 2 # otherwise wait
+        }
+      } else if b3 = 2 & b4 = 9 then { # font character
+        x := chip.registers[b2 + 1] % 16;
+          chip.index_register := x * 5 # 5 numbers per character
+      } else if b3 = 3 & b4 = 3 then { # store BCD values
+        x := chip.registers[b2 + 1];
+          chip.memory[chip.index_register] := x / 100;
+          chip.memory[chip.index_register + 1] := (x % 100) / 10;
+          chip.memory[chip.index_register + 2] := x % 10
+      } else if b3 = 5 & b4 = 5 then { # store into memory
+# NB: does not modify index_register 
+        every i := 1 to (b2+1) do {
+          chip.memory[chip.index_register + i - 1] := chip.registers[i]
+        }
+      } else if b3 = 6 & b4 = 5 then { # load from memory
+# NB: does not modify index_register 
+        every i := 1 to (b2+1) do {
+          chip.registers[i] := chip.memory[chip.index_register + i - 1]
+        }
+      }
+    }
+    };
+
+# try to keep a 700Hz rate
+    if ON_UNIX = 1 then {
+      num_cycles +:= 1;
+        time_taken := current_time() - start_time;
+        time_expected := 1000 * num_cycles / 700;
+        if time_taken < time_expected then { 
+          delay(time_expected - time_taken)
+        }
+    }
+  };
+end
+
+# -- CHIP 8 core interpreter 
+
+record chip8(
+    memory, screen, pc, index_register, stack, 
+    delay_timer, sound_timer, registers
+    )
+
+procedure new_chip8(program)
+  local chip, font, i;
+
+  chip := chip8(list(4096, 0), list(32), 0, 0, list(), 0, 0, list(16, 0));
+
+# add screen
+  every i := 1 to 32 do {
+    chip.screen[i] := list(64, 0)
+  };
+
+# add font
+font := [
+  16rF0, 16r90, 16r90, 16r90, 16rF0, # 0
+  16r20, 16r60, 16r20, 16r20, 16r70, # 1
+  16rF0, 16r10, 16rF0, 16r80, 16rF0, # 2
+  16rF0, 16r10, 16rF0, 16r10, 16rF0, # 3
+  16r90, 16r90, 16rF0, 16r10, 16r10, # 4
+  16rF0, 16r80, 16rF0, 16r10, 16rF0, # 5
+  16rF0, 16r80, 16rF0, 16r90, 16rF0, # 6
+  16rF0, 16r10, 16r20, 16r40, 16r40, # 7
+  16rF0, 16r90, 16rF0, 16r90, 16rF0, # 8
+  16rF0, 16r90, 16rF0, 16r10, 16rF0, # 9
+  16rF0, 16r90, 16rF0, 16r90, 16r90, # A
+  16rE0, 16r90, 16rE0, 16r90, 16rE0, # B
+  16rF0, 16r80, 16r80, 16r80, 16rF0, # C
+  16rE0, 16r90, 16r90, 16r90, 16rE0, # D
+  16rF0, 16r80, 16rF0, 16r80, 16rF0, # E
+  16rF0, 16r80, 16rF0, 16r80, 16r80  # F
+];
+every i := 1 to *font do {
+  chip.memory[i] := font[i]
+};
+
+# add program
+chip.pc := 512;
+every i := 1 to *program do {
+  chip.memory[511 + i] := ord(program[i])
+};
+
+return chip;
+end
+
+procedure clear_screen(chip)
+  local row, col;
+
+  every row := 1 to 32 do 
+  every col := 1 to 64 do {
+    chip.screen[row][col] := 0;
+      clear_cell(row, col)
+  };
+end
+
+procedure clear_cell(row, col)
+  Fg("white");
+FillRectangle(50 + col * 7, 50 + row * 7, 6, 6);
+  end
+
+procedure draw_cell(row, col)
+  Fg("red");
+FillRectangle(50 + col * 7, 50 + row * 7, 6, 6);
+  end
+
+# CHIP 8 only has 0-F, return as 0-15
+procedure get_char()
+  return case Event() of {
+    "0": 0;
+      "1": 1;
+      "2": 2;
+      "3": 3;
+      "4": 4;
+      "5": 5;
+      "6": 6;
+      "7": 7;
+      "8": 8;
+      "9": 9;
+      "a": 10;
+      "b": 11;
+      "c": 12;
+      "d": 13;
+      "e": 14;
+      "f": 15;
+    default: 0
+  };
+end
+
+procedure invalid_instruction(chip)
+  write("Error: ", "invalid instruction");
+  end
+
+# Note, this only works on UNIX systems using a pipe to 'date'
+procedure current_time()
+  local date_pipe, time;
+
+  date_pipe := open("date +%s%3N", "p");
+  time := read(date_pipe);
+close(date_pipe);
+
+  return time;
+  end
+

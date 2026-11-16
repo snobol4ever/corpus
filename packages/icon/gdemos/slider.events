@@ -1,0 +1,11 @@
+# slider: the horizontal slider dragged right, then the vertical slider pressed on its thumb, dragged down and let go
+drag 1 70 31 100 31
+wait
+move 95 130
+press 1
+wait
+move 95 160
+wait
+move 95 185
+wait
+release 1

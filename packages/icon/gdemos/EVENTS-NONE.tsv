@@ -1,0 +1,4 @@
+# EVENTS-NONE.tsv -- an entry of gdemos that waits for an event and is NOT graded on a script: it draws and then waits with no control a script could work, so its still picture is its whole work: entry, a tab, the measured reason.
+barchart-eg	MEASURED officer_03 2026-11-16 on icon-master-x through the screen road: it draws a histogram of 100 draws of ?100 (the default seed, the same bars twice) with the barchart procedures and then waits in GetEvents on a root frame that holds no vidget; it has nothing to press and no quit
+lines	MEASURED officer_03 2026-11-16 on icon-master-x through the screen road: five Vline vidgets drawn on a root frame, then GetEvents; a line takes no event, so the picture is the whole of its work, and it has no quit
+message	MEASURED officer_03 2026-11-16 on icon-master-x through the screen road: one Vmessage, Hello from IconVidgets!, then GetEvents; a message takes no event and the program has no quit

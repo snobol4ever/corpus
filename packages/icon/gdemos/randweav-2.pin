@@ -1,0 +1,1 @@
+# randomize() reads the clock: pin the clock and the entropy, so RENDER draws the same weave on every run

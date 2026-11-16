@@ -17,4 +17,18 @@ equal, from the graphics oracle `/home/resources/icon-master-x`, and `screens/NA
 compared. The programs link the library's graphics procedures from the sibling `ipl` (`CONTRACT.tsv`, as `ipl_gprogs`). The proof of
 an entry is the one prover, `prove_ipl_gprogs_entry.py PKG NAME`.
 
-THE ROWS: `hello`, a root frame and one button whose callback exits; its script moves onto the button and clicks it.
+THE ROWS, fourteen, each with what its script reaches:
+- `hello`: a root frame and one button whose callback exits; the button clicked, which ends the program.
+- `button`: the plain button, the toggle, the check, the circle, the diamond and the box toggles pressed in turn.
+- `list`: Number 3 picked in the single-select list, Number 2 in the multi-select list, the read-only list scrolled three lines.
+- `menu`: Program then About, File then Open, File then Save, and Program then Exit, which ends it; its text is graded with its screens.
+- `pane`: the grooved, raised and sunken panes clicked (their callbacks write only text, which the road withholds; the screens stand).
+- `radio`: java, banana and Atari ST set.
+- `randweav-2`: RENDER pressed under the clock and entropy pin (`randweav-2.pin`, its `randomize()`), the weave drawn, then quit.
+- `slider`: the horizontal slider dragged, the vertical slider pressed, dragged and let go.
+- `temperature`: 212 typed into Fahrenheit and Convert pressed; the Celsius line reads 100.0.
+- `text`: a name typed and entered, the location field added to and entered.
+- `chip8`: the emulator run on `digits.ch8`, a 32-byte CHIP-8 program of our own (`ALL.args`): it draws the font digits 0 to 7 (each
+  missing its first row: the emulator reads its font one byte early), waits for a key and draws that key's digit; the script types 9.
+- `barchart-eg`, `lines`, `message`: each draws and then waits with no control a script could work; `EVENTS-NONE.tsv` says so and
+  their still picture is their answer.

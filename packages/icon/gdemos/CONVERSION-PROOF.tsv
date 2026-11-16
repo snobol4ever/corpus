@@ -1,3 +1,17 @@
 # CONVERSION-PROOF.tsv -- gdemos: each program as hosted here against its original (SOURCES.tsv), given the semicolons SCRIP Icon requires by util_icon_semicolons.py, and what the stock Arizona translator (icon-stock-x, icont 9.5.25a with newline insertion) says of the two: the .u1 and .u2 of icont -s -c compared byte for byte
 file	verdict	semicolons_added
 hello.icn	same-code	7
+barchart-eg.icn	same-code	10
+button.icn	same-code	18
+hello.icn	same-code	7
+lines.icn	same-code	9
+list.icn	same-code	10
+menu.icn	same-code	9
+message.icn	same-code	5
+pane.icn	same-code	12
+radio.icn	same-code	8
+randweav-2.icn	same-code	72
+slider.icn	same-code	7
+temperature.icn	same-code	17
+text.icn	same-code	7
+chip8.icn	same-code	122

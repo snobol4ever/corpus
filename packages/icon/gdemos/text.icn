@@ -1,0 +1,20 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Text", "size=500,300");
+  root := Vroot_frame(win);
+
+  VInsert(root, 
+    Vtext(win, "    Name: ", show_value, "name_entry", 20),
+    20, 20);
+  VInsert(root, 
+    Vtext(win, "Location: \\=England", show_value, "location_entry", 20),
+    20, 50);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure show_value(vidget)
+  write(vidget.id, " contains ", vidget.data);
+end

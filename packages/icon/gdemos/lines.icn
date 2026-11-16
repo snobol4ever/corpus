@@ -1,0 +1,19 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Lines", "size=500,300");
+  root := Vroot_frame(win);
+
+  # vertical line
+  VInsert(root, Vline(win, 50, 10, 50, 100));
+  # horizontal line
+  VInsert(root, Vline(win, 10, 10, 90, 10));
+  VInsert(root, Vline(win, 10, 100, 90, 100));
+  # diagonal lines
+  VInsert(root, Vline(win, 100, 10, 200, 100));
+  VInsert(root, Vline(win, 100, 100, 200, 10));
+
+  VResize(root);
+  GetEvents(root);
+end
+

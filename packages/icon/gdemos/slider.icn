@@ -1,0 +1,25 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Slider", "size=500,300");
+  root := Vroot_frame(win);
+
+  VInsert(root, 
+    Vhoriz_slider(win, update_value, "horizontal", 
+                  100, 20,
+                  0, 100, 50),
+    20, 20);
+
+  VInsert(root, 
+    Vvert_slider(win, update_value, "vertical", 
+                 20, 50,
+                 0.0, 1.0, 0.0),
+    70, 50);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure update_value(vidget, e, x, y)
+  write("Slider ", vidget.id, " is now at ", vidget.data);
+end

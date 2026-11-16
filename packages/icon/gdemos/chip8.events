@@ -1,0 +1,4 @@
+# chip8 on digits.ch8, a program of our own: it draws the font digits 0 to 7, waits for a key and draws that key's digit below them; the pointer moved into the window and 9 typed
+move 200 200
+wait
+key 9

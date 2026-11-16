@@ -1,0 +1,29 @@
+link vidgets
+link ximage
+
+procedure main()
+  win := Window("label=List", "size=500,300");
+  root := Vroot_frame(win);
+
+  numbers := [];
+  every i := 1 to 100 do put(numbers, "Number " || i);
+
+  VInsert(root, 
+    Vlist(win, , "readonly", numbers, , 110, 200, V_READONLY), 
+    20, 20);
+
+  VInsert(root, 
+    Vlist(win, pick_number, "single_select", numbers, 1, 110, 200, V_SELECT), 
+    150, 20);
+
+  VInsert(root, # TODO multi selection is not working for me
+    Vlist(win, pick_number, "multi_select", numbers, 1, 110, 200, V_MULTISELECT), 
+    270, 20);
+
+  VResize(root);
+  GetEvents(root);
+end
+
+procedure pick_number(vidget, item, indices)
+  write("Picked ...", ximage(item), " on list ", vidget.id, " at ", ximage(indices));
+end

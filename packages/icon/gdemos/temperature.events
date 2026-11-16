@@ -1,0 +1,8 @@
+# temperature: 212 typed into Fahrenheit and Convert pressed, the Celsius line then reads 100
+move 145 30
+wait
+click 1 145 30
+wait
+type 212
+wait
+click 1 180 91

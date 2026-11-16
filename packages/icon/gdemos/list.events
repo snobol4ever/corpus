@@ -1,0 +1,10 @@
+# list: Number 3 picked in the single-select list, Number 2 in the multi-select list, and the read-only list scrolled down three lines by its arrow
+click 1 190 55
+wait
+click 1 310 42
+wait
+click 1 123 213
+wait
+click 1 123 213
+wait
+click 1 123 213

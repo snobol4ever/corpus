@@ -1,0 +1,8 @@
+# randweav-2: RENDER pressed, a random weave drawn under the clock and entropy pin, then quit pressed, which ends the program
+move 196 43
+wait
+click 1 196 43
+wait
+move 330 473
+wait
+click 1 330 473

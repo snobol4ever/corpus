@@ -1,0 +1,14 @@
+link vidgets
+
+procedure main()
+  win := Window("label=Message", "size=500,300");
+  root := Vroot_frame(win);
+
+  VInsert(root, 
+    Vmessage(win, "Hello from IconVidgets!"), 
+    20, 20, 188, 20);
+
+  VResize(root);
+  GetEvents(root);
+end
+

@@ -1,3 +1,16 @@
 # SOURCES.tsv -- gdemos: each program, its path in Peter Lane's repository https://codeberg.org/peterlane/icon-examples at commit 01ae5dc (2025-01-31), read from the checkout /home/resources/icon-demos/peterlane-icon-examples
 file	upstream_path	commit
 hello.icn	vidgets/hello.icn	01ae5dc
+barchart-eg.icn	vidgets/barchart-eg.icn	01ae5dc
+button.icn	vidgets/button.icn	01ae5dc
+lines.icn	vidgets/lines.icn	01ae5dc
+list.icn	vidgets/list.icn	01ae5dc
+menu.icn	vidgets/menu.icn	01ae5dc
+message.icn	vidgets/message.icn	01ae5dc
+pane.icn	vidgets/pane.icn	01ae5dc
+radio.icn	vidgets/radio.icn	01ae5dc
+randweav-2.icn	vidgets/randweav-2.icn	01ae5dc
+slider.icn	vidgets/slider.icn	01ae5dc
+temperature.icn	vidgets/temperature.icn	01ae5dc
+text.icn	vidgets/text.icn	01ae5dc
+chip8.icn	examples/chip8.icn	01ae5dc
