@@ -70,6 +70,13 @@ needing none: `clr_list`, `draw_box` and `data` by `util_icon_semicolons.py`, `d
 at draw_sqr line 191, where it then split `+:=`); `info.icn` and `record.icn` need none. MEASURED: built by `/home/resources/icon-master-x` it shows
 the stock build's picture twice, md5 a9e4eb51.
 
+drawtree IS GRADED DOING ITS OWN WORK (officer_06, 2026-11-16, row icon-graphics-every-gui-pack-is-an-entry-of-ipl-gpacks-graded-as-an-application):
+`drawtree/drawtree.events` reads `drawtree/tree.txt`, a bracket tree of 15 nodes below its root, through its File menu's Input Data dialog (the
+tree it builds at its start is a random draw after `randomize()`, and a tree read from a file is not), shows the Circle tree and scrolls it into
+view, sets its radius to 30 and its gap to 8 through the tree window's Format menu and their dialogs, and quits by q in the main window's strip.
+The answer is the 13 screen lines (`out_files` screen.dump), byte equal on two runs of `/home/resources/icon-master-x`. LEFT OUT: the Box
+window, whose canvas stays empty at every scroll on the oracle's display, and snapshot, which writes a GIF.
+
 NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
 it waits on the road passing an entry's env to the program alone); carpets follows, one corpus patch a pack; the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)

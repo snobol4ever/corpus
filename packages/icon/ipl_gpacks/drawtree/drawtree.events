@@ -1,0 +1,47 @@
+# drawtree, the tree-drawing tool of ipl_gpacks (drawtree), on tree.txt beside it, a bracket tree of 15 nodes below its root (its File menu's input data;
+# the tree it builds at its start is a random draw after randomize(), the tree read from a file is not): the file named in the File menu's
+# dialog, the Circle tree shown and scrolled into view, its Format menu's radius set to 30 and gap to 8 through their dialogs, q in the main
+# window's strip. Without a window manager every window stands at 0 0: the tree window covers the main one but for its bottom strip.
+# the File menu held open, its item Input Data; the dialog takes the file name
+move 17 11
+press 1
+wait
+move 30 30
+release 1
+wait
+move 160 174
+type tree.txt
+key Return
+wait
+# the Circle button shows its window; the two scroll bars bring the tree into view
+click 1 99 88
+wait
+drag 1 309 60 309 165
+wait
+drag 1 40 308 160 308
+wait
+# the tree window's Format menu, its item radius: the dialog's field stands selected and is typed over
+move 22 11
+press 1
+wait
+move 40 60
+release 1
+wait
+move 160 160
+type 30
+key Return
+wait
+# the Format menu again, its item gap
+move 22 11
+press 1
+wait
+move 40 105
+release 1
+wait
+move 160 160
+type 8
+key Return
+wait
+# q in the main window's strip ends the program (QuitCheck)
+move 150 350
+key q
