@@ -1,0 +1,23 @@
+# CONVERSION-PROOF.tsv -- icon_lab: each Icon file and what the stock Arizona translator (icont 9.5.25a with newline insertion, /home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion) says
+# of the original against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (the grader 2026-11-15; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+lab1/p1.icn	same-code	10
+lab1/p2.icn	same-code	6
+lab1/p3.icn	same-code	5
+lab1/p4.icn	same-code	18
+lab2/crt.icn	same-code	24
+lab2/p1.icn	same-code	14
+lab2/q.icn	same-code	47
+lab3/p1.icn	same-code	9
+lab3/p2.icn	same-code	8
+lab4/p1.icn	same-code	5
+lab4/p2.icn	both-refused (icont rc 1: File p2.icn; Line 14 # "procedura": invalid declaration)	0
+lab4/p3.icn	same-code	22
+other/cat.icn	same-code	1
+other/dictionary.icn	same-code	3
+other/digit.icn	same-code	3
+other/hello.icn	same-code	1
+other/nwd.icn	same-code	2
+other/print.icn	same-code	12
+other/prog1.icn	same-code	2
+other/prog2.icn	same-code	5
