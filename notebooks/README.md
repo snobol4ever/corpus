@@ -24,12 +24,14 @@ program, and the outputs saved in the notebook are what the oracle (SPITBOL, `sb
 | `Icon_in_SCRIP.ipynb` | master entries | 12 |
 | `Unicon_in_SCRIP.ipynb` | package entries | 12 |
 | `Pascal_in_SCRIP.ipynb` | master entries | 12 |
+| `Prolog_in_SCRIP.ipynb` | master entries | 12 |
 
 In `Snocone_in_SCRIP.ipynb` each `%%snocone` cell is one whole Snocone program, an entry of the Snocone master, and its saved output is that entry's ref.
 In `Rebus_in_SCRIP.ipynb` each `%%rebus` cell is one whole Rebus program, an entry of the Rebus master, and its saved output is that entry's ref.
 In `Icon_in_SCRIP.ipynb` each `%%icon` cell is one whole Icon program, an entry of the Icon master, and its saved output is that entry's ref.
 In `Unicon_in_SCRIP.ipynb` each `%%unicon` cell is one whole Unicon program, an entry of the package `packages/icon/unicon_tests`, and its saved output is that entry's answer as the Unicon translator gives it.
 In `Pascal_in_SCRIP.ipynb` each `%%pascal` cell is one whole Pascal program, an entry of the Pascal master, and its saved output is that entry's ref.
+In `Prolog_in_SCRIP.ipynb` each `%%prolog` cell is one whole Prolog program, an entry of the Prolog master, and its saved output is that entry's ref.
 
 Notes for a reader:
 
