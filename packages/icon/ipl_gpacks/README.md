@@ -77,8 +77,14 @@ view, sets its radius to 30 and its gap to 8 through the tree window's Format me
 The answer is the 13 screen lines (`out_files` screen.dump), byte equal on two runs of `/home/resources/icon-master-x`. LEFT OUT: the Box
 window, whose canvas stays empty at every scroll on the oracle's display, and snapshot, which writes a GIF.
 
+THE CARPETS ROW: `carpets/carport`, the numerical-carpet maker of Icon 9.5.25a `ipl/gpacks/carpets`, a vib interface over `carprec` and `carputil`
+(`ipath carpets`); its answer is its opening picture (`out_files` screen.dump). Asked to make a carpet (an event this row does not send) it writes
+`carpincl.icn` and runs `icont` through `system()` to build `carplay`, so a script that went that far would need a translator on the path. Converted by
+officer_06 2026-11-16 by the stock newline rule (`carputil.icn`: the converter put a `;` after the macro `Cells` at line 238 and then split `+:=`),
+`carprec.icn` needs none, SAME-CODE. MEASURED: built by `/home/resources/icon-master-x` it shows the stock build's picture twice, md5 3a00a364.
+
 NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
-it waits on the road passing an entry's env to the program alone); carpets follows, one corpus patch a pack; the rest of weaving is batch
+it waits on the road passing an entry's env to the program alone); the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
 and a pinned clock, so both are left out.
 
