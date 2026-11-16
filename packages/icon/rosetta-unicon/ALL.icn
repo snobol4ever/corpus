@@ -16,7 +16,52 @@ end
 procedure makeProc(A) # A Programmer-Defined Control Operation
     return (@A[1],A[1]);
 end
-#--------------------------------------------------------- 2 arithmetic-complex
+#--------------------------------------------------------- 2 animation-1-three-ticks
+import gui
+$include "guih.icn"
+
+class WindowApp : Dialog (label, direction)
+
+  method rotate_left (msg)
+    return msg[2:0] || msg[1]
+  end
+
+  method rotate_right (msg)
+    return msg[-1:0] || msg[1:-1]
+  end
+
+  method reverse_direction ()
+    direction := 1-direction
+  end
+
+  # this method gets called by the ticker, and updates the label
+  method tick ()
+    static msg := "Hello World! "
+    if direction = 0
+      then msg := rotate_left (msg)
+      else msg := rotate_right (msg)
+    label.set_label(msg)
+  end
+
+  method component_setup ()
+    direction := 1 # start off rotating to the right
+    label := Label("label=Hello World! ", "pos=0,0")
+    # respond to a mouse click on the label
+    label.connect (self, "reverse_direction", MOUSE_RELEASE_EVENT)
+    add (label)
+
+    connect (self, "dispose", CLOSE_BUTTON_EVENT)
+    # three ticks, then the label stands still
+    every 1 to 3 do tick ()
+  end
+end
+
+# create and show the window
+procedure main ()
+  w := WindowApp ()
+  w.show_modal ()
+end
+#--------------------------------------------------------- 3 arithmetic-complex
 import math
 
 procedure main()
@@ -30,14 +75,14 @@ procedure main()
    write("multiplicative inverse: ",c1.multInverse().toString())
    write("conjugate of (4,-3i): ",Complex(4,-3).conjugate().toString())
 end
-#--------------------------------------------------------- 3 arrays-2
+#--------------------------------------------------------- 4 arrays-2
 procedure main()
    L := [: 1 to 5:];
    delete(L,4);
    insert(L,2,"hello");
    every write(!L);
 end
-#--------------------------------------------------------- 4 barnsley-fern-seeded
+#--------------------------------------------------------- 5 barnsley-fern-seeded
 link graphics
 
 global x, y
@@ -99,7 +144,7 @@ procedure draw()
 	next_point()
     };
 end
-#--------------------------------------------------------- 5 currency
+#--------------------------------------------------------- 6 currency
 import math
 
 procedure main()
@@ -114,7 +159,7 @@ procedure main()
    write(left("Tax",   10), "$", right(tax.toString(),21))
    write(left("Total", 10), "$", right(total.toString(),21))
 end
-#--------------------------------------------------------- 6 hello-world-graphical
+#--------------------------------------------------------- 7 hello-world-graphical
 import gui
 $include "guih.icn"
 
@@ -136,7 +181,20 @@ procedure main ()
   w := WindowApp ()
   w.show_modal ()
 end
-#--------------------------------------------------------- 7 queue-definition
+#--------------------------------------------------------- 8 image-noise-seeded
+procedure main()
+   &window := open("B&W noise 320x240","g","size=320,240","bg=white","fg=black") |
+              stop("Open window failed ");
+   &random := 42;
+   every 1 to 3 do {
+      s := "320,#";
+      every 1 to 240 & 1 to 320/4 do s ||:= ?"0123456789ABCDEF";
+      DrawImage(0,0,s)
+      };
+   Event();   # wait for any window event
+   close(&window);
+end
+#--------------------------------------------------------- 9 queue-definition
 # Use a class to hold a Queue, with a list as the concrete implementation
 class Queue (items)
   method push (item)
@@ -167,7 +225,7 @@ procedure main ()
     if queue.is_empty () then write ("empty queue")
   };
 end
-#--------------------------------------------------------- 8 simple-windowed-application
+#--------------------------------------------------------- 10 simple-windowed-application
 import gui
 $include "guih.icn"
 
@@ -199,19 +257,19 @@ procedure main()
   local d := SimpleApp ()
   d.show_modal()
 end
-#--------------------------------------------------------- 9 singly-linked-list-element-definition-1
+#--------------------------------------------------------- 11 singly-linked-list-element-definition-1
 class Node (value, successor)
   initially (value, successor)
     self.value := value;
     self.successor := successor;
 end
-#--------------------------------------------------------- 10 singly-linked-list-element-definition-2
+#--------------------------------------------------------- 12 singly-linked-list-element-definition-2
 procedure main ()
   n := Node(1, Node (2));
   write (n.value);
   write (n.successor.value);
 end
-#--------------------------------------------------------- 11 singly-linked-list-element-insertion
+#--------------------------------------------------------- 13 singly-linked-list-element-insertion
 class Node (value, successor)
 
   method insert (node)
@@ -223,7 +281,7 @@ class Node (value, successor)
     self.value := value;
     self.successor := successor;
 end
-#--------------------------------------------------------- 12 undefined-values
+#--------------------------------------------------------- 14 undefined-values
 global G1
 
 procedure main(arglist)
@@ -239,11 +297,11 @@ every                                                                   #write a
    write((localnames|paramnames|staticnames|globalnames)(&current,0));   # ... visible in the current co-expression at this calling level (0)
 return;
 end
-#--------------------------------------------------------- 13 unix-ls
+#--------------------------------------------------------- 15 unix-ls
 procedure main()
    every write(!sort([: !(f := open(".")) :])) | close(f);
 end
-#--------------------------------------------------------- 14 vector
+#--------------------------------------------------------- 16 vector
 procedure main()
    v1 := vector(5,7);
    v2 := vector(2,3);
@@ -265,7 +323,7 @@ class vector(x,y)
    method __mult__(z); return mult(z); end
    method __div__(z); return div(z); end
 end
-#--------------------------------------------------------- 15 walsh-matrix
+#--------------------------------------------------------- 17 walsh-matrix
 import util
 
 procedure main(A)
@@ -288,7 +346,7 @@ procedure combine(wa,wb)
       }
    return m
 end
-#--------------------------------------------------------- 16 web-scraping
+#--------------------------------------------------------- 18 web-scraping
 procedure main()
 m := open(url := "http://tycho.usno.navy.mil/cgi-bin/timer.pl","m") | stop("Unable to open ",url);
 every (p := "") ||:= |read(m);                                                    # read the page into a single string
@@ -296,7 +354,7 @@ close(m);
 
 map(p) ? ( tab(find("<br>")), ="<br>", write("UTC time=",p[&pos:find(" utc")]));  # scrape and show
 end
-#--------------------------------------------------------- 17 window-creation
+#--------------------------------------------------------- 19 window-creation
 import gui
 $include "guih.icn"
 

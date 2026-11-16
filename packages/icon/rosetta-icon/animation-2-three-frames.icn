@@ -1,0 +1,20 @@
+link graphics
+
+procedure main()
+    s := "Hello World! ";
+    WOpen("size=640,400", "label=Animation");
+    Font("typewriter,60,bold");
+    direction := 1;
+    w := TextWidth(s);
+    h := WAttrib("fheight");
+    x := (WAttrib("width") - w) / 2;
+    y := (WAttrib("height") - 20 + h) / 2;
+
+    every 1 to 3 do
+    {   s := s[2 - 3 * direction:0] || s[1:2 - 3 * direction];
+        EraseArea(x, y, w, -h);
+        DrawString(x,y - WAttrib("descent")-1,s);
+        WFlush()
+    };
+    Event();
+end

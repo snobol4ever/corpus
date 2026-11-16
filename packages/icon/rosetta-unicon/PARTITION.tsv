@@ -1,13 +1,15 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=17 features=38 ubiquitous=4(package write procedure assign) distinctive=34 core=10 clusters=4 chunks=1 sizes=7
+# shape: entries=19 features=38 ubiquitous=4(package write procedure assign) distinctive=34 core=10 clusters=6 chunks=1 sizes=9
 entry	part	cluster	shells
 accumulator-factory	core	core	aug_assign coexpr_activate keyword_ref return while
+animation-1-three-ticks	chunk:01	family:animation--three-ticks	
 arithmetic-complex	chunk:01	feat:want_rc	want_rc
 arrays-2	core	core	delete element_gen every insert to_by
 barnsley-fern-seeded	core	core	alternation case every gen_with_alternation global keyword_ref limitation local map repeat return to_by
 currency	chunk:01	feat:want_rc	want_rc
 hello-world-graphical	chunk:01	family:hello-world-graphical	
+image-noise-seeded	chunk:01	family:image-noise-seeded	
 queue-definition	core	core	every fail pop push put return to_by
 simple-windowed-application	chunk:01	family:simple-windowed-application	
 singly-linked-list-element-definition-1	chunk:01	feat:want_rc	want_rc

@@ -7,8 +7,8 @@ amicable-pairs: oracle timed out -- non-terminating or too slow for the grading 
 anadromes: oracle produced EMPTY output -- refusing to mint a vacuous ref
 anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
 anagrams-deranged-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
-animation-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-animation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+animation-1: the oracle answers differently on two runs: an animation has no one picture; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its seeded three-tick form is rosetta-unicon animation-1-three-ticks)
+animation-2: the oracle answers differently on two runs: an animation has no one picture; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its three-frame form is the entry animation-2-three-frames)
 anonymous-recursion-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 anonymous-recursion-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 arithmetic-complex-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -32,7 +32,7 @@ best-shuffle-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 binary-search-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 binary-strings-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 binary-strings-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-bitmap: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bitmap: no main procedure: a fragment of a program, not a program (the coo's census 2026-11-16)
 brownian-tree: oracle produced EMPTY output -- refusing to mint a vacuous ref
 caesar-cipher-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 calculating-the-value-of-e: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -47,8 +47,8 @@ closures-value-capture-2: oracle produced EMPTY output -- refusing to mint a vac
 collections-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 collections-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 collections-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-colorful-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-colour-bars-display-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+colorful-numbers: no display program: Unicon text with a list comprehension, which this package's Icon oracle does not read (the coo's census 2026-11-16)
+colour-bars-display-2: no main procedure: a fragment of a program, not a program (the coo's census 2026-11-16)
 combinations-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 combinations-with-repetitions-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 combinations-with-repetitions-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -99,8 +99,8 @@ determine-if-only-one-instance-is-running: oracle produced EMPTY output -- refus
 digital-root: oracle produced EMPTY output -- refusing to mint a vacuous ref
 dijkstras-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 documentation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-draw-a-clock-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-draw-a-clock-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+draw-a-clock-1: the oracle answers differently on two runs: a clock shows the time it runs at; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its fixed-time form is the entry draw-a-clock-1-fixed-time)
+draw-a-clock-2: the oracle answers differently on two runs: a clock shows the time, date and zone it runs at; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its fixed-time form is the entry draw-a-clock-2-fixed-time)
 empty-program: oracle produced EMPTY output -- refusing to mint a vacuous ref
 empty-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
 enforced-immutability: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -144,12 +144,10 @@ flow-control-structures-5: oracle produced EMPTY output -- refusing to mint a va
 forest-fire: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fork: oracle produced EMPTY output -- refusing to mint a vacuous ref
 forward-difference: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fractal-tree: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fractran: oracle produced EMPTY output -- refusing to mint a vacuous ref
 function-composition-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 function-composition-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 function-definition: oracle produced EMPTY output -- refusing to mint a vacuous ref
-galton-box-animation: oracle produced EMPTY output -- refusing to mint a vacuous ref
 general-fizzbuzz: oracle produced EMPTY output -- refusing to mint a vacuous ref
 generate-lower-case-ascii-alphabet-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 generator-exponential-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -158,7 +156,7 @@ greatest-common-divisor-1: oracle produced EMPTY output -- refusing to mint a va
 greatest-common-divisor-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 greatest-element-of-a-list-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 greatest-subsequential-sum: oracle produced EMPTY output -- refusing to mint a vacuous ref
-greyscale-bars-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
+greyscale-bars-display: its oracle answer is run-time error 106 at line 14 on stderr, which this package does not grade, so its graded answer would be screen none and exit 1, which any broken engine earns (the grader 2026-11-16, on the coo's census)
 guess-the-number: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 guess-the-number-with-feedback: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 guess-the-number-with-feedback-player-: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
@@ -178,7 +176,7 @@ huffman-coding-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 i-before-e-except-after-c-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 i-before-e-except-after-c-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 identity-matrix: oracle produced EMPTY output -- refusing to mint a vacuous ref
-image-noise: oracle produced EMPTY output -- refusing to mint a vacuous ref
+image-noise: the oracle answers differently on two runs: its noise is drawn at random; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its seeded form is rosetta-unicon image-noise-seeded)
 include-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
 increment-a-numerical-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
 input-loop: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -234,7 +232,6 @@ luhn-test-of-credit-card-numbers: oracle produced EMPTY output -- refusing to mi
 lychrel-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
 man-or-boy-test-1: oracle crashed (signal 11)
 man-or-boy-test-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-mandelbrot-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
 map-range-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 map-range-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 matrix-exponentiation-operator: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -249,7 +246,7 @@ middle-three-digits: oracle produced EMPTY output -- refusing to mint a vacuous 
 miller-rabin-primality-test: oracle produced EMPTY output -- refusing to mint a vacuous ref
 minesweeper-game: oracle produced EMPTY output -- refusing to mint a vacuous ref
 monte-carlo-methods: oracle timed out -- non-terminating or too slow for the grading timeout
-mouse-position: oracle produced EMPTY output -- refusing to mint a vacuous ref
+mouse-position: no main procedure: a fragment of a program, not a program (the coo's census 2026-11-16)
 move-to-front-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 multiple-distinct-objects-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 multiple-distinct-objects-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -276,7 +273,7 @@ pangram-checker-3: oracle produced EMPTY output -- refusing to mint a vacuous re
 parse-command-line-arguments: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pascals-triangle: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pathological-floating-point-problems: oracle produced EMPTY output -- refusing to mint a vacuous ref
-percentage-difference-between-images: oracle produced EMPTY output -- refusing to mint a vacuous ref
+percentage-difference-between-images: its companion images Lenna100.jpg and Lenna50.jpg are not in the package; Open failed is an answer any broken engine earns, so it is not cut (the coo's census 2026-11-16)
 perfect-shuffle: oracle produced EMPTY output -- refusing to mint a vacuous ref
 permutations: oracle produced EMPTY output -- refusing to mint a vacuous ref
 permutations-by-swapping: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -387,8 +384,8 @@ variable-size-set: oracle produced EMPTY output -- refusing to mint a vacuous re
 vigen-re-cipher-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 voronoi-diagram: oracle produced EMPTY output -- refusing to mint a vacuous ref
 walk-a-directory-non-recursively: oracle produced EMPTY output -- refusing to mint a vacuous ref
-window-creation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-window-management: oracle produced EMPTY output -- refusing to mint a vacuous ref
+window-creation: its oracle answer is run-time error 140 at wopen.icn line 175 on stderr, which this package does not grade, so its graded answer would be screen none and exit 1, which any broken engine earns (the grader 2026-11-16, on the coo's census)
+window-management: the oracle answers differently on two runs: its steps are 3000 ms apart and the road's still rule is three seconds, so which step it catches is a race; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its short-delay form is the entry window-management-short-delay)
 wireworld: oracle produced EMPTY output -- refusing to mint a vacuous ref
 word-wrap: oracle produced EMPTY output -- refusing to mint a vacuous ref
 wordle-comparison: oracle produced EMPTY output -- refusing to mint a vacuous ref

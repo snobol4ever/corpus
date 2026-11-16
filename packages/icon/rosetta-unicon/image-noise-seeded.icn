@@ -1,0 +1,12 @@
+procedure main()
+   &window := open("B&W noise 320x240","g","size=320,240","bg=white","fg=black") |
+              stop("Open window failed ");
+   &random := 42;
+   every 1 to 3 do {
+      s := "320,#";
+      every 1 to 240 & 1 to 320/4 do s ||:= ?"0123456789ABCDEF";
+      DrawImage(0,0,s)
+      };
+   Event();   # wait for any window event
+   close(&window);
+end

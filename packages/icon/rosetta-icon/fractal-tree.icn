@@ -4,7 +4,7 @@ drawtree(400,500,-90,9);
 WDone();
 end
 
-link WOpen
+link wopen
 
 procedure drawtree(x,y,angle,depth)
 if depth > 0 then {
