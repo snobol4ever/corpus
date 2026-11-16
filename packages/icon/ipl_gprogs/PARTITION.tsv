@@ -1,15 +1,17 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=67 features=1 ubiquitous=1(package) distinctive=0 core=6 clusters=56 chunks=2 sizes=60,1
+# shape: entries=72 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=64 chunks=2 sizes=60,9
 entry	part	cluster	shells
-bme	core	core	
-breakout	core	core	
-browser	core	core	
-cameleon	core	core	
-chernoff	core	core	
-coloralc	core	core	
+bme	chunk:01	family:bme	
+breakout	chunk:01	family:breakout	
+browser	chunk:01	family:browser	
+calib	chunk:01	family:calib	
+cameleon	chunk:01	family:cameleon	
+chernoff	chunk:01	family:chernoff	
+coloralc	chunk:01	family:coloralc	
 colormap	chunk:01	family:colormap	
 colrbook	chunk:01	family:colrbook	
+colrname	core	core	fixtures
 colrpick	chunk:01	family:colrpick	
 concen	chunk:01	family:concen	
 cw	chunk:01	family:cw	
@@ -24,9 +26,11 @@ flake	chunk:01	family:flake
 fontpick	chunk:01	family:fontpick	
 fractlin	chunk:01	family:fractlin	
 gamma	chunk:01	family:gamma	
+giftoims	core	core	fixtures
 gpxtest	chunk:01	family:gpxtest	
 gridedit	chunk:01	family:gridedit	
 img	chunk:01	family:img	
+imgcolrs	core	core	fixtures
 julia1	chunk:01	family:julia	
 kaleido	chunk:01	family:kaleido	
 keypunch	chunk:01	family:keypunch	
@@ -61,11 +65,12 @@ snapper	chunk:01	family:snapper
 spiral	chunk:01	family:spiral	
 spiro	chunk:01	family:spiro	
 spokes	chunk:01	family:spokes	
-sym4mm	chunk:01	family:symmm	
-symdraw	chunk:01	family:symdraw	
-testpatt	chunk:01	family:testpatt	
-textures	chunk:01	family:textures	
-tilescan	chunk:01	family:tilescan	
-travels	chunk:01	family:travels	
-viewpane	chunk:01	family:viewpane	
+sym4mm	chunk:02	family:symmm	
+symdraw	chunk:02	family:symdraw	
+testpatt	chunk:02	family:testpatt	
+textures	chunk:02	family:textures	
+tilescan	chunk:02	family:tilescan	
+travels	chunk:02	family:travels	
+viewpane	chunk:02	family:viewpane	
 wevents	chunk:02	family:wevents	
+xgamma	chunk:02	family:xgamma	

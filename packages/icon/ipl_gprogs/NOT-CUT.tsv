@@ -1,3 +1,11 @@
 # NOT-CUT.tsv -- ipl_gprogs: the census's candidates (a window drawn, the program waiting, the screen the same twice) that did not become a row, and why
 program	why
 vqueens	no still screen: screen unstable
+dd2unit	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/dd2unit of the ipl package, where it was never excluded
+drawup	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/drawup of the ipl package, where it was never excluded
+fractclr	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/fractclr of the ipl package, where it was never excluded
+lindcomp	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/lindcomp of the ipl package, where it was never excluded
+patfetch	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/patfetch of the ipl package, where it was never excluded
+rows2blp	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/rows2blp of the ipl package, where it was never excluded
+unitgenr	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/unitgenr of the ipl package, where it was never excluded
+wif2isd	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/wif2isd of the ipl package, where it was never excluded

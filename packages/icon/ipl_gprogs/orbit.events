@@ -1,2 +1,0 @@
-# orbit: draws the orbit of the quadratic map, then waits for one event (Event()); a click inside its window is that event and the program ends by itself
-click 1 180 180
