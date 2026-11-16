@@ -1,0 +1,4 @@
+rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,run_args,grader,cwd,findall,bagof,setof,forall,assert,asserta,assertz,retract,abolish,catch,throw,between,functor,arg,copy_term,call,var,nonvar,atom,number,write,writeq,write_canonical,format,nl,clause,succ,op,cut,dcg,if_then_else,negation,unify,univ,list_cons,directive,findall_with_var_goal,catch_with_throw,assert_then_retract
+1,closure/closure,plc_library__closure/closure,plc_library,216,0,0,131072,4096,,,swi-cases,closure,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,1,1,0,0,0
+2,math_ext/math_ext,plc_library__math_ext/math_ext,plc_library,234,0,0,131072,4096,,,swi-cases,math_ext,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,1,1,0,0,0
+3,string_ext/string_ext,plc_library__string_ext/string_ext,plc_library,411,0,0,131072,4096,,,swi-cases,string_ext,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0

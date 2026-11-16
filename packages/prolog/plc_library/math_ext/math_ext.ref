@@ -1,0 +1,6 @@
+PASS integer_weights/3:@(integer_weights(+,+,+) is semidet. TRUE,[120,60,[2,0]])
+PASS integer_weights/3:@(integer_weights(+,+,+) is semidet. TRUE,[1226,10,[1,2,2,6]])
+PASS integer_weights/3:@(integer_weights(+,+,-) is multi. TRUE,[120,60,[2,0]])
+PASS integer_weights/3:@(integer_weights(+,+,-) is multi. TRUE,[1226,10,[1,2,2,6]])
+PASS integer_weights/3:@(integer_weights(-,+,+) is multi. TRUE,[120,60,[2,0]])
+PASS integer_weights/3:@(integer_weights(-,+,+) is multi. TRUE,[1226,10,[1,2,2,6]])

@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- the run contract of plc_library, read by corpus_suite_harness.py and util_build_package_suite.py: key<TAB>value<TAB>evidence.
+units	plunit	each module is one plunit case file (the module as it stands, its units inside it, plc_cut.py) graded per case against swipl 9.0.4's verdicts beside it (M.ref), through the plunit shim of swi_tests, as exercism_prolog is graded

@@ -1,0 +1,3 @@
+PASS closure:leave_closure
+PASS closure:path_closure
+PASS closure:path_closure0
