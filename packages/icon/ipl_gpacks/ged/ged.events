@@ -1,0 +1,78 @@
+# ged, the mouse-oriented text editor of ipl_gpacks (ged.icn with its modules control.icn and textedit.icn), run as the package runs it, on its
+# own staged source:
+# argument 1 ged.icn
+# The script types text at a clicked place, selects a word with a double click and cuts it, pastes it elsewhere, selects with a mouse drag and
+# deletes, undoes twice and redoes once, finds a string and replaces another through the prompt window, writes a copy of the buffer to t.txt,
+# and quits without saving the edited source. Its commands are control keys. A prompt window opens once under the pointer and stays at that
+# place, so the pointer is left where it stood at the first prompt and every later prompt has it inside.
+# the insertion point at the end of the Name line, then typed text
+click 1 140 32
+wait
+type  edited
+wait
+# a double click selects the word Title; control x cuts it
+click 1 62 58
+click 1 62 58
+wait
+keydown Control_L
+key x
+keyup Control_L
+wait
+# a click at the end of the Date line, control v pastes
+click 1 200 110
+wait
+keydown Control_L
+key v
+keyup Control_L
+wait
+# a mouse drag selects part of the date; Delete removes it
+drag 1 100 110 180 110
+wait
+key Delete
+wait
+# control z twice: the deletion and then the paste are undone; control y redoes the paste
+keydown Control_L
+key z
+keyup Control_L
+wait
+keydown Control_L
+key z
+keyup Control_L
+wait
+keydown Control_L
+key y
+keyup Control_L
+wait
+# control f: the prompt window asks the string; the match is selected
+keydown Control_L
+key f
+keyup Control_L
+wait
+type Links
+key Return
+wait
+# control r: replace, asked in two lines of the prompt window
+keydown Control_L
+key r
+keyup Control_L
+wait
+type textedit
+key Return
+wait
+type widget
+key Return
+wait
+# control d: write a copy of the buffer to a typed file name
+keydown Control_L
+key d
+keyup Control_L
+wait
+type t.txt
+key Return
+wait
+# control q: quit; the buffer is changed, so it asks, and d answers don't save
+keydown Control_L
+key q
+keyup Control_L
+wait
+key d
