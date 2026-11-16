@@ -3,6 +3,9 @@
 // The four languages are registered by themselves too, for a file in the text editor (by its extension) and for a kernel a user starts with one default language.
 import { IEditorLanguageRegistry } from '@jupyterlab/codemirror';
 import { LanguageSupport, StreamLanguage } from '@codemirror/language';
+import { IEditorTracker } from '@jupyterlab/fileeditor';
+import { ILauncher } from '@jupyterlab/launcher';
+import { LabIcon } from '@jupyterlab/ui-components';
 import { tokenize, tag, cellLanguage } from './tokenizer.js';
 import snobol4 from '../grammars/snobol4.json';
 import snocone from '../grammars/snocone.json';
@@ -86,4 +89,60 @@ const plugin = {
   }
 };
 
-export default plugin;
+// THE LANGUAGE FILES (Lon 2026-11-15: "We want an icon for prolog, icon, and pascal. whatever we have sublime syntax files for."): one row a language. Each is a
+// file type of its own (its icon in the file browser and on its editor's tab), its editor reads the row's MIME type whatever JupyterLab makes of the extension
+// (it takes .pl for Perl, and knows Pascal by .p and .pas alone), and the launcher's Other section carries a card that makes a new one, as it makes a Python
+// file. The icon is the kernel's own square with the language's two letters and its own colour. Pascal has no grammar here: JupyterLab's own Pascal mode colours it.
+const FILES = [
+  { name: 'snobol4', label: 'SNOBOL4', mime: 'text/x-snobol4', extensions: ['sno', 'spt', 'sbl'], letters: 'S4', colour: '#1f6feb' },
+  { name: 'snocone', label: 'Snocone', mime: 'text/x-snocone', extensions: ['sc'], letters: 'Sc', colour: '#0a7ea4' },
+  { name: 'icon', label: 'Icon', mime: 'text/x-icon', extensions: ['icn'], letters: 'Ic', colour: '#2da44e' },
+  { name: 'prolog', label: 'Prolog', mime: 'text/x-prolog', extensions: ['pl', 'pro', 'prolog', 'plt'], letters: 'Pl', colour: '#d1242f' },
+  { name: 'pascal', label: 'Pascal', mime: 'text/x-pascal', extensions: ['pas', 'pp', 'lpr', 'dpr'], letters: 'Pa', colour: '#9a6700' }
+];
+for (const f of FILES) {
+  f.icon = new LabIcon({
+    name: 'scrip-highlight:' + f.name,
+    svgstr: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="' + f.colour + '"/><text x="32" y="44" font-family="sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#ffffff">' + f.letters + '</text></svg>'
+  });
+  f.command = 'scrip-highlight:new-' + f.name + '-file';
+  f.path = new RegExp('\\.(' + f.extensions.join('|') + ')$', 'i');
+}
+
+const files = {
+  id: 'scrip-highlight:files',
+  description: 'A file type, an icon and a launcher card for a SNOBOL4, Snocone, Icon, Prolog and Pascal file; its editor takes the language whatever the extension is taken for.',
+  autoStart: true,
+  optional: [ILauncher, IEditorTracker],
+  activate: (app, launcher, editors) => {
+    FILES.forEach((f, i) => {
+      try {
+        app.docRegistry.addFileType({ name: f.name, displayName: f.label + ' File', extensions: f.extensions.map(e => '.' + e), mimeTypes: [f.mime], icon: f.icon, fileFormat: 'text', contentType: 'file' });
+      } catch (e) {
+        console.warn('scrip-highlight: the ' + f.label + ' file type is not registered: ' + e);
+      }
+      app.commands.addCommand(f.command, {
+        label: args => (args.isPalette ? 'New ' + f.label + ' File' : f.label + ' File'),
+        caption: 'Create a new ' + f.label + ' file',
+        icon: args => (args.isPalette ? undefined : f.icon),
+        execute: async args => {
+          const made = await app.commands.execute('docmanager:new-untitled', { path: args.cwd || '', type: 'file', ext: f.extensions[0] });
+          return made ? app.commands.execute('docmanager:open', { path: made.path, factory: 'Editor' }) : undefined;
+        }
+      });
+      if (launcher) launcher.add({ command: f.command, category: 'Other', rank: 3 + i });
+    });
+    const mark = w => {
+      const f = FILES.find(x => x.path.test(w.context.path));
+      if (!f) return;
+      w.title.icon = f.icon;
+      if (w.content.model.mimeType !== f.mime) w.content.model.mimeType = f.mime;
+    };
+    if (editors) {
+      editors.forEach(mark);
+      editors.widgetAdded.connect((_, w) => { mark(w); w.context.pathChanged.connect(() => mark(w)); });
+    }
+  }
+};
+
+export default [plugin, files];

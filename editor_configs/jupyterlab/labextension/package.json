@@ -1,7 +1,7 @@
 {
   "name": "scrip-highlight",
   "version": "0.1.0",
-  "description": "Syntax colouring in JupyterLab and Notebook for the languages of the SCRIP kernel: SNOBOL4, Snocone, Icon, Prolog",
+  "description": "Syntax colouring in JupyterLab and Notebook for the languages of the SCRIP kernel: SNOBOL4, Snocone, Icon, Prolog; a launcher card and an icon for a SNOBOL4, Snocone, Icon, Prolog and Pascal file",
   "license": "MIT",
   "main": "src/index.js",
   "files": [
@@ -14,7 +14,10 @@
   },
   "dependencies": {
     "@codemirror/language": "^6.0.0",
-    "@jupyterlab/codemirror": "^4.0.0"
+    "@jupyterlab/codemirror": "^4.0.0",
+    "@jupyterlab/fileeditor": "^4.0.0",
+    "@jupyterlab/launcher": "^4.0.0",
+    "@jupyterlab/ui-components": "^4.0.0"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^4.5.2"
@@ -27,13 +30,25 @@
         "bundled": false,
         "singleton": true
       },
+      "@jupyterlab/fileeditor": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/launcher": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/ui-components": {
+        "bundled": false,
+        "singleton": true
+      },
       "@codemirror/language": {
         "bundled": false,
         "singleton": true
       }
     },
     "_build": {
-      "load": "static/remoteEntry.2643c864df03312111ff.js",
+      "load": "static/remoteEntry.00a8fc078112a656e816.js",
       "extension": "./extension"
     }
   }
