@@ -1,0 +1,4 @@
+# tron: no key is pressed, so the yellow trail walks into the wall and the game ends on its still picture; q then quits
+move 300 200
+wait
+key q

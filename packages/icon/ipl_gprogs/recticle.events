@@ -1,0 +1,4 @@
+# recticle: draws its random rectangles (pinned) hidden, writes recticle.gif (-i), shows the window and waits in WDone; q ends it
+move 200 120
+wait
+key q

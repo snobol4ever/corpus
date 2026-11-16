@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=134 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=116 chunks=2 sizes=100,28
+# shape: entries=148 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=119 chunks=2 sizes=100,42
 entry	part	cluster	shells
 bme	chunk:01	family:bme	
 breakout	chunk:01	family:breakout	
@@ -51,12 +51,12 @@ plotter	chunk:01	family:plotter
 pme	chunk:01	family:pme	
 procater	chunk:01	family:procater	
 profile	chunk:01	family:profile	
-profiler	chunk:01	family:profiler	
-prompt	chunk:01	family:prompt	
-rings	chunk:01	family:rings	
-rolypoly	chunk:01	family:rolypoly	
-selectle	chunk:01	family:selectle	
-sensdemo	chunk:01	family:sensdemo	
+profiler	chunk:02	family:profiler	
+prompt	chunk:02	family:prompt	
+rings	chunk:02	family:rings	
+rolypoly	chunk:02	family:rolypoly	
+selectle	chunk:02	family:selectle	
+sensdemo	chunk:02	family:sensdemo	
 showtile	chunk:02	family:showtile	
 sier	chunk:01	family:sier	
 sier1	chunk:01	family:sier	
@@ -76,7 +76,7 @@ wevents	chunk:02	family:wevents
 xgamma	chunk:02	family:xgamma	
 iview	chunk:01	family:iview	
 imgtolst	chunk:01	family:imgtolst	
-rstarlab	chunk:01	family:rstarlab	
+rstarlab	chunk:02	family:rstarlab	
 imstogif	chunk:01	family:imstogif	
 zoomtile	chunk:02	family:zoomtile	
 striper	chunk:02	family:striper	
@@ -88,8 +88,8 @@ hsvpick	chunk:01	family:hsvpick
 mover	chunk:01	feat:fixtures	fixtures
 splat	chunk:02	family:splat	
 vqueens	chunk:02	family:vqueens	
-rects	chunk:01	family:rects	
-randweav	chunk:01	family:randweav	
+rects	chunk:02	family:rects	
+randweav	chunk:02	family:randweav	
 binpack	chunk:01	family:binpack	
 bpack	chunk:01	family:bpack	
 gallery	chunk:01	family:gallery	
@@ -114,7 +114,7 @@ fileimag	chunk:01	family:fileimag
 ca21	chunk:01	family:ca	
 img2grid	chunk:01	family:imggrid	
 spectra	chunk:02	family:spectra	
-repeater	chunk:01	family:repeater	
+repeater	chunk:02	family:repeater	
 picktile	chunk:01	family:picktile	
 scroll	core	core	want_rc
 mandel3	chunk:01	family:mandel	
@@ -126,7 +126,7 @@ colorwif	chunk:01	family:colorwif
 bitdemo	chunk:01	family:bitdemo	
 wheel	chunk:02	family:wheel	
 mercator	chunk:01	family:mercator	
-randweb	chunk:01	family:randweb	
+randweb	chunk:02	family:randweb	
 trkvu	chunk:02	family:trkvu	
 dlgvu	chunk:01	family:dlgvu	
 isd2ill	chunk:01	family:isdill	
@@ -136,3 +136,17 @@ isd2grid	chunk:01	family:isdgrid
 colorup	chunk:01	family:colorup	
 fev	core	core	want_rc
 hvc	chunk:01	family:hvc	
+gif2isd	chunk:01	feat:fixtures	fixtures
+isd2disd	chunk:01	feat:fixtures	fixtures
+isd2wif	chunk:01	feat:fixtures	fixtures
+plat	chunk:01	feat:fixtures	fixtures
+histo	chunk:01	feat:fixtures	fixtures
+imltogif	chunk:01	feat:fixtures	fixtures
+blp2grid	chunk:01	feat:fixtures	fixtures
+findrpt	chunk:01	feat:fixtures	fixtures
+sympmm	chunk:01	feat:fixtures	fixtures
+scroller	chunk:01	feat:fixtures	fixtures
+recticle	chunk:02	family:recticle	
+mirroror	chunk:01	feat:fixtures	fixtures
+spider	chunk:02	family:spider	
+tron	chunk:02	family:tron	

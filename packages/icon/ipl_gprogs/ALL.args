@@ -42,3 +42,11 @@ isd2ill	p8.isd
 isd2grid	-n	t
 colorup	-o	1
 fev	fev.txt
+gif2isd	bw.gif
+plat	colors.clr
+blp2grid	pat.blp
+findrpt	tile.gif
+sympmm	small.gif
+scroller	bands.gif
+recticle	-i
+mirroror	small.gif

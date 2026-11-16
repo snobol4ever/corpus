@@ -133,3 +133,17 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 132,colorup,colorup.icn,ipl_gprogs__colorup,ipl_gprogs,133,0,131072,4096,120,,,
 133,fev,fev.icn,ipl_gprogs__fev,ipl_gprogs,170,1,131072,4096,300,,screen.dump,
 134,hvc,hvc.icn,ipl_gprogs__hvc,ipl_gprogs,94,0,131072,4096,120,,screen.dump,
+135,gif2isd,gif2isd.icn,ipl_gprogs__gif2isd,ipl_gprogs,131,0,131072,4096,300,,screen.dump,staged
+136,isd2disd,isd2disd.icn,ipl_gprogs__isd2disd,ipl_gprogs,41,0,131072,4096,300,,screen.dump,staged
+137,isd2wif,isd2wif.icn,ipl_gprogs__isd2wif,ipl_gprogs,134,0,131072,4096,300,,screen.dump,staged
+138,plat,plat.icn,ipl_gprogs__plat,ipl_gprogs,67,0,131072,4096,300,,screen.dump colors_p.gif,staged
+139,histo,histo.icn,ipl_gprogs__histo,ipl_gprogs,99,0,131072,4096,300,,screen.dump untitled.gif,staged
+140,imltogif,imltogif.icn,ipl_gprogs__imltogif,ipl_gprogs,85,0,131072,4096,300,,screen.dump image0001.gif image0002.gif,staged
+141,blp2grid,blp2grid.icn,ipl_gprogs__blp2grid,ipl_gprogs,81,0,131072,4096,300,,screen.dump pat_grid.gif,staged
+142,findrpt,findrpt.icn,ipl_gprogs__findrpt,ipl_gprogs,100,0,131072,4096,300,,screen.dump tile_t.gif,staged
+143,sympmm,sympmm.icn,ipl_gprogs__sympmm,ipl_gprogs,62,0,131072,4096,300,,screen.dump small_pmm.gif,staged
+144,scroller,scroller.icn,ipl_gprogs__scroller,ipl_gprogs,48,0,131072,4096,300,,screen.dump,staged
+145,recticle,recticle.icn,ipl_gprogs__recticle,ipl_gprogs,118,0,131072,4096,300,,screen.dump recticle.gif,
+146,mirroror,mirroror.icn,ipl_gprogs__mirroror,ipl_gprogs,55,0,131072,4096,300,,screen.dump,staged
+147,spider,spider.icn,ipl_gprogs__spider,ipl_gprogs,657,0,131072,4096,300,,screen.dump,
+148,tron,tron.icn,ipl_gprogs__tron,ipl_gprogs,191,0,131072,4096,240,,screen.dump,

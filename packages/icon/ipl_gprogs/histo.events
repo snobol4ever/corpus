@@ -1,0 +1,4 @@
+# histo: into the histogram window, q quits (WQuit), then the program writes untitled.gif
+move 10 10
+wait
+key q

@@ -1,0 +1,6 @@
+# mirroror: into the mirrored window, w writes the image name, q quits
+move 10 10
+wait
+key w
+wait
+key q

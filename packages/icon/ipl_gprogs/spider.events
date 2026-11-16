@@ -1,0 +1,29 @@
+# spider: on its pinned deal, a typed pile number moves that pile's longest run to the best place (a beep where none can move);
+# piles 1 to 5 tried, d deals a card to each pile, piles 6 to 0 tried, u undoes the last move, then q reports the moves and quits
+move 400 300
+wait
+key 1
+wait
+key 2
+wait
+key 3
+wait
+key 4
+wait
+key 5
+wait
+key d
+wait
+key 6
+wait
+key 7
+wait
+key 8
+wait
+key 9
+wait
+key 0
+wait
+key u
+wait
+key q
