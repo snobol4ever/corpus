@@ -1,5 +1,5 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files
-1,bme,bme.icn,ipl_gprogs__bme,ipl_gprogs,176,0,131072,4096,120,,screen.dump
+1,bme,bme.icn,ipl_gprogs__bme,ipl_gprogs,176,0,131072,4096,300,,screen.dump
 2,breakout,breakout.icn,ipl_gprogs__breakout,ipl_gprogs,728,0,131072,4096,120,,screen.dump
 3,browser,browser.icn,ipl_gprogs__browser,ipl_gprogs,137,0,131072,4096,120,,screen.dump
 4,cameleon,cameleon.icn,ipl_gprogs__cameleon,ipl_gprogs,300,0,131072,4096,120,,screen.dump
@@ -22,8 +22,8 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 21,fractlin,fractlin.icn,ipl_gprogs__fractlin,ipl_gprogs,78,0,131072,4096,120,,screen.dump
 22,gamma,gamma.icn,ipl_gprogs__gamma,ipl_gprogs,220,0,131072,4096,120,,screen.dump
 23,gpxtest,gpxtest.icn,ipl_gprogs__gpxtest,ipl_gprogs,743,0,131072,4096,120,,screen.dump
-24,gridedit,gridedit.icn,ipl_gprogs__gridedit,ipl_gprogs,56,0,131072,4096,120,,screen.dump
-25,img,img.icn,ipl_gprogs__img,ipl_gprogs,358,0,131072,4096,120,,screen.dump
+24,gridedit,gridedit.icn,ipl_gprogs__gridedit,ipl_gprogs,56,0,131072,4096,300,,screen.dump t.pat
+25,img,img.icn,ipl_gprogs__img,ipl_gprogs,358,0,131072,4096,300,,screen.dump
 26,julia1,julia1.icn,ipl_gprogs__julia1,ipl_gprogs,79,0,131072,4096,120,,screen.dump
 27,kaleido,kaleido.icn,ipl_gprogs__kaleido,ipl_gprogs,337,0,131072,4096,120,,screen.dump
 28,keypunch,keypunch.icn,ipl_gprogs__keypunch,ipl_gprogs,166,0,131072,4096,120,,screen.dump
@@ -39,9 +39,9 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 38,othello,othello.icn,ipl_gprogs__othello,ipl_gprogs,807,0,131072,4096,120,,screen.dump
 39,palcheck,palcheck.icn,ipl_gprogs__palcheck,ipl_gprogs,69,0,131072,4096,120,,screen.dump
 40,palette,palette.icn,ipl_gprogs__palette,ipl_gprogs,85,0,131072,4096,120,,screen.dump
-41,penelope,penelope.icn,ipl_gprogs__penelope,ipl_gprogs,1256,0,131072,4096,120,,screen.dump
+41,penelope,penelope.icn,ipl_gprogs__penelope,ipl_gprogs,1256,0,131072,4096,600,,screen.dump t.tle
 42,plotter,plotter.icn,ipl_gprogs__plotter,ipl_gprogs,199,0,131072,4096,120,,screen.dump
-43,pme,pme.icn,ipl_gprogs__pme,ipl_gprogs,180,0,131072,4096,120,,screen.dump
+43,pme,pme.icn,ipl_gprogs__pme,ipl_gprogs,180,0,131072,4096,300,,screen.dump t.xpm
 44,procater,procater.icn,ipl_gprogs__procater,ipl_gprogs,185,0,131072,4096,120,,screen.dump
 45,profile,profile.icn,ipl_gprogs__profile,ipl_gprogs,305,0,131072,4096,120,,screen.dump
 46,profiler,profiler.icn,ipl_gprogs__profiler,ipl_gprogs,206,0,131072,4096,120,,screen.dump

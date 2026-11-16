@@ -1,1 +1,50 @@
+saving image t.xpm with width 32 height 32
 screen 1024x768 md5 9737d06e5e71ef75320602fac5dac3a0
+screen 1024x768 md5 6f439b249dbd60eeeabb070999b64a4e
+screen 1024x768 md5 69ec8355e9439108b1808f9b056bfb83
+screen 1024x768 md5 4e9b5eaa8ba67b5ffb7ab626ad1c3868
+screen 1024x768 md5 6dcbdddf9bb935b47c01a3822b759fb9
+screen 1024x768 md5 c01698c0ec00a3660abedde7ff353e63
+screen 1024x768 md5 c9dc5beadac05f7dd8cb8ab4b258da91
+screen 1024x768 md5 9842744dec293cf6dab0d7fe1a05b63b
+screen 1024x768 md5 c9dc5beadac05f7dd8cb8ab4b258da91
+/* XPM */
+static char * t_xpm[] = {
+"32 32 5 1",
+" 	c #FFFFFFFFFFFF",
+".	c #FFFF00000000",
+"X	c #FFFFFFFF0000",
+"o	c #00000000FFFF",
+"O	c #0000FFFF0000",
+"                                ",
+"                                ",
+"    . X                         ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"    o                           ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"         OOOOOOOOOO             ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                ",
+"                                "};

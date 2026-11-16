@@ -1,0 +1,8 @@
+# bme, the bitmap editor: one cell, a dragged row, the first cell erased, then quit
+click 1 110 20
+wait
+drag 1 150 100 220 100
+wait
+click 3 110 20
+wait
+key q

@@ -1,0 +1,42 @@
+# gridedit, the drawdown (tile) editor of ipl_gprogs, built on the library's vidgets (tieedit): set a cell and a dragged row with the left button,
+# clear a cell with the right, shift the tile with a transformation button, turn every symmetry on and set a cell eight ways, write the pattern
+# through the File menu and its dialog under a typed name, read the tile's information box from the Drawdown menu, quit with meta q.
+# Cell j i of the 10 by 10 grid stands at 123+24j 58+24i.
+click 1 207 70
+wait
+drag 1 135 262 351 262
+wait
+click 3 135 70
+wait
+# the first transformation button, shift up
+click 1 57 67
+wait
+# the choice all under symmetries, then one cell
+click 1 58 395
+wait
+click 1 327 94
+wait
+# the File menu is pulled down and held
+move 18 10
+press 1
+wait
+# its item write: a dialog asks the file name
+move 30 75
+release 1
+wait
+type t.pat
+key Return
+wait
+# the Drawdown menu, item info: a box with the tile's size and pattern, closed with Return
+move 70 10
+press 1
+wait
+move 60 45
+release 1
+wait
+key Return
+wait
+# meta q ends the editor (the menu's own quit item cannot: its label carries a space the program's case does not)
+keydown Alt_L
+key q
+keyup Alt_L

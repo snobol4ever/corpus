@@ -1,0 +1,31 @@
+# img, the editor of Icon image strings (ipl_gprogs): pick button colours on the palette, paint cells and drags with the left and right buttons,
+# label the palette, take a colour from a cell with a shifted click, replace one colour by another, write the image string, quit (which writes
+# it again). The window is 500 by 300; cell j i of the 16 by 16 grid stands at 205+15j 30+15i; the palette is the block at the left.
+# the left button takes red from the palette
+click 1 65 87
+wait
+click 1 212 37
+wait
+drag 1 242 67 332 67
+wait
+# the right button takes blue
+click 3 65 228
+wait
+drag 3 302 97 302 187
+wait
+# L labels the palette
+key L
+wait
+# a shifted middle click on the first cell gives the middle button that cell's red
+keydown Shift_L
+click 2 212 37
+keyup Shift_L
+wait
+click 2 407 232
+wait
+# R turns every cell of the right button's colour into the left button's
+key R
+wait
+# W writes the image string; Q writes it again and ends the program
+key W
+key Q

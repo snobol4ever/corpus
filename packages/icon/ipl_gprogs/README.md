@@ -34,3 +34,9 @@ THE FIRST SCRIP READING (mode 3, SCRIP c5622f4448): 0 of 67, ONE CAUSE: SCRIP ha
 runtime, so every program stops at its first window (`can't open window`) and its line reads `screen none`. The design of graphics in
 SCRIP's Icon runtime is the cto's (telegram graphics-is-in-lon-2026-11-14); these 67 rows are its witnesses. OWED on the road:
 scripted mouse and key events, so that a program is graded past its first picture, and the programs that take a file or an argument.
+
+THE EDITORS ARE GRADED AS EDITORS (the cto's piece of 2026-11-16; the cqo's event scripts, harness d54306e60 and 21673bfe8): `bme`, `pme`,
+`img`, `gridedit` and `penelope` each carry `NAME.events`, a script of clicks, drags and keys the road plays on the program's window, and
+their answer is every screen line the script asks for, then the file the editor saves (`out_files`: `t.xpm`, `t.pat`, `t.tle`) after its
+standard output. Each script was run twice on the landed road under icon-master-x, equal, by the cqo
+(`/home/resources/progress/icon-graphics-2026-11-16/editors`, `EDITORS.tsv` says what each covers); penelope's row allows 600 s.

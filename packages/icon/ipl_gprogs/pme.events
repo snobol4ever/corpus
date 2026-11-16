@@ -1,0 +1,24 @@
+# pme, the pixmap editor (ipl_gprogs): paint with each of the three buttons, change the left colour through its prompt window, paint with the new
+# colour, save the pixmap under a typed name, quit. The grid's cell x y stands at 70+8x 8y; the three ovals of the mouse picture are the colours.
+click 1 110 20
+wait
+drag 2 150 100 220 100
+wait
+click 3 110 60
+wait
+# the left oval: a one-line window opens at 0 0 and reads a colour name
+click 1 15 110
+wait
+move 20 6
+type yellow
+key Return
+wait
+click 1 126 20
+wait
+# S always asks a file name, in a window that opens under the pointer
+key S
+wait
+type t
+key Return
+wait
+key q
