@@ -1,0 +1,5 @@
+name:bush
+F->FF-[-F+F+F]+[+F-F-F]
+axiom:F
+angle:22.5
+yorg:50

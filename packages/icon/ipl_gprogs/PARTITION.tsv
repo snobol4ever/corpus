@@ -80,6 +80,14 @@ rstarlab	chunk:01	family:rstarlab
 imstogif	chunk:01	family:imstogif	
 zoomtile	chunk:01	family:zoomtile	
 striper	chunk:01	family:striper	
+isd2gif	chunk:01	family:isdgif	
+isd2xgrid	chunk:01	family:isdxgrid	
+linden	chunk:01	family:linden	
+drip	chunk:01	family:drip	
+hsvpick	chunk:01	family:hsvpick	
+mover	chunk:01	feat:fixtures	fixtures
+splat	chunk:01	family:splat	
+vqueens	chunk:01	family:vqueens	
 rects	chunk:01	family:rects	
 randweav	chunk:01	family:randweav	
 binpack	chunk:01	family:binpack	

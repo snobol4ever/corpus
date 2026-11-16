@@ -1,3 +1,7 @@
+linden	-s	-w	200	-h	200
+drip	-n	4	-c	1.0	-d	10	-W	64	-H	64
+splat	60	40
+vqueens	-n	4
 colrname	rgb.txt
 giftoims	babbage.gif
 imgcolrs	babbage.gif
