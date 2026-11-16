@@ -1,0 +1,3 @@
+# mandel3: once the set is drawn and the screen holds still, q into the window ends WDone (officer_07, list E2)
+move 300 300
+key q
