@@ -1,4 +1,5 @@
-root	/home/resources/icon-demos/gh-RyanWendling-CS410
+root	/home/resources/packages/icon/uni_cs410
 origin	https://github.com/RyanWendling/CS410 (Ryan Wendling): a word game for a course on programming languages (CS 410, Meehan), in Unicon: a three-dimensional letter board searched for dictionary words, with its packages board_stuff, dict_stuff, scoring_stuff and timefuncs
 version	77bb91f (2017-06-09)
 licence	none stated in the repository, so its programs are not hosted: they are read in place from root, and only this folder's tables and answers are in the corpus
+moved	/home/resources/icon-demos/gh-RyanWendling-CS410 (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

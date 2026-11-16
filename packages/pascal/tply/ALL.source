@@ -1,4 +1,5 @@
-root	/home/resources/pascal-demos/tply
+root	/home/resources/packages/pascal/tply
 origin	https://github.com/jmrcpn/tply
 version	b29b897 (2024-10-20)
 licence	GPL (COPYING.txt)
+moved	/home/resources/pascal-demos/tply (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

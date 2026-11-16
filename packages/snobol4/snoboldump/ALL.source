@@ -1,4 +1,5 @@
-root	/home/resources/collections/snobol4/James-P-D-SNOBOLDump
+root	/home/resources/packages/snobol4/snoboldump
 origin	https://github.com/James-P-D/SNOBOLDump; converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15)
 version	f7271c0 (2021-11-06)
 licence	MIT (LICENSE in the root); read in place
+moved	/home/resources/collections/snobol4/James-P-D-SNOBOLDump (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

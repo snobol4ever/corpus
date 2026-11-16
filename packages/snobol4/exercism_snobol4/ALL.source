@@ -1,4 +1,5 @@
-root	/home/resources/collections/snobol4/exercism-snobol4/exercises
+root	/home/resources/packages/snobol4/exercism_snobol4/exercises
 origin	https://github.com/exercism/snobol4, the folder exercises (the Exercism SNOBOL4 track); converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN in upper case, an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
 version	ebd72a7 (2026-11-15)
 licence	MIT
+moved	/home/resources/collections/snobol4/exercism-snobol4/exercises (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

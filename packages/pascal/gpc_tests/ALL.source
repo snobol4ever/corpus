@@ -1,4 +1,5 @@
-root	/home/resources/pascal-demos/gpc-hebisch/p/test
+root	/home/resources/packages/pascal/gpc_tests/p/test
 origin	https://github.com/hebisch/gpc
 version	21ec0ceb (2024-09-01)
 licence	GPL (the GNU Pascal test suite, p/test of the GPC source tree; COPYING beside it in the clone)
+moved	/home/resources/pascal-demos/gpc-hebisch/p/test (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

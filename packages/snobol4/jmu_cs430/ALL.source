@@ -1,4 +1,5 @@
-root	/home/resources/collections/snobol4/jmu-cs430
+root	/home/resources/packages/snobol4/jmu_cs430
 origin	https://users.cs.jmu.edu/adamses/Web/CS430/CodeExamples/Snobol/ and .../CS430/Lectures/snobol4p/ (the SNOBOL4 teaching programs of a James Madison University course, fetched 2026-11-15); the 42 programs are converted IN PLACE there by sno_upcase_edition.py (the grader's hand-off scripts, 2026-11-15; Lon that day: uppercase the keywords and function names, a simple regex conversion, the spacing identical, and one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN written in upper case and an angle-bracket subscript with square brackets, one character for one, every string literal and user name left as written; the originals are at the origin, and each .SNO extension is written .sno
 version	as fetched 2026-11-15
 licence	none stated (no licence file; no program of it is stored in the corpus)
+moved	/home/resources/collections/snobol4/jmu-cs430 (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

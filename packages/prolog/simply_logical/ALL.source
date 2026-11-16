@@ -1,4 +1,5 @@
-root	/home/resources/prolog-demos/simply-logical/src/code
+root	/home/resources/packages/prolog/simply_logical/src/code
 origin	https://github.com/simply-logical/simply-logical (Peter Flach, Simply Logical: Intelligent Reasoning by Example, the online edition; the code files of src/code)
 version	76d04f63273879a92ad552b37e8b59448ae22f7b (2024-12-17)
 licence	CC BY-NC-SA 4.0 (LICENCE at the top of the collection; corpus is test data and never ships, skill suites-and-grading 1)
+moved	/home/resources/prolog-demos/simply-logical/src/code (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

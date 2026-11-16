@@ -1,4 +1,5 @@
-root	/home/resources/pascal-demos/pascal-lisp
+root	/home/resources/packages/pascal/pascal-lisp
 origin	https://github.com/bobappleyard/pascal-lisp
 version	2679615 (2009-10-12)
 licence	GPL 3 or later
+moved	/home/resources/pascal-demos/pascal-lisp (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

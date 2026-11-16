@@ -1,4 +1,5 @@
-root	/home/resources/prolog-demos/cmu-prolog-code
+root	/home/resources/packages/prolog/cmu_prolog
 origin	the CMU Artificial Intelligence Repository, lang/prolog/code (Prime Time Freeware for AI, Issue 1-1, 1994): Prolog code for benchmarking, research, education and fun, posted to comp.lang.prolog
 version	the repository's files as fetched 2026-11-14 (no version control upstream)
 licence	none stated for these files (0.doc names none), so the programs are read in place from root and never stored here; only the tables, the answers, our queries and our driver are in the corpus
+moved	/home/resources/prolog-demos/cmu-prolog-code (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

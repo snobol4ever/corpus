@@ -1,4 +1,5 @@
-root	/home/resources/prolog-demos/aoc2015-prolog-tatut
+root	/home/resources/packages/prolog/aoc2015_prolog
 origin	https://github.com/tatut/aoc2015-prolog (Tatu Tarvainen): Advent of Code 2015 in SWI-Prolog, one dayN.pl a day answering part1/1 and part2/1 from its dayN.txt, the author's own puzzle input, shipped with the code (or the input written into the program)
 version	5dccd93 (2023-11-04)
 licence	none stated in the repository, so its programs are not hosted: read in place, and only this folder's tables, answers and our queries are in the corpus
+moved	/home/resources/prolog-demos/aoc2015-prolog-tatut (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

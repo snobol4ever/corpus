@@ -1,4 +1,5 @@
-root	/home/resources/icon-demos/gh-apexskier-icon
+root	/home/resources/packages/icon/icon_apexskier
 origin	https://github.com/apexskier/icon (Cameron Little): "Examples of the Icon programming language", four small programs (CSCI 512); converted IN PLACE 2026-11-15 by util_icon_semicolons.py, each proved same-code by the stock translator (CONVERSION-PROOF.tsv); the originals are at the repository's HEAD
 version	0923b60 (2014-03-10)
 licence	none stated in the repository, so its programs are not hosted: read in place, and only this folder's tables, answers and our inputs are in the corpus
+moved	/home/resources/icon-demos/gh-apexskier-icon (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

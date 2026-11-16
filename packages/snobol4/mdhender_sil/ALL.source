@@ -1,4 +1,5 @@
-root	/home/resources/collections/snobol4/mdhender-sil/internal/programs/sno
+root	/home/resources/packages/snobol4/mdhender_sil/internal/programs/sno
 origin	https://github.com/mdhender/sil (the test programs of a SIL interpreter in Go, internal/programs/sno)
 version	398c46e (2026-08-17); CHANGED IN PLACE 2026-11-15 by the cqo: doors.sno and sieve.sno spell an angle-bracket subscript with square brackets (DOORS<D> as DOORS[D], P<I> as P[I]), one character for one, 2 and 3 lines; the originals are at the origin
 licence	BSD 2-Clause (LICENSE: Copyright (c) 2021, Michael D Henderson)
+moved	/home/resources/collections/snobol4/mdhender-sil/internal/programs/sno (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

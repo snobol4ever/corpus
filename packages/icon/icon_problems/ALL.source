@@ -1,4 +1,5 @@
-root	/home/resources/icon-demos/gh-nobodywasishere-icon-problems
+root	/home/resources/packages/icon/icon_problems
 origin	https://github.com/nobodywasishere/icon-problems (Margret Riegert): solutions to the exercises of The Icon Programming Language, second edition, by Ralph E. Griswold and Madge T. Griswold; the 23 programs converted IN PLACE 2026-11-15 by util_icon_semicolons.py, each proved same-code by the stock translator (CONVERSION-PROOF.tsv); the originals are at the repository's HEAD
 version	5a8a6cc (2022-05-01)
 licence	none stated in the repository, so its programs are not hosted: they are read in place from root, and only this folder's tables, answers and our inputs are in the corpus
+moved	/home/resources/icon-demos/gh-nobodywasishere-icon-problems (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

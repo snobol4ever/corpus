@@ -1,4 +1,5 @@
-root	/home/resources/pascal-demos/tex
+root	/home/resources/packages/pascal/tex_and_tangle
 origin	tangle.web and tex.web of TeX Live 2023 (Debian), tangled by its own tangle with no change file
 version	TANGLE 4.6, TeX 3.141592653
 licence	copyright D. E. Knuth; a changed copy may not be called TeX
+moved	/home/resources/pascal-demos/tex (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

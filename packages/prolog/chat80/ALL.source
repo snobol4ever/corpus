@@ -1,4 +1,5 @@
-root	/home/resources/prolog-demos/chat80
+root	/home/resources/packages/prolog/chat80
 origin	https://github.com/JanWielemaker/chat80.git
 version	82ede93df9049d6100e9f75e5e3bdec44c2776f7
 licence	MIT
+moved	/home/resources/prolog-demos/chat80 (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

@@ -1,6 +1,7 @@
-root	/home/resources/rakudo-own-tests
+root	/home/resources/packages/raku/rakudo_tests
 origin	https://github.com/rakudo/rakudo
 version	2026.05 (the release tree on this box; its folder t without t/spec, with lib)
 licence	Artistic License 2.0
 copy	root
 cwd	root
+moved	/home/resources/rakudo-own-tests (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

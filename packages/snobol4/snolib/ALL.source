@@ -1,4 +1,5 @@
-root	/home/resources/collections/snobol4/snolib
+root	/home/resources/packages/snobol4/snolib
 origin	https://github.com/ratboy666/snolib (Fred Weigel's SNOBOL4 library for CSNOBOL4: modules NAME.SNO, their include form NAME.INC and a self-checking test NAME.tst each); converted IN PLACE (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): each test that reaches no external load, host call, shell or socket through its includes is renamed NAME.tst.sno, the name the miner reads, its first line #! written as a comment, and the .INC files converted; the 51 tests that do reach one keep the name .tst and are never run; the originals are at the origin
 version	fc11c07 (2021-07-25); CHANGED IN PLACE 2026-11-15 by the cqo: the code strings AI.INC, CATA.INC and AOPA.INC hand to SEQ spell an angle-bracket subscript with square brackets (AI.INC line 32, CATA.INC lines 32 and 33, AOPA.INC lines 33, 34, 36 and 39), one character for one; the originals are at the origin
 licence	MIT (LICENSE: Copyright (c) 2021 Fred Weigel)
+moved	/home/resources/collections/snobol4/snolib (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)

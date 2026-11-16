@@ -1,4 +1,5 @@
-root	/home/resources/FPCSource/tests
+root	/home/resources/packages/pascal/FPCSource/tests
 origin	https://github.com/fpc/FPCSource
 version	7e7ab8d8 (2026-08-27)
 licence	GPL 2 with the Free Pascal library exception
+moved	/home/resources/FPCSource/tests (the grader 2026-11-16, on Lon's word: every package the corpus does not host in one folder, /home/resources/packages; the old path is a link to it)
