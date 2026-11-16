@@ -1,0 +1,24 @@
+# componentscrollareatest, a 317 by 222 dialog holding a ComponentScrollArea over a 611 by 472 panel of components (a List, check boxes, an
+# editable text list, buttons, a table, tabs) and a Quit button: the List's arrow opens it and its second item is chosen; the first and the
+# third check boxes are checked; the area is scrolled down by its arrow three times and right by its arrow three times; Quit disposes the
+# dialog and the program ends by itself
+move 110 42
+click 1 110 42
+wait
+move 50 78
+click 1 50 78
+wait
+click 1 63 80
+wait
+click 1 63 128
+wait
+click 1 289 152
+click 1 289 152
+click 1 289 152
+wait
+click 1 267 174
+click 1 267 174
+click 1 267 174
+wait
+move 158 204
+click 1 158 204

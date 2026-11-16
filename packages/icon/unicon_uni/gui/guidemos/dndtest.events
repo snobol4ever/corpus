@@ -1,0 +1,22 @@
+# dndtest, a 350 by 295 dialog: a Tree (root over the folders red, green, blue and yellow, each of five leaves; its rows 18 high from 25
+# down), a TextList of sixteen numbers (rows 13 high from 22 down), drag and drop between and within them, and a Quit button: the plus of red
+# opens it; two is chosen in the list, then pressed and dragged in four moves onto the folder green and released there; the plus of green
+# opens it; Quit disposes the dialog and the program ends by itself
+move 27 43
+click 1 27 43
+wait
+click 1 202 35
+wait
+move 202 35
+press 1
+move 190 60
+move 150 100
+move 100 140
+move 73 151
+wait
+release 1
+wait
+click 1 27 151
+wait
+move 175 267
+click 1 175 267

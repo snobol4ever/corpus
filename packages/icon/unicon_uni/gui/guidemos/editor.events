@@ -1,0 +1,44 @@
+# editor, a 323 by 345 dialog (File, Edit, Wrap menus over a text area holding its own source, editor.icn, its argument): a click on the
+# line import gui and the word now typed there; a drag over that line and Alt e and c, Edit's Cut; a click on the fourth line and Alt e and
+# p, Edit's Paste; Alt e and u, Edit's Undo; the Wrap menu held open and released on its third item, 40 chars; Alt f and q choose File's
+# Quit, which disposes the dialog and the program ends by itself (nothing is saved)
+move 88 104
+click 1 88 104
+wait
+type  now
+wait
+drag 1 64 104 88 104
+wait
+keydown Alt_L
+key e
+keyup Alt_L
+wait
+key c
+wait
+click 1 29 77
+wait
+keydown Alt_L
+key e
+keyup Alt_L
+wait
+key p
+wait
+keydown Alt_L
+key e
+keyup Alt_L
+wait
+key u
+wait
+move 102 12
+press 1
+wait
+move 120 83
+wait
+release 1
+wait
+move 150 200
+keydown Alt_L
+key f
+keyup Alt_L
+wait
+key q

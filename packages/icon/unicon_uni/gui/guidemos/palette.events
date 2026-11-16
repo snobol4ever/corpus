@@ -1,0 +1,22 @@
+# palette, a 400 by 200 dialog with a Test menu (Anything, and Test menu, a submenu that is a palette of nine colours, three by three from
+# 96 98 across and 48 down) and a Close button: Test is held open, Test menu shows the palette, and the button is released on its purple,
+# which writes the colour; Test is held open again and released on Anything, which writes its line; Close disposes the dialog and the
+# program ends by itself
+move 22 12
+press 1
+wait
+move 40 60
+wait
+move 171 94
+wait
+release 1
+wait
+move 22 12
+press 1
+wait
+move 40 37
+wait
+release 1
+wait
+move 200 133
+click 1 200 133
