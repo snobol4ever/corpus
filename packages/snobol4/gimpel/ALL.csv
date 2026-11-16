@@ -143,4 +143,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 142,tuple_driver,tuple_driver.sno,gimpel__tuple_driver,gimpel,34,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 143,uplo_driver,uplo_driver.sno,gimpel__uplo_driver,gimpel,9,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 144,visit_driver,visit_driver.sno,gimpel__visit_driver,gimpel,12,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-145,dextern_driver,dextern_driver.sno,gimpel__dextern_driver,gimpel,16,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+145,dextern_driver,dextern_driver.sno,gimpel__dextern_driver,gimpel,16,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0

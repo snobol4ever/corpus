@@ -1,13 +1,13 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=34 features=32 ubiquitous=1(package) distinctive=31 core=15 clusters=14 chunks=4 sizes=9,4,2,4
+# shape: entries=37 features=33 ubiquitous=1(package) distinctive=32 core=16 clusters=16 chunks=4 sizes=9,4,2,6
 entry	part	cluster	shells
 arcput	core	core	TRIM alternation keyword_ref
 def	core	core	REPLACE TAB TRIM indirect_ref
-gcbuster	chunk:04	feat:arith	arith keyword_ref
+gcbuster	chunk:04	feat:keyword_ref	arith keyword_ref
 hello	chunk:01	family:hello	
 host	chunk:01	family:host	
-lower	core	core	REPLACE TRIM keyword_ref
+lower	chunk:04	feat:REPLACE	REPLACE TRIM keyword_ref
 map-x64	core	core	ANY ARRAY BREAK DEFINE LEN REM SIZE TABLE TRIM arith cond_assign keyword_ref
 math_atan	core	core	OPSYN
 math_chop	chunk:01	feat:OPSYN	OPSYN
@@ -36,3 +36,6 @@ demos/keyword	core	core	ARRAY BREAK CONVERT DUPL SPAN TABLE TRIM arith goto_fail
 demos/sentenc	core	core	ARBNO POS REPLACE RPOS SPAN TRIM alternation arbno_with_alt deferred_eval goto_fail goto_success imm_assign keyword_ref
 demos/treesort	core	core	BREAK DATATYPE DEFINE LEN REM SPAN TRIM goto_fail goto_success imm_assign indirect_ref keyword_ref
 arcget	core	core	LEN REM TRIM arith cond_assign keyword_ref
+cfreq	core	core	ARRAY DEFINE LEN TABLE arith cond_assign
+demos/align	chunk:04	feat:cond_assign	cond_assign
+demos/kwic2	core	core	BREAK DUPL LEN REM REPLACE SIZE SPAN TAB TABLE alternation arith capture_plus_defer cond_assign deferred_eval goto_fail goto_success keyword_ref

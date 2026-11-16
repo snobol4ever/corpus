@@ -1,0 +1,19 @@
+0 total words read
+0 occurrences of keywords found
+
+
+
+kwic2.sno(103) : ERROR 237 -- table referenced with more than one subscript
+
+
+
+
+
+in file              kwic2.sno
+in line              103
+in statement         51
+stmts executed       42
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  24008
+memory left (bytes)  1024560

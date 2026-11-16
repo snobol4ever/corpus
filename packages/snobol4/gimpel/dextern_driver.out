@@ -1,0 +1,17 @@
+
+
+
+dextern.inc(11) : ERROR 116 -- inappropriate file specification for input
+
+
+
+
+
+in file              dextern.inc
+in line              11
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  17520
+memory left (bytes)  1031048

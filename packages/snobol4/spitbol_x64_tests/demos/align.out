@@ -1,0 +1,17 @@
+
+
+
+align.sno(7) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              align.sno
+in line              7
+in statement         4
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13224
+memory left (bytes)  1035344
