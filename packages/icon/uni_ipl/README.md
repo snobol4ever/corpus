@@ -18,3 +18,5 @@ two the oracle never finished, two it answered differently on two runs); 13 are 
 and progs/literat, whose 8-bit source the container writer cannot hold.
 
 THE SELECTION (moved here from ALL.source by the grader 2026-11-16: the harness reads only root, origin, version, licence, copy and cwd there, and refused this package on the selection line): ipl/progs and ipl/mprogs files that differ from Arizona Icon's ipl (Arizona's are the ipl package); graphics programs left upstream
+
+THE GRAPHICS PROGRAMS (the grader 2026-11-16, on Lon's order of 16:5x CST, verbatim: "continue cutting, grading, and scoring all Icon and Unicon GUI/graphics programs you can get your hands on."): ten programs of Unicon's ipl/gprogs that differ from Arizona's are entries, gprogs/breakout, browser, colrpick, etch, img, offtiler, pme, rings, sensdemo and sier, each answer its window cut twice from the graphics unicon on the screen road (out_files screen.dump); each copy semicolon-ready and SAME-CODE by unicon 13.3 (CONVERSION-PROOF.tsv); census of all 31 such programs in handoffs/grader-2026-11-16/uni_ipl_gfx_census.log (3 differ twice, 1 moves, 17 open no window).

@@ -3,3 +3,6 @@ unmarked_compile_args	--dialect=unicon	CTO-473: a program of this package with n
 ipath	procs	the link closure's files that differ from Arizona's, vendored and converted beside the programs; searched before both IPL folders
 ipath	mprocs	the monitor library's files the mprogs link, vendored and converted the same way
 not_shipped	procs mprocs	the vendored link closure, none is a test
+ipath	../ipl/gprocs	the graphics procedures the gprogs link (graphics, vidgets and kin), semicolon-ready in the sibling ipl (the grader 2026-11-16)
+lpath	../ipl/gincl	the graphics $include files, in the sibling ipl
+lpath	../ipl/incl	the basic $include files, in the sibling ipl

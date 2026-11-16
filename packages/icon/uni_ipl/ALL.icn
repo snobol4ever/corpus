@@ -1,4 +1,2352 @@
-#----------------------------------------------------------------- 1 progs/chars
+#----------------------------------------------------------------- 1 gprogs/breakout
+############################################################################
+#
+#	File:     breakout.icn
+#
+#	Subject:  Program for Breakout game
+#
+#	Author:   Nathan J. Ranks
+#
+#	Date:     September 3, 2000
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  Breakout game
+#
+#  Infinite balls, Left or Right click to start or restart after losing ball
+#  9 levels - can select any level when not active using 1-9
+#  1 hit, 2 hit, 3 hit, and invincible blocks can be used for levels
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links: graphics
+#
+############################################################################
+
+link graphics 
+global sphere, blank     #sphere and blank sphere
+global X, Y              #coordinates of sphere
+global block_positions   #string of whether or not position has block
+global path, angle       #direction of sphere travel
+global wait              #pause interval used with delay()
+global level             #current level
+global hit               #sphere and block contact flag
+global blockclr1, blockclr2, blockclr3, invincclr
+
+procedure main()
+  local e;
+  blockclr1 := "dark blue";     #default 1 hit block color
+  blockclr2 := "dark red";      #default 2 hit block color
+  blockclr3 := "dark green";    #default 3 hit block color
+  invincclr := "black";         #default invincible block color
+
+  WOpen("size=293,320") | stop("can't open window"); 
+
+  sphere := "3,g16,~0~_
+                   000_
+                   ~0~";        #black sphere
+
+  blank  := "3,g16,~F~_
+                   FFF_
+                   ~F~";        #white sphere to erase
+
+  level := 1;                   #default start level
+  create_blocks();              #as the name suggests
+
+  Fg("black");                  #default pad color
+  DrawLine(124,310,158,310);    #default pad position
+  DrawImage(140, 304, sphere);  #default sphere position
+  X := 140;                     #default x position
+  Y := 304;                     #default y position
+  path := "up_left";            #default sphere direction
+  angle := 60;                  #default sphere angle
+  hit := 0;
+
+repeat {
+  if e := Event() then {   
+    if ( e === &lpress ) then {
+      Fg("black");
+      DrawLine(124,310,158,310);    #reset default
+      DrawImage(140, 304, sphere);  #reset default
+      Y := 304;                     #reset default
+      path := "up_left";            #reset default
+      angle := 60;                  #reset default
+      hit := 0;
+
+      X := &x;
+      DrawImage(140, 304, blank);
+      move_pad();
+      move_sphere()
+    };
+    if ( e === &rpress ) then {
+      Fg("black");
+      DrawLine(124,310,158,310);    #reset default
+      DrawImage(140, 304, sphere);  #reset default
+      Y := 304;                     #reset default
+      path := "up_right";           #reset default
+      angle := 60;                  #reset default
+      hit := 0;
+
+      X := &x;
+      DrawImage(140, 304, blank);
+      move_pad();
+      move_sphere()
+    };
+    if ( e === "1" ) then {        #change to level 1
+      level := 1;
+      create_blocks()
+    };
+    if ( e === "2" ) then {        #change to level 2
+      level := 2;
+      create_blocks()
+    };
+    if ( e === "3" ) then {        #change to level 3
+      level := 3;
+      create_blocks()
+    };
+    if ( e === "4" ) then {        #change to level 4
+      level := 4;
+      create_blocks()
+    };
+    if ( e === "5" ) then {        #change to level 5
+      level := 5;
+      create_blocks()
+    };
+    if ( e === "6" ) then {        #change to level 6
+      level := 6;
+      create_blocks()
+    };
+    if ( e === "7" ) then {        #change to level 7
+      level := 7;
+      create_blocks()
+    };
+    if ( e === "8" ) then {        #change to level 8
+      level := 8;
+      create_blocks()
+    };
+    if ( e === "9" ) then {        #change to level 9
+      level := 9;
+      create_blocks()
+    }
+  }
+};
+end
+
+
+
+#this keeps track of where the pad should be according
+#to where the mouse pointer is
+
+procedure move_pad()
+  &x := image(WAttrib("pointerx"));  #get pointer position
+  &y := image(WAttrib("pointery"));  #get pointer position
+  EraseArea(0,310,293,310);          #erease old pad
+  Fg("black");                       #make sure color is correct
+  DrawLine(&x-12,310,&x+12,310);     #draw new pad
+return;
+end
+
+
+
+#this keeps track of sphere location and movement within the window.
+#hits on walls will change direction
+#hit on pad will change direction and possibly angle
+
+procedure move_sphere()
+wait := 9;
+while ( Y < 312 ) do {
+  if ( path == "up_right" ) then {
+    delay(wait);
+    move_pad();
+    GO_UP_RIGHT();
+    hit := 0;
+    if ( X > 285 ) then {
+      path := "up_left"
+    };
+    if ( Y < 0 ) then {
+      path := "down_right"
+    }
+  };
+  if ( path == "up_left" ) then {
+    delay(wait);
+    move_pad();
+    GO_UP_LEFT();
+    hit := 0;
+    if ( X < 0 ) then {
+      path := "up_right"
+    };
+    if ( Y < 0 ) then {
+      path := "down_left"
+    }
+  };
+  if ( path == "down_right" ) then {
+    delay(wait);
+    move_pad();
+    GO_DOWN_RIGHT();
+    hit := 0;
+    if ( X > 285 ) then {
+      path := "down_left"
+    };
+    if ( (Y = 303) | (Y = 304) | (Y = 305) ) then {
+      if ( ((X+1) < &x+13) & ((X+1) > &x-13) ) then {
+        path := "up_right";
+        if ( (X+1) > &x-13 ) then {
+          angle := 30
+        };
+        if ( (X+1) > &x-6 ) then {
+          angle := 60
+        };
+        if ( (X+1) > &x+6 ) then {
+          angle := 30
+        }
+      }
+    }
+  };
+  if ( path == "down_left" ) then {
+    delay(wait);
+    move_pad();
+    GO_DOWN_LEFT();
+    hit := 0;
+    if ( X < 0 ) then {
+      path := "down_right"
+    };
+    if ( (Y = 303) | (Y = 304) | (Y = 305) ) then {
+      if ( ((X+1) < &x+13) & ((X+1) > &x-13) ) then {
+        path := "up_left";
+        if ( (X+1) > &x-13 ) then {
+          angle := 30
+        };
+        if ( (X+1) > &x-6 ) then {
+          angle := 60
+        };
+        if ( (X+1) > &x+6 ) then {
+          angle := 30
+        }
+      }
+    }
+  }
+};
+return;
+end
+
+
+#these next 4 procedures move the sphere
+#and then check for block contact
+
+procedure GO_UP_RIGHT()
+  if ( angle = 30 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y - 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+  if ( angle = 60 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y - 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    Y := Y - 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+return;
+end
+procedure GO_UP_LEFT()
+  if ( angle = 30 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y - 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+  if ( angle = 60 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y - 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    Y := Y - 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+return;
+end
+procedure GO_DOWN_RIGHT()
+  if ( angle = 30 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y + 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+  if ( angle = 60 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y + 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    Y := Y + 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X + 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+return;
+end
+procedure GO_DOWN_LEFT()
+  if ( angle = 30 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y + 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+  if ( angle = 60 ) then {
+    DrawImage(X, Y, blank);
+    Y := Y + 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    };
+    DrawImage(X, Y, blank);
+    Y := Y + 1;
+    DrawImage(X, Y, sphere);
+    DrawImage(X, Y, blank);
+    X := X - 1;
+    DrawImage(X, Y, sphere);
+    block_check();
+    if ( hit = 1 ) then {
+      fix_blocks();
+      return
+    }
+  };
+return;
+end
+
+
+
+#this draws the play fields according to what the levels
+#are defined as
+
+procedure create_blocks()
+  local x, y, z;
+
+  if ( level > 9 ) then {
+    level := 1
+  };
+
+  #different play fields go here
+  if ( level = 1 ) then { #icon-squared
+    block_positions := "000000000000000000000000000000000000000100000000110100110111000001010010101110101101110101000000000000000111000001110010100000101001110000011100000000000000010101110110101110101001010000011101100101100000000100000000000000000000000000"
+  };
+  if ( level = 2 ) then { #alternate rows
+    block_positions := "111111111111100000000000001111111111111000000000000011111111111110000000000000111111111111100000000000001111111111111000000000000011111111111110000000000000111111111111100000000000001111111111111000000000000011111111111110000000000000"
+  };
+  if ( level = 3 ) then { #alternating columns
+    block_positions := "101010101010110101010101011010101010101101010101010110101010101011010101010101101010101010110101010101011010101010101101010101010110101010101011010101010101101010101010110101010101011010101010101101010101010110101010101011010101010101"
+  };
+  if ( level = 4 ) then { #heart
+    block_positions := "000100000100000101000101000100010100010010001010001001000101000100100001000010010000100001000100000001000010000000100001000000010000010000010000001000001000000010001000000000101000000000001000000000000100000000000010000000000000000000"
+  };
+  if ( level = 5 ) then { #checker board
+    block_positions := "101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010"
+  };
+  if ( level = 6 ) then { #filled up
+    block_positions := "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+  };
+  if ( level = 7 ) then { #diamond and a half
+    block_positions := "000001110000000001111100000001111111000001111111110001111111111101111111111111011111111111000111111111000001111111000000011111000000000111000000000001000000000001110000000001111100000001111111000001111111110001111111111101111111111111"
+  };
+  if ( level = 8 ) then { #misc multiple hits
+    block_positions := "11111111111111111111111111313131313131311111111111112121212121212X3X2X3X2X3X2X111111111111111111111111113131313131313111111111111112121212121213X2X3X2X3X2X31111111111111111111111111131313131313132121212121212X3X2X3X2X3X2X1111111111111"
+  };
+  if ( level = 9 ) then { #throw-rug
+    block_positions := "21111111111121211111111121112111111121111121111121111111211121111211112121111212111121111211121123211211111223X322111111223X32211111211232112111211112111121211112121111211112111211111112111112111112111111121112111111111212111111111112"
+  };
+
+
+  z := 1;
+  y := 10;
+  x := 10;
+  while not ( y = 208 ) do {
+    while not ( x = 283 ) do {
+      if ( block_positions[z] == "0" ) then {
+        Fg("white");
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "1" ) then {
+        Fg(blockclr1);
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "2" ) then {
+        Fg(blockclr2);
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "3" ) then {
+        Fg(blockclr3);
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "X" ) then {
+        Fg(invincclr);
+        FillRectangle(x,y,20,10)
+      };
+      z := z + 1;
+      x := x + 21
+    };
+    x := 10;
+    y := y + 11
+  };
+return;
+end
+
+
+#this checks to see if the sphere contacts an edge
+#of a block, if so, it erases the block and changes
+#the sphere's direction accordingly
+#it also checks if level is finished
+
+procedure block_check()
+  local x, y, z, temp, temp2;
+  z := 1;
+  y := 10;
+  x := 10;
+  while not ( y = 208 ) do {
+    while not ( x = 283 ) do {
+      if ( (((X+1)>(x-1))&((X+1)<(x+21)))&(((Y+1)>(y-1))&((Y+1)<(y+11))) ) then {
+        if ( block_positions[z] == "X" ) then {
+          hit := 1;
+          Fg(invincclr);
+          FillRectangle(x,y,20,10);
+          if ( path == "up_right" ) then {
+            if ( ((X+1)=x) ) then { #side hit
+              path := "up_left"
+            };
+            if ( ((Y+1)=(y+10)) ) then { #bottom hit
+              path := "down_right"
+            };
+            if ( ((X+1)=x)&((Y+1)=(y+10)) ) then { #diagonal hit
+              path := "down_left"
+            }
+          }
+          else {
+            if ( path == "up_left" ) then {
+              if ( ((X+1)=(x+20)) ) then { #side hit
+                path := "up_right"
+              };
+              if ( ((Y+1)=(y+10)) ) then { #bottom hit
+                path := "down_left"
+              };
+              if ( ((X+1)=(x+20))&((Y+1)=(y+10)) ) then { #diagonal hit
+                path := "down_right"
+              }
+            }
+            else {
+              if ( path == "down_left" ) then {
+                if ( ((X+1)=(x+20)) ) then { #side hit
+                  path := "down_right"
+                };
+                if ( ((Y+1)=y) ) then { #top hit
+                  path := "up_left"
+                };
+                if ( ((X+1)=(x+20))&((Y+1)=y) ) then { #diagonal hit
+                  path := "up_right"
+                }
+              }
+              else {
+                if ( path == "down_right" ) then {
+                  if ( ((X+1)=x) ) then { #side hit
+                    path := "down_left"
+                  };
+                  if ( ((Y+1)=y) ) then { #top hit
+                    path := "up_right"
+                  };
+                  if ( ((X+1)=x)&((Y+1)=y) ) then { #diagonal hit
+                    path := "up_left"
+                  }
+                }
+              }
+            }
+          }
+        };
+        if ( (block_positions[z] == "1") |
+             (block_positions[z] == "2") |
+             (block_positions[z] == "3") ) then {
+          hit := 1;
+          if ( block_positions[z] == "1" ) then {
+            Fg("white");
+            FillRectangle(x,y,20,10);
+            block_positions[z] := "0"
+          };
+          if ( block_positions[z] == "2" ) then {
+            Fg(blockclr1);
+            FillRectangle(x,y,20,10);
+            block_positions[z] := "1"
+          };
+          if ( block_positions[z] == "3" ) then {
+            Fg(blockclr2);
+            FillRectangle(x,y,20,10);
+            block_positions[z] := "2"
+          };
+          if ( path == "up_right" ) then {
+            if ( ((X+1)=x) ) then { #side hit
+              path := "up_left"
+            };
+            if ( ((Y+1)=(y+10)) ) then { #bottom hit
+              path := "down_right"
+            };
+            if ( ((X+1)=x)&((Y+1)=(y+10)) ) then { #diagonal hit
+              path := "down_left"
+            }
+          }
+          else {
+            if ( path == "up_left" ) then {
+              if ( ((X+1)=(x+20)) ) then { #side hit
+                path := "up_right"
+              };
+              if ( ((Y+1)=(y+10)) ) then { #bottom hit
+                path := "down_left"
+              };
+              if ( ((X+1)=(x+20))&((Y+1)=(y+10)) ) then { #diagonal hit
+                path := "down_right"
+              }
+            }
+            else {
+              if ( path == "down_left" ) then {
+                if ( ((X+1)=(x+20)) ) then { #side hit
+                  path := "down_right"
+                };
+                if ( ((Y+1)=y) ) then { #top hit
+                  path := "up_left"
+                };
+                if ( ((X+1)=(x+20))&((Y+1)=y) ) then { #diagonal hit
+                  path := "up_right"
+                }
+              }
+              else {
+                if ( path == "down_right" ) then {
+                  if ( ((X+1)=x) ) then { #side hit
+                    path := "down_left"
+                  };
+                  if ( ((Y+1)=y) ) then { #top hit
+                    path := "up_right"
+                  };
+                  if ( ((X+1)=x)&((Y+1)=y) ) then { #diagonal hit
+                    path := "up_left"
+                  }
+                }
+              }
+            }
+          };
+          #check to see if field is clear for next level
+          #reset sphere back to below block height
+          temp := 1;
+          temp2 := 0;
+          while ( temp < 244 ) do {
+            if ( (block_positions[temp] == "1") |
+                 (block_positions[temp] == "2") |
+                 (block_positions[temp] == "3") ) then {
+              temp2 := 1;
+              temp := 243
+            };
+            temp := temp + 1
+          };
+          if ( temp2 = 0 ) then {
+            level := level + 1;
+            create_blocks();
+            DrawImage(X,Y,blank);
+            DrawImage(140, 304, sphere);
+            X := 140;
+            Y := 304;
+            path := "up_right"
+          }
+        }
+      };
+      z := z + 1;
+      x := x + 21
+    };
+    x := 10;
+    y := y + 11
+  };
+return;
+end
+
+
+#this is an extra check to make sure the blocks stay completely filled
+#when the sphere moves out of a block, the DrawImage(X, Y, blank)
+#will draw a white sphere over the old sphere, this fixes blocks
+#periodically by being called every block hit in the 4 move sphere procedures
+
+procedure fix_blocks()
+  local x, y, z;
+
+  z := 1;
+  y := 10;
+  x := 10;
+  while not ( y = 208 ) do {
+    while not ( x = 283 ) do {
+      if ( block_positions[z] == "1" ) then {
+        Fg(blockclr1);
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "2" ) then {
+        Fg(blockclr2);
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "3" ) then {
+        Fg(blockclr3);
+        FillRectangle(x,y,20,10)
+      };
+      if ( block_positions[z] == "X" ) then {
+        Fg(invincclr);
+        FillRectangle(x,y,20,10)
+      };
+      z := z + 1;
+      x := x + 21
+    };
+    x := 10;
+    y := y + 11
+  };
+return;
+end
+#----------------------------------------------------------------- 2 gprogs/browser
+############################################################################
+#
+#	File:     browser.icn
+#
+#	Subject:  Program to demonstrate file-navigation "dialog"
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     March 8, 1998
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links:  navitrix, vsetup
+#
+############################################################################
+
+link navitrix
+link vsetup
+
+global pat_window
+global vidgets
+
+$define LineLength  75
+$define FileLength 500
+
+procedure main()
+   local root, root_cur;
+
+   nav_init();
+   vidgets := ui();
+   pat_window := &window;
+
+   root := vidgets["root"];
+
+   repeat {
+      root_cur := case Active() of {
+         pat_window   :  root;
+         nav_window   :  nav_root
+         };
+      ProcessEvent(root_cur, , shortcuts);
+      case nav_state of {
+         &null   :  next;
+         "Okay"  :  process_file()
+         };
+      nav_state := &null
+      };
+
+end
+
+procedure process_file()
+   local input, file_list;
+   static list_vidget;
+
+   initial list_vidget := vidgets["list"];
+
+$ifdef _UNIX
+   if nav_file[-1] == "/" then {	# directory
+$else
+   Deliberate Syntax Error
+$endif
+      chdir(nav_file);
+      nav_refresh()
+      }
+
+   else {				# "plain" file
+      input := open(nav_file) | {
+         Notice("Cannot open " || image(nav_file) || ".");
+         fail
+         };
+      file_list := [];
+      every put(file_list, left(entab(!input), LineLength)) \ FileLength;
+      VSetItems(list_vidget, file_list);
+      close(input);
+      WAttrib(nav_window, "canvas=hidden")
+      };
+
+   return;
+
+end
+
+procedure file_cb(vidget, value)
+
+   case value[1] of {
+      "find  @F"  :  find_file();
+      "quit  @Q"  :  exit()
+      };
+
+   return;
+
+end
+
+procedure list_cb(vidget, value)
+
+   if /value then return;		# deselection; no action
+
+   return;
+
+end
+
+procedure find_file()
+
+   WAttrib(nav_window, "canvas=normal");
+
+   return;
+
+end
+
+procedure shortcuts(e)
+
+   if &meta then case map(e) of {
+      "f"  :  find_file();
+      "q"  :  exit()
+      };
+
+   return;
+
+end
+
+#===<<vib:begin>>===	modify using vib; do not remove this marker line
+procedure ui_atts()
+   return ["size=587,402", "bg=pale gray", "label=Browser"];
+end
+
+procedure ui(win, cbk)
+return vsetup(win, cbk,
+   [":Sizer:::0,0,587,402:Browser",],
+   ["file:Menu:pull::0,3,36,21:File",file_cb,
+      ["find  @F","quit  @Q"]],
+   ["list:List:r::17,44,557,343:",list_cb],
+   ["menubar:Line:::0,26,585,26:",],
+   );
+end
+#===<<vib:end>>===	end of section maintained by vib
+#----------------------------------------------------------------- 3 gprogs/colrpick
+############################################################################
+#
+#	File:     colrpick.icn
+#
+#	Subject:  Program to pick RGB or HLS colors
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     February 27, 1995
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#      colrpick provides a command-level interface to the ColorDialog
+#   procedure.  The ColorValue() of the selected color is written to
+#   standard output when the Okay button is pressed.  If the Cancel
+#   button is pressed, colorpick exits with an error by calling stop().
+#
+#      A default color can be specified by one or more command arguments,
+#   for example "colrpick deep green".
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links: graphics, vsetup
+#
+############################################################################
+
+link graphics
+link vsetup
+
+procedure main(args)
+   local dflt;
+
+   Window ! put(ui_atts(), "canvas=hidden", args);
+   ui();				# just to get standard VIB font
+
+   if *args > 0 then {
+      dflt := "";
+      every dflt ||:= " " || !args;
+      if not ColorValue(dflt) then {
+         write(&errout, "  illegal default color: ", dflt);
+         dflt := &null
+         }
+      };
+
+   case ColorDialog(, dflt) of {
+      "Okay":	write(dialog_value);
+      "Cancel":	stop()
+      };
+end
+
+
+#===<<vib:begin>>===	modify using vib; do not remove this marker line
+procedure ui_atts()
+   return ["size=340,320", "bg=pale gray"];
+end
+
+procedure ui(win, cbk)
+return vsetup(win, cbk,
+   [":Sizer:::0,0,340,320:",],
+   );
+end
+#===<<vib:end>>===	end of section maintained by vib
+#----------------------------------------------------------------- 4 gprogs/etch
+############################################################################
+#
+#	File:     etch.icn
+#
+#	Subject:  Program for distributed Etch-A-Sketch
+#
+#	Author:   Clinton L. Jeffery
+#
+#	Date:     July 28, 2003
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#  
+# A drawing program.  Invoked with one optional argument, the
+# name of a remote host on which to share the drawing surface.
+#
+# Dragging the left button draws black dots
+# The middle button draws a line from button press to the release point
+# The right button draws white dots
+# Control-L clears the screen
+# The Escape character exits the program
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links:  wopen, xcompat
+#
+############################################################################
+
+link wopen
+link xcompat
+
+procedure main(av)
+   local w1, w2, w3, w4, w5, w6, w, x1, xa, x2, xb, y1, ya, y2, yb, dragging,
+      da, xc, xd, yc, yd, dc, e;
+   #
+   # open an etch window.  If there was a command line argument,
+   # attempt to open a second window on another display.  For
+   # each window, create a binding with reverse video for erasing.
+   #
+   w1 := WOpen("label=etch", "size=300,300") | stop("can't open window");
+   w2 := Clone(w1,"drawop=xor") | stop("can't Clone w2");
+   w3 := Clone(w1,"reverse=on") | stop("can't Clone w3");
+   if *av>0 then {
+      w4 := WOpen("label=etch", "display="||av[1]||":0","size=300,300") |
+	  stop("can't open window, display=",av[1]);
+      w5 := Clone(w4,"drawop=xor") | stop("Can't Clone w5");
+      w6 := Clone(w4,"reverse=on") | stop("Can't Clone w6")
+  };
+  repeat {
+      #
+      # wait for an available event on either display
+      #
+      w := Active() | stop("Active fails");
+      if (w === (w1|w2)) then {
+	  x1 := xa;
+	  x2 := xb;
+	  y1 := ya;
+	  y2 := yb;
+	  dragging := da
+      } else {
+	  x1 := xc;
+	  x2 := xd;
+	  y1 := yc;
+	  y2 := yd;
+	  dragging := dc
+      };
+      
+      case e := Event(w) of {
+	  #
+	  # Mouse down events specify an (x1,y1) point for later drawing.
+	  # (x2,y2) is set to null; each down event starts a new draw command.
+	  #
+	  &lpress | &mpress | &rpress: {
+	      x1 := &x;
+	      y1 := &y;
+	      x2 := y2 := &null
+	  };
+	  #
+	  # Mouse up events obtain second point (x2,y2), and draw a line.
+	  #
+	  &lrelease: {
+	      DrawLine(w1,\x1,\y1,&x,&y);
+	      DrawLine(\w4,\x1,\y1,&x,&y)
+	  };
+	  &mrelease: {
+	      DrawLine(w1,x1,y1,&x,&y);
+	      DrawLine(\w4,x1,y1,&x,&y);
+	      dragging := &null
+	  };
+	  &rrelease: {
+	      DrawLine(w3,x1,y1,&x,&y);
+	      DrawLine(\w6,x1,y1,&x,&y)
+	  };
+	  #
+	  # Drag events obtain a second point, (x2,y2), and draw a line
+	  # If we are drawing points, we update (x1,y1); if we are
+	  # drawing lines, we erase the "rubberband" line and draw a new
+	  # one at each drag event; a permanent line will be drawn when
+	  # the button comes up.
+	  #
+	  &ldrag : {
+	      DrawLine(w1,x1,y1,&x,&y);
+	      DrawLine(\w4,x1,y1,&x,&y);
+	      # left and right buttons use current position
+	      x1 := &x;   # for subsequent operations
+	      y1 := &y
+	  };
+	  &rdrag : {
+	      DrawLine(w3,x1,y1,&x,&y);
+	      DrawLine(\w6,x1,y1,&x,&y);
+	      # left and right buttons use current position
+	      x1 := &x;   # for subsequent operations
+	      y1 := &y
+	  };
+	  &mdrag: {
+	      if /dragging then dragging := 1
+	      else { # erase previous line, if any
+		  DrawLine(w2,x1,y1,\x2,\y2);
+		  DrawLine(\w5,x1,y1,\x2,\y2)
+	      };
+	      x2 := &x;
+	      y2 := &y;
+	      DrawLine(w2,x1,y1,x2,y2);
+	      DrawLine(\w5,x1,y1,x2,y2)
+	  };
+	  "\^l": {
+	      EraseArea(w1);
+	      EraseArea(\w4)
+	  };
+	  "\e": break
+      };
+      if (w === (w1|w2)) then {
+	  xa := x1;
+	  xb := x2;
+	  ya := y1;
+	  yb := y2;
+	  da := dragging
+      } else {
+	  xc := x1;
+	  xd := x2;
+	  yc := y1;
+	  yd := y2;
+	  dc := dragging
+      }
+  };
+end
+#----------------------------------------------------------------- 5 gprogs/img
+############################################################################
+#
+#	File:     img.icn
+#
+#	Subject:  Program to create and edit tiny images
+#
+#	Authors:  Gregg M. Townsend and Nolan Clayton
+#
+#	Date:     April 9, 2004
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  img is a simple editor of Icon image strings and other tiny images.
+#  An image size of 64 x 64 pixels is around the practical maximum.
+#
+#  usage:  img [-cn | -gn] [filename | width [height]]
+#
+#  -c or -g specifies a palette; the default is -c1.
+#
+#  An input file may contain an image string or an image readable by Icon.
+#  If no filename is given, a new image (default size 16 x 16) is created.
+#
+#  img brings up a window within which:
+#
+#	-- clicking on the color palette sets the color of that mouse button
+#	-- clicking on the cell grid sets the color of a cell
+#	-- shift-clicking on the cell grid sets the button color from the cell
+#
+#	-- pressing "W" writes the image string to standard output
+#	-- pressing "Q" writes the image string and then exits
+#	-- pressing "Z" clears all cells to the color of the left mouse button
+#	-- pressing "O" or "L" toggles palette outlining or labeling
+#	-- pressing "T" sets the left mouse button to '~' the transparent color
+#	-- pressing "R" changes pixels matching the right button color
+#		to be the color of the left button
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links: graphics, imscolor
+#
+############################################################################
+
+#  To Do:
+#  clearer display of transparent button & pixels
+#  add "save as" function to write GIF (or whatever) file
+#  use standard utils for row<->image translation
+
+
+link graphics, imscolor
+
+$define Border 16		# window border
+
+$define ColorW 12		# width of color indicator
+$define ColorH 24		# height of color indicator
+
+$define LMar 150		# left margin of cell area
+$define MaxCell 24		# maximum cell size
+
+
+global rows, imspec		# current image
+global palette			# color palette
+global palx, paly, palw, palh	# palette display area
+global palf			# palette display flags
+global buttons			# button colors
+
+
+#  main program
+
+procedure main(args)
+   local wwidth, wheight;
+   local hcells, vcells, cellsize, x0, y0;
+   local black, white;
+   local i, j, x, y, k, e, c;
+   local imgstr, imgtemp, L;
+
+   Window(args);
+   wwidth := WAttrib("width");			# window width
+   wheight := WAttrib("height");			# window height
+
+   palette := "c1";
+   args[1] ? if ="-" then {
+      palette := tab(0);
+      get(args)
+      };
+
+   if *args > 0 & not integer(args[1]) then {	# if filename supplied
+      imgstr := readicon(args[1]);
+      palette := imspalette(imgstr);
+      hcells := imswidth(imgstr);              	# cells horizontally
+      vcells := imsheight(imgstr)		# cells vertically
+      }
+   else {
+      hcells := integer(args[1]) | 16;		# cells horizontally
+      vcells := integer(args[2]) | hcells;	# cells vertically
+      c := PaletteKey(palette, "white");
+      imgstr := hcells || "," || palette || "," || repl(c, vcells * hcells)
+      };
+
+   cellsize := MaxCell;				# cell size on window
+   cellsize >:= wheight / (vcells + 4);
+   cellsize >:= (wwidth - LMar) / (hcells + 4);
+   if cellsize < 2 then
+      stop("image is too large for this window");
+
+   palx := Border;
+   paly := Border + vcells + Border;
+   palw := LMar - 2 * Border;
+   palh := wheight - Border - paly;
+   palf := "u";
+   drawpalette(palette, palx, paly, palw, palh, palf);
+
+   x0 := wwidth / 2 - (cellsize * hcells) / 2 + LMar / 2;  # UL corner of cells
+   y0 := wheight / 2 - (cellsize * vcells) / 2;
+   Fg("gray");
+   every x := x0 to x0 + (hcells - 1) * cellsize by cellsize do
+      every y := y0 to y0 + (vcells - 1) * cellsize by cellsize do
+         DrawRectangle(x, y, cellsize, cellsize);
+
+   black := PaletteKey(palette, "black");
+   white := PaletteKey(palette, "white");
+   buttons := table();
+   setbutton(&lpress, black);
+   setbutton(&mpress, black);
+   setbutton(&rpress, white);
+
+   imgtemp := imgstr[find(imspalette(imgstr), imgstr) : 0];
+   imgtemp := imgtemp[find(',', imgtemp) + 1 : 0];
+
+   rows := [];			# list of row values
+   L := "";
+
+   every y := 1 to vcells do {
+      every x := 1 to hcells do {
+         k := imgtemp[((y - 1) * hcells) + x];
+         L ||:= k;
+         Fg(PaletteColor(palette, k));
+         FillRectangle(x0 + ((x - 1) * cellsize),
+            y0 + ((y - 1) * cellsize), cellsize, cellsize)
+         };
+      put(rows, L);
+      L :=""
+      };
+
+   Fg("gray");
+   every x := x0 to x0 + (hcells - 1) * cellsize by cellsize do
+      every y := y0 to y0 + (vcells - 1) * cellsize by cellsize do
+         DrawRectangle(x, y, cellsize, cellsize);
+
+   newimage();
+
+   repeat case e := Event() of {
+
+      &lpress | &mpress | &rpress | &ldrag | &mdrag | &rdrag: {
+
+         # mouse on palette: set color
+         if k := pickpalette(palette, &x - palx, &y - paly, palw, palh) then {
+            case e of {
+               &lpress | &ldrag:  setbutton(&lpress, k);
+               &mpress | &mdrag:  setbutton(&mpress, k);
+               &rpress | &rdrag:  setbutton(&rpress, k)
+               };
+            next
+            };
+
+         # mouse on cell: set color
+         j := (&x - x0) / cellsize;
+         i := (&y - y0) / cellsize;
+         if j < 0 | j >= hcells | i < 0 | i >= vcells then
+            next;
+         x := x0 + j * cellsize + 1;
+         y := y0 + i * cellsize + 1;
+
+         # if shifted, pick color from grid 
+         if &shift then {
+            k := rows[i + 1, j + 1];
+            case e of {
+               &lpress | &ldrag:  setbutton(&lpress, k);
+               &mpress | &mdrag:  setbutton(&mpress, k);
+               &rpress | &rdrag:  setbutton(&rpress, k)
+               };
+            next
+            };
+
+         case e of {
+            &lpress | &ldrag:  k := buttons[&lpress];
+            &mpress | &mdrag:  k := buttons[&mpress];
+            &rpress | &rdrag:  k := buttons[&rpress]
+            };
+         Fg(PaletteColor(palette, k));
+         FillRectangle(x, y, cellsize - 1, cellsize - 1);
+         rows[i + 1, j + 1] := k;
+         newimage()
+         };
+
+      !"oOlL": {			# O or L: toggle outlining / labeling
+         e := map(e);
+         if palf ? find(e) then
+            palf := string(palf -- e)
+         else
+            palf ||:= e;
+         drawpalette(palette, palx, paly, palw, palh, palf)
+         };
+      QuitEvents(): {			# Q (etc): quit
+         imswrite(, imspec);
+         exit()
+         };
+      !"wW": {				# W: write pattern to stdout
+         imswrite(, imspec)
+         };
+
+      !"tT": {				# T: set left mouse button transparent
+         setbutton(&lpress, '~')
+         };
+
+      !"rR": {				# R: replace colors
+         colorreplace(buttons[&rpress], buttons[&lpress]);
+
+         every y := 1 to vcells do {
+            every x := 1 to hcells do {
+               k := rows[y][x];
+               Fg(PaletteColor(palette, k));
+               FillRectangle(x0 + ((x - 1) * cellsize),
+                  y0 + ((y - 1) * cellsize), cellsize, cellsize)
+               }
+            };
+
+         Fg("gray");
+         every x := x0 to x0 + (hcells - 1) * cellsize by cellsize do
+            every y := y0 to y0 + (vcells - 1) * cellsize by cellsize do
+               DrawRectangle(x, y, cellsize, cellsize)
+         };
+
+
+      !"zZ": {				# Z: clear pattern
+
+         k := buttons[&lpress];
+         Fg(PaletteColor(palette, k));
+         rows := list(vcells, repl(k, hcells));
+
+         FillRectangle(x0, y0, hcells * cellsize, vcells * cellsize);
+         Fg("gray");
+         every x := x0 to x0 + (hcells - 1) * cellsize by cellsize do
+            every y := y0 to y0 + (vcells - 1) * cellsize by cellsize do
+               DrawRectangle(x, y, cellsize, cellsize);
+
+         newimage()
+
+         }
+      };
+end
+
+
+#  setbutton(event, key) -- set the color of a button
+
+procedure setbutton(e, k)
+   local i, x, y;
+
+   buttons[e] := k;
+   i := case e of {
+      &lpress: 2;
+      &mpress: 1;
+      &rpress: 0
+      };
+   x := palx + palw - ColorW - i * (ColorW * 3 / 2);
+   y := (paly - ColorH) / 2;
+   Fg(PaletteColor(palette, k));
+   FillArc(x, y, ColorW, ColorH);
+   Fg("black");
+   DrawArc(x, y, ColorW, ColorH);
+end
+
+
+#  newimage() -- update image (in memory and onscreen) from rows
+
+procedure newimage()
+   imspec := rowstoims(palette, rows);
+   DrawImage(Border, Border, imspec);
+   return;
+end
+
+
+#  rowstoims(pal, rows) -- convert array of rows into image string
+
+procedure rowstoims(pal, rows)
+   local w, s, im;
+
+   w := *rows[1] | fail;
+   im := w || "," || pal || ",";
+   every s := !rows do {
+      if *s ~= w then fail;
+      im ||:= s
+      };
+   return im;
+end
+
+
+# replacecolor(color1, color2) -- replace color1 with color2
+
+procedure colorreplace(color1, color2)
+   local i, j;
+
+   every i := 1 to *rows do
+      while j := find(color1, rows[i]) do
+         rows[i][j] := color2;
+
+   newimage();
+
+end
+
+
+#  readicon(fname) -- read image, returning image string
+
+procedure readicon(fname)
+   local res, f, x;
+
+   f := open(fname) | stop("cannot open " || fname);
+
+   res := "";
+
+   while x := read(f) do {
+      x ? {
+         if ="#" then
+            next;
+
+         ="\"";
+         res ||:= tab(0)
+         };
+
+      if res[-1] == "_" then
+            res[-1] := ""
+      else
+         break
+      };
+   close(f);
+
+   #
+   # Check for reasonably valid image
+   #
+   if imsheight(res) then
+      return res
+   else {
+      if f := open(fname, "g", "image=" || fname, "canvas=hidden") then {
+         res := Capture(f, palette);
+         close(f);
+         if imsheight(res) then return res
+         };
+      stop("invalid image: " || fname)
+      };
+
+end
+
+#----------------------------------------------------------------- 6 gprogs/offtiler
+############################################################################
+#
+#	File:     offtiler.icn
+#
+#	Subject:  Program to tile images with offset
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     March 14, 1998
+#
+############################################################################
+#
+#  This program is in the public domain.
+#
+############################################################################
+#
+#  This program produces drop repeats and brick patterns.
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links:  io, vsetup
+#
+############################################################################
+
+link io
+link vsetup
+
+global direction
+global factor
+global height
+global subject
+global target
+global vidgets
+global width
+
+procedure main()
+
+   vidgets := ui();
+
+   direction := "vertical";
+   factor := 1;
+
+   GetEvents(vidgets["root"], , shortcuts);
+
+end
+
+procedure file_cb(vidget, value)
+
+   case value[1] of {
+      "open  @O"  :  open_image();
+      "save  @S"  :  save_tile();
+      "quit  @Q"  :  exit()
+      };
+
+   return;
+
+end
+
+procedure parameter_cb(vidget, value)
+
+   case value[1] of {
+      "direction  @D"  :  set_direction();
+      "factor     @F"  :  set_factor()
+      };
+
+   return;
+
+end
+
+procedure tile_cb()
+   local incr, i, j, offset;
+
+   if /subject then {
+      Notice("No subject image.");
+      fail
+      };
+      
+   WClose(\target);
+
+   target := WOpen("label=offset tile", "size=" || (width * factor) || "," ||
+      (height * factor)) | {
+         Notice("Cannot open target window.");
+         fail
+         };
+
+   Raise();
+
+   case direction of {
+      "vertical"    :  {
+         incr := height / factor;
+         every i := -1 to factor do {		# columns
+            offset := i * incr;
+            every j := -1 to factor do {	# rows
+               CopyArea(subject, target, 0, 0, width, height, i * width,
+                  j * height + offset)
+               }
+            }
+         };
+      "horizontal"  :  {
+         incr := width / factor;
+         every i := -1 to factor do {		# rows
+            offset := i * incr;
+            every j := -1 to factor do {	# columns
+               CopyArea(subject, target, 0, 0, width, height,
+                  j * width + offset, i * height)
+               }
+            }
+         }
+      };
+
+   return;
+
+end
+
+procedure set_direction()
+
+   repeat {
+      if SelectDialog("Direction", ["vertical", "horizontal"], direction) ==
+         "Cancel" then fail;
+      direction := dialog_value;
+      check_parameters() | next;
+      return
+      };
+
+end
+
+procedure set_factor()
+
+   repeat {
+      if TextDialog("Offset factor", , factor) == "Cancel" then fail;
+      factor := (0 < integer(dialog_value[1])) | {
+         Notice("Invalid factor specification.");
+         next
+         };
+      check_parameters() | next;
+      return
+      };
+
+end
+
+procedure check_parameters()
+
+   case direction of {
+      "vertical"    :  {
+         if (height % factor) ~= 0 then {
+            Notice("Factor does not evenly divide height.");
+            fail
+            };
+         if factor >= height then {
+            Notice("Factor too large.");
+            fail
+            }
+         };
+      "horizontal"  :  {
+         if (width % factor) ~= 0 then {
+            Notice("Factor does not evenly divide width.");
+            fail
+            };
+         if factor >= width then {
+            Notice("Factor too large.");
+            fail
+            }
+         }
+      };
+
+   return;
+
+end
+
+procedure shortcuts(e)
+
+   if &meta then case map(e) of {
+      "d"  :  set_direction();
+      "f"  :  set_factor();
+      "o"  :  open_image();
+      "q"  :  exit();
+      "s"  :  save_tile();
+      "t"  :  tile_cb()
+      };
+
+   return;
+
+end
+
+procedure open_image()
+
+   repeat {
+      if OpenDialog("Open image:") == "Cancel" then fail;
+      WClose(\subject);
+      subject := WOpen("label=" || dialog_value, "image=" || dialog_value) | {
+         Notice("Cannot open image."); 
+         next
+         };
+      width := WAttrib(subject, "width");
+      height := WAttrib(subject, "height");
+      factor := 1;
+      Raise();
+      return
+      };
+
+end
+
+procedure save_tile()
+   local file;
+
+   repeat {
+      if SaveDialog("Save tile:") ~== "Yes" then fail;
+      file := dialog_value;
+      if exists(file) then {
+         if TextDialog("Overwrite existing file?") == "Cancel" then next
+         };
+      WriteImage(target, file) | {
+         Notice("Cannot write image.");
+         next
+         };
+      return
+      };
+
+end
+
+#===<<vib:begin>>===	modify using vib; do not remove this marker line
+procedure ui_atts()
+   return ["size=200,165", "bg=pale gray"];
+end
+
+procedure ui(win, cbk)
+return vsetup(win, cbk,
+   [":Sizer:::0,0,200,165:",],
+   ["file:Menu:pull::0,0,36,21:File",file_cb,
+      ["open  @O","save  @S","quit  @Q"]],
+   ["line1:Line:::0,23,200,23:",],
+   ["parameters:Menu:pull::37,0,78,21:Parameters",parameter_cb,
+      ["direction  @D","factor     @F"]],
+   ["tile:Button:regular::12,36,35,20:tile",tile_cb],
+   );
+end
+#===<<vib:end>>===	end of section maintained by vib
+#----------------------------------------------------------------- 7 gprogs/pme
+############################################################################
+# 
+#	File:     pme.icn
+# 
+#	Subject:  Program to edit pixmaps
+# 
+#	Author:   Clinton L. Jeffery
+#
+#	Date:     November 22, 1996
+# 
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#	Version:  2.0
+#
+############################################################################
+#
+#     An (color) pixmap editor.
+#
+#     Left, middle, and right buttons draw different colors.
+# Press q or ESC to quit; press s to save.  Capital "S" prompts for
+# and saves under a new filename.
+# Click on the little picture of the mouse to change one of the
+# button's colors.  Not very interesting on a monochrome server.
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links:  wopen, xcompat
+#
+############################################################################
+
+link wopen
+link xcompat
+global w, WIDTH, HEIGHT, XBM, LMARGIN
+global colors, colorbinds
+
+procedure main(argv)
+   local i, f, s, xpos, ypos, i8, j, j8, j8Plus, e, x, y;
+   colors := [ "red", "green", "blue" ];
+   i := 1;
+   XBM := ".xpm";
+   WIDTH  := 32;
+   HEIGHT := 32;
+   if *argv>0 & argv[1][1:5]=="-geo" then {
+      i +:= 1;
+      if *argv>1 then argv[2] ? {
+	 WIDTH := integer(tab(many(&digits))) | stop("geo syntax");
+	 ="x" | stop("geo syntax");
+	 HEIGHT := integer(tab(0)) | stop("geo syntax");
+	 i +:= 1
+	 }
+      };
+   LMARGIN := WIDTH;
+   if LMARGIN < 65 then LMARGIN := 65;
+   if (*argv >= i) &
+      (f := open(s := (argv[i] | (argv[i]||(XBM|".xbm"))))) then {
+	close(f);
+	w := &window := WOpen("label=PixMap", "image="||s, "cursor=off") |
+	   stop("cannot open window");
+	WIDTH  <:= WAttrib(w, "width");
+	HEIGHT <:= WAttrib(w, "height");
+	LMARGIN := WIDTH;
+	if LMARGIN < 65 then LMARGIN := 65;
+	pos := WAttrib("pos");
+	pos ? {
+	   xpos := tab(many(&digits)) | stop(image(pos));
+	   =",";
+	   ypos := tab(0)
+	   };
+	WAttrib(w, "posx="||xpos, "posy="||ypos,
+		"width="||(WIDTH*8+LMARGIN+5), "height="||(HEIGHT*8));
+	Event();
+	every i := 0 to HEIGHT-1 do {
+	   i8 := i*8;
+	   every j := 0 to WIDTH-1 do {
+	      j8 := j*8;
+	      j8Plus := j8 + LMARGIN + 5;
+	      CopyArea(w, w, j, i, 1, 1, j8Plus,   i8);
+	      CopyArea(w, w, j, i, 1, 1, j8Plus+1, i8);
+	      CopyArea(w, w, j8Plus, i8, 2, 1, j8Plus+2,i8);
+	      CopyArea(w, w, j8Plus, i8, 4, 1, j8Plus+4, i8);
+	      CopyArea(w, w, j8Plus, i8, 8, 1, j8Plus, i8+1);
+	      CopyArea(w, w, j8Plus, i8, 8, 2, j8Plus, i8+2);
+	      CopyArea(w, w, j8Plus, i8, 8, 4, j8Plus, i8+4)
+	      }
+	   }
+	} else {
+	   w := &window := WOpen("label=PixMap", "cursor=off",
+				"width="||(LMARGIN+WIDTH*8+5),
+				"height="||(HEIGHT*8+5)) |
+             stop("cannot open window")
+	   };
+
+   colorbinds := [ XBind(w,"fg="||colors[1]),
+		  XBind(w,"fg="||colors[2]),
+		  XBind(w,"fg="||colors[3]) ];
+   every i := 1 to 3 do {
+      XDrawArc( 4+i*10, HEIGHT+68, 7, 22);
+      XFillArc(colorbinds[i], 5+i*10, HEIGHT+70, 5, 20)
+      };
+   DrawRectangle( 5, HEIGHT+55, 45, 60);
+   DrawRectangle( 25, HEIGHT+50, 5, 5);
+   DrawCurve(27, HEIGHT+50,
+	      27, HEIGHT+47,
+	      15, HEIGHT+39,
+	      40, HEIGHT+20,
+	      25, HEIGHT+5);
+
+   Fg( "black");
+   every i := 0 to HEIGHT-1 do
+      every j := 0 to WIDTH-1 do
+         DrawRectangle( j*8+LMARGIN+5, i*8, 8, 8);
+
+   DrawLine( 0, HEIGHT, WIDTH, HEIGHT, WIDTH, 0);
+
+  repeat {
+     case e := Event(w) of {
+	"q"|"\e": return;
+	"s"|"S": {
+	   if /s | (e=="S") then s := getfilename();
+	   write("saving image ", s, " with width ", image(WIDTH),
+		 " height ", image(HEIGHT));
+	   WriteImage( s, 0, 0, WIDTH, HEIGHT)
+	   };
+	&lpress | &ldrag | &mpress | &mdrag | &rpress | &rdrag : {
+
+	   x := (&x - LMARGIN - 5) / 8;
+	   y := &y / 8;
+
+	   if (y < 0) | (y > HEIGHT-1) | (x > WIDTH) then next;
+	   if (x < 0) then {
+	      if &x < 21 then getacolor(1, "left")
+	      else if &x < 31 then getacolor(2, "middle")
+	      else getacolor(3, "right");
+	      until Event(w) === (&mrelease | &lrelease | &rrelease)
+	      }
+	   else dot(x, y, (-e-1)%3)
+	   }
+	}
+     };
+end
+
+procedure getacolor(n, s)
+   local wtmp, theColor;
+   wtmp := WOpen("label=" || image(s||" button: "), "lines=1") |
+      stop("can't open temp window");
+   writes(wtmp,"[",colors[n],"] ");
+   theColor := read(wtmp) | stop("read fails");
+   close(wtmp);
+   wtmp := colorbinds[n] | stop("colorbinds[n] fails");
+   Fg(wtmp, theColor) | write("XFG(", theColor, ") fails");
+   XFillArc(wtmp, 5+n*10, HEIGHT+70, 5, 20);
+   colors[n] := theColor;
+end
+
+procedure dot(x, y, color)
+   if (x|y) < 0 then fail;
+   FillRectangle(colorbinds[color+1], x*8+LMARGIN+5, y*8, 8, 8);
+   DrawPoint(colorbinds[color+1], x, y);
+   DrawRectangle( x*8+LMARGIN+5, y*8, 8, 8);
+end
+
+procedure getfilename()
+   local s, pos, wprompt, rv;
+   pos := "pos=";
+   every s := QueryPointer() do pos||:= (s-10)||",";
+   wprompt := WOpen("label=Enter a filename to save the pixmap",
+		   "font=12x24", "lines=1", pos[1:-1]) | stop("can't xprompt");
+   rv := read(wprompt);
+   close(wprompt);
+   if not find(XBM, rv) then rv ||:= XBM;
+   return rv;
+end
+#----------------------------------------------------------------- 8 gprogs/rings
+############################################################################
+#
+#	File:     rings.icn
+#
+#	Subject:  Program to draw tiles of rings and circles
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     July 13, 1994
+#
+############################################################################
+#
+#  This program produces seamless tiles with drawings of circles and
+#  rings.
+#
+#  It words from characters input to the window:
+#
+#	q	quit
+#	c	draw 10 random circles
+#	r	draw 5 random rings
+#	W	writes image to GIF file; files are named ring000.gif,
+#		   ring001.gif, ...
+#	E	erases the window
+#	F       fills the window
+#	R	reverses the colors
+#
+#  At present there are no options except those provided for
+#  opening the window.
+#
+#  Some modifications have been made by Ralph E. Griswold
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links:  xio, xutils
+#
+############################################################################
+
+$define W 128
+$define H 128
+
+link xio, xutils
+
+procedure main(args)
+   local count;
+
+   count := -1;
+   Window(args);
+   repeat case Event() of {
+      QuitEvents():  exit();
+      "c":  randrop(circle, 10);
+      "r":  randrop(ring, 5);
+      "W":  WriteImage("rings" || right(count +:= 1, 3, "0") || ".gif",
+         , , W, W);
+      "E":  EraseArea();
+      "F":  FillRectangle();
+      "R":  {WAttrib("drawop=reverse"); FillRectangle(); WAttrib("drawop=copy")}
+      };
+end
+
+procedure replicate()
+   CopyArea(0, 0, W, H, 0, H);
+   CopyArea(0, 0, W, 2 * H, W, 0);
+   CopyArea(0, 0, 2 * W, 2 * H, 2 * W, 0);
+   CopyArea(0, 0, 4 * W, 2 * H, 0, 2 * H);
+   DrawLine(W, 0, W, H, 0, H);
+   return;
+end
+
+procedure randrop(p, n)
+   local x, y;
+   every 1 to n do {
+      x := ?W - W / 2;
+      y := ?H - H / 2;
+      p(x, y);
+      p(x, y + H);
+      p(x + W, y);
+      p(x + W, y + W)
+      };
+   replicate();
+   return;
+end
+
+procedure ring(x, y)
+   static outer, inner;
+   initial {
+      outer := Clone("fg=black", "linewidth=5");
+      inner := Clone("fg=white", "linewidth=3")
+      };
+   DrawCircle(outer, x, y, 30);
+   DrawCircle(inner, x, y, 30);
+   return;
+end
+
+procedure circle(x, y)
+   static white;
+   initial white := Clone("fg=white");
+   FillCircle(white, x, y, 12);
+   DrawCircle(x, y, 12);				#  change to 10 for gaps
+   return;
+end
+#----------------------------------------------------------------- 9 gprogs/sensdemo
+############################################################################
+#
+#	File:     sensdemo.icn
+#
+#	Subject:  Program to demonstrate sensor routines
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     July 12, 1995
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     sensdemo illustrates several of the input sensors provided in the
+#  program library.  It is written to use mutable colors but will struggle
+#  along slowly if they're not available.
+#
+#     There are four pushbuttons.  Buttons "One", "Two", and "Three" just
+#  write a line on standard output.  The "QUIT" button does what you'd
+#  expect.
+#
+#     The three vertically oriented sliders control (from left to right)
+#  alter the red, green, and blue components of the color in the large
+#  square.  The individual components appear in the small squares, and
+#  the hexadecimal form of the color spec is displayed below the square.
+#
+#     The small horizontal slider below the square adjusts all three
+#  color components simultaneously.  Notice how moving it also moves
+#  the three vertical sliders.
+#
+#     The largs square sounds a bell if Return is pressed while it
+#  contains the cursor.  The standard "quitsensor" causes the program
+#  to exit when q or Q is pressed anywhere in the window.
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links: button, slider, evmux, graphics
+#
+############################################################################
+
+link button
+link slider
+link evmux
+link graphics
+
+$define BevelWidth 2
+$define WindowMargin 10
+
+record rgbrec(r, g, b, k)
+record boxrec(x, y, w, h, b, i)
+global val, colr, sl, win
+
+procedure main(args)
+   local cwin, h, m, c;
+
+   # open window
+   win := Window("size=400,400", args);
+   m := WindowMargin;
+   h := WAttrib("height") - 2 * m;			# usable height
+
+   # set up boxes for displaying colors, each with its own binding
+   colr := rgbrec(
+      boxrec(m, m, 40, 40),
+      boxrec(m, m + 55, 40, 40),
+      boxrec(m, m + 110, 40, 40),
+      boxrec(m + 65, m, 150, 150));
+   every c := !colr do {
+      c.b := Clone(win);
+      Bg(c.b, c.i := NewColor(win));			# fails if b/w screen
+      BevelRectangle(win, c.x, c.y, c.w, c.h, -BevelWidth);
+      EraseArea(c.b,
+         c.x+BevelWidth, c.y+BevelWidth, c.w-2*BevelWidth, c.h-2*BevelWidth)
+      };
+
+   # set up sliders to control the colors
+   val := rgbrec(0.1, 0.8, 1.0, 0.8);			# initial positions
+   sl := rgbrec();
+   sl.r := slider(win, setrgb, 1, 290, m, 20, h, 0.0, val.r, 1.0);
+   sl.g := slider(win, setrgb, 2, 330, m, 20, h, 0.0, val.g, 1.0);
+   sl.b := slider(win, setrgb, 3, 370, m, 20, h, 0.0, val.b, 1.0);
+   sl.k := slider(win, setgray, 4, m+65, m+160, 150, 14, 0.0, 0.8, 1.0);
+   setcolors();						# download the colors
+
+   # set up miscellaneous sensors
+   quitsensor(win);					# quit on q or Q
+   sensor(win, '\r', ding, &null, m+65, m, 150, 150);	# \r in box sounds bell
+   buttonrow(win, 150, 250, 100, 20, 0, 30,		# vertical button row
+      "One", bpress, "one",
+      "Two", bpress, "two",
+      "Three", bpress, "three",
+      );
+   button(win, "QUIT", argless, exit, m, m+h-60, 60, 60);  # and a QUIT button
+
+   # enter event loop
+   evmux(win);
+end
+
+procedure bpress(win, a)		# echo a button press
+   write("button ", a);
+   return;
+end
+
+procedure ding(win, a, x, y, k)		# ring the bell
+   writes("\^g");
+   flush(&output);
+   return;
+end
+
+procedure setcolors()			# set the colors in the color map
+   colorbox(colr.r, 65535 * val.r, 0, 0);
+   colorbox(colr.g, 0, 65535 * val.g, 0);
+   colorbox(colr.b, 0, 0, 65535 * val.b);
+   colorbox(colr.k, 65535 * val.r, 65535 * val.g, 65535 * val.b);
+   GotoXY(win, 100, 200);
+   write(win, "color = #", hexv(val.r), hexv(val.g), hexv(val.b));
+   return;
+end
+
+procedure colorbox(box, r, g, b)
+   r := integer(r);
+   g := integer(g);
+   b := integer(b);
+   if \box.i then
+      Color(box.b, box.i, r || "," || g || "," || b)
+   else {
+      Shade(box.b, r || "," || g || "," || b);
+      FillRectangle(box.b, box.x+1, box.y+1, box.w-1, box.h-1)
+      };
+   return;
+end
+
+procedure hexv(v)			# two-hex-digit specification of v
+   static hextab;
+   initial {
+      every put((hextab := []), !"0123456789ABCDEF" || !"0123456789ABCDEF")
+      };
+   return hextab [integer(255 * v + 1.5)];
+end
+
+procedure setgray(win, i, v)		# set a grayvalue of v
+   every i := 1 to 3 do
+      slidervalue(sl[i], val[i] := v);
+   setcolors();
+   return;
+end
+
+procedure setrgb(win, i, v)		# set color component i to value v
+   val[i] := v;
+   setcolors();
+end
+#----------------------------------------------------------------- 10 gprogs/sier
+############################################################################
+#
+#	File:     sier.icn
+#
+#	Subject:  Program for generalized Sierpinski's triangle
+#
+#	Author:   Gregg M. Townsend
+#
+#	Date:     November 9, 1997
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     Originally inspired by the Nova television show on chaos.
+#     Colorization suggested by Kenneth Walker.
+#
+############################################################################
+#
+#     This program constructs Sierpinski's triangle using an iterative
+#  method.  An initial point is chosen (by clicking the mouse inside the
+#  triangle) and marked.  Then, the program repeatedly moves half way to
+#  a randomly chosen vertex and plots a point in the color corresponding
+#  to the vertex.
+#
+#     The polygon need not be a triangle.  The number of sides may be given
+#  as a command line argument, or a digit 3 through 9 or 0 through 2 may be
+#  pressed to establish a new polygon of 3 to 12 sides.
+#
+#     The S, G, E, and Q keys function identically to the Stop, Go, Erase,
+#  Quit pushbuttons.
+#
+############################################################################
+#
+#  Requires:  Version 9 graphics
+#
+############################################################################
+#
+#  Links: button, evmux, random, graphics
+#
+############################################################################
+
+link button
+link evmux
+link random
+link graphics
+
+$define BevelWidth 2
+$define WindowMargin 10
+
+global win, bwin, vwin, vcolors
+global m, w, h
+global nsides, xpos, ypos, outline
+global running, xcur, ycur
+
+procedure main(args)
+   local i, vcolors;
+
+   win := Window("size=400,400", "font=Helvetica,bold,14", "bg=pale gray", args);
+   nsides := integer(args[1]) | 3;
+   if nsides < 3 then stop("sierpinski: need at least 3 sides!");
+
+   m := WindowMargin;
+   h := WAttrib("height") - 2 * m;		# usable height
+   w := WAttrib("width") - 2 * m;		# usable width
+
+   # make a window (g.c.) for drawing in background color
+   bwin := Clone(win);
+   Fg(bwin, Bg(win));
+
+   # make a color for each vertex (up to 7)
+   vcolors := [ 
+      "deep vivid green-blue",
+      "medium strong red",
+      "deep red-magenta",
+      "deep strong green",
+      "deep strong red brown",
+      "dark purple",
+      "dark brown"
+      ];
+   vwin := [];
+   if WAttrib(win, "depth") > 2 then
+      every put(vwin, Clone(win, "fg=" || !vcolors))
+   else
+      put(vwin, win);
+
+   # configure and draw the polygon
+   configure();
+   erase();
+
+   # set up buttons and character handlers
+   button(win, "Go", setfill, 0, m, m, 50, 20);
+   button(win, "Stop", setfill, -1, m, m + 30, 50, 20);
+   button(win, "Erase", argless, erase, m + w - 50, m, 50, 20);
+   button(win, "Quit", argless, exit, m + w - 50, m + 30, 50, 20);
+   sensor(win, 'Gg', setfill, 0);
+   sensor(win, 'Ss', setfill, -1);
+   sensor(win, 'Ee', argless, erase);
+   quitsensor(win);				# enable Q-for-quit etc.
+   sensor(win, '3456789012', setsides);
+
+   # set up sensor for drawing the curve
+   sensor(win, &lrelease, setfill, 1, m, m, w, h);
+
+   # process events
+   randomize();
+   i := 1;
+   repeat {
+      while *Pending(win) > 0 | running < 0 do
+         evhandle(win);
+      every 1 to 100 do {
+         DrawPoint(vwin [i | 1], xcur, ycur);
+         i := ?nsides;
+         xcur := (xcur + xpos[i]) / 2;
+         ycur := (ycur + ypos[i]) / 2
+         }
+      };
+end
+
+
+
+#  configure() -- set vertex points
+
+procedure configure()
+   local a, da, i;
+   local xmin, xmax, xscale, ymin, ymax, yscale;
+
+   # ensure we have enough windows for the vertices
+   while *vwin < nsides do
+      vwin |||:= vwin;
+
+   # get coordinates for vertices as points on a radius-1 circle
+   da := 2 * &pi / nsides;
+   a := 1.5 * &pi - da / 2;
+   if nsides = 4 then
+      a +:= &pi / 12;
+   xpos := list(nsides);
+   ypos := list(nsides);
+   every i := 1 to nsides do {
+      xpos[i] := cos(a);
+      ypos[i] := sin(a);
+      a -:= da
+      };
+
+   # now scale to available window size
+   # also make coord list for drawing outline
+   xmin := xmax := ymin := ymax := 0.0;
+   every xmin >:= !xpos;
+   every xmax <:= !xpos;
+   every ymin >:= !ypos;
+   every ymax <:= !ypos;
+   xscale := w / (xmax - xmin);
+   yscale := h / (ymax - ymin);
+   outline := [win];
+   every i := 1 to nsides do {
+      put(outline, m + xscale * (1.01 * xpos[i] - xmin));
+      put(outline, m + h - yscale * (1.01 * ypos[i] - ymin));
+      xpos[i] := m + xscale * (xpos[i] - xmin);
+      ypos[i] := m + h - yscale * (ypos[i] - ymin)
+      };
+   put(outline, outline[2]);
+   put(outline, outline[3]);
+end
+
+
+
+#  erase(gc) -- erase the polygon and draw its outline
+
+procedure erase(gc)
+   outline[1] := bwin;
+   FillPolygon ! outline;
+   outline[1] := \gc | win;
+   DrawLine ! outline;
+   running := -1;
+   xcur := m + w / 2;
+   ycur := m + h / 2;
+   return;
+end
+
+
+
+#  setfill(win, n, x, y) -- start/stop filling points according to n
+#
+#  n<0  stop
+#  n=0  start, from current point
+#  n>0  start, from (x,y)
+
+procedure setfill(win, n, x, y)
+   if n > 0 then {
+      xcur := x;
+      ycur := y
+      };
+   if n >= 0 then {
+      outline[1] := bwin;
+      DrawLine ! outline		# erase outline
+      };
+   running := n;
+   return;
+end
+
+
+
+#  setsides(win, dummy, x, y, event) - reset the number of sides
+
+procedure setsides(win, dummy, x, y, event)
+   nsides := integer(event);
+   if nsides < 3 then nsides +:= 10;
+   erase(bwin);
+   configure();
+   erase();
+end
+#----------------------------------------------------------------- 11 progs/chars
 ############################################################################
 #
 #	File:     chars.icn
@@ -30,7 +2378,7 @@ procedure main()
    every write(image(!chars));
 
 end
-#-------------------------------------------------------------- 2 progs/dd2draft
+#----------------------------------------------------------------- 12 progs/dd2draft
 ############################################################################
 #
 #	File:     dd2draft.icn
@@ -145,7 +2493,7 @@ procedure rotate(rows)
    return columns;
 
 end
-#---------------------------------------------------------------- 3 progs/dd2res
+#----------------------------------------------------------------- 13 progs/dd2res
 ############################################################################
 #
 #	File:     dd2res.icn
@@ -200,7 +2548,7 @@ procedure rotate(rows)
    return cols;
 
 end
-#--------------------------------------------------------------- 4 progs/ddfdump
+#----------------------------------------------------------------- 14 progs/ddfdump
 ############################################################################
 #
 #	File:     ddfdump.icn
@@ -292,7 +2640,7 @@ procedure img(s, n)
       s := s[1+:n];
    return "<" || map(s, s1, s2) || ">";
 end
-#--------------------------------------------------------------- 5 progs/diffsum
+#----------------------------------------------------------------- 15 progs/diffsum
 ############################################################################
 #
 #	File:     diffsum.icn
@@ -390,7 +2738,7 @@ procedure only()
    tab(1);
    write("#\t", tab(0));
 end
-#-------------------------------------------------------------- 6 progs/filesect
+#----------------------------------------------------------------- 16 progs/filesect
 ############################################################################
 #
 #	File:     filesect.icn
@@ -442,7 +2790,7 @@ procedure main(argl)
       write(read()) | exit();
 
 end
-#--------------------------------------------------------------- 7 progs/findstr
+#----------------------------------------------------------------- 17 progs/findstr
 ############################################################################
 #
 #	File:     findstr.icn
@@ -521,7 +2869,7 @@ procedure main(arg)
       close(f)
       };
 end
-#---------------------------------------------------------------- 8 progs/format
+#----------------------------------------------------------------- 18 progs/format
 ############################################################################
 #
 #	File:     format.icn
@@ -684,7 +3032,7 @@ procedure justify(s,width)
    every t := !wlist do r ||:= t[1] || repl(" ",t[2]);
    return r;
 end
-#---------------------------------------------------------------- 9 progs/getcol
+#----------------------------------------------------------------- 19 progs/getcol
 ############################################################################
 #
 #	File:     getcol.icn
@@ -738,7 +3086,7 @@ procedure main(args)
       };
             
 end
-#------------------------------------------------------------- 10 progs/getlines
+#----------------------------------------------------------------- 20 progs/getlines
 ############################################################################
 #
 #	File:     getlines.icn
@@ -793,7 +3141,7 @@ procedure main(lines)
       };
 
 end
-#-------------------------------------------------------------- 11 progs/grpsort
+#----------------------------------------------------------------- 21 progs/grpsort
 ############################################################################
 #
 #	File:     grpsort.icn
@@ -984,7 +3332,7 @@ procedure printrecs(slist,div)
           write(div)
           };
 end
-#--------------------------------------------------------------- 12 progs/iplweb
+#----------------------------------------------------------------- 22 progs/iplweb
 ###############################################################################
 #
 #	File:     iplweb.icn
@@ -1170,7 +3518,7 @@ procedure strip_file(path)
       return path[*local_dir + 1 : -4]
       };
 end
-#------------------------------------------------------------------ 13 progs/ipp
+#----------------------------------------------------------------- 23 progs/ipp
 ############################################################################
 #
 #	File:     ipp.icn
@@ -2354,7 +4702,7 @@ procedure warning(s1, s2)
   s1 ||:= \s2;
   write(&errout, Ifile_name, ":  ", Line_no, ":  ", "Warning  " || s1);
 end
-#--------------------------------------------------------------- 14 progs/iprint
+#----------------------------------------------------------------- 24 progs/iprint
 ############################################################################
 #
 #	File:     iprint.icn
@@ -2613,7 +4961,7 @@ procedure detab(s)
   return t;
 end
 
-#------------------------------------------------------------- 15 progs/itrbksum
+#----------------------------------------------------------------- 25 progs/itrbksum
 ############################################################################
 #
 #	File:     itrbksum.icn
@@ -2665,7 +5013,7 @@ procedure main()
    write("at level ", count);
 
 end
-#-------------------------------------------------------------- 16 progs/lindsys
+#----------------------------------------------------------------- 26 progs/lindsys
 ############################################################################
 #
 #	File:     lindsys.icn
@@ -2808,7 +5156,7 @@ procedure main(args)
       };
 
 end
-#----------------------------------------------------------------- 17 progs/lisp
+#----------------------------------------------------------------- 27 progs/lisp
 ############################################################################
 #
 #	File:     lisp.icn
@@ -3612,7 +5960,7 @@ procedure HELP(cmd)
       };
    return;
 end
-#------------------------------------------------------------------ 18 progs/qei
+#----------------------------------------------------------------- 28 progs/qei
 ############################################################################
 #
 #	File:     qei.icn
@@ -3919,7 +6267,7 @@ procedure shut_down()
    exit();
 
 end
-#------------------------------------------------------------------ 19 progs/rsg
+#----------------------------------------------------------------- 29 progs/rsg
 ############################################################################
 #
 #	File:     rsg.icn
@@ -4311,7 +6659,7 @@ procedure syms(alt)
       defnon(2(="<",tab(upto('>')),move(1))));
    return slist;
 end
-#------------------------------------------------------------- 20 progs/strimlen
+#----------------------------------------------------------------- 30 progs/strimlen
 ############################################################################
 #
 #	File:     strimlen.icn
@@ -4344,7 +6692,7 @@ procedure main()
    while write(*ivalue(read()));
 
 end
-#--------------------------------------------------------------- 21 progs/unclog
+#----------------------------------------------------------------- 31 progs/unclog
 ############################################################################
 #
 #	File:     unclog.icn
@@ -4434,7 +6782,7 @@ procedure main(args)
       write()
       };
 end
-#----------------------------------------------------------------- 22 progs/what
+#----------------------------------------------------------------- 32 progs/what
 ############################################################################
 #
 #	File:     what.icn "@(#)$Id: what.icn,v 1.3 2007-07-13 06:35:16 jeffery Exp $"

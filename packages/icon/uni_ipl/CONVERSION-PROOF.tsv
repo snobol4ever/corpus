@@ -91,3 +91,13 @@ progs/unclog.icn	same-code
 progs/weblinks.icn	same-code
 progs/what.icn	same-code
 progs/xtable.icn	convert-refused
+gprogs/breakout.icn	SAME-CODE	330
+gprogs/browser.icn	SAME-CODE	35
+gprogs/colrpick.icn	SAME-CODE	11
+gprogs/etch.icn	SAME-CODE	53
+gprogs/img.icn	SAME-CODE	127
+gprogs/offtiler.icn	SAME-CODE	68
+gprogs/pme.icn	SAME-CODE	74
+gprogs/rings.icn	SAME-CODE	36
+gprogs/sensdemo.icn	SAME-CODE	47
+gprogs/sier.icn	SAME-CODE	75

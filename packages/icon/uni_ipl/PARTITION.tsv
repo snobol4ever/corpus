@@ -1,26 +1,36 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=22 features=65 ubiquitous=18(package write read stop every return while procedure local scan alternation element_gen limitation to_by assign aug_assign keyword_ref gen_with_alternation) distinctive=47 core=14 clusters=8 chunks=1 sizes=8
+# shape: entries=32 features=65 ubiquitous=10(package write read every while procedure local alternation to_by assign) distinctive=55 core=14 clusters=9 chunks=1 sizes=18
 entry	part	cluster	shells
-progs/chars	chunk:01	feat:image	image
-progs/dd2draft	core	core	create get list put record repl sort table upto want_rc writes
-progs/dd2res	core	core	list put set
-progs/ddfdump	core	core	fixtures get image map record section static type writes
-progs/diffsum	chunk:01	feat:any	any global many next scan_with_tab tab upto
-progs/filesect	chunk:01	feat:integer	integer
-progs/findstr	core	core	any image reads section
-progs/format	core	core	any break delete integer many match pos put repeat repl scan_with_tab section set static tab trim
-progs/getcol	chunk:01	feat:many	many scan_with_tab tab upto
-progs/getlines	core	core	delete image integer member set
-progs/grpsort	core	core	case fail global match next pop put record sort static table trim
-progs/iplweb	core	core	case fixtures many pos scan_with_tab section tab upto
-progs/ipp	core	core	any bal break case delete every_with_suspend find global image insert integer many map match member move next pop pos push put record repeat scan_with_tab section set sort static suspend tab table type until upto writes
-progs/iprint	core	core	break case find get global integer match move next put repeat repl scan_with_tab section static tab trim writes
-progs/itrbksum	chunk:01	feat:break	break
-progs/lindsys	chunk:01	feat:writes	put writes
-progs/lisp	core	core	any bal break case delete every_with_suspend fail global image insert list many map member move next pop pos put record repeat scan_with_tab section set sort static suspend tab table type until writes
-progs/qei	core	core	break case coexpr_activate create find get global image many move next push put repeat scan_with_tab section seq swap tab trim type upto writes
-progs/rsg	core	core	break case coexpr_activate fail find get global integer many move next pop pos push put record repeat scan_with_tab section sort static tab table type upto writes
+gprogs/breakout	chunk:01	dir:gprogs	
+gprogs/browser	chunk:01	dir:gprogs	
+gprogs/colrpick	chunk:01	dir:gprogs	
+gprogs/etch	chunk:01	dir:gprogs	
+gprogs/img	chunk:01	dir:gprogs	
+gprogs/offtiler	chunk:01	dir:gprogs	
+gprogs/pme	chunk:01	dir:gprogs	
+gprogs/rings	chunk:01	dir:gprogs	
+gprogs/sensdemo	chunk:01	dir:gprogs	
+gprogs/sier	chunk:01	dir:gprogs	
+progs/chars	chunk:01	feat:image	aug_assign element_gen image
+progs/dd2draft	core	core	aug_assign create element_gen get list put record repl return scan sort table upto want_rc writes
+progs/dd2res	core	core	aug_assign element_gen list put return set
+progs/ddfdump	core	core	element_gen fixtures gen_with_alternation get image keyword_ref limitation map record return section static stop type writes
+progs/diffsum	chunk:01	feat:any	any aug_assign global keyword_ref limitation many next return scan scan_with_tab stop tab upto
+progs/filesect	chunk:01	feat:integer	gen_with_alternation integer stop
+progs/findstr	core	core	any aug_assign element_gen gen_with_alternation image keyword_ref limitation reads section stop
+progs/format	core	core	any aug_assign break delete element_gen gen_with_alternation integer keyword_ref limitation many match pos put repeat repl return scan scan_with_tab section set static stop tab trim
+progs/getcol	chunk:01	feat:many	gen_with_alternation limitation many scan scan_with_tab stop tab upto
+progs/getlines	core	core	aug_assign delete gen_with_alternation image integer member set stop
+progs/grpsort	core	core	aug_assign case element_gen fail gen_with_alternation global limitation match next pop put record return scan sort static table trim
+progs/iplweb	core	core	case element_gen fixtures gen_with_alternation keyword_ref limitation many pos return scan scan_with_tab section stop tab upto
+progs/ipp	core	core	any aug_assign bal break case delete element_gen every_with_suspend find gen_with_alternation global image insert integer keyword_ref limitation many map match member move next pop pos push put record repeat return scan scan_with_tab section set sort static stop suspend tab table type until upto writes
+progs/iprint	core	core	aug_assign break case element_gen find gen_with_alternation get global integer keyword_ref limitation match move next put repeat repl return scan scan_with_tab section static stop tab trim writes
+progs/itrbksum	chunk:01	feat:break	aug_assign break gen_with_alternation limitation
+progs/lindsys	chunk:01	feat:writes	element_gen limitation put stop writes
+progs/lisp	core	core	any aug_assign bal break case delete element_gen every_with_suspend fail gen_with_alternation global image insert keyword_ref limitation list many map member move next pop pos put record repeat return scan scan_with_tab section set sort static stop suspend tab table type until writes
+progs/qei	core	core	aug_assign break case coexpr_activate create element_gen find gen_with_alternation get global image keyword_ref limitation many move next push put repeat return scan scan_with_tab section seq stop swap tab trim type upto writes
+progs/rsg	core	core	aug_assign break case coexpr_activate element_gen fail find gen_with_alternation get global integer keyword_ref limitation many move next pop pos push put record repeat return scan scan_with_tab section sort static tab table type upto writes
 progs/strimlen	chunk:01	dir:progs	
-progs/unclog	chunk:01	feat:find	break find get next put scan_with_tab section sort tab table upto
-progs/what	core	core	coexpr_activate fixtures match move next pop reads scan_with_tab section tab upto
+progs/unclog	chunk:01	feat:find	aug_assign break element_gen find gen_with_alternation get keyword_ref limitation next put scan scan_with_tab section sort stop tab table upto
+progs/what	core	core	aug_assign coexpr_activate fixtures gen_with_alternation keyword_ref limitation match move next pop reads scan scan_with_tab section tab upto
