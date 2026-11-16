@@ -1,0 +1,6 @@
+1991-03-31: datestamp at row 3 duplicates datestamp at 2
+
+Total number of rows                    : 4
+Total number of rows with invalid format: 1
+Total number of rows with bad data      : 1
+Total number of good rows               : 2

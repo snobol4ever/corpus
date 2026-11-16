@@ -1,27 +1,4 @@
-anagrams.sno: NEEDS-INPUT: its answer changes with what standard input holds
-arithmetic-integer.sno: NEEDS-INPUT: its answer changes with what standard input holds
-create-a-file.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 352 and 353 bytes
-create-a-two-dimensional-array-at-runtime.sno: NEEDS-INPUT: its answer changes with what standard input holds
-dynamic-variable-names.sno: NEEDS-INPUT: its answer changes with what standard input holds
 environment-variables.sno: READS-THE-ENVIRONMENT: its answer holds PATH of the process that runs it
-ethiopian-multiplication.sno: DOES-NOT-END: no answer inside 60 s
-factorial-4.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 349 and 277 bytes
-fibonacci-sequence-1.sno: NEEDS-INPUT: its answer changes with what standard input holds
-greatest-element-of-a-list.sno: NEEDS-INPUT: its answer changes with what standard input holds
-increment-a-numerical-string.sno: NEEDS-INPUT: its answer changes with what standard input holds
-input-loop.sno: NEEDS-INPUT: its answer changes with what standard input holds
-loops-break-1.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 350 and 281 bytes
+ethiopian-multiplication.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 420 and 420 bytes
 loops-infinite.sno: DOES-NOT-END: no answer inside 60 s
-metaprogramming-3.sno: NEEDS-INPUT: its answer changes with what standard input holds
-metaprogramming-4.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 356 and 284 bytes
-sieve-of-eratosthenes.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 293 and 369 bytes
-sorting-algorithms-insertion-sort.sno: NEEDS-INPUT: its answer changes with what standard input holds
-string-length-1.sno: NEEDS-INPUT: its answer changes with what standard input holds
-string-length-2.sno: NEEDS-INPUT: its answer changes with what standard input holds
-strip-a-set-of-characters-from-a-string.sno: NEEDS-INPUT: its answer changes with what standard input holds
-strip-block-comments.sno: NEEDS-INPUT: its answer changes with what standard input holds
-sum-and-product-of-an-array.sno: NEEDS-INPUT: its answer changes with what standard input holds
 system-time.sno: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 18 and 18 bytes
-text-between.sno: NEEDS-INPUT: its answer changes with what standard input holds
-text-processing-2.sno: NEEDS-INPUT: its answer changes with what standard input holds
-user-input-text.sno: NEEDS-INPUT: its answer changes with what standard input holds

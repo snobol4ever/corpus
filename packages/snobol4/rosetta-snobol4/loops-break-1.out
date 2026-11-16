@@ -1,0 +1,18 @@
+
+
+
+loops-break-1.sno(1) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              loops-break-1.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11680
+memory left (bytes)  1036888
+

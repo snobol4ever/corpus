@@ -1,0 +1,18 @@
+
+
+
+string-length-2.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              string-length-2.sno
+in line              2
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11328
+memory left (bytes)  1037240
+

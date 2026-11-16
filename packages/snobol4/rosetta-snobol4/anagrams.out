@@ -1,0 +1,18 @@
+
+
+
+anagrams.sno(21) : ERROR 235 -- subscripted operand is not table or array
+
+
+
+
+
+in file              anagrams.sno
+in line              21
+in statement         25
+stmts executed       1185
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  48680
+memory left (bytes)  999888
+

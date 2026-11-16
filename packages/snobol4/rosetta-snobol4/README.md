@@ -14,3 +14,13 @@ The package is cut by the read-in-place road (`util_build_package_suite.py --lan
 - a silent program is graded by its exit status alone: 30 programs are fragments with no END statement, which sbl refuses on standard error alone and ends 1.
 
 152 of the 180 are entries (want_rc 0: 113, 1: 34, 231: 5). Out of the denominator: 18 read standard input and ship none (`NEEDS-INPUT`, owed), 6 answer differently on two runs, 2 never end, 1 reads the environment (`EXCLUDED.tsv`), and execute-a-markov-algorithm is five programs in one file (held by name). Before this cut the package graded 20.
+
+## The inputs (2026-11-15 23:5x CST, on Lon's word: "Write inputs of ours")
+
+Nineteen programs read standard input and none ships with them. `strip-block-comments.in` and `text-between.in` are the programs' OWN
+data: each says to run it as `sbl -r`, under which INPUT reads the lines after its END, and the oracle here runs `-bf`, so those lines are
+its stdin. The other seventeen inputs are OURS, written by the grader to exercise each program as its code reads (two integers, a list of
+numbers, a word list with anagram groups, the Rosetta task's own sentence for strip-a-set-of-characters, "møøse" for the two string-length
+programs, three rows in the readings format for text-processing-2, and so on). Every answer is still the oracle's. With them the package
+grades 175 of its 180 programs: out are environment-variables (reads the environment), ethiopian-multiplication and system-time (answer
+differently on two runs), loops-infinite (never ends) and execute-a-markov-algorithm (five programs in one file).

@@ -1,0 +1,21 @@
+
+
+
+create-a-file.sno(5) : ERROR 098 -- endfile file does not exist
+
+
+
+
+
+in file              create-a-file.sno
+in line              5
+in statement         6
+stmts executed       5
+execution time msec  1
+stmt / microsec      0
+stmt / millisec      5
+stmt / second        5000
+REGENERATIONS        0
+memory used (bytes)  14568
+memory left (bytes)  1034000
+

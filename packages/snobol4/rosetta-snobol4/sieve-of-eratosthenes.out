@@ -1,0 +1,18 @@
+
+
+
+sieve-of-eratosthenes.sno(6) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              sieve-of-eratosthenes.sno
+in line              6
+in statement         6
+stmts executed       599
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  83888
+memory left (bytes)  964680
+
