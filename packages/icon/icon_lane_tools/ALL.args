@@ -1,0 +1,2 @@
+icontags/icontags	-o	tags	icontags.icn
+icondoc/icondoc	-d	.	icondoc.icn

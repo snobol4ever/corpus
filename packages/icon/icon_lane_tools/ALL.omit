@@ -1,0 +1,2 @@
+wiki-syntax/wiki_highlight.icn: OWED: it rewrites each HTML file it is given in place, and the out_files road deletes a named file before every run, so its input would be gone; owed to a road that restores an input file before each run
+wiki-syntax/diary-index.icn: OWED: it rewrites the diary index it is given in place, as wiki_highlight does; owed to the same road

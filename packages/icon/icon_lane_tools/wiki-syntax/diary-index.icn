@@ -1,0 +1,32 @@
+# Rewrite the diary index into a more compact form
+
+procedure main(arglist)
+  local file, line, lines;
+
+  if *arglist = 1 then {
+    file := open(arglist[1]) | stop("Error: could not open file ", arglist[1]);
+    every put(lines := [], !file);
+    close(file);
+
+    file := open(arglist[1], "w") | stop("Error: could not save to file ", arglist[1]);
+    # - write header
+    every write(file, lines[1 to 3]);
+    write(file, "    <title>Technical Diary</title>");
+    every write(file, lines[5 to 9]);
+    # - write links
+    write(file, "<h1>Technical Diary</h1>");
+    write(file, "<ul>");
+    every line := !lines do {
+      if line[1:9] == "<a href=" then {
+        write(file, "<li>", line, "</li>")
+      }
+    };
+    write(file, "</ul>");
+    # - write footer
+    every write(file, lines[-6 to 0]);
+
+    close(file)
+  } else {
+    write("Error: provide a single filename")
+  };
+end

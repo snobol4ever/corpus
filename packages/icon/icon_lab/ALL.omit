@@ -4,5 +4,3 @@ lab2/q.icn: DOES-NOT-END: iconx runs past 30 s (it waits on the keyboard with kb
 lab3/p1.icn: DOES-NOT-END: iconx runs past 30 s
 lab4/p2.icn: the program as written is refused by Icon's translator (icont 9.5.25a with newline insertion: File p2.icn; Line 14 # "procedura": invalid declaration); a translator refusal is an answer the Icon grade road cannot compare yet
 other/prog2.icn: DOES-NOT-END: iconx runs past 30 s
-lab2/crt.icn: a library file with no main, compiled beside the programs of its folder that use it
-other/nwd.icn: a library file with no main, compiled beside the programs of its folder that use it

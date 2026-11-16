@@ -1,0 +1,7 @@
+# CONVERSION-PROOF.tsv -- icon_lane_tools: each Icon file of codeberg peterlane icon-tools f5dd598 (MIT), converted IN PLACE under /home/resources/icon-demos/peterlane-icon-tools
+# by util_icon_semicolons.py, and the stock Arizona translator's (icont 9.5.25a with newline insertion, -s -c) .u1 and .u2 of the original against the converted text (icon_convert_prove.py, the grader)
+file	verdict	semicolons_added
+icondoc/icondoc.icn	SAME-CODE	195
+icontags/icontags.icn	SAME-CODE	27
+wiki-syntax/diary-index.icn	SAME-CODE	14
+wiki-syntax/wiki_highlight.icn	SAME-CODE	23

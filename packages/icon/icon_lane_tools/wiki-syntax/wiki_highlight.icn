@@ -1,0 +1,60 @@
+# Apply syntax highlighting to the html files output by VimWiki
+# Provide one or more .html files as input, either directly or through stdin.
+#
+# Approach looks for a block of code identified as:
+# <pre LANGUAGE>
+# CODE LINES
+# </pre>
+#
+# If LANGUAGE == ICON, uses pcl/icon_formatters
+#
+link icon_formatters, strings
+
+procedure main(filelist)
+  local file, filename, codeblock, code_lines;
+  local cmd, line, lines, i, language;
+
+  if *filelist = 0 then
+    while filename := read() do put(filelist, filename);
+
+  every filename := !filelist do {
+    write("-- ", filename);
+    file := open(filename) | stop("Could not open ", filename);
+    # read in contents
+    lines := list();
+    every put(lines, !file);
+    close(file);
+
+    # process contents, writing back out to file
+    file := open(filename, "w") | stop("Could not write ", filename);
+    i := 0;
+    while i <= *lines do {
+      lines[i] ? {
+        if =("<pre icon") then { # process icon code block
+          # collect code lines
+          code_lines := list();
+          i +:= 1;
+          while i < *lines & (*lines[i] < 6 | lines[i][1+:6] ~== "</pre>") do {
+            # replace html codes with actual characters
+            lines[i] := replace(lines[i], "&lt;", "<");
+            lines[i] := replace(lines[i], "&gt;", ">");
+            lines[i] := replace(lines[i], "&amp;", "&");
+            put(code_lines, lines[i]);
+            i +:= 1
+          };
+
+          write(file, "<pre>");
+          codeblock := icon_html_format(code_lines);
+          every line := !codeblock do {
+            write(file, line)
+          };
+          write(file, "</pre>")
+        } else { # just write line back out
+          write(file, lines[i])
+        }
+      };
+      i +:= 1
+    };
+    close(file)
+  };
+end

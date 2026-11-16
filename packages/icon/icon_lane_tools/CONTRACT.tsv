@@ -1,0 +1,4 @@
+# CONTRACT.tsv -- the run contract of icon_lane_tools, read by corpus_suite_harness.py: key<TAB>value<TAB>evidence.
+stderr	merged	the answers were cut with stderr merged into stdout, then each out_files file appended, as the harness reads them
+ipath	../pcl	the tools link options_parser and icon_lexer, Peter Lane's libraries, semicolon-ready in the sibling pcl
+ipath	../ipl/procs	icondoc links strings of the Icon program library, semicolon-ready in the sibling ipl

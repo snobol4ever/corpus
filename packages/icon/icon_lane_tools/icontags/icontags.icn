@@ -1,0 +1,112 @@
+#> IconTags is a programming tool which generates a tags file from Icon code.
+#> The tags file provides an index to the record and procedure definitions in 
+#> the code, and can be used by a text editor for search.
+#> 
+#> MIT Licence
+#> 
+#> Copyright (c) 2024, Peter Lane
+#> 
+#> Permission is hereby granted, free of charge, to any person obtaining a copy
+#> of this software and associated documentation files (the "Software"), to deal
+#> in the Software without restriction, including without limitation the rights
+#> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#> copies of the Software, and to permit persons to whom the Software is
+#> furnished to do so, subject to the following conditions:
+#> 
+#> The above copyright notice and this permission notice shall be included in 
+#> all copies or substantial portions of the Software.
+#> 
+#> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#> SOFTWARE.
+
+link options_parser, icon_lexer
+
+global output_file # output file
+
+procedure main (arglist)
+  local options, filelist, filename;
+
+  options := options_parser_new();
+  options_add(options, 
+              ["-v", "--version"], "", "show version");
+  options_add(options, 
+              ["-o", "--output"], "filename", 
+               "output filename, defaults to 'tags'");
+  options_add(options, 
+              ["-r", "--read-files"], "", 
+               "read file list from stdin, e.g. piped from another source");
+  options_title(options, "icontags: filename(s)\nWrites record and procedure definition positions to a 'tags' file.\n");
+  options_parse(options, arglist);
+  
+  if options_has(options, "-v") then {
+    write_version()
+  } else if options_has(options, "-h") | (*options_arguments(options) = 0 & not(options_has(options, "-r"))) then {
+    options_write_help(options)
+  } else {
+    output_file := "tags"; # default option
+
+    if options_has(options, "-o") then {
+      output_file := options_value(options, "-o")
+    };
+
+    filelist := options_arguments(options);
+    # if -r selected, read files from stdin
+    if *filelist = 0 & options_has(options, "-r") then {
+      filelist := list();
+      while filename := read() do put(filelist, filename)
+    };
+    tag_all(filelist)
+  };
+end
+
+procedure write_version ()
+  write("Version: 24-01-13");
+  exit(0);
+end
+
+record tag_item(identifier, filename, line_number)
+
+# Reads every file in given filelist, writing definitions to tags file.
+# Definitions are: procedure and record definitions.
+procedure tag_all(filelist)
+  local file, filename, get_identifier, tag, tags, tags_file, token;
+
+  tags := list();
+
+  every filename := !filelist do {
+    file := open(filename, "r") | stop("Failed to open file: ", filename);
+
+    get_identifier := 0;
+    every token := icon_lexer(file) do {
+      case token.kind of {
+        "PROCEDURE" | "RECORD": {
+          get_identifier := 1
+        };
+        "IDENT": {
+          if get_identifier = 1 then {
+            put(tags, tag_item(token.text, filename, token.line_number))
+          };
+          get_identifier := 0
+        };
+        "DEFAULT": {
+          get_identifier := 0
+        }
+      }
+    };
+
+    close(file)
+  };
+  # write sorted tags to file
+  tags_file := open(output_file, "w") | 
+               stop("Failed to open tags file: ", output_file);
+  every tag := !sortf(tags, 1) do {
+    write(tags_file, tag.identifier, "\t", tag.filename, "\t", tag.line_number)
+  };
+  close(tags_file);
+end
+

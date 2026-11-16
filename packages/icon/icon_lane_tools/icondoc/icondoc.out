@@ -1,0 +1,175 @@
+<html><head>
+<title>Home - Icon Documentation</title>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<head><body>
+<div class="content main">
+<p>Icon documentation</p>
+</div>
+<div class="content tags">
+<a class="pagetitle" href="index.html">Home</a>
+<ul>
+<li><a href="icondoc.html">icondoc</a></li>
+</ul>
+</div>
+</body></html>
+<html><head>
+<title>icondoc - Icon Documentation</title>
+<link rel="stylesheet" type="text/css" href="./style.css">
+<head><body>
+<div class="content main"><h1>icondoc</h1>
+<p>
+IconDoc is a documentation tool, converting Icon file comments into html 
+or vimhelp documentation: it is inspired by Ruby's rdoc.
+</p><p>
+MIT Licence
+</p><p>
+Copyright (c) 2019-24, Peter Lane
+</p><p>
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+</p><p>
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+</p><p>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</p>
+<h2>Links</h2>
+<p class="link"> options_parser, strings</p>
+<h2>Globals</h2>
+<p class="global"> destination # destination folder</p>
+<p>
+</p>
+<hr>
+<p class="global"> include_tests # flag indicating whether test files should be processed</p>
+<p>
+</p>
+<hr>
+<p class="global"> output_type # indicate html/vimhelp format</p>
+<p>
+</p>
+<hr>
+<p class="global"> separator # directory separator</p>
+<p>
+</p>
+<hr>
+<p class="global"> title_page # name of html material to paste into index</p>
+<p>
+</p>
+<hr>
+<h2>Procedures</h2>
+<p class="procedure">document_all (<i>filelist</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">document_file (<i>filename</i>)</p>
+<p>
+Given a file, reads every line in the file and divides comments into
+groups: title, procedure, record.
+Also collects global, link, procedure and record definitions.
+</p>
+<hr>
+<p class="procedure">get_filename (<i>path</i>)</p>
+<p>
+Given a pathname, returns the filename only.
+</p><p>
+<pre>
+  get_filename("src/filename.icn") => "filename.icn"
+</pre>
+</p><p>
+</p>
+<hr>
+<p class="procedure">get_item_args (<i>line</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">get_item_name (<i>line, item_name</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">main (<i>arglist</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_comments_html (<i>f, comments</i>)</p>
+<p>
+Writes lists of comments in HTML format:
+<ul>
+<li>blank lines signal a paragraph break</li>
+<li>lines starting with '  ' are part of a pre-block</li>
+<li>lines starting with '. ' are part of an enumerated list</li>
+<li>lines starting with '* ' or '- ' are part of an itemised list</li>
+<li>lines with '[word] sentence' are description lists</li>
+</ul>
+</p>
+<hr>
+<p class="procedure">write_doc_pages_html (<i>doc_data</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_doc_pages_vimhelp (<i>doc_data</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_footer (<i>f</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_header (<i>f, title</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_home_page_html (<i>all_info</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_home_page_vimhelp (<i>doc_data</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_page_html (<i>file, title, info, all_info</i>)</p>
+<p>
+Write page information in HTML format.
+info is an instance of file_doc, containing all documentation on file
+</p>
+<hr>
+<p class="procedure">write_page_vimhelp (<i>filename, title, info, all_info</i>)</p>
+<p>
+Write page information in vimhelp format.
+info is an instance of file_doc, containing all information on file
+</p>
+<hr>
+<p class="procedure">write_sidebar (<i>f, doc_data</i>)</p>
+<p>
+</p>
+<hr>
+<p class="procedure">write_version (<i></i>)</p>
+<p>
+</p>
+<hr>
+<h2>Records</h2>
+<p class="record">file_doc (<i>filename, comments, globals, links, procs, records</i>)</p>
+<p>
+</p>
+<hr>
+<p class="record">item_doc (<i>item_name, comments</i>)</p>
+<p>
+</p>
+<hr>
+</div>
+<div class="content tags">
+<a class="pagetitle" href="index.html">Home</a>
+<ul>
+<li><a href="icondoc.html">icondoc</a></li>
+</ul>
+</div>
+</body></html>

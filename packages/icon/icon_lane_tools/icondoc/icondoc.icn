@@ -1,0 +1,530 @@
+#> IconDoc is a documentation tool, converting Icon file comments into html 
+#> or vimhelp documentation: it is inspired by Ruby's rdoc.
+#> 
+#> MIT Licence
+#> 
+#> Copyright (c) 2019-24, Peter Lane
+#> 
+#> Permission is hereby granted, free of charge, to any person obtaining a copy
+#> of this software and associated documentation files (the "Software"), to deal
+#> in the Software without restriction, including without limitation the rights
+#> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#> copies of the Software, and to permit persons to whom the Software is
+#> furnished to do so, subject to the following conditions:
+#> 
+#> The above copyright notice and this permission notice shall be included in all
+#> copies or substantial portions of the Software.
+#> 
+#> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#> SOFTWARE.
+
+link options_parser, strings
+
+global destination # destination folder
+global include_tests # flag indicating whether test files should be processed
+global separator # directory separator
+global title_page # name of html material to paste into index
+global output_type # indicate html/vimhelp format
+
+procedure main (arglist)
+  local options, filelist, filename;
+
+  separator := if &features == "MS Windows" then "\\" else "/";
+
+  options := options_parser_new();
+  options_add(options, ["-v", "--version"], "", "show version");
+  options_add(options, ["-d", "--destination"], "folder", "destination folder, defaults to 'doc/'");
+  options_add(options, ["-t", "--title-page"], "filename", "file of html to use in title page");
+  options_add(options, ["-r", "--read-files"], "", "read file list from stdin, e.g. piped from another source");
+  options_add(options, "--include-tests", "", "includes _test.icn files");
+  options_add(options, "--html", "", "output html documentation (default)");
+  options_add(options, "--vimhelp", "", "output vimhelp documentation");
+  options_title(options, "icondoc:\nExtracts documentation from code in file(s)\nwriting documentation files into destination_folder (default 'doc/').\n(Ignores files named NAME_test.icn, unless using --include-tests.)\n");
+  options_parse(options, arglist);
+  
+  if options_has(options, "-v") then {
+    write_version()
+  } else if options_has(options, "-h") | (*options_arguments(options) = 0 & not(options_has(options, "-r"))) then {
+    options_write_help(options)
+  } else {
+    destination := "doc"; # default option
+    output_type := "html"; # default to html output
+
+    if options_has(options, "-d") then {
+      destination := options_value(options, "-d")
+    };
+    if options_has(options, "--include-tests") then {
+      include_tests := 1
+    };
+    if options_has(options, "--html") then {
+      output_type := "html"
+    };
+    if options_has(options, "--vimhelp") then {
+      output_type := "vimhelp"
+    };
+    if options_has(options, "-t") then {
+      title_page := options_value(options, "-t")
+    };
+
+    filelist := options_arguments(options);
+    # if -r selected, read files from stdin
+    if *filelist = 0 & options_has(options, "-r") then {
+      filelist := list();
+      while filename := read() do put(filelist, filename)
+    };
+    document_all(filelist)
+  };
+end
+
+procedure write_version()
+  write("Version: 24-01-15");
+  exit(0);
+end
+
+# ----------------------------------------------------------------------------
+# Procedures to read data
+
+record item_doc(item_name, comments)
+record file_doc(filename, comments, globals, links, procs, records)
+
+procedure document_all(filelist)
+  local doc_data, docn, file;
+
+  doc_data := table();
+
+  every file := !filelist do {
+    if /include_tests & find("_test.icn", file) then {
+      # write("Ignoring test file: ", file)
+    } else {
+      if file[-4:0] == ".icn" then {
+        docn := document_file (file);
+        doc_data[docn.filename] := docn
+      }
+    }
+  };
+
+  # create destination directory if it does not exist
+  if &features == "MS Windows" then {
+    system("md -Force " || destination || " | Out-Null")
+  } else { # assume bash-like
+    system("if [ ! -d " || destination || " ]; then mkdir " || destination || "; fi")
+  };
+  case output_type of {
+    "html": {
+      write_home_page_html(doc_data);
+      write_doc_pages_html(doc_data)
+    };
+    "vimhelp": {
+      write_home_page_vimhelp(doc_data);
+      write_doc_pages_vimhelp(doc_data)
+    }
+  };
+end
+
+# Given a file, reads every line in the file and divides comments into
+# groups: title, procedure, record.
+# Also collects global, link, procedure and record definitions.
+procedure document_file(filename)
+  local file_defn, file, line;
+  local current_comment, is_nodoc;
+
+  file_defn := file_doc(filename, list(), table(), table(), table(), table());
+
+  file := open(filename) | stop("Could not open ", filename);
+
+  current_comment := list();
+  is_nodoc := 0;
+  every line := !file do
+    line ? {
+      tab(many(" \t"));
+      if =("#> ") | =("#>") then { # title comment line
+        put(file_defn.comments, tab(0))
+      } else if =("# NODOC") then { # turn off documentation
+        is_nodoc := 1
+      } else if =("# ") | =("#") then { # standard comment line
+        put(current_comment, tab(0))
+      } else if =("global ") then { # documentation for global variables
+        if is_nodoc = 0 then {
+          file_defn.globals[line] := item_doc(line, current_comment)
+        };
+        current_comment := list();
+        is_nodoc := 0
+      } else if =("link ") then { # link statements are only listed
+        file_defn.links[line] := item_doc(line, current_comment);
+        current_comment := list();
+        is_nodoc := 0
+      } else if =("procedure ") then { # documentation for procedures
+        if is_nodoc = 0 then {
+          file_defn.procs[line] := item_doc(line, current_comment)
+        };
+        current_comment := list();
+        is_nodoc := 0
+      } else if =("record ") then { # documentation for record definitions
+        if is_nodoc = 0 then {
+          file_defn.records[line] := item_doc(line, current_comment)
+        };
+        current_comment := list();
+        is_nodoc := 0
+      } else { # anything else, discard the comments
+        current_comment := list();
+        is_nodoc := 0
+      }
+    };
+  close (file);
+
+  return file_defn;
+end
+
+# ----------------------------------------------------------------------------
+# HTML output procedures
+
+procedure write_header(f, title)
+  write(f, "<html><head>");
+  write(f, "<title>", title, " - Icon Documentation</title>");
+  write(f, "<link rel=\"stylesheet\" type=\"text/css\" href=\"./style.css\">");
+  write(f, "<head><body>");
+end
+
+procedure write_footer(f)
+  write(f, "</body></html>");
+end
+
+procedure write_sidebar(f, doc_data)
+  local doc_keys, html_file, title;
+
+  write(f, "<div class=\"content tags\">");
+  write(f, "<a class=\"pagetitle\" href=\"index.html\">Home</a>");
+  if *doc_data > 0 then {
+    write(f, "<ul>");
+    doc_keys := list();
+    every put(doc_keys, key(doc_data));
+    every title := !sort(doc_keys) do {
+      html_file := destination || separator || get_filename(title)[1:-4] || ".html";
+      write(f, "<li><a href=\"", get_filename(html_file), "\">", title[1:-4], "</a></li>")
+    };
+    write (f, "</ul>")
+  };
+  write (f, "</div>");
+end
+ 
+# Write page information in HTML format.
+# info is an instance of file_doc, containing all documentation on file
+procedure write_page_html(file, title, info, all_info)
+  local f, global_keys, info_keys, item, p, record_keys;
+
+  f := open(file, "w");
+  # write header
+  write_header (f, title);
+  write (f, "<div class=\"content main\"><h1>", title, "</h1>");
+  # and any top-level comments
+  if *info.comments > 0 then write_comments_html(f, info.comments);
+
+  # write the links
+  if *info.links > 0 then {
+    write (f, "<h2>Links</h2>");
+    every item := key(info.links) do {
+      if match("link ", item) then item := item[5:0];
+      write (f, "<p class=\"link\">", item, "</p>")
+    }
+  };
+
+  # write the global variables
+  if *info.globals > 0 then {
+    write (f, "<h2>Globals</h2>");
+    global_keys := list();
+    every put(global_keys, key(info.globals));
+    every item := !sort(global_keys) do {
+      if match("global ", item) then 
+        write (f, "<p class=\"global\">", item[7:0], "</p>")
+      else
+        write (f, "<p class=\"global\">", item, "</p>");
+      write_comments_html(f, info.globals[item].comments);
+      write (f, "<hr>")
+    }
+  };
+
+  # write each procedure in turn
+  if *info.procs > 0 then {
+    write (f, "<h2>Procedures</h2>");
+    info_keys := list();
+    every put(info_keys, key(info.procs));
+    every p := !sort(info_keys) do {
+      write (f, "<p class=\"procedure\">", get_item_name(p, "procedure"), " (<i>", get_item_args(p), "</i>)</p>");
+      write_comments_html(f, info.procs[p].comments);
+      write (f, "<hr>")    
+    }
+  };
+
+  # write each record in turn
+  if *info.records > 0 then {
+    write (f, "<h2>Records</h2>");
+    record_keys := list();
+    every put(record_keys, key(info.records));
+    every p := !sort(record_keys) do {
+      write (f, "<p class=\"record\">", get_item_name(p, "record"), " (<i>", get_item_args(p), "</i>)</p>");
+      write_comments_html(f, info.records[p].comments);
+      write (f, "<hr>")    
+    }
+  };
+
+  # finish file
+  write (f, "</div>");
+  write_sidebar(f, all_info);
+  write_footer (f);
+  close (f);
+end
+
+procedure write_home_page_html(all_info)
+  local f, title;
+
+  f := open (destination || separator || "index.html", "w");
+  write_header (f, "Home");
+  write (f, "<div class=\"content main\">");
+  if (\title_page) then {
+    title := open(title_page, "r");
+    every write(f, !title);
+    close (title)
+  } else {
+    write (f, "<p>Icon documentation</p>")
+  };
+  write (f, "</div>");
+  write_sidebar (f, all_info);
+  write_footer (f);
+  close(f);
+end
+
+procedure write_doc_pages_html(doc_data)
+  local file_keys, html_file, title;
+
+  if *doc_data > 0 then {
+    every put(file_keys := list(), key(doc_data));
+    every title := !sort(file_keys) do {
+      html_file := destination || separator || get_filename(title)[1:-4] || ".html";
+      write_page_html(html_file, title[1:-4], doc_data[title], doc_data)
+    }
+  };
+end
+
+# Writes lists of comments in HTML format:
+# - blank lines signal a paragraph break
+# - lines starting with '  ' are part of a pre-block
+# - lines starting with '. ' are part of an enumerated list
+# - lines starting with '* ' or '- ' are part of an itemised list
+# - lines with '[word] sentence' are description lists
+procedure write_comments_html(f, comments)
+  local in_pre_block, in_enum_block, in_item_block, in_desc_block;
+  local label, line;
+
+  in_pre_block := 0;
+  in_enum_block := 0;
+  in_item_block := 0;
+  in_desc_block := 0;
+
+  write (f, "<p>");
+  every line := !comments do {
+    line ? {
+      if line == "" | line == tab(many(" \t")) then { # blank-line
+        if in_pre_block = 1 then {
+          in_pre_block := 0;
+          write (f, "</pre>")
+        } else if in_enum_block = 1 then {
+          in_enum_block := 0;
+          write (f, "</ol>")
+        } else if in_item_block = 1 then {
+          in_item_block := 0;
+          write (f, "</ul>")
+        } else if in_desc_block = 1 then {
+          in_desc_block := 0;
+          write (f, "</dl")
+        };
+        write(f, "</p><p>")
+      } else if =("  ") then { # pre-block
+        if in_pre_block = 0 then {
+          in_pre_block := 1;
+          write (f, "<pre>")
+        };
+        write (f, line)
+      } else if =(". ") then { # enumerated list
+        if in_enum_block = 0 then {
+          in_enum_block := 1;
+          write (f, "<ol>")
+        };
+        write (f, "<li>", tab(0), "</li>")
+      } else if =("* ") | =("- ") then { # itemised list
+        if in_item_block = 0 then {
+          in_item_block := 1;
+          write (f, "<ul>")
+        };
+        write (f, "<li>", tab(0), "</li>")
+      } else if =("[") then { # description list
+        if in_desc_block = 0 then {
+          in_desc_block := 1;
+          write (f, "<dl>")
+        };
+        label := tab(upto("]"));
+        move(2);
+
+        write (f, "<dt>", label, "</dt>", "<dd>", tab(0), "</dd>")
+      } else {
+        write(f, line)
+      }
+    }
+  };
+  # close up any remaining tags
+  if in_pre_block = 1 then {
+    in_pre_block := 0;
+    write (f, "</pre>")
+  } else if in_enum_block = 1 then {
+    in_enum_block := 0;
+    write (f, "</ol>")
+  } else if in_item_block = 1 then {
+    in_item_block := 0;
+    write (f, "</ul>")
+  } else if in_desc_block = 1 then {
+    in_desc_block := 0;
+    write (f, "</dl")
+  };
+
+  write (f, "</p>");
+end
+
+# ----------------------------------------------------------------------------
+# vimhelp output procedures
+
+procedure write_home_page_vimhelp(doc_data)
+  local doc_keys, f, i, size, start, title;
+
+  f := open(destination || separator || "pcl-libs.txt", "w") | 
+       stop("Failed to output index file: pcl-libs.txt");
+
+  write(f, "*pcl-libs.txt*", extend(" ", 50), "PCL Reference");
+  write(f, "");
+  write(f, "Contents: ");
+  write(f, "");
+
+  if *doc_data > 0 then {
+    every put(doc_keys := list(), key(doc_data));
+    doc_keys := sort(doc_keys);
+    every i := 1 to *doc_keys do {
+      title := doc_keys[i][1:-4];
+      size := 78 - 4 - 2 - 30 - 1 - *title - 2;
+      start := if i < 10 then # assume *entries < 100
+                  "     "
+               else
+                 "    ";
+      write(f, start, i, ". ", title, " ", extend(".", size), " |pcl-", title, ".txt|")
+    }
+  };
+  write(f, "");
+
+  close(f);
+end
+
+procedure write_doc_pages_vimhelp(doc_data)
+  local filename, title, vimhelp_file;
+
+  if *doc_data > 0 then {
+    every filename := key(doc_data) do {
+      title := filename[1:-4];
+      vimhelp_file := destination || separator || "pcl-" || get_filename(title) || ".txt";
+      write_page_vimhelp(vimhelp_file, title, doc_data[filename], doc_data)
+    }
+  };
+end
+
+# Write page information in vimhelp format.
+# info is an instance of file_doc, containing all information on file
+procedure write_page_vimhelp(filename, title, info, all_info)
+  local f, info_keys, item;
+
+  f := open(filename, "w") | stop("Failed to open output file: ", filename);
+
+  # write title line
+  write(f, "*", get_filename(filename), "*");
+  write(f, "");
+
+  # write top-level comments
+  if *info.comments > 0 then {
+    every write(f, !info.comments);
+    write(f, "")
+  };
+
+  # write procedure definitions
+  if *info.procs > 0 then {
+    write(f, extend("=", 79));
+    write(f, "PROCEDURES");
+    write(f, "");
+
+    every put(info_keys := list(), key(info.procs));
+    every item := !sort(info_keys) do {
+      write(f, "*", get_item_name(item, "procedure"), "* (", get_item_args(item), ")");
+      write(f, "");
+      every write(f, !info.procs[item].comments);
+      write(f, "")
+    }
+  };
+
+  # write record definitions
+  if *info.records > 0 then {
+    write(f, extend("=", 79));
+    write(f, "RECORDS");
+    write(f, "");
+
+    every put(info_keys := list(), key(info.records));
+    every item := !sort(info_keys) do {
+      write(f, "*", get_item_name(item, "record"), "* (", get_item_args(item), ")");
+      write(f, "");
+      every write(f, !info.records[item].comments);
+      write(f, "")
+    }
+  };
+  close(f);
+end
+
+# ----------------------------------------------------------------------------
+# Utility procedures
+
+procedure get_item_name (line, item_name)
+  line ? {
+    tab(many(" \t"));
+    =(item_name);
+    tab(many(" \t"));
+    return tab(upto(" ("))
+  };
+end
+
+procedure get_item_args (line)
+  line ? {
+    tab(upto("("));
+    move(1);
+    return tab(upto(")"))
+  };
+end
+
+# Given a pathname, returns the filename only.
+#
+#   get_filename("src/filename.icn") => "filename.icn"
+#
+procedure get_filename (path)
+  local filename, i;
+
+  filename := "";
+  # find position of / on right
+  every i := 0 to *path do {
+    if path[*path-i] == "/" | path[*path-i] == "\\" then {
+      filename := path[*path-i+1:*path+1];
+      break filename
+    }
+  };
+  if filename == "" then
+    return path
+  else
+    return filename;
+end
+
+

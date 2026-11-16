@@ -9,6 +9,6 @@ unicon 13.3 (`CONVERSION-PROOF.tsv`; `/home/resources/progress/handoffs/grader-2
 
 THE INPUT IS OURS: `src/hello.icn`, a twelve-line program with one `#xxx` breakpoint, is ubugger's argument (`ALL.args`), and the file it
 writes, `hello_dbg.icn`, is the answer (`out_files`: the run's stdout, empty, then that file's bytes). Cut from unicon 13.3 twice a second
-apart, identical. `hello.icn` is no entry (`ALL.omit`).
+apart, identical. `hello.icn` is no entry: it is our input, not a program of the distribution.
 
 The first SCRIP reading (mode 3, SCRIP 38179ce886, on the landing's worktree): 1 of 1.
