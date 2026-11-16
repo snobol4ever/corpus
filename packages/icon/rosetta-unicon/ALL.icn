@@ -23,43 +23,43 @@ $include "guih.icn"
 class WindowApp : Dialog (label, direction)
 
   method rotate_left (msg)
-    return msg[2:0] || msg[1]
+    return msg[2:0] || msg[1];
   end
 
   method rotate_right (msg)
-    return msg[-1:0] || msg[1:-1]
+    return msg[-1:0] || msg[1:-1];
   end
 
   method reverse_direction ()
-    direction := 1-direction
+    direction := 1-direction;
   end
 
   # this method gets called by the ticker, and updates the label
   method tick ()
-    static msg := "Hello World! "
+    static msg := "Hello World! ";
     if direction = 0
       then msg := rotate_left (msg)
-      else msg := rotate_right (msg)
-    label.set_label(msg)
+      else msg := rotate_right (msg);
+    label.set_label(msg);
   end
 
   method component_setup ()
-    direction := 1 # start off rotating to the right
-    label := Label("label=Hello World! ", "pos=0,0")
+    direction := 1; # start off rotating to the right
+    label := Label("label=Hello World! ", "pos=0,0");
     # respond to a mouse click on the label
-    label.connect (self, "reverse_direction", MOUSE_RELEASE_EVENT)
-    add (label)
+    label.connect (self, "reverse_direction", MOUSE_RELEASE_EVENT);
+    add (label);
 
-    connect (self, "dispose", CLOSE_BUTTON_EVENT)
+    connect (self, "dispose", CLOSE_BUTTON_EVENT);
     # three ticks, then the label stands still
-    every 1 to 3 do tick ()
+    every 1 to 3 do tick ();
   end
 end
 
 # create and show the window
 procedure main ()
-  w := WindowApp ()
-  w.show_modal ()
+  w := WindowApp ();
+  w.show_modal ();
 end
 #--------------------------------------------------------- 3 arithmetic-complex
 import math
@@ -168,18 +168,18 @@ class WindowApp : Dialog ()
   # -- automatically called when the dialog is created
   method component_setup ()
     # add 'hello world' label
-    label := Label("label=Hello world","pos=0,0")
-    add (label)
+    label := Label("label=Hello world","pos=0,0");
+    add (label);
 
     # make sure we respond to close event
-    connect(self, "dispose", CLOSE_BUTTON_EVENT)
+    connect(self, "dispose", CLOSE_BUTTON_EVENT);
   end
 end
 
 # create and show the window
 procedure main ()
-  w := WindowApp ()
-  w.show_modal ()
+  w := WindowApp ();
+  w.show_modal ();
 end
 #--------------------------------------------------------- 8 image-noise-seeded
 procedure main()
@@ -234,28 +234,28 @@ class SimpleApp : Dialog (label)
   # -- automatically called when the dialog is created
   method component_setup()
     # create and add the label
-    label := Label("label=There have been no clicks yet","pos=50%,33%", "align=c,c")
-    add (label)
+    label := Label("label=There have been no clicks yet","pos=50%,33%", "align=c,c");
+    add (label);
 
     # create and add the button
-    button := TextButton("label=Click me", "pos=50%,66%", "align=c,c")
-    button.connect(self, "clicked", ACTION_EVENT)
-    add (button)
+    button := TextButton("label=Click me", "pos=50%,66%", "align=c,c");
+    button.connect(self, "clicked", ACTION_EVENT);
+    add (button);
 
     # some cosmetic settings for the window
-    attrib("size=180,70", "bg=light gray")
+    attrib("size=180,70", "bg=light gray");
   end
 
   method clicked ()
-    static count := 0
-    count +:= 1
-    label.set_label ("Clicked " || count || " times")
+    static count := 0;
+    count +:= 1;
+    label.set_label ("Clicked " || count || " times");
   end
 end
 
 procedure main()
-  local d := SimpleApp ()
-  d.show_modal()
+  local d := SimpleApp ();
+  d.show_modal();
 end
 #--------------------------------------------------------- 11 singly-linked-list-element-definition-1
 class Node (value, successor)
@@ -363,12 +363,12 @@ class WindowApp : Dialog ()
   # -- automatically called when the dialog is created
   method component_setup ()
     # make sure we respond to close event
-    connect(self, "dispose", CLOSE_BUTTON_EVENT)
+    connect(self, "dispose", CLOSE_BUTTON_EVENT);
   end
 end
 
 # create and show the window
 procedure main ()
-  w := WindowApp ()
-  w.show_modal ()
+  w := WindowApp ();
+  w.show_modal ();
 end

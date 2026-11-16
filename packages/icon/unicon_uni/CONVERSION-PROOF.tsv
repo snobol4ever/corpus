@@ -51,3 +51,9 @@ unidoc/UniForm.icn	same-code
 parser/preproce.icn	same-code
 parser/unigram.icn	same-code
 parser/unigram.action.icn	same-code
+lib/compoundedit.icn	same-code
+lib/undomanager.icn	same-code
+lib/sem.icn	same-code
+lib/msg.icn	same-code
+lib/shm.icn	same-code
+lib/undoableedit.icn	unchanged

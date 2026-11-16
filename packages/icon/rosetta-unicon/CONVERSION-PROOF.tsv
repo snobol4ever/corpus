@@ -20,11 +20,11 @@ equal-prime-and-composite-sums	same-code
 factorial-primes	same-code
 fermat-numbers	same-code
 http	same-code
-hello-world-graphical	unchanged
+hello-world-graphical	same-code
 pell-numbers	same-code
 queue-definition	same-code
 repunit-primes	same-code
-simple-windowed-application	unchanged
+simple-windowed-application	same-code
 singly-linked-list-element-definition-1	same-code
 singly-linked-list-element-definition-2	same-code
 singly-linked-list-element-insertion	same-code
@@ -38,4 +38,5 @@ wagstaff-primes	same-code
 walk-a-directory-recursively	unchanged
 walsh-matrix	unchanged
 web-scraping	same-code
-window-creation	unchanged
+window-creation	same-code
+animation-1-three-ticks	same-code

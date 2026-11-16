@@ -1,3 +1,7 @@
 oracle	unicon	the refs of this package are cut from the Unicon translator through unicon_bin() (skill unicon R2), as unicon_tests
 unmarked_compile_args	--dialect=unicon	CTO-473: a program of this package with no class, package, import, thread, critical or abstract marker is a Unicon program because the package says so
 stderr	merged	the unicon oracle runs a program with its stderr merged, as unicon_tests (util_build_package_suite.py cuts by unicon only under stderr merged)
+ipath	../unicon_uni/gui	package gui, the class library the four gui entries import (animation-1-three-ticks, hello-world-graphical, simple-windowed-application, window-creation), semicolon-ready in unicon_uni (officer_09, row unicon-graphics-the-gui-programs-find-every-file-they-include-and-every-package-they-import, 2026-11-16)
+ipath	../unicon_uni/lib	the packages the gui library imports (undo, util, lang, ipc), semicolon-ready in unicon_uni (officer_09, the same row)
+lpath	../unicon_uni/gui	guih.icn, which the four gui entries $include (officer_09, the same row)
+lpath	../unicon_ipl/incl	posix.icn, which lib/time and lib/process of the gui closure $include: Unicon's ipl/incl/posix.icn (officer_09, the same row)
