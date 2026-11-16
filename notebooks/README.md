@@ -21,9 +21,13 @@ program, and the outputs saved in the notebook are what the oracle (SPITBOL, `sb
 | `A_SNOBOL4_Tutorial.ipynb` | `A_SNOBOL4_Tutorial_in_Python.ipynb` | 36 |
 | `Snocone_in_SCRIP.ipynb` | master entries | 11 |
 | `Rebus_in_SCRIP.ipynb` | master entries | 12 |
+| `Icon_in_SCRIP.ipynb` | master entries | 12 |
+| `Unicon_in_SCRIP.ipynb` | package entries | 12 |
 
 In `Snocone_in_SCRIP.ipynb` each `%%snocone` cell is one whole Snocone program, an entry of the Snocone master, and its saved output is that entry's ref.
 In `Rebus_in_SCRIP.ipynb` each `%%rebus` cell is one whole Rebus program, an entry of the Rebus master, and its saved output is that entry's ref.
+In `Icon_in_SCRIP.ipynb` each `%%icon` cell is one whole Icon program, an entry of the Icon master, and its saved output is that entry's ref.
+In `Unicon_in_SCRIP.ipynb` each `%%unicon` cell is one whole Unicon program, an entry of the package `packages/icon/unicon_tests`, and its saved output is that entry's answer as the Unicon translator gives it.
 
 Notes for a reader:
 
