@@ -1,0 +1,12 @@
+rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,examples/align,examples/align.sbl,snobol4,setl4_spitbol__examples/align,setl4_spitbol,63,0,131072,4096,60,
+2,examples/humble,examples/humble.sbl,snobol4,setl4_spitbol__examples/humble,setl4_spitbol,60,0,131072,4096,60,
+3,examples/mark,examples/mark.sbl,snobol4,setl4_spitbol__examples/mark,setl4_spitbol,47,0,131072,4096,60,
+4,examples/roman,examples/roman.sbl,snobol4,setl4_spitbol__examples/roman,setl4_spitbol,57,1,131072,4096,60,
+5,examples/sonnets/concord,examples/sonnets/concord.sbl,snobol4,setl4_spitbol__examples/sonnets/concord,setl4_spitbol,508,0,131072,4096,60,
+6,examples/sonnets/sbl-sonnets,examples/sonnets/sbl-sonnets.sbl,snobol4,setl4_spitbol__examples/sonnets/sbl-sonnets,setl4_spitbol,508,0,131072,4096,60,
+7,examples/sonnets/sonnets-1,examples/sonnets/sonnets-1.sbl,snobol4,setl4_spitbol__examples/sonnets/sonnets-1,setl4_spitbol,487,231,131072,4096,60,
+8,examples/sonnets/the-bard-storms,examples/sonnets/the-bard-storms.sbl,snobol4,setl4_spitbol__examples/sonnets/the-bard-storms,setl4_spitbol,88,0,131072,4096,60,
+9,examples/sonnets/tweet,examples/sonnets/tweet.sbl,snobol4,setl4_spitbol__examples/sonnets/tweet,setl4_spitbol,119,0,131072,4096,60,
+10,examples/tabify,examples/tabify.sbl,snobol4,setl4_spitbol__examples/tabify,setl4_spitbol,20,0,131072,4096,60,
+11,paul/b,paul/b.spt,snobol4,setl4_spitbol__paul/b,setl4_spitbol,40,0,131072,4096,60,

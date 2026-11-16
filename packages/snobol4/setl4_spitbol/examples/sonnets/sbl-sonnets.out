@@ -1,0 +1,271 @@
+enter main program []
+reader in [*The Project Gutenberg EBook of Shakespeare's Sonnets, by William Shakespeare]
+reader in [*]
+reader in [*This eBook is for the use of anyone anywhere at no cost and with]
+reader in [*almost no restrictions whatsoever.  You may copy it, give it away or]
+reader in [*re-use it under the terms of the Project Gutenberg License included]
+reader in [*with this eBook or online at www.gutenberg.org]
+reader in [*]
+reader in [*]
+reader in [*Title: Shakespeare's Sonnets]
+reader in [*]
+reader in [*Author: William Shakespeare]
+reader in [*]
+reader in [*Posting Date: April 7, 2014 [EBook #1041]]
+reader in [*Release Date: September, 1997]
+reader in [*Last Updated: March 10, 2010]
+reader in [*]
+reader in [*Language: English]
+reader in [*]
+reader in [*Character set encoding: ASCII]
+reader in [*]
+reader in [**** START OF THIS PROJECT GUTENBERG EBOOK SHAKESPEARE'S SONNETS ***]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*Produced by Joseph S. Miller and Embry-Riddle Aeronautical]
+reader in [*University Library. HTML version by Al Haines.]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [*]
+reader in [THE SONNETS]
+
+
+
+sbl-sonnets.sbl(171) : ERROR 041 -- field function argument is wrong datatype
+
+
+
+
+
+in file              sbl-sonnets.sbl
+in line              171
+in statement         110
+stmts executed       493
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  58192
+memory left (bytes)  990376
+
+
+
+
+dump of natural variables
+
+ANCHOR = ''
+BREAK = ''
+CHAR = ''
+CONVERT = ''
+COPY = ''
+DATA = ''
+DATATYPE = ''
+DEFINE = ''
+DIFFER = ''
+DUMP = ''
+DUPL = ''
+E = ''
+END = ''
+GT = ''
+IDENT = ''
+INPUT = 'THE SONNETS'
+LCASE = ''
+LE = ''
+LPAD = ''
+OUTPUT = 'reader in [THE SONNETS]'
+PROTOTYPE = ''
+REPLACE = ''
+RETURN = ''
+RPAD = ''
+RSORT = ''
+SIZE = ''
+SORT = ''
+SPAN = ''
+TABLE = ''
+TERMINAL = ''
+TRIM = ''
+UCASE = ''
+ara = ''
+count = ''
+ent = ''
+f = ''
+freq = ''
+g = ''
+g.common = TABLE(11) #1
+g.common.n = ''
+g.digits = PATTERN
+g.freq = map #5
+g.id = ''
+g.num = ''
+g.punctuation = ',;:.?!'
+g.punctuation.spaces = '      '
+g.s = ''
+g.sonnet = ''
+g.sonnets = map #7
+g.tab = '	'
+g.tag = ''
+g.use = map #9
+g.whitespace = PATTERN
+g.word = map #3
+g.word.n = ''
+g.word.pat = PATTERN
+gather = ''
+gather.compact = ''
+gather.end = ''
+gather.notcommon = ''
+gather.sonnet = ''
+gather.word = ''
+gather.word.seen = ''
+i = ''
+id = ''
+init = ''
+init.donc = ''
+init.done = ''
+init.end = ''
+init.next = ''
+key = ''
+last = ''
+line = 'THE SONNETS'
+list = ''
+m = ''
+map = ''
+map.add = ''
+map.add.end = ''
+map.get = ''
+map.get.end = ''
+map.init = ''
+map.init.end = ''
+n = ''
+num = ''
+o = ''
+out = ''
+out.end = ''
+r = ''
+reader = ''
+reader.end = ''
+reader.notblank = ''
+reader.text = ''
+ref = ''
+refs = ''
+s = ''
+s1 = ''
+s2 = ''
+s3 = ''
+s4 = ''
+s4i = ''
+show.freq = ''
+show.freq.end = ''
+show.freq.next = ''
+show.map = ''
+show.map.end = ''
+show.map.freq = ''
+show.map.next = ''
+show.map.out = ''
+show.map.sonnets = ''
+show.map.text = ''
+show.map.use = ''
+show.map.word = ''
+show.sonnet = ''
+show.sonnet.end = ''
+show.sonnets = ''
+show.sonnets.end = ''
+show.sonnets.next = ''
+show.text = ''
+show.text.end = ''
+show.text.next = ''
+show.uses = ''
+show.uses.end = ''
+show.uses.word = ''
+si = ''
+sonnet = ''
+str = ''
+tab = ''
+tag = ''
+tbl = ''
+tbl) = ''
+text = ''
+text1 = ''
+text2 = ''
+text3 = ''
+this = ''
+ti = ''
+txt = ''
+type = ''
+u = ''
+use = ''
+use.add = ''
+use.add.end = ''
+uses = ''
+val = 'THE SONNETS'
+w = ''
+wi = ''
+word = ''
+
+
+dump of keyword values
+
+&ANCHOR = 1
+&CASE = 0
+&CODE = 0
+&DUMP = 3
+&ERRLIMIT = 0
+&ERRTEXT = 'field function argument is wrong datatype'
+&ERRTYPE = 41
+&FILE = 'sbl-sonnets.sbl'
+&FNCLEVEL = 2
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'sbl-sonnets.sbl'
+&LASTLINE = 166
+&LASTNO = 109
+&LINE = 171
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 493
+&STLIMIT = 2147483647
+&STNO = 110
+&TRACE = 0
+&TRIM = 1
+
+TABLE(11) #1
+
+TABLE(11) #2
+TABLE(11) #2<-1> = 0
+
+map #3
+type(g.word) = 'word'
+tbl(g.word) = TABLE(11) #2
+
+TABLE(11) #4
+TABLE(11) #4<-1> = 0
+
+map #5
+type(g.freq) = 'freq'
+tbl(g.freq) = TABLE(11) #4
+
+TABLE(11) #6
+TABLE(11) #6<-1> = 0
+
+map #7
+type(g.sonnets) = 'sonnets'
+tbl(g.sonnets) = TABLE(11) #6
+
+TABLE(11) #8
+TABLE(11) #8<-1> = 0
+
+map #9
+type(g.use) = 'use'
+tbl(g.use) = TABLE(11) #8
+
+
+

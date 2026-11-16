@@ -1,0 +1,18 @@
+
+
+
+the-bard-storms.sbl(78) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              the-bard-storms.sbl
+in line              78
+in statement         58
+stmts executed       10
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14416
+memory left (bytes)  1034152
+

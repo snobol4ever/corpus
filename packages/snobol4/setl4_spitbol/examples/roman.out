@@ -1,0 +1,58 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Mon Nov 16 07:11:21 2026
+
+
+
+                                                                                                                page 1
+
+10      	LEN(8] = 4
+        	     !
+roman.sbl(17,7) : ERROR 225 -- syntax error: unbalanced right bracket
+
+32      	s 'IIIV'                                               :s((val.8)
+        	                                                                !
+roman.sbl(35,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+33      	s 'III'                                                :s((val.3)
+        	                                                                !
+roman.sbl(36,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+34      	s 'IIV'                                                :s((val.7)
+        	                                                                !
+roman.sbl(37,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+35      	s 'IV'                                                 :s((val.4)
+        	                                                                !
+roman.sbl(38,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+36      	s 'VI'                                                 :s((val.6)
+        	                                                                !
+roman.sbl(39,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+37      	s 'XI'                                                 :s((val.9)
+        	                                                                !
+roman.sbl(40,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+38      	s 'II'                                                 :s((val.2)
+        	                                                                !
+roman.sbl(41,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+39      	s 'I'                                                  :s((val.1)
+        	                                                                !
+roman.sbl(42,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+40      	s 'V'                                                  :s((val.5)
+        	                                                                !
+roman.sbl(43,66) : ERROR 227 -- syntax error: right paren missing from goto
+
+41      	s 'X'                                                  :s((val.10)
+        	                                                                 !
+roman.sbl(44,67) : ERROR 227 -- syntax error: right paren missing from goto
+
+42      val.1	val = 1                                                :(RETURN)
+
+roman.sbl(45) : ERROR 217 -- syntax error: duplicate label
+

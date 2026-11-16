@@ -1,0 +1,9 @@
+
+*	a short SPITBOL program of ours, for the examples that read program text
+	&TRIM = 1
+	n = 0
+loop	line = INPUT                                       :F(done)
+    n = n + 1                                           :(loop)
+done	OUTPUT = n " lines"
+* the end
+END
