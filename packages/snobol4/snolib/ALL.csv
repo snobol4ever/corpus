@@ -35,7 +35,7 @@ rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout
 34,LIKE.tst,LIKE.tst.sno,,snolib__LIKE.tst,snolib,7,0,131072,4096,60,
 35,LINK.tst,LINK.tst.sno,,snolib__LINK.tst,snolib,7,0,131072,4096,60,
 36,LOG.tst,LOG.tst.sno,,snolib__LOG.tst,snolib,11,1,131072,4096,60,
-37,LPROG.tst,LPROG.tst.sno,,snolib__LPROG.tst,snolib,8,0,131072,4096,60,
+37,LPROG.tst,LPROG.tst.sno,,snolib__LPROG.tst,snolib,8,0,131072,4096,60,--stlimit
 38,MAX.tst,MAX.tst.sno,,snolib__MAX.tst,snolib,7,0,131072,4096,60,
 39,MDY.tst,MDY.tst.sno,,snolib__MDY.tst,snolib,7,0,131072,4096,60,
 40,MERGET.tst,MERGET.tst.sno,,snolib__MERGET.tst,snolib,7,0,131072,4096,60,

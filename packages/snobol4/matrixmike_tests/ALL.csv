@@ -3,10 +3,10 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 2,cross,cross.sno,matrixmike_tests__cross,matrixmike_tests,3,0,131072,4096,60,
 3,digits,digits.sno,matrixmike_tests__digits,matrixmike_tests,10,0,131072,4096,60,
 4,fcounts,fcounts.sno,matrixmike_tests__fcounts,matrixmike_tests,16,0,131072,4096,60,
-5,functions1,functions1.sno,matrixmike_tests__functions1,matrixmike_tests,9,0,131072,4096,60,
+5,functions1,functions1.sno,matrixmike_tests__functions1,matrixmike_tests,9,0,131072,4096,60,--stlimit
 6,hello,hello.sno,matrixmike_tests__hello,matrixmike_tests,3,0,131072,4096,60,
 7,initialv,initialv.sno,matrixmike_tests__initialv,matrixmike_tests,2,1,131072,4096,60,
-8,loop1,loop1.sno,matrixmike_tests__loop1,matrixmike_tests,12,0,131072,4096,60,
+8,loop1,loop1.sno,matrixmike_tests__loop1,matrixmike_tests,12,0,131072,4096,60,--stlimit
 9,nqueens,nqueens.sno,matrixmike_tests__nqueens,matrixmike_tests,24,0,131072,4096,60,
 10,reading,reading.sno,matrixmike_tests__reading,matrixmike_tests,9,0,131072,4096,60,
 11,sudoku,sudoku.sno,matrixmike_tests__sudoku,matrixmike_tests,213,0,131072,4096,60,
