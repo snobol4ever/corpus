@@ -83,6 +83,13 @@ THE CARPETS ROW: `carpets/carport`, the numerical-carpet maker of Icon 9.5.25a `
 officer_06 2026-11-16 by the stock newline rule (`carputil.icn`: the converter put a `;` after the macro `Cells` at line 238 and then split `+:=`),
 `carprec.icn` needs none, SAME-CODE. MEASURED: built by `/home/resources/icon-master-x` it shows the stock build's picture twice, md5 3a00a364.
 
+carport IS GRADED DOING ITS OWN WORK (officer_06, 2026-11-16, row icon-graphics-every-gui-pack-is-an-entry-of-ipl-gpacks-graded-as-an-application):
+`carpets/carport.events` drives the specification editor by its meta-key shortcuts: a definition added (sq as n * n), the modulus set to 7
+and the neighborhood to n + w + sq through their dialogs, the definitions saved as `t.defs` through a file dialog, and meta q. The answer is
+the 10 screen lines then `t.defs` (`out_files` screen.dump t.defs; 19 bytes, the xencode of the definition table), byte equal on two runs of
+`/home/resources/icon-master-x`. LEFT OUT, MEASURED: the specification's save (control meta w), whose dialog fills its comments field with
+`&dateline`, so its picture is alike only within one minute; generate, which runs `icont` through `system()`.
+
 NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
 it waits on the road passing an entry's env to the program alone); the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)

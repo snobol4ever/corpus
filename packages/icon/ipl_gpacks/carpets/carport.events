@@ -1,0 +1,43 @@
+# carport, the numerical-carpet specification editor of ipl_gpacks (carpets), driven by its meta-key shortcuts: a definition added (sq as
+# n * n), the modulus set to 7 and the neighborhood to n + w + sq through their dialogs, the definitions saved as t.defs (meta s; xencode of
+# the table), meta q. Each dialog opens under the pointer and takes the keys there. LEFT OUT: generate (meta g, or Return in the main
+# window) writes carpincl.icn and runs icont through system(); the specification's save (control meta w) fills its comments with &dateline.
+# meta a: the add-definition dialog, its name field then its definition field
+move 240 150
+keydown Alt_L
+key a
+keyup Alt_L
+wait
+type sq
+key Tab
+type n * n
+key Return
+wait
+# meta m: the modulus dialog, its field selected and typed over
+keydown Alt_L
+key m
+keyup Alt_L
+wait
+type 7
+key Return
+wait
+# meta n: the neighborhood dialog
+keydown Alt_L
+key n
+keyup Alt_L
+wait
+type n + w + sq
+key Return
+wait
+# meta s: the definitions saved through a file dialog
+keydown Alt_L
+key s
+keyup Alt_L
+wait
+type t.defs
+key Return
+wait
+# meta q quits (nothing in the database was changed, so it asks nothing)
+keydown Alt_L
+key q
+keyup Alt_L
