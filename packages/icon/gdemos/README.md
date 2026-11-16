@@ -10,6 +10,11 @@ text in `LICENCE`): the thirteen programs of its `vidgets` folder, small GUI pro
 `SOURCES.tsv` names each one's path upstream. Each was given the semicolons SCRIP Icon requires by `util_icon_semicolons.py`, and each
 is proved same-code against its original by the stock translator (`CONVERSION-PROOF.tsv`).
 
+TWO PROGRAMS OF THE ARIZONA RELEASES that left the library (officer_01's census of /home/resources/icon-demos, the cto's row
+icon-graphics-the-other-candidates-of-the-demos-census-are-entries-of-gdemos): `vibapp`, the busy-box application of release 9.3's
+`ipl/gdata`, and `foobar`, the window test of release 9.3's `src/runtime`, both public domain by the release's README. `SOURCES.tsv` names
+each one's path in the archive. The census's other candidates that are not rows stand in `NOT-CUT.tsv` with the measured reason.
+
 THE ANSWER of a row is the screen road's (skill suites-and-grading, THE SCREEN ROAD): the row's `out_files` names `screen.dump`, and
 `NAME.events` drives what the program is for (the button pressed, the menu opened, the slider dragged), one line
 `screen 1024x768 md5 <md5>` for each still picture, the program ended by its own quit where it has one. Every answer was cut twice,
@@ -32,3 +37,6 @@ THE ROWS, fourteen, each with what its script reaches:
   missing its first row: the emulator reads its font one byte early), waits for a key and draws that key's digit; the script types 9.
 - `barchart-eg`, `lines`, `message`: each draws and then waits with no control a script could work; `EVENTS-NONE.tsv` says so and
   their still picture is their answer.
+- `vibapp`: circlo and checko set, button 1 and the regular toggle pressed, KXCI picked, DUMP pressed (its table of every vidget is
+  graded text), then QUIT, which ends it.
+- `foobar`: a blue square erased into a fresh window, then one key, which ends its `Event()`.

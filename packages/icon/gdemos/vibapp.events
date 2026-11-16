@@ -1,0 +1,14 @@
+# vibapp: the busy-box vib draws; circlo and checko set, button 1 and the regular toggle pressed, KXCI picked, DUMP pressed (its table written), QUIT
+click 1 150 93
+wait
+click 1 150 118
+wait
+click 1 143 203
+wait
+click 1 50 199
+wait
+click 1 230 136
+wait
+click 1 47 41
+wait
+click 1 47 66

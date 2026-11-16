@@ -1,0 +1,52 @@
+CALLBACK: callback: id=circlo, value=1
+CALLBACK: callback: id=checko, value=1
+CALLBACK: callback: id=b1, value=1
+CALLBACK: callback: id=tregular, value=1
+CALLBACK: callback: id=stations, value="KXCI"
+
+key         v.id        VGetState(v)   image(v)
+---------   ---------   ------------   -----------------------------
+DUMP        DUMP        ---            record Vbutton_rec_1(14)
+QUIT        QUIT        ---            record Vbutton_rec_2(14)
+Toggles     Toggles     ---            record Vbutton_rec_3(14)
+b1          b1          ---            record Vbutton_rec_4(14)
+b2          b2          ---            record Vbutton_rec_5(14)
+b3          b3          ---            record Vbutton_rec_6(14)
+b4          b4          ---            record Vbutton_rec_7(14)
+b5          b5          ---            record Vbutton_rec_8(14)
+check1      check1      &null          record Vbutton_rec_9(14)
+checko      checko      1              record Vbutton_rec_10(14)
+circlo      circlo      1              record Vbutton_rec_11(14)
+line1       line1       ---            record Vline_rec_1(11)
+line2       line2       ---            record Vline_rec_2(11)
+line3       line3       ---            record Vline_rec_3(11)
+menu1       menu1       ---            record Vframe_rec_2(13)
+rect1       rect1       ---            record Vpane_rec_2(15)
+rect2       rect2       ---            record Vpane_rec_3(15)
+rect3       rect3       ---            record Vpane_rec_4(15)
+rect4       rect4       ---            record Vpane_rec_5(15)
+rectx       rectx       ---            record Vpane_rec_1(15)
+root        root        ---            record Vframe_rec_1(13)
+sbar1       sbar1       66             record Vscrollbar_frame_rec_1(14)
+sbar2       sbar2       777            record Vscrollbar_frame_rec_2(14)
+slider1     slider1     200            record Vslider_rec_1(18)
+slider2     slider2     44             record Vslider_rec_2(18)
+stations    stations    "KXCI"         record Vradio_frame_rec_1(14)
+tcheck      tcheck      &null          record Vbutton_rec_12(14)
+tcircle     tcircle     &null          record Vbutton_rec_13(14)
+text        text        &null          record Vtext_rec_1(15)
+title1      title1      ---            record Vbutton_rec_14(14)
+title2      title2      ---            record Vbutton_rec_15(14)
+tline       tline       ---            record Vline_rec_4(11)
+trect       trect       ---            record Vpane_rec_6(15)
+tregular    tregular    1              record Vbutton_rec_16(14)
+tsimple     tsimple     &null          record Vbutton_rec_17(14)
+xgrooved    xgrooved    &null          record Vbutton_rec_18(14)
+
+screen 1024x768 md5 1081c3015e7415165ea08771ad3eb567
+screen 1024x768 md5 c5149605d54f1391b62c42f3044b5b85
+screen 1024x768 md5 714e5c97dbbecbc227915518e2afe665
+screen 1024x768 md5 714e5c97dbbecbc227915518e2afe665
+screen 1024x768 md5 d2877480c5b1cf13ed2d8a9abbbbca0a
+screen 1024x768 md5 076de0ef3629ca83efe7f3da42b4ac0a
+screen 1024x768 md5 076de0ef3629ca83efe7f3da42b4ac0a

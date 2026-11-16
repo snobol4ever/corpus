@@ -1,0 +1,3 @@
+# foobar: a blue square erased on a fresh window, then Event(): one key ends it
+move 50 50
+key a

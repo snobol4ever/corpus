@@ -14,3 +14,5 @@ slider.icn	vidgets/slider.icn	01ae5dc
 temperature.icn	vidgets/temperature.icn	01ae5dc
 text.icn	vidgets/text.icn	01ae5dc
 chip8.icn	examples/chip8.icn	01ae5dc
+vibapp.icn	arizona-ftp-extracted/historic/v930/v93/ipl/gdata/vibapp.icn (Arizona Icon release 9.3, public domain by its README; the library's gdata dropped it after 9.3)	release 9.3
+foobar.icn	arizona-ftp-extracted/historic/v930/v93/src/runtime/foobar.icn (Arizona Icon release 9.3, public domain by its README)	release 9.3
