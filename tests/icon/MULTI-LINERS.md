@@ -2269,6 +2269,28 @@ end
 File rung20_section_seqexpr_seqexpr_side.icn; Line 3 # ";": missing right parenthesis
 ```
 
+## error_line_in_a_continued_call__l6
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   s :=
+      if s.field == "0" then "a" else "b";
+end
+```
+
+```stdout
+
+Run-time error 107
+File l6.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in l6.icn
+```
+
 ## ladder__rung39_numbit_numeric_keeps_a_large_integer_string
 
 ```Icon
@@ -4672,6 +4694,226 @@ end
 
 ```stdout
 3072 none 2097152
+```
+
+## error_line_in_a_continued_call__l1
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      s.field);
+end
+```
+
+```stdout
+
+Run-time error 107
+File l1.icn; Line 4
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 4 in l1.icn
+```
+
+## error_line_in_a_continued_call__l2
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      if s.field == "0" then "a" else "b");
+end
+```
+
+```stdout
+
+Run-time error 107
+File l2.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in l2.icn
+```
+
+## error_line_in_a_continued_call__l3
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(
+      s.field, 1);
+end
+```
+
+```stdout
+
+Run-time error 107
+File l3.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in l3.icn
+```
+
+## error_line_in_a_continued_call__l4
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      s.field || "a");
+end
+```
+
+```stdout
+
+Run-time error 107
+File l4.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in l4.icn
+```
+
+## error_line_in_a_continued_call__l5
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      "a" || s.field);
+end
+```
+
+```stdout
+
+Run-time error 107
+File l5.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in l5.icn
+```
+
+## error_line_in_a_continued_call__l7
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(
+      s + 1, 2);
+end
+```
+
+```stdout
+
+Run-time error 102
+File l7.icn; Line 5
+numeric expected
+offending value: "x"
+Traceback:
+main()
+{"x" + 1} from line 5 in l7.icn
+```
+
+## error_line_in_a_continued_call__la
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      -s, 2);
+end
+```
+
+```stdout
+
+Run-time error 102
+File la.icn; Line 5
+numeric expected
+offending value: "x"
+Traceback:
+main()
+{-"x"} from line 5 in la.icn
+```
+
+## error_line_in_a_continued_call__lb
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      -s);
+end
+```
+
+```stdout
+
+Run-time error 102
+File lb.icn; Line 4
+numeric expected
+offending value: "x"
+Traceback:
+main()
+{-"x"} from line 4 in lb.icn
+```
+
+## error_line_in_a_continued_call__lh
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      s.field[1], 2);
+end
+```
+
+```stdout
+
+Run-time error 107
+File lh.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in lh.icn
+```
+
+## error_line_in_a_continued_call__li
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(1,
+      if s.tieup.matrix[1, 2] == "0" then "a" else "b");
+end
+```
+
+```stdout
+
+Run-time error 107
+File li.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in li.icn
 ```
 
 ## ladder__rung29_builtins_proc_finds_only_icon_functions
@@ -7343,6 +7585,72 @@ end
 1125899906842624 2048 3145728 none
 ```
 
+## error_line_in_a_continued_call__lc
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(
+      integer(s.field), 1);
+end
+```
+
+```stdout
+
+Run-time error 107
+File lc.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in lc.icn
+```
+
+## error_line_in_a_continued_call__ld
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   write(integer(
+      s.field), 1);
+end
+```
+
+```stdout
+
+Run-time error 107
+File ld.icn; Line 4
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 4 in ld.icn
+```
+
+## error_line_in_a_continued_call__lg
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   while write(1,
+      s.field || "a") do 1;
+end
+```
+
+```stdout
+
+Run-time error 107
+File lg.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in lg.icn
+```
+
 ## ladder__rung08_strbuiltins_trim_with_a_nul_in_its_cset
 
 ```Icon
@@ -7519,6 +7827,29 @@ end
 integer
 100
 8
+```
+
+## error_line_in_a_continued_call__lf
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   case 1 of {
+      1: write(1,
+         s.field || "a") };
+end
+```
+
+```stdout
+
+Run-time error 107
+File lf.icn; Line 6
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 6 in lf.icn
 ```
 
 ## ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
@@ -9862,6 +10193,28 @@ end
 
 ```stdout
 File rung16_seqexpr_gen_basic.icn; Line 3 # ";": missing right parenthesis
+```
+
+## error_line_in_a_continued_call__le
+
+```Icon
+procedure main();
+   local s;
+   s := "x";
+   every 1 to 2 do write(1,
+      s.field || "a");
+end
+```
+
+```stdout
+
+Run-time error 107
+File le.icn; Line 5
+record expected
+offending value: "x"
+Traceback:
+main()
+{"x" . field} from line 5 in le.icn
 ```
 
 ## ladder__rung13_alt_a_call_with_a_generating_argument_resumes
