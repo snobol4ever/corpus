@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=148 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=119 chunks=2 sizes=100,42
+# shape: entries=147 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=119 chunks=2 sizes=100,41
 entry	part	cluster	shells
 bme	chunk:01	family:bme	
 breakout	chunk:01	family:breakout	
@@ -51,7 +51,7 @@ plotter	chunk:01	family:plotter
 pme	chunk:01	family:pme	
 procater	chunk:01	family:procater	
 profile	chunk:01	family:profile	
-profiler	chunk:02	family:profiler	
+profiler	chunk:01	family:profiler	
 prompt	chunk:02	family:prompt	
 rings	chunk:02	family:rings	
 rolypoly	chunk:02	family:rolypoly	
@@ -85,7 +85,6 @@ isd2xgrid	chunk:01	family:isdxgrid
 linden	chunk:01	family:linden	
 drip	chunk:01	family:drip	
 hsvpick	chunk:01	family:hsvpick	
-mover	chunk:01	feat:fixtures	fixtures
 splat	chunk:02	family:splat	
 vqueens	chunk:02	family:vqueens	
 rects	chunk:02	family:rects	
