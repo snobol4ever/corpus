@@ -27,3 +27,10 @@ weaving/weavutil.icn	SAME-CODE	87
 weaving/tieutils.icn	SAME-CODE	61
 weaving/cells.icn	SAME-CODE	49
 weaving/weavdefs.icn	UNCHANGED	0
+htetris/htetris.icn	SAME-CODE	467
+htetris/brickdata.icn	SAME-CODE	16
+htetris/brickio.icn	SAME-CODE	81
+htetris/editor.icn	SAME-CODE	222
+htetris/help.icn	SAME-CODE	44
+htetris/matrix.icn	SAME-CODE	75
+htetris/movement.icn	SAME-CODE	68

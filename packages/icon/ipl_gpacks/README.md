@@ -31,8 +31,16 @@ not finish it (a `;` placed after the macro names `SymmetXoff` and `IconSize` at
 Every file SAME-CODE (`CONVERSION-PROOF.tsv`). MEASURED: built by `/home/resources/icon-master-x` each shows the stock build's own picture twice
 (mtrxedit 8dc6025b, weaver b7163130, drawing 101a2c95); `weaving/NAME.out` is that answer.
 
-NOT YET HERE, MEASURED 2026-11-16: `htetris` and `xtiles`, the games (the converter cannot read `help.icn`'s Latin-1 byte and does not end on
-`htetris.icn`; `xtiles.icn` and its smileys are left unconverted); carpets, drawtree and tiger follow, one corpus patch a pack; the rest of weaving is batch
+THE HTETRIS ROW: `htetris/htetris`, the Tetris game of Icon 9.5.25a `ipl/gpacks/htetris`, with its brick editor (`editor.icn`, a vib interface),
+its seven sources (`htetris.icn` and the six it `$include`s) and its `highscore.dat`; its answer is its opening picture (`out_files` screen.dump).
+Converted by officer_06 2026-11-16, every file SAME-CODE: `brickdata.icn` and `brickio.icn` by `util_icon_semicolons.py`, the other five
+by the stock translator's newline rule, among them the two whose causes that are no macro: `help.icn` holds a Latin-1 byte (0xa9 at byte 7795) the converter
+cannot read, and `htetris.icn` line 43 is where SCRIP names the error of the file it includes, `brickdata.icn` line 43 (a string continued with `_`,
+its column counted over the joined lines), so the converter edited the includer. MEASURED: built by `/home/resources/icon-master-x` it shows the
+stock build's own picture twice, md5 20bc8966; `htetris/htetris.out` is that answer.
+
+NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
+it waits on the road passing an entry's env to the program alone); carpets, drawtree and tiger follow, one corpus patch a pack; the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
 and a pinned clock, so both are left out.
 
