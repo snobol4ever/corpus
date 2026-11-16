@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=159 features=64 ubiquitous=8(package write every procedure alternation to_by assign keyword_ref) distinctive=56 core=24 clusters=43 chunks=3 sizes=60,60,15
+# shape: entries=161 features=64 ubiquitous=8(package write every procedure alternation to_by assign keyword_ref) distinctive=56 core=24 clusters=44 chunks=3 sizes=60,60,17
 entry	part	cluster	shells
 coexpr/co	chunk:01	feat:create	coexpr_activate create global image limitation
 coexpr/cobench	chunk:01	feat:create	aug_assign coexpr_activate create element_gen gen_with_alternation local stop while writes
@@ -56,13 +56,15 @@ general/utf8_ovld	core	core	aug_assign create fail gen_with_alternation global i
 general/var	chunk:03	feat:push	gen_with_alternation image list local push record static table
 general/wordcnt	chunk:02	feat:many	aug_assign local many read scan scan_with_tab sort static tab table upto while
 general/xcommand	chunk:01	feat:want_rc	coexpr_activate local want_rc while
+graphics/charting	chunk:02	dir:graphics	
+graphics/subwindow	chunk:02	dir:graphics	
 ipl/tgener	chunk:02	feat:limitation	limitation
 lib/class_static	chunk:01	feat:static	coexpr_activate limitation return static
 lib/jsontests	core	core	break case coexpr_activate delete element_gen fail gen_with_alternation image limitation match record return scan set table type
 lib/objecttests	chunk:01	feat:coexpr_activate	coexpr_activate limitation writes
 lib/property_demo	chunk:01	feat:coexpr_activate	coexpr_activate limitation
 lib/singleton	chunk:01	feat:create	coexpr_activate create gen_with_alternation limitation
-lib/unittest	chunk:02	feat:table	aug_assign gen_with_alternation local table
+lib/unittest	chunk:03	feat:table	aug_assign gen_with_alternation local table
 mt/level_tp	chunk:01	feat:create	coexpr_activate create limitation
 pattern/ABCss	chunk:02	feat:return	read return scan while
 pattern/assignss	chunk:01	feat:read	read while
@@ -81,7 +83,7 @@ pattern/pany	chunk:01	feat:read	read scan while
 pattern/parb	chunk:01	feat:read	read scan while
 pattern/parbno	chunk:01	feat:read	read scan while
 pattern/peval	chunk:02	feat:return	read return while
-pattern/pimgtest	chunk:02	feat:table	gen_with_alternation image return table
+pattern/pimgtest	chunk:03	feat:table	gen_with_alternation image return table
 pattern/pimmed	chunk:01	feat:read	read scan while
 pattern/plen	chunk:01	feat:read	read scan while
 pattern/ppos	chunk:02	feat:repl	read repl scan scan_with_tab tab while
@@ -114,8 +116,8 @@ posix/mcast	chunk:02	feat:next	case coexpr_activate fail local next read return 
 posix/pipe-select	chunk:02	feat:reads	break reads stop while
 posix/raw_sock	chunk:02	feat:find	aug_assign create fail find gen_with_alternation image limitation local read return stop
 posix/rusage	chunk:01	feat:type	element_gen gen_with_alternation image local put return sort type
-posix/select-io	chunk:02	feat:next	create gen_with_alternation image local next read reads stop want_rc writes
 posix/select	chunk:02	feat:reads	image reads writes
+posix/select-io	chunk:02	feat:next	create gen_with_alternation image local next read reads stop want_rc writes
 posix/setenv	chunk:01	feat:image	image
 posix/sockpeek	chunk:01	feat:type	aug_assign fail gen_with_alternation image local stop type
 posix/spawn	core	core	aug_assign create element_gen fail gen_with_alternation image limitation local push read return scan sort stop until while writes
@@ -150,14 +152,14 @@ thread/sharelist	chunk:03	feat:put	element_gen global limitation put scan stop
 thread/stress	chunk:02	feat:list	aug_assign element_gen gen_with_alternation global integer limitation list local put return static stop table
 thread/sum	chunk:01	feat:static	aug_assign element_gen gen_with_alternation global integer limitation local put static stop
 thread/tcom	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate gen_with_alternation stop
+udb/prime	chunk:01	feat:every_with_suspend	aug_assign coexpr_activate create every_with_suspend fail gen_with_alternation global image limitation local record return suspend table while
+udb/scopes	chunk:01	feat:static	aug_assign global limitation local return scan static
 udb/watchme	chunk:02	feat:global	aug_assign global return while
+unicon/FxPtTest	chunk:02	feat:stop	stop
 unicon/clin_err	chunk:02	dir:unicon	
+unicon/list_test	core	core	aug_assign create delete element_gen fail gen_with_alternation global limitation list local pop push put repl return scan set static stop type
 unicon/macros	chunk:01	feat:want_rc	aug_assign fail find image limitation local read return scan scan_with_tab stop tab want_rc while
 unicon/mintest	chunk:02	dir:unicon	
 unicon/ovld	core	core	coexpr_activate create element_gen every_with_suspend gen_with_alternation global image limitation record return scan section stop suspend type want_rc writes
 unicon/to	chunk:02	dir:unicon	
 unicon/triple_strings	chunk:01	feat:want_rc	coexpr_activate create find image limitation local read return stop want_rc writes
-udb/prime	chunk:01	feat:every_with_suspend	aug_assign coexpr_activate create every_with_suspend fail gen_with_alternation global image limitation local record return suspend table while
-udb/scopes	chunk:01	feat:static	aug_assign global limitation local return scan static
-unicon/list_test	core	core	aug_assign create delete element_gen fail gen_with_alternation global limitation list local pop push put repl return scan set static stop type
-unicon/FxPtTest	chunk:02	feat:stop	stop

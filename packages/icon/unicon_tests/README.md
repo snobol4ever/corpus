@@ -19,3 +19,5 @@ oracle's non-answers (CEO-1696: empty output, a crash, a hang, a nondeterministi
 
 ## Grading
 `harness/scripts/test_icon_unicon_suite.sh` (the coo's board; suite key `unitests`). Design: `.github/ARCH-UNICON.md`; lane goal: `.github/GOAL-UNICON-100.md`.
+
+THE GRAPHICS PROGRAMS (the grader 2026-11-16, on Lon's order of 16:5x CST): graphics/charting and graphics/subwindow are entries, each answer its window cut twice from the graphics unicon on the screen road, cap 20 s (out_files screen.dump); charting's copy made semicolon-ready, the original's ucode by unicon 13.3 -c (handoffs/grader-2026-11-16/unitests-proof.tsv). Left out, measured: gpxtest answers differently twice, imgtex draws a moving window.

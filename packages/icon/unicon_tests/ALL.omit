@@ -35,10 +35,8 @@ database/test: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle build has no 
 database/testnlm: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle build has no SQL/ODBC support (no sql.h or sqlite3.h on the box), so the program ends in a run-time error 106/209; database/Makefile itself skips every database test on this build (ceo 2026-10-31: database stays excluded unless the build finds ODBC or SQLite)
 general/cfuncs: EXCLUDED.tsv NEEDS_LOADFUNC: CTO-513 (measured 2026-11-08 by senior_02: line 4 is link cfunc, loadfunc over a C library the oracle builds with its own cfunc.c; SCRIP has no loadfunc facility)
 general/proto: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothing when the program is run with its data on stdin; an empty ref would be earned by an engine that prints nothing
-graphics/charting: EXCLUDED.tsv NEEDS_GRAPHICS_FACILITY: graphics is EXCLUDED as the IPL's graphics are (CEO-1315): the oracle build is --disable-graphics and a window program has no headless answer
 graphics/gpxtest: EXCLUDED.tsv NEEDS_GRAPHICS_FACILITY: graphics is EXCLUDED as the IPL's graphics are (CEO-1315): the oracle build is --disable-graphics and a window program has no headless answer
 graphics/imgtex: EXCLUDED.tsv NEEDS_GRAPHICS_FACILITY: graphics is EXCLUDED as the IPL's graphics are (CEO-1315): the oracle build is --disable-graphics and a window program has no headless answer
-graphics/subwindow: EXCLUDED.tsv NEEDS_GRAPHICS_FACILITY: graphics is EXCLUDED as the IPL's graphics are (CEO-1315): the oracle build is --disable-graphics and a window program has no headless answer
 ipl/tbold: EXCLUDED.tsv NO_ORACLE_ANSWER: CEO-1696: the oracle prints nothing (an empty ref is earned by an engine that prints nothing)
 mt/level: EXCLUDED.tsv NOT_A_UNIT_TEST: CTO-513 (measured: line 7 is load("level_tp"), a second program; line 3 stops unless &features has multiple programs, and tests/mt/Makefile line 24 builds level_tp before level; no system or unicon call in it)
 mt/load: EXCLUDED.tsv NOT_A_UNIT_TEST: CTO-513 (measured: lines 17 and 22 resolve ../../bin/unicon and the test runs the oracle translator at run time, then load()s the result)
