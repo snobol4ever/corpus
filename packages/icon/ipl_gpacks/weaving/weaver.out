@@ -1,1 +1,15 @@
+
+Run-time error 107
+File weaver.icn; Line 392
+record expected
+offending value: "4,#36c9"
+Traceback:
+main()
+ProcessEvent(record Vframe_rec_1(window_1:1(Weaver),252,198,&null,"root",list_19(4),list_20(5),0,0,1,record Vstd_pos_1(4),record Vstd_dialog_1(8),record Vstd_1(12)),&null,procedure shortcuts,&null) from line 84 in weaver.icn
+shortcuts("o") from line 341 in viface.icn
+open_weave() from line 492 in weaver.icn
+draw_down(record draft_2("twill","1234123412341234...","1234321234321234...","0000000000000000...","IIIIIIIIIIIIIIII...","4","4","c1","0123456789?!nNAa...","4,#36c9",&null,&null)) from line 337 in weaver.icn
+draw_weave(record draft_2("twill","1234123412341234...","1234321234321234...","0000000000000000...","IIIIIIIIIIIIIIII...","4","4","c1","0123456789?!nNAa...","4,#36c9",&null,&null),&null) from line 353 in weaver.icn
+{"4,#36c9" . field} from line 392 in weaver.icn
 screen 1024x768 md5 b71631300b5fbe286477bf5b6156ba62
+screen 1024x768 md5 0058ee1c090ace131fa8694a79aad491

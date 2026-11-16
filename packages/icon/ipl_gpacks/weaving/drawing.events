@@ -1,0 +1,12 @@
+# drawing of ipl_gpacks (weaving), its own open: meta o opens the dialog, focus returns the input focus to the pointer (the program pins it to its
+# interface window with Raise), the fixture twill.pfd (a 4-shaft twill) is named and Return opens it. As shipped the program cannot open any
+# draft: the oracle ends at the open with a run-time error (the cto's ruling 2026-11-16 14:47 CST: graded on that error, want_rc 1, stderr merged).
+move 100 60
+keydown Alt_L
+key o
+keyup Alt_L
+wait
+move 200 70
+focus
+type twill.pfd
+key Return

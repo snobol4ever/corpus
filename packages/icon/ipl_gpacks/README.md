@@ -40,6 +40,17 @@ SCRIPT, on purpose: the file menu's copy and paste, which write and read the fix
 meet in it; and read, which wants a file to exist. READ FROM THE SOURCE: the file menu's own quit item cannot end the program (its label carries a
 trailing space the program's case lacks), as in gridedit.
 
+weaver AND drawing ARE GRADED ON THE ORACLE'S ERROR AT THEIR OPEN (the cto's ruling of 2026-11-16 14:47 CST; officer_06's scripts):
+`weaving/weaver.events` and `weaving/drawing.events` open `weaving/twill.pfd`, a 4-shaft twill in the pack's draft layout, through each
+program's own open dialog (meta o; the script's `focus` line returns the input focus to the pointer, since both programs pin it to their
+interface with Raise). As shipped neither program can open any draft, MEASURED on `/home/resources/icon-master-x`: weaver stops with
+run-time error 107 at weaver.icn 392 (record expected: its open never turns the draft's tie-up string into a record, which drawing does),
+and drawing with error 103 at tieutils.icn 184 (its open fills the draft record's fields 1 to 7 and never the tie-up, field 10, so
+tie2coltier is given &null). The pack's draft record (weavutil.icn) put shafts and treadles before the palette, and both programs still read
+the older layout. So each answer is the oracle's error and traceback (`stderr` merged, `want_rc` 1) and then its two screen lines, the
+opening picture and the open dialog, byte equal on two runs; the programs stay as shipped. With no draft read, every draft menu item answers
+the notice No weaving., so no other work of theirs is reached.
+
 THE HTETRIS ROW: `htetris/htetris`, the Tetris game of Icon 9.5.25a `ipl/gpacks/htetris`, with its brick editor (`editor.icn`, a vib interface),
 its seven sources (`htetris.icn` and the six it `$include`s) and its `highscore.dat`; its answer is its opening picture (`out_files` screen.dump).
 Converted by officer_06 2026-11-16, every file SAME-CODE: `brickdata.icn` and `brickio.icn` by `util_icon_semicolons.py`, the other five

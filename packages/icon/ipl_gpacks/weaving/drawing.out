@@ -1,1 +1,14 @@
+
+Run-time error 103
+File tieutils.icn; Line 184
+string expected
+offending value: &null
+Traceback:
+main()
+ProcessEvent(record Vframe_rec_1(window_1:1(Weaver),180,136,&null,"root",list_17(3),list_18(4),0,0,1,record Vstd_pos_1(4),record Vstd_dialog_1(8),record Vstd_1(12)),&null,procedure shortcuts,&null) from line 88 in drawing.icn
+shortcuts("o") from line 341 in viface.icn
+open_weave() from line 437 in drawing.icn
+tie2coltier(&null) from line 291 in drawing.icn
+{"8;8;" || &null} from line 184 in tieutils.icn
 screen 1024x768 md5 101a2c95f27e1d97d7ad54064ae65f6d
+screen 1024x768 md5 c16770bd6e7d91ad858e3bb63b25a5bb
