@@ -1,0 +1,4 @@
+# hello: the one button, Click to close, pressed: its callback exits
+move 80 30
+wait
+click 1 80 30
