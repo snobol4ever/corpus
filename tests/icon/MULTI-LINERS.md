@@ -18146,6 +18146,41 @@ end
 97
 ```
 
+## ladder__rung43_class_body_declarations
+
+```Icon
+class C(x)
+   local y, z
+   global g
+   record r(a, b)
+   method m()
+      g := 7;
+      y := 5;
+      return g + x + y;
+   end
+   global h
+   method n()
+      h := r(1, 2);
+      return h.b;
+   end
+end
+procedure main()
+   local c;
+   c := C(1);
+   write(c.m());
+   write(c.n());
+   write(image(g), " ", type(h));
+   write(image(c));
+end
+```
+
+```stdout
+13
+2
+7 r
+object C_1(3)
+```
+
 ## ladder__rung29_builtins_display_lists_the_globals_iconx_lists
 
 ```Icon
