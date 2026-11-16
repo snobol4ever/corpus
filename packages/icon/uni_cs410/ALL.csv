@@ -1,0 +1,3 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,stderr
+1,test,test.icn,uni_cs410__test,uni_cs410,412,0,262144,8192,120,--dialect=unicon,merged
+2,gameFinalintermediate,gameFinalintermediate.icn,uni_cs410__gameFinalintermediate,uni_cs410,501,0,262144,8192,120,--dialect=unicon,merged

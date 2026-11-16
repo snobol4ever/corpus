@@ -1,0 +1,2 @@
+# EXCLUDED.tsv -- uni_cs410: programs out, with the class and the measurement.
+gameFinal.icn	UNGRADABLE_MASK_MAJORITY	its answer is 4 lines and 2 of them print the clock (Base time at entry, Time passed since entry): masking them covers half the answer, which R-409 guardrail 4 refuses; MEASURED 2026-11-16 with its documented arguments ryan w opp b 15 10 10 8 100 50 5

@@ -1,0 +1,5 @@
+# CONTRACT.tsv -- the run contract of uni_cs410, read by corpus_suite_harness.py: key<TAB>value<TAB>evidence.
+oracle	unicon	the answers are cut from the Unicon translator through unicon_bin() (skill unicon R2): the four packages compiled by unicon -s -c and each program built against them, as the author ran them
+unmarked_compile_args	--dialect=unicon	CTO-473: the programs are Unicon (package and import declarations)
+ipath	../ipl/procs	the programs link array and strings of the Icon program library, semicolon-ready in the sibling ipl
+stderr	merged	the answers were cut with stderr merged into stdout, so a run-time error is graded as an answer
