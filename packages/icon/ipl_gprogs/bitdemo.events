@@ -1,0 +1,7 @@
+click 1 50 22
+wait
+drag 1 200 100 600 200
+wait
+click 1 50 328
+wait
+click 1 50 580

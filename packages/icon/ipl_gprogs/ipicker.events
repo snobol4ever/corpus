@@ -1,0 +1,5 @@
+move 20 20
+key y
+wait
+move 20 20
+key q

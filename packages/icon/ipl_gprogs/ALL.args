@@ -34,3 +34,8 @@ spectra	brennan.gif
 repeater	-h	2	-v	2	brennan.gif
 picktile	-f	-w	8	gpxtest.gif
 scroll	-f	brennan.gif
+ipicker	gpxtest.gif	brennan.gif
+colorwif	-o	1
+trkvu	track.log
+dlgvu	-q	route.txt
+isd2ill	p8.isd

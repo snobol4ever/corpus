@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=98 features=3 ubiquitous=1(package) distinctive=2 core=4 clusters=84 chunks=1 sizes=94
+# shape: entries=127 features=3 ubiquitous=1(package) distinctive=2 core=4 clusters=112 chunks=2 sizes=100,23
 entry	part	cluster	shells
 bme	chunk:01	family:bme	
 breakout	chunk:01	family:breakout	
@@ -62,32 +62,32 @@ sier	chunk:01	family:sier
 sier1	chunk:01	family:sier	
 sier2	chunk:01	family:sier	
 snapper	chunk:01	family:snapper	
-spiral	chunk:01	family:spiral	
-spiro	chunk:01	family:spiro	
-spokes	chunk:01	family:spokes	
-sym4mm	chunk:01	family:symmm	
-symdraw	chunk:01	family:symdraw	
-testpatt	chunk:01	family:testpatt	
-textures	chunk:01	family:textures	
-tilescan	chunk:01	family:tilescan	
-travels	chunk:01	family:travels	
-viewpane	chunk:01	family:viewpane	
-wevents	chunk:01	family:wevents	
-xgamma	chunk:01	family:xgamma	
+spiral	chunk:02	family:spiral	
+spiro	chunk:02	family:spiro	
+spokes	chunk:02	family:spokes	
+sym4mm	chunk:02	family:symmm	
+symdraw	chunk:02	family:symdraw	
+testpatt	chunk:02	family:testpatt	
+textures	chunk:02	family:textures	
+tilescan	chunk:02	family:tilescan	
+travels	chunk:02	family:travels	
+viewpane	chunk:02	family:viewpane	
+wevents	chunk:02	family:wevents	
+xgamma	chunk:02	family:xgamma	
 iview	chunk:01	family:iview	
 imgtolst	chunk:01	family:imgtolst	
 rstarlab	chunk:01	family:rstarlab	
 imstogif	chunk:01	family:imstogif	
-zoomtile	chunk:01	family:zoomtile	
-striper	chunk:01	family:striper	
+zoomtile	chunk:02	family:zoomtile	
+striper	chunk:02	family:striper	
 isd2gif	chunk:01	family:isdgif	
 isd2xgrid	chunk:01	family:isdxgrid	
 linden	chunk:01	family:linden	
 drip	chunk:01	family:drip	
 hsvpick	chunk:01	family:hsvpick	
 mover	chunk:01	feat:fixtures	fixtures
-splat	chunk:01	family:splat	
-vqueens	chunk:01	family:vqueens	
+splat	chunk:02	family:splat	
+vqueens	chunk:02	family:vqueens	
 rects	chunk:01	family:rects	
 randweav	chunk:01	family:randweav	
 binpack	chunk:01	family:binpack	
@@ -96,18 +96,18 @@ gallery	chunk:01	family:gallery
 gif2wif	chunk:01	family:gifwif	
 gxplor	chunk:01	family:gxplor	
 flohisto	chunk:01	family:flohisto	
-tgdemo	chunk:01	family:tgdemo	
+tgdemo	chunk:02	family:tgdemo	
 gif2rows	chunk:01	feat:fixtures	fixtures
 giftopat	chunk:01	feat:fixtures	fixtures
 poller	chunk:01	feat:fixtures	fixtures
 rectile	chunk:01	feat:fixtures	fixtures
 seamcut	chunk:01	feat:fixtures	fixtures
 ims2pat	chunk:01	family:imspat	
-xpmtoims	chunk:01	family:xpmtoims	
-trycolor	chunk:01	family:trycolor	
+xpmtoims	chunk:02	family:xpmtoims	
+trycolor	chunk:02	family:trycolor	
 imgpaper	chunk:01	feat:fixtures	fixtures
 fstarlab	chunk:01	family:fstarlab	
-xformpat	chunk:01	family:xformpat	
+xformpat	chunk:02	family:xformpat	
 pat2gif	chunk:01	family:patgif	
 gif2blp	chunk:01	family:gifblp	
 fileimag	chunk:01	family:fileimag	
@@ -117,3 +117,15 @@ spectra	chunk:01	family:spectra
 repeater	chunk:01	family:repeater	
 picktile	chunk:01	family:picktile	
 scroll	core	core	want_rc
+ipicker	chunk:01	family:ipicker	
+hb	chunk:01	family:hb	
+subdemo	chunk:02	family:subdemo	
+kaleid	chunk:01	family:kaleid	
+colorwif	chunk:01	family:colorwif	
+bitdemo	chunk:01	family:bitdemo	
+wheel	chunk:02	family:wheel	
+mercator	chunk:01	family:mercator	
+randweb	chunk:01	family:randweb	
+trkvu	chunk:02	family:trkvu	
+dlgvu	chunk:01	family:dlgvu	
+isd2ill	chunk:01	family:isdill	
