@@ -20,16 +20,8 @@ hello
 2
 3
 5
-#--------------------------------------------------------------- 4 barnsley-fern
-
-Run-time error 121
-File barnsley-fern.icn; Line 60
-function not supported
-Traceback:
-   main()
-   draw() from line 11 in barnsley-fern.icn
-   draw_point() from line 66 in barnsley-fern.icn
-   Fg("green") from line 60 in barnsley-fern.icn
+#--------------------------------------------------------------- 4 barnsley-fern-seeded
+screen 1024x768 md5 8b3b030cb50b27a001bb233ba40965a0
 #-------------------------------------------------------------------- 5 currency
 
 Run-time error 102

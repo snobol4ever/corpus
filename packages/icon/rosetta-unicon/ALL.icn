@@ -37,7 +37,7 @@ procedure main()
    insert(L,2,"hello");
    every write(!L);
 end
-#--------------------------------------------------------------- 4 barnsley-fern
+#--------------------------------------------------------------- 4 barnsley-fern-seeded
 link graphics
 
 global x, y
@@ -45,17 +45,12 @@ global x, y
 procedure main()
     &window := open("FERN", "g", "size=400,400", "bg=black");
 	
+    &random := 42;
     x := y := 0;
 	
-    repeat {
-	draw();
-	delay(30);
-	if *Pending() > 0 then {
-	    case Event() of {
-	        "q"|"\e": return
-            }
-	}
-    };
+    draw();
+    WFlush(&window);
+    Event();
 end
 
 procedure next_point()
