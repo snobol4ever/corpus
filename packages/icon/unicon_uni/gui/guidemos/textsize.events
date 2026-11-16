@@ -1,0 +1,6 @@
+# textsize, a dialog sized to its argument (ALL.args: Hello, World) shown as a label above a Quit button centred 86 down: a Tab moves the
+# keyboard focus onto Quit, a space presses it and the program ends by itself
+move 60 60
+key Tab
+wait
+key space

@@ -1,0 +1,8 @@
+# lines, the gui library's Line inside a Border in a 355 by 295 dialog: the Vertical check box (from 20% across, 50 above the foot) turns the
+# line upright and back; the Quit button (centred at 60% across) disposes the dialog and the program ends by itself
+move 90 255
+click 1 90 255
+wait
+click 1 90 255
+wait
+click 1 213 255

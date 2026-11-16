@@ -1,0 +1,14 @@
+# dyncomps, components added and changed at run time inside a ComponentScrollArea: Add twice puts two buttons labelled Something in the area,
+# Resize grows the last by 10 each way, Repos moves it 10 right and down, Delete removes it; the buttons stand in a panel along the foot
+# (Add 100, Delete 157, Resize 220, Repos 283, Quit 343 across, 262 down) and Quit ends the program by itself
+click 1 100 262
+wait
+click 1 100 262
+wait
+click 1 220 262
+wait
+click 1 283 262
+wait
+click 1 157 262
+wait
+click 1 343 262

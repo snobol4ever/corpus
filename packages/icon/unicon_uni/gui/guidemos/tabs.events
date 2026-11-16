@@ -1,0 +1,12 @@
+# tabs, a TabSet of three panes (from 20 20, its tabs along its top: Pane 1 to 126 across, Pane 2 to 231, Pane 3 to 335) over a Quit button
+# centred 30 above the foot: a click on the tab of Pane 2, then of Pane 3, each writes its line and shows that pane's label; Alt and p, the
+# accelerator of Pane 1, brings the first back; Quit ends the program by itself
+click 1 178 34
+wait
+click 1 283 34
+wait
+keydown Alt_L
+key p
+keyup Alt_L
+wait
+click 1 177 265

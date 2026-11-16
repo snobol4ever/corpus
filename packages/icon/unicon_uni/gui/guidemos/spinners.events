@@ -1,0 +1,12 @@
+# spinners, three spin boxes in a 262 by 225 dialog (a RangeSpin of 0.0 to 1.0 by 0.1 at 0.5, a ListSpin of colours at yellow, a RangeSpin of
+# 1 to 100 at 30), their up and down arrows at 170 across: the first is raised to 0.6, the colour stepped down from yellow to red, the third raised twice
+# to 32, each change writing its line; the Quit button centred 186 down ends the program by itself
+click 1 170 35
+wait
+click 1 170 86
+wait
+click 1 170 127
+wait
+click 1 170 127
+wait
+click 1 131 197

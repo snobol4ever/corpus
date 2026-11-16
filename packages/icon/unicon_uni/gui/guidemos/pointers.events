@@ -1,0 +1,8 @@
+# pointers, a 160 by 231 dialog: a drop-down List of the words one to ten at its top, three buttons whose pointers differ (the pointer is not
+# on the screen's picture), and Close; the list's arrow (119 22) opens the list, a click on an item below chooses it, and Close (80 193)
+# ends the program by itself
+click 1 119 22
+wait
+click 1 70 90
+wait
+click 1 80 193

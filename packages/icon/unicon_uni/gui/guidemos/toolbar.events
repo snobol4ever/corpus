@@ -1,0 +1,12 @@
+# toolbar, a 644 by 399 dialog whose ToolBar holds the icon buttons Close and View and the toggles Start, Pause and Stop of one check box
+# group (each 34 across from 12, at 20 down), and Help at the right: Start, then Pause, then Stop are pressed in turn, the group keeping one
+# down; the pointer leaves the bar in each step so that no tooltip shows. The program has no quit of its own (its Close button is wired to
+# nothing), so the road ends it
+click 1 62 20
+move 300 300
+wait
+click 1 96 20
+move 300 300
+wait
+click 1 130 20
+move 300 300
