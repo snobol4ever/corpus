@@ -1,0 +1,7 @@
+PASS resistor_color_duo:brown_and_black
+PASS resistor_color_duo:blue_and_grey
+PASS resistor_color_duo:yellow_and_violet
+PASS resistor_color_duo:white_and_red
+PASS resistor_color_duo:orange_and_orange
+PASS resistor_color_duo:ignore_additional_colors
+PASS resistor_color_duo:black_and_brown_one_digit

@@ -1,0 +1,14 @@
+PASS atbash_cipher:encode_yes
+PASS atbash_cipher:encode_no
+PASS atbash_cipher:encode_omg
+PASS atbash_cipher:encode_spaces
+PASS atbash_cipher:encode_mindblowingly
+PASS atbash_cipher:encode_numbers
+PASS atbash_cipher:encode_deep_thought
+PASS atbash_cipher:encode_all_the_letters
+PASS atbash_cipher:decode_exercism
+PASS atbash_cipher:decode_a_sentence
+PASS atbash_cipher:decode_numbers
+PASS atbash_cipher:decode_all_the_letters
+PASS atbash_cipher:decode_with_too_many_spaces
+PASS atbash_cipher:decode_with_no_spaces

@@ -1,0 +1,8 @@
+PASS strain:empty_sequence
+PASS strain:empty_keep
+PASS strain:empty_discard
+PASS strain:keep_everything
+PASS strain:discard_endswith
+PASS strain:keep_z
+PASS strain:keep_discard
+PASS strain:keep_plus_discard

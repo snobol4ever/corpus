@@ -1,0 +1,10 @@
+PASS alphametics:puzzle_with_three_letters
+PASS alphametics:solution_must_have_unique_value_for_each_letter
+PASS alphametics:leading_zero_solution_is_invalid
+PASS alphametics:puzzle_with_two_digits_final_carry
+PASS alphametics:puzzle_with_four_letters
+PASS alphametics:puzzle_with_six_letters
+PASS alphametics:puzzle_with_seven_letters
+PASS alphametics:puzzle_with_eight_letters
+PASS alphametics:puzzle_with_ten_letters
+PASS alphametics:puzzle_with_ten_letters_and_199_addends

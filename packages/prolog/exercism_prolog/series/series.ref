@@ -1,0 +1,11 @@
+PASS series:slices_of_one_from_one
+PASS series:slices_of_one_from_two
+PASS series:slices_of_two
+PASS series:slices_of_two_overlap
+PASS series:slices_can_include_duplicates
+PASS series:slices_of_a_long_series
+PASS series:slice_length_is_too_large
+PASS series:slice_length_is_way_too_large
+PASS series:slice_length_cannot_be_zero
+PASS series:slice_length_cannot_be_negative
+PASS series:empty_series_is_invalid

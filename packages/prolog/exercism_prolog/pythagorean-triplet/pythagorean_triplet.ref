@@ -1,0 +1,7 @@
+PASS pythagorean_triplet:triplets_whose_sum_is_12
+PASS pythagorean_triplet:triplets_whose_sum_is_108
+PASS pythagorean_triplet:triplets_whose_sum_is_1000
+PASS pythagorean_triplet:no_matching_triplets_for_1001
+PASS pythagorean_triplet:returns_all_matching_triplets
+PASS pythagorean_triplet:several_matching_triplets
+EMPTY pythagorean_triplet_bonus

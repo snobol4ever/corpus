@@ -1,0 +1,15 @@
+PASS binary:binary_0_is_decimal_0
+PASS binary:binary_1_is_decimal_1
+PASS binary:binary_10_is_decimal_2
+PASS binary:binary_11_is_decimal_3
+PASS binary:binary_100_is_decimal_4
+PASS binary:binary_1001_is_decimal_9
+PASS binary:binary_11010_is_decimal_26
+PASS binary:binary_10001101000_is_decimal_1128
+PASS binary:binary_ignores_leading_zeros
+PASS binary:two_is_not_a_valid_binary_digit
+PASS binary:nonbinary_digit_is_invalid
+PASS binary:trailing_nonbinary_characters_is_invalid
+PASS binary:nonbinary_characters_is_invalid
+PASS binary:internal_nonbinary_characters_is_invalid
+PASS binary:whitespace_separated_is_invalid

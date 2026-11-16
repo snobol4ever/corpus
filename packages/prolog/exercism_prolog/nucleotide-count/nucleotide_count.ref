@@ -1,0 +1,5 @@
+PASS nucleotide_counting:empty_dna_strand_has_no_adenosine
+PASS nucleotide_counting:repetitive_cytidine_gets_counted
+PASS nucleotide_counting:counts_only_thymidine
+PASS nucleotide_counting:counts_only_thymidine
+PASS nucleotide_counting:fails_when_not_dns

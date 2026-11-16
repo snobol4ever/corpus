@@ -1,0 +1,4 @@
+PASS etl:single_letter
+PASS etl:single_score_with_multiple_letters
+PASS etl:multiple_scores_with_multiple_letters
+PASS etl:multiple_scores_with_differing_numbers_of_letters

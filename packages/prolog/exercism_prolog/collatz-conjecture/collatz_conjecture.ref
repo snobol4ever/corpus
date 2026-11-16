@@ -1,0 +1,6 @@
+PASS collatz_conjecture:zero_steps_for_one
+PASS collatz_conjecture:divide_if_even
+PASS collatz_conjecture:even_and_odd_steps
+PASS collatz_conjecture:large_number_of_even_and_odd_steps
+PASS collatz_conjecture:zero_is_an_error
+PASS collatz_conjecture:negative_value_is_an_error

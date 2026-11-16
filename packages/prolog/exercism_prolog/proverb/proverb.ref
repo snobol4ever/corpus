@@ -1,0 +1,6 @@
+PASS proverb:zero_pieces
+PASS proverb:one_piece
+PASS proverb:two_pieces
+PASS proverb:three_pieces
+PASS proverb:full_proverb
+PASS proverb:four_pieces_modernized

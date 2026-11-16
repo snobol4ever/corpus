@@ -1,0 +1,7 @@
+PASS leap_tests:leap_year
+PASS leap_tests:standard_and_odd_year
+PASS leap_tests:standard_even_year
+PASS leap_tests:standard_nineteeth_century
+PASS leap_tests:standard_eighteenth_century
+PASS leap_tests:leap_twenty_fourth_century
+PASS leap_tests:leap_y2k

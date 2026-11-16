@@ -1,0 +1,7 @@
+PASS knapsack:no_items
+PASS knapsack:one_item_too_heavy
+PASS knapsack:five_items_cannot_be_greedy_by_weight_
+PASS knapsack:five_items_cannot_be_greedy_by_value_
+PASS knapsack:example_knapsack
+PASS knapsack:eight_items
+PASS knapsack:fifteen_items

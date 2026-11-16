@@ -1,0 +1,16 @@
+PASS affine_cipher:encode_yes
+PASS affine_cipher:encode_no
+PASS affine_cipher:encode_omg
+PASS affine_cipher:encode_o_m_g
+PASS affine_cipher:encode_mindblowingly
+PASS affine_cipher:encode_numbers
+PASS affine_cipher:encode_deep_thought
+PASS affine_cipher:encode_all_the_letters
+PASS affine_cipher:encode_with_a_not_coprime_to_m
+PASS affine_cipher:decode_exercism
+PASS affine_cipher:decode_a_sentence
+PASS affine_cipher:decode_numbers
+PASS affine_cipher:decode_all_the_letters
+PASS affine_cipher:decode_with_no_spaces_in_input
+PASS affine_cipher:decode_with_too_many_spaces
+PASS affine_cipher:decode_with_a_not_coprime_to_m

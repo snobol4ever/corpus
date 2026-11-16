@@ -1,0 +1,10 @@
+PASS isogram:empty_string
+PASS isogram:only_lower_case_characters
+PASS isogram:one_duplicated_character
+PASS isogram:longest_reported_english_isogram
+PASS isogram:duplicated_character_in_mixed_case
+PASS isogram:hypothetical_isogrammic_word_with_hyphen
+PASS isogram:duplicated_non_letter_character
+PASS isogram:name_that_is_an_isogram
+PASS isogram:duplicated_character_in_the_middle
+PASS isogram:largest_pure_letter_characters_isogram

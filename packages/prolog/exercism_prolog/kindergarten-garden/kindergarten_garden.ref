@@ -1,0 +1,17 @@
+PASS partial_garden:garden_with_single_student
+PASS partial_garden:different_garden_with_single_student
+PASS partial_garden:garden_with_two_students
+PASS partial_garden:multiple_students_for_the_same_garden_with_three_students
+PASS partial_garden:third_student_garden
+PASS full_garden:for_alice_first_student_garden
+PASS full_garden:for_bob_second_student_garden
+PASS full_garden:for_charlie
+PASS full_garden:for_david
+PASS full_garden:for_eve
+PASS full_garden:for_fred
+PASS full_garden:for_ginny
+PASS full_garden:for_harriet
+PASS full_garden:for_ileana
+PASS full_garden:for_joseph
+PASS full_garden:for_kincaid_second_to_last_student_garden
+PASS full_garden:for_larry_last_student_garden

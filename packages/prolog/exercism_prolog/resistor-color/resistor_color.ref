@@ -1,0 +1,4 @@
+PASS resistor_color:black
+PASS resistor_color:white
+PASS resistor_color:orange
+PASS resistor_color:colors

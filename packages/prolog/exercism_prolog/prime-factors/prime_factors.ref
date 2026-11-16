@@ -1,0 +1,12 @@
+PASS prime_factors:no_factors
+PASS prime_factors:prime_number
+PASS prime_factors:another_prime_number
+PASS prime_factors:square_of_a_prime
+PASS prime_factors:product_of_first_prime
+PASS prime_factors:cube_of_a_prime
+PASS prime_factors:product_of_second_prime
+PASS prime_factors:product_of_third_prime
+PASS prime_factors:product_of_first_and_second_prime
+PASS prime_factors:product_of_primes_and_non_primes
+PASS prime_factors:product_of_primes
+PASS prime_factors:factors_include_a_large_prime

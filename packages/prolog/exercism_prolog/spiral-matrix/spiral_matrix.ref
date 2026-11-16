@@ -1,0 +1,6 @@
+PASS spiral:empty_spiral
+PASS spiral:trivial_spiral
+PASS spiral:spiral_of_size_2
+PASS spiral:spiral_of_size_3
+PASS spiral:spiral_of_size_4
+PASS spiral:spiral_of_size_5

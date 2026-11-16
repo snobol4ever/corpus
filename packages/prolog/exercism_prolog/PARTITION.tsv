@@ -1,0 +1,114 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=110 features=21 ubiquitous=6(package grader write cut unify directive) distinctive=15 core=20 clusters=37 chunks=2 sizes=60,30
+entry	part	cluster	shells
+acronym/acronym	chunk:01	feat:list_cons	list_cons
+affine-cipher/affine_cipher	core	core	call findall format
+all-your-base/all_your_base	chunk:01	feat:list_cons	list_cons
+allergies/allergies	chunk:02	dir:allergies	
+alphametics/alphametics	core	core	dcg findall if_then_else list_cons setof
+anagram/anagram	chunk:02	dir:anagram	
+armstrong-numbers/armstrong_numbers	chunk:01	feat:list_cons	list_cons
+atbash-cipher/atbash_cipher	core	core	findall format
+bank-account/bank_account	chunk:02	dir:bank-account	
+binary/binary	chunk:01	feat:list_cons	list_cons
+binary-puzzle/binary_puzzle	chunk:01	feat:list_cons	list_cons
+binary-search/binary_search	chunk:01	feat:if_then_else	if_then_else
+binary-search-tree/binary_search_tree	chunk:01	feat:if_then_else	if_then_else list_cons
+bob/bob	core	core	dcg if_then_else negation nonvar
+book-store/book_store	chunk:01	feat:if_then_else	if_then_else list_cons
+bottle-song/bottle_song	core	core	format list_cons
+change/change	chunk:01	feat:negation	if_then_else negation
+cheryls-birthday/cheryls_birthday	chunk:01	feat:findall	findall
+clock/clock	chunk:01	feat:format	format
+collatz-conjecture/collatz_conjecture	chunk:02	dir:collatz-conjecture	
+complex-numbers/complex_numbers	chunk:02	dir:complex-numbers	
+crypto-square/crypto_square	chunk:01	feat:format	format list_cons
+custom-set/custom_set	chunk:01	feat:negation	list_cons negation
+darts/darts	chunk:02	dir:darts	
+diamond/diamond	core	core	between findall if_then_else list_cons
+difference-of-squares/difference_of_squares	chunk:02	dir:difference-of-squares	
+dnd-character/dnd_character	chunk:01	feat:between	between list_cons
+dominoes/dominoes	chunk:01	feat:if_then_else	if_then_else list_cons
+eliuds-eggs/eliuds_eggs	chunk:02	dir:eliuds-eggs	
+etl/etl	chunk:01	feat:list_cons	list_cons
+flatten-array/flatten_array	chunk:01	feat:list_cons	list_cons
+floored/floored	chunk:02	dir:floored	
+flower-field/flower_field	core	core	between findall if_then_else list_cons
+food-chain/food_chain	chunk:01	feat:format	format list_cons
+game-of-life/game_of_life	chunk:01	feat:between	between findall if_then_else
+garden-party/garden_party	chunk:02	dir:garden-party	
+gigasecond/gigasecond	chunk:02	dir:gigasecond	
+global-positioning-system/global_positioning_system	core	core	between dcg findall if_then_else
+grade-school/grade_school	chunk:01	feat:negation	list_cons negation
+grains/grains	chunk:02	dir:grains	
+hamming/hamming	chunk:01	feat:if_then_else	if_then_else list_cons
+hello-world/hello_world	chunk:02	dir:hello-world	
+high-scores/high_scores	chunk:01	feat:list_cons	list_cons
+house/house	chunk:01	feat:format	format
+isbn-verifier/isbn_verifier	chunk:01	feat:dcg	dcg if_then_else
+isogram/isogram	core	core	findall forall
+killer-sudoku-helper/killer_sudoku_helper	chunk:02	feat:findall	findall list_cons
+kindergarten-garden/kindergarten_garden	core	core	succ
+knapsack/knapsack	core	core	arg
+largest-series-product/largest_series_product	chunk:01	feat:list_cons	list_cons
+leap/leap	chunk:02	dir:leap	
+list-ops/list_ops	core	core	call if_then_else list_cons
+luhn/luhn	chunk:01	feat:dcg	dcg if_then_else list_cons
+magic-square/magic_square	chunk:02	dir:magic-square	
+matching-brackets/matching_brackets	core	core	dcg if_then_else negation
+matrix/matrix	chunk:01	feat:dcg	dcg if_then_else list_cons
+meetup/meetup	core	core	between findall findall_with_var_goal
+minesweeper/minesweeper	chunk:01	feat:between	between findall if_then_else list_cons
+nth-prime/nth_prime	chunk:01	feat:if_then_else	if_then_else
+nucleotide-count/nucleotide_count	chunk:01	feat:list_cons	list_cons
+ocr-numbers/ocr_numbers	chunk:01	feat:format	format list_cons
+palindrome-products/palindrome_products	chunk:01	feat:between	between findall list_cons
+pangram/pangram	chunk:02	dir:pangram	
+parallel-letter-frequency/parallel_letter_frequency	chunk:01	feat:negation	if_then_else list_cons negation
+pascals-triangle/pascals_triangle	core	core	list_cons succ
+perfect-numbers/perfect_numbers	chunk:01	feat:between	between findall list_cons
+phone-number/phone_number	chunk:01	feat:negation	dcg if_then_else negation
+pig-latin/pig_latin	chunk:01	feat:negation	dcg if_then_else negation
+prime-factors/prime_factors	chunk:01	feat:list_cons	list_cons
+protein-translation/protein_translation	chunk:01	feat:dcg	dcg if_then_else list_cons
+proverb/proverb	chunk:01	feat:format	format list_cons
+pythagorean-triplet/pythagorean_triplet	chunk:01	feat:between	between findall list_cons
+queen-attack/queen_attack	chunk:02	dir:queen-attack	
+raindrops/raindrops	chunk:01	feat:if_then_else	if_then_else
+rational-numbers/rational_numbers	chunk:01	feat:if_then_else	if_then_else
+resistor-color/resistor_color	chunk:02	dir:resistor-color	
+resistor-color-duo/resistor_color_duo	chunk:01	feat:list_cons	list_cons
+resistor-color-trio/resistor_color_trio	chunk:01	feat:format	format list_cons
+reverse-string/reverse_string	chunk:02	dir:reverse-string	
+rna-transcription/rna_transcription	chunk:01	feat:if_then_else	if_then_else list_cons
+robot-name/robot_name	chunk:02	dir:robot-name	
+robot-simulator/robot_simulator	chunk:02	dir:robot-simulator	
+roman-numerals/roman_numerals	chunk:01	feat:dcg	dcg if_then_else
+rotational-cipher/rotational_cipher	chunk:02	dir:rotational-cipher	
+run-length-encoding/run_length_encoding	chunk:01	feat:list_cons	list_cons
+saddle-points/saddle_points	core	core	between findall findall_with_var_goal
+satellite/satellite	chunk:01	feat:dcg	dcg if_then_else
+say/say	chunk:01	feat:format	between format
+scrabble-score/scrabble_score	chunk:02	dir:scrabble-score	
+secret-handshake/secret_handshake	chunk:01	feat:call	call
+series/series	chunk:01	feat:list_cons	list_cons
+sgf-parsing/sgf_parsing	chunk:01	feat:dcg	dcg if_then_else
+sieve/sieve	chunk:01	feat:if_then_else	if_then_else list_cons
+simple-cipher/simple_cipher	chunk:01	feat:call	call
+space-age/space_age	chunk:02	dir:space-age	
+spiral-matrix/spiral_matrix	core	core	if_then_else list_cons succ
+square-root/square_root	chunk:02	dir:square-root	
+state-of-tic-tac-toe/state_of_tic_tac_toe	chunk:01	feat:negation	if_then_else negation
+strain/strain	core	core	call if_then_else list_cons
+sublist/sublist	chunk:02	dir:sublist	
+sum-of-multiples/sum_of_multiples	chunk:01	feat:between	between findall
+triangle/triangle	chunk:01	feat:negation	list_cons negation
+twelve-days/twelve_days	chunk:01	feat:format	format
+two-bucket/two_bucket	chunk:01	feat:negation	list_cons negation
+two-fer/two_fer	chunk:02	dir:two-fer	
+wedding-woes/wedding_woes	chunk:02	dir:wedding-woes	
+word-count/word_count	core	core	dcg if_then_else list_cons negation
+wordy/wordy	core	core	dcg if_then_else list_cons throw
+yacht/yacht	chunk:02	dir:yacht	
+zebra-puzzle/zebra_puzzle	chunk:01	feat:list_cons	list_cons

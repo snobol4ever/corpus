@@ -1,0 +1,12 @@
+PASS sum_of_multiples:low_limit
+PASS sum_of_multiples:just_one_multiple
+PASS sum_of_multiples:a_few_multiples
+PASS sum_of_multiples:sum_more_multiples
+PASS sum_of_multiples:even_more_multiples
+PASS sum_of_multiples:new_factors
+PASS sum_of_multiples:sum_more_new_factors
+PASS sum_of_multiples:even_more_new_factors
+PASS sum_of_multiples:divisible_factor
+PASS sum_of_multiples:large_factors
+PASS sum_of_multiples:every_num
+PASS sum_of_multiples:no_factors

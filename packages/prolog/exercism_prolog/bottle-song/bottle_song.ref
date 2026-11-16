@@ -1,0 +1,7 @@
+PASS bottle_song:first_generic_verse
+PASS bottle_song:last_generic_verse
+PASS bottle_song:verse_with_2_bottles
+PASS bottle_song:verse_with_1_bottle
+PASS bottle_song:first_two_verses
+PASS bottle_song:last_three_verses
+PASS bottle_song:all_verses

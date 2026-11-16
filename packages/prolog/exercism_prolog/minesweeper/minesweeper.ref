@@ -1,0 +1,12 @@
+PASS minesweeper:no_rows
+PASS minesweeper:no_columns
+PASS minesweeper:no_mines
+PASS minesweeper:minefield_with_only_mines
+PASS minesweeper:mine_surrounded_by_spaces
+PASS minesweeper:space_surrounded_by_mines
+PASS minesweeper:horizontal_line
+PASS minesweeper:horizontal_line_mines_at_edges
+PASS minesweeper:vertical_line
+PASS minesweeper:vertical_line_mines_at_edges
+PASS minesweeper:cross
+PASS minesweeper:large_minefield

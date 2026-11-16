@@ -1,0 +1,11 @@
+PASS pangram:empty_sentence
+PASS pangram:perfect_lower_case
+PASS pangram:only_lower_case
+PASS pangram:missing_the_letter_x
+PASS pangram:missing_the_letter_h
+PASS pangram:with_underscores
+PASS pangram:with_numbers
+PASS pangram:missing_letters_replaced_by_numbers
+PASS pangram:mixed_case_and_punctuation
+PASS pangram:case_insensitive
+PASS pangram:a_m_and_upper_a_m_are_26_different_characters_but_not_a_pangram

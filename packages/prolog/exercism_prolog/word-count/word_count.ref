@@ -1,0 +1,14 @@
+PASS word_count:count_one_word
+PASS word_count:count_one_of_each_word
+PASS word_count:multiple_occurrences_of_a_word
+PASS word_count:handles_cramped_lists
+PASS word_count:handles_expanded_lists
+PASS word_count:ignore_punctuation
+PASS word_count:include_numbers
+PASS word_count:normalize_case
+PASS word_count:with_apostrophes
+PASS word_count:with_quotations
+PASS word_count:substrings_from_the_beginning
+PASS word_count:multiple_spaces_not_detected_as_a_word
+PASS word_count:alternating_word_separators_not_detected_as_a_word
+PASS word_count:quotation_for_word_with_apostrophe

@@ -1,0 +1,11 @@
+PASS scrabble_score:lowercase_letter
+PASS scrabble_score:uppercase_letter
+PASS scrabble_score:valuable_letter
+PASS scrabble_score:short_word
+PASS scrabble_score:short_valuable_word
+PASS scrabble_score:medium_word
+PASS scrabble_score:medium_valuable_word
+PASS scrabble_score:long_mixed_case_word
+PASS scrabble_score:english_like_word
+PASS scrabble_score:empty_input
+PASS scrabble_score:entire_alphabet_available

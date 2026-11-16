@@ -1,0 +1,4 @@
+PASS magic_square:magic_square_order_3
+PASS magic_square:magic_square_order_4
+PASS magic_square:magic_square_order_9
+PASS magic_square:invalid_magic_square

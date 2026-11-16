@@ -1,0 +1,7 @@
+PASS reverse_string:an_empty_string
+PASS reverse_string:a_word
+PASS reverse_string:a_capitalized_word
+PASS reverse_string:a_sentence_with_punctuation
+PASS reverse_string:a_palindrome
+PASS reverse_string:an_even_sized_word
+PASS reverse_string:wide_character

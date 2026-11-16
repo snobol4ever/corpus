@@ -1,0 +1,4 @@
+PASS gigasecond:date_only_specification_of_time
+PASS gigasecond:second_test_for_date_only_specification_of_time
+PASS gigasecond:third_test_for_date_only_specification_of_time
+PASS gigasecond:full_time_specified

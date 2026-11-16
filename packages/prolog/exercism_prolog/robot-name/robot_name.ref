@@ -1,0 +1,4 @@
+PASS robot_name:has_name
+PASS robot_name:name_sticks
+PASS robot_name:different_robots_have_different_names
+PASS robot_name:reset_name

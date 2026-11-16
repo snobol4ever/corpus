@@ -1,0 +1,6 @@
+PASS square_root:root_of_1
+PASS square_root:root_of_4
+PASS square_root:root_of_25
+PASS square_root:root_of_81
+PASS square_root:root_of_196
+PASS square_root:root_of_65025

@@ -1,0 +1,77 @@
+% killer_sudoku_helper.pl -- the exercism Prolog exercise killer-sudoku-helper, OURS as a file (exercism_cut.py, the grader 2026-11-15): its model solution .meta/killer_sudoku_helper.example.pl, then its tests killer_sudoku_helper_tests.plt, as exercism's runner loads the two; the first pending clause reads true, as --all makes it.
+combination(1, [H|_], [H]).
+combination(N, [H|T], [H|C]) :-
+    N1 is N - 1,
+    N1 > 0,
+    combination(N1, T, C).
+combination(N, [_|T], C) :- combination(N, T, C).
+
+combination_with_sum(Size, Sum, Digits, Combination) :-
+    combination(Size, Digits, Combination),
+    sum_list(Combination, Sum).
+
+combinations(Size, Sum, Exclude, Combinations) :-
+    subtract([1,2,3,4,5,6,7,8,9], Exclude, RemainingDigits),
+    findall(Combination, combination_with_sum(Size, Sum, RemainingDigits, Combination), Combinations).
+
+pending :-
+    true.
+pending :-
+    write('\nA TEST IS PENDING!\n'),
+    fail.
+
+:- begin_tests(killer_sudoku_helper).
+
+    test(trivial_1_digit_cages_1, condition(true)) :-
+        combinations(1, 1, [], Combinations),
+        Combinations == [[1]].
+
+    test(trivial_1_digit_cages_2, condition(pending)) :-
+        combinations(1, 2, [], Combinations),
+        Combinations == [[2]].
+
+    test(trivial_1_digit_cages_3, condition(pending)) :-
+        combinations(1, 3, [], Combinations),
+        Combinations == [[3]].
+
+    test(trivial_1_digit_cages_4, condition(pending)) :-
+        combinations(1, 4, [], Combinations),
+        Combinations == [[4]].
+
+    test(trivial_1_digit_cages_5, condition(pending)) :-
+        combinations(1, 5, [], Combinations),
+        Combinations == [[5]].
+
+    test(trivial_1_digit_cages_6, condition(pending)) :-
+        combinations(1, 6, [], Combinations),
+        Combinations == [[6]].
+
+    test(trivial_1_digit_cages_7, condition(pending)) :-
+        combinations(1, 7, [], Combinations),
+        Combinations == [[7]].
+
+    test(trivial_1_digit_cages_8, condition(pending)) :-
+        combinations(1, 8, [], Combinations),
+        Combinations == [[8]].
+
+    test(trivial_1_digit_cages_9, condition(pending)) :-
+        combinations(1, 9, [], Combinations),
+        Combinations == [[9]].
+
+    test(cage_with_sum_45_contains_all_digits_1_9, condition(pending)) :-
+        combinations(9, 45, [], Combinations),
+        Combinations == [[1, 2, 3, 4, 5, 6, 7, 8, 9]].
+
+    test(cage_with_only_1_possible_combination, condition(pending)) :-
+        combinations(3, 7, [], Combinations),
+        Combinations == [[1, 2, 4]].
+
+    test(cage_with_several_combinations, condition(pending)) :-
+        combinations(2, 10, [], Combinations),
+        Combinations == [[1, 9], [2, 8], [3, 7], [4, 6]].
+
+    test(cage_with_several_combinations_that_is_restricted, condition(pending)) :-
+        combinations(2, 10, [1, 4], Combinations),
+        Combinations == [[2, 8], [3, 7]].
+
+:- end_tests(killer_sudoku_helper).

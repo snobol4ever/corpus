@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- the run contract of exercism_prolog, read by util_build_package_suite.py and corpus_suite_harness.py: key<TAB>value<TAB>evidence.
+units	plunit	each exercise is one plunit case file (its model solution, then its tests, exercism_cut.py) graded per case against swipl 9.0.4's verdicts beside it (E.ref), through the plunit shim of swi_tests, as that package is graded (CIO-21)

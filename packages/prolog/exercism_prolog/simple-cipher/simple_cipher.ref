@@ -1,0 +1,12 @@
+PASS simple_cipher:can_encode
+PASS simple_cipher:can_double_shift_encode
+PASS simple_cipher:can_wrap_on_encode
+PASS simple_cipher:can_encode_messages_longer_than_the_key
+PASS simple_cipher:can_decode
+PASS simple_cipher:can_wrap_on_decode
+PASS simple_cipher:can_decode_messages_longer_than_the_key
+PASS simple_cipher:is_reversible
+PASS simple_cipher:can_encode_using_generated_key
+PASS simple_cipher:can_decode_using_generated_key
+PASS simple_cipher:is_reversible_using_generated_key
+PASS simple_cipher:key_is_made_only_of_lowercase_letters

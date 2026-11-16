@@ -1,0 +1,3 @@
+PASS binary_puzzle:puzzle_4x4
+PASS binary_puzzle:puzzle_6x6
+PASS binary_puzzle:puzzle_12x12

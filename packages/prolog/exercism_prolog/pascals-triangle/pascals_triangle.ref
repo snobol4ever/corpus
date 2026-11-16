@@ -1,0 +1,8 @@
+PASS pascal:zero_rows
+PASS pascal:single_row
+PASS pascal:two_rows
+PASS pascal:three_rows
+PASS pascal:four_rows
+PASS pascal:five_rows
+PASS pascal:six_rows
+PASS pascal:ten_rows

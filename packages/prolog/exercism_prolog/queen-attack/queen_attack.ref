@@ -1,0 +1,14 @@
+PASS create_tests:create_in_center
+PASS create_tests:valid_position
+PASS create_tests:must_have_positive_row
+PASS create_tests:row_smaller_than_board_size
+PASS create_tests:must_have_positive_column
+PASS create_tests:column_smaller_than_board_size
+PASS attack_tests:cant_attack
+PASS attack_tests:attack_on_same_row
+PASS attack_tests:attack_same_column
+PASS attack_tests:attack_first_diagonal
+PASS attack_tests:attack_second_diagonal
+PASS attack_tests:attack_third_diagonal
+PASS attack_tests:attack_fourth_diagonal
+PASS attack_tests:cannot_attack_reflected_diagonals

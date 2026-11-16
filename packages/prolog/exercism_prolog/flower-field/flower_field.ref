@@ -1,0 +1,12 @@
+PASS flower_field:no_rows
+PASS flower_field:no_columns
+PASS flower_field:no_flowers
+PASS flower_field:garden_full_of_flowers
+PASS flower_field:flower_surrounded_by_spaces
+PASS flower_field:space_surrounded_by_flowers
+PASS flower_field:horizontal_line
+PASS flower_field:horizontal_line_flowers_at_edges
+PASS flower_field:vertical_line
+PASS flower_field:vertical_line_flowers_at_edges
+PASS flower_field:cross
+PASS flower_field:large_garden

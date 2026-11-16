@@ -1,0 +1,5 @@
+PASS nth_prime:first_prime
+PASS nth_prime:second_prime
+PASS nth_prime:sixth_prime
+PASS nth_prime:big_prime
+PASS nth_prime:there_is_no_zeroth_prime

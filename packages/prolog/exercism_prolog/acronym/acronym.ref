@@ -1,0 +1,9 @@
+PASS acronym:basic
+PASS acronym:lowercase_words
+PASS acronym:punctuation
+PASS acronym:all_caps_word
+PASS acronym:punctuation_without_whitespace
+PASS acronym:very_long_abbreviation
+PASS acronym:consecutive_delimiters
+PASS acronym:apostrophes
+PASS acronym:underscore_emphasis

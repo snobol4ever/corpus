@@ -1,0 +1,15 @@
+PASS hamming:identical_strands
+PASS hamming:long_identical_strands
+PASS hamming:complete_distance_in_single_nucleotide_strands
+PASS hamming:complete_distance_in_small_strands
+PASS hamming:small_distance_in_small_strands
+PASS hamming:small_distance
+PASS hamming:small_distance_in_long_strands
+PASS hamming:nonunique_character_in_first_strand
+PASS hamming:nonunique_character_in_second_strand
+PASS hamming:same_nucleotides_in_different_positions
+PASS hamming:large_distance
+PASS hamming:large_distance_in_offbyone_strand
+PASS hamming:empty_strands
+PASS hamming:disallow_first_strand_longer
+PASS hamming:disallow_second_strand_longer

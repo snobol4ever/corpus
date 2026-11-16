@@ -1,0 +1,13 @@
+PASS can_chain:empty_input_empty_output
+PASS can_chain:singleton_input_singleton_output
+PASS can_chain:singleton_that_cant_be_chained
+PASS can_chain:three_elements
+PASS can_chain:can_reverse_dominoes
+PASS can_chain:cant_be_chained
+PASS can_chain:disconnected_simple
+PASS can_chain:disconnected_double_loop
+PASS can_chain:disconnected_single_isolated
+PASS can_chain:three_loops
+PASS can_chain:need_backtrack
+PASS can_chain:separate_loops
+PASS can_chain:nine_elements
