@@ -51348,3 +51348,630 @@ m
 14:A
 *-------------------------------------- 491 test_gate_zeta_no_arena__defer_probe
 abc
+*------------- 492 test_gate_demos_suite_grades_each_demo_in_both_modes__chained
+
+
+
+test_gate_demos_suite_grades_each_demo_in_both_modes__chained.sno(1) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              test_gate_demos_suite_grades_each_demo_in_both_modes__chained.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11272
+memory left (bytes)  1037296
+*-------------------- 493 test_gate_errlimit_survival_is_measured_per_code__e038
+BEFORE
+
+
+
+test_gate_errlimit_survival_is_measured_per_code__e038.sno(2) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              test_gate_errlimit_survival_is_measured_per_code__e038.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11888
+memory left (bytes)  1036680
+*-------------------- 494 test_gate_errlimit_survival_is_measured_per_code__e242
+BEFORE
+
+
+
+test_gate_errlimit_survival_is_measured_per_code__e242.sno(2) : ERROR 242 -- function return from level zero
+
+
+
+
+
+in file              test_gate_errlimit_survival_is_measured_per_code__e242.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11976
+memory left (bytes)  1036592
+*------ 495 test_gate_harness_renders_a_spitbol_fatal_into_stdout__fatal_witness
+before
+
+
+
+test_gate_harness_renders_a_spitbol_fatal_into_stdout__fatal_witness.sno(3) : ERROR 014 -- division caused integer overf
+low
+
+
+
+
+
+in file              test_gate_harness_renders_a_spitbol_fatal_into_stdout__fatal_witness.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11512
+memory left (bytes)  1037056
+*- 496 test_gate_harness_renders_a_spitbol_fatal_into_stdout__silent_fatal_witness
+
+
+
+test_gate_harness_renders_a_spitbol_fatal_into_stdout__silent_fatal_witness.sno(2) : ERROR 014 -- division caused intege
+r overflow
+
+
+
+
+
+in file              test_gate_harness_renders_a_spitbol_fatal_into_stdout__silent_fatal_witness.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11344
+memory left (bytes)  1037224
+*- 497 test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__s
+before
+
+
+
+test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__s.sno(4) : ERROR 014 -- division caused inte
+ger overflow
+
+
+
+
+
+in file              test_gate_int64_min_divided_by_minus_one_dies_of_no_signal_in_any_frontend__s.sno
+in line              4
+in statement         4
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11688
+memory left (bytes)  1036880
+*- 498 test_gate_sno_a_break_of_one_or_two_characters_scans_a_word_at_a_time__slopeN
+
+
+
+test_gate_sno_a_break_of_one_or_two_characters_scans_a_word_at_a_time__slopeN.sno(6) : ERROR 239 -- indirection operand 
+is not name
+
+
+
+
+
+in file              test_gate_sno_a_break_of_one_or_two_characters_scans_a_word_at_a_time__slopeN.sno
+in line              6
+in statement         6
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12024
+memory left (bytes)  1036544
+*- 499 test_gate_sno_a_call_through_an_opsyn_alias_is_the_functions_own_call__tr_tn
+
+
+
+test_gate_sno_a_call_through_an_opsyn_alias_is_the_functions_own_call__tr_tn.sno(5) : ERROR 198 -- trace first argument 
+is not appropriate name
+
+
+
+
+
+in file              test_gate_sno_a_call_through_an_opsyn_alias_is_the_functions_own_call__tr_tn.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12400
+memory left (bytes)  1036168
+*--- 500 test_gate_sno_a_define_inside_a_code_fragment_defines_the_function__ctl
+before
+
+
+
+test_gate_sno_a_define_inside_a_code_fragment_defines_the_function__ctl.sno(7) : ERROR 248 -- attempted redefinition of 
+system function
+
+
+
+
+
+in file              test_gate_sno_a_define_inside_a_code_fragment_defines_the_function__ctl.sno
+in line              7
+in statement         7
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16352
+memory left (bytes)  1032216
+*- 501 test_gate_sno_a_unary_and_a_binary_opsyn_of_one_operator_are_two_functions__ctl
+before
+
+
+
+test_gate_sno_a_unary_and_a_binary_opsyn_of_one_operator_are_two_functions__ctl.sno(6) : ERROR 029 -- undefined operator
+ referenced
+
+
+
+
+
+in file              test_gate_sno_a_unary_and_a_binary_opsyn_of_one_operator_are_two_functions__ctl.sno
+in line              6
+in statement         6
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12192
+memory left (bytes)  1036376
+*---------------- 502 test_gate_sno_by_name_paths_find_once_dollar_apply_eval__u
+
+
+
+test_gate_sno_by_name_paths_find_once_dollar_apply_eval__u.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              test_gate_sno_by_name_paths_find_once_dollar_apply_eval__u.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11368
+memory left (bytes)  1037200
+*--------------------------------------- 503 test_gate_sno_data_protect_mode4__w
+
+
+
+test_gate_sno_data_protect_mode4__w.sno(1) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              test_gate_sno_data_protect_mode4__w.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11440
+memory left (bytes)  1037128
+*--- 504 test_gate_sno_every_unused_operator_opsyn_names_calls_its_function__ctl
+before
+
+
+
+test_gate_sno_every_unused_operator_opsyn_names_calls_its_function__ctl.sno(2) : ERROR 029 -- undefined operator referen
+ced
+
+
+
+
+
+in file              test_gate_sno_every_unused_operator_opsyn_names_calls_its_function__ctl.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11480
+memory left (bytes)  1037088
+*----------------------------- 505 test_gate_sno_goto_field_call_is_by_name__val
+go
+
+
+
+test_gate_sno_goto_field_call_is_by_name__val.sno(3) : ERROR 021 -- function called by name returned a value
+
+
+
+
+
+in file              test_gate_sno_goto_field_call_is_by_name__val.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11680
+memory left (bytes)  1036888
+*----------------------- 506 test_gate_sno_goto_with_no_preceding_error__g_abort
+a
+
+
+
+test_gate_sno_goto_with_no_preceding_error__g_abort.sno(1) : ERROR 036 -- goto abort with no preceding error
+
+
+
+
+
+in file              test_gate_sno_goto_with_no_preceding_error__g_abort.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11272
+memory left (bytes)  1037296
+*-------------------- 507 test_gate_sno_goto_with_no_preceding_error__g_continue
+a
+
+
+
+test_gate_sno_goto_with_no_preceding_error__g_continue.sno(1) : ERROR 037 -- goto continue with no preceding error
+
+
+
+
+
+in file              test_gate_sno_goto_with_no_preceding_error__g_continue.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11280
+memory left (bytes)  1037288
+*------------------- 508 test_gate_sno_goto_with_no_preceding_error__g_scontinue
+a
+
+
+
+test_gate_sno_goto_with_no_preceding_error__g_scontinue.sno(1) : ERROR 321 -- goto scontinue with no preceding error
+
+
+
+
+
+in file              test_gate_sno_goto_with_no_preceding_error__g_scontinue.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11280
+memory left (bytes)  1037288
+*- 509 test_gate_sno_host_4_fails_when_the_variable_is_not_in_the_environment__e
+before
+
+
+
+test_gate_sno_host_4_fails_when_the_variable_is_not_in_the_environment__e.sno(2) : ERROR 254 -- erroneous argument for h
+ost
+
+
+
+
+
+in file              test_gate_sno_host_4_fails_when_the_variable_is_not_in_the_environment__e.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11496
+memory left (bytes)  1037072
+*-------------- 510 test_gate_sno_keyword_spelling_is_case_sensitive__read_canon
+
+
+
+test_gate_sno_keyword_spelling_is_case_sensitive__read_canon.sno(1) : ERROR 251 -- keyword operand is not name of define
+d keyword
+
+
+
+
+
+in file              test_gate_sno_keyword_spelling_is_case_sensitive__read_canon.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11376
+memory left (bytes)  1037192
+*------------- 511 test_gate_sno_keyword_spelling_is_case_sensitive__read_folded
+
+
+
+test_gate_sno_keyword_spelling_is_case_sensitive__read_folded.sno(1) : ERROR 251 -- keyword operand is not name of defin
+ed keyword
+
+
+
+
+
+in file              test_gate_sno_keyword_spelling_is_case_sensitive__read_folded.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11416
+memory left (bytes)  1037152
+*-------------- 512 test_gate_sno_keyword_spelling_is_case_sensitive__read_mixed
+
+
+
+test_gate_sno_keyword_spelling_is_case_sensitive__read_mixed.sno(1) : ERROR 251 -- keyword operand is not name of define
+d keyword
+
+
+
+
+
+in file              test_gate_sno_keyword_spelling_is_case_sensitive__read_mixed.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11408
+memory left (bytes)  1037160
+*--------------- 513 test_gate_sno_keyword_spelling_is_case_sensitive__udc_mixed
+
+
+
+test_gate_sno_keyword_spelling_is_case_sensitive__udc_mixed.sno(1) : ERROR 251 -- keyword operand is not name of defined
+ keyword
+
+
+
+
+
+in file              test_gate_sno_keyword_spelling_is_case_sensitive__udc_mixed.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11520
+memory left (bytes)  1037048
+*------------ 514 test_gate_sno_keyword_spelling_is_case_sensitive__write_anchor
+
+
+
+test_gate_sno_keyword_spelling_is_case_sensitive__write_anchor.sno(1) : ERROR 251 -- keyword operand is not name of defi
+ned keyword
+
+
+
+
+
+in file              test_gate_sno_keyword_spelling_is_case_sensitive__write_anchor.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11384
+memory left (bytes)  1037184
+*------------ 515 test_gate_sno_keyword_spelling_is_case_sensitive__write_folded
+
+
+
+test_gate_sno_keyword_spelling_is_case_sensitive__write_folded.sno(1) : ERROR 251 -- keyword operand is not name of defi
+ned keyword
+
+
+
+
+
+in file              test_gate_sno_keyword_spelling_is_case_sensitive__write_folded.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11408
+memory left (bytes)  1037160
+*- 516 test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k1
+
+
+
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k1.sno(4) : ERROR 014 -- division caused int
+eger overflow
+
+
+
+
+
+in file              test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k1.sno
+in line              4
+in statement         4
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  19896
+memory left (bytes)  1028672
+*- 517 test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k2
+
+
+
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k2.sno(3) : ERROR 014 -- division caused int
+eger overflow
+
+
+
+
+
+in file              test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k2.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15872
+memory left (bytes)  1032696
+*- 518 test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k3
+
+
+
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k3.sno(3) : ERROR 014 -- division caused int
+eger overflow
+
+
+
+
+
+in file              test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k3.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15520
+memory left (bytes)  1033048
+*- 519 test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k4
+
+
+
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k4.sno(2) : ERROR 014 -- division caused int
+eger overflow
+
+
+
+
+
+in file              test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k4.sno
+in line              2
+in statement         2
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  20192
+memory left (bytes)  1028376
+*- 520 test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k5
+
+
+
+test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k5.sno(3) : ERROR 014 -- division caused int
+eger overflow
+
+
+
+
+
+in file              test_gate_sno_mode_4_fatal_error_names_its_line_after_a_kept_runtime_chain__k5.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15624
+memory left (bytes)  1032944
+*-------------------- 521 test_gate_sno_rewind_on_an_unopened_unit_raises_174__w
+
+
+
+test_gate_sno_rewind_on_an_unopened_unit_raises_174__w.sno(2) : ERROR 174 -- rewind file does not exist
+
+
+
+
+
+in file              test_gate_sno_rewind_on_an_unopened_unit_raises_174__w.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11416
+memory left (bytes)  1037152
+*----------------- 522 test_gate_sno_set_positions_a_file_as_spitbol_does__probe
+
+
+
+test_gate_sno_set_positions_a_file_as_spitbol_does__probe.sno(2) : ERROR 295 -- set file does not exist
+
+
+
+
+
+in file              test_gate_sno_set_positions_a_file_as_spitbol_does__probe.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12704
+memory left (bytes)  1035864
+*- 523 test_gate_sno_value_is_restored_and_diag1_test1_grade_under_their_mask_rows__va
+
+
+
+test_gate_sno_value_is_restored_and_diag1_test1_grade_under_their_mask_rows__va.sno(2) : ERROR 022 -- undefined function
+ called
+
+
+
+
+
+in file              test_gate_sno_value_is_restored_and_diag1_test1_grade_under_their_mask_rows__va.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11720
+memory left (bytes)  1036848
+*--------------------- 524 test_gate_the_default_stack_and_heap_are_spitbols__dd
+
+
+
+test_gate_the_default_stack_and_heap_are_spitbols__dd.sno(5) : ERROR 239 -- indirection operand is not name
+
+
+
+
+
+in file              test_gate_the_default_stack_and_heap_are_spitbols__dd.sno
+in line              5
+in statement         5
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11752
+memory left (bytes)  1036816
