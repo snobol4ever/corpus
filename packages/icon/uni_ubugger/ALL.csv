@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,stderr,out_files
+1,src/ubugger,src/ubugger.icn,uni_ubugger__src/ubugger,uni_ubugger,94,0,262144,8192,60,--dialect=unicon,merged,hello_dbg.icn

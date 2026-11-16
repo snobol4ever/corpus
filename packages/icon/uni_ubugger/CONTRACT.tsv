@@ -1,0 +1,5 @@
+# CONTRACT.tsv -- the run contract of uni_ubugger, read by corpus_suite_harness.py: key<TAB>value<TAB>evidence.
+oracle	unicon	the answer is cut from the Unicon translator through unicon_bin() (skill unicon R2): ubugger built by unicon as its README says (unicon ubugger.icn)
+unmarked_compile_args	--dialect=unicon	CTO-473: ubugger is a Unicon program (the source says unicon/icon, and the oracle is unicon)
+ipath	../../ipl/procs	ubugger links strings of the Icon program library (replace), semicolon-ready in the sibling ipl; the path is from src/, the program's folder
+stderr	merged	the answer was cut with stderr merged into stdout

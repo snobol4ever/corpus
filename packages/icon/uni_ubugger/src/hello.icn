@@ -1,0 +1,12 @@
+# hello.icn -- OURS (the grader 2026-11-16): a small program for ubugger to rewrite into hello_dbg.icn, with one #xxx breakpoint
+procedure main()
+    local i, total
+    total := 0
+    every i := 1 to 3 do {
+        total +:= i   #xxx
+        write("line ", i)
+    }
+    if total > 5 then
+        write("total ", total)
+    write("done")
+end
