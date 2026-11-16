@@ -1,0 +1,26 @@
+# CONVERSION-PROOF.tsv -- icon_problems: each Icon file, converted IN PLACE under /home/resources/icon-demos/gh-nobodywasishere-icon-problems, and what the stock Arizona translator (icont 9.5.25a with newline insertion) says
+# of the original (the repository's HEAD) against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (the grader 2026-11-15; util_icon_semicolons.py, never tracked)
+file	verdict	semicolons_added
+ch1/1-1.icn	same-code	7
+ch2/2-1.icn	same-code	3
+ch2/2-2.icn	same-code	4
+ch2/2-3.icn	same-code	3
+ch2/2-4.icn	same-code	2
+ch2/2-5.icn	same-code	5
+ch2/2-6.icn	same-code	2
+ch2/2-7.icn	same-code	2
+ch2/2-8.icn	same-code	4
+ch3/3-1.icn	same-code	3
+ch3/3-2.icn	same-code	3
+ch3/3-3.icn	same-code	2
+ch3/3-4.icn	same-code	4
+ch3/3-5.icn	same-code	2
+ch3/3-6.icn	same-code	3
+ch4/4-1.icn	same-code	3
+ch4/4-2.icn	same-code	1
+ch4/4-3.icn	same-code	6
+ch4/4-4.icn	same-code	4
+ch4/4-5.icn	same-code	36
+ch4/4-6.icn	same-code	18
+ch4/4-7.icn	same-code	8
+ch4/4-8.icn	same-code	4

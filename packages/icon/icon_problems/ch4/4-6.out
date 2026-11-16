@@ -1,0 +1,10 @@
+     lb      |      oz      |      kg      |     gram    
+---------------------------------------------------------
+
+Run-time error 211
+File 4-6.icn; Line 42
+by value equal to zero
+offending value: 0
+Traceback:
+main()
+{1 to 10 by 0.25} from line 42 in 4-6.icn
