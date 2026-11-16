@@ -1,10 +1,10 @@
-rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files
-1,ged/ged,ged/ged.icn,ipl_gpacks__ged/ged,ipl_gpacks,153,0,131072,4096,600,,screen.dump t.txt
-2,vib/vib,vib/vib.icn,ipl_gpacks__vib/vib,ipl_gpacks,318,0,131072,4096,600,,screen.dump app.icn
-3,weaving/mtrxedit,weaving/mtrxedit.icn,ipl_gpacks__weaving/mtrxedit,ipl_gpacks,822,0,131072,4096,600,,screen.dump t.tie
-4,weaving/weaver,weaving/weaver.icn,ipl_gpacks__weaving/weaver,ipl_gpacks,520,0,131072,4096,120,,screen.dump
-5,weaving/drawing,weaving/drawing.icn,ipl_gpacks__weaving/drawing,ipl_gpacks,463,0,131072,4096,120,,screen.dump
-6,htetris/htetris,htetris/htetris.icn,ipl_gpacks__htetris/htetris,ipl_gpacks,1783,0,131072,4096,600,,screen.dump
-7,tiger/tgrmap,tiger/tgrmap.icn,ipl_gpacks__tiger/tgrmap,ipl_gpacks,978,0,131072,4096,600,,screen.dump t.lch
-8,drawtree/drawtree,drawtree/drawtree.icn,ipl_gpacks__drawtree/drawtree,ipl_gpacks,866,0,131072,4096,600,,screen.dump
-9,carpets/carport,carpets/carport.icn,ipl_gpacks__carpets/carport,ipl_gpacks,1156,0,131072,4096,600,,screen.dump t.defs
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files,fixtures
+1,ged/ged,ged/ged.icn,ipl_gpacks__ged/ged,ipl_gpacks,153,0,131072,4096,600,,screen.dump t.txt,
+2,vib/vib,vib/vib.icn,ipl_gpacks__vib/vib,ipl_gpacks,318,0,131072,4096,600,,screen.dump app.icn,
+3,weaving/mtrxedit,weaving/mtrxedit.icn,ipl_gpacks__weaving/mtrxedit,ipl_gpacks,822,0,131072,4096,600,,screen.dump t.tie,
+4,weaving/weaver,weaving/weaver.icn,ipl_gpacks__weaving/weaver,ipl_gpacks,520,0,131072,4096,120,,screen.dump,
+5,weaving/drawing,weaving/drawing.icn,ipl_gpacks__weaving/drawing,ipl_gpacks,463,0,131072,4096,120,,screen.dump,
+6,htetris/htetris,htetris/htetris.icn,ipl_gpacks__htetris/htetris,ipl_gpacks,1783,0,131072,4096,600,,screen.dump,folder
+7,tiger/tgrmap,tiger/tgrmap.icn,ipl_gpacks__tiger/tgrmap,ipl_gpacks,978,0,131072,4096,600,,screen.dump t.lch,folder
+8,drawtree/drawtree,drawtree/drawtree.icn,ipl_gpacks__drawtree/drawtree,ipl_gpacks,866,0,131072,4096,600,,screen.dump,folder
+9,carpets/carport,carpets/carport.icn,ipl_gpacks__carpets/carport,ipl_gpacks,1156,0,131072,4096,600,,screen.dump t.defs,
