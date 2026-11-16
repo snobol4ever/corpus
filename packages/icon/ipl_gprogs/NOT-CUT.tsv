@@ -9,3 +9,9 @@ patfetch	never touches the window facility: its linked icode names none of the 4
 rows2blp	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/rows2blp of the ipl package, where it was never excluded
 unitgenr	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/unitgenr of the ipl package, where it was never excluded
 wif2isd	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/wif2isd of the ipl package, where it was never excluded
+dd2draft	plain program graded in ipl as gprogs/dd2draft
+ddextend	plain program graded in ipl as gprogs/ddextend
+painterc	plain program graded in ipl as gprogs/painterc
+pgmtoims	plain program graded in ipl as gprogs/pgmtoims
+webimage	plain program graded in ipl as gprogs/webimage
+xbm2pat	plain program graded in ipl as gprogs/xbm2pat

@@ -71,3 +71,9 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 70,viewpane,viewpane.icn,ipl_gprogs__viewpane,ipl_gprogs,195,0,131072,4096,120,,screen.dump,
 71,wevents,wevents.icn,ipl_gprogs__wevents,ipl_gprogs,140,0,131072,4096,120,,screen.dump,
 72,xgamma,xgamma.icn,ipl_gprogs__xgamma,ipl_gprogs,133,0,131072,4096,300,,screen.dump,
+73,iview,iview.icn,ipl_gprogs__iview,ipl_gprogs,63,0,131072,4096,300,,screen.dump
+74,imgtolst,imgtolst.icn,ipl_gprogs__imgtolst,ipl_gprogs,57,0,131072,4096,120,,cat.xpm.lst
+75,rstarlab,rstarlab.icn,ipl_gprogs__rstarlab,ipl_gprogs,64,0,131072,4096,300,,screen.dump
+76,imstogif,imstogif.icn,ipl_gprogs__imstogif,ipl_gprogs,66,0,131072,4096,120,,t.gif
+77,zoomtile,zoomtile.icn,ipl_gprogs__zoomtile,ipl_gprogs,70,0,131072,4096,120,,t_zoom.gif
+78,striper,striper.icn,ipl_gprogs__striper,ipl_gprogs,87,0,131072,4096,120,,stripes_001.gif stripes_002.gif

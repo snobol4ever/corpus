@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=72 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=64 chunks=2 sizes=60,9
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=78 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=70 chunks=1 sizes=75
 entry	part	cluster	shells
 bme	chunk:01	family:bme	
 breakout	chunk:01	family:breakout	
@@ -65,12 +65,18 @@ snapper	chunk:01	family:snapper
 spiral	chunk:01	family:spiral	
 spiro	chunk:01	family:spiro	
 spokes	chunk:01	family:spokes	
-sym4mm	chunk:02	family:symmm	
-symdraw	chunk:02	family:symdraw	
-testpatt	chunk:02	family:testpatt	
-textures	chunk:02	family:textures	
-tilescan	chunk:02	family:tilescan	
-travels	chunk:02	family:travels	
-viewpane	chunk:02	family:viewpane	
-wevents	chunk:02	family:wevents	
-xgamma	chunk:02	family:xgamma	
+sym4mm	chunk:01	family:symmm	
+symdraw	chunk:01	family:symdraw	
+testpatt	chunk:01	family:testpatt	
+textures	chunk:01	family:textures	
+tilescan	chunk:01	family:tilescan	
+travels	chunk:01	family:travels	
+viewpane	chunk:01	family:viewpane	
+wevents	chunk:01	family:wevents	
+xgamma	chunk:01	family:xgamma	
+iview	chunk:01	family:iview	
+imgtolst	chunk:01	family:imgtolst	
+rstarlab	chunk:01	family:rstarlab	
+imstogif	chunk:01	family:imstogif	
+zoomtile	chunk:01	family:zoomtile	
+striper	chunk:01	family:striper	

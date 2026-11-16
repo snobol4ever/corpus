@@ -1,3 +1,9 @@
 colrname	rgb.txt
 giftoims	babbage.gif
 imgcolrs	babbage.gif
+iview	cat.xpm	plaid.xpm
+imgtolst	cat.xpm
+rstarlab	300
+imstogif	t.ims
+zoomtile	-z	4	-g	t.blp
+striper	-d	b	cat.xpm
