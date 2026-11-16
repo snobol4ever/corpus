@@ -28,6 +28,14 @@
 132  incorrect external type
 133  invalid external value
 134  malformed external value
+140  window expected
+141  program terminated by window manager
+142  attempt to read/write on closed window
+143  malformed event queue
+144  window system error
+145  bad window attribute
+146  incorrect number of arguments to drawing function
+147  window attribute cannot be read or written as requested
 201  division by zero
 202  remaindering by zero
 203  integer overflow
