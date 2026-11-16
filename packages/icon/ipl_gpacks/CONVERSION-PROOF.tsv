@@ -35,3 +35,12 @@ htetris/help.icn	SAME-CODE	44
 htetris/matrix.icn	SAME-CODE	75
 htetris/movement.icn	SAME-CODE	68
 tiger/tgrmap.icn	SAME-CODE	407
+drawtree/drawtree.icn	SAME-CODE	328
+drawtree/clr_list.icn	SAME-CODE	44
+drawtree/draw_rec.icn	SAME-CODE	90
+drawtree/draw_box.icn	SAME-CODE	65
+drawtree/draw_sqr.icn	SAME-CODE	115
+drawtree/draw_crc.icn	SAME-CODE	84
+drawtree/data.icn	SAME-CODE	141
+drawtree/info.icn	UNCHANGED	0
+drawtree/record.icn	UNCHANGED	0

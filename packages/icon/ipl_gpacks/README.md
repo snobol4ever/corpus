@@ -63,8 +63,15 @@ lines then `t.lch` (`out_files` screen.dump t.lch; 900 bytes, the map with the p
 of `/home/resources/icon-master-x`. LEFT OUT: P writes PostScript stamped with `&dateline`, and M a PPM of 2 MB. The dialogs stand black on the
 oracle's display, as in the opening picture.
 
+THE DRAWTREE ROW: `drawtree/drawtree`, the tree-drawing tool of Icon 9.5.25a `ipl/gpacks/drawtree`, a vib interface over its six modules and two
+includes (`ipath drawtree`); its answer is its opening picture (`out_files` screen.dump). Converted by officer_06 2026-11-16, every file SAME-CODE or
+needing none: `clr_list`, `draw_box` and `data` by `util_icon_semicolons.py`, `drawtree`, `draw_crc`, `draw_rec` and
+`draw_sqr` by the stock newline rule (the converter put a `;` after the macro `Win_Size` at lines 12, 13 and 22 of draw_rec, and after `START`
+at draw_sqr line 191, where it then split `+:=`); `info.icn` and `record.icn` need none. MEASURED: built by `/home/resources/icon-master-x` it shows
+the stock build's picture twice, md5 a9e4eb51.
+
 NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
-it waits on the road passing an entry's env to the program alone); carpets and drawtree follow, one corpus patch a pack; the rest of weaving is batch
+it waits on the road passing an entry's env to the program alone); carpets follows, one corpus patch a pack; the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
 and a pinned clock, so both are left out.
 
