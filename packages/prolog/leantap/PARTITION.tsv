@@ -1,0 +1,52 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=48 features=5 ubiquitous=5(package write nl if_then_else directive) distinctive=0 core=2 clusters=2 chunks=1 sizes=46
+entry	part	cluster	shells
+fml_overbeek1	core	core	
+fml_overbeek2	chunk:01	family:fml_overbeek	
+fml_pel1	core	core	
+fml_pel10	chunk:01	family:fml_pel	
+fml_pel11	chunk:01	family:fml_pel	
+fml_pel12	chunk:01	family:fml_pel	
+fml_pel13	chunk:01	family:fml_pel	
+fml_pel14	chunk:01	family:fml_pel	
+fml_pel15	chunk:01	family:fml_pel	
+fml_pel16	chunk:01	family:fml_pel	
+fml_pel17	chunk:01	family:fml_pel	
+fml_pel18	chunk:01	family:fml_pel	
+fml_pel19	chunk:01	family:fml_pel	
+fml_pel2	chunk:01	family:fml_pel	
+fml_pel20	chunk:01	family:fml_pel	
+fml_pel21	chunk:01	family:fml_pel	
+fml_pel22	chunk:01	family:fml_pel	
+fml_pel23	chunk:01	family:fml_pel	
+fml_pel24	chunk:01	family:fml_pel	
+fml_pel25	chunk:01	family:fml_pel	
+fml_pel26	chunk:01	family:fml_pel	
+fml_pel27	chunk:01	family:fml_pel	
+fml_pel28	chunk:01	family:fml_pel	
+fml_pel29	chunk:01	family:fml_pel	
+fml_pel3	chunk:01	family:fml_pel	
+fml_pel30	chunk:01	family:fml_pel	
+fml_pel31	chunk:01	family:fml_pel	
+fml_pel32	chunk:01	family:fml_pel	
+fml_pel33	chunk:01	family:fml_pel	
+fml_pel34	chunk:01	family:fml_pel	
+fml_pel35	chunk:01	family:fml_pel	
+fml_pel36	chunk:01	family:fml_pel	
+fml_pel37	chunk:01	family:fml_pel	
+fml_pel38	chunk:01	family:fml_pel	
+fml_pel39	chunk:01	family:fml_pel	
+fml_pel4	chunk:01	family:fml_pel	
+fml_pel40	chunk:01	family:fml_pel	
+fml_pel41	chunk:01	family:fml_pel	
+fml_pel42	chunk:01	family:fml_pel	
+fml_pel43	chunk:01	family:fml_pel	
+fml_pel44	chunk:01	family:fml_pel	
+fml_pel45	chunk:01	family:fml_pel	
+fml_pel46	chunk:01	family:fml_pel	
+fml_pel5	chunk:01	family:fml_pel	
+fml_pel6	chunk:01	family:fml_pel	
+fml_pel7	chunk:01	family:fml_pel	
+fml_pel8	chunk:01	family:fml_pel	
+fml_pel9	chunk:01	family:fml_pel	

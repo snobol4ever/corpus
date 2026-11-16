@@ -1,0 +1,3 @@
+# EXCLUDED.tsv -- leantap: the test formulas this package does not grade, one row a driver: name<TAB>CLASS<TAB>evidence (the grader 2026-11-15)
+fml_overbeek4	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (util_build_package_suite.py --twice, TIMEOUT=60)
+fml_pel47	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (util_build_package_suite.py --twice, TIMEOUT=60)
