@@ -958,6 +958,7 @@ igrep
 	istring
 	istring_radix
    globals
+		potential global conflict: Pattern
 
 iheader
    locals
@@ -1331,6 +1332,7 @@ krieg
 	yrmessage
 	yrtry
    globals
+		potential global conflict: Bg
 
 kross
    locals

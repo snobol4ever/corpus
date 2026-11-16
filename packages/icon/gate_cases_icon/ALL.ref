@@ -50622,6 +50622,54 @@ badfield-lv 207
 4 6 3
 6 f9 1
 #------------------ 133 test_gate_icn_function_builtin_names_dispatchable__arity
+Active 0
+Alert -1
+Bg -1
+Clip -1
+Clone -1
+Color -1
+ColorValue -1
+CopyArea -1
+Couple 2
+DrawArc -1
+DrawCircle -1
+DrawCurve -1
+DrawImage -1
+DrawLine -1
+DrawPoint -1
+DrawPolygon -1
+DrawRectangle -1
+DrawSegment -1
+DrawString -1
+EraseArea -1
+Event -1
+Fg -1
+FillArc -1
+FillCircle -1
+FillPolygon -1
+FillRectangle -1
+Font -1
+FreeColor -1
+GotoRC -1
+GotoXY -1
+Lower -1
+NewColor -1
+PaletteChars -1
+PaletteColor -1
+PaletteKey -1
+Pattern -1
+Pending -1
+Pixel -1
+QueryPointer 1
+Raise -1
+ReadImage -1
+TextWidth -1
+Uncouple 1
+WAttrib -1
+WDefault -1
+WFlush -1
+WSync 1
+WriteImage -1
 abs 1
 acos 1
 any 4
@@ -50674,7 +50722,7 @@ member 2
 move 1
 name 1
 numeric 1
-open 2
+open -3
 ord 1
 pop 1
 pos 1
@@ -50714,6 +50762,54 @@ where 1
 write -1
 writes -1
 #--------------------- 134 test_gate_icn_function_builtin_names_dispatchable__fn
+Active
+Alert
+Bg
+Clip
+Clone
+Color
+ColorValue
+CopyArea
+Couple
+DrawArc
+DrawCircle
+DrawCurve
+DrawImage
+DrawLine
+DrawPoint
+DrawPolygon
+DrawRectangle
+DrawSegment
+DrawString
+EraseArea
+Event
+Fg
+FillArc
+FillCircle
+FillPolygon
+FillRectangle
+Font
+FreeColor
+GotoRC
+GotoXY
+Lower
+NewColor
+PaletteChars
+PaletteColor
+PaletteKey
+Pattern
+Pending
+Pixel
+QueryPointer
+Raise
+ReadImage
+TextWidth
+Uncouple
+WAttrib
+WDefault
+WFlush
+WSync
+WriteImage
 abs
 acos
 any
@@ -50806,7 +50902,7 @@ where
 write
 writes
 #------------------ 135 test_gate_icn_function_builtin_names_dispatchable__typed
-names=91
+names=139
 #-------------------- 136 test_gate_icn_function_builtin_names_dispatchable__usr
 MINE
 #--------------------- 137 test_gate_icn_generator_exhaustion_traces_failed__gen

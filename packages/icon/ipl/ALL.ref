@@ -10850,6 +10850,7 @@ igrep
 	istring
 	istring_radix
    globals
+		potential global conflict: Pattern
 
 iheader
    locals
@@ -11223,6 +11224,7 @@ krieg
 	yrmessage
 	yrtry
    globals
+		potential global conflict: Bg
 
 kross
    locals
@@ -12968,6 +12970,54 @@ one
 procedure _func(a[]); _func:=proc("proc",0); proc:=_proc; return _func!a; end
 procedure _proc(a[]); static p; initial p:=_func("proc",0); suspend p!a; end
 
+procedure Active(a[]); static p; initial p:=_func("Active",0); suspend p!a; end
+procedure Alert(a[]); static p; initial p:=_func("Alert",0); suspend p!a; end
+procedure Bg(a[]); static p; initial p:=_func("Bg",0); suspend p!a; end
+procedure Clip(a[]); static p; initial p:=_func("Clip",0); suspend p!a; end
+procedure Clone(a[]); static p; initial p:=_func("Clone",0); suspend p!a; end
+procedure Color(a[]); static p; initial p:=_func("Color",0); suspend p!a; end
+procedure ColorValue(a[]); static p; initial p:=_func("ColorValue",0); suspend p!a; end
+procedure CopyArea(a[]); static p; initial p:=_func("CopyArea",0); suspend p!a; end
+procedure Couple(a[]); static p; initial p:=_func("Couple",0); suspend p!a; end
+procedure DrawArc(a[]); static p; initial p:=_func("DrawArc",0); suspend p!a; end
+procedure DrawCircle(a[]); static p; initial p:=_func("DrawCircle",0); suspend p!a; end
+procedure DrawCurve(a[]); static p; initial p:=_func("DrawCurve",0); suspend p!a; end
+procedure DrawImage(a[]); static p; initial p:=_func("DrawImage",0); suspend p!a; end
+procedure DrawLine(a[]); static p; initial p:=_func("DrawLine",0); suspend p!a; end
+procedure DrawPoint(a[]); static p; initial p:=_func("DrawPoint",0); suspend p!a; end
+procedure DrawPolygon(a[]); static p; initial p:=_func("DrawPolygon",0); suspend p!a; end
+procedure DrawRectangle(a[]); static p; initial p:=_func("DrawRectangle",0); suspend p!a; end
+procedure DrawSegment(a[]); static p; initial p:=_func("DrawSegment",0); suspend p!a; end
+procedure DrawString(a[]); static p; initial p:=_func("DrawString",0); suspend p!a; end
+procedure EraseArea(a[]); static p; initial p:=_func("EraseArea",0); suspend p!a; end
+procedure Event(a[]); static p; initial p:=_func("Event",0); suspend p!a; end
+procedure Fg(a[]); static p; initial p:=_func("Fg",0); suspend p!a; end
+procedure FillArc(a[]); static p; initial p:=_func("FillArc",0); suspend p!a; end
+procedure FillCircle(a[]); static p; initial p:=_func("FillCircle",0); suspend p!a; end
+procedure FillPolygon(a[]); static p; initial p:=_func("FillPolygon",0); suspend p!a; end
+procedure FillRectangle(a[]); static p; initial p:=_func("FillRectangle",0); suspend p!a; end
+procedure Font(a[]); static p; initial p:=_func("Font",0); suspend p!a; end
+procedure FreeColor(a[]); static p; initial p:=_func("FreeColor",0); suspend p!a; end
+procedure GotoRC(a[]); static p; initial p:=_func("GotoRC",0); suspend p!a; end
+procedure GotoXY(a[]); static p; initial p:=_func("GotoXY",0); suspend p!a; end
+procedure Lower(a[]); static p; initial p:=_func("Lower",0); suspend p!a; end
+procedure NewColor(a[]); static p; initial p:=_func("NewColor",0); suspend p!a; end
+procedure PaletteChars(a[]); static p; initial p:=_func("PaletteChars",0); suspend p!a; end
+procedure PaletteColor(a[]); static p; initial p:=_func("PaletteColor",0); suspend p!a; end
+procedure PaletteKey(a[]); static p; initial p:=_func("PaletteKey",0); suspend p!a; end
+procedure Pattern(a[]); static p; initial p:=_func("Pattern",0); suspend p!a; end
+procedure Pending(a[]); static p; initial p:=_func("Pending",0); suspend p!a; end
+procedure Pixel(a[]); static p; initial p:=_func("Pixel",0); suspend p!a; end
+procedure QueryPointer(a[]); static p; initial p:=_func("QueryPointer",0); suspend p!a; end
+procedure Raise(a[]); static p; initial p:=_func("Raise",0); suspend p!a; end
+procedure ReadImage(a[]); static p; initial p:=_func("ReadImage",0); suspend p!a; end
+procedure TextWidth(a[]); static p; initial p:=_func("TextWidth",0); suspend p!a; end
+procedure Uncouple(a[]); static p; initial p:=_func("Uncouple",0); suspend p!a; end
+procedure WAttrib(a[]); static p; initial p:=_func("WAttrib",0); suspend p!a; end
+procedure WDefault(a[]); static p; initial p:=_func("WDefault",0); suspend p!a; end
+procedure WFlush(a[]); static p; initial p:=_func("WFlush",0); suspend p!a; end
+procedure WSync(a[]); static p; initial p:=_func("WSync",0); suspend p!a; end
+procedure WriteImage(a[]); static p; initial p:=_func("WriteImage",0); suspend p!a; end
 procedure abs(a[]); static p; initial p:=_func("abs",0); suspend p!a; end
 procedure acos(a[]); static p; initial p:=_func("acos",0); suspend p!a; end
 procedure any(a[]); static p; initial p:=_func("any",0); suspend p!a; end
@@ -13900,6 +13950,294 @@ one two three four five;
 #------------------------------------------------------------- 431 progs/idxtext
 <<out_files: xt_basetxt.IDX was not written>>
 #------------------------------------------------------------ 432 progs/ifncsgen
+procedure active()
+   static __fnc_Active
+   initial __fnc_Active := proc("Active", 0)
+   suspend __fnc_Active()
+end
+
+procedure alert(a[])
+   static __fnc_Alert
+   initial __fnc_Alert := proc("Alert", 0)
+   suspend __fnc_Alert ! a
+end
+
+procedure bg(a[])
+   static __fnc_Bg
+   initial __fnc_Bg := proc("Bg", 0)
+   suspend __fnc_Bg ! a
+end
+
+procedure clip(a[])
+   static __fnc_Clip
+   initial __fnc_Clip := proc("Clip", 0)
+   suspend __fnc_Clip ! a
+end
+
+procedure clone(a[])
+   static __fnc_Clone
+   initial __fnc_Clone := proc("Clone", 0)
+   suspend __fnc_Clone ! a
+end
+
+procedure color(a[])
+   static __fnc_Color
+   initial __fnc_Color := proc("Color", 0)
+   suspend __fnc_Color ! a
+end
+
+procedure colorValue(a[])
+   static __fnc_ColorValue
+   initial __fnc_ColorValue := proc("ColorValue", 0)
+   suspend __fnc_ColorValue ! a
+end
+
+procedure copyArea(a[])
+   static __fnc_CopyArea
+   initial __fnc_CopyArea := proc("CopyArea", 0)
+   suspend __fnc_CopyArea ! a
+end
+
+procedure couple(a1, a2)
+   static __fnc_Couple
+   initial __fnc_Couple := proc("Couple", 0)
+   suspend __fnc_Couple(a1, a2)
+end
+
+procedure drawArc(a[])
+   static __fnc_DrawArc
+   initial __fnc_DrawArc := proc("DrawArc", 0)
+   suspend __fnc_DrawArc ! a
+end
+
+procedure drawCircle(a[])
+   static __fnc_DrawCircle
+   initial __fnc_DrawCircle := proc("DrawCircle", 0)
+   suspend __fnc_DrawCircle ! a
+end
+
+procedure drawCurve(a[])
+   static __fnc_DrawCurve
+   initial __fnc_DrawCurve := proc("DrawCurve", 0)
+   suspend __fnc_DrawCurve ! a
+end
+
+procedure drawImage(a[])
+   static __fnc_DrawImage
+   initial __fnc_DrawImage := proc("DrawImage", 0)
+   suspend __fnc_DrawImage ! a
+end
+
+procedure drawLine(a[])
+   static __fnc_DrawLine
+   initial __fnc_DrawLine := proc("DrawLine", 0)
+   suspend __fnc_DrawLine ! a
+end
+
+procedure drawPoint(a[])
+   static __fnc_DrawPoint
+   initial __fnc_DrawPoint := proc("DrawPoint", 0)
+   suspend __fnc_DrawPoint ! a
+end
+
+procedure drawPolygon(a[])
+   static __fnc_DrawPolygon
+   initial __fnc_DrawPolygon := proc("DrawPolygon", 0)
+   suspend __fnc_DrawPolygon ! a
+end
+
+procedure drawRectangle(a[])
+   static __fnc_DrawRectangle
+   initial __fnc_DrawRectangle := proc("DrawRectangle", 0)
+   suspend __fnc_DrawRectangle ! a
+end
+
+procedure drawSegment(a[])
+   static __fnc_DrawSegment
+   initial __fnc_DrawSegment := proc("DrawSegment", 0)
+   suspend __fnc_DrawSegment ! a
+end
+
+procedure drawString(a[])
+   static __fnc_DrawString
+   initial __fnc_DrawString := proc("DrawString", 0)
+   suspend __fnc_DrawString ! a
+end
+
+procedure eraseArea(a[])
+   static __fnc_EraseArea
+   initial __fnc_EraseArea := proc("EraseArea", 0)
+   suspend __fnc_EraseArea ! a
+end
+
+procedure event(a[])
+   static __fnc_Event
+   initial __fnc_Event := proc("Event", 0)
+   suspend __fnc_Event ! a
+end
+
+procedure fg(a[])
+   static __fnc_Fg
+   initial __fnc_Fg := proc("Fg", 0)
+   suspend __fnc_Fg ! a
+end
+
+procedure fillArc(a[])
+   static __fnc_FillArc
+   initial __fnc_FillArc := proc("FillArc", 0)
+   suspend __fnc_FillArc ! a
+end
+
+procedure fillCircle(a[])
+   static __fnc_FillCircle
+   initial __fnc_FillCircle := proc("FillCircle", 0)
+   suspend __fnc_FillCircle ! a
+end
+
+procedure fillPolygon(a[])
+   static __fnc_FillPolygon
+   initial __fnc_FillPolygon := proc("FillPolygon", 0)
+   suspend __fnc_FillPolygon ! a
+end
+
+procedure fillRectangle(a[])
+   static __fnc_FillRectangle
+   initial __fnc_FillRectangle := proc("FillRectangle", 0)
+   suspend __fnc_FillRectangle ! a
+end
+
+procedure font(a[])
+   static __fnc_Font
+   initial __fnc_Font := proc("Font", 0)
+   suspend __fnc_Font ! a
+end
+
+procedure freeColor(a[])
+   static __fnc_FreeColor
+   initial __fnc_FreeColor := proc("FreeColor", 0)
+   suspend __fnc_FreeColor ! a
+end
+
+procedure gotoRC(a[])
+   static __fnc_GotoRC
+   initial __fnc_GotoRC := proc("GotoRC", 0)
+   suspend __fnc_GotoRC ! a
+end
+
+procedure gotoXY(a[])
+   static __fnc_GotoXY
+   initial __fnc_GotoXY := proc("GotoXY", 0)
+   suspend __fnc_GotoXY ! a
+end
+
+procedure lower(a[])
+   static __fnc_Lower
+   initial __fnc_Lower := proc("Lower", 0)
+   suspend __fnc_Lower ! a
+end
+
+procedure newColor(a[])
+   static __fnc_NewColor
+   initial __fnc_NewColor := proc("NewColor", 0)
+   suspend __fnc_NewColor ! a
+end
+
+procedure paletteChars(a[])
+   static __fnc_PaletteChars
+   initial __fnc_PaletteChars := proc("PaletteChars", 0)
+   suspend __fnc_PaletteChars ! a
+end
+
+procedure paletteColor(a[])
+   static __fnc_PaletteColor
+   initial __fnc_PaletteColor := proc("PaletteColor", 0)
+   suspend __fnc_PaletteColor ! a
+end
+
+procedure paletteKey(a[])
+   static __fnc_PaletteKey
+   initial __fnc_PaletteKey := proc("PaletteKey", 0)
+   suspend __fnc_PaletteKey ! a
+end
+
+procedure pattern(a[])
+   static __fnc_Pattern
+   initial __fnc_Pattern := proc("Pattern", 0)
+   suspend __fnc_Pattern ! a
+end
+
+procedure pending(a[])
+   static __fnc_Pending
+   initial __fnc_Pending := proc("Pending", 0)
+   suspend __fnc_Pending ! a
+end
+
+procedure pixel(a[])
+   static __fnc_Pixel
+   initial __fnc_Pixel := proc("Pixel", 0)
+   suspend __fnc_Pixel ! a
+end
+
+procedure queryPointer(a1)
+   static __fnc_QueryPointer
+   initial __fnc_QueryPointer := proc("QueryPointer", 0)
+   suspend __fnc_QueryPointer(a1)
+end
+
+procedure raise(a[])
+   static __fnc_Raise
+   initial __fnc_Raise := proc("Raise", 0)
+   suspend __fnc_Raise ! a
+end
+
+procedure readImage(a[])
+   static __fnc_ReadImage
+   initial __fnc_ReadImage := proc("ReadImage", 0)
+   suspend __fnc_ReadImage ! a
+end
+
+procedure textWidth(a[])
+   static __fnc_TextWidth
+   initial __fnc_TextWidth := proc("TextWidth", 0)
+   suspend __fnc_TextWidth ! a
+end
+
+procedure uncouple(a1)
+   static __fnc_Uncouple
+   initial __fnc_Uncouple := proc("Uncouple", 0)
+   suspend __fnc_Uncouple(a1)
+end
+
+procedure wAttrib(a[])
+   static __fnc_WAttrib
+   initial __fnc_WAttrib := proc("WAttrib", 0)
+   suspend __fnc_WAttrib ! a
+end
+
+procedure wDefault(a[])
+   static __fnc_WDefault
+   initial __fnc_WDefault := proc("WDefault", 0)
+   suspend __fnc_WDefault ! a
+end
+
+procedure wFlush(a[])
+   static __fnc_WFlush
+   initial __fnc_WFlush := proc("WFlush", 0)
+   suspend __fnc_WFlush ! a
+end
+
+procedure wSync(a1)
+   static __fnc_WSync
+   initial __fnc_WSync := proc("WSync", 0)
+   suspend __fnc_WSync(a1)
+end
+
+procedure writeImage(a[])
+   static __fnc_WriteImage
+   initial __fnc_WriteImage := proc("WriteImage", 0)
+   suspend __fnc_WriteImage ! a
+end
+
 procedure Abs(a1)
    static __fnc_abs
    initial __fnc_abs := proc("abs", 0)
@@ -14212,10 +14550,10 @@ procedure Numeric(a1)
    suspend __fnc_numeric(a1)
 end
 
-procedure Open(a1, a2)
+procedure Open(a[])
    static __fnc_open
    initial __fnc_open := proc("open", 0)
-   suspend __fnc_open(a1, a2)
+   suspend __fnc_open ! a
 end
 
 procedure Ord(a1)

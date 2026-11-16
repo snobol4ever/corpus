@@ -15293,13 +15293,13 @@ end
 ```
 
 ```stdout
-abs
-acos
-any
+Active
+Alert
+Bg
 same count
 function function
-abs
-acos
+Active
+Alert
 ```
 
 ## ladder__rung29_builtins_proc_finds_a_linked_record_constructor
