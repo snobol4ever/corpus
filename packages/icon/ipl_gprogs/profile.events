@@ -1,0 +1,9 @@
+# profile, the scrolling histogram: reads number [colour] lines from standard input (profile.in, 150 values of two sines, a colour change every
+# 25: red, blue, dark green); it starts paused, so the pause button is pressed to let the data flow; at the end of the stream it asks
+# End of stream. with Quit, Snapshot and Hold, and Return (Quit, the default) ends the program by itself
+move 49 51
+press 1
+release 1
+wait
+move 325 150
+key Return
