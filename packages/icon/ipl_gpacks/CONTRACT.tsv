@@ -4,3 +4,4 @@ lpath	../ipl/gincl	the graphics $include files (keysyms.icn, vdefns.icn and kin)
 lpath	../ipl/incl	the basic $include files of the library, in the sibling ipl
 ipath	ged	ged links textedit and control, the modules beside it in its pack
 ipath	vib	vib links its fifteen modules beside it (the link lines of vib.icn) and includes vibdefn.icn there
+ipath	weaving	weaver and drawing link weavutil, tieutils and cells, the modules beside them in their pack; all three include weavdefs.icn there

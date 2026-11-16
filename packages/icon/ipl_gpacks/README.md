@@ -22,8 +22,19 @@ names `PAL_H` and `VFWidth`, mid-line); `vibedit.icn` and `vibslidr.icn`, which 
 `/home/resources/icon-master-x`, the converted vib answers the cqo's script twice with the same 14 lines and the same `app.icn` (2,012 bytes,
 md5 dd98570a) as the stock build `/home/resources/icon-stock-x/bin/vib`; `vib/vib.out` is that answer.
 
+THE WEAVING ROWS: three programs of Icon 9.5.25a `ipl/gpacks/weaving` that edit a weaving in a window over the vidgets, each answered by its opening
+picture (`out_files` screen.dump; no event script yet): `weaving/mtrxedit`, Ralph E. Griswold's editor of binary arrays for tie-ups and liftplans
+(822 lines; it links the library alone), and `weaving/weaver` and `weaving/drawing`, his weaving-draft editors (drawing a version of weaver that
+outputs the drawdown), which link `weavutil`, `tieutils` and `cells` beside them and include `weavdefs.icn` (`ipath weaving`). Converted by officer_06
+2026-11-16: `cells.icn` by `util_icon_semicolons.py`; the other five by the stock translator's newline rule, `mtrxedit.icn` because the converter does
+not finish it (a `;` placed after the macro names `SymmetXoff` and `IconSize` at line 242, then appended there for ever); `weavdefs.icn` needs none.
+Every file SAME-CODE (`CONVERSION-PROOF.tsv`). MEASURED: built by `/home/resources/icon-master-x` each shows the stock build's own picture twice
+(mtrxedit 8dc6025b, weaver b7163130, drawing 101a2c95); `weaving/NAME.out` is that answer.
+
 NOT YET HERE, MEASURED 2026-11-16: `htetris` and `xtiles`, the games (the converter cannot read `help.icn`'s Latin-1 byte and does not end on
-`htetris.icn`; `xtiles.icn` and its smileys are left unconverted); carpets, drawtree, tiger and weaving, not tried (weaving's `mtrxedit` follows).
+`htetris.icn`; `xtiles.icn` and its smileys are left unconverted); carpets, drawtree and tiger follow, one corpus patch a pack; the rest of weaving is batch
+tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
+and a pinned clock, so both are left out.
 
 THE FIRST SCRIP READING: SCRIP has no window function, so the row reads `screen none` until the window design of 2026-11-10 is built (skill
 icon, reference.md section 9).

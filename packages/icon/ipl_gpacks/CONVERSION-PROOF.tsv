@@ -20,3 +20,10 @@ vib/vibslidr.icn	SAME-CODE	73
 vib/vibtalk.icn	SAME-CODE	63
 vib/vibtext.icn	SAME-CODE	60
 vib/vibdefn.icn	UNCHANGED	0
+weaving/mtrxedit.icn	SAME-CODE	308
+weaving/weaver.icn	SAME-CODE	171
+weaving/drawing.icn	SAME-CODE	158
+weaving/weavutil.icn	SAME-CODE	87
+weaving/tieutils.icn	SAME-CODE	61
+weaving/cells.icn	SAME-CODE	49
+weaving/weavdefs.icn	UNCHANGED	0
