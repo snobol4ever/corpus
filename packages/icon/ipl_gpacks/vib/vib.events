@@ -1,0 +1,48 @@
+# vib, the visual interface builder of the stock oracle (/home/resources/icon-stock-x/bin/vib), started on a new file:
+# argument 1 app.icn
+# Three objects are made by pressing a palette icon and dragging onto the canvas (a button, a label, a rectangle); the button's dialog is opened
+# with the right button, its label typed over and its style set to check; the focused object is moved with the arrow keys; it is copied from the
+# Edit menu; the canvas is made smaller by dragging its sizer; the interface is saved from the File menu into app.icn; quit from the File menu.
+drag 1 25 43 150 150
+wait
+drag 1 408 43 300 150
+wait
+drag 1 360 43 150 250
+wait
+# the right button on the push button: its dialog, the label selected
+click 3 155 155
+wait
+type Go
+click 1 282 240
+wait
+key Return
+wait
+key Right
+key Right
+key Right
+key Down
+key Down
+wait
+# the Edit menu held open, then its item copy
+move 65 11
+press 1
+wait
+move 80 30
+release 1
+wait
+# the sizer at the canvas corner dragged inward
+drag 1 597 462 500 400
+wait
+# the File menu, item save
+move 20 11
+press 1
+wait
+move 30 60
+release 1
+wait
+# the File menu, item quit
+move 20 11
+press 1
+wait
+move 30 120
+release 1

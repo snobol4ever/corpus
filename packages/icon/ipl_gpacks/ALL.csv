@@ -1,2 +1,3 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files
-1,ged/ged,ged/ged.icn,ipl_gpacks__ged/ged,ipl_gpacks,153,0,131072,4096,600,,screen.dump t.txt
+1,ged/ged,ged/ged.icn,ipl_gpacks__ged/ged,ipl_gpacks,153,0,131072,4096,120,,screen.dump
+2,vib/vib,vib/vib.icn,ipl_gpacks__vib/vib,ipl_gpacks,318,0,131072,4096,600,,screen.dump app.icn

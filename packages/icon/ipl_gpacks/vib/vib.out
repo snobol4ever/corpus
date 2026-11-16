@@ -1,0 +1,91 @@
+screen 1024x768 md5 2e2c9dfedce53b7e3fc4a832c4a94fd9
+screen 1024x768 md5 0d8a4ab68c46ca4b96b153d3871ec1ed
+screen 1024x768 md5 5977ac51850aa63986f1d7b147446b7a
+screen 1024x768 md5 8e5888f3347dd6934f90d1173d0fb983
+screen 1024x768 md5 2bb5f3971ac6f3d8073cffa7ac2798a6
+screen 1024x768 md5 1a44e6ded1da9adb1ce07f5b31e4c5a3
+screen 1024x768 md5 c344319efe9e747756479830fbeea278
+screen 1024x768 md5 41d02d5352a3ce1f5669141ba3ea0064
+screen 1024x768 md5 3ff2bf141b517933d2b1b22858186fa0
+screen 1024x768 md5 1b69a640cd466439608d248ad89b8967
+screen 1024x768 md5 f1b24e8109f62e4347d3b3b268096396
+screen 1024x768 md5 c2f646a2c9b7b3f43bf9c05dc3184a16
+screen 1024x768 md5 f1b24e8109f62e4347d3b3b268096396
+screen 1024x768 md5 c2f646a2c9b7b3f43bf9c05dc3184a16
+############################################################################
+#
+#	File:     app.icn
+#
+#	Subject:  Program to ...
+#
+#	Author:   
+#
+#	Date:     November 16, 2026
+#
+############################################################################
+#
+#
+#
+############################################################################
+#
+#  Requires:
+#
+############################################################################
+#
+#  Links: vsetup
+#
+############################################################################
+
+#  This vib interface specification is a working program that responds
+#  to vidget events by printing messages.  Use a text editor to replace
+#  this skeletal program with your own code.  Retain the vib section at
+#  the end and use vib to make any changes to the interface.
+
+link vsetup
+
+procedure main(args)
+   local vidgets, root, paused
+
+   (WOpen ! ui_atts()) | stop("can't open window")
+   vidgets := ui()				# set up vidgets
+   root := vidgets["root"]
+
+   paused := 1					# flag no work to do
+   repeat {
+      # handle any events that are available, or
+      # wait for events if there is no other work to do
+      while (*Pending() > 0) | \paused do {
+         ProcessEvent(root, QuitCheck)
+         }
+      # if <paused> is set null, code can be added here
+      # to perform useful work between checks for input
+      }
+end
+
+procedure button_cb1(vidget, value)
+   return
+end
+
+procedure button_cb2(vidget, value)
+   return
+end
+
+procedure region_cb1(vidget, e, x, y)
+   return
+end
+
+#===<<vib:begin>>===	modify using vib; do not remove this marker line
+procedure ui_atts()
+   return ["size=499,335", "bg=pale gray"]
+end
+
+procedure ui(win, cbk)
+return vsetup(win, cbk,
+   [":Sizer:::0,0,499,335:",],
+   ["button1:Button:check::152,83,41,20:Go",button_cb1],
+   ["button2:Button:check::162,93,41,20:Go",button_cb2],
+   ["label1:Label:::299,81,35,13:Label",],
+   ["region1:Rect:grooved::149,181,32,20:",region_cb1],
+   )
+end
+#===<<vib:end>>===	end of section maintained by vib

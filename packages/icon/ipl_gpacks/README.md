@@ -11,12 +11,19 @@ screen for the reader. Cut from the graphics build of the oracle, `/home/resourc
 THE TEXT: the three files were given the semicolons SCRIP Icon requires by `util_icon_semicolons.py`, each proved same-code by the stock
 Arizona translator (`CONVERSION-PROOF.tsv`).
 
-NOT YET HERE, MEASURED 2026-11-16: `vib`, the interface builder (the converter changes the code of `vib.icn` and `vibtext.icn`, so both were put
-back and the pack cannot be built by the semicolon-required translator); `htetris` and `xtiles`, the games (the converter cannot read
-`help.icn`'s Latin-1 byte and does not end on `htetris.icn`; `xtiles.icn` and its smileys are left unconverted); carpets, drawtree, tiger and
-weaving, not tried.
+THE SECOND ROW: `vib`, the visual interface builder (Icon 9.5.25a `ipl/gpacks/vib`, its fifteen modules and the include `vibdefn.icn`), started as
+`vib app.icn` (`ALL.args`) on a new file and driven by the cqo's event script `vib/vib.events` (the screen road's scripted events): three objects
+made from the palette, a dialog filled in, an object moved and copied, the canvas resized, the interface saved from the File menu into `app.icn`,
+and quit. Its answer is the 14 screen lines and the saved `app.icn` (`out_files` screen.dump app.icn). Converted by officer_06 2026-11-16: twelve
+files by `util_icon_semicolons.py` as ged was; `vib.icn` and `vibtext.icn` by it with one hand fix each (it had put a semicolon after the macro
+names `PAL_H` and `VFWidth`, mid-line); `vibedit.icn` and `vibslidr.icn`, which it does not finish (their image strings continue across lines with
+`_`), by the stock translator's own newline rule (`;` where an Ender ends a line and a Beginner starts the next, the token flags of
+`src/common/lextab.h`); `vibglbl.icn` and `vibdefn.icn` need none. Every file is SAME-CODE (`CONVERSION-PROOF.tsv`). MEASURED: built by
+`/home/resources/icon-master-x`, the converted vib answers the cqo's script twice with the same 14 lines and the same `app.icn` (2,012 bytes,
+md5 dd98570a) as the stock build `/home/resources/icon-stock-x/bin/vib`; `vib/vib.out` is that answer.
+
+NOT YET HERE, MEASURED 2026-11-16: `htetris` and `xtiles`, the games (the converter cannot read `help.icn`'s Latin-1 byte and does not end on
+`htetris.icn`; `xtiles.icn` and its smileys are left unconverted); carpets, drawtree, tiger and weaving, not tried (weaving's `mtrxedit` follows).
 
 THE FIRST SCRIP READING: SCRIP has no window function, so the row reads `screen none` until the window design of 2026-11-10 is built (skill
 icon, reference.md section 9).
-
-THE EDITOR IS GRADED AS AN EDITOR (the cto, 2026-11-16, W6 at the head of its order beside bme): `ged/ged.events`, the cqo's script of clicks and keys, is played on its window; the answer is the screen line of every step, 20 in all, then `t.txt`, the file it saves (`out_files`), 3714 bytes, byte equal twice on the landed road under icon-master-x (`/home/resources/progress/icon-graphics-2026-11-16/editors`). The script never saves over `ged.icn`. timeout_s 600.

@@ -3,3 +3,4 @@ ipath	../ipl/procs	the basic procedures of the library that they link, semicolon
 lpath	../ipl/gincl	the graphics $include files (keysyms.icn, vdefns.icn and kin) of the library, in the sibling ipl
 lpath	../ipl/incl	the basic $include files of the library, in the sibling ipl
 ipath	ged	ged links textedit and control, the modules beside it in its pack
+ipath	vib	vib links its fifteen modules beside it (the link lines of vib.icn) and includes vibdefn.icn there
