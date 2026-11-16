@@ -1,0 +1,2 @@
+# sier2: draws its figure, then waits for one event (Event()); a click inside its window is that event and the program ends by itself, rc 0
+click 1 150 100

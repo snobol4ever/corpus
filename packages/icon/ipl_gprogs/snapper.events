@@ -1,0 +1,9 @@
+# snapper: its one window reads an image name typed into it, shows that image in a window of its own, and exits on a click in its own window.
+# Pointer into the window first (keys go to the window under the pointer). The name typed is no file, so the program writes its refusal
+# line in its window and waits for an event; a click there is a button press and the program exits by itself.
+move 40 10
+wait
+type nosuch.gif
+key Return
+wait
+click 1 40 10

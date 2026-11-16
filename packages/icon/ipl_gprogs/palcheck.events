@@ -1,0 +1,3 @@
+# palcheck: reads its standard input (palcheck.in, five lines, two of them no palindrome) and writes each line that is no palindrome in its
+# window with the first two letters that do not match in reverse video, then holds for one event; a click is that event and it ends, rc 0
+click 1 200 100
