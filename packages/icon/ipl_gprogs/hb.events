@@ -1,0 +1,10 @@
+# hb: a safe square beside the revealed rows visited, a bone beside it marked with the right button, r for a new game, then q (officer_07, row icon-graphics-the-unscripted-entries-of-ipl-gprogs-that-wait-do-their-own-work)
+click 1 80 60
+wait
+click 3 50 60
+wait
+move 100 100
+key r
+wait
+move 100 100
+key q

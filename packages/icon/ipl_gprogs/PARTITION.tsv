@@ -52,7 +52,7 @@ pme	chunk:01	family:pme
 procater	chunk:01	family:procater	
 profile	chunk:01	family:profile	
 profiler	chunk:01	family:profiler	
-prompt	chunk:02	family:prompt	
+prompt	chunk:01	family:prompt	
 rings	chunk:02	family:rings	
 rolypoly	chunk:02	family:rolypoly	
 selectle	chunk:02	family:selectle	
@@ -120,7 +120,7 @@ mandel3	chunk:01	family:mandel
 ipicker	chunk:01	family:ipicker	
 hb	chunk:01	family:hb	
 subdemo	chunk:02	family:subdemo	
-kaleid	chunk:01	family:kaleid	
+kaleid	core	core	want_rc
 colorwif	chunk:01	family:colorwif	
 bitdemo	chunk:01	family:bitdemo	
 wheel	chunk:02	family:wheel	
@@ -133,7 +133,7 @@ showcolr	chunk:02	family:showcolr
 tryfont	chunk:02	family:tryfont	
 isd2grid	chunk:01	family:isdgrid	
 colorup	chunk:01	family:colorup	
-fev	core	core	want_rc
+fev	chunk:02	feat:want_rc	want_rc
 hvc	chunk:01	family:hvc	
 gif2isd	chunk:01	feat:fixtures	fixtures
 isd2disd	chunk:01	feat:fixtures	fixtures

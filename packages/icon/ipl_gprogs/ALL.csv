@@ -117,7 +117,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 116,ipicker,ipicker.icn,ipl_gprogs__ipicker,ipl_gprogs,49,0,131072,4096,300,,screen.dump,
 117,hb,hb.icn,ipl_gprogs__hb,ipl_gprogs,334,0,131072,4096,300,,screen.dump,
 118,subdemo,subdemo.icn,ipl_gprogs__subdemo,ipl_gprogs,264,0,131072,4096,300,,screen.dump,
-119,kaleid,kaleid.icn,ipl_gprogs__kaleid,ipl_gprogs,382,0,131072,4096,300,,screen.dump,
+119,kaleid,kaleid.icn,ipl_gprogs__kaleid,ipl_gprogs,382,1,131072,4096,300,,screen.dump,
 120,colorwif,colorwif.icn,ipl_gprogs__colorwif,ipl_gprogs,232,0,131072,4096,300,,,
 121,bitdemo,bitdemo.icn,ipl_gprogs__bitdemo,ipl_gprogs,210,0,131072,4096,300,,screen.dump,
 122,wheel,wheel.icn,ipl_gprogs__wheel,ipl_gprogs,62,0,131072,4096,300,,screen.dump,

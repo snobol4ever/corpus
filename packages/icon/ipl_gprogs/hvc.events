@@ -1,0 +1,8 @@
+# hvc: the hue slider clicked high, the value slider low, the chroma slider dragged, then the QUIT button (officer_07, row icon-graphics-the-unscripted-entries-of-ipl-gprogs-that-wait-do-their-own-work)
+click 1 220 60
+wait
+click 1 250 200
+wait
+drag 1 280 180 280 80
+wait
+click 1 40 230

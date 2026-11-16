@@ -1,0 +1,12 @@
+# subdemo: the polygon design, the tiling, the radial tiling, each by its key, then q (officer_07, row icon-graphics-the-unscripted-entries-of-ipl-gprogs-that-wait-do-their-own-work)
+move 250 250
+key p
+wait
+move 250 250
+key t
+wait
+move 250 250
+key r
+wait
+move 250 250
+key q
