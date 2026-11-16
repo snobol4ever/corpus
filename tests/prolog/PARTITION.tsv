@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=740 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,3
+# shape: entries=741 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,4
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -246,7 +246,7 @@ simple_program_105	chunk:07	family:rung82_writeln
 streams__st01_process_create_resolution_and_wait	chunk:03	feat:catch	catch
 directive_80	chunk:07	family:rung74_dec10_io	
 directive_81	chunk:07	family:rung80_dec10_streams	
-streams__st02_process_pipes_three_ways	chunk:07	family:streams	
+streams__st02_process_pipes_three_ways	chunk:08	family:streams	
 directive_79	chunk:07	family:rung72_unget	
 directive_18	chunk:07	family:rung08_recursion_recursion	
 test_rung10_programs_puzzle_10	chunk:02	feat:unify	unify
@@ -620,7 +620,7 @@ catch_throw_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 findall_directive_replace_3	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 findall_directive_replace_5	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 module_import_table__mit_meta_call	chunk:05	feat:call	call findall unify writeq
-op_ite_format_1	core	core	format if_then_else op
+op_ite_format_1	chunk:07	feat:op	format if_then_else op
 resource__r03_string_overflow_caught	chunk:05	feat:format	catch format list_cons
 writeq_format_directive_2	chunk:05	feat:format	format unify writeq
 call_ite_directive_replace_1	chunk:05	feat:call	call if_then_else unify
@@ -714,6 +714,7 @@ one_engine__oe2_mono_once	chunk:06	feat:forall	assertz findall forall format uni
 one_engine__oe4_incr_reeval	chunk:06	feat:forall	assertz findall forall format unify
 ladder__rung10_assertz_retract_with_pending_choice_points_keeps_the_predicate_entry	chunk:05	feat:assert_then_retract	assert_then_retract assertz if_then_else retract unify
 one_engine__oe5_incr_wfs	chunk:06	feat:forall	assertz forall format if_then_else unify
+xpce__xpce_p_reader	core	core	forall if_then_else op unify writeq
 termops_directive_1	core	core	arg copy_term functor succ unify univ
 lifo__lifo_ite_throw_arms	chunk:04	feat:catch_with_throw	catch catch_with_throw cut if_then_else throw unify
 ladder__rung10_trim_queue_fill_and_drain	chunk:05	feat:assert_then_retract	assert_then_retract assertz between cut findall retract
