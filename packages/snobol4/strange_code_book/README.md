@@ -34,3 +34,7 @@ and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. TH
 
 4 program(s) of this package read standard input and none ships with it; each is fed `NAME.in`, beside its path in this folder, and every answer is still the oracle's (`sbl -bf`).
 OURS, written by the grader to exercise the program as its code reads (a few lines of text, numbers, a name, moves of a game, statements to run): `chapter_05/alice.sno`, `chapter_05/dates.sno`, `chapter_05/dates2.sno`, `chapter_05/menu.sno`.
+
+## Inputs 2026-11-16 01:xx CST (the grader)
+
+`chapter_05/input.sno` (asks for a name until it gets one) and `chapter_05/temperature.sno` (a menu that loops until `q`) read "never ends" with no input; each is fed an input of OURS, `NAME.in` beside it: a name, and the conversions 212 F and 100 C, then `q`. Out still: `hello2.sno` (an endless loop), `copy.sno` and `uppercase.sno` (they take two file names, by CSNOBOL4's HOST(2,n) numbering).
