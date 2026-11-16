@@ -1,0 +1,9 @@
+#  event_driver.icn -- the grading vehicle for gprocs/event.icn: its Event() overloads the built-in and plays the event history on standard input
+#  (event_driver.in, three lines an event) through evplay(); at the end of the history it exits. The window is passed: evplay(&null) appends a null to the queue (Pending with a null argument) and the oracle then ends with error 143.
+link event, wopen
+procedure main()
+   local e;
+   WOpen("size=100,100") | stop("no window");
+   while e := Event(&window) do write(image(e), " at ", &x, ",", &y);
+   write("not reached: Event() exits at the end of the history");
+end

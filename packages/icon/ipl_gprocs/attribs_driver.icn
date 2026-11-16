@@ -1,0 +1,8 @@
+#  attribs_driver.icn -- the grading vehicle for gprocs/attribs.icn: attribs() shows its dialog of the window's attributes; attribs_driver.events
+#  presses Return on it (Okay), and the attributes it set back are written.
+link attribs, wopen
+procedure main()
+   WOpen("size=400,420", "fg=blue", "linewidth=3") | stop("no window");
+   write("attribs: ", image(attribs()) | "failed");
+   write(Fg(), " ", Bg(), " ", WAttrib("linewidth"), " ", WAttrib("linestyle"), " ", WAttrib("fillstyle"));
+end

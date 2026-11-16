@@ -1,0 +1,6 @@
+rgbrec red: "65535" "0" "0"
+rgbrec bad failed
+rgbcomp failed
+rgbavg failed
+rgbsum failed
+rgbdif failed

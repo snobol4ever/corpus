@@ -1,0 +1,11 @@
+#  winsnap_driver.icn -- the grading vehicle for gprocs/winsnap.icn: winsnap() asks for a file name in its dialog; winsnap_driver.events types
+#  snap.gif and Return, and the image written is opened again and read back.
+link winsnap, wopen
+procedure main()
+   local w;
+   WOpen("size=300,200") | stop("no window");
+   Fg("blue"); FillRectangle(0, 0, 20, 20); Fg("black");
+   write("winsnap: ", image(winsnap(&window, 0, 0, 40, 30)) | "failed");
+   w := WOpen("canvas=hidden", "image=snap.gif") | stop("snap.gif was not written");
+   write(WAttrib(w, "width"), "x", WAttrib(w, "height"), " ", Pixel(w, 5, 5, 1, 1), " ", Pixel(w, 30, 25, 1, 1));
+end

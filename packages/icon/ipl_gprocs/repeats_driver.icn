@@ -1,0 +1,9 @@
+#  repeats_driver.icn -- the grading vehicle for gprocs/repeats.icn: an image written by the driver itself is repeated 2 by 3 and read back.
+link repeats
+procedure main()
+   local w, r;
+   w := WOpen("canvas=hidden", "size=4,2") | stop("no window");
+   Fg(w, "red"); FillRectangle(w, 0, 0, 2, 2); WriteImage(w, "t.gif"); WClose(w);
+   r := repeats("t.gif", 2, 3) | stop("repeats failed");
+   write(WAttrib(r, "width"), "x", WAttrib(r, "height")); every write(Pixel(r, 0, 0, WAttrib(r, "width"), 1));
+end

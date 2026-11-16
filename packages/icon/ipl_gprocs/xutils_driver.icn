@@ -1,0 +1,9 @@
+#  xutils_driver.icn -- the grading vehicle for gprocs/xutils.icn: Quit() on an empty queue fails, on a queue holding a quit event returns the
+#  window; Done() waits for the q of xutils_driver.events and exits.
+link xutils, enqueue
+procedure main()
+   WOpen("size=100,50") | stop("no window");
+   write("Quit on an empty queue: ", image(Quit()) | "failed");
+   Enqueue(&window, "x"); Enqueue(&window, "q"); write("Quit on x then q: ", image(Quit()) | "failed", ", left pending ", *Pending());
+   write("Done waits"); Done(); write("not reached: Done() exits");
+end

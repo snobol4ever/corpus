@@ -1,0 +1,6 @@
+#  colrspec_driver.icn -- the grading vehicle for gprocs/colrspec.icn: colrspec() on a name, a modified name, a numeric and a hex specification, and one it refuses.
+link colrspec
+procedure main()
+   every write(colrspec("red" | "pale blue" | "40000,20000,0" | "#fff"));
+   write(colrspec("no such colour") | "failed");
+end

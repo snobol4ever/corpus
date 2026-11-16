@@ -1,0 +1,10 @@
+#  clip_driver.icn -- the grading vehicle for gprocs/clip.icn: NewClip, XCopy, XCut and XPaste on a small window, read back with Pixel().
+link clip, wopen
+procedure main()
+   WOpen("size=120,60") | stop("no window");
+   Fg("red"); FillRectangle(10, 10, 20, 20);
+   XCopy(&window, 0, 0, 40, 40); XPaste(&window, 60, 10);
+   write("after copy and paste: ", Pixel(&window, 15, 15, 1, 1), " ", Pixel(&window, 75, 25, 1, 1), " ", Pixel(&window, 62, 12, 1, 1));
+   XCut(&window, 0, 0, 40, 40); XPaste(&window, 0, 20);
+   write("after cut and paste: ", Pixel(&window, 15, 15, 1, 1), " ", Pixel(&window, 15, 35, 1, 1), " clipboard ", WAttrib(Clipboard, "width"), "x", WAttrib(Clipboard, "height"));
+end

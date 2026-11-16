@@ -1,0 +1,9 @@
+move 200 150
+type 2
+key Return
+wait
+move 200 150
+type red
+key Tab
+type blue
+key Return

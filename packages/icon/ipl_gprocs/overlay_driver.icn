@@ -1,0 +1,10 @@
+#  overlay_driver.icn -- the grading vehicle for gprocs/overlay.icn: an image written by the driver itself is overlaid on a window and read back.
+link overlay, wopen
+procedure main()
+   local w;
+   w := WOpen("canvas=hidden", "size=6,4") | stop("no window");
+   Fg(w, "blue"); FillRectangle(w, 0, 0, 3, 4); WriteImage(w, "t.gif"); WClose(w);
+   WOpen("size=40,20") | stop("no window");
+   overlay(&window, "t.gif");
+   write(Pixel(&window, 1, 1, 1, 1), " ", Pixel(&window, 4, 1, 1, 1), " ", Pixel(&window, 20, 10, 1, 1));
+end

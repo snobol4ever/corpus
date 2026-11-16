@@ -1,0 +1,11 @@
+#  wipe_driver.icn -- the grading vehicle for gprocs/wipe.icn: wipe() in each of its seven directions, a pixel read after each.
+link wopen
+link wipe
+procedure main()
+   local d, c;
+   WOpen("size=30,20") | stop("no window");
+   c := create |!["red", "green", "blue"];
+   every d := "right" | "left" | "left-right" | "up-down" | "down" | "up" | "in" do {
+      wipe(&window, @c, d); write(d, ": ", Pixel(&window, 15, 10, 1, 1), " fg ", Fg()) };
+   wipe(&window, "black", "right", 0, 0, 10, 5); write("part: ", Pixel(&window, 5, 2, 1, 1), " ", Pixel(&window, 20, 15, 1, 1));
+end

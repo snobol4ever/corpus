@@ -1,0 +1,5 @@
+#  popular_driver.icn -- the grading vehicle for gprocs/popular.icn: popularity() of the colours of one image string. The library reads imr.palette and imr.pixels of imrutils' ImageRecord, which has no such fields, so its answer is the run-time error 207 the oracle gives (stderr merged).
+link popular
+procedure main()
+   popularity("4,c1,0123ABAB01230123");
+end

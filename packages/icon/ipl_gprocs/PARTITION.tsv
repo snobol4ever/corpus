@@ -1,0 +1,19 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=15 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=14 chunks=1 sizes=14
+entry	part	cluster	shells
+attribs_driver	chunk:01	family:attribs_driver	
+clip_driver	chunk:01	family:clip_driver	
+colrspec_driver	chunk:01	family:colrspec_driver	
+event_driver	chunk:01	family:event_driver	
+getcolrs_driver	chunk:01	family:getcolrs_driver	
+lindterp_driver	chunk:01	family:lindterp_driver	
+overlay_driver	chunk:01	family:overlay_driver	
+pixelmap_driver	chunk:01	family:pixelmap_driver	
+popular_driver	core	core	want_rc
+rawimage_driver	chunk:01	family:rawimage_driver	
+repeats_driver	chunk:01	family:repeats_driver	
+rgbcomp_driver	chunk:01	family:rgbcomp_driver	
+winsnap_driver	chunk:01	family:winsnap_driver	
+wipe_driver	chunk:01	family:wipe_driver	
+xutils_driver	chunk:01	family:xutils_driver	

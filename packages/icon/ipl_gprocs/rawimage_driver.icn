@@ -1,0 +1,10 @@
+#  rawimage_driver.icn -- the grading vehicle for gprocs/rawimage.icn: WriteRaw() of a small window to standard output, and ReadRaw() of a raw
+#  image written by the driver itself, read back with Pixel().
+link rawimage
+procedure main()
+   local f;
+   WOpen("size=8,4") | stop("no window");
+   Fg("red"); FillRectangle(0, 0, 4, 4); WriteRaw(&window, 0, 0, 8, 4);
+   f := open("t.raw", "w") | stop("cannot write t.raw"); write(f, "2,1\n00 65535,0,0\n01 0,0,65535\n\n0001"); close(f);
+   EraseArea(); ReadRaw(&window, "t.raw", 0, 0); every write(Pixel(&window, 0, 0, 2, 2));
+end

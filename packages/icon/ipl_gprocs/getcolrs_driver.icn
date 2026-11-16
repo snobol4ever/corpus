@@ -1,0 +1,7 @@
+#  getcolrs_driver.icn -- the grading vehicle for gprocs/getcolrs.icn: get_colors("list") asks through two dialogs for a count and then that many
+#  colour specifications; getcolrs_driver.events answers 2, red and blue, and the list of colour values it returns is written.
+link getcolrs, wopen
+procedure main()
+   WOpen("size=400,300") | stop("no window");
+   every write(!get_colors("list")) | write("get_colors failed");
+end

@@ -1,0 +1,9 @@
+#  pixelmap_driver.icn -- the grading vehicle for gprocs/pixelmap.icn: a pixel list written by the driver itself becomes a window, read back.
+link pixelmap
+procedure main()
+   local f, w;
+   f := open("t.pix", "w") | stop("cannot write t.pix");
+   write(f, "width=2 height=2\nred\ngreen\nblue\nblack"); close(f);
+   w := pixelmap("t.pix");
+   write(WAttrib(w, "width"), "x", WAttrib(w, "height")); every write(Pixel(w, 0, 0, 2, 2));
+end

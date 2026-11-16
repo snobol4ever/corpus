@@ -1,0 +1,11 @@
+#  lindterp_driver.icn -- the grading vehicle for gprocs/lindterp.icn: one small L-system (Koch's curve, two generations) drawn by lindterp(),
+#  the drawn pixels counted. The record is the driver's own, with the delta field lindterp() reads (lindrec.icn's lsys_0l has angle, no delta).
+link lindterp, wopen
+record lsys(axiom, rewrite, delta, gener, length)
+procedure main()
+   local t, n;
+   WOpen("size=200,200") | stop("no window");
+   t := table(); t["F"] := "F+F--F+F"; t["+"] := "+"; t["-"] := "-";
+   lindterp(20, 100, lsys("F", t, 60, 2, 8), , , "black");
+   n := 0; every Pixel(&window) == "0,0,0" do n +:= 1; write("drawn pixels: ", n);
+end

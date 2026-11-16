@@ -1,0 +1,13 @@
+#  rgbcomp_driver.icn -- the grading vehicle for gprocs/rgbcomp.icn and gprocs/rgbrec.icn, which it links: rgbrec() of a colour, and rgbcomp(),
+#  rgbavg(), rgbsum() and rgbdif() as the library computes them (each hands rgbrec() three numbers where it takes one colour, so each fails on the oracle).
+link rgbcomp, wopen
+procedure show(s, r)
+   write(s, ": ", if type(r) == "rgb" then image(r.r) || " " || image(r.g) || " " || image(r.b) else image(r));
+   return;
+end
+procedure main()
+   WOpen("canvas=hidden") | stop("no window");
+   show("rgbrec red", rgbrec("red")) | write("rgbrec red failed"); show("rgbrec bad", rgbrec("no such colour")) | write("rgbrec bad failed");
+   show("rgbcomp red", rgbcomp("red")) | write("rgbcomp failed"); show("rgbavg red blue", rgbavg("red", "blue")) | write("rgbavg failed");
+   show("rgbsum red blue", rgbsum("red", "blue")) | write("rgbsum failed"); show("rgbdif white red", rgbdif("white", "red")) | write("rgbdif failed");
+end

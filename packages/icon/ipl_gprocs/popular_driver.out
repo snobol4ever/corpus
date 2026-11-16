@@ -1,0 +1,9 @@
+
+Run-time error 207
+File popular.icn; Line 43
+invalid field name
+offending value: record ImageRecord_1("4","c1","0123ABAB01230123")
+Traceback:
+main()
+popularity("4,c1,0123ABAB012...") from line 4 in popular_driver.icn
+{record ImageRecord_1("4","c1","0123ABAB01230123") . field} from line 43 in popular.icn

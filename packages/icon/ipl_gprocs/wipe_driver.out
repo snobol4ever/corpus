@@ -1,0 +1,8 @@
+right: 65535,0,0 fg black
+left: 0,65535,0 fg black
+left-right: 0,0,65535 fg black
+up-down: 65535,0,0 fg black
+down: 0,65535,0 fg black
+up: 0,0,65535 fg black
+in: 65535,0,0 fg black
+part: 0,0,0 65535,0,0
