@@ -1,0 +1,9 @@
+# calib: its slider (x 500, the track y 40 to 408, gamma 5 at the top, 1 at the foot) sets the gamma of the striped box's mutable color;
+# a click high on the track (gamma near 3.8), a drag toward its foot (near 1.5), then q quits (quitsensor)
+move 250 200
+wait
+click 1 500 150
+wait
+drag 1 500 150 500 360
+wait
+key q

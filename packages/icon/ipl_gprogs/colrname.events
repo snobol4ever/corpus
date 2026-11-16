@@ -1,0 +1,17 @@
+# colrname: a click on a name makes it the window's background (a mutable color) and o writes that color's value; three names
+# (cyan, cadet blue, navy: rows 13 pixels, the columns as the program lays them out on rgb.txt of gdata), then q quits
+move 900 700
+wait
+click 1 420 32
+wait
+key o
+wait
+click 1 320 436
+wait
+key o
+wait
+click 1 800 20
+wait
+key o
+wait
+key q
