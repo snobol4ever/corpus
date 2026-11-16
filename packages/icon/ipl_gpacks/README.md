@@ -31,6 +31,15 @@ not finish it (a `;` placed after the macro names `SymmetXoff` and `IconSize` at
 Every file SAME-CODE (`CONVERSION-PROOF.tsv`). MEASURED: built by `/home/resources/icon-master-x` each shows the stock build's own picture twice
 (mtrxedit 8dc6025b, weaver b7163130, drawing 101a2c95); `weaving/NAME.out` is that answer.
 
+mtrxedit IS GRADED AS AN EDITOR (the cto's piece of 2026-11-16; the cqo's event script): `weaving/mtrxedit.events` makes a new array of 10 by 6
+through the tile menu's dialog, sets a cell and a dragged row, clears a cell with the right button, shifts the array with a transformation button and
+undoes it (meta z), turns one symmetry on and sets a mirrored pair, reads the information box (meta i), writes the array to `t.tie` through the file
+menu's dialog, and quits (meta q). Its answer is one screen line a step, 17 of them, the first the opening picture as before, then the saved array
+(`out_files`: `screen.dump t.tie`; `10,#0010003ef000102000`); the row allows 600 s. Cut twice, equal, from `/home/resources/icon-master-x`. NOT IN THE
+SCRIPT, on purpose: the file menu's copy and paste, which write and read the fixed file `/tmp/tieup` outside the run's folder, so two runs at once would
+meet in it; and read, which wants a file to exist. READ FROM THE SOURCE: the file menu's own quit item cannot end the program (its label carries a
+trailing space the program's case lacks), as in gridedit.
+
 THE HTETRIS ROW: `htetris/htetris`, the Tetris game of Icon 9.5.25a `ipl/gpacks/htetris`, with its brick editor (`editor.icn`, a vib interface),
 its seven sources (`htetris.icn` and the six it `$include`s) and its `highscore.dat`; its answer is its opening picture (`out_files` screen.dump).
 Converted by officer_06 2026-11-16, every file SAME-CODE: `brickdata.icn` and `brickio.icn` by `util_icon_semicolons.py`, the other five

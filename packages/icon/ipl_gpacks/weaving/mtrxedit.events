@@ -1,0 +1,63 @@
+# mtrxedit, the editor of binary arrays for tie-ups and liftplans (ipl_gpacks, weaving; built on the library's vidgets, a sibling of penelope):
+# a new array of 10 by 6 through the tile menu's dialog, a cell set and a dragged row with the left button, a cell cleared with the right, a
+# transformation button and its undo (meta z), one symmetry and a mirrored pair, the information box (meta i), the array written under a typed
+# name through the file menu's dialog, quit (meta q). Cell j i of the 10 by 6 grid stands at 160+18j 70+18i. A dialog stands in the middle
+# of the window and takes keys only with the pointer inside it.
+# the tile menu held open, its item new; the two fields are typed over (the first stands selected, Tab goes to the second)
+move 55 10
+press 1
+wait
+move 60 30
+release 1
+wait
+move 213 209
+key BackSpace
+type 10
+key Tab
+key BackSpace
+type 6
+wait
+key Return
+wait
+# a cell, a dragged row, one cell of the row cleared with the right button
+click 1 169 79
+wait
+drag 1 169 115 331 115
+wait
+click 3 241 115
+wait
+# the first transformation button, shift up; meta z undoes it
+click 1 56 71
+wait
+keydown Alt_L
+key z
+keyup Alt_L
+wait
+# the last symmetry button, then one cell: it and its mirror are set
+click 1 83 394
+wait
+click 1 187 151
+wait
+# meta i: the information box, closed with Return
+move 213 209
+keydown Alt_L
+key i
+keyup Alt_L
+wait
+key Return
+wait
+# the file menu held open, its item write: a dialog takes the file name
+move 18 10
+press 1
+wait
+move 30 45
+release 1
+wait
+move 213 209
+type t.tie
+key Return
+wait
+# meta q ends the editor (the menu's own quit item cannot: its label carries a space the program's case does not)
+keydown Alt_L
+key q
+keyup Alt_L
