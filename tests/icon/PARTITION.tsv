@@ -953,6 +953,7 @@ gc_hb_cv_spine_plain_redo	chunk:10	feat:repeat	every every_with_suspend local re
 procedure_record_every_replace_16	chunk:09	feat:next	every image local next record set table
 procedure_every_to_replace_2	chunk:08	feat:read	every local read section to_by upto while
 procedure_every_alt_replace_15	chunk:07	feat:stop	alternation every gen_with_alternation image keyword_ref local stop
+planner_armjoin__every_over_a_returning_call_inside_every	chunk:05	feat:fail	alternation element_gen every fail gen_with_alternation local return to_by
 ladder__rung02_proc_a_break_out_of_an_inner_every_inside_an_if_leaves_the_procedure_frame_balanced	chunk:10	feat:break	aug_assign break every global local return to_by
 unicon__uni_lex_typed_params_names	chunk:03	feat:type	alternation aug_assign image keyword_ref record return type
 unicon__uni_break_value_under_every_limit	chunk:10	feat:break	alternation break every gen_with_alternation image limitation local to_by

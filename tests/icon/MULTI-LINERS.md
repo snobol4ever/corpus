@@ -20067,6 +20067,78 @@ end
 1267650600228229401496703205376:integer(~10^30)
 ```
 
+## planner_armjoin__every_over_a_returning_call_inside_every
+
+```Icon
+procedure g(s)
+   return s;
+end
+procedure h(s)
+   if s == "b" then fail;
+   return s;
+end
+procedure p()
+   local l, s;
+   every s := ("a" | "b" | "c") do
+      every l := g(s) do {
+         write("p ", l)
+         };
+end
+procedure main()
+   local l, s, t;
+   every s := 1 to 3 do
+      every l := g(s) do
+         write("to ", l);
+   p();
+   every s := !["x", "y", "z"] do
+      every l := g(s) do
+         write("bang ", l);
+   every s := ("a" | "b" | "c") do
+      every g(s) do
+         write("no assignment ", s);
+   every s := ("a" | "b" | "c") do
+      every l := h(s) do
+         write("a callee that fails for b ", l);
+   every s := 1 to 2 do
+      every t := 1 to 2 do
+         every l := g(s + t) do
+            write("three deep ", l);
+   every s := (1 | 2) do
+      every l := s do
+         write("no call at all ", l);
+   every s := !["a", "b"] do
+      every l := s do
+         write("no call, a list ", l);
+   write("ok");
+end
+```
+
+```stdout
+to 1
+to 2
+to 3
+p a
+p b
+p c
+bang x
+bang y
+bang z
+no assignment a
+no assignment b
+no assignment c
+a callee that fails for b a
+a callee that fails for b c
+three deep 2
+three deep 3
+three deep 3
+three deep 4
+no call at all 1
+no call at all 2
+no call, a list a
+no call, a list b
+ok
+```
+
 ## ladder__rung02_proc_a_break_out_of_an_inner_every_inside_an_if_leaves_the_procedure_frame_balanced
 
 ```Icon
