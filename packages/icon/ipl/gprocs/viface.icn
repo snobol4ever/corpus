@@ -402,7 +402,7 @@ $ifdef _X_WINDOW_SYSTEM
          "-*-lucidatypewriter-bold-r-*-*-*-*-*-*-*-70-iso8859-1" | 
          "-*-*-r-*-sans-*-*-*-*-m-70-iso8859-1" |
          "-*-*-r-*-*-*-*-*-*-m-70-iso8859-1" |
-         "-*-*-r-*-*-*-*-*-*-c-70-iso8859-1";
+         "-*-*-r-*-*-*-*-*-*-c-70-iso8859-1"
 $else
          ("mono,bold," | "mono," | "typewriter,") || (12 | 11 | 13 | 10 | 14)
 $endif
