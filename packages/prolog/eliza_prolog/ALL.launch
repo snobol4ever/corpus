@@ -1,0 +1,3 @@
+# the launch of the PrologEliza suite (CIO-83): the program, then the driver, ours, which calls the predicate ALL.args names (elisa, the query the README gives) once
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl

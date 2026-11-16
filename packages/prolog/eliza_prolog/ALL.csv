@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,elisa,elisa.pl,eliza_prolog__elisa,eliza_prolog,211,0,131072,4096,60,,swi
