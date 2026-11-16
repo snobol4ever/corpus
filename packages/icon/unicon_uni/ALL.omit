@@ -53,13 +53,11 @@ gui/filedialog.icn: LIBRARY: no procedure main
 gui/font_dlg.icn: LIBRARY: no procedure main
 gui/gui_utils.icn: LIBRARY: no procedure main
 gui/guidemos/editlisttest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/editor.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/empty.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/filedialogtest.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/imageview.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/multi.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/redundant.icn: LIBRARY: no procedure main
-gui/guidemos/textsize.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/tickdemo.icn: NEEDS-DISPLAY: the source names import gui
 gui/guih.icn: LIBRARY: no procedure main
 gui/guiprocs.icn: LIBRARY: no procedure main
