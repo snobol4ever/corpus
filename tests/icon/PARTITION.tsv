@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1193 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,72
+# shape: entries=1194 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,73
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -157,7 +157,7 @@ procedure_write_178	chunk:01	family:ladder
 procedure_write_20	chunk:08	feat:integer	integer
 procedure_write_200	chunk:01	family:ladder	
 procedure_write_25	chunk:11	family:rung18_real_relop	
-procedure_write_26	chunk:11	family:rung18_real_relop	
+procedure_write_26	chunk:12	family:rung18_real_relop	
 procedure_write_31	chunk:12	family:rung19_pow_toby	
 procedure_write_35	chunk:12	family:rung20_section_seqexpr	
 procedure_write_38	chunk:12	family:rung22_lists	
@@ -1005,7 +1005,7 @@ ladder__rung29_builtins_proc_names_assignments_not_augmented_ops	chunk:05	feat:s
 scanning_asm__is03b_nested	chunk:04	feat:create	coexpr_activate create image keyword_ref local move scan scan_with_tab tab
 scanning_asm__is03c_to_main	chunk:04	feat:create	coexpr_activate create image keyword_ref local move scan scan_with_tab tab
 scanning_asm__is03e_transmit_refresh	chunk:04	feat:create	coexpr_activate create image keyword_ref local move scan scan_with_tab tab
-ladder__rung05_scan_tab_and_move_through_a_value_restore_pos	chunk:10	feat:put	alternation every gen_with_alternation keyword_ref local put scan to_by writes
+ladder__rung05_scan_tab_and_move_through_a_value_restore_pos	chunk:11	feat:put	alternation every gen_with_alternation keyword_ref local put scan to_by writes
 zeta_layout__zl18_icn_suspend_in_limited_arm	chunk:05	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref limitation local suspend
 zeta_layout__zl19_icn_two_alternations_yield	chunk:05	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref limitation local suspend
 unicon__uni_posix_fork_pipe	chunk:07	feat:stop	alternation keyword_ref local read scan scan_with_tab stop tab upto
@@ -1049,6 +1049,7 @@ ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target	chunk:05	fea
 procedure_every_alt_replace_13	chunk:06	feat:case	alternation case every fail gen_with_alternation global image keyword_ref local to_by
 gc_hb_dvec_list_slice	chunk:09	feat:sort	alternation every gen_with_alternation local put repl section sort table to_by
 procedure_every_alt_replace_12	chunk:05	feat:swap	alternation every fail gen_with_alternation image keyword_ref local return swap to_by
+ladder__rung36_sets_random_element_walks_iconxs_own_slots	chunk:10	feat:insert	aug_assign element_gen every image insert local scan set table to_by
 procedure_write_269	chunk:08	feat:until	element_gen every global image local put return to_by until writes
 unicon__uni_critical_break_next_unlocks	chunk:10	feat:next	aug_assign break every global image local next return table to_by
 ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail	chunk:11	feat:any	alternation any image keyword_ref local many move scan scan_with_tab tab upto
