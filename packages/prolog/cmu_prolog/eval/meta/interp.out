@@ -1,0 +1,2 @@
+?- do_goal(append(X,Y,[1,2])).
+raised(existence_error(procedure,system/1))

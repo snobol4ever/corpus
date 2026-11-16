@@ -1,0 +1,4 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,eval/meta/interp,eval/meta/interp.pl,cmu_prolog__eval/meta/interp,cmu_prolog,127,0,131072,4096,60,,swi
+2,ext/trees/tree23,ext/trees/tree23.pl,cmu_prolog__ext/trees/tree23,cmu_prolog,344,0,131072,4096,60,,swi
+3,fun/life/life,fun/life/life.pl,cmu_prolog__fun/life/life,cmu_prolog,159,0,131072,4096,60,,swi

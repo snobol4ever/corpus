@@ -1,0 +1,2 @@
+# EXCLUDED.tsv -- cmu_prolog: programs out, one a row: name<TAB>CLASS<TAB>evidence.
+bench/nrev.pl	NO_ORACLE_ANSWER	the naive-reverse benchmark prints its own run time and LIPS rate (report/4, calculate_lips/4), which no two runs share

@@ -1,0 +1,6 @@
+q('list_to_23([c-3,a-1,b-2], T), get_23(b, T, V).', 1).
+list_to_23([c-3,a-1,b-2], T), get_23(b, T, V).
+q('findall(K-V, (list_to_23([d-4,c-3,a-1,b-2], T), gen_23(K, T, V)), L).', 1).
+findall(K-V, (list_to_23([d-4,c-3,a-1,b-2], T), gen_23(K, T, V)), L).
+q('empty_23(E), put_23(x, E, 10, T1), put_23(y, T1, 20, T2), get_23(x, T2, A).', 1).
+empty_23(E), put_23(x, E, 10, T1), put_23(y, T1, 20, T2), get_23(x, T2, A).

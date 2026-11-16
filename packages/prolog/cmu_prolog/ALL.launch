@@ -1,0 +1,3 @@
+# the launch of the PrologCmuCode suite (CIO-83): the program, then the driver, ours, which reads from standard input the queries we put to it (NAME.in)
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl
