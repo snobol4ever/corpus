@@ -1,0 +1,27 @@
+# the census of /home/resources/prolog-demos/aoc2017-prolog-average-user/src by swipl (f30da3b (2017-12-26)), 2026-11-15: path from the root, verdict, note
+day01.pl	ENTRY	standard input is the package's own day01.in
+day02.pl	ENTRY	standard input is the package's own day02.in
+day03.pl	ENTRY	standard input is the package's own day03.in
+day04.pl	ENTRY	standard input is the package's own day04.in
+day05.pl	ENTRY	standard input is the package's own day05.in; stderr not graded: Warning: day05.pl:2:
+day06.pl	ENTRY	standard input is the package's own day06.in
+day07.pl	ENTRY	standard input is the package's own day07.in
+day08.pl	ENTRY	standard input is the package's own day08.in
+day09.pl	ENTRY	standard input is the package's own day09.in
+day10.pl	ENTRY	standard input is the package's own day10.in
+day11.pl	ENTRY	standard input is the package's own day11.in
+day12.pl	ENTRY	standard input is the package's own day12.in
+day13.pl	ENTRY	standard input is the package's own day13.in
+day16.pl	ENTRY	standard input is the package's own day16.in
+day17.pl	ENTRY	standard input is the package's own day17.in
+day18.pl	ENTRY	standard input is the package's own day18.in
+day19.pl	ENTRY	standard input is the package's own day19.in
+day20.pl	ENTRY	standard input is the package's own day20.in
+day21.pl	ENTRY	standard input is the package's own day21.in
+day22.pl	ENTRY	standard input is the package's own day22.in; stderr not graded: Warning: day22.pl:2:
+day23.pl	ENTRY	standard input is the package's own day23.in
+day24.pl	ENTRY	standard input is the package's own day24.in
+day25.pl	ENTRY	standard input is the package's own day25.in
+day14.pl	HELD-ELSEWHERE	NO_ORACLE_ANSWER: both queries, day14a(X) and day14b(X), run past the 60 s cap under swipl 9.0.4 (sl_cut.py, QUERIES.tsv OUT-HANG)
+day15.pl	HELD-ELSEWHERE	NO_ORACLE_ANSWER: both queries, day15a(X) and day15b(X), run past the 60 s cap under swipl 9.0.4 (sl_cut.py, QUERIES.tsv OUT-HANG)
+tools.pl	HELD-ELSEWHERE	NOT_A_UNIT_TEST: the module of helpers every day loads (use_module(tools)); no query of its own

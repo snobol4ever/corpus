@@ -1,0 +1,4 @@
+?- day07a(X).
+X = "cyrupz"
+?- day07b(X).
+X = 193

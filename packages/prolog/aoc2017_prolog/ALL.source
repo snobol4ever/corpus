@@ -1,0 +1,4 @@
+root	/home/resources/prolog-demos/aoc2017-prolog-average-user/src
+origin	https://github.com/Average-user/adventofcode-pl-2017 (Average-user): Advent of Code 2017 in Prolog, written for SWI-Prolog 7.2.3; each src/dayNN.pl answers the day's two parts from src/Inputs/dayNN.txt, the author's own puzzle input, shipped with the code
+version	f30da3b (2017-12-26)
+licence	MIT (LICENSE: Copyright (c) 2017 Lucas Polymeris); read in place, no program of it is stored in the corpus

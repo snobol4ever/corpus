@@ -1,0 +1,4 @@
+?- day16a(X).
+X = ociedpjbmfnkhlga
+?- day16b(X).
+X = gnflbkojhicpmead

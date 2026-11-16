@@ -1,0 +1,4 @@
+?- day19a(X).
+X = 'MKXOIHZNBL'
+?- day19b(X).
+X = 17871

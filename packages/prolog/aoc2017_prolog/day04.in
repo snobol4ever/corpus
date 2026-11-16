@@ -1,0 +1,4 @@
+q('day04a(X).', 3).
+day04a(X).
+q('day04b(X).', 3).
+day04b(X).

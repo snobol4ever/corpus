@@ -1,0 +1,4 @@
+?- day10a(X).
+raised(existence_error(procedure,day10a/1))
+?- day10b(X).
+raised(existence_error(procedure,day10b/1))

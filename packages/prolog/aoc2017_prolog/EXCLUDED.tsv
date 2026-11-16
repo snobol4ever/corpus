@@ -1,0 +1,4 @@
+# EXCLUDED.tsv -- aoc2017_prolog: the files of the collection this package does not grade, one row a file: name<TAB>CLASS<TAB>evidence (the grader 2026-11-15)
+tools	NOT_A_UNIT_TEST	the module of helpers every day loads (use_module(tools)); no query of its own
+day14	NO_ORACLE_ANSWER	both queries, day14a(X) and day14b(X), run past the 60 s cap under swipl 9.0.4 (sl_cut.py, QUERIES.tsv OUT-HANG)
+day15	NO_ORACLE_ANSWER	both queries, day15a(X) and day15b(X), run past the 60 s cap under swipl 9.0.4 (sl_cut.py, QUERIES.tsv OUT-HANG)
