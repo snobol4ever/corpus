@@ -1,0 +1,17 @@
+# themedemo, the gui themes over a dense configuration dialog of 640 by 560 (the Action button, which shows the clock, is left alone): Toggle
+# (480 18) is pressed down and the line under the status shows its state, Help (380 98) writes its line there, the Client radio box (20 118)
+# is chosen, playlist_summer.dat of the Uploaded list (80 212) selected, Verbose log (438 262) checked; Classic (30 18) closes the dialog and
+# opens it again in the classic theme, every choice back at its start; Quit (570 18) ends the program by itself
+click 1 480 18
+wait
+click 1 380 98
+wait
+click 1 20 118
+wait
+click 1 80 212
+wait
+click 1 438 262
+wait
+click 1 30 18
+wait
+click 1 570 18

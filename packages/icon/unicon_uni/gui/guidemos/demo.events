@@ -1,0 +1,48 @@
+# demo, the gui library's tour of 21 dialogs, each opening at 0 0 when the one before it is disposed: the Introduction's Next has the
+# focus and a space takes it; the drop-down List is opened by its arrow (248 97) and green chosen; the EditList's text is made blue by keys;
+# the non-editable TextList is scrolled three lines by its arrow (327 189); hello and world are typed into the editable TextList and Show
+# pressed; the eye of the image buttons is pressed; on the Text Buttons screen First and the ButtonGroup's 2 are pressed. Each Next is clicked
+# where its dialog puts it. The script stops there: the eighth screen, the tick() demo, writes the clock every second and never holds still,
+# so the road ends the program on the Text Buttons screen (its terminal lines are withheld, as the road withholds them from a program it ends)
+move 150 150
+key space
+wait
+click 1 248 97
+wait
+click 1 180 140
+wait
+click 1 200 226
+wait
+click 1 230 97
+key End
+key BackSpace
+key BackSpace
+key BackSpace
+type blue
+wait
+click 1 200 226
+wait
+click 1 327 189
+click 1 327 189
+click 1 327 189
+wait
+click 1 200 262
+wait
+click 1 200 200
+type hello
+key Return
+type world
+wait
+click 1 133 349
+wait
+click 1 264 349
+wait
+click 1 200 151
+move 200 270
+wait
+click 1 200 226
+wait
+click 1 100 97
+wait
+click 1 200 199
+wait

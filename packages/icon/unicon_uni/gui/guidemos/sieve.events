@@ -1,0 +1,8 @@
+# sieve, the primes below 20000 found one a tick of a ticker: the Rate slider (from 66 across, 127 down) is dragged to its left end, 20 ms a
+# tick, and Start (105 170) runs the sieve to its end, the count 2262 and the last prime 19997 shown, Start and Stop each shaded and unshaded
+# as the program does; Quit (210 170) ends the program by itself. The run to the end takes about 55 s on the oracle: NAME.cap is 240
+drag 1 160 127 20 127
+wait
+click 1 105 170
+wait
+click 1 210 170

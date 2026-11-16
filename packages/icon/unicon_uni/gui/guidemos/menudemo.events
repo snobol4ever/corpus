@@ -1,0 +1,36 @@
+# menudemo, a 426 by 270 dialog with a MenuBar (File, a shaded Grey, Test, Empty, Labels, Checkboxes), a label that pops a menu up on a right
+# click and a MenuButton (Click, at 350 across): Labels is opened and its Images submenu shown by the pointer, a click on One closes it;
+# Checkboxes is opened, its Group submenu shown and its check item Two chosen, then opened again to show Two checked; a right click on the
+# label pops its menu up and Two of it is chosen; the MenuButton is opened and One chosen; Alt and f open the File menu and q, the accelerator
+# of its Quit, ends the program by itself
+click 1 217 14
+wait
+move 258 165
+wait
+click 1 248 70
+wait
+click 1 293 14
+wait
+move 290 43
+wait
+click 1 368 70
+wait
+click 1 293 14
+wait
+move 290 43
+wait
+click 1 200 200
+wait
+click 3 100 76
+wait
+click 1 123 118
+wait
+click 1 351 136
+wait
+click 1 342 165
+wait
+keydown Alt_L
+key f
+keyup Alt_L
+wait
+key q
