@@ -5,9 +5,9 @@ general/env	L3	ampersand-dateline moves with the clock (measured: 8:51 am vs 8:5
 general/env	L4	ampersand-date moves with the calendar day
 general/env	L5	ampersand-clock moves with the clock (measured: 08:51:47 vs 08:54:14 on two iconx runs)
 general/env	L6	ampersand-version is implementation-defined (CEO-409): iconx names Icon 9.5.25a, SCRIP its own version string
-general/env	L18	getenv HOME is the running user's (measured: /home/satirical vs /tmp under HOME=/tmp)
-general/env	L19	getenv SHELL is the running user's (measured: /bin/bash vs /bin/sh under SHELL=/bin/sh)
-general/env	L20	uname -a is the running kernel and host
+general/env	L20	getenv HOME is the running user's (measured: /home/satirical vs /tmp under HOME=/tmp)
+general/env	L21	getenv SHELL is the running user's (measured: /bin/bash vs /bin/sh under SHELL=/bin/sh)
+general/env	L22	uname -a is the running kernel and host
 general/gc2	L1	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #1 after test entry 1
 general/gc2	L16	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #2 after test entry 2
 general/gc2	L22	ampersand-collections is implementation-defined (Icon book, appendix) -- collection #3 after test entry 3

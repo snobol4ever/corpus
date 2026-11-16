@@ -50990,6 +50990,8 @@ keyboard functions
 large integers
 pipes
 system function
+graphics
+X Windows
 #----------- 150 test_gate_icn_ipl_reason_is_the_oracles_own_words__gatefix_argv
 argc=0
 #----- 151 test_gate_icn_ipl_reason_is_the_oracles_own_words__gatefix_undeclared
