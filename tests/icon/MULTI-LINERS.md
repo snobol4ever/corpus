@@ -28930,6 +28930,57 @@ null &null
 none va1
 ```
 
+## ladder__rung45_table_key_order
+
+```Icon
+procedure show(t)
+  local s;
+  s := "";
+  every s ||:= image(!t) || " ";
+  write(s);
+end
+procedure main()
+  local t, k, s, a, b, c;
+  t := table(0);
+  every k := ("" | "a" | "this key is exactly twenty-one" | "a much longer key, longer than twenty characters, ends here" | "a much longer key, longer than twenty characters, ends there" | "\xe9t\xe9" | "caf\xe9" | "0123456789012345678" | "01234567890123456789" | "012345678901234567890") do t[k] +:= 1;
+  s := "";
+  every s ||:= *key(t) || " ";
+  write(s);
+  a := set();
+  every insert(a, "w" || (1 to 60));
+  delete(a, "w7"); delete(a, "w33"); insert(a, "w7"); insert(a, "zz");
+  show(a);
+  b := copy(a);
+  delete(b, "w1");
+  show(b);
+  c := set(["w2", "w3", "new1", "new2"]);
+  show(a ** c);
+  show(c -- a);
+  show(c ++ set(["q", "r"]));
+  t := table();
+  every t["key" || (1 to 200)] := 1;
+  s := "";
+  every s ||:= key(t)[4:0] || " ";
+  write(s);
+  t := table();
+  every t[1 to 5] := 1; every t["s" || (1 to 5)] := 1; t[2.5] := 1; t['abc'] := 1;
+  s := "";
+  every s ||:= image(key(t)) || " ";
+  write(s);
+end
+```
+
+```stdout
+0 3 21 30 60 4 59 19 20 1 
+"w18" "w5" "w39" "w28" "w4" "w38" "w29" "w15" "w37" "w26" "w51" "w40" "w14" "w36" "w27" "w50" "w41" "w9" "w17" "w35" "w24" "w53" "w42" "w60" "w8" "w16" "w34" "w25" "w52" "w43" "w11" "w22" "w55" "w44" "w10" "w32" "w23" "w54" "w45" "w13" "w31" "w20" "w57" "w46" "w12" "w30" "w21" "w56" "w47" "w3" "w59" "w48" "w2" "w58" "w49" "w1" "zz" "w7" "w19" "w6" 
+"w18" "w5" "w39" "w28" "w4" "w38" "w29" "w15" "w37" "w26" "w51" "w40" "w14" "w36" "w27" "w50" "w41" "w9" "w17" "w35" "w24" "w53" "w42" "w60" "w8" "w16" "w34" "w25" "w52" "w43" "w11" "w22" "w55" "w44" "w10" "w32" "w23" "w54" "w45" "w13" "w31" "w20" "w57" "w46" "w12" "w30" "w21" "w56" "w47" "w3" "w59" "w48" "w2" "w58" "w49" "zz" "w7" "w19" "w6" 
+"w3" "w2" 
+"new2" "new1" 
+"new2" "new1" "w3" "w2" "r" "q" 
+91 80 19 200 196 187 178 169 90 81 18 197 186 179 168 93 82 39 28 194 185 158 149 92 83 38 29 195 184 159 148 95 84 59 48 192 183 138 129 94 85 58 49 193 182 139 128 97 86 79 68 190 181 118 109 96 87 78 69 191 180 119 108 99 88 33 22 11 77 66 55 44 152 143 170 161 116 107 134 125 98 89 32 23 10 76 67 54 45 153 142 171 160 117 106 135 124 31 20 13 75 64 57 46 150 141 172 163 114 105 136 127 30 21 12 74 65 56 47 151 140 173 162 115 104 137 126 37 26 15 73 62 51 40 156 147 174 165 112 103 130 121 36 27 14 72 63 50 41 157 146 175 164 113 102 131 120 35 24 17 71 60 53 42 198 189 154 145 176 167 110 101 132 123 34 25 16 70 61 52 43 199 188 155 144 177 166 111 100 133 122 9 8 1 3 2 5 4 7 6 
+5 "s1" 4 3 2.5 2 1 "s5" "s4" "s3" 'abc' "s2" 
+```
+
 ## procedure_record_every_replace_26
 
 ```Icon
