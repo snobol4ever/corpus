@@ -11,3 +11,9 @@ gprogs/dd2wif	1
 progs/strpsgml	1
 progs/gediff	1
 progs/literat	1
+gprocs/evrecord_driver	1
+gprocs/gpxlib_driver	1
+gprocs/gpxop_driver	1
+gprocs/graphics_driver	1
+gprocs/imutils_driver	1
+gprocs/wopen_driver	1

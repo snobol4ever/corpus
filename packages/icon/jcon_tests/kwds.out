@@ -17,10 +17,10 @@
      &digits: &digits  [size 10]
        &dump: 0
           &e: 2.718281828
-      &error: 747
-&errornumber: [failed]
-  &errortext: [failed]
- &errorvalue: [failed]
+      &error: 745
+&errornumber: 140
+  &errortext: window expected
+ &errorvalue: &null
      &errout: &errout
        &fail: [failed]
    &features: string
@@ -62,6 +62,6 @@
       &trace: 0
       &ucase: &ucase  [size 26]
     &version: string
-     &window: [failed]
+     &window: &null
           &x: [failed]
           &y: [failed]

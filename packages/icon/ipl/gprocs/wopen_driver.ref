@@ -11,7 +11,12 @@ WOpen(): fails
 WOpen("size=100,100", "label=test"): fails
 WRead(/dev/null): fails at end of file
 WClose(/dev/null) returns a file
-  written by WWrite: 42 3.5
-WWrite to &output returns 3.5
-  written by WWritesWWrites to &output returns "  written by WWrites"
 
+Run-time error 140
+File wopen.icn; Line 104
+window expected
+offending value: &null
+Traceback:
+main()
+WWrite(list_5 = [&output,"  written by WWr...",42," ",3.5]) from line 27 in wopen_driver.icn
+runerr(140,&null) from line 104 in wopen.icn

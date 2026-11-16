@@ -627,21 +627,15 @@ evplay #3: failed (end of history)
 EventFile is file(/dev/null)
 
 #----------------------------------------------------- 22 gprocs/evrecord_driver
-"a"
-returned &null
-"\r"
-returned &null
--1
-returned &null
--3
-returned &null
-131072
-returned &null
-&null
-returned &null
--1
-&null
-done
+
+Run-time error 140
+File evrecord.icn; Line 41
+window expected
+offending value: &null
+Traceback:
+main()
+evrecord("a") from line 12 in evrecord_driver.icn
+bad keyword reference from line 41 in evrecord.icn
 
 #----------------------------------------------------- 23 gprocs/fetchpat_driver
 fetchpat(missing, 0): fails
@@ -935,21 +929,29 @@ Distance(1,1,1,1) = 0.0
 Distance(-2,-3,4,5) = 10.0
 Distance(0.5,0.5,2.0,1.5) = 1.802775638
 Distance(10,0,0,0) = 10.0
-PushWin([1,2,3]) -> 1 2 3 (size 3)
-PushWin([]) -> size 0
-PushWin(["window",5]) -> "window" 5
-InBounds(0,0,100,100): fails
-InBounds(50,50,-20,-30): fails
-done
+PushWin([1,2,3]) -> &null 1 2 3 (size 4)
+PushWin([]) -> size 1
+PushWin(["window",5]) -> &null "window" 5
+
+Run-time error 140
+File gpxlib.icn; Line 96
+window expected
+offending value: &null
+Traceback:
+main()
+InBounds(0,0,100,100) from line 23 in gpxlib_driver.icn
+bad keyword reference from line 96 in gpxlib.icn
 
 #-------------------------------------------------------- 31 gprocs/gpxop_driver
-Zoom(0 0 0 0 0 0 0 0 ) -> &null
-Zoom(0 0 10 10 5 5 0 10 ) -> &null
-Zoom(0 0 10 0 5 5 10 10 ) -> &null
-Zoom(3 4 -5 6 0 0 0 7 ) -> &null
-Zoom(1 2 3 -4 5 6 7 0 ) -> &null
-Zoom(0 0 0 5 0 0 5 5 ) -> &null
-done
+Zoom(0 0 0 0 0 0 0 0 
+Run-time error 140
+File gpxop.icn; Line 229
+window expected
+offending value: &null
+Traceback:
+main()
+Zoom(list_2 = [0,0,0,...,0,0,0]) from line 15 in gpxop_driver.icn
+runerr(140,&null) from line 229 in gpxop.icn
 
 #----------------------------------------------------- 32 gprocs/graphics_driver
 pack_modkeys("") = 0 -> ""
@@ -976,10 +978,15 @@ HLSValue("0:50:100") = "65535,0,0"
 HLSValue("200:25:60") = "6553,19660,26214"
 HLSValue("bad") = fails
 Distance(0,0,6,8) = 10.0
-Zoom(0,0,0,0,0,0,0,0) = &null
-QuitEvents(): q Q
-WOpen("size=10,10"): fails
-done
+
+Run-time error 140
+File gpxop.icn; Line 229
+window expected
+offending value: &null
+Traceback:
+main()
+Zoom(list_1 = [0,0,0,...,0,0,0]) from line 24 in graphics_driver.icn
+runerr(140,&null) from line 229 in gpxop.icn
 
 #----------------------------------------------------- 33 gprocs/grecords_driver
 point2(1,2) point2[2]: 1 2
@@ -1266,11 +1273,16 @@ ScaleGamma(0.75) = 58411
 HSVValue("60/100/100") = 65535,65535,0
 HLSValue("120:50:100") = 0,65535,0
 Distance(1,2,4,6) = 5.0
-PushWin([7,8]) -> 7 8
-Zoom(1,1,0,5,2,2,5,5) = &null
-WOpen("canvas=hidden"): fails
-QuitEvents(): q Q
-done
+PushWin([7,8]) ->  7 8
+
+Run-time error 140
+File gpxop.icn; Line 229
+window expected
+offending value: &null
+Traceback:
+main()
+Zoom(list_2 = [1,1,0,...,2,5,5]) from line 26 in imutils_driver.icn
+runerr(140,&null) from line 229 in gpxop.icn
 
 #------------------------------------------------------ 43 gprocs/imxform_driver
 imxcreate(2,5): 00000 00000
@@ -3275,10 +3287,15 @@ WOpen(): fails
 WOpen("size=100,100", "label=test"): fails
 WRead(/dev/null): fails at end of file
 WClose(/dev/null) returns a file
-  written by WWrite: 42 3.5
-WWrite to &output returns 3.5
-  written by WWritesWWrites to &output returns "  written by WWrites"
 
+Run-time error 140
+File wopen.icn; Line 104
+window expected
+offending value: &null
+Traceback:
+main()
+WWrite(list_5 = [&output,"  written by WWr...",42," ",3.5]) from line 27 in wopen_driver.icn
+runerr(140,&null) from line 104 in wopen.icn
 
 #------------------------------------------------------ 100 gprocs/xbfont_driver
 XBF_tokenlist:

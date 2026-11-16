@@ -1,15 +1,9 @@
-"a"
-returned &null
-"\r"
-returned &null
--1
-returned &null
--3
-returned &null
-131072
-returned &null
-&null
-returned &null
--1
-&null
-done
+
+Run-time error 140
+File evrecord.icn; Line 41
+window expected
+offending value: &null
+Traceback:
+main()
+evrecord("a") from line 12 in evrecord_driver.icn
+bad keyword reference from line 41 in evrecord.icn

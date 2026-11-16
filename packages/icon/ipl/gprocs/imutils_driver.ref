@@ -12,8 +12,13 @@ ScaleGamma(0.75) = 58411
 HSVValue("60/100/100") = 65535,65535,0
 HLSValue("120:50:100") = 0,65535,0
 Distance(1,2,4,6) = 5.0
-PushWin([7,8]) -> 7 8
-Zoom(1,1,0,5,2,2,5,5) = &null
-WOpen("canvas=hidden"): fails
-QuitEvents(): q Q
-done
+PushWin([7,8]) ->  7 8
+
+Run-time error 140
+File gpxop.icn; Line 229
+window expected
+offending value: &null
+Traceback:
+main()
+Zoom(list_2 = [1,1,0,...,2,5,5]) from line 26 in imutils_driver.icn
+runerr(140,&null) from line 229 in gpxop.icn

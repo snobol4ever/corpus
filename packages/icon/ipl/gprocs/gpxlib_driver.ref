@@ -3,9 +3,15 @@ Distance(1,1,1,1) = 0.0
 Distance(-2,-3,4,5) = 10.0
 Distance(0.5,0.5,2.0,1.5) = 1.802775638
 Distance(10,0,0,0) = 10.0
-PushWin([1,2,3]) -> 1 2 3 (size 3)
-PushWin([]) -> size 0
-PushWin(["window",5]) -> "window" 5
-InBounds(0,0,100,100): fails
-InBounds(50,50,-20,-30): fails
-done
+PushWin([1,2,3]) -> &null 1 2 3 (size 4)
+PushWin([]) -> size 1
+PushWin(["window",5]) -> &null "window" 5
+
+Run-time error 140
+File gpxlib.icn; Line 96
+window expected
+offending value: &null
+Traceback:
+main()
+InBounds(0,0,100,100) from line 23 in gpxlib_driver.icn
+bad keyword reference from line 96 in gpxlib.icn

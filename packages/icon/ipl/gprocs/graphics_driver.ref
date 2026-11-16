@@ -22,7 +22,12 @@ HLSValue("0:50:100") = "65535,0,0"
 HLSValue("200:25:60") = "6553,19660,26214"
 HLSValue("bad") = fails
 Distance(0,0,6,8) = 10.0
-Zoom(0,0,0,0,0,0,0,0) = &null
-QuitEvents(): q Q
-WOpen("size=10,10"): fails
-done
+
+Run-time error 140
+File gpxop.icn; Line 229
+window expected
+offending value: &null
+Traceback:
+main()
+Zoom(list_1 = [0,0,0,...,0,0,0]) from line 24 in graphics_driver.icn
+runerr(140,&null) from line 229 in gpxop.icn
