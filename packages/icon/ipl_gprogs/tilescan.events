@@ -1,0 +1,36 @@
+# tilescan, the tile scanner, its control window at 10 10 and the keys taken there: Meta-O (Alt) opens an image through the library's dialog
+# (gpxtest.gif of the package, the dialog's field holding 50 characters; focus given back to the pointer first, the dialog pins it), the
+# marquee starts on the whole image and its repeat window shows the tiling; Meta with the arrows shrinks the marquee (two lefts, two ups),
+# the plain arrows move it (two rights, one down), Meta-M mirrors, and Meta-Q ends the program by itself
+move 240 210
+keydown Alt_L
+key o
+keyup Alt_L
+wait
+move 240 186
+focus
+press 1
+release 1
+type /home/corpus/packages/icon/ipl_gprogs/gpxtest.gif
+wait
+key Return
+wait
+move 60 60
+keydown Alt_L
+key Left
+key Left
+key Up
+key Up
+keyup Alt_L
+wait
+key Right
+key Right
+key Down
+wait
+keydown Alt_L
+key m
+keyup Alt_L
+wait
+keydown Alt_L
+key q
+keyup Alt_L

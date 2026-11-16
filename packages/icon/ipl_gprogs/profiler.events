@@ -1,0 +1,18 @@
+# profiler, the scrolling plot of a data file: Meta-O (Alt) opens the library's file dialog, the typed path of pf.txt (300 numbers beside it
+# in the package, the dialog's field holding 50 characters) and Return (Okay) load it, the data is plotted in its strip, its End of data
+# notice is closed with Return with the pointer on it, and Meta-Q ends the program by itself
+move 238 127
+keydown Alt_L
+key o
+keyup Alt_L
+wait
+type /home/corpus/packages/icon/ipl_gprogs/pf.txt
+key Return
+wait
+move 230 150
+key Return
+wait
+move 238 127
+keydown Alt_L
+key q
+keyup Alt_L
