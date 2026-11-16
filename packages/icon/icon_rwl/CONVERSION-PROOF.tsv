@@ -1,0 +1,3 @@
+# CONVERSION-PROOF.tsv -- icon_rwl: each Icon file and what the stock Arizona translator (icont 9.5.25a with newline insertion) says of the original against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (the grader 2026-11-15)
+file	verdict	semicolons_added
+rwl.icn	same-code	125

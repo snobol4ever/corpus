@@ -1,0 +1,297 @@
+################################################################################
+#
+#	File:     rwl.icn
+#	Subject:  Reduce boolean funtions
+#	Author:   Radomir Krawczykiewicz
+#	Date:     25 maja 2017
+#
+################################################################################
+
+procedure main()
+  while line:=read() do{
+    line := Trim_white(line);
+    if Correct(line) then {
+      onp_line:=map(Onp(line),"TF","10");
+      new_line:=if *(onp_line**&lcase) ~=0 then Reduce(onp_line)
+                                           else map(Val(onp_line,''),"10","TF");
+      if *new_line > *line then write(line)
+                           else write(new_line)
+    }
+    else write("ERROR")
+  };
+end
+
+################################################################################
+# Reduce - Reduce onp line to normal boolean sentence
+################################################################################
+
+procedure Reduce(line)
+  s1 := set();
+  f := 0;
+  every v:=Gen(*(line**&lcase)) do {
+    val := Val(line, v);
+    if val == 1 then insert(s1, v) else f+:=1
+  };
+  if *s1 = 0 then return "F";
+  if f = 0 then return "T";
+  s1 := ReduceSet(s1);
+
+  # find ^
+  s2:=set();
+  every v1:=!s1 do {
+    every v2:=!s1 do{
+      if (v1 ~== v2 & member(s1,v1) & member(s1,v2) ) then {
+        diff:=0;
+        l:=[];
+        r:=[];
+        every i:=1 to *v1 do{
+          if v1[i] == "0" & v2[i] == "1" then push(l,i);
+          if v1[i] == "1" & v2[i] == "0" then push(r,i);
+          if v1[i] ~== v2[i] then diff+:=1
+        };
+        if (*l>0 & *r>0 & diff = *l + *r) then{
+          delete(s1,v1);
+          delete(s1,v2);
+          every i:=!l do v1[i] := "L";
+          every i:=!r do v1[i] := "R";
+          insert(s2,v1)
+        }
+      }
+    }
+  };
+
+  # find >
+  s1:=s1++s2;
+  s2:=set();
+  every v1:=!s1 do {
+    every v2:=!s1 do{
+      if (v1 ~== v2 & member(s1,v1) & member(s1,v2) ) then {
+        diff:=0;
+        l:=[];
+        r:=[];
+        every i:=1 to *v1 do{
+          if v1[i] == "0" & v2[i] == "-" then push(l,i);
+          if v1[i] == "-" & v2[i] == "1" then push(r,i);
+          if v1[i] ~== v2[i] then diff+:=1
+        };
+        if (*l>0 & *r>0 & diff = *l + *r) then{
+          delete(s1,v1);
+          delete(s1,v2);
+          every i:=!l do v1[i] := "l";
+          every i:=!r do v1[i] := "r";
+          insert(s2,v1)
+        }
+      }
+    }
+  };
+  s1:=s1++s2;
+  return SetToString(s1,line**&lcase);
+end
+
+procedure SetToString(s,arg)
+  #arg := []
+  #every c:=!cs do put(arg,c)
+  new_line:="";
+  every line:=!s do{
+    if *new_line > 0 then new_line||:="|";
+
+    # parse ^
+    temp := "";
+    l:=[];
+    r:=[];
+    i:=1;
+    every e:=!line do{
+      if e == 'L' then push(l,i);
+      if e == 'R' then push(r,i);
+      i+:=1
+    };
+    if *l > 0 then{
+      tempL:="";
+      tempR:="";
+      every e:=!l do{
+        if *tempL > 0 then tempL||:="&";
+        tempL||:=arg[e]
+      };
+      if *l > 1 then tempL:="("|| tempL ||")";
+      every e:=!r do{
+        if *tempR > 0 then tempR||:="&";
+        tempR||:=arg[e]
+      };
+      if *r > 1 then tempR:="("|| tempR ||")";
+      temp:= tempL || "^" || tempR
+    };
+
+    change:=0;
+
+    # parse 0
+    i:=1;
+    temp0:="";
+    every e:=!line do{
+      if e == '0' then {
+        if *temp0 > 0 then temp0||:="|";
+        temp0||:=arg[i]
+      };
+      i+:=1
+    };
+    if *temp0 > 0 then {
+      if *temp0 > 1 then temp0:= "("|| temp0 ||")";
+      if *temp > 0 then{
+        temp||:="&";
+        change:=1
+      };
+      temp||:= "~" || temp0
+    };
+
+    # parse 1
+    i:=1;
+    every e:=!line do{
+      if e == '1' then {
+        if *temp > 0 then temp||:="&";
+        temp||:=arg[i];
+        change:=1
+      };
+      i+:=1
+    };
+
+    # parse >
+    l:=[];
+    r:=[];
+    i:=1;
+    every e:=!line do{
+      if e == 'l' then push(l,i);
+      if e == 'r' then push(r,i);
+      i+:=1
+    };
+    if *l > 0 then{
+      tempL:="";
+      tempR:="";
+      every e:=!l do{
+        if *tempL > 0 then tempL||:="&";
+        tempL||:=arg[e]
+      };
+      if *l > 1 then tempL:="("|| tempL ||")";
+      every e:=!r do{
+        if *tempR > 0 then tempR||:="&";
+        tempR||:=arg[e]
+      };
+      if *r > 1 then tempR:="("|| tempR ||")";
+      tempI:= tempL || ">" || tempR;
+      if *temp > 0 then tempI:= "(" || tempI || ")";
+      temp||:=tempI;
+      change:=1
+    };
+
+    # conncet to all
+    if (change = 1 & *temp > 2 & *s > 1) then temp:= "(" || temp || ")";
+    new_line||:=temp
+  };
+  return new_line;
+end
+
+################################################################################
+# ReduceSet - Use QUINE - MC CLUSKEY Algorithm to reduce Set
+################################################################################
+
+procedure ReduceSet(s1)
+  change:=1;
+  s2:=s1;
+  while change = 1 do{
+      s1:=s2;
+      s2:=set();
+      change:=0;
+    	every v1:=!s1 do {
+    		change2:=0;
+    		every v2:=!s1 do
+    			if insert(s2, Connect(v1, v2)) then change2:=change:=1;
+    		if change2=0 then insert(s2, v1)
+    	}
+  };
+	return s2;
+end
+
+procedure Connect(s1,s2)
+	diff:=0;
+	every i:=1 to *s1 do{
+		if s1[i] ~== s2[i] then{
+			s1[i]:="-";
+			diff+:=1
+		}
+	};
+	if diff=1 then return s1;
+end
+
+################################################################################
+# Onp() - Create onp line from line
+################################################################################
+
+procedure Onp(line)
+	while line?:= 2(="(", tab(bal(")")), pos(-1));
+
+  ops:=['>', "|&", "^"];
+  every op:=!ops do{
+    every i := bal(op,,,line);
+    if \i then return Onp(line[1: i]) || Onp(line[i+1: 0]) || line[i]
+  };
+
+	if line[1] == "~" then return Onp(line[2:0]) || "~";
+
+	return line;
+end
+
+################################################################################
+# Val() - Evaluete onp line with argument and return result
+################################################################################
+
+procedure Val(onp_line, arg)
+	onp_line:=map(onp_line, cset(onp_line)**&lcase, arg);
+	stack:=[];
+	every el:=!onp_line do
+		if el == !"01" then push(stack, el)
+		else case el of {
+			"&" : push(stack, iand(pop(stack), pop(stack)));
+			"|" : push(stack, ior(pop(stack), pop(stack)));
+			">" : push(stack, ior(pop(stack), 1-pop(stack)));
+			"~" : push(stack, 1-pop(stack));
+      "^" : push(stack, ixor(pop(stack), pop(stack)))
+		};
+	return pop(stack);
+end
+
+################################################################################
+# Gen() - Generate text with 0 and 1 of length n
+################################################################################
+
+procedure Gen(n)
+	suspend if n=0 then "" else !"01" || Gen(n-1);
+end
+
+################################################################################
+# Trim_white() - Delete whitespaces from line
+################################################################################
+
+procedure Trim_white(line)
+  while line[find(' ', line )] := "";
+  return line;
+end
+
+################################################################################
+# Correct() - Check if line is correct grammatically
+################################################################################
+
+procedure Correct(line)
+  if line? (W(), pos(0)) then return;
+end
+
+procedure W()
+  suspend C() | (C() || Op() || W());
+end
+
+procedure Op()
+  suspend =!"^|&>";
+end
+
+procedure C()
+	suspend =!(&lcase++'TF') | (="(" || W() || =")") | (="~" || C());
+end
+
+################################################################################
