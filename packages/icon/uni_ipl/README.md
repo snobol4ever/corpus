@@ -16,3 +16,5 @@ monitors whose link closure lost one of those files.
 its arguments (`NAME.argv`, the program's own name dropped where Arizona's line repeats it). 22 are graded; 4 are NO_ORACLE_ANSWER (EXCLUDED.tsv:
 two the oracle never finished, two it answered differently on two runs); 13 are OWED: 12 whose answer was empty with no input yet found for them,
 and progs/literat, whose 8-bit source the container writer cannot hold.
+
+THE SELECTION (moved here from ALL.source by the grader 2026-11-16: the harness reads only root, origin, version, licence, copy and cwd there, and refused this package on the selection line): ipl/progs and ipl/mprogs files that differ from Arizona Icon's ipl (Arizona's are the ipl package); graphics programs left upstream
