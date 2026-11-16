@@ -1,0 +1,6 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,src/00_HELLO,src/00_HELLO.sno,snoboldump__src/00_HELLO,snoboldump,3,0,131072,4096,60,
+2,src/01_DATA,src/01_DATA.sno,snoboldump__src/01_DATA,snoboldump,33,0,131072,4096,60,
+3,src/02_CTRL,src/02_CTRL.sno,snoboldump__src/02_CTRL,snoboldump,33,0,131072,4096,60,
+4,src/03_IO,src/03_IO.sno,snoboldump__src/03_IO,snoboldump,10,0,131072,4096,60,
+5,src/04_MATCH,src/04_MATCH.sno,snoboldump__src/04_MATCH,snoboldump,6,0,131072,4096,60,

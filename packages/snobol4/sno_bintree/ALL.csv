@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,traverse-tree,traverse-tree.sno,sno_bintree__traverse-tree,sno_bintree,254,0,131072,4096,60,
