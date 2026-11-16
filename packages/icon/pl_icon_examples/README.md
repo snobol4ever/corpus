@@ -22,3 +22,5 @@ screen road and a graphics build of SCRIP (`ALL.omit`).
 
 The first SCRIP reading (mode 3, SCRIP 38179ce886, on the landing's worktree): 7 of 9. Red: `examples/binary-repetition-code` aborts on
 signal 6; `id3/id3` prints a different answer (its unseeded random draws are one place to look).
+
+THE GRAPHICS PROGRAMS (the grader 2026-11-16, on Lon's order of 16:5x CST): twelve vidget demos are entries, each answer its window cut twice from the Icon graphics build (/home/resources/icon-master-x) on the screen road, cap 20 s (NAME.cap), stderr merged as this package grades (out_files screen.dump). Left out, measured: examples/chip8 answers differently twice; vidgets/randweav-2 is refused by the oracle's translator.
