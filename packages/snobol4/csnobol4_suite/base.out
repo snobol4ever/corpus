@@ -1,0 +1,17 @@
+
+
+
+base.sno(3) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              base.sno
+in line              3
+in statement         132
+stmts executed       57
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  18928
+memory left (bytes)  1029640

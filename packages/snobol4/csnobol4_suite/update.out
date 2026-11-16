@@ -1,0 +1,17 @@
+
+
+
+update.sno(3) : ERROR 289 -- input channel currently in use
+
+
+
+
+
+in file              update.sno
+in line              3
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15808
+memory left (bytes)  1032760

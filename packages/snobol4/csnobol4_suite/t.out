@@ -1,0 +1,17 @@
+
+
+
+t.sno(3) : ERROR 198 -- trace first argument is not appropriate name
+
+
+
+
+
+in file              t.sno
+in line              3
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12312
+memory left (bytes)  1036256

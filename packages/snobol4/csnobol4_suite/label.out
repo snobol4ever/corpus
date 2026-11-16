@@ -1,0 +1,17 @@
+
+
+
+label.sno(5) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              label.sno
+in line              5
+in statement         4
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12816
+memory left (bytes)  1035752

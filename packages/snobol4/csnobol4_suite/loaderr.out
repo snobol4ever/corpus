@@ -1,0 +1,17 @@
+
+
+
+loaderr.sno(2) : ERROR 142 -- load function does not exist
+
+
+
+
+
+in file              loaderr.sno
+in line              2
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12144
+memory left (bytes)  1036424

@@ -1,0 +1,17 @@
+
+
+
+popen2.sno(2) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+in file              popen2.sno
+in line              2
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11936
+memory left (bytes)  1036632
