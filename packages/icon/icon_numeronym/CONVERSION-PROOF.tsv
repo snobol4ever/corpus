@@ -1,0 +1,6 @@
+# CONVERSION-PROOF.tsv -- icon_numeronym: each Icon file of github.com/reidiiius/numeronym b94d4a3, converted by util_icon_semicolons.py, and the stock Arizona translator's (icont 9.5.25a
+# with newline insertion, -s -c) .u1 and .u2 of the original (the repository's HEAD) against the converted text, byte for byte (icon_convert_prove.py, the grader)
+file	verdict	semicolons_added
+cayenne.icn	UNCHANGED	0
+marigold.icn	SAME-CODE	1
+papaya.icn	UNCHANGED	0

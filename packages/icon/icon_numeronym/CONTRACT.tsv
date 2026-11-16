@@ -1,0 +1,3 @@
+# CONTRACT.tsv -- the run contract of icon_numeronym, read by corpus_suite_harness.py: key<TAB>value<TAB>evidence.
+stderr	merged	the answer was cut with stderr merged into stdout (iconx STEM 2>&1), so a run-time error is graded as an answer (Lon 2026-11-15)
+ipath	.	cayenne links marigold and papaya, the library files beside it

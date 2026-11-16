@@ -1,0 +1,83 @@
+# icon
+
+procedure display_cello(qp)
+
+  write( "\t" || En(qp) );
+  write( "\t" || An(qp) );
+  write( "\t" || Dn(qp) );
+  write( "\t" || Gn(qp) );
+  write( "\t" || Cn(qp) );
+
+end
+
+procedure display_guitar(qp)
+
+  write( "\t" || En(qp) );
+  write( "\t" || Bn(qp) );
+  write( "\t" || Gn(qp) );
+  write( "\t" || Dn(qp) );
+  write( "\t" || An(qp) );
+  write( "\t" || En(qp) );
+
+end
+
+procedure display_quartal(qp)
+
+  write( "\t" || Fn(qp) );
+  write( "\t" || Cn(qp) );
+  write( "\t" || Gn(qp) );
+  write( "\t" || Dn(qp) );
+  write( "\t" || An(qp) );
+  write( "\t" || En(qp) );
+  write( "\t" || Bn(qp) );
+
+end
+
+procedure Fn(qp)
+  return qp[26:61] || qp[01:26];
+end
+
+procedure Cn(qp)
+  return qp;
+end
+
+procedure Gn(qp)
+  return qp[36:61] || qp[01:36];
+end
+
+procedure Dn(qp)
+  return qp[11:61] || qp[01:11];
+end
+
+procedure An(qp)
+  return qp[46:61] || qp[01:46];
+end
+
+procedure En(qp)
+  return qp[21:61] || qp[01:21];
+end
+
+procedure Bn(qp)
+  return qp[56:61] || qp[01:56];
+end
+
+procedure Fk(qp)
+  return qp[31:61] || qp[01:31];
+end
+
+procedure Ck(qp)
+  return qp[06:61] || qp[01:6];
+end
+
+procedure Gk(qp)
+  return qp[41:61] || qp[01:41];
+end
+
+procedure Dk(qp)
+  return qp[16:61] || qp[01:16];
+end
+
+procedure Ak(qp)
+  return qp[51:61] || qp[01:51];
+end
+

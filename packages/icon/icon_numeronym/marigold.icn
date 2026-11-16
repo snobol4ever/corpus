@@ -1,0 +1,95 @@
+# icon
+
+procedure list_scales()
+
+  local Ts;
+
+       Ts := table();
+      Ts["j2"] :="HgHg PuFe ____ ____ CuNp PbAu ____ AuPb ____ AgUr ____ FePu ";
+      Ts["j3"] :="HgSn ____ SnHg UrFe ____ PbAg ____ AuAu ____ AgPb ____ FeUr ";
+      Ts["j5"] :="PbCu ____ AuSn ____ AgHg TiFe FeTi ____ ____ SnAu ____ CuPb ";
+      Ts["j6"] :="HgAu ____ SnPb ____ CuUr PbSn ____ AuHg NpFe ____ ____ FeNp ";
+      Ts["k1"] :="____ FeUr HgSn ____ SnHg UrFe ____ PbAg ____ AuAu ____ AgPb ";
+      Ts["k2"] :="NpCu ____ ____ FePu HgHg PuFe ____ UrAg ____ PbAu ____ AuPb ";
+      Ts["k5"] :="UrCu ____ PbSn ____ AuHg NpFe ____ ____ FeNp HgAu ____ SnPb ";
+      Ts["k6"] :="HgAg ____ SnAu ____ CuPb PbCu ____ AuSn ____ ____ TiFe FeTi ";
+      Ts["n0"] :="HgCu ____ SnSn ____ CuHg PbFe ____ AuAg ____ AgAu ____ FePb ";
+     Ts["j17"] :="____ ____ SnAu ____ CuPb PbCu ____ AuSn ____ AgHg TiFe FeTi ";
+     Ts["j23"] :="HgHg PuFe ____ UrAg ____ PbAu ____ AuPb ____ AgUr ____ FePu ";
+     Ts["j25"] :="FeCu HgMn ____ ____ MnHg CuFe PbTi ____ ____ NpAu ____ TiPb ";
+     Ts["j26"] :="HgHg PuFe ____ ____ CuNp PbAu ____ AuPb NpCu ____ ____ FePu ";
+     Ts["j36"] :="HgAu ____ SnPb UrCu ____ PbSn ____ AuHg NpFe ____ ____ FeNp ";
+     Ts["j56"] :="UrCu ____ PbSn ____ AuHg NpFe AgTi ____ FeNp ____ ____ SnPb ";
+     Ts["k12"] :="____ AgUr ____ FePu HgHg PuFe ____ UrAg ____ PbAu ____ AuPb ";
+     Ts["k15"] :="____ CuUr PbSn ____ AuHg NpFe ____ ____ FeNp HgAu ____ SnPb ";
+     Ts["k25"] :="NpCu ____ ____ FePu HgHg PuFe ____ ____ CuNp PbAu ____ AuPb ";
+     Ts["k26"] :="HgMn ____ ____ MnHg CuFe PbTi ____ AuNp ____ ____ TiPb FeCu ";
+     Ts["k34"] :="PbCu ____ AuSn ____ ____ TiFe FeTi HgAg ____ SnAu ____ CuPb ";
+     Ts["k56"] :="HgAu ____ SnPb ____ CuUr PbSn ____ ____ NpFe ____ TiAg FeNp ";
+    Ts["j236"] :="HgHg PuFe ____ UrAg ____ PbAu ____ AuPb NpCu ____ ____ FePu ";
+    Ts["j256"] :="FeCu HgMn ____ ____ MnHg CuFe PbTi ____ AuNp ____ ____ TiPb ";
+    Ts["j2k5"] :="FeCu HgMn ____ ____ MnHg CuFe ____ ____ AuNp NpAu ____ TiPb ";
+    Ts["j2k6"] :="HgHg PuFe ____ ____ CuNp PbAu ____ AuPb ____ ____ TiSn FePu ";
+    Ts["j2y3"] :="HgHg PuFe SnTi ____ ____ PbAu ____ AuPb ____ AgUr ____ FePu ";
+    Ts["j3k5"] :="NpCu ____ TiSn FePu ____ PuFe ____ ____ CuNp PbAu ____ AuPb ";
+    Ts["j3k6"] :="HgTi ____ SnNp UrAu ____ PbPb ____ AuUr ____ ____ TiHg FeFe ";
+    Ts["j5y6"] :="PbCu ____ AuSn ____ AgHg TiFe FeTi HgAg ____ ____ ____ CuPb ";
+    Ts["k125"] :="____ AgUr ____ FePu HgHg PuFe ____ ____ CuNp PbAu ____ AuPb ";
+    Ts["k1j5"] :="____ AuUr NpSn ____ TiHg FeFe HgTi ____ ____ UrAu ____ PbPb ";
+    Ts["k1j6"] :="____ PuFe SnTi ____ CuNp PbAu ____ AuPb NpCu ____ ____ FePu ";
+    Ts["k256"] :="HgMn ____ ____ MnHg CuFe PbTi ____ ____ NpAu ____ TiPb FeCu ";
+    Ts["k2j5"] :="NpCu ____ ____ FePu HgHg PuFe SnTi ____ ____ PbAu ____ AuPb ";
+    Ts["k2j6"] :="HgMn ____ ____ MnHg CuFe PbTi ____ AuNp NpAu ____ ____ FeCu ";
+    Ts["k2x1"] :="____ ____ TiSn FePu HgHg PuFe ____ UrAg ____ PbAu ____ AuPb ";
+    Ts["k6x5"] :="HgAg ____ SnAu ____ CuPb PbCu ____ ____ ____ AgHg TiFe FeTi ";
+    Ts["n167"] :="NpCu ____ ____ FePu ____ PuFe SnTi ____ CuNp PbAu ____ AuPb ";
+    Ts["n345"] :="____ PuFe ____ ____ CuNp PbAu ____ AuPb NpCu ____ TiSn FePu ";
+    Ts["n5y2"] :="HgMn ____ ____ MnHg CuFe ____ ____ AuNp NpAu ____ TiPb FeCu ";
+    Ts["n6x2"] :="FeCu HgMn ____ ____ MnHg CuFe PbTi ____ AuNp NpAu ____ ____ ";
+   Ts["j17k2"] :="____ ____ ____ MnFe CuTi PbAg ____ AuAu ____ AgPb TiCu FeMn ";
+   Ts["j17y2"] :="HgAg ____ ____ ____ CuPb PbCu ____ AuSn ____ AgHg TiFe FeTi ";
+   Ts["j23k6"] :="HgHg PuFe ____ UrAg ____ PbAu ____ AuPb ____ ____ TiSn FePu ";
+   Ts["j25y6"] :="TiCu FeMn ____ ____ SnHg MnFe CuTi PbAg ____ ____ ____ AgPb ";
+   Ts["j26y3"] :="HgHg PuFe SnTi ____ ____ PbAu ____ AuPb NpCu ____ ____ FePu ";
+   Ts["j2k34"] :="TiCu FeMn ____ ____ ____ MnFe CuTi PbAg ____ AuAu ____ AgPb ";
+   Ts["j2k56"] :="HgHg PuFe ____ ____ CuNp PbAu ____ ____ NpCu ____ TiSn FePu ";
+   Ts["j34k6"] :="HgSn ____ SnHg MnFe CuTi ____ ____ AuAu ____ ____ TiCu FeMn ";
+   Ts["j56y7"] :="UrCu ____ PbSn ____ AuHg NpFe AgTi ____ FeNp HgAu ____ ____ ";
+   Ts["k12j5"] :="____ AgUr ____ FePu HgHg PuFe SnTi ____ ____ PbAu ____ AuPb ";
+   Ts["k17j5"] :="TiCu FeMn HgSn ____ SnHg MnFe CuTi ____ ____ AuAu ____ ____ ";
+   Ts["k25x1"] :="____ ____ TiSn FePu HgHg PuFe ____ ____ CuNp PbAu ____ AuPb ";
+   Ts["k26x5"] :="HgSn ____ ____ MnFe CuTi PbAg ____ ____ ____ AgPb TiCu FeMn ";
+   Ts["k2j56"] :="NpCu ____ ____ FePu HgHg PuFe SnTi ____ CuNp ____ ____ AuPb ";
+   Ts["k34x2"] :="PbCu ____ ____ ____ AgHg TiFe FeTi HgAg ____ SnAu ____ CuPb ";
+   Ts["k56x4"] :="HgAu ____ SnPb ____ CuUr ____ ____ AuHg NpFe ____ TiAg FeNp ";
+   Ts["n25x6"] :="TiCu FeMn HgSn ____ ____ MnFe CuTi PbAg ____ ____ ____ AgPb ";
+   Ts["n26y5"] :="____ ____ SnHg MnFe CuTi PbAg ____ ____ ____ AgPb TiCu FeMn ";
+   Ts["n45y2"] :="HgTi ____ ____ UrAu ____ PbPb ____ AuUr NpSn ____ TiHg FeFe ";
+   Ts["n67x2"] :="____ AuUr ____ ____ TiHg FeFe HgTi ____ SnNp UrAu ____ PbPb ";
+  Ts["j136y7"] :="____ ____ SnPb UrCu ____ PbSn ____ AuHg NpFe AgTi ____ FeNp ";
+  Ts["j167y2"] :="HgAu ____ ____ ____ CuUr PbSn ____ AuHg NpFe ____ TiAg FeNp ";
+  Ts["j246y3"] :="HgHg PuFe SnTi ____ CuNp ____ ____ AuPb NpCu ____ ____ FePu ";
+  Ts["j26y34"] :="HgHg PuFe SnTi UrAg ____ ____ ____ AuPb NpCu ____ ____ FePu ";
+  Ts["j2k6x5"] :="HgHg PuFe ____ ____ CuNp PbAu ____ ____ ____ AgUr TiSn FePu ";
+  Ts["j2k6y3"] :="HgHg PuFe SnTi ____ ____ PbAu ____ AuPb ____ ____ TiSn FePu ";
+  Ts["j346y5"] :="NpCu ____ TiSn FePu HgHg PuFe ____ ____ CuNp ____ ____ AuPb ";
+  Ts["j3k5x4"] :="HgAu ____ SnPb UrCu ____ ____ ____ AuHg NpFe AgTi ____ FeNp ";
+  Ts["k135x4"] :="____ CuUr PbSn ____ ____ NpFe ____ TiAg FeNp HgAu ____ SnPb ";
+  Ts["k157x6"] :="HgHg PuFe SnTi ____ CuNp PbAu ____ ____ NpCu ____ ____ FePu ";
+  Ts["k1j6y7"] :="____ CuUr PbSn ____ AuHg NpFe ____ TiAg FeNp HgAu ____ ____ ";
+  Ts["k257x1"] :="NpCu ____ TiSn FePu HgHg PuFe ____ ____ CuNp PbAu ____ ____ ";
+  Ts["k25x17"] :="____ AgUr TiSn FePu HgHg PuFe ____ ____ CuNp PbAu ____ ____ ";
+  Ts["k2j5x1"] :="____ ____ TiSn FePu HgHg PuFe SnTi ____ ____ PbAu ____ AuPb ";
+  Ts["k2j5y6"] :="NpCu ____ ____ FePu HgHg PuFe SnTi UrAg ____ ____ ____ AuPb ";
+  Ts["k345x2"] :="UrCu ____ ____ ____ AuHg NpFe AgTi ____ FeNp HgAu ____ SnPb ";
+  Ts["n167x4"] :="HgAu ____ ____ UrCu ____ PbSn ____ AuHg NpFe AgTi ____ FeNp ";
+  Ts["n345y7"] :="____ CuUr ____ ____ AuHg NpFe ____ TiAg FeNp HgAu ____ SnPb ";
+ Ts["j2k56x4"] :="HgHg PuFe ____ ____ CuNp ____ ____ AuPb NpCu ____ TiSn FePu ";
+ Ts["j3k56x4"] :="HgTi ____ SnNp UrAu ____ ____ ____ AuUr NpSn ____ TiHg FeFe ";
+ Ts["k1j56y7"] :="____ AuUr NpSn ____ TiHg FeFe HgTi ____ SnNp UrAu ____ ____ ";
+ Ts["k2j56y7"] :="NpCu ____ ____ FePu HgHg PuFe SnTi ____ CuNp PbAu ____ ____ ";
+
+  return Ts;
+
+end
+

@@ -1,0 +1,30 @@
+#!/usr/bin/env icon
+
+link marigold, papaya
+
+procedure main()
+
+  local stamp, catalogue, epithet;
+
+  stamp := "-v" || &date || "-" || &clock;
+
+  catalogue := list_scales();
+  
+    write();
+
+  epithet := "j3k6";
+
+    write( "\n\t" || epithet || stamp );
+    display_guitar( catalogue[ epithet ] );
+
+    write();
+
+  epithet := "k1j5";
+
+    write( "\n\t" || epithet || stamp );
+    display_guitar( catalogue[ epithet ] );
+
+    write("\n");
+
+end
+

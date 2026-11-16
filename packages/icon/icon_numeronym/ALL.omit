@@ -1,0 +1,2 @@
+marigold.icn: a library file with no main, compiled beside the programs of its folder that use it
+papaya.icn: a library file with no main, compiled beside the programs of its folder that use it
