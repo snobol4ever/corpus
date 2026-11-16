@@ -1,0 +1,25 @@
+# htetris, the Tetris game of ipl_gpacks (htetris), driven through its menus and buttons with no game started: a game draws its bricks
+# after randomize() and moves them by the clock, so play is never the same twice and is left out. Controls > Current keys and Bricks >
+# Bricks in use each open a notice (drawn black on the oracle's display), closed by Return with the pointer over it; the Quit button ends it.
+# Controls held open, its item Current keys
+move 67 11
+press 1
+wait
+move 80 45
+release 1
+wait
+move 300 300
+key Return
+wait
+# Bricks held open, its item Bricks in use
+move 125 11
+press 1
+wait
+move 140 60
+release 1
+wait
+move 300 300
+key Return
+wait
+# the Quit button
+click 1 43 153

@@ -48,6 +48,12 @@ cannot read, and `htetris.icn` line 43 is where SCRIP names the error of the fil
 its column counted over the joined lines), so the converter edited the includer. MEASURED: built by `/home/resources/icon-master-x` it shows the
 stock build's own picture twice, md5 20bc8966; `htetris/htetris.out` is that answer.
 
+htetris IS GRADED THROUGH ITS MENUS (officer_06, 2026-11-16, row icon-graphics-every-gui-pack-is-an-entry-of-ipl-gpacks-graded-as-an-application):
+`htetris/htetris.events` opens Controls > Current keys and Bricks > Bricks in use, each a notice closed by Return, and ends by the Quit
+button; the answer is the 7 screen lines (`out_files` screen.dump), byte equal on two runs of `/home/resources/icon-master-x`. LEFT OUT, MEASURED
+in the source: a game, which draws its bricks after `randomize()` (htetris.icn 250 and 1301) and moves them by the clock, so its play is not the
+same twice; Help > About, which shows nothing on the oracle's display. The notices are drawn black on the oracle's display.
+
 THE TIGER ROW: `tiger/tgrmap`, the map viewer of Icon 9.5.25a `ipl/gpacks/tiger` for Census TIGER line chains, a vib interface (978 lines; it links
 the library alone; the pack's five other tools are batch filters with no window). Its answer is its opening picture with no map loaded (`out_files`
 screen.dump). Converted by officer_06 2026-11-16 by the stock translator's newline rule (the converter put a `;` after the macro `EPSILON` inside
