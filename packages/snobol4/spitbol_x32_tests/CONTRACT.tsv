@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- the run contract of spitbol_x32_tests, read by util_build_package_suite.py: key<TAB>value<TAB>evidence.
+silent	exit-status	Lon 2026-11-15 11:5x CST, in the grader's window, verbatim: "So change the standing order to allow a silent program to use the return/exit code." (skill suites-and-grading section 4): a program sbl -bf runs with nothing on standard output, twice alike, is an entry graded by its exit status alone

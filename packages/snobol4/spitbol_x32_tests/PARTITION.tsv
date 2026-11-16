@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=16 features=18 ubiquitous=3(package TRIM keyword_ref) distinctive=15 core=12 clusters=4 chunks=1 sizes=4
+# shape: entries=18 features=18 ubiquitous=3(package TRIM keyword_ref) distinctive=15 core=12 clusters=6 chunks=1 sizes=6
 entry	part	cluster	shells
 arcget	core	core	LEN REM arith cond_assign
 arcput	core	core	alternation
@@ -18,3 +18,5 @@ lower	core	core	REPLACE
 op	core	core	ANY LEN REM cond_assign
 rev	core	core	BREAK LEN REM TABLE arith cond_assign
 tbl	core	core	BREAK REM SPAN cond_assign
+e	chunk:01	family:e	
+en	chunk:01	family:en	

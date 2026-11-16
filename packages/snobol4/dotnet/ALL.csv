@@ -5,11 +5,11 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 4,SourceLines003,SourceLines003.sno,dotnet__SourceLines003,dotnet,14,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
 5,Test,Test.sno,dotnet__Test,dotnet,8,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1
 6,asgn1,asgn1.sno,dotnet__asgn1,dotnet,20,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,1,1,0,0,0,1
+9,chap8_funcs,chap8_funcs.sno,dotnet__chap8_funcs,dotnet,60,0,131072,4096,300,--stlimit,0,0,0,0,1,0,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,0,1,1,1,1,0,0,1
+10,code,code.sno,dotnet__code,dotnet,139,0,131072,4096,300,--stlimit,1,0,1,0,1,0,1,1,0,1,1,1,0,1,0,1,0,1,0,1,1,0,0,0,1,0,1,0,1,0,0,0,1,1,1,1,0,1,1,1
+12,palin,palin.sno,dotnet__palin,dotnet,9,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,1,1,0,0,0,0
+13,pattern_demo,pattern_demo.sno,dotnet__pattern_demo,dotnet,21,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+14,temp,temp.sno,dotnet__temp,dotnet,17,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1
 7,Test2,Test2.sno,dotnet__Test2,dotnet,3,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 8,chap7,chap7.sno,dotnet__chap7,dotnet,39,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-9,chap8_funcs,chap8_funcs.sno,dotnet__chap8_funcs,dotnet,60,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-10,code,code.sno,dotnet__code,dotnet,139,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 11,expr_parser_stub,expr_parser_stub.sno,dotnet__expr_parser_stub,dotnet,47,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-12,palin,palin.sno,dotnet__palin,dotnet,9,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-13,pattern_demo,pattern_demo.sno,dotnet__pattern_demo,dotnet,21,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-14,temp,temp.sno,dotnet__temp,dotnet,17,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

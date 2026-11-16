@@ -1,10 +1,15 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=6 features=16 ubiquitous=1(package) distinctive=15 core=4 clusters=1 chunks=1 sizes=2
+# shape: entries=11 features=30 ubiquitous=3(package keyword_ref arith) distinctive=27 core=5 clusters=5 chunks=1 sizes=6
 entry	part	cluster	shells
-1brc	core	core	CONVERT DEFINE LEN REM SIZE TABLE TRIM arith cond_assign keyword_ref
+1brc	core	core	CONVERT DEFINE LEN REM SIZE TABLE TRIM cond_assign
 SourceLines001	chunk:01	family:SourceLines	
 SourceLines002	chunk:01	family:SourceLines	
-SourceLines003	core	core	LEN cond_assign
-Test	core	core	arith keyword_ref
-asgn1	core	core	BREAK REPLACE SPAN TABLE TRIM arith cond_assign goto_fail goto_success keyword_ref
+SourceLines003	chunk:01	feat:LEN	LEN cond_assign
+Test	chunk:01	family:Test	
+asgn1	core	core	BREAK REPLACE SPAN TABLE TRIM cond_assign goto_fail goto_success
+chap8_funcs	core	core	BREAK DEFINE LEN REM REPLACE RPOS capture_plus_defer cond_assign deferred_eval goto_fail goto_success indirect_ref
+code	core	core	ANY ARBNO BREAK CODE DEFINE EVAL FENCE LEN NOTANY REM REPLACE RPOS RTAB TABLE TRIM alternation arbno_with_alt cond_assign fence_guarded_fail goto_fail goto_success
+palin	chunk:01	feat:REPLACE	REPLACE TRIM goto_fail goto_success
+pattern_demo	core	core	alternation
+temp	chunk:01	feat:TRIM	TRIM goto_fail goto_success
