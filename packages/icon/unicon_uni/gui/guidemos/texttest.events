@@ -1,0 +1,20 @@
+# texttest, a 201 by 248 dialog: a TextField holding thequickbrownfoxjumps (it writes a line for each event it gets), an EditList and a List
+# with drop-down arrows, a Quit button: the field is clicked after its third letter and two letters typed there; the EditList's arrow opens
+# its list and the second item, two, is chosen; the List's arrow opens its list and the fourth item, four, is chosen; Quit ends the program by itself
+move 52 37
+click 1 52 37
+wait
+type XY
+wait
+click 1 165 99
+wait
+move 60 140
+click 1 60 140
+wait
+click 1 165 142
+wait
+move 60 210
+click 1 60 210
+wait
+move 100 205
+click 1 100 205

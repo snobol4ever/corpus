@@ -1,0 +1,20 @@
+# listtest, a 421 by 245 dialog: a TextDisplay (from 31 across), a TextList that selects one with a cursor that drags (from 157) and one that
+# selects many (from 283), each of its items 13 high from 36 down, and a Quit button: in the middle list three is chosen, then the cursor
+# dragged from five down to seven; in the right list two is chosen and four added with Control; the TextDisplay is scrolled down by its arrow
+# twice; Quit writes its event's type and ends the program by itself
+move 180 62
+click 1 180 62
+wait
+drag 1 176 88 176 114
+wait
+click 1 300 49
+wait
+keydown Control_L
+click 1 300 75
+keyup Control_L
+wait
+click 1 117 172
+wait
+click 1 117 172
+wait
+click 1 210 217

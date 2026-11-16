@@ -1,0 +1,14 @@
+# sliders, a 378 by 287 dialog of three horizontal Sliders (0 to 5, 0 to 5000 by 500, 0.0 to 3.0 by 0.5), each with its value in a label to
+# its right, and a Quit button: the first slider's handle is dragged from 2 to 4; the second's track is clicked twice right of its handle,
+# a step of 500 each; the third's handle is dragged from 2.0 down to 0.5; Quit disposes the dialog and the program ends by itself
+move 116 40
+drag 1 116 40 193 40
+wait
+click 1 210 110
+wait
+click 1 220 110
+wait
+drag 1 167 180 70 180
+wait
+move 189 256
+click 1 189 256

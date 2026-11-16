@@ -1,0 +1,17 @@
+# tabletest, a 300 by 238 dialog holding a Table of three columns (a check box drawn by the program, a number, a name), its rows 20 high from
+# 52 down, and a Quit button: a click on the row of Jones checks its box and one on Smith, R clears its; the table's arrow scrolls it down
+# twice; the divider between Col2 and Col3 is dragged 30 to the right; Alt and q, the Quit button's accelerator, ends the program by itself
+move 120 72
+click 1 120 72
+wait
+click 1 120 52
+wait
+click 1 267 160
+wait
+click 1 267 160
+wait
+drag 1 150 23 180 23
+wait
+keydown Alt_L
+key q
+keyup Alt_L

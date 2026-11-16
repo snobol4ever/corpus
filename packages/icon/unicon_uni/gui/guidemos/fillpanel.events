@@ -1,0 +1,6 @@
+# fillpanel, a 338 by 274 dialog holding a blue FillPanel of 200 by 100 centred, a Close button centred in it: the button is pressed and
+# held, then released, which disposes the dialog and the program ends by itself
+move 169 137
+press 1
+wait
+release 1

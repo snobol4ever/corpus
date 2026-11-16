@@ -1,0 +1,34 @@
+# secondtest, a 490 by 400 dialog with a File menu (Quit, Message), three o/s check boxes, a Messages display the handlers write into, a
+# Shares table, a language List and a string TextField: Linux and then Solaris are checked; the Share price column's header is clicked
+# and the row of Oracle chosen; the field is clicked and ab typed; the language List's arrow opens it and its second item is chosen; Alt f
+# and m choose File's Message; Alt f and q choose File's Quit, which disposes the dialog and the program ends by itself
+move 27 119
+click 1 27 119
+wait
+click 1 27 149
+wait
+click 1 380 245
+wait
+click 1 260 292
+wait
+click 1 85 324
+wait
+type ab
+wait
+click 1 106 234
+wait
+move 60 270
+click 1 60 270
+wait
+move 300 380
+keydown Alt_L
+key f
+keyup Alt_L
+wait
+key m
+wait
+keydown Alt_L
+key f
+keyup Alt_L
+wait
+key q

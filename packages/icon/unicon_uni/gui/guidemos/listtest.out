@@ -1,1 +1,30 @@
+on_text_list_2_event 400
+on_text_list_2_event 51
+on_text_list_2_event 90
+on_text_list_2_event 40
+on_text_list_2_event 92
+on_text_list_2_event 51
+on_text_list_2_event 90
+on_text_list_2_event 51
+on_text_list_2_event 51
+on_text_list_2_event 40
+on_text_list_2_event 92
+on_text_list_2_event 401
+on_text_list_3_event 400
+on_text_list_3_event 51
+on_text_list_3_event 90
+on_text_list_3_event 40
+on_text_list_3_event 92
+on_text_list_3_event 51
+on_text_list_3_event 90
+on_text_list_3_event 40
+on_text_list_3_event 92
+on_text_list_3_event 401
+60
 screen 1024x768 md5 d3b81cacbb6a39a12e8d040ad2a2e38d
+screen 1024x768 md5 bc2386dedd4756684c73b8754cad2d2b
+screen 1024x768 md5 e67cffc04050cb5a0ac8720faf6d03d7
+screen 1024x768 md5 c7aaa7e7571e41f7255215e34688de2c
+screen 1024x768 md5 fd6c23c3df2f25b21c676dfebde45efd
+screen 1024x768 md5 b28c0a6069bc50b122292c9de337ab38
+screen 1024x768 md5 da4263dfdc089e35e96d3c6aeb6204b4

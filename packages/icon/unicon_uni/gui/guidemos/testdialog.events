@@ -1,0 +1,6 @@
+# testdialog, a 215 by 150 dialog (it opens at 0 0 with no window manager): a label over a TextButton centred at 66% down; the button is
+# pressed and held (its sunken face), then released, which disposes the dialog and the program ends by itself
+move 107 99
+press 1
+wait
+release 1
