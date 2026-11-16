@@ -1,0 +1,1 @@
+ipath	../ipl/gprocs	the graphics procedures of the Icon program library that the graphics entries link (graphics, wopen, linddraw and kin), semicolon-ready in the sibling ipl; no name there is also a name of ../ipl/procs, which SCRIP and the oracle search by default
