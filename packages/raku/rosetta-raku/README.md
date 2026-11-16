@@ -28,3 +28,5 @@ rakudo's, cut twice by the splice road (`--twice --only`): 33 programs enter (ab
 list; two write their answer to a file; two stop with their error on stderr alone; the rest are owed as before). 37 programs stay owed.
 
 The first SCRIP reading of the 33 (mode 3, SCRIP 38179ce886, on the landing's worktree): 4 of 33.
+
+Three more read standard input, and each now has an input of OURS (`NAME.in`, absorbed into `ALL.in`): input-output-for-lines-of-text-1 and -2 (a count, then three lines) and input-output-for-pairs-of-numbers (a count, then five pairs). The first SCRIP reading: 0 of 3 (SCRIP stops with its error 108, list expected). Five more put their whole answer on stderr themselves (`dd`, `note`: decorate-sort-undecorate-idiom, hello-world-standard-error, n-grams, posit-numbers-decoding, undefined-values-5); they stay owed, since the builder reads a per-entry stderr cell only from a row that already exists.

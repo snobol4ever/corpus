@@ -46182,3 +46182,17 @@ revolving
 strangles
 transfixt
 transport
+#----------------------------------------- 1195 input-output-for-lines-of-text-1
+hello
+hello world
+Pack my box with five dozen liquor jugs
+#----------------------------------------- 1196 input-output-for-lines-of-text-2
+hello
+hello world
+Pack my box with five dozen liquor jugs
+#---------------------------------------- 1197 input-output-for-pairs-of-numbers
+3
+30
+2
+300
+4

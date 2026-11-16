@@ -30447,3 +30447,17 @@ my @new_words = gather for @words_ge_9.rotor( 9 => -8 ) -> @nine_words {
 }
 
 .say for unique @new_words;
+#----------------------------------------- 1195 input-output-for-lines-of-text-1
+say get for ^get;
+#----------------------------------------- 1196 input-output-for-lines-of-text-2
+sub do-stuff ($line) {
+    say $line;
+}
+
+my $n = +get;
+for ^$n {
+    my $line = get;
+    do-stuff $line;
+}
+#---------------------------------------- 1197 input-output-for-pairs-of-numbers
+for ^get() { say [+] get.words }
