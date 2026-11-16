@@ -385,7 +385,6 @@ vigen-re-cipher-2: oracle produced EMPTY output -- refusing to mint a vacuous re
 voronoi-diagram: oracle produced EMPTY output -- refusing to mint a vacuous ref
 walk-a-directory-non-recursively: oracle produced EMPTY output -- refusing to mint a vacuous ref
 window-creation: its oracle answer is run-time error 140 at wopen.icn line 175 on stderr, which this package does not grade, so its graded answer would be screen none and exit 1, which any broken engine earns (the grader 2026-11-16, on the coo's census)
-window-management: the oracle answers differently on two runs: its steps are 3000 ms apart and the road's still rule is three seconds, so which step it catches is a race; MEASURED by the coo 2026-11-16 on the screen road under the graphics oracle (its short-delay form is the entry window-management-short-delay)
 wireworld: oracle produced EMPTY output -- refusing to mint a vacuous ref
 word-wrap: oracle produced EMPTY output -- refusing to mint a vacuous ref
 wordle-comparison: oracle produced EMPTY output -- refusing to mint a vacuous ref

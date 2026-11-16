@@ -7215,11 +7215,13 @@ Plain Text = Beware the Jabberwock, my son! The jaws that bite, the claws that c
         `---10
 #----------------------------------------------------------------- 351 window-creation-x11
 screen 1024x768 md5 5d306172198aa86cf2961e29bc9eb81c
-#----------------------------------------------------------------- 352 window-management-short-delay
+#----------------------------------------------------------------- 352 window-management
 screen 1024x768 md5 fc276fdd84ff36df4ddda4faa73b8590
-#----------------------------------------------------------------- 353 word-frequency
+#----------------------------------------------------------------- 353 window-management-short-delay
+screen 1024x768 md5 fc276fdd84ff36df4ddda4faa73b8590
+#----------------------------------------------------------------- 354 word-frequency
 The 10 most common words are:
-#----------------------------------------------------------------- 354 write-language-name-in-3d-ascii
+#----------------------------------------------------------------- 355 write-language-name-in-3d-ascii
              /\
             / /
            / / /\
