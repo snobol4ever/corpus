@@ -17449,6 +17449,35 @@ entry:       p="-n10" q="AA" r="BB" s="CC"
 after match: p="-n10" q="AA" r="BB" s="CC"
 ```
 
+## sweep__repeated_alternation_yields_its_operands_variable
+
+```Icon
+procedure main()
+   local i, s, n, x, L;
+   i := 0; s := 0;
+   every s +:= (|i +:= 1) \ 5;
+   write(s, " ", i);
+   i := 0; n := 0;
+   every ((|i) +:= 1) \ 3 do n +:= 1;
+   write(i, " ", n);
+   x := 3;
+   (|x) \ 1 +:= 4;
+   write(x);
+   L := [1, 2, 3];
+   every (|L[2]) \ 2 *:= 10;
+   write(L[1], " ", L[2], " ", L[3]);
+   write("end");
+end
+```
+
+```stdout
+15 5
+3 3
+7
+1 200 3
+end
+```
+
 ## ladder__rung13_alt_a_converted_concatenation_error_falls_to_the_alternative
 
 ```Icon
