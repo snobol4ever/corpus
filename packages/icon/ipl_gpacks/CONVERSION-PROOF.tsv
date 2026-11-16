@@ -1,0 +1,6 @@
+# CONVERSION-PROOF.tsv -- ipl_gpacks: each Icon file of the library's graphics packs (Icon 9.5.25a ipl/gpacks), converted by util_icon_semicolons.py, and the stock
+# Arizona translator's (icont 9.5.25a with newline insertion, -s -c) .u1 and .u2 of the original against the converted text, byte for byte (the grader 2026-11-16)
+file	verdict	semicolons_added
+ged/control.icn	SAME-CODE	140
+ged/ged.icn	SAME-CODE	49
+ged/textedit.icn	SAME-CODE	1265

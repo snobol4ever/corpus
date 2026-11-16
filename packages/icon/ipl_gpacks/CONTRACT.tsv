@@ -1,0 +1,5 @@
+ipath	../ipl/gprocs	the graphics procedures of the Icon program library that these programs link (graphics, vidgets, dialog and kin), semicolon-ready in the sibling ipl
+ipath	../ipl/procs	the basic procedures of the library that they link, semicolon-ready in the sibling ipl
+lpath	../ipl/gincl	the graphics $include files (keysyms.icn, vdefns.icn and kin) of the library, in the sibling ipl
+lpath	../ipl/incl	the basic $include files of the library, in the sibling ipl
+ipath	ged	ged links textedit and control, the modules beside it in its pack
