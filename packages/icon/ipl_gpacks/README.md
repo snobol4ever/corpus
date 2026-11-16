@@ -107,8 +107,17 @@ the 10 screen lines then `t.defs` (`out_files` screen.dump t.defs; 19 bytes, the
 `/home/resources/icon-master-x`. LEFT OUT, MEASURED: the specification's save (control meta w), whose dialog fills its comments field with
 `&dateline`, so its picture is alike only within one minute; generate, which runs `icont` through `system()`.
 
-NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
-it waits on the road passing an entry's env to the program alone); the rest of weaving is batch
+THE XTILES ROW: `xtiles/xtiles`, Marc Espie's tile game of Icon 9.5.25a `ipl/gpacks/xtiles` (zap 4-connected sets of one colour), with the
+three smiley images it includes. It draws its colour set and its puzzle from `&clock` (xtiles.icn 718 to 746; a seed argument fixes the puzzle
+only), so it runs under the library's clock pin, `xtiles/xtiles.pin`, which the harness lays over the program alone (`ipl_env_apply`; the
+screen road since the cqo's env wrap no longer runs under the entry's environment). `xtiles/xtiles.events` zaps three sets by clicks, undoes
+the last with u, zaps it again, and quits by q and y; the answer is its one line of text (the pinned seed) then 8 screen lines (`out_files`
+screen.dump), byte equal on two runs of `/home/resources/icon-master-x` under the pin, where two runs without it give two pictures.
+Converted by officer_06 2026-11-16 by the stock translator's newline rule (newline_rule.py beside the progress folder, from lextab.h's own
+flags; the old converter gives up on the includes), SAME-CODE, each smiley file taking one `;` after its string, which the includer's next
+token begins.
+
+NOT YET HERE, MEASURED 2026-11-16: the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
 and a pinned clock, so both are left out.
 

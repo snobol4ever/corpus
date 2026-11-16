@@ -8,3 +8,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 7,tiger/tgrmap,tiger/tgrmap.icn,ipl_gpacks__tiger/tgrmap,ipl_gpacks,978,0,131072,4096,600,,screen.dump t.lch,folder,
 8,drawtree/drawtree,drawtree/drawtree.icn,ipl_gpacks__drawtree/drawtree,ipl_gpacks,866,0,131072,4096,600,,screen.dump,folder,
 9,carpets/carport,carpets/carport.icn,ipl_gpacks__carpets/carport,ipl_gpacks,1156,0,131072,4096,600,,screen.dump t.defs,,
+10,xtiles/xtiles,xtiles/xtiles.icn,ipl_gpacks__xtiles/xtiles,ipl_gpacks,881,0,131072,4096,600,,screen.dump,,

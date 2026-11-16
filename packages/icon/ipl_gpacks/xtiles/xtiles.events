@@ -1,0 +1,18 @@
+# xtiles of ipl_gpacks (xtiles), the tile game, run under its clock pin (xtiles.pin: it draws its colours and its puzzle from &clock): three
+# sets zapped by clicks (the blue block at the top, the cyan block at the left, the orange block in the middle), u undoes the last, the
+# orange block zapped again, q asks to quit and y answers it. The 10 by 10 field of 35-pixel tiles stands at 0 0.
+move 100 17
+wait
+click 1 100 17
+wait
+click 1 35 245
+wait
+click 1 155 90
+wait
+key u
+wait
+click 1 155 90
+wait
+key q
+wait
+key y
