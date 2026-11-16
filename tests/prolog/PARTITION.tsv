@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=741 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,4
+# shape: entries=742 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,5
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -188,7 +188,7 @@ directive_50	chunk:06	family:rung24_string_io
 directive_59	chunk:07	family:rung25_term_string	
 directive_68	chunk:06	family:rung27	
 directive_69	chunk:06	family:rung27	
-directive_70	chunk:06	family:rung27	
+directive_70	chunk:07	family:rung27	
 directive_72	chunk:07	family:rung27	
 directive_75	chunk:07	family:rung29	
 directive_76	chunk:07	family:rung29	
@@ -199,7 +199,7 @@ index_directive_1	chunk:02	family:ladder
 indexing_distinct_constant_first_args_1	chunk:02	family:ladder	
 misc17_number_chars_1	chunk:02	family:ladder	
 rung02_clause_choice_with_rule	chunk:02	family:ladder	
-scrip_test_hello	chunk:07	family:scrip_test_prolog_hello	
+scrip_test_hello	chunk:08	family:scrip_test_prolog_hello	
 simple_program_91	chunk:07	family:rung18_succ_plus	
 simple_program_92	chunk:07	family:rung18_succ_plus	
 swi_d1__d1a	chunk:05	feat:writeq	writeq
@@ -630,6 +630,7 @@ resource__r04_deep_copy_term_caught	chunk:06	feat:copy_term	catch copy_term cut
 resource__r07_deep_ground_caught	chunk:03	feat:cut	catch cut if_then_else
 resource__r08_deep_term_hash_caught	chunk:03	feat:cut	catch cut if_then_else
 resource__r10_deep_acyclic_caught	chunk:03	feat:cut	catch cut if_then_else
+xpce__l_unicode_blocks	chunk:06	feat:forall	cut findall forall format if_then_else
 catch_throw_2	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 cut_ite_directive_2	chunk:03	feat:cut	cut if_then_else unify
 findall_directive_replace_4	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
