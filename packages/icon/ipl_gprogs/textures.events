@@ -1,0 +1,3 @@
+# textures: draws its grid of textured rectangles, each pattern beside its inverse, then waits in WDone for a quit key; q ends it by itself
+move 100 100
+key q

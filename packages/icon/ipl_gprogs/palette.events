@@ -1,0 +1,25 @@
+# palette: draws a colour palette (c1 first, in a 125 by 250 window); a left press writes the key of the colour under it on standard output; the digits 1 to 6 and g
+# switch palettes, l, o and u toggle drawpalette flags, and q ends the program by itself
+move 30 30
+press 1
+release 1
+key 2
+wait
+move 100 60
+press 1
+release 1
+key g
+wait
+move 60 40
+press 1
+release 1
+key l
+wait
+key o
+wait
+key 4
+wait
+move 120 80
+press 1
+release 1
+key q

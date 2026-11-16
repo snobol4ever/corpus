@@ -1,0 +1,15 @@
+# etch, the sketching window (300 by 300): a left drag draws a free line, a middle drag rubber-bands a straight line drawn on its release,
+# a right drag erases, a left press and release draw a segment, then Escape ends the program by itself
+drag 1 30 30 200 120
+wait
+drag 2 40 250 260 200
+wait
+drag 3 30 30 120 70
+wait
+move 250 40
+press 1
+move 270 280
+release 1
+wait
+move 150 150
+key Escape
