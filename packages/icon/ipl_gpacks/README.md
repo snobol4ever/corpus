@@ -27,3 +27,5 @@ NOT YET HERE, MEASURED 2026-11-16: `htetris` and `xtiles`, the games (the conver
 
 THE FIRST SCRIP READING: SCRIP has no window function, so the row reads `screen none` until the window design of 2026-11-10 is built (skill
 icon, reference.md section 9).
+
+THE EDITOR IS GRADED AS AN EDITOR (the cto, 2026-11-16, W6 at the head of its order beside bme): `ged/ged.events`, the cqo's script of clicks and keys, is played on its window; the answer is the screen line of every step, 20 in all, then `t.txt`, the file it saves (`out_files`), 3714 bytes, byte equal twice on the landed road under icon-master-x (`/home/resources/progress/icon-graphics-2026-11-16/editors`). The script never saves over `ged.icn`. timeout_s 600.
