@@ -48,8 +48,13 @@ cannot read, and `htetris.icn` line 43 is where SCRIP names the error of the fil
 its column counted over the joined lines), so the converter edited the includer. MEASURED: built by `/home/resources/icon-master-x` it shows the
 stock build's own picture twice, md5 20bc8966; `htetris/htetris.out` is that answer.
 
+THE TIGER ROW: `tiger/tgrmap`, the map viewer of Icon 9.5.25a `ipl/gpacks/tiger` for Census TIGER line chains, a vib interface (978 lines; it links
+the library alone; the pack's five other tools are batch filters with no window). Its answer is its opening picture with no map loaded (`out_files`
+screen.dump). Converted by officer_06 2026-11-16 by the stock translator's newline rule (the converter put a `;` after the macro `EPSILON` inside
+parentheses at lines 562 and 563), SAME-CODE. MEASURED: built by `/home/resources/icon-master-x` it shows the stock build's picture twice, md5 54c2790f.
+
 NOT YET HERE, MEASURED 2026-11-16: `xtiles`, the game (twice alike only under the ipl clock pin, and a pin laid over the screen road pins the road's own clock;
-it waits on the road passing an entry's env to the program alone); carpets, drawtree and tiger follow, one corpus patch a pack; the rest of weaving is batch
+it waits on the road passing an entry's env to the program alone); carpets and drawtree follow, one corpus patch a pack; the rest of weaving is batch
 tools with no window, and `seqdraft` dies of error 106 in its own init on the oracle, `showrav` needs an `unravel -r` file (plaid.xpm is insoluble)
 and a pinned clock, so both are left out.
 
