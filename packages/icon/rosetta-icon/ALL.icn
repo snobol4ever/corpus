@@ -16,7 +16,66 @@ procedure main(args)
     every dMap[(1 to sqrt(100))^2] := "open";
     every write("Door ",i := 1 to 100," is ",dMap[i]);
 end
-#--------------------------------------------------------------- 4 24-game-solve
+#----------------------------------------------------------------- 4 24-game
+invocable all
+link strings   # for csort, deletec
+
+procedure main()
+help();
+repeat {
+   every (n := "") ||:= (1 to 4, string(1+?8));
+   writes("Your four digits are : ");
+   every writes(!n," ");
+   write();
+
+   e := trim(read()) | fail;
+   case e of {
+      "q"|"quit": return;
+      "?"|"help": help();
+      default: {
+         e := deletec(e,' \t');         # no whitespace
+         d := deletec(e,~&digits);      # just digits
+         if csort(n) ~== csort(d) then # and only the 4 given digits
+            write("Invalid repsonse.") & next;
+
+         if e ? (ans := eval(E()), pos(0)) then # parse and evaluate
+            if ans = 24 then write("Congratulations you win!")
+            else write("Your answer was ",ans,". Try again.")
+         else write("Invalid expression.")
+         }
+      }
+   };
+end
+
+procedure eval(X)    #: return the evaluated AST
+   if type(X) == "list" then {
+      x := eval(get(X));
+      while x := get(X)(real(x), real(eval(get(X) | stop("Malformed expression."))))
+   };
+   return \x | X;
+end
+
+procedure E()    #: expression
+   put(lex := [],T());
+   while put(lex,tab(any('+-*/'))) do
+      put(lex,T());
+   suspend if *lex = 1 then lex[1] else lex;     # strip useless []
+end
+
+procedure T()                   #: Term
+   suspend 2(="(", E(), =")") | # parenthesized subexpression, or ...
+       tab(any(&digits));        # just a value
+end
+
+procedure help()
+return write(
+   "Welcome to 24\n\n",
+   "Combine the 4 given digits to make 24 using only + - * / and ( ).\n ",
+   "All operations have equal precedence and are evaluated left to right.\n",
+   "Combining (concatenating) digits is not allowed.\n",
+   "Enter 'help', 'quit', or an expression.\n");
+end
+#----------------------------------------------------------------- 5 24-game-solve
 invocable all
 link strings   # for csort, deletec, permutes
 
@@ -93,66 +152,7 @@ procedure T()                   #: Term
    suspend 2(="(", E(), =")") | # parenthesized subexpression, or ...
        tab(any(&digits));        # just a value
 end
-#--------------------------------------------------------------------- 5 24-game
-invocable all
-link strings   # for csort, deletec
-
-procedure main()
-help();
-repeat {
-   every (n := "") ||:= (1 to 4, string(1+?8));
-   writes("Your four digits are : ");
-   every writes(!n," ");
-   write();
-
-   e := trim(read()) | fail;
-   case e of {
-      "q"|"quit": return;
-      "?"|"help": help();
-      default: {
-         e := deletec(e,' \t');         # no whitespace
-         d := deletec(e,~&digits);      # just digits
-         if csort(n) ~== csort(d) then # and only the 4 given digits
-            write("Invalid repsonse.") & next;
-
-         if e ? (ans := eval(E()), pos(0)) then # parse and evaluate
-            if ans = 24 then write("Congratulations you win!")
-            else write("Your answer was ",ans,". Try again.")
-         else write("Invalid expression.")
-         }
-      }
-   };
-end
-
-procedure eval(X)    #: return the evaluated AST
-   if type(X) == "list" then {
-      x := eval(get(X));
-      while x := get(X)(real(x), real(eval(get(X) | stop("Malformed expression."))))
-   };
-   return \x | X;
-end
-
-procedure E()    #: expression
-   put(lex := [],T());
-   while put(lex,tab(any('+-*/'))) do
-      put(lex,T());
-   suspend if *lex = 1 then lex[1] else lex;     # strip useless []
-end
-
-procedure T()                   #: Term
-   suspend 2(="(", E(), =")") | # parenthesized subexpression, or ...
-       tab(any(&digits));        # just a value
-end
-
-procedure help()
-return write(
-   "Welcome to 24\n\n",
-   "Combine the 4 given digits to make 24 using only + - * / and ( ).\n ",
-   "All operations have equal precedence and are evaluated left to right.\n",
-   "Combining (concatenating) digits is not allowed.\n",
-   "Enter 'help', 'quit', or an expression.\n");
-end
-#---------------------------------------------------------- 6 99-bottles-of-beer
+#----------------------------------------------------------------- 6 99-bottles-of-beer
 procedure main(args)
    numBeers := integer(args[1]) | 99;
    drinkUp(numBeers);
@@ -180,7 +180,7 @@ procedure drinkUp(beerMax)
     write("Go to the store and buy some more, ",
           beerMax," bottles of beer on the wall.");
 end
-#------------------------------------------------------------------------- 7 a+b
+#----------------------------------------------------------------- 7 a+b
 procedure main()
      numChars := '-'++&digits;
      read() ? {
@@ -189,7 +189,7 @@ procedure main()
          };
      write((\A + \B) | "Bad input");
 end
-#------------------------------------------------------------- 8 abc-correlation
+#----------------------------------------------------------------- 8 abc-correlation
 procedure main()
    writes("Enter a string: ");
    write(if ABC(read()) then "True" else "False");
@@ -206,7 +206,7 @@ procedure ABC(s)
       };
     return a = b = c;
 end
-#------------------------------------------------------------------- 9 abc-words
+#----------------------------------------------------------------- 9 abc-words
 procedure main()
 	n := 0;
 	every w := !&input do
@@ -222,7 +222,7 @@ procedure main()
 	if n%5 > 0 then write();
 	write("\n","found ",n," abc words");
 end
-#-------------------------------------------------------- 10 accumulator-factory
+#----------------------------------------------------------------- 10 accumulator-factory
 procedure main()
     a := genAcc(3);
     b := genAcc(5);
@@ -240,7 +240,7 @@ end
 procedure makeProc(A) # A Programmer-Defined Control Operation
     return (@A[1],A[1]);
 end
-#--------------------------------------------------------- 11 ackermann-function
+#----------------------------------------------------------------- 11 ackermann-function
 procedure acker(i, j)
    static memory;
 
@@ -266,7 +266,7 @@ procedure main()
       write()
       };
 end
-#------------------------------------------------------------ 12 additive-primes
+#----------------------------------------------------------------- 12 additive-primes
 link factors
 
 procedure main(A)
@@ -280,7 +280,7 @@ procedure additive(a)
    a ? (sum := 0, while sum +:= move(1));
    return (isprime(sum),a);
 end
-#------------------------------------------------------------- 13 almost-prime-1
+#----------------------------------------------------------------- 13 almost-prime-1
 link "factors"
 
 procedure main()
@@ -291,7 +291,7 @@ end
 procedure genKap(k)
     suspend (k = *factors(n := seq()), n);
 end
-#------------------------------------------------------------------------ 14 amb
+#----------------------------------------------------------------- 14 amb
 procedure main()
     s1 := ["the","that","a"];
     s2 := ["frog","elephant","thing"];
@@ -310,7 +310,7 @@ procedure amb(exprs[])
         };
     return s;
 end
-#---------------------------------------------------------------- 15 anti-primes
+#----------------------------------------------------------------- 15 anti-primes
 procedure main(A)
    limit := \A[1] | 20;
    n := 0;
@@ -323,7 +323,7 @@ procedure factors(n)  # Note this is all factors, not just prime factors
       if n%i = 0 then put(f,i);
    return f;
 end
-#---------------------------------- 16 append-a-record-to-the-end-of-a-text-file
+#----------------------------------------------------------------- 16 append-a-record-to-the-end-of-a-text-file
 procedure main()
     orig := [
        "jsmith:x:1001:1000:Joe Smith,Room 1007,(234)555-8917,(234)555-0077,jsmith@rosettacode.org:/home/jsmith:/bin/bash",
@@ -337,7 +337,7 @@ procedure main()
     every (f := open(fName,"a")) | write(f,!new)  | close(f);
     every (f := open(fName,"r")) | write(!f)      | close(f);
 end
-#----------------------------------------------- 17 apply-a-callback-to-an-array
+#----------------------------------------------------------------- 17 apply-a-callback-to-an-array
 procedure main()
    local lst;
    lst := [10, 20, 30, 40];
@@ -347,7 +347,7 @@ end
 procedure callback(p,arg)
    return p(" -> ", arg);
 end
-#------------------------------------- 18 arbitrary-precision-integers-included-
+#----------------------------------------------------------------- 18 arbitrary-precision-integers-included-
 procedure main()
     x := 5^4^3^2;
     write("done with computation");
@@ -356,7 +356,7 @@ procedure main()
     write("The first twenty digits are ",x[1+:20]);
     write("The last twenty digits are  ",x[0-:20]);
 end
-#------------------------------------------------------ 19 arithmetic-evaluation
+#----------------------------------------------------------------- 19 arithmetic-evaluation
 procedure main()                                                #: simple arithmetical parser / evaluator
    write("Usage: Input expression = Abstract Syntax Tree = Value, ^Z to end.");
    repeat {
@@ -458,7 +458,7 @@ end
 procedure exponent()
    suspend tab(any('eE')) || =("+" | "-" | "") || digits() | "";
 end
-#-------------------------------------------------- 20 arithmetic-geometric-mean
+#----------------------------------------------------------------- 20 arithmetic-geometric-mean
 procedure main(A)
     a := real(A[1]) | 1.0;
     g := real(A[2]) | (1 / 2^0.5);
@@ -475,7 +475,7 @@ procedure agm(an, gn, e)
        };
     return an;
 end
-#--------------------------------------------------------- 21 arithmetic-integer
+#----------------------------------------------------------------- 21 arithmetic-integer
 procedure main()
 writes("Input 1st integer a := ");
 a := integer(read());
@@ -489,7 +489,7 @@ write(" a / b = ",a/b, " rounds toward 0");
 write(" a % b = ",a%b, " remainder sign matches a");
 write(" a ^ b = ",a^b);
 end
-#------------------------------------------------------ 22 arithmetic-rational-1
+#----------------------------------------------------------------- 22 arithmetic-rational-1
 procedure main()
    limit := 2^19;
 
@@ -524,7 +524,7 @@ procedure is_perfect(c)       #: test for perfect numbers using rational arithme
    if rsum.numer = rsum.denom = 1 then
       return c;
 end
-#-------------------------------------------------------- 23 array-concatenation
+#----------------------------------------------------------------- 23 array-concatenation
 procedure main()
     L1 := [1, 2, 3, 4];
     L2 := [11, 12, 13, 14];
@@ -535,7 +535,7 @@ procedure main()
         sep := ", ";
     write();
 end
-#--------------------------------------------------------------- 24 assertions-2
+#----------------------------------------------------------------- 24 assertions-2
 $define DEBUG 1 # this allows the assertions to go through
 
 procedure check (a)
@@ -548,14 +548,14 @@ procedure main ()
   check (42);
   check (12);
 end
-#------------------------------------------------- 25 associative-array-creation
+#----------------------------------------------------------------- 25 associative-array-creation
 procedure main()
    local t;
    t := table();
    t["foo"] := "bar";
    write(t["foo"]);
 end
-#------------------------------------------------ 26 associative-array-iteration
+#----------------------------------------------------------------- 26 associative-array-iteration
 procedure main()
     t := table();
     every t[a := !"ABCDE"] := map(a);
@@ -571,7 +571,7 @@ procedure main()
     every writes(" ",!t);
     write();
 end
-#-------------------------------------------------- 27 associative-array-merging
+#----------------------------------------------------------------- 27 associative-array-merging
 procedure main()
     local base, update, master, f, k;
 
@@ -594,7 +594,7 @@ procedure main()
         write(k, " = ", master[k])
     };
 end
-#--------------------------------------------------------- 28 attractive-numbers
+#----------------------------------------------------------------- 28 attractive-numbers
 link factors
 
 procedure main(A)
@@ -605,12 +605,12 @@ end
 procedure attractive(n)
    every (cnt := 0) +:= (genfactors(n),1) | return (isprime(cnt),n);
 end
-#--------------------------------------------------- 29 averages-arithmetic-mean
+#----------------------------------------------------------------- 29 averages-arithmetic-mean
 procedure main(args)
     every (s := 0) +:= !args;
     write((real(s)/(0 ~= *args)) | 0);
 end
-#------------------------------------------------------------ 30 averages-median
+#----------------------------------------------------------------- 30 averages-median
 procedure main(args)
     write(median(args));
 end
@@ -621,7 +621,7 @@ procedure median(A)
     return if n % 2 = 1 then A[n/2+1]
            else (A[n/2]+A[n/2+1])/2.0 | 0;  # 0 if empty list
 end
-#----------------------------------------------- 31 averages-pythagorean-means-1
+#----------------------------------------------------------------- 31 averages-pythagorean-means-1
 link numbers     # for a/g/h means
 
 procedure main()
@@ -633,13 +633,13 @@ write("Geometric mean:",g := gmean!x);
 write("Harmonic mean:", h := hmean!x);
 write(" a >= g >= h is ", if a >= g >= h then "true" else "false");
 end
-#------------------------------------------------ 32 averages-root-mean-square-1
+#----------------------------------------------------------------- 32 averages-root-mean-square-1
 procedure main()
 every put(x := [], 1 to 10);
 writes("x := [ "); every writes(!x," "); write("]");
 write("Quadratic mean:",q := qmean!x);
 end
-#------------------------------------------------ 33 b-zier-curves-intersections
+#----------------------------------------------------------------- 33 b-zier-curves-intersections
 # This program combines the methods of the 2nd C implementation (which
 # by itself is inefficient) with those of the Modula-2 implementation,
 # and then rearranges the computations to try to achieve greater
@@ -979,13 +979,13 @@ end
 procedure max (x, y)
   return (if x < y then y else x);
 end
-#------------------------------------------------------------ 34 babbage-problem
+#----------------------------------------------------------------- 34 babbage-problem
 procedure main(A)
    tail := \A[1] | 269696;
    size := 10^*tail;
    if ((n := seq())^2 % size) = tail then write(n," -> ",n^2);
 end
-#----------------------------------------------------------- 35 balanced-ternary
+#----------------------------------------------------------------- 35 balanced-ternary
 procedure main()
     a := "+-0++0+";
     write("a = +-0++0+"," = ",cvtFromBT("+-0++0+"));
@@ -1076,7 +1076,7 @@ procedure mul(a,b)
         };
     return (\negate,map(mul,"+-","-+")) | mul;
 end
-#--------------------------------------------------------------- 36 benfords-law
+#----------------------------------------------------------------- 36 benfords-law
 global counts, total
 
 procedure main()
@@ -1111,7 +1111,7 @@ procedure fibMat(n)
     if n%2 = 1 then return [c+d, d]
     else return [d, c];
 end
-#---------------------------------------------------------- 37 bernoulli-numbers
+#----------------------------------------------------------------- 37 bernoulli-numbers
 link "rational"
 
 procedure main(args)
@@ -1132,7 +1132,7 @@ end
 procedure align(r,n)
     return repl(" ",n-find("/",r))||r;
 end
-#----------------------------------------------------------- 38 bin-given-limits
+#----------------------------------------------------------------- 38 bin-given-limits
 procedure main()
    limits := [23, 37, 43, 53, 67, 83];
    data := [95,21,94,12,99,4,70,75,83,93,52,80,57,5,53,86,65,17,92,83,71,
@@ -1176,7 +1176,7 @@ procedure summary(limits, bins)
        write(right(limits[i-1],8)," .. ",right(limits[i],4)," -> ",right(bins[i],4));
    write(right("> ",11),right(limits[*limits],5)," -> ",right(bins[*bins],4));
 end
-#------------------------------------------------------------ 39 binary-digits-1
+#----------------------------------------------------------------- 39 binary-digits-1
 procedure main()
 every i := 5 | 50 | 255 | 1285 | 9000 do
   write(i," = ",binary(i));
@@ -1200,7 +1200,7 @@ while n > 0 do {                         # use cached result ...
    };
 return reverse(trim(b,"0"));              # nothing extraneous
 end
-#------------------------------------------------------------ 40 binary-digits-2
+#----------------------------------------------------------------- 40 binary-digits-2
 procedure main()
 	every write(bstring(0|5|50|255|1285|9000));
 end
@@ -1213,7 +1213,7 @@ procedure bstring(i)
 	};
 	return s;
 end
-#------------------------------------------------------------ 41 binary-search-2
+#----------------------------------------------------------------- 41 binary-search-2
 procedure main(args)
     target := integer(!args) | 3;
     every put(A := [], 1 to 18 by 2);
@@ -1227,7 +1227,7 @@ procedure outList(prefix, A)
     every writes(!A," ");
     write();
 end
-#--------------------------------------------------------- 42 bitwise-operations
+#----------------------------------------------------------------- 42 bitwise-operations
 link bitint    # for int2bit
 
 procedure main()
@@ -1251,7 +1251,7 @@ end
 procedure demowrite(vs,v)
 return write(vs, ": ", v, " = ", int2bit(v),"b");
 end
-#------------------------------------------------------------ 43 box-the-compass
+#----------------------------------------------------------------- 43 box-the-compass
 link strings,numbers
 
 procedure main()
@@ -1278,7 +1278,7 @@ initial {
 
    return dirs[round(((((d%360)+360)%360)/11.25))%32 + 1];
 end
-#---------------------------------------------------------- 44 brilliant-numbers
+#----------------------------------------------------------------- 44 brilliant-numbers
 link factors
 
 procedure main(A)
@@ -1300,7 +1300,7 @@ procedure brillianth(e)
       if i >= e then return i||" is >= "||e||" and is brilliant number: "||ln
       };
 end
-#------------------------------------------------------------- 45 bulls-and-cows
+#----------------------------------------------------------------- 45 bulls-and-cows
 procedure main()
     digits := "123456789";
     every !digits :=: ?digits;
@@ -1325,7 +1325,7 @@ procedure score(num, guess)
     write("\t",bulls," bulls and ",cows," cows");
     return (bulls = *num);
 end
-#------------------------------------------------------------ 46 caesar-cipher-1
+#----------------------------------------------------------------- 46 caesar-cipher-1
 procedure main()
 ctext := caesar(ptext := map("The quick brown fox jumped over the lazy dog"));
 dtext := caesar(ctext,,"decrypt");
@@ -1342,7 +1342,7 @@ case mode of {
   "d"|"decrypt"      : return map(text,(&lcase||&lcase)[k+:*&lcase],&lcase)
   };
 end
-#------------------------------------------------------------------- 47 calendar
+#----------------------------------------------------------------- 47 calendar
 procedure main(A)
    printCalendar(\A[1]|1969);	
 end
@@ -1388,7 +1388,7 @@ procedure CalendarFormatWeek(year,m)                #: Format Week for Calendar
    if m = 2 & IsLeapYear(year) then suspend (d +:= 1, 29);    # LY adjustment
    every d to (6*7) do suspend "";                            # trailer alignment
 end
-#-------------------------------------------- 48 case-sensitivity-of-identifiers
+#----------------------------------------------------------------- 48 case-sensitivity-of-identifiers
 procedure main()
 
    dog := "Benjamin";
@@ -1401,14 +1401,7 @@ procedure main()
       write("The three dogs are named ", dog, ", ", Dog, " and ", DOG, ".");
 
 end
-#------------------------------------------- 49 catalan-numbers-pascals-triangle
-link math
-
-procedure main(A)
-    limit := (integer(A[1])|15)+1;
-    every write(right(binocoef(i := 2*seq(0)\limit,i/2)-binocoef(i,i/2+1),30));
-end
-#------------------------------------------------------------ 50 catalan-numbers
+#----------------------------------------------------------------- 49 catalan-numbers
 procedure main()
 every writes(catalan(0 to 14)," ");
 end
@@ -1421,14 +1414,21 @@ n=0 & return 1;
 if n > 0 then
    return (n = 1) | \M[n] | ( M[n] := (2*(2*n-1)*catalan(n-1))/(n+1));
 end
-#------------------------------------------------------------ 51 character-codes
+#----------------------------------------------------------------- 50 catalan-numbers-pascals-triangle
+link math
+
+procedure main(A)
+    limit := (integer(A[1])|15)+1;
+    every write(right(binocoef(i := 2*seq(0)\limit,i/2)-binocoef(i,i/2+1),30));
+end
+#----------------------------------------------------------------- 51 character-codes
 procedure main(arglist)
 if *arglist > 0 then L := arglist else L := [97, "a"];
 
 every x := !L do
    write(x, " ==> ", char(integer(x)) | ord(x) );  # char produces a character, ord produces a number
 end
-#-------------------------------------------------- 52 chinese-remainder-theorem
+#----------------------------------------------------------------- 52 chinese-remainder-theorem
 link numbers   # for gcd()
 
 procedure main()
@@ -1453,7 +1453,7 @@ procedure mul_inv(a,b)
         };
     return if x1 < 0 then x1+b0 else x1;
 end
-#----------------------------------------------------- 53 cholesky-decomposition
+#----------------------------------------------------------------- 53 cholesky-decomposition
 procedure cholesky (array)
   result := make_square_array (*array);
   every (i := 1 to *array) do {
@@ -1495,7 +1495,7 @@ procedure main ()
   do_cholesky ([[25,15,-5],[15,18,0],[-5,0,11]]);
   do_cholesky ([[18,22,54,42],[22,70,86,62],[54,86,174,134],[42,62,134,106]]);
 end
-#--------------------------------- 54 circles-of-given-radius-through-two-points
+#----------------------------------------------------------------- 54 circles-of-given-radius-through-two-points
 procedure main()
     A := [ [0.1234, 0.9876,   0.8765, 0.2345,   2.0],
            [0.0000, 2.0000,   0.0000, 0.0000,   1.0],
@@ -1518,7 +1518,7 @@ procedure cCenter(x1,y1, x2,y2, r)
     if d = r2 then return "Single circle at ("||cx1||","||cy1||")";
     return "("||cx1||","||cy1||") and ("||cx2||","||cy2||")";
 end
-#------------------------------------------------------- 55 closest-pair-problem
+#----------------------------------------------------------------- 55 closest-pair-problem
 record point(x,y)
 
 procedure main()
@@ -1544,7 +1544,101 @@ end
 procedure dSquared(p1,p2)    # Compute the square of the distance
     return (p2.x-p1.x)^2 + (p2.y-p1.y)^2  ;# (sufficient for closeness)
 end
-#------------------------------------------------------------- 56 combinations-1
+#----------------------------------------------------------------- 56 color-of-a-screen-pixel
+link graphics,printf
+
+procedure main()
+
+   WOpen("canvas=hidden");                   # hide for query
+   height := WAttrib("displayheight") - 45 ; # adjust for ...
+   width  := WAttrib("displaywidth") - 20 ;  # ... window 7 borders
+   WClose(&window);
+
+   W := WOpen("size="||width||","||height,"bg=black") |
+        stop("Unable to open window");
+
+   every 1 to 10 do {   # generate some random rectangles within the frame
+      x := ?width;
+      y := ?(height-100);
+      WAttrib("fg="||?["red","green","blue","purple","yellow"]);
+      FillRectangle(x,x+50,y,y+50)
+      };
+
+   while Event() do
+      printf("x=%d,y=%d pixel=%s\n",&x,&y,Pixel(&x,&y,&x,&y));
+
+   WDone(W);                                  # q to exit
+end
+#----------------------------------------------------------------- 57 colour-bars-display-1
+link graphics,printf
+
+procedure main()  # generalized colour bars
+   DrawTestCard(Simple_TestCard());
+   WDone();
+end
+
+procedure DrawTestCard(TC)
+   size := sprintf("size=%d,%d",TC.width,TC.height);
+   &window := TC.window := open(TC.id,"g","bg=black",size) |
+               stop("Unable to open window");
+
+   every R := TC.bands[r := 1 to *TC.bands -1] do
+      every C := R.bars[c := 1 to *R.bars - 1] do {
+	     Fg(R.bars[c].colour);
+	     FillRectangle( C.left, R.top,
+		            R.bars[c+1].left-C.left, TC.bands[r+1].top-R.top )
+	     };
+   return TC;
+end
+
+record testcard(window,id,width,height,bands)
+record band(top,bars)
+record bar(left,colour)
+
+procedure Simple_TestCard()  #: return structure simple testcard
+   return testcard(,"Simple Test Card",width := 800,height := 600,
+		   [   band( 1, [ bar(  1, "black"),
+				  bar(114, "red"),
+				  bar(228, "green"),
+				  bar(342, "blue"),
+                                  bar(456, "magenta"),
+                                  bar(570, "cyan"),
+                                  bar(684, "yellow"),
+                                  bar(width) ] ),
+		       band(height) ]);
+end
+#----------------------------------------------------------------- 58 colour-pinstripe-display
+link graphics,numbers,printf
+
+procedure main()  # pinstripe
+
+   &window := open("Colour Pinstripe","g","bg=black") |
+      stop("Unable to open window");
+
+   WAttrib("canvas=hidden");
+   WAttrib(sprintf("size=%d,%d",WAttrib("displaywidth"),WAttrib("displayheight")));
+   WAttrib("canvas=maximal");
+
+   Colours := ["black", "red", "green", "blue", "magenta", "cyan", "yellow", "white"];
+   height := WAttrib("height");
+   width  := WAttrib("width");
+
+   maxbands := 4;                             # bands to draw
+   bandheight := height / maxbands;           # height of each band
+   every bands := 1 to maxbands do {         # for each band
+         top   := 1 + bandheight * (bands-1) ;# .. top of band
+         every c := 1 to width do {
+            colour := Colours[ceil((c+0.)/bands)%*Colours+1];
+            if colour == "black" then next   # skip black
+            else {
+               Fg(colour);
+               DrawLine(c,top,c,top+bandheight-1)
+               }
+         }
+      };
+   WDone();
+end
+#----------------------------------------------------------------- 59 combinations-1
 procedure main()
 return combinations(3,5,0);
 end
@@ -1565,7 +1659,7 @@ return s;
 end
 
 link lists
-#---------------------------------------------- 57 combinations-and-permutations
+#----------------------------------------------------------------- 60 combinations-and-permutations
 procedure main()
     write("P(4,2) = ",P(4,2));
     write("P(8,2) = ",P(8,2));
@@ -1591,7 +1685,7 @@ procedure P(n,k)
     every (p:=1) *:= (n-k+1) to n;
     return p;
 end
-#------------------------------------------------------------ 58 comma-quibbling
+#----------------------------------------------------------------- 61 comma-quibbling
 procedure main()
     every write(quibble([] | ["ABC"] | ["ABC","DEF"] | ["ABC","DEF","G","H"]));
 end
@@ -1601,7 +1695,7 @@ procedure quibble(A)
     while s := pull(A)||join||s do join := if *join = 0 then " and " else ", ";
     return "{"||s||"}";
 end
-#------------------------------------------------ 59 compare-a-list-of-strings-1
+#----------------------------------------------------------------- 62 compare-a-list-of-strings-1
 #
 # list-compare.icn
 #
@@ -1644,7 +1738,7 @@ procedure ascending(L)
    };
    return;
 end
-#-------------------------------------------------- 60 compiler-lexical-analyzer
+#----------------------------------------------------------------- 63 compiler-lexical-analyzer
 #
 # The Rosetta Code lexical analyzer in Icon with co-expressions. Based
 # upon the ATS implementation.
@@ -2144,7 +2238,58 @@ end
 procedure max(x, y)
   return (if x < y then y else x);
 end
-#--------------- 61 continued-fraction-arithmetic-construct-from-rational-number
+#----------------------------------------------------------------- 64 continued-fraction
+$define EVAL_DEPTH 100
+
+# A generalized continued fraction, represented by two functions. Each
+# function maps from an index to a floating-point value.
+record continued_fraction (a, b)
+
+procedure main ()
+  writes (" sqrt 2.0 = ");
+  write (evaluate_continued_fraction (continued_fraction (sqrt2_a, sqrt2_b),
+                                      EVAL_DEPTH));
+  writes ("        e = ");
+  write (evaluate_continued_fraction (continued_fraction (e_a, e_b),
+                                      EVAL_DEPTH));
+  writes ("       pi = ");
+  write (evaluate_continued_fraction (continued_fraction (pi_a, pi_b),
+                                      EVAL_DEPTH));
+end
+
+procedure evaluate_continued_fraction (frac, depth)
+  local i, retval;
+  retval := frac.a (depth);
+  every i := depth to 1 by -1 do {
+    retval := frac.a (i - 1) + (frac.b (i) / retval)
+  };
+  return retval;
+end
+
+procedure sqrt2_a (i)
+  return (if i = 0 then 1.0 else 2.0);
+end
+
+procedure sqrt2_b (i)
+  return 1.0;
+end
+
+procedure e_a (i)
+  return (if i = 0 then 2.0 else real (i));
+end
+
+procedure e_b (i)
+  return (if i = 1 then 1.0 else real (i - 1));
+end
+
+procedure pi_a (i)
+  return (if i = 0 then 3.0 else 6.0);
+end
+
+procedure pi_b (i)
+  return real (((2 * i) - 1)^2);
+end
+#----------------------------------------------------------------- 65 continued-fraction-arithmetic-construct-from-rational-number
 procedure main ()
   write_r2cf (1, 2);
   write_r2cf (3, 1);
@@ -2200,7 +2345,7 @@ procedure r2cf (N1, N2)
     suspend q
   };
 end
-#------------ 62 continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n-
+#----------------------------------------------------------------- 66 continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n-
 # An implementation in Icon, using co-expressions as generators.
 
 $define YES 1
@@ -2368,7 +2513,7 @@ end
 procedure sep_str (sep)
   return (if sep = 0 then "" else if sep = 1 then ";" else ",");
 end
-#- 63 continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n1-continued-fraction-n2-
+#----------------------------------------------------------------- 67 continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n1-continued-fraction-n2-
 $define YES 1
 $define NO  &null
 
@@ -2695,58 +2840,7 @@ end
 procedure min (x, y)
   return (if x < y then x else y);
 end
-#--------------------------------------------------------- 64 continued-fraction
-$define EVAL_DEPTH 100
-
-# A generalized continued fraction, represented by two functions. Each
-# function maps from an index to a floating-point value.
-record continued_fraction (a, b)
-
-procedure main ()
-  writes (" sqrt 2.0 = ");
-  write (evaluate_continued_fraction (continued_fraction (sqrt2_a, sqrt2_b),
-                                      EVAL_DEPTH));
-  writes ("        e = ");
-  write (evaluate_continued_fraction (continued_fraction (e_a, e_b),
-                                      EVAL_DEPTH));
-  writes ("       pi = ");
-  write (evaluate_continued_fraction (continued_fraction (pi_a, pi_b),
-                                      EVAL_DEPTH));
-end
-
-procedure evaluate_continued_fraction (frac, depth)
-  local i, retval;
-  retval := frac.a (depth);
-  every i := depth to 1 by -1 do {
-    retval := frac.a (i - 1) + (frac.b (i) / retval)
-  };
-  return retval;
-end
-
-procedure sqrt2_a (i)
-  return (if i = 0 then 1.0 else 2.0);
-end
-
-procedure sqrt2_b (i)
-  return 1.0;
-end
-
-procedure e_a (i)
-  return (if i = 0 then 2.0 else real (i));
-end
-
-procedure e_b (i)
-  return (if i = 1 then 1.0 else real (i - 1));
-end
-
-procedure pi_a (i)
-  return (if i = 0 then 3.0 else 6.0);
-end
-
-procedure pi_b (i)
-  return real (((2 * i) - 1)^2);
-end
-#---------------------------------------------------------------- 65 convex-hull
+#----------------------------------------------------------------- 68 convex-hull
 #
 # Convex hulls by Andrew's monotone chain algorithm.
 #
@@ -2941,14 +3035,14 @@ procedure main ()
 end
 
 ######################################################################
-#-------------------------------------------------------------- 66 copy-a-string
+#----------------------------------------------------------------- 69 copy-a-string
 procedure main()
     a := "qwerty";
     b := a;
     b[2+:4] := "uarterl";
     write(a," -> ",b);
 end
-#------------------------------------------- 67 count-occurrences-of-a-substring
+#----------------------------------------------------------------- 70 count-occurrences-of-a-substring
 procedure main()
 every A := ![ ["the three truths","th"], ["ababababab","abab"] ] do
    write("The string ",image(A[2])," occurs as a non-overlapping substring ",
@@ -2963,7 +3057,7 @@ s1 ? while tab(find(s2)) do {
    };
 return c;
 end
-#---------------------------------------------------------- 68 count-the-coins-3
+#----------------------------------------------------------------- 71 count-the-coins-3
 # coin.icn
 # usage: coin value
 procedure count(coinlist, value)
@@ -2982,7 +3076,7 @@ procedure main(params)
 	every writes(coins[1 to *coins], " ");
 	write(" coins in ", count(coins, money), " different ways.");
 end
-#--------------------------------------------------------------------- 69 crc-32
+#----------------------------------------------------------------- 72 crc-32
 link hexcvt,printf
 
 procedure main()
@@ -3016,7 +3110,7 @@ initial {
                      ixor(crcL[iand(255,ixor(crc,ord(!s)))+1],ishift(crc,-8)));
    return hexstring(ixor(crc,mask));             # return hexstring
 end
-#---------------------------------- 70 create-a-two-dimensional-array-at-runtime
+#----------------------------------------------------------------- 73 create-a-two-dimensional-array-at-runtime
 procedure main(args)
     nr := integer(args[1]) | 3;  # Default to 3x3
     nc := integer(args[2]) | 3;
@@ -3030,7 +3124,7 @@ procedure main(args)
     A[x][y] := &pi;
     write("A[",x,"][",y,"] -> ",A[x][y]);
 end
-#----------------------------------------------------- 71 create-an-html-table-1
+#----------------------------------------------------------------- 74 create-an-html-table-1
 procedure main()
 printf("<table>\n    <tr><th></th><th>X</th><th>Y</th><th>Z</th>");
 every r := 1 to 4 do {
@@ -3041,7 +3135,7 @@ printf("</tr>\n</table>\n");
 end
 
 link printf
-#-------------------------------------------------- 72 csv-to-html-translation-1
+#----------------------------------------------------------------- 75 csv-to-html-translation-1
 procedure main(arglist)
     pchar := &letters ++ &digits ++ '!?;. ';  # printable chars
 
@@ -3062,7 +3156,7 @@ procedure main(arglist)
     write("   </TBODY>");
     write("</TABLE>");
 end
-#---------------------------------------------- 73 cumulative-standard-deviation
+#----------------------------------------------------------------- 76 cumulative-standard-deviation
 procedure main()
 
 stddev(); # reset state / empty
@@ -3085,7 +3179,7 @@ static X,sumX,sum2X;
       return sqrt( (sum2X / *X) - (sumX / *X)^2 )
       };
 end
-#---------------------------------------------------------------------- 74 cusip
+#----------------------------------------------------------------- 77 cusip
 # cusip.icn -- Committee on Uniform Security Identification Procedures
 
 procedure main()
@@ -3126,12 +3220,12 @@ procedure buildtable()
       t[chars[n]] := (n - 1);
    return t;
 end
-#---------------------------------------------------------------- 75 date-format
+#----------------------------------------------------------------- 78 date-format
 procedure main()
 write(map(&date,"/","-"));
 write(&dateline ? tab(find(&date[1:5])+4));
 end
-#---------------------------------------------------------- 76 date-manipulation
+#----------------------------------------------------------------- 79 date-manipulation
 link datetime
 
 procedure main()
@@ -3198,14 +3292,14 @@ initial {
    };
 return case x of { "list"  : AZ ; "table" : TZ };
 end
-#---------------------------------------------------------- 77 day-of-the-week-1
+#----------------------------------------------------------------- 80 day-of-the-week-1
 link datetime
 
 procedure main()
 writes("December 25th is a Sunday in: ");
 every writes((dayoweek(25,12,y := 2008 to 2122)=="Sunday",y)," ");
 end
-#---------------------------------------------------- 78 deal-cards-for-freecell
+#----------------------------------------------------------------- 81 deal-cards-for-freecell
 procedure main(A)          # freecelldealer
    freecelldealer(\A[1] | &null);      # seed from command line
 end
@@ -3249,13 +3343,13 @@ end
 procedure rand_freecell()             #: lcrng
    return ishift(srand_freecell((214013 * srand_freecell() + 2531011) % 2147483648),-16);
 end
-#--------------------------------------------------------- 79 department-numbers
+#----------------------------------------------------------------- 82 department-numbers
 procedure main()
     every writes(center("police"|"sanitation"|"fire",12)|"\n");
     every ((p:=2|4|6)~=(s := 1 to 7)~=(f := 1 to 7),p+s+f=12) do
        every writes(center(p|s|f,12)|"\n");
 end
-#--------------------------------------- 80 determine-if-a-string-is-collapsible
+#----------------------------------------------------------------- 83 determine-if-a-string-is-collapsible
 procedure main()
    strings := ["",
    "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ",
@@ -3273,7 +3367,7 @@ procedure collapse(s)
    write("original: <<<",s,">>>",*s);
    write("collapsed:<<<",ns,">>>",*ns);
 end
-#---------------------------------------- 81 determine-if-a-string-is-squeezable
+#----------------------------------------------------------------- 84 determine-if-a-string-is-squeezable
 procedure main()
    strings := ["",
    "\"If I were two-faced, would I be wearing this one?\" --- Abraham Lincoln ",
@@ -3301,7 +3395,7 @@ procedure collapse(c,s)
       write("   squeezed: <<<",ns,">>> ",*ns)
       };
 end
-#----------------------------------- 82 digital-root-multiplicative-digital-root
+#----------------------------------------------------------------- 85 digital-root-multiplicative-digital-root
 procedure main(A)
     write(right("n",8)," ",right("MP",8),right("MDR",5));
     every r := mdr(n := 123321|7739|893|899998) do
@@ -3326,7 +3420,7 @@ procedure multd(m)
     while m > 0 do c *:= 1(m%10, m/:=10);
     return c;
 end
-#---------------------------------------- 83 dinesmans-multiple-dwelling-problem
+#----------------------------------------------------------------- 86 dinesmans-multiple-dwelling-problem
 invocable all
 global nameL, nameT, rules
 
@@ -3398,7 +3492,7 @@ end
 procedure top()                # return top
    return *nameL;
 end
-#----------------------------------------------------------- 84 disarium-numbers
+#----------------------------------------------------------------- 87 disarium-numbers
 procedure main(A)
    limit := \A[1] | 18;
    every writes(" ",disarium(seq(0)))\limit;
@@ -3410,7 +3504,7 @@ procedure disarium(n)
    every ((s := i := 0), j := !ns, i +:= 1) do s +:= ns[i]^i;
    return s = n;
 end
-#------------------------------------------------------------ 85 discordian-date
+#----------------------------------------------------------------- 88 discordian-date
 link printf
 
 procedure main()
@@ -3466,7 +3560,7 @@ initial {
              ddate.sday || " of " || seasons[ddate.season])) ||
           " in the YOLD " || ddate.year;
 end
-#---------------------------------------------------------------- 86 dot-product
+#----------------------------------------------------------------- 89 dot-product
 procedure main()
 write("a dot b := ",dotproduct([1, 3, -5],[4, -2, -1]));
 end
@@ -3476,7 +3570,38 @@ if *a ~= *b & type(a) == type(b) == "list" then runerr(205,a); # invalid value
 every (dp := 0) +:= a[i := 1 to *a] * b[i];
 return dp;
 end
-#---------------------------------------------------------- 87 duffinian-numbers
+#----------------------------------------------------------------- 90 dragon-curve
+link linddraw,wopen
+
+procedure main()
+ gener   := 12;                 # generations
+ w := h := 800;                 # window size
+ rewrite := table();            # L rewrite rules
+ rewrite["X"] := "X+YF+";
+ rewrite["Y"] := "-FX-Y";
+ every (C := '') ++:= !!rewrite;
+ every /rewrite[c := !C] := c;  # map all rule characters
+
+ WOpen("size=" || w || "," || h, "dx=" || (w / 2),  "dy=" || (h / 2)) | stop("*** cannot open window");
+ WAttrib("fg=blue");
+
+ linddraw(0, 0, "FX", rewrite, 5, 90.0, gener, 0);
+ #        x,y, axiom, rules, length, angle, generations, delay
+
+ WriteImage("dragon-unicon" || ".gif");   # save the image
+ WDone();
+end
+#----------------------------------------------------------------- 91 draw-a-pixel
+#
+# draw-pixel.icn
+#
+procedure main()
+   &window := open("pixel", "g", "size=320,240");
+   Fg("#ff0000");
+   DrawPoint(100, 100);
+   Event();
+end
+#----------------------------------------------------------------- 92 duffinian-numbers
 procedure main(A)
    write("The first 50 Duffian numbers:");
    every writes(" ",isduffinian(seq())\50);
@@ -3505,7 +3630,7 @@ procedure sumfactors(n)
    every (s := 0, i := 1 to n, n%i = 0) do s +:= i;
    return s;
 end
-#------------------------------------------------ 88 dutch-national-flag-problem
+#----------------------------------------------------------------- 93 dutch-national-flag-problem
 procedure main(a)
     n := integer(!a) | 20;
     every (nr|nw|nb) := ?n-1;
@@ -3528,7 +3653,7 @@ procedure csort(w)
     every (s := "") ||:= (find(c := !cset(w),w),c);
     return s;
 end
-#-------------------------------------------------------------------- 89 entropy
+#----------------------------------------------------------------- 94 entropy
 procedure main(a)
     s := !a | "1223334444";
     write(H(s));
@@ -3540,7 +3665,7 @@ procedure H(s)
     every (h := 0.0) -:= P[c := key(P)] * log(P[c],2);
     return h;
 end
-#---------------------------------------------------------- 90 equilibrium-index
+#----------------------------------------------------------------- 95 equilibrium-index
 procedure main(arglist)
 L := if *arglist > 0 then arglist else [-7, 1, 5, 2, -4, 3, 0]  ; # command line args or default
 every writes( "equilibrium indicies of [ " | (!L ||" ") | "] = " | (eqindex(L)||" ") | "\n" );
@@ -3557,7 +3682,7 @@ every (l := 0, i := 1 to *L) do {
    l +:= L[i]                           # sum of left side
    };
 end
-#--------------------------------------------------------------- 91 euler-method
+#----------------------------------------------------------------- 96 euler-method
 invocable "newton_cooling" # needed to use the 'proc' procedure
 
 procedure euler (f, y0, a, b, h)
@@ -3580,13 +3705,13 @@ procedure main ()
   every (step_size := ![2,5,10]) do
     euler ("newton_cooling", 100, 0, 100,  step_size);
 end
-#------------------------------------------- 92 evaluate-binomial-coefficients-1
+#----------------------------------------------------------------- 97 evaluate-binomial-coefficients-1
 link math, factors
 
 procedure main()
 write("choose(5,3)=",binocoef(5,3));
 end
-#--------------------------------------------------- 93 evolutionary-algorithm-1
+#----------------------------------------------------------------- 98 evolutionary-algorithm-1
 global target, chars, parent, C, M, current_fitness
 
 procedure fitness(s)
@@ -3638,14 +3763,14 @@ procedure main()
     };
     write("At generation " || gen || " we found a string with perfect fitness at " || current_fitness || " reading: " || parent);
 end
-#------------------------------------------------- 94 execute-a-system-command-1
+#----------------------------------------------------------------- 99 execute-a-system-command-1
 procedure main()
 
 write("Trying command ",cmd := if &features == "UNIX" then "ls" else "dir");
 system(cmd);
 
 end
-#--------------------------------------------------------------- 95 execute-hq9+
+#----------------------------------------------------------------- 100 execute-hq9+
 procedure main(A)
 repeat writes("Enter HQ9+ code: ") & HQ9(get(A)|read()|break);
 end
@@ -3673,7 +3798,7 @@ every c := map(!code) do                         # ignore case
    };
 return;
 end
-#---------------------------------------------------- 96 exponentiation-operator
+#----------------------------------------------------------------- 101 exponentiation-operator
 procedure main()
 bases := [5,5.];
 numbers := [0,2,2.,-1,3];
@@ -3696,13 +3821,13 @@ every 1 to abs(power) do
    res := op(res,base);
 return res;
 end
-#------------------------------------------------------- 97 exponentiation-order
+#----------------------------------------------------------------- 102 exponentiation-order
 procedure main()
 	write("5^3^2   = ", 5^3^2  );
 	write("(5^3)^2 = ", (5^3)^2);
 	write("5^(3^2) = ", 5^(3^2));
 end
-#------------ 98 exponentiation-with-infix-operators-in-or-operating-on-the-base
+#----------------------------------------------------------------- 103 exponentiation-with-infix-operators-in-or-operating-on-the-base
 procedure main()
    every (b := -5|5, e := 2|3) do {
       writes(left(" -"||b||"^"||e,8)," -> ",right(-b^e,4),"     ");
@@ -3711,7 +3836,7 @@ procedure main()
       write(left(" -("||b||"^"||e,8),") -> ",right(-(b^e),4))
       };
 end
-#------------------------------------------------------- 99 extend-your-language
+#----------------------------------------------------------------- 104 extend-your-language
 procedure main(A)
     if2 { (A[1] = A[2]), (A[3] = A[4]),   # Use PDCO with all three else clauses
           write("1: both true"),
@@ -3732,7 +3857,7 @@ procedure if2(A)     # The double-conditional PDCO
     else if @A[2] then |@\A[5]
     else |@\A[6];
 end
-#---------------------------------------------- 100 factors-of-a-mersenne-number
+#----------------------------------------------------------------- 105 factors-of-a-mersenne-number
 procedure main(A)
     p := integer(A[1]) | 929;
     write("M",p," has a factor ",mfactor(p));
@@ -3765,14 +3890,14 @@ procedure isPrime(n)
         };
     return;
 end
-#--------------------------------------------------- 101 factors-of-an-integer-1
+#----------------------------------------------------------------- 106 factors-of-an-integer-1
 procedure main(arglist)
 numbers := arglist ||| [ 32767, 45, 53, 64, 100];    # combine command line provided and default set of values
 every writes(lf,"factors of ",i := !numbers,"=") & writes(divisors(i)," ") do lf := "\n";
 end
 
 link factors
-#--------------------------------------- 102 fibonacci-n-step-number-sequences-1
+#----------------------------------------------------------------- 107 fibonacci-n-step-number-sequences-1
 procedure main(A)
     every writes("F2:\t"|right((fnsGen(1,1))\14,5) | "\n");
     every writes("F3:\t"|right((fnsGen(1,1,2))\14,5) | "\n");
@@ -3788,7 +3913,7 @@ procedure fnsGen(cache[])
         suspend cache[i]
         };
 end
-#------------------------------------------------------ 103 fibonacci-sequence-2
+#----------------------------------------------------------------- 108 fibonacci-sequence-2
 procedure main(args)
     write(fib(integer(!args) | 1000000));
 end
@@ -3806,7 +3931,65 @@ procedure fibMat(n)
     if n%2 = 1 then return [c+d, d]
     else return [d, c];
 end
-#-------------------------------------------------------------------- 104 filter
+#----------------------------------------------------------------- 109 fibonacci-word-fractal
+global width, height
+
+procedure main(A)
+    n := integer(A[1]) | 25;			    # F_word to use
+    sl := integer(A[2]) | 1;             # Segment length
+    width := integer(A[3]) | 1050;       # Width of plot area
+    height := integer(A[4]) | 1050;      # Height of plot area
+    w := fword(n);
+    drawFractal(n,w,sl);
+end
+
+procedure fword(n)
+    static fcache;
+    initial fcache := table();
+    /fcache[n] := case n of {
+                     1: "1";
+                     2: "0";
+                     default: fword(n-1)||fword(n-2)
+                     };
+    return fcache[n];
+end
+
+record loc(x,y)
+
+procedure drawFractal(n,w,sl)
+    static lTurn, rTurn;
+    initial {
+        every (lTurn|rTurn) := table();
+        lTurn["north"] := "west"; lTurn["west"] := "south";
+        lTurn["south"] := "east"; lTurn["east"] := "north";
+        rTurn["north"] := "east"; rTurn["east"] := "south";
+        rTurn["south"] := "west"; rTurn["west"] := "north"
+        };
+
+    wparms := ["FibFractal "||n,"g","bg=white","canvas=normal",
+               "fg=black","size="||width||","||height,"dx=10","dy=10"];
+    &window := open!wparms | stop("Unable to open window");
+    p := loc(10,10);
+    d := "north";
+    every i := 1 to *w do {
+       p := draw(p,d,sl);
+       if w[i] == "0" then d := if i%2 = 0 then lTurn[d] else rTurn[d]
+       };
+
+    until Event() == &lpress;
+    WriteImage("FibFract"||n||".png");
+    close(&window);
+end
+
+procedure draw(p,d,sl)
+    if d == "north"      then p1 := loc(p.x,p.y+sl)
+    else if d == "south" then p1 := loc(p.x,p.y-sl)
+    else if d == "east"  then p1 := loc(p.x+sl,p.y)
+    else                      p1 := loc(p.x-sl,p.y);
+    DrawLine(p.x,p.y, p1.x,p1.y);
+    return p1;
+end
+#----------------------------------------------------------------- 110 filter
 procedure main()
 
 every put(A := [],1 to 10);              # make a list of 1..10
@@ -3817,7 +4000,7 @@ end
 procedure iseven(x)                     #: return x if x is even or fail
 if x % 2 = 0 then return x;
 end
-#------------------------------------------------ 105 find-common-directory-path
+#----------------------------------------------------------------- 111 find-common-directory-path
 procedure main()
 write(lcdsubstr(["/home/user1/tmp/coverage/test","/home/user1/tmp/covert/operator","/home/user1/tmp/coven/members"]));
 end
@@ -3838,7 +4021,7 @@ every x := !L do
    if not match(s,x) then fail;
 return s;
 end
-#----------------------------- 106 find-first-and-last-set-bit-of-a-long-integer
+#----------------------------------------------------------------- 112 find-first-and-last-set-bit-of-a-long-integer
 link printf,hexcvt
 
 procedure main()
@@ -3898,7 +4081,7 @@ initial {                                          # build
    };
    return mask;                                     # return pre-built data
 end
-#--------------------------------------------------- 107 find-limit-of-recursion
+#----------------------------------------------------------------- 113 find-limit-of-recursion
 procedure main()
 envar := "MSTKSIZE";
 write(&errout,"Program to test recursion depth - dependant on the environment variable ",envar," = ",\getenv(envar)|&null);
@@ -3911,7 +4094,7 @@ initial d := 0;
 write( d +:= 1);
 deepdive();
 end
-#-------------------------------------------------- 108 first-class-environments
+#----------------------------------------------------------------- 114 first-class-environments
 link printf
 
 procedure main()
@@ -3936,7 +4119,7 @@ procedure hailstep(env)
         else env.sequence := 3 * env.sequence + 1
         };
 end
-#------------------------------------------------------------- 109 five-weekends
+#----------------------------------------------------------------- 115 five-weekends
 link datetime,printf
 
 procedure main(A)  # five weekends
@@ -3963,7 +4146,7 @@ every insert(Y := set(), start to finish);
 every insert(F := set(), integer(!fwe ? tab(find("-"))));
 return sort(Y--F);
 end
-#---------------------------------------------------------------- 110 fizzbuzz-1
+#----------------------------------------------------------------- 116 fizzbuzz-1
 # straight-forward modulo tester
 procedure main()
     every i := 1 to 100 do
@@ -3976,13 +4159,13 @@ procedure main()
         else
             write(i);
 end
-#---------------------------------------------------------------- 111 fizzbuzz-2
+#----------------------------------------------------------------- 117 fizzbuzz-2
 # idiomatic modulo tester, 1st alternative
 procedure main()
     every i := 1 to 100 do
         write((i % 15 = 0 & "FizzBuzz") | (i % 5 = 0 & "Buzz") | (i % 3 = 0 & "Fizz") | i);
 end
-#---------------------------------------------------------------- 112 fizzbuzz-3
+#----------------------------------------------------------------- 118 fizzbuzz-3
 # idiomatic modulo tester, 2nd alternative
 procedure main()
     every i := 1 to 100 do
@@ -3993,7 +4176,7 @@ procedure main()
                  default: i
         });
 end
-#---------------------------------------------------------------- 113 fizzbuzz-4
+#----------------------------------------------------------------- 119 fizzbuzz-4
 # straight-forward buffer builder
 procedure main()
     every i := 1 to 100 do {
@@ -4007,13 +4190,13 @@ procedure main()
         write(s)
     };
 end
-#---------------------------------------------------------------- 114 fizzbuzz-5
+#----------------------------------------------------------------- 120 fizzbuzz-5
 # idiomatic buffer builder, 1st alternative
 procedure main()
     every i := 1 to 100 do
         write("" ~== (if i % 3 = 0 then "Fizz" else "") || (if i % 5 == 0 then "Buzz" else "") | i);
 end
-#-------------------------------------------------- 115 floyd-warshall-algorithm
+#----------------------------------------------------------------- 121 floyd-warshall-algorithm
 #
 # Floyd-Warshall algorithm.
 #
@@ -4131,7 +4314,7 @@ procedure max_vertex (edges)
   every e := !edges do m := max (m, e[1], e[3]);
   return m;
 end
-#----------------------------------------------------------- 116 floyds-triangle
+#----------------------------------------------------------------- 122 floyds-triangle
 procedure main(a)
     n := integer(a[1]) | 5;
     w := ((n*(n-1))/2)-n;
@@ -4144,7 +4327,7 @@ procedure main(a)
         write()
         };
 end
-#-------------------------------------------------- 117 formatted-numeric-output
+#----------------------------------------------------------------- 123 formatted-numeric-output
 link printf
 
 procedure main()
@@ -4155,7 +4338,7 @@ every  r := &pi | -r | 100-r do {
      write(sprintf(p,r)," <=== sprintf ",p)
 };
 end
-#------------------------------------------------------------ 118 four-bit-adder
+#----------------------------------------------------------------- 124 four-bit-adder
 #
 # 4bitadder.icn, emulate a 4 bit adder. Using only and, or, not
 #
@@ -4259,7 +4442,7 @@ procedure fourbitadder(a, b, cr)
     # cr.c is the overflow carry
     return s;
 end
-#------------------------------------------------------------ 119 gapful-numbers
+#----------------------------------------------------------------- 125 gapful-numbers
 procedure main(A)
    writes("First 30 >= 100:");
    every writes(" ",gapful(seq(100))\30 | "\n");
@@ -4276,7 +4459,7 @@ procedure gapful(n)
    m := s[1]*10+s[-1];
    return (n%m = 0, n);
 end
-#-------------------------------------- 120 generate-lower-case-ascii-alphabet-2
+#----------------------------------------------------------------- 126 generate-lower-case-ascii-alphabet-2
 procedure lower_case_letters()               # entry point for function lower_case_letters
 	return &lcase;                        # returning lower caser letters represented by the set &lcase
 end
@@ -4284,7 +4467,7 @@ end
 procedure main(param)                        # main procedure as entry point
 	write(lower_case_letters());          # output of result of function lower_case_letters()
 end
-#--------------------------------------------------- 121 generator-exponential-1
+#----------------------------------------------------------------- 127 generator-exponential-1
 procedure main()
 
 write("Non-cube Squares (21st to 30th):");
@@ -4310,7 +4493,7 @@ repeat {
       }
    };
 end
-#-------------------------------------------------------------- 122 generic-swap
+#----------------------------------------------------------------- 128 generic-swap
 procedure main()
    x := 1;
    y := 2;
@@ -4319,7 +4502,7 @@ procedure main()
    # swap that will reverse if surrounding expression fails
    if x <-> y & x < y then write(x, " ", y);
 end
-#------------------------------------------------- 123 get-system-command-output
+#----------------------------------------------------------------- 129 get-system-command-output
 #
 # piped.icn, Get system command output
 #
@@ -4343,7 +4526,7 @@ procedure main()
 
     close(p);
 end
-#-------------------------------------------------- 124 golden-ratio-convergence
+#----------------------------------------------------------------- 130 golden-ratio-convergence
 global one, one_squared
 
 procedure main ()
@@ -4369,7 +4552,7 @@ procedure iterate (phi, n)
   else
     return iterate (phi1, n1);
 end
-#-------------------------------------------------------------- 125 gospers-hack
+#----------------------------------------------------------------- 131 gospers-hack
 procedure main()
     every i := 1|3|7|15 do{
         writes(i,":");
@@ -4386,7 +4569,7 @@ procedure gosperhack(n)
         suspend n := ior(b, ishift(ixor(n,b),-2) / a)
     };
 end
-#----------------------------------------------------------------- 126 gray-code
+#----------------------------------------------------------------- 132 gray-code
 link bitint
 
 procedure main()
@@ -4405,7 +4588,7 @@ procedure gDecode(g)
     every i := 2 to *g do b ||:= if g[i] == b[i-1] then "0" else "1";
     return b;
 end
-#---------------------------------------------- 127 greatest-element-of-a-list-1
+#----------------------------------------------------------------- 133 greatest-element-of-a-list-1
 procedure main()
    local l;
    l := [7,8,6,9,4,5,2,3,1];
@@ -4418,7 +4601,19 @@ procedure max(l)
    every max <:= !l;
    return max;
 end
-#------------------------------------------------------------- 128 happy-numbers
+#----------------------------------------------------------------- 134 gui-maximum-window-dimensions
+link graphics
+
+procedure main()  # Window size
+
+W  := WOpen("canvas=hidden");
+dh := WAttrib("displayheight");
+dw := WAttrib("displaywidth");
+WClose(W);
+
+write("The display size is w=",dw,", h=",dh);
+end
+#----------------------------------------------------------------- 135 happy-numbers
 procedure main(arglist)
 local n;
 n := arglist[1] | 8;    # limiting number of happy numbers to generate, default=8
@@ -4436,7 +4631,7 @@ local n;
         if happy(n) then return i
         };
 end
-#--------------------------------------------------- 129 harshad-or-niven-series
+#----------------------------------------------------------------- 136 harshad-or-niven-series
 procedure main(A)
     limit := integer(A[1]) | 20;
     every writes(niven(seq())\limit," ");
@@ -4448,7 +4643,7 @@ procedure niven(n)
     n ? {s := 0; while s +:= move(1)};
     if (n%s) = 0 then return n;
 end
-#------------------------------------------------------ 130 hash-from-two-arrays
+#----------------------------------------------------------------- 137 hash-from-two-arrays
 link ximage    # to format the structure
 
 procedure main(arglist)                          #: demonstrate hash from 2 lists
@@ -4461,7 +4656,7 @@ every  (T := table())[keylist[ i := 1 to *keylist ]] := arglist[i];  # create th
 
 write(ximage(T));                                 # show result
 end
-#--------------------------------------------------------- 131 haversine-formula
+#----------------------------------------------------------------- 138 haversine-formula
 link printf
 
 procedure main()  #: Haversine formula
@@ -4477,15 +4672,22 @@ procedure gcdistance(a,b)
 	dy := sin(a[2]) * cos(a[1]);
 	return asin(sqrt(dx * dx + dy * dy + dz * dz) / 2) * 2 * 6371;
 end
-#---------------------------------------------- 132 hello-world-newline-omission
+#----------------------------------------------------------------- 139 hello-world-graphical
+link graphics
+procedure main()
+   WOpen("size=100,20") | stop("No window");
+   WWrites("Goodbye, World!");
+   WDone();
+end
+#----------------------------------------------------------------- 140 hello-world-newline-omission
 procedure main()
    writes("Goodbye, World!");
 end
-#---------------------------------------------------------- 133 hello-world-text
+#----------------------------------------------------------------- 141 hello-world-text
 procedure main()
   write( "Hello world!" );
 end
-#---------------------------------------------------- 134 higher-order-functions
+#----------------------------------------------------------------- 142 higher-order-functions
  procedure main()
    local lst;
    lst := [10, 20, 30, 40];
@@ -4499,7 +4701,7 @@ end
 procedure callback(arg)
    write("->", arg);
 end
-#---------------------------------------- 135 hofstadter-conway-$10-000-sequence
+#----------------------------------------------------------------- 143 hofstadter-conway-$10-000-sequence
 procedure main(args)
     m       := integer(!args) | 20;
     nextNum := create put(A := [], 1 | 1 | |A[A[*A]]+A[-A[*A]])[*A];
@@ -4516,7 +4718,7 @@ procedure main(args)
         };
     write("Mallows's number is ",\mallows | "NOT found!");
 end
-#---------------------------------------- 136 hofstadter-figure-figure-sequences
+#----------------------------------------------------------------- 144 hofstadter-figure-figure-sequences
 link printf,ximage
 
 procedure main()
@@ -4576,7 +4778,7 @@ initial {
          }
    };
 end
-#----------------------------------------------------- 137 hofstadter-q-sequence
+#----------------------------------------------------------------- 145 hofstadter-q-sequence
 link printf
 
 procedure main()
@@ -4616,7 +4818,7 @@ else {
       runerr(500,n)
    };
 end
-#------------------------------------------- 138 horizontal-sundial-calculations
+#----------------------------------------------------------------- 146 horizontal-sundial-calculations
 procedure main()
    PrintSundial(-4.95, -150.5, -150);
 end
@@ -4641,7 +4843,7 @@ procedure PrintSundial(lat, lng, mer )
             " HRA=",hra,", HLA=",hla)
       };
 end
-#------------------------------------ 139 horners-rule-for-polynomial-evaluation
+#----------------------------------------------------------------- 147 horners-rule-for-polynomial-evaluation
 procedure poly_eval (x, coeffs)
   accumulator := 0;
   every index := *coeffs to 1 by -1 do
@@ -4652,18 +4854,18 @@ end
 procedure main ()
   write (poly_eval (3, [-19, 7, -4, 6]));
 end
-#-------------------------------------------------------- 140 host-introspection
+#----------------------------------------------------------------- 148 host-introspection
 procedure main()
     write(if 0 = ishift(1,-1) then "little" else "big"," endian");
     if match("flags",line := !open("/proc/cpuinfo")) then    # Unix-like only
         write(if find(" lm ",line) then 64 else 32," bits per word")
     else write("Cannot determine word size.");
 end
-#------------------------------------------------------------------ 141 hostname
+#----------------------------------------------------------------- 149 hostname
 procedure main()
   write(&host);
 end
-#---------------------------------------------------------- 142 huffman-coding-1
+#----------------------------------------------------------------- 150 huffman-coding-1
 record huffnode(l,r,n,c)                        # internal and leaf nodes
 record huffcode(c,n,b,i)                        # encoding table char, freq, bitstring, bits (int)
 
@@ -4724,7 +4926,7 @@ every c := !s do {
    };
 return T;
 end
-#------------------------------------------------------------ 143 humble-numbers
+#----------------------------------------------------------------- 151 humble-numbers
 global count
 
 procedure main(A)
@@ -4765,7 +4967,7 @@ procedure showcounts(counts)
    every p := !sort(counts) do
       write(right(p[1],7),"  ",right(p[2],16));
 end
-#---------------------------------------------------------- 144 inverted-index-1
+#----------------------------------------------------------------- 152 inverted-index-1
 procedure main()
 
   texts := table();     # substitute for read and parse files
@@ -4821,7 +5023,7 @@ every writes(s|!x) do writes(" ");
 write();
 return;
 end
-#-------------------------------------------- 145 isqrt-integer-square-root-of-x
+#----------------------------------------------------------------- 153 isqrt-integer-square-root-of-x
 link numbers                    # For the "commas" procedure.
 link printf
 
@@ -4880,7 +5082,7 @@ procedure find_a_power_of_4_greater_than_x (x)
   while q <= x do q := ishift(q, 2);
   return q;
 end
-#---------------------------------------------------------- 146 jensens-device-1
+#----------------------------------------------------------------- 154 jensens-device-1
 record mutable(value)   # record wrapper to provide mutable access to immutable types
 
 procedure main()
@@ -4894,7 +5096,7 @@ procedure sum(A, lo, hi, term)
         temp +:= @^term;
     return temp;
 end
-#--------------------------------------------------------- 147 jewels-and-stones
+#----------------------------------------------------------------- 155 jewels-and-stones
 procedure main()
 	write(countjewels("aAAbbbb", "aA"));
 	write(countjewels("ZZ", "z"));
@@ -4905,7 +5107,7 @@ procedure countjewels(s,j)
 	s ? every upto(cset(j)) do n +:= 1;
 	return n;
 end
-#------------------------------------------------------------------ 148 jortsort
+#----------------------------------------------------------------- 156 jortsort
 procedure main(A)
    if jortsort(A) then write("true") else write("false");
 end
@@ -4915,7 +5117,7 @@ procedure jortsort(A)
    every i := 1 to *A do if A[i] ~=== b[i] then fail;
    return;
 end
-#-------------------------------------------------------- 149 josephus-problem-1
+#----------------------------------------------------------------- 157 josephus-problem-1
 procedure main(A)
    m := integer(A[1]) | 41;
    c := integer(A[2]) | 3;
@@ -4925,7 +5127,7 @@ end
 procedure j(m,c)
    return if m==1 then 0 else (j(m-1,c)+c)%m;
 end
-#-------------------------------------------------------- 150 josephus-problem-2
+#----------------------------------------------------------------- 158 josephus-problem-2
 procedure main(args)
    n := total := integer(args[1]) | 41;		# Number of people
    k := count := integer(args[2]) | 3;		# Count
@@ -4953,7 +5155,7 @@ procedure ceil(a,q)
   n ?:= integer(tab(upto('.'))) + 1;
   return n;
 end
-#---------------------------------------------------------- 151 kaprekar-numbers
+#----------------------------------------------------------------- 159 kaprekar-numbers
 procedure is_kaprekar(n)  #: return n if n is a kaprekar number
 if ( n = 1 ) |
    ( n^2 ? ( n = move(1 to *&subject-1) + (0 ~= tab(0)) | fail )) then
@@ -4965,7 +5167,7 @@ every write(is_kaprekar(1 to 10000));                        # primary goal
 every (count := 0, is_kaprekar(1 to 999999), count +:= 1);   # stretch goal
 write ("Number of Kaprekar numbers less than 1000000 is ", count);
 end
-#------------------------------------------------------------ 152 knights-tour-1
+#----------------------------------------------------------------- 160 knights-tour-1
 link printf
 
 procedure main(A)
@@ -5067,7 +5269,7 @@ every r := 1 to B.N do {
    };
 every write(hdr2|hdr1|&null);
 end
-#----------------------------------------------------------- 153 knuth-shuffle-1
+#----------------------------------------------------------------- 161 knuth-shuffle-1
 procedure main()
     show(shuffle([3,1,4,1,5,9,2,6,3]));
     show(shuffle("this is a string"));
@@ -5082,7 +5284,7 @@ procedure show(A)
     every writes(!A," ");
     write();
 end
-#----------------------------------------------- 154 largest-proper-divisor-of-n
+#----------------------------------------------------------------- 162 largest-proper-divisor-of-n
 procedure main()
    every x := 1 to 100 do {
       writes(right(lpd(x),4));
@@ -5095,7 +5297,7 @@ procedure lpd(n)
    every i := n/2 to 2 by -1 do return (n%i=0,i) | next;
    return 1;
 end
-#-------------------------------------------------- 155 last-letter-first-letter
+#----------------------------------------------------------------- 163 last-letter-first-letter
 global words
 
 procedure main()
@@ -5120,7 +5322,7 @@ procedure genwords(f)
     while l := !f do
         l ? while tab(upto(&letters)) do suspend tab(many(&letters))\1;
 end
-#----------------------------------------------------------------- 156 leap-year
+#----------------------------------------------------------------- 164 leap-year
 procedure main(arglist)
 every y := !([2000,1900,2012]|||arglist) do
   write("The year ",y," is ", leapyear(y) | "not ","a leap year.");
@@ -5129,13 +5331,13 @@ end
 procedure leapyear(year)		#: determine if year is leap
    if (numeric(year) % 4 = 0 & year % 100 ~= 0) | (numeric(year) % 400 = 0) then return;
 end
-#--------------------------------------------------- 157 least-common-multiple-1
+#----------------------------------------------------------------- 165 least-common-multiple-1
 link numbers
 procedure main()
 write("lcm of 18, 36 = ",lcm(18,36));
 write("lcm of 0, 9 = ",lcm(0,9));
 end
-#----------------------------------------------------------- 158 left-factorials
+#----------------------------------------------------------------- 166 left-factorials
 procedure main()
     every writes(lfact(0 | !10)," ");
     write();
@@ -5152,7 +5354,7 @@ procedure lfact(n)
     every (i := !n, r +:= .f, f *:= .i);
     return r;
 end
-#--------------------------------------------- 159 linear-congruential-generator
+#----------------------------------------------------------------- 167 linear-congruential-generator
 link printf
 
 procedure main()
@@ -5178,13 +5380,13 @@ end
 procedure rand_MS()                #: lcrng
    return ishift(srand_MS((214013 * srand_MS() + 2531011) % 2147483648),-16);
 end
-#----------------------------------------------------- 160 list-comprehensions-3
+#----------------------------------------------------------------- 168 list-comprehensions-3
 procedure main(a)
     n := integer(!a) | 20;
     s := create (x := 1 to n, y := x to n, z := y to n, x^2+y^2 = z^2, [x,y,z]);
     while a := @s do write(a[1]," ",a[2]," ",a[3]);
 end
-#-------------------------------------------------------- 161 literals-integer-1
+#----------------------------------------------------------------- 169 literals-integer-1
 procedure main()
 L := [1, 2r10, 3r10, 4r10, 5r10, 6r10, 7r10, 8r10, 9r10, 10r10, 11r10, 12r10, 13r10, 14r10,
       15r10, 16r10, 17r10, 18r10,19r10, 20r10, 21r10, 22r10, 23r10, 24r10, 25r10, 26r10, 27r10,
@@ -5192,7 +5394,7 @@ L := [1, 2r10, 3r10, 4r10, 5r10, 6r10, 7r10, 8r10, 9r10, 10r10, 11r10, 12r10, 13
 
 every write(!L);
 end
-#----------------------------------------------------------- 162 literals-string
+#----------------------------------------------------------------- 170 literals-string
 procedure main()
 
    # strings are variable length are not NUL terminated
@@ -5207,7 +5409,7 @@ procedure main()
    every x := c1|s1|s2 do                                # show them
       write(" size=",*x,", type=", type(x),", value=", image(x));
 end
-#------------------------------------------------------ 163 logical-operations-1
+#----------------------------------------------------------------- 171 logical-operations-1
 invocable all
 
 procedure main()                      #: sample demonstrating boolean function use
@@ -5270,7 +5472,7 @@ every i := -1 to -max(*b1,*b2) by -1 do
    b3 :=  char(iop(ord(b1[i]|z),ord(b2[i]|z))) || b3;
 return b3;
 end
-#------------------------------------------------------- 164 long-multiplication
+#----------------------------------------------------------------- 172 long-multiplication
 ##
 # Show how to implement big number multiplication (even though Icon and Unicon
 # handle big numbers transparently...)
@@ -5317,7 +5519,7 @@ procedure bn2str(bn)
    every s ||:= right(bn[*bn-1 to 1 by -1],dpw,"0");
    return s;
 end
-#------------------------------------------------ 165 longest-common-subsequence
+#----------------------------------------------------------------- 173 longest-common-subsequence
 procedure main()
 LCSTEST("thisisatest","testing123testing");
 LCSTEST("","x");
@@ -5354,7 +5556,7 @@ local c,nc;
 
    return if *(x := lcs(a,b[1:-1])) > *(y := lcs(a[1:-1],b)) then x else y  ;# divide, discard, and keep longest
 end
-#------------------------------------------------ 166 longest-common-substring-1
+#----------------------------------------------------------------- 174 longest-common-substring-1
 procedure lcs(s1,s2)  # return longest common substring of s1 and s2
     if *s1 > *s2 then s1 :=: s2;             # s1 is the shorter string
     return s1 ? if j := *s1 to 1 by -1 &    # Return substring, s, of s1 that is
@@ -5376,7 +5578,7 @@ end
 procedure lcstest(s1,s2)
     write("\"",s1,"\" and ","\"",s2,"\" --> \"",lcs(s1,s2),"\"");
 end
-#------------------------------------------------ 167 longest-common-substring-2
+#----------------------------------------------------------------- 175 longest-common-substring-2
 procedure main(A)
    s1 := \A[1] | "thisisatest";
    s2 := \A[2] | "testing123testing";
@@ -5396,7 +5598,7 @@ procedure lcs(s1,s2)
            };
    return lc;
 end
-#----------------------------------------------------- 168 look-and-say-sequence
+#----------------------------------------------------------------- 176 look-and-say-sequence
 procedure main()
 every 1 to 10 do
    write(n := nextlooknsayseq(\n | 1));
@@ -5411,14 +5613,14 @@ n ? until pos(0) do {
    };
 return n2;
 end
-#-------------------------------- 169 loop-over-multiple-arrays-simultaneously-1
+#----------------------------------------------------------------- 177 loop-over-multiple-arrays-simultaneously-1
 procedure main()
 a := create !["a","b","c"];
 b := create !["A","B","C"];
 c := create !["1","2","3"];
 while write(@a,@b,@c);
 end
-#-------------------------------- 170 loop-over-multiple-arrays-simultaneously-2
+#----------------------------------------------------------------- 178 loop-over-multiple-arrays-simultaneously-2
 link numbers  # for max
 
 procedure main()
@@ -5430,11 +5632,11 @@ c := [1,2,3];
 every i := 1 to max(*a,*b,*c) do
    write(a[i]|"","\t",b[i]|"","\t",c[i]|"");
 end
-#------------------------------------------------------------- 171 loops-break-1
+#----------------------------------------------------------------- 179 loops-break-1
 procedure main()
     while 10 ~= writes(?20-1) do write(", ",?20-1);
 end
-#---------------------------------------------------------- 172 loops-continue-1
+#----------------------------------------------------------------- 180 loops-continue-1
 procedure main()
 every writes(x := 1 to 10) do {
    if x % 5 = 0 then {
@@ -5444,7 +5646,7 @@ every writes(x := 1 to 10) do {
    writes(", ")
    };
 end
-#------------------------------------------------------------ 173 loops-do-while
+#----------------------------------------------------------------- 181 loops-do-while
 procedure main()
 
 i := 0;
@@ -5453,7 +5655,7 @@ repeat {
    if i % 6 = 0 then break
    };
 end
-#----------------------------------------------------------------- 174 loops-for
+#----------------------------------------------------------------- 182 loops-for
 procedure main()
 every i := 1 to 5 do {
    every 1 to i do
@@ -5461,7 +5663,7 @@ every i := 1 to 5 do {
    write()
    };
 end
-#------------------------------- 175 loops-increment-loop-index-within-loop-body
+#----------------------------------------------------------------- 183 loops-increment-loop-index-within-loop-body
 procedure main()
     I_START := 42;
     LIMIT := I_START;
@@ -5502,13 +5704,13 @@ procedure comma_string(n)
     };
     return s;
 end
-#--------------------------------------------------- 176 loops-n-plus-one-half-1
+#----------------------------------------------------------------- 184 loops-n-plus-one-half-1
 procedure main()
 every writes(i := 1 to 10) do
    if i = 10 then break write()
    else writes(", ");
 end
-#------------------------------------------------------------ 177 loops-nested-1
+#----------------------------------------------------------------- 185 loops-nested-1
 procedure main()
 
 every !(!(L  := list(10)) := list(10))  := ?20;   # setup a 2d array of random numbers up to 20
@@ -5524,13 +5726,13 @@ every i := 1 to *L do{                           # using nested loops
    write()
 };
 end
-#--------------------------------------------------------------- 178 loops-while
+#----------------------------------------------------------------- 186 loops-while
 procedure main()
    local i;
    i := 1024;
    while write(0 < (i := i / 2));
 end
-#-------------------------------------------------------- 179 loops-wrong-ranges
+#----------------------------------------------------------------- 187 loops-wrong-ranges
 procedure main()
     testdata := [
       #       args                      Comment
@@ -5570,7 +5772,7 @@ procedure seqimage(L)
     every result := "" & result ||:= image(!L) || ", ";
     return result[1:-2];
 end
-#------------------------------------------------------------------ 180 mad-libs
+#----------------------------------------------------------------- 188 mad-libs
 procedure main()
    ml := "<name> went for a walk in the park. There <he or she> _
           found a <noun>. <name> decided to take it home.";  # sample
@@ -5587,7 +5789,7 @@ procedure MadLib(story)
       story := replace(story,v,read());
    write("\nYour MadLib follows:\n",story);
 end
-#--------------------------------------------------- 181 matrix-multiplication-1
+#----------------------------------------------------------------- 189 matrix-multiplication-1
 link matrix
 
 procedure main ()
@@ -5601,7 +5803,7 @@ procedure main ()
   write ("Result: ");
   write_matrix ("", m3);
 end
-#------------------------------------------------------ 182 matrix-transposition
+#----------------------------------------------------------------- 190 matrix-transposition
 procedure transpose_matrix (matrix)
   result := [];
   # for each column
@@ -5630,7 +5832,7 @@ procedure main ()
   write ("Transposed:");
   print_matrix (transposed);
 end
-#----------------------------------------------------------------------- 183 md5
+#----------------------------------------------------------------- 191 md5
 procedure main()  # validate against the RFC test strings and more
    testMD5("The quick brown fox jumps over the lazy dog", 16r9e107d9d372bb6826bd81d3542a419d6);
    testMD5("The quick brown fox jumps over the lazy dog.", 16re4d909c290d0fb1ca068ffaddf22cbd0);
@@ -5641,7 +5843,7 @@ procedure testMD5(s,rh)  # compute the MD5 hash and compare it to reference valu
    write("Message(length=",*s,") = ",image(s));
    write("Digest = ",hexstring(h := MD5(s)),if h = rh then " matches reference hash" else (" does not match reference hash = " || hexstring(rh)),"\n");
 end
-#---------------------------------------------------------------------- 184 menu
+#----------------------------------------------------------------- 192 menu
 ## menu.icn : rewrite of the faulty version on Rosetta Code site 24/4/2021
 
 procedure main()
@@ -5688,7 +5890,7 @@ procedure displaymenu(X)
 		
 end ## displaymenu(X)
 
-#------------------------------------------------------ 185 mian-chowla-sequence
+#----------------------------------------------------------------- 193 mian-chowla-sequence
 procedure main(A)
    limit := \A[1] | 100;
    cnt := 0;
@@ -5711,7 +5913,7 @@ procedure mian()
       suspend (put(a,n),n)
       };
 end
-#-------------------------- 186 minimum-multiple-of-m-where-digital-sum-equals-m
+#----------------------------------------------------------------- 194 minimum-multiple-of-m-where-digital-sum-equals-m
 procedure main(A)
    limit := \A[1] | 40;
    every m := minmult(n := seq())\limit do
@@ -5727,7 +5929,7 @@ procedure sums(k)
    while k > 0 do (j +:= k%10, k /:= 10);
    return j;
 end
-#---------------------------------------------------- 187 modular-exponentiation
+#----------------------------------------------------------------- 195 modular-exponentiation
 procedure main()
     a := 2988348162058574136915891421498819466320163312926952423791023078876139;
     b := 2351399303373464486466122544523690094744975233415544072992656881240319;
@@ -5745,7 +5947,7 @@ procedure mod_power(base, exponent, modulus)   # fast modular exponentation
       };
    return result;
 end
-#--------------------------------------------------------- 188 modular-inverse-1
+#----------------------------------------------------------------- 196 modular-inverse-1
 procedure main(args)
     a := integer(args[1]) | 42;
     b := integer(args[2]) | 2017;
@@ -5762,7 +5964,7 @@ procedure mul_inv(a,b)
         };
     return if (x1 > 0) then x1 else x1+b0;
 end
-#--------------------------------------------------------- 189 modular-inverse-2
+#----------------------------------------------------------------- 197 modular-inverse-2
 link numbers
 
 procedure main(args)
@@ -5782,7 +5984,7 @@ procedure mul_inv(a,b)
         };
     return if (x1 > 0) then x1 else x1+b0;
 end
-#-------------------------------------------------------- 190 monty-hall-problem
+#----------------------------------------------------------------- 198 monty-hall-problem
 procedure main(arglist)
 
 rounds := integer(arglist[1]) | 10000;
@@ -5802,7 +6004,7 @@ write("Strategy 1 'Staying' won ", real(strategy1) / rounds );
 write("Strategy 2 'Switching' won ", real(strategy2) / rounds );
 
 end
-#--------------------------------------------------- 191 multiplication-tables-1
+#----------------------------------------------------------------- 199 multiplication-tables-1
 procedure main()
 lim := 13;
 wid :=  5;
@@ -5810,7 +6012,7 @@ every writes(right("* |" | (1 to lim) | "\n",wid)|right("\n",wid*(lim+1),"_")); 
 every (i := 1 to lim) &
    writes(right( i||" |" | (j := 1 to lim, if j < i then "" else i*j) | "\n",wid));     # table content and triangle
 end
-#---------------------------------------------------------------- 192 multisplit
+#----------------------------------------------------------------- 200 multisplit
 procedure main()
    s := "a!===b=!=c";
    # just list the tokens
@@ -5832,7 +6034,7 @@ end
 procedure arb()
 suspend .&subject[.&pos:&pos <- &pos to *&subject + 1];
 end
-#-------------------------------------------------------- 193 n-queens-problem-1
+#----------------------------------------------------------------- 201 n-queens-problem-1
 procedure main()
     write(q(1), " ", q(2), " ", q(3), " ", q(4), " ", q(5), " ", q(6), " ", q(7), " ", q(8));
 end
@@ -5849,7 +6051,7 @@ procedure q(c)
     every 0 = row[r := 1 to 8] = ddiag[r + c - 1] = udiag[8 + r - c] do   # test if free
         suspend row[r] <- ddiag[r + c - 1] <- udiag[8 + r - c] <- r    ;   # place and yield
 end
-#-------------------------------------------------------- 194 n-queens-problem-3
+#----------------------------------------------------------------- 202 n-queens-problem-3
 global n, rw, dd, ud
 
 procedure main(args)
@@ -5885,7 +6087,7 @@ procedure show()
     write();
     return;      # Comment out to see all possible solutions
 end
-#---------------------------------------------------------- 195 named-parameters
+#----------------------------------------------------------------- 203 named-parameters
 procedure main()
    testproc("x:=",1,"y:=",2,"z:=",3);
    testproc("x:=",3,"y:=",1,"z:=",2);
@@ -5906,9 +6108,9 @@ procedure testproc(A[])   #: demo to test named parameters
    write("   y:=",y);
    write("   z:=",z);
 end
-#---------------------------------------------------------------- 196 narcissist
+#----------------------------------------------------------------- 204 narcissist
 procedure main();yes:="Accept";no:="Reject";pat:="procedure main();yes:=$;no:=$;pat:=$;a:=[yes,no,pat];narc:=char(0)[0:0];pat?{while narc||:=tab(find(char(36))) do{narc||:=image(get(a));move(1)};narc||:=tab(0)};write(if read()==narc then yes else no);end";a:=[yes,no,pat];narc:=char(0)[0:0];pat?{while narc||:=tab(find(char(36))) do{narc||:=image(get(a));move(1)};narc||:=tab(0)};write(if read()==narc then yes else no);end
-#----------------------------------------------- 197 narcissistic-decimal-number
+#----------------------------------------------------------------- 205 narcissistic-decimal-number
 procedure main(A)
     limit := integer(A[1]) | 25;
     every write(isNarcissitic(seq(0))\limit);
@@ -5920,7 +6122,7 @@ procedure isNarcissitic(n)
     every (sum := 0) +:= (!sn)^m;
     return sum = n;
 end
-#----------------------------------------------- 198 non-decimal-radices-convert
+#----------------------------------------------------------------- 206 non-decimal-radices-convert
 procedure main()
    every ( ns := "16r5a" | "-12r1a" ) &
          ( b := 8 | 12 | 16 ) do {
@@ -5947,7 +6149,7 @@ initial digits := &digits || &lcase;
       return p || reverse(s)
       };
 end
-#------------------------------------------------- 199 non-decimal-radices-input
+#----------------------------------------------------------------- 207 non-decimal-radices-input
 procedure convert (str)
   write (left(str, 10) || " = " || integer(str));
 end
@@ -5960,7 +6162,7 @@ procedure main ()
 
   write ("2r1001" + "36r1Z"); # shows type conversion, string->integer
 end
-#------------------------------------------------ 200 non-decimal-radices-output
+#----------------------------------------------------------------- 208 non-decimal-radices-output
 procedure main()
 write("Non-decimal radices/Output");
 every i := 255 | 2 | 5 | 16 do {
@@ -5971,7 +6173,7 @@ every i := 255 | 2 | 5 | 16 do {
    printf("%%i = %i\n",i) # image format
    };
 end
-#--------------------------------------------------------------------- 201 nth-1
+#----------------------------------------------------------------- 209 nth-1
 procedure main(A)
     every writes(" ",nth(0 to 25) | "\n");
     every writes(" ",nth(250 to 265) | "\n");
@@ -5983,7 +6185,7 @@ procedure nth(n)
                  (n%10 = 2, n%100 ~= 12, "nd") |
                  (n%10 = 3, n%100 ~= 13, "rd") | "th");
 end
-#--------------------------------------------------------------- 202 null-object
+#----------------------------------------------------------------- 210 null-object
 procedure main()
 nulltest("a",a);                # unassigned variables are null by default
 nulltest("b",b := &null);       # explicit assignment is possible
@@ -5994,7 +6196,7 @@ end
 procedure nulltest(name,var)
 return write(name, if /var then " is" else " is not"," null.");
 end
-#------------------------------------------------- 203 numeric-error-propagation
+#----------------------------------------------------------------- 211 numeric-error-propagation
 record num(val,err)
 
 procedure main(a)
@@ -6038,7 +6240,7 @@ procedure pow(a,b)
     return (numeric(a)^numeric(b)) |
            num(f := a.val^numeric(b), abs(f*b*(a.err/a.val)));
 end
-#---------------------------- 204 numerical-integration-adaptive-simpsons-method
+#----------------------------------------------------------------- 212 numerical-integration-adaptive-simpsons-method
 record simpson_result (m, fm, quadval)
 
 procedure main ()
@@ -6088,7 +6290,7 @@ procedure simpson_rule (f, a, fa, b, fb)
   quadval := ((b - a) / 6) * (fa + (4 * fm) + fb);
   return simpson_result (m, fm, quadval);
 end
-#-------------------------------------------------------- 205 odd-word-problem-1
+#----------------------------------------------------------------- 213 odd-word-problem-1
 procedure main()
 every OddWord(!["what,is,the;meaning,of:life.",
                 "we,are;not,in,kansas;any,more."]);
@@ -6111,7 +6313,7 @@ procedure oWord(stream,marks)                 #: handle odd words (reverse)
    if any(marks,s := @stream) then return s;
    return 1(oWord(stream,marks), writes(s));
 end
-#-------------------------------------------------- 206 old-lady-swallowed-a-fly
+#----------------------------------------------------------------- 214 old-lady-swallowed-a-fly
 procedure main()  #:  There Was An Old Lady Lyrics
 
 verse := table();   # arglists for printf - [1] long asides and [2] terse joiners
@@ -6144,7 +6346,7 @@ zoofilo := [];
 end
 
 link printf
-#--------------------------------------- 207 one-dimensional-cellular-automata-1
+#----------------------------------------------------------------- 215 one-dimensional-cellular-automata-1
 # One dimensional Cellular automaton
 record Automaton(size, cells)
 
@@ -6181,7 +6383,7 @@ procedure main ()
     automaton := automaton_evolve (automaton)
   };
 end
-#--------------------------------------- 208 one-dimensional-cellular-automata-2
+#----------------------------------------------------------------- 216 one-dimensional-cellular-automata-2
 procedure main(A)
   A := if *A = 0 then ["01110110101010100100"];
   CA := show("0"||A[1]||"0");        # add always dead border cells
@@ -6198,7 +6400,7 @@ procedure evolve(CA)
   every newCA[i := 2 to (*CA-1)] := (CA[i-1]+CA[i]+CA[i+1] = 2, "1");
   return CA ~== newCA;               # fail if no change
 end
-#-------------------------------------------------- 209 one-of-n-lines-in-a-file
+#----------------------------------------------------------------- 217 one-of-n-lines-in-a-file
 procedure main() # one of n
    one_of_n_test(10,1000000);
 end
@@ -6216,7 +6418,7 @@ procedure one_of_n_test(n,trials)
    every writes(bins[i := 1 to n]," ");
    return bins;
 end
-#------------------------------------------------- 210 order-disjoint-list-items
+#----------------------------------------------------------------- 218 order-disjoint-list-items
 procedure main(A)
     every write(" -> ",odli("the cat sat on the mat","mat cat"));
     every write(" -> ",odli("the cat sat on the mat","cat mat"));
@@ -6240,7 +6442,7 @@ procedure odli(M,N)
             };
     return Mp;
 end
-#--------------------------------------------------------- 211 pangram-checker-2
+#----------------------------------------------------------------- 219 pangram-checker-2
 procedure main(arglist)
 
 if *arglist > 0 then
@@ -6252,7 +6454,7 @@ writes(image(s), " -- is");
 writes(if not panagram(s) then "n't");
 write(" a panagram.");
 end
-#--------------------------------------------------- 212 parametric-polymorphism
+#----------------------------------------------------------------- 220 parametric-polymorphism
 procedure main()
     bTree := [1, [2, [4, [7]], [5]], [3, [6, [8], [9]]]];
     mapTree(bTree, write);
@@ -6263,7 +6465,7 @@ end
 procedure mapTree(tree, f)
     every f(\tree[1]) | mapTree(!tree[2:0], f);
 end
-#------------------------------------------------------- 213 parse-an-ip-address
+#----------------------------------------------------------------- 221 parse-an-ip-address
 link printf, hexcvt
 
 procedure main()
@@ -6345,7 +6547,7 @@ procedure IPv6decode(s)                            #: IPv6 to hex string
          }
       };
 end
-#------------------------------------------ 214 parsing-rpn-calculator-algorithm
+#----------------------------------------------------------------- 222 parsing-rpn-calculator-algorithm
 procedure main()
    EvalRPN("3 4 2 * 1 5 - 2 3 ^ ^ / +");
 end
@@ -6379,7 +6581,7 @@ procedure list2string(L)         #: format list as a string
    every (s := "[ ") ||:= !L || " ";
    return s || "]";
 end
-#------------------------------------------- 215 parsing-rpn-to-infix-conversion
+#----------------------------------------------------------------- 223 parsing-rpn-to-infix-conversion
 procedure main()
 every rpn := ![
    "3 4 2 * 1 5 - 2 3 ^ ^ / +",  # reqd
@@ -6438,7 +6640,7 @@ procedure list2string(L)                  #: format list as a string
                else x) || " ";
    return s || "]";
 end
-#------------------------------------------- 216 parsing-shunting-yard-algorithm
+#----------------------------------------------------------------- 224 parsing-shunting-yard-algorithm
 procedure main()
    infix := "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3";
    printf("Infix = %i\n",infix);
@@ -6503,7 +6705,7 @@ procedure list2string(L)         #: format list as a string
    every (s := "[ ") ||:= !L || " ";
    return s || "]";
 end
-#---------------------------------------------- 217 partial-function-application
+#----------------------------------------------------------------- 225 partial-function-application
 link printf
 
 procedure main()
@@ -6543,7 +6745,7 @@ procedure list2string(L)         #: format list as a string
    every (s := "[ ") ||:= !L || " ";
    return s || "]";
 end
-#---------------------------------------------- 218 percolation-mean-run-density
+#----------------------------------------------------------------- 226 percolation-mean-run-density
 procedure main(A)
     t := integer(A[2]) | 500;
 
@@ -6559,7 +6761,7 @@ procedure main(A)
         write(left(p,8)," ",left(n,8)," ",left(p*(1-p),10)," ",left(Ka/t, 10))
         };
 end
-#----------------------------------------------------------- 219 perfect-numbers
+#----------------------------------------------------------------- 227 perfect-numbers
 procedure main(arglist)
 limit := \arglist[1] | 100000;
 write("Perfect numbers from 1 to ",limit,":");
@@ -6575,7 +6777,7 @@ if sum = n then return n;
 end
 
 link factors
-#-------------------------------------------------------- 220 pernicious-numbers
+#----------------------------------------------------------------- 228 pernicious-numbers
 link "factors"
 
 procedure main(A)
@@ -6592,7 +6794,31 @@ procedure c1bits(n)
     while n > 0 do c +:= 1(n%2, n/:=2);
     return c;
 end
-#------------------------------------------------------------- 221 playing-cards
+#----------------------------------------------------------------- 229 pinstripe-display
+link graphics
+
+procedure main()  # pinstripe
+
+   WOpen("canvas=hidden");                   # hide for query
+   height := WAttrib("displayheight") - 45 ; # adjust for ...
+   width  := WAttrib("displaywidth") - 20 ;  # ... window 7 borders
+   WClose(&window);
+
+   W := WOpen("size="||width||","||height,"bg=black","fg=white") |
+        stop("Unable to open window");
+
+   maxbands := 4;                             # bands to draw
+   bandheight := height / maxbands;           # height of each band
+   every bands := 1 to maxbands do {         # for each band
+         top   := 1 + bandheight * (bands-1) ;# .. top of band
+         step  := 2^bands;                    # .. number of steps (width)
+         lines := step / 2;                   # .. number (width) of stripes
+         every c := 1 to width by step & l := 0 to lines-1 do
+            DrawLine(c+l,top,c+l,top+bandheight-1)
+         };
+   WDone(W);                                  # q to exit
+end
+#----------------------------------------------------------------- 230 playing-cards
 procedure main(arglist)
 
    cards   := 2;                                             # cards per hand
@@ -6646,7 +6872,7 @@ end
 procedure card2string(x)			            #: return a string version of a card
    return x.pip || x.suit;
 end
-#---------------------------------------------------- 222 pollards-rho-algorithm
+#----------------------------------------------------------------- 231 pollards-rho-algorithm
 link random
 
 procedure main(A)
@@ -6675,7 +6901,7 @@ procedure pow(b,e,m)
       else (e -:= 1, r := (r*b)%m, e /:= 2, b := (b*b)%m);
    return r;
 end
-#------------------------------------------------------- 223 prime-decomposition
+#----------------------------------------------------------------- 232 prime-decomposition
 procedure main()
 factors := primedecomp(2^43-1) ;  # a big int
 end
@@ -6694,7 +6920,7 @@ return F;
 end
 
 link factors
-#------------------------------------------------------ 224 probabilistic-choice
+#----------------------------------------------------------------- 233 probabilistic-choice
 record Item(value, probability)
 
 procedure find_item (items, v)
@@ -6745,11 +6971,11 @@ procedure main ()
            left(item.probability, 15) || " " ||
            left(count(sample, item.value)/*sample, 6));
 end
-#-------------------------------------------------------------- 225 program-name
+#----------------------------------------------------------------- 234 program-name
 procedure main()
 write(&progname);    # obtain and write out the program name from the keyword &progname
 end
-#------------------------------------------------------- 226 pythagorean-triples
+#----------------------------------------------------------------- 235 pythagorean-triples
 link numbers
 link printf
 
@@ -6788,7 +7014,7 @@ procedure memo(x[]) #: return a csv string of arguments in sorted order
 every (s := "") ||:= !sort(x) do s ||:= ",";
 return s[1:-1];
 end
-#---------------------------------------------------------- 227 queue-definition
+#----------------------------------------------------------------- 236 queue-definition
 # Use a record to hold a Queue, using a list as the concrete implementation
 record Queue(items)
 
@@ -6823,7 +7049,7 @@ procedure main ()
     if (queue_empty (queue)) then write ("empty queue")
   };
 end
-#--------------------------------------------------------------- 228 queue-usage
+#----------------------------------------------------------------- 237 queue-usage
 procedure main(arglist)
 queue := [];
 write("Usage:\nqueue x x x - x - - - - -\n\t- pops elements\n\teverything else pushes");
@@ -6842,10 +7068,10 @@ end
 procedure empty(X)        #: fail if X is not empty
 if *X = 0 then return;
 end
-#--------------------------------------------------------------------- 229 quine
+#----------------------------------------------------------------- 238 quine
 procedure main();x:="write(\"procedure main();x:=\",image(x));write(x);end";
 write("procedure main();x:=",image(x));write(x);end
-#------------------------------------------------------------ 230 random-numbers
+#----------------------------------------------------------------- 239 random-numbers
 procedure main()
     local L;
     L := list(1000);
@@ -6853,7 +7079,7 @@ procedure main()
 
     every write(!L);
 end
-#----------------------------------------------------------- 231 range-expansion
+#----------------------------------------------------------------- 240 range-expansion
 procedure main()
 s := "-6,-3--1,3-5,7-11,14,15,17-20";
 write("Input string      := ",s);
@@ -6879,7 +7105,7 @@ local s;
    every (s := "[ ") ||:= !L || " ";
    return s || "]";
 end
-#---------------------------------------------------------- 232 range-extraction
+#----------------------------------------------------------------- 241 range-extraction
 procedure main()
 
    R := [  0,  1,  2,  4,  6,  7,  8, 11, 12, 14,
@@ -6913,7 +7139,7 @@ local s;
    every (s := "[ ") ||:= !L || " ";
    return s || "]";
 end
-#------------------------------------------ 233 read-a-specific-line-from-a-file
+#----------------------------------------------------------------- 242 read-a-specific-line-from-a-file
 procedure main()
 write(readline("foo.bar.txt",7)|"failed");
 end
@@ -6924,7 +7150,7 @@ every  i := n & line := |read(f) \ n do i -:= 1 ; #  <== here
 close(f);
 if i = 0 then return line;
 end
-#---------------------------------------------- 234 real-constants-and-functions
+#----------------------------------------------------------------- 243 real-constants-and-functions
 link numbers  # for floor and ceil
 
 procedure main()
@@ -6940,7 +7166,7 @@ write("floor(-2.2)=",floor(-2.2));
 write("ceil(-2.2)=",ceil(-2.2));
 write("power: 3^3=",3^3);
 end
-#-------------------------------------------------- 235 reduced-row-echelon-form
+#----------------------------------------------------------------- 244 reduced-row-echelon-form
 procedure main(A)
     tM := [[  1,  2, -1, -4],
            [  2,  3, -1,-11],
@@ -6974,7 +7200,7 @@ end
 procedure showMat(M)
     every r := !M do every writes(right(!r,5)||" " | "\n");
 end
-#------------------------------------------------------- 236 regular-expressions
+#----------------------------------------------------------------- 245 regular-expressions
 procedure main()
 
 s := "A simple string";
@@ -6987,7 +7213,7 @@ write(image(s));
 end
 
 link regexp   # link to IPL regexp
-#-------------------------------------------------------------------- 237 repeat
+#----------------------------------------------------------------- 246 repeat
 procedure main(A)
    n := \A[1] | 10;
    runit(P,n) | write();
@@ -7000,12 +7226,12 @@ end
 
 procedure P(); writes("."); end
 procedure Q(); writes("+"); end
-#-------------------------------------------------------- 238 reverse-a-string-1
+#----------------------------------------------------------------- 247 reverse-a-string-1
 procedure main(arglist)
 s := \arglist[1] | "asdf";
 write(s," <-> ", reverse(s));    # reverse is built-in
 end
-#----------------------------------------------------------- 239 riordan-numbers
+#----------------------------------------------------------------- 248 riordan-numbers
 procedure main(A)
    limit := \A[1] | 32;
    every (cnt := 0, r := riordan(), cnt +:=1) do
@@ -7023,7 +7249,7 @@ procedure riordan()
       suspend x
       };
 end
-#------------------------------------------------------- 240 rock-paper-scissors
+#----------------------------------------------------------------- 249 rock-paper-scissors
 link printf
 
 procedure main()
@@ -7065,14 +7291,14 @@ repeat {
 printf("\nResults:\n %d rounds\n %d Draws\n %d Computer wins\n %d Player wins\n",
    winP+winC+draws,draws,winC,winP);
 end
-#--------------------------------------------------- 241 roman-numerals-decode-1
+#----------------------------------------------------------------- 250 roman-numerals-decode-1
 link numbers
 
 procedure main()
 every R := "MCMXC"|"MDCLXVI"|"MMVIII" do
    write(R, " = ",unroman(R));
 end
-#------------------------------------------------------- 242 roots-of-a-function
+#----------------------------------------------------------------- 251 roots-of-a-function
 procedure main()
     showRoots(f, -1.0, 4, 0.002);
 end
@@ -7101,7 +7327,7 @@ end
 procedure sign(x)
     return (x<0, -1) | (x>0, 1) | 0;
 end
-#--------------------------------------------- 243 roots-of-a-quadratic-function
+#----------------------------------------------------------------- 252 roots-of-a-quadratic-function
 procedure main()
     solve(1.0, -10.0e5, 1.0);
 end
@@ -7112,7 +7338,7 @@ procedure solve(a,b,c)
                       else [r1 := (-b-d)/(2.0*a), c/(a*r1)];
     write(a,"*x^2 + ",b,"*x + ",c," has roots ",roots[1]," and ",roots[2]);
 end
-#------------------------------------------------------------ 244 roots-of-unity
+#----------------------------------------------------------------- 253 roots-of-unity
 procedure main()
    roots(10);
 end
@@ -7125,7 +7351,7 @@ end
 procedure str_rep(k)
   return " " || cos(k) || "+" || sin(k) || "i";
 end
-#------------------------------------------------------------------ 245 rsa-code
+#----------------------------------------------------------------- 254 rsa-code
 procedure main()  # rsa demonstration
 
     n := 9516311845790656153499716760847001433441357;
@@ -7191,7 +7417,7 @@ procedure unblock(M,b)  # reassemble blocks of size b into lg int
    every (m := 0) := !M + b * m;
    return m;
 end
-#------------------------------------------------------- 246 run-length-encoding
+#----------------------------------------------------------------- 255 run-length-encoding
 procedure main(arglist)
 
    s := "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW";
@@ -7219,7 +7445,7 @@ end
 procedure Repl(n, c)
     return repl(c,n);
 end
-#------------------------------------------------------------- 247 s-expressions
+#----------------------------------------------------------------- 256 s-expressions
 link ximage
 
 procedure main()
@@ -7280,7 +7506,7 @@ initial sym := &letters++&digits++'~`!@#$%^&*_-+|;:.,<>[]{}';
          };
    return T;
 end
-#--------------------------------------------------------------- 248 same-fringe
+#----------------------------------------------------------------- 257 same-fringe
 procedure main()
     aTree := [1, [2, [4, [7]], [5]], [3, [6, [8], [9]]]];
     bTree := [1, [2, [4, [7]], [5]], [3, [6, [8], [9]]]];
@@ -7311,7 +7537,7 @@ end
 procedure preorder(L)
     if \L then suspend L | preorder(L[2|3]);
 end
-#------------------------------------------------------------- 249 sattolo-cycle
+#----------------------------------------------------------------- 258 sattolo-cycle
 procedure main()
     tests := [[], [10], [10, 20], [10, 20, 30],
              [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
@@ -7329,7 +7555,7 @@ procedure sattolo(a)
     every i := *a to 2 by -1 do
         a[i] :=: a[?(i-1)];
 end
-#----------------------------------------------------------- 250 search-a-list-1
+#----------------------------------------------------------------- 259 search-a-list-1
 link lists
 
 procedure main()
@@ -7355,7 +7581,7 @@ local i;
 every i := p!arglist;
 return \i;
 end
-#-------------------------------------------------- 251 search-a-list-of-records
+#----------------------------------------------------------------- 260 search-a-list-of-records
 record City(name,population)
 
 procedure main()
@@ -7375,7 +7601,7 @@ procedure main()
     if city := !citydata & city.population < 5.0 then write(city.name);
     if city := !citydata & city.name[1] == "A" then write(city.population);
 end
-#-------------------------------------------------------------------- 252 sedols
+#----------------------------------------------------------------- 261 sedols
 procedure main()
 every write(sedol("710889"|"B0YBKJ"|"406566"|"B0YBLH"|"228276"|
            "B0YBKL"|"557910"|"B0YBKR"|"585284"|"B0YBKT"|"B00030"));
@@ -7395,7 +7621,7 @@ if *(x := map(x,&lcase,&ucase)) = *w then {   # match lengths
    return x  || (10 - (t%10))  % 10           # complete
    };
 end
-#------------------------------------------------- 253 self-describing-numbers-1
+#----------------------------------------------------------------- 262 self-describing-numbers-1
 procedure count (test_item, str)
   result := 0;
   every item := !str do
@@ -7424,7 +7650,7 @@ procedure main ()
   # write the first 4 self-describing numbers
   every write (self_describing_numbers ()\4);
 end
-#--------------------------------------------------------------- 254 semordnilap
+#----------------------------------------------------------------- 263 semordnilap
 procedure main(a)
     words := set();
     found := 0;
@@ -7436,7 +7662,7 @@ procedure main(a)
         };
     write("\nFound ",found," semordnilap words");
 end
-#--------------------------------------------------- 255 sequence-of-non-squares
+#----------------------------------------------------------------- 264 sequence-of-non-squares
 link numbers
 
 procedure main()
@@ -7452,7 +7678,7 @@ end
 procedure nsq(n)   # return non-squares
 return n + floor(0.5 + sqrt(n));
 end
-#------------------------------------------ 256 shift-list-elements-to-left-by-3
+#----------------------------------------------------------------- 265 shift-list-elements-to-left-by-3
 link lists  # for limage and lrotate
 procedure main()
     l := [1,2,3,4,5,6,7,8,9];
@@ -7462,7 +7688,7 @@ procedure main()
     l := lrotate(l,-4) ;         # new list rotated -4
     write("rotated -4: ",limage(l));
 end
-#-------------------------------------------------- 257 short-circuit-evaluation
+#----------------------------------------------------------------- 266 short-circuit-evaluation
 procedure main()
 &trace := -1 ;# ensures functions print their names
 
@@ -7482,7 +7708,7 @@ end
 procedure false()  #: fails always
 fail;    # for clarity but not needed as running into end has the same effect
 end
-#--------------------------------------------------------- 258 sierpinski-carpet
+#----------------------------------------------------------------- 267 sierpinski-carpet
 $define FILLER "*"  # the filler character
 
 procedure main(A)
@@ -7507,7 +7733,7 @@ procedure IsFilled(x,y)                      #  succeed if x,y should be filled
       };
    return;
 end
-#------------------------------------------------------- 259 sierpinski-triangle
+#----------------------------------------------------------------- 268 sierpinski-triangle
 # text based adaptaion of
 
 procedure main(A)
@@ -7523,7 +7749,24 @@ procedure main(A)
       writes((y=1,"\n")|"",canvas[x,y]," ");               # print
 
 end
-#--------------------------------------------------- 260 sieve-of-eratosthenes-1
+#----------------------------------------------------------------- 269 sierpinski-triangle-graphical
+link wopen
+
+procedure main(A)
+   local width, margin, x, y;
+
+   width := 2 ^ (order := (0 < integer(\A[1])) | 8);
+   wsize := width + 2 * (margin := 30 );
+   WOpen("label=Sierpinski", "size="||wsize||","||wsize) |
+      stop("*** cannot open window");
+
+   every y := 0 to width - 1 do
+      every x := 0 to width - 1 do
+         if iand(x, y) = 0 then DrawPoint(x + margin, y + margin);
+
+  Event();
+end
+#----------------------------------------------------------------- 270 sieve-of-eratosthenes-1
  procedure main()
     sieve(100);
  end
@@ -7535,7 +7778,7 @@ end
       do p[j] := 0;
     every write(i:=2 to n & p[i] == 1 & i);
  end
-#--------------------------------------------------- 261 sieve-of-eratosthenes-2
+#----------------------------------------------------------------- 271 sieve-of-eratosthenes-2
  procedure main()
      sieve(100);
  end
@@ -7548,7 +7791,7 @@ end
      delete(primes,1);
      every write(!sort(primes));
 end
-#------------------------------------- 262 sort-an-array-of-composite-structures
+#----------------------------------------------------------------- 272 sort-an-array-of-composite-structures
 record star(name,HIP)
 
 procedure main()
@@ -7561,7 +7804,7 @@ Ori := [ star("Betelgeuse",27989),
 write("Some Orion stars by HIP#");
 every write( (x := !sortf(Ori,2)).name, " HIP ",x.HIP);
 end
-#-------------------------------------------- 263 sort-numbers-lexicographically
+#----------------------------------------------------------------- 273 sort-numbers-lexicographically
 link sort   # for isort
 
 procedure main()
@@ -7571,7 +7814,7 @@ procedure main()
     a := isort(a,string);
     writes("after sort: ") ; every writes(" ",!a) ; write();
 end
-#-------------------------------------------- 264 sort-using-a-custom-comparator
+#----------------------------------------------------------------- 274 sort-using-a-custom-comparator
 procedure main()                     #: demonstrate various ways to sort a list and string
    write("Sorting Demo for custom comparator");
    L := ["Here", "are", "some", "sample", "strings", "to", "be", "sorted"];
@@ -7585,7 +7828,7 @@ end
 procedure cmptask(a,b)   # sort by descending length and ascending lexicographic order for strings of equal length
 if (*a > *b) | ((*a = *b) & (map(a) << map(b))) then return b;
 end
-#---------------------------------------------- 265 sorting-algorithms-bead-sort
+#----------------------------------------------------------------- 275 sorting-algorithms-bead-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    write("Sorting Demo using ",image(beadsort));
       writes("  on list : ");
@@ -7611,7 +7854,7 @@ local base,i,j,x;                                # handles negatives and zeros, 
      };
    return X;
 end
-#----------------------------------------------- 266 sorting-algorithms-bogosort
+#----------------------------------------------------------------- 276 sorting-algorithms-bogosort
 procedure shuffle(l)
    repeat {
        !l :=: ?l;
@@ -7629,7 +7872,7 @@ procedure main()
    l := [6,3,4,5,1];
    |( shuffle(l) & sorted(l)) \1 & every writes(" ",!l);
 end
-#------------------------------------------ 267 sorting-algorithms-counting-sort
+#----------------------------------------------------------------- 277 sorting-algorithms-counting-sort
 procedure main()                                         #: demonstrate various ways to sort a list and string
    write("Sorting Demo using ",image(countingsort));
    writes("  on list : ");
@@ -7653,7 +7896,7 @@ local T,lower,upper;
    every put(X := [],( 1 to T[i := lower to upper], i) ); # reconstitute with correct order and count
    return X;
 end
-#------------------------------------------ 268 sorting-algorithms-patience-sort
+#----------------------------------------------------------------- 278 sorting-algorithms-patience-sort
 #---------------------------------------------------------------------
 #
 # Patience sorting.
@@ -7889,7 +8132,7 @@ procedure main ()
 end
 
 #---------------------------------------------------------------------
-#--------------------------------------- 269 sorting-algorithms-permutation-sort
+#----------------------------------------------------------------- 279 sorting-algorithms-permutation-sort
 procedure do_permute(l, i, n)
     if i >= n then
         return l
@@ -7911,7 +8154,7 @@ procedure do_permute(l, i, n)
     l := [6,3,4,5,1];
     |( l := permute(l) & sorted(l)) \1 & every writes(" ",!l);
  end
-#------------------------------------------------------------- 270 spiral-matrix
+#----------------------------------------------------------------- 280 spiral-matrix
 procedure main(A)        # spiral matrix
 N := 0 < integer(\A[1]|5);           # N=1... (dfeault 5)
 WriteMatrix(SpiralMatrix(N));
@@ -7940,7 +8183,7 @@ until i > N^2 do {
    };
 return M;
 end
-#--------------------------------------------------- 271 stable-marriage-problem
+#----------------------------------------------------------------- 281 stable-marriage-problem
 link printf
 
 procedure main()
@@ -8054,7 +8297,7 @@ procedure setup()                        #: setup everyones data
 
    return X;
 end
-#--------------------------------------------------------------------- 272 stack
+#----------------------------------------------------------------- 282 stack
 procedure main()
 stack := [];                                     # new empty stack
 push(stack,1);                                   # add item
@@ -8071,7 +8314,7 @@ end
 procedure top(x)               #: return top element w/o changing stack
 return x[1];                    #  in practice, just use x[1]
 end
-#---------------------------------------------------------- 273 statistics-basic
+#----------------------------------------------------------------- 283 statistics-basic
 procedure main(A)
 
 W := 50;                         # avg width for histogram bar
@@ -8098,7 +8341,7 @@ while N := get(A) do {          # once per argument
       write(right(real(i)/*H,5)," : ",repl("*",integer(*H*50./N*H[i])))
    };
 end
-#-------------------------------------------------------- 274 stem-and-leaf-plot
+#----------------------------------------------------------------- 284 stem-and-leaf-plot
 procedure main(A)
     prune := integer(\A[1]) | 10;   # Boundary between leaf and stem
     every put(data := [], integer(!&input));
@@ -8111,7 +8354,7 @@ procedure main(A)
         };
     write();
 end
-#--------------------------------------------------- 275 straddling-checkerboard
+#----------------------------------------------------------------- 285 straddling-checkerboard
 procedure main()
 StraddlingCheckerBoard("setup","HOLMESRTABCDFGIJKNPQUVWXYZ./", 3,7);
 
@@ -8153,24 +8396,24 @@ case act of {
       }
    };
 end
-#------------------------------------------------------------- 276 string-append
+#----------------------------------------------------------------- 286 string-append
 procedure main()
     s := "foo";
     s ||:= "bar";
     write(s);
 end
-#--------------------------------------------------------------- 277 string-case
+#----------------------------------------------------------------- 287 string-case
 procedure main()
     write(map("alphaBETA"));
     write(map("alphaBETA",&lcase,&ucase));
 end
-#------------------------------------------------------ 278 string-concatenation
+#----------------------------------------------------------------- 288 string-concatenation
 procedure main()
 s1 := "hello";
 write(s2 := s1 || " there.");  # capture the reuslt for
 write(s2);                     # ... the 2nd write
 end
-#----------------------------------------------------------- 279 string-matching
+#----------------------------------------------------------------- 289 string-matching
 procedure main()
 
    write("Matching s2 :=",image(s2 := "ab")," within s1:= ",image(s1 := "abcdabab"));
@@ -8181,18 +8424,18 @@ procedure main()
    write("Test #3 ending ", if s1[0-:*s2] == s2 then "matches" else "fails");
 
 end
-#---------------------------------------------------------- 280 string-prepend-2
+#----------------------------------------------------------------- 290 string-prepend-2
 procedure main()
    s := ", world";
    s[1:1] ||:= "Hello";
    write(s);
 end
-#---------------------------------------------------------- 281 string-prepend-3
+#----------------------------------------------------------------- 291 string-prepend-3
 procedure main()
    (s := ", world") ?:= "Hello" || tab(0);
    write(s);
 end
-#---------------------------------------------- 282 strip-comments-from-a-string
+#----------------------------------------------------------------- 292 strip-comments-from-a-string
 # strip_comments:
 # return part of string up to first character in 'markers',
 # or else the whole string if no comment marker is present
@@ -8205,12 +8448,12 @@ procedure main ()
   write (strip_comments ("apples, pears # and bananas", cset ("#;")));
   write (strip_comments ("apples, pears ; and bananas", cset ("#;")));
 end
-#--------------- 283 strip-control-codes-and-extended-characters-from-a-string-1
+#----------------------------------------------------------------- 293 strip-control-codes-and-extended-characters-from-a-string-1
 procedure main(A)
 write(image(deletec(&ascii,&ascii--(&ascii)[33:127])));
 end
 link strings
-#------------------------------- 284 strip-whitespace-from-a-string-top-and-tail
+#----------------------------------------------------------------- 294 strip-whitespace-from-a-string-top-and-tail
 procedure main()
     unp := &cset[1+:32]++' \t'++&cset[127:0];   # all 'unprintable' chars
     s := " Hello, people of earth!  	";
@@ -8219,7 +8462,7 @@ procedure main()
     write("trailing trim: '",trim(s,unp),"'");
     write("full trim:     '",reverse(trim(reverse(trim(s,unp)),unp)),"'");
 end
-#-------------------------------------------------------- 285 subset-sum-problem
+#----------------------------------------------------------------- 295 subset-sum-problem
 link printf,lists
 
 procedure main()
@@ -8266,13 +8509,7 @@ procedure string2table(s,d)         #: format string "k1/v1/.../kn/vn" as table
 
    return T;
 end
-#-------------------------------------------------- 286 substring-top-and-tail-1
-procedure main()
-write(s := "knight"," --> ", s[2:0]);  # drop 1st char
-write(s := "sock"," --> ", s[1:-1]) ;  # drop last
-write(s := "brooms"," --> ", s[2:-1]) ;# drop both
-end
-#----------------------------------------------------------------- 287 substring
+#----------------------------------------------------------------- 296 substring
 procedure main(arglist)
 write("Usage: substring  <string> <first position> <second position> <single character> <substring>");
 s := \arglist[1] | "aardvarks";
@@ -8287,7 +8524,13 @@ write( s[1:-1] );
 write( s[find(c,s)+:m] );
 write( s[find(ss,s)+:m] );
 end
-#----------------------------------------------------- 288 subtractive-generator
+#----------------------------------------------------------------- 297 substring-top-and-tail-1
+procedure main()
+write(s := "knight"," --> ", s[2:0]);  # drop 1st char
+write(s := "sock"," --> ", s[1:-1]) ;  # drop last
+write(s := "brooms"," --> ", s[2:-1]) ;# drop both
+end
+#----------------------------------------------------------------- 298 subtractive-generator
 procedure main()
    every 1 to 10 do
       write(rand_sub(292929));
@@ -8314,13 +8557,13 @@ static ring,m;
    put(ring,get(ring));
    return ring[-1];
 end
-#----------------------------------------------- 289 sum-and-product-of-an-array
+#----------------------------------------------------------------- 299 sum-and-product-of-an-array
 procedure main(arglist)
 every ( sum := 0 ) +:= !arglist;
 every ( prod := 1 ) *:= !arglist;
 write("sum := ", sum,", prod := ",prod);
 end
-#-------------------------------------------------- 290 sum-digits-of-an-integer
+#----------------------------------------------------------------- 300 sum-digits-of-an-integer
 procedure main(a)
     write(dsum(a[1]|1234,a[2]|10));
 end
@@ -8331,7 +8574,7 @@ procedure dsum(n,b)
     while sum +:= (0 < n) % b do n /:= b;
     return sum;
 end
-#-------------------------------------------------- 291 sum-multiples-of-3-and-5
+#----------------------------------------------------------------- 301 sum-multiples-of-3-and-5
 procedure main(A)
     n := (integer(A[1]) | 1000)-1;
     write(sum(n,3)+sum(n,5)-sum(n,15));
@@ -8340,19 +8583,19 @@ end
 procedure sum(n,m)
     return m*((n/m)*(n/m+1)/2);
 end
-#--------------------------------------------------------- 292 sum-of-a-series-1
+#----------------------------------------------------------------- 302 sum-of-a-series-1
 procedure main()
    local i, sum;
    sum := 0 & i := 0;
    every sum +:= 1.0/((| i +:= 1 ) ^ 2) \1000;
    write(sum);
 end
-#--------------------------------------------------------- 293 sum-of-a-series-2
+#----------------------------------------------------------------- 303 sum-of-a-series-2
 procedure main()
     every (sum := 0) +:= 1.0/((1 to 1000)^2);
     write(sum);
 end
-#------------------------------------------------------------ 294 sum-of-squares
+#----------------------------------------------------------------- 304 sum-of-squares
 procedure main()
    local lst;
    lst := [];
@@ -8367,7 +8610,7 @@ procedure getsum(lst)
    every total +:= !lst ^ 2;
    return total;
 end
-#------------------------------------------------------ 295 symmetric-difference
+#----------------------------------------------------------------- 305 symmetric-difference
 procedure main()
 
 a := set(["John", "Serena", "Bob", "Mary", "Serena"]);
@@ -8387,7 +8630,7 @@ every writes(!x," ");
 write("}");
 return;
 end
-#-------------------------------------------------------------- 296 tau-function
+#----------------------------------------------------------------- 306 tau-function
 procedure main()
    every writes(" ",tau(seq()))\100;
    write();
@@ -8397,7 +8640,7 @@ procedure tau(n)
    every (c := 0, n%(1 to n) = 0, c +:= 1);
    return c;
 end
-#---------------------------------------------------------------- 297 tau-number
+#----------------------------------------------------------------- 307 tau-number
 procedure main()
    every writes(" ",tau(seq(1))\100 | "\n");
 end
@@ -8410,7 +8653,7 @@ procedure ndivs(n)
    every (c := 0, n%(1 to n) = 0, c +:= 1);
    return c;
 end
-#---------------------------------------------------- 298 temperature-conversion
+#----------------------------------------------------------------- 308 temperature-conversion
 procedure main(A)
     k := A[1] | 21.00;
     write("K ",k);
@@ -8418,12 +8661,12 @@ procedure main(A)
     write("R ",r := k*(9.0/5.0));
     write("F ",r - 459.67);
 end
-#----------------------------------------- 299 terminal-control-clear-the-screen
+#----------------------------------------------------------------- 309 terminal-control-clear-the-screen
 procedure main ()
   if &features == "MS Windows" then system("cls")  # Windows
   else if &features == "UNIX" then system("clear"); # Unix
 end
-#--------------------------------------- 300 terminal-control-cursor-positioning
+#----------------------------------------------------------------- 310 terminal-control-cursor-positioning
 procedure main()
     writes(CUP(6,3), "Hello");
 end
@@ -8432,15 +8675,15 @@ procedure CUP(i,j)
     writes("\^[[",i,";",j,"H");
     return;
 end
-#---------------------------- 301 terminal-control-display-an-extended-character
+#----------------------------------------------------------------- 311 terminal-control-display-an-extended-character
 procedure main ()
   write ("£ " || char (163)); # £
 end
-#-------------------------------- 302 terminal-control-ringing-the-terminal-bell
+#----------------------------------------------------------------- 312 terminal-control-ringing-the-terminal-bell
 procedure main ()
   write ("\7"); # ASCII 7 rings the bell under Bash
 end
-#------------------------------------------------------------- 303 ternary-logic
+#----------------------------------------------------------------- 313 ternary-logic
 $define TRUE    1
 $define FALSE  -1
 $define UNKNOWN 0
@@ -8503,7 +8746,7 @@ end
 procedure xor3(a,b)     #: xor of two trits or error if invalid
 return not3(eq3(a,b));
 end
-#----------------------------------------------------------- 304 test-a-function
+#----------------------------------------------------------------- 314 test-a-function
 procedure main()
     s := "ablewasiereisawelba";
     assert{"test1",palindrome(s)};
@@ -8524,7 +8767,7 @@ end
 procedure assertFailure(A)
     if @A[2] then write(@A[1],": failed");
 end
-#--------------------------------------- 305 text-processing-max-licenses-in-use
+#----------------------------------------------------------------- 315 text-processing-max-licenses-in-use
 procedure main(A)
     maxCount := count := 0;
 
@@ -8539,7 +8782,7 @@ procedure main(A)
     write("There were ",maxCount," licenses out at:");
     every write("\t",!maxTime);
 end
-#---------------------------------------------- 306 the-twelve-days-of-christmas
+#----------------------------------------------------------------- 316 the-twelve-days-of-christmas
 procedure main()
     days := ["first","second","third","fourth","fifth","sixth","seventh",
              "eighth","ninth","tenth","eleventh","twelveth"];
@@ -8553,7 +8796,7 @@ procedure main()
     every write("\nOn the ",days[day := 1 to 12]," day of Christmas my true love gave to me:") do
         every write(" ",gifts[day to 1 by -1]);
 end
-#---------------------------------------------------------------- 307 thue-morse
+#----------------------------------------------------------------- 317 thue-morse
 procedure main(A)
    limit := \A[1] | 5;
    i := 0;
@@ -8563,7 +8806,7 @@ end
 procedure tm()  # Infinite sequece of TM sequences
    suspend (s := "0") | |(s ||:= map(s,"01","10"));
 end
-#--------------------------------------------------------------- 308 tic-tac-toe
+#----------------------------------------------------------------- 318 tic-tac-toe
 # Play TicTacToe
 
 $define E " " # empty square
@@ -8676,7 +8919,7 @@ end
 procedure main ()
   play_game ();
 end
-#------------------------------------------------------- 309 tokenize-a-string-1
+#----------------------------------------------------------------- 319 tokenize-a-string-1
 procedure main()
    A := [];
    "Hello,How,Are,You,Today" ? {
@@ -8686,7 +8929,7 @@ procedure main()
    every writes(!A,".");
    write();
 end
-#------------------------------------------- 310 tokenize-a-string-with-escaping
+#----------------------------------------------------------------- 320 tokenize-a-string-with-escaping
 procedure main()
 	str := "one^|uno||three^^^^|four^^^|^cuatro|";
 	every write("\"",!tokenize(str,"|","^"),"\"");
@@ -8708,7 +8951,7 @@ procedure tokenize(str,sep,esc)
 				token ||:= move(1)
 		};
 end
-#----------------------------------------------- 311 trabb-pardo-knuth-algorithm
+#----------------------------------------------------------------- 321 trabb-pardo-knuth-algorithm
 procedure main()
     S := [];
     writes("Enter 11 numbers: ");
@@ -8720,7 +8963,7 @@ end
 procedure f(x)
    return abs(x)^0.5 + 5*x^3;
 end
-#-------------------------------------------------- 312 tree-from-nesting-levels
+#----------------------------------------------------------------- 322 tree-from-nesting-levels
 procedure main()
     tests := [ [], [1, 2, 4], [3, 1, 3, 1], [1, 2, 3, 1], [3, 2, 1, 3],
                [3, 3, 3, 1, 1, 3, 3, 3], [3, 3, 3, 2, 2, 3, 4, 3],
@@ -8767,7 +9010,7 @@ procedure limage2(L)
     every result ||:= limage2(!L) || ",";
     return ("[" || result[1:-1] || "]") | "[]";
 end
-#------------------------------------------------------------ 313 tree-traversal
+#----------------------------------------------------------------- 323 tree-traversal
 procedure main()
     bTree := [1, [2, [4, [7]], [5]], [3, [6, [8], [9]]]];
     showTree(bTree, preorder|inorder|postorder|levelorder);
@@ -8800,7 +9043,7 @@ procedure levelorder(L)
             }
         };
 end
-#--------------------------------------------------- 314 trigonometric-functions
+#----------------------------------------------------------------- 324 trigonometric-functions
 invocable all
 procedure main()
 
@@ -8809,7 +9052,7 @@ r := dtor(d);     # convert to radians
 
 every write(f := !["sin","cos","tan"],"(",r,")=",y := f(r)," ",fi := "a" || f,"(",y,")=",x := fi(y)," rad = ",rtod(x)," deg");
 end
-#------------------------------------------------------------------- 315 two-sum
+#----------------------------------------------------------------- 325 two-sum
 #
 # twosum.icn, find two array elements that add up to a given sum
 # Dedicated to the public domain
@@ -8841,7 +9084,7 @@ procedure twosum(sum, L)
     };
     return [];
 end
-#------------------------------------------------------------ 316 type-detection
+#----------------------------------------------------------------- 326 type-detection
 procedure main()
   print_text("This\nis\na text.\n");
   print_text(open("type_detection-icon.icn"));
@@ -8853,7 +9096,7 @@ procedure print_text(source)
     "file" : while write(read(source))
   };
 end
-#------------------------------------------------- 317 unbias-a-random-generator
+#----------------------------------------------------------------- 327 unbias-a-random-generator
 procedure main(A)
     iters := \A[1] | 10000;
     write("ratios of 0 to 1 from ",iters," trials:");
@@ -8884,7 +9127,7 @@ end
 procedure randN(n)
     repeat suspend if 1 = ?n then 1 else 0;
 end
-#-------------------------------------------------- 318 universal-turing-machine
+#----------------------------------------------------------------- 328 universal-turing-machine
 record TM(start,final,delta,tape,blank)
 record delta(old_state, input_symbol, new_state, output_symbol, direction)
 
@@ -9003,12 +9246,12 @@ procedure show_tape(tm,l,r)
     write(l,r);
     write(repl(" ",*l),"^");
 end
-#------------------------------------------------------------------- 319 unix-ls
+#----------------------------------------------------------------- 329 unix-ls
 procedure main()
    every (a := [], put(a,!(f := open(".")))|close(f));
    every write(!sort(a));
 end
-#-------------------------------------------------------------- 320 url-decoding
+#----------------------------------------------------------------- 330 url-decoding
 link hexcvt
 
 procedure main()
@@ -9031,7 +9274,7 @@ s ? until pos(0) do                 # decode every %xx or fail
    else move(1);
 return c;
 end
-#-------------------------------------------------------------- 321 url-encoding
+#----------------------------------------------------------------- 331 url-encoding
 link hexcvt
 
 procedure main()
@@ -9050,7 +9293,23 @@ initial {                           # build lookup table for everything
 every (c := "") ||:= en[!s];         # re-encode everything
 return c;
 end
-#----------------------------------------------------------- 322 user-input-text
+#----------------------------------------------------------------- 332 user-input-graphical
+procedure main()
+WOpen("size=800,800") | stop("Unable to open window");
+WWrite("Enter a string:");
+s := WRead();
+WWrite("You entered ",image(s));
+WWrite("Enter the integer 75000:");
+i := WRead();
+if i := integer(i) then
+   WWrite("You entered: ",i)
+else
+   WWrite(image(i)," isn't an integer");
+WDone();
+end
+
+link graphics
+#----------------------------------------------------------------- 333 user-input-text
 procedure main ()
   writes ("Enter something: ");
   s := read ();
@@ -9061,7 +9320,7 @@ procedure main ()
     write (if (i = 75000) then "correct" else "incorrect")
   else write ("you must enter a number");
 end
-#--------------------------------------------------- 323 utf-8-encode-and-decode
+#----------------------------------------------------------------- 334 utf-8-encode-and-decode
 link hexcvt # for hexstring
 
 record testitem(ch,code,u8str)
@@ -9150,7 +9409,7 @@ procedure hexordstr(str)
     every s ||:= hexstring(ord(!str)) || " ";
     return s[1:-1];
 end
-#------------------------------------------------------------ 324 vampire-number
+#----------------------------------------------------------------- 335 vampire-number
 procedure main()
     write("First 25 vampire numbers and their fangs:");
     every fangs := vampire(n := seq())\25 do write(right(n,20),":",fangs);
@@ -9177,7 +9436,7 @@ procedure csort(s)  # Adapted from csort(s) in Icon IPL
     every (s1 := "", c := !cset(s)) do every find(c, s) do s1 ||:= c;
     return s1;
 end
-#------------------------------------------------- 325 van-der-corput-sequence-1
+#----------------------------------------------------------------- 336 van-der-corput-sequence-1
 procedure main(A)
     base := integer(get(A)) | 2;
     every writes(round(vdc(0 to 9,base),10)," ");
@@ -9195,7 +9454,7 @@ procedure round(n,d)
     places := 10 ^ d;
     return real(integer(n*places + 0.5)) / places;
 end
-#-------------------------------------------------- 326 variable-length-quantity
+#----------------------------------------------------------------- 337 variable-length-quantity
 procedure main()
 every i := 2097152 | 2097151 | 1 | 127 | 128 | 589723405834 | 165 | 256 do
    write(image(i)," = ",string2hex(v := uint2vlq(i))," = ",vlq2uint(v));
@@ -9226,7 +9485,7 @@ procedure string2hex(s)  #: convert a string to hex
       h ||:= "0123456789abcdef"[i/16+1] || "0123456789abcdef"[i%16+1];
    return h;
 end
-#--------------------------------------------------------- 327 variable-size-get
+#----------------------------------------------------------------- 338 variable-size-get
 record rec0()
 record rec4(a,b,c,d)
 
@@ -9256,7 +9515,7 @@ every i := seq(1) do {
    write("type=",type(x)," *x=",*x," bytes allocated=",a1-a0)
    };
 end
-#--------------------------------------------------------- 328 variadic-function
+#----------------------------------------------------------------- 339 variadic-function
 procedure main ()
   varargs("some", "extra", "args");
   write();
@@ -9266,7 +9525,7 @@ end
 procedure varargs(args[])
   every write(!args);
 end
-#----------------------------------------------------------- 329 vector-products
+#----------------------------------------------------------------- 340 vector-products
 # record type to store a 3D vector
 record Vector3D(x, y, z)
 
@@ -9309,7 +9568,7 @@ procedure main ()
   writes ("Ax(BxC) : " || toString(a) || "x(" || toString(b) || "x" || toString(c) || ") = ");
   write (toString(vectorTriple (a, b, c)));
 end
-#-------------------------------------- 330 verify-distribution-uniformity-naive
+#----------------------------------------------------------------- 341 verify-distribution-uniformity-naive
 # rnd  : a co-expression, which will generate the random numbers
 # n    : the number of numbers to test
 # delta: tolerance in non-uniformity
@@ -9341,7 +9600,13 @@ procedure main ()
     then write ("uniform")
     else write ("skewed");
 end
-#--------------------------------------------------------- 331 vigen-re-cipher-1
+#----------------------------------------------------------------- 342 video-display-modes
+procedure main(A)
+    mode := A[1];
+    if \mode then system("xrandr -s " || \mode || " >/dev/null")
+    else system("xrandr -q");    # Display available modes
+end
+#----------------------------------------------------------------- 343 vigen-re-cipher-1
 procedure main()
    ptext := "Beware the Jabberwock, my son! The jaws that bite, the claws that catch!";
    write("Key        = ",ekey := "VIGENERECIPHER");
@@ -9366,7 +9631,7 @@ procedure Vignere(mode,ekey,ptext,alpha)   #: Vignere cipher
       };
 return ctext;
 end
-#---------------------------------------------------------- 332 visualize-a-tree
+#----------------------------------------------------------------- 344 visualize-a-tree
 procedure main(A)
     showTree("", " -", [1, [2,[3],[4,[5],[6]],[7,[11]]], [8,[9,[10]]] ]);
     write();
@@ -9381,7 +9646,15 @@ procedure showTree(prefix, lastc, A)
         showTree(prefix, "`-", A[*A])
         };
 end
-#------------------------------------------------------------ 333 word-frequency
+#----------------------------------------------------------------- 345 window-creation-x11
+procedure main()
+   W1 := open("X-Window","g","size=250,250","bg=black","fg=red") | stop("unable to open window");
+   FillRectangle(W1,50,50,150,150);
+   WDone(W1);
+end
+
+link graphics
+#----------------------------------------------------------------- 346 word-frequency
 procedure main(A)
    WC := &letters++&digits;
    n := \A[1] | 10;
@@ -9390,7 +9663,7 @@ procedure main(A)
    every !&input ?  while tab(upto(WC)) do wt[map(tab(many(WC)))] +:= 1;
    every p := !reverse(sort(wt,2))\n do write(right(p[2],8),": ",p[1]);
 end
-#------------------------------------------- 334 write-language-name-in-3d-ascii
+#----------------------------------------------------------------- 347 write-language-name-in-3d-ascii
 procedure main(arglist)
 write(ExpandText(
    if !arglist == "icon" then

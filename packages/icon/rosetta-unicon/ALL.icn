@@ -16,7 +16,7 @@ end
 procedure makeProc(A) # A Programmer-Defined Control Operation
     return (@A[1],A[1]);
 end
-#---------------------------------------------------------- 2 arithmetic-complex
+#--------------------------------------------------------- 2 arithmetic-complex
 import math
 
 procedure main()
@@ -30,14 +30,14 @@ procedure main()
    write("multiplicative inverse: ",c1.multInverse().toString())
    write("conjugate of (4,-3i): ",Complex(4,-3).conjugate().toString())
 end
-#-------------------------------------------------------------------- 3 arrays-2
+#--------------------------------------------------------- 3 arrays-2
 procedure main()
    L := [: 1 to 5:];
    delete(L,4);
    insert(L,2,"hello");
    every write(!L);
 end
-#--------------------------------------------------------------- 4 barnsley-fern-seeded
+#--------------------------------------------------------- 4 barnsley-fern-seeded
 link graphics
 
 global x, y
@@ -99,7 +99,7 @@ procedure draw()
 	next_point()
     };
 end
-#-------------------------------------------------------------------- 5 currency
+#--------------------------------------------------------- 5 currency
 import math
 
 procedure main()
@@ -114,7 +114,29 @@ procedure main()
    write(left("Tax",   10), "$", right(tax.toString(),21))
    write(left("Total", 10), "$", right(total.toString(),21))
 end
-#------------------------------------------------------------ 6 queue-definition
+#--------------------------------------------------------- 6 hello-world-graphical
+import gui
+$include "guih.icn"
+
+class WindowApp : Dialog ()
+
+  # -- automatically called when the dialog is created
+  method component_setup ()
+    # add 'hello world' label
+    label := Label("label=Hello world","pos=0,0")
+    add (label)
+
+    # make sure we respond to close event
+    connect(self, "dispose", CLOSE_BUTTON_EVENT)
+  end
+end
+
+# create and show the window
+procedure main ()
+  w := WindowApp ()
+  w.show_modal ()
+end
+#--------------------------------------------------------- 7 queue-definition
 # Use a class to hold a Queue, with a list as the concrete implementation
 class Queue (items)
   method push (item)
@@ -145,19 +167,51 @@ procedure main ()
     if queue.is_empty () then write ("empty queue")
   };
 end
-#------------------------------------- 7 singly-linked-list-element-definition-1
+#--------------------------------------------------------- 8 simple-windowed-application
+import gui
+$include "guih.icn"
+
+class SimpleApp : Dialog (label)
+
+  # -- automatically called when the dialog is created
+  method component_setup()
+    # create and add the label
+    label := Label("label=There have been no clicks yet","pos=50%,33%", "align=c,c")
+    add (label)
+
+    # create and add the button
+    button := TextButton("label=Click me", "pos=50%,66%", "align=c,c")
+    button.connect(self, "clicked", ACTION_EVENT)
+    add (button)
+
+    # some cosmetic settings for the window
+    attrib("size=180,70", "bg=light gray")
+  end
+
+  method clicked ()
+    static count := 0
+    count +:= 1
+    label.set_label ("Clicked " || count || " times")
+  end
+end
+
+procedure main()
+  local d := SimpleApp ()
+  d.show_modal()
+end
+#--------------------------------------------------------- 9 singly-linked-list-element-definition-1
 class Node (value, successor)
   initially (value, successor)
     self.value := value;
     self.successor := successor;
 end
-#------------------------------------- 8 singly-linked-list-element-definition-2
+#--------------------------------------------------------- 10 singly-linked-list-element-definition-2
 procedure main ()
   n := Node(1, Node (2));
   write (n.value);
   write (n.successor.value);
 end
-#---------------------------------------- 9 singly-linked-list-element-insertion
+#--------------------------------------------------------- 11 singly-linked-list-element-insertion
 class Node (value, successor)
 
   method insert (node)
@@ -169,7 +223,7 @@ class Node (value, successor)
     self.value := value;
     self.successor := successor;
 end
-#----------------------------------------------------------- 10 undefined-values
+#--------------------------------------------------------- 12 undefined-values
 global G1
 
 procedure main(arglist)
@@ -185,11 +239,11 @@ every                                                                   #write a
    write((localnames|paramnames|staticnames|globalnames)(&current,0));   # ... visible in the current co-expression at this calling level (0)
 return;
 end
-#-------------------------------------------------------------------- 11 unix-ls
+#--------------------------------------------------------- 13 unix-ls
 procedure main()
    every write(!sort([: !(f := open(".")) :])) | close(f);
 end
-#--------------------------------------------------------------------- 12 vector
+#--------------------------------------------------------- 14 vector
 procedure main()
    v1 := vector(5,7);
    v2 := vector(2,3);
@@ -211,7 +265,7 @@ class vector(x,y)
    method __mult__(z); return mult(z); end
    method __div__(z); return div(z); end
 end
-#--------------------------------------------------------------- 13 walsh-matrix
+#--------------------------------------------------------- 15 walsh-matrix
 import util
 
 procedure main(A)
@@ -234,11 +288,29 @@ procedure combine(wa,wb)
       }
    return m
 end
-#--------------------------------------------------------------- 14 web-scraping
+#--------------------------------------------------------- 16 web-scraping
 procedure main()
 m := open(url := "http://tycho.usno.navy.mil/cgi-bin/timer.pl","m") | stop("Unable to open ",url);
 every (p := "") ||:= |read(m);                                                    # read the page into a single string
 close(m);
 
 map(p) ? ( tab(find("<br>")), ="<br>", write("UTC time=",p[&pos:find(" utc")]));  # scrape and show
+end
+#--------------------------------------------------------- 17 window-creation
+import gui
+$include "guih.icn"
+
+class WindowApp : Dialog ()
+
+  # -- automatically called when the dialog is created
+  method component_setup ()
+    # make sure we respond to close event
+    connect(self, "dispose", CLOSE_BUTTON_EVENT)
+  end
+end
+
+# create and show the window
+procedure main ()
+  w := WindowApp ()
+  w.show_modal ()
 end

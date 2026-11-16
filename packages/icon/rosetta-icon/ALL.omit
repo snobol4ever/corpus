@@ -47,11 +47,8 @@ closures-value-capture-2: oracle produced EMPTY output -- refusing to mint a vac
 collections-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 collections-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 collections-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-color-of-a-screen-pixel: oracle produced EMPTY output -- refusing to mint a vacuous ref
 colorful-numbers: oracle produced EMPTY output -- refusing to mint a vacuous ref
-colour-bars-display-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 colour-bars-display-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-colour-pinstripe-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
 combinations-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 combinations-with-repetitions-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 combinations-with-repetitions-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -102,10 +99,8 @@ determine-if-only-one-instance-is-running: oracle produced EMPTY output -- refus
 digital-root: oracle produced EMPTY output -- refusing to mint a vacuous ref
 dijkstras-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 documentation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-dragon-curve: oracle produced EMPTY output -- refusing to mint a vacuous ref
 draw-a-clock-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 draw-a-clock-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-draw-a-pixel: oracle produced EMPTY output -- refusing to mint a vacuous ref
 empty-program: oracle produced EMPTY output -- refusing to mint a vacuous ref
 empty-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
 enforced-immutability: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -127,7 +122,6 @@ factors-of-an-integer-2: oracle produced EMPTY output -- refusing to mint a vacu
 fibonacci-n-step-number-sequences-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fibonacci-sequence-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fibonacci-word: oracle timed out -- non-terminating or too slow for the grading timeout
-fibonacci-word-fractal: oracle produced EMPTY output -- refusing to mint a vacuous ref
 file-input-output: oracle produced EMPTY output -- refusing to mint a vacuous ref
 file-modification-time: oracle produced EMPTY output -- refusing to mint a vacuous ref
 file-size: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -168,13 +162,11 @@ greyscale-bars-display: oracle produced EMPTY output -- refusing to mint a vacuo
 guess-the-number: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 guess-the-number-with-feedback: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
 guess-the-number-with-feedback-player-: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
-gui-maximum-window-dimensions: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hailstone-sequence-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hailstone-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hailstone-sequence-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hailstone-sequence-4: oracle produced EMPTY output -- refusing to mint a vacuous ref
 halt-and-catch-fire: oracle produced EMPTY output -- refusing to mint a vacuous ref
-hello-world-graphical: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hello-world-line-printer: oracle produced EMPTY output -- refusing to mint a vacuous ref
 hello-world-standard-error: oracle produced EMPTY output -- refusing to mint a vacuous ref
 history-variables: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -291,7 +283,6 @@ permutations-by-swapping: oracle produced EMPTY output -- refusing to mint a vac
 pi: oracle timed out -- non-terminating or too slow for the grading timeout
 pick-random-element-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pick-random-element-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-pinstripe-display: oracle produced EMPTY output -- refusing to mint a vacuous ref
 polymorphic-copy: oracle produced EMPTY output -- refusing to mint a vacuous ref
 power-set-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 power-set-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -334,7 +325,6 @@ seven-sided-dice-from-five-sided-dice: oracle produced EMPTY output -- refusing 
 shell-one-liner-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 shell-one-liner-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 show-the-epoch: oracle produced EMPTY output -- refusing to mint a vacuous ref
-sierpinski-triangle-graphical: oracle produced EMPTY output -- refusing to mint a vacuous ref
 simulated-annealing: oracle timed out -- non-terminating or too slow for the grading timeout
 singly-linked-list-element-definition: oracle produced EMPTY output -- refusing to mint a vacuous ref
 singly-linked-list-element-insertion: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -392,15 +382,12 @@ topological-sort-extracted-top-item: oracle produced EMPTY output -- refusing to
 towers-of-hanoi: oracle produced EMPTY output -- refusing to mint a vacuous ref
 truncatable-primes: oracle produced EMPTY output -- refusing to mint a vacuous ref
 truncate-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
-user-input-graphical: oracle produced EMPTY output -- refusing to mint a vacuous ref
 van-der-corput-sequence-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 variable-size-set: oracle produced EMPTY output -- refusing to mint a vacuous ref
-video-display-modes: oracle produced EMPTY output -- refusing to mint a vacuous ref
 vigen-re-cipher-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 voronoi-diagram: oracle produced EMPTY output -- refusing to mint a vacuous ref
 walk-a-directory-non-recursively: oracle produced EMPTY output -- refusing to mint a vacuous ref
 window-creation: oracle produced EMPTY output -- refusing to mint a vacuous ref
-window-creation-x11: oracle produced EMPTY output -- refusing to mint a vacuous ref
 window-management: oracle produced EMPTY output -- refusing to mint a vacuous ref
 wireworld: oracle produced EMPTY output -- refusing to mint a vacuous ref
 word-wrap: oracle produced EMPTY output -- refusing to mint a vacuous ref
