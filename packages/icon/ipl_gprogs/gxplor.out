@@ -1,0 +1,8 @@
+> fg
+"black"
+> fg red
+"red"
+> DrawLine 10 10 200 150
+> FillRectangle 50 50 40 30
+> EOF
+screen 1024x768 md5 14cbfb0c80cea933433141afa8fe7a3d

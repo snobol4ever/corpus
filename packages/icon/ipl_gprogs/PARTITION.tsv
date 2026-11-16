@@ -80,6 +80,15 @@ rstarlab	chunk:01	family:rstarlab
 imstogif	chunk:01	family:imstogif	
 zoomtile	chunk:01	family:zoomtile	
 striper	chunk:01	family:striper	
+rects	chunk:01	family:rects	
+randweav	chunk:01	family:randweav	
+binpack	chunk:01	family:binpack	
+bpack	chunk:01	family:bpack	
+gallery	chunk:01	family:gallery	
+gif2wif	chunk:01	family:gifwif	
+gxplor	chunk:01	family:gxplor	
+flohisto	chunk:01	family:flohisto	
+tgdemo	chunk:01	family:tgdemo	
 gif2rows	chunk:01	feat:fixtures	fixtures
 giftopat	chunk:01	feat:fixtures	fixtures
 poller	chunk:01	feat:fixtures	fixtures

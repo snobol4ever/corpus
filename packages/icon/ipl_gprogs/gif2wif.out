@@ -1,0 +1,60 @@
+[WIF]
+Version=1.1
+Date=Saturday, September 8, 2001  8:46 pm
+Developers=ralph@cs.arizona.edu
+Source Program=gif2wif.icn
+[CONTENTS]
+Color Palette=yes
+Text=yes
+Weaving=yes
+Tieup=yes
+Color Table=yes
+Threading=yes
+Treadling=yes
+Warp colors=yes
+Weft colors=yes
+Warp=yes
+Weft=yes
+[COLOR PALETTE]
+Entries=2
+Form=RGB
+Range=0,65535
+[TEXT]
+Title=example
+Author=Ralph E. Griswold
+Address=5302 E. 4th St., Tucson, AZ 85711
+EMail=ralph@cs.arizona.edu
+Telephone=520-881-1470
+FAX=520-325-3948
+[WEAVING]
+Shafts=4
+Treadles=4
+Rising shed=yes
+[WARP]
+Threads=4
+Units=Decipoints
+Thickness=10
+Color=1
+[WEFT]
+Threads=4
+Units=Decipoints
+Thickness=10
+Color=2
+[COLOR TABLE]
+1=0,0,0
+2=65535,65535,65535
+[THREADING]
+1=1
+2=2
+3=3
+4=4
+[TREADLING]
+1=1
+2=2
+3=3
+4=4
+[TIEUP]
+1=1
+2=4
+3=3
+4=2

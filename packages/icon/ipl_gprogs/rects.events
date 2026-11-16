@@ -1,0 +1,5 @@
+move 30 30
+key space
+wait
+move 30 30
+key q

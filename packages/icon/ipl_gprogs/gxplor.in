@@ -1,0 +1,4 @@
+fg
+fg red
+DrawLine 10 10 200 150
+FillRectangle 50 50 40 30

@@ -7,6 +7,10 @@ rstarlab	300
 imstogif	t.ims
 zoomtile	-z	4	-g	t.blp
 striper	-d	b	cat.xpm
+gallery	cat.xpm	plaid.xpm
+gif2wif	t.gif
+gxplor	-s
+flohisto	t88.blp
 gif2rows	tiny.gif
 giftopat	tiny.gif
 poller	tiny.gif
