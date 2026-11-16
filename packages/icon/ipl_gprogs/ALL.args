@@ -39,3 +39,6 @@ colorwif	-o	1
 trkvu	track.log
 dlgvu	-q	route.txt
 isd2ill	p8.isd
+isd2grid	-n	t
+colorup	-o	1
+fev	fev.txt

@@ -1,0 +1,8 @@
+move 40 40
+key n
+wait
+move 40 40
+key n
+wait
+move 40 40
+key q

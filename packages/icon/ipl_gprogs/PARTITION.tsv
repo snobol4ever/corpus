@@ -1,13 +1,13 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=127 features=3 ubiquitous=1(package) distinctive=2 core=4 clusters=112 chunks=2 sizes=100,23
+# shape: entries=134 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=116 chunks=2 sizes=100,28
 entry	part	cluster	shells
 bme	chunk:01	family:bme	
 breakout	chunk:01	family:breakout	
 browser	chunk:01	family:browser	
 calib	chunk:01	family:calib	
 cameleon	chunk:01	family:cameleon	
-chernoff	chunk:01	family:chernoff	
+chernoff	core	core	want_rc
 coloralc	chunk:01	family:coloralc	
 colormap	chunk:01	family:colormap	
 colrbook	chunk:01	family:colrbook	
@@ -57,11 +57,11 @@ rings	chunk:01	family:rings
 rolypoly	chunk:01	family:rolypoly	
 selectle	chunk:01	family:selectle	
 sensdemo	chunk:01	family:sensdemo	
-showtile	chunk:01	family:showtile	
+showtile	chunk:02	family:showtile	
 sier	chunk:01	family:sier	
 sier1	chunk:01	family:sier	
 sier2	chunk:01	family:sier	
-snapper	chunk:01	family:snapper	
+snapper	chunk:02	family:snapper	
 spiral	chunk:02	family:spiral	
 spiro	chunk:02	family:spiro	
 spokes	chunk:02	family:spokes	
@@ -113,7 +113,7 @@ gif2blp	chunk:01	family:gifblp
 fileimag	chunk:01	family:fileimag	
 ca21	chunk:01	family:ca	
 img2grid	chunk:01	family:imggrid	
-spectra	chunk:01	family:spectra	
+spectra	chunk:02	family:spectra	
 repeater	chunk:01	family:repeater	
 picktile	chunk:01	family:picktile	
 scroll	core	core	want_rc
@@ -130,3 +130,9 @@ randweb	chunk:01	family:randweb
 trkvu	chunk:02	family:trkvu	
 dlgvu	chunk:01	family:dlgvu	
 isd2ill	chunk:01	family:isdill	
+showcolr	chunk:02	family:showcolr	
+tryfont	chunk:02	family:tryfont	
+isd2grid	chunk:01	family:isdgrid	
+colorup	chunk:01	family:colorup	
+fev	core	core	want_rc
+hvc	chunk:01	family:hvc	
