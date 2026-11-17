@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=742 features=39 ubiquitous=3(write nl directive) distinctive=36 core=37 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,5
+# shape: entries=743 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,5
 entry	part	cluster	shells
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
@@ -726,6 +726,7 @@ copy_term_call_cut_replace_1	chunk:06	feat:copy_term	call copy_term cut if_then_
 sentences__sentences	core	core	dcg findall forall format if_then_else unify
 one_engine__oe6_dyn_variant	core	core	assert_then_retract assertz findall forall format retract unify
 zeta_layout__zl06_pl_catch_throw_arith	chunk:04	feat:catch_with_throw	catch catch_with_throw cut if_then_else list_cons throw unify
+xpce__p_flags	core	core	atom catch cut forall if_then_else unify writeq
 clause_source_record__csr_static_clause_property	chunk:05	feat:assert_then_retract	assert_then_retract assertz catch clause forall if_then_else retract
 ladder__rung09_swi_text_builtin_error_context	core	core	arg catch cut functor if_then_else list_cons nonvar unify
 lifo__lifo_catch_retaining_goal	core	core	catch catch_with_throw clause findall functor if_then_else throw unify var
