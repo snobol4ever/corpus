@@ -1,18 +1,11 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=30 features=1 ubiquitous=1(package) distinctive=0 core=3 clusters=25 chunks=1 sizes=27
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=20 features=12 ubiquitous=5(package write nl unify directive) distinctive=7 core=4 clusters=12 chunks=1 sizes=16
 entry	part	cluster	shells
-alpha	core	core	
-array	core	core	
-bdiag	core	core	
-bdonald	chunk:01	family:bdonald	
-bpigeon	chunk:01	family:bpigeon	
-bqueens	chunk:01	family:bqueens	
-bramsey	chunk:01	family:bramsey	
-bridge	chunk:01	family:bridge	
-bridge1	chunk:01	family:bridge	
-bschur	chunk:01	family:bschur	
-bsend	chunk:01	family:bsend	
+alpha	chunk:01	family:alpha	
+bdiag	chunk:01	feat:list_cons	list_cons
+bramsey	core	core	arg cut functor if_then_else list_cons var
+bridge	chunk:01	feat:list_cons	list_cons
 cars	chunk:01	family:cars	
 crypta	chunk:01	family:crypta	
 digit8	chunk:01	family:digit	
@@ -20,15 +13,12 @@ donald	chunk:01	family:donald
 eq10	chunk:01	family:eq	
 eq20	chunk:01	family:eq	
 five	chunk:01	family:five	
-gardner	chunk:01	family:gardner	
-interval	chunk:01	family:interval	
-langford	chunk:01	family:langford	
-magic	chunk:01	family:magic	
-magsq	chunk:01	family:magsq	
+gardner	chunk:01	feat:list_cons	list_cons
+interval	chunk:01	feat:list_cons	list_cons
+langford	core	core	cut if_then_else list_cons
+magic	core	core	if_then_else list_cons
 multipl	chunk:01	family:multipl	
-partit	chunk:01	family:partit	
-qg5	chunk:01	family:qg	
-queens	chunk:01	family:queens	
+partit	core	core	cut format list_cons
 send	chunk:01	family:send	
-square	chunk:01	family:square	
+square	chunk:01	feat:if_then_else	if_then_else list_cons
 srq	chunk:01	family:srq	
