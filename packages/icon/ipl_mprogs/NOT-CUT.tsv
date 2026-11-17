@@ -1,0 +1,3 @@
+# NOT-CUT.tsv -- ipl_mprogs: the census's monitors that did not become a row, and why
+program	why
+eve	it builds on no oracle: it links vstopsgn, which no tree on the box holds, and calls EvSend, which is Unicon's and not Arizona 9.4.3's (officer_01's census, /home/resources/progress/icon-graphics-2026-11-16/mprogs/PROGRAMS.tsv)

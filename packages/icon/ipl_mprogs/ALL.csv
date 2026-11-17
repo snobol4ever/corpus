@@ -1,0 +1,10 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files,fixtures
+1,alcscope,alcscope.icn,ipl_mprogs__alcscope,ipl_mprogs,312,0,131072,4096,300,,screen.dump,staged
+2,alcview,alcview.icn,ipl_mprogs__alcview,ipl_mprogs,258,0,131072,4096,300,,screen.dump,staged
+3,callcnt,callcnt.icn,ipl_mprogs__callcnt,ipl_mprogs,122,0,131072,4096,300,,screen.dump,staged
+4,locus,locus.icn,ipl_mprogs__locus,ipl_mprogs,126,0,131072,4096,300,,screen.dump,staged
+5,piano,piano.icn,ipl_mprogs__piano,ipl_mprogs,193,0,131072,4096,300,,screen.dump,staged
+6,program,program.icn,ipl_mprogs__program,ipl_mprogs,138,0,131072,4096,300,,screen.dump,staged
+7,scat,scat.icn,ipl_mprogs__scat,ipl_mprogs,143,0,131072,4096,300,,screen.dump,staged
+8,scater,scater.icn,ipl_mprogs__scater,ipl_mprogs,183,0,131072,4096,300,,screen.dump,staged
+9,vc,vc.icn,ipl_mprogs__vc,ipl_mprogs,616,0,131072,4096,300,,screen.dump,staged
