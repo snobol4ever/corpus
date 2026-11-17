@@ -1,7 +1,8 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=746 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=73 chunks=8 sizes=100,100,100,100,100,100,100,8
+# shape: entries=747 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=74 chunks=8 sizes=100,100,100,100,100,100,100,9
 entry	part	cluster	shells
+runtime_consult__a_directive_of_a_file_consulted_at_run_time_runs_as_at_compile_time	chunk:08	family:runtime_consult	
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
 clause_source_record__csr_listing_consulted	chunk:07	family:clause_source_record	

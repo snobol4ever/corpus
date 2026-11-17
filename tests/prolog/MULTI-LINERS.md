@@ -1,3 +1,28 @@
+## runtime_consult__a_directive_of_a_file_consulted_at_run_time_runs_as_at_compile_time
+
+```Prolog
+:- initialization(main, main).
+main :- consult(rd_sub), f, g, last([1,2,3], L), writeln(L).
+```
+
+```file rd_sub.pl
+:- require([member/2, append/3]).
+:- autoload(library(lists), [last/2]).
+:- noprofile(f/0).
+:- module_transparent(g/0).
+:- initialization(writeln(init_now), now).
+:- initialization(writeln(init_main), main).
+f :- writeln(f_ran).
+g :- writeln(g_ran).
+```
+
+```stdout
+init_now
+f_ran
+g_ran
+3
+```
+
 ## write_family_writeln_1
 
 ```Prolog
