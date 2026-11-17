@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=19 features=38 ubiquitous=4(package write procedure assign) distinctive=34 core=10 clusters=6 chunks=1 sizes=9
+# shape: entries=21 features=47 ubiquitous=4(package write procedure assign) distinctive=43 core=12 clusters=6 chunks=1 sizes=9
 entry	part	cluster	shells
 accumulator-factory	core	core	aug_assign coexpr_activate keyword_ref return while
 animation-1-three-ticks	chunk:01	family:animation--three-ticks	
@@ -21,3 +21,5 @@ vector	core	core	next return want_rc
 walsh-matrix	core	core	alternation element_gen every gen_with_alternation limitation list return static to_by
 web-scraping	core	core	alternation aug_assign every find gen_with_alternation keyword_ref map read scan scan_with_tab section stop tab to_by want_rc
 window-creation	chunk:01	family:window-creation	
+sockets	core	core	alternation aug_assign local return stop to_by want_rc
+topological-sort	core	core	alternation aug_assign case coexpr_activate create delete element_gen every every_with_suspend gen_with_alternation insert keyword_ref limitation many member next put record return scan scan_with_tab section set static suspend tab type upto while

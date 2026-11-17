@@ -14,8 +14,6 @@ fermat-numbers: the oracle's translator refused it: icont: cannot resolve refere
 http: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pell-numbers: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
 repunit-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
-sockets: oracle produced EMPTY output -- refusing to mint a vacuous ref
-topological-sort: oracle produced EMPTY output -- refusing to mint a vacuous ref
 ultra-useful-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
 wagstaff-primes: the oracle's translator refused it: icont: cannot resolve reference to file 'fastprime.u'
 walk-a-directory-recursively: the oracle's translator refused it: File walk-a-directory-recursively.icn; Line 32 # "main": inconsistent redeclaration
