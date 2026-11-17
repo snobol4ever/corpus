@@ -1,18 +1,1 @@
-
-
-
-BNF.spt(26) : ERROR 251 -- keyword operand is not name of defined keyword
-
-
-
-
-
-in file              BNF.spt
-in line              26
-in statement         1
-stmts executed       1
-execution time msec  0
-REGENERATIONS        0
-memory used (bytes)  15000
-memory left (bytes)  1033568
-
+Cannot open file grammar.def

@@ -1,4 +1,4 @@
 root	/home/resources/packages/snobol4/vanilla
 origin	the archive /home/resources/vanilla.tar.gz (Vanilla SNOBOL4, Catspaw, Inc.), unpacked once
-version	vanilla.tar.gz sha256 9e584a0ffe96f72d9070917997e1a3456d3c4c18b660de512de5ba5f412c597d; CHANGED IN PLACE 2026-11-17 by officer_10: bitzer.sno (4 lines), rpoem.sno (6) and wordsize.sno (2) spell an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
+version	vanilla.tar.gz sha256 9e584a0ffe96f72d9070917997e1a3456d3c4c18b660de512de5ba5f412c597d; CHANGED IN PLACE 2026-11-17 by officer_10: bitzer.sno (4 lines), rpoem.sno (6) and wordsize.sno (2) spell an angle-bracket subscript with square brackets, one character for one; the originals are at the origin; CHANGED IN PLACE AGAIN 2026-11-17 by officer_09: bnf.sno (31 lines), demo.sno (44), labcent.sno (19) and vinside.sno (33) upper-cased by sno_upcase_edition.py, keywords, built-in function names, predefined names and goto letters, one character for one, a user's name, a label and a string literal as written
 licence	Catspaw Vanilla SNOBOL4 licence: copying only of the whole package, unmodified and together (readme.doc)

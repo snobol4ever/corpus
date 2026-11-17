@@ -1,18 +1,18 @@
 
 
 
-demo.sno(1) : ERROR 251 -- keyword operand is not name of defined keyword
+demo.sno(8) : ERROR 251 -- keyword operand is not name of defined keyword
 
 
 
 
 
 in file              demo.sno
-in line              1
-in statement         1
-stmts executed       1
+in line              8
+in statement         8
+stmts executed       8
 execution time msec  0
 REGENERATIONS        0
-memory used (bytes)  17416
-memory left (bytes)  1031152
+memory used (bytes)  19528
+memory left (bytes)  1029040
 

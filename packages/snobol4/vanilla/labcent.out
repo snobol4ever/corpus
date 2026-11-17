@@ -1,18 +1,3 @@
 
 
 
-labcent.sno(35) : ERROR 251 -- keyword operand is not name of defined keyword
-
-
-
-
-
-in file              labcent.sno
-in line              35
-in statement         5
-stmts executed       4
-execution time msec  0
-REGENERATIONS        0
-memory used (bytes)  15056
-memory left (bytes)  1033512
-

@@ -1,18 +1,18 @@
 
 
 
-bnf.sno(31) : ERROR 251 -- keyword operand is not name of defined keyword
+bnf.sno(53) : ERROR 116 -- inappropriate file specification for input
 
 
 
 
 
 in file              bnf.sno
-in line              31
-in statement         1
-stmts executed       1
+in line              53
+in statement         15
+stmts executed       10
 execution time msec  0
 REGENERATIONS        0
-memory used (bytes)  15104
-memory left (bytes)  1033464
+memory used (bytes)  15256
+memory left (bytes)  1033312
 

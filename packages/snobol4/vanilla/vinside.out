@@ -1,18 +1,18 @@
 
 
 
-vinside.sno(20) : ERROR 251 -- keyword operand is not name of defined keyword
+vinside.sno(294) : ERROR 022 -- undefined function called
 
 
 
 
 
 in file              vinside.sno
-in line              20
-in statement         3
-stmts executed       1
+in line              294
+in statement         238
+stmts executed       200
 execution time msec  0
 REGENERATIONS        0
-memory used (bytes)  45648
-memory left (bytes)  1002920
+memory used (bytes)  50088
+memory left (bytes)  998480
 
