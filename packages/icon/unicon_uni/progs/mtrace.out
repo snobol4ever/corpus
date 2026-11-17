@@ -1,0 +1,11 @@
+Free of non-allocated pointer: 
+	0x7777000 <- <unknown>:[???]
+
+Allocation that is not freed: 
+	0x8831f90[    1024 bytes] <- <unknown>:[???]
+	0x88333d8[      50 bytes] <- <unknown>:[???]
+	0x88337c0[    1024 bytes] <- <unknown>:[???]
+
+Duplicated free: 
+	0x98c1378[    1024 bytes] <- <unknown>:[???] <<unknown>[???]>
+

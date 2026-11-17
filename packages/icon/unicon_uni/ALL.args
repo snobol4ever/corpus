@@ -2,3 +2,5 @@ gui/guidemos/editor	editor.icn
 gui/guidemos/textsize	Hello, World
 progs/uwc	/dev/stdin
 progs/ush	-c	echo	one	&&	echo	two	&&	echo	three
+progs/mtrace	--log=/dev/stdin
+progs/splitmail	--file=/dev/stdin	--subject=meeting	--subject~happy	--from=carol	--withfile=/dev/stdout	--withoutfile=/dev/null	--verbose

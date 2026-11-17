@@ -123,3 +123,5 @@ unicon/lump.icn	same-code
 lib/exception.icn	same-code
 progs/uwc.icn	same-code
 progs/ush.icn	same-code
+progs/mtrace.icn	same-code
+progs/splitmail.icn	same-code
