@@ -10,5 +10,5 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 9,stream,stream.sno,decus_vax84a__stream,decus_vax84a,194,0,131072,4096,60,
 10,symbol,symbol.sno,decus_vax84a__symbol,decus_vax84a,203,0,131072,4096,60,
 11,synt,synt.sno,decus_vax84a__synt,decus_vax84a,115,231,131072,4096,60,
-12,toposort,toposort.sno,decus_vax84a__toposort,decus_vax84a,110,0,131072,4096,60,
+12,toposort,toposort.sno,decus_vax84a__toposort,decus_vax84a,110,0,131072,4096,60,--stlimit
 13,treesort,treesort.sno,decus_vax84a__treesort,decus_vax84a,102,0,131072,4096,60,
