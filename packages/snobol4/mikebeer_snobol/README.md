@@ -34,3 +34,5 @@ and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. TH
 
 5 program(s) of this package read standard input and none ships with it; each is fed `NAME.in`, beside its path in this folder, and every answer is still the oracle's (`sbl -bf`).
 THE PROGRAM'S OWN DATA (the lines after its END, which `sbl -r` reads as input and the oracle's `-bf` run does not): `examples/calc.sno`, `examples/wordfreq.sno`, `tests/calc.sno`, `tests/functions.sno`, `tests/wordfreq.sno`.
+
+CHANGED IN PLACE AGAIN (skill snobol4 section 7; officer_09 2026-11-17, row snobol4-beer-wordfreq-errors-features-and-functions-spell-their-subscripts-with-square-brackets): examples/wordfreq.sno (2 lines), tests/wordfreq.sno (2), tests/errors.sno (1), tests/features.sno (2) and tests/functions.sno (4) spell `NAME<...>` as `NAME[...]`, one character for one, outside string literals and comment lines. `sbl -bf` answers each the same bytes as before, twice, so no answer moved.
