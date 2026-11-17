@@ -1,0 +1,15 @@
+procedure main()
+   local w, c, t, s, i, l;
+   w := open("w", "g", "size=100,100") | stop("no window");
+   c := Clone(w);
+   t := table();
+   t[w] := "w";
+   t[c] := "c";
+   s := set([w]);
+   l := [];
+   every i := 1 to 20000 do put(l, repl("x", i % 50));
+   write("t[w] ", \t[w] | "MISSING");
+   write("t[c] ", \t[c] | "MISSING");
+   write("member w ", if member(s, w) then "yes" else "MISSING");
+   write("size ", *t);
+end

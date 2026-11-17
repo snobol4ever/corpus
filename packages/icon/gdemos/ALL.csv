@@ -15,3 +15,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 14,chip8,chip8.icn,gdemos__chip8,gdemos,371,0,131072,4096,300,,screen.dump,
 15,vibapp,vibapp.icn,gdemos__vibapp,gdemos,118,0,131072,4096,300,,screen.dump,
 16,foobar,foobar.icn,gdemos__foobar,gdemos,6,0,131072,4096,300,,screen.dump,
+17,wkey,wkey.icn,gdemos__wkey,gdemos,15,0,131072,4096,300,,,

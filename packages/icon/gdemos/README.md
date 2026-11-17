@@ -40,3 +40,9 @@ THE ROWS, fourteen, each with what its script reaches:
 - `vibapp`: circlo and checko set, button 1 and the regular toggle pressed, KXCI picked, DUMP pressed (its table of every vidget is
   graded text), then QUIT, which ends it.
 - `foobar`: a blue square erased into a fresh window, then one key, which ends its `Event()`.
+
+ONE WITNESS OF OUR OWN, `wkey` (the cto's row icon-graphics-a-table-keyed-by-a-window-finds-its-key-after-a-collection-moves-the-window,
+2026-11-16; officer_07's reproduce `wkey.icn`): a window and its clone key a table and a set, and twenty thousand small allocations
+follow, so a collection moves the window's record block. Then the program reads the keys back. It is graded on its text alone: it carries
+`wkey.display`, so it runs on the road's own display with `--no-screen`, and its answer `wkey.out` was cut twice on the graphics oracle,
+the same both times. It reads red on any SCRIP that hashes a window key by its block's address.

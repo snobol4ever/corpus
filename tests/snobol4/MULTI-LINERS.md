@@ -31991,6 +31991,33 @@ END
 4 E 220 C 220
 ```
 
+## gc_table_key__a_table_keyed_by_a_pattern_finds_it_after_a_collection
+
+```SNOBOL4
+        T = TABLE()
+        P = 'A' | 'B'
+        Q = LEN(1) 'C'
+        T[P] = 'pat'
+        T[Q] = 'len'
+        I = 0
+LOOP    I = I + 1
+        S = DUPL('X', REMDR(I, 50)) I
+        A = ARRAY(3, S)
+        LT(I, 20000) :S(LOOP)
+        OUTPUT = 'T[P] ' (DIFFER(T[P]) T[P], 'MISSING')
+        OUTPUT = 'T[Q] ' (DIFFER(T[Q]) T[Q], 'MISSING')
+        'AB' P :S(HIT)F(MISS)
+HIT     OUTPUT = 'P still matches'  :(END)
+MISS    OUTPUT = 'P lost'
+END
+```
+
+```stdout
+T[P] pat
+T[Q] len
+P still matches
+```
+
 ## ladder__rung16_inf_dotnet_an_open_bracket_at_the_end_is_229
 
 ```SNOBOL4
