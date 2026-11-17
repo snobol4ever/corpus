@@ -1,0 +1,2 @@
+# CONVERSION-PROOF.tsv is a file every batch of a package appends one line a program to. Two landings that each add lines both keep theirs: git's own union merge, so a batch is not refused at the rebase for this file (the cio 2026-11-17; MEASURED: the library driver batches of unicon_uni, five officers at once, read LAND RED stage=rebase on it).
+packages/*/*/CONVERSION-PROOF.tsv merge=union
