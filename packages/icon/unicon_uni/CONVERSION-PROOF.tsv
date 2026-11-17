@@ -346,3 +346,4 @@ ide/verifymake.icn	same-code
 3d/viewer/subwin3d.icn	same-code
 3d/viewer/world.icn	same-code
 3d/xparse.icn	same-code
+parser/showtree.icn	same-code
