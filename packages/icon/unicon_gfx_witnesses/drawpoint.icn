@@ -1,0 +1,9 @@
+procedure main()
+    w := open("drawpoint", "gl", "bg=black", "size=300,300") | stop("Can't open 3D Window: ", &errortext);
+    Fg(w, "white");
+    L := [];
+    every i := -4 to 4 do every j := -4 to 4 do put(L, i * 0.1, j * 0.1, -2.0);
+    DrawPoint(w, L);
+    Refresh(w);
+    Active();
+end

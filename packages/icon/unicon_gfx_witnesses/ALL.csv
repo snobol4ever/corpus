@@ -1,2 +1,10 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files,fixtures
 1,cubesphere,cubesphere.icn,unicon_gfx_witnesses__cubesphere,unicon_gfx_witnesses,8,0,131072,4096,1800,--dialect=unicon,screen.dump,
+2,multmatrix,multmatrix.icn,unicon_gfx_witnesses__multmatrix,unicon_gfx_witnesses,9,0,131072,4096,1800,--dialect=unicon,screen.dump,
+3,normals,normals.icn,unicon_gfx_witnesses__normals,unicon_gfx_witnesses,9,0,131072,4096,1800,--dialect=unicon,screen.dump,
+4,texcoord,texcoord.icn,unicon_gfx_witnesses__texcoord,unicon_gfx_witnesses,14,0,131072,4096,1800,--dialect=unicon,screen.dump,
+5,drawline,drawline.icn,unicon_gfx_witnesses__drawline,unicon_gfx_witnesses,7,0,131072,4096,1800,--dialect=unicon,screen.dump,
+6,drawpoint,drawpoint.icn,unicon_gfx_witnesses__drawpoint,unicon_gfx_witnesses,9,0,131072,4096,1800,--dialect=unicon,screen.dump,
+7,drawpolygon,drawpolygon.icn,unicon_gfx_witnesses__drawpolygon,unicon_gfx_witnesses,7,0,131072,4096,1800,--dialect=unicon,screen.dump,
+8,drawsegment,drawsegment.icn,unicon_gfx_witnesses__drawsegment,unicon_gfx_witnesses,7,0,131072,4096,1800,--dialect=unicon,screen.dump,
+9,fillpolygon,fillpolygon.icn,unicon_gfx_witnesses__fillpolygon,unicon_gfx_witnesses,7,0,131072,4096,1800,--dialect=unicon,screen.dump,

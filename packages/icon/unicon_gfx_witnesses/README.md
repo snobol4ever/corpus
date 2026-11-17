@@ -10,3 +10,11 @@ through `util_screen_run.py`, twice, and the oracle's screen is kept beside the 
 | entry | family | what it draws |
 |---|---|---|
 | cubesphere | DrawCube, DrawSphere, Refresh in a `gl` window | a white cube with a shaded sphere above it |
+| multmatrix | MultMatrix of a list of sixteen reals, then DrawCube and DrawSphere | a white cube, and a shaded sphere that the matrix scaled and moved |
+| normals | Normals of a list of nine reals under normode=on, FillPolygon | a triangle shaded by one normal at each corner |
+| texcoord | Texcoord of a list of six reals, Texture from a window, texmode=on, FillPolygon | a triangle that wears a 64 by 64 four-colour window as its texture |
+| drawline | DrawLine of a list of nine reals | a two-segment line in a 3D window |
+| drawpoint | DrawPoint of a list of 243 reals | a grid of 81 points |
+| drawpolygon | DrawPolygon of a list of twelve reals | a red square |
+| drawsegment | DrawSegment of a list of twelve reals | two segments |
+| fillpolygon | FillPolygon of a list of nine reals | a white triangle |

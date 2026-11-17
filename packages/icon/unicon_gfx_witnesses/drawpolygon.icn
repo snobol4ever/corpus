@@ -1,0 +1,7 @@
+procedure main()
+    w := open("drawpolygon", "gl", "bg=black", "size=300,300") | stop("Can't open 3D Window: ", &errortext);
+    Fg(w, "red");
+    DrawPolygon(w, [-0.5, -0.5, -2.0, 0.5, -0.5, -2.0, 0.5, 0.5, -2.0, -0.5, 0.5, -2.0]);
+    Refresh(w);
+    Active();
+end

@@ -1,0 +1,9 @@
+procedure main()
+    w := open("multmatrix", "gl", "bg=black", "size=300,300") | stop("Can't open 3D Window: ", &errortext);
+    Fg(w, "white");
+    DrawCube(w, -0.5, -0.5, -2.0, 0.4);
+    MultMatrix(w, [0.5, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.15, 0.1, 0.0, 1.0]);
+    DrawSphere(w, 0.0, 0.0, -2.0, 0.6);
+    Refresh(w);
+    Active();
+end

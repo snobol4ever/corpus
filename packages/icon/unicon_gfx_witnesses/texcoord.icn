@@ -1,0 +1,14 @@
+procedure main()
+    t := open("texture", "g", "canvas=hidden", "size=64,64") | stop("Can't open 2D Window: ", &errortext);
+    Fg(t, "red"); FillRectangle(t, 0, 0, 32, 32);
+    Fg(t, "green"); FillRectangle(t, 32, 0, 32, 32);
+    Fg(t, "blue"); FillRectangle(t, 0, 32, 32, 32);
+    Fg(t, "yellow"); FillRectangle(t, 32, 32, 32, 32);
+    w := open("texcoord", "gl", "bg=black", "size=300,300") | stop("Can't open 3D Window: ", &errortext);
+    WAttrib(w, "texmode=on");
+    Texture(w, t) | stop("No Texture: ", &errortext);
+    Texcoord(w, [0.0, 0.0, 1.0, 0.0, 0.5, 1.0]);
+    FillPolygon(w, -0.6, -0.5, -2.0, 0.6, -0.5, -2.0, 0.0, 0.6, -2.0);
+    Refresh(w);
+    Active();
+end

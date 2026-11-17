@@ -1,0 +1,7 @@
+procedure main()
+    w := open("drawline", "gl", "bg=black", "size=300,300") | stop("Can't open 3D Window: ", &errortext);
+    Fg(w, "white");
+    DrawLine(w, [-0.6, -0.5, -2.0, 0.0, 0.6, -2.0, 0.6, -0.5, -2.0]);
+    Refresh(w);
+    Active();
+end
