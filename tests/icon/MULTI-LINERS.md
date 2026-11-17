@@ -12526,6 +12526,40 @@ end
 1 2 
 ```
 
+## procedure_every_suspend_12
+
+```Icon
+procedure main()
+    every write(pre(3));
+end
+procedure pre(n)
+    if n > 0 then suspend n | pre(n - (1 | 2));
+end
+```
+
+```stdout
+3
+2
+1
+1
+```
+
+## procedure_every_suspend_14
+
+```Icon
+procedure main()
+    every write(pre(2));
+end
+procedure pre(n)
+    if n > 0 then suspend pre(n - (1 | 2)) | n;
+end
+```
+
+```stdout
+1
+2
+```
+
 ## procedure_scan_tab_2
 
 ```Icon
@@ -15302,6 +15336,23 @@ end
 11
 22
 33
+```
+
+## procedure_every_suspend_13
+
+```Icon
+procedure main()
+    every write(image(pre([1, [2], [3]])));
+end
+procedure pre(L)
+    suspend L | pre(L[2 | 3]);
+end
+```
+
+```stdout
+list_3(3)
+list_1(1)
+list_2(1)
 ```
 
 ## procedure_scan_tab_3
