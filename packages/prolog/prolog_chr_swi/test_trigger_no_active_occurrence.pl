@@ -1,0 +1,16 @@
+:- module(trigger_no_active_occurrence,[trigger_no_active_occurrence/0]).
+
+:- use_module(library(chr)).
+
+:- chr_constraint a/1, b/2.
+
+a(X) # ID , b(X,R) <=> R = 1 pragma passive(ID).
+
+trigger_no_active_occurrence :-
+	a(X),
+	X = 1,
+	b(1,R),
+	R == 1.
+
+:- initialization(main, main).
+main :- ( trigger_no_active_occurrence -> write(trigger_no_active_occurrence:yes) ; write(trigger_no_active_occurrence:no) ), nl.

@@ -1,0 +1,1 @@
+bench_ta: oracle produced EMPTY output -- refusing to mint a vacuous ref; MEASURED by the grader 2026-11-16: swipl 9.0.4's own CHR compiler refuses ta.chr (CHR compiler ERROR: invalid syntax, an invalid identifier in pragma passive in rule number 12), so main is never defined and the only text is on stderr, naming the run directory and a fresh variable, which differ run to run

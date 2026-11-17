@@ -1,0 +1,16 @@
+rank,entry,origin,package,n_lines,stdin,want_rc,heap_kb,stack_kb,compile_args,run_args,findall,bagof,setof,forall,assert,asserta,assertz,retract,abolish,catch,throw,between,functor,arg,copy_term,call,var,nonvar,atom,number,write,writeq,write_canonical,format,nl,clause,succ,op,cut,dcg,if_then_else,negation,unify,univ,list_cons,directive,findall_with_var_goal,catch_with_throw,assert_then_retract
+1,bench_bool,prolog_chr_swi__bench_bool,prolog_chr_swi,326,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,1,1,0,1,0,1,0,1,1,0,0,0
+2,bench_fib,prolog_chr_swi__bench_fib,prolog_chr_swi,38,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+3,bench_fibonacci,prolog_chr_swi__bench_fibonacci,prolog_chr_swi,46,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+4,bench_fulladder,prolog_chr_swi__bench_fulladder,prolog_chr_swi,143,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1,1,0,0,0
+5,bench_leq,prolog_chr_swi__bench_leq,prolog_chr_swi,38,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1,1,0,0,0
+6,bench_primes,prolog_chr_swi__bench_primes,prolog_chr_swi,33,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0
+7,bench_wfs,prolog_chr_swi__bench_wfs,prolog_chr_swi,266,0,0,131072,4096,,,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,1,1,0,1,1,0,0,0
+8,bench_zebra,prolog_chr_swi__bench_zebra,prolog_chr_swi,131,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,1,1,0,0,0
+9,test_dense_int,prolog_chr_swi__test_dense_int,prolog_chr_swi,29,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+10,test_fibonacci,prolog_chr_swi__test_fibonacci,prolog_chr_swi,43,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0
+11,test_leq,prolog_chr_swi__test_leq,prolog_chr_swi,30,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,1,0,0,1,0,0,0
+12,test_passive_check,prolog_chr_swi__test_passive_check,prolog_chr_swi,15,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0
+13,test_primes,prolog_chr_swi__test_primes,prolog_chr_swi,44,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0
+14,test_trigger_no_active_occurrence,prolog_chr_swi__test_trigger_no_active_occurrence,prolog_chr_swi,16,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,1,0,0,0
+15,test_zebra,prolog_chr_swi__test_zebra,prolog_chr_swi,120,0,0,131072,4096,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,1,1,0,0,0

@@ -1,0 +1,19 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=15 features=15 ubiquitous=7(package write nl if_then_else unify list_cons directive) distinctive=8 core=8 clusters=7 chunks=1 sizes=7
+entry	part	cluster	shells
+bench_bool	core	core	cut op var
+bench_fib	chunk:01	family:bench_fib	
+bench_fibonacci	core	core	var
+bench_fulladder	chunk:01	family:bench_fulladder	
+bench_leq	core	core	cut
+bench_primes	chunk:01	family:bench_primes	
+bench_wfs	core	core	atom findall negation setof
+bench_zebra	core	core	cut nonvar
+test_dense_int	chunk:01	family:test_dense_int	
+test_fibonacci	core	core	var
+test_leq	core	core	negation
+test_passive_check	chunk:01	family:test_passive_check	
+test_primes	chunk:01	family:test_primes	
+test_trigger_no_active_occurrence	chunk:01	family:test_trigger_no_active_occurrence	
+test_zebra	core	core	nonvar
