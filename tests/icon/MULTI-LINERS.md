@@ -21134,6 +21134,28 @@ d men
 ===
 ```
 
+## ladder__rung45_sort_of_a_table_orders_ties_as_unicons_walk
+
+```Icon
+procedure main();
+   local T, p, k, s, i;
+   T := table(0);
+   every k := ("alice" | "bob" | "carol" | "dave" | "erin" | "frank" | "gus" | "hal") do T[k] := 0;
+   T["alice"] := 3; T["bob"] := 1; T["carol"] := 1; T["dave"] := 3; T["erin"] := 2; T["frank"] := 1; T["gus"] := 2; T["hal"] := 1;
+   s := "";
+   every p := !sort(T, 2) do s ||:= p[1] || ":" || p[2] || " ";
+   write("sort2: ", s);
+   s := "";
+   every k := !sort(T, 4) do s ||:= k || " ";
+   write("sort4: ", s);
+end
+```
+
+```stdout
+sort2: hal:1 frank:1 bob:1 carol:1 erin:2 gus:2 alice:3 dave:3 
+sort4: hal 1 frank 1 bob 1 carol 1 erin 2 gus 2 alice 3 dave 3 
+```
+
 ## procedure_scan_while_replace_2
 
 ```Icon
