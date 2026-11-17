@@ -13024,6 +13024,28 @@ div failed 201
 "12.0" concat failed 103
 ```
 
+## ladder__rung29_builtins_system_called_through_a_value_runs_its_command
+
+```Icon
+procedure main()
+   f := system;
+   write(image(f("exit 3")));
+   write(image(system("true")));
+   g := \system;
+   write(image(g("exit 4")) | "fail");
+   write(image(proc("system", 1)("exit 5")) | "fail");
+   write(image(system("kill -9 $$")));
+end
+```
+
+```stdout
+768
+0
+1024
+1280
+9
+```
+
 ## procedure_every_alt_33
 
 ```Icon
