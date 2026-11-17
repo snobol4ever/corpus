@@ -27337,6 +27337,53 @@ write("foo")
 write(1)
 ```
 
+## icon_grammar__a_limitation_after_a_binary_bang_limits_the_apply
+
+```Icon
+procedure g(a, b, c);
+   suspend a | b | c;
+end
+procedure one(x);
+   return x;
+end
+procedure main();
+   local L, ce;
+   every writes(g ! [1, 2, 3] \ 2, " ");
+   write();
+   every writes(g ! [4, 5, 6] \ 1, " ");
+   write();
+   L := [7];
+   write(one ! L + 1);
+   write(one ! L * 2);
+   write(one ! L ^ 2);
+   write(one ! L - 1);
+   every writes((g ! [1, 2, 3]) \ 2, " ");
+   write();
+   every writes(g ! ([1, 2, 3]) \ 3, " ");
+   write();
+   every writes(\ (g ! [8, 9]), " ");
+   write();
+   every writes(! [3, 4] \ 1, " ");
+   write();
+   ce := create g ! [10, 11, 12];
+   write(@ce, " ", @ce);
+end
+```
+
+```stdout
+1 2 
+4 
+8
+14
+49
+6
+1 2 
+1 2 3 
+8 9 
+3 
+10 11
+```
+
 ## procedure_record_coexpr_replace_2
 
 ```Icon
