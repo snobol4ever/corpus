@@ -115,3 +115,9 @@ progs/htmltex.icn	same-code
 progs/ie.icn	same-code
 progs/rankvote.icn	same-code
 progs/rpn.icn	same-code
+progs/cleanup.icn	same-code
+progs/exception_demo.icn	same-code
+progs/gcfreq.icn	same-code
+unicon/iol2htm.icn	same-code
+unicon/lump.icn	same-code
+lib/exception.icn	same-code

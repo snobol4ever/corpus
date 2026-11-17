@@ -439,7 +439,6 @@ parser/parsedrecord.icn: LIBRARY: no procedure main
 parser/parser.icn: LIBRARY: no procedure main
 parser/preproce.icn: LIBRARY: no procedure main
 parser/showdb.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 124
-parser/showtree.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
 parser/unigram.action.icn: LIBRARY: no procedure main
 parser/unigram.icn: LIBRARY: no procedure main
 parser/unigram.prefix.icn: LIBRARY: no procedure main
@@ -447,11 +446,8 @@ parser/unigram.suffix.icn: LIBRARY: no procedure main
 parser/unilex.icn: LIBRARY: no procedure main
 parser/ytab_h.icn: LIBRARY: no procedure main
 progs/bored.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 538 and 538 bytes
-progs/cleanup.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/deen.icn: NEEDS-NETWORK: a graded run starts with no de-en.txt, so its first act is open(URL, "m"), an HTTP GET of a 7.8 MB dictionary from ftp.tu-chemnitz.de
 progs/env.icn: READS-THE-ENVIRONMENT: its answer holds TMPDIR of the process that runs it
-progs/exception_demo.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-progs/gcfreq.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/idxGen.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot open idxterms.xml
 progs/mapStrings.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: mapStrings [oldString=newString]... <infile >outfile
 progs/mtrace.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Missing --log=LOGFILE argument
@@ -564,8 +560,6 @@ unicon/ca.icn: LIBRARY: no procedure main
 unicon/cfy.icn: LIBRARY: no procedure main
 unicon/grok.icn: ORACLE-REFUSES: unicon does not translate it: foo.icn:9: # "initially" syntax error (54;279)
 unicon/idol.icn: LIBRARY: no procedure main
-unicon/iol2htm.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-unicon/lump.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 unicon/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
 unicon/merr.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: merr [-yYBG] [-W writefn] [-F filenm] [-s make] [-o msgfl]compiler [target] [-N MaxIterations] [-phase1] [-phase2]
 unicon/nocc.icn: LIBRARY: no procedure main
