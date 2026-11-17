@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,out_files,fixtures
+1,cubesphere,cubesphere.icn,unicon_gfx_witnesses__cubesphere,unicon_gfx_witnesses,8,0,131072,4096,1800,--dialect=unicon,screen.dump,
