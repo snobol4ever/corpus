@@ -1,4 +1,4 @@
 root	/home/resources/packages/snobol4/sw_cor24_snobol4
 origin	https://github.com/sw-embed/sw-cor24-snobol4 (the examples and demos of a 2026 SNOBOL4 implementation for the COR24 machine)
-version	68b7fbe (2026-05-14); CHANGED IN PLACE 2026-11-15 by the cqo: demos/nqueens.sno (28 lines), demos/sieve.sno (5) and examples/array.sno (6) spell an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
+version	68b7fbe (2026-05-14); CHANGED IN PLACE 2026-11-15 by the cqo: demos/nqueens.sno (28 lines), demos/sieve.sno (5) and examples/array.sno (6) spell an angle-bracket subscript with square brackets, one character for one; the originals are at the origin; CHANGED AGAIN 2026-11-17 by officer_10: demos/eliza.sno (2 lines) the same
 licence	MIT (LICENSE: Copyright (c) 2026 Michael A Wright)

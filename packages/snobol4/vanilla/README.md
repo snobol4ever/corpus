@@ -16,3 +16,5 @@ and the package was cut again from `sbl -bf`, twice, with `--mine-silent-rc`. TH
 
 1 program(s) of this package read standard input and none ships with it; each is fed `NAME.in`, beside its path in this folder, and every answer is still the oracle's (`sbl -bf`).
 OURS, written by the grader to exercise the program as its code reads (a few lines of text, numbers, a name, moves of a game, statements to run): `labcent.sno`.
+
+CHANGED IN PLACE (skill snobol4 section 7, Lon 2026-11-14: an angle-bracket subscript is rewritten with square brackets where the package lives; the officer_10 2026-11-17, row snobol4-vanilla-bitzer-rpoem-wordsize-and-cor24-eliza-spell-their-subscripts-with-square-brackets): bitzer.sno (4 lines), rpoem.sno (6) and wordsize.sno (2) spell `NAME<...>` as `NAME[...]`, one character for one, outside string literals and comment lines, since SCRIP refuses the angle form by the ruling of 2026-10-02 (a computed goto `:S<CODE>` is a goto, not a subscript, and stays; rpoem line 111 builds the subscript of a CODE string, written `[RANDOM(` and `),2]` by hand). `sbl -bf` answers each the same bytes twice, equal to its `NAME.out`, so no answer moved.
