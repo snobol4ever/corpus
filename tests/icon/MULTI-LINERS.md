@@ -21355,6 +21355,46 @@ end
  2 8 | bal
 ```
 
+## ladder__rung48_critical_suspend_generator_releases_at_exhaustion
+
+```Icon
+global M
+procedure lock(m);
+   write("  lock ", M[m] +:= 1);
+   return M[m];
+end
+procedure unlock(m);
+   write("  unlock ", M[m] -:= 1);
+   return M[m];
+end
+procedure t();
+   critical "a": {
+      suspend 3 to 4;
+      write("after suspend stmt a=", M["a"]);
+   };
+end
+procedure main();
+   M := table(0);
+   every x := t() do write("yield ", x, " a=", M["a"]);
+   write("end a=", M["a"]);
+end
+```
+
+```stdout
+  lock 1
+  unlock 0
+yield 3 a=0
+  lock 1
+  unlock 0
+yield 4 a=0
+  lock 1
+  unlock 0
+  lock 1
+after suspend stmt a=1
+  unlock 0
+end a=0
+```
+
 ## unicon__uni_critical_suspend_nested
 
 ```Icon
