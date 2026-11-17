@@ -1,0 +1,4 @@
+#!/bin/sh
+# ls -- a stand-in for ls(1) in mover's run: the working folder mover lists is each engine's own (iconx's road leaves the translated program in it, SCRIP's does not), so
+# the listing is the system's and is fixed in staging, the same names on every road and every engine; it ignores its arguments.
+printf '%s\n' alpha.txt bravo.txt charlie.txt delta.txt echo.txt
