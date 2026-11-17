@@ -2,7 +2,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 1,code,code.sno,matrixmike_tests__code,matrixmike_tests,11,0,131072,4096,60,
 2,cross,cross.sno,matrixmike_tests__cross,matrixmike_tests,3,0,131072,4096,60,
 3,digits,digits.sno,matrixmike_tests__digits,matrixmike_tests,10,0,131072,4096,60,
-4,fcounts,fcounts.sno,matrixmike_tests__fcounts,matrixmike_tests,16,0,131072,4096,60,
+4,fcounts,fcounts.sno,matrixmike_tests__fcounts,matrixmike_tests,16,0,131072,4096,60,--stlimit
 5,functions1,functions1.sno,matrixmike_tests__functions1,matrixmike_tests,9,0,131072,4096,60,--stlimit
 6,hello,hello.sno,matrixmike_tests__hello,matrixmike_tests,3,0,131072,4096,60,
 7,initialv,initialv.sno,matrixmike_tests__initialv,matrixmike_tests,2,1,131072,4096,60,
@@ -14,4 +14,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 13,test4,test4.sno,matrixmike_tests__test4,matrixmike_tests,4,0,131072,4096,60,
 14,testIncl,testIncl.sno,matrixmike_tests__testIncl,matrixmike_tests,4,0,131072,4096,60,
 15,url,url.sno,matrixmike_tests__url,matrixmike_tests,22,0,131072,4096,60,
-16,url2,url2.sno,matrixmike_tests__url2,matrixmike_tests,17,0,131072,4096,60,
+16,url2,url2.sno,matrixmike_tests__url2,matrixmike_tests,17,0,131072,4096,60,--stlimit
