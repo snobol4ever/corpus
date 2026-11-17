@@ -1,0 +1,121 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=117 features=23 ubiquitous=12(package assertz retract catch between write writeq nl cut unify directive assert_then_retract) distinctive=11 core=14 clusters=15 chunks=2 sizes=60,43
+entry	part	cluster	shells
+projog_CompiledPredicateSourceGeneratorTest_CompiledPredicateSourceGeneratorTest	core	core	atom compare list_cons negation number
+projog_applications_cryptarithmetic	chunk:01	feat:compare	compare
+projog_applications_eight_queens	core	core	compare list_cons
+projog_applications_full_adder	chunk:01	feat:compare	compare
+projog_applications_multiple_choice_question	chunk:01	feat:compare	compare
+projog_applications_towers_of_hanoi	chunk:01	feat:compare	compare
+projog_applications_zebra_puzzle	chunk:01	feat:compare	compare
+projog_clp_clp1	chunk:02	family:projog_clp_clp	
+projog_clp_clp2	chunk:01	feat:compare	compare
+projog_clp_clp3	chunk:02	family:projog_clp_clp	
+projog_clp_clp4	chunk:02	family:projog_clp_clp	
+projog_clp_clp5	chunk:01	feat:compare	compare
+projog_clp_clp6	chunk:01	feat:compare	compare
+projog_clp_clp7	core	core	compare negation
+projog_clp_clp8	chunk:02	feat:negation	negation
+projog_clp_clp9	chunk:01	feat:compare	compare
+projog_clp_clp_CopyTerm	core	core	compare copy_term
+projog_clp_clp_Equal	chunk:01	feat:compare	compare
+projog_clp_clp_NotStrictEquality	chunk:01	feat:compare	compare
+projog_clp_clp_NotUnifiable	chunk:01	feat:compare	compare
+projog_clp_clp_StrictEquality	chunk:01	feat:compare	compare
+projog_clp_set_square	chunk:02	family:projog_clp_set_square	
+projog_clp_sudoku	chunk:02	family:projog_clp_sudoku	
+projog_concepts_getting_started	core	core	asserta compare
+projog_concepts_prolog_arithmetic	chunk:01	feat:compare	compare
+projog_concepts_prolog_debugging	chunk:01	feat:compare	compare
+projog_concepts_prolog_introduction	chunk:02	family:projog_concepts_prolog_introduction	
+projog_concepts_prolog_lists	core	core	list_cons negation
+projog_concepts_prolog_term_comparison	chunk:01	feat:compare	compare
+projog_concepts_prolog_unification	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_10	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_11	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_12	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_13	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_14	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_15	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_16	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_17	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_18	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_2	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_20	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_21	chunk:01	feat:compare	compare
+projog_miscellaneous_22	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_23	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_24	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_25	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_26	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_28	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_29	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_3	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_30	core	core	list_cons univ
+projog_miscellaneous_31	chunk:01	feat:compare	compare
+projog_miscellaneous_32	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_33	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_35	chunk:01	feat:compare	compare
+projog_miscellaneous_36	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_37	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_38	chunk:01	family:projog_miscellaneous	
+projog_miscellaneous_39	core	core	asserta compare
+projog_miscellaneous_4	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_40	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_41	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_42	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_43	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_44	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_45	chunk:01	feat:compare	compare
+projog_miscellaneous_46	chunk:02	feat:list_cons	compare list_cons
+projog_miscellaneous_47	chunk:02	feat:list_cons	compare list_cons
+projog_miscellaneous_48	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_49	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_5	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_50	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_51	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_52	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_53	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_54	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_55	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_56	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_57	chunk:01	feat:compare	compare
+projog_miscellaneous_58	chunk:01	feat:compare	compare
+projog_miscellaneous_59	chunk:01	feat:compare	compare
+projog_miscellaneous_6	chunk:01	feat:compare	compare
+projog_miscellaneous_60	core	core	assert asserta compare
+projog_miscellaneous_61	chunk:02	feat:negation	list_cons negation
+projog_miscellaneous_62	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_63	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_64	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_65	chunk:01	feat:compare	compare
+projog_miscellaneous_66	chunk:02	feat:list_cons	list_cons
+projog_miscellaneous_67	core	core	list_cons write_canonical
+projog_miscellaneous_7	chunk:02	family:projog_miscellaneous	
+projog_miscellaneous_9	core	core	var
+projog_udp_MultipleRulesWithSingleImmutableArgumentPredicate	chunk:02	family:projog_udp_MultipleRulesWithSingleImmutableArgumentPredicate	
+projog_udp_chain_of_single_result_predicates	chunk:02	family:projog_udp_chain_of_single_result_predicates	
+projog_udp_dynamic_predicate	core	core	assert compare
+projog_udp_indexable_rules	chunk:02	family:projog_udp_indexable_rules	
+projog_udp_predicate_meta_data_IndexablePredicateFactory	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_LinkedHashMapPredicateFactory_multiple_arguments	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_LinkedHashMapPredicateFactory_single_argument	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_NotIndexablePredicateFactory	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_SingleIndexPredicateFactory_multiple_arguments	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_SingleIndexPredicateFactory_single_argument	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_SingleNonRetryableRulePredicateFactory	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_SingleRetryableRulePredicateFactory	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_UnknownPredicate	core	core	assert compare
+projog_udp_predicate_meta_data_multiple_clauses	chunk:01	feat:compare	compare
+projog_udp_predicate_meta_data_multiple_clauses_with_cut	core	core	compare var
+projog_udp_predicates_with_single_fact_atom_atom_variable_arguments	chunk:01	feat:compare	compare
+projog_udp_predicates_with_single_fact_atom_variable_atom_arguments	chunk:01	feat:compare	compare
+projog_udp_predicates_with_single_fact_predicate_atom_atom_arguments	chunk:02	family:projog_udp_predicates_with_single_fact_predicate_atom_atom_arguments	
+projog_udp_predicates_with_single_fact_single_atom_argument	chunk:02	family:projog_udp_predicates_with_single_fact_single_atom_argument	
+projog_udp_predicates_with_single_fact_three_distinct_atom_arguments	chunk:02	family:projog_udp_predicates_with_single_fact_three_distinct_atom_arguments	
+projog_udp_predicates_with_single_fact_three_distinct_variable_arguments	chunk:01	feat:compare	compare
+projog_udp_predicates_with_single_fact_three_identical_atom_arguments	chunk:02	family:projog_udp_predicates_with_single_fact_three_identical_atom_arguments	
+projog_udp_predicates_with_single_fact_three_identical_variable_arguments	chunk:01	feat:compare	compare
+projog_udp_predicates_with_single_fact_three_variables_two_shared_arguments	chunk:01	feat:compare	compare
+projog_udp_predicates_with_single_fact_variable_atom_atom_arguments	chunk:01	feat:compare	compare

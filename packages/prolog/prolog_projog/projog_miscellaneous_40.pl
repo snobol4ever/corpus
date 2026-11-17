@@ -1,0 +1,22 @@
+x([[X|Xs]|Ys]) :- 1<2, writef('1 %t %t %t', [X, Xs, Ys]).
+x([[X|Xs]|Ys]) :- 1=2, writef('2 %t %t %t', [X, Xs, Ys]).
+x([[X|Xs]|Ys]) :- 1=<2, writef('3 %t %t %t', [X, Xs, Ys]).
+
+%?- x([[x,y,z],b,c,d])
+%OUTPUT 1 x [y,z] [b,c,d]
+%YES
+%OUTPUT 3 x [y,z] [b,c,d]
+%YES
+
+% ---- driver of ours (the grader 2026-11-17, projog_gen.py): each %?- query above, run in order after the load ----
+:- dynamic('$pj_n'/1).
+'$pj_n'(0).
+'$pj_count' :- retract('$pj_n'(N)), N1 is N + 1, assertz('$pj_n'(N1)), N1 >= 10, !.
+'$pj_reset' :- retractall('$pj_n'(_)), assertz('$pj_n'(0)).
+'$pj_err'(error(F, _)) :- !, write(error(F)), nl.
+'$pj_err'(E) :- write(thrown(E)), nl.
+'$pj_q'(1) :- write('?- x([[x,y,z],b,c,d])'), nl, '$pj_reset', catch(( ( x([[x,y,z],b,c,d]) ), write(yes), nl, '$pj_count' ; write(no), nl ), E, '$pj_err'(E)), !.
+'$pj_q'(1).
+'$pj_main' :- between(1, 1, I), '$pj_q'(I), fail.
+'$pj_main'.
+:- initialization('$pj_main').

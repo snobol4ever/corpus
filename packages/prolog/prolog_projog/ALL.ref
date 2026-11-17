@@ -1,0 +1,4849 @@
+%- 1 projog_CompiledPredicateSourceGeneratorTest_CompiledPredicateSourceGeneratorTest
+?- testNumericComparison(5,5,X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+X = h
+yes
+no
+?- testNumericComparison(6.5,6.5,X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+X = h
+yes
+no
+?- testNumericComparison(5,5.0,X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+X = h
+yes
+no
+?- testNumericComparison(42,41,X)
+X = a
+yes
+X = b
+yes
+X = f
+yes
+no
+?- testNumericComparison(41.1,41,X)
+X = a
+yes
+X = b
+yes
+X = f
+yes
+no
+?- testNumericComparison(7,8,X)
+X = c
+yes
+X = d
+yes
+X = f
+yes
+no
+?- testNumericComparison(7,7.1,X)
+X = c
+yes
+X = d
+yes
+X = f
+yes
+no
+?- testNumericComparison(17,7,X)
+X = a
+yes
+X = b
+yes
+X = f
+yes
+no
+?- testNumericComparison(18,7,X)
+X = a
+yes
+X = b
+yes
+X = f
+yes
+X = g
+yes
+no
+?- testNumericComparison(9223372036854775806, 9223372036854775807, X)
+X = c
+yes
+X = d
+yes
+X = f
+yes
+no
+?- testNumericComparison(9223372036854775807, 9223372036854775806, X)
+X = a
+yes
+X = b
+yes
+X = f
+yes
+no
+?- testNumericComparison(9223372036854775807, 9223372036854775807, X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+no
+?- testNumericComparison(9223372036854775806, 9223372036854775806, X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+no
+?- testNumericComparison(-9223372036854775808, -9223372036854775807, X)
+X = c
+yes
+X = d
+yes
+X = f
+yes
+X = g
+yes
+no
+?- testNumericComparison(-9223372036854775807, -9223372036854775808, X)
+X = a
+yes
+X = b
+yes
+X = f
+yes
+X = g
+yes
+no
+?- testNumericComparison(-9223372036854775808, -9223372036854775808, X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+X = g
+yes
+no
+?- testNumericComparison(-9223372036854775807, -9223372036854775807, X)
+X = b
+yes
+X = d
+yes
+X = e
+yes
+X = g
+yes
+no
+?- testTailRecursiveAppend(A,B,[a,b,c])
+A = []
+B = [a,b,c]
+yes
+A = [a]
+B = [b,c]
+yes
+A = [a,b]
+B = [c]
+yes
+A = [a,b,c]
+B = []
+yes
+no
+?- testTailRecursiveAppend([a,b,c,d,e],[f,g,h],X)
+X = [a,b,c,d,e,f,g,h]
+yes
+no
+?- testTailRecursiveAppend([],[a,b,c,d,e,f,g,h],X)
+X = [a,b,c,d,e,f,g,h]
+yes
+no
+?- testTailRecursiveAppend([a,b,c,d,e,f,g,h],[],X)
+X = [a,b,c,d,e,f,g,h]
+yes
+no
+?- testTailRecursiveRepeat(3)
+yes
+yes
+yes
+no
+?- testConjunction(X,Y,Z)
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,a,b,c,100,16]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,a,b,c,100,16]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,a,b,c,100,16]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,a,s,d,f,101,17]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,a,s,d,f,101,17]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,a,s,d,f,101,17]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,x,y,z,100,16]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,x,y,z,100,16]
+yes
+X = [q,w,e,r,t,y]
+Y = [u,i,o,p]
+Z = [2,4,16,q,w,e,r,t,y,u,i,o,p,x,y,z,100,16]
+yes
+X = [a,s,d,f]
+Y = [g,h,j,k,l]
+Z = [2,4,16,a,s,d,f,g,h,j,k,l,a,b,c,99,15]
+yes
+?- testOnce(A,B,C,D,E,F,true)
+error(existence_error(procedure,repeat/1))
+?- testOnce(A,B,C,D,E,F,E<43)
+error(existence_error(procedure,repeat/1))
+?- testOnce([a,s,A,f],B,[a,b,c],D,42,F,true)
+error(existence_error(procedure,repeat/1))
+?- testOnce(A,B,C,3,E,F,true)
+error(existence_error(procedure,repeat/1))
+?- testWrite('everyone')
+hello, "world"!
+hello, "everyone"!yes
+no
+?- testNot(X)
+X = 2
+yes
+error(existence_error(procedure,repeat/1))
+?- testAnonymous(X,32,12)
+X = p(42,12)
+yes
+no
+?- testCutSingleRuleMultipleResults
+error(existence_error(procedure,repeat/1))
+?- testCutManyRules(6, 6, RuleNo)
+error(existence_error(procedure,repeat/1))
+?- testCutManyRules(2, 6, RuleNo)
+error(existence_error(procedure,repeat/1))
+?- testCutManyRules(4, 6, RuleNo)
+RuleNo = 3
+yes
+error(existence_error(procedure,repeat/1))
+?- testCutManyRules(4, 7, RuleNo)
+RuleNo = 3
+yes
+no
+?- testCutManyRules(3, 6, RuleNo)
+RuleNo = 3
+yes
+error(existence_error(procedure,repeat/1))
+?- testCalculatables(X, 3, 7)
+X = 1000
+yes
+X = 1.5
+yes
+X = 10
+yes
+X = -4
+yes
+X = 21
+yes
+X = 0
+yes
+X = 19
+yes
+X = 18.5
+yes
+X = 10
+yes
+no
+?- testCalculatables(X, 3, 7)
+X = 1000
+yes
+X = 1.5
+yes
+X = 10
+yes
+X = -4
+yes
+X = 21
+yes
+X = 0
+yes
+X = 19
+yes
+X = 18.5
+yes
+X = 10
+yes
+no
+%----------------------------------------- 2 projog_applications_cryptarithmetic
+?- send_more_money(Send,More,Money)
+error(existence_error(procedure,send_more_money/3))
+?- donald_gerald_robert(Donald,Gerald,Robert)
+error(existence_error(procedure,donald_gerald_robert/3))
+%-------------------------------------------- 3 projog_applications_eight_queens
+?- queens(X)
+error(existence_error(procedure,queens/1))
+%---------------------------------------------- 4 projog_applications_full_adder
+?- full_adder(1,1,1,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(1,1,0,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(1,0,1,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(0,1,1,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(1,0,0,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(0,1,0,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(0,0,1,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(0,0,0,Output1,Output2)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(0,Input2,Input3,Output1,1)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(Input1,0,Input3,Output1,1)
+error(existence_error(procedure,full_adder/5))
+?- full_adder(Input1,Input2,0,Output1,1)
+error(existence_error(procedure,full_adder/5))
+%-------------------------------- 5 projog_applications_multiple_choice_question
+?- solve(X)
+error(existence_error(procedure,solve/1))
+%----------------------------------------- 6 projog_applications_towers_of_hanoi
+?- hanoi(3)
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+yes
+no
+?- hanoi(5)
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,right,pole]
+[move,a,disc,from,the,centre,pole,to,the,right,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+[move,a,disc,from,the,right,pole,to,the,left,pole]
+[move,a,disc,from,the,right,pole,to,the,centre,pole]
+[move,a,disc,from,the,left,pole,to,the,centre,pole]
+yes
+no
+?- hanoi(X)
+X = 0
+yes
+no
+?- hanoi(x)
+error(type_error(evaluable,x/0))
+%-------------------------------------------- 7 projog_applications_zebra_puzzle
+?- solve(People,Doors,Pets,Cigarettes,Drink)
+error(existence_error(procedure,solve/5))
+%------------------------------------------------------------- 8 projog_clp_clp1
+?- [Y,Z] ins 1..3, X in 1..2, Y#=X+2, all_different([X,Y,Z])
+Y = 3
+Z = 2
+X = 1
+yes
+no
+?- [Y,Z] ins 1..3, X in 1..2, all_different([X,Y,Z]), Y#=X+2
+Y = 3
+Z = 2
+X = 1
+yes
+no
+?- [Y,Z] ins 1..3, Y#=X+2, X in 1..2, all_different([X,Y,Z])
+Y = 3
+Z = 2
+X = 1
+yes
+no
+?- [Y,Z] ins 1..3, Y#=X+2, all_different([X,Y,Z]), X in 1..2
+Y = 3
+Z = 2
+X = 1
+yes
+no
+?- [Y,Z] ins 1..3, all_different([X,Y,Z]), Y#=X+2, X in 1..2
+Y = 3
+Z = 2
+X = 1
+yes
+no
+?- [Y,Z] ins 1..3, all_different([X,Y,Z]), X in 1..2, Y#=X+2
+Y = 3
+Z = 2
+X = 1
+yes
+no
+?- X in 1..2, [Y,Z] ins 1..3, Y#=X+2, all_different([X,Y,Z])
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- X in 1..2, [Y,Z] ins 1..3, all_different([X,Y,Z]), Y#=X+2
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- X in 1..2, Y#=X+2, [Y,Z] ins 1..3, all_different([X,Y,Z])
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- X in 1..2, Y#=X+2, all_different([X,Y,Z]), [Y,Z] ins 1..3
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- X in 1..2, all_different([X,Y,Z]), Y#=X+2, [Y,Z] ins 1..3
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- X in 1..2, all_different([X,Y,Z]), [Y,Z] ins 1..3, Y#=X+2
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- Y#=X+2, X in 1..2, [Y,Z] ins 1..3, all_different([X,Y,Z])
+Y = 3
+X = 1
+Z = 2
+yes
+no
+?- Y#=X+2, X in 1..2, all_different([X,Y,Z]), [Y,Z] ins 1..3
+Y = 3
+X = 1
+Z = 2
+yes
+no
+?- Y#=X+2, [Y,Z] ins 1..3, X in 1..2, all_different([X,Y,Z])
+Y = 3
+X = 1
+Z = 2
+yes
+no
+?- Y#=X+2, [Y,Z] ins 1..3, all_different([X,Y,Z]), X in 1..2
+Y = 3
+X = 1
+Z = 2
+yes
+no
+?- Y#=X+2, all_different([X,Y,Z]), [Y,Z] ins 1..3, X in 1..2
+Y = 3
+X = 1
+Z = 2
+yes
+no
+?- Y#=X+2, all_different([X,Y,Z]), X in 1..2, [Y,Z] ins 1..3
+Y = 3
+X = 1
+Z = 2
+yes
+no
+?- all_different([X,Y,Z]), X in 1..2, Y#=X+2, [Y,Z] ins 1..3
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- all_different([X,Y,Z]), X in 1..2, [Y,Z] ins 1..3, Y#=X+2
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- all_different([X,Y,Z]), Y#=X+2, X in 1..2, [Y,Z] ins 1..3
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- all_different([X,Y,Z]), Y#=X+2, [Y,Z] ins 1..3, X in 1..2
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- all_different([X,Y,Z]), [Y,Z] ins 1..3, Y#=X+2, X in 1..2
+X = 1
+Y = 3
+Z = 2
+yes
+no
+?- all_different([X,Y,Z]), [Y,Z] ins 1..3, X in 1..2, Y#=X+2
+X = 1
+Y = 3
+Z = 2
+yes
+no
+%------------------------------------------------------------- 9 projog_clp_clp2
+?- [X,Y,Z] ins 7..10, Y#<X, Z#>X+1
+X = 8
+Y = 7
+Z = 10
+yes
+no
+?- X in 7..9, Y#=X+2, X#=7
+X = 7
+Y = 9
+yes
+no
+?- X in 7..9, X#=7, Y#=X+2
+X = 7
+Y = 9
+yes
+no
+?- Y#=X+2, X in 7..9, X#=7
+Y = 9
+X = 7
+yes
+no
+?- Y#=X+2, X#=7, X in 7..9
+Y = 9
+X = 7
+yes
+no
+?- X#=7, Y#=X+2, X in 7..9
+X = 7
+Y = 9
+yes
+no
+?- X#=7, X in 7..9, Y#=X+2
+X = 7
+Y = 9
+yes
+no
+?- [X,Y] in 7..9, Y#=X+2
+error(type_error(integer,[_8386,_8392]))
+?- Y#=X+2, [X,Y] in 7..9
+error(type_error(integer,[_9130,_9190]))
+?- [X,Y] in 7..9, Y-2#=X
+error(type_error(integer,[_9634,_9640]))
+?- Y-2#=X, [X,Y] in 7..9
+error(type_error(integer,[_10378,_10438]))
+%------------------------------------------------------------ 10 projog_clp_clp3
+?- X in 7..9, Y#=X+2, X=7
+X = 7
+Y = 9
+yes
+no
+?- X in 7..9, X=7, Y#=X+2
+X = 7
+Y = 9
+yes
+no
+?- Y#=X+2, X in 7..9, X=7
+Y = 9
+X = 7
+yes
+no
+?- Y#=X+2, X=7, X in 7..9
+Y = 9
+X = 7
+yes
+no
+?- X=7, Y#=X+2, X in 7..9
+X = 7
+Y = 9
+yes
+no
+?- X=7, X in 7..9, Y#=X+2
+X = 7
+Y = 9
+yes
+no
+%------------------------------------------------------------ 11 projog_clp_clp4
+?- Y in 2..4, Z in 7..9, X#=Y*Z, label([X])
+Y = 2
+Z = 7
+X = 14
+yes
+Y = 2
+Z = 8
+X = 16
+yes
+Y = 2
+Z = 9
+X = 18
+yes
+Y = 3
+Z = 7
+X = 21
+yes
+Y = 3
+Z = 8
+X = 24
+yes
+Y = 3
+Z = 9
+X = 27
+yes
+Y = 4
+Z = 7
+X = 28
+yes
+Y = 4
+Z = 8
+X = 32
+yes
+Y = 4
+Z = 9
+X = 36
+yes
+no
+%------------------------------------------------------------ 12 projog_clp_clp5
+?- 3*X - 2*Y #= 12, 2*Y #= X, [X,Y] ins -50..50, label([X])
+X = 6
+Y = 3
+yes
+no
+?- Y#>=2, Y#=<X+1, 2*Y#=<8-X, label([X])
+Y = 2
+X = 1
+yes
+Y = _9038
+X = 2
+yes
+Y = 2
+X = 3
+yes
+Y = 2
+X = 4
+yes
+no
+?- X#>=2, Y#>=2, Y#=<X+1, 2*Y#=<8-X, Z#=2*X+3*Y, label([Z])
+X = 2
+Y = 2
+Z = 10
+yes
+X = 3
+Y = 2
+Z = 12
+yes
+X = 2
+Y = 3
+Z = 13
+yes
+X = 4
+Y = 2
+Z = 14
+yes
+no
+?- X#>=2, Y#>=2, Y*2#=<8-X
+X = _8930
+Y = _9090
+yes
+no
+?- Y in 1..3, X+1#=Y+2
+Y = _8866
+X = _9186
+yes
+no
+?- Y in 1..3, X+1#=Y+2, label([X])
+Y = 1
+X = 2
+yes
+Y = 2
+X = 3
+yes
+Y = 3
+X = 4
+yes
+no
+?- X+1#=Y+2, Y in 1..3, label([X])
+X = 2
+Y = 1
+yes
+X = 3
+Y = 2
+yes
+X = 4
+Y = 3
+yes
+no
+%------------------------------------------------------------ 13 projog_clp_clp6
+?- X in 1..5, Y in 0..4, Y#>X, Z#=X+Y+1, label([X])
+X = 1
+Y = _9016
+Z = _10124
+yes
+X = 2
+Y = _9016
+Z = _10124
+yes
+X = 3
+Y = 4
+Z = 8
+yes
+no
+?- X in 1..5, Y in 0..4, X#<Y, Z#=X+Y+1, label([X])
+X = 1
+Y = _11326
+Z = _12424
+yes
+X = 2
+Y = _11326
+Z = _12424
+yes
+X = 3
+Y = 4
+Z = 8
+yes
+no
+%------------------------------------------------------------ 14 projog_clp_clp7
+?- [X,Y] ins 1..2, repeat(2), X#=Y, label([X])
+error(existence_error(procedure,repeat/1))
+?- repeat(2), X in 1..3, \+ integer(X), label([X])
+error(existence_error(procedure,repeat/1))
+?- X in 1..3, repeat(2), \+ integer(X), label([X])
+error(existence_error(procedure,repeat/1))
+?- X in 1..3, p(Y), label([X]), Z is X*Y
+X = 1
+Y = 7
+Z = 7
+yes
+X = 2
+Y = 7
+Z = 14
+yes
+X = 3
+Y = 7
+Z = 21
+yes
+X = 1
+Y = 8
+Z = 8
+yes
+X = 2
+Y = 8
+Z = 16
+yes
+X = 3
+Y = 8
+Z = 24
+yes
+X = 1
+Y = 9
+Z = 9
+yes
+X = 2
+Y = 9
+Z = 18
+yes
+X = 3
+Y = 9
+Z = 27
+yes
+no
+?- p(Y), X in 1..3, label([X]), Z is X*Y
+Y = 7
+X = 1
+Z = 7
+yes
+Y = 7
+X = 2
+Z = 14
+yes
+Y = 7
+X = 3
+Z = 21
+yes
+Y = 8
+X = 1
+Z = 8
+yes
+Y = 8
+X = 2
+Z = 16
+yes
+Y = 8
+X = 3
+Z = 24
+yes
+Y = 9
+X = 1
+Z = 9
+yes
+Y = 9
+X = 2
+Z = 18
+yes
+Y = 9
+X = 3
+Z = 27
+yes
+no
+%------------------------------------------------------------ 15 projog_clp_clp8
+?- X in 1..3, label([X]), integer(X)
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+?- X in 1..3, \+ integer(X), label([X]), integer(X)
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+?- X in 1..3, X=1, integer(X)
+X = 1
+yes
+no
+?- X in 1..3, 1=X, integer(X)
+X = 1
+yes
+no
+?- X in 1..3, X#=1, integer(X)
+X = 1
+yes
+no
+?- X in 1..3, 1#=X, integer(X)
+X = 1
+yes
+no
+?- X in 0..3, Y#=X+2, 1=X, integer(X), integer(Y)
+X = 1
+Y = 3
+yes
+no
+?- X in 0..3, Y#=X+2, X=1, integer(X), integer(Y)
+X = 1
+Y = 3
+yes
+no
+?- X in 0..3, Y#=X+2, X#=1, integer(X), integer(Y)
+X = 1
+Y = 3
+yes
+no
+?- X in 0..3, Y#=X+2, 1=X, integer(X), integer(Y)
+X = 1
+Y = 3
+yes
+no
+?- X in 0..3, Y#=X+2, 1#=X, integer(X), integer(Y)
+X = 1
+Y = 3
+yes
+no
+%------------------------------------------------------------ 16 projog_clp_clp9
+?- X in -1..1
+X = _13010
+yes
+no
+?- X in -1..1, X#\=0
+X = _13304
+yes
+no
+?- X in -1..1, X#\=1
+X = _13304
+yes
+no
+?- X in -1..1, X#>0
+X = 1
+yes
+no
+?- X in -1..1, X#<0
+X = -1
+yes
+no
+?- X in 9223372036854775805..9223372036854775807
+X = _13316
+yes
+no
+?- X in 9223372036854775805..9223372036854775807, X#\=9223372036854775805
+X = _13334
+yes
+no
+?- X in 9223372036854775805..9223372036854775807, X#\=9223372036854775806
+X = _13334
+yes
+no
+?- X in 9223372036854775805..9223372036854775807, X#\=9223372036854775807
+X = _13334
+yes
+no
+?- X in 9223372036854775805..9223372036854775807, X#>9223372036854775806
+X = 9223372036854775807
+yes
+no
+?- X in 9223372036854775805..9223372036854775807, X#<9223372036854775806
+X = 9223372036854775805
+yes
+no
+%---------------------------------------------------- 17 projog_clp_clp_CopyTerm
+?- X#=5, copy_term(X,Y)
+X = 5
+Y = 5
+yes
+no
+?- X#=5, copy_term(f(X),Y)
+X = 5
+Y = f(5)
+yes
+no
+?- X#>5, copy_term(X,Y)
+X = _7656
+Y = _7732
+yes
+no
+?- X#>5, copy_term(f(X),Y)
+X = _7998
+Y = f(_8048)
+yes
+no
+%------------------------------------------------------- 18 projog_clp_clp_Equal
+?- [X,Y] ins 1..3, X=Y
+X = _7620
+Y = _7620
+yes
+no
+?- [X,Y] ins 1..3, X=Y, Y=2
+X = 2
+Y = 2
+yes
+no
+?- X in 1..4, Y in 2..5, X=Y
+X = _7988
+Y = _7988
+yes
+no
+?- X#=2, Y in 1..3, X=Y
+X = 2
+Y = 2
+yes
+no
+?- X in 12..18, Y in 13..22, X#\=14, Y#\=16, X=Y
+X = _8012
+Y = _8012
+yes
+no
+?- X in 1..4, Y=2, X=Y
+X = 2
+Y = 2
+yes
+no
+?- X in 1..4, f(X)=f(X)
+X = _7922
+yes
+no
+?- X in 1..4, Y in 2..5, f(X)=f(Y)
+X = _7996
+Y = _7996
+yes
+no
+?- X in 1..5, Y in 4..9, f(X)=f(4), X=Y
+X = 4
+Y = 4
+yes
+no
+?- X in 1..4, Y in 4..7, f(X)=f(2), f(5)=f(Y)
+X = 2
+Y = 5
+yes
+no
+%------------------------------------------- 19 projog_clp_clp_NotStrictEquality
+?- [X,Y] ins 1..3, X\==Y
+X = _7620
+Y = _7742
+yes
+no
+?- X in 1..3, X#=Y, X\==Y
+no
+?- X#=Y, X in 1..3, X\==Y
+no
+?- X in 1..3, 2\==X
+X = _7914
+yes
+no
+?- X in 1..3, X\==2
+X = _7914
+yes
+no
+?- X #=1, 2\==X
+X = 1
+yes
+no
+?- X #=1, X\==2
+X = 1
+yes
+no
+?- X\==1, X #=1
+X = 1
+yes
+no
+%------------------------------------------------ 20 projog_clp_clp_NotUnifiable
+?- X in 7..9, X\=6
+X = _7612
+yes
+no
+?- X in 7..9, 10\=X
+X = _7906
+yes
+no
+?- X in 7..9, Y in 10..12, X\=Y
+X = _7980
+Y = _8130
+yes
+no
+%---------------------------------------------- 21 projog_clp_clp_StrictEquality
+?- [X,Y] ins 1..3, X=Y, X==Y
+X = _7632
+Y = _7632
+yes
+no
+?- X in 1..3, X=Y, X==Y
+X = _7964
+Y = _7964
+yes
+no
+?- X=Y, X in 1..3, X==Y
+X = _7964
+Y = _7964
+yes
+no
+?- X#=1, 1==X
+X = 1
+yes
+no
+?- X#=1, X==1
+X = 1
+yes
+no
+%------------------------------------------------------ 22 projog_clp_set_square
+?- set_square(A,B,C,D,E,F,G,H,I)
+A = 3
+B = 6
+C = 8
+D = 2
+E = 9
+F = 7
+G = 5
+H = 4
+I = 1
+yes
+no
+%---------------------------------------------------------- 23 projog_clp_sudoku
+?- sudoku(X)
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,6,4,2,9,7,8,5,3,1,9,7,8,5,3,1,6,4,2]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,6,4,8,9,7,1,5,3,2,9,7,2,5,3,8,6,4,1]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,6,7,2,9,3,8,5,4,1,9,4,8,5,7,1,6,3,2]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,6,7,8,9,3,1,5,4,2,9,4,2,5,7,8,6,3,1]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,9,4,2,5,7,8,6,3,1,6,7,8,9,3,1,5,4,2]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,9,4,8,5,7,1,6,3,2,6,7,2,9,3,8,5,4,1]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,9,7,2,5,3,8,6,4,1,6,4,8,9,7,1,5,3,2]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,2,9,7,8,9,7,8,5,3,1,6,4,2,6,4,2,9,7,8,5,3,1]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,8,9,7,2,6,4,2,9,7,1,5,3,8,9,7,8,5,3,2,6,4,1]
+yes
+X = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,1,4,3,6,5,8,9,7,3,6,5,8,9,7,2,1,4,8,9,7,2,1,4,3,6,5,5,3,1,6,4,8,9,7,2,6,4,8,9,7,2,5,3,1,9,7,2,5,3,1,6,4,8]
+yes
+?- data(X), sudoku(X)
+X = [9,3,6,8,4,7,1,2,5,5,7,4,2,1,3,9,8,6,2,8,1,6,5,9,7,4,3,6,9,3,4,7,1,8,5,2,8,2,7,9,6,5,3,1,4,1,4,5,3,8,2,6,7,9,7,6,2,1,9,4,5,3,8,3,1,8,5,2,6,4,9,7,4,5,9,7,3,8,2,6,1]
+yes
+X = [3,2,5,6,7,1,9,4,8,4,1,8,3,5,9,6,2,7,7,9,6,8,2,4,1,5,3,1,6,9,4,3,7,2,8,5,2,7,4,9,8,5,3,1,6,5,8,3,1,6,2,7,9,4,6,5,1,7,9,8,4,3,2,8,4,7,2,1,3,5,6,9,9,3,2,5,4,6,8,7,1]
+yes
+X = [6,9,3,8,7,4,2,1,5,8,1,4,2,9,5,6,3,7,5,7,2,1,3,6,4,9,8,1,3,8,6,2,9,5,7,4,7,4,6,5,1,3,9,8,2,2,5,9,7,4,8,3,6,1,9,8,5,4,6,7,1,2,3,4,6,1,3,8,2,7,5,9,3,2,7,9,5,1,8,4,6]
+yes
+no
+%-------------------------------------------- 24 projog_concepts_getting_started
+?- write('hello, world'), nl
+hello, world
+yes
+no
+?- message(X, Y)
+error(existence_error(procedure,message/2))
+?- message(hello, Y)
+error(existence_error(procedure,message/2))
+?- W=X, X=1+1, Y is W, Z is -W
+W = 1+1
+X = 1+1
+Y = 2
+Z = -2
+yes
+no
+?- listing(hanoi)
+error(existence_error(procedure,hanoi))
+?- hanoi(2)
+error(existence_error(procedure,hanoi/1))
+%------------------------------------------ 25 projog_concepts_prolog_arithmetic
+?- X is 45345
+X = 45345
+yes
+no
+?- X is -876878
+X = -876878
+yes
+no
+?- X is 2+1
+X = 3
+yes
+no
+?- X is 12-5
+X = 7
+yes
+no
+?- X is 6*7
+X = 42
+yes
+no
+?- X is 6/2
+X = 3
+yes
+no
+?- X is 6//2
+X = 3
+yes
+no
+?- X is 7/2
+X = 3.5
+yes
+no
+?- X is 7//2
+X = 3
+yes
+no
+?- X is 7 * 4 // 2
+X = 14
+yes
+no
+?- X is 5 mod 3
+X = 2
+yes
+no
+?- X is 2147483647 + 1
+X = 2147483648
+yes
+no
+?- X is -2147483648 - 1
+X = -2147483649
+yes
+no
+?- X is 9223372036854775807
+X = 9223372036854775807
+yes
+no
+?- X is 9223372036854775806 + 1
+X = 9223372036854775807
+yes
+no
+?- X is 9223372036854775806 + 2
+X = 9223372036854775808
+yes
+no
+?- X is -9223372036854775808
+X = -9223372036854775808
+yes
+no
+?- X is -9223372036854775807 - 1
+X = -9223372036854775808
+yes
+no
+?- X is -9223372036854775807 - 2
+X = -9223372036854775809
+yes
+no
+?- X is 1+2*3
+X = 7
+yes
+no
+?- X is 2*3+1
+X = 7
+yes
+no
+?- X is (1+2)*3
+X = 9
+yes
+no
+?- X is 2*(3+1)
+X = 8
+yes
+no
+?- X is -(4+6)
+X = -10
+yes
+no
+?- X is 1 + Y
+error(instantiation_error)
+?- Y = 4, X is 1 + Y
+Y = 4
+X = 5
+yes
+no
+?- Y = 6-2, X is 1 + Y
+Y = 6-2
+X = 5
+yes
+no
+?- Y = 2*4, X is -Y
+Y = 2*4
+X = -8
+yes
+no
+?- X is 1.3 + 1.2
+X = 2.5
+yes
+no
+?- X is 1.3 + 1
+X = 2.3
+yes
+no
+?- X is 1 + 1.2
+X = 2.2
+yes
+no
+?- X is 3.5 - 1.25
+X = 2.25
+yes
+no
+?- X is 3.5 - 1
+X = 2.5
+yes
+no
+?- X is 3 - 1.25
+X = 1.75
+yes
+no
+?- X is -9.6
+X = -9.6
+yes
+no
+?- Y = 9.6, X is -Y
+Y = 9.6
+X = -9.6
+yes
+no
+?- X is 6.3 * 2.75
+X = 17.325
+yes
+no
+?- X is 6.3 * 2
+X = 12.6
+yes
+no
+?- X is 6 * 2.75
+X = 16.5
+yes
+no
+?- X is 8.5 / 2.5
+X = 3.4
+yes
+no
+?- X is 8.5 / 2
+X = 4.25
+yes
+no
+?- X is 8 / 2.5
+X = 3.2
+yes
+no
+?- X is 5 mod 2
+X = 1
+yes
+no
+?- X is 5 mod -2
+X = -1
+yes
+no
+?- X is -5 mod -2
+X = -1
+yes
+no
+?- X is -5 mod 2
+X = 1
+yes
+no
+?- X is 5 rem 2
+X = 1
+yes
+no
+?- X is 5 rem -2
+X = 1
+yes
+no
+?- X is -5 rem -2
+X = -1
+yes
+no
+?- X is -5 rem 2
+X = -1
+yes
+no
+?- X is 2 mod -5
+X = -3
+yes
+no
+?- X is 2 rem -5
+X = 2
+yes
+no
+%------------------------------------------- 26 projog_concepts_prolog_debugging
+?- p(X)
+X = a
+yes
+X = b
+yes
+X = c
+yes
+no
+?- p(d)
+no
+?- p(X)
+X = a
+yes
+X = b
+yes
+X = c
+yes
+no
+?- debugging
+yes
+no
+?- p(X)
+X = a
+yes
+X = b
+yes
+X = c
+yes
+no
+?- p(d)
+no
+?- debugging
+yes
+no
+?- debugging
+yes
+no
+?- spy(1)
+error(type_error(predicate_indicator,1))
+%---------------------------------------- 27 projog_concepts_prolog_introduction
+?- father(homer,C)
+C = bart
+yes
+C = lisa
+yes
+C = maggie
+yes
+no
+?- father(ned,C)
+C = rod
+yes
+C = todd
+yes
+no
+?- father(F,C)
+F = homer
+C = bart
+yes
+F = homer
+C = lisa
+yes
+F = homer
+C = maggie
+yes
+F = ned
+C = rod
+yes
+F = ned
+C = todd
+yes
+no
+?- parents(homer,marge,C)
+C = bart
+yes
+C = lisa
+yes
+C = maggie
+yes
+no
+?- brother(lisa,X)
+X = bart
+yes
+no
+?- brother(bart,X)
+X = bart
+yes
+no
+%----------------------------------------------- 28 projog_concepts_prolog_lists
+?- list_member(X, [a,b,c])
+X = a
+yes
+X = b
+yes
+X = c
+yes
+no
+?- list_member(a,[a,a,a])
+yes
+yes
+yes
+no
+?- prefix(X, [a,b,c,d,e,f])
+X = []
+yes
+X = [a]
+yes
+X = [a,b]
+yes
+X = [a,b,c]
+yes
+X = [a,b,c,d]
+yes
+X = [a,b,c,d,e]
+yes
+X = [a,b,c,d,e,f]
+yes
+no
+?- prefix([X,b],[a,b,c])
+X = a
+yes
+no
+?- suffix(X, [a,b,c,d,e,f])
+X = [a,b,c,d,e,f]
+yes
+X = [b,c,d,e,f]
+yes
+X = [c,d,e,f]
+yes
+X = [d,e,f]
+yes
+X = [e,f]
+yes
+X = [f]
+yes
+X = []
+yes
+no
+?- suffix([X,c],[a,b,c])
+X = b
+yes
+no
+?- sublist([b,X,d],[a,b,c,Y,e,f])
+X = c
+Y = d
+yes
+no
+?- append_to_list([a,X,c],[d,e,Y],[a,b,c,Z,e,f])
+X = b
+Y = f
+Z = d
+yes
+no
+?- append_to_list([a,X,c],[Y,e(X,Y),f],[a,b,c,d,Z,f])
+X = b
+Y = d
+Z = e(b,d)
+yes
+no
+?- append_to_list([a,b,c],[d,e,f],X)
+X = [a,b,c,d,e,f]
+yes
+no
+?- append_to_list([a,b,c],X,[a,b,c,d,e,f])
+X = [d,e,f]
+yes
+no
+?- append_to_list(X,[d,e,f],[a,b,c,d,e,f])
+X = [a,b,c]
+yes
+no
+?- reverse_list([a,b,c,X,e,Y],[f,Z,d,c,b,a])
+X = d
+Y = f
+Z = e
+yes
+no
+?- reverse_list([a,b,c,d,e,f],X)
+X = [f,e,d,c,b,a]
+yes
+no
+?- reverse_list([a,b,c,[1,2,3]],X)
+X = [[1,2,3],c,b,a]
+yes
+no
+?- adjacent(b,X,[a,b,c,d,e,f])
+X = c
+yes
+no
+?- adjacent(X,e,[a,b,c,d,e,f])
+X = d
+yes
+no
+?- adjacent(X,Y,[a,b,c,d,e,f])
+X = a
+Y = b
+yes
+X = b
+Y = c
+yes
+X = c
+Y = d
+yes
+X = d
+Y = e
+yes
+X = e
+Y = f
+yes
+no
+?- last_element(X,[a,b,c,d,e,f])
+X = f
+yes
+no
+?- last_element(f,[a,b,c,d,e,X])
+X = f
+yes
+no
+?- list_length([],X)
+X = 0
+yes
+no
+?- list_length([a],X)
+X = 1
+yes
+no
+?- list_length([a,b],X)
+X = 2
+yes
+no
+?- list_length([a,b,c,d,e,f],X)
+X = 6
+yes
+no
+?- delete_from_list([a,z,c],y,X)
+X = [a,z,c]
+yes
+no
+?- delete_from_list([z,a,z,z,b,c,z,d,e,f,z],X,[a,b,c,d,e,f])
+X = z
+yes
+no
+?- select_from_list(z,[z,a,z,z,b,c,z,d,e,f,z],X)
+X = [a,z,z,b,c,z,d,e,f,z]
+yes
+X = [z,a,z,b,c,z,d,e,f,z]
+yes
+X = [z,a,z,b,c,z,d,e,f,z]
+yes
+X = [z,a,z,z,b,c,d,e,f,z]
+yes
+X = [z,a,z,z,b,c,z,d,e,f]
+yes
+no
+?- permutation([a,b],X)
+X = [a,b]
+yes
+X = [b,a]
+yes
+no
+?- permutation([a,b,c],X)
+X = [a,b,c]
+yes
+X = [a,c,b]
+yes
+X = [b,a,c]
+yes
+X = [b,c,a]
+yes
+X = [c,a,b]
+yes
+X = [c,b,a]
+yes
+no
+?- permutation([q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m],[a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,Z])
+Z = z
+yes
+no
+%------------------------------------- 29 projog_concepts_prolog_term_comparison
+?- X @< 2
+X = _3836
+yes
+no
+?- X @=< 2
+X = _3836
+yes
+no
+?- 2 @> X
+X = _3838
+yes
+no
+?- 2 @>= X
+X = _3838
+yes
+no
+?- X @< atom
+X = _3836
+yes
+no
+?- X @=< atom
+X = _3836
+yes
+no
+?- atom @> X
+X = _3838
+yes
+no
+?- atom @>= X
+X = _3838
+yes
+no
+?- X @< structure(a,b,c)
+X = _3836
+yes
+no
+?- X @=< structure(a,b,c)
+X = _3836
+yes
+no
+?- structure(a,b,c) @> X
+X = _3838
+yes
+no
+?- structure(a,b,c) @>= X
+X = _3838
+yes
+no
+%----------------------------------------- 30 projog_concepts_prolog_unification
+?- X=atom1, X=atom1
+X = atom1
+yes
+no
+?- X=atom1, Y=atom1, X=Y
+X = atom1
+Y = atom1
+yes
+no
+?- X=atom1, X=Y
+X = atom1
+Y = atom1
+yes
+no
+?- structure1(atom1,X,atom3)=structure1(atom1,atom2,Y)
+X = atom2
+Y = atom3
+yes
+no
+?- [atom1,atom2,atom3]=[X,Y,Z]
+X = atom1
+Y = atom2
+Z = atom3
+yes
+no
+?- [atom1]=[X|Y]
+X = atom1
+Y = []
+yes
+no
+?- [atom1,atom2,atom3]=[X,Y|Z]
+X = atom1
+Y = atom2
+Z = [atom3]
+yes
+no
+?- [X|Y]=[atom1,atom2,atom3]
+X = atom1
+Y = [atom2,atom3]
+yes
+no
+?- [atom1,atom2]=[atom1|X]
+X = [atom2]
+yes
+no
+?- [atom1|Y]=[X|atom2]
+Y = atom2
+X = atom1
+yes
+no
+?- [[atom1,Y]|Z]=[[X,atom2],[atom3,atom4]]
+Y = atom2
+Z = [[atom3,atom4]]
+X = atom1
+yes
+no
+?- A=atom1, B=atom2, C=atom3, D=[A,B,C]
+A = atom1
+B = atom2
+C = atom3
+D = [atom1,atom2,atom3]
+yes
+no
+%---------------------------------------------------- 31 projog_miscellaneous_10
+?- qwerty1([a,B,c], [A,b(A,x),c])
+B = b(a,x)
+A = a
+yes
+no
+?- qwerty2([a,B,c], [A,b(A,x),c])
+B = b(a,x)
+A = a
+yes
+no
+?- qwerty3([a,B,c], [A,b(A,x),c])
+B = b(a,x)
+A = a
+yes
+no
+?- L1=[a,B,c], L2=[A,b(A,x),c], L1=[_,b(T,x),_], L1=L2
+L1 = [a,b(a,x),c]
+B = b(a,x)
+L2 = [a,b(a,x),c]
+A = a
+T = a
+yes
+no
+?- qwerty4(p(a,B,c), p(A,b(A,x),c))
+B = b(a,x)
+A = a
+yes
+no
+?- P1=p(a,B,c), P2=p(A,b(A,x),c), P1=p(_,b(T,x),_), P1=P2
+P1 = p(a,b(a,x),c)
+B = b(a,x)
+P2 = p(a,b(a,x),c)
+A = a
+T = a
+yes
+no
+?- qwerty5([a,B,c], [A,b(A,x),c])
+B = b(a,x)
+A = a
+yes
+no
+%---------------------------------------------------- 32 projog_miscellaneous_11
+?- t1(W,p(Z))
+W = 2
+Z = 1
+yes
+W = 2
+Z = 3
+yes
+no
+?- t2(W,Z)
+W = 2
+Z = 1
+yes
+W = 2
+Z = 3
+yes
+no
+?- t3(W,Z)
+W = 2
+Z = 1
+yes
+W = 2
+Z = 3
+yes
+no
+?- t4(p(Z),W)
+Z = 1
+W = 2
+yes
+Z = 3
+W = 2
+yes
+no
+?- t5(Z,W)
+Z = 1
+W = 2
+yes
+Z = 3
+W = 2
+yes
+no
+?- t6(Z,W)
+Z = 1
+W = 2
+yes
+Z = 3
+W = 2
+yes
+no
+?- t7(p(Z),W)
+Z = 1
+W = 2
+yes
+no
+%---------------------------------------------------- 33 projog_miscellaneous_12
+?- x1(X,Y)
+X = 1
+Y = 2
+yes
+no
+?- x2(X,X)
+X = 1
+yes
+no
+?- x4(X,Y)
+X = 1
+Y = 1
+yes
+no
+?- x4(X,X)
+X = 1
+yes
+no
+?- X=Y, x2(X,Y)
+X = 1
+Y = 1
+yes
+no
+?- Y=X, x2(X,Y)
+Y = 1
+X = 1
+yes
+no
+?- x5(X,Y)
+X = 1
+Y = 1
+yes
+X = 2
+Y = 2
+yes
+X = 3
+Y = 3
+yes
+no
+?- x5(X,X)
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+?- x6(X,Y)
+X = 1
+Y = 1
+yes
+X = 2
+Y = 2
+yes
+X = 3
+Y = 3
+yes
+no
+?- x6(X,X)
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+%---------------------------------------------------- 34 projog_miscellaneous_13
+?- x(Z,Z)
+Z = 1
+yes
+Z = 2
+yes
+Z = 3
+yes
+no
+?- x(A,B)
+A = 1
+B = 1
+yes
+A = 1
+B = 2
+yes
+A = 1
+B = 3
+yes
+A = 2
+B = 1
+yes
+A = 2
+B = 2
+yes
+A = 2
+B = 3
+yes
+A = 3
+B = 1
+yes
+A = 3
+B = 2
+yes
+A = 3
+B = 3
+yes
+no
+?- x(_,_)
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+no
+?- qwerty
+yes
+yes
+yes
+no
+%---------------------------------------------------- 35 projog_miscellaneous_14
+?- qwerty(X,Y)
+X = 1
+Y = 1
+yes
+X = 2
+Y = 2
+yes
+X = 3
+Y = 3
+yes
+no
+%---------------------------------------------------- 36 projog_miscellaneous_15
+?- append1([X],[p(X)],[a,Y])
+X = a
+Y = p(a)
+yes
+no
+%---------------------------------------------------- 37 projog_miscellaneous_16
+?- test1(W,1)
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+no
+?- test1(2,W)
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+no
+?- test2(W,1)
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+no
+?- test2(2,W)
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+no
+?- test3(W,1)
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+no
+?- test3(2,W)
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+no
+?- test4(W,1)
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+no
+?- test4(2,W)
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+no
+?- test5(W,1)
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+no
+?- test5(2,W)
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+no
+?- test6(W,1)
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+W = 1
+yes
+no
+?- test6(2,W)
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+W = 2
+yes
+no
+?- test1(W,Z)
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+?- test2(W,Z)
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+?- test3(W,Z)
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+?- test4(W,Z)
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+?- test5(W,Z)
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+?- test6(W,Z)
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+W = 2
+Z = 2
+yes
+W = 3
+Z = 3
+yes
+W = 1
+Z = 1
+yes
+%---------------------------------------------------- 38 projog_miscellaneous_17
+?- test1(p(X), X)
+X = 3
+yes
+X = 2
+yes
+no
+?- test3(X, Y)
+X = 1
+Y = 1
+yes
+X = 9
+Y = 1
+yes
+X = 1
+Y = 2
+yes
+X = 9
+Y = 2
+yes
+X = 1
+Y = 3
+yes
+X = 9
+Y = 3
+yes
+no
+%---------------------------------------------------- 39 projog_miscellaneous_18
+?- test(X)
+X = 1
+yes
+X = 4
+yes
+X = 9
+yes
+X = 16
+yes
+X = 25
+yes
+no
+%----------------------------------------------------- 40 projog_miscellaneous_2
+?- father(C,F)
+C = harry
+F = tom
+yes
+C = john
+F = fred
+yes
+C = mary
+F = fred
+yes
+no
+?- parent(C,M,F)
+C = john
+M = ann
+F = fred
+yes
+C = mary
+M = ann
+F = fred
+yes
+C = harry
+M = jane
+F = tom
+yes
+no
+%---------------------------------------------------- 41 projog_miscellaneous_20
+?- test4(a)
+yes
+yes
+no
+%---------------------------------------------------- 42 projog_miscellaneous_21
+?- test1(X,X)
+X = _3836
+yes
+no
+?- test1(X,Y)
+X = _3836
+Y = _3836
+yes
+no
+?- test1(X,1)
+X = 1
+yes
+no
+?- test1(a,X)
+X = a
+yes
+no
+?- test2(X,Y)
+X = 1
+Y = 1
+yes
+X = 1
+Y = 2
+yes
+X = 1
+Y = 3
+yes
+X = 2
+Y = 1
+yes
+X = 2
+Y = 2
+yes
+X = 2
+Y = 3
+yes
+X = 3
+Y = 1
+yes
+X = 3
+Y = 2
+yes
+X = 3
+Y = 3
+yes
+no
+?- test2(X,X)
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+?- test2(1,Y)
+Y = 1
+yes
+Y = 2
+yes
+Y = 3
+yes
+no
+?- test3(X,Y)
+X = 1
+Y = 1
+yes
+X = 2
+Y = 2
+yes
+X = 3
+Y = 3
+yes
+no
+?- test3(1,Y)
+Y = 1
+yes
+no
+?- test4(1,Y)
+Y = 1
+yes
+no
+?- test4(Y,1)
+Y = 1
+yes
+no
+?- test4(X,Y)
+X = 1
+Y = 1
+yes
+no
+?- test5(1,Y)
+Y = 1
+yes
+no
+?- test5(Y,1)
+Y = 1
+yes
+no
+?- test5(X,Y)
+X = 1
+Y = 1
+yes
+no
+%---------------------------------------------------- 43 projog_miscellaneous_22
+?- lastquery(X,Y,Z)
+X = 1
+Y = 1
+Z = 2
+yes
+X = 10
+Y = 1
+Z = 11
+yes
+X = 100
+Y = 1
+Z = 101
+yes
+no
+?- test1(X)
+X = 2
+yes
+X = 11
+yes
+X = 101
+yes
+no
+%---------------------------------------------------- 44 projog_miscellaneous_23
+?- p([A,B,e])
+A = q
+B = w
+yes
+no
+?- p([A,B,C])
+A = a
+B = b
+C = c
+yes
+A = q
+B = w
+C = e
+yes
+A = x
+B = y
+C = x
+yes
+no
+%---------------------------------------------------- 45 projog_miscellaneous_24
+?- p(z, X)
+X = z
+yes
+X = z
+yes
+X = z
+yes
+no
+%---------------------------------------------------- 46 projog_miscellaneous_25
+?- p2([a,b,c],[X,Y,Z])
+X = a
+Y = b
+Z = c
+yes
+X = q
+Y = w
+Z = e
+yes
+no
+%---------------------------------------------------- 47 projog_miscellaneous_26
+?- x(A)
+A = p(1)
+yes
+A = p(2)
+yes
+A = p(3)
+yes
+no
+%---------------------------------------------------- 48 projog_miscellaneous_28
+?- testE(X)
+X = 3
+yes
+X = 4
+yes
+no
+?- testM1(A,B,C,E)
+A = 1
+B = 2
+C = 3
+E = x
+yes
+A = a
+B = b
+C = c
+E = x
+yes
+A = x
+B = y
+C = x
+E = x
+yes
+no
+?- testM2(A,B,C,E)
+A = a
+B = b
+C = c
+E = x
+yes
+no
+%---------------------------------------------------- 49 projog_miscellaneous_29
+?- test1(Q), !
+Q = [q,w,e,r,t,y,a,b,c]
+yes
+?- test2(Q), !
+Q = [a,b,c,a,b,c]
+yes
+%----------------------------------------------------- 50 projog_miscellaneous_3
+?- a(X,Y)
+X = q
+Y = e
+yes
+X = r
+Y = e
+yes
+no
+%---------------------------------------------------- 51 projog_miscellaneous_30
+?- Term=f(i(k(c))), is_edge(Term, Edge)
+Term = f(i(k(c)))
+Edge = f-i
+yes
+Term = f(i(k(c)))
+Edge = i-k
+yes
+Term = f(i(k(c)))
+Edge = k-c
+yes
+no
+?- is_edge(f(g(a),h(b),i(k(c))), Edge)
+Edge = f-g
+yes
+Edge = g-a
+yes
+Edge = f-h
+yes
+Edge = h-b
+yes
+Edge = f-i
+yes
+Edge = i-k
+yes
+Edge = k-c
+yes
+no
+%---------------------------------------------------- 52 projog_miscellaneous_31
+?- a
+error(existence_error(procedure,repeat/1))
+?- b
+error(existence_error(procedure,repeat/1))
+%---------------------------------------------------- 53 projog_miscellaneous_32
+?- writeAndRepeat(0)
+0
+yes
+no
+?- writeAndRepeat(1)
+1
+yes
+no
+?- writeAndRepeat(3)
+3
+yes
+2
+yes
+1
+yes
+no
+%---------------------------------------------------- 54 projog_miscellaneous_33
+?- b(5,A)
+A = 10
+yes
+A = 0
+yes
+A = 25
+yes
+A = 1
+yes
+no
+?- b(26//4-1,A)
+A = 10
+yes
+A = 0
+yes
+A = 25
+yes
+A = 1
+yes
+no
+?- b(5.5,A)
+A = 11.0
+yes
+A = 0.0
+yes
+A = 30.25
+yes
+A = 1.0
+yes
+no
+?- b(-(3*7.5),A)
+A = -45.0
+yes
+A = 0.0
+yes
+A = 506.25
+yes
+A = 1.0
+yes
+no
+?- a(9,3,A)
+A = 12
+yes
+A = 6
+yes
+A = 27
+yes
+A = 3
+yes
+no
+?- a(10,2.5,A)
+A = 12.5
+yes
+A = 7.5
+yes
+A = 25.0
+yes
+A = 4.0
+yes
+no
+?- a(25.5,12,A)
+A = 37.5
+yes
+A = 13.5
+yes
+A = 306.0
+yes
+A = 2.125
+yes
+no
+%---------------------------------------------------- 55 projog_miscellaneous_35
+?- or(true, true)
+yes
+yes
+no
+?- X=true, X
+X = true
+yes
+no
+?- true(repeat(3))
+error(existence_error(procedure,repeat/1))
+%---------------------------------------------------- 56 projog_miscellaneous_36
+?- x(25, 7, X)
+X = 4
+yes
+X = 4
+yes
+no
+?- x(25, -7, X)
+X = -3
+yes
+X = 4
+yes
+no
+?- x(-25, 7, X)
+X = 3
+yes
+X = -4
+yes
+no
+?- x(-25, -7, X)
+X = -4
+yes
+X = -4
+yes
+no
+%---------------------------------------------------- 57 projog_miscellaneous_37
+?- X = ~(1,2)
+X = ~(1,2)
+yes
+no
+?- X = +(1,2)
+X = 1+2
+yes
+no
+?- X = +(1+2)
+X = + (1+2)
+yes
+no
+?- X = 1+(1+2)
+X = 1+(1+2)
+yes
+no
+%---------------------------------------------------- 58 projog_miscellaneous_38
+?- e(X, Y, 1)
+X = 9223372036854775807
+Y = 9223372036854775808
+yes
+X = -9223372036854775808
+Y = -9223372036854775807
+yes
+no
+?- e(X, Y, -1)
+X = 9223372036854775807
+Y = 9223372036854775806
+yes
+X = -9223372036854775808
+Y = -9223372036854775809
+yes
+no
+%---------------------------------------------------- 59 projog_miscellaneous_39
+?- open('target/39test.pl', write, Z), set_output(Z), write('?- asserta(test).'), close(Z)
+error(existence_error(source_sink,target/39test.pl))
+?- consult('target/39test')
+error(existence_error(source_sink,target/39test))
+?- test
+error(existence_error(procedure,test/0))
+?- test
+error(existence_error(procedure,test/0))
+?- ensure_loaded('target/doesntexist')
+error(existence_error(source_sink,target/doesntexist))
+?- ensure_loaded('target/39test.pro')
+error(existence_error(source_sink,target/39test.pro))
+%----------------------------------------------------- 60 projog_miscellaneous_4
+?- hgjhghj(X)
+X = agh
+yes
+X = aghsew
+yes
+no
+%---------------------------------------------------- 61 projog_miscellaneous_40
+?- x([[x,y,z],b,c,d])
+1 x [y,z] [b,c,d]yes
+3 x [y,z] [b,c,d]yes
+no
+%---------------------------------------------------- 62 projog_miscellaneous_41
+?- x([a,b,c], Y)
+Y = c
+yes
+no
+?- x([a,b,c], c)
+yes
+no
+%---------------------------------------------------- 63 projog_miscellaneous_42
+?- x([[a,b,c],[q,w,e,r,t,y],[x,y,z]])
+a [b,c]
+q [w,e,r,t,y]
+x [y,z]
+yes
+no
+%---------------------------------------------------- 64 projog_miscellaneous_43
+?- x([a,b,c], X)
+X = [a,b,c]
+yes
+X = [b,c]
+yes
+X = [c]
+yes
+X = []
+yes
+no
+?- x(a, X)
+X = a
+yes
+no
+%---------------------------------------------------- 65 projog_miscellaneous_44
+?- x(1,5,Z)
+Z = 6
+yes
+Z = 8
+yes
+Z = 7
+yes
+Z = 8
+yes
+Z = 9
+yes
+no
+?- y(1,5,Z)
+Z = 6
+yes
+Z = 8
+yes
+no
+%---------------------------------------------------- 66 projog_miscellaneous_45
+?- x(repeat(3))
+error(existence_error(procedure,repeat/1))
+%---------------------------------------------------- 67 projog_miscellaneous_46
+?- x(W)
+W = [a|_6158]
+yes
+W = [_6156|b]
+yes
+W = [a|b]
+yes
+W = [_6162/_6164|_6158]
+yes
+W = [_6156|p(_6162,_6164)]
+yes
+no
+%---------------------------------------------------- 68 projog_miscellaneous_47
+?- x(a,L)
+L = [a|_3914]
+yes
+L = [_3912|a]
+yes
+L = [a|a]
+yes
+no
+?- x(a,[X,b])
+X = a
+yes
+no
+?- x(X,[a|a])
+X = a
+yes
+X = a
+yes
+X = a
+yes
+no
+%---------------------------------------------------- 69 projog_miscellaneous_48
+?- x([a,b], X)
+X = [a,b]
+yes
+no
+?- y([a,b], X)
+X = [a,b]
+yes
+no
+%---------------------------------------------------- 70 projog_miscellaneous_49
+?- x([a,b,q(a,b),c,d,e])
+yes
+no
+?- y([a,b,q(a,5),c,d,e], [a,b,q(a,4),c,d,e])
+yes
+no
+?- y([a,b,q(a,5),c,d,e], [a,b,q(a,X),c,d,e])
+X = 4
+yes
+no
+%----------------------------------------------------- 71 projog_miscellaneous_5
+?- test1([a,b,c],[X,Y,Z])
+X = a
+Y = b
+Z = c
+yes
+X = q
+Y = w
+Z = e
+yes
+no
+%---------------------------------------------------- 72 projog_miscellaneous_50
+?- x(2,Y)
+Y = 2.5
+yes
+Y = 1.5
+yes
+Y = 1.0
+yes
+Y = 4.0
+yes
+Y = 2.25
+yes
+Y = 27
+yes
+Y = 4
+yes
+Y = 1.0
+yes
+Y = 2.5
+yes
+Y = 3.0
+yes
+?- x(2.0,Y)
+Y = 2.5
+yes
+Y = 1.5
+yes
+Y = 1.0
+yes
+Y = 4.0
+yes
+Y = 2.25
+yes
+Y = 27.0
+yes
+Y = 4.0
+yes
+Y = 1.0
+yes
+Y = 2.5
+yes
+Y = 3.0
+yes
+%---------------------------------------------------- 73 projog_miscellaneous_51
+?- b(2)
+2
+3
+4
+5
+6
+no
+?- z(0.25)
+0.25
+1.75
+3.25
+4.75
+6.25
+no
+?- q(0.25)
+q
+r
+0.25
+1.75
+3.25
+4.75
+6.25
+no
+%---------------------------------------------------- 74 projog_miscellaneous_52
+?- X = p(_), X = p(1)
+X = p(1)
+yes
+no
+?- X = p(_), X = p(1), Y=p(_), Y=p(2)
+X = p(1)
+Y = p(2)
+yes
+no
+?- x(X,Y)
+X = p(1)
+Y = p(2)
+yes
+no
+%---------------------------------------------------- 75 projog_miscellaneous_53
+?- y0(1)
+12345yes
+no
+?- y1(1, [x(0), x(1), x(2), x(4), x(5), x(6)])
+12 45yes
+no
+?- y2(1, [x(0), x(1), x(2), x(4), x(5), x(6)])
+12 45yes
+no
+?- y3(1, [x(0), x(1), x(2), x(4), x(5), x(6)])
+1yes
+no
+%---------------------------------------------------- 76 projog_miscellaneous_54
+?- e
+yes
+yes
+no
+?- f(1)
+yes
+yes
+no
+?- g(1,2)
+yes
+yes
+no
+?- h(1,2,3,4,5,6,7,8,9)
+yes
+yes
+no
+?- i
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+no
+%---------------------------------------------------- 77 projog_miscellaneous_55
+?- split([a,b,c,d,e],A,B)
+A = [a]
+B = [b,c,d,e]
+yes
+A = [a,b]
+B = [c,d,e]
+yes
+A = [a,b,c]
+B = [d,e]
+yes
+A = [a,b,c,d]
+B = [e]
+yes
+no
+%---------------------------------------------------- 78 projog_miscellaneous_56
+?- geven(X), !
+X = 0
+yes
+?- godd(X), !
+X = 1
+yes
+?- geven(X), X>100, !
+X = 102
+yes
+?- godd(X), X>100, !
+X = 101
+yes
+?- geven(X), write(X), nl, X>10, !
+0
+2
+4
+6
+8
+10
+12
+X = 12
+yes
+?- godd(X), write(X), nl, X>10, !
+1
+3
+5
+7
+9
+11
+X = 11
+yes
+%---------------------------------------------------- 79 projog_miscellaneous_57
+?- e(X), write(X), nl, X>20, !
+0
+2
+6
+8
+12
+14
+18
+20
+24
+X = 24
+yes
+?- o(X), write(X), nl, X>20, !
+1
+5
+7
+11
+13
+17
+19
+23
+X = 23
+yes
+?- e1(X), write(X), nl, X>10, !
+0
+2
+error(existence_error(procedure,repeat/1))
+?- o1(X), write(X), nl, X>10, !
+1
+error(existence_error(procedure,repeat/1))
+%---------------------------------------------------- 80 projog_miscellaneous_58
+?- z
+a/1/4/4
+a/2/1/1
+a/3/4/1
+a/4/1/4
+b/2/1/1
+b/3/4/1
+c/1/4/4
+c/1/4/5
+c/2/1/1
+c/2/1/2
+c/3/4/1
+c/3/4/2
+c/4/1/4
+c/4/1/5
+d/2/1/1
+d/2/1/2
+d/4/1/4
+d/4/1/5
+e/1/4/4
+e/1/4/5
+e/1/5/4
+e/1/5/5
+e/2/1/1
+e/2/1/2
+e/2/2/1
+e/2/2/2
+e/3/4/1
+e/3/4/2
+e/3/5/1
+e/3/5/2
+e/4/1/4
+e/4/1/5
+e/4/2/4
+e/4/2/5
+f/1/4/4
+f/1/4/5
+f/1/5/4
+f/1/5/5
+f/2/1/1
+f/2/1/2
+f/2/2/1
+f/2/2/2
+f/3/4/1
+f/3/4/2
+f/3/5/1
+f/3/5/2
+f/4/1/4
+f/4/1/5
+f/4/2/4
+f/4/2/5
+no
+?- b(Y), test1(Y, a, Z)
+error(existence_error(procedure,repeat/1))
+?- test2(X,Y)
+error(existence_error(procedure,repeat/1))
+%---------------------------------------------------- 81 projog_miscellaneous_59
+?- a(X,Y,Z), !
+error(existence_error(procedure,repeat/1))
+%----------------------------------------------------- 82 projog_miscellaneous_6
+?- test2_2(X,X)
+X = _3836
+yes
+X = _3836
+yes
+X = _3836
+yes
+no
+?- test2_2(x,x)
+yes
+yes
+yes
+no
+?- test2_2(x,X)
+X = x
+yes
+X = x
+yes
+X = x
+yes
+no
+?- test2_2(X,y)
+X = y
+yes
+X = y
+yes
+X = y
+yes
+no
+%---------------------------------------------------- 83 projog_miscellaneous_60
+?- assert(q(10,30,50)), asserta(q(20,40,60)), assertz(q(30,60,90)), q(X,Y,Z)
+X = 20
+Y = 40
+Z = 60
+yes
+X = 10
+Y = 30
+Z = 50
+yes
+X = 30
+Y = 60
+Z = 90
+yes
+no
+?- 0=0, x1(X,w,Z)
+X = q
+Z = e
+yes
+X = q
+Z = e
+yes
+X = q
+Z = e
+yes
+no
+?- 1=1, x1(X,Y,Z)
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+no
+?- 2=2, y1(X,Y,Z)
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = 1
+Y = 3
+Z = 5
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+?- 3=3, z1(X,Y,Z)
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+no
+?- 4=4, z1(X,Y,Z)
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+?- 5=5, z1(X,Y,Z)
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+?- 6=6, x1(X,Y,Z)
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = 1
+Y = 3
+Z = 5
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+?- 7=7, x1(X,Y,Z)
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = 1
+Y = 3
+Z = 5
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+?- 0=0, x2(X,w,Z)
+X = q
+Z = e
+yes
+X = q
+Z = e
+yes
+X = q
+Z = e
+yes
+no
+?- 1=1, x2(X,Y,Z)
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+no
+?- 2=2, y2(X,Y,Z)
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = 1
+Y = 3
+Z = 5
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+?- 3=3, z2(X,Y,Z)
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+no
+?- 4=4, z2(X,Y,Z)
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+?- 5=5, z2(X,Y,Z)
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+X = 4
+Y = 5
+Z = 6
+yes
+X = 7
+Y = 8
+Z = 9
+yes
+X = 1
+Y = 2
+Z = 3
+yes
+?- 6=6, x2(X,Y,Z)
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = 1
+Y = 3
+Z = 5
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+?- 7=7, x2(X,Y,Z)
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = x
+Y = y
+Z = z
+yes
+X = q
+Y = w
+Z = e
+yes
+X = g
+Y = h
+Z = j
+yes
+X = 1
+Y = 3
+Z = 5
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 3
+Y = 6
+Z = 9
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+X = 2
+Y = 4
+Z = 6
+yes
+?- 0=0, x3(X,w,Z)
+error(existence_error(procedure,repeat/1))
+?- 1=1, x3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+?- 2=2, y3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+?- 3=3, z3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+?- 4=4, z3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+?- 5=5, z3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+?- 6=6, x3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+?- 7=7, x3(X,Y,Z)
+error(existence_error(procedure,repeat/1))
+%---------------------------------------------------- 84 projog_miscellaneous_61
+?- f([a, [b, [c, d], e]], X)
+X = [a,b,c,d,e]
+yes
+no
+?- f([a, [b, [c, d], [e, [f, [g, h, i, j, [k, l, m, [[[n, o, p, q, r], s, t], u], v, w, x, [y], z]]]]]], X)
+X = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+yes
+no
+%---------------------------------------------------- 85 projog_miscellaneous_62
+?- X=a:b
+X = a:b
+yes
+no
+?- X = a : b
+X = a:b
+yes
+no
+?- X=q:w:e:r:t:y
+X = q:w:e:r:t:y
+yes
+no
+?- X=q:w:e/r:t:y/u:i:o
+X = q:w:e/r:t:y/u:i:o
+yes
+no
+?- write(q:w:e/r:t:y/u:i:o)
+q:w:e/r:t:y/u:i:oyes
+no
+%---------------------------------------------------- 86 projog_miscellaneous_63
+?- word2chars(X, [[d,o],[o,r,e],[m,a],[l,i,s],[u,r],[a,s],[p,o],[s,o],[p,i,r,u,s],[o,k,e,r],[a,l],[a,d,a,m],[i,k]])
+X = [do,ore,ma,lis,ur,as,po,so,pirus,oker,al,adam,ik]
+yes
+no
+?- test(X, [[d,o],[o,r,e],[m,a],[l,i,s],[u,r],[a,s],[p,o],[s,o],[p,i,r,u,s],[o,k,e,r],[a,l],[a,d,a,m],[i,k]]), !
+X = [do,ore,ma,lis,ur,as,po,so,pirus,oker,al,adam,ik]
+yes
+%---------------------------------------------------- 87 projog_miscellaneous_64
+?- test(List1, List2)
+List1 = [a,b,c]
+List2 = [a,b]
+yes
+List1 = [a,b,c]
+List2 = [a,b,c]
+yes
+List1 = [a,b,c]
+List2 = [a,b,c,d]
+yes
+List1 = [a,b,c,d]
+List2 = [a,b]
+yes
+List1 = [a,b,c,d]
+List2 = [a,b,c]
+yes
+List1 = [a,b,c,d]
+List2 = [a,b,c,d]
+yes
+no
+%---------------------------------------------------- 88 projog_miscellaneous_65
+?- test(5,B,C)
+B = _3838
+C = _3840
+yes
+no
+?- test(2,3,X)
+X = 5
+yes
+X = -1
+yes
+X = 6
+yes
+no
+?- test(A,B,6)
+A = 5
+B = _3838
+yes
+A = 2
+B = 3
+yes
+A = 3
+B = 2
+yes
+A = 3
+B = 3
+yes
+no
+?- test(A,B,C)
+A = 5
+B = _3838
+C = _3840
+yes
+A = 1
+B = 1
+C = 2
+yes
+A = 1
+B = 1
+C = 0
+yes
+A = 1
+B = 1
+C = 1
+yes
+A = 1
+B = 2
+C = 3
+yes
+A = 1
+B = 2
+C = -1
+yes
+A = 1
+B = 2
+C = 2
+yes
+A = 1
+B = 3
+C = 4
+yes
+A = 1
+B = 3
+C = -2
+yes
+A = 1
+B = 3
+C = 3
+yes
+%---------------------------------------------------- 89 projog_miscellaneous_66
+?- X=X, numbervars(X)
+X = A
+yes
+no
+?- X=Y, Y=X, numbervars(X)
+X = A
+Y = A
+yes
+no
+?- X=Y, Y=Z, Z=X, numbervars(X)
+X = A
+Y = A
+Z = A
+yes
+no
+?- [A,B,C,D,E|F]=[E,A,D,F,C|B], numbervars(A)
+A = A
+B = A
+C = A
+D = A
+E = A
+F = A
+yes
+no
+?- p(A,B,C,D,E,F)=p(E,A,D,F,C,B), numbervars(A)
+A = A
+B = A
+C = A
+D = A
+E = A
+F = A
+yes
+no
+?- A=p(X,Y,Z), B=p(Z,X,Y), A=B, numbervars(A)
+A = p(A,A,A)
+X = A
+Y = A
+Z = A
+B = p(A,A,A)
+yes
+no
+?- P1=p(Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M), P2=p(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z), P1=P2, numbervars(P1)
+P1 = p(A,A,A,A,A,B,A,A,A,A,A,C,A,B,A,A,A,A,C,A,A,A,A,A,B,A)
+Q = A
+W = A
+E = A
+R = A
+T = A
+Y = B
+U = A
+I = A
+O = A
+P = A
+A = A
+S = C
+D = A
+F = B
+G = A
+H = A
+J = A
+K = A
+L = C
+Z = A
+X = A
+C = A
+V = A
+B = A
+N = B
+M = A
+P2 = p(A,A,A,A,A,B,A,A,A,A,A,C,A,B,A,A,A,A,C,A,A,A,A,A,B,A)
+yes
+no
+%---------------------------------------------------- 90 projog_miscellaneous_67
+?- X = @, Y = '@', X=Y
+X = @
+Y = @
+yes
+no
+?- X='(', true
+X = '('
+yes
+no
+?- X=p()
+X = p()
+yes
+no
+?- X='.'
+X = '.'
+yes
+no
+?- X : 2 = 1 : 2
+X = 1
+yes
+no
+?- 1 : X = 1 : 2
+X = 2
+yes
+no
+?- 1 : 2 = X : 2
+X = 1
+yes
+no
+?- 1 : 2 = 1 : X
+X = 2
+yes
+no
+?- X=p(','(1,2)), write_canonical(X)
+p(','(1,2))X = p((1,2))
+yes
+no
+?- X=p(1,','(1+2)), write_canonical(X)
+p(1,','(+(1,2)))X = p(1,','(1+2))
+yes
+no
+?- X=p(1,(2+3)), write_canonical(X)
+p(1,+(2,3))X = p(1,2+3)
+yes
+no
+?- X=p(1,','(2,3)), write_canonical(X)
+p(1,','(2,3))X = p(1,(2,3))
+yes
+no
+?- X=p(1,','(2+3)), write_canonical(X)
+p(1,','(+(2,3)))X = p(1,','(2+3))
+yes
+no
+?- X=p(1,2','(3+4),5), write_canonical(X)
+p(1,','(2,+(3,4)),5)X = p(1,(2,3+4),5)
+yes
+no
+%----------------------------------------------------- 91 projog_miscellaneous_7
+?- test3_3(X)
+X = [a,b,c]
+yes
+X = [q,w,e]
+yes
+X = [x,y,z]
+yes
+no
+?- test3_3([X,y,z])
+X = x
+yes
+no
+%----------------------------------------------------- 92 projog_miscellaneous_9
+?- test_repeat(2)
+yes
+yes
+no
+?- test_repeat(3)
+yes
+yes
+yes
+no
+?- test_repeat(7)
+yes
+yes
+yes
+yes
+yes
+yes
+yes
+no
+?- test_repeat(2), var(X), X is 1
+X = 1
+yes
+X = 1
+yes
+no
+?- test_repeat(2), var(X), X = 1
+X = 1
+yes
+X = 1
+yes
+no
+%--------------- 93 projog_udp_MultipleRulesWithSingleImmutableArgumentPredicate
+?- p(a)
+yes
+yes
+yes
+yes
+no
+?- p(1)
+yes
+yes
+no
+?- p(7.5)
+yes
+yes
+yes
+yes
+yes
+no
+?- p(z(a,b))
+yes
+yes
+yes
+no
+?- p([a,b,c])
+yes
+yes
+no
+?- p(x(a,X))
+X = b
+yes
+X = c
+yes
+X = d
+yes
+no
+?- p(X)
+X = a
+yes
+X = b
+yes
+X = '2'
+yes
+X = 1
+yes
+X = 0
+yes
+X = -1
+yes
+X = 7.5
+yes
+X = 7.5
+yes
+X = 7.5
+yes
+X = 7.5
+yes
+?- p(X), p(X)
+X = a
+yes
+X = a
+yes
+X = a
+yes
+X = a
+yes
+X = b
+yes
+X = '2'
+yes
+X = 1
+yes
+X = 1
+yes
+X = 0
+yes
+X = -1
+yes
+?- p(z)
+no
+?- p(b)
+yes
+no
+?- p(z(a,b))
+yes
+yes
+yes
+no
+?- p(x(a,X))
+X = b
+yes
+X = c
+yes
+X = d
+yes
+no
+?- p(x(q,X))
+no
+?- p(z(a,X))
+X = b
+yes
+X = b
+yes
+X = b
+yes
+no
+%------------------------------- 94 projog_udp_chain_of_single_result_predicates
+?- p5(X)
+bdiX = x
+yes
+afhX = y
+yes
+cegX = z
+yes
+no
+?- p5(x)
+bdiyes
+no
+?- p5(y)
+afhyes
+no
+?- p5(z)
+cegyes
+no
+?- p6
+bdiyes
+no
+%----------------------------------------------- 95 projog_udp_dynamic_predicate
+?- p(X,Y,Z)
+error(existence_error(procedure,p/3))
+?- p(X,Y,Z)
+error(existence_error(procedure,p/3))
+?- p(a,X,Y)
+error(existence_error(procedure,p/3))
+?- p(1,X,Y)
+error(existence_error(procedure,p/3))
+?- p(x,X,Y)
+error(existence_error(procedure,p/3))
+?- p(X,b,c)
+error(existence_error(procedure,p/3))
+?- p(X,2,3)
+error(existence_error(procedure,p/3))
+?- p(X,y,z)
+error(existence_error(procedure,p/3))
+?- assert(p(q,X,Y))
+X = _6020
+Y = _6022
+yes
+no
+?- assert(p(w,X,X))
+X = _6020
+yes
+no
+?- p(w,7,X)
+X = 7
+yes
+no
+?- p(w,X,9)
+X = 9
+yes
+no
+?- assert(p(X,y,u))
+X = _6018
+yes
+no
+?- retract(p(X,y,u))
+X = q
+yes
+X = _6018
+yes
+no
+%------------------------------------------------- 96 projog_udp_indexable_rules
+?- p(a,5,Y)
+Y = 6
+yes
+no
+?- p(b,5,Y)
+Y = 4
+yes
+no
+?- p(c,5,Y)
+Y = 10
+yes
+no
+?- p(X,5,Y)
+X = a
+Y = 6
+yes
+X = b
+Y = 4
+yes
+X = c
+Y = 10
+yes
+no
+%------------------- 97 projog_udp_predicate_meta_data_IndexablePredicateFactory
+?- meta_data(p(_, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X,Y)
+X = a
+Y = 1
+yes
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(a, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(a, X)
+X = 1
+yes
+no
+?- meta_data(p(_, 1), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X, 1)
+X = a
+yes
+no
+?- meta_data(p(b, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(b, X)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(_, 4), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X, 4)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(c, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(c, _)
+yes
+yes
+yes
+no
+?- meta_data(p(c, Y), X)
+error(existence_error(procedure,meta_data/2))
+?- p(c, Y)
+Y = 2
+yes
+Y = 3
+yes
+Y = 3
+yes
+no
+?- meta_data(p(_, 2), X)
+error(existence_error(procedure,meta_data/2))
+?- p(_, 2)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(Y, 2), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X, 2)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(z, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(_, 9), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(a, 2), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(e(_), _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(e(_), _)
+yes
+yes
+yes
+no
+?- meta_data(p(e(Y), Z), X)
+error(existence_error(procedure,meta_data/2))
+?- p(e(X), Y)
+X = 1
+Y = 5
+yes
+X = 2
+Y = 6
+yes
+X = 3
+Y = 7
+yes
+no
+%- 98 projog_udp_predicate_meta_data_LinkedHashMapPredicateFactory_multiple_arguments
+?- meta_data(p1(_, _, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p2(_, _, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p3(_, _, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p1(X, Y, Z)
+X = a
+Y = 1
+Z = x
+yes
+error(existence_error(procedure,repeat/1))
+?- p2(X, Y, Z)
+X = a
+Y = 1
+Z = x
+yes
+error(existence_error(procedure,repeat/1))
+?- p3(X, Y, Z)
+X = a
+Y = 1
+Z = x
+yes
+error(existence_error(procedure,repeat/1))
+%- 99 projog_udp_predicate_meta_data_LinkedHashMapPredicateFactory_single_argument
+?- meta_data(p(_), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X)
+X = a
+yes
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(a), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b), X)
+error(existence_error(procedure,meta_data/2))
+?- p(b)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(z), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(d(_)), X)
+error(existence_error(procedure,meta_data/2))
+?- p(d(X))
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+%--------------- 100 projog_udp_predicate_meta_data_NotIndexablePredicateFactory
+?- meta_data(p(_), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X)
+X = a
+yes
+X = b(_6942)
+yes
+X = c(1)
+yes
+X = c(2)
+yes
+X = c(3)
+yes
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(a), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(d), X)
+error(existence_error(procedure,meta_data/2))
+?- p(d)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(b(z)), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(c(_)), X)
+error(existence_error(procedure,meta_data/2))
+?- p(c(X))
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+?- meta_data(p(e(1,1)), X)
+error(existence_error(procedure,meta_data/2))
+?- p(e(1,1))
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(e(1,2)), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(f(3)), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(f(_)), X)
+error(existence_error(procedure,meta_data/2))
+?- p(f(X))
+X = 1
+yes
+X = _8828
+yes
+X = 2
+yes
+no
+?- meta_data(p(z), X)
+error(existence_error(procedure,meta_data/2))
+%- 101 projog_udp_predicate_meta_data_SingleIndexPredicateFactory_multiple_arguments
+?- meta_data(p1(_, _, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p2(_, _, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p3(_, _, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p1(X, Y, Z)
+X = a
+Y = 1
+Z = x
+yes
+error(existence_error(procedure,repeat/1))
+?- p2(X, Y, Z)
+X = a
+Y = 1
+Z = x
+yes
+error(existence_error(procedure,repeat/1))
+?- p3(X, Y, Z)
+X = a
+Y = 1
+Z = x
+yes
+error(existence_error(procedure,repeat/1))
+%- 102 projog_udp_predicate_meta_data_SingleIndexPredicateFactory_single_argument
+?- meta_data(p(_), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X)
+X = a
+yes
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(a), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b), X)
+error(existence_error(procedure,meta_data/2))
+?- p(b)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(c), X)
+error(existence_error(procedure,meta_data/2))
+?- p(c)
+yes
+yes
+no
+?- meta_data(p(z), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(d(_)), X)
+error(existence_error(procedure,meta_data/2))
+?- p(d(X))
+X = 1
+yes
+X = 2
+yes
+X = 3
+yes
+no
+%----- 103 projog_udp_predicate_meta_data_SingleNonRetryableRulePredicateFactory
+?- meta_data(p(_, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X,Y)
+X = a
+Y = b
+yes
+no
+?- meta_data(p(a, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(a,X)
+X = b
+yes
+no
+?- meta_data(p(_, b), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X,b)
+X = a
+yes
+no
+?- meta_data(p(a, b), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(_, a), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b, a), X)
+error(existence_error(procedure,meta_data/2))
+%-------- 104 projog_udp_predicate_meta_data_SingleRetryableRulePredicateFactory
+?- meta_data(p(_, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X,Y)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(a, _), X)
+error(existence_error(procedure,meta_data/2))
+?- p(a,X)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(_, b), X)
+error(existence_error(procedure,meta_data/2))
+?- p(X,b)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(a, b), X)
+error(existence_error(procedure,meta_data/2))
+?- p(a,b)
+error(existence_error(procedure,repeat/1))
+?- meta_data(p(b, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(_, a), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b, a), X)
+error(existence_error(procedure,meta_data/2))
+%--------------------------- 105 projog_udp_predicate_meta_data_UnknownPredicate
+?- meta_data(p(_), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(_), X)
+error(existence_error(procedure,meta_data/2))
+%--------------------------- 106 projog_udp_predicate_meta_data_multiple_clauses
+?- p5(X)
+bdiX = x
+yes
+afhX = y
+yes
+cegX = z
+yes
+no
+?- p5(x)
+bdiyes
+no
+?- p5(y)
+afhyes
+no
+?- p5(z)
+cegyes
+no
+?- p6
+bdiyes
+no
+?- meta_data(p4(q), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p4(x), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p5(q), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p5(x), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p6, X)
+error(existence_error(procedure,meta_data/2))
+%------------------ 107 projog_udp_predicate_meta_data_multiple_clauses_with_cut
+?- meta_data(p(a, 1, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(a, 2, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(a, 3, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(a, 4, _), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(f, Y, Z), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(g, Y, Z), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b, Y, Z), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(d, Y, Z), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(c, 3, Y), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(c, 4, Y), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(e, 2, Y), X)
+error(existence_error(procedure,meta_data/2))
+?- meta_data(p(b, 2, Y), X)
+error(existence_error(procedure,meta_data/2))
+%------- 108 projog_udp_predicates_with_single_fact_atom_atom_variable_arguments
+?- p(A,B,C)
+A = a
+B = b
+C = _5006
+yes
+no
+?- p(a,b,Q)
+Q = _5006
+yes
+no
+?- p(a,b,Q),W=[Q]
+Q = _5012
+W = [_5012]
+yes
+no
+%------- 109 projog_udp_predicates_with_single_fact_atom_variable_atom_arguments
+?- p(A,B,C)
+A = a
+B = _5004
+C = c
+yes
+no
+?- p(a,Q,c)
+Q = _5004
+yes
+no
+?- p(a,Q,c),W=[Q]
+Q = _5010
+W = [_5010]
+yes
+no
+%------ 110 projog_udp_predicates_with_single_fact_predicate_atom_atom_arguments
+?- p(p(X),b,X)
+X = a
+yes
+no
+?- p(p(X),Y,X)
+X = a
+Y = b
+yes
+no
+%--------------- 111 projog_udp_predicates_with_single_fact_single_atom_argument
+?- p(X)
+X = a
+yes
+no
+%------ 112 projog_udp_predicates_with_single_fact_three_distinct_atom_arguments
+?- p(X,b,c)
+X = a
+yes
+no
+?- p(a,X,c)
+X = b
+yes
+no
+?- p(a,b,X)
+X = c
+yes
+no
+?- p(X,Y,c)
+X = a
+Y = b
+yes
+no
+?- p(X,b,Y)
+X = a
+Y = c
+yes
+no
+?- p(a,X,Y)
+X = b
+Y = c
+yes
+no
+?- p(X,Y,Z)
+X = a
+Y = b
+Z = c
+yes
+no
+%-- 113 projog_udp_predicates_with_single_fact_three_distinct_variable_arguments
+?- p(A,B,C)
+A = _5038
+B = _5040
+C = _5042
+yes
+no
+?- D=x(A,B,C), p(A,B,C)
+D = x(_5050,_5052,_5054)
+A = _5050
+B = _5052
+C = _5054
+yes
+no
+%----- 114 projog_udp_predicates_with_single_fact_three_identical_atom_arguments
+?- p(X,Y,Z)
+X = a
+Y = a
+Z = a
+yes
+no
+?- p(X,X,X)
+X = a
+yes
+no
+%- 115 projog_udp_predicates_with_single_fact_three_identical_variable_arguments
+?- p(p(X),Y,p(7))
+X = 7
+Y = p(7)
+yes
+no
+?- p(Y,p(X),p(7))
+Y = p(7)
+X = 7
+yes
+no
+?- p(Y,p(7),p(X))
+Y = p(7)
+X = 7
+yes
+no
+?- p(p(7),Y,p(X))
+Y = p(7)
+X = 7
+yes
+no
+?- p(p(7),p(X),Y)
+X = 7
+Y = p(7)
+yes
+no
+?- p(p(X),p(7),Y)
+X = 7
+Y = p(7)
+yes
+no
+?- D=x(A,B,C), p(A,B,C)
+D = x(_3848,_3848,_3848)
+A = _3848
+B = _3848
+C = _3848
+yes
+no
+%- 116 projog_udp_predicates_with_single_fact_three_variables_two_shared_arguments
+?- p(a,b,Q)
+Q = a
+yes
+no
+?- p(Q,b,a)
+Q = a
+yes
+no
+?- p(A,B,C)
+A = _5014
+B = _5016
+C = _5014
+yes
+no
+?- p(A,B,C), A=7
+A = 7
+B = _5022
+C = 7
+yes
+no
+?- D=x(A,B,C), p(A,B,C)
+D = x(_5026,_5028,_5026)
+A = _5026
+B = _5028
+C = _5026
+yes
+no
+%------- 117 projog_udp_predicates_with_single_fact_variable_atom_atom_arguments
+?- p(A,B,C)
+A = _5002
+B = b
+C = c
+yes
+no
+?- p(Q,b,c)
+Q = _5002
+yes
+no
+?- p(Q,b,c),W=[Q]
+Q = _5008
+W = [_5008]
+yes
+no

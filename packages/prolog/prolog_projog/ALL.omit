@@ -1,0 +1,1 @@
+projog_concepts_prolog_io: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth; MEASURED by the grader 2026-11-17: its first query writes the stream it opens (Z = <stream>(0x...)), an address that differs run to run; every other line of the two runs is equal
