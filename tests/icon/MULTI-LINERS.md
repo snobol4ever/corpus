@@ -28287,6 +28287,48 @@ end
 
 ```
 
+## files__a_write_reaches_its_file_before_the_call_returns
+
+```Icon
+# a write or a writes puts its text in the file before the call returns: iconx flushes the file at the end of every call
+# (fsys.r, Finish), and at a later file argument of one write it flushes the file it leaves. So a file written through a
+# handle that is never closed is whole when a second handle appends to it or reads it.
+procedure main()
+   local a, b, i, s;
+   a := open("flush1.tmp", "w") | stop("cannot open flush1.tmp for writing");
+   every i := 1 to 500 do write(a, "line ", right(i, 4));
+   b := open("flush1.tmp", "a") | stop("cannot open flush1.tmp for appending");
+   write(b, "TAIL");
+   close(b);
+   b := open("flush1.tmp", "r") | stop("cannot open flush1.tmp for reading");
+   i := 0;
+   while s := read(b) do i +:= 1;
+   close(b);
+   write(i, " lines, the last is ", s);
+   a := open("flush2.tmp", "w") | stop("cannot open flush2.tmp for writing");
+   every i := 1 to 5000 do writes(a, "y");
+   b := open("flush2.tmp", "r") | stop("cannot open flush2.tmp for reading");
+   s := reads(b, 10000);
+   close(b);
+   write(*s, " characters after 5000 calls of writes");
+   a := open("flush3.tmp", "w") | stop("cannot open flush3.tmp for writing");
+   write(a, "one", &output, "two");
+   b := open("flush3.tmp", "r") | stop("cannot open flush3.tmp for reading");
+   write("the file left in the middle of a write holds ", image(read(b)) | "nothing");
+   close(b);
+   remove("flush1.tmp");
+   remove("flush2.tmp");
+   remove("flush3.tmp");
+end
+```
+
+```stdout
+501 lines, the last is TAIL
+5000 characters after 5000 calls of writes
+two
+the file left in the middle of a write holds "one"
+```
+
 ## procedure_every_suspend_replace_9
 
 ```Icon

@@ -1106,6 +1106,7 @@ procedure_every_scan_replace_3	chunk:10	feat:insert	element_gen every insert key
 unicon__uni_posix_sock_peek	chunk:08	feat:find	alternation every find gen_with_alternation image keyword_ref local scan scan_with_tab stop tab type writes
 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start	chunk:10	feat:move	alternation every every_with_suspend gen_with_alternation image keyword_ref limitation local move scan suspend while writes
 ladder__rung03_suspend_a_generator_do_clause_is_entered_at_its_start	chunk:04	feat:create	alternation coexpr_activate create every every_with_suspend gen_with_alternation keyword_ref limitation local suspend to_by while writes
+files__a_write_reaches_its_file_before_the_call_returns	chunk:11	feat:reads	alternation aug_assign every gen_with_alternation image keyword_ref local read reads stop to_by while writes
 procedure_every_suspend_replace_9	chunk:08	feat:static	alternation aug_assign every every_with_suspend fail gen_with_alternation image keyword_ref local return static suspend to_by
 procedure_record_every_replace_17	chunk:08	feat:static	every every_with_suspend image local record return scan scan_with_tab static suspend tab to_by upto
 procedure_every_alt_replace_4	chunk:10	feat:map	alternation case every fail gen_with_alternation image keyword_ref limitation local map return static type
