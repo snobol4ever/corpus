@@ -31375,6 +31375,31 @@ solution: 4
   -------------------------
 ```
 
+## ladder__rung03_suspend_do_move_under_if_else_resumes_its_limited_argument
+
+```Icon
+procedure gen(s, sep);
+    local WS;
+    WS := ' \t\n' -- sep;
+    (s || WS) ? {
+        while not pos(0) do {
+            tab(many(WS));
+            if ="\"" then suspend (tab((upto(sep)) | 0)\1, "x") do move(1)
+            else suspend trim(tab((upto(sep)) | 0)\1, WS) do move(1)
+        }
+    };
+end
+procedure main();
+    every write("[", gen("name,qty, note", ","), "]");
+end
+```
+
+```stdout
+[name]
+[qty]
+[note]
+```
+
 ## ladder__rung22_repalt_repeated_alternation_resumes_its_operand
 
 ```Icon
