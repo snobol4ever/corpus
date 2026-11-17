@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1194 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,73
+# shape: entries=1195 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,74
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -156,7 +156,7 @@ procedure_write_173	chunk:01	family:ladder
 procedure_write_178	chunk:01	family:ladder	
 procedure_write_20	chunk:08	feat:integer	integer
 procedure_write_200	chunk:01	family:ladder	
-procedure_write_25	chunk:11	family:rung18_real_relop	
+procedure_write_25	chunk:12	family:rung18_real_relop	
 procedure_write_26	chunk:12	family:rung18_real_relop	
 procedure_write_31	chunk:12	family:rung19_pow_toby	
 procedure_write_35	chunk:12	family:rung20_section_seqexpr	
@@ -686,7 +686,7 @@ procedure_write_257	chunk:03	feat:record	image local record
 unicon__uni_pattern_image_deferred	chunk:02	feat:return	image local return
 unicon__uni_posix_ssh_open_errortext	chunk:11	feat:coexpr_activate	coexpr_activate keyword_ref local
 ladder__rung02_proc_a_real_callee_invokes_by_its_integer_part	chunk:02	feat:return	alternation local return
-ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it	chunk:10	feat:put	global local put
+ladder__rung29_builtins_a_builtin_assigned_a_procedure_calls_it	chunk:11	feat:put	global local put
 ladder__rung42_kw_not_of_a_failing_keyword_succeeds	chunk:05	feat:fail	alternation fail image keyword_ref
 procedure_scan_size_1	chunk:07	feat:scan	keyword_ref local scan
 unicon__uni_pm_pos_whole	chunk:07	feat:scan	every local scan
@@ -964,6 +964,7 @@ ladder__rung13_alt_a_reversible_exchange_takes_random_error_and_dump	chunk:05	fe
 procedure_record_scan_replace_1	chunk:03	feat:record	alternation local record scan scan_with_tab tab to_by
 procedure_write_276	chunk:04	feat:global	element_gen every global image local return writes
 unicon__uni_class_initially	chunk:11	feat:pop	aug_assign image local pop push put return
+ladder__rung36_sets_procedure_value_keys	chunk:10	feat:member	aug_assign insert local member return set table
 unicon__uni_posix_mcast_implicit	chunk:07	feat:stop	alternation coexpr_activate keyword_ref local return stop writes
 procedure_record_every_replace_10	chunk:03	feat:record	aug_assign element_gen every local record scan table
 ladder__rung48_thread_forms	chunk:04	feat:global	alternation aug_assign every gen_with_alternation global limitation to_by

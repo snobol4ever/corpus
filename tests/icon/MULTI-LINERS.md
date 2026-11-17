@@ -19721,6 +19721,41 @@ end
 <a> "<b>"
 ```
 
+## ladder__rung36_sets_procedure_value_keys
+
+```Icon
+procedure tick()
+   return 1;
+end
+
+procedure main()
+   local s, t, a, b;
+   a := tick;
+   b := proc("tick");
+   write(if a === b then "identical" else "not identical");
+   s := set([a]);
+   write(if member(s, b) then "member" else "not member");
+   insert(s, b);
+   write(*s);
+   t := table(0);
+   t[a] := 1;
+   t[b] +:= 1;
+   write(*t, " ", t[tick]);
+   s := set([write, proc("write"), tick, a]);
+   write(*s);
+   write(if member(s, proc("write")) then "write member" else "write not member");
+end
+```
+
+```stdout
+identical
+member
+1
+1 2
+2
+write member
+```
+
 ## unicon__uni_posix_mcast_implicit
 
 ```Icon
