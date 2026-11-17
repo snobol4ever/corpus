@@ -103,7 +103,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 102,multiplication-tables,multiplication-tables.sno,rosetta-snobol4__multiplication-tables,rosetta-snobol4,18,0,131072,4096,60,
 103,mutual-recursion,mutual-recursion.sno,rosetta-snobol4__mutual-recursion,rosetta-snobol4,15,0,131072,4096,60,
 104,n-queens-problem,n-queens-problem.sno,rosetta-snobol4__n-queens-problem,rosetta-snobol4,23,0,131072,4096,60,
-105,nim-game,nim-game.sno,rosetta-snobol4__nim-game,rosetta-snobol4,88,0,131072,4096,60,
+105,nim-game,nim-game.sno,rosetta-snobol4__nim-game,rosetta-snobol4,88,0,131072,4096,60,--stlimit
 106,palindrome-detection,palindrome-detection.sno,rosetta-snobol4__palindrome-detection,rosetta-snobol4,17,0,131072,4096,60,
 107,pangram-checker,pangram-checker.sno,rosetta-snobol4__pangram-checker,rosetta-snobol4,18,0,131072,4096,60,
 108,primality-by-trial-division-1,primality-by-trial-division-1.sno,rosetta-snobol4__primality-by-trial-division-1,rosetta-snobol4,9,1,131072,4096,60,
