@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1208 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,87
+# shape: entries=1209 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,88
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -115,7 +115,7 @@ procedure_write_69	chunk:12	family:rung37_all
 lexer__a_string_continued_with_an_underscore_may_carry_blanks_after_it	chunk:12	family:lexer	
 procedure_write_66	chunk:12	family:rung36_all	
 unicon__uni_pp_unicon_feature_symbols	chunk:11	family:unicon	
-procedure_alt_write_3	chunk:11	feat:alternation	alternation
+procedure_alt_write_3	chunk:12	feat:alternation	alternation
 procedure_alt_write_4	chunk:12	feat:alternation	alternation
 procedure_scan_write_14	chunk:06	feat:scan	scan
 procedure_write_111	chunk:12	family:scrip_test_icon_jcon_audit_05_ident	
@@ -1106,6 +1106,7 @@ procedure_every_suspend_replace_3	chunk:08	feat:static	alternation aug_assign br
 procedure_every_alt_replace_1	chunk:09	feat:list	alternation aug_assign every fail gen_with_alternation global integer list local repl return to_by
 procedure_every_alt_replace_8	chunk:09	feat:list	alternation aug_assign every fail gen_with_alternation global integer list local repl return to_by
 rung36_all__rung36_jcon_scan2	chunk:10	feat:repeat	break every every_with_suspend keyword_ref local move next repeat scan scan_with_tab suspend tab upto
+gc_list_element_pointer__a_take_of_the_last_element_leaves_the_element_pointer_inside_its_vector	chunk:11	feat:pop	aug_assign element_gen every get local pop push put repl section to_by writes
 procedure_every_scan_replace_7	chunk:07	feat:section	alternation element_gen every gen_with_alternation image limitation local scan section to_by type writes
 procedure_record_every_replace_5	chunk:08	feat:static	every integer keyword_ref local put record return scan set static table to_by
 procedure_every_scan_replace_2	chunk:10	feat:move	alternation element_gen every gen_with_alternation image limitation local move return scan to_by writes

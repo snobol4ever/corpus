@@ -27999,6 +27999,75 @@ y
 1
 ```
 
+## gc_list_element_pointer__a_take_of_the_last_element_leaves_the_element_pointer_inside_its_vector
+
+```Icon
+procedure show(tag, L)
+   local x;
+   writes(tag, " ", *L, ":");
+   every x := !L do writes(" ", x);
+   write();
+end
+procedure main()
+   local L, Q, t, i;
+   t := repl("ab", 10);
+   L := [];
+   every i := 1 to 5 do push(L, i);
+   every 1 to 5 do pop(L);
+   t ||:= "c";
+   every i := 1 to 5 do push(L, i);
+   show("push5-pop5-push5", L);
+   every 1 to 5 do pop(L);
+   t ||:= "d";
+   every i := 1 to 3 do put(L, i);
+   show("pop5-put3", L);
+   Q := [1, 2, 3];
+   every 1 to 3 do get(Q);
+   t ||:= "e";
+   push(Q, 7);
+   put(Q, 8);
+   push(Q, 6);
+   show("literal-get3-push-put-push", Q);
+   Q := [];
+   every i := 1 to 8 do put(Q, i);
+   every 1 to 8 do get(Q);
+   t ||:= "f";
+   every i := 1 to 3 do push(Q, i);
+   show("put8-get8-push3", Q);
+   Q := [];
+   push(Q, 1);
+   pop(Q);
+   t ||:= "g";
+   push(Q, 2);
+   put(Q, 3);
+   show("push-pop-push-put", Q);
+   L := [];
+   every i := 1 to 40 do {
+      push(L, i);
+      if i % 4 = 0 then every 1 to 4 do pop(L);
+      t := t[1:20] || i
+      };
+   show("hover-at-empty", L);
+   every i := 1 to 6 do put(L, i);
+   every 1 to 6 do get(L);
+   t ||:= "h";
+   every put(L, 1 to 3);
+   show("put6-get6-put3", L);
+   write(t);
+end
+```
+
+```stdout
+push5-pop5-push5 5: 5 4 3 2 1
+pop5-put3 3: 1 2 3
+literal-get3-push-put-push 3: 6 7 8
+put8-get8-push3 3: 3 2 1
+push-pop-push-put 2: 2 3
+hover-at-empty 0:
+put6-get6-put3 3: 1 2 3
+abababababababababa40h
+```
+
 ## procedure_every_scan_replace_7
 
 ```Icon
