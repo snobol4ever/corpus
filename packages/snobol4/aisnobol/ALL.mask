@@ -17,3 +17,5 @@
 # and it is not ours to correct in a vendored fixture.
 ATN	milliseconds compile time$	wall-clock: elapsed compile time of the ATN network, an implementation and machine measurement; oracle's own value moves run to run (637271/667138/718133, ceo 2026-09-08)
 ATN	milliseconds used$	wall-clock: elapsed run time per parse, same measurement and same provenance as the compile-time line above
+TEST	L498	a function-trace line, its statement numbers (sbl >>> 1947 ==> 1948, SCRIP 1927 and 1928, the cqo's measurement on SCRIP ec8c8f3c7): a simple variance of trace output, masked (Lon 2026-11-17 16:2x CST: "A simple variance should be MASKED.")
+TEST	L505	the trace line of the same RETURN (sbl <<< RETURN <== 1956 <== 1955, SCRIP 1936 and 1935): masked with line 498, as above

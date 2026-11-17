@@ -6,3 +6,4 @@ check	^"socrates"$	image(&host): the machine's own name, a system value (the cyc
 check	^"Icon Version .*"$	image(&version): the implementation's own name and date, a system value
 version7	^socrates$	write(&host): the machine's own name, a system value
 version7	^Icon Version .*$	write(&version): the implementation's own name and date, a system value
+check	L104	image(&time), the milliseconds of processor time since the program began, a bare number no regex can take alone (iconx 0, SCRIP 87 with its own translation counted): a simple variance, masked by its line (Lon 2026-11-17 16:2x CST: "A simple variance should be MASKED.")
