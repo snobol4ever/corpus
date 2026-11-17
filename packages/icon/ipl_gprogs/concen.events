@@ -1,0 +1,16 @@
+# concen: on its pinned deal, cards turned by a left click and released: two in the first row (a pair, or both turned back by the third click), then two in the second row and a third click, then q quits
+move 60 82
+wait
+click 1 60 82
+wait
+click 1 150 82
+wait
+click 1 150 82
+wait
+click 1 60 216
+wait
+click 1 150 216
+wait
+click 1 240 216
+wait
+key q

@@ -1,0 +1,14 @@
+# coloralc: under the pin its random colours are one stream: f allocates one fixed colour, F eight, m one mutable, M eight, a mutates all, then q quits
+move 300 200
+wait
+key f
+wait
+key F
+wait
+key m
+wait
+key M
+wait
+key a
+wait
+key q
