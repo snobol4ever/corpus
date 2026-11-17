@@ -144,4 +144,5 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 143,scroller,scroller.icn,ipl_gprogs__scroller,ipl_gprogs,48,0,131072,4096,300,,screen.dump,staged
 144,recticle,recticle.icn,ipl_gprogs__recticle,ipl_gprogs,118,0,131072,4096,300,,screen.dump recticle.gif,
 145,mirroror,mirroror.icn,ipl_gprogs__mirroror,ipl_gprogs,55,0,131072,4096,300,,screen.dump,staged
+146,spider,spider.icn,ipl_gprogs__spider,ipl_gprogs,657,0,131072,4096,300,,screen.dump,
 147,tron,tron.icn,ipl_gprogs__tron,ipl_gprogs,191,0,131072,4096,240,,screen.dump,

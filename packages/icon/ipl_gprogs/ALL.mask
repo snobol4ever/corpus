@@ -1,0 +1,2 @@
+# ALL.mask -- R-409 line masks for this container (entry<TAB>L<n>-or-python-regex<TAB>reason); the same rules on the oracle's stream and on SCRIP's, a masked line replaced by its marker and never deleted.
+spider	^[0-9]+ moves in [0-9]+ seconds, leaving [0-9]+ cards$	the elapsed seconds spider reports at q move under the pin: the pin clock is virtual and advances by each wait the screen road makes for a still picture (measured 100, 103, 92 seconds on runs of one script); the line is masked, never deleted
