@@ -1,4 +1,4 @@
-rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect,out_files,stderr
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect,out_files,stderr,fixtures
 1,gprogs/kaleid,gprogs/kaleid.icn,unicon_uni__gprogs/kaleid,unicon_uni,628,0,131072,4096,1800,,unicon,screen.dump,
 2,gui/guidemos/componentscrollareatest,gui/guidemos/componentscrollareatest.icn,unicon_uni__gui/guidemos/componentscrollareatest,unicon_uni,194,0,131072,4096,1800,,unicon,screen.dump,
 3,gui/guidemos/demo,gui/guidemos/demo.icn,unicon_uni__gui/guidemos/demo,unicon_uni,1962,0,131072,4096,1800,,unicon,screen.dump,
@@ -59,3 +59,5 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 58,xml/globaldemo,xml/globaldemo.icn,unicon_uni__xml/globaldemo,unicon_uni,52,0,131072,4096,60,,unicon,,
 59,xml/testpatterns,xml/testpatterns.icn,unicon_uni__xml/testpatterns,unicon_uni,105,0,131072,4096,60,,unicon,,
 60,xml/testxml,xml/testxml.icn,unicon_uni__xml/testxml,unicon_uni,81,0,131072,4096,60,,unicon,,
+61,gui/guidemos/explorer,gui/guidemos/explorer.icn,unicon_uni__gui/guidemos/explorer,unicon_uni,180,0,131072,4096,1800,,unicon,screen.dump,,staged
+62,gui/guidemos/ttexplorer,gui/guidemos/ttexplorer.icn,unicon_uni__gui/guidemos/ttexplorer,unicon_uni,172,0,131072,4096,1800,,unicon,screen.dump,,staged

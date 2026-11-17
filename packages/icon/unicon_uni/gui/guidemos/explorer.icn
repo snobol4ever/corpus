@@ -162,7 +162,7 @@ class Explorer : Dialog(tree,
       #
       # Initialize the tree data structure.
       #
-      root_node := Node("label=/");
+      root_node := Node("label=root/top/");
       load_subtree(root_node);
       tree.set_root_node(root_node);
       tree.object_set_selections([root_node]);
