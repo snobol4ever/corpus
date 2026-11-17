@@ -6410,6 +6410,45 @@ area(poland, 121). area(s_korea, 37). area(iran, 628). area(ethiopia, 350). area
 [indonesia,pakistan]
 ```
 
+## xpce__l_input_context
+
+```Prolog
+% L27: the input-context pair lib/pce_config.pl, library(prolog_source) and library(prolog_xref) call around a nested read:
+% '$push_input_context'(Type) saves the current input, '$pop_input_context' restores it, and a pop with nothing pushed fails.
+:- initialization(main, main).
+same(S) :- current_input(C), ( C == S -> print(same) ; print(moved) ), nl.
+main :-
+    current_input(U),
+    open_string("outer(1). outer(2).", S1), open_string("inner(a).", S2),
+    '$push_input_context'(outer),
+    set_input(S1), read(T1), print(T1), nl,
+    '$push_input_context'(inner),
+    set_input(S2), read(T2), print(T2), nl, same(S2),
+    '$pop_input_context', same(S1),
+    read(T3), print(T3), nl,
+    '$pop_input_context', same(U),
+    ( '$pop_input_context' -> print(popped) ; print(empty) ), nl, same(U),
+    catch('$push_input_context'(_), error(E1, _), (print(E1), nl)),
+    catch('$push_input_context'(f(x)), error(E2, _), (print(E2), nl)),
+    close(S1), close(S2).
+```
+
+```file xpce__l_input_context.xpce
+```
+
+```stdout
+outer(1)
+inner(a)
+same
+same
+outer(2)
+same
+empty
+same
+instantiation_error
+type_error(atom,f(x))
+```
+
 ## writeq_directive_5
 
 ```Prolog
@@ -14133,6 +14172,41 @@ yes
 no
 6
 caught
+```
+
+## xpce__l_broadcast
+
+```Prolog
+% L27: library(broadcast) with no window, as PceDraw and the demo menu reach it (listen/3 as a directive, broadcast/1, broadcast_request/1),
+% and the input-context pair lib/pce_config.pl runs at lines 426 and 431.
+:- use_module(library(broadcast)).
+:- initialization(main, main).
+:- dynamic seen/1.
+:- listen(boot, hello(W), ( write(hello(W)), nl )).
+main :-
+    broadcast(hello(world)),
+    listen(me, set_config(K, V), assertz(seen(K-V))),
+    listen(me, config(size, X), X = 3),
+    broadcast(set_config(colour, red)), broadcast(set_config(size, 3)),
+    findall(P, seen(P), L), print(L), nl,
+    ( broadcast_request(config(size, A)) -> print(answer(A)) ; print(no_answer) ), nl,
+    ( broadcast_request(nobody(_)) -> print(answered) ; print(unanswered) ), nl,
+    findall(t, listening(me, _, _), Ts), length(Ts, N1), print(listening(N1)), nl,
+    unlisten(me), findall(t, listening(me, _, _), T2), length(T2, N2), print(listening(N2)), nl,
+    '$push_input_context'(witness), '$pop_input_context', print(context_ok), nl.
+```
+
+```file xpce__l_broadcast.xpce
+```
+
+```stdout
+hello(world)
+[colour-red,size-3]
+answer(3)
+unanswered
+listening(2)
+listening(0)
+context_ok
 ```
 
 ## findall_cut_ite_replace_1
