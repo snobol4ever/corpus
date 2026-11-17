@@ -1,0 +1,13 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=9 features=46 ubiquitous=20(package program procedure var const type array packed with while repeat for in writeln write readln assign set_literal subrange for_with_array) distinctive=26 core=6 clusters=3 chunks=1 sizes=3
+entry	part	cluster	shells
+basics	core	core	case chr div downto eoln function goto label mod nested_proc new ord read record set with_record
+drystone	core	core	case div file forward function nested_proc new nil ord pointer pointer_with_new record with_record
+fbench	core	core	case function nested_proc sqr sqrt
+hello	chunk:01	family:hello	
+match	core	core	eoln mod read
+prime	core	core	file set
+qsort	chunk:01	feat:div	div
+roman	chunk:01	family:roman	
+startrek	core	core	case chr div function goto label mod nested_proc new ord record round set sqr sqrt succ trunc with_record
