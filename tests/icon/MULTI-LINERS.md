@@ -20889,6 +20889,39 @@ end
 9
 ```
 
+## an_apply_call_names_the_line_of_the_last_marker_before_it__an_apply_call_names_the_line_of_the_last_marker_before_it
+
+```Icon
+procedure main()
+   local a;
+   every a := [1, 2] | [3, 4] |
+         [5, 6] do {
+      writes("pair ");
+      every writes(!a, " ");
+      write("-> ", image(pick ! a) | "fails")
+      };
+   write("done");
+end
+procedure pick(x, y)
+   if x > 4 then runerr(101, x);
+   return x + y;
+end
+```
+
+```stdout
+pair 1 2 -> 3
+pair 3 4 -> 7
+pair 5 6 
+Run-time error 101
+File an_apply_call_names_the_line_of_the_last_marker_before_it.icn; Line 12
+integer expected or out of range
+offending value: 5
+Traceback:
+main()
+pick(5,6) from line 6 in an_apply_call_names_the_line_of_the_last_marker_before_it.icn
+runerr(101,5) from line 12 in an_apply_call_names_the_line_of_the_last_marker_before_it.icn
+```
+
 ## procedure_alt_limit_replace_2
 
 ```Icon
