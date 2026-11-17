@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=191 features=64 ubiquitous=7(package write procedure alternation to_by assign keyword_ref) distinctive=57 core=25 clusters=46 chunks=3 sizes=129,1,36
+# shape: entries=192 features=64 ubiquitous=7(package write procedure alternation to_by assign keyword_ref) distinctive=57 core=25 clusters=46 chunks=3 sizes=132,1,34
 entry	part	cluster	shells
 coexpr/co	chunk:01	feat:create	coexpr_activate create global image limitation
 coexpr/cobench	chunk:01	feat:create	aug_assign coexpr_activate create element_gen every gen_with_alternation local stop while writes
@@ -45,7 +45,7 @@ general/recogn	chunk:03	feat:pos	gen_with_alternation local pos read return scan
 general/roman	chunk:01	feat:map	element_gen every fail find gen_with_alternation integer local map read return static while
 general/scan	chunk:03	feat:swap	every find gen_with_alternation image move pos record scan scan_with_tab swap tab upto while
 general/sieve	chunk:01	feat:delete	delete element_gen every insert local member set sort
-general/sort	chunk:03	feat:sort	element_gen every gen_with_alternation limitation record sort table writes
+general/sort	chunk:01	feat:record	element_gen every gen_with_alternation limitation record sort table writes
 general/string	core	core	any aug_assign bal every find gen_with_alternation global image integer many match record repl section swap upto
 general/struct	core	core	aug_assign delete element_gen every gen_with_alternation get global image insert limitation list member pop push put record section set sort swap table type writes
 general/tprintf	chunk:01	feat:every_with_suspend	element_gen every every_with_suspend gen_with_alternation limitation local suspend
@@ -62,7 +62,7 @@ graphics/subwindow	chunk:01	dir:graphics
 ipl/tgener	chunk:01	feat:limitation	every limitation
 lib/class_static	chunk:01	feat:static	coexpr_activate limitation return static
 lib/jsontests	core	core	break case coexpr_activate delete element_gen every fail gen_with_alternation image limitation match record return scan set table type
-lib/objecttests	chunk:01	feat:coexpr_activate	coexpr_activate every limitation writes
+lib/objecttests	chunk:03	feat:writes	coexpr_activate every limitation writes
 lib/property_demo	chunk:01	feat:coexpr_activate	coexpr_activate limitation
 lib/singleton	chunk:01	feat:create	coexpr_activate create every gen_with_alternation limitation
 lib/unittest	chunk:03	feat:table	aug_assign every gen_with_alternation local table
@@ -107,7 +107,7 @@ posix/dir	chunk:01	feat:aug_assign	aug_assign return stop
 posix/exec	chunk:01	feat:limitation	limitation
 posix/fcntl	chunk:03	feat:fail	fail read stop
 posix/fdup	chunk:01	feat:stop	read stop while
-posix/filepair	chunk:03	feat:break	aug_assign break every gen_with_alternation global image integer many read repl scan scan_with_tab stop tab while
+posix/filepair	chunk:01	feat:break	aug_assign break every gen_with_alternation global image integer many read repl scan scan_with_tab stop tab while
 posix/fork	chunk:03	dir:posix	
 posix/getpw	chunk:01	feat:image	image stop
 posix/getserv	chunk:03	feat:integer	image integer stop
@@ -125,9 +125,9 @@ posix/spawn	core	core	aug_assign create element_gen every fail gen_with_alternat
 posix/ssh	core	core	aug_assign break case coexpr_activate element_gen every fail find gen_with_alternation limitation local next put read reads return set stop trim while writes
 posix/tcp	chunk:01	feat:stop	read stop while
 posix/timeout	chunk:01	feat:every	every
-posix/udp	chunk:03	feat:case	break case every gen_with_alternation stop
+posix/udp	chunk:01	feat:break	break case every gen_with_alternation stop
 posix/umask	chunk:01	feat:image	image local
-posix/uxsocket	chunk:03	feat:break	break every gen_with_alternation limitation read stop while
+posix/uxsocket	chunk:01	feat:break	break every gen_with_alternation limitation read stop while
 posix/wait	chunk:03	feat:trim	integer many move scan scan_with_tab section tab trim type writes
 samples/btrees	chunk:01	feat:bal	bal every every_with_suspend gen_with_alternation limitation local move read record return scan scan_with_tab suspend tab upto while
 samples/diffwrds	chunk:03	feat:insert	element_gen every insert many read scan scan_with_tab set sort tab upto while
@@ -152,6 +152,7 @@ thread/rantest	chunk:01	feat:static	aug_assign coexpr_activate element_gen every
 thread/sharelist	chunk:03	feat:put	element_gen every global limitation put scan stop
 thread/stress	chunk:01	feat:list	aug_assign element_gen every gen_with_alternation global integer limitation list local put return static stop table
 thread/sum	chunk:01	feat:static	aug_assign element_gen every gen_with_alternation global integer limitation local put static stop
+thread/talloc	chunk:03	feat:case	case coexpr_activate create element_gen every gen_with_alternation integer list put sort stop table
 thread/tcom	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate every gen_with_alternation stop
 udb/prime	chunk:01	feat:every_with_suspend	aug_assign coexpr_activate create every every_with_suspend fail gen_with_alternation global image limitation local record return suspend table while
 udb/scopes	chunk:01	feat:static	aug_assign global limitation local return scan static
