@@ -2,7 +2,7 @@
 # the grader 2026-11-13): same-code (kept), unchanged (no semicolon added, kept), differs-code or one-refused (left out: its conversion is owed), both-refused (left out: icont refuses the original too)
 entry	verdict
 accumulator-factory	same-code
-arithmetic-complex	unchanged
+arithmetic-complex	same-code
 arrays-1	unchanged
 arrays-2	same-code
 arrays-3	unchanged
