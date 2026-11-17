@@ -21398,6 +21398,57 @@ w3
 .+
 ```
 
+## ladder__rung43_abstract_method_is_a_method
+
+```Icon
+class A()
+   abstract method tick()
+   method tock()
+      return "A tock";
+   end
+end
+
+class C()
+   method tick()
+      return "C tick";
+   end
+end
+
+class B : A()
+end
+
+class E : A : C()
+end
+
+class F : C : A()
+end
+
+procedure main()
+   local r, s, m;
+   r := oprec(B());
+   every s := fieldnames(r) do write(s, " ", type(r[s]), " ", image(r[s]));
+   every write("A: ", image(!methods(A())));
+   every write("B: ", image(!methods(B())));
+   write(image(oprec(E()).tick));
+   write(image(oprec(F()).tick));
+   write(F().tick());
+   m := set(methods(A()));
+   write(if member(m, oprec(B()).tick) then "member" else "not member");
+end
+```
+
+```stdout
+tick procedure procedure A_tick
+tock procedure procedure A_tock
+A A__methods record A__methods_1(2)
+A: procedure A_tick
+A: procedure A_tock
+procedure A_tick
+procedure C_tick
+C tick
+member
+```
+
 ## rung36_all__rung36_jcon_every
 
 ```Icon
