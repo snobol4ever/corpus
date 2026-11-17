@@ -7325,6 +7325,22 @@ end
 3
 ```
 
+## ladder__rung45_kw_version_is_unicons_three_values
+
+```Icon
+procedure main();
+	every write(&version);
+	write(type(&version));
+end
+```
+
+```stdout
+Unicon Version 13.3.  September 06, 2026
+d784f58
+master
+string
+```
+
 ## procedure_every_elemgen_11
 
 ```Icon
