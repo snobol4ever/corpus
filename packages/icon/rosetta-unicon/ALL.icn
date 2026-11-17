@@ -148,16 +148,16 @@ end
 import math
 
 procedure main()
-   n_burgers := 4000000000000000
-   n_shakes := 2
+   n_burgers := 4000000000000000;
+   n_shakes := 2;
 
-   price := FxPt(5.50) * n_burgers + FxPt(2.86) * n_shakes
-   tax := (price * FxPt(7.65/100)).round(2)
-   total := price + tax
+   price := FxPt(5.50) * n_burgers + FxPt(2.86) * n_shakes;
+   tax := (price * FxPt(7.65/100)).round(2);
+   total := price + tax;
 
-   write(left("Price", 10), "$", right(price.toString(),21))
-   write(left("Tax",   10), "$", right(tax.toString(),21))
-   write(left("Total", 10), "$", right(total.toString(),21))
+   write(left("Price", 10), "$", right(price.toString(),21));
+   write(left("Tax",   10), "$", right(tax.toString(),21));
+   write(left("Total", 10), "$", right(total.toString(),21));
 end
 #--------------------------------------------------------- 7 hello-world-graphical
 import gui
@@ -327,24 +327,24 @@ end
 import util
 
 procedure main(A)
-   n := \A[1] | 1
-   writem(walsh(n))
+   n := \A[1] | 1;
+   writem(walsh(n));
 end
 
 procedure walsh(n)
-   static w1
-   initial w1 := [[1,1],[1,-1]]
-   if n > 1 then return combine(wa := walsh(n-1),m_negate(wa))
-   return w1
+   static w1;
+   initial w1 := [[1,1],[1,-1]];
+   if n > 1 then return combine(wa := walsh(n-1),m_negate(wa));
+   return w1;
 end
 
 procedure combine(wa,wb)
-   m := list(*wa*2)
+   m := list(*wa*2);
    every r := 1 to *wa do {
-      m[r] := [: !((wa|wa)[r]) :]
+      m[r] := [: !((wa|wa)[r]) :];
       m[r+*wa] := [: !((wa|wb)[r]) :]
-      }
-   return m
+      };
+   return m;
 end
 #--------------------------------------------------------- 18 web-scraping
 procedure main()

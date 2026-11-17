@@ -10,7 +10,7 @@ arrays	unchanged
 average-loop-length	same-code
 barnsley-fern	same-code
 circular-primes	same-code
-currency	unchanged
+currency	same-code
 deceptive-numbers	same-code
 documentation-1	unchanged
 documentation-2	unchanged
@@ -36,7 +36,7 @@ unix-ls	same-code
 vector	same-code
 wagstaff-primes	same-code
 walk-a-directory-recursively	unchanged
-walsh-matrix	unchanged
+walsh-matrix	same-code
 web-scraping	same-code
 window-creation	same-code
 animation-1-three-ticks	same-code
