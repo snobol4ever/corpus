@@ -48,7 +48,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 47,udb/lib/memory_alloc,udb/lib/memory_alloc.icn,unicon_uni__udb/lib/memory_alloc,unicon_uni,444,0,131072,4096,1800,,unicon,screen.dump,
 48,uflex/test/hello,uflex/test/hello.icn,unicon_uni__uflex/test/hello,unicon_uni,3,0,131072,4096,60,,unicon,,
 49,ulsp/launch-lsp,ulsp/launch-lsp.icn,unicon_uni__ulsp/launch-lsp,unicon_uni,93,255,131072,4096,60,,unicon,,
-50,unicon/i,unicon/i.icn,unicon_uni__unicon/i,unicon_uni,22,1,131072,4096,1800,,unicon,screen.dump,
+50,unicon/i,unicon/i.icn,unicon_uni__unicon/i,unicon_uni,22,1,131072,4096,1800,,unicon,screen.dump,merged
 51,unicon/iol2htm,unicon/iol2htm.icn,unicon_uni__unicon/iol2htm,unicon_uni,22,0,131072,4096,60,,unicon,,
 52,unicon/lump,unicon/lump.icn,unicon_uni__unicon/lump,unicon_uni,53,0,131072,4096,60,,unicon,,
 53,unidoc/UniDoc,unidoc/UniDoc.icn,unicon_uni__unidoc/UniDoc,unicon_uni,228,1,131072,4096,60,,unicon,,
