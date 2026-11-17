@@ -5696,6 +5696,39 @@ end
 0
 ```
 
+## ladder__rung41_a_traceback_frame_of_included_code_names_the_included_file
+
+```Icon
+$include "tbinc_g.icn"
+procedure h(y);
+   return y + 1;
+end
+procedure main();
+   write(h(1));
+   tbinc_g(&null);
+end
+```
+
+```file tbinc_g.icn
+# a procedure that stands in an included file
+procedure tbinc_g(x);
+   return x || "a";
+end
+```
+
+```stdout
+2
+
+Run-time error 103
+File tbinc_g.icn; Line 3
+string expected
+offending value: &null
+Traceback:
+main()
+tbinc_g(&null) from line 7 in tbinc_main.icn
+{&null || "a"} from line 3 in tbinc_g.icn
+```
+
 ## ladder__rung48_thread_wait
 
 ```Icon
