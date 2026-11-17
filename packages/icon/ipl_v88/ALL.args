@@ -1,0 +1,4 @@
+filter	-t4
+hextile	ff00	fe01	fc03	f807	f00f
+xprompt	What	is	your	name
+xed	doc.txt

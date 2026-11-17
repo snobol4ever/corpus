@@ -1,0 +1,1324 @@
+proc main
+	local	0,000020,line
+	local	1,000020,tree
+	local	2,000000,read
+	local	3,000000,tform
+	local	4,000000,write
+	local	5,000000,walk
+	local	6,000000,leaves
+	local	7,000000,__debug_proc
+	local	8,000000,put
+	local	9,000000,variable
+	local	10,000020,__names
+	local	11,000020,__vals
+	local	12,000020,__i
+	con	0,010000,9,164,162,145,145,040,167,141,154,153
+	con	1,010000,6,154,145,141,166,145,163
+	con	2,010000,5,164,146,157,162,155
+	con	3,010000,6,154,145,141,166,145,163
+	con	4,010000,4,164,162,145,145
+	con	5,010000,4,167,141,154,153
+	con	6,010000,4,154,151,156,145
+	con	7,002000,1,1
+	con	8,010000,4,155,141,151,156
+	declend
+	filen	btrees.icn
+	mark	L13
+	pnull
+	var	10
+	pnull
+	str	3
+	str	6
+	str	2
+	str	4
+	str	5
+	llist	5
+	asgn
+	unmark
+lab L13
+	line	11
+	mark	L14
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L14
+	mark	L15
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L16
+	efail
+lab L17
+	unmark
+lab L15
+	mark	L18
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L18
+	mark	L1
+lab L2
+	mark0
+	pnull
+	var	0
+	var	2
+	pnull
+	line	13
+	mark	L19
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L19
+	mark	L20
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L21
+	efail
+lab L22
+	unmark
+lab L20
+	mark	L23
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L23
+	invoke	1
+	asgn
+	unmark
+	mark	L2
+	mark	L5
+	pnull
+	var	1
+	var	3
+	var	0
+	line	14
+	mark	L24
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L24
+	mark	L25
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L26
+	efail
+lab L27
+	unmark
+lab L25
+	mark	L28
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L28
+	invoke	1
+	asgn
+	unmark
+lab L5
+	mark	L6
+	var	4
+	str	0
+	line	15
+	mark	L29
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L29
+	mark	L30
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L31
+	efail
+lab L32
+	unmark
+lab L30
+	mark	L33
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L33
+	invoke	1
+	unmark
+lab L6
+	mark	L7
+	mark0
+	var	4
+	var	5
+	var	1
+	line	16
+	mark	L34
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L34
+	mark	L35
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L36
+	efail
+lab L37
+	unmark
+lab L35
+	mark	L38
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L38
+	invoke	1
+	invoke	1
+	pop
+lab L8
+	efail
+lab L9
+	unmark
+lab L7
+	mark	L10
+	var	4
+	str	1
+	line	17
+	mark	L39
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L39
+	mark	L40
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L41
+	efail
+lab L42
+	unmark
+lab L40
+	mark	L43
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L43
+	invoke	1
+	unmark
+lab L10
+	mark0
+	var	4
+	var	6
+	var	1
+	line	18
+	mark	L44
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L44
+	mark	L45
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L46
+	efail
+lab L47
+	unmark
+lab L45
+	mark	L48
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L48
+	invoke	1
+	invoke	1
+	pop
+lab L11
+	efail
+lab L12
+lab L3
+	unmark
+	goto	L2
+lab L4
+	unmark
+lab L1
+	pnull
+	line	20
+	mark	L49
+	pnull
+	var	11
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L49
+	mark	L50
+	mark0
+	var	8
+	var	11
+	var	9
+	pnull
+	var	10
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L51
+	efail
+lab L52
+	unmark
+lab L50
+	mark	L53
+	var	7
+	keywd	16
+	str	8
+	keywd	22
+	var	10
+	var	11
+	invoke	5
+	unmark
+lab L53
+	pfail
+	end
+proc tform
+	local	0,001000,s
+	local	1,000020,value
+	local	2,000020,left
+	local	3,000020,right
+	local	4,000000,tab
+	local	5,000000,upto
+	local	6,000000,move
+	local	7,000000,bal
+	local	8,000000,node
+	local	9,000000,tform
+	local	10,000000,__debug_proc
+	local	11,000000,put
+	local	12,000000,variable
+	local	13,000020,__names
+	local	14,000020,__vals
+	local	15,000020,__i
+	con	0,020000,1,050
+	con	1,002000,1,1
+	con	2,020000,1,054
+	con	3,020000,1,051
+	con	4,010000,1,163
+	con	5,010000,4,156,157,144,145
+	con	6,010000,5,164,146,157,162,155
+	con	7,010000,5,166,141,154,165,145
+	con	8,002000,1,1
+	con	9,010000,5,164,146,157,162,155
+	declend
+	mark	L12
+	pnull
+	var	13
+	pnull
+	str	5
+	str	4
+	str	6
+	str	7
+	llist	4
+	asgn
+	unmark
+lab L12
+	line	22
+	mark	L13
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L13
+	mark	L14
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L15
+	efail
+lab L16
+	unmark
+lab L14
+	mark	L17
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L17
+	mark	L1
+	mark0
+	pnull
+	var	0
+	line	24
+	mark	L18
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L18
+	mark	L19
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L20
+	efail
+lab L21
+	unmark
+lab L19
+	mark	L22
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L22
+	null
+	unmark
+	mark	L2
+	pnull
+	pret
+lab L2
+	pfail
+	unmark
+lab L1
+	mark	L3
+	var	0
+	line	25
+	mark	L23
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L23
+	mark	L24
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L25
+	efail
+lab L26
+	unmark
+lab L24
+	mark	L27
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L27
+	bscan
+	mark	L4
+	pnull
+	var	1
+	var	4
+	var	5
+	cset	0
+	invoke	1
+	invoke	1
+	asgn
+	unmark
+	mark	L6
+	var	6
+	int	1
+	line	26
+	mark	L28
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L28
+	mark	L29
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L30
+	efail
+lab L31
+	unmark
+lab L29
+	mark	L32
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L32
+	invoke	1
+	unmark
+lab L6
+	mark	L7
+	pnull
+	var	2
+	var	4
+	var	7
+	cset	2
+	line	27
+	mark	L33
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L33
+	mark	L34
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L35
+	efail
+lab L36
+	unmark
+lab L34
+	mark	L37
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L37
+	invoke	1
+	invoke	1
+	asgn
+	unmark
+lab L7
+	mark	L8
+	var	6
+	int	1
+	line	28
+	mark	L38
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L38
+	mark	L39
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L40
+	efail
+lab L41
+	unmark
+lab L39
+	mark	L42
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L42
+	invoke	1
+	unmark
+lab L8
+	mark	L9
+	pnull
+	var	3
+	var	4
+	var	7
+	cset	3
+	line	29
+	mark	L43
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L43
+	mark	L44
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L45
+	efail
+lab L46
+	unmark
+lab L44
+	mark	L47
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L47
+	invoke	1
+	invoke	1
+	asgn
+	unmark
+lab L9
+	mark	L10
+	var	8
+	var	1
+	var	9
+	var	2
+	line	30
+	mark	L48
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L48
+	mark	L49
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L50
+	efail
+lab L51
+	unmark
+lab L49
+	mark	L52
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L52
+	invoke	1
+	var	9
+	var	3
+	invoke	1
+	invoke	3
+	pret
+lab L10
+	pfail
+	goto	L5
+lab L4
+	mark	L11
+	var	8
+	var	0
+	line	32
+	mark	L53
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L53
+	mark	L54
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L55
+	efail
+lab L56
+	unmark
+lab L54
+	mark	L57
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L57
+	invoke	1
+	pret
+lab L11
+	pfail
+lab L5
+	line	25
+	mark	L58
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L58
+	mark	L59
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L60
+	efail
+lab L61
+	unmark
+lab L59
+	mark	L62
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L62
+	escan
+	unmark
+lab L3
+	pnull
+	line	33
+	mark	L63
+	pnull
+	var	14
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L63
+	mark	L64
+	mark0
+	var	11
+	var	14
+	var	12
+	pnull
+	var	13
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L65
+	efail
+lab L66
+	unmark
+lab L64
+	mark	L67
+	var	10
+	keywd	16
+	str	9
+	keywd	22
+	var	13
+	var	14
+	invoke	5
+	unmark
+lab L67
+	pfail
+	end
+proc walk
+	local	0,001000,t
+	local	1,000000,walk
+	local	2,000000,__debug_proc
+	local	3,000000,put
+	local	4,000000,variable
+	local	5,000020,__names
+	local	6,000020,__vals
+	local	7,000020,__i
+	con	1,010000,1,164
+	con	2,010000,4,167,141,154,153
+	con	3,002000,1,1
+	con	4,010000,4,167,141,154,153
+	declend
+	mark	L8
+	pnull
+	var	5
+	pnull
+	str	1
+	str	2
+	llist	2
+	asgn
+	unmark
+lab L8
+	line	35
+	mark	L9
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L9
+	mark	L10
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L11
+	efail
+lab L12
+	unmark
+lab L10
+	mark	L13
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L13
+	mark	L1
+	mark0
+	var	1
+	mark	L4
+	pnull
+	pnull
+	var	0
+	line	36
+	mark	L14
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L14
+	mark	L15
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L16
+	efail
+lab L17
+	unmark
+lab L15
+	mark	L18
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L18
+	field	ltree
+	nonnull
+	esusp
+	goto	L5
+lab L4
+	pnull
+	pnull
+	var	0
+	field	rtree
+	nonnull
+lab L5
+	invoke	1
+	psusp
+	pop
+lab L2
+	efail
+lab L3
+	unmark
+lab L1
+	mark	L6
+	mark	L7
+	pnull
+	var	0
+	line	37
+	mark	L19
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L19
+	mark	L20
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L21
+	efail
+lab L22
+	unmark
+lab L20
+	mark	L23
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L23
+	field	data
+	pret
+lab L7
+	pfail
+	unmark
+lab L6
+	pnull
+	line	38
+	mark	L24
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L24
+	mark	L25
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L26
+	efail
+lab L27
+	unmark
+lab L25
+	mark	L28
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L28
+	pfail
+	end
+proc leaves
+	local	0,001000,t
+	local	1,000000,leaves
+	local	2,000000,__debug_proc
+	local	3,000000,put
+	local	4,000000,variable
+	local	5,000020,__names
+	local	6,000020,__vals
+	local	7,000020,__i
+	con	1,010000,1,164
+	con	2,010000,6,154,145,141,166,145,163
+	con	3,002000,1,1
+	con	4,010000,6,154,145,141,166,145,163
+	declend
+	mark	L11
+	pnull
+	var	5
+	pnull
+	str	2
+	str	1
+	llist	2
+	asgn
+	unmark
+lab L11
+	line	40
+	mark	L12
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L12
+	mark	L13
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L14
+	efail
+lab L15
+	unmark
+lab L13
+	mark	L16
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L16
+	mark	L1
+	mark0
+	mark	L2
+	mark	L3
+	pnull
+	pnull
+	var	0
+	line	41
+	mark	L17
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L17
+	mark	L18
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L19
+	efail
+lab L20
+	unmark
+lab L18
+	mark	L21
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L21
+	field	ltree
+	nonnull
+	esusp
+	goto	L4
+lab L3
+	pnull
+	pnull
+	var	0
+	field	rtree
+	nonnull
+lab L4
+	unmark
+	efail
+lab L2
+	pnull
+	unmark
+	mark	L5
+	pnull
+	var	0
+	field	data
+	pret
+lab L5
+	pfail
+	unmark
+lab L1
+	mark	L6
+	mark0
+	var	1
+	mark	L9
+	pnull
+	pnull
+	var	0
+	line	42
+	mark	L22
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L22
+	mark	L23
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L24
+	efail
+lab L25
+	unmark
+lab L23
+	mark	L26
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L26
+	field	ltree
+	nonnull
+	esusp
+	goto	L10
+lab L9
+	pnull
+	pnull
+	var	0
+	field	rtree
+	nonnull
+lab L10
+	invoke	1
+	psusp
+	pop
+lab L7
+	efail
+lab L8
+	unmark
+lab L6
+	pnull
+	line	43
+	mark	L27
+	pnull
+	var	6
+	pnull
+	llist	0
+	asgn
+	unmark
+lab L27
+	mark	L28
+	mark0
+	var	3
+	var	6
+	var	4
+	pnull
+	var	5
+	bang
+	invoke	1
+	invoke	2
+	pop
+lab L29
+	efail
+lab L30
+	unmark
+lab L28
+	mark	L31
+	var	2
+	keywd	16
+	str	4
+	keywd	22
+	var	5
+	var	6
+	invoke	5
+	unmark
+lab L31
+	pfail
+	end

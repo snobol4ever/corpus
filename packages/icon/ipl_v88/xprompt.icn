@@ -1,0 +1,33 @@
+############################################################################ 
+#
+#	Name:	xprompt.icn
+#
+#	Title:	X Prompt
+#
+#	Author:	Clinton L. Jeffery
+#
+#	Date:	August 4, 1992
+#
+############################################################################ 
+#
+#    An X-Icon utility for interactive shell scripts.  Called from a
+# shell script, it pops up an X window, writes its arguments out as
+# a prompt, and echos the user's response to standard output where
+# the shell script can use it (by means of the backquote character).
+#
+############################################################################
+#
+#  Requires:  X-Icon
+#
+############################################################################
+
+procedure main(args)
+  pos := "pos=";
+  every s2 := XQueryPointer() do pos ||:= (s2-10) || ",";
+
+  w := open("xprompt", "x", "cursor=on", "font="||("12x24"|"fixed"),
+	    "lines=1", pos[1:-1]) |
+     stop("opening the window fails");
+  every writes(w,!args," ");
+  write(read(w));
+end

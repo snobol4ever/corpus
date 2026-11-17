@@ -1,0 +1,9 @@
+
+Run-time error 106
+File optwindow.icn; Line 138
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = [])
+optwindow(table_1(6),list_3 = ["sierpinski","x","cursor=off",...,"height=420","fg=black","bg=white"]) from line 59 in sierpinski.icn
+&null((variable = window_1:1(sierpinski)),"pos") from line 138 in optwindow.icn

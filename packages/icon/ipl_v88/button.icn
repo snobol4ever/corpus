@@ -1,0 +1,160 @@
+############################################################################
+#
+#	Name:	button.icn
+#
+#	Title:	Pushbutton sensors for use with X-windows
+#
+#	Author:	Gregg M. Townsend
+#
+#	Date:	December, 1990
+#
+############################################################################
+#
+#   These procedures implement pushbuttons using the X-window event
+#   multiplexor, evmux.
+#
+#   It is assumed that buttons do not overlap, and that fg, bg, and font do
+#   not change beyond the initial call (though they are altered temporarily).
+#   These restrictions can be accommodated if necessary by binding a new
+#   graphics context and passing it on all button calls.
+#
+#   button(win,label,proc,arg,x,y,w,h)
+#
+#	establishes a button of size (w,h) at (x,y) and returns a handle.
+#	"label" is displayed as the text of the button.
+#	When the button is pushed, proc(win,arg) is called.
+#
+#	If proc is null, the label is drawn with no surrounding box, and
+#	the button is not sensitive to mouse events.  This can be used to
+#	insert a label in a row of buttons.
+#
+#   buttonlabel(handle,label)
+#
+#	changes the label on a button.
+#
+#   buttonrow(win,x,y,w,h,dx,dy, label,proc,arg, label,proc,arg, ...)
+#
+#	establishes a row (or column) of buttons and returns a list of handles.
+#	Every button has size (w,h) and is offset from its predecessor by
+#	(dx,dy).
+#
+#	(x,y) give the "anchor point" for the button row, which is a corner
+#	of the first button.  x specifies the left edge of that button unless
+#	dx is negative, in which case it specifies the right edge.  Similarly,
+#	y is the top edge, or the bottom if dy is negative.
+#
+#	One button is created for each argument triple of label,proc,arg.
+#	An extra null argument is accepted to allow regularity in coding as
+#	shown in the example below.
+#
+#	If all three items of the triple are null, a half-button-sized
+#	gap is inserted instead of a button.
+#
+#   Example:
+#
+#	Draw a pushbutton at (x,y) of size (w,h);
+#	then change its label from "Slow" to "Reluctant"
+#	When the button is pushed, call setspeed (win, -3).
+#
+# 		b := button (win, "Slow", setspeed, -3, x, y, w, h)
+#   		buttonlabel (b, "Reluctant")
+#
+#	Make a set of buttons extending to the left from (490,10)
+#
+#		blist := buttonrow (win, 490, 10, 50, 20, -60, 0,
+#		    "fast", setspeed, +3,
+#		    "med", setspeed, 0,
+#		    "slow", setspeed, -3,
+#		    )
+#
+############################################################################
+#
+#  Links: evmux
+#
+############################################################################
+#
+#  Requires:  X-Icon
+#
+############################################################################
+
+link evmux
+
+record Button_Rec (win, label, proc, arg, x, y, w, h, f, b, lx, ly)
+
+procedure button (win, label, proc, arg, x, y, w, h)
+   local r;
+
+   r := Button_Rec (win, label, proc, arg, x, y, w, h, XFg (win), XBg (win));
+   buttonlabel (r, label);
+   if \proc then {
+      XDrawRectangle (win, x, y, w, h);
+      sensor (win, &lpress, Exec_Button, r, x, y, w, h)
+      };
+   return r;
+   end
+
+procedure buttonrow (win, x, y, w, h, dx, dy, args[])
+   local hlist, label, proc, arg;
+
+   if dx < 0 then x -:= w;
+   if dy < 0 then y -:= h;
+   hlist := [];
+   repeat {
+      label := get (args) | break;
+      proc := get (args) | break;
+      arg := get (args) | break;
+      if label === proc === arg === &null then {
+	 x +:= dx / 2;
+	 y +:= dy / 2
+	 }
+      else {
+	 put (hlist, button (win, label, proc, arg, x, y, w, h));
+	 x +:= dx;
+	 y +:= dy
+	 }
+      };
+   return hlist;
+   end
+
+procedure buttonlabel (r, s)
+   #%#% draws a string centered in an area.
+   #%#% should make this more general and not restricted to buttons
+   r.label := s;
+   r.lx := r.x + (r.w - XAttrib (r.win, "textwidth:" || s)) / 2 + 1;
+   r.ly := r.y + (r.h + XAttrib (r.win, "fheight")) / 2 - 1;
+   Fill_Button (r, r.f, r. b);
+   end
+
+procedure Fill_Button (r, f, b)
+   XFg (r.win, b);
+   XFillRectangle (r.win, r.x+1, r.y+1, r.w-1, r.h-1);
+   XFg (r.win, f);
+   XBg (r.win, b);
+   XGotoXY (r.win, r.lx, r.ly);
+   writes (r.win, r.label);
+   end
+
+procedure Exec_Button (win, r, x, y)
+   local e, h, u, args, a;
+
+   h := [r, r.b, r.f];	# args to highlight button
+   u := [r, r.f, r.b];	# args to unhighlight button
+   args := h;
+   Fill_Button ! args;
+
+   while e := XEvent (win) do {
+      case e of {
+	 &ldrag: {			# drag
+	    a := (if ontarget (r, &x, &y) then h else u);
+	    Fill_Button ! (args ~===:= a)
+	    };
+	 &lrelease: {		# release leftbutton
+	    Fill_Button ! (a ~=== u);
+	    if ontarget (r, &x, &y) then
+	       r.proc (win, r.arg);
+	    return
+	    }
+	 }
+      };
+   return;
+   end

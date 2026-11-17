@@ -1,0 +1,70 @@
+############################################################################
+#
+#	Name:	hextile.icn
+#
+#	Title:	Show a tiling of a bitmap
+#
+#	Author:	Gregg M. Townsend
+#
+#	Date:	January 12, 1991
+#
+############################################################################
+#
+#      hextile displays several copies of a bitmap specified by command
+#   arguments.  Each argument gives one row of the bitmap, hexadecimal.
+#
+#      For example:  hextile ff00 fe01 fc03 f807 f00f
+#
+############################################################################
+#
+#  Links: evmux
+#
+############################################################################
+
+
+link evmux
+
+
+
+procedure main (args)
+    local b, h, win, width, height, margin;
+
+    margin := 16;
+    h := margin + *args + margin;
+
+    if *args = 0 then stop ("usage: hextile row1 ...");
+
+    b := [0, 0];
+    every 1 to margin do put (b, 0);
+    every put (b, rhex(!args));
+    every 1 to margin do put (b, 0);
+
+    width := integer (6.5 * 32);
+    height := integer (6 * h);
+
+    win := open ("hextile", "x", "width="  || width, "height=" || height);
+
+    XAttrib (win, "fillstyle=opaquestippled");
+    b[1] := win;
+    b[2] := 32;
+    XSetStipple ! b;
+    XFillRectangle (win, 0, 0, width, height);
+    quitsensor (win, 1);
+end
+
+
+procedure rhex (s)
+    static hexd, hexv;
+    local n;
+    initial {
+	hexd := '0123456789ABCDEFabcdef';
+	hexv := table ();
+	every n := 0 to 15 do hexv["0123456789ABCDEF"[n+1]] := n;
+	every n := 0 to 15 do hexv["0123456789abcdef"[n+1]] := n
+    };
+    
+    n := 0;
+    s ? while tab(upto(hexd)) do
+	n := ishift (n, 4) + hexv[move(1)];
+    return n;
+end

@@ -1,0 +1,8 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,stderr,in_files
+1,debugify,debugify.icn,ipl_v88__debugify,ipl_v88,563,0,131072,4096,60,,merged,
+2,filter,filter.icn,ipl_v88__filter,ipl_v88,64,0,131072,4096,60,,merged,
+3,stars,stars.icn,ipl_v88__stars,ipl_v88,92,0,131072,4096,60,,merged,
+4,hextile,hextile.icn,ipl_v88__hextile,ipl_v88,70,1,131072,4096,120,,merged,
+5,sierpinski,sierpinski.icn,ipl_v88__sierpinski,ipl_v88,201,1,131072,4096,120,,merged,
+6,xprompt,xprompt.icn,ipl_v88__xprompt,ipl_v88,33,1,131072,4096,120,,merged,
+7,xed,xed.icn,ipl_v88__xed,ipl_v88,136,1,131072,4096,120,,merged,doc.txt=inputs/doc.txt

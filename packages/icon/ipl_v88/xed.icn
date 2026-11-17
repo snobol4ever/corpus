@@ -1,0 +1,136 @@
+############################################################################
+#
+#	Name:	xed.icn
+#
+#	Title:	Mouse-Oriented Text Editor for X (Windows)
+#
+#	Author:	Robert J. Alexander
+#
+#	Date:	August 25, 1992
+#
+############################################################################
+#
+#  Usage: xed <options> file
+#
+#  If file is "-" then standard input is edited read-only.
+#
+#  Options:
+#
+#       -g s    Geometry (<columns>x<lines>+x+y)
+#       -f s    Font
+#       -t n    Tab stop spacing
+#       -i      Don't ignore case in find and replace
+#       -T s    Window title (if omitted, file name is used)
+#       -R      Read-only
+#       -L n    Start at line number n
+#       -H      Print help window text to standard output
+#
+#  <<< Use control-? to get a "help" window. >>>
+#
+#
+#  Features
+#
+#       - Lots of commands, currently invoked by control-keys (until menus
+#         are implemented).  Use ^? in the editor to get a help screen,
+#         or see the EditHelpText() procedure, below.
+#
+#       - Selections are started by clicking with the left mouse button.
+#         They are extended by dragging with the left button, or by
+#         clicking and/or dragging with center or right button.
+#
+#       - Double-click selects word; triple-click selects line.  Double-
+#         click on a bracket-type character (one of '{}()[]<>', or single or
+#         double quote) selects text between it and its mate.  Double-
+#         click on a non-word, non-bracked character selects a
+#         single character.
+#
+#       - Multiple level undo-redo.  The number of actions that can be
+#         undone/redone is currently set arbitrarily to 300.  In this
+#         version, each keystroke is individually undoable.  Only data-
+#         modifying actions, currently, are undoable (i.e. cursor
+#         movements are not undoable).
+#
+#       - Numerous undocumented features (sometimes refered to,
+#         derogatorily, as bugs).  If brought to the author's attention,
+#         the documentation will be changed.
+#
+############################################################################
+#
+#  Links: options, textedit, filename
+#
+############################################################################
+
+
+procedure Usage()
+   write(
+	 "Usage: xed <options> file_
+	 \n_
+	 \nIf file is \"-\" then standard input is edited read-only._
+	 \n_
+	 \nOptions:_
+	 \n_
+	 \n        -g s    Geometry (<columns>x<lines>+x+y)_
+	 \n        -f s    Font_
+	 \n        -t n    Tab stop spacing_
+	 \n        -i      Don't ignore case in find and replace_
+	 \n        -T s    Window title (if omitted, file name is used)_
+	 \n        -R      Read-only_
+	 \n        -L n    Start at line number n_
+	 \n        -H      Print help window text to standard output_
+	 \n_
+	 \n  <<< Use control-? to get a \"help\" window. >>>_
+	 \n");
+   exit();
+end
+
+
+global Geometry,Font,WindowName,ReadOnly,LineNbr,Tabs,IgnoreCase
+
+procedure Options(arg)
+   local opt;
+   opt := options(arg,"Rg:f:t+T:L+hHi");
+   if \opt["h"] then Usage();
+   if \opt["H"] then {
+      write(EditHelpText());
+      exit()
+      };
+   Geometry := \opt["g"] | "80x48";
+   Font := \opt["f"] | "fixed";
+   WindowName := opt["T"];
+   Tabs := (1 <= \opt["t"] | 8) + 1;
+   ReadOnly := opt["R"];
+   LineNbr := \opt["L"] | 1;
+   IgnoreCase := (\opt["i"],&null) | 1;
+   return opt;
+end
+
+
+link options, textedit, filename
+
+
+procedure main(arg)
+   local fn,f,text;
+   Options(arg);
+   fn := arg[1];
+   InitControl();
+   text := [];
+   if \fn then {
+      if fn ~== "-" then f := open(fn)
+      else {
+	 f := &input;
+	 fn := "Standard Input";
+	 ReadOnly := 1
+	 };
+      if \f then {
+	 every put(text,!f);
+	 close(&input ~=== f)
+	 }
+      };
+   /WindowName := {
+     if \fn then {
+       tail(fn)[2]
+     }
+     else "* No File *"
+   };
+   Edit(text,Geometry,Font,WindowName,fn,1,,,ReadOnly,LineNbr,IgnoreCase);
+end

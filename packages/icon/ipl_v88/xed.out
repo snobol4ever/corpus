@@ -1,0 +1,9 @@
+
+Run-time error 106
+File textedit.icn; Line 199
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = ["doc.txt"])
+Edit(list_4 = ["line one of the ...","\tline two, tabbe...","line three"],"80x48","fixed","doc.txt","doc.txt",1,&null,&null,&null,1,1) from line 135 in xed.icn
+&null("font=fixed") from line 199 in textedit.icn

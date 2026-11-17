@@ -1,0 +1,17 @@
+# CONVERSION-PROOF.tsv -- ipl_v88: each Icon file of the Icon 8.8 program library (ipl/progs and ipl/procs of the v8.8 distribution, Arizona FTP) converted by util_icon_semicolons.py, and the stock Arizona translator's (icont 9.5.25a with newline insertion, -s -c) .u1 and .u2 of the original against the converted text, byte for byte (the grader 2026-11-17)
+file	verdict	semicolons_added
+ansi.icn	SAME-CODE	35
+button.icn	SAME-CODE	39
+control.icn	SAME-CODE	140
+debugify.icn	SAME-CODE	205
+evmux.icn	SAME-CODE	34
+filename.icn	SAME-CODE	16
+filter.icn	SAME-CODE	8
+hextile.icn	SAME-CODE	24
+optwindow.icn	SAME-CODE	39
+radcon.icn	SAME-CODE	14
+sierpinski.icn	SAME-CODE	79
+stars.icn	SAME-CODE	23
+textedit.icn	SAME-CODE	737
+xed.icn	SAME-CODE	27
+xprompt.icn	SAME-CODE	5

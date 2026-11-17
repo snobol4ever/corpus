@@ -1,0 +1,8 @@
+
+Run-time error 106
+File hextile.icn; Line 47
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = ["ff00","fe01","fc03","f807","f00f"])
+&null((variable = window_1:1(hextile)),"fillstyle=opaque...") from line 47 in hextile.icn

@@ -1,0 +1,8 @@
+
+Run-time error 106
+File xprompt.icn; Line 26
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = ["What","is","your","name"])
+&null() from line 26 in xprompt.icn
