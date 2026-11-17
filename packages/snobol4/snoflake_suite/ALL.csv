@@ -140,9 +140,9 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 173,topological-sort,topological-sort.sno,snoflake_suite__topological-sort,snoflake_suite,64,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,1,1,1,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,1,1,0,0,0,1
 174,twelve-days,twelve-days.sno,snoflake_suite__twelve-days,snoflake_suite,46,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,1,1,1,0,0,0,0
 177,unload-builtin,unload-builtin.sno,snoflake_suite__unload-builtin,snoflake_suite,13,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+86,control-hide-list-control-line,control-hide-list-control-line.sno,snoflake_suite__control-hide-list-control-line,snoflake_suite,8,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+87,control-hide-statement-numbers,control-hide-statement-numbers.sno,snoflake_suite__control-hide-statement-numbers,snoflake_suite,14,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
 83,case-folding,case-folding.sno,snoflake_suite__case-folding,snoflake_suite,12,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-86,control-hide-list-control-line,control-hide-list-control-line.sno,snoflake_suite__control-hide-list-control-line,snoflake_suite,8,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-87,control-hide-statement-numbers,control-hide-statement-numbers.sno,snoflake_suite__control-hide-statement-numbers,snoflake_suite,14,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 90,errlimit,errlimit.sno,snoflake_suite__errlimit,snoflake_suite,10,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,gimpel-additional-string-functions,gimpel-additional-string-functions.sno,snoflake_suite__gimpel-additional-string-functions,snoflake_suite,41,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 96,gimpel-asm-machine-m,gimpel-asm-machine-m.sno,snoflake_suite__gimpel-asm-machine-m,snoflake_suite,77,0,131072,4096,300,--stlimit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

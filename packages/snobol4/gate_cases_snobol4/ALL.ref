@@ -51975,3 +51975,1281 @@ execution time msec  0
 REGENERATIONS        0
 memory used (bytes)  11752
 memory left (bytes)  1036816
+*---------- 525 test_gate_builder_mines_a_snobol4_collection_by_spitbol__refused
+before
+
+
+
+test_gate_builder_mines_a_snobol4_collection_by_spitbol__refused.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              test_gate_builder_mines_a_snobol4_collection_by_spitbol__refused.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11360
+memory left (bytes)  1037208
+*------------------------ 526 test_gate_s4e_donewhen_runs_the_whole_criterion__w
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:19:54 2026
+
+
+
+                                                                                                                page 1
+
+1       # the body as EMPTY, writes a zero-byte file, and that cat -- the only command reached -- exits 0. The criterion
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(1) : ERROR 214 -- bad label or misplaced continuation line
+
+2       # exits 0 HAVING RUN NOTHING, so a broken tree and a fixed one are byte-identical in verdict. ⭐ MEASURED CLOSU
+RE:
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(2) : ERROR 214 -- bad label or misplaced continuation line
+
+3       # snobol4-pattern-primitive-as-function-argument-always-fails-in-callee closed DONE 2026-09-05T15:33Z through
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(3) : ERROR 214 -- bad label or misplaced continuation line
+
+4       # exactly this path while its full text exits 1 on the same tree. 185 of 1128 live batons carry a multi-line
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(4) : ERROR 214 -- bad label or misplaced continuation line
+
+5       # DONE-WHEN, so this is a population, not an anecdote.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(5) : ERROR 214 -- bad label or misplaced continuation line
+
+6       #
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(6) : ERROR 214 -- bad label or misplaced continuation line
+
+7       # FOUR ARMS against a THROWAWAY postoffice under mktemp -- never the live one:
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(7) : ERROR 214 -- bad label or misplaced continuation line
+
+8       #   (A) TWO-LINE CRITERION, SECOND LINE RED: line 1 passes, line 2 exits 1 -> rc=1 NOT DONE, row NOT closed.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(8) : ERROR 214 -- bad label or misplaced continuation line
+
+9       #       This is the officer's named fail-once shape and the minimal statement of the whole defect.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(9) : ERROR 214 -- bad label or misplaced continuation line
+
+10      #   (B) HEREDOC WITNESS: writes a file, then greps it, then exits 1 -> rc=1, AND the file is non-empty, which is
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(10) : ERROR 214 -- bad label or misplaced continuation line
+
+11      #       what proves the BODY ran rather than the opener alone. ⛔ Arm A alone cannot prove that: a fix that rea
+d
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(11) : ERROR 214 -- bad label or misplaced continuation line
+
+12      #       two lines and stopped would pass A and still truncate every heredoc.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(12) : ERROR 214 -- bad label or misplaced continuation line
+
+13      #   (C) UNTERMINATED HEREDOC (an author's mistake, or a future re-truncation) -> REFUSED rc=2, row NOT closed.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(13) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 2
+
+14      #       Never rc=0 and never rc=1: bash cannot finish reading it, so nobody measured anything.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(14) : ERROR 214 -- bad label or misplaced continuation line
+
+15      #   (D) MULTI-LINE AND GENUINELY GREEN -> rc=0 and the row CLOSES. Without this the gate would pass on a `done`
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(15) : ERROR 214 -- bad label or misplaced continuation line
+
+16      #       that had simply stopped closing anything, which is the cheap way to satisfy A/B/C and cure nothing.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(16) : ERROR 214 -- bad label or misplaced continuation line
+
+17      #   (E) ⛔ THE ARM THAT COST THE MOST TO LEARN: a COMPLETE one-line criterion followed by indented PROSE ANNOTA
+TION
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(17) : ERROR 214 -- bad label or misplaced continuation line
+
+18      #       -- "⛔ DONE-WHEN REWRITTEN 2026-08-24 (seat04): the line above used to be prose..." -- must still close
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(18) : ERROR 214 -- bad label or misplaced continuation line
+
+19      #       green. 121 of the 122 DONE batons whose field spans lines are exactly that shape, so the obvious
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(19) : ERROR 214 -- bad label or misplaced continuation line
+
+20      #       continuation rule ("read to the next column-0 label", which is how GOAL: carries paragraphs) would have
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(20) : ERROR 214 -- bad label or misplaced continuation line
+
+21      #       fed their annotation to `bash -c` and broken 121 correctly-closing rows to fix one. The cure is that
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(21) : ERROR 214 -- bad label or misplaced continuation line
+
+22      #       continuation happens ONLY while bash says the text is UNFINISHED.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(22) : ERROR 214 -- bad label or misplaced continuation line
+
+23      #   (F) A SECOND column-0 `DONE-WHEN:` whose text is a REAL COMMAND -> REFUSED rc=2, row NOT closed. Only the
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(23) : ERROR 214 -- bad label or misplaced continuation line
+
+24      #       first line has ever run, so such a baton closes on HALF its own contract while the other half sits in th
+e
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(24) : ERROR 214 -- bad label or misplaced continuation line
+
+25      #       file where every reader counts it as part of the bar. ⭐ MEASURED on the officer's seed: 39 live batons
+ carry
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(25) : ERROR 214 -- bad label or misplaced continuation line
+
+26      #       more than one, 10 extras are real commands, 6 of those rows are DONE, and one of those six -- snobol4-
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(26) : ERROR 214 -- bad label or misplaced continuation line
+
+27      #       xfail-class-setexit-errlimit-composition-2-entries -- has a RED second half ("cross-ref=0 (want 2)").
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(27) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 3
+
+28      #   (G) THE SAME SHAPE WITH A LEFTOVER MINT PLACEHOLDER beneath a real criterion -> still closes green. Untidy i
+s
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(28) : ERROR 214 -- bad label or misplaced continuation line
+
+29      #       not ambiguous, and 4 of the 39 are exactly that; refusing them would block real rows for a cosmetic reas
+on.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(29) : ERROR 214 -- bad label or misplaced continuation line
+
+30      #   (H) A SECOND column-0 `DONE-WHEN:` BYTE-IDENTICAL TO THE FIRST -> still closes green. Arm F refuses because
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(30) : ERROR 214 -- bad label or misplaced continuation line
+
+31      #       "which line is the contract" is a question about intent; identical text asks no such question, the
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(31) : ERROR 214 -- bad label or misplaced continuation line
+
+32      #       extractor taking the first loses nothing, and no half of any bar went unrun. ⭐ MEASURED: 3 of the 10
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(32) : ERROR 214 -- bad label or misplaced continuation line
+
+33      #       extras that survive F's placeholder filters are exactly this, and all three were being refused for a
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(33) : ERROR 214 -- bad label or misplaced continuation line
+
+34      #       cosmetic reason -- the same mistake G exists to prevent, one shape over.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(34) : ERROR 214 -- bad label or misplaced continuation line
+
+35      # EXIT 0 all arms hold on the live script AND each mutant goes red; 1 otherwise; 2 REFUSED (fixture cannot be bu
+ilt).
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(35) : ERROR 214 -- bad label or misplaced continuation line
+
+37      HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; MSG="$HERE/s4e_msg.sh"
+                               !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(37,24) : ERROR 233 -- syntax error: invalid use of operator
+
+38      ROOT="$(cd "$HERE/../.." && pwd)"
+                                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(38,27) : ERROR 233 -- syntax error: invalid use of operator
+
+39      [ -f "$MSG" ] || { echo "⛔ REFUSED: $MSG missing"; exit 2; }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(39) : ERROR 214 -- bad label or misplaced continuation line
+
+
+                                                                     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(39,62) : ERROR 230 -- syntax error: illegal character
+
+42      [ -f "$ROOT/harness/scripts/s4e_msg.sh" ] || { echo "⛔ REFUSED: sibling root not resolvable from $HERE (want $
+ROOT/SCRIP)"; exit 2; }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(40) : ERROR 214 -- bad label or misplaced continuation line
+
+
+                                                                                                                        
+                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(40,135) : ERROR 230 -- syntax error: illegal character
+
+45      W="$(mktemp -d)" || { echo "⛔ REFUSED: mktemp failed"; exit 2; }; trap 'rm -rf "$W"' EXIT
+                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(41,15) : ERROR 224 -- syntax error: unbalanced right parenthesis
+
+
+
+
+                                                                                                                page 4
+
+46      PO="$W/po"; ME=worker_20; HD="$W/hd.txt"
+                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(42,15) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                    !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(42,29) : ERROR 233 -- syntax error: invalid use of operator
+
+49      # ⛔ EVERY criterion names a path or a `$` ON PURPOSE: done's vacuity probe skips a criterion containing `/` or
+ `$`,
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(43) : ERROR 214 -- bad label or misplaced continuation line
+
+50      # and without that these fixtures would be refused as decorated no-ops -- a green gate proving something else.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(44) : ERROR 214 -- bad label or misplaced continuation line
+
+51      mk_po() {
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(45,9) : ERROR 230 -- syntax error: illegal character
+
+52        rm -rf "$PO" "$HD"; mkdir -p "$PO/tasks" "$PO/claims" "$PO/released" "$PO/$ME/inbox" || return 2
+                                                                                                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(46,89) : ERROR 233 -- syntax error: invalid use of operator
+
+54        : > "$PO/BOARD.md"; : > "$PO/QUEUE.done.tsv"; printf "TRIO\n" > "$PO/MODE"
+            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(47,5) : ERROR 234 -- syntax error: goto field incorrect
+
+
+                                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(47,25) : ERROR 234 -- syntax error: goto field incorrect
+
+
+                                                                        !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(47,65) : ERROR 225 -- syntax error: unbalanced right bracket
+
+57        { printf '# gate fixture queue\n'; for t in t-two t-heredoc t-unterm t-green t-prose t-receipt t-two-contracts
+ t-stale-ph t-dup-contract; do printf '2\t%s\tunassigned\tFREE\n' "$t"; done; } > "$PO/QUEUE.tsv"
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(48,3) : ERROR 230 -- syntax error: illegal character
+
+
+                                                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(48,47) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                                                              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(48,191) : ERROR 230 -- syntax error: illegal character
+
+62        for t in t-two t-heredoc t-unterm t-green t-prose t-receipt t-two-contracts t-stale-ph t-dup-contract; do
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(49,12) : ERROR 233 -- syntax error: invalid use of operator
+
+64          { printf '# TASK %s\nGOAL: gate fixture.\n' "$t"
+            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(50,5) : ERROR 230 -- syntax error: illegal character
+
+66              t-two)     printf 'DONE-WHEN: test -f "$S4E_HOME/harness/scripts/s4e_msg.sh" \\\n'
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(52,9) : ERROR 233 -- syntax error: invalid use of operator
+
+
+
+
+                                                                                                                page 5
+
+69              t-heredoc) printf "DONE-WHEN: cat > %s <<'HEOF'\n" "$HD"
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(54,9) : ERROR 233 -- syntax error: invalid use of operator
+
+74              t-unterm)  printf "DONE-WHEN: cat > %s <<'HEOF'\n" "$W/unterm.txt"
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(58,9) : ERROR 233 -- syntax error: invalid use of operator
+
+77              t-green)   printf "DONE-WHEN: cat > %s.g <<'GEOF'\n" "$HD"
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(60,9) : ERROR 233 -- syntax error: invalid use of operator
+
+81              t-two-contracts) printf 'DONE-WHEN: test -f "$S4E_HOME/harness/scripts/s4e_msg.sh"\n'
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(63,9) : ERROR 233 -- syntax error: invalid use of operator
+
+84              t-dup-contract) printf 'DONE-WHEN: test -f "$S4E_HOME/harness/scripts/s4e_msg.sh"\n'
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(65,9) : ERROR 233 -- syntax error: invalid use of operator
+
+87              t-stale-ph) printf 'DONE-WHEN: test -f "$S4E_HOME/harness/scripts/s4e_msg.sh"\n'
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(67,9) : ERROR 233 -- syntax error: invalid use of operator
+
+90              t-receipt) printf 'DONE-WHEN: test -f "$S4E_HOME/harness/scripts/s4e_msg.sh"\n'
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(69,9) : ERROR 233 -- syntax error: invalid use of operator
+
+94              t-prose)   printf 'DONE-WHEN: test -f "$S4E_HOME/harness/scripts/s4e_msg.sh"\n'
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(72,9) : ERROR 233 -- syntax error: invalid use of operator
+
+99            printf 'LINKS: none\n## NEXT\n(none)\n## LEDGER\n'; } > "$PO/tasks/$t.task.md"
+                                                                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(76,59) : ERROR 230 -- syntax error: illegal character
+
+102     }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(78) : ERROR 214 -- bad label or misplaced continuation line
+
+103     # ⛔ THE LIVE-CLAIM CAP (CLAUDE.md SOP 6, R-2078): a seat holds at most two live claims. mk_po used to claim al
+l nine rows as one
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(79) : ERROR 214 -- bad label or misplaced continuation line
+
+104     # seat, so the third claim was refused and the fixture returned rc 2 before any arm ran. A row is now claimed by
+ run() just before
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(80) : ERROR 214 -- bad label or misplaced continuation line
+
+105     # its own done, and every other row this seat still holds OPEN is released first; a closed row keeps its DONE re
+ceipt and is never
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(81) : ERROR 214 -- bad label or misplaced continuation line
+
+106     # released. FIXERR marks a claim the real bus refused: the arm reports a broken fixture (rc 2), never a red arm.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(82) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 6
+
+109     run() {
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(85,7) : ERROR 230 -- syntax error: illegal character
+
+110       local _x
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(86,9) : ERROR 230 -- syntax error: illegal character
+
+111       for _x in t-two t-heredoc t-unterm t-green t-two-contracts t-stale-ph t-dup-contract t-receipt t-prose; do
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(87,7) : ERROR 230 -- syntax error: illegal character
+
+113         [ "$_x" = "$2" ] && continue
+            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(88,5) : ERROR 222 -- syntax error: invalid use of left bracket
+
+114         [ -f "$PO/claims/$_x.claim" ] && ! closed "$_x" && S4E_POST="$PO" S4E_SEAT="$ME" S4E_HOME="$ROOT" S4E_NO_BAN
+NER=1 bash "$MSG" unclaim "$_x" >/dev/null 2>&1
+            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(89,5) : ERROR 222 -- syntax error: invalid use of left bracket
+
+116       S4E_POST="$PO" S4E_SEAT="$ME" S4E_HOME="$ROOT" S4E_NO_BANNER=1 bash "$MSG" claim "$2" >/dev/null 2>&1
+                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(91,11) : ERROR 233 -- syntax error: invalid use of operator
+
+117       [ "$(head -1 "$PO/claims/$2.claim" 2>/dev/null)" = "$ME" ] || { FIXERR=1; RC=2; return; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(92,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(92,79) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(92,91) : ERROR 230 -- syntax error: illegal character
+
+121       S4E_POST="$PO" S4E_SEAT="$ME" S4E_HOME="$ROOT" S4E_NO_BANNER=1 bash "$1" done "$2" >"$W/out" 2>&1; RC=$?; }
+                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(93,11) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                               !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(93,104) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                    !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(93,109) : ERROR 230 -- syntax error: illegal character
+
+124     say() { grep -m3 -E '⛔|NOT DONE|REFUSED|✅' "$W/out" | sed 's/^/      | /' || tail -3 "$W/out" | sed 's/^/   
+   | /'; }
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(94,7) : ERROR 230 -- syntax error: illegal character
+
+
+                                                                                                                        
+         !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(94,122) : ERROR 230 -- syntax error: illegal character
+
+126     closed() { grep -q '^DONE$' "$PO/claims/$1.claim" 2>/dev/null; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(95,10) : ERROR 230 -- syntax error: illegal character
+
+
+                                                                       !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(95,64) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+                                                                                                                page 7
+
+128     arm() {   # arm <label> <script> -> 0 iff all four contracts hold; 2 iff the fixture broke
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(96,7) : ERROR 230 -- syntax error: illegal character
+
+130       local lbl="$1" s="$2" ok=1
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(97,12) : ERROR 233 -- syntax error: invalid use of operator
+
+131       mk_po || return 2
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(98,10) : ERROR 233 -- syntax error: invalid use of operator
+
+132       FIXERR=0
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(99,9) : ERROR 233 -- syntax error: invalid use of operator
+
+133       run "$s" t-two
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(100,12) : ERROR 233 -- syntax error: invalid use of operator
+
+134       [ "$RC" = 1 ] || { echo "  [$lbl] (A) two-line criterion whose SECOND line exits 1 returned $RC (want 1 -- mea
+sured red)"; say; ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(101,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+                    !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(101,133) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                        !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(101,137) : ERROR 230 -- syntax error: illegal character
+
+138       closed t-two && { echo "  [$lbl] (A) ⛔ the row CLOSED -- the second line never ran"; ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(102,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(102,92) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                       !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(102,96) : ERROR 230 -- syntax error: illegal character
+
+141       run "$s" t-heredoc
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(103,12) : ERROR 233 -- syntax error: invalid use of operator
+
+142       [ "$RC" = 1 ] || { echo "  [$lbl] (B) heredoc criterion returned $RC (want 1 -- measured red after the body ra
+n)"; say; ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(104,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(104,125) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(104,129) : ERROR 230 -- syntax error: illegal character
+
+146       [ -s "$HD" ] || { echo "  [$lbl] (B) ⛔ the heredoc body did not reach the file -- the opener ran alone"; ok=
+0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(105,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                       !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(105,112) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(105,116) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+                                                                                                                page 8
+
+149       closed t-heredoc && { echo "  [$lbl] (B) ⛔ the row CLOSED on a criterion whose real check exits 1"; ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(106,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(106,107) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(106,111) : ERROR 230 -- syntax error: illegal character
+
+152       run "$s" t-unterm
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(107,12) : ERROR 233 -- syntax error: invalid use of operator
+
+153       [ "$RC" = 2 ] || { echo "  [$lbl] (C) unterminated heredoc returned $RC (want 2 -- could not measure)"; say; o
+k=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(108,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+ !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(108,114) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(108,118) : ERROR 230 -- syntax error: illegal character
+
+157       closed t-unterm && { echo "  [$lbl] (C) ⛔ the row CLOSED on a criterion bash could not finish reading"; ok=0
+; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(109,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(109,111) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(109,115) : ERROR 230 -- syntax error: illegal character
+
+160       run "$s" t-green
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(110,12) : ERROR 233 -- syntax error: invalid use of operator
+
+161       [ "$RC" = 0 ] || { echo "  [$lbl] (D) a genuinely green multi-line criterion returned $RC (want 0)"; say; ok=0
+; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(111,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(111,111) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(111,115) : ERROR 230 -- syntax error: illegal character
+
+165       closed t-green || { echo "  [$lbl] (D) ⛔ a green criterion did NOT close its row -- the cure stopped closing
+ anything"; ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(112,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(112,127) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(112,131) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+                                                                                                                page 9
+
+168       run "$s" t-two-contracts
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(113,12) : ERROR 233 -- syntax error: invalid use of operator
+
+169       [ "$RC" = 2 ] || { echo "  [$lbl] (F) a baton with a SECOND real DONE-WHEN: returned $RC (want 2 -- refuse, do
+ not guess which is the contract)"; say; ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(114,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+                                           !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(114,156) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                               !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(114,160) : ERROR 230 -- syntax error: illegal character
+
+173       closed t-two-contracts && { echo "  [$lbl] (F) ⛔ the row CLOSED on half its own contract"; ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(115,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                         !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(115,98) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                             !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(115,102) : ERROR 230 -- syntax error: illegal character
+
+176       run "$s" t-stale-ph
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(116,12) : ERROR 233 -- syntax error: invalid use of operator
+
+177       [ "$RC" = 0 ] || { echo "  [$lbl] (G) a real criterion under a leftover MINT PLACEHOLDER line returned $RC (wa
+nt 0) -- untidy is not ambiguous"; say; ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(117,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+                                          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(117,155) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(117,159) : ERROR 230 -- syntax error: illegal character
+
+181       closed t-stale-ph || { echo "  [$lbl] (G) ⛔ a row with only a stale placeholder beneath it stopped closing";
+ ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(118,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(118,116) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+       !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(118,120) : ERROR 230 -- syntax error: illegal character
+
+184       run "$s" t-dup-contract
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(119,12) : ERROR 233 -- syntax error: invalid use of operator
+
+185       [ "$RC" = 0 ] || { echo "  [$lbl] (H) a second DONE-WHEN: BYTE-IDENTICAL to the first returned $RC (want 0) --
+ identical text asks no intent question"; say; ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(120,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+                                                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(120,162) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                                     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(120,166) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+                                                                                                                page 10
+
+189       closed t-dup-contract || { echo "  [$lbl] (H) ⛔ a row whose duplicate line says exactly what the first says 
+stopped closing -- refused for a cosmetic reason"; ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(121,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                                     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(121,166) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                                         !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(121,170) : ERROR 230 -- syntax error: illegal character
+
+192       run "$s" t-prose
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(122,12) : ERROR 233 -- syntax error: invalid use of operator
+
+193       [ "$RC" = 0 ] || { echo "  [$lbl] (E) a COMPLETE one-line criterion followed by prose annotation returned $RC 
+(want 0) -- the annotation was swallowed into the command"; say; ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(123,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+                                                                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(123,180) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                                                       !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(123,184) : ERROR 230 -- syntax error: illegal character
+
+197       closed t-prose || { echo "  [$lbl] (E) ⛔ a correctly-closing annotated row stopped closing -- the continuati
+on rule is eating prose"; ok=0; }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(124,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(124,141) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(124,145) : ERROR 230 -- syntax error: illegal character
+
+200       # ---- ARM I: A CURE RECEIPT IS ANNOTATION AND MUST NEVER LEAVE THE EXTRACTOR (coo 2026-09-23, on the cto's
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(125,3) : ERROR 221 -- syntax error: missing operand
+
+201       # ruling). The live convention records a cure IN the annotation -- "the minted line hardcoded
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(126,3) : ERROR 221 -- syntax error: missing operand
+
+202       # /home/claude_icon/SCRIP" -- so any consumer that reads the field BLOCK instead of the executed text sees a
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(127,3) : ERROR 221 -- syntax error: missing operand
+
+203       # seat root that the shell never runs. util_donewhen_rc_census.py's class B is exactly such a consumer, and
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(128,3) : ERROR 221 -- syntax error: missing operand
+
+204       # the widening that landed this week would have called that receipt a defect and REWRITTEN IT: a false
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(129,3) : ERROR 221 -- syntax error: missing operand
+
+205       # clearance minted on top of the evidence that the pin was already cured. Two contracts, not one -- the row
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(130,3) : ERROR 221 -- syntax error: missing operand
+
+
+
+
+                                                                                                                page 11
+
+206       # closes green AND the extracted text does not contain the root.
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(131,3) : ERROR 221 -- syntax error: missing operand
+
+207       run "$s" t-receipt
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(132,12) : ERROR 233 -- syntax error: invalid use of operator
+
+208       [ "$RC" = 0 ] || { echo "  [$lbl] (I) a criterion under a CURE RECEIPT annotation returned $RC (want 0)"; say;
+ ok=0; }
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(133,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                                        
+   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(133,116) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+       !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(133,120) : ERROR 230 -- syntax error: illegal character
+
+212       closed t-receipt || { echo "  [$lbl] (I) ⛔ a row annotated with its own cure receipt stopped closing"; ok=0;
+ }
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(134,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(134,110) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+ !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(134,114) : ERROR 230 -- syntax error: illegal character
+
+215       _rx="$( ( . "$(dirname "$s")/lib_donewhen.sh" >/dev/null 2>&1 && s4e_donewhen_text "$PO/tasks/t-receipt.task.m
+d" ) 2>/dev/null )"
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(135,3) : ERROR 230 -- syntax error: illegal character
+
+217         *"/home/claude_icon"*) echo "  [$lbl] (I) ⛔ THE RECEIPT REACHED THE CONSUMER: the extractor handed back an
+notation text naming a seat root"; ok=0;;
+                                !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(137,25) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                                     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(137,150) : ERROR 233 -- syntax error: invalid use of operator
+
+220         "") echo "  [$lbl] (I) ⛔ the extractor returned NOTHING for t-receipt -- it is not readable from its lib";
+ ok=0;;
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(138,7) : ERROR 224 -- syntax error: unbalanced right parenthesis
+
+
+                                                                                                                        
+   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(138,116) : ERROR 233 -- syntax error: invalid use of operator
+
+224       [ "$FIXERR" = 0 ] || return 2
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(140,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+225       [ "$ok" = 1 ]
+          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(141,3) : ERROR 222 -- syntax error: invalid use of left bracket
+
+226     }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(142) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 12
+
+228     if arm PASS "$MSG"; then echo "  [PASS] (A) continuation runs; (B) heredoc body runs; (C) unterminated -> rc=2, 
+row open; (D) green multi-line closes; (E) annotated one-liner unaffected; (F) two real contracts refuse; (G) a stale pl
+aceholder does not; (H) nor does a byte-identical duplicate; (I) a cure-receipt annotation closes green and never reache
+s a consumer"; pass=1
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(144,372) : ERROR 233 -- syntax error: invalid use of operator
+
+231     else pass=$?; [ "$pass" = 2 ] && { echo "⛔ REFUSED: fixture could not be built (rc=2)"; exit 2; }; pass=0; fi
+                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(145,10) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                      !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(145,15) : ERROR 222 -- syntax error: invalid use of left bracket
+
+
+                                                                                                          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(145,99) : ERROR 230 -- syntax error: illegal character
+
+
+                                                                                                                 !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(145,106) : ERROR 233 -- syntax error: invalid use of operator
+
+237     # FAIL-ONCE, one mutant per part of the cure. M1 restores the head -1 truncation (A and B must red -- the rows
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(146) : ERROR 214 -- bad label or misplaced continuation line
+
+238     # close on criteria that never ran). M2 removes the unterminated-heredoc refusal (C must red -- rc=0 on an unrea
+dable
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(147) : ERROR 214 -- bad label or misplaced continuation line
+
+239     # one). M3 removes the ambiguous-contract refusal (F must red -- a row closes on half its own contract).
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(148) : ERROR 214 -- bad label or misplaced continuation line
+
+240     # ⛔⭐⭐ A MUTANT IS A WHOLE SCRIPT DIRECTORY NOW, NOT A LONE FILE, and the reason is a landing: the DONE-WHE
+N
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(149) : ERROR 214 -- bad label or misplaced continuation line
+
+241     # EXTRACTOR MOVED OUT OF THE BUS INTO lib_donewhen.sh (cto's ruling, 2026-09-23 -- one implementation, no second
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(150) : ERROR 214 -- bad label or misplaced continuation line
+
+242     # reader to drift). A mutant written to $W/mN.sh resolves `dirname "${BASH_SOURCE[0]}"` to $W, so it would find
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(151) : ERROR 214 -- bad label or misplaced continuation line
+
+243     # NO lib beside it; the bus used to warn and carry on, and now REFUSES rc=2 because the missing function is the
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(152) : ERROR 214 -- bad label or misplaced continuation line
+
+244     # extractor itself. ⛔ M2's target string moved with it, so M2 must mutate THE LIB and leave the bus alone --
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(153) : ERROR 214 -- bad label or misplaced continuation line
+
+245     # patching $MSG for it would silently produce an IDENTICAL script and a mutant that cannot red is a green arm
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(154) : ERROR 214 -- bad label or misplaced continuation line
+
+246     # proving nothing. Each mutant therefore gets its own directory holding every lib the bus sources.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(155) : ERROR 214 -- bad label or misplaced continuation line
+
+
+
+
+                                                                                                                page 13
+
+247     mut_dir() {   # $1 = mutant name -> builds $W/$1 with the real libs beside it; prints nothing, rc 2 on failure
+                  !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(156,11) : ERROR 230 -- syntax error: illegal character
+
+
+                                                                                                     !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(156,94) : ERROR 223 -- syntax error: invalid use of comma
+
+249       mkdir -p "$W/$1" || return 2
+                            !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(157,21) : ERROR 233 -- syntax error: invalid use of operator
+
+250       cp "$HERE"/lib_*.sh "$W/$1/" || return 2
+                    !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(158,13) : ERROR 233 -- syntax error: invalid use of operator
+
+251     }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(159) : ERROR 214 -- bad label or misplaced continuation line
+
+252     for m in m1 m2 m3 m4; do mut_dir "$m" || { echo "⛔ REFUSED: could not stage mutant dir $m"; exit 2; }; done
+                                               !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(160,40) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(160,103) : ERROR 230 -- syntax error: illegal character
+
+257     sed 's|dw="$(s4e_donewhen_text "$tf")"|dw="$(sed -n '"'"'s/^DONE-WHEN:[[:space:]]*//p'"'"' "$tf" \| head -1)"|' 
+"$MSG" > "$W/m1/s4e_msg.sh"
+                                                             !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(161,54) : ERROR 220 -- syntax error: missing operator
+
+259     sed 's/here-document\.\*delimited by end-of-file/a-warning-string-that-never-appears-90124/' "$HERE/lib_donewhen
+.sh" > "$W/m2/lib_donewhen.sh"
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(163) : ERROR 217 -- syntax error: duplicate label
+
+260     # M3 removes the ambiguous-contract refusal: arm F must then CLOSE a row on half its own contract.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(164) : ERROR 214 -- bad label or misplaced continuation line
+
+261     sed 's/^s4e_donewhen_multiple_contracts() {   # \$1 = baton path/s4e_donewhen_multiple_contracts() { return 1; }
+ \nunused_multiple_contracts() {/' "$MSG" > "$W/m3/s4e_msg.sh"
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(165) : ERROR 217 -- syntax error: duplicate label
+
+262     grep -q 'head -1' "$W/m1/s4e_msg.sh" || { echo "⛔ REFUSED: could not build mutant M1 (the done-site extraction
+ moved?)"; exit 2; }
+                                              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(166,39) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(166,132) : ERROR 230 -- syntax error: illegal character
+
+265     grep -q 'never-appears-90124' "$W/m2/lib_donewhen.sh" || { echo "⛔ REFUSED: could not build mutant M2 (the her
+edoc guard moved out of lib_donewhen.sh?)"; exit 2; }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(167) : ERROR 217 -- syntax error: duplicate label
+
+
+                                                                                                                        
+                                                    !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(167,165) : ERROR 230 -- syntax error: illegal character
+
+
+
+
+                                                                                                                page 14
+
+268     cmp -s "$MSG" "$W/m2/s4e_msg.sh" || { echo "⛔ REFUSED: M2 must leave the bus byte-identical -- it mutates the 
+LIB"; exit 2; }
+                                          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(168,35) : ERROR 233 -- syntax error: invalid use of operator
+
+
+                                                                                                                        
+              !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(168,127) : ERROR 230 -- syntax error: illegal character
+
+271     grep -q 'unused_multiple_contracts' "$W/m3/s4e_msg.sh" || { echo "⛔ REFUSED: could not build mutant M3 (the am
+biguous-contract guard moved?)"; exit 2; }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(169) : ERROR 217 -- syntax error: duplicate label
+
+
+                                                                                                                        
+                                         !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(169,154) : ERROR 230 -- syntax error: illegal character
+
+274     # M4 removes ONLY the byte-identical exclusion, leaving the rest of F intact: arm H must then refuse a row that
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(170) : ERROR 214 -- bad label or misplaced continuation line
+
+275     # asks no intent question. ⛔ It is a separate mutant from M3 on purpose -- M3 deletes the whole guard, so it c
+an
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(171) : ERROR 214 -- bad label or misplaced continuation line
+
+276     # never show that the narrow exclusion is load-bearing, and a cure whose own arm no mutant reds is untested.
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(172) : ERROR 214 -- bad label or misplaced continuation line
+
+277     sed 's/txt == ENVIRON\["_DWM_FIRST"\]/txt == "no-such-first-90126"/' "$MSG" > "$W/m4/s4e_msg.sh"
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(173) : ERROR 217 -- syntax error: duplicate label
+
+278     grep -q 'no-such-first-90126' "$W/m4/s4e_msg.sh" || { echo "⛔ REFUSED: could not build mutant M4 (the identica
+l-duplicate exclusion moved?)"; exit 2; }
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(174) : ERROR 217 -- syntax error: duplicate label
+
+
+                                                                                                                        
+                                        !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(174,153) : ERROR 230 -- syntax error: illegal character
+
+282     for m in m1 m2 m3 m4; do
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(176) : ERROR 217 -- syntax error: duplicate label
+
+284       if arm "FAIL-ONCE:$m" "$W/$m/s4e_msg.sh" >"$W/fo.$m" 2>&1; then echo "  [FAIL-ONCE:$m] ⛔ STAYED GREEN with t
+hat half of the cure removed -- it cannot detect the defect it exists for"; red=0
+                                                   !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(177,44) : ERROR 225 -- syntax error: unbalanced right bracket
+
+
+                                                                                                                        
+                                                                               !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(177,192) : ERROR 233 -- syntax error: invalid use of operator
+
+287       else echo "  [FAIL-ONCE:$m] red as required: $(grep -m1 '  \[' "$W/fo.$m" | sed 's/^ *//' | cut -c1-110)"; fi
+                                                                          !
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(178,67) : ERROR 233 -- syntax error: invalid use of operator
+
+290     if [ "$pass" = 1 ] && [ "$red" = 1 ]; then echo "✅ GATE OK: done runs the whole criterion, heredoc bodies incl
+uded, and refuses one it cannot finish reading."; exit 0; fi
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(180) : ERROR 217 -- syntax error: duplicate label
+
+
+
+
+                                                                                                                page 15
+
+294     echo "⛔ GATE FAILED (pass=$pass fail-once-red=$red)"; exit 1
+
+test_gate_s4e_donewhen_runs_the_whole_criterion__w.sno(181) : ERROR 217 -- syntax error: duplicate label
+*-------------------- 527 test_gate_sc_duplicate_label_is_refused_at_parse__twin
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:19:55 2026
+
+
+
+                                                                                                                page 1
+
+6       x       g = 'g'   :(RETURN)
+
+test_gate_sc_duplicate_label_is_refused_at_parse__twin.sno(6) : ERROR 217 -- syntax error: duplicate label
+*------------------------------- 528 test_gate_scrip_switches_are_spitbols__list
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:19:56 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               OUTPUT = 'ran'
+2       END
+ran
+*- 529 test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse1
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:19:57 2026
+
+
+
+                                                                                                                page 1
+
+2               X 'b' ? LEN(1) = 'Z'
+
+test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse1.sno(2) : ERROR 212 
+-- syntax error: value used where name is required
+*- 530 test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:19:58 2026
+
+
+
+                                                                                                                page 1
+
+2               Y ? 'l' ? '' = 'L'
+
+test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2.sno(2) : ERROR 212 
+-- syntax error: value used where name is required
+*- 531 test_gate_sno_an_error_inside_eval_of_a_string_fails_the_eval_and_counts_against_errlimit__1
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:19:59 2026
+
+
+
+                                                                                                                page 1
+
+9       $( if [ "$4" = 1 ]; then printf '        SETEXIT(%s)' "'H'"; else printf '* no SETEXIT in this arm'; fi )
+
+test_gate_sno_an_error_inside_eval_of_a_string_fails_the_eval_and_counts_against_errlimit__1.sno(9) : ERROR 214 -- bad l
+abel or misplaced continuation line
+*- 532 test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c1
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:20:00 2026
+
+
+
+                                                                                                                page 1
+
+2               X = SPAN('')
+
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c1.sno(2) : ERROR 188 -
+- span argument is not a string or expression
+*- 533 test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:20:01 2026
+
+
+
+                                                                                                                page 1
+
+2               X = 'abc' ? NOTANY(LEN(1))
+
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2.sno(2) : ERROR 151 -
+- notany argument is not a string or expression
+*----------------------- 534 test_gate_snobol4_list_listing_matches_sbl__p_chain
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:20:02 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST,-EJECT
+1        A = 1
+
+
+
+x,-LIST                                                                                                         page 2
+
+
+        -TITLE x,-LIST
+2       	B = 2
+3        OUTPUT = A + B
+4       END
+3
+*----------------------- 535 test_gate_snobol4_list_listing_matches_sbl__p_print
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:20:03 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1        A = 1
+2        B = 2
+        -PRINT
+3        C = 3
+        -LIST
+5        E = 5
+        * a comment
+6        OUTPUT = A + C + E
+7       END
+9
+*----------------------- 536 test_gate_snobol4_list_listing_matches_sbl__p_title
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:20:04 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+
+
+
+A title here                                                                                                    page 2
+
+
+        -TITLE A title here
+
+
+
+A title here                                                                                                    page 3
+a sub title
+
+        -STITL a sub title
+1        X = 1
+
+
+
+A title here                                                                                                    page 4
+a sub title
+
+        -EJECT
+2        Y = 2
+
+
+
+        -SPACE 3
+3        Z = 3
+        -DOUBLE
+
+4        W = 4
+
+        -SINGLE
+5        OUTPUT = X + Y
+6       END
+3
+*------------------------ 537 test_gate_snobol4_noexecute_matches_sbl__noex_list
+
+
+
+macro spitbol version 4.0f
+x86-64  Tue Nov 17 15:20:05 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+        -NOEXECUTE
+1               X = 1
+2               OUTPUT = X
+3       END

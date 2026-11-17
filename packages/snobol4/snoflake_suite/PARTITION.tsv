@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=141 features=41 ubiquitous=1(package) distinctive=40 core=23 clusters=48 chunks=1 sizes=118
+# shape: entries=140 features=41 ubiquitous=1(package) distinctive=40 core=23 clusters=48 chunks=1 sizes=117
 entry	part	cluster	shells
 alphabet-keyword	chunk:01	feat:DATATYPE	DATATYPE SIZE keyword_ref
 arbno-alternative-backtracking	chunk:01	feat:ARBNO	ARBNO RPOS alternation arbno_with_alt imm_assign keyword_ref
@@ -127,13 +127,10 @@ word-ending-analysis	core	core	ANY BREAK DEFINE LEN POS REM REPLACE RPOS TABLE T
 arbitrarily-long-integers	core	core	DEFINE DUPL OPSYN REM RTAB SIZE arith cond_assign goto_fail goto_success keyword_ref
 backspace-at-start	chunk:01	family:backspace-at-start	
 bubble-sort	chunk:01	feat:ARRAY	ARRAY DEFINE TRIM arith goto_fail keyword_ref
-character-set-keywords	chunk:01	feat:keyword_ref	keyword_ref
 complex-multiplication-opsyn	core	core	DATATYPE DEFINE OPSYN arith goto_success
 endfile-rewind-write-read	chunk:01	family:endfile-rewind-write-read	
 eval-apply-opsyn	core	core	APPLY DEFINE EVAL OPSYN arith
 load-failure-graceful	chunk:01	feat:DEFINE	DEFINE
-numeric-keyword-values	chunk:01	feat:keyword_ref	keyword_ref
-numeric-keywords	chunk:01	feat:DATATYPE	DATATYPE arith keyword_ref
 opsyn-case-fold	core	core	DATATYPE DEFINE OPSYN alternation
 output-format-ignored	chunk:01	feat:arith	arith
 recursive-balanced-pattern	core	core	ARBNO BAL NOTANY alternation arbno_with_alt deferred_eval imm_assign
@@ -143,3 +140,5 @@ syntactic-recognizer	core	core	ANY ARBNO BAL BREAK DEFINE DUPL FENCE LEN OPSYN R
 topological-sort	core	core	ARRAY BREAK CONVERT DEFINE LEN OPSYN TABLE TRIM arith cond_assign goto_fail goto_success indirect_ref keyword_ref
 twelve-days	chunk:01	feat:BREAK	BREAK DEFINE LEN cond_assign goto_fail goto_success indirect_ref keyword_ref
 unload-builtin	chunk:01	feat:SIZE	SIZE
+control-hide-list-control-line	chunk:01	feat:keyword_ref	keyword_ref
+control-hide-statement-numbers	chunk:01	feat:keyword_ref	keyword_ref

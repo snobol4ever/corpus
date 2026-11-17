@@ -1,7 +1,6 @@
 test_gate_a_compiled_program_runs_on_a_stack_it_maps_itself__rec: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_builder_mines_a_snobol4_collection_by_spitbol__input: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_builder_mines_a_snobol4_collection_by_spitbol__quiet: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_builder_mines_a_snobol4_collection_by_spitbol__refused: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_capture_stdin_and_red_exit__ambig: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_capture_stdin_and_red_exit__echo_line: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_cas_island_grows_with_the_declared_stack__cas: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
@@ -21,13 +20,10 @@ test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__Q: o
 test_gate_package_runners_read_each_units_declared_compile_args__ALL: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
 test_gate_probe_suite_grading_path__zzz_gate_suite: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_progress_records_the_configuration_it_exercised__ALL: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
-test_gate_s4e_donewhen_runs_the_whole_criterion__w: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-test_gate_sc_duplicate_label_is_refused_at_parse__twin: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_scrip_environment_is_scanned_once_not_read_once_per_knob__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_scrip_runs_one_liners_and_multi_liners_from_the_container_files__ONE-LINERS: EXCLUDED.tsv UNGRADABLE: the program text carries the container format's own banner line or is named after a container file (ONE-LINERS, MULTI-LINERS, ALL), so absorbing it breaks the container parse (util_build_package_suite.py self-check, measured 2026-11-12)
 test_gate_scrip_sizes_the_heap_with_d_and_i__deep: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_scrip_switches_are_spitbols__c: multi-program file: 2 top-level END statements -- not a single valid program (SCRIP correctly refuses a duplicate 'END' label; the oracle instead silently continues past it, so neither engine's output is a meaningful single-program comparison)
-test_gate_scrip_switches_are_spitbols__list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_scrip_switches_are_spitbols__r: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_snc_two_nreturn_functions_link_in_m4__t: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_sno_a_bare_fence_as_an_alternation_arm_matches_null_and_seals_its_backtrack__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -47,15 +43,10 @@ test_gate_sno_a_pattern_builtin_numeric_argument_out_of_range_or_not_integer_rai
 test_gate_sno_a_runtime_error_names_the_source_file_the_line_and_the_statement_of_the_failing_statement__fncall: missing corpus dependency: -INCLUDE 'fn.inc' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 test_gate_sno_a_runtime_error_names_the_source_file_the_line_and_the_statement_of_the_failing_statement__incl: missing corpus dependency: -INCLUDE 'inc.inc' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 test_gate_sno_a_setexit_trap_enters_its_handler_on_the_statements_failure_path_without_nesting__many: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_sno_an_abort_inside_a_pattern_thunk_fails_the_match_without_a_crash__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_sno_an_argument_evaluated_before_a_match_in_a_later_argument_reads_its_own_slot__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_sno_an_array_or_table_as_a_pattern_operand_raises_the_operand_errors_of_spitbol_in_both_modes__b: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_sno_an_error_inside_eval_of_a_string_fails_the_eval_and_counts_against_errlimit__1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_sno_an_operand_pushed_before_a_match_is_read_after_its_frame_is_whacked__ev: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__e: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_sno_captured_substring_compares_by_its_own_length__s: missing corpus dependency: -INCLUDE 'SPELL.INC' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 test_gate_sno_code_of_text_that_does_not_compile_raises_spitbols_compile_error__cd: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -75,15 +66,11 @@ test_gate_snobol4_list_listing_matches_sbl__inc_b: oracle produced EMPTY output 
 test_gate_snobol4_list_listing_matches_sbl__inc_c: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_snobol4_list_listing_matches_sbl__inc_d: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_snobol4_list_listing_matches_sbl__inc_e: missing corpus dependency: -INCLUDE 'inc_d.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
-test_gate_snobol4_list_listing_matches_sbl__p_chain: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_snobol4_list_listing_matches_sbl__p_inc: missing corpus dependency: -INCLUDE 'inc1.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 test_gate_snobol4_list_listing_matches_sbl__p_inc2: missing corpus dependency: -INCLUDE 'inc_a.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 test_gate_snobol4_list_listing_matches_sbl__p_inc3: missing corpus dependency: -INCLUDE 'inc_c.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 test_gate_snobol4_list_listing_matches_sbl__p_inc4: missing corpus dependency: -INCLUDE 'inc_e.sno' resolves in none of /tmp/s4e/coo/wt-gate-cases/corpus/packages/snobol4/gate_cases, /tmp/s4e/coo/wt-gate-cases/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
-test_gate_snobol4_list_listing_matches_sbl__p_print: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-test_gate_snobol4_list_listing_matches_sbl__p_title: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 test_gate_snobol4_noexecute_matches_sbl__noex_chain: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_snobol4_noexecute_matches_sbl__noex_first: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_snobol4_noexecute_matches_sbl__noex_last: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_snobol4_noexecute_matches_sbl__noex_late: oracle produced EMPTY output -- refusing to mint a vacuous ref
-test_gate_snobol4_noexecute_matches_sbl__noex_list: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth

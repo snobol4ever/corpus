@@ -1,6 +1,4 @@
 case-folding: oracle produced EMPTY output -- refusing to mint a vacuous ref
-control-hide-list-control-line: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
-control-hide-statement-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 errlimit: oracle produced EMPTY output -- refusing to mint a vacuous ref
 gimpel-additional-string-functions: missing corpus dependency: -INCLUDE 'REVERSE.INC' resolves in none of /tmp/s4e/grader/snoflake2/packages/snobol4/snoflake_suite, /home/resources/worktrees/grader/wt-raku/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
 gimpel-asm-machine-m: missing corpus dependency: -INCLUDE 'BASEB.INC' resolves in none of /tmp/s4e/grader/snoflake2/packages/snobol4/snoflake_suite, /home/resources/worktrees/grader/wt-raku/corpus/include (searched exactly those dirs -- this reason names its own search, so a file that IS vendored elsewhere under another path reads as what it is)
