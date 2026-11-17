@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1199 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,78
+# shape: entries=1200 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,79
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -38,7 +38,7 @@ procedure_write_172	chunk:01	family:ladder
 procedure_write_18	chunk:11	family:rung16_subscript	
 procedure_write_181	chunk:01	family:ladder	
 procedure_write_199	chunk:01	family:ladder	
-procedure_write_22	chunk:11	family:rung17_real_arith	
+procedure_write_22	chunk:12	family:rung17_real_arith	
 procedure_write_23	chunk:12	family:rung17_real_arith	
 procedure_write_27	chunk:12	family:rung18_real_relop	
 procedure_write_29	chunk:12	family:rung19_pow_toby	
@@ -109,6 +109,7 @@ procedure_write_5	chunk:12	family:rung04_string
 unicon__uni_pp_macro_spaces	chunk:11	family:unicon	
 procedure_write_replace_5	chunk:12	family:rung37_all	
 unicon__uni_link_unicon_ipl_first	chunk:11	family:unicon	
+ladder__rung43_a_bare_method_name_invoked_with_a_list_calls_the_method	chunk:07	feat:element_gen	element_gen
 unicon__uni_lex_triple_define	chunk:11	family:unicon	
 procedure_write_69	chunk:12	family:rung37_all	
 lexer__a_string_continued_with_an_underscore_may_carry_blanks_after_it	chunk:12	family:lexer	
@@ -148,7 +149,7 @@ procedure_write_15	chunk:12	family:rung15_real_swap
 procedure_write_154	chunk:01	family:ladder	
 procedure_write_157	chunk:01	family:ladder	
 procedure_write_159	chunk:01	family:ladder	
-procedure_write_162	chunk:08	feat:integer	integer
+procedure_write_162	chunk:09	feat:integer	integer
 procedure_write_167	chunk:01	family:ladder	
 procedure_write_168	chunk:01	family:ladder	
 procedure_write_17	chunk:11	family:rung16_subscript	
@@ -939,7 +940,7 @@ procedure_scan_tab_replace_2	chunk:09	feat:many	aug_assign keyword_ref local man
 ladder__rung05_scan_equals_through_a_value_restores_pos	chunk:10	feat:push	alternation every gen_with_alternation keyword_ref local push scan
 ladder_rung36_sets_delete_member	chunk:08	feat:delete	delete element_gen every local member set sort
 procedure_every_elemgen_replace_12	chunk:05	feat:fail	alternation element_gen every fail gen_with_alternation local return
-procedure_write_225	chunk:09	feat:move	element_gen every local move scan scan_with_tab tab
+procedure_write_225	chunk:10	feat:move	element_gen every local move scan scan_with_tab tab
 unicon__uni_bi_match_forms	chunk:09	feat:match	alternation image match scan scan_with_tab tab to_by upto
 unicon__uni_list_ext	chunk:08	feat:delete	delete element_gen every image insert local writes
 ladder__rung39_numbit_a_large_integer_is_a_scanning_subject	chunk:08	feat:find	find local move scan scan_with_tab section tab
@@ -1011,7 +1012,7 @@ scanning_asm__is03e_transmit_refresh	chunk:04	feat:create	coexpr_activate create
 ladder__rung05_scan_tab_and_move_through_a_value_restore_pos	chunk:11	feat:put	alternation every gen_with_alternation keyword_ref local put scan to_by writes
 zeta_layout__zl18_icn_suspend_in_limited_arm	chunk:05	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref limitation local suspend
 zeta_layout__zl19_icn_two_alternations_yield	chunk:05	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref limitation local suspend
-unicon__uni_posix_fork_pipe	chunk:07	feat:stop	alternation keyword_ref local read scan scan_with_tab stop tab upto
+unicon__uni_posix_fork_pipe	chunk:08	feat:stop	alternation keyword_ref local read scan scan_with_tab stop tab upto
 ladder__rung05_scan_a_tab_failing_in_a_procedure_restores_pos	chunk:09	feat:match	alternation fail gen_with_alternation keyword_ref match move scan scan_with_tab suspend tab
 ladder__rung42_kw_dateline_fields_unpadded	chunk:08	feat:pos	alternation integer keyword_ref local many pos scan scan_with_tab tab
 procedure_every_alt_replace_17	chunk:10	feat:map	alternation every gen_with_alternation image keyword_ref local map section to_by
@@ -1033,7 +1034,7 @@ procedure_suspend_scan_replace_1	chunk:08	feat:pos	alternation gen_with_alternat
 trace_call_line_prints_every_parameter_and_images_a_list__trace_call_line_prints_every_parameter_and_images_a_list	chunk:11	feat:set	every keyword_ref local put record return set table to_by
 ladder__rung45_string_invokes_function	chunk:03	feat:record	alternation every every_with_suspend gen_with_alternation image local record return suspend
 generators__generators	chunk:09	feat:integer	aug_assign every every_with_suspend integer local section suspend to_by while
-planner_armjoin__an_omega_hung_runs_failure_lands_at_the_alternations_failure_entry	chunk:10	feat:break	aug_assign break element_gen every local record return section type
+planner_armjoin__an_omega_hung_runs_failure_lands_at_the_alternations_failure_entry	chunk:11	feat:break	aug_assign break element_gen every local record return section type
 scanning_asm__is03d_results	chunk:04	feat:create	alternation coexpr_activate create image keyword_ref local scan scan_with_tab tab while
 scanning_asm__is01_substr	chunk:10	feat:repl	alternation image local move repl scan scan_with_tab section tab upto
 unicon__uni_bi_name_forms	chunk:09	feat:list	alternation every gen_with_alternation global image keyword_ref list record static table

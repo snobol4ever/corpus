@@ -1275,6 +1275,28 @@ end
 forty-seven
 ```
 
+## ladder__rung43_a_bare_method_name_invoked_with_a_list_calls_the_method
+
+```Icon
+class C()
+   method set_pos(a, b)
+      write("pos ", a, " ", b);
+   end
+   method go()
+      set_pos("3", "4");
+      set_pos!["1", "2"];
+   end
+end
+procedure main()
+   C().go();
+end
+```
+
+```stdout
+pos 3 4
+pos 1 2
+```
+
 ## unicon__uni_lex_triple_define
 
 ```Icon
