@@ -12152,6 +12152,34 @@ at least seven
 real greater
 ```
 
+## ladder__rung43_call_form_on_a_record_field_named_like_a_method
+
+```Icon
+record R(m)
+class C(k)
+   method m(a, b);
+      return k + a + b;
+   end
+end
+procedure f(a, b)
+   return a * b;
+end
+procedure main()
+   local r, o;
+   o := C(10);
+   r := R(f);
+   write(o.m ! [1, 2]);
+   write(r.m(3, 4));
+   write(r.m ! [3, 4]);
+end
+```
+
+```stdout
+13
+12
+12
+```
+
 ## ladder__rung45_features_agree_with_predefined_symbols
 
 ```Icon
