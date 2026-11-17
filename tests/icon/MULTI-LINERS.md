@@ -11895,6 +11895,37 @@ a5
 end
 ```
 
+## ladder__rung45_keyword_function
+
+```Icon
+procedure main()
+   &error := -1;
+   write(type(keyword("allocated")));
+   write(type(keyword("&tallocated")));
+   write(if keyword("main") === &main then "main same" else "main differs");
+   write(if keyword("current") === &current then "current same" else "current differs");
+   write(type(keyword("collections")), " ", type(keyword("regions")), " ", type(keyword("storage")));
+   write(keyword("nosuch") | "failed");
+   write(&errornumber);
+   write(keyword("zzz", 3) | "failed2");
+   write(&errornumber);
+   write(keyword("errornumber"));
+end
+```
+
+```stdout
+integer
+integer
+main same
+current same
+integer integer integer
+failed
+205
+failed2
+118
+118
+```
+
 ## procedure_scan_size_1
 
 ```Icon
