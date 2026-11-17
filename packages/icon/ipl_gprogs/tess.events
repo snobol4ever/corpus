@@ -1,0 +1,4 @@
+# tess: it rotates its tesseract every pass until a key freezes it, so no picture of it is graded (the picture is time's); drawn sends the first step at the first drawn frame, the pointer goes into the window (it stands at 0 0 with no window manager) and q makes it stop with Execution Interrupted, status 1
+drawn
+move 100 100
+key q

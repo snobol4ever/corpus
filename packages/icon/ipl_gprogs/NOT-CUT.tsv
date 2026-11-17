@@ -1,6 +1,5 @@
 # NOT-CUT.tsv -- ipl_gprogs: the census's candidates (a window drawn, the program waiting, the screen the same twice) that did not become a row, and why
 program	why
-tess	no fixed answer: it rotates its tesseract from the first frame (dh 0.0040 a pass) until a key freezes it, so its picture is where the rotation stood when the key arrived, a matter of time; the census read its screen different on two runs (officer_04 2026-11-16, list E1)
 dd2unit	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/dd2unit of the ipl package, where it was never excluded
 drawup	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/drawup of the ipl package, where it was never excluded
 fractclr	never touches the window facility: its linked icode names none of the 48 window functions and it opens no window (icode_builtins.py, officer_01 2026-11-16); it is graded as the text program gprogs/fractclr of the ipl package, where it was never excluded
