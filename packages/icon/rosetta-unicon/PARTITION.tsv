@@ -1,25 +1,42 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=21 features=47 ubiquitous=4(package write procedure assign) distinctive=43 core=12 clusters=6 chunks=1 sizes=9
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=38 features=52 ubiquitous=5(package write every procedure assign) distinctive=47 core=22 clusters=11 chunks=1 sizes=16
 entry	part	cluster	shells
-accumulator-factory	core	core	aug_assign coexpr_activate keyword_ref return while
+accumulator-factory	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate keyword_ref return while
 animation-1-three-ticks	chunk:01	family:animation--three-ticks	
 arithmetic-complex	chunk:01	feat:want_rc	want_rc
-arrays-2	core	core	delete element_gen every insert to_by
-barnsley-fern-seeded	core	core	alternation case every gen_with_alternation global keyword_ref limitation local map repeat return to_by
+arrays-2	core	core	delete element_gen insert to_by
+barnsley-fern-seeded	core	core	alternation case gen_with_alternation global keyword_ref limitation local map repeat return to_by
 currency	chunk:01	feat:want_rc	want_rc
 hello-world-graphical	chunk:01	family:hello-world-graphical	
 image-noise-seeded	chunk:01	family:image-noise-seeded	
-queue-definition	core	core	every fail pop push put return to_by
+queue-definition	core	core	fail pop push put return to_by
 simple-windowed-application	chunk:01	family:simple-windowed-application	
 singly-linked-list-element-definition-1	chunk:01	feat:want_rc	want_rc
 singly-linked-list-element-definition-2	chunk:01	feat:want_rc	want_rc
-singly-linked-list-element-insertion	core	core	insert want_rc
-undefined-values	core	core	alternation every gen_with_alternation global keyword_ref local return static
-unix-ls	core	core	alternation element_gen every gen_with_alternation sort
+singly-linked-list-element-insertion	chunk:01	feat:insert	insert want_rc
+undefined-values	core	core	alternation gen_with_alternation global keyword_ref local return static
+unix-ls	core	core	alternation element_gen gen_with_alternation sort
 vector	core	core	next return want_rc
-walsh-matrix	core	core	alternation element_gen every gen_with_alternation limitation list return static to_by
-web-scraping	core	core	alternation aug_assign every find gen_with_alternation keyword_ref map read scan scan_with_tab section stop tab to_by want_rc
+walsh-matrix	core	core	alternation element_gen gen_with_alternation limitation list return static to_by
+web-scraping	core	core	alternation aug_assign find gen_with_alternation keyword_ref map read scan scan_with_tab section stop tab to_by want_rc
 window-creation	chunk:01	family:window-creation	
 sockets	core	core	alternation aug_assign local return stop to_by want_rc
-topological-sort	core	core	alternation aug_assign case coexpr_activate create delete element_gen every every_with_suspend gen_with_alternation insert keyword_ref limitation many member next put record return scan scan_with_tab section set static suspend tab type upto while
+topological-sort	core	core	alternation aug_assign case coexpr_activate create delete element_gen every_with_suspend gen_with_alternation insert keyword_ref limitation many member next put record return scan scan_with_tab section set static suspend tab type upto while
+arrays	core	core	aug_assign list want_rc
+arrays-1	chunk:01	feat:keyword_ref	keyword_ref want_rc
+arrays-3	core	core	aug_assign element_gen list want_rc
+circular-primes	core	core	alternation aug_assign fail gen_with_alternation insert limitation member return set static to_by while writes
+deceptive-numbers	core	core	alternation aug_assign every_with_suspend gen_with_alternation limitation return seq suspend to_by writes
+documentation-1	chunk:01	feat:to_by	to_by want_rc
+documentation-2	chunk:01	feat:to_by	to_by want_rc
+documentation-3	chunk:01	feat:want_rc	want_rc
+emirp-primes	core	core	alternation aug_assign every_with_suspend gen_with_alternation integer limitation suspend writes
+equal-prime-and-composite-sums	core	core	alternation aug_assign coexpr_activate create every_with_suspend gen_with_alternation global limitation seq static suspend while
+factorial-primes	core	core	alternation aug_assign break gen_with_alternation limitation seq
+fermat-numbers	core	core	alternation aug_assign every_with_suspend gen_with_alternation limitation seq suspend
+pell-numbers	core	core	alternation aug_assign coexpr_activate create every_with_suspend gen_with_alternation global limitation put repeat suspend swap to_by while writes
+repunit-primes	core	core	alternation aug_assign break every_with_suspend gen_with_alternation limitation return suspend to_by writes
+ultra-useful-primes	core	core	alternation aug_assign break gen_with_alternation limitation seq
+wagstaff-primes	chunk:01	feat:return	alternation aug_assign gen_with_alternation limitation return
+walk-a-directory-recursively	core	core	alternation aug_assign case coexpr_activate element_gen gen_with_alternation global integer keyword_ref limitation local put read return scan scan_with_tab stop tab to_by want_rc while

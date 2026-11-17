@@ -477,3 +477,378 @@ procedure nnodes(f,g)
    while (af := @cp, at := @cp) do if af == f then insert(t, at);
    return t;
 end
+#--------------------------------------------------------------------- 22 arrays
+L := list(100); L[12] := 7; a := array(100, 0.0); a[3] +:= a[1]+a[2]
+#------------------------------------------------------------------- 23 arrays-1
+l := [: !&input :] # build a list of the lines read from standard input
+#------------------------------------------------------------------- 24 arrays-3
+   L := list(5,0)
+   i := 0
+   every !L := (i+:=1)
+#------------------------------------------------------------ 25 circular-primes
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 19;
+   write("First ",limit," circular primes are:");
+   every writes(" ",(x := circular(genprimes())\limit)|"\n");
+
+   limit := 3;   # Patience wore out when limit = 4...
+   writes("Next ",limit," are:");
+   y := repunit(*x);
+   cnt := 0;
+   while cnt < limit do {
+      if (circular(is_prime(y)),cnt +:= 1) then writes(" R(",*y,")");
+      y := 10*y+1
+      };
+   write();
+
+   limit := 1;   # Patience wore out when limit > 1...
+   every x := (5003|9887|15073|25031|35317|49081)\limit do {
+      writes("R(",x,") ");
+      y := repunit(x);
+      write("is ",if is_prime(y) then "prime" else "not prime")
+      };
+end
+
+procedure repunit(x)
+   every (y := 0, 1 to x, y := 10*y+1);
+   return y;
+end
+
+procedure circular(n)
+   static seen;
+   initial seen := set();
+   if member(seen,n) then fail;
+   m := c := n;
+   x := *n;
+   every i := 2 to x do {
+       if (d := c%10) = 0 then fail;
+       c := (d*10^(x-1))+(c/10);
+       if not is_prime(numeric(c)) then fail;
+       if member(seen,m >:= c) then fail
+       };
+   insert(seen,m);
+   return n;
+end
+#---------------------------------------------------------- 26 deceptive-numbers
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 10;
+   every writes(" ",deceptive()\limit);
+   write();
+end
+
+procedure deceptive()
+   every n := seq(2) do {
+      if not is_prime(n) then {
+         r := repunit(10,n-1);
+         if (r/n*n) = r then suspend n
+         }
+      };
+end
+
+procedure repunit(b,n)
+   every (r := 0) +:= b^(0 to n-1);
+   return r;
+end
+#------------------------------------------------------------ 27 documentation-1
+# <p>
+# Process a <b>properly formatted</b> CSV file.
+#   You can change the separator from the default <tt>,</tt>
+#   to any set of characters using the <tt>--separator=CSET</tt>
+#   argument.
+# </p>
+# <p>
+#   Each separator denotes a field separation (e.g. "a,,,b,"
+#   contains five fields) unless you give the <tt>--span</tt> argument.
+#   If you give the <tt>--span</tt> argument, then the fields
+#   as considered to be separated by <i>one or more</i> spans
+#   of the separator instead of exactly one and the above input
+#   contains three fields instead of five (in both cases, the last
+#   field is the empty string).
+# </p>
+# <p>
+#  Assumes that:<br><br>
+#  a. Fields containing the separator are enclosed in double
+#     quotes.<br>
+#  b. Fields containing double quotes have those quotes
+#     duplicated with the entire field inclosed in double
+#     quotes.<br>
+#  c. Leading and trailing whitespace (blanks and tabs) are
+#     to be removed unless used as separators.<br>
+#  d. Double quotes and newlines are <i>never</i> separators.<br>
+#</p>
+#------------------------------------------------------------ 28 documentation-2
+#<p>
+#  Check to see if any candidate has a clear majority.
+#<[succeeds if a candidate has a clear majority]>
+#<[fails if no candidate has a clear majority yet]>
+#</p>
+procedure majority()
+#------------------------------------------------------------ 29 documentation-3
+#<p>
+#  Compute the percent of first-place votes a candidate has in the current
+#  round.
+#  <[param candidate - a candidate as a list [name,number of votes for first]>.
+#  <[returns percent of total votes that the candidate has]>
+#</p>
+procedure percentVote(candidate)
+#--------------------------------------------------------------- 30 emirp-primes
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 10000;
+   l1 := \A[2] | 20;
+   l2 := \A[3] | 7700;
+   l3 := \A[4] | 8000;
+
+   every (cnt := 0, (n := emirp())\limit, cnt +:= 1) do {
+      if cnt < l1 then writes(" ",n)
+      else if cnt = l1 then write(" ",n)
+      else {
+         if (/c1,n > l2,c1:=1) then writes("Emirps between ",l2," and ",l3,":");
+         if l2 < n < l3 then writes(" ",n);
+         if (/c2,n >= l3,c2:=1) then write()
+         }
+      };
+   write(limit,"th emirp: ",n);
+end
+
+procedure emirp()
+   every p := string(genprimes()) do
+      if (p ~== (rp := reverse(p)), is_prime(integer(rp))) then suspend p;
+end
+#--------------------------------------------- 31 equal-prime-and-composite-sums
+link fastprime
+global pidx, cidx
+
+procedure main(A)
+   limit := \A[1] | 6;
+   c1 := create sumprime();
+   c2 := create sumcomp();
+
+   (cnt := 0, sump := @c1, sumc := @c2);
+   while cnt < limit do {
+      if (sump = sumc) then (cnt +:= 1, write("(",pidx,",",cidx,"): ",sump));
+      (sump := @c1, sumc := @c2);
+      while (sump < sumc, sump := @c1);
+      while (sumc < sump, sumc := @c2)
+      };
+end
+
+procedure sumprime()
+static sum;
+initial (sum := 0, pidx := 0);
+   every (sum +:= genprimes(), pidx +:= 1) do suspend sum;
+end
+
+procedure sumcomp()
+static sum;
+initial (sum := 0, cidx := 0);
+   every n := seq(3) do if (not is_prime(n), cidx +:=1) then suspend sum +:= n;
+end
+#----------------------------------------------------------- 32 factorial-primes
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 10;
+   every f := gfactorial(n := seq()) do {
+      if (x := (is_prime(y := f-1),n||"!-1")) then
+         (write(" (",x,",",y,")"), if 0 = (limit -:= 1) then break);
+      if (x := (is_prime(y := f+1),n||"!+1")) then
+         (write(" (",x,",",y,")"), if 0 = (limit -:= 1) then break)
+      };
+end
+#------------------------------------------------------------- 33 fermat-numbers
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 10;
+   limit2 := \A[2] | 6;
+   write("First ",limit," Fermat numbers:");
+   cnt := 0;
+   every f := fermat()\limit do {
+       if cnt > limit2 then write(right(cnt,3)," ",f)
+       else {
+          if (g := f/(x := getfactor(f))) = 1 then s := " is prime"
+          else s := " factors: ["||x||" x "||(f/x)||"]";
+          write(right(cnt,3)," ",f,s)
+          };
+       cnt +:= 1
+       };
+end
+
+procedure fermat()
+   suspend 2^2^seq(0)+1;
+end
+#--------------------------------------------------------------- 34 pell-numbers
+link fastprime
+
+global pidx
+
+procedure main(A)
+   limit := \A[1] | 10;
+   write("Pell numbers:");
+   every writes(" ",pell(0,1)\limit | "\n");
+
+   write("\nPell-Lucas numbers:");
+   every writes(" ",pell(2,2)\limit | "\n");
+
+   write("\nRational approximations to sqrt(2):");
+   @(cp := create pell(0,1));
+   @(cl := create pell(2,2));
+   cnt := 1;
+   while (cnt <= limit, cnt +:=1) do
+       (n := @cl/2, d := @cp, write(" (",n,"/",d,") = ",real(n)/d));
+
+   write("\n(Pell Prime Index,Pell Prime):");
+   every p := is_prime(pell(0,1))\limit do write(" (",pidx,",",p,")");
+
+   write("\nNSW numbers:");
+   every writes(" ",nsw()\limit | "\n");
+
+   write("\nTriangles:");
+   every write(" ",triangles()\limit);
+end
+
+procedure pell(p0,p1)
+   pidx := -1;
+   repeat suspend 1(p := 2*p1 + p0, p :=: p1 :=: p0, pidx +:= 1);
+end
+
+procedure nsw()
+   ps := [];
+   n := 0;
+   every put(ps,pell(0,1)) do
+      if *ps >= 2 then suspend 1(ps[2*n+1]+ps[2*n+2], n +:= 1);
+end
+
+procedure triangles()
+   n := 3;
+   repeat {
+      (sum := 0, ps := [0]);
+      every put(ps,pell(0,1))\(n+1) do sum +:= ps[*ps-1];
+      suspend (n%2 = 1, "("||sum||","||(sum+1)||","||ps[*ps]||")");
+      n +:= 1
+      };
+end
+#------------------------------------------------------------- 35 repunit-primes
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 1000;
+   every writes("Base ",b := 2 to 16,":") do
+      every writes(" ",repunits(b,limit) | "\n");
+end
+
+procedure repunits(b,n)
+   every x := genprimes() do
+      if x > n then break
+      else suspend (is_prime(ru(b,x)), x);
+end
+
+procedure ru(b,n)
+   every (r := 0) +:= b^(0 to n-1);
+   return r;
+end
+#-------------------------------------------------------- 36 ultra-useful-primes
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 10;
+   cnt := 0;
+   every n := seq() do {
+      every (x := 2^2^n, k := seq(1,2)) do
+         if (is_prime(x-k), cnt +:= 1) then (write(" a(",n,") = ",k),break);
+      if cnt >= limit then break
+      };
+end
+#------------------------------------------------------------ 37 wagstaff-primes
+link fastprime
+
+procedure main(A)
+   limit := \A[1] | 24;
+   write("The first ",limit," Wagstaff primes:");
+   every (cnt := 0, n := is_wagstaff(p := genprimes(3))\limit, cnt +:= 1) do
+      write(" (2^",p,"+1)/3",if cnt <= 10 then " = "||n else "");
+end
+
+procedure is_wagstaff(p)
+    return is_prime((2^p+1)/3);
+end
+#----------------------------------------------- 38 walk-a-directory-recursively
+###########################
+#  A sequential solution  #
+###########################
+
+procedure main()
+every write(!getdirs("."))  # writes out all directories from the current directory down
+end
+
+procedure getdirs(s)  #: return a list of directories beneath the directory 's'
+local D,d,f
+
+if ( stat(s).mode ? ="d" ) & ( d := open(s) ) then {
+      D := [s]
+      while f := read(d) do
+         if not ( ".." ? =f ) then          # skip . and ..
+            D |||:= getdirs(s || "/" ||f)
+      close(d)
+      return D
+      }
+end
+
+#########################
+#  A threaded solution  #
+#########################
+
+import threads
+
+global n,           # number of the concurrently running threads
+       maxT,        # Max number of concurrent threads ("soft limit")
+       tot_threads  # the total number of threads created in the program
+
+procedure main(argv)
+   target := argv[1] | stop("Usage: tdir [dir name] [#threads]. #threads default to 2* the number of cores in the machine.")
+   tot_threads := n := 1
+   maxT := ( integer(argv[2])|
+       (&features? if ="CPU cores " then cores := integer(tab(0)) * 2) | # available cores * 2
+          4) # default to 4 threads
+   t := milliseconds()
+   L := getdirs(target)  # writes out all directories from the current directory down
+   write((*\L)| 0, " directories in ", milliseconds() - t,
+              " ms using ", maxT, "-concurrent/", tot_threads, "-total threads" )
+end
+
+procedure getdirs(s)  # return a list of directories beneath the directory 's'
+local D,d,f, thrd
+
+if ( stat(s).mode ? ="d" ) & ( d := open(s) ) then {
+      D := [s]
+      while f := read(d) do
+         if not ( ".." ? =f ) then          # skip . and ..
+            if n>=maxT then # max thread count reached
+               D |||:= getdirs(s || "/" ||f)
+            else # spawn a new thread for this directory
+          {/thrd:=[]; n +:= 1; put(thrd, thread getdirs(s || "/" ||f))}
+
+      close(d)
+
+      if \thrd then{  # If I have threads, collect their results
+         tot_threads +:= *thrd
+         n -:= 1      # allow new threads to be spawned while I'm waiting/collecting results
+    every wait(th := !thrd) do { # wait for the thread to finish
+       n -:= 1
+       D |||:= <@th   # If the thread produced a result, it is going to be
+                      # stored in its "outbox", <@th in this case serves as
+                      # a deferred return since the thread was created by
+            # thread getdirs(s || "/" ||f)
+                      # this is similar to co-expression activation semantics
+            }
+         n +:= 1
+         }
+      return D
+      }
+end

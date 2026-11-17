@@ -103,3 +103,38 @@ Unable to connect to :0:0
 	(std_cell_lib gtech ramlib dware)
 	(dw01 dw02 dw05 dw06 dw07)
 	(dw03 des_system_lib dw04)
+#--------------------------------------------------------------------- 22 arrays
+arrays.icn:1: # "L" invalid declaration
+#------------------------------------------------------------------- 23 arrays-1
+arrays-1.icn:1: # "l" invalid declaration
+#------------------------------------------------------------------- 24 arrays-3
+arrays-3.icn:1: # "L" invalid declaration
+#------------------------------------------------------------ 25 circular-primes
+icont: cannot resolve reference to file 'fastprime.u'
+#---------------------------------------------------------- 26 deceptive-numbers
+icont: cannot resolve reference to file 'fastprime.u'
+#------------------------------------------------------------ 27 documentation-1
+error: empty file
+#------------------------------------------------------------ 28 documentation-2
+documentation-2.icn:7: # "" missing semicolon
+#------------------------------------------------------------ 29 documentation-3
+documentation-3.icn:8: # "" missing semicolon
+#--------------------------------------------------------------- 30 emirp-primes
+icont: cannot resolve reference to file 'fastprime.u'
+#--------------------------------------------- 31 equal-prime-and-composite-sums
+icont: cannot resolve reference to file 'fastprime.u'
+#----------------------------------------------------------- 32 factorial-primes
+icont: cannot resolve reference to file 'fastprime.u'
+#------------------------------------------------------------- 33 fermat-numbers
+icont: cannot resolve reference to file 'fastprime.u'
+#--------------------------------------------------------------- 34 pell-numbers
+icont: cannot resolve reference to file 'fastprime.u'
+#------------------------------------------------------------- 35 repunit-primes
+icont: cannot resolve reference to file 'fastprime.u'
+#-------------------------------------------------------- 36 ultra-useful-primes
+icont: cannot resolve reference to file 'fastprime.u'
+#------------------------------------------------------------ 37 wagstaff-primes
+icont: cannot resolve reference to file 'fastprime.u'
+#----------------------------------------------- 38 walk-a-directory-recursively
+File walk-a-directory-recursively.icn; Line 32 # "main": inconsistent redeclaration
+File walk-a-directory-recursively.icn; Line 44 # "getdirs": inconsistent redeclaration
