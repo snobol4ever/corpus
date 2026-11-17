@@ -1,0 +1,13 @@
+&letters
+list_1(0)
+co-expression_1(1)
+1
+-1
+
+Run-time error 106
+File version8.icn; Line 10
+procedure or integer expected
+offending value: &null
+Traceback:
+main(list_1 = [])
+&null("testing, testing") from line 10 in version8.icn

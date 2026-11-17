@@ -1,0 +1,5 @@
+procedure main()
+   T := table();
+   every T[1 to 20] := 1;
+   every write(key(T));
+end

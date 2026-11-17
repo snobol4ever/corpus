@@ -1,0 +1,12 @@
+# CONVERSION-PROOF.tsv -- icon_v8_tests: each test of Icon 8.0b (historic/v80b/v80b/tests, Arizona FTP) converted by util_icon_semicolons.py, and the stock Arizona translator's (icont 9.5.25a with newline insertion, -s -c) .u1 and .u2 of the original against the converted text, byte for byte (the grader 2026-11-17)
+file	verdict	semicolons_added
+check.icn	SAME-CODE	123
+checkfp.icn	SAME-CODE	218
+endetab1.icn	SAME-CODE	42
+key.icn	SAME-CODE	3
+model.icn	SAME-CODE	36
+name.icn	SAME-CODE	14
+permute.icn	SAME-CODE	9
+speller.icn	SAME-CODE	13
+version7.icn	SAME-CODE	129
+version8.icn	SAME-CODE	8

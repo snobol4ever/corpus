@@ -1,0 +1,8 @@
+# ALL.mask -- line masks for icon_v8_tests (FORMAT: entry<TAB>python-regex<TAB>reason), read by corpus_suite_harness.py read_mask_sidecar().
+check	^"[0-9]{2}:[0-9]{2}:[0-9]{2}"$	image(&clock): a clock reading, never the answer; MEASURED: two runs a second apart differ in this line alone
+check	^"[0-9]{4}/[0-9]{2}/[0-9]{2}"$	image(&date): the day the run is made, never the answer
+check	^"[A-Z][a-z]+day, [A-Z][a-z]+ [0-9]{1,2}, [0-9]{4} +[0-9]{1,2}:[0-9]{2} [ap]m"$	image(&dateline): the moment the run is made, never the answer
+check	^"socrates"$	image(&host): the machine's own name, a system value (the cycle grades on socrates)
+check	^"Icon Version .*"$	image(&version): the implementation's own name and date, a system value
+version7	^socrates$	write(&host): the machine's own name, a system value
+version7	^Icon Version .*$	write(&version): the implementation's own name and date, a system value

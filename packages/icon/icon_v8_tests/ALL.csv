@@ -1,0 +1,11 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,stderr,env,in_files
+1,check,check.icn,icon_v8_tests__check,icon_v8_tests,155,3,131072,4096,60,,merged,,
+2,checkfp,checkfp.icn,icon_v8_tests__checkfp,icon_v8_tests,238,0,131072,4096,60,,merged,,
+3,endetab1,endetab1.icn,icon_v8_tests__endetab1,icon_v8_tests,101,0,131072,4096,60,,merged,,
+4,key,key.icn,icon_v8_tests__key,icon_v8_tests,5,0,131072,4096,60,,merged,,
+5,model,model.icn,icon_v8_tests__model,icon_v8_tests,38,0,131072,4096,60,,merged,,
+6,name,name.icn,icon_v8_tests__name,icon_v8_tests,18,0,131072,4096,60,,merged,,
+7,permute,permute.icn,icon_v8_tests__permute,icon_v8_tests,17,0,131072,4096,60,,merged,,
+8,speller,speller.icn,icon_v8_tests__speller,icon_v8_tests,49,0,131072,4096,60,,merged,,
+9,version7,version7.icn,icon_v8_tests__version7,icon_v8_tests,208,1,131072,4096,60,,merged,HOME=/home/s4e,concord.dat
+10,version8,version8.icn,icon_v8_tests__version8,icon_v8_tests,13,1,131072,4096,60,,merged,,

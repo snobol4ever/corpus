@@ -1,0 +1,13 @@
+procedure main(L)
+   write(image(&letters));
+   write(image(L));
+   write(image(&main));
+   write(args(main));
+   write(args(write));
+#
+#  The following should do nothing unless memory mointoring is enabled.
+
+   mmout("testing, testing");
+   mmpause();
+   mmshow([]);
+end

@@ -1,0 +1,17 @@
+procedure main()
+   output := set();
+   every 1 to 2 do
+      every insert(output,permute("ogram"));
+   every write(!output);
+end
+
+procedure permute(s)
+   local i, x, t;
+   if s == "" then return "";
+   every i := 1 to *s do {
+      x := s[i];
+      t := s;
+      t[i] := "";
+      suspend x || permute(t)
+      };
+end
