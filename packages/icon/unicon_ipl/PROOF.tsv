@@ -1,0 +1,11 @@
+# PROOF.tsv -- each converted file of mprocs and its verdict: unicon 13.3 -c on the original and on the converted text give the same ucode, the uid line aside (officer_03, 2026-11-17)
+file	verdict
+mprocs/colormap.icn	same-code
+mprocs/evinit.icn	same-code
+mprocs/evnames.icn	same-code
+mprocs/evsyms.icn	same-code
+mprocs/evutils.icn	same-code
+mprocs/opname.icn	same-code
+mprocs/typebind.icn	same-code
+mprocs/printf.icn	same-code
+mincl/evdefs.icn	unchanged

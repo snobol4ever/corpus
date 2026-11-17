@@ -62,7 +62,7 @@ gui/guidemos/editlisttest.icn	same-code
 gui/guidemos/imageview.icn	same-code
 ide/ivib/icon/xpmtoims.icn	same-code
 ide/wu.icn	same-code
-udb/lib/memory_alloc.icn	unchanged
+udb/lib/memory_alloc.icn	same-code
 unicon/i.icn	same-code
 lib/border.icn	same-code
 lib/buttongroup.icn	same-code
