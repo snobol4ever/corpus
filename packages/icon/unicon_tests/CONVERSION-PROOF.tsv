@@ -1,3 +1,34 @@
 # CONVERSION-PROOF.tsv -- a vendored file of unicon_tests given its semicolons by util_icon_semicolons.py --compile-args=--dialect=unicon, and what unicon -c (the graphics unicon 13.3) says of the upstream original against the converted text (its ucode, the uid line aside); officer_12 2026-11-16, row unicon-graphics-the-nineteen-programs-still-excluded-are-entries-or-carry-their-measured-class
 file	verdict	upstream
 graphics/ftest.icn	same-code	/home/resources/packages/icon/unicon/src/runtime/ftest.icn (unicon d784f58), 3 semicolons
+crypto/badalg.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/badalg.icn (unicon d784f58), 1 semicolons
+crypto/badkey.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/badkey.icn (unicon d784f58), 10 semicolons
+crypto/badrole.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/badrole.icn (unicon d784f58), 4 semicolons
+crypto/badverify.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/badverify.icn (unicon d784f58), 11 semicolons
+crypto/dtlsecho.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/dtlsecho.icn (unicon d784f58), 9 semicolons
+crypto/dtls.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/dtls.icn (unicon d784f58), 4 semicolons
+crypto/encrypt.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/encrypt.icn (unicon d784f58), 18 semicolons
+crypto/filecrypt.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/filecrypt.icn (unicon d784f58), 14 semicolons
+crypto/filehash.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/filehash.icn (unicon d784f58), 10 semicolons
+crypto/filekeyattr.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/filekeyattr.icn (unicon d784f58), 8 semicolons
+crypto/filekey.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/filekey.icn (unicon d784f58), 12 semicolons
+crypto/filetamper.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/filetamper.icn (unicon d784f58), 19 semicolons
+crypto/freshiv.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/freshiv.icn (unicon d784f58), 10 semicolons
+crypto/hash.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/hash.icn (unicon d784f58), 13 semicolons
+crypto/hmac.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/hmac.icn (unicon d784f58), 13 semicolons
+crypto/iv.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/iv.icn (unicon d784f58), 18 semicolons
+crypto/midattrib.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/midattrib.icn (unicon d784f58), 5 semicolons
+crypto/opswitch.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/opswitch.icn (unicon d784f58), 11 semicolons
+crypto/peek.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/peek.icn (unicon d784f58), 49 semicolons
+crypto/sha512.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/sha512.icn (unicon d784f58), 7 semicolons
+crypto/sign.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/sign.icn (unicon d784f58), 14 semicolons
+crypto/tamper.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tamper.icn (unicon d784f58), 12 semicolons
+crypto/tlsauth.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlsauth.icn (unicon d784f58), 13 semicolons
+crypto/tlscipher.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlscipher.icn (unicon d784f58), 9 semicolons
+crypto/tlshandle.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlshandle.icn (unicon d784f58), 13 semicolons
+crypto/tlspeek.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlspeek.icn (unicon d784f58), 30 semicolons
+crypto/tlsplain.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlsplain.icn (unicon d784f58), 5 semicolons
+crypto/tlsproto.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlsproto.icn (unicon d784f58), 9 semicolons
+crypto/tlsutil.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlsutil.icn (unicon d784f58), 33 semicolons
+crypto/tlsverify.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlsverify.icn (unicon d784f58), 17 semicolons
+uni_lib/crypto.icn	same-code	/home/resources/packages/icon/unicon/uni/lib/crypto.icn (unicon d784f58), 21 semicolons

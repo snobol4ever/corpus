@@ -1,7 +1,7 @@
 # unicon_tests -- Unicon's own test suite (UniTests)
 
 **Source:** `/home/resources/unicon/tests` (the Unicon git drop d784f58, 2026-09-06; Unicon 13.3), vendored by `harness/scripts/util_vendor_unicon_tests.sh`. 267 `.icn` files ship upstream;
-this package holds 221 of them (the categories below) plus `crypto/` (30, held until the oracle build has OpenSSL) and 16 helper files kept under `data/` and `bench/icon/` (depth 3, never units).
+this package holds 221 of them (the categories below) plus `crypto/` (30: 29 entries and their helper `tlsutil.icn`; below) and 16 helper files kept under `data/` and `bench/icon/` (depth 3, never units).
 
 ## Layout (upstream's, provenance kept)
 `<category>/NAME.icn` beside its `NAME.dat` (upstream's `data/NAME.dat`, the program's stdin); upstream's `data/` and `stand/` are kept verbatim as subdirectories (`stand/NAME.std` is upstream's own expected
@@ -21,3 +21,14 @@ oracle's non-answers (CEO-1696: empty output, a crash, a hang, a nondeterministi
 `harness/scripts/test_icon_unicon_suite.sh` (the coo's board; suite key `unitests`). Design: `.github/ARCH-UNICON.md`; lane goal: `.github/GOAL-UNICON-100.md`.
 
 THE GRAPHICS PROGRAMS (the grader 2026-11-16, on Lon's order of 16:5x CST): graphics/charting and graphics/subwindow are entries, each answer its window cut twice from the graphics unicon on the screen road, cap 20 s (out_files screen.dump); charting's copy made semicolon-ready, the original's ucode by unicon 13.3 -c (handoffs/grader-2026-11-16/unitests-proof.tsv). Left out, measured: gpxtest answers differently twice, imgtex draws a moving window.
+
+THE CRYPTO PROGRAMS (the grader 2026-11-17, on Lon's word in the grader's window choosing "Unicon crypto tests (30)"): upstream's `tests/crypto`
+(UTR 27: hash, HMAC, sign and verify, encrypt, file keys, and TLS and DTLS sockets on 127.0.0.1 at a random port from 30000) is vendored as
+`crypto/`, its `data/` (keys and certificates; the earliest valid one expires in 2036, the two `*-expired.crt` in 2010 by design) and `stand/`
+verbatim. The plain oracle was built `--disable-graphics` and has no OpenSSL, so these 29 refs are cut from the graphics unicon
+(`graphics_unicon_bin()`, the same revision d784f58 built with its default configure, whose features name secure sockets layer encryption),
+as upstream's Makefile.test runs each, `./NAME < /dev/null > out 2>&1`, `tlsutil.u` built first; twice, in two fresh copies, byte equal, each
+rc 0 and each equal to upstream's own `stand/NAME.std`. The 30 files and the package they import, `uni_lib/crypto.icn` (uni/lib, 70 lines,
+it links `base64`), were given their semicolons by `util_icon_semicolons.py --compile-args=--dialect=unicon` and proved same-code by the
+graphics unicon (`CONVERSION-PROOF.tsv`). The first SCRIP reading (mode 3, SCRIP 8c757a3bc1): 2 of 29 (`dtls`, `filecrypt`); the rest stop
+in the crypto runtime (`open` with mode `eh` unknown in `hash`, error 103 in `sign`, the TLS server never answering in `tlsplain`).
