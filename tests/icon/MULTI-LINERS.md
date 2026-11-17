@@ -27071,6 +27071,26 @@ end
   0.0 ^ 3    =    0.0
 ```
 
+## ladder__rung44_dcolon_builtin_in_call_position
+
+```Icon
+procedure main();
+    local WS, s, sep;
+    WS := ' \t\n';
+    sep := ',';
+    s := "abc  ,d";
+    s ? write("[", ::trim(::tab((::upto(sep)) | 0)\1, WS), "]");
+    s ? every write("[", ::trim(::tab((::upto(sep)) | 0)\1, WS), "]");
+    write(::type(WS), " ", ::many(WS, "  x"));
+end
+```
+
+```stdout
+[abc]
+[abc]
+cset 3
+```
+
 ## ladder__rung05_scan_a_suspended_tab_restores_pos_on_backtrack
 
 ```Icon
