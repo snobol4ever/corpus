@@ -21,7 +21,7 @@
 3d/util3d.icn: LIBRARY: no procedure main
 3d/vector.icn: LIBRARY: no procedure main
 3d/viewer/subwin3d.icn: LIBRARY: no procedure main
-3d/viewer/u3dviewer.icn: NEEDS-DISPLAY: the source names import gui
+3d/viewer/u3dviewer.icn: OWED: built from u3dviewer.icn, world.icn and subwin3d.icn; the graphics unicon builds it only from its units given separately (unicon -s -o prog with each file named), and the harness's one road for several units, NAME.chain, concatenates them, which the oracle refuses in either order (MEASURED on u3dviewer with world.icn and subwin3d.icn: fatal: can't read spec for class Dialog; built from the three files it holds a still picture twice, fe46efba); owed to a road that builds an entry from several units, the grader's (the cqo's ruling 2026-11-16 19:1x CST; officer_12)
 3d/viewer/world.icn: LIBRARY: no procedure main
 3d/xparse.icn: LIBRARY: no procedure main
 cint/test1.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
@@ -243,7 +243,7 @@ ide/ivib/groupset.icn: LIBRARY: no procedure main
 ide/ivib/groupsetdialog.icn: LIBRARY: no procedure main
 ide/ivib/hcomponentsort.icn: LIBRARY: no procedure main
 ide/ivib/infodialog.icn: LIBRARY: no procedure main
-ide/ivib/ivib.icn: NEEDS-DISPLAY: the source names import gui
+ide/ivib/ivib.icn: OWED: built from the 132 files of ide/ivib (16,266 lines); the graphics unicon builds it only from its units given separately (unicon -s -o prog with each file named), and the harness's one road for several units, NAME.chain, concatenates them, which the oracle refuses in either order (MEASURED on u3dviewer with world.icn and subwin3d.icn: fatal: can't read spec for class Dialog; built from the three files it holds a still picture twice, fe46efba); owed to a road that builds an entry from several units, the grader's (the cqo's ruling 2026-11-16 19:1x CST; officer_12)
 ide/ivib/ivibmigrate.icn: LIBRARY: no procedure main
 ide/ivib/linkfiles.icn: LIBRARY: no procedure main
 ide/ivib/main.icn: LIBRARY: no procedure main
@@ -263,7 +263,7 @@ ide/ptyDispatcher.icn: LIBRARY: no procedure main
 ide/qu_replace.icn: LIBRARY: no procedure main
 ide/shelletl.icn: LIBRARY: no procedure main
 ide/templates.icn: LIBRARY: no procedure main
-ide/ui.icn: NEEDS-DISPLAY: the source names import gui
+ide/ui.icn: OWED: the IDE, built by its Makefile from the 26 files of ide (10,152 lines) and ivib's (alone, the oracle cannot resolve idol.u); the graphics unicon builds it only from its units given separately (unicon -s -o prog with each file named), and the harness's one road for several units, NAME.chain, concatenates them, which the oracle refuses in either order (MEASURED on u3dviewer with world.icn and subwin3d.icn: fatal: can't read spec for class Dialog; built from the three files it holds a still picture twice, fe46efba); owed to a road that builds an entry from several units, the grader's (the cqo's ruling 2026-11-16 19:1x CST; officer_12)
 ide/uproject.icn: LIBRARY: no procedure main
 ide/utags.icn: NEEDS-DISPLAY: the source names import gui
 ide/verifymake.icn: LIBRARY: no procedure main
