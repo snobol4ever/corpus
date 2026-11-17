@@ -1,5 +1,4 @@
 # EXCLUDED.tsv -- icon_lab: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence (the grader 2026-11-15, iconlab_cut.py, each measured twice)
-lab1/p1	NO_ORACLE_ANSWER	it prints &clock, &date, &dateline, &time and &host: iconx answers differently on two runs a second apart, and on another machine
 lab1/p3	NO_ORACLE_ANSWER	it seeds &random from &clock: iconx answers differently on two runs a second apart
 lab3/p1	NO_ORACLE_ANSWER	iconx runs past 30 s: it writes every 13-letter combination of the alphabet (26 choose 13, about ten million lines)
 other/prog2	NO_ORACLE_ANSWER	iconx runs past 30 s: a prime generator in an endless repeat loop

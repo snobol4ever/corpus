@@ -18,8 +18,8 @@ oracle's answer to that input.
 
 THE ANSWERS were cut from the oracle, the fleet's `icont` and `iconx` 9.5.25a, each program built inside its own folder of a fresh copy of the
 package and run twice a second apart with stderr merged into stdout (`CONTRACT.tsv` stderr merged, so a run-time error is an answer), by
-`/home/resources/progress/handoffs/grader-2026-11-15/iconlab_cut.py`. 12 entries. Out of the count (`EXCLUDED.tsv`): `lab1/p1` and `lab1/p3`
-read the clock and answer differently every run, `lab3/p1` and `other/prog2` never end, `lab2/q` waits on the keyboard, and `lab4/p2` is
+`/home/resources/progress/handoffs/grader-2026-11-15/iconlab_cut.py`. 13 entries. `lab1/p1` is an entry again, graded with its five machine values masked (`ALL.mask`: `&clock`, `&date`, `&dateline`, `&time` and `&host`, lines 3, 5, 6, 7 and 8 of its 21), its answer cut twice on the graphics oracle since it writes `&features`. Out of the count (`EXCLUDED.tsv`): `lab1/p3`
+seeds the random generator from the clock and answers differently every run, `lab3/p1` and `other/prog2` never end, `lab2/q` waits on the keyboard, and `lab4/p2` is
 refused by the translator. `lab2/crt.icn` and `other/nwd.icn` are library files with no main.
 
-The first SCRIP reading (mode 3, SCRIP 38179ce886, on the landing's worktree): 12 of 12.
+The first SCRIP reading (mode 3, SCRIP 38179ce886, on the landing's worktree): 12 of 12 before `lab1/p1` returned.
