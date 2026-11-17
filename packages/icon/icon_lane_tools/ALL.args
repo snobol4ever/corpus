@@ -1,2 +1,4 @@
 icontags/icontags	-o	tags	icontags.icn
 icondoc/icondoc	-d	.	icondoc.icn
+wiki-syntax/diary-index	diary.html
+wiki-syntax/wiki_highlight	page.html

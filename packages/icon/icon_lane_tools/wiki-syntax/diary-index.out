@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Technical Diary</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="Stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<div class="content">
+<h1>Technical Diary</h1>
+<ul>
+<li><a href="2024-01-14.html">Sunday 14 January: icondoc writes its index</a></li>
+<li><a href="2024-01-09.html">Tuesday 9 January: icontags reads records</a></li>
+<li><a href="2023-12-30.html">Saturday 30 December: a lexer for rouge</a></li>
+</ul>
+</div>
+<footer>
+<p>written with vimwiki</p>
+</footer>
+</body>
+</html>

@@ -1,3 +1,5 @@
-rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,stderr,out_files
-1,icontags/icontags,icontags/icontags.icn,icon_lane_tools__icontags/icontags,icon_lane_tools,112,0,131072,4096,60,,merged,tags
-2,icondoc/icondoc,icondoc/icondoc.icn,icon_lane_tools__icondoc/icondoc,icon_lane_tools,530,0,131072,4096,60,,merged,index.html icondoc.html
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,stderr,out_files,in_files
+1,icontags/icontags,icontags/icontags.icn,icon_lane_tools__icontags/icontags,icon_lane_tools,112,0,131072,4096,60,,merged,tags,
+2,icondoc/icondoc,icondoc/icondoc.icn,icon_lane_tools__icondoc/icondoc,icon_lane_tools,530,0,131072,4096,60,,merged,index.html icondoc.html,
+3,wiki-syntax/diary-index,wiki-syntax/diary-index.icn,icon_lane_tools__wiki-syntax/diary-index,icon_lane_tools,32,0,131072,4096,60,,merged,diary.html,diary.html=wiki-syntax/inputs/diary.html
+4,wiki-syntax/wiki_highlight,wiki-syntax/wiki_highlight.icn,icon_lane_tools__wiki-syntax/wiki_highlight,icon_lane_tools,60,0,131072,4096,60,,merged,page.html,page.html=wiki-syntax/inputs/page.html

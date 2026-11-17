@@ -12,7 +12,12 @@ Each tool is run on its own source, so no input of ours was needed: `icontags -o
 (`ALL.args`). The answers are what they write: the run's stdout (empty), then `tags`, and then `index.html` and `icondoc.html` (`out_files`).
 Cut from icont and iconx 9.5.25a twice a second apart, identical.
 
-Owed (`ALL.omit`): `wiki_highlight` and `diary-index` rewrite the file they are given in place, and the out_files road deletes a named
-file before every run.
+The two vimwiki helpers rewrite the file they are given in place, so each reads an input of ours (Lon 2026-11-15: yes to writing inputs of
+ours), kept under `wiki-syntax/inputs` and placed in the run folder before every run by the `in_files` cell, the same file named in
+`out_files`: `diary-index diary.html` compacts a diary index of three entries (its header, its links as a list, the last six lines; the
+program reads `lines[-6 to 0]`, whose last subscript fails), and `wiki_highlight page.html` prints `-- page.html` and rewrites each
+`<pre icon>` block through `icon_html_format` of the sibling `pcl`, leaving a `<pre ruby>` block as it stands. Each answer is the run's
+stdout, then the rewritten file. Cut from icont and iconx 9.5.25a twice a second apart, in two fresh copies, identical, rc 0 (the grader
+2026-11-17).
 
-The first SCRIP reading (mode 3, SCRIP 38179ce886, on the landing's worktree): 2 of 2.
+The first SCRIP reading (mode 3, SCRIP 38179ce886, on the landing's worktree): 2 of 2; with the two helpers (SCRIP 8c757a3bc1, 2026-11-17): 4 of 4.

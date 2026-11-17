@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Generators</title>
+</head>
+<body>
+<h1>Generators in Icon</h1>
+<p>A procedure that suspends produces each of its results in turn:</p>
+<pre icon>
+procedure upto_n(n)
+  local i
+  every i := 1 to n do suspend i
+end
+
+procedure main()
+  every write(upto_n(3) &lt; 3 &amp; "small")
+  if *"abc" &gt; 2 then write("long")
+end
+</pre>
+<p>The same idea in Ruby, left as it stands:</p>
+<pre ruby>
+def upto(n) = (1..n).each { |i| yield i }
+</pre>
+<p>Strings are scanned with <code>?</code>:</p>
+<pre icon>
+"hello world" ? while tab(upto(&amp;letters)) do write(tab(many(&amp;letters)))
+</pre>
+</body>
+</html>

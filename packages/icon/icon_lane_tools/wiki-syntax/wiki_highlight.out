@@ -1,0 +1,29 @@
+-- page.html
+<html>
+<head>
+<title>Generators</title>
+</head>
+<body>
+<h1>Generators in Icon</h1>
+<p>A procedure that suspends produces each of its results in turn:</p>
+<pre>
+<span style="color: #008800;font-weight: bold">procedure</span><span style=""> </span><span style="">upto_n</span><span style="">(</span><span style="">n</span><span style="">)</span>
+<span style="">  </span><span style="color: #008800;font-weight: bold">local</span><span style=""> </span><span style="">i</span>
+<span style="">  </span><span style="color: #008800;font-weight: bold">every</span><span style=""> </span><span style="">i</span><span style=""> </span><span style="color: #0066bb;font-weight: bold">:=</span><span style=""> </span><span style="color: #0000dd;font-weight: bold">1</span><span style=""> </span><span style="color: #008800;font-weight: bold">to</span><span style=""> </span><span style="">n</span><span style=""> </span><span style="color: #008800;font-weight: bold">do</span><span style=""> </span><span style="color: #008800;font-weight: bold">suspend</span><span style=""> </span><span style="">i</span>
+<span style="color: #008800;font-weight: bold">end</span>
+
+<span style="color: #008800;font-weight: bold">procedure</span><span style=""> </span><span style="">main</span><span style="">(</span><span style="">)</span>
+<span style="">  </span><span style="color: #008800;font-weight: bold">every</span><span style=""> </span><span style="">write</span><span style="">(</span><span style="">upto_n</span><span style="">(</span><span style="color: #0000dd;font-weight: bold">3</span><span style="">)</span><span style=""> </span><span style="color: #0066bb;font-weight: bold"><</span><span style=""> </span><span style="color: #0000dd;font-weight: bold">3</span><span style=""> </span><span style="color: #0066bb;font-weight: bold">&</span><span style=""> </span><span style="color: #dd2200;background-color: #fff0f0">"small"</span><span style="">)</span>
+<span style="">  </span><span style="color: #008800;font-weight: bold">if</span><span style=""> </span><span style="color: #0066bb;font-weight: bold">*</span><span style="color: #dd2200;background-color: #fff0f0">"abc"</span><span style=""> </span><span style="color: #0066bb;font-weight: bold">></span><span style=""> </span><span style="color: #0000dd;font-weight: bold">2</span><span style=""> </span><span style="color: #008800;font-weight: bold">then</span><span style=""> </span><span style="">write</span><span style="">(</span><span style="color: #dd2200;background-color: #fff0f0">"long"</span><span style="">)</span>
+<span style="color: #008800;font-weight: bold">end</span>
+</pre>
+<p>The same idea in Ruby, left as it stands:</p>
+<pre ruby>
+def upto(n) = (1..n).each { |i| yield i }
+</pre>
+<p>Strings are scanned with <code>?</code>:</p>
+<pre>
+<span style="color: #dd2200;background-color: #fff0f0">"hello world"</span><span style=""> </span><span style="color: #0066bb;font-weight: bold">?</span><span style=""> </span><span style="color: #008800;font-weight: bold">while</span><span style=""> </span><span style="">tab</span><span style="">(</span><span style="">upto</span><span style="">(</span><span style="color: #003388">&letters</span><span style="">)</span><span style="">)</span><span style=""> </span><span style="color: #008800;font-weight: bold">do</span><span style=""> </span><span style="">write</span><span style="">(</span><span style="">tab</span><span style="">(</span><span style="">many</span><span style="">(</span><span style="color: #003388">&letters</span><span style="">)</span><span style="">)</span><span style="">)</span>
+</pre>
+</body>
+</html>
