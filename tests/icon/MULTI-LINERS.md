@@ -7981,6 +7981,29 @@ main()
 {"x" . field} from line 6 in lf.icn
 ```
 
+## ladder__rung37_set_of_a_non_list_is_error_108
+
+```Icon
+procedure main()
+   local s;
+   s := set(4, 5);
+   write(*s);
+   s := set(4);
+   write(*s);
+end
+```
+
+```stdout
+
+Run-time error 108
+File w_set.icn; Line 3
+list expected
+offending value: 4
+Traceback:
+main()
+set(4) from line 3 in w_set.icn
+```
+
 ## ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
 
 ```Icon

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1218 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,97
+# shape: entries=1219 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,98
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -497,7 +497,7 @@ procedure_write_read_4	chunk:09	feat:read	local read
 unicon__uni_bi_numeric_suffix_space	chunk:02	feat:limitation	alternation image limitation
 error_line_in_a_continued_call__lc	chunk:09	feat:integer	integer local
 error_line_in_a_continued_call__ld	chunk:09	feat:integer	integer local
-error_line_in_a_continued_call__lg	chunk:11	feat:while	local while
+error_line_in_a_continued_call__lg	chunk:12	feat:while	local while
 ladder__rung08_strbuiltins_trim_with_a_nul_in_its_cset	chunk:11	feat:trim	image limitation trim
 ladder_rung05_scan_scan_pos	chunk:10	feat:move	keyword_ref move scan
 procedure_every_to_19	chunk:02	feat:to_by	every to_by
@@ -510,6 +510,7 @@ procedure_write_232	chunk:07	feat:section	local section
 procedure_write_233	chunk:04	feat:global	aug_assign global
 procedure_write_51	chunk:04	feat:type	image type
 error_line_in_a_continued_call__lf	chunk:06	feat:case	case local
+ladder__rung37_set_of_a_non_list_is_error_108	chunk:11	feat:set	local set
 ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are	chunk:07	feat:writes	image limitation writes
 ladder_rung41_rt_errorclear	chunk:07	feat:keyword_ref	alternation keyword_ref
 procedure_table_write_14	chunk:05	feat:table	local table
