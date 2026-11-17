@@ -1,0 +1,3 @@
+# CONVERSION-PROOF.tsv -- a vendored file of unicon_tests given its semicolons by util_icon_semicolons.py --compile-args=--dialect=unicon, and what unicon -c (the graphics unicon 13.3) says of the upstream original against the converted text (its ucode, the uid line aside); officer_12 2026-11-16, row unicon-graphics-the-nineteen-programs-still-excluded-are-entries-or-carry-their-measured-class
+file	verdict	upstream
+graphics/ftest.icn	same-code	/home/resources/packages/icon/unicon/src/runtime/ftest.icn (unicon d784f58), 3 semicolons

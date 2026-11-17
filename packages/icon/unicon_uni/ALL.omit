@@ -52,10 +52,8 @@ gui/editspin.icn: LIBRARY: no procedure main
 gui/filedialog.icn: LIBRARY: no procedure main
 gui/font_dlg.icn: LIBRARY: no procedure main
 gui/gui_utils.icn: LIBRARY: no procedure main
-gui/guidemos/editlisttest.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/empty.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/filedialogtest.icn: NEEDS-DISPLAY: the source names import gui
-gui/guidemos/imageview.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/multi.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/redundant.icn: LIBRARY: no procedure main
 gui/guidemos/tickdemo.icn: NEEDS-DISPLAY: the source names import gui
@@ -244,7 +242,6 @@ ide/ivib/group.icn: LIBRARY: no procedure main
 ide/ivib/groupset.icn: LIBRARY: no procedure main
 ide/ivib/groupsetdialog.icn: LIBRARY: no procedure main
 ide/ivib/hcomponentsort.icn: LIBRARY: no procedure main
-ide/ivib/icon/xpmtoims.icn: NEEDS-DISPLAY: the source names link graphics
 ide/ivib/infodialog.icn: LIBRARY: no procedure main
 ide/ivib/ivib.icn: NEEDS-DISPLAY: the source names import gui
 ide/ivib/ivibmigrate.icn: LIBRARY: no procedure main
@@ -270,7 +267,6 @@ ide/ui.icn: NEEDS-DISPLAY: the source names import gui
 ide/uproject.icn: LIBRARY: no procedure main
 ide/utags.icn: NEEDS-DISPLAY: the source names import gui
 ide/verifymake.icn: LIBRARY: no procedure main
-ide/wu.icn: NEEDS-DISPLAY: the source names link graphics
 lib/FxPt.icn: LIBRARY: no procedure main
 lib/_button.icn: LIBRARY: no procedure main
 lib/_image.icn: LIBRARY: no procedure main
@@ -510,7 +506,6 @@ udb/lib/failedsubscript.icn: NO-OUTPUT: nothing on standard output, exit 1; a de
 udb/lib/listener.icn: LIBRARY: no procedure main
 udb/lib/looptime.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
 udb/lib/memory.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
-udb/lib/memory_alloc.icn: NEEDS-DISPLAY: the source names $include "keysyms.icn"
 udb/lib/procprofile.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
 udb/lib/proctime.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
 udb/lib/structaliases.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
@@ -573,7 +568,6 @@ ulsp/unicon_built_in_functions.icn: LIBRARY: no procedure main
 unicon/ca.icn: LIBRARY: no procedure main
 unicon/cfy.icn: LIBRARY: no procedure main
 unicon/grok.icn: ORACLE-REFUSES: unicon does not translate it: foo.icn:9: # "initially" syntax error (54;279)
-unicon/i.icn: NEEDS-DISPLAY: the source names link gui
 unicon/idol.icn: LIBRARY: no procedure main
 unicon/iol2htm.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 unicon/lump.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

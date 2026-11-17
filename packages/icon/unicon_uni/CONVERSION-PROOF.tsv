@@ -58,3 +58,9 @@ lib/msg.icn	same-code
 lib/shm.icn	same-code
 lib/undoableedit.icn	unchanged
 gui/dispatcher.icn	same-code
+gui/guidemos/editlisttest.icn	same-code
+gui/guidemos/imageview.icn	same-code
+ide/ivib/icon/xpmtoims.icn	same-code
+ide/wu.icn	same-code
+udb/lib/memory_alloc.icn	unchanged
+unicon/i.icn	same-code

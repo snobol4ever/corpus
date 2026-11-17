@@ -1,16 +1,18 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=41 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=8 chunks=1 sizes=38
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=47 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=10 chunks=1 sizes=44
 entry	part	cluster	shells
 gprogs/kaleid	chunk:01	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
 gui/guidemos/demo	chunk:01	dir:gui/guidemos	
 gui/guidemos/dndtest	chunk:01	dir:gui/guidemos	
 gui/guidemos/dyncomps	chunk:01	dir:gui/guidemos	
+gui/guidemos/editlisttest	core	core	want_rc
 gui/guidemos/editor	chunk:01	dir:gui/guidemos	
 gui/guidemos/explorer	chunk:01	dir:gui/guidemos	
 gui/guidemos/fillpanel	chunk:01	dir:gui/guidemos	
 gui/guidemos/getweb	chunk:01	dir:gui/guidemos	
+gui/guidemos/imageview	chunk:01	dir:gui/guidemos	
 gui/guidemos/leak	chunk:01	dir:gui/guidemos	
 gui/guidemos/lines	chunk:01	dir:gui/guidemos	
 gui/guidemos/listtest	chunk:01	dir:gui/guidemos	
@@ -30,13 +32,17 @@ gui/guidemos/themedemo	chunk:01	dir:gui/guidemos
 gui/guidemos/ticks	chunk:01	dir:gui/guidemos	
 gui/guidemos/toolbar	chunk:01	dir:gui/guidemos	
 gui/guidemos/ttexplorer	chunk:01	dir:gui/guidemos	
+ide/ivib/icon/xpmtoims	chunk:01	dir:ide/ivib/icon	
+ide/wu	core	core	want_rc
 lib/attr	chunk:01	dir:lib	
 progs/complex_ex	core	core	want_rc
 progs/genAcc	chunk:01	dir:progs	
-progs/jsvalid	core	core	want_rc
-progs/uget	core	core	want_rc
+progs/jsvalid	chunk:01	feat:want_rc	want_rc
+progs/uget	chunk:01	feat:want_rc	want_rc
+udb/lib/memory_alloc	chunk:01	dir:udb/lib	
 uflex/test/hello	chunk:01	dir:uflex/test	
 ulsp/launch-lsp	chunk:01	feat:want_rc	want_rc
+unicon/i	chunk:01	feat:want_rc	want_rc
 unidoc/UniDoc	chunk:01	feat:want_rc	want_rc
 util/ivibmigrate	chunk:01	dir:util	
 xml/createdemo	chunk:01	dir:xml	

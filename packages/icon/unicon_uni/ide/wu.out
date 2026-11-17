@@ -1,0 +1,8 @@
+
+Run-time error 121
+File wu.icn; Line 214
+function not supported
+Traceback:
+   main(list_1 = [])
+   function WinMenuBar ! list_9 = [list_3(8),list_4(11),list_5(6),list_6(6),list_7(3),list_8(10)] from line 214 in wu.icn
+screen none

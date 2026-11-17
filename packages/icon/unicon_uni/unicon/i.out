@@ -1,0 +1,14 @@
+
+Run-time error 103
+File gui.icn; Line 555
+string expected
+offending value: &null
+Traceback:
+   main()
+   TestDialog(&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null,&null) from line 21 in i.icn
+   TestDialog_initially(TestDialog_1) from line 22 in __faux.icn
+   Border(list_14 = [Border_1,"pos0,0","size=50%,100%"]) from line 12 in i.icn
+   Border_initially(Border_1,list_15 = ["pos0,0","size=50%,100%"]) from line 22 in __faux.icn
+   MetaComponent_set_fields(Border_1,list_15 = ["pos0,0","size=50%,100%"]) from line 96 in border.icn
+   {"set_" || &null} from line 555 in gui.icn
+screen none
