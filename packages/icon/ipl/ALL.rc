@@ -17,3 +17,8 @@ gprocs/gpxop_driver	1
 gprocs/graphics_driver	1
 gprocs/imutils_driver	1
 gprocs/wopen_driver	1
+gprocs/colorway_driver	1
+gprocs/imscolor_driver	1
+gprocs/tieedit_driver	1
+gprocs/vmenu_driver	1
+gprocs/vtext_driver	1

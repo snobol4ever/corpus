@@ -16,12 +16,12 @@ draw_cursor when on: failed
 delete_left at start: failed
 insert multi-char: failed
 data="ho" len=2 cursor=1 ta=1 tb=1 pixels=&null
-event tab: -690419 V_NEXT=-690419
-event ^b at start: &null
-event ^f at end: &null
-event multi-char: &null
-event negative code: failed
-event locked: failed
-delete_line: data="" len=0 cursor=1 ta=1 tb=1 pixels=0
-move +1 on empty: failed
-move 0 on empty: ok
+
+Run-time error 140
+File vtext.icn; Line 297
+window expected
+offending value: &null
+Traceback:
+main()
+event_Vtext(record Vtext_rec_1(&null,"Name:",record Vcoupler_rec_1(10),"t1",10,&cset,"ho",&null,&null,&null,&null,&null,record Vstd_text_1(16),record Vstd_pos_1(4),&null),"\t",0,0) from line 54 in vtext_driver.icn
+bad keyword reference from line 297 in vtext.icn

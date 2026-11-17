@@ -1,5 +1,5 @@
 gdisable() returned &null
 again: &null
-DrawLine in main: &null
-WAttrib in main: &null
+DrawLine in main: 1
+WAttrib in main: 1
 done

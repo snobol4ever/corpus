@@ -23,12 +23,12 @@ return_tile: &null state="Done"
 grid_file_cb quit: &null state="Done"
 grid_file_cb unknown: failed
 tile_cb ignored item: &null
-grid_shortcuts CR: &null state=&null
-grid_shortcuts CR subservient: &null state="Done"
-grid_shortcuts x: &null
-symmet_cb non-press: failed
-xform_cb non-press: failed
-pattrec: pattrec 4,#1248
-grid_cb non-press: &null
-setbit unchanged: &null rows=1010 0101
-setbit unchanged 2: &null rows=1010 0101
+
+Run-time error 140
+File tieedit.icn; Line 311
+window expected
+offending value: &null
+Traceback:
+main()
+grid_shortcuts("\r") from line 54 in tieedit_driver.icn
+bad keyword reference from line 311 in tieedit.icn

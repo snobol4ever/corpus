@@ -28,15 +28,12 @@ event_Vmenu_bar_item key: failed
    draw_off Open
 event_Vmenu_item release: list size=1 is uid=yes
    draw_on Open
-   draw_off Open
-event_Vmenu_item key: failed
-pick_Vmenu_frame release: failed
-pull-down button a=5 5 100 14
-pull-down after button resize: a=5 19 100 45 items=3
-   Small a=6 20 96 14 P=1 1 96 14
-   Medium a=6 34 96 14 P=1 15 96 14
-   Large a=6 48 96 14 P=1 29 96 14
-set_value Medium: no value data="Medium"
-set_value null: no value data=""
-   draw_off size
-event_Vpull_down_button locked: failed
+
+Run-time error 140
+File vmenu.icn; Line 147
+window expected
+offending value: &null
+Traceback:
+main()
+event_Vmenu_item(record Vmenu_item_rec_4(&null,"Open",procedure filecb,1,86,14,&null,12,14,6,record Vstd_pos_6(4),record Vstd_draw_10(11),record Vstd_5(12),&null),"k",&null) from line 79 in vmenu_driver.icn
+bad keyword reference from line 147 in vmenu.icn

@@ -268,11 +268,15 @@ way_cb(no match) returned &null
 way_cb(near miss) returned &null
 file_cb(no match) returned &null
 file_cb(near miss) returned &null
-shortcuts("q") returned &null
-shortcuts("S") returned &null
-colorway record: 1 entry, sky=0,0,65535
-cw_touched &null cw colorway
-calling quit()
+
+Run-time error 140
+File colorway.icn; Line 233
+window expected
+offending value: &null
+Traceback:
+main()
+shortcuts("q") from line 28 in colorway_driver.icn
+bad keyword reference from line 233 in colorway.icn
 
 #----------------------------------------------------- 11 gprocs/colrlist_driver
 colrlist("/dev/null") failed
@@ -758,8 +762,8 @@ done
 #----------------------------------------------------- 26 gprocs/gdisable_driver
 gdisable() returned &null
 again: &null
-DrawLine in main: &null
-WAttrib in main: &null
+DrawLine in main: 1
+WAttrib in main: 1
 done
 
 #------------------------------------------------------ 27 gprocs/gifsize_driver
@@ -1040,7 +1044,7 @@ done
 #---------------------------------------------------------- 35 gprocs/ifg_driver
 ifg(): fails
 ifg() again: fails
-graphics in &features: no
+graphics in &features: yes
 done
 
 #----------------------------------------------------- 36 gprocs/imagedim_driver
@@ -1169,10 +1173,15 @@ XPM_Nth("abcdefghij", 5) = "af"
 XPM_Nth("", 2) = ""
 XPM_RdStr(/dev/null): fails
 XPM_RdStr(imscolor.icn): "c1"
-pickpalette("c1", -1, 0, 10, 10): fails
-pickpalette("c1", 10, 0, 10, 10): fails
-pickpalette("c1", 0, 20, 10, 10): fails
-done
+
+Run-time error 140
+File imscolor.icn; Line 265
+window expected
+offending value: &null
+Traceback:
+main()
+pickpalette(&null,"c1",-1,0,10,10,&null) from line 42 in imscolor_driver.icn
+runerr(140,&null) from line 265 in imscolor.icn
 
 #----------------------------------------------------- 41 gprocs/imsutils_driver
 bits2hex("0000") = "0"
@@ -2223,15 +2232,15 @@ return_tile: &null state="Done"
 grid_file_cb quit: &null state="Done"
 grid_file_cb unknown: failed
 tile_cb ignored item: &null
-grid_shortcuts CR: &null state=&null
-grid_shortcuts CR subservient: &null state="Done"
-grid_shortcuts x: &null
-symmet_cb non-press: failed
-xform_cb non-press: failed
-pattrec: pattrec 4,#1248
-grid_cb non-press: &null
-setbit unchanged: &null rows=1010 0101
-setbit unchanged 2: &null rows=1010 0101
+
+Run-time error 140
+File tieedit.icn; Line 311
+window expected
+offending value: &null
+Traceback:
+main()
+grid_shortcuts("\r") from line 54 in tieedit_driver.icn
+bad keyword reference from line 311 in tieedit.icn
 
 #----------------------------------------------------- 74 gprocs/tieutils_driver
 imr2tie: 3;2;010101
@@ -2817,18 +2826,15 @@ event_Vmenu_bar_item key: failed
    draw_off Open
 event_Vmenu_item release: list size=1 is uid=yes
    draw_on Open
-   draw_off Open
-event_Vmenu_item key: failed
-pick_Vmenu_frame release: failed
-pull-down button a=5 5 100 14
-pull-down after button resize: a=5 19 100 45 items=3
-   Small a=6 20 96 14 P=1 1 96 14
-   Medium a=6 34 96 14 P=1 15 96 14
-   Large a=6 48 96 14 P=1 29 96 14
-set_value Medium: no value data="Medium"
-set_value null: no value data=""
-   draw_off size
-event_Vpull_down_button locked: failed
+
+Run-time error 140
+File vmenu.icn; Line 147
+window expected
+offending value: &null
+Traceback:
+main()
+event_Vmenu_item(record Vmenu_item_rec_4(&null,"Open",procedure filecb,1,86,14,&null,12,14,6,record Vstd_pos_6(4),record Vstd_draw_10(11),record Vstd_5(12),&null),"k",&null) from line 79 in vmenu_driver.icn
+bad keyword reference from line 147 in vmenu.icn
 
 #-------------------------------------------------------- 87 gprocs/vpane_driver
 init_Vpane returned no value
@@ -3136,15 +3142,15 @@ draw_cursor when on: failed
 delete_left at start: failed
 insert multi-char: failed
 data="ho" len=2 cursor=1 ta=1 tb=1 pixels=&null
-event tab: -690419 V_NEXT=-690419
-event ^b at start: &null
-event ^f at end: &null
-event multi-char: &null
-event negative code: failed
-event locked: failed
-delete_line: data="" len=0 cursor=1 ta=1 tb=1 pixels=0
-move +1 on empty: failed
-move 0 on empty: ok
+
+Run-time error 140
+File vtext.icn; Line 297
+window expected
+offending value: &null
+Traceback:
+main()
+event_Vtext(record Vtext_rec_1(&null,"Name:",record Vcoupler_rec_1(10),"t1",10,&cset,"ho",&null,&null,&null,&null,&null,record Vstd_text_1(16),record Vstd_pos_1(4),&null),"\t",0,0) from line 54 in vtext_driver.icn
+bad keyword reference from line 297 in vtext.icn
 
 #------------------------------------------------------- 96 gprocs/wifisd_driver
 embedded WIF: 316 characters

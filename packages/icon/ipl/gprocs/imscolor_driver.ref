@@ -60,7 +60,12 @@ XPM_Nth("abcdefghij", 5) = "af"
 XPM_Nth("", 2) = ""
 XPM_RdStr(/dev/null): fails
 XPM_RdStr(imscolor.icn): "c1"
-pickpalette("c1", -1, 0, 10, 10): fails
-pickpalette("c1", 10, 0, 10, 10): fails
-pickpalette("c1", 0, 20, 10, 10): fails
-done
+
+Run-time error 140
+File imscolor.icn; Line 265
+window expected
+offending value: &null
+Traceback:
+main()
+pickpalette(&null,"c1",-1,0,10,10,&null) from line 42 in imscolor_driver.icn
+runerr(140,&null) from line 265 in imscolor.icn

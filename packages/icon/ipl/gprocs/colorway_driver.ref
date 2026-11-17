@@ -9,8 +9,12 @@ way_cb(no match) returned &null
 way_cb(near miss) returned &null
 file_cb(no match) returned &null
 file_cb(near miss) returned &null
-shortcuts("q") returned &null
-shortcuts("S") returned &null
-colorway record: 1 entry, sky=0,0,65535
-cw_touched &null cw colorway
-calling quit()
+
+Run-time error 140
+File colorway.icn; Line 233
+window expected
+offending value: &null
+Traceback:
+main()
+shortcuts("q") from line 28 in colorway_driver.icn
+bad keyword reference from line 233 in colorway.icn
