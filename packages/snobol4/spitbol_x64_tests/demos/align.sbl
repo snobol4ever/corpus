@@ -4,38 +4,38 @@
 
 *   Program to align the goto fields in a program.
 
-    &anchor = &trim = 1
+    &ANCHOR = &TRIM = 1
     margin = 56
 
 copy
 
 *   Merge here to copy the current line and continue to the next.
 
-    output = trim(line)
+    OUTPUT = TRIM(line)
 
 loop
 
-    line = input                                     :f(end)
+    line = INPUT                                     :F(END)
 
 *   Copy blank and comment lines as it.
 
-    ident(line)                                      :s(copy)
-    line '*'                                         :s(copy)
+    IDENT(line)                                      :S(copy)
+    line '*'                                         :S(copy)
 
 *   See if line has colon. Continue to next line if not.
 
-    line break(':')                                  :f(copy)
+    line BREAK(':')                                  :F(copy)
 
 *   See if line just contains goto field.
 
     iline = line
-    iline span(' ') =
-    ident(iline)                                     :s(copy)
-    iline ':'                                        :f(loop.text)
+    iline SPAN(' ') =
+    IDENT(iline)                                     :S(copy)
+    iline ':'                                        :F(loop.text)
 
 *   Here if line just has goto field.
 
-    line = rpad(' ',margin) iline                    :(copy)
+    line = RPAD(' ',margin) iline                    :(copy)
 
 loop.text
 
@@ -46,18 +46,18 @@ loop.text
 *   back together. This avoids thinking we have a goto field when in
 *   fact there is colon in string within the line.
 
-    rline = reverse(line)
-    rline break(':') . last ':'  rem . first         :f(copy)
+    rline = REVERSE(line)
+    rline BREAK(':') . last ':'  REM . first         :F(copy)
 
 *   Trim leading blanks from first, which corresonds to trimming the reverse.
 
-    first span(' ') =
+    first SPAN(' ') =
 
 *   Here if goto to left of margin, so pad it out and copy.
 
-    first = trim(reverse(first))
-    last = trim(reverse(last))
+    first = TRIM(REVERSE(first))
+    last = TRIM(REVERSE(last))
 *   output = '[*' rpad(first,margin) ']'  ":[" last ']'
-    line = rpad(first,margin) ":" last          :(copy)
+    line = RPAD(first,margin) ":" last          :(copy)
 
-end
+END

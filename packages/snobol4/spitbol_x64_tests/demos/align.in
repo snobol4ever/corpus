@@ -1,0 +1,9 @@
+* a sample to align
+        X = 1                          :(NEXT)
+
+NEXT    Y = ':' X
+        OUTPUT = Y
+                    :(DONE)
+        OUTPUT = 'not reached'       :S(NEXT)F(DONE)
+DONE    OUTPUT = 'done'
+END

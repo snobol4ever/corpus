@@ -3,13 +3,13 @@
 
 
 
-kwic2.sno(103) : ERROR 237 -- table referenced with more than one subscript
+kwic2.sbl(103) : ERROR 237 -- table referenced with more than one subscript
 
 
 
 
 
-in file              kwic2.sno
+in file              kwic2.sbl
 in line              103
 in statement         51
 stmts executed       42

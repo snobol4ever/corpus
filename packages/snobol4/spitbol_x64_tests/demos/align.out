@@ -1,17 +1,10 @@
 
+* a sample to align
+        X = 1                                           :(NEXT)
 
-
-align.sno(7) : ERROR 251 -- keyword operand is not name of defined keyword
-
-
-
-
-
-in file              align.sno
-in line              7
-in statement         4
-stmts executed       1
-execution time msec  0
-REGENERATIONS        0
-memory used (bytes)  13224
-memory left (bytes)  1035344
+NEXT    Y = '                                           :' X
+        OUTPUT = Y
+                                                        :(DONE)
+        OUTPUT = 'not reached'                          :S(NEXT)F(DONE)
+DONE    OUTPUT = 'done'
+END

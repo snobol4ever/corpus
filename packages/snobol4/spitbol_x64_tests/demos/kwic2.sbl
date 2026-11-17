@@ -34,7 +34,7 @@
     INPUT(.KEYFILE,1,"keywords")            :F(END)
     T = TABLE(101)
 READKEY WORD = KEYFILE                  :F(ENDKEY)
-    T<REPLACE(WORD,&UCASE,&LCASE)> = 1      :(READKEY)
+    T[REPLACE(WORD,&UCASE,&LCASE)] = 1      :(READKEY)
 ENDKEY  ENDFILE(1)
 
 * Establish the definition of characters that make up a word.
@@ -68,7 +68,7 @@ GTWORD  LINE ? WPAT                 :F(MORE)
 * Count it.  Is it a keyword?
 *
     WCOUNT = WCOUNT + 1
-    DIFFER(T<REPLACE(WORD,&UCASE,&LCASE)>)      :F(GTWORD)
+    DIFFER(T[REPLACE(WORD,&UCASE,&LCASE)])      :F(GTWORD)
 
 * Get cursor position of previous NCHARS.
 *
@@ -82,11 +82,11 @@ CKSIZE  LE(WEND + NCHARS, SIZE(LINE))           :S(CAPTURE)
 * Peel off the previous and following NCHARS, and record them.
 *
 CAPTURE LINE ? DPAT
-    CAPTURE<WORD> = CAPTURE<WORD> PREVIOUS "  " WORD "  " POST MARKER
+    CAPTURE[WORD] = CAPTURE[WORD] PREVIOUS "  " WORD "  " POST MARKER
 
 * Count occurrence of keyword and accumulate total.
 *
-    WORDCNTS<WORD> = WORDCNTS<WORD> + 1
+    WORDCNTS[WORD] = WORDCNTS[WORD] + 1
     KCOUNT = KCOUNT + 1
 
 * Now remove characters no longer needed from the beginning of LINE.
@@ -100,10 +100,10 @@ DISPLAY OUTPUT = WCOUNT " total words read"
     OUTPUT = KCOUNT " occurrences of keywords found"
     CAPTURE = SORT(CAPTURE)
     I = 0
-D1  S = CAPTURE<I = I + 1, 2>           :F(END)
+D1  S = CAPTURE[I = I + 1, 2]           :F(END)
     OUTPUT = ""
-    WORD = CAPTURE<I,1>
-    COUNT = WORDCNTS<WORD>
+    WORD = CAPTURE[I,1]
+    COUNT = WORDCNTS[WORD]
     OUTPUT = WORD ": " COUNT " occurrence"
 +    (GT(COUNT,1) "s","") " --"
 D2  S ? CPAT = ""                   :F(D1)

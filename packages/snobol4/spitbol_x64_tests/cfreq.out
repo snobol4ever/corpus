@@ -2,17 +2,20 @@ sort by character code
 
 
 
-cfreq.sno(12) : ERROR 235 -- subscripted operand is not table or array
+cfreq.sbl(12) : ERROR 235 -- subscripted operand is not table or array
 
 
 
 
 
-in file              cfreq.sno
+in file              cfreq.sbl
 in line              12
 in statement         8
 stmts executed       86
-execution time msec  0
+execution time msec  5
+stmt / microsec      0
+stmt / millisec      17
+stmt / second        17000
 REGENERATIONS        0
 memory used (bytes)  23320
 memory left (bytes)  1025248
