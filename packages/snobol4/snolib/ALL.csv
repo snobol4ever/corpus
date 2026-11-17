@@ -60,7 +60,7 @@ rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout
 59,STROUT.tst,STROUT.tst.sno,,snolib__STROUT.tst,snolib,7,0,131072,4096,60,
 60,SWAP.tst,SWAP.tst.sno,,snolib__SWAP.tst,snolib,7,0,131072,4096,60,
 61,TEST.tst,TEST.tst.sno,,snolib__TEST.tst,snolib,7,0,131072,4096,60,
-62,TPROFILE.tst,TPROFILE.tst.sno,,snolib__TPROFILE.tst,snolib,7,0,131072,4096,60,
+62,TPROFILE.tst,TPROFILE.tst.sno,,snolib__TPROFILE.tst,snolib,7,0,131072,4096,60,--stlimit
 63,TRIMB.tst,TRIMB.tst.sno,,snolib__TRIMB.tst,snolib,9,0,131072,4096,60,
 64,TRUNC.tst,TRUNC.tst.sno,,snolib__TRUNC.tst,snolib,7,0,131072,4096,60,
 65,UNIQUE.tst,UNIQUE.tst.sno,,snolib__UNIQUE.tst,snolib,21,0,131072,4096,60,
