@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1195 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,74
+# shape: entries=1197 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,76
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -40,7 +40,7 @@ procedure_write_181	chunk:01	family:ladder
 procedure_write_199	chunk:01	family:ladder	
 procedure_write_22	chunk:11	family:rung17_real_arith	
 procedure_write_23	chunk:11	family:rung17_real_arith	
-procedure_write_27	chunk:11	family:rung18_real_relop	
+procedure_write_27	chunk:12	family:rung18_real_relop	
 procedure_write_29	chunk:12	family:rung19_pow_toby	
 procedure_write_30	chunk:12	family:rung19_pow_toby	
 procedure_write_41	chunk:12	family:rung26_pow	
@@ -179,7 +179,7 @@ procedure_write_170	chunk:01	family:ladder
 procedure_write_189	chunk:06	feat:image	image
 procedure_write_19	chunk:11	family:rung16_subscript	
 procedure_write_192	chunk:03	feat:type	type
-procedure_write_21	chunk:11	family:rung17_real_arith	
+procedure_write_21	chunk:12	family:rung17_real_arith	
 procedure_write_28	chunk:12	family:rung18_real_relop	
 procedure_write_36	chunk:12	family:rung20_section_seqexpr	
 procedure_write_50	chunk:06	feat:image	image
@@ -638,7 +638,7 @@ procedure_every_alt_29	chunk:02	feat:return	alternation every gen_with_alternati
 procedure_every_alt_3	chunk:02	feat:return	alternation every gen_with_alternation return
 procedure_every_alt_replace_7	chunk:06	feat:gen_with_alternation	alternation every gen_with_alternation image
 procedure_every_elemgen_15	chunk:10	feat:put	element_gen every put
-procedure_every_elemgen_5	chunk:10	feat:put	element_gen every put
+procedure_every_elemgen_5	chunk:11	feat:put	element_gen every put
 procedure_every_to_20	chunk:05	feat:aug_assign	aug_assign every to_by
 procedure_every_to_51	chunk:05	feat:aug_assign	aug_assign every to_by
 procedure_scan_write_10	chunk:11	feat:any	any local scan
@@ -1053,6 +1053,7 @@ procedure_every_alt_replace_12	chunk:05	feat:swap	alternation every fail gen_wit
 ladder__rung36_sets_random_element_walks_iconxs_own_slots	chunk:10	feat:insert	aug_assign element_gen every image insert local scan set table to_by
 procedure_write_269	chunk:08	feat:until	element_gen every global image local put return to_by until writes
 unicon__uni_critical_break_next_unlocks	chunk:10	feat:next	aug_assign break every global image local next return table to_by
+planner_armjoin__a_discard_at_a_record_road_disjunctions_depth_restores_rsp_from_the_record	chunk:10	feat:repeat	aug_assign break element_gen every every_with_suspend local repeat scan suspend writes
 ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail	chunk:11	feat:any	alternation any image keyword_ref local many move scan scan_with_tab tab upto
 ladder__rung29_builtins_key_called_by_string_invocation_generates	chunk:10	feat:insert	alternation element_gen every gen_with_alternation insert local set sort table type writes
 ladder__rung38_coexpr_an_activation_resumes_its_operand_generator	chunk:04	feat:create	alternation coexpr_activate create element_gen every gen_with_alternation image local to_by while writes

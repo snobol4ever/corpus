@@ -24523,6 +24523,59 @@ p done i=5 a=0 b=0
 r=10 a=0
 ```
 
+## planner_armjoin__a_discard_at_a_record_road_disjunctions_depth_restores_rsp_from_the_record
+
+```Icon
+procedure counted(L)
+  local x, y, g, k;
+  every x := !L do {
+    k := 0;
+    repeat {
+      k +:= 1;
+      if k = 1 then
+        { if x = 9 then y := "R" else y := "A" }
+      else if k = 2 then
+        y := "B"
+      else {
+        g := 0;
+        if g = 0 then break
+      };
+      suspend x || y
+    }
+  };
+end
+procedure scanned(L)
+  local x, y, g;
+  every x := !L do {
+    x ? {
+      repeat {
+        if ="a" then
+          { if ="r" then y := "R" else y := "A" }
+        else if ="b" then {
+          y := "B";
+        }
+        else {
+          g := 0;
+          if g = 0 then break
+        };
+        suspend y
+      }
+    }
+  };
+end
+procedure main()
+  every writes(counted([1, 2, 3]), " ");
+  write();
+  every writes(scanned(["ab", "ba", "arb"]), " ");
+  write();
+end
+```
+
+```stdout
+1A 1B 2A 2B 3A 3B 
+A B B A R B 
+```
+
 ## ladder__rung42_kw_the_subject_outside_a_scan_is_empty_so_tab_and_many_fail
 
 ```Icon
