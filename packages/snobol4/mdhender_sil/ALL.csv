@@ -18,6 +18,6 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 17,roman,roman.sno,mdhender_sil__roman,mdhender_sil,21,0,131072,4096,60,
 18,sieve,sieve.sno,mdhender_sil__sieve,mdhender_sil,23,0,131072,4096,60,
 19,stackover,stackover.sno,mdhender_sil__stackover,mdhender_sil,22,0,131072,4096,60,
-20,stlimit,stlimit.sno,mdhender_sil__stlimit,mdhender_sil,13,0,131072,4096,60,
+20,stlimit,stlimit.sno,mdhender_sil__stlimit,mdhender_sil,13,0,131072,4096,60,--stlimit
 21,strcase,strcase.sno,mdhender_sil__strcase,mdhender_sil,15,0,131072,4096,60,
 22,undefined,undefined.sno,mdhender_sil__undefined,mdhender_sil,13,0,131072,4096,60,
