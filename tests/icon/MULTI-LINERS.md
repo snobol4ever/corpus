@@ -27266,6 +27266,44 @@ empty: 0 list
 fill: "x" "x" "x" | n: 2
 ```
 
+## planner_sticky__a_key_used_past_a_generator_call_is_hosted_after_it
+
+```Icon
+procedure gen(x)
+  suspend 1 | 2;
+end
+procedure nope()
+  fail;
+end
+procedure each(t)
+  suspend key(t);
+end
+procedure quoted(s)
+  s ? { if find("\"") then fail };
+  return;
+end
+procedure expand(t, s)
+  i := 1;
+  while (i <- find(k <- each(t), s, i)) & ((i = 1) | any(&cset -- &letters, s[i - 1])) & quoted(s[1:i]) do s[i +: *k] := t[k];
+  return s;
+end
+procedure main()
+  s := "ab";
+  while gen(s) & (1 | any(&cset, s)) & nope() do 0;
+  write("done");
+  t := table();
+  t["foo"] := "1";
+  write(expand(t, "write(\"foo\")"));
+  write(expand(t, "write(foo)"));
+end
+```
+
+```stdout
+done
+write("foo")
+write(1)
+```
+
 ## procedure_record_coexpr_replace_2
 
 ```Icon

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1200 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,79
+# shape: entries=1201 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,80
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -196,7 +196,7 @@ ladder_rung42_kw_ascii_cset_letters_digits	chunk:07	feat:keyword_ref	keyword_ref
 procedure_write_139	chunk:12	family:scrip_test_icon_jcon_audit_73_idx_list_assign	
 procedure_write_140	chunk:12	family:scrip_test_icon_jcon_audit_76_idx_nested	
 procedure_write_158	chunk:01	family:ladder	
-procedure_write_16	chunk:11	family:rung16_subscript	
+procedure_write_16	chunk:12	family:rung16_subscript	
 procedure_write_195	chunk:01	feat:return	return
 procedure_write_58	chunk:01	feat:return	return
 procedure_write_read_1	chunk:09	feat:read	read
@@ -1093,6 +1093,7 @@ procedure_every_elemgen_replace_10	chunk:08	feat:delete	alternation aug_assign d
 procedure_every_elemgen_replace_3	chunk:08	feat:delete	alternation delete element_gen every gen_with_alternation insert integer local member set sort to_by
 scanning_asm__is04b_forms	chunk:08	feat:find	every every_with_suspend find image keyword_ref local move return scan scan_with_tab suspend tab
 unicon__uni_bi_list_of_a_structure	chunk:09	feat:list	alternation aug_assign element_gen every gen_with_alternation image insert list local return set type
+planner_sticky__a_key_used_past_a_generator_call_is_hosted_after_it	chunk:11	feat:any	alternation any fail find keyword_ref return scan section suspend table while
 procedure_record_coexpr_replace_2	chunk:11	feat:set	alternation create every gen_with_alternation image keyword_ref local record return set table to_by
 procedure_every_suspend_replace_3	chunk:08	feat:static	alternation aug_assign break element_gen every every_with_suspend gen_with_alternation global local return static suspend
 procedure_every_alt_replace_1	chunk:09	feat:list	alternation aug_assign every fail gen_with_alternation global integer list local repl return to_by
