@@ -18685,6 +18685,22 @@ main after third @c hello 4
 outside "" 1
 ```
 
+## ladder__rung03_suspend_a_null_local_read_across_a_generators_resume_is_null
+
+```Icon
+procedure gen()
+   suspend "x" | "y";
+end
+procedure main()
+   local s, m;
+   every s := gen() do { if s == "y" then { write(image(m)); }; };
+end
+```
+
+```stdout
+&null
+```
+
 ## ladder__rung22_lists_a_null_test_of_a_generated_subscript_resumes
 
 ```Icon
