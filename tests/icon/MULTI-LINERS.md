@@ -6831,6 +6831,44 @@ g() from line 11 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_
 {1 / 0} from line 15 in a_generator_frame_appears_in_the_traceback_like_an_ordinary_call.icn
 ```
 
+## ladder__rung43_variadic_initially_by_super
+
+```Icon
+class C()
+   method m(a[])
+      write("C.m ", type(a), " ", *a);
+   end
+   method n(p, a[])
+      write("C.n ", image(p), " ", type(a), " ", *a);
+   end
+   initially(argv[])
+      write("C.init ", type(argv), " ", *argv);
+end
+class D : C()
+   method t()
+      self$C.m();
+      self$C.m(7, 8);
+      self$C.n();
+      self$C.n(1, 2, 3);
+      self$C.initially(5);
+   end
+   initially
+      self$C.initially();
+end
+procedure main()
+   D().t();
+end
+```
+
+```stdout
+C.init list 0
+C.m list 0
+C.m list 2
+C.n &null list 0
+C.n 1 list 2
+C.init list 1
+```
+
 ## unicon__uni_class_supers_breadth_first
 
 ```Icon
