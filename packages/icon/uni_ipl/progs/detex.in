@@ -1,0 +1,6 @@
+\documentclass{article}
+\begin{document}
+\section{Intro}
+Hello \textbf{world}, this is a \emph{test}.
+% a comment line
+\end{document}

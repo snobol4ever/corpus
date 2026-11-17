@@ -1,0 +1,2 @@
+# ALL.mask -- line masks for uni_ipl (FORMAT: entry<TAB>python-regex<TAB>reason), read by corpus_suite_harness.py read_mask_sidecar().
+progs/dd2wif	^Date=.*$	the WIF writer stamps the run date and the minute (Date=Tuesday, November 17, 2026  5:18 pm): a clock reading the machine fixes, masked in both streams alike (suites-and-grading section 4, the machine's own value is masked, never excluded; officer_01 2026-11-17)

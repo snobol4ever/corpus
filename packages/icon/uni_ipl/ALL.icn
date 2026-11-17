@@ -6852,3 +6852,501 @@ procedure main(args)
    write("[Time: ", &time / 1000.0, " seconds.]");
    exit(0);
 end
+#----------------------------------------------------------------- 33 mprogs/mtutils
+############################################################################
+#
+#	File:     mtutils.icn
+#
+#	Subject:  Program fpr MT Icon
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     March 3, 1997
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  Utility procedures for use with MT Icon programs (threads)
+#
+############################################################################
+#
+#  Requires:  MT Icon
+#
+############################################################################
+
+procedure root()
+local C;
+
+   C := &main;
+
+   while C := parent(C);
+
+   return C;
+
+end
+
+procedure main()
+
+   if root(&main) === &main then write("safe to talk")
+   else write("someone may be listening");
+
+end
+#----------------------------------------------------------------- 34 progs/dd2wif
+############################################################################
+#
+#	File:     dd2wif.icn
+#
+#	Subject:  Program to produce a WIF from drawdown
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     April 18, 2000
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program reads a drawdown in the form of strings of zeros and ones
+#  that represent the drawdown.  The output is a WIF.
+#
+############################################################################
+
+procedure main()
+   local rows, cols, treadling, threading, count, tieup;
+   local shafts, treadles, i, tie_line, row, treadle, draft;
+
+   rows := [];			# start with empty list
+
+   while put(rows, read());	# append rows from input
+
+   cols := rot(rows);		# rotate to get columns
+
+   treadles := examine(rows);	# get treadles
+   shafts := examine(cols);	# get shafts
+
+   treadling := [];		# construct treadling sequence
+   every put(treadling, treadles[!rows]);
+
+   threading := [];		# construct threading sequence
+   every put(threading, shafts[!cols]);
+
+   tieup := table();
+
+   every row := key(treadles) do {		# get unique rows
+      treadle := treadles[row];			# assigned treadle number
+      tie_line := repl("0", *shafts);		# blank tie-up line
+      every i := 1 to *row do			# go through row
+         if row[i] == "1" then			#    if warp on top
+            tie_line[threading[i]] := "1";	#       mark shaft position
+      tieup[treadle] := tie_line		# add line to tie-up
+      };
+
+   #  Now output the WIF.
+
+   write("[WIF]");
+   write("Version=1.1");
+   write("Date=" || &dateline);
+   write("Developers=ralph@cs.arizona.edu");
+   write("Source Program=dd2wif.icn");
+
+   write("[CONTENTS]");
+   write("Color Palette=yes");
+   write("Text=yes");
+   write("Weaving=yes");
+   write("Tieup=yes");
+   write("Color Table=yes");
+   write("Threading=yes");
+   write("Treadling=yes");
+   write("Warp colors=yes");
+   write("Weft colors=yes");
+   write("Warp=yes");
+   write("Weft=yes");
+
+   write("[COLOR PALETTE]");
+   write("Entries=2");
+   write("Form=RGB");
+   write("Range=0," || 2 ^ 16 - 1);
+
+   write("[TEXT]");
+   write("Title=example");
+   write("Author=Ralph E. Griswold");
+   write("Address=5302 E. 4th St., Tucson, AZ 85711-2304");
+   write("EMail=ralph@cs.arizona.edu");
+   write("Telephone=520-881-1470");
+   write("FAX=520-325-3948");
+
+   write("[WEAVING]");
+   write("Shafts=", *cols);
+   write("Treadles=", *rows);
+   write("Rising shed=yes");
+
+   write("[WARP]");
+   write("Threads=", *threading);
+   write("Units=Decipoints");
+   write("Thickness=10");
+   write("Color=1");
+
+   write("[WEFT]");
+   write("Threads=", *treadling);
+   write("Units=Decipoints");
+   write("Thickness=10");
+   write("Color=2");
+
+   #  These are provided to produce better initial configurations when
+   #  WIFs are imported to some weaving programs.
+
+   write("[WARP THICKNESS]");
+   write("[WEFT THICKNESS]");
+
+   write("[COLOR TABLE]");
+
+   write("1=0,0,0");
+   write("2=65535,65535,65535");
+
+   write("[THREADING]");
+   every i := 1 to *threading do
+      write(i, "=", threading[i]);
+
+   write("[TREADLING]");
+   every i := 1 to *treadling do
+      write(i, "=", treadling[i]);
+
+   write("[TIEUP]");
+   every i := 1 to *tieup do
+      write(i, "=", tromp(tieup[i]));
+
+end
+
+procedure tromp(treadle)
+   local result;
+
+   result := "";
+   
+   treadle ? {
+      every result ||:= upto("1") || ","
+      };
+
+   return result[1:-1];
+
+end
+
+procedure examine(array)
+   local count, lines, line;
+
+   lines := table();			# table to be keyed by line patterns
+   count := 0;
+
+   every line := !array do		# process lines
+      /lines[line] := (count +:= 1);	# if new line, insert with new number
+
+   return lines;
+
+end
+
+procedure rot(rows)
+   local cols, row, grid, i;
+
+   cols := list(*rows[1], "");
+
+   every row := !rows do {
+      i := 0;
+      every grid := !row do
+         cols[i +:= 1] := grid || cols[i]
+      };
+
+   return cols;
+
+end
+#----------------------------------------------------------------- 35 progs/detex
+############################################################################
+#
+#	File:     detex.icn
+#
+#	Subject:  Program to strip LaTeX commands
+#
+#	Author:   Clinton L. Jeffery
+#
+#	Date:     September 8, 1990
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#     Program that reads in documents written in the LaTeX typesetting
+#  language, and removes some of the common LaTeX commands to produce
+#  plain ASCII.  This program is not a full LaTeX parser, and output must
+#  typically be further edited by hand to produce an acceptable result.
+
+global fin, fout, silent, date, bibliography
+
+procedure main(args)
+    local cut, i, j;
+
+    initialize();
+    cut := "";
+
+    if *args=0 then {
+	every write(\ (detex(!&input)))
+    } else {
+	i := 1;
+	while (args[i][1] == "-") do {
+	    case args[i] of {
+		"-silent": silent := 1;
+		"-cut"   : cut := "-cut";
+		default  : write(&errout,"dont know option ",args[i])
+	    };
+	    i +:= 1
+	};
+	if /silent then write(&errout,"Detex version 1.10 executed on ",date);
+	if j := find(".tex",args[i]) then args[i][j:0] := "";
+	fin := open(args[i]||".tex","r") |
+	    stop("detex: couldn't open ",args[i],".tex for reading");
+	fout := open(args[i]||".doc","w") |
+	    stop("detex: couldn't open ",args[i],".doc for writing");
+	every write(fout,\ (detex(!fin)));
+	close(fin);
+	if \bibliography then {
+	    fin := open(bibliography,"r") |
+		write(&errout,"detex: couldn't open ",
+		      bibliography," for reading");
+	    every write(fout,\ (debib(detex(!fin))))
+	};
+	close(fout)
+    };
+end
+
+procedure initialize()
+    date := &dateline[find(",",&dateline)+2:0];
+    date := reverse(date);
+    date := date[find(":",date)+1:0];
+    date := date[many(&digits,date):0];
+    date := reverse(date);
+end
+
+# strip comments.  so far we only strip entire-line comments
+procedure detex(s)
+    if *s>0 & s[1]=="%" then fail;
+    return defootnote(deline(debrace(demacro(s))));
+end
+
+#
+# remove footnotes and similar multiline entities
+# all footnotes are assumed to end in }. and this is processed after
+# all single-line entities were already processed
+#
+procedure defootnote(s)
+    if s == "}" then return "";
+    while s[find("\\footnote{",s) +: *"\\footnote{"] := " (";
+    while s[find("}.",s) +: *"}."] := ").";
+    return s;
+end
+#
+# This routine handles macros that may appear anywhere on a line
+# Footnotes are translated into parentheses.
+# The close of all footnotes are assumed to be }.
+#
+procedure demacro(s)
+    local i;
+
+    while i := find("\\today",s) do {
+	s[i:i+*"\\today"] := date
+    };
+    while i := find("\\cite{",s) do {
+	s[i:i+*"\\cite{"] := "[";
+	s[find("}",s,i)] := "]"
+    };
+    while s[find("\\linebreak",s) +: *"\\linebreak"] := "";
+    while s[find("\\/"|"\\\\"|"\\>",s) +: 2] := "";
+    while s[find("``"|"''",s) +: 2] := "\"";
+    while s[ find("\\&"|"\\$"|"\\_",s) ] := "";
+    return s;
+end
+
+# extra help for .bbl files
+procedure debib(s)
+    local i;
+
+    while s[find("~",s)] := "";
+    while (i:=find("{",s))=(find("}",s)-2) do s[i+:3] := s[i+1];
+    while (i:=find("{",s))=(find("}",s)-3) do s[i+:4] := s[i+1];
+    return s;
+end
+
+# This procedure handles macros that comprise and entire line
+procedure deline(s)
+    local command, body;
+
+    if s[1] == "\\" then s ? {
+	move(1);
+	command := tab(many(&letters));
+	case command of {
+	    "item": {
+		if ="[" then { # if we are a {description}
+		    body := tab(upto(']'));
+		    move(1);
+		    return body || tab(0)
+		}
+		else
+		    return tab(0)
+	    };
+	    "bibitem": {
+		body := tab(upto(']')+1);
+		return body
+	    };
+	    "newblock": {
+		move(1);
+		body := tab(0);
+		return body
+	    };
+	    "bibliography": {
+		tab(upto('{')+1);
+		if not (body := tab(upto('}'))) then body := tab(0);
+		bibliography := body || ".bbl";
+		return trim(center("References",70))
+	    };
+	    "title" | "author" | "date" | "section" | "subsection" |
+		"subsubsection": {
+		    tab(upto('{')+1); # handle both \section{ and \section*{
+		    if not (body := tab(upto('}'))) then body := tab(0);
+		    return trim(center(body,70))
+		};
+	    default: return ""
+	}
+    } else
+	return s;
+end
+
+# This procedure removes braces which get inserted by common single-line
+# environments such as font changes
+procedure debrace(s)
+    local i, j;
+
+    s ||:= " ";
+
+    while i := find("{\\"||("em"|"tt"|"sf"|"bf")||" ",s) do {
+	j := &null;
+	every j := bal(&cset,'{','}',s,i,0) \ 2;
+	if \j then {
+            s := s[1:i] || s[i+5:j-1] || s[j:0]
+	}
+    };
+    return trim(s);
+end
+#----------------------------------------------------------------- 36 progs/isd2disd
+############################################################################
+#
+#	File:     isd2disd.icn
+#
+#	Subject:  Program to show convert ISD draft to drawdown form
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     April 20, 2000
+#
+############################################################################
+#
+#  This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts an ISD to an ISD with drawdown colors.
+#
+############################################################################
+#
+#  Links:  weavutil, xcode
+#
+############################################################################
+
+link weavutil
+link xcode
+
+procedure main()
+   local draft;
+
+   isd;				# fly a kite, linker
+
+   draft := xdecode(&input);
+
+   draft.warp_colors := list(*draft.threading, 1);	# black
+   draft.weft_colors := list(*draft.treadling, 2);	# white
+   draft.color_list := ["black", "white"];
+
+   xencode(draft, &output);
+
+end
+#----------------------------------------------------------------- 37 progs/lcfile
+############################################################################
+#
+#	File:     lcfile.icn
+#
+#	Subject:  Program to convert file names to lowercase
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     July 15, 1994
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts file names to lowercase letters.  File names to
+#  convert are given on the command line.
+#
+############################################################################
+#
+#  Requires:  UNIX
+#
+############################################################################
+
+procedure main()
+   local name;
+
+   while name := read() do
+      system("mv " || name || " " || map(name));
+
+end
+#----------------------------------------------------------------- 38 progs/lcn
+############################################################################
+#
+#	File:     lcn.icn
+#
+#	Subject:  Program tp convert file names to all lowercase
+#
+#	Author:   Ralph E. Griswold
+#
+#	Date:     December 1, 1996
+#
+############################################################################
+#
+#   This file is in the public domain.
+#
+############################################################################
+#
+#  This program converts files named on the command line to all lowercase
+#  names.  Blanks are converted to underscaores.
+#
+############################################################################
+#
+#  Requires:  UNIX
+#
+############################################################################
+
+procedure main(args)
+   local name, lc, uc;
+
+   uc := &ucase || " ";
+   lc := &lcase || "_";
+
+   every name := !args do
+      rename(name, map(name, uc, lc));
+
+end
