@@ -3413,7 +3413,7 @@ end
   1 move
   1 name
   1 numeric
-  2 open
+ -3 open
   1 ord
   1 pop
   1 pos
