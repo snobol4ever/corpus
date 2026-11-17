@@ -53073,31 +53073,29 @@ ran
 
 
 macro spitbol version 4.0f
-x86-64  Tue Nov 17 15:19:57 2026
+x86-64  Tue Nov 17 16:18:55 2026
 
 
 
-                                                                                                                page 1
+                                                                                                                                                                                                                                                                                                                                                                                                        page 1
 
 2               X 'b' ? LEN(1) = 'Z'
 
-test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse1.sno(2) : ERROR 212 
--- syntax error: value used where name is required
+test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse1.sno(2) : ERROR 212 -- syntax error: value used where name is required
 *- 530 test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2
 
 
 
 macro spitbol version 4.0f
-x86-64  Tue Nov 17 15:19:58 2026
+x86-64  Tue Nov 17 16:18:55 2026
 
 
 
-                                                                                                                page 1
+                                                                                                                                                                                                                                                                                                                                                                                                        page 1
 
 2               Y ? 'l' ? '' = 'L'
 
-test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2.sno(2) : ERROR 212 
--- syntax error: value used where name is required
+test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2.sno(2) : ERROR 212 -- syntax error: value used where name is required
 *- 531 test_gate_sno_an_error_inside_eval_of_a_string_fails_the_eval_and_counts_against_errlimit__1
 
 
@@ -53118,31 +53116,29 @@ abel or misplaced continuation line
 
 
 macro spitbol version 4.0f
-x86-64  Tue Nov 17 15:20:00 2026
+x86-64  Tue Nov 17 16:18:55 2026
 
 
 
-                                                                                                                page 1
+                                                                                                                                                                                                                                                                                                                                                                                                        page 1
 
 2               X = SPAN('')
 
-test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c1.sno(2) : ERROR 188 -
-- span argument is not a string or expression
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c1.sno(2) : ERROR 188 -- span argument is not a string or expression
 *- 533 test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2
 
 
 
 macro spitbol version 4.0f
-x86-64  Tue Nov 17 15:20:01 2026
+x86-64  Tue Nov 17 16:18:55 2026
 
 
 
-                                                                                                                page 1
+                                                                                                                                                                                                                                                                                                                                                                                                        page 1
 
 2               X = 'abc' ? NOTANY(LEN(1))
 
-test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2.sno(2) : ERROR 151 -
-- notany argument is not a string or expression
+test_gate_sno_any_notany_span_break_breakx_of_the_null_string_or_a_pattern_raise_spitbols_error__c2.sno(2) : ERROR 151 -- notany argument is not a string or expression
 *----------------------- 534 test_gate_snobol4_list_listing_matches_sbl__p_chain
 
 
