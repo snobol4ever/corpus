@@ -1,18 +1,18 @@
 
 
 
-take_note.sno(5) : ERROR 022 -- undefined function called
+take_note.sno(8) : ERROR 022 -- undefined function called
 
 
 
 
 
 in file              take_note.sno
-in line              5
-in statement         5
-stmts executed       5
+in line              8
+in statement         8
+stmts executed       7
 execution time msec  0
 REGENERATIONS        0
-memory used (bytes)  12168
-memory left (bytes)  1036400
+memory used (bytes)  12352
+memory left (bytes)  1036216
 
