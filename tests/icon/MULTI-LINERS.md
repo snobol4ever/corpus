@@ -2571,6 +2571,26 @@ end
 1099511627776 1125899906842624
 ```
 
+## ladder__rung47_time_strings
+
+```Icon
+procedure main()
+   write(gtime(0));
+   write(gtime(86400 * 366));
+   write(gtime("3600"));
+   write(*ctime(1793718872));
+   write(type(ctime(0)));
+end
+```
+
+```stdout
+Thu Jan  1 00:00:00 1970
+Sat Jan  2 00:00:00 1971
+Thu Jan  1 01:00:00 1970
+24
+string
+```
+
 ## procedure_write_198
 
 ```Icon

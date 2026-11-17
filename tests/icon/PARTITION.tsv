@@ -202,6 +202,7 @@ procedure_write_58	chunk:01	feat:return	return
 procedure_write_read_1	chunk:09	feat:read	read
 procedure_write_read_3	chunk:09	feat:read	read
 unicon__uni_lex_suffix	chunk:06	feat:image	image
+ladder__rung47_time_strings	chunk:04	feat:type	type
 procedure_write_198	chunk:01	feat:return	return
 procedure_write_201	chunk:01	family:ladder	
 procedure_write_61	chunk:01	feat:return	return
@@ -365,7 +366,7 @@ procedure_write_augassign_1	chunk:06	feat:aug_assign	aug_assign
 procedure_write_augassign_10	chunk:06	feat:aug_assign	aug_assign
 procedure_write_augassign_14	chunk:06	feat:aug_assign	aug_assign
 procedure_write_augassign_6	chunk:06	feat:aug_assign	aug_assign
-ladder__rung46_span_break	chunk:06	feat:scan	scan
+ladder__rung46_span_break	chunk:07	feat:scan	scan
 ladder_rung41_rt_remove_file	chunk:03	feat:local	local
 ladder_rung42_kw_random_keyword	chunk:07	feat:keyword_ref	keyword_ref
 procedure_every_to_36	chunk:02	feat:to_by	every to_by
@@ -674,7 +675,7 @@ procedure_write_236	chunk:03	feat:record	local record return
 procedure_write_254	chunk:04	feat:type	image local type
 unicon__uni_table_initial_pairs	chunk:05	feat:table	image local table
 ladder__rung10_augop_every_over_an_assignment_with_a_do_body_keeps_the_assigned_value	chunk:06	feat:aug_assign	aug_assign every local
-ladder__rung29_builtins_proc_of_an_assignment_operator_assigns	chunk:04	feat:swap	image local swap
+ladder__rung29_builtins_proc_of_an_assignment_operator_assigns	chunk:05	feat:swap	image local swap
 procedure_to_until_replace_1	chunk:08	feat:until	local to_by until
 procedure_to_until_replace_2	chunk:08	feat:until	local to_by until
 unicon__uni_bi_set_elements	chunk:10	feat:member	local member set
@@ -1117,7 +1118,7 @@ ladder__rung45_list_ops	chunk:11	feat:pop	alternation element_gen every gen_with
 unicon__uni_scan_nested_match_var	chunk:10	feat:match	alternation every gen_with_alternation image keyword_ref local match move scan scan_with_tab tab to_by upto
 ladder__rung45_set_ops	chunk:08	feat:delete	alternation aug_assign delete element_gen every gen_with_alternation insert local member set sort type writes
 unicon__uni_mixed_icon_scan	chunk:11	feat:break	alternation aug_assign break every gen_with_alternation local move return scan scan_with_tab tab upto while
-ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover	chunk:05	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref local move scan scan_with_tab suspend tab writes
+ladder__rung05_scan_a_parenthesized_conjunction_is_resumed_through_its_cursor_mover	chunk:06	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref local move scan scan_with_tab suspend tab writes
 procedure_every_scan_replace_3	chunk:10	feat:insert	element_gen every insert keyword_ref many read scan scan_with_tab set sort tab upto while
 unicon__uni_posix_sock_peek	chunk:08	feat:find	alternation every find gen_with_alternation image keyword_ref local scan scan_with_tab stop tab type writes
 ladder__rung03_suspend_a_do_clause_inside_a_scan_is_entered_at_its_start	chunk:10	feat:move	alternation every every_with_suspend gen_with_alternation image keyword_ref limitation local move scan suspend while writes
