@@ -1,2 +1,4 @@
 gui/guidemos/editor	editor.icn
 gui/guidemos/textsize	Hello, World
+progs/uwc	/dev/stdin
+progs/ush	-c	echo	one	&&	echo	two	&&	echo	three

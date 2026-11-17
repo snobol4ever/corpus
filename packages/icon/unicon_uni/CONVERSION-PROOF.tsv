@@ -121,3 +121,5 @@ progs/gcfreq.icn	same-code
 unicon/iol2htm.icn	same-code
 unicon/lump.icn	same-code
 lib/exception.icn	same-code
+progs/uwc.icn	same-code
+progs/ush.icn	same-code

@@ -456,9 +456,7 @@ progs/uigmp.icn: NEEDS-NETWORK: the source names import net
 progs/umake.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
 progs/uping.icn: NEEDS-NETWORK: the source names import net
 progs/uprof.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: uprof [-l] [-o outfile] prog args
-progs/ush.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/ussh.icn: NEEDS-NETWORK: the source names import net
-progs/uwc.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 shell/dist/Stream.icn: LIBRARY: no procedure main
 shell/dist/client.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
 shell/dist/consumer.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'Stream.u'
