@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=1216 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,95
+# shape: entries=1217 features=62 ubiquitous=3(write procedure assign) distinctive=59 core=21 clusters=113 chunks=12 sizes=100,100,100,100,100,100,100,100,100,100,100,96
 entry	part	cluster	shells
 procedure_write_107	chunk:12	family:scrip_test_icon_jcon_audit_01_intlit	
 procedure_write_108	chunk:12	family:scrip_test_icon_jcon_audit_02_reallit	
@@ -521,7 +521,7 @@ procedure_until_write_replace_3	chunk:08	feat:until	local until
 procedure_until_write_replace_4	chunk:08	feat:until	local until
 procedure_until_write_replace_6	chunk:08	feat:until	local until
 procedure_while_write_3	chunk:11	feat:while	aug_assign while
-procedure_while_write_9	chunk:11	feat:while	aug_assign while
+procedure_while_write_9	chunk:12	feat:while	aug_assign while
 procedure_write_247	chunk:05	feat:table	local table
 procedure_write_augassign_3	chunk:06	feat:aug_assign	aug_assign local
 procedure_write_augassign_9	chunk:06	feat:aug_assign	aug_assign local
@@ -1060,6 +1060,7 @@ zeta_layout__zl04_icn_error_converted	chunk:10	feat:scan_with_tab	aug_assign eve
 zeta_layout__zl20_icn_nested_critical_expansion	chunk:05	feat:fail	alternation every every_with_suspend fail gen_with_alternation keyword_ref limitation local return suspend
 procedure_write_258	chunk:08	feat:delete	aug_assign delete element_gen every image insert local member set to_by
 unicon__uni_posix_sock_groups	chunk:08	feat:stop	alternation every gen_with_alternation image keyword_ref limitation local stop type writes
+ladder__rung48_delay_yields_and_a_try_receive_blocks_nobody	chunk:11	feat:pop	aug_assign coexpr_activate every global pop put repeat return to_by while
 ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target	chunk:05	feat:swap	alternation element_gen every gen_with_alternation limitation local swap table to_by writes
 procedure_every_alt_replace_13	chunk:06	feat:case	alternation case every fail gen_with_alternation global image keyword_ref local to_by
 gc_hb_dvec_list_slice	chunk:09	feat:sort	alternation every gen_with_alternation local put repl section sort table to_by

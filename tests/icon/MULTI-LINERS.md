@@ -24571,6 +24571,38 @@ after last leave: no groups
 groups done
 ```
 
+## ladder__rung48_delay_yields_and_a_try_receive_blocks_nobody
+
+```Icon
+global wl, cnt
+procedure work();
+   repeat {
+      while *wl = 0 do {
+         if <@ then return;
+         delay(0);
+      };
+      while *wl > 0 do {
+         if x := pop(wl) then cnt +:= 1;
+      };
+   };
+end
+procedure main();
+   wl := [];
+   cnt := 0;
+   t := thread work();
+   every i := 1 to 3 do put(wl, i);
+   while cnt < 3 do { delay(0) };
+   write("cnt ", cnt);
+   @>> t;
+   write("done");
+end
+```
+
+```stdout
+cnt 3
+done
+```
+
 ## ladder__rung13_alt_an_exchange_resumes_a_generator_in_either_target
 
 ```Icon
