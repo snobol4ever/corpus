@@ -1,0 +1,11 @@
+3 4 +
+5 *
+dup
+10 x :=
+x 2 *
+"abc" "def" ||
+nil "abcdef" *
+1 0 /
+showstack
+showmem
+foo$

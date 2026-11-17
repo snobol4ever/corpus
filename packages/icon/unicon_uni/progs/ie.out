@@ -1,0 +1,15 @@
+Icon Evaluator, Version 1.1, ? for help
+][ Enter any Icon expression to evaluate it
+
+.type -- toggle display of type
+.list -- list expressions
+.every <expression> -- show all results for expresion
+.link <files>, e.g. link image,format -- link ucode files
+.inc <files>, e.g. .inc x.icn y.icn -- include procedures from files
+.use <file>, e.g. .use x -- load expressions from the file x
+.e -- edit last expression with $EDITOR
+.fix -- hack the expressions
+.help or .? or help or ? -- this message
+][ Will not display types
+][ ][ Will display types
+][ 

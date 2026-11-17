@@ -448,18 +448,13 @@ parser/unilex.icn: LIBRARY: no procedure main
 parser/ytab_h.icn: LIBRARY: no procedure main
 progs/bored.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 538 and 538 bytes
 progs/cleanup.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-progs/csv.icn: NEEDS-INPUT: its answer changes with what standard input holds
 progs/deen.icn: NEEDS-NETWORK: a graded run starts with no de-en.txt, so its first act is open(URL, "m"), an HTTP GET of a 7.8 MB dictionary from ftp.tu-chemnitz.de
 progs/env.icn: READS-THE-ENVIRONMENT: its answer holds TMPDIR of the process that runs it
 progs/exception_demo.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/gcfreq.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-progs/htmltex.icn: NEEDS-INPUT: its answer changes with what standard input holds
 progs/idxGen.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot open idxterms.xml
-progs/ie.icn: NEEDS-INPUT: its answer changes with what standard input holds
 progs/mapStrings.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: mapStrings [oldString=newString]... <infile >outfile
 progs/mtrace.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Missing --log=LOGFILE argument
-progs/rankvote.icn: NEEDS-INPUT: its answer changes with what standard input holds
-progs/rpn.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 progs/splitmail.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: SplitMail (--name=USER | --file=FILENAME)
 progs/uigmp.icn: NEEDS-NETWORK: the source names import net
 progs/umake.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code

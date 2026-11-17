@@ -1,0 +1,7 @@
+alice,bob,carol
+bob,carol,alice
+carol,bob,alice
+alice,carol,bob
+bob,alice,carol
+carol,alice,bob
+alice,bob,carol

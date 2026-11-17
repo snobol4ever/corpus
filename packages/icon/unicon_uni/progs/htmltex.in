@@ -1,0 +1,9 @@
+\documentclass{article}
+\begin{document}
+\section{Intro}
+Some \emph{text} and \textbf{bold} words.
+\begin{itemize}
+\item one
+\item two
+\end{itemize}
+\end{document}

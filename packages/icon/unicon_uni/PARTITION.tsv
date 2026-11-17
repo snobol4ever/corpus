@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=47 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=10 chunks=1 sizes=44
+# shape: entries=52 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=10 chunks=1 sizes=49
 entry	part	cluster	shells
 gprogs/kaleid	chunk:01	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
@@ -36,8 +36,13 @@ ide/ivib/icon/xpmtoims	chunk:01	dir:ide/ivib/icon
 ide/wu	core	core	want_rc
 lib/attr	chunk:01	dir:lib	
 progs/complex_ex	core	core	want_rc
+progs/csv	chunk:01	dir:progs	
 progs/genAcc	chunk:01	dir:progs	
+progs/htmltex	chunk:01	dir:progs	
+progs/ie	chunk:01	feat:want_rc	want_rc
 progs/jsvalid	chunk:01	feat:want_rc	want_rc
+progs/rankvote	chunk:01	dir:progs	
+progs/rpn	chunk:01	dir:progs	
 progs/uget	chunk:01	feat:want_rc	want_rc
 udb/lib/memory_alloc	chunk:01	dir:udb/lib	
 uflex/test/hello	chunk:01	dir:uflex/test	

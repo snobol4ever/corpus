@@ -1,0 +1,16 @@
+	'name'
+	'qty'
+	'note'
+	"name","qty","note"
+	'apple'
+	'3'
+	'red, sweet'
+	"apple","3","red, sweet"
+	'quoted "x"'
+	''
+	'end'
+	"quoted ""x""","","end"
+	'pear'
+	'7'
+	''
+	"pear","7",""

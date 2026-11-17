@@ -110,3 +110,8 @@ lib/toggleiconbutton.icn	same-code
 lib/toggletextbutton.icn	same-code
 lib/toolbar.icn	same-code
 lib/_tree.icn	same-code
+progs/csv.icn	same-code
+progs/htmltex.icn	same-code
+progs/ie.icn	same-code
+progs/rankvote.icn	same-code
+progs/rpn.icn	same-code
