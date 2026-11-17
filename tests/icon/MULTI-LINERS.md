@@ -12078,6 +12078,33 @@ at least seven
 real greater
 ```
 
+## ladder__rung45_features_agree_with_predefined_symbols
+
+```Icon
+procedure main()
+   local g := 0, x := 0, f;
+   every f := &features do {
+      if f == "graphics" then g := 1;
+      if f == "X Windows" then x := 1
+      };
+   $ifdef _GRAPHICS
+   write("graphics: ", if g = 1 then "consistent" else "MISMATCH");
+   $else
+   write("graphics: ", if g = 0 then "consistent" else "MISMATCH");
+   $endif
+   $ifdef _X_WINDOW_SYSTEM
+   write("X Windows: ", if x = 1 then "consistent" else "MISMATCH");
+   $else
+   write("X Windows: ", if x = 0 then "consistent" else "MISMATCH");
+   $endif
+end
+```
+
+```stdout
+graphics: consistent
+X Windows: consistent
+```
+
 ## procedure_write_augassign_replace_2
 
 ```Icon
