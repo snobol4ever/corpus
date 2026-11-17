@@ -15072,6 +15072,48 @@ type_error(atomic,foo(a))-(system:functor/3)
 domain_error(not_less_than_zero,-1)-(system:functor/3)
 ```
 
+## planner_sticky__a_condition_bound_variable_reads_right_in_its_then_arm_after_a_catch
+
+```Prolog
+:- initialization(main, main).
+c :- catch(L=[q], _, true), (L=[X|_] -> print(X) ; fail).
+n1 :- L=q, (L=X -> print(X) ; fail).
+v1 :- catch(L=[q], _, true), (L=[X|_] -> print(X) ; print(no)).
+v2 :- catch(L=q, _, true), (L=X -> print(X) ; fail).
+v3 :- catch(L=[q], _, true), L=[X|_], print(X).
+v4 :- catch(L=[q], _, true), (L=[X|_] -> true ; fail), print(X).
+v5 :- catch(L=f(q), _, true), (L=f(X) -> print(X) ; fail).
+w1 :- catch(true, _, true), L=q, (L=X -> print(X) ; fail).
+w2 :- L=q, catch(true, _, true), (L=X -> print(X) ; fail).
+w3 :- catch(L=q, _, true), (X=L -> print(X) ; fail).
+w4 :- catch(L=q, _, true), (true -> X=L, print(X) ; fail).
+w5 :- call(L=q), (L=X -> print(X) ; fail).
+w6 :- catch(L=q, _, true), (L=X, true -> print(X) ; fail).
+w7 :- catch(L=q, _, true), (L=X -> print(X) ; true).
+w8 :- catch(L=q, _, true), \+ \+ true, (L=X -> print(X) ; fail).
+w9 :- findall(a, true, _), L=q, (L=X -> print(X) ; fail).
+main :- forall(member(G, [c,n1,v1,v2,v3,v4,v5,w1,w2,w3,w4,w5,w6,w7,w8,w9]), (write(G), write(' '), (call(G) -> true ; write(failed)), nl)).
+```
+
+```stdout
+c q
+n1 q
+v1 q
+v2 q
+v3 q
+v4 q
+v5 q
+w1 q
+w2 q
+w3 q
+w4 q
+w5 q
+w6 q
+w7 q
+w8 q
+w9 q
+```
+
 ## lifo__lifo_catch_retaining_goal
 
 ```Prolog
