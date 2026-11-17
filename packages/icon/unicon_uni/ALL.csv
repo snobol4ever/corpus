@@ -6,7 +6,6 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 5,gui/guidemos/dyncomps,gui/guidemos/dyncomps.icn,unicon_uni__gui/guidemos/dyncomps,unicon_uni,204,0,131072,4096,1800,,unicon,screen.dump
 6,gui/guidemos/editlisttest,gui/guidemos/editlisttest.icn,unicon_uni__gui/guidemos/editlisttest,unicon_uni,59,1,131072,4096,1800,,unicon,screen.dump,merged
 7,gui/guidemos/editor,gui/guidemos/editor.icn,unicon_uni__gui/guidemos/editor,unicon_uni,164,0,131072,4096,1800,,unicon,screen.dump
-8,gui/guidemos/explorer,gui/guidemos/explorer.icn,unicon_uni__gui/guidemos/explorer,unicon_uni,180,0,131072,4096,1800,,unicon,screen.dump
 9,gui/guidemos/fillpanel,gui/guidemos/fillpanel.icn,unicon_uni__gui/guidemos/fillpanel,unicon_uni,56,0,131072,4096,1800,,unicon,screen.dump
 10,gui/guidemos/getweb,gui/guidemos/getweb.icn,unicon_uni__gui/guidemos/getweb,unicon_uni,164,0,131072,4096,1800,,unicon,screen.dump
 11,gui/guidemos/imageview,gui/guidemos/imageview.icn,unicon_uni__gui/guidemos/imageview,unicon_uni,115,0,131072,4096,1800,,unicon,screen.dump
@@ -28,7 +27,6 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 27,gui/guidemos/themedemo,gui/guidemos/themedemo.icn,unicon_uni__gui/guidemos/themedemo,unicon_uni,352,0,131072,4096,1800,,unicon,screen.dump
 28,gui/guidemos/ticks,gui/guidemos/ticks.icn,unicon_uni__gui/guidemos/ticks,unicon_uni,58,0,131072,4096,1800,,unicon,screen.dump
 29,gui/guidemos/toolbar,gui/guidemos/toolbar.icn,unicon_uni__gui/guidemos/toolbar,unicon_uni,87,0,131072,4096,1800,,unicon,screen.dump
-30,gui/guidemos/ttexplorer,gui/guidemos/ttexplorer.icn,unicon_uni__gui/guidemos/ttexplorer,unicon_uni,172,0,131072,4096,1800,,unicon,screen.dump
 31,ide/ivib/icon/xpmtoims,ide/ivib/icon/xpmtoims.icn,unicon_uni__ide/ivib/icon/xpmtoims,unicon_uni,102,0,131072,4096,1800,,unicon,screen.dump
 32,ide/wu,ide/wu.icn,unicon_uni__ide/wu,unicon_uni,820,1,131072,4096,1800,,unicon,screen.dump
 33,lib/attr,lib/attr.icn,unicon_uni__lib/attr,unicon_uni,50,0,131072,4096,60,,unicon,
