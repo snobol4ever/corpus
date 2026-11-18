@@ -1151,6 +1151,21 @@ differ
 done
 ```
 
+## ladder__rung02_proc_main_declared_twice
+
+```Icon
+procedure main()
+   write("first");
+end
+procedure main()
+   write("second");
+end
+```
+
+```stdout
+File ladder__rung02_proc_main_declared_twice.icn; Line 4 # "main": inconsistent redeclaration
+```
+
 ## ladder_rung39_numbit_exp_log_sqrt
 
 ```Icon
