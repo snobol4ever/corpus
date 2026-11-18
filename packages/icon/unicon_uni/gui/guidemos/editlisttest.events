@@ -1,0 +1,15 @@
+# editlisttest, a 283 by 339 dialog holding an EditableTextList over the six lines of its file txt (the list from 20 across, 17 down, each line 13 high), a
+# TextField (centred 100 above the foot) and a Quit button (centred 50 above the foot): a click on the third line puts the cursor in it and edited is typed there,
+# Return splits the line at the cursor; the TextField is clicked and hello typed into it; Quit disposes the dialog and the program ends by itself
+move 60 55
+click 1 60 55
+wait
+type edited
+wait
+key Return
+wait
+click 1 140 251
+wait
+type hello
+wait
+click 1 141 301

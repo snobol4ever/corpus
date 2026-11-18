@@ -12,7 +12,7 @@ class Untitled : Dialog(tl)
 
    method init_dialog()
       local f,l;
-      f := open("/tmp/txt") | stop("Couldn't open test file");
+      f := open("txt") | stop("Couldn't open test file");
       l := [];
       every put(l, !f);
       tl.set_contents(l);

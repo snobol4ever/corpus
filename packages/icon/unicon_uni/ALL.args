@@ -4,3 +4,4 @@ progs/mtrace	--log=/dev/stdin
 progs/splitmail	--file=/dev/stdin	--subject=meeting	--subject~happy	--from=carol	--withfile=/dev/stdout	--withoutfile=/dev/null	--verbose
 progs/ush	-c	echo	one	&&	echo	two	&&	echo	three
 progs/uwc	/dev/stdin
+ide/ivib/icon/xpmtoims	-d	-A	canvas=normal

@@ -1,0 +1,5 @@
+# xpmtoims -d -A canvas=normal, the XPM on its stdin (a 44 by 44 icon) converted to an Icon image string, which -d then draws in a window of that size
+# (the option -A canvas=normal is Window's own, the program's window being opened hidden, which draws nothing): the pointer goes into the window and q,
+# one of the program's QuitEvents, ends it by itself with its text already written
+move 22 22
+key q

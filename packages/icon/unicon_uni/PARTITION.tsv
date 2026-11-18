@@ -1,13 +1,13 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=363 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=20 chunks=4 sizes=100,100,100,58
+# shape: entries=363 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=20 chunks=4 sizes=100,100,100,57
 entry	part	cluster	shells
 gprogs/kaleid	chunk:04	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:03	dir:gui/guidemos	
 gui/guidemos/demo	chunk:03	dir:gui/guidemos	
 gui/guidemos/dndtest	chunk:03	dir:gui/guidemos	
 gui/guidemos/dyncomps	chunk:03	dir:gui/guidemos	
-gui/guidemos/editlisttest	core	core	want_rc
+gui/guidemos/editlisttest	core	core	fixtures
 gui/guidemos/editor	chunk:03	dir:gui/guidemos	
 gui/guidemos/fillpanel	chunk:03	dir:gui/guidemos	
 gui/guidemos/getweb	chunk:03	dir:gui/guidemos	
@@ -129,7 +129,7 @@ lib/jsonrpc_driver	chunk:01	dir:lib
 lib/label_driver	chunk:01	dir:lib	
 lib/langprocs_driver	chunk:01	dir:lib	
 lib/listener_driver	chunk:01	dir:lib	
-parser/showtree	chunk:02	feat:want_rc	want_rc
+parser/showtree	core	core	want_rc
 progs/cleanup	chunk:04	dir:progs	
 progs/complex_ex	chunk:02	feat:want_rc	want_rc
 progs/csv	chunk:04	dir:progs	
@@ -242,7 +242,7 @@ parser/parsedprocedure_driver	chunk:03	dir:parser
 parser/parsedprogram_driver	chunk:03	dir:parser	
 parser/parsedrecord_driver	chunk:03	dir:parser	
 parser/parser_driver	chunk:03	dir:parser	
-parser/preproce_driver	chunk:04	dir:parser	
+parser/preproce_driver	chunk:03	dir:parser	
 parser/unigram_driver	chunk:04	dir:parser	
 parser/unilex_driver	chunk:04	dir:parser	
 parser/ytab_h_driver	chunk:04	dir:parser	
@@ -339,7 +339,7 @@ ide/ivib/canvasbuttondialog_driver	chunk:02	dir:ide/ivib
 ide/ivib/canvasbuttongroup_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvascheckbox_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvascheckboxdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxgroup_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxgroup_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvascheckboxmenuedit_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxmenuitem_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxui_driver	chunk:03	dir:ide/ivib	

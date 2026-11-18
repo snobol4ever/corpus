@@ -4,7 +4,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 3,gui/guidemos/demo,gui/guidemos/demo.icn,unicon_uni__gui/guidemos/demo,unicon_uni,1962,0,131072,4096,1800,,unicon,screen.dump,,
 4,gui/guidemos/dndtest,gui/guidemos/dndtest.icn,unicon_uni__gui/guidemos/dndtest,unicon_uni,344,0,131072,4096,1800,,unicon,screen.dump,,
 5,gui/guidemos/dyncomps,gui/guidemos/dyncomps.icn,unicon_uni__gui/guidemos/dyncomps,unicon_uni,204,0,131072,4096,1800,,unicon,screen.dump,,
-6,gui/guidemos/editlisttest,gui/guidemos/editlisttest.icn,unicon_uni__gui/guidemos/editlisttest,unicon_uni,59,1,131072,4096,1800,,unicon,screen.dump,merged,
+6,gui/guidemos/editlisttest,gui/guidemos/editlisttest.icn,unicon_uni__gui/guidemos/editlisttest,unicon_uni,59,0,131072,4096,1800,,unicon,screen.dump,merged,staged
 7,gui/guidemos/editor,gui/guidemos/editor.icn,unicon_uni__gui/guidemos/editor,unicon_uni,164,0,131072,4096,1800,,unicon,screen.dump,,
 8,gui/guidemos/fillpanel,gui/guidemos/fillpanel.icn,unicon_uni__gui/guidemos/fillpanel,unicon_uni,56,0,131072,4096,1800,,unicon,screen.dump,,
 9,gui/guidemos/getweb,gui/guidemos/getweb.icn,unicon_uni__gui/guidemos/getweb,unicon_uni,164,0,131072,4096,1800,,unicon,screen.dump,,
