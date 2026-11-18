@@ -57,3 +57,12 @@ gprocs/vsetup.icn	same-code
 gprocs/xcompat.icn	same-code
 gprocs/xio.icn	unchanged
 gprocs/xutils.icn	same-code
+procs/argparse.icn	same-code
+procs/base64.icn	same-code
+procs/bincvt.icn	same-code
+procs/bold.icn	same-code
+procs/caseless.icn	same-code
+procs/findre.icn	same-code
+procs/fullimag.icn	same-code
+procs/iscreen.icn	same-code
+procs/itlib.icn	same-code
