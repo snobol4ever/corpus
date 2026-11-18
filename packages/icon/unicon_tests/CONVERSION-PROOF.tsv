@@ -33,3 +33,5 @@ crypto/tlsutil.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/t
 crypto/tlsverify.icn	same-code	/home/resources/packages/icon/unicon/tests/crypto/tlsverify.icn (unicon d784f58), 17 semicolons
 uni_lib/crypto.icn	same-code	/home/resources/packages/icon/unicon/uni/lib/crypto.icn (unicon d784f58), 21 semicolons
 general/cfuncs.icn	same-code	/home/resources/unicon/tests/general/cfuncs.icn (unicon d784f58), 7 semicolons, unicon -c ucode of the original and the converted text equal
+special/monitor.icn	same-code	/home/resources/packages/icon/unicon/tests/special/monitor.icn (unicon d784f58), 4 semicolons
+general/proto.icn	same-code	/home/resources/packages/icon/unicon/tests/general/proto.icn (unicon d784f58), 130 semicolons
