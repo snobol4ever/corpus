@@ -1,0 +1,16 @@
+# imageview, an ImageView (a DrawScrollArea over babbage.gif, its argument) in a 231 by 227 dialog with a vertical and a horizontal scroll bar and a
+# Quit button: the down arrow of the vertical bar (209 across, 142 down) is clicked twice and the right arrow of the horizontal one (187 across, 164 down)
+# twice, each moving the picture by the area's increment of 10; the vertical thumb is dragged down from 49 to 100; Quit (115 across, 203 down) disposes
+# the dialog and the program ends by itself
+move 209 142
+click 1 209 142
+wait
+click 1 209 142
+wait
+click 1 187 164
+wait
+click 1 187 164
+wait
+drag 1 209 49 209 100
+wait
+click 1 115 203
