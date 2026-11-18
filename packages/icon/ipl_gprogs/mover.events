@@ -1,0 +1,17 @@
+# mover: interactive renaming of the files of its working folder (its listing fixed by mover.shims/ls, five names that do not exist): the script
+# picks alpha.txt, types its new name in the Rename dialog (drawn in the window's middle), and since mv finds no such file the program says
+# Renaming failed; Return dismisses the notice, and File > quit ends it.
+click 1 60 56
+wait
+move 300 190
+type omega.txt
+key Return
+wait
+move 300 200
+key Return
+wait
+move 18 11
+press 1
+wait
+move 30 48
+release 1
