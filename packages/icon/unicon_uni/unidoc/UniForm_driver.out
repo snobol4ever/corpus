@@ -1,0 +1,17 @@
+class Sequence procedure UniDoc__Sequence 2
+class Set procedure UniDoc__Set 2
+class UEntity procedure UniDoc__UEntity 4
+class UName procedure UniDoc__UName 7
+class UGlobal procedure UniDoc__UGlobal 6
+class UMethod procedure UniDoc__UMethod 5
+class UProc procedure UniDoc__UProc 5
+class URecord procedure UniDoc__URecord 5
+class UImport procedure UniDoc__UImport 4
+class ULink procedure UniDoc__ULink 4
+class UClass procedure UniDoc__UClass 10
+class UConstructor procedure UniDoc__UConstructor 5
+class UPackage procedure UniDoc__UPackage 10
+class UFile procedure UniDoc__UFile 11
+class Comments procedure UniDoc__Comments 2
+class CommentBlock procedure UniDoc__CommentBlock 3
+procedure getFormType procedure UniDoc__getFormType 1

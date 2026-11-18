@@ -1,0 +1,5 @@
+procedure err procedure err 1
+procedure resolve_include procedure resolve_include 1
+procedure get_include_dependencies procedure get_include_dependencies 1
+procedure find_arg procedure find_arg 1
+procedure convert_filename procedure convert_filename 1

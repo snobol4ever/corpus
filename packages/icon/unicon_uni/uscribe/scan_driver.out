@@ -1,0 +1,7 @@
+procedure scanBalancedDirectives procedure uscribe__scanBalancedDirectives 5
+procedure sbalClause procedure uscribe__sbalClause 1
+procedure stripBalancedDelims procedure uscribe__stripBalancedDelims 3
+procedure parseRolePayload procedure uscribe__parseRolePayload 1
+procedure findAnySkipToken procedure uscribe__findAnySkipToken 2
+procedure anySkipActive procedure uscribe__anySkipActive 1
+procedure decrFloor procedure uscribe__decrFloor 1

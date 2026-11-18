@@ -1,0 +1,4 @@
+class BookConfig procedure uscribe__BookConfig 2
+procedure aliasConfigKey procedure uscribe__aliasConfigKey 1
+procedure knownConfigKey procedure uscribe__knownConfigKey 1
+procedure configDirname procedure uscribe__configDirname 1

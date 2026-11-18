@@ -1,0 +1,11 @@
+class Token procedure UniDoc__Token 1
+class Comment procedure UniDoc__Comment 1
+class BlankLine procedure UniDoc__BlankLine 1
+class Keyword procedure UniDoc__Keyword 1
+class Name procedure UniDoc__Name 1
+class LParen procedure UniDoc__LParen 1
+class RParen procedure UniDoc__RParen 1
+class Colon procedure UniDoc__Colon 1
+class Comma procedure UniDoc__Comma 1
+class String procedure UniDoc__String 1
+class Noise procedure UniDoc__Noise 1

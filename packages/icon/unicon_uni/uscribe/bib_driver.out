@@ -1,0 +1,10 @@
+class CitationTable procedure uscribe__CitationTable 4
+procedure citationTableFor procedure uscribe__citationTableFor 1
+procedure parseBibFile procedure uscribe__parseBibFile 1
+procedure parseBibEntries procedure uscribe__parseBibEntries 1
+procedure parseBibFields procedure uscribe__parseBibFields 2
+procedure readBibValue procedure uscribe__readBibValue 0
+procedure stripBibBraces procedure uscribe__stripBibBraces 1
+procedure skipBibGroup procedure uscribe__skipBibGroup 0
+procedure skipBibRest procedure uscribe__skipBibRest 1
+procedure formatBibEntry procedure uscribe__formatBibEntry 2

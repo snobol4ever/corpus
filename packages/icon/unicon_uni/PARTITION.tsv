@@ -1,36 +1,36 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=62 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=11 chunks=1 sizes=57
+# shape: entries=114 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=14 chunks=2 sizes=100,9
 entry	part	cluster	shells
-gprogs/kaleid	chunk:32	dir:gprogs	
-gui/guidemos/componentscrollareatest	chunk:02	dir:gui/guidemos	
-gui/guidemos/demo	chunk:03	dir:gui/guidemos	
-gui/guidemos/dndtest	chunk:04	dir:gui/guidemos	
-gui/guidemos/dyncomps	chunk:05	dir:gui/guidemos	
+gprogs/kaleid	chunk:02	dir:gprogs	
+gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
+gui/guidemos/demo	chunk:01	dir:gui/guidemos	
+gui/guidemos/dndtest	chunk:01	dir:gui/guidemos	
+gui/guidemos/dyncomps	chunk:01	dir:gui/guidemos	
 gui/guidemos/editlisttest	core	core	want_rc
-gui/guidemos/editor	chunk:06	dir:gui/guidemos	
-gui/guidemos/fillpanel	chunk:07	dir:gui/guidemos	
-gui/guidemos/getweb	chunk:08	dir:gui/guidemos	
-gui/guidemos/imageview	chunk:09	dir:gui/guidemos	
-gui/guidemos/leak	chunk:10	dir:gui/guidemos	
-gui/guidemos/lines	chunk:11	dir:gui/guidemos	
-gui/guidemos/listtest	chunk:12	dir:gui/guidemos	
-gui/guidemos/menudemo	chunk:13	dir:gui/guidemos	
-gui/guidemos/palette	chunk:14	dir:gui/guidemos	
-gui/guidemos/pointers	chunk:15	dir:gui/guidemos	
-gui/guidemos/secondtest	chunk:16	dir:gui/guidemos	
-gui/guidemos/sieve	chunk:17	dir:gui/guidemos	
-gui/guidemos/sliders	chunk:18	dir:gui/guidemos	
-gui/guidemos/spinners	chunk:19	dir:gui/guidemos	
-gui/guidemos/tabletest	chunk:20	dir:gui/guidemos	
-gui/guidemos/tabs	chunk:21	dir:gui/guidemos	
-gui/guidemos/testdialog	chunk:22	dir:gui/guidemos	
-gui/guidemos/textsize	chunk:23	dir:gui/guidemos	
-gui/guidemos/texttest	chunk:24	dir:gui/guidemos	
-gui/guidemos/themedemo	chunk:25	dir:gui/guidemos	
-gui/guidemos/ticks	chunk:26	dir:gui/guidemos	
-gui/guidemos/toolbar	chunk:27	dir:gui/guidemos	
-ide/ivib/icon/xpmtoims	chunk:33	dir:ide/ivib/icon	
+gui/guidemos/editor	chunk:01	dir:gui/guidemos	
+gui/guidemos/fillpanel	chunk:01	dir:gui/guidemos	
+gui/guidemos/getweb	chunk:01	dir:gui/guidemos	
+gui/guidemos/imageview	chunk:01	dir:gui/guidemos	
+gui/guidemos/leak	chunk:01	dir:gui/guidemos	
+gui/guidemos/lines	chunk:01	dir:gui/guidemos	
+gui/guidemos/listtest	chunk:01	dir:gui/guidemos	
+gui/guidemos/menudemo	chunk:01	dir:gui/guidemos	
+gui/guidemos/palette	chunk:01	dir:gui/guidemos	
+gui/guidemos/pointers	chunk:01	dir:gui/guidemos	
+gui/guidemos/secondtest	chunk:01	dir:gui/guidemos	
+gui/guidemos/sieve	chunk:01	dir:gui/guidemos	
+gui/guidemos/sliders	chunk:01	dir:gui/guidemos	
+gui/guidemos/spinners	chunk:01	dir:gui/guidemos	
+gui/guidemos/tabletest	chunk:01	dir:gui/guidemos	
+gui/guidemos/tabs	chunk:01	dir:gui/guidemos	
+gui/guidemos/testdialog	chunk:01	dir:gui/guidemos	
+gui/guidemos/textsize	chunk:01	dir:gui/guidemos	
+gui/guidemos/texttest	chunk:01	dir:gui/guidemos	
+gui/guidemos/themedemo	chunk:01	dir:gui/guidemos	
+gui/guidemos/ticks	chunk:01	dir:gui/guidemos	
+gui/guidemos/toolbar	chunk:01	dir:gui/guidemos	
+ide/ivib/icon/xpmtoims	chunk:02	dir:ide/ivib/icon	
 ide/wu	core	core	want_rc
 lib/_button_driver	chunk:01	dir:lib	
 lib/address_driver	chunk:01	dir:lib	
@@ -66,33 +66,53 @@ lib/decode_driver	chunk:01	dir:lib
 lib/dispatcher_driver	chunk:01	dir:lib	
 lib/doptions_driver	chunk:01	dir:lib	
 parser/showtree	core	core	want_rc
-progs/cleanup	chunk:27	dir:progs	
-progs/complex_ex	chunk:27	feat:want_rc	want_rc
-progs/csv	chunk:27	dir:progs	
-progs/exception_demo	chunk:27	dir:progs	
-progs/gcfreq	chunk:27	dir:progs	
-progs/genAcc	chunk:27	dir:progs	
-progs/htmltex	chunk:27	dir:progs	
-progs/ie	chunk:28	feat:want_rc	want_rc
-progs/jsvalid	chunk:28	feat:want_rc	want_rc
-progs/mtrace	chunk:27	dir:progs	
-progs/rankvote	chunk:27	dir:progs	
-progs/rpn	chunk:27	dir:progs	
-progs/splitmail	chunk:27	dir:progs	
-progs/uget	chunk:28	feat:want_rc	want_rc
-progs/ush	chunk:27	dir:progs	
-progs/uwc	chunk:27	dir:progs	
-udb/lib/memory_alloc	chunk:33	dir:udb/lib	
-uflex/test/hello	chunk:33	dir:uflex/test	
-ulsp/launch-lsp	chunk:28	feat:want_rc	want_rc
-unicon/i	chunk:29	feat:want_rc	want_rc
-unicon/iol2htm	chunk:31	dir:unicon	
-unicon/lump	chunk:31	dir:unicon	
-unidoc/UniDoc	chunk:29	feat:want_rc	want_rc
-util/ivibmigrate	chunk:33	dir:util	
-xml/createdemo	chunk:30	dir:xml	
-xml/globaldemo	chunk:30	dir:xml	
-xml/testpatterns	chunk:31	dir:xml	
-xml/testxml	chunk:31	dir:xml	
+progs/cleanup	chunk:01	dir:progs	
+progs/complex_ex	chunk:01	feat:want_rc	want_rc
+progs/csv	chunk:01	dir:progs	
+progs/exception_demo	chunk:01	dir:progs	
+progs/gcfreq	chunk:01	dir:progs	
+progs/genAcc	chunk:01	dir:progs	
+progs/htmltex	chunk:01	dir:progs	
+progs/ie	chunk:01	feat:want_rc	want_rc
+progs/jsvalid	chunk:01	feat:want_rc	want_rc
+progs/mtrace	chunk:01	dir:progs	
+progs/rankvote	chunk:01	dir:progs	
+progs/rpn	chunk:01	dir:progs	
+progs/splitmail	chunk:01	dir:progs	
+progs/uget	chunk:01	feat:want_rc	want_rc
+progs/ush	chunk:01	dir:progs	
+progs/uwc	chunk:01	dir:progs	
+udb/lib/memory_alloc	chunk:02	dir:udb/lib	
+uflex/test/hello	chunk:02	dir:uflex/test	
+ulsp/launch-lsp	chunk:01	feat:want_rc	want_rc
+unicon/i	chunk:01	feat:want_rc	want_rc
+unicon/iol2htm	chunk:02	dir:unicon	
+unicon/lump	chunk:02	dir:unicon	
+unidoc/UniDoc	chunk:01	feat:want_rc	want_rc
+util/ivibmigrate	chunk:02	dir:util	
+xml/createdemo	chunk:01	dir:xml	
+xml/globaldemo	chunk:01	dir:xml	
+xml/testpatterns	chunk:02	dir:xml	
+xml/testxml	chunk:02	dir:xml	
 gui/guidemos/explorer	core	core	fixtures
 gui/guidemos/ttexplorer	core	core	fixtures
+unidep/filearg_driver	chunk:01	dir:unidep	
+unidep/fileargclass_driver	chunk:01	dir:unidep	
+unidep/symbolinfo_driver	chunk:01	dir:unidep	
+unidep/symboltable_driver	chunk:01	dir:unidep	
+unidep/util_driver	chunk:01	dir:unidep	
+unidoc/UniAll_driver	chunk:01	dir:unidoc	
+unidoc/UniFile_driver	chunk:01	dir:unidoc	
+unidoc/UniForm_driver	chunk:01	dir:unidoc	
+unidoc/UniHTML_driver	chunk:01	dir:unidoc	
+unidoc/UniToken_driver	chunk:01	dir:unidoc	
+uscribe/bib_driver	chunk:01	dir:uscribe	
+uscribe/config_driver	chunk:01	dir:uscribe	
+uscribe/directive_driver	chunk:01	dir:uscribe	
+uscribe/inline_driver	chunk:01	dir:uscribe	
+uscribe/labeltable_driver	chunk:01	dir:uscribe	
+uscribe/manifest_driver	chunk:01	dir:uscribe	
+uscribe/node_driver	chunk:01	dir:uscribe	
+uscribe/outputter_driver	chunk:01	dir:uscribe	
+uscribe/parser_driver	chunk:01	dir:uscribe	
+uscribe/scan_driver	chunk:01	dir:uscribe	

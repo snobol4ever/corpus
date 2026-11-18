@@ -1,0 +1,3 @@
+procedure parseInline procedure uscribe__parseInline 1
+procedure flushText procedure uscribe__flushText 2
+procedure mkPendingXrefFromPayload procedure uscribe__mkPendingXrefFromPayload 2

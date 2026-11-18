@@ -1,0 +1,7 @@
+class LabelTable procedure uscribe__LabelTable 3
+procedure isSectionNode procedure uscribe__isSectionNode 1
+procedure isPendingXref procedure uscribe__isPendingXref 1
+procedure normalizeDocKey procedure uscribe__normalizeDocKey 1
+procedure chapterOutputName procedure uscribe__chapterOutputName 1
+procedure safeHtmlFileStem procedure uscribe__safeHtmlFileStem 1
+procedure tryGetChildren procedure uscribe__tryGetChildren 1

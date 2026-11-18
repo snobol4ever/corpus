@@ -1,0 +1,13 @@
+class Outputter procedure uscribe__Outputter 0
+class HtmlOutputter procedure uscribe__HtmlOutputter 19
+procedure sectionAnchor procedure uscribe__sectionAnchor 1
+procedure chapterSectionNavEntries procedure uscribe__chapterSectionNavEntries 1
+procedure tocLevelClass procedure uscribe__tocLevelClass 1
+procedure escapeHtml procedure uscribe__escapeHtml 1
+procedure docHasChapterByline procedure uscribe__docHasChapterByline 1
+procedure formatDocAuthors procedure uscribe__formatDocAuthors 1
+procedure numberedCaption procedure uscribe__numberedCaption 1
+procedure safeCssIdent procedure uscribe__safeCssIdent 1
+procedure safeOutputName procedure uscribe__safeOutputName 1
+procedure safeThemeName procedure uscribe__safeThemeName 1
+procedure capitalize procedure uscribe__capitalize 1
