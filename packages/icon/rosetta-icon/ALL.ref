@@ -55572,3 +55572,166 @@ Performance: time=5010 ms collections=799
 #----------------------------------------------------- 357 linux-cpu-utilization
 Overall utilization:  78.76003111%
 Interval utilization: 96.875%
+#---------------------------------------------- 358 anonymous-recursion-2_driver
+procedure fib procedure fib 1
+#----------------------------------------------- 359 arithmetic-complex-2_driver
+procedure SetupComplex procedure SetupComplex 0
+procedure COMPLEX procedure COMPLEX 2
+procedure cpxneg procedure cpxneg 1
+procedure cpxinv procedure cpxinv 1
+#---------------------------------------------- 360 arithmetic-rational-2_driver
+procedure verifyrat procedure verifyrat 3
+procedure makerat procedure makerat 1
+procedure absrat procedure absrat 1
+procedure xoprat procedure xoprat 3
+procedure eqrat procedure eqrat 2
+procedure nerat procedure nerat 2
+procedure ltrat procedure ltrat 2
+procedure lerat procedure lerat 2
+procedure gerat procedure gerat 2
+procedure gtrat procedure gtrat 2
+#--------------------------------------- 361 averages-pythagorean-means-2_driver
+procedure amean procedure amean -1
+procedure gmean procedure gmean -1
+procedure hmean procedure hmean -1
+#---------------------------------------- 362 averages-root-mean-square-2_driver
+procedure qmean procedure qmean -1
+#---------------------------------------------------- 363 binary-search-1_driver
+procedure binsearch procedure binsearch 2
+#--------------------------------------------------- 364 binary-strings-2_driver
+procedure replace procedure replace 3
+#------------------------------------------------------------- 365 bitmap_driver
+procedure makebitmap procedure makebitmap 2
+procedure fillimage procedure fillimage 2
+procedure setpixel procedure setpixel 4
+procedure getpixel procedure getpixel 3
+#---------------------------------------------- 366 colour-bars-display-2_driver
+procedure SMPTE_TestCard procedure SMPTE_TestCard 0
+#----------------------------------------------------- 367 combinations-2_driver
+procedure lcomb procedure lcomb 2
+#------------------------------------ 368 combinations-with-repetitions-1_driver
+procedure combinations_repetitions procedure combinations_repetitions 2
+#---------------------------------------- 369 compare-a-list-of-strings-2_driver
+procedure allequal procedure allequal 1
+procedure ascending procedure ascending 1
+#------------------------------------------------- 370 compound-data-type_driver
+record Point record constructor Point 2
+#-------------------------------------------------- 371 count-the-coins-2_driver
+procedure CountCoins procedure CountCoins 2
+#-------------------------------------------------- 372 day-of-the-week-2_driver
+procedure dayoweek procedure dayoweek 3
+#--------------------------------------------------------- 373 deepcopy-1_driver
+procedure deepcopy procedure deepcopy 2
+#----------------------------------------- 374 ethiopian-multiplication-2_driver
+procedure ethiopian procedure ethiopian 2
+#----------------------------------- 375 evaluate-binomial-coefficients-2_driver
+procedure binocoef procedure binocoef 2
+procedure factorial procedure factorial 1
+#-------------------------------------------------------- 376 even-or-odd_driver
+procedure isEven procedure isEven 1
+#-------------------------------------------------------- 377 factorial-1_driver
+procedure factorial procedure factorial 1
+#-------------------------------------------------------- 378 factorial-2_driver
+procedure factorial procedure factorial 1
+#-------------------------------- 379 fibonacci-n-step-number-sequences-2_driver
+procedure fnsGen procedure fnsGen -1
+#--------------------------------------------------- 380 flatten-a-list-1_driver
+procedure sflatten procedure sflatten 1
+#--------------------------------------------------- 381 flatten-a-list-2_driver
+procedure flatten procedure flatten 1
+#------------------------------------------------ 382 function-definition_driver
+procedure multiply procedure multiply 2
+#-------------------------------------------- 383 generator-exponential-2_driver
+procedure noncubesquares procedure noncubesquares 0
+#------------------------------------------ 384 greatest-common-divisor-2_driver
+procedure gcd procedure gcd 2
+#----------------------------------------------- 385 hailstone-sequence-1_driver
+procedure hailstone procedure hailstone 1
+#----------------------------------------------- 386 hailstone-sequence-3_driver
+procedure hailstone procedure hailstone 1
+#--------------------------------------------------- 387 inverted-index-2_driver
+record InvertedIndexRec record constructor InvertedIndexRec 2
+procedure FullInvertedIndex procedure FullInvertedIndex 3
+#--------------------------- 388 keyboard-input-flush-the-keyboard-buffer_driver
+procedure flushKB procedure flushKB 0
+#----------------------------------------------------- 389 knights-tour-2_driver
+procedure DumpBoard procedure DumpBoard 1
+procedure ImageMovesTo procedure ImageMovesTo 1
+#---------------------------------------------------- 390 knuth-shuffle-2_driver
+procedure shuffle procedure shuffle 1
+#-------------------------------------------- 391 least-common-multiple-2_driver
+procedure lcm procedure lcm 2
+#-------------------------------------------------- 392 man-or-boy-test-2_driver
+record defercall record constructor defercall 2
+procedure eval procedure eval 1
+procedure B procedure B 6
+#-------------------------------------------------------- 393 map-range-2_driver
+procedure remap procedure remap 3
+#-------------------------------------------- 394 matrix-multiplication-2_driver
+procedure multiply_matrix procedure multiply_matrix 2
+#----------------------------------------------------- 395 maze-solving-2_driver
+procedure Solver procedure Solver 2
+procedure DisplayMazeSolution procedure DisplayMazeSolution 1
+#----------------------------------------------------- 396 number-names-2_driver
+procedure spell procedure spell 1
+#--------------------------------------------- 397 palindrome-detection-2_driver
+procedure palindrome procedure palindrome 1
+#--------------------------------------------- 398 palindrome-detection-3_driver
+procedure palindrome procedure palindrome 1
+#-------------------------------------------------- 399 pangram-checker-1_driver
+procedure panagram procedure panagram 1
+#-------------------------------------------------------- 400 power-set-1_driver
+procedure power_set procedure power_set 1
+#---------------------------------------- 401 primality-by-trial-division_driver
+procedure isprime procedure isprime 1
+#-------------------------------------------------- 402 repeat-a-string-2_driver
+procedure repl procedure repl 2
+#--------------------------------------------- 403 return-multiple-values_driver
+procedure retList procedure retList 0
+procedure retSet procedure retSet 0
+procedure retLazy procedure retLazy 0
+procedure retTable procedure retTable 0
+record retdata record constructor retdata 3
+procedure retRecord procedure retRecord 0
+#-------------------------------------------- 404 roman-numerals-decode-2_driver
+procedure unroman procedure unroman 1
+#-------------------------------------------- 405 roman-numerals-encode-2_driver
+procedure roman procedure roman 1
+#---------------------------------------------------- 406 scope-modifiers_driver
+procedure one procedure one 0
+#---------------------------------------------------- 407 search-a-list-2_driver
+procedure lindex procedure lindex 2
+#------------------------------------------ 408 self-describing-numbers-2_driver
+procedure is_self_describing procedure is_self_describing 1
+procedure self_describing_numbers procedure self_describing_numbers 0
+#------------------------------ 409 singly-linked-list-element-definition_driver
+record Node record constructor Node 2
+#------------------------------- 410 singly-linked-list-element-insertion_driver
+record Node record constructor Node 2
+procedure insert_node procedure insert_node 2
+#----------------------------------- 411 sorting-algorithms-bubble-sort-2_driver
+procedure sortop procedure sortop 2
+procedure cmp procedure cmp 2
+procedure demosort procedure demosort 3
+procedure displaysort procedure displaysort 3
+procedure writex procedure writex -2
+#-------------------------------------------- 412 stair-climbing-puzzle-1_driver
+procedure step_up procedure step_up 0
+#-------------------------------------------- 413 stair-climbing-puzzle-2_driver
+procedure step_up procedure step_up 0
+#------------------------------------------------ 414 state-name-puzzle-2_driver
+procedure getStates procedure getStates 0
+procedure getStates2 procedure getStates2 0
+#------------------------------------------------ 415 state-name-puzzle-3_driver
+procedure GNsolve procedure GNsolve 1
+procedure getClassSignature procedure getClassSignature 2
+procedure gn procedure gn 1
+#-------- 416 strip-control-codes-and-extended-characters-from-a-string-2_driver
+procedure deletec procedure deletec 2
+#-------------------------------------------------- 417 time-a-function-1_driver
+procedure timef procedure timef 1
+#------------------------------------------ 418 van-der-corput-sequence-2_driver
+procedure vdc procedure vdc 2
+#-------------------------------------------------- 419 vigen-re-cipher-2_driver
+procedure NormalizeText procedure NormalizeText 2
+procedure GFormat procedure GFormat 1
