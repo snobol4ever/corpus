@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=364 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=20 chunks=4 sizes=100,100,100,59
+# shape: entries=363 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=20 chunks=4 sizes=100,100,100,58
 entry	part	cluster	shells
 gprogs/kaleid	chunk:04	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:03	dir:gui/guidemos	
@@ -241,7 +241,7 @@ parser/parsedobject_driver	chunk:03	dir:parser
 parser/parsedprocedure_driver	chunk:03	dir:parser	
 parser/parsedprogram_driver	chunk:03	dir:parser	
 parser/parsedrecord_driver	chunk:03	dir:parser	
-parser/parser_driver	chunk:04	dir:parser	
+parser/parser_driver	chunk:03	dir:parser	
 parser/preproce_driver	chunk:04	dir:parser	
 parser/unigram_driver	chunk:04	dir:parser	
 parser/unilex_driver	chunk:04	dir:parser	
@@ -327,7 +327,6 @@ shell/dist/s_file_consumer_test	chunk:02	feat:want_rc	want_rc
 shell/dist/service	chunk:02	feat:want_rc	want_rc
 shell/dist/shell	chunk:04	dir:shell/dist	
 shell/dist/t_cat	chunk:02	feat:want_rc	want_rc
-shell/dist/ush	chunk:02	feat:want_rc	want_rc
 ide/ivib/attribtab_driver	chunk:02	dir:ide/ivib	
 ide/ivib/basiccanvascomponentui_driver	chunk:02	dir:ide/ivib	
 ide/ivib/buttongroupset_driver	chunk:02	dir:ide/ivib	
@@ -339,7 +338,7 @@ ide/ivib/canvasbutton_driver	chunk:02	dir:ide/ivib
 ide/ivib/canvasbuttondialog_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvasbuttongroup_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvascheckbox_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxdialog_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvascheckboxgroup_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxmenuedit_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxmenuitem_driver	chunk:03	dir:ide/ivib	

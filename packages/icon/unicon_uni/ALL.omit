@@ -454,6 +454,7 @@ progs/uping.icn: NEEDS-NETWORK: the source names import net
 progs/uprof.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: uprof [-l] [-o outfile] prog args
 progs/ussh.icn: NEEDS-NETWORK: the source names import net
 shell/dist/Stream.icn: LIBRARY: no procedure main
+shell/dist/ush.icn: EXCLUDED.tsv NOT_A_UNIT_TEST: CTO-513 (measured by the cto 2026-11-18, verified on upstream by developer_12: the whole ref, shell/dist/ush.out, is the one line "ush: load shell failed", which is ush.icn lines 66 and 67, load("shell", ...) failing and stop; upstream uni/shell/dist/Makefile lines 39 to 54 build shell into bin before ush and grade ush by its script test_queue.ush against ush.comparison; the cut ran ush with no shell icode beside it, so the ref is the oracle's staging, not the program's work, and SCRIP could equal it only by faking load; waits on the event monitors, step M2, when its seat cuts ush again on unicon 13.3 with shell built beside it and test_queue.ush as its input)
 udb/adapter.icn: LIBRARY: no procedure main
 udb/agent.icn: LIBRARY: no procedure main
 udb/breakpoint.icn: LIBRARY: no procedure main
