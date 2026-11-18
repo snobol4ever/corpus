@@ -85,7 +85,6 @@ create-a-file-on-magnetic-tape: oracle produced EMPTY output -- refusing to mint
 create-an-html-table-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 csv-data-manipulation: oracle produced EMPTY output -- refusing to mint a vacuous ref
 csv-to-html-translation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-curzon-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
 damm-algorithm: oracle produced EMPTY output -- refusing to mint a vacuous ref
 day-of-the-week-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 decision-tables: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
@@ -121,7 +120,6 @@ factorial-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 factors-of-an-integer-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fibonacci-n-step-number-sequences-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 fibonacci-sequence-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
-fibonacci-word: oracle timed out -- non-terminating or too slow for the grading timeout
 file-input-output: oracle produced EMPTY output -- refusing to mint a vacuous ref
 file-modification-time: oracle produced EMPTY output -- refusing to mint a vacuous ref
 file-size: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -265,7 +263,6 @@ ordered-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
 palindrome-detection-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 palindrome-detection-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 palindrome-detection-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-palindromic-gapful-numbers: oracle timed out -- non-terminating or too slow for the grading timeout
 pangram-checker-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
 pangram-checker-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
 parse-command-line-arguments: oracle produced EMPTY output -- refusing to mint a vacuous ref
@@ -361,8 +358,6 @@ strip-block-comments-2: oracle produced EMPTY output -- refusing to mint a vacuo
 strip-control-codes-and-extended-characters-from-a-string-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 substring-top-and-tail-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
 sum-of-a-series-3: oracle produced EMPTY output -- refusing to mint a vacuous ref
-summarize-and-say-sequence-1: oracle timed out -- non-terminating or too slow for the grading timeout
-summarize-and-say-sequence-2: oracle timed out -- non-terminating or too slow for the grading timeout
 synchronous-concurrency: oracle produced EMPTY output -- refusing to mint a vacuous ref
 system-time: oracle produced EMPTY output -- refusing to mint a vacuous ref
 take-notes-on-the-command-line: oracle produced EMPTY output -- refusing to mint a vacuous ref

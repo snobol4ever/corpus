@@ -10779,3 +10779,156 @@ procedure main()
    write("procedure NormalizeText ", image(NormalizeText), " ", image(args(NormalizeText)) | "no-args");
    write("procedure GFormat ", image(GFormat), " ", image(args(GFormat)) | "no-args");
 end
+#------------------------------------------------------------ 420 curzon-numbers
+procedure main(A)
+    limit := \A[1] | 50;
+    every b := 2 to 10 by 2 do {
+       writes("Base integer ",b,":");
+       every (cnt := 0, n := curzon(b)\1000, cnt +:= 1) do
+          if cnt <= 50 then writes(" ",n);
+       write("\n\t1000th Curzon number is ",n);
+       write("\n")
+       };
+end
+
+procedure curzon(b)
+   every n := seq() do {
+     x := b^n+1;
+     y := b*n+1;
+     suspend ((x/y)*y = x, n)
+     };
+end
+#------------------------------------------------------------ 421 fibonacci-word
+procedure main(A)
+    n := integer(A[1]) | 37;
+    write(right("N",4)," ",right("length",15)," ",left("Entrophy",15)," ",
+          " Fibword");
+    every w := fword(i := 1 to n) do {
+        writes(right(i,4)," ",right(*w,15)," ",left(H(w),15));
+        if i <= 8 then write(": ",w) else write()
+        };
+end
+
+procedure fword(n)
+    static fcache;
+    initial fcache := table();
+    /fcache[n] := case n of {
+                     1: "1";
+                     2: "0";
+                     default: fword(n-1)||fword(n-2)
+                     };
+    return fcache[n];
+end
+
+procedure H(s)
+    P := table(0.0);
+    every P[!s] +:= 1.0/*s;
+    every (h := 0.0) -:= P[c := key(P)] * log(P[c],2);
+    return h;
+end
+#------------------------------------------------ 422 palindromic-gapful-numbers
+procedure main(A)
+   l1 := \A[1] | 20;
+   l2 := \A[2] | 15;
+   l3 := \A[3] | 100;
+
+   a := list(9);
+   every i := 1 to 9 do {
+        write("\nPalindromic gapful numbers ending in ",i,":");
+        cnt := 0;
+        every (((p := palen(gapful(seq(100))))[1] == i)\l3, cnt +:= 1) do {
+           if cnt <= l1 then {
+               writes(right(p,9));
+               if cnt%10 = 0 then write()
+               };
+           /a[i] := [];
+           put(a[i],p);
+           if *a[i] > l2 then pop(a[i])
+           }
+        };
+
+   every i := 1 to 9 do {
+        write("\nLast ",l2," palindromic gapful numbers ending in ",i,":");
+        every writes(" ",!a[i]|"\n")
+        };
+
+end
+
+procedure palen(n)
+   return reverse(s := string(n)) == s;
+end
+
+procedure gapful(n)
+   s := string(n);
+   m := s[1]*10+s[-1];
+   return (n%m = 0, n);
+end
+#---------------------------------------------- 423 summarize-and-say-sequence-1
+link printf
+
+procedure main()
+every L := !longestselfrefseq(1000000) do
+   every printf(" %i : %i\n",i := 1 to *L,L[i]);
+end
+
+
+procedure longestselfrefseq(N)    #: find longest sequences from 1 to N
+
+mlen := 0;
+every L := selfrefseq(n := 1 to N) do {
+   if mlen <:= *L then
+      ML := [L]
+   else if mlen = *L then
+      put(ML,L)
+   };
+
+return ML;
+end
+
+procedure selfrefseq(n) #: return list of sequence oeis:A036058 for seed n
+S := set();
+L := [];
+every p := seq(1) do
+   if member(S,n) then return L   # ends at a repeat
+   else {
+      insert(S,n);
+      put(L,n);
+      n := nextselfrefseq(n)
+      };
+end
+
+procedure nextselfrefseq(n)  #: return next element of sequence oeis:A036058
+every (Counts := table(0))[integer(!n)] +:= 1;              # count digits
+every (n := "") ||:= (0 < Counts[i := 9 to 0 by -1]) || i ; # assemble counts
+return integer(n);
+end
+#---------------------------------------------- 424 summarize-and-say-sequence-2
+ link strings   # to get csort()
+
+procedure main(A)
+    limit := A[1] | 1000000;             # Allow alternate limit
+    mSq := 0;
+    # May have multiple 'unique' sequence sets (unrelated seeds) so use table
+    every s := [n := 1 to limit, sequence(n)] do {
+        if mSq <:= *s[2] then mT := table();   # new max, start over
+        if mSq  == *s[2] then insert((/mT[n := csort(n)] := set()) | mT[n],s)
+        };
+    dumpSequences(mT);
+end
+
+procedure sequence(n)                   # produce sequence of SDS with seed n
+    every (repeats := [], iter := seq(), put(repeats, n)) do
+        if (n := nElem(n)) == !repeats then return repeats;   # Converged
+end
+
+procedure nElem(n)	                # given n, produce its self-description
+    every (n1 := "", c := !cset(n)) do
+        (every (d := 0) +:= (upto(c, n),1)) | (n1 := d||c||n1);
+    return n1;
+end
+
+procedure dumpSequences(seqTab)		# Show each 'unique' sequence in table
+    every writes("Seeds:" | (!!seqTab)[1], " ");
+    write("\n\nIterations: ",*(!!seqTab)[2]);
+    every s := !seqTab do (write() & every write(!(!s\1)[2]));
+end
