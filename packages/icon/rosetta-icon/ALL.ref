@@ -55564,3 +55564,11 @@ The 10 most common words are:
                                \/ / /
                                  / /
                                  \/
+#------------------------------------------------------ 356 knapsack-problem-0-1
+Knapsack-0-1: with maximum weight allowed=400.
+Packing list has total weight=803 and includes 22 items [ map compass water sandwich glucose tin banana apple cheese beer suntan cream camera T-shirt trousers umbrella waterproof trousers waterproof overclothes note-case sunglasses towel socks book ]
+The bag weighs=396 holding 12 items [ map compass water sandwich glucose banana suntan cream waterproof trousers waterproof overclothes note-case sunglasses socks ]
+Performance: time=5010 ms collections=799
+#----------------------------------------------------- 357 linux-cpu-utilization
+Overall utilization:  78.76003111%
+Interval utilization: 96.875%
