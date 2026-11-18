@@ -1,0 +1,4 @@
+class Shm procedure ipc__Shm 1
+procedure open_public_shm procedure ipc__open_public_shm 1
+procedure create_public_shm procedure ipc__create_public_shm 2
+procedure create_private_shm procedure ipc__create_private_shm 1

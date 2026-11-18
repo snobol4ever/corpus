@@ -1,0 +1,4 @@
+procedure ssh_tty_raw procedure net__ssh_tty_raw 0
+procedure ssh_tty_sane procedure net__ssh_tty_sane 0
+procedure ssh_raw_writes procedure net__ssh_raw_writes 1
+procedure ssh_interactive procedure net__ssh_interactive 1

@@ -367,35 +367,35 @@ lib/label.icn: LIBRARY: no procedure main; graded through its driver lib/label_d
 lib/langprocs.icn: LIBRARY: no procedure main; graded through its driver lib/langprocs_driver.icn
 lib/listener.icn: LIBRARY: no procedure main; graded through its driver lib/listener_driver.icn
 lib/popupmenu.icn: LIBRARY: no procedure main
-lib/pqueue.icn: LIBRARY: no procedure main
-lib/predicat.icn: LIBRARY: no procedure main
+lib/pqueue.icn: LIBRARY: no procedure main; graded through its driver lib/pqueue_driver.icn
+lib/predicat.icn: LIBRARY: no procedure main; graded through its driver lib/predicat_driver.icn
 lib/process.icn: LIBRARY: no procedure main
 lib/property.icn: LIBRARY: no procedure main
 lib/propertydb.icn: LIBRARY: no procedure main
 lib/pushback.icn: LIBRARY: no procedure main
-lib/qsort.icn: LIBRARY: no procedure main
+lib/qsort.icn: LIBRARY: no procedure main; graded through its driver lib/qsort_driver.icn
 lib/quotedprintablehandler.icn: LIBRARY: no procedure main
 lib/rfc822parser.icn: LIBRARY: no procedure main
 lib/rfc822pr.icn: LIBRARY: no procedure main
-lib/runnable.icn: LIBRARY: no procedure main
-lib/runtimeerrors.icn: LIBRARY: no procedure main
+lib/runnable.icn: LIBRARY: no procedure main; graded through its driver lib/runnable_driver.icn
+lib/runtimeerrors.icn: LIBRARY: no procedure main; graded through its driver lib/runtimeerrors_driver.icn
 lib/scan_util.icn: LIBRARY: no procedure main
 lib/scrollarea.icn: LIBRARY: no procedure main
 lib/scrollbar.icn: LIBRARY: no procedure main
 lib/selectiveclasscoding.icn: LIBRARY: no procedure main
-lib/sem.icn: LIBRARY: no procedure main
-lib/setfields.icn: LIBRARY: no procedure main
-lib/shm.icn: LIBRARY: no procedure main
+lib/sem.icn: LIBRARY: no procedure main; graded through its driver lib/sem_driver.icn
+lib/setfields.icn: LIBRARY: no procedure main; graded through its driver lib/setfields_driver.icn
+lib/shm.icn: LIBRARY: no procedure main; graded through its driver lib/shm_driver.icn
 lib/sizer.icn: LIBRARY: no procedure main
 lib/smtpclient.icn: LIBRARY: no procedure main
-lib/soap_util.icn: LIBRARY: no procedure main
+lib/soap_util.icn: LIBRARY: no procedure main; graded through its driver lib/soap_util_driver.icn
 lib/soapclient.icn: LIBRARY: no procedure main
 lib/soapserver.icn: LIBRARY: no procedure main
-lib/sql.icn: LIBRARY: no procedure main
-lib/ssh.icn: LIBRARY: no procedure main
+lib/sql.icn: LIBRARY: no procedure main; graded through its driver lib/sql_driver.icn
+lib/ssh.icn: LIBRARY: no procedure main; graded through its driver lib/ssh_driver.icn
 lib/str_replacer.icn: LIBRARY: no procedure main
-lib/str_util.icn: LIBRARY: no procedure main
-lib/stringbuff.icn: LIBRARY: no procedure main
+lib/str_util.icn: LIBRARY: no procedure main; graded through its driver lib/str_util_driver.icn
+lib/stringbuff.icn: LIBRARY: no procedure main; graded through its driver lib/stringbuff_driver.icn
 lib/struct.icn: LIBRARY: no procedure main
 lib/submenu.icn: LIBRARY: no procedure main
 lib/tabitem.icn: LIBRARY: no procedure main

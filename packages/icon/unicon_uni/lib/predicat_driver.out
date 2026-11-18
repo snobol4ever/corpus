@@ -1,0 +1,11 @@
+procedure isClass procedure lang__isClass 1
+procedure Type procedure lang__Type 1
+procedure mapPackageInt2Ext procedure lang__mapPackageInt2Ext 1
+procedure instanceof procedure lang__instanceof 2
+procedure istype procedure lang__istype 2
+procedure simpleClassname procedure lang__simpleClassname 1
+procedure isList procedure lang__isList 1
+procedure isTable procedure lang__isTable 1
+procedure isSet procedure lang__isSet 1
+procedure isRecord procedure lang__isRecord 1
+procedure isProcedure procedure lang__isProcedure 1

@@ -1,0 +1,10 @@
+procedure httpWrap procedure soap__httpWrap 1
+procedure soapHead procedure soap__soapHead 0
+procedure soapTail procedure soap__soapTail 0
+procedure getNonWSChildren procedure soap__getNonWSChildren 1
+procedure encode procedure soap__encode 4
+procedure mkTag procedure soap__mkTag 2
+procedure decode procedure soap__decode 1
+procedure getElementType procedure soap__getElementType 1
+procedure getXmlParser procedure soap__getXmlParser 1
+class ErrHandler procedure soap__ErrHandler 0
