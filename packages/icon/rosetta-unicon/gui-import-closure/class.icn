@@ -1,0 +1,191 @@
+#
+# $Id: class.icn,v 1.4 2009-10-13 00:32:45 jeffery Exp $
+#
+# This file is in the public domain.
+#
+# Author: Robert Parlett (parlett@dial.pipex.com)
+#
+
+package lang
+
+global lang_class_table
+
+
+#
+# Get the Class corresponding to the given object or the class name
+#
+procedure get_class_for(obj)
+   local x, name;
+   /lang_class_table := ::table();
+   case lang::get_type(obj) of {
+      "class" : {
+         #
+         # convert class name to the external form for storing in the table
+         #
+         name := lang::mapPackageInt2Ext(::classname(obj));
+         #
+         # use the object supplied to be create a Class object and insert into
+         # the table with the key of the external class names#
+         if not(x := \lang_class_table[name]) then {
+            x := Class(obj);
+            lang_class_table[name] := x
+         }
+      };
+      "string" : {
+         #
+         # make sure that the class name supplied is in external form
+         #
+         name := lang::mapPackageInt2Ext(obj);
+         #
+         # if there is no key by the string value supplied, we need to raise failure
+         x := \lang_class_table[name] | fail
+      };
+      #
+      # any other kind of value is not a class or a class name, therefore we need to failure#
+      default : fail
+   };
+
+   return x;
+end
+
+#
+# This class provides information about a Unicon class.
+#
+class Class(name,
+            methods,
+            methods_map,
+            variables,
+            state_instance,
+            oprec,
+            supers,
+            implemented_classes)
+
+   #
+   # Return the name of the class
+   #
+   method get_name()
+      return name;
+   end
+
+   #
+   # Return the methods of the class, as a list
+   #
+   method get_methods()
+      return methods;
+   end
+
+   #
+   # Get the method with the given method name, or fail if there
+   # is no such method.
+   #
+   method get_method(s)
+      if ::member(methods_map, s) then
+         return methods_map[s];
+   end
+
+   #
+   # Return a list of the names of the parent classes, in the order they were
+   # encountered in the record definition.
+   #
+   method get_supers()
+      return supers;
+   end
+
+   #
+   # Get a set of the names of the implemented classes of this class
+   # (including this class itself).
+   #
+   method get_implemented_classes()
+      return implemented_classes;
+   end
+
+   #
+   # Return the variable names of the class, in the order they would appear
+   # in an instance
+   #
+   method get_variables()
+      return variables;
+   end
+
+initially(obj)
+   local v, s, sa, m, cname, cmeths := ::table(), lm := [];
+
+   #
+   # get the class name based on the object that we are looking at
+   #
+   self.name := lang::mapPackageInt2Ext(::classname(obj));
+   #
+   # provide the initial values for the methods, supers, methods_map, variables
+   # and implemented_classes. These will be added to as we process the information
+   # available from the Unicon functions.
+   #
+   self.methods := [];
+   self.supers := [];
+   self.methods_map := ::table();
+   self.implemented_classes := ::set(lang::mapPackageInt2Ext(self.name));
+   self.variables := [];
+   #
+   # there are two variables in the class structure which are not of interest
+   # here as these are implementation related variables:- __s and __m. So as we
+   # examine the names provided by the Unicon function membernames(), we will not
+   # include these in the list of available variable names.
+   #
+   every s := !::membernames(obj) do {
+      if not (s == ("__s" | "__m")) then {
+         ::put(self.variables, s)
+      }
+   };
+   #
+   # the method values associated with the class or superclasses for this class
+   # will be stored in set associated with the key of the class name.
+   #
+   # the first entry will be the set of methods defined for the class
+   #
+   cmeths[self.name] := ::set(::methods(obj));
+   #
+   # Get the oprec, the field names of this record will be the method names
+   # defined directly in the class as well as the superclass names applicable
+   # for this class.
+   #
+   # the field names for a method hold a procedure value, the super classes hold
+   # a record value. We use this distinction in values to determine what is a
+   # method name and what is a class name.
+   #
+   self.oprec := ::oprec(obj) | fail;
+
+   every s := ::fieldnames(self.oprec) do {
+      v := self.oprec[s];
+      sa := lang::mapPackageInt2Ext(s);
+      if ::type(v) == "procedure" then {
+         #
+         # lm holds a list of lists where the internal list is the procedure value
+         # and the name of the method. This will be used later to generate the
+         # methods and the methods_map values.
+         #
+         ::put(lm, [v, s])
+      } else {
+         #
+         # we place the super class name onto the end of the supers list and put
+         # the applicable list of methods for that class into an apprporiate set
+         # for creating the methods and methods_map values
+         #
+         ::put(self.supers, sa);
+         cmeths[sa] := ::set(::methods(s))
+      }
+   };
+   #
+   # we can now add the super class list to the set of implemented classes
+   #
+   self.implemented_classes ++:= ::set(self.supers);
+   #
+   # this is where we finalise the methods list and the methods_map table
+   #
+   every v := !lm do {
+      every s := ::key(cmeths) do {
+         if ::member(cmeths[s], v[1]) then {
+            ::put(self.methods, m := Method(v[1], v[2], s));
+            methods_map[v[2]] := m
+         }
+      }
+   };
+end
