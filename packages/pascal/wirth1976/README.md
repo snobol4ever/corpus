@@ -2,7 +2,7 @@
 
 PasWirth: the sorting programs of Niklaus Wirth's "Algorithms + Data Structures = Programs" (1976) as bonthron/wirth1976 keeps them in
 Pascal (https://github.com/bonthron/wirth1976, 02cb139 of 2020-11-14; no licence file in the collection), read IN PLACE from
-`/home/resources/pascal-demos/wirth1976` (`ALL.source`); no program of it is stored here. Four programs, each sorting ten records by
+`/home/packages/pascal/wirth1976` (`ALL.source`); no program of it is stored here. Four programs, each sorting ten records by
 key and printing the list before and after: heapsort, straight insertion, straight selection and straight exchange. They share one
 unit, `TypeUtils.pas`, which is a library and no row (`EXCLUDED.tsv`).
 

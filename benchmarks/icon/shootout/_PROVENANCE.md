@@ -3,7 +3,7 @@
 **Upstream:** `uniconproject/unicon`, `tests/bench/` (which carries the Benchmarks Game entries written for Icon/Unicon). Cloned 2026-09-11 by ceo on Lon's order to acquire third-party tests and benchmarks.
 **License:** The Computer Language Benchmarks Game, Revised BSD — each file keeps its upstream header naming the project and URL.
 
-**⛔ WHY ONLY FIVE OF TWENTY-SIX.** Unicon is a SUPERSET language with its own compiler and runtime; it is not our oracle. Each candidate was compiled with the real Arizona oracle `/home/resources/icon-master/bin/icont` before being taken:
+**⛔ WHY ONLY FIVE OF TWENTY-SIX.** Unicon is a SUPERSET language with its own compiler and runtime; it is not our oracle. Each candidate was compiled with the real Arizona oracle `/home/packages/icon/icon-master/bin/icont` before being taken:
 
 - **16 of 26 are REJECTED by `icont`** and are Unicon-only, not Icon: `binary-trees n-body fasta k-nucleotide regex-dna generate auxiliary deal pool meteor-contest run-benchmark run-med run-shootout run-test` fail on `":=": invalid declaration` (Unicon class/`initially` syntax), and `thread-ring chameneos-redux` on Unicon monitors. They are OUTSIDE THE ARIZONA BASELINE by the oracle's own refusal and are deliberately NOT vendored — taking them would have put 16 programs in the tree that can never be graded.
 - **5 of the 10 that pass `icont` we already hold** — `concord ipxref queens rsg shuffle` are already in `benchmarks/icon/` (and note `concord` appears 4x and `queens` 5x across the corpus, a pre-existing duplication).
@@ -21,7 +21,7 @@ processing; icont accepts the same text -- every one of the five compiles under 
 - mandelbrot: `run_mandelbrot_concurrent` (Unicon `Pool`/`imap`/`&features == "concurrent threads"`) deleted; main calls `run_mandelbrot_sequential` directly. That branch was dead under Icon and is per-engine accommodation, which CEO-567 clause 1 forbids in a kernel.
 - Trailing whitespace stripped. Nothing else in any computation changed.
 
-`.ref` per graded program, CUT FROM THE ORACLE (icont/iconx 9.5, `IPATH=/home/resources/icon-master/lib` for pidigits' `link printf`),
+`.ref` per graded program, CUT FROM THE ORACLE (icont/iconx 9.5, `IPATH=/home/packages/icon/icon-master/lib` for pidigits' `link printf`),
 never by hand; arguments in `<name>.argv` (name<TAB>arg, the corpus convention): spectral-norm 100, pidigits 30, mandelbrot 64
 (a P4 PBM -- binary, compared with cmp). `reverse-complement.fasta` is a small deterministic three-record FASTA fixture (seeded
 generator, 187/251/143 bases) named by its `.argv`.

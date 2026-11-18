@@ -3,7 +3,7 @@
 Advent of Code 2015 in SWI-Prolog, by Tatu Tarvainen (https://github.com/tatut/aoc2015-prolog, commit 5dccd93 of 2023-11-04). One file a day,
 `dayN.pl`, answering the day's two parts from `dayN.txt`, the author's own puzzle input, shipped with the code (or written into the program).
 
-NOT HOSTED: the repository states no licence, so its programs are read in place from `/home/resources/prolog-demos/aoc2015-prolog-tatut`
+NOT HOSTED: the repository states no licence, so its programs are read in place from `/home/packages/prolog/aoc2015_prolog`
 (`ALL.source`); this folder holds the index, the answers, our queries and our driver.
 
 THE QUERIES ARE OURS (`OUR-QUERIES.tsv`): a day runs nothing by itself, its README asks `part1(Answer).` at the top level, so each day is put

@@ -2,7 +2,7 @@
 
 PasClassic: three classic Pascal programs from Scott Moore's Standard Pascaline site (https://www.standardpascaline.org/source.html, as
 the coo fetched them on 2026-10-09; `links.txt` in the collection names each file; no licence file in the collection), read IN PLACE
-from `/home/resources/pascal-demos/standardpascaline` (`ALL.source`); no program of it is stored here.
+from `/home/packages/pascal/pascaline` (`ALL.source`); no program of it is stored here.
 
 | row | the program | its input, ours |
 |---|---|---|

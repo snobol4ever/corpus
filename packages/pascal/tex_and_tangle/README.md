@@ -1,7 +1,7 @@
 # tex_and_tangle
 
 Knuth's TANGLE 4.6 and TeX 3.141592653 as the Pascal programs `tangle.p` and `tex.p` (with `tex.pool`, and the sources `tangle.web` and `tex.web` beside them), read IN
-PLACE from `/home/resources/pascal-demos/tex` (`ALL.source`); no file of it is stored here (CIO-92, CIO-96; copyright D. E. Knuth, a changed copy may not be called TeX).
+PLACE from `/home/packages/pascal/tex_and_tangle` (`ALL.source`); no file of it is stored here (CIO-92, CIO-96; copyright D. E. Knuth, a changed copy may not be called TeX).
 This folder holds our index (`ALL.csv`) and `ALL.omit`, which names every program that is no entry with its verdict. Built by
 `harness/scripts/util_build_package_suite.py corpus/packages/pascal/tex_and_tangle --lang pascal --mine CENSUS.tsv` (COO-508, COO-513).
 

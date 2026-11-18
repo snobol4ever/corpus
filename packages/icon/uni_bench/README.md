@@ -1,6 +1,6 @@
 # uni_bench
 
-UniBench: the Unicon 12 benchmark suite (`/home/resources/unicon/tests/bench`, as Unicon 13.3 ships it, under Unicon's licence,
+UniBench: the Unicon 12 benchmark suite (`/home/packages/icon/unicon/tests/bench`, as Unicon 13.3 ships it, under Unicon's licence,
 `COPYING.unicon`; each program's header names its authors, and the distribution's own page is `README.bench`). Eighteen
 programs: Unicon versions of the Computer Language Benchmarks Game set (binary-trees, chameneos-redux, fannkuch, fasta, k-nucleotide,
 mandelbrot, meteor-contest, n-body, pidigits, regex-dna, reverse-complement, spectral-norm, thread-ring) and five from the Icon

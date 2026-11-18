@@ -2,7 +2,7 @@
 
 Four small examples of the Icon language by Cameron Little (https://github.com/apexskier/icon, commit 0923b60 of 2014-03-10, written for a
 course, CSCI 512): first-class procedures, hello world, the scope of a global, and how newlines end statements. No licence is stated, so the
-programs are read in place from `/home/resources/icon-demos/gh-apexskier-icon` (`ALL.source`); this folder holds the index, the answers and
+programs are read in place from `/home/packages/icon/icon_apexskier` (`ALL.source`); this folder holds the index, the answers and
 our two inputs (`firstClassFunctions.in`, an integer; `helloworld.in`, a name).
 
 The four files were given the semicolons SCRIP Icon requires in place by `util_icon_semicolons.py`, each proved same-code by the stock

@@ -1,6 +1,6 @@
 # uni_ipl -- the Unicon program library's own programs
 
-The programs of Unicon's `ipl/progs` and `ipl/mprogs` (`/home/resources/unicon/ipl`) whose text differs from Arizona Icon's IPL (Arizona's are the
+The programs of Unicon's `ipl/progs` and `ipl/mprogs` (`/home/packages/icon/unicon/ipl`) whose text differs from Arizona Icon's IPL (Arizona's are the
 `ipl` package's), cut by the unicon translator (CONTRACT.tsv `oracle unicon`, `unmarked_compile_args --dialect=unicon`). MEASURED 2026-11-13 by the
 grader: 81 such programs, 22 of them graphics (left upstream: no window on this box), so 59 vendored with the 31 files of their link closure that
 differ from Arizona's, in `procs/` and `mprocs/` (named by the contract's `ipath` lines, searched before both IPL folders, shipped as no test).

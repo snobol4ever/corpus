@@ -1,7 +1,7 @@
 # p99
 
 ProP99: Werner Hett's P-99, Ninety-Nine Prolog Problems, his own solutions (the unicamp mirror of his page, as fetched; `index.html` of the
-collection is the problem page; no licence file in the collection), read IN PLACE from `/home/resources/prolog-demos/p99-hett-unicamp`
+collection is the problem page; no licence file in the collection), read IN PLACE from `/home/packages/prolog/p99`
 (`ALL.source`); no program of it is stored here.
 
 A solution file defines its predicate and runs nothing, so each is consulted and then `drive.pl`, OURS (`ALL.launch`: `around - drive.pl`

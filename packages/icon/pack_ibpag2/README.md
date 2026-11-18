@@ -1,6 +1,6 @@
 # pack_ibpag2
 
-Ibpag2, an LR-based parser generator in Icon (Richard L. Goerwitz), one of the packs of the Icon program library (`/home/resources/icon-master/ipl/packs/ibpag2`, Icon
+Ibpag2, an LR-based parser generator in Icon (Richard L. Goerwitz), one of the packs of the Icon program library (`/home/packages/icon/icon-master/ipl/packs/ibpag2`, Icon
 9.5.25a, public domain: `COPYRIGHT.icon`). One package a pack (see `pack_tcll1`). VENDORED, with its semicolons (CIO-98, CIO-100, CIO-101).
 
 WHAT IS HERE. The fifteen files the pack's Makefile builds; `iiparse.lib` and `iiglrpar.lib`, the parser texts the program copies into what it writes; the pack's three

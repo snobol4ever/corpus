@@ -2,7 +2,7 @@
 # the reason MEASURED against the oracle. THE PACKAGE LOCKDOWN (Lon 2026-09-06).
 # Columns: path <TAB> REASON <TAB> evidence (the oracle's own words + how it was measured).
 #
-# ORACLE: icont/iconx 9.5.25a, /home/resources/icon-master/bin. CONTRACT: upstream tests/general/Test-icon --
+# ORACLE: icont/iconx 9.5.25a, /home/packages/icon/icon-master/bin. CONTRACT: upstream tests/general/Test-icon --
 #   icont -s NAME.icn ; ./NAME < NAME.dat-if-present-else-/dev/null > out 2>&1 ; diff NAME.std out
 # Determinism is two runs ONE SECOND APART, never back-to-back (a back-to-back pair cannot detect clock dependence).
 #

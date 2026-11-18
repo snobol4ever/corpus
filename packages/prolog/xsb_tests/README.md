@@ -10,7 +10,7 @@ until then it was swipl -q, and the paragraphs on drivers and the dialect marker
 
 Lon 2026-10-23 11:3x CDT, in-chat to the cfo, verbatim: *"Since SWIPL does not have all XSB, we should begin to use XSB system as the third
 oracle."* (RULES.md § Oracles, FACT RULE XSB IS THE THIRD PROLOG ORACLE, FOR THE XSB PACKAGE.) CONTRACT.tsv declares it: `oracle xsb-gentest`,
-`upstream /home/resources/prologs/xsb/xsbtests`, `compare ignore-all-space`. Each ref is XSB's answer to the run XSB's OWN test scripts make
+`upstream /home/packages/prolog/xsb/xsbtests`, `compare ignore-all-space`. Each ref is XSB's answer to the run XSB's OWN test scripts make
 (ORACLE_RUNS.tsv: directory, options, FILE, CMD -- recorded by RUNNING every directory's test.sh, and incremental_tests' stest.sh, the one
 stest.sh testall.sh runs by default, with a recording XEMU in front of xsb_bin(): harness util_xsb_oracle_runs.py record, twice), in a fresh
 copy of the upstream test directory: `[FILE]. tell(temp). CMD. told.` on the stdin of `xsb -e segfault_handler(warn).`, the answer the file
@@ -26,7 +26,7 @@ ALL.prelude still selects SCRIP's SWI dialect (CEO-1712, chosen when swipl cut t
 
 | set | upstream | license |
 |---|---|---|
-| xsb/xsbtests | XSB's test tree (`xsbtests/`), fetched 2026-09-13 to /home/resources/prologs/xsb | GNU Library GPL, version 2, `LICENSE.xsb` (XSB's `XSB/LICENSE`, as shipped) |
+| xsb/xsbtests | XSB's test tree (`xsbtests/`), fetched 2026-09-13 to /home/packages/prolog/xsb | GNU Library GPL, version 2, `LICENSE.xsb` (XSB's `XSB/LICENSE`, as shipped) |
 
 SOURCES.tsv maps every vendored file to its path in the upstream tree: all 907 Prolog files of `xsbtests/`, in 28 test directories
 and their subdirectories (basic_tests landed first with the smoke, corpus bd610c90f; the rest in the second landing).

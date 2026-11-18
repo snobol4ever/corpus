@@ -52,8 +52,8 @@ exist. Reach it by absolute path (`lib_oracle_flags.sh` exposes `icont_bin`/`ico
 so nobody re-derives it):
 
 ```bash
-ICONT=/home/resources/icon-master/bin/icont
-ICONX=/home/resources/icon-master/bin/iconx
+ICONT=/home/packages/icon/icon-master/bin/icont
+ICONX=/home/packages/icon/icon-master/bin/iconx
 cp progs/hello.icn /tmp/t.icn
 cd /tmp && $ICONT -s t.icn && $ICONX t
 ```

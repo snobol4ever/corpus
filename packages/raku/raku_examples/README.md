@@ -1,6 +1,6 @@
 # raku_examples
 
-The Raku examples collection (https://github.com/Raku/examples, Artistic License 2.0), read IN PLACE from `/home/resources/raku-examples/categories`
+The Raku examples collection (https://github.com/Raku/examples, Artistic License 2.0), read IN PLACE from `/home/packages/raku/raku_examples/categories`
 (`ALL.source`); no program of it is stored here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`, the `path` cell is the path from the
 collection's root), each entry's answer `NAME.out` cut from rakudo 2026.05, and `ALL.omit`, which names every program of the collection that is no
 entry with its verdict. Built by `harness/scripts/util_build_package_suite.py corpus/packages/raku/raku_examples --lang raku --mine CENSUS.tsv`

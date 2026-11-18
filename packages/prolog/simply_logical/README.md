@@ -2,7 +2,7 @@
 
 ProSimply: the code files of Peter Flach's Simply Logical: Intelligent Reasoning by Example, the online edition
 (https://github.com/simply-logical/simply-logical at 76d04f632, 2024-12-17; CC BY-NC-SA 4.0, `LICENCE` at the top of the collection), its
-`src/code` folder read IN PLACE from `/home/resources/prolog-demos/simply-logical/src/code` (`ALL.source`); no program of it is stored
+`src/code` folder read IN PLACE from `/home/packages/prolog/simply_logical/src/code` (`ALL.source`); no program of it is stored
 here.
 
 A code file defines its predicates and runs nothing; 93 of the 145 state queries in a SWISH block at their end, `/** <examples> ... */`, whose lines

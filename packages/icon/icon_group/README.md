@@ -34,7 +34,7 @@ archive file, message number, Date and Subject; a program's author is in its own
 
 THE CONVERSION: every program carries the semicolons SCRIP Icon requires, inserted once by `util_icon_semicolons.py` (skill unicon;
 never tracked), and each is PROVED by the stock Arizona translator with newline insertion
-(`/home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion`): `icont -s -c` of the mailed text and of the converted
+(`/home/packages/icon/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion`): `icont -s -c` of the mailed text and of the converted
 text give the same `.u1` and `.u2`, byte for byte (`CONVERSION-PROOF.tsv`: 189 of 189 same-code). Nothing else of a program was
 changed; the common indentation of an indented posting was removed.
 

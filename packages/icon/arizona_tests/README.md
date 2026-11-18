@@ -1,6 +1,6 @@
 # arizona_tests — the official Arizona Icon test suite
 
-**Source:** `/home/resources/icon-master/tests/{general,special}` (github.com/gtownsend/icon,
+**Source:** `/home/packages/icon/icon-master/tests/{general,special}` (github.com/gtownsend/icon,
 "Version 9.5 of Icon"). Upstream `README`: "This material is in the public domain. You may use
 and copy this material freely." `bench/` (the benchmarking suite) is deliberately **not** vendored
 here — out of scope per this row's GOAL, and it carries no expected-output files to grade

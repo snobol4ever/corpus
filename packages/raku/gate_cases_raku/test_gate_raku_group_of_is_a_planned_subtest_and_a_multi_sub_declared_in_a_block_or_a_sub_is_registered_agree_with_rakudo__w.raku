@@ -1,5 +1,5 @@
 use Test;
-use lib "/home/resources/roast-master/packages/Test-Helpers";
+use lib "/home/packages/raku/roast/packages/Test-Helpers";
 use Test::Util;
 plan 3;
 group-of 2 => 'first group' => {

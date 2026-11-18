@@ -2,7 +2,7 @@
 
 ProP99c: James Constable's solutions to P-99, the Ninety-Nine Prolog Problems, grouped by topic in seven files
 (https://github.com/jamesconstable/99-prolog-problems at 30a72622a, 2021-03-15; MIT, `LICENSE` at the top of the collection), read IN PLACE
-from `/home/resources/prolog-demos/99-prolog-problems` (`ALL.source`); no program of it is stored here. It is a second, independent set of
+from `/home/packages/prolog/p99_constable` (`ALL.source`); no program of it is stored here. It is a second, independent set of
 solutions beside Hett's own (package `p99`).
 
 A solution file defines its predicates and runs nothing; above each solution a comment line `% ?- GOAL.` states the problem's example

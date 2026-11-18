@@ -1600,7 +1600,7 @@ for 1..100 -> $i { $tot += Calc.parse("$i+$i", actions => CalcA).made }
 say $tot;
 #- 64 test_gate_raku_group_of_is_a_planned_subtest_and_a_multi_sub_declared_in_a_block_or_a_sub_is_registered_agree_with_rakudo__w
 use Test;
-use lib "/home/resources/roast-master/packages/Test-Helpers";
+use lib "/home/packages/raku/roast/packages/Test-Helpers";
 use Test::Util;
 plan 3;
 group-of 2 => 'first group' => {

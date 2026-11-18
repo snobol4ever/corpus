@@ -1,7 +1,7 @@
 # freepascal_tree
 
 Free Pascal's own test tree (https://github.com/fpc/FPCSource, folder `tests`, GPL 2 with the library exception), read IN PLACE from
-`/home/resources/FPCSource/tests` (`ALL.source`); no program of it is stored here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`, the
+`/home/packages/pascal/FPCSource/tests` (`ALL.source`); no program of it is stored here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`, the
 `path` cell is the path from the collection's root, the `dialect` cell the fpc mode that cut the answer), each entry's answer `NAME.out` cut from
 fpc 3.2.2, and `ALL.omit`, which names every program that is no entry with its verdict. Built by
 `harness/scripts/util_build_package_suite.py corpus/packages/pascal/freepascal_tree --lang pascal --mine CENSUS.tsv --mine-under tbs --mine-dialects fpc`

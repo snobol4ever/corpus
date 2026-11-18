@@ -1,6 +1,6 @@
 # pack_skeem
 
-Skeem, an implementation of the Scheme language in Icon (Bob Alexander), one of the packs of the Icon program library (`/home/resources/icon-master/ipl/packs/skeem`, Icon
+Skeem, an implementation of the Scheme language in Icon (Bob Alexander), one of the packs of the Icon program library (`/home/packages/icon/icon-master/ipl/packs/skeem`, Icon
 9.5.25a, public domain: `COPYRIGHT.icon`). One package a pack (see `pack_tcll1`). The program is VENDORED with its semicolons (CIO-98, CIO-100, CIO-101); the pack's test
 file `test.scm` is NOT here: it carries its own copyright line (Aubrey Jaffer's test of Scheme implementations) and is read IN PLACE from the collection (`ALL.source`).
 

@@ -1,4 +1,4 @@
-# the census of /home/resources/pascal-demos/tply by fpc (b29b897 (2024-10-20)), 2026-11-11: path from the root, verdict, note
+# the census of /home/packages/pascal/tply by fpc (b29b897 (2024-10-20)), 2026-11-11: path from the root, verdict, note
 fpmake.pp	LIBRARY	the source names uses fpmkunit
 lexbase.pas	LIBRARY	the source names unit LexBase;
 lexdfa.pas	LIBRARY	the source names unit LexDFA;

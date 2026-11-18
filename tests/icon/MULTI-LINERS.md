@@ -11515,7 +11515,7 @@ end
 ```Icon
 procedure main()
    local f;
-   f := loadfunc("/home/resources/icon-master/bin/libcfunc.so", "bitcount");
+   f := loadfunc("/home/packages/icon/icon-master/bin/libcfunc.so", "bitcount");
    write("A:", image(f));
    write("B:", f(500));
    write("C:", f(511));
@@ -21559,7 +21559,7 @@ end
 # and NOTHING on the stack points at its BIG_t: the block is reachable only through gc_visit_arblk /
 # gc_visit_tbblk -> gc_visit_one on the element DESCR. With no DT_BIG case that DESCR falls to `default:`,
 # the block is never marked, and the churn below reclaims it under the holder.
-# The .ref is cut from the Arizona oracle (/home/resources/icon-master/bin/icont -s -x), not from ./scrip.
+# The .ref is cut from the Arizona oracle (/home/packages/icon/icon-master/bin/icont -s -x), not from ./scrip.
 procedure main();
    local L, T, i, churn, s;
    L := [];

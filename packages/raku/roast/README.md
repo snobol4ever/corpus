@@ -1,8 +1,8 @@
-# corpus/packages/raku/roast -- the attribute file (ALL.csv, CEO-1168) for the Raku roast suite, whose .t sources are the upstream drop read in place from /home/resources/roast-master (SCRIP/refs is gone since CEO-765; raku_roast_scoreboard.sh finds them there). Origins are paths relative to that drop. heap_kb carries a program's DECLARED arena in KB (Lon 2026-09-23, CEO-1167); empty = the shipped default.
+# corpus/packages/raku/roast -- the attribute file (ALL.csv, CEO-1168) for the Raku roast suite, whose .t sources are the upstream drop read in place from /home/packages/raku/roast (SCRIP/refs is gone since CEO-765; raku_roast_scoreboard.sh finds them there). Origins are paths relative to that drop. heap_kb carries a program's DECLARED arena in KB (Lon 2026-09-23, CEO-1167); empty = the shipped default.
 
 ## The files form, read in place (2026-11-11, COO-508, COO-509, CTO-591)
 
-`ALL.source` names the collection (`/home/resources/roast-master`, `copy root`, `cwd root`: each test runs from the top of a scratch copy of the
+`ALL.source` names the collection (`/home/packages/raku/roast`, `copy root`, `cwd root`: each test runs from the top of a scratch copy of the
 whole tree, so a file finds `packages/Test-Helpers` above its folder). The `path` cell is the file's path from that root; `language` is raku
 (the extension `.t` does not say it); `compare` is tap: a file is graded on its plan and on each test's number and ok or not ok, not on its bytes
 (rakudo prints memory addresses and hash orders inside test descriptions). THE GRADED UNIT IS THE RAKUDO-FUDGED FILE (CTO-514 ruling 4 (iii)): for

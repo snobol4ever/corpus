@@ -1,7 +1,7 @@
 # OUTSIDE_ARIZONA_BASELINE.tsv -- jcon_tests: what ARIZONA icont/iconx does not answer, named beside the
 # package, so the graded denominator is the set the ONE ICON ORACLE can actually run.  ceo CEO-445, on Lon
 # 2026-09-09 09:0x CDT ("Switch to Icon completely ... Get 100% using oracle probes").  Written hq_P
-# 2026-09-09, MEASURED LIVE with /home/resources/icon-master/bin/icont (Icon v9.5.25a), each program
+# 2026-09-09, MEASURED LIVE with /home/packages/icon/icon-master/bin/icont (Icon v9.5.25a), each program
 # compiled `icont -s -o <name> <name>.icn` in a staged copy and run under the package's own .dat
 # convention (the companion fed BOTH as argv[1] and as stdin), 30 s run cap, 120 s compile cap.
 #
@@ -121,7 +121,7 @@ lgint:bigexp(-7 ^ 23)	ROW_OUTSIDE_ORACLE_REACH	⛔ A ROW, NOT A PROGRAM -- same 
 # geddump/htprep/prepro above, and the discriminator is again ONE COMMAND).  Its row read ENVIRONMENT_IDENTITY_
 # IN_OUTPUT: "an icont-cut ref would pin THIS cutter's directory contents instead of the program's answer."
 # THE CONTROL THAT ROW LACKED: cut the ref TWICE, in two different absolute directories, and compare.  Measured
-# with /home/resources/icon-master/bin/icont (Icon v9.5.25a), staged the way test_icon_jcon_suite.sh:run_one
+# with /home/packages/icon/icon-master/bin/icont (Icon v9.5.25a), staged the way test_icon_jcon_suite.sh:run_one
 # stages every entry -- a private rundir holding the entry's OWN source and its .dat companion and nothing else,
 # the program run as `recent recent.dat < recent.dat` with the streams combined: the two cuts are BYTE-IDENTICAL,
 # 441 lines.  So the ref is not pinned to a PATH; it is pinned to the run directory's CONTENTS, and those are
@@ -145,7 +145,7 @@ lgint:bigexp(-7 ^ 23)	ROW_OUTSIDE_ORACLE_REACH	⛔ A ROW, NOT A PROGRAM -- same 
 # seventeenth -- the one that could not be re-cut -- was recent, not kwds.  The header sentence above names
 # kwds as the SMOKING GUN that motivated the census, not as the exception to it, and I read it as the
 # exception without opening the file.  MEASURED HERE BEFORE ANYTHING WAS TOUCHED: the shipped kwds.std is
-# BYTE-IDENTICAL to a fresh cut of the shipped source under /home/resources/icon-master/bin/icont.
+# BYTE-IDENTICAL to a fresh cut of the shipped source under /home/packages/icon/icon-master/bin/icont.
 # ⭐ THE CURE IS THE CEO-514 SHAPE THIS SEAT ALREADY LANDED ON THE RUNGS ENTRY, applied to this copy:
 # &allocated, &storage and &version print type() and &features prints type() ONCE rather than per feature
 # (the SIZE of the feature list is itself implementation identity), so EXISTENCE, TYPE and the generator

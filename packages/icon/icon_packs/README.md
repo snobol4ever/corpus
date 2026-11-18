@@ -1,6 +1,6 @@
 # icon_packs
 
-IcnPacks: the euler pack of the Icon program library (`/home/resources/icon-master/ipl/packs/euler`, Icon 9.5.25a), EULER, Wirth's and Weber's
+IcnPacks: the euler pack of the Icon program library (`/home/packages/icon/icon-master/ipl/packs/euler`, Icon 9.5.25a), EULER, Wirth's and Weber's
 ALGOL successor, compiled and interpreted by a program in Icon. Each row is one of the pack's twelve Euler programs `tN.eul`, handed to the pack's
 interpreter (`ALL.launch`: `eulerrun.icn` the driver), so a test is `euler tN.eul`, run in a copy of this folder.
 

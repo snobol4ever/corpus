@@ -5203,7 +5203,7 @@ say %h.values.sort;
 ## ladder__rung07_subs_a_bare_make_temp_dir_is_a_call_without_arguments
 
 ```Raku
-use lib "/home/resources/roast-master/packages/Test-Helpers/lib"; use Test::Util;
+use lib "/home/packages/raku/roast/packages/Test-Helpers/lib"; use Test::Util;
 my $d = make-temp-dir; my $e = make-temp-dir();
 say $d.d, " ", $d.e, " ", $d.f, " ", ($d.Str ne $e.Str)
 ```

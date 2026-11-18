@@ -1,6 +1,6 @@
 # pack_idol
 
-IcnIdol: the Idol pack of the Icon program library (`/home/resources/icon-master/ipl/packs/idol`, Icon 9.5.25a; public domain, as the
+IcnIdol: the Idol pack of the Icon program library (`/home/packages/icon/icon-master/ipl/packs/idol`, Icon 9.5.25a; public domain, as the
 library). Idol, the Icon-Derived Object Language, is Clinton Jeffery's object-oriented preprocessor for Icon (version 8.0 of 1990), the
 ancestor of Unicon's classes; its translator is itself an Icon program. Each row is one of the distribution's 26 Idol programs `NAME.iol`,
 handed to the translator, and the answer is what the translator writes: its log on standard output, then the files it creates (the
@@ -19,7 +19,7 @@ link path (`ipath .`), where the two linked files sit.
 
 THE CONVERSION: `idolboot.icn` and `msdos.icn` carry the semicolons SCRIP Icon requires, inserted once by `util_icon_semicolons.py`
 (skill unicon; never tracked), and each is PROVED by the stock Arizona translator with newline insertion
-(`/home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion`): `icont -s -c` of the original and of the converted text
+(`/home/packages/icon/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion`): `icont -s -c` of the original and of the converted text
 give the same `.u1` and `.u2`, byte for byte (`CONVERSION-PROOF.tsv`). `idolboot.icn` is generated code whose `#line` directives point
 into `idol.iol`; they were blanked to comments while the tool ran and restored after, since the parser reports positions through them.
 Unicon cannot serve as the proof here: Idol uses `class` and `method` as identifiers, which Unicon reserves.

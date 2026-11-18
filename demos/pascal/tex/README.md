@@ -11,7 +11,7 @@ both modes and prints what the oracle's build prints, byte for byte.
 | `tex.in` | the terminal input: `\input plain \input story \input sample \end` |
 | `tex.ref` | the oracle's output on `tex.in`, cut twice, byte-identical: `fpc -Miso -v0 -otex tex.pas && ./tex < tex.in > tex.ref` |
 | `tex.heap`, `tex.stack` | the declared arena, kilobytes |
-| `source/tex.web` | Knuth's `tex.web`, unchanged (the copy `/home/resources/pascal-demos/tex/tex.web`, TeX Live 2023) |
+| `source/tex.web` | Knuth's `tex.web`, unchanged (the copy `/home/packages/pascal/tex_and_tangle/tex.web`, TeX Live 2023) |
 | `source/tex.ch` | the change file: the whole port, one `@x ... @y ... @z` entry per place; the system-dependent part of TeX, as Knuth intends |
 | `source/gen.py` | the two steps TANGLE cannot do, below |
 | `source/plain.tex`, `hyphen.tex`, `story.tex`, `tfm/*.tfm` | the documents and the 47 Computer Modern metric files plain.tex loads, unchanged, from TeX Live 2023 |

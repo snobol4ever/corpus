@@ -1,7 +1,7 @@
 # gpc_tests
 
 PasGpc: the GNU Pascal compiler's own test suite, `p/test` of the GPC source tree (https://github.com/hebisch/gpc at 21ec0ceb, 2024-09-01;
-GPL, `COPYING` in the clone), read IN PLACE from `/home/resources/pascal-demos/gpc-hebisch/p/test` (`ALL.source`); no program of it is
+GPL, `COPYING` in the clone), read IN PLACE from `/home/packages/pascal/gpc_tests/p/test` (`ALL.source`); no program of it is
 stored here.
 
 A GPC test is one program that prints its own verdict: the one line `OK`, or the text of the `NAME.out` the suite ships beside it

@@ -9,7 +9,7 @@ container (ALL.pl / ALL.ref / ALL.csv, built by SCRIP/scripts/util_build_package
 | set | upstream | license | files here |
 |---|---|---|---|
 | hakank/swi_prolog | Hakan Kjellerstrand's combinatorial models and puzzles, https://github.com/hakank/hakank (`swi_prolog/`), shallow clone at commit 2823c48 | MIT, `LICENSE.hakank` | 260 (`hakank_swi_*.pl` and the three modules below) |
-| 99-prolog-problems | James Constable's solutions to the P-99 Ninety-Nine Prolog Problems, /home/resources/prolog-demos/99-prolog-problems | MIT, `LICENSE.p99` | 7 (`p1_lists.pl` ... `p7_miscellaneous.pl`, the upstream names) |
+| 99-prolog-problems | James Constable's solutions to the P-99 Ninety-Nine Prolog Problems, /home/packages/prolog/p99_constable | MIT, `LICENSE.p99` | 7 (`p1_lists.pl` ... `p7_miscellaneous.pl`, the upstream names) |
 
 SOURCES.tsv maps every vendored file to its set, its path in the upstream tree and its license. All three licensed sets are in (hakank/swi_prolog, hakank/sicstus, 99-prolog-problems). Sets found and NOT vendored are named with the reason in NOT_VENDORED.tsv:
 three state no license (Bratko's 4th edition, Triska's clpfd examples, mmalita's PrologPuzzles) and Rosetta Code's Prolog solutions are

@@ -31,7 +31,7 @@ map.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 5432 and 5432 bytes
 nrev.P: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 137 and 88 bytes
 ora_demo.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 parser.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pcretest.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: /home/resources/prologs/xsb/XSB/packages/pcre/cc/pcre4pl.c:38:10: fatal error: pcre.h: No such file or directory
+pcretest.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: /home/packages/prolog/xsb/XSB/packages/pcre/cc/pcre4pl.c:38:10: fatal error: pcre.h: No such file or directory
 ptq.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ++Error[XSB/Runtime/P]: [Existence (No predicate usermod : table_all / 0 exists)] []
 ptq_examples.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ptq_utils.P: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

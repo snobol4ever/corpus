@@ -3,7 +3,7 @@
 ProBratko: the programs of I. Bratko, Prolog Programming for Artificial Intelligence, 4th edition (Pearson 2012), the figure files as
 the author distributed them (`https://github.com/adamcrussell/bratko_4th_edition`, commit 6728caae1a28; no licence file, the readme says
 the files were intended for distribution by the author), cloned to and read IN PLACE from
-`/home/resources/prolog-demos/bratko_4th_edition` (`ALL.source`); no program of it is stored here.
+`/home/packages/prolog/bratko_4th` (`ALL.source`); no program of it is stored here.
 
 A figure file defines predicates and runs nothing, and it states no query: the book does, and the book is not in the collection. So
 THE QUERIES ARE OURS: 526 of them for 92 files, written from a reading of each file (`OUR-QUERIES.tsv`: file, goal, and in a third

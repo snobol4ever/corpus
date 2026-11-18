@@ -6,7 +6,7 @@ its exercise. Reading and filtering lines, generators over words and characters,
 a substitution cipher.
 
 NOT HOSTED: the repository states no licence, so its programs are not copied into the corpus. They are read in place from
-`/home/resources/icon-demos/gh-nobodywasishere-icon-problems` (`ALL.source`); this folder holds the index, the answers and the inputs.
+`/home/packages/icon/icon_problems` (`ALL.source`); this folder holds the index, the answers and the inputs.
 
 THE CONVERSION: the 23 files were given the semicolons SCRIP Icon requires IN PLACE by `util_icon_semicolons.py`, and each is PROVED by the
 stock Arizona translator with newline insertion: `icont -s -c` of the repository's HEAD and of the converted text give the same `.u1` and

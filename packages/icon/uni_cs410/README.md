@@ -3,7 +3,7 @@
 Ryan Wendling's final project for CS 410 (https://github.com/RyanWendling/CS410, commit 77bb91f of 2017-06-09): a word game in Unicon on a
 three-dimensional letter board (`board`, `testboard`) searched for the words of a dictionary (`dict`), with the packages `board_stuff`,
 `dict_stuff`, `scoring_stuff` and `timefuncs`. No licence is stated, so the programs are read in place from
-`/home/resources/icon-demos/gh-RyanWendling-CS410` (`ALL.source`); this folder holds the index, the answers and the tables.
+`/home/packages/icon/uni_cs410` (`ALL.source`); this folder holds the index, the answers and the tables.
 
 All seven Unicon files were given the semicolons SCRIP requires, in place, by `util_icon_semicolons.py --compile-args=--dialect=unicon`, each
 proved same-code by unicon 13.3 (`CONVERSION-PROOF.tsv`; `/home/resources/progress/handoffs/grader-2026-11-16/icon_convert_prove.py --unicon`).

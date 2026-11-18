@@ -9,7 +9,7 @@
 # opens once this row's rungs are green -- not started here).
 # Expected origins: isolation ladder__<rung>_<construct-ish>_<form> · combinations ladder__<rung>_<construct-ish>_with_<lower>.
 #
-# REFERENCE cites roast (the official Raku spec-test suite, vendored at /home/resources/roast-master) by its
+# REFERENCE cites roast (the official Raku spec-test suite, vendored at /home/packages/raku/roast) by its
 # Synopsis-numbered directory/file, per the task's "roast S-numbers" instruction -- NOT what SCRIP happens to
 # implement, so a census that only named the implementation could never show a gap. Oracle is Rakudo 2026.05
 # (rakudo_bin() in lib_oracle_flags.sh, prefers /home/resources/rakudo-local/bin/raku).

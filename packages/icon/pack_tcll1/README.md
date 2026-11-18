@@ -1,6 +1,6 @@
 # pack_tcll1
 
-TCLL1, an LL(1) parser generator in Icon (Dr. Thomas W. Christopher), one of the packs of the Icon program library (`/home/resources/icon-master/ipl/packs/tcll1`, Icon
+TCLL1, an LL(1) parser generator in Icon (Dr. Thomas W. Christopher), one of the packs of the Icon program library (`/home/packages/icon/icon-master/ipl/packs/tcll1`, Icon
 9.5.25a, public domain: `COPYRIGHT.icon`). One of the nine packs the banner counted as IcnPacks; each pack is one program of many files and is its own package (Lon
 2026-11-11, of the Pascal sets: "since they are six things, make them six items on the banner."). VENDORED, with its semicolons (CIO-98, CIO-100, CIO-101).
 

@@ -1,6 +1,6 @@
 # unicon_tests -- Unicon's own test suite (UniTests)
 
-**Source:** `/home/resources/unicon/tests` (the Unicon git drop d784f58, 2026-09-06; Unicon 13.3), vendored by `harness/scripts/util_vendor_unicon_tests.sh`. 267 `.icn` files ship upstream;
+**Source:** `/home/packages/icon/unicon/tests` (the Unicon git drop d784f58, 2026-09-06; Unicon 13.3), vendored by `harness/scripts/util_vendor_unicon_tests.sh`. 267 `.icn` files ship upstream;
 this package holds 221 of them (the categories below) plus `crypto/` (30: 29 entries and their helper `tlsutil.icn`; below) and 16 helper files kept under `data/` and `bench/icon/` (depth 3, never units).
 
 ## Layout (upstream's, provenance kept)

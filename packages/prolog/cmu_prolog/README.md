@@ -2,7 +2,7 @@
 
 Prolog code of the CMU Artificial Intelligence Repository, `lang/prolog/code` (Prime Time Freeware for AI, Issue 1-1, 1994): benchmarks,
 research, education and fun, most of it posted to comp.lang.prolog. No licence is stated for these files, so the programs are read in place from
-`/home/resources/prolog-demos/cmu-prolog-code` (`ALL.source`); this folder holds the tables, the answers, our queries and our driver.
+`/home/packages/prolog/cmu_prolog` (`ALL.source`); this folder holds the tables, the answers, our queries and our driver.
 
 None of the programs runs anything by itself, so THE QUERIES ARE OURS, in `NAME.in` beside each program's path, read by our driver
 `drive.pl` (PrologSwiBench's, copied) after the program (`ALL.launch`): `fun/life/life.pl`, Conway's Game of Life by Jamie Andrews,

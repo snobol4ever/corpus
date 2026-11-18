@@ -1,6 +1,6 @@
 procedure main()
    local d;
-   d := "/home/resources/icon-master/ipl/cfuncs/libcfunc.so";
+   d := "/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so";
    write("int  :", loadfunc(d,"bitcount")(21));
    write("img  :", image(loadfunc(d,"bitcount")));
    write("type :", type(loadfunc(d,"bitcount")));

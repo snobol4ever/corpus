@@ -3,7 +3,7 @@
 # EMPTY ON PURPOSE, 2026-09-07 (cfo): the sole row, link1.icn NEEDS_RUNNER_WIRING, is WIRED and GRADED. The
 # runner now reads the modules a program `link`s from the program itself and builds it two-file in both modes,
 # takes its argv from `link1.args` (a b c), and grades against `link1.ref`, cut from the shared icont/iconx
-# oracle (/home/resources/icon-master) with that argv: `{{ a }} / {{ b }} / {{ c }}` on three lines, rc=0,
+# oracle (/home/packages/icon/icon-master) with that argv: `{{ a }} / {{ b }} / {{ c }}` on three lines, rc=0,
 # byte-stable across two runs. Upstream ships no link1.std; `.ref` and `.args` are ours and say so in README.md.
 #
 # ⭐ FROM OUTSIDE_ARIZONA_BASELINE.tsv 2026-09-09 (hq_P, ceo CEO-470). TIMEOUT is WORK OWED, not a ruling:

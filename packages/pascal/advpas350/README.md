@@ -1,6 +1,6 @@
 # advpas350
 
-The programs of pleumann/advpas350 (an adventure game and its tools for Turbo Pascal 3) (https://github.com/pleumann/advpas350, no licence file in the collection), read IN PLACE from `/home/resources/pascal-demos/advpas350` (`ALL.source`); no program of it is stored
+The programs of pleumann/advpas350 (an adventure game and its tools for Turbo Pascal 3) (https://github.com/pleumann/advpas350, no licence file in the collection), read IN PLACE from `/home/packages/pascal/advpas350` (`ALL.source`); no program of it is stored
 here (CIO-92, CIO-96). One of the six collections that were the banner row PasSets until 2026-11-11 (Lon: "So since they are six things, make
 them six items on the banner."). This folder holds our index (`ALL.csv`: `path` is the path from the collection's root, `dialect` the fpc mode
 that cut the answer), each entry's answer `NAME.out` cut from fpc 3.2.2 in a scrubbed environment, and `ALL.omit`, which names every program

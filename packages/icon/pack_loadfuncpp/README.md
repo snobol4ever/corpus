@@ -1,6 +1,6 @@
 # pack_loadfuncpp
 
-Eight example programs of loadfuncpp, the Icon library's interface for loading C++ functions (Carl Sturtivant; `/home/resources/icon-master/ipl/packs/loadfuncpp/examples`,
+Eight example programs of loadfuncpp, the Icon library's interface for loading C++ functions (Carl Sturtivant; `/home/packages/icon/icon-master/ipl/packs/loadfuncpp/examples`,
 Icon 9.5.25a, public domain: `COPYRIGHT.icon`). One package a pack (see `pack_tcll1`). VENDORED, with their semicolons (CIO-98, CIO-100, CIO-101).
 
 WHAT IS HERE. The eight programs of the pack's 37 that answer alone: `factorials hello hexwords hexwords_oneline newprimes primes sums sums2`. Each is one file of plain

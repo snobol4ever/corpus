@@ -2,7 +2,7 @@
 
 PrologSwiBench: the 35 programs of the SWI-Prolog benchmark suite (https://github.com/SWI-Prolog/bench at d7109d7: the van Roy
 benchmarks and the ones added to them; no licence file, several programs say public domain in their header), read IN PLACE from
-`/home/resources/prolog-demos/swi-bench-git/programs` (`ALL.source`). No program of it is stored here.
+`/home/packages/prolog/swi_bench/programs` (`ALL.source`). No program of it is stored here.
 
 Each program is one file that defines `top/0` and runs nothing by itself; the suite's own `run.pl` calls `top` in a timed loop. So
 the one query is OURS, `top.` (`OUR-QUERIES.tsv`), put through `drive.pl`, OURS (`ALL.launch`: `around - drive.pl`; its code is the

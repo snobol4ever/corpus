@@ -1,7 +1,7 @@
 # rakudo_tests
 
 Rakudo's own tests (https://github.com/rakudo/rakudo, release 2026.05, Artistic License 2.0): the folder `t` of the release WITHOUT `t/spec`,
-which is Roast and a suite of its own (COO-503). Read IN PLACE from `/home/resources/rakudo-own-tests` (`ALL.source`): an unchanged copy of the
+which is Roast and a suite of its own (COO-503). Read IN PLACE from `/home/packages/raku/rakudo_tests` (`ALL.source`): an unchanged copy of the
 release's `t` (less `t/spec`), `lib`, `LICENSE` and `VERSION`, made on 2026-11-11 so a test runs from a 17 MB top instead of the 487 MB build tree
 (the tests name `t/packages/Test-Helpers`, `t/04-nativecall` and `lib` from the top, so `copy root` and `cwd root`). No program of it is stored
 here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`, the `path` cell is the path from that top), each entry's answer `NAME.out` cut from

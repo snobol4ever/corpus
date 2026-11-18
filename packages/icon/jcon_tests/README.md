@@ -43,7 +43,7 @@ than inventing an oracle.
 
 Upstream ships no expected output for `link1.icn` (its `addtest` harness never ran it: it needs a
 two-file link and command-line arguments). `link1.ref` is the expected stdout WE cut from
-the shared icont/iconx oracle (`/home/resources/icon-master`, `icont link1.icn link2.icn`,
+the shared icont/iconx oracle (`/home/packages/icon/icon-master`, `icont link1.icn link2.icn`,
 run with the argv in `link1.args`); `link1.args` is that argv, one line, shell-split. The
 runner grades every program against its `.ref` -- this one alone cut by us rather than renamed
 from upstream's `.std` -- and reads the modules a program `link`s from the program itself. A `.ref` is

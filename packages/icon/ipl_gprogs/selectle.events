@@ -6,7 +6,7 @@ keydown Alt_L
 key o
 keyup Alt_L
 wait
-type /home/resources/icon-master/doc/wwwcube.gif
+type /home/packages/icon/icon-master/doc/wwwcube.gif
 key Return
 wait
 move 315 91

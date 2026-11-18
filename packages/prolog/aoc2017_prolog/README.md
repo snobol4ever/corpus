@@ -3,7 +3,7 @@
 Advent of Code 2017 in Prolog, by Average-user (Lucas Polymeris), written for SWI-Prolog 7.2.3
 (https://github.com/Average-user/adventofcode-pl-2017, commit f30da3b of 2017-12-26; MIT licence). One file a day, `src/dayNN.pl`, answering
 the day's two parts from `src/Inputs/dayNN.txt`, the author's own puzzle input, shipped with the code; `src/tools.pl` holds the helpers every
-day loads. Read IN PLACE from `/home/resources/prolog-demos/aoc2017-prolog-average-user/src` (`ALL.source`); no program of it is stored here.
+day loads. Read IN PLACE from `/home/packages/prolog/aoc2017_prolog/src` (`ALL.source`); no program of it is stored here.
 
 THE QUERIES ARE OURS (`OUR-QUERIES.tsv`): a day runs nothing by itself, its README asks `?- day01a(A), day01b(B).` at the top level, so each
 day is put `dayNNa(X).` and `dayNNb(X).` through `drive.pl`, ours (`ALL.launch`: `around - drive.pl`; the ProCovington driver's code,

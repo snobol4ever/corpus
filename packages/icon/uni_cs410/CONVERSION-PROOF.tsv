@@ -1,4 +1,4 @@
-# CONVERSION-PROOF.tsv -- uni_cs410: each Unicon file of github.com/RyanWendling/CS410 77bb91f, converted IN PLACE under /home/resources/icon-demos/gh-RyanWendling-CS410
+# CONVERSION-PROOF.tsv -- uni_cs410: each Unicon file of github.com/RyanWendling/CS410 77bb91f, converted IN PLACE under /home/packages/icon/uni_cs410
 # by util_icon_semicolons.py (--dialect=unicon), and unicon 13.3's .u (-s -c) of the original (HEAD) against the converted text, its uid line and scratch paths left out (icon_convert_prove.py --unicon, the grader)
 file	verdict	semicolons_added
 board_stuff.icn	SAME-CODE	34

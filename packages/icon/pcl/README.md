@@ -18,7 +18,7 @@ links `ximage` of the Icon program library.
 
 THE CONVERSION: the thirteen files carry the semicolons SCRIP Icon requires, inserted once by `util_icon_semicolons.py` (skill unicon;
 never tracked), and each is PROVED by the stock Arizona translator with newline insertion
-(`/home/resources/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion`): `icont -s -c` of the original and of the converted text
+(`/home/packages/icon/icon-master/bin/icont.bak-2026-10-01-stock-newline-insertion`): `icont -s -c` of the original and of the converted text
 give the same `.u1` and `.u2`, byte for byte (`CONVERSION-PROOF.tsv`, thirteen of thirteen same-code).
 
 THE ANSWERS were cut from the oracle, the fleet's `icont` and `iconx` 9.5.25a, each program built and run twice in a fresh copy of this

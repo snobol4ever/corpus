@@ -3,7 +3,7 @@
 ProCovington: the programs of Covington, Nute and Vellino, Prolog Programming in Depth (Scott, Foresman 1988), the Quintus Prolog port
 of the CMU AI Repository (`lang/prolog/bookcode/ppid/quintus.tgz`, version 24-MAY-88; "Copyright (c) 1987 by Michael Covington",
 "Non-commercial distribution of this file is permitted" in each file), unpacked to and read IN PLACE from
-`/home/resources/prolog-demos/cmu-ppid` (`ALL.source`); no program of it is stored here.
+`/home/packages/prolog/covington_ppid` (`ALL.source`); no program of it is stored here.
 
 Most of the book's programs define predicates and run nothing, and they state no query: the book does, and the book is not in the
 collection. So THE QUERIES ARE OURS: 135 of them for 28 programs, written from a reading of each file (`OUR-QUERIES.tsv`: file, goal),

@@ -3458,9 +3458,9 @@ end
 #--------- 359 test_gate_icn_a_large_integer_crosses_into_a_loaded_c_function__w
 procedure main()
    local lg, pk, up, x;
-   lg := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "lgconv");
-   pk := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "pack");
-   up := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "unpack");
+   lg := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "lgconv");
+   pk := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "pack");
+   up := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "unpack");
    every x := 10 ^ 30 | -(2 ^ 100) | 2 ^ 64 | 2 ^ 63 - 1 | -(2 ^ 63) | 12345 do
       write(image(x), " -> ", lg(x) | "[failed]");
    write(up("abcdefgh", "b") | "[failed]");
@@ -3489,9 +3489,9 @@ end
 record pt(x, y)
 procedure main()
    local mn, xs, xr, v1, v2, s1, s2, r1, r2, r3, l, x;
-   mn := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxmin");
-   xs := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxstr");
-   xr := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxreal");
+   mn := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "extxmin");
+   xs := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "extxstr");
+   xr := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "extxreal");
    v1 := mn(); v2 := mn(); s1 := xs("bite"); s2 := xs("tadpole");
    r1 := xr(2.5); r2 := xr(1.5); r3 := copy(r1);
    every x := v1 | v2 | copy(v1) | s1 | s2 | r1 | r2 | r3 do write(type(x), " ", image(x));
@@ -3569,7 +3569,7 @@ end
 #------------------------------ 373 test_gate_icn_loadfunc_returns_a_callable__w
 procedure main()
    local d;
-   d := "/home/resources/icon-master/ipl/cfuncs/libcfunc.so";
+   d := "/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so";
    write("int  :", loadfunc(d,"bitcount")(21));
    write("img  :", image(loadfunc(d,"bitcount")));
    write("type :", type(loadfunc(d,"bitcount")));

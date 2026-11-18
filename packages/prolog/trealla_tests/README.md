@@ -9,7 +9,7 @@ ref CUT FROM THE ORACLE, swipl -q 9.0.4 -- never from Trealla's own `.expected` 
 
 | set | upstream | license |
 |---|---|---|
-| trealla/tests | Andrew Davison's Trealla Prolog, https://github.com/trealla-prolog/trealla, the `tests/` tree at commit 55ab046 (2026-09-14), fetched to /home/resources/prologs/trealla | MIT, `LICENSE.trealla` (as shipped) |
+| trealla/tests | Andrew Davison's Trealla Prolog, https://github.com/trealla-prolog/trealla, the `tests/` tree at commit 55ab046 (2026-09-14), fetched to /home/packages/prolog/trealla | MIT, `LICENSE.trealla` (as shipped) |
 
 SOURCES.tsv maps every vendored file to its directory and path in the upstream tree. Upstream holds 456 programs under `tests/`:
 `tests/` 116, `issues/` 200, `issues-OLD/` 54, `sundry/` 52, `misc/` 21, `janus/` 8, `floating-point/` 2, `slow/` 2, and

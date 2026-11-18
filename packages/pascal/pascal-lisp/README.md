@@ -1,7 +1,7 @@
 # pascal-lisp
 
 Bob Appleyard's pascal-lisp, a small Lisp (Scheme) interpreter in the Delphi dialect of Pascal (https://github.com/bobappleyard/pascal-lisp, GPL 3 or later), read IN PLACE
-from `/home/resources/pascal-demos/pascal-lisp` (`ALL.source`); no file of it is stored here (CIO-92, CIO-96). One of the six collections that were the banner row PasSets
+from `/home/packages/pascal/pascal-lisp` (`ALL.source`); no file of it is stored here (CIO-92, CIO-96). One of the six collections that were the banner row PasSets
 until 2026-11-11 (Lon: "So since they are six things, make them six items on the banner."; COO-514). This folder holds our index (`ALL.csv`: `path` is the path from the
 collection's root, `dialect` the fpc mode that cut the answer), the entry's answer `lispi.out` cut from fpc 3.2.2 in a scrubbed environment, `ALL.omit`, which names every
 program that is no entry with its verdict, and `ALL.stdin`.

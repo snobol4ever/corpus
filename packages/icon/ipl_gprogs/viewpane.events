@@ -7,7 +7,7 @@ keydown Alt_L
 key o
 keyup Alt_L
 wait
-type /home/resources/icon-master/doc/wwwcube.gif
+type /home/packages/icon/icon-master/doc/wwwcube.gif
 wait
 key Return
 wait
