@@ -1,0 +1,56 @@
+
+
+
+regular-expressions-2.sno(2) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              regular-expressions-2.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11720
+memory left (bytes)  1036848
+
+
+
+
+dump of natural variables
+
+string1 = 'The new SPITBOL language is designed for string manipulation.'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'goto undefined label'
+&ERRTYPE = 38
+&FILE = 'regular-expressions-2.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'regular-expressions-2.sno'
+&LASTLINE = 1
+&LASTNO = 1
+&LINE = 2
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 2
+&STLIMIT = 2147483647
+&STNO = 2
+&TRACE = 0
+&TRIM = 1
+
+
+

@@ -1,0 +1,42 @@
+
+
+
+dump of natural variables
+
+dd = '0123456789'
+diam = '2.5'
+numpat = PATTERN
+pi = 3.1415926
+string1 = 'For the first circle, the circumference is 7.8539815 inches.'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'regular-expressions-3_driver.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'regular-expressions-3.sno'
+&LASTLINE = 5
+&LASTNO = 5
+&LINE = 4
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 6
+&TRACE = 0
+&TRIM = 1
+
+
+

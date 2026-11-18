@@ -1,0 +1,4 @@
+*  program-termination_driver -- loads program-termination.sno, a file with no END statement, and ends, so the state the file leaves at load time is graded by the termination dump
+*  (the grader 2026-11-18; Lon 2026-11-17: a library file with no main is graded by its driver, a silent program by its dump).
+-INCLUDE "program-termination.sno"
+END

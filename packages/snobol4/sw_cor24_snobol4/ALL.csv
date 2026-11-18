@@ -49,6 +49,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 48,examples/strarith,examples/strarith.sno,sw_cor24_snobol4__examples/strarith,sw_cor24_snobol4,25,0,131072,4096,60,,
 49,examples/stress,examples/stress.sno,sw_cor24_snobol4__examples/stress,sw_cor24_snobol4,13,0,131072,4096,60,,
 50,examples/test_builtins,examples/test_builtins.sno,sw_cor24_snobol4__examples/test_builtins,sw_cor24_snobol4,6,1,131072,4096,60,,
-51,examples/test_limits,examples/test_limits.sno,sw_cor24_snobol4__examples/test_limits,sw_cor24_snobol4,56,1,131072,4096,60,,
-52,examples/two_str,examples/two_str.sno,sw_cor24_snobol4__examples/two_str,sw_cor24_snobol4,3,0,131072,4096,60,,
-53,examples/underscore_labels,examples/underscore_labels.sno,sw_cor24_snobol4__examples/underscore_labels,sw_cor24_snobol4,39,0,131072,4096,60,,
+51,examples/test_builtins_driver,examples/test_builtins_driver.sno,sw_cor24_snobol4__examples/test_builtins_driver,sw_cor24_snobol4,4,0,131072,4096,60,,1
+52,examples/test_limits,examples/test_limits.sno,sw_cor24_snobol4__examples/test_limits,sw_cor24_snobol4,56,1,131072,4096,60,,
+53,examples/two_str,examples/two_str.sno,sw_cor24_snobol4__examples/two_str,sw_cor24_snobol4,3,0,131072,4096,60,,
+54,examples/underscore_labels,examples/underscore_labels.sno,sw_cor24_snobol4__examples/underscore_labels,sw_cor24_snobol4,39,0,131072,4096,60,,

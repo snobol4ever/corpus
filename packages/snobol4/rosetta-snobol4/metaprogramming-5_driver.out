@@ -1,0 +1,55 @@
+
+
+
+metaprogramming-5.sno(6) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              metaprogramming-5.sno
+in line              6
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11768
+memory left (bytes)  1036800
+
+
+
+
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'undefined function called'
+&ERRTYPE = 22
+&FILE = 'metaprogramming-5.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'metaprogramming-5.sno'
+&LASTLINE = 5
+&LASTNO = 1
+&LINE = 6
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 2
+&STLIMIT = 2147483647
+&STNO = 2
+&TRACE = 0
+&TRIM = 1
+
+
+

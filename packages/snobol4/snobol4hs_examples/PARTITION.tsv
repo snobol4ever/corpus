@@ -1,11 +1,13 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=15 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=12 chunks=1 sizes=12
+# shape: entries=18 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=12 chunks=1 sizes=12
 entry	part	cluster	shells
 adding	core	core	want_rc
+adding_driver	core	core	dump
 anchor	chunk:01	family:anchor	
 arith	chunk:01	family:arith	
 array	core	core	want_rc
+array_driver	core	core	dump
 assign	chunk:01	family:assign	
 basic	chunk:01	family:basic	
 copier	chunk:01	family:copier	
@@ -13,6 +15,7 @@ define	chunk:01	family:define
 fib	chunk:01	family:fib	
 indirect	chunk:01	family:indirect	
 keyword	core	core	want_rc
+keyword_driver	core	core	dump
 lettercount	chunk:01	family:lettercount	
 negation	chunk:01	family:negation	
 unevaluated	chunk:01	family:unevaluated	
