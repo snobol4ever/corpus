@@ -1,0 +1,7 @@
+
+Run-time error 121
+File save.icn; Line 2
+function not supported
+Traceback:
+   main(list_1 = [])
+   runerr(121) from line 2 in save.icn

@@ -29,18 +29,11 @@ bench/spectral-norm.icn	NOT_A_UNIT_TEST	bench is Unicon's benchmark family, not 
 bench/thread-ring.icn	NOT_A_UNIT_TEST	bench is Unicon's benchmark family, not its test suite: the programs are library modules compiled with -DMAIN or linked to sibling modules by bench/Makefile, take arguments, and ship no expected output (benchmarks are suite rows of their own, CEO-1221); the oracle's bare run answers a run-time error 117 (missing main procedure) or a link failure
 graphics/gpxtest.icn	NO_ORACLE_ANSWER	its random-cells panel draws at ?CELL (line 534), and Unicon seeds &random from the clock at startup with no seed the program takes: MEASURED on the graphics unicon through the screen road, cap 20 s, two runs answer the same three WAttrib() failure lines (no window manager places a window) and screen md5 3a46fe782b79909d979ed24f53d97aba and e727f339f114b927b2710b691e3a2948 (officer_12 2026-11-16)
 graphics/imgtex.icn	NO_ORACLE_ANSWER	a 3D program that turns its textured cube for ever (repeat, Rotate), so its screen never holds still: MEASURED on the graphics unicon through the screen road, cap 20 s, screen unstable on two runs (officer_12 2026-11-16)
-general/proto.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle prints nothing when the program is run with its data on stdin; an empty ref would be earned by an engine that prints nothing
-ipl/tbold.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle prints nothing (an empty ref is earned by an engine that prints nothing)
-pattern/pclass.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle prints nothing (an empty ref is earned by an engine that prints nothing)
 posix/bang.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle prints nothing (an empty ref is earned by an engine that prints nothing)
-udb/printme.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle prints nothing (a udb helper program with no output of its own)
 pattern/tab.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle crashes (signal 11) on this program under unicon 13.3 d784f58
-pattern/unevalex3ss.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle ends in run-time error 309 on line 18 and ships no .std; the program is not answered by the oracle that ships it
 special/keyboard.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle hangs past the timeout (an interactive keyboard test reading the terminal)
 special/mem01.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle runs past the timeout (a memory stress test)
 special/mem02.icn	NO_ORACLE_ANSWER	CEO-1696: the oracle answers differently on two runs (addresses and sizes in its output)
-special/monitor.icn	NO_ORACLE_ANSWER	CEO-1696 and ARCH-UNICON R5 (7): program monitoring (EvInit, the multiple-program monitor): the oracle ends in run-time error 118 and SCRIP has no second VM to monitor
-special/save.icn	NO_ORACLE_ANSWER	CEO-1696 and ARCH-UNICON R5 (7): save() writes a core image of the VM; the oracle ends in run-time error 121 here
 udb/foo.icn	NOT_A_UNIT_TEST	a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 udb/scopepkg.icn	NOT_A_UNIT_TEST	a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 thread/threadh.icn	NOT_A_UNIT_TEST	CTO-544 U4: the $include sibling of thread/channel and thread/tcom, vendored verbatim from /home/resources/unicon/uni/lib/threadh.icn so SCRIP finds it beside them (the oracle reads it from its own library path); a header of $define lines, not a program

@@ -1,0 +1,7 @@
+
+Run-time error 309
+File unevalex3ss.icn; Line 18
+pattern stack overflow
+Traceback:
+   main()
+   pattern_match((variable = "Y"),pattern) from line 18 in unevalex3ss.icn
