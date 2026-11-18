@@ -3,7 +3,7 @@ procedure gen()
 end
 procedure main(a)
    local i, x, p, n;
-   n := integer(a[1]);
+   n := integer(a[1]) | 60000;
    p := gen;
    every i := 1 to n do every x := p();
    write(x);
